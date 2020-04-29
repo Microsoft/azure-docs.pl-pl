@@ -1,7 +1,7 @@
 ---
-title: Projekt aplikacji iteracyjny — usługa LUIS
+title: Projekt aplikacji iteracyjnej — LUIS
 titleSuffix: Azure Cognitive Services
-description: Usługa LUIS uczy się najlepiej w cyklu iteracji zmian modelu, przykłady wypowiedź, publikowanie i zbieranie danych z zapytań punktu końcowego.
+description: LUIS uczy się najlepiej w iteracyjnym cyklu zmian modelu, wypowiedź przykładów, publikowaniu i zbieraniu danych z zapytań punktów końcowych.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,142 +12,142 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: diberry
 ms.openlocfilehash: c1c1b2df301634a435b610c395a1a58aa5573da3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74422592"
 ---
-# <a name="iterative-app-design-for-luis"></a>Iteracyjne projektowanie aplikacji dla usługi LUIS
+# <a name="iterative-app-design-for-luis"></a>Projekt aplikacji iteracyjnej dla LUIS
 
-Aplikacja do rozumienia języka (LUIS) uczy się i wykonuje najbardziej efektywnie z iteracji. Oto typowy cykl iteracji:
+Aplikacja Language Understanding (LUIS) uczy się i wydajniej wykonuje iteracje. Oto typowy cykl iteracji:
 
-* Tworzenie nowej wersji
-* Edytuj schemat aplikacji usługi LUIS. Obejmuje to:
-    * Intencje z przykładowymi wypowiedziami
+* Utwórz nową wersję
+* Edytuj schemat aplikacji LUIS. Obejmuje to następujące działania:
+    * Intencje z przykładem wyrażenia długości
     * Jednostki
     * Funkcje
-* Szkolenie, testowanie i publikowanie
-    * Test w punkcie końcowym przewidywania dla aktywnego uczenia się
-* Zbieranie danych z zapytań o punkty końcowe
+* Uczenie, testowanie i publikowanie
+    * Testowanie w punkcie końcowym przewidywania dla aktywnego uczenia
+* Zbieranie danych z zapytań dotyczących punktów końcowych
 
 ![Cykl tworzenia](./media/luis-concept-app-iteration/iteration.png)
 
-## <a name="building-a-luis-schema"></a>Tworzenie schematu usługi LUIS
+## <a name="building-a-luis-schema"></a>Kompilowanie schematu LUIS
 
-Schemat aplikacji definiuje, o co prosi użytkownik _(intencja_ lub _intencja)_ i jakie części intencji zawierają szczegółowe informacje (nazywane _jednostkami),_ które są używane do określenia odpowiedzi. 
+Schemat aplikacji definiuje, do czego służy użytkownik ( _intencja_ lub _cel_ ) i jakie części zamiaru zawierają szczegóły (nazywane _jednostkami_), które są używane do określenia odpowiedzi. 
 
 Schemat aplikacji musi być specyficzny dla domen aplikacji, aby określić słowa i frazy, które są istotne, a także określić typowe porządkowanie wyrazów. 
 
-Przykładowe wypowiedzi reprezentują dane wejściowe użytkownika, takie jak rozpoznana mowa lub tekst, których aplikacja oczekuje w czasie wykonywania. 
+Przykład wyrażenia długości przedstawia dane wejściowe użytkownika, na przykład rozpoznaną mowę lub tekst, że aplikacja oczekuje w czasie wykonywania. 
 
 Schemat wymaga intencji i _powinny mieć_ jednostki. 
 
 ### <a name="example-schema-of-intents"></a>Przykładowy schemat intencji
 
-Najczęściej schemat jest schemat intencji zorganizowane z intencji. Ten typ schematu używa usługi LUIS do określenia intencji użytkownika. 
+Najbardziej typowym schematem jest schemat intencji zorganizowany z intencjami. Ten typ schematu używa LUIS do określenia zamiaru użytkownika. 
 
-Typ schematu intencji może mieć jednostki, jeśli pomaga usługi LUIS określić intencji użytkownika. Na przykład jednostki wysyłki (jako deskryptor do intencji) pomaga usługi LUIS określić zamiar wysyłki. 
+Typ schematu intencji może mieć jednostki, jeśli ułatwia LUIS określenie zamiaru użytkownika. Na przykład jednostka wysyłkowa (jako deskryptor do celu) pomaga LUIS ustalić zamiar dostawy. 
 
 ### <a name="example-schema-of-entities"></a>Przykładowy schemat jednostek
 
-Schemat jednostki koncentruje się na jednostki, czyli dane, które są wyodrębniane z wypowiedzi użytkownika. Na przykład, jeśli użytkownik miał powiedzieć: "Chciałbym zamówić trzy pizze." Istnieją dwa podmioty, które zostaną wyodrębnione: _trzy_ i _pizze_. Są one wykorzystywane do realizacji intencji, która polegała na zleceniu. 
+Schemat jednostki koncentruje się na jednostkach, czyli danych wyodrębnionych z wyrażenia długości użytkownika. Na przykład, jeśli użytkownik miał powiedzieć, "Chcę zamówić trzy pizzami". Istnieją dwie jednostki, które zostaną wyodrębnione: _trzy_ i _pizzami_. Są one używane do zaspokojenia zamiaru, który miał być realizowany jako zamówienie. 
 
-Dla schematu jednostki intencji wypowiedź jest mniej ważne dla aplikacji klienckiej. 
+W przypadku schematu jednostki zamiara wypowiedź jest mniej ważna dla aplikacji klienckiej. 
 
-Wspólną metodą organizowania schematu jednostki jest dodanie wszystkich wypowiedzi przykład do **None** intencji. 
+Wspólna Metoda organizowania schematu jednostki polega na dodaniu wszystkich przykładów wyrażenia długości do zamiaru **Brak** . 
 
 ### <a name="example-of-a-mixed-schema"></a>Przykład schematu mieszanego
 
-Najbardziej zaawansowany i dojrzały schemat jest schemat intencji z pełnym zakresem jednostek i funkcji. Ten schemat można rozpocząć jako schemat intencji lub jednostki i rozwijać się w celu uwzględnienia pojęć obu, jak aplikacja kliencka potrzebuje tych informacji. 
+Najbardziej zaawansowanym i dojrzałym schematem jest schemat konwersji z pełnym zakresem jednostek i funkcji. Schemat ten może zaczynać się od schematu zamiaru lub jednostki i zwiększać się w celu uwzględnienia koncepcji obu tych elementów, ponieważ aplikacja kliencka wymaga tych informacji. 
 
-## <a name="add-example-utterances-to-intents"></a>Dodawanie przykładowych wypowiedzi do intencji
+## <a name="add-example-utterances-to-intents"></a>Dodawanie przykładu wyrażenia długości do intencji
 
-Usługa LUIS potrzebuje kilku przykładowych wypowiedzi w każdej **intencji.** Wypowiedzi przykładu potrzebują wystarczającej odmiany wyboru wyrazu i kolejności wyrazów, aby móc określić, który zamiar wypowiedź jest przeznaczona dla. 
+LUIS potrzebuje kilku przykładowych wyrażenia długości w każdym **zamierzeniu**. Przykład wyrażenia długości potrzebuje wystarczającej wariacji wyboru wyrazu i kolejności wyrazów, aby można było określić, której opcji ma dotyczyć wypowiedź. 
 
 > [!CAUTION]
-> Nie należy dodawać wypowiedzi przykład zbiorczo. Zacznij od 15 do 30 konkretnych i różnych przykładów. 
+> Nie dodawaj przykładu wyrażenia długości zbiorczo. Zacznij od od 15 do 30 konkretnych i różnych przykładów. 
 
-Każdy przykład wypowiedź musi mieć wszelkie **wymagane dane do wyodrębnienia** zaprojektowane i oznaczone za pomocą **jednostek.** 
+Każdy przykład wypowiedź musi mieć **wymagane dane do wyodrębnienia** zaprojektowana i oznaczona przy użyciu **jednostek**. 
 
-|Kluczowy element|Przeznaczenie|
+|Element klucza|Przeznaczenie|
 |--|--|
-|Intencja|**Klasyfikuj** wypowiedzi użytkownika w jednej intencji lub akcji. Przykłady `BookFlight` obejmują `GetWeather`i .|
-|Jednostka|**Wyodrębnij** dane z wypowiedź wymagane do ukończenia intencji. Przykłady obejmują datę i godzinę podróży oraz lokalizację.|
+|Intencja|**Klasyfikowanie** wyrażenia długości użytkowników w ramach jednego zamiaru lub akcji. Przykłady obejmują `BookFlight` i `GetWeather`.|
+|Jednostka|**Wyodrębnij** dane z wypowiedź wymagane do ukończenia zamiaru. Przykłady obejmują datę i godzinę podróży oraz lokalizację.|
 
-Aplikacja usługi LUIS można zaprojektować, aby ignorować wypowiedzi, które nie są istotne dla domeny aplikacji, przypisując wypowiedź do **intencji Brak.**
+Aplikacja LUIS może być zaprojektowana w celu ignorowania wyrażenia długości, które nie są istotne dla domeny aplikacji przez przypisanie wypowiedź do zamiaru **Brak** .
 
-## <a name="test-and-train-your-app"></a>Testowanie i szkolenie aplikacji
+## <a name="test-and-train-your-app"></a>Testowanie i uczenie aplikacji
 
-Po 15 do 30 różnych wypowiedzi przykład w każdej intencji, z wymaganych jednostek oznaczonych etykietą, należy przetestować i [trenować](luis-how-to-train.md) aplikacji usługi LUIS. 
+Po otrzymaniu od 15 do 30 różnych przykładowych wyrażenia długości w każdym zamiarze z wymaganymi jednostkami z etykietą należy przetestować i [szkolić](luis-how-to-train.md) aplikację Luis. 
 
-## <a name="publish-to-a-prediction-endpoint"></a>Publikowanie w punkcie końcowym prognozowania
+## <a name="publish-to-a-prediction-endpoint"></a>Publikowanie w punkcie końcowym przewidywania
 
-Aplikacja usługi LUIS musi zostać opublikowana, aby była dostępna w [regionach punktu końcowego prognozowania](luis-reference-regions.md)listy.
+Aplikacja LUIS musi być opublikowana, aby była dostępna dla Ciebie w [regionach punktu końcowego przewidywania](luis-reference-regions.md)listy.
 
 ## <a name="test-your-published-app"></a>Testowanie opublikowanej aplikacji
 
-Opublikowaną aplikację usługi LUIS można przetestować z punktu końcowego prognozowania PROTOKOŁU HTTPS. Testowanie z punktu końcowego przewidywania umożliwia usługi LUIS wybrać wszelkie wypowiedzi z niskim zaufaniem do [przeglądu.](luis-how-to-review-endpoint-utterances.md)  
+Opublikowaną aplikację LUIS można przetestować za pomocą punktu końcowego przewidywania protokołu HTTPS. Testowanie z punktu końcowego przewidywania umożliwia LUIS wybranie dowolnego wyrażenia długości z niską pewnością do [przeglądu](luis-how-to-review-endpoint-utterances.md).  
 
-## <a name="create-a-new-version-for-each-cycle"></a>Tworzenie nowej wersji dla każdego cyklu
+## <a name="create-a-new-version-for-each-cycle"></a>Utwórz nową wersję dla każdego cyklu
 
-Każda wersja jest migawką w czasie aplikacji usługi LUIS. Przed wprowadzeniem zmian w aplikacji należy utworzyć nową wersję. Łatwiej jest wrócić do starszej wersji niż próbować usunąć intencje i wypowiedzi do poprzedniego stanu.
+Każda wersja jest migawką w czasie aplikacji LUIS. Przed wprowadzeniem zmian w aplikacji Utwórz nową wersję. Łatwiej jest wrócić do starszej wersji niż próbować usunąć intencje i wyrażenia długości do poprzedniego stanu.
 
-Identyfikator wersji składa się ze znaków, cyfr lub '.' i nie może być dłuższy niż 10 znaków.
+Identyfikator wersji składa się z znaków, cyfr lub "." i nie może być dłuższa niż 10 znaków.
 
-Wersja początkowa (0.1) jest domyślną wersją aktywną. 
+Wersja początkowa (0,1) jest domyślną wersją aktywną. 
 
-### <a name="begin-by-cloning-an-existing-version"></a>Rozpocznij od sklonowania istniejącej wersji
+### <a name="begin-by-cloning-an-existing-version"></a>Zacznij od klonowania istniejącej wersji
 
-Sklonuj istniejącą wersję, aby była używana jako punkt wyjścia dla każdej nowej wersji. Po sklonowanie wersji nowa wersja staje się **wersją aktywną.** 
+Sklonuj istniejącą wersję do użycia jako punkt wyjścia dla każdej nowej wersji. Po sklonowaniu wersji Nowa wersja zostanie **uaktywniona** . 
 
-### <a name="publishing-slots"></a>Miejsca do publikowania
+### <a name="publishing-slots"></a>Publikowanie miejsc
 
-Można publikować na etapie i/lub w szczelinach produkcyjnych. Każde gniazdo może mieć inną wersję lub tę samą wersję. Jest to przydatne do sprawdzania zmian przed opublikowaniem w produkcji, która jest dostępna dla botów lub innych aplikacji wywołujących usługę LUIS. 
+Możesz publikować na etapie i/lub w gniazdach produkcyjnych. Każde gniazdo może mieć inną wersję lub tę samą wersję. Jest to przydatne w przypadku sprawdzania zmian przed opublikowaniem w środowisku produkcyjnym, które jest dostępne dla botów lub innych aplikacji wywołujących LUIS. 
 
-Wyszkolone wersje nie są automatycznie dostępne w [punkcie końcowym](luis-glossary.md#endpoint)aplikacji usługi LUIS. Należy [opublikować](luis-how-to-publish-app.md) lub ponownie opublikować wersję, aby była dostępna w punkcie końcowym aplikacji usługi LUIS. Można opublikować **w przemieszczania** i **produkcji,** co daje dwie wersje aplikacji dostępne w punkcie końcowym. Jeśli więcej wersji aplikacji muszą być dostępne w punkcie końcowym, należy wyeksportować wersję i ponownie zaimportować ją do nowej aplikacji. Nowa aplikacja ma inny identyfikator aplikacji.
+Przeszkolone wersje nie są automatycznie dostępne w [punkcie końcowym](luis-glossary.md#endpoint)aplikacji Luis. Musisz [opublikować](luis-how-to-publish-app.md) lub ponownie opublikować wersję, aby była dostępna w punkcie końcowym aplikacji Luis. Możesz publikować w ramach **przemieszczania** i **produkcji**, udostępniając dwie wersje aplikacji dostępnych w punkcie końcowym. Jeśli więcej wersji aplikacji musi być dostępnych w punkcie końcowym, należy wyeksportować wersję i ponownie zaimportować ją do nowej aplikacji. Nowa aplikacja ma inny identyfikator aplikacji.
 
 ### <a name="import-and-export-a-version"></a>Importowanie i eksportowanie wersji
 
-Wersję można zaimportować na poziomie aplikacji. Ta wersja staje się aktywną wersją i `versionId` używa identyfikatora wersji we właściwości pliku aplikacji. Można również zaimportować do istniejącej aplikacji, na poziomie wersji. Nowa wersja staje się aktywną wersją. 
+Wersję można zaimportować na poziomie aplikacji. Ta wersja jest wersją aktywną i używa identyfikatora wersji we `versionId` właściwości pliku aplikacji. Możesz również zaimportować do istniejącej aplikacji na poziomie wersji. Nowa wersja zostanie uaktywniona. 
 
-Wersję można wyeksportować również na poziomie aplikacji lub wersji. Jedyną różnicą jest to, że wersja eksportowana na poziomie aplikacji jest aktualnie aktywną wersją, podczas gdy na poziomie wersji możesz wybrać dowolną wersję do wyeksportowania na stronie **[Ustawienia.](luis-how-to-manage-versions.md)** 
+Wersję można wyeksportować również na poziomie aplikacji lub wersji. Jedyną różnicą jest to, że wersja wyeksportowana na poziomie aplikacji jest obecnie aktywna, a na poziomie wersji można wybrać dowolną wersję do eksportowania na stronie **[Ustawienia](luis-how-to-manage-versions.md)** . 
 
 Wyeksportowany plik **nie** zawiera:
 
-* Informacje o maszynach, ponieważ aplikacja jest przeszkolona po zaimportowaniu
+* Informacje o maszynach, ponieważ aplikacja jest ponownie przeszkolna po zaimportowaniu
 * Informacje o współautorze
 
-Aby uzyskać zapas kopii zapasowej schematu aplikacji usługi LUIS, wyeksportuj wersję z [portalu usługi LUIS](https://www.luis.ai/applications).
+Aby utworzyć kopię zapasową schematu aplikacji LUIS, wyeksportuj wersję z [portalu Luis](https://www.luis.ai/applications).
 
-## <a name="manage-contributor-changes-with-versions-and-contributors"></a>Zarządzanie zmianami współautorów za pomocą wersji i współautorów
+## <a name="manage-contributor-changes-with-versions-and-contributors"></a>Zarządzanie zmianami współautora przy użyciu wersji i współautorów
 
-Usługa LUIS używa koncepcji współautorów aplikacji, zapewniając uprawnienia na poziomie zasobów platformy Azure. Połącz tę koncepcję z przechowywaniem wersji, aby zapewnić ukierunkowaną współpracę. 
+LUIS używa koncepcji współautorów do aplikacji, dostarczając uprawnienia na poziomie zasobów platformy Azure. Połącz tę koncepcję z wersją, aby zapewnić skierowaną do współpracy. 
 
-Aby zarządzać zmianami współautorów w aplikacji, należy korzystać z następujących technik.
+Użyj następujących technik, aby zarządzać zmianami współautora w aplikacji.
 
-### <a name="manage-multiple-versions-inside-the-same-app"></a>Zarządzanie wieloma wersjami w tej samej aplikacji
+### <a name="manage-multiple-versions-inside-the-same-app"></a>Zarządzanie wieloma wersjami w ramach tej samej aplikacji
 
-Rozpocznij od [klonowania](luis-how-to-manage-versions.md#clone-a-version) z wersji podstawowej dla każdego autora. 
+Zacznij od [klonowania](luis-how-to-manage-versions.md#clone-a-version) z wersji podstawowej dla każdego autora. 
 
-Każdy autor wprowadza zmiany we własnej wersji aplikacji. Gdy autor jest zadowolony z modelu, wyeksportuj nowe wersje do plików JSON.  
+Każdy autor wprowadza zmiany w swojej wersji aplikacji. Gdy autor jest zadowolony z modelu, wyeksportuj nowe wersje do plików JSON.  
 
-Eksportowane aplikacje, pliki .json lub .lu, można porównać pod kątem zmian. Połącz pliki, aby utworzyć pojedynczy plik nowej wersji. Zmień `versionId` właściwość, aby oznaczać nową scaloną wersję. Zaimportuj tę wersję do oryginalnej aplikacji. 
+Wyeksportowane aplikacje (pliki JSON lub Lu) można porównać ze zmianami. Połącz pliki, aby utworzyć jeden plik nowej wersji. Zmień `versionId` Właściwość tak, aby oznacza nową scaloną wersję. Zaimportuj tę wersję do oryginalnej aplikacji. 
 
-Ta metoda umożliwia jedną aktywną wersję, wersję jednoscełową i jedną opublikowaną wersję. Wyniki aktywnej wersji można porównać z opublikowaną wersją (etapową lub produkcyjną) w [interaktywnym okienku testowym](luis-interactive-test.md).
+Ta metoda umożliwia posiadanie jednej aktywnej wersji, jednej wersji etapu i jednej opublikowanej wersji. Wyniki aktywnej wersji można porównać z opublikowaną wersją (etap lub produkcja) w [okienku testowanie interaktywne](luis-interactive-test.md).
 
 ### <a name="manage-multiple-versions-as-apps"></a>Zarządzanie wieloma wersjami jako aplikacjami
 
-[Wyeksportuj](luis-how-to-manage-versions.md#export-version) wersję podstawową. Każdy autor importuje wersję. Osoba importu, która importuje aplikację jest właścicielem wersji. Po zakończeniu modyfikowania aplikacji wyeksportuj wersję. 
+[Wyeksportuj](luis-how-to-manage-versions.md#export-version) wersję bazową. Każdy autor importuje wersję. Osoba, która importuje aplikację, jest właścicielem wersji. Po zakończeniu modyfikowania aplikacji wyeksportuj wersję. 
 
-Eksportowane aplikacje to pliki w formacie JSON, które można porównać z bazowym eksportem zmian. Połącz pliki, aby utworzyć pojedynczy plik JSON nowej wersji. Zmień **właściwość versionId** w JSON, aby oznaczać nową scaloną wersję. Zaimportuj tę wersję do oryginalnej aplikacji.
+Wyeksportowane aplikacje to pliki w formacie JSON, które można porównać z eksportem podstawowym dla zmian. Połącz pliki, aby utworzyć pojedynczy plik JSON nowej wersji. Zmień właściwość **versionId** w kodzie JSON, aby wyznaczać nową scaloną wersję. Zaimportuj tę wersję do oryginalnej aplikacji.
 
-Dowiedz się więcej o tworzeniu informacji od [współpracowników.](luis-how-to-collaborate.md)
+Dowiedz się więcej o tworzeniu udziałów od [współpracowników](luis-how-to-collaborate.md).
 
-## <a name="review-endpoint-utterances-to-begin-the-new-iterative-cycle"></a>Przejrzyj wypowiedzi punktów końcowych, aby rozpocząć nowy cykl iteracji
+## <a name="review-endpoint-utterances-to-begin-the-new-iterative-cycle"></a>Zapoznaj się z punktem końcowym wyrażenia długości, aby rozpocząć nowy cykl iteracyjny
 
-Po zakończeniu z cyklu iteracji, można powtórzyć proces. Zacznij od [przeglądania wypowiedzi punktu końcowego przewidywania](luis-how-to-review-endpoint-utterances.md) luis oznaczone niskim poziomem zaufania. Sprawdź te wypowiedzi dla poprawnych przewidywanych intencji i poprawne i kompletne jednostki wyodrębnione. Po przejrzeniu i zaakceptowaniu zmian lista recenzji powinna być pusta.  
+Po zakończeniu cyklu iteracji można powtórzyć ten proces. Zacznij od [przejrzenia punktu końcowego przewidywania wyrażenia długości](luis-how-to-review-endpoint-utterances.md) Luis oznaczonego niską pewnością. Sprawdź te wyrażenia długości pod kątem prawidłowych przewidzianych zamierzeń i poprawnych i kompletnych wyodrębnionych jednostek. Po przejrzeniu i zaakceptowaniu zmian lista przeglądów powinna być pusta.  
 
 ## <a name="next-steps"></a>Następne kroki
 
-Poznaj pojęcia dotyczące [współpracy](luis-concept-keys.md).
+Zapoznaj się z pojęciami dotyczącymi [współpracy](luis-concept-keys.md).

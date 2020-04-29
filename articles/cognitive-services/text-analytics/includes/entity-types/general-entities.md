@@ -9,63 +9,63 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: ba516a548fc8385ca86526a7f2dd082b27e53208
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77211438"
 ---
 ## <a name="general-entity-types"></a>Ogólne typy jednostek:
 
 ### <a name="person"></a>Person (Osoba)
 
-Rozpoznawanie nazwisk osób w tekście.
+Rozpoznawaj nazwiska osób w tekście.
 
 Języki:
-* Podgląd `Arabic`publiczny: `Czech`, , `Chinese-Simplified` `Finnish`, `French` `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` , `Dutch`, `English`, , , , , , , , , , , , , , , i `Danish``Turkish`
+* Publiczna wersja `Arabic`zapoznawcza `Danish`: `Dutch`, `English` `Finnish` `French` `German` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` `Polish` `Korean` `Norwegian (Bokmål)`, `Italian`,,,,,,,,,,,,,,, `Czech` `Chinese-Simplified` `Hungarian` `Japanese``Turkish`
 
 | Nazwa podtypu | Opis                                                      | Dostępne począwszy od wersji modelu |
 |--------------|------------------------------------------------------------------|---------------------------------------|
-| Nie dotyczy          | Rozpoznane nazwiska osób, na przykład `Bill Gates`,`Marie Curie` | `2019-10-01`                          | 
+| Nie dotyczy          | Rozpoznawane nazwy osób, na `Bill Gates`przykład`Marie Curie` | `2019-10-01`                          | 
 
-### <a name="persontype"></a>Typ osoby
-Typ lub rola zajmowana przez osobę.
+### <a name="persontype"></a>Persontype
+Typ zadania lub rola zatrzymywana przez osobę.
 
 Języki:
 * Publiczna wersja zapoznawcza:`English`
 
 | Nazwa podtypu | Opis                                                                                | Dostępne począwszy od wersji modelu |
 |--------------|--------------------------------------------------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | Typy zadań, `salesperson` `chef`na `librarian`przykład `civil engineer`, , ,`nursing aide` | `2020-02-01`                           |
+| Nie dotyczy          | Typy zadań na przykład `civil engineer` `salesperson` `chef` `librarian`,,,`nursing aide` | `2020-02-01`                           |
 
 ### <a name="location"></a>Lokalizacja
 
-Naturalne i stworzone przez człowieka punkty orientacyjne, struktury, cechy geograficzne i jednostki geopolityczne.
+Tereny, struktury, funkcje geograficzne i geopolityczne.
 
 Języki:
 
-* Podgląd `Arabic`publiczny: `Czech`, , `Chinese-Simplified` `Finnish`, `French` `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` , `Dutch`, `English`, , , , , , , , , , , , , , , i `Danish``Turkish`
+* Publiczna wersja `Arabic`zapoznawcza `Danish`: `Dutch`, `English` `Finnish` `French` `German` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` `Polish` `Korean` `Norwegian (Bokmål)`, `Italian`,,,,,,,,,,,,,,, `Czech` `Chinese-Simplified` `Hungarian` `Japanese``Turkish`
 
 | Nazwa podtypu              | Opis                                                                              | Dostępne począwszy od wersji modelu |
 |---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
-| Nie dotyczy                       | lokalizacje, na `Atlantic Ocean` `library`przykład `Eiffel Tower`, ,`Statue of Liberty`  | `2019-10-01`                           |
-| Podmiot geopolityczny (GPE) — tylko w języku angielskim| Miasta, kraje, państwa, `Pennsylvania` `South Africa`na przykład `Seattle`, ,`Tokyo` | `2020-02-01`                           |
+| Nie dotyczy                       | lokalizacje, na przykład `Atlantic Ocean` `library` `Eiffel Tower`,,`Statue of Liberty`  | `2019-10-01`                           |
+| Jednostka geopolityczna (GPE) — tylko w języku angielskim| Miasta, kraje, Stany, na `Seattle`przykład `Pennsylvania` `South Africa`,,`Tokyo` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organizacja  
 
-Uznane organizacje, korporacje, agencje i inne grupy ludzi. Na przykład: firmy, grupy polityczne, zespoły muzyczne, kluby sportowe, organy rządowe i organizacje publiczne. Narodowości i religie nie są uwzględnione w tym typie podmiotu. 
+Uznawane organizacje, korporacje, agencje i inne grupy osób. Na przykład: firmy, grupy polityczne, zespoły muzyczne, trefle sportowe, instytucje rządowe i organizacje publiczne. Narodowe i religijne nie są uwzględnione w tym typie jednostki. 
 
 Języki: 
 
-* Podgląd `Arabic`publiczny: `Czech`, , `Chinese-Simplified` `Finnish`, `French` `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` , `Dutch`, `English`, , , , , , , , , , , , , , , i `Danish``Turkish`
+* Publiczna wersja `Arabic`zapoznawcza `Danish`: `Dutch`, `English` `Finnish` `French` `German` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` `Polish` `Korean` `Norwegian (Bokmål)`, `Italian`,,,,,,,,,,,,,,, `Czech` `Chinese-Simplified` `Hungarian` `Japanese``Turkish`
 
 | Nazwa podtypu | Opis                                                                                             | Dostępne począwszy od wersji modelu |
 |--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | organizacje, na `Microsoft` `NASA`przykład `National Oceanic and Atmospheric Administration`, ,`VOA` | `2019-10-01`                           |
+| Nie dotyczy          | organizacje, na przykład `Microsoft` `NASA` `National Oceanic and Atmospheric Administration`,,`VOA` | `2019-10-01`                           |
 
 ### <a name="event"></a>Wydarzenie  
 
-Wydarzenia historyczne, społeczne i naturalne.  
+Zdarzenia historyczne, społeczne i naturalne.  
 
 Języki: 
 
@@ -73,7 +73,7 @@ Języki:
 
 | Nazwa podtypu | Opis                                                            | Dostępne począwszy od wersji modelu |
 |--------------|------------------------------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | Zdarzenia takie `wedding` `hurricane`jak `car accident` `solar eclipse`, , , ,`American Revolution` | `2020-02-01`                           |
+| Nie dotyczy          | Zdarzenia takie jak `wedding`, `hurricane` `car accident` `solar eclipse`,,,`American Revolution` | `2020-02-01`                           |
 
 ### <a name="product"></a>Product (Produkt)  
 
@@ -85,10 +85,10 @@ Języki:
 
 | Nazwa podtypu | Opis                                                                        | Dostępne począwszy od wersji modelu |
 |--------------|------------------------------------------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | Na przykład `Microsoft Surface laptop` `sunglasses`, `motorcycle` `bag`, ,`Xbox` | `2020-02-01`                           |
+| Nie dotyczy          | `Microsoft Surface laptop`Na przykład `sunglasses` `motorcycle`,,,, `bag``Xbox` | `2020-02-01`                           |
 | Obliczanie    | `Azure Cosmos DB`, `Azure Kubernetes Service`                                     | `2020-02-01`                           |
 
-### <a name="skill"></a>Umiejętności  
+### <a name="skill"></a>Czy  
 
 Jednostka opisująca możliwości lub wiedzę fachową.  
 
@@ -102,7 +102,7 @@ Języki:
 
 ### <a name="phone-number"></a>Numer telefonu
 
-Numery telefonów (tylko amerykańskie numery telefonów). 
+Numery telefonów (tylko numery telefonów USA). 
 
 Języki:
 
@@ -110,9 +110,9 @@ Języki:
 
 | Nazwa podtypu | Opis                                    | Dostępne począwszy od wersji modelu |
 |--------------|------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | Amerykańskie numery telefonów, na przykład`(312) 555-0176` | `2019-10-01`                           |
+| Nie dotyczy          | Numery telefonów US, na przykład`(312) 555-0176` | `2019-10-01`                           |
 
-### <a name="email"></a>Adres e-mail
+### <a name="email"></a>Poczta e-mail
 
 Adres e-mail. 
 
@@ -134,7 +134,7 @@ Języki:
 
 | Nazwa podtypu | Opis                                          | Dostępne począwszy od wersji modelu |
 |--------------|------------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | Adresy URL do stron internetowych, na przykład`https://www.bing.com` | `2019-10-01`                           |
+| Nie dotyczy          | Adresy URL do witryn sieci Web, na przykład`https://www.bing.com` | `2019-10-01`                           |
 
 ### <a name="ip-address"></a>Adres IP
 
@@ -156,15 +156,15 @@ Jednostki daty i godziny.
 
 Języki:
 
-* Podgląd `Chinese-Simplified`publiczny: `English` `French`, `German` , , i`Spanish`
+* Publiczna wersja `Chinese-Simplified`zapoznawcza:, `English` `French`, `German` i`Spanish`
 
 | Nazwa podtypu    | Przykłady                     |
 |-------------|------------------------------|
 | Nie dotyczy         | `6:30PM February 4, 2012`, `4/1/2011 2:45`                   |
-| Data  | `May 2nd, 2017`, `05/02/2017`       |
+| Date  | `May 2nd, 2017`, `05/02/2017`       |
 | Time     | `8:15`, `6AM`              |
-| DataRange    | `August 2nd to August 5th`         |
-| Układ czasu   | `4-6PM`, `10:00AM to Noon`          |
+| DateRange    | `August 2nd to August 5th`         |
+| TimeRange   | `4-6PM`, `10:00AM to Noon`          |
 | Czas trwania | `2.5 minutes`, `one and a half hours`         |
 | Set | `every Saturday`         |
 
@@ -176,13 +176,13 @@ Liczby i ilości liczbowe.
 
 Języki:
 
-* Podgląd `Chinese-Simplified`publiczny: `English` `French`, `German` , , i`Spanish`
+* Publiczna wersja `Chinese-Simplified`zapoznawcza:, `English` `French`, `German` i`Spanish`
 
 | Nazwa podtypu    | Przykłady                     |
 |-------------|------------------------------|
 | Liczba         | `6`, `six`                   |
 | Procentowe  | `50%`, `fifty percent`       |
-| Porządkowych     | `2nd`, `second`              |
+| Liczbą     | `2nd`, `second`              |
 | Wiek         | `90 day old`, `30 years old` |
 | Waluta    | `$10.99`, `€30.00`           |
 | Wymiar   | `10 miles`, `40 cm`          |

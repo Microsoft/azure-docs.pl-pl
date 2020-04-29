@@ -1,7 +1,7 @@
 ---
-title: Typ jednostki wyrażenia regularnego — USŁUGA LUIS
+title: Typ jednostki wyrażenia regularnego — LUIS
 titleSuffix: Azure Cognitive Services
-description: Wyrażenie regularne jest najlepsze dla nieprzetworzonego tekstu wypowiedź. Ignoruje przypadek i ignoruje wariant kulturowy.  Dopasowywanie wyrażeń regularnych jest stosowane po zmianie sprawdzania pisowni na poziomie znaku, a nie na poziomie tokenu.
+description: Wyrażenie regularne jest najlepsze dla nieprzetworzonego tekstu wypowiedź. Ignoruje wielkość liter i ignoruje odmianę kulturową.  Dopasowanie wyrażenia regularnego jest stosowane po zmianach sprawdzania pisowni na poziomie znaku, a nie na poziomie tokenu.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,46 +11,46 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: b9da76a80183f353a74d43e667bf6c9219eb6c05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74841221"
 ---
 # <a name="regular-expression-entity"></a>Jednostka wyrażenia regularnego
 
-Jednostka wyrażenia regularnego wyodrębnia jednostkę na podstawie wzorca wyrażenia regularnego, który podasz.
+Jednostka wyrażenia regularnego wyodrębnia jednostkę na podstawie podania wzorca wyrażenia regularnego.
 
-Wyrażenie regularne jest najlepsze dla nieprzetworzonego tekstu wypowiedź. Ignoruje przypadek i ignoruje wariant kulturowy.  Dopasowywanie wyrażeń regularnych jest stosowane po zmianie sprawdzania pisowni na poziomie znaku, a nie na poziomie tokenu. Jeśli wyrażenie regularne jest zbyt złożone, na przykład przy użyciu wielu nawiasów, nie można dodać wyrażenia do modelu. Używa części, ale nie całej biblioteki [regex .NET.](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions)
+Wyrażenie regularne jest najlepsze dla nieprzetworzonego tekstu wypowiedź. Ignoruje wielkość liter i ignoruje odmianę kulturową.  Dopasowanie wyrażenia regularnego jest stosowane po zmianach sprawdzania pisowni na poziomie znaku, a nie na poziomie tokenu. Jeśli wyrażenie regularne jest zbyt złożone, na przykład przy użyciu wielu nawiasów, nie można dodać wyrażenia do modelu. Używa części, ale nie całej biblioteki [wyrażeń regularnych programu .NET](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) .
 
-**Jednostka jest dobrze dopasowana, gdy:**
+**Jednostka jest dobrym dopasowaniem w przypadku:**
 
-* Dane są konsekwentnie sformatowane z każdą odmianą, która jest również spójna.
-* Wyrażenie regularne nie wymaga więcej niż 2 poziomy zagnieżdżania.
+* Dane są spójne z uwzględnieniem spójnych zmian.
+* Wyrażenie regularne nie wymaga więcej niż 2 poziomów zagnieżdżenia.
 
 ![Jednostka wyrażenia regularnego](./media/luis-concept-entities/regex-entity.png)
 
 ## <a name="usage-considerations"></a>Zagadnienia dotyczące użycia
 
-Wyrażenia regularne mogą odpowiadać więcej niż można się spodziewać. Przykładem tego jest dopasowywanie `one` `two`słów liczbowych, takich jak i . Przykładem jest następujący wyrażenie regularne, `one` które pasuje do liczby wraz z innymi liczbami:
+Wyrażenia regularne mogą odpowiadać więcej niż oczekiwano. Przykładem jest numeryczne Dopasowywanie wyrazów, `one` takie `two`jak i. Przykładem jest następujące wyrażenie regularne, które pasuje do liczby `one` wraz z innymi liczbami:
 
 ```javascript
 (plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
 ```
 
-To wyrażenie wyrażenia wyrażenia regularnego pasuje również do wszystkich `phone`wyrazów, które kończą się tymi liczbami, takich jak . Aby rozwiązać takie problemy, upewnij się, że dopasowania wyrażenia regularnego uwzględniają granice słów. Wyrażenie regularne do użycia granic słów w tym przykładzie jest używane w następującym wyrażeniem.
+To wyrażenie regularne również dopasowuje wszystkie wyrazy kończące się tymi liczbami, `phone`na przykład. Aby rozwiązać te problemy, należy się upewnić, że dopasowuje wyrażenie regularne uwzględnia granice wyrazu. Wyrażenie regularne do używania granic wyrazów dla tego przykładu jest używane w następujących wyrażeniach regularnych:
 
 ```javascript
 \b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
 ```
 
-### <a name="example-json"></a>Przykład JSON
+### <a name="example-json"></a>Przykładowy kod JSON
 
-Podczas `kb[0-9]{6}`korzystania z , jako definicji jednostki wyrażenia regularnego, następująca odpowiedź JSON jest wypowiedź przykład z zwracanych jednostek wyrażenia regularnego dla kwerendy:
+W przypadku `kb[0-9]{6}`użycia, jako definicji jednostki wyrażenia regularnego następująca odpowiedź JSON to przykład wypowiedź z zwracanymi jednostkami wyrażenia regularnego dla zapytania:
 
 `When was kb123456 published?`:
 
-#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania wersji 2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -64,10 +64,10 @@ Podczas `kb[0-9]{6}`korzystania z , jako definicji jednostki wyrażenia regularn
 ```
 
 
-#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
 
-Jest to JSON, jeśli `verbose=false` jest ustawiona w ciągu zapytania:
+Jest to kod JSON, `verbose=false` jeśli jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {
@@ -77,7 +77,7 @@ Jest to JSON, jeśli `verbose=false` jest ustawiona w ciągu zapytania:
 }
 ```
 
-Jest to JSON, jeśli `verbose=true` jest ustawiona w ciągu zapytania:
+Jest to kod JSON, `verbose=true` jeśli jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {
@@ -106,4 +106,4 @@ Jest to JSON, jeśli `verbose=true` jest ustawiona w ciągu zapytania:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym [samouczku](tutorial-regex-entity.md)utwórz aplikację do wyodrębniania spójnie sformatowanych danych z wypowiedź przy użyciu **jednostki wyrażenia regularnego.**
+W tym [samouczku](tutorial-regex-entity.md)utworzysz aplikację do wyodrębniania spójnie sformatowanych danych z wypowiedź przy użyciu jednostki **wyrażenia regularnego** .

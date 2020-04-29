@@ -1,7 +1,7 @@
 ---
-title: Często zadawane pytania - Vision komputerowy
+title: Często zadawane pytania — przetwarzanie obrazów
 titleSuffix: Azure Cognitive Services
-description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące interfejsu API przetwarzania obrazów w usługach Azure Cognitive Services.
+description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące interfejs API przetwarzania obrazów w usłudze Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -12,63 +12,63 @@ ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: e8ab205a43e5cb1e8e2b96dbd9600e1fceb29403
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68564600"
 ---
-# <a name="computer-vision-api-frequently-asked-questions"></a>Interfejs API wizji komputerowej Często zadawane pytania
+# <a name="computer-vision-api-frequently-asked-questions"></a>interfejs API przetwarzania obrazów często zadawane pytania
 
 > [!TIP]
-> Jeśli nie możesz znaleźć odpowiedzi na swoje pytania w tym faq, spróbuj zadać społeczności interfejsu API przetwarzania obrazów komputerowych w [usłudze StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) lub skontaktuj się z [pomocą i pomocą techniczną w usłudze UserVoice](https://cognitive.uservoice.com/)
+> Jeśli nie możesz znaleźć odpowiedzi na pytania w tym często zadawane pytania, spróbuj zadać interfejs API przetwarzania obrazów społeczność [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) lub skontaktuj się z pomocą [techniczną w witrynie UserVoice](https://cognitive.uservoice.com/)
 
 ---
 
-**Pytanie:** *Czy mogę trenować interfejs API przetwarzania danych w celu używania tagów niestandardowych?  Na przykład, chciałbym karmić na zdjęciach ras kotów do "pociągu" AI, a następnie otrzymać wartość rasy na żądanie AI.*
+**Pytanie**: *Czy mogę wyszkolić interfejs API przetwarzania obrazów, aby używać tagów niestandardowych?  Na przykład chcę uzyskać strumieniowe źródło danych z zdjęć Cat do "uczenia" AI, a następnie odebrać wartość rasy w żądaniu AI.*
 
-**Odpowiedź**: Ta funkcja jest obecnie niedostępna. Jednak nasi inżynierowie pracują nad wprowadzeniem tej funkcji do funkcji Computer Vision.
-
----
-
-**Pytanie**: *Czy computer vision może być używany lokalnie bez połączenia z Internetem?*
-
-**Odpowiedź**: Obecnie nie oferujemy rozwiązania lokalnego ani lokalnego.
+**Odpowiedź**: Ta funkcja jest obecnie niedostępna. Jednak nasze inżynierowie pracują nad tym, aby skorzystać z tej funkcji przetwarzanie obrazów.
 
 ---
 
-**Pytanie**: *Czy computer vision może być używany do odczytu tablic rejestracyjnych?*
+**Pytanie**: *czy przetwarzanie obrazów można używać lokalnie bez połączenia z Internetem?*
 
-**Odpowiedź**: Interfejs API Vision zapewnia dobre wykrywanie tekstu za pomocą OCR, ale obecnie nie jest zoptymalizowany pod kątem tablic rejestracyjnych. Nieustannie staramy się ulepszać nasze usługi i dodaliśmy OCR do automatycznego rozpoznawania tablic rejestracyjnych do naszej listy żądań funkcji.
-
----
-
-**Pytanie:** *Jakie typy powierzchni do pisania są obsługiwane w celu rozpoznawania pisma ręcznego?*
-
-**Odpowiedź**: Technologia działa z różnymi rodzajami powierzchni, w tym tablicami, białym papierem i żółtymi kartami samoprzylepnych.
+**Odpowiedź**: obecnie nie oferujemy lokalnego lub własnego rozwiązania.
 
 ---
 
-**Pytanie:** *Jak długo trwa operacja rozpoznawania pisma ręcznego?*
+**Pytanie**: *czy przetwarzanie obrazów można używać do odczytywania tablic licencji?*
 
-**Odpowiedź**: Czas potrzebny zależy od długości tekstu. W przypadku dłuższych tekstów może to potrwać nawet kilka sekund. W związku z tym po zakończeniu operacji Rozpoznaj tekst odręczny może być konieczne zaczekanie, zanim będzie można pobrać wyniki przy użyciu operacji Pobierz wynik operacji odręcznego tekstu.
-
----
-
-**Pytanie:** *W jaki sposób technologia rozpoznawania pisma ręcznego obsługuje tekst wstawiony przy użyciu cieszy w środku wiersza?*
-
-**Odpowiedź:** Taki tekst jest zwracany jako osobny wiersz za pomocą operacji rozpoznawania pisma ręcznego.
+**Odpowiedź**: interfejs API obsługi zapewnia dobre wykrywanie tekstu przy użyciu OCR, ale nie jest obecnie zoptymalizowany pod kątem płyt licencyjnych. Ciągle próbujemy ulepszyć nasze usługi i dodałeś OCR do rozpoznawania płyt z licencją Autotekstu do naszej listy żądań funkcji.
 
 ---
 
-**Pytanie:** *W jaki sposób technologia rozpoznawania pisma ręcznego obsługuje przekreślone słowa lub linie?*
+**Pytanie**: *jakie typy powierzchni pisania są obsługiwane na potrzeby rozpoznawania pisma ręcznego?*
 
-**Odpowiedź:** Jeśli wyrazy zostaną przekreślone wieloma wierszami, aby uczynić je nierozpoznawalnymi, operacja rozpoznawania pisma ręcznego nie powoduje ich odebrania. Jeśli jednak wyrazy zostaną przekreślone za pomocą jednej linii, to przejście jest traktowane jako hałas, a słowa nadal są odbierane przez operację rozpoznawania pisma ręcznego.
+**Odpowiedź**: Technologia działa z różnymi rodzajami powierzchni, takimi jak tablice, oficjalny dokument i żółte notatki.
 
 ---
 
-**Pytanie:** *Jakie orientacje tekstu są obsługiwane dla technologii rozpoznawania pisma ręcznego?*
+**Pytanie**: *jak długo trwa operacja rozpoznawania pisma ręcznego?*
 
-**Odpowiedź**: Tekst zorientowany pod kątem do około 30 stopni do 40 stopni może zostać odebrany przez operację rozpoznawania pisma ręcznego.
+**Odpowiedź**: ilość czasu, jaką zajmie, zależy od długości tekstu. W przypadku dłuższych tekstów może upłynąć do kilku sekund. W związku z tym po zakończeniu operacji rozpoznawania tekstu napisanego ręcznie może być konieczne poczekanie przed pobraniem wyników przy użyciu operacji pobierania tekstu odręcznego.
+
+---
+
+**Pytanie**: *w jaki sposób technologia rozpoznawania pisma ręcznego obsługuje tekst, który został wstawiony przy użyciu karetki w środku linii?*
+
+**Odpowiedź**: taki tekst jest zwracany jako osobny wiersz przez operację rozpoznawania pisma ręcznego.
+
+---
+
+**Pytanie**: *w jaki sposób usługa rozpoznawania pisma ręcznego przekroczy wykreślone wyrazy lub linie?*
+
+**Odpowiedź**: Jeśli słowa są przekreślone z wieloma wierszami w celu renderowania ich nierozpoznawalności, operacja rozpoznawania pisma ręcznego nie zostanie wybrana. Jeśli jednak słowa są przekreślone przy użyciu jednego wiersza, przekroczenia są traktowane jako szum, a wyrazy nadal są pobierane przez operację rozpoznawania pisma ręcznego.
+
+---
+
+**Pytanie**: *jakie orientacje tekstu są obsługiwane przez technologię rozpoznawania pisma ręcznego?*
+
+**Odpowiedź**: tekst zorientowany na wartości do 30 stopni do 40 stopni może być pobierany przez operację rozpoznawania pisma ręcznego.
 
 ---

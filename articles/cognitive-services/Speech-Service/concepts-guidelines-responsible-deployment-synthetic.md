@@ -1,7 +1,7 @@
 ---
-title: Wytyczne dotyczące odpowiedzialnego wdrażania technologii syntetycznego głosu
+title: Wytyczne dotyczące odpowiedzialnego wdrożenia syntetycznej technologii głosowej
 titleSuffix: Azure Cognitive Services
-description: Ogólne wytyczne firmy Microsoft dotyczące projektowania przy użyciu technologii syntetycznego głosu. Zostały one opracowane w badaniach, które Microsoft przeprowadził z talentem głosowym, konsumentów, a także osób z zaburzeniami mowy, aby poprowadzić odpowiedzialny rozwój syntetycznego głosu.
+description: Ogólne wytyczne dotyczące projektowania firmy Microsoft dotyczące korzystania z syntetycznej technologii głosowej. Zostały one opracowane w badaniach, które firma Microsoft prowadziła przy użyciu głosu talent, konsumentów, jak również osób z zaburzeniami mowy, aby zapewnić odpowiedzialny rozwój głosu syntetycznego.
 services: cognitive-services
 author: benoah
 manager: nitinme
@@ -11,59 +11,59 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
 ms.openlocfilehash: a529ac8b7ce16d3ee4463f1b4bc2e8007e5b79b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73836761"
 ---
-# <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Wytyczne dotyczące odpowiedzialnego wdrażania technologii syntetycznego głosu
-Oto ogólne wytyczne firmy Microsoft dotyczące projektowania przy użyciu technologii syntetycznego głosu. Zostały one opracowane w badaniach, które Microsoft przeprowadził z talentem głosowym, konsumentów, a także osób z zaburzeniami mowy, aby poprowadzić odpowiedzialny rozwój syntetycznego głosu.
+# <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Wytyczne dotyczące odpowiedzialnego wdrożenia syntetycznej technologii głosowej
+Poniżej przedstawiono ogólne wytyczne dotyczące projektowania firmy Microsoft dotyczące korzystania z syntetycznej technologii głosowej. Zostały one opracowane w badaniach, które firma Microsoft prowadziła przy użyciu głosu talent, konsumentów, a także osób z zaburzeniami mowy, aby zapewnić odpowiedzialny rozwój głosu syntetycznego.
 
 ## <a name="general-considerations"></a>Zagadnienia ogólne
-W przypadku wdrażania technologii mowy syntetycznej w większości scenariuszy obowiązują następujące wskazówki.
+W przypadku wdrażania syntetycznej technologii mowy w większości scenariuszy stosowane są następujące wytyczne.
 
-### <a name="disclose-when-the-voice-is-synthetic"></a>Ujawnij, kiedy głos jest syntetyczny
-Ujawnienie, że głos jest generowany komputerowo, nie tylko minimalizuje ryzyko szkodliwych skutków oszustwa, ale także zwiększa zaufanie do organizacji dostarczającej głos. Dowiedz się więcej o [tym, jak ujawnić](concepts-disclosure-guidelines.md).
+### <a name="disclose-when-the-voice-is-synthetic"></a>Ujawnianie, gdy głos jest syntetyczny
+Odkończenie wygenerowanego przez komputer głosu nie tylko minimalizuje ryzyko szkodliwych rezultatów, ale również zwiększa zaufanie w organizacji dostarczającej głos. Dowiedz się więcej [na temat sposobu ujawniania](concepts-disclosure-guidelines.md).
 
-### <a name="select-appropriate-voice-types-for-your-scenario"></a>Wybierz odpowiednie typy głosu dla danego scenariusza
-Należy dokładnie rozważyć kontekst stosowania i potencjalne szkody związane z używaniem syntetycznego głosu. Na przykład syntetyczne głosy o wysokiej wierności mogą nie być odpowiednie w scenariuszach wysokiego ryzyka, takich jak wiadomości osobiste, transakcje finansowe lub złożone sytuacje, które wymagają ludzkiej zdolności adaptacji lub empatii. Użytkownicy mogą mieć również różne oczekiwania dotyczące typów głosu. Na przykład, podczas słuchania wrażliwych wiadomości czytanych przez syntetyczny głos, niektórzy użytkownicy wolą bardziej empatyczne i ludzkie czytanie wiadomości, podczas gdy inni woleli bardziej monotonny, bezstronny głos. Należy rozważyć przetestowanie aplikacji, aby lepiej zrozumieć preferencje użytkownika.
+### <a name="select-appropriate-voice-types-for-your-scenario"></a>Wybieranie odpowiednich typów głosu dla danego scenariusza
+Należy uważnie rozważyć kontekst użycia i potencjalną szkodę skojarzoną z użyciem głosu syntetycznego. Na przykład, głosy syntetyczne o wysokiej dokładności mogą nie być odpowiednie w scenariuszach o wysokim ryzyku, na przykład w przypadku komunikacji osobistej, transakcji finansowych lub złożonych sytuacji, które wymagają adaptacji ludzkiego lub empatię. Użytkownicy mogą również mieć różne oczekiwania na typy głosu. Na przykład podczas nasłuchiwania poufnych wiadomości odczytywanych przez syntetyczne dane głosowe niektórzy użytkownicy preferują bardziej empatycznegoe i podobne do odczytu wiadomości, podczas gdy inne preferują więcej niż jeden głos. Rozważ testowanie aplikacji, aby lepiej zrozumieć preferencje użytkownika.
 
-### <a name="be-transparent-about-capabilities-and-limitations"></a>Bądź przejrzysty w kwestii możliwości i ograniczeń
-Użytkownicy są bardziej prawdopodobne, że wyższe oczekiwania podczas interakcji z wysokiej wierności syntetycznych agentów głosowych. W związku z tym, gdy możliwości systemu nie spełniają tych oczekiwań, zaufanie może ucierpieć i może spowodować nieprzyjemne, a nawet szkodliwe doświadczenia.
+### <a name="be-transparent-about-capabilities-and-limitations"></a>Przezroczyste informacje o możliwościach i ograniczeniach
+Użytkownicy mogą mieć większe oczekiwania w przypadku korzystania z syntetycznych agentów głosu o wysokiej wierności. W związku z tym, gdy możliwości systemu nie spełnią tych oczekiwań, zaufanie może pogorszyć się i może skutkować nieprzyjemnymi lub nawet szkodliwymi środowiskami.
 
-### <a name="provide-optional-human-support"></a>Zapewnij opcjonalne wsparcie dla ludzi
-W niejednoznacznych scenariuszach transakcyjnych (na przykład centrum obsługi połączeń), użytkownicy nie zawsze ufają agentowi komputerowemu, aby odpowiednio odpowiadał na ich żądania. W takich sytuacjach konieczne może być wsparcie człowieka, niezależnie od realistycznej jakości głosu lub możliwości systemu.
+### <a name="provide-optional-human-support"></a>Zapewnianie opcjonalnej pomocy technicznej
+W niejednoznacznych scenariuszach transakcyjnych (na przykład w centrum pomocy technicznej) użytkownicy nie zawsze ufają agentowi komputera, aby odpowiednio reagować na ich żądania. W takich sytuacjach może być wymagana pomoc techniczna, niezależnie od realistycznej jakości głosu lub możliwości systemu.
 
-## <a name="considerations-for-voice-talent"></a>Uwagi dotyczące talentu głosów
-Podczas pracy z talentem głos, takich jak aktorzy głosowi, do tworzenia syntetycznych głosów, poniższe wytyczne stosuje.
+## <a name="considerations-for-voice-talent"></a>Uwagi dotyczące Talenti głosu
+Podczas pracy z usługą Voice talent, na przykład aktorów głosowych, do tworzenia głosów syntetycznych stosuje się poniższe wytyczne.
 
-### <a name="obtain-meaningful-consent-from-voice-talent"></a>Uzyskaj znaczącą zgodę od talentów głosowych
-Talent głosowy oczekuje kontroli nad czcionką głosową (jak i gdzie będzie używana) i zostanie skompensowany za każdym razem, gdy jest używany. Właściciele systemów powinni zatem uzyskać wyraźną pisemną zgodę od talentów głosowych i mieć jasne specyfikacje umowne dotyczące przypadków użycia, czasu użytkowania, rekompensaty itd. Niektóre talentgłosowe nie są świadome potencjalnych złośliwych zastosowań tej technologii i powinny być edukowane przez właścicieli systemów na temat możliwości tej technologii. Aby uzyskać więcej informacji na temat talentu głos i zgody, przeczytaj nasze [Ujawnienie dla Voice Talent](https://aka.ms/disclosure-voice-talent).
-
-
-## <a name="considerations-for-those-with-speech-disorders"></a>Względy dla osób z zaburzeniami mowy
-Podczas pracy z osobami z zaburzeniami mowy, aby utworzyć lub wdrożyć technologię syntetycznego głosu, obowiązują następujące wytyczne.
-
-### <a name="provide-guidelines-to-establish-contracts"></a>Zawieranie wytycznych dotyczących zawierania umów
-Zapewnij wytyczne dotyczące zawierania umów z osobami, które używają syntetycznego głosu do pomocy w mówieniu. Umowa powinna rozważyć określenie stron, które są właścicielami głosu, czasu użytkowania, kryteriów przeniesienia własności, procedur usuwania czcionki głosowej oraz zapobiegania nieautoryzowanemu dostępowi. Ponadto włącz umowny transfer własności czcionek głosowych po śmierci na członków rodziny, jeśli ta osoba wyraziła na to zgodę.
-
-### <a name="account-for-inconsistencies-in-speech-patterns"></a>Uwzględnianie niespójności we wzorcach mowy
-Dla osób z zaburzeniami mowy, które nagrywają własne czcionki głosowe, niespójności w ich wzorze mowy (slurring lub niezdolność do wymawiania niektórych słów) może skomplikować proces nagrywania. W takich przypadkach syntetyczna technologia głosowa i sesje nagraniowe powinny je pomieścić (czyli zapewnić przerwy i dodatkową liczbę sesji nagraniowych).
-
-### <a name="allow-modification-over-time"></a>Zezwalaj na modyfikację w czasie
-Osoby z zaburzeniami mowy pragną dokonać aktualizacji ich syntetycznego głosu, aby odzwierciedlić starzenie się (na przykład dziecko osiągające dojrzałość płciową). Osoby fizyczne mogą mieć również preferencje stylistyczne, które zmieniają się w czasie, i mogą chcieć wprowadzić zmiany w wysokości, akcentu lub innych cechach głosowych.
+### <a name="obtain-meaningful-consent-from-voice-talent"></a>Uzyskaj znaczącą zgodę z talent głosu
+Talent głosu oczekuje na kontrolę nad ich czcionką głosową (jak i miejsce jej użycia) i są kompensowane w dowolnym momencie użycia. Właściciele systemu powinni w związku z tym uzyskiwać jawne uprawnienia od talentów głosu i mieć jasne specyfikacje umowne dotyczące przypadków użycia, czas użytkowania, wynagrodzenie i tak dalej. Niektóre Talente głosu nie znają potencjalnych złośliwych użycia technologii i powinny być przestawione przez właścicieli systemu na informacje o możliwościach technologii. Aby uzyskać więcej informacji na temat Talenti i wyrażania głosu, Przeczytaj nasze [ujawnienie dla głosu talent](https://aka.ms/disclosure-voice-talent).
 
 
-## <a name="reference-docs"></a>Dokumenty referencyjne
+## <a name="considerations-for-those-with-speech-disorders"></a>Zagadnienia związane z zaburzeniami mowy
+Podczas pracy z osobami z zaburzeniami mowy, aby utworzyć lub wdrożyć syntetyczną technologię głosową, obowiązują następujące wytyczne.
 
-* [Ujawnienie talentu głosów](https://aka.ms/disclosure-voice-talent)
-* [Przegląd Gating](concepts-gating-overview.md)
+### <a name="provide-guidelines-to-establish-contracts"></a>Zapewnienie wytycznych w celu ustalenia umów
+Podaj wytyczne dotyczące ustanawiania kontraktów z osobami korzystającymi z syntetycznego głosu w celu uzyskania pomocy. Umowę należy rozważyć określenie podmiotów, które są właścicielami głosu, okresu użytkowania, kryteriów transferu własności, procedur usuwania czcionki głosowej i zapobiegania nieautoryzowanemu dostępowi. Ponadto należy włączyć umowny transfer własności dźwiękowej po śmierci do członków rodziny, jeśli dana osoba ma odpowiednie uprawnienia.
+
+### <a name="account-for-inconsistencies-in-speech-patterns"></a>Konto dla niespójności w wzorcach mowy
+Dla użytkowników indywidualnych z zaburzeniami mowy, które nagrywają własne czcionki głosowe, niespójności we wzorcu mowy (gnojowicowanie lub niemożność wymawiania niektórych wyrazów) mogą spowodować skomplikowanie procesu rejestrowania. W takim przypadku syntetyczna technologia głosu i sesje rejestrowania powinny je obsłużyć (to znaczy zapewnić przerwy i dodatkową liczbę sesji rejestrowania).
+
+### <a name="allow-modification-over-time"></a>Zezwalaj na modyfikowanie w czasie
+Osoby z zaburzeniami mowy chcą wprowadzać aktualizacje do głosu syntetycznego w celu odzwierciedlenia przedawnienia (na przykład elementu podrzędnego, który dociera do puberty). Użytkownicy mogą również mieć preferencje stylistyczne, które zmieniają się wraz z upływem czasu i mogą chcieć wprowadzić zmiany w wysokości, akcentie lub innych cechach głosu.
+
+
+## <a name="reference-docs"></a>Dokumentacja dokumentacji
+
+* [Ujawnienie dla talent głosu](https://aka.ms/disclosure-voice-talent)
+* [Kontroli — Omówienie](concepts-gating-overview.md)
 * [Jak ujawnić](concepts-disclosure-guidelines.md)
-* [Wzorce projektu ujawniania informacji](concepts-disclosure-patterns.md)
+* [Wzorce projektowania ujawniania](concepts-disclosure-patterns.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Ujawnienie talentu głosów](https://aka.ms/disclosure-voice-talent)
+* [Ujawnienie dla talent głosu](https://aka.ms/disclosure-voice-talent)
 * [Jak ujawnić](concepts-disclosure-guidelines.md)
-* [Wzorce projektu ujawniania informacji](concepts-disclosure-patterns.md)
+* [Wzorce projektowania ujawniania](concepts-disclosure-patterns.md)

@@ -1,7 +1,7 @@
 ---
-title: Moderowanie obrazów za pomocą konsoli INTERFEJSU API — Moderator zawartości
+title: Umiarkowane obrazy za pomocą konsoli interfejsu API Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Użyj interfejsu API moderowania obrazu w usłudze Azure Content Moderator, aby zainicjować przepływy pracy moderowania skanowania i przeglądu zawartości obrazu.
+description: Użyj interfejsu API moderowania obrazów na platformie Azure Content Moderator, aby inicjować przepływy pracy dla moderowania skanowania i przeglądania dla zawartości obrazu.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,95 +11,95 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 714621fdcc307ee8b29567fc0d95ca41d31aa9e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75448258"
 ---
-# <a name="moderate-images-from-the-api-console"></a>Moderowanie obrazów z konsoli interfejsu API
+# <a name="moderate-images-from-the-api-console"></a>Umiarkowane obrazy z konsoli interfejsu API
 
-Użyj [interfejsu API moderowania obrazu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) w usłudze Azure Content Moderator, aby zainicjować przepływy pracy moderowania skanowania i przeglądu zawartości obrazu. Zadanie moderowania skanuje zawartość w poszukiwaniu wulgaryzmów i porównuje je z niestandardowymi i udostępnionymi listami zablokowanych.
+Użyj [interfejsu API moderowania obrazów](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) na platformie Azure Content moderator, aby inicjować przepływy pracy dla moderowania skanowania i przeglądania dla zawartości obrazu. Zadanie moderowania skanuje zawartość pod kątem niewulgarności i porównuje ją z niestandardowymi i udostępnionymi listy blokowania adresów.
 
 ## <a name="use-the-api-console"></a>Korzystanie z konsoli interfejsu API
-Aby można było przetestować interfejs API w konsoli online, potrzebny jest klucz subskrypcji. Znajduje się on na karcie **Ustawienia** w polu **Ocp-Apim-Subscription-Key.** Aby uzyskać więcej informacji, zobacz [Omówienie](overview.md).
+Aby można było przetestować interfejs API w konsoli online, musisz mieć swój klucz subskrypcji. Ta lokalizacja znajduje się na karcie **Ustawienia** w polu **OCP-APIM-Subscription-Key** . Aby uzyskać więcej informacji, zobacz [Omówienie](overview.md).
 
-1. Przejdź do [odwołania interfejsu API moderowania obrazu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
+1. Przejdź do [dokumentacji interfejsu API moderowania obrazu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 
-   Zostanie otwarta strona **Image - Oceń** moderację obrazu.
+   Zostanie otwarta strona **szacowanie** obrazu.
 
-2. W przypadku **konsoli testowania otwartego interfejsu API**wybierz region, który najbardziej opisuje Twoją lokalizację. 
+2. W obszarze **Otwórz konsolę testowania interfejsu API**wybierz region, który najlepiej opisuje lokalizację. 
 
-   ![Wypróbuj obraz — oceń wybór regionu strony](images/test-drive-region.png)
+   ![Wypróbuj obraz-Oceń wybór obszaru strony](images/test-drive-region.png)
   
-   Zostanie otwarta konsola **Image - Evaluate** API.
+   Zostanie otwarta konsola interfejsu API **szacowania obrazu** .
 
-3. W polu **Ocp-Apim-Subscription-Key** wprowadź klucz subskrypcji.
+3. W polu **OCP-APIM-Subscription-Key** wprowadź swój klucz subskrypcji.
 
-   ![Wypróbuj obraz — oceń klucz subskrypcji konsoli](images/try-image-api-1.PNG)
+   ![Wypróbuj obraz-Oceń klucz subskrypcji konsoli](images/try-image-api-1.PNG)
 
-4. W **treści Żądanie** użyj domyślnego przykładowego obrazu lub określ obraz do skanowania. Sam obraz można przesłać jako binarne dane bitowe lub określić publicznie dostępny adres URL obrazu. 
+4. W polu **treść żądania** Użyj domyślnego obrazu przykładowego lub określ obraz do skanowania. Możesz przesłać obraz jako dane binarne danych binarnych lub określić publicznie dostępny adres URL obrazu. 
 
-   W tym przykładzie użyj ścieżki podanej w **treści Żądanie,** a następnie wybierz pozycję **Wyślij**. 
+   Na potrzeby tego przykładu użyj ścieżki podanej w polu **treść żądania** , a następnie wybierz pozycję **Wyślij**. 
 
-   ![Wypróbuj obraz — ocena treści żądania konsoli](images/try-image-api-2.PNG)
+   ![Wypróbuj obraz-Oceń treść żądania konsoli](images/try-image-api-2.PNG)
 
-   Oto obraz pod tym adresem URL:
+   To jest obraz pod tym adresem URL:
 
-   ![Wypróbuj obraz — ocena przykładowego obrazu konsoli](images/sample-image.jpg) 
+   ![Wypróbuj obraz-Oceń przykład konsoli](images/sample-image.jpg) 
 
 5. Wybierz pozycję **Wyślij**.
 
-6. Interfejs API zwraca wynik prawdopodobieństwa dla każdej klasyfikacji. Zwraca również określenie, czy obraz spełnia warunki (**prawda** czy **fałsz**). 
+6. Interfejs API zwraca wynik prawdopodobieństwa dla każdej klasyfikacji. Zwraca również określenie, czy obraz spełnia warunki (**true** lub **false**). 
 
-   ![Wypróbuj obraz — ocena wyniku prawdopodobieństwa konsoli i określenie stanu](images/try-image-api-3.PNG)
+   ![Wypróbuj obraz-Oceń wynik prawdopodobieństwa konsoli i określanie warunku](images/try-image-api-3.PNG)
 
 ## <a name="face-detection"></a>Wykrywanie twarzy
 
-Za pomocą interfejsu API moderowania obrazu można zlokalizować twarze na obrazie. Ta opcja może być przydatna, gdy masz problemy z prywatnością i chcesz zapobiec publikowaniu określonej twarzy na twojej platformie. 
+Możesz użyć interfejsu API moderowania obrazów, aby zlokalizować twarze na obrazie. Ta opcja może być przydatna, jeśli masz problemy z ochroną prywatności i chcesz zapobiec opublikowaniu na platformie określonego elementu. 
 
-1. W [odwołaniu interfejsu API moderowania obrazu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)w menu po lewej stronie w obszarze **Obraz**wybierz pozycję **Znajdź twarze**. 
+1. W [dokumentacji interfejsu API moderowania obrazów](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)w menu po lewej stronie w obszarze **obraz**wybierz pozycję **Znajdź twarze**. 
 
-   Zostanie otwarta strona **Obraz — Znajdź twarze.**
+   Zostanie otwarta strona **Wyszukiwanie** twarzy.
 
-2. W przypadku **konsoli testowania otwartego interfejsu API**wybierz region, który najbardziej opisuje Twoją lokalizację. 
+2. W obszarze **Otwórz konsolę testowania interfejsu API**wybierz region, który najlepiej opisuje lokalizację. 
 
-   ![Wypróbuj obraz — znajdź wybór regionu strony Ściany](images/test-drive-region.png)
+   ![Wypróbuj obraz — wybierz region na stronie twarzy](images/test-drive-region.png)
 
-   Zostanie otwarta konsola interfejsu API **Obraz — Znajdź twarze.**
+   Zostanie otwarta konsola interfejsu API **wyszukiwania** twarzy.
 
-3. Określ obraz do skanowania. Sam obraz można przesłać jako binarne dane bitowe lub określić publicznie dostępny adres URL do obrazu. W tym przykładzie znajdują się łącza do obrazu używanego w wątku CNN.
+3. Określ obraz do skanowania. Możesz przesłać obraz jako dane binarne danych binarnych lub określić publicznie dostępny adres URL do obrazu. Ten przykład łączy do obrazu, który jest używany w wątku CNN.
 
-   ![Wypróbuj obraz — znajdź przykładowy obraz twarzy](images/try-image-api-face-image.jpg)
+   ![Spróbuj użyć obrazu przykładowego obrazu](images/try-image-api-face-image.jpg)
 
-   ![Wypróbuj obraz — żądanie przykładu Znajdź twarze](images/try-image-api-face-request.png)
+   ![Spróbuj uzyskać przykładowe żądanie wyszukiwania obrazów](images/try-image-api-face-request.png)
 
-4. Wybierz pozycję **Wyślij**. W tym przykładzie interfejs API znajduje dwie ściany i zwraca ich współrzędne na obrazie.
+4. Wybierz pozycję **Wyślij**. W tym przykładzie interfejs API znajduje dwie twarze i zwraca ich współrzędne w obrazie.
 
-   ![Wypróbuj obraz — pole zawartość próbki Znajdź twarze](images/try-image-api-face-response.png)
+   ![Wypróbuj obraz — pole zawartości przykładowej odpowiedzi](images/try-image-api-face-response.png)
 
 ## <a name="text-detection-via-ocr-capability"></a>Wykrywanie tekstu za pomocą funkcji OCR
 
-Za pomocą funkcji OCR moderatora zawartości można wykrywać tekst na obrazach.
+W celu wykrycia tekstu w obrazach można użyć funkcji Content Moderator OCR.
 
-1. W [odwołaniu interfejsu API moderowania obrazu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)w menu po lewej stronie w obszarze **Obraz**wybierz pozycję **OCR**. 
+1. W [dokumentacji interfejsu API moderowania obrazów](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)w menu po lewej stronie w obszarze **obraz**wybierz pozycję **OCR**. 
 
-   Zostanie otwarta strona **Obraz — OCR.**
+   Zostanie otwarta strona **OCR** .
 
-2. W przypadku **konsoli testowania otwartego interfejsu API**wybierz region, który najbardziej opisuje Twoją lokalizację. 
+2. W obszarze **Otwórz konsolę testowania interfejsu API**wybierz region, który najlepiej opisuje lokalizację. 
 
-   ![Obraz — wybór regionu strony OCR](images/test-drive-region.png)
+   ![Obraz — wybór obszaru strony OCR](images/test-drive-region.png)
 
-   Zostanie otwarta konsola interfejsu API **Image — OCR.**
+   Zostanie otwarta konsola interfejsu API **rozpoznawania obrazu** .
 
-3. W polu **Ocp-Apim-Subscription-Key** wprowadź klucz subskrypcji.
+3. W polu **OCP-APIM-Subscription-Key** wprowadź swój klucz subskrypcji.
 
-4. W **treści Żądanie** użyj domyślnego przykładowego obrazu. Jest to ten sam obraz, który jest używany w poprzedniej sekcji.
+4. W polu **treść żądania** Użyj domyślnego obrazu przykładowego. Jest to ten sam obraz, który jest używany w poprzedniej sekcji.
 
-5. Wybierz pozycję **Wyślij**. Wyodrębniony tekst jest wyświetlany w JSON:
+5. Wybierz pozycję **Wyślij**. Wyodrębniony tekst jest wyświetlany w formacie JSON:
 
-   ![Obraz — pole zawartości próbki OCR Response](images/try-image-api-ocr.PNG)
+   ![Obraz — przykładowe pole zawartości odpowiedzi na OCR](images/try-image-api-ocr.PNG)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Użyj interfejsu API REST w kodzie lub postępuj zgodnie z [paskiem szybkiego dostępu do interfejsu .NET SDK,](dotnet-sdk-quickstart.md) aby dodać moderację obrazu do aplikacji.
+Użyj interfejsu API REST w kodzie lub postępuj zgodnie z [przewodnikiem Szybki Start dla zestawu .NET SDK](dotnet-sdk-quickstart.md) , aby dodać moderowanie obrazów do aplikacji.

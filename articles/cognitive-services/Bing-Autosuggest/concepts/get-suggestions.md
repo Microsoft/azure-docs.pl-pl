@@ -1,7 +1,7 @@
 ---
 title: Sugerowanie terminów wyszukiwania za pomocą interfejsu API automatycznego sugerowania Bing
 titleSuffix: Azure Cognitive Services
-description: W tym artykule omówiono pojęcie sugerowania terminów kwerendy przy użyciu interfejsu API autosugerest Bing i wpływ długości kwerendy na trafność.
+description: W tym artykule omówiono koncepcję sugerowania terminów zapytania przy użyciu interfejs API automatycznego sugerowania Bing i wpływu długości zapytania na istotność.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 060dbd29ee4ddb78e8ae9b2ed4e7814da3c4eebf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74072889"
 ---
 # <a name="suggesting-query-terms"></a>Sugerowanie terminów zapytania

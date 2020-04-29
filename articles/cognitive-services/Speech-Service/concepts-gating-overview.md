@@ -1,7 +1,7 @@
 ---
-title: Niestandardowe neuronowe gating głos uduszczyszczyć przegląd
+title: Niestandardowy neuronowych głosu kontroli — Omówienie
 titleSuffix: Azure Cognitive Services
-description: Wprowadzenie do procesu gating dla niestandardowego głosu neuronowego.
+description: Wprowadzenie do procesu kontroli dla niestandardowego głosu neuronowych.
 services: cognitive-services
 author: shlo
 manager: nitinme
@@ -11,44 +11,44 @@ ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: shlo
 ms.openlocfilehash: 73e6e4e69a245485ca473f048bbeafef21dbbf37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73836785"
 ---
-# <a name="custom-neural-voice-gating-overview"></a>Niestandardowy przegląd gatingu neuronowego głosu
+# <a name="custom-neural-voice-gating-overview"></a>Niestandardowy neuronowych głosu kontroli — Omówienie
 
-Dowiedz się więcej o procesie rozpoczynania pracy z niestandardowym głosem neuronowym.
+Dowiedz się więcej o tym, jak rozpocząć pracę z niestandardowym neuronowych głosem.
 
-## <a name="commitment-to-responsible-innovation"></a>Zaangażowanie na rzecz odpowiedzialnych innowacji
+## <a name="commitment-to-responsible-innovation"></a>Zobowiązania odpowiedzialne za innowacje
 
-W ramach zaangażowania firmy Microsoft w projektowanie odpowiedzialnej si. Znalezione tutaj wytyczne i szczegółowe informacje są oparte na zasadach firmy Microsoft [dotyczących odpowiedzialnej innowacji w si.](https://www.microsoft.com/AI/our-approach-to-ai)
+W ramach zobowiązania firmy Microsoft do projektowania odpowiedzialnych plików AI Zgromadziliśmy zestaw materiałów, aby przeprowadzić klientów do korzystania z niestandardowego głosu neuronowych. Wskazówki i szczegółowe informacje dostępne w tym miejscu są oparte na zasadach firmy Microsoft [dla właściwych innowacji w AI.](https://www.microsoft.com/AI/our-approach-to-ai)
 
-### <a name="guidance-for-deploying-custom-neural-voice"></a>Wskazówki dotyczące wdrażania niestandardowego głosu neuronowego
+### <a name="guidance-for-deploying-custom-neural-voice"></a>Wskazówki dotyczące wdrażania niestandardowego głosu neuronowych
 
-- [Wytyczne dotyczące odpowiedzialnego wdrażania:](concepts-guidelines-responsible-deployment-synthetic.md)nasze najważniejsze zalecenia oparte na naszych badaniach
-- [Disclosure for Voice Talent](https://aka.ms/disclosure-voice-talent): co musisz wiedzieć i poinformować talent głosowy o technologii, aby korzystać z niej w sposób odpowiedzialny
-- [Disclosure Design](concepts-disclosure-guidelines.md): jak projektować środowiska, aby użytkownicy wiedzieli, kiedy używany jest syntetyczny głos i zaufali Twojej usłudze
+- [Wytyczne dotyczące odpowiedzialnego wdrożenia](concepts-guidelines-responsible-deployment-synthetic.md): nasze najważniejsze zalecenia na podstawie naszych badań
+- [Ujawnienie do talentów głosu](https://aka.ms/disclosure-voice-talent): czego potrzebujesz, aby poznać i poinformować talent o technologii, aby z niej korzystać
+- [Projekt ujawniania](concepts-disclosure-guidelines.md): jak projektować środowiska, aby użytkownicy wiedzieli, kiedy jest używany głos syntetyczny i ufają usłudze
 
-### <a name="why-custom-neural-voice-is-a-gated-technology"></a>Dlaczego Custom Neural Voice jest technologią bramną
+### <a name="why-custom-neural-voice-is-a-gated-technology"></a>Dlaczego niestandardowy głos neuronowych jest technologią warunkową
 
-Naszym zamiarem jest ochrona praw jednostek i społeczeństwa, wspieranie przejrzystych interakcji człowiek-komputer oraz przeciwdziałanie rozprzestrzenianiu się szkodliwych deepfakes i wprowadzających w błąd treści. Z tego powodu mamy gated korzystanie z Custom Neural Voice. Klienci uzyskują dostęp do technologii dopiero po zapoznaniu się z ich aplikacjami i zobowiązali się do korzystania z niej zgodnie z naszymi zasadami etyki.
+Nasza metoda polega na ochronie praw osób i społeczeństwa, sprzyjaniu przejrzystych interakcji z komputerami ludzkimi oraz przeciwdziałaniu rozprzestrzenianiu szkodliwej deepfakes i mylącej zawartości. Z tego powodu wprowadziliśmy użycie niestandardowego głosu neuronowych. Klienci uzyskują dostęp do technologii tylko wtedy, gdy ich aplikacje są przeglądane i chcą korzystać z niej zgodnie z naszymi zasadami etyki.
 
-### <a name="our-gating-process"></a>Nasz proces gatingu
+### <a name="our-gating-process"></a>Nasz proces kontroli
 
-Aby uzyskać dostęp do niestandardowego głosu neuronowego, musisz zacząć od wypełnienia naszego formularza online. Rozpocznij aplikację [tutaj](https://aka.ms/custom-neural-intake-form).
+Aby uzyskać dostęp do niestandardowego głosu neuronowych, musisz zacząć od wypełniania formularza pobrania online. Zacznij [tutaj](https://aka.ms/custom-neural-intake-form)aplikację.
 
-Dostęp do usługi Custom Neural Voice zależy od wyłącznego uznania firmy Microsoft na podstawie naszych kryteriów kwalifikowalności, procesu weryfikacji i dostępności w celu obsługi ograniczonej liczby klientów w ramach tej wersji zapoznawczej.
+Dostęp do niestandardowej usługi głosowej neuronowych jest uzależniony od uznania firmy Microsoft w zależności od kryteriów kwalifikujących, procesu przed sprawdzeniem i dostępności w celu obsługi ograniczonej liczby klientów w ramach tej warunkowej wersji zapoznawczej.
 
-W ramach procesu aplikacyjnego, trzeba będzie zobowiązać się do uzyskania wyraźnej pisemnej zgody od talentu głosowego przed utworzeniem czcionki głosowej, która obejmuje udostępnianie [Disclosure for Voice Talent](https://aka.ms/disclosure-voice-talent). Należy również uzgodnić, że podczas wdrażania czcionki głosowej implementacja [ujawni użytkownikom syntetyczny charakter](concepts-disclosure-guidelines.md) usługi, zapewni przypisanie do syntetycznej usługi mowy firmy Microsoft w warunkach korzystania z usługi oraz obsługuje kanał opinii, który umożliwia użytkownikom usługi zgłaszanie problemów i udostępnianie szczegółów firmie Microsoft. Dowiedz się więcej o naszych Warunkach użytkowania [tutaj](https://aka.ms/custom-neural-code-of-conduct).
+W ramach procesu aplikacji należy zatwierdzić uzyskanie jawnie pisemnego uprawnienia z Talenti głosu przed utworzeniem czcionki głosowej, co obejmuje udostępnienie [ujawniania talent głosu](https://aka.ms/disclosure-voice-talent). Należy również wyrazić zgodę na to, że podczas wdrażania czcionki głosowej Twoja implementacja będzie [ujawniać syntetyczny charakter](concepts-disclosure-guidelines.md) usługi dla użytkowników, zapewniać przypisanie do firmy Microsoft syntetycznej usługi rozpoznawania mowy w warunkach użytkowania i obsługiwać kanał opinii, który umożliwia użytkownikom usługi zgłaszanie problemów i udostępnianie szczegółowych informacji w firmie Microsoft. Dowiedz się więcej o naszych warunkach użytkowania [tutaj](https://aka.ms/custom-neural-code-of-conduct).
 
-## <a name="reference-docs"></a>Dokumenty referencyjne
+## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
 * [Ujawnianie dotyczące aktorów głosowych](https://aka.ms/disclosure-voice-talent)
-* [Wytyczne dotyczące odpowiedzialnego wdrażania technologii syntetycznego głosu](concepts-guidelines-responsible-deployment-synthetic.md)
+* [Wytyczne dotyczące odpowiedzialnego wdrożenia syntetycznej technologii głosowej](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Jak ujawnić](concepts-disclosure-guidelines.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wytyczne dotyczące odpowiedzialnego wdrażania technologii syntetycznego głosu](concepts-guidelines-responsible-deployment-synthetic.md)
+* [Wytyczne dotyczące odpowiedzialnego wdrożenia syntetycznej technologii głosowej](concepts-guidelines-responsible-deployment-synthetic.md)

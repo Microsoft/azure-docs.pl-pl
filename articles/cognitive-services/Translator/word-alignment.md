@@ -1,7 +1,7 @@
 ---
-title: Wyrównanie programu Word — interfejs API tekstu tłumacza
+title: Wyrównanie wyrazów — interfejs API tłumaczenia tekstu w usłudze Translator
 titleSuffix: Azure Cognitive Services
-description: Aby otrzymywać informacje o wyrównaniu, należy użyć Translate metody i dołączyć opcjonalne includeAlignment parametr.
+description: Aby otrzymywać informacje o wyrównaniu, użyj metody tłumaczenia i Dołącz opcjonalny parametr includeAlignment.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -12,35 +12,35 @@ ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
 ms.openlocfilehash: dd4ff1e39c062910f4627973c801dc3c51f345e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73837226"
 ---
-# <a name="how-to-receive-word-alignment-information"></a>Jak odbierać informacje o wyrównaniu wyrazów
+# <a name="how-to-receive-word-alignment-information"></a>Jak uzyskać informacje dotyczące wyrównania wyrazów
 
-## <a name="receiving-word-alignment-information"></a>Odbieranie informacji o wyrównaniu wyrazów
-Aby otrzymywać informacje o wyrównaniu, należy użyć Translate metody i dołączyć opcjonalne includeAlignment parametr.
+## <a name="receiving-word-alignment-information"></a>Otrzymywanie informacji o wyrównaniu wyrazów
+Aby otrzymywać informacje o wyrównaniu, użyj metody tłumaczenia i Dołącz opcjonalny parametr includeAlignment.
 
 ## <a name="alignment-information-format"></a>Format informacji o wyrównaniu
-Wyrównanie jest zwracane jako wartość ciągu następującego formatu dla każdego wyrazu źródła. Informacje dla każdego wyrazu są oddzielone spacją, w tym dla języków niedzielonych przestrzenią (skryptów), takich jak chiński:
+Wyrównanie jest zwracane jako wartość ciągu następującego formatu dla każdego wyrazu źródła. Informacje dla każdego wyrazu są oddzielone spacjami, w tym dla języków (skryptów), takich jak chiński:
 
 [[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
 
-Przykład wyrównania ciąg: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
+Przykładowy ciąg wyrównania: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
 
-Innymi słowy dwukropek oddziela indeks początkowy i końcowy, kreska oddziela języki, a spacja oddziela wyrazy. Jedno słowo może być wyrównane z wartością zero, jeden lub wiele wyrazów w drugim języku, a wyrównane wyrazy mogą być niesłacalne. Gdy nie są dostępne żadne informacje o wyrównaniu, element Wyrównanie będzie pusty. Metoda zwraca błąd w tym przypadku.
+Inaczej mówiąc, dwukropek oddziela indeks początkowy i końcowy, myślnik oddziela Języki, a spacja oddziela słowa. Jedno słowo może być wyrównane z zerem, jednym lub wieloma wyrazami w innym języku, a wyrównane słowa mogą nie być ciągłe. Gdy żadne informacje o wyrównaniu nie są dostępne, element wyrównania będzie pusty. Metoda nie zwraca żadnego błędu w tym przypadku.
 
 ## <a name="restrictions"></a>Ograniczenia
-Wyrównanie jest zwracany tylko dla podzbioru par języków w tym momencie:
-* z angielskiego na jakikolwiek inny język;
-* z dowolnego innego języka na angielski, z wyjątkiem języka chińskiego uproszczonego, chińskiego tradycyjnego i łotewskiego na angielski
-* z japońskiego na koreański lub koreański do japoński nie otrzymasz informacji o wyrównaniu, jeśli zdanie jest tłumaczeniem w puszkach. Przykładem tłumaczenia w puszkach jest "To jest test", "Kocham cię" i inne zdania o wysokiej częstotliwości.
+Wyrównanie jest zwracane tylko dla podzestawu par języka w tym punkcie:
+* od języka angielskiego do dowolnego innego języka;
+* z dowolnego innego języka w języku angielskim, z wyjątkiem chiński uproszczony, chiński tradycyjny i łotewski do Polski
+* od japońskiego na koreański lub z koreańskiego na japoński nie otrzymasz informacji o wyrównaniu, jeśli zdanie jest przekształceniem w konserwie. Przykładem przeprowadzonego tłumaczenia jest "to jest test", "mam miłość" i inne zdania o wysokiej częstotliwości.
 
 ## <a name="example"></a>Przykład
 
-Przykład JSON
+Przykładowy kod JSON
 
 ```json
 [

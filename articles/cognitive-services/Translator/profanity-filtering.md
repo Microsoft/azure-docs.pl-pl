@@ -1,7 +1,7 @@
 ---
-title: Filtrowanie wulgaryzmów — interfejs API tekstu tłumacza
+title: Filtrowanie niewulgarności — interfejs API tłumaczenia tekstu w usłudze Translator
 titleSuffix: Azure Cognitive Services
-description: Użyj filtrowania wulgaryzmów, aby określić poziom wulgaryzmów przetłumaczonych w tekście w interfejsie API tekstu usługi Azure Cognitive Services Translator.
+description: Użyj filtrowania wulgarności, aby określić poziom niewulgarnego tłumaczenia tekstu w interfejs API tłumaczenia tekstu w usłudze Translator Cognitive Services platformy Azure.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,27 +11,27 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.openlocfilehash: e7e2097e0d3daf360f1fa0f30bf3fd2c62c07163
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73836228"
 ---
-# <a name="add-profanity-filtering-with-the-translator-text-api"></a>Dodawanie filtrowania wulgaryzmów za pomocą interfejsu API tekstu tłumacza
+# <a name="add-profanity-filtering-with-the-translator-text-api"></a>Dodawanie filtrowania niewulgarności za pomocą interfejs API tłumaczenia tekstu w usłudze Translator
 
-Zwykle usługa Translator zachowuje wulgaryzmy, które są obecne w źródle w tłumaczeniu. Stopień wulgaryzmów i kontekst, który sprawia, że słowa wulgarne różnią się między kulturami. W rezultacie stopień wulgaryzmów w języku docelowym może zostać wzmocniony lub zmniejszony.
+Zwykle usługa translator zachowuje braki, która jest obecna w źródle w tłumaczeniu. Stopień nieseksu i kontekst, który sprawia, że wyrazy nie różnią się między kulturami. W efekcie stopień niedostępności w języku docelowym może być wzmacniany lub zmniejszany.
 
-Jeśli chcesz uniknąć wulgaryzmów w tłumaczeniu, nawet jeśli w tekście źródłowym są wulgaryzmy, użyj opcji filtrowania wulgaryzmów dostępnej w metodzie Translate(). Ta opcja umożliwia wybranie, czy wulgaryzmy mają być usuwane, oznaczane odpowiednimi znacznikami, czy też nie podejmować żadnych działań.
+Jeśli chcesz uniknąć wyświetlania niedostępności w tłumaczeniu, nawet jeśli w tekście źródłowym znajduje się brak wulgarności, użyj opcji filtrowania wulgarności dostępnej w metodzie tłumaczenia (). Ta opcja umożliwia wybranie, czy ma zostać wyświetlona liczba usuniętych nietrwałych, oznaczonych za pomocą odpowiednich tagów, czy nie podejmować żadnych akcji.
 
-Metoda Translate() przyjmuje parametr "options", który zawiera nowy element "ProfanityAction". Akceptowane wartości wulgaryzmówAkcja to "NoAction", "Marked" i "Deleted".
+Metoda Przetłumacz () przyjmuje parametr "Options", który zawiera nowy element "ProfanityAction". Akceptowane wartości ProfanityAction to "NoAction", "oznaczył" i "usunięte".
 
-## <a name="accepted-values-of-profanityaction-and-examples"></a>Przyjęte wartości wulgaryzmówAkcja i przykłady
-|WulgaryzmyWartość reakcji | Akcja | Przykład: Źródło - japoński | Przykład: Target - Angielski|
+## <a name="accepted-values-of-profanityaction-and-examples"></a>Zaakceptowane wartości ProfanityAction i przykładów
+|ProfanityAction wartość | Akcja | Przykład: Źródło — japoński | Przykład: Target — angielski|
 | :---|:---|:---|:---|
-| NoAction ( NoAction ) | Domyślne. Tak samo jak nie ustawianie opcji. Wulgaryzmy przechodzi od źródła do celu. | 中田田田田田田田 | On jest kretynem. |
-| Oznaczone | Wulgarne słowa są otoczone tagami XML wulgaryzmami \<> ... \</wulgaryzmy>. | 中田田田田田田田 | Jest wulgaryzmem \<>szarpnięcie\</wulgaryzmy>. |
-| Usunięte | Wulgarne słowa są usuwane z wyjścia bez wymiany. | 中田田田田 | On jest. |
+| NoAction | Domyślne. Analogicznie jak ustawienie opcji nie jest możliwe. Niezbyt wulgarne przekazanie z lokalizacji źródłowej do docelowej. | 彼は変態です. | Jest to jerk. |
+| Oznacz | Wyrazy wulgarne są otoczone nie>ami \<tagów XML... \</profanity>. | 彼は変態です. | Jest to \<wulgarne>jerk\</profanity>. |
+| Usunięte | Wyrazy wulgarne są usuwane z danych wyjściowych bez zastępowania. | 彼は. | Jest to. |
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
-> [Stosowanie filtrowania wulgaryzmów za pomocą wywołania interfejsu API translatora](reference/v3-0-translate.md)
+> [Zastosuj filtrowanie wulgarne przy użyciu wywołania interfejsu API usługi translator](reference/v3-0-translate.md)

@@ -1,7 +1,7 @@
 ---
-title: Powrót N-Najlepsze tłumaczenia - Tekst tłumacza
+title: Zwróć N-najlepsze tłumaczenia — tłumaczenie tekstu w usłudze Translator
 titleSuffix: Azure Cognitive Services
-description: Zwracanie tłumaczeń N-Best przy użyciu interfejsu API tekstu tłumacza.
+description: Zwróć N-najlepsze tłumaczenia przy użyciu interfejs API tłumaczenia tekstu w usłudze Translator.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -12,50 +12,50 @@ ms.date: 12/14/2017
 ms.author: swmachan
 ROBOTS: NOINDEX
 ms.openlocfilehash: eff25877165ac365e0af77651147fcdd1eebe294
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73837241"
 ---
-# <a name="how-to-return-n-best-translations"></a>Jak zwrócić n-najlepsze tłumaczenia
+# <a name="how-to-return-n-best-translations"></a>Jak zwrócić najlepsze tłumaczenia (N)
 
 > [!NOTE]
-> Ta metoda jest przestarzała. Nie jest dostępna w wersji 3.0 interfejsu API tekstu translatora.
+> Ta metoda jest przestarzała. Nie jest dostępna w wersji 3.0 interfejs API tłumaczenia tekstu w usłudze Translator.
 
-Metody GetTranslations() i GetTranslationsArray() interfejsu API usługi Microsoft Translator zawierają opcjonalną flagę logiczną "IncludeMultipleMTAlternatives".
-Metoda zwróci do maxTranslations alternatywy, gdzie delta jest dostarczany z listy N-Best aparatu tłumacza.
+Metody gettranslations () i GetTranslationsArray () interfejsu API usługi Microsoft Translator zawierają opcjonalną flagę logiczną "IncludeMultipleMTAlternatives".
+Metoda zwróci do maxTranslations alternatywy, w przypadku których Delta jest dostarczana z N-najlepszych list aparatu translatora.
 
-Podpis jest:
+Sygnatura:
 
-**Składni**
+**Obowiązuje**
 
 | C# |
 |:---|
-| GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); |
+| GetTranslationsResponse Microsoft. translator. gettranslations (appId, tekst, od, do, maxTranslations, Options); |
 
 **Parametry**
 
 | Parametr | Opis |
 |:---|:---|
-| appId | **Wymagane** Jeśli używany jest nagłówek Autoryzacja, pozostaw pole appid puste, a w przeciwnym razie określ ciąg zawierający token "Nadźwig" + " + dostęp.|
+| appId | **Wymagane** Jeśli jest używany nagłówek autoryzacji, pozostaw pole AppID puste, a następnie wpisz ciąg zawierający "Bearer" + "" + token dostępu.|
 | tekst | **Wymagane** Ciąg reprezentujący tekst do przetłumaczenia. Rozmiar tekstu nie może przekraczać 10000 znaków.|
-| Z | **Wymagane** Ciąg reprezentujący kod języka tekstu do przetłumaczenia. |
-| na | **Wymagane** Ciąg reprezentujący kod języka do przetłumaczenia tekstu na. |
-| maxTranslations (maks. | **Wymagane** Int reprezentujący maksymalną liczbę tłumaczeń do zwrócenia. |
-| opcje | **Opcjonalnie** Obiekt TranslateOptions, który zawiera wartości wymienione poniżej. Wszystkie są opcjonalne i domyślnie do najczęstszych ustawień.
+| wniosek | **Wymagane** Ciąg reprezentujący kod języka tekstu do przetłumaczenia. |
+| na | **Wymagane** Ciąg reprezentujący kod języka służący do tłumaczenia tekstu. |
+| maxTranslations | **Wymagane** Int reprezentuje maksymalną liczbę tłumaczeń do zwrócenia. |
+| opcje | **Opcjonalne** Obiekt TranslateOptions, który zawiera wartości wymienione poniżej. Są one opcjonalne i domyślne dla najczęściej używanych ustawień.
 
-* Kategoria: Jedyną obsługiwaną i domyślną opcją jest "ogólne".
-* ContentType: Jedyną obsługiwaną i domyślną opcją jest "text/plain".
-* Stan: Stan użytkownika, aby pomóc skorelować żądanie i odpowiedź. Ta sama zawartość zostanie zwrócona w odpowiedzi.
-* IncludeMultipleMTAlternatives: flaga, aby ustalić, czy zwrócić więcej niż jedną alternatywę z aparatu MT. Wartość domyślna jest false i zawiera tylko 1 alternatywę.
+* Kategoria: jedyna obsługiwana i domyślna opcja to "ogólne".
+* ContentType: jedyna obsługiwana i domyślna opcja to "text/zwykły".
+* State: stan użytkownika, aby pomóc skorelować żądanie i odpowiedź. Ta sama zawartość zostanie zwrócona w odpowiedzi.
+* IncludeMultipleMTAlternatives: Oflaguj, aby określić, czy zwrócić więcej niż jeden alternatywę z aparatu MT. Wartość domyślna to false i zawiera tylko 1 alternatywę.
 
 ## <a name="ratings"></a>Klasyfikacje
-Oceny są stosowane w następujący sposób: Najlepsze tłumaczenie automatyczne ma ocenę 5.
-Automatycznie generowane alternatywy tłumaczenia (N-Best) mają ocenę 0 i mają stopień dopasowania 100.
+Klasyfikacje są stosowane w następujący sposób: najlepsze automatyczne tłumaczenie ma klasyfikację 5.
+Alternatywy do tłumaczenia generowane automatycznie (N-Najlepsza) mają klasyfikację 0 i mają dopasowanie stopień 100.
 
-## <a name="number-of-alternatives"></a>Liczba alternatyw
-Liczba zwróconych alternatyw jest do maxTranslations, ale może być mniejsza.
+## <a name="number-of-alternatives"></a>Liczba wariantów
+Liczba zwróconych alternatyw jest równa maxTranslations, ale może być mniejsza.
 
 ## <a name="language-pairs"></a>Pary językowe
-Ta funkcja nie jest dostępna w przypadku tłumaczeń między chińskim uproszczonym i tradycyjnym, w obu kierunkach. Jest on dostępny dla wszystkich innych par obsługiwanych przez usługę Microsoft Translator.
+Ta funkcja jest niedostępna w przypadku tłumaczeń między uproszczonym i tradycyjnym chińskim, w obu kierunkach. Jest ona dostępna dla wszystkich innych obsługiwanych par językowych usługi Microsoft Translator.

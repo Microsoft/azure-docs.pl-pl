@@ -1,7 +1,7 @@
 ---
-title: Obsługa języka — interfejs API sprawdzania pisowni Bing
+title: Obsługa języków — interfejs API sprawdzanie pisowni Bing
 titleSuffix: Azure Cognitive Services
-description: Lista języków naturalnych obsługiwanych przez interfejs API sprawdzania pisowni Bing.
+description: Lista języków naturalnych obsługiwana przez interfejs API sprawdzanie pisowni Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 5ffd9f05bb429ba611a08d7985dbc9d509a9df0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "66390166"
 ---
-# <a name="language-and-region-support-for-bing-spell-check-api"></a>Obsługa języka i regionu dla interfejsu API sprawdzania pisowni bing
+# <a name="language-and-region-support-for-bing-spell-check-api"></a>Obsługa języka i regionu sprawdzanie pisowni Bing API
 
-Te języki są obsługiwane przez interfejs API sprawdzania `spell` pisowni Bing (tylko w trybie).
+Te języki są obsługiwane przez interfejs API sprawdzanie pisowni Bing (tylko w `spell` trybie).
 
-Należy pamiętać, że do pracy `en-US`z `mkt` innym językiem `Accept-Language` niż `setLang` , należy ustawić i albo lub powinny być ustawione, jak to zostało opisane w [Spell Check API v7 odniesienia](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+Należy pamiętać, że aby korzystać z dowolnego innego języka `en-US`niż, `mkt` powinien być ustawiony i albo `Accept-Language` `setLang` musi być ustawiony, ponieważ został opisany w [interfejs API sprawdzania pisowni odwołanie wersji 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
 
 | Język    | Kod języka |
 |:----------- |:-------------:|
@@ -51,8 +51,8 @@ Należy pamiętać, że do pracy `en-US`z `mkt` innym językiem `Accept-Language
 | Niemiecki (Niemcy)      | `de-DE`          |
 | Niemiecki (Szwajcaria)      | `de-CH`          |
 | Włoski     | `it`          |
-| Japoński    | `ja`          |
-| Koreański      | `ko`          |
+| japoński    | `ja`          |
+| koreański      | `ko`          |
 | Norweski   | `no`          |
 | Polski      | `pl`          |
 | portugalski (Brazylia)   | `pt-BR`|
@@ -66,7 +66,7 @@ Należy pamiętać, że do pracy `en-US`z `mkt` innym językiem `Accept-Language
 | szwedzki     | `sv`          |
 | Turecki     | `tr`          |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Strona dokumentacji usług Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
 - [Strona produktu usług Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)

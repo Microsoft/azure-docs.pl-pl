@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: łączenie się z aplikacją Polecenia niestandardowe za pomocą sdk mowy — usługa mowy'
+title: 'Szybki Start: Nawiązywanie połączenia z aplikacją poleceń niestandardowych za pomocą zestawu mowy SDK — usługa mowy'
 titleSuffix: Azure Cognitive Services
-description: W tym artykule utworzysz aplikację kliencką SDK mowy za pomocą poleceń niestandardowych.
+description: W tym artykule opisano tworzenie aplikacji klienckiej zestawu Speech SDK z poleceniami niestandardowymi.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
@@ -11,61 +11,61 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
 ms.openlocfilehash: 9e324af0b90f595b5b7af2a417a562efb193d854
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76156781"
 ---
-# <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Szybki start: łączenie się z aplikacją Polecenia niestandardowe za pomocą sdk mowy (wersja zapoznawcza)
+# <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Szybki Start: Nawiązywanie połączenia z aplikacją poleceń niestandardowych za pomocą zestawu Speech SDK (wersja zapoznawcza)
 
-Po utworzeniu hosta aplikacji polecenia niestandardowe, można rozpocząć rozmowy z nim z urządzenia klienckiego.
+Po utworzeniu hostowanej aplikacji poleceń niestandardowych można zacząć mówić do niej z urządzenia klienckiego.
 
-W tym artykule:
+W tym artykule przedstawiono następujące:
 
-- Publikowanie aplikacji polecenia niestandardowe i uzyskanie identyfikatora aplikacji (identyfikator aplikacji)
-- Tworzenie aplikacji klienckiej przy użyciu SDK mowy, aby umożliwić rozmawianie z aplikacją Polecenia niestandardowe
+- Publikowanie aplikacji poleceń niestandardowych i Pobieranie identyfikatora aplikacji (Identyfikator aplikacji)
+- Tworzenie aplikacji klienckiej przy użyciu zestawu Speech SDK, aby umożliwić rozmowę z aplikacją poleceń niestandardowych
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aplikacja Polecenia niestandardowe jest wymagana do ukończenia tego artykułu. Jeśli aplikacja Polecenia niestandardowe nie została jeszcze utworzona, można to zrobić w poprzednich przewodnikach Szybki start:
+Do wykonania tego artykułu jest wymagana aplikacja poleceń niestandardowych. Jeśli jeszcze nie utworzono aplikacji poleceń niestandardowych, można to zrobić w następujących wcześniejszych przewodnikach szybki start:
 
-- [Szybki start: tworzenie polecenia niestandardowego (wersja zapoznawcza)](./quickstart-custom-speech-commands-create-new.md)
-- [Szybki start: tworzenie niestandardowego polecenia z parametrami (wersja zapoznawcza)](./quickstart-custom-speech-commands-create-parameters.md)
+- [Szybki Start: Tworzenie polecenia niestandardowego (wersja zapoznawcza)](./quickstart-custom-speech-commands-create-new.md)
+- [Szybki Start: Tworzenie polecenia niestandardowego z parametrami (wersja zapoznawcza)](./quickstart-custom-speech-commands-create-parameters.md)
 
-Potrzebne będą również:
+Wymagane są również:
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- Klucz subskrypcji platformy Azure dla usług mowy. [Pobierz go za darmo](get-started.md) lub utwórz go w [witrynie Azure portal](https://portal.azure.com)
+- Klucz subskrypcji platformy Azure dla usługi Speech Services. [Pobierz bezpłatnie](get-started.md) lub utwórz je na [Azure Portal](https://portal.azure.com)
 
-## <a name="optional-get-started-fast"></a>Opcjonalnie: szybkie rozpoczęcie pracy
+## <a name="optional-get-started-fast"></a>Opcjonalne: szybkie rozpoczynanie pracy
 
-W tym przewodniku Szybki start opisano krok po kroku, jak zrobić aplikację kliencką, aby połączyć się z aplikacją polecenia niestandardowe. Jeśli wolisz nurkować bezpośrednio w, kompletny, gotowy do kompilacji kod źródłowy używany w tym przewodniku `quickstart` Szybki start jest dostępny w [przykładach zestawów SDK mowy](https://aka.ms/csspeech/samples) w folderze.
+W tym przewodniku szybki start opisano krok po kroku, jak umożliwić aplikacji klienckiej łączenie się z aplikacją poleceń niestandardowych. Jeśli wolisz szczegółowe z prawej strony, kompletny, gotowy do skompilowania kod źródłowy używany w tym przewodniku Szybki Start jest dostępny w [przykładach zestawu Speech SDK](https://aka.ms/csspeech/samples) w `quickstart` folderze.
 
-## <a name="step-1-publish-custom-commands-application"></a>Krok 1: Publikowanie aplikacji Polecenia niestandardowe
+## <a name="step-1-publish-custom-commands-application"></a>Krok 1. publikowanie aplikacji poleceń niestandardowych
 
-1. Otwórz [wcześniej utworzoną aplikację Polecenia niestandardowe](./quickstart-custom-speech-commands-create-new.md) i wybierz pozycję **Publikuj**
+1. Otwórz [wcześniej utworzone aplikacje niestandardowe poleceń](./quickstart-custom-speech-commands-create-new.md) i wybierz pozycję **Publikuj** .
 
    > [!div class="mx-imgBorder"]
    > ![Publikowanie aplikacji](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
-1. Skopiuj identyfikator aplikacji z powiadomienia o publikacji w celu późniejszego użycia
+1. Skopiuj identyfikator aplikacji z powiadomienia o opublikowaniu do późniejszego użycia
 
-## <a name="step-2-create-a-visual-studio-project"></a>Krok 2: Tworzenie projektu programu Visual Studio
+## <a name="step-2-create-a-visual-studio-project"></a>Krok 2. Tworzenie projektu programu Visual Studio
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
 
-## <a name="step-3-add-sample-code"></a>Krok 3: Dodaj przykładowy kod
+## <a name="step-3-add-sample-code"></a>Krok 3. Dodawanie przykładowego kodu
 
-W tym kroku dodajemy kod XAML, który definiuje interfejs użytkownika aplikacji i dodaj implementację w języku C# bez kodu.
+W tym kroku dodamy kod XAML, który definiuje interfejs użytkownika aplikacji, a następnie doda implementację kodu w języku C#.
 
 ### <a name="xaml-code"></a>Kod XAML
 
 Utwórz interfejs użytkownika aplikacji, dodając kod XAML.
 
-1. W **Eksploratorze rozwiązań**otwórz`MainPage.xaml`
+1. W **Eksplorator rozwiązań**Otwórz`MainPage.xaml`
 
-1. W widoku XAML projektanta zastąp całą zawartość następującym fragmentem kodu:
+1. W widoku XAML projektanta Zastąp całą zawartość następującym fragmentem kodu:
 
    ```xml
    <Page
@@ -112,22 +112,22 @@ Utwórz interfejs użytkownika aplikacji, dodając kod XAML.
    </Page>
    ```
 
-Widok Projekt jest aktualizowany w celu wyświetlenia interfejsu użytkownika aplikacji.
+Widok Projekt został zaktualizowany, aby pokazać interfejs użytkownika aplikacji.
 
-### <a name="c-code-behind-source"></a>Źródło kodu języka C#
+### <a name="c-code-behind-source"></a>Źródło kodu w języku C#
 
-Dodaj źródło związanye z kodem, tak aby aplikacja działała zgodnie z oczekiwaniami. Źródło oparte na kodzie obejmuje:
+Dodaj źródło związane z kodem, aby aplikacja działała zgodnie z oczekiwaniami. Źródło związane z kodem obejmuje:
 
-- Wymagane `using` instrukcje `Speech` dla `Speech.Dialog` i obszarów nazw
-- Prosta implementacja zapewniająca dostęp do mikrofonu, przewodowa do obsługi przycisków
+- Wymagane `using` instrukcje dla `Speech` i `Speech.Dialog` przestrzeni nazw
+- Prosta implementacja zapewniająca dostęp do mikrofonu przy użyciu sieci przewodowej do procedury obsługi przycisku
 - Podstawowe pomocnicy interfejsu użytkownika do prezentowania komunikatów i błędów w aplikacji
-- Punkt docelowy ścieżki kodu inicjowania, który zostanie wypełniony później
-- Pomocnik do odtwarzania tekstu na mowę (bez obsługi przesyłania strumieniowego)
-- Obsługa pustych przycisków, aby rozpocząć nasłuchiwanie, które zostanie wypełnione później
+- Punkt wyładunkowy dla ścieżki kodu inicjującego, który zostanie zapełniony później
+- Pomocnik odtwarzania zamiany tekstu na mowę (bez obsługi przesyłania strumieniowego)
+- Pusta procedura obsługi przycisku do rozpoczęcia nasłuchiwania, która zostanie wypełniona później
 
-Dodaj źródło oparte na kodzie w następujący sposób:
+Dodaj źródło związane z kodem w następujący sposób:
 
-1. W **Eksploratorze rozwiązań**otwórz `MainPage.xaml.cs` plik źródłowy związany z kodem (zgrupowany w obszarze) `MainPage.xaml`
+1. W **Eksplorator rozwiązań**Otwórz plik `MainPage.xaml.cs` źródłowy związany z kodem (pogrupowany pod `MainPage.xaml`).
 
 1. Zastąp zawartość pliku następującym kodem:
 
@@ -314,9 +314,9 @@ Dodaj źródło oparte na kodzie w następujący sposób:
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
 
-1. Zastąp `YourApplicationId` `YourSpeechSubscriptionKey`ciągi `YourServiceRegion` , i własne wartości dla aplikacji, subskrypcji mowy i [regionu](regions.md)
+1. Zastąp ciągi `YourApplicationId`, `YourSpeechSubscriptionKey`i `YourServiceRegion` własnymi wartościami dla swojej aplikacji, subskrypcji mowy i [regionu](regions.md)
 
-1. Dołącz poniższy fragment kodu na końcu treści metody`InitializeDialogServiceConnector`
+1. Dołącz następujący fragment kodu na końcu treści metody`InitializeDialogServiceConnector`
 
    ```csharp
    //
@@ -374,7 +374,7 @@ Dodaj źródło oparte na kodzie w następujący sposób:
    };
    ```
 
-1. Dodaj następujący fragment kodu do treści `ListenButton_ButtonClicked` metody w `MainPage` klasie
+1. Dodaj następujący fragment kodu do treści `ListenButton_ButtonClicked` metody w klasie `MainPage`
 
    ```csharp
    // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and
@@ -398,24 +398,24 @@ Dodaj źródło oparte na kodzie w następujący sposób:
    }
    ```
 
-1. Na pasku menu wybierz **pozycję Zapisz** > **wszystko,** aby zapisać zmiany
+1. Na pasku menu wybierz kolejno opcje **plik** > **Zapisz wszystko** , aby zapisać zmiany.
 
 ## <a name="build-and-run-the-application"></a>Kompilowanie i uruchamianie aplikacji
 
-1. Na pasku menu wybierz pozycję **Build** > **Build Solution** to build the application. Kod powinien zostać skompilowany bez błędów.
+1. Na pasku menu wybierz polecenie **Kompiluj** > **kompilację rozwiązania** , aby skompilować aplikację. Kod powinien zostać skompilowany bez błędów.
 
-1. Aby uruchomić aplikację, wybierz **opcję Debugowanie** > **rozpocznij debugowanie** (lub naciśnij **klawisz F5).** Zostanie **wyświetlene okno helloworld.**
+1. Wybierz **Debuguj** > **Rozpocznij debugowanie** (lub naciśnij klawisz **F5**), aby uruchomić aplikację. Zostanie wyświetlone okno **HelloWorld** .
 
-   ![Przykładowa aplikacja wirtualnego asystenta platformy uniwersalnej systemu w języku C# — szybki start](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
+   ![Przykładowa aplikacja asystenta wirtualnego platformy UWP w języku C# — Szybki Start](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
-1. Wybierz **włącz mikrofon**. Jeśli pojawi się żądanie uprawnień dostępu, wybierz pozycję **Tak**.
+1. Wybierz pozycję **Włącz mikrofon**. Jeśli pojawi się żądanie uprawnienia dostępu, wybierz pozycję **tak**.
 
-   ![Żądanie uprawnień dostępu do mikrofonu](media/sdk/qs-csharp-uwp-10-access-prompt.png)
+   ![Żądanie uprawnienia dostępu do mikrofonu](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. Wybierz **opcję Porozmawiaj**i mów w języku angielskim do mikrofonu urządzenia. Mowa jest przesyłana do kanału Direct Line Speech i transkrybowana na tekst, który pojawia się w oknie.
+1. Wybierz opcję **rozmowa**i zacznij mówić do angielskiej frazy lub zdania na mikrofon urządzenia. Twoja Zamiana jest przesyłana do kanału mowy Direct line i uzyskanego do tekstu, który pojawia się w oknie.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Jak: Wypełnianie poleceń na kliencie za pomocą zestawu SDK mowy (wersja zapoznawcza)](./how-to-custom-speech-commands-fulfill-sdk.md)
-> [Jak: Dodawanie weryfikacji do parametrów polecenia niestandardowego (wersja zapoznawcza)](./how-to-custom-speech-commands-validations.md)
+> [Instrukcje: wykonywanie poleceń na kliencie przy użyciu zestawu Speech SDK (wersja zapoznawcza)](./how-to-custom-speech-commands-fulfill-sdk.md)
+> [instrukcje: Dodawanie walidacji do parametrów polecenia niestandardowego (wersja zapoznawcza)](./how-to-custom-speech-commands-validations.md)

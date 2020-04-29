@@ -1,7 +1,7 @@
 ---
-title: Pobierz obrazy z internetu - Interfejs API wyszukiwania obrazów Bing
+title: Pobierz obrazy z interfejs API wyszukiwania obrazów Bing sieci Web
 titleSuffix: Azure Cognitive Services
-description: Użyj interfejsu API wyszukiwania obrazów Bing, aby wyszukać i uzyskać odpowiednie obrazy z sieci Web.
+description: Użyj interfejs API wyszukiwania obrazów Bing, aby wyszukać i pobrać odpowiednie obrazy z sieci Web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 309bbca762149f8804742d9ef02d4c3e8dfcdc6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67542765"
 ---
-# <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Pobierz obrazy z sieci Web za pomocą interfejsu API wyszukiwania obrazów Bing
+# <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Pobierz obrazy z sieci Web za pomocą interfejs API wyszukiwania obrazów Bing
 
-Korzystając z interfejsu API REST wyszukiwania obrazów Bing, można uzyskać obrazy z sieci Web, które są związane z wyszukiwanym terminem, wysyłając następujące żądanie GET:
+W przypadku korzystania z interfejsu API REST wyszukiwanie obrazów Bing można uzyskać obrazy z sieci Web, które są powiązane z terminem wyszukiwania, wysyłając następujące żądanie GET:
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies&mkt=en-us HTTP/1.1
@@ -31,11 +31,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Użyj parametru [zapytania q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) dla wyszukiwago hasła zakodowanego w adresie URL. Na przykład, jeśli wprowadzisz *pontony żeglarskie,* ustaw `q` `sailing+dinghies` lub `sailing%20dinghies`.
+Użyj parametru [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) zapytania dla terminu wyszukiwania zakodowanego w adresie URL. Na przykład, jeśli wprowadzisz *dinghies*, ustaw `q` na `sailing+dinghies` lub. `sailing%20dinghies`
 
 > [!IMPORTANT]
-> * Wszystkie żądania muszą być wykonane z serwera, a nie od klienta.
-> * Jeśli po raz pierwszy wywołujesz dowolny z interfejsów API wyszukiwania Bing, nie dołączaj nagłówka identyfikatora klienta. Identyfikator klienta należy uwzględnić tylko wtedy, gdy wcześniej był nazywany interfejsem API usługi Bing, który zwrócił identyfikator klienta dla kombinacji użytkownika i urządzenia.
+> * Wszystkie żądania muszą zostać wykonane z serwera, a nie z klienta programu.
+> * Jeśli podczas pierwszego wywołania interfejsów API wyszukiwania Bing jest używany program, nie dołączaj nagłówka identyfikatora klienta. Dołącz identyfikator klienta tylko w przypadku, gdy wcześniej wywołano interfejs API Bing, który zwrócił identyfikator klienta dla kombinacji użytkownika i urządzenia.
 
 ## <a name="get-images-from-a-specific-web-domain"></a>Pobierz obrazy z określonej domeny sieci Web
 
@@ -46,24 +46,24 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghi
 ```
 
 > [!NOTE]
-> Odpowiedzi na zapytania przy `site:` użyciu operatora może zawierać treści dla dorosłych, niezależnie od [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) ustawienie. Używaj `site:` tylko wtedy, gdy znasz zawartość domeny.
+> Odpowiedzi na zapytania przy użyciu `site:` operatora mogą obejmować zawartość dla dorosłych niezależnie od ustawienia [bezpieczne wyszukiwanie](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) . Należy używać `site:` tylko w przypadku, gdy jest świadome zawartości w domenie.
 
-## <a name="filter-images"></a>Filtrowanie obrazów
+## <a name="filter-images"></a>Filtruj obrazy
 
- Domyślnie interfejs API wyszukiwania obrazów zwraca wszystkie obrazy, które są istotne dla kwerendy. Jeśli chcesz filtrować obrazy zwracane przez bing (na przykład, aby zwrócić tylko obrazy o przezroczystym tle lub określonym rozmiarze), użyj następujących parametrów kwerendy:
+ Domyślnie interfejs API wyszukiwanie obrazów zwraca wszystkie obrazy, które są istotne dla zapytania. Jeśli chcesz filtrować obrazy zwracane przez usługę Bing (na przykład w celu zwrócenia tylko obrazów z przezroczystym tłem lub określonym rozmiarem), użyj następujących parametrów zapytania:
 
-* [akcesji](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#aspect)— filtruj obrazy według współczynnika proporcji (na przykład obrazy standardowe lub szerokoekranowe).
-* [kolor](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#color)— filtruj obrazy według dominującego koloru lub czerni i bieli.
-* [świeżość](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#freshness)— filtruj obrazy według wieku (na przykład obrazy odkryte przez Bing w ubiegłym tygodniu).
-* [wysokość](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#height), [szerokość](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#width)— filtruj obrazy według szerokości i wysokości.
-* [imageContent](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagecontent)— filtruj obrazy według zawartości (na przykład obrazy, które pokazują tylko twarz danej osoby).
-* [imageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype)— filtruj obrazy według typu (na przykład obiekty clipart, animowane pliki GIF lub przezroczyste tła).
-* [licencja](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#license)— filtrowanie obrazów według typu licencji skojarzonej z witryną.
-* [rozmiar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#size)— filtruj obrazy według rozmiaru, na przykład małe obrazy o wymiarach do 200 x 200 pikseli.
+* [aspekt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#aspect)— filtruje obrazy według współczynnika proporcji (na przykład obrazów standardowych lub panoramicznych).
+* [Color](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#color)— filtruje obrazy według koloru lub czerni i bieli.
+* [aktualność](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#freshness)— filtruje obrazy według wieku (na przykład obrazy odnalezione przez usługę Bing w zeszłym tygodniu).
+* [Height](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#height), [Width](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#width)— filtruje obrazy według szerokości i wysokości.
+* [imageContent](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagecontent)— filtruje obrazy według zawartości (na przykład obrazy, które wyświetlają tylko powierzchnie osoby).
+* [ImageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype)— umożliwia filtrowanie obrazów według typu (np. clipart, animowanych plików GIF lub przezroczystego tła).
+* [licencja](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#license)— filtruje obrazy według typu licencji skojarzonej z witryną.
+* [rozmiar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#size)— umożliwia filtrowanie obrazów według rozmiaru, takich jak małe obrazy, do 200x200 pikseli.
 
 Aby uzyskać obrazy z określonej domeny, należy użyć operatora [site:](https://msdn.microsoft.com/library/ff795613.aspx) zapytania.
 
-W poniższym przykładzie pokazano, jak uzyskać małe obrazy z ContosoSailing.com, które Bing odkrył w ubiegłym tygodniu.  
+Poniższy przykład pokazuje, jak pobrać małe obrazy z ContosoSailing.com, które zostały odnalezione w ciągu ostatniego tygodnia.  
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&size=small&freshness=week&mkt=en-us HTTP/1.1  
@@ -74,13 +74,13 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```
 
-## <a name="bing-image-search-response-format"></a>Format odpowiedzi wyszukiwania obrazów Bing
+## <a name="bing-image-search-response-format"></a>Format odpowiedzi wyszukiwanie obrazów Bing
 
-Komunikat odpowiedzi z usługi Bing zawiera odpowiedź [obrazów,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) która zawiera listę obrazów, które usługi Cognitive Services uznane za istotne dla kwerendy. Każdy obiekt [Image](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) na liście zawiera następujące informacje o obrazie: adres URL, jego rozmiar, jego wymiary, format kodowania, adres URL miniatury obrazu i wymiary miniatury.
+Komunikat odpowiedzi z usługi Bing zawiera [obraz](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) zawierający listę obrazów, które Cognitive Services określone jako istotne dla zapytania. Każdy obiekt [obrazu](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) na liście zawiera następujące informacje o obrazie: adres URL, jego rozmiar, wymiary, format kodowania, adres URL do miniatury obrazu i wymiary miniatury.
 
 > [!NOTE]
 > * Obrazy muszą być wyświetlane w kolejności podanej w odpowiedzi.
-> * Ponieważ formaty i parametry adresów URL mogą ulec zmianie bez powiadomienia, użyj wszystkich adresów URL w stanie określonym w stanie niejaka. Nie należy przyjmować zależności od formatu adresu URL lub parametrów, z wyjątkiem przypadków, gdy zaznaczono.
+> * Ponieważ formaty i parametry adresów URL mogą ulec zmianie bez powiadomienia, użyj wszystkich adresów URL jako-is. Nie należy uwzględniać zależności w odniesieniu do formatu adresu URL ani parametrów, chyba że zaznaczono inaczej.
 
 ```json
 {
@@ -109,8 +109,8 @@ Komunikat odpowiedzi z usługi Bing zawiera odpowiedź [obrazów,](https://docs.
 },
 ```
 
-Po wywołaniu interfejsu API wyszukiwania obrazów Bing usługa Bing zwraca listę wyników. Lista jest podzestawem całkowitej liczby wyników odpowiednich dla zapytania. Pole `totalEstimatedMatches` odpowiedzi zawiera szacunkową liczbę obrazów, które są dostępne do wyświetlenia. Aby uzyskać szczegółowe informacje na temat sposobu przechodzenia do pozostałych obrazów, zobacz [Obrazy stronicowania](../paging-images.md).
+Po wywołaniu interfejsu API wyszukiwania obrazów Bing usługa Bing zwraca listę wyników. Lista jest podzestawem całkowitej liczby wyników odpowiednich dla zapytania. Pole `totalEstimatedMatches` odpowiedzi zawiera szacunkową liczbę obrazów, które są dostępne do wyświetlenia. Aby uzyskać szczegółowe informacje na temat pozostałej części obrazów, zobacz [obrazy stronicowania](../paging-images.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nie wypróbowano wcześniej interfejsu API wyszukiwania obrazów Bing, spróbuj uruchomić [program Szybki start](../quickstarts/csharp.md). Jeśli szukasz czegoś bardziej złożonego, wypróbuj samouczek, aby utworzyć [jednostronicową aplikację internetową](../tutorial-bing-image-search-single-page-app.md).
+Jeśli jeszcze nie podjęto próby interfejs API wyszukiwania obrazów Bing, wypróbuj [Przewodnik Szybki Start](../quickstarts/csharp.md). Jeśli szukasz czegoś bardziej złożonego, Wypróbuj ten samouczek, aby utworzyć [jednostronicową aplikację sieci Web](../tutorial-bing-image-search-single-page-app.md).

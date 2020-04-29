@@ -1,7 +1,7 @@
 ---
-title: Wytyczne dotyczące projektowania ujawniania informacji
+title: Wskazówki dotyczące projektowania ujawniania
 titleSuffix: Azure Cognitive Services
-description: Wprowadzenie do wytycznych dotyczących projektowania ujawniania informacji i ocena poziomu ujawniania informacji.
+description: Wprowadzenie do ujawnienia wytycznych dotyczących projektowania i oceniania poziomu ujawniania.
 services: cognitive-services
 author: sharonlo101
 manager: nitinme
@@ -11,74 +11,74 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: angle
 ms.openlocfilehash: fe38c6b7cfb1abbaf3f1079dd8bff66b51b98091
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74776389"
 ---
 # <a name="disclosure-design-guidelines"></a>Wytyczne dotyczące projektowania ujawniania
-Dowiedz się, jak budować i utrzymywać zaufanie do klientów, zachowując przejrzystość na temat syntetycznego charakteru twojego głosu.
+Dowiedz się, jak tworzyć i obsługiwać relacje zaufania z klientami, ponieważ są one przejrzyste na temat syntetycznego charakteru Twojego środowiska głosowego.
 
 ## <a name="what-is-disclosure"></a>Co to jest ujawnienie?
 
-Ujawnienie jest sposobem poinformowania ludzi, że&#39;ponownego interakcji z lub słuchania głosu, który jest generowany syntetycznie.
+Ujawnienie jest sposobem, aby użytkownicy wiedzieli, że&#39;w trakcie korzystania z lub nasłuchiwanie głosu, który został wygenerowany syntetycznie.
 
-## <a name="why-is-disclosure-necessary"></a>Dlaczego ujawnienie jest konieczne?
+## <a name="why-is-disclosure-necessary"></a>Dlaczego jest wymagane ujawnienie?
 
-Potrzeba ujawnienia syntetycznych początków głosu generowanego komputerowo jest stosunkowo nowa. W przeszłości, generowane komputerowo głosy były oczywiście, że nikt nigdy nie pomylić je do prawdziwej osoby. Z każdym dniem poprawia się jednak realizm syntetycznych głosów, które stają się coraz bardziej nie do odróżnienia od ludzkich głosów.
+Konieczność ujawnienia syntetycznych źródeł głosu generowanego przez komputer jest stosunkowo nowa. W przeszłości głosy generowane przez komputery były oczywiście, ale nikt z nich nie mógłby ich w rzeczywistości wyznaczyć. Codziennie, jednak realne głosy syntetyczne zwiększają się i coraz bardziej odróżniają się od głosów ludzkich.
 
 ## <a name="goals"></a>Cele
-Oto zasady, o których należy pamiętać podczas projektowania syntetycznych doświadczeń głosowych:
+Są to zasady, które należy wziąć pod uwagę podczas projektowania rozwiązań dotyczących głosu syntetycznego:
 
-**Wzmacnianie zaufania**
-<br>Projekt z zamiarem niepowodzenia testu Turinga bez poniżania doświadczenia. Pozwól użytkownikom na fakt, że są one interakcji z syntetycznym głosem, pozwalając im na bezproblemowe angażowanie się w doświadczenie.
+**Wzmocnienie zaufania**
+<br>Zaprojektuj z zamiarem niepowodzenia testu Turing bez obniżenia wydajności. Poinformuj użytkowników, że są w stanie korzystać z syntetycznego głosu, jednocześnie pozwalając im bezproblemowo komunikować się z tym doświadczeniem.
 
-**Dostosuj się do kontekstu użytkowania**
-<br>Dowiedz się, kiedy, gdzie i w jaki sposób użytkownicy będą wchodzić w interakcje z syntetycznym głosem, aby zapewnić odpowiedni rodzaj ujawnienia we właściwym czasie.
+**Dostosuj do kontekstu użytkowania**
+<br>Dowiedz się, kiedy i w jaki sposób użytkownicy będą korzystać z głosu syntetycznego, aby zapewnić właściwy typ ujawniania w odpowiednim czasie.
 
-**Ustal jasne oczekiwania**
-<br>Pozwól użytkownikom łatwo odkryć i zrozumieć możliwości agenta. Zaoferuj możliwości, aby dowiedzieć się więcej o technologii syntetycznego głosu na życzenie.
+**Ustaw jasne oczekiwania**
+<br>Zezwól użytkownikom na łatwe odnajdowanie i zrozumienie możliwości agenta. Oferuj szanse na uzyskanie dodatkowych informacji na temat syntetycznej technologii głosowej na żądanie.
 
-**Ogarnij porażkę**
-<br>Użyj momentów niepowodzenia, aby wzmocnić możliwości agenta.
+**Wystąpił błąd**
+<br>Aby wzmocnić możliwości agenta, użyj momentu niepowodzenia.
 
 ## <a name="how-to-use-this-guide"></a>Jak korzystać z tego przewodnika
 
-Ten przewodnik pomaga określić, które wzorce ujawniania są najlepiej dopasowane do syntetycznego głosu. Następnie przedstawiamy przykłady, jak i kiedy z nich korzystać. Każdy z tych wzorców ma na celu maksymalizację przejrzystości z użytkownikami na temat mowy syntetycznej, pozostając wiernym projektowi skoncentrowanego na człowieku.
+Ten przewodnik pomaga określić, które wzorce ujawniania najlepiej pasują do Twoich danych. Następnie oferujemy Przykłady sposobu i czasu korzystania z nich. Każdy z tych wzorców został zaprojektowany w celu zmaksymalizowania przejrzystości dla użytkowników na temat syntetycznej mowy, gdy jest to prawdziwe w przypadku projektowania przez człowieka.
 
-Biorąc pod uwagę ogromną ilość wskazówek projektowych dotyczących doświadczeń głosowych, skupiamy się tutaj w szczególności na:
+Biorąc pod uwagę ogromną część wytycznych dotyczących projektowania w zakresie obsługi głosu, koncentrujemy się tutaj na:
 
-1. [**Ocena ujawnienia**](#disclosure-assessment): Proces określania rodzaju ujawnienia zalecanego dla doświadczenia syntetycznego głosu
+1. [**Ocena ujawniania**](#disclosure-assessment): proces ustalania typu ujawniania zalecanego w przypadku korzystania z syntetycznego głosu
 
-2. [**Jak ujawnić**](concepts-disclosure-patterns.md): Przykłady wzorców ujawniania informacji, które można zastosować do syntetycznego głosu
+2. [**Jak ujawnić**](concepts-disclosure-patterns.md): przykłady wzorców ujawniania, które mogą być stosowane do Twoich syntetycznych funkcji głosowych
 
-3. [**Kiedy ujawnić**](concepts-disclosure-patterns.md#when-to-disclose): Optymalne momenty do ujawnienia w całej podróży użytkownika
+3. [**Kiedy ujawniać**](concepts-disclosure-patterns.md#when-to-disclose): optymalny czas na ujawnienie w trakcie podróży użytkownika
 
-## <a name="disclosure-assessment"></a>Ocena ujawniania informacji
-Należy wziąć pod uwagę użytkowników&#39; oczekiwania dotyczące interakcji i kontekstu, w którym będą doświadczać głosu. Jeśli kontekst jasno mówi, że &quot;głos syntetyczny jest głos,&quot; ujawnienie może być minimalne, chwilowe, a nawet niepotrzebne. Główne typy kontekstu, które wpływają na ujawnienie obejmują typ persona, typ scenariusza i poziom ekspozycji. Pomaga również zastanowić się, kto może słuchać.
+## <a name="disclosure-assessment"></a>Ocena ujawniania
+Należy wziąć pod uwagę, że użytkownicy&#39;ą oczekiwania na interakcję i kontekst, w którym będą mogli napotkać głos. Jeśli kontekst wyraźnie oznacza, że głos syntetyczny jest &quot;wymawiany&quot; , ujawnienie może być minimalne, dwuosobowe lub nawet zbędne. Główne typy kontekstu, które mają wpływ na ujawnienie, obejmują typ osoby, typ scenariusza i poziom narażenia. Pomaga również rozważyć, kto może nasłuchiwać.
 
-### <a name="understand-context"></a>Zrozumienie kontekstu
+### <a name="understand-context"></a>Opis kontekstu
 
-Ten arkusz służy do określania kontekstu syntetycznego głosu. Zastosuj to w następnym kroku, w którym określisz poziom ujawnienia.
+Ten arkusz służy do określania kontekstu Twojego środowiska głosu syntetycznego. Zostanie ona zastosowana w następnym kroku, w którym określisz poziom ujawniania.
 
 |                                    | Kontekst użytkowania                                                                                                                                                                                                                                                                                                                                                       | Potencjalne zagrożenia & wyzwania                                                                                                                                                                                                                                                                                                                                                                       |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **1. Typ persony**               | **Jeśli zastosowanie ma którakolwiek z poniższych aplikacji, twoja persona mieści się w kategorii "Persona podobna do człowieka":**<br><br><ul><li> Persona uosabia prawdziwego człowieka, czy jest to fikcyjna reprezentacja, czy nie. (np. zdjęcie lub wygenerowane komputerowo renderowanie prawdziwej osoby)<br><br><li> Syntetyczny głos opiera się na głosie powszechnie rozpoznawalnej prawdziwej osoby (np. celebrytki, postaci politycznej) | Im bardziej ludzkie reprezentacje dajesz swoją personę, tym bardziej prawdopodobne jest, że użytkownik skojarzy ją z prawdziwą osobą lub sprawi, że uwierzą, że treść jest wypowiadana przez prawdziwą osobę, a nie przez komputer. </ul>                                                                                                                                                                      |
-| **2. Typ scenariusza**            | **Jeśli zastosowanie ma którakolwiek z poniższych opcji, środowisko głosowe mieści się w kategorii "Poufne":**<br><br><ul><li> Uzyskiwanie lub wyświetlanie danych osobowych od użytkownika <br><br> <li> Transmisje wiadomości/informacji wrażliwych na czas (np. alarm alarmowy)<br><br><li> Ma na celu pomóc prawdziwym ludziom komunikować się ze sobą (np. czyta osobiste e-maile / teksty)<br><br> <li> Zapewnia pomoc medyczną/zdrowotną </ul>            | Użycie syntetycznego głosu może nie być właściwe lub godne zaufania dla osób korzystających z niego, gdy tematy są związane z wrażliwymi, osobistymi lub pilnymi sprawami. Mogą również oczekiwać takiego samego poziomu empatii i świadomości kontekstowej jak prawdziwy człowiek. |
-| **3. Poziom narażenia** |**Twoje doświadczenie głosowe najprawdopodobniej mieści się w kategorii "Wysoka", jeśli:** <br><br><ul><li>Użytkownik będzie często lub wchodził w interakcje z syntetycznym głosem lub przez długi czas </ul>                                                                                                                                                                             | Znaczenie bycia przejrzystym i budowania zaufania z użytkownikami jest jeszcze większe przy ustanawianiu długoterminowych relacji.                                                                                                                                                                                                                                                                      |
+| **1. typ osoby**               | **Jeśli którykolwiek z poniższych warunków dotyczy, osoba ta pasuje do kategorii "osoby podobne do":**<br><br><ul><li> Osoba jest w rzeczywistości prawdziwa, niezależnie od tego, czy jest to fikcyjna reprezentacja, czy nie. (np. Fotografia lub wygenerowane przez komputer renderowanie rzeczywistej osoby)<br><br><li> Cyfrowy głos jest oparty na głosowaniu szeroko rozpoznawalnej osoby rzeczywistej (np. osobistości, na przykład polityczny) | Im bardziej podobne przedstawicielstwa są udzielane osobie, tym większe prawdopodobieństwo, że użytkownik będzie skojarzyć go z osobą rzeczywistą lub może uznać, że zawartość jest wymawiana przez osobę rzeczywistą, a nie wygenerowaną przez komputer. </ul>                                                                                                                                                                      |
+| **2. typ scenariusza**            | **Jeśli którekolwiek z poniższych warunków, środowisko głosu pasuje do kategorii "poufne":**<br><br><ul><li> Uzyskuje lub wyświetla dane osobowe użytkownika <br><br> <li> Emituje poufne wiadomości/informacje (np. alerty awaryjne)<br><br><li> Ma na celu ułatwienie komunikacji ze sobą w rzeczywistych osobach (np. odczytywanie osobistych wiadomości e-mail/tekstów)<br><br> <li> Zapewnia pomoc medyczną/kondycję </ul>            | Korzystanie z syntetycznego głosu może nie być odpowiednie ani wiarygodne dla osób korzystających z niego, gdy tematy są powiązane z wrażliwymi, osobistymi lub pilnymi kwestiami. Mogą również oczekiwać tego samego poziomu empatię i świadomości kontekstowej jako prawdziwych ludzi. |
+| **3. poziom ekspozycji** |**Twoje środowisko głosu najprawdopodobniej pasuje do kategorii "wysoka", jeśli:** <br><br><ul><li>Użytkownik będzie słyszeć lub korzystać z głosu syntetycznego często lub przez długi czas </ul>                                                                                                                                                                             | Znaczenie dla przejrzystości i kompilowanie relacji zaufania z użytkownikami jest jeszcze większe podczas ustanawiania długoterminowych relacji.                                                                                                                                                                                                                                                                      |
 
-### <a name="determine-disclosure-level"></a>Określanie poziomu ujawniania informacji
+### <a name="determine-disclosure-level"></a>Określ poziom ujawniania
 
-Użyj poniższego diagramu, aby ustalić, czy środowisko głosu syntetycznego wymaga wysokiego lub niskiego ujawnienia na podstawie kontekstu użycia.
+Użyj poniższego diagramu, aby określić, czy Twoje syntetyczne środowisko głosu wymaga wysokiego lub niskiego ujawnienia na podstawie kontekstu użytkowania.
 
-  ![Wykres oceny ujawniania informacji](media/responsible-ai/disclosure-guidelines/flowchart.png)
+  ![Diagram oceny ujawniania](media/responsible-ai/disclosure-guidelines/flowchart.png)
 
-## <a name="reference-docs"></a>Dokumenty referencyjne
+## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
-* [Ujawnienie talentu głosów](https://aka.ms/disclosure-voice-talent)
-* [Wytyczne dotyczące odpowiedzialnego wdrażania technologii syntetycznego głosu](concepts-guidelines-responsible-deployment-synthetic.md)
-* [Przegląd Gating](concepts-gating-overview.md)
+* [Ujawnienie dla talent głosu](https://aka.ms/disclosure-voice-talent)
+* [Wytyczne dotyczące odpowiedzialnego wdrożenia syntetycznej technologii głosowej](concepts-guidelines-responsible-deployment-synthetic.md)
+* [Kontroli — Omówienie](concepts-gating-overview.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

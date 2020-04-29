@@ -1,7 +1,7 @@
 ---
-title: Taksonomia kategorii obrazów - Wizja komputerowa
+title: Taksonomia kategorii obrazów — przetwarzanie obrazów
 titleSuffix: Azure Cognitive Services
-description: Pobierz 86 kategorii taksonomii dla interfejsu API przetwarzania obrazów w usługach Azure Cognitive Services.
+description: Pobierz kategorie 86 taksonomii dla interfejs API przetwarzania obrazów na platformie Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 42562f3e19844621cb3893cb4ce185e85cf7e0ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68565753"
 ---
-# <a name="computer-vision-86-category-taxonomy"></a>Taksonomia komputerowa wizja 86 kategorii
+# <a name="computer-vision-86-category-taxonomy"></a>Przetwarzanie obrazów 86 — Taksonomia kategorii
 
 abstract_
 

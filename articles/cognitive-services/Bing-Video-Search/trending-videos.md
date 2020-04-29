@@ -1,7 +1,7 @@
 ---
-title: Wyszukiwanie w internecie popularnych klipów wideo za pomocą interfejsu API wyszukiwania wideo usługi Bing
+title: Wyszukaj w sieci Web trendy dotyczące trendów wideo przy użyciu interfejs API wyszukiwania wideo Bing
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak używać interfejsu API wyszukiwania wideo Bing do wyszukiwania w internecie popularnych klipów wideo.
+description: Dowiedz się, jak za pomocą interfejs API wyszukiwania wideo Bing przeszukać w Internecie trendy dotyczące trendów wideo.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: ea6f79bf6c305ecc07b3e684ede15ad439039e7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68500614"
 ---
-# <a name="get-trending-videos-with-the-bing-video-search-api"></a>Uzyskaj popularne filmy za pomocą interfejsu API wyszukiwania wideo usługi Bing 
+# <a name="get-trending-videos-with-the-bing-video-search-api"></a>Zyskaj trendy wideo przy użyciu interfejs API wyszukiwania wideo Bing 
 
-Interfejs API wyszukiwania wideo Bing umożliwia znajdowanie popularnych klipów wideo z całej sieci i w różnych kategoriach. 
+Interfejs API wyszukiwania wideo Bing umożliwia znalezienie dzisiejszych trendów wideo z poziomu sieci Web, a w różnych kategoriach. 
 
-## <a name="get-request"></a>Wniosek GET
+## <a name="get-request"></a>Pobierz żądanie
 
-Aby uzyskać dzisiejsze popularne filmy z interfejsu API wyszukiwania wideo Bing, wyślij następujące żądanie GET:  
+Aby uzyskać aktualne trendy wideo z interfejs API wyszukiwania wideo Bing, wyślij następujące żądanie GET:  
   
 ```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/trending?mkt=en-us HTTP/1.1
@@ -35,27 +35,27 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```
 
-## <a name="market-support"></a>Wsparcie rynku
+## <a name="market-support"></a>Wsparcie dla rynku
 
-Poniższe rynki obsługują popularne filmy.  
+Poniższe rynki obsługują trendy dotyczące trendów wideo.  
  
 -   en-AU (angielski, Australia)  
--   en-CA (angielski, Kanada)  
--   pl-PL (angielski, Wielka Brytania)  
--   en-ID (angielski, Indonezja)  
--   en-IE (angielski, Irlandia)  
--   pl-IN (angielski, Indie)  
--   pl-NZ (angielski, Nowa Zelandia)  
--   en-PH (angielski, Filipiny)  
--   en-SG (angielski, Singapur)  
+-   EN-CA (angielski, Kanada)  
+-   pl-GB (angielski, Wielka Brytania)  
+-   EN-ID (angielski, Indonezja)  
+-   EN-IE (angielski, Irlandia)  
+-   pl (angielski, Indie)  
+-   EN-NZ (angielski, Nowa Zelandia)  
+-   EN-PH (angielski, Filipiny)  
+-   EN-SG (angielski, Singapur)  
 -   pl-US (angielski, Stany Zjednoczone)  
--   en-WW (angielski, światowy kod zbiorczy)  
--   en-ZA (angielski, Republika Południowej Afryki)  
+-   EN-WW (angielski, ogólnoświatowy kod agregacji)  
+-   pl-za (angielski, RPA)  
 -   zh-CN (chiński, Chiny)
 
 ## <a name="example-json-response"></a>Przykładowa odpowiedź JSON  
 
-W poniższym przykładzie przedstawiono odpowiedź interfejsu API zawierającą popularne filmy wideo, które są wyświetlane według kategorii i podkategorii. Odpowiedź zawiera również banery wideo, które są najpopularniejszymi popularnymi filmami i mogą pochodzić z jednej lub więcej kategorii.  
+Poniższy przykład przedstawia odpowiedź interfejsu API, która zawiera trendy wideo, które są wyświetlane według kategorii i podkategorii. Odpowiedź zawiera również wideo transparentów, które są najpopularniejszymi trendami wideo i mogą pochodzić z jednej lub kilku kategorii.  
 
 ```json
 {  

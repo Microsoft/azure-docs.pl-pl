@@ -1,7 +1,7 @@
 ---
-title: Trenuj model dla niestandardowej mowy — usługa mowy
+title: Uczenie modelu dla usługi Custom Speech-Speech
 titleSuffix: Azure Cognitive Services
-description: Szkolenie modelu zamiany mowy na tekst może zwiększyć dokładność rozpoznawania dla modelu bazowego firmy Microsoft lub modelu niestandardowego. Model jest szkolony przy użyciu transkrypcji oznaczonych przez człowieka i powiązanych tekstów.
+description: Uczenie modelu zamiany mowy na tekst może poprawić dokładność rozpoznawania dla modelu linii bazowej firmy Microsoft lub modelu niestandardowego. Model jest szkolony z zastosowaniem transkrypcji i powiązanego tekstu.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,60 +11,60 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: a2bc39a35299f56ba52a0143ce123560bd4d88fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77137767"
 ---
-# <a name="train-a-model-for-custom-speech"></a>Trenuj model mowy niestandardowej
+# <a name="train-a-model-for-custom-speech"></a>Trenowanie modelu dla usługi Custom Speech
 
-Szkolenie modelu zamiany mowy na tekst może zwiększyć dokładność rozpoznawania dla modelu bazowego firmy Microsoft. Model jest szkolony przy użyciu transkrypcji oznaczonych przez człowieka i powiązanych tekstów. Te zestawy danych wraz z wcześniej przesłane dane audio, są używane do uściślania i szkolenia modelu mowy do tekstu do rozpoznawania słów, fraz, akronimów, nazw i innych terminów specyficznych dla produktu. Im więcej zestawów danych w domenie podasz (dane związane z tym, co użytkownicy powiedzą i czego oczekujesz rozpoznać), tym dokładniejszy będzie model, co skutkuje lepszym rozpoznawaniem. Należy pamiętać, że poprzez podawanie niepowiązanych danych do szkolenia, można zmniejszyć lub zranić dokładność modelu.
+Uczenie modelu zamiany mowy na tekst może poprawić dokładność rozpoznawania dla modelu bazowego firmy Microsoft. Model jest szkolony z zastosowaniem transkrypcji i powiązanego tekstu. Te zestawy danych wraz z wcześniej przekazanymi danymi audio są używane do udoskonalania i uczenia modelu zamiany mowy na tekst w celu rozpoznawania wyrazów, fraz, akronimów, nazw i innych warunków specyficznych dla produktu. Im bardziej szczegółowe zestawy danych w domenie, które zapewniasz (dane związane z tym, co użytkownicy będą wiedzieć i jakie są oczekiwane do rozpoznania), to dokładniejszy model, który będzie wynikiem ulepszonego rozpoznawania. Należy pamiętać, że przez podawanie niepowiązanych danych do szkolenia, można zmniejszyć lub obniżyć dokładność modelu.
 
-## <a name="use-training-to-resolve-accuracy-issues"></a>Rozwiązywanie problemów z dokładnością do obsługi obsługi szkoleniowej
+## <a name="use-training-to-resolve-accuracy-issues"></a>Rozwiązywanie problemów z dokładnością przy użyciu szkoleń
 
-Jeśli napotkasz problemy z rozpoznawaniem modelu, użycie transkrypcji oznaczonych etykietą ludzką i powiązanych danych do dodatkowego szkolenia może pomóc poprawić dokładność. Ta tabela służy do określania, który zestaw danych ma być używany do rozwiązywania problemów:
+Jeśli napotykasz problemy z rozpoznawaniem z modelem, używanie transkrypcji z etykietami i powiązane dane dla dodatkowego szkolenia może pomóc poprawić dokładność. Użyj tej tabeli, aby określić zestaw danych, który ma być używany do rozwiązywania problemów:
 
 | Przypadek użycia | Typ danych |
 | -------- | --------- |
-| Popraw dokładność rozpoznawania słownictwa i gramatyki specyficznej dla branży, takiej jak terminologia medyczna lub żargon IT. | Tekst pokrewny (zdania/wypowiedzi) |
-| Zdefiniuj fonetyczną i wyświetlaną formę wyrazu lub terminu o niestandardowej wymowie, taką jak nazwy produktów lub akronimy. | Tekst pokrewny (wymowa) |
-| Zwiększ dokładność rozpoznawania stylów mówienia, akcentów lub określonych odgłosów tła. | Transkrypcje audio + oznaczone przez człowieka |
+| Popraw dokładność rozpoznawania w przypadku słownictwa i gramatyki właściwych dla branży, takich jak Terminologia medyczna lub żargon IT. | Pokrewny tekst (zdania/wyrażenia długości) |
+| Zdefiniuj tekst fonetyczny i wyświetloną wyrazu lub terminu, który ma niestandardową wymowę, taką jak nazwy produktów lub akronimy. | Pokrewny tekst (wymowa) |
+| Popraw dokładność rozpoznawania w przypadku stylów, akcentów lub określonych szumów w tle. | Zapisy audio + oznakowane przez człowieka |
 
 > [!IMPORTANT]
-> Jeśli nie przesłałeś zestawu danych, zobacz [Przygotowywanie i testowanie danych](how-to-custom-speech-test-data.md). Ten dokument zawiera instrukcje przekazywania danych i wskazówki dotyczące tworzenia zestawów danych wysokiej jakości.
+> Jeśli zestaw danych nie został przekazany, zapoznaj się [z tematem przygotowywanie i testowanie danych](how-to-custom-speech-test-data.md). Ten dokument zawiera instrukcje dotyczące przekazywania danych oraz wskazówki dotyczące tworzenia zestawów danych o wysokiej jakości.
 
 ## <a name="train-and-evaluate-a-model"></a>Trenowanie i ocenianie modelu
 
-Pierwszym krokiem do szkolenia modelu jest przekazywanie danych szkoleniowych. Użyj [przygotować i przetestować dane](how-to-custom-speech-test-data.md) dla instrukcji krok po kroku, aby przygotować transkrypcje oznaczone przez człowieka i powiązanego tekstu (wypowiedzi i wymowy). Po przesłaniu danych szkoleniowych postępuj zgodnie z poniższymi instrukcjami, aby rozpocząć szkolenie modelu:
+Pierwszym krokiem do uczenia modelu jest przekazanie danych szkoleniowych. Użyj opcji [Przygotuj i przetestuj dane](how-to-custom-speech-test-data.md) , aby uzyskać instrukcje krok po kroku w celu przygotowania oznakowania i powiązanego tekstu (wyrażenia długości i wymowy). Po przesłaniu danych szkoleniowych postępuj zgodnie z poniższymi instrukcjami, aby rozpocząć uczenie modelu:
 
-1. Zaloguj się do [portalu mowy niestandardowej](https://speech.microsoft.com/customspeech).
-2. Przejdź do **sekcji Ćwiczenie > mowy > niestandardowej mowy >**.
-3. Kliknij **pozycję Model pociągu**.
-4. Następnie nadaj treningowi **nazwę** i **opis**.
-5. Z menu rozwijanego **Scenariusz i model linii bazowej** wybierz scenariusz, który najlepiej pasuje do Twojej domeny. Jeśli nie masz pewności, który scenariusz wybrać, wybierz **opcję Ogólne**. Model linii bazowej jest punktem wyjścia do szkolenia. Jeśli nie masz preferencji, możesz użyć najnowszych.
-6. Na stronie **Wybierz dane szkoleniowe** wybierz jeden lub wiele zestawów danych transkrypcyjnych oznaczonych etykietą człowieka, których chcesz użyć do szkolenia.
-7. Po zakończeniu szkolenia można wykonać testowanie dokładności na nowo przeszkolonym modelu. Ten krok jest opcjonalny.
-8. Wybierz **pozycję Utwórz,** aby utworzyć model niestandardowy.
+1. Zaloguj się do [portalu Custom Speech](https://speech.microsoft.com/customspeech).
+2. Przejdź do **> mowy Custom Speech > szkolenia**.
+3. Kliknij pozycję **uczenie modelu**.
+4. Następnie Nadaj swojemu szkoleniowi **nazwę** i **Opis**.
+5. Z menu rozwijanego **model scenariusza i linia bazowa** Wybierz scenariusz, który najlepiej pasuje do domeny. Jeśli nie masz pewności, który scenariusz wybrać, wybierz pozycję **Ogólne**. Model linii bazowej jest punktem początkowym szkolenia. Jeśli nie masz preferencji, możesz użyć najnowszej.
+6. Na stronie **Wybierz dane szkoleniowe** wybierz jeden lub wiele zestawów danych, które mają być używane do szkoleń.
+7. Po zakończeniu szkolenia możesz wybrać przeprowadzenie testowania dokładności dla nowo nauczonego modelu. Ten krok jest opcjonalny.
+8. Wybierz pozycję **Utwórz** , aby skompilować niestandardowy model.
 
-W tabeli Szkolenia jest wyświetlany nowy wpis odpowiadający temu nowo utworzonemu modelowi. W tabeli wyświetlany jest również stan: Przetwarzanie, Powodzenie, Niepowodzenie.
+W tabeli szkoleń zostanie wyświetlony nowy wpis, który odnosi się do nowo utworzonego modelu. W tabeli jest również wyświetlany stan: przetwarzanie, zakończone powodzeniem, zakończone niepowodzeniem.
 
-## <a name="evaluate-the-accuracy-of-a-trained-model"></a>Ocena dokładności wyszkolonego modelu
+## <a name="evaluate-the-accuracy-of-a-trained-model"></a>Oceń dokładność przeszkolonego modelu
 
-Można sprawdzić dane i ocenić dokładność modelu za pomocą następujących dokumentów:
+Możesz sprawdzić dane i oszacować dokładność modeli przy użyciu tych dokumentów:
 
-- [Sprawdź swoje dane](how-to-custom-speech-inspect-data.md)
-- [Oceń swoje dane](how-to-custom-speech-evaluate-data.md)
+- [Inspekcja danych](how-to-custom-speech-inspect-data.md)
+- [Oceń dane](how-to-custom-speech-evaluate-data.md)
 
-Jeśli zdecydujesz się przetestować dokładność, ważne jest, aby wybrać zestaw danych akustycznych, który różni się od używanego w modelu, aby uzyskać realistyczne poczucie wydajności modelu.
+Jeśli zdecydowano się na przetestowanie dokładności, ważne jest, aby wybrać akustyczny zestaw danych, który różni się od tego, który był używany z modelem w celu uzyskania realistycznego sensu wydajności modelu.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Wdrażanie modelu](how-to-custom-speech-deploy-model.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Przygotowanie i przetestowanie danych](how-to-custom-speech-test-data.md)
-- [Sprawdź swoje dane](how-to-custom-speech-inspect-data.md)
-- [Oceń swoje dane](how-to-custom-speech-evaluate-data.md)
+- [Przygotowywanie i testowanie danych](how-to-custom-speech-test-data.md)
+- [Inspekcja danych](how-to-custom-speech-inspect-data.md)
+- [Oceń dane](how-to-custom-speech-evaluate-data.md)
 - [Trenowanie modelu](how-to-custom-speech-train-model.md)

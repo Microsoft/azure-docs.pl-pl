@@ -1,7 +1,7 @@
 ---
-title: Uaktualnienie z interfejsu API w wersji 5 do wersji 7 — interfejs API wyszukiwania w sieci Web usługi Bing
+title: Uaktualnianie z interfejsu API V5 do wersji 7 — interfejs API wyszukiwania w sieci Web Bing
 titleSuffix: Azure Cognitive Services
-description: Określ, które części aplikacji wymagają aktualizacji, aby używać interfejsów API usługi Bing Web Search w wersji 7.
+description: Ustal, które części aplikacji wymagają aktualizacji, aby używać wyszukiwanie w sieci Web Bing interfejsów API wersji 7.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -12,77 +12,77 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
 ms.openlocfilehash: 2133cd59c524112ae8a77c0a20cbce1d1336a38d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68881303"
 ---
-# <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Uaktualnienie z interfejsu API wyszukiwania w sieci Web usługi Bing w wersji 5 do wersji 7
+# <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Uaktualnianie z wersji interfejs API wyszukiwania w sieci Web Bing V5 do wersji 7
 
-Ten przewodnik uaktualnienia identyfikuje zmiany między wersją 5 i wersją 7 interfejsu API wyszukiwania w sieci Web Bing. Ten przewodnik ułatwia identyfikowanie części aplikacji, które należy zaktualizować, aby korzystać z wersji 7.
+Ten przewodnik uaktualniania identyfikuje zmiany między wersjami 5 i 7 interfejs API wyszukiwania w sieci Web Bing. Skorzystaj z tego przewodnika, aby ułatwić identyfikację części aplikacji, które należy zaktualizować, aby użyć wersji 7.
 
 ## <a name="breaking-changes"></a>Fundamentalne zmiany
 
 ### <a name="endpoints"></a>Punkty końcowe
 
-- Numer wersji punktu końcowego został zmieniony z v5 na v7. Na przykład https:\/\/api.cognitive.microsoft.com/bing/**v7.0**/search.
+- Numer wersji punktu końcowego zmienił się z 5 na wersji 7. Na przykład https:\/\/API.Cognitive.Microsoft.com/Bing/**v 7.0**/Search.
 
-### <a name="error-response-objects-and-error-codes"></a>Obiekty odpowiedzi na błędy i kody błędów
+### <a name="error-response-objects-and-error-codes"></a>Obiekty odpowiedzi błędów i kody błędów
 
-- Wszystkie żądania nie powiodło `ErrorResponse` się powinny teraz zawierać obiekt w treści odpowiedzi.
+- Wszystkie żądania zakończone niepowodzeniem powinny teraz `ErrorResponse` zawierać obiekt w treści odpowiedzi.
 
-- Dodano następujące pola `Error` do obiektu.  
-  - `subCode`&mdash;Dzieli kod błędu na dyskretne zasobniki, jeśli to możliwe
-  - `moreDetails`&mdash;Dodatkowe informacje o błędzie opisanym w `message` polu
+- Dodano następujące pola do `Error` obiektu.  
+  - `subCode`&mdash;Dzieli kod błędu do zasobników dyskretnych, o ile to możliwe
+  - `moreDetails`&mdash;Dodatkowe informacje na temat błędu opisanego w `message` polu
 
 
-- Zastąpiono kody błędów v5 następującymi możliwymi `code` i `subCode` wartościami.
+- Zamieniono kody błędów v5 z następującymi możliwymi `code` wartościami i `subCode` .
 
-|Code|Subcode|Opis
+|Code|Podkod|Opis
 |-|-|-
-|Serwer Serwera|UnexpectedError (Nieoczekiwanyeror)<br/>Źródło zasobów<br/>Nienałożony|Bing zwraca ServerError zawsze, gdy wystąpi którykolwiek z warunków podkodu. Odpowiedź będzie zawierać te błędy, jeśli kod stanu HTTP jest 500.
-|Prośba o unieważnienie|Odsuwanie parametrów<br/>Wartość parametruInvalidValue<br/>HttpNotallowed (Nieuwolna)<br/>Zablokowane|Bing zwraca InvalidRequest, gdy jakakolwiek część żądania jest nieprawidłowa. Na przykład brakuje wymaganego parametru lub wartość parametru jest nieprawidłowa.<br/><br/>Jeśli błąd to ParameterMissing lub ParameterInvalidValue, kod stanu HTTP wynosi 400.<br/><br/>Jeśli błąd jest HttpNotAllowed, kod stanu HTTP 410.
-|RateLimitExceeded (RateLimitExceeded)||Bing zwraca RateLimitExceeded zawsze, gdy przekraczasz zapytania na sekundę (QPS) lub zapytania miesięcznie (QPM) przydział.<br/><br/>Bing zwraca kod stanu HTTP 429, jeśli przekroczono QPS i 403, jeśli przekroczono QPM.
-|InvalidAuthorization (In invalidAuthorization)|AuthorizationMissing<br/>AutoryzacjaRedundancy|Bing zwraca InvalidAuthorization, gdy bing nie może uwierzytelnić wywołującego. Na przykład `Ocp-Apim-Subscription-Key` brakuje nagłówka lub klucz subskrypcji jest nieprawidłowy.<br/><br/>Nadmiarowość występuje, jeśli określisz więcej niż jedną metodę uwierzytelniania.<br/><br/>Jeśli błąd to InvalidAuthorization, kod stanu HTTP to 401.
-|Niewystarczająca autoryzacja|AuthorizationDisabled (Nie można wyjawić)<br/>AuthorizationExpired (Brak uprawnień)|Bing zwraca InsufficientAuthorization, gdy wywołujący nie ma uprawnień dostępu do zasobu. Ten błąd może wystąpić, jeśli klucz subskrypcji został wyłączony lub wygasł. <br/><br/>Jeśli błąd jest InsufficientAuthorization, kod stanu HTTP jest 403.
+|Błąd servererror|UnexpectedError<br/>ResourceError<br/>Nie zaimplementowano|Bing zwraca błąd servererror w każdym wystąpieniu kodu podrzędnego. Odpowiedź będzie zawierać te błędy, jeśli kod stanu HTTP to 500.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Zablokowane|Bing zwraca InvalidRequest, gdy jakakolwiek część żądania jest nieprawidłowa. Na przykład brakuje wymaganego parametru lub wartość parametru jest nieprawidłowa.<br/><br/>Jeśli błąd to ParameterMissing lub ParameterInvalidValue, kod stanu HTTP to 400.<br/><br/>Jeśli błąd to HttpNotAllowed, kod stanu HTTP 410.
+|RateLimitExceeded||Bing zwraca RateLimitExceeded za każdym razem, gdy przekroczą limit przydziału zapytań na sekundę (zapytań) lub zapytania miesięcznie (QPM).<br/><br/>Bing zwraca kod stanu HTTP 429 w przypadku przekroczenia zapytań i 403 w przypadku przekroczenia QPM.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing zwraca InvalidAuthorization, gdy Bing nie może uwierzytelnić obiektu wywołującego. Na przykład brakuje `Ocp-Apim-Subscription-Key` nagłówka lub klucz subskrypcji jest nieprawidłowy.<br/><br/>Nadmiarowość występuje, jeśli określono więcej niż jedną metodę uwierzytelniania.<br/><br/>Jeśli błąd to InvalidAuthorization, kod stanu HTTP to 401.
+|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Usługa Bing zwraca InsufficientAuthorization, gdy obiekt wywołujący nie ma uprawnień dostępu do zasobu. Ten błąd może wystąpić, jeśli klucz subskrypcji został wyłączony lub wygasł. <br/><br/>Jeśli błąd to InsufficientAuthorization, kod stanu HTTP to 403.
 
-- Poniżej przedstawiono mapy poprzednich kodów błędów do nowych kodów. Jeśli została podjęta zależność od kodów błędów v5, należy odpowiednio zaktualizować kod.
+- Poniżej przedstawiono mapowanie poprzednich kodów błędów do nowych kodów. Jeśli pobrano zależność od kodów błędów w programie V5, zaktualizuj kod odpowiednio.
 
-|Kod w wersji 5|Wersja 7 code.subCode
+|Kod w wersji 5|Kod w wersji 7. podkod
 |-|-
-|RequestParameterMissing|Nieprawidłowyrequest.ParameterMissing
+|RequestParameterMissing|InvalidRequest.ParameterMissing
 RequestParameterInvalidValue|InvalidRequest.ParameterInvalidValue
-ResourceAccessDenied|Niewystarczająca autoryzacja
-Przekroczonawolienie|RateLimitExceeded (RateLimitExceeded)
-ExceededQpsLimit|RateLimitExceeded (RateLimitExceeded)
-Disabled (Wyłączony)|InsufficientAuthorization.AuthorizationWydanie
-UnexpectedError (Nieoczekiwanyeror)|SerwerError.UnexpectedError
-Źródła danychErrory|SerwerError.ResourceError
+ResourceAccessDenied|InsufficientAuthorization
+ExceededVolume|RateLimitExceeded
+ExceededQpsLimit|RateLimitExceeded
+Disabled (Wyłączony)|InsufficientAuthorization.AuthorizationDisabled
+UnexpectedError|Błąd servererror. UnexpectedError
+DataSourceErrors|Błąd servererror. ResourceError
 AuthorizationMissing|InvalidAuthorization.AuthorizationMissing
-HttpNotallowed (Nieuwolna)|InvalidRequest.httpNie wolno
-UserAgentMissing|Nieprawidłowyrequest.ParameterMissing
-Nienałożony|ServerError.NotImplemented (Niewlegiętym)
-InvalidAuthorization (In invalidAuthorization)|InvalidAuthorization (In invalidAuthorization)
-Nieprawidłowametoda autoryzacji|InvalidAuthorization (In invalidAuthorization)
-WieleautoryzacjiMetoda|InvalidAuthorization.AuthorizationRedundancy InvalidAuthorization.AuthorizationRedundancy InvalidAuthorization.AuthorizationRedundancy Invalid
-Wygasła autoryzacjaPokajła|InsufficientAuthorization.AuthorizationExpired
-InsufficientScope (niewystarczające skos|Niewystarczająca autoryzacja
-Zablokowane|InvalidRequest.Blocked (InvalidRequest.Blocked)
+HttpNotAllowed|InvalidRequest.HttpNotAllowed
+UserAgentMissing|InvalidRequest.ParameterMissing
+Nie zaimplementowano|Błąd servererror. nie zaimplementowano
+InvalidAuthorization|InvalidAuthorization
+InvalidAuthorizationMethod|InvalidAuthorization
+MultipleAuthorizationMethod|InvalidAuthorization.AuthorizationRedundancy
+ExpiredAuthorizationToken|InsufficientAuthorization.AuthorizationExpired
+InsufficientScope|InsufficientAuthorization
+Zablokowane|InvalidRequest. zablokowane
 
 
-## <a name="non-breaking-changes"></a>Zmiany nierozłamane  
+## <a name="non-breaking-changes"></a>Niekrytyczne zmiany  
 
 ### <a name="headers"></a>Nagłówki
 
-- Dodano opcjonalny nagłówek żądania [Pragma.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) Usługa Bing domyślnie zwraca zawartość buforowaną, jeśli jest dostępna. Aby zapobiec zwracaniu zawartości buforowanej przez usługę Bing, dla nagłówka Pragma ustaw wartość no-cache (na przykład Pragma: no-cache).
+- Dodano opcjonalny nagłówek żądania [pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) . Usługa Bing domyślnie zwraca zawartość buforowaną, jeśli jest dostępna. Aby zapobiec zwracaniu zawartości buforowanej przez usługę Bing, dla nagłówka Pragma ustaw wartość no-cache (na przykład Pragma: no-cache).
 
 ### <a name="query-parameters"></a>Parametry zapytania
 
-- Dodano parametr zapytania [answerCount.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) Ten parametr służy do określania liczby odpowiedzi, które mają zostać uwzględnione w odpowiedzi. Odpowiedzi są wybierane na podstawie rankingu. Na przykład jeśli ustawisz ten parametr na trzy (3), odpowiedź zawiera trzy najlepsze odpowiedzi rankingowe.  
+- Dodano parametr zapytania [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) . Użyj tego parametru, aby określić liczbę odpowiedzi, które ma uwzględnić odpowiedź. Odpowiedzi są wybierane na podstawie klasyfikacji. Na przykład, jeśli ustawisz ten parametr na trzy (3), odpowiedź zawiera trzy pierwsze odpowiedzi z rangą.  
 
-- Dodano parametr [kwerendy podwyższającej.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) Użyj tego parametru wraz z `answerCount` jawnie dołączyć jeden lub więcej typów odpowiedzi, niezależnie od ich rankingu. Na przykład, aby promować filmy i obrazy w odpowiedzi, należy ustawić promowanie *filmów, obrazów.* Lista odpowiedzi, które chcesz promować, nie jest `answerCount` wliczona do limitu. Na przykład, `answerCount` jeśli jest `promote` 2 i jest ustawiona na *filmy, obrazy*, odpowiedź może zawierać strony internetowe, wiadomości, filmy i obrazy.
+- Dodano parametr [podwyższanie poziomu](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) zapytania. Użyj tego parametru wraz z `answerCount` , aby jawnie uwzględnić jeden lub więcej typów odpowiedzi niezależnie od ich klasyfikacji. Na przykład w celu promowania wideo i obrazów w odpowiedzi należy ustawić opcję Podwyższ poziom do *filmów wideo*. Lista odpowiedzi, które chcesz podwyższyć, nie jest uwzględniana w `answerCount` limicie. Na przykład jeśli `answerCount` wartość jest równa `promote` 2 i jest ustawiona na *wideo, obrazy*, odpowiedź może zawierać strony sieci Web, wiadomości, wideo i obrazy.
 
-### <a name="object-changes"></a>Zmiany obiektu
+### <a name="object-changes"></a>Zmiany obiektów
 
-- Dodano `someResultsRemoved` to pole do obiektu [WebAnswer.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) To pole zawiera wartość logiczną, która wskazuje, czy odpowiedź wykluczyła niektóre wyniki z odpowiedzi sieci web.  
+- Dodano `someResultsRemoved` pole do obiektu [webodpowiedź](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) . Pole zawiera wartość logiczną wskazującą, czy odpowiedź wyklucza niektóre wyniki z odpowiedzi w sieci Web.  

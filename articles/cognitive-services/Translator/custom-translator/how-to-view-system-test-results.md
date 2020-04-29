@@ -1,7 +1,7 @@
 ---
-title: Wyświetlanie wyników testów systemu i wdrażania — usługa Custom Translator
+title: Wyświetlanie wyników testu systemu i wdrożenia — translator niestandardowy
 titleSuffix: Azure Cognitive Services
-description: Gdy szkolenie zakończy się pomyślnie, przejrzyj testy systemowe, aby przeanalizować wyniki treningu. Jeśli wyniki szkolenia są zadowalające, umieść żądanie wdrożenia dla wyszkolonego modelu.
+description: Po pomyślnym zakończeniu szkolenia Przejrzyj testy systemowe, aby przeanalizować wyniki szkolenia. Jeśli masz zadowalające wyniki szkolenia, umieść żądanie wdrożenia dla modelu przeszkolonego.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,98 +10,98 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68595602"
 ---
 # <a name="view-system-test-results"></a>Wyświetlanie wyników testu systemu
 
-Gdy szkolenie zakończy się pomyślnie, przejrzyj testy systemowe, aby przeanalizować wyniki treningu. Jeśli wyniki szkolenia są zadowalające, umieść żądanie wdrożenia dla wyszkolonego modelu.
+Po pomyślnym zakończeniu szkolenia Przejrzyj testy systemowe, aby przeanalizować wyniki szkolenia. Jeśli masz zadowalające wyniki szkolenia, umieść żądanie wdrożenia dla modelu przeszkolonego.
 
-## <a name="system-test-results-page"></a>Strona wyników testów systemu
+## <a name="system-test-results-page"></a>Strona wyników testu systemu
 
-Wybierz projekt, a następnie wybierz kartę modele tego projektu, znajdź model, którego chcesz użyć, a na koniec wybierz kartę testu.
+Wybierz projekt, a następnie wybierz kartę modele tego projektu, Znajdź model, którego chcesz użyć, a następnie wybierz kartę test.
 
-Karta testowa pokazuje:
+Karta test pokazuje:
 
-1.  **Wyniki testów systemu:** Wynik procesu testowego w szkoleniach. Proces testowy tworzy wynik BLEU.
+1.  **Wyniki testów systemu:** Wynik procesu testowego w szkoleniach. Proces testowy daje wynik BLEU.
 
-    **Liczba zdań:** Ile równoległych zdań zostało użytych w zestawie testów.
+    **Liczba zdań:** Ile zdań równoległych zostało użytych w zestawie testów.
 
-     **Wynik BLEU:** Wynik BLEU wygenerowany dla modelu po zakończeniu szkolenia.
+     **Bleu:** Wynik BLEU wygenerowany dla modelu po zakończeniu szkolenia.
 
-    **Status:** Wskazuje, czy proces testu został zakończony lub w toku.
+    **Stan:** Wskazuje, czy proces testowy jest zakończony, czy w toku.
 
-    ![Wyniki testów systemu](media/how-to/how-to-system-test-results.png)
+    ![Wyniki testu systemu](media/how-to/how-to-system-test-results.png)
 
-2.  Kliknij na wyniki testu systemu, a to zajmie Ci przetestować szczegóły wyników strony. Na tej stronie przedstawiono tłumaczenie maszynowe zdań, które były częścią zestawu danych testowych.
+2.  Kliknij wyniki testu systemu i przejdziesz do strony szczegółów wyników testu. Na tej stronie jest wyświetlane tłumaczenie zdań, które były częścią testu zestawu danych.
 
-3.  Tabela na stronie szczegółów wyników testu ma dwie kolumny — po jednej dla każdego języka w parze. Kolumna dla języka źródłowego pokazuje zdanie do przetłumaczenia. Kolumna dla języka docelowego zawiera dwa zdania w każdym wierszu.
+3.  Tabela na stronie szczegółów wyniku testu ma dwie kolumny — jeden dla każdego języka w parze. Kolumna w języku źródłowym pokazuje zdanie, które ma zostać przetłumaczone. Kolumna języka docelowego zawiera dwa zdania w każdym wierszu.
 
-    **Ref:** To zdanie jest tłumaczeniem odwołania zdania źródłowego podane w zestawie danych testowych.
+    **Odwołanie:** To zdanie jest translacją referencyjną zdania źródłowego zgodnie z podanym w testowym zestawie danych.
 
-    **MT:** To zdanie jest automatyczne tłumaczenie zdania źródłowego wykonane przez model zbudowany po szkolenia została przeprowadzona.
+    **MT:** To zdanie to automatyczne tłumaczenie zdania źródłowego wykonane przez model utworzony po przeprowadzeniu szkolenia.
 
-    ![Porównanie wyników testów systemu](media/how-to/how-to-system-test-results-2.png)
+    ![Porównanie wyników testu systemu](media/how-to/how-to-system-test-results-2.png)
 
-## <a name="download-test"></a>Test pobierania
+## <a name="download-test"></a>Pobierz test
 
-Kliknij łącze Pobierz tłumaczenia, aby pobrać plik zip. Zip zawiera tłumaczenia maszynowe zdań źródłowych w zestawie danych testowych.
+Kliknij link Pobierz tłumaczenia, aby pobrać plik zip. Plik zip zawiera tłumaczenia maszyn źródłowych w zestawie danych testowych.
 
-![Test pobierania](media/how-to/how-to-system-test-download.png)
+![Pobierz test](media/how-to/how-to-system-test-download.png)
 
 To pobrane archiwum zip zawiera trzy pliki.
 
-1.  **custom.mt.txt:** Ten plik zawiera tłumaczenia maszynowe zdań języka źródłowego w języku docelowym wykonane przez model przeszkolony z danymi użytkownika.
+1.  **Custom. Mt. txt:** Ten plik zawiera tłumaczenia maszyn źródłowych w języku docelowym wykonywane przez model przeszkolony z danymi użytkownika.
 
-2.  **ref.txt:** Ten plik zawiera podane przez użytkownika tłumaczenia zdań języka źródłowego w języku docelowym.
+2.  **ref. txt:** Ten plik zawiera tłumaczenia liter języka źródłowego w języku docelowym.
 
-3.  **źródło.txt:** Ten plik zawiera zdania w języku źródłowym.
+3.  **source. txt:** Ten plik zawiera zdania w języku źródłowym.
 
-    ![Pobrane wyniki testów systemowych](media/how-to/how-to-download-system-test.png)
+    ![Pobrane wyniki testu systemu](media/how-to/how-to-download-system-test.png)
 
 ## <a name="deploy-a-model"></a>Wdrażanie modelu
 
 Aby zażądać wdrożenia:
 
-1.  Wybierz projekt, przejdź do karty Modele.
+1.  Wybierz projekt, przejdź do pozycji modele karta.
 
-2. Dla pomyślnie uczonego modelu, pokazuje przycisk "Wdrażanie", jeśli nie wdrożony.
+2. W przypadku modelu, który został pomyślnie przeszkolony, wyświetla przycisk "wdróż", jeśli nie został wdrożony.
 
-    ![Wdrażanie modelu](media/how-to/how-to-deploy-model.png)
+    ![Wdróż model](media/how-to/how-to-deploy-model.png)
 
-3.  Kliknij przycisk Wdrażanie.
-4.  Wybierz **pozycję Wdrożone** dla regionów, w których chcesz wdrożyć model, a następnie kliknij przycisk Zapisz. Można wybrać **wdrożone** dla wielu regionów.
+3.  Kliknij pozycję Wdróż.
+4.  Wybierz pozycję **wdrożone** dla regionów, w których ma zostać wdrożony model, a następnie kliknij przycisk Zapisz. Można wybrać **wdrożenie** dla wielu regionów.
 
-    ![Wdrażanie modelu](media/how-to/how-to-deploy-model-regions.png)
+    ![Wdróż model](media/how-to/how-to-deploy-model-regions.png)
 
-5.  Stan modelu można wyświetlić w kolumnie "Stan".
+5.  Stan modelu można wyświetlić w kolumnie Stan.
 
 >[!Note]
->Usługa Custom Translator obsługuje 10 wdrożonych modeli w obszarze roboczym w dowolnym momencie.
+>Translator niestandardowy obsługuje 10 wdrożonych modeli w obszarze roboczym w dowolnym momencie.
 
-## <a name="update-deployment-settings"></a>Aktualizowanie ustawień wdrażania
+## <a name="update-deployment-settings"></a>Aktualizowanie ustawień wdrożenia
 
-Aby zaktualizować ustawienia wdrażania:
+Aby zaktualizować ustawienia wdrożenia:
 
-1.  Wybierz projekt i przejdź do karty **Modele.**
+1.  Wybierz projekt i przejdź do karty **modele** .
 
-2. W przypadku pomyślnie wdrożonego modelu jest wyświetlany przycisk **Aktualizuj.**
+2. W przypadku pomyślnie wdrożonego modelu zostanie wyświetlony przycisk **Aktualizuj** .
 
-    ![Wdrażanie modelu](media/how-to/how-to-update-undeploy-model.png)
+    ![Wdróż model](media/how-to/how-to-update-undeploy-model.png)
 
 3.  Wybierz pozycję **Update** (Aktualizuj).
-4.  Wybierz **pozycję Wdrożone** lub **Nierozsądzone** dla regionów, w których chcesz wdrożyć lub cofnąć wdrożenie modelu, a następnie kliknij przycisk **Zapisz**.
+4.  Wybierz opcję **wdrożone** lub **Niewdrożone** w regionach, w których model ma zostać wdrożony lub rozmieszczony, a następnie kliknij przycisk **Zapisz**.
 
-    ![Wdrażanie modelu](media/how-to/how-to-undeploy-model.png)
+    ![Wdróż model](media/how-to/how-to-undeploy-model.png)
 
 >[!Note]
->Jeśli **wybierzesz Undeployed** dla wszystkich regionów, model jest undeployed ze wszystkich regionów i umieścić w stanie nierozmieszczonych. Jest teraz niedostępny do użycia.
+>W przypadku wybrania opcji **Niewdrożone** dla wszystkich regionów model zostanie wdrożony ze wszystkich regionów i umieszczony w stanie niewdrożonym. Jest ona teraz niedostępna do użycia.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zacznij korzystać z wdrożonego niestandardowego modelu tłumaczenia za pośrednictwem [interfejsu API tekstu usługi Microsoft Translator w wersji 3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
-- Dowiedz [się, jak zarządzać ustawieniami](how-to-manage-settings.md) udostępniania obszaru roboczego, zarządzać kluczem subskrypcji.
-- Dowiedz [się, jak przeprowadzić migrację obszaru roboczego i projektu](how-to-migrate.md) z centrum Microsoft Translator [Hub](https://hub.microsofttranslator.com)
+- Zacznij korzystać ze wdrożonego niestandardowego modelu tłumaczenia za pośrednictwem [programu Microsoft interfejs API tłumaczenia tekstu w usłudze translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Dowiedz się, [jak zarządzać ustawieniami](how-to-manage-settings.md) w celu udostępniania obszaru roboczego, zarządzania kluczem subskrypcji.
+- Dowiedz się [, jak przeprowadzić migrację obszaru roboczego i projektu](how-to-migrate.md) z usługi [Microsoft Translator Hub](https://hub.microsofttranslator.com)

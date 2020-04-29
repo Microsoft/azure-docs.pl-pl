@@ -1,7 +1,7 @@
 ---
 title: Rejestrowanie diagnostyczne
 titleSuffix: Azure Cognitive Services
-description: Ten przewodnik zawiera instrukcje krok po kroku, aby włączyć rejestrowanie diagnostyczne dla usługi Azure Cognitive Service. Te dzienniki zapewniają bogate, częste dane dotyczące działania zasobu, które są używane do identyfikacji problemów i debugowania.
+description: Ten przewodnik zawiera instrukcje krok po kroku dotyczące włączania rejestrowania diagnostycznego dla usługi poznawczej platformy Azure. Te dzienniki zapewniają rozbudowane, częste dane dotyczące operacji zasobu, które są używane do identyfikacji i debugowania problemu.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,74 +10,74 @@ ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
 ms.openlocfilehash: 539a35f170b2ee0c94762a30ed9376ca4a416210
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71827894"
 ---
-# <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Włączanie rejestrowania diagnostycznego dla usług Azure Cognitive Services
+# <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Włączanie rejestrowania diagnostycznego dla usługi Azure Cognitive Services
 
-Ten przewodnik zawiera instrukcje krok po kroku, aby włączyć rejestrowanie diagnostyczne dla usługi Azure Cognitive Service. Te dzienniki zapewniają bogate, częste dane dotyczące działania zasobu, które są używane do identyfikacji problemów i debugowania. Przed kontynuowaniem należy mieć konto platformy Azure z subskrypcją co najmniej jednej usługi Cognitive Service, takiej jak [wyszukiwanie w sieci Web Bing,](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/overview)usługi [mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview)lub [usługa LUIS.](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis)
+Ten przewodnik zawiera instrukcje krok po kroku dotyczące włączania rejestrowania diagnostycznego dla usługi poznawczej platformy Azure. Te dzienniki zapewniają rozbudowane, częste dane dotyczące operacji zasobu, które są używane do identyfikacji i debugowania problemu. Przed kontynuowaniem musisz mieć konto platformy Azure z subskrypcją co najmniej jedną usługą poznawczej, taką jak [Wyszukiwanie w sieci Web Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/overview), [usługi mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview)lub [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby włączyć rejestrowanie diagnostyczne, musisz gdzieś przechowywać dane dziennika. W tym samouczku użyto usługi Azure Storage i usługi Log Analytics.
+Aby włączyć rejestrowanie diagnostyczne, musisz przechowywać dane dziennika. Ten samouczek używa usługi Azure Storage i Log Analytics.
 
-* [Magazyn platformy Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) — zachowuje dzienniki diagnostyczne do inspekcji zasad, analizy statycznej lub kopii zapasowej. Konto magazynu nie musi znajdować się w tej samej subskrypcji co dzienniki emitujące zasób, o ile użytkownik, który konfiguruje to ustawienie, ma odpowiedni dostęp RBAC do obu subskrypcji.
-* [Usługa Log Analytics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) — elastyczne narzędzie do wyszukiwania i analizy dzienników, które umożliwia analizę nieprzetworzonych dzienników generowanych przez zasób platformy Azure.
-
-> [!NOTE]
-> Dostępne są dodatkowe opcje konfiguracji. Aby dowiedzieć się więcej, zobacz [Zbieranie i korzystanie z danych dziennika z zasobów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
-
-## <a name="enable-diagnostic-log-collection"></a>Włączanie zbierania dzienników diagnostycznych  
-
-Zacznijmy od włączenia rejestrowania diagnostycznego przy użyciu witryny Azure portal.
+* [Azure Storage](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) — przechowuje dzienniki diagnostyczne na potrzeby inspekcji zasad, statycznej analizy lub kopii zapasowej. Konto magazynu nie musi znajdować się w tej samej subskrypcji co zasób emitujący dzienniki, dopóki użytkownik, który konfiguruje ustawienie, ma dostęp do obu subskrypcji.
+* [Log Analytics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) — elastyczne narzędzie do przeszukiwania dzienników i analizy umożliwiające analizę nieprzetworzonych dzienników generowanych przez zasób platformy Azure.
 
 > [!NOTE]
-> Aby włączyć tę funkcję przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure, należy użyć instrukcji podanych w [kolekcji Collect i korzystać z danych dziennika z zasobów platformy Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)
+> Dostępne są dodatkowe opcje konfiguracji. Aby dowiedzieć się więcej, zobacz [zbieranie i korzystanie z danych dzienników z zasobów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
-1. Przejdź do witryny Azure Portal. Następnie znajdź i wybierz zasób usług Cognitive Services. Na przykład subskrypcja usługi Bing Web Search.   
-2. Następnie z menu nawigacji po lewej stronie znajdź **pozycję Monitorowanie** i wybierz pozycję **Ustawienia diagnostyczne**. Ten ekran zawiera wszystkie wcześniej utworzone ustawienia diagnostyczne dla tego zasobu.
-3. Jeśli istnieje wcześniej utworzony zasób, którego chcesz użyć, możesz go teraz wybrać. W przeciwnym razie wybierz **opcję + Dodaj ustawienie diagnostyczne**.
-4. Wprowadź nazwę tego ustawienia. Następnie wybierz **opcję Archiwizuj na konto magazynu** i Wyślij do dziennika **Analytics**.
-5. Po wyświetleniu monitu o skonfigurowanie wybierz konto magazynu i obszar roboczy usługi OMS, którego chcesz użyć do przechowywania dzienników diagnostycznych. **Uwaga:** Jeśli nie masz konta magazynu lub obszaru roboczego oms, postępuj zgodnie z instrukcjami, aby je utworzyć.
-6. Wybierz **pozycję Inspekcja,** **RequestResponse**i **AllMetrics**. Następnie ustaw okres przechowywania danych dziennika diagnostycznego. Jeśli zasady przechowywania jest ustawiona na zero, zdarzenia dla tej kategorii dziennika są przechowywane przez czas nieokreślony.
+## <a name="enable-diagnostic-log-collection"></a>Włącz zbieranie dzienników diagnostycznych  
+
+Zacznijmy od włączenia rejestrowania diagnostycznego przy użyciu Azure Portal.
+
+> [!NOTE]
+> Aby włączyć tę funkcję przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure, Skorzystaj z instrukcji dostarczonych w temacie [zbieranie i korzystanie z danych dzienników z zasobów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
+
+1. Przejdź do witryny Azure Portal. Następnie odszukaj i wybierz zasób Cognitive Services. Na przykład Twoja subskrypcja wyszukiwanie w sieci Web Bing.   
+2. Następnie w menu nawigacji po lewej stronie Znajdź pozycję **monitorowanie** i wybierz pozycję **Ustawienia diagnostyczne**. Ten ekran zawiera wszystkie wcześniej utworzone ustawienia diagnostyczne dla tego zasobu.
+3. Jeśli wcześniej utworzono zasób, którego chcesz użyć, możesz wybrać go teraz. W przeciwnym razie wybierz pozycję **+ Dodaj ustawienie diagnostyczne**.
+4. Wprowadź nazwę tego ustawienia. Następnie wybierz pozycję **Archiwizuj na koncie magazynu** i **Wyślij do usługi log Analytics**.
+5. Po wyświetleniu monitu o skonfigurowanie wybierz konto magazynu i obszar roboczy pakietu OMS, który ma być używany do przechowywania dzienników diagnostycznych. **Uwaga**: Jeśli nie masz konta magazynu lub obszaru roboczego OMS, postępuj zgodnie z monitami, aby go utworzyć.
+6. Wybierz kolejno pozycje **Inspekcja**, **RequestResponse**i **AllMetrics**. Następnie ustaw okres przechowywania danych dzienników diagnostycznych. Jeśli zasady przechowywania mają wartość zero, zdarzenia dla tej kategorii dzienników są przechowywane przez czas nieokreślony.
 7. Kliknij przycisk **Zapisz**.
 
-Może upłynąć do dwóch godzin, zanim dane logowania są dostępne do kwerendy i analizy. Więc nie martw się, jeśli nie widzisz nic od razu.
+Zarejestrowanie i przeanalizowanie danych może potrwać do dwóch godzin. Nie martw się, jeśli nie widzisz niczego od razu.
 
 ## <a name="view-and-export-diagnostic-data-from-azure-storage"></a>Wyświetlanie i eksportowanie danych diagnostycznych z usługi Azure Storage
 
-Usługa Azure Storage to niezawodne rozwiązanie magazynu obiektów, które jest zoptymalizowane pod kątem przechowywania dużych ilości danych nieustrukturyzowanych. W tej sekcji dowiesz się, aby zbadać konto magazynu dla łącznej liczby transakcji w ciągu 30-dniowego przedziału czasowego i wyeksportować dane do programu Excel.
+Usługa Azure Storage to niezawodne rozwiązanie magazynu obiektów, które jest zoptymalizowane pod kątem przechowywania dużych ilości danych bez struktury. W tej sekcji dowiesz się, jak wysyłać zapytania do konta magazynu pod kątem łącznej liczby transakcji w okresie 30 dni i wyeksportować dane do programu Excel.
 
-1. W witrynie Azure portal znajdź zasób usługi Azure Storage utworzony w ostatniej sekcji.
-2. Z menu nawigacji po lewej stronie znajdź **pozycję Monitorowanie** i wybierz **pozycję Metryki**.
-3. Użyj dostępnych rozwijanych, aby skonfigurować zapytanie. W tym przykładzie ustawmy zakres czasu na **Ostatnie 30 dni,** a metrykę na **Transakcję**.
-4. Po zakończeniu kwerendy zostanie wyświetlenia wizualizacji transakcji w ciągu ostatnich 30 dni. Aby wyeksportować te dane, użyj przycisku **Eksportuj do programu Excel** znajdującego się u góry strony.
+1. Na Azure Portal odszukaj zasób usługi Azure Storage, który został utworzony w ostatniej sekcji.
+2. W menu nawigacji po lewej stronie Znajdź pozycję **monitorowanie** i wybierz pozycję **metryki**.
+3. Użyj dostępnych list rozwijanych, aby skonfigurować zapytanie. Na potrzeby tego przykładu Ustaw zakres czasu na **ostatnie 30 dni** i metrykę na **transakcję**.
+4. Po zakończeniu kwerendy zobaczysz wizualizację transakcji w ciągu ostatnich 30 dni. Aby wyeksportować te dane, użyj przycisku **Eksportuj do programu Excel** znajdującego się w górnej części strony.
 
-Dowiedz się więcej o tym, co można zrobić z danymi diagnostycznymi w [usłudze Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
+Dowiedz się więcej na temat tego, co możesz zrobić z danymi diagnostycznymi w [usłudze Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
 
 ## <a name="view-logs-in-log-analytics"></a>Wyświetlanie dzienników w usłudze Log Analytics
 
-Postępuj zgodnie z tymi instrukcjami, aby eksplorować dane analizy dzienników dla zasobu.
+Postępuj zgodnie z tymi instrukcjami, aby poznać dane usługi log Analytics dla zasobu.
 
-1. W witrynie Azure portal znajdź i wybierz **usługę Log Analytics** z menu nawigacji po lewej stronie.
-2. Znajdź i wybierz zasób utworzony podczas włączania diagnostyki.
-3. W **obszarze Ogólne**znajdź i wybierz pozycję **Dzienniki**. Na tej stronie można uruchamiać zapytania względem dzienników.
+1. W Azure Portal Znajdź i wybierz **log Analytics** z menu nawigacji po lewej stronie.
+2. Znajdź i wybierz zasób, który został utworzony podczas włączania diagnostyki.
+3. W obszarze **Ogólne**Znajdź i wybierz pozycję **dzienniki**. Na tej stronie można uruchamiać zapytania względem dzienników.
 
 ### <a name="sample-queries"></a>Przykładowe zapytania
 
-Oto kilka podstawowych zapytań Kusto, których możesz użyć do eksplorowania danych dziennika.
+Poniżej przedstawiono kilka podstawowych zapytań Kusto, których można użyć do eksplorowania danych dziennika.
 
-Uruchom tę kwerendę dla wszystkich dzienników diagnostycznych z usług Azure Cognitive Services przez określony czas:
+Uruchom to zapytanie dla wszystkich dzienników diagnostycznych z usługi Azure Cognitive Services w określonym przedziale czasu:
 
 ```kusto
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
 ```
 
-Uruchom tę kwerendę, aby wyświetlić 10 najnowszych dzienników:
+Uruchom to zapytanie, aby zobaczyć 10 najnowszych dzienników:
 
 ```kusto
 AzureDiagnostics
@@ -85,14 +85,14 @@ AzureDiagnostics
 | take 10
 ```
 
-Uruchom tę kwerendę w celu grupowania operacji według **zasobu:**
+Uruchom to zapytanie w celu grupowania operacji według **zasobu**:
 
 ```kusto
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.COGNITIVESERVICES" |
 summarize count() by Resource
 ```
-Uruchom tę kwerendę, aby znaleźć średni czas potrzebny do wykonania operacji:
+Uruchom to zapytanie, aby znaleźć średni czas potrzebny do wykonania operacji:
 
 ```kusto
 AzureDiagnostics
@@ -101,7 +101,7 @@ AzureDiagnostics
 by OperationName
 ```
 
-Uruchom tę kwerendę, aby wyświetlić ilość operacji w czasie podzielonych przez OperationName z liczbami binned dla każdego 10s.
+Uruchom to zapytanie, aby wyświetlić ilość operacji w czasie dzielenia przez OperationName z liczbą Binned dla każdego dziesiątkachu.
 
 ```kusto
 AzureDiagnostics
@@ -113,9 +113,9 @@ by bin(TimeGenerated, 10s), OperationName
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się, jak włączyć rejestrowanie, a także metryki i kategorie dzienników, które są obsługiwane przez różne usługi platformy Azure, przeczytaj zarówno [omówienie metryk](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) na platformie Microsoft Azure, jak i [omówienie artykułów dziennika diagnostycznego platformy Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)
+* Aby dowiedzieć się, jak włączyć rejestrowanie, a także kategorie metryk i dzienników, które są obsługiwane przez różne usługi platformy Azure, zapoznaj się z [omówieniem metryk](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) w Microsoft Azure i [Omówienie artykułów dotyczących dzienników diagnostycznych platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview) .
 * Przeczytaj te artykuły, aby dowiedzieć się więcej o centrach zdarzeń:
   * [Co to jest usługa Azure Event Hubs?](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
   * [Rozpoczynanie pracy z usługą Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-csharp-ephcs-getstarted)
-* Przeczytaj [dane pobierania i dzienniki diagnostyczne z usługi Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#download-blobs).
-* Przeczytaj [opis wyszukiwania dzienników w dziennikach usługi Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-new).
+* Przeczytaj artykuł [pobieranie metryk i dzienników diagnostycznych z usługi Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#download-blobs).
+* Przeczytaj [Opis wyszukiwania w dzienniku Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-new).

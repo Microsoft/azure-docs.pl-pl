@@ -1,7 +1,7 @@
 ---
-title: Zawartość specyficzna dla domeny — Wizja komputerowa
+title: Zawartość specyficzna dla domeny — przetwarzanie obrazów
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak określić domenę kategoryzacji obrazów, aby zwrócić bardziej szczegółowe informacje o obrazie.
+description: Dowiedz się, jak określić domenę kategoryzacji obrazu w celu zwrócenia bardziej szczegółowych informacji o obrazie.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,25 +12,25 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68946336"
 ---
 # <a name="detect-domain-specific-content"></a>Wykrywanie zawartości specyficznej dla domeny
 
-Oprócz tagowania i kategoryzacji wysokiego poziomu, usługa Computer Vision obsługuje również dalsze analizy specyficzne dla domeny przy użyciu modeli, które zostały przeszkolone w zakresie wyspecjalizowanych danych.
+Oprócz tagowania i kategoryzacji wysokiego poziomu, przetwarzanie obrazów również obsługuje dalsze analizy specyficzne dla domeny przy użyciu modeli, które zostały przeszkolone na wyspecjalizowanych danych.
 
-Istnieją dwa sposoby używania modeli specyficznych dla domeny: same (analiza o zakresie) lub jako ulepszenie funkcji kategoryzacji.
+Istnieją dwa sposoby użycia modeli specyficznych dla domeny: same (analiza z zakresem) lub rozszerzenie funkcji kategoryzacji.
 
-### <a name="scoped-analysis"></a>Analiza o określonym zakresie
+### <a name="scoped-analysis"></a>Analiza w zakresie
 
-Obraz można analizować przy użyciu tylko wybranego modelu specyficznego dla domeny, wywołując [model/model\<\>/analizowanie](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) interfejsu API.
+Można analizować obraz przy użyciu tylko wybranego modelu specyficznego dla domeny przez wywołanie interfejsu API models [\</\>model/analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) .
 
-Poniżej przedstawiono przykładową odpowiedź JSON zwróconą przez **modelki/gwiazdy/analizowanie** interfejsu API dla danego obrazu:
+Poniżej przedstawiono przykładową odpowiedź JSON zwracaną przez **modele/osobistości/analizowanie** interfejsu API dla danego obrazu:
 
-![Satya Nadella stojąca, uśmiechnięta](./images/satya.jpeg)
+![Satya Nadella, uśmiechnięty](./images/satya.jpeg)
 
 ```json
 {
@@ -55,13 +55,13 @@ Poniżej przedstawiono przykładową odpowiedź JSON zwróconą przez **modelki/
 }
 ```
 
-### <a name="enhanced-categorization-analysis"></a>Ulepszona analiza kategoryzacji
+### <a name="enhanced-categorization-analysis"></a>Rozszerzona analiza kategoryzacji
 
-Można również użyć modeli specyficznych dla domeny, aby uzupełnić ogólną analizę obrazu. Można to zrobić w ramach [kategoryzacji wysokiego poziomu,](concept-categorizing-images.md) określając modele specyficzne dla domeny w parametrze *szczegółów* [wywołania interfejsu](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API analizy.
+Można również użyć modeli specyficznych dla domeny, aby uzupełnić ogólną analizę obrazu. Tę czynność należy wykonać w ramach [kategoryzacji wysokiego poziomu](concept-categorizing-images.md) , określając modele specyficzne dla domeny w parametrze *Details* wywołania interfejsu API [analizy](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) .
 
-W takim przypadku klasyfikator taksonomii 86 kategorii jest nazywany jako pierwszy. Jeśli którakolwiek z wykrytych kategorii ma pasujący model specyficzny dla domeny, obraz jest również przekazywany przez ten model i wyniki są dodawane.
+W tym przypadku klasyfikator 86-kategorii Taksonomia jest wywoływana jako pierwsza. Jeśli dowolna z wykrytych kategorii ma zgodny model specyficzny dla domeny, obraz jest również przesyłany przez ten model i są dodawane wyniki.
 
-Poniższa odpowiedź JSON pokazuje, jak analiza specyficzne `detail` dla domeny mogą być uwzględnione jako węzeł w szerszej analizy kategoryzacji.
+W poniższej odpowiedzi JSON przedstawiono sposób, w jaki analiza specyficzna dla domeny może `detail` być uwzględniona jako węzeł w szerszej analizie kategoryzacji.
 
 ```json
 "categories":[
@@ -98,14 +98,14 @@ Poniższa odpowiedź JSON pokazuje, jak analiza specyficzne `detail` dla domeny 
 
 ## <a name="list-the-domain-specific-models"></a>Wyświetlanie listy modeli specyficznych dla domeny
 
-Obecnie usługa Computer Vision obsługuje następujące modele specyficzne dla domeny:
+Obecnie przetwarzanie obrazów obsługuje następujące modele specyficzne dla domeny:
 
 | Nazwa | Opis |
 |------|-------------|
-| Gwiazdy | Rozpoznawanie gwiazd, obsługiwane dla `people_` obrazów sklasyfikowanych w kategorii |
-| Zabytki | Rozpoznawanie punktów orientacyjnych, obsługiwane `outdoor_` `building_` dla obrazów sklasyfikowanych w kategoriach lub |
+| osobistości | Rozpoznawanie osobistości, obsługiwane w przypadku obrazów sklasyfikowanych `people_` w kategorii |
+| charakterystycznych elementów krajobrazu | Rozpoznawanie punktu orientacyjnego, obsługiwane w przypadku obrazów `outdoor_` sklasyfikowanych w kategorii lub `building_` |
 
-Wywołanie interfejsu API [modeli](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) zwróci te informacje wraz z kategoriami, do których każdy model może zastosować:
+Wywołanie interfejsu API [modeli](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) zwróci te informacje wraz z kategoriami, do których można zastosować każdy model:
 
 ```json
 {
@@ -139,4 +139,4 @@ Wywołanie interfejsu API [modeli](https://westus.dev.cognitive.microsoft.com/do
 
 ## <a name="next-steps"></a>Następne kroki
 
-Poznaj pojęcia dotyczące [kategoryzowania obrazów](concept-categorizing-images.md).
+Poznaj koncepcje dotyczące [kategoryzacji obrazów](concept-categorizing-images.md).

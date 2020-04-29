@@ -1,7 +1,7 @@
 ---
-title: Pattern.any typ jednostki — USŁUGA LUIS
+title: Wzorzec. dowolny typ jednostki — LUIS
 titleSuffix: Azure Cognitive Services
-description: Pattern.any jest symbolem zastępczym o zmiennej długości używanym tylko w wypowiedź szablonu wzorca, aby oznaczyć, gdzie jednostka zaczyna się i kończy.
+description: Wzorzec. any jest symbolem zastępczym o zmiennej długości używanym tylko w szablonie wzorca wypowiedź, aby oznaczyć, gdzie rozpoczyna się i kończą.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,49 +11,49 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: 5164bf55ef8233cf34a470524da3bc852678d79a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75979176"
 ---
 # <a name="patternany-entity"></a>Jednostka Pattern.any
 
-Pattern.any jest symbolem zastępczym o zmiennej długości używanym tylko w wypowiedź szablonu wzorca, aby oznaczyć, gdzie jednostka zaczyna się i kończy.  
+Wzorzec. any jest symbolem zastępczym o zmiennej długości używanym tylko w szablonie wzorca wypowiedź, aby oznaczyć, gdzie rozpoczyna się i kończą.  
 
-Pattern.any jednostki muszą być oznaczone w [przykładach szablonu wzorca,](luis-how-to-model-intent-pattern.md) a nie przykłady użytkowników intencji.
+Wzorzec. wszystkie jednostki muszą być oznaczone jako przykłady szablonu [wzorca](luis-how-to-model-intent-pattern.md) , a nie przykłady użytkownika.
 
-**Jednostka jest dobrze dopasowana, gdy:**
+**Jednostka jest dobrym dopasowaniem w przypadku:**
 
-* Zakończenie jednostki można pomylić z pozostałym tekstem wypowiedź.
+* Koniec jednostki można pomylić z pozostałym tekstem wypowiedź.
 
 ## <a name="usage"></a>Sposób użycia
 
-Biorąc pod uwagę aplikację kliencką, która wyszukuje książki na podstawie tytułu, pattern.any wyodrębnia pełny tytuł. Wypowiedź szablonu przy użyciu pattern.any dla tego wyszukiwania książki jest `Was {BookTitle} written by an American this year[?]`.
+Dana aplikacja kliencka, która wyszukuje książki na podstawie tytułu, wzorca. wszystkie wyodrębnia pełny tytuł. Szablon wypowiedź przy użyciu wzorca. wszystkie te wyszukiwania są `Was {BookTitle} written by an American this year[?]`następujące.
 
-W poniższej tabeli każdy wiersz ma dwie wersje wypowiedź. Najwyższa wypowiedź jest jak usługa LUIS początkowo widzi wypowiedź. Nie jest jasne, gdzie zaczyna się i kończy tytuł książki. Wypowiedź dolna używa Pattern.any jednostki, aby oznaczyć początek i koniec jednostki.
+W poniższej tabeli każdy wiersz ma dwie wersje wypowiedź. Górna wypowiedź to sposób, w jaki LUIS początkowo widzi wypowiedź. Nie jest jasne, gdzie rozpoczyna się i kończą tytuł książki. Dolna wypowiedź używa wzorca. Każda jednostka do oznaczenia początku i końca jednostki.
 
-|Wypowiedź z jednostką pogrubiona|
+|Wypowiedź z jednostką pogrubioną|
 |--|
-|`Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?`<br><br>Czy **człowiek, który pomylił swoją żonę na kapelusz i inne kliniczne opowieści** napisane przez Amerykanina w tym roku?|
-|`Was Half Asleep in Frog Pajamas written by an American this year?`<br><br>Czy **Half Asleep w Frog Piżamy** napisane przez Amerykanina w tym roku?|
-|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>Czy **szczególny smutek Lemon Cake: Powieść** napisana przez Amerykanina w tym roku?|
-|`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>Czy **w mojej kieszeni jest Wocket!** napisany przez Amerykanina w tym roku?|
+|`Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?`<br><br>**Czy człowiek, który wykonał niezawodną swoją żona dla Hat i innych klinicznych wskaźnikami** , w tym roku?|
+|`Was Half Asleep in Frog Pajamas written by an American this year?`<br><br>Czy **w ramach żabichu Pajamas** wypisano połowę w tym roku?|
+|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>Czy była to **szczególna smuteka z cytryn cytrynowy**|
+|`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>**Czy w moim urządzeniu Pocket został Wocket** Czy ten rok został zapisany przez amerykańskie?|
 ||
 
 
 
-## <a name="example-json"></a>Przykład JSON
+## <a name="example-json"></a>Przykładowy kod JSON
 
 Rozpatrzmy następujące zapytanie:
 
 `where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
-Z osadzoną nazwą formularza, aby wyodrębnić jako Pattern.any:
+Z osadzoną nazwą formularza do wyodrębnienia jako wzorzec. any:
 
 `Understand your responsibilities as a member of the community`
 
-#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania wersji 2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -67,9 +67,9 @@ Z osadzoną nazwą formularza, aby wyodrębnić jako Pattern.any:
 ```
 
 
-#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
-Jest to JSON, jeśli `verbose=false` jest ustawiona w ciągu zapytania:
+Jest to kod JSON, `verbose=false` jeśli jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {
@@ -79,7 +79,7 @@ Jest to JSON, jeśli `verbose=false` jest ustawiona w ciągu zapytania:
 }
 ```
 
-Jest to JSON, jeśli `verbose=true` jest ustawiona w ciągu zapytania:
+Jest to kod JSON, `verbose=true` jeśli jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {
@@ -108,4 +108,4 @@ Jest to JSON, jeśli `verbose=true` jest ustawiona w ciągu zapytania:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym [samouczku](luis-tutorial-pattern.md)użyj **Pattern.any** jednostki wyodrębnić dane z wypowiedzi, gdzie wypowiedzi są dobrze sformatowane i gdzie koniec danych można łatwo pomylić z pozostałymi słowami wypowiedź.
+W tym [samouczku](luis-tutorial-pattern.md)Użyj **wzorca. Każda** jednostka do wyodrębnienia danych z wyrażenia długości, gdzie wyrażenia długości są dobrze sformatowane, a koniec danych można łatwo pomylić z innymi słowami wypowiedź.

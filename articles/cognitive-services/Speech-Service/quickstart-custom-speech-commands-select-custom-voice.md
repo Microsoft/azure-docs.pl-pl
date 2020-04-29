@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: używanie niestandardowych poleceń z niestandardowym głosem (wersja zapoznawcza) — usługa mowy'
+title: 'Szybki Start: używanie poleceń niestandardowych z niestandardowym głosem (wersja zapoznawcza) — usługa mowy'
 titleSuffix: Azure Cognitive Services
-description: W tym artykule określsz głos wyjściowy aplikacji Polecenia niestandardowe.
+description: W tym artykule określisz wyjściowy dźwięk aplikacji poleceń niestandardowych.
 services: cognitive-services
 author: anhoang
 manager: yetian
@@ -11,35 +11,35 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: anhoang
 ms.openlocfilehash: b0ecbc4dc030fa8e7fbe362c1304c3c97278bdf5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75456411"
 ---
-# <a name="quickstart-use-custom-commands-with-custom-voice-preview"></a>Szybki start: używanie niestandardowych poleceń z niestandardowym głosem (wersja zapoznawcza)
+# <a name="quickstart-use-custom-commands-with-custom-voice-preview"></a>Szybki Start: używanie poleceń niestandardowych z niestandardowym głosem (wersja zapoznawcza)
 
-W [poprzednim artykule](./quickstart-custom-speech-commands-create-parameters.md)utworzyliśmy nowy projekt poleceń niestandardowych, aby reagować na polecenia z parametrami.
+W [poprzednim artykule](./quickstart-custom-speech-commands-create-parameters.md)został utworzony nowy projekt poleceń niestandardowych w celu reagowania na polecenia z parametrami.
 
-W tym artykule wybierzemy niestandardowy głos wyjściowy dla utworzonej przez nas aplikacji.
+W tym artykule wybierzemy niestandardowy głos wyjściowy dla utworzonej aplikacji.
 
 ## <a name="select-a-custom-voice"></a>Wybieranie niestandardowego głosu
 
-1. Otwórz projekt, [który utworzyliśmy wcześniej](./quickstart-custom-speech-commands-create-parameters.md)
-1. Wybieranie **ustawień** w lewym okienku
-1. Wybierz **niestandardowy głos** z środkowego okienka
-1. Wybierz żądany głos niestandardowy lub publiczny z tabeli
-1. Wybierz pozycję **Zapisz**.
+1. Otwórz projekt, który został [wcześniej utworzony](./quickstart-custom-speech-commands-create-parameters.md)
+1. Wybierz pozycję **Ustawienia** w okienku po lewej stronie
+1. Wybieranie **niestandardowego głosu** z okienka środkowego
+1. Wybieranie żądanego niestandardowego lub publicznego głosu z tabeli
+1. Wybierz pozycję **Zapisz**
 
 > [!div class="mx-imgBorder"]
 > ![Przykładowe zdania z parametrami](media/custom-speech-commands/select-custom-voice.png)
 
 > [!NOTE]
-> Niestandardowe głosy można tworzyć na stronie projektu Niestandardowy głos. Wybierz łącze **Studio mowy,** a następnie **niestandardowy głos,** aby rozpocząć.
+> Niestandardowe głosy można tworzyć na stronie niestandardowego projektu głosu. Wybierz łącze do programu **Speech Studio** , a następnie pozycję **niestandardowe** , aby rozpocząć pracę.
 
-Teraz aplikacja odpowie wybranym głosem, zamiast domyślnego głosu.
+Teraz aplikacja będzie odpowiadać w wybranym głosowaniu zamiast domyślnego głosu.
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
-> [Szybki start: łączenie się z aplikacją Niestandardowe polecenie za pomocą sdk mowy (wersja zapoznawcza)](./quickstart-custom-speech-commands-speech-sdk.md)
+> [Szybki Start: Nawiązywanie połączenia z aplikacją niestandardową za pomocą zestawu Speech SDK (wersja zapoznawcza)](./quickstart-custom-speech-commands-speech-sdk.md)
 

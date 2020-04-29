@@ -1,7 +1,7 @@
 ---
-title: Prekompilowane odwołanie do domeny — usługa LUIS
+title: Wbudowane odwołanie do domeny — LUIS
 titleSuffix: Azure Cognitive Services
-description: Odwołanie do wstępnie utworzonych domen, które są wstępnie utworzone kolekcje intencji i jednostek z języka zrozumienia inteligentnych usług (LUIS).
+description: Dokumentacja wstępnie skompilowanych domen, które są wstępnie skompilowanymi kolekcjami intencji i jednostek z Language Understanding inteligentnych usług (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,41 +12,41 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 05ad340b3856291832ba0521c7da70ad55260384
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78270618"
 ---
-# <a name="prebuilt-domain-reference-for-your-luis-app"></a>Prekompilowane odwołanie do domeny aplikacji usługi LUIS
-To odwołanie zawiera informacje o [wstępnie utworzonych domen ,](luis-how-to-use-prebuilt-domains.md)które są wstępnie utworzone kolekcje intencji i jednostek, które oferuje usługa LUIS.
+# <a name="prebuilt-domain-reference-for-your-luis-app"></a>Wstępnie skompilowane odwołanie do domeny dla aplikacji LUIS
+Ta dokumentacja zawiera informacje na temat [wstępnie skompilowanych domen](luis-how-to-use-prebuilt-domains.md), które są wstępnie skompilowanymi kolekcjami intencji i jednostek, które Luis oferty.
 
-[Domeny niestandardowe](luis-how-to-start-new-app.md), natomiast, rozpocząć bez intencji i modeli. Do modelu niestandardowego można dodać dowolne wstępnie utworzone intencje i encje domeny.
+[Domeny niestandardowe](luis-how-to-start-new-app.md), z kolei, zaczynają się od żadnych zamiar i modeli. Do modelu niestandardowego można dodać wszystkie wbudowane intencje domeny i jednostki.
 
 ## <a name="custom-domains-per-language"></a>Domeny niestandardowe na język
 
-W poniższej tabeli podsumowano aktualnie obsługiwane domeny. Obsługa języka angielskiego jest zwykle bardziej kompletna niż inne.
+W poniższej tabeli zestawiono aktualnie obsługiwane domeny. Obsługa języka angielskiego jest zwykle większa niż inne.
 
-| Typ encji       | EN-USA      | ZH-CN   | DE    | PW     | ES    | IT      | PT-BR (pt-br) |  JP  |      Ko |        NL |    TR |
+| Typ jednostki       | PL-US      | ZH-CN   | DE    | PW     | ES    | IT      | PT-BR |  JP  |      KO |        NL |    TR |
 |:-----------------:|:-------:|:-------:|:-----:|:------:|:-----:|:-------:| :-------:| :-------:| :-------:| :-------:|  :-------:|
 | Kalendarz  | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 |Komunikacja  | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-| Adres e-mail     | ✓    | ✓       | ✓   | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-| Strona głównaAutomacja          | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| Poczta e-mail     | ✓    | ✓       | ✓   | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| HomeAutomation          | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | Uwagi     | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | Miejsca   | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-| RestauracjaRezerwacja  | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-| Todo     | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| RestaurantReservation  | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| Czynność     | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | Narzędzia      | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | Pogoda        | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-| sieć Web    | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| Sieć Web    | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 
-Wstępnie utworzone domeny nie są **obsługiwane** w:
+Wbudowane domeny nie są **obsługiwane** w programie:
 
-* Francuski kanadyjski
+* Francuski (kanadyjski)
 * Hindi
-* Hiszpański meksykański
+* Hiszpański (Meksyk)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz [się,](reference-entity-simple.md)prosty podmiot .
+Zapoznaj się z [prostą jednostką](reference-entity-simple.md).

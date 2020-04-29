@@ -1,7 +1,7 @@
 ---
-title: Wstępnie utworzone modele do rozumienia języka
+title: Wstępnie utworzone modele dla Language Understanding
 titleSuffix: Azure Cognitive Services
-description: Usługa LUIS zawiera zestaw wstępnie utworzonych modeli do szybkiego dodawania typowych scenariuszy użytkownika konwersacji.
+description: LUIS zawiera zestaw wstępnie skompilowanych modeli umożliwiających szybkie dodawanie wspólnych scenariuszy użytkowników.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,63 +11,63 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
 ms.openlocfilehash: 0a733aff14b71c6378971c0b72a9ca1f3cd4cfc3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74013571"
 ---
-# <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Dodawanie wstępnie utworzonych modeli dla typowych scenariuszy użycia 
+# <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Dodaj wstępnie zbudowane modele dla typowych scenariuszy użycia 
 
-Usługa LUIS zawiera zestaw wstępnie utworzonych modeli do szybkiego dodawania typowych scenariuszy użytkownika konwersacji. Jest to szybki i łatwy sposób, aby dodać umiejętności do konwersacyjnej aplikacji klienta bez konieczności projektowania modeli dla tych umiejętności. 
+LUIS zawiera zestaw wstępnie skompilowanych modeli umożliwiających szybkie dodawanie wspólnych scenariuszy użytkowników. Jest to szybki i łatwy sposób dodawania możliwości do konwersacji aplikacji klienckiej bez konieczności projektowania modeli dla tych możliwości. 
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 ## <a name="add-a-prebuilt-domain"></a>Dodawanie wstępnie utworzonej domeny
 
-1. Na stronie **Moje aplikacje** wybierz aplikację. Spowoduje to otwarcie aplikacji do sekcji **Kompilacja** aplikacji. 
+1. Na stronie **Moje aplikacje** wybierz aplikację. Spowoduje to otwarcie aplikacji w sekcji **kompilacja** aplikacji. 
 
-1. Wybierz **wstępnie utworzone domeny** z lewego paska narzędzi. 
+1. Wybierz opcję **prekompilowane domeny** na pasku narzędzi po lewej stronie. 
 
-1. Znajdź domenę, którą chcesz dodać do aplikacji, a następnie wybierz przycisk **Dodaj domenę.**
-
-    > [!div class="mx-imgBorder"]
-    > ![Dodawanie wstępnie utworzonej domeny kalendarza](./media/luis-prebuilt-domains/add-prebuilt-domain.png)
-
-## <a name="add-a-prebuilt-intent"></a>Dodawanie wstępnie utworzonej intencji
-
-1. Na stronie **Moje aplikacje** wybierz aplikację. Spowoduje to otwarcie aplikacji do sekcji **Kompilacja** aplikacji. 
-
-1. Na stronie **Intencje** wybierz pozycję **Dodaj wstępnie utworzone intencje domeny** z paska narzędzi powyżej listy intencji. 
-
-1. Z okna podręcznego wybierz opcję **Utilities.Cancel** intent. 
+1. Znajdź domenę, którą chcesz dodać do aplikacji, a następnie wybierz przycisk **Dodaj domenę** .
 
     > [!div class="mx-imgBorder"]
-    > ![Dodaj wstępnie utworzony zamiar](./media/luis-prebuilt-domains/add-prebuilt-domain-intents.png)
+    > ![Dodaj prezbudowaną domenę kalendarza](./media/luis-prebuilt-domains/add-prebuilt-domain.png)
 
-1. Wybierz przycisk **Gotowe.**
+## <a name="add-a-prebuilt-intent"></a>Dodawanie wstępnie skompilowanego zamiaru
 
-## <a name="add-a-prebuilt-entity"></a>Dodawanie wstępnie utworzonej encji
+1. Na stronie **Moje aplikacje** wybierz aplikację. Spowoduje to otwarcie aplikacji w sekcji **kompilacja** aplikacji. 
 
-1. Otwórz aplikację, klikając jej nazwę na stronie **Moje aplikacje,** a następnie kliknij pozycję **Jednostki** po lewej stronie. 
+1. Na stronie **intencje** wybierz pozycję **Dodaj prebudowany cel domeny** z paska narzędzi powyżej listy intencje. 
 
-1. Na stronie **Elementy** kliknij pozycję **Dodaj wstępnie skompilowany element**.
-
-1. W oknie dialogowym **Dodawanie wstępnie utworzonych jednostek** wybierz wstępnie utworzony element. 
+1. Wybierz opcję **Narzędzia. Cancel** w wyskakującym oknie dialogowym. 
 
     > [!div class="mx-imgBorder"]
-    > ![Okno dialogowe Dodawanie wstępnie utworzonej encji](./media/luis-prebuilt-domains/add-prebuilt-entity.png)
+    > ![Dodaj wstępnie utworzony cel](./media/luis-prebuilt-domains/add-prebuilt-domain-intents.png)
 
-1. Wybierz pozycję **Done** (Gotowe). Po dodaniu jednostki nie trzeba trenować aplikacji. 
+1. Wybierz przycisk **gotowe** .
 
-## <a name="publish-to-view-prebuilt-model-from-prediction-endpoint"></a>Publikowanie w celu wyświetlenia wstępnie utworzonego modelu z punktu końcowego prognozowania
+## <a name="add-a-prebuilt-entity"></a>Dodaj wstępnie utworzoną jednostkę
 
-Najprostszym sposobem, aby wyświetlić wartość wstępnie utworzonego modelu jest zapytanie z opublikowanego punktu końcowego. 
+1. Otwórz aplikację, klikając jej nazwę na stronie **Moje aplikacje** , a następnie klikając pozycję **jednostki** po lewej stronie. 
 
-## <a name="entities-containing-a-prebuilt-entity-token"></a>Jednostki zawierające wstępnie utworzony token encji
+1. Na stronie **jednostki** kliknij pozycję **Dodaj prekompilowaną jednostkę**.
+
+1. W oknie dialogowym **Dodawanie wstępnie utworzonych jednostek** Wybierz wstępnie utworzoną jednostkę. 
+
+    > [!div class="mx-imgBorder"]
+    > ![Okno dialogowe Dodawanie wstępnie skompilowanej jednostki](./media/luis-prebuilt-domains/add-prebuilt-entity.png)
+
+1. Wybierz pozycję **Gotowe**. Po dodaniu jednostki nie ma potrzeby uczenia aplikacji. 
+
+## <a name="publish-to-view-prebuilt-model-from-prediction-endpoint"></a>Publikuj w celu wyświetlenia prekompilowanego modelu z poziomu punktu końcowego przewidywania
+
+Najprostszym sposobem wyświetlenia wartości prekompilowanego modelu jest zapytanie z opublikowanego punktu końcowego. 
+
+## <a name="entities-containing-a-prebuilt-entity-token"></a>Jednostki zawierające wstępnie utworzony token jednostki
  
-Jeśli masz jednostkę nauczoną maszynowo, która jest ograniczona przez wstępnie utworzony element, dodaj podskład nieskładka do jednostki nauczonej maszyny, a następnie dodaj ograniczenie wstępnie utworzonej jednostki.
+Jeśli masz jednostkę uczenia maszynowego, która jest ograniczona przez wstępnie utworzoną jednostkę, Dodaj podskładnik do jednostki, której to dotyczy, a następnie Dodaj ograniczenie wstępnie skompilowanej jednostki.
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
-> [Tworzenie modelu z pliku csv za pomocą interfejsów API REST](./luis-tutorial-node-import-utterances-csv.md)
+> [Kompilowanie modelu z pliku CSV przy użyciu interfejsów API REST](./luis-tutorial-node-import-utterances-csv.md)

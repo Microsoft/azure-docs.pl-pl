@@ -1,7 +1,7 @@
 ---
-title: Migracja do jednostki wyuczonej maszynowo w wersji 3
+title: Migrowanie do jednostki nadanej przez maszynę v3
 titleSuffix: Azure Cognitive Services
-description: Tworzenie v3 zapewnia jeden nowy typ jednostki, jednostki maszynowo, wraz z możliwością dodawania relacji do jednostki nauczanych maszynowo i innych jednostek lub funkcji aplikacji.
+description: Tworzenie w wersji 3 to jeden nowy typ jednostki, obiekt, który został wytworzony przez maszynę oraz możliwość dodawania relacji do jednostki, która jest poznania maszyn i innych obiektów lub funkcji aplikacji.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,137 +11,137 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: diberry
 ms.openlocfilehash: b5dbcd9033d9a41e43ea907d043e0c0486b236db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75563835"
 ---
-# <a name="migrate-to-v3-authoring-entity"></a>Migracja do jednostki tworzenia w wersji 3
+# <a name="migrate-to-v3-authoring-entity"></a>Migrowanie do jednostki tworzenia w wersji 3
 
-Tworzenie v3 zapewnia jeden nowy typ jednostki, jednostki maszynowo, wraz z możliwością dodawania relacji do jednostki nauczanych maszynowo i innych jednostek lub funkcji aplikacji.
+Tworzenie w wersji 3 to jeden nowy typ jednostki, obiekt, który został wytworzony przez maszynę oraz możliwość dodawania relacji do jednostki, która jest poznania maszyn i innych obiektów lub funkcji aplikacji.
 
-## <a name="entities-are-decomposable-in-v3"></a>Elementy są rozkładane w wersji V3
+## <a name="entities-are-decomposable-in-v3"></a>Jednostki są roztworzące w wersji 3
 
-Jednostki utworzone za pomocą interfejsów API tworzenia wersji 3 przy użyciu [interfejsów API](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) lub [portalu podglądu](https://preview.luis.ai/)umożliwiają tworzenie modelu jednostki warstwowej z elementem nadrzędnym i elementami podrzędnymi. Jednostka nadrzędna jest znana jako **jednostka uczenia się maszyn,** a dzieci podrzędne są znane jako **podskładne jednostki** maszyny.
+Jednostki utworzone przy użyciu interfejsów API tworzenia v3, przy użyciu [interfejsów API](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) lub [portalu w wersji zapoznawczej](https://preview.luis.ai/), umożliwiają utworzenie modelu jednostki warstwowej z elementem nadrzędnym i podrzędnym. Element nadrzędny jest znany jako obiekt, który jest rozpoznawany przez **maszynę** i elementy podrzędne, są znane jako **podskładniki** maszyny, którą nauczył się.
 
-Każdy podskładniki jest również jednostką nauczoną maszyn, ale z dodanymi opcjami konfiguracji ograniczeń i deskryptorów.
+Każdy podskładnik jest również jednostką uczenia maszynowego, ale z dodanymi opcjami konfiguracji ograniczeń i deskryptorów.
 
-* Ograniczenia są dokładne **reguły** dopasowywania tekstu, które gwarantują jednostki jest wyodrębniany, gdy pasuje do reguły. Reguła jest definiowana przez jednostkę dopasowywania dokładnie tekstu, obecnie: [wstępnie skompilowana encja,](luis-reference-prebuilt-entities.md) [encja wyrażenia regularnego](reference-entity-regular-expression.md)lub [encja listy](reference-entity-list.md).
-* **Deskryptory** to [operacje,](luis-concept-feature.md)takie jak listy fraz lub encje, które są używane do zdecydowanego wskazania encji.
+* **Ograniczenia** są dokładnymi regułami dopasowania tekstu, które gwarantują, że jednostka jest wyodrębniana, gdy jest zgodna z regułą. Reguła jest definiowana przez dokładną jednostkę zgodną z tekstem, obecnie: [prekompilowana](luis-reference-prebuilt-entities.md)jednostka, [Jednostka wyrażenia regularnego](reference-entity-regular-expression.md)lub [Jednostka listy](reference-entity-list.md).
+* **Deskryptory** są [funkcjami](luis-concept-feature.md), takimi jak listy fraz lub jednostki, które są używane do silnie wskazujące jednostkę.
 
-Tworzenie v3 zapewnia jeden nowy typ jednostki, jednostki maszynowo, wraz z możliwością dodawania relacji do jednostki nauczanych maszynowo i innych jednostek lub funkcji aplikacji.
+Tworzenie w wersji 3 to jeden nowy typ jednostki, obiekt, który został wytworzony przez maszynę oraz możliwość dodawania relacji do jednostki, która jest poznania maszyn i innych obiektów lub funkcji aplikacji.
 
-## <a name="how-do-these-new-relationships-compare-to-v2-authoring"></a>Jak te nowe relacje porównać do tworzenia V2
+## <a name="how-do-these-new-relationships-compare-to-v2-authoring"></a>Jak te nowe relacje są porównywane z wersjami w wersji 2
 
-Tworzenie wersji 2 dostarczyło jednostek hierarchicznych i złożonych wraz z rolami i funkcjami, aby wykonać to samo zadanie. Ponieważ jednostki, funkcje i role nie były jawnie powiązane ze sobą, trudno było zrozumieć, jak usługa LUIS implikowała relacje podczas przewidywania.
+Wersja 2 Autorstwo udostępnia hierarchiczne i złożone jednostki wraz z rolami i funkcjami do wykonania tego samego zadania. Ponieważ jednostki, funkcje i role nie zostały jawnie powiązane ze sobą, trudno zrozumieć, w jaki sposób usługa LUIS określa relacje podczas przewidywania.
 
-W wersji 3 relacja jest jawna i zaprojektowana przez autorów aplikacji. Pozwala to, jako autor aplikacji, na:
+W przypadku wersji 3 relacja jest jawna i zaprojektowana przez autorów aplikacji. Dzięki temu autor aplikacji może:
 
-* Wizualnie zobacz, jak usługa LUIS przewiduje te relacje, w przykładowych wypowiedziach
-* Przetestuj te relacje za pomocą [interaktywnego okienka testowego](luis-interactive-test.md) lub w punkcie końcowym
-* Użyj tych relacji w aplikacji klienckiej za pośrednictwem dobrze ustrukturyzowanego, nazwanego, zagnieżdżonego [obiektu .json](reference-entity-machine-learned-entity.md)
+* Wizualnie Zobacz, jak LUIS przewiduje te relacje, w przykładzie wyrażenia długości
+* Przetestuj te relacje przy użyciu [interaktywnego okienka testów](luis-interactive-test.md) lub w punkcie końcowym
+* Użyj tych relacji w aplikacji klienckiej za pośrednictwem dobrze uporządkowanego, nazwanego, zagnieżdżonego [obiektu JSON](reference-entity-machine-learned-entity.md)
 
 ## <a name="planning"></a>Planowanie
 
 Podczas migracji należy wziąć pod uwagę następujące kwestie w planie migracji:
 
-* Utwórz zapasową aplikacji usługi LUIS i wykonaj migrację w osobnej aplikacji. Mając v2 i V3 aplikacja dostępna w tym samym czasie pozwala sprawdzić poprawność zmian wymaganych i wpływ na wyniki prognozowania.
-* Przechwytywanie bieżących wskaźników powodzenia prognozowania
-* Przechwytywanie bieżących informacji na pulpicie nawigacyjnym jako migawki stanu aplikacji
-* Przeglądanie istniejących intencji, encji, list fraz, wzorców i testów wsadowych
-* Następujące elementy można migrować **bez zmian:**
+* Wykonaj kopię zapasową aplikacji LUIS i Przeprowadź migrację do oddzielnej aplikacji. Gdy aplikacja w wersji 2 i V3 jest dostępna w tym samym czasie, umożliwia zweryfikowanie wymaganych zmian i wpływ na wyniki przewidywania.
+* Przechwyć bieżące metryki sukcesu przewidywania
+* Przechwyć bieżące informacje pulpitu nawigacyjnego jako migawkę stanu aplikacji
+* Przeglądanie istniejących intencji, jednostek, list fraz, wzorców i testów wsadowych
+* Następujące elementy można migrować **bez zmiany**:
     * Intencje
     * Jednostki
         * Jednostka wyrażenia regularnego
         * Jednostka listy
     * Funkcje
         * Lista fraz
-* Następujące elementy muszą zostać przeniesione **ze zmianami:**
+* Następujące elementy muszą zostać zmigrowane **ze zmianami**:
     * Jednostki
         * Jednostka hierarchiczna
         * Jednostka złożona
-    * Role — role można stosować tylko do jednostki nauczającej maszynowo (nadrzędnej). Ról nie można stosować do podskładów
-    * Testy wsadowe i wzorce, które używają jednostek hierarchicznych i złożonych
+    * Role — role można stosować tylko do jednostki, która jest wyuczenia maszynowego (nadrzędnego). Nie można zastosować ról do podskładników
+    * Testy wsadowe i wzorce używające jednostek hierarchicznych i złożonych
 
-Podczas projektowania planu migracji pozostaw czas na przejrzenie końcowych jednostek nauczonych maszynowo, po migracji wszystkich jednostek hierarchicznych i złożonych. Podczas gdy migracja prosta będzie działać, po dokonaniu zmiany i przejrzeniu wyników testów wsadowych i przewidywania JSON, bardziej ujednolicony JSON może prowadzić do wprowadzania zmian, więc ostateczne informacje dostarczane do aplikacji po stronie klienta jest zorganizowany inaczej. Jest to podobne do refaktoryzacji kodu i powinny być traktowane z tego samego procesu przeglądu organizacji ma w miejscu.
+Podczas projektowania planu migracji należy pozostawić czas, aby przejrzeć końcowe jednostki, które zostały wystawione przez maszyny, po przeprowadzeniu migracji wszystkich jednostek hierarchicznych i złożonych. Podczas gdy migracja prosta będzie działała, po dokonaniu zmiany i przejrzeniu wyników testów partii i kodzie JSON przewidywania bardziej ujednolicony kod JSON może prowadzić do wprowadzenia zmian, dzięki czemu ostateczne informacje dostarczane do aplikacji po stronie klienta są zorganizowane inaczej. Jest to podobne do refaktoryzacji kodu i powinna być traktowana przy użyciu tego samego procesu przeglądu, który jest używany w organizacji.
 
-Jeśli nie masz testów wsadowych w miejscu dla modelu V2 i migracji testów wsadowych do modelu V3 w ramach migracji, nie będzie można sprawdzić, jak migracja wpłynie na wyniki przewidywania punktu końcowego.
+Jeśli nie masz testów wsadowych dla modelu w wersji 2 i Przeprowadź migrację testów wsadowych do modelu V3 w ramach migracji, nie będziesz w stanie sprawdzić, w jaki sposób migracja będzie miała wpływ na wyniki prognozowania punktów końcowych.
 
-## <a name="migrating-from-v2-entities"></a>Migracja z encji v2
+## <a name="migrating-from-v2-entities"></a>Migrowanie z jednostek v2
 
-Jak rozpocząć przejście do modelu tworzenia V3, należy rozważyć, jak przejść do jednostki maszyny dowiedział się i jego podskładników, w tym ograniczenia i deskryptorów.
+Po rozpoczęciu pracy z modelem tworzenia v3 należy rozważyć sposób przechodzenia do jednostki, w której nauczysz się na maszynę i jej podskładniki, w tym ograniczenia i deskryptory.
 
-W poniższej tabeli przedstawiono informacje, które jednostki muszą przeprowadzić migrację z projektu jednostki V2 do V3.
+W poniższej tabeli przedstawiono, które jednostki muszą zostać zmigrowane z wersji 2 do 3.
 
-|Typ jednostki autoryzującej w wersji 2|Typ jednostki autoryzującej w wersji 3|Przykład|
+|Typ jednostki tworzenia w wersji 2|Typ jednostki tworzenia v3|Przykład|
 |--|--|--|
-|Jednostka złożona|Jednostka wyuczona maszynowo|[Dowiedz się więcej](#migrate-v2-composite-entity)|
-|Jednostka hierarchiczna|Rola jednostki nauczającej maszyną|[Dowiedz się więcej](#migrate-v2-hierarchical-entity)|
+|Jednostka złożona|Jednostka poznania maszyn|[Dowiedz się więcej](#migrate-v2-composite-entity)|
+|Jednostka hierarchiczna|Rola jednostki poznania maszynowego|[Dowiedz się więcej](#migrate-v2-hierarchical-entity)|
 
-## <a name="migrate-v2-composite-entity"></a>Migrowanie encji Kompozytowe V2
+## <a name="migrate-v2-composite-entity"></a>Migrowanie jednostki złożonej w wersji 2
 
-Każdy element podrzędny kompozytu V2 powinien być reprezentowany z podskładłem jednostki uczenia maszynowego V3. Jeśli element podrzędny złożony jest wstępnie utworzonym wyrażeniem regularnym lub jednostką listy, należy je zastosować jako **ograniczenie** podskładnika reprezentującego element podrzędny.
+Każdy element podrzędny elementu złożonego w wersji 2 powinien być reprezentowany za pomocą podskładnika jednostki wystawionej przez maszynę v3. Jeśli złożony element podrzędny jest prekompilowanym, regularnym wyrażeniem lub jednostką listy, należy to zastosować jako **ograniczenie** dla podskładnika reprezentującego element podrzędny.
 
-Zagadnienia dotyczące planowania migracji jednostki złożonej do jednostki nauczającej maszynowo:
-* Nie można używać elementów podrzędnych w wzorcach
-* Jednostki podrzędne nie są już współużytkowane
-* Jednostki podrzędne muszą być oznakowane, jeśli kiedyś nie były nauczone maszynowo
+Zagadnienia dotyczące planowania migracji jednostki złożonej do jednostki, która jest poznania maszynowa:
+* Jednostek podrzędnych nie można używać w wzorcach
+* Jednostki podrzędne nie są już udostępniane
+* Jednostki podrzędne muszą mieć etykietę, jeśli są one używane jako nieoparte na maszynach
 
 ### <a name="existing-descriptors"></a>Istniejące deskryptory
 
-Każda lista fraz używana do zwiększania wyrazów w jednostce złożonej powinna być stosowana jako deskryptor do jednostki nauczonej maszynowo (nadrzędnej), jednostki podskładnika (podrzędnej) lub intencji (jeśli lista fraz dotyczy tylko jednego zamiaru). Zaplanuj dodanie deskryptora do jednostki, która powinna zostać znacznie zwiększona. Nie należy dodawać deskryptora ogólnie do jednostki uczenia maszynowego (nadrzędnego), jeśli będzie to najbardziej znacząco zwiększyć przewidywanie podskładnika (podrzędnego).
+Wszystkie listy fraz używane do zwiększenia wyrazów w jednostce złożonej powinny być stosowane jako deskryptor do jednostki, która jest poznania maszynowego (element nadrzędny), jednostki podskładnik (podrzędnego) lub zamiaru (Jeśli lista fraz dotyczy tylko jednego celu). Zaplanuj dodanie deskryptora do jednostki, która powinna się znacznie zwiększyć. Nie należy dodawać deskryptora ogólnie do jednostki uczenia maszynowego (nadrzędnego), jeśli będzie ona najbardziej znacznie zwiększyć prognozowanie podskładnika (elementu podrzędnego).
 
 ### <a name="new-descriptors"></a>Nowe deskryptory
 
-W obszarze tworzenia wersji 3 dodaj krok planowania, aby ocenić jednostki jako możliwe deskryptory dla wszystkich jednostek i intencji.
+W przypadku tworzenia w wersji 3 Dodaj krok planowania, aby oszacować jednostki jako możliwe dla wszystkich jednostek i intencji.
 
-### <a name="example-entity"></a>Przykładowa encja
+### <a name="example-entity"></a>Przykładowa jednostka
 
-Ta jednostka jest tylko przykładem. Migracja własnej jednostki może wymagać innych względów.
+Ta jednostka jest tylko przykładem. Migracja jednostek może wymagać innych zagadnień.
 
-Należy wziąć pod uwagę kompozyt V2 do modyfikowania pizzy, `order` która używa:
-* prekompilowany datetimeV2 dla czasu dostawy
-* listy fraz, aby zwiększyć niektóre słowa, takie jak pizza, ciasto, skorupa i polewa
-* podmiotu do wykrywania dodatków, takich jak grzyby, oliwki, pepperoni.
+Należy wziąć pod uwagę projekt 2 dla modyfikacji `order` Pizza, który używa:
+* wstępnie zbudowany datetimeV2 do czasu dostawy
+* Lista fraz w celu zwiększenia określonych wyrazów, takich jak Pizza, kołowy, crust i topping
+* Lista jednostek do wykrywania toppings takich jak grzyby, oliwki, Pepperoni.
 
-Przykładowa wypowiedź dla tej jednostki jest:
+Przykład wypowiedź dla tej jednostki to:
 
 `Change the toppings on my pie to mushrooms and delivery it 30 minutes later`
 
-W poniższej tabeli przedstawiono migrację:
+W poniższej tabeli przedstawiono proces migracji:
 
-|Modele V2|Modele V3|
+|Modele v2|Modele v3|
 |--|--|
-|Jednostka nadrzędna — encja komponentu o nazwie`Order`|Nadrzędny — jednostka nauczona maszynowo o nazwie`Order`|
-|Dziecko — wstępnie utworzony datetimeV2|* Migruj wstępnie utworzone jednostki do nowej aplikacji.<br>* Dodaj ograniczenie dla rodzica dla wstępnie utworzonego datetimeV2.|
-|Child - jednostka listy dodatków|* Migruj encję listy do nowej aplikacji.<br>* Następnie dodaj ograniczenie do elementu nadrzędnego dla encji listy.|
+|Jednostka składników nadrzędnych o nazwie`Order`|Jednostka zadana przez maszynę nadrzędną o nazwie`Order`|
+|DatetimeV2 wstępnie skompilowanych elementów podrzędnych|* Migruj prekompilowany obiekt do nowej aplikacji.<br>* Dodaj ograniczenie elementu nadrzędnego dla wstępnie skompilowanego datetimeV2.|
+|Jednostka listy podrzędnej dla toppings|* Migruj jednostkę listy do nowej aplikacji.<br>* Następnie Dodaj ograniczenie do elementu nadrzędnego dla jednostki listy.|
 
 
-## <a name="migrate-v2-hierarchical-entity"></a>Migrowanie jednostki hierarchicznej w wersji 2
+## <a name="migrate-v2-hierarchical-entity"></a>Migrowanie jednostki hierarchicznej v2
 
-W wersji 2 tworzenia hierarchicznej jednostki została dostarczona przed role istniejące w usłudze LUIS. Oba służyły ten sam cel wyodrębniania jednostek na podstawie użycia kontekstu. Jeśli masz hierarchiczne jednostki, można myśleć o nich jako proste jednostki z rolami.
+W wersji 2 autorstwa jednostka hierarchiczna została udostępniona przed rolami istniejącymi w LUIS. Oba te funkcje są obsługiwane w tym samym celu wyodrębniania jednostek na podstawie użycia kontekstu. Jeśli masz jednostki hierarchiczne, możesz je traktować jako proste jednostki z rolami.
 
-W v3 tworzenia:
-* Rolę można zastosować w jednostce nauczanych maszynowo (nadrzędnych).
-* Nie można zastosować roli do żadnych podskładów.
+W przypadku tworzenia wersji 3:
+* Rolę można zastosować w jednostce, która jest poznania maszynowo (nadrzędną).
+* Nie można zastosować roli do żadnych podskładników.
 
-Ta jednostka jest tylko przykładem. Migracja własnej jednostki może wymagać innych względów.
+Ta jednostka jest tylko przykładem. Migracja jednostek może wymagać innych zagadnień.
 
-Należy wziąć pod uwagę jednostkę hierarchiczną V2 do modyfikowania pizzy: `order`
-* w przypadku gdy każde dziecko określa oryginalną polewę lub
+Aby zmodyfikować Pizza `order`, należy rozważyć jednostkę hierarchiczną v2:
+* gdzie każdy element podrzędny określa oryginalny topping lub końcowy topping
 
-Przykładowa wypowiedź dla tej jednostki jest:
+Przykład wypowiedź dla tej jednostki to:
 
 `Change the topping from mushrooms to olives`
 
-W poniższej tabeli przedstawiono migrację:
+W poniższej tabeli przedstawiono proces migracji:
 
-|Modele V2|Modele V3|
+|Modele v2|Modele v3|
 |--|--|
-|Jednostka nadrzędna — encja komponentu o nazwie`Order`|Nadrzędny — jednostka nauczona maszynowo o nazwie`Order`|
-|Dziecko - Hierarchiczna jednostka z oryginalną i końcową polewą do pizzy|* Dodaj `Order` rolę do każdego polewa.|
+|Jednostka składników nadrzędnych o nazwie`Order`|Jednostka zadana przez maszynę nadrzędną o nazwie`Order`|
+|Podmiot podrzędny-hierarchiczny z pierwotną i końcową Pizza topping|* Dodaj rolę do `Order` każdego topping.|
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zasoby deweloperów](developer-reference-resource.md)
+* [Zasoby dla deweloperów](developer-reference-resource.md)

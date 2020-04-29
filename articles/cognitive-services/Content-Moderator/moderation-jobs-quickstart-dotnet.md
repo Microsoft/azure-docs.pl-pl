@@ -1,7 +1,7 @@
 ---
-title: Korzystanie z zadań moderowania przy użyciu platformy .NET — Moderator zawartości
+title: Korzystanie z zadań moderowania przy użyciu platformy .NET Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Użyj narzędzia Content Moderator .NET SDK do inicjowania zadań moderowania zawartości end-to-end dla zawartości obrazu lub tekstu w moderatorze zawartości platformy Azure.
+description: Użyj zestawu SDK platformy .NET Content Moderator, aby inicjować zadania kompleksowego moderowania zawartości dla zawartości obrazu lub tekstu w usłudze Azure Content Moderator.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: fe1b5b4171dc5e61c1c82abfd723d0b77a05a5b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76294341"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>Definiowanie i używanie zadań moderowania (.NET)
 
-Zadanie moderowania służy jako rodzaj otoki dla funkcjonalności moderowania zawartości, przepływów pracy i recenzji. Ten przewodnik zawiera informacje i przykłady kodu ułatwiające rozpoczęcie korzystania z [SDK moderatora zawartości dla platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) do:
+Zadanie moderowania służy jako rodzaj otoki dla funkcji moderowania zawartości, przepływów pracy i przeglądów. Ten przewodnik zawiera informacje i przykłady kodu ułatwiające rozpoczęcie pracy z [zestawem SDK Content Moderator dla platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) :
 
 - Uruchamianie zadania moderowania w celu skanowania i tworzenia przeglądów dla użytkowników pełniących rolę moderatorów
 - Pobieranie stanu przeglądu oczekującego
 - Śledzenie i pobieranie stanu końcowego przeglądu
-- Przesyłanie wyników recenzji do adresu URL wywołania zwrotnego
+- Prześlij wyniki przeglądu do adresu URL wywołania zwrotnego
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Zaloguj się lub utwórz konto w witrynie narzędzia Content Moderator [Review.](https://contentmoderator.cognitive.microsoft.com/)
+- Zaloguj się lub Utwórz konto w witrynie Content Moderator [Narzędzia do przeglądu](https://contentmoderator.cognitive.microsoft.com/) .
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Upewnij się, że Twój klucz interfejsu API umożliwia wywołanie interfejsu API przeglądu w celu utworzenia przeglądu.
 
@@ -80,7 +80,7 @@ using System.Threading;
 Dodaj następujący kod, aby utworzyć klienta usługi Content Moderator dla Twojej subskrypcji.
 
 > [!IMPORTANT]
-> Zaktualizuj pola **AzureEndpoint** i **CMSubscriptionKey** z wartościami adresu URL punktu końcowego i klucza subskrypcji.
+> Zaktualizuj pola **AzureEndpoint** i **CMSubscriptionKey** za pomocą wartości adresu URL punktu końcowego i klucza subskrypcji.
 
 ```csharp
 /// <summary>

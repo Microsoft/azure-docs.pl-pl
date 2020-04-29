@@ -1,7 +1,7 @@
 ---
 title: Punkt końcowy wyszukiwania niestandardowego Bing
 titleSuffix: Azure Cognitive Services
-description: Twórz dostosowane środowiska wyszukiwania dla tematów, na których Ci zależy. Użytkownicy widzą wyniki wyszukiwania dostosowane do treści, na których im zależy.
+description: Twórz dostosowane środowiska wyszukiwania dla interesujących Cię tematów. Użytkownicy widzą wyniki wyszukiwania dopasowane do zawartości, o której się interesują.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,54 +11,54 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 03ec22caedd4e317b9e1fe781dc3d983febc7a6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74072788"
 ---
 # <a name="custom-search"></a>Wyszukiwanie niestandardowe
 Wyszukiwanie niestandardowe Bing umożliwia tworzenie dostosowanych funkcji wyszukiwania dla interesujących Cię tematów. Użytkownicy zobaczą wyniki wyszukiwania dostosowane do zawartości, która ich interesuje, zamiast przewijać kolejne strony ogólnych wyników wyszukiwania zawierające nieistotną zawartość.
 
 ## <a name="custom-search-endpoint"></a>Niestandardowy punkt końcowy wyszukiwania
-Aby uzyskać wyniki przy użyciu interfejsu API `GET` wyszukiwania niestandardowego Bing, wyślij żądanie do następującego punktu końcowego. Użyj nagłówków i parametrów adresu URL, aby zdefiniować dalsze specyfikacje.
+Aby uzyskać wyniki przy użyciu interfejs API wyszukiwania niestandardowego Bing, Wyślij `GET` żądanie do poniższego punktu końcowego. Użyj nagłówków i parametrów adresu URL, aby zdefiniować dalsze specyfikacje.
 
-Punkt końcowy. `?q=""`
+Punkt końcowy: zwraca sugestie wyszukiwania jako wyniki JSON, które są istotne dla danych wejściowych użytkownika zdefiniowanych `?q=""`przez.
 ```  
  GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```
 
-Przykłady opisujące sposób konfigurowania źródeł wyszukiwania niestandardowego można znaleźć w [samouczku](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). Aby uzyskać szczegółowe informacje na temat nagłówków, parametrów, kodów rynku, obiektów odpowiedzi, błędów itp., zobacz odwołanie do [interfejsu API wyszukiwania niestandardowego Bing w wersji 7.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+Przykłady opisujące sposób konfigurowania niestandardowych źródeł wyszukiwania można znaleźć w [samouczku](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). Aby uzyskać szczegółowe informacje o nagłówkach, parametrach, kodach rynku, obiektach odpowiedzi, błędach itp., zobacz [interfejs API wyszukiwania niestandardowego Bing odwołanie wersji 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference) .
 
-## <a name="custom-search-response-json"></a>Niestandardowa odpowiedź wyszukiwania JSON
-Niestandardowe żądanie wyszukiwania zwraca wyniki jako obiekty JSON, zobacz [Obiekty odpowiedzi](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects). 
+## <a name="custom-search-response-json"></a>Niestandardowy kod JSON odpowiedzi wyszukiwania
+Niestandardowe żądanie wyszukiwania zwraca wyniki jako obiekty JSON, zobacz [obiekty odpowiedzi](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects). 
 
-## <a name="custom-autosuggest"></a>Niestandardowa autosuggest
-Niestandardowy interfejs API autosugerowania umożliwia wysłanie częściowego terminu zapytania do usługi Bing i odzyskanie listy sugerowanych zapytań, które można skonfigurować. Za pomocą niestandardowego autosupicestu można dodać sugestie zwracane przez interfejs API i opcjonalnie określić, czy mają być dołączane sugestie generowane przez Bing.
+## <a name="custom-autosuggest"></a>Niestandardowe automatyczne sugerowanie
+Niestandardowy interfejs API automatycznego sugerowania umożliwia wysyłanie częściowego terminu zapytania wyszukiwania do usługi Bing i powrót do listy sugerowanych zapytań, które można skonfigurować. Przy użyciu niestandardowego automatycznego sugerowania możesz dodać sugestie zwrócone przez interfejs API i opcjonalnie określić, czy mają być dołączane sugestie generowane przez usługę Bing.
 
-## <a name="custom-autosuggest-endpoint"></a>Niestandardowy punkt końcowy autosugestyji
-Aby zażądać sugestii kwerend niestandardowych, wyślij żądanie GET do:
+## <a name="custom-autosuggest-endpoint"></a>Niestandardowy punkt końcowy automatycznego sugerowania
+Aby zażądać niestandardowych sugestii dotyczących zapytań, Wyślij żądanie GET do:
 
 ```
 https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/Suggestions
 ```  
 
-Aby uzyskać informacje dotyczące definiowania sugestii niestandardowych, zobacz [Definiowanie niestandardowych sugestii wyszukiwania](define-custom-suggestions.md).
+Aby uzyskać informacje na temat definiowania sugestii niestandardowych, zobacz [Definiowanie niestandardowych sugestii wyszukiwania](define-custom-suggestions.md).
 
-## <a name="custom-image-search"></a>Niestandardowe wyszukiwanie obrazów
-Interfejs API wyszukiwania obrazów niestandardowych umożliwia wysłanie zapytania wyszukiwania do usługi Bing i odzyskanie listy odpowiednich obrazów z wystąpienia wyszukiwania niestandardowego.
+## <a name="custom-image-search"></a>wyszukiwanie obrazów niestandardowe
+Niestandardowy interfejs API wyszukiwanie obrazów umożliwia wysłanie zapytania wyszukiwania do usługi Bing i odwracanie listy odpowiednich obrazów z wystąpienia wyszukiwania niestandardowego.
 
-## <a name="custom-image-search-endpoint"></a>Niestandardowy punkt końcowy wyszukiwania obrazów
-Aby zażądać obrazów z wystąpienia wyszukiwania niestandardowego, wyślij żądanie GET na następujący adres URL:
+## <a name="custom-image-search-endpoint"></a>Niestandardowy punkt końcowy wyszukiwanie obrazów
+Aby zażądać obrazów z niestandardowego wystąpienia wyszukiwania, Wyślij żądanie GET do następującego adresu URL:
 
 ```
 https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/images/search
 ```
 
-Aby uzyskać informacje dotyczące konfigurowania wystąpienia wyszukiwania niestandardowego, zobacz [Konfigurowanie niestandardowego środowiska wyszukiwania](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view).
+Aby uzyskać informacje na temat konfigurowania niestandardowego wystąpienia wyszukiwania, zobacz [Konfigurowanie niestandardowego środowiska wyszukiwania](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view).
 
 ## <a name="next-steps"></a>Następne kroki
-Interfejsy API **usługi Bing** obsługują akcje wyszukiwania, które zwracają wyniki zgodnie z ich typem.Wszystkie punkty końcowe wyszukiwania zwracają wyniki jako obiekty odpowiedzi JSON. Wszystkie punkty końcowe obsługują kwerendy, które zwracają określony język i/lub lokalizację według długości geograficznej, szerokości geograficznej i promienia wyszukiwania.
+Interfejsy API **Bing** obsługują akcje wyszukiwania, które zwracają wyniki zgodnie z ich typem.Wszystkie punkty końcowe wyszukiwania zwracają wyniki jako obiekty odpowiedzi JSON. Wszystkie punkty końcowe obsługują zapytania, które zwracają określony język i/lub lokalizację według długości geograficznej, szerokości geograficznej i usługi wyszukiwania.
 
-Aby uzyskać pełne informacje na temat parametrów obsługiwanych przez każdy punkt końcowy, zobacz strony odwołań dla każdego typu.
-Przykłady żądań podstawowych przy użyciu interfejsu API wyszukiwania niestandardowego można znaleźć w części [Szybkie uruchamianie wyszukiwania niestandardowego](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)
+Aby uzyskać pełne informacje na temat parametrów obsługiwanych przez poszczególne punkty końcowe, zobacz strony referencyjne dla każdego typu.
+Przykłady podstawowych żądań przy użyciu interfejs API wyszukiwania niestandardowego można znaleźć w temacie [wyszukiwanie niestandardowe — szybki start](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)

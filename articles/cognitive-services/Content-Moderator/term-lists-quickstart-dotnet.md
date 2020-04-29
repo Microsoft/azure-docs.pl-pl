@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 68da335875752d326ee718cade3d501623c70b49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72935954"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Sprawdzanie tekstu względem listy terminów niestandardowych w języku C#
@@ -32,7 +32,7 @@ Ten artykuł zawiera informacje i przykłady kodu, aby początkowo ułatwić kor
 - Edycja informacji na liście.
 - Odświeżanie indeksu, aby zmiany na liście były uwzględnione w nowym skanowaniu.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem. 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
 
 ## <a name="sign-up-for-content-moderator-services"></a>Zarejestruj się w usługach Content Moderator
 
@@ -69,7 +69,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Tworzenie klienta usługi Content Moderator
 
-Dodaj następujący kod, aby utworzyć klienta usługi Content Moderator dla Twojej subskrypcji. Zaktualizuj `AzureEndpoint` pola i `CMSubscriptionKey` wartości adresu URL punktu końcowego i klucza subskrypcji. Można je znaleźć na karcie **Szybki start** zasobu w witrynie Azure portal.
+Dodaj następujący kod, aby utworzyć klienta usługi Content Moderator dla Twojej subskrypcji. Zaktualizuj pola `AzureEndpoint` i `CMSubscriptionKey` przy użyciu wartości adresu URL punktu końcowego i klucza subskrypcji. Te informacje można znaleźć na karcie **Szybki Start** zasobu w Azure Portal.
 
 ```csharp
 /// <summary>
@@ -264,7 +264,7 @@ Do sprawdzania tekstu przy użyciu listy terminów służy metoda **ContentModer
 - Typ MIME, który może mieć wartość „text/html”, „text/xml”, „text/markdown” lub „text/plain”.
 - Tekst do sprawdzenia.
 - Wartość logiczna. Ustaw wartość **true** w tym polu w celu autokorekty tekstu przed jego sprawdzaniem.
-- Wartość logiczna. Ustaw to pole na **true,** aby wykryć dane osobowe w tekście.
+- Wartość logiczna. Ustaw to pole na **wartość true** , aby wykrywać dane osobowe w tekście.
 - Identyfikator listy terminów.
 
 Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
@@ -362,7 +362,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="compose-the-main-method"></a>Skomponuj metodę Main
+## <a name="compose-the-main-method"></a>Redaguj metodę Main
 
 Dodaj definicję metody **Main** do przestrzeni nazw **TermLists** w klasie **Program**. Na koniec zamknij klasę **Program** i przestrzeń nazw **TermLists**.
 

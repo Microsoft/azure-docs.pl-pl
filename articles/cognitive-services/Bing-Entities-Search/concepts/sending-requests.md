@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
 ms.openlocfilehash: f68429a75ddb141c9e42babde3faa9f93fe949cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74072681"
 ---
 # <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Wysyłanie żądań wyszukiwania do interfejsu API wyszukiwania jednostek Bing
 
-Interfejs API wyszukiwania jednostek Bing wysyła zapytanie wyszukiwania do usługi Bing i pobiera wyniki, które zawierają jednostki i miejsca. Wyniki dotyczące miejsc to między innymi restauracje, hotele i inne lokalne firmy. W zapytaniu można na przykład określić nazwę lokalnej firmy lub zadać pytanie o listę miejsc (na przykład „restaurants near me” — restauracje w pobliżu). Wyniki dotyczące jednostek to między innymi osoby, miejsca i rzeczy. Miejsce w tym kontekście to atrakcje turystyczne, stany, kraje/regiony itp.
+Interfejs API wyszukiwania jednostek Bing wysyła zapytanie wyszukiwania do usługi Bing i pobiera wyniki, które zawierają jednostki i miejsca. Wyniki dotyczące miejsc to między innymi restauracje, hotele i inne lokalne firmy. W zapytaniu można na przykład określić nazwę lokalnej firmy lub zadać pytanie o listę miejsc (na przykład „restaurants near me” — restauracje w pobliżu). Wyniki dotyczące jednostek to między innymi osoby, miejsca i rzeczy. Miejsce w tym kontekście to attractions, Stany, kraje/regiony itd.
 
 ## <a name="the-endpoint"></a>Punkt końcowy
 

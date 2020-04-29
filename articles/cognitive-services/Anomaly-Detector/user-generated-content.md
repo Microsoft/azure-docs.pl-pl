@@ -1,7 +1,7 @@
 ---
-title: Wyróżniona zawartość generowana przez użytkowników dla interfejsu API detektora anomalii
+title: Proponowana zawartość wygenerowana przez użytkownika dla interfejsu API wykrywania anomalii
 titleSuffix: Azure Cognitive Services
-description: Znajdź polecaną zawartość i dowiedz się, jak inni ludzie myślą o interfejsie API detektora anomalii i korzystają z niego.
+description: Znajdź proponowaną zawartość i Dowiedz się, w jaki sposób inne osoby zastanawiają się i korzystają z interfejsu API wykrywania anomalii.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: aahi
 ms.openlocfilehash: 81a2cb7ece775bfaffaf1b1932feb12b2da5f08f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74012022"
 ---
-# <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Wyróżniona zawartość generowana przez użytkowników dla interfejsu API detektora anomalii
+# <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Proponowana zawartość wygenerowana przez użytkownika dla interfejsu API wykrywania anomalii
 
-Ten artykuł służy do odkrywania, jak inni klienci myślą o interfejsie API detektora anomalii i przy użyciu niego. Następujące zasoby zostały utworzone przez społeczność użytkowników Anomaly Detector. Obejmują one projekty typu open source i inne wkłady utworzone zarówno przez firmę Microsoft, jak i użytkowników innych firm. Niektóre z poniższych łączy są hostowane w witrynach sieci Web, które są zewnętrzne dla firmy Microsoft, a firma Microsoft nie ponosi odpowiedzialności za zawartość. Użyj dyskrecji, gdy odnosisz się do tych zasobów.
+Skorzystaj z tego artykułu, aby dowiedzieć się, jak różnią się inni klienci i przy użyciu interfejsu API wykrywania anomalii. Społeczność użytkowników z wykrywaczem anomalii utworzyła następujące zasoby. Obejmują one projekty open source oraz inne wkłady utworzone przez użytkowników firmy Microsoft i innych firm. Niektóre z poniższych linków są hostowane w witrynach sieci Web zewnętrznych od firmy Microsoft, a firma Microsoft nie ponosi odpowiedzialności za zawartość. W przypadku odwoływania się do tych zasobów należy używać uznania.
 
 ## <a name="technical-blogs"></a>Blogi techniczne
 
-* [Próba usługi cognitive service: Anomaly Detector API (w języku japońskim)](https://azure-recipe.kc-cloud.jp/2019/04/cognitive-service-anomaly-detector-api/)
+* [Próba skorzystania z usługi poznawczej: interfejs API wykrywania anomalii (w języku japońskim)](https://azure-recipe.kc-cloud.jp/2019/04/cognitive-service-anomaly-detector-api/)
 
-## <a name="open-source-projects"></a>Projekty typu open source
+## <a name="open-source-projects"></a>Projekty open source
 
-* [Notebook Jupyter demonstruujący wykrywanie anomalii i przesyłanie strumieniowe do usługi Power BI](https://github.com/marvinbuss/MS-AnomalyFinder)
+* [Notes Jupyter pokazujący wykrywanie anomalii i przesyłanie strumieniowe do Power BI](https://github.com/marvinbuss/MS-AnomalyFinder)
 
-Jeśli chcesz nominować zasób, wypełnij [krótki formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxSkyhztUNZCtaivu8nmhd1UMENTMEJWTkRORkRGQUtGQzlWQ1dSV1JLTS4u).
-Skontaktuj AnomalyDetector@microsoft.com się lub zgłańcz problem w usłudze GitHub, jeśli chcesz, abyśmy usunieli zawartość.
+Jeśli chcesz wyznaczyć zasób, Wypełnij [krótką formą](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxSkyhztUNZCtaivu8nmhd1UMENTMEJWTkRORkRGQUtGQzlWQ1dSV1JLTS4u).
+Skontaktuj AnomalyDetector@microsoft.com się z nami lub Zgłoś problem w usłudze GitHub, jeśli chcesz usunąć zawartość.

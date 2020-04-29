@@ -1,7 +1,7 @@
 ---
-title: Skalowalność i wydajność — personalizator
+title: Skalowalność i wydajność — Personalizowanie
 titleSuffix: Azure Cognitive Services
-description: 'Witryny i aplikacje o wysokiej wydajności i dużym natężeniu ruchu mają dwa główne czynniki, które należy wziąć pod uwagę za pomocą personalizatora, aby skalowalności i wydajności: opóźnienia i przepustowość szkolenia.'
+description: 'W przypadku witryn sieci Web o wysokiej wydajności i dużych ruchu istnieją dwa główne czynniki, które należy wziąć pod uwagę przy użyciu programu Personalizacja w celu zapewnienia skalowalności i wydajności: opóźnienia i uczenie.'
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,44 +11,44 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: diberry
 ms.openlocfilehash: 5ac9a870cb05328f040febd0f8161a97f0982e09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73490772"
 ---
 # <a name="scalability-and-performance"></a>Skalowalność i wydajność
 
-Witryny i aplikacje o wysokiej wydajności i dużym natężeniu ruchu mają dwa główne czynniki, które należy wziąć pod uwagę za pomocą personalizatora, aby skalowalności i wydajności:
+W przypadku witryn sieci Web o wysokiej wydajności i dużych ruchu istnieją dwa główne czynniki, które należy wziąć pod uwagę w celu zapewnienia skalowalności i wydajności:
 
-* Utrzymywanie niskich opóźnień podczas wykonywania wywołań interfejsu API rangi
-* Upewnianie się, że przepustowość szkolenia nadąża za wprowadzaniem danych o zdarzeniach
+* Zachowywanie małych opóźnień podczas wykonywania wywołań interfejsu API rangi
+* Zapewnianie, że przepływność szkoleń jest zachowywana przy użyciu danych wejściowych zdarzeń
 
-Personalizacja może szybko zwrócić rangę, przy czym większość czasu trwania wywołania jest przeznaczona dla komunikacji za pośrednictwem interfejsu API REST. Platforma Azure będzie automatycznie skalować możliwość szybkiego odpowiadania na żądania.
+Personalizacja może szybko zwracać rangę z większością czasu trwania wywołań, która jest przeznaczona do komunikacji za pomocą interfejsu API REST. Platforma Azure automatycznie skaluje możliwość szybkiego reagowania na żądania.
 
 ##  <a name="low-latency-scenarios"></a>Scenariusze o małym opóźnieniu
 
-Niektóre aplikacje wymagają małych opóźnień podczas zwracania rangi. Konieczne są niskie opóźnienia:
+Niektóre aplikacje wymagają małych opóźnień podczas zwracania rangi. Wymagane są małe opóźnienia:
 
-* Aby uniemożliwić użytkownikowi oczekiwanie zauważalnej ilości czasu przed wyświetleniem zawartości w rankingu.
-* Aby pomóc serwerowi, na który występuje ekstremalny ruch, należy unikać wiązania ograniczonego czasu obliczeniowego i połączeń sieciowych.
+* Aby uniemożliwić użytkownikowi oczekiwanie na zauważalny czas przed wyświetleniem sklasyfikowanej zawartości.
+* Aby ułatwić serwerowi, który ma wyższy ruch, unikaj nawiązywania nieprawidłowych czasu obliczeń i połączeń sieciowych.
 
 
-## <a name="scalability-and-training-throughput"></a>Skalowalność i przepustowość szkoleniowa
+## <a name="scalability-and-training-throughput"></a>Skalowalność i przepływność szkoleń
 
-Personalizer działa przez aktualizowanie modelu, który jest przeszkolony na podstawie wiadomości wysyłanych asynchronicznie przez personalizator po rangi i nagrody interfejsów API. Te komunikaty są wysyłane przy użyciu usługi Azure EventHub dla aplikacji.
+Personalizacja działa, aktualizując model, który jest ponownie przemieszczony na podstawie komunikatów wysyłanych asynchronicznie przez personalizację po rangi i nagrodach interfejsów API. Te komunikaty są wysyłane przy użyciu centrum zdarzeń platformy Azure dla aplikacji.
 
- Jest mało prawdopodobne, większość aplikacji osiągnie maksymalną przepustowość łączenia i szkolenia Personalizer. Osiągnięcie tego maksimum nie spowolni aplikacji, oznaczałoby to, że kolejki usługi Event Hub są wypełniane wewnętrznie szybciej niż można je wyczyścić.
+ Jest mało prawdopodobne, że większość aplikacji osiągnie maksymalną przepustowość i uczenie się dla personalizacji. Osiągnięcie tej wartości maksymalnej nie spowoduje spowolnienia działania aplikacji. spowoduje to, że kolejki centrum zdarzeń są wprowadzane wewnętrznie w trybie szybszym niż można je wyczyścić.
 
 ## <a name="how-to-estimate-your-throughput-requirements"></a>Jak oszacować wymagania dotyczące przepływności
 
-* Oszacuj średnią liczbę bajtów na zdarzenie rankingu, dodając długości kontekstu i akcji dokumentów JSON.
-* Podziel 20 MB/s przez te szacowane średnie bajty.
+* Oszacuj średnią liczbę bajtów na zdarzenie klasyfikacji, dodając długości dokumentów JSON kontekstu i akcji.
+* Podziel baza na sekundę przez ten szacowany średnią liczbę bajtów.
 
-Na przykład, jeśli średnia ładowność ma 500 obiektów, a każdy z nich ma około 20 znaków, każde zdarzenie ma około 10 kb. Z tych szacunków, 20,000,000 / 10,000 = 2,000 zdarzeń / s, czyli około 173 milionów zdarzeń dziennie. 
+Na przykład jeśli średni ładunek ma 500 funkcji, a każdy z nich jest szacowany 20 znaków, każde zdarzenie jest około 10 KB. W przypadku tych szacunków 20 000 000/10 000 = 2 000 Events/s, które dotyczą zdarzeń 173 000 000 Events/dzień. 
 
-Jeśli osiągasz te limity, skontaktuj się z naszym zespołem pomocy technicznej w celu uzyskania porady na temat architektury.
+Jeśli zbliżasz się do tych limitów, skontaktuj się z naszym zespołem pomocy technicznej, aby uzyskać poradę dotyczącą architektury.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Tworzenie i konfigurowanie programu Personalizer](how-to-settings.md).
+[Utwórz i skonfiguruj personalizację](how-to-settings.md).

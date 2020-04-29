@@ -1,7 +1,7 @@
 ---
-title: Wstępnie utworzone jednostki wymiaru — usługa LUIS
+title: Wstępnie utworzone jednostki wymiarów — LUIS
 titleSuffix: Azure Cognitive Services
-description: Ten artykuł zawiera wstępnie utworzone informacje o jednostce wymiaru w yrozmaicieniu języka (LUIS).
+description: Ten artykuł zawiera informacje o jednostkach wstępnie skompilowanych wymiarów w Language Understanding (LUIS).
 services: cognitive-services
 ms.custom: seodec18
 author: diberry
@@ -12,28 +12,28 @@ ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: 3c7bebb38d0331c76eeaaa1d9d6464c568a61b83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78270630"
 ---
-# <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Wstępnie skompilowana encja wymiaru dla aplikacji usługi LUIS
-Prekompilowana jednostka wymiaru wykrywa różne typy wymiarów, niezależnie od kultury aplikacji usługi LUIS. Ponieważ ta jednostka jest już przeszkolony, nie trzeba dodawać wypowiedzi przykład zawierający wymiary do intencji aplikacji. Encja wymiar jest obsługiwana w [wielu kulturach](luis-reference-prebuilt-entities.md).
+# <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Wstępnie utworzona jednostka dla aplikacji LUIS
+Wstępnie utworzona jednostka wymiaru wykrywa różne typy wymiarów, niezależnie od kultury aplikacji LUIS. Ponieważ ta jednostka jest już przeszkolone, nie trzeba dodawać przykładowych wyrażenia długości zawierających wymiary do intencji aplikacji. Jednostka wymiaru jest obsługiwana w [wielu kulturach](luis-reference-prebuilt-entities.md).
 
-## <a name="types-of-dimension"></a>Rodzaje wymiarów
+## <a name="types-of-dimension"></a>Typy wymiarów
 
-Wymiar jest zarządzany z repozytorium GitHub [w tekście aparatów rozpoznawania.](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml)
+Wymiar jest zarządzany przez [Aparaty rozpoznawania tekstu —](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) repozytorium GitHub.
 
-## <a name="resolution-for-dimension-entity"></a>Rozdzielczość dla jednostki wymiaru
+## <a name="resolution-for-dimension-entity"></a>Rozwiązanie dla jednostki wymiaru
 
-Następujące obiekty encji są zwracane dla kwerendy:
+Następujące obiekty jednostki są zwracane dla zapytania:
 
 `10 1/2 miles of cable`
 
-#### <a name="v3-response"></a>[Odpowiedź V3](#tab/V3)
+#### <a name="v3-response"></a>[Odpowiedź v3](#tab/V3)
 
-Następujący JSON jest `verbose` z parametrem ustawionym na: `false`
+Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
 
 ```json
 "entities": {
@@ -45,8 +45,8 @@ Następujący JSON jest `verbose` z parametrem ustawionym na: `false`
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[Odpowiedź pełne V3](#tab/V3-verbose)
-Następujący JSON jest `verbose` z parametrem ustawionym na: `true`
+#### <a name="v3-verbose-response"></a>[Pełna odpowiedź w wersji 3](#tab/V3-verbose)
+Poniższy kod JSON jest z `verbose` parametrem ustawionym `true`na:
 
 ```json
 "entities": {
@@ -74,9 +74,9 @@ Następujący JSON jest `verbose` z parametrem ustawionym na: `true`
 }
 ```
 
-#### <a name="v2-response"></a>[Odpowiedź V2](#tab/V2)
+#### <a name="v2-response"></a>[Odpowiedź w wersji 2](#tab/V2)
 
-Poniższy przykład przedstawia rozdzielczość **jednostki builtin.dimension.**
+Poniższy przykład pokazuje rozdzielczość jednostki **wbudowanej. wymiar** .
 
 ```json
 {
@@ -94,6 +94,6 @@ Poniższy przykład przedstawia rozdzielczość **jednostki builtin.dimension.**
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [punkcie końcowym przewidywania V3](luis-migration-api-v3.md).
+Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v3.md).
 
-Dowiedz się więcej o [jednostkach poczty e-mail,](luis-reference-prebuilt-email.md) [numeru](luis-reference-prebuilt-number.md)i [porządkowych.](luis-reference-prebuilt-ordinal.md)
+Dowiedz się więcej o jednostkach [poczty e-mail](luis-reference-prebuilt-email.md), [liczb](luis-reference-prebuilt-number.md)i [porządkowej](luis-reference-prebuilt-ordinal.md) .

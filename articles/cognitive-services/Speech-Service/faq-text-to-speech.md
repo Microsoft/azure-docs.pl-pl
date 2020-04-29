@@ -1,7 +1,7 @@
 ---
-title: Często zadawane pytania dotyczące zamiany tekstu na mowę
+title: zamiana tekstu na mowę często zadawane pytania
 titleSuffix: Azure Cognitive Services
-description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące usługi Zamiana tekstu na mowę.
+description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące usługi zamiana tekstu na mowę.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,55 +11,55 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
 ms.openlocfilehash: 19b8be83a3678164197ec0650b07091e941a04d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74110494"
 ---
-# <a name="text-to-speech-frequently-asked-questions"></a>Często zadawane pytania dotyczące zamiany tekstu na mowę
+# <a name="text-to-speech-frequently-asked-questions"></a>zamiana tekstu na mowę często zadawane pytania
 
-Jeśli nie możesz znaleźć odpowiedzi na swoje pytania w tym faq, zapoznaj się z [innymi opcjami pomocy technicznej](support.md).
+Jeśli nie możesz znaleźć odpowiedzi na pytania w tym często zadawane pytania, zapoznaj się z [innymi opcjami pomocy technicznej](support.md).
 
 ## <a name="general"></a>Ogólne
 
-**P: Jaka jest różnica między standardowym modelem głosu a niestandardowym modelem głosu?**
+**P: Jaka jest różnica między standardowym modelem głosu i niestandardowym modelem głosu?**
 
-**A:** Standardowy model głosu (nazywany również _czcionką głosową)_ został przeszkolony przy użyciu danych należących do firmy Microsoft i jest już wdrożony w chmurze. Można użyć niestandardowego modelu głosu, aby dostosować średni model i przenieść barwę i ekspresję stylu głosu głośnika lub wyszkolić pełny, nowy model na podstawie danych szkoleniowych przygotowanych przez użytkownika. Dziś coraz więcej klientów chce jedynego w swoim rodzaju, markowego głosu dla swoich botów. Niestandardowa platforma do budowania głosu jest właściwym wyborem dla tej opcji.
+Odp **.: standardowy**model głosu (nazywany także _czcionką głosową_) został przeszkolony przy użyciu danych firmy Microsoft i jest już wdrożony w chmurze. Możesz użyć niestandardowego modelu głosowego, aby dostosować średni model i przenieść Timbre i wyrażenie stylu głosu osoby mówiącej lub nauczyć pełny nowy model na podstawie danych szkoleniowych przygotowanych przez użytkownika. Obecnie coraz więcej i więcej klientów chce, aby botów się z jednym z marek. Niestandardowa platforma do tworzenia głosu to właściwy wybór dla tej opcji.
 
-**P: Od czego zacząć, jeśli chcę używać standardowego modelu głosu?**
+**P: gdzie mogę zacząć korzystać z standardowego modelu głosu?**
 
-**A:** Ponad 80 standardowych modeli głosowych w ponad 45 językach jest dostępnych za pośrednictwem żądań HTTP. Najpierw uzyskaj [klucz subskrypcji](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Aby nawiązać połączenia REST do wstępnie wypalonych modeli głosowych, zobacz [interfejs API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+Odp **.: za**pośrednictwem żądań HTTP dostępne są ponad 80 standardowych modeli głosu w ponad 45 językach. Najpierw pobierz [klucz subskrypcji](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Aby wykonać wywołania REST do prewdrażanych modeli głosu, zobacz [interfejs API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
-**Pyt.: Jeśli chcę używać dostosowanego modelu głosu, czy interfejs API jest taki sam jak ten, który jest używany dla standardowych głosów?**
+**P: Jeśli chcę korzystać z dostosowanego modelu głosu, czy interfejs API jest taki sam jak ten, który jest używany w odniesieniu do standardowych głosów?**
 
-**A:** Po utworzeniu i wdrożeniu niestandardowego modelu głosu otrzymasz unikatowy punkt końcowy dla modelu. Aby używać głosu do mówienia w aplikacjach, należy określić punkt końcowy w żądaniach HTTP. Ta sama funkcja, która jest dostępna w interfejsie API REST dla usługi zamiany tekstu na mowę jest dostępna dla niestandardowego punktu końcowego. Dowiedz się, jak [utworzyć niestandardowy punkt końcowy i używać go.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-voice-endpoint)
+Odp **.: po**utworzeniu i wdrożeniu niestandardowego modelu głosu uzyskasz unikatowy punkt końcowy dla modelu. Aby użyć głosu do mówienia w aplikacjach, należy określić punkt końcowy w żądaniach HTTP. Te same funkcje, które są dostępne w interfejsie API REST dla usługi zamiana tekstu na mowę, są dostępne dla niestandardowego punktu końcowego. Dowiedz się [, jak utworzyć niestandardowy punkt końcowy i korzystać z niego](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-voice-endpoint).
 
-**Pyt.: Czy muszę przygotować dane szkoleniowe, aby samodzielnie tworzyć niestandardowe modele głosowe?**
+**P: Czy muszę przygotować dane szkoleniowe do tworzenia niestandardowych modeli głosowych?**
 
-**Odp**.: Tak, musisz samodzielnie przygotować dane szkoleniowe dla niestandardowego modelu głosu.
+Odp **.: tak**, musisz samodzielnie przygotować dane szkoleniowe dla niestandardowego modelu głosu.
 
-Kolekcja danych mowy jest wymagana do utworzenia dostosowanego modelu głosu. Ta kolekcja składa się z zestawu plików audio nagrań mowy i pliku tekstowego transkrypcji każdego pliku audio. Wynik cyfrowego głosu zależy w dużej mierze od jakości danych treningowych. Aby uzyskać dobry głos zamiany tekstu na mowę, ważne jest, aby nagrania były wykonane w cichym pomieszczeniu z wysokiej jakości mikrofonem stojącym. Spójna głośność, szybkość mówienia i ton mówienia, a nawet spójność w ekspresyjnych manierach mowy są niezbędne do budowania świetnego głosu cyfrowego. Gorąco polecamy nagrywanie głosów w studiu nagraniowym.
+Kolekcja danych mowy jest wymagana do utworzenia niestandardowego modelu głosu. Ta kolekcja składa się z zestawu plików audio nagrań mowy i pliku tekstowego transkrypcji każdego pliku dźwiękowego. Wynik cyfrowego głosu zależy od jakości danych szkoleniowych. Aby utworzyć dobry głos zamiany tekstu na mowę, ważne jest, aby nagranie odbywało się w cichym pokoju z wysoką jakością, stałym mikrofonem. Spójna głośność, częstotliwość mówienia i gęstość głosu, a nawet spójność mannerisms mowy jest niezwykle ważna dla tworzenia wspaniałego cyfrowego głosu. Zdecydowanie zalecamy nagrywanie głosów w programie nagrywanie Studio.
 
-Obecnie nie zapewniamy wsparcia nagrywania online ani nie mamy żadnych rekomendacji studia nagraniowego. Aby uzyskać wymagania dotyczące formatu, [zobacz, jak przygotować nagrania i transkrypcje](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice).
+Obecnie nie zapewniamy obsługi rejestrowania w trybie online ani nie masz żadnych zaleceń dotyczących nagrywania programu Studio. Wymagania dotyczące formatu można znaleźć w temacie [How to Prepare nagrań i transkrypcji](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice).
 
-**Pyt.: Jakich skryptów należy używać do nagrywania danych mowy do niestandardowego szkolenia głosowego?**
+**P: jakie skrypty należy użyć, aby zarejestrować dane mowy dla niestandardowego szkolenia głosu?**
 
-**Odp**.: Nie ograniczamy skryptów do nagrywania głosu. Do nagrywania mowy można używać własnych skryptów. Po prostu upewnij się, że masz wystarczający zasięg fonetyczny w danych mowy. Aby wyszkolić niestandardowy głos, można rozpocząć od niewielkiej ilości danych mowy, które mogą być 50 różnych zdań (około 3-5 minut mowy). Im więcej danych podasz, tym bardziej naturalny będzie Twój głos. Możesz rozpocząć szkolenie pełnej czcionki głosowej, gdy podasz nagrania ponad 2000 zdań (około 3-4 godzin mowy). Aby uzyskać wysokiej jakości, pełny głos, musisz przygotować nagrania ponad 6000 zdań (około 8-10 godzin mowy).
+Odp **.: nie**ograniczamy skryptów do nagrywania głosu. Możesz użyć własnych skryptów, aby zarejestrować mowę. Wystarczy upewnić się, że w danych mowy masz wystarczające pokrycie fonetyczne. Aby nauczyć się niestandardowego głosu, możesz zacząć od małej ilości danych mowy, co może być 50 różnych zdań (około 3-5 minut na mowę). Im więcej danych zapewniasz, tym bardziej naturalny będzie Twój głos. Możesz rozpocząć uczenie pełnej czcionki głosowej, gdy podajesz nagrania więcej niż 2 000 zdań (około 3-4 godz.). Aby uzyskać wysoką jakość głosu, należy przygotować nagrania z więcej niż 6 000 zdań (około 8-10 godz.).
 
-Zapewniamy dodatkowe usługi, które pomogą Ci przygotować skrypty do nagrywania. Aby uzyskać informacje na ten cel, skontaktuj się z [działem obsługi klienta Custom Voice.](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation)
+Oferujemy dodatkowe usługi ułatwiające przygotowanie skryptów do nagrywania. Skontaktuj się z działem [obsługi klienta niestandardowego](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) na potrzeby zapytań.
 
-**Pyt.: Co zrobić, jeśli potrzebuję wyższej współbieżności niż wartość domyślna lub co jest oferowane w portalu?**
+**P: co zrobić, jeśli potrzebuję większej współbieżności niż wartość domyślna lub jaka jest oferowana w portalu?**
 
-**A:** Model można skalować w górę w przyrostach 20 równoczesnych żądań. Skontaktuj się z [działem obsługi klienta Custom Voice,](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) aby uzyskać informacje na temat wyższego skalowania.
+Odp **.: można**skalować w górę modelu w przyrostach 20 współbieżnych żądań. Skontaktuj się z działem [obsługi klienta niestandardowego](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) na potrzeby zapytań o wyższym skalowaniu.
 
-**P: Czy mogę pobrać mój model i uruchomić go lokalnie?**
+**P: Czy można pobrać model i uruchomić go lokalnie?**
 
-**A:** Modeli nie można pobrać i wykonać lokalnie.
+Odp **.: nie**można pobrać i wykonać lokalnie modeli.
 
 **P: Czy moje żądania są ograniczone?**
 
-**A:** Interfejs API REST ogranicza żądania do 25 na 5 sekund. Szczegóły można znaleźć na naszych stronach [tekst do mowy](text-to-speech.md).
+Odp **.: interfejs**API REST ogranicza liczbę żądań do 25 na 5 sekund. Szczegółowe informacje można znaleźć na stronach na [Zamiana tekstu na mowę](text-to-speech.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

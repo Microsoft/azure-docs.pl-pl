@@ -1,7 +1,7 @@
 ---
-title: Udostępnianie wyszukiwania niestandardowego — wyszukiwanie niestandardowe Bing
+title: Udostępnianie niestandardowego wyszukiwania — wyszukiwanie niestandardowe Bing
 titleSuffix: Azure Cognitive Services
-description: Łatwe zezwalanie na wspólną edycję i testowanie wystąpienia, udostępniając je członkom zespołu.
+description: Łatwo Zezwalaj na wspólne edytowanie i testowanie wystąpienia, udostępniając je członkom zespołu.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,29 +11,29 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 5a08ee7f5ea3d5e8c393ea4c1a64c353e24777e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74072696"
 ---
-# <a name="share-your-custom-search-instance"></a>Udostępnianie wystąpienia wyszukiwania niestandardowego
+# <a name="share-your-custom-search-instance"></a>Udostępnianie niestandardowego wystąpienia wyszukiwania
 
-Możesz łatwo umożliwić wspólne edytowanie i testowanie wystąpienia, udostępniając je członkom swojego zespołu. Możesz udostępnić swoje wystąpienie każdemu, kto używa tylko swojego adresu e-mail. Aby udostępnić wystąpienie:
+Możesz łatwo umożliwić wspólne edytowanie i testowanie wystąpienia, udostępniając je członkom swojego zespołu. Możesz udostępnić swoje wystąpienie osobie korzystającej z samego adresu e-mail. Aby udostępnić wystąpienie:
 
-- Zaloguj się do [wyszukiwania niestandardowego](https://customsearch.ai)
-- Wybieranie wystąpienia wyszukiwania niestandardowego
-- Kliknij ikonę ustawień (wyświetlaną jako bieg). 
-- W obszarze **Udostępnianie wystąpienia**wprowadź adres e-mail osoby, której chcesz udostępnić wystąpienie, i kliknij pozycję **Udostępnij**. 
+- Logowanie się do [wyszukiwania niestandardowego](https://customsearch.ai)
+- Wybierz niestandardowe wystąpienie wyszukiwania
+- Kliknij ikonę ustawień (wyświetlaną jako koła zębate). 
+- W obszarze **udostępnianie wystąpienia**wprowadź adres e-mail osoby, w której ma zostać udostępnione wystąpienie, a następnie kliknij pozycję **Udostępnij**. 
 
-Po dodaniu adresu e-mail jest on dodawany do **listy Wystąpienia udostępnionego.** Powtórz proces dla każdej osoby, której chcesz udostępnić wystąpienie. 
+Po dodaniu adresu e-mail zostanie on dodany do **wystąpienia udostępnionego z** listą. Powtórz ten proces dla każdej osoby, w której chcesz udostępnić swoje wystąpienie. 
 
-Aby dodać do listy czyjąś wiadomość e-mail, nie jest konieczne, aby miała konto wyszukiwania niestandardowego. Będą musieli zarejestrować się w wyszukiwarce niestandardowej, zanim jednak wejdą w zmiany konfiguracji. Po udostępnienie wystąpienia komuś, zobaczą go na liście wystąpień wyszukiwania niestandardowego. Tylko jedna osoba może modyfikować wystąpienie w danej chwili. Jeśli spróbujesz zmodyfikować wystąpienie edytowane przez inną osobę, zostanie wyświetlone ostrzeżenie. Wystąpienie można udostępnić maksymalnie 10 użytkownikom.
+Aby dodać wiadomość e-mail innej osoby do listy, nie jest to konieczne w przypadku konta wyszukiwania niestandardowego. Przed wprowadzeniem zmian w konfiguracji należy zarejestrować się w celu wyszukania niestandardowego. Po udostępnieniu wystąpienia osobie zobaczysz ją na liście wystąpień wyszukiwania niestandardowego. Tylko jedna osoba może modyfikować wystąpienie w danym momencie. W przypadku próby zmodyfikowania wystąpienia, które edytuje ktoś inny, wyświetlane jest ostrzeżenie. Wystąpienie może być współużytkowane z maksymalnie 10 użytkownikami.
 
-## <a name="stop-sharing"></a>Zatrzymywanie udostępniania
+## <a name="stop-sharing"></a>Zatrzymaj udostępnianie
 
-Aby zatrzymać udostępnianie komuś wystąpienia, użyj ikony usuń, aby usunąć ich adres e-mail z listy. Spowoduje to również usunięcie wystąpienia z listy wystąpień.
+Aby zatrzymać udostępnianie wystąpienia innemu użytkownikowi, użyj ikony Usuń, aby usunąć swój adres e-mail z listy. Spowoduje to również usunięcie wystąpienia z listy wystąpień.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Konfigurowanie środowiska autosueceł niestandardowych](define-custom-suggestions.md)
+- [Skonfiguruj niestandardowe środowisko automatycznego sugerowania](define-custom-suggestions.md)

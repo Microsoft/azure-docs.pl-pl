@@ -1,7 +1,7 @@
 ---
-title: 'Cechy: Działanie i kontekst - Personalizer'
+title: 'Funkcje: Akcja i kontekst — Personalizacja'
 titleSuffix: Azure Cognitive Services
-description: Personalizer wykorzystuje funkcje, informacje o działaniach i kontekście, aby lepiej sugestie rankingu. Funkcje mogą być bardzo ogólne lub specyficzne dla elementu.
+description: Personalizacja używa funkcji, informacji o akcjach i kontekście, aby uzyskiwać lepsze sugestie dotyczące klasyfikacji. Funkcje mogą być bardzo ogólne lub specyficzne dla elementu.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,70 +11,70 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: 408501232891a7971d03c89acc647d9ed19609b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77026153"
 ---
-# <a name="features-are-information-about-actions-and-context"></a>Funkcje to informacje o działaniach i kontekście
+# <a name="features-are-information-about-actions-and-context"></a>Funkcje to informacje o akcjach i kontekście
 
-Usługa Personalizer działa, ucząc się, co aplikacja powinna być pokazana użytkownikom w danym kontekście.
+Usługa personalizowania działa przez uczenie się, co aplikacja powinna pokazać użytkownikom w danym kontekście.
 
-Personalizer używa **funkcji**, czyli informacji o **bieżącym kontekście,** aby wybrać najlepszą **akcję.** Funkcje reprezentują wszystkie informacje, które ich zdaniem mogą pomóc w personalizacji w celu uzyskania wyższych nagród. Funkcje mogą być bardzo ogólne lub specyficzne dla elementu. 
+Personalizacja używa **funkcji**, które są informacjami o **bieżącym kontekście** , aby wybrać najlepszą **akcję**. Funkcje reprezentują wszystkie informacje, które mogą pomóc spersonalizować, aby osiągnąć wyższy poziom korzyści. Funkcje mogą być bardzo ogólne lub specyficzne dla elementu. 
 
-Na przykład może być **wyposażony w funkcję** dotyczącą:
+Na przykład może być dostępna **Funkcja** :
 
-* Persona _użytkownika,_ takich `Sports_Shopper`jak . Nie powinien to być identyfikator indywidualnego użytkownika. 
-* _Zawartość,_ taka jak, jeśli `Documentary`film `Movie`jest `TV Series`, a , lub , lub czy towar detaliczny jest dostępny w sklepie.
-* _Bieżący_ okres czasu, taki jak dzień tygodnia.
+* _Osoba użytkownika_ , taka jak `Sports_Shopper`. Nie powinna to być indywidualny identyfikator użytkownika. 
+* _Zawartość_ , taka jak w przypadku filmu wideo `Documentary`, `Movie`a lub `TV Series`lub czy element detaliczny jest dostępny w sklepie.
+* _Bieżący_ okres, taki jak dzień tygodnia.
 
-Personalizer nie przepisuje, nie ogranicza ani nie naprawia funkcji, które można wysyłać do akcji i kontekstu:
+Personalizacja nie określa, nie ogranicza ani nie naprawia funkcji, które można wysyłać dla akcji i kontekstu:
 
-* Możesz wysłać niektóre funkcje dla niektórych działań, a nie dla innych, jeśli ich nie masz. Na przykład seriale telewizyjne mogą mieć atrybuty, których filmy nie mają.
-* Niektóre funkcje mogą być dostępne tylko w niektórych przypadkach. Na przykład aplikacja mobilna może dostarczyć więcej informacji niż strona internetowa. 
-* Z biegiem czasu można dodawać i usuwać funkcje dotyczące kontekstu i akcji. Personalizer nadal uczy się na podstawie dostępnych informacji.
-* Musi istnieć co najmniej jedna funkcja dla kontekstu. Personalizer nie obsługuje pustego kontekstu. Jeśli tylko wysłać stały kontekst za każdym razem, Personalizer wybierze akcję dla rankingów tylko dotyczące funkcji w działaniach.
-* W przypadku operacji kategorii nie trzeba definiować możliwych wartości i nie trzeba wstępnie definiować zakresów dla wartości liczbowych.
+* Jeśli ich nie masz, możesz wysłać kilka funkcji dla niektórych akcji, a nie dla innych. Na przykład, w przypadku serii TV mogą znajdować się filmy o atrybutach.
+* Niektóre funkcje mogą być dostępne tylko kilka razy. Aplikacja mobilna może na przykład dostarczyć więcej informacji niż strona sieci Web. 
+* Wraz z upływem czasu można dodawać i usuwać funkcje dotyczące kontekstu i akcji. Personalizacja kontynuuje naukę od dostępnych informacji.
+* Dla kontekstu musi istnieć co najmniej jedna funkcja. Program personalizujer nie obsługuje pustego kontekstu. W przypadku wysyłania tylko stałego kontekstu za każdym razem Personalizacja wybierze akcję do klasyfikacji tylko dla funkcji w akcjach.
+* W przypadku funkcji kategorii nie trzeba definiować możliwych wartości i nie trzeba wstępnie definiować zakresów dla wartości liczbowych.
 
-## <a name="supported-feature-types"></a>Obsługiwane typy obiektów
+## <a name="supported-feature-types"></a>Obsługiwane typy funkcji
 
-Personalizator obsługuje funkcje typów ciągów, numerycznych i logicznych.
+Personalizacja obsługuje funkcje typu String, numeric i Boolean.
 
-### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Jak wybór typu funkcji wpływa na uczenie maszynowe w personalizatorze
+### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Jak wybór typu funkcji ma wpływ na Machine Learning w programie Personalizacja
 
-* **Ciągi:** Dla typów ciągów każda kombinacja klucza i wartości tworzy nowe wagi w modelu uczenia maszynowego personalizatora. 
-* **Numeryczne**: Należy użyć wartości liczbowych, gdy liczba powinna proporcjonalnie wpływać na wynik personalizacji. Jest to bardzo zależne od scenariusza. W uproszczonym przykładzie np. Funkcje, które są oparte na jednostkach liczbowych, ale gdzie znaczenie nie jest liniowe — takie jak Wiek, Temperatura lub Wysokość osoby — najlepiej kodować jako ciągi, a jakość operacji można zazwyczaj poprawić za pomocą zakresów. Na przykład Age może być zakodowany jako "Age":"0-5", "Age":"6-10" itp.
-* Wartości **logiczne** wysyłane z wartością "false" działają tak, jakby w ogóle nie zostały wysłane.
+* **Ciągi**: dla typów ciągów każda kombinacja klucza i wartości tworzy nowe wagi w modelu uczenia maszynowego. 
+* Wartość **liczbowa**: należy używać wartości liczbowych, gdy liczba powinna proporcjonalnie wpłynąć na wynik personalizacji. Jest to bardzo zależne. W uproszczonym przykładzie, np. w przypadku personalizowania środowiska sprzedaży detalicznej, NumberOfPetsOwned może być funkcją, która jest wartością numeryczną, ponieważ osoby mające 2 lub 3 zwierzęta domowe mają wpływ na wynik personalizacji dwa razy lub trzy razy dziennie tak samo, jak w przypadku 1 PET. Funkcje, które są oparte na jednostkach liczbowych, ale których znaczenie nie jest liniowe, takie jak wiek, temperatura lub wysokość osoby — są najlepiej kodowane jako ciągi, a jakość funkcji można zazwyczaj zwiększyć przy użyciu zakresów. Na przykład wiek może być zakodowany jako "wiek": "0-5", "wiek": "6-10" itd.
+* Wartości **logiczne** wysyłane z wartością "false" działają tak, jakby nie zostały wysłane.
 
-Funkcje, które nie są obecne powinny zostać pominięte w żądaniu. Należy unikać wysyłania funkcji z wartością null, ponieważ będą przetwarzane jako istniejące i z wartością "null" podczas szkolenia modelu.
+Nieobecne funkcje powinny być pominięte w żądaniu. Należy unikać wysyłania funkcji o wartości null, ponieważ zostaną one przetworzone jako istniejące i mają wartość "null" podczas uczenia modelu.
 
-## <a name="categorize-features-with-namespaces"></a>Kategoryzowanie obiektów za pomocą obszarów nazw
+## <a name="categorize-features-with-namespaces"></a>Kategoryzowanie funkcji za pomocą przestrzeni nazw
 
-Personalizator przyjmuje funkcje zorganizowane w przestrzenie nazw. W aplikacji można określić, czy obszary nazw są używane i jakie powinny być. Przestrzenie nazw są używane do grupowanie funkcji o podobnym temacie lub funkcjach pochodzących z określonego źródła.
+Personalizacja wykonuje funkcje zorganizowane w przestrzenie nazw. W aplikacji należy określić, czy są używane przestrzenie nazw i jakie powinny być. Przestrzenie nazw służą do grupowania funkcji dotyczących podobnego tematu lub funkcji pochodzących z określonego źródła.
 
-Poniżej przedstawiono przykłady obszarów nazw funkcji używanych przez aplikacje:
+Poniżej przedstawiono przykłady przestrzeni nazw funkcji używanych przez aplikacje:
 
 * User_Profile_from_CRM
 * Time
 * Mobile_Device_Info
 * http_user_agent
-* Rozwiązanie wideo
+* VideoResolution
 * UserDeviceInfo
 * Pogoda
 * Product_Recommendation_Ratings
 * current_time
 * NewsArticle_TextAnalytics
 
-Obszary nazw funkcji można nazwać zgodnie z własnymi konwencjami, o ile są one prawidłowe klucze JSON. Przestrzenie nazw służą do organizowania obiektów w różne zestawy i do rozróżniania obiektów o podobnych nazwach. Obszary nazw można myśleć jako "prefiks", który jest dodawany do nazw funkcji. Nie można zagnieżdżać obszarów nazw.
+Przestrzenie nazw funkcji można nazwać po własnych konwencjach, o ile są one prawidłowymi kluczami JSON. Przestrzenie nazw służą do organizowania funkcji w różne zestawy oraz do odróżniania funkcji o podobnych nazwach. Przestrzenie nazw można traktować jako prefiks, który jest dodawany do nazw funkcji. Przestrzenie nazw nie mogą być zagnieżdżane.
 
 
-W następujących JSON `user` `state`, `device` , i są obszary nazw funkcji. 
+W poniższym kodzie JSON, `user`, `state`, i `device` są przestrzeniami nazw funkcji. 
 
 > [!Note]
-> Obecnie zdecydowanie zaleca się używanie nazw dla obszarów nazw funkcji, które są oparte na UTF-8 i zaczynają się od różnych liter. Na przykład `user` `state`, `device` , `u`i `s`zacznij `d`od , i . Obecnie obszary nazw z tymi samymi pierwszymi znakami może spowodować kolizje w indeksach używanych do uczenia maszynowego.
+> Obecnie zdecydowanie zalecamy używanie nazw dla przestrzeni nazw funkcji, które są oparte na kodowaniu UTF-8 i zaczynają się od różnych liter. Na przykład `user` `state`,, i `device` zaczyna się od `u`, `s`, i `d`. Obecnie przestrzenie nazw zawierające te same pierwsze znaki mogą powodować kolizje w indeksach używanych do uczenia maszynowego.
 
-JSON obiekty mogą zawierać zagnieżdżone obiekty JSON i proste właściwości/wartości. Tablica może być uwzględniona tylko wtedy, gdy elementy tablicy są liczbami. 
+Obiekty JSON mogą zawierać zagnieżdżone obiekty JSON oraz proste właściwości/wartości. Tablica może być uwzględniana tylko wtedy, gdy elementy tablicy są liczbami. 
 
 ```JSON
 {
@@ -101,119 +101,119 @@ JSON obiekty mogą zawierać zagnieżdżone obiekty JSON i proste właściwości
 }
 ```
 
-### <a name="restrictions-in-character-sets-for-namespaces"></a>Ograniczenia w zestawach znaków dla obszarów nazw
+### <a name="restrictions-in-character-sets-for-namespaces"></a>Ograniczenia w zestawach znaków dla przestrzeni nazw
 
-Ciąg używany do nazywania obszaru nazw musi być zgodny z pewnymi ograniczeniami: 
-* Nie może być unicode.
-* W przypadku nazw obszarów nazw można użyć niektórych symboli do wydrukowania z kodami < 256. 
-* Nie można używać symboli z kodami < 32 (nie można drukować), 32 (spacja), 58 (dwukropek), 124 (potok) i 126–140.
-* Nie należy zaczynać od podkreślenia "_" lub funkcja zostanie zignorowana.
+Ciąg używany do nazywania przestrzeni nazw musi spełniać pewne ograniczenia: 
+* Nie może być Unicode.
+* Można użyć niektórych symboli drukowalnych z kodami < 256 dla nazw przestrzeni nazw. 
+* Nie można użyć symboli z kodami < 32 (nie do drukowania), 32 (Space), 58 (dwukropek), 124 (potok) i 126 – 140.
+* Nie powinna zaczynać się od znaku podkreślenia "_" lub funkcja zostanie zignorowana.
 
-## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Jak sprawić, by zestawy funkcji były bardziej skuteczne dla Personalizer
+## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Jak zwiększyć efektywność zestawów funkcji dla personalizacji
 
-Dobry zestaw funkcji pomaga Personalizerowi nauczyć się przewidywać akcję, która będzie napędzać najwyższą nagrodę. 
+Dobry zestaw funkcji ułatwia personalizację, aby dowiedzieć się, jak prognozować akcję, która zwiększy najwyższy poziom. 
 
-Rozważ wysłanie funkcji do interfejsu API rangi personalizatora, które są zgodne z tymi zaleceniami:
+Rozważ wysłanie funkcji do interfejsu API rangi narzędzia personalizacji, który przestrzega następujących zaleceń:
 
-* Istnieje wystarczająco dużo funkcji, aby zwiększyć personalizację. Im dokładniej ukierunkowane treści muszą być, tym więcej funkcji są potrzebne.
+* Dostępna jest wystarczająca liczba funkcji do personalizacji dysków. Im bardziej precyzyjnie skierowana jest zawartość, tym więcej funkcji są potrzebne.
 
-* Istnieje wystarczająco dużo cech o zróżnicowanej *gęstości.* Operacja jest *gęsta,* jeśli wiele elementów są zgrupowane w kilku zasobnikach. Na przykład tysiące filmów można sklasyfikować jako "Długie" (ponad 5 min) i "Krótkie" (poniżej 5 min). Jest to *bardzo gęsta* cecha. Z drugiej strony te same tysiące elementów może mieć atrybut o nazwie "Title", który prawie nigdy nie będzie miał tej samej wartości z jednego elementu do drugiego. Jest to bardzo niegęstą lub *rzadką* cechą.  
+* Dostępna jest wystarczająca liczba funkcji o różnych *gęstościach*. Funkcja jest *gęsta* , jeśli wiele elementów jest zgrupowanych w kilku zasobnikach. Na przykład tysiące wideo może być sklasyfikowane jako "Long" (ponad 5 min Long) i "krótkie" (poniżej 5 min Long). Jest to *bardzo gęsta* funkcja. Z drugiej strony, te same tysiące elementów mogą mieć atrybut o nazwie "title", który niemal nigdy nie będzie miał takiej samej wartości z jednego elementu. Jest to bardzo gęsta lub *rozrzedzona* funkcja.  
 
-Posiadanie cech o wysokiej gęstości pomaga Personalizer ekstrapolować uczenia się z jednego elementu do drugiego. Ale jeśli istnieje tylko kilka funkcji i są one zbyt gęste, Personalizer spróbuje precyzyjnie kierować zawartość z zaledwie kilkoma wiadrami do wyboru.
+Funkcja wysokiej gęstości ułatwia personalizację ekstrapolację z jednego elementu na inny. Ale jeśli istnieje tylko kilka funkcji i są one zbyt gęste, Personalizowanie próbuje precyzyjnie określić zawartość docelową, korzystając z tylko kilku zasobników.
 
-### <a name="improve-feature-sets"></a>Ulepszanie zestawów funkcji 
+### <a name="improve-feature-sets"></a>Popraw zestawy funkcji 
 
-Analizowanie zachowania użytkownika, wykonując ocenę w trybie offline. Dzięki temu możesz przyjrzeć się przeszłym danym, aby zobaczyć, jakie funkcje w dużym stopniu przyczyniają się do pozytywnych nagród w porównaniu z tymi, które przyczyniają się mniej. Możesz zobaczyć, jakie funkcje pomagają, i to do Ciebie i Twojej aplikacji, aby znaleźć lepsze funkcje, aby wysłać do Personalizer, aby poprawić wyniki jeszcze bardziej.
+Analizuj zachowanie użytkowników, wykonując ocenę w trybie offline. Dzięki temu można wyszukać przeszłe dane, aby zobaczyć, jakie funkcje są intensywnie przyczyniające się do pozytywnych korzyści, a także tych, które mają mniejszą przyczynę. Możesz zobaczyć, jakie funkcje są pomocne, a ty i aplikację, aby znaleźć lepsze funkcje do wysyłania do narzędzia personalizacji, aby jeszcze bardziej poprawić wyniki.
 
-Te poniższe sekcje są typowe praktyki dotyczące poprawy funkcji wysyłanych do Personalizer.
+Poniższe sekcje są typowymi rozwiązaniami dotyczącymi ulepszania funkcji wysyłanych do narzędzia Personalizacja.
 
-#### <a name="make-features-more-dense"></a>Uaż, aby obiekty były bardziej gęste
+#### <a name="make-features-more-dense"></a>Bardziej gęste funkcje
 
-Możliwe jest ulepszenie zestawów funkcji, edytując je, aby były większe i mniej lub bardziej gęste.
+Można poprawić zestawy funkcji, edytując je tak, aby były większe i bardziej gęste.
 
-Na przykład sygnatura czasowa w dół do drugiego jest bardzo rzadką funkcją. Może być bardziej gęsty (skuteczny) poprzez klasyfikację czasów na "rano", "południe", "popołudnie" itp.
+Na przykład sygnatura czasowa do drugiego jest funkcją bardzo rozrzedzoną. Może być bardziej gęsty (efektywny) przez klasyfikowanie godzin do "rano", "środku dnia", "południka" itd.
 
-Informacje o lokalizacji również zazwyczaj korzystają z tworzenia szerszych klasyfikacji. Na przykład współrzędna szerokości geograficznej, taka jak Lat: 47.67402° N, Long: 122.12154° W jest zbyt precyzyjna i zmusza model do uczenia się szerokości i długości geograficznej jako odrębnych wymiarów. Gdy próbujesz spersonalizować na podstawie informacji o lokalizacji, pomaga to grupować informacje o lokalizacji w większych sektorach. Łatwym sposobem, aby to zrobić, jest wybranie odpowiedniej precyzji zaokrąglania dla liczb Lat-Long i połączenie szerokości i długości geograficznej w "obszary", czyniąc je w jeden ciąg. Na przykład dobrym sposobem na reprezentowanie 47.67402° N, Long: 122.12154° W w regionach o szerokości około kilku kilometrów będzie "location":"34.3 , 12.1".
+Informacje o lokalizacji również zwykle mają zalety tworzenia szerszych klasyfikacji. Na przykład współrzędne geograficzne długości geograficznej, takie jak: 47,67402 ° N, Long: 122,12154 ° W, jest zbyt precyzyjne i wymuszają model, aby poznać szerokość i długość geograficzną jako różne wymiary. Podczas próby personalizacji na podstawie informacji o lokalizacji pomocne jest grupowanie informacji o lokalizacji w większych sektorach. Prostym sposobem jest wybranie odpowiedniej dokładności zaokrąglania dla numerów lat, a także nałączenie szerokości i długości geograficznej do "obszarów" przez umieszczenie ich w jednym ciągu. Na przykład dobry sposób reprezentowania 47,67402 ° N, Long: 122,12154 ° w regionach około kilku kilometrów o szerokości "Location": "34.3, 12,1".
 
 
-#### <a name="expand-feature-sets-with-extrapolated-information"></a>Rozwiń zestawy funkcji z ekstrapolowanymi informacjami
+#### <a name="expand-feature-sets-with-extrapolated-information"></a>Rozwiń zestawy funkcji z ekstrapolacją informacji
 
-Możesz również uzyskać więcej funkcji, myśląc o niezbadanych atrybutach, które mogą pochodzić z informacji, które już masz. Na przykład w fikcyjnej personalizacji listy filmów, czy możliwe jest, że weekend vs dzień tygodnia wywołuje różne zachowania od użytkowników? Czas można rozszerzyć, aby mieć atrybut "weekend" lub "dzień tygodnia". Czy narodowe święta kultury przyśmiają uwagę niektórych typów filmów? Na przykład atrybut "Halloween" jest przydatny w miejscach, w których jest to istotne. Czy to możliwe, że deszczowa pogoda ma znaczący wpływ na wybór filmu dla wielu ludzi? Z czasem i miejscem usługa pogodowa może dostarczyć tych informacji i można dodać je jako dodatkową funkcję. 
+Możesz również uzyskać więcej funkcji, zastanawiając się, że niezbadane atrybuty mogą pochodzić od już posiadanych informacji. Na przykład na potrzeby personalizacji fikcyjnej listy filmów jest możliwe, że weekendy a Weekday mają różne zachowanie od użytkowników? Czas można rozszerzyć, aby miał atrybut "weekend" lub "Weekday". Czy krajowe święta kulturowe mają na uwadze niektóre typy filmów? Na przykład atrybut "Halloween" jest przydatny w miejscach, w których ma zastosowanie. Czy jest możliwe, że deszczowa pogoda ma znaczący wpływ na wybór filmu dla wielu osób? Z czasem i miejscem usługa pogody może zapewnić te informacje i dodać ją jako dodatkową funkcję. 
 
-#### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>Rozszerzanie zestawów funkcji o sztuczną inteligencję i usługi kognitywne
+#### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>Rozwiń zestawy funkcji za pomocą sztucznej analizy i usług poznawczych
 
-Sztuczna inteligencja i gotowe do uruchomienia usługi Cognitive Services mogą być bardzo potężnym dodatkiem do Personalizera. 
+Sztuczna inteligencja i gotowe do uruchomienia Cognitive Services mogą być bardzo wydajnym dodatkiem do narzędzia Personalizacja. 
 
-Przygotowując swoje elementy za pomocą usług sztucznej inteligencji, można automatycznie wyodrębnić informacje, które mogą być istotne dla personalizacji.
+Wstępnie przetwarzając elementy przy użyciu sztucznych usług analizy, można automatycznie wyodrębniać informacje, które mogą być odpowiednie do personalizacji.
 
 Przykład:
 
-* Plik filmu można uruchomić za pomocą [indeksatora wideo,](https://azure.microsoft.com/services/media-services/video-indexer/) aby wyodrębnić elementy sceny, tekst, tonację i wiele innych atrybutów. Te atrybuty mogą być następnie bardziej gęste, aby odzwierciedlić właściwości, które nie mają oryginalnych metadanych elementu. 
-* Obrazy mogą być uruchamiane przez wykrywanie obiektów, twarze poprzez sentyment itp.
-* Informacje w tekście można rozszerzyć, wyodrębniając jednostki, tonację, rozszerzając jednostki za pomocą wykresu wiedzy Bing itp.
+* Plik filmowy można uruchomić za pomocą [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) , aby wyodrębnić elementy sceny, tekst, tonacji i wiele innych atrybutów. Te atrybuty mogą następnie stać się bardziej gęste w celu odzwierciedlenia cech, które nie miały metadanych oryginalnego elementu. 
+* Obrazy można uruchamiać za poorednictwem wykrywania obiektów, twarzy przez tonacji itp.
+* Informacje w tekście można rozszerzyć przez wyodrębnienie jednostek, tonacji, rozwijanie jednostek przy użyciu Grafu wiedzy Bing itd.
 
-Można użyć kilku innych [usług Azure Cognitive Services,](https://www.microsoft.com/cognitive-services)takich jak
+Możesz użyć kilku innych [Cognitive Services platformy Azure](https://www.microsoft.com/cognitive-services), takich jak
 
 * [Łączenie jednostek](../entitylinking/home.md)
 * [Analiza tekstu](../text-analytics/overview.md)
 * [Rozpoznawanie emocji](../emotion/home.md)
-* [Wizja komputerowa](../computer-vision/home.md)
+* [Przetwarzanie obrazów](../computer-vision/home.md)
 
 ## <a name="actions-represent-a-list-of-options"></a>Akcje reprezentują listę opcji
 
 Każda akcja:
 
-* Ma identyfikator _zdarzenia._ Jeśli masz już identyfikator zdarzenia, należy go przesłać. Jeśli nie masz identyfikatora zdarzenia, nie wysyłaj go, Personalizer tworzy jeden dla Ciebie i zwraca go w odpowiedzi na żądanie rangi. Identyfikator jest skojarzony ze zdarzeniem Rank, a nie z użytkownikiem. Jeśli utworzysz identyfikator, identyfikator GUID działa najlepiej. 
+* Ma identyfikator _zdarzenia_ . Jeśli masz już identyfikator zdarzenia, należy go przesłać. Jeśli nie masz identyfikatora zdarzenia, nie wysyłaj go, Personalizujer tworzy go dla Ciebie i zwraca go w odpowiedzi na żądanie rangi. Identyfikator jest skojarzony ze zdarzeniem rangi, a nie użytkownikiem. W przypadku utworzenia identyfikatora identyfikator GUID działa najlepiej. 
 * Zawiera listę funkcji.
-* Lista funkcji może być duża (setki), ale zalecamy ocenę skuteczności funkcji w celu usunięcia funkcji, które nie przyczyniają się do zdobywania nagród. 
-* Funkcje w **akcjach** mogą lub nie mogą mieć żadnej korelacji z funkcjami w **kontekście** używanym przez Personalizer.
-* Funkcje działań mogą być obecne w niektórych działaniach, a nie w innych. 
-* Funkcje dla określonego identyfikatora akcji mogą być dostępne jeden dzień, ale później stają się niedostępne. 
+* Lista funkcji może być duża (setki), ale zalecamy ocenę skuteczności funkcji w celu usunięcia funkcji, które nie przyczyniają się do uzyskania korzyści. 
+* Funkcje w **akcjach** mogą lub nie mają żadnej korelacji z funkcjami w **kontekście** używanym przez program personalizujer.
+* Funkcje dla akcji mogą być obecne w niektórych akcjach, a nie w innych. 
+* Funkcje dla określonego identyfikatora akcji mogą być dostępne jeden dzień, ale później staną się niedostępne. 
 
-Algorytmy uczenia maszynowego personalizatora będą działać lepiej, gdy istnieją stabilne zestawy funkcji, ale wywołania rangi nie zakończy się niepowodzeniem, jeśli zestaw funkcji zmieni się wraz z czasem.
+Algorytmy uczenia maszynowego dla personalizacji będą działać lepiej, gdy są dostępne stabilne zestawy funkcji, ale wywołania rangi nie powiodą się, jeśli funkcja ustawi zmiany w czasie.
 
-Nie wysyłaj więcej niż 50 akcji podczas akcji rankingowych. Mogą to być te same 50 działań za każdym razem lub mogą ulec zmianie. Jeśli na przykład masz katalog produktów zawierający 10 000 elementów dla aplikacji e-commerce, możesz użyć aparatu rekomendacji lub filtrowania, aby określić 40 najlepszych produktów, które klient może poludzić, i użyć Personalizera, aby znaleźć ten, który wygeneruje największą nagrodę (np. , aby użytkownik dodał do koszyka) dla bieżącego kontekstu.
+Nie wysyłaj więcej niż 50 akcji podczas klasyfikowania akcji. Mogą to być te same akcje (50) co godzinę lub mogą ulec zmianie. Jeśli na przykład masz katalog produktów o 10 000 elementach dla aplikacji handlu elektronicznego, możesz użyć zalecenia lub aparatu filtrowania, aby określić najwyższe 40, a następnie użyć personalizacji, aby znaleźć ten, który wygeneruje najbardziej wynagrodzenie (na przykład użytkownik zostanie dodany do koszyka) dla bieżącego kontekstu.
 
 
-### <a name="examples-of-actions"></a>Przykłady działań
+### <a name="examples-of-actions"></a>Przykłady akcji
 
-Akcje wysyłane do interfejsu API rangi będą zależeć od tego, co próbujesz spersonalizować.
+Akcje wysyłane do interfejsu API rangi zależą od tego, co próbujesz spersonalizować.
 
 Oto kilka przykładów:
 
 |Przeznaczenie|Akcja|
 |--|--|
-|Spersonalizuj, który artykuł jest wyróżniony na stronie z wiadomościami.|Każde działanie jest potencjalnym artykułem prasowym.|
-|Optymalizuj miejsce docelowe reklam w witrynie.|Każda akcja będzie układem lub regułami tworzenia układu reklam (na przykład u góry, po prawej stronie, małymi obrazami, dużymi obrazami).|
-|Wyświetlanie spersonalizowanego rankingu polecanych produktów na stronie internetowej zakupów.|Każda akcja jest konkretnym produktem.|
-|Zasugeruj elementy interfejsu użytkownika, takie jak filtry, aby zastosować je do określonego zdjęcia.|Każda akcja może być inny filtr.|
-|Wybierz odpowiedź czatu, aby wyjaśnić intencję użytkownika lub zaproponować działanie.|Każda akcja jest opcją interpretacji odpowiedzi.|
-|Wybieranie treści, które mają być wyświetlane u góry listy wyników wyszukiwania|Każda akcja jest jednym z niewielu najlepszych wyników wyszukiwania.|
+|Personalizowanie artykułu wyróżnionego w witrynie sieci Web z wiadomościami.|Każda akcja jest potencjalnym artykułem z wiadomościami.|
+|Optymalizacja umieszczania w usłudze AD w witrynie sieci Web.|Każda akcja będzie układem lub regułami, aby utworzyć układ dla reklamy (na przykład w górnej części, w prawym, małych obrazach, Big images).|
+|Wyświetl spersonalizowaną klasyfikację zalecanych elementów w witrynie internetowej dotyczącej zakupów.|Każda akcja jest określonym produktem.|
+|Sugeruj elementy interfejsu użytkownika, takie jak filtry, aby zastosować je do określonego zdjęcia.|Każda akcja może być innym filtrem.|
+|Wybierz odpowiedź bot rozmowy, aby wyjaśnić intencję użytkownika lub zasugerować akcję.|Każda akcja jest opcją interpretacji odpowiedzi.|
+|Wybierz elementy, które mają być wyświetlane u góry listy wyników wyszukiwania|Każda akcja to jeden z najważniejszych wyników wyszukiwania.|
 
 
-### <a name="examples-of-features-for-actions"></a>Przykłady funkcji dla działań
+### <a name="examples-of-features-for-actions"></a>Przykłady funkcji dla akcji
 
-Poniżej przedstawiono dobre przykłady funkcji dla akcji. Będą one w dużej mierze zależeć od każdej aplikacji.
+Poniżej przedstawiono dobre przykłady funkcji dla akcji. Będą one zależne od poszczególnych aplikacji.
 
-* Cechy z charakterystyką działań. Na przykład, czy jest to film lub serial?
-* Funkcje dotyczące sposobu, w jaki użytkownicy mogli wchodzić w interakcje z tą akcją w przeszłości. Na przykład ten film jest najczęściej postrzegany przez osoby w demografii A lub B, zazwyczaj jest odtwarzany nie więcej niż jeden raz.
-* Funkcje dotyczące cech, jak użytkownik *widzi* akcje. Na przykład, czy plakat filmu wyświetlany w miniaturze zawiera twarze, samochody lub krajobrazy?
+* Funkcje o cechach akcji. Na przykład jest to film lub seria TV?
+* Funkcje dotyczące sposobu, w jaki użytkownicy mogli korzystać z tej akcji w przeszłości. Na przykład ten film jest najczęściej widziany przez osoby w demograficznych A lub B, zwykle jest odtwarzany nie więcej niż jeden raz.
+* Funkcje dotyczące cech charakterystycznych sposobu, w jaki użytkownik *widzi* akcje. Na przykład, czy plakat dla filmu widoczny na miniaturze obejmuje twarze, samochody lub Landscapes?
 
-### <a name="load-actions-from-the-client-application"></a>Akcje ładowania z aplikacji klienckiej
+### <a name="load-actions-from-the-client-application"></a>Ładowanie akcji z aplikacji klienckiej
 
-Funkcje z akcji zazwyczaj mogą pochodzić z systemów zarządzania zawartością, katalogów i systemów polecania. Aplikacja jest odpowiedzialna za ładowanie informacji o działaniach z odpowiednich baz danych i systemów, które masz. Jeśli akcje nie zmieniają się lub ich ładowania za każdym razem ma niepotrzebny wpływ na wydajność, można dodać logikę w aplikacji do pamięci podręcznej tych informacji.
+Funkcje z akcji mogą zazwyczaj pochodzić z systemów zarządzania zawartością, wykazów i systemów zalecanych. Aplikacja jest odpowiedzialna za ładowanie informacji o działaniach z odpowiednich baz danych i systemów. Jeśli akcje nie zmieniają się ani nie są ładowane przy każdym przypadku, gdy ma niezbędny wpływ na wydajność, można dodać logikę w aplikacji, aby buforować te informacje.
 
-### <a name="prevent-actions-from-being-ranked"></a>Zapobieganie klasyfikowaniu akcji
+### <a name="prevent-actions-from-being-ranked"></a>Zapobiegaj klasyfikowaniu akcji
 
-W niektórych przypadkach istnieją akcje, które nie mają być wyświetlane użytkownikom. Najlepszym sposobem, aby zapobiec akcji z rankingu jako najwyższej jest nie doliczyć go do listy akcji do interfejsu API rangi w pierwszej kolejności.
+W niektórych przypadkach istnieją akcje, które nie mają być wyświetlane użytkownikom. Najlepszym sposobem, aby zapobiec klasyfikacji akcji jako najwyższego poziomu nie jest uwzględnianie jej na liście akcji do interfejsu API rangi w pierwszym miejscu.
 
-W niektórych przypadkach można określić tylko później w logice biznesowej, jeśli wynikowe _działanie_ wywołania interfejsu API rangi ma być wyświetlane użytkownikowi. W takich przypadkach należy użyć _nieaktywnych zdarzeń_.
+W niektórych przypadkach można je określić później tylko w logice biznesowej, Jeśli wynikowa _Akcja_ wywołania interfejsu API rangi ma być pokazywana użytkownikowi. W takich przypadkach należy używać _zdarzeń nieaktywnych_.
 
 ## <a name="json-format-for-actions"></a>Format JSON dla akcji
 
-Podczas wywoływania rangi wysyłasz wiele akcji do wyboru:
+Podczas wywoływania rangi będziesz wysyłać wiele akcji do wyboru:
 
-JSON obiekty mogą zawierać zagnieżdżone obiekty JSON i proste właściwości/wartości. Tablica może być uwzględniona tylko wtedy, gdy elementy tablicy są liczbami. 
+Obiekty JSON mogą zawierać zagnieżdżone obiekty JSON oraz proste właściwości/wartości. Tablica może być uwzględniana tylko wtedy, gdy elementy tablicy są liczbami. 
 
 ```json
 {
@@ -280,21 +280,21 @@ JSON obiekty mogą zawierać zagnieżdżone obiekty JSON i proste właściwości
 
 ## <a name="examples-of-context-information"></a>Przykłady informacji kontekstowych
 
-Informacje dotyczące _kontekstu_ zależą od każdej aplikacji i przypadku użycia, ale zazwyczaj mogą zawierać informacje, takie jak:
+Informacje dla _kontekstu_ są zależne od poszczególnych aplikacji i przypadków użycia, ale zazwyczaj mogą zawierać informacje takie jak:
 
-* Dane demograficzne i profil użytkownika.
-* Informacje wyodrębnione z nagłówków HTTP, takich jak agent użytkownika, lub pochodzące z informacji HTTP, takich jak odwrotne wyszukiwania geograficzne oparte na adresach IP.
-* Informacje o aktualnym czasie, takim jak dzień tygodnia, weekend lub nie, rano lub po południu, pora świąteczna lub nie, itp.
-* Informacje pobierane z aplikacji mobilnych, takich jak lokalizacja, ruch lub poziom naładowania baterii.
-* Historyczne agregaty zachowania użytkowników - takie jak jakie są gatunki filmowe, które ten użytkownik oglądał najczęściej.
+* Informacje demograficzne i profilowe dotyczące użytkownika.
+* Informacje wyodrębnione z nagłówków HTTP, takich jak agent użytkownika, lub pochodzące z informacji HTTP, takich jak odwrotne wyszukiwanie geograficzne na podstawie adresów IP.
+* Informacje o bieżącej godzinie, takie jak dzień tygodnia, weekend lub nie, rano lub południa, sezon świąteczny lub nie itp.
+* Informacje wyodrębnione z aplikacji mobilnych, takie jak lokalizacja, przenoszenie lub poziom baterii.
+* Historyczne zagregowane informacje o zachowaniu użytkowników — takie jak to, co jest widoczne dla tego użytkownika.
 
-Aplikacja jest odpowiedzialna za ładowanie informacji o kontekście z odpowiednich baz danych, czujników i systemów, które mogą mieć. Jeśli informacje kontekstowe nie ulegnie zmianie, można dodać logikę w aplikacji do pamięci podręcznej tych informacji, przed wysłaniem go do interfejsu API rangi.
+Aplikacja jest odpowiedzialna za ładowanie informacji dotyczących kontekstu z odpowiednich baz danych, czujników i systemów, które mogą mieć. Jeśli informacje kontekstowe nie ulegają zmianie, można dodać logikę w aplikacji, aby buforować te informacje przed wysłaniem ich do interfejsu API rangi.
 
 ## <a name="json-format-for-context"></a>Format JSON dla kontekstu 
 
 Kontekst jest wyrażony jako obiekt JSON, który jest wysyłany do interfejsu API rangi:
 
-JSON obiekty mogą zawierać zagnieżdżone obiekty JSON i proste właściwości/wartości. Tablica może być uwzględniona tylko wtedy, gdy elementy tablicy są liczbami. 
+Obiekty JSON mogą zawierać zagnieżdżone obiekty JSON oraz proste właściwości/wartości. Tablica może być uwzględniana tylko wtedy, gdy elementy tablicy są liczbami. 
 
 ```JSON
 {

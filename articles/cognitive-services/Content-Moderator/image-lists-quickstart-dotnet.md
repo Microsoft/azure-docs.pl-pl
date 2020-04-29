@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: e650529f3adb998ce683354565acdeb3928b50c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72931753"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>Moderowanie przy użyciu niestandardowych list obrazów w języku C#
@@ -32,9 +32,9 @@ Ten artykuł zawiera informacje i przykłady kodu, które pomogą Ci rozpocząć
 > [!NOTE]
 > Istnieje maksymalny limit wynoszący **5 list obrazów**, a poszczególne listy **nie mogą przekraczać 10 000 obrazów**.
 
-Aplikacja konsoli dla tego przewodnika symuluje niektóre zadania, które można wykonać za pomocą interfejsu API listy obrazów.
+Aplikacja konsolowa dla tego przewodnika symuluje niektóre zadania, które można wykonać za pomocą interfejsu API listy obrazów.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem. 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
 
 ## <a name="sign-up-for-content-moderator-services"></a>Zarejestruj się w usługach Content Moderator
 
@@ -72,7 +72,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Tworzenie klienta usługi Content Moderator
 
-Dodaj następujący kod, aby utworzyć klienta usługi Content Moderator dla Twojej subskrypcji. Zaktualizuj `AzureEndpoint` pola i `CMSubscriptionKey` wartości adresu URL punktu końcowego i klucza subskrypcji. Można je znaleźć na karcie **Szybki start** zasobu w witrynie Azure portal.
+Dodaj następujący kod, aby utworzyć klienta usługi Content Moderator dla Twojej subskrypcji. Zaktualizuj pola `AzureEndpoint` i `CMSubscriptionKey` przy użyciu wartości adresu URL punktu końcowego i klucza subskrypcji. Te informacje można znaleźć na karcie **Szybki Start** zasobu w Azure Portal.
 
 ```csharp
 /// <summary>
@@ -292,7 +292,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Tworzenie metody w celu dodania kolekcji obrazów do listy
 
-Dodaj następującą metodę do klasy **Program**. W tym przewodniku nie pokazano sposobu stosowania znaczników do obrazów na liście. 
+Dodaj następującą metodę do klasy **Program**. Ten przewodnik nie pokazuje, jak zastosować Tagi do obrazów na liście. 
 
 ```csharp
 /// <summary>

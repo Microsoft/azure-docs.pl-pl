@@ -1,7 +1,7 @@
 ---
-title: Numer telefonu Wstępnie utworzone jednostki — USŁUGA LUIS
+title: Wstępnie utworzone jednostki numeru telefonu — LUIS
 titleSuffix: Azure Cognitive Services
-description: Ten artykuł zawiera wstępnie utworzone informacje o jednostce z numerem telefonu w usłudze Language Understanding (LUIS).
+description: Ten artykuł zawiera wstępnie skompilowane informacje o jednostce numeru telefonu w Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,27 +12,27 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 4e2c8e27c6d4195252c6a5b423fa98b2a4247182
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78270466"
 ---
-# <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Wstępnie skompilowana encja numeru telefonu dla aplikacji usługi LUIS
-Jednostka `phonenumber` wyodrębnia różne numery telefonów, w tym kod kraju. Ponieważ ta jednostka jest już przeszkolony, nie trzeba dodawać wypowiedzi przykład do aplikacji. Jednostka `phonenumber` jest obsługiwana `en-us` tylko w kulturze.
+# <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Wstępnie utworzona jednostka numeru telefonu dla aplikacji LUIS
+`phonenumber` Jednostka wyodrębnia różne numery telefonów, w tym kod kraju. Ponieważ ta jednostka jest już przeszkolone, nie trzeba dodawać przykładowej wyrażenia długości do aplikacji. `phonenumber` Jednostka jest obsługiwana tylko w `en-us` kulturze.
 
-## <a name="types-of-a-phone-number"></a>Typy numeru telefonu
-`Phonenumber`jest zarządzany z repozytorium GitHub [w tekście aparatury rozpoznawania](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml)
+## <a name="types-of-a-phone-number"></a>Typy numerów telefonów
+`Phonenumber`jest zarządzany przez [Aparaty rozpoznawania tekstu —](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) repozytorium GitHub
 
-## <a name="resolution-for-this-prebuilt-entity"></a>Rozdzielczość dla tego wstępnie utworzonego encji
+## <a name="resolution-for-this-prebuilt-entity"></a>Rozwiązanie dla tej prekompilowanej jednostki
 
-Następujące obiekty encji są zwracane dla kwerendy:
+Następujące obiekty jednostki są zwracane dla zapytania:
 
 `my mobile is 1 (800) 642-7676`
 
-#### <a name="v3-response"></a>[Odpowiedź V3](#tab/V3)
+#### <a name="v3-response"></a>[Odpowiedź v3](#tab/V3)
 
-Następujący JSON jest `verbose` z parametrem ustawionym na: `false`
+Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
 
 ```json
 "entities": {
@@ -41,8 +41,8 @@ Następujący JSON jest `verbose` z parametrem ustawionym na: `false`
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[Odpowiedź pełne V3](#tab/V3-verbose)
-Następujący JSON jest `verbose` z parametrem ustawionym na: `true`
+#### <a name="v3-verbose-response"></a>[Pełna odpowiedź w wersji 3](#tab/V3-verbose)
+Poniższy kod JSON jest z `verbose` parametrem ustawionym `true`na:
 
 ```json
 "entities": {
@@ -68,9 +68,9 @@ Następujący JSON jest `verbose` z parametrem ustawionym na: `true`
     }
 }
 ```
-#### <a name="v2-response"></a>[Odpowiedź V2](#tab/V2)
+#### <a name="v2-response"></a>[Odpowiedź w wersji 2](#tab/V2)
 
-W poniższym przykładzie przedstawiono rozdzielczość **jednostki builtin.phonenumber.**
+Poniższy przykład pokazuje rozdzielczość jednostki **wbudowanej.**
 
 ```json
 "entities": [
@@ -90,6 +90,6 @@ W poniższym przykładzie przedstawiono rozdzielczość **jednostki builtin.phon
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [punkcie końcowym przewidywania V3](luis-migration-api-v3.md).
+Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v3.md).
 
-Dowiedz się więcej o [procentach,](luis-reference-prebuilt-percentage.md) [liczbach](luis-reference-prebuilt-number.md)i jednostkach [temperatury.](luis-reference-prebuilt-temperature.md)
+Dowiedz się więcej o [wartościach procentowych](luis-reference-prebuilt-percentage.md), [liczbowych](luis-reference-prebuilt-number.md)i [temperatury](luis-reference-prebuilt-temperature.md) .

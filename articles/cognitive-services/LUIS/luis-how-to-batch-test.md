@@ -1,7 +1,7 @@
 ---
-title: Jak wykonać test wsadowy — USŁUGA LUIS
+title: Jak wykonać test wsadowy — LUIS
 titleSuffix: Azure Cognitive Services
-description: Użyj zestawów testowania wsadowego (Language Understanding) (LUIS), aby znaleźć wypowiedzi z niepoprawnymi intencjami i jednostkami.
+description: Użyj zestawów testów wsadowych Language Understanding (LUIS), aby znaleźć wyrażenia długości z nieprawidłowymi intencjami i jednostkami.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,57 +12,57 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: bfef7eae7158a05b09a3534e8fb44335333d8cf1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73904357"
 ---
-# <a name="batch-testing-with-a-set-of-example-utterances"></a>Testowanie wsadowe z zestawem wypowiedzi przykładowych
+# <a name="batch-testing-with-a-set-of-example-utterances"></a>Testowanie wsadowe z zestawem przykład wyrażenia długości
 
- Testowanie wsadowe jest kompleksowy test na bieżący model przeszkolony do pomiaru jego wydajności w usłudze LUIS. Zestawy danych używane do testowania wsadowego nie powinny zawierać wypowiedzi przykład w intencji lub wypowiedzi otrzymane z punktu końcowego środowiska wykonawczego przewidywanie. 
+ Testowanie wsadowe to kompleksowy test w bieżącym przeszkolonym modelu, który umożliwia mierzenie jego wydajności w LUIS. Zestawy danych używane do testowania wsadowego nie powinny zawierać przykładu wyrażenia długości w intencjach lub wyrażenia długości odebranych z punktu końcowego środowiska uruchomieniowego przewidywania. 
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="batch-testing"></a>
 
-## <a name="import-a-dataset-file-for-batch-testing"></a>Importowanie pliku zestawu danych do testowania wsadowego
+## <a name="import-a-dataset-file-for-batch-testing"></a>Importowanie pliku zestawu danych na potrzeby testów wsadowych
 
-1. Wybierz **pozycję Testuj** na górnym pasku, a następnie wybierz **pozycję Panel testowania wsadowego**.
+1. Wybierz pozycję **Testuj** na górnym pasku, a następnie wybierz pozycję **panel testowania wsadowego**.
 
-    ![Łącze testowania wsadowego](./media/luis-how-to-batch-test/batch-testing-link.png)
+    ![Link testowania partii](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. Wybierz **pozycję Importuj zestaw danych**. Zostanie wyświetlone okno dialogowe **Importowanie nowego zestawu danych.** Wybierz **pozycję Wybierz plik** i znajdź plik JSON z poprawnym [formatem JSON,](luis-concept-batch-test.md#batch-file-format) który zawiera *nie więcej niż 1000* wypowiedzi do przetestowania.
+2. Wybierz pozycję **Importuj zestaw danych**. Zostanie wyświetlone okno dialogowe **Importuj nowy zestaw danych** . Wybierz pozycję **Wybierz plik** i Znajdź plik JSON z prawidłowym [formatem JSON](luis-concept-batch-test.md#batch-file-format) , który *nie zawiera więcej niż 1 000* wyrażenia długości do przetestowania.
 
-    Błędy importu są zgłaszane na czerwonym pasku powiadomień w górnej części przeglądarki. Gdy import ma błędy, nie jest tworzony żaden zestaw danych. Aby uzyskać więcej informacji, zobacz [Typowe błędy](luis-concept-batch-test.md#common-errors-importing-a-batch).
+    Błędy importu są raportowane na czerwono pasku powiadomień u góry przeglądarki. Gdy import zawiera błędy, nie jest tworzony żaden zestaw danych. Aby uzyskać więcej informacji, zobacz [typowe błędy](luis-concept-batch-test.md#common-errors-importing-a-batch).
 
-3. W polu **Nazwa zestawu danych** wprowadź nazwę pliku zestawu danych. Plik zestawu danych zawiera **tablicę wypowiedzi,** w tym *oznaczone intencji* i *jednostek*. Przejrzyj [przykładowy plik wsadowy](luis-concept-batch-test.md#batch-file-format) dla składni. 
+3. W polu **Nazwa zestawu danych** wprowadź nazwę pliku zestawu danych. Plik zestawu danych zawiera **tablicę wyrażenia długości** , włącznie z *zamiarem* i *obiektami*z etykietą. Przejrzyj [przykładowy plik wsadowy](luis-concept-batch-test.md#batch-file-format) pod kątem składni. 
 
-4. Wybierz pozycję **Done** (Gotowe). Plik zestawu danych zostanie dodany.
+4. Wybierz pozycję **Gotowe**. Plik zestawu danych zostanie dodany.
 
-## <a name="run-rename-export-or-delete-dataset"></a>Uruchamianie, zmienianie nazw, eksportowanie lub usuwanie zestawu danych
+## <a name="run-rename-export-or-delete-dataset"></a>Uruchamianie, zmiana nazwy, eksport lub usuwanie zestawu danych
 
-Aby uruchomić, zmienić nazwę, wyeksportować lub usunąć zestaw danych, użyj przycisku wielokropek (***...***) na końcu wiersza zestawu danych.
+Aby uruchomić, zmienić nazwę, wyeksportować lub usunąć zestaw danych, użyj przycisku wielokropka (***...***) na końcu wiersza zestawu danych.
 
 ![Akcje zestawu danych](./media/luis-how-to-batch-test/batch-testing-options.png)
 
-## <a name="run-a-batch-test-on-your-trained-app"></a>Uruchamianie testu wsadowego w uczonej aplikacji
+## <a name="run-a-batch-test-on-your-trained-app"></a>Uruchom test wsadowy dla przeszkolonej aplikacji
 
 Aby uruchomić test, wybierz nazwę zestawu danych. Po zakończeniu testu w tym wierszu jest wyświetlany wynik testu zestawu danych.
 
 ![Wynik testu wsadowego](./media/luis-how-to-batch-test/run-test.png)
 
-Zestaw danych do pobrania jest tym samym plikiem, który został przekazany do testowania wsadowego.
+Zestaw danych do pobrania to ten sam plik, który został przekazany do testowania wsadowego.
 
 |Stan|Znaczenie|
 |--|--|
-|![Pomyślna ikona zielonego koła testu](./media/luis-how-to-batch-test/batch-test-result-green.png)|Wszystkie wypowiedzi są pomyślne.|
-|![Niepowodzenie testu czerwona x ikona](./media/luis-how-to-batch-test/batch-test-result-red.png)|Co najmniej jeden zamiar wypowiedź nie pasuje do przewidywania.|
-|![Ikona Gotowe do testowania](./media/luis-how-to-batch-test/batch-test-result-blue.png)|Test jest gotowy do uruchomienia.|
+|![Ikona pomyślnego testu zielony okrąg](./media/luis-how-to-batch-test/batch-test-result-green.png)|Wszystkie wyrażenia długości powiodło się.|
+|![Niepowodzenie testu czerwona litera x](./media/luis-how-to-batch-test/batch-test-result-red.png)|Co najmniej jeden cel wypowiedź nie jest zgodny z przewidywaniam.|
+|![Ikona gotowy do testowania](./media/luis-how-to-batch-test/batch-test-result-blue.png)|Test jest gotowy do uruchomienia.|
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
 
-## <a name="view-batch-test-results"></a>Wyświetlanie wyników testów wsadowych 
+## <a name="view-batch-test-results"></a>Wyświetl wyniki testów wsadowych 
 
 Aby przejrzeć wyniki testów wsadowych, wybierz pozycję **Zobacz wyniki**.
 
@@ -70,41 +70,41 @@ Aby przejrzeć wyniki testów wsadowych, wybierz pozycję **Zobacz wyniki**.
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
 
-## <a name="filter-chart-results"></a>Filtrowanie wyników wykresu
+## <a name="filter-chart-results"></a>Filtruj wyniki wykresu
 
-Aby filtrować wykres według określonego zamiaru lub encji, wybierz intencję lub encję w panelu filtrowania po prawej stronie. Punkty danych i ich dystrybucja są aktualizowane na wykresie zgodnie z wybranym wyborem. 
+Aby odfiltrować wykres według określonego zamiaru lub jednostki, wybierz cel lub jednostkę w panelu filtrowania po prawej stronie. Punkty danych i ich aktualizacje dystrybucji na wykresie zgodnie z wyborem. 
  
-![Zwizualizowany wynik testu wsadowego](./media/luis-how-to-batch-test/filter-by-entity.png) 
+![Wizualny wynik testu wsadowego](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
-## <a name="view-single-point-utterance-data"></a>Wyświetlanie danych wypowiedź jednopunktowa
+## <a name="view-single-point-utterance-data"></a>Wyświetlanie danych wypowiedź pojedynczych punktów
 
-Na wykresie umieść wskaźnik myszy na punkcie danych, aby zobaczyć wynik pewności jego przewidywania. Wybierz punkt danych, aby pobrać jego odpowiadającą wypowiedź na liście wypowiedzi u dołu strony. 
+Na wykresie Umieść kursor nad punktem danych, aby zobaczyć wynik pewności jego przewidywania. Wybierz punkt danych, aby pobrać odpowiadający mu wypowiedź na liście wyrażenia długości w dolnej części strony. 
 
-![Wybrana wypowiedź](./media/luis-how-to-batch-test/selected-utterance.png)
+![Wybrany wypowiedź](./media/luis-how-to-batch-test/selected-utterance.png)
 
 
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
 
-## <a name="view-section-data"></a>Wyświetlanie danych sekcji
+## <a name="view-section-data"></a>Wyświetl dane sekcji
 
-Na wykresie czteroekułkaowym wybierz nazwę sekcji, taką jak **Fałszywy alarm** w prawym górnym rogu wykresu. Poniżej wykresu wszystkie wypowiedzi w tej sekcji są wyświetlane poniżej wykresu na liście. 
+Na wykresie z czterema sekcjami wybierz nazwę sekcji, na przykład **false pozytywną** w prawym górnym rogu wykresu. Pod wykresem wszystkie wyrażenia długości w tej sekcji są wyświetlane poniżej wykresu na liście. 
 
-![Wybrane wypowiedzi według sekcji](./media/luis-how-to-batch-test/selected-utterances-by-section.png)
+![Wybrane wyrażenia długości według sekcji](./media/luis-how-to-batch-test/selected-utterances-by-section.png)
 
-W tym poprzednim obrazie `switch on` wypowiedź jest oznaczona z intencji TurnAllOn, ale otrzymał przewidywanie None intencji. Jest to wskazanie, że intencji TurnAllOn potrzebuje więcej wypowiedzi przykład w celu dokonania oczekiwanego przewidywania. 
+W tym powyższym obrazie `switch on` wypowiedź jest oznaczona zamiarem TurnAllOn, ale otrzymał przeznaczenie wartości none. Wskazuje to, że TurnAllOn wymaga więcej przykładowych wyrażenia długości w celu zapewnienia oczekiwanego przewidywania. 
 
-Dwie sekcje wykresu na czerwono wskazują wypowiedzi, które nie pasują do oczekiwanego przewidywania. Wskazują one wypowiedzi, które usługa LUIS wymaga więcej szkoleń. 
+Dwie sekcje wykresu na czerwono wskazują wyrażenia długości, które nie pasują do oczekiwanego przewidywania. Wskazują one wyrażenia długości, które LUIS wymagają więcej szkoleń. 
 
-Dwie sekcje wykresu w kolorze zielonym były zgodne z oczekiwaną prognozą.
+Dwie sekcje wykresu w kolorze zielonym pasują do oczekiwanego przewidywania.
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli testowanie wskazuje, że aplikacja usługi LUIS nie rozpoznaje poprawnych intencji i jednostek, możesz pracować nad poprawą wydajności aplikacji usługi LUIS, etykietując więcej wypowiedzi lub dodając funkcje. 
+Jeśli testowanie wskazuje, że aplikacja LUIS nie rozpoznaje poprawnych intencji i jednostek, możesz obejść, aby zwiększyć wydajność aplikacji LUIS, dodając etykiety więcej wyrażenia długości lub dodając funkcje. 
 
-* [Etykieta sugerowane wypowiedzi z usługi LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Korzystanie z funkcji w celu zwiększenia wydajności aplikacji usługi LUIS](luis-how-to-add-features.md) 
-* [Poznaj testowanie wsadowe za pomocą tego samouczka](luis-tutorial-batch-testing.md)
-* [Poznaj pojęcia dotyczące testowania wsadowego](luis-concept-batch-test.md).
+* [Etykieta sugerowanych wyrażenia długości z LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Korzystaj z funkcji, aby zwiększyć wydajność aplikacji LUIS](luis-how-to-add-features.md) 
+* [Opis testów wsadowych w tym samouczku](luis-tutorial-batch-testing.md)
+* [Poznaj koncepcje testowania partii](luis-concept-batch-test.md).

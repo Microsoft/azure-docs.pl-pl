@@ -1,7 +1,7 @@
 ---
-title: Korzystanie z tokenu szczegółowych informacji — wyszukiwanie wizualne bing
+title: Korzystanie z tokenu usługi Insights — wyszukiwanie wizualne Bing
 titleSuffix: Azure Cognitive Services
-description: Pokazuje, jak używać tokenu wglądu obrazu za pomocą interfejsu API wyszukiwania wizualnego Bing, aby uzyskać szczegółowe informacje o obrazie.
+description: Pokazuje, w jaki sposób używać tokenu Insights z interfejs API wyszukiwania wizualnego Bing, aby uzyskać wgląd w informacje o obrazie.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
 ms.openlocfilehash: 251197c456ece4fe2dbbe264219d52f3502b7492
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67341721"
 ---
-# <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Korzystanie z tokenu szczegółowych informacji w celu uzyskania szczegółowych informacji na temat obrazu
+# <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Korzystanie z tokenu Insights w celu uzyskania szczegółowych informacji dotyczących obrazu
 
-Interfejs API wyszukiwania wizualnego Bing zwraca informacje o udostępnionym obrazie. Obraz można udostępnić przy użyciu adresu URL obrazu, tokenu szczegółowych informacji lub przez przekazanie obrazu. Aby uzyskać informacje o tych opcjach, zobacz [Co to jest interfejs API wyszukiwania wizualnego usługi Bing?](overview.md). W tym artykule pokazano przy użyciu tokenu szczegółowych informacji. Przykłady, które pokazują, jak przesłać obraz, aby uzyskać szczegółowe informacje, zobacz szybki start ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)).
+Interfejs API wyszukiwania wizualnego Bing zwraca informacje o udostępnionym obrazie. Obraz można udostępnić przy użyciu adresu URL obrazu, tokenu szczegółowych informacji lub przez przekazanie obrazu. Aby uzyskać informacje o tych opcjach, zobacz [co to jest interfejs API wyszukiwania wizualnego Bing?](overview.md). W tym artykule pokazano, jak używać tokenu usługi Insights. Przykłady pokazujące sposób przekazywania obrazu w celu uzyskania szczegółowych informacji można znaleźć w przewodnikach szybki start ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node. js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)).
 
-Jeśli wyślesz wyszukiwanie wizualne Bing token obrazu lub adres URL, poniżej przedstawiono dane formularza, które należy uwzględnić w treści POST. Dane formularza muszą `Content-Disposition` zawierać nagłówek i należy `name` ustawić jego parametr na "knowledgeRequest". Aby uzyskać `imageInfo` szczegółowe informacje o obiekcie, zobacz żądanie:
+W przypadku wysłania wyszukiwanie wizualne Bing tokenu lub adresu URL obrazu, poniżej przedstawiono dane formularza, które należy uwzględnić w treści wpisu. Dane formularza muszą zawierać `Content-Disposition` nagłówek i należy ustawić jego `name` parametr na wartość "knowledgeRequest". Aby uzyskać szczegółowe informacje `imageInfo` na temat obiektu, zobacz żądanie:
 
 ```json
 {
@@ -43,7 +43,7 @@ Jeśli wyślesz wyszukiwanie wizualne Bing token obrazu lub adres URL, poniżej 
 }
 ```
 
-Przykłady w tym artykule pokazują, jak używać tokenu szczegółowych informacji. Możesz uzyskać token szczegółowych `Image` informacji z obiektu w odpowiedzi interfejsu API /images/search. Aby uzyskać informacje dotyczące uzyskiwania tokenu szczegółowych informacji, zobacz [Co to jest interfejs API wyszukiwania obrazów Bing?](../Bing-Image-Search/overview.md).
+W przykładach w tym artykule przedstawiono sposób korzystania z tokenu usługi Insights. Uzyskujesz token Insights z `Image` obiektu w odpowiedzi interfejsu API/images/Search. Aby uzyskać informacje na temat pobierania tokenu usługi Insights, zobacz [co to jest interfejs API wyszukiwania obrazów Bing?](../Bing-Image-Search/overview.md).
 
 ```
 --boundary_1234-abcd
@@ -58,23 +58,23 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Przykłady korzystające z tokenu szczegółowych informacji można znaleźć w języku [C#](#use-with-c) | [Java](#use-with-java) | [Node.js](#use-with-nodejs) | [Python](#use-with-python).
+Aby zapoznać się z przykładami korzystającymi z tokenu usługi Insights, zobacz [C#](#use-with-c) | [Java](#use-with-java) | [Node. js](#use-with-nodejs) | [Python](#use-with-python).
 
 ## <a name="use-with-c"></a>Używanie z C #
 
 ### <a name="c-prerequisites"></a>Wymagania wstępne języka C#
 
-- Dowolna wersja [programu Visual Studio 2019,](https://www.visualstudio.com/downloads/) aby uzyskać ten kod uruchomiony w systemie Windows.
-- Subskrypcja platformy Azure. W przypadku tego przewodnika Szybki start można użyć [bezpłatnego próbnego](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) klucza subskrypcji lub płatnego klucza subskrypcji.
+- Dowolna wersja programu [Visual Studio 2019](https://www.visualstudio.com/downloads/) , aby uzyskać ten kod uruchomiony w systemie Windows.
+- Subskrypcja platformy Azure. W ramach tego przewodnika Szybki Start możesz użyć klucza subskrypcji [bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) lub klucza subskrypcji płatnej.
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
 Aby uruchomić tę aplikację, wykonaj następujące kroki:
 
-1. Tworzenie rozwiązania konsoli w programie Visual Studio.
-2. Zastąp zawartość Program.cs kodem pokazanym w tym przewodniku Szybki start.
+1. Utwórz rozwiązanie konsoli w programie Visual Studio.
+2. Zastąp zawartość Program.cs kodem pokazanym w tym przewodniku Szybki Start.
 3. Zastąp wartość elementu `accessKey` kluczem subskrypcji.
-4. Zastąp `insightsToken` wartość tokenem szczegółowych informacji z odpowiedzi /images/search.
+4. Zastąp `insightsToken` wartość tokenem Insights z odpowiedzi/images/Search.
 5. Uruchom program.
 
 ```csharp
@@ -233,18 +233,18 @@ namespace VisualSearchInsightsToken
 }
 ```
 
-## <a name="use-with-java"></a>Używanie z oprogramowaniem Java
+## <a name="use-with-java"></a>Używanie z językiem Java
 
-### <a name="java-prerequisites"></a>Wymagania wstępne języka Java
+### <a name="java-prerequisites"></a>Wymagania wstępne dotyczące języka Java
 
-- Aby skompilować i uruchomić ten kod, należy użyć [JDK 7 lub 8.](https://aka.ms/azure-jdks) Możesz użyć środowiska Java IDE, jeśli masz ulubione, ale wystarczy edytor tekstu.
-- W przypadku tego przewodnika Szybki start można użyć [bezpłatnego próbnego](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) klucza subskrypcji lub płatnego klucza subskrypcji.
+- Aby skompilować i uruchomić ten kod, musisz użyć [JDK 7 lub 8](https://aka.ms/azure-jdks) . Możesz użyć środowiska IDE języka Java, jeśli masz Ulubione, ale wystarczy Edytor tekstu.
+- W ramach tego przewodnika Szybki Start możesz użyć klucza subskrypcji [bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) lub klucza subskrypcji płatnej.
 
 ## <a name="run-the-java-application"></a>Uruchamianie aplikacji Java
 
 Aby uruchomić tę aplikację, wykonaj następujące kroki:
 
-1. Pobierz lub zainstaluj [bibliotekę Gson Java](https://github.com/google/gson). Gson można również uzyskać za pośrednictwem Maven.
+1. Pobierz lub zainstaluj [bibliotekę Java Gson](https://github.com/google/gson). Możesz również uzyskać Gson za pośrednictwem Maven.
 2. Utwórz nowy projekt języka Java w ulubionym środowisku IDE lub edytorze.
 3. Dodaj kod podany w pliku o nazwie `VisualSearch.java`.
 4. Zastąp wartość elementu `subscriptionKey` kluczem subskrypcji.
@@ -347,12 +347,12 @@ public class InsightsToken {
 }
 ```
 
-## <a name="use-with-nodejs"></a>Używanie z plikem Node.js
+## <a name="use-with-nodejs"></a>Używanie z programem Node. js
 
-### <a name="nodejs-prerequisites"></a>Wymagania wstępne node.js
+### <a name="nodejs-prerequisites"></a>Wymagania wstępne środowiska Node. js
 
-- Aby uruchomić ten kod, musisz mieć [node.js 6.](https://nodejs.org/en/download/)
-- W przypadku tego przewodnika Szybki start można użyć [bezpłatnego próbnego](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) klucza subskrypcji lub płatnego klucza subskrypcji.
+- Aby uruchomić ten kod, musisz mieć [Node. js 6](https://nodejs.org/en/download/) .
+- W ramach tego przewodnika Szybki Start możesz użyć klucza subskrypcji [bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) lub klucza subskrypcji płatnej.
 
 ## <a name="run-the-javascript-application"></a>Uruchamianie aplikacji JavaScript
 
@@ -411,14 +411,14 @@ function requestCallback(err, res, body) {
 }
 ```
 
-## <a name="use-with-python"></a>Używanie z Pythonem
+## <a name="use-with-python"></a>Używanie z językiem Python
 
 ### <a name="python-prerequisites"></a>Wymagania wstępne języka Python
 
-- Aby uruchomić ten kod, musisz mieć [język Python 3.](https://www.python.org/)
+- Aby uruchomić ten kod, musisz mieć język [Python 3](https://www.python.org/) .
 - Na potrzeby tego przewodnika Szybki start możesz użyć klucza subskrypcji [bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) lub klucza subskrypcji płatnej.
 
-## <a name="run-the-python-application"></a>Uruchamianie aplikacji Języka Python
+## <a name="run-the-python-application"></a>Uruchamianie aplikacji języka Python
 
 Aby uruchomić tę aplikację, wykonaj następujące kroki:
 
@@ -476,7 +476,7 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Tworzenie jednostronicowej aplikacji sieci Web wyszukiwania wizualnego](tutorial-bing-visual-search-single-page-app.md)  
+[Tworzenie wyszukiwanie wizualne jednostronicowej aplikacji sieci Web](tutorial-bing-visual-search-single-page-app.md)  
 [Co to jest interfejs API wyszukiwania wizualnego Bing?](overview.md)  
 [Wypróbuj usługi Cognitive Services](https://aka.ms/bingvisualsearchtryforfree)  
 [Pobierz klucz dostępu do bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  

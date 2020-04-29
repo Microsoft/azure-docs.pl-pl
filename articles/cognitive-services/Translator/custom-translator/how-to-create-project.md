@@ -1,7 +1,7 @@
 ---
-title: Jak utworzyć projekt - Custom Translator
+title: Jak utworzyć projekt — translator niestandardowy
 titleSuffix: Azure Cognitive Services
-description: W tym artykule wyjaśniono, jak utworzyć projekt i zarządzać nim w usłudze Azure Cognitive Services Custom Translator.
+description: W tym artykule wyjaśniono, jak utworzyć projekt i zarządzać nim w usłudze Azure Cognitive Services translatorem niestandardowym.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,59 +10,59 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 5b3a6f2e903d8178554b7a076ae1277633569353
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73836560"
 ---
 # <a name="create-a-project"></a>Tworzenie projektu
 
-Projekt jest kontenerem dla modeli, dokumentów i testów. Każdy projekt automatycznie zawiera wszystkie dokumenty, które są przekazywane do tego obszaru roboczego, które mają poprawną parę języków.
+Projekt jest kontenerem dla modeli, dokumentów i testów. Każdy projekt automatycznie zawiera wszystkie dokumenty, które są przekazywane do tego obszaru roboczego, który ma poprawną parę językową.
 
-Tworzenie projektu jest pierwszym krokiem w kierunku tworzenia modelu.
+Tworzenie projektu to pierwszy krok w kierunku tworzenia modelu.
 
-## <a name="create-a-project"></a>Tworzenie projektu:
+## <a name="create-a-project"></a>Utwórz projekt:
 
-1.  W portalu [Translator niestandardowy](https://portal.customtranslator.azure.ai) kliknij pozycję Utwórz projekt.
+1.  W portalu [translatora niestandardowego](https://portal.customtranslator.azure.ai) kliknij pozycję Utwórz projekt.
 
     ![Tworzenie projektu](media/how-to/how-to-create-project.png)
 
-2.  W oknie dialogowym wprowadź następujące szczegóły dotyczące projektu:
+2.  W oknie dialogowym wprowadź następujące szczegółowe informacje o projekcie:
 
-    a.  Nazwa projektu (wymagana): nadaj projektowi unikatową, znaczącą nazwę. Nie trzeba wymieniać języków w tytule.
+    a.  Nazwa projektu (wymagana): Nadaj projektowi unikatową, zrozumiałą nazwę. Nie trzeba wymieniać języków w tytule.
 
-    b.  Opis: krótkie podsumowanie dotyczące projektu. Ten opis nie ma wpływu na zachowanie translatora niestandardowego lub wynikowego systemu niestandardowego, ale może pomóc w rozróżnieniu między różnymi projektami.
+    b.  Opis: krótkie podsumowanie dotyczące projektu. Ten opis nie ma wpływu na zachowanie translatora niestandardowego ani systemowego systemu, ale może ułatwić rozróżnienie między różnymi projektami.
 
-    d.  Para języków (wymagana): wybierz język, z którego tłumaczysz i do którego się wybierasz.
+    c.  Para języków (wymagana): Wybierz język, z którego jest przeprowadzana translacja.
 
-    d.  Kategoria (wymagana): wybierz kategorię, która jest najbardziej odpowiednia dla twojego projektu. Kategoria opisuje terminologię i styl dokumentów, które zamierzasz przetłumaczyć.
+    d.  Kategoria (wymagana): Wybierz kategorię, która jest najbardziej odpowiednia dla Twojego projektu. Kategoria zawiera opis terminologii i stylu dokumentów, które zamierzasz przetłumaczyć.
 
-    e.  Opis kategorii: użyj tego pola, aby lepiej opisać daną dziedzinę lub branżę, w której pracujesz. Na przykład, jeśli twoja kategoria jest medycyna, można dodać konkretny dokument, taki zabieg, lub pediatrii. Opis nie ma wpływu na zachowanie translatora niestandardowego lub wynikowego systemu niestandardowego.
+    e.  Opis kategorii: to pole służy do lepszego opisywania określonego pola lub branży, w której pracujesz. Na przykład jeśli Twoja kategoria to medycyna, możesz dodać określony dokument, taki chirurg lub Pediatrics. Opis nie ma wpływu na zachowanie niestandardowego translatora ani systemu niestandardowego.
 
-    f.  Etykieta [projektu: Etykieta projektu](workspace-and-project.md#project-labels) rozróżnia projekty z tą samą parą językową i kategorią. Najlepszym rozwiązaniem jest używanie etykiety *tylko* wtedy, gdy planujesz utworzyć wiele projektów dla tej samej pary języków i tej samej kategorii i chcesz uzyskać dostęp do tych projektów z innym identyfikatorem kategorii. Nie używaj tego pola, jeśli budujesz systemy tylko dla jednej kategorii. Etykieta projektu nie jest wymagana i nie jest pomocna w rozróżnianie par języków. Tej samej etykiety można użyć dla wielu projektów.
+    f.  Etykieta projektu: [etykieta projektu](workspace-and-project.md#project-labels) rozróżnia projekty z tą samą parą językową i kategorią. Najlepszym rozwiązaniem jest użycie etykiety *tylko* wtedy, gdy planujesz kompilację wielu projektów dla tej samej pary językowej i tej samej kategorii i chcesz uzyskać dostęp do tych projektów z innym IDKategorii. Nie używaj tego pola, jeśli tworzysz systemy tylko dla jednej kategorii. Etykieta projektu nie jest wymagana i nie ułatwia rozróżniania par językowych. Możesz użyć tej samej etykiety dla wielu projektów.
 
     ![Okno dialogowe Tworzenie projektu](media/how-to/how-to-create-project-dialog.png)
 
 3.  Kliknięcie pozycji Utwórz
 
-## <a name="view-project-details"></a>Wyświetlanie szczegółów projektu
+## <a name="view-project-details"></a>Wyświetl szczegóły projektu
 
-Strona docelowa Translatora niestandardowego pokazuje pierwsze 10 projektów w obszarze roboczym. Wyświetla nazwę projektu, parę języków, kategorię, stan i wynik BLEU.
+Strona docelowa usługi tłumaczenia niestandardowego pokazuje pierwsze 10 projektów w obszarze roboczym. Wyświetla nazwę projektu, parę języków, kategorię, stan i ocenę BLEU.
 
-Po wybraniu projektu na stronie projektu pojawią się następujące elementy:
+Po wybraniu projektu na stronie projektu zostaną wyświetlone następujące elementy:
 
-- Identyfikator kategorii: Identyfikator kategorii jest tworzony przez łączenie identyfikatora roboczego, etykiety projektu i kodu kategorii. CategoryID z interfejsem API translatora tekstu służy do uzyskania tłumaczeń niestandardowych.
+- IDKategorii: element IDKategorii jest tworzony przez połączenie identyfikator obszaru roboczego, etykiety projektu i kodu kategorii. Używasz IDKategorii z interfejsem API usługi Text translator, aby uzyskać niestandardowe tłumaczenia.
 
-- Przycisk Trenuj: Użyj tego przycisku, aby rozpocząć [szkolenie modelu](how-to-train-model.md).
+- Przycisk uczenia: Użyj tego przycisku, aby rozpocząć [uczenie modelu](how-to-train-model.md).
 
-- Przycisk Dodaj dokumenty: użyj tego przycisku, aby [przesłać dokumenty](how-to-upload-document.md).
+- Przycisk Dodaj dokumenty: ten przycisk służy do [przekazywania dokumentów](how-to-upload-document.md).
 
-- Przycisk Filtruj dokumenty: użyj tego przycisku, aby filtrować i wyszukiwać określone dokumenty.
+- Przycisk filtrowania dokumentów: ten przycisk służy do filtrowania i wyszukiwania określonych dokumentów.
 
-    ![Wyświetlanie szczegółów projektu](media/how-to/how-to-view-project.png)
+    ![Wyświetl szczegóły projektu](media/how-to/how-to-view-project.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz [się, jak wyszukiwać, edytować i usuwać projekt](how-to-search-edit-delete-projects.md).
-- Dowiedz [się, jak przekazać dokument](how-to-upload-document.md) do tworzenia modeli tłumaczeń.
+- Dowiedz się [, jak wyszukiwać, edytować i usuwać projekt](how-to-search-edit-delete-projects.md).
+- Dowiedz się, [jak przekazywać dokumenty](how-to-upload-document.md) do modeli tłumaczeń.

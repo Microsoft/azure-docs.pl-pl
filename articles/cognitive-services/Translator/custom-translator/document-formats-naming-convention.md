@@ -1,7 +1,7 @@
 ---
-title: Formaty dokumentów i konwencje nazewnictwa — Translator niestandardowy
+title: Formaty dokumentów i konwencje nazewnictwa — translator niestandardowy
 titleSuffix: Azure Cognitive Services
-description: Jest to przewodnik dotyczący formatów dokumentów i konwencji nazewnictwa w translatorze niestandardowym. Ta koncepcja pomaga zarządzać nazwami dokumentów lepiej abd uniknąć konfliktów nazewnictwa.
+description: Jest to przewodnik dotyczący formatów dokumentów i konwencji nazewnictwa w Translatoru niestandardowym. Takie koncepcje ułatwiają zarządzanie nazwami dokumentów lepszy Abd unikanie konfliktów nazw.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,47 +10,47 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 41b15cc998a7bacd033ef2fe083fc99f1bff0286
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68595854"
 ---
-# <a name="document-formats-and-naming-convention-guidance"></a>Formaty dokumentów i wskazówki dotyczące konwencji nazewnictwa
+# <a name="document-formats-and-naming-convention-guidance"></a>Wskazówki dotyczące formatów dokumentów i konwencji nazewnictwa
 
-Każdy plik używany do tłumaczenia niestandardowego musi mieć co najmniej **cztery** znaki długości.
+Każdy plik używany do tłumaczenia niestandardowego musi mieć co najmniej **cztery** znaki.
 
-Ta tabela zawiera wszystkie obsługiwane formaty plików, których można użyć do zbudowania systemu tłumaczenia:
+Ta tabela zawiera wszystkie obsługiwane formaty plików, których można użyć do kompilowania systemu Tłumaczenia:
 
 | Format            | Rozszerzenia   | Opis                                                                                                                                                                                                                                                                    |
 |-------------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Xliff             | . Xlf. Xliff | Równoległy format dokumentu, eksport systemów pamięci tłumaczeniowej. Używane języki są definiowane wewnątrz pliku.                                                                                                                                                              |
-| Tmx               | . Tmx         | Równoległy format dokumentu, eksport systemów pamięci tłumaczeniowej. Używane języki są definiowane wewnątrz pliku.                                                                                                                                                              |
-| Zip               | . Zip         | ZIP to format pliku archiwum.                                                                                                                                                                                                        |
-| Locstudio ( Locstudio )         | . Lcl         | Format firmy Microsoft dla dokumentów równoległych                                                                                                                                                                                                                                      |
-| Microsoft Word    | . Docx        | Dokument programu Microsoft Word                                                                                                                                                                                                                                                        |
-| Adobe Acrobat     | . Pdf         | Przenośny dokument programu Adobe Acrobat                                                                                                                                                                                                                                                |
-| HTML              | . Html. Htm  | Dokument HTML                                                                                                                                                                                                                                                                  |
-| Plik tekstowy         | . Txt         | Utf-16 lub UTF-8 zakodowane pliki tekstowe. Nazwa pliku nie może zawierać znaków japońskich.                                                                                                                                                                                        |
-| Wyrównany plik tekstowy | . Wyrównaj       | Rozszerzenie `.ALIGN` jest specjalnym rozszerzeniem, którego można użyć, jeśli wiadomo, że zdania w parze dokumentów są idealnie wyrównane. Jeśli podasz `.ALIGN` plik, Tłumacz niestandardowy nie wyrówna zdania dla Ciebie. |
-| Plik programu Excel        | . Xlsx        | Plik programu Excel (2013 lub nowsza). Pierwszy wiersz/ wiersz arkusza kalkulacyjnego powinien być kodem języka.                                                                                                                                                                                                                                                      |
+| XLIFF             | . XLF, . XLIFF | Format dokumentu równoległego, eksportowanie systemów pamięci translacji. Używane języki są zdefiniowane w pliku.                                                                                                                                                              |
+| TMX               | . TMX         | Format dokumentu równoległego, eksportowanie systemów pamięci translacji. Używane języki są zdefiniowane w pliku.                                                                                                                                                              |
+| KODU               | . KODU         | ZIP to format pliku archiwum.                                                                                                                                                                                                        |
+| Locstudio         | . LCL         | Format Microsoft dla dokumentów równoległych                                                                                                                                                                                                                                      |
+| Microsoft Word    | . DOCX        | Dokument programu Microsoft Word                                                                                                                                                                                                                                                        |
+| Program Adobe Acrobat     | . FORMATACH         | Przenośny dokument programu Adobe Acrobat                                                                                                                                                                                                                                                |
+| HTML              | . HTML,. HTM  | Dokument HTML                                                                                                                                                                                                                                                                  |
+| Plik tekstowy         | . ZAWIERAJĄCEGO         | Pliki tekstowe kodowane w formacie UTF-16 lub UTF-8. Nazwa pliku nie może zawierać znaków japońskich.                                                                                                                                                                                        |
+| Wyrównany plik tekstowy | . DOSTOSOWANIA       | Rozszerzenie `.ALIGN` jest specjalnym rozszerzeniem, którego można użyć, Jeśli wiesz, że zdania w parze dokumentu są idealnie wyrównane. Jeśli postanowisz `.ALIGN` plik, translator niestandardowy nie będzie wyrównuje zdań. |
+| Plik programu Excel        | . XLSX        | Plik programu Excel (2013 lub nowszy). Pierwszym wierszem/wierszem arkusza kalkulacyjnego powinien być kod języka.                                                                                                                                                                                                                                                      |
 
-## <a name="dictionary-formats"></a>Formaty słowników
+## <a name="dictionary-formats"></a>Formaty słownika
 
-W przypadku słowników usługa Custom Translator obsługuje wszystkie formaty plików, które są obsługiwane dla zestawów szkoleniowych. Jeśli używasz słownika programu Excel, pierwszym wierszem/ wierszem arkusza kalkulacyjnego powinny być kody językowe.
+W przypadku słowników translator niestandardowy obsługuje wszystkie formaty plików, które są obsługiwane w przypadku zestawów szkoleniowych. Jeśli używasz słownika programu Excel, pierwszym wierszem/wierszem arkusza kalkulacyjnego powinien być kod języka.
 
 ## <a name="zip-file-formats"></a>Formaty plików zip
 
-Dokumenty można pogrupować w jeden plik zip i przesłać. Translator niestandardowy obsługuje formaty plików zip (ZIP, GZ i TGZ).
+Dokumenty mogą być pogrupowane w jednym pliku zip i przekazywane. Niestandardowa aplikacja obsługuje formaty plików zip (ZIP, GZ i TGZ).
 
 Każdy dokument w pliku zip z rozszerzeniem TXT, HTML, HTM, PDF, DOCX, ALIGN musi być zgodny z tą konwencją nazewnictwa:
 
-{nazwa dokumentu} \_{language code} gdzie {nazwa dokumentu} jest nazwą dokumentu, {kod języka} to identyfikator języka ISO (dwa znaki), co oznacza, że dokument zawiera zdania w tym języku. Musi istnieć podkreślenie (_) przed kodem języka.
+{Nazwa dokumentu} \_{Language Code}, gdzie {Document Name} jest nazwą dokumentu, {language Code} to ISO LanguageID (dwa znaki) wskazujący, że dokument zawiera zdania w tym języku. Przed kodem języka musi istnieć podkreślenie (_).
 
-Na przykład, aby przesłać dwa równoległe dokumenty w zip dla systemu angielskiego do hiszpańskiego, pliki powinny mieć nazwy "data_en" i "data_es".
+Na przykład aby przekazać dwa dokumenty równoległe w pliku ZIP dla języka angielskiego do hiszpańskiego, pliki powinny mieć nazwę "data_en" i "data_es".
 
-Pliki pamięci tłumaczeniowej (TMX, XLF, XLIFF, LCL, XLSX) nie są wymagane do przestrzegania określonej konwencji nazewnictwa języków.  
+Pliki pamięci translacji (TMX, XLF, XLIFF, LCL, XLSX) nie są wymagane do przestrzegania określonej konwencji nazewnictwa języka.  
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj o [projekcie,](workspace-and-project.md#what-is-a-custom-translator-project) aby je utworzyć i zarządzać nim.
+- Przeczytaj o [projekcie](workspace-and-project.md#what-is-a-custom-translator-project) , aby utworzyć i zarządzać nimi.

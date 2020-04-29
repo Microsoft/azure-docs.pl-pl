@@ -1,7 +1,7 @@
 ---
-title: Testowanie aplikacji usługi LUIS
+title: Testowanie aplikacji LUIS
 titleSuffix: Azure Cognitive Services
-description: Testowanie jest procesem dostarczania wypowiedzi próbki do usługi LUIS i uzyskiwania odpowiedzi intencji i jednostek rozpoznawanych przez usługę LUIS.
+description: Testowanie jest procesem zapewniania przykładowej wyrażenia długości do LUIS i uzyskiwania odpowiedzi na LUIS, które są uznawane za intencje i jednostki.
 author: diberry
 manager: nitinme
 services: cognitive-services
@@ -12,50 +12,50 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
 ms.openlocfilehash: 25b360f90a0920aad2ea5e68cda31a68be5d37a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73486686"
 ---
-# <a name="testing-example-utterances-in-luis"></a>Testowanie przykładowych wypowiedzi w usłudze LUIS
+# <a name="testing-example-utterances-in-luis"></a>Przykład testowania wyrażenia długości w LUIS
 
-Testowanie jest procesem dostarczania wypowiedzi próbki do usługi LUIS i uzyskiwania odpowiedzi intencji i jednostek rozpoznawanych przez usługę LUIS. 
+Testowanie jest procesem zapewniania przykładowej wyrażenia długości do LUIS i uzyskiwania odpowiedzi na LUIS, które są uznawane za intencje i jednostki. 
 
-Można przetestować usługi LUIS interaktywnie, jeden wypowiedź w czasie lub podać wypowiedzi. Podczas testowania można porównać odpowiedź przewidywania bieżącego modelu aktywnego na odpowiedź przewidywania opublikowanego modelu. 
+Możesz testować LUIS interaktywnie, jeden wypowiedź w danym momencie lub udostępnić wyrażenia długości. Podczas testowania można porównać bieżącą odpowiedź predykcyjną aktywnego modelu z odpowiedzią przewidywania opublikowanego modelu. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
 <a name="E-(exponent)-notation"></a>
 
-## <a name="what-is-a-score-in-testing"></a>Co to jest wynik w testach?
-Zobacz [Koncepcje wyników prognozowania,](luis-concept-prediction-score.md) aby dowiedzieć się więcej o wynikach prognozowania.
+## <a name="what-is-a-score-in-testing"></a>Co to jest ocena w testowaniu?
+Zobacz koncepcje [oceny przewidywania](luis-concept-prediction-score.md) , aby dowiedzieć się więcej na temat przewidywanych ocen.
 
 ## <a name="interactive-testing"></a>Testowanie interakcyjne
-Testy interaktywne są wykonywane z panelu **testowego** portalu usługi LUIS. Można wprowadzić wypowiedź, aby zobaczyć, jak intencje i jednostki są identyfikowane i oceniane. Jeśli usługa LUIS nie przewiduje intencji i jednostek, zgodnie z oczekiwaniami w sprawie wypowiedź w panelu testowania, skopiuj go do **intencji** strony jako nowy wypowiedź. Następnie etykiety części tej wypowiedzi dla jednostek i pociągu usługi LUIS. 
+Testowanie interaktywne odbywa się z poziomu panelu **testów** portalu Luis. Możesz wprowadzić wypowiedź, aby zobaczyć, jak intencje i jednostki są identyfikowane i oceniane. Jeśli LUIS nie przewidywalna intencji i jednostek, które są oczekiwane w wypowiedź w panelu testowania, skopiuj je na stronę **intencji** jako nową wypowiedź. Następnie Oznacz części tego wypowiedź dla jednostek i pouczenie LUIS. 
 
 ## <a name="batch-testing"></a>Testowanie wsadowe
-Zobacz [testowania wsadowego,](luis-concept-batch-test.md) jeśli testujesz więcej niż jeden wypowiedź w czasie.
+Zobacz [test wsadowy](luis-concept-batch-test.md) , jeśli testujesz więcej niż jeden wypowiedź w danym momencie.
 
-## <a name="endpoint-testing"></a>Testowanie punktów końcowych
-Można przetestować przy użyciu [punktu końcowego](luis-glossary.md#endpoint) z maksymalnie dwóch wersji aplikacji. W głównej lub aktywnej wersji aplikacji ustawionej jako **produkcyjny** punkt końcowy dodaj drugą wersję do **przemieszczania** punktu końcowego. Takie podejście zapewnia trzy wersje wypowiedź: bieżący model w okienku testowym w witrynie sieci Web [usługi LUIS](luis-reference-regions.md) i dwie wersje w dwóch różnych punktach końcowych. 
+## <a name="endpoint-testing"></a>Testowanie punktu końcowego
+Możesz testować przy użyciu [punktu końcowego](luis-glossary.md#endpoint) z maksymalnie dwiema wersjami aplikacji. Korzystając z swojej wersji głównej lub działającej jako punkt końcowy **produkcji** , należy dodać drugą wersję do punktu końcowego **przemieszczania** . Takie podejście daje trzy wersje wypowiedź: bieżący model w okienku test w witrynie sieci Web [Luis](luis-reference-regions.md) oraz dwie wersje w dwóch różnych punktach końcowych. 
 
-Wszystkie testy punktu końcowego wliczają się do przydziału użycia. 
+Wszystkie testy punktów końcowych są wliczane do limitu przydziału użycia. 
 
 ## <a name="do-not-log-tests"></a>Nie rejestruj testów
-Jeśli testujesz względem punktu końcowego i nie chcesz wypowiedź `logging=false` rejestrowane, należy pamiętać, aby użyć konfiguracji ciągu kwerendy.
+Jeśli testujesz względem punktu końcowego i nie chcesz rejestrować wypowiedź, pamiętaj, aby użyć konfiguracji ciągu `logging=false` zapytania.
 
-## <a name="where-to-find-utterances"></a>Gdzie znaleźć wypowiedzi
-Usługa LUIS przechowuje wszystkie zarejestrowane wypowiedzi w dzienniku zapytań, dostępne do pobrania w portalu usługi LUIS ze strony listy **Aplikacje,** a także [interfejsy API tworzenia](https://go.microsoft.com/fwlink/?linkid=2092087)usługi LUIS. 
+## <a name="where-to-find-utterances"></a>Gdzie można znaleźć wyrażenia długości
+LUIS przechowuje wszystkie zarejestrowane wyrażenia długości w dzienniku zapytań, dostępne do pobrania w portalu LUIS na stronie listy **aplikacje** , a także [interfejsy API tworzenia](https://go.microsoft.com/fwlink/?linkid=2092087)Luis. 
 
-Wszelkie wypowiedzi usługi LUIS nie jest pewien są wymienione w **[przeglądu wypowiedzi punktu końcowego](luis-how-to-review-endpoint-utterances.md)** strony w witrynie sieci Web [usługi LUIS.](luis-reference-regions.md) 
+Wszystkie wyrażenia długości LUIS nie znajdują się na liście na stronie **[Przegląd punktu końcowego wyrażenia długości](luis-how-to-review-endpoint-utterances.md)** witryny sieci Web [Luis](luis-reference-regions.md) . 
 
-## <a name="remember-to-train"></a>Pamiętaj, aby trenować
-Pamiętaj, aby [trenować](luis-how-to-train.md) usługę LUIS po wszczęciem zmian w modelu. Zmiany w aplikacji usługi LUIS nie są widoczne w testach, dopóki aplikacja nie zostanie przeszkolona. 
+## <a name="remember-to-train"></a>Pamiętaj, aby szkolić
+Pamiętaj, aby [szkolić](luis-how-to-train.md) Luis po wprowadzeniu zmian w modelu. Zmiany w aplikacji LUIS nie są widoczne w testowaniu, dopóki aplikacja nie zostanie przeszkolone. 
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
-Poznaj [najlepsze wskazówki](luis-concept-best-practices.md).
+Poznaj [najlepsze rozwiązania](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [testowaniu](luis-interactive-test.md) wypowiedzi.
+* Dowiedz się więcej na temat [testowania](luis-interactive-test.md) wyrażenia długości.

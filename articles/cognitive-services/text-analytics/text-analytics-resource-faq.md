@@ -1,7 +1,7 @@
 ---
-title: Często zadawane pytania dotyczące interfejsu API analizy tekstu
+title: Często zadawane pytania dotyczące interfejs API analizy tekstu
 titleSuffix: Azure Cognitive Services
-description: Znajdź odpowiedzi na często zadawane pytania dotyczące pojęć, kodu i scenariuszy związanych z interfejsem API analizy tekstu dla usług Azure Cognitive Services.
+description: Znajdź odpowiedzi na często zadawane pytania dotyczące pojęć, kodu i scenariuszy związanych z interfejs API analizy tekstu Cognitive Services platformy Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,47 +11,47 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: aca3b0bea65923cee1bae25020058666c973922c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73837119"
 ---
-# <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Często zadawane pytania dotyczące usługi Cognitive Service analizy tekstu
+# <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Często zadawane pytania dotyczące usługi analiza tekstu poznawczej
 
- Znajdź odpowiedzi na często zadawane pytania dotyczące pojęć, kodu i scenariuszy związanych z interfejsem API analizy tekstu dla usług Microsoft Cognitive Services na platformie Azure.
+ Znajdź odpowiedzi na często zadawane pytania dotyczące pojęć, kodu i scenariuszy związanych z interfejs API analizy tekstu Microsoft Cognitive Services na platformie Azure.
 
-## <a name="can-text-analytics-identify-sarcasm"></a>Czy analiza tekstu może identyfikować sarkazm?
+## <a name="can-text-analytics-identify-sarcasm"></a>Czy analiza tekstu identyfikować sarkazmu?
 
-Analiza dotyczy nastrojów pozytywnych i negatywnych, a nie wykrywania nastroju.
+Analiza jest dla tonacji z ujemnym wynikiem, a nie od wykrywania nastrojenia.
 
-W analizie tonacji zawsze występuje pewien stopień niedokładności, ale model jest najbardziej przydatny, gdy zawartość nie ma ukrytego znaczenia ani podtekstu. Ironia, sarkazm, humor i podobnie zniuansowane treści opierają się na kontekście kulturowym i normach, aby przekazać intencje. Ten typ treści jest jednym z najtrudniejszych do przeanalizowania. Zazwyczaj największą rozbieżność między danym wynikiem wytwarzanym przez analizator a subiektywną oceną przez człowieka jest zadowalające się treścią o zniuansowanym znaczeniu.
+W analizie tonacji zawsze występuje pewien stopień niedokładności, ale model jest najbardziej przydatny, gdy nie ma żadnego ukrytego znaczenia ani podtekstu zawartości. Sarkazmu, humor i podobne złożonych zawartość jest zależna od kontekstu kulturowego i norm do przekazywania zamiaru. Ten typ zawartości należy do najtrudniejszych do przeanalizowania. Zazwyczaj największą rozbieżność między danym wynikiem uzyskanym przez analizatora a oceną subiektywną przez człowieka jest za zawartość z złożonych znaczeniem.
 
 ## <a name="can-i-add-my-own-training-data-or-models"></a>Czy mogę dodać własne dane szkoleniowe lub modele?
 
-Nie, modele są wstępnie przeszkolone. Jedyne operacje dostępne na przekazanych danych to punktacja, wyodrębnianie fraz kluczowych i wykrywanie języka. Nie hostujemy modeli niestandardowych. Jeśli chcesz tworzyć i obsługiwać niestandardowe modele uczenia maszynowego, należy wziąć pod uwagę [możliwości uczenia maszynowego w programie Microsoft R Server](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
+Nie, modele są przedszkolene. Jedyne operacje dostępne dla przekazanych danych to Punktacja, wyodrębnianie kluczowych fraz i wykrywanie języka. Nie obsługujemy modeli niestandardowych. Jeśli chcesz utworzyć i hostować niestandardowe modele uczenia maszynowego, weź pod uwagę [możliwości uczenia maszynowego w Microsoft R Server](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
 
-## <a name="can-i-request-additional-languages"></a>Czy mogę poprosić o dodatkowe języki?
+## <a name="can-i-request-additional-languages"></a>Czy mogę zażądać dodatkowych języków?
 
-Analiza tonacji i wyodrębnianie fraz kluczowych są dostępne dla [wybranej liczby języków](text-analytics-supported-languages.md). Przetwarzanie języka naturalnego jest złożone i wymaga znacznych testów przed wydaniem nowych funkcji. Z tego powodu unikamy wstępnego ogłaszania pomocy technicznej, aby nikt nie uwzględniał funkcjonalności, które wymagają więcej czasu na dojrzewanie. 
+Analiza tonacji i wyodrębnianie kluczowych fraz są dostępne dla [wybranej liczby języków](text-analytics-supported-languages.md). Przetwarzanie języka naturalnego jest skomplikowane i wymaga poważnej testów przed wydaniem nowych funkcji. Z tego powodu unikamy wstępnego ogłaszania pomocy technicznej, aby nikt nie przeprowadził zależności od funkcjonalności wymagającej większego czasu. 
 
-Aby pomóc nam ustalić priorytety języków, nad którymi należy pracować, zagłosuj na określone języki w [uzyt.](https://cognitive.uservoice.com/forums/555922-text-analytics) 
+Aby pomóc nam określić priorytety języków, które mają być wykonywane po następnym, zagłosuj na określone języki na [głos użytkownika](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 
-## <a name="why-does-key-phrase-extraction-return-some-words-but-not-others"></a>Dlaczego wyodrębnianie fraz kluczowych zwraca niektóre słowa, ale nie inne?
+## <a name="why-does-key-phrase-extraction-return-some-words-but-not-others"></a>Dlaczego wyodrębnianie kluczowych fraz zwraca niektóre słowa, ale nie inne?
 
-Wyodrębnianie fraz kluczowych eliminuje nieistotne słowa i przymiotniki autonomiczne. Kombinacje przymiotników-rzeczowników, takie jak "spektakularne widoki" lub "mglista pogoda" są zwracane razem.
+Wyodrębnianie kluczowych fraz eliminuje nieistotne słowa i autonomiczne przymiotniki. Kombinacje przymiotnik-rzeczownik, takie jak "spektakularnych views" lub "Foggy Pogoda", są zwracane razem.
 
-Ogólnie rzecz biorąc, dane wyjściowe składają się z rzeczowników i obiektów zdania. Dane wyjściowe są wymienione w kolejności ważności, przy czym pierwsza fraza jest najważniejsza. Znaczenie jest mierzone przez liczbę razy określone pojęcie jest wymienione, lub relacji tego elementu do innych elementów w tekście.
+Ogólnie rzecz biorąc, dane wyjściowe składają się z rzeczowników i obiektów zdania. Dane wyjściowe są wyświetlane w kolejności ważności, przy czym pierwsza fraza jest najważniejszym elementem. Znaczenie jest mierzone przez liczbę przypadków, w których wymieniono konkretne koncepcje, lub relacje tego elementu z innymi elementami w tekście.
 
-## <a name="why-does-output-vary-given-identical-inputs"></a>Dlaczego dane wyjściowe są różne, biorąc pod uwagę identyczne wejścia?
+## <a name="why-does-output-vary-given-identical-inputs"></a>Dlaczego dane wyjściowe różnią się w zależności od tego, czy są one identyczne?
 
-Ulepszenia modeli i algorytmów są ogłaszane, jeśli zmiana jest poważna lub cicho slipstreamed do usługi, jeśli aktualizacja jest niewielka. Z biegiem czasu może się okazać, że ten sam tekst powoduje inny wynik tonacji lub dane wyjściowe frazy kluczowej. Jest to normalna i zamierzona konsekwencja korzystania z zarządzanych zasobów uczenia maszynowego w chmurze.
+Udoskonalenia modeli i algorytmów są ogłaszane w przypadku, gdy zmiana jest główna lub jest w trybie cichym włączana do usługi, jeśli aktualizacja jest niewielka. W miarę upływu czasu można stwierdzić, że te same dane wejściowe są wynikiem innym wynikami tonacji lub zwrotów kluczy. Jest to normalna i zacelowa konsekwencja użycia zarządzanych zasobów uczenia maszynowego w chmurze.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Czy masz pytanie dotyczące brakującej funkcji lub funkcji? Rozważ zgłoszenie lub oddanie na nią głosu na naszej [stronie internetowej UserVoice.](https://cognitive.uservoice.com/forums/555922-text-analytics)
+Czy masz pytanie dotyczące brakującej funkcji lub funkcji? Rozważ zażądanie lub oddanie głosu w naszej [witrynie sieci Web](https://cognitive.uservoice.com/forums/555922-text-analytics)w usłudze UserVoice.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
- [StackOverflow: Interfejs API analizy tekstu](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow: Usługi kognitywne](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [StackOverflow: interfejs API analizy tekstu](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ [StackOverflow: Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

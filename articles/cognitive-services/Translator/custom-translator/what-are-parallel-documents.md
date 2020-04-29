@@ -1,7 +1,7 @@
 ---
-title: Co to są dokumenty równoległe? - Tłumacz niestandardowy
+title: Co to są dokumenty równoległe? — Translator niestandardowy
 titleSuffix: Azure Cognitive Services
-description: Dokumenty równoległe są parami dokumentów, w których jedna jest tłumaczeniem drugiego. Jeden dokument w parze zawiera zdania w języku źródłowym, a drugi zawiera te zdania przetłumaczone na język docelowy.
+description: Dokumenty równoległe to pary dokumentów, które są tłumaczeniami innych. Jeden dokument w parze zawiera zdania w języku źródłowym, a drugi dokumentu zawiera te zdania tłumaczone na język docelowy.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,40 +10,40 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: d7c38a44e3111a319e4146b3c9b71a22b0d31bfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72675465"
 ---
 # <a name="what-are-parallel-documents"></a>Co to są dokumenty równoległe?
 
-Dokumenty równoległe są parami dokumentów, w których jedna jest tłumaczeniem drugiego. Jeden dokument w parze zawiera zdania w języku źródłowym, a drugi zawiera te zdania przetłumaczone na język docelowy.
-Nie ma znaczenia, który język jest oznaczony jako "źródło", a który jest oznaczony jako "cel" - dokument równoległy może służyć do szkolenia systemu tłumaczenia w obu kierunkach.
+Dokumenty równoległe to pary dokumentów, które są tłumaczeniami innych. Jeden dokument w parze zawiera zdania w języku źródłowym, a drugi dokumentu zawiera te zdania tłumaczone na język docelowy.
+Nie ma znaczenia, który język jest oznaczony jako "Źródło" i który język jest oznaczony jako "target" — dokument równoległy może służyć do uczenia systemu tłumaczenia w dowolnym kierunku.
 
 ## <a name="requirements"></a>Wymagania
 
-Aby wyszkolić system, potrzebne będzie co najmniej 10 000 unikatowych zdań równoległych wyrównanych. To ograniczenie jest siatką bezpieczeństwa, aby upewnić się, że zdania równoległe zawierają wystarczającą ilość unikalnego słownictwa, aby skutecznie wyszkolić model tłumaczenia. Najlepszym rozwiązaniem jest ciągłe dodawanie większej ilości zawartości równoległej i przekwalifikowanie w celu poprawy jakości systemu tłumaczenia. Zapoznaj się z [ustawieniami zdania](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
+Do uczenia systemu wymagane są co najmniej 10 000 unikatowe, wyrównane do siebie zdania równoległe. To ograniczenie jest środkiem bezpieczeństwa, aby upewnić się, że zdania równoległe zawierają wystarczającą liczbę unikatowych słownictwa, aby pomyślnie szkolić model tłumaczenia. Najlepszym rozwiązaniem jest ciągłe dodawanie bardziej równoległych zawartości i ponowne uczenie w celu poprawy jakości systemu tłumaczenia. Zapoznaj się z [wyrównaniem zdania](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
 
-Firma Microsoft wymaga, aby dokumenty przesłane do Translatora niestandardowego nie naruszały praw autorskich ani własności intelektualnej osób trzecich. Aby uzyskać więcej informacji, zapoznaj się [z Warunkami użytkowania](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
-Przesłanie dokumentu za pomocą portalu nie zmienia własności własności intelektualnej w samym dokumencie.
+Firma Microsoft wymaga, aby dokumenty przekazane do translatora niestandardowego nie naruszają praw autorskich lub własności intelektualnych osób trzecich. Aby uzyskać więcej informacji, zobacz [warunki użytkowania](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
+Przekazywanie dokumentu przy użyciu portalu nie zmienia własności własności intelektualnej w samym dokumencie.
 
 ## <a name="use-of-parallel-documents"></a>Korzystanie z dokumentów równoległych
 
 Dokumenty równoległe są używane przez system:
 
-1.  Aby dowiedzieć się, jak słowa, frazy i zdania są często mapowane między dwoma językami.
+1.  Aby dowiedzieć się, jak wyrazy, wyrażenia i zdania są zwykle mapowane między tymi dwoma językami.
 
-2.  Aby dowiedzieć się, jak przetworzyć odpowiedni kontekst w zależności od otaczających fraz. Słowo nie zawsze może tłumaczyć się dokładnie na to samo słowo w innym języku.
+2.  Aby dowiedzieć się, jak przetworzyć odpowiedni kontekst w zależności od otaczających fraz. Słowo może nie zawsze być tłumaczone na dokładnie ten sam wyraz w innym języku.
 
-Najlepszym rozwiązaniem jest upewnienie się, że istnieje korespondencja zdań 1:1 między źródłową i docelową wersją językową dokumentów.
+Najlepszym rozwiązaniem jest upewnienie się, że istnieje zgodność z 1:1 zdania między źródłową i docelową wersją językową dokumentów.
 
-Jeśli projekt jest specyficzny dla domeny (kategorii), dokumenty powinny być spójne w terminologii w tej kategorii. Jakość powstałego systemu tłumaczenia zależy od liczby zdań w zestawie dokumentów i jakości zdań. Im więcej przykładów dokumentów zawiera z różnorodnymi zwyczajami dla słowa specyficznego dla danej kategorii, tym lepsze zadanie, które system może wykonać podczas tłumaczenia.
+Jeśli projekt jest specyficzny dla domeny (kategoria), dokumenty powinny być spójne w terminologii w tej kategorii. Jakość uzyskanego systemu tłumaczeń zależy od liczby zdań w zestawie dokumentów oraz jakości zdań. Im więcej przykładów zawierają dokumenty z różnymi użyciami dla wyrazów określonych dla danej kategorii, tym lepszym zadaniem może być system podczas tłumaczenia.
 
-Przesłane dokumenty są prywatne w każdym obszarze roboczym i mogą być używane w tylu projektach lub szkoleniach, ile chcesz. Zdania wyodrębnione z dokumentów są przechowywane oddzielnie w repozytorium jako zwykłe pliki tekstowe Unicode i są dostępne do usunięcia. Nie używaj tłumacza niestandardowego jako repozytorium dokumentów, nie będzie można pobrać przesłanych dokumentów w przesłanym formacie.
+Przekazane dokumenty są prywatne dla każdego obszaru roboczego i mogą być używane w dowolnej liczbie projektów lub szkoleń. Zdania wyodrębnione z dokumentów są przechowywane oddzielnie w repozytorium jako zwykłe pliki tekstowe w formacie Unicode i są dostępne do usunięcia. Nie należy używać translatora niestandardowego jako repozytorium dokumentów, ale nie będzie można pobrać dokumentów przekazanych w formacie, który został przekazany.
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak używać [słownika](what-is-dictionary.md) w umykaczu niestandardowym.
+- Dowiedz się, jak używać [słownika](what-is-dictionary.md) w translatoru niestandardowym.

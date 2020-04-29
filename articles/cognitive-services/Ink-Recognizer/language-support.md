@@ -1,7 +1,7 @@
 ---
-title: Obsługa języka i regionu interfejsu API aparatu rozpoznawania pisma odurzacza
+title: Obsługa języka i regionu dla interfejsu API rozpoznawania atramentu
 titleSuffix: Azure Cognitive Services
-description: Lista języków naturalnych obsługiwanych przez interfejs API aparatu rozpoznawania pisma odurzacza.
+description: Lista języków naturalnych obsługiwana przez interfejs API rozpoznawania pisma odręcznego.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
 ms.openlocfilehash: 36f2fa65f47f824ccc3544f5c13b5f5ee9afd21a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67721740"
 ---
-# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Obsługa języka i regionu interfejsu API aparatu rozpoznawania pisma odurzacza
+# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Obsługa języka i regionu dla interfejsu API rozpoznawania atramentu
 
-W tym artykule wyjaśniono, które języki są obsługiwane dla interfejsu API aparatu rozpoznawania pisma odczłowego. Zawartość atramentu cyfrowego napisana w następujących językach może być interpretowana i przetwarzana przez interfejs API.
+W tym artykule wyjaśniono, które języki są obsługiwane przez interfejs API rozpoznawania atramentu. Zawartość cyfrowego atramentu napisany w następujących językach można interpretować i przetwarzać przez interfejs API.
 
 ## <a name="supported-languages"></a>Obsługiwane języki
 
@@ -52,12 +52,12 @@ W tym artykule wyjaśniono, które języki są obsługiwane dla interfejsu API a
 | Indonezyjski                                 |     `id-ID`     |
 | Irlandzki                                      |     `ga-IE`     |
 | Włoski (Włochy)                            |     `it-IT`     |
-| Japoński                                   |     `ja-JP`     |
-| Kinyarwanda                                |     `rw-RW`     |
+| japoński                                   |     `ja-JP`     |
+| Kinjarwanda                                |     `rw-RW`     |
 | Kiswahili (Kenia)                          |     `sw-KE`     |
-| Koreański                                     |     `ko-KR`     |
+| koreański                                     |     `ko-KR`     |
 | Luksemburski                              |     `lb-LU`     |
-| Brunei Darussalam                  |     `ms-BN`     |
+| Malajski (Brunei Darussalam)                  |     `ms-BN`     |
 | Malajski (Malezja)                           |     `ms-MY`     |
 | Maoryjski                                      |     `mi-NZ`     |
 | Norweski (Bokmal)                         |     `nb-NO`     |
@@ -65,15 +65,15 @@ W tym artykule wyjaśniono, które języki są obsługiwane dla interfejsu API a
 | Polski                                     |     `pl-PL`     |
 | portugalski (Brazylia)                        |     `pt-BR`     |
 | Portugalski (Portugalia)                      |     `pt-PT`     |
-| Retoromański                                    |     `rm-CH`     |
+| Romansz                                    |     `rm-CH`     |
 | Rumuński                                   |     `ro-RO`     |
 | Rosyjski                                    |     `ru-RU`     |
 | Szkocki gaelicki                            |     `gd-GB`     |
-| Sesotho sa Leboa                           |    `nso-ZA`     |
-| serbski (cyrylica, Bośnia i Hercegowina) |  `sr-Cyrl-BA`   |
+| Sesotho północny                           |    `nso-ZA`     |
+| Serbski (cyrylica, Bośnia i Hercegowina) |  `sr-Cyrl-BA`   |
 | Serbski (cyrylica, Czarnogóra)             |  `sr-Cyrl-ME`   |
 | Serbski (cyrylica, Serbia)                 |  `sr-Cyrl-RS`   |
-| Serbski (łaciński, bośnia i hercegowina)    |  `sr-Latn-BA`   |
+| Serbski (łaciński, Bośnia i Hercegowina)    |  `sr-Latn-BA`   |
 | Serbski (łaciński, Czarnogóra)                |  `sr-Latn-ME`   |
 | Serbski (łaciński, Serbia)                    |  `sr-Latn-RS`   |
 | Setswana (Republika Południowej Afryki)                    |     `tn-ZA`     |
@@ -89,7 +89,7 @@ W tym artykule wyjaśniono, które języki są obsługiwane dla interfejsu API a
 | Xhosa                                      |     `xh-ZA`     |
 | Zulu                                       |     `zu-ZA`     |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Co to jest interfejs API rozpoznawania pisma odręcznego?](overview.md)
-* [Wysyłanie cyfrowych pociągnięć atramentu do interfejsu API aparatu rozpoznawania pisma odręcznego](concepts/send-ink-data.md)
+* [Wysyłanie pociągnięć cyfrowego atramentu do interfejsu API rozpoznawania pisma odręcznego](concepts/send-ink-data.md)

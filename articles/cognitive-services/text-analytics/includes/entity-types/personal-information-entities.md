@@ -1,5 +1,5 @@
 ---
-title: Nazwane jednostki dla informacji osobistych
+title: Nazwane jednostki do informacji osobistych
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,27 +9,27 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77086908"
 ---
 ## <a name="personal-information-entity-types"></a>Typy jednostek informacji osobistych:
 
 ### <a name="person"></a>Person (Osoba)
-Rozpoznawanie nazwisk osób w tekście.
+Rozpoznawaj nazwiska osób w tekście.
 
 Języki:
 * Publiczna wersja zapoznawcza:`English`
 
 | Nazwa podtypu | Opis                                               | Dostępne począwszy od wersji modelu |
 |--------------|-----------------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | Rozpoznane nazwy, `Bill Gates`na przykład ,`Marie Curie` | `2020-02-01`                           |
+| Nie dotyczy          | Rozpoznawane nazwy, na `Bill Gates`przykład`Marie Curie` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organizacja  
 
-Uznaj organizacje, korporacje, agencje, firmy, kluby i inne grupy ludzi.
+Rozpoznawaj organizacje, firmy, agencje, firmy, trefle i inne grupy osób.
 
 Języki: 
 
@@ -37,11 +37,11 @@ Języki:
 
 | Nazwa podtypu | Opis                                                                                       | Dostępne począwszy od wersji modelu|
 |--------------|---------------------------------------------------------------------------------------------------|--------------|
-| Nie dotyczy          | organizacje, na `Microsoft` `NASA`przykład ,`National Oceanic and Atmospheric Administration` | `2020-02-01` |
+| Nie dotyczy          | organizacje, na przykład `Microsoft` `NASA`,`National Oceanic and Atmospheric Administration` | `2020-02-01` |
 
 ### <a name="phone-number"></a>Numer telefonu
 
-Numery telefonów (tylko amerykańskie numery telefonów). 
+Numery telefonów (tylko numery telefonów USA). 
 
 Języki:
 
@@ -49,9 +49,9 @@ Języki:
 
 | Nazwa podtypu | Opis                                    | Dostępne począwszy od wersji modelu |
 |--------------|------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | Amerykańskie numery telefonów, na przykład`(312) 555-0176` | `2020-02-01`                           |
+| Nie dotyczy          | Numery telefonów US, na przykład`(312) 555-0176` | `2020-02-01`                           |
 
-### <a name="email"></a>Adres e-mail
+### <a name="email"></a>Poczta e-mail
 
 Adres e-mail. 
 
@@ -73,7 +73,7 @@ Języki:
 
 | Nazwa podtypu | Opis                                          | Dostępne począwszy od wersji modelu |
 |--------------|------------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | Adresy URL do stron internetowych, na przykład`https://www.bing.com` | `2020-02-01`                           |
+| Nie dotyczy          | Adresy URL do witryn sieci Web, na przykład`https://www.bing.com` | `2020-02-01`                           |
 
 ### <a name="ip-address"></a>Adres IP
 
@@ -109,11 +109,11 @@ Języki:
 
 | Nazwa podtypu | Opis                   | Dostępne począwszy od wersji modelu |
 |--------------|-------------------------------|----------------------------------------|
-| Data         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
+| Date         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
 
-### <a name="eu-gps-coordinates"></a>Współrzędne GPS UE
+### <a name="eu-gps-coordinates"></a>Współrzędne GPS w Unii Europejskiej
 
- Współrzędne GPS dla lokalizacji na terenie Unii Europejskiej. 
+ Współrzędne GPS dla lokalizacji w Unii Europejskiej. 
 
 Języki:
 
@@ -125,9 +125,9 @@ Języki:
 
 ### <a name="azure-information"></a>Informacje o platformie Azure
 
-Informacje platformy Azure umożliwiające identyfikację, w tym informacje o uwierzytelnianiu i parametry połączenia. 
+Identyfikowalne informacje dotyczące platformy Azure, w tym informacje o uwierzytelnianiu i parametry połączenia. 
 
-* Dostępne począwszy `2019-10-01`od wersji modelu .
+* Dostępne począwszy od wersji `2019-10-01`modelu.
 
 Języki:
 
@@ -135,182 +135,182 @@ Języki:
 
 | Nazwa podtypu                          | Opis                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
-| Klucz Auth usługi Azure DocumentDB             | Klucz autoryzacji dla serwera usługi Azure DocumentDB.                           |
-| Parametry połączenia bazy danych usługi IAAS platformy Azure | Parametry połączenia dla bazy danych infrastruktury platformy Azure jako usługi (IaaS). |
-| Ciąg połączenia SQL platformy Azure           | Parametry połączenia dla bazy danych SQL platformy Azure.                                |
-| Ciąg połączenia IoT platformy Azure           | Parametry połączenia dla usługi Azure Internet of things(IoT).                        |
-| Hasło ustawień publikowania platformy Azure        | Hasło do ustawień publikowania platformy Azure.                                        |
-| Ciąg połączenia pamięci podręcznej usługi Azure Redis   | Parametry połączenia dla pamięci podręcznej platformy Azure dla redis.                             |
-| Azure SAS                             | Parametry połączenia dla oprogramowania platformy Azure jako usługi (SAS).                     |
-| Ciąg połączenia usługi Azure Service Bus   | Parametry połączenia dla magistrali usług Platformy Azure.                                |
-| Klucz konta usługi Azure Storage             | Klucz konta dla konta magazynu platformy Azure.                                   |
-| Klucz konta usługi Azure Storage (ogólny)   | Ogólny klucz konta dla konta magazynu platformy Azure.                           |
-| Parametry połączenia programu SQL Server          | Parametry połączenia dla serwera SQL.                                         |
+| Klucz uwierzytelniania usługi Azure DocumentDB             | Klucz autoryzacji dla serwera usługi Azure DocumentDB.                           |
+| Parametry połączenia z usługą Azure IAAS Database | Parametry połączenia dla bazy danych infrastruktury platformy Azure jako usługi (IaaS). |
+| Parametry połączenia usługi Azure SQL           | Parametry połączenia dla bazy danych SQL Azure.                                |
+| Parametry połączenia usługi Azure IoT           | Parametry połączenia dla Internetu rzeczy (IoT) platformy Azure.                        |
+| Hasło ustawienia publikowania platformy Azure        | Hasło dla ustawień publikowania platformy Azure.                                        |
+| Azure Redis Cache parametry połączenia   | Parametry połączenia dla pamięci podręcznej platformy Azure dla Redis.                             |
+| SAS platformy Azure                             | Parametry połączenia dla oprogramowania Azure jako usługi (SAS).                     |
+| Azure Service Bus parametry połączenia   | Parametry połączenia dla usługi Azure Service Bus.                                |
+| Klucz konta usługi Azure Storage             | Klucz konta dla konta usługi Azure Storage.                                   |
+| Klucz konta usługi Azure Storage (ogólny)   | Ogólny klucz konta dla konta usługi Azure Storage.                           |
+| SQL Server parametry połączenia          | Parametry połączenia dla programu SQL Server.                                         |
 
 ### <a name="identification"></a>Identyfikacja
 
-* Dostępne począwszy `2019-10-01`od wersji modelu .
+* Dostępne począwszy od wersji `2019-10-01`modelu.
 
 Języki:
 
 * Publiczna wersja zapoznawcza:`English`
 
-#### <a name="financial-account-identification"></a>Identyfikacja rachunku finansowego
+#### <a name="financial-account-identification"></a>Identyfikacja konta finansowego
 
 | Nazwa podtypu               | Opis                                                                |
 |----------------------------|----------------------------------------------------------------------------|
-| Numery routingu ABA        | American Banker Association (ABA) numery routingu tranzytowego.                  |
-| Kod SWIFT                 | kody SWIFT do informacji o instrukcjach płatności.                           |
+| ABA numery routingu        | Numery routingu tranzytowego stowarzyszenia bankowego (ABA).                  |
+| Kod SWIFT                 | Kody SWIFT dla informacji o instrukcji płatności.                           |
 | Karta kredytowa                | Numery kart kredytowych.                                                       |
-| Kod IBAN                  | kody IBAN dla informacji o instrukcjach płatności.                            |
+| Kod IBAN                  | Kody IBAN dla informacji o instrukcji płatności.                            |
 
-#### <a name="government-and-country-specific-identification"></a>Identyfikacja dla instytucji rządowych i samorządowych
+#### <a name="government-and-country-specific-identification"></a>Identyfikacja dla instytucji rządowych i krajów
 
-Poniższe jednostki są pogrupowane i wymienione według kraju:
+Poniższe jednostki są pogrupowane i wyszczególnione według kraju:
 
 Argentyna
 * Numer tożsamości narodowej (DNI)
 
 Australia
 * Numer pliku podatku 
-* Identyfikator prawa jazdy
+* Identyfikator licencji sterownika
 * Identyfikator paszportu
 * Numer konta medycznego
-* numery kont bankowych (na przykład sprawdzanie, oszczędności i rachunki debetowe)
+* numery kont Bank (na przykład sprawdzanie, oszczędności i konta debetowe)
 
 Belgia
-* Numer krajowy
+* Numer Narodowy
 
 Brazylia
-* Numer podmiotu prawnego (CNPJ)
-* Numer CPF
-* Krajowy dowód osobisty (RG)
+* Numer podmiotu prawnego (numer CNPJ)
+* Numer numer CPF
+* Krajowa karta IDENTYFIKACYJNa (RG)
 
 Kanada
 * Identyfikator paszportu
-* Identyfikator prawa jazdy
-* Numer ubezpieczenia zdrowotnego
-* Osobisty numer do okazania obrażeń zdrowia (PHIN)
+* Identyfikator licencji sterownika
+* Numer ubezpieczenia kondycji
+* Osobisty numer IDENTYFIKACYJNy kondycji (PHIN)
 * Numer ubezpieczenia społecznego
-* numery kont bankowych (na przykład sprawdzanie, oszczędności i rachunki debetowe)
+* numery kont Bank (na przykład sprawdzanie, oszczędności i konta debetowe)
 
 Chile
-* Numer dowodu osobistego 
+* Numer karty tożsamości 
 
 Chiny
-* Numer dowodu osobistego
-* Numer dowodu osobistego rezydenta (ChRL)
+* Numer karty tożsamości
+* Numer karty identyfikatora rezydenta (ChRL)
 
 Chorwacja
-* Numer dowodu osobistego
-* Numer osobistego identyfikatora (OIB)
+* Numer karty identyfikatora
+* Numer osobisty (OIB)
 
 Czechy
-* Numer dowodu osobistego
+* Numer krajowej karty IDENTYFIKACYJNej
 
 Dania
-* Osobisty numer do rzeczy
+* Osobisty numer IDENTYFIKACYJNy
 
 Unia Europejska (UE)
-* Krajowy numer do nip
+* Numer IDENTYFIKACYJNy Narodowego
 * Identyfikator paszportu
-* Identyfikator prawa jazdy
+* Identyfikator licencji sterownika
 * Numer ubezpieczenia społecznego (SSN) lub równoważny identyfikator
-* Unijny numer identyfikacji podatkowej (NIP)
+* Numer identyfikacji podatkowej UE (NIP)
 * Numer karty debetowej UE
 
 Finlandia
-* Krajowy numer do nip
+* Numer IDENTYFIKACYJNy Narodowego
 * Identyfikator paszportu
 
 Francja
-* Krajowy dowód osobisty (CNI)
+* Krajowa karta IDENTYFIKACYJNa (CNI)
 * Numer ubezpieczenia społecznego (INSEE)
 * Identyfikator paszportu
-* Identyfikator prawa jazdy
+* Identyfikator licencji sterownika
 
 Niemcy
-* Numer dowodu osobistego
+* Numer karty identyfikatora
 * Identyfikator paszportu
-* Identyfikator prawa jazdy
+* Identyfikator licencji sterownika
 
 Grecja 
-* Numer dowodu osobistego
+* Numer krajowej karty IDENTYFIKACYJNej
 
 Hongkong
-* Numer dowodu osobistego (HKID)
+* Numer karty IDENTYFIKACYJNej (HKID)
 
 Indie
-* Numer konta stałego (PAN)
-* Unikatowy numer ID (Aadhaar)
+* Stały numer konta (PAN)
+* Unikatowy identyfikator (AADHAAR)
 
 Indonezja
-* Numer dowodu osobistego (KTP)
+* Numer karty IDENTYFIKACYJNej (KTP)
 
 Irlandia
-* Numer osobistej służby publicznej (PPS)
+* Osobisty numer usługi publicznej (PPS)
 
 Izrael
-* Identyfikator krajowy
-* numery kont bankowych (na przykład sprawdzanie, oszczędności i rachunki debetowe)
+* Identyfikator Narodowy
+* numery kont Bank (na przykład sprawdzanie, oszczędności i konta debetowe)
 
 Włochy
-* Identyfikator prawa jazdy
+* Identyfikator licencji sterownika
 
 Japonia
-* Numer rejestracyjny rezydenta
+* Numer rejestracji rezydenta
 * Numer karty pobytu
-* Identyfikator prawa jazdy
+* Identyfikator licencji sterownika
 * Numer ubezpieczenia społecznego (SIN)
 * Identyfikator paszportu
-* numery kont bankowych (na przykład sprawdzanie, oszczędności i rachunki debetowe)
+* numery kont Bank (na przykład sprawdzanie, oszczędności i konta debetowe)
 
 Malezja
-* Numer dowodu osobistego
+* Numer karty identyfikatora
 
 Holandia
-* Numer służby obywatelskiej (BSN)
+* Numer usługi (BSN)
 
 Nowa Zelandia
-* Numer Ministerstwa Zdrowia
+* Numer Ministerstwa kondycji
 
 Norwegia
-* Numer dowodu osobistego
+* Numer karty identyfikatora
 
 Filipiny
-* Ujednolicony wielozadaniowy numer identyfikatora
+* Ujednolicony Numer IDENTYFIKACYJNy wielu przeznaczeniów
 
 Polska
-* Numer dowodu osobistego
-* Identyfikator krajowy (PESEL)
+* Numer karty identyfikatora
+* Identyfikator Narodowy (PESEL)
 * Identyfikator paszportu
 
 Portugalia 
 * Numer karty obywatela
 
 Arabia Saudyjska
-* Identyfikator krajowy
+* Identyfikator Narodowy
 
 Singapur
-* Numer krajowego dowodu rejestracyjnego (NRIC)
+* Numer krajowej karty rejestracji (NRIC)
 
 Republika Południowej Afryki
-* Numer ID
-* Numer rejestracyjny rezydenta
+* Numer IDENTYFIKACYJNy
+* Numer rejestracji rezydenta
 
 Korea Południowa
-* Numer rejestracyjny rezydenta
+* Numer rejestracji rezydenta
 
 Hiszpania 
 * Numer ubezpieczenia społecznego (SSN)
 
 Szwecja
-* Identyfikator krajowy
+* Identyfikator Narodowy
 * Identyfikator paszportu
 
 Tajwan 
-* Identyfikator krajowy
-* Numer certyfikatu rezydenta (ARC/TARC)
+* Identyfikator Narodowy
+* Numer certyfikatu rezydentnego (ARC/TARC)
 * Identyfikator paszportu
 
 Tajlandia
@@ -318,15 +318,15 @@ Tajlandia
 
 Wielka Brytania
 * Identyfikator paszportu
-* Identyfikator prawa jazdy
+* Identyfikator licencji sterownika
 * Krajowy numer ubezpieczenia (NINO)
-* Numer Krajowej Służby Zdrowia (NHS)
+* Numer Narodowy Usługa kondycji (NHS)
 
 Stany Zjednoczone
 * Numer ubezpieczenia społecznego (SSN)
-* Identyfikator prawa jazdy
+* Identyfikator licencji sterownika
 * Identyfikator paszportu
-* Numer spisu wyborców
-* Indywidualny numer identyfikacji podatkowej (ITIN)
-* Numer Agencji Ścigania Narkotyków (DEA)
-* numery kont bankowych (na przykład sprawdzanie, oszczędności i rachunki debetowe)
+* Numer rzutowania wyborczyego
+* Numer NIP (ITIN)
+* Numer w agencji wymuszania narkotyków (DEA)
+* numery kont Bank (na przykład sprawdzanie, oszczędności i konta debetowe)

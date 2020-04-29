@@ -1,7 +1,7 @@
 ---
-title: Testowanie i przekwalifikowanie modelu — usługa niestandardowej wizji
+title: Testowanie i ponowne uczenie modelu — Custom Vision Service
 titleSuffix: Azure Cognitive Services
-description: W tym artykule pokazano, jak przetestować obraz, a następnie użyć go do ponownego przeszkolenia modelu w usłudze Niestandardowej wizji.
+description: W tym artykule pokazano, jak przetestować obraz, a następnie użyć go do ponownego nauczenia modelu w usłudze Custom Vision.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -11,51 +11,51 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
 ms.openlocfilehash: c6ed8869f6d33609381a42fd22d728e9e5542802
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73721201"
 ---
-# <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Testowanie i przekwalifikowanie modelu za pomocą usługi Custom Vision Service
+# <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Testowanie i ponowne uczenie modelu z Custom Vision Service
 
-Po przeszkoleniu modelu można go szybko przetestować przy użyciu lokalnie przechowywanego obrazu lub obrazu online. Test używa ostatnio przeszkolonych iteracji.
+Po przeprowadzeniu szkolenia modelu można szybko przetestować go przy użyciu lokalnie przechowywanego obrazu lub obrazu w trybie online. Test korzysta z ostatnio przeszkolonej iteracji.
 
 ## <a name="test-your-model"></a>Testowanie modelu
 
-1. Na [stronie internetowej Custom Vision](https://customvision.ai)wybierz projekt. Wybierz **szybki test** po prawej stronie górnego paska menu. Ta akcja otwiera okno z etykietą **Szybki test**.
+1. Na [stronie sieci web Custom Vision](https://customvision.ai)wybierz projekt. Wybierz pozycję **szybka próba** po prawej stronie górnego paska menu. Ta akcja powoduje otwarcie okna z etykietą **szybki test**.
 
     ![Przycisk Szybki test jest wyświetlany w prawym górnym rogu okna.](./media/test-your-model/quick-test-button.png)
 
-2. W oknie **Szybki test** kliknij pole **Prześlij obraz** i wprowadź adres URL obrazu, którego chcesz użyć do testu. Jeśli zamiast tego chcesz użyć obrazu przechowywanego lokalnie, kliknij przycisk **Przeglądaj pliki lokalne** i wybierz plik obrazu lokalnego.
+2. W oknie **szybkie testy** kliknij pole **Prześlij obraz** , a następnie wprowadź adres URL obrazu, który ma być używany dla testu. Jeśli zamiast tego chcesz użyć lokalnie przechowywanego obrazu, kliknij przycisk **Przeglądaj pliki lokalne** i wybierz plik obrazu lokalnego.
 
-    ![Obraz strony przesłania obrazu](./media/test-your-model/submit-image.png)
+    ![Obraz strony przesyłania obrazu](./media/test-your-model/submit-image.png)
 
-Wybrany obraz pojawi się na środku strony. Następnie wyniki pojawiają się pod obrazem w postaci tabeli z dwiema kolumnami, **oznaczonymi tagami** i **zaufaniem**. Po wyświetleniach wyników można zamknąć okno **Szybki test.**
+Wybrany obraz pojawia się w środku strony. Następnie wyniki są wyświetlane poniżej obrazu w postaci tabeli zawierającej dwie kolumny z etykietami i **pewnością**. **Tags** Po wyświetleniu wyników możesz zamknąć okno **szybkie testy** .
 
-Teraz można dodać ten obraz testowy do modelu, a następnie przekwalifikować model.
+Teraz możesz dodać ten obraz testowy do modelu, a następnie ponownie przeprowadzić uczenie modelu.
 
-## <a name="use-the-predicted-image-for-training"></a>Użyj przewidywanego obrazu do treningu
+## <a name="use-the-predicted-image-for-training"></a>Używanie przewidywanego obrazu do szkolenia
 
-Aby użyć obrazu przesłanego wcześniej do szkolenia, należy wykonać następujące kroki:
+Aby użyć obrazu przesłanego wcześniej do szkolenia, wykonaj następujące czynności:
 
-1. Aby wyświetlić obrazy przesłane do klasyfikatora, otwórz [stronę internetową Usługi Custom Vision](https://customvision.ai) i wybierz kartę __Prognozy.__
+1. Aby wyświetlić obrazy przesłane do klasyfikatora, Otwórz [stronę sieci web Custom Vision](https://customvision.ai) i wybierz kartę __przewidywania__ .
 
-    ![Obraz karty prognoz](./media/test-your-model/predictions-tab.png)
-
-    > [!TIP]
-    > Widok domyślny pokazuje obrazy z bieżącej iteracji. Można użyć pola rozwijanej __Iteracja__ do wyświetlania obrazów przesłanych podczas poprzednich iteracji.
-
-2. Umieść wskaźnik myszy na obrazie, aby wyświetlić znaczniki, które były przewidywane przez klasyfikatora.
+    ![Obraz karty przewidywania](./media/test-your-model/predictions-tab.png)
 
     > [!TIP]
-    > Obrazy są uszeregowane, dzięki czemu obrazy, które mogą przynieść najwięcej korzyści do klasyfikatora, znajdują się na górze. Aby wybrać inne sortowanie, użyj sekcji __Sortowanie.__
+    > Widok domyślny pokazuje obrazy z bieżącej iteracji. Pole listy rozwijanej __iteracji__ służy do wyświetlania obrazów przesłanych podczas poprzednich iteracji.
 
-    Aby dodać obraz do danych treningowych, zaznacz obraz, zaznacz znacznik, a następnie wybierz pozycję __Zapisz i zamknij__. Obraz zostanie usunięty z __prognoz__ i dodany do obrazów szkoleniowych. Można go wyświetlić, wybierając kartę __Obrazy szkoleniowe.__
+2. Umieść kursor na obrazie, aby zobaczyć znaczniki, które zostały przewidziane przez klasyfikator.
+
+    > [!TIP]
+    > Obrazy są klasyfikowane, dzięki czemu obrazy, które mogą przynieść największe zyski do klasyfikatora, znajdują się u góry. Aby wybrać inne sortowanie, użyj sekcji __Sortuj__ .
+
+    Aby dodać obraz do danych szkoleniowych, wybierz obraz, wybierz tag, a następnie wybierz pozycję __Zapisz i Zamknij__. Obraz jest usuwany z __prognoz__ i dodawany do obrazów szkoleniowych. Możesz ją wyświetlić, wybierając kartę __obrazy szkoleniowe__ .
 
     ![Obraz strony tagowania](./media/test-your-model/tag-image.png)
 
-3. Użyj __Train przycisku,__ aby przeszkolić klasyfikatora.
+3. Użyj przycisku __uczenie__ , aby ponownie przeprowadzić szkolenie klasyfikatora.
 
 ## <a name="next-steps"></a>Następne kroki
 

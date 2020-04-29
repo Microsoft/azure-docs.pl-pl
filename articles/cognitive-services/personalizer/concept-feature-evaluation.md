@@ -1,7 +1,7 @@
 ---
-title: Ocena funkcji - Personalizer
+title: Obliczanie funkcji — Personalizowanie
 titleSuffix: Azure Cognitive Services
-description: Po uruchomieniu oceny w zasobie Personalizer z witryny Azure portal Personalizer zawiera informacje o tym, jakie funkcje kontekstu i akcje mają wpływ na model.
+description: Po uruchomieniu oceny w zasobie narzędzia Personalizacja z Azure Portal, Personalizacja zawiera informacje o tym, które funkcje kontekstu i akcje wpływają na model.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,75 +11,75 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
 ms.openlocfilehash: 31243b5e9da55aafbc376fa416c1b00a4499c116
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "70242412"
 ---
 # <a name="feature-evaluation"></a>Ocena funkcji
 
-Po uruchomieniu oceny w zasobie Personalizer z [witryny Azure portal,](https://portal.azure.com)Personalizer zawiera informacje o tym, jakie funkcje kontekstu i akcje mają wpływ na model. 
+Po uruchomieniu oceny w zasobie narzędzia Personalizacja z [Azure Portal](https://portal.azure.com), Personalizacja zawiera informacje o tym, które funkcje kontekstu i akcje wpływają na model. 
 
 Jest to przydatne w celu:
 
-* Wyobraź sobie dodatkowe funkcje, z których możesz skorzystać, aby uzyskać inspirację z tego, jakie funkcje są ważniejsze w modelu.
-* Zobacz, jakie funkcje nie są ważne, i potencjalnie je usunąć lub dokładniej przeanalizować, co może mieć wpływ na użycie.
-* Zapewnij zespołom redakcyjnym lub kuratorowskim wskazówki dotyczące nowych treści lub produktów, które warto wprowadzić do katalogu.
-* Rozwiązywanie typowych problemów i błędów, które występują podczas wysyłania funkcji do Personalizer.
+* Wyobraź sobie dodatkowe funkcje, których możesz użyć, aby uzyskać inspirację od tego, jakie funkcje są ważniejsze w modelu.
+* Zobacz, jakie funkcje nie są istotne, i potencjalnie usuń je lub Przeanalizuj, co może mieć wpływ na użycie.
+* Podaj wskazówki dla zespołów redakcyjnych lub nadzorujących o nowej zawartości lub produktach, które warto umieścić w wykazie.
+* Rozwiązywanie typowych problemów i błędów, które pojawiają się podczas wysyłania funkcji do narzędzia Personalizacja.
 
-Ważniejsze cechy mają silniejsze wagi w modelu. Ponieważ te funkcje mają większą wagę, wydają się być obecne, gdy Personalizer uzyskuje wyższe nagrody.
+Ważniejsze funkcje mają silniejsze wagi w modelu. Ponieważ te funkcje mają silniejsze wagi, mają one być obecne, gdy Personalizowanie uzyskuje wyższe nagrody.
 
-## <a name="getting-feature-importance-evaluation"></a>Uzyskiwanie oceny ważności funkcji
+## <a name="getting-feature-importance-evaluation"></a>Pobieranie oceny ważności funkcji
 
-Aby wyświetlić wyniki ważności funkcji, należy przeprowadzić ocenę. Ocena tworzy czytelne dla człowieka etykiety elementów na podstawie nazw funkcji obserwowanych w okresie oceny.
+Aby wyświetlić wyniki ważności funkcji, należy uruchomić ocenę. Ocena powoduje utworzenie czytelnych etykiet funkcji na podstawie nazw funkcji zaobserwowanych w okresie ewaluacyjnym.
 
-Wynikowe informacje o ważności funkcji reprezentuje bieżący model online Personalizer. Ocena analizuje znaczenie funkcji modelu zapisanego w dniu zakończenia okresu próbnego, po przejściu wszystkich szkoleń przeprowadzonych podczas oceny, z aktualną polityką uczenia się online. 
+Uzyskane informacje o ważności funkcji reprezentują bieżący model usługi Personalizowanie online. Ocena ocenia ważność funkcji modelu zapisaną w dniu zakończenia okresu próbnego, po przejściu na wszystkie szkolenia wykonywane podczas oceny, z bieżącymi zasadami uczenia online. 
 
-Wyniki ważności funkcji nie reprezentują innych zasad i modeli przetestowanych lub utworzonych podczas oceny.  Ocena nie będzie zawierać funkcji wysłanych do Personalizer po zakończeniu okresu oceny.
+Wyniki ważności funkcji nie reprezentują innych zasad i modeli przetestowanych lub utworzonych podczas oceny.  Ocena nie będzie zawierać funkcji wysyłanych do narzędzia Personalizacja po zakończeniu okresu próbnego.
 
 ## <a name="how-to-interpret-the-feature-importance-evaluation"></a>Jak interpretować ocenę ważności funkcji
 
-Personalizer ocenia funkcje, tworząc "grupy" funkcji o podobnym znaczeniu. Można powiedzieć, że jedna grupa ma ogólnie większe znaczenie niż inne, ale w obrębie grupy kolejność funkcji jest alfabetycznie.
+Personalizacja szacuje funkcje przez tworzenie "grup" funkcji mających podobne znaczenie. Jedną grupę można uzyskać, aby uzyskać ogólne silniejsze znaczenie niż inne, ale w ramach grupy, porządkowanie funkcji jest alfabetyczne.
 
-Informacje o każdej funkcji obejmują:
+Informacje o każdej z tych funkcji obejmują:
 
 * Czy funkcja pochodzi z kontekstu lub akcji.
 * Klucz funkcji i wartość.
 
-Na przykład aplikacja do zamawiania lodów może zobaczyć "Context.Weather:Hot" jako bardzo ważną funkcję.
+Na przykład aplikacja do zamawiania lodów w sklepie lody może zobaczyć "Context. Pogoda: gorąca" jako bardzo ważną funkcję.
 
-Personalizer wyświetla korelacje funkcji, które, jeśli są brane pod uwagę razem, dają wyższe nagrody.
+Personalizacja wyświetla korelacje funkcji, które w przypadku uwzględnienia razem tworzą wyższe nagrody.
 
-Na przykład może zostać wyświetlony "Context.Weather:Hot *with* Action.MenuItem:IceCream" oraz "Context.Weather:Cold *with* Action.MenuItem:WarmTea:
+Na przykład można zobaczyć "Context. Pogoda: Hot *with* Action. MenuItem: Icecream", a także "Context. Pogoda: zimn *with* Action. MenuItem: WarmTea:
 
-## <a name="actions-you-can-take-based-on-feature-evaluation"></a>Działania, które można podjąć w oparciu o ocenę funkcji
+## <a name="actions-you-can-take-based-on-feature-evaluation"></a>Akcje, które można wykonać na podstawie oceny funkcji
 
-### <a name="imagine-additional-features-you-could-use"></a>Wyobraź sobie dodatkowe funkcje, z których możesz korzystać
+### <a name="imagine-additional-features-you-could-use"></a>Wyobraź sobie dodatkowe funkcje, których można użyć
 
-Uzyskaj inspirację z ważniejszych funkcji modelu. Jeśli na przykład w aplikacji mobilnej wideo widzisz "Context.MobileBattery:Low", możesz pomyśleć, że typ połączenia może również sprawić, że klienci zdecydują się zobaczyć jeden klip wideo nad drugim, a następnie dodać funkcje dotyczące typu łączności i przepustowości do aplikacji.
+Uzyskaj inspirację od ważniejszych funkcji w modelu. Jeśli na przykład w aplikacji mobilnej wideo widzisz polecenie "Context. MobileBattery: Low", możesz zastanowić się, że typ połączenia może również umożliwić klientom wybór jednego klipu wideo na inny, a następnie dodać do aplikacji funkcje dotyczące typu połączenia i przepustowości.
 
 ### <a name="see-what-features-are-not-important"></a>Zobacz, jakie funkcje nie są ważne
 
-Potencjalnie usunąć nieistotne funkcje lub dalszej analizy, co może mieć wpływ na użycie. Funkcje mogą być niskie z wielu powodów. Jednym z nich może być to, że rzeczywiście funkcja nie wpływa na zachowanie użytkownika. Ale może to również oznaczać, że funkcja nie jest widoczna dla użytkownika. 
+Potencjalnie Usuń nieważne funkcje lub Przeanalizuj, co może mieć wpływ na użycie. Funkcje mogą mieć rangę z wielu powodów. Może to być oryginalna funkcja nie wpływa na zachowanie użytkownika. Jednak może to oznaczać, że funkcja nie jest widoczna dla użytkownika. 
 
-Na przykład witryna wideo może zobaczyć, że "Action.VideoResolution= 4k" jest funkcją o niskim znaczeniu, sprzeczną z badaniami użytkowników. Przyczyną może być to, że aplikacja nawet nie wspomina ani nie pokazuje rozdzielczości wideo, więc użytkownicy nie zmienią swojego zachowania na jej podstawie.
+Na przykład witryna wideo może zobaczyć, że "Action. VideoResolution = 4K" jest funkcją o niskiej ważności, która jest sprzeczna z badaniem użytkownika. Przyczyną może być to, że aplikacja nie będzie nawet zawierać ani nie pokazywać rozdzielczości wideo, dlatego użytkownicy nie będą mogli zmienić ich zachowania na podstawie tego problemu.
 
-### <a name="provide-guidance-to-editorial-or-curation-teams"></a>Zapewnienie wskazówek dla zespołów redakcyjnych lub kuratorskich
+### <a name="provide-guidance-to-editorial-or-curation-teams"></a>Zapewnianie wskazówek dla zespołów redakcyjnych lub nadzorowanych
 
-Podaj wskazówki dotyczące nowych treści lub produktów, które warto wprowadzić do katalogu. Personalizer ma być narzędziem, które zwiększa ludzką wiedzę i zespoły. Jednym ze sposobów jest dostarczanie grupom redakcyjnym informacji o produktach, artykułach lub treściach, które napędzają zachowanie. Na przykład scenariusz aplikacji wideo może pokazać, że istnieje ważna funkcja o nazwie "Action.VideoEntities.Cat:true", monitując zespół redakcyjny, aby przynieść więcej filmów o kotach.
+Zapoznaj się ze wskazówkami dotyczącymi nowej zawartości lub produktów. Narzędzie personalizacji zostało zaprojektowane z myślą o narzędziu, które rozszerzają wgląd i zespoły. Jednym ze sposobów jest podawanie informacji dla redakcyjnych grup na temat tego, co zawiera produkty, artykuły lub zawartość, które są związane z zachowaniem. Na przykład scenariusz aplikacji wideo może wskazywać, że istnieje ważna funkcja o nazwie "Action. VideoEntities. Cat: true", monitując zespół redakcyjny o przełączenie większej liczby filmów wideo.
 
-### <a name="troubleshoot-common-problems-and-mistakes"></a>Rozwiązywanie typowych problemów i błędów
+### <a name="troubleshoot-common-problems-and-mistakes"></a>Rozwiązywanie typowych problemów i pomyłek
 
-Typowe problemy i błędy można rozwiązać, zmieniając kod aplikacji, dzięki czemu nie będzie wysyłać nieodpowiednie lub nieprawidłowo sformatowane funkcje do Personalizer. 
+Typowe problemy i błędy można naprawić, zmieniając kod aplikacji, aby nie wysyłał nieodpowiednich lub niepoprawnie sformatowanych funkcji do personalizacji. 
 
-Typowe błędy podczas wysyłania funkcji są następujące:
+Typowe błędy podczas wysyłania funkcji obejmują następujące elementy:
 
-* Wysyłanie danych osobowych( DANE OSOBOWE). Informacje umożliwiające identyfikację pojedynczą (takie jak imię i nazwisko, numer telefonu, numery kart kredytowych, adresy IP) nie powinny być używane z personalizatorem. Jeśli aplikacja musi śledzić użytkowników, należy użyć nieidentyfikującego identyfikatora UUID lub innego numeru Identyfikatora użytkownika. W większości scenariuszy jest to również problematyczne.
-* Przy dużej liczbie użytkowników jest mało prawdopodobne, że interakcja każdego użytkownika będzie ważyć więcej niż cała interakcja populacji, więc wysyłanie identyfikatorów użytkowników (nawet jeśli nie-PII) prawdopodobnie doda więcej hałasu niż wartość do modelu.
-* Wysyłanie pól daty i godziny jako precyzyjnych znaczników czasu zamiast featurized wartości czasu. O funkcje, takie jak Context.TimeStamp.Day=Poniedziałek lub "Context.TimeStamp.Hour"="13" jest bardziej przydatne. Dla każdego z nich będą znajdować się co najwyżej 7 lub 24 wartości obiektów. Ale "Context.TimeStamp":"1985-04-12T23:20:50.52Z" jest tak precyzyjny, że nie będzie sposobu, aby się z niego uczyć, ponieważ nigdy się nie powtórzy.
+* Wysyłanie informacji umożliwiających identyfikację użytkownika. Dane OSOBowe specyficzne dla jednej osoby (takie jak imię i nazwisko, numer telefonu, numery kart kredytowych, adresy IP) nie powinny być używane z personalizacją. Jeśli aplikacja wymaga śledzenia użytkowników, użyj nieidentyfikującego identyfikatora UUID lub innego numeru identyfikatora użytkownika. W większości scenariuszy jest to również problematyczne.
+* W przypadku dużej liczby użytkowników jest mało prawdopodobne, że interakcja poszczególnych użytkowników będzie miała więcej niż cała interakcja populacji, więc wysłanie identyfikatorów użytkowników (nawet jeśli nie jest to dane OSOBowe) prawdopodobnie doda więcej szumów niż wartość do modelu.
+* Wysyłanie pól daty i godziny jako precyzyjne sygnatury czasowe zamiast featurized wartości czasu. Posiadanie takich funkcji, jak Context. TimeStamp. Day = poniedziałek lub "Context. TimeStamp. Hour" = "13", jest bardziej przydatne. Każdy z nich będzie zawierać maksymalnie 7 lub 24 wartości funkcji. Ale "Context. TimeStamp": "1985-04-12T23:20:50.52 Z" jest tak dokładne, że nie będzie można z niej uczyć się, ponieważ nie zostanie ono nigdy wykonane.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Poznaj [skalowalność i wydajność](concepts-scalability-performance.md) dzięki personalizerowi.
+Informacje o [skalowalności i wydajności](concepts-scalability-performance.md) za pomocą programu personalizujer.
 

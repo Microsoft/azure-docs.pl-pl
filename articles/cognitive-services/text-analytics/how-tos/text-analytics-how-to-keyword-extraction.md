@@ -1,7 +1,7 @@
 ---
-title: Wyodrębnianie fraz kluczowych przy użyciu interfejsu API REST analizy tekstu
+title: Wyodrębnianie kluczowych fraz przy użyciu interfejsu API REST analiza tekstu
 titleSuffix: Azure Cognitive Services
-description: Jak wyodrębnić frazy kluczowe przy użyciu interfejsu API REST analizy tekstu z usługi Azure Cognitive Services.
+description: Jak wyodrębnić kluczowe frazy za pomocą interfejsu API REST analiza tekstu z usługi Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 07/29/2019
 ms.author: raymondl
 ms.openlocfilehash: ec5ff756d7e732430675676868bc754627a2a4a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72429028"
 ---
-# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Przykład: Jak wyodrębnić kluczowe frazy za pomocą analizy tekstu
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Przykład: Jak wyodrębnić kluczowe frazy przy użyciu analiza tekstu
 
 [Interfejs API wyodrębniania kluczowych fraz](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) ocenia tekst bez struktury i dla każdego dokumentu JSON zwraca listę kluczowych fraz.
 
@@ -32,9 +32,9 @@ Więcej informacji, zobacz [Obsługiwane języki](../text-analytics-supported-la
 
 Wyodrębnianie kluczowych fraz działa najlepiej na większej ilości tekstu. Jest to przeciwieństwo analizy tonacji, która działa lepiej na mniejszej ilości tekstu. Aby uzyskać najlepsze wyniki dla obu operacji, rozważ odpowiednią zmianę struktury danych wejściowych.
 
-Dokumenty JSON muszą być dostępne w tym formacie: identyfikator, tekst, język
+Musisz mieć dokumenty JSON w tym formacie: ID, text, language
 
-Rozmiar dokumentu musi wynosić 5120 lub mniej znaków na dokument, a na kolekcję może znajdować się maksymalnie 1000 elementów. Kolekcja jest przesyłana w treści żądania. Poniższy przykład przedstawia zawartość, którą możesz przesłać w celu wyodrębnienia kluczowych fraz.
+Rozmiar dokumentu nie może być mniejszy niż 5 120 znaków i może zawierać do 1 000 elementów (identyfikatorów) na kolekcję. Kolekcja jest przesyłana w treści żądania. Poniższy przykład przedstawia zawartość, którą możesz przesłać w celu wyodrębnienia kluczowych fraz.
 
 ```json
     {
@@ -70,13 +70,13 @@ Rozmiar dokumentu musi wynosić 5120 lub mniej znaków na dokument, a na kolekcj
 
 ## <a name="step-1-structure-the-request"></a>Krok 1: Określenie struktury żądania
 
-Aby uzyskać informacje na temat definicji żądania, zobacz [Jak wywołać interfejs API analizy tekstu](text-analytics-how-to-call-api.md). Dla wygody poniżej ponownie podano odpowiednie kroki:
+Aby uzyskać informacje na temat definicji żądania, zobacz [jak wywołać interfejs API analizy tekstu](text-analytics-how-to-call-api.md). Dla wygody poniżej ponownie podano odpowiednie kroki:
 
-+ Utwórz żądanie **POST**. Przejrzyj dokumentację interfejsu API dla tego żądania: [Key Phrases API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6).
++ Utwórz żądanie **POST**. Zapoznaj się z dokumentacją interfejsu API dla tego żądania: [interfejs API fraz kluczy](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6).
 
-+ Ustaw punkt końcowy HTTP dla wyodrębniania fraz kluczowych przy użyciu zasobu analizy tekstu na platformie Azure lub [kontenera analizy tekstu.](text-analytics-how-to-install-containers.md) Musisz podać `/text/analytics/v2.1/keyPhrases` w adresie URL. Na przykład: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`.
++ Ustaw punkt końcowy HTTP na potrzeby wyodrębniania fraz kluczowych przy użyciu zasobu analiza tekstu na platformie Azure lub [kontenera analiza tekstu](text-analytics-how-to-install-containers.md)wystąpienia. Musisz uwzględnić `/text/analytics/v2.1/keyPhrases` w adresie URL. Na przykład: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`.
 
-+ Ustaw nagłówek żądania, aby uwzględnić [klucz dostępu](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) dla operacji analizy tekstu.
++ Ustaw nagłówek żądania w taki sposób, aby zawierał [klucz dostępu](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) dla operacji analiza tekstu.
 
 + W treści żądania podaj kolekcję dokumentów JSON przygotowaną na potrzeby tej analizy.
 
@@ -85,13 +85,13 @@ Aby uzyskać informacje na temat definicji żądania, zobacz [Jak wywołać inte
 
 ## <a name="step-2-post-the-request"></a>Krok 2: Wysłanie żądania
 
-Analiza jest wykonywana po odebraniu żądania. Aby uzyskać informacje o rozmiarze i liczbie żądań, które można wysyłać na minutę lub na sekundę, zobacz sekcję [limitów danych](../overview.md#data-limits) w przeglądzie .
+Analiza jest wykonywana po odebraniu żądania. Aby uzyskać informacje o rozmiarze i liczbie żądań wysyłanych na minutę lub na sekundę, zobacz sekcję [limity danych](../overview.md#data-limits) w przeglądzie.
 
 Pamiętaj, że usługa jest bezstanowa. Żadne dane nie są przechowywane na koncie. Wyniki są zwracane natychmiast w odpowiedzi.
 
 ## <a name="step-3-view-results"></a>Krok 3: Wyświetlenie wyników
 
-Wszystkie żądania POST zwracają odpowiedź w formacie JSON z identyfikatorami i wykrytymi właściwościami. Kolejność zwracanych fraz kluczowych jest określana wewnętrznie przez model.
+Wszystkie żądania POST zwracają odpowiedź w formacie JSON z identyfikatorami i wykrytymi właściwościami. Kolejność zwróconych zwrotów kluczy jest określana wewnętrznie przez model.
 
 Dane wyjściowe są zwracane natychmiast. Wyniki można przesłać strumieniowo do aplikacji, która akceptuje kod JSON, lub zapisać do pliku w systemie lokalnym, a następnie zaimportować do aplikacji, która umożliwia sortowanie i wyszukiwanie danych oraz manipulowanie nimi.
 
@@ -146,18 +146,18 @@ W tym miejscu pokazano przykład danych wyjściowych dla wyodrębniania kluczowy
     }
 ```
 
-Jak wspomniano, analizator znajduje i odrzuca inne niż istotne słowa i zachowuje pojedyncze terminy lub wyrażenia, które wydają się być przedmiotem lub przedmiotem zdania.
+Jak wspomniano, Analizator znajdzie i odrzuca nieważne słowa i utrzymuje pojedyncze terminy lub frazy, które wyglądają jako temat lub obiekt zdania.
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym artykule nauczysz się pojęć i przepływu pracy dla wyodrębniania fraz kluczowych przy użyciu analizy tekstu w usługach Cognitive Services. Podsumowanie:
+W tym artykule przedstawiono koncepcje i przepływ pracy służące do wyodrębniania fraz kluczowych przy użyciu analiza tekstu w Cognitive Services. Podsumowanie:
 
 + [Interfejs API wyodrębniania kluczowych fraz](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) jest dostępny dla wybranych języków.
-+ Dokumenty JSON w treści żądania zawierają identyfikator, tekst i kod języka.
++ Dokumenty JSON w treści żądania obejmują identyfikator, tekst i kod języka.
 + Żądanie POST jest wysyłane do punktu końcowego `/keyphrases` za pomocą spersonalizowanego [klucza dostępu i punktu końcowego](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) prawidłowego dla używanej subskrypcji.
-+ Dane wyjściowe odpowiedzi, które składają się ze słów kluczowych i fraz dla każdego identyfikatora dokumentu, mogą być przesyłane strumieniowo do dowolnej aplikacji, która akceptuje JSON, w tym Microsoft Office Excel i Power BI, aby wymienić tylko kilka.
++ Dane wyjściowe odpowiedzi, które składają się z kluczowych słów i fraz dla każdego identyfikatora dokumentu, mogą być przesyłane strumieniowo do dowolnej aplikacji, która akceptuje kod JSON, w tym Microsoft Office Excel i Power BI, aby nazwać kilka.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
  [Omówienie analizy tekstu](../overview.md) [Frequently asked questions (FAQ) (Często zadawane pytania (FAQ))](../text-analytics-resource-faq.md)</br>
  [Strona produktu analizy tekstu](//go.microsoft.com/fwlink/?LinkID=759712)

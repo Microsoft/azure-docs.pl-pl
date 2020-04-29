@@ -1,7 +1,7 @@
 ---
-title: Pulpit nawigacyjny — rozumienie języka — usługa LUIS
+title: Pulpit nawigacyjny — Language Understanding — LUIS
 titleSuffix: Azure Cognitive Services
-description: Napraw intencje i encje za pomocą pulpitu nawigacyjnego wyszkolonej aplikacji. Pulpit nawigacyjny wyświetla ogólne informacje o aplikacji z najważniejszymi intencjami, które powinny zostać naprawione.
+description: Popraw intencje i jednostki za pomocą pulpitu nawigacyjnego swojej aplikacji. Na pulpicie nawigacyjnym są wyświetlane ogólne informacje o aplikacji z wyróżnionymi intencjami, które powinny zostać naprawione.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,162 +12,162 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: diberry
 ms.openlocfilehash: d9ae126753f55349f9bf3eefd20bc4d222866af1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73888212"
 ---
-# <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Jak ulepszyć aplikację za pomocą pulpitu nawigacyjnego
+# <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Jak ulepszyć aplikację przy użyciu pulpitu nawigacyjnego
 
-Znajdź i rozwiąż problemy z intencjami przeszkolonej aplikacji, gdy używasz wypowiedzi przykładowych. Pulpit nawigacyjny wyświetla ogólne informacje o aplikacji z najważniejszymi intencjami, które powinny zostać naprawione. 
+Znajdowanie i rozwiązywanie problemów z intencjami przeszkolonych aplikacji w przypadku korzystania z przykładowej wyrażenia długości. Na pulpicie nawigacyjnym są wyświetlane ogólne informacje o aplikacji z wyróżnionymi intencjami, które powinny zostać naprawione. 
 
-Przejrzyj analizę pulpitu nawigacyjnego jest procesem iteracyjnym, powtarzanym podczas zmiany i ulepszania modelu.
+Sprawdzanie, czy analiza pulpitu nawigacyjnego jest procesem iteracyjnym, powtarzaj się, gdy zmienisz i poprawisz model.
 
-Ta strona nie będzie mieć odpowiedniej analizy dla aplikacji, które nie mają żadnych wypowiedzi przykład w intencji, znany jako aplikacje _tylko do wzorca._ 
+Ta strona nie będzie miała odpowiedniej analizy dla aplikacji, które nie mają żadnego przykładu wyrażenia długości, nazywanego _tylko wzorcem_ . 
 
-## <a name="what-issues-can-be-fixed-from-dashboard"></a>Jakie problemy można rozwiązać z pulpitu nawigacyjnego?
+## <a name="what-issues-can-be-fixed-from-dashboard"></a>Jakie problemy można naprawić z poziomu pulpitu nawigacyjnego?
 
-Trzy problemy rozwiązane na pulpicie nawigacyjnym to:
+Trzy problemy rozkierowane na pulpicie nawigacyjnym są następujące:
 
 |Problem|Kolor wykresu|Wyjaśnienie|
 |--|--|--|
-|Brak równowagi w danych|-|Dzieje się tak, gdy ilość wypowiedzi przykład różni się znacznie. Wszystkie intencje muszą mieć _mniej więcej_ taką samą liczbę wypowiedzi przykład — z wyjątkiem None intencji. Powinien mieć tylko 10%-15% całkowitej ilości wypowiedzi w aplikacji.<br><br> Jeśli dane są niezrównoważone, ale dokładność intencji jest powyżej pewnego progu, ta nierównowaga nie jest zgłaszana jako problem.<br><br>**Zacznij od tego problemu - może to być główną przyczyną innych problemów.**|
-|Niejasne prognozy|Orange|Dzieje się tak, gdy najlepsze intencje i następnego intencji wyniki są na tyle blisko, że mogą one przerzucać na następnego szkolenia, ze względu na [negatywne próbkowanie](luis-how-to-train.md#train-with-all-data) lub więcej wypowiedzi przykład dodane do intencji. |
-|Nieprawidłowe prognozy|Red|Dzieje się tak, gdy wypowiedź przykład nie jest przewidywane dla intencji oznaczone (intencji, w którym jest w).|
+|Nierównoważność danych|-|Dzieje się tak, gdy liczba przykładowych wyrażenia długości znacznie się różni. Wszystkie intencje muszą mieć w _przybliżeniu_ tę samą liczbę przykładowych wyrażenia długości — z wyjątkiem zamiaru none. Powinna ona mieć 10%-15% łącznej liczby wyrażenia długości w aplikacji.<br><br> Jeśli dane są niezrównoważone, ale dokładność przeznaczenie jest wyższa od pewnej wartości progowej, to nierównowaga nie jest raportowana jako problem.<br><br>**Rozpocznij od tego problemu — może to być główna przyczyna innych problemów.**|
+|Niejasne przewidywania|Orange|Dzieje się tak, gdy najlepsze zamierzenie i wyniki następnego celu są wystarczająco zbliżone, że mogą przerzucać kolejne szkolenia, z powodu [próbkowania negatywnego](luis-how-to-train.md#train-with-all-data) lub więcej przykładowych wyrażenia długości dodanych do intencji. |
+|Nieprawidłowe przewidywania|Red|Dzieje się tak, gdy przykład wypowiedź nie jest przewidziany dla zamiaru oznaczonego etykietą (zamiar, w której znajduje się).|
 
-Poprawne prognozy są reprezentowane z kolorem niebieskim.
+Poprawne przewidywania są reprezentowane kolorem niebieskim.
 
-Pulpit nawigacyjny pokazuje te problemy i informuje, których intencji dotyczy i sugeruje, co należy zrobić, aby ulepszyć aplikację. 
+Na pulpicie nawigacyjnym znajdują się te problemy i zawarto informacje na temat tego, co należy zrobić, i co należy zrobić, aby ulepszyć aplikację. 
 
-## <a name="before-app-is-trained"></a>Zanim aplikacja zostanie przeszkolona 
+## <a name="before-app-is-trained"></a>Przed przeszkoleniem aplikacji 
 
-Przed rozpoczęciem szkolenia aplikacji pulpit nawigacyjny nie zawiera żadnych sugestii dotyczących poprawek. Trenuj aplikację, aby zobaczyć te sugestie.  
+Przed przeprowadzeniem uczenia aplikacji Pulpit nawigacyjny nie zawiera żadnych sugestii dotyczących poprawek. Nauczenie aplikacji, aby zobaczyć te sugestie.  
 
-## <a name="check-your-publishing-status"></a>Sprawdzanie stanu publikowania
+## <a name="check-your-publishing-status"></a>Sprawdź stan publikowania
 
-Karta **stanu publikowania** zawiera informacje o ostatnim opublikowaniu w aktywnej wersji. 
+Karta **stan publikowania** zawiera informacje o ostatniej publikacji aktywnej wersji. 
 
-Sprawdź, czy aktywna wersja jest wersją, którą chcesz naprawić. 
+Sprawdź, czy wersja aktywna jest wersja, którą chcesz naprawić. 
 
-![Pulpit nawigacyjny pokazuje usługi zewnętrzne aplikacji, opublikowane regiony i zagregowane trafienia z punktu końcowego.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![Pulpit nawigacyjny pokazuje usługi zewnętrzne, opublikowane regiony i zagregowane trafienia punktów końcowych aplikacji.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
-Pokazuje również wszystkie usługi zewnętrzne, opublikowane regiony i zagregowane trafienia z punktu końcowego. 
+Przedstawiono w nim także wszystkie usługi zewnętrzne, opublikowane regiony i zagregowane trafienia punktów końcowych. 
 
-## <a name="review-training-evaluation"></a>Przegląd oceny szkoleń
+## <a name="review-training-evaluation"></a>Przegląd oceny szkolenia
 
-Karta **oceny szkolenia** zawiera zagregowane podsumowanie ogólnej dokładności aplikacji według obszaru. Wynik wskazuje jakość intencji. 
+Karta **oceny szkolenia** zawiera zagregowane podsumowanie ogólnej dokładności aplikacji według obszaru. Wynik wskazuje jakość konwersji. 
 
-![Karta oceny szkolenia zawiera pierwszy obszar informacji o ogólnej dokładności aplikacji.](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
+![Karta oceny szkolenia zawiera pierwszy obszar informacji o ogólnej dokładności Twojej aplikacji.](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
 
-Wykres wskazuje poprawnie przewidywane intencje i obszary problemowe o różnych kolorach. Jak poprawić aplikację z sugestiami, ten wynik wzrasta. 
+Wykres wskazuje prawidłowo przewidywane intencje i obszary problemów z różnymi kolorami. Gdy poprawisz aplikację za pomocą sugestii, ten wynik rośnie. 
 
-Sugerowane poprawki są oddzielone według typu problemu i są najbardziej istotne dla aplikacji. Jeśli wolisz przejrzeć i rozwiązać problemy według intencji, użyj karty **[Intencje z błędami](#intents-with-errors)** u dołu strony. 
+Sugerowane poprawki są rozdzielane przez typ problemu i są najbardziej znaczące dla aplikacji. Jeśli wolisz przeglądać i rozwiązywać problemy dla zamiaru, Użyj karty **[intencje z błędami](#intents-with-errors)** w dolnej części strony. 
 
-Każdy obszar problemu ma intencje, które należy naprawić. Po wybraniu nazwy intencji strona **intencji** otwiera się z filtrem zastosowane do wypowiedzi. Ten filtr pozwala skupić się na wypowiedzi, które są przyczyną problemu.
+Każdy obszar problemu ma intencje, które należy naprawić. Po wybraniu nazwy zamierzenia zostanie otwarta strona **cel** z filtrem zastosowanym do wyrażenia długości. Ten filtr umożliwia skoncentrowanie się na wyrażenia długości, który powoduje problem.
 
-### <a name="compare-changes-across-versions"></a>Porównywanie zmian między wersjami
+### <a name="compare-changes-across-versions"></a>Porównaj zmiany w różnych wersjach
 
-Utwórz nową wersję przed wprowadzeniem zmian w aplikacji. W nowej wersji, aby sugerowane zmiany do wypowiedzi przykład intencji, a następnie trenować ponownie. Na karcie oceny **szkolenia** na stronie pulpitu nawigacyjnego użyj **pokaż zmiany z wersji szkoleniowej,** aby porównać zmiany. 
+Utwórz nową wersję przed wprowadzeniem zmian w aplikacji. W nowej wersji wprowadź sugerowane zmiany w przykładowej wyrażenia długości zamiaru, a następnie ponownie nauczenie. Na karcie **oceny szkoleń** na stronie pulpitu nawigacyjnego Użyj okna **Pokaż zmianę z przeszkolonej wersji** , aby porównać zmiany. 
 
-![Porównywanie zmian między wersjami](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
+![Porównaj zmiany w różnych wersjach](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
 
-### <a name="fix-version-by-adding-or-editing-example-utterances-and-retraining"></a>Napraw wersję, dodając lub edytując przykładowe wypowiedzi i przekwalifikowanie
+### <a name="fix-version-by-adding-or-editing-example-utterances-and-retraining"></a>Popraw wersję poprzez dodanie lub edycję przykładu wyrażenia długości i przeszkolenie
 
-Podstawową metodą naprawy aplikacji będzie dodawanie lub edytowanie wypowiedzi przykład i przekwalifikowania. Nowe lub zmienione wypowiedzi muszą być zgodne ze wskazówkami dotyczącymi [wyrozumiałych wypowiedzi.](luis-concept-utterance.md)
+Podstawową metodą naprawienia aplikacji będzie Dodawanie lub edytowanie przykładu wyrażenia długości i ponowne uczenie. Nowe lub zmienione wyrażenia długości muszą przestrzegać wytycznych dotyczących [różnych wyrażenia długości](luis-concept-utterance.md).
 
-Dodawanie wypowiedzi przykład powinny być wykonywane przez kogoś, kto:
+Dodawanie przykładowej wyrażenia długości powinno odbywać się przez kogoś, kto:
 
-* ma wysoki stopień zrozumienia, jakie wypowiedzi są w różnych intencji.
-* wie, jak wypowiedzi w jednym zamiarze mogą być mylone z innym zamiarem.
-* jest w stanie zdecydować, czy dwa zamiary, które są często mylone ze sobą, powinny być zwinięte w jeden zamiar. W takim przypadku różne dane muszą zostać wyciągnięte z jednostkami.
+* ma wysoki stopień wiedzy na temat tego, co wyrażenia długości się w różnych intencjach.
+* wie, jak wyrażenia długości w jednym zamiarze można mylić z innym zamiarem.
+* jest w stanie zdecydować, czy dwa intencje, które są często mylone ze sobą, powinny być zwinięte do jednego celu. W takim przypadku należy ściągnąć różne dane przy użyciu jednostek.
 
-### <a name="patterns-and-phrase-lists"></a>Wzory i listy fraz
+### <a name="patterns-and-phrase-lists"></a>Wzorce i listy fraz
 
-Strona analizy nie wskazuje, kiedy używać [wzorców](luis-concept-patterns.md) lub [list fraz](luis-concept-feature.md). Jeśli je dodać, może pomóc w niepoprawne lub niejasne prognoz, ale nie pomoże w braku równowagi danych. 
+Strona analiza nie wskazuje, kiedy używać [wzorców](luis-concept-patterns.md) lub [list fraz](luis-concept-feature.md). Jeśli je dodasz, może to pomóc w niepoprawnym lub niejasnym prognozie, ale nie będzie można obsłużyć nierównowagi danych. 
 
-### <a name="review-data-imbalance"></a>Przegląd braku równowagi danych
+### <a name="review-data-imbalance"></a>Sprawdzanie nierównowagi danych
 
-Zacznij od tego problemu - może to być główną przyczyną innych problemów.
+Rozpocznij od tego problemu — może to być główna przyczyna innych problemów.
 
-Lista intencji **braku równowagi danych** zawiera intencje, które wymagają więcej wypowiedzi w celu skorygowania braku równowagi danych. 
+Lista założeń dotyczących **nierównoważenia danych** przedstawia intencje, które wymagają więcej wyrażenia długościów w celu poprawienia nierównowagi danych. 
 
-**Aby rozwiązać ten problem:**
+**Aby rozwiązać ten problem**:
 
-* Dodaj więcej wypowiedzi do intencji, a następnie ponownie trenować. 
+* Dodaj więcej wyrażenia długości do intencji, a następnie ponownie nauczenie. 
 
-Nie należy dodawać wypowiedzi do None intencji, chyba że jest to sugerowane na pulpicie nawigacyjnym.
+Nie należy dodawać wyrażenia długości do zamiaru brak, chyba że jest to sugerowane na pulpicie nawigacyjnym.
 
 > [!Tip]
-> Użyj trzeciej sekcji na stronie **Wypowiedzi na intencji** z **wypowiedzi (liczba)** ustawienie, jako szybki wizualny przewodnik, który intencje potrzebują więcej wypowiedzi.  
-    ![Użyj "Wypowiedzi (liczba)", aby znaleźć intencje z nierównowagi danych.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
+> Skorzystaj z trzeciej sekcji na stronie, **wyrażenia długości z zamiarem** z ustawieniem **wyrażenia długości (Number)** jako krótkiego przewodnika, którego intencje potrzebują więcej wyrażenia długości.  
+    ![Użyj opcji "wyrażenia długości (Number)", aby znaleźć intencje z niezrównoważoną ilością danych.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
 
-### <a name="review-incorrect-predictions"></a>Przejrzyj nieprawidłowe prognozy
+### <a name="review-incorrect-predictions"></a>Przejrzyj nieprawidłowe przewidywania
 
-Lista intencji **niepoprawne przewidywanie** pokazuje intencje, które mają wypowiedzi, które są używane jako przykłady dla określonego zamiaru, ale są przewidywane dla różnych intencji. 
+Nieprawidłowa lista założeń **prognozowania** zawiera intencje, które mają wyrażenia długości, które są używane jako przykłady dla konkretnego celu, ale są przewidywane dla różnych intencji. 
 
-**Aby rozwiązać ten problem:**
+**Aby rozwiązać ten problem**:
 
-* Edytuj wypowiedzi, aby być bardziej szczegółowe dla intencji i trenować ponownie.
-* Połącz intencje, jeśli wypowiedzi są zbyt ściśle wyrównane i ponownie trenować.
+* Edytuj wyrażenia długości, aby był bardziej szczegółowy dla zamiaru i ponownie nauczenie.
+* Połącz intencje, jeśli wyrażenia długości są zbyt ściśle wyrównane i ponownie nauczenie.
 
-### <a name="review-unclear-predictions"></a>Przejrzyj niejasne prognozy
+### <a name="review-unclear-predictions"></a>Przejrzyj niejasne przewidywania
 
-**Niejasnych przewidywania** listy intencji pokazuje intencje z wypowiedzi z wyników przewidywania, które nie są wystarczająco daleko od najbliższego rywala, że górna intencja dla wypowiedź może ulec zmianie na następnym treningu, z powodu [negatywnego próbkowania](luis-how-to-train.md#train-with-all-data).
+Lista założeń **przewidywania niejasnego** przedstawia intencje w wyrażenia długości z wynikami przewidywania, które nie są daleko w stosunku do najbliższej Rival, że najwyższe zamiaru dla wypowiedź mogą ulec zmianie w następnym szkoleniu z powodu [próbkowania negatywnego](luis-how-to-train.md#train-with-all-data).
 
-**Aby rozwiązać ten problem;**
+**Aby rozwiązać ten problem**;
 
-* Edytuj wypowiedzi, aby być bardziej szczegółowe dla intencji i trenować ponownie.
-* Połącz intencje, jeśli wypowiedzi są zbyt ściśle wyrównane i ponownie trenować.
+* Edytuj wyrażenia długości, aby był bardziej szczegółowy dla zamiaru i ponownie nauczenie.
+* Połącz intencje, jeśli wyrażenia długości są zbyt ściśle wyrównane i ponownie nauczenie.
 
-## <a name="utterances-per-intent"></a>Wypowiedzi na intencję
+## <a name="utterances-per-intent"></a>Wyrażenia długości na intencję
 
-Ta karta pokazuje ogólny stan aplikacji w intencji. Jak naprawić intencje i przekwalifikować, nadal patrzeć na tę kartę dla problemów.
+Ta karta przedstawia ogólną kondycję aplikacji w ramach intencji. W miarę naprawiania zamiarów i pouczenia się Kontynuuj błyskawiczne Rozwiązywanie problemów na tej karcie.
 
-Na poniższym wykresie przedstawiono dobrze wyważoną aplikację, która prawie nie ma problemów do naprawienia.
+Na poniższym wykresie przedstawiono dobrze zrównoważoną aplikację, która nie rozwiązuje problemów.
 
-![Na poniższym wykresie przedstawiono dobrze wyważoną aplikację, która prawie nie ma problemów do naprawienia.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-balance.png)
+![Na poniższym wykresie przedstawiono dobrze zrównoważoną aplikację, która nie rozwiązuje problemów.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-balance.png)
 
-Na poniższym wykresie przedstawiono źle zbilansowaną aplikację z wieloma problemami do naprawienia.
+Na poniższym wykresie przedstawiono niewłaściwie zrównoważoną aplikację z wieloma problemami, które należy naprawić.
 
-![Na poniższym wykresie przedstawiono dobrze wyważoną aplikację, która prawie nie ma problemów do naprawienia.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
+![Na poniższym wykresie przedstawiono dobrze zrównoważoną aplikację, która nie rozwiązuje problemów.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
 
-Umieść wskaźnik myszy na pasku każdej intencji, aby uzyskać informacje o zamiarze. 
+Umieść kursor nad każdym paskiem intencji, aby uzyskać informacje na temat zamiaru. 
 
-![Na poniższym wykresie przedstawiono dobrze wyważoną aplikację, która prawie nie ma problemów do naprawienia.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
+![Na poniższym wykresie przedstawiono dobrze zrównoważoną aplikację, która nie rozwiązuje problemów.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
 
-Funkcja **Sortuj według** służy do rozmieszczenia intencji według typu problemu, aby skupić się na najbardziej problematycznych zamiarach związanych z tym problemem. 
+Użyj funkcji **Sortuj według** , aby rozmieścić intencje według typu problemu, aby skoncentrować się na najbardziej problematycznych intencjach tego problemu. 
 
 ## <a name="intents-with-errors"></a>Intencje z błędami
 
-Ta karta umożliwia przeglądanie problemów pod kątem określonego zamiaru. Domyślny widok tej karty jest najbardziej problematycznym zamiarem, dzięki czemu wiesz, gdzie skupić swoje wysiłki.
+Ta karta umożliwia przeglądanie problemów związanych z konkretnym zamiarem. Domyślnym widokiem tej karty jest najbardziej problematyczne intencje, dzięki czemu wiadomo, gdzie należy skoncentrować się na pracy.
 
-![Karta Intencje z błędami umożliwia przeglądanie problemów pod kątem określonego zamiaru. Karta jest filtrowana do najbardziej problematycznych intencji, domyślnie, więc wiesz, gdzie skupić swoje wysiłki.](./media/luis-how-to-use-dashboard/most-problematic-intents-with-errors.png)
+![Zamiary z kartą błędy umożliwiają przeglądanie problemów dotyczących określonego celu. Karta jest domyślnie filtrowana pod kątem najbardziej problematycznych intencji, aby wiedzieć, gdzie należy skoncentrować się na działaniach.](./media/luis-how-to-use-dashboard/most-problematic-intents-with-errors.png)
 
-Wykres górnego pączka pokazuje problemy z intencją w trzech typach problemów. Jeśli występują problemy w trzech typach problemów, każdy typ ma swój własny wykres poniżej, wraz z wszelkimi intencjami rywala. 
+Górny wykres pierścieniowy przedstawia problemy z intencją dla trzech typów problemu. W przypadku wystąpienia problemów z trzema typami problemów każdy typ ma swój własny wykres, a także wszelkie Rival. 
 
-### <a name="filter-intents-by-issue-and-percentage"></a>Filtrowanie intencji według problemu i wartości procentowej
+### <a name="filter-intents-by-issue-and-percentage"></a>Filtruj intencje według problemu i wartości procentowej
 
-Ta sekcja karty umożliwia znajdowanie wypowiedzi przykład, które są chodzące poza próg błędu. Najlepiej, jeśli chcesz, aby poprawne prognozy były znaczące. Ten odsetek jest oparty na biznesie i kliencie. 
+Ta sekcja karty umożliwia znalezienie przykładowej wyrażenia długości, która wykracza poza próg błędu. Najlepiej, aby poprawne przewidywania były znaczące. Ta wartość procentowa jest zależna od biznesu i klienta. 
 
-Określ wartości progowe, które są wygodne dla swojej firmy. 
+Określ procent wartości progowych, z którymi masz doświadczenie dla Twojej firmy. 
 
 Filtr umożliwia znalezienie intencji z określonym problemem:
 
 |Filtr|Sugerowana wartość procentowa|Przeznaczenie|
 |--|--|--|
-|Najbardziej problematyczne intencje|-|**Rozpocznij tutaj** — naprawienie wypowiedzi w tym zamiarze poprawi aplikację bardziej niż inne poprawki.|
-|Popraw prognozy poniżej|60%|Jest to procent wypowiedzi w wybranej intencji, które są poprawne, ale mają wynik zaufania poniżej progu. |
-|Niejasne prognozy powyżej|15%|Jest to procent wypowiedzi w wybranej intencji, które są mylone z najbliższego zamiaru rywala.|
-|Nieprawidłowe prognozy powyżej|15%|Jest to procent wypowiedzi w wybranej intencji, które są niepoprawnie przewidywane. |
+|Najbardziej problematyczne intencje|-|**Zacznij tutaj** — naprawianie wyrażenia długości w tym celu poprawi aplikację więcej niż inne poprawki.|
+|Poprawne przewidywania poniżej|60%|Jest to wartość procentowa wyrażenia długości w wybranym zamierzeniu, która jest poprawna, ale ma wynik pewności poniżej wartości progowej. |
+|Niejasne przewidywania powyżej|15%|Jest to wartość procentowa wyrażenia długości w wybranym zamierzeniu, która jest pomylona z najbliższym zamiarem Rival.|
+|Nieprawidłowe przewidywania powyżej|15%|Jest to wartość procentowa wyrażenia długości w wybranym zamierzeniu, która jest nieprawidłowo przewidywalna. |
 
-### <a name="correct-prediction-threshold"></a>Poprawny próg przewidywania
+### <a name="correct-prediction-threshold"></a>Poprawna wartość progowa przewidywania
 
-Co to jest pewny wynik przewidywania zaufania dla Ciebie? Na początku tworzenia aplikacji 60% może być twoim celem. Użyj **correct prognoz poniżej** z procentem 60%, aby znaleźć wszelkie wypowiedzi w wybranej intencji, które muszą zostać naprawione.
+Co to jest wiarygodny wynik do przewidywania? Na początku opracowywania aplikacji 60% może być obiektem docelowym. Użyj **poprawnych prognoz poniżej** z wartością procentową 60%, aby znaleźć dowolne wyrażenia długości w wybranym zamierzeniu, które należy naprawić.
 
 ### <a name="unclear-or-incorrect-prediction-threshold"></a>Niejasny lub nieprawidłowy próg przewidywania
 
-Te dwa filtry umożliwiają znajdowanie wypowiedzi w wybranej intencji poza progiem. Te dwie wartości procentowe można potraktować jako wartości procentowe błędów. Jeśli masz komfort z 10-15% poziom błędu dla prognoz, ustaw próg filtru do 15%, aby znaleźć wszystkie wypowiedzi powyżej tej wartości. 
+Te dwa filtry umożliwiają znalezienie wyrażenia długości w wybranym zasobie poza progiem. Te dwie wartości procentowe można traktować jako procent błędów. Jeśli masz doświadczenie ze stawką błędów 10-15% dla prognoz, ustaw próg filtru na 15%, aby znaleźć wszystkie wyrażenia długości powyżej tej wartości. 
 
 ## <a name="next-steps"></a>Następne kroki
 
