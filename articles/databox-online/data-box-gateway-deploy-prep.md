@@ -9,19 +9,19 @@ ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: 74fec059bdffb91f5a7774d430e2f1897f0e863c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79474462"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Samouczek: Przygotowanie do wdrożenia bramy usługi Azure Data Box
+# <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Samouczek: przygotowanie do wdrożenia Azure Data Box Gateway
 
 To jest pierwszy samouczek z serii samouczków dotyczących wdrażania opisujących pełne wdrożenie usługi Azure Data Box Gateway. W tym samouczku opisano sposób przygotowania witryny Azure Portal do wdrażania zasobu usługi Data Box Gateway.
 
 Do ukończenia procesu instalacji i konfiguracji niezbędne są uprawnienia administratora. Przygotowanie portalu zajmuje mniej niż 10 minut.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -50,11 +50,11 @@ W tym miejscu opisano wymagania wstępne dotyczące konfiguracji zasobu usługi 
 
 Przed rozpoczęciem upewnij się, że:
 
-* Twoja subskrypcja platformy Microsoft Azure jest włączona dla zasobu usługi Azure Stack Edge. Upewnij się, że była używana obsługiwana subskrypcja, taka jak [Microsoft Enterprise Agreement (EA),](https://azure.microsoft.com/overview/sales-number/) [Dostawca rozwiązań w chmurze (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)lub [Sponsorowanie platformy Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/).
-* Masz dostęp właściciela lub współautora na poziomie grupy zasobów dla zasobów Data Box Edge/Data Box Gateway, IoT Hub i Azure Storage.
-    - Aby utworzyć dowolny zasób Data Box Edge/Data Box Gateway, należy mieć uprawnienia jako współautora (lub wyższy) o zakresie na poziomie grupy zasobów. Należy również upewnić się, że `Microsoft.DataBoxEdge` dostawca jest zarejestrowany. Aby uzyskać informacje na temat sposobu rejestracji, przejdź do [strony Zarejestruj dostawcę zasobów](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
-    - Aby utworzyć zasób konta magazynu, ponownie potrzebujesz współautora lub wyższego zakresu dostępu na poziomie grupy zasobów. Usługa Azure Storage jest domyślnie zarejestrowanym dostawcą zasobów.
-- Masz administratora lub użytkownika dostęp do interfejsu API programu Microsoft Graph. Aby uzyskać więcej informacji, zobacz [Odwołanie do uprawnień programu Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+* Subskrypcja Microsoft Azure jest włączona dla zasobu Azure Stack Edge. Upewnij się, że użyto obsługiwanej subskrypcji, takiej jak [Microsoft Umowa Enterprise (EA)](https://azure.microsoft.com/overview/sales-number/), [dostawca rozwiązań w chmurze (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)lub [dostęp sponsorowany Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/).
+* Masz uprawnienia właściciela lub współautora na poziomie grupy zasobów dla zasobów Data Box Edge/Data Box Gateway, IoT Hub i magazynu platformy Azure.
+    - Aby utworzyć dowolny zasób Data Box Edge/Data Box Gateway, należy mieć uprawnienia jako współautor (lub wyższy) w zakresie na poziomie grupy zasobów. Należy również upewnić się, że `Microsoft.DataBoxEdge` dostawca jest zarejestrowany. Aby uzyskać informacje na temat rejestrowania, przejdź do pozycji [zarejestruj dostawcę zasobów](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Aby utworzyć zasób konta magazynu, należy ponownie uzyskać wartość współautor lub wyższy dostęp do zakresu na poziomie grupy zasobów. Usługa Azure Storage jest domyślnie zarejestrowanym dostawcą zasobów.
+- Masz uprawnienia administratora lub użytkownika do Microsoft Graph interfejsu API. Aby uzyskać więcej informacji, zobacz [Microsoft Graph informacje o uprawnieniach](https://docs.microsoft.com/graph/permissions-reference).
 - Masz konto magazynu platformy Microsoft Azure z poświadczeniami dostępu.
 
 ### <a name="for-the-data-box-gateway-device"></a>Urządzenie usługi Data Box Gateway
@@ -74,34 +74,34 @@ Przed wdrożeniem urządzenia wirtualnego upewnij się, że są spełnione nast�
 
 Przed rozpoczęciem upewnij się, że:
 
-- Sieć w centrum danych jest skonfigurowana zgodnie z wymaganiami sieciowymi dla urządzenia usługi Data Box Gateway. Aby uzyskać więcej informacji, zobacz [wymagania systemowe bramy usługi Data Box](data-box-gateway-system-requirements.md)Gateway .
+- Sieć w centrum danych jest skonfigurowana zgodnie z wymaganiami sieciowymi dla urządzenia usługi Data Box Gateway. Aby uzyskać więcej informacji, zobacz [wymagania systemowe Data Box Gateway](data-box-gateway-system-requirements.md).
 
-- W normalnych warunkach pracy bramy data box należy mieć:
+- W normalnych warunkach operacyjnych Data Box Gateway należy:
 
-    - Przepustowość pobierania co najmniej 10 Mb/s w celu zapewnienia, że urządzenie pozostanie na bieżąco.
-    - Co najmniej 20 Mb/s dedykowanej przepustowości wysyłania i pobierania do przesyłania plików.
+    - Co najmniej 10 MB/s, aby upewnić się, że urządzenie pozostaje zaktualizowane.
+    - Co najmniej 20 MB/s dedykowane i pobiera przepustowość do przesyłania plików.
 
 ## <a name="create-a-new-resource"></a>Tworzenie nowego zasobu
 
 Jeśli masz istniejący zasób usługi Data Box Gateway, którego możesz użyć do zarządzania urządzeniami wirtualnymi, pomiń ten krok i przejdź do sekcji [Uzyskiwanie klucza aktywacji](#get-the-activation-key).
 
-Aby utworzyć zasób bramy pola danych, należy wykonać następujące kroki w witrynie Azure portal.
+Aby utworzyć zasób Data Box Gateway, w Azure Portal wykonaj następujące czynności.
 
-1. Użyj poświadczeń platformy Microsoft Azure, aby zalogować się do:
+1. Użyj poświadczeń Microsoft Azure, aby zalogować się do:
 
-    - Portal Azure pod tym [https://portal.azure.com](https://portal.azure.com)adresem URL: .
-    - Lub portal Azure Government pod [https://portal.azure.us](https://portal.azure.us)tym adresem URL: . Aby uzyskać więcej informacji, przejdź do [połącz się z platformą Azure Dla instytucji rządowych przy użyciu portalu](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+    - Azure Portal pod tym adresem URL: [https://portal.azure.com](https://portal.azure.com).
+    - Lub Portal Azure Government pod tym adresem URL: [https://portal.azure.us](https://portal.azure.us). Aby uzyskać więcej informacji, przejdź do [obszaru łączenie z Azure Government przy użyciu portalu](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
-2. W lewym okienku wybierz pozycję **+ Utwórz zasób**. Wyszukaj **krawędź pola danych / bramę pola danych**. Wybierz pozycję Krawędź pola danych / brama pola danych. Wybierz **pozycję Utwórz**.
-3. Wybierz subskrypcję, której chcesz użyć dla urządzenia Bramy pola danych. Wybierz region, w którym chcesz wdrożyć zasób bramy pola danych. Aby uzyskać listę wszystkich regionów, w których dostępny jest zasób usługi Azure Stack Edge, zobacz [Produkty platformy Azure dostępne według regionów.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) Wybierz lokalizację najbliżej regionu geograficznego, w którym chcesz wdrożyć urządzenie. W opcji **Brama pola danych** wybierz pozycję **Utwórz**.
+2. W okienku po lewej stronie wybierz pozycję **+ Utwórz zasób**. Wyszukaj **Data Box Edge/Data Box Gateway**. Wybierz pozycję Data Box Edge/Data Box Gateway. Wybierz przycisk **Utwórz**.
+3. Wybierz subskrypcję, która ma być używana dla Data Box Gateway urządzenia. Wybierz region, w którym chcesz wdrożyć zasób Data Box Gateway. Aby uzyskać listę wszystkich regionów, w których jest dostępny zasób Azure Stack Edge, zobacz [dostępność produktów platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Wybierz lokalizację najbliżej regionu geograficznego, w którym chcesz wdrożyć urządzenie. W opcji **Data Box Gateway** wybierz pozycję **Utwórz**.
 
     ![Wyszukiwanie usługi Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
 
-4. Na karcie **Podstawy** wprowadź lub wybierz następujące **szczegóły projektu**.
+4. Na karcie **podstawowe** wprowadź lub wybierz poniższe **szczegóły projektu**.
     
     |Ustawienie  |Wartość  |
     |---------|---------|
-    |Subskrypcja    |Jest to wypełniane automatycznie na podstawie wcześniejszego wyboru. Subskrypcja jest połączona z kontem rozliczeniowym. |
+    |Subskrypcja    |Jest to wypełniane automatycznie w oparciu o wcześniejszy wybór. Subskrypcja jest połączona z kontem rozliczeniowym. |
     |Grupa zasobów  |Wybierz istniejącą grupę lub utwórz nową.<br>Dowiedz się więcej o [grupach zasobów platformy Azure](../azure-resource-manager/management/overview.md).     |
 
 5. Wprowadź lub wybierz następujące **szczegóły wystąpienia**.
@@ -109,19 +109,19 @@ Aby utworzyć zasób bramy pola danych, należy wykonać następujące kroki w w
     |Ustawienie  |Wartość  |
     |---------|---------|
     |Nazwa   | Przyjazna nazwa identyfikująca zasób.<br>Nazwa może zawierać od 2 do 50 znaków, w tym litery, cyfry i łączniki.<br> Nazwa rozpoczyna się i kończy literą lub cyfrą.        |   
-    |Region     |Aby uzyskać listę wszystkich regionów, w których dostępny jest zasób usługi Azure Stack Edge, zobacz [Produkty platformy Azure dostępne według regionów.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) Dla platformy Azure Government dostępne są wszystkie regiony instytucji rządowych wymienione w [regionach platformy Azure.](https://azure.microsoft.com/global-infrastructure/regions/) <br> Wybierz lokalizację najbliżej regionu geograficznego, w którym chcesz wdrożyć urządzenie.|
+    |Region     |Aby uzyskać listę wszystkich regionów, w których jest dostępny zasób Azure Stack Edge, zobacz [dostępność produktów platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). W przypadku Azure Government dostępne są wszystkie regiony rządowe wymienione w [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/) . <br> Wybierz lokalizację najbliżej regionu geograficznego, w którym chcesz wdrożyć urządzenie.|
     
     ![Tworzenie zasobu usługi Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     
 6. Wybierz pozycję **Przegląd + utwórz**.
  
-7. Na karcie **Recenzja + tworzenie** przejrzyj szczegóły **cen**, **Warunki użytkowania**i szczegóły zasobu. Wybierz **pozycję Utwórz**.
+7. Na karcie **Recenzja + tworzenie** Przejrzyj **szczegóły cennika**, **warunki użytkowania**i szczegóły dotyczące zasobu. Wybierz przycisk **Utwórz**.
 
-    ![Przeglądanie szczegółów zasobu bramy pola danych](media/data-box-gateway-deploy-prep/data-box-gateway-resource1.png)
+    ![Przejrzyj szczegóły zasobów Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource1.png)
 
-Tworzenie zasobu trwa kilka minut. Po pomyślnym utworzeniu i wdrożeniu zasobu zostanie o tym powiadomiony. Wybierz pozycję **Przejdź do zasobu**.
+Tworzenie zasobu trwa kilka minut. Po pomyślnym utworzeniu i wdrożeniu zasobu zostanie wyświetlone powiadomienie. Wybierz pozycję **Przejdź do zasobu**.
 
-![Przeglądanie szczegółów zasobu bramy pola danych](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
+![Przejrzyj szczegóły zasobów Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
 
 ## <a name="download-the-virtual-device-image"></a>Pobieranie obrazu urządzenia wirtualnego
 
@@ -130,27 +130,27 @@ Po utworzeniu zasobu usługi Data Box Gateway pobierz odpowiedni obraz urządzen
 > [!IMPORTANT]
 > Oprogramowania uruchomionego w usłudze Data Box Gateway można używać tylko z zasobem usługi Data Box Gateway.
 
-Wykonaj następujące kroki w [witrynie Azure portal,](https://portal.azure.com/) aby pobrać obraz urządzenia wirtualnego.
+Wykonaj następujące kroki w [Azure Portal](https://portal.azure.com/) , aby pobrać obraz urządzenia wirtualnego.
 
-1. W utworzonym zasobie, a następnie wybierz pozycję **Przegląd**. Jeśli masz istniejący zasób usługi Azure Data Box Gateway, wybierz zasób i przejdź do **przeglądu**. Wybierz **pozycję Konfiguracja urządzenia**.
+1. W utworzonym zasobie, a następnie wybierz pozycję **Przegląd**. Jeśli masz istniejący zasób Azure Data Box Gateway, wybierz zasób i przejdź do **omówienia**. Wybierz pozycję **Konfiguracja urządzenia**.
 
     ![Nowy zasób usługi Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource-created.png)
 
-2. Na kafelku **Pobierz obraz** wybierz obraz urządzenia wirtualnego odpowiadający systemowi operacyjnemu na serwerze hosta używanym do aprowizowania maszyny Wirtualnej. Pliki obrazów mają około 5,6 GB.
+2. Na kafelku **obraz do pobrania** wybierz obraz urządzenia wirtualnego odpowiadający systemowi operacyjnemu na serwerze hosta używanym do aprowizacji maszyny wirtualnej. Pliki obrazów są około 5,6 GB.
    
    * [Dysk VHDX dla funkcji Hyper-V w systemie Windows Server 2012 R2 i nowszych](https://aka.ms/dbe-vhdx-2012).
    * [Dysk VMDK dla oprogramowania VMWare ESXi 6.0, 6.5 lub 6.7](https://aka.ms/dbe-vmdk).
 
-    ![Pobierz obraz urządzenia wirtualnego bramy danych](media/data-box-gateway-deploy-prep/data-box-gateway-download-image.png)
+    ![Pobierz obraz Data Box Gateway urządzenia wirtualnego](media/data-box-gateway-deploy-prep/data-box-gateway-download-image.png)
 
 5. Pobierz i rozpakuj plik na lokalnym dysku. Zanotuj lokalizację rozpakowanego pliku.
 
 
 ## <a name="get-the-activation-key"></a>Uzyskiwanie klucza aktywacji
 
-Po uruchomieniu zasobu bramy pola danych musisz uzyskać klucz aktywacyjny. Ten klucz jest używany do aktywowania urządzenia usługi Data Box Gateway i nawiązaniu połączenia z zasobem. Ten klucz można uzyskać już teraz za pośrednictwem witryny Azure Portal.
+Po rozpoczęciu i uruchomieniu zasobu Data Box Gateway należy uzyskać klucz aktywacji. Ten klucz jest używany do aktywowania urządzenia usługi Data Box Gateway i nawiązaniu połączenia z zasobem. Ten klucz można uzyskać już teraz za pośrednictwem witryny Azure Portal.
 
-1. Wybierz utworzony zasób, a następnie wybierz pozycję **Przegląd**. W **oknie Konfiguracja urządzenia**przejdź do kafelka **Konfiguruj i aktywuj.**
+1. Wybierz utworzony zasób, a następnie wybierz pozycję **Przegląd**. W obszarze **Konfiguracja urządzenia**przejdź do kafelka **Konfigurowanie i aktywowanie** .
 
     ![Konfigurowanie i aktywowanie kafelka](media/data-box-gateway-deploy-prep/data-box-gateway-configure-activate.png)
 

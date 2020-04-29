@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door — monitorowanie kondycji zaplecza | Dokumenty firmy Microsoft
-description: Ten artykuł pomaga zrozumieć, jak usługi Azure Front Door monitoruje kondycję zaplecza
+title: Azure front-drzwi — monitorowanie kondycji zaplecza | Microsoft Docs
+description: Ten artykuł pomaga zrozumieć, w jaki sposób usługa Azure front-drzwi monitoruje kondycję zasobie
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,65 +12,65 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: e2e656c395f1a31c1f5ebbd46d5a18a046f854f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471578"
 ---
 # <a name="health-probes"></a>Sondy kondycji
 
-W celu określenia kondycji i bliskości każdej wewnętrznej bazy danych z danego środowiska drzwi frontowych, każde środowisko drzwi frontowych okresowo wysyła syntetyczne żądanie HTTP/HTTPS do każdej skonfigurowanej wewnętrznej bazy danych. Usługa Front Door następnie używa odpowiedzi z tych sond, aby określić „najlepsze” zaplecza, do których powinna kierować rzeczywiste żądania klientów. 
+Aby określić kondycję i bliskość każdego zaplecza z danego środowiska z przodu, każde środowisko tylne drzwi okresowo wysyła syntetyczne żądanie HTTP/HTTPS do każdego ze skonfigurowanych zaplecza. Usługa Front Door następnie używa odpowiedzi z tych sond, aby określić „najlepsze” zaplecza, do których powinna kierować rzeczywiste żądania klientów. 
 
 > [!WARNING]
-> Ponieważ drzwiami frontowymi mają wiele środowisk brzegowych na całym świecie, wolumin żądań sondy kondycji do zaplecza może być dość wysoki — od 25 żądań co minutę do 1200 żądań na minutę, w zależności od skonfigurowanych częstotliwości sondy kondycji. Przy domyślnej częstotliwości sondy 30 sekund wolumin sondy na wewnętrznej podstawie wewnętrznej powinien wynosić około 200 żądań na minutę.
+> Ze względu na to, że drzwi tylne mają wiele środowisk brzegowych, sonda kondycji żąda dużej ilości danych od 25 żądań co minutę do 1200 żądań na minutę, w zależności od skonfigurowanej częstotliwości sondowania kondycji. Domyślna częstotliwość sondy wynosząca 30 sekund, objętość sondy w zasobie powinna wynosić około 200 żądań na minutę.
 
 ## <a name="supported-protocols"></a>Obsługiwane protokoły
 
-Drzwi frontowe obsługują wysyłanie sond za pośrednictwem protokołów HTTP lub HTTPS. Te sondy są wysyłane przy użyciu tych samych portów TCP co skonfigurowane na potrzeby routingu żądań klientów i nie można ich zmienić.
+Drzwi tylne obsługują wysyłanie sond za pośrednictwem protokołów HTTP i HTTPS. Te sondy są wysyłane przy użyciu tych samych portów TCP co skonfigurowane na potrzeby routingu żądań klientów i nie można ich zmienić.
 
 ## <a name="supported-http-methods-for-health-probes"></a>Obsługiwane metody HTTP dla sond kondycji
 
-Drzwi frontowe obsługuje następujące metody HTTP do wysyłania sond kondycji:
+Drzwi tylne obsługują następujące metody HTTP do wysyłania sond kondycji:
 
-1. **POBIERZ:** Metoda GET oznacza pobieranie niezależnie od informacji (w postaci jednostki) jest identyfikowany przez request-URI.
-2. **GŁOWA:** Head Metoda jest identyczna z GET, z tą różnicą, że serwer NIE MOŻE zwracać treść wiadomości w odpowiedzi. W przypadku nowych profili drzwi przednich domyślnie metoda sondy jest ustawiona jako HEAD.
+1. **Pobierz:** Metoda GET oznacza pobieranie dowolnych informacji (w formie jednostki) identyfikowanych przez identyfikator URI żądania.
+2. **Nagłówek:** Metoda główna jest taka sama, aby można było uzyskać z tą różnicą, że serwer nie może zwrócić treści komunikatu w odpowiedzi. W przypadku nowych profilów z przodu, domyślnie Metoda sondowania jest ustawiana jako główna.
 
 > [!NOTE]
-> W celu zmniejszenia obciążenia i kosztów zaplecza drzwiami frontowymi zaleca się użycie żądań HEAD dla sond kondycji.
+> W celu obniżenia obciążenia i ponoszenia kosztów na potrzeby punktów końcowych zaleca się używanie żądań głównych dla sond kondycji.
 
 ## <a name="health-probe-responses"></a>Odpowiedzi sondy kondycji
 
 | Odpowiedzi  | Opis | 
 | ------------- | ------------- |
-| Określanie kondycji  |  Kod stanu 200 OK wskazuje, że wewnętrznej bazy danych jest w dobrej kondycji. Wszystko inne jest uważane za porażkę. Jeśli z jakiegokolwiek powodu (w tym awarii sieci) prawidłowa odpowiedź HTTP nie zostanie odebrana dla sondy, sonda jest liczona jako błąd.|
-| Opóźnienie pomiaru  | Opóźnienie to czas zegara ściennego mierzony od momentu wysłania żądania sondy do momentu, w którym otrzymamy ostatni bajt odpowiedzi. Używamy nowego połączenia TCP dla każdego żądania, więc ten pomiar nie jest stronniczy w kierunku zaplecza z istniejącymi ciepłymi połączeniami.  |
+| Określanie kondycji  |  Kod stanu 200 OK wskazuje, że zaplecze jest w dobrej kondycji. Wszystko inne jest uznawane za niepowodzenie. Jeśli z jakiegoś powodu (w tym awarii sieci) nie odebrano prawidłowej odpowiedzi HTTP dla sondy, sonda jest traktowana jako błąd.|
+| Pomiar opóźnienia  | Opóźnienie to czas zegara ściany mierzony od momentu natychmiast po wysłaniu żądania sondy do momentu otrzymania ostatniego bajtu odpowiedzi. Dla każdego żądania używane jest nowe połączenie TCP, więc pomiary nie są wliczane do zachodzących istniejących połączeń ciepłej.  |
 
-## <a name="how-front-door-determines-backend-health"></a>Jak drzwi frontowe określają kondycję zaplecza
+## <a name="how-front-door-determines-backend-health"></a>Jak drzwi z przodu określają kondycję zaplecza
 
-Usługa Azure Front Door używa tego samego trzyetapowego procesu poniżej we wszystkich algorytmach w celu określenia kondycji.
+Drzwi frontonu platformy Azure używają tego samego dwuetapowego procesu dla wszystkich algorytmów w celu określenia kondycji.
 
-1. Wyklucz wyłączone zaplecze.
+1. Wyklucz wyłączone punkty końcowe.
 
-2. Wyklucz zaplecze, które mają błędy sond kondycji:
-    * Ten wybór odbywa się za pomocą ostatniego _n_ odpowiedzi sondy kondycji. Jeśli co najmniej _x_ są zdrowe, wewnętrznej bazy danych jest uważany za zdrowy.
+2. Wyklucz nadkończenie, które mają Błędy sond kondycji:
+    * Aby to zrobić, należy przejrzeć odpowiedzi z ostatnich _n_ sondy kondycji. Jeśli co najmniej _x_ jest w dobrej kondycji, zaplecze jest traktowana jako dobra kondycja.
 
-    * _n_ jest skonfigurowany przez zmianę SampleSize właściwości w ustawieniach równoważenia obciążenia.
+    * _n_ jest skonfigurowany przez zmianę właściwości SampleSize w ustawieniach równoważenia obciążenia.
 
-    * _x_ jest skonfigurowany przez zmianę właściwości SuccessfulSamplesRequired w ustawieniach równoważenia obciążenia.
+    * wartość _x_ jest konfigurowana przez zmianę właściwości SuccessfulSamplesRequired w ustawieniach równoważenia obciążenia.
 
-3. Z zestawu zdrowych zaplecza w puli wewnętrznej bazy danych, drzwi frontowe dodatkowo mierzy i utrzymuje opóźnienie (czas podróży w obie strony) dla każdego zaplecza.
+3. Poza zestawem nieprawidłowych punktów końcowych w puli zaplecza z przodu są dodatkowo stosowane i utrzymywane opóźnienie (czas błądzenia) dla każdego zaplecza.
 
 
-## <a name="complete-health-probe-failure"></a>Całkowita awaria sondy kondycji
+## <a name="complete-health-probe-failure"></a>Ukończ błąd sondy kondycji
 
-Jeśli sondy kondycji nie dla każdej wewnętrznej bazy danych w puli wewnętrznej bazy danych, następnie drzwi frontowe uwzględnia wszystkie zaplecza w dobrej kondycji i trasy ruchu w dystrybucji okrężnej całej z nich.
+Jeśli sondy kondycji dla każdego zaplecza w puli zaplecza nie powiedzie się, a następnie drzwi przede wszystkim są w dobrej kondycji i przekierowują ruch w ramach rozkładu okrężnego między wszystkimi nimi.
 
-Gdy dowolna wytłumienie powróci do stanu dobrej kondycji, następnie drzwiami frontowymi wznowią normalny algorytm równoważenia obciążenia.
+Gdy dowolna zaplecze powróci do stanu dobrej kondycji, następnie drzwi do przodu spowodują wznowienie normalnego algorytmu równoważenia obciążenia.
 
 ## <a name="disabling-health-probes"></a>Wyłączanie sond kondycji
 
-Jeśli masz pojedynczą wewnętrznej bazy danych w puli wewnętrznej bazy danych, można wyłączyć sondy kondycji zmniejszenie obciążenia wewnętrznej bazy danych aplikacji. Nawet jeśli masz wiele zaplecza w puli wewnętrznej bazy danych, ale tylko jeden z nich jest w stanie włączonym, można wyłączyć sondy kondycji.
+Jeśli masz pojedyncze zaplecze w puli zaplecza, możesz wyłączyć sondy kondycji zmniejszające obciążenie zaplecze aplikacji. Nawet jeśli istnieje wiele zapleczy w puli zaplecza, ale tylko jeden z nich jest w stanie włączony, można wyłączyć sondy kondycji.
 
 ## <a name="next-steps"></a>Następne kroki
 

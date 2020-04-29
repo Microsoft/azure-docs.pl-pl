@@ -1,6 +1,6 @@
 ---
-title: Drzwi frontowe platformy Azure — zabezpieczenia warstwy aplikacji | Dokumenty firmy Microsoft
-description: Ten artykuł pomaga zrozumieć, w jaki sposób usługi Azure Front Door umożliwia ochronę i zabezpieczanie zaplecza aplikacji
+title: Azure front-drzwi — zabezpieczenia warstwy aplikacji | Microsoft Docs
+description: Ten artykuł pomaga zrozumieć, w jaki sposób usługa Azure Front Drzwiczks umożliwia ochronę i zabezpieczanie zastrzeżonych aplikacji
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,41 +12,41 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: e458926930c1b95d48886559551878fc6c9d0673
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471799"
 ---
-# <a name="application-layer-security-with-front-door"></a>Zabezpieczenia warstwy aplikacji z drzwiami przednimi
-Usługa Azure Front Door zapewnia możliwość ochrony aplikacji sieci web w celu ochrony aplikacji sieci web przed atakami sieciowymi i typowymi lukami w zabezpieczeniach sieci Web, takimi jak iniekcja SQL lub skrypty krzyżowe (XSS). Włączone dla http(s) front-ends, zabezpieczenia warstwy aplikacji drzwi frontowych jest globalnie dystrybuowane i zawsze włączone, zatrzymując złośliwe ataki na krawędzi sieci platformy Azure, z dala od zaplecza. Dzięki dodatkowej optymalizacji bezpieczeństwa i wydajności drzwi frontowe zapewniają użytkownikom końcowym szybkie i bezpieczne środowisko internetowe.
+# <a name="application-layer-security-with-front-door"></a>Zabezpieczenia warstwy aplikacji z przednimi drzwiami
+Drzwi frontonu platformy Azure udostępniają funkcje ochrony aplikacji sieci Web, które chronią aplikacje sieci Web przed atakami sieciowymi i typowymi lukami w zabezpieczeniach sieci Web, takimi jak iniekcja SQL lub obsługa skryptów między lokacjami Włączone dla frontonów http (s), zabezpieczenia warstwy aplikacji dla drzwi przednich są globalnie dystrybuowane i zawsze włączone, zatrzymując złośliwe ataki na granicy sieci platformy Azure, daleko od Twoich założeń. Po dodaniu optymalizacji zabezpieczeń i wydajności, przód drzwi zapewnia szybkie i bezpieczne środowisko sieci Web dla użytkowników końcowych.
 
 ## <a name="application-protection"></a>Ochrona aplikacji
-Ochrona aplikacji drzwi frontowych jest skonfigurowana w każdym środowisku brzegowym na całym świecie, zgodnie z aplikacjami, i automatycznie blokuje ruch nie-http(s) przed dotarciem do aplikacji internetowych. Nasza wielodostępna architektura rozproszona umożliwia globalną ochronę na dużą skalę bez utraty wydajności. W przypadku obciążeń http(ów) usługa ochrony aplikacji sieci web usługi drzwiach frontowych udostępnia bogaty aparat reguł dla reguł niestandardowych, wstępnie skonfigurowany zbiór reguł przeciwko typowym atakom i szczegółowe rejestrowanie dla wszystkich żądań, które są zgodne z regułą. Obsługiwane są tylko elastyczne akcje, w tym zezwalanie, blokowanie lub rejestrowanie.
+Ochrona aplikacji dla drzwi przednich jest konfigurowana w każdym środowisku brzegowym na całym świecie, w linii z aplikacjami, i automatycznie blokuje ruch inny niż http (s), który dociera do aplikacji sieci Web. Nasza Architektura rozproszona z wieloma dzierżawcami umożliwia globalną ochronę na dużą skalę bez obniżania wydajności. W przypadku obciążeń http (s) usługa Ochrona aplikacji sieci Web na początku drzwi udostępnia rozbudowany aparat reguł dla reguł niestandardowych, wstępnie skonfigurowany zestaw reguł przed typowymi atakami i szczegółowe informacje o rejestrowaniu wszystkich żądań zgodnych z regułą. Obsługiwane są elastyczne akcje, takie jak Zezwalanie, blokowanie i rejestrowanie.
 
 ## <a name="custom-access-control-rules"></a>Niestandardowe reguły kontroli dostępu
-- **Lista zablokowanych i lista zablokowanych adresów IP:** Można skonfigurować reguły niestandardowe, aby kontrolować dostęp do aplikacji sieci web na podstawie listy adresów IP klienta. Obsługiwane są zarówno ip v4, jak i IP v6
-- **Kontrola dostępu oparta na danych geograficznych:** Można skonfigurować reguły niestandardowe, aby kontrolować dostęp do aplikacji internetowych na podstawie kodu kraju, z którego pochodzi adres IP klienta
-- **Filtrowanie parametrów HTTP:** Można skonfigurować niestandardowe reguły dostępu na podstawie pasujących parametrów żądań http(s), w tym nagłówków, adresów URL i ciągów zapytań
+- **Lista dozwolonych adresów IP i lista zablokowanych:** Można skonfigurować reguły niestandardowe, aby kontrolować dostęp do aplikacji sieci Web na podstawie listy adresów IP klientów. Obsługiwane są zarówno protokół IP v4, jak i protokół IPv6 V6
+- **Kontrola dostępu oparta na geograficznym:** Można skonfigurować reguły niestandardowe, aby kontrolować dostęp do aplikacji sieci Web w oparciu o kod kraju, z adresu IP klienta
+- **Filtrowanie parametrów http:** Można skonfigurować niestandardowe reguły dostępu na podstawie pasujących parametrów żądania HTTP (s), w tym nagłówków, adresów URL i ciągów zapytań
 
 ## <a name="azure-managed-rules"></a>Reguły zarządzane przez platformę Azure
-- Wstępnie skonfigurowany zestaw reguł dotyczących typowych głównych luk w zabezpieczeniach OWASP jest domyślnie włączony. W wersji zapoznawczej zestaw reguł obejmuje sprawdzanie żądań sqli i xss. Dodatkowe zasady zostaną dodane. Możesz rozpocząć działanie tylko do dziennika, aby sprawdzić poprawność wstępnie skonfigurowanych reguł pracy zgodnie z oczekiwaniami dla aplikacji 
+- Wstępnie skonfigurowany zestaw reguł dla typowych najważniejszych luk w zabezpieczeniach OWASP jest domyślnie włączony. W wersji zapoznawczej zestaw reguł obejmuje sprawdzanie SQLi i żądań XSS. Zostaną dodane dodatkowe reguły. Aby sprawdzić, czy wstępnie skonfigurowane reguły działają zgodnie z oczekiwaniami dla aplikacji, możesz zacząć od akcji tylko do rejestrowania. 
 
 ## <a name="rate-limiting"></a>Rate limiting (Ograniczanie szybkości)
-- Reguła kontroli szybkości ma na celu ograniczenie nieprawidłowego ruchu z dowolnego adresu IP klienta.  Można ustawić próg liczby żądań sieci web dozwolonych przez adres IP klienta w czasie trwania jednej minuty.
+- Reguła kontroli częstotliwości polega na ograniczeniu nietypowego natężenia ruchu z dowolnego adresu IP klienta.  Można ustawić wartość progową liczby żądań sieci Web dozwolonych przez adres IP klienta w czasie trwania jednej minuty.
 
-## <a name="centralized-protection-policy"></a>Scentralizowane zasady ochrony
-- Można zdefiniować kilka reguł ochrony i dodać je do zasad w kolejności priorytetu. Reguły niestandardowe mają wyższy priorytet niż zarządzanystawie reguł, aby zezwolić na wyjątki. Jedna zasada jest skojarzona z aplikacją sieci web.  Te same zasady ochrony aplikacji sieci web są replikowane na wszystkie serwery brzegowe we wszystkich lokalizacjach, zapewniają spójne zasady zabezpieczeń we wszystkich regionach
+## <a name="centralized-protection-policy"></a>Zasady centralnej ochrony
+- Można zdefiniować kilka reguł ochrony i dodać je do zasad w kolejności priorytetu. Reguły niestandardowe mają wyższy priorytet niż zarządzany zestaw reguł, aby zezwalać na wyjątki. Pojedyncze zasady są skojarzone z aplikacją sieci Web.  Te same zasady ochrony aplikacji sieci Web są replikowane do wszystkich serwerów brzegowych we wszystkich lokalizacjach, zapewniając spójne zasady zabezpieczeń we wszystkich regionach.
 
-## <a name="configuration"></a>Konfigurowanie
-- Podczas podglądu można użyć interfejsów API REST, programu PowerShell lub interfejsu wiersza polecenia do tworzenia i wdrażania reguł i zasad ochrony aplikacji drzwiach frontowych. Dostęp do portalu będzie obsługiwany, zanim usługa będzie ogólnie dostępna. 
+## <a name="configuration"></a>Konfiguracja
+- W trakcie korzystania z wersji zapoznawczej można używać interfejsów API REST, programu PowerShell lub interfejsu wiersza polecenia do tworzenia i wdrażania zasad ochrony aplikacji i zasad dotyczących drzwi przednich. Dostęp do portalu będzie obsługiwany, zanim usługa będzie ogólnie dostępna. 
 
 
 ## <a name="monitoring"></a>Monitorowanie
-Drzwi frontowe umożliwia monitorowanie aplikacji sieci web przed atakami przy użyciu metryk w czasie rzeczywistym, które są zintegrowane z usługą Azure Monitor do śledzenia alertów i łatwego monitorowania trendów.
+Drzwi z przodu zapewniają możliwość monitorowania aplikacji sieci Web pod kątem ataków przy użyciu metryk w czasie rzeczywistym, które są zintegrowane z Azure Monitor do śledzenia alertów i łatwego monitorowania trendów.
 
 ## <a name="pricing"></a>Cennik
-Zabezpieczenia warstwy aplikacji drzwi przednich są bezpłatne podczas podglądu.
+Zabezpieczenia warstwy aplikacji dla drzwi przednich są bezpłatne w wersji zapoznawczej.
 
 
 ## <a name="next-steps"></a>Następne kroki

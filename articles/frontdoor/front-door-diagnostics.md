@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie metryk i dzienników w drzwiach frontowych platformy Azure| Dokumenty firmy Microsoft
-description: W tym artykule opisano różne metryki i dzienniki dostępu, które obsługują usługi Azure Front Door
+title: Monitorowanie metryk i dzienników w usłudze Azure front-drzwi | Microsoft Docs
+description: W tym artykule opisano różne metryki i dzienniki dostępu obsługiwane przez usługę Azure front-drzwi
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,99 +12,99 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: b935355cce36a6e26b168db286ab40248f8f0f68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471731"
 ---
-# <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitorowanie metryk i dzienników w drzwiach frontowych platformy Azure
+# <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitorowanie metryk i dzienników na platformie Azure — drzwiczki
 
-Korzystając z usługi Azure Front Door, można monitorować zasoby w następujący sposób:
+Korzystając z usług frontonu platformy Azure, można monitorować zasoby w następujący sposób:
 
-- **Metryki**. Usługa Azure Front Door ma obecnie siedem metryk do wyświetlania liczników wydajności.
-- **Dzienniki**. Dzienniki aktywności i diagnostyki umożliwiają zapisywanie lub przetwarzanie danych z zasobów w celu monitorowania wydajności, dostępu i innych danych.
+- **Metryki**. Drzwi frontonu platformy Azure mają obecnie siedem metryk do wyświetlania liczników wydajności.
+- **Dzienniki**. Dzienniki działań i diagnostyki umożliwiają zapisywanie lub zużywanie wydajności, dostępu i innych danych z zasobów na potrzeby monitorowania.
 
 ### <a name="metrics"></a>Metryki
 
-Metryki są funkcją dla niektórych zasobów platformy Azure, które umożliwiają wyświetlanie liczników wydajności w portalu. Dostępne są dane dotyczące drzwi wejściowych:
+Metryki to funkcja niektórych zasobów platformy Azure, która umożliwia wyświetlanie liczników wydajności w portalu. Dostępne są następujące metryki czołowych drzwi:
 
-| Metryka | Metryka Nazwa wyświetlana | Jednostka | Wymiary | Opis |
+| Metryka | Nazwa wyświetlana metryki | Jednostka | Wymiary | Opis |
 | --- | --- | --- | --- | --- |
-| Liczba żądań | Liczba żądań | Liczba | Stan http</br>Grupa HttpStatus</br>Region klienta</br>Kraj klienta | Liczba żądań klientów obsługiwanych przez drzwi wejściowe.  |
-| Rozmiar żądania | Rozmiar żądania | Bajty | Stan http</br>Grupa HttpStatus</br>Region klienta</br>Kraj klienta | Liczba bajtów wysyłanych jako żądania od klientów do drzwi wejściowych. |
-| Rozmiar odpowiedzi | Rozmiar odpowiedzi | Bajty | Stan http</br>Grupa HttpStatus</br>Region klienta</br>Kraj klienta | Liczba bajtów wysłanych jako odpowiedzi z drzwi wejściowych do klientów. |
-| TotalLatency (TotalLatency) | Całkowite opóźnienie | Milisekund | Stan http</br>Grupa HttpStatus</br>Region klienta</br>Kraj klienta | Czas obliczony na podstawie żądania klienta odebranego przez drzwi wejściowe, dopóki klient nie potwierdzi ostatniego bajtu odpowiedzi z drzwiami frontowymi. |
-| ZapleczeRequestCount | Liczba żądań wewnętrznej bazy danych | Liczba | Stan http</br>Grupa HttpStatus</br>Zaplecze | Liczba żądań wysłanych z drzwi frontowych do zaplecza. |
-| BackendRequestLatency (BackendRequestLatency) | Opóźnienie żądania wewnętrznej bazy danych | Milisekund | Zaplecze | Czas obliczony od momentu wysłania żądania przez drzwi frontowe do wewnętrznej bazy danych do momentu odebranie przez drzwi wejściowe ostatniego bajtu odpowiedzi z wewnętrznej bazy danych. |
-| BackendHealthPercentage | Procent kondycji wewnętrznej bazy danych | Wartość procentowa | Zaplecze</br>BackendPool (BackendPool) | Procent pomyślnych sond kondycji od drzwi frontowych do zaplecza. |
-| Konto WebApplicationFirewallRequestCount | Liczba żądań zapory aplikacji sieci Web | Liczba | PolicyName</br>Rulename</br>Akcja | Liczba żądań klientów przetworzonych przez zabezpieczenia warstwy aplikacji drzwiami frontowymi. |
+| RequestCount | Liczba żądań | Liczba | Wartości httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Liczba żądań klientów obsłużonych przez tylne drzwi.  |
+| RequestSize | Rozmiar żądania | Bajty | Wartości httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Liczba bajtów wysłanych jako żądania od klientów do przednich drzwi. |
+| ResponseSize | Rozmiar odpowiedzi | Bajty | Wartości httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Liczba bajtów wysłanych jako odpowiedzi z pierwszych drzwi do klientów. |
+| TotalLatency | Łączne opóźnienie | ) | Wartości httpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Czas, który został obliczony przez żądanie klienta odebrane przez tylne drzwi do momentu potwierdzenia przez klienta ostatniego bajtu odpowiedzi z drzwi przednich. |
+| BackendRequestCount | Liczba żądań wewnętrznej bazy danych | Liczba | Wartości httpStatus</br>HttpStatusGroup</br>Zaplecze | Liczba żądań wysyłanych z przednich drzwi do frontonu. |
+| BackendRequestLatency | Opóźnienie żądania wewnętrznej bazy danych | ) | Zaplecze | Czas, jaki upłynął od momentu wysłania żądania przez drzwi do zaplecza do momentu odebrania ostatniego bajtu odpowiedzi z zaplecza do przodu. |
+| BackendHealthPercentage | Procent kondycji zaplecza | Wartość procentowa | Zaplecze</br>Ustawień httpsettings elementu | Procent pomyślnych sond kondycji z czołowych drzwi do frontonu. |
+| WebApplicationFirewallRequestCount | Liczba żądań zapory aplikacji sieci Web | Liczba | PolicyName</br>RuleName</br>Akcja | Liczba żądań klientów przetworzonych przez zabezpieczenia warstwy aplikacji dla drzwi z przodu. |
 
 ## <a name="activity-logs"></a><a name="activity-log"></a>Dzienniki aktywności
 
-Dzienniki aktywności zawierają informacje o operacjach wykonywanych na drzwiach frontowych. Określają one również, co, kto i kiedy dla operacji zapisu (umieścić, opublikować lub usunąć) podjęte na drzwiach frontowych.
+Dzienniki aktywności zawierają informacje o operacjach wykonywanych na wierzchu drzwi. Określają one również elementy, kto i kiedy dla operacji zapisu (Put, post lub Delete) podejmowane na wierzchu drzwi.
 
 >[!NOTE]
->Dzienniki aktywności nie obejmują operacji odczytu (get). Nie obejmują one również operacji, które można wykonać przy użyciu witryny Azure portal lub oryginalnego interfejsu API zarządzania.
+>Dzienniki aktywności nie obejmują operacji odczytu (Get). Nie obejmują one również operacji wykonywanych przy użyciu Azure Portal lub oryginalnego interfejsu API zarządzania.
 
-Dostęp do dzienników aktywności w drzwiach frontowych lub wszystkich dzienników zasobów platformy Azure w usłudze Azure Monitor. Aby wyświetlić dzienniki aktywności:
+Uzyskuj dostęp do dzienników aktywności w swoich drzwiach lub wszystkich dzienników zasobów platformy Azure w Azure Monitor. Aby wyświetlić dzienniki aktywności:
 
-1. Wybierz wystąpienie drzwi frontowych.
-2. Wybierz **dziennik aktywności**.
+1. Wybierz wystąpienie z drzwiami czołowymi.
+2. Wybierz pozycję **Dziennik aktywności**.
 
     ![Dziennik aktywności](./media/front-door-diagnostics/activity-log.png)
 
 3. Wybierz zakres filtrowania, a następnie wybierz pozycję **Zastosuj**.
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Dzienniki diagnostyczne
-Dzienniki diagnostyczne zawierają zaawansowane informacje o operacjach i błędach, które są ważne dla inspekcji i rozwiązywania problemów. Dzienniki diagnostyczne różnią się od dzienników aktywności.
+Dzienniki diagnostyczne zawierają bogate informacje o operacjach i błędach, które są ważne w przypadku inspekcji i rozwiązywania problemów. Dzienniki diagnostyczne różnią się od dzienników aktywności.
 
-Dzienniki aktywności zapewniają wgląd w operacje wykonywane na zasoby platformy Azure. Dzienniki diagnostyczne zapewniają wgląd w operacje wykonywane zasób. Aby uzyskać więcej informacji, zobacz [Dzienniki diagnostyczne usługi Azure Monitor](../azure-monitor/platform/platform-logs-overview.md).
+Dzienniki aktywności zapewniają wgląd w operacje wykonywane w zasobach platformy Azure. Dzienniki diagnostyczne zapewniają wgląd w operacje wykonywane przez zasób. Aby uzyskać więcej informacji, zobacz [Azure monitor dzienników diagnostycznych](../azure-monitor/platform/platform-logs-overview.md).
 
 ![Dzienniki diagnostyczne](./media/front-door-diagnostics/diagnostic-log.png)
 
-Aby skonfigurować dzienniki diagnostyczne dla drzwi ekwiomowych:
+Aby skonfigurować dzienniki diagnostyczne dla drzwi czołowych:
 
-1. Wybierz drzwi frontowe platformy Azure.
+1. Wybierz swoje drzwi z platformy Azure.
 
-2. Wybierz **pozycję Ustawienia diagnostyczne**.
+2. Wybierz pozycję **Ustawienia diagnostyczne**.
 
-3. Wybierz **włącz diagnostykę**. Archiwizuj dzienniki diagnostyczne wraz z metrykami na konto magazynu, przesyłaj je strumieniowo do centrum zdarzeń lub wysyłaj do dzienników usługi Azure Monitor.
+3. Wybierz pozycję **Włącz diagnostykę**. Archiwizuj dzienniki diagnostyczne wraz z metrykami na koncie magazynu, przesyłaj strumieniowo do centrum zdarzeń lub wysyłaj je do dzienników Azure Monitor.
 
-Drzwi frontowe obecnie udostępnia dzienniki diagnostyczne (wsadowe co godzinę). Dzienniki diagnostyczne zapewniają indywidualne żądania interfejsu API z każdego wpisu o następującym schemacie:
+Drzwi z przodu zawierają obecnie dzienniki diagnostyczne (wsadowe co godzinę). Dzienniki diagnostyczne zapewniają pojedyncze żądania interfejsu API za pomocą każdego wpisu, który ma następujący schemat:
 
 | Właściwość  | Opis |
 | ------------- | ------------- |
-| Nazwa backendhostname | Jeśli żądanie było przekazywane do wewnętrznej bazy danych, to pole reprezentuje nazwa hosta wewnętrznej bazy danych. To pole będzie puste, jeśli żądanie zostało przekierowane lub przekazane do regionalnej pamięci podręcznej (gdy buforowanie jest włączone dla reguły routingu). |
-| Stan pamięci podręcznej | W przypadku scenariuszy buforowania to pole definiuje trafienie/pominięcie pamięci podręcznej w punkcie POP |
-| ClientIp | Adres IP klienta, który złożył żądanie. Jeśli w żądaniu był nagłówek X-Forwarded-For, adres IP klienta jest pobierany z tego samego. |
-| Port klienta | Port IP klienta, który złożył żądanie. |
-| HttpMethod (httpmethod) | Metoda HTTP używana przez żądanie. |
-| Kod HttpStatus | Kod stanu HTTP zwrócony z serwera proxy. |
-| Szczegóły httpStatusDetails | Wynikowy stan na żądanie. Znaczenie tej wartości ciągu można znaleźć w tabeli odwołanie status. |
-| Wersja httpwersacjowa | Typ żądania lub połączenia. |
-| POP | Krótka nazwa krawędzi, na której wylądował wniosek. |
-| RequestBytes (Żądaj bajtów) | Rozmiar komunikatu żądania HTTP w bajtach, w tym nagłówki żądań i treść żądania. |
-| Requesturi | Identyfikator URI odebranego żądania. |
-| Odpowiedzi Bajty | Bajty wysyłane przez serwer wewnętrznej bazy danych jako odpowiedź.  |
-| Nazwa reguł routingu | Nazwa reguły routingu, do którą dopasowane żądanie. |
-| SecurityProtocol (właśc. | Wersja protokołu TLS/SSL używana przez żądanie lub null, jeśli nie ma szyfrowania. |
-| Tarcza WysłałaToOriginShield | Pole logiczne reprezentujące, jeśli w pierwszym środowisku wystąpiła chybienia w pamięci podręcznej, a żądanie zostało wysłane do regionalnej pamięci podręcznej. Zignoruj to pole, jeśli reguła routingu jest przekierowaniem lub gdy nie ma włączonego buforowania. |
-| CzasTaken | Czas trwania akcji w milisekundach. |
-| ŚledzenieReferencja | Unikatowy ciąg odwołania, który identyfikuje żądanie obsługiwane przez drzwiami frontowymi, również wysyłane jako nagłówek X-Azure-Ref do klienta. Wymagane do wyszukiwania szczegółów w dziennikach dostępu dla określonego żądania. |
-| Useragent | Typ przeglądarki, który był używany przez klienta. |
+| BackendHostname | Jeśli żądanie zostało przekazane do zaplecza, to pole reprezentuje nazwę hosta zaplecza. To pole będzie puste, jeśli żądanie zostało przekierowane lub przekazane do regionalnej pamięci podręcznej (gdy buforowanie jest włączone dla reguły routingu). |
+| CacheStatus | W przypadku scenariuszy buforowania to pole definiuje trafień/chybień pamięci podręcznej w punkcie POP |
+| ClientIp | Adres IP klienta, który wykonał żądanie. Jeśli w żądaniu wystąpiło wyrażenie X-Forwarded-For, adres IP klienta zostanie pobrany z tego samego. |
+| ClientPort | Port IP klienta, który wykonał żądanie. |
+| HttpMethod | Metoda HTTP używana przez żądanie. |
+| HttpStatusCode | Kod stanu HTTP zwrócony z serwera proxy. |
+| HttpStatusDetails | Stan wynikający z żądania. Znaczenie tej wartości ciągu można znaleźć w tabeli odwołania do stanu. |
+| HttpVersion | Typ żądania lub połączenia. |
+| POP | Krótka nazwa krawędzi, w której wylądune jest żądanie. |
+| RequestBytes | Rozmiar komunikatu żądania HTTP w bajtach, w tym nagłówki żądań i treść żądania. |
+| RequestUri | Identyfikator URI odebranego żądania. |
+| ResponseBytes | Bajty wysłane przez serwer wewnętrznej bazy danych jako odpowiedź.  |
+| RoutingRuleName | Nazwa reguły routingu, która pasuje do żądania. |
+| To elementu SecurityProtocol | Wersja protokołu TLS/SSL używana przez żądanie lub wartość null, jeśli nie ma szyfrowania. |
+| SentToOriginShield | Pole logiczne reprezentujące, czy podczas pierwszego środowiska wystąpił chybień w pamięci podręcznej, a żądanie zostało wysłane do regionalnej pamięci podręcznej. Zignoruj to pole, jeśli reguła routingu jest przekierowaniem lub gdy buforowanie nie jest włączone. |
+| TimeTaken | Czas trwania akcji (w milisekundach). |
+| TrackingReference | Unikatowy ciąg odwołania, który identyfikuje żądanie obsługiwane przez tylne drzwi, również wysyłany jako nagłówek X-Azure-ref do klienta. Wymagane do wyszukiwania szczegółowych informacji w dziennikach dostępu dla określonego żądania. |
+| UserAgent | Typ przeglądarki używany przez klienta. |
 
-**Uwaga:** W przypadku różnych konfiguracji routingu i zachowań ruchu niektóre pola, takie jak nazwa wiersza kopii zapasowejHostname, cacheStatus, sentToOriginShield i pole POP mogą odpowiadać różnymi wartościami. Poniższa tabela wyjaśnia różne wartości, te pola będą miały dla różnych scenariuszy:
+**Uwaga:** W przypadku różnych konfiguracji routingu i zachowań ruchu niektóre pola, takie jak backendHostname, cacheStatus, sentToOriginShield i POP, mogą reagować z innymi wartościami. W poniższej tabeli objaśniono różne wartości, te pola będą mieć różne scenariusze:
 
-| Scenariusze | Liczba wpisów dziennika | POP | Nazwa backendhostname | Tarcza WysłałaToOriginShield | Stan pamięci podręcznej |
+| Scenariusze | Liczba wpisów dziennika | POP | BackendHostname | SentToOriginShield | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Reguła routingu bez włączeniu buforowania | 1 | Kod przyp. | Zaplecze, w którym żądanie zostało przekazane | False | CONFIG_NOCACHE |
-| Reguła routingu z włączoną buforowaniem. Pamięć podręczna trafiona na krawędzi POP | 1 | Kod przyp. | Pusty | False | Hit |
-| Reguła routingu z włączoną buforowaniem. Cache miss na krawędzi POP, ale cache hit w nadrzędnej pamięci podręcznej POP | 2 | 1. Kod EDGE POP</br>2. Kod POP pamięci podręcznej nadrzędnej | 1. Nadrzędna nazwa hosta pamięci podręcznej POP</br>2. Pusty | 1. Prawda</br>2. Fałsz | 1. MISS</br>2. PARTIAL_HIT |
-| Reguła routingu z włączoną buforowaniem. Pominięcie pamięci podręcznej zarówno w pamięci podręcznej krawędzi, jak i w pamięci podręcznej nadrzędnej POP | 2 | 1. Kod EDGE POP</br>2. Kod POP pamięci podręcznej nadrzędnej | 1. Nadrzędna nazwa hosta pamięci podręcznej POP</br>2. Zaplecze, które pomaga wypełnić pamięć podręczną | 1. Prawda</br>2. Fałsz | 1. MISS</br>2. MISS |
+| Reguła routingu bez włączonego buforowania | 1 | Kod POP krawędzi | Zaplecze, gdzie żądanie zostało przesłane dalej | Fałsz | CONFIG_NOCACHE |
+| Reguła routingu z włączonym buforowaniem. Trafienie pamięci podręcznej w punkcie POP krawędzi | 1 | Kod POP krawędzi | Pusty | Fałsz | Podstawa |
+| Reguła routingu z włączonym buforowaniem. Chybienia w pamięci podręcznej w punkcie obecności, ale w podręcznym buforze zostanie osiągnięty bufor | 2 | 1. kod POP krawędzi</br>2. nadrzędny kod POP pamięci podręcznej | 1. nadrzędna pamięć podręczna w pamięci podręcznej</br>2. puste | 1. true</br>2. false | 1. CHYBIEŃ</br>2. PARTIAL_HIT |
+| Reguła routingu z włączonym buforowaniem. Chybienia w pamięci podręcznej zarówno na krawędzi | 2 | 1. kod POP krawędzi</br>2. nadrzędny kod POP pamięci podręcznej | 1. nadrzędna pamięć podręczna w pamięci podręcznej</br>2. zaplecze, które ułatwia wypełnienie pamięci podręcznej | 1. true</br>2. false | 1. CHYBIEŃ</br>2. CHYBIEŃ |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie profilu drzwi przednich](quickstart-create-front-door.md)
-- [Jak działają drzwi wejściowe](front-door-routing-architecture.md)
+- [Tworzenie profilu frontu drzwi](quickstart-create-front-door.md)
+- [Jak działają tylne drzwi](front-door-routing-architecture.md)

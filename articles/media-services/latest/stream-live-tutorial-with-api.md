@@ -1,7 +1,7 @@
 ---
-title: Transmisja na żywo za pomocą usługi Media Services w wersji 3
+title: Przesyłanie strumieniowe na żywo z Media Services v3
 titleSuffix: Azure Media Services
-description: Dowiedz się, jak przesyłać strumieniowo na żywo za pomocą usługi Azure Media Services w wersji 3.
+description: Dowiedz się, jak przesyłać strumieniowo na żywo za pomocą Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -16,16 +16,16 @@ ms.custom: mvc
 ms.date: 06/13/2019
 ms.author: juliako
 ms.openlocfilehash: 0b6667965ddd1fce30bb2da2593e2a9274b595ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79472020"
 ---
-# <a name="tutorial-stream-live-with-media-services"></a>Samouczek: Przesyłanie strumieniowe na żywo za pomocą usług multimedialnych
+# <a name="tutorial-stream-live-with-media-services"></a>Samouczek: przesyłanie strumieniowe na żywo za pomocą Media Services
 
 > [!NOTE]
-> Mimo że w samouczku użyto przykładów [zestawu .NET SDK,](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) ogólne kroki są takie same dla [interfejsu API REST,](https://docs.microsoft.com/rest/api/media/liveevents) [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)lub innych [obsługiwanych zestawu SDK.](media-services-apis-overview.md#sdks)
+> Mimo że w samouczku są używane przykłady [zestawu .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) , ogólne kroki są takie same dla [interfejsów API REST](https://docs.microsoft.com/rest/api/media/liveevents), interfejsu [wiersza polecenia](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)lub innych obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 W usłudze Azure Media Services [wydarzenia na żywo](https://docs.microsoft.com/rest/api/media/liveevents) są odpowiedzialne za przetwarzanie zawartości transmisji strumieniowej na żywo. Wydarzenie na żywo udostępnia wejściowy punkt końcowy (adres URL pozyskiwania), który należy przekazać do kodera na żywo. Wydarzenie na żywo odbiera strumienie wejściowe na żywo z kodera na żywo i udostępnia je do przesyłania strumieniowego za pośrednictwem co najmniej jednego [punktu końcowego przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingendpoints). Wydarzenia na żywo oferują również punkt końcowy podglądu (adres URL podglądu), dzięki któremu można wyświetlać podgląd i weryfikować strumień przed dalszym przetwarzaniem i dostarczaniem. W tym samouczku przedstawiono sposób użycia platformy .NET Core do tworzenia **kanału do przekazywania zawartości** wydarzeń na żywo.
 
@@ -33,8 +33,8 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 
 > [!div class="checklist"]
 > * Pobierz przykładową aplikację opisaną w temacie.
-> * Sprawdź kod, który wykonuje transmisje strumieniowe na żywo.
-> * Obejrzyj wydarzenie za pomocą [https://ampdemo.azureedge.net](https://ampdemo.azureedge.net)programu Azure Media [Player](https://amp.azure.net/libs/amp/latest/docs/index.html) pod adresem .
+> * Przejrzyj kod, który wykonuje transmisję strumieniową na żywo.
+> * Obejrzyj zdarzenie, [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) pod adresem [https://ampdemo.azureedge.net](https://ampdemo.azureedge.net).
 > * Oczyszczenie zasobów.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -44,10 +44,10 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 Do ukończenia tego samouczka są niezbędne następujące elementy:
 
 - Zainstalowanie narzędzia Visual Studio Code lub Visual Studio.
-- [Utwórz konto usługi Media Services](create-account-cli-how-to.md).<br/>Pamiętaj, aby zapamiętać wartości używane dla nazwy grupy zasobów i nazwy konta usługi Media Services.
-- Postępuj zgodnie z instrukcjami zawartymi w temacie [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Uzyskiwanie dostępu do interfejsu API usług Azure Media Services za pomocą interfejsu wiersza polecenia platformy Azure) i zapisz poświadczenia. Musisz ich używać, aby uzyskać dostęp do interfejsu API.
-- Aparat lub urządzenie (takie jak laptop), które jest używane do emisji wydarzenia.
-- Lokalny koder na żywo, który konwertuje sygnały z kamery na strumienie wysyłane do usługi Przesyłania strumieniowego na żywo w usłudze Media Services, zobacz [zalecane lokalne kodery na żywo.](recommended-on-premises-live-encoders.md) Strumień musi być w formacie **RTMP** lub **Smooth Streaming**.
+- [Utwórz konto Media Services](create-account-cli-how-to.md).<br/>Pamiętaj, aby zapamiętać wartości używane dla nazwy grupy zasobów i nazwy konta Media Services.
+- Postępuj zgodnie z instrukcjami zawartymi w temacie [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Uzyskiwanie dostępu do interfejsu API usług Azure Media Services za pomocą interfejsu wiersza polecenia platformy Azure) i zapisz poświadczenia. Musisz użyć ich do uzyskania dostępu do interfejsu API.
+- Aparat lub urządzenie (na przykład laptop), które jest używane do emisji zdarzenia.
+- Lokalny koder na żywo, który konwertuje sygnały z aparatu do strumieni wysyłanych do Media Services na żywo usługi przesyłania strumieniowego, zobacz [zalecane lokalne kodery na żywo](recommended-on-premises-live-encoders.md). Strumień musi być w formacie **RTMP** lub **Smooth Streaming**.
 
 > [!TIP]
 > Przed kontynuowaniem przejrzyj sekcję [Transmisja strumieniowa na żywo przy użyciu usługi Media Services v3](live-streaming-overview.md). 
@@ -62,20 +62,20 @@ Sklonuj repozytorium GitHub zawierające przykład przesyłania strumieniowego p
 
 Przykład transmisji strumieniowej na żywo znajduje się w folderze [Live](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live/MediaV3LiveApp).
 
-Otwórz [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) w pobranym projekcie. Zastąp wartości poświadczeniami, które otrzymałeś [w celu uzyskania dostępu do interfejsów API](access-api-cli-how-to.md).
+Otwórz plik [appSettings. JSON](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) w pobranym projekcie. Zastąp wartości poświadczeniami uzyskanymi w celu [uzyskania dostępu do interfejsów API](access-api-cli-how-to.md).
 
 > [!IMPORTANT]
-> W tym przykładzie użyto unikatowego sufiksu dla każdego zasobu. Jeśli anulujesz debugowanie lub zakończysz aplikację bez uruchamiania jej, skończysz z wieloma wydarzeniami na żywo na swoim koncie. <br/>Pamiętaj, aby zatrzymać uruchomione wydarzenia na żywo. W przeciwnym razie zostanie **naliczona faktura!**
+> Ten przykład używa unikatowego sufiksu dla każdego zasobu. Jeśli anulujesz debugowanie lub wygaśniesz aplikację bez jej uruchamiania, będziesz mieć wiele wydarzeń na żywo na koncie. <br/>Pamiętaj, aby zatrzymać uruchomione wydarzenia na żywo. W przeciwnym razie zostanie **naliczona**stawka.
 
 ## <a name="examine-the-code-that-performs-live-streaming"></a>Analizowanie kodu, który przeprowadza transmisję strumieniową na żywo
 
 W tej sekcji są analizowane funkcje zdefiniowane w pliku [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs) projektu *MediaV3LiveApp*.
 
-Przykład tworzy unikatowy sufiks dla każdego zasobu, dzięki czemu nie masz kolizji nazw, jeśli próbka zostanie uruchomiony wiele razy bez czyszczenia.
+Przykład tworzy unikatowy sufiks dla każdego zasobu, co sprawia, że nie występują kolizje nazw, jeśli przykład zostanie uruchomiony wielokrotnie bez czyszczenia.
 
 > [!IMPORTANT]
-> W tym przykładzie użyto unikatowego sufiksu dla każdego zasobu. Jeśli anulujesz debugowanie lub zakończysz aplikację bez uruchamiania jej, skończysz z wieloma wydarzeniami na żywo na swoim koncie. <br/>
-> Pamiętaj, aby zatrzymać uruchomione wydarzenia na żywo. W przeciwnym razie zostanie **naliczona faktura!**
+> Ten przykład używa unikatowego sufiksu dla każdego zasobu. Jeśli anulujesz debugowanie lub wygaśniesz aplikację bez jej uruchamiania, będziesz mieć wiele wydarzeń na żywo na koncie. <br/>
+> Pamiętaj, aby zatrzymać uruchomione wydarzenia na żywo. W przeciwnym razie zostanie **naliczona**stawka.
 
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Rozpoczynanie korzystania z interfejsów API usługi Media Services przy użyciu zestawu .NET SDK
 
@@ -85,21 +85,21 @@ Aby rozpocząć korzystanie z interfejsów API usługi Media Services na platfor
 
 ### <a name="create-a-live-event"></a>Utwórz wydarzenie na żywo
 
-W tej sekcji przedstawiono sposób tworzenia **przekazywanego** typu wydarzenia na żywo (o wartości parametru LiveEventEncodingType ustawionej na None). Aby uzyskać więcej informacji na temat dostępnych typów wydarzeń na żywo, zobacz [Typy zdarzeń na żywo](live-events-outputs-concept.md#live-event-types). 
+W tej sekcji przedstawiono sposób tworzenia **przekazywanego** typu wydarzenia na żywo (o wartości parametru LiveEventEncodingType ustawionej na None). Aby uzyskać więcej informacji na temat dostępnych typów zdarzeń na żywo, zobacz [typy zdarzeń na żywo](live-events-outputs-concept.md#live-event-types). 
  
-Niektóre rzeczy, które można określić podczas tworzenia wydarzenia na żywo są:
+Niektóre elementy, które można określić podczas tworzenia zdarzenia na żywo są następujące:
 
-* Lokalizacja usługi Media Services.
-* Protokół transmisji strumieniowej wydarzenia na żywo (obecnie obsługiwane są protokoły RTMP i Smooth Streaming).<br/>Nie można zmienić opcji protokołu, gdy jest uruchomione zdarzenie na żywo lub skojarzone z nim dane wyjściowe na żywo. Jeśli potrzebujesz różnych protokołów, utwórz oddzielne wydarzenie na żywo dla każdego protokołu przesyłania strumieniowego.  
-* Ograniczenia dotyczące adresów IP w pozyskiwaniu i podglądzie. Można zdefiniować adresy IP, które mogą pozyskiwać pliki wideo w tym wydarzeniu na żywo. Jako dozwolone adresy IP można podać pojedynczy adres IP (na przykład „10.0.0.1”), zakres adresów IP przy użyciu adresu IP i maski podsieci CIDR (na przykład „10.0.0.1/22”) lub zakres adresów IP przy użyciu adresu IP i maski podsieci w notacji z kropką dziesiętną (na przykład, „10.0.0.1(255.255.252.0)”).<br/>Jeśli nie określono żadnych adresów IP i nie ma definicji reguły, nie będzie dozwolony żaden adres IP. Aby zezwolić na jakikolwiek adres IP, utwórz regułę i ustaw wartość 0.0.0.0/0.<br/>Adresy IP muszą być w jednym z następujących formatów: adres IpV4 z czterema numerami lub zakres adresów CIDR.
-* Podczas tworzenia zdarzenia można określić jego automatyczne uruchamianie. <br/>Jeśli automatyczne uruchamianie zostanie ustawione na wartość true, wydarzenie na żywo rozpocznie się po utworzeniu. Oznacza to, że rozliczenia rozpoczyna się natychmiast po uruchomieniu zdarzenia na żywo. Należy jawnie wywołać operację zatrzymywania w zasobie wydarzenia na żywo, aby zatrzymać dalsze rozliczenia. Aby uzyskać więcej informacji, zobacz [Live Event states and billing](live-event-states-billing.md) (Stany i rozliczenia dotyczące wydarzenia na żywo).
-* Aby adres URL pozyskiwania był predykcyjny, ustaw tryb "próżność". Aby uzyskać szczegółowe informacje, zobacz [Adresy URL pozyskiwania zdarzeń na żywo](live-events-outputs-concept.md#live-event-ingest-urls).
+* Media Services lokalizacji.
+* Protokół transmisji strumieniowej wydarzenia na żywo (obecnie obsługiwane są protokoły RTMP i Smooth Streaming).<br/>Nie można zmienić opcji protokołu, gdy działa zdarzenie na żywo lub skojarzone z nim wyjście na żywo. Jeśli potrzebujesz różnych protokołów, Utwórz oddzielne wydarzenie na żywo dla każdego protokołu przesyłania strumieniowego.  
+* Ograniczenia dotyczące adresów IP w pozyskiwaniu i podglądzie. Można zdefiniować adresy IP, które mogą pozyskiwać pliki wideo w tym wydarzeniu na żywo. Jako dozwolone adresy IP można podać pojedynczy adres IP (na przykład „10.0.0.1”), zakres adresów IP przy użyciu adresu IP i maski podsieci CIDR (na przykład „10.0.0.1/22”) lub zakres adresów IP przy użyciu adresu IP i maski podsieci w notacji z kropką dziesiętną (na przykład, „10.0.0.1(255.255.252.0)”).<br/>Jeśli nie określono adresów IP i nie ma definicji reguły, adres IP nie będzie dozwolony. Aby zezwolić na jakikolwiek adres IP, utwórz regułę i ustaw wartość 0.0.0.0/0.<br/>Adresy IP muszą znajdować się w jednym z następujących formatów: adres IpV4 z czterema numerami lub zakresem adresów CIDR.
+* Podczas tworzenia zdarzenia możesz określić, aby uruchomić je ponownie. <br/>Jeśli automatyczne uruchamianie zostanie ustawione na wartość true, wydarzenie na żywo rozpocznie się po utworzeniu. Oznacza to, że rozliczanie zaczyna się zaraz po rozpoczęciu uruchamiania zdarzenia na żywo. Należy jawnie wywołać operację zatrzymywania w zasobie wydarzenia na żywo, aby zatrzymać dalsze rozliczenia. Aby uzyskać więcej informacji, zobacz [Live Event states and billing](live-event-states-billing.md) (Stany i rozliczenia dotyczące wydarzenia na żywo).
+* Aby adres URL pozyskiwania był predykcyjny, ustaw tryb "znaczącym". Aby uzyskać szczegółowe informacje, zobacz [adresy URL](live-events-outputs-concept.md#live-event-ingest-urls)pozyskiwania zdarzeń na żywo.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 
 ### <a name="get-ingest-urls"></a>Pobieranie adresów URL pozyskiwania
 
-Po utworzeniu wydarzenia na żywo możesz uzyskać adresy URL pozyskiwania, które podasz koderowi na żywo. Koder używa tych adresów URL do wprowadzenia strumienia na żywo.
+Po utworzeniu zdarzenia na żywo możesz uzyskać adresy URL pozyskiwania do kodera na żywo. Koder używa tych adresów URL do wprowadzenia strumienia na żywo.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetIngestURL)]
 
@@ -108,7 +108,7 @@ Po utworzeniu wydarzenia na żywo możesz uzyskać adresy URL pozyskiwania, któ
 Użyj funkcji previewEndpoint do podglądu i sprawdź, czy dane wejściowe z kodera są faktycznie odbierane.
 
 > [!IMPORTANT]
-> Przed kontynuowaniem upewnij się, że film jest przesyłany do adresu URL podglądu.
+> Przed kontynuowaniem upewnij się, że wideo przepływa do adresu URL wersji zapoznawczej.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetPreviewURLs)]
 
@@ -124,14 +124,14 @@ Utwórz zasób przeznaczony do użycia przez dane wyjściowe na żywo.
 
 #### <a name="create-a-live-output"></a>Tworzenie danych wyjściowych na żywo
 
-Dane wyjściowe na żywo są uruchamiane w momencie utworzenia i zatrzymywane podczas usuwania. Po usunięciu danych wyjściowych na żywo nie usuwasz bazowego zasobu i zawartości zasobu.
+Dane wyjściowe na żywo są uruchamiane w momencie utworzenia i zatrzymywane podczas usuwania. Po usunięciu danych wyjściowych na żywo nie jest usuwany podstawowy element zawartości i zawartość w elemencie zawartości.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveOutput)]
 
 #### <a name="create-a-streaming-locator"></a>Tworzenie lokalizatora przesyłania strumieniowego
 
 > [!NOTE]
-> Po utworzeniu konta usługi Media Services **domyślny** punkt końcowy przesyłania strumieniowego jest dodawany do konta w stanie **Zatrzymane.** Aby rozpocząć przesyłanie strumieniowe zawartości i korzystać z [dynamicznego pakowania](dynamic-packaging-overview.md) i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz przesyłać strumieniowo zawartość, musi być w stanie **Uruchomione.**
+> Po utworzeniu konta Media Services zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego w stanie **zatrzymanym** . Aby rozpocząć przesyłanie strumieniowe zawartości i korzystać z [dynamicznego tworzenia pakietów](dynamic-packaging-overview.md) i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi być w stanie **uruchomienia** .
 
 Podczas publikowania zasobu danych wyjściowych na żywo przy użyciu lokalizatora przesyłania strumieniowego wydarzenie na żywo (aż do długości okna DVR) będzie cały czas widoczne aż do momentu wygaśnięcia lokalizatora przesyłania strumieniowego lub jego usunięcia, zależnie od tego, co nastąpi wcześniej.
 
@@ -155,11 +155,11 @@ foreach (StreamingPath path in paths.StreamingPaths)
 
 ### <a name="cleaning-up-resources-in-your-media-services-account"></a>Oczyszczanie zasobów na koncie usługi Media Services
 
-Jeśli skończysz przesyłanie strumieniowe i chcesz wyczyścić zasoby aprowidzone wcześniej, wykonaj następującą procedurę:
+Jeśli zakończysz przesyłanie strumieniowe zdarzeń i chcesz wyczyścić zasoby, których zainicjowano wcześniej, postępuj zgodnie z następującą procedurą:
 
 * Zatrzymaj wypychanie strumienia z kodera.
-* Zatrzymaj wydarzenie na żywo. Po zatrzymaniu wydarzenia na żywo nie będzie ono objęć żadnymi opłatami. W razie potrzeby ponownego uruchomienia kanał będzie miał ten sam adres URL pozyskiwania, więc nie trzeba będzie ponownie konfigurować kodera.
-* Można zatrzymać punkt końcowy przesyłania strumieniowego, chyba że chcesz nadal udostępniać archiwum zdarzenia na żywo w formie przesyłania strumieniowego na żądanie. Jeśli zdarzenie na żywo jest w stanie zatrzymania, nie będzie ponosić żadnych opłat.
+* Zatrzymaj wydarzenie na żywo. Po zatrzymaniu wydarzenia na żywo nie zostaną naliczone żadne opłaty. W razie potrzeby ponownego uruchomienia kanał będzie miał ten sam adres URL pozyskiwania, więc nie trzeba będzie ponownie konfigurować kodera.
+* Można zatrzymać punkt końcowy przesyłania strumieniowego, chyba że chcesz nadal udostępniać archiwum zdarzenia na żywo w formie przesyłania strumieniowego na żądanie. Jeśli wydarzenie na żywo jest w stanie zatrzymania, nie spowoduje to ponoszenia żadnych opłat.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLiveEventAndOutput)]
 
@@ -167,9 +167,9 @@ Jeśli skończysz przesyłanie strumieniowe i chcesz wyczyścić zasoby aprowidz
 
 ## <a name="watch-the-event"></a>Oglądanie wydarzenia
 
-Aby obejrzeć zdarzenie, skopiuj adres URL przesyłania strumieniowego, który został uruchomiony po uruchomieniu kodu opisanego w pliku Utwórz lokalizator przesyłania strumieniowego. Możesz użyć wybranego odtwarzacza multimedialnego. [Program Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) jest https://ampdemo.azureedge.netdostępny do testowania strumienia pod adresem .
+Aby obserwować wydarzenie, skopiuj adres URL przesyłania strumieniowego, który został uzyskany podczas uruchamiania kodu opisanego w temacie Tworzenie lokalizatora przesyłania strumieniowego. Możesz użyć wybranego odtwarzacza multimedialnego. [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) jest dostępny do testowania strumienia pod adresem https://ampdemo.azureedge.net.
 
-Po zatrzymaniu wydarzenia na żywo wydarzenie jest automatycznie konwertowane na zawartość na żądanie. Nawet po zatrzymaniu i usunięciu zdarzenia użytkownicy mogą przesyłać strumieniowo zarchiwizowanej zawartości jako wideo na żądanie, o ile nie usuniesz zasobu. Zasobu nie można usunąć, jeśli jest on używany przez zdarzenie; zdarzenie musi zostać usunięte w pierwszej kolejności.
+Po zatrzymaniu wydarzenia na żywo wydarzenie jest automatycznie konwertowane na zawartość na żądanie. Nawet po zatrzymaniu i usunięciu zdarzenia użytkownicy będą mogli przesyłać strumieniowo zarchiwizowaną zawartość jako wideo na żądanie tak długo, jak nie usuniesz elementu zawartości. Nie można usunąć elementu zawartości, jeśli jest on używany przez zdarzenie. najpierw należy usunąć zdarzenie.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -184,9 +184,9 @@ az group delete --name amsResourceGroup
 > [!IMPORTANT]
 > Pozostawienie uruchomionego wydarzenia na żywo wiąże się z naliczaniem opłat. Należy pamiętać, że jeśli projekt/program ulegnie awarii lub zostanie zamknięty z jakiegokolwiek powodu, wydarzenie na żywo może pozostać uruchomione w stanie naliczania opłat.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Zadawaj pytania, przekazuj opinie, otrzyj aktualizacje
+## <a name="ask-questions-give-feedback-get-updates"></a>Zadawaj pytania, Przekaż opinię, uzyskaj aktualizacje
 
-Zapoznaj się z artykułem [społeczności usługi Azure Media Services,](media-services-community.md) aby zobaczyć różne sposoby zadawania pytań, przekazywania opinii i otrzymywać aktualizacje dotyczące usługi Media Services.
+Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
 ## <a name="next-steps"></a>Następne kroki
 

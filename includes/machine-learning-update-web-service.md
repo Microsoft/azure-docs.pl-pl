@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
 ms.openlocfilehash: d36bf2db05113656a77e76ff900d95910f313c73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477259"
 ---
-Aby zaktualizować usługę sieci `update` web, użyj tej metody. Można zaktualizować usługę sieci web, aby użyć nowego modelu, nowego skryptu wpisu lub nowych zależności, które można określić w konfiguracji wnioskowania. Aby uzyskać więcej informacji, zobacz dokumentację [witryny Webservice.update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
+Aby zaktualizować usługę sieci Web, należy użyć `update` metody. Usługę sieci Web można zaktualizować tak, aby korzystała z nowego modelu, nowego skryptu wprowadzania lub nowych zależności, które można określić w konfiguracji wnioskowania. Aby uzyskać więcej informacji, zobacz dokumentację usługi [WebService. Update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
 
 > [!IMPORTANT]
 > Podczas tworzenia nowej wersji modelu należy ręcznie zaktualizować każdą usługę, która ma być używana.
 >
-> Nie można użyć zestawu SDK do aktualizacji usługi sieci web opublikowanej za pomocą projektanta usługi Azure Machine Learning.
+> Nie można użyć zestawu SDK w celu zaktualizowania usługi sieci web opublikowanej przy użyciu programu Azure Machine Learning Designer.
 
 **Używanie zestawu SDK**
 
-Poniższy kod pokazuje, jak używać SDK do aktualizowania modelu, środowiska i skryptu wpisu dla usługi sieci web:
+Poniższy kod pokazuje, jak używać zestawu SDK do aktualizowania skryptu modelu, środowiska i wpisu dla usługi sieci Web:
 
 ```python
 from azureml.core import Environment
@@ -53,7 +53,7 @@ print(service.get_logs())
 
 **Korzystanie z interfejsu wiersza polecenia**
 
-Usługę sieci web można również zaktualizować za pomocą interfejsu wiersza polecenia ML. Poniższy przykład pokazuje rejestrowanie nowego modelu, a następnie aktualizowanie usługi sieci web w celu użycia nowego modelu:
+Usługę sieci Web można również zaktualizować za pomocą interfejsu wiersza polecenia ML. Poniższy przykład ilustruje rejestrowanie nowego modelu, a następnie aktualizowanie usługi sieci Web do korzystania z nowego modelu:
 
 ```azurecli
 az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --output-metadata-file modelinfo.json
@@ -61,8 +61,8 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 ```
 
 > [!TIP]
-> W tym przykładzie dokument JSON jest używany do przekazywania informacji o modelu z polecenia rejestracji do polecenia aktualizacji.
+> W tym przykładzie dokument JSON jest używany do przekazywania informacji o modelu z polecenia rejestracji do polecenia Update.
 >
-> Aby zaktualizować usługę w celu użycia nowego skryptu lub środowiska wpisu, `ic` utwórz [plik konfiguracyjny wnioskowania](/azure/machine-learning/service/reference-azure-machine-learning-cli#inference-configuration-schema) i określ go za pomocą parametru.
+> Aby zaktualizować usługę tak, aby korzystała z nowego skryptu lub środowiska wprowadzania, Utwórz [plik konfiguracji wnioskowania](/azure/machine-learning/service/reference-azure-machine-learning-cli#inference-configuration-schema) i określ go za `ic` pomocą parametru.
 
-Aby uzyskać więcej informacji, zobacz dokumentację [aktualizacji usługi az ml.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update)
+Aby uzyskać więcej informacji, zobacz [AZ ml Service Update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update) documentation.

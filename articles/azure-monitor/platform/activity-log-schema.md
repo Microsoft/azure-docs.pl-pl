@@ -1,5 +1,5 @@
 ---
-title: Schemat zdarzenia dziennika aktywności platformy Azure
+title: Schemat zdarzeń dziennika aktywności platformy Azure
 description: Opisuje schemat zdarzeń dla każdej kategorii w dzienniku aktywności platformy Azure.
 author: bwren
 services: azure-monitor
@@ -8,19 +8,19 @@ ms.date: 12/04/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: c2f171c79423e0cfe8b57c05b8248679f9ada9f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79472745"
 ---
-# <a name="azure-activity-log-event-schema"></a>Schemat zdarzenia dziennika aktywności platformy Azure
-[Dziennik aktywności platformy Azure](platform-logs-overview.md) zapewnia wgląd w wszelkie zdarzenia na poziomie subskrypcji, które wystąpiły na platformie Azure. W tym artykule opisano schemat zdarzeń dla każdej kategorii. 
+# <a name="azure-activity-log-event-schema"></a>Schemat zdarzeń dziennika aktywności platformy Azure
+[Dziennik aktywności platformy Azure](platform-logs-overview.md) zawiera szczegółowe informacje o wszystkich zdarzeniach na poziomie subskrypcji, które wystąpiły na platformie Azure. W tym artykule opisano schemat zdarzeń dla każdej kategorii. 
 
-Poniższe przykłady pokazują schemat podczas uzyskiwania dostępu do dziennika aktywności z portalu, programu PowerShell, interfejsu wiersza polecenia i interfejsu API REST. Schemat jest inny podczas [przesyłania strumieniowego dziennika aktywności do magazynu lub centrum zdarzeń](resource-logs-stream-event-hubs.md). Mapowanie właściwości do [schematu dzienników zasobów](diagnostic-logs-schema.md) znajduje się na końcu artykułu.
+W poniższych przykładach przedstawiono schemat podczas uzyskiwania dostępu do dziennika aktywności z poziomu portalu, programu PowerShell, interfejsu wiersza polecenia i API REST. Schemat jest różny podczas [przesyłania strumieniowego dziennika aktywności do magazynu lub Event Hubs](resource-logs-stream-event-hubs.md). Mapowanie właściwości do [schematu dzienników zasobów](diagnostic-logs-schema.md) znajduje się na końcu artykułu.
 
 ## <a name="administrative"></a>Administracyjne
-Ta kategoria zawiera rekord wszystkich operacji tworzenia, aktualizacji, usuwania i akcji wykonywanych za pośrednictwem Menedżera zasobów. Przykłady typów zdarzeń, które można zobaczyć w tej kategorii obejmują "tworzenie maszyny wirtualnej" i "usuń sieciową grupę zabezpieczeń" Każda akcja podjęta przez użytkownika lub aplikację przy użyciu Menedżera zasobów jest modelowana jako operacja dla określonego typu zasobu. Jeśli typem operacji jest Zapis, Usuń lub Akcja, rekordy zarówno rozpoczęcia, jak i powodzenia lub niepowodzenia tej operacji są rejestrowane w kategorii Administracyjna. Kategoria Administracyjna obejmuje również wszelkie zmiany w kontroli dostępu opartej na rolach w subskrypcji.
+Ta kategoria zawiera rekord wszystkich operacji tworzenia, aktualizowania, usuwania i akcji wykonywanych za pomocą Menedżer zasobów. Przykłady typów zdarzeń widocznych w tej kategorii obejmują "Tworzenie maszyny wirtualnej" i "Usuwanie sieciowej grupy zabezpieczeń" Każda Akcja podejmowana przez użytkownika lub aplikację przy użyciu Menedżer zasobów jest modelowana jako operacja dla określonego typu zasobu. Jeśli typem operacji jest zapis, usuwanie lub Akcja, rekordy zarówno rozpoczęcia, jak i sukcesu lub niepowodzenia tej operacji są rejestrowane w kategorii administracyjnej. Kategoria administracyjna zawiera również wszelkie zmiany w ramach kontroli dostępu opartej na rolach w ramach subskrypcji.
 
 ### <a name="sample-event"></a>Przykładowe zdarzenie
 ```json
@@ -113,32 +113,32 @@ Ta kategoria zawiera rekord wszystkich operacji tworzenia, aktualizacji, usuwani
 ### <a name="property-descriptions"></a>Opisy właściwości
 | Nazwa elementu | Opis |
 | --- | --- |
-| autoryzacja |Obiekt blob właściwości RBAC zdarzenia. Zwykle zawiera właściwości "akcja", "rola" i "zakres". |
-| Obiekt wywołujący |Adres e-mail użytkownika, który wykonał operację, oświadczenie UPN lub oświadczenie nazwy SPN na podstawie dostępności. |
-| Kanały |Jedna z następujących wartości: "Admin", "Operacja" |
-| oświadczenia |Token JWT używany przez usługi Active Directory do uwierzytelniania użytkownika lub aplikacji w celu wykonania tej operacji w Menedżerze zasobów. |
-| correlationId |Zazwyczaj identyfikator GUID w formacie ciągu. Zdarzenia, które współużytkują korelacjęId należą do tej samej akcji uber. |
-| description |Statyczny opis tekstowy zdarzenia. |
-| identyfikator danych zdarzeń |Unikatowy identyfikator zdarzenia. |
-| Eventname | Przyjazna nazwa zdarzenia administracyjnego. |
-| category | Zawsze "Administracyjne" |
-| HttpRequest (Prośba o |Obiekt blob opisujący żądanie http. Zwykle zawiera "clientRequestId", "clientIpAddress" i "method" (metoda HTTP. Na przykład PUT). |
-| poziom |Poziom zdarzenia. Jedna z następujących wartości: "Krytyczny", "Błąd", "Ostrzeżenie" i "Informacyjny" |
-| resourceGroupName |Nazwa grupy zasobów zasobu, do przypadku tego wpływu. |
-| nazwa zasobu |Nazwa dostawcy zasobów dla zasobu, na który ma wpływ |
-| resourceType | Typ zasobu, którego dotyczy zdarzenie Administracyjne. |
-| resourceId |Identyfikator zasobu, na który ma wpływ. |
-| operationId |Identyfikator GUID współużytkowane przez zdarzenia, które odpowiadają jednej operacji. |
+| autoryzacja |Obiekt BLOB właściwości RBAC zdarzenia. Zazwyczaj obejmuje właściwości "Action", "role" i "Scope". |
+| Obiekt wywołujący |Adres e-mail użytkownika, który wykonał operację, oświadczenie nazwy UPN lub oświadczenie SPN na podstawie dostępności. |
+| dyplomatyczn |Jedna z następujących wartości: "admin", "Operation" |
+| oświadczenia |Token JWT używany przez Active Directory do uwierzytelniania użytkownika lub aplikacji w celu wykonania tej operacji w Menedżer zasobów. |
+| correlationId |Zazwyczaj identyfikator GUID w formacie ciągu. Zdarzenia, które współużytkują identyfikator korelacji, należy do tej samej akcji Uber. |
+| description |Tekst statyczny opisu zdarzenia. |
+| eventDataId |Unikatowy identyfikator zdarzenia. |
+| eventName | Przyjazna nazwa zdarzenia administracyjnego. |
+| category | Zawsze "administracyjne" |
+| httpRequest |Obiekt BLOB opisujący żądanie HTTP. Zwykle obejmuje "identyfikatorem żądania klienta", "clientIpAddress" i "Method" (metoda HTTP. Na przykład Umieść. |
+| poziom |Poziom zdarzenia. Jedna z następujących wartości: "krytyczna", "Error", "Warning" i "informacyjny" |
+| resourceGroupName |Nazwa grupy zasobów dla zasobu, którego dotyczy problem. |
+| resourceProviderName |Nazwa dostawcy zasobów dla zasobu, którego dotyczy problem |
+| resourceType | Typ zasobu, którego dotyczy zdarzenie administracyjne. |
+| resourceId |Identyfikator zasobu zasobu, którego dotyczy problem. |
+| operationId |Identyfikator GUID współużytkowany przez zdarzenia, które odpowiadają pojedynczej operacji. |
 | operationName |Nazwa operacji. |
-| properties |Zestaw `<Key, Value>` par (czyli słownika) opisujący szczegóły zdarzenia. |
-| status |Ciąg opisujący stan operacji. Niektóre typowe wartości to: Rozpoczęty, W toku, Powiódł się, Nie powiodło się, Aktywny, Rozwiązany. |
-| Podstanu |Zazwyczaj kod stanu HTTP odpowiedniego wywołania REST, ale może również zawierać inne ciągi opisujące podstat, takie jak te wspólne wartości: OK (kod stanu HTTP: 200), Utworzony (kod stanu HTTP: 201), Zaakceptowany (kod stanu HTTP: 202), Brak zawartości (Stan HTTP Kod: 204), Nieprawidłowe żądanie (kod stanu HTTP: 400), Nie znaleziono (kod stanu HTTP: 404), konflikt (kod stanu HTTP: 409), wewnętrzny błąd serwera (kod stanu HTTP: 500), usługa niedostępna (kod stanu HTTP: 503), limit czasu bramy (kod stanu HTTP: 504). |
-| eventTimestamp |Sygnatura czasowa, gdy zdarzenie zostało wygenerowane przez usługę platformy Azure przetwarzania żądania odpowiadającego zdarzenia. |
-| submissionTimestamp |Sygnatura czasowa, gdy zdarzenie stało się dostępne do wykonywania zapytań. |
+| properties |Zestaw `<Key, Value>` par (czyli słownik) opisujących szczegóły zdarzenia. |
+| status |Ciąg opisujący stan operacji. Niektóre typowe wartości to: rozpoczęte, w toku, zakończone powodzeniem, zakończone niepowodzeniem, aktywne, rozwiązane. |
+| subStatus |Zazwyczaj kod stanu HTTP odpowiadającego wywołania REST, ale może również zawierać inne ciągi opisujące podstan, takie typowe wartości: OK (kod stanu HTTP: 200), utworzony (kod stanu HTTP: 201), zaakceptowany (kod stanu http: 202), brak zawartości (kod stanu http: 204), niewłaściwe żądanie (kod stanu http: 400), nie znaleziono (kod stanu http: 404), konflikt (kod stanu http : 409), wewnętrzny błąd serwera (kod stanu HTTP: 500), Usługa niedostępna (kod stanu HTTP: 503), limit czasu bramy (kod stanu HTTP: 504). |
+| eventTimestamp |Sygnatura czasowa, gdy zdarzenie zostało wygenerowane przez usługę platformy Azure przetwarzające żądanie odpowiadające zdarzeniu. |
+| submissionTimestamp |Sygnatura czasowa, gdy zdarzenie stało się dostępne na potrzeby wykonywania zapytań. |
 | subscriptionId |Identyfikator subskrypcji platformy Azure. |
 
 ## <a name="service-health"></a>Kondycja usługi
-Ta kategoria zawiera rekord wszystkich zdarzeń dotyczących kondycji usługi, które wystąpiły na platformie Azure. Przykładem typu zdarzenia, które można zobaczyć w tej kategorii jest "SQL Azure we wschodnich stanach USA przeżywa przestoje." Zdarzenia kondycji usługi są dostępne w pięciu odmianach: Wymagane działanie, Wspomagane odzyskiwanie, Incydent, Konserwacja, Informacje lub Zabezpieczenia i są wyświetlane tylko wtedy, gdy masz zasób w subskrypcji, który będzie miał wpływ na zdarzenie.
+Ta kategoria zawiera rekord wszystkich zdarzeń związanych z kondycją usług, które wystąpiły na platformie Azure. Przykładem typu zdarzenia, które widzisz w tej kategorii jest "usługa SQL Azure w regionie Wschodnie stany USA ma czas przestoju". Zdarzenia dotyczące kondycji usługi znajdują się w pięciu odmianach: wymagana akcja, odzyskanie, incydent, konserwacja, informacje lub zabezpieczenia, i pojawia się tylko wtedy, gdy w subskrypcji znajduje się zasób, na który wpłynie zdarzenie.
 
 ### <a name="sample-event"></a>Przykładowe zdarzenie
 ```json
@@ -195,10 +195,10 @@ Ta kategoria zawiera rekord wszystkich zdarzeń dotyczących kondycji usługi, k
   }
 }
 ```
-Zapoznaj się z [artykułem powiadomień o kondycji usługi,](./../../azure-monitor/platform/service-notifications.md) aby uzyskać dokumentację dotyczącą wartości we właściwościach.
+Zapoznaj się z artykułem dotyczącym [powiadomień o kondycji usługi](./../../azure-monitor/platform/service-notifications.md) , aby uzyskać informacje na temat wartości we właściwościach.
 
 ## <a name="resource-health"></a>Kondycja zasobów
-Ta kategoria zawiera rekord wszystkich zdarzeń kondycji zasobów, które wystąpiły w zasobach platformy Azure. Przykładem typu zdarzenia, które można zobaczyć w tej kategorii jest "Stan kondycji maszyny wirtualnej zmieniony na niedostępny." Zdarzenia kondycji zasobów mogą reprezentować jeden z czterech stanów kondycji: Dostępny, Niedostępny, Zdegradowany i Nieznany. Ponadto zdarzenia kondycji zasobów można podzielić na środowisko jako inicjowane przez platformę lub inicjowane przez użytkownika.
+Ta kategoria zawiera rekord wszystkich zdarzeń związanych z kondycją zasobów, które wystąpiły w Twoich zasobach platformy Azure. Przykładem typu zdarzenia, które zobaczysz w tej kategorii jest "stan kondycji maszyny wirtualnej zmienił się na niedostępny". Zdarzenia dotyczące kondycji zasobów mogą reprezentować jeden z czterech stanów kondycji: dostępne, niedostępne, obniżone i nieznane. Ponadto zdarzenia kondycji zasobów można klasyfikować jako zainicjowane przez platformę lub zainicjowane przez użytkownika.
 
 ### <a name="sample-event"></a>Przykładowe zdarzenie
 
@@ -260,34 +260,34 @@ Ta kategoria zawiera rekord wszystkich zdarzeń kondycji zasobów, które wystą
 ### <a name="property-descriptions"></a>Opisy właściwości
 | Nazwa elementu | Opis |
 | --- | --- |
-| Kanały | Zawsze "Admin, Operacja" |
+| dyplomatyczn | Zawsze "administrator, operacja" |
 | correlationId | Identyfikator GUID w formacie ciągu. |
-| description |Statyczny opis tekstowy zdarzenia alertu. |
-| identyfikator danych zdarzeń |Unikatowy identyfikator zdarzenia alertu. |
+| description |Opis tekstu statycznego zdarzenia alertu. |
+| eventDataId |Unikatowy identyfikator zdarzenia alertu. |
 | category | Zawsze "ResourceHealth" |
-| eventTimestamp |Sygnatura czasowa, gdy zdarzenie zostało wygenerowane przez usługę platformy Azure przetwarzania żądania odpowiadającego zdarzenia. |
-| poziom |Poziom zdarzenia. Jedna z następujących wartości: "Krytyczny", "Błąd", "Ostrzeżenie", "Informacyjny" i "Pełny" |
-| operationId |Identyfikator GUID współużytkowane przez zdarzenia, które odpowiadają jednej operacji. |
+| eventTimestamp |Sygnatura czasowa, gdy zdarzenie zostało wygenerowane przez usługę platformy Azure przetwarzające żądanie odpowiadające zdarzeniu. |
+| poziom |Poziom zdarzenia. Jedna z następujących wartości: "krytyczna", "błąd", "ostrzeżenie", "informacyjny" i "verbose" |
+| operationId |Identyfikator GUID współużytkowany przez zdarzenia, które odpowiadają pojedynczej operacji. |
 | operationName |Nazwa operacji. |
 | resourceGroupName |Nazwa grupy zasobów zawierającej zasób. |
-| nazwa zasobu |Zawsze "Microsoft.Resourcehealth/healthevent/action". |
-| resourceType | Typ zasobu, którego dotyczy zdarzenie Kondycji zasobów. |
-| resourceId | Nazwa identyfikatora zasobu dla zasobu, na który ma to wpływ. |
-| status |Ciąg opisujący stan zdarzenia kondycji. Wartości mogą być aktywne, rozwiązane, InProgress, Zaktualizowane. |
-| Podstanu | Zwykle null dla alertów. |
-| submissionTimestamp |Sygnatura czasowa, gdy zdarzenie stało się dostępne do wykonywania zapytań. |
+| resourceProviderName |Zawsze "Microsoft. Resourcehealth/healthevent/Action". |
+| resourceType | Typ zasobu, którego dotyczy zdarzenie Resource Health. |
+| resourceId | Nazwa identyfikatora zasobu, którego dotyczy problem. |
+| status |Ciąg opisujący stan zdarzenia kondycji. Mogą to być: aktywne, rozwiązane, w trakcie, zaktualizowane. |
+| subStatus | Zazwyczaj wartość null dla alertów. |
+| submissionTimestamp |Sygnatura czasowa, gdy zdarzenie stało się dostępne na potrzeby wykonywania zapytań. |
 | subscriptionId |Identyfikator subskrypcji platformy Azure. |
-| properties |Zestaw `<Key, Value>` par (czyli słownika) opisujący szczegóły zdarzenia.|
-| właściwości.title | Przyjazny dla użytkownika ciąg, który opisuje stan kondycji zasobu. |
-| właściwości.details | Przyjazny dla użytkownika ciąg, który opisuje dalsze szczegóły dotyczące zdarzenia. |
-| właściwości.currentHealthStatus | Bieżący stan kondycji zasobu. Jedna z następujących wartości: "Dostępne", "Niedostępne", "Zdegradowane" i "Nieznany". |
-| właściwości.previousHealthStatus | Poprzedni stan kondycji zasobu. Jedna z następujących wartości: "Dostępne", "Niedostępne", "Zdegradowane" i "Nieznany". |
-| właściwości.type | Opis typu zdarzenia kondycji zasobów. |
-| właściwości.cause | Opis przyczyny zdarzenia kondycji zasobu. "UserInitiated" i "PlatformInitiated". |
+| properties |Zestaw `<Key, Value>` par (czyli słownik) opisujących szczegóły zdarzenia.|
+| Properties. title | Przyjazny dla użytkownika ciąg opisujący stan kondycji zasobu. |
+| Właściwości. szczegóły | Przyjazny dla użytkownika ciąg opisujący dalsze szczegóły dotyczące zdarzenia. |
+| Właściwości. currentHealthStatus | Bieżący stan kondycji zasobu. Jedna z następujących wartości: "dostępne", "niedostępne", "obniżone" i "nieznany". |
+| Właściwości. previousHealthStatus | Poprzedni stan kondycji zasobu. Jedna z następujących wartości: "dostępne", "niedostępne", "obniżone" i "nieznany". |
+| Properties. Type | Opis typu zdarzenia dotyczącego kondycji zasobu. |
+| Properties. nmożliwa Przyczyna | Opis przyczyny zdarzenia dotyczącego kondycji zasobu. "UserInitiated" i "PlatformInitiated". |
 
 
 ## <a name="alert"></a>Alerty
-Ta kategoria zawiera rekord wszystkich aktywacji alertów platformy Azure. Przykładem typu zdarzenia, które można zobaczyć w tej kategorii jest "CPU % na myVM został ponad 80 w ciągu ostatnich 5 minut." Wiele różnych systemów platformy Azure ma koncepcję alertów — można zdefiniować regułę pewnego rodzaju i otrzymać powiadomienie, gdy warunki są zgodne z tą regułą. Za każdym razem, gdy obsługiwany typ alertu platformy Azure "aktywuje się" lub warunki są spełnione w celu wygenerowania powiadomienia, rekord aktywacji jest również wypychany do tej kategorii dziennika aktywności.
+Ta kategoria zawiera rekord wszystkich aktywacji alertów platformy Azure. Przykładem typu zdarzenia, które zobaczysz w tej kategorii jest "procesor CPU% na myVM został przekroczony 80 dla ostatnich 5 minut". Różne systemy platformy Azure mają koncepcję alertów — można zdefiniować regułę określonego sortowania i otrzymywać powiadomienie, gdy warunki są zgodne z tą regułą. Za każdym razem, gdy obsługiwany typ alertu platformy Azure "aktywuje" lub warunki są spełnione, aby wygenerować powiadomienie, rekord aktywacji jest również wypychany do tej kategorii dziennika aktywności.
 
 ### <a name="sample-event"></a>Przykładowe zdarzenie
 
@@ -353,55 +353,55 @@ Ta kategoria zawiera rekord wszystkich aktywacji alertów platformy Azure. Przyk
 ### <a name="property-descriptions"></a>Opisy właściwości
 | Nazwa elementu | Opis |
 | --- | --- |
-| Obiekt wywołujący | Zawsze Microsoft.Insights/alertRules |
-| Kanały | Zawsze "Admin, Operacja" |
-| oświadczenia | Obiekt blob JSON z nazwą głównej usługi (nazwa główna usługi) lub typem zasobu aparatu alertów. |
+| Obiekt wywołujący | Zawsze Microsoft. Insights/alertRules |
+| dyplomatyczn | Zawsze "administrator, operacja" |
+| oświadczenia | Obiekt BLOB JSON z nazwą SPN (główna nazwa usługi) lub typem zasobu aparatu alertów. |
 | correlationId | Identyfikator GUID w formacie ciągu. |
-| description |Statyczny opis tekstowy zdarzenia alertu. |
-| identyfikator danych zdarzeń |Unikatowy identyfikator zdarzenia alertu. |
+| description |Opis tekstu statycznego zdarzenia alertu. |
+| eventDataId |Unikatowy identyfikator zdarzenia alertu. |
 | category | Zawsze "Alert" |
-| poziom |Poziom zdarzenia. Jedna z następujących wartości: "Krytyczny", "Błąd", "Ostrzeżenie" i "Informacyjny" |
-| resourceGroupName |Nazwa grupy zasobów dla zasobu, do przypadku, gdy jest to alert metryki. W przypadku innych typów alertów jest to nazwa grupy zasobów zawierającej sam alert. |
-| nazwa zasobu |Nazwa dostawcy zasobów dla zasobu, do przypadku, gdy jest to alert metryki. W przypadku innych typów alertów jest to nazwa dostawcy zasobów dla samego alertu. |
-| resourceId | Nazwa identyfikatora zasobu dla zasobu, do przypadku, gdy jest to alert metryki. W przypadku innych typów alertów jest to identyfikator zasobu samego zasobu alertu. |
-| operationId |Identyfikator GUID współużytkowane przez zdarzenia, które odpowiadają jednej operacji. |
+| poziom |Poziom zdarzenia. Jedna z następujących wartości: "krytyczna", "Error", "Warning" i "informacyjny" |
+| resourceGroupName |Nazwa grupy zasobów dla zasobu, którego dotyczy problem, jeśli jest to alert dotyczący metryki. W przypadku innych typów alertów jest to nazwa grupy zasobów, która zawiera alert. |
+| resourceProviderName |Nazwa dostawcy zasobów, którego dotyczy problem, jeśli jest to alert dotyczący metryki. W przypadku innych typów alertów jest to nazwa dostawcy zasobów dla samego alertu. |
+| resourceId | Nazwa identyfikatora zasobu, którego dotyczy problem, jeśli jest to alert dotyczący metryki. W przypadku innych typów alertów jest to identyfikator zasobu samego zasobu alertu. |
+| operationId |Identyfikator GUID współużytkowany przez zdarzenia, które odpowiadają pojedynczej operacji. |
 | operationName |Nazwa operacji. |
-| properties |Zestaw `<Key, Value>` par (czyli słownika) opisujący szczegóły zdarzenia. |
-| status |Ciąg opisujący stan operacji. Niektóre typowe wartości to: Rozpoczęty, W toku, Powiódł się, Nie powiodło się, Aktywny, Rozwiązany. |
-| Podstanu | Zwykle null dla alertów. |
-| eventTimestamp |Sygnatura czasowa, gdy zdarzenie zostało wygenerowane przez usługę platformy Azure przetwarzania żądania odpowiadającego zdarzenia. |
-| submissionTimestamp |Sygnatura czasowa, gdy zdarzenie stało się dostępne do wykonywania zapytań. |
+| properties |Zestaw `<Key, Value>` par (czyli słownik) opisujących szczegóły zdarzenia. |
+| status |Ciąg opisujący stan operacji. Niektóre typowe wartości to: rozpoczęte, w toku, zakończone powodzeniem, zakończone niepowodzeniem, aktywne, rozwiązane. |
+| subStatus | Zazwyczaj wartość null dla alertów. |
+| eventTimestamp |Sygnatura czasowa, gdy zdarzenie zostało wygenerowane przez usługę platformy Azure przetwarzające żądanie odpowiadające zdarzeniu. |
+| submissionTimestamp |Sygnatura czasowa, gdy zdarzenie stało się dostępne na potrzeby wykonywania zapytań. |
 | subscriptionId |Identyfikator subskrypcji platformy Azure. |
 
-### <a name="properties-field-per-alert-type"></a>Właściwości pola dla typu alertu
-Pole właściwości będzie zawierać różne wartości w zależności od źródła zdarzenia alertu. Dwa typowe dostawców zdarzeń alertów są alerty dziennika aktywności i alerty metryki.
+### <a name="properties-field-per-alert-type"></a>Pole właściwości dla typu alertu
+Pole właściwości będzie zawierać różne wartości w zależności od źródła zdarzenia alertu. Dwoma dostawcami zdarzeń typowych alertów są alerty dziennika aktywności i alerty metryk.
 
 #### <a name="properties-for-activity-log-alerts"></a>Właściwości alertów dziennika aktywności
 | Nazwa elementu | Opis |
 | --- | --- |
-| identyfikator właściwości.subscriptionId | Identyfikator subskrypcji ze zdarzenia dziennika aktywności, które spowodowało, że ta reguła alertu dziennika aktywności została aktywowana. |
-| identyfikator danych właściwości.event | Identyfikator danych zdarzenia ze zdarzenia dziennika aktywności, które spowodowało aktywowanie tej reguły alertu dziennika aktywności. |
-| properties.resourceGroup | Grupa zasobów ze zdarzenia dziennika aktywności, które spowodowało aktywowanie tej reguły alertu dziennika aktywności. |
-| identyfikator właściwości.resourceId | Identyfikator zasobu ze zdarzenia dziennika aktywności, które spowodowało aktywowanie tej reguły alertu dziennika aktywności. |
-| właściwości.eventStamp czasu | Sygnatura czasowa zdarzenia zdarzenia dziennika aktywności, które spowodowało, że ta reguła alertu dziennika aktywności została aktywowana. |
-| właściwości.operationName | Nazwa operacji ze zdarzenia dziennika aktywności, które spowodowało, że ta reguła alertu dziennika aktywności została aktywowana. |
-| właściwości.status | Stan zdarzenia dziennika aktywności, które spowodowało, że ta reguła alertu dziennika aktywności została aktywowana.|
+| Właściwości. Identyfikator subskrypcji | Identyfikator subskrypcji ze zdarzenia dziennika aktywności, który spowodował aktywowanie tej reguły alertu dziennika aktywności. |
+| Właściwości. eventDataId | Identyfikator danych zdarzenia ze zdarzenia dziennika aktywności, który spowodował aktywowanie tej reguły alertu dziennika aktywności. |
+| Właściwości. resourceName | Grupa zasobów ze zdarzenia dziennika aktywności, która spowodowała aktywowanie tej reguły alertu dziennika aktywności. |
+| Właściwości. resourceId | Identyfikator zasobu ze zdarzenia dziennika aktywności, który spowodował aktywowanie tej reguły alertu dziennika aktywności. |
+| Właściwości. eventTimestamp | Sygnatura czasowa zdarzenia zdarzenia dziennika aktywności, która spowodowała aktywowanie tej reguły alertu dziennika aktywności. |
+| Właściwości. OperationName | Nazwa operacji ze zdarzenia dziennika aktywności, która spowodowała aktywowanie tej reguły alertu dziennika aktywności. |
+| Właściwości. status | Stan zdarzenia dziennika aktywności, który spowodował aktywowanie tej reguły alertu dziennika aktywności.|
 
-#### <a name="properties-for-metric-alerts"></a>Właściwości alertów metryk
+#### <a name="properties-for-metric-alerts"></a>Właściwości alertów dotyczących metryk
 | Nazwa elementu | Opis |
 | --- | --- |
-| Właściwości. RegułaUri | Identyfikator zasobu samej reguły alertu metryki. |
-| Właściwości. Rulename | Nazwa reguły alertu metryki. |
-| Właściwości. Opis regułyOskrypt | Opis reguły alertu metryki (zgodnie z definicją w regule alertu). |
-| Właściwości. Próg | Wartość progowa używana w ocenie reguły alertu metryki. |
-| Właściwości. WindowSizeInMinutes | Rozmiar okna używany w ocenie reguły alertu metryki. |
-| Właściwości. Agregacja | Typ agregacji zdefiniowany w regule alertu metryki. |
-| Właściwości. Operator | Operator warunkowy używany w ocenie reguły alertu metryki. |
-| Właściwości. Nazwa metryczna | Nazwa metryki metryki używanej w ocenie reguły alertu metryki. |
-| Właściwości. Metrykajednostka | Jednostka metryki dla metryki używanej w ocenie reguły alertu metryki. |
+| aœciwoœci. RuleUri | Identyfikator zasobu reguły alertu metryki. |
+| aœciwoœci. RuleName | Nazwa reguły alertu metryki. |
+| aœciwoœci. RuleDescription | Opis reguły alertu dotyczącego metryki (zgodnie z definicją w regule alertu). |
+| aœciwoœci. Próg | Wartość progowa używana podczas obliczania reguły alertu metryki. |
+| aœciwoœci. WindowSizeInMinutes | Rozmiar okna używany podczas obliczania reguły alertu metryki. |
+| aœciwoœci. Agregacji | Typ agregacji zdefiniowany w regule alertu metryki. |
+| aœciwoœci. Zakład | Operator warunkowy używany podczas obliczania reguły alertu metryki. |
+| aœciwoœci. MetricName | Nazwa metryki metryki używanej w ocenie reguły alertu metryki. |
+| aœciwoœci. MetricUnit | Jednostka metryki dla metryki używanej w ocenie reguły alertu metryki. |
 
 ## <a name="autoscale"></a>Automatyczne skalowanie
-Ta kategoria zawiera rekord wszystkich zdarzeń związanych z działaniem aparatu skalowania automatycznego na podstawie wszelkich ustawień skalowania automatycznego zdefiniowanych w ramach subskrypcji. Przykładem typu zdarzenia, które można zobaczyć w tej kategorii jest "Skalowanie automatyczne skalowanie w górę akcji nie powiodło się." Za pomocą skalowania automatycznego można automatycznie skalować w poziomie lub skalować liczbę wystąpień w obsługiwanym typie zasobu na podstawie czasu dnia i/lub ładowania (metryki) danych przy użyciu ustawienia skalowania automatycznego. Po spełnieniu warunków skalowania w górę lub w dół, zdarzenia początkowe i nieudane lub nieudane zostaną zarejestrowane w tej kategorii.
+Ta kategoria zawiera rekord wszystkich zdarzeń związanych z działaniem aparatu skalowania automatycznego na podstawie wszelkich ustawień automatycznego skalowania zdefiniowanych w ramach subskrypcji. Przykładem typu zdarzenia, które zobaczysz w tej kategorii jest "Akcja skalowania automatycznego nie powiodła się". Korzystając z funkcji automatycznego skalowania, można automatycznie skalować w poziomie i skalować liczbę wystąpień w obsługiwanym typie zasobów na podstawie czasu i/lub obciążenia (dane pomiarowe) przy użyciu ustawienia skalowania automatycznego. Gdy warunki są spełnione w celu skalowania w górę lub w dół, zdarzenia Start i zakończony powodzeniem lub zakończone niepowodzeniem zostaną zarejestrowane w tej kategorii.
 
 ### <a name="sample-event"></a>Przykładowe zdarzenie
 ```json
@@ -463,32 +463,32 @@ Ta kategoria zawiera rekord wszystkich zdarzeń związanych z działaniem aparat
 ### <a name="property-descriptions"></a>Opisy właściwości
 | Nazwa elementu | Opis |
 | --- | --- |
-| Obiekt wywołujący | Zawsze Microsoft.Insights/autoscaleSettings |
-| Kanały | Zawsze "Admin, Operacja" |
-| oświadczenia | Obiekt blob JSON z nazwą głównej nazwy usługi (nazwa główna usługi) lub typem zasobu aparatu skalowania automatycznego. |
+| Obiekt wywołujący | Zawsze Microsoft. Insights/autoscaleSettings |
+| dyplomatyczn | Zawsze "administrator, operacja" |
+| oświadczenia | Obiekt BLOB JSON z nazwą SPN (główna nazwa usługi) lub typem zasobu aparatu skalowania automatycznego. |
 | correlationId | Identyfikator GUID w formacie ciągu. |
-| description |Statyczny opis tekstowy zdarzenia skalowania automatycznego. |
-| identyfikator danych zdarzeń |Unikatowy identyfikator zdarzenia skalowania automatycznego. |
-| poziom |Poziom zdarzenia. Jedna z następujących wartości: "Krytyczny", "Błąd", "Ostrzeżenie" i "Informacyjny" |
+| description |Tekst statyczny opisu zdarzenia skalowania automatycznego. |
+| eventDataId |Unikatowy identyfikator zdarzenia skalowania automatycznego. |
+| poziom |Poziom zdarzenia. Jedna z następujących wartości: "krytyczna", "Error", "Warning" i "informacyjny" |
 | resourceGroupName |Nazwa grupy zasobów dla ustawienia skalowania automatycznego. |
-| nazwa zasobu |Nazwa dostawcy zasobów dla ustawienia skalowania automatycznego. |
+| resourceProviderName |Nazwa dostawcy zasobów dla ustawienia skalowania automatycznego. |
 | resourceId |Identyfikator zasobu ustawienia skalowania automatycznego. |
-| operationId |Identyfikator GUID współużytkowane przez zdarzenia, które odpowiadają jednej operacji. |
+| operationId |Identyfikator GUID współużytkowany przez zdarzenia, które odpowiadają pojedynczej operacji. |
 | operationName |Nazwa operacji. |
-| properties |Zestaw `<Key, Value>` par (czyli słownika) opisujący szczegóły zdarzenia. |
-| Właściwości. Opis | Szczegółowy opis tego, co robił silnik w skali automatycznej. |
-| Właściwości. Resourcename | Identyfikator zasobu, którego dotyczy problem (zasób, na którym była wykonywana akcja skalowania) |
-| Właściwości. Liczba starychinstances | Liczba wystąpień przed podjęciem akcji skalowania automatycznego. |
-| Właściwości. Liczba nowychinstances | Liczba wystąpień po wyjęcie akcji skalowania automatycznego. |
-| Właściwości. LastScaleActionTime (Czas reakcji lastscale) | Sygnatura czasowa, kiedy wystąpiła akcja skalowania automatycznego. |
-| status |Ciąg opisujący stan operacji. Niektóre typowe wartości to: Rozpoczęty, W toku, Powiódł się, Nie powiodło się, Aktywny, Rozwiązany. |
-| Podstanu | Zwykle null dla skalowania automatycznego. |
-| eventTimestamp |Sygnatura czasowa, gdy zdarzenie zostało wygenerowane przez usługę platformy Azure przetwarzania żądania odpowiadającego zdarzenia. |
-| submissionTimestamp |Sygnatura czasowa, gdy zdarzenie stało się dostępne do wykonywania zapytań. |
+| properties |Zestaw `<Key, Value>` par (czyli słownik) opisujących szczegóły zdarzenia. |
+| aœciwoœci. Zharmonizowan | Szczegółowy opis działania aparatu skalowania automatycznego. |
+| aœciwoœci. Source | Identyfikator zasobu zasobu, którego dotyczy problem (zasób, na którym jest wykonywana akcja skalowania) |
+| aœciwoœci. OldInstancesCount | Liczba wystąpień przed zastosowaniem akcji skalowania automatycznego. |
+| aœciwoœci. NewInstancesCount | Liczba wystąpień wykonanych po akcji skalowania automatycznego. |
+| aœciwoœci. LastScaleActionTime | Sygnatura czasowa, gdy wystąpiła akcja skalowania automatycznego. |
+| status |Ciąg opisujący stan operacji. Niektóre typowe wartości to: rozpoczęte, w toku, zakończone powodzeniem, zakończone niepowodzeniem, aktywne, rozwiązane. |
+| subStatus | Zazwyczaj wartość null dla skalowania automatycznego. |
+| eventTimestamp |Sygnatura czasowa, gdy zdarzenie zostało wygenerowane przez usługę platformy Azure przetwarzające żądanie odpowiadające zdarzeniu. |
+| submissionTimestamp |Sygnatura czasowa, gdy zdarzenie stało się dostępne na potrzeby wykonywania zapytań. |
 | subscriptionId |Identyfikator subskrypcji platformy Azure. |
 
 ## <a name="security"></a>Zabezpieczenia
-Ta kategoria zawiera rekord wszystkich alertów generowanych przez usługę Azure Security Center. Przykładem typu zdarzenia, które można zobaczyć w tej kategorii jest "Podejrzany plik podwójnego rozszerzenia wykonywane."
+Ta kategoria zawiera rekordy wszystkich alertów wygenerowanych przez Azure Security Center. Przykładem typu zdarzenia, które zobaczysz w tej kategorii jest "podejrzany plik rozszerzenia o podwójnym rozszerzeniu".
 
 ### <a name="sample-event"></a>Przykładowe zdarzenie
 ```json
@@ -553,30 +553,30 @@ Ta kategoria zawiera rekord wszystkich alertów generowanych przez usługę Azur
 ### <a name="property-descriptions"></a>Opisy właściwości
 | Nazwa elementu | Opis |
 | --- | --- |
-| Kanały | Zawsze "Operacja" |
+| dyplomatyczn | Zawsze "operacja" |
 | correlationId | Identyfikator GUID w formacie ciągu. |
-| description |Statyczny opis tekstowy zdarzenia zabezpieczeń. |
-| identyfikator danych zdarzeń |Unikatowy identyfikator zdarzenia zabezpieczeń. |
-| Eventname |Przyjazna nazwa zdarzenia zabezpieczeń. |
-| category | Zawsze "Bezpieczeństwo" |
+| description |Statyczny opis zdarzenia zabezpieczeń. |
+| eventDataId |Unikatowy identyfikator zdarzenia zabezpieczeń. |
+| eventName |Przyjazna nazwa zdarzenia zabezpieczeń. |
+| category | Zawsze "zabezpieczenia" |
 | ID |Unikatowy identyfikator zasobu zdarzenia zabezpieczeń. |
-| poziom |Poziom zdarzenia. Jedna z następujących wartości: "Krytyczny", "Błąd", "Ostrzeżenie" lub "Informacyjny" |
-| resourceGroupName |Nazwa grupy zasobów zasobu. |
-| nazwa zasobu |Nazwa dostawcy zasobów dla usługi Azure Security Center. Zawsze "Microsoft.Security". |
-| resourceType |Typ zasobu, który wygenerował zdarzenie zabezpieczeń, na przykład "Microsoft.Security/locations/alerts" |
+| poziom |Poziom zdarzenia. Jedna z następujących wartości: "krytyczna", "błąd", "ostrzeżenie" lub "informacyjny" |
+| resourceGroupName |Nazwa grupy zasobów dla zasobu. |
+| resourceProviderName |Nazwa dostawcy zasobów dla Azure Security Center. Zawsze "Microsoft. Security". |
+| resourceType |Typ zasobu, który wygenerował zdarzenie zabezpieczeń, na przykład "Microsoft. Security/Locations/Alerts" |
 | resourceId |Identyfikator zasobu alertu zabezpieczeń. |
-| operationId |Identyfikator GUID współużytkowane przez zdarzenia, które odpowiadają jednej operacji. |
+| operationId |Identyfikator GUID współużytkowany przez zdarzenia, które odpowiadają pojedynczej operacji. |
 | operationName |Nazwa operacji. |
-| properties |Zestaw `<Key, Value>` par (czyli słownika) opisujący szczegóły zdarzenia. Te właściwości będą się różnić w zależności od typu alertu zabezpieczeń. Zobacz [tę stronę,](../../security-center/security-center-alerts-overview.md) aby uzyskać opis typów alertów, które pochodzą z usługi Security Center. |
-| Właściwości. Ważności |Poziom ważności. Możliwe wartości to "Wysoki", "Średni" lub "Niski". |
-| status |Ciąg opisujący stan operacji. Niektóre typowe wartości to: Rozpoczęty, W toku, Powiódł się, Nie powiodło się, Aktywny, Rozwiązany. |
-| Podstanu | Zwykle null dla zdarzeń zabezpieczeń. |
-| eventTimestamp |Sygnatura czasowa, gdy zdarzenie zostało wygenerowane przez usługę platformy Azure przetwarzania żądania odpowiadającego zdarzenia. |
-| submissionTimestamp |Sygnatura czasowa, gdy zdarzenie stało się dostępne do wykonywania zapytań. |
+| properties |Zestaw `<Key, Value>` par (czyli słownik) opisujących szczegóły zdarzenia. Te właściwości będą się różnić w zależności od typu alertu zabezpieczeń. [Ta strona](../../security-center/security-center-alerts-overview.md) zawiera opis typów alertów, które pochodzą z Security Center. |
+| aœciwoœci. Obrażeń |Poziom ważności. Możliwe wartości to "High", "medium" lub "Low". |
+| status |Ciąg opisujący stan operacji. Niektóre typowe wartości to: rozpoczęte, w toku, zakończone powodzeniem, zakończone niepowodzeniem, aktywne, rozwiązane. |
+| subStatus | Zazwyczaj wartość null dla zdarzeń zabezpieczeń. |
+| eventTimestamp |Sygnatura czasowa, gdy zdarzenie zostało wygenerowane przez usługę platformy Azure przetwarzające żądanie odpowiadające zdarzeniu. |
+| submissionTimestamp |Sygnatura czasowa, gdy zdarzenie stało się dostępne na potrzeby wykonywania zapytań. |
 | subscriptionId |Identyfikator subskrypcji platformy Azure. |
 
 ## <a name="recommendation"></a>Zalecenie
-Ta kategoria zawiera rekord wszystkich nowych zaleceń, które są generowane dla usług. Przykładem zalecenia może być "Użyj zestawów dostępności dla lepszej odporności na uszkodzenia." Istnieją cztery typy zdarzeń rekomendacji, które mogą być generowane: Wysoka dostępność, wydajność, zabezpieczenia i optymalizacja kosztów. 
+Ta kategoria zawiera rejestr wszelkich nowych zaleceń, które są generowane dla usług. Przykładem zalecenia będzie "użycie zestawów dostępności w celu zwiększenia odporności na uszkodzenia". Istnieją cztery typy zdarzeń rekomendacji, które mogą być generowane: wysoka dostępność, wydajność, zabezpieczenia i optymalizacja kosztów. 
 
 ### <a name="sample-event"></a>Przykładowe zdarzenie
 ```json
@@ -634,30 +634,30 @@ Ta kategoria zawiera rekord wszystkich nowych zaleceń, które są generowane dl
 ### <a name="property-descriptions"></a>Opisy właściwości
 | Nazwa elementu | Opis |
 | --- | --- |
-| Kanały | Zawsze "Operacja" |
+| dyplomatyczn | Zawsze "operacja" |
 | correlationId | Identyfikator GUID w formacie ciągu. |
-| description |Statyczny opis tekstowy zdarzenia rekomendacji |
-| identyfikator danych zdarzeń | Unikatowy identyfikator zdarzenia rekomendacji. |
-| category | Zawsze "Zalecenie" |
+| description |Tekst statyczny opisu zdarzenia rekomendacji |
+| eventDataId | Unikatowy identyfikator zdarzenia rekomendacji. |
+| category | Zawsze "rekomendacja" |
 | ID |Unikatowy identyfikator zasobu zdarzenia rekomendacji. |
-| poziom |Poziom zdarzenia. Jedna z następujących wartości: "Krytyczny", "Błąd", "Ostrzeżenie" lub "Informacyjny" |
-| operationName |Nazwa operacji.  Zawsze "Microsoft.Advisor/generateReommendations/action"|
-| resourceGroupName |Nazwa grupy zasobów zasobu. |
-| nazwa zasobu |Nazwa dostawcy zasobów dla zasobu, który dotyczy tego zalecenia, na przykład "MICROSOFT.COMPUTE" |
-| resourceType |Nazwa typu zasobu, który dotyczy tego zalecenia, na przykład "MICROSOFT.COMPUTE/virtualmachines" |
-| resourceId |Identyfikator zasobu, który ma zastosowanie do zalecenia |
-| status | Zawsze "Aktywny" |
-| submissionTimestamp |Sygnatura czasowa, gdy zdarzenie stało się dostępne do wykonywania zapytań. |
+| poziom |Poziom zdarzenia. Jedna z następujących wartości: "krytyczna", "błąd", "ostrzeżenie" lub "informacyjny" |
+| operationName |Nazwa operacji.  Zawsze "Microsoft. Advisor/generateRecommendations/Action"|
+| resourceGroupName |Nazwa grupy zasobów dla zasobu. |
+| resourceProviderName |Nazwa dostawcy zasobów dla zasobu, do którego odnosi się to zalecenie, np. "MICROSOFT. COMPUTE" |
+| resourceType |Nazwa typu zasobu, do którego odnosi się to zalecenie, na przykład "MICROSOFT. COMPUTE/virtualmachines" |
+| resourceId |Identyfikator zasobu zasobu, do którego odnosi się zalecenie |
+| status | Zawsze "aktywne" |
+| submissionTimestamp |Sygnatura czasowa, gdy zdarzenie stało się dostępne na potrzeby wykonywania zapytań. |
 | subscriptionId |Identyfikator subskrypcji platformy Azure. |
-| properties |Zestaw `<Key, Value>` par (czyli słownika) opisujący szczegóły zalecenia.|
-| properties.recommendationSchemaVersion| Wersja schematu właściwości rekomendacji opublikowanych we wpisie Dziennik aktywności |
-| właściwości.rekomendacja Kategoria | Kategoria zalecenia. Możliwe wartości to "Wysoka dostępność", "Wydajność", "Bezpieczeństwo" i "Koszt" |
-| właściwości.recommendationImpact| Wpływ zalecenia. Możliwe wartości to "Wysoki", "Średni", "Niski" |
-| właściwości.recommendationRisk| Ryzyko zalecenia. Możliwe wartości to "Błąd", "Ostrzeżenie", "Brak" |
+| properties |Zestaw `<Key, Value>` par (czyli słownik) opisujących szczegóły zalecenia.|
+| Właściwości. recommendationSchemaVersion| Wersja schematu właściwości rekomendacji opublikowanych w wpisie dziennika aktywności |
+| Właściwości. recommendationCategory | Kategoria Zalecenia. Możliwe wartości to "wysoka dostępność", "wydajność", "zabezpieczenia" i "koszt" |
+| Właściwości. recommendationImpact| Wpływ zalecenia. Możliwe wartości to "High", "medium", "Low" |
+| Właściwości. recommendationRisk| Ryzyko zalecenia. Możliwe wartości to "Error", "Warning", "none" |
 
 ## <a name="policy"></a>Zasady
 
-Ta kategoria zawiera rekordy wszystkich operacji działania efekt wykonywane przez [usługę Azure Policy](../../governance/policy/overview.md). Przykłady typów zdarzeń, które można zobaczyć w tej kategorii obejmują _Inspekcji_ i _Odmów_. Każda akcja podjęta przez zasady jest modelowany jako operacja na zasób.
+Ta kategoria zawiera rekordy wszystkich operacji działania akcji wykonywanych przez [Azure Policy](../../governance/policy/overview.md). Przykłady typów zdarzeń, które zobaczysz w tej kategorii, obejmują _inspekcję_ i _odmowę_. Wszystkie akcje podejmowane przez zasady są modelowane jako operacje na zasobach.
 
 ### <a name="sample-policy-event"></a>Przykładowe zdarzenie zasad
 
@@ -744,64 +744,64 @@ Ta kategoria zawiera rekordy wszystkich operacji działania efekt wykonywane prz
 
 | Nazwa elementu | Opis |
 | --- | --- |
-| autoryzacja | Tablica właściwości RBAC zdarzenia. W przypadku nowych zasobów jest to akcja i zakres żądania, które wyzwoliło ocenę. W przypadku istniejących zasobów akcja to "Microsoft.Resources/checkPolicyCompliance/read". |
-| Obiekt wywołujący | W przypadku nowych zasobów jest to tożsamość, która zainicjowała wdrożenie. W przypadku istniejących zasobów identyfikator GUID usługi Microsoft Azure Policy Insights RP. |
-| Kanały | Zdarzenia zasad używają tylko kanału "Operacja". |
-| oświadczenia | Token JWT używany przez usługi Active Directory do uwierzytelniania użytkownika lub aplikacji w celu wykonania tej operacji w Menedżerze zasobów. |
-| correlationId | Zazwyczaj identyfikator GUID w formacie ciągu. Zdarzenia, które współużytkują korelacjęId należą do tej samej akcji uber. |
+| autoryzacja | Tablica właściwości RBAC zdarzenia. W przypadku nowych zasobów jest to akcja i zakres żądania, które wyzwoliło ocenę. Dla istniejących zasobów akcja ma wartość "Microsoft. resources/checkPolicyCompliance/Read". |
+| Obiekt wywołujący | W przypadku nowych zasobów tożsamość, która zainicjowała wdrożenie. W przypadku istniejących zasobów identyfikator GUID usługi RP usługi Microsoft Azure Insights. |
+| dyplomatyczn | Zdarzenia zasad używają tylko kanału operacji. |
+| oświadczenia | Token JWT używany przez Active Directory do uwierzytelniania użytkownika lub aplikacji w celu wykonania tej operacji w Menedżer zasobów. |
+| correlationId | Zazwyczaj identyfikator GUID w formacie ciągu. Zdarzenia, które współużytkują identyfikator korelacji, należy do tej samej akcji Uber. |
 | description | To pole jest puste dla zdarzeń zasad. |
-| identyfikator danych zdarzeń | Unikatowy identyfikator zdarzenia. |
-| Eventname | "BeginRequest" lub "EndRequest". "BeginRequest" jest używany do opóźnionego auditIfNotExists i deployIfNotExists ocen i gdy deployIfNotExists efekt rozpoczyna wdrożenie szablonu. Wszystkie inne operacje zwracają "EndRequest". |
-| category | Deklaruje zdarzenie dziennika aktywności jako należące do "Zasady". |
-| eventTimestamp | Sygnatura czasowa, gdy zdarzenie zostało wygenerowane przez usługę platformy Azure przetwarzania żądania odpowiadającego zdarzenia. |
-| ID | Unikatowy identyfikator zdarzenia w określonym zasobie. |
-| poziom | Poziom zdarzenia. Inspekcja używa "Ostrzeżenie" i Deny używa "Błąd". AudytIfIfNotExists lub deployIfNotExists błąd może generować "Ostrzeżenie" lub "Błąd" w zależności od ważności. Wszystkie inne zdarzenia zasad używają "Informacyjny". |
-| operationId | Identyfikator GUID współużytkowane przez zdarzenia, które odpowiadają jednej operacji. |
-| operationName | Nazwa operacji i bezpośrednio koreluje z efektem Polityki. |
-| resourceGroupName | Nazwa grupy zasobów dla ocenianego zasobu. |
-| nazwa zasobu | Nazwa dostawcy zasobów dla ocenianego zasobu. |
-| resourceType | W przypadku nowych zasobów jest to typ, który jest oceniany. W przypadku istniejących zasobów zwraca wartość "Microsoft.Resources/checkPolicyCompliance". |
-| resourceId | Identyfikator zasobu ocenianego zasobu. |
-| status | Ciąg opisujący stan wyniku oceny zasad. Większość ocen zasad zwraca wartość "Powiódł się", ale efekt Odmów zwraca wartość "Nie powiodło się". Błędy w auditIfNotExists lub deployIfNotExists również zwracają "Failed". |
-| Podstanu | Pole jest puste dla zdarzeń zasad. |
-| submissionTimestamp | Sygnatura czasowa, gdy zdarzenie stało się dostępne do wykonywania zapytań. |
+| eventDataId | Unikatowy identyfikator zdarzenia. |
+| eventName | "BeginRequest" lub "EndRequest". "BeginRequest" jest używany w przypadku opóźnionych ocen auditIfNotExists i deployIfNotExists oraz kiedy efekt deployIfNotExists uruchamia wdrożenie szablonu. Wszystkie inne operacje zwracają wartość "EndRequest". |
+| category | Deklaruje zdarzenie dziennika aktywności jako należące do "zasad". |
+| eventTimestamp | Sygnatura czasowa, gdy zdarzenie zostało wygenerowane przez usługę platformy Azure przetwarzające żądanie odpowiadające zdarzeniu. |
+| ID | Unikatowy identyfikator zdarzenia dla określonego zasobu. |
+| poziom | Poziom zdarzenia. Inspekcja używa "Warning" i Odmów używa "Error". Błąd auditIfNotExists lub deployIfNotExists może generować "Warning" lub "Error" w zależności od ważności. Wszystkie inne zdarzenia zasad używają "informacyjnych". |
+| operationId | Identyfikator GUID współużytkowany przez zdarzenia, które odpowiadają pojedynczej operacji. |
+| operationName | Nazwa operacji i bezpośrednio skorelowanej z efektem zasad. |
+| resourceGroupName | Nazwa grupy zasobów dla szacowanego zasobu. |
+| resourceProviderName | Nazwa dostawcy zasobów dla szacowanego zasobu. |
+| resourceType | W przypadku nowych zasobów jest oceniany typ. W przypadku istniejących zasobów zwraca wartość "Microsoft. resources/checkPolicyCompliance". |
+| resourceId | Identyfikator zasobu szacowanego zasobu. |
+| status | Ciąg opisujący stan wyniku oceny zasad. Większość ocen zasad zwraca wartość "powodzenie", ale efekt odrzucenia zwróci wartość "Niepowodzenie". Błędy w auditIfNotExists lub deployIfNotExists również zwracają wartość "Niepowodzenie". |
+| subStatus | Pole jest puste dla zdarzeń zasad. |
+| submissionTimestamp | Sygnatura czasowa, gdy zdarzenie stało się dostępne na potrzeby wykonywania zapytań. |
 | subscriptionId | Identyfikator subskrypcji platformy Azure. |
-| właściwości.isSprawa przestrzegania | Zwraca wartość "False" po wdrożeniu nowego zasobu lub zaktualizowaniu właściwości Menedżera zasobów istniejącego zasobu. Wszystkie inne [wyzwalacze oceny](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) powodują "True". |
-| właściwości.resourceLokalizacja | Region platformy Azure ocenianego zasobu. |
-| właściwości.przodkowie | Oddzielona przecinkami lista nadrzędnych grup zarządzania uporządkowana od bezpośredniego rodzica do najdalej najdalej najdalej dziadków. |
-| właściwości.zasady | Zawiera szczegółowe informacje na temat definicji zasad, przypisania, efektu i parametrów, których wynikiem jest ta ocena zasad. |
+| Właściwości. isComplianceCheck | Zwraca wartość "false", gdy zostanie wdrożony nowy zasób lub Zaktualizowano Menedżer zasobów właściwości istniejącego zasobu. Wszystkie inne [wyzwalacze oceny](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) spowodują wynik "true". |
+| Właściwości. resourceLocation | Region świadczenia usługi Azure ocenianego zasobu. |
+| Properties. przodks | Rozdzielana przecinkami lista nadrzędnych grup zarządzania uporządkowanych od bezpośrednich elementów nadrzędnych do najdalej najwyższego poziomu. |
+| Właściwości. zasady | Zawiera szczegółowe informacje na temat definicji zasad, przypisania, efektu i parametrów, których wynikiem jest ocena zasad. |
 | relatedEvents | To pole jest puste dla zdarzeń zasad. |
 
 
-## <a name="schema-from-storage-account-and-event-hubs"></a>Schemat z kont magazynu i centrów zdarzeń
-Podczas przesyłania strumieniowego dziennika aktywności platformy Azure do konta magazynu lub centrum zdarzeń dane są zgodne ze [schematem dziennika zasobów](diagnostic-logs-schema.md). Poniższa tabela zawiera mapowanie właściwości ze schematu powyżej do schematu dzienników zasobów.
+## <a name="schema-from-storage-account-and-event-hubs"></a>Schemat z centrów zdarzeń i kont magazynu
+Podczas przesyłania strumieniowego dziennika aktywności platformy Azure do konta magazynu lub centrum zdarzeń dane są zgodne ze [schematem dziennika zasobów](diagnostic-logs-schema.md). Poniższa tabela zawiera mapowanie właściwości z schematu powyżej do schematu dzienników zasobów.
 
 > [!IMPORTANT]
-> Format danych dziennika aktywności zapisanych na koncie magazynu został zmieniony na JSON Lines 1 listopada 2018 r. Zobacz [Przygotowywanie do zmiany formatu na dzienniki zasobów usługi Azure Monitor zarchiwizowane na koncie magazynu, aby](diagnostic-logs-append-blobs.md) uzyskać szczegółowe informacje na temat tej zmiany formatu.
+> Format danych dziennika aktywności zapisany na koncie magazynu został zmieniony na wiersze JSON na lis. 1, 2018. Aby uzyskać szczegółowe informacje na temat tego formatu [, zobacz Przygotowywanie do zmiany formatu do Azure monitor dzienników zasobów zarchiwizowanych na koncie magazynu](diagnostic-logs-append-blobs.md) .
 
 
-| Właściwość schematu dzienników zasobów | Właściwość schematu interfejsu API rest dziennika działania | Uwagi |
+| Właściwości schematu dzienników zasobów | Właściwość schematu interfejsu API REST dziennika aktywności | Uwagi |
 | --- | --- | --- |
 | time | eventTimestamp |  |
-| resourceId | resourceId | subscriptionId, resourceType, resourceGroupName są wywnioskowane z identyfikatora resourceId. |
-| operationName | nazwa.wartość operacji |  |
-| category | Nazwa części operacji | Wyrwanie typu operacji - "Write"/"Delete"/"Action" |
-| resultType | status.value | |
-| resultSignature | podstatus.wartość | |
+| resourceId | resourceId | wszystkie identyfikatory subskrypcji, ResourceType, resourceGroupName są wywnioskowane z identyfikatora zasobu. |
+| operationName | OperationName. Value |  |
+| category | Część nazwy operacji | Zagadnień typu operacji — "Write"/"Delete"/"Action" |
+| resultType | status. Value | |
+| resultSignature | Substatus. wartość | |
 | resultDescription | description |  |
 | durationMs | Nie dotyczy | Zawsze 0 |
-| callerIpAddress | adres httpRequest.clientIpAddress |  |
+| callerIpAddress | httpRequest. clientIpAddress |  |
 | correlationId | correlationId |  |
-| identity | oświadczenia i właściwości autoryzacji |  |
+| identity | Właściwości oświadczeń i autoryzacji |  |
 | Poziom | Poziom |  |
-| location | Nie dotyczy | Lokalizacja miejsca przetwarzania zdarzenia. *Nie jest to lokalizacja zasobu, ale raczej gdzie zdarzenie zostało przetworzone. Ta właściwość zostanie usunięta w przyszłej aktualizacji.* |
-| Właściwości | właściwości.eventProperties |  |
-| właściwości.event Kategoria | category | Jeśli właściwości.event Kategoria nie jest obecny, kategoria jest "Administracyjne" |
-| nazwa właściwości.eventName | Eventname |  |
-| właściwości.operationId | operationId |  |
-| właściwości.eventProperties | properties |  |
+| location | Nie dotyczy | Lokalizacja, w której zdarzenie zostało przetworzone. *Nie jest to lokalizacja zasobu, ale zamiast tego, gdzie zdarzenie zostało przetworzone. Ta właściwość zostanie usunięta w przyszłej aktualizacji.* |
+| Właściwości | Właściwości. eventProperties |  |
+| Właściwości. eventCategory | category | Jeśli właściwość. eventCategory nie istnieje, kategoria ma wartość "Administrative" |
+| Właściwości. EventName | eventName |  |
+| Właściwości. operationId | operationId |  |
+| Właściwości. eventProperties | properties |  |
 
-Poniżej przedstawiono przykład zdarzenia przy użyciu tego schematu..
+Poniżej znajduje się przykład zdarzenia korzystającego z tego schematu.
 
 ``` JSON
 {
@@ -865,5 +865,5 @@ Poniżej przedstawiono przykład zdarzenia przy użyciu tego schematu..
 
 ## <a name="next-steps"></a>Następne kroki
 * [Dowiedz się więcej o dzienniku aktywności](platform-logs-overview.md)
-* [Tworzenie ustawienia diagnostycznego do wysyłania dziennika aktywności do obszaru roboczego usługi Log Analytics, magazynu platformy Azure lub centrów zdarzeń](diagnostic-settings.md)
+* [Tworzenie ustawień diagnostycznych w celu wysyłania dziennika aktywności do Log Analytics obszaru roboczego, usługi Azure Storage lub centrów zdarzeń](diagnostic-settings.md)
 
