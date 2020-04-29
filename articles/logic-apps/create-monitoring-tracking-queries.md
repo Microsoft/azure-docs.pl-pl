@@ -1,70 +1,70 @@
 ---
-title: Wyświetlanie i tworzenie zapytań dotyczących aplikacji logiki w dziennikach usługi Azure Monitor
-description: Wyświetlanie i tworzenie zapytań w dziennikach usługi Azure Monitor dla aplikacji logiki azure
+title: Wyświetlanie i tworzenie zapytań dotyczących usługi Logic Apps w dziennikach Azure Monitor
+description: Wyświetlaj i twórz zapytania w Azure Monitor dziennikach dla Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 46989ed2468469443d4e91a1834bc20b12c25a1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76908074"
 ---
-# <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Wyświetlanie i tworzenie zapytań do monitorowania i śledzenia w dziennikach usługi Azure Monitor dla aplikacji logiki Azure
+# <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Wyświetlaj i twórz zapytania dotyczące monitorowania i śledzenia w Azure Monitor dziennikach dla Azure Logic Apps
 
-Można wyświetlić podstawowe kwerendy, które dają wyniki z [dzienników usługi Azure Monitor](../log-analytics/log-analytics-overview.md) i tworzyć kwerendy, które filtrują wyniki na podstawie określonych kryteriów. Na przykład można znaleźć wiadomości na podstawie określonego numeru kontroli wymiany. Kwerendy używają [języka zapytania Kusto](https://aka.ms/LogAnalyticsLanguageReference), który można edytować, jeśli chcesz wyświetlić różne wyniki. Aby uzyskać więcej informacji, zobacz [Kwerendy dziennika usługi Azure Monitor](../azure-monitor/log-query/query-language.md).
+Można wyświetlić podstawowe zapytania, które tworzą wyniki z [dzienników Azure monitor](../log-analytics/log-analytics-overview.md) i tworzyć zapytania filtrujące wyniki na podstawie określonych kryteriów. Na przykład można znaleźć komunikaty na podstawie określonego numeru kontrolnego wymiany. Zapytania używają [języka zapytań Kusto](https://aka.ms/LogAnalyticsLanguageReference), który można edytować, jeśli chcesz wyświetlić różne wyniki. Aby uzyskać więcej informacji, zobacz [Azure monitor kwerendy dzienników](../azure-monitor/log-query/query-language.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Obszar roboczy usługi Log Analytics. Jeśli nie masz obszaru roboczego usługi Log Analytics, dowiedz się, [jak utworzyć obszar roboczy usługi Log Analytics.](../azure-monitor/learn/quick-create-workspace.md)
+* Obszar roboczy usługi Log Analytics. Jeśli nie masz obszaru roboczego Log Analytics, zapoznaj się [z tematem tworzenie log Analytics obszaru roboczego](../azure-monitor/learn/quick-create-workspace.md).
 
-* Aplikacja logiki, która jest skonfigurowana przy użyciu rejestrowania usługi Azure Monitor i wysyła te informacje do obszaru roboczego usługi Log Analytics. Dowiedz [się, jak skonfigurować dzienniki usługi Azure Monitor dla aplikacji logiki.](../logic-apps/monitor-logic-apps.md)
+* Aplikacja logiki, która została skonfigurowana przy użyciu Azure Monitor rejestrowania i wysyłania tych informacji do Log Analytics obszaru roboczego. Dowiedz się [, jak skonfigurować dzienniki Azure monitor dla aplikacji logiki](../logic-apps/monitor-logic-apps.md).
 
-* Jeśli używasz konta integracji, upewnij się, że konto zostało skonfigurowane za pomocą rejestrowania usługi Azure Monitor, aby wysłać te informacje do obszaru roboczego usługi Log Analytics. Dowiedz się, jak [skonfigurować rejestrowanie usługi Azure Monitor dla konta integracji.](../logic-apps/monitor-b2b-messages-log-analytics.md)
+* Jeśli używasz konta integracji, upewnij się, że zostało skonfigurowane konto z rejestrowaniem Azure Monitor, aby wysłać te informacje do Log Analytics obszaru roboczego. Dowiedz się, jak [skonfigurować rejestrowanie Azure monitor dla konta integracji](../logic-apps/monitor-b2b-messages-log-analytics.md).
 
-## <a name="view-queries-behind-results"></a>Wyświetlanie zapytań za wynikami
+## <a name="view-queries-behind-results"></a>Wyświetl zapytania w tle
 
-Aby wyświetlić lub edytować kwerendę, która daje wyniki w podsumowaniu obszaru roboczego, wykonaj następujące kroki:
+Aby wyświetlić lub edytować zapytanie, które generuje wyniki w podsumowaniu obszaru roboczego, wykonaj następujące kroki:
 
-1. Na dowolnej stronie wyników u dołu wybierz pozycję **Zobacz wszystkie**.
+1. Na dowolnej stronie wyników w dolnej części wybierz pozycję **Zobacz wszystko**.
 
    ![Zobacz wszystkie wyniki](./media/create-monitoring-tracking-queries/logic-app-see-all.png)
 
-   Zostanie otwarta strona Dzienniki i wyświetlona kwerenda za poprzednią stroną wyników.
+   Zostanie otwarta strona dzienniki i zostanie wyświetlona kwerenda za poprzednią stroną wyników.
 
-   ![Strona Dzienniki - widok kwerendy](./media/create-monitoring-tracking-queries/view-query-behind-results.png)
+   ![Strona dzienników — widok zapytania](./media/create-monitoring-tracking-queries/view-query-behind-results.png)
 
-1. Na stronie **Dzienniki** można wybrać następujące opcje:
+1. Na stronie **dzienniki** można wybrać następujące opcje:
 
-   * Aby wyświetlić wyniki kwerendy jako tabelę, w edytorze kwerend wybierz pozycję **Tabela**.
+   * Aby wyświetlić wyniki zapytania jako tabelę, w edytorze zapytań wybierz pozycję **tabela**.
 
-   * Aby zmienić kwerendę, zaktualizuj ciąg zapytania i wybierz pozycję **Uruchom,** aby wyświetlić wyniki w tabeli.
+   * Aby zmienić zapytanie, zaktualizuj ciąg zapytania i wybierz polecenie **Uruchom** , aby wyświetlić wyniki w tabeli.
 
-## <a name="create-your-own-query"></a>Tworzenie własnego zapytania
+## <a name="create-your-own-query"></a>Utwórz własne zapytanie
 
-Aby znaleźć lub filtrować wyniki na podstawie określonych właściwości lub wartości, można utworzyć własną kwerendę, zaczynając od pustej kwerendy lub użyć istniejącej kwerendy. Aby uzyskać więcej informacji, zobacz [Wprowadzenie do zapytań dziennika w usłudze Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
+Aby znaleźć lub filtrować wyniki na podstawie określonych właściwości lub wartości, możesz utworzyć własne zapytanie, rozpoczynając od pustego zapytania lub korzystając z istniejącego zapytania. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z zapytaniami dzienników w Azure monitor](../azure-monitor/log-query/get-started-queries.md).
 
-1. W [witrynie Azure portal](https://portal.azure.com)znajdź i wybierz obszar roboczy usługi Log Analytics.
+1. W [Azure Portal](https://portal.azure.com)Znajdź i wybierz obszar roboczy log Analytics.
 
-1. W menu obszaru roboczego w obszarze **Ogólne**wybierz pozycję **Dzienniki**.
+1. W menu obszaru roboczego w obszarze **Ogólne**wybierz pozycję **dzienniki**.
 
-1. Rozpocznij od pustej kwerendy lub wszelkich dostępnych istniejących zapytań.
+1. Zacznij od pustego zapytania lub wszelkich dostępnych istniejących zapytań.
 
-   * Aby sprawdzić, czy istniejące kwerendy są dostępne, na pasku narzędzi kwerendy wybierz historię**History**kwerend >  **próbkowania,** która pokazuje kwerendy z poprzednich uruchomień kwerendy, lub wybierz **Eksplorator kwerend**, który pokazuje wstępnie utworzone kwerendy.
+   * Aby sprawdzić, czy istniejące zapytania są dostępne, na pasku narzędzi zapytania wybierz pozycję **przykłady** > **historia**zapytań, która pokazuje zapytania z poprzedniego przebiegu zapytania lub wybierz **Eksploratora zapytań**, w którym są wyświetlane wstępnie skompilowane zapytania.
 
-     Na przykład rozwiązanie Logic Apps B2B udostępnia te wstępnie utworzone kwerendy:
+     Na przykład rozwiązanie Logic Apps B2B zapewnia te prekompilowane zapytania:
 
-     ![Zacznij od wstępnie utworzonych zapytań "Logic Apps B2B"](./media/create-monitoring-tracking-queries/b2b-prebuilt-queries.png)
+     ![Zacznij od "Logic Apps B2B" wstępnie skompilowanych zapytań](./media/create-monitoring-tracking-queries/b2b-prebuilt-queries.png)
 
-   * Aby rozpocząć od pustej kwerendy, w edytorze zapytań zacznij wpisywać [język zapytania Kusto](../azure-monitor/log-query/query-language.md) dla kwerendy.
+   * Aby rozpocząć od pustego zapytania, w edytorze zapytań Rozpocznij pisanie [języka zapytań Kusto](../azure-monitor/log-query/query-language.md) dla zapytania.
 
-     ![Zacznij od pustej kwerendy](./media/create-monitoring-tracking-queries/create-query-from-blank.png)
+     ![Rozpocznij od pustego zapytania](./media/create-monitoring-tracking-queries/create-query-from-blank.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Schematy śledzenia AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [Schematy śledzenia X12](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
-* [Schematy śledzenia niestandardowego](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)
+* [Niestandardowe schematy śledzenia](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

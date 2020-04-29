@@ -5,10 +5,10 @@ ms.service: azure-monitor
 ms.topic: include
 ms.date: 01/19/2019
 ms.openlocfilehash: a108cb5b7e9ec32c83c6ed6d3c4f0be03142393f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183795"
 ---
-Użyj analizy dzienników, aby tworzyć zapytania i analizować dane dziennika w usłudze Azure Monitor, klikając **pozycję Dzienniki** w menu **Usługi Azure Monitor** w witrynie Azure portal. 
+Użyj usługi log Analytics do tworzenia zapytań i analizowania danych dziennika w Azure Monitor, klikając pozycję **dzienniki** w menu **Azure monitor** w Azure Portal. 

@@ -5,10 +5,10 @@ ms.service: azure-monitor
 ms.topic: include
 ms.date: 01/19/2019
 ms.openlocfilehash: ca2aed5689fe31f47166428503abb9483fc406b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183375"
 ---
-Dane zebrane przez to rozwiązanie do monitorowania są dostępne na stronie **Przegląd usługi** Azure Monitor w witrynie Azure portal. Otwórz tę stronę z menu **Monitor platformy Azure,** klikając pozycję **Więcej** w sekcji **Insights.** Każde rozwiązanie jest reprezentowane przez kafelek. Kliknij kafelek, aby uzyskać bardziej szczegółowe dane zebrane przez to rozwiązanie.
+Dane zbierane przez to rozwiązanie monitorowania są dostępne na stronie **przegląd** Azure Monitor w Azure Portal. Otwórz Tę stronę z menu **Azure monitor** , klikając pozycję **więcej** w sekcji **szczegółowe informacje** . Każde rozwiązanie jest reprezentowane przez kafelek. Kliknij kafelek, aby uzyskać bardziej szczegółowe dane zbierane przez to rozwiązanie.

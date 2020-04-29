@@ -1,6 +1,6 @@
 ---
-title: Odzyskiwanie po awarii dla kont integracyjnych
-description: Konfigurowanie kont integracji i artefaktów B2B za pomocą odzyskiwania po awarii między regionami w usłudze Azure Logic Apps
+title: Odzyskiwanie po awarii dla kont integracji
+description: Skonfiguruj konta integracji i artefakty B2B z odzyskiwaniem po awarii między regionami w Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,234 +9,234 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
 ms.openlocfilehash: 09b77862ad3379efeb8b3063a9d6c60b062ca2d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905127"
 ---
-# <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Konfigurowanie odzyskiwania po awarii między regionami dla kont integracji w usłudze Azure Logic Apps
+# <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Skonfiguruj odzyskiwanie po awarii między regionami dla kont integracji w programie Azure Logic Apps
 
-Obciążenia B2B obejmują transakcje pieniężne, takie jak zamówienia i faktury. Podczas katastrofy ważne jest, aby firma szybko odzyskała siły, aby spełnić umowy SLA na poziomie biznesowym uzgodnione ze swoimi partnerami. W tym artykule pokazano, jak utworzyć plan ciągłości działania dla obciążeń B2B. 
+Obciążenia B2B obejmują transakcje pieniężne, takie jak zamówienia i faktury. W przypadku awarii, niezwykle ważne jest, aby zapewnić firmie szybkie odzyskiwanie, aby zaspokoić umowy SLA na poziomie firmy uzgodnione z partnerami. W tym artykule przedstawiono sposób tworzenia planu ciągłości biznesowej dla obciążeń B2B. 
 
 * Gotowość do odzyskiwania po awarii 
-* Przejmuje się w przewodzą do regionu pomocniczego podczas wystąpienia awarii 
-* Powrót do regionu podstawowego po zdarzeniu związanym z klęską żywiołową
+* Przechodzenie w tryb failover do regionu pomocniczego podczas zdarzenia awarii 
+* Wróć do regionu podstawowego po wystąpieniu awarii
 
 ## <a name="disaster-recovery-readiness"></a>Gotowość do odzyskiwania po awarii  
 
-1. Zidentyfikuj region pomocniczy i utwórz [konto integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) w regionie pomocniczym.
+1. Określ region pomocniczy i Utwórz [konto integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) w regionie pomocniczym.
 
-2. Dodaj partnerów, schematy i umowy dla wymaganych przepływów komunikatów, w których stan uruchomienia musi zostać zreplikowany na konto integracji regionu pomocniczego.
+2. Dodawanie partnerów, schematów i umów dotyczących wymaganych przepływów komunikatów, w których stan uruchomienia musi być replikowany do konta integracji regionu pomocniczego.
 
    > [!TIP]
-   > Upewnij się, że istnieje spójność w konwencji nazewnictwa artefaktu konta integracji w różnych regionach. 
+   > Upewnij się, że istnieje spójność konwencji nazewnictwa artefaktu konta integracji w różnych regionach. 
 
-3. Aby wyciągnąć stan uruchomienia z regionu podstawowego, utwórz aplikację logiki w regionie pomocniczym. 
+3. Aby ściągnąć stan uruchomienia z regionu podstawowego, należy utworzyć aplikację logiki w regionie pomocniczym. 
 
    Ta aplikacja logiki powinna mieć *wyzwalacz* i *akcję*. 
-   Wyzwalacz powinien łączyć się z kontem integracji regionu podstawowego, a akcja powinna łączyć się z kontem integracji regionu pomocniczego. 
-   Na podstawie przedziału czasu wyzwalacz sonduje tabelę stanu uruchamiania regionu podstawowego i pobiera nowe rekordy, jeśli takie istnieją. Akcja aktualizuje je do konta integracji regionu pomocniczego. 
-   Pomaga to uzyskać przyrostowy stan środowiska uruchomieniowego z regionu podstawowego do regionu pomocniczego.
+   Wyzwalacz powinien łączyć się z kontem integracji podstawowego regionu i akcja powinna łączyć się z kontem integracji regionu pomocniczego. 
+   Na podstawie przedziału czasu wyzwalacz sonduje tabelę stanu uruchomienia regionu podstawowego i ściąga nowe rekordy, jeśli istnieją. Akcja aktualizuje je do konta integracji regionu pomocniczego. 
+   Dzięki temu można uzyskać przyrostowy stan czasu wykonywania z regionu podstawowego do regionu pomocniczego.
 
-4. Ciągłość działania na koncie integracji aplikacji logiki jest przeznaczony do obsługi na podstawie protokołów B2B - X12, AS2 i EDIFACT. Aby znaleźć szczegółowe kroki, wybierz odpowiednie łącza.
+4. Ciągłość działania w ramach konta integracji Logic Apps jest przeznaczona do obsługi na podstawie protokołów B2B — X12, AS2 i EDIFACT. Aby znaleźć szczegółowe instrukcje, wybierz odpowiednie linki.
 
-5. Zalecenie jest, aby wdrożyć wszystkie zasoby regionu podstawowego w regionie pomocniczym zbyt. 
+5. Zaleca się również wdrożenie wszystkich zasobów regionu podstawowego w regionie pomocniczym. 
 
-   Zasoby regionu podstawowego obejmują usługę Azure SQL Database lub usługę Azure Cosmos DB, usługa Azure Service Bus i usługi Azure Event Hubs używane do obsługi wiadomości, usługi Azure API Management i funkcji Usługi Azure Logic Apps w usłudze Azure App Service.   
+   Zasoby regionu podstawowego obejmują Azure SQL Database lub Azure Cosmos DB, Azure Service Bus i Event Hubs platformy Azure używane do obsługi komunikatów, API Management platformy Azure i funkcji Azure Logic Apps w Azure App Service.   
 
-6. Ustanawianie połączenia z regionu podstawowego do regionu pomocniczego. Aby wyciągnąć stan uruchomienia z regionu podstawowego, utwórz aplikację logiki w regionie pomocniczym. 
+6. Ustanów połączenie z regionu podstawowego do regionu pomocniczego. Aby ściągnąć stan uruchomienia z regionu podstawowego, należy utworzyć aplikację logiki w regionie pomocniczym. 
 
    Aplikacja logiki powinna mieć wyzwalacz i akcję. 
-   Wyzwalacz powinien łączyć się z kontem integracji regionu podstawowego. 
+   Wyzwalacz powinien łączyć się z kontem integracji podstawowego regionu. 
    Akcja powinna łączyć się z kontem integracji regionu pomocniczego. 
-   Na podstawie przedziału czasu wyzwalacz sonduje tabelę stanu uruchamiania regionu podstawowego i pobiera nowe rekordy, jeśli takie istnieją. 
-   Akcja aktualizuje je do dodatkowego konta integracji regionu. 
-   Ten proces pomaga uzyskać przyrostowy stan środowiska uruchomieniowego z regionu podstawowego do regionu pomocniczego.
+   Na podstawie przedziału czasu wyzwalacz sonduje tabelę stanu uruchomienia regionu podstawowego i ściąga nowe rekordy, jeśli istnieją. 
+   Akcja aktualizuje je do konta integracji regionu pomocniczego. 
+   Ten proces umożliwia uzyskanie przyrostowego stanu środowiska uruchomieniowego z regionu podstawowego do regionu pomocniczego.
 
-Ciągłość działania na koncie integracji aplikacji logiki zapewnia obsługę opartą na protokołach B2B X12, AS2 i EDIFACT. Aby uzyskać szczegółowe kroki dotyczące korzystania z X12 i AS2, zobacz [X12](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md#x12) i [AS2](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md#as2) w tym artykule.
+Ciągłość działania w ramach konta integracji Logic Apps zapewnia pomoc techniczną na podstawie protokołów B2B X12, AS2 i EDIFACT. Aby uzyskać szczegółowe instrukcje dotyczące korzystania z X12 i AS2, zobacz [X12](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md#x12) i [AS2](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md#as2) w tym artykule.
 
-## <a name="fail-over-to-a-secondary-region-during-a-disaster-event"></a>Przeładuj awaryjnie do regionu pomocniczego podczas zdarzenia katastrofy
+## <a name="fail-over-to-a-secondary-region-during-a-disaster-event"></a>Przechodzenie w tryb failover do regionu pomocniczego podczas zdarzenia awarii
 
-Podczas wystąpienia awarii, gdy region podstawowy nie jest dostępny dla ciągłości biznesowej, ruch bezpośredni do regionu pomocniczego. Region pomocniczy pomaga przedsiębiorstwu szybko odzyskać funkcje, aby osiągnąć rpo/rto uzgodnione przez ich partnerów. Minimalizuje również wysiłki na rzecz awaryjnego działania z jednego regionu do drugiego regionu. 
+W przypadku awarii, gdy region podstawowy nie jest dostępny w celu zapewnienia ciągłości działania, kieruj ruch do regionu pomocniczego. Region pomocniczy ułatwia firmie szybkie odzyskiwanie funkcji w celu spełnienia wymagań dotyczących punktu odzyskiwania/RTO uzgodnionego przez partnerów. Ponadto minimalizuje wysiłki w celu przełączenia w tryb failover z jednego regionu do innego. 
 
-Istnieje oczekiwane opóźnienie podczas kopiowania numerów kontrolnych z regionu podstawowego do regionu pomocniczego. Aby uniknąć wysyłania zduplikowanych wygenerowanych numerów kontrolnych do partnerów podczas wystąpienia awarii, zaleca się zwiększenie liczby formantów w umowach regionu pomocniczego przy użyciu [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
+Oczekiwane opóźnienie podczas kopiowania numerów kontrolnych z regionu podstawowego do regionu pomocniczego. Aby uniknąć wysyłania duplikatów wygenerowanych numerów kontrolek do partnerów w trakcie zdarzenia awarii, zalecenie polega na zwiększeniu liczby kontrolek w umowach dotyczących regionu pomocniczego za pomocą [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
 
-## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>Powrót do regionu podstawowego po katastrofie
+## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>Powracanie do zdarzenia po awarii w regionie podstawowym
 
-Aby wrócić do regionu podstawowego, gdy jest on dostępny, wykonaj następujące kroki:
+Aby wrócić do regionu podstawowego, gdy jest dostępny, wykonaj następujące kroki:
 
-1. Przestań akceptować wiadomości od partnerów w regionie pomocniczym.  
+1. Zatrzymaj akceptowanie komunikatów od partnerów w regionie pomocniczym.  
 
-2. Przyrost wygenerowane numery kontrolne dla wszystkich umów regionu podstawowego przy użyciu [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
+2. Zwiększ wygenerowane numery kontrolne dla wszystkich umów regionu podstawowego za pomocą [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
 
-3. Ruch bezpośredni z regionu pomocniczego do regionu podstawowego.
+3. Kierowanie ruchu z regionu pomocniczego do regionu podstawowego.
 
 4. Sprawdź, czy aplikacja logiki utworzona w regionie pomocniczym do ściągania stanu uruchomienia z regionu podstawowego jest włączona.
 
 ## <a name="x12"></a>X12 
 
-Ciągłość działania dokumentów EDI X12 opiera się na numerach kontrolnych:
+Ciągłość działania w przypadku dokumentów EDI X12 jest oparta na numerach kontroli:
 
 > [!TIP]
-> Za pomocą [szablonu szybkiego startu X12](https://azure.microsoft.com/resources/templates/201-logic-app-b2b-disaster-recovery-replication/) można również tworzyć aplikacje logiki. Tworzenie kont integracji podstawowej i pomocniczej są wymaganiami wstępnymi do użycia szablonu. Szablon pomaga utworzyć dwie aplikacje logiki, jedną dla odebranych numerów kontrolnych, a drugą dla wygenerowanych numerów kontrolnych. Odpowiednie wyzwalacze i akcje są tworzone w aplikacjach logiki, łącząc wyzwalacz z kontem integracji podstawowej i akcji do konta integracji pomocniczej.
+> Możesz również użyć [szablonu szybkiego startu X12](https://azure.microsoft.com/resources/templates/201-logic-app-b2b-disaster-recovery-replication/) do tworzenia aplikacji logiki. Tworzenie podstawowych i pomocniczych kont integracji jest wymagane przed użyciem szablonu. Szablon pomaga utworzyć dwie aplikacje logiki, jeden dla odebranych numerów kontroli i drugi dla wygenerowanych numerów kontrolnych. Odpowiednie wyzwalacze i akcje są tworzone w usłudze Logic Apps, łącząc wyzwalacz z podstawowym kontem integracji i akcją do pomocniczego konta integracji.
 
 **Wymagania wstępne**
 
-Aby włączyć odzyskiwanie po awarii dla wiadomości przychodzących, wybierz zduplikowane ustawienia sprawdzania w ustawieniach odbierania umowy X12.
+Aby włączyć odzyskiwanie awaryjne dla wiadomości przychodzących, wybierz ustawienia opcji sprawdzanie duplikatów w ustawieniach odbioru umowy X12.
 
-![Wybieranie ustawień sprawdzania duplikatów](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
+![Wybierz ustawienia zduplikowanych sprawdzania](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
 1. Tworzenie [aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) w regionie pomocniczym.    
 
-2. Wyszukaj na **X12**i wybierz **X12 - Po zmodyfikowaniu numeru kontrolnego**.   
+2. Wyszukaj w witrynie **X12**i wybierz pozycję **X12 — gdy numer kontrolny jest modyfikowany**.   
 
-   ![Szukaj X12](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn1.png)
+   ![Wyszukaj X12](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn1.png)
 
-   Wyzwalacz monituje o nawiązanie połączenia z kontem integracji. 
-   Wyzwalacz powinien być połączony z kontem integracji regionu podstawowego.
+   Wyzwalacz zostanie wyświetlony w celu nawiązania połączenia z kontem integracji. 
+   Wyzwalacz powinien być połączony z kontem integracji podstawowego regionu.
 
-3. Wprowadź nazwę połączenia, wybierz z listy *podstawowe konto integracji regionu* i wybierz pozycję **Utwórz**.   
+3. Wprowadź nazwę połączenia, wybierz *konto integracji podstawowego regionu* z listy i wybierz pozycję **Utwórz**.   
 
    ![Nazwa konta integracji regionu podstawowego](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
 
-4. Ustawienie **synchronizacji numeru formantu DateTime to start** jest opcjonalne. **Częstotliwość** można ustawić na **Dzień,** **Godzina,** **Minuta**lub **Sekunda** z interwałem.   
+4. Ustawienie **Data i godzina rozpoczęcia synchronizacji numeru kontrolnego** jest opcjonalne. **Częstotliwość** można ustawić na wartość **Day**, **Hour**, **minuta**lub **sekundę** z interwałem.   
 
-   ![DateTime i częstotliwość](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+   ![Data i godzina](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
-5. Wybierz **pozycję Nowy krok** > **Dodaj akcję**.
+5. Wybierz pozycję **Nowy krok** > **Dodaj akcję**.
 
-   ![Nowy krok, Dodaj akcję](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+   ![Nowy krok, Dodawanie akcji](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
-6. Wyszukaj na **X12**i wybierz **X12 - Dodaj lub zaktualizuj numery kontrolne**.   
+6. Wyszukaj w witrynie **X12**i wybierz pozycję **X12 — Dodaj lub zaktualizuj numery kontrolne**.   
 
-   ![Dodawanie lub aktualizowanie numerów kontrolnych](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+   ![Dodaj lub zaktualizuj numery kontrolne](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
-7. Aby połączyć akcję z kontem integracji regionu pomocniczego, wybierz pozycję **Zmień połączenie** > **Dodaj nowe połączenie** dla listy dostępnych kont integracji. Wprowadź nazwę połączenia, wybierz konto *integracji regionu pomocniczego* z listy i wybierz pozycję **Utwórz**. 
+7. Aby połączyć akcję z kontem integracji regionu pomocniczego, wybierz pozycję **Zmień połączenie** > **Dodaj nowe połączenie** , aby wyświetlić listę dostępnych kont integracji. Wprowadź nazwę połączenia i wybierz z listy *konto integracji regionu pomocniczego* , a następnie wybierz pozycję **Utwórz**. 
 
    ![Nazwa konta integracji regionu pomocniczego](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
-8. Przełącz się na nieprzetworzone wejścia, klikając ikonę w prawym górnym rogu.
+8. Przejdź do wejść pierwotnych, klikając ikonę w prawym górnym rogu.
 
-   ![Przełączanie na nieprzetworzone wejścia](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12rawinputs.png)
+   ![Przełącz na pierwotne dane wejściowe](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12rawinputs.png)
 
-9. Wybierz body z selektora zawartości dynamicznej i zapisz aplikację logiki.
+9. Wybierz pozycję treść z selektora zawartości dynamicznej i Zapisz aplikację logiki.
 
    ![Dynamiczne pola zawartości](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn7.png)
 
-   Na podstawie przedziału czasu wyzwalacz sonduje tabelę numerów kontrolnych regionu podstawowego i pobiera nowe rekordy. 
-   Akcja aktualizuje rekordy na koncie integracji regionu pomocniczego. 
-   Jeśli nie ma żadnych aktualizacji, stan wyzwalacza jest wyświetlany jako **Pominięty**.   
+   W oparciu o przedział czasu wyzwalacz sonduje region podstawowy otrzymał tabelę numerów kontroli i ściąga nowe rekordy. 
+   Akcja aktualizuje rekordy w ramach konta integracji regionu pomocniczego. 
+   Jeśli nie ma żadnych aktualizacji, stan wyzwalacza jest wyświetlany jako **pominięty**.   
 
-   ![Tabela numerów kontrolnych](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
+   ![Tabela numerów kontrolek](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
 
-Na podstawie interwału czasu przyrostowy stan środowiska uruchomieniowego jest replikowane z regionu podstawowego do regionu pomocniczego. Podczas wystąpienia awarii, gdy region podstawowy nie jest dostępny, przekieruj ruch do regionu pomocniczego w celu zapewnienia ciągłości biznesowej. 
+Na podstawie przedziału czasowego stan środowiska wykonawczego jest replikowany z regionu podstawowego do regionu pomocniczego. W przypadku awarii, gdy region podstawowy nie jest dostępny, kieruj ruch do regionu pomocniczego w celu zachowania ciągłości działania. 
 
 ## <a name="edifact"></a>EDIFACT 
 
-Ciągłość działania dokumentów EDI EDIFACT opiera się na numerach kontrolnych.
+Ciągłość działania w przypadku dokumentów EDI EDIFACT jest oparta na numerach kontrolnych.
 
 **Wymagania wstępne**
 
-Aby włączyć odzyskiwanie po awarii dla wiadomości przychodzących, wybierz zduplikowane ustawienia sprawdzania w ustawieniach odbioru umowy EDIFACT.
+Aby włączyć odzyskiwanie awaryjne dla wiadomości przychodzących, wybierz ustawienia opcji sprawdzanie duplikatów w ustawieniach odbioru umowy EDIFACT.
 
-![Wybieranie ustawień sprawdzania duplikatów](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
+![Wybierz ustawienia zduplikowanych sprawdzania](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
 1. Tworzenie [aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) w regionie pomocniczym.    
 
-2. Wyszukaj w **EDIFACT**i wybierz **EDIFACT - Po zmodyfikowaniu numeru kontrolnego.**
+2. Wyszukaj w witrynie **EDIFACT**i wybierz pozycję **EDIFACT — gdy numer kontrolny jest modyfikowany**.
 
-   ![Szukaj EDIFACT](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactcn1.png)
+   ![Wyszukaj EDIFACT](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactcn1.png)
 
-   Wyzwalacz monituje o nawiązanie połączenia z kontem integracji. 
-   Wyzwalacz powinien być połączony z kontem integracji regionu podstawowego. 
+   Wyzwalacz zostanie wyświetlony w celu nawiązania połączenia z kontem integracji. 
+   Wyzwalacz powinien być połączony z kontem integracji podstawowego regionu. 
 
-3. Wprowadź nazwę połączenia, wybierz z listy *podstawowe konto integracji regionu* i wybierz pozycję **Utwórz**.    
+3. Wprowadź nazwę połączenia, wybierz *konto integracji podstawowego regionu* z listy i wybierz pozycję **Utwórz**.    
 
    ![Nazwa konta integracji regionu podstawowego](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN2.png)
 
-4. Ustawienie **synchronizacji numeru formantu DateTime to start** jest opcjonalne. **Częstotliwość** można ustawić na **Dzień,** **Godzina,** **Minuta**lub **Sekunda** z interwałem.    
+4. Ustawienie **Data i godzina rozpoczęcia synchronizacji numeru kontrolnego** jest opcjonalne. **Częstotliwość** można ustawić na wartość **Day**, **Hour**, **minuta**lub **sekundę** z interwałem.    
 
-   ![DateTime i częstotliwość](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+   ![Data i godzina](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
-6. Wybierz **pozycję Nowy krok** > **Dodaj akcję**.    
+6. Wybierz pozycję **Nowy krok** > **Dodaj akcję**.    
 
-   ![Nowy krok, Dodaj akcję](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+   ![Nowy krok, Dodawanie akcji](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
-7. Wyszukaj w **EDIFACT**i wybierz **EDIFACT - Dodaj lub zaktualizuj numery kontrolne**.   
+7. Wyszukaj w witrynie **EDIFACT**i wybierz pozycję **EDIFACT — Dodaj lub zaktualizuj numery kontrolne**.   
 
-   ![Dodawanie lub aktualizowanie numerów kontrolnych](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
+   ![Dodaj lub zaktualizuj numery kontrolne](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
-8. Aby połączyć akcję z kontem integracji regionu pomocniczego, wybierz pozycję **Zmień połączenie** > **Dodaj nowe połączenie** dla listy dostępnych kont integracji. Wprowadź nazwę połączenia, wybierz konto *integracji regionu pomocniczego* z listy i wybierz pozycję **Utwórz**.
+8. Aby połączyć akcję z kontem integracji regionu pomocniczego, wybierz pozycję **Zmień połączenie** > **Dodaj nowe połączenie** , aby wyświetlić listę dostępnych kont integracji. Wprowadź nazwę połączenia i wybierz z listy *konto integracji regionu pomocniczego* , a następnie wybierz pozycję **Utwórz**.
 
    ![Nazwa konta integracji regionu pomocniczego](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
-9. Przełącz się na nieprzetworzone wejścia, klikając ikonę w prawym górnym rogu.
+9. Przejdź do wejść pierwotnych, klikając ikonę w prawym górnym rogu.
 
-   ![Przełączanie na nieprzetworzone wejścia](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
+   ![Przełącz na pierwotne dane wejściowe](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
 
-10. Wybierz body z selektora zawartości dynamicznej i zapisz aplikację logiki.   
+10. Wybierz pozycję treść z selektora zawartości dynamicznej i Zapisz aplikację logiki.   
 
    ![Dynamiczne pola zawartości](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
 
-   Na podstawie przedziału czasu wyzwalacz sonduje tabelę numerów kontrolnych regionu podstawowego i pobiera nowe rekordy.
+   W oparciu o przedział czasu wyzwalacz sonduje region podstawowy otrzymał tabelę numerów kontroli i ściąga nowe rekordy.
    Akcja aktualizuje rekordy do konta integracji regionu pomocniczego. 
-   Jeśli nie ma żadnych aktualizacji, stan wyzwalacza jest wyświetlany jako **Pominięty**.
+   Jeśli nie ma żadnych aktualizacji, stan wyzwalacza jest wyświetlany jako **pominięty**.
 
-   ![Tabela numerów kontrolnych](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
+   ![Tabela numerów kontrolek](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
 
-Na podstawie interwału czasu przyrostowy stan środowiska uruchomieniowego jest replikowane z regionu podstawowego do regionu pomocniczego. Podczas wystąpienia awarii, gdy region podstawowy nie jest dostępny, przekieruj ruch do regionu pomocniczego w celu zapewnienia ciągłości biznesowej. 
+Na podstawie przedziału czasowego stan środowiska wykonawczego jest replikowany z regionu podstawowego do regionu pomocniczego. W przypadku awarii, gdy region podstawowy nie jest dostępny, kieruj ruch do regionu pomocniczego w celu zachowania ciągłości działania. 
 
 ## <a name="as2"></a>AS2 
 
-Ciągłość działania dokumentów korzystających z protokołu AS2 opiera się na identyfikatorze wiadomości i wartości MIC.
+Ciągłość działania w przypadku dokumentów korzystających z protokołu AS2 jest oparta na IDENTYFIKATORze komunikatu i wartości MIC.
 
 > [!TIP]
-> Za pomocą [szablonu szybkiego startu AS2](https://github.com/Azure/azure-quickstart-templates/pull/3302) można również tworzyć aplikacje logiki. Tworzenie kont integracji podstawowej i pomocniczej są wymaganiami wstępnymi do użycia szablonu. Szablon pomaga utworzyć aplikację logiki, która ma wyzwalacz i akcję. Aplikacja logiki tworzy połączenie z wyzwalacza do konta integracji podstawowej i akcji do konta integracji pomocniczej.
+> Możesz również użyć [szablonu szybkiego startu AS2](https://github.com/Azure/azure-quickstart-templates/pull/3302) do tworzenia aplikacji logiki. Tworzenie podstawowych i pomocniczych kont integracji jest wymagane przed użyciem szablonu. Szablon pomaga utworzyć aplikację logiki, która ma wyzwalacz i akcję. Aplikacja logiki tworzy połączenie z poziomu wyzwalacza z podstawowym kontem integracji i akcją pomocniczego konta integracji.
 
-1. Tworzenie [aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) w regionie pomocniczym.  
+1. Utwórz [aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) w regionie pomocniczym.  
 
-2. Wyszukaj na **AS2**i wybierz **AS2 - Po utworzeniu wartości MIC**.   
+2. Wyszukaj w witrynie **AS2**i wybierz pozycję **AS2 — po utworzeniu wartości MIC**.   
 
-   ![Szukaj AS2](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid1.png)
+   ![Wyszukaj AS2](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid1.png)
 
-   Wyzwalacz monituje o nawiązanie połączenia z kontem integracji. 
-   Wyzwalacz powinien być połączony z kontem integracji regionu podstawowego. 
+   Wyzwalacz zostanie wyświetlony w celu nawiązania połączenia z kontem integracji. 
+   Wyzwalacz powinien być połączony z kontem integracji podstawowego regionu. 
    
-3. Wprowadź nazwę połączenia, wybierz z listy *podstawowe konto integracji regionu* i wybierz pozycję **Utwórz**.
+3. Wprowadź nazwę połączenia, wybierz *konto integracji podstawowego regionu* z listy i wybierz pozycję **Utwórz**.
 
    ![Nazwa konta integracji regionu podstawowego](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
 
-4. **Ustawienie synchronizacji wartości mic DateTime** to start jest opcjonalne. **Częstotliwość** można ustawić na **Dzień,** **Godzina,** **Minuta**lub **Sekunda** z interwałem.   
+4. Ustawienie **daty i godziny początkowej synchronizacji wartości MIC** jest opcjonalne. **Częstotliwość** można ustawić na wartość **Day**, **Hour**, **minuta**lub **sekundę** z interwałem.   
 
-   ![DateTime i częstotliwość](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid3.png)
+   ![Data i godzina](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid3.png)
 
-5. Wybierz **pozycję Nowy krok** > **Dodaj akcję**.  
+5. Wybierz pozycję **Nowy krok** > **Dodaj akcję**.  
 
-   ![Nowy krok, Dodaj akcję](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid4.png)
+   ![Nowy krok, Dodawanie akcji](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid4.png)
 
-6. Wyszukaj w **AS2**i wybierz **AS2 - Dodaj lub zaktualizuj zawartość mic**.  
+6. Wyszukaj w witrynie **AS2**i wybierz pozycję **AS2 — Dodaj lub zaktualizuj zawartość MIC**.  
 
-   ![Dodanie lub aktualizacja mic](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid5.png)
+   ![Dodanie lub aktualizacja mikrofonu](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid5.png)
 
-7. Aby połączyć akcję z kontem integracji pomocniczej, wybierz **pozycję Zmień połączenie** > **Dodaj nowe połączenie** dla listy dostępnych kont integracji. Wprowadź nazwę połączenia, wybierz konto *integracji regionu pomocniczego* z listy i wybierz pozycję **Utwórz**.
+7. Aby połączyć akcję z pomocniczym kontem integracji, wybierz pozycję **Zmień połączenie** > **Dodaj nowe połączenie** , aby wyświetlić listę dostępnych kont integracji. Wprowadź nazwę połączenia i wybierz z listy *konto integracji regionu pomocniczego* , a następnie wybierz pozycję **Utwórz**.
 
    ![Nazwa konta integracji regionu pomocniczego](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid6.png)
 
-8. Przełącz się na nieprzetworzone wejścia, klikając ikonę w prawym górnym rogu.
+8. Przejdź do wejść pierwotnych, klikając ikonę w prawym górnym rogu.
 
-   ![Przełączanie na nieprzetworzone wejścia](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2rawinputs.png)
+   ![Przełącz na pierwotne dane wejściowe](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2rawinputs.png)
 
-9. Wybierz body z selektora zawartości dynamicznej i zapisz aplikację logiki.   
+9. Wybierz pozycję treść z selektora zawartości dynamicznej i Zapisz aplikację logiki.   
 
    ![Zawartość dynamiczna](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid7.png)
 
-   Na podstawie przedziału czasu wyzwalacz sonduje tabelę regionu podstawowego i ściąga nowe rekordy. Akcja aktualizuje je do konta integracji regionu pomocniczego. 
-   Jeśli nie ma żadnych aktualizacji, stan wyzwalacza jest wyświetlany jako **Pominięty**.  
+   Na podstawie interwału czasowego wyzwalacz sonduje podstawową tabelę regionów i ściąga nowe rekordy. Akcja aktualizuje je do konta integracji regionu pomocniczego. 
+   Jeśli nie ma żadnych aktualizacji, stan wyzwalacza jest wyświetlany jako **pominięty**.  
 
-   ![Tabela regionu podstawowego](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid8.png)
+   ![Tabela regionów podstawowych](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid8.png)
 
-Na podstawie interwału czasu przyrostowy stan środowiska uruchomieniowego jest replikowane z regionu podstawowego do regionu pomocniczego. Podczas wystąpienia awarii, gdy region podstawowy nie jest dostępny, przekieruj ruch do regionu pomocniczego w celu zapewnienia ciągłości biznesowej. 
+Na podstawie przedziału czasowego stan środowiska wykonawczego jest replikowany z regionu podstawowego do regionu pomocniczego. W przypadku awarii, gdy region podstawowy nie jest dostępny, kieruj ruch do regionu pomocniczego w celu zachowania ciągłości działania. 
 
 ## <a name="next-steps"></a>Następne kroki
 

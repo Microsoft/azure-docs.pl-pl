@@ -5,11 +5,11 @@ ms.service: azure-monitor
 ms.topic: include
 ms.date: 01/19/2019
 ms.openlocfilehash: 9ea81665de45dafed2ef062af4350f35de8fcb1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183833"
 ---
 >[!NOTE]
->Poprzednie wersje tego artykułu, o których mowa w usłudze Log Analytics jako własnej usługi. Jego funkcjonalność nie uległa zmianie, ale została zmieniona na funkcję dziennika usługi Azure Monitor. W tym artykule opisano jego dane przechowywane w obszarze roboczym usługi Log Analytics w usłudze Azure Monitor. Aby uzyskać więcej informacji, zobacz [Zmiany znakowania usługi Azure Monitor](../articles/azure-monitor/azure-monitor-rebrand.md).
+>Poprzednie wersje tego artykułu odnoszące się Log Analytics jako własnej usługi. Jego funkcjonalność nie zmieniła się, ale została zmieniona na funkcję log dziennika Azure Monitor. W przypadku tej zmiany nazwy w tym artykule opisano dane przechowywane w obszarze roboczym Log Analytics w Azure Monitor. Aby uzyskać więcej informacji, zobacz [Azure monitor zmiany marki](../articles/azure-monitor/azure-monitor-rebrand.md).

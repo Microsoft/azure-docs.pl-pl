@@ -9,63 +9,63 @@ ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
 ms.openlocfilehash: 9397c5f075c1d6653920d19766d5d6a740294ec7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67330756"
 ---
-Podczas tworzenia własnego certyfikatu dozwolone są następujące urzędy certyfikacji:
+Podczas tworzenia własnego certyfikatu można używać następujących urzędów certyfikacji:
 
-- Katalog główny zewnętrznego urzędu certyfikacji usługi AddTrust
-- Główny urząd certyfikacji alfassl
-- AME Infra CA 01
-- AME Infra CA 02
-- Ameroot ( Ameroot )
+- $ Ufaj zewnętrznym certyfikatem głównym urzędu certyfikacji
+- Główny urząd certyfikacji AlphaSSL
+- AZWA infrastruktura CA 01
+- AZWA infrastruktura urzędu certyfikacji 02
+- Ameroot
 - APCA-DM3P
-- Główny urząd certyfikacji autopilota
-- Baltimore CyberTrust Korzeń
-- Publiczny główny urząd certyfikacji klasy 3
-- Urząd Certyfikacji COMODO RSA
-- Comodo RSA Kontroler domeny Bezpieczny serwer certyfikacji
-- D-TRUST Root Klasa 3 CA 2 2009
-- Usługi digicert cloud CA-1
-- Główny urząd certyfikacji DigiCert
-- DigiCert Wysoki Certyfikat CA-3
-- DigiCert High Assurance EV Główny URZĄD CERTYFIKACJI
-- DigiCert SHA2 Rozszerzony certyfikat urzędu certyfikacji serwera sprawdzania poprawności
-- DigiCert SHA2 Certyfikat serwera O wysokiej jakości
-- DigiCert SHA2 Bezpieczny serwer CA
-- Główny urząd certyfikacji krotny ce x3
-- D-trust Root Class 3 CA 2 2009
-- Szyfrowanie wszędzie dv TLS CA
-- Powierzenie głównego urzędu certyfikacji
-- Powierzynie głównego urzędu certyfikacji - G2
-- Entrust.net Urząd Certyfikacji (2048)
-- Globalny urząd certyfikacji geotrust
-- Podstawowy urząd certyfikacji geotrust
-- Główny urząd certyfikacji GeoTrust - G2
-- Geotrust RSA CA 2018
+- Główny urząd certyfikacji autopilotażu
+- Baltimore CyberTrust, główny
+- Publiczny podstawowy urząd certyfikacji klasy 3
+- Urząd certyfikacji RSA COMODO
+- COMODO RSA — weryfikacja domeny bezpieczny serwer urzędu certyfikacji
+- D — zaufanie klasy głównej 3 urzędu certyfikacji 2 2009
+- DigiCert Cloud Services CA-1
+- Globalny główny urząd certyfikacji DigiCert
+- Urząd certyfikacji DigiCert (High Assurance) — 3
+- Główny urząd certyfikacji EV DigiCert o wysokim poziomie zabezpieczeń
+- Urząd certyfikacji serwera rozszerzonej weryfikacji DigiCert algorytmu SHA2
+- Urząd certyfikacji serwera DigiCert algorytmu SHA2 High Assurance
+- DigiCert algorytmu SHA2 bezpieczny serwer urzędu certyfikacji
+- Główny urząd certyfikacji DST
+- D — zaufanie klasy głównej 3 urzędu certyfikacji 2 2009
+- Szyfrowanie wszędzie w przypadku cyfrowych urzędów certyfikacji TLS
+- Powierz główny urząd certyfikacji
+- Powierz główny urząd certyfikacji — G2
+- Urząd certyfikacji Entrust.net (2048)
+- Globalny urząd certyfikacji geozaufanej
+- Podstawowy urząd certyfikacji geozaufanej
+- Podstawowy urząd certyfikacji geozaufanej — G2
+- Certyfikat GeoTrust RSA CA 2018
 - GlobalSign
-- Rozszerzona walidacja globalsign CA - SHA256 - G2
-- Certyfikacja organizacji GlobalSign — G2
+- GlobalSign rozszerzona Walidacja CA-SHA256-G2
+- GlobalSign weryfikacji organizacji CA — G2
 - Główny urząd certyfikacji GlobalSign
-- Go Daddy Główny Urząd Certyfikacji - G2
-- Go Daddy Secure Certificate Authority - G2
-- Korzeń QuoVadis CA2 G3
+- Przejdź do głównego urzędu certyfikacji Daddy — G2
+- Przejdź do Daddy bezpiecznego urzędu certyfikacji — G2
+- QuoVadis główny CA2 G3
 - RapidSSL RSA CA 2018
-- Symantec Klasa 3 EV SSL CA - G3
-- Bezpieczny serwer typu Symantec 3 — G4
-- Symantec Enterprise Mobile Root dla firmy Microsoft
-- Odwilż podstawowy urząd certyfikacji
-- Odwilż podstawowy urząd certyfikacji - G2
-- Odwilż podstawowy urząd certyfikacji - G3
+- Symantec Class 3 EV — urząd certyfikacji SSL-G3
+- Symantec Class 3 Secure Server CA-G4
+- Główny certyfikat firmy Symantec Enterprise Mobile dla firmy Microsoft
+- Podstawowy główny urząd certyfikacji Thawte
+- Thawte podstawowy główny urząd certyfikacji — G2
+- Thawte podstawowy główny urząd certyfikacji — G3
 - Thawte RSA CA 2018
-- Rozmrażanie sygnatury czasowe urzędu certyfikacji
-- TrustAsia TLS RSA CA
-- VeriSign Klasa 3 Rozszerzona walidacja SSL CA
-- VeriSign Klasa 3 Rozszerzona walidacja SSL SGC CA
-- VeriSign Class 3 Publiczny Główny Urząd Certyfikacji - G5
-- VeriSign International Server CA - Klasa 3
-- Katalog główny usługi stemplowania czasu VeriSign
-- VeriSign Uniwersalny główny urząd certyfikacji
+- Thawte sygnatura czasowa urzędu certyfikacji
+- TrustAsia TLS — urząd certyfikacji RSA
+- Urząd certyfikacji rozszerzonej weryfikacji certyfikatu VeriSign Class 3
+- VeriSign Class 3 — rozszerzona Walidacja — urząd certyfikacji SGC
+- VeriSign Class 3 Public głównego urzędu certyfikacji — G5
+- Międzynarodowy serwer urzędu certyfikacji VeriSign — Klasa 3
+- Katalog główny usługi sygnatur czasowych VeriSign
+- Uniwersalny główny urząd certyfikacji VeriSign

@@ -9,15 +9,15 @@ ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: a9473f69d600a86ff71da69c7efe0dea3f2b0a08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76159152"
 ---
 ## <a name="add-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Adresy IP do systemu operacyjnego maszyny wirtualnej
 
-Połącz się i zaloguj się do maszyny Wirtualnej utworzonej przy użyciu wielu prywatnych adresów IP. Wszystkie prywatne adresy IP (w tym podstawowy) dodane do maszyny wirtualnej muszą zostać wprowadzone ręcznie. Wykonaj kroki, które należy wykonać dla systemu operacyjnego maszyny Wirtualnej.
+Łączenie się z maszyną wirtualną utworzoną za pomocą wielu prywatnych adresów IP i logowanie się do niej. Wszystkie prywatne adresy IP (w tym podstawowy) dodane do maszyny wirtualnej muszą zostać wprowadzone ręcznie. Wykonaj kroki opisane poniżej dla systemu operacyjnego maszyny wirtualnej.
 
 ### <a name="windows"></a>Windows
 
@@ -30,16 +30,16 @@ Połącz się i zaloguj się do maszyny Wirtualnej utworzonej przy użyciu wielu
     * **Adres IP**: wprowadź *podstawowy* prywatny adres IP.
     * **Maska podsieci**: ustaw na podstawie swojej sieci. Na przykład jeśli podsieć jest podsiecią typu /24, wprowadź maską podsieci 255.255.255.0.
     * **Brama domyślna**: pierwszy adres IP w podsieci. Jeśli podsieć jest typu 10.0.0.0/24, adresem IP bramy będzie 10.0.0.1.
-    * Wybierz **pozycję Użyj następujących adresów serwera DNS** i wprowadź następujące wartości:
+    * Wybierz opcję **Użyj następujących adresów serwerów DNS** i wprowadź następujące wartości:
         * **Preferowany serwer DNS**: jeśli nie używasz własnego serwera DNS, wprowadź adres 168.63.129.16.  Jeśli używasz własnego serwera DNS, wprowadź jego adres IP.
-    * Wybierz przycisk **Zaawansowane** i dodaj dodatkowe adresy IP. Dodaj każdy z pomocniczych prywatnych adresów IP, który został dodany do interfejsu sieciowego platformy Azure w poprzednim kroku, do interfejsu sieciowego systemu Windows, który jest przypisany podstawowy adres IP przypisany do interfejsu sieciowego platformy Azure.
+    * Wybierz przycisk **Zaawansowane** i Dodaj dodatkowe adresy IP. Dodaj wszystkie pomocnicze prywatne adresy IP, które zostały dodane do interfejsu sieciowego platformy Azure w poprzednim kroku, do interfejsu sieciowego systemu Windows, do którego przypisany jest podstawowy adres IP przypisany do interfejsu sieciowego platformy Azure.
 
-        Nigdy nie należy ręcznie przypisywać publicznego adresu IP przypisanego do maszyny wirtualnej platformy Azure w systemie operacyjnym maszyny wirtualnej. Podczas ręcznego ustawiania adresu IP w systemie operacyjnym upewnij się, że jest to ten sam adres co prywatny adres IP przypisany do [interfejsu sieciowego](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings)platformy Azure lub możesz utracić łączność z maszyną wirtualną. Dowiedz się więcej o [ustawieniach prywatnych adresów IP.](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) Nigdy nie należy przypisywać publicznego adresu IP platformy Azure w systemie operacyjnym.
+        Nigdy nie należy ręcznie przypisywać publicznego adresu IP przypisanego do maszyny wirtualnej platformy Azure w ramach systemu operacyjnego maszyny wirtualnej. W przypadku ręcznego ustawiania adresu IP w ramach systemu operacyjnego upewnij się, że jest to ten sam adres, co prywatny adres IP przypisany do [interfejsu sieciowego](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings)platformy Azure, lub utracisz łączność z maszyną wirtualną. Dowiedz się więcej o ustawieniach [prywatnych adresów IP](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) . Nie należy nigdy przypisywać publicznego adresu IP platformy Azure w ramach systemu operacyjnego.
 
     * Kliknij przycisk **OK**, aby zamknąć ustawienia TCP/IP, a następnie kliknij ponownie przycisk **OK**, aby zamknąć ustawienia karty. Połączenie RDP zostanie ponownie nawiązane.
 
 6. W wierszu polecenia wpisz *ipconfig /all*. Zostaną wyświetlone wszystkie dodane adresy IP, a protokół DHCP będzie wyłączony.
-7. Skonfiguruj system Windows do używania prywatnego adresu IP podstawowej konfiguracji IP na platformie Azure jako podstawowego adresu IP systemu Windows. Zobacz [Brak dostępu do Internetu z maszyny Wirtualnej systemu Windows platformy Azure, która ma wiele adresów IP,](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) aby uzyskać szczegółowe informacje. 
+7. Skonfiguruj system Windows do korzystania z prywatnego adresu IP podstawowej konfiguracji adresu IP na platformie Azure jako podstawowego adresu IP dla systemu Windows. Aby uzyskać szczegółowe informacje [, zobacz Brak dostępu do Internetu z maszyny wirtualnej platformy Azure z systemem Windows z wieloma adresami IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) . 
 
 ### <a name="validation-windows"></a>Walidacja (Windows)
 
@@ -49,11 +49,11 @@ Aby upewnić się, że będziesz mieć możliwość nawiązania połączenia z I
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->W przypadku dodatkowych konfiguracji adresów IP można pingować do Internetu tylko wtedy, gdy konfiguracja ma skojarzony z nią publiczny adres IP. W przypadku podstawowych konfiguracji adresów IP publiczny adres IP nie jest wymagany do pingowania do Internetu.
+>W przypadku konfiguracji pomocniczych adresów IP można wysyłać polecenia ping do Internetu tylko wtedy, gdy z konfiguracją jest skojarzony publiczny adres IP. W przypadku podstawowych konfiguracji adresu IP publiczny adres IP nie jest wymagany do wysyłania poleceń ping do Internetu.
 
 ### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
 
-Zalecamy zapoznanie się z najnowszą dokumentacją dla twojej dystrybucji linuksa. 
+Zalecamy zapoznanie się z najnowszą dokumentacją dystrybucji systemu Linux. 
 
 1. Otwórz okno terminalu.
 2. Upewnij się, że jesteś zalogowany jako użytkownik root. Jeśli nie, wprowadź następujące polecenie:
@@ -112,9 +112,9 @@ Zalecamy zapoznanie się z najnowszą dokumentacją dla twojej dystrybucji linuk
 
    Dodany adres IP powinien być widoczny na liście.
 
-### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04+)
+### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04 +)
 
-Ubuntu 18.04 i powyżej `netplan` zostały zmienione na zarządzanie siecią systemu operacyjnego. Zalecamy zapoznanie się z najnowszą dokumentacją dla twojej dystrybucji linuksa. 
+Ubuntu 18,04 i nowsze zostały zmienione na `netplan` dla zarządzania siecią systemu operacyjnego. Zalecamy zapoznanie się z najnowszą dokumentacją dystrybucji systemu Linux. 
 
 1. Otwórz okno terminalu.
 2. Upewnij się, że jesteś zalogowany jako użytkownik root. Jeśli nie, wprowadź następujące polecenie:
@@ -129,7 +129,7 @@ Ubuntu 18.04 i powyżej `netplan` zostały zmienione na zarządzanie siecią sys
     vi /etc/netplan/60-static.yaml
     ```
 
-4. Dodaj do pliku następujące wiersze, zastępując `10.0.0.6/24` maską IP/netmask:
+4. Dodaj następujące wiersze do pliku, zastępując `10.0.0.6/24` je adresem IP/maską:
 
     ```bash
     network:
@@ -146,16 +146,16 @@ Ubuntu 18.04 i powyżej `netplan` zostały zmienione na zarządzanie siecią sys
     :wq
     ```
 
-6. Przetestuj zmiany za pomocą [netplan spróbować](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) potwierdzić składnię:
+6. Przetestuj zmiany przy użyciu [planu](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) usługi, aby potwierdzić składnię:
 
     ```bash
     netplan try
     ```
 
 > [!NOTE]
-> `netplan try`tymczasowo zastosuje zmiany i wycofa zmiany po 120 sekundach. W przypadku utraty łączności należy odczekać 120 sekund, a następnie ponownie połączyć. W tym czasie zmiany zostaną wycofane.
+> `netplan try`Program zastosuje zmiany tymczasowo i przewróci zmiany ponownie po 120 sekundach. W przypadku utraty łączności należy zaczekać 120 sekund, a następnie ponownie nawiązać połączenie. W tym momencie zmiany zostaną wycofane.
 
-7. Przy założeniu, że nie ma problemów z `netplan try`, zastosuj zmiany konfiguracji:
+7. Przy założeniu, `netplan try`że nie występują żadne problemy z programem, Zastosuj zmiany w konfiguracji:
 
     ```bash
     netplan apply
@@ -254,7 +254,7 @@ Aby upewnić się, że będziesz mieć możliwość nawiązania połączenia z I
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->W przypadku dodatkowych konfiguracji adresów IP można pingować do Internetu tylko wtedy, gdy konfiguracja ma skojarzony z nią publiczny adres IP. W przypadku podstawowych konfiguracji adresów IP publiczny adres IP nie jest wymagany do pingowania do Internetu.
+>W przypadku konfiguracji pomocniczych adresów IP można wysyłać polecenia ping do Internetu tylko wtedy, gdy z konfiguracją jest skojarzony publiczny adres IP. W przypadku podstawowych konfiguracji adresu IP publiczny adres IP nie jest wymagany do wysyłania poleceń ping do Internetu.
 
 W przypadku maszyn wirtualnych z systemem Linux podczas próby walidacji łączności wychodzącej z pomocniczej karty sieciowej może być konieczne dodanie odpowiednich tras. Istnieje wiele sposobów, aby to zrobić. Zapoznaj się z odpowiednią dokumentacją dla swojej dystrybucji systemu. Oto jedna z metod wykonania tej czynności:
 

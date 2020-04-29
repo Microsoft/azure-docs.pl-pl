@@ -10,68 +10,68 @@ ms.author: dpalled
 manager: cshankar
 ms.date: 02/03/2020
 ms.openlocfilehash: 5be6e7937a6e1f710b8e2576a9058963413fb6c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76984593"
 ---
-1. W [witrynie Azure portal](https://ms.portal.azure.com/)wybierz pozycję**Rejestracje** > aplikacji **usługi Azure Active Directory** > **Nowa rejestracja**.
+1. W [Azure Portal](https://ms.portal.azure.com/)wybierz pozycję **Azure Active Directory** > **rejestracje aplikacji** > **Nowa rejestracja**.
 
-   [![Rejestracja nowych aplikacji w usłudze Azure Active Directory](media/time-series-insights-aad-registration/active-directory-new-application-registration.png)](media/time-series-insights-aad-registration/active-directory-new-application-registration.png#lightbox)
+   [![Rejestracja nowej aplikacji w Azure Active Directory](media/time-series-insights-aad-registration/active-directory-new-application-registration.png)](media/time-series-insights-aad-registration/active-directory-new-application-registration.png#lightbox)
 
-    Twoja aplikacja zostanie wyświetlona tutaj po jej zarejestrowaniu.
+    Aplikacja zostanie wyświetlona w tym miejscu po zarejestrowaniu.
 
-1. Nadaj aplikacji nazwę i wybierz **konta w tym katalogu organizacyjnym tylko** w celu określenia typów **obsługiwanych kont,** które mogą uzyskiwać dostęp do interfejsu API. Wybierz prawidłowy identyfikator URI, do których użytkownicy będą przekierowywać po uwierzytelniić, a następnie **zarejestruj**.
+1. Nadaj aplikacji nazwę i wybierz **konta w tym katalogu organizacji tylko w** celu określenia **obsługiwanych typów kont** , które mogą uzyskiwać dostęp do interfejsu API. Wybierz prawidłowy identyfikator URI, aby przekierować użytkowników po ich uwierzytelnieniu, a następnie **zarejestruj**się.
 
-   [![Tworzenie aplikacji w usłudze Azure Active Directory](media/time-series-insights-aad-registration/active-directory-registration.png)](media/time-series-insights-aad-registration/active-directory-registration.png#lightbox)
+   [![Tworzenie aplikacji w Azure Active Directory](media/time-series-insights-aad-registration/active-directory-registration.png)](media/time-series-insights-aad-registration/active-directory-registration.png#lightbox)
 
-1. Ważne informacje o aplikacji usługi Azure Active Directory są wyświetlane w załączniku **Przegląd** aplikacji na liście. Wybierz aplikację w obszarze **Posiadane aplikacje**, a następnie **Przegląd**.
+1. Ważne informacje o aplikacji Azure Active Directory są wyświetlane w bloku **Przegląd** aplikacji na liście. Wybierz swoją aplikację w obszarze **posiadane aplikacje**, a następnie pozycję **Przegląd**.
 
-   [![Kopiowanie identyfikatora aplikacji](media/time-series-insights-aad-registration/active-directory-copy-application-id.png)](media/time-series-insights-aad-registration/active-directory-copy-application-id.png#lightbox)
+   [![Kopiuj identyfikator aplikacji](media/time-series-insights-aad-registration/active-directory-copy-application-id.png)](media/time-series-insights-aad-registration/active-directory-copy-application-id.png#lightbox)
 
-   Skopiuj **identyfikator aplikacji (klienta)** do użycia w aplikacji klienckiej.
+   Skopiuj **Identyfikator aplikacji (klienta)** do użycia w aplikacji klienckiej.
 
-1. **Blok Uwierzytelniania** określa ważne ustawienia konfiguracji uwierzytelniania. 
+1. Blok **uwierzytelnianie** określa ważne ustawienia konfiguracji uwierzytelniania. 
 
-    1. Dodaj **identyfikatory URI przekierowania** i skonfiguruj **tokeny dostępu,** wybierając **pozycję + Dodaj platformę**.
+    1. Dodaj **identyfikatory URI przekierowania** i skonfiguruj **tokeny dostępu** , wybierając pozycję **+ Dodaj platformę**.
 
-    1. Określ, czy aplikacja jest **klientem publicznym,** czy nie, wybierając **opcję Tak** lub **Nie**.
+    1. Określ, czy aplikacja jest **klientem publicznym** , **czy nie,** wybierając opcję **tak** lub nie.
 
     1. Sprawdź, które konta i dzierżawcy są obsługiwane.
 
-    [![Konfigurowanie dotacji niejawnej](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+    [![Konfigurowanie niejawnego przydzielenia](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
-1. Po wybraniu odpowiedniej platformy należy skonfigurować **identyfikatory URI przekierowania** i **tokeny dostępu** w panelu bocznym po prawej stronie interfejsu użytkownika.
+1. Po wybraniu odpowiedniej platformy Skonfiguruj **identyfikatory URI przekierowania** i **tokeny dostępu** w panelu po prawej stronie interfejsu użytkownika.
 
-    1. **Przekierowanie identyfikatorów URI** musi być zgodne z adresem podanym przez żądanie uwierzytelnienia:
+    1. **Identyfikatory URI przekierowania** muszą być zgodne z adresem podanym w żądaniu uwierzytelniania:
 
-        * W przypadku aplikacji hostowanych w lokalnym środowisku programistycznym wybierz pozycję **Klient publiczny (mobilny & komputer)**. Upewnij się, że **klient publiczny** jest ustawiony na **Tak**.
-        * W przypadku aplikacji jednostronicowych hostowanych w usłudze Azure App Service wybierz pozycję **Web**.
+        * W przypadku aplikacji hostowanych w lokalnym środowisku programistycznym wybierz pozycję **Klient publiczny (mobile & Desktop)**. Upewnij się, że ustawiono opcję **Klient publiczny** na **wartość tak**.
+        * W przypadku aplikacji jednostronicowych hostowanych w Azure App Service wybierz pozycję **Sieć Web**.
 
-    1. Określ, czy **adres URL wylogowania** jest odpowiedni.
+    1. Ustal, czy **adres URL wylogowania** jest odpowiedni.
 
-    1. Włącz niejawny przepływ dotacji, sprawdzając **tokeny programu Access** lub **tokeny identyfikatorów**.
+    1. Włącz przepływ niejawnego udzielenia, sprawdzając **tokeny dostępu** lub **tokeny identyfikatorów**.
 
     [![Tworzenie identyfikatorów URI przekierowania](media/time-series-insights-aad-registration/active-directory-auth-redirect-uri.png)](media/time-series-insights-aad-registration/active-directory-auth-redirect-uri.png#lightbox)
 
-    Kliknij **pozycję Konfiguruj**, a następnie **pozycję Zapisz**.
+    Kliknij przycisk **Konfiguruj**, a następnie **Zapisz**.
 
-1. Wybierz **certyfikaty & wpisów tajnych,** a następnie **nowy klucz tajny klienta,** aby utworzyć hasło aplikacji, którego aplikacja kliencka może użyć do udowodnienia swojej tożsamości.
+1. Wybierz kolejno pozycje **certyfikaty &** wpisy tajne i **Nowy wpis tajny klienta** , aby utworzyć hasło aplikacji, za pomocą którego aplikacja kliencka może potwierdzić swoją tożsamość.
 
-   [![Tworzenie nowego klucza tajnego klienta](media/time-series-insights-aad-registration/active-directory-application-keys-save.png)](media/time-series-insights-aad-registration/active-directory-application-keys-save.png#lightbox)
+   [![Utwórz nowy klucz tajny klienta](media/time-series-insights-aad-registration/active-directory-application-keys-save.png)](media/time-series-insights-aad-registration/active-directory-application-keys-save.png#lightbox)
 
-   Następnie zostanie wyświetlone tajne hasło klienta. Skopiuj klucz do ulubionego edytora tekstu.
+   Zostanie wyświetlone hasło klucza tajnego klienta. Skopiuj klucz do ulubionego edytora tekstu.
 
    > [!NOTE]
-   > Zamiast tego można zaimportować certyfikat. Ze względów zwiększonych zabezpieczeń zaleca się certyfikat. Aby użyć certyfikatu, wybierz pozycję **Przekaż certyfikat**.
+   > Możesz zamiast tego zaimportować certyfikat. W celu zwiększenia bezpieczeństwa zaleca się używanie certyfikatu. Aby użyć certyfikatu, wybierz opcję **Przekaż certyfikat**.
 
-1. Skojarz aplikację usługi Azure Active Directory usługi Azure TIme Series Insights. Wybierz **uprawnienia** > interfejsu API Dodaj interfejsy API**uprawnień,** > **których używa moja organizacja**. 
+1. Skojarz aplikację Azure Active Directory usługą Azure TIme Series Insights.  > Wybierz pozycję **uprawnienia interfejsu API****Dodawanie uprawnień** > **interfejsy API, które są wykorzystywane przez moją organizację**. 
 
-    [![Kojarzenie interfejsu API z aplikacją usługi Azure Active Directory](media/time-series-insights-aad-registration/active-directory-app-api-permission.png)](media/time-series-insights-aad-registration/active-directory-app-api-permission.png#lightbox)
+    [![Kojarzenie interfejsu API z aplikacją Azure Active Directory](media/time-series-insights-aad-registration/active-directory-app-api-permission.png)](media/time-series-insights-aad-registration/active-directory-app-api-permission.png#lightbox)
 
-   Wpisz `Azure Time Series Insights` na pasku `Azure Time Series Insights`wyszukiwania, a następnie wybierz opcję .
+   Wpisz `Azure Time Series Insights` na pasku wyszukiwania, a następnie `Azure Time Series Insights`wybierz pozycję.
 
-1. Następnie określ rodzaj uprawnienia interfejsu API, jakiego wymaga aplikacja. Domyślnie **uprawnienia delegowane zostaną wyróżnione.** Następnie wybierz typ uprawnienia, wybierz pozycję **Dodaj uprawnienia**.
+1. Następnie określ rodzajowe uprawnienia interfejsu API wymagane przez aplikację. Domyślnie zostaną wyróżnione **uprawnienia delegowane** . Wybierz typ uprawnienia, a następnie wybierz pozycję **Dodaj uprawnienia**.
 
-    [![Określ rodzaj uprawnień interfejsu API, jakiej wymaga aplikacja](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png)](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png#lightbox)
+    [![Określ rodzaj uprawnień interfejsu API wymaganych przez aplikację](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png)](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png#lightbox)

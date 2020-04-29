@@ -9,29 +9,29 @@ ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
 ms.openlocfilehash: eb13d889cb72911e2268b7538a74336befe3320b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75392394"
 ---
-W poniższej tabeli opisano każdy z głównych przydziałów, limitów, wartości domyślnych i ograniczeń w usłudze Azure Scheduler.
+W poniższej tabeli opisano wszystkie główne limity przydziału, limity, wartości domyślne i ograniczenia w usłudze Azure Scheduler.
 
-| Zasób | Opis limitu |
+| Zasób | Opis ograniczenia |
 | -------- | ----------------- |
-| **Rozmiar zadania** | Maksymalny rozmiar zadania to 16 000. Jeśli put lub patch operacji powoduje rozmiar zadania większy niż ten limit, zwracany jest kod stanu 400 Bad Request. | 
-| **Kolekcje zadań** | Maksymalna liczba kolekcji zadań na subskrypcję platformy Azure wynosi 200 000. | 
-| **Zadania na kolekcję** | Domyślnie maksymalna liczba zadań to pięć zadań w kolekcji wolnych zadań i 50 zadań w kolekcji zadań standardowych. Można zmienić maksymalną liczbę zadań w kolekcji zadań. Wszystkie zadania w kolekcji zadań są ograniczone do wartości ustawionej w kolekcji zadań. Jeśli spróbujesz utworzyć więcej zadań niż maksymalny przydział zadań, żądanie zakończy się niepowodzeniem z kodem stanu konfliktu 409. | 
+| **Rozmiar zadania** | Maksymalny rozmiar zadania to 16 000. Jeśli operacja PUT lub PATCH powoduje, że rozmiar zadania przekracza ten limit, zwracany jest kod stanu nieprawidłowego żądania 400. | 
+| **Kolekcje zadań** | Maksymalna liczba kolekcji zadań na subskrypcję platformy Azure to 200 000. | 
+| **Liczba zadań na kolekcję** | Domyślnie maksymalna liczba zadań to pięć zadań w bezpłatnej kolekcji zadań i 50 zadań w standardowej kolekcji zadań. Można zmienić maksymalną liczbę zadań w kolekcji zadań. Wszystkie zadania w kolekcji zadań są ograniczone do wartości ustawionej w kolekcji zadań. Jeśli spróbujesz utworzyć więcej zadań niż maksymalny limit przydziału zadań, żądanie kończy się niepowodzeniem z kodem stanu konfliktu 409. | 
 | **Czas rozpoczęcia** | Maksymalny "czas rozpoczęcia" wynosi 18 miesięcy. |
-| **Zakres nawrotu** | Maksymalny okres nawrotu wynosi 18 miesięcy. | 
-| **Częstotliwości** | Domyślnie maksymalny przydział częstotliwości wynosi jedną godzinę w kolekcji wolnych zadań i jedną minutę w kolekcji zadań standardowych. <p>Maksymalną częstotliwość w kolekcji zadań można zmniejszyć niż maksymalna. Wszystkie zadania w kolekcji zadań są ograniczone do wartości ustawionej w kolekcji zadań. Jeśli spróbujesz utworzyć zadanie o wyższej częstotliwości niż maksymalna częstotliwość w kolekcji zadań, żądanie zakończy się niepowodzeniem z kodem stanu konfliktu 409. | 
-| **Rozmiar ciała** | Maksymalny rozmiar treści dla żądania wynosi 8192 znaków. |
-| **Zażądaj rozmiaru adresu URL** | Maksymalny rozmiar adresu URL żądania to 2048 znaków. |
-| **Liczba nagłówków** | Maksymalna liczba nagłówków wynosi 50 nagłówków. | 
-| **Zagregowany rozmiar nagłówka** | Maksymalny łączny rozmiar nagłówka wynosi 4096 znaków. |
-| **Limit czasu** | Limit czasu żądania jest statyczny, czyli nie można go skonfigurować. i wynosi 60 sekund dla akcji HTTP. W przypadku dłuższych operacji należy postępować zgodnie z protokołami asynchronizacyjnym HTTP. Na przykład natychmiast zwróć 202, ale kontynuuj pracę w tle. | 
-| **Historia zadania** | Maksymalna treść odpowiedzi przechowywana w historii zadań wynosi 2048 bajtów. |
-| **Zatrzymanie historii zadań** | Historia zadań jest przechowywana przez okres do dwóch miesięcy lub do ostatnich 1000 egzekucji. | 
-| **Zapełnione i uszkodzone zatrzymanie zadań** | Wykonane i uszkodzone zadania są przechowywane przez 60 dni. |
+| **Zakres cyklu** | Maksymalny zakres cyklów to 18 miesięcy. | 
+| **Częstotliwość** | Domyślnie maksymalny limit przydziału częstotliwości wynosi godzinę w bezpłatnej kolekcji zadań i jedną minutę w standardowej kolekcji zadań. <p>Maksymalna częstotliwość w kolekcji zadań może być mniejsza niż wartość maksymalna. Wszystkie zadania w kolekcji zadań są ograniczone do wartości ustawionej w kolekcji zadań. Jeśli podjęto próbę utworzenia zadania o wyższej częstotliwości niż maksymalna częstotliwość zbierania zadań, żądanie kończy się niepowodzeniem z kodem stanu konfliktu 409. | 
+| **Rozmiar treści** | Maksymalny rozmiar treści żądania to 8 192 znaków. |
+| **Rozmiar adresu URL żądania** | Maksymalny rozmiar adresu URL żądania to 2 048 znaków. |
+| **Liczba nagłówków** | Maksymalna liczba nagłówków to 50. | 
+| **Łączny rozmiar nagłówka** | Maksymalny rozmiar nagłówka zagregowanego to 4 096 znaków. |
+| **Limit czasu** | Limit czasu żądania jest statyczny, czyli nie można go konfigurować. i wynosi 60 sekund dla akcji HTTP. Aby wykonać dłuższe operacje, należy postępować zgodnie z protokołami asynchronicznymi protokołu HTTP. Na przykład Zwróć 202 natychmiast, ale Kontynuuj pracę w tle. | 
+| **Historia zadania** | Maksymalna treść odpowiedzi przechowywana w historii zadania wynosi 2 048 bajtów. |
+| **Przechowywanie historii zadań** | Historia zadań jest przechowywana przez maksymalnie dwa miesiące lub do ostatnich 1 000 wykonań. | 
+| **Zakończono i błędne przechowywanie zadań** | Zadania zakończone i błędne są przechowywane przez 60 dni. |
 ||| 
 

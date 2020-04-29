@@ -1,6 +1,6 @@
 ---
-title: Ujednolicenie wielu zasobów usługi Azure Monitor Application Insights | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera szczegółowe informacje na temat używania funkcji w dziennikach usługi Azure Monitor do wykonywania zapytań dotyczących wielu zasobów usługi Application Insights i wizualizacji tych danych.
+title: Ujednolicenie wielu zasobów Application Insights Azure Monitor | Microsoft Docs
+description: Ten artykuł zawiera szczegółowe informacje dotyczące używania funkcji w dziennikach Azure Monitor do wykonywania zapytań dotyczących wielu zasobów Application Insights i wizualizacji tych danych.
 author: bwren
 ms.author: bwren
 ms.workload: na
@@ -8,28 +8,28 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.openlocfilehash: ce58aae3b1db1f0f338d353025d4f277aeb6944f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77137496"
 ---
-# <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Ujednolicenie wielu zasobów usługi Azure Monitor Application Insights 
-W tym artykule opisano sposób wykonywania zapytań i wyświetlania wszystkich danych dziennika usługi Application Insights w jednym miejscu, nawet jeśli znajdują się one w różnych subskrypcjach platformy Azure, jako zamiennik dla wycofania łącznika usługi Application Insights. Liczba zasobów usługi Application Insights, które można uwzględnić w jednej kwerendzie, jest ograniczona do 100.
+# <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Ujednolicenie wielu zasobów Application Insights Azure Monitor 
+W tym artykule opisano sposób wykonywania zapytań i wyświetlania wszystkich danych dziennika Application Insights w jednym miejscu, nawet w przypadku, gdy znajdują się one w różnych subskrypcjach platformy Azure, jako zamiennik dla zaniechania Application Insights Connector. Liczba zasobów Application Insights, które można uwzględnić w pojedynczym zapytaniu, jest ograniczona do 100.
 
-## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>Zalecane podejście do wykonywania zapytań o wiele zasobów usługi Application Insights 
-Wyświetlanie wielu zasobów usługi Application Insights w kwerendzie może być uciążliwe i trudne do utrzymania. Zamiast tego można wykorzystać funkcję, aby oddzielić logikę kwerendy od zakresu aplikacji.  
+## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>Zalecane podejście do wykonywania zapytań dotyczących wielu zasobów Application Insights 
+Wyświetlanie listy wielu zasobów Application Insights w zapytaniu może być uciążliwe i trudne do utrzymania. Zamiast tego można wykorzystać funkcję do oddzielenia logiki zapytania od zakresu aplikacji.  
 
-W tym przykładzie pokazano, jak można monitorować wiele zasobów usługi Application Insights i wizualizować liczbę żądań nie powiodło się według nazwy aplikacji.
+W tym przykładzie pokazano, jak można monitorować wiele zasobów Application Insights i wizualizować liczbę nieudanych żądań według nazwy aplikacji.
 
-Utwórz funkcję przy użyciu operatora unii z listą aplikacji, a następnie zapisz kwerendę w obszarze roboczym jako funkcję za pomocą *aliasu applicationsScoping*. 
+Utwórz funkcję używającą operatora UNION z listą aplikacji, a następnie Zapisz zapytanie w obszarze roboczym jako funkcję z aliasem *applicationsScoping*. 
 
-Wymienione aplikacje można zmodyfikować w dowolnym momencie w portalu, przechodząc do Eksploratora zapytań w obszarze `SavedSearch` roboczym i wybierając funkcję do edycji, a następnie zapisywania lub korzystania z polecenia cmdlet programu PowerShell. 
+W dowolnym momencie możesz modyfikować wymienione aplikacje w portalu, przechodząc do Eksploratora zapytań w obszarze roboczym i wybierając funkcję do edycji, a następnie zapisując lub używając polecenia cmdlet `SavedSearch` programu PowerShell. 
 
 >[!NOTE]
->Tej metody nie można używać z alertami dziennika, ponieważ sprawdzanie poprawności dostępu zasobów reguły alertu, w tym obszarów roboczych i aplikacji, jest wykonywane w czasie tworzenia alertu. Dodawanie nowych zasobów do funkcji po utworzeniu alertu nie jest obsługiwane. Jeśli wolisz używać funkcji do określania zakresu zasobów w alertach dziennika, musisz edytować regułę alertów w portalu lub z szablonem Menedżera zasobów, aby zaktualizować zasoby o określonym zakresie. Alternatywnie można dołączyć listę zasobów w kwerendzie alertu dziennika.
+>Ta metoda nie może być używana z alertami dziennika, ponieważ sprawdzanie dostępu do zasobów reguły alertów, w tym obszarów roboczych i aplikacji, odbywa się w czasie tworzenia alertu. Dodawanie nowych zasobów do funkcji po utworzeniu alertu nie jest obsługiwane. Jeśli wolisz używać funkcji dla określania zakresu zasobów w alertach dziennika, musisz zmodyfikować regułę alertu w portalu lub z szablonem Menedżer zasobów, aby zaktualizować zasoby w zakresie. Alternatywnie możesz dołączyć listę zasobów do zapytania alertu dziennika.
 
-Polecenie `withsource= SourceApp` dodaje kolumnę do wyników, która wyznacza aplikację, która wysłała dziennik. Operator analizy jest opcjonalny w tym przykładzie i używa do wyodrębniania nazwy aplikacji z właściwości SourceApp. 
+`withsource= SourceApp` Polecenie dodaje kolumnę do wyników, które wyznaczają aplikację, która wysłała dziennik. Operator Parse jest opcjonalny w tym przykładzie i służy do wyodrębniania nazwy aplikacji z właściwości SourceApp. 
 
 ```
 union withsource=SourceApp 
@@ -41,7 +41,7 @@ app('Contoso-app5').requests
 | parse SourceApp with * "('" applicationName "')" *  
 ```
 
-Teraz można przystąpić do użycia funkcji applicationsScoping w kwerendzie międzysóbowej:  
+Teraz można przystąpić do używania funkcji applicationsScoping w kwerendzie obejmującej wiele zasobów:  
 
 ```
 applicationsScoping 
@@ -52,64 +52,64 @@ applicationsScoping
 | render timechart
 ```
 
-Kwerenda używa schematu usługi Application Insights, chociaż kwerenda jest wykonywana w obszarze roboczym, ponieważ funkcja applicationsScoping zwraca strukturę danych usługi Application Insights. Alias funkcji zwraca unię żądań ze wszystkich zdefiniowanych aplikacji. Następnie kwerenda filtruje żądania, które nie powiodły się, i wizualizuje trendy według aplikacji.
+Zapytanie używa schematu Application Insights, mimo że zapytanie jest wykonywane w obszarze roboczym, ponieważ funkcja applicationsScoping zwraca strukturę danych Application Insights. Alias funkcji zwraca Unię żądań ze wszystkich zdefiniowanych aplikacji. Zapytanie następnie filtruje żądania nieudane i wizualizowa trendy według aplikacji.
 
-![Przykład wyników kwerend krzyżowych](media/unify-app-resource-data/app-insights-query-results.png)
+![Przykład wyników między zapytaniami](media/unify-app-resource-data/app-insights-query-results.png)
 
 >[!NOTE]
->[Kwerenda między zasobami](../log-query/cross-workspace-query.md) w alertach dziennika jest obsługiwana w nowym [interfejsie API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Domyślnie usługa Azure Monitor używa [starszego interfejsu API alertów usługi Log Analytics](../platform/api-alerts.md) do tworzenia nowych reguł alertów dziennika z witryny Azure Portal, chyba że przełączysz się ze [starszego interfejsu API alertów dziennikowych.](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) Po przełączeniu nowy interfejs API staje się domyślny dla nowych reguł alertów w witrynie Azure Portal i umożliwia tworzenie reguł alertów dziennika zapytań między zasobami. Można utworzyć reguły alertów dziennika [zapytań między zasobami](../log-query/cross-workspace-query.md) bez wprowadzania przełącznika przy użyciu [szablonu ARM dla scheduledQueryRules API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) — ale ta reguła alertu jest zarządzana, choć [scheduledQueryRules API,](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) a nie z witryny Azure portal.
+>[Zapytanie między zasobami](../log-query/cross-workspace-query.md) w ramach alertów dziennika jest obsługiwane w nowym [interfejsie API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Domyślnie Azure Monitor używa [starszego interfejsu API alertów log Analytics](../platform/api-alerts.md) na potrzeby tworzenia nowych reguł alertów dziennika z Azure Portal, chyba że zostanie przełączony w [STARSZEJ wersji interfejsu API alertów dziennika](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Po przełączeniu nowy interfejs API zostanie ustawiony jako domyślny dla nowych reguł alertów w Azure Portal i umożliwia tworzenie reguł alertów dziennika zapytań dla wielu zasobów. Można tworzyć reguły alertów dziennika [zapytań dla wielu zasobów](../log-query/cross-workspace-query.md) bez przełączenia przy użyciu [szablonu ARM dla interfejsu API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) , ale ta reguła alertu jest możliwa do zarządzania, chociaż [interfejs API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) , a nie z Azure Portal.
 
-## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Różnice schematów usługi Application Insights i Log Analytics
-W poniższej tabeli przedstawiono różnice schematu między usługą Log Analytics i aplikacją.  
+## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Application Insights i Log Analytics różnice w schemacie obszaru roboczego
+W poniższej tabeli przedstawiono różnice schematu między Log Analytics i Application Insights.  
 
-| Właściwości obszaru roboczego usługi Log Analytics| Właściwości zasobów usługi Application Insights|
+| Log Analytics właściwości obszaru roboczego| Właściwości zasobów Application Insights|
 |------------|------------| 
 | AnonUserId | user_id|
 | ApplicationId | appId|
-| ApplicationName | Appname|
-| ApplicationTypeVersion (Wersja typu aplikacji) | application_Version |
-| DostępnośćCount | Itemcount |
-| DostępnośćDuration | czas trwania |
-| DostępnośćMessage | message |
-| DostępnośćRunLocation | location |
-| DostępnośćTestIdId | id |
-| Nazwa testu dostępności | name |
-| DostępnośćStyg | sygnatura czasowa |
+| ApplicationName | Argumentu|
+| ApplicationTypeVersion | application_Version |
+| AvailabilityCount | itemCount |
+| AvailabilityDuration | czas trwania |
+| AvailabilityMessage | message |
+| AvailabilityRunLocation | location |
+| AvailabilityTestId | id |
+| AvailabilityTestName | name |
+| AvailabilityTimestamp | sygnatura czasowa |
 | Przeglądarka | client_browser |
 | Miasto | client_city |
-| KlientIP | client_IP |
+| ClientIP | client_IP |
 | Computer (Komputer) | cloud_RoleInstance | 
 | Kraj | client_CountryOrRegion | 
-| CustomEventCount (Konto niestandardowe) | Itemcount | 
-| NiestandardoweWentdymensions | niestandardoweDymensions |
-| Niestandardowa nazwaventname | name | 
+| CustomEventCount | itemCount | 
+| CustomEventDimensions | customDimensions |
+| CustomEventName | name | 
 | DeviceModel | client_Model | 
 | DeviceType | client_Type | 
-| Liczba wyjątków | Itemcount | 
-| ExceptionHandledAt | obsługiwane Wat |
-| WyjątekMessage | message | 
-| Typ wyjątku | type |
-| OperationID (OperationID) | operation_id |
+| ExceptionCount | itemCount | 
+| ExceptionHandledAt | handledAt |
+| ExceptionMessage | message | 
+| Typ | type |
+| OperationID | operation_id |
 | OperationName | operation_Name | 
 | System operacyjny | client_OS | 
-| Liczba wyświetlek pageview | Itemcount |
-| PageViewDuration (Liczba wyświetlek strony) | czas trwania | 
-| Nazwa widoku strony | name | 
-| Element nadrzędny | operation_Id | 
-| Liczba żądań | Itemcount | 
-| RequestDuration (Wniosekduration) | czas trwania | 
+| PageViewCount | itemCount |
+| PageViewDuration | czas trwania | 
+| PageViewName | name | 
+| ParentOperationID | operation_Id | 
+| RequestCount | itemCount | 
+| RequestDuration | czas trwania | 
 | RequestID | id | 
-| Nazwa żądania | name | 
-| PoprośSukces | powodzenie | 
-| Kod odpowiedzi | kod wynikowy | 
+| Żądanie | name | 
+| RequestSuccess | powodzenie | 
+| ResponseCode | resultCode | 
 | Rola | cloud_RoleName |
-| RoleInstance (Nieumieja roli) | cloud_RoleInstance |
-| SessionId | Session_id | 
+| RoleInstance | cloud_RoleInstance |
+| SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
-| TelemetryTYpe | type |
+| Telemetriatype | type |
 | Adres URL | url |
-| Identyfikator konta użytkownika | user_AccountId |
+| UserAccountId | user_AccountId |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Użyj [wyszukiwania dziennika,](../../azure-monitor/log-query/log-query-overview.md) aby wyświetlić szczegółowe informacje dotyczące aplikacji usługi Application Insights.
+Użyj [wyszukiwania w dzienniku](../../azure-monitor/log-query/log-query-overview.md) , aby wyświetlić szczegółowe informacje dotyczące Application Insights aplikacji.

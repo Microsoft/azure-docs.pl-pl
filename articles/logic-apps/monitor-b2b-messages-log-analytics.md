@@ -1,144 +1,144 @@
 ---
-title: Monitorowanie komunikatów B2B przy użyciu usługi Azure Monitor
-description: Rozwiązywanie problemów z komunikatami AS2, X12 i EDIFACT przez konfigurowanie dzienników usługi Azure Monitor i zbieranie danych diagnostycznych dla aplikacji Azure Logic Apps
+title: Monitorowanie komunikatów B2B przy użyciu Azure Monitor
+description: Rozwiązywanie problemów z AS2, X12 i EDIFACT przez skonfigurowanie Azure Monitor dzienników i zbieranie danych diagnostycznych dla Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: e9ba5a516293eb72a715dc9d0df7db4d5a4ea3c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76907983"
 ---
-# <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Konfigurowanie dzienników usługi Azure Monitor i zbieranie danych diagnostycznych dla komunikatów B2B w usłudze Azure Logic Apps
+# <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Konfigurowanie Azure Monitor dzienników i zbieranie danych diagnostycznych dotyczących komunikatów B2B w Azure Logic Apps
 
-Po skonfigurowaniu komunikacji B2B między partnerami handlowymi na koncie integracji partnerzy ci mogą wymieniać wiadomości przy użyciu protokołów, takich jak AS2, X12 i EDIFACT. Aby sprawdzić, czy ta komunikacja działa zgodnie z oczekiwaniami, można skonfigurować [dzienniki usługi Azure Monitor](../azure-monitor/platform/data-platform-logs.md) dla konta integracji. [Usługa Azure Monitor](../azure-monitor/overview.md) ułatwia monitorowanie środowiska chmurowego i lokalnego, dzięki czemu można łatwiej zachować ich dostępność i wydajność. Korzystając z dzienników usługi Azure Monitor, można rejestrować i przechowywać dane dotyczące danych i zdarzeń środowiska wykonawczego, takich jak zdarzenia wyzwalania, uruchamianie zdarzeń i zdarzenia akcji w [obszarze roboczym usługi Log Analytics.](../azure-monitor/platform/resource-logs-collect-workspace.md) W przypadku wiadomości rejestrowanie zbiera również informacje, takie jak:
+Po skonfigurowaniu komunikacji B2B między partnerami handlowymi na Twoim koncie integracji partnerzy mogą wymieniać komunikaty przy użyciu protokołów, takich jak AS2, X12 i EDIFACT. Aby sprawdzić, czy ta komunikacja działa w oczekiwany sposób, możesz skonfigurować [Azure monitor dzienników](../azure-monitor/platform/data-platform-logs.md) dla konta integracji. [Azure monitor](../azure-monitor/overview.md) ułatwia monitorowanie środowisk w chmurze i lokalnych, dzięki czemu można łatwiej zachować swoją dostępność i wydajność. Korzystając z dzienników Azure Monitor, można rejestrować i przechowywać dane dotyczące danych i zdarzeń środowiska uruchomieniowego, takich jak zdarzenia wyzwalania, zdarzenia uruchamiania i zdarzenia akcji w [obszarze roboczym log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). W przypadku komunikatów, rejestrowanie zbiera również informacje takie jak:
 
-* Liczba i stan wiadomości
-* Stan podziękowań
-* Korelacje między wiadomościami i potwierdzeniami
-* Szczegółowe opisy błędów dla awarii
+* Liczba komunikatów i stan
+* Stan potwierdzeń
+* Korelacje między komunikatami i potwierdzeniami
+* Szczegółowe opisy błędów dla niepowodzeń
 
-Usługa Azure Monitor umożliwia tworzenie [zapytań dziennika ułatwiające znajdowanie](../azure-monitor/log-query/log-query-overview.md) i przeglądanie tych informacji. Można również [użyć tych danych diagnostycznych z innymi usługami platformy Azure,](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data)takimi jak Usługa Azure Storage i usługi Azure Event Hubs.
+Azure Monitor umożliwia tworzenie [zapytań dzienników](../azure-monitor/log-query/log-query-overview.md) , aby ułatwić znajdowanie i przeglądanie tych informacji. Możesz również [używać tych danych diagnostycznych z innymi usługami platformy Azure](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data), takimi jak Azure Storage i Azure Event Hubs.
 
-Aby skonfigurować rejestrowanie dla konta integracji, [zainstaluj rozwiązanie Logic Apps B2B](#install-b2b-solution) w witrynie Azure portal. To rozwiązanie zawiera zagregowane informacje dotyczące zdarzeń komunikatów B2B. Następnie, aby włączyć rejestrowanie i tworzenie zapytań dotyczących tych informacji, należy skonfigurować [dzienniki usługi Azure Monitor](#set-up-resource-logs).
+Aby skonfigurować rejestrowanie dla konta integracji, [Zainstaluj rozwiązanie Logic Apps B2B](#install-b2b-solution) w Azure Portal. To rozwiązanie zawiera zagregowane informacje dotyczące zdarzeń wiadomości B2B. Następnie, aby włączyć rejestrowanie i utworzyć zapytania dotyczące tych informacji, skonfiguruj [dzienniki Azure monitor](#set-up-resource-logs).
 
-W tym artykule pokazano, jak włączyć rejestrowanie usługi Azure Monitor dla konta integracji.
+W tym artykule pokazano, jak włączyć rejestrowanie Azure Monitor dla konta integracji.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Obszar roboczy usługi Log Analytics. Jeśli nie masz obszaru roboczego usługi Log Analytics, dowiedz się, [jak utworzyć obszar roboczy usługi Log Analytics.](../azure-monitor/learn/quick-create-workspace.md)
+* Obszar roboczy usługi Log Analytics. Jeśli nie masz obszaru roboczego Log Analytics, zapoznaj się [z tematem tworzenie log Analytics obszaru roboczego](../azure-monitor/learn/quick-create-workspace.md).
 
-* Aplikacja logiki, która jest skonfigurowana przy użyciu rejestrowania usługi Azure Monitor i wysyła te informacje do obszaru roboczego usługi Log Analytics. Dowiedz [się, jak skonfigurować dzienniki usługi Azure Monitor dla aplikacji logiki.](../logic-apps/monitor-logic-apps.md)
+* Aplikacja logiki, która została skonfigurowana przy użyciu Azure Monitor rejestrowania i wysyłania tych informacji do Log Analytics obszaru roboczego. Dowiedz się [, jak skonfigurować dzienniki Azure monitor dla aplikacji logiki](../logic-apps/monitor-logic-apps.md).
 
-* Konto integracji, które jest połączone z aplikacją logiki. Dowiedz [się, jak połączyć konto integracji z aplikacją logiki](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
+* Konto integracji połączone z aplikacją logiki. Dowiedz się [, jak połączyć konto integracji z aplikacją logiki](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
 <a name="install-b2b-solution"></a>
 
-## <a name="install-logic-apps-b2b-solution"></a>Zainstaluj rozwiązanie Logic Apps B2B
+## <a name="install-logic-apps-b2b-solution"></a>Zainstaluj Logic Apps B2B rozwiązanie
 
-Zanim dzienniki usługi Azure Monitor będą mogły śledzić komunikaty B2B dla aplikacji logiki, dodaj rozwiązanie **Logic Apps B2B** do obszaru roboczego usługi Log Analytics.
+Zanim dzienniki Azure Monitor będą mogły śledzić wiadomości B2B dla aplikacji logiki, Dodaj rozwiązanie **Logic Apps B2B** do obszaru roboczego log Analytics.
 
-1. W polu wyszukiwania [portalu Azure](https://portal.azure.com) `log analytics workspaces`wprowadź , a następnie wybierz **obszary robocze usługi Log Analytics**.
+1. W polu wyszukiwania [Azure Portal](https://portal.azure.com)wprowadź `log analytics workspaces`wartość, a następnie wybierz pozycję **log Analytics obszary robocze**.
 
-   ![Wybierz "Obszary robocze analizy dzienników"](./media/monitor-b2b-messages-log-analytics/find-select-log-analytics-workspaces.png)
+   ![Wybierz pozycję "Log Analytics obszary robocze"](./media/monitor-b2b-messages-log-analytics/find-select-log-analytics-workspaces.png)
 
-1. W obszarze **Obszary robocze usługi Log Analytics**wybierz obszar roboczy.
+1. W obszarze **obszary robocze log Analytics**wybierz swój obszar roboczy.
 
-   ![Wybieranie obszaru roboczego usługi Log Analytics](./media/monitor-b2b-messages-log-analytics/select-log-analytics-workspace.png)
+   ![Wybierz obszar roboczy Log Analytics](./media/monitor-b2b-messages-log-analytics/select-log-analytics-workspace.png)
 
-1. W okienku Przegląd w obszarze **Wprowadzenie do usługi Log Analytics** > **konfigurowanie rozwiązań monitorujących**wybierz pozycję **Wyświetl rozwiązania**.
+1. W okienku Przegląd w obszarze **wprowadzenie do log Analytics** > **konfigurowania rozwiązań monitorowania**wybierz pozycję **Wyświetl rozwiązania**.
 
-   ![W okienku Przegląd wybierz "Wyświetl rozwiązania"](./media/monitor-b2b-messages-log-analytics/log-analytics-workspace.png)
+   ![W okienku Przegląd wybierz pozycję "Wyświetl rozwiązania"](./media/monitor-b2b-messages-log-analytics/log-analytics-workspace.png)
 
 1. W okienku Przegląd wybierz pozycję **Dodaj**.
 
-   ![W okienku przeglądu dodaj nowe rozwiązanie](./media/monitor-b2b-messages-log-analytics/add-logic-apps-management-solution.png)
+   ![W okienku Przegląd Dodaj nowe rozwiązanie](./media/monitor-b2b-messages-log-analytics/add-logic-apps-management-solution.png)
 
-1. Po otwarciu **portalu Marketplace** w `logic apps b2b`polu wyszukiwania wprowadź pozycję , i wybierz **pozycję Logic Apps B2B**.
+1. Po otwarciu **portalu Marketplace** w polu wyszukiwania wpisz `logic apps b2b`, a następnie wybierz pozycję **Logic Apps B2B**.
 
-   ![W marketplace wybierz "Logic Apps Management"](./media/monitor-b2b-messages-log-analytics/select-logic-apps-b2b-solution.png)
+   ![W witrynie Marketplace wybierz pozycję "Logic Apps Management".](./media/monitor-b2b-messages-log-analytics/select-logic-apps-b2b-solution.png)
 
-1. W okienku opisu rozwiązania wybierz pozycję **Utwórz**.
+1. W okienku opis rozwiązania wybierz pozycję **Utwórz**.
 
-   ![Wybierz "Utwórz", aby dodać rozwiązanie "Logic Apps B2B"](./media/monitor-b2b-messages-log-analytics/create-logic-apps-b2b-solution.png)
+   ![Wybierz pozycję "Utwórz", aby dodać rozwiązanie "Logic Apps B2B"](./media/monitor-b2b-messages-log-analytics/create-logic-apps-b2b-solution.png)
 
-1. Przejrzyj i potwierdź obszar roboczy usługi Log Analytics, w którym chcesz zainstalować rozwiązanie, i wybierz pozycję **Utwórz** ponownie.
+1. Przejrzyj i Potwierdź obszar roboczy Log Analytics, w którym chcesz zainstalować rozwiązanie, a następnie wybierz pozycję **Utwórz** ponownie.
 
-   ![Wybierz "Utwórz" dla "Aplikacje logiki B2B"](./media/monitor-b2b-messages-log-analytics/confirm-log-analytics-workspace.png)
+   ![Wybierz pozycję "Utwórz" dla "Logic Apps B2B"](./media/monitor-b2b-messages-log-analytics/confirm-log-analytics-workspace.png)
 
-   Po wdrożeniu rozwiązania do grupy zasobów platformy Azure, która zawiera obszar roboczy usługi Log Analytics, rozwiązanie pojawi się w okienku podsumowania obszaru roboczego. Podczas przetwarzania wiadomości B2B liczba wiadomości w tym okienku jest aktualizowana.
+   Gdy platforma Azure wdroży rozwiązanie w grupie zasobów platformy Azure, która zawiera obszar roboczy Log Analytics, rozwiązanie zostanie wyświetlone w okienku podsumowania obszaru roboczego. Po przetworzeniu komunikatów B2B liczba komunikatów w tym okienku jest aktualizowana.
 
    ![Okienko podsumowania obszaru roboczego](./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png)
 
 <a name="set-up-resource-logs"></a>
 
-## <a name="set-up-azure-monitor-logs"></a>Konfigurowanie dzienników usługi Azure Monitor
+## <a name="set-up-azure-monitor-logs"></a>Konfigurowanie dzienników Azure Monitor
 
-Można włączyć rejestrowanie usługi Azure Monitor bezpośrednio z konta integracji.
+Rejestrowanie Azure Monitor można włączyć bezpośrednio z poziomu konta integracji.
 
-1. W [witrynie Azure portal](https://portal.azure.com)znajdź i wybierz swoje konto integracji.
+1. W [Azure Portal](https://portal.azure.com)Znajdź i wybierz swoje konto integracji.
 
-   ![Znajdowanie i wybieranie konta integracyjnego](./media/monitor-b2b-messages-log-analytics/find-integration-account.png)
+   ![Znajdź i wybierz swoje konto integracji](./media/monitor-b2b-messages-log-analytics/find-integration-account.png)
 
-1. W menu konta integracyjnego w obszarze **Monitorowanie**wybierz pozycję **Ustawienia diagnostyczne**. Wybierz **pozycję Dodaj ustawienie diagnostyczne**.
+1. W menu konta integracji w obszarze **monitorowanie**wybierz pozycję **Ustawienia diagnostyczne**. Wybierz pozycję **Dodaj ustawienie diagnostyczne**.
 
-   ![W sekcji "Monitorowanie" wybierz "Ustawienia diagnostyki"](./media/monitor-b2b-messages-log-analytics/monitor-diagnostics-settings.png)
+   ![W obszarze "monitorowanie" Wybierz pozycję "Ustawienia diagnostyki".](./media/monitor-b2b-messages-log-analytics/monitor-diagnostics-settings.png)
 
-1. Aby utworzyć to ustawienie, wykonaj następujące czynności:
+1. Aby utworzyć ustawienie, wykonaj następujące kroki:
 
-   1. Podaj nazwę tego ustawienia.
+   1. Podaj nazwę ustawienia.
 
-   1. Wybierz **pozycję Wyślij do analizy dzienników**.
+   1. Wybierz pozycję **Wyślij do log Analytics**.
 
-   1. W przypadku **subskrypcji**wybierz subskrypcję platformy Azure skojarzoną z obszarem roboczym usługi Log Analytics.
+   1. W obszarze **subskrypcja**wybierz subskrypcję platformy Azure, która jest skojarzona z obszarem roboczym log Analytics.
 
-   1. W obszarze **roboczym usługi Log Analytics**wybierz obszar roboczy, którego chcesz użyć.
+   1. W **obszarze obszar roboczy log Analytics**wybierz obszar roboczy, którego chcesz użyć.
 
-   1. W obszarze **dziennik**wybierz kategorię **IntegrationAccountTrackingEvents,** która określa kategorię zdarzenia, którą chcesz zarejestrować.
+   1. W obszarze **Dziennik**wybierz kategorię **IntegrationAccountTrackingEvents** , która określa kategorię zdarzenia, która ma zostać zarejestrowana.
 
    1. Po zakończeniu wybierz pozycję **Zapisz**.
 
    Przykład: 
 
-   ![Konfigurowanie dzienników usługi Azure Monitor w celu zbierania danych diagnostycznych](./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
+   ![Konfigurowanie dzienników Azure Monitor w celu zbierania danych diagnostycznych](./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
 
 <a name="view-message-status"></a>
 
-## <a name="view-message-status"></a>Wyświetl stan wiadomości
+## <a name="view-message-status"></a>Wyświetl stan komunikatu
 
-Po uruchomieniu aplikacji logiki można wyświetlić stan i dane dotyczące tych wiadomości w obszarze roboczym usługi Log Analytics.
+Po uruchomieniu aplikacji logiki można wyświetlić stan i dane dotyczące tych komunikatów w obszarze roboczym Log Analytics.
 
-1. W polu wyszukiwania [witryny Azure portal](https://portal.azure.com) znajdź i otwórz obszar roboczy usługi Log Analytics.
+1. W polu wyszukiwania [Azure Portal](https://portal.azure.com) Znajdź i Otwórz obszar roboczy log Analytics.
 
-1. W menu obszaru roboczego wybierz pozycję **Podsumowanie** > obszaru roboczego**Aplikacje logiki B2B**.
+1. W menu obszaru roboczego wybierz pozycję >  **Podsumowanie obszaru roboczego****Logic Apps B2B**.
 
    ![Okienko podsumowania obszaru roboczego](./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png)
 
    > [!NOTE]
-   > Jeśli kafelek Logic Apps B2B nie pokazuje od razu wyników po uruchomieniu, spróbuj wybrać **opcję Odśwież** lub poczekaj przez krótki czas, zanim spróbuj ponownie.
+   > Jeśli kafelek Logic Apps B2B nie pokaże natychmiast wyników po uruchomieniu, spróbuj wybrać pozycję **Odśwież** lub poczekaj na chwilę przed ponowieniem próby.
 
-   Domyślnie **kafelek Logic Apps B2B** zawiera dane na podstawie jednego dnia. Aby zmienić zakres danych na inny interwał, wybierz kontrolkę zakresu u góry strony:
+   Domyślnie na kafelku **Logic Apps B2B** są wyświetlane dane oparte na jednym dniu. Aby zmienić zakres danych na inny interwał, zaznacz kontrolkę zakres w górnej części strony:
 
-   ![Interwał zmian](./media/monitor-b2b-messages-log-analytics/change-summary-interval.png)
+   ![Zmień interwał](./media/monitor-b2b-messages-log-analytics/change-summary-interval.png)
 
-1. Po wyświetlenia pulpitu nawigacyjnego stanu wiadomości można wyświetlić więcej szczegółów dla określonego typu wiadomości, który pokazuje dane na podstawie jednego dnia. Wybierz kafelek dla **AS2**, **X12**lub **EDIFACT**.
+1. Po wyświetleniu pulpitu nawigacyjnego stan komunikatu można wyświetlić więcej szczegółów dotyczących określonego typu wiadomości, który pokazuje dane na podstawie jednego dnia. Wybierz kafelek dla **AS2**, **X12**lub **EDIFACT**.
 
-   ![Wyświetlanie stanów wiadomości](./media/monitor-b2b-messages-log-analytics/workspace-summary-b2b-messages.png)
+   ![Wyświetlanie stanów komunikatów](./media/monitor-b2b-messages-log-analytics/workspace-summary-b2b-messages.png)
 
-   Zostanie wyświetlona lista wiadomości dla wybranego kafelka. Oto na przykład, jak może wyglądać lista komunikatów AS2:
+   Zostanie wyświetlona lista komunikatów dla wybranego kafelka. Załóżmy na przykład, że lista komunikatów AS2 może wyglądać następująco:
 
-   ![Stany i szczegóły dotyczące wiadomości AS2](./media/monitor-b2b-messages-log-analytics/as2-message-results-list.png)
+   ![Stany i szczegóły komunikatów AS2](./media/monitor-b2b-messages-log-analytics/as2-message-results-list.png)
 
-   Aby dowiedzieć się więcej o właściwościach dla każdego typu wiadomości, zobacz następujące opisy właściwości wiadomości:
+   Aby dowiedzieć się więcej o właściwościach poszczególnych typów wiadomości, zobacz następujące opisy właściwości komunikatów:
 
    * [Właściwości komunikatu AS2](#as2-message-properties)
-   * [Właściwości wiadomości X12](#x12-message-properties)
+   * [Właściwości komunikatu X12](#x12-message-properties)
    * [Właściwości komunikatu EDIFACT](#EDIFACT-message-properties)
 
 <!--
@@ -170,27 +170,27 @@ Po uruchomieniu aplikacji logiki można wyświetlić stan i dane dotyczące tych
 
 <a name="message-list-property-descriptions"></a>
 
-## <a name="property-descriptions-and-name-formats-for-as2-x12-and-edifact-messages"></a>Opisy właściwości i formaty nazw komunikatów AS2, X12 i EDIFACT
+## <a name="property-descriptions-and-name-formats-for-as2-x12-and-edifact-messages"></a>Opisy właściwości i formaty nazw dla komunikatów AS2, X12 i EDIFACT
 
-Dla każdego typu wiadomości oto opisy właściwości i formaty nazw pobranych plików wiadomości.
+Dla każdego typu komunikatu poniżej przedstawiono opisy właściwości i formaty nazw pobranych plików wiadomości.
 
 <a name="as2-message-properties"></a>
 
-### <a name="as2-message-property-descriptions"></a>Opisy właściwości komunikatu AS2
+### <a name="as2-message-property-descriptions"></a>Opisy właściwości komunikatów AS2
 
-Oto opisy właściwości dla każdej wiadomości AS2.
+Poniżej przedstawiono opisy właściwości dla każdego komunikatu AS2.
 
 | Właściwość | Opis |
 |----------|-------------|
-| **Nadawca** | Partner gościa określony w **ustawieniach odbierania**lub partner hosta określony w **ustawieniach wysyłania** dla umowy AS2 |
-| **Odbiornik** | Partner hosta określony w **ustawieniach odbierania**lub partner gościa określony w **ustawieniach wysyłania** dla umowy AS2 |
-| **Aplikacja logiki** | Aplikacja logiki, w której są skonfigurowane akcje AS2 |
-| **Stan** | Stan wiadomości AS2 <br>Powodzenie = Odebrano lub wysłano prawidłową wiadomość AS2. Nie jest skonfigurowany numer MDN. <br>Powodzenie = Odebrano lub wysłano prawidłową wiadomość AS2. MDN jest skonfigurowany i odebrany lub mdn jest wysyłany. <br>Nie powiodło się = Odebrano nieprawidłową wiadomość AS2. Nie jest skonfigurowany numer MDN. <br>Oczekujące = Odebrano lub wysłano prawidłową wiadomość AS2. MDN jest skonfigurowany i mdn oczekuje. |
-| **Ack** | Stan wiadomości MDN <br>Zaakceptowane = Odebrano lub wysłane dodatni mdn. <br>Oczekujące = oczekiwanie na odbiór lub wysłanie mdn. <br>Odrzucone = Odebrano lub wysłano ujemną nazwę MDN. <br>Nie wymagane = MDN nie jest skonfigurowany w umowie. |
+| **Nadawca** | Partner gościa określony w **ustawieniach odbierania**lub partner hosta określony w polu **Wyślij ustawienia** dla umowy AS2 |
+| **Odbiornik** | Partner hosta określony w obszarze **Ustawienia odbierania**lub partner gościa określony w polu **Wyślij ustawienia** dla umowy AS2 |
+| **Aplikacja logiki** | Aplikacja logiki, w której są konfigurowane akcje AS2 |
+| **Stan** | Stan komunikatu AS2 <br>Powodzenie = odebrano lub wysłano prawidłowy komunikat AS2. Nie skonfigurowano żadnych powiadomienia MDN. <br>Powodzenie = odebrano lub wysłano prawidłowy komunikat AS2. POWIADOMIENIA MDN jest skonfigurowany i odbierany lub wysyłany jest powiadomienia MDN. <br>Niepowodzenie = Odebrano nieprawidłowy komunikat AS2. Nie skonfigurowano żadnych powiadomienia MDN. <br>Oczekiwanie: Odebrano lub wysłano prawidłowy komunikat AS2. POWIADOMIENIA MDN jest skonfigurowany, a powiadomienia MDN jest oczekiwany. |
+| **KOMUNIKATY** | Stan komunikatu powiadomienia MDN <br>Zaakceptowano = odebrano lub wysłano pozytywny powiadomienia MDN. <br>Oczekiwanie = oczekiwanie na otrzymanie lub wysłanie powiadomienia MDN. <br>Odrzucono = odebrano lub wysłano ujemną powiadomienia MDN. <br>Niewymagane = powiadomienia MDN nie jest skonfigurowany w umowie. |
 | **Kierunek** | Kierunek komunikatu AS2 |
-| **Identyfikator śledzenia** | Identyfikator, który koreluje wszystkie wyzwalacze i akcje w aplikacji logiki |
-| **Identyfikator komunikatu** | Identyfikator wiadomości AS2 z nagłówków wiadomości AS2 |
-| **Sygnatura czasowa** | Czas, w którym akcja AS2 przetworzyła wiadomość |
+| **Identyfikator śledzenia** | Identyfikator, który jest skorelowany ze wszystkimi wyzwalaczami i akcjami w aplikacji logiki |
+| **Identyfikator komunikatu** | Identyfikator komunikatu AS2 z nagłówków wiadomości AS2 |
+| **Sygnatura czasowa** | Godzina przetworzenia komunikatu przez akcję AS2 |
 |||
 
 <!--
@@ -209,23 +209,23 @@ Here are the name formats for each downloaded AS2 message folder and files.
 
 <a name="x12-message-properties"></a>
 
-### <a name="x12-message-property-descriptions"></a>Opisy właściwości komunikatu X12
+### <a name="x12-message-property-descriptions"></a>Opisy właściwości komunikatów X12
 
-Oto opisy właściwości dla każdego komunikatu X12.
+Poniżej przedstawiono opisy właściwości dla każdego komunikatu X12.
 
 | Właściwość | Opis |
 |----------|-------------|
-| **Nadawca** | Partner gościa określony w **ustawieniach odbierania**lub partner hosta określony w **ustawieniach wysyłania** dla umowy X12 |
-| **Odbiornik** | Partner hosta określony w **ustawieniach odbierania**lub partner gościa określony w **ustawieniach wysyłania** dla umowy X12 |
-| **Aplikacja logiki** | Aplikacja logiki, w której są skonfigurowane akcje X12 |
-| **Stan** | Stan wiadomości X12 <br>Powodzenie = Odebrano lub wysłano prawidłową wiadomość X12. Nie jest skonfigurowany funkcjonalny ack. <br>Powodzenie = Odebrano lub wysłano prawidłową wiadomość X12. Funkcjonalne ack jest skonfigurowany i odbierany, lub funkcjonalna ack jest wysyłany. <br>Nie powiodło się = Odebrano lub wysłano nieprawidłową wiadomość X12. <br>Oczekujące = Odebrano lub wysłano prawidłową wiadomość X12. Funkcjonalna ack jest skonfigurowana i oczekuje się funkcjonalnego ack. |
-| **Ack** | Stan funkcjonalnego Ack (997) <br>Zaakceptowane = Odebrano lub wysłane pozytywne funkcjonalne ack. <br>Odrzucone = Odebrano lub wysłane negatywne ack funkcjonalne. <br>Oczekujące = Oczekiwanie ack funkcjonalne, ale nie odebrane. <br>Oczekujące = Wygenerował funkcjonalne ack, ale nie można wysłać do partnera. <br>Nie wymagane = Funkcjonalne ack nie jest skonfigurowany. |
-| **Kierunek** | Kierunek wiadomości X12 |
-| **Identyfikator śledzenia** | Identyfikator, który koreluje wszystkie wyzwalacze i akcje w aplikacji logiki |
-| **Typ msg** | Typ wiadomości EDI X12 |
-| **Icn** | Numer kontrolny wymiany dla komunikatu X12 |
-| **Tscn (tscn)** | Numer kontroli zestawu transakcji dla wiadomości X12 |
-| **Sygnatura czasowa** | Czas, w którym akcja X12 przetworzyła wiadomość |
+| **Nadawca** | Partner gościa określony w **ustawieniach odbierania**lub partner hosta określony w polu **Wyślij ustawienia** dla umowy X12 |
+| **Odbiornik** | Partner hosta określony w obszarze **Ustawienia odbierania**lub partner gościa określony w polu **Wyślij ustawienia** dla umowy X12 |
+| **Aplikacja logiki** | Aplikacja logiki, w której są konfigurowane akcje X12 |
+| **Stan** | Stan komunikatu X12 <br>Powodzenie = odebrano lub wysłano prawidłowy komunikat X12. Nie skonfigurowano żadnego potwierdzenia funkcjonalności. <br>Powodzenie = odebrano lub wysłano prawidłowy komunikat X12. Zostanie skonfigurowana i odebrana potwierdzenie funkcjonalne lub zostanie wysłane potwierdzenie funkcjonalne. <br>Niepowodzenie = odebrano lub wysłano nieprawidłowy komunikat X12. <br>Oczekiwanie: Odebrano lub wysłano prawidłowy komunikat X12. Zostanie skonfigurowane potwierdzenie funkcjonalne i oczekiwana jest potwierdzenie funkcjonalne. |
+| **KOMUNIKATY** | Stan potwierdzenia funkcjonalnego (997) <br>Zaakceptowano = odebrano lub wysłano pozytywne potwierdzenie funkcjonalne. <br>Odrzucono = odebrano lub wysłano negatywną funkcję potwierdzenia funkcjonalności. <br>Oczekiwanie = oczekiwano funkcji ACK, ale nie została ona odebrana. <br>Oczekiwanie = Wygenerowano funkcję ACK, ale nie można wysłać jej do partnera. <br>Niewymagane = nie jest skonfigurowane potwierdzenie funkcjonalne. |
+| **Kierunek** | Kierunek komunikatu X12 |
+| **Identyfikator śledzenia** | Identyfikator, który jest skorelowany ze wszystkimi wyzwalaczami i akcjami w aplikacji logiki |
+| **Typ komunikatu** | Typ komunikatu EDI X12 |
+| **ICN** | Numer kontrolny wymiany komunikatu X12 |
+| **TSCN** | Numer kontrolny zestawu transakcji dla komunikatu X12 |
+| **Sygnatura czasowa** | Godzina przetworzenia komunikatu przez akcję X12 |
 |||
 
 <!--
@@ -244,23 +244,23 @@ Here are the name formats for each downloaded X12 message folder and files.
 
 <a name="EDIFACT-message-properties"></a>
 
-### <a name="edifact-message-property-descriptions"></a>Opisy właściwości komunikatu EDIFACT
+### <a name="edifact-message-property-descriptions"></a>Opisy właściwości komunikatów EDIFACT
 
-Oto opisy właściwości dla każdego komunikatu EDIFACT.
+Poniżej przedstawiono opisy właściwości dla każdego komunikatu EDIFACT.
 
 | Właściwość | Opis |
 |----------|-------------|
-| **Nadawca** | Partner gościa określony w **ustawieniach odbierania**lub partner hosta określony w **ustawieniach wysyłania** dla umowy EDIFACT |
-| **Odbiornik** | Partner hosta określony w **ustawieniach odbierania**lub partner gościa określony w **ustawieniach wysyłania** dla umowy EDIFACT |
-| **Aplikacja logiki** | Aplikacja logiki, w której są skonfigurowane akcje EDIFACT |
-| **Stan** | Stan komunikatu EDIFACT <br>Sukces = Odebrano lub wysłano prawidłową wiadomość EDIFACT. Nie jest skonfigurowany funkcjonalny ack. <br>Sukces = Odebrano lub wysłano prawidłową wiadomość EDIFACT. Funkcjonalne ack jest skonfigurowany i odbierany, lub funkcjonalna ack jest wysyłany. <br>Nie powiodło się = Odebrano lub wysłano nieprawidłową wiadomość EDIFACT <br>Oczekujące = Odebrano lub wysłano prawidłową wiadomość EDIFACT. Funkcjonalna ack jest skonfigurowana i oczekuje się funkcjonalnego ack. |
-| **Ack** | Stan Ack funkcjonalnego (CONTRL) <br>Zaakceptowane = Odebrano lub wysłane pozytywne funkcjonalne ack. <br>Odrzucone = Odebrano lub wysłane negatywne ack funkcjonalne. <br>Oczekujące = Oczekiwanie ack funkcjonalne, ale nie odebrane. <br>Oczekujące = Wygenerował funkcjonalne ack, ale nie można wysłać do partnera. <br>Nie wymagane = Funkcjonalny Ack nie jest skonfigurowany. |
+| **Nadawca** | Partner gościa określony w **ustawieniach odbierania**lub partner hosta określony w polu **Wyślij ustawienia** dla umowy EDIFACT |
+| **Odbiornik** | Partner hosta określony w obszarze **Ustawienia odbierania**lub partner gościa określony w polu **Wyślij ustawienia** dla umowy EDIFACT |
+| **Aplikacja logiki** | Aplikacja logiki, w której są konfigurowane akcje EDIFACT |
+| **Stan** | Stan komunikatu EDIFACT <br>Powodzenie = odebrano lub wysłano prawidłowy komunikat EDIFACT. Nie skonfigurowano żadnego potwierdzenia funkcjonalności. <br>Powodzenie = odebrano lub wysłano prawidłowy komunikat EDIFACT. Zostanie skonfigurowana i odebrana potwierdzenie funkcjonalne lub zostanie wysłane potwierdzenie funkcjonalne. <br>Niepowodzenie = odebrano lub wysłano nieprawidłowy komunikat EDIFACT <br>Oczekiwanie: Odebrano lub wysłano prawidłowy komunikat EDIFACT. Zostanie skonfigurowane potwierdzenie funkcjonalne i oczekiwana jest potwierdzenie funkcjonalne. |
+| **KOMUNIKATY** | Stan potwierdzenia funkcjonalności (CONTRL) <br>Zaakceptowano = odebrano lub wysłano pozytywne potwierdzenie funkcjonalne. <br>Odrzucono = odebrano lub wysłano negatywną funkcję potwierdzenia funkcjonalności. <br>Oczekiwanie = oczekiwano funkcji ACK, ale nie została ona odebrana. <br>Oczekiwanie = Wygenerowano funkcję ACK, ale nie można wysłać jej do partnera. <br>Niewymagane = nie jest skonfigurowane potwierdzenie funkcjonalne. |
 | **Kierunek** | Kierunek komunikatu EDIFACT |
-| **Identyfikator śledzenia** | Identyfikator, który koreluje wszystkie wyzwalacze i akcje w aplikacji logiki |
-| **Typ msg** | Typ komunikatu EDIFACT |
-| **Icn** | Numer kontroli wymiany dla komunikatu EDIFACT |
-| **Tscn (tscn)** | Numer kontroli zestawu transakcji dla komunikatu EDIFACT |
-| **Sygnatura czasowa** | Czas, w którym akcja EDIFACT przetworzyła komunikat |
+| **Identyfikator śledzenia** | Identyfikator, który jest skorelowany ze wszystkimi wyzwalaczami i akcjami w aplikacji logiki |
+| **Typ komunikatu** | Typ komunikatu EDIFACT |
+| **ICN** | Numer kontrolny wymiany komunikatu EDIFACT |
+| **TSCN** | Numer kontrolny zestawu transakcji dla komunikatu EDIFACT |
+| **Sygnatura czasowa** | Godzina przetworzenia komunikatu przez akcję EDIFACT |
 |||
 
 <!--

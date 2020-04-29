@@ -1,7 +1,7 @@
 ---
-title: 'Wybieranie kolumn w zestawie danych: Odwołanie do modułu'
+title: 'Wybieranie kolumn w zestawie danych: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak użyć modułu Wybierz kolumny w module Zestaw danych w usłudze Azure Machine Learning, aby wybrać podzbiór kolumn do użycia w dalszych operacjach.
+description: Dowiedz się, jak użyć modułu SELECT Columns in DataSet w Azure Machine Learning, aby wybrać podzbiór kolumn do użycia w operacjach podrzędnych.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,101 +10,101 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 714148815fa4ff543ecbf86ab21e8d51fe775543
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77153778"
 ---
-# <a name="select-columns-in-dataset-module"></a>Wybieranie kolumn w module zestawu danych
+# <a name="select-columns-in-dataset-module"></a>Wybierz kolumny w module DataSet
 
-W tym artykule opisano moduł w projektancie usługi Azure Machine Learning (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
 
-Ten moduł służy do wybierania podzbioru kolumn do użycia w operacjach podrzędnych. Moduł nie usuwa fizycznie kolumn z źródłowego zestawu danych; Zamiast tego tworzy podzbiór kolumn, podobnie jak *widok* bazy danych lub *projekcja*.
+Użyj tego modułu, aby wybrać podzbiór kolumn do użycia w operacjach podrzędnych. Moduł nie usuwa fizycznie kolumn ze źródłowego zestawu danych; Zamiast tego tworzy podzestaw kolumn, podobnie jak w przypadku *widoku* bazy danych lub *projekcji*.
 
-Ten moduł jest przydatny, gdy trzeba ograniczyć kolumny dostępne dla operacji podrzędnych lub jeśli chcesz zmniejszyć rozmiar zestawu danych, usuwając niepotrzebne kolumny.
+Ten moduł jest przydatny, gdy konieczne jest ograniczenie liczby kolumn dostępnych dla operacji podrzędnej, lub jeśli chcesz zmniejszyć rozmiar zestawu danych przez usunięcie niepotrzebnych kolumn.
 
-Kolumny w zestawie danych są dane wyjściowe w tej samej kolejności, co w oryginalnych danych, nawet jeśli określisz je w innej kolejności.
+Kolumny w zestawie danych są wyprowadzane w tej samej kolejności, w jakiej znajdują się w oryginalnych danych, nawet jeśli zostaną określone w innej kolejności.
 
-## <a name="how-to-use"></a>Jak stosować
+## <a name="how-to-use"></a>Sposób użycia
 
-Ten moduł nie ma parametrów. Selektor kolumny służy do wybierania kolumn do uwzględnienia lub wykluczenia.
+Ten moduł nie ma parametrów. Selektor kolumny służy do wybierania kolumn do dołączenia lub wykluczenia.
 
-### <a name="choose-columns-by-name"></a>Wybieranie kolumn według nazwy
+### <a name="choose-columns-by-name"></a>Wybierz kolumny według nazwy
 
-W module dostępnych jest wiele opcji wyboru kolumn według nazwy: 
+W module istnieje wiele opcji umożliwiających wybranie kolumn według nazwy: 
 
 + Filtrowanie i wyszukiwanie
 
-    Kliknij opcję **WEDŁUG NAZWY.**
+    Kliknij opcję **według nazwy** .
 
-    Jeśli masz połączony zestaw danych, który jest już wypełniony, powinna zostać wyświetlona lista dostępnych kolumn. Jeśli nie są wyświetlane żadne kolumny, może być konieczne uruchomienie modułów nadrzędnych w celu wyświetlenia listy kolumn.
+    Jeśli masz połączony zestaw danych, który został już wypełniony, powinna zostać wyświetlona lista dostępnych kolumn. Jeśli żadna kolumna nie zostanie wyświetlona, może być konieczne uruchomienie modułów nadrzędnych w celu wyświetlenia listy kolumn.
 
-    Aby filtrować listę, wpisz pole wyszukiwania. Na przykład po wpisaniu `w` litery w polu wyszukiwania lista zostanie odfiltrowana, `w`aby wyświetlić nazwy kolumn zawierające literę .
+    Aby odfiltrować listę, wpisz w polu wyszukiwania. Na przykład, jeśli wpiszesz literę `w` w polu wyszukiwania, lista zostanie przefiltrowana w celu wyświetlenia nazw kolumn zawierających literę `w`.
 
-    Zaznacz kolumny i kliknij przycisk strzałki w prawo, aby przenieść zaznaczone kolumny do listy w okienku po prawej stronie.
+    Wybierz kolumny, a następnie kliknij przycisk strzałki w prawo, aby przenieść wybrane kolumny do listy w okienku po prawej stronie.
 
-    + Aby wybrać ciągły zakres nazw kolumn, naciśnij **klawisze Shift + Click**.
-    + Aby dodać poszczególne kolumny do zaznaczenia, naciśnij **klawisze Ctrl + Click**.
+    + Aby wybrać ciągły zakres nazw kolumn, naciśnij klawisze **Shift + kliknięcie**.
+    + Aby dodać pojedyncze kolumny do zaznaczenia, naciśnij **klawisze CTRL + kliknięcie**.
 
-    Kliknij przycisk znacznika wyboru, aby zapisać i zamknąć.
+    Kliknij przycisk znacznik wyboru, aby zapisać i zamknąć.
 
 + Używanie nazw w połączeniu z innymi regułami
 
-    Kliknij opcję **Z REGUŁAMI.**
+    Kliknij opcję **with Rules** .
     
-    Wybierz regułę, na przykład przedstawiając kolumny określonego typu danych.
+    Wybierz regułę, taką jak wyświetlanie kolumn o określonym typie danych.
 
     Następnie kliknij poszczególne kolumny tego typu według nazwy, aby dodać je do listy wyboru.
 
-+ Wpisywać lub wklejać oddzieloną przecinkami listę nazw kolumn
++ Wpisz lub wklej rozdzieloną przecinkami listę nazw kolumn
 
-    Jeśli zestaw danych jest szeroki, może być łatwiejsze użycie indeksów lub wygenerowanych list nazw, zamiast wybierać kolumny indywidualnie. Zakładając, że lista została przygotowana z wyprzedzeniem:
+    Jeśli zestaw danych jest szeroki, może być łatwiejsze używanie indeksów lub wygenerowanych list nazw zamiast wybierania kolumn pojedynczo. Przy założeniu, że lista została przygotowana z góry:
 
-    1. Kliknij opcję **Z REGUŁAMI.** 
-    2. Wybierz **pozycję Brak kolumn**, wybierz pozycję **Uwzględnij**, a następnie kliknij wewnątrz pola tekstowego czerwony wykrzyknik. 
-    3. Wklej lub wpisz listę wcześniej zweryfikowanych nazw kolumn oddzielonych przecinkami. Nie można zapisać modułu, jeśli dowolna kolumna ma nieprawidłową nazwę, dlatego należy wcześniej sprawdzić nazwy.
+    1. Kliknij opcję **with Rules** . 
+    2. Wybierz pozycję **brak kolumn**, wybierz pozycję **Dołącz**, a następnie kliknij wewnątrz pola tekstowego z czerwonym wykrzyknikiem. 
+    3. Wklej lub wpisz rozdzieloną przecinkami listę nazw kolumn, które zostały wcześniej zweryfikowane. Nie można zapisać modułu, jeśli dowolna kolumna ma nieprawidłową nazwę. Upewnij się, że nazwy zostały wcześniej sprawdzone.
     
-    Za pomocą tej metody można również określić listę kolumn przy użyciu ich wartości indeksu. 
+    Możesz również użyć tej metody, aby określić listę kolumn przy użyciu ich wartości indeksu. 
 
 ### <a name="choose-by-type"></a>Wybierz według typu
 
-Jeśli używasz opcji **Z regułami,** możesz zastosować wiele warunków do wyboru kolumn. Na przykład może być konieczne uzyskanie tylko kolumn elementów o typie danych liczbowych.
+Jeśli używasz opcji **with Rules** , możesz zastosować wiele warunków w wybranych kolumnach. Na przykład może być konieczne uzyskanie tylko kolumn funkcji typu danych liczbowych.
 
-Opcja **BEGIN WITH** określa punkt początkowy i jest ważna dla zrozumienia wyników. 
+Opcja **BEGIN with** określa Twój punkt początkowy i jest ważna w przypadku interpretacji wyników. 
 
-+ Jeśli wybierzesz opcję **WSZYSTKIE KOLUMNY,** wszystkie kolumny zostaną dodane do listy. Następnie należy użyć opcji **Wyklucz,** aby *usunąć* kolumny spełniające określone warunki. 
++ W przypadku wybrania opcji **wszystkie kolumny** wszystkie kolumny zostaną dodane do listy. Następnie należy użyć opcji **Wyklucz** , aby *usunąć* kolumny, które spełniają określone warunki. 
 
-    Na przykład można rozpocząć od wszystkich kolumn, a następnie usunąć kolumny według nazwy lub według typu.
+    Na przykład możesz zacząć od wszystkich kolumn, a następnie usunąć kolumny według nazwy lub typu.
 
-+ Jeśli wybierzesz opcję **BRAK KOLUMN,** lista kolumn zacznie być pusta. Następnie należy określić *warunki,* aby dodać kolumny do listy. 
++ W przypadku wybrania opcji **brak kolumn** lista kolumn zaczyna się pusta. Następnie należy określić warunki, aby *dodać* kolumny do listy. 
 
-    Jeśli zastosujesz wiele reguł, każdy warunek jest **addytywny**. Załóżmy na przykład, że zaczynasz od braku kolumn, a następnie dodaj regułę, aby uzyskać wszystkie kolumny liczbowe. W zestawie danych o cenach samochodów powoduje to 16 kolumn. Następnie kliknij **+** znak, aby dodać nowy warunek, a następnie wybierz pozycję **Uwzględnij wszystkie operacje**. Wynikowy zestaw danych zawiera wszystkie kolumny liczbowe oraz wszystkie kolumny obiektowe, w tym niektóre kolumny operacji ciągu.
+    W przypadku zastosowania wielu reguł każdy warunek jest **dodatkiem**. Załóżmy na przykład, że zaczynasz od brak kolumn, a następnie dodasz regułę w celu pobrania wszystkich kolumn liczbowych. W zestawie danych cen samochodów, które powoduje 16 kolumn. Następnie kliknij **+** znak, aby dodać nowy warunek, a następnie wybierz pozycję **Dołącz wszystkie funkcje**. Uzyskany zestaw danych zawiera wszystkie kolumny liczbowe oraz wszystkie kolumny funkcji, w tym niektóre kolumny funkcji ciągów.
 
-### <a name="choose-by-column-index"></a>Wybieranie według indeksu kolumn
+### <a name="choose-by-column-index"></a>Wybierz według indeksu kolumny
 
-Indeks kolumn odnosi się do kolejności kolumny w oryginalnym zestawie danych.
+Indeks kolumny odwołuje się do kolejności kolumny w oryginalnym zestawie danych.
 
-+ Kolumny są numerowane sekwencyjnie od 1.  
++ Kolumny są numerowane sekwencyjnie, począwszy od 1.  
 + Aby uzyskać zakres kolumn, użyj łącznika. 
-+ Specyfikacje otwarte, takie `1-` `-3` jak lub nie są dozwolone.
-+ Zduplikowane wartości indeksu (lub nazwy kolumn) są niedozwolone i mogą spowodować błąd.
++ Specyfikacje typu Open-zakończony, `1-` takie `-3` jak lub, są niedozwolone.
++ Zduplikowane wartości indeksu (lub nazwy kolumn) nie są dozwolone i mogą spowodować wystąpienie błędu.
 
-Na przykład przy założeniu, że zestaw danych ma co najmniej osiem kolumn, można wkleić w dowolnym z następujących przykładów, aby zwrócić wiele nieobsłanych kolumn: 
+Na przykład, zakładając, że zestaw danych ma co najmniej osiem kolumn, można wkleić w jednym z poniższych przykładów, aby zwrócić wiele kolumn nieciągłych: 
 
 + `8,1-4,6`
 + `1,3-8`
 + `1,3-6,4` 
 
-ostateczny przykład nie powoduje błędu; jednak zwraca pojedyncze wystąpienie `4`kolumny .
+Ostatni przykład nie powoduje błędu; zwraca jednak pojedyncze wystąpienie kolumny `4`.
 
 
 
-### <a name="change-order-of-columns"></a>Zmienianie kolejności kolumn
+### <a name="change-order-of-columns"></a>Zmień kolejność kolumn
 
-Opcja **Zezwalaj na duplikaty i zachowywanie kolejności kolumn w zaznaczeniu** zaczyna się od pustej listy i dodaje kolumny określone według nazwy lub indeksu. W przeciwieństwie do innych opcji, które zawsze zwracają kolumny w ich "kolejności naturalnej", ta opcja wyprowadza kolumny w kolejności, w jakiej nazwy lub listy. 
+Opcja **Zezwalaj na duplikowanie i zachowywanie kolejności kolumn w zaznaczeniu** rozpoczyna się od pustej listy i dodaje kolumny określone przez nazwę lub według indeksu. W przeciwieństwie do innych opcji, które zawsze zwracają kolumny w ich "porządku naturalnym", ta opcja wyprowadza kolumny w kolejności, w jakiej się znajdują lub wyświetlają listę. 
 
-Na przykład w zestawie danych z kolumnami Col1, Col2, Col3 i Col4 można odwrócić kolejność kolumn i pominąć kolumnę 2, określając jedną z następujących list:
+Na przykład, w zestawie danych z kolumnami Kol1, Col2, Col3 i Col4, można odwrócić kolejność kolumn i opuścić kolumnę 2, określając jedną z następujących list:
 
 + `Col4, Col3, Col1`
 + `4,3,1`
@@ -112,4 +112,4 @@ Na przykład w zestawie danych z kolumnami Col1, Col2, Col3 i Col4 można odwró
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

@@ -1,6 +1,6 @@
 ---
-title: Przekazywanie pliku VHD do laboratoriów devtest platformy Azure przy użyciu programu PowerShell | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera przewodnik, który pokazuje, jak przekazać plik VHD do usługi Azure DevTest Labs przy użyciu programu PowerShell.
+title: Przekazywanie pliku VHD do Azure DevTest Labs przy użyciu programu PowerShell | Microsoft Docs
+description: W tym artykule omówiono sposób przekazywania pliku VHD do Azure DevTest Labs przy użyciu programu PowerShell.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,51 +15,51 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: a9e5a69cd7840bbaff081a4d47cb60f62a76eda6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76759759"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>Przekazywanie pliku VHD do konta magazynu laboratorium przy użyciu programu PowerShell
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-W laboratoriach DevTest Azure pliki VHD mogą być używane do tworzenia obrazów niestandardowych, które są używane do inicjowania obsługi administracyjnej maszyn wirtualnych. Poniższe kroki umożliwiają przekazywanie pliku VHD do konta magazynu w laboratorium za pomocą programu PowerShell. Po przesłaniu pliku VHD w [sekcji Następne kroki](#next-steps) wymieniono kilka artykułów ilustrujących sposób tworzenia niestandardowego obrazu z przesłanego pliku VHD. Aby uzyskać więcej informacji na temat dysków i dysków VHD na platformie Azure, zobacz [Wprowadzenie do dysków zarządzanych](../virtual-machines/linux/managed-disks-overview.md)
+W Azure DevTest Labs pliki VHD mogą służyć do tworzenia obrazów niestandardowych, które są używane do obsługi maszyn wirtualnych. Poniższe kroki umożliwiają przekazanie pliku VHD do konta magazynu laboratorium przy użyciu programu PowerShell. Po przekazaniu pliku VHD [sekcja następne kroki](#next-steps) zawiera listę artykułów, które ilustrują, jak utworzyć obraz niestandardowy na podstawie przekazanego pliku VHD. Aby uzyskać więcej informacji na temat dysków i dysków VHD na platformie Azure, zobacz [wprowadzenie do usługi Managed disks](../virtual-machines/linux/managed-disks-overview.md)
 
 ## <a name="step-by-step-instructions"></a>Instrukcje krok po kroku
 
-Poniższe kroki przebiegają przez przekazywanie pliku VHD do platformy Azure DevTest Labs przy użyciu programu PowerShell. 
+Poniższe kroki przeprowadzą Cię przez proces przekazywania pliku VHD do Azure DevTest Labs przy użyciu programu PowerShell. 
 
-1. Zaloguj się do [Portalu Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Zaloguj się w witrynie [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Wybierz **pozycję Wszystkie usługi**, a następnie wybierz z listy pozycję **DevTest Labs.**
+1. Wybierz pozycję **wszystkie usługi**, a następnie z listy wybierz pozycję **DevTest Labs** .
 
-1. Z listy laboratoriów wybierz żądane laboratorium.  
+1. Z listy laboratoriów wybierz odpowiednie laboratorium.  
 
-1. Na bloku laboratorium wybierz opcję **Konfiguracja**. 
+1. W bloku laboratorium wybierz pozycję **Konfiguracja**. 
 
-1. W bloku **Konfiguracji** laboratorium wybierz opcję **Obrazy niestandardowe (VED)**.
+1. W bloku **Konfiguracja** laboratorium wybierz pozycję **obrazy niestandardowe (VHD)**.
 
-1. W bloku **Obrazy niestandardowe** wybierz **pozycję +Dodaj**. 
+1. W bloku **obrazy niestandardowe** wybierz pozycję **+ Dodaj**. 
 
-1. Na **bloku Obraz niestandardowy** wybierz pozycję **VHD**.
+1. W bloku **obrazu niestandardowego** wybierz pozycję **wirtualny dysk twardy**.
 
-1. Na bloku **VHD** wybierz **pozycję Przekaż dysk VHD za pomocą programu PowerShell**.
+1. W bloku **wirtualnego dysku twardego** wybierz pozycję **Przekaż dysk VHD przy użyciu programu PowerShell**.
 
-    ![Przekazywanie dysku VHD za pomocą programu PowerShell](./media/devtest-lab-upload-vhd-using-powershell/upload-image-using-psh.png)
+    ![Przekazywanie wirtualnego dysku twardego przy użyciu programu PowerShell](./media/devtest-lab-upload-vhd-using-powershell/upload-image-using-psh.png)
 
-1. W programie Przekaż obraz przy użyciu bloku **programu PowerShell** skopiuj wygenerowany skrypt programu PowerShell do edytora tekstu.
+1. W bloku **przekazywanie obrazu przy użyciu programu PowerShell** Skopiuj wygenerowany skrypt programu PowerShell do edytora tekstu.
 
-1. Zmodyfikuj parametr **LocalFilePath** polecenia cmdlet **Add-AzureVhd,** aby wskazać lokalizację pliku VHD, który chcesz przekazać.
+1. Zmodyfikuj parametr **LocalFilePath** polecenia cmdlet **Add-AzureVhd** , aby wskazywał lokalizację pliku VHD, który chcesz przekazać.
 
-1. W wierszu programu PowerShell uruchom polecenie cmdlet **Add-AzureVhd** (ze zmodyfikowanym parametrem **LocalFilePath).**
+1. W wierszu polecenia programu PowerShell uruchom polecenie cmdlet **Add-AzureVhd** (z zmodyfikowanym parametrem **LocalFilePath** ).
 
 > [!WARNING] 
 > 
-> Proces przesyłania pliku VHD może być długi w zależności od rozmiaru pliku VHD i szybkości połączenia.
+> Proces przekazywania pliku VHD może być długi w zależności od rozmiaru pliku VHD i szybkości połączenia.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie niestandardowego obrazu w laboratoriach devtest azure z pliku VHD przy użyciu portalu Azure](devtest-lab-create-template.md)
-- [Tworzenie niestandardowego obrazu w laboratoriach devtest platformy Azure na podstawie pliku VHD przy użyciu programu PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+- [Tworzenie niestandardowego obrazu w Azure DevTest Labs z pliku VHD przy użyciu Azure Portal](devtest-lab-create-template.md)
+- [Tworzenie niestandardowego obrazu w Azure DevTest Labs z pliku VHD przy użyciu programu PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)

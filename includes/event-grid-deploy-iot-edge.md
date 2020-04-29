@@ -9,45 +9,45 @@ ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: b453a04a170764a037eed7415eaf71e5a4d37526
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76844596"
 ---
-## <a name="deploy-event-grid-iot-edge-module"></a>Wdrażanie modułu IoT Edge w siatce zdarzeń
+## <a name="deploy-event-grid-iot-edge-module"></a>Wdróż moduł IoT Edge Event Grid
 
-Istnieje kilka sposobów wdrażania modułów na urządzeniu usługi IoT Edge i wszystkie z nich działają w usłudze Azure Event Grid w usłudze IoT Edge. W tym artykule opisano kroki wdrażania usługi Event Grid w usłudze IoT Edge z witryny Azure portal.
+Istnieje kilka sposobów wdrażania modułów na urządzeniu IoT Edge i wszystkie z nich pracują Azure Event Grid w IoT Edge. W tym artykule opisano kroki wdrażania Event Grid na IoT Edge z Azure Portal.
 
 >[!NOTE]
-> W tym samouczku wdrożysz moduł siatki zdarzeń bez trwałości. Oznacza to, że wszystkie tematy i subskrypcje utworzone w tym samouczku zostaną usunięte po przemieszczeniu modułu. Aby uzyskać więcej informacji na temat konfigurowania trwałości, zobacz następujące artykuły: [Utrwalić stan w systemie Linux](../articles/event-grid/edge/persist-state-linux.md) lub Persist state w systemie [Windows](../articles/event-grid/edge/persist-state-windows.md). W przypadku obciążeń produkcyjnych zaleca się zainstalowanie modułu event grid z trwałością.
+> W tym samouczku zostanie wdrożony moduł Event Grid bez trwałości. Oznacza to, że wszystkie tematy i subskrypcje utworzone w tym samouczku zostaną usunięte po ponownym wdrożeniu modułu. Aby uzyskać więcej informacji na temat sposobu konfiguracji trwałości, zobacz następujące artykuły: [utrwalanie stanu w systemie Linux](../articles/event-grid/edge/persist-state-linux.md) lub [w stanie utrwalania systemu Windows](../articles/event-grid/edge/persist-state-windows.md). W przypadku obciążeń produkcyjnych zaleca się zainstalowanie modułu Event Grid z trwałością.
 
 >[!IMPORTANT]
-> W tym samouczku moduł siatki zdarzeń zostanie wdrożony z wyłączonym uwierzytelnianiem klienta i zezwolić subskrybentom HTTP. W przypadku obciążeń produkcyjnych zaleca się włączenie tylko żądań HTTPS i subskrybentów z włączonym uwierzytelnianiem klienta. Aby uzyskać więcej informacji na temat bezpiecznego konfigurowania modułu event grid, zobacz [Zabezpieczenia i uwierzytelnianie](../articles/event-grid/edge/security-authentication.md).
+> W tym samouczku moduł Event Grid zostanie wdrożony z włączonym uwierzytelnianiem klienta i zezwolił subskrybentom protokołu HTTP. W przypadku obciążeń produkcyjnych zaleca się włączenie tylko żądań HTTPS i subskrybentów z włączonym uwierzytelnianiem klienta. Aby uzyskać więcej informacji na temat bezpiecznego konfigurowania modułu Event Grid, zobacz [zabezpieczenia i uwierzytelnianie](../articles/event-grid/edge/security-authentication.md).
  
-### <a name="select-your-iot-edge-device"></a>Wybieranie urządzenia IoT Edge
+### <a name="select-your-iot-edge-device"></a>Wybierz urządzenie IoT Edge
 
-1. Logowanie się do [witryny Azure portal](https://portal.azure.com)
-1. Przejdź do centrum IoT Hub.
-1. Wybierz pozycję **IoT Edge** z menu w sekcji **Automatyczne zarządzanie urządzeniami.** 
+1. Zaloguj się do [Azure Portal](https://portal.azure.com)
+1. Przejdź do IoT Hub.
+1. Wybierz pozycję **IoT Edge** z menu w sekcji **Automatyczne zarządzanie urządzeniami** . 
 1. Kliknij identyfikator urządzenia docelowego z listy urządzeń
-1. Wybierz pozycję **Ustaw moduły**. Zachowaj otwartą stronę. Będziesz kontynuować kroki w następnej sekcji.
+1. Wybierz pozycję **Ustaw moduły**. Nie otwieraj strony. Wykonaj kroki opisane w następnej sekcji.
 
-### <a name="configure-a-deployment-manifest"></a>Konfigurowanie manifestu wdrażania
+### <a name="configure-a-deployment-manifest"></a>Konfigurowanie manifestu wdrożenia
 
-Manifest wdrożenia to dokument JSON, który opisuje, które moduły do wdrożenia, jak przepływy danych między modułami i żądane właściwości bliźniaczych reprezentacji modułu. Portal Azure ma kreatora, który przeprowadzi Cię przez tworzenie manifestu wdrożenia, zamiast ręcznego tworzenia dokumentu JSON.  Ma trzy kroki: **Dodaj moduły,** **Określ trasy**i **Przejrzyj wdrożenie**.
+Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, sposób przepływu danych między modułami i żądane właściwości modułu bliźniaczych reprezentacji. Azure Portal zawiera kreatora, który przeprowadzi Cię przez proces tworzenia manifestu wdrożenia, zamiast ręcznego tworzenia dokumentu JSON.  Składa się z trzech kroków: **Dodawanie modułów**, **Określanie tras**i **przeglądanie wdrożenia**.
 
 ### <a name="add-modules"></a>Dodaj moduły
 
-1. W sekcji **Moduły wdrażania** wybierz pozycję **Dodaj**
-1. Z typów modułów z listy rozwijanej wybierz opcję **Moduł krawędzi IoT**
-1. Podaj nazwę, obraz, opcje tworzenia kontenera:
+1. W sekcji **moduły wdrażania** wybierz pozycję **Dodaj** .
+1. Z typów modułów na liście rozwijanej wybierz pozycję **IoT Edge module**
+1. Podaj nazwę, obraz i opcje tworzenia kontenera:
 
 [!INCLUDE [event-grid-edge-module-version-update](event-grid-edge-module-version-update.md)]
 
    * **Nazwa**: eventgridmodule
    * **Identyfikator URI obrazu**:`mcr.microsoft.com/azure-event-grid/iotedge:latest`
-   * **Opcje tworzenia kontenera:**
+   * **Opcje tworzenia kontenera**:
 
     ```json
         {
@@ -67,26 +67,26 @@ Manifest wdrożenia to dokument JSON, który opisuje, które moduły do wdrożen
         }
     ```
 
- 1. Kliknij **przycisk Zapisz**
- 1. Kliknij **przycisk Dalej,** aby przejść do sekcji Trasy
+ 1. Kliknij przycisk **Zapisz**
+ 1. Kliknij przycisk **dalej** , aby przejść do sekcji trasy
 
     > [!NOTE]
-    > Jeśli używasz maszyny Wirtualnej platformy Azure jako urządzenia brzegowego, dodaj regułę portu przychodzącego, aby zezwolić na ruch przychodzący na porcie 4438. Aby uzyskać instrukcje dotyczące dodawania reguły, zobacz [Jak otworzyć porty na maszynie Wirtualnej](../articles/virtual-machines/windows/nsg-quickstart-portal.md).
+    > Jeśli używasz maszyny wirtualnej platformy Azure jako urządzenia brzegowego, Dodaj regułę portu przychodzącego, aby zezwolić na ruch przychodzący na porcie 4438. Aby uzyskać instrukcje dotyczące dodawania reguły, zobacz [Jak otworzyć porty na maszynie wirtualnej](../articles/virtual-machines/windows/nsg-quickstart-portal.md).
 
 
-### <a name="setup-routes"></a>Ustawianie tras
+### <a name="setup-routes"></a>Skonfiguruj trasy
 
- Zachowaj trasy domyślne, a następnie wybierz pozycję **Dalej,** aby przejść do sekcji recenzji
+ Zachowaj trasy domyślne, a następnie wybierz pozycję **dalej** , aby przejść do sekcji Przegląd
 
 ### <a name="review-deployment"></a>Przegląd wdrożenia
 
-1. Sekcja przeglądu zawiera manifest wdrożenia JSON, który został utworzony na podstawie wybranych w poprzednich dwóch sekcjach. Upewnij się, że na liście są widoczne dwa moduły: **$edgeAgent** i **$edgeHub**. Te dwa moduły tworzą środowisko uruchomieniowe usługi IoT Edge i są wymagane domyślne w każdym wdrożeniu.
+1. Sekcja Przegląd przedstawia manifest wdrożenia JSON, który został utworzony na podstawie wybranych opcji w poprzednich dwóch sekcjach. Upewnij się, że na liście znajdują się dwa moduły: **$edgeAgent** i **$edgeHub**. Te dwa moduły składają się na IoT Edge środowisko uruchomieniowe i są wymagane wartości domyślne w każdym wdrożeniu.
 1. Przejrzyj informacje o wdrożeniu, a następnie wybierz pozycję **Prześlij**.
 
 ### <a name="verify-your-deployment"></a>Weryfikowanie wdrożenia
 
-1. Po przesłaniu wdrożenia powrócisz do strony usługi IoT Edge w centrum IoT Hub.
-1. Wybierz **urządzenie usługi IoT Edge,** które są przeznaczone dla wdrożenia, aby otworzyć jego szczegóły.
-1. W szczegółach urządzenia sprawdź, czy moduł siatki zdarzeń jest wymieniony jako **określony we wdrożeniu** i **zgłoszony przez urządzenie**.
+1. Po przesłaniu wdrożenia wrócisz do IoT Edge stronie Centrum IoT Hub.
+1. Wybierz **urządzenie IoT Edge** , do którego należy wdrożenie, aby otworzyć jego szczegóły.
+1. Na stronie Szczegóły urządzenia sprawdź, czy moduł Event Grid jest wymieniony jako **określony we wdrożeniu** i **zgłoszony przez urządzenie**.
 
-Może upłynąć kilka chwil, aby moduł został uruchomiony na urządzeniu, a następnie zgłoszony z powrotem do usługi IoT Hub. Odśwież stronę, aby wyświetlić zaktualizowany stan.
+Uruchomienie modułu na urządzeniu może potrwać kilka minut, a następnie zgłoszone z powrotem do IoT Hub. Odśwież stronę, aby zobaczyć zaktualizowany stan.
