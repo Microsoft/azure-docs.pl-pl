@@ -1,7 +1,7 @@
 ---
-title: 'Model wykrywania anomalii pociągu: odwołanie do modułu'
+title: 'Model wykrywania anomalii szkolenia: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak użyć modułu modelu wykrywania anomalii pociągu do utworzenia wyszkolonego modelu wykrywania anomalii.
+description: Dowiedz się, jak utworzyć szkolony model wykrywania anomalii przy użyciu modułu wykrywania anomalii w modelu.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,33 +10,33 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 78ed2d85729cce94e8dfa579545f558d2cfe4651
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79502973"
 ---
-# <a name="train-anomaly-detection-model"></a>Model wykrywania anomalii pociągu
+# <a name="train-anomaly-detection-model"></a>Trenowanie modelu wykrywania anomalii
 
-W tym artykule opisano, jak użyć modułu **modelu wykrywania anomalii pociągu** w projektancie usługi Azure Machine Learning (wersja zapoznawcza) w celu utworzenia modelu wykrywania uszemionych anomalii.
+W tym artykule opisano, jak używać modułu **wykrywania anomalii** w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu utworzenia przeszkolonego modelu wykrywania anomalii.
 
-Moduł przyjmuje jako dane wejściowe zestaw parametrów modelu dla modelu wykrywania anomalii i nieoznakowany zestaw danych. Zwraca wyszkolony model wykrywania anomalii wraz z zestawem etykiet dla danych szkoleniowych.  
+Moduł przyjmuje jako wejściowy zestaw parametrów modelu dla modelu wykrywania anomalii i nieoznaczonego zestawu danych. Zwraca on szkolony model wykrywania anomalii wraz z zestawem etykiet dla danych szkoleniowych.  
 
-Aby uzyskać więcej informacji na temat algorytmów wykrywania anomalii podanych w projektancie, zobacz następujące tematy: 
+Aby uzyskać więcej informacji na temat algorytmów wykrywania anomalii w projektancie, zobacz następujące tematy: 
 
-+ [Wykrywanie anomalii oparte na pca](pca-based-anomaly-detection.md)  
++ [Wykrywanie anomalii oparte na analizie głównych składowych](pca-based-anomaly-detection.md)  
 
-## <a name="how-to-configure-train-anomaly-detection-model"></a>Jak skonfigurować model wykrywania anomalii pociągu 
+## <a name="how-to-configure-train-anomaly-detection-model"></a>Jak skonfigurować model wykrywania anomalii dla uczenia 
 
-1.  Dodaj moduł **modelu wykrywania anomalii pociągu** do potoku w projektancie. Ten moduł można znaleźć w kategorii **Wykrywanie anomalii.**
+1.  Dodaj moduł **wykrywania anomalii** do potoku w projektancie. Ten moduł można znaleźć w kategorii **wykrywania anomalii** .
 
-2. Podłącz jeden z modułów przeznaczonych do wykrywania anomalii, takich jak [wykrywanie anomalii na podstawie PCA](pca-based-anomaly-detection.md)
+2. Połącz jeden z modułów przeznaczonych do wykrywania anomalii, takich jak [wykrywanie anomalii oparte na UPW](pca-based-anomaly-detection.md)
 
-    Inne typy modeli nie są obsługiwane; po uruchomieniu potoku pojawi się błąd: wszystkie modele muszą mieć ten sam typ ucznia.  
+    Inne typy modeli nie są obsługiwane; przy uruchamianiu potoku zostanie wyświetlony błąd: wszystkie modele muszą mieć ten sam typ informacji.  
 
-3.  Skonfiguruj moduł wykrywania anomalii, wybierając kolumnę etykiety i ustawiając inne parametry specyficzne dla algorytmu.  
+3.  Skonfiguruj moduł wykrywania anomalii, wybierając kolumnę etykieta i ustawiając inne parametry specyficzne dla algorytmu.  
 
-4.  Dołącz zestaw danych szkoleniowych do po prawej stronie wejścia **modelu wykrywania anomalii pociągu**.  
+4.  Dołączanie zestawu danych szkoleniowych do prawego wejścia do **modelu wykrywania anomalii w szkoleniu**.  
 
 5.  Prześlij potok.  
 
@@ -46,14 +46,14 @@ Po zakończeniu szkolenia:
 
 + Aby wyświetlić parametry modelu, kliknij prawym przyciskiem myszy moduł i wybierz polecenie **Wizualizuj**. 
 
-+ Aby utworzyć prognoz, należy użyć [score model](score-model.md) z nowymi danymi wejściowymi.
++ Aby utworzyć prognozy, użyj [modelu oceny](score-model.md) z nowymi danymi wejściowymi.
 
-+ Aby zapisać migawkę uczonego modelu, wybierz moduł i kliknij ikonę **Zarejestruj zestaw danych** w obszarze Dane **wyjściowe +dzienniki** w prawym panelu.   
++ Aby zapisać migawkę przeszkolonego modelu, wybierz moduł, a następnie kliknij ikonę **zarejestruj zestaw danych** na karcie dane **wyjściowe + dzienniki** na prawym panelu.   
 
  
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 
 
-Zobacz [wyjątki i kody błędów dla projektanta (wersja zapoznawcza)](designer-error-codes.md) dla listy błędów specyficznych dla modułów projektanta.
+Zobacz [wyjątki i kody błędów dla projektanta (wersja zapoznawcza)](designer-error-codes.md) , aby zapoznać się z listą błędów specyficznych dla modułów projektanta.
 '

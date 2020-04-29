@@ -1,78 +1,78 @@
 ---
-title: Kopia zapasowa bazy danych SAP HANA na maszynach wirtualnych platformy Azure
-description: W tym artykule dowiedz się więcej o tworzenie kopii zapasowych baz danych SAP HANA, które są uruchomione na maszynach wirtualnych platformy Azure.
+title: Informacje o kopii zapasowej bazy danych SAP HANA na maszynach wirtualnych platformy Azure
+description: W tym artykule dowiesz się, jak tworzyć kopie zapasowe baz danych SAP HANA, które są uruchomione na maszynach wirtualnych platformy Azure.
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 52c235c95cea73a0c51c62fcb55f7f711d2eff21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476461"
 ---
-# <a name="about-sap-hana-database-backup-in-azure-vms"></a>Kopia zapasowa bazy danych SAP HANA na maszynach wirtualnych platformy Azure
+# <a name="about-sap-hana-database-backup-in-azure-vms"></a>Informacje o kopii zapasowej bazy danych SAP HANA na maszynach wirtualnych platformy Azure
 
-Bazy danych SAP HANA to obciążenia o znaczeniu krytycznym, które wymagają celu punktu odzyskiwania o niskim poziomie odzyskiwania (RPO) i celu szybkiego czasu odzyskiwania (RTO). Teraz można wykonać [kopię zapasową baz danych SAP HANA uruchomionych na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) przy użyciu usługi Azure [Backup.](https://docs.microsoft.com/azure/backup/backup-overview)
+Bazy danych SAP HANA są obciążeniami o znaczeniu krytycznym, które wymagają małego celu punktu odzyskiwania (RPO) i szybkiego celu czasu odzyskiwania (RTO). Teraz można [tworzyć kopie zapasowe baz danych SAP HANA działających na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) przy użyciu [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
 
-Usługa Azure Backup jest certyfikowana przez firmę SAP z [certyfikatem Backint,](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) aby zapewnić natywną obsługę kopii zapasowych dzięki wykorzystaniu natywnych interfejsów API sap HANA. Ta oferta z usługi Azure Backup jest zgodna z mantrą kopii zapasowych usługi Azure Backup o **zerowej infrastrukturze,** eliminując konieczność wdrażania infrastruktury kopii zapasowych i zarządzania nią. Teraz można bezproblemowo wykonać kopię zapasową i przywrócić bazy danych SAP HANA uruchomione na maszynach wirtualnych platformy Azure[(maszyny wirtualne serii M](../virtual-machines/m-series.md) również obsługiwane teraz!) i korzystać z funkcji zarządzania przedsiębiorstwem, które zapewnia usługa Azure Backup.
+Azure Backup jest [BACKINT certyfikowany](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) przez SAP, aby zapewnić natywną obsługę kopii zapasowych, wykorzystując natywne interfejsy API SAP HANA. Ta oferta z Azure Backup jest wyrównania Azure Backup mantrą kopii zapasowych o **zerowej infrastrukturze** , eliminując konieczność wdrażania infrastruktury kopii zapasowych i zarządzania nią. Teraz można bezproblemowo tworzyć kopie zapasowe i przywracać SAP HANA bazy danych działające na maszynach wirtualnych platformy Azure ([maszyny wirtualne serii M](../virtual-machines/m-series.md) są również obsługiwane) i korzystać z możliwości zarządzania przedsiębiorstwem, które Azure Backup zapewnia.
 
-## <a name="added-value"></a>Wartość dodana
+## <a name="added-value"></a>Dodana wartość
 
-Korzystanie z usługi Azure Backup do tworzenia kopii zapasowych i przywracania baz danych SAP HANA daje następujące korzyści:
+Używanie Azure Backup do tworzenia kopii zapasowych i przywracania SAP HANA baz danych programu daje następujące korzyści:
 
-* **15-minutowy cel punktu odzyskiwania (RPO)**: Odzyskiwanie krytycznych danych do 15 minut jest teraz możliwe.
-* **Przywracanie w jednym kliknięciem:** Przywracanie danych produkcyjnych na alternatywnych serwerach HANA jest łatwe. Tworzenie kopii zapasów kopii zapasowych i katalogów do wykonywania przywracania jest zarządzane przez platformę Azure w tle.
-* **Długoterminowe przechowywanie**: Dla rygorystycznych potrzeb w zakresie zgodności i audytu. Zachowaj kopie zapasowe przez lata, na podstawie czasu przechowywania, po przekroczeniu którego punkty odzyskiwania będą automatycznie przycinane przez wbudowane możliwości zarządzania cyklem życia.
-* **Zarządzanie kopiami zapasowymi z platformy Azure:** korzystaj z funkcji zarządzania i monitorowania usługi Azure Backup, aby zwiększyć środowisko zarządzania. Obsługa interfejsu wiersza polecenia platformy Azure jest również obsługiwana.
+* **15-minutowy cel punktu odzyskiwania (RPO)**: możliwe jest odzyskanie krytycznych danych z maksymalnie 15 minut.
+* Przywracanie z **jednym kliknięciem do punktu w czasie**: przywrócenie danych produkcyjnych do alternatywnych serwerów Hana odbywa się w prosty sposób. Łańcuch tworzenia kopii zapasowych i wykazów do wykonania przywracania jest zarządzany przez platformę Azure w tle.
+* **Długoterminowe przechowywanie**: w celu uzyskania rygorystycznych wymagań dotyczących zgodności i inspekcji. Przechowuj kopie zapasowe przez lata na podstawie czasu przechowywania, po upływie którego punkty odzyskiwania zostaną automatycznie oczyszczone przez wbudowaną funkcję zarządzania cyklem życia.
+* **Zarządzanie kopiami zapasowymi z platformy Azure**: Użyj funkcji zarządzania i monitorowania Azure Backup, aby uzyskać Ulepszone środowisko zarządzania. Interfejs wiersza polecenia platformy Azure jest również obsługiwany.
 
-Aby wyświetlić scenariusze tworzenia kopii zapasowych i przywracania, które obsługujemy dzisiaj, zapoznaj się z [macierzą obsługi scenariuszy SAP HANA](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support).
+Aby wyświetlić scenariusze tworzenia kopii zapasowych i przywracania, które obsługuje dzisiaj, zapoznaj się z artykułem [Obsługa scenariusza SAP HANA](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support).
 
 ## <a name="backup-architecture"></a>Architektura kopii zapasowych
 
-![Diagram architektury kopii zapasowej](./media/sap-hana-db-about/backup-architecture.png)
+![Diagram architektury tworzenia kopii zapasowych](./media/sap-hana-db-about/backup-architecture.png)
 
-* Proces tworzenia kopii zapasowej rozpoczyna się od [utworzenia magazynu usług odzyskiwania na](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#create-a-recovery-service-vault) platformie Azure. Ten magazyn będzie używany do przechowywania kopii zapasowych i punktów odzyskiwania utworzonych w czasie.
-* Maszyna wirtualna platformy Azure z uruchomionym serwerem SAP HANA jest zarejestrowana w przechowalni, a bazy danych, których kopię zapasową ma zostać utworzone, zostaną [odnalezione.](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#discover-the-databases) Aby umożliwić usługi Azure Backup odnajdowanie baz danych, [skrypt rejestracji wstępnej](https://aka.ms/scriptforpermsonhana) musi być uruchomiony na serwerze HANA jako użytkownik root.
-* Ten skrypt tworzy użytkownika **AZUREWLBACKUPHANAUSER** DB i odpowiedni klucz o tej samej nazwie w **hdbuserstore**. Zapoznaj się z [sekcją Co skrypt rejestracji wstępnej robi,](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) aby dowiedzieć się więcej o tym, co robi skrypt.
-* Usługa Azure Backup Service instaluje teraz **wtyczkę usługi Azure Backup dla hana** na zarejestrowanym serwerze SAP HANA.
-* Użytkownik **bazy danych AZUREWLBACKUPHANAUSER** utworzony przez skrypt rejestracji wstępnej jest używany przez **wtyczkę usługi Azure Backup dla hana** do wykonywania wszystkich operacji tworzenia kopii zapasowych i przywracania. W przypadku próby skonfigurowania kopii zapasowej dla rejestratorów SAP HANA bez uruchamiania tego skryptu może pojawić się następujący błąd: **UserErrorHanaScriptNotRun**.
-* Aby [skonfigurować tworzenie kopii zapasowych](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#configure-backup) w wykrytych bazach danych, wybierz wymagane zasady tworzenia kopii zapasowych i włącz tworzenie kopii zapasowych.
+* Proces tworzenia kopii zapasowej rozpoczyna się od [utworzenia magazynu usługi Recovery Services](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#create-a-recovery-service-vault) na platformie Azure. Ten magazyn będzie używany do przechowywania kopii zapasowych i punktów odzyskiwania utworzonych w czasie.
+* Maszyna wirtualna platformy Azure z systemem SAP HANA Server jest zarejestrowana w magazynie, a bazy danych do utworzenia kopii zapasowej są [odnajdywane](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#discover-the-databases). Aby umożliwić usłudze Azure Backup odnajdywanie baz danych, należy uruchomić [skrypt rejestracji](https://aka.ms/scriptforpermsonhana) na serwerze Hana jako użytkownik główny.
+* Ten skrypt tworzy użytkownika **AZUREWLBACKUPHANAUSER** DB i odpowiadający mu klucz o tej samej nazwie w **hdbuserstore**. Zapoznaj się z sekcją co to jest [skrypt poprzedzający rejestrację](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) , aby dowiedzieć się więcej na temat tego, co robi skrypt.
+* Usługa Azure Backup teraz instaluje **wtyczkę Azure Backup dla platformy Hana** na zarejestrowanym serwerze SAP HANA.
+* Użytkownik **AZUREWLBACKUPHANAUSER** DB utworzony przez skrypt przedrejestrowania jest używany przez **wtyczkę Azure Backup platformy Hana** do wykonywania wszystkich operacji tworzenia kopii zapasowej i przywracania. W przypadku próby skonfigurowania kopii zapasowej dla SAP HANA baz danych bez uruchamiania tego skryptu może zostać wyświetlony następujący błąd: **UserErrorHanaScriptNotRun**.
+* Aby [skonfigurować tworzenie kopii zapasowych](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#configure-backup) w odnalezionych bazach danych, wybierz wymagane zasady tworzenia kopii zapasowych i Włącz kopie zapasowe.
 
-* Po skonfigurowaniu kopii zapasowej usługa Azure Backup konfiguruje następujące parametry programu Backint na poziomie bazy danych na chronionym serwerze SAP HANA:
-  * [catalog_backup_using_backint:true]
-  * [enable_accumulated_catalog_backup:false]
-  * [parallel_data_backup_backint_channels:1]
-  * [log_backup_timeout_s:900)]
-  * [backint_response_timeout:7200]
+* Po skonfigurowaniu kopii zapasowej usługa Azure Backup konfiguruje następujące parametry BACKINT na poziomie bazy danych na serwerze chronionym SAP HANA:
+  * [catalog_backup_using_backint: true]
+  * [enable_accumulated_catalog_backup: false]
+  * [parallel_data_backup_backint_channels: 1]
+  * [log_backup_timeout_s: 900)]
+  * [backint_response_timeout: 7200]
 
 >[!NOTE]
->Upewnij się, że te parametry *nie* są obecne na poziomie HOSTa. Parametry na poziomie hosta zastąpią te parametry i mogą spowodować nieoczekiwane zachowanie.
+>Upewnij się, że te parametry *nie* występują na poziomie hosta. Parametry na poziomie hosta przesłonią te parametry i mogą spowodować nieoczekiwane zachowanie.
 >
 
-* **Wtyczka kopii zapasowej platformy Azure dla hana** przechowuje wszystkie harmonogramy tworzenia kopii zapasowych i szczegóły zasad. Wyzwala zaplanowane kopie zapasowe i komunikuje się z **aparatem kopii zapasowych HANA** za pośrednictwem interfejsów API backint.
-* **Aparat kopii zapasowej HANA** zwraca strumień Backint z danymi, które mają być archiwizowane.
-* Wszystkie zaplanowane kopie zapasowe i kopie zapasowe na żądanie (wyzwalane z witryny Azure portal), które są pełne lub różnicowe są inicjowane przez **wtyczkę azure backup dla hana**. Jednak kopie zapasowe dziennika są zarządzane i wyzwalane przez sam **aparat kopii zapasowych HANA.**
-* Usługa Azure Backup for SAP HANA, będąca certyfikowanym rozwiązaniem BackInt, nie zależy od typów dysku lub maszyny wirtualnej. Kopia zapasowa jest wykonywana przez strumienie generowane przez HANA.
+* **Wtyczka Azure Backup dla platformy Hana** obsługuje wszystkie harmonogramy tworzenia kopii zapasowych i Szczegóły zasad. Wyzwala zaplanowaną kopię zapasową i komunikuje się z **aparatem tworzenia kopii zapasowych Hana** za pomocą interfejsów API BACKINT.
+* **Aparat kopii zapasowych Hana** zwraca strumień BACKINT z danymi, których kopia zapasowa ma zostać utworzona.
+* Wszystkie zaplanowane kopie zapasowe i kopie zapasowe na żądanie (wyzwolone za pomocą Azure Portal), które są pełnymi lub różnicowanymi, są inicjowane przez **wtyczkę Azure Backup dla platformy Hana**. Kopie zapasowe dzienników są jednak zarządzane i wyzwalane przez sam **Aparat kopii zapasowych Hana** .
+* Azure Backup dla SAP HANA, to rozwiązanie z certyfikatem BackInt, nie jest zależne od dysków źródłowych ani typów maszyn wirtualnych. Kopia zapasowa jest wykonywana przez strumienie wygenerowane przez platformę HANA.
 
-## <a name="using-azure-vm-backup-with-azure-sap-hana-backup"></a>Korzystanie z kopii zapasowej maszyny Wirtualnej platformy Azure za pomocą kopii zapasowej usługi Azure SAP HANA
+## <a name="using-azure-vm-backup-with-azure-sap-hana-backup"></a>Korzystanie z kopii zapasowej maszyny wirtualnej platformy Azure za pomocą usługi Azure SAP HANA Backup
 
-Oprócz korzystania z kopii zapasowej SAP HANA na platformie Azure, która zapewnia tworzenie kopii zapasowych i odzyskiwanie na poziomie bazy danych, można użyć rozwiązania do tworzenia kopii zapasowych maszyn wirtualnych platformy Azure do tworzenia kopii zapasowych dysków systemu operacyjnego i innych niż bazy danych.
+Oprócz tworzenia kopii zapasowych i odzyskiwania na poziomie bazy danych za pomocą programu SAP HANA Backup na platformie Azure można użyć rozwiązania do tworzenia kopii zapasowych maszyny wirtualnej platformy Azure w celu utworzenia kopii zapasowej dysków systemu operacyjnego i innych niż bazy danych.
 
-[Rozwiązanie do tworzenia kopii zapasowych usługi Azure SAP HANA z certyfikatem Backint](#backup-architecture) może służyć do tworzenia kopii zapasowych i odzyskiwania bazy danych.
+Do tworzenia kopii zapasowych i odzyskiwania bazy danych można używać [BACKINT certyfikowane rozwiązanie do tworzenia kopii zapasowych w usłudze Azure SAP HANA](#backup-architecture) .
 
-[Tworzenie kopii zapasowej maszyny Wirtualnej platformy Azure](backup-azure-vms-introduction.md) może służyć do tworzenia kopii zapasowych systemu operacyjnego i innych dysków innych niż bazy danych. Kopia zapasowa maszyny Wirtualnej jest podejmowana raz dziennie i kopie zapasowe wszystkich dysków (z wyjątkiem **dysków Akceleratora Zapisu (WA)** i **UltraDisks).** Ponieważ kopia zapasowa bazy danych jest zabezpieczonych przy użyciu rozwiązania do tworzenia kopii zapasowych usługi Azure SAP HANA, można wykonać spójną kopię zapasową tylko dysków systemu operacyjnego i innych niż baza danych przy użyciu możliwości wykluczania dysku, która jest obecnie w wersji zapoznawczej.
+[Kopia zapasowa maszyny wirtualnej platformy Azure](backup-azure-vms-introduction.md) może służyć do tworzenia kopii zapasowej systemu operacyjnego i innych dysków nienależących do bazy danych. Kopia zapasowa maszyny wirtualnej jest wykonywana raz dziennie i zawiera kopie zapasowe wszystkich dysków (z wyjątkiem **Akcelerator zapisu (WA) dysków** i **UltraDisks**). Ponieważ kopia zapasowa bazy danych jest tworzona przy użyciu rozwiązania do tworzenia kopii zapasowych w usłudze Azure SAP HANA, można utworzyć kopię zapasową spójną na poziomie plików tylko dla dysków systemu operacyjnego i innych niż bazy danych za pomocą funkcji Wyklucz dysk, która jest obecnie dostępna w wersji zapoznawczej.
 
 >[!NOTE]
-> Przy użyciu skryptów wstępnych z kopii zapasowej maszyny Wirtualnej platformy Azure pozwoli spójne aplikacje kopii zapasowych woluminów danych bazy danych. Jeśli jednak obszar dziennika znajduje się na dyskach WA, zrobinie migawki tych dysków może nie zagwarantować spójności obszaru dziennika. HANA ma jawny sposób generowania kopii zapasowych dziennika z tego dokładnego powodu. Włącz to samo w sap HANA i można wykonać kopię zapasową przy użyciu kopii zapasowej usługi Azure SAP HANA.
+> Używanie skryptów gotowych do utworzenia kopii zapasowej maszyny wirtualnej platformy Azure umożliwia tworzenie kopii zapasowych spójnych na poziomie aplikacji dla woluminów danych bazy danych. Jeśli jednak obszar dziennika znajduje się na dyskach WA, wykonanie migawki tych dysków może nie zagwarantować spójności obszaru dziennika. HANA ma jawny sposób generowania kopii zapasowych dzienników z tego powodu. Włącz te same w SAP HANA i można utworzyć ich kopię zapasową za pomocą usługi Azure SAP HANA Backup.
 
 Aby przywrócić maszynę wirtualną z systemem SAP HANA, wykonaj następujące kroki:
 
-* [Przywracanie nowej maszyny Wirtualnej z kopii zapasowej maszyny Wirtualnej platformy Azure](backup-azure-arm-restore-vms.md) z najnowszego punktu odzyskiwania. Możesz też utworzyć nową pustą maszynę wirtualną i dołączyć dyski z najnowszego punktu odzyskiwania.
-* Ponieważ kopie zapasowe dysków WA nie są archiwizowane, nie są przywracane. Utwórz puste dyski WA i obszar dziennika.
-* Po ustawieniu wszystkich innych konfiguracji (takich jak IP, nazwa systemu i tak dalej), maszyna wirtualna jest ustawiona do odbierania danych bazy danych z kopii zapasowej platformy Azure.
-* Teraz przywróć bazę danych do maszyny Wirtualnej z [kopii zapasowej bazy danych usługi Azure SAP HANA](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) do żądanej funkcji punktu w czasie.
+* [Przywróć nową maszynę wirtualną z kopii zapasowej maszyny wirtualnej platformy Azure](backup-azure-arm-restore-vms.md) z najnowszego punktu odzyskiwania. Lub Utwórz nową pustą maszynę wirtualną i Dołącz dyski z najnowszego punktu odzyskiwania.
+* Ponieważ nie są tworzone kopie zapasowe dysków WA, nie są one przywracane. Utwórz puste dyski WA i obszar dziennika.
+* Po ustawieniu wszystkich innych konfiguracji (takich jak adres IP, nazwa systemu i tak dalej), maszyna wirtualna jest ustawiana na odbieranie danych z usługi Azure Backup.
+* Teraz Przywróć bazę danych do maszyny wirtualnej z [kopii zapasowej usługi Azure SAP HANA DB](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) do żądanego punktu w czasie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się, jak [przywrócić bazę danych SAP HANA działającą na maszynie Wirtualnej platformy Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
-* Dowiedz się, jak [zarządzać bazami danych SAP HANA, których kopia zapasowa jest archiwizna przy użyciu usługi Azure Backup](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)
+* Dowiedz się, jak [przywrócić bazę danych SAP HANA działającej na maszynie wirtualnej platformy Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
+* Dowiedz się [, jak zarządzać bazami danych SAP HANA, których kopia zapasowa została utworzona przy użyciu Azure Backup](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)

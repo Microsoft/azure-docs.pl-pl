@@ -1,6 +1,6 @@
 ---
-title: Schemat roli usług w chmurze platformy Azure | Dokumenty firmy Microsoft
-description: Element Rola pliku konfiguracji usługi określa, ile wystąpień roli należy wdrożyć dla każdej roli, wartości konfiguracji i odcisków palców certyfikatu.
+title: Schemat roli usługi Azure Cloud Services | Microsoft Docs
+description: Element role pliku konfiguracji usługi określa liczbę wystąpień roli do wdrożenia dla każdej roli, wartości konfiguracji i odcisków palców certyfikatów.
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
@@ -10,20 +10,20 @@ caps.latest.revision: 12
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: b64f9d27e382a39b132593502fed32c565af473a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79528425"
 ---
-# <a name="azure-cloud-services-config-role-schema"></a>Schemat roli konfiguracji usług w chmurze platformy Azure
+# <a name="azure-cloud-services-config-role-schema"></a>Schemat roli konfiguracji Cloud Services platformy Azure
 
-Element `Role` pliku konfiguracji określa liczbę wystąpień roli do wdrożenia dla każdej roli w usłudze, wartości wszystkich ustawień konfiguracji i odciski palców dla wszystkich certyfikatów skojarzonych z rolą.
+`Role` Element pliku konfiguracji określa liczbę wystąpień roli do wdrożenia dla każdej roli w usłudze, wartości ustawień konfiguracji i odcisków palców dla wszystkich certyfikatów skojarzonych z rolą.
 
-Aby uzyskać więcej informacji na temat schematu konfiguracji usługi Azure, zobacz [Schemat konfiguracji usługi w chmurze (klasyczny).](schema-cscfg-file.md) Aby uzyskać więcej informacji na temat schematu definicji usługi Azure, zobacz [Schemat definicji usługi w chmurze (klasyczny).](schema-csdef-file.md)
+Aby uzyskać więcej informacji na temat schematu konfiguracji usługi platformy Azure, zobacz [Schemat konfiguracji usługi w chmurze (klasycznej)](schema-cscfg-file.md). Aby uzyskać więcej informacji na temat schematu definicji usługi platformy Azure, zobacz [schemat definicji usługi w chmurze (klasycznej)](schema-csdef-file.md).
 
 ##  <a name="role-element"></a><a name="Role"></a>Element roli
-Poniższy przykład `Role` pokazuje element i jego elementy podrzędne.
+Poniższy przykład pokazuje `Role` element i jego elementy podrzędne.
 
 ```xml 
 <ServiceConfiguration>
@@ -39,20 +39,20 @@ Poniższy przykład `Role` pokazuje element i jego elementy podrzędne.
 </ServiceConfiguration>
 ```
 
-W poniższej tabeli `Role` opisano atrybuty elementu.
+W poniższej tabeli opisano atrybuty `Role` elementu.
 
 | Atrybut | Opis |
 | --------- | ----------- |
-| name   | Wymagany. Określa nazwę roli. Nazwa musi być zgodna z nazwą podana dla roli w pliku definicji usługi.|
-| vmName | Element opcjonalny. Określa nazwę DNS maszyny wirtualnej. Nazwa musi zawierać 10 znaków lub mniej.|
+| name   | Wymagany. Określa nazwę roli. Nazwa musi być zgodna z nazwą podaną dla roli w pliku definicji usługi.|
+| vmName | Opcjonalny. Określa nazwę DNS maszyny wirtualnej. Nazwa może składać się z maksymalnie 10 znaków.|
 
-W poniższej tabeli opisano `Role` elementy podrzędne elementu.
+W poniższej tabeli opisano elementy podrzędne `Role` elementu.
 
 | Element | Opis |
 | ------- | ----------- |
-| Wystąpienia | Wymagany. Określa liczbę wystąpień do wdrożenia dla roli. Liczba wystąpień jest definiowana przez liczbę `count` całkowitą dla atrybutu.|
-| Ustawienie   | Element opcjonalny. Określa nazwę ustawienia i wartość w kolekcji ustawień roli. Nazwa ustawienia jest definiowana przez `name` ciąg dla atrybutu, a wartość `value` ustawienia jest definiowana przez ciąg dla atrybutu.|
-| Certyfikat | Element opcjonalny. Określa nazwę, odcisk palca i algorytm certyfikatu usługi, który ma być skojarzony z rolą. Nazwa certyfikatu jest definiowana `name` przez ciąg dla atrybutu. Odcisk palca certyfikatu jest definiowany przez ciąg liczb szesnastkowych, zawierający brak spacji dla atrybutu. `thumbprint` Liczby szesnastkowe muszą być reprezentowane przy użyciu cyfr i wielkich liter alfa. Algorytm certyfikatu jest definiowany `thumbprintAlgorithm` przez ciąg dla atrybutu.|
+| Wystąpienia | Wymagany. Określa liczbę wystąpień do wdrożenia dla roli. Liczba wystąpień jest definiowana przez liczbę całkowitą dla `count` atrybutu.|
+| Ustawienie   | Opcjonalny. Określa nazwę i wartość ustawienia w kolekcji ustawień dla roli. Nazwa ustawienia jest definiowana przez ciąg dla `name` atrybutu, a wartość ustawienia jest definiowana przez ciąg dla `value` atrybutu.|
+| Certyfikat | Opcjonalny. Określa nazwę, odcisk palca i algorytm certyfikatu usługi, który ma zostać skojarzony z rolą. Nazwa certyfikatu jest definiowana przez ciąg dla `name` atrybutu. Odcisk palca certyfikatu jest definiowany przez ciąg liczb szesnastkowych zawierających spacje dla `thumbprint` atrybutu. Liczby szesnastkowe muszą być reprezentowane przy użyciu cyfr i wielkich liter w znakach alfanumerycznych. Algorytm certyfikatu jest definiowany przez ciąg dla `thumbprintAlgorithm` atrybutu.|
 
 ## <a name="see-also"></a>Zobacz też
-[Schemat konfiguracji usługi w chmurze (klasyczny)](schema-cscfg-file.md)
+[Schemat konfiguracji usługi w chmurze (klasycznej)](schema-cscfg-file.md)

@@ -1,6 +1,6 @@
 ---
-title: Schemat konfiguracji sieci usług w chmurze platformy Azure | Dokumenty firmy Microsoft
-description: Dowiedz się więcej o elementach podrzędnych elementu Konfiguracja sieci pliku konfiguracji usługi, który określa wartości sieci wirtualnej i DNS.
+title: Schemat NetworkConfiguration platformy Azure Cloud Services | Microsoft Docs
+description: Dowiedz się więcej na temat elementów podrzędnych elementu NetworkConfiguration w pliku konfiguracji usługi, który określa Virtual Network i wartości DNS.
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
@@ -10,24 +10,24 @@ caps.latest.revision: 28
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: 695ba3acfd5af8797de6e6f7454e493d7863627c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79529292"
 ---
-# <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Schemat konfiguracji konfiguracji usługi w chmurze platformy Azure
+# <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Schemat NetworkConfiguration usługi Azure Cloud Services config
 
-Element `NetworkConfiguration` pliku konfiguracji usługi określa wartości sieci wirtualnej i DNS. Te ustawienia są opcjonalne dla usług w chmurze.
+`NetworkConfiguration` Element pliku konfiguracji usługi określa wartości Virtual Network i DNS. Te ustawienia są opcjonalne dla usług Cloud Services.
 
-Aby dowiedzieć się więcej o sieciach wirtualnych i skojarzonych schematach, można użyć następującego zasobu:
+Aby dowiedzieć się więcej o sieciach wirtualnych i skojarzonych schematach, można użyć poniższego zasobu:
 
-- [Schemat konfiguracji usługi w chmurze (klasyczny)](schema-cscfg-file.md)
+- [Schemat konfiguracji usługi w chmurze (klasycznej)](schema-cscfg-file.md)
 - [Schemat definicji usługi w chmurze (klasycznej)](schema-csdef-file.md)
-- [Tworzenie sieci wirtualnej (klasyczna)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)
+- [Tworzenie Virtual Network (klasyczny)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)
 
-## <a name="networkconfiguration-element"></a>Element konfiguracji sieci
-Poniższy przykład `NetworkConfiguration` pokazuje element i jego elementy podrzędne.
+## <a name="networkconfiguration-element"></a>NetworkConfiguration, element
+Poniższy przykład pokazuje `NetworkConfiguration` element i jego elementy podrzędne.
 
 ```xml
 <ServiceConfiguration>
@@ -60,18 +60,18 @@ Poniższy przykład `NetworkConfiguration` pokazuje element i jego elementy podr
 </ServiceConfiguration>
 ```
 
-W poniższej tabeli opisano `NetworkConfiguration` elementy podrzędne elementu.
+W poniższej tabeli opisano elementy podrzędne `NetworkConfiguration` elementu.
 
 | Element       | Opis |
 | ------------- | ----------- |
-| Kontrola dostępu | Element opcjonalny. Określa reguły dostępu do punktów końcowych w usłudze w chmurze. Nazwa kontroli dostępu jest zdefiniowana `name` przez ciąg dla atrybutu. Element `AccessControl` zawiera jeden `Rule` lub więcej elementów. Można zdefiniować więcej niż jeden `AccessControl` element.|
-| Reguła | Element opcjonalny. Określa akcję, która powinna zostać podjęta dla określonego zakresu adresów IP podsieci. Kolejność reguły jest zdefiniowana przez wartość `order` ciągu dla atrybutu. Im niższy numer reguły, tym wyższy priorytet. Na przykład reguły można określić z numerami porządków 100, 200 i 300. Reguła o numerze zamówienia 100 ma pierwszeństwo przed regułą, która ma kolejność 200.<br /><br /> Akcja dla reguły jest zdefiniowana `action` przez ciąg dla atrybutu. Możliwe wartości:<br /><br /> -   `permit`– Określa, że tylko pakiety z określonego zakresu podsieci mogą komunikować się z punktem końcowym.<br />-   `deny`– Określa, że odmówiono dostępu do punktów końcowych w określonym zakresie podsieci.<br /><br /> Zakres podsieci adresów IP, których dotyczy reguła, `remoteSubnet` jest definiowany przez ciąg dla atrybutu. Opis reguły jest zdefiniowany przez `description` ciąg dla atrybutu.|
-| Punkt końcowyAcl | Element opcjonalny. Określa przypisanie reguł kontroli dostępu do punktu końcowego. Nazwa roli, która zawiera punkt końcowy jest zdefiniowana `role` przez ciąg dla atrybutu. Nazwa punktu końcowego jest zdefiniowana przez `endpoint` ciąg dla atrybutu. Nazwa zestawu `AccessControl` reguł, które powinny być stosowane do punktu końcowego są `accessControl` zdefiniowane w ciągu dla atrybutu. Można zdefiniować więcej niż jeden `EndpointAcl` element.|
-| Serwer Dns | Element opcjonalny. Określa ustawienia serwera DNS. Można określić ustawienia dla serwerów DNS bez sieci wirtualnej. Nazwa serwera DNS jest definiowana przez `name` ciąg dla atrybutu. Adres IP serwera DNS jest definiowany przez `IPAddress` ciąg dla atrybutu. Adres IP musi być prawidłowym adresem IPv4.|
-| Wirtualna siećsite | Element opcjonalny. Określa nazwę witryny sieci wirtualnej, w której chcesz wdrożyć usługę w chmurze. To ustawienie nie powoduje utworzenia witryny sieci wirtualnej. Odwołuje się do lokacji, która została wcześniej zdefiniowana w pliku sieciowym dla sieci wirtualnej. Usługa w chmurze może być tylko członkiem jednej sieci wirtualnej. Jeśli to ustawienie nie zostanie określone, usługa w chmurze nie zostanie wdrożona w sieci wirtualnej. Nazwa witryny sieci wirtualnej jest zdefiniowana `name` przez ciąg dla atrybutu.|
-| Adres wystąpienia | Element opcjonalny. Określa powiązanie roli z podsiecią lub zestawem podsieci w sieci wirtualnej. Po skojarzeniu nazwy roli z adresem wystąpienia można określić podsieci, z którymi ma być skojarzona ta rola. Zawiera `InstanceAddress` podsieci element. Nazwa roli skojarzonej z podsiecią lub podsieciami jest `roleName` definiowana przez ciąg dla atrybutu.|
-| Podsieć | Element opcjonalny. Określa podsieć odpowiadającą nazwie podsieci w pliku konfiguracji sieci. Nazwa podsieci jest zdefiniowana przez `name` ciąg dla atrybutu.|
-| ZastrzeżoneIP | Element opcjonalny. Określa zastrzeżony adres IP, który powinien być skojarzony z wdrożeniem. Aby utworzyć zastrzeżony adres IP, należy użyć funkcji Utwórz zarezerwowany adres IP. Każde wdrożenie w usłudze w chmurze może być skojarzone z jednym zastrzeżonym adresem IP. Nazwa zastrzeżonego adresu IP jest definiowana `name` przez ciąg dla atrybutu.|
+| AccessControl | Opcjonalny. Określa reguły dostępu do punktów końcowych w usłudze w chmurze. Nazwa kontroli dostępu jest definiowana przez ciąg dla `name` atrybutu. `AccessControl` Element zawiera jeden lub więcej `Rule` elementów. Można zdefiniować więcej `AccessControl` niż jeden element.|
+| Reguła | Opcjonalny. Określa akcję, która ma zostać wykonana dla określonego zakresu podsieci adresów IP. Kolejność reguły jest definiowana przez wartość ciągu dla `order` atrybutu. Dolna reguła ma wyższy priorytet. Na przykład można określić reguły o numerach porządkowych 100, 200 i 300. Reguła o numerze porządkowym 100 ma pierwszeństwo przed regułą z kolejnością 200.<br /><br /> Akcja dla reguły jest definiowana przez ciąg dla `action` atrybutu. Możliwe wartości:<br /><br /> -   `permit`— Określa, że tylko pakiety z określonego zakresu podsieci mogą komunikować się z punktem końcowym.<br />-   `deny`— Określa, czy dostęp do punktów końcowych w określonym zakresie podsieci jest zabroniony.<br /><br /> Zakres podsieci adresów IP, na które ma wpływ reguła, jest definiowany przez ciąg dla `remoteSubnet` atrybutu. Opis reguły jest definiowany przez ciąg dla `description` atrybutu.|
+| EndpointAcl | Opcjonalny. Określa przypisanie reguł kontroli dostępu do punktu końcowego. Nazwa roli zawierającej punkt końcowy jest definiowana przez ciąg dla `role` atrybutu. Nazwa punktu końcowego jest definiowana przez ciąg dla `endpoint` atrybutu. Nazwa zestawu `AccessControl` reguł, które mają zostać zastosowane do punktu końcowego, jest definiowana w ciągu dla `accessControl` atrybutu. Można zdefiniować więcej `EndpointAcl` niż jeden element.|
+| Serwer DNS | Opcjonalny. Określa ustawienia dla serwera DNS. Możesz określić ustawienia dla serwerów DNS bez Virtual Network. Nazwa serwera DNS jest definiowana przez ciąg dla `name` atrybutu. Adres IP serwera DNS jest definiowany przez ciąg dla `IPAddress` atrybutu. Adres IP musi być prawidłowym adresem IPv4.|
+| VirtualNetworkSite | Opcjonalny. Określa nazwę witryny Virtual Network, w której ma zostać wdrożona usługa w chmurze. To ustawienie nie powoduje utworzenia witryny Virtual Network. Odwołuje się do lokacji, która została wcześniej zdefiniowana w pliku sieciowym dla Virtual Network. Usługa w chmurze może być tylko składową jednego Virtual Network. Jeśli to ustawienie nie zostanie określone, usługa w chmurze nie zostanie wdrożona do Virtual Network. Nazwa witryny Virtual Network jest definiowana przez ciąg dla `name` atrybutu.|
+| InstanceAddress | Opcjonalny. Określa skojarzenie roli z podsiecią lub zestawem podsieci w Virtual Network. W przypadku kojarzenia nazwy roli z adresem wystąpienia można określić podsieci, do których ta rola ma być skojarzona. `InstanceAddress` Zawiera element z podsieciami. Nazwa roli skojarzonej z podsiecią lub podsieciami jest definiowana przez ciąg dla `roleName` atrybutu.|
+| Podsieć | Opcjonalny. Określa podsieć zgodną z nazwą podsieci w pliku konfiguracyjnym sieci. Nazwa podsieci jest definiowana przez ciąg dla `name` atrybutu.|
+| ReservedIP | Opcjonalny. Określa zastrzeżony adres IP, który ma zostać skojarzony z wdrożeniem. Aby utworzyć zastrzeżony adres IP, należy użyć Utwórz adres Zastrzeżony adres IP. Każde wdrożenie w usłudze w chmurze może być skojarzone z jednym zastrzeżonym adresem IP. Nazwa zastrzeżonego adresu IP jest definiowana przez ciąg dla `name` atrybutu.|
 
 ## <a name="see-also"></a>Zobacz też
-[Schemat konfiguracji usługi w chmurze (klasyczny)](schema-cscfg-file.md)
+[Schemat konfiguracji usługi w chmurze (klasycznej)](schema-cscfg-file.md)

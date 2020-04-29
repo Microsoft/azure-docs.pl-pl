@@ -1,7 +1,7 @@
 ---
 title: Python
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak za pomocą języka Python w projektancie usługi Azure Machine Learning do przekształcania danych.
+description: Dowiedz się, jak przekształcać dane przy użyciu języka Python w programie Azure Machine Learning Designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,56 +10,56 @@ author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
 ms.openlocfilehash: a2bd9845cd29c7d139e2042f39b4697847639207
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79455795"
 ---
-# <a name="execute-python-code-in-azure-machine-learning-designer"></a>Wykonywanie kodu języka Python w projektancie usługi Azure Machine Learning
+# <a name="execute-python-code-in-azure-machine-learning-designer"></a>Wykonaj kod języka Python w projektancie Azure Machine Learning
 
-W tym artykule dowiesz się, jak użyć modułu [Wykonywanie skryptu języka Python,](algorithm-module-reference/execute-python-script.md) aby dodać niestandardową logikę do projektanta usługi Azure Machine Learning. W poniższych instrukcjach, należy użyć biblioteki Pandas do prostego inżynierii funkcji.
+W tym artykule dowiesz się, jak dodać logikę niestandardową do programu Azure Machine Learning Designer przy użyciu modułu [uruchamiania skryptu języka Python](algorithm-module-reference/execute-python-script.md) . Korzystając z poniższej procedury, można użyć biblioteki Pandas do wykonania prostej inżynierii funkcji.
 
-Edytor kodu wbudowanego można użyć, aby szybko dodać prostą logikę języka Python. Jeśli chcesz dodać bardziej złożony kod lub przekazać dodatkowe biblioteki Języka Python, należy użyć metody pliku zip.
+Można użyć wbudowanego edytora kodu, aby szybko dodać prostą logikę języka Python. Jeśli chcesz dodać bardziej złożony kod lub przekazać dodatkowe biblioteki języka Python, należy użyć metody pliku zip.
 
-Domyślne środowisko wykonywania używa dystrybucji Anacondas języka Python. Aby uzyskać pełną listę wstępnie zainstalowanych pakietów, zobacz stronę [odwołania do modułu Wykonywanie skryptu języka Python.](algorithm-module-reference/execute-python-script.md)
+Domyślne środowisko wykonawcze używa dystrybucji Anacondas języka Python. Aby zapoznać się z pełną listą wstępnie zainstalowanych pakietów, zapoznaj się ze stroną [wykonywanie modułu skryptu języka Python](algorithm-module-reference/execute-python-script.md) .
 
-![Wykonywanie mapy wprowadzania języka Python](media/how-to-designer-python/execute-python-map.png)
+![Wykonaj mapę wejściową języka Python](media/how-to-designer-python/execute-python-map.png)
 
-## <a name="execute-python-written-in-the-designer"></a>Wykonywanie języka Python napisanego w projektancie
+## <a name="execute-python-written-in-the-designer"></a>Wykonywanie kodu Python zapisaną w projektancie
 
-### <a name="add-the-execute-python-script-module"></a>Dodawanie modułu Wykonywanie skryptu języka Python
+### <a name="add-the-execute-python-script-module"></a>Dodaj moduł wykonywania skryptu języka Python
 
-1. Znajdź moduł **Wykonywanie skryptu języka Python** w palecie projektanta. Można go znaleźć w sekcji **Język Języka Pythona.**
+1. Znajdź moduł **skryptu języka Python** w palecie projektanta. Można je znaleźć w sekcji **języka Python** .
 
 1. Przeciągnij i upuść moduł na kanwę potoku.
 
-### <a name="connect-input-datasets"></a>Łączenie wejściowych zestawów danych
+### <a name="connect-input-datasets"></a>Połącz wejściowe zestawy danych
 
-W tym artykule użyto przykładowego zestawu danych **Dane o cenach samochodów (raw)**. 
+W tym artykule jest wykorzystywany przykładowy zestaw **danych z danymi cen samochodów (RAW)**. 
 
-1. Przeciągnij i upuść zestaw danych na kanwę potoku.
+1. Przeciągnij i upuść zestaw danych do kanwy potoku.
 
-1. Połącz port wyjściowy zestawu danych z lewym górnym portem wejściowym modułu **Wykonywanie skryptu języka Python.** Projektant udostępnia dane wejściowe jako parametr do skryptu punktu wejścia.
+1. Połącz port wyjściowy zestawu danych z górnym lewym portem wejściowym modułu skryptu języka **Python** . Projektant udostępnia dane wejściowe jako parametr do skryptu punktu wejścia.
     
-    Prawy port wejściowy jest zarezerwowany dla spakowanych bibliotek python.
+    Prawidłowy port wejściowy jest zarezerwowany dla spakowanych bibliotek języka Python.
 
-    ![Łączenie zestawów danych](media/how-to-designer-python/connect-dataset.png)
+    ![Połącz zestawy danych](media/how-to-designer-python/connect-dataset.png)
         
 
-1. Zanotuj, którego portu wejściowego używasz. Projektant przypisuje lewy port wejściowy `dataset1` do zmiennej `dataset2`i środkowy port wejściowy do . 
+1. Zanotuj, który port wejściowy jest używany. Projektant przypisuje lewy port wejściowy do zmiennej `dataset1` i środkowy port wejściowy do. `dataset2` 
 
-Moduły wejściowe są opcjonalne, ponieważ można generować lub importować dane bezpośrednio w module **Wykonywanie skryptu Pythona.**
+Moduły wejściowe są opcjonalne, ponieważ można generować lub importować dane bezpośrednio w module **wykonywania skryptu języka Python** .
 
-### <a name="write-your-python-code"></a>Napisz swój kod Pythona
+### <a name="write-your-python-code"></a>Napisz kod w języku Python
 
-Projektant udostępnia początkowy skrypt punktu wejścia, aby edytować i wprowadzić własny kod Pythona. 
+Projektant udostępnia początkowy skrypt punktu wejścia, który umożliwia edytowanie i wprowadzanie własnego kodu w języku Python. 
 
-W tym przykładzie można użyć Pandas połączyć dwie kolumny znalezione w zestawie danych samochodowych, **Cena** i **moc,** aby utworzyć nową kolumnę, **Dolary na koniu.** Ta kolumna reprezentuje, ile płacisz za każdą moc, co może być przydatną funkcją, aby zdecydować, czy samochód jest dobrą ofertą dla pieniędzy. 
+W tym przykładzie używasz Pandas do łączenia dwóch kolumn znajdujących się w zestawie danych samochodów, **cenie** i **mocy**, aby utworzyć nową kolumnę, **dolary na minutę**. Ta kolumna przedstawia, jak bardzo płacisz za każdą próbkę, która może być przydatną funkcją do podjęcia decyzji o tym, czy samochód jest dobrym rozwiązaniem dla pieniędzy. 
 
-1. Wybierz moduł **Wykonywanie skryptu języka Python.**
+1. Wybierz moduł **skrypt języka Python** .
 
-1. W okienku wyświetlanym po prawej stronie kanwy zaznacz pole tekstowe **skryptu Języka Python.**
+1. W okienku, które pojawia się po prawej stronie kanwy, zaznacz pole tekstowe **skrypt języka Python** .
 
 1. Skopiuj i wklej następujący kod do pola tekstowego.
 
@@ -70,18 +70,18 @@ W tym przykładzie można użyć Pandas połączyć dwie kolumny znalezione w ze
         dataframe1['Dollar/HP'] = dataframe1.price / dataframe1.horsepower
         return dataframe1
     ```
-    Potok powinien wyglądać następująco:
+    Potok powinien wyglądać na poniższym obrazie:
     
-    ![Wykonywanie potoku języka Python](media/how-to-designer-python/execute-python-pipeline.png)
+    ![Wykonaj potok Python](media/how-to-designer-python/execute-python-pipeline.png)
 
-    Skrypt punktu wejścia musi `azureml_main`zawierać funkcję . Istnieją dwa parametry funkcji, które są mapowane do dwóch portów wejściowych dla modułu **Wykonywanie skryptu Pythona.**
+    Skrypt punktu wejścia musi zawierać funkcję `azureml_main`. Istnieją dwa parametry funkcji, które są mapowane na dwa porty wejściowe dla modułu **uruchamiania skryptów języka Python** .
 
-    Zwracana wartość musi być Pandas Dataframe. Można zwrócić maksymalnie dwie klatki danych jako wyjścia modułu.
+    Zwracana wartość musi być Pandas Dataframe. Można zwrócić do dwóch ramek dataframes jako dane wyjściowe modułu.
     
 1. Prześlij potok.
 
-Teraz masz zestaw danych z nową funkcją **Dolary / HP**, które mogą być przydatne w szkoleniu rekomendatora samochodu. Jest to przykład wyodrębniania operacji i redukcji wymiarowości. 
+Teraz masz zestaw danych z nową funkcją **dolarów/HP**, co może być przydatne w szkoleniu zalecenia dotyczącego samochodu. Jest to przykładowa Ekstrakcja funkcji i redukcja liczby wymiarów. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak [zaimportować własne dane](how-to-designer-import-data.md) w projektancie usługi Azure Machine Learning.
+Dowiedz się, jak [zaimportować własne dane](how-to-designer-import-data.md) za Azure Machine Learning projektanta.
