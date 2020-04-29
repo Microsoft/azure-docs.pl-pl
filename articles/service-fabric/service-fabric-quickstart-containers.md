@@ -1,22 +1,22 @@
 ---
-title: Tworzenie aplikacji kontenera systemu Windows na sieci szkieletowej usług na platformie Azure
+title: Tworzenie aplikacji kontenera systemu Windows na Service Fabric na platformie Azure
 description: W tym przewodniku Szybki start utworzysz pierwszą aplikację kontenera systemu Windows w usłudze Azure Service Fabric.
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 477d47fabc59c5718c449418f225d6a38838b270
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75466266"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Szybki start: wdrażanie kontenerów systemu Windows do usługi Service Fabric
 
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych oraz niezawodnych mikrousług i kontenerów, a także zarządzanie nimi.
 
-Uruchomienie istniejącej aplikacji w kontenerze systemu Windows w klastrze usługi Service Fabric nie wymaga dokonywania żadnych zmian w aplikacji. W tym przewodniku Szybki start przedstawiono sposób wdrażania wstępnie skompilowanego obrazu kontenera platformy Docker w aplikacji usługi Service Fabric. Po zakończeniu będziesz mieć uruchomiony kontener serwera systemu Windows Server Core 2016 i usługi IIS. W tym przewodniku Szybki start opisano wdrażanie kontenera systemu Windows. Przeczytaj [ten przewodnik Szybki start,](service-fabric-quickstart-containers-linux.md) aby wdrożyć kontener systemu Linux.
+Uruchomienie istniejącej aplikacji w kontenerze systemu Windows w klastrze usługi Service Fabric nie wymaga dokonywania żadnych zmian w aplikacji. W tym przewodniku Szybki start przedstawiono sposób wdrażania wstępnie skompilowanego obrazu kontenera platformy Docker w aplikacji usługi Service Fabric. Po zakończeniu będziesz mieć uruchomiony serwer z systemem Windows Server Core 2016 i usługi IIS. W tym przewodniku szybki start opisano wdrażanie kontenera systemu Windows. Przeczytaj [ten przewodnik Szybki Start](service-fabric-quickstart-containers-linux.md) , aby wdrożyć kontener systemu Linux.
 
 ![Domyślna strona internetowa usług IIS][iis-default]
 
@@ -35,19 +35,19 @@ W tym przewodniku Szybki start zawarto informacje na temat wykonywania następuj
 * Subskrypcja platformy Azure (można utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * Komputer dewelopera z następującym oprogramowaniem:
   * Visual Studio 2019 lub Windows 2019.
-  * [Zestaw SDK sieci szkieletowej usług i narzędzia](service-fabric-get-started.md).
+  * [Service Fabric zestaw SDK i narzędzia](service-fabric-get-started.md).
 
 ## <a name="package-a-docker-image-container-with-visual-studio"></a>Pakowanie kontenera obrazu platformy Docker przy użyciu programu Visual Studio
 
 Zestaw SDK usługi Service Fabric oraz narzędzia udostępniają szablon usługi ułatwiający wdrażanie kontenera w klastrze usługi Service Fabric.
 
-Uruchom program Visual Studio jako administrator.  Wybierz **pozycję Plik** > **nowy** > **projekt**.
+Uruchom program Visual Studio jako administrator.  Wybierz pozycję **plik** > **Nowy** > **projekt**.
 
-Wybierz **pozycję Aplikacja sieci szkieletowej usług**, nazwij ją "MyFirstContainer" i kliknij przycisk **Utwórz**.
+Wybierz **Service Fabric aplikację**, nadaj jej nazwę "MyFirstContainer", a następnie kliknij pozycję **Utwórz**.
 
 Wybierz pozycję **Kontener** z szablonów **Hostowane kontenery i aplikacje**.
 
-W **pliku Image Name**wpisz "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016", obraz podstawowy systemu Windows Server Core Server i [IIS](https://hub.docker.com/_/microsoft-windows-servercore-iis).
+W polu **Nazwa obrazu**wprowadź wartość "MCR.Microsoft.com/Windows/ServerCore/IIS:windowsservercore-ltsc2016", podstawowy [obraz serwera Windows Server Core i usług IIS](https://hub.docker.com/_/microsoft-windows-servercore-iis).
 
 Skonfiguruj mapowanie portów kontenera typu „port do hosta” w taki sposób, aby żądania przychodzące do usługi na porcie 80 były mapowane na port 80 w kontenerze.  Ustaw wartość „80” dla pozycji **Port kontenera** i **Port hosta**.  
 
@@ -57,7 +57,7 @@ Nazwij usługę „MyContainerService”, a następnie kliknij przycisk **OK**.
 
 ## <a name="specify-the-os-build-for-your-container-image"></a>Określanie kompilacji systemu operacyjnego dla obrazu kontenera
 
-Kontenery utworzone za pomocą określonej wersji systemu Windows Server mogą nie działać na hoście z uruchomioną inną wersją tego systemu. Na przykład kontenery utworzone przy użyciu systemu Windows Server w wersji 1709 nie działają na hostach z systemem Windows Server 2016. Aby dowiedzieć się więcej, zobacz temat [Windows Server container OS and host OS compatibility](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility) (Zgodność między systemami operacyjnymi Windows Server kontenera i hosta). 
+Kontenery utworzone za pomocą określonej wersji systemu Windows Server mogą nie działać na hoście z uruchomioną inną wersją tego systemu. Na przykład kontenery utworzone przy użyciu systemu Windows Server w wersji 1709 nie są uruchamiane na hostach z systemem Windows Server 2016. Aby dowiedzieć się więcej, zobacz temat [Windows Server container OS and host OS compatibility](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility) (Zgodność między systemami operacyjnymi Windows Server kontenera i hosta). 
 
 W przypadku środowiska uruchomieniowego usługi Service Fabric w wersji 6.1 i nowszych można określić wiele obrazów systemu operacyjnego dla kontenera i oznaczyć każdy z nich wersją kompilacji systemu operacyjnego, na którym powinien zostać wdrożony. Ułatwia to zapewnienie, że aplikację będzie można uruchomić na hostach z różnymi wersjami systemu operacyjnego Windows. Aby dowiedzieć się więcej, zobacz temat [Określanie obrazów kontenera dla kompilacji systemu operacyjnego](service-fabric-get-started-containers.md#specify-os-build-specific-container-images). 
 
@@ -90,11 +90,11 @@ W razie potrzeby zainstaluj program Azure PowerShell przy użyciu instrukcji dos
 
 Przed uruchomieniem poniższego skryptu programu PowerShell uruchom polecenie `Connect-AzAccount` w celu utworzenia połączenia z platformą Azure.
 
-Skopiuj poniższy skrypt do Schowka i otwórz program **Windows PowerShell ISE**.  Wklej tę zawartość w pustym oknie pliku Untitled1.ps1. Następnie podaj wartości zmiennych `subscriptionId`w `certpwd` `certfolder`skrypcie: , , `adminuser`, `adminpwd`i tak dalej.  Katalog określony w zmiennej `certfolder` musi istnieć przed uruchomieniem skryptu.
+Skopiuj poniższy skrypt do Schowka i otwórz program **Windows PowerShell ISE**.  Wklej tę zawartość w pustym oknie pliku Untitled1.ps1. Następnie `subscriptionId`podaj wartości zmiennych w skrypcie:, `certpwd` `certfolder` `adminuser` `adminpwd`,,, i tak dalej.  Katalog określony w zmiennej `certfolder` musi istnieć przed uruchomieniem skryptu.
 
 [!code-powershell[main](../../powershell_scripts/service-fabric/create-secure-cluster/create-secure-cluster.ps1 "Create a Service Fabric cluster")]
 
-Po podaniu wartości dla zmiennych naciśnij **klawisz F5,** aby uruchomić skrypt.
+Po podaniu wartości dla zmiennych naciśnij klawisz **F5** , aby uruchomić skrypt.
 
 Po uruchomieniu skryptu i utworzeniu klastra znajdź w danych wyjściowych pozycję `ClusterEndpoint`. Przykład:
 
@@ -105,9 +105,9 @@ ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/cluster
 
 ### <a name="install-the-certificate-for-the-cluster"></a>Instalowanie certyfikatu dla klastra
 
-Teraz zainstalujemy PFX w *CurrentUser\Mój* magazyn certyfikatów. Plik PFX będzie znajdować się w katalogu określonym za pomocą zmiennej środowiskowej `certfolder` w przedstawionym powyżej skrypcie programu PowerShell.
+Teraz zainstalujemy plik PFX w magazynie certyfikatów *CurrentUser\My* . Plik PFX będzie znajdować się w katalogu określonym za pomocą zmiennej środowiskowej `certfolder` w przedstawionym powyżej skrypcie programu PowerShell.
 
-Zmień do tego katalogu, a następnie uruchom następujące polecenie programu PowerShell, zastępując `certfolder` nazwę pliku PFX znajdującego się `certpwd` w katalogu i hasło określone w zmiennej. W tym przykładzie jako bieżący katalog jest ustawiony katalog określony przez zmienną `certfolder` w skrypcie programu PowerShell. Z jego poziomu uruchamiane jest polecenie `Import-PfxCertificate`:
+Przejdź do tego katalogu, a następnie uruchom następujące polecenie programu PowerShell, zastępując nazwę pliku PFX znajdującego się w `certfolder` katalogu i hasło określone w `certpwd` zmiennej. W tym przykładzie jako bieżący katalog jest ustawiony katalog określony przez zmienną `certfolder` w skrypcie programu PowerShell. Z jego poziomu uruchamiane jest polecenie `Import-PfxCertificate`:
 
 ```powershell
 PS C:\mycertificates> Import-PfxCertificate -FilePath .\mysfclustergroup20190130193456.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString Password#1234 -AsPlainText -Force)
@@ -132,7 +132,7 @@ Kiedy aplikacja jest gotowa, można wdrożyć ją w klastrze bezpośrednio z pro
 
 Kliknij prawym przyciskiem myszy pozycję **MyFirstContainer** w Eksploratorze rozwiązań i wybierz polecenie **Publikuj**. Zostanie wyświetlone okno dialogowe Publikowanie.
 
-Skopiuj zawartość występującą po **CN=** w oknie programu PowerShell po uruchomieniu polecenia `Import-PfxCertificate` powyżej, a następnie dodaj do niej port `19000`. Na przykład `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`. Skopiuj tę zawartość do pola **Punkt końcowy połączenia**. Zapamiętaj tę wartość, ponieważ będziesz jej potrzebować w przyszłym kroku.
+Skopiuj zawartość występującą po **CN=** w oknie programu PowerShell po uruchomieniu polecenia `Import-PfxCertificate` powyżej, a następnie dodaj do niej port `19000`. Na przykład `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`. Skopiuj tę zawartość do pola **Punkt końcowy połączenia**. Pamiętaj tę wartość, ponieważ będzie ona potrzebna w przyszłym kroku.
 
 Kliknij pozycję **Zaawansowane parametry połączenia**, a następnie zweryfikuj informacje dotyczące parametru połączenia.  Wartości *FindValue* i *ServerCertThumbprint* muszą być zgodne z odciskiem palca certyfikatu zainstalowanego za pomocą polecenia `Import-PfxCertificate` w poprzednim kroku.
 
@@ -140,9 +140,9 @@ Kliknij pozycję **Zaawansowane parametry połączenia**, a następnie zweryfiku
 
 Kliknij przycisk **Opublikuj**.
 
-Każda aplikacja w klastrze musi mieć unikatową nazwę. Jeśli występuje konflikt nazw, zmień nazwę projektu programu Visual Studio i wdrażaj go ponownie.
+Każda aplikacja w klastrze musi mieć unikatową nazwę. W przypadku konfliktu nazw Zmień nazwę projektu programu Visual Studio i Wdróż go ponownie.
 
-Otwórz przeglądarkę i przejdź do adresu, który został umieszczony w polu **Punkt końcowy połączenia** w poprzednim kroku. Adres URL można opcjonalnie poprzedzić identyfikatorem schematu `http://` i dołączyć port `:80`. Na przykład http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
+Otwórz przeglądarkę i przejdź do adresu, który został umieszczony w polu **Punkt końcowy połączenia** w poprzednim kroku. Adres URL można opcjonalnie poprzedzić identyfikatorem schematu `http://` i dołączyć port `:80`. Na przykład http:\//mysfcluster.SouthCentralUS.cloudapp.Azure.com:80.
 
  Powinna zostać wyświetlona domyślna strona internetowa usługi IIS: ![domyślna strona internetowa usług IIS][iis-default]
 

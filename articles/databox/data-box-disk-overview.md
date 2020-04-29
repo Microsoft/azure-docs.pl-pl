@@ -10,10 +10,10 @@ ms.date: 06/18/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ms.openlocfilehash: 067d818b7d23fc0b83cb1d4255bfbb8659149412
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240730"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Co to jest usługa Azure Data Box Disk?
@@ -84,12 +84,12 @@ Aby uzyskać więcej informacji, przejdź do tematu [Zabezpieczenia i ochrona da
 | Interfejs danych                                          | USB   |
 | Zabezpieczenia                                                | Wstępne szyfrowanie za pomocą funkcji BitLocker i zabezpieczone aktualizacje <br> Dyski chronione za pomocą klucza dostępu <br> Dane są zaszyfrowane przez cały czas  |
 | Szybkość transferu danych                                      | Do 430 MB/s w zależności od rozmiaru pliku      |
-|Zarządzanie                                               | Portal Azure |
+|Zarządzanie                                               | Azure Portal |
 
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
-Aby uzyskać informacje na temat dostępności regionu, przejdź do [witryny Azure products dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Dysk pola danych można również wdrożyć w chmurze azure dla instytucji rządowych. Aby uzyskać więcej informacji, zobacz [Co to jest platforma Azure government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+Aby uzyskać informacje na temat dostępności regionów, przejdź do pozycji [produkty platformy Azure dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box Disk można również wdrożyć w chmurze Azure Government. Aby uzyskać więcej informacji, zobacz [co to jest Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 
 ## <a name="pricing"></a>Cennik

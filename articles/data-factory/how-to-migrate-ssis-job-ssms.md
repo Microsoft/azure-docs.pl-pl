@@ -1,6 +1,6 @@
 ---
-title: Migrowanie lokalnych zadań usług integracyjnych programu SQL Server (SSIS) do usługi Azure Data Factory
-description: W tym artykule opisano sposób migracji zadań usług integracyjnych programu SQL Server (SSIS) do potoków/działań/wyzwalaczy usługi Azure Data Factory przy użyciu programu SQL Server Management Studio.
+title: Migrowanie zadań lokalnych SQL Server Integration Services (SSIS) do Azure Data Factory
+description: W tym artykule opisano, jak migrować zadania SQL Server Integration Services (SSIS) do Azure Data Factory potoki/działania/wyzwalacze przy użyciu SQL Server Management Studio.
 services: data-factory
 documentationcenter: ''
 author: chugugrace
@@ -12,71 +12,71 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
 ms.openlocfilehash: 6e357e98d6c5190c6dfef675dc1ab9cf30a717c1
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81455091"
 ---
-# <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrowanie zadań programu SQL Server Agent do usługi ADF przy za pomocą usługi SSMS
+# <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrowanie zadań agenta SQL Server do podajnika APD przy użyciu programu SSMS
 
-Podczas [migracji lokalnych obciążeń usług sql server integration services (SSIS) do ssis w usłudze ADF,](scenario-ssis-migration-overview.md)po migracji pakietów SSIS, można przeprowadzić migrację wsadową zadań programu SQL Server Agent z typem kroku zadania pakietu SQL Server Integration Services Package do potoków/uruchomień usługi Azure Data Factory/Schedule za pośrednictwem **Kreatora migracji zadań programu SQL**Server Management Studio (SSMS) SSIS .
+Podczas [migrowania lokalnych obciążeń SQL Server Integration Services (SSIS) do usług SSIS w podajniku APD](scenario-ssis-migration-overview.md)po przeprowadzeniu migracji pakietów usług SSIS można przeprowadzić migrację wsadową zadań agentów SQL Server z typem kroku zadania SQL Server Integration Services pakiet do Azure Data Factory (ADF) potoki/działania/harmonogramy wyzwalaczy za pośrednictwem SQL Server Management Studio (SSMS) **Kreatora migracji zadań SSIS**.
 
-Ogólnie rzecz biorąc, dla wybranych zadań agenta SQL z odpowiednimi typami kroków zadań **Kreator migracji zadań SSIS** może:
+Ogólnie rzecz biorąc dla wybranych zadań programu SQL Agent z odpowiednimi typami kroków zadań, **Kreator migracji zadań SSIS** może:
 
-- mapowanie lokalnego pakietu SSIS do miejsca migracji pakietów, do których ssis jest dostępny w ujrzeniu ADF.
+- Mapuj lokalizację lokalnego pakietu SSIS na miejsce, w którym migrowane są pakiety, które są dostępne dla usług SSIS w podajniku ADF.
     > [!NOTE]
     > Lokalizacja pakietu systemu plików jest obsługiwana tylko.
-- migrowanie odpowiednich zadań z odpowiednimi krokami zadań do odpowiednich zasobów ADF, jak poniżej:
+- Dokonaj migracji odpowiednich zadań z odpowiednimi krokami zadań do odpowiednich zasobów ADF w następujący sposób:
 
-|Obiekt zadania agenta SQL  |Zasób usługi ADF  |Uwagi|
+|Obiekt zadania programu SQL Agent  |Zasób ADF  |Uwagi|
 |---------|---------|---------|
-|Zadanie agenta SQL|Rurociągu     |Nazwa potoku zostanie *wygenerowana dla \<nazwy zadania>*. <br> <br> Wbudowane zadania agenta nie mają zastosowania: <li> Zadanie konserwacji serwera SSIS <li> syspolicy_purge_history <li> collection_set_* <li> mdw_purge_data_* <li> sysutility_*|
-|Krok zadania SSIS|Wykonywanie działania pakietu SSIS|<li> Nazwa działania będzie \<nazwą kroku>. <li> Konto serwera proxy używane w kroku zadania zostanie zmigrowane jako uwierzytelnianie tego działania przez system Windows. <li> *Opcje wykonywania* z wyjątkiem *Użyj 32-bitowego środowiska uruchomieniowego* zdefiniowanego w kroku zadania zostaną zignorowane w migracji. <li> *Weryfikacja* zdefiniowana w kroku zadania zostanie zignorowana w migracji.|
-|schedule      |wyzwalacz harmonogramu        |Nazwa wyzwalacza harmonogramu zostanie *wygenerowana dla \<nazwy harmonogramu>*. <br> <br> Poniższe opcje w harmonogramie zadań programu SQL Agent zostaną zignorowane podczas migracji: <li> Interwał drugiego poziomu. <li> *Automatyczne uruchamianie po uruchomieniu programu SQL Server Agent* <li> *Zacznij, gdy procesory staną się bezczynne* <li> *dzień powszedni* i *dzień weekendowy*<time zone> <br> Poniżej znajdują się różnice po tym, jak harmonogram zadań programu SQL Agent zostanie przeniesiony do wyzwalacza harmonogramu usługi ADF: <li> Wyzwalacz harmonogramu ADF kolejny przebieg jest niezależny od stanu wykonywania wyzwalanego przebiegu. <li> Konfiguracja cyklu wyzwalacza wyzwalacza adf różni się od dziennej częstotliwości w zadaniu agenta SQL.|
+|Zadanie agenta SQL|proces     |Nazwa potoku zostanie *wygenerowana dla \<nazwy zadania>*. <br> <br> Wbudowane zadania agenta nie mają zastosowania: <li> Zadanie konserwacji serwera SSIS <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
+|Etap zadania SSIS|Działanie wykonywania pakietu SSIS|<li> Nazwa działania będzie nazwą \<kroku>. <li> Konto serwera proxy używane w kroku zadania zostanie zmigrowane jako uwierzytelnianie systemu Windows dla tego działania. <li> *Opcje wykonywania* , z wyjątkiem *używania 32-bitowego środowiska uruchomieniowego* zdefiniowanego w kroku zadania, zostaną zignorowane w ramach migracji. <li> *Weryfikacja* zdefiniowana w kroku zadania zostanie zignorowana w ramach migracji.|
+|schedule      |wyzwalacz harmonogramu        |Nazwa wyzwalacza harmonogramu zostanie *wygenerowana dla \<nazwy harmonogramu>*. <br> <br> Poniższe opcje w harmonogramie zadań programu SQL Agent zostaną zignorowane w ramach migracji: <li> Interwał drugiego poziomu. <li> *Uruchom automatycznie, gdy zostanie uruchomiony agent SQL Server* <li> *Uruchom za każdym razem, gdy procesory staną się bezczynne* <li> dzień *tygodnia* i *dzień weekendu*<time zone> <br> Poniżej znajdują się różnice po migracji harmonogramu zadań programu SQL Agent do wyzwalacza harmonogramu ADF: <li> Wyzwalacz harmonogramu ADF po kolejnym uruchomieniu jest niezależny od stanu wykonywania wyzwalanego uruchomienia poprzedzającego. <li> Konfiguracja cyklu wyzwalacza harmonogramu usługi ADF różni się od częstotliwości codziennej w zadaniu agenta SQL.|
 
-- generowanie szablonów usługi Azure Resource Manager (ARM) w lokalnym folderze wyjściowym i wdrażanie w fabryce danych bezpośrednio lub później ręcznie. Aby uzyskać więcej informacji na temat szablonów Menedżera zasobów usługi ADF, zobacz [Typy zasobów Microsoft.DataFactory](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions).
+- Generuj szablony Azure Resource Manager (ARM) w lokalnym folderze wyjściowym i wdrażaj je bezpośrednio lub później ręcznie. Aby uzyskać więcej informacji na temat szablonów Menedżer zasobów ADF, zobacz [Microsoft. DataFactory — typy zasobów](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Funkcja opisana w tym artykule wymaga programu SQL Server Management Studio w wersji 18.5 lub nowszej. Aby uzyskać najnowszą wersję programu SSMS, zobacz [Pobieranie programu SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15).
+Funkcja opisana w tym artykule wymaga SQL Server Management Studio w wersji 18,5 lub nowszej. Aby uzyskać najnowszą wersję programu SSMS, zobacz [pobieranie SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15).
 
-## <a name="migrate-ssis-jobs-to-adf"></a>Migrowanie zadań SSIS do usługi ADF
+## <a name="migrate-ssis-jobs-to-adf"></a>Migrowanie zadań SSIS do podajnika APD
 
-1. W programie SSMS w Eksploratorze obiektów wybierz pozycję AGENT PROGRAMU SQL Server, wybierz pozycję Zadania, a następnie kliknij prawym przyciskiem myszy i wybierz polecenie **Migruj zadania SSIS do usługi ADF**.
-![Menu](media/how-to-migrate-ssis-job-ssms/menu.png)
+1. W programie SSMS, w Eksplorator obiektów wybierz pozycję Agent SQL Server, wybierz pozycję zadania, a następnie kliknij prawym przyciskiem myszy i wybierz pozycję **Migruj zadania SSIS do ADF**.
+![DodajMenu](media/how-to-migrate-ssis-job-ssms/menu.png)
 
-1. Zaloguj się na platformie Azure, wybierz subskrypcję platformy Azure, fabrykę danych i środowisko uruchomieniowe integracji. Usługa Azure Storage jest opcjonalna, która jest używana w kroku mapowania lokalizacji pakietu, jeśli zadania SSIS do migracji mają pakiety systemu plików SSIS.
-![Menu](media/how-to-migrate-ssis-job-ssms/step1.png)
+1. Zaloguj się na platformie Azure, wybierz pozycję subskrypcja platformy Azure, Data Factory i Integration Runtime. Usługa Azure Storage jest opcjonalna, która jest używana w kroku mapowania lokalizacji pakietu, jeśli zadania SSIS do migracji mają pakiety systemu plików SSIS.
+![DodajMenu](media/how-to-migrate-ssis-job-ssms/step1.png)
 
-1. Mapuj ścieżki pakietów SSIS i plików konfiguracyjnych w zadaniach SSIS do ścieżek docelowych, do których mogą uzyskać dostęp zmigrowane potoki. W tym kroku mapowania można:
+1. Mapuj ścieżki pakietów SSIS i plików konfiguracji w zadaniach programu SSIS na ścieżki docelowe, w których można uzyskać dostęp do zmigrowanych potoków. W tym kroku mapowania można:
 
-    1. Wybierz folder źródłowy, a następnie **dodaj mapowanie**.
-    1. Aktualizowanie ścieżki folderu źródłowego. Prawidłowe ścieżki to ścieżki folderów lub ścieżki folderów nadrzędnych pakietów.
-    1. Aktualizowanie ścieżki folderu docelowego. Wartość domyślna to ścieżka względna do domyślnego konta magazynu, które jest zaznaczone w kroku 1.
-    1. Usuwanie zaznaczonego mapowania za pomocą **opcji Usuń mapowanie**.
-![krok](media/how-to-migrate-ssis-job-ssms/step2.png)
-![2 krok 2-1](media/how-to-migrate-ssis-job-ssms/step2-1.png)
+    1. Wybierz folder źródłowy, a następnie **Dodaj mapowanie**.
+    1. Zaktualizuj ścieżkę folderu źródłowego. Prawidłowe ścieżki są ścieżkami folderów lub ścieżkami folderów nadrzędnych pakietów.
+    1. Zaktualizuj ścieżkę folderu docelowego. Wartość domyślna to ścieżka względna do domyślnego konta magazynu, które jest wybrane w kroku 1.
+    1. Usuń wybrane mapowanie za pośrednictwem **mapowania usuwania**.
+![step2](media/how-to-migrate-ssis-job-ssms/step2.png)
+![step2-1](media/how-to-migrate-ssis-job-ssms/step2-1.png)
 
-1. Wybierz odpowiednie zadania do migracji i skonfiguruj ustawienia odpowiedniego *działania wykonanego pakietu SSIS*.
+1. Wybierz odpowiednie zadania do migracji i skonfiguruj ustawienia odpowiedniego *działania wykonywanego pakietu SSIS*.
 
-    - *Ustawienie domyślne*, domyślnie stosuje się do wszystkich wybranych kroków. Aby uzyskać więcej informacji o każdej właściwości, zobacz *ustawienia kartę* wykonywania [pakietu SSIS działania,](how-to-invoke-ssis-package-ssis-activity.md) gdy lokalizacja pakietu jest *system plików (pakiet)*.
-    ![krok 3-1](media/how-to-migrate-ssis-job-ssms/step3-1.png)
-    - *Ustawienie kroku,* skonfiguruj ustawienie dla wybranego kroku.
+    - *Ustawienie domyślne*domyślnie stosuje się do wszystkich wybranych kroków. Aby uzyskać więcej informacji o każdej z tych właściwości, zobacz *kartę Ustawienia* dla [działania wykonaj pakiet SSIS](how-to-invoke-ssis-package-ssis-activity.md) , gdy lokalizacja pakietu to *system plików (pakiet)*.
+    ![step3-1](media/how-to-migrate-ssis-job-ssms/step3-1.png)
+    - *Ustawienie kroku*, konfigurowanie ustawienia dla wybranego kroku.
         
-        **Zastosuj ustawienie domyślne:** jest zaznaczona wartość domyślna. Usuń zaznaczenie, aby skonfigurować ustawienie tylko dla wybranego kroku.  
-        Aby uzyskać więcej informacji o innych właściwościach, zobacz *kartę Ustawienia* działania Wykonywanie [pakietu SSIS,](how-to-invoke-ssis-package-ssis-activity.md) gdy lokalizacją pakietu jest *system plików (pakiet).*
-    ![krok 3-2](media/how-to-migrate-ssis-job-ssms/step3-2.png)
+        **Zastosuj ustawienie domyślne**: wybrano wartość domyślną. Usuń zaznaczenie, aby skonfigurować ustawienie tylko dla wybranego kroku.  
+        Aby uzyskać więcej informacji o innych właściwościach, zobacz *kartę Ustawienia* dla [działania wykonaj pakiet SSIS](how-to-invoke-ssis-package-ssis-activity.md) , gdy lokalizacja pakietu to *system plików (pakiet)*.
+    ![step3-2](media/how-to-migrate-ssis-job-ssms/step3-2.png)
 
 1. Generowanie i wdrażanie szablonu ARM.
-    1. Wybierz lub wprowadź ścieżkę wyjściową dla szablonów ARM zmigrowanych potoków podajnika ADF. Folder zostanie utworzony automatycznie, jeśli nie istnieje.
-    2. Wybierz opcję **Wdrażanie szablonów ARM w fabryce danych:**
-        - Wartość domyślna nie jest zaznaczona. Wygenerowane szablony ARM można wdrożyć później ręcznie.
-        - Wybierz, aby wdrożyć wygenerowane szablony ARM bezpośrednio w fabryce danych.
-    ![Step4](media/how-to-migrate-ssis-job-ssms/step4.png)
+    1. Wybierz lub wprowadź ścieżkę wyjściową dla szablonów ARM zmigrowanych potoków usługi ADF. Folder zostanie utworzony automatycznie, jeśli nie istnieje.
+    2. Wybierz opcję **wdrażania szablonów ARM w fabryce danych**:
+        - Ustawienie domyślne jest niezaznaczone. Wygenerowane szablony ARM można później wdrożyć ręcznie.
+        - Wybierz, aby bezpośrednio wdrożyć wygenerowane szablony ARM w usłudze Data Factory.
+    ![step4](media/how-to-migrate-ssis-job-ssms/step4.png)
 
-1. Migruj, a następnie sprawdź wyniki.
-![krok 5](media/how-to-migrate-ssis-job-ssms/step5.png)
+1. Przeprowadź migrację, a następnie sprawdź wyniki.
+![step5](media/how-to-migrate-ssis-job-ssms/step5.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

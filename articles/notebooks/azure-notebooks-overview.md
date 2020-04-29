@@ -1,20 +1,20 @@
 ---
-title: Omówienie usługi Azure Notebooks Preview
-description: Uruchom notesy Jupyter w chmurze przy użyciu bezpłatnej usługi Azure Notebooks Preview, w której nie jest wymagana żadna konfiguracja ani konfiguracja.
+title: Przegląd Azure Notebooks wersji zapoznawczej
+description: Uruchamiaj notesy Jupyter w chmurze za pomocą usługi bezpłatna wersja zapoznawcza Azure Notebooks, w której nie jest wymagana instalacja ani konfiguracja.
 ms.topic: overview
 ms.date: 04/05/2019
 ms.openlocfilehash: bd2355bdefcedca5026a25915dc1da55fdc33a36
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75646334"
 ---
-# <a name="overview-of-azure-notebooks-preview"></a>Omówienie usługi Azure Notebooks Preview
+# <a name="overview-of-azure-notebooks-preview"></a>Przegląd Azure Notebooks wersji zapoznawczej
 
 Azure Notebooks to bezpłatna usługa hostowana umożliwiająca tworzenie i uruchamianie notesów Jupyter w chmurze bez instalacji. [Jupyter](https://jupyter.org/) (wcześniej IPython) to projekt typu open source, który umożliwia łatwe łączenie tekstu Markdown, kodu wykonywalnego, trwałych danych, grafiki i wizualizacji na jednej kanwie nazywanej *notesem* z możliwością udostępniania (zdjęcia za zgodą jupyter.org):
 
-[![Przykłady notebooków Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Przykłady notesów Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Dzięki zaawansowanemu połączeniu kodu, grafiki i opisowego tekstu notesy Jupyter znalazły wiele zastosowań, takich jak instrukcje przetwarzania danych do celów naukowych, czyszczenie i transformacje danych, symulacje numeryczne, modelowanie statystyczne oraz tworzenie modeli uczenia maszynowego.
 
@@ -51,7 +51,7 @@ Azure Notebooks to bezpłatna usługa, jednak każdy projekt jest ograniczony do
 
 Aby zwolnić wszystkie limity, zaloguj się do usługi Azure Notebooks przy użyciu konta korzystającego z usługi Azure Active Directory (na przykład konta firmowego). Jeśli to konto jest skojarzone z subskrypcją platformy Azure, możesz nawiązać połączenie z dowolnymi wystąpieniami usługi Azure Data Science Virtual Machine w ramach tej subskrypcji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie projektów i zarządzanie nimi — warstwa Obliczenia](configure-manage-azure-notebooks-projects.md#compute-tier).
 
-Serwery notesu są gwarantowane, aby istnieć przez co najwyżej 8 godzin. W większości przypadków kontener nie podlega temu limitowi i nadal działa dłużej niż ten czas, ale długotrwałe sesje mogą czasami być zamykane ze względu na stabilność systemu.
+Serwery notesów mają gwarantowane istnienie przez maksymalnie 8 godzin. W większości przypadków kontener nie podlega temu ograniczeniu i w dalszym ciągu działa dłużej, ale długotrwałe sesje mogą być czasami wyłączone w celu zapewnienia stabilności systemu.
 
 ## <a name="available-kernels-and-environments"></a>Dostępne jądra i środowiska
 

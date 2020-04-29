@@ -1,5 +1,5 @@
 ---
-title: Przekazywanie uogólnionego dysku twardego do przykładu skryptu programu Azure PowerShell
+title: Przekaż uogólniony wirtualny dysk twardy do Azure PowerShell przykład skryptu
 description: Przykładowy skrypt programu PowerShell do przekazania uogólnionego wirtualnego dysku twardego na platformę Azure i utworzenia nowej maszyny wirtualnej przy użyciu modelu wdrażania Menedżera zasobów i dysków zarządzanych.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,10 +15,10 @@ ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: a922d6d859fab808b5100090cda40b5d14aaaee9
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81458951"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Przykładowy skrypt do przekazania wirtualnego dysku twardego na platformę Azure i utworzenia nowej maszyny wirtualnej

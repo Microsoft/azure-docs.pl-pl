@@ -1,5 +1,5 @@
 ---
-title: Tworzenie dysku zarządzanego z pliku VHD na koncie magazynu — Przykład programu PowerShell
+title: Tworzenie dysku zarządzanego na podstawie pliku VHD na koncie magazynu — przykład programu PowerShell
 description: Przykładowy skrypt programu Azure PowerShell — tworzenie dysku zarządzanego na podstawie pliku VHD na koncie magazynu w ramach tej samej lub innej subskrypcji
 services: virtual-machines-linux
 documentationcenter: storage
@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
 ms.openlocfilehash: bec459079bfbc85d339e094e2acdef4fefbad0c7
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81459750"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-same-or-different-subscription-with-powershell"></a>Tworzenie dysku zarządzanego na podstawie pliku VHD na koncie magazynu w ramach tej samej lub innej subskrypcji za pomocą programu PowerShell

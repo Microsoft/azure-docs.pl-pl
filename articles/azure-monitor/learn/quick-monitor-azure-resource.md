@@ -1,73 +1,73 @@
 ---
-title: Monitorowanie zasobu platformy Azure za pomocą usługi Azure Monitor
-description: Dowiedz się, jak zbierać i analizować dane dla zasobu platformy Azure w usłudze Azure Monitor.
+title: Monitorowanie zasobu platformy Azure za pomocą Azure Monitor
+description: Dowiedz się, jak zbierać i analizować dane dla zasobu platformy Azure w Azure Monitor.
 ms. subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
 ms.openlocfilehash: c4b80e62d3800392b847a411dfc66c3278e72bba
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77661868"
 ---
-# <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Szybki start: monitorowanie zasobu platformy Azure za pomocą usługi Azure Monitor
-[Usługa Azure Monitor](../overview.md) rozpoczyna zbieranie danych z zasobów platformy Azure w momencie ich utworzenia. Ten przewodnik szybki start zawiera krótki przewodnik po danych, które są automatycznie zbierane dla zasobu i jak wyświetlić go w witrynie Azure portal dla określonego zasobu. Później można dodać konfigurację do zbierania dodatkowych danych i można przejść do menu usługi Azure Monitor, aby użyć tych samych narzędzi, aby uzyskać dostęp do danych zebranych dla wszystkich zasobów w ramach subskrypcji.
+# <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Szybki Start: monitorowanie zasobu platformy Azure za pomocą Azure Monitor
+[Azure monitor](../overview.md) uruchamia zbieranie danych z zasobów platformy Azure w momencie ich tworzenia. Ten przewodnik Szybki Start zawiera krótki przewodnik dotyczący danych, które są automatycznie zbierane dla zasobu i sposobu wyświetlania go w Azure Portal dla określonego zasobu. Później można dodać konfigurację w celu zebrania dodatkowych danych i można przejść do menu Azure Monitor, aby użyć tych samych narzędzi do uzyskiwania dostępu do danych zebranych dla wszystkich zasobów w ramach subskrypcji.
 
-Aby uzyskać bardziej szczegółowe opisy danych monitorowania zebranych z zasobów platformy Azure, zobacz [Monitorowanie zasobów platformy Azure za pomocą usługi Azure Monitor.](../insights/monitor-azure-resource.md)
+Aby uzyskać bardziej szczegółowe opisy danych monitorowania zbieranych z zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../insights/monitor-azure-resource.md).
 
 
 ## <a name="sign-in-to-azure-portal"></a>Logowanie do witryny Azure Portal
 
-Zaloguj się do witryny Azure portal w [https://portal.azure.com](https://portal.azure.com). 
+Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com). 
 
 
-## <a name="overview-page"></a>Strona przeglądowa
-Wiele usług będzie zawierać dane monitorowania na ich stronie **przegląd** jako szybki rzut oka na ich działanie. Zazwyczaj będzie to oparte na podzbiorze metryk platformy przechowywanych w metrykach usługi Azure Monitor.
+## <a name="overview-page"></a>Strona przeglądu
+Wiele usług będzie obejmować dane monitorowania na stronie **przeglądowej** w celu szybkiego wglądu w ich działania. Zwykle jest to oparte na podzestawie metryk platformy przechowywanych w metrykach Azure Monitor.
 
 1. Znajdź zasób platformy Azure w ramach subskrypcji.
-2. Przejdź do **strony Przegląd** i zanotuj, czy są wyświetlane jakieś dane dotyczące wydajności. Te dane zostaną dostarczone przez usługę Azure Monitor. Poniższy przykład przedstawia stronę **Przegląd** konta usługi Azure storage i widać, że wyświetlanych jest wiele metryk.
+2. Przejdź do strony **Przegląd** i sprawdź, czy są wyświetlane jakieś dane wydajności. Te dane zostaną dostarczone przez Azure Monitor. Poniższy przykład to strona **Przegląd** dla konta usługi Azure Storage, która umożliwia wyświetlenie wielu metryk.
 
-    ![Strona przeglądowa](media/quick-monitor-azure-resource/overview.png)
+    ![Strona przeglądu](media/quick-monitor-azure-resource/overview.png)
 
-3. Możesz kliknąć dowolny z wykresów, aby otworzyć dane w eksploratorze metryk, który jest opisany poniżej.
+3. Możesz kliknąć dowolny wykres, aby otworzyć dane w Eksploratorze metryk, który jest opisany poniżej.
 
 ## <a name="view-the-activity-log"></a>Wyświetlanie dziennika aktywności
-Dziennik działania zapewnia wgląd w operacje na każdym zasobie platformy Azure w ramach subskrypcji. Będzie to obejmować takie informacje, jak podczas tworzenia lub modyfikowanie zasobu, gdy zadanie jest uruchamiane lub gdy wystąpi określona operacja.
+Dziennik aktywności zawiera szczegółowe informacje o operacjach dotyczących poszczególnych zasobów platformy Azure w ramach subskrypcji. Obejmuje to takie informacje jak w przypadku utworzenia lub zmodyfikowania zasobu, gdy zadanie zostanie uruchomione lub gdy wystąpi określona operacja.
 
-1. U góry menu zasobu wybierz pozycję **Dziennik aktywności**.
-2. Bieżący filtr jest ustawiony na zdarzenia związane z zasobem. Jeśli nie widzisz żadnych zdarzeń, spróbuj zmienić **timespan,** aby zwiększyć zakres czasu.
+1. W górnej części menu zasobu wybierz pozycję **Dziennik aktywności**.
+2. Bieżący filtr jest ustawiony na zdarzenia związane z zasobem. Jeśli nie widzisz żadnych zdarzeń, spróbuj zmienić wartość **TimeSpan** , aby zwiększyć zakres czasu.
 
     ![Dziennik aktywności](media/quick-monitor-azure-resource/activity-log-resource.png)
 
-4. Jeśli chcesz zobaczyć zdarzenia z innych zasobów w subskrypcji, zmień kryteria w filtrze lub nawet usuń właściwości filtru.
+4. Jeśli chcesz zobaczyć zdarzenia z innych zasobów w ramach subskrypcji, Zmień kryteria w filtrze, a nawet Usuń właściwości filtru.
 
     ![Dziennik aktywności](media/quick-monitor-azure-resource/activity-log-all.png)
 
 
 
 ## <a name="view-metrics"></a>Wyświetlanie metryk
-Metryki są wartościami liczbowymi, które opisują niektóre aspekty zasobu w określonym czasie. Usługa Azure Monitor automatycznie zbiera metryki platformy w odstępach jednominutowych ze wszystkich zasobów platformy Azure. Te metryki można wyświetlić za pomocą Eksploratora metryk.
+Metryki to wartości liczbowe, które opisują pewne aspekty zasobu w określonym czasie. Azure Monitor automatycznie zbiera metryki platformy w ciągu jednej minuty od wszystkich zasobów platformy Azure. Możesz wyświetlić te metryki przy użyciu Eksploratora metryk.
 
-1. W sekcji **Monitorowanie** w menu zasobu wybierz pozycję **Metryki**. Spowoduje to otwarcie eksploratora metryk z zakresem ustawionym na zasób.
-2. Kliknij **pozycję Dodaj metrykę,** aby dodać metrykę do wykresu.
+1. W sekcji **monitorowanie** menu zasobu wybierz pozycję **metryki**. Spowoduje to otwarcie Eksploratora metryk z zakresem ustawionym na zasób.
+2. Kliknij pozycję **Dodaj metrykę** , aby dodać do wykresu metrykę.
    
    ![Eksplorator metryk](media/quick-monitor-azure-resource/metrics-explorer-01.png)
    
-4. Wybierz **metrykę** z listy rozwijanej, a następnie **agregację**. Definiuje to, jak zebrane wartości będą pobierane próbki w każdym przedziale czasu.
+4. Wybierz **metrykę** z listy rozwijanej, a następnie **agregację**. Definiuje sposób próbkowania zebranych wartości w każdym przedziale czasu.
 
     ![Eksplorator metryk](media/quick-monitor-azure-resource/metrics-explorer-02.png)
 
-5. Kliknij **pozycję Dodaj metrykę,** aby dodać do wykresu dodatkowe kombinacje metryki i agregacji.
+5. Kliknij pozycję **Dodaj metrykę** , aby dodać do wykresu dodatkowe kombinacje metryk i agregacji.
 
     ![Eksplorator metryk](media/quick-monitor-azure-resource/metrics-explorer-03.png)
 
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym przewodniku Szybki start wyświetlony dziennik aktywności i metryki dla zasobu platformy Azure, które są automatycznie zbierane przez usługę Azure Monitor. Dzienniki zasobów zapewniają wgląd w szczegółowe działanie zasobu, ale muszą być skonfigurowane w celu zebrania. Przejdź do samouczka do zbierania dzienników zasobów w obszarze roboczym usługi Log Analytics, gdzie mogą być analizowane przy użyciu zapytań dziennika.
+W tym przewodniku szybki start Oglądasz dziennik aktywności i metryki dla zasobu platformy Azure, które są automatycznie zbierane przez Azure Monitor. Dzienniki zasobów zapewniają wgląd w szczegółowe operacje dotyczące zasobu, ale muszą być skonfigurowane w celu ich zebrania. Przejdź do samouczka dotyczącego zbierania dzienników zasobów w obszarze roboczym Log Analytics, gdzie można je analizować przy użyciu zapytań dzienników.
 
 > [!div class="nextstepaction"]
-> [Zbieranie i analizowanie dzienników zasobów za pomocą usługi Azure Monitor](tutorial-resource-logs.md)
+> [Zbieranie i analizowanie dzienników zasobów przy użyciu Azure Monitor](tutorial-resource-logs.md)

@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek: Przygotowanie danych do wykonywania klastrowania w r'
+title: 'Samouczek: Przygotowywanie danych do przeprowadzenia klastrowania w języku R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: W pierwszej części tej trzyczęściowej serii samouczków przygotujesz dane z bazy danych SQL platformy Azure do wykonywania klastrowania w języku R za pomocą usług Azure SQL Database Machine Learning Services (wersja zapoznawcza).
+description: W pierwszej części tej serii samouczków można przygotować dane z usługi Azure SQL Database w celu przeprowadzenia klastrowania w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -15,46 +15,46 @@ manager: cgronlun
 ms.date: 07/29/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: abe7d5ed1d4ba1308abde04aee32a3ea222456b8
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81452880"
 ---
-# <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Samouczek: Przygotowywanie danych do wykonywania klastrowania w języku R za pomocą usług azure sql database machine learning services (wersja zapoznawcza)
+# <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Samouczek: Przygotowywanie danych do przeprowadzenia klastrowania w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza)
 
-W pierwszej części tej trzyczęściowej serii samouczków zaimportujesz i przygotujesz dane z bazy danych SQL platformy Azure przy użyciu języka R. W dalszej części tej serii użyjesz tych danych do uczenia i wdrażania modelu klastrowania w języku R za pomocą usług Azure SQL Database Machine Learning Services (wersja zapoznawcza).
+W pierwszej części tej serii samouczków z trzema częściami zaimportujesz i przygotujesz dane z bazy danych Azure SQL Database przy użyciu języka R. W dalszej części tej serii będziesz używać tych danych do uczenia i wdrażania modelu klastrowania w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza).
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-*Klastrowanie* można wyjaśnić jako organizowanie danych w grupach, w których członkowie grupy są w jakiś sposób podobni.
-Algorytm **K-Means** służy do wykonywania klastrowania klientów w zestawie danych zakupów i zwrotów produktów. Koncentrując klientów, możesz efektywniej skupić swoje działania marketingowe, kierując reklamy na określone grupy.
-K-Oznacza klastrowanie jest *nienadzorowany* algorytm uczenia się, który wyszukuje wzorce w danych na podstawie podobieństw.
+*Klastrowanie* może być wyjaśnione jako organizacja danych w grupach, w których członkowie grupy są podobne w jakiś sposób.
+Aby przeprowadzić klastrowanie klientów w zestawie danych zakupów i zwrotów produktów, należy użyć algorytmu **K-oznaczania** . Klienci korzystający z klastrów mogą skupić wysiłki marketingowe bardziej wydajnie, przeznaczoną dla konkretnych grup.
+K-oznacza, że usługa klastrowania jest *nienadzorowanym algorytmem uczenia* , który szuka wzorców danych na podstawie podobieństw.
 
-W części pierwszej i drugiej tej serii opracujesz niektóre skrypty języka R w witrynie RStudio, aby przygotować dane i wyszkolić model uczenia maszynowego. Następnie w części trzeciej uruchomisz te skrypty języka R w bazie danych SQL przy użyciu procedur przechowywanych.
+W części jednej i dwóch tej serii utworzysz skrypty języka R w programie RStudio, aby przygotować dane i szkolić model uczenia maszynowego. Następnie w części trzeciej można uruchamiać te skrypty języka R w bazie danych SQL przy użyciu procedur składowanych.
 
 W tym artykule dowiesz się, jak:
 
 > [!div class="checklist"]
-> * Importowanie przykładowej bazy danych do bazy danych SQL platformy Azure
-> * Oddzielaj odbiorców wzdłuż różnych wymiarów za pomocą języka R
-> * Ładowanie danych z bazy danych SQL platformy Azure do ramki danych języka R
+> * Importowanie przykładowej bazy danych do usługi Azure SQL Database
+> * Oddzielni klienci i różne wymiary przy użyciu języka R
+> * Ładowanie danych z bazy danych Azure SQL Database do ramki danych języka R
 
-W [części drugiej](sql-database-tutorial-clustering-model-build.md)dowiesz się, jak utworzyć i wyszkolić model klastrowania K-Means w językach R.
+W [części](sql-database-tutorial-clustering-model-build.md)drugiej dowiesz się, jak utworzyć i szkolić model klastra K-oznaczania w języku R.
 
-W [części trzeciej](sql-database-tutorial-clustering-model-deploy.md)dowiesz się, jak utworzyć procedurę składowaną w bazie danych SQL platformy Azure, która może wykonywać klastrowanie w języku R na podstawie nowych danych.
+W [trzeciej części](sql-database-tutorial-clustering-model-deploy.md)dowiesz się, jak utworzyć procedurę przechowywaną w bazie danych Azure SQL Database, która może wykonywać klastry w języku R na podstawie nowych danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — jeśli nie masz subskrypcji platformy Azure, [utwórz konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+* Subskrypcja platformy Azure — Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz konto](https://azure.microsoft.com/free/) .
 
-* [Usługa Azure SQL Database z włączonymi usługami uczenia maszynowego (z](sql-database-machine-learning-services-overview.md) włączoną funkcją R).
+* [Azure SQL Database z włączonym Machine Learning Services (z R)](sql-database-machine-learning-services-overview.md) .
 
-* RevoScaleR pakiet — zobacz [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) dla opcji, aby zainstalować ten pakiet lokalnie.
+* Pakiet kolekcję funkcji revoscaler-zobacz [kolekcję funkcji revoscaler](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) dla opcji, aby zainstalować ten pakiet lokalnie.
 
-* R IDE - Ten poradnik używa [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/).
+* Środowisko IDE języka R — w tym samouczku jest stosowany [pulpit RStudio](https://www.rstudio.com/products/rstudio/download/).
 
-* Narzędzie do zapytań SQL — w tym samouczku przyjęto założenie, że używasz [usługi Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) lub programu SQL Server Management [Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS).
+* Narzędzie zapytania SQL — w tym samouczku przyjęto założenie, że używasz [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) lub [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -62,27 +62,27 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="import-the-sample-database"></a>Importowanie przykładowej bazy danych
 
-Przykładowy zestaw danych użyty w tym samouczku został zapisany w pliku kopii zapasowej bazy danych **.bacpac,** aby można było go pobrać i używać. Ten zestaw danych pochodzi z zestawu danych [tpcx-bb](http://www.tpc.org/tpcx-bb/default.asp) dostarczonego przez [Radę Wydajności Przetwarzania Transakcji (TPC).](http://www.tpc.org/default.asp)
+Przykładowy zestaw danych używany w tym samouczku został zapisany w pliku kopii zapasowej bazy danych **. BACPAC** do pobrania i użycia. Ten zestaw danych pochodzi z zestawu danych [TPCX-BB](http://www.tpc.org/tpcx-bb/default.asp) dostarczonego przez [Radę wydajności przetwarzania transakcji (TPC)](http://www.tpc.org/default.asp).
 
-1. Pobierz plik [tpcxbb_1gb.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bacpac).
+1. Pobierz plik [tpcxbb_1gb. BACPAC](https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bacpac).
 
-1. Postępuj zgodnie ze wskazówkami w [polu Importuj plik BACPAC, aby utworzyć bazę danych SQL platformy Azure,](https://docs.microsoft.com/azure/sql-database/sql-database-import)korzystając z następujących szczegółów:
+1. Postępuj zgodnie z instrukcjami w temacie [Importowanie pliku BACPAC, aby utworzyć bazę danych Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-import)przy użyciu następujących szczegółów:
 
-   * Importuj z pobranego pliku **tpcxbb_1gb.bacpac**
-   * Podczas publicznej wersji zapoznawczej wybierz konfigurację **Gen5/vCore** dla nowej bazy danych
-   * Nazwij nową bazę danych "tpcxbb_1gb"
+   * Importuj z pobranego pliku **tpcxbb_1gb. BACPAC**
+   * W publicznej wersji zapoznawczej wybierz konfigurację **5 rdzeń/rdzeń wirtualny** dla nowej bazy danych.
+   * Nazwa nowej bazy danych "tpcxbb_1gb"
 
-## <a name="separate-customers"></a>Oddzielni klienci
+## <a name="separate-customers"></a>Oddzieli klienci
 
 Utwórz nowy plik RScript w RStudio i uruchom następujący skrypt.
-W kwerendzie SQL oddzielasz klientów następującymi wymiarami:
+W zapytaniu SQL są oddzielani klienci według następujących wymiarów:
 
-* **orderRatio** = współczynnik zamówienia zwrotu (całkowita liczba zamówień częściowo lub w pełni zwróconych w porównaniu z całkowitą liczbą zamówień)
-* **itemsRatio** = stosunek zwrotu towaru (całkowita liczba zwróconych towarów w porównaniu z liczbą zakupionych przedmiotów)
-* **monetaryRatio** = współczynnik kwoty zwrotu (całkowita kwota pieniężna zwróconych towarów w porównaniu z zakupioną kwotą)
+* **orderRatio** = współczynnik zwrotnego zamówienia (całkowita liczba zamówień częściowo lub w pełni zwróconych w stosunku do łącznej liczby zamówień)
+* **itemsRatio** = współczynnik elementu powrotu (całkowita liczba zwracanych elementów w porównaniu z liczbą zakupionych elementów)
+* **monetaryRatio** = współczynnik kwoty zwrotu (całkowita kwota pieniężna zwróconych elementów w porównaniu z zakupioną ilością)
 * **częstotliwość** = częstotliwość powrotu
 
-W funkcji **wklej** zastąp **Serwer**, **UID**i **PWD** własnymi informacjami o połączeniu.
+W funkcji **wklejania** Zastąp wartość **Server**, **UID**i **PWD** własnymi informacjami o połączeniu.
 
 ```r
 # Define the connection string to connect to the tpcxbb_1gb database
@@ -157,10 +157,10 @@ LEFT OUTER JOIN (
 "
 ```
 
-## <a name="load-the-data-into-a-data-frame"></a>Ładowanie danych do ramki danych
+## <a name="load-the-data-into-a-data-frame"></a>Załaduj dane do ramki danych
 
-Teraz użyj następującego skryptu, aby zwrócić wyniki z kwerendy do ramki danych R przy użyciu funkcji **rxSqlServerData.**
-W ramach procesu zdefiniujesz typ dla wybranych kolumn (przy użyciu colClasses), aby upewnić się, że typy są poprawnie przenoszone do języka R.
+Teraz użyj poniższego skryptu, aby zwrócić wyniki zapytania do ramki danych języka R przy użyciu funkcji **rxSqlServerData** .
+W ramach procesu zdefiniujesz typ wybranych kolumn (przy użyciu colClasses), aby upewnić się, że typy są prawidłowo przenoszone do języka R.
 
 ```r
 # Query SQL Server using input_query and get the results back
@@ -196,24 +196,24 @@ Powinny być widoczne wyniki podobne do następujących.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-***Jeśli nie zamierzasz kontynuować tego samouczka,*** usuń tpcxbb_1gb bazę danych z serwera usługi Azure SQL Database.
+***Jeśli nie chcesz kontynuować pracy z tym samouczkiem***, Usuń bazę danych tpcxbb_1gb z serwera Azure SQL Database.
 
-W witrynie Azure portal wykonaj następujące kroki:
+W Azure Portal wykonaj następujące kroki:
 
-1. Z menu po lewej stronie w witrynie Azure portal wybierz **pozycję Wszystkie zasoby** lub bazy danych **SQL**.
-1. W polu **Filtruj według nazwy...** wprowadź **tpcxbb_1gb**i wybierz subskrypcję.
-1. Wybierz **bazę danych tpcxbb_1gb.**
+1. Z menu po lewej stronie w Azure Portal wybierz pozycję **wszystkie zasoby** lub **bazy danych SQL**.
+1. W polu **Filtruj według nazwy...** wprowadź **tpcxbb_1gb**i wybierz swoją subskrypcję.
+1. Wybierz bazę danych **tpcxbb_1gb** .
 1. Na stronie **Przegląd** wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W pierwszej części tej serii samouczków wykonana została ta instrukcja:
+W pierwszej części tej serii samouczków zostały wykonane następujące czynności:
 
-* Importowanie przykładowej bazy danych do bazy danych SQL platformy Azure
-* Oddzielaj odbiorców wzdłuż różnych wymiarów za pomocą języka R
-* Ładowanie danych z bazy danych SQL platformy Azure do ramki danych języka R
+* Importowanie przykładowej bazy danych do usługi Azure SQL Database
+* Oddzielni klienci i różne wymiary przy użyciu języka R
+* Ładowanie danych z bazy danych Azure SQL Database do ramki danych języka R
 
-Aby utworzyć model uczenia maszynowego, który używa tych danych klienta, wykonaj część druga tej serii samouczków:
+Aby utworzyć model uczenia maszynowego, który używa tych danych klienta, wykonaj dwie części tej serii samouczków:
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie modelu predykcyjnego w języku R za pomocą usług azure sql database machine learning services (wersja zapoznawcza)](sql-database-tutorial-clustering-model-build.md)
+> [Samouczek: Tworzenie modelu predykcyjnego w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza)](sql-database-tutorial-clustering-model-build.md)

@@ -1,54 +1,54 @@
 ---
 title: Omówienie usługi Azure Resource Graph
-description: Dowiedz się, jak usługa Azure Resource Graph umożliwia kompleksowe wykonywanie zapytań o zasoby na dużą skalę w ramach subskrypcji i dzierżaw.
+description: Dowiedz się, w jaki sposób usługa Azure Resource Graph umożliwia tworzenie złożonych zapytań dotyczących zasobów na dużą skalę między subskrypcjami i dzierżawcami.
 ms.date: 03/02/2020
 ms.topic: overview
 ms.openlocfilehash: f5c091f60faedb76e3ca6cd68505c06f51be21b6
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81381516"
 ---
 # <a name="what-is-azure-resource-graph"></a>Co to jest usługa Azure Resource Graph?
 
-Usługa Azure Resource Graph to usługa na platformie Azure, która ma na celu rozszerzenie usługi Azure Resource Management, zapewniając wydajne i wydajne eksploracji zasobów z możliwością wykonywania zapytań na dużą skalę w danym zestawie subskrypcji, dzięki czemu można skutecznie zarządzać środowiskiem. Te zapytania zapewniają następujące funkcje:
+Azure Resource Graph to usługa platformy Azure, która została zaprojektowana w celu zwiększenia możliwości zarządzania zasobami platformy Azure, zapewniając wydajną i skuteczną eksplorację zasobów, dzięki czemu można wykonywać zapytania na dużą skalę w ramach danego zestawu subskrypcji, aby efektywnie zarządzać środowiskiem. Te zapytania zapewniają następujące funkcje:
 
 - Zdolność do wysyłania zapytań do zasobów przy użyciu złożonego filtrowania, grupowania i sortowania według właściwości zasobu.
-- Możliwość iteracyjnego eksplorowania zasobów na podstawie wymagań dotyczących nadzoru.
+- Możliwość iteracyjnego eksplorowania zasobów na podstawie wymagań związanych z zarządzaniem.
 - Zdolność do oceny wpływu stosowania zasad na ogromne środowisko chmury.
-- Możliwość [szczegółowego wyszczególnienia zmian wprowadzonych we właściwościach zasobów](./how-to/get-resource-changes.md) (wersja zapoznawcza).
+- Możliwość [szczegółowości zmian wprowadzonych do właściwości zasobów](./how-to/get-resource-changes.md) (wersja zapoznawcza).
 
 W tej dokumentacji każda funkcja zostanie szczegółowo omówiona.
 
 > [!NOTE]
-> Usługa Azure Resource Graph zasila pasek wyszukiwania portalu Azure, nowe środowisko przeglądania "Wszystkie zasoby" oraz_wizualny dyferb_ [historii zmian](../policy/how-to/determine-non-compliance.md#change-history-preview)
-> w usłudze Azure Policy. Został zaprojektowany, aby pomóc klientom zarządzać środowiskami na dużą skalę.
+> Wykres zasobów platformy Azure umożliwia pasek wyszukiwania Azure Portal, nowe środowisko przeglądania "wszystkie zasoby" i Azure Policye
+> _różnic wizualnych_ [historii zmian](../policy/how-to/determine-non-compliance.md#change-history-preview). Jest ona przeznaczona do ułatwienia klientom zarządzania środowiskami w dużej skali.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Jak usługa Resource Graph uzupełnia usługę Azure Resource Manager
 
-Usługa Azure Resource Manager obsługuje obecnie kwerendy dotyczące podstawowych pól zasobów, w szczególności — nazwa zasobu, identyfikator, typ, grupa zasobów, subskrypcja i lokalizacja. Menedżer zasobów udostępnia również możliwości wywoływania poszczególnych dostawców zasobów dla szczegółowych właściwości po jednym zasobie naraz.
+Azure Resource Manager obecnie obsługuje zapytania dotyczące podstawowych pól zasobów, w tym w odniesieniu do nazwy zasobu, identyfikatora, typu, grupy zasobów, subskrypcji i lokalizacji. Menedżer zasobów również udostępnia funkcje do wywoływania poszczególnych dostawców zasobów w celu uzyskania szczegółowych właściwości jednego zasobu naraz.
 
-Za pomocą usługi Azure Resource Graph możesz uzyskać dostęp do tych właściwości, które zwracają dostawców zasobów, bez konieczności wykonywania poszczególnych wywołań do każdego dostawcy zasobów. Aby uzyskać listę obsługiwanych typów zasobów, przejrzyj [odwołanie do tabeli i typu zasobu](./reference/supported-tables-resources.md). Alternatywnym sposobem, aby zobaczyć obsługiwane typy zasobów jest za pośrednictwem [przeglądarki programu Azure Resource Graph Explorer Schema](./first-query-portal.md#schema-browser).
+Za pomocą usługi Azure Resource Graph możesz uzyskać dostęp do tych właściwości, które zwracają dostawców zasobów, bez konieczności wykonywania poszczególnych wywołań do każdego dostawcy zasobów. Aby uzyskać listę obsługiwanych typów zasobów, przejrzyj informacje o [typie tabeli i zasobu](./reference/supported-tables-resources.md). Alternatywny sposób wyświetlania obsługiwanych typów zasobów znajduje się w [przeglądarce schematów programu Graph zasobów platformy Azure](./first-query-portal.md#schema-browser).
 
-Za pomocą programu Azure Resource Graph można:
+Za pomocą usługi Azure Resource Graph można:
 
-- Dostęp do właściwości zwracanych przez dostawców zasobów bez konieczności wykonywania indywidualnych wywołań do każdego dostawcy zasobów.
-- Wyświetl ostatnie 14 dni historii zmian wprowadzone do zasobu, aby zobaczyć, jakie właściwości zmienione i kiedy. (wersja zapoznawcza)
+- Dostęp do właściwości zwracanych przez dostawców zasobów bez konieczności wykonywania pojedynczych wywołań do każdego dostawcy zasobów.
+- Wyświetlenie ostatnich 14 dni historii zmian w zasobie, aby zobaczyć, jakie właściwości zostały zmienione i kiedy. (wersja zapoznawcza)
 
-## <a name="how-resource-graph-is-kept-current"></a>Jak wykres zasobów jest aktualizowany
+## <a name="how-resource-graph-is-kept-current"></a>Sposób przechowywania grafu zasobów
 
-Po zaktualizowaniu zasobu platformy Azure, wykres zasobów jest powiadamiany przez Menedżera zasobów o zmianie.
-Wykres zasobów następnie aktualizuje swoją bazę danych. Wykres zasobów również wykonuje regularne _pełne skanowanie._ To skanowanie gwarantuje, że dane wykresu zasobów są aktualne, jeśli są nieodebrane powiadomienia lub gdy zasób jest aktualizowany poza Menedżerem zasobów.
+Gdy zasób platformy Azure zostanie zaktualizowany, wykres zasobów zostanie powiadomiony o Menedżer zasobów zmian.
+Następnie Wykres zasobów aktualizuje swoją bazę danych. Wykres zasobów wykonuje także regularne _pełne skanowanie_. To skanowanie gwarantuje, że dane grafu zasobów są aktualne w przypadku braku powiadomień lub gdy zasób jest aktualizowany poza Menedżer zasobów.
 
 > [!NOTE]
-> Wykres zasobów używa `GET` do najnowszego interfejsu API bez podglądu każdego dostawcy zasobów do zbierania właściwości i wartości. W związku z tym oczekiwana nieruchomość może być niedostępna. W niektórych przypadkach wersja interfejsu API została zastąpiona, aby zapewnić bardziej aktualne lub powszechnie używane właściwości w wynikach. Zobacz [Pokaż wersję interfejsu API dla każdego](./samples/advanced.md#apiversion) przykładu typu zasobu, aby uzyskać pełną listę w twoim środowisku.
+> Wykres zasobów używa `GET` do najnowszego interfejsu API, który nie jest w wersji zapoznawczej dla każdego dostawcy zasobów do zbierania właściwości i wartości. W związku z tym oczekiwana właściwość może być niedostępna. W niektórych przypadkach użyta wersja interfejsu API została zastąpiona, aby zapewnić bardziej aktualne lub szeroko używane właściwości w wynikach. Pełną listę w danym środowisku zawiera przykład [pokazujący wersję interfejsu API dla każdego typu zasobu](./samples/advanced.md#apiversion) .
 
 ## <a name="the-query-language"></a>Język zapytań
 
-Teraz, gdy masz lepsze zrozumienie, co to jest usługa Azure Resource Graph, przejdźmy do sposobu konstruowania zapytań.
+Teraz, gdy znasz już usługę Azure Resource Graph, przyjrzyjmy się szczegółowe do tworzenia zapytań.
 
 Ważne jest zrozumienie, że język zapytań usługi Azure Resource Graph opiera się na języku zapytań [Kusto Query Language](/azure/data-explorer/data-explorer-overview) używanym przez usługę Azure Data Explorer.
 
@@ -60,35 +60,35 @@ Aby przejrzeć zasoby, zobacz [badanie zasobów](./concepts/explore-resources.md
 Aby użyć usługi Resource Graph, musisz mieć odpowiednie prawa w [kontroli dostępu na podstawie ról](../../role-based-access-control/overview.md) (RBAC) dające co najmniej dostęp do odczytu do zasobów, które chcesz zbadać. Bez uprawnień do obiektu lub grupy obiektów platformy Azure na poziomie co najmniej `read` wyniki nie będą zwracane.
 
 > [!NOTE]
-> Wykres zasobów używa subskrypcji dostępnych dla podmiotu zabezpieczeń podczas logowania. Aby wyświetlić zasoby nowej subskrypcji dodane podczas aktywnej sesji, podmiot zabezpieczeń musi odświeżyć kontekst. Ta akcja dzieje się automatycznie podczas wylogowywania się i powrotu.
+> Wykres zasobów używa subskrypcji dostępnych dla podmiotu zabezpieczeń podczas logowania. Aby wyświetlić zasoby nowej subskrypcji dodane podczas aktywnej sesji, podmiot zabezpieczeń musi odświeżyć kontekst. Ta akcja odbywa się automatycznie podczas wylogowywania się i z powrotem.
 
-Interfejs wiersza polecenia platformy Azure i usługi Azure PowerShell używają subskrypcji, do których użytkownik ma dostęp. W przypadku bezpośredniego korzystania z interfejsu API REST lista subskrypcji jest dostarczana przez użytkownika. Jeśli użytkownik ma dostęp do dowolnej z subskrypcji na liście, wyniki kwerendy są zwracane dla subskrypcji, do których użytkownik ma dostęp. To zachowanie jest takie samo jak podczas wywoływania [grup zasobów — lista](/rest/api/resources/resourcegroups/list) \- otrzymasz grup zasobów, do których masz dostęp bez żadnych oznak, że wynik może być częściowy.
-Jeśli na liście subskrypcji nie ma żadnych subskrypcji, do których użytkownik ma odpowiednie prawa, odpowiedzią jest _403_ (zabronione).
+Interfejs wiersza polecenia platformy Azure i Azure PowerShell używają subskrypcji, do których użytkownik ma dostęp. W przypadku bezpośredniego korzystania z interfejsu API REST Lista subskrypcji jest udostępniana przez użytkownika. Jeśli użytkownik ma dostęp do dowolnych subskrypcji na liście, wyniki zapytania są zwracane dla subskrypcji, do których użytkownik ma dostęp. Takie zachowanie jest takie samo jak podczas wywoływania [grup zasobów — lista](/rest/api/resources/resourcegroups/list) \- Pobiera grupy zasobów, do których masz dostęp, bez wskazywania, że wynik może być częściowy.
+Jeśli na liście subskrypcji nie ma żadnych subskrypcji, do których użytkownik ma odpowiednie prawa, odpowiedź jest _403_ (niedostępna).
 
 ## <a name="throttling"></a>Ograniczanie przepływności
 
-Jako bezpłatna usługa zapytania do wykresu zasobów są ograniczane, aby zapewnić najlepsze środowisko i czas odpowiedzi dla wszystkich klientów. Jeśli organizacja chce używać interfejsu API wykresu zasobów do zapytań na dużą skalę i częstych zapytań, użyj portalu "Opinie" ze [strony portalu Wykres zasobów](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
-Podaj swoją sprawę biznesową i wybierz pole wyboru "Microsoft może wysłać ci wiadomość e-mail na temat twojej opinii", aby zespół mógł się z Tobą skontaktować.
+Jako bezpłatna usługa, zapytania do grafu zasobów są ograniczone, aby zapewnić najlepszą wydajność i czas odpowiedzi dla wszystkich klientów. Jeśli Twoja organizacja chce używać interfejs API programu Graph zasobów w przypadku dużych i częstych zapytań, należy użyć portalu "opinia" na [stronie portalu grafu zasobów](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
+Podaj swój przypadek biznesowy i zaznacz pole wyboru "Firma Microsoft może wysłać wiadomość e-mail o opinię", aby zespół mógł się z Tobą skontaktować.
 
 Wykres zasobów ogranicza zapytania na poziomie użytkownika. Odpowiedź usługi zawiera następujące nagłówki HTTP:
 
-- `x-ms-user-quota-remaining`(int): Pozostały przydział zasobów dla użytkownika. Ta wartość jest mapowana do liczby zapytań.
-- `x-ms-user-quota-resets-after`(hh:mm:ss): Czas trwania do momentu zresetowania zużycia przydziału przez użytkownika
+- `x-ms-user-quota-remaining`(int): pozostały przydział zasobów dla użytkownika. Ta wartość jest mapowana na liczbę zapytań.
+- `x-ms-user-quota-resets-after`(hh: mm: SS): czas trwania do momentu zresetowania zużycia przydziału użytkownika
 
-Aby uzyskać więcej informacji, zobacz [Wskazówki dotyczące żądań z ograniczeniem](./concepts/guidance-for-throttled-requests.md).
+Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące żądań z ograniczeniami](./concepts/guidance-for-throttled-requests.md).
 
 ## <a name="running-your-first-query"></a>Uruchamianie pierwszego zapytania
 
-Eksplorator wykresu zasobów platformy Azure, część witryny Azure portal, umożliwia uruchamianie zapytań wykresu zasobów bezpośrednio w witrynie Azure portal. Przypnij wyniki jako wykresy dynamiczne, aby dostarczać dynamiczne informacje w czasie rzeczywistym do przepływu pracy portalu. Aby uzyskać więcej informacji, zobacz [Pierwsza kwerenda za pomocą Eksploratora grafów zasobów platformy Azure](first-query-portal.md).
+Eksplorator grafu zasobów platformy Azure, część Azure Portal, umożliwia uruchamianie zapytań wykresów zasobów bezpośrednio w programie Azure Portal. Przypnij wyniki jako wykresy dynamiczne, aby zapewnić dynamiczne informacje w czasie rzeczywistym do przepływu pracy portalu. Aby uzyskać więcej informacji, zobacz [pierwsze zapytanie z Eksploratorem zasobów platformy Azure](first-query-portal.md).
 
-Resource Graph obsługuje platformę Azure CLI, Azure PowerShell, Azure SDK dla platformy .NET i inne. Kwerenda jest tak samo skonstruowana dla każdego języka. Dowiedz się, jak włączyć wykres zasobów za pomocą:
+Wykres zasobów obsługuje interfejs wiersza polecenia platformy Azure, Azure PowerShell, zestaw Azure SDK dla platformy .NET i nie tylko. Zapytanie ma taką samą strukturę dla każdego języka. Dowiedz się, jak włączyć Wykres zasobów przy użyciu:
 
-- [Witryna Azure portal i Eksplorator wykresów zasobów](first-query-portal.md) 
+- [Azure Portal i Eksplorator wykresu zasobów](first-query-portal.md) 
 - [Interfejs wiersza polecenia platformy Azure](first-query-azurecli.md#add-the-resource-graph-extension)
 - [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Uruchom pierwszą kwerendę przy użyciu [portalu Azure](first-query-portal.md).
-- Uruchom pierwszą kwerendę za pomocą [narzędzia Azure CLI](first-query-azurecli.md).
-- Uruchom pierwszą kwerendę za pomocą [programu Azure PowerShell](first-query-powershell.md).
+- Uruchom pierwsze zapytanie przy użyciu [Azure Portal](first-query-portal.md).
+- Uruchom pierwsze zapytanie przy użyciu [interfejsu wiersza polecenia platformy Azure](first-query-azurecli.md).
+- Uruchom pierwsze zapytanie przy użyciu [Azure PowerShell](first-query-powershell.md).

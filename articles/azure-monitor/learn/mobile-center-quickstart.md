@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie aplikacji mobilnych za pomocą usługi Azure Monitor Application Insights
-description: Zawiera instrukcje szybkiego konfigurowania aplikacji mobilnej do monitorowania za pomocą usługi Azure Monitor Application Insights i Centrum aplikacji
+title: Monitoruj aplikacje mobilne przy użyciu Azure Monitor Application Insights
+description: Zawiera instrukcje umożliwiające szybkie skonfigurowanie aplikacji mobilnej do monitorowania za pomocą Azure Monitor Application Insights i App Center
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
 ms.openlocfilehash: a59a6841a1db3cecfe52c54135b42f5b6a095ce3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77660295"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Rozpoczęcie analizowania aplikacji mobilnej za pomocą Centrum aplikacji i usługi Application Insights
@@ -26,21 +26,21 @@ Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warun
 - Subskrypcja platformy Azure.
 - Aplikacja dla platform iOS, Android, Xamarin lub React Native albo platformy uniwersalnej systemu Windows.
  
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.microsoft.com/free/) konto przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
-## <a name="sign-up-with-app-center"></a>Zarejestruj się w App Center
-Aby rozpocząć, utwórz konto i [zarejestruj się w App Center](https://appcenter.ms/signup?utm_source=ApplicationInsights&utm_medium=Azure&utm_campaign=docs).
+## <a name="sign-up-with-app-center"></a>Zarejestruj się w usłudze App Center
+Aby rozpocząć, Utwórz konto i [zarejestruj się w usłudze App Center](https://appcenter.ms/signup?utm_source=ApplicationInsights&utm_medium=Azure&utm_campaign=docs).
 
 ## <a name="onboard-to-app-center"></a>Dodawanie do Centrum aplikacji
 
-Zanim użyjesz usługi Application Insights z aplikacją mobilną, musisz dodać aplikację do [Centrum aplikacji](https://docs.microsoft.com/mobile-center/). Usługa Application Insights nie odbiera danych telemetrycznych bezpośrednio z aplikacji mobilnej. Zamiast tego aplikacja wysyła dane telemetryczne zdarzeń niestandardowych do Centrum aplikacji. Następnie Centrum aplikacji w miarę odbierania zdarzeń niestandardowych stale eksportuje ich kopie do usługi Application Insights. (Nie dotyczy to [sdk JS usługi Application Insights](https://github.com/Microsoft/ApplicationInsights-JS) ani [wtyczki React Native,](https://github.com/Microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-native) w której dane telemetryczne są wysyłane bezpośrednio do usługi Application Insights).
+Zanim użyjesz usługi Application Insights z aplikacją mobilną, musisz dodać aplikację do [Centrum aplikacji](https://docs.microsoft.com/mobile-center/). Usługa Application Insights nie odbiera danych telemetrycznych bezpośrednio z aplikacji mobilnej. Zamiast tego aplikacja wysyła dane telemetryczne zdarzeń niestandardowych do Centrum aplikacji. Następnie Centrum aplikacji w miarę odbierania zdarzeń niestandardowych stale eksportuje ich kopie do usługi Application Insights. (Ta wartość nie dotyczy [zestawu SDK Application INSIGHTS js](https://github.com/Microsoft/ApplicationInsights-JS) ani [natywnej wtyczki reagującej](https://github.com/Microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-native) , w której dane telemetryczne są wysyłane bezpośrednio do Application Insights.)
 
 Aby dodać aplikację, skorzystaj z opcji szybkiego startu Centrum aplikacji dla każdej platformy obsługiwanej przez Twoją aplikację. Utwórz oddzielne wystąpienie Centrum aplikacji dla każdej platformy:
 
-* [iOS](https://docs.microsoft.com/mobile-center/sdk/getting-started/ios).
-* [Android](https://docs.microsoft.com/mobile-center/sdk/getting-started/android).
-* [Xamarin](https://docs.microsoft.com/mobile-center/sdk/getting-started/xamarin).
-* [Uniwersalny system Windows](https://docs.microsoft.com/mobile-center/sdk/getting-started/uwp).
+* System [iOS](https://docs.microsoft.com/mobile-center/sdk/getting-started/ios).
+* System [Android](https://docs.microsoft.com/mobile-center/sdk/getting-started/android).
+* Platforma [Xamarin](https://docs.microsoft.com/mobile-center/sdk/getting-started/xamarin).
+* [Uniwersalne okna](https://docs.microsoft.com/mobile-center/sdk/getting-started/uwp).
 * [React Native](https://docs.microsoft.com/mobile-center/sdk/getting-started/react-native).
 
 ## <a name="track-events-in-your-app"></a>Śledzenie zdarzeń w aplikacji
@@ -67,11 +67,11 @@ Aby upewnić się, że zdarzenia niestandardowe są otrzymywane, przejdź do kar
 
 Gdy aplikacja wysyła zdarzenia niestandardowe i są one odbierane przez Centrum aplikacji, musisz utworzyć zasób usługi Application Insights typu Centrum aplikacji w witrynie Azure Portal:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
-2. Wybierz pozycję **Utwórz narzędzie** > **Developer tools** > deweloperskie aplikacji **.**
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Wybierz pozycję **Utwórz zasób** > **Narzędzia** > deweloperskie**Application Insights**.
 
     > [!NOTE]
-    > Jeśli jest to pierwszy raz tworzenia zasobu usługi Application Insights można dowiedzieć się więcej, odwiedzając [utwórz plik doc zasobów usługi Application Insights.](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)
+    > Jeśli tworzysz zasób Application Insights, możesz dowiedzieć się więcej, odwiedzając dokument [tworzenie Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) .
 
     Zostanie wyświetlone okno konfiguracji. Wypełnij pola wejściowe, używając poniższej tabeli.
 
@@ -87,9 +87,9 @@ Jeśli aplikacja obsługuje wiele platform (iOS, Android itp.), najlepiej utworz
 
 ## <a name="export-to-application-insights"></a>Eksportowanie do usługi Application Insights
 
-W nowym zasobie usługi Application Insights na stronie **Przegląd.** Skopiuj klucz instrumentacji z zasobu.
+W nowym zasobie Application Insights na stronie **Przegląd** . Skopiuj klucz Instrumentacji z zasobu.
 
-W wystąpieniu [Centrum aplikacji](https://appcenter.ms/) dla aplikacji:
+W [App Center](https://appcenter.ms/) wystąpieniu aplikacji:
 
 1. Na stronie **Ustawienia** kliknij pozycję **Eksportuj**.
 2. Wybierz pozycję **Nowy eksport**, wybierz pozycję **Application Insights**, a następnie kliknij pozycję **Dostosuj**.
@@ -106,11 +106,11 @@ Aby przy pierwszym połączeniu dostarczyć większą ilość danych, do usługi
 
 Usługa Application Insights umożliwia wykonywanie zapytań, segmentowanie, filtrowanie i analizowanie danych telemetrycznych zdarzeń niestandardowych z aplikacji w sposób wykraczający poza możliwości narzędzi analitycznych dostępnych w Centrum aplikacji.
 
-1. **Wykonaj zapytanie względem danych telemetrycznych zdarzeń niestandardowych.** Na stronie **Przegląd** statystyk aplikacji wybierz pozycję **Dzienniki (Analytics)**.
+1. **Wykonaj zapytanie względem danych telemetrycznych zdarzeń niestandardowych.** Na stronie **przegląd** Application Insights wybierz pozycję **dzienniki (analiza)**.
 
-   Zostanie otwarty portal dzienników aplikacji (Analytics) skojarzony z zasobem usługi Application Insights. Portal Dzienniki (Analytics) umożliwia bezpośrednie wykonywanie zapytań o dane przy użyciu języka zapytań usługi Log Analytics, dzięki czemu można zadawać dowolnie złożone pytania dotyczące aplikacji i jej użytkowników.
+   Zostanie otwarty portal dzienników Application Insights (analiza) skojarzony z zasobem Application Insights. Portal dzienniki (analiza) umożliwia bezpośrednie wysyłanie zapytań do danych przy użyciu języka zapytań Log Analytics, dzięki czemu możesz zadawać arbitralnie złożone pytania dotyczące aplikacji i jej użytkowników.
    
-   Otwórz nową kartę w portalu Dzienniki (Analytics), a następnie wklej w poniższej kwerendzie. W jego wyniku zostanie zwrócona liczba unikatowych użytkowników, którzy wysłali poszczególne zdarzenia niestandardowe z aplikacji w ciągu ostatnich 24 godzin, posortowana według tych różnych liczb.
+   Otwórz nową kartę w portalu dzienniki (analiza), a następnie wklej ją w poniższym zapytaniu. W jego wyniku zostanie zwrócona liczba unikatowych użytkowników, którzy wysłali poszczególne zdarzenia niestandardowe z aplikacji w ciągu ostatnich 24 godzin, posortowana według tych różnych liczb.
 
    ```AIQL
    customEvents
@@ -119,7 +119,7 @@ Usługa Application Insights umożliwia wykonywanie zapytań, segmentowanie, fil
    | order by dcount_user_Id desc 
    ```
 
-   ![Portal dzienników (Analytics)](./media/mobile-center-quickstart/analytics-portal-001.png)
+   ![Portal dzienników (analiza)](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. Wybierz zapytanie, klikając w dowolnym miejscu zapytania w edytorze tekstów.
    2. Następnie kliknij pozycję **Przejdź**, aby wykonać zapytanie. 

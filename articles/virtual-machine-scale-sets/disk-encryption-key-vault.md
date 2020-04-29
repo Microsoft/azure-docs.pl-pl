@@ -1,6 +1,6 @@
 ---
 title: Tworzenie i konfigurowanie magazynu kluczy dla usługi Azure Disk Encryption
-description: Ten artykuł zawiera kroki dotyczące tworzenia i konfigurowania magazynu kluczy do użycia z szyfrowaniem dysku azure
+description: Ten artykuł zawiera instrukcje dotyczące tworzenia i konfigurowania magazynu kluczy do użycia z usługą Azure Disk Encryption
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 author: msmbaldwin
@@ -8,33 +8,33 @@ ms.author: mbaldwin
 ms.date: 10/10/2019
 ms.custom: seodec18
 ms.openlocfilehash: 30fa6b910c0241621c2b2cdae9bb9a164f27cedb
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81454547"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Tworzenie i konfigurowanie magazynu kluczy dla usługi Azure Disk Encryption
 
-Usługa Azure Disk Encryption używa usługi Azure Key Vault do kontrolowania kluczy i wpisów tajnych szyfrowania dysków i zarządzania nimi.  Aby uzyskać więcej informacji na temat magazynów kluczy, zobacz [Wprowadzenie do usługi Azure Key Vault](../key-vault/key-vault-get-started.md) i [zabezpieczanie magazynu kluczy](../key-vault/general/secure-your-key-vault.md).
+Azure Disk Encryption używa Azure Key Vault do kontrolowania kluczy szyfrowania dysków i wpisów tajnych oraz zarządzania nimi.  Aby uzyskać więcej informacji na temat magazynów kluczy, zobacz Wprowadzenie do [Azure Key Vault](../key-vault/key-vault-get-started.md) i [Zabezpieczanie magazynu kluczy](../key-vault/general/secure-your-key-vault.md).
 
-Tworzenie i konfigurowanie magazynu kluczy do użycia za pomocą szyfrowania dysków platformy Azure obejmuje trzy kroki:
+Tworzenie i Konfigurowanie magazynu kluczy do użycia z Azure Disk Encryption obejmuje trzy kroki:
 
-1. W razie potrzeby tworzenie grupy zasobów.
+1. Tworzenie grupy zasobów, w razie konieczności.
 2. Tworzenie magazynu kluczy. 
 3. Ustawianie zaawansowanych zasad dostępu magazynu kluczy.
 
-Te kroki są zilustrowane w następujących przewodnikach Szybki start:
+Te kroki przedstawiono w następujących przewodnikach szybki start:
 
 Możesz również, jeśli chcesz, wygenerować lub zaimportować klucz szyfrowania klucza (KEK).
 
-## <a name="install-tools-and-connect-to-azure"></a>Instalowanie narzędzi i łączenie się z platformą Azure
+## <a name="install-tools-and-connect-to-azure"></a>Instalowanie narzędzi i nawiązywanie połączenia z platformą Azure
 
-Kroki opisane w tym artykule można wykonać za pomocą [interfejsu wiersza polecenia platformy Azure,](/cli/azure/) [modułu Azure PowerShell Az](/powershell/azure/overview)lub [portalu Azure.](https://portal.azure.com)
+Kroki opisane w tym artykule można wykonać przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/), [Azure PowerShell Az module](/powershell/azure/overview)lub [Azure Portal](https://portal.azure.com).
 
 ### <a name="connect-to-your-azure-account"></a>Nawiąż połączenie z kontem platformy Azure
 
-Przed użyciem interfejsu wiersza polecenia platformy Azure lub usługi Azure PowerShell należy najpierw połączyć się z subskrypcją platformy Azure. Można to zrobić, [logując się za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [Logując się za pomocą usługi Azure Powershell](/powershell/azure/authenticate-azureps?view=azps-2.5.0)lub podajesz poświadczenia do witryny Azure portal po wyświetleniu monitu.
+Przed rozpoczęciem korzystania z interfejsu wiersza polecenia platformy Azure lub Azure PowerShell należy najpierw nawiązać połączenie z subskrypcją platformy Azure. Można to zrobić, [logując się przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [logując się przy użyciu programu Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0)lub dostarczając poświadczenia do Azure Portal po wyświetleniu monitu.
 
 ```azurecli-interactive
 az login
@@ -48,6 +48,6 @@ Connect-AzAccount
  
 ## <a name="next-steps"></a>Następne kroki
 
-- [Omówienie szyfrowania dysków platformy Azure](disk-encryption-overview.md)
-- [Szyfruj zestawy skalowania maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure](disk-encryption-cli.md)
-- [Szyfrowanie zestawów skalowania maszyny wirtualnej przy użyciu programu Azure PowerShell](disk-encryption-powershell.md)
+- [Przegląd Azure Disk Encryption](disk-encryption-overview.md)
+- [Szyfrowanie zestawów skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure](disk-encryption-cli.md)
+- [Szyfrowanie zestawów skalowania maszyn wirtualnych przy użyciu Azure PowerShell](disk-encryption-powershell.md)

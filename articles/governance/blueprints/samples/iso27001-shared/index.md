@@ -4,10 +4,10 @@ description: Omówienie i architektura przykładu strategii usług udostępniony
 ms.date: 04/15/2020
 ms.topic: sample
 ms.openlocfilehash: 5a18af942e1d1088b681712f7035f57d354ecb19
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458458"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Omówienie przykładu strategii usług udostępnionych ISO 27001.

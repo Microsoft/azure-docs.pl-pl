@@ -1,5 +1,5 @@
 ---
-title: Samouczek — ponowne utworzenie kopii zapasowej maszyn wirtualnych systemu Linux w witrynie Azure portal
+title: Samouczek — Tworzenie kopii zapasowych maszyn wirtualnych z systemem Linux w Azure Portal
 description: W tym samouczku dowiesz się, jak za pomocą witryny Azure Portal chronić maszyny wirtualne z systemem Linux przy użyciu usługi Azure Backup.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,10 +15,10 @@ ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: d233cba65d190178c500f78d4817e233ab46d780
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81460074"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Samouczek: tworzenie kopii zapasowych i przywracanie plików dla maszyn wirtualnych z systemem Linux na platformie Azure
@@ -50,7 +50,7 @@ Utwórz zaplanowaną, codzienną operację tworzenia kopii zapasowych w magazyni
 6. Kliknij opcję **Zasady tworzenia kopii zapasowych**. W tym przykładzie zachowaj ustawienia domyślne i kliknij przycisk **OK**.
 7. W bloku **Włącz kopię zapasową** kliknij pozycję **Włącz kopię zapasową**. Spowoduje to codzienne tworzenie kopii zapasowej na podstawie harmonogramu domyślnego.
 10. Aby utworzyć początkowy punkt odzyskiwania, w bloku **Kopia zapasowa** kliknij opcję **Utwórz kopię zapasową teraz**.
-11. Na **bloku Kopia zapasowa teraz** kliknij ikonę kalendarza, użyj kontrolki kalendarza, aby wybrać ostatni dzień, w którym ten punkt odzyskiwania zostanie zachowany, a następnie kliknij pozycję **Kopia zapasowa**.
+11. W bloku **Utwórz kopię zapasową teraz** kliknij ikonę kalendarza, użyj kontrolki kalendarz, aby wybrać ostatni dzień zachowywania tego punktu odzyskiwania, a następnie kliknij pozycję **kopia zapasowa**.
 12. W bloku **Kopia zapasowa** dla maszyny wirtualnej wyświetlana jest liczba ukończonych punktów odzyskiwania.
 
     ![Punkty odzyskiwania](./media/tutorial-backup-vms/backup-complete.png)

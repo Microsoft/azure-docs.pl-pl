@@ -16,10 +16,10 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc,seodec18
 ms.openlocfilehash: 42a516f3c52d7548d08f72687e9f233620a39287
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81458621"
 ---
 # <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>Eksportowanie/kopiowanie migawki na konto magazynu w innym regionie przy użyciu interfejsu wiersza polecenia

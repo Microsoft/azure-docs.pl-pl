@@ -1,23 +1,23 @@
 ---
-title: 'Szybki start: tworzenie planu za pomocą interfejsu API REST'
-description: W tym przewodniku Szybki start można użyć planów platformy Azure do tworzenia, definiowania i wdrażania artefaktów przy użyciu interfejsu API REST.
+title: 'Szybki Start: Tworzenie strategii przy użyciu interfejsu API REST'
+description: W tym przewodniku szybki start używasz planów platformy Azure do tworzenia, definiowania i wdrażania artefaktów przy użyciu interfejsu API REST.
 ms.date: 02/26/2020
 ms.topic: quickstart
 ms.openlocfilehash: 93c9aef9efd826b88da59cdb77dedfb10fb11262
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80676570"
 ---
-# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Szybki start: definiowanie i przypisywanie planu azure za pomocą interfejsu API REST
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Szybki Start: Definiowanie i przypisywanie Azure Blueprint przy użyciu interfejsu API REST
 
 Znajomość sposobu tworzenia i przypisywania strategii umożliwia definiowanie typowych wzorców tworzenia konfiguracji wielokrotnego użytku, które można szybko wdrażać, w oparciu o szablony usługi Resource Manager, zasady, zabezpieczenia itd. Z tego samouczka dowiesz się, jak za pomocą usługi Azure Blueprints wykonywać niektóre typowe zadania związane z tworzeniem, publikowaniem i przypisywaniem strategii w organizacji, takie jak:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free) przed rozpoczęciem.
-- Zarejestruj `Microsoft.Blueprint` dostawcę zasobów. Aby uzyskać wskazówki dojazdu, zobacz [Dostawcy zasobów i typy](../../azure-resource-manager/management/resource-providers-and-types.md).
+- Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free) .
+- Zarejestruj dostawcę `Microsoft.Blueprint` zasobów. Aby uzyskać instrukcje, zobacz [dostawcy zasobów i ich typy](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -25,7 +25,7 @@ Znajomość sposobu tworzenia i przypisywania strategii umożliwia definiowanie 
 
 Jeśli jeszcze nie znasz interfejsu API REST, zacznij od przejrzenia [dokumentacji interfejsu API REST platformy Azure](/rest/api/azure/), aby uzyskać ogólny opis interfejsu API REST, a w szczególności identyfikatora URI żądania i treści żądania. W tym artykule te pojęcia służą do podawania wskazówek dotyczących pracy z usługą Azure Blueprints, dlatego praktyczna wiedza na ich temat jest niezbędna. Narzędzia, między innymi takie jak [ARMClient](https://github.com/projectkudu/ARMClient), mogą automatycznie obsługiwać autoryzację i są zalecane dla początkujących.
 
-Aby uzyskać specyfikacje planów platformy Azure, zobacz [Interfejs API REST planów platformy Azure.](/rest/api/blueprints/)
+Aby poznać specyfikacje planów platformy Azure, zobacz [interfejs API REST usługi Azure Plans](/rest/api/blueprints/).
 
 ### <a name="rest-api-and-powershell"></a>Interfejs API REST i program PowerShell
 
@@ -63,7 +63,7 @@ Każdy identyfikator URI interfejsu API REST zawiera używane zmienne, które mu
 - `{subscriptionId}` — zastąp swoim identyfikatorem subskrypcji
 
 > [!NOTE]
-> Plany mogą być również tworzone na poziomie subskrypcji. Aby zobaczyć przykład, zobacz [tworzenie planu w przykładzie subskrypcji](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
+> Plany mogą być również tworzone na poziomie subskrypcji. Aby zapoznać się z przykładem, zobacz [Tworzenie strategii na przykład subskrypcji](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
 
 1. Utwórz obiekt _strategii_ początkowej. **Treść żądania** zawiera właściwości strategii, wszystkie grupy zasobów, które mają zostać utworzone, oraz wszystkie parametry poziomu strategii. Parametry są określane podczas przypisywania i używane przez artefakty dodane w kolejnych krokach.
 
@@ -329,7 +329,7 @@ Każdy identyfikator URI interfejsu API REST zawiera używane zmienne, które mu
 - `{YourMG}` — zastąp identyfikatorem swojej grupy zarządzania
 - `{subscriptionId}` — zastąp swoim identyfikatorem subskrypcji
 
-1. Podaj jednostce usługi Azure Blueprint rolę **Właściciel** w subskrypcji docelowej. Identyfikator AppId jest`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`statyczny ( ), ale identyfikator jednostki usługi zależy od dzierżawy. Szczegółowych informacji na temat dzierżawy można żądać, używając poniższego interfejsu API REST. Korzysta on z [interfejsu API programu Graph usługi Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md), który ma inną autoryzację.
+1. Podaj jednostce usługi Azure Blueprint rolę **Właściciel** w subskrypcji docelowej. Identyfikator AppId jest statyczny`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`(), ale nazwa główna usługi różni się w zależności od dzierżawy. Szczegółowych informacji na temat dzierżawy można żądać, używając poniższego interfejsu API REST. Korzysta on z [interfejsu API programu Graph usługi Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md), który ma inną autoryzację.
 
    - Identyfikator URI interfejsu API REST
 
@@ -406,7 +406,7 @@ Każdy identyfikator URI interfejsu API REST zawiera używane zmienne, które mu
      **Tożsamość zarządzana przypisana przez użytkownika** może należeć do dowolnej subskrypcji i grupy zasobów, do której użytkownik przypisujący strategię ma uprawnienia.
 
      > [!IMPORTANT]
-     > Usługa Azure Blueprints nie zarządza tożsamością zarządzaną przypisaną przez użytkownika. Użytkownicy są odpowiedzialni za przypisywanie wystarczających ról i uprawnień — w przeciwnym razie przypisanie strategii kończy się niepowodzeniem.
+     > Plany platformy Azure nie zarządzają tożsamości zarządzanej przypisanej przez użytkownika. Użytkownicy są odpowiedzialni za przypisywanie wystarczających ról i uprawnień — w przeciwnym razie przypisanie strategii kończy się niepowodzeniem.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -432,7 +432,7 @@ Aby usunąć samą strategię, wykonaj następującą operację interfejsu API R
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono, przypisano i usunięto plan za pomocą interfejsu API REST. Aby dowiedzieć się więcej o planach platformy Azure, przejdź do artykułu cyklu życia planu.
+W tym przewodniku szybki start utworzono, przypisano i usunięto plan z interfejsem API REST. Aby dowiedzieć się więcej na temat planów platformy Azure, przejdź do artykułu dotyczącego cyklu życia planu.
 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej o cyklu życia planu](./concepts/lifecycle.md)

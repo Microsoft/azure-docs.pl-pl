@@ -17,17 +17,17 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: df45ab0a7b1729ae6c1602c9769cd5b6da26f6ac
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74014357"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Szybki start: konfigurowanie nazwanych lokalizacji w usłudze Azure Active Directory
 
 Za pomocą nazwanych lokalizacji możesz oznaczać etykietą zakresy zaufanych adresów IP w Twojej organizacji. Usługa Azure AD używa nazwanych lokalizacji w następujących celach:
-- Wykrywanie fałszywych alarmów w [wykrywaniu ryzyka](concept-risk-events.md). Logowanie z zaufanej lokalizacji obniża ryzyko użytkownika związane z logowaniem.   
-- Skonfiguruj [dostęp warunkowy oparty na lokalizacji](../conditional-access/location-condition.md).
+- Wykrywaj fałszywie dodatnie [wykrycia zagrożeń](concept-risk-events.md). Logowanie z zaufanej lokalizacji obniża ryzyko użytkownika związane z logowaniem.   
+- Konfigurowanie [dostępu warunkowego opartego na lokalizacji](../conditional-access/location-condition.md).
 
 W tym przewodniku Szybki start dowiesz się, jak skonfigurować nazwane lokalizacje w swoim środowisku.
 
@@ -41,11 +41,11 @@ Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warun
 
 ## <a name="configure-named-locations"></a>Konfigurowanie nazwanych lokalizacji
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. W lewym okienku wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję Dostęp **warunkowy** z sekcji **Zabezpieczenia.**
+2. W lewym okienku wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **dostęp warunkowy** z sekcji **zabezpieczenia** .
 
-    ![Karta Dostęp warunkowy](./media/quickstart-configure-named-locations/entrypoint.png)
+    ![Karta dostęp warunkowy](./media/quickstart-configure-named-locations/entrypoint.png)
 
 3. Na stronie **Dostęp warunkowy** wybierz pozycję **Lokalizacje nazwane**, a następnie **Nowa lokalizacja**.
 
@@ -64,5 +64,5 @@ Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warun
 Aby uzyskać więcej informacji, zobacz:
 
 - [Dostęp warunkowy usługi Azure AD](../active-directory-conditional-access-azure-portal.md).
-- [Warunki lokalizacji w usłudze Azure AD Dostęp warunkowy](../conditional-access/location-condition.md)
+- [Warunki lokalizacji w dostępie warunkowym usługi Azure AD](../conditional-access/location-condition.md)
 - [Raport dotyczący ryzykownych logowań](concept-risky-sign-ins.md)  

@@ -13,10 +13,10 @@ ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 7232d7d3bfad23a91bf93adb679973f5a419aa76
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81457760"
 ---
 # <a name="restrict-web-traffic-using-azure-powershell"></a>Ograniczanie ruchu internetowego przy użyciu programu Azure PowerShell
@@ -49,23 +49,23 @@ Ten skrypt używa następujących poleceń w celu utworzenia wdrożenia. Każda 
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Tworzy konfigurację podsieci. |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Tworzy sieć wirtualną przy użyciu konfiguracji podsieci. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Tworzy publiczny adres IP dla bramy aplikacji. |
-| [Nowa konfiguracja AzApplicationGatewayIP](/powershell/module/az.network/new-azapplicationgatewayipconfiguration) | Tworzy konfigurację, która kojarzy podsieć z bramą aplikacji. |
-| [Nowy-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig) | Tworzy konfigurację, która przypisuje publiczny adres IP do bramy aplikacji. |
-| [Nowy Port AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport) | Przypisuje port używany do uzyskiwania dostępu do bramy aplikacji. |
-| [Nowy-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool) | Tworzy pulę zaplecza dla bramy aplikacji. |
+| [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration) | Tworzy konfigurację, która kojarzy podsieć z bramą aplikacji. |
+| [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig) | Tworzy konfigurację, która przypisuje publiczny adres IP do bramy aplikacji. |
+| [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport) | Przypisuje port używany do uzyskiwania dostępu do bramy aplikacji. |
+| [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool) | Tworzy pulę zaplecza dla bramy aplikacji. |
 | [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting) | Konfiguruje ustawienia dla puli zaplecza. |
 | [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) | Tworzy odbiornik. |
-| [Nowy-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) | Tworzy regułę routingu. |
-| [Nowy-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku) | Określa warstwę i pojemność bramy aplikacji. |
-| [New-AzApplicationGatewayWebApplicationFirewallKonfiguracja](/powershell/module/az.network/new-azapplicationgatewaywebapplicationfirewallconfiguration) | Tworzy konfigurację zapory aplikacji internetowej. |
-| [Nowa-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway) | Tworzy bramę aplikacji. |
+| [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) | Tworzy regułę routingu. |
+| [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku) | Określa warstwę i pojemność bramy aplikacji. |
+| [New-AzApplicationGatewayWebApplicationFirewallConfiguration](/powershell/module/az.network/new-azapplicationgatewaywebapplicationfirewallconfiguration) | Tworzy konfigurację zapory aplikacji internetowej. |
+| [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway) | Tworzy bramę aplikacji. |
 | [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) | Tworzy profil magazynu dla zestawu skalowania. |
 | [Set-AzVmssOsProfile](/powershell/module/az.compute/set-azvmssosprofile) | Definiuje system operacyjny dla zestawu skalowania. |
 | [Add-AzVmssNetworkInterfaceConfiguration](/powershell/module/az.compute/add-azvmssnetworkinterfaceconfiguration) | Definiuje interfejs sieciowy dla zestawu skalowania. |
 | [New-AzVmss](/powershell/module/az.compute/new-azvm) | Tworzy zestaw skalowania maszyn wirtualnych. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Tworzy konto magazynu. |
 | [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) | Konfiguruje diagnostykę w celu rejestrowania danych. |
-| [Adres get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) | Pobiera publiczny adres IP bramy aplikacji. |
+| [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) | Pobiera publiczny adres IP bramy aplikacji. |
 |[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów i wszystkie zasoby w niej zawarte. | 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
 ms.openlocfilehash: 1d30b35264707c59c899cc3a224e4affa2a4696e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79241444"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Szybki start: tworzenie sieci wirtualnej przy użyciu programu PowerShell
@@ -145,9 +145,9 @@ mstsc /v:<publicIpAddress>
 1. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej.
 
     > [!NOTE]
-    > Może być konieczne **wybranie opcji Więcej opcji** > **Użyj innego konta,** aby określić poświadczenia wprowadzone podczas tworzenia maszyny Wirtualnej.
+    > Może być konieczne wybranie **pozycji więcej opcji** > **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
 1. Może zostać wyświetlone ostrzeżenie o certyfikacie. W takim przypadku wybierz pozycję **Tak** lub **Kontynuuj**.
 

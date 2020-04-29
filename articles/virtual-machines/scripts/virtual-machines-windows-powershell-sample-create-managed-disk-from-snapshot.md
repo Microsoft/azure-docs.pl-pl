@@ -1,5 +1,5 @@
 ---
-title: Tworzenie dysku zarządzanego z migawki — przykład programu PowerShell
+title: Tworzenie dysku zarządzanego na podstawie migawki — przykład programu PowerShell
 description: Przykładowy skrypt programu Azure PowerShell — tworzenie dysku zarządzanego na podstawie migawki
 services: virtual-machines-windows
 documentationcenter: storage
@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
 ms.openlocfilehash: 5758e31fc24d366479cbebb139f1a8376330b397
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81459325"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>Tworzenie dysku zarządzanego na podstawie migawki przy użyciu programu PowerShell

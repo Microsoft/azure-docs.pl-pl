@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek: Trenuj i porównuj modele predykcyjne w R'
+title: 'Samouczek: uczenie i porównywanie modeli predykcyjnych w języku R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: W drugiej części tej trzyczęściowej serii samouczków utworzysz dwa modele predykcyjne w języku R za pomocą usług Azure SQL Database Machine Learning Services (wersja zapoznawcza), a następnie wybierz najdokładniejszy model.
+description: W drugiej części tej serii samouczków można utworzyć dwa modele predykcyjne w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza), a następnie wybrać najbardziej precyzyjny model.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -15,36 +15,36 @@ manager: cgronlun
 ms.date: 07/26/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0985b37280e3cd363ba1728a5ec33b0012611ab2
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81452931"
 ---
-# <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Samouczek: Tworzenie modelu predykcyjnego w języku R za pomocą usług azure sql database machine learning services (wersja zapoznawcza)
+# <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Samouczek: Tworzenie modelu predykcyjnego w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza)
 
-W drugiej części tej trzyczęściowej serii samouczków utworzysz dwa modele predykcyjne w R i wybierzesz najdokładniejszy model. W następnej części tej serii wdrożysz ten model w bazie danych SQL za pomocą usług Azure SQL Database Machine Learning Services (wersja zapoznawcza).
+W drugiej części tej serii samouczków z trzema częściami utworzysz dwa modele predykcyjne w języku R i wybierzemy najbardziej precyzyjny model. W następnej części tej serii ten model zostanie wdrożony w bazie danych SQL za pomocą Azure SQL Database Machine Learning Services (wersja zapoznawcza).
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 W tym artykule dowiesz się, jak:
 
 > [!div class="checklist"]
-> * Trenuj dwa modele uczenia maszynowego
-> * 6.00.
-> * Porównaj wyniki, aby wybrać najdokładniejszy model
+> * Uczenie dwóch modeli uczenia maszynowego
+> * Tworzenie prognoz z obu modeli
+> * Porównaj wyniki, aby wybrać najbardziej precyzyjny model
 
-W [części 1](sql-database-tutorial-predictive-model-prepare-data.md), można dowiedzieć się, jak zaimportować przykładową bazę danych, a następnie przygotować dane, które mają być używane do szkolenia modelu predykcyjnego w R.
+W [części pierwszej](sql-database-tutorial-predictive-model-prepare-data.md)przedstawiono sposób importowania przykładowej bazy danych, a następnie przygotowania danych do uczenia modelu predykcyjnego w języku R.
 
-W [części trzeciej](sql-database-tutorial-predictive-model-deploy.md)dowiesz się, jak przechowywać model w bazie danych, a następnie utworzyć procedury przechowywane ze skryptów języka R opracowanych w częściach 1 i 2. Procedury przechowywane będą uruchamiane w bazie danych SQL, aby prognozowania na podstawie nowych danych.
+W [trzeciej części](sql-database-tutorial-predictive-model-deploy.md)dowiesz się, jak przechowywać model w bazie danych, a następnie tworzyć procedury składowane na podstawie skryptów języka R, które zostały opracowane w częściach jeden i dwa. Procedury składowane zostaną uruchomione w bazie danych SQL w celu przeprowadzenia prognoz na podstawie nowych danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Część druga tego samouczka zakłada, że ukończono [**część pierwsza**](sql-database-tutorial-predictive-model-prepare-data.md) i jej wymagania wstępne.
+* W drugiej części tego samouczka założono, że została wykonana [**część pierwszej**](sql-database-tutorial-predictive-model-prepare-data.md) i jej wymagania wstępne.
 
-## <a name="train-two-models"></a>Trenuj dwa modele
+## <a name="train-two-models"></a>Uczenie dwóch modeli
 
-Aby znaleźć najlepszy model danych dotyczących wynajmu nart, utwórz dwa różne modele (regresja liniowa i drzewo decyzyjne) i zobacz, który z nich dokładniej przewiduje. Użyjesz ramki `rentaldata` danych utworzonej w pierwszej części tej serii.
+Aby znaleźć najlepszy model dla danych o wypożyczeniu narciarskim, Utwórz dwa różne modele (regresja liniowa i drzewo decyzyjne) i sprawdź, który z nich jest bardziej dokładny. Będziesz używać ramki `rentaldata` danych utworzonej w pierwszej części tej serii.
 
 ```r
 #First, split the dataset into two different sets:
@@ -62,9 +62,9 @@ model_linmod <- rxLinMod(RentalCount ~  Month + Day + WeekDay + Snow + Holiday, 
 model_dtree  <- rxDTree(RentalCount ~ Month + Day + WeekDay + Snow + Holiday, data = train_data);
 ```
 
-## <a name="make-predictions-from-both-models"></a>6.00.
+## <a name="make-predictions-from-both-models"></a>Tworzenie prognoz z obu modeli
 
-Użyj funkcji predict, aby przewidzieć liczbę wypożyczeń przy użyciu każdego przeszkolonego modelu.
+Użyj funkcji przewidywania, aby przewidzieć liczbę czynszów przy użyciu każdego z przeszkolonych modeli.
 
 ```r
 #Use both models to make predictions using the test data set.
@@ -96,7 +96,7 @@ head(predict_dtree);
 
 ## <a name="compare-the-results"></a>Porównaj wyniki
 
-Teraz chcesz zobaczyć, który z modeli daje najlepsze prognozy. Szybki i łatwy sposób, aby to zrobić, jest użycie podstawowej funkcji kreślenia, aby wyświetlić różnicę między rzeczywistymi wartościami w danych szkoleniowych a przewidywanymi wartościami.
+Teraz chcesz zobaczyć, które modele dają najlepsze przewidywania. Szybka i łatwa metoda to użycie podstawowej funkcji kreolenia do wyświetlania różnicy między wartościami rzeczywistymi danych szkoleniowych i prognozowanymi wartościami.
 
 ```r
 #Use the plotting functionality in R to visualize the results from the predictions
@@ -105,30 +105,30 @@ plot(predict_linmod$RentalCount_Pred - predict_linmod$RentalCount, main = "Diffe
 plot(predict_dtree$RentalCount_Pred  - predict_dtree$RentalCount,  main = "Difference between actual and predicted. rxDTree");
 ```
 
-![Porównanie dwóch modeli](./media/sql-database-tutorial-predictive-model-build-compare/compare-models.png)
+![Porównywanie dwóch modeli](./media/sql-database-tutorial-predictive-model-build-compare/compare-models.png)
 
-Wygląda na to, że model drzewa decyzyjnego jest dokładniejszy z dwóch modeli.
+Wygląda na to, że model drzewa decyzyjnego jest dokładniejszy dla dwóch modeli.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie zamierzasz kontynuować tego samouczka, usuń bazę danych SamouczkDB z serwera usługi Azure SQL Database.
+Jeśli nie chcesz kontynuować pracy z tym samouczkiem, Usuń bazę danych TutorialDB z serwera Azure SQL Database.
 
-W witrynie Azure portal wykonaj następujące kroki:
+W Azure Portal wykonaj następujące kroki:
 
-1. Z menu po lewej stronie w witrynie Azure portal wybierz **pozycję Wszystkie zasoby** lub bazy danych **SQL**.
-1. W polu **Filtruj według nazwy...** wprowadź **opcję TutorialDB**i wybierz subskrypcję.
-1. Wybierz bazę danych SamouczkDB.
+1. Z menu po lewej stronie w Azure Portal wybierz pozycję **wszystkie zasoby** lub **bazy danych SQL**.
+1. W polu **Filtruj według nazwy...** wpisz **TutorialDB**i wybierz swoją subskrypcję.
+1. Wybierz bazę danych TutorialDB.
 1. Na stronie **Przegląd** wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W drugiej części tej serii samouczków wykonana została ta instrukcja:
+W drugiej części tej serii samouczków zostały wykonane następujące czynności:
 
-* Trenuj dwa modele uczenia maszynowego
-* 6.00.
-* Porównaj wyniki, aby wybrać najdokładniejszy model
+* Uczenie dwóch modeli uczenia maszynowego
+* Tworzenie prognoz z obu modeli
+* Porównaj wyniki, aby wybrać najbardziej precyzyjny model
 
-Aby wdrożyć utworzony model uczenia maszynowego, wykonaj część trzecia tej serii samouczków:
+Aby wdrożyć utworzony model uczenia maszynowego, wykonaj trzecią część tej serii samouczków:
 
 > [!div class="nextstepaction"]
-> [Samouczek: Wdrażanie modelu predykcyjnego w języku R za pomocą usług azure sql database machine learning services (wersja zapoznawcza)](sql-database-tutorial-predictive-model-deploy.md)
+> [Samouczek: Wdrażanie modelu predykcyjnego w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza)](sql-database-tutorial-predictive-model-deploy.md)

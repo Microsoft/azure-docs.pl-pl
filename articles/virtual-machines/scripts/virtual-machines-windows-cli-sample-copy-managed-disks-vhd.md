@@ -1,5 +1,5 @@
 ---
-title: Kopiowanie dysków zarządzanych na konto magazynu — przykładowy wiersz polecenia
+title: Kopiowanie dysków zarządzanych do konta magazynu — przykład interfejsu wiersza polecenia
 description: Przykład dla interfejsu wiersza polecenia platformy Azure — eksportowanie lub kopiowanie dysków zarządzanych na konto magazynu
 services: virtual-machines-windows
 documentationcenter: storage
@@ -16,10 +16,10 @@ ms.date: 09/17/2018
 ms.author: ramankum
 ms.custom: mvc,seodec18
 ms.openlocfilehash: 64db152c6ebd2e8be4dc8034222eb5f1610946ae
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81459614"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Eksportowanie/kopiowanie dysków zarządzanych na konto magazynu przy użyciu wiersza polecenia platformy Azure
@@ -49,4 +49,4 @@ Ten skrypt generuje identyfikator URI sygnatury dostępu współdzielonego dysku
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
 
-Dodatkowe przykłady skryptów interfejsu wiersza polecenia maszyny wirtualnej i dysków zarządzanych można znaleźć w [dokumentacji maszyny wirtualnej systemu Azure systemu Windows](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Więcej przykładów skryptu interfejsu wiersza polecenia maszyny wirtualnej i dysków zarządzanych można znaleźć w [dokumentacji maszyny wirtualnej systemu Windows Azure](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

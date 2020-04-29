@@ -1,6 +1,6 @@
 ---
 title: Samouczek — zarządzanie maszynami wirtualnymi za pomocą interfejsu wiersza polecenia
-description: W tym samouczku dowiesz się, jak używać interfejsu wiersza polecenia platformy Azure do zarządzania maszynami wirtualnymi platformy Azure, stosując RBAC, zasady, blokady i tagi.
+description: W ramach tego samouczka nauczysz się używać interfejsu wiersza polecenia platformy Azure do zarządzania maszynami wirtualnymi platformy Azure przez zastosowanie RBAC, zasad, blokad i tagów.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -13,13 +13,13 @@ ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc
 ms.openlocfilehash: 883bc209c343784e07bb5e03dc9f721c19b2f635
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81460090"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Samouczek: Dowiedz się więcej o zarządzaniu maszynami wirtualnymi systemu Linux za pomocą interfejsu wiersza polecenia platformy Azure
+# <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Samouczek: informacje o zarządzaniu maszynami wirtualnymi z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -63,7 +63,7 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-Jeśli pojawi się błąd ** \<informujący o identyfikatorze guid zabezpieczeń zabezpieczeń,> nie istnieje w katalogu,** nowa grupa nie jest propagowana w usłudze Azure Active Directory. Spróbuj ponownie uruchomić polecenie.
+Jeśli zostanie wyświetlony komunikat o błędzie informujący, że **identyfikator> GUID podmiotu zabezpieczeń \<nie istnieje w katalogu**, Nowa grupa nie jest propagowana w ramach Azure Active Directory. Spróbuj ponownie uruchomić polecenie.
 
 Zazwyczaj należy powtórzyć ten proces dla roli *Współautor sieci* i *Współautor konta magazynu*, aby upewnić się, że użytkownicy mogą zarządzać wdrożonymi zasobami. W tym artykule można pominąć te kroki.
 
@@ -171,7 +171,7 @@ Zostanie wyświetlony komunikat o błędzie informujący, że nie można zakońc
 
 ## <a name="tag-resources"></a>Tagowanie zasobów
 
-Zastosuj [tagi](../../azure-resource-manager/management/tag-resources.md) do zasobów platformy Azure, aby logicznie zorganizować je według kategorii. Każdy tag składa się z nazwy i wartości. Na przykład można zastosować nazwę „Środowisko” i wartość „Produkcyjne” do wszystkich zasobów w środowisku produkcyjnym.
+[Znaczniki](../../azure-resource-manager/management/tag-resources.md) do zasobów platformy Azure są stosowane w celu logicznego organizowania ich według kategorii. Każdy tag składa się z nazwy i wartości. Na przykład można zastosować nazwę „Środowisko” i wartość „Produkcyjne” do wszystkich zasobów w środowisku produkcyjnym.
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
@@ -218,7 +218,7 @@ nsglock=$(az lock show --name LockNSG \
 az lock delete --ids $vmlock $nsglock
 ```
 
-Gdy nie jest już potrzebne, można użyć polecenia [delete grupy az,](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) aby usunąć grupę zasobów, maszynę wirtualną i wszystkie powiązane zasoby. Zakończ sesję SSH i wróć do maszyny wirtualnej, a następnie usuń zasoby w następujący sposób:
+Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) . Zakończ sesję SSH i wróć do maszyny wirtualnej, a następnie usuń zasoby w następujący sposób:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
@@ -235,7 +235,7 @@ W tym samouczku został utworzony obraz niestandardowy maszyny wirtualnej. W tym
 > * Ochrona krytycznych zasobów za pomocą blokad
 > * Tagowanie zasobów na potrzeby rozliczeń i zarządzania
 
-Przejdź do następnego samouczka, aby dowiedzieć się, jak zidentyfikować zmiany i zarządzać aktualizacjami pakietów na maszynie wirtualnej.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak identyfikować zmiany i zarządzać aktualizacjami pakietów na maszynie wirtualnej.
 
 > [!div class="nextstepaction"]
 > [Zarządzanie maszynami wirtualnymi](tutorial-config-management.md)

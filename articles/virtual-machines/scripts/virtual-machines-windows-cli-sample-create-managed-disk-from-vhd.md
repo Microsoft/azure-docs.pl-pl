@@ -1,5 +1,5 @@
 ---
-title: Tworzenie dysku zarządzanego z pliku VHD na koncie magazynu w tej samej subskrypcji — przykładowy wiersza polecenia
+title: Tworzenie dysku zarządzanego na podstawie pliku VHD na koncie magazynu w ramach tej samej przykładowej subskrypcji — interfejs wiersza polecenia
 description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — tworzenie dysku zarządzanego na podstawie pliku VHD na koncie magazynu w ramach tej samej subskrypcji
 services: virtual-machines-windows
 documentationcenter: storage
@@ -16,10 +16,10 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.openlocfilehash: b0ce935e03a6202ac444987cbecf853ee6717d3b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81459526"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli"></a>Tworzenie dysku zarządzanego na podstawie pliku VHD na koncie magazynu w ramach tej samej subskrypcji przy użyciu interfejsu wiersza polecenia
@@ -46,4 +46,4 @@ Ten skrypt używa poniższych poleceń w celu utworzenia dysku zarządzanego na 
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
 
-Dodatkowe przykłady skryptów interfejsu wiersza polecenia maszyny wirtualnej i dysków zarządzanych można znaleźć w [dokumentacji maszyny wirtualnej systemu Azure systemu Windows](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Więcej przykładów skryptu interfejsu wiersza polecenia maszyny wirtualnej i dysków zarządzanych można znaleźć w [dokumentacji maszyny wirtualnej systemu Windows Azure](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

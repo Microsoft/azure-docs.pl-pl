@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek: Wdrażanie modelu predykcyjnego w R'
+title: 'Samouczek: Wdrażanie modelu predykcyjnego w języku R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: W trzeciej części tego trzyczęściowego samouczka wdrożysz model predykcyjny w języku R za pomocą usług Azure SQL Database Machine Learning Services (wersja zapoznawcza).
+description: W trzeciej części tego samouczka z trzema częściami zostanie wdrożony model predykcyjny w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -15,41 +15,41 @@ manager: cgronlun
 ms.date: 07/26/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: efcb73866c83dcc03b5db8b7b97f438fb3010511
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81452812"
 ---
-# <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Samouczek: Wdrażanie modelu predykcyjnego w języku R za pomocą usług azure sql database machine learning services (wersja zapoznawcza)
+# <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Samouczek: Wdrażanie modelu predykcyjnego w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza)
 
-W trzeciej części tego trzyczęściowego samouczka wdrożysz model predykcyjny opracowany w języku R w bazie danych SQL przy użyciu usług azure sql database machine learning services (wersja zapoznawcza).
+W trzeciej części tego samouczka z trzema częściami zostanie wdrożony model predykcyjny opracowany w języku R w usłudze SQL Database przy użyciu Azure SQL Database Machine Learning Services (wersja zapoznawcza).
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-Utworzysz procedurę składowaną z osadzonym skryptem języka R, który tworzy prognozy przy użyciu modelu. Ponieważ model jest wykonywany w bazie danych SQL platformy Azure, można łatwo trenować z danymi przechowywanymi w bazie danych.
+Utworzysz procedurę składowaną z osadzonym skryptem języka R, który wykonuje przewidywania przy użyciu modelu. Ponieważ model jest wykonywany w usłudze Azure SQL Database, można łatwo go przeszkolić do danych przechowywanych w bazie danych.
 
-W tym artykule, korzystając ze skryptów języka R opracowanych w częściach 1 i 2, dowiesz się, jak:
+W tym artykule przy użyciu skryptów języka R, które zostały opracowane w częściach jeden i dwa, dowiesz się, jak:
 
 > [!div class="checklist"]
-> * Tworzenie procedury składowanej, która generuje model uczenia maszynowego
+> * Utwórz procedurę przechowywaną, która generuje model uczenia maszynowego
 > * Przechowywanie modelu w tabeli bazy danych
-> * Tworzenie procedury składowanej, która sprawia, że prognozy przy użyciu modelu
-> * Wykonywanie modelu z nowymi danymi
+> * Utwórz procedurę przechowywaną, która dokonuje prognoz przy użyciu modelu
+> * Wykonaj model z nowymi danymi
 
-W [części 1](sql-database-tutorial-predictive-model-prepare-data.md), można dowiedzieć się, jak zaimportować przykładową bazę danych, a następnie przygotować dane, które mają być używane do szkolenia modelu predykcyjnego w R.
+W [części pierwszej](sql-database-tutorial-predictive-model-prepare-data.md)przedstawiono sposób importowania przykładowej bazy danych, a następnie przygotowania danych do uczenia modelu predykcyjnego w języku R.
 
-W [części drugiej](sql-database-tutorial-predictive-model-build-compare.md)nauczysz się tworzyć i szkolić wiele modeli uczenia maszynowego w językach R, a następnie wybierać najdokładniejszy.
+W [drugiej części](sql-database-tutorial-predictive-model-build-compare.md)pokazano, jak utworzyć i szkolić wiele modeli uczenia maszynowego w języku R, a następnie wybrać największą precyzję.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Część trzecia tej serii samouczków zakłada, że ukończyłeś [**część pierwsza**](sql-database-tutorial-predictive-model-prepare-data.md) i [**część druga**](sql-database-tutorial-predictive-model-build-compare.md).
+* W trzeciej części tej serii samouczków przyjęto założenie, że wykonano [**część jeden**](sql-database-tutorial-predictive-model-prepare-data.md) i [**drugą część**](sql-database-tutorial-predictive-model-build-compare.md).
 
-## <a name="create-a-stored-procedure-that-generates-the-model"></a>Tworzenie procedury składowanej, która generuje model
+## <a name="create-a-stored-procedure-that-generates-the-model"></a>Utwórz procedurę przechowywaną, która generuje model
 
-W drugiej części tej serii samouczków zdecydowano, że model drzewa decyzyjnego (dtree) jest najdokładniejszy. Teraz przy użyciu skryptów języka R, które`generate_rental_rx_model`zostały opracowane, należy utworzyć procedurę składowaną ( ), która trenuje i generuje model dtree przy użyciu rxDTree z pakietu RevoScaleR.
+W drugiej części tej serii samouczków postanowiono, że model drzewa decyzyjnego (dtree) był najdokładniejszy. Teraz używając utworzonych skryptów języka R, Utwórz procedurę składowaną (`generate_rental_rx_model`), która pociąga i wygeneruje model dtree przy użyciu rxDTree z pakietu kolekcję funkcji revoscaler.
 
-Uruchom następujące polecenia w usłudze Azure Data Studio lub SSMS.
+Uruchom następujące polecenia w Azure Data Studio lub SSMS.
 
 ```sql
 -- Stored procedure that trains and generates an R model using the rental_data and a decision tree algorithm
@@ -91,7 +91,7 @@ GO
 
 ## <a name="store-the-model-in-a-database-table"></a>Przechowywanie modelu w tabeli bazy danych
 
-Utwórz tabelę w bazie danych SamouczkDB, a następnie zapisz model w tabeli.
+Utwórz tabelę w bazie danych TutorialDB, a następnie Zapisz model w tabeli.
 
 1. Utwórz tabelę (`rental_rx_models`) do przechowywania modelu.
 
@@ -106,7 +106,7 @@ Utwórz tabelę w bazie danych SamouczkDB, a następnie zapisz model w tabeli.
     GO
     ```
 
-1. Zapisz model w tabeli jako obiekt binarny, o nazwie modelu "rxDTree".
+1. Zapisz model w tabeli jako obiekt binarny z nazwą modelu "rxDTree".
 
     ```sql
     -- Save model to table
@@ -129,9 +129,9 @@ Utwórz tabelę w bazie danych SamouczkDB, a następnie zapisz model w tabeli.
     FROM rental_rx_models;
     ```
 
-## <a name="create-a-stored-procedure-that-makes-predictions"></a>Tworzenie procedury składowanej, która sprawia, że prognozy
+## <a name="create-a-stored-procedure-that-makes-predictions"></a>Utwórz procedurę przechowywaną, która tworzy przewidywania
 
-Utwórz procedurę`predict_rentalcount_new`składowaną ( ), która sprawia, że prognoz przy użyciu modelu przeszkolonego i zestaw nowych danych.
+Utwórz procedurę przechowywaną (`predict_rentalcount_new`), która wykonuje przewidywania przy użyciu modelu przeszkolonego i zestawu nowych danych.
 
 ```sql
 -- Stored procedure that takes model name and new data as input parameters and predicts the rental count for the new data
@@ -174,9 +174,9 @@ END;
 GO
 ```
 
-## <a name="execute-the-model-with-new-data"></a>Wykonywanie modelu z nowymi danymi
+## <a name="execute-the-model-with-new-data"></a>Wykonaj model z nowymi danymi
 
-Teraz możesz użyć procedury `predict_rentalcount_new` składowanej, aby przewidzieć liczbę wypożyczeń na podstawie nowych danych.
+Teraz można użyć procedury `predict_rentalcount_new` składowanej, aby przewidzieć liczbę czynszów z nowych danych.
 
 ```sql
 -- Use the predict_rentalcount_new stored procedure with the model name and a set of features to predict the rental count
@@ -191,37 +191,37 @@ EXECUTE dbo.predict_rentalcount_new @model_name = 'rxDTree'
 GO
 ```
 
-Powinien zostać wyświetlony wynik podobny do następującego.
+Powinien zostać wyświetlony wynik podobny do poniższego.
 
 ```results
 RentalCount_Predicted
 332.571428571429
 ```
 
-Pomyślnie utworzono, przeszkolono i wdrożono model w bazie danych SQL platformy Azure. Następnie użyto tego modelu w procedurze składowanej do przewidywania wartości na podstawie nowych danych.
+Pomyślnie utworzono, przeszkolony i wdrożono model w usłudze Azure SQL Database. Następnie ten model jest używany w procedurze składowanej do przewidywania wartości na podstawie nowych danych.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Po zakończeniu korzystania z bazy danych SamouczkDB, usuń go z serwera bazy danych SQL usługi Azure.
+Po zakończeniu korzystania z bazy danych TutorialDB usuń ją z serwera Azure SQL Database.
 
-W witrynie Azure portal wykonaj następujące kroki:
+W Azure Portal wykonaj następujące kroki:
 
-1. Z menu po lewej stronie w witrynie Azure portal wybierz **pozycję Wszystkie zasoby** lub bazy danych **SQL**.
-1. W polu **Filtruj według nazwy...** wprowadź **opcję TutorialDB**i wybierz subskrypcję.
-1. Wybierz bazę danych SamouczkDB.
+1. Z menu po lewej stronie w Azure Portal wybierz pozycję **wszystkie zasoby** lub **bazy danych SQL**.
+1. W polu **Filtruj według nazwy...** wpisz **TutorialDB**i wybierz swoją subskrypcję.
+1. Wybierz bazę danych TutorialDB.
 1. Na stronie **Przegląd** wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W trzeciej części tej serii samouczków wykonana została ta instrukcja:
+W trzeciej części tej serii samouczków zostały wykonane następujące czynności:
 
-* Tworzenie procedury składowanej, która generuje model uczenia maszynowego
+* Utwórz procedurę przechowywaną, która generuje model uczenia maszynowego
 * Przechowywanie modelu w tabeli bazy danych
-* Tworzenie procedury składowanej, która sprawia, że prognozy przy użyciu modelu
-* Wykonywanie modelu z nowymi danymi
+* Utwórz procedurę przechowywaną, która dokonuje prognoz przy użyciu modelu
+* Wykonaj model z nowymi danymi
 
-Aby dowiedzieć się więcej na temat korzystania z języka R w usługach azure SQL Database Machine Learning Services (wersja zapoznawcza), zobacz:
+Aby dowiedzieć się więcej o korzystaniu z języka R w Azure SQL Database Machine Learning Services (wersja zapoznawcza), zobacz:
 
-* [Pisanie zaawansowanych funkcji języka R w bazie danych SQL usługi Azure przy użyciu usług uczenia maszynowego (wersja zapoznawcza)](sql-database-machine-learning-services-functions.md)
-* [Praca z danymi języka R i SQL w usługach azure SQL Database Machine Learning Services (wersja zapoznawcza)](sql-database-machine-learning-services-data-issues.md)
-* [Dodawanie pakietu języka R do usług azure sql database machine learning services (wersja zapoznawcza)](sql-database-machine-learning-services-add-r-packages.md)
+* [Zapisuj zaawansowane funkcje języka R w Azure SQL Database przy użyciu Machine Learning Services (wersja zapoznawcza)](sql-database-machine-learning-services-functions.md)
+* [Pracuj z danymi języka R i SQL w Azure SQL Database Machine Learning Services (wersja zapoznawcza)](sql-database-machine-learning-services-data-issues.md)
+* [Dodaj pakiet języka R do Azure SQL Database Machine Learning Services (wersja zapoznawcza)](sql-database-machine-learning-services-add-r-packages.md)

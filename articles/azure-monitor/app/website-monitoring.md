@@ -1,43 +1,43 @@
 ---
-title: 'Szybki start: monitorowanie witryn sieci Web za pomocą usługi Azure Monitor Application Insights'
-description: Zapewnia monitorowanie obsługi klienta/strony internetowej po stronie przeglądarki po stronie obsługi przewodnika Szybki start za pomocą usługi Azure Monitor Application Insights
+title: 'Szybki Start: monitorowanie witryn sieci Web za pomocą Azure Monitor Application Insights'
+description: Zawiera instrukcje przewodnika Szybki Start dotyczące konfiguracji klienta/przeglądarki sieci Web po stronie programu Azure Monitor Application Insights
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.custom: mvc
 ms.openlocfilehash: 495c40ca8e383dd5a3cf3ba9e5bd42e2936ea015
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80132367"
 ---
-# <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Szybki start: rozpoczynanie monitorowania witryny sieci Web za pomocą usługi Azure Monitor Application Insights
+# <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Szybki Start: Rozpoczynanie monitorowania witryny sieci Web za pomocą Azure Monitor Application Insights
 
-W tym przewodniku Szybki start nauczysz się dodawać sdk JavaScript usługi Open source Application Insights do witryny sieci Web. Dowiesz się również, jak lepiej zrozumieć doświadczenie klienta / przeglądarki dla odwiedzających Twoją witrynę.
+W tym przewodniku szybki start dowiesz się, jak dodać zestaw SDK JavaScript Application Insights "open source" do witryny sieci Web. Dowiesz się również, jak lepiej zrozumieć środowisko klienta/przeglądarki dla odwiedzających witrynę sieci Web.
 
-Usługa Azure Monitor Application Insights umożliwia łatwe monitorowanie dostępności, wydajności i użycia witryny internetowej. Pozwala też szybko identyfikować i diagnozować błędy w aplikacji bez oczekiwania na zgłoszenie ich przez użytkownika. Usługa Application Insights zapewnia zarówno monitorowanie po stronie serwera, jak i funkcje monitorowania po stronie klienta/przeglądarki.
+Usługa Azure Monitor Application Insights umożliwia łatwe monitorowanie dostępności, wydajności i użycia witryny internetowej. Pozwala też szybko identyfikować i diagnozować błędy w aplikacji bez oczekiwania na zgłoszenie ich przez użytkownika. Application Insights udostępnia funkcje monitorowania po stronie serwera i klienta/przeglądarki.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* Witryna sieci Web, do której można dodać sdk JavaScript aplikacji Insights.
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Witryna sieci Web, do której można dodać Application Insights JavaScript SDK.
 
 ## <a name="enable-application-insights"></a>Włączanie usługi Application Insights
 
 Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowolnej aplikacji połączonej z Internetem uruchomionej lokalnie lub w chmurze. Aby rozpocząć wyświetlanie tych danych, wykonaj poniższe czynności.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
-2. Wybierz pozycję Tworzenie > **narzędzi do** > zarządzania **zasobami****Usługi Application Insights**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Wybierz **pozycję Utwórz** > **Management tools** > **Application Insights**narzędzia do zarządzania zasobami.
 
    > [!NOTE]
-   >Jeśli jest to pierwszy raz tworzenia zasobu usługi Application Insights można dowiedzieć się więcej, odwiedzając [tworzenie zasobów usługi Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) artykułu.
+   >Jeśli tworzysz zasób Application Insights, możesz dowiedzieć się więcej, odwiedzając artykuł [Tworzenie zasobu Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) .
 
    Zostanie wyświetlone okno konfiguracji. Wypełnij pola wejściowe, używając poniższej tabeli.
 
     | Ustawienia        | Wartość           | Opis  |
    | ------------- |:-------------|:-----|
-   | **Nazwa**      | Wartość unikatowa w skali globalnej | Nazwa identyfikująca monitorowana aplikacja |
-   | **Grupa zasobów**     | myResourceGroup      | Nazwa nowej grupy zasobów do hosta danych usługi Application Insights. istnieje możliwość utworzenia nowej lub użycia istniejącej grupy zasobów. |
+   | **Nazwa**      | Wartość unikatowa w skali globalnej | Nazwa identyfikująca monitorowaną aplikację |
+   | **Grupa zasobów**     | myResourceGroup      | Nazwa nowej grupy zasobów, która będzie hostować Application Insights dane. istnieje możliwość utworzenia nowej lub użycia istniejącej grupy zasobów. |
    | **Lokalizacja** | Wschodnie stany USA | Wybierz lokalizację w pobliżu Ciebie lub w pobliżu miejsca hostowania aplikacji |
 
 3. Kliknij przycisk **Utwórz**.
@@ -60,9 +60,9 @@ Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowol
     </html>
     ```
 
-## <a name="configure-application-insights-sdk"></a>Konfigurowanie sdk usługi Application Insights
+## <a name="configure-application-insights-sdk"></a>Konfigurowanie Application Insights SDK
 
-1. Wybierz **opcję Przegląd** > **Podstawowe** > skopiuj **klucz instrumentacji**aplikacji .
+1. Wybierz pozycję **Przegląd** > **podstawy** > Skopiuj **klucz Instrumentacji**aplikacji.
 
    ![Formularz nowego zasobu usługi Application Insights](media/website-monitoring/instrumentation-key-001.png)
 
@@ -80,13 +80,13 @@ Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowol
 
 3. Edytuj plik ``hello_world.html`` i dodaj swój klucz instrumentacji.
 
-4. Otwórz plik ``hello_world.html`` w lokalnej sesji przeglądarki. Ta akcja tworzy pojedynczy odsłonę strony. Możesz odświeżyć przeglądarkę, aby wygenerować wiele wyświetleń strony testu.
+4. Otwórz plik ``hello_world.html`` w lokalnej sesji przeglądarki. Ta akcja tworzy pojedynczy pageview. Możesz odświeżyć przeglądarkę, aby wygenerować wiele wyświetleń strony testu.
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Rozpoczynanie monitorowania w witrynie Azure Portal
 
-1. Teraz można ponownie otworzyć stronę **Przegląd usługi** Application Insights w witrynie Azure Portal, aby wyświetlić szczegółowe informacje o aktualnie uruchomionej aplikacji. Na stronie **Przegląd** znajduje się klucz instrumentacji. Cztery domyślne wykresy na stronie przeglądu są ograniczone do danych aplikacji po stronie serwera. Ponieważ instrumentujemy interakcje po stronie klienta/przeglądarki z zestawem JavaScript SDK, ten konkretny widok nie ma zastosowania, chyba że mamy również zainstalowany zestaw SDK po stronie serwera.
+1. Możesz teraz ponownie otworzyć stronę **omówienia** Application Insights w Azure Portal, aby wyświetlić szczegółowe informacje o aktualnie uruchomionej aplikacji. Na stronie Przegląd znajduje się **informacje** o tym, gdzie pobrano klucz Instrumentacji. Cztery domyślne wykresy na stronie przeglądu są ograniczone do danych aplikacji po stronie serwera. Ponieważ przenosimy interakcje po stronie klienta/przeglądarki z zestawem SDK języka JavaScript, ten konkretny widok nie ma zastosowania, chyba że jest zainstalowany zestaw SDK po stronie serwera.
 
-2. Kliknij pozycję ![Ikona mapy aplikacji](media/website-monitoring/006.png) **Analiza**.  Ta akcja otwiera **Analytics**, który zapewnia bogaty język zapytań do analizowania wszystkich danych zebranych przez usługa Application Insights. Aby wyświetlić dane dotyczące żądania przeglądarki po stronie klienta, uruchom następujące zapytanie:
+2. Kliknij pozycję ![Ikona mapy aplikacji](media/website-monitoring/006.png) **Analiza**.  Ta akcja powoduje otwarcie programu **Analytics**, który oferuje bogaty język zapytań umożliwiający analizowanie wszystkich danych zebranych przez Application Insights. Aby wyświetlić dane dotyczące żądania przeglądarki po stronie klienta, uruchom następujące zapytanie:
 
     ```kusto
     // average pageView duration by name
@@ -105,11 +105,11 @@ Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowol
 
    ![Wykres analizy żądań użytkowników w danym okresie](./media/website-monitoring/analytics-query.png)
 
-3. Wróć do strony **Przegląd**. Kliknij pozycję **Przeglądarka** z obszaru nagłówka **Zbadaj**, a następnie wybierz pozycję **Wydajność**, gdzie znajdziesz metryki związane z wydajnością własnej witryny internetowej. Istnieje również odpowiedni widok do analizowania błędów i wyjątków w witrynie. Możesz kliknąć pozycję **Przykłady**, aby przejść do szczegółowych danych poszczególnych transakcji. Z tego miejsca możesz uzyskać dostęp do środowiska [całościowych szczegółów transakcji](../../azure-monitor/app/transaction-diagnostics.md).
+3. Wróć do strony **Przegląd**. Kliknij pozycję **Przeglądarka** z obszaru nagłówka **Zbadaj**, a następnie wybierz pozycję **Wydajność**, gdzie znajdziesz metryki związane z wydajnością własnej witryny internetowej. Istnieje również odpowiedni widok służący do analizowania błędów i wyjątków w witrynie sieci Web. Możesz kliknąć pozycję **Przykłady**, aby przejść do szczegółowych danych poszczególnych transakcji. Z tego miejsca możesz uzyskać dostęp do środowiska [całościowych szczegółów transakcji](../../azure-monitor/app/transaction-diagnostics.md).
 
    ![Wykres metryk serwera](./media/website-monitoring/browser-performance.png)
 
-4. Aby rozpocząć eksplorację [narzędzi analizy zachowania użytkownika](../../azure-monitor/app/usage-overview.md), wybierz z menu głównego usługi Application Insights pozycję [**Użytkownicy**](../../azure-monitor/app/usage-segmentation.md) w obszarze nagłówka **Użycie**. Ponieważ testujemy z jednego komputera, zobaczymy tylko dane dla jednego użytkownika. W przypadku witryny internetowej na żywo dystrybucja użytkowników może wyglądać w następujący sposób:
+4. Aby rozpocząć eksplorację [narzędzi analizy zachowania użytkownika](../../azure-monitor/app/usage-overview.md), wybierz z menu głównego usługi Application Insights pozycję [**Użytkownicy**](../../azure-monitor/app/usage-segmentation.md) w obszarze nagłówka **Użycie**. Ponieważ przeprowadzamy testy z jednej maszyny, zobaczymy tylko dane dla jednego użytkownika. W przypadku witryny internetowej na żywo dystrybucja użytkowników może wyglądać w następujący sposób:
 
      ![Wykres użytkownika](./media/website-monitoring/usage-users.png)
 
@@ -121,13 +121,13 @@ Aby zapoznać się z bardziej zaawansowanymi konfiguracjami do monitorowania wit
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli planujesz kontynuować pracę z dodatkowymi przewodnikami Szybki start lub z samouczkami, nie czyścić zasobów utworzonych w tym przewodniku Szybki start. W przeciwnym razie jeśli nie planujesz kontynuować, użyj następujących kroków, aby usunąć wszystkie zasoby utworzone przez ten szybki start w witrynie Azure portal.
+Jeśli planujesz kontynuować pracę z dodatkowymi przewodnikami szybki start lub samouczkami, nie czyść zasobów utworzonych w tym przewodniku Szybki Start. W przeciwnym razie, jeśli nie planujesz kontynuować pracy, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki Start w Azure Portal.
 
 > [!NOTE]
-> Jeśli użyto istniejącej grupy zasobów, poniższe instrukcje nie będą działać i trzeba będzie po prostu usunąć pojedynczy zasób usługi Application Insights. Pamiętaj, że w każdej chwili usuniesz grupę zasobów, wszystkie zasoby, które są członkami tej grupy, zostaną usunięte.
+> Jeśli użyto istniejącej grupy zasobów, poniższe instrukcje nie będą działać i konieczne będzie tylko usunięcie poszczególnych zasobów Application Insights. Należy pamiętać, że usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów underyling, które są członkami tej grupy.
 
-1. W menu po lewej stronie w witrynie Azure portal kliknij pozycję **Grupy zasobów**, a następnie kliknij **pozycję myResourceGroup** lub nazwę tymczasowej grupy zasobów.
-2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz **myResourceGroup** w polu tekstowym, a następnie kliknij pozycję **Usuń**.
+1. W menu po lewej stronie Azure Portal kliknij pozycję **grupy zasobów**, a następnie kliknij pozycję Moja **resourceer** lub nazwę tymczasowej grupy zasobów.
+2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym pozycję Grupa **zasobów** , a następnie kliknij pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 

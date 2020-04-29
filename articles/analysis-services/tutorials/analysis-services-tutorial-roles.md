@@ -1,6 +1,6 @@
 ---
-title: Samouczek — konfigurowanie ról usług Azure Analysis Services | Dokumenty firmy Microsoft
-description: Dowiedz się, jak skonfigurować role administratora i użytkowników usług Azure Analysis Services przy użyciu portalu Azure lub programu SQL Server Management Studio.
+title: Samouczek — Konfigurowanie ról Azure Analysis Services | Microsoft Docs
+description: Dowiedz się, jak skonfigurować Azure Analysis Services administratorów i ról użytkowników przy użyciu Azure Portal lub SQL Server Management Studio.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
@@ -8,10 +8,10 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: 0bedc88b78f2ac758d3201965425b42b69580719
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81454258"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Samouczek: konfigurowanie ról administratora i użytkowników serwera
@@ -67,7 +67,7 @@ W pozostałych zadaniach użyjesz programu SSMS, aby połączyć się z serwerem
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Dodawanie konta użytkownika do roli administratora serwera
 
-W tym zadaniu dodasz konto użytkownika lub konto grupowe z usługi Azure AD do roli administratora serwera. Jeśli określasz grupę `obj:groupid@tenantid`zabezpieczeń, użyj programu .
+W tym zadaniu dodasz konto użytkownika lub konto grupowe z usługi Azure AD do roli administratora serwera. W przypadku określania grupy zabezpieczeń Użyj `obj:groupid@tenantid`.
 
 1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy nazwę serwera, a następnie kliknij pozycję **Właściwości**. 
 2. W oknie **Właściwości serwera programu Analysis Server** kliknij kolejno pozycje **Zabezpieczenia** > **Dodaj**.
@@ -130,13 +130,13 @@ W tym zadaniu użyjesz polecenia [Create](https://docs.microsoft.com/analysis-se
 ## <a name="verify-your-changes"></a>Sprawdzanie zmian
 
 1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy nazwę serwera, a następnie kliknij pozycję **Odśwież** lub naciśnij klawisz **F5**.
-2. Rozwiń **funkcje** > **adventureworks** > bazy danych**Role**. Sprawdź, czy jest widoczne konto użytkownika wraz ze zmianami ról wprowadzonymi w poprzednich zadaniach.   
+2. Rozwiń węzeł **bazy danych** > **adventureworks** > **role**AdventureWorks. Sprawdź, czy jest widoczne konto użytkownika wraz ze zmianami ról wprowadzonymi w poprzednich zadaniach.   
 
     ![Sprawdzenie w Eksploratorze obiektów](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy konta i role użytkownika lub grupy nie są już potrzebne, można je usunąć. Aby to zrobić, użyj > **funkcji Członkostwo** **właściwości roli,** aby usunąć konta użytkowników, lub kliknij prawym przyciskiem myszy rolę, a następnie kliknij polecenie **Usuń**.
+Gdy konta i role użytkownika lub grupy nie są już potrzebne, można je usunąć. W tym celu należy użyć > **przynależności** do **właściwości roli**, aby usunąć konta użytkowników, lub kliknij prawym przyciskiem myszy rolę, a następnie kliknij pozycję **Usuń**.
 
 
 ## <a name="next-steps"></a>Następne kroki

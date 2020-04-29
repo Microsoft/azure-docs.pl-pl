@@ -1,6 +1,6 @@
 ---
-title: Metryki usługi Azure Monitor dla bramy aplikacji
-description: Dowiedz się, jak używać danych do monitorowania wydajności bramy aplikacji
+title: Metryki Azure Monitor dla Application Gateway
+description: Dowiedz się, jak używać metryk do monitorowania wydajności bramy aplikacji
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
@@ -8,237 +8,237 @@ ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
 ms.openlocfilehash: ebbdda39f019f374f8e5abe951d0180c0dd453f6
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81457879"
 ---
-# <a name="metrics-for-application-gateway"></a>Metryki bramy aplikacji
+# <a name="metrics-for-application-gateway"></a>Metryki dla Application Gateway
 
-Brama aplikacji publikuje punkty danych, nazywane metrykami, w [usłudze Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) w celu uzyskania wydajności wystąpień bramy aplikacji i wewnętrznej bazy danych. Te metryki są wartościami liczbowymi w uporządkowanym zestawie danych szeregów czasowych, które opisują niektóre aspekty bramy aplikacji w określonym czasie. Jeśli istnieją żądania przepływające przez bramę aplikacji, mierzy i wysyła jej metryki w odstępach 60-sekundowych. Jeśli nie ma żadnych żądań przepływających przez bramę aplikacji lub brak danych dla metryki, metryka nie jest zgłaszana. Aby uzyskać więcej informacji, zobacz [metryki usługi Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Application Gateway publikuje punkty danych o nazwie Metrics, aby [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) wydajności Application Gateway i wystąpień zaplecza. Te metryki to wartości liczbowe w uporządkowanym zestawie danych szeregów czasowych, które opisują kilka aspektów bramy aplikacji w danym momencie. Jeśli istnieją żądania przepływające przez Application Gateway, miary i wysyłają metryki w 60 sekund. Jeśli nie ma żadnych żądań przepływających przez Application Gateway lub Brak danych dla metryki, Metryka nie zostanie zgłoszona. Aby uzyskać więcej informacji, zobacz [Azure monitor metryki](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
 
-## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Metryki obsługiwane przez jednostkę SKU bramy aplikacji w wersji 2
+## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Metryki obsługiwane przez jednostkę SKU Application Gateway v2
 
 ### <a name="timing-metrics"></a>Metryki chronometrażu
 
-Brama aplikacji zawiera kilka wbudowanych metryk chronometrażu związanych z żądaniem i odpowiedzią, które są mierzone w milisekundach. 
+Application Gateway zapewnia kilka wbudowanych metryk czasu związanych z żądaniem i odpowiedzią, które są mierzone w milisekundach. 
 
 ![](./media/application-gateway-metrics/application-gateway-metrics.png)
 
 > [!NOTE]
 >
-> Jeśli w bramie aplikacji znajduje się więcej niż jeden odbiornik, zawsze filtruj według wymiaru *odbiornika,* porównując różne metryki opóźnienia, aby uzyskać znaczące wnioskowanie.
+> Jeśli w Application Gateway znajduje się więcej niż jeden odbiornik, zawsze Przefiltruj według wymiaru *odbiornika* , porównując różne metryki opóźnienia w celu uzyskania zrozumiałego wnioskowania.
 
-- **Czas połączenia wewnętrznej bazy danych**
+- **Czas połączenia z zapleczem**
 
-  Czas spędzony na nawiązywaniu połączenia z aplikacją wewnętrznej bazy danych. 
+  Czas nawiązywania połączenia z aplikacją zaplecza. 
 
-  Obejmuje to opóźnienie sieci, a także czas pochłonięcia stosu TCP serwera wewnętrznej bazy danych w celu nawiązania nowych połączeń. W przypadku protokołu TLS zawiera również czas poświęcony na uzgadnianie. 
+  Obejmuje to opóźnienie sieci, a także czas potrzebny przez stos TCP serwera wewnętrznej bazy danych do ustanowienia nowych połączeń. W przypadku protokołu TLS obejmuje również czas potrzebny na uzgodnienie. 
 
-- **Czas odpowiedzi pierwszego bajtu wewnętrznej bazy danych**
+- **Czas odpowiedzi na pierwszy bajt zaplecza**
 
-  Przedział czasu między rozpoczęciem ustanawiania połączenia z serwerem wewnętrznej bazy danych a odbieraniem pierwszego bajtu nagłówka odpowiedzi. 
+  Interwał czasu między rozpoczęciem ustanawiania połączenia z serwerem zaplecza i otrzymywania pierwszego bajtu nagłówka odpowiedzi. 
 
-  To przybliża sumę *czasu połączenia wewnętrznej bazy danych,* czasu czasu, który został odebrany przez żądanie, aby dotrzeć do wewnętrznej bazy danych z bramy aplikacji, czasu poświęconego przez aplikację wewnętrznej bazy danych w celu udzielenia odpowiedzi (czas, który serwer potrzebował do wygenerowania zawartości, potencjalnie pobrać zapytania bazy danych) oraz czasu, który został pobrany przez pierwszy bajt odpowiedzi, aby dotrzeć do bramy aplikacji z wewnętrznej bazy danych.
+  Jest to przybliżona suma *czasu łączenia zaplecza*, czasu podejmowanego przez żądanie do osiągnięcia wewnętrznej bazy danych z Application Gateway, czas trwania przez aplikację zaplecza (czas, w którym serwer wygenerował zawartość, potencjalnie pobierane kwerendy bazy danych) i czas potrzebny na pierwszy bajt odpowiedzi w celu uzyskania dostępu do Application Gateway z zaplecza.
 
 - **Czas odpowiedzi ostatniego bajtu wewnętrznej bazy danych**
 
-  Przedział czasu między rozpoczęciem ustanawiania połączenia z serwerem wewnętrznej bazy danych a odbieraniem ostatniego bajtu treści odpowiedzi. 
+  Przedział czasu między rozpoczęciem ustanawiania połączenia z serwerem zaplecza i otrzymywania ostatniego bajtu treści odpowiedzi. 
 
-  Przybliża to sumę *czasu odpowiedzi pierwszego bajtów bazy danych* i czasu transferu danych (liczba ta może się znacznie różnić w zależności od żądanego rozmiaru obiektów i opóźnienia sieci serwera).
+  Jest to w przybliżeniu suma *czasu odebrania z zaplecza pierwszego bajtu odpowiedzi* oraz czasu transferu danych (ta liczba może się znacząco różnić w zależności od rozmiaru żądanych obiektów oraz opóźnienia w sieci serwera).
 
-- **Całkowita liczba bram aplikacji**
+- **Łączny czas bramy aplikacji**
 
-  Średni czas potrzebny na odebranie, przetworzenie i wysłanie odpowiedzi na żądanie. 
+  Średni czas odbierania i przetwarzania żądania oraz jego odpowiedź na wysłanie. 
 
-  Jest to interwał od momentu, gdy brama aplikacji odbiera pierwszy bajt żądania HTTP do czasu, gdy ostatni bajt odpowiedzi został wysłany do klienta. Obejmuje to czas przetwarzania przez bramę aplikacji, *czas odpowiedzi ostatniego bajtów wewnętrznej bazy*danych, czas wykonany przez bramę aplikacji w celu wysłania całej odpowiedzi i *rtt klienta.*
+  Jest to interwał od momentu odebrania przez Application Gateway pierwszego bajtu żądania HTTP do momentu wysłania ostatniego bajtu odpowiedzi do klienta. Dotyczy to również czasu przetwarzania wykonywanego przez Application Gateway, *czas odpowiedzi ostatniego bajtu*, czas wykonania przez Application Gateway, aby wysłać całą odpowiedź i *RTT klienta*.
 
-- **RtT klienta**
+- **Czas RTT klienta**
 
-  Średni czas podróży w obie strony między klientami a bramą aplikacji.
+  Średni czas błądzenia między klientami a Application Gateway.
 
 
 
-Metryki te mogą służyć do określenia, czy obserwowane spowolnienie jest spowodowane siecią klienta, wydajność bramy aplikacji, sieci wewnętrznej bazy danych i serwera wewnętrznej bazy danych TCP stosu nasycenia, wydajność aplikacji wewnętrznej bazy danych lub duży rozmiar pliku.
+Te metryki mogą służyć do określenia, czy obserwowane spowolnienie jest spowodowane przez sieć klienta, Application Gateway wydajność, nasycenie stosu TCP sieci i zaplecza, wydajność aplikacji zaplecza lub duży rozmiar pliku.
 
-Na przykład Jeśli istnieje skok w wewnętrznej bazy danych pierwszy trend *czasu odpowiedzi bajtów,* ale *trend czasu połączenia wewnętrznej bazy danych* jest stabilny, następnie można wywnioskować, że brama aplikacji do opóźnienia wewnętrznej bazy danych i czas przeznaczony do ustanowienia połączenia jest stabilny, a skok jest spowodowane ze względu na wzrost czasu odpowiedzi aplikacji wewnętrznej bazy danych. Z drugiej strony, jeśli skok w *czas odpowiedzi pierwszego bajtu bazy danych* jest skojarzony z odpowiednim skokiem w czasie połączenia wewnętrznej bazy *danych,* można wywnioskować, że sieć między bramą aplikacji a serwerem wewnętrznej bazy danych lub stos TCP serwera wewnętrznej bazy danych jest nasycony. 
+Na przykład, jeśli występuje wzrost trendu *czasu odpowiedzi na pierwszy bajt z zaplecza* , ale trend *czasu połączenia zaplecza* jest stabilny, można wywnioskować, że czas oczekiwania bramy aplikacji na zaplecze, a termin nawiązywania połączenia jest stabilny, a skok jest spowodowany zwiększeniem czasu odpowiedzi aplikacji zaplecza. Z drugiej strony, jeśli wartość w polu *czas odpowiedzi pierwszego bajtu w zapleczu* jest skojarzona z odpowiednim skokiem w *czasie połączenia zaplecza*, można ustalić, czy sieć między Application Gateway i serwerem zaplecza lub stosem TCP serwera wewnętrznej bazy danych zakończyła się nasyceniem. 
 
-Jeśli zauważysz skok w *wewnętrznej bazy danych ostatni czas odpowiedzi bajtów,* ale *backend pierwszy czas odpowiedzi bajtów* jest stabilny, a następnie można wywnioskować, że skok jest ze względu na większy plik żądany.
+Jeśli zauważysz wzrost w *czasie odpowiedzi ostatniego bajtu* , ale *czas odpowiedzi pierwszego bajtu zaplecze* jest stabilny, można ustalić, że skok jest spowodowany większym żądanym plikiem.
 
-Podobnie jeśli *całkowita liczba czasu bramy aplikacji* ma skok, ale czas odpowiedzi *ostatniego bajtu wewnętrznej bazy danych* jest stabilny, może to być oznaką wąskiego gardła wydajności w bramie aplikacji lub wąskim gardłem w sieci między klientem a bramą aplikacji. Ponadto jeśli *rtt klienta* ma również odpowiednie skok, a następnie wskazuje, że degradacja jest ze względu na sieć między klientem i bramy aplikacji.
+Analogicznie, jeśli *łączny czas w usłudze Application Gateway* ma wartość skok, ale *czas odpowiedzi ostatniego bajtu* w zasobie jest stabilny, może to być znak wąskiego gardła wydajności w Application Gateway lub wąskie gardło w sieci między klientem i Application Gateway. Ponadto, jeśli plik *RTT klienta* ma również odpowiedni skok, oznacza to, że spadek wydajności jest spowodowany przez sieć między klientem a Application Gateway.
 
-### <a name="application-gateway-metrics"></a>Metryki bramy aplikacji
+### <a name="application-gateway-metrics"></a>Metryki Application Gateway
 
-W przypadku bramy aplikacji dostępne są następujące metryki:
+W przypadku Application Gateway dostępne są następujące metryki:
 
 - **Odebrane bajty**
 
-   Liczba bajtów odebranych przez bramę aplikacji od klientów
+   Liczba bajtów odebranych przez Application Gateway od klientów
 
 - **Wysłane bajty**
 
-   Liczba bajtów wysłanych przez bramę aplikacji do klientów
+   Liczba bajtów wysłanych przez Application Gateway do klientów
 
 - **Protokół TLS klienta**
 
-   Liczba żądań TLS i innych niż TLS zainicjowanych przez klienta, który nawiązał połączenie z bramą aplikacji. Aby wyświetlić dystrybucję protokołu TLS, filtruj według wymiaru protokołu TLS.
+   Liczba żądań TLS i innych niż TLS zainicjowanych przez klienta, które ustanowiły połączenie z Application Gateway. Aby wyświetlić dystrybucję protokołu TLS, należy filtrować według protokołu TLS wymiaru.
 
-- **Obecne jednostki pojemności**
+- **Jednostki bieżącej wydajności**
 
-   Liczba jednostek pojemności zużytych do równoważenia obciążenia ruchu. Istnieją trzy determinanty jednostki pojemności - jednostka obliczeniowa, połączenia trwałe i przepływność. Każda jednostka pojemności składa się co najwyżej z: 1 jednostki obliczeniowej lub 2500 połączeń trwałych lub przepustowości 2,22 Mb/s.
+   Liczba jednostek wydajności użytych do równoważenia obciążenia ruchu. Istnieją trzy uwarunkowania jednostek wydajności — jednostka obliczeniowa, trwałe połączenia i przepływność. Każda jednostka pojemności składa się z maksymalnie: 1 jednostki obliczeniowej lub 2500 połączeń trwałych lub przepływności 2,22 MB/s.
 
 - **Bieżące jednostki obliczeniowe**
 
-   Liczba zużywanej pojemności procesora. Czynniki wpływające na jednostkę obliczeniową to połączenia TLS/s, obliczenia ponownego zapisu adresu URL i przetwarzanie reguł WAF. 
+   Liczba zużytych pojemności procesora. Czynniki wpływające na jednostki obliczeniowe to liczba połączeń TLS/s, obliczenia ponownego zapisu adresu URL oraz przetwarzanie reguł zapory aplikacji internetowej. 
 
 - **Bieżące połączenia**
 
-   Całkowita liczba równoczesnych połączeń aktywnych z klientów do bramy aplikacji
+   Całkowita liczba jednoczesnych połączeń aktywnych od klientów do Application Gateway
    
-- **Szacowane rozliczane jednostki pojemności**
+- **Szacowane rozliczane jednostki wydajności**
 
-  W jednostce SKU w wersji 2 model cenowy jest napędzany przez zużycie. Jednostki pojemności mierzą koszt oparty na zużyciu, który jest naliczany dodatkowo do kosztu stałego. *Szacowane jednostki rozliczanej pojemności* wskazują liczbę jednostek pojemności, za pomocą których jest szacowane. Jest to obliczane jako większa wartość między *bieżącymi jednostkami pojemności* (jednostki pojemności wymagane do zrównoważenia obciążenia ruchu) a *stałymi jednostkami zdolności produkcyjnych rozliczanymi* (jednostki minimalnej pojemności są aprowizowane).
+  W przypadku jednostki SKU w wersji 2 model cen zależy od użycia. Jednostki wydajności mierzą koszt w zależności od użycia, naliczany dodatkowo wobec kosztu stałego. *Szacowana liczba jednostek wydajności* wskazuje liczbę jednostek wydajności, przy użyciu których szacuje się rozliczanie. Oblicza się je na podstawie większej z dwóch wartości: liczby *jednostek bieżącej wydajności* (jednostek wydajności wymaganych do równoważenia obciążenia ruchu) oraz *jednostek stałej wydajności rozliczanej* (minimalnej aprowizowanej liczby jednostek wydajności).
 
-- **Żądania zakończone niepowodzeniem**
+- **Nieudane żądania**
 
-  Liczba żądań obsługiwanych przez bramę aplikacji z kodami błędów serwera 5xx. Obejmuje to kody 5xx, które są generowane z bramy aplikacji, a także kody 5xx, które są generowane z wewnętrznej bazy danych. Liczba żądań może być dalej filtrowane, aby pokazać liczbę na każdy/konkretne zaplecza pool-http kombinacji ustawień.
+  Liczba żądań obsłużonych przez Application Gateway z kodami błędów serwera 5xx. Obejmuje to kody 5xx, które są generowane na podstawie Application Gateway, a także kody 5xx, które są generowane na podstawie zaplecza. Liczbę żądań można w dalszej odfiltrować, aby pokazać liczbę dla każdej lub określonej puli zaplecza — kombinację ustawień http.
    
-- **Stałe jednostki mocy wyładowowej do wyładowania**
+- **Jednostki stałej wydajności rozliczanej**
 
-  Minimalna liczba jednostek pojemności przechowywane aprowizowana zgodnie z *ustawieniem minimalne jednostki skali* (jedno wystąpienie przekłada się na 10 jednostek pojemności) w konfiguracji bramy aplikacji.
+  Minimalna aprowizowana liczba jednostek wydajności zgodnie z ustawieniem *Minimalna liczba jednostek skalowania* (jedno wystąpienie przekłada się na 10 jednostek wydajności) w konfiguracji usługi Application Gateway.
    
  - **Nowe połączenia na sekundę**
 
-   Średnia liczba nowych połączeń TCP na sekundę nawiązywała od klientów do bramy aplikacji i od bramy aplikacji do członków wewnętrznej bazy danych.
+   Średnia liczba nowych połączeń TCP na sekundę ustanowionych od klientów do Application Gateway oraz z Application Gateway do członków zaplecza.
 
 
 - **Stan odpowiedzi**
 
-   Stan odpowiedzi HTTP zwrócony przez bramę aplikacji. Dystrybucja kodu stanu odpowiedzi może być dalej klasyfikowana w celu wyświetlania odpowiedzi w kategoriach 2xx, 3xx, 4xx i 5xx.
+   Stan odpowiedzi HTTP zwrócony przez Application Gateway. Rozkład kodu stanu odpowiedzi można dodatkowo podzielić na odpowiedzi w kategoriach 2xx, 3xx, 4xx i 5xx.
 
 - **Przepływność**
 
-   Liczba bajtów na sekundę, które obsługiwała brama aplikacji
+   Liczba bajtów na sekundę obsłużonych przez Application Gateway
 
 - **Łączna liczba żądań**
 
-   Liczba pomyślnych żądań obsługiwanych przez bramę aplikacji. Liczba żądań może być dalej filtrowane, aby pokazać liczbę na każdy/konkretne zaplecza pool-http kombinacji ustawień.
+   Liczba pomyślnych żądań obsłużonych przez Application Gateway. Liczbę żądań można w dalszej odfiltrować, aby pokazać liczbę dla każdej lub określonej puli zaplecza — kombinację ustawień http.
 
-### <a name="backend-metrics"></a>Metryki wewnętrznej bazy danych
+### <a name="backend-metrics"></a>Metryki zaplecza
 
-W przypadku bramy aplikacji dostępne są następujące metryki:
+W przypadku Application Gateway dostępne są następujące metryki:
 
-- **Stan odpowiedzi wewnętrznej bazy danych**
+- **Stan odpowiedzi zaplecza**
 
-  Liczba kodów stanu odpowiedzi HTTP zwracanych przez zaplecze. Nie obejmuje to żadnych kodów odpowiedzi generowanych przez bramę aplikacji. Dystrybucja kodu stanu odpowiedzi może być dalej klasyfikowana w celu wyświetlania odpowiedzi w kategoriach 2xx, 3xx, 4xx i 5xx.
+  Liczba kodów stanu odpowiedzi HTTP zwracanych przez sekwencje końcowe. Nie obejmuje to żadnych kodów odpowiedzi wygenerowanych przez Application Gateway. Rozkład kodu stanu odpowiedzi można dodatkowo podzielić na odpowiedzi w kategoriach 2xx, 3xx, 4xx i 5xx.
 
 - **Liczba hostów w dobrej kondycji**
 
-  Liczba zaplecza, które są określane w dobrej kondycji przez sondę kondycji. Można filtrować na podstawie puli wewnętrznej bazy danych, aby wyświetlić liczbę hostów w dobrej kondycji w określonej puli wewnętrznej bazy danych.
+  Liczba punktów końcowych, które są określone w dobrej kondycji przez sondę kondycji. Można filtrować według poszczególnych pul zaplecza, aby wyświetlić liczbę hostów w dobrej kondycji w określonej puli zaplecza.
 
 - **Liczba hostów w złej kondycji**
 
-  Liczba zaplecza, które są określane w złej kondycji przez sondę kondycji. Można filtrować na podstawie puli wewnętrznej bazy danych, aby wyświetlić liczbę niezdrowych hostów w określonej puli zaplecza.
+  Liczba punktów końcowych, które są określone w złej kondycji przez sondę kondycji. Można filtrować według jednej puli zaplecza, aby wyświetlić liczbę hostów w złej kondycji w określonej puli zaplecza.
   
-- **Żądania na minutę na zdrowego hosta**
+- **Liczba żądań na minutę na hosta w dobrej kondycji**
 
-  Średnia liczba żądań odebranych przez każdego członka w dobrej kondycji w puli wewnętrznej bazy danych w ciągu minuty. Należy określić pulę wewnętrznej bazy danych przy użyciu wymiaru *HttpSettings wewnętrznej bazy danych.*  
+  Średnia liczba żądań odebranych przez każdy element członkowski dobrej kondycji w puli zaplecza w ciągu minuty. Należy określić pulę zaplecza przy użyciu wymiaru *ustawień httpsettings elementu backendpool* .  
   
 
-## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Metryki obsługiwane przez jednostkę SKU bramy aplikacji w wersji 1
+## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Metryki obsługiwane przez jednostkę SKU Application Gateway v1
 
-### <a name="application-gateway-metrics"></a>Metryki bramy aplikacji
+### <a name="application-gateway-metrics"></a>Metryki Application Gateway
 
-W przypadku bramy aplikacji dostępne są następujące metryki:
+W przypadku Application Gateway dostępne są następujące metryki:
 
 - **Wykorzystanie procesora**
 
-  Wyświetla wykorzystanie procesorów przydzielonych do bramy aplikacji.  W normalnych warunkach użycie procesora CPU nie powinno regularnie przekraczać 90%, ponieważ może to spowodować opóźnienie w witrynach sieci Web hostowanych za bramą aplikacji i zakłócić działanie klienta. Można pośrednio kontrolować lub poprawić wykorzystanie procesora CPU, modyfikując konfigurację bramy aplikacji, zwiększając liczbę wystąpień lub przenosząc się do większego rozmiaru jednostki SKU lub wykonując oba te elementy.
+  Wyświetla użycie procesorów przydzielonych do usługi Application Gateway.  W normalnych warunkach użycie procesora nie powinno regularnie przekraczać 90%, ponieważ może to powodować opóźnienie w witrynach internetowych hostowanych za bramą aplikacji i zakłócać środowisko klienta. Można pośrednio kontrolować lub poprawić użycie procesora, modyfikując konfigurację usługi Application Gateway w celu zwiększenia liczby wystąpień, przechodząc na większy rozmiar jednostki SKU lub stosując oba rozwiązania jednocześnie.
 
 - **Bieżące połączenia**
 
-  Liczba bieżących połączeń nawiązanych za pomocą bramy aplikacji
+  Liczba bieżących połączeń ustanowionych z Application Gateway
 
-- **Żądania zakończone niepowodzeniem**
+- **Nieudane żądania**
 
-  Liczba żądań obsługiwanych przez bramę aplikacji z kodami błędów serwera 5xx. Obejmuje to kody 5xx, które są generowane z bramy aplikacji, a także kody 5xx, które są generowane z wewnętrznej bazy danych. Liczba żądań może być dalej filtrowane, aby pokazać liczbę na każdy/konkretne zaplecza pool-http kombinacji ustawień.
+  Liczba żądań obsłużonych przez Application Gateway z kodami błędów serwera 5xx. Obejmuje to kody 5xx, które są generowane na podstawie Application Gateway, a także kody 5xx, które są generowane na podstawie zaplecza. Liczbę żądań można w dalszej odfiltrować, aby pokazać liczbę dla każdej lub określonej puli zaplecza — kombinację ustawień http.
 
 - **Stan odpowiedzi**
 
-  Stan odpowiedzi HTTP zwrócony przez bramę aplikacji. Dystrybucja kodu stanu odpowiedzi może być dalej klasyfikowana w celu wyświetlania odpowiedzi w kategoriach 2xx, 3xx, 4xx i 5xx.
+  Stan odpowiedzi HTTP zwrócony przez Application Gateway. Rozkład kodu stanu odpowiedzi można dodatkowo podzielić na odpowiedzi w kategoriach 2xx, 3xx, 4xx i 5xx.
 
 - **Przepływność**
 
-  Liczba bajtów na sekundę, które obsługiwała brama aplikacji
+  Liczba bajtów na sekundę obsłużonych przez Application Gateway
 
 - **Łączna liczba żądań**
 
-  Liczba pomyślnych żądań obsługiwanych przez bramę aplikacji. Liczba żądań może być dalej filtrowane, aby pokazać liczbę na każdy/konkretne zaplecza pool-http kombinacji ustawień.
+  Liczba pomyślnych żądań obsłużonych przez Application Gateway. Liczbę żądań można w dalszej odfiltrować, aby pokazać liczbę dla każdej lub określonej puli zaplecza — kombinację ustawień http.
 
 - **Liczba zablokowanych żądań zapory aplikacji sieci Web**
-- **Dystrybucja zablokowanych żądań zapory aplikacji sieci Web**
-- **Dystrybucja reguły całkowita zapory aplikacji sieci Web**
+- **Dystrybucja żądań zablokowanych przez zaporę aplikacji sieci Web**
+- **Dystrybucja reguł dla zapory aplikacji sieci Web**
 
-### <a name="backend-metrics"></a>Metryki wewnętrznej bazy danych
+### <a name="backend-metrics"></a>Metryki zaplecza
 
-W przypadku bramy aplikacji dostępne są następujące metryki:
+W przypadku Application Gateway dostępne są następujące metryki:
 
 - **Liczba hostów w dobrej kondycji**
 
-  Liczba zaplecza, które są określane w dobrej kondycji przez sondę kondycji. Można filtrować na podstawie puli wewnętrznej bazy danych, aby wyświetlić liczbę hostów w dobrej kondycji w określonej puli wewnętrznej bazy danych.
+  Liczba punktów końcowych, które są określone w dobrej kondycji przez sondę kondycji. Można filtrować według poszczególnych pul zaplecza, aby wyświetlić liczbę hostów w dobrej kondycji w określonej puli zaplecza.
 
 - **Liczba hostów w złej kondycji**
 
-  Liczba zaplecza, które są określane w złej kondycji przez sondę kondycji. Można filtrować na podstawie puli wewnętrznej bazy danych, aby wyświetlić liczbę niezdrowych hostów w określonej puli zaplecza.
+  Liczba punktów końcowych, które są określone w złej kondycji przez sondę kondycji. Można filtrować według jednej puli zaplecza, aby wyświetlić liczbę hostów w złej kondycji w określonej puli zaplecza.
 
 ## <a name="metrics-visualization"></a>Wizualizacja metryk
 
-Przejdź do bramy aplikacji w obszarze **Monitorowanie** wybranych **metryk**. Aby wyświetlić dostępne wartości, wybierz listę rozwijaną **METRYKA**.
+Przejdź do bramy aplikacji, w obszarze **monitorowanie** wybierz pozycję **metryki**. Aby wyświetlić dostępne wartości, wybierz listę rozwijaną **METRYKA**.
 
-Na poniższej ilustracji przedstawiono przykład z trzema metrykami wyświetlanymi w ciągu ostatnich 30 minut:
+Na poniższej ilustracji przedstawiono przykład z trzema metrykami wyświetlonymi w ciągu ostatnich 30 minut:
 
 [![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
-Aby wyświetlić bieżącą listę metryk, zobacz [Obsługiwane metryki za pomocą usługi Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+Aby wyświetlić bieżącą listę metryk, zobacz temat [obsługiwane metryki z Azure monitor](../azure-monitor/platform/metrics-supported.md).
 
-### <a name="alert-rules-on-metrics"></a>Reguły alertów dotyczące metryk
+### <a name="alert-rules-on-metrics"></a>Reguły alertów dla metryk
 
-Można uruchomić reguły alertów na podstawie metryk dla zasobu. Na przykład alert może wywołać element webhook lub e-mail administratora, jeśli przepływność bramy aplikacji jest powyżej, poniżej lub na progu dla określonego okresu.
+Reguły alertów można uruchomić na podstawie metryk dla zasobu. Na przykład alert może wywołać element webhook lub wysłać wiadomość e-mail do administratora, jeśli przepływność bramy aplikacji jest powyżej, poniżej lub w określonym przedziale czasu.
 
-W poniższym przykładzie przedstawiono tworzenie reguły alertu, która wysyła wiadomość e-mail do administratora po przekroczeniu przez przepływność progu:
+Poniższy przykład przeprowadzi Cię przez proces tworzenia reguły alertu, która wysyła wiadomość e-mail do administratora po naruszeniu przez przepływność wartości progowej:
 
-1. Wybierz **pozycję Dodaj alert metryki,** aby otworzyć stronę Dodaj **regułę.** Możesz również dotrzeć do tej strony na stronie metryki.
+1. Wybierz pozycję **Dodaj alert metryki** , aby otworzyć stronę **Dodawanie reguły** . Możesz również uzyskać dostęp do tej strony ze strony metryki.
 
-   ![Przycisk "Dodaj alert metryczny"][6]
+   ![Przycisk "Dodaj alert dotyczący metryki"][6]
 
-2. Na stronie **Dodaj regułę** wypełnij sekcje nazwa, warunek i powiadom, a następnie wybierz przycisk **OK**.
+2. Na stronie **Dodawanie reguły** Wypełnij sekcje nazwa, warunek i powiadomienie, a następnie wybierz **przycisk OK**.
 
-   * W selektorze **Condition** wybierz jedną z czterech wartości: **Większa niż**, Większa **lub równa**, Mniejsza **niż**lub Mniejsza **lub równa**.
+   * W selektorze **warunku** wybierz jedną z czterech wartości: **większe**niż, **większe niż lub równe**, **mniejsze niż**lub **mniejsze niż lub równe**.
 
-   * W selektorze **Okres** wybierz okres od pięciu minut do sześciu godzin.
+   * W selektorze **okresu** Wybierz okres z pięciu minut do 6 godzin.
 
-   * Jeśli wybierzesz **właścicieli wiadomości e-mail, współautorów i czytelników,** wiadomość e-mail może być dynamiczna na podstawie użytkowników, którzy mają dostęp do tego zasobu. W przeciwnym razie można udostępnić oddzieloną przecinkami listę użytkowników w polu **Dodatkowe wiadomości e-mail administratora.**
+   * W przypadku wybrania opcji **właściciele, współautorzy i czytelnicy poczty**e-mail wiadomość e-mail może być dynamiczna na podstawie użytkowników, którzy mają dostęp do tego zasobu. W przeciwnym razie można podać listę użytkowników z rozdzieloną przecinkami w polu **dodatkowe adresy e-mail administratora** .
 
-   ![Dodawanie strony reguły][7]
+   ![Dodaj stronę reguły][7]
 
-Jeśli próg zostanie przekroczony, nadejdzie wiadomość e-mail podobna do tej na poniższej ilustracji:
+W przypadku naruszenia progu wiadomości e-mail podobnej do tej na poniższej ilustracji przychodzą:
 
-![Wiadomość e-mail z powodu przekroczonego progu][8]
+![Adres e-mail pod kątem naruszenia progu][8]
 
-Po utworzeniu alertu metrycznego pojawi się lista alertów. Zawiera przegląd wszystkich reguł alertów.
+Po utworzeniu alertu dotyczącego metryki pojawia się lista alertów. Zawiera przegląd wszystkich reguł alertów.
 
-![Lista wpisów i reguł][9]
+![Lista alertów i reguł][9]
 
-Aby dowiedzieć się więcej o powiadomieniach o alertach, zobacz [Odbieranie powiadomień o alertach](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Aby dowiedzieć się więcej na temat powiadomień o alertach, zobacz [Odbieranie powiadomień o alertach](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
-Aby dowiedzieć się więcej o elementach webhook i jak można ich używać z alertami, odwiedź stronę [Konfigurowanie elementu webhook w alertie metryki platformy Azure.](../azure-monitor/platform/alerts-webhooks.md)
+Aby dowiedzieć się więcej o elementach webhook i sposobach ich użycia z alertami, odwiedź stronę [Konfigurowanie elementu webhook w ramach alertu dotyczącego metryki platformy Azure](../azure-monitor/platform/alerts-webhooks.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Wizualizuj dzienniki liczników i zdarzeń przy użyciu [dzienników usługi Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
-* [Wizualizuj swój dziennik aktywności platformy Azure za pomocą](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) wpisu w blogu usługi Power BI.
-* [Wyświetlanie i analizowanie dzienników aktywności platformy Azure w usłudze Power BI i innych wpisach](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) w blogu.
+* Wizualizuj dzienniki liczników i zdarzeń przy użyciu [dzienników Azure monitor](../azure-monitor/insights/azure-networking-analytics.md).
+* [Wizualizuj dziennik aktywności platformy Azure przy użyciu wpisu w blogu Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) .
+* [Wyświetlanie i analizowanie dzienników aktywności platformy Azure w Power BI i więcej wpisów w](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogu.
 
 [1]: ./media/application-gateway-diagnostics/figure1.png
 [2]: ./media/application-gateway-diagnostics/figure2.png

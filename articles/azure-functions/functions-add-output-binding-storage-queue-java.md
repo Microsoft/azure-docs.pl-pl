@@ -1,39 +1,39 @@
 ---
-title: Łączenie funkcji Java z usługą Azure Storage
-description: Dowiedz się, jak połączyć z usługą Azure Storage funkcję Java wyzwalaną przez protokół HTTP przy użyciu powiązania danych wyjściowych magazynu kolejki.
+title: Łączenie funkcji języka Java z usługą Azure Storage
+description: Dowiedz się, jak połączyć funkcję Java wyzwalaną przez protokół HTTP z usługą Azure Storage przy użyciu powiązania wyjściowego magazynu kolejki.
 author: KarlErickson
 ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
 ms.openlocfilehash: d9815fd27a57acc8b418962e610d2ae1c106edde
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80673285"
 ---
-# <a name="connect-your-java-function-to-azure-storage"></a>Łączenie funkcji Java z usługą Azure Storage
+# <a name="connect-your-java-function-to-azure-storage"></a>Łączenie funkcji języka Java z usługą Azure Storage
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-W tym artykule pokazano, jak zintegrować funkcję utworzoną w [poprzednim artykule szybki start](functions-create-first-java-maven.md) z kolejką usługi Azure Storage. Powiązanie danych wyjściowych, które można dodać do tej funkcji zapisuje dane z żądania HTTP do wiadomości w kolejce.
+W tym artykule pokazano, jak zintegrować funkcję utworzoną w [poprzednim artykule szybki start](functions-create-first-java-maven.md) z kolejką usługi Azure Storage. Powiązanie danych wyjściowych dodawane do tej funkcji zapisuje dane z żądania HTTP do wiadomości w kolejce.
 
-Większość powiązań wymaga przechowywanego ciągu połączenia, którego funkcja używa do uzyskiwania dostępu do usługi powiązanej. Aby ułatwić to połączenie, należy użyć konta Magazyn utworzonego za pomocą aplikacji funkcji. Połączenie z tym kontem jest już `AzureWebJobsStorage`przechowywane w ustawieniach aplikacji o nazwie .  
+Większość powiązań wymaga przechowywanych parametrów połączenia używanych przez funkcje do uzyskiwania dostępu do usługi powiązanej. Aby ułatwić to połączenie, użyj konta magazynu utworzonego za pomocą aplikacji funkcji. Połączenie z tym kontem jest już przechowywane w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem tego artykułu wykonaj kroki opisane w [części 1 przewodnika Java Szybki start](functions-create-first-java-maven.md).
+Przed rozpoczęciem tego artykułu wykonaj kroki opisane w [części 1 przewodnika Szybki Start dotyczącej języka Java](functions-create-first-java-maven.md).
 
 ## <a name="download-the-function-app-settings"></a>Pobierz ustawienia aplikacji funkcji
 
 [!INCLUDE [functions-app-settings-download-cli](../../includes/functions-app-settings-download-local-cli.md)]
 
-## <a name="enable-extension-bundles"></a>Włączanie pakietów rozszerzeń
+## <a name="enable-extension-bundles"></a>Włącz zbiory rozszerzeń
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-Teraz można dodać powiązanie danych wyjściowych magazynu do projektu.
+Teraz możesz dodać powiązanie danych wyjściowych magazynu do projektu.
 
 ## <a name="add-an-output-binding"></a>Dodawanie powiązania danych wyjściowych
 
@@ -45,11 +45,11 @@ Teraz można dodać powiązanie danych wyjściowych magazynu do projektu.
 
 [!INCLUDE [functions-add-output-binding-java-test-cli](../../includes/functions-add-output-binding-java-test-cli.md)]
 
-Teraz możesz przystąpić do lokalnego wypróbowania nowego powiązania danych wyjściowych.
+Teraz możesz przystąpić do wypróbowania lokalnego nowego powiązania danych wyjściowych.
 
 ## <a name="run-the-function-locally"></a>Lokalne uruchamianie funkcji
 
-Tak jak poprzednio, użyj następującego polecenia, aby utworzyć projekt i uruchomić środowisko wykonawcze functions lokalnie:
+Tak jak wcześniej, użyj następującego polecenia, aby skompilować projekt i uruchomić środowisko uruchomieniowe funkcji lokalnie:
 
 # <a name="maven"></a>[Maven](#tab/maven)
 ```bash
@@ -64,25 +64,25 @@ gradle azureFunctionsRun
 ---
 
 > [!NOTE]  
-> Ponieważ pakiety rozszerzeń zostały włączone w pliku host.json, [rozszerzenie powiązania magazynu](functions-bindings-storage-blob.md#add-to-your-functions-app) zostało pobrane i zainstalowane podczas uruchamiania, wraz z innymi rozszerzeniami powiązania firmy Microsoft.
+> Ponieważ włączono pakiety rozszerzeń w pliku host. JSON, [rozszerzenie powiązania magazynu](functions-bindings-storage-blob.md#add-to-your-functions-app) zostało pobrane i zainstalowane dla Ciebie podczas uruchamiania, wraz z innymi rozszerzeniami powiązań firmy Microsoft.
 
-Tak jak poprzednio, wyzwalanie funkcji z wiersza polecenia za pomocą cURL w nowym oknie terminala:
+Jak wcześniej, wyzwól funkcję z wiersza polecenia przy użyciu Zwinięciea w nowym oknie terminalu:
 
 ```CMD
 curl -w "\n" http://localhost:7071/api/HttpTrigger-Java --data AzureFunctions
 ```
 
-Tym razem powiązanie danych wyjściowych `outqueue` tworzy również kolejkę o nazwie na koncie magazynu i dodaje komunikat z tym samym ciągiem.
+Tym razem powiązanie danych wyjściowych tworzy również kolejkę o `outqueue` nazwie na koncie magazynu i dodaje komunikat z tym samym ciągiem.
 
-Następnie użyj interfejsu wiersza polecenia platformy Azure, aby wyświetlić nową kolejkę i sprawdzić, czy wiadomość została dodana. Kolejkę można również wyświetlić za pomocą [Eksploratora magazynu platformy Microsoft Azure][Azure Storage Explorer] lub w [witrynie Azure.](https://portal.azure.com)
+Następnie użyj interfejsu wiersza polecenia platformy Azure, aby wyświetlić nową kolejkę i sprawdzić, czy wiadomość została dodana. Możesz również wyświetlić kolejkę za pomocą [Eksplorator usługi Microsoft Azure Storage][Azure Storage Explorer] lub [Azure Portal](https://portal.azure.com).
 
 [!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
 
 [!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 
-### <a name="redeploy-the-project"></a>Ponowne wdrożenie projektu 
+### <a name="redeploy-the-project"></a>Wdróż ponownie projekt 
 
-Aby zaktualizować opublikowaną aplikację, uruchom ponownie następujące polecenie:  
+Aby zaktualizować opublikowaną aplikację, ponownie uruchom następujące polecenie:  
 
 # <a name="maven"></a>[Maven](#tab/maven)  
 ```bash
@@ -94,21 +94,21 @@ gradle azureFunctionsDeploy
 ```
 ---
 
-Ponownie można użyć cURL, aby przetestować wdrożoną funkcję. Tak jak poprzednio, przekaż wartość `AzureFunctions` w treści żądania POST do adresu URL, jak w tym przykładzie:
+Ponownie można użyć Zwinięciea do przetestowania wdrożonej funkcji. Tak jak wcześniej, przekaż wartość `AzureFunctions` w treści żądania post na adres URL, jak w poniższym przykładzie:
 
 ```bash
 curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/HttpTrigger-Java?code=zYRohsTwBlZ68YF.... --data AzureFunctions
 ```
 
-Można [ponownie sprawdzić komunikat kolejki magazynu,](#query-the-storage-queue) aby sprawdzić, czy powiązanie danych wyjściowych generuje nową wiadomość w kolejce, zgodnie z oczekiwaniami.
+Możesz [sprawdzić ponownie komunikat kolejki magazynu](#query-the-storage-queue) , aby sprawdzić, czy powiązanie danych wyjściowych generuje nowy komunikat w kolejce zgodnie z oczekiwaniami.
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zaktualizowano funkcję wyzwalaną przez protokół HTTP, aby zapisywać dane w kolejce magazynu. Aby dowiedzieć się więcej na temat tworzenia usług Azure Functions w języku Java, zobacz [przewodnik dla deweloperów języka Azure Functions Java](functions-reference-java.md) oraz [wyzwalacze i powiązania usług Azure Functions.](functions-triggers-bindings.md) Przykłady kompletnych projektów funkcji w języku Java można znaleźć w [przykładach funkcji Java](/samples/browse/?products=azure-functions&languages=Java). 
+Została zaktualizowana funkcja wyzwalana przez protokół HTTP w celu zapisania danych w kolejce magazynu. Aby dowiedzieć się więcej na temat tworzenia Azure Functions przy użyciu języka Java, zobacz [przewodnik dewelopera Azure Functions Java](functions-reference-java.md) oraz [Azure Functions wyzwalacze i powiązania](functions-triggers-bindings.md). Aby zapoznać się z przykładami kompletnych projektów funkcji w języku Java, zobacz [przykłady funkcji języka Java](/samples/browse/?products=azure-functions&languages=Java). 
 
-Następnie należy włączyć monitorowanie usługi Application Insights dla aplikacji funkcji:
+Następnie należy włączyć monitorowanie Application Insights dla aplikacji funkcji:
 
 > [!div class="nextstepaction"]
 > [Enable Application Insights integration (Włączanie integracji z usługą Application Insights)](functions-monitoring.md#manually-connect-an-app-insights-resource)

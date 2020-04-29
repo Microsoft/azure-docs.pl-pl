@@ -1,6 +1,6 @@
 ---
-title: Struktura pulpitów nawigacyjnych platformy Azure | Dokumenty firmy Microsoft
-description: Przejdź przez strukturę JSON pulpitu nawigacyjnego platformy Azure przy użyciu przykładowego pulpitu nawigacyjnego. Zawiera odwołanie do właściwości zasobu.
+title: Struktura pulpitów nawigacyjnych platformy Azure | Microsoft Docs
+description: Zapoznaj się ze strukturą JSON pulpitu nawigacyjnego platformy Azure, korzystając z przykładowego pulpitu nawigacyjnego. Zawiera odwołanie do właściwości zasobów.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -13,18 +13,18 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
 ms.openlocfilehash: ad0d3a1bf2c293039df3bba3aa18da7d6e7dd0a5
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81459223"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Struktura pulpitów nawigacyjnych platformy Azure
-Ten dokument przechodzi przez strukturę pulpitu nawigacyjnego platformy Azure, przy użyciu następującego pulpitu nawigacyjnego jako przykład:
+Ten dokument przedstawia strukturę pulpitu nawigacyjnego platformy Azure, korzystając z następującego pulpitu nawigacyjnego:
 
 ![przykładowy pulpit nawigacyjny](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Ponieważ udostępnione [pulpity nawigacyjne platformy Azure są zasobami,](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)ten pulpit nawigacyjny może być reprezentowany jako JSON.  Następujący JSON reprezentuje pulpit nawigacyjny zwizualizowany powyżej.
+Ponieważ udostępnione [pulpity nawigacyjne platformy Azure to zasoby](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), ten pulpit nawigacyjny może być reprezentowany w formacie JSON.  Poniższy kod JSON przedstawia wizualizację pulpitu nawigacyjnego powyżej.
 
 ```json
 
@@ -288,62 +288,62 @@ Ponieważ udostępnione [pulpity nawigacyjne platformy Azure są zasobami,](http
 
 ```
 
-## <a name="common-resource-properties"></a>Typowe właściwości zasobu
+## <a name="common-resource-properties"></a>Wspólne właściwości zasobów
 
-Podzielmy odpowiednie sekcje JSON.  Właściwości najwyższego poziomu, __identyfikator,__ __nazwa__, __typ__, __lokalizacja__i __tagi__ właściwości są współużytkowane przez wszystkie typy zasobów platformy Azure. Oznacza to, że nie mają wiele wspólnego z zawartością pulpitu nawigacyjnego.
+Podziel się odpowiednimi sekcjami kodu JSON.  Właściwości najwyższego poziomu, __identyfikatora__, __nazwy__, __typu__, __lokalizacji__i __tagów__ są udostępniane dla wszystkich typów zasobów platformy Azure. Oznacza to, że nie mają one wielu czynności z zawartością pulpitu nawigacyjnego.
 
 ### <a name="the-id-property"></a>Właściwość identyfikatora
 
-Identyfikator zasobu platformy Azure, z zastrzeżeniem [konwencji nazewnictwa zasobów platformy Azure](/azure/architecture/best-practices/resource-naming). Gdy portal tworzy pulpit nawigacyjny, zazwyczaj wybiera identyfikator w postaci identyfikatora guid, ale możesz używać dowolnej prawidłowej nazwy podczas tworzenia ich programowo. 
+Identyfikator zasobu platformy Azure, objęty [konwencjami nazewnictwa zasobów platformy Azure](/azure/architecture/best-practices/resource-naming). Gdy Portal tworzy pulpit nawigacyjny, zwykle wybiera identyfikator w postaci identyfikatora GUID, ale możesz użyć dowolnej prawidłowej nazwy podczas programowego tworzenia. 
 
-### <a name="the-name-property"></a>Właściwość name
-Nazwa jest segmentem identyfikatora zasobu, który nie zawiera informacji o subskrypcji, typie zasobu ani grupie zasobów. Zasadniczo jest to ostatni segment identyfikatora zasobu.
+### <a name="the-name-property"></a>Właściwość Name
+Nazwa jest segmentem identyfikatora zasobu, który nie zawiera informacji o subskrypcji, typie zasobu lub grupie zasobów. Zasadniczo jest to ostatni segment identyfikatora zasobu.
 
-### <a name="the-type-property"></a>Właściwość type
-Wszystkie pulpity nawigacyjne są typu __Microsoft.Portal/dashboards__.
+### <a name="the-type-property"></a>Właściwość typu
+Wszystkie pulpity nawigacyjne są typu __Microsoft. Portal/pulpity nawigacyjne__.
 
-### <a name="the-location-property"></a>Właściwość lokalizacjowa
-W przeciwieństwie do innych zasobów pulpity nawigacyjne nie mają składnika środowiska wykonawczego.  W przypadku pulpitów nawigacyjnych lokalizacja wskazuje podstawową lokalizację geograficzną, w którym jest reprezentacja JSON pulpitu nawigacyjnego. Wartość powinna być jednym z kodów lokalizacji, które mogą być pobierane przy użyciu [interfejsu API lokalizacji w zasobie subskrypcji](https://docs.microsoft.com/rest/api/resources/subscriptions).
+### <a name="the-location-property"></a>Właściwość Location
+W przeciwieństwie do innych zasobów, pulpity nawigacyjne nie mają składnika środowiska uruchomieniowego.  W przypadku pulpitów nawigacyjnych lokalizacja wskazuje podstawową lokalizację geograficzną, w której jest przechowywana reprezentacja JSON pulpitu nawigacyjnego. Wartość powinna być jednym z kodów lokalizacji, które można pobrać za pomocą [interfejsu API lokalizacji zasobu subskrypcje](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
-### <a name="the-tags-property"></a>Właściwość tagów
-Tagi są wspólną cechą zasobów platformy Azure, które umożliwiają organizowanie zasobu przez pary dowolnej nazwy wartości. W przypadku pulpitów nawigacyjnych istnieje jeden specjalny tag o nazwie __hidden-title__. Jeśli pulpit nawigacyjny ma tę właściwość wypełnioną, jest on używany jako nazwa wyświetlana pulpitu nawigacyjnego w portalu. Nie można zmienić nazwy identyfikatorów zasobów platformy Azure, ale tagi można zmienić. Ten tag umożliwia zmianę nazwy wyświetlaną pulpitu nawigacyjnego.
+### <a name="the-tags-property"></a>Właściwość Tags
+Tagi to typowa funkcja zasobów platformy Azure, która umożliwia organizowanie zasobów według arbitralnych par wartości nazw. W przypadku pulpitów nawigacyjnych istnieje jeden specjalny tag o nazwie __Hidden-title__. Jeśli pulpit nawigacyjny ma zapełnienie tej właściwości, zostanie użyta jako nazwa wyświetlana pulpitu nawigacyjnego w portalu. Nie można zmienić nazwy identyfikatorów zasobów platformy Azure, ale mogą to być Tagi. Ten tag pozwala na renamable wyświetlana nazwa pulpitu nawigacyjnego.
 
 `"tags": { "hidden-title": "Created via API" }`
 
 ### <a name="the-properties-object"></a>Obiekt właściwości
-Obiekt właściwości zawiera dwie właściwości, __soczewki__ i __metadane__. Właściwość __obiektywów__ zawiera informacje o kafelkach na desce rozdzielczej.  Właściwość __metadanych__ jest tam dla potencjalnych przyszłych funkcji.
+Obiekt Properties zawiera dwie właściwości, __soczewki__ i __metadane__. Właściwość __soczewki__ zawiera informacje o kafelkach na pulpicie nawigacyjnym.  Właściwość __Metadata__ jest dostępna w przypadku potencjalnych przyszłych funkcji.
 
-### <a name="the-lenses-property"></a>Właściwości soczewek
-Właściwość __obiektywów__ zawiera pulpit nawigacyjny. Należy zauważyć, że obiektyw obiektu w tym przykładzie zawiera jedną właściwość o nazwie "0". Obiektywy to koncepcja grupowania, która nie jest obecnie zaimplementowana na pulpitach nawigacyjnych. Na razie wszystkie pulpity nawigacyjne mają tę pojedynczą właściwość na obiekcie obiektywu, ponownie o nazwie "0".
+### <a name="the-lenses-property"></a>Właściwość soczewki
+Właściwość __soczewki__ zawiera pulpit nawigacyjny. Należy zauważyć, że obiekt soczewki w tym przykładzie zawiera pojedynczą właściwość o nazwie "0". Soczewki to koncepcja grupowania, która nie jest obecnie zaimplementowana w pulpitach nawigacyjnych. Na razie wszystkie pulpity nawigacyjne mają tę samą właściwość w obiekcie obiektywu, ponownie o nazwie "0".
 
 ### <a name="the-lens-object"></a>Obiekt obiektywu
-Obiekt pod "0" zawiera dwie właściwości, __kolejność__ i __części__.  W bieżącej wersji pulpitów nawigacyjnych __kolejność__ jest zawsze 0. Właściwość __parts__ zawiera obiekt definiujący poszczególne części (nazywane również kafelkami) na pulpicie nawigacyjnym.
+Obiekt poniżej "0" zawiera dwie właściwości, __kolejność__ i __części__.  W bieżącej wersji pulpitów nawigacyjnych __kolejność__ jest zawsze równa 0. Właściwość __części__ zawiera obiekt definiujący poszczególne części (nazywane również kafelkami) na pulpicie nawigacyjnym.
 
-Obiekt __parts__ zawiera właściwość dla każdej części, gdzie nazwa właściwości jest liczbą. Liczba ta nie jest znacząca. 
+Obiekt __części__ zawiera właściwość dla każdej części, gdzie nazwa właściwości jest liczbą. Ta liczba nie jest istotna. 
 
 ### <a name="the-part-object"></a>Obiekt części
-Każdy obiekt poszczególnych części ma __pozycję__i __metadane__.
+Każdy obiekt poszczególnych części ma __położenie__i __metadane__.
 
-### <a name="the-position-object"></a>Obiekt położenia
-Właściwość __position__ zawiera informacje o rozmiarze i lokalizacji dla części wyrażone jako __x__, __y__, __rowSpan__i __colSpan__. Wartości są w odniesieniu do jednostek siatki. Te jednostki siatki są widoczne, gdy pulpit nawigacyjny jest w trybie dostosowywania, jak pokazano poniżej. Jeśli kafelek ma mieć szerokość dwóch jednostek siatki, wysokość jednej jednostki siatki i lokalizację w lewym górnym rogu pulpitu nawigacyjnego, obiekt położenia wygląda następująco:
+### <a name="the-position-object"></a>Obiekt Position
+Właściwość __Position__ zawiera informacje o rozmiarze i lokalizacji części wyrażone jako __x__, __y__, __rowSpan__i __colSpan__. Wartości są w zakresie jednostek siatki. Te jednostki siatki są widoczne, gdy pulpit nawigacyjny znajduje się w trybie dostosowywania, jak pokazano poniżej. Jeśli chcesz, aby kafelek miał szerokość dwóch jednostek siatki, Wysokość jednej jednostki siatki i lokalizację w lewym górnym rogu pulpitu nawigacyjnego, obiekt Position będzie wyglądać następująco:
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
-![jednostki sieciowe](./media/azure-portal-dashboards-structure/grid-units.png)
+![Siatka — jednostki](./media/azure-portal-dashboards-structure/grid-units.png)
 
 ### <a name="the-metadata-object"></a>Obiekt metadanych
-Każda część ma właściwość metadanych, obiekt ma tylko jedną wymaganą właściwość o nazwie __type__. Ten ciąg informuje portal, który kafelek ma być pokazywalny. Nasz przykładowy pulpit nawigacyjny używa następujących typów kafelków:
+Każda część ma właściwość metadanych, obiekt ma tylko jedną wymaganą właściwość o nazwie __Type__. Ten ciąg zawiera informacje o portalu, który ma być pokazywany przez kafelek. Nasz przykładowy pulpit nawigacyjny używa następujących typów kafelków:
 
 
-1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart`– Służy do pokazywalkowych wskaźników monitorowania
-1. `Extension[azure]/HubsExtension/PartType/MarkdownPart`- Służy do pokazywanie z tekstem lub obrazami z podstawowym formatowaniem list, linków itp.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart`– Służy do pokazywalki filmów z YouTube, Channel9 i innego typu wideo, który działa w tagu wideo HTML.
-1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart`– Służy do pokazywanie nazwy i stanu maszyny wirtualnej platformy Azure.
+1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart`— Służy do wyświetlania metryk monitorowania
+1. `Extension[azure]/HubsExtension/PartType/MarkdownPart`— Służy do wyświetlania tekstu lub obrazów z formatowaniem podstawowym dla list, linków itp.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart`— Służy do wyświetlania wideo z witryny YouTube, channel9 i dowolnego innego typu wideo, który działa w tagu wideo HTML.
+1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart`— Służy do wyświetlania nazwy i stanu maszyny wirtualnej platformy Azure.
 
-Każdy typ części ma swoją własną konfigurację. Możliwe właściwości konfiguracji są nazywane __wejściami,__ __ustawieniami__i __zasobem.__ 
+Każdy typ części ma własną konfigurację. Możliwe właściwości konfiguracji są nazywane __danymi wejściowymi__, __ustawieniami__i __zasobami__. 
 
-### <a name="the-inputs-object"></a>Obiekt inputs
-Obiekt inputs zazwyczaj zawiera informacje, które wiąże kafelek z wystąpieniem zasobu.  Część maszyny wirtualnej w naszym przykładowym pulpicie nawigacyjnym zawiera pojedyncze dane wejściowe, które używa identyfikatora zasobu platformy Azure do wyrażenia powiązania.  Ten format identyfikatora zasobu jest spójny we wszystkich zasobach platformy Azure.
+### <a name="the-inputs-object"></a>Obiekt Inputs
+Obiekt Inputs zwykle zawiera informacje, które wiążą kafelek z wystąpieniem zasobu.  Część maszyny wirtualnej na naszym przykładowym pulpicie nawigacyjnym zawiera pojedyncze dane wejściowe, które używają identyfikatora zasobu platformy Azure do wyrażenia powiązania.  Ten format identyfikatora zasobu jest spójny dla wszystkich zasobów platformy Azure.
 
 ```json
 "inputs":
@@ -355,7 +355,7 @@ Obiekt inputs zazwyczaj zawiera informacje, które wiąże kafelek z wystąpieni
 ]
 
 ```
-Część wykresu metryk ma pojedyncze dane wejściowe, które wyraża zasób do powiązania, a także informacje o wyświetlanych metrykach. Oto dane wejściowe dla kafelka, który pokazuje metryki Wejście w sieci i Wyjście sieciowe.
+Część wykresu metryk ma pojedyncze dane wejściowe, które wyrażają zasób do powiązania, a także informacje o wyświetlanych metrykach. Poniżej znajduje się dane wejściowe dla kafelka, w którym są wyświetlane metryki sieciowe i sieciowe.
 
 ```json
 “inputs”:
@@ -389,8 +389,8 @@ Część wykresu metryk ma pojedyncze dane wejściowe, które wyraża zasób do 
 
 ```
 
-### <a name="the-settings-object"></a>Obiekt ustawień
-Obiekt ustawień zawiera konfigurowalne elementy części.  W naszym przykładowym pulpicie nawigacyjnym część Markdown używa ustawień do przechowywania niestandardowej zawartości znaczników, a także konfigurowalnego tytułu i podtytułu.
+### <a name="the-settings-object"></a>Obiekt Settings
+Obiekt Settings zawiera elementy konfigurowalne części.  Na naszym przykładowym pulpicie nawigacyjnym część promocji używa ustawień do przechowywania niestandardowej zawartości promocji oraz konfigurowalnego tytułu i nazwy pomocniczej.
 
 ```json
 "settings": 
@@ -408,7 +408,7 @@ Obiekt ustawień zawiera konfigurowalne elementy części.  W naszym przykładow
 
 ```
 
-Podobnie kafelek wideo ma własne ustawienia, które zawierają wskaźnik do odtwarzania wideo, ustawienie autoodtwarzania i opcjonalne informacje o tytule.
+Podobnie kafelek wideo ma własne ustawienia, które zawierają wskaźnik do wideo do odtwarzania, ustawienia autoodtwarzania i opcjonalne informacje o tytule.
 
 ```json
 "settings": 
@@ -427,7 +427,7 @@ Podobnie kafelek wideo ma własne ustawienia, które zawierają wskaźnik do odt
 
 ```
 
-### <a name="the-asset-object"></a>Obiekt środka trwałego
-Kafelki, które są powiązane z pierwszej klasy zarządzanych obiektów portalu (nazywane zasobami) mają tę relację wyrażoną za pośrednictwem obiektu zasobu.  W naszym przykładowym pulpicie nawigacyjnym kafelka maszyny wirtualnej zawiera ten opis zasobu.  Właściwość __idInputName__ informuje portal, że dane wejściowe identyfikatora zawierają unikatowy identyfikator zasobu, w tym przypadku identyfikator zasobu. Większość typów zasobów platformy Azure mają zasoby zdefiniowane w portalu.
+### <a name="the-asset-object"></a>Obiekt zasobu
+Kafelki, które są powiązane z obiektami portalu z możliwością zarządzania (nazywanymi elementami zawartości), mają tę relację wyrażoną za pośrednictwem obiektu zasobu.  Na naszym przykładowym pulpicie nawigacyjnym kafelek maszyna wirtualna zawiera opis tego elementu zawartości.  Właściwość __idInputName__ instruuje Portal, że dane wejściowe identyfikatora zawierają unikatowy identyfikator dla elementu zawartości, w tym przypadku identyfikator zasobu. Większość typów zasobów platformy Azure ma zasoby zdefiniowane w portalu.
 
 `"asset": {    "idInputName": "id",    "type": "VirtualMachine"    }`

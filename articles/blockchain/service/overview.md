@@ -1,88 +1,88 @@
 ---
-title: Omówienie usługi Azure Blockchain
-description: Omówienie usługi Azure Blockchain
+title: Omówienie usługi Azure łańcucha bloków
+description: Omówienie usługi Azure łańcucha bloków Service
 ms.date: 03/30/2020
 ms.topic: overview
 ms.reviewer: ravastra
 ms.openlocfilehash: 821bac0da13209e5126f5bab109aa0895ade840a
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80529156"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Co to jest usługa Azure Blockchain Service?
 
-Usługa Azure Blockchain to w pełni zarządzana usługa księgi, która umożliwia użytkownikom rozwój i obsługę sieci blockchain na dużą skalę na platformie Azure. Usługa Azure Blockchain Service zapewnia ujednolicenie kontroli zarówno zarządzania infrastrukturą, jak i zarządzania siecią łańcucha bloków:
+Usługa Azure łańcucha bloków to w pełni zarządzana usługa, która umożliwia użytkownikom rozwój i obsługę sieci łańcucha bloków w skali na platformie Azure. Zapewniając ujednoliconą kontrolę zarówno w zakresie zarządzania infrastrukturą, jak i łańcucha bloków sieci, usługa Azure łańcucha bloków Service oferuje następujące funkcje:
 
-* Proste wdrażanie sieci i operacje
+* Proste wdrażanie i operacje w sieci
 * Wbudowane zarządzanie konsorcjum
-* Opracowywanie inteligentnych kontraktów za pomocą znanych narzędzi programistycznych
+* Opracowywanie inteligentnych kontraktów przy użyciu znanych narzędzi programistycznych
 
-Usługa Azure Blockchain jest przeznaczona do obsługi wielu protokołów księgi. Obecnie zapewnia wsparcie dla księgi [Kworum](https://www.goquorum.com/) Ethereum przy użyciu mechanizmu konsensusu [Istanbul Bizantine Fault Tolerance (IBFT).](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus)
+Usługa Azure łańcucha bloków Service została zaprojektowana do obsługi wielu protokołów finansowych. Obecnie zapewnia ona obsługę Ethereumego dla księgi [kworum](https://www.goquorum.com/) przy użyciu mechanizmu consensusu [Byzantine Fault tolerancja (IBFT)](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) o konsensusie.
 
-Powyższe możliwości prawie w ogóle nie wymagają administracji i są udostępniane bez żadnych dodatkowych kosztów. Możesz skupić się na tworzeniu aplikacji i logice biznesowej, zamiast przydzielać czas i zasoby do zarządzania maszynami wirtualnymi i infrastrukturą. Ponadto możesz nadal rozwijać aplikację za pomocą narzędzi open source i wybranej platformy, aby dostarczać rozwiązania bez konieczności uczenia się nowych umiejętności.
+Powyższe możliwości prawie w ogóle nie wymagają administracji i są udostępniane bez żadnych dodatkowych kosztów. Możesz skupić się na tworzeniu aplikacji i logice biznesowej zamiast przydzielać czas i zasoby do zarządzania maszynami wirtualnymi i infrastrukturą. Ponadto możesz kontynuować tworzenie aplikacji przy użyciu narzędzi typu "open source" i wybranej platformy do dostarczania rozwiązań bez konieczności uczenia się nowych umiejętności.
 
 ## <a name="network-deployment-and-operations"></a>Wdrażanie sieci i operacje
 
-Wdrażanie usługi Azure Blockchain service odbywa się za pośrednictwem witryny Azure portal, interfejsu wiersza polecenia platformy Azure lub za pomocą kodu programu Visual Studio przy użyciu rozszerzenia Azure Blockchain. Wdrażanie jest uproszczone, w tym inicjowanie obsługi administracyjnej węzłów transakcji i walidatora, sieci wirtualne platformy Azure w celu izolacji zabezpieczeń, a także magazyn zarządzany przez usługę.  Ponadto podczas wdrażania nowego elementu członkowskiego łańcucha bloków użytkownicy tworzą również konsorcjum lub dołączają do niego.  Konsorcja umożliwiają wielu stronom w różnych subskrypcjach platformy Azure bezpieczną komunikację ze sobą za pośrednictwem udostępnionego łańcucha bloków.  To uproszczone wdrożenie zmniejsza wdrażanie sieci blockchain z dni do minut.
+Wdrażanie usługi Azure łańcucha bloków jest realizowane za pośrednictwem Azure Portal, interfejsu wiersza polecenia platformy Azure lub za pośrednictwem programu Visual Studio Code przy użyciu rozszerzenia łańcucha bloków platformy Azure. Wdrożenie jest uproszczone, łącznie z obsługą zarówno węzłów transakcji, jak i modułów sprawdzania poprawności, sieci wirtualnych platformy Azure pod kątem izolacji zabezpieczeń oraz magazynu zarządzanego przez usługę.  Ponadto podczas wdrażania nowego elementu członkowskiego łańcucha bloków użytkownicy tworzą także konsorcjum lub przyłączają się do niego.  Konsorcja umożliwiają wielu stronom w różnych subskrypcjach platformy Azure bezpieczne komunikowanie się ze sobą przy użyciu współużytkowanego łańcucha bloków.  To uproszczone wdrożenie zmniejsza liczbę dni wdrożenia sieci łańcucha bloków w ciągu kilku minut.
 
-### <a name="performance-and-service-tiers"></a>Poziomy wydajności i usług
+### <a name="performance-and-service-tiers"></a>Warstwy wydajności i usługi
 
-Usługa Azure Blockchain service oferuje dwie warstwy usług: *Podstawowa* i *Standardowa.* Każda warstwa oferuje różną wydajność i możliwości do obsługi lekkich obciążeń programistów i testowania do masowo skalowane wdrożenia łańcucha bloków produkcyjnych. Użyj warstwy *Podstawowa* do tworzenia, testowania i weryfikacji pojęć. Użyj warstwy *Standardowa* dla wdrożeń na poziomie produkcyjnym. Obie warstwy obejmują co najmniej jeden węzeł transakcji i jeden węzeł walidatora (Podstawowy) lub dwa węzły walidatora (Standard). 
+Usługa Azure łańcucha bloków Service oferuje dwie warstwy usług: *podstawowa* i *standardowa*. Każda warstwa oferuje różne wydajności i możliwości, które umożliwiają obsługę lekkich obciążeń programistycznych i testowych do wysoce skalowalnych wdrożeń łańcucha bloków produkcyjnych. Skorzystaj z warstwy *podstawowa* na potrzeby tworzenia, testowania i sprawdzania poprawności koncepcji. Użyj warstwy *standardowa* dla wdrożeń klasy produkcyjnej. Obie warstwy obejmują co najmniej jeden węzeł transakcji i jeden węzeł modułu sprawdzania poprawności (podstawowy) lub dwa węzły modułu sprawdzania poprawności (standard). 
 
 ![Warstwy cenowe](./media/overview/pricing-tiers.png)
 
-Oprócz oferowania dwóch węzłów walidatora warstwa *Standardowa* zawiera dwa *pola wirtualne* dla każdej transakcji i węzła walidatora, podczas gdy warstwa *Basic* oferuje konfigurację 1 vCore.  Oferując 2 pola wirtualne dla węzłów transakcji i walidatora, 1 rystrój wirtualny może być dedykowany do księgi kworum, podczas gdy pozostałe 1 rystrój wirtualny może być używany do innych usług związanych z infrastrukturą, zapewniając optymalną wydajność dla obciążeń łańcucha bloków produkcyjnych. Aby uzyskać więcej informacji na temat szczegółów cen, zobacz [Cennik usługi Azure Blockchain Service](https://azure.microsoft.com/pricing/details/blockchain-service).
+Oprócz oferowania dwóch węzłów modułu sprawdzania poprawności warstwa *standardowa* oferuje dwie *rdzeni wirtualnych* dla każdej transakcji i węzła modułu sprawdzania poprawności, natomiast warstwa *podstawowa* oferuje konfigurację 1 rdzeń wirtualny.  Dzięki ofercie 2 rdzeni wirtualnych dla węzłów transakcji i modułu sprawdzania poprawności 1 rdzeń wirtualny może być dedykowany dla księgi kworum, a pozostałe 1 rdzeń wirtualny mogą być używane dla innych usług związanych z infrastrukturą, zapewniając optymalną wydajność dla obciążeń łańcucha bloków produkcyjnych. Aby uzyskać więcej informacji o cenach, zobacz [Cennik usługi Azure łańcucha bloków](https://azure.microsoft.com/pricing/details/blockchain-service).
 
 ### <a name="security-and-maintenance"></a>Bezpieczeństwo i konserwacja
 
-Po zainicjowaniu obsługi administracyjnej pierwszego członka łańcucha bloków masz możliwość dodawania dodatkowych węzłów transakcji do członka.  Domyślnie węzły transakcji są zabezpieczone za pomocą reguł zapory i wymagają konfiguracji dostępu.  Ponadto wszystkie węzły transakcji szyfrują dane w ruchu za pośrednictwem protokołu TLS.  Istnieje wiele opcji zabezpieczania dostępu do węzłów transakcji, w tym reguły zapory, uwierzytelnianie podstawowe, klucze dostępu i integracja usługi Azure Active Directory. Aby uzyskać więcej informacji, zobacz [konfigurowanie węzłów transakcji](configure-transaction-nodes.md) i [konfigurowanie dostępu usługi Azure Active Directory](configure-aad.md).
+Po zainicjowaniu obsługi pierwszego elementu członkowskiego łańcucha bloków można dodać do niego dodatkowe węzły transakcji.  Domyślnie węzły transakcji są chronione za pomocą reguł zapory i wymagają konfiguracji w celu uzyskania dostępu.  Ponadto wszystkie węzły transakcji szyfrują dane w ruchu za pośrednictwem protokołu TLS.  Istnieje wiele opcji zabezpieczania dostępu do węzła transakcji, w tym reguł zapory, uwierzytelniania podstawowego, kluczy dostępu i integracji Azure Active Directory. Aby uzyskać więcej informacji, zobacz [Konfigurowanie węzłów transakcji](configure-transaction-nodes.md) i [Konfigurowanie dostępu Azure Active Directory](configure-aad.md).
 
-Jako usługa zarządzana usługa Azure Blockchain Service zapewnia, że węzły członka łańcucha bloków są załatane za pomocą najnowszych aktualizacji systemu operacyjnego hosta i stosu oprogramowania księgi, skonfigurowanych pod kątem wysokiej dostępności (tylko warstwa standardowa), eliminując większość devops wymaganych dla tradycyjnych węzłów łańcucha bloków IaaS.  Aby uzyskać więcej informacji na temat poprawek i aktualizacji, zobacz [obsługiwane wersje księgi usługi Azure Blockchain Service](ledger-versions.md).
+Jako usługa zarządzana usługa Azure łańcucha bloków gwarantuje, że węzły elementu członkowskiego łańcucha bloków są poprawione przy użyciu najnowszych aktualizacji stosu systemu operacyjnego hosta i księgi oprogramowania, skonfigurowanych pod kątem wysokiej dostępności (tylko w warstwie Standardowa), eliminując większość DevOps wymaganych dla tradycyjnych węzłów IaaS łańcucha bloków.  Aby uzyskać więcej informacji na temat poprawek i aktualizacji, zobacz [obsługiwane wersje finansów usługi Azure łańcucha bloków](ledger-versions.md).
 
 ### <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
 
-Ponadto usługa Azure Blockchain Service zapewnia zaawansowane metryki za pośrednictwem usługi Azure Monitor, zapewniając wgląd w użycie procesora CPU, pamięci i pamięci węzłów.  Usługa Azure Monitor zapewnia również przydatne informacje na temat aktywności sieci blockchain, takich jak transakcje i bloki wydobywane, głębokość kolejki transakcji i aktywne połączenia.  Metryki można dostosować, aby zapewnić widoki na szczegółowe informacje, które są ważne dla aplikacji blockchain.  Ponadto progi można zdefiniować za pomocą alertów umożliwiających użytkownikom wyzwalanie akcji, takich jak wysyłanie wiadomości e-mail lub wiadomości tekstowych, uruchamianie aplikacji logiki, funkcja platformy Azure lub wysyłanie do niestandardowego elementu webhook.
+Ponadto usługa Azure łańcucha bloków zapewnia zaawansowane metryki za pomocą usługi Azure Monitor, która zapewnia wgląd w dane użycia procesora CPU, pamięci i magazynu.  Azure Monitor zapewnia również przydatny wgląd w działanie sieci łańcucha bloków, takie jak Transactions i Blocks analizowane pod, Głębokość kolejki transakcji i aktywne połączenia.  Metryki można dostosować w celu udostępnienia widoków szczegółowych informacji, które są ważne dla aplikacji łańcucha bloków.  Ponadto progi można definiować za pomocą alertów umożliwiających użytkownikom wyzwalanie akcji, takich jak wysyłanie wiadomości e-mail lub SMS, uruchamianie aplikacji logiki, funkcja platformy Azure lub wysyłanie do niestandardowego elementu webhook.
 
 ![Metryki](./media/overview/metrics.png)
 
-Za pośrednictwem usługi Azure Log Analytics użytkownicy mogą wyświetlać dzienniki związane z księgą kworum lub inne ważne informacje, takie jak próby połączeń z węzłami transakcji.
+Za pomocą usługi Azure Log Analytics użytkownicy mogą wyświetlać dzienniki związane z księgą kworum lub innymi ważnymi informacjami, takimi jak próby połączeń z węzłami transakcji.
 
 ## <a name="built-in-consortium-management"></a>Wbudowane zarządzanie konsorcjum
 
-Wdrażając pierwszego członka łańcucha bloków, dołączasz lub tworzysz nowe konsorcjum.  Konsorcjum jest logiczną grupą używaną do zarządzania i łączności między członkami łańcucha bloków, którzy dokonywają transakcji w procesie wielopartyjnym.  Usługa Azure Blockchain service zapewnia wbudowane mechanizmy kontroli nadzoru za pośrednictwem wstępnie zdefiniowanych umów inteligentnych, które określają, jakie akcje mogą podejmować członkowie konsorcjum.  Te formanty nadzoru mogą być dostosowywane w razie potrzeby przez administratora konsorcjum. Podczas tworzenia nowego konsorcjum, twój członek łańcucha bloków jest domyślnym administratorem konsorcjum, umożliwiając możliwość zapraszania innych stron do przyłączenia się do konsorcjum.  Możesz dołączyć do konsorcjum tylko wtedy, gdy zostałeś wcześniej zaproszony.  Dołączając do konsorcjum, twój członek łańcucha bloków podlega kontroli zarządzania wprowadzonej przez administratora konsorcjum.
+Podczas wdrażania pierwszego elementu członkowskiego łańcucha bloków można dołączyć lub utworzyć nowego konsorcjum.  Konsorcjum jest grupą logiczną służącą do zarządzania zarządzaniem i łącznością między członkami łańcucha bloków, którzy Transact w procesie wieloskładnikowym.  Usługa Azure łańcucha bloków zapewnia wbudowane kontrolki ładu za pomocą wstępnie zdefiniowanych, inteligentnych kontraktów, które określają, jakie działania mogą wykonać Członkowie konsorcjum.  Te kontrolki ładu można dostosować zgodnie z potrzebami administratora konsorcjum. Podczas tworzenia nowego konsorcjum członek łańcucha bloków jest domyślnym administratorem konsorcjum, umożliwiając Zapraszanie innych stron do dołączenia do konsorcjum.  Możesz dołączyć do konsorcjum tylko wtedy, gdy wcześniej zaproszono użytkownika.  Podczas dołączania do konsorcjum członek łańcucha bloków podlega kontrolom nadzoru obowiązującym przez administratora konsorcjum.
 
 ![Zarządzanie konsorcjum](./media/overview/consortium.png)
 
-Akcje zarządzania konsorcjum, takie jak dodawanie i usuwanie członków z konsorcjum można uzyskać za pośrednictwem programu PowerShell i interfejsu API REST. Można programowo zarządzać konsorcjum przy użyciu wspólnych interfejsów, a nie modyfikowanie i przesyłanie stałych umów inteligentnych. Aby uzyskać więcej informacji, zobacz [zarządzanie konsorcjum](consortium.md).
+Do akcji związanych z zarządzaniem konsorcjum, takich jak dodawanie i usuwanie członków z konsorcjum, można uzyskać dostęp za pośrednictwem programu PowerShell i interfejsu API REST. Można programowo zarządzać konsorcjum przy użyciu wspólnych interfejsów zamiast modyfikować i przesyłać kontrakty inteligentne oparte na wypełnieniu. Aby uzyskać więcej informacji, zobacz [Zarządzanie konsorcjum](consortium.md).
 
 ## <a name="develop-using-familiar-development-tools"></a>Opracowywanie przy użyciu znanych narzędzi programistycznych
 
-Na podstawie księgi Kworum Ethereum typu open source można tworzyć aplikacje dla usługi Azure Blockchain w taki sam sposób, jak w przypadku istniejących aplikacji Ethereum. Dzięki współpracy z wiodącymi partnerami branżowymi rozszerzenie kodu programu Azure Blockchain Development Kit Visual Studio umożliwia deweloperom korzystanie ze znanych narzędzi, takich jak Truffle Suite, do tworzenia inteligentnych kontraktów. Korzystając z rozszerzenia zestawu Azure Blockchain Development Kit, deweloperzy mogą tworzyć lub łączyć się z istniejącym konsorcjum, dzięki czemu można tworzyć i wdrażać inteligentne kontrakty z jednego środowiska IDE. Za pomocą rozszerzenia kodu programu Azure Blockchain Visual Studio można utworzyć lub połączyć się z istniejącym konsorcjum, dzięki czemu można tworzyć i wdrażać inteligentne kontrakty z jednego IDE. Aby uzyskać więcej informacji, zobacz [Zestaw azure blockchain development kit w portalu VS Code marketplace](https://aka.ms/vscodebcextension) i podręcznik użytkownika zestawu Azure Blockchain Development [Kit.](https://aka.ms/vscodebcextensionwiki)
+Na podstawie księgi Ethereum kworum Open Source można opracowywać aplikacje dla usługi Azure łańcucha bloków w taki sam sposób, jak w przypadku istniejących aplikacji Ethereum. Korzystając z wiodących partnerów branżowych, rozszerzenie Azure łańcucha bloków Development Visual Studio Code Kit pozwala deweloperom korzystać z dobrze znanych narzędzi, takich jak Truffle Suite, aby kompilować inteligentne kontrakty. Korzystając z rozszerzenia Azure łańcucha bloków Development Kit, deweloperzy mogą tworzyć i łączyć się z istniejącym konsorcjum, aby móc kompilować i wdrażać inteligentne kontrakty z jednego środowiska IDE. Za pomocą rozszerzenia usługi Azure łańcucha bloków Visual Studio Code można utworzyć istniejący konsorcjum lub połączyć się z nim, aby można było kompilować i wdrażać inteligentne kontrakty z jednego środowiska IDE. Aby uzyskać więcej informacji, zobacz [Azure łańcucha bloków Development Kit w witrynie vs Code Marketplace](https://aka.ms/vscodebcextension) i [podręczniku użytkownika zestawu Azure łańcucha bloków Development Kit](https://aka.ms/vscodebcextensionwiki).
 
 ## <a name="publish-blockchain-data"></a>Publikowanie danych łańcucha bloków
 
-Blockchain Data Manager for Azure Blockchain Service przechwytuje, przekształca i dostarcza dane transakcji usługi Azure Blockchain Service do tematów usługi Azure Event Grid, zapewniając niezawodną i skalowalną integrację księgi blockchain z usługami platformy Azure. Blockchain Data Manager umożliwia integrację aplikacji poza łańcuchem i magazynów danych. Aby uzyskać więcej informacji, zobacz [Blockchain Data Manager dla usługi Azure Blockchain Service](data-manager.md).
+Łańcucha bloków Data Manager w usłudze Azure łańcucha bloków Service przechwytuje, przekształca i dostarcza dane transakcji usługi Azure łańcucha bloków Service do Azure Event Grid tematów zapewniających niezawodną i skalowalną integrację z księgą łańcucha bloków z usługami platformy Azure. Za pomocą Data Manager łańcucha bloków można zintegrować aplikacje w łańcuchu i magazyny danych. Aby uzyskać więcej informacji, zobacz [łańcucha bloków Data Manager for Azure łańcucha bloków Service](data-manager.md).
 
 ## <a name="support-and-feedback"></a>Pomoc techniczna i opinie
 
-Aby uzyskać informacje o technologii Azure Blockchain, odwiedź [blog platformy Azure Blockchain,](https://azure.microsoft.com/blog/topics/blockchain/) aby być na bieżąco z ofertami usług blockchain i informacjami od zespołu inżynierów platformy Azure Blockchain.
+W przypadku usługi Azure łańcucha bloków News odwiedź [blog usługi Azure łańcucha bloków](https://azure.microsoft.com/blog/topics/blockchain/) , aby zachować aktualność w zakresie usług łańcucha bloków i uzyskać informacje od zespołu inżynierów ds. platformy Azure łańcucha bloków.
 
-Aby przekazać opinię o produkcie lub poprosić o nowe funkcje, po głosowaniu na pomysł za pośrednictwem [forum opinii platformy Azure dla łańcucha bloków.](https://aka.ms/blockchainuservoice)
+Aby przekazać opinie o produkcie lub zażądać nowych funkcji, Opublikuj głos na pomysł za pośrednictwem [forum opinii platformy Azure dla usługi łańcucha bloków](https://aka.ms/blockchainuservoice).
 
 ### <a name="community-support"></a>Pomoc techniczna w społeczności
 
-Nawiąż kontakt z inżynierami firmy Microsoft i ekspertami społeczności Platformy Azure Blockchain.
+Współpracuj z inżynierami firmy Microsoft i ekspertów społeczności Azure łańcucha bloków.
 
-* [Forum usługi Azure Blockchain MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Forum MSDN usługi Azure łańcucha bloków](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
 * [Społeczność techniczna firmy Microsoft](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/AzureBlockchainService)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć, wypróbuj szybki start lub dowiedz się więcej szczegółów z tych zasobów.
-* [Tworzenie członka łańcucha bloków przy użyciu witryny Azure portal](create-member.md) lub [tworzenie członka łańcucha bloków przy użyciu interfejsu wiersza polecenia platformy Azure](create-member-cli.md)
-* Aby zapoznać się z porównaniami kosztów i kalkulatorami, zobacz [stronę cennika](https://azure.microsoft.com/pricing/details/blockchain-service).
-* Tworzenie pierwszej aplikacji przy użyciu [zestawu Azure Blockchain Development Kit](https://github.com/Azure-Samples/blockchain-devkit)
-* [Przewodnik użytkownika](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki) rozszerzenia usługi Azure Blockchain VSCode
+Aby rozpocząć, wypróbuj Przewodnik Szybki start lub Dowiedz się więcej na temat tych zasobów.
+* [Tworzenie elementu członkowskiego łańcucha bloków przy użyciu Azure Portal](create-member.md) lub [Tworzenie elementu członkowskiego łańcucha bloków przy użyciu interfejsu wiersza polecenia platformy Azure](create-member-cli.md)
+* Aby obporównania kosztów i kalkulatorów, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/blockchain-service).
+* Tworzenie pierwszej aplikacji przy użyciu [zestawu Azure łańcucha bloków Development Kit](https://github.com/Azure-Samples/blockchain-devkit)
+* [Podręcznik użytkownika](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki) rozszerzenia usługi Azure łańcucha bloków programu vscode

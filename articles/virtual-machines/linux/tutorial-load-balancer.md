@@ -1,5 +1,5 @@
 ---
-title: Samouczek — równoważenie obciążenia maszyn wirtualnych systemu Linux na platformie Azure
+title: Samouczek — Równoważenie obciążenia maszyn wirtualnych z systemem Linux na platformie Azure
 description: Z tego samouczka dowiesz się, jak za pomocą interfejsu wiersza polecenia platformy Azure można utworzyć moduł równoważenia obciążenia dla bezpiecznej aplikacji o wysokiej dostępności na trzech maszynach wirtualnych z systemem Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,10 +16,10 @@ ms.date: 11/13/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 89ed39d1cd18fc97cec06dce4313271731b23b90
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81460039"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Samouczek: równoważenie obciążenia maszyn wirtualnych z systemem Linux na platformie Azure w celu utworzenia aplikacji o wysokiej dostępności za pomocą interfejsu wiersza polecenia platformy Azure
@@ -35,7 +35,7 @@ Równoważenie obciążenia zwiększa dostępność dzięki rozdzieleniu żąda�
 > * Wyświetlanie działającego modułu równoważenia obciążenia
 > * Dodawanie i usuwanie maszyn wirtualnych w module równoważenia obciążenia
 
-W tym samouczku używa interfejsu wiersza polecenia w [usłudze Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć powłokę chmury, wybierz pozycję **Wypróbuj ją** u góry dowolnego bloku kodu.
+W tym samouczku jest używany interfejs wiersza polecenia w [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz opcję **Wypróbuj** z góry dowolnego bloku kodu.
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.30 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
@@ -217,7 +217,7 @@ runcmd:
 ### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 Aby poprawić wysoką dostępność aplikacji, umieść maszyny wirtualne w zestawie dostępności. Aby uzyskać więcej informacji na temat zestawów dostępności, zobacz poprzedni samouczek [How to create highly available virtual machines (Tworzenie maszyn wirtualnych o wysokiej dostępności)](tutorial-availability-sets.md).
 
-Utwórz zestaw dostępności z [az vm dostępność zestaw create](/cli/azure/vm/availability-set). W poniższym przykładzie zostanie utworzony zestaw dostępności o nazwie *myAvailabilitySet*:
+Utwórz zestaw dostępności za pomocą [AZ VM Availability-Set Create](/cli/azure/vm/availability-set). W poniższym przykładzie zostanie utworzony zestaw dostępności o nazwie *myAvailabilitySet*:
 
 ```azurecli-interactive 
 az vm availability-set create \

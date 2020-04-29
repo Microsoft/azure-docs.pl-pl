@@ -1,99 +1,99 @@
 ---
-title: Szyfrowanie danych — witryna Azure portal — usługa Azure Database for MySQL
-description: Dowiedz się, jak skonfigurować szyfrowanie danych dla usługi Azure Database dla mysql i zarządzać nimi przy użyciu witryny Azure portal.
+title: Szyfrowanie danych — Azure Database for MySQL Azure Portal
+description: Dowiedz się, jak skonfigurować szyfrowanie danych i zarządzać nimi Azure Database for MySQL przy użyciu Azure Portal.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.openlocfilehash: 9d1e89919647d9d94b287618da2f9a77278425a5
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81459087"
 ---
-# <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Szyfrowanie danych dla usługi Azure Database dla MySQL przy użyciu witryny Azure portal
+# <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Szyfrowanie danych dla Azure Database for MySQL przy użyciu Azure Portal
 
-Dowiedz się, jak skonfigurować szyfrowanie danych dla usługi Azure Database dla mysql za pomocą portalu Azure portal i zarządzać nimi.
+Dowiedz się, jak za pomocą Azure Portal skonfigurować szyfrowanie danych dla Azure Database for MySQL i zarządzać nimi.
 
 ## <a name="prerequisites-for-azure-cli"></a>Wymagania wstępne dotyczące interfejsu wiersza polecenia platformy Azure
 
-* Musisz mieć subskrypcję platformy Azure i być administratorem w tej subskrypcji.
-* W usłudze Azure Key Vault utwórz magazyn kluczy i klucz do użycia dla klucza zarządzanego przez klienta.
-* Magazyn kluczy musi mieć następujące właściwości, aby użyć go jako klucza zarządzanego przez klienta:
+* Musisz mieć subskrypcję platformy Azure i być administratorem tej subskrypcji.
+* W Azure Key Vault Utwórz magazyn kluczy i klucz do użycia dla klucza zarządzanego przez klienta.
+* Magazyn kluczy musi mieć następujące właściwości, które mają być używane jako klucz zarządzany przez klienta:
   * [Usuwanie nietrwałe](../key-vault/general/overview-soft-delete.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [Czyszczenie chronione](../key-vault/general/overview-soft-delete.md#purge-protection)
+  * [Przeczyść chronione](../key-vault/general/overview-soft-delete.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
 
-* Klucz musi mieć następujące atrybuty, aby użyć go jako klucza zarządzanego przez klienta:
-  * Brak daty ważności
-  * Nie wyłączono
-  * W stanie wykonać get, wrap key, rozpakować kluczowe operacje
+* Klucz musi mieć następujące atrybuty do użycia jako klucz zarządzany przez klienta:
+  * Brak daty wygaśnięcia
+  * Niewyłączone
+  * Możliwość wykonania operacji get, zawijania klucza, odpakowania klucza
 
-## <a name="set-the-right-permissions-for-key-operations"></a>Ustawianie odpowiednich uprawnień dla operacji kluczy
+## <a name="set-the-right-permissions-for-key-operations"></a>Ustaw odpowiednie uprawnienia dla operacji Key
 
-1. W obszarze Przechowalnia kluczy wybierz pozycję **Zasady** > dostępu**Dodaj zasady dostępu**.
+1. W Key Vault wybierz pozycję **zasady** > dostępu**Dodaj zasady dostępu**.
 
-   ![Zrzut ekranu przedstawiający przechowalnię kluczy z wyróżnioną pojwale zasad programu Access i dodaj zasady dostępu](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
+   ![Zrzut ekranu przedstawiający Key Vault, z zasadami dostępu i wyróżnionymi zasadami dostępu](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
-2. Wybierz **opcję Uprawnienia klucza**i wybierz pozycję **Pobierz**, **Zawiń**, **Rozpakuj**i **główny podmiot ,** który jest nazwą serwera MySQL. Jeśli podmiotu zabezpieczeń serwera nie można znaleźć na liście istniejących podmiotów, należy go zarejestrować. Podczas pierwszej próby skonfigurowania szyfrowania danych po raz pierwszy zostanie wyświetlony monit o zarejestrowanie podmiotu zabezpieczeń serwera, co nie powiedzie się.
+2. Wybierz pozycję **uprawnienia**, a następnie wybierz pozycję **Pobierz**, **Zawijaj**, **Odpakuj**oraz **podmiot zabezpieczeń**, który jest nazwą serwera MySQL. Jeśli nie można znaleźć podmiotu zabezpieczeń serwera na liście istniejących podmiotów zabezpieczeń, należy go zarejestrować. Zostanie wyświetlony monit o zarejestrowanie podmiotu zabezpieczeń serwera podczas próby skonfigurowania szyfrowania danych po raz pierwszy i niepowodzenie.
 
-   ![Omówienie zasad dostępu](media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png)
-
-3. Wybierz pozycję **Zapisz**.
-
-## <a name="set-data-encryption-for-azure-database-for-mysql"></a>Ustawianie szyfrowania danych dla usługi Azure Database dla mysql
-
-1. W usłudze Azure Database for MySQL wybierz **opcję Szyfrowanie danych,** aby skonfigurować klucz zarządzany przez klienta.
-
-   ![Zrzut ekranu przedstawiający usługę Azure Database for MySQL z wyróżnioną pozycją szyfrowania danych](media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png)
-
-2. Można wybrać przechowalnię kluczy i parę kluczy lub wprowadzić identyfikator klucza.
-
-   ![Zrzut ekranu przedstawiający usługę Azure Database for MySQL z wyróżnionymi opcjami szyfrowania danych](media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png)
+   ![Przegląd zasad dostępu](media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png)
 
 3. Wybierz pozycję **Zapisz**.
 
-4. Aby upewnić się, że wszystkie pliki (w tym pliki tymczasowe) są w pełni zaszyfrowane, uruchom ponownie serwer.
+## <a name="set-data-encryption-for-azure-database-for-mysql"></a>Ustaw szyfrowanie danych dla Azure Database for MySQL
 
-## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Używanie szyfrowania danych do przywracania lub repliki serwerów
+1. W obszarze Azure Database for MySQL wybierz pozycję **szyfrowanie danych** , aby skonfigurować klucz zarządzany przez klienta.
 
-Po zaszyfrowywanie usługi Azure Database for MySQL przy pomocą klucza zarządzanego klienta przechowywanego w usłudze Key Vault każda nowo utworzona kopia serwera jest również szyfrowana. Tę nową kopię można wykonać za pomocą operacji lokalnego lub przywracania geograficznego lub za pośrednictwem operacji repliki (lokalnej/międzyregionowej). Tak więc dla zaszyfrowanego serwera MySQL, można użyć następujących kroków, aby utworzyć zaszyfrowany serwer przywrócony.
+   ![Zrzut ekranu przedstawiający Azure Database for MySQL z wyróżnionym szyfrowaniem danych](media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png)
 
-1. Na serwerze wybierz pozycję **Przegląd** > **przywracania**.
+2. Można wybrać Magazyn kluczy i parę kluczy lub wprowadzić identyfikator klucza.
 
-   ![Zrzut ekranu przedstawiający usługę Azure Database for MySQL z wyróżnioną pozycją Przegląd i przywracanie](media/concepts-data-access-and-security-data-encryption/show-restore.png)
+   ![Zrzut ekranu przedstawiający Azure Database for MySQL, z wyróżnionymi opcjami szyfrowania danych](media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png)
 
-   Lub dla serwera obsługującego replikację w nagłówku **Ustawienia** wybierz pozycję **Replikacja**.
+3. Wybierz pozycję **Zapisz**.
 
-   ![Zrzut ekranu przedstawiający usługę Azure Database for MySQL z wyróżnioną wyróżnioną funkcją Replikacja](media/concepts-data-access-and-security-data-encryption/mysql-replica.png)
+4. Aby upewnić się, że wszystkie pliki (w tym pliki tymczasowe) są całkowicie zaszyfrowane, należy ponownie uruchomić serwer.
 
-2. Po zakończeniu operacji przywracania nowy utworzony serwer jest szyfrowany przy pomocą klucza serwera podstawowego. Jednak funkcje i opcje na serwerze są wyłączone, a serwer jest niedostępny. Zapobiega to manipulowaniu danymi, ponieważ tożsamość nowego serwera nie uzyskała jeszcze uprawnień dostępu do magazynu kluczy.
+## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Korzystanie z szyfrowania danych dla serwerów przywracania lub repliki
 
-   ![Zrzut ekranu przedstawiający usługę Azure Database for MySQL z wyróżnionym stanem niedostępnym](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
+Gdy Azure Database for MySQL jest szyfrowany przy użyciu klucza zarządzanego przez klienta przechowywanego w Key Vault, nowo utworzona kopia serwera zostanie również zaszyfrowana. Tę nową kopię można wykonać za pomocą operacji w trybie lokalnym lub z możliwością przywracania geograficznego albo za pomocą operacji repliki (lokalnej/obejmującej wiele regionów). W przypadku szyfrowanego serwera MySQL można wykonać następujące czynności, aby utworzyć zaszyfrowany przywrócony serwer.
 
-3. Aby udostępnić serwer, ponownie zatrwalić klucz na przywróconym serwerze. Wybierz**klucz Ponowne przetwarzanie** **szyfrowania** > danych .
+1. Na serwerze wybierz pozycję **Przegląd** > **przywracanie**.
+
+   ![Zrzut ekranu przedstawiający Azure Database for MySQL, z wyróżnioną funkcją przegląd i przywracanie](media/concepts-data-access-and-security-data-encryption/show-restore.png)
+
+   Lub dla serwera z włączoną replikacją, w obszarze **Ustawienia** wybierz pozycję **replikacja**.
+
+   ![Zrzut ekranu przedstawiający Azure Database for MySQL, z wyróżnioną replikacją](media/concepts-data-access-and-security-data-encryption/mysql-replica.png)
+
+2. Po zakończeniu operacji przywracania tworzony nowy serwer jest szyfrowany przy użyciu klucza serwera podstawowego. Jednak funkcje i opcje na serwerze są wyłączone, a serwer jest niedostępny. Zapobiega to manipulowaniu danymi, ponieważ dla nowej tożsamości serwera nie udzielono jeszcze uprawnienia dostępu do magazynu kluczy.
+
+   ![Zrzut ekranu przedstawiający Azure Database for MySQL z wyróżnionym stanem niedostępnym](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
+
+3. Aby zapewnić dostęp do serwera, ponownie sprawdź poprawność klucza na przywróconym serwerze. Wybierz pozycję **szyfrowanie** > danych ponownie**Sprawdź poprawność klucza**.
 
    > [!NOTE]
-   > Pierwsza próba ponownego oceny nie powiedzie się, ponieważ nowy podmiot usługi serwera musi mieć dostęp do magazynu kluczy. Aby wygenerować jednostkę usługi, wybierz **klucz ponownej oceny,** który wyświetli błąd, ale generuje jednostkę usługi. Następnie zapoznaj się z [tymi krokami](#set-the-right-permissions-for-key-operations) wcześniej w tym artykule.
+   > Pierwsza próba ponownego zweryfikowania zakończy się niepowodzeniem, ponieważ nazwa główna usługi nowego serwera musi mieć dostęp do magazynu kluczy. Aby wygenerować jednostkę usługi, wybierz pozycję **Sprawdź ponownie klucz**, co spowoduje wyświetlenie błędu, ale wygeneruje nazwę główną usługi. Następnie zapoznaj się z [tymi krokami](#set-the-right-permissions-for-key-operations) wcześniej w tym artykule.
 
-   ![Zrzut ekranu przedstawiający usługę Azure Database for MySQL z wyróżnionym krokiem ponownego unieważnienia](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
+   ![Zrzut ekranu przedstawiający Azure Database for MySQL, z wyróżnionym krokiem ponownej walidacji](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
 
-   Będziesz musiał dać dostęp do magazynu kluczy do nowego serwera.
+   Musisz nadać magazynowi kluczy dostęp do nowego serwera.
 
-4. Po zarejestrowaniu jednostki usługi ponownie przywtniu certyfikat klucza, a serwer wznawia jego normalne funkcje.
+4. Po zarejestrowaniu nazwy głównej usługi należy ponownie sprawdzić poprawność klucza, a serwer wznawia jego normalne działanie.
 
-   ![Zrzut ekranu przedstawiający usługę Azure Database for MySQL z przywróconą funkcjonalnością](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
+   ![Zrzut ekranu przedstawiający Azure Database for MySQL, pokazujący przywrócone funkcje](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
- Aby dowiedzieć się więcej o szyfrowaniu danych, zobacz [Usługa Azure Database for MySQL data encryption with customer-managed key](concepts-data-encryption-mysql.md).
+ Aby dowiedzieć się więcej na temat szyfrowania danych, zobacz [Azure Database for MySQL szyfrowanie danych za pomocą klucza zarządzanego przez klienta](concepts-data-encryption-mysql.md).

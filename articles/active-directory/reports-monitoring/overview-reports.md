@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b655fa2f12eac894e97c61cc931983aa58fff7a9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74007925"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Co to są raporty usługi Azure Active Directory?
@@ -54,9 +54,9 @@ Wszystkie wersje usługi Azure AD zapewniają dostęp do raportów użytkownikó
 
 - W **usłudze Azure Active Directory w wersji Bezpłatna i Podstawowa** masz dostęp do listy użytkowników oflagowanych w związku z ryzykiem i ryzykownych logowań. 
 
-- **Wersja usługi Azure Active Directory Premium 1** rozszerza ten model, umożliwiając również zbadanie niektórych podstawowych wykrywania ryzyka, które zostały wykryte dla każdego raportu. 
+- Wersja **Azure Active Directory — wersja Premium 1** rozszerza ten model, umożliwiając także sprawdzenie niektórych podstawowych wykryć ryzyka, które zostały wykryte dla każdego raportu. 
 
-- Wersja **usługi Azure Active Directory Premium 2** zawiera najbardziej szczegółowe informacje na temat podstawowych wykrywania ryzyka, a także umożliwia skonfigurowanie zasad zabezpieczeń, które automatycznie reagują na skonfigurowane poziomy ryzyka.
+- Wersja **Azure Active Directory — wersja Premium 2** zapewnia najbardziej szczegółowe informacje na temat podstawowych wykryć ryzyka, a także umożliwia konfigurowanie zasad zabezpieczeń, które automatycznie reagują na skonfigurowane poziomy ryzyka.
 
 
 ## <a name="activity-reports"></a>Raporty dotyczące działań
@@ -101,6 +101,6 @@ Oprócz interfejsu użytkownika usługa Azure AD zapewnia [dostęp programowy](c
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Raport ryzykownych logów](concept-risky-sign-ins.md)
+- [Raport dotyczący ryzykownych logowań](concept-risky-sign-ins.md)
 - [Raport dotyczący dzienników inspekcji](concept-audit-logs.md)
 - [Raport dotyczący dzienników logowania](concept-sign-ins.md)

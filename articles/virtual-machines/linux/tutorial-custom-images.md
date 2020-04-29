@@ -1,5 +1,5 @@
 ---
-title: Samouczek — tworzenie niestandardowych obrazów maszyn wirtualnych za pomocą interfejsu wiersza polecenia platformy Azure
+title: Samouczek — Tworzenie niestandardowych obrazów maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 description: Z tego samouczka dowiesz się, jak utworzyć niestandardowy obraz maszyny wirtualnej na platformie Azure za pomocą interfejsu wiersza polecenia platformy Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,10 +15,10 @@ ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: dc7b395d46fd28cde9ccbbda8a8a55447efa61c9
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81460056"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Samouczek: tworzenie niestandardowego obrazu maszyny wirtualnej na platformie Azure za pomocą interfejsu wiersza polecenia platformy Azure
@@ -32,7 +32,7 @@ Obrazy niestandardowe są podobne do obrazów z platformy handlowej, ale tworzy 
 > * Wyświetlanie listy wszystkich obrazów w subskrypcji
 > * Usuwanie obrazu
 
-W tym samouczku używa interfejsu wiersza polecenia w [usłudze Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć powłokę chmury, wybierz pozycję **Wypróbuj ją** u góry dowolnego bloku kodu.
+W tym samouczku jest używany interfejs wiersza polecenia w [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz opcję **Wypróbuj** z góry dowolnego bloku kodu.
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.30 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
@@ -40,7 +40,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 W poniższych krokach wyjaśniono szczegółowo, jak na podstawie istniejącej maszyny wirtualnej utworzyć obraz niestandardowy do ponownego użycia, za pomocą którego można tworzyć nowe wystąpienia maszyn wirtualnych.
 
-Do utworzenia przykładu przedstawionego w tym samouczku potrzebna jest istniejąca maszyna wirtualna. W razie potrzeby ten [przykład skryptu](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) można utworzyć jeden dla Ciebie. Podczas pracy z tym samouczkiem zamień w odpowiednich przypadkach nazwy maszyn wirtualnych i grup zasobów.
+Do utworzenia przykładu przedstawionego w tym samouczku potrzebna jest istniejąca maszyna wirtualna. W razie potrzeby ten [przykładowy skrypt](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) może go utworzyć. Podczas pracy z tym samouczkiem zamień w odpowiednich przypadkach nazwy maszyn wirtualnych i grup zasobów.
 
 ## <a name="create-a-custom-image"></a>Tworzenie obrazu niestandardowego
 
@@ -51,7 +51,7 @@ Aby utworzyć obraz maszyny wirtualnej, należy przygotować maszynę wirtualną
 Anulowanie aprowizacji powoduje uogólnienie maszyny wirtualnej przez usunięcie informacji charakterystycznych dla danego komputera. To uogólnienie sprawia, że można wdrożyć wiele maszyn wirtualnych za pomocą pojedynczego obrazu. Podczas anulowania aprowizacji nazwa hosta jest resetowana do *localhost.localdomain*. Usuwane są również klucze hosta SSH, konfiguracje „nameserver”, hasło administratora (root) i buforowane dzierżawy DHCP.
 
 > [!WARNING]
-> Anulowanie obsługi administracyjnej i oznaczanie maszyny Wirtualnej jako uogólnionej spowoduje, że źródłowa maszyna wirtualna stanie się bezużyteczna i nie można jej ponownie uruchomić. 
+> Cofnięcie aprowizacji i oznaczenie maszyny wirtualnej jako uogólnionej spowoduje, że źródłowa maszyna wirtualna stanie się bezużyteczny i nie będzie można jej ponownie uruchomić. 
 
 Aby anulować aprowizację maszyny wirtualnej, użyj agenta maszyny wirtualnej platformy Azure (waagent). Agent maszyny wirtualnej platformy Azure jest zainstalowany na maszynie wirtualnej i zarządza aprowizowaniem oraz interakcjami z kontrolerem sieci szkieletowej Azure. Aby uzyskać więcej informacji, zobacz [Przewodnik użytkownika Agenta platformy Azure dla systemu Linux](../extensions/agent-linux.md).
 
@@ -110,7 +110,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Zaleca się ograniczenie liczby równoczesnych wdrożeń do 20 maszyn wirtualnych z jednego obrazu. Jeśli planujesz duże, równoczesne wdrożenia ponad 20 maszyn wirtualnych z tego samego obrazu niestandardowego, należy użyć [galerii obrazów udostępnionych](shared-image-galleries.md) z wieloma replikami obrazów. 
+Zalecamy ograniczenie liczby współbieżnych wdrożeń do 20 maszyn wirtualnych z jednego obrazu. Jeśli planujesz współbieżne wdrożenia z ponad 20 maszyn wirtualnych z tego samego obrazu niestandardowego, użyj [udostępnionej galerii obrazów](shared-image-galleries.md) z wieloma replikami obrazu. 
 
 ## <a name="image-management"></a>Zarządzanie obrazami 
 
@@ -145,5 +145,5 @@ W tym samouczku został utworzony obraz niestandardowy maszyny wirtualnej. W tym
 Przejdź do następnego samouczka, aby dowiedzieć się więcej o maszynach wirtualnych o wysokiej dostępności.
 
 > [!div class="nextstepaction"]
-> [Tworzenie maszyn wirtualnych o wysokiej dostępności](tutorial-availability-sets.md).
+> [Utwórz maszyny wirtualne o wysokiej](tutorial-availability-sets.md)dostępności.
 

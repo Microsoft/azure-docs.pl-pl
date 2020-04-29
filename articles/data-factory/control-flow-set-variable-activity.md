@@ -1,6 +1,6 @@
 ---
-title: Ustawianie aktywności zmiennej w fabryce danych platformy Azure
-description: Dowiedz się, jak ustawić wartość istniejącej zmiennej zdefiniowanej w potoku Fabryki danych za pomocą działania Ustaw zmienną.
+title: Ustaw aktywność zmiennej w Azure Data Factory
+description: Dowiedz się, jak użyć działania Ustaw zmienną, aby ustawić wartość istniejącej zmiennej zdefiniowanej w potoku Data Factory
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -12,34 +12,34 @@ ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.openlocfilehash: e5bd3d10e4e43daf3031aae5083ee917cfe65ede
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417984"
 ---
-# <a name="set-variable-activity-in-azure-data-factory"></a>Ustawianie aktywności zmiennej w fabryce danych platformy Azure
+# <a name="set-variable-activity-in-azure-data-factory"></a>Ustaw aktywność zmiennej w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Użyj działania Ustaw zmienną, aby ustawić wartość istniejącej zmiennej typu String, Bool lub Array zdefiniowanej w potoku fabryki danych.
+Użyj działania Ustaw zmienną, aby ustawić wartość istniejącej zmiennej typu String, bool lub Array zdefiniowanej w potoku Data Factory.
 
 ## <a name="type-properties"></a>Właściwości typu
 
 Właściwość | Opis | Wymagany
 -------- | ----------- | --------
 name | Nazwa działania w potoku | tak
-description | Tekst opisujący działanie | nie
-type | Musi być ustawiona na **SetVariable** | tak
-value | Wartość obiektu literału ciągu lub wyrażenia, do których zostanie przypisana zmienna | tak
-Variablename | Nazwa zmiennej, która zostanie ustawiona przez to działanie | tak
+description | Tekst opisujący działanie działania | nie
+type | Musi być ustawiona na wartość **Setvariable** | tak
+value | Wartość literału ciągu lub obiektu wyrażenia, do którego zostanie przypisana zmienna | tak
+variableName | Nazwa zmiennej, która zostanie ustawiona przez to działanie | tak
 
 ## <a name="incrementing-a-variable"></a>Zwiększanie zmiennej
 
-Typowy scenariusz obejmujący zmienne w usłudze Azure Data Factory używa zmiennej jako iteratora w ramach działania do lub foreach. W ustawienym działaniu zmiennej nie można `value` odwoływać się do zmiennej ustawionej w tym polu. Aby obejść to ograniczenie, ustaw zmienną tymczasową, a następnie utwórz działanie zmiennej drugiego zestawu. Działanie zmiennej drugiego zestawu ustawia wartość iteratora na zmienną tymczasową. 
+Typowy scenariusz obejmujący zmienne w Azure Data Factory używa zmiennej jako iteratora w działaniu until lub foreach. W działaniu z ustawioną zmienną nie można odwoływać się do zmiennej `value` ustawionej w polu. Aby obejść to ograniczenie, należy ustawić zmienną tymczasową, a następnie utworzyć drugie działanie zmiennej zestawu. Działanie drugiego zestawu zmiennych ustawia wartość iteratora na zmienną tymczasową. 
 
 Poniżej znajduje się przykład tego wzorca:
 
-![Zmienna przyrostu](media/control-flow-set-variable-activity/increment-variable.png "Zmienna przyrostu")
+![Zwiększ zmienną](media/control-flow-set-variable-activity/increment-variable.png "Zwiększ zmienną")
 
 ``` json
 {
@@ -97,6 +97,6 @@ Poniżej znajduje się przykład tego wzorca:
 
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o powiązanej aktywności przepływu sterowania obsługiwanej przez fabrykę danych: 
+Informacje na temat działania związanego z przepływem sterowania obsługiwanego przez Data Factory: 
 
 - [Działanie dołączania zmiennej](control-flow-append-variable-activity.md)

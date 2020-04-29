@@ -1,77 +1,77 @@
 ---
-title: Klonowanie notesu jupyter z usługi GitHub za pomocą usługi Azure Notebooks Preview
-description: Szybko sklonuj notes Jupyter z repozytorium Usługi GitHub i uruchom go na koncie notesów platformy Azure.
+title: Klonowanie notesu Jupyter z usługi GitHub przy użyciu wersji zapoznawczej Azure Notebooks
+description: Szybko Sklonuj Notes Jupyter z repozytorium GitHub i uruchom go na koncie Azure Notebooks.
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.openlocfilehash: d0f3a12ff04e115074c3821c5e29652484710bca
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77064601"
 ---
-# <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>Szybki start: klonowanie notesu w usłudze Azure Notebooks Preview
+# <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>Szybki Start: klonowanie notesu w programie Azure Notebooks Preview
 
-W tym przewodniku Szybki start można skopiować notes Jupyter przechowywane w usłudze GitHub do konta notesów platformy Azure. 
+Ten przewodnik Szybki Start umożliwia skopiowanie notesu Jupyter przechowywanego w usłudze GitHub na konto Azure Notebooks. 
 
-Repozytoria GitHub zapewniają kontrolę pamięci masowej i wersji dla notebooków Jupyter. Współpracownicy przechowują lokalne kopie repozytoriów i uruchamiają notesy z tych kopii. Klonowanie notesu Jupyter z usługi GitHub na koncie notesów platformy Azure tworzy niezależną kopię notesu. Zmiany są przechowywane tylko na koncie notesów platformy Azure i nie mają wpływu na oryginalne repozytorium Usługi GitHub. 
+Repozytoria GitHub zapewniają magazyn i kontrolę wersji dla notesów Jupyter. Współpracownicy utrzymują lokalne kopie repozytoriów i uruchamiają notesy z tych kopii. Klonowanie notesu Jupyter z usługi GitHub do konta Azure Notebooks tworzy niezależną kopię notesu. Zmiany są przechowywane tylko na koncie Azure Notebooks i nie mają wpływu na oryginalne repozytorium GitHub. 
 
-Ponieważ klon notesów platformy Azure znajduje się w chmurze, można udostępnić go współpracownikom, którzy nie muszą tworzyć żadnych kopii lokalnych lub mieć jupyter zainstalowany na swoich komputerach. Można również sklonować notes po prostu jako punkt wyjścia dla projektu własnego lub do uzyskania plików danych. 
+Ponieważ klon Azure Notebooks znajduje się w chmurze, możesz udostępnić go współpracownikom, którzy nie muszą tworzyć żadnych kopii lokalnych ani instalować Jupyter na swoich komputerach. Można również sklonować Notes po prostu jako punkt wyjścia dla projektu własnych lub do uzyskiwania plików danych. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Brak.
 
-## <a name="clone-azure-cognitive-services-notebooks"></a>Klonowanie notesów usług Azure Cognitive Services
+## <a name="clone-azure-cognitive-services-notebooks"></a>Klonowanie notesów Cognitive Services platformy Azure
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-1. Przejdź do [usługi Azure Notess](https://notebooks.azure.com) i zaloguj się. Aby uzyskać szczegółowe informacje, zobacz [Szybki start — logowanie się do notesów platformy Azure](quickstart-sign-in-azure-notebooks.md).
+1. Przejdź do [Azure Notebooks](https://notebooks.azure.com) i zaloguj się. Aby uzyskać szczegółowe informacje, zobacz [Szybki Start — logowanie do Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
-1. Na stronie profilu publicznego wybierz **pozycję Moje projekty** u góry strony:
+1. Na stronie Twój profil publiczny wybierz pozycję **Moje projekty** w górnej części strony:
 
     ![Link Moje projekty w górnej części okna przeglądarki](media/quickstarts/my-projects-link.png)
 
-1. Na stronie **Moje projekty** wybierz przycisk strzałki w górę (skrót klawiaturowy: U; przycisk jest wyświetlany jako **Przekaż repozytorium GitHub,** gdy okno przeglądarki jest wystarczająco szerokie):
+1. Na stronie **Moje projekty** wybierz przycisk strzałki w górę (skrót klawiaturowy: U; przycisk pojawia się jako **Przekaż repozytorium GitHub** , gdy okno przeglądarki jest dostatecznie szerokie):
 
-    ![Przekaż polecenie Repozytorium GitHub na stronie Moje projekty](media/quickstarts/upload-github-repo-command.png)
+    ![Prześlij polecenie GitHub repozytorium na stronie Moje projekty](media/quickstarts/upload-github-repo-command.png)
 
-1. W wyświetlonym **repozytorium Przekazywania GitHub** wprowadź lub ustaw następujące szczegóły, a następnie wybierz pozycję **Importuj:**
+1. W wyświetlonym **repozytorium GitHub** wpisz lub ustaw następujące szczegóły, a następnie wybierz pozycję **Importuj**:
 
-   - **Repozytorium GitHub**: Microsoft/cognitive-services-notebooks (ta nazwa klonuje notesy Jupyter dla usług Azure Cognitive Services pod adresem [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
-   - **Klonowanie cyklicznie**: (wyczyszczone)
-   - **Nazwa projektu**: Cognitive Services Clone
-   - **Identyfikator projektu**: cognitive-services-clone
-   - **Publiczne**: (wyczyszczone)
+   - **Repozytorium GitHub**: Microsoft/poznawcze-Services-notesy (Ta nazwa służy do klonowania notesów Jupyter dla [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)platformy Cognitive Services Azure w systemie).
+   - **Klonuj cyklicznie**: (wyczyszczone)
+   - **Nazwa projektu**: klon Cognitive Services
+   - **Identyfikator projektu**: poznawcze — usługi — klonowanie
+   - **Publiczny**: (wyczyszczone)
 
-     ![Prześlij wyskakujące okienko Repozytorium GitHub w celu zbierania informacji o repozytorium](media/quickstarts/upload-github-repo-popup.png)
+     ![Przekazanie okna podręcznego repozytorium GitHub w celu zebrania informacji o repozytorium](media/quickstarts/upload-github-repo-popup.png)
 
-1. Bądź cierpliwy, gdy proces się zakończy; klonowanie repozytorium może potrwać kilka minut.
+1. Poczekaj, aż zakończy się proces; klonowanie repozytorium może potrwać kilka minut.
 
-1. Po zakończeniu klonowania notesy platformy Azure przeniesie Cię do nowego projektu, w którym można zobaczyć kopie wszystkich plików.
+1. Po zakończeniu klonowania Azure Notebooks przenosi do nowego projektu, w którym można zobaczyć kopie wszystkich plików.
 
     [![](media/quickstarts/completed-clone.png "View of a completed clone")](media/quickstarts/completed-clone.png#lightbox)
 
 ## <a name="share-a-notebook"></a>Udostępnianie notesu
 
-1. Aby udostępnić kopię sklonowanego projektu, użyj formantu **Udostępnij** lub uzyskaj łącze, uzyskaj kod HTML lub Markdown zawierający łącze lub utwórz wiadomość e-mail z łączem:
+1. Aby udostępnić kopię sklonowanego projektu, użyj kontrolki **Udostępnij** lub Uzyskaj link, uzyskaj kod HTML lub promocji, który zawiera link, lub Utwórz wiadomość e-mail z linkiem:
 
-    ![Polecenie Udział projektu](media/quickstarts/share-project-command.png)
+    ![Project Share — polecenie](media/quickstarts/share-project-command.png)
 
-1. Ponieważ wyczyszczono **opcję Publiczne** podczas klonowania projektu, klon jest prywatny. Aby udostępnić kopię publicznie, wybierz **pozycję Ustawienia projektu**, ustaw opcję Projekt **publiczny** w wyskakującym okienku, a następnie wybierz pozycję **Zapisz**.
+1. Ponieważ opcja **publiczna** została wyczyszczona podczas klonowania projektu, klon jest prywatny. Aby utworzyć kopię publiczną, wybierz pozycję **Ustawienia projektu**, ustaw opcję **projekt publiczny** w menu podręcznym, a następnie wybierz pozycję **Zapisz**.
 
-1. Wybierz notes w projekcie, aby go uruchomić. Każdy notes w repozytorium usług Azure Cognitive Services, na przykład, jest jego własny samodzielny Przewodnik Szybki start. Poniższy obraz ekspozycyjny przedstawia wynik korzystania z notesu BingImageSearchAPI, po dodaniu klucza subskrypcji interfejsu API usług Cognitive Services i zmianie wyszukiwanego terminu "szczenięta" na "króliczki":
+1. Wybierz Notes w projekcie, aby go uruchomić. Każdy Notes w repozytorium Cognitive Services platformy Azure, na przykład, jest własnym przewodnikiem Szybki Start. Poniższy obraz przedstawia wynik użycia notesu BingImageSearchAPI, po dodaniu klucza subskrypcji interfejsu API Cognitive Services i zmianie okresu wyszukiwania "Puppies" na "Bunnies":
 
-    ![Uruchamianie notebooka Jupyter sklonowane z GitHub](media/quickstarts/clone-notebook-result.png)
+    ![Uruchamianie notesu Jupyter sklonowanego z usługi GitHub](media/quickstarts/clone-notebook-result.png)
 
-1. Po zakończeniu uruchamiania notesu wybierz pozycję **Zamknij plik** > **i zatrzymaj,** aby zamknąć notes i jego okno przeglądarki.
+1. Po zakończeniu pracy z notesem wybierz pozycję **plik** > **Zamknij i zatrzymywanie** , aby zamknąć Notes i jego okno przeglądarki.
 
-1. Aby udostępnić pojedynczy notes w projekcie, kliknij prawym przyciskiem myszy notes i wybierz polecenie **Kopiuj łącze** (skrót klawiaturowy: y):
+1. Aby udostępnić poszczególne notesy w projekcie, kliknij prawym przyciskiem myszy Notes i wybierz polecenie **Kopiuj link** (skrót klawiaturowy: t):
 
-    ![Polecenie menu kontekstowego służące do kopiowania łącza do pojedynczego notesu](media/quickstarts/copy-link-to-individual-notebook.png)
+    ![Polecenie menu kontekstowego umożliwiające skopiowanie linku do pojedynczego notesu](media/quickstarts/copy-link-to-individual-notebook.png)
 
-1. Aby edytować pliki inne niż notesy, kliknij prawym przyciskiem myszy plik w projekcie i wybierz polecenie **Edytuj plik** (skrót klawiaturowy: i). Domyślna akcja **Uruchom** (skrót klawiaturowy: r) pokazuje tylko zawartość pliku i nie zezwala na edycję.
+1. Aby edytować pliki inne niż notesy, kliknij prawym przyciskiem myszy plik w projekcie i wybierz polecenie **Edytuj plik** (skrót klawiaturowy: i). Akcja domyślna, **Uruchom** (skrót klawiaturowy: r), wyświetla tylko zawartość pliku i nie zezwala na edytowanie.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie i uruchamianie notebooka Jupyter do regresji liniowej](tutorial-create-run-jupyter-notebook.md)
+> [Samouczek: Tworzenie i uruchamianie notesu Jupyter w celu wykonania regresji liniowej](tutorial-create-run-jupyter-notebook.md)

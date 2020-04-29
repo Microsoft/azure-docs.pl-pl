@@ -1,5 +1,5 @@
 ---
-title: Samouczek — używanie usługi Azure Security Center dla maszyn wirtualnych z systemem Linux na platformie Azure
+title: Samouczek — używanie Azure Security Center dla maszyn wirtualnych z systemem Linux na platformie Azure
 description: W tym samouczku przedstawiono funkcje usługi Azure Security Center ułatwiające ochronę i zabezpieczanie maszyn wirtualnych z systemem Linux na platformie Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,10 +15,10 @@ ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 9b70474a985cde1cd6d7d98e84f7f228fde7a812
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81460107"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Samouczek: monitorowanie maszyn wirtualnych z systemem Linux za pomocą usługi Azure Security Center
@@ -102,7 +102,7 @@ W miarę stosowania się do zaleceń są one oznaczane jako rozwiązane.
 
 ## <a name="view-detected-threats"></a>Wyświetlanie wykrytych zagrożeń
 
-Oprócz zaleceń dotyczących konfiguracji zasobów usługa Security Center wyświetla alerty dotyczące wykrywania zagrożeń. Funkcja alertów zabezpieczeń agreguje dane zbierane z każdej maszyny wirtualnej, dzienników sieci platformy Azure i połączonych rozwiązań partnerów w celu wykrywania zagrożeń bezpieczeństwa dotyczących zasobów platformy Azure. Aby uzyskać szczegółowe informacje na temat możliwości wykrywania zagrożeń w centrum zabezpieczeń, zobacz [Jak usługa Security Center wykrywa zagrożenia?](../../security-center/security-center-alerts-overview.md#detect-threats).
+Oprócz zaleceń dotyczących konfiguracji zasobów usługa Security Center wyświetla alerty dotyczące wykrywania zagrożeń. Funkcja alertów zabezpieczeń agreguje dane zbierane z każdej maszyny wirtualnej, dzienników sieci platformy Azure i połączonych rozwiązań partnerów w celu wykrywania zagrożeń bezpieczeństwa dotyczących zasobów platformy Azure. Aby uzyskać szczegółowe informacje na temat możliwości wykrywania zagrożeń Security Center, zobacz [jak usługa Security Center wykrywać zagrożenia?](../../security-center/security-center-alerts-overview.md#detect-threats).
 
 Funkcja alertów zabezpieczeń wymaga podniesienia warstwy cenowej usługi Security Center z *Bezpłatna* do *Standardowa*. Przy przechodzeniu na tę wyższą warstwę cenową jest dostępna **bezpłatna wersja próbna**. 
 
