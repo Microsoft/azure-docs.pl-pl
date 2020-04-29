@@ -1,38 +1,38 @@
 ---
-title: Skalowalność aplikacji usługi Azure Service Fabric Mesh
-description: Jedną z zalet wdrażania aplikacji w sieci szkieletowej usługi Jest możliwość łatwego skalowania usług ręcznie lub za pomocą zasad skalowania automatycznego.
+title: Skalowalność aplikacji usługi Azure Service Fabric w sieci
+description: Jedną z zalet wdrażania aplikacji do Service Fabric siatki jest możliwość łatwego skalowania usług — ręcznie lub za pomocą zasad skalowania automatycznego.
 author: dkkapur
 ms.author: dekapur
 ms.date: 10/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: 474eda904df653d514fd2ee59fa046f1f87a66aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259177"
 ---
-# <a name="scaling-service-fabric-mesh-applications"></a>Skalowanie aplikacji siatki sieci szkieletowej usług
+# <a name="scaling-service-fabric-mesh-applications"></a>Skalowanie aplikacji Service Fabric siatki
 
-Jedną z głównych zalet wdrażania aplikacji w sieci szkieletowej usługi Mesh jest możliwość łatwego skalowania usług w lub obecnie. Powinno to być używane do obsługi różnych ilości obciążenia usług lub poprawy dostępności. Można ręcznie skalować usługi w lub obecnie lub konfiguracji zasad skalowania automatycznego.
+Jedną z głównych zalet wdrażania aplikacji do Service Fabric siatki jest możliwość łatwego skalowania usług do lub wyprowadzenia. Ta usługa powinna być używana do obsługi różnych ilości obciążeń w usługach lub do zwiększenia dostępności. Możesz ręcznie skalować usługi w lub na zewnątrz lub skonfigurować zasady skalowania automatycznego.
 
 ## <a name="manual-scaling-instances"></a>Ręczne skalowanie wystąpień
 
 W szablonie wdrażania dla zasobu aplikacji każda usługa ma właściwość *replicaCount*, która może służyć do ustawiania liczby wdrożeń usługi. Aplikacja może składać się z wielu usług, z których każda ma unikatową liczbę właściwości *replicaCount* oraz które są razem wdrażane i zarządzane. Aby skalować liczbę replik usług, zmodyfikuj wartość *replicaCount* dla każdej usługi, którą chcesz skalować, w szablonie wdrożenia lub pliku parametrów. Następnie uaktualnij aplikację.
 
-Aby zapoznać się z przykładami ręcznego skalowania wystąpień usług, zobacz [Ręczne skalowanie usług w lub na zewnątrz](service-fabric-mesh-tutorial-template-scale-services.md).
+Przykłady ręcznego skalowania wystąpień usług można znaleźć [w temacie ręczne skalowanie usług w programie lub na zewnątrz](service-fabric-mesh-tutorial-template-scale-services.md).
 
-## <a name="autoscaling-service-instances"></a>Wystąpienia usługi skalowania automatycznego
-Automatyczne skalowanie jest dodatkową możliwością sieci szkieletowej usług do dynamicznego skalowania liczby wystąpień usługi (skalowanie w poziomie). Automatyczne skalowanie zapewnia dużą elastyczność i umożliwia inicjowanie obsługi administracyjnej lub usuwanie wystąpień usługi na podstawie wykorzystania procesora CPU lub pamięci.  Automatyczne skalowanie umożliwia uruchomienie odpowiedniej liczby wystąpień usługi dla obciążenia i optymalizację pod kątem kosztów.
+## <a name="autoscaling-service-instances"></a>Automatyczne skalowanie wystąpień usługi
+Skalowanie automatyczne jest dodatkową możliwością Service Fabric do dynamicznego skalowania liczby wystąpień usługi (skalowanie w poziomie). Skalowanie automatyczne zapewnia doskonałą elastyczność i umożliwia inicjowanie obsługi lub usuwanie wystąpień usługi na podstawie użycia procesora lub pamięci.  Funkcja automatycznego skalowania umożliwia uruchamianie odpowiedniej liczby wystąpień usługi dla obciążenia i optymalizację pod kątem kosztów.
 
-Zasady automatycznego skalowania są definiowane dla usługi w pliku zasobów usługi. Każda zasada skalowania składa się z dwóch części:
+Zasady automatycznego skalowania są definiowane dla każdej usługi w pliku zasobów usługi. Każda zasada skalowania składa się z dwóch części:
 
-- Wyzwalacz skalowania, który opisuje, kiedy skalowanie usługi zostaną wykonane. Istnieją trzy czynniki, które określają, kiedy usługa zostanie skalowana. *Niższy próg obciążenia* jest wartością, która określa, kiedy usługa będzie skalowana. Jeśli średnie obciążenie wszystkich wystąpień partycji jest niższa niż ta wartość, usługa zostanie przeskalowana. *Górny próg obciążenia* jest wartością, która określa, kiedy usługa zostanie przeskalowana w poziomie. Jeśli średnie obciążenie wszystkich wystąpień partycji jest wyższa niż ta wartość, usługa zostanie przeskalowana w poziomie. *Interwał skalowania* określa, jak często (w sekundach) wyzwalacz będzie sprawdzany. Po zaznaczeniu wyzwalacza, jeśli wymagane jest skalowanie, zostanie zastosowany mechanizm. Jeśli skalowanie nie jest potrzebne, nie zostaną podjęte żadne działania. W obu przypadkach wyzwalacz nie zostanie ponownie sprawdzony przed wygaśnięciem interwału skalowania.
+- Wyzwalacz skalowania, który opisuje, kiedy zostanie wykonane skalowanie usługi. Istnieją trzy czynniki, które określają, kiedy usługa będzie skalowana. *Dolny próg obciążenia* jest wartością, która określa, kiedy usługa będzie skalowana w programie. Jeśli średnie obciążenie wszystkich wystąpień partycji jest mniejsze niż ta wartość, usługa zostanie przeskalowana w poziomie. *Górny próg obciążenia* jest wartością, która określa, kiedy usługa będzie skalowana w poziomie. Jeśli średnie obciążenie wszystkich wystąpień partycji jest wyższe niż ta wartość, usługa zostanie przeskalowana w poziomie. *Interwał skalowania* określa, jak często (w sekundach) zostanie sprawdzony wyzwalacz. Po sprawdzeniu wyzwalacza, jeśli jest wymagany, mechanizm zostanie zastosowany. Jeśli skalowanie nie jest wymagane, nie zostanie podjęta żadna akcja. W obu przypadkach wyzwalacz nie zostanie ponownie sprawdzony przed upływem interwału skalowania.
 
-- Mechanizm skalowania, który opisuje sposób skalowania będą wykonywane po jego wyzwoleniu. *Przyrost skali* określa, ile wystąpień zostanie dodanych lub usuniętych po wyzwoleniu mechanizmu. *Maksymalna liczba wystąpień* definiuje górny limit skalowania. Jeśli liczba wystąpień osiągnie ten limit, usługa nie będzie skalowana w poziomie, niezależnie od obciążenia. *Minimalna liczba wystąpień* definiuje dolny limit skalowania. Jeśli liczba wystąpień partycji osiągnie ten limit, usługa nie będzie skalowana niezależnie od obciążenia.
+- Mechanizm skalowania, który opisuje, jak skalowanie zostanie wykonane po jego wyzwoleniu. *Przyrost skali* określa liczbę wystąpień, które zostaną dodane lub usunięte, gdy mechanizm zostanie wyzwolony. *Maksymalna liczba wystąpień* definiuje górny limit skalowania. Jeśli liczba wystąpień osiągnie ten limit, usługa nie zostanie skalowana w poziomie niezależnie od obciążenia. *Minimalna liczba wystąpień* definiuje dolny limit skalowania. Jeśli liczba wystąpień partycji osiągnie ten limit, usługa nie będzie skalowana w przypadku, gdy jest to możliwe.
 
-Aby dowiedzieć się, jak ustawić zasady skalowania automatycznego dla usługi, przeczytaj [usługi skalowania automatycznego](service-fabric-mesh-howto-auto-scale-services.md).
+Aby dowiedzieć się, jak ustawić zasady automatycznego skalowania dla usługi, Przeczytaj [usługi skalowania automatycznego](service-fabric-mesh-howto-auto-scale-services.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać informacje na temat modelu aplikacji, zobacz [Zasoby sieci szkieletowej usług](service-fabric-mesh-service-fabric-resources.md)
+Informacje o modelu aplikacji można znaleźć w temacie [Service Fabric Resources](service-fabric-mesh-service-fabric-resources.md)

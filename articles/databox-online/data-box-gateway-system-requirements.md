@@ -1,6 +1,6 @@
 ---
-title: Wymagania systemowe usługi Microsoft Azure Data Box Gateway| Dokumenty firmy Microsoft
-description: Dowiedz się więcej o wymaganiach dotyczących oprogramowania i sieci bramy usługi Azure Data Box Gateway
+title: Microsoft Azure Data Box Gateway wymagania systemowe | Microsoft Docs
+description: Dowiedz się więcej o wymaganiach dotyczących oprogramowania i sieci dla Azure Data Box Gateway
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,25 +9,25 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260191"
 ---
-# <a name="azure-data-box-gateway-system-requirements"></a>Wymagania systemowe usługi Azure Data Box Gateway
+# <a name="azure-data-box-gateway-system-requirements"></a>Wymagania systemowe Azure Data Box Gateway
 
-W tym artykule opisano ważne wymagania systemowe dotyczące rozwiązania bramy usługi Microsoft Azure Data Box i klientów łączących się z bramą usługi Azure Data Box. Zaleca się dokładne przejrzenie informacji przed wdrożeniem bramy pola danych, a następnie odwołać się do niej w razie potrzeby podczas wdrażania i późniejszej operacji.
+W tym artykule opisano ważne wymagania systemowe dotyczące rozwiązania Data Box Gateway Microsoft Azure i dla klientów nawiązujących połączenie z Azure Data Box Gateway. Zalecamy dokładne zapoznanie się z informacjami przed wdrożeniem Data Box Gateway, a następnie odwoływanie się do niego w miarę potrzeb podczas wdrażania i kolejnej operacji.
 
-Wymagania systemowe dla urządzenia wirtualnego Bramy pól danych obejmują:
+Wymagania systemowe dla Data Box Gateway urządzenia wirtualnego obejmują:
 
-- **Wymagania dotyczące oprogramowania dla hostów** — opisuje obsługiwane platformy, przeglądarki dla interfejsu użytkownika konfiguracji lokalnej, klientów SMB i wszelkie dodatkowe wymagania dla hostów łączących się z urządzeniem.
-- **Wymagania dotyczące sieci dla urządzenia** - zawiera informacje o wszelkich wymaganiach sieciowych dla działania urządzenia wirtualnego.
+- **Wymagania dotyczące oprogramowania dla hostów** — zawiera opis obsługiwanych platform, przeglądarek dla lokalnego interfejsu użytkownika konfiguracji, klientów SMB i wszelkich dodatkowych wymagań dla hostów, które łączą się z urządzeniem.
+- **Wymagania dotyczące sieci dla urządzenia** — zawiera informacje o wymaganiach sieciowych dla operacji urządzenia wirtualnego.
 
 
-## <a name="specifications-for-the-virtual-device"></a>Dane techniczne urządzenia wirtualnego
+## <a name="specifications-for-the-virtual-device"></a>Specyfikacje dla urządzenia wirtualnego
 
-Podstawowy system hosta bramy pól danych może przeznaczyć następujące zasoby na aprowizację urządzenia wirtualnego:
+Podstawowy system hosta dla Data Box Gateway jest w stanie przeznaczyć następujące zasoby, aby udostępnić urządzenie wirtualne:
 
 | Specyfikacje                                          | Opis              |
 |---------------------------------------------------------|--------------------------|
@@ -38,7 +38,7 @@ Podstawowy system hosta bramy pól danych może przeznaczyć następujące zasob
 | Interfejsy sieciowe|Co najmniej 1 wirtualny interfejs sieciowy|
 
 
-## <a name="supported-os-for-clients-connected-to-device"></a>Obsługiwany system operacyjny dla klientów podłączonych do urządzenia
+## <a name="supported-os-for-clients-connected-to-device"></a>Obsługiwane systemy operacyjne dla klientów podłączonych do urządzenia
 
 [!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-supported-client-os.md)]
 
@@ -46,7 +46,7 @@ Podstawowy system hosta bramy pól danych może przeznaczyć następujące zasob
 
 [!INCLUDE [Supported protocols for clients accessing device](../../includes/data-box-edge-gateway-supported-client-protocols.md)]
 
-## <a name="supported-virtualization-platforms-for-device"></a>Obsługiwane platformy wirtualizacji dla urządzeń
+## <a name="supported-virtualization-platforms-for-device"></a>Obsługiwane platformy wirtualizacji dla urządzenia
 
 | **System operacyjny/platforma**  |**Wersje**   |**Uwagi**  |
 |---------|---------|---------|
@@ -69,31 +69,31 @@ Podstawowy system hosta bramy pól danych może przeznaczyć następujące zasob
 
 ## <a name="networking-port-requirements"></a>Wymagania dotyczące portów sieciowych
 
-W poniższej tabeli wymieniono porty, które muszą zostać otwarte w zaporze, aby umożliwić ruch SMB, chmura lub zarządzanie. W tej tabeli *in* lub *inbound* odnosi się do kierunku, z którego przychodzący klient żąda dostępu do urządzenia. *Wyjście* lub *wychodzące* odnosi się do kierunku, w którym urządzenie bramy data box wysyła dane zewnętrznie, poza wdrożeniem: na przykład wychodzących do Internetu.
+Poniższa tabela zawiera listę portów, które należy otworzyć w zaporze, aby umożliwić obsługę ruchu SMB, chmury lub zarządzania. W tej tabeli *w programie lub w* *ruchu przychodzącym* odwołuje się do kierunku, w którym klient przychodzący żąda dostępu do urządzenia. *Out* lub *wychodzący* odnosi się do kierunku, w którym urządzenie Data Box Gateway wysyła dane zewnętrznie, poza wdrożeniem: na przykład wychodzące do Internetu.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
 ## <a name="url-patterns-for-firewall-rules"></a>Wzorce adresów URL dla reguł zapory
 
-Administratorzy sieci często mogą konfigurować zaawansowane reguły zapory na podstawie wzorców adresów URL w celu filtrowania ruchu przychodzącego i wychodzącego. Urządzenie bramy pola danych i usługa Brama pola danych zależą od innych aplikacji firmy Microsoft, takich jak usługa Azure Service Bus, kontrola dostępu usługi Azure Active Directory, konta magazynu i serwery Usługi Microsoft Update. Wzorce adresów URL skojarzone z tymi aplikacjami mogą służyć do konfigurowania reguł zapory. Ważne jest, aby zrozumieć, że wzorce adresów URL skojarzone z tymi aplikacjami mogą ulec zmianie. To z kolei będzie wymagać administrator sieci do monitorowania i aktualizowania reguł zapory dla bramy pola danych w razie potrzeby.
+Administratorzy sieci mogą często konfigurować zaawansowane reguły zapory na podstawie wzorców adresów URL, aby filtrować ruch przychodzący i wychodzący. Urządzenie Data Box Gateway i Usługa Data Box Gateway zależą od innych aplikacji firmy Microsoft, takich jak Azure Service Bus, Azure Active Directory Access Control, konta magazynu i serwery Microsoft Update. Wzorce adresów URL skojarzone z tymi aplikacjami mogą służyć do konfigurowania reguł zapory. Ważne jest, aby zrozumieć, że wzorce adresów URL skojarzone z tymi aplikacjami mogą się zmieniać. To z kolei wymaga od administratora sieci monitorowania i aktualizowania reguł zapory dla Data Box Gateway, jak i w razie potrzeby.
 
-Zaleca się ustawienie reguł zapory dla ruchu wychodzącego na podstawie stałych adresów IP usługi Data Box Gateway, w większości przypadków obficie. Można jednak użyć poniższych informacji, aby ustawić zaawansowane reguły zapory, które są potrzebne do tworzenia bezpiecznych środowisk.
+Zalecamy ustawienie reguł zapory dla ruchu wychodzącego na podstawie Data Box Gateway stałych adresów IP, w większości przypadków. Można jednak użyć poniższych informacji, aby ustawić zaawansowane reguły zapory, które są potrzebne do tworzenia bezpiecznych środowisk.
 
 > [!NOTE]
-> - Interfejsy IP urządzenia (źródła) powinny być zawsze ustawione na wszystkie interfejsy sieciowe z obsługą chmury.
-> - Docelowe adresy IP powinny być ustawione na [zakresy adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> - Adresy IP urządzeń (źródłowych) powinny zawsze być ustawione na wszystkie interfejsy sieciowe obsługujące chmurę.
+> - Docelowe adresy IP powinny być ustawiane na [zakresy adresów IPv4 centrum danych platformy Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
 [!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
-### <a name="url-patterns-for-azure-government"></a>Wzorce adresów URL dla platformy Azure dla instytucji rządowych
+### <a name="url-patterns-for-azure-government"></a>Wzorce adresów URL dla Azure Government
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 
-## <a name="internet-bandwidth"></a>Przepustowość Internetu
+## <a name="internet-bandwidth"></a>Przepustowość internetowa
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
 ## <a name="next-step"></a>Następny krok
 
-* [Wdrażanie bramy skrzynki danych platformy Azure](data-box-gateway-deploy-prep.md)
+* [Wdrażanie Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
 

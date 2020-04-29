@@ -1,223 +1,223 @@
 ---
-title: Wyświetlanie alertów dla urządzenia z serii StorSimple serii 8000 i zarządzanie nimi
-description: W tym artykule StorSimple alert warunki i ważność, jak skonfigurować powiadomienia alertów i jak używać StorSimple Device Manager usługi do zarządzania alertami.
+title: Wyświetlanie alertów dla urządzenia z serii StorSimple 8000 i zarządzanie nimi
+description: Opisuje warunki i ważność alertów StorSimple, sposób konfigurowania powiadomień o alertach oraz sposób używania usługi StorSimple Menedżer urządzeń do zarządzania alertami.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267822"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Użyj usługi Menedżer urządzeń StorSimple, aby wyświetlać alerty StorSimple i zarządzać nimi
+# <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Używanie usługi StorSimple Menedżer urządzeń do wyświetlania alertów StorSimple i zarządzania nimi
 
 ## <a name="overview"></a>Omówienie
 
-**Alerty** bloku w StorSimple Device Manager usługi umożliwia przeglądanie i czyszczenie storsimple alerty związane z urządzeniem w czasie rzeczywistym. Z tego bloku można centralnie monitorować problemy zdrowotne urządzeń StorSimple i ogólne rozwiązanie Microsoft Azure StorSimple.
+Blok **alertów** w usłudze StorSimple Menedżer urządzeń umożliwia przeglądanie i czyszczenie alertów związanych z urządzeniem StorSimple w czasie rzeczywistym. Z tego bloku można centralnie monitorować problemy z kondycją urządzeń StorSimple i ogólne rozwiązanie Microsoft Azure StorSimple.
 
-W tym samouczku opisano typowe warunki alertów, poziomy ważności alertów i sposób konfigurowania powiadomień alertów. Ponadto zawiera tabele szybkiego odwołania alertów, które umożliwiają szybkie zlokalizowanie określonego alertu i odpowiednie reagowanie.
+W tym samouczku opisano typowe warunki alertu, poziomy ważności alertu i sposób konfigurowania powiadomień o alertach. Oprócz tego zawiera tabele szybkich odwołań alertów, które umożliwiają szybkie lokalizowanie określonego alertu i odpowiednie reagowanie.
 
-![Strona Alerty](./media/storsimple-8000-manage-alerts/configure-alerts-email11.png)
+![Strona alerty](./media/storsimple-8000-manage-alerts/configure-alerts-email11.png)
 
-## <a name="common-alert-conditions"></a>Typowe warunki alarmowe
+## <a name="common-alert-conditions"></a>Typowe warunki alertów
 
-Urządzenie StorSimple generuje alerty w odpowiedzi na różne warunki. Poniżej przedstawiono najczęstsze typy stanów alertów:
+Urządzenie StorSimple generuje alerty w odpowiedzi na różne warunki. Poniżej przedstawiono najczęściej spotykane typy warunków alertów:
 
-* **Problemy ze sprzętem** — te alerty informują o kondycji sprzętu. Pozwalają one wiedzieć, czy potrzebne są uaktualnienia oprogramowania układowego, jeśli wystąpiły problemy z interfejsem sieciowym lub jeśli występuje problem z jednym z dysków danych.
-* **Problemy z łącznością** — te alerty występują, gdy występują trudności w przesyłaniu danych. Problemy z komunikacją mogą wystąpić podczas przesyłania danych do i z konta magazynu platformy Azure lub z powodu braku łączności między urządzeniami a usługą StorSimple Device Manager. Problemy z komunikacją są jednymi z najtrudniejszych do naprawienia, ponieważ jest tak wiele punktów awarii. Przed kontynuowaniem bardziej zaawansowanego rozwiązywania problemów należy zawsze najpierw sprawdzić, czy łączność sieciowa i dostęp do Internetu są dostępne. Aby uzyskać pomoc dotyczącą rozwiązywania problemów, przejdź do [strony Rozwiązywanie problemów za pomocą polecenia cmdlet Test-Connection](storsimple-8000-troubleshoot-deployment.md).
-* **Problemy z wydajnością** — te alerty są spowodowane, gdy system nie działa optymalnie, na przykład gdy jest pod dużym obciążeniem.
+* **Problemy ze sprzętem** — te alerty informują o kondycji sprzętu. Umożliwiają one sprawdzenie, czy są potrzebne uaktualnienia oprogramowania układowego, jeśli wystąpią problemy z interfejsem sieciowym lub występuje problem z jednym z dysków danych.
+* **Problemy z łącznością** — te alerty występują w przypadku trudności związanych z transferem danych. Problemy z komunikacją mogą wystąpić podczas transferu danych do i z konta usługi Azure Storage lub z powodu braku łączności między urządzeniami a usługą StorSimple Menedżer urządzeń. Problemy z komunikacją są nieco trudne do rozwiązania, ponieważ istnieje wiele punktów awarii. Przed kontynuowaniem bardziej zaawansowanego rozwiązywania problemów należy zawsze sprawdzić, czy łączność sieciowa i dostęp do Internetu są dostępne. Aby uzyskać pomoc dotyczącą rozwiązywania problemów, przejdź do [obszaru Rozwiązywanie problemów za pomocą polecenia cmdlet Test-connection](storsimple-8000-troubleshoot-deployment.md).
+* **Problemy z wydajnością** — te alerty są generowane, gdy system nie działa optymalnie, na przykład gdy jest w dużym obciążeniu.
 
-Ponadto mogą być widoczne alerty związane z zabezpieczeniami, aktualizacjami lub błędami zadań.
+Ponadto mogą pojawić się alerty związane z zabezpieczeniami, aktualizacjami lub niepowodzeńmi zadań.
 
-## <a name="alert-severity-levels"></a>Poziomy ważności alertów
+## <a name="alert-severity-levels"></a>Poziomy ważności alertu
 
-Alerty mają różne poziomy ważności, w zależności od wpływu, jaki będzie miała sytuacja alertu i potrzeby odpowiedzi na alert. Poziomy ważności to:
+Alerty mają różne poziomy ważności, w zależności od wpływu działania alertu i konieczności odpowiedzi na alert. Poziomy ważności to:
 
-* **Krytyczne** — ten alert jest odpowiedzią na warunek, który ma wpływ na pomyślną wydajność systemu. Akcja jest wymagana, aby upewnić się, że Usługa StorSimple nie zostanie przerwana.
-* **Ostrzeżenie** — ten warunek może stać się krytyczny, jeśli nie zostanie rozwiązany. Należy zbadać sytuację i podjąć wszelkie działania wymagane, aby usunąć problem.
-* **Informacje** — ten alert zawiera informacje, które mogą być przydatne w śledzeniu i zarządzaniu systemem.
+* **Krytyczny** — ten alert jest w odpowiedzi na warunek, który ma wpływ na pomyślną wydajność systemu. Wymagana jest akcja, aby upewnić się, że Usługa StorSimple nie została przerwana.
+* **Ostrzeżenie** — ten stan może stać się krytyczny, jeśli nie został rozpoznany. Należy zbadać sytuację i podjąć wszelkie działania wymagane do wyczyszczenia problemu.
+* **Informacje** — ten alert zawiera informacje, które mogą być przydatne do śledzenia systemu i zarządzania nim.
 
 ## <a name="configure-alert-settings"></a>Konfigurowanie ustawień alertów
 
-Możesz wybrać, czy chcesz otrzymywać powiadomienia pocztą e-mail o warunkach alertów dla każdego z urządzeń StorSimple. Ponadto można zidentyfikować innych adresatów powiadomień o alertach, wprowadzając ich adresy e-mail w polu **Inni adresaci wiadomości e-mail, oddzielone** średnikami.
+Możesz wybrać, czy chcesz otrzymywać powiadomienia pocztą e-mail o warunkach alertów dla każdego z urządzeń z StorSimple. Ponadto możesz identyfikować innych adresatów powiadomień o alertach, wprowadzając ich adresy e-mail w polu **inni adresaci wiadomości e-mail** , rozdzielając je średnikami.
 
 > [!NOTE]
 > Możesz wprowadzić maksymalnie 20 adresów e-mail na urządzenie.
 
-Po włączeniu powiadomienia e-mail dla urządzenia członkowie listy powiadomień otrzymają wiadomość e-mail za każdym razem, gdy pojawi się alert krytyczny. Wiadomości będą wysyłane z *storsimple-alerts-noreply\@mail.windowsazure.com* i opisze warunek alertu. Adresaci mogą kliknąć pozycję **Wypisuj subskrypcję,** aby usunąć się z listy powiadomień e-mail.
+Po włączeniu powiadomienia e-mail dla urządzenia członkowie listy powiadomień otrzymają wiadomość e-mail za każdym razem, gdy wystąpi alert krytyczny. Komunikaty będą wysyłane z *StorSimple-Alerts-\@noreply mail.windowsazure.com* i opisują warunek alertu. Adresaci mogą kliknąć przycisk **Anuluj subskrypcję** , aby usunąć siebie z listy powiadomień e-mail.
 
 #### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>Aby włączyć powiadomienia e-mail o alertach dla urządzenia
 1. Przejdź do usługi Menedżer urządzeń StorSimple. Z listy urządzeń wybierz i kliknij urządzenie, które chcesz skonfigurować.
-2. Przejdź do **ustawień** > **ogólnych** dla urządzenia.
+2. Przejdź do pozycji **Ustawienia** > **Ogólne** dla urządzenia.
 
-   ![Ostrze alertów](./media/storsimple-8000-manage-alerts/configure-alerts-email2.png)
+   ![Blok alerty](./media/storsimple-8000-manage-alerts/configure-alerts-email2.png)
    
-2. W bloku **Ustawienia ogólne** przejdź do **ustawień alertu** i ustaw następujące ustawienia:
+2. W bloku **Ustawienia ogólne** przejdź do pozycji **Ustawienia alertu** i ustaw następujące opcje:
    
-   1. W polu **Wyślij powiadomienie e-mail** wybierz pozycję **TAK**.
-   2. W polu **Administratorzy usługi poczty e-mail** wybierz pozycję **TAK,** aby administrator usługi i wszyscy współadministratorzy otrzymywali powiadomienia o alertach.
-   3. W polu **Inni adresaci wiadomości e-mail** wprowadź adresy e-mail wszystkich innych adresatów, którzy powinni otrzymywać powiadomienia o alertach. Wprowadź nazwy w *\@formacie, który ktoś somewhere.com*. Użyj średników, aby oddzielić adresy e-mail. Można skonfigurować maksymalnie 20 adresów e-mail na urządzenie. 
+   1. W polu **Wyślij wiadomość e-mail z powiadomieniem** wybierz pozycję **tak**.
+   2. W polu **Administratorzy usługi poczty e-mail** wybierz pozycję **tak** , aby administrator usługi i wszyscy współadministratorzy otrzymywali powiadomienia o alertach.
+   3. W polu **inni adresaci wiadomości e-mail** wprowadź adresy e-mail wszystkich adresatów, którzy powinni otrzymywać powiadomienia o alertach. Wprowadź nazwy w formacie *ktoś\@Somewhere.com*. Użyj średników, aby rozdzielić adresy e-mail. Można skonfigurować maksymalnie 20 adresów e-mail na urządzenie. 
       
-3. Aby wysłać testowe powiadomienie e-mail, kliknij przycisk **Wyślij testową wiadomość e-mail**. Usługa StorSimple Device Manager wyświetli komunikaty o stanie podczas przesyłania dalej powiadomienia testowego.
+3. Aby wysłać testową wiadomość e-mail z powiadomieniem, kliknij pozycję **Wyślij testową wiadomość e-mail**. Usługa StorSimple Menedżer urządzeń będzie wyświetlać komunikaty o stanie podczas przesyłania dalej powiadomienia testowego.
 
-    ![Ustawienia alertów](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
+    ![Ustawienia alertu](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
 
-4. Zostanie wyświetlone powiadomienie podczas wysyłania testowej wiadomości e-mail. 
+4. Po wysłaniu testowej wiadomości e-mail zobaczysz powiadomienie. 
    
-    ![Wysłane wiadomości e-mail z powiadomieniem testowym alertów](./media/storsimple-8000-manage-alerts/configure-alerts-email4.png)
+    ![Wysłane wiadomości e-mail z powiadomieniem testowym o alertach](./media/storsimple-8000-manage-alerts/configure-alerts-email4.png)
    
    > [!NOTE]
-   > Jeśli nie można wysłać komunikatu powiadomienia testowego, usługa StorSimple Device Manager wyświetli odpowiedni komunikat o błędzie. Zaczekaj kilka minut, a następnie spróbuj ponownie wysłać wiadomość z powiadomieniem testowym. 
+   > Jeśli nie można wysłać komunikatu z powiadomieniem o testach, Usługa StorSimple Menedżer urządzeń będzie wyświetlała odpowiedni komunikat o błędzie. Poczekaj kilka minut, a następnie spróbuj ponownie wysłać testowy test powiadomienia. 
 
 5. Po zakończeniu konfiguracji kliknij przycisk **Zapisz**. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**.
 
-     ![Wysłane wiadomości e-mail z powiadomieniem testowym alertów](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
+     ![Wysłane wiadomości e-mail z powiadomieniem testowym o alertach](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
 
 ## <a name="view-and-track-alerts"></a>Wyświetlanie i śledzenie alertów
 
-Blok podsumowania usługi StorSimple Device Manager umożliwia szybki rzut oka na liczbę alertów na urządzeniach, uporządkowaną według poziomu ważności.
+Blok podsumowania usługi StorSimple Menedżer urządzeń zapewnia szybki wgląd w liczbę alertów na urządzeniach według poziomu ważności.
 
 ![Pulpit nawigacyjny alertów](./media/storsimple-8000-manage-alerts/device-summary4.png)
 
-Kliknięcie poziomu ważności powoduje otwarcie bloku **Alerty.** Wyniki obejmują tylko alerty, które odpowiadają tego poziomu ważności.
+Kliknięcie poziomu ważności powoduje otwarcie bloku **alerty** . Wyniki obejmują tylko alerty pasujące do tego poziomu ważności.
 
-Kliknięcie alertu na liście zawiera dodatkowe szczegóły dotyczące alertu, w tym czas ostatniego zgłoszenia alertu, liczbę wystąpień alertu na urządzeniu i zalecaną akcję rozpoznawania alertu. Jeśli jest to alert sprzętowy, zidentyfikuje również składnik sprzętowy.
+Kliknięcie alertu na liście zawiera dodatkowe szczegóły dotyczące alertu, w tym czas ostatniego zgłoszenia alertu, liczbę wystąpień alertu na urządzeniu oraz zalecaną akcję w celu rozwiązania alertu. W przypadku alertu sprzętowego zostanie również zidentyfikowany składnik sprzętowy.
 
 ![Przykład alertu sprzętowego](./media/storsimple-8000-manage-alerts/configure-alerts-email14.png)
 
-Szczegóły alertu można skopiować do pliku tekstowego, jeśli konieczne jest wysłanie informacji do pomocy technicznej firmy Microsoft. Po wykonaniu zalecenia i rozwiązaniu warunku alertu w środowisku lokalnym należy wyczyścić alert z urządzenia, wybierając alert w bloku Alerty i klikając **pozycję Wyczyść**. **Alerts** Aby wyczyścić wiele alertów, zaznacz każdy alert, kliknij dowolną kolumnę z wyjątkiem kolumny **Alert,** a następnie kliknij przycisk **Wyczyść** po wybraniu wszystkich alertów do wyczyszczenie. Należy zauważyć, że niektóre alerty są automatycznie czyszczone po rozwiązaniu problemu lub gdy system aktualizuje alert o nowe informacje.
+Możesz skopiować szczegóły alertu do pliku tekstowego, jeśli trzeba wysłać informacje do pomoc techniczna firmy Microsoft. Po wykonaniu zalecenia i rozwiązaniu lokalnego stanu alertu należy wyczyścić alert z urządzenia, wybierając alert w bloku **alerty** , a następnie klikając przycisk **Wyczyść**. Aby wyczyścić wiele alertów, zaznacz poszczególne alerty, kliknij dowolną kolumnę poza kolumną **alertu** , a następnie kliknij przycisk **Wyczyść** po wybraniu wszystkich alertów do wyczyszczenia. Należy zauważyć, że niektóre alerty są automatycznie czyszczone po rozwiązaniu problemu lub gdy system aktualizuje alert przy użyciu nowych informacji.
 
-Po kliknięciu **przycisku Wyczyść,** będziesz mieć możliwość podania komentarzy na temat alertu i kroków, które zostały podjęte w celu rozwiązania problemu. Niektóre zdarzenia zostaną wyczyszczone przez system, jeśli inne zdarzenie zostanie wyzwolone z nowymi informacjami. W takim przypadku zostanie wyświetlony następujący komunikat.
+Po kliknięciu przycisku **Wyczyść**będziesz mieć możliwość udostępnienia komentarzy dotyczących alertu i kroków, które należy wykonać w celu rozwiązania problemu. Niektóre zdarzenia zostaną wyczyszczone przez system, jeśli inne zdarzenie zostanie wyzwolone przy użyciu nowych informacji. W takim przypadku zostanie wyświetlony następujący komunikat.
 
-![Wyczyść komunikat ostrzegawczy](./media/storsimple-manage-alerts/admin_alerts_system_clear.png)
+![Wyczyść komunikat alertu](./media/storsimple-manage-alerts/admin_alerts_system_clear.png)
 
 ## <a name="sort-and-review-alerts"></a>Sortowanie i przeglądanie alertów
 
-Bardziej wydajne może być uruchamianie raportów w alertach, dzięki czemu można je przeglądać i czyścić w grupach. Ponadto **alerty** bloku może wyświetlać do 250 alertów. Jeśli liczba alertów została przekroczona, nie wszystkie alerty będą wyświetlane w widoku domyślnym. Można połączyć następujące pola, aby dostosować wyświetlane alerty:
+Możesz bardziej wydajnie uruchamiać raporty dotyczące alertów, aby można było je przeglądać i czyścić w grupach. Ponadto blok **alerty** może wyświetlać do 250 alertów. W przypadku przekroczenia tej liczby alertów nie wszystkie alerty będą wyświetlane w widoku domyślnym. Można połączyć następujące pola w celu dostosowania wyświetlanych alertów:
 
-* **Stan** — można wyświetlić alerty **aktywne** lub **wyczyszczone.** Aktywne alerty są nadal wyzwalane w systemie, podczas gdy wyczyszczone alerty zostały ręcznie wyczyszczone przez administratora lub programowo wyczyszczone, ponieważ system zaktualizował stan alertu o nowe informacje.
-* **Ważność** — można wyświetlać alerty o wszystkich poziomach ważności (krytyczne, ostrzeżenie, informacje) lub tylko pewną ważność, takie jak tylko alerty krytyczne.
-* **Źródło** — można wyświetlać alerty ze wszystkich źródeł lub ograniczyć alerty do tych, które pochodzą z usługi lub jednego lub wszystkich urządzeń.
-* **Zakres czasu** — określając **daty od** i **do** i sygnatury czasowe, można przeglądać alerty w okresie, który Cię interesuje.
+* **Stan** — można wyświetlić **aktywne** lub **wyczyszczone** alerty. Aktywne alerty są nadal wyzwalane w systemie, podczas gdy wyczyszczone alerty zostały ręcznie wyczyszczone przez administratora lub programowo wyczyszczone, ponieważ system zaktualizował warunek alertu o nowe informacje.
+* **Ważność** — można wyświetlić alerty o wszystkich poziomach ważności (krytyczne, ostrzegawcze, informacje) lub tylko o określonej ważności, takie jak tylko alerty krytyczne.
+* **Źródło** — można wyświetlić alerty ze wszystkich źródeł lub ograniczyć alerty do tych, które pochodzą z usługi lub jednego lub wszystkich urządzeń.
+* **Zakres czasu** — przez określenie daty **od** i **do** oraz sygnatur czasowych można sprawdzić alerty w odpowiednim czasie.
 
 ![Lista alertów](./media/storsimple-8000-manage-alerts/configure-alerts-email11.png)
 
-## <a name="alerts-quick-reference"></a>Szybkie alerty
+## <a name="alerts-quick-reference"></a>Szybkie informacje o alertach
 
-W poniższych tabelach przedstawiono niektóre alerty usługi Microsoft Azure StorSimple, które mogą wystąpić, a także dodatkowe informacje i zalecenia, jeśli są dostępne. Alerty urządzenia StorSimple należą do jednej z następujących kategorii:
+W poniższej tabeli wymieniono niektóre z Microsoft Azure StorSimple alertów, które mogą wystąpić, a także dodatkowe informacje i zalecenia, jeśli są dostępne. Alerty urządzeń StorSimple należą do jednej z następujących kategorii:
 
-* [Alerty o łączności w chmurze](#cloud-connectivity-alerts)
+* [Alerty łączności w chmurze](#cloud-connectivity-alerts)
 * [Alerty klastra](#cluster-alerts)
 * [Alerty odzyskiwania po awarii](#disaster-recovery-alerts)
-* [Alerty sprzętowe](#hardware-alerts)
-* [Alerty o niepowodzeniu zadania](#job-failure-alerts)
-* [Alerty woluminu przypięte lokalnie](#locally-pinned-volume-alerts)
+* [Alerty sprzętu](#hardware-alerts)
+* [Alerty błędów zadań](#job-failure-alerts)
+* [Alerty woluminu przypiętego lokalnie](#locally-pinned-volume-alerts)
 * [Alerty sieciowe](#networking-alerts)
-* [Alerty dotyczące wydajności](#performance-alerts)
+* [Alerty wydajności](#performance-alerts)
 * [Alerty zabezpieczeń](#security-alerts)
 * [Alerty pakietu pomocy technicznej](#support-package-alerts)
 
-### <a name="cloud-connectivity-alerts"></a>Alerty o łączności w chmurze
+### <a name="cloud-connectivity-alerts"></a>Alerty łączności w chmurze
 
-| Tekst alertu | Wydarzenie | Więcej informacji / zalecane działania |
+| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| Nie można ustanowić łączności z *<nazwą poświadczeń w chmurze,*> nie można ustanowić. |Nie można połączyć się z kontem magazynu. |Wygląda na to, że może wystąpić problem z łącznością z urządzeniem. Uruchom `Test-HcsmConnection` polecenie cmdlet z interfejsu programu Windows PowerShell dla storsimple na urządzeniu, aby zidentyfikować i rozwiązać problem. Jeśli ustawienia są poprawne, problem może być z poświadczeniami konta magazynu, dla którego alert został zgłoszony. W takim przypadku `Test-HcsStorageAccountCredential` użyj polecenia cmdlet, aby ustalić, czy istnieją problemy, które można rozwiązać.<ul><li>Sprawdź ustawienia sieciowe.</li><li>Sprawdź poświadczenia konta magazynu.</li></ul> |
-| Nie otrzymaliśmy pulsu z urządzenia przez ostatnie <*numer*> minut. |Nie można połączyć się z urządzeniem. |Wygląda na to, że występuje problem z łącznością z urządzeniem. Użyj `Test-HcsmConnection` polecenia cmdlet z interfejsu programu Windows PowerShell dla storsimple na urządzeniu, aby zidentyfikować i rozwiązać problem lub skontaktować się z administratorem sieci. |
+| Nie można nawiązać połączenia z <*nazwą poświadczenia chmury*>. |Nie można nawiązać połączenia z kontem magazynu. |Prawdopodobnie wystąpił problem z łącznością z urządzeniem. Uruchom `Test-HcsmConnection` polecenie cmdlet z interfejsu programu Windows PowerShell dla StorSimple na urządzeniu, aby zidentyfikować i rozwiązać problem. Jeśli ustawienia są poprawne, problem może mieć poświadczenia konta magazynu, dla którego zgłoszono alert. W takim przypadku należy użyć `Test-HcsStorageAccountCredential` polecenia cmdlet, aby określić, czy występują problemy, które można rozwiązać.<ul><li>Sprawdź ustawienia sieci.</li><li>Sprawdź poświadczenia konta magazynu.</li></ul> |
+| Nie odebrano pulsu z urządzenia przez ostatni <*numer*> minut. |Nie można nawiązać połączenia z urządzeniem. |Wygląda na to, że występuje problem z łącznością z urządzeniem. Użyj `Test-HcsmConnection` polecenia cmdlet z interfejsu programu Windows PowerShell dla StorSimple na urządzeniu, aby zidentyfikować i rozwiązać problem, lub skontaktuj się z administratorem sieci. |
 
-### <a name="storsimple-behavior-when-cloud-connectivity-fails"></a>StorSimple zachowanie, gdy łączność w chmurze nie powiedzie się
+### <a name="storsimple-behavior-when-cloud-connectivity-fails"></a>Zachowanie StorSimple w przypadku niepowodzenia łączności z chmurą
 
-Co się stanie, jeśli łączność w chmurze nie powiedzie się na moim urządzeniu StorSimple działającym w produkcji?
+Co się stanie w przypadku niepowodzenia łączności z chmurą dla urządzenia z systemem StorSimple w środowisku produkcyjnym?
 
-Jeśli łączność w chmurze ulegnie awarii na urządzeniu produkcyjnym StorSimple, w zależności od stanu urządzenia mogą wystąpić następujące zdarzenia:
+W przypadku niepowodzenia łączności z chmurą na urządzeniu produkcyjnym StorSimple, w zależności od stanu urządzenia, mogą wystąpić następujące kwestie:
 
-* **W przypadku danych lokalnych na urządzeniu**: Przez pewien czas nie będzie żadnych zakłóceń i odczyty będą nadal obsługiwane. Jednak w miarę wzrostu liczby nieuregulowane japozycy wzrasta i przekracza limit, odczyty mogą zacząć się niepowodzeniem.
+* W **przypadku danych lokalnych na urządzeniu**: w pewnym czasie nie będzie zakłóceń, a odczyty będą nadal obsługiwane. Jednakże, ponieważ liczba oczekujących wzrostów systemu IOs i przekracza limit, odczyty mogą się nie powieść.
 
-    W zależności od ilości danych na urządzeniu zapisy będą również występować przez pierwsze kilka godzin po zakłóceniu łączności w chmurze. Zapisy spowolnią i ostatecznie zaczną się niepowodzeniem, jeśli łączność w chmurze zostanie zakłócona na kilka godzin. (Na urządzeniu znajduje się tymczasowe przechowywanie danych, które mają zostać wypchnięte do chmury. Ten obszar jest opróżniany podczas wysyłania danych. Jeśli łączność nie powiedzie się, dane w tym obszarze magazynu nie zostaną wypchnięte do chmury, a we/wy zakończy się niepowodzeniem.)
-* **W przypadku danych w chmurze**: W przypadku większości błędów łączności w chmurze zwracany jest błąd. Po przywróceniu łączności usługi we/wy są wznawiane bez konieczności przełączenia woluminu do trybu online. W rzadkich przypadkach interwencji użytkownika może być wymagane, aby przywrócić wolumin w trybie online z witryny Azure portal.
-* **W przypadku migawek w chmurze w toku:** operacja jest ponowiona kilka razy w ciągu 4-5 godzin, a jeśli łączność nie zostanie przywrócona, migawki w chmurze zakończy się niepowodzeniem.
+    W zależności od ilości danych na urządzeniu zapisy są również nadal wykonywane przez pierwsze kilka godzin po przerwaniu łączności z chmurą. Zapisy zostaną następnie obniżone i ostatecznie zaczynają się niepowodzeniem, jeśli łączność z chmurą zostanie zakłócona przez kilka godzin. (Na urządzeniu znajduje się tymczasowy magazyn danych do wypchnięcia do chmury). Ten obszar jest opróżniany, gdy dane są wysyłane. W przypadku niepowodzenia łączności dane w tym obszarze magazynu nie zostaną wypchnięte do chmury, a operacja we/wy zakończy się niepowodzeniem.
+* W **przypadku danych w chmurze**: w przypadku większości błędów łączności w chmurze zwracany jest błąd. Po przywróceniu łączności system IOs zostanie wznowiony bez konieczności przełączenia woluminu w tryb online. W rzadkich przypadkach może być wymagana interwencja użytkownika w celu przywrócenia woluminu do trybu online z Azure Portal.
+* **W trakcie wykonywania migawek w chmurze**: operacja jest ponawiana kilka razy w ciągu 4-5 godzin, a jeśli łączność nie zostanie przywrócona, migawki w chmurze zakończą się niepowodzeniem.
 
 ### <a name="cluster-alerts"></a>Alerty klastra
 
-| Tekst alertu | Wydarzenie | Więcej informacji / zalecane działania |
+| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| > *nazwa urządzenia* uległa awarii <. |Urządzenie jest w trybie konserwacji. |Urządzenie nie powiodło się z powodu wejścia lub zakończenia trybu konserwacji. Jest to normalne i nie jest potrzebne żadne działanie. Po potwierdzeniu tego alertu wyczyść go ze strony alertów. |
-| > *nazwa urządzenia* uległa awarii <. |Oprogramowanie układowe lub oprogramowanie urządzenia zostało właśnie zaktualizowane. |Nastąpiła przewijalnia awaryjna klastra z powodu aktualizacji. Jest to normalne i nie jest potrzebne żadne działanie. Po potwierdzeniu tego alertu wyczyść go ze strony alertów. |
-| > *nazwa urządzenia* uległa awarii <. |Kontroler został zamknięty lub ponownie uruchomiony. |Urządzenie zostało przejęte awaryjnie, ponieważ aktywny kontroler został zamknięty lub ponownie uruchomiony przez administratora. Nie są potrzebne żadne działania. Po potwierdzeniu tego alertu wyczyść go ze strony alertów. |
-| > *nazwa urządzenia* uległa awarii <. |Planowane przemija awaryjne. |Sprawdź, czy była to planowana przewijka awaryjna. Po podjęcia odpowiednich działań, wyczyść ten alert ze strony alertów. |
-| > *nazwa urządzenia* uległa awarii <. |Nieplanowane przejście awaryjne. |StorSimple jest zbudowany do automatycznego odzyskiwania po nieplanowanych pracy awaryjnej. Jeśli widzisz dużą liczbę tych alertów, skontaktuj się z pomocą techniczną firmy Microsoft. |
-| > *nazwa urządzenia* uległa awarii <. |Inna/nieznana przyczyna. |Jeśli widzisz dużą liczbę tych alertów, skontaktuj się z pomocą techniczną firmy Microsoft. Po rozwiązaniu problemu wyczyść ten alert ze strony alertów. |
-| Usługa urządzenia o krytycznym znaczeniu zgłasza stan jako nieudany. |Błąd usługi Datapath. |Aby uzyskać pomoc, skontaktuj się z pomocą techniczną firmy Microsoft. |
-| Wirtualny adres IP interfejsu sieciowego <*DATA #*> zgłasza stan jako nie powiodło się. |Inna/nieznana przyczyna. |Czasami tymczasowe warunki mogą powodować te alerty. W takim przypadku ten alert zostanie automatycznie wyczyszczony po pewnym czasie. Jeśli problem będzie się powtarzał, skontaktuj się z pomocą techniczną firmy Microsoft. |
-| Wirtualny adres IP interfejsu sieciowego <*DATA #*> zgłasza stan jako nie powiodło się. |Nazwa interfejsu: <*DATA #*> adres `<IP address>` IP nie mogą być przełączone do trybu online, ponieważ w sieci wykryto zduplikowany adres IP. |Upewnij się, że zduplikowany adres IP został usunięty z sieci lub ponownie skonfiguruj interfejs przy innym adresie IP. |
+| Urządzenie przełączone w tryb failover do <> *nazwy urządzenia* . |Urządzenie jest w trybie konserwacji. |Urządzenie zostało przełączone w tryb failover z powodu wprowadzenia lub zakończenia trybu konserwacji. Jest to normalne i nie jest wymagana żadna akcja. Po potwierdzeniu tego alertu Wyczyść go na stronie alertów. |
+| Urządzenie przełączone w tryb failover do <> *nazwy urządzenia* . |Urządzenie układowe lub oprogramowanie oprogramowania zostało właśnie zaktualizowane. |Klaster był w trybie failover z powodu aktualizacji. Jest to normalne i nie jest wymagana żadna akcja. Po potwierdzeniu tego alertu Wyczyść go na stronie alertów. |
+| Urządzenie przełączone w tryb failover do <> *nazwy urządzenia* . |Kontroler został zamknięty lub ponownie uruchomiony. |Urządzenie zostało przełączone w tryb failover, ponieważ aktywny kontroler został zamknięty lub ponownie uruchomiony przez administratora. Nie jest wymagana żadna akcja. Po potwierdzeniu tego alertu Wyczyść go na stronie alertów. |
+| Urządzenie przełączone w tryb failover do <> *nazwy urządzenia* . |Planowana praca w trybie failover. |Sprawdź, czy to była planowana praca w trybie failover. Po wykonaniu odpowiedniej akcji wyczyść ten alert na stronie alertów. |
+| Urządzenie przełączone w tryb failover do <> *nazwy urządzenia* . |Nieplanowane przejście w tryb failover. |StorSimple jest skompilowany do automatycznego odzyskiwania z nieplanowanych przełączeń w tryb failover. Jeśli zobaczysz dużą liczbę tych alertów, skontaktuj się z firmą pomoc techniczna firmy Microsoft. |
+| Urządzenie przełączone w tryb failover do <> *nazwy urządzenia* . |Inna/nieznana przyczyna. |Jeśli zobaczysz dużą liczbę tych alertów, skontaktuj się z firmą pomoc techniczna firmy Microsoft. Po rozwiązaniu problemu Wyczyść ten alert na stronie alertów. |
+| Krytyczna usługa urządzenia zgłasza stan jako niepowodzenie. |Błąd usługi ścieżki datapath. |Skontaktuj się pomoc techniczna firmy Microsoft w celu uzyskania pomocy. |
+| Wirtualny adres IP dla interfejsu sieciowego <*Data #*> zgłasza stan jako niepowodzenie. |Inna/nieznana przyczyna. |Czasami warunki tymczasowe mogą spowodować te alerty. W takim przypadku ten alert zostanie automatycznie wyczyszczony po pewnym czasie. Jeśli problem będzie się powtarzać, skontaktuj się z firmą pomoc techniczna firmy Microsoft. |
+| Wirtualny adres IP dla interfejsu sieciowego <*Data #*> zgłasza stan jako niepowodzenie. |Nazwa interfejsu: <*Data #*> adres `<IP address>` IP nie może zostać przełączony w tryb online, ponieważ w sieci wykryto zduplikowany adres IP. |Upewnij się, że zduplikowany adres IP został usunięty z sieci lub ponownie skonfiguruj interfejs przy użyciu innego adresu IP. |
 
 ### <a name="disaster-recovery-alerts"></a>Alerty odzyskiwania po awarii
 
-| Tekst alertu | Wydarzenie | Więcej informacji / zalecane działania |
+| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| Operacje odzyskiwania nie można przywrócić wszystkie ustawienia dla tej usługi. Dane konfiguracji urządzenia jest w niespójnym stanie dla niektórych urządzeń. |Niespójność danych wykryta po odzyskaniu po awarii. |Zaszyfrowane dane w usłudze nie są synchronizowane z danymi na urządzeniu. Autoryzuj nazwę *urządzenia* <> z Menedżera urządzeń StorSimple, aby rozpocząć proces synchronizacji. Użyj interfejsu programu Windows PowerShell dla `Restore-HcsmEncryptedServiceData` storsimple, aby uruchomić nazwę urządzenia <*>,* podając stare hasło jako dane wejściowe do tego polecenia cmdlet, aby przywrócić profil zabezpieczeń. Następnie uruchom `Invoke-HcsmServiceDataEncryptionKeyChange` polecenie cmdlet, aby zaktualizować klucz szyfrowania danych usługi. Po podjęcia odpowiednich działań, wyczyść ten alert ze strony alertów. |
+| Operacje odzyskiwania nie mogą przywrócić wszystkich ustawień dla tej usługi. Dane konfiguracji urządzenia są w niespójnym stanie dla niektórych urządzeń. |Wykryto niespójność danych po odzyskiwaniu po awarii. |Zaszyfrowane dane w usłudze nie są zsynchronizowane z programem na urządzeniu. Autoryzuj urządzenie <*nazwę urządzenia*> z StorSimple Menedżer urządzeń, aby rozpocząć proces synchronizacji. Użyj interfejsu programu Windows PowerShell dla StorSimple, aby uruchomić `Restore-HcsmEncryptedServiceData` *nazwę urządzenia* <> polecenie cmdlet, dostarczając stare hasło jako dane wejściowe tego polecenia cmdlet w celu przywrócenia profilu zabezpieczeń. Następnie uruchom polecenie `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet, aby zaktualizować klucz szyfrowania danych usługi. Po wykonaniu odpowiedniej akcji wyczyść ten alert na stronie alertów. |
 
-### <a name="hardware-alerts"></a>Alerty sprzętowe
+### <a name="hardware-alerts"></a>Alerty sprzętu
 
-| Tekst alertu | Wydarzenie | Więcej informacji / zalecane działania |
+| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| Identyfikator składnika <*składnika sprzętowego*> zgłasza stan jako *stan* <>. | |Czasami tymczasowe warunki mogą powodować te alerty. Jeśli tak, ten alert zostanie automatycznie wyczyszczony po pewnym czasie. Jeśli problem będzie się powtarzał, skontaktuj się z pomocą techniczną firmy Microsoft. |
-| Działanie kontrolera pasywnego. |Kontroler pasywny (pomocniczy) nie działa. |Urządzenie działa, ale jeden z kontrolerów działa nieprawidłowo. Spróbuj ponownie uruchomić ten kontroler. Jeśli problem nie został rozwiązany, skontaktuj się z pomocą techniczną firmy Microsoft. |
+| Składnik sprzętowy <*Identyfikator składnika*> raporty stanu jako <*stanu*>. | |Czasami warunki tymczasowe mogą spowodować te alerty. Jeśli tak, ten alert zostanie automatycznie wyczyszczony po pewnym czasie. Jeśli problem będzie się powtarzać, skontaktuj się z firmą pomoc techniczna firmy Microsoft. |
+| Nieprawidłowe działanie kontrolera pasywnego. |Kontroler pasywny (pomocniczy) nie działa. |Urządzenie działa, ale jeden z kontrolerów nie działa prawidłowo. Spróbuj ponownie uruchomić ten kontroler. Jeśli problem nie zostanie rozwiązany, skontaktuj się z pomoc techniczna firmy Microsoft. |
 
-### <a name="job-failure-alerts"></a>Alerty o niepowodzeniu zadania
+### <a name="job-failure-alerts"></a>Alerty błędów zadań
 
-| Tekst alertu | Wydarzenie | Więcej informacji / zalecane działania |
+| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| Kopia zapasowa identyfikatora *grupy woluminów źródłowych* <nie powiodła> się. |Zadanie tworzenia kopii zapasowej nie powiodło się. |Problemy z łącznością mogą uniemożliwiać pomyślne ukończenie operacji tworzenia kopii zapasowej. Jeśli nie ma żadnych problemów z łącznością, być może osiągnięto maksymalną liczbę kopii zapasowych. Usuń wszystkie kopie zapasowe, które nie są już potrzebne i ponów próbę wykonania operacji. Po podjęcia odpowiednich działań, wyczyść ten alert ze strony alertów. |
-| Klonowanie *identyfikatorów <źródłowych elementów kopii zapasowej*> do <*numerów seryjnych woluminu docelowego*> nie powiodło się. |Zadanie klonowania nie powiodło się. |Odśwież listę kopii zapasowych, aby sprawdzić, czy kopia zapasowa jest nadal prawidłowa. Jeśli kopia zapasowa jest prawidłowa, jest możliwe, że problemy z łącznością w chmurze uniemożliwiają pomyślne ukończenie operacji klonowania. Jeśli nie ma żadnych problemów z łącznością, być może osiągnięto limit magazynu. Usuń wszystkie kopie zapasowe, które nie są już potrzebne i ponów próbę wykonania operacji. Po podjęcia odpowiednich działań w celu rozwiązania problemu, wyczyść ten alert ze strony alertów. |
-| Przywracanie <*źródłowych identyfikatorów elementów kopii zapasowej*> nie powiodło się. |Zadanie przywracania nie powiodło się. |Odśwież listę kopii zapasowych, aby sprawdzić, czy kopia zapasowa jest nadal prawidłowa. Jeśli kopia zapasowa jest prawidłowa, jest możliwe, że problemy z łącznością w chmurze uniemożliwiają pomyślne ukończenie operacji przywracania. Jeśli nie ma żadnych problemów z łącznością, być może osiągnięto limit magazynu. Usuń wszystkie kopie zapasowe, które nie są już potrzebne i ponów próbę wykonania operacji. Po podjęcia odpowiednich działań w celu rozwiązania problemu, wyczyść ten alert ze strony alertów. |
+| Nie można utworzyć kopii zapasowej *identyfikatora grupy woluminów źródłowych*> <. |Zadanie tworzenia kopii zapasowej nie powiodło się. |Problemy z łącznością mogą uniemożliwiać pomyślne ukończenie operacji tworzenia kopii zapasowej. Jeśli nie ma problemów z łącznością, być może osiągnięto maksymalną liczbę kopii zapasowych. Usuń wszystkie kopie zapasowe, które nie są już potrzebne, i spróbuj ponownie wykonać operację. Po wykonaniu odpowiedniej akcji wyczyść ten alert na stronie alertów. |
+| Klonowanie *identyfikatorów źródłowego elementu kopii zapasowej* <> do <*numerów seryjnych woluminów docelowych*> nie powiodło się. |Zadanie klonowania nie powiodło się. |Odśwież listę kopii zapasowych, aby sprawdzić, czy kopia zapasowa jest nadal ważna. Jeśli kopia zapasowa jest prawidłowa, istnieje możliwość, że problemy z łącznością z chmurą uniemożliwiają pomyślne zakończenie operacji klonowania. Jeśli nie ma problemów z łącznością, być może osiągnięto limit magazynu. Usuń wszystkie kopie zapasowe, które nie są już potrzebne, i spróbuj ponownie wykonać operację. Po wykonaniu odpowiedniej akcji w celu rozwiązania problemu Wyczyść ten alert na stronie alertów. |
+| Przywracanie *identyfikatorów elementu <źródłowej kopii zapasowej* nie powiodło się>. |Zadanie przywracania nie powiodło się. |Odśwież listę kopii zapasowych, aby sprawdzić, czy kopia zapasowa jest nadal ważna. Jeśli kopia zapasowa jest prawidłowa, istnieje możliwość, że problemy z łącznością z chmurą uniemożliwiają pomyślne zakończenie operacji przywracania. Jeśli nie ma problemów z łącznością, być może osiągnięto limit magazynu. Usuń wszystkie kopie zapasowe, które nie są już potrzebne, i spróbuj ponownie wykonać operację. Po wykonaniu odpowiedniej akcji w celu rozwiązania problemu Wyczyść ten alert na stronie alertów. |
 
-### <a name="locally-pinned-volume-alerts"></a>Alerty woluminu przypięte lokalnie
+### <a name="locally-pinned-volume-alerts"></a>Alerty woluminu przypiętego lokalnie
 
-| Tekst alertu | Wydarzenie | Więcej informacji / zalecane działania |
+| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| Tworzenie nazwy woluminu lokalnego <*>* nie powiodło się. |Zadanie tworzenia woluminu nie powiodło się. <*Komunikat o błędzie odpowiadający> kodu błędu, który uległ awarii.* |Problemy z łącznością mogą uniemożliwiać pomyślne ukończenie operacji tworzenia przestrzeni. Woluminy przypięte lokalnie są gęsto aprowizacji i proces tworzenia miejsca obejmuje rozlanie woluminów warstwowych do chmury. Jeśli nie ma żadnych problemów z łącznością, być może wyczerpano miejsce lokalne na urządzeniu. Przed ponowieniem tej operacji należy określić, czy na urządzeniu istnieje miejsce. |
-| Rozszerzenie woluminu lokalnego <*nazwa woluminu*> nie powiodła się. |Zadanie modyfikacji woluminu nie powiodło się z powodu <*komunikatu o błędzie odpowiadającego> kodu błędu, który nie powiódł się.* |Problemy z łącznością mogą uniemożliwiać pomyślne ukończenie operacji rozszerzania woluminu. Woluminy przypięte lokalnie są aprowizacji grubo i proces rozszerzania istniejącej przestrzeni obejmuje rozlanie woluminów warstwowych do chmury. Jeśli nie ma żadnych problemów z łącznością, być może wyczerpano miejsce lokalne na urządzeniu. Przed ponowieniem tej operacji należy określić, czy na urządzeniu istnieje miejsce. |
-| Konwersja *nazwy woluminu* <woluminu> nie powiodła się. |Zadanie konwersji woluminu w celu konwersji typu woluminu z lokalnie przypiętego do warstwowego nie powiodło się. |Nie można ukończyć konwersji woluminu z typu przypiętego lokalnie do warstwowego. Upewnij się, że nie ma żadnych problemów z łącznością uniemożliwiających pomyślne ukończenie operacji. Aby rozwiązać problemy z łącznością, przejdź do [sekcji Rozwiązywanie problemów za pomocą polecenia cmdlet Test-HcsmConnection](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Oryginalny wolumin przypięty lokalnie został teraz oznaczony jako wolumin warstwowy, ponieważ niektóre dane z woluminu przypiętego lokalnie rozlały się do chmury podczas konwersji. Wynikowy wolumin warstwowy nadal zajmuje miejsce lokalne na urządzeniu, które nie może zostać odzyskane dla przyszłych woluminów lokalnych.<br>Rozwiąż wszelkie problemy z łącznością, wyczyść alert i przekonwertuj ten wolumin z powrotem na oryginalny typ woluminu przypiętego lokalnie, aby upewnić się, że wszystkie dane są ponownie udostępniane lokalnie. |
-| Konwersja *nazwy woluminu* <woluminu> nie powiodła się. |Zadanie konwersji woluminu w celu konwersji typu woluminu z warstwowego na przypięte lokalnie nie powiodło się. |Nie można ukończyć konwersji woluminu z typu warstwowego na przypięty lokalnie. Upewnij się, że nie ma żadnych problemów z łącznością uniemożliwiających pomyślne ukończenie operacji. Aby rozwiązać problemy z łącznością, przejdź do [sekcji Rozwiązywanie problemów za pomocą polecenia cmdlet Test-HcsmConnection](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Oryginalny wolumin warstwowy oznaczony teraz jako wolumin przypięty lokalnie w ramach procesu konwersji nadal ma dane przebywające w chmurze, podczas gdy gęsto aprowizowanego miejsca na urządzeniu dla tego woluminu nie można już odzyskać dla przyszłych woluminów lokalnych.<br>Rozwiąż wszelkie problemy z łącznością, wyczyść alert i przekonwertuj ten wolumin z powrotem na oryginalny typ woluminu warstwowego, aby zapewnić, że przestrzeń lokalna jest gęsto aprowiowana na urządzeniu. |
-| Zbliżanie się do lokalnego zużycia przestrzeni dla migawek lokalnych <*nazwa grupy woluminów*> |Lokalne migawki dla zasad tworzenia kopii zapasowych może wkrótce zabraknąć miejsca i zostać unieważnione, aby uniknąć błędów zapisu hosta. |Częste migawki lokalne wraz z wysokimi zmianami danych w woluminach skojarzonych z tą grupą zasad tworzenia kopii zapasowych powodują szybkie użycie miejsca lokalnego na urządzeniu. Usuń wszystkie migawki lokalne, które nie są już potrzebne. Ponadto zaktualizuj harmonogramy migawek lokalnych dla tej zasady tworzenia kopii zapasowych, aby wykonać rzadsze migawki lokalne i upewnij się, że migawki w chmurze są regularnie pobierane. Jeśli te akcje nie zostaną podjęte, miejsce lokalne dla tych migawek może wkrótce zostać wyczerpane, a system automatycznie je usunie, aby upewnić się, że zapisy hosta będą nadal przetwarzane pomyślnie. |
-| Migawki lokalne dla <*nazwy grupy woluminów*> zostały unieważnione. |Migawki lokalne dla <*nazwa grupy woluminów*> zostały unieważnione, a następnie usunięte, ponieważ przekraczały przestrzeń lokalną na urządzeniu. |Aby upewnić się, że nie powtórzy się to w przyszłości, przejrzyj harmonogramy migawek lokalnych dla tej zasady tworzenia kopii zapasowych i usuń wszystkie migawki lokalne, które nie są już potrzebne. Częste migawki lokalne wraz z wysokimi zmianami danych w woluminach skojarzonych z tą grupą zasad tworzenia kopii zapasowych mogą spowodować szybkie użycie miejsca lokalnego na urządzeniu. |
-| Przywracanie <*źródłowych identyfikatorów elementów kopii zapasowej*> nie powiodło się. |Zadanie przywracania nie powiodło się. |Jeśli w tej zasadach kopii zapasowej jest przypięty lokalnie lub zawierano kombinację woluminów przypiętych lokalnie i warstwowych, odśwież listę kopii zapasowych, aby sprawdzić, czy kopia zapasowa jest nadal prawidłowa. Jeśli kopia zapasowa jest prawidłowa, jest możliwe, że problemy z łącznością w chmurze uniemożliwiają pomyślne ukończenie operacji przywracania. Woluminy przypięte lokalnie, które zostały przywrócone jako część tej grupy migawek, nie mają wszystkich ich danych pobranych na urządzenie, a jeśli masz kombinację woluminów warstwowych i przypiętych lokalnie w tej grupie migawek, nie będą one synchronizowane ze sobą. Aby pomyślnie zakończyć operację przywracania, należy włączyć woluminy w tej grupie do trybu offline na hoście i ponowić próbę operacji przywracania. Należy zauważyć, że wszelkie modyfikacje danych woluminu, które zostały wykonane podczas procesu przywracania zostaną utracone. |
+| Nie można utworzyć woluminu lokalnego <*nazwy woluminu*>. |Zadanie tworzenia woluminu nie powiodło się. <*Komunikat o błędzie odpowiadający kodowi błędu nie powiodło się*>. |Problemy z łącznością mogą uniemożliwiać pomyślne zakończenie operacji tworzenia miejsca. Woluminy przypięte lokalnie są alokowane elastycznie i proces tworzenia miejsca obejmuje rozlanie woluminów warstwowych do chmury. Jeśli nie ma problemów z łącznością, być może wystąpiło lokalne miejsce na urządzeniu. Ustal, czy na urządzeniu istnieje miejsce, zanim ponowisz próbę wykonania tej operacji. |
+| Rozszerzenie woluminu lokalnego <*nazwy woluminu*> nie powiodło się. |Zadanie modyfikacji woluminu nie powiodło się z powodu <*komunikatu o błędzie odpowiadającego> kod błędu* . |Problemy z łącznością mogą uniemożliwiać pomyślne ukończenie operacji rozszerzania woluminu. Woluminy przypięte lokalnie są alokowane elastycznie i proces rozszerzania istniejącego obszaru obejmuje przelanie woluminów warstwowych do chmury. Jeśli nie ma problemów z łącznością, być może wystąpiło lokalne miejsce na urządzeniu. Ustal, czy na urządzeniu istnieje miejsce, zanim ponowisz próbę wykonania tej operacji. |
+| Nie można przekonwertować *nazwy* woluminu <woluminu>. |Zadanie konwersji woluminu w celu konwersji typu woluminu z lokalnie przypięty do warstwowej nie powiodło się. |Konwersja woluminu z typu przypiętego lokalnie do warstwy nie może zostać ukończona. Upewnij się, że nie występują żadne problemy z łącznością uniemożliwiające pomyślne zakończenie operacji. Rozwiązywanie problemów z łącznością można znaleźć w tematach [rozwiązywania problemów za pomocą polecenia cmdlet Test-HcsmConnection](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Oryginalny wolumin przypięty lokalnie został oznaczony jako wolumin warstwowy, ponieważ niektóre dane z woluminu przypiętego lokalnie zostały przelane do chmury podczas konwersji. Wynikowy wolumin warstwowy nadal zajmuje miejsce lokalne na urządzeniu, którego nie można odszukać w przyszłych woluminach lokalnych.<br>Rozwiąż wszelkie problemy z łącznością, Usuń alert i przekonwertuj ten wolumin z powrotem na oryginalny wolumin przypięty lokalnie, aby upewnić się, że wszystkie dane zostaną ponownie udostępnione lokalnie. |
+| Nie można przekonwertować *nazwy* woluminu <woluminu>. |Zadanie konwersji woluminu w celu konwersji typu woluminu z warstwowego na przypięty lokalnie nie powiodło się. |Nie można ukończyć konwersji woluminu z typu warstwowego na przypięty lokalnie. Upewnij się, że nie występują żadne problemy z łącznością uniemożliwiające pomyślne zakończenie operacji. Rozwiązywanie problemów z łącznością można znaleźć w tematach [rozwiązywania problemów za pomocą polecenia cmdlet Test-HcsmConnection](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Oryginalny wolumin warstwowy oznaczono teraz jako wolumin przypięty lokalnie w ramach procesu konwersji w dalszym ciągu ma dane znajdujące się w chmurze, podczas gdy nie można już ponownie zastrzec miejsca na urządzeniu dla tego woluminu dla przyszłych woluminów lokalnych.<br>Rozwiąż wszelkie problemy z łącznością, Usuń alert i przekonwertuj ten wolumin z powrotem na oryginalny typ woluminu warstwowego, aby zapewnić możliwość odrejestrowania lokalnego miejsca na urządzeniu. |
+| Bliskie użycie lokalnego miejsca dla lokalnych migawek <*Nazwa grupy woluminów*> |Lokalne migawki dla zasad tworzenia kopii zapasowych mogą wkrótce zabraknąć miejsca i być unieważnione, aby zapobiec błędom zapisu hosta. |Częste migawki lokalne z dużą ilością danych w woluminach skojarzonych z tą grupą zasad tworzenia kopii zapasowych powodują szybkie wykorzystanie lokalnego miejsca na urządzeniu. Usuń wszystkie migawki lokalne, które nie są już potrzebne. Ponadto należy zaktualizować harmonogramy migawek lokalnych dla tych zasad tworzenia kopii zapasowych, aby wykonywać mniej częste migawki lokalne i upewnić się, że migawki w chmurze są regularnie wykonywane. Jeśli te akcje nie zostaną wykonane, lokalne miejsce dla tych migawek może wkrótce ulec wyczerpaniu i system usunie je automatycznie, aby upewnić się, że zapisy hosta nadal będą przetwarzane pomyślnie. |
+| Lokalne migawki dla <*nazw grup woluminów*> zostały unieważnione. |Lokalne migawki dla <*nazw grup woluminów*> zostały unieważnione, a następnie usunięte, ponieważ przekroczą lokalne miejsce na urządzeniu. |Aby upewnić się, że nie powtarza się to w przyszłości, przejrzyj harmonogramy migawek lokalnych dla tych zasad tworzenia kopii zapasowych i Usuń wszystkie migawki lokalne, które nie są już potrzebne. Częste migawki lokalne z dużą ilością danych w woluminach skojarzonych z tą grupą zasad tworzenia kopii zapasowych mogą szybko korzystać z lokalnego miejsca na urządzeniu. |
+| Przywracanie *identyfikatorów elementu <źródłowej kopii zapasowej* nie powiodło się>. |Zadanie przywracania zakończyło się niepowodzeniem. |Jeśli masz lokalnie przypięte lub kombinację lokalnie przypiętych woluminów warstwowych w tych zasadach tworzenia kopii zapasowych, Odśwież listę kopii zapasowych, aby sprawdzić, czy kopia zapasowa jest nadal ważna. Jeśli kopia zapasowa jest prawidłowa, istnieje możliwość, że problemy z łącznością z chmurą uniemożliwiają pomyślne zakończenie operacji przywracania. Woluminy przypięte lokalnie, które zostały przywrócone w ramach tej grupy migawek, nie mają wszystkich pobranych danych do urządzenia i, jeśli w tej grupie migawek istnieje kombinacja woluminów przypiętych warstwowo i lokalnie, nie będą one zsynchronizowane ze sobą. Aby pomyślnie ukończyć operację przywracania, przełącz woluminy z tej grupy do trybu offline na hoście, a następnie spróbuj ponownie wykonać operację przywracania. Należy zauważyć, że wszelkie modyfikacje danych woluminu, które zostały wykonane podczas procesu przywracania, zostaną utracone. |
 
 ### <a name="networking-alerts"></a>Alerty sieciowe
 
-| Tekst alertu | Wydarzenie | Więcej informacji / zalecane działania |
+| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| Nie można uruchomić usługi StorSimple. |Błąd ścieżki danych |Jeśli problem będzie się powtarzał, skontaktuj się z pomocą techniczną firmy Microsoft. |
-| Wykryto zduplikowany adres IP dla "Data0". | |System wykrył konflikt adresu IP "10.0.0.1". Zasób sieciowy "Data0" na * \<urządzeniu1>* jest w trybie offline. Upewnij się, że ten adres IP nie jest używany przez żadną inną jednostkę w tej sieci. Aby rozwiązać problemy z siecią, przejdź do [tematu Rozwiązywanie problemów za pomocą polecenia cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Skontaktuj się z administratorem sieci, aby uzyskać pomoc w rozwiązaniu tego problemu. Jeśli problem będzie się powtarzał, skontaktuj się z pomocą techniczną firmy Microsoft. |
-| Adres IPv4 (lub IPv6) dla "Data0" jest w trybie offline. | |Zasób sieciowy "Data0" o adresie IP "10.0.0.1". i długość prefiksu "22" na * \<urządzeniu1>* jest w trybie offline. Upewnij się, że porty przełącznika, do których podłączony jest ten interfejs, działają. Aby rozwiązać problemy z siecią, przejdź do [tematu Rozwiązywanie problemów za pomocą polecenia cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| Nie można połączyć się z usługą uwierzytelniania. |Błąd ścieżki danych |URL, który jest używany do uwierzytelniania nie jest osiągalny. Upewnij się, że reguły zapory zawierają wzorce adresów URL określone dla urządzenia StorSimple. Aby uzyskać więcej informacji na temat wzorców adresów\/URL w witrynie Azure portal, przejdź do https: /aka.ms/ss-8000-network-reqs. Jeśli używasz usługi Azure Government Cloud, przejdź\/do wzorców adresów URL w https: /aka.ms/ss8000-gov-network-reqs.|
+| Nie można uruchomić usług StorSimple. |Błąd ścieżki datapath |Jeśli problem będzie się powtarzał, skontaktuj się z pomoc techniczna firmy Microsoft. |
+| Wykryto zduplikowany adres IP dla elementu "Data0". | |System wykrył konflikt dla adresu IP "10.0.0.1". Zasób sieciowy "Data0" na urządzeniu * \<device1>* jest w trybie offline. Upewnij się, że ten adres IP nie jest używany przez żadną inną jednostkę w tej sieci. Aby rozwiązać problemy z siecią, przejdź do [obszaru Rozwiązywanie problemów za pomocą polecenia cmdlet Get-adapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Skontaktuj się z administratorem sieci, aby uzyskać pomoc w rozwiązaniu tego problemu. Jeśli problem będzie się powtarzał, skontaktuj się z pomoc techniczna firmy Microsoft. |
+| Adres IPv4 (lub IPv6) dla elementu "Data0" jest w trybie offline. | |Zasób sieciowy "Data0" o adresie IP "10.0.0.1". i długość prefiksu "22" na urządzeniu * \<device1>* jest w trybie offline. Upewnij się, że porty przełącznika, do których jest podłączony ten interfejs są operacyjne. Aby rozwiązać problemy z siecią, przejdź do [obszaru Rozwiązywanie problemów za pomocą polecenia cmdlet Get-adapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Nie można nawiązać połączenia z usługą uwierzytelniania. |Błąd ścieżki datapath |URLthat jest używany do uwierzytelniania jest nieosiągalny. Upewnij się, że reguły zapory zawierają wzorce URL określone dla urządzenia StorSimple. Aby uzyskać więcej informacji na temat wzorców adresów URL w Azure Portal, przejdź\/do protokołu https:/aka.MS/SS-8000-Network-reqs. W przypadku korzystania z chmury Azure Government przejdź do wzorca adresu URL w protokole https:\//aka.MS/ss8000-gov-Network-reqs.|
 
-### <a name="performance-alerts"></a>Alerty dotyczące wydajności
+### <a name="performance-alerts"></a>Alerty wydajności
 
-| Tekst alertu | Wydarzenie | Więcej informacji / zalecane działania | |
+| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje | |
 |:--- |:--- |:--- | --- |
-| Obciążenie urządzenia przekroczyło <*próg*>. |Wolniejsze niż oczekiwano czasy odpowiedzi. |Urządzenie zgłasza wykorzystanie przy dużym obciążeniu wejściowym/wyjściowym. Może to spowodować, że urządzenie nie będzie działać tak dobrze, jak powinno. Przejrzyj obciążenia, które zostały dołączone do urządzenia i określ, czy istnieją jakieś, które mogą zostać przeniesione do innego urządzenia lub które nie są już konieczne.|
-| Nie można uruchomić usługi StorSimple. |Błąd ścieżki danych |Jeśli problem będzie się powtarzał, skontaktuj się z pomocą techniczną firmy Microsoft. |
+| Obciążenie urządzenia przekroczyło <*progową*>. |Wolniejsze niż oczekiwane czasy odpowiedzi. |Urządzenie zgłasza użycie w ramach dużego obciążenia wejścia/wyjścia. Może to spowodować, że urządzenie nie będzie działało, a także powinno. Przejrzyj obciążenia dołączone do urządzenia i ustal, czy istnieją jakieś, które można przenieść na inne urządzenie lub które nie są już potrzebne.|
+| Nie można uruchomić usług StorSimple. |Błąd ścieżki datapath |Jeśli problem będzie się powtarzał, skontaktuj się z pomoc techniczna firmy Microsoft. |
 
 ### <a name="security-alerts"></a>Alerty zabezpieczeń
 
-| Tekst alertu | Wydarzenie | Więcej informacji / zalecane działania |
+| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| Rozpoczęto sesję pomocy technicznej firmy Microsoft. |Sesja pomocy technicznej innej firmy, do która uzyskała dostęp. |Proszę potwierdzić, że ten dostęp jest autoryzowany. Po podjęcia odpowiednich działań, wyczyść ten alert ze strony alertów. |
-| Hasło do> *elementu* <wygaśnie <*>.* |Zbliża się wygaśnięcie hasła. |Zmień hasło przed jego wygaśnięciem. |
-| Brak informacji o konfiguracji zabezpieczeń dla> *identyfikatora elementu* <. | |Woluminów skojarzonych z tym kontenerem woluminów nie można użyć do replikowania konfiguracji StorSimple. Aby upewnić się, że dane są bezpiecznie przechowywane, zaleca się usunięcie kontenera woluminów i woluminów skojarzonych z kontenerem woluminów. Po podjęcia odpowiednich działań, wyczyść ten alert ze strony alertów. |
-| <*numer*> próby logowania nie powiodły się dla> *identyfikatora elementu* <. |Wiele nieudanych prób logowania. |Urządzenie może być atakowane lub autoryzowany użytkownik próbuje połączyć się z nieprawidłowym hasłem.<ul><li>Skontaktuj się z autoryzowanymi użytkownikami i sprawdź, czy te próby pochodziły z legalnego źródła. Jeśli nadal widzisz dużą liczbę nieudanych prób logowania, rozważ wyłączenie zdalnego zarządzania i skontaktowanie się z administratorem sieci. Po podjęcia odpowiednich działań, wyczyść ten alert ze strony alertów.</li><li>Sprawdź, czy wystąpienia Menedżera migawek są skonfigurowane przy przy obliczu prawidłowego hasła. Po podjęcia odpowiednich działań, wyczyść ten alert ze strony alertów.</li></ul>Aby uzyskać więcej informacji, przejdź do [temat Zmienianie wygasłego hasła urządzenia](storsimple-snapshot-manager-manage-devices.md#change-an-expired-device-password). |
-| Wystąpił co najmniej jeden błąd podczas zmiany klucza szyfrowania danych usługi. | |Wystąpiły błędy podczas zmiany klucza szyfrowania danych usługi. Po uwzględnienie warunków błędu uruchom `Invoke-HcsmServiceDataEncryptionKeyChange` polecenie cmdlet z interfejsu programu Windows PowerShell interface for StorSimple na urządzeniu, aby zaktualizować usługę. Jeśli ten problem będzie się powtarzał, skontaktuj się z pomocą techniczną firmy Microsoft. Po rozwiązaniu problemu wyczyść ten alert ze strony alertów. |
+| Rozpoczęto sesję pomoc techniczna firmy Microsoft. |Sesja pomocy technicznej innej firmy. |Upewnij się, że ten dostęp jest autoryzowany. Po wykonaniu odpowiedniej akcji wyczyść ten alert na stronie alertów. |
+| Hasło> *elementu* <wygaśnie w <długość> *czasu* . |Zbliża się czas wygaśnięcia hasła. |Zmień hasło przed jego wygaśnięciem. |
+| Brak informacji o konfiguracji zabezpieczeń dla *identyfikatora elementu* <>. | |Woluminy skojarzone z tym kontenerem woluminów nie mogą być używane do replikowania konfiguracji StorSimple. Aby upewnić się, że dane są bezpiecznie przechowywane, zalecamy usunięcie kontenera woluminów i wszystkich woluminów skojarzonych z kontenerem woluminów. Po wykonaniu odpowiedniej akcji wyczyść ten alert na stronie alertów. |
+| <*Liczba* nieudanych prób logowania> nie powiodła się dla *identyfikatora elementu* <>. |Wiele nieudanych prób logowania. |Urządzenie może być atakowane lub autoryzowany użytkownik próbuje nawiązać połączenie przy użyciu niepoprawnego hasła.<ul><li>Skontaktuj się z autoryzowanymi użytkownikami i sprawdź, czy te próby pochodzą z wiarygodnego źródła. Jeśli nadal widzisz dużą liczbę nieudanych prób logowania, rozważ wyłączenie zdalnego zarządzania i skontaktowanie się z administratorem sieci. Po wykonaniu odpowiedniej akcji wyczyść ten alert na stronie alertów.</li><li>Sprawdź, czy wystąpienia Snapshot Manager są skonfigurowane przy użyciu poprawnego hasła. Po wykonaniu odpowiedniej akcji wyczyść ten alert na stronie alertów.</li></ul>Aby uzyskać więcej informacji, przejdź do [pozycji Zmienianie wygasłego hasła urządzenia](storsimple-snapshot-manager-manage-devices.md#change-an-expired-device-password). |
+| Wystąpił co najmniej jeden błąd podczas zmiany klucza szyfrowania danych usługi. | |Napotkano błędy podczas zmiany klucza szyfrowania danych usługi. Po spełnieniu warunków błędu Uruchom `Invoke-HcsmServiceDataEncryptionKeyChange` polecenie cmdlet z interfejsu programu Windows PowerShell dla StorSimple na urządzeniu, aby zaktualizować usługę. Jeśli ten problem będzie się powtarzać, skontaktuj się z pomocą techniczną firmy Microsoft. Po rozwiązaniu problemu Wyczyść ten alert na stronie alertów. |
 
 ### <a name="support-package-alerts"></a>Alerty pakietu pomocy technicznej
 
-| Tekst alertu | Wydarzenie | Więcej informacji / zalecane działania |
+| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| Tworzenie pakietu pomocy technicznej nie powiodło się. |StorSimple nie może wygenerować pakietu. |Ponów próbę wykonania tej operacji. Jeśli problem będzie się powtarzał, skontaktuj się z pomocą techniczną firmy Microsoft. Po rozwiązaniu problemu wyczyść ten alert ze strony alertów. |
+| Tworzenie pakietu dla pomocy technicznej nie powiodło się. |StorSimple nie może wygenerować pakietu. |Spróbuj ponownie wykonać tę operację. Jeśli problem będzie się powtarzać, skontaktuj się z firmą pomoc techniczna firmy Microsoft. Po rozwiązaniu problemu Wyczyść ten alert na stronie alertów. |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Dodawanie puli elastycznej do grupy trybu failover'
-description: Dodaj pulę elastyczną bazy danych SQL platformy Azure do grupy trybu failover przy użyciu witryny Azure portal, powershell lub interfejsu wiersza polecenia platformy Azure.
+title: 'Samouczek: Dodawanie elastycznej puli do grupy trybu failover'
+description: Dodaj Azure SQL Database elastyczną pulę do grupy trybu failover przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,66 +12,66 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/27/2019
 ms.openlocfilehash: c57f9eed2147504dd7b3313d58468fb76ab40caa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268979"
 ---
-# <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Samouczek: Dodawanie puli elastycznej bazy danych SQL platformy Azure do grupy trybu failover
+# <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Samouczek: Dodawanie Azure SQL Database elastycznej puli do grupy trybu failover
 
-Konfigurowanie grupy trybu failover dla puli elastycznej bazy danych SQL platformy Azure i testowanie pracy awaryjnej przy użyciu witryny Azure portal.  Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Skonfiguruj grupę trybu failover dla Azure SQL Database elastycznej puli i przetestuj tryb failover przy użyciu Azure Portal.  Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> - Tworzenie pojedynczej bazy danych usługi Azure SQL Database.
+> - Utwórz Azure SQL Databaseą pojedynczą bazę danych.
 > - Dodaj pojedynczą bazę danych do puli elastycznej. 
 > - Utwórz [grupę trybu failover](sql-database-auto-failover-group.md) dla dwóch pul elastycznych między dwoma logicznymi serwerami SQL.
-> - Test pracy awaryjnej.
+> - Testowanie pracy w trybie failover.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć kroki tego samouczka, upewnij się, że dysponujesz następującymi elementami: 
 
-- Subskrypcja platformy Azure. [Utwórz bezpłatne konto,](https://azure.microsoft.com/free/) jeśli jeszcze go nie masz.
+- Subskrypcja platformy Azure. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) , jeśli jeszcze go nie masz.
 
 
-## <a name="1---create-a-single-database"></a>1 - Tworzenie pojedynczej bazy danych 
+## <a name="1---create-a-single-database"></a>1 — Tworzenie pojedynczej bazy danych 
 
 [!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
-## <a name="2---add-single-database-to-elastic-pool"></a>2 - Dodawanie pojedynczej bazy danych do puli elastycznej
+## <a name="2---add-single-database-to-elastic-pool"></a>2 — Dodawanie pojedynczej bazy danych do puli elastycznej
 W tym kroku utworzysz pulę elastyczną i dodasz do niej pojedynczą bazę danych. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Utwórz elastyczną pulę za pomocą witryny Azure Portal. 
+Utwórz pulę elastyczną przy użyciu Azure Portal. 
 
 
-1. Wybierz **sql platformy Azure** w menu po lewej stronie witryny Azure portal. Jeśli **usługi Azure SQL** nie ma na liście, wybierz wszystkie **usługi**, a następnie wpisz sql azure w polu wyszukiwania. (Opcjonalnie) Wybierz gwiazdkę obok **programu Azure SQL,** aby ją ulubieć, i dodaj ją jako element w nawigacji po lewej stronie. 
-1. Wybierz **+ Dodaj,** aby otworzyć stronę **opcji Wybierz wdrożenie SQL.** Dodatkowe informacje o różnych bazach danych można wyświetlić, wybierając pozycję Pokaż szczegóły na kafelku Bazy danych.
-1. Wybierz **pulę elastyczną** z listy rozwijanej **Typ zasobu** na **kafelku Bazy danych SQL.** Wybierz **pozycję Utwórz,** aby utworzyć pulę elastyczną. 
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie Azure Portal. Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz SQL Azure w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie. 
+1. Wybierz pozycję **+ Dodaj** , aby otworzyć stronę **Wybieranie opcji wdrożenia SQL** . Aby wyświetlić dodatkowe informacje o różnych bazach danych, wybierz pozycję Pokaż szczegóły na kafelku bazy danych.
+1. Wybierz pozycję **Pula elastyczna** z listy rozwijanej **Typ zasobu** na kafelku **bazy danych SQL** . Wybierz pozycję **Utwórz** , aby utworzyć pulę elastyczną. 
 
-    ![Wybierz basen elastyczny](media/sql-database-elastic-pool-failover-group-tutorial/select-azure-sql-elastic-pool.png)
+    ![Wybierz pulę elastyczną](media/sql-database-elastic-pool-failover-group-tutorial/select-azure-sql-elastic-pool.png)
 
-1. Skonfiguruj pulę elastyczną z następującymi wartościami:
-   - **Nazwa**: Podaj unikatową nazwę `myElasticPool`dla basenu elastycznego, na przykład . 
-   - **Subskrypcja**: Wybierz subskrypcję z listy rozwijanej.
-   - **ResourceGroup**: `myResourceGroup` Wybierz z listy rozwijanej, grupy zasobów utworzonej w sekcji 1. 
+1. Skonfiguruj pulę elastyczną przy użyciu następujących wartości:
+   - **Nazwa**: Podaj unikatową nazwę puli elastycznej, na przykład `myElasticPool`. 
+   - **Subskrypcja**: wybierz subskrypcję z listy rozwijanej.
+   - Grupa **zasobów: Wybierz**pozycję `myResourceGroup` z listy rozwijanej, a następnie kliknij pozycję utworzona w sekcji 1. 
    - **Serwer**: Wybierz serwer utworzony w sekcji 1 z listy rozwijanej.  
 
-       ![Tworzenie nowego serwera dla puli elastycznej](media/sql-database-elastic-pool-failover-group-tutorial/use-existing-server-for-elastic-pool.png)
+       ![Utwórz nowy serwer dla puli elastycznej](media/sql-database-elastic-pool-failover-group-tutorial/use-existing-server-for-elastic-pool.png)
 
-   - **Compute + storage**: Wybierz **opcję Konfiguruj pulę elastyczną,** aby skonfigurować obliczeń, magazyn i dodać pojedynczą bazę danych do puli elastycznej. Na karcie **Ustawienia puli** pozostaw domyślną wartość Gen5 z 2 vcorami i 32 gb. 
+   - **Obliczenia + magazyn**: wybierz pozycję **Konfiguruj pulę elastyczną** , aby skonfigurować obliczenia, magazyn i dodać pojedynczą bazę danych do puli elastycznej. Na karcie **Ustawienia puli** pozostaw wartość domyślną 5 rdzeń z 2 rdzeni wirtualnych i 32 GB. 
 
-1. Na stronie **Konfigurowanie** wybierz kartę **Bazy danych,** a następnie wybierz pozycję **Dodaj bazę danych**. Wybierz bazę danych utworzoną w sekcji 1, a następnie wybierz pozycję **Zastosuj,** aby dodać ją do puli elastycznej. Wybierz pozycję **Zastosuj** ponownie, aby zastosować ustawienia puli elastycznej i zamknij stronę **Konfiguruj.** 
+1. Na stronie **Konfigurowanie** wybierz kartę **bazy danych** , a następnie wybierz pozycję **Dodaj bazę danych**. Wybierz bazę danych utworzoną w sekcji 1, a następnie wybierz pozycję **Zastosuj** , aby dodać ją do puli elastycznej. Wybierz pozycję **Zastosuj** ponownie, aby zastosować ustawienia puli elastycznej i zamknąć stronę **Konfiguracja** . 
 
     ![Dodawanie bazy danych SQL do puli elastycznej](media/sql-database-elastic-pool-failover-group-tutorial/add-database-to-elastic-pool.png)
 
-1. Wybierz **pozycję Przejrzyj + utwórz,** aby przejrzeć ustawienia puli elastycznej, a następnie wybierz pozycję **Utwórz,** aby utworzyć pulę elastyczną. 
+1. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć ustawienia puli elastycznej, a następnie wybierz pozycję **Utwórz** , aby utworzyć pulę elastyczną. 
 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 Tworzenie pul elastycznych i serwera pomocniczego przy użyciu programu PowerShell. 
 
    ```powershell-interactive
@@ -116,54 +116,54 @@ Tworzenie pul elastycznych i serwera pomocniczego przy użyciu programu PowerShe
    $addDatabase
    ```
 
-Ta część samouczka używa następujących poleceń cmdlet programu PowerShell:
+W tej części samouczka są stosowane następujące polecenia cmdlet programu PowerShell:
 
 | Polecenie | Uwagi |
 |---|---|
-| [Nowy-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Tworzy pulę elastycznej bazy danych dla bazy danych SQL azure.| 
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Tworzy elastyczną pulę baz danych dla Azure SQL Database.| 
 | [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Ustawia właściwości bazy danych lub przenosi istniejącą bazę danych do puli elastycznej. | 
 
 ---
 
-## <a name="3---create-the-failover-group"></a>3 - Tworzenie grupy trybu failover 
-W tym kroku utworzysz [grupę trybu failover](sql-database-auto-failover-group.md) między istniejącym serwerem SQL platformy Azure a nowym serwerem SQL platformy Azure w innym regionie. Następnie dodaj pulę elastyczną do grupy trybu failover. 
+## <a name="3---create-the-failover-group"></a>3 — Tworzenie grupy trybu failover 
+W tym kroku utworzysz [grupę trybu failover](sql-database-auto-failover-group.md) między istniejącym serwerem Azure SQL i nowym serwerem Azure SQL w innym regionie. Następnie Dodaj pulę elastyczną do grupy trybu failover. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Utwórz grupę trybu failover przy użyciu witryny Azure portal. 
+Utwórz grupę trybu failover przy użyciu Azure Portal. 
 
-1. Wybierz **sql platformy Azure** w menu po lewej stronie [witryny Azure portal](https://portal.azure.com). Jeśli **usługi Azure SQL** nie ma na liście, wybierz wszystkie **usługi**, a następnie wpisz sql azure w polu wyszukiwania. (Opcjonalnie) Wybierz gwiazdkę obok **programu Azure SQL,** aby ją ulubieć, i dodaj ją jako element w nawigacji po lewej stronie. 
-1. Wybierz pulę elastyczną utworzoną `myElasticPool`w poprzedniej sekcji, na przykład . 
-1. W okienku **Przegląd** wybierz nazwę serwera w obszarze **Nazwa serwera,** aby otworzyć ustawienia serwera.
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz SQL Azure w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie. 
+1. Wybierz pulę elastyczną utworzoną w poprzedniej sekcji, na przykład `myElasticPool`. 
+1. W okienku **Przegląd** wybierz nazwę serwera w polu **Nazwa serwera** , aby otworzyć ustawienia serwera.
   
-    ![Otwarty serwer dla puli elastycznej](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
+    ![Otwórz serwer dla puli elastycznej](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
 
-1. Wybierz **pozycję Grupy trybu failover** w okienku **Ustawienia,** a następnie wybierz pozycję **Dodaj grupę,** aby utworzyć nową grupę trybu failover. 
+1. Wybierz pozycję **grupy trybu failover** w okienku **Ustawienia** , a następnie wybierz pozycję **Dodaj grupę** , aby utworzyć nową grupę trybu failover. 
 
-    ![Dodawanie nowej grupy trybu failover](media/sql-database-elastic-pool-failover-group-tutorial/elastic-pool-failover-group.png)
+    ![Dodaj nową grupę trybu failover](media/sql-database-elastic-pool-failover-group-tutorial/elastic-pool-failover-group.png)
 
-1. Na stronie **Grupa trybu failover** wprowadź lub wybierz następujące wartości, a następnie wybierz pozycję **Utwórz:**
-    - **Nazwa grupy trybu failover:** Wpisz unikatową nazwę `failovergrouptutorial`grupy trybu failover, taką jak . 
-    - **Serwer pomocniczy**: Wybierz opcję *konfigurowania wymaganych ustawień,* a następnie wybierz **pozycję Utwórz nowy serwer**. Alternatywnie można wybrać już istniejący serwer jako serwer pomocniczy. Po wprowadzeniu następujących wartości dla nowego serwera pomocniczego wybierz pozycję **Wybierz**. 
-        - **Nazwa serwera**: Wpisz unikatową nazwę serwera `mysqlsecondary`pomocniczego, taką jak . 
-        - **Logowanie administratora serwera**: Typ`azureuser`
-        - **Hasło:** Wpisz złożone hasło spełniające wymagania dotyczące hasła.
-        - **Lokalizacja**: Wybierz lokalizację z listy rozwijanej, na przykład `East US`. Ta lokalizacja nie może być tą samą lokalizacją co serwer podstawowy.
+1. Na stronie **Grupa trybu failover** wprowadź lub wybierz następujące wartości, a następnie wybierz pozycję **Utwórz**:
+    - **Nazwa grupy trybu failover**: wpisz unikatową nazwę grupy trybu failover, taką `failovergrouptutorial`jak. 
+    - **Serwer pomocniczy**: wybierz opcję *konfigurowania wymaganych ustawień* , a następnie wybierz pozycję **Utwórz nowy serwer**. Alternatywnie można wybrać istniejący serwer jako serwer pomocniczy. Po wprowadzeniu następujących wartości dla nowego serwera pomocniczego wybierz pozycję **Wybierz**. 
+        - **Nazwa serwera**: wpisz unikatową nazwę serwera pomocniczego, na przykład `mysqlsecondary`. 
+        - **Identyfikator logowania administratora serwera**: typ`azureuser`
+        - **Hasło**: wpisz złożone hasło spełniające wymagania dotyczące haseł.
+        - **Lokalizacja**: Wybierz lokalizację z listy rozwijanej, na przykład `East US`. Ta lokalizacja nie może być taka sama jak lokalizacja serwera podstawowego.
 
        > [!NOTE]
-       > Ustawienia logowania i zapory serwera muszą być zgodne z ustawieniami serwera podstawowego. 
+       > Ustawienia logowania serwera i zapory muszą być zgodne z serwerem podstawowym. 
     
        ![Tworzenie serwera pomocniczego dla grupy trybu failover](media/sql-database-elastic-pool-failover-group-tutorial/create-secondary-failover-server.png)
 
-1. Wybierz **bazy danych w grupie,** a następnie wybierz pulę elastyczną utworzoną w sekcji 2. Powinno pojawić się ostrzeżenie z monitem o utworzenie puli elastycznej na serwerze pomocniczym. Wybierz ostrzeżenie, a następnie wybierz **przycisk OK,** aby utworzyć pulę elastyczną na serwerze pomocniczym. 
+1. Wybierz **bazy danych w grupie,** a następnie wybierz pulę elastyczną utworzoną w sekcji 2. Powinien pojawić się ostrzeżenie z monitem o utworzenie elastycznej puli na serwerze pomocniczym. Wybierz ostrzeżenie, a następnie wybierz przycisk **OK** , aby utworzyć pulę elastyczną na serwerze pomocniczym. 
         
     ![Dodawanie puli elastycznej do grupy trybu failover](media/sql-database-elastic-pool-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
         
-1. Wybierz **pozycję Wybierz,** aby zastosować ustawienia puli elastycznej do grupy trybu failover, a następnie wybierz pozycję **Utwórz,** aby utworzyć grupę trybu failover. Dodanie puli elastycznej do grupy trybu failover spowoduje automatyczne rozpoczęcie procesu replikacji geograficznej.
+1. Wybierz pozycję **Wybierz** , aby zastosować ustawienia puli elastycznej do grupy trybu failover, a następnie wybierz pozycję **Utwórz** , aby utworzyć grupę trybu failover. Dodanie puli elastycznej do grupy trybu failover spowoduje automatyczne uruchomienie procesu replikacji geograficznej.
 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 
 Utwórz grupę trybu failover przy użyciu programu PowerShell. 
 
@@ -234,51 +234,51 @@ Utwórz grupę trybu failover przy użyciu programu PowerShell.
    $failoverGroup
    ```
 
-Ta część samouczka używa następujących poleceń cmdlet programu PowerShell:
+W tej części samouczka są stosowane następujące polecenia cmdlet programu PowerShell:
 
 | Polecenie | Uwagi |
 |---|---|
-| [Nowy serwer AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Tworzy serwer usługi SQL Database hostujący pojedyncze bazy danych i elastyczne pule. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Tworzy serwer usługi SQL Database hostujący pojedyncze bazy danych i elastyczne pule. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Tworzy regułę zapory dla serwera logicznego. | 
-| [Nowy-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Tworzy pulę elastycznej bazy danych dla bazy danych SQL azure.| 
-| [Nowa grupa AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Tworzy nową grupę trybu failover. |
-| [Grupa Add-AzSqlDatabaseToFailover](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Dodaje jedną lub więcej baz danych SQL platformy Azure do grupy trybu failover. |
-| [Grupa Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Pobiera lub wyświetla listę grup trybu failover usługi SQL Database platformy Azure. |
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Tworzy elastyczną pulę baz danych dla Azure SQL Database.| 
+| [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Tworzy nową grupę trybu failover. |
+| [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Dodaje co najmniej jedną bazę danych SQL platformy Azure do grupy trybu failover. |
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Pobiera lub wyświetla listę grup Azure SQL Database trybu failover. |
 
 ---
 
 
-## <a name="4---test-failover"></a>4 - Test pracy awaryjnej 
-W tym kroku zakończy się niepowodzeniem grupy trybu failover na serwerze pomocniczym, a następnie po awarii przy użyciu witryny Azure portal. 
+## <a name="4---test-failover"></a>4 — Testowanie pracy w trybie failover 
+W tym kroku nastąpi niepowodzenie grupy trybu failover na serwerze pomocniczym, a następnie powrót po awarii przy użyciu Azure Portal. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Testowanie pracy awaryjnej grupy trybu failover przy użyciu witryny Azure portal. 
+Testowanie pracy w trybie failover grupy trybu failover przy użyciu Azure Portal. 
 
-1. Wybierz **sql platformy Azure** w menu po lewej stronie [witryny Azure portal](https://portal.azure.com). Jeśli **usługi Azure SQL** nie ma na liście, wybierz wszystkie **usługi**, a następnie wpisz sql azure w polu wyszukiwania. (Opcjonalnie) Wybierz gwiazdkę obok **programu Azure SQL,** aby ją ulubieć, i dodaj ją jako element w nawigacji po lewej stronie. 
-1. Wybierz pulę elastyczną utworzoną `myElasticPool`w poprzedniej sekcji, na przykład . 
-1. Wybierz nazwę serwera w obszarze **Nazwa serwera,** aby otworzyć ustawienia serwera.
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz SQL Azure w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie. 
+1. Wybierz pulę elastyczną utworzoną w poprzedniej sekcji, na przykład `myElasticPool`. 
+1. Wybierz nazwę serwera w polu **Nazwa serwera** , aby otworzyć ustawienia serwera.
 
-    ![Otwarty serwer dla puli elastycznej](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
+    ![Otwórz serwer dla puli elastycznej](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
 
-1. Wybierz **pozycję Grupy trybu failover** w okienku **Ustawienia,** a następnie wybierz grupę trybu failover utworzoną w sekcji 2. 
+1. Wybierz pozycję **grupy trybu failover** w okienku **Ustawienia** , a następnie wybierz grupę trybu failover utworzoną w sekcji 2. 
   
    ![Wybieranie grupy trybu failover z portalu](media/sql-database-elastic-pool-failover-group-tutorial/select-failover-group.png)
 
-1. Sprawdź, który serwer jest podstawowy, a który pomocniczy. 
-1. Wybierz opcję **Praca awaryjna** z okienka zadań, aby przejść w stan failover grupy trybu failover zawierającej pulę elastyczną. 
-1. Wybierz **pozycję Tak** w ostrzeżeniu, które powiadamia o rozłączeniu sesji TDS. 
+1. Sprawdź, który serwer jest podstawowy i który serwer jest serwerem pomocniczym. 
+1. Wybierz pozycję **tryb failover** z okienka zadań, aby przełączyć grupę trybu failover w tryb pracy awaryjnej zawierającej pulę elastyczną. 
+1. Na ostrzeżeniu wybierz pozycję **tak** , aby powiadomić, że sesje TDS zostaną rozłączone. 
 
    ![Praca awaryjna grupy trybu failover zawierającej bazę danych SQL](media/sql-database-elastic-pool-failover-group-tutorial/failover-sql-db.png)
 
-1. Sprawdź, który serwer jest podstawowy, który serwer jest pomocniczy. Jeśli przewija się w trybie failover, dwa serwery powinny mieć zamienione role. 
-1. Wybierz ponownie **opcję Praca awaryjna,** aby grupa trybu failover wróciła do oryginalnych ustawień. 
+1. Sprawdź, który serwer jest serwerem podstawowym, który serwer jest serwerem pomocniczym. Jeśli praca awaryjna zakończyła się pomyślnie, te dwa serwery powinny mieć zamienione role. 
+1. Wybierz ponownie **tryb failover** , aby zakończyć pracę grupy trybu failover z powrotem do oryginalnych ustawień. 
 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 
-Przetestuj przewijaniec awaryjny grupy trybu failover przy użyciu programu PowerShell. 
+Testowanie pracy w trybie failover grupy trybu failover przy użyciu programu PowerShell. 
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -310,7 +310,7 @@ Przetestuj przewijaniec awaryjny grupy trybu failover przy użyciu programu Powe
    Write-host "Failover group failed over to" $drServerName 
    ```
 
-Powiększąc grupę trybu failover na serwerze pomocniczym, a następnie wróć po awarii przy użyciu programu PowerShell. 
+Niepowodzenie grupy trybu failover na serwerze pomocniczym, a następnie powrót po awarii przy użyciu programu PowerShell. 
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -342,32 +342,32 @@ Powiększąc grupę trybu failover na serwerze pomocniczym, a następnie wróć 
    Write-host "Failover group failed over to" $serverName 
    ```
 
-Ta część samouczka używa następujących poleceń cmdlet programu PowerShell:
+W tej części samouczka są stosowane następujące polecenia cmdlet programu PowerShell:
 
 | Polecenie | Uwagi |
 |---|---|
-| [Grupa Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Pobiera lub wyświetla listę grup trybu failover usługi SQL Database platformy Azure. |
-| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Wykonuje przebłaję awaryjną grupy trybu failover usługi Azure SQL Database. |
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Pobiera lub wyświetla listę grup Azure SQL Database trybu failover. |
+| [Przełącznik-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Wykonuje tryb failover grupy trybu failover Azure SQL Database. |
 
 
 ---
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów 
 
-Oczyść zasoby, usuwając grupę zasobów. 
+Wyczyść zasoby, usuwając grupę zasobów. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 
-1. Przejdź do grupy zasobów w [witrynie Azure portal](https://portal.azure.com).
-1. Wybierz **pozycję Usuń grupę zasobów,** aby usunąć wszystkie zasoby w grupie, a także samą grupę zasobów. 
-1. Wpisz nazwę grupy zasobów `myResourceGroup`w obszarze tekstowym, a następnie wybierz pozycję **Usuń,** aby usunąć grupę zasobów. 
+1. Przejdź do grupy zasobów w [Azure Portal](https://portal.azure.com).
+1. Wybierz pozycję **Usuń grupę zasobów** , aby usunąć wszystkie zasoby w grupie, a także samą grupę zasobów. 
+1. Wpisz nazwę grupy zasobów, `myResourceGroup`w polu tekstowym, a następnie wybierz pozycję **Usuń** , aby usunąć grupę zasobów. 
 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 
-Wyczyść zasoby za pomocą programu PowerShell. 
+Wyczyść zasoby przy użyciu programu PowerShell. 
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -379,7 +379,7 @@ Wyczyść zasoby za pomocą programu PowerShell.
    Write-host "Resource group removed =" $resourceGroupName
    ```
 
-Ta część samouczka używa następującego polecenia cmdlet programu PowerShell:
+W tej części samouczka jest stosowane następujące polecenie cmdlet programu PowerShell:
 
 | Polecenie | Uwagi |
 |---|---|
@@ -392,7 +392,7 @@ Ta część samouczka używa następującego polecenia cmdlet programu PowerShel
 
 ## <a name="full-script"></a>Pełny skrypt
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-ps.ps1 "Add elastic pool to a failover group")]
 
@@ -401,35 +401,35 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | Polecenie | Uwagi |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [Nowy serwer AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Tworzy serwer usługi SQL Database hostujący pojedyncze bazy danych i elastyczne pule. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Tworzy serwer usługi SQL Database hostujący pojedyncze bazy danych i elastyczne pule. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Tworzy regułę zapory dla serwera logicznego. | 
-| [Nowa baza danych AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Tworzy nową pojedynczą bazę danych usługi Azure SQL Database. | 
-| [Nowy-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Tworzy pulę elastycznej bazy danych dla bazy danych SQL azure.| 
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Tworzy nową Azure SQL Database pojedynczą bazę danych. | 
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Tworzy elastyczną pulę baz danych dla Azure SQL Database.| 
 | [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Ustawia właściwości bazy danych lub przenosi istniejącą bazę danych do puli elastycznej. | 
-| [Nowa grupa AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Tworzy nową grupę trybu failover. |
-| [Baza danych Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Pobiera jedną lub więcej baz danych SQL. |
-| [Grupa Add-AzSqlDatabaseToFailover](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Dodaje jedną lub więcej baz danych SQL platformy Azure do grupy trybu failover. |
-| [Grupa Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Pobiera lub wyświetla listę grup trybu failover usługi SQL Database platformy Azure. |
-| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Wykonuje przebłaję awaryjną grupy trybu failover usługi Azure SQL Database. |
+| [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Tworzy nową grupę trybu failover. |
+| [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Pobiera co najmniej jedną bazę danych SQL. |
+| [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Dodaje co najmniej jedną bazę danych SQL platformy Azure do grupy trybu failover. |
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Pobiera lub wyświetla listę grup Azure SQL Database trybu failover. |
+| [Przełącznik-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Wykonuje tryb failover grupy trybu failover Azure SQL Database. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów | 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Nie ma żadnych skryptów dostępnych dla witryny Azure portal.
+Brak skryptów dostępnych dla Azure Portal.
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku dodano pulę elastyczną bazy danych SQL platformy Azure do grupy trybu failover i przetestowano tryb failover. W tym samouczku omówiono:
+W tym samouczku dodano pulę elastyczną Azure SQL Database do grupy trybu failover i przetestowano tryb failover. W tym samouczku omówiono:
 
 > [!div class="checklist"]
-> - Tworzenie pojedynczej bazy danych usługi Azure SQL Database.
+> - Utwórz Azure SQL Databaseą pojedynczą bazę danych.
 > - Dodaj pojedynczą bazę danych do puli elastycznej. 
 > - Utwórz [grupę trybu failover](sql-database-auto-failover-group.md) dla dwóch pul elastycznych między dwoma logicznymi serwerami SQL.
-> - Test pracy awaryjnej.
+> - Testowanie pracy w trybie failover.
 
-Przejdź do następnego samouczka na temat migracji przy użyciu dms.
+Przejdź do następnego samouczka dotyczącego migracji za pomocą usługi DMS.
 
 > [!div class="nextstepaction"]
-> [Samouczek: Migrowanie programu SQL Server do puli bazy danych przy użyciu usługi DMS](../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json)
+> [Samouczek: Migrowanie SQL Server do bazy danych w puli za pomocą usługi DMS](../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json)

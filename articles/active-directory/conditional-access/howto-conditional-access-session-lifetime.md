@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie zarządzania sesjami uwierzytelniania — usługa Azure Active Directory
+title: Konfigurowanie zarządzania sesjami uwierzytelniania — Azure Active Directory
 description: Dostosuj konfigurację sesji uwierzytelniania usługi Azure AD, w tym częstotliwość logowania użytkownika i trwałość sesji przeglądarki.
 services: active-directory
 ms.service: active-directory
@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e9c0c88064c00c97de7dc58a500910e81c04eef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79263285"
 ---
-# <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurowanie zarządzania sesjami uwierzytelniania za pomocą dostępu warunkowego
+# <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurowanie zarządzania sesjami uwierzytelniania przy użyciu dostępu warunkowego
 
 W złożonych wdrożeniach organizacje mogą wymagać ograniczenia sesji uwierzytelniania. Niektóre scenariusze mogą obejmować:
 
@@ -27,108 +27,108 @@ W złożonych wdrożeniach organizacje mogą wymagać ograniczenia sesji uwierzy
 * Użytkownicy o dużym wpływie
 * Krytyczne aplikacje biznesowe
 
-Formanty dostępu warunkowego umożliwiają tworzenie zasad ukierunkowanych na określone przypadki użycia w organizacji bez wpływu na wszystkich użytkowników.
+Kontrole dostępu warunkowego umożliwiają tworzenie zasad przeznaczonych dla konkretnych przypadków użycia w organizacji bez wywierania wpływu na wszystkich użytkowników.
 
-Przed zagłębieniem się w szczegóły dotyczące konfigurowania zasad, sprawdźmy konfigurację domyślną.
+Przed wprowadzeniem szczegółowych informacji na temat sposobu konfigurowania zasad Sprawdźmy konfigurację domyślną.
 
 ## <a name="user-sign-in-frequency"></a>Częstotliwość logowania użytkownika
 
-Częstotliwość logowania określa okres, w którym użytkownik zostanie poproszony o ponowne zalogowanie się podczas próby uzyskania dostępu do zasobu.
+Częstotliwość logowania określa czas, po którym użytkownik zostanie poproszony o ponowne zalogowanie przy próbie uzyskania dostępu do zasobu.
 
-Domyślna konfiguracja usługi Azure Active Directory (Azure AD) dla częstotliwości logowania użytkownika jest oknom kroczącym 90 dni. Proszenie użytkowników o poświadczenia często wydaje się rozsądną rzeczą do zrobienia, ale może backfire: użytkownicy, którzy są przeszkoleni, aby wprowadzić swoje poświadczenia bez myślenia może przypadkowo dostarczyć je do złośliwego monitu poświadczeń.
+Domyślna konfiguracja Azure Active Directory (Azure AD) dla częstotliwości logowania użytkownika jest oknem kroczącym 90 dni. Monitowanie użytkowników o poświadczenia często wygląda na to, że jest to rozsądne działanie, ale może się to wiązać z atakami: Użytkownicy, którzy są przeszkoleni, aby wprowadzić swoje poświadczenia bez względu na to, że mogą przypadkowo dostarczyć je do złośliwego monitu o poświadczenia.
 
-Może to brzmieć alarmująco, aby nie prosić użytkownika o zalogowanie się, w rzeczywistości każde naruszenie zasad IT spowoduje odwołanie sesji. Niektóre przykłady obejmują (ale nie są ograniczone do) zmianę hasła, niezgodne urządzenie lub konto wyłączyć. Można również jawnie [odwołać sesje użytkowników za pomocą programu PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Domyślna konfiguracja usługi Azure AD sprowadza się do "nie proś użytkowników o podanie poświadczeń, jeśli poziom zabezpieczeń ich sesji nie uległ zmianie".
+Może to spowodować, że dźwięk nie zostanie poproszony o ponowne zalogowanie się użytkownika, w rzeczywistości wszystkie zasady IT odwołują sesję. Niektóre przykłady obejmują (ale nie ograniczone do) zmianę hasła, niezgodne urządzenie lub wyłączone konto. Możesz również jawnie [odwołać sesje użytkowników przy użyciu programu PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Domyślna konfiguracja usługi Azure AD to "nie Monituj użytkowników o podanie swoich poświadczeń, jeśli zabezpieczenia stan ich sesji nie zostały zmienione".
 
-Ustawienie częstotliwości logowania działa z aplikacjami, które zaimplementowały protokoły OAUTH2 lub OIDC zgodnie ze standardami. Większość natywnych aplikacji firmy Microsoft dla systemów Windows, Mac i Mobile, w tym następujące aplikacje sieci Web, jest zgodna z tym ustawieniem.
+Ustawienie częstotliwości logowania działa z aplikacjami, które mają wdrożone protokoły OAUTH2 lub OIDC zgodnie ze standardami. Większość aplikacji natywnych firmy Microsoft dla systemów Windows, Mac i Mobile, w tym z uwzględnieniem następujących aplikacji sieci Web, jest zgodnych z tym ustawieniem.
 
 - Word, Excel, PowerPoint Online
-- OneNote Online
+- OneNote online
 - Office.com
 - Portal administracyjny usługi O365
 - Exchange Online
-- Usługi SharePoint i OneDrive
-- Klient internetowy zespołów
+- Program SharePoint i usługa OneDrive
+- Klient sieci Web dla zespołów
 - Dynamics CRM Online
-- Portal Azure
+- Azure Portal
 
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Częstotliwość logowania użytkownika i tożsamości urządzeń
 
-Jeśli masz przyłączoną do usługi Azure AD, sprzężenie z hybrydową usługą Azure AD lub urządzenia zarejestrowane w usłudze Azure AD, gdy użytkownik odblokuje swoje urządzenie lub zaloguje się interaktywnie, to zdarzenie również spełni zasady dotyczące częstotliwości logowania. W poniższych 2 przykładach częstotliwość logowania użytkownika jest ustawiona na 1 godzinę:
+W przypadku przyłączenia do usługi Azure AD hybrydowej usługi Azure AD lub zarejestrowanych urządzeń usługi Azure AD, gdy użytkownik odblokowuje urządzenie lub loguje się interaktywnie, to zdarzenie będzie również spełniało zasady częstotliwości logowania. W następującej 2 Przykładowa częstotliwość logowania użytkownika jest ustawiona na 1 godzinę:
 
 Przykład 1:
 
-- O godzinie 00:00 użytkownik loguje się do urządzenia przyłączanego do usługi Azure AD systemu Windows 10 i rozpoczyna pracę nad dokumentem przechowywanym w usłudze SharePoint Online.
+- W dniu 00:00 użytkownik loguje się do urządzenia dołączonego do usługi Azure AD systemu Windows 10 i zaczyna pracę nad dokumentem przechowywanym w usłudze SharePoint Online.
 - Użytkownik kontynuuje pracę nad tym samym dokumentem na swoim urządzeniu przez godzinę.
-- O godzinie 01:00 użytkownik jest monitowany o ponowne zalogowanie się na podstawie wymagań dotyczących częstotliwości logowania w zasadach dostępu warunkowego skonfigurowanych przez administratora.
+- W dniu 01:00 użytkownik jest monitowany o ponowne zalogowanie się na podstawie wymagań dotyczących częstotliwości logowania w zasadach dostępu warunkowego skonfigurowanych przez administratora.
 
 Przykład 2:
 
-- O godzinie 00:00 użytkownik loguje się do urządzenia przyłączanego do usługi Azure AD systemu Windows 10 i rozpoczyna pracę nad dokumentem przechowywanym w usłudze SharePoint Online.
-- O 00:30 użytkownik wstaje i robi sobie przerwę blokując swoje urządzenie.
-- O 00:45 użytkownik powraca z przerwy i odblokowuje urządzenie.
-- O godzinie 01:45 użytkownik jest monitowany o ponowne zalogowanie się na podstawie wymagań dotyczących częstotliwości logowania w zasadach dostępu warunkowego skonfigurowanych przez administratora od czasu ostatniego logowania o godzinie 00:45.
+- W dniu 00:00 użytkownik loguje się do urządzenia dołączonego do usługi Azure AD systemu Windows 10 i zaczyna pracę nad dokumentem przechowywanym w usłudze SharePoint Online.
+- O godzinie 00:30 użytkownik otrzymuje i zablokuje zablokowanie urządzenia.
+- O 00:45 użytkownik wraca z ich przerw i odblokowuje urządzenie.
+- W dniu 01:45 użytkownik jest monitowany o ponowne zalogowanie się na podstawie wymagań dotyczących częstotliwości logowania w zasadach dostępu warunkowego skonfigurowanych przez ich administratora od momentu ostatniego zalogowania się o 00:45.
 
 ## <a name="persistence-of-browsing-sessions"></a>Trwałość sesji przeglądania
 
-Trwała sesja przeglądarki pozwala użytkownikom pozostać zalogowanym po zamknięciu i ponownym otwarciu okna przeglądarki.
+W trwałej sesji przeglądarki użytkownicy mogą pozostać zalogowani po zamknięciu i ponownym otwarciu okna przeglądarki.
 
-Domyślna trwałość sesji usługi Azure AD umożliwia użytkownikom na urządzeniach osobistych wybór, czy utrwalić sesję, wyświetlając opcję "Pozostań zalogowany?". monit po pomyślnym uwierzytelnieniu. Jeśli trwałość przeglądarki jest skonfigurowana w usługach AD FS przy użyciu wskazówek zawartych w artykule [Ustawienia logowania jednokrotnego usług AD FS,](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
-)będziemy przestrzegać tej zasady i utrwalić sesję usługi Azure AD. Można również skonfigurować, czy użytkownicy w dzierżawie zobaczą "Pozostań zalogowany?" monituj, zmieniając odpowiednie ustawienie w okienku znakowania firmy w witrynie Azure portal, korzystając ze wskazówek [zawartych w artykule Dostosowywanie strony logowania usługi Azure AD](../fundamentals/customize-branding.md).
+Wartość domyślna usługi Azure AD na potrzeby trwałości sesji przeglądarki umożliwia użytkownikom na urządzeniach osobistych wybieranie, czy sesja ma być utrwalana, pokazując "pozostania w rejestracji". Monituj po pomyślnym uwierzytelnieniu. Jeśli trwałość przeglądarki jest skonfigurowana w AD FS przy użyciu wskazówek w artykule [AD FS ustawienia logowania](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+)jednokrotnego, firma Microsoft będzie przestrzegać tych zasad i utrzymywać również sesję usługi Azure AD. Możesz również określić, czy użytkownicy w dzierżawie zobaczą "pozostania w Twojej rejestracji"? Monituj o zmianę odpowiedniego ustawienia w okienku znakowanie firmowe w Azure Portal przy użyciu wskazówek w artykule [Dostosowywanie strony logowania usługi Azure AD](../fundamentals/customize-branding.md).
 
-## <a name="configuring-authentication-session-controls"></a>Konfigurowanie formantów sesji uwierzytelniania
+## <a name="configuring-authentication-session-controls"></a>Konfigurowanie kontrolek sesji uwierzytelniania
 
-Dostęp warunkowy to usługa Azure AD Premium i wymaga licencji premium. Jeśli chcesz dowiedzieć się więcej o dostępie warunkowym, zobacz [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](overview.md#license-requirements)
+Dostęp warunkowy jest możliwością Azure AD — wersja Premium i wymaga licencji Premium. Jeśli chcesz dowiedzieć się więcej na temat dostępu warunkowego, zobacz [co to jest dostęp warunkowy w Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> Jeśli używasz [konfigurowalnej](../develop/active-directory-configurable-token-lifetimes.md) funkcji okresu istnienia tokenu obecnie w publicznej wersji zapoznawczej, należy pamiętać, że nie obsługujemy tworzenia dwóch różnych zasad dla tej samej kombinacji użytkownika lub aplikacji: jednej z tą funkcją, a drugiej z konfigurowalną funkcją okresu istnienia tokenu. Firma Microsoft planuje wycofać konfigurowalną funkcję okresu istnienia tokenu 1 maja 2020 r. i zastąpić ją funkcją zarządzania sesjami uwierzytelniania dostępu warunkowego.  
+> Jeśli używasz funkcji [okresowego istnienia tokenu](../develop/active-directory-configurable-token-lifetimes.md) , który jest obecnie w publicznej wersji zapoznawczej, pamiętaj, że nie obsługujemy tworzenia dwóch różnych zasad dla tej samej kombinacji użytkownika lub aplikacji: jeden z tą funkcją i inną z konfigurowalną funkcją okresu istnienia tokenu. Firma Microsoft planuje wycofać funkcję konfigurowalnego okresu istnienia tokenu 1 maja 2020 i zamienić ją na funkcję zarządzania sesjami uwierzytelniania dostępu warunkowego.  
 
-### <a name="policy-1-sign-in-frequency-control"></a>Zasady 1: Kontrola częstotliwości logowania
+### <a name="policy-1-sign-in-frequency-control"></a>Zasady 1: kontrola częstotliwości logowania
 
-1. Tworzenie nowych zasad
+1. Utwórz nowe zasady
 1. Wybierz wszystkie wymagane warunki dla środowiska klienta, w tym docelowe aplikacje w chmurze.
 
    > [!NOTE]
-   > Zaleca się ustawienie równej częstotliwości monitu uwierzytelniania dla kluczowych aplikacji pakietu Microsoft Office, takich jak Exchange Online i SharePoint Online, aby uzyskać najlepsze środowisko użytkownika.
+   > Zaleca się skonfigurowanie równej częstotliwości monitów uwierzytelniania dla Microsoft Office najważniejszych aplikacji, takich jak Exchange Online i SharePoint Online, w celu zapewnienia najlepszego środowiska użytkownika.
 
-1. Przejdź do**sesji** **kontroli dostępu** > i kliknij pozycję **Częstotliwość logowania**
-1. Wprowadź wymaganą wartość dni i godzin w pierwszym polu tekstowym
-1. Wybierz wartość **godziny** lub **dni** z listy rozwijanej
-1. Zapisz swoje zasady
+1. Przejdź do > **sesji** **kontroli dostępu**, a następnie kliknij pozycję **częstotliwość logowania**
+1. Wprowadź wymaganą wartość dni i godziny w pierwszym polu tekstowym
+1. Wybierz wartość **godzin** lub **dni** z listy rozwijanej
+1. Zapisywanie zasad
 
-![Zasady dostępu warunkowego skonfigurowane do częstotliwości logowania](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
+![Zasady dostępu warunkowego skonfigurowane dla częstotliwości logowania](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
-Na urządzeniach z systemem Windows zarejestrowanymi usługami Azure AD logowania się do urządzenia jest uważany za monit. Jeśli na przykład skonfigurowano częstotliwość logowania do 24 godzin dla aplikacji pakietu Office, użytkownicy na urządzeniach z systemem Windows zarejestrowanymi w usłudze Azure AD będą spełniać zasady logowania, logując się na urządzeniu i nie zostaną ponownie monitowani podczas otwierania aplikacji pakietu Office.
+Na zarejestrowanych urządzeniach z systemem Windows w usłudze Azure AD Zaloguj się na urządzeniu jako monit. Jeśli na przykład skonfigurowano częstotliwość logowania na 24 godziny dla aplikacji pakietu Office, użytkownicy usługi Azure AD zarejestrowane urządzenia z systemem Windows będą spełniać zasady częstotliwości logowania, logując się na urządzeniu i nie będą monitowani ponownie podczas otwierania aplikacji pakietu Office.
 
-Jeśli skonfigurowano inną częstotliwość logowania dla różnych aplikacji sieci web, które są uruchomione w tej samej sesji przeglądarki, najsurowsze zasady zostaną zastosowane do obu aplikacji, ponieważ wszystkie aplikacje uruchomione w tej samej sesji przeglądarki współużytkują token pojedynczej sesji.
+Jeśli skonfigurowano inną częstotliwość logowania dla różnych aplikacji sieci Web, które są uruchomione w tej samej sesji przeglądarki, najwyższe zasady zostaną zastosowane do obu aplikacji, ponieważ wszystkie aplikacje uruchomione w tej samej sesji przeglądarki współdzielą token sesji.
 
-### <a name="policy-2-persistent-browser-session"></a>Zasady 2: Trwała sesja przeglądarki
+### <a name="policy-2-persistent-browser-session"></a>Zasady 2: nietrwała sesja przeglądarki
 
-1. Tworzenie nowych zasad
+1. Utwórz nowe zasady
 1. Wybierz wszystkie wymagane warunki.
 
    > [!NOTE]
-   > Należy pamiętać, że ten formant wymaga wybrania "Wszystkie aplikacje w chmurze" jako warunek. Trwałość sesji przeglądarki jest kontrolowana przez token sesji uwierzytelniania. Wszystkie karty w sesji przeglądarki współużytkują token pojedynczej sesji i dlatego wszystkie muszą współużytkuj stan trwałości.
+   > Należy pamiętać, że ta kontrolka wymaga wybrania opcji "wszystkie aplikacje w chmurze" jako warunek. Trwałość sesji przeglądarki jest kontrolowana przez token sesji uwierzytelniania. Wszystkie karty w sesji przeglądarki współdzielą jeden token sesji i w związku z tym wszystkie muszą mieć stan trwałości.
 
-1. Przejdź do**sesji** **kontroli dostępu** > i kliknij pozycję **Trwała sesja przeglądarki**
-1. Wybieranie wartości z listy rozwijanej
+1. Przejdź do > **sesji** **kontroli dostępu**, a następnie kliknij pozycję **trwała sesja przeglądarki**
+1. Wybierz wartość z listy rozwijanej
 1. Zapisz zasady
 
-![Zasady dostępu warunkowego skonfigurowane dla przeglądarki trwałej](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
+![Zasady dostępu warunkowego skonfigurowane dla trwałej przeglądarki](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
 
 > [!NOTE]
-> Konfiguracja trwałej sesji przeglądarki w usłudze Azure AD Conditional Access zastąpi "Pozostań zalogowany?" ustawienie w okienku znakowania firmy w witrynie Azure portal dla tego samego użytkownika, jeśli skonfigurowano obie zasady.
+> Trwała konfiguracja sesji przeglądarki w usłudze Azure AD dostęp warunkowy spowoduje zastąpienie "pozostać zalogowanym?" ustawienie w okienku znakowanie firmowe w Azure Portal dla tego samego użytkownika, jeśli skonfigurowano obie zasady.
 
-## <a name="validation"></a>Sprawdzanie poprawności
+## <a name="validation"></a>Walidacja
 
-Użyj narzędzia Co jeśli, aby symulować logowanie od użytkownika do aplikacji docelowej i inne warunki na podstawie sposobu skonfigurowania zasad. Kontrolki zarządzania sesjami uwierzytelniania są wyświetlane w wyniku narzędzia.
+Za pomocą narzędzia do wykonywania symulacji Zasymuluj Logowanie użytkownika do aplikacji docelowej i innych warunków w zależności od sposobu skonfigurowania zasad. Kontrolki zarządzanie sesjami uwierzytelniania są wyświetlane w wyniku tego narzędzia.
 
-![Warunkowy dostęp Co zrobić, jeśli wyniki narzędzia](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
+![Wyniki narzędzia What If dostępu warunkowego](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
 ## <a name="policy-deployment"></a>Wdrażanie zasad
 
-Aby upewnić się, że zasady działają zgodnie z oczekiwaniami, zalecaną najlepszą praktyką jest przetestowanie go przed wprowadzeniem go do produkcji. W idealnym przypadku należy użyć dzierżawy testowej, aby sprawdzić, czy nowe zasady działają zgodnie z oczekiwaniami. Aby uzyskać więcej informacji, zobacz artykuł [Najważniejsze wskazówki dotyczące dostępu warunkowego w usłudze Azure Active Directory](best-practices.md).
+Aby upewnić się, że zasady działają zgodnie z oczekiwaniami, zalecanym najlepszym rozwiązaniem jest przetestowanie go przed wycofaniem do produkcji. Najlepiej użyć dzierżawy testowej, aby sprawdzić, czy nowe zasady działają zgodnie z oczekiwaniami. Aby uzyskać więcej informacji, zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi dostępu warunkowego w Azure Active Directory](best-practices.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Jeśli chcesz wiedzieć, jak skonfigurować zasady dostępu warunkowego, zobacz artykuł [Wymaganie usługi MFA dla określonych aplikacji z dostępem warunkowym usługi Azure Active Directory](app-based-mfa.md).
-* Jeśli chcesz skonfigurować zasady dostępu warunkowego dla swojego środowiska, zobacz artykuł [Najważniejsze wskazówki dotyczące dostępu warunkowego w usłudze Azure Active Directory](best-practices.md).
+* Aby dowiedzieć się, jak skonfigurować zasady dostępu warunkowego, zapoznaj się z artykułem [Wymagaj uwierzytelniania wieloskładnikowego dla określonych aplikacji, Azure Active Directory dostępu warunkowego](app-based-mfa.md).
+* Aby skonfigurować zasady dostępu warunkowego dla środowiska, zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi dostępu warunkowego w Azure Active Directory](best-practices.md).

@@ -1,5 +1,5 @@
 ---
-title: Kwerenda usługi Azure Data Lake Analytics — visual studio
+title: Zapytanie Azure Data Lake Analytics — Visual Studio
 description: Poznaj sposoby instalowania narzędzi Data Lake Tools for Visual Studio oraz tworzenia i testowania skryptów U-SQL.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -10,22 +10,22 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: dacce0d4f40f077b5da6221000192a4398da99e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260347"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Tworzenie skryptów U-SQL przy użyciu narzędzi Data Lake Tools for Visual Studio
 
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Narzędzia Azure Data Lake i Stream Analytics Tools obejmują funkcje związane z dwiema usługami platformy Azure, usługą Azure Data Lake Analytics i usługą Azure Stream Analytics. Aby uzyskać więcej informacji na temat scenariuszy usługi Azure Stream Analytics, zobacz [narzędzia usługi Azure Stream Analytics dla programu Visual Studio.](../stream-analytics/stream-analytics-tools-for-visual-studio-install.md)
+Narzędzia Azure Data Lake i Stream Analytics obejmują funkcje związane z dwiema usługami platformy Azure, Azure Data Lake Analytics i Azure Stream Analytics. Aby uzyskać więcej informacji na temat scenariuszy Azure Stream Analytics, zobacz [narzędzia Azure Stream Analytics Tools for Visual Studio](../stream-analytics/stream-analytics-tools-for-visual-studio-install.md).
 
-W tym artykule opisano sposób tworzenia kont usługi Azure Data Lake Analytics za pomocą programu Visual Studio. Można zdefiniować zadania w [U-SQL](data-lake-analytics-u-sql-get-started.md)i przesłać zadania do usługi Data Lake Analytics. Aby uzyskać więcej informacji na temat usługi Data Lake Analytics, zobacz [omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
+W tym artykule opisano, jak używać programu Visual Studio do tworzenia kont Azure Data Lake Analytics. Możesz definiować zadania w [języku U-SQL](data-lake-analytics-u-sql-get-started.md)i przesyłać zadania do usługi Data Lake Analytics. Aby uzyskać więcej informacji na temat Data Lake Analytics, zobacz [Azure Data Lake Analytics Omówienie](data-lake-analytics-overview.md).
 
 > [!IMPORTANT]
-> Zaleca się uaktualnienie do usługi Azure Data Lake Tools dla programu Visual Studio w wersji 2.3.3000.4 lub nowszej. Poprzednie wersje są niedostępne do pobrania i przestarzałe.
+> Zalecamy uaktualnienie do Azure Data Lake Tools for Visual Studio w wersji 2.3.3000.4 lub nowszej. Poprzednie wersje są niedostępne do pobrania i przestarzałe.
 >
 > 1. Sprawdź, czy używasz narzędzi Azure Data Lake Tools for Visual Studio w wersji starszej niż 2.3.3000.4.
 >
@@ -49,17 +49,17 @@ W tym artykule opisano sposób tworzenia kont usługi Azure Data Lake Analytics 
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio"></a>Instalowanie narzędzi Azure Data Lake Tools for Visual Studio
 
-Ten samouczek wymaga zainstalowania narzędzi Data Lake Tools for Visual Studio. Aby uzyskać więcej informacji, zobacz [Instalowanie narzędzi usługi Data Lake Tools dla programu Visual Studio](data-lake-analytics-data-lake-tools-install.md).
+Ten samouczek wymaga zainstalowania narzędzi Data Lake Tools for Visual Studio. Aby uzyskać więcej informacji, zobacz [Install Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-install.md).
 
 ## <a name="connect-to-an-azure-data-lake-analytics-account"></a>Łączenie z kontem usługi Azure Data Lake Analytics
 
 1. Otwórz program Visual Studio.
 
-1. Otwórz **Eksploratora serwera,** wybierając **pozycję Wyświetl** > **Eksploratora serwera**.
+1. Otwórz **Eksplorator serwera** , wybierając pozycję **Wyświetl** > **Eksplorator serwera**.
 
-1. Kliknij prawym przyciskiem myszy pozycję **Azure**, a następnie wybierz pozycję **Połącz z subskrypcją platformy Microsoft Azure**. W **zaloguj się na swoje konto**postępuj zgodnie z instrukcjami.
+1. Kliknij prawym przyciskiem myszy pozycję **Azure**, a następnie wybierz pozycję **Połącz z subskrypcją Microsoft Azure**. W obszarze **Zaloguj się do swojego konta**postępuj zgodnie z instrukcjami.
 
-1. W **Eksploratorze serwera**wybierz pozycję **Azure** > **Data Lake Analytics**. Zobaczysz listę swoich kont usługi Data Lake Analytics.
+1. W **Eksplorator serwera**wybierz pozycję **Azure** > **Data Lake Analytics**. Zobaczysz listę swoich kont usługi Data Lake Analytics.
 
 ## <a name="write-your-first-u-sql-script"></a>Pisanie pierwszego skryptu U-SQL
 
@@ -82,17 +82,17 @@ OUTPUT @a
 
 ## <a name="submit-a-data-lake-analytics-job"></a>Przesyłanie zadania usługi Data Lake Analytics
 
-1. W programie Visual Studio wybierz pozycję **Plik** > **nowego** > **projektu**.
+1. W programie Visual Studio wybierz pozycję **plik** > **Nowy** > **projekt**.
 
-1. Wybierz typ **projektu U-SQL,** a następnie wybierz pozycję **Dalej**. W **obszarze Konfigurowanie nowego projektu**wybierz pozycję **Utwórz**.
+1. Wybierz typ **projektu U-SQL** , a następnie wybierz przycisk **dalej**. W obszarze **Konfigurowanie nowego projektu**wybierz pozycję **Utwórz**.
 
-   Visual Studio tworzy rozwiązanie, które zawiera plik **Script.usql.**
+   Program Visual Studio tworzy rozwiązanie, które zawiera plik **Script. usql** .
 
-1. Wklej skrypt z [Write your first U-SQL script](#write-your-first-u-sql-script) into the **Script.usql** window.
+1. Wklej skrypt, [pisząc swój pierwszy skrypt U-SQL](#write-your-first-u-sql-script) do okna **Script. usql** .
 
-1. W **Eksploratorze rozwiązań**kliknij prawym przyciskiem myszy **pozycję Script.usql**i wybierz polecenie **Prześlij skrypt**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **Script. usql**, a następnie wybierz polecenie **Prześlij skrypt**.
 
-1. W **obszarze Prześlij zadanie**wybierz swoje konto Data Lake Analytics i wybierz pozycję **Prześlij**.
+1. W obszarze **Prześlij zadanie**wybierz konto Data Lake Analytics i wybierz pozycję **Prześlij**.
 
    ![Przesyłanie projektu U-SQL programu Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-submit-job-vs2019.png)
 
@@ -103,7 +103,7 @@ Po przesłaniu zadania zostanie otwarta karta **Widok zadania**, na której wido
 * Karta **Operacje dotyczące metadanych** pokazuje wszystkie akcje, które zostały wykonane na wykazie języka U-SQL.
 * Karta **Dane** przedstawia wszystkie dane wejściowe i wyjściowe.
 * Karta **Historia stanu** zawiera szczegóły osi czasu i stanu.
-* **Analiza UA** pokazuje, ile jednostek analizy zostało użytych w zadaniu i eksploruje symulacje różnych strategii alokacji UA.
+* **Analiza au** pokazuje, ile jednostek określania zostało użytych w zadaniu i eksploruje symulacje różnych strategii alokacji au.
 * Karta **Diagnostyka** udostępnia zaawansowaną analizę wykonywania zadania i optymalizacji wydajności.
 
 ![Wykres wydajności zadania skryptu U-SQL programu Visual Studio w usłudze Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
@@ -112,7 +112,7 @@ Aby wyświetlić najnowszy stan zadania i odświeżyć ekran, wybierz pozycję *
 
 ## <a name="check-job-status"></a>Sprawdzanie stanu zadania
 
-1. W **Eksploratorze serwera**wybierz pozycję **Azure** > **Data Lake Analytics**.
+1. W **Eksplorator serwera**wybierz pozycję **Azure** > **Data Lake Analytics**.
 
 1. Rozwiń nazwę konta usługi Data Lake Analytics.
 
@@ -122,7 +122,7 @@ Aby wyświetlić najnowszy stan zadania i odświeżyć ekran, wybierz pozycję *
 
 ## <a name="see-the-job-output"></a>Wyświetlanie danych wyjściowych zadania
 
-1. W **Eksploratorze serwera**przejdź do przesłanego zadania.
+1. W **Eksplorator serwera**przejdź do przesłanego zadania.
 
 1. Kliknij kartę **Dane**.
 

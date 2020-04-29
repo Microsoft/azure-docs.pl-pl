@@ -1,6 +1,6 @@
 ---
-title: Opis modeli obiektów i wykresu analizy przestrzennej — Azure Digital Twins | Dokumenty firmy Microsoft
-description: Używanie usługi Azure Digital Twins do modelowania relacji między osobami, miejscami i urządzeniami
+title: Zrozumienie modeli obiektów i grafu analizy przestrzennej — Azure Digital bliźniaczych reprezentacji | Microsoft Docs
+description: Korzystanie z usługi Azure Digital bliźniaczych reprezentacji do modelowania relacji między osobami, miejscami i urządzeniami
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,70 +9,70 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/30/2019
 ms.openlocfilehash: cafec321e7c40e27d8de731feda1103451271507
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265209"
 ---
-# <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Zrozumienie modeli obiektów cyfrowych bliźniąt i wykresu inteligencji przestrzennej
+# <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Zrozumienie modeli obiektów Digital bliźniaczych reprezentacji i grafu analizy przestrzennej
 
-Usługa Azure Digital Twins to usługa Azure IoT, która umożliwia kompleksowe wirtualne reprezentacje środowisk fizycznych i skojarzonych urządzeń, czujników i osób. Poprawia rozwój, organizując pojęcia specyficzne dla domeny w pomocne modele. Modele są następnie umieszczone na wykresie inteligencji przestrzennej. Takie pojęcia wiernie modelują relacje i interakcje między ludźmi, przestrzeniami i urządzeniami.
+Azure Digital bliźniaczych reprezentacji to usługa Azure IoT, która zapewnia kompleksowe wirtualne reprezentacje środowisk fizycznych i skojarzonych urządzeń, czujników i osób. Usprawnia to Programowanie poprzez organizowanie koncepcji specyficznych dla domeny w przydatne modele. Modele są następnie zlokalizowane w grafie analizy przestrzennej. Takie pojęcia wiernie modeluje relacje i interakcje między osobami, miejscami i urządzeniami.
 
-Modele obiektów kamicy cyfrowej opisują pojęcia, kategorie i właściwości specyficzne dla domeny. Modele są wstępnie zdefiniowane przez użytkowników, którzy chcą dostosować rozwiązanie do ich specyficznych potrzeb. Razem te wstępnie zdefiniowane modele obiektów Digital Twins tworzą _ontologię._ Ontologia inteligentnego budynku opisuje regiony, lokale, piętra, biura, strefy, sale konferencyjne i sale spotkań. Ontologia sieci energetycznej opisuje różne elektrownie, podstacje, zasoby energetyczne i klientów. Dzięki modelom obiektów i onlogii digital Twins można dostosować różne scenariusze i potrzeby.
+Modele obiektów Digital bliźniaczych reprezentacji opisują koncepcje, kategorie i właściwości specyficzne dla domeny. Modele są wstępnie zdefiniowane przez użytkowników, którzy chcą dostosować rozwiązanie do konkretnych potrzeb. Razem te wstępnie zdefiniowane modele obiektów bliźniaczych reprezentacji cyfrowych składają się na _Ontology_. Ontology Smart budynku opisuje regiony, miejsca, piętra, biura, strefy, pokoje konferencyjne i pokoje fokusu. Ontology w sieci energetycznej zawiera opis różnych stacji zasilania, podstacji, zasobów energii i klientów. Za pomocą cyfrowych modeli obiektów bliźniaczych reprezentacji i ontologie, można dostosować różne scenariusze i potrzeby.
 
-Dzięki modelom obiektów Digital Twins i ontologii można wypełnić _wykres przestrzenny._ Wykresy przestrzenne są wirtualnymi reprezentacjami wielu relacji między przestrzeniami, urządzeniami i osobami, które są istotne dla rozwiązania IoT. Ten diagram przedstawia przykład wykresu przestrzennego, który używa ontologii inteligentnego budynku.
+Korzystając z modeli obiektów Digital bliźniaczych reprezentacji i Ontology na miejscu, można wypełnić _Wykres przestrzenny_. Wykresy przestrzenne to wirtualne reprezentacje wielu relacji między spacjami, urządzeniami i osobami, które są istotne dla rozwiązania IoT. Ten diagram przedstawia przykład wykresu przestrzennego, który używa inteligentnego kompilowania Ontology.
 
-[![Cyfrowy Twins przestrzenny budynek wykresu](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
+[![Kompilowanie wykresu przestrzennego Digital bliźniaczych reprezentacji](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
 
-Wykres przestrzenny łączy przestrzenie, urządzenia, czujniki i użytkowników. Każdy z nich jest połączony w sposób, który modeluje rzeczywisty świat. W tym przykładzie, miejsce 43 ma cztery piętra, każdy z wielu różnych obszarów. Użytkownicy są związani ze swoimi stacjami roboczymi i mają dostęp do części wykresu. Administrator ma prawo do wprowadzania zmian na wykresie przestrzennym, podczas gdy użytkownik ma prawa do wyświetlania tylko niektórych danych budynku.
+Wykres przestrzenny zawiera razem miejsca, urządzenia, czujniki i użytkowników. Każda z nich jest połączona w sposób, który modeluje świecie rzeczywistym. W tym przykładzie miejsce 43 ma cztery piętra, każdy z wielu różnych obszarów. Użytkownicy są powiązani ze swoimi stacjami roboczymi i mają dostęp do fragmentów grafu. Administrator ma uprawnienia do wprowadzania zmian w grafie przestrzennym, podczas gdy odwiedzający ma uprawnienia do wyświetlania tylko niektórych danych kompilacji.
 
-## <a name="digital-twins-object-models"></a>Modele obiektów cyfrowych bliźniąt
+## <a name="digital-twins-object-models"></a>Modele obiektów Digital bliźniaczych reprezentacji
 
-Modele obiektów Digital Twins obsługują te główne kategorie obiektów:
+Modele obiektów Digital bliźniaczych reprezentacji obsługują następujące główne kategorie obiektów:
 
-- **Spacje** są wirtualnymi lub `Tenant`fizycznymi lokalizacjami, na przykład , `Customer`, `Region`i `Venue`.
-- **Urządzenia** są wirtualnymi lub fizycznymi elementami wyposażenia, `AwesomeCompany Device` na przykład i `Raspberry Pi 3`.
-- **Czujniki** to obiekty, które wykrywają zdarzenia, `AwesomeCompany Temperature Sensor` na przykład i `AwesomeCompany Presence Sensor`.
-- **Użytkownicy** identyfikują pasażerów i ich charakterystykę.
+- **Spacje** są lokalizacjami wirtualnymi lub fizycznymi `Tenant`, `Customer`na `Region`przykład, `Venue`,, i.
+- **Urządzenia** są wirtualnymi lub fizycznymi elementami sprzętu, na przykład `AwesomeCompany Device` i `Raspberry Pi 3`.
+- **Czujniki** są obiektami, które wykrywają zdarzenia, na `AwesomeCompany Temperature Sensor` przykład `AwesomeCompany Presence Sensor`i.
+- **Użytkownicy** identyfikują użytkowników i ich cechy.
 
 Inne kategorie obiektów to:
 
-- **Zasoby** są dołączone do przestrzeni i zazwyczaj reprezentują zasoby platformy Azure, które mają `IoTHub`być używane przez obiekty na wykresie przestrzennym, na przykład.
-- **Obiekty blob** są dołączone do obiektów (takich jak spacje, urządzenia, czujniki i użytkownicy). Są one używane jako pliki z typem mime `maps` `pictures`i `manuals`metadanymi, na przykład , i .
-- **Typy rozszerzone** są wyliczeniami rozszerzalnymi, które powiększają jednostki o określone cechy, na przykład `SpaceType` i `SpaceSubtype`.
-- **Ontologie** reprezentują zestaw typów rozszerzonych, `Default`na `Building` `BACnet`przykład `EnergyGrid`, , i .
-- **Klucze właściwości i wartości** są niestandardowe cechy przestrzeni, urządzeń, czujników i użytkowników. Mogą być używane wraz z wbudowanymi cechami, na przykład `DeltaProcessingRefreshTime` jako klucz i `10` jako wartość.
-- **Role** to zestawy uprawnień przypisanych do użytkowników i urządzeń na `Space Administrator` `User Administrator`wykresie `Device Administrator`przestrzennym, na przykład , i .
-- **Przypisania ról** są skojarzenia między rolą i obiektu na wykresie przestrzennym. Na przykład użytkownik lub podmiot usługi można udzielić uprawnień do zarządzania przestrzenią na wykresie przestrzennym.
-- **Magazyny kluczy zabezpieczeń** zapewniają klucze zabezpieczeń dla wszystkich urządzeń w hierarchii w obszarze danego obiektu spacji, aby umożliwić urządzeniu bezpieczną komunikację z urządzeniami Digital Twins.
-- **Funkcje zdefiniowane przez użytkownika** (UDF) umożliwiają konfigurowalne przetwarzanie danych telemetrycznych czujników na wykresie przestrzennym. Na przykład UDF może:
+- **Zasoby** są dołączane do obszaru i zazwyczaj reprezentują zasoby platformy Azure, które mają być używane przez obiekty na wykresie przestrzennym `IoTHub`, na przykład.
+- Obiekty **BLOB** są dołączone do obiektów (takich jak spacje, urządzenia, czujniki i użytkownicy). Są one używane jako pliki z typem MIME i metadanymi, na przykład `maps` `pictures`,, i. `manuals`
+- **Rozszerzone typy** to rozszerzalne wyliczenia, które rozszerzają jednostki o konkretnej charakterystyce `SpaceType` , `SpaceSubtype`na przykład i.
+- **Ontologie** reprezentuje zestaw rozszerzonych typów `Default`, na przykład `Building` `BACnet`,,, i. `EnergyGrid`
+- **Klucze właściwości i wartości** to niestandardowe właściwości spacji, urządzeń, czujników i użytkowników. Mogą one być używane razem z wbudowaną charakterystyką, na przykład `DeltaProcessingRefreshTime` jako klucz i `10` jako wartość.
+- **Role** są zestawami uprawnień przypisanych do użytkowników i urządzeń w grafie przestrzennym, na `Space Administrator`przykład `User Administrator`,, `Device Administrator`i.
+- **Przypisania ról** są skojarzeniami między rolą a obiektem w grafie przestrzennym. Na przykład użytkownikowi lub jednostce usługi można udzielić uprawnienia do zarządzania przestrzenią w grafie przestrzennym.
+- **Magazyny kluczy zabezpieczeń** zapewniają klucze zabezpieczeń dla wszystkich urządzeń w hierarchii pod danym obiektem obszaru, aby umożliwić bezpieczne komunikowanie się urządzenia z bliźniaczych reprezentacji cyfrowym.
+- **Funkcje zdefiniowane przez użytkownika** (UDF) umożliwiają dostosowywalne przetwarzanie danych telemetrycznych czujnika w ramach wykresu przestrzennego. Na przykład UDF może:
   - Ustaw wartość czujnika.
-  - Wykonaj niestandardową logikę na podstawie odczytów czujników i ustaw dane wyjściowe na spację.
-  - Dołączanie metadanych do spacji.
-  - Wysyłaj powiadomienia, gdy spełnione są wstępnie zdefiniowane warunki. Obecnie pliki UDF można zapisać w języku JavaScript.
-- **Matchers** są obiekty, które określają, które pliki UDF są wykonywane dla danego komunikatu telemetryczne.
-- **Punkty końcowe** to lokalizacje, w których można kierować wiadomości telemetryczne i zdarzenia Digital Twins, `Event Hub`na przykład , `Service Bus`i `Event Grid`.
+  - Wykonaj logikę niestandardową opartą na odczytach czujników i ustaw dane wyjściowe na spację.
+  - Dołącz metadane do obszaru.
+  - Wysyłaj powiadomienia po spełnieniu wstępnie zdefiniowanych warunków. Obecnie UDF można napisać w języku JavaScript.
+- **Dopasowania** są obiektami, które określają, które UDF są wykonywane dla danego komunikatu telemetrii.
+- **Punkty końcowe** to lokalizacje, w których można kierować komunikaty telemetryczne i cyfrowe zdarzenia bliźniaczych reprezentacji, `Event Hub`na `Service Bus`przykład, `Event Grid`, i.
 
 ## <a name="spatial-intelligence-graph"></a>Wykres analizy przestrzennej
 
-Wykres przestrzenny to hierarchiczny wykres przestrzeni, urządzeń i osób zdefiniowanych w modelu obiektów Cyfrowe bliźniacze. Wykres przestrzenny obsługuje dziedziczenie, filtrowanie, przechodzenie, skalowalność i rozszerzalność. Można zarządzać i wchodzić w interakcje z wykresem przestrzennym za pomocą kolekcji interfejsów API REST.
+Wykres przestrzenny to hierarchiczny wykres obszarów, urządzeń i osób zdefiniowanych w modelu obiektów Digital bliźniaczych reprezentacji. Wykres przestrzenny obsługuje dziedziczenie, filtrowanie, przechodzenie, skalowalność i rozszerzalność. Możesz zarządzać wykresem przestrzennym i korzystać z niego przy użyciu kolekcji interfejsów API REST.
 
-Jeśli wdrożysz usługę Digital Twins w ramach subskrypcji, staniesz się administratorem globalnym węzła głównego. Następnie automatycznie uzyskasz pełny dostęp do całej struktury. Inicjuj przestrzenie na wykresie przy użyciu interfejsu API przestrzeni. Aprowizuj usługi przy użyciu interfejsu API urządzenia i czujników przy użyciu interfejsu API czujnika. [Narzędzia open source](https://github.com/Azure-Samples/digital-twins-samples-csharp) są również dostępne do aprowizacji wykresu zbiorczo.
+Jeśli w subskrypcji zostanie wdrożona usługa Digital bliźniaczych reprezentacji, staje się ona administratorem globalnym węzła głównego. Następnie zostanie automatycznie udzielony pełny dostęp do całej struktury. Udostępnianie spacji na grafie przy użyciu interfejsu API Space. Udostępnianie usług przy użyciu interfejsu API i czujników urządzenia przy użyciu interfejsu API czujnika. [Narzędzia Open Source](https://github.com/Azure-Samples/digital-twins-samples-csharp) są również dostępne do zbiorczego udostępniania wykresu.
 
-**Dziedziczenie wykresu**. Dziedziczenie ma zastosowanie do uprawnień i właściwości, które pochodzą z węzła nadrzędnego do wszystkich węzłów pod nim. Na przykład, gdy rola jest przypisana do użytkownika w danym węźle, użytkownik ma uprawnienia tej roli do danego węzła i każdego węzła pod nim. Każdy klucz właściwości i rozszerzony typ zdefiniowany dla danego węzła są dziedziczone przez wszystkie węzły pod tym węzłem.
+**Dziedziczenie grafu**. Dziedziczenie ma zastosowanie do uprawnień i właściwości, które są podrzędne od węzła nadrzędnego do wszystkich węzłów znajdujących się poniżej. Na przykład po przypisaniu roli do użytkownika w danym węźle użytkownik ma uprawnienia tej roli do danego węzła i każdego węzła poniżej. Każdy klucz właściwości i rozszerzony typ zdefiniowany dla danego węzła jest dziedziczony przez wszystkie węzły znajdujące się pod tym węzłem.
 
-**Filtrowanie wykresu**. Filtrowanie służy do zawężenia wyników żądania. Można filtrować według identyfikatorów, nazw, typów, podtypów, przestrzeni nadrzędnej i skojarzonych spacji. Można również filtrować według typów danych czujnika, kluczy właściwości i wartości, *przechodzenia,* *minLevel,* *maxLevel*i innych parametrów filtru OData.
+**Filtrowanie grafu**. Filtrowanie służy do zawężania wyników żądania. Można filtrować według identyfikatorów, nazw, typów, podtypów, przestrzeni nadrzędnej i skojarzonych spacji. Można również filtrować według typów danych czujników, kluczy właściwości i wartości, *przechodzenia*, *minLevel*, *MaxLevel*i innych parametrów filtru OData.
 
-**Przechodzenie przez wykres**. Wykres przestrzenny można przemierzać przez jego głębokość i szerokość. W przypadku głębokości przechodzenie przez wykres z góry na dół lub od dołu w górę za pomocą parametrów *trawers,* *minLevel*i *maxLevel*. Przechodzenie przez wykres, aby uzyskać węzły równorzędne bezpośrednio dołączone do przestrzeni nadrzędnej lub jeden z jego elementów podrzędnych dla szerokości. Podczas kwerendy obiektu, można uzyskać wszystkie powiązane obiekty, które mają relacje z tym obiektem przy użyciu *parametru includes* get interfejsów API.
+**Przechodzenie grafu**. Wykres przestrzenny można przechodzenie przez jego głębokość i szerokość. Aby uzyskać głębokość, przechodzenie wykresu w dół lub w dół przy użyciu parametrów *przechodzących*, *minLevel*i *maxLevel*. Przechodzenie wykresu, aby uzyskać węzły równorzędne bezpośrednio dołączone do obszaru nadrzędnego lub jednego z jego elementów podrzędnych dla szerokości. Podczas wykonywania zapytania względem obiektu można uzyskać wszystkie powiązane obiekty, które mają relacje z tym obiektem za pomocą parametru *include* interfejsów API.
 
-**Skalowalność wykresu**. Digital Twins gwarantuje skalowalność wykresu, dzięki czemu może obsługiwać rzeczywiste obciążenia. Cyfrowe bliźniaki mogą być używane do reprezentowania dużych portfeli nieruchomości, infrastruktury, urządzeń, czujników, telemetrii i innych.
+**Skalowalność grafu**. Program Digital bliźniaczych reprezentacji gwarantuje skalowalność wykresu, dzięki czemu może obsługiwać rzeczywiste obciążenia. Digital bliźniaczych reprezentacji może służyć do reprezentowania dużych portfeli rzeczywistych, infrastruktury, urządzeń, czujników, telemetrii i innych.
 
-**Rozszerzalność wykresu**. Użyj rozszerzalności, aby dostosować podstawowe modele obiektów elementów cyfrowych bliźniąt za pomocą nowych typów i ontologii. Dane digital twins mogą być również wzbogacone o rozszerzalne właściwości i wartości.
+**Rozszerzalność grafu**. Użyj rozszerzalności, aby dostosować podstawowe modele obiektów bliźniaczych reprezentacji przy użyciu nowych typów i ontologie. Dane cyfrowego bliźniaczych reprezentacji można także wzbogacać o rozszerzalne właściwości i wartości.
 
-### <a name="spatial-intelligence-graph-management-apis"></a>Interfejsy API zarządzania danymi API zarządzania analizą przestrzenną
+### <a name="spatial-intelligence-graph-management-apis"></a>Interfejsy API zarządzania wykresami w ramach analizy przestrzennej
 
-Po wdrożeniu cyfrowych bliźniaczych reprezentacji z [witryny Azure portal](https://portal.azure.com)automatycznie generowany jest adres URL modułu [Swagger](https://swagger.io/tools/swagger-ui/) interfejsów API zarządzania. Jest on wyświetlany w witrynie Azure portal w sekcji **Przegląd** z następującym formatem.
+Po wdrożeniu Digital bliźniaczych reprezentacji z [Azure Portal](https://portal.azure.com), zostanie automatycznie wygenerowany adres URL programu [Swagger](https://swagger.io/tools/swagger-ui/) interfejsów API zarządzania. Jest on wyświetlany w Azure Portal w sekcji **Przegląd** w następującym formacie.
 
 ```plaintext
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
@@ -83,22 +83,22 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 | YOUR_INSTANCE_NAME | Nazwa używanego wystąpienia usługi Digital Twins |
 | YOUR_LOCATION | Region serwera, w którym jest hostowane używane wystąpienie |
 
- Pełny format adresu URL pojawi się na tym obrazie.
+ Pełny format adresu URL zostanie wyświetlony na tym obrazie.
 
-[![Interfejs API zarządzania portalem Digital Twins](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
+[![Interfejs API zarządzania portalem Digital bliźniaczych reprezentacji](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
 
-Aby uzyskać więcej informacji na temat korzystania z wykresów analizy przestrzennej, odwiedź zajawkę interfejsów API zarządzania cyfrowymi urządzeniami i urządzeniami cyfrowymi usługi Azure.
+Aby uzyskać więcej informacji na temat korzystania z wykresów analizy przestrzennej, odwiedź stronę usługi Azure Digital bliźniaczych reprezentacji Management Apis zobaczyć Preview.
 
 > [!TIP]
-> Podgląd zajawki Swagger jest dostarczany, aby zademonstrować zestaw funkcji interfejsu API.
-> Jest on a gospodarzem [w docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
+> W wersji zapoznawczej programu Swagger zobaczyć przedstawiono zestaw funkcji interfejsu API.
+> Jest on hostowany pod adresem [docs.westcentralus.azuresmartspaces.NET/Management/Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
-Dowiedz się więcej o [używaniu funkcji Swagger](how-to-use-swagger.md).
+Dowiedz się więcej [na temat korzystania z struktury Swagger](how-to-use-swagger.md).
 
-Wszystkie wywołania interfejsu API muszą być uwierzytelnione przy użyciu [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). Interfejsy API są zgodne z [konwencjami dotyczącymi interfejsu API rest firmy Microsoft](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Większość interfejsów API zwracających kolekcje obsługuje opcje zapytań [systemowych OData.](https://www.odata.org/getting-started/basic-tutorial/#queryData)
+Wszystkie wywołania interfejsu API muszą zostać uwierzytelnione przy użyciu protokołu [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). Interfejsy API przestrzegają [Konwencji wskazówek dotyczących interfejsu API REST firmy Microsoft](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Większość interfejsów API, które zwracają kolekcje, obsługują opcje zapytania systemu [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej o łączności urządzenia i sposobie wysyłania wiadomości telemetrycznych do aplikacji Digital Twins, przeczytaj artykuł [Azure Digital Twins device connectivity and telemetry ingress](concepts-device-ingress.md).
+- Aby dowiedzieć się więcej o łączności urządzeń i sposobach wysyłania komunikatów telemetrycznych do bliźniaczych reprezentacji cyfrowych, odczytaj informacje o [łączności i danych telemetrycznych usługi Azure Digital bliźniaczych reprezentacji](concepts-device-ingress.md).
 
-- Aby dowiedzieć się więcej o ograniczeniach i ograniczeniach interfejsu API zarządzania, przeczytaj artykuł [Zarządzanie interfejsami API usługi Azure Digital Twins i ograniczenia](concepts-service-limits.md).
+- Aby dowiedzieć się więcej o ograniczeniach i ograniczaniu wydajności interfejsu API zarządzania, przeczytaj temat [usługa Azure Digital bliźniaczych reprezentacji API Management i ograniczenia](concepts-service-limits.md).

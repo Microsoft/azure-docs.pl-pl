@@ -1,6 +1,6 @@
 ---
-title: Łączenie się z urządzeniem bramy usługi Azure Data Box Gateway i zarządzanie nim
-description: W tym artykule opisano sposób łączenia się z bramą pola danych, z którymi można zarządzać za pośrednictwem interfejsu programu Windows PowerShell.
+title: Łączenie się z urządzeniem Azure Data Box Gateway i zarządzanie nim za pomocą programu Windows PowerShell
+description: Opisuje sposób nawiązywania połączenia z Data Box Gateway i zarządzania nim za pomocą interfejsu programu Windows PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,31 +9,31 @@ ms.topic: article
 ms.date: 08/02/2019
 ms.author: alkohli
 ms.openlocfilehash: 6c9f3455a07001a8d1b9b8a1e84f2af3392b5690
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260217"
 ---
-# <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>Zarządzanie urządzeniem bramy usługi Azure Data Box za pośrednictwem programu Windows PowerShell
+# <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>Zarządzanie urządzeniem Azure Data Box Gateway za pomocą programu Windows PowerShell
 
-Rozwiązanie usługi Azure Data Box Gateway umożliwia wysyłanie danych przez sieć na platformę Azure. W tym artykule opisano niektóre zadania konfiguracji i zarządzania dla urządzenia bramy pola danych. Do zarządzania urządzeniem można użyć witryny Azure portal, lokalnego interfejsu użytkownika sieci Web lub interfejsu programu Windows PowerShell.
+Rozwiązanie Azure Data Box Gateway umożliwia wysyłanie danych za pośrednictwem sieci do platformy Azure. W tym artykule opisano niektóre zadania związane z konfiguracją i zarządzaniem dla urządzenia Data Box Gateway. Aby zarządzać urządzeniem, można użyć Azure Portal, lokalnego interfejsu użytkownika sieci Web lub interfejsu programu Windows PowerShell.
 
-W tym artykule skupiono się na zadaniach wykonywanych przy użyciu interfejsu programu PowerShell.
+Ten artykuł koncentruje się na zadaniach, które można wykonać za pomocą interfejsu programu PowerShell.
 
 Ten artykuł zawiera następujące procedury:
 
-- Łączenie się z interfejsem programu PowerShell
-- Tworzenie pakietu pomocy technicznej
+- Nawiązywanie połączenia z interfejsem programu PowerShell
+- Tworzenie pakietu dla pomocy technicznej
 - Przekazywanie certyfikatu
-- Uruchamianie w środowisku innych niż DHCP
-- Wyświetlanie informacji o urządzeniu
+- Rozruch w środowisku innym niż DHCP
+- Wyświetl informacje o urządzeniu
 
-## <a name="connect-to-the-powershell-interface"></a>Łączenie się z interfejsem programu PowerShell
+## <a name="connect-to-the-powershell-interface"></a>Nawiązywanie połączenia z interfejsem programu PowerShell
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
 
-## <a name="create-a-support-package"></a>Tworzenie pakietu pomocy technicznej
+## <a name="create-a-support-package"></a>Tworzenie pakietu dla pomocy technicznej
 
 [!INCLUDE [Create a support package](../../includes/data-box-edge-gateway-create-support-package.md)]
 
@@ -41,11 +41,11 @@ Ten artykuł zawiera następujące procedury:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-## <a name="boot-up-in-non-dhcp-environment"></a>Uruchamianie w środowisku innych niż DHCP
+## <a name="boot-up-in-non-dhcp-environment"></a>Rozruch w środowisku innym niż DHCP
 
 [!INCLUDE [Boot up in non-DHCP environment](../../includes/data-box-edge-gateway-boot-non-dhcp.md)]
 
-## <a name="view-device-information"></a>Wyświetlanie informacji o urządzeniu
+## <a name="view-device-information"></a>Wyświetl informacje o urządzeniu
 
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 

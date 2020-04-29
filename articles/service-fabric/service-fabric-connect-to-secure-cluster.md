@@ -1,82 +1,82 @@
 ---
-title: Bezpieczne łączenie się z klastrem sieci szkieletowej usług Azure
-description: W tym artykule opisano sposób uwierzytelniania dostępu klienta do klastra sieci szkieletowej usług i zabezpieczania komunikacji między klientami a klastrem.
+title: Bezpieczne nawiązywanie połączenia z klastrem usługi Azure Service Fabric
+description: Zawiera opis sposobu uwierzytelniania dostępu klienta do klastra Service Fabric i zabezpieczania komunikacji między klientami a klastrem.
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: a1f4abbabe428a09492efefca4a8da9801b9f68d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258579"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Nawiązywanie połączenia z zabezpieczonym klastrem
 
-Gdy klient łączy się z węzłem klastra sieci szkieletowej usług, klient może być uwierzytelniony i zabezpieczyć komunikację ustanowioną przy użyciu zabezpieczeń certyfikatów lub usługi Azure Active Directory (AAD). To uwierzytelnianie gwarantuje, że tylko autoryzowani użytkownicy mogą uzyskiwać dostęp do klastra i wdrożonych aplikacji oraz wykonywać zadania zarządzania.  Podczas tworzenia klastra certyfikat lub zabezpieczenia usługi AAD muszą być wcześniej włączone w klastrze.  Aby uzyskać więcej informacji na temat scenariuszy zabezpieczeń [klastra,](service-fabric-cluster-security.md)zobacz Zabezpieczenia klastra . Jeśli łączysz się z klastrem zabezpieczonym certyfikatami, [skonfiguruj certyfikat klienta](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) na komputerze, który łączy się z klastrem. 
+Gdy klient łączy się z węzłem klastra Service Fabric, można uwierzytelniać klienta i nawiązać bezpieczną komunikację przy użyciu zabezpieczeń certyfikatów lub Azure Active Directory (AAD). To uwierzytelnianie zapewnia, że tylko autoryzowani użytkownicy mogą uzyskiwać dostęp do klastra i wdrażać aplikacje oraz wykonywać zadania zarządzania.  Podczas tworzenia klastra należy wcześniej włączyć zabezpieczenia certyfikatu lub usługi AAD w klastrze.  Aby uzyskać więcej informacji na temat scenariuszy zabezpieczeń klastra, zobacz [zabezpieczenia klastra](service-fabric-cluster-security.md). W przypadku łączenia się z klastrem zabezpieczonym przy użyciu certyfikatów [Skonfiguruj certyfikat klienta](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) na komputerze, który nawiązuje połączenie z klastrem. 
 
 <a id="connectsecureclustercli"></a> 
 
-## <a name="connect-to-a-secure-cluster-using-azure-service-fabric-cli-sfctl"></a>Łączenie się z bezpiecznym klastrem przy użyciu interfejsu wiersza polecenia sieci szkieletowej usługi Azure (sfctl)
+## <a name="connect-to-a-secure-cluster-using-azure-service-fabric-cli-sfctl"></a>Nawiązywanie połączenia z bezpiecznym klastrem przy użyciu interfejsu wiersza polecenia platformy Azure Service Fabric (sfctl)
 
-Istnieje kilka różnych sposobów łączenia się z bezpiecznym klastrem przy użyciu interfejsu wiersza polecenia sieci szkieletowej usług (sfctl). Podczas uwierzytelniania przy użyciu certyfikatu klienta szczegóły certyfikatu muszą być zgodne z certyfikatem wdrożonym w węzłach klastra. Jeśli certyfikat ma urzędy certyfikacji ( CA), należy dodatkowo określić zaufane urzędy certyfikacji.
+Istnieje kilka różnych sposobów łączenia się z bezpiecznym klastrem przy użyciu interfejsu wiersza polecenia Service Fabric (sfctl). Podczas uwierzytelniania przy użyciu certyfikatu klienta szczegóły certyfikatu muszą być zgodne z certyfikatem wdrożonym w węzłach klastra. Jeśli certyfikat ma urzędy certyfikacji, należy dodatkowo określić zaufane urzędy certyfikacji.
 
-Za pomocą polecenia można `sfctl cluster select` połączyć się z klastrem.
+Możesz połączyć się z klastrem przy użyciu `sfctl cluster select` polecenia.
 
-Certyfikaty klienta można określić w dwóch różnych formach: jako parę certyfikatów i kluczy lub jako pojedynczy plik PFX. W przypadku chronionych hasłem plików PEM zostaniesz automatycznie poproszony o wprowadzenie hasła. Jeśli certyfikat klienta został uzyskany jako plik PFX, należy najpierw przekonwertować plik PFX na plik PEM za pomocą następującego polecenia. 
+Certyfikaty klienta można określić w dwóch różnych sposobów, jako certyfikat i parę kluczy lub jako pojedynczy plik PFX. W przypadku plików PEM chronionych hasłem zostanie wyświetlony monit o wprowadzenie hasła. Jeśli certyfikat klienta został uzyskany jako plik PFX, najpierw przekonwertuj plik PFX na plik PEM przy użyciu poniższego polecenia. 
 
 ```shell
 openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
 ```
 
-Jeśli plik .pfx nie jest chroniony hasłem, użyj -passin pass: dla ostatniego parametru.
+Jeśli plik PFX nie jest chroniony hasłem, użyj parametru Pass-Pass: dla ostatniego parametru.
 
-Aby określić certyfikat klienta jako plik pem, `--pem` określ ścieżkę pliku w argumie. Przykład:
+Aby określić certyfikat klienta jako plik PEM, określ ścieżkę pliku w `--pem` argumencie. Przykład:
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
-Chronione hasłem pliki pem będą monitować o hasło przed uruchomieniem dowolnego polecenia.
+W przypadku plików PEM chronionych hasłem przed uruchomieniem dowolnego polecenia zostanie wyświetlony monit o podanie hasła.
 
-Aby określić certyfikat, para `--cert` kluczy użyj argumentów i, `--key` aby określić ścieżki pliku do każdego odpowiedniego pliku.
+Aby określić certyfikat, para kluczy Użyj argumentów `--cert` i `--key` , aby określić ścieżki plików do każdego odpowiedniego pliku.
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Czasami certyfikaty używane do zabezpieczania klastrów testowych lub deweloperskich nie sprawdzają poprawności certyfikatów. Aby pominąć weryfikację `--no-verify` certyfikatu, określ tę opcję. Przykład:
+Czasami certyfikaty używane do zabezpieczania klastrów testowych lub deweloperów nie przechodzą pomyślnie weryfikacji certyfikatu. Aby pominąć weryfikację certyfikatu, określ `--no-verify` opcję. Przykład:
 
 > [!WARNING]
-> Nie należy `no-verify` używać tej opcji podczas łączenia się z klastrami produkcyjnych sieci szkieletowej usług.
+> Nie należy używać `no-verify` opcji podczas nawiązywania połączenia z klastrami Service Fabric produkcyjnych.
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-Ponadto można określić ścieżki do katalogów zaufanych certyfikatów urzędu certyfikacji lub poszczególnych certyfikatów. Aby określić te ścieżki, użyj argumentu. `--ca` Przykład:
+Ponadto można określić ścieżki do katalogów zaufanych certyfikatów urzędów certyfikacji lub pojedynczych certyfikatów. Aby określić te ścieżki, użyj `--ca` argumentu. Przykład:
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
 ```
 
-Po nawiązaniu połączenia powinno być możliwe [uruchomienie innych poleceń sfctl](service-fabric-cli.md) w celu interakcji z klastrem.
+Po nawiązaniu połączenia należy [uruchomić inne polecenia sfctl](service-fabric-cli.md) w celu współdziałania z klastrem.
 
 <a id="connectsecurecluster"></a>
 
-## <a name="connect-to-a-cluster-using-powershell"></a>Łączenie się z klastrem przy użyciu programu PowerShell
-Przed wykonaniem operacji w klastrze za pośrednictwem programu PowerShell należy najpierw ustanowić połączenie z klastrem. Połączenie klastra jest używane dla wszystkich kolejnych poleceń w danej sesji programu PowerShell.
+## <a name="connect-to-a-cluster-using-powershell"></a>Nawiązywanie połączenia z klastrem przy użyciu programu PowerShell
+Przed wykonaniem operacji w klastrze za pomocą programu PowerShell należy najpierw nawiązać połączenie z klastrem. Połączenie z klastrem jest używane dla wszystkich kolejnych poleceń w danej sesji programu PowerShell.
 
-### <a name="connect-to-an-unsecure-cluster"></a>Łączenie się z niezabezpieczonym klastrem
+### <a name="connect-to-an-unsecure-cluster"></a>Nawiązywanie połączenia z niezabezpieczonym klastrem
 
-Aby połączyć się z niezabezpieczonym klastrem, podaj adres punktu końcowego klastra do polecenia **Connect-ServiceFabricCluster:**
+Aby nawiązać połączenie z niezabezpieczonym klastrem, podaj adres punktu końcowego klastra do polecenia **Connect-ServiceFabricCluster** :
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 
 ```
 
-### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Łączenie się z bezpiecznym klastrem przy użyciu usługi Azure Active Directory
+### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Nawiązywanie połączenia z bezpiecznym klastrem przy użyciu Azure Active Directory
 
-Aby połączyć się z bezpiecznym klastrem, który używa usługi Azure Active Directory do autoryzowania dostępu administratora klastra, podaj odcisk palca certyfikatu klastra i użyj flagi *AzureActiveDirectory.*  
+Aby nawiązać połączenie z bezpiecznym klastrem używającym Azure Active Directory do autoryzacji dostępu administratora klastra, podaj odcisk palca certyfikatu klastra i Użyj flagi *usługi azureactivedirectory* .  
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -84,11 +84,11 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 -AzureActiveDirectory
 ```
 
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Łączenie się z bezpiecznym klastrem przy użyciu certyfikatu klienta
-Uruchom następujące polecenie programu PowerShell, aby połączyć się z bezpiecznym klastrem, który używa certyfikatów klientów do autoryzowania dostępu administratora. 
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Nawiązywanie połączenia z zabezpieczonym klastrem przy użyciu certyfikatu klienta
+Uruchom następujące polecenie programu PowerShell, aby nawiązać połączenie z bezpiecznym klastrem używającym certyfikatów klienta do autoryzacji dostępu administratora. 
 
-#### <a name="connect-using-certificate-common-name"></a>Łączenie przy użyciu nazwy pospolitej certyfikatu
-Podaj nazwę pospolitą certyfikatu klastra i wspólną nazwę certyfikatu klienta, któremu przyznano uprawnienia do zarządzania klastrem. Szczegóły certyfikatu muszą być zgodne z certyfikatem w węzłach klastra.
+#### <a name="connect-using-certificate-common-name"></a>Połącz przy użyciu nazwy pospolitej certyfikatu
+Podaj nazwę pospolitą certyfikatu klastra i nazwę pospolitą certyfikatu klienta, którym udzielono uprawnień do zarządzania klastrem. Szczegóły certyfikatu muszą być zgodne z certyfikatem w węzłach klastra.
 
 ```powershell
 Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
@@ -99,7 +99,7 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
     -StoreLocation CurrentUser `
     -StoreName My 
 ```
-*ServerCommonName* to nazwa pospolita certyfikatu serwera zainstalowanego w węzłach klastra. *FindValue* to nazwa pospolita certyfikatu klienta administratora. Po wypełnieniu parametrów polecenie wygląda następująco:
+*ServerCommonName* to nazwa pospolita certyfikatu serwera zainstalowanego w węzłach klastra. *FindValue* jest nazwą pospolitą certyfikatu klienta administratora. Po wprowadzeniu parametrów polecenie wygląda podobnie do poniższego przykładu:
 ```powershell
 $ClusterName= "sf-commonnametest-scus.southcentralus.cloudapp.azure.com:19000"
 $certCN = "sfrpe2eetest.southcentralus.cloudapp.azure.com"
@@ -113,8 +113,8 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
     -StoreName My 
 ```
 
-#### <a name="connect-using-certificate-thumbprint"></a>Łączenie za pomocą odcisku palca certyfikatu
-Podaj odcisk palca certyfikatu klastra i odcisk palca certyfikatu klienta, któremu przyznano uprawnienia do zarządzania klastrem. Szczegóły certyfikatu muszą być zgodne z certyfikatem w węzłach klastra.
+#### <a name="connect-using-certificate-thumbprint"></a>Połącz przy użyciu odcisku palca certyfikatu
+Podaj odcisk palca certyfikatu klastra i odcisk palca certyfikatu klienta z przyznanymi uprawnieniami do zarządzania klastrem. Szczegóły certyfikatu muszą być zgodne z certyfikatem w węzłach klastra.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `  
@@ -124,7 +124,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-*ServerCertThumbprint* to odcisk palca certyfikatu serwera zainstalowanego w węzłach klastra. *FindValue* to odcisk palca certyfikatu klienta administratora.  Po wypełnieniu parametrów polecenie wygląda następująco:
+*ServerCertThumbprint* to odcisk palca certyfikatu serwera zainstalowanego w węzłach klastra. *FindValue* to odcisk palca certyfikatu klienta administratora.  Po wprowadzeniu parametrów polecenie wygląda podobnie do poniższego przykładu:
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `  
@@ -134,8 +134,8 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
           -StoreLocation CurrentUser -StoreName My 
 ```
 
-### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>Łączenie się z bezpiecznym klastrem przy użyciu usługi Windows Active Directory
-Jeśli klaster autonomiczny jest wdrażany przy użyciu zabezpieczeń usługi AD, połącz się z klastrem, dołączając przełącznik "WindowsCredential".
+### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>Nawiązywanie połączenia z bezpiecznym klastrem przy użyciu Active Directory systemu Windows
+Jeśli klaster autonomiczny został wdrożony przy użyciu zabezpieczeń usługi AD, Połącz się z klastrem, dołączając przełącznik "WindowsCredential".
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -144,26 +144,26 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 
 <a id="connectsecureclusterfabricclient"></a>
 
-## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a>Łączenie się z klastrem przy użyciu interfejsów API FabricClient
-SDK sieci szkieletowej usług udostępnia [klasę FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) do zarządzania klastrem. Aby użyć interfejsów API FabricClient, pobierz pakiet Microsoft.ServiceFabric NuGet.
+## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a>Nawiązywanie połączenia z klastrem przy użyciu interfejsów API FabricClient
+Zestaw Service Fabric SDK udostępnia klasę [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) do zarządzania klastrem. Aby skorzystać z interfejsów API FabricClient, Pobierz pakiet NuGet Microsoft. servicefabric.
 
-### <a name="connect-to-an-unsecure-cluster"></a>Łączenie się z niezabezpieczonym klastrem
+### <a name="connect-to-an-unsecure-cluster"></a>Nawiązywanie połączenia z niezabezpieczonym klastrem
 
-Aby połączyć się ze zdalnym klastrem niezabezpieczonym, utwórz wystąpienie FabricClient i podaj adres klastra:
+Aby nawiązać połączenie ze zdalnym niezabezpieczonym klastrem, Utwórz wystąpienie FabricClient i podaj adres klastra:
 
 ```csharp
 FabricClient fabricClient = new FabricClient("clustername.westus.cloudapp.azure.com:19000");
 ```
 
-Dla kodu, który jest uruchomiony z wewnątrz klastra, na przykład w niezawodnej usługi, należy utworzyć FabricClient *bez* określania adresu klastra. FabricClient łączy się z lokalną bramą zarządzania w węźle, na których jest obecnie uruchomiony kod, unikając dodatkowego przeskoku sieciowego.
+W przypadku kodu działającego z poziomu klastra, na przykład w niezawodnej usłudze, Utwórz FabricClient *bez* określania adresu klastra. FabricClient nawiązuje połączenie z lokalną bramą zarządzania w węźle, w którym aktualnie działa kod, unikając dodatkowego przeskoku sieci.
 
 ```csharp
 FabricClient fabricClient = new FabricClient();
 ```
 
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Łączenie się z bezpiecznym klastrem przy użyciu certyfikatu klienta
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Nawiązywanie połączenia z zabezpieczonym klastrem przy użyciu certyfikatu klienta
 
-Węzły w klastrze muszą mieć prawidłowe certyfikaty, których nazwa pospolita lub nazwa DNS w sieci SAN jest wyświetlana we [właściwości RemoteCommonNames ustawionej](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) na [stronie FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Po tym procesie umożliwia wzajemne uwierzytelnianie między klientem a węzłami klastra.
+Węzły w klastrze muszą mieć prawidłowe certyfikaty, których nazwa pospolita lub nazwa DNS w sieci SAN pojawia się we [Właściwości RemoteCommonNames](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) ustawionym na [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Poniższy proces umożliwia wzajemne uwierzytelnianie między klientem a węzłami klastra.
 
 ```csharp
 using System.Fabric;
@@ -201,11 +201,11 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 }
 ```
 
-### <a name="connect-to-a-secure-cluster-interactively-using-azure-active-directory"></a>Interakcyjnie łączenie się z bezpiecznym klastrem przy użyciu usługi Azure Active Directory
+### <a name="connect-to-a-secure-cluster-interactively-using-azure-active-directory"></a>Interaktywnie nawiązywanie połączenia z bezpiecznym klastrem za pomocą Azure Active Directory
 
-W poniższym przykładzie użyto usługi Azure Active Directory dla tożsamości klienta i certyfikatu serwera dla tożsamości serwera.
+Poniższy przykład używa Azure Active Directory dla tożsamości klienta i certyfikatu serwera dla tożsamości serwera.
 
-Okno dialogowe zostanie automatycznie wyświetlone w celu interaktywnego logowania po nawiązaniu połączenia z klastrem.
+Po nawiązaniu połączenia z klastrem zostanie automatycznie wyświetlone okno dialogowe umożliwiające Logowanie interakcyjne.
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
@@ -227,11 +227,11 @@ catch (Exception e)
 }
 ```
 
-### <a name="connect-to-a-secure-cluster-non-interactively-using-azure-active-directory"></a>Łączenie się z bezpiecznym klastrem nieinteraktywnie przy użyciu usługi Azure Active Directory
+### <a name="connect-to-a-secure-cluster-non-interactively-using-azure-active-directory"></a>Nawiązywanie połączenia z bezpiecznym klastrem nieinteraktywnie przy użyciu Azure Active Directory
 
-Poniższy przykład opiera się na Microsoft.IdentityModel.Clients.ActiveDirectory, wersja: 2.19.208020213.
+Poniższy przykład korzysta z Microsoft. IdentityModel. clients. ActiveDirectory, Version: 2.19.208020213.
 
-Aby uzyskać więcej informacji na temat pozyskiwania tokenów usługi AAD, zobacz [Microsoft.IdentityModel.Clients.ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
+Aby uzyskać więcej informacji na temat pozyskiwania tokenów usługi AAD, zobacz [Microsoft. IdentityModel. clients. ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";
@@ -284,9 +284,9 @@ static string GetAccessToken(
 
 ```
 
-### <a name="connect-to-a-secure-cluster-without-prior-metadata-knowledge-using-azure-active-directory"></a>Łączenie się z bezpiecznym klastrem bez wcześniejszej wiedzy o metadanych przy użyciu usługi Azure Active Directory
+### <a name="connect-to-a-secure-cluster-without-prior-metadata-knowledge-using-azure-active-directory"></a>Nawiązywanie połączenia z zabezpieczonym klastrem bez wcześniejszej znajomości metadanych przy użyciu Azure Active Directory
 
-W poniższym przykładzie użyto nabycia tokenu nieinterakcyjnego, ale tego samego podejścia można użyć do tworzenia środowiska pozyskiwania tokenów interaktywnych. Metadane usługi Azure Active Directory potrzebne do pozyskiwania tokenów są odczytywane z konfiguracji klastra.
+W poniższym przykładzie użyto funkcji pozyskiwania tokenów nieinteraktywnych, ale takie samo podejście może służyć do kompilowania niestandardowego środowiska pozyskiwania tokenów interaktywnych. Metadane Azure Active Directory wymaganych do pozyskiwania tokenu są odczytywane z konfiguracji klastra.
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
@@ -329,38 +329,38 @@ static string GetAccessToken(AzureActiveDirectoryMetadata aad)
 
 <a id="connectsecureclustersfx"></a>
 
-## <a name="connect-to-a-secure-cluster-using-service-fabric-explorer"></a>Łączenie się z bezpiecznym klastrem przy użyciu Eksploratora sieci szkieletowej usług
-Aby uzyskać do Niego dotarcie do [Eksploratora sieci szkieletowej usług](service-fabric-visualizing-your-cluster.md) dla danego klastra, wskaż przeglądarkę na:
+## <a name="connect-to-a-secure-cluster-using-service-fabric-explorer"></a>Nawiązywanie połączenia z bezpiecznym klastrem przy użyciu Service Fabric Explorer
+Aby uzyskać dostęp do [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) dla danego klastra, wskaż przeglądarkę:
 
 `http://<your-cluster-endpoint>:19080/Explorer`
 
-Pełny adres URL jest również dostępny w okienku podstawowe klastra w witrynie Azure portal.
+Pełny adres URL jest również dostępny w okienku podstawy klastra Azure Portal.
 
-Aby połączyć się z bezpiecznym klastrem w systemie Windows lub OS X za pomocą przeglądarki, można zaimportować certyfikat klienta, a przeglądarka wyświetli monit o użycie certyfikatu do nawiązania połączenia z klastrem.  Na komputerach z systemem Linux certyfikat będzie musiał zostać zaimportowany przy użyciu zaawansowanych ustawień przeglądarki (każda przeglądarka ma inne mechanizmy) i wskażenie go do lokalizacji certyfikatu na dysku. Przeczytaj artykuł [Konfigurowanie certyfikatu klienta,](#connectsecureclustersetupclientcert) aby uzyskać więcej informacji.
+W przypadku nawiązywania połączenia z zabezpieczonym klastrem w systemie Windows lub OS X przy użyciu przeglądarki można zaimportować certyfikat klienta, a w przeglądarce zostanie wyświetlony monit o certyfikat używany do nawiązywania połączenia z klastrem.  Na maszynach z systemem Linux certyfikat będzie musiał zostać zaimportowany przy użyciu zaawansowanych ustawień przeglądarki (Każda przeglądarka ma inne mechanizmy) i wskazuje na lokalizację certyfikatu na dysku. Aby uzyskać więcej informacji, zapoznaj [się z artykułem Konfigurowanie certyfikatu klienta](#connectsecureclustersetupclientcert) .
 
-### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Łączenie się z bezpiecznym klastrem przy użyciu usługi Azure Active Directory
+### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Nawiązywanie połączenia z bezpiecznym klastrem przy użyciu Azure Active Directory
 
-Aby połączyć się z klastrem zabezpieczonym za pomocą usługi AAD, wskaż przeglądarkę na:
-
-`https://<your-cluster-endpoint>:19080/Explorer`
-
-Zostaniesz automatycznie wyświetlony monit o zalogowanie się za pomocą aad.
-
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Łączenie się z bezpiecznym klastrem przy użyciu certyfikatu klienta
-
-Aby połączyć się z klastrem zabezpieczonym certyfikatami, wskaż przeglądarkę na:
+Aby nawiązać połączenie z klastrem zabezpieczonym za pomocą usługi AAD, wskaż przeglądarkę:
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-Zostaniesz automatycznie wyświetlony monit o wybranie certyfikatu klienta.
+Zostanie automatycznie wyświetlony monit o zalogowanie się za pomocą usługi AAD.
+
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Nawiązywanie połączenia z zabezpieczonym klastrem przy użyciu certyfikatu klienta
+
+Aby nawiązać połączenie z klastrem zabezpieczonym za pomocą certyfikatów, wskaż przeglądarkę:
+
+`https://<your-cluster-endpoint>:19080/Explorer`
+
+Zostanie automatycznie wyświetlony monit o wybranie certyfikatu klienta.
 
 <a id="connectsecureclustersetupclientcert"></a>
 
 ## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>Konfigurowanie certyfikatu klienta na komputerze zdalnym
 
-Do zabezpieczania klastra powinny być używane co najmniej dwa certyfikaty, jeden dla certyfikatu klastra i serwera, a drugi dla dostępu klienta.  Zaleca się również użycie dodatkowych certyfikatów pomocniczych i certyfikatów dostępu klienta.  Aby zabezpieczyć komunikację między klientem a węzłem klastra przy użyciu zabezpieczeń certyfikatów, należy najpierw uzyskać i zainstalować certyfikat klienta. Certyfikat można zainstalować w magazynie osobistym (Mój) komputera lokalnego lub bieżącego użytkownika.  Potrzebny jest również odcisk palca certyfikatu serwera, aby klient mógł uwierzytelnić klaster.
+Co najmniej dwa certyfikaty powinny być używane do zabezpieczania klastra, jeden dla klastra i certyfikatu serwera, a drugi dla dostępu klienta.  Zalecamy również korzystanie z dodatkowych certyfikatów pomocniczych i certyfikatów dostępu klienta.  Aby zabezpieczyć komunikację między klientem a węzłem klastra przy użyciu zabezpieczeń certyfikatów, najpierw należy uzyskać i zainstalować certyfikat klienta. Certyfikat można zainstalować w magazynie osobistym (my) na komputerze lokalnym lub bieżącym użytkowniku.  Wymagany jest również odcisk palca certyfikatu serwera, aby klient mógł uwierzytelnić klaster.
 
-* W systemie Windows: kliknij dwukrotnie plik PFX i postępuj zgodnie z monitami, aby zainstalować certyfikat w magazynie osobistym `Certificates - Current User\Personal\Certificates`. Alternatywnie można użyć polecenia programu PowerShell:
+* W systemie Windows: kliknij dwukrotnie plik PFX i postępuj zgodnie z monitami, aby zainstalować certyfikat w magazynie osobistym `Certificates - Current User\Personal\Certificates`. Alternatywnie możesz użyć polecenia programu PowerShell:
 
     ```powershell
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
@@ -368,7 +368,7 @@ Do zabezpieczania klastra powinny być używane co najmniej dwa certyfikaty, jed
             -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
     ```
 
-    Jeśli jest to certyfikat z podpisem własnym, należy zaimportować go do magazynu "zaufane osoby" komputera, zanim będzie można użyć tego certyfikatu do nawiązania połączenia z bezpiecznym klastrem.
+    Jeśli jest to certyfikat z podpisem własnym, należy go zaimportować do magazynu "zaufane osoby" maszyny, aby można było użyć tego certyfikatu do nawiązania połączenia z zabezpieczonym klastrem.
 
     ```powershell
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
@@ -380,8 +380,8 @@ Do zabezpieczania klastra powinny być używane co najmniej dwa certyfikaty, jed
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Proces uaktualniania klastra sieci szkieletowej usług i oczekiwania od Ciebie](service-fabric-cluster-upgrade.md)
-* [Zarządzanie aplikacjami sieci szkieletowej usług w programie Visual Studio](service-fabric-manage-application-in-visual-studio.md)
-* [Wprowadzenie do modelu kondycji sieci szkieletowej usługi](service-fabric-health-introduction.md)
-* [Zabezpieczenia aplikacji i runAs](service-fabric-application-runas-security.md)
+* [Service Fabric proces uaktualniania klastra i oczekiwania z niego](service-fabric-cluster-upgrade.md)
+* [Zarządzanie aplikacjami Service Fabric w programie Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+* [Service Fabric wprowadzenie modelu kondycji](service-fabric-health-introduction.md)
+* [Zabezpieczenia aplikacji i Uruchom jako](service-fabric-application-runas-security.md)
 * [Getting started with Service Fabric CLI (Wprowadzenie do interfejsu wiersza polecenia usługi Service Fabric)](service-fabric-cli.md)

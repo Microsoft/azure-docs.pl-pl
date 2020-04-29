@@ -1,47 +1,47 @@
 ---
 title: Wskazówki dotyczące ograniczonych żądań
-description: Dowiedz się, aby grupować, rozłożenie, podział na strony i kwerendy równolegle, aby uniknąć żądań są ograniczane przez usługę Azure Resource Graph.
+description: Zapoznaj się z równoległym grupowaniem, rozłożeniem, stronicowaniem i wykonywaniem zapytań, aby uniknąć ograniczania żądań przez usługę Azure Resource Graph.
 ms.date: 12/02/2019
 ms.topic: conceptual
 ms.openlocfilehash: fbd4bec715b187bcc643fe32b8452b0e062e7713
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259853"
 ---
-# <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Wskazówki dotyczące ograniczania żądań w grafie zasobów platformy Azure
+# <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Wskazówki dotyczące żądań z ograniczeniami na wykresie zasobów platformy Azure
 
-Podczas tworzenia programowego i częstego korzystania z danych programu Azure Resource Graph należy wziąć pod uwagę, jak ograniczanie wpływa na wyniki kwerend. Zmiana sposobu, w jaki dane są wymagane może pomóc i Organizacji uniknąć ograniczania i utrzymania przepływu danych w odpowiednim czasie o zasoby platformy Azure.
+Podczas tworzenia programistycznego i częstego używania danych grafu zasobów platformy Azure należy zwrócić uwagę na to, jak ograniczanie wpływa na wyniki zapytań. Zmiana sposobu, w jaki dane są żądane, może pomóc Ci w tym, że Twoja organizacja nie ma ograniczenia i utrzymuje przepływ danych na temat zasobów platformy Azure.
 
-W tym artykule omówiono cztery obszary i wzorce związane z tworzeniem zapytań w grafie zasobów platformy Azure:
+W tym artykule omówiono cztery obszary i wzorce związane z tworzeniem zapytań w usłudze Azure Resource Graph:
 
 - Omówienie nagłówków ograniczeń
 - Grupowanie zapytań
 - Rozkładanie zapytań
-- Wpływ paginacji
+- Wpływ na podział na strony
 
 ## <a name="understand-throttling-headers"></a>Omówienie nagłówków ograniczeń
 
-Usługa Azure Resource Graph przydziela numer przydziału dla każdego użytkownika na podstawie przedziału czasu. Na przykład użytkownik może wysyłać co najwyżej 15 zapytań w każdym 5-sekundowym oknie bez ograniczania. Wartość przydziału jest określana przez wiele czynników i może ulec zmianie.
+Wykres zasobów platformy Azure przydziela numer przydziału dla każdego użytkownika na podstawie przedziału czasu. Na przykład użytkownik może wysyłać maksymalnie 15 zapytań w każdym 5-drugim oknie bez ograniczania przepustowości. Wartość przydziału jest określana na podstawie wielu czynników i może ulec zmianie.
 
-W każdej odpowiedzi na kwerendę program Azure Resource Graph dodaje dwa nagłówki ograniczania przepustowości:
+W każdej odpowiedzi na zapytanie wykres zasobów platformy Azure dodaje dwa nagłówki ograniczania:
 
-- `x-ms-user-quota-remaining`(int): Pozostały przydział zasobów dla użytkownika. Ta wartość jest mapowana do liczby zapytań.
-- `x-ms-user-quota-resets-after`(hh:mm:ss): Czas trwania do czasu zresetowania zużycia przydziału przez użytkownika.
+- `x-ms-user-quota-remaining`(int): pozostały przydział zasobów dla użytkownika. Ta wartość jest mapowana na liczbę zapytań.
+- `x-ms-user-quota-resets-after`(hh: mm: SS): czas trwania do momentu zresetowania zużycia przydziału użytkownika.
 
-Aby zilustrować, jak działają nagłówki, przyjrzyjmy się odpowiedzi na `x-ms-user-quota-remaining: 10` `x-ms-user-quota-resets-after: 00:00:03`zapytanie, która ma nagłówek i wartości i .
+Aby zilustrować, jak działają nagłówki, przyjrzyjmy się odpowiedzi kwerendy zawierającej nagłówek i wartości `x-ms-user-quota-remaining: 10` i. `x-ms-user-quota-resets-after: 00:00:03`
 
-- W ciągu najbliższych 3 sekund, co najwyżej 10 zapytań mogą być przesyłane bez ograniczania.
-- W ciągu 3 `x-ms-user-quota-remaining` sekund, `x-ms-user-quota-resets-after` wartości i `15` `00:00:05` zostaną zresetowane do i odpowiednio.
+- W ciągu następnych 3 sekund można przesłać maksymalnie 10 zapytań bez ograniczenia przepustowości.
+- W ciągu 3 sekund `x-ms-user-quota-remaining` wartości i `x-ms-user-quota-resets-after` zostaną zresetowane do `15` i `00:00:05` odpowiednio.
 
-Aby wyświetlić przykład używania nagłówków do _wycofywania_ żądań kwerend, zobacz przykład w [aplikacji Kwerenda w trybie równoległym](#query-in-parallel).
+Aby zobaczyć przykład użycia nagłówków do _wycofywania_ na żądaniach zapytań, zobacz test in [Query in Parallel](#query-in-parallel).
 
 ## <a name="grouping-queries"></a>Grupowanie zapytań
 
-Grupowanie zapytań według subskrypcji, grupy zasobów lub pojedynczego zasobu jest bardziej efektywne niż równoległość zapytań. Koszt przydziału większej kwerendy jest często mniejszy niż koszt przydziału wielu małych i docelowych zapytań. Zaleca się, aby rozmiar grupy był mniejszy niż _300_.
+Grupowanie zapytań według subskrypcji, grupy zasobów lub pojedynczego zasobu jest wydajniejsze niż zapytania przekształcają. Koszt przydziału dla większego zapytania jest często mniejszy niż koszt przydziału dla wielu małych i przeznaczonych zapytań. Zaleca się, aby rozmiar grupy był mniejszy niż _300_.
 
-- Przykład słabo zoptymalizowanego podejścia
+- Przykład niezoptymalizowanego podejścia
 
   ```csharp
   // NOT RECOMMENDED
@@ -62,7 +62,7 @@ Grupowanie zapytań według subskrypcji, grupy zasobów lub pojedynczego zasobu 
   }
   ```
 
-- Przykład #1 zoptymalizowanego podejścia grupowego
+- Przykład #1 zoptymalizowanego podejścia grupowania
 
   ```csharp
   // RECOMMENDED
@@ -85,7 +85,7 @@ Grupowanie zapytań według subskrypcji, grupy zasobów lub pojedynczego zasobu 
   }
   ```
 
-- Przykład #2 zoptymalizowanego podejścia grupowania w celu uzyskania wielu zasobów w jednej kwerendzie
+- Przykład #2 zoptymalizowanego podejścia grupowania do pobierania wielu zasobów w jednym zapytaniu
 
   ```kusto
   Resources | where id in~ ({resourceIdGroup}) | project name, type
@@ -115,21 +115,21 @@ Grupowanie zapytań według subskrypcji, grupy zasobów lub pojedynczego zasobu 
 
 ## <a name="staggering-queries"></a>Rozkładanie zapytań
 
-Ze względu na sposób ograniczania jest wymuszane, zaleca się kwerendy, które mają być rozłożone. Oznacza to, że zamiast wysyłać 60 zapytań w tym samym czasie, rozłożenie zapytań na cztery 5-sekundowe okna:
+Ze względu na sposób wymuszonego ograniczania przepustowości zalecamy użycie zapytań. Oznacza to, że zamiast wysyłać zapytania 60 w tym samym czasie, rozkładając zapytania na cztery 5-sekundowe okna:
 
-- Harmonogram kwerend nie z rozłożonych w rozłożenie
+- Nierozkładany harmonogram zapytań
 
   | Liczba zapytań         | 60  | 0    | 0     | 0     |
   |---------------------|-----|------|-------|-------|
   | Przedział czasu (s) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-- Harmonogram zapytań rozłożonych
+- Harmonogram zapytania rozłożonego
 
   | Liczba zapytań         | 15  | 15   | 15    | 15    |
   |---------------------|-----|------|-------|-------|
   | Przedział czasu (s) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-Poniżej znajduje się przykład przestrzegania nagłówków ograniczania przepustowości podczas wykonywania zapytań o program Azure Resource Graph:
+Poniżej znajduje się przykład przestrzegania nagłówków ograniczania przy wysyłaniu zapytań do grafu zasobów platformy Azure:
 
 ```csharp
 while (/* Need to query more? */)
@@ -151,9 +151,9 @@ while (/* Need to query more? */)
 }
 ```
 
-### <a name="query-in-parallel"></a>Kwerenda równolegle
+### <a name="query-in-parallel"></a>Równoległe zapytanie
 
-Mimo że grupowanie jest zalecane w przypadku równoległości, istnieją czasy, w których nie można łatwo zgrupować zapytań. W takich przypadkach można podjąć kwerendy usługi Azure Resource Graph, wysyłając wiele zapytań w sposób równoległy. Poniżej znajduje się przykład jak _cofnąć_ na podstawie ograniczania nagłówków w takich scenariuszach:
+Mimo że grupowanie jest zalecane w porównaniu z przetwarzanie równoległe, istnieją przypadki, w których zapytania nie mogą być łatwo pogrupowane. W takich przypadkach możesz chcieć zbadać Wykres zasobów platformy Azure, wysyłając jednocześnie wiele zapytań. Poniżej przedstawiono przykład sposobu _wycofywania_ na podstawie nagłówków ograniczania w takich scenariuszach:
 
 ```csharp
 IEnumerable<IEnumerable<string>> queryGroup = /* Groups of queries  */
@@ -187,11 +187,11 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 
 ## <a name="pagination"></a>Dzielenie na strony
 
-Ponieważ usługa Azure Resource Graph zwraca co najwyżej 1000 wpisów w odpowiedzi na pojedyncze zapytanie, może być konieczne [odtworzenie](./work-with-data.md#paging-results) zapytań na strony, aby uzyskać kompletny zestaw danych, którego szukasz. Jednak niektórzy klienci usługi Azure Resource Graph obsługują podział na strony innego niż inni.
+Ponieważ wykres zasobów platformy Azure zwraca co najwyżej 1000 wpisów w pojedynczej odpowiedzi na zapytanie, może być konieczne podział [zapytań na strony](./work-with-data.md#paging-results) , aby uzyskać kompletny zestaw danych, którego szukasz. Niektórzy klienci grafu zasobów platformy Azure obsługują jednak stronicowanie w inny sposób niż inne.
 
 - Zestaw SDK języka C#
 
-  Podczas korzystania z ResourceGraph SDK, należy obsługiwać podział na strony, przekazując token skip zwracany z poprzedniej odpowiedzi kwerendy do następnej kwerendy na strony. Ten projekt oznacza, że musisz zbierać wyniki ze wszystkich połączeń na strony i łączyć je razem na końcu. W takim przypadku każde wysłane zapytanie na strony ma jeden przydział zapytania:
+  W przypadku korzystania z zestawu SDK ResourceGraph należy obsługiwać stronicowanie, przekazując token pomijania zwracanego z poprzedniej odpowiedzi zapytania do następnej kwerendy z podziałem na strony. Ten projekt oznacza, że należy zebrać wyniki ze wszystkich wywołań z podziałem na strony i połączyć je razem na końcu. W takim przypadku każde wysłane zapytanie z podziałem na strony ma jeden przydział zapytania:
 
   ```csharp
   var results = new List<object>();
@@ -214,9 +214,9 @@ Ponieważ usługa Azure Resource Graph zwraca co najwyżej 1000 wpisów w odpowi
   }
   ```
 
-- Azure CLI / Azure PowerShell
+- Interfejs wiersza polecenia platformy Azure/Azure PowerShell
 
-  W przypadku korzystania z interfejsu wiersza polecenia platformy Azure lub programu Azure PowerShell zapytania do programu Azure Resource Graph są automatycznie nagminnie pobierane co najwyżej 5000 wpisów. Wyniki kwerendy zwracają połączoną listę wpisów ze wszystkich wywołań na strony. W takim przypadku, w zależności od liczby wpisów w wyniku kwerendy, pojedyncza kwerenda na stronie może zużywać więcej niż jeden przydział zapytania. Na przykład w poniższym przykładzie pojedyncze uruchomienie kwerendy może zużywać maksymalnie pięć przydziałów zapytań:
+  W przypadku korzystania z interfejsu wiersza polecenia platformy Azure lub Azure PowerShell zapytania do usługi Azure Resource Graph są automatycznie podzielone na strony, aby pobrać maksymalnie 5000 wpisów. Wyniki zapytania zwracają łączną listę wpisów ze wszystkich wywołań z podziałem na strony. W tym przypadku, w zależności od liczby wpisów w wyniku zapytania, pojedyncze zapytanie z podziałem na strony może zużywać więcej niż jeden przydział zapytania. Na przykład w poniższym przykładzie pojedynczy przebieg zapytania może zużywać do pięciu zasobów zapytania:
 
   ```azurecli-interactive
   az graph query -q 'Resources | project id, name, type' --first 5000
@@ -226,19 +226,19 @@ Ponieważ usługa Azure Resource Graph zwraca co najwyżej 1000 wpisów w odpowi
   Search-AzGraph -Query 'Resources | project id, name, type' -First 5000
   ```
 
-## <a name="still-get-throttled"></a>Nadal się dławić?
+## <a name="still-get-throttled"></a>Nadal masz ograniczone ograniczenia?
 
-Jeśli po wykonaniu powyższych zaleceń otrzymujesz ograniczenie, skontaktuj [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com)się z zespołem pod adresem .
+Jeśli podczas wykonywania powyższych zaleceń masz ograniczone ograniczenia, skontaktuj się z zespołem pod adresem [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com).
 
-Podaj następujące szczegóły:
+Podaj następujące informacje:
 
-- Twój konkretny przypadek użycia i sterownik biznesowy wymaga wyższego limitu ograniczania przepustowości.
-- Do ilu zasobów masz dostęp? Ile z nich jest zwracanych z pojedynczej kwerendy?
-- Jakie rodzaje zasobów Cię interesują?
-- Jaki jest twój wzorzec zapytania? X zapytania na Y sekundy itp.
+- W przypadku konkretnego limitu ograniczania przepustowości wymagane są wymagania dotyczące przypadków użycia i współpracy.
+- Ile zasobów masz dostęp? Ile z nich jest zwracanych z pojedynczego zapytania?
+- Jakie typy zasobów interesują Cię?
+- Co to jest Twój wzorzec zapytania? Zapytania X na sekundę (Y) itd.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz język używany w [kwerendach startowych](../samples/starter.md).
-- Zobacz zaawansowane zastosowania w [kwerendach zaawansowanych](../samples/advanced.md).
-- Dowiedz się więcej o [eksplorowanie zasobów](explore-resources.md).
+- Zobacz język używany w [zapytaniach początkowych](../samples/starter.md).
+- Zobacz zaawansowane zastosowania w [zaawansowanych zapytaniach](../samples/advanced.md).
+- Dowiedz się więcej o sposobach [eksplorowania zasobów](explore-resources.md).

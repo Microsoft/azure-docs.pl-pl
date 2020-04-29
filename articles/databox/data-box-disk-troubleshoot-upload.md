@@ -1,7 +1,7 @@
 ---
 title: Rozwiązywanie problemów z przekazywaniem danych przy użyciu dzienników
 titleSuffix: Azure Data Box Disk
-description: W tym artykule opisano, jak używać dzienników i rozwiązywać problemy widoczne podczas przekazywania danych na dysk azure data box.
+description: Opisuje sposób korzystania z dzienników i rozwiązywania problemów występujących podczas przekazywania danych do Azure Data Box Disk.
 services: databox
 author: alkohli
 ms.service: databox
@@ -10,43 +10,43 @@ ms.topic: article
 ms.date: 06/17/2019
 ms.author: alkohli
 ms.openlocfilehash: 7c14988706ef193ef5da868c55f6c4f55e7d98f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260139"
 ---
-# <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Opis dzienników w celu rozwiązywania problemów z przekazywaniem danych na dysku usługi Azure Data Box
+# <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Omówienie dzienników służących do rozwiązywania problemów z przekazywaniem danych w Azure Data Box Disk
 
-Ten artykuł dotyczy dysku microsoft azure data box i opisuje problemy widoczne podczas przekazywania danych na platformę Azure.
+Ten artykuł ma zastosowanie do Microsoft Azure Data Box Disk i opisuje problemy, które są wyświetlane podczas przekazywania danych do platformy Azure.
 
 ## <a name="about-upload-logs"></a>Informacje o dziennikach przekazywania
 
-Gdy dane są przekazywane na platformę Azure `_error.xml` `_verbose.xml` w centrum danych, a pliki są generowane dla każdego konta magazynu. Te dzienniki są przekazywane na to samo konto magazynu, które zostało użyte do przekazywania danych. 
+Gdy dane są przekazywane do platformy Azure w centrum danych, `_error.xml` a `_verbose.xml` pliki są generowane dla każdego konta magazynu. Te dzienniki są przekazywane do tego samego konta magazynu, które zostało użyte do przekazania danych. 
 
 Oba dzienniki są w tym samym formacie i zawierają opisy XML zdarzeń, które wystąpiły podczas kopiowania danych z dysku na konto usługi Azure Storage.
 
-Pełny dziennik zawiera pełne informacje o stanie operacji kopiowania dla każdego obiektu blob lub pliku, podczas gdy dziennik błędów zawiera tylko informacje dotyczące obiektów blob lub plików, które napotkały błędy podczas przekazywania.
+Pełny dziennik zawiera pełne informacje o stanie operacji kopiowania dla każdego obiektu BLOB lub pliku, podczas gdy dziennik błędów zawiera tylko te informacje dla obiektów blob lub plików, które napotkały błędy podczas przekazywania.
 
-Dziennik błędów ma taką samą strukturę jak pełny dziennik, ale odfiltrowuje pomyślne operacje.
+Dziennik błędów ma tę samą strukturę co dziennik pełny, ale filtruje pomyślne operacje.
 
 ## <a name="download-logs"></a>Pobieranie dzienników
 
-Aby zlokalizować dzienniki przekazywania, należy wykonać następujące czynności.
+Aby zlokalizować dzienniki przekazywania, wykonaj następujące czynności.
 
-1. Jeśli występują błędy podczas przekazywania danych do platformy Azure, portal wyświetla ścieżkę do folderu, w którym znajdują się dzienniki diagnostyczne.
+1. Jeśli wystąpią błędy podczas przekazywania danych na platformę Azure, w portalu zostanie wyświetlona ścieżka do folderu, w którym znajdują się dzienniki diagnostyki.
 
-    ![Łącze do dzienników w portalu](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
+    ![Link do dzienników w portalu](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
 
 2. Przejdź do **waies**.
 
-    ![błędy i pełne dzienniki](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
+    ![Błędy i pełne dzienniki](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
 
-W każdym przypadku są widoczne dzienniki błędów i pełne dzienniki. Wybierz każdy dziennik i pobierz kopię lokalną.
+W każdym przypadku wyświetlane są dzienniki błędów i pełne dzienniki. Wybierz każdy dziennik i Pobierz kopię lokalną.
 
 ## <a name="sample-upload-logs"></a>Przykładowe dzienniki przekazywania
 
-Próbka znajduje `_verbose.xml` się poniżej. W takim przypadku zamówienie zostało pomyślnie zakończone bez błędów.
+Poniżej pokazano przykład `_verbose.xml` . W takim przypadku zamówienie zostało zakończone pomyślnie, bez błędów.
 
 ```xml
 
@@ -91,7 +91,7 @@ Próbka znajduje `_verbose.xml` się poniżej. W takim przypadku zamówienie zos
 </DriveLog>
 ```
 
-W przypadku tej samej `_error.xml` kolejności poniżej przedstawiono próbkę.
+W tej samej kolejności przykład poniżej `_error.xml` jest przedstawiony poniżej.
 
 ```xml
 
@@ -110,13 +110,13 @@ W przypadku tej samej `_error.xml` kolejności poniżej przedstawiono próbkę.
 </DriveLog>
 ```
 
-Próbka znajduje `_error.xml` się poniżej, gdzie zamówienie zakończone błędami. 
+Poniżej przedstawiono przykład, `_error.xml` w którym zamówienie zostało zakończone z błędami. 
 
-Plik błędu w tym `Summary` przypadku ma sekcję i inną sekcję, która zawiera wszystkie błędy poziomu pliku. 
+Plik błędu w tym przypadku zawiera `Summary` sekcję i inną sekcję, która zawiera wszystkie błędy na poziomie pliku. 
 
-Zawiera `Summary` `ValidationErrors` i `CopyErrors`. W takim przypadku 8 plików lub folderów zostały przekazane na platformę Azure i nie było żadnych błędów sprawdzania poprawności. Po skopiowaniu danych na konto usługi Azure Storage pomyślnie przekazano 5 plików lub folderów. Pozostałe 3 pliki lub foldery zostały zmienione zgodnie z konwencjami nazewnictwa kontenerów platformy Azure, a następnie pomyślnie przekazane na platformę Azure.
+`Summary` Zawiera `ValidationErrors` i `CopyErrors`. W takim przypadku przekazano 8 plików lub folderów na platformę Azure i nie wystąpiły błędy sprawdzania poprawności. Po skopiowaniu danych na konto usługi Azure Storage pomyślnie przekazano 5 plików lub folderów. Pozostałe 3 pliki lub foldery zostały zmienione zgodnie z konwencjami nazewnictwa kontenerów platformy Azure, a następnie pomyślnie przekazane do platformy Azure.
 
-Stan poziomu pliku `BlobStatus` są w tym opisuje wszelkie akcje podjęte w celu przekazania obiektów blob. W takim przypadku zmienia się nazwę trzech kontenerów, ponieważ foldery, do których dane zostały skopiowane, nie były zgodne z konwencjami nazewnictwa platformy Azure dla kontenerów. W przypadku obiektów blob przekazanych w tych kontenerach uwzględniono nową nazwę kontenera, ścieżkę obiektu blob na platformie Azure, oryginalną nieprawidłową ścieżkę pliku i rozmiar obiektu blob.
+Na poziomie pliku znajdują się `BlobStatus` informacje o akcjach podjętych w celu przekazania obiektów BLOB. W takim przypadku zmieniono nazwy trzech kontenerów, ponieważ foldery, do których skopiowano dane, nie są zgodne z konwencjami nazewnictwa platformy Azure dla kontenerów. W przypadku obiektów BLOB przekazanych w tych kontenerach Nowa nazwa kontenera, ścieżka obiektu BLOB na platformie Azure, oryginalna nieprawidłowa ścieżka do pliku i rozmiar obiektu BLOB są uwzględniane.
     
 ```xml
  <?xml version="1.0" encoding="utf-8"?>
@@ -154,33 +154,33 @@ Stan poziomu pliku `BlobStatus` są w tym opisuje wszelkie akcje podjęte w celu
 
 ## <a name="data-upload-errors"></a>Błędy przekazywania danych
 
-Błędy generowane podczas przekazywania danych na platformę Azure są podsumowane w poniższej tabeli.
+Błędy generowane podczas przekazywania danych na platformę Azure zostały podsumowane w poniższej tabeli.
 
 | Kod błędu | Opis                   |
 |-------------|------------------------------|
 |`None` |  Ukończono pomyślnie.           |
-|`Renamed` | Zmieniono nazwę obiektu blob.   |
-|`CompletedWithErrors` | Prześlij zakończone z błędami. Szczegóły plików w błąd są zawarte w pliku dziennika.  |
-|`Corrupted`|CRC obliczone podczas pozyskiwania danych nie pasuje do CRC obliczonego podczas przekazywania.  |  
-|`StorageRequestFailed` | Żądanie usługi Azure storage nie powiodło się.   |     
+|`Renamed` | Pomyślnie zmieniono nazwę obiektu BLOB.   |
+|`CompletedWithErrors` | Przekazywanie zostało zakończone z błędami. Szczegóły plików z błędami są zawarte w pliku dziennika.  |
+|`Corrupted`|Kod CRC obliczany podczas pozyskiwania danych nie jest zgodny z CRC obliczanym podczas przekazywania.  |  
+|`StorageRequestFailed` | Żądanie usługi Azure Storage nie powiodło się.   |     
 |`LeasePresent` | Ten element jest dzierżawiony i jest używany przez innego użytkownika. |
 |`StorageRequestForbidden` |Nie można przekazać z powodu problemów z uwierzytelnianiem. |
-|`ManagedDiskCreationTerminalFailure` | Nie można przekazać jako dysków zarządzanych. Pliki są dostępne na koncie magazynu przemieszczania jako obiekty blob strony. Obiekty blob stron można ręcznie konwertować na dyski zarządzane.  |
-|`DiskConversionNotStartedTierInfoMissing` | Ponieważ plik VHD został skopiowany poza wstępnie utworzone foldery warstwy, dysk zarządzany nie został utworzony. Plik jest przekazytyny jako obiekt blob strony do przemieszczania konta magazynu, jak określono podczas tworzenia zamówienia. Można go przekonwertować ręcznie na dysk zarządzany.|
-|`InvalidWorkitem` | Nie można przekazać danych, ponieważ nie jest zgodna z konwencjami nazewnictwa i limitów platformy Azure.|
-|`InvalidPageBlobUploadAsBlockBlob` | Przekazywane jako blokowe obiekty blob `databoxdisk-invalid-pb-`w kontenerze z prefiksem .|
-|`InvalidAzureFileUploadAsBlockBlob` | Przekazane jako blokowe obiekty blob `databoxdisk-invalid-af`w kontenerze z prefiksem -.|
-|`InvalidManagedDiskUploadAsBlockBlob` | Przekazane jako blokowe obiekty blob `databoxdisk-invalid-md`w kontenerze z prefiksem -.|
-|`InvalidManagedDiskUploadAsPageBlob` |Przekazane jako obiekty blob strony w `databoxdisk-invalid-md-`kontenerze z prefiksem . |
-|`MovedToOverflowShare` |Przekazane pliki do nowego udziału, ponieważ oryginalny rozmiar udziału przekroczył maksymalny limit rozmiaru platformy Azure. Nowa nazwa udziału plików ma oryginalną nazwę `-2`sufiks z .   |
-|`MovedToDefaultAzureShare` |Przekazane pliki, które nie były częścią żadnego folderu do udziału domyślnego. Nazwa udziału zaczyna `databox-`się od . |
-|`ContainerRenamed` |Kontener dla tych plików nie jest zgodny z konwencjami nazewnictwa platformy Azure i został zmieniony. Nowa nazwa zaczyna `databox-` się od i jest sufiksem z skrótem SHA1 oryginalnej nazwy |
-|`ShareRenamed` |Udział dla tych plików nie jest zgodny z konwencjami nazewnictwa platformy Azure i został zmieniony. Nowa nazwa zaczyna `databox-` się od i jest sufiksem z skrótem SHA1 oryginalnej nazwy. |
-|`BlobRenamed` |Te pliki nie są zgodne z konwencjami nazewnictwa platformy Azure i zostały zmienione. Sprawdź `BlobPath` pole pod kątem nowej nazwy. |
-|`FileRenamed` |Te pliki nie są zgodne z konwencjami nazewnictwa platformy Azure i zostały zmienione. Sprawdź `FileStoragePath` pole pod kątem nowej nazwy. |
-|`DiskRenamed` |Te pliki nie są zgodne z konwencjami nazewnictwa platformy Azure i zostały zmienione. Sprawdź `BlobPath` pole pod kątem nowej nazwy. |
+|`ManagedDiskCreationTerminalFailure` | Nie można przekazać jako dysków zarządzanych. Pliki są dostępne na koncie magazynu przemieszczania jako stronicowe obiekty blob. Można ręcznie konwertować stronicowe obiekty blob na dyski zarządzane.  |
+|`DiskConversionNotStartedTierInfoMissing` | Ponieważ plik VHD został skopiowany poza foldery warstw pretworzonych, nie został utworzony dysk zarządzany. Plik zostanie przekazany jako obiekt BLOB strony do konta magazynu tymczasowego określonego podczas tworzenia kolejności. Można przekonwertować ją ręcznie na dysk zarządzany.|
+|`InvalidWorkitem` | Nie można przekazać danych, ponieważ nie są zgodne z konwencjami nazewnictwa i ograniczeniami platformy Azure.|
+|`InvalidPageBlobUploadAsBlockBlob` | Przekazane jako blokowe obiekty blob w kontenerze `databoxdisk-invalid-pb-`z prefiksem.|
+|`InvalidAzureFileUploadAsBlockBlob` | Przekazane jako blokowe obiekty blob w kontenerze `databoxdisk-invalid-af`z prefiksem-.|
+|`InvalidManagedDiskUploadAsBlockBlob` | Przekazane jako blokowe obiekty blob w kontenerze `databoxdisk-invalid-md`z prefiksem-.|
+|`InvalidManagedDiskUploadAsPageBlob` |Przekazane jako stronicowe obiekty blob w kontenerze `databoxdisk-invalid-md-`z prefiksem. |
+|`MovedToOverflowShare` |Przekazano pliki do nowego udziału, ponieważ rozmiar oryginalnego udziału przekracza maksymalny limit rozmiaru platformy Azure. Nazwa nowego udziału plików ma sufiks `-2`.   |
+|`MovedToDefaultAzureShare` |Przekazano pliki, które nie zostały częścią żadnego folderu do udziału domyślnego. Nazwa udziału zaczyna się od `databox-`. |
+|`ContainerRenamed` |Kontener dla tych plików nie jest zgodny z konwencjami nazewnictwa platformy Azure i ma nazwę. Nowa nazwa rozpoczyna się od `databox-` i jest sufiksem skrótu SHA1 oryginalnej nazwy |
+|`ShareRenamed` |Udział tych plików nie jest zgodny z konwencjami nazewnictwa platformy Azure i ma nazwę. Nowa nazwa rozpoczyna się od `databox-` i jest sufiksem skrótu SHA1 oryginalnej nazwy. |
+|`BlobRenamed` |Te pliki nie są zgodne z konwencjami nazewnictwa platformy Azure i zmieniono ich nazwy. Sprawdź `BlobPath` pole pod kątem nowej nazwy. |
+|`FileRenamed` |Te pliki nie są zgodne z konwencjami nazewnictwa platformy Azure i zmieniono ich nazwy. Sprawdź `FileStoragePath` pole pod kątem nowej nazwy. |
+|`DiskRenamed` |Te pliki nie są zgodne z konwencjami nazewnictwa platformy Azure i zmieniono ich nazwy. Sprawdź `BlobPath` pole pod kątem nowej nazwy. |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Otwórz bilet pomocy technicznej dla problemów z dyskiem pola danych](data-box-disk-contact-microsoft-support.md).
+- [Otwórz bilet pomocy technicznej, aby uzyskać Data Box Disk problemy](data-box-disk-contact-microsoft-support.md).

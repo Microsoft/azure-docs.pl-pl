@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie zasadami tworzenia kopii zapasowych serii StorSimple 8000 | Dokumenty firmy Microsoft
-description: W tym artykule wyjaśniono, jak za pomocą usługi StorSimple Device Manager można tworzyć ręczne kopie zapasowe, harmonogramy tworzenia kopii zapasowych i przechowywanie kopii zapasowych na urządzeniu z serii StorSimple 8000 i zarządzać nimi.
+title: Zarządzanie zasadami tworzenia kopii zapasowych serii StorSimple 8000 | Microsoft Docs
+description: Wyjaśnia, w jaki sposób można użyć usługi StorSimple Menedżer urządzeń do tworzenia ręcznych kopii zapasowych, harmonogramów kopii zapasowych i przechowywania kopii zapasowych na urządzeniu z serii StorSimple 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,88 +15,88 @@ ms.workload: TBD
 ms.date: 07/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 607379f8645226a031646376df9ca18f4d3164bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267796"
 ---
-# <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Zarządzanie zasadami tworzenia kopii zapasowych za pomocą usługi StorSimple Device Manager w witrynie Azure portal
+# <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Zarządzanie zasadami tworzenia kopii zapasowych za pomocą usługi StorSimple Menedżer urządzeń w Azure Portal
 
 
 ## <a name="overview"></a>Omówienie
 
-W tym samouczku wyjaśniono, jak używać bloku **zasad zasad** usługi StorSimple Device Manager do kontrolowania procesów tworzenia kopii zapasowych i przechowywania kopii zapasowych woluminów StorSimple. Opisano w nim również sposób wykonywania ręcznej kopii zapasowej.
+W tym samouczku wyjaśniono, jak używać bloku **zasad tworzenia kopii zapasowych** usługi StorSimple Menedżer urządzeń do kontrolowania procesów tworzenia kopii zapasowych i przechowywania kopii zapasowych dla woluminów StorSimple. Opisano w nim również, jak wykonać ręczną kopię zapasową.
 
-Podczas tworzenia kopii zapasowej woluminu można utworzyć migawkę lokalną lub migawkę w chmurze. Jeśli wykonywanie kopii zapasowej woluminu przypiętego lokalnie zaleca się określenie migawki w chmurze. Biorąc dużą liczbę migawek lokalnych woluminu przypięty lokalnie w połączeniu z zestawem danych, który ma dużo zmian spowoduje sytuację, w której można szybko zabraknąć miejsca lokalnego. Jeśli zdecydujesz się na wykonanie migawek lokalnych, zaleca się wykonanie mniejszej liczby codziennych migawek w celu utworzenia kopii zapasowej najnowszego stanu, zachowanie ich przez jeden dzień, a następnie ich usunięcie.
+Podczas tworzenia kopii zapasowej woluminu można utworzyć lokalną migawkę lub migawkę w chmurze. W przypadku tworzenia kopii zapasowej woluminu przypiętego lokalnie zalecamy określenie migawki w chmurze. Wykonanie dużej liczby lokalnych migawek woluminu przypiętego lokalnie połączonego z zestawem danych, który ma dużo zmian, spowoduje powstanie sytuacji, w której można szybko wymusić miejsce na dysku lokalnym. Jeśli zdecydujesz się na korzystanie z migawek lokalnych, zalecamy przeprowadzenie mniejszej liczby codziennych migawek, aby utworzyć kopię zapasową najnowszego stanu, zachować je na dzień, a następnie usunąć je.
 
-Podczas robienia migawki chmury woluminu przypiętego lokalnie, można skopiować tylko zmienione dane do chmury, gdzie jest deduplikowane i kompresowane.
+Po przełączeniu migawki w chmurze woluminu przypiętego lokalnie można skopiować tylko zmienione dane do chmury, w której są deduplikowane i skompresowane.
 
-## <a name="the-backup-policy-blade"></a>Blok zasad tworzenia kopii zapasowych
+## <a name="the-backup-policy-blade"></a>Blok zasady tworzenia kopii zapasowych
 
-Blok **zasad kopii zapasowej** dla urządzenia StorSimple umożliwia zarządzanie zasadami tworzenia kopii zapasowych i planowanie migawek lokalnych i w chmurze. Zasady tworzenia kopii zapasowych służą do konfigurowania harmonogramów tworzenia kopii zapasowych i przechowywania kopii zapasowych dla kolekcji woluminów. Zasady tworzenia kopii zapasowych umożliwiają wykonywanie migawek wielu woluminów jednocześnie. Oznacza to, że kopie zapasowe utworzone przez zasady tworzenia kopii zapasowych będą kopiami spójnymi z awariami.
+Blok **zasady tworzenia kopii zapasowych** urządzenia StorSimple umożliwia zarządzanie zasadami tworzenia kopii zapasowych i planowanie migawek lokalnych i chmurowych. Zasady tworzenia kopii zapasowych są używane do konfigurowania harmonogramów kopii zapasowych i przechowywania kopii zapasowych dla kolekcji woluminów. Zasady tworzenia kopii zapasowych umożliwiają wykonywanie migawek wielu woluminów jednocześnie. Oznacza to, że kopie zapasowe utworzone za pomocą zasad tworzenia kopii zapasowych będą kopiami spójnymi na poziomie awarii.
 
-Tabelaryczne zasady tworzenia kopii zapasowych umożliwiają również filtrowanie istniejących zasad tworzenia kopii zapasowych według co najmniej jednego z następujących pól:
+Lista tabelaryczna zasady tworzenia kopii zapasowych umożliwia także filtrowanie istniejących zasad tworzenia kopii zapasowych przez jedno lub więcej z następujących pól:
 
-* **Nazwa zasad** — nazwa skojarzona z zasadami. Różne typy zasad obejmują:
+* **Nazwa zasad** — Nazwa skojarzona z zasadami. Różne typy zasad obejmują:
 
-  * Zaplanowane zasady, które są jawnie tworzone przez użytkownika.
-  * Zaimportowane zasady, które zostały pierwotnie utworzone w Menedżerze migawek StorSimple. Mają one tag, który opisuje Host Menedżera migawek StorSimple, z których zostały zaimportowane zasady.
+  * Zaplanowane zasady, które zostały jawnie utworzone przez użytkownika.
+  * Zaimportowane zasady, które zostały pierwotnie utworzone w Snapshot Manager StorSimple. Mają tag, który opisuje StorSimple Snapshot Manager hosta, z którego zostały zaimportowane zasady.
 
   > [!NOTE]
   > Automatyczne lub domyślne zasady tworzenia kopii zapasowych nie są już włączone w momencie tworzenia woluminu.
 
-* **Ostatnia pomyślna kopia zapasowa** — data i godzina ostatniej pomyślnej kopii zapasowej, która została podjęta z tą zasadą.
+* **Ostatnia pomyślna kopia zapasowa** — Data i godzina ostatniej pomyślnej kopii zapasowej, która została wykonana z tymi zasadami.
 
-* **Następna kopia zapasowa** — data i godzina następnej zaplanowanej kopii zapasowej, która zostanie zainicjowana przez tę zasadę.
+* **Kolejna kopia zapasowa** — Data i godzina kolejnej zaplanowanej kopii zapasowej, która zostanie zainicjowana przez te zasady.
 
-* **Woluminy** — woluminy skojarzone z zasadami. Wszystkie woluminy skojarzone z zasadami tworzenia kopii zapasowych są zgrupowane razem podczas tworzenia kopii zapasowych.
+* **Woluminy** — woluminy skojarzone z zasadami. Podczas tworzenia kopii zapasowych wszystkie woluminy skojarzone z zasadami tworzenia kopii zapasowych są grupowane razem.
 
 * **Harmonogramy** — liczba harmonogramów skojarzonych z zasadami tworzenia kopii zapasowych.
 
-Często używane operacje, które można wykonać dla zasad tworzenia kopii zapasowych są:
+Często używane operacje, które można wykonywać w ramach zasad tworzenia kopii zapasowych, to:
 
 * Dodawanie zasad kopii zapasowych
 * Dodawanie lub modyfikowanie harmonogramu
 * Dodawanie lub usuwanie woluminu
-* Usuwanie zasad tworzenia kopii zapasowych
-* Wykonywanie ręcznej kopii zapasowej
+* Usuwanie zasad kopii zapasowych
+* Ręczne tworzenie kopii zapasowej
 
 ## <a name="add-a-backup-policy"></a>Dodawanie zasad kopii zapasowych
 
-Dodaj zasady tworzenia kopii zapasowych, aby automatycznie zaplanować tworzenie kopii zapasowych. Podczas pierwszego tworzenia woluminu nie ma żadnych domyślnych zasad tworzenia kopii zapasowych skojarzonych z woluminem. Należy dodać i przypisać zasady tworzenia kopii zapasowych, aby chronić dane woluminu.
+Dodaj zasady tworzenia kopii zapasowych, aby automatycznie planować kopie zapasowe. Podczas pierwszego tworzenia woluminu nie ma żadnych domyślnych zasad kopii zapasowych skojarzonych z tym woluminem. Należy dodać zasady tworzenia kopii zapasowych i przypisać je do ochrony danych woluminu.
 
-Wykonaj następujące kroki w witrynie Azure portal, aby dodać zasady tworzenia kopii zapasowych dla urządzenia StorSimple. Po dodaniu zasad można zdefiniować harmonogram (zobacz [Dodawanie lub modyfikowanie harmonogramu](#add-or-modify-a-schedule)).
+Wykonaj następujące kroki w Azure Portal, aby dodać zasady tworzenia kopii zapasowych dla urządzenia z systemem StorSimple. Po dodaniu zasad można zdefiniować harmonogram (patrz [Dodawanie lub modyfikowanie harmonogramu](#add-or-modify-a-schedule)).
 
 [!INCLUDE [storsimple-8000-add-backup-policy-u2](../../includes/storsimple-8000-add-backup-policy-u2.md)]
 
 ## <a name="add-or-modify-a-schedule"></a>Dodawanie lub modyfikowanie harmonogramu
 
-Można dodać lub zmodyfikować harmonogram dołączony do istniejących zasad tworzenia kopii zapasowych na urządzeniu StorSimple. Wykonaj następujące kroki w witrynie Azure portal, aby dodać lub zmodyfikować harmonogram.
+Możesz dodać lub zmodyfikować harmonogram, który jest dołączony do istniejących zasad tworzenia kopii zapasowych na urządzeniu StorSimple. Aby dodać lub zmodyfikować harmonogram, wykonaj następujące czynności w Azure Portal.
 
 [!INCLUDE [storsimple-8000-add-modify-backup-schedule](../../includes/storsimple-8000-add-modify-backup-schedule-u2.md)]
 
 
 ## <a name="add-or-remove-a-volume"></a>Dodawanie lub usuwanie woluminu
 
-Wolumin przypisany do zasad kopii zapasowej na urządzeniu StorSimple można dodać lub usunąć. Wykonaj następujące kroki w witrynie Azure portal, aby dodać lub usunąć wolumin.
+Można dodać lub usunąć wolumin przypisany do zasad tworzenia kopii zapasowych na urządzeniu StorSimple. Aby dodać lub usunąć wolumin, wykonaj następujące czynności w Azure Portal.
 
 [!INCLUDE [storsimple-8000-add-volume-backup-policy-u2](../../includes/storsimple-8000-add-remove-volume-backup-policy-u2.md)]
 
 
-## <a name="delete-a-backup-policy"></a>Usuwanie zasad tworzenia kopii zapasowych
+## <a name="delete-a-backup-policy"></a>Usuwanie zasad kopii zapasowych
 
-Wykonaj następujące kroki w witrynie Azure portal, aby usunąć zasady tworzenia kopii zapasowych na urządzeniu StorSimple.
+Wykonaj następujące kroki w Azure Portal, aby usunąć zasady tworzenia kopii zapasowych na urządzeniu StorSimple.
 
 [!INCLUDE [storsimple-8000-delete-backup-policy](../../includes/storsimple-8000-delete-backup-policy.md)]
 
-## <a name="take-a-manual-backup"></a>Wykonywanie ręcznej kopii zapasowej
+## <a name="take-a-manual-backup"></a>Ręczne tworzenie kopii zapasowej
 
-Wykonaj następujące kroki w witrynie Azure portal, aby utworzyć kopię zapasową na żądanie (ręczną) dla pojedynczego woluminu.
+Wykonaj następujące kroki w Azure Portal, aby utworzyć kopię zapasową na żądanie (ręcznie) dla pojedynczego woluminu.
 
 [!INCLUDE [storsimple-8000-create-manual-backup](../../includes/storsimple-8000-create-manual-backup.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [administrowaniu urządzeniem StorSimple za pomocą usługi StorSimple Device Manager.](storsimple-8000-manager-service-administration.md)
+Dowiedz się więcej o [korzystaniu z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
 

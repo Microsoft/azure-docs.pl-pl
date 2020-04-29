@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267991"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Wdrażanie urządzenia StorSimple w chmurze oraz zarządzanie nim na platformie Azure (aktualizacja Update 3 i nowsze)
@@ -46,13 +46,13 @@ Dostępne są dwa modele urządzenia StorSimple w chmurze: standardowy — 8010 
 | --- | --- | --- |
 | **Maksymalna pojemność** |30 TB |64 TB |
 | **Maszyna wirtualna platformy Azure** |Standard_A3 (4 rdzenie, 7 GB pamięci)| Standard_DS3 (4 rdzenie, 14 GB pamięci)|
-| **Dostępność regionu** |Wszystkie regiony platformy Azure |Regiony świadczenia usługi Azure obsługujące usługę Premium Storage i maszyny wirtualne DS3 platformy Azure<br></br>Przy użyciu [tej listy](https://azure.microsoft.com/regions/services/) sprawdź, czy w Twoim regionie jest dostępna zarówno opcja **Maszyny wirtualne > Seria DS**, jak i opcja **Magazyn > Magazyn na dysku**. |
-| **Typ magazynu** |Używa usługi Azure Standard Storage dla dysków lokalnych<br></br> Informacje na temat [tworzenia konta Standard Storage](../storage/common/storage-create-storage-account.md) |Używa usługi Azure Premium Storage dla dysków lokalnych<sup>2</sup> <br></br> |
+| **Dostępność w danym regionie** |Wszystkie regiony platformy Azure |Regiony świadczenia usługi Azure obsługujące usługę Premium Storage i maszyny wirtualne DS3 platformy Azure<br></br>Przy użyciu [tej listy](https://azure.microsoft.com/regions/services/) sprawdź, czy w Twoim regionie jest dostępna zarówno opcja **Maszyny wirtualne > Seria DS**, jak i opcja **Magazyn > Magazyn na dysku**. |
+| **Typ magazynu** |Używa usługi Azure Standard Storage dla dysków lokalnych<br></br> Informacje na temat [tworzenia konta Standard Storage](../storage/common/storage-create-storage-account.md) |Używa Premium Storage platformy Azure dla dysków lokalnych<sup>2</sup> <br></br> |
 | **Wskazówki dotyczące obciążenia** |Pobieranie plików z kopii zapasowych na poziomie elementu |Scenariusze tworzenia i testowania w chmurze <br></br>Obciążenia o małych opóźnieniach i większej wydajności<br></br>Urządzenie pomocnicze do odzyskiwania po awarii |
 
-<sup>1</sup> *Dawniej znany jako 1100*.
+<sup>1</sup> *dawniej znany jako 1100*.
 
-<sup>2</sup> *Zarówno 8010, jak i 8020 używają usługi Azure Standard Storage dla warstwy chmury. Różnica istnieje tylko w warstwie lokalnej w urządzeniu*.
+<sup>2</sup> *8010 i 8020 używają usługi Azure Standard Storage w warstwie chmurowej. Różnica istnieje tylko w warstwie lokalnej urządzenia*.
 
 ## <a name="how-the-cloud-appliance-differs-from-the-physical-device"></a>Czym urządzenie w chmurze różni się od urządzenia fizycznego
 
@@ -81,7 +81,7 @@ Poniższe sekcje zawierają opis wymagań wstępnych dotyczących konfiguracji u
 Przed aprowizowaniem urządzenia w chmurze wykonaj następujące czynności przygotowawcze w środowisku platformy Azure:
 
 * Upewnij się, że masz urządzenie fizyczne StorSimple z serii 8000 (model 8100 lub 8600) wdrożone i działające w centrum danych. Zarejestruj to urządzenie za pomocą tej samej usługi Menedżera urządzeń StorSimple, dla której zamierzasz utworzyć urządzenie StorSimple w chmurze.
-* [Skonfiguruj sieć wirtualną na platformie Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network) dla urządzenia w chmurze. W przypadku korzystania z usługi Premium Storage należy utworzyć sieć wirtualną w regionie platformy Azure obsługującym tę usługę. Regiony magazynu w wersji Premium to regiony, które odpowiadają wierszowi magazynu dysków na [liście usług platformy Azure według regionu](https://azure.microsoft.com/regions/services/).
+* [Skonfiguruj sieć wirtualną na platformie Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network) dla urządzenia w chmurze. W przypadku korzystania z usługi Premium Storage należy utworzyć sieć wirtualną w regionie platformy Azure obsługującym tę usługę. Regiony Premium Storage to regiony, które odpowiadają wierszowi magazynu dyskowego na [liście usług platformy Azure według regionów](https://azure.microsoft.com/regions/services/).
 * Zalecamy używanie domyślnego serwera DNS udostępnionego na platformie Azure zamiast określania nazwy własnego serwera DNS. Jeśli nazwa serwera DNS jest nieprawidłowa lub jeśli serwer DNS nie jest w stanie poprawnie rozpoznać adresów IP, tworzenie urządzenia w chmurze kończy się niepowodzeniem.
 * Sieci typu punkt do lokacji i lokacja do lokacji są opcjonalne. W razie potrzeby można skonfigurować te opcje dla bardziej zaawansowanych scenariuszy.
 * Można utworzyć [maszyny wirtualne Azure Virtual Machines](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (serwery hosta) w sieci wirtualnej, która może korzystać z woluminów udostępnionych przez urządzenie w chmurze. Serwery te muszą spełniać następujące wymagania:

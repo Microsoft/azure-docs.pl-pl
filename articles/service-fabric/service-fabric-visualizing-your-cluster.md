@@ -1,24 +1,24 @@
 ---
-title: Wizualizacja klastra przy użyciu Eksploratora usług Azure
-description: Eksplorator sieci szkieletowej usług to aplikacja do sprawdzania i zarządzania aplikacjami i węzłami w chmurze w klastrze sieci szkieletowej usług Microsoft Azure.
+title: Wizualizacja klastra przy użyciu usługi Azure Service Fabric Explorer
+description: Service Fabric Explorer to aplikacja do inspekcji i zarządzania aplikacjami w chmurze oraz węzłami w klastrze Microsoft Azure Service Fabric.
 author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
 ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258189"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Wizualizowanie klastra przy użyciu narzędzia Service Fabric Explorer
 
-Eksplorator sieci szkieletowej usług (SFX) to narzędzie typu open source do inspekcji klastrów sieci szkieletowej usług Azure i zarządzania nimi. Service Fabric Explorer to aplikacja klasyczna dla systemów Windows, macOS i Linux.
+Service Fabric Explorer (SFX) to narzędzie Open Source służące do sprawdzania klastrów Service Fabric platformy Azure i zarządzania nimi. Service Fabric Explorer to aplikacja klasyczna dla systemów Windows, macOS i Linux.
 
-## <a name="service-fabric-explorer-download"></a>Pobieranie eksploratora sieci szkieletowej usług
+## <a name="service-fabric-explorer-download"></a>Pobieranie Service Fabric Explorer
 
-Użyj następujących łączy, aby pobrać Eksploratora sieci szkieletowej usług jako aplikację klasyczną:
+Użyj następujących linków, aby pobrać Service Fabric Explorer jako aplikację klasyczną:
 
 - Windows
   - https://aka.ms/sfx-windows
@@ -31,111 +31,111 @@ Użyj następujących łączy, aby pobrać Eksploratora sieci szkieletowej usłu
   - https://aka.ms/sfx-macos
 
 > [!NOTE]
-> Klasyczna wersja Eksploratora sieci szkieletowej usług może mieć więcej lub mniej funkcji niż obsługa klastra. Można wrócić do wersji Eksploratora sieci szkieletowej usług wdrożonej w klastrze, aby zapewnić pełną zgodność funkcji.
+> Wersja klasyczna Service Fabric Explorer może mieć więcej niż więcej funkcji niż obsługuje klaster. Aby zapewnić pełną zgodność funkcji, można powrócić do Service Fabric Explorer wersji wdrożonej w klastrze.
 >
 >
 
-### <a name="running-service-fabric-explorer-from-the-cluster"></a>Uruchamianie Eksploratora sieci szkieletowej usług z klastra
+### <a name="running-service-fabric-explorer-from-the-cluster"></a>Uruchamianie Service Fabric Explorer z klastra
 
-Eksplorator sieci szkieletowej usług jest również hostowany w punkcie końcowym zarządzania HTTP klastra sieci szkieletowej usług. Aby uruchomić SFX w przeglądarce sieci web, przejdź do punktu końcowego zarządzania\/HTTP klastra z dowolnej przeglądarki — na przykład https: /clusterFQDN:19080.
+Service Fabric Explorer jest również hostowana w punkcie końcowym zarządzania HTTP klastra Service Fabric. Aby uruchomić SFX w przeglądarce internetowej, przejdź do punktu końcowego zarządzania HTTP klastra z dowolnej przeglądarki — na przykład https:\//clusterFQDN: 19080.
 
-W przypadku konfiguracji stacji roboczych dla deweloperów można uruchomić Eksploratora sieci szkieletowej usług w klastrze lokalnym, przechodząc do pliku https://localhost:19080/Explorer. Zapoznaj się z tym [artykułem,](service-fabric-get-started.md)aby przygotować środowisko programistyczne .
+W przypadku konfiguracji stacji roboczej dla deweloperów można uruchomić Service Fabric Explorer w lokalnym klastrze, przechodząc https://localhost:19080/Explorerdo lokalizacji. Zapoznaj się z tym artykułem, aby [przygotować środowisko programistyczne](service-fabric-get-started.md).
 
 > [!NOTE]
-> Jeśli klaster jest zabezpieczony certyfikatem z podpisem własnym, zostanie wyświetlony komunikat o błędzie z przeglądarki internetowej "Ta witryna nie jest bezpieczna". Możesz po prostu przejść przez większość nowoczesnych przeglądarek internetowych, zastępując ostrzeżenie. W środowisku produkcyjnym klaster powinien być zabezpieczony przy użyciu nazwy pospolitej i certyfikatu wystawionego przez urząd certyfikacji. 
+> Jeśli klaster jest zabezpieczony przy użyciu certyfikatu z podpisem własnym, zostanie wyświetlony komunikat o błędzie z przeglądarki sieci Web "Ta witryna nie jest bezpieczna". Możesz po prostu wykonać większość nowoczesnych przeglądarek sieci Web, zastępując ostrzeżenie. W środowisku produkcyjnym klaster powinien być zabezpieczony przy użyciu nazwy pospolitej i certyfikatu wystawionego przez urząd certyfikacji. 
 >
 >
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Nawiązywanie połączenia z klastrem usługi Service Fabric
-Aby połączyć się z klastrem sieci szkieletowej usług, potrzebujesz punktu końcowego zarządzania klastrami (FQDN/IP) i portu końcowego punktu końcowego zarządzania HTTP (domyślnie 19080). Na przykład\:https //mysfcluster.westus.cloudapp.azure.com:19080. Użyj pola wyboru "Połącz z localhost", aby połączyć się z lokalnym klastrem na stacji roboczej.
+Aby nawiązać połączenie z klastrem Service Fabric, wymagany jest punkt końcowy zarządzania klastrami (FQDN/IP) i Port punktu końcowego zarządzania HTTP (domyślnie 19080). Na przykład https\://mysfcluster.westus.cloudapp.Azure.com:19080. Użyj pola wyboru "Połącz z lokalnym", aby nawiązać połączenie z lokalnym klastrem na stacji roboczej.
 
 ### <a name="connect-to-a-secure-cluster"></a>Nawiązywanie połączenia z zabezpieczonym klastrem
-Można kontrolować dostęp klienta do klastra sieci szkieletowej usług za pomocą certyfikatów lub przy użyciu usługi Azure Active Directory (AAD).
+Dostęp klienta do klastra Service Fabric można kontrolować przy użyciu certyfikatów lub Azure Active Directory (AAD).
 
-Jeśli spróbujesz połączyć się z bezpiecznym klastrem, w zależności od konfiguracji klastra będziesz musiał przedstawić certyfikat klienta lub zalogować się przy użyciu usługi AAD.
+W przypadku próby nawiązania połączenia z bezpiecznym klastrem, w zależności od konfiguracji klastra, konieczne będzie zaprezentowanie certyfikatu klienta lub zalogowanie się za pomocą usługi AAD.
 
-## <a name="understand-the-service-fabric-explorer-layout"></a>Opis układu Eksploratora sieci szkieletowej usług
-Explorer sieci szkieletowej usług można poruszać się za pomocą drzewa po lewej stronie. W katalogu głównym drzewa pulpit nawigacyjny klastra zawiera omówienie klastra, w tym podsumowanie kondycji aplikacji i węzła.
+## <a name="understand-the-service-fabric-explorer-layout"></a>Zrozumienie układu Service Fabric Explorer
+Możesz nawigować przez Service Fabric Explorer przy użyciu drzewa po lewej stronie. W katalogu głównym drzewa pulpit nawigacyjny klastra zawiera omówienie klastra, w tym podsumowanie kondycji aplikacji i węzła.
 
-![Pulpit nawigacyjny klastra Eksploratora sieci szkieletowej usług][sfx-cluster-dashboard]
+![Pulpit nawigacyjny klastra Service Fabric Explorer][sfx-cluster-dashboard]
 
 ### <a name="view-the-clusters-layout"></a>Wyświetlanie układu klastra
-Węzły w klastrze sieci szkieletowej usług są umieszczane w dwuwymiarowej siatce domen błędów i domen uaktualniania. To miejsce docelowe gwarantuje, że aplikacje pozostają dostępne w obecności awarii sprzętu i uaktualnień aplikacji. Można wyświetlić sposób rozmieszczenia bieżącego klastra przy użyciu mapy klastra.
+Węzły w klastrze Service Fabric są umieszczane w dwuwymiarowej siatce domen błędów i domenach uaktualnienia. To umieszczenie zapewnia, że aplikacje będą nadal dostępne w obecności błędów sprzętowych i uaktualnień aplikacji. Można zobaczyć, jak bieżący klaster jest wdrażany przy użyciu mapy klastra.
 
-![Mapa klastra Eksploratora sieci szkieletowej usług][sfx-cluster-map]
+![Service Fabric Explorer mapowanie klastra][sfx-cluster-map]
 
 ### <a name="view-applications-and-services"></a>Wyświetlanie aplikacji i usług
-Klaster zawiera dwa poddrzewy: jeden dla aplikacji i drugi dla węzłów.
+Klaster zawiera dwa poddrzewa: jeden dla aplikacji i drugi dla węzłów.
 
-Za pomocą widoku aplikacji można poruszać się po hierarchii logicznej sieci szkieletowej usług: aplikacje, usługi, partycje i repliki.
+Widok aplikacji umożliwia nawigowanie po hierarchii logicznej Service Fabric: aplikacje, usługi, partycje i repliki.
 
-W poniższym przykładzie aplikacja **MyApp** składa się z dwóch usług, **MyStatefulService** i **WebService**. Ponieważ **MyStatefulService** jest stanowy, zawiera partycję z jedną repliką podstawową i dwiema replikami pomocniczymi. Z drugiej strony WebSvcService jest bezstanowy i zawiera jedno wystąpienie.
+W poniższym przykładzie aplikacja **MojaApl** programu składa się z dwóch usług, **MyStatefulService** i sieci **Web**. Ponieważ **MyStatefulService** jest stanowa, zawiera partycję z jedną podstawową i dwiema replikami pomocniczymi. Z kolei WebSvcService jest bezstanowy i zawiera jedno wystąpienie.
 
-![Widok aplikacji Eksploratora sieci szkieletowej usług][sfx-application-tree]
+![Widok aplikacji Service Fabric Explorer][sfx-application-tree]
 
-Na każdym poziomie drzewa główne okienko pokazuje istotne informacje o elemencie. Na przykład można zobaczyć stan kondycji i wersji dla określonej usługi.
+Na każdym poziomie drzewa okienko główne pokazuje odpowiednie informacje o elemencie. Na przykład można zobaczyć stan kondycji i wersję dla określonej usługi.
 
-![Podstawowe okienko Eksploratora sieci szkieletowej usług][sfx-service-essentials]
+![Service Fabric Explorer podstawowe okienko][sfx-service-essentials]
 
 ### <a name="view-the-clusters-nodes"></a>Wyświetlanie węzłów klastra
-Widok węzła przedstawia fizyczny układ klastra. Dla danego węzła można sprawdzić, które aplikacje mają kod wdrożony w tym węźle. W szczególności można zobaczyć, które repliki są obecnie uruchomione.
+Widok węzła przedstawia fizyczny układ klastra. Dla danego węzła można sprawdzić, które aplikacje mają kod wdrożony w tym węźle. Dokładniej mówiąc, można zobaczyć, które repliki są obecnie uruchomione.
 
 ## <a name="actions"></a>Akcje
-Eksplorator sieci szkieletowej usług oferuje szybki sposób wywoływania akcji w węzłach, aplikacjach i usługach w klastrze.
+Service Fabric Explorer umożliwia szybkie wywoływanie akcji na węzłach, aplikacjach i usługach w ramach klastra.
 
-Na przykład, aby usunąć wystąpienie aplikacji, wybierz aplikację z drzewa po lewej stronie, a następnie wybierz polecenie **Akcje** > **Usuń aplikację**.
+Na przykład aby usunąć wystąpienie aplikacji, wybierz aplikację z drzewa po lewej stronie, a następnie wybierz **Akcje** > **Usuń aplikację**.
 
-![Usuwanie aplikacji w Eksploratorze sieci szkieletowej usług][sfx-delete-application]
+![Usuwanie aplikacji w Service Fabric Explorer][sfx-delete-application]
 
 > [!TIP]
-> Te same akcje można wykonać, klikając wielokropek obok każdego elementu.
+> Aby wykonać te same czynności, kliknij wielokropek obok każdego elementu.
 >
-> Każda akcja, która może być wykonana za pośrednictwem Eksploratora sieci szkieletowej usług można również wykonać za pośrednictwem programu PowerShell lub interfejsu API REST, aby włączyć automatyzację.
+> Każdą akcję, którą można wykonać za pomocą Service Fabric Explorer można również wykonać za pomocą programu PowerShell lub interfejsu API REST, aby włączyć automatyzację.
 >
 >
 
-Explorer sieci szkieletowej usług służy również do tworzenia wystąpień aplikacji dla danego typu aplikacji i wersji. Wybierz typ aplikacji w widoku drzewa, a następnie kliknij łącze **Utwórz wystąpienie aplikacji** obok wersji, która ma być dostępna w prawym okienku.
+Możesz również użyć Service Fabric Explorer, aby utworzyć wystąpienia aplikacji dla danego typu i wersji aplikacji. Wybierz typ aplikacji w widoku drzewa, a następnie kliknij link **Utwórz wystąpienie aplikacji** obok wersji, którą chcesz umieścić w prawym okienku.
 
-![Tworzenie wystąpienia aplikacji w Eksploratorze sieci szkieletowej usług][sfx-create-app-instance]
+![Tworzenie wystąpienia aplikacji w Service Fabric Explorer][sfx-create-app-instance]
 
 > [!NOTE]
-> Eksplorator sieci szkieletowej usług nie obsługuje parametrów podczas tworzenia wystąpień aplikacji. Wystąpienia aplikacji używają domyślnych wartości parametrów.
+> Service Fabric Explorer nie obsługuje parametrów podczas tworzenia wystąpień aplikacji. Wystąpienia aplikacji używają domyślnych wartości parametrów.
 >
 >
 
-## <a name="event-store"></a>Sklep z wydarzeniami
-EventStore to funkcja oferowana przez platformę, która udostępnia zdarzenia platformy sieci szkieletowej usług dostępne w Eksploratorze sieci szkieletowej usług i za pośrednictwem interfejsu API REST. Możesz zobaczyć widok migawki tego, co dzieje się w klastrze dla każdej jednostki, na przykład węzeł, usługa, aplikacja i kwerenda na podstawie czasu zdarzenia. Możesz również przeczytać więcej o EventStore w [Przeglądzie EventStore](service-fabric-diagnostics-eventstore.md).   
+## <a name="event-store"></a>Magazyn zdarzeń
+EventStore to funkcja oferowana przez platformę, która zapewnia Service Fabric zdarzenia platformy dostępne w Service Fabric Explorer i za pomocą interfejsu API REST. Możesz zobaczyć widok migawki tego, co się dzieje w klastrze dla każdej jednostki, na przykład węzeł, usługa, aplikacja i zapytanie na podstawie czasu zdarzenia. Więcej informacji na temat EventStore można także znaleźć na stronie [Przegląd EventStore](service-fabric-diagnostics-eventstore.md).   
 
-![Sklep eventowy][sfx-eventstore]
-
->[!NOTE]
->Od usługi Service Fabric w wersji 6.4. EventStore nie jest domyślnie włączony i musi być włączony w szablonie Menedżera zasobów
+![EventStore][sfx-eventstore]
 
 >[!NOTE]
->Od usługi Service Fabric w wersji 6.4. interfejsy API eventstore są dostępne tylko dla klastrów systemu Windows uruchomionych tylko na platformie Azure. Pracujemy nad przeniesieniem tej funkcji do systemu Linux, a także naszych autonomicznych klastrów.
+>Od Service Fabric wersja 6,4. EventStore nie jest domyślnie włączona i musi być włączona w szablonie Menedżera zasobów
 
-## <a name="image-store-viewer"></a>Przeglądarka magazynu obrazów
-Przeglądarka magazynu obrazów jest funkcją oferowaną w przypadku korzystania z magazynu obrazów natywnych, która umożliwia przeglądanie bieżącej zawartości magazynu obrazów i uzyskanie informacji o plikach i folderach, a także usuwanie plików/folderów.
+>[!NOTE]
+>Od Service Fabric wersja 6,4. Interfejsy API EventStore są dostępne tylko dla klastrów systemu Windows działających tylko na platformie Azure. Pracujemy nad przenoszeniem tej funkcji do systemu Linux oraz z naszych klastrów autonomicznych.
 
-![Mapa klastra Eksploratora sieci szkieletowej usług][sfx-imagestore]
+## <a name="image-store-viewer"></a>Przeglądarka Magazyn obrazów
+Podgląd magazynu obrazów jest funkcją oferowaną w przypadku korzystania z natywnych Magazyn obrazów umożliwiających wyświetlanie bieżącej zawartości magazynu obrazów oraz pobieranie informacji o plikach i folderach oraz usuwanie plików/folderów.
+
+![Service Fabric Explorer mapowanie klastra][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>Wykonywanie kopii zapasowych i przywracanie
-Eksplorator sieci szkieletowej usług oferuje możliwość interfejsu z [kopii zapasowej i przywracania](./service-fabric-reliable-services-backup-restore.md). Aby wyświetlić funkcje tworzenia kopii zapasowych i przywracania w SFX, tryb zaawansowany musi być włączony.
+Service Fabric Explorer oferuje możliwość tworzenia interfejsów przy użyciu [kopii zapasowych i przywracania](./service-fabric-reliable-services-backup-restore.md). Aby można było wyświetlić funkcje tworzenia kopii zapasowych i przywracania w programie SFX, należy włączyć tryb zaawansowany.
 
 ![Włącz tryb zaawansowany][0]
  
 Możliwe są następujące operacje:
 
 * Tworzenie, edytowanie i usuwanie zasad tworzenia kopii zapasowych.
-* Włączanie i wyłączanie kopii zapasowej dla aplikacji, usługi lub partycji.
-* Wstrzymanie i wznowienie wykonywania kopii zapasowej dla aplikacji, usługi lub partycji.
+* Włącza i wyłącza tworzenie kopii zapasowej dla aplikacji, usługi lub partycji.
+* Wstrzymywanie i wznawianie kopii zapasowej dla aplikacji, usługi lub partycji.
 * Wyzwalanie i śledzenie kopii zapasowej partycji.
 * Wyzwalanie i śledzenie przywracania dla partycji.
 
-Aby uzyskać więcej informacji na temat usługi Kopia zapasowa i przywracanie, zobacz [odwołanie do interfejsu API REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
+Aby uzyskać więcej informacji na temat usługi tworzenia kopii zapasowych i przywracania, zobacz [Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
 ## <a name="next-steps"></a>Następne kroki
-* [Zarządzanie aplikacjami sieci szkieletowej usług w programie Visual Studio](service-fabric-manage-application-in-visual-studio.md)
-* [Wdrażanie aplikacji sieci szkieletowej usług przy użyciu programu PowerShell](service-fabric-deploy-remove-applications.md)
+* [Zarządzanie aplikacjami Service Fabric w programie Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+* [Service Fabric wdrażanie aplikacji przy użyciu programu PowerShell](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
 [sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/sfx-cluster-dashboard.png

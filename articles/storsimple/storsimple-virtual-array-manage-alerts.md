@@ -1,6 +1,6 @@
 ---
-title: Wyświetlanie alertów dla tablicy wirtualnej StorSimple i zarządzanie nimi
-description: W tym artykule StorSimple Virtual Array alert warunki i ważność oraz jak korzystać z usługi StorSimple Manager do zarządzania alertami.
+title: Wyświetl alerty dla macierzy wirtualnej StorSimple i zarządzaj nimi
+description: Opisuje warunki i ważność alertów macierzy wirtualnej StorSimple oraz sposób używania usługi StorSimple Manager do zarządzania alertami.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -16,155 +16,155 @@ ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a7c469be4a1d8aba23857b1ba52ee829c126a431
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267432"
 ---
-# <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Menedżer urządzeń StorSimple służy do zarządzania alertami dla tablicy wirtualnej StorSimple
+# <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Używanie StorSimple Menedżer urządzeń do zarządzania alertami dla macierzy wirtualnej StorSimple
 
 ## <a name="overview"></a>Omówienie
 
-Funkcja alertów w usłudze Menedżer urządzeń StorSimple umożliwia przeglądanie i wyczyszczenie alertów związanych z tablicami wirtualnymi StorSimple w czasie rzeczywistym. Alerty w bloku **podsumowania usługi** można użyć do centralnego monitorowania problemów zdrowotnych tablic wirtualnych StorSimple i ogólnego rozwiązania Microsoft Azure StorSimple.
+Funkcja alertów w usłudze StorSimple Menedżer urządzeń umożliwia przeglądanie i czyszczenie alertów związanych z StorSimple wirtualnymi macierzy w czasie rzeczywistym. Możesz użyć alertów w bloku **Podsumowanie usługi** , aby centralnie monitorować problemy z kondycją macierzy wirtualnych StorSimple oraz ogólne rozwiązanie Microsoft Azure StorSimple.
 
-W tym samouczku opisano sposób konfigurowania powiadomień alertów, typowych warunków alertów, poziomów ważności alertów oraz sposobu wyświetlania i śledzenia alertów. Ponadto zawiera tabele szybkiego odwołania alertów, które umożliwiają szybkie zlokalizowanie określonego alertu i odpowiednie reagowanie.
+W tym samouczku opisano sposób konfigurowania powiadomień o alertach, typowych warunków alertów, poziomów ważności alertów oraz sposobu wyświetlania i śledzenia alertów. Oprócz tego zawiera tabele szybkich odwołań alertów, które umożliwiają szybkie lokalizowanie określonego alertu i odpowiednie reagowanie.
 
-![Strona Alerty](./media/storsimple-virtual-array-manage-alerts/alerts1.png)
+![Strona alerty](./media/storsimple-virtual-array-manage-alerts/alerts1.png)
 
 ## <a name="configure-alert-settings"></a>Konfigurowanie ustawień alertów
 
-Można wybrać, czy chcesz otrzymywać powiadomienia pocztą e-mail o warunkach alertów dla każdej z tablic wirtualnych StorSimple. Ponadto można zidentyfikować innych adresatów powiadomień o alertach, wprowadzając ich adresy e-mail w polu **Dodatkowe adresaci wiadomości e-mail, oddzielone** średnikami.
+Możesz wybrać, czy chcesz otrzymywać powiadomienia pocztą e-mail o warunkach alertów dla każdej z wirtualnych macierzy StorSimple. Ponadto możesz identyfikować innych adresatów powiadomień o alertach, wprowadzając ich adresy e-mail w polu **dodatkowi adresaci wiadomości e-mail** , rozdzielając je średnikami.
 
 > [!NOTE]
-> Na tablicę wirtualną można wprowadzić maksymalnie 20 adresów e-mail.
+> Możesz wprowadzić maksymalnie 20 adresów e-mail na tablicę wirtualną.
 
-Po włączeniu powiadomienia e-mail dla tablicy wirtualnej członkowie listy powiadomień otrzymają wiadomość e-mail za każdym razem, gdy pojawi się alert krytyczny. Wiadomości będą wysyłane z *storsimple-alerts-noreply\@mail.windowsazure.com* i opisze warunek alertu. Adresaci mogą kliknąć pozycję **Wypisuj subskrypcję,** aby usunąć się z listy powiadomień e-mail.
+Po włączeniu powiadomienia e-mail dla macierzy wirtualnej członkowie listy powiadomień otrzymają wiadomość e-mail za każdym razem, gdy wystąpi alert krytyczny. Komunikaty będą wysyłane z *StorSimple-Alerts-\@noreply mail.windowsazure.com* i opisują warunek alertu. Adresaci mogą kliknąć przycisk **Anuluj subskrypcję** , aby usunąć siebie z listy powiadomień e-mail.
 
-#### <a name="to-enable-email-notification-for-alerts"></a>Aby włączyć powiadomienia e-mail dotyczące alertów
+#### <a name="to-enable-email-notification-for-alerts"></a>Aby włączyć powiadomienia e-mail dla alertów
 
-1. Przejdź do usługi StorSimple Device Manager i w sekcji **Zarządzanie** wybierz i kliknij pozycję **Urządzenia**. Z wyświetlona lista urządzeń wybierz i kliknij urządzenie.
+1. Przejdź do usługi StorSimple Menedżer urządzeń i w sekcji **Zarządzanie** wybierz pozycję **urządzenia**. Z wyświetlonej listy urządzeń wybierz i kliknij urządzenie.
    
-    ![ustawienia alertów](./media/storsimple-virtual-array-manage-alerts/alerts2.png)
-2. Spowoduje to otwarcie bloku **Ustawienia.** W sekcji **Ustawienia urządzenia** wybierz pozycję **Ogólne**. Spowoduje to otwarcie bloku **Ustawienia ogólne.**
+    ![Ustawienia alertu](./media/storsimple-virtual-array-manage-alerts/alerts2.png)
+2. Spowoduje to otwarcie bloku **Ustawienia** . W sekcji **Ustawienia urządzenia** wybierz pozycję **Ogólne**. Spowoduje to otwarcie bloku **Ustawienia ogólne** .
    
-    ![konfiguracja powiadomień alertów](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
-3. W bloku **Ustawienia ogólne** przejdź do sekcji **Ustawienia alertu** i ustaw następujące ustawienia:
+    ![Konfiguracja powiadomień o alertach](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
+3. W bloku **Ustawienia ogólne** przejdź do sekcji **Ustawienia alertu** i ustaw następujące opcje:
    
-   1. W polu **Włącz powiadomienie e-mail** wybierz pozycję **TAK**.
-   2. W polu **Administratorzy usługi poczty e-mail** wybierz pozycję **TAK,** jeśli chcesz, aby administrator usługi i wszyscy współadministratorzy otrzymywali powiadomienia o alertach.
-   3. W polu **Dodatkowe adresaci wiadomości e-mail** wprowadź adresy e-mail wszystkich innych adresatów, którzy powinni otrzymywać powiadomienia o alertach. Wprowadź nazwy w *\@formacie, który ktoś somewhere.com*. Użyj średników, aby oddzielić adresy e-mail. Na urządzenie wirtualne można skonfigurować maksymalnie 20 adresów e-mail.
+   1. W polu **Włącz powiadomienie e-mail** wybierz pozycję **tak**.
+   2. W polu **Administratorzy usługi poczty e-mail** wybierz pozycję **tak** , jeśli chcesz, aby administrator usługi i wszyscy współadministratorzy otrzymywali powiadomienia o alertach.
+   3. W polu **dodatkowi adresaci wiadomości e-mail** wprowadź adresy e-mail wszystkich adresatów, którzy powinni otrzymywać powiadomienia o alertach. Wprowadź nazwy w formacie *ktoś\@Somewhere.com*. Użyj średników, aby rozdzielić adresy e-mail. Można skonfigurować maksymalnie 20 adresów e-mail na urządzenie wirtualne.
       
-       ![konfiguracja powiadomień alertów](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
-   4. Aby wysłać testowe powiadomienie e-mail, kliknij przycisk **Wyślij testową wiadomość e-mail**. Usługa StorSimple Device Manager wyświetli komunikaty o stanie podczas przesyłania dalej powiadomienia testowego.
+       ![Konfiguracja powiadomień o alertach](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
+   4. Aby wysłać testową wiadomość e-mail z powiadomieniem, kliknij pozycję **Wyślij testową wiadomość e-mail**. Usługa StorSimple Menedżer urządzeń będzie wyświetlać komunikaty o stanie podczas przesyłania dalej powiadomienia testowego.
       
-       ![Wysłane wiadomości e-mail z powiadomieniem testowym alertów](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
+       ![Wysłane wiadomości e-mail z powiadomieniem testowym o alertach](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
       
       > [!NOTE]
-      > Jeśli nie można wysłać komunikatu powiadomienia testowego, usługa StorSimple Device Manager wyświetli odpowiedni komunikat. Kliknij **przycisk OK**, zaczekaj kilka minut, a następnie spróbuj ponownie wysłać wiadomość z powiadomieniem testowym.
+      > Jeśli nie można wysłać komunikatu z powiadomieniem o testach, w usłudze StorSimple Menedżer urządzeń zostanie wyświetlony odpowiedni komunikat. Kliknij przycisk **OK**, odczekaj kilka minut, a następnie spróbuj ponownie wysłać testową wiadomość e-mail.
       >
       >
-   5. U dołu strony kliknij przycisk **Zapisz,** aby zapisać konfigurację. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**.
+   5. W dolnej części strony kliknij pozycję **Zapisz** , aby zapisać konfigurację. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**.
       
-      ![Wysłane wiadomości e-mail z powiadomieniem testowym alertów](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
+      ![Wysłane wiadomości e-mail z powiadomieniem testowym o alertach](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
 
-## <a name="common-alert-conditions"></a>Typowe warunki alarmowe
+## <a name="common-alert-conditions"></a>Typowe warunki alertów
 
-Twoja tablica wirtualna StorSimple generuje alerty w odpowiedzi na różne warunki. Poniżej przedstawiono najczęstsze typy stanów alertów:
+Wirtualna macierz StorSimple generuje alerty w odpowiedzi na różne warunki. Poniżej przedstawiono najczęściej spotykane typy warunków alertów:
 
-* **Problemy z łącznością** — te alerty występują, gdy występują trudności w przesyłaniu danych. Problemy z komunikacją mogą wystąpić podczas przesyłania danych do i z konta magazynu platformy Azure lub z powodu braku łączności między urządzeniami wirtualnymi a usługą StorSimple Device Manager. Problemy z komunikacją są jednymi z najtrudniejszych do naprawienia, ponieważ jest tak wiele punktów awarii. Przed kontynuowaniem bardziej zaawansowanego rozwiązywania problemów należy zawsze najpierw sprawdzić, czy łączność sieciowa i dostęp do Internetu są dostępne. Aby uzyskać informacje o portach i ustawieniach zapory, przejdź do [ustawień systemu StorSimple Virtual Array](storsimple-ova-system-requirements.md). Aby uzyskać pomoc dotyczącą rozwiązywania problemów, przejdź do [strony Rozwiązywanie problemów za pomocą polecenia cmdlet Test-Connection](storsimple-troubleshoot-deployment.md).
-* **Problemy z wydajnością** — te alerty są spowodowane, gdy system nie działa optymalnie, na przykład gdy jest pod dużym obciążeniem.
+* **Problemy z łącznością** — te alerty występują w przypadku trudności związanych z transferem danych. Problemy z komunikacją mogą wystąpić podczas transferu danych do i z konta usługi Azure Storage lub z powodu braku łączności między urządzeniami wirtualnymi a usługą StorSimple Menedżer urządzeń. Problemy z komunikacją są nieco trudne do rozwiązania, ponieważ istnieje wiele punktów awarii. Przed kontynuowaniem bardziej zaawansowanego rozwiązywania problemów należy zawsze sprawdzić, czy łączność sieciowa i dostęp do Internetu są dostępne. Aby uzyskać informacje o portach i ustawieniach zapory, przejdź do [StorSimple wirtualnej macierzy wirtualnych wymagania systemowe](storsimple-ova-system-requirements.md). Aby uzyskać pomoc dotyczącą rozwiązywania problemów, przejdź do [obszaru Rozwiązywanie problemów za pomocą polecenia cmdlet Test-connection](storsimple-troubleshoot-deployment.md).
+* **Problemy z wydajnością** — te alerty są generowane, gdy system nie działa optymalnie, na przykład gdy jest w dużym obciążeniu.
 
-Ponadto mogą być widoczne alerty związane z zabezpieczeniami, aktualizacjami lub błędami zadań.
+Ponadto mogą pojawić się alerty związane z zabezpieczeniami, aktualizacjami lub niepowodzeńmi zadań.
 
-## <a name="alert-severity-levels"></a>Poziomy ważności alertów
+## <a name="alert-severity-levels"></a>Poziomy ważności alertu
 
-Alerty mają różne poziomy ważności, w zależności od wpływu, jaki będzie miała sytuacja alertu i potrzeby odpowiedzi na alert. Poziomy ważności to:
+Alerty mają różne poziomy ważności, w zależności od wpływu działania alertu i konieczności odpowiedzi na alert. Poziomy ważności to:
 
-* **Krytyczne** — ten alert jest odpowiedzią na warunek, który ma wpływ na pomyślną wydajność systemu. Akcja jest wymagana, aby upewnić się, że Usługa StorSimple nie zostanie przerwana.
-* **Ostrzeżenie** — ten warunek może stać się krytyczny, jeśli nie zostanie rozwiązany. Należy zbadać sytuację i podjąć wszelkie działania wymagane, aby usunąć problem.
-* **Informacje** — ten alert zawiera informacje, które mogą być przydatne w śledzeniu i zarządzaniu systemem.
+* **Krytyczny** — ten alert jest w odpowiedzi na warunek, który ma wpływ na pomyślną wydajność systemu. Wymagana jest akcja, aby upewnić się, że Usługa StorSimple nie została przerwana.
+* **Ostrzeżenie** — ten stan może stać się krytyczny, jeśli nie został rozpoznany. Należy zbadać sytuację i podjąć wszelkie działania wymagane do wyczyszczenia problemu.
+* **Informacje** — ten alert zawiera informacje, które mogą być przydatne do śledzenia systemu i zarządzania nim.
 
 ## <a name="view-and-track-alerts"></a>Wyświetlanie i śledzenie alertów
 
-Serwer podsumowania usługi StorSimple Device Manager umożliwia szybkie spojrzenie na liczbę alertów na urządzeniach wirtualnych, uporządkowaną według poziomu ważności.
+Blok podsumowania usługi StorSimple Menedżer urządzeń zapewnia szybki przegląd liczby alertów na urządzeniach wirtualnych uporządkowanych według poziomu ważności.
 
 ![Pulpit nawigacyjny alertów](./media/storsimple-virtual-array-manage-alerts/alerts14.png)
 
-Kliknij poziom ważności, aby otworzyć **alerty** bloku. Wyniki obejmują tylko alerty, które odpowiadają tego poziomu ważności.
+Kliknij poziom ważności, aby otworzyć blok **alerty** . Wyniki obejmują tylko alerty pasujące do tego poziomu ważności.
 
-![Raport alertów o zakresie typu alertu](./media/storsimple-virtual-array-manage-alerts/alerts15.png)
+![Raport o alertach objęty zakresem alertu](./media/storsimple-virtual-array-manage-alerts/alerts15.png)
 
-Kliknij alert na liście, aby uzyskać dodatkowe szczegóły dotyczące alertu, w tym ostatni raz alert został zgłoszony, liczbę wystąpień alertu na urządzeniu i zalecaną akcję, aby rozwiązać alert.
+Kliknij alert na liście, aby uzyskać dodatkowe szczegóły dotyczące alertu, w tym czas ostatniego zgłoszenia alertu, liczbę wystąpień alertu na urządzeniu oraz zalecaną akcję w celu rozwiązania alertu.
 
 ![Lista alertów i szczegóły](./media/storsimple-virtual-array-manage-alerts/alerts16.png)
 
-Szczegóły alertu można skopiować do pliku tekstowego, jeśli konieczne jest wysłanie informacji do pomocy technicznej firmy Microsoft. Po postępowaniu zgodnie z zaleceniem i rozwiązaniu warunku alertu lokalnie należy wyczyścić alert z listy. Wybierz alert z listy, a następnie kliknij przycisk **Wyczyść**. Aby wyczyścić wiele alertów, zaznacz każdy alert, kliknij dowolną kolumnę z wyjątkiem kolumny **Alert,** a następnie kliknij przycisk **Wyczyść** po wybraniu wszystkich alertów do wyczyszczenie.
+Możesz skopiować szczegóły alertu do pliku tekstowego, jeśli trzeba wysłać informacje do pomoc techniczna firmy Microsoft. Po wykonaniu zalecenia i rozwiązaniu lokalnego stanu alertu należy wyczyścić ten alert z listy. Wybierz z listy alert, a następnie kliknij przycisk **Wyczyść**. Aby wyczyścić wiele alertów, zaznacz poszczególne alerty, kliknij dowolną kolumnę poza kolumną **alertu** , a następnie kliknij przycisk **Wyczyść** po wybraniu wszystkich alertów do wyczyszczenia.
 
-Po kliknięciu **przycisku Wyczyść,** będziesz mieć możliwość podania komentarzy na temat alertu i kroków, które zostały podjęte w celu rozwiązania problemu.
+Po kliknięciu przycisku **Wyczyść**będziesz mieć możliwość udostępnienia komentarzy dotyczących alertu i kroków, które należy wykonać w celu rozwiązania problemu.
 
-![komentarze alertów](./media/storsimple-virtual-array-manage-alerts/alerts17.png)
+![Komentarze alertu](./media/storsimple-virtual-array-manage-alerts/alerts17.png)
 
-Niektóre zdarzenia zostaną wyczyszczone przez system, jeśli inne zdarzenie zostanie wyzwolone z nowymi informacjami.
+Niektóre zdarzenia zostaną wyczyszczone przez system, jeśli inne zdarzenie zostanie wyzwolone przy użyciu nowych informacji.
 
 ## <a name="sort-and-review-alerts"></a>Sortowanie i przeglądanie alertów
 
-W bloku **Alerty** może być wyświetlanych maksymalnie 250 alertów. Jeśli liczba alertów została przekroczona, nie wszystkie alerty będą wyświetlane w widoku domyślnym. Można połączyć następujące pola, aby dostosować wyświetlane alerty:
+Blok **alerty** może wyświetlać do 250 alertów. W przypadku przekroczenia tej liczby alertów nie wszystkie alerty będą wyświetlane w widoku domyślnym. Można połączyć następujące pola w celu dostosowania wyświetlanych alertów:
 
-* **Stan** — można wyświetlić alerty **aktywne** lub **wyczyszczone.** Aktywne alerty są nadal wyzwalane w systemie, podczas gdy wyczyszczone alerty zostały ręcznie wyczyszczone przez administratora lub programowo wyczyszczone, ponieważ system zaktualizował stan alertu o nowe informacje.
-* **Ważność** — można wyświetlać alerty o wszystkich poziomach ważności (krytyczne, ostrzeżenie, informacje) lub tylko pewną ważność, takie jak tylko alerty krytyczne.
-* **Źródło** — można wyświetlać alerty ze wszystkich źródeł lub ograniczyć alerty do tych, które pochodzą z usługi lub jednego lub wszystkich urządzeń wirtualnych.
-* **Zakres czasu** — określając **daty od** i **do** i sygnatury czasowe, można przeglądać alerty w okresie, który Cię interesuje.
+* **Stan** — można wyświetlić **aktywne** lub **wyczyszczone** alerty. Aktywne alerty są nadal wyzwalane w systemie, podczas gdy wyczyszczone alerty zostały ręcznie wyczyszczone przez administratora lub programowo wyczyszczone, ponieważ system zaktualizował warunek alertu o nowe informacje.
+* **Ważność** — można wyświetlić alerty o wszystkich poziomach ważności (krytyczne, ostrzegawcze, informacje) lub tylko o określonej ważności, takie jak tylko alerty krytyczne.
+* **Źródło** — można wyświetlić alerty ze wszystkich źródeł lub ograniczyć alerty do tych, które pochodzą z usługi lub jednego lub wszystkich urządzeń wirtualnych.
+* **Zakres czasu** — przez określenie daty **od** i **do** oraz sygnatur czasowych można sprawdzić alerty w odpowiednim czasie.
 
-## <a name="alerts-quick-reference"></a>Szybkie alerty
+## <a name="alerts-quick-reference"></a>Szybkie informacje o alertach
 
-W poniższych tabelach przedstawiono niektóre alerty StorSimple, które mogą wystąpić, a także dodatkowe informacje i zalecenia, jeśli są dostępne. Alerty StorSimple Virtual Array należą do jednej z następujących kategorii:
+W poniższej tabeli wymieniono niektóre z alertów StorSimple, które mogą wystąpić, a także dodatkowe informacje i zalecenia, jeśli są dostępne. StorSimple alerty macierzy wirtualnych należą do jednej z następujących kategorii:
 
-* [Alerty o łączności w chmurze](#cloud-connectivity-alerts)
+* [Alerty łączności w chmurze](#cloud-connectivity-alerts)
 * [Alerty konfiguracji](#configuration-alerts)
-* [Alerty o niepowodzeniu zadania](#job-failure-alerts)
-* [Alerty dotyczące wydajności](#performance-alerts)
+* [Alerty błędów zadań](#job-failure-alerts)
+* [Alerty wydajności](#performance-alerts)
 * [Alerty zabezpieczeń](#security-alerts)
 
-### <a name="cloud-connectivity-alerts"></a>Alerty o łączności w chmurze
+### <a name="cloud-connectivity-alerts"></a>Alerty łączności w chmurze
 
-| Tekst alertu | Wydarzenie | Więcej informacji / zalecane działania |
+| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| *Nazwa urządzenia* <> nie jest połączona z chmurą. |Nazwane urządzenie nie może połączyć się z chmurą. |Nie można połączyć się z chmurą. Może to być spowodowane jedną z następujących przyczyn:<ul><li>Być może wystąpił problem z ustawieniami sieciowymi na urządzeniu.</li><li>Może występować problem z poświadczeniami konta magazynu.</li></ul>Aby uzyskać więcej informacji na temat rozwiązywania problemów z łącznością, przejdź do [lokalnego interfejsu użytkownika sieci Web](storsimple-ova-web-ui-admin.md) urządzenia. |
+| > *nazwy urządzenia* <urządzenia nie jest połączona z chmurą. |Nazwane urządzenie nie może nawiązać połączenia z chmurą. |Nie można nawiązać połączenia z chmurą. Może to być spowodowane jedną z następujących przyczyn:<ul><li>Być może wystąpił problem z ustawieniami sieci na urządzeniu.</li><li>Może wystąpić problem z poświadczeniami konta magazynu.</li></ul>Aby uzyskać więcej informacji na temat rozwiązywania problemów z łącznością, przejdź do [lokalnego interfejsu użytkownika sieci Web](storsimple-ova-web-ui-admin.md) urządzenia. |
 
 ### <a name="configuration-alerts"></a>Alerty konfiguracji
 
-| Tekst alertu | Wydarzenie | Więcej informacji / zalecane działania |
+| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| Lokalna konfiguracja urządzenia wirtualnego nie jest podparta. |Niska wydajność. |Bieżąca konfiguracja może spowodować obniżenie wydajności. Upewnij się, że serwer spełnia minimalne wymagania konfiguracyjne. Aby uzyskać więcej informacji, przejdź do [storsimple virtual array wymagania](storsimple-ova-system-requirements.md). |
-| Zabrakło aprowizowanego miejsca na dysku <*nazwie*\>urządzenia . |Ostrzeżenie o miejscu na dysku. |Brakuje miejsca na dysku aprowizowanym. Aby zwolnić miejsce, należy rozważyć przeniesienie obciążeń na inny wolumin lub udostępnienie lub usunięcie danych. |
+| Konfiguracja lokalnej urządzenia wirtualnego jest nieobsługiwana. |Niska wydajność. |Bieżąca konfiguracja może spowodować spadek wydajności. Upewnij się, że serwer spełnia minimalne wymagania dotyczące konfiguracji. Aby uzyskać więcej informacji, przejdź do [wymagań dotyczących macierzy wirtualnej StorSimple](storsimple-ova-system-requirements.md). |
+| Wykorzystano miejsce na dysku w <*nazwie*\>urządzenia. |Ostrzeżenie dotyczące miejsca na dysku. |Używasz wolnego miejsca na dysku. Aby zwolnić miejsce, rozważ przeniesienie obciążeń na inny wolumin lub udział lub usunięcie danych. |
 
-### <a name="job-failure-alerts"></a>Alerty o niepowodzeniu zadania
+### <a name="job-failure-alerts"></a>Alerty błędów zadań
 
-| Tekst alertu | Wydarzenie | Więcej informacji / zalecane działania |
+| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| Nie można ukończyć kopii zapasowej *nazwy* \> urządzenia <. |Niepowodzenie zadania tworzenia kopii zapasowej. |Nie można utworzyć kopii zapasowej. Należy wziąć pod uwagę jedną z następujących czynności:<ul><li>Problemy z łącznością mogą uniemożliwiać pomyślne ukończenie operacji tworzenia kopii zapasowej. Upewnij się, że nie ma żadnych problemów z łącznością. Aby uzyskać więcej informacji na temat rozwiązywania problemów z łącznością, przejdź do [lokalnego interfejsu użytkownika sieci Web](storsimple-ova-web-ui-admin.md) dla urządzenia wirtualnego.</li><li>Osiągnięto limit dostępnego miejsca. Aby zwolnić miejsce, należy rozważyć usunięcie wszystkich kopii zapasowych, które nie są już potrzebne.</li></ul> Rozwiąż problemy, wyczyść alert i ponów próbę wykonania operacji. |
-| Nie można ukończyć klonowania *nazwy* \> urządzenia <. |Niepowodzenie zadania klonowania. |Nie można utworzyć klona. Należy wziąć pod uwagę jedną z następujących czynności:<ul><li>Lista kopii zapasowych może być nieprawidłowa. Odśwież listę, aby sprawdzić, czy jest nadal prawidłowa.</li><li>Problemy z łącznością mogą uniemożliwiać pomyślne ukończenie operacji klonowania. Upewnij się, że nie ma żadnych problemów z łącznością.</li><li>Osiągnięto limit dostępnego miejsca. Aby zwolnić miejsce, należy rozważyć usunięcie wszystkich kopii zapasowych, które nie są już potrzebne.</li></ul>Rozwiąż problemy, wyczyść alert i ponów próbę wykonania operacji. |
+| Nie można ukończyć tworzenia kopii zapasowej *nazwy* \> urządzenia <. |Niepowodzenie zadania tworzenia kopii zapasowej. |Nie można utworzyć kopii zapasowej. Weź pod uwagę jedną z następujących czynności:<ul><li>Problemy z łącznością mogą uniemożliwiać pomyślne ukończenie operacji tworzenia kopii zapasowej. Upewnij się, że nie występują problemy z łącznością. Aby uzyskać więcej informacji na temat rozwiązywania problemów z łącznością, przejdź do [lokalnego interfejsu użytkownika sieci Web](storsimple-ova-web-ui-admin.md) dla urządzenia wirtualnego.</li><li>Osiągnięto limit ilości dostępnego miejsca. Aby zwolnić miejsce, Rozważ usunięcie wszystkich kopii zapasowych, które nie są już potrzebne.</li></ul> Rozwiąż problemy, Usuń alert i spróbuj ponownie wykonać operację. |
+| Nie można ukończyć klonowania *nazwy* \> urządzenia <. |Niepowodzenie zadania klonowania. |Nie można utworzyć klonu. Weź pod uwagę jedną z następujących czynności:<ul><li>Lista kopii zapasowych może być nieprawidłowa. Odśwież listę, aby upewnić się, że jest ona nadal ważna.</li><li>Problemy z łącznością mogą uniemożliwiać pomyślne zakończenie operacji klonowania. Upewnij się, że nie występują problemy z łącznością.</li><li>Osiągnięto limit ilości dostępnego miejsca. Aby zwolnić miejsce, Rozważ usunięcie wszystkich kopii zapasowych, które nie są już potrzebne.</li></ul>Rozwiąż problemy, Usuń alert i spróbuj ponownie wykonać operację. |
 
 ### <a name="networking-alerts"></a>Alerty sieciowe
 
-| Tekst alertu | Wydarzenie | Więcej informacji / zalecane działania |
+| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| Nie można połączyć się z usługą uwierzytelniania. |Błąd ścieżki danych |Adres URL używany do uwierzytelniania jest nie osiągalny. Upewnij się, że reguły zapory zawierają wzorce adresów URL określone dla urządzenia StorSimple. Aby uzyskać więcej informacji na temat wzorców adresów URL w witrynie Azure portal, przejdź do [storsimple wymagania dotyczące sieci tablic wirtualnych](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|
+| Nie można nawiązać połączenia z usługą uwierzytelniania. |Błąd ścieżki datapath |Adres URL używany do uwierzytelniania jest nieosiągalny. Upewnij się, że reguły zapory zawierają wzorce URL określone dla urządzenia StorSimple. Aby uzyskać więcej informacji na temat wzorców adresów URL w Azure Portal, przejdź do [wymagań sieci wirtualnej macierzy StorSimple](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|
 
-### <a name="performance-alerts"></a>Alerty dotyczące wydajności
+### <a name="performance-alerts"></a>Alerty wydajności
 
-| Tekst alertu | Wydarzenie | Więcej informacji / zalecane działania |
+| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| Występują nieoczekiwane opóźnienia w transferze danych. |Powolny transfer danych. |Błędy ograniczania występują po przekroczeniu docelowych skalowalności usługi magazynu. Usługa magazynu robi to, aby upewnić się, że żaden pojedynczy klient lub dzierżawca może korzystać z usługi kosztem innych. Aby uzyskać więcej informacji na temat rozwiązywania problemów z kontem magazynu platformy Azure, przejdź do [monitorowania, diagnozowania i rozwiązywania problemów z usługą Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
-| Na <*nazwie*\>urządzenia jest mało miejsca na dysku rezerwacji lokalnej . |Powolny czas reakcji. |10% całkowitego aprowizowanego rozmiaru <*nazwy* \> urządzenia jest zarezerwowana na urządzeniu lokalnym, a obecnie brakuje miejsca zarezerwowanego. Obciążenie <*nazwą* \> urządzenia generuje wyższą szybkość zmian lub być może niedawno zmigrowano dużą ilość danych. Może to spowodować zmniejszenie wydajności. Aby rozwiązać ten problem, rozważ jedną z następujących czynności:<ul><li>Zwiększ przepustowość chmury do tego urządzenia.</li><li>Zmniejszanie lub przenoszenie obciążeń do innego woluminu lub udziału.</li></ul> |
+| Występują nieoczekiwane opóźnienia w transferze danych. |Wolny transfer danych. |Błędy ograniczania są wykonywane, gdy przekroczy się tarcze skalowalności usługi magazynu. Usługa Storage wykonuje tę funkcję, aby upewnić się, że żaden klient ani dzierżawca nie mogą korzystać z usługi w kosztach innych. Aby uzyskać więcej informacji na temat rozwiązywania problemów z kontem usługi Azure Storage, przejdź do pozycji [monitorowanie, diagnozowanie i rozwiązywanie problemów Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
+| Używasz wolnego miejsca na dysku rezerwacji lokalnej na <*nazwie*\>urządzenia. |Czas wolnej odpowiedzi. |10% całkowitego rozmiaru alokowanego dla *nazwy* \> urządzenia <jest zarezerwowane na urządzeniu lokalnym, a teraz zaczyna brakować miejsca zarezerwowanego. Obciążenie na <*urządzeniu* \> generuje wyższą częstotliwość zmian lub niedawno przeprowadzono migrację dużej ilości danych. Może to spowodować zmniejszenie wydajności. Aby rozwiązać ten problem, należy rozważyć jedną z następujących akcji:<ul><li>Zwiększ przepustowość chmury na tym urządzeniu.</li><li>Zmniejszenie lub przeniesienie obciążeń do innego woluminu lub udziału.</li></ul> |
 
 ### <a name="security-alerts"></a>Alerty zabezpieczeń
 
-| Tekst alertu | Wydarzenie | Więcej informacji / zalecane działania |
+| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| Hasło do <*nazwy* \> urządzenia wygaśnie w ciągu <*dni.* \> |Ostrzeżenie o haśle. |Hasło wygaśnie w ciągu <*dni.* \> Rozważ zmianę hasła. Aby uzyskać więcej informacji, przejdź do [tematu Zmienianie hasła administratora urządzenia StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md). |
+| Hasło dla *nazwy* \> urządzenia <wygaśnie za <*liczbę* \> dni. |Ostrzeżenie o haśle. |Twoje hasło wygaśnie za <*liczbę* \> dni. Rozważ zmianę hasła. Aby uzyskać więcej informacji, przejdź do [obszaru zmiana hasła administratora urządzenia macierzy wirtualnej StorSimple](storsimple-virtual-array-change-device-admin-password.md). |
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się więcej o tablicy wirtualnej StorSimple](storsimple-ova-overview.md).
+* [Dowiedz się więcej o macierzy wirtualnej StorSimple](storsimple-ova-overview.md).

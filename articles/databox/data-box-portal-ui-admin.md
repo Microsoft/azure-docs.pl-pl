@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259970"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Administrowanie usługą Data Box Disk w witrynie Azure Portal
@@ -55,7 +55,7 @@ Aby sklonować zamówienie, wykonaj następujące czynności.
 
 W ciągu kilku minut sklonowanie zamówienie zostanie utworzone i wyświetlone w portalu.
 
-[![Kolejność klonowania 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![Klonuj kolejność 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
 
 ## <a name="delete-order"></a>Usuwanie zamówienia
 
@@ -71,7 +71,7 @@ Można usuwać tylko zamówienia, które zostały zakończone lub anulowane. Aby
 
     ![Usuwanie zamówienia w usłudze Data Box Disk — 1](media/data-box-portal-ui-admin/delete-order1.png)
 
-3. Gdy pojawi się monit o potwierdzenie usunięcia zamówienia, podaj nazwę zamówienia. Kliknij **pozycję Usuń**.
+3. Gdy pojawi się monit o potwierdzenie usunięcia zamówienia, podaj nazwę zamówienia. Kliknij przycisk **Usuń**.
 
      ![Usuwanie zamówienia w usłudze Data Box Disk — 2](media/data-box-portal-ui-admin/delete-order2.png)
 
@@ -105,7 +105,7 @@ Aby edytować zamówienie, wykonaj następujące czynności.
 
 ## <a name="edit-notification-details"></a>Edytowanie szczegółów powiadomienia
 
-Może być konieczna zmiana danych użytkowników, którzy mają otrzymywać wiadomości e-mail z powiadomieniami o stanie zamówienia. Na przykład określony użytkownik może potrzebować informacji o dostarczeniu lub odebraniu dysku. Inny użytkownik może być konieczne poinformowani, gdy kopia danych jest kompletna, aby mogli sprawdzić, czy dane są na koncie magazynu platformy Azure przed usunięciem go ze źródła. W takich przypadkach można edytować szczegóły powiadomień.
+Może być konieczna zmiana danych użytkowników, którzy mają otrzymywać wiadomości e-mail z powiadomieniami o stanie zamówienia. Na przykład określony użytkownik może potrzebować informacji o dostarczeniu lub odebraniu dysku. Może być konieczne uzyskanie informacji o innym użytkowniku, gdy kopia danych zostanie ukończona, aby można było sprawdzić, czy dane znajdują się na koncie usługi Azure Storage, przed usunięciem go ze źródła. W takich przypadkach można edytować szczegóły powiadomień.
 
 Aby edytować szczegóły powiadomień, wykonaj następujące czynności.
 
@@ -129,7 +129,7 @@ Aby edytować szczegóły powiadomień, wykonaj następujące czynności.
 |Odebrano     | Twoje dyski zostały odebrane w centrum danych Azure. Wkrótce rozpocznie się kopiowanie danych.        |
 |Skopiowane dane     |Kopiowanie danych jest w toku.<br> Poczekaj na zakończenie kopiowania danych.         |
 |Zakończone       |Zamówienie zostało pomyślnie zrealizowane.<br> Przed usunięciem danych lokalnych z serwerów upewnij się, że Twoje dane znajdują się na platformie Azure.         |
-|Zakończone z błędami| Kopiowanie danych zostało ukończone, ale wystąpiły błędy. <br> Przejrzyj dzienniki błędów do przekazania przy użyciu ścieżki podanej w **przeglądzie**. Aby uzyskać więcej informacji, przejdź do [pobierz dzienniki błędów przesyłania](data-box-disk-troubleshoot-upload.md#download-logs).   |
+|Zakończone z błędami| Kopiowanie danych zostało ukończone, ale wystąpiły błędy. <br> Zapoznaj się z dziennikami błędów na potrzeby przekazywania, używając ścieżki podanej w **przeglądzie**. Aby uzyskać więcej informacji, przejdź do pozycji [Pobierz dzienniki błędów przekazywania](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |Anulowane            |Twoje zamówienie zostało anulowane. <br> Zamówienie mogło zostać anulowane przez Ciebie lub, w przypadku wystąpienia błędu, przez usługę.     |
 
 

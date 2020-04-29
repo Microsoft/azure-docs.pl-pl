@@ -1,6 +1,6 @@
 ---
 title: Co to jest StorSimple Snapshot Manager? | Microsoft Docs
-description: W tym artykule opisano StorSimple Snapshot Manager, jego architektury i jego funkcji.
+description: Opisuje Snapshot Manager StorSimple, jego architekturę i jej funkcje.
 services: storsimple
 documentationcenter: NA
 author: twooley
@@ -16,128 +16,128 @@ ms.date: 02/27/2017
 ms.author: twooley
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e58e2d929dd1e4db16ce495ad54045e9dc3a6fb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267419"
 ---
-# <a name="an-introduction-to-storsimple-snapshot-manager"></a>Wprowadzenie do Menedżera migawek StorSimple
+# <a name="an-introduction-to-storsimple-snapshot-manager"></a>Wprowadzenie do StorSimple Snapshot Manager
 
 ## <a name="overview"></a>Omówienie
-StorSimple Snapshot Manager to przystawka programu Microsoft Management Console (MMC), która upraszcza ochronę danych i zarządzanie kopiami zapasowymi w środowisku Microsoft Azure StorSimple. Dzięki StorSimple Snapshot Manager możesz zarządzać danymi usługi Microsoft Azure StorSimple w centrum danych i w chmurze jako pojedyncze zintegrowane rozwiązanie pamięci masowej, upraszczając w ten sposób procesy tworzenia kopii zapasowych i obniżając koszty.
+StorSimple Snapshot Manager jest przystawką programu Microsoft Management Console (MMC), która upraszcza ochronę danych i zarządzanie kopiami zapasowymi w środowisku Microsoft Azure StorSimple. Dzięki StorSimple Snapshot Manager możesz zarządzać danymi Microsoft Azure StorSimple w centrum danych i w chmurze jako jednym zintegrowanym rozwiązaniu magazynu, co upraszcza proces tworzenia kopii zapasowych i obniżanie kosztów.
 
-W tym omówieniu przedstawiono Menedżera migawek StorSimple, opisano jego funkcje i wyjaśniono jego rolę w microsoft azure storproste. 
+W tym przeglądzie wprowadzono Snapshot Manager StorSimple, opisano jej funkcje i wyjaśniono jej rolę w Microsoft Azure StorSimple. 
 
-Aby zapoznać się z omówieniem całego systemu Microsoft Azure StorSimple, w tym urządzenia StorSimple, usługi StorSimple Manager, Menedżera migawek StorSimple i karty StorSimple dla programu SharePoint, zobacz [Seria StorSimple 8000: rozwiązanie do przechowywania w chmurze hybrydowej](storsimple-overview.md). 
+Aby zapoznać się z omówieniem całego systemu Microsoft Azure StorSimple, w tym urządzenia StorSimple, StorSimple Manager Service, StorSimple Snapshot Manager i StorSimple adapter for SharePoint, zobacz [StorSimple 8000 Series: rozwiązanie hybrydowego magazynu w chmurze](storsimple-overview.md). 
 
 > [!NOTE]
-> * Nie można używać Menedżera migawek StorSimple do zarządzania macierzami wirtualnymi usługi Microsoft Azure StorSimple (nazywanymi również lokalnymi urządzeniami wirtualnymi StorSimple).
-> * Jeśli planujesz zainstalować storsimple update 2 na urządzeniu StorSimple, należy pobrać najnowszą wersję StorSimple Snapshot Manager i zainstalować go **przed zainstalowaniem StorSimple Update 2**. Najnowsza wersja StorSimple Snapshot Manager jest wstecznie kompatybilny i współpracuje ze wszystkimi wydanymi wersjami Microsoft Azure StorSimple. Jeśli używasz poprzedniej wersji StorSimple Snapshot Manager, należy go zaktualizować (nie trzeba odinstalowywać poprzedniej wersji przed zainstalowaniem nowej wersji).
+> * Nie można użyć Snapshot Manager StorSimple do zarządzania Microsoft Azure StorSimplemi macierzami wirtualnymi (znanymi również jako StorSimple lokalne urządzenia wirtualne).
+> * Jeśli planujesz zainstalować aktualizację StorSimple Update 2 na urządzeniu StorSimple, pamiętaj, aby pobrać najnowszą wersję StorSimple Snapshot Manager i zainstalować ją **przed zainstalowaniem StorSimple Update 2**. Najnowsza wersja StorSimple Snapshot Manager jest zgodna z poprzednią wersją i współpracuje ze wszystkimi wersjami Microsoft Azure StorSimple. Jeśli używasz wcześniejszej wersji programu StorSimple Snapshot Manager, musisz ją zaktualizować (nie musisz odinstalować poprzedniej wersji przed zainstalowaniem nowej wersji).
 > 
 > 
 
-## <a name="storsimple-snapshot-manager-purpose-and-architecture"></a>StorSimple Snapshot Manager — przeznaczenie i architektura
-StorSimple Snapshot Manager udostępnia centralną konsolę zarządzania, której można używać do tworzenia spójnych kopii zapasowych danych lokalnych i danych w chmurze w czasie. Na przykład można użyć konsoli do:
+## <a name="storsimple-snapshot-manager-purpose-and-architecture"></a>StorSimple Snapshot Manager cel i architektura
+StorSimple Snapshot Manager udostępnia centralną konsolę zarządzania, która służy do tworzenia spójnych kopii zapasowych danych lokalnych i w danym momencie. Można na przykład użyć konsoli programu, aby:
 
-* Konfigurowanie woluminów, ich utworzenie kopii zapasowej i usuwanie.
-* Skonfiguruj grupy woluminów, aby upewnić się, że kopie zapasowe danych są spójne z aplikacjami.
-* Zarządzanie zasadami tworzenia kopii zapasowych, tak aby kopia zapasowa danych była archiwiza w określonym harmonogramie.
-* Tworzenie migawek lokalnych i chmur, które mogą być przechowywane w chmurze i używane do odzyskiwania po awarii.
+* Konfigurowanie, tworzenie kopii zapasowych i usuwanie woluminów.
+* Skonfiguruj grupy woluminów, aby upewnić się, że kopia zapasowa danych jest spójna z aplikacją.
+* Zarządzanie zasadami tworzenia kopii zapasowych, aby utworzyć kopię zapasową danych zgodnie z ustalonym harmonogramem.
+* Twórz migawki lokalne i w chmurze, które mogą być przechowywane w chmurze i używane na potrzeby odzyskiwania po awarii.
 
-Menedżer migawek StorSimple pobiera listę aplikacji zarejestrowanych u dostawcy usługi VSS na hoście. Następnie, aby utworzyć kopie zapasowe spójne z aplikacjami, sprawdza woluminy używane przez aplikację i sugeruje grupy woluminów do skonfigurowania. StorSimple Snapshot Manager używa tych grup woluminów do generowania kopii zapasowych, które są spójne z aplikacją. (Spójność aplikacji istnieje, gdy wszystkie powiązane pliki i bazy danych są synchronizowane i reprezentują prawdziwy stan aplikacji w określonym momencie w czasie.) 
+StorSimple Snapshot Manager pobiera listę aplikacji zarejestrowanych z dostawcą usługi VSS na hoście. Następnie, aby utworzyć kopie zapasowe spójne z aplikacją, sprawdza woluminy używane przez aplikację i sugeruje grupy woluminów do skonfigurowania. StorSimple Snapshot Manager używa tych grup woluminów do generowania kopii zapasowych, które są spójne z aplikacjami. (Spójność aplikacji istnieje, gdy wszystkie powiązane pliki i bazy danych są zsynchronizowane i reprezentują prawdziwą kondycję aplikacji w określonym momencie). 
 
-StorSimple Snapshot Manager kopie zapasowe przybierają formę migawek przyrostowych, które przechwytują tylko zmiany od ostatniej kopii zapasowej. W rezultacie kopie zapasowe wymagają mniej miejsca i mogą być tworzone i przywracane szybko. StorSimple Snapshot Manager używa usługi kopiowania woluminów w tle systemu Windows (VSS), aby upewnić się, że migawki przechwytują dane spójne z aplikacją. (Aby uzyskać więcej informacji, przejdź do sekcji Integracja z usługą kopiowania woluminów systemu Windows). Za pomocą StorSimple Snapshot Manager można tworzyć harmonogramy tworzenia kopii zapasowych lub w razie potrzeby do wykonywania natychmiastowych kopii zapasowych. Jeśli chcesz przywrócić dane z kopii zapasowej, StorSimple Snapshot Manager umożliwia wybranie z katalogu migawek lokalnych lub w chmurze. Usługa Azure StorSimple przywraca tylko dane, które są potrzebne, co zapobiega opóźnieniom w dostępności danych podczas operacji przywracania.)
+StorSimple Snapshot Manager backups przyjmują postać migawek przyrostowych, które przechwytują tylko zmiany od momentu utworzenia ostatniej kopii zapasowej. W związku z tym kopie zapasowe wymagają mniejszej ilości miejsca do magazynowania i można je szybko utworzyć i przywrócić. StorSimple Snapshot Manager używa Usługa kopiowania woluminów w tle systemu Windows (VSS), aby upewnić się, że migawki przechwytują dane spójne na poziomie aplikacji. (Aby uzyskać więcej informacji, przejdź do sekcji integracja z Usługa kopiowania woluminów w tle systemu Windows). Za pomocą StorSimple Snapshot Manager można tworzyć harmonogramy tworzenia kopii zapasowych lub wykonywać natychmiastowe kopie zapasowe zgodnie z wymaganiami. Aby przywrócić dane z kopii zapasowej, StorSimple Snapshot Manager umożliwia wybranie z wykazu migawek lokalnych lub w chmurze. Usługa Azure StorSimple przywraca tylko te dane, które są niezbędne, co jest niezbędne, co zapobiega opóźnieniu dostępności danych podczas operacji przywracania.
 
-![Architektura Menedżera migawek StorSimple](./media/storsimple-what-is-snapshot-manager/HCS_SSM_Overview.png)
+![Architektura Snapshot Manager StorSimple](./media/storsimple-what-is-snapshot-manager/HCS_SSM_Overview.png)
 
-**Architektura Menedżera migawek StorSimple** 
+**Architektura Snapshot Manager StorSimple** 
 
 ## <a name="support-for-multiple-volume-types"></a>Obsługa wielu typów woluminów
-Za pomocą Menedżera migawek StorSimple można skonfigurować i wyw. 
+Za pomocą Snapshot Manager StorSimple można konfigurować i tworzyć kopie zapasowe następujących typów woluminów: 
 
 * **Woluminy podstawowe** — wolumin podstawowy to pojedyncza partycja na dysku podstawowym. 
-* **Woluminy proste** — wolumin prosty to wolumin dynamiczny, który zawiera miejsce na dysku z jednego dysku dynamicznego. Wolumin prosty składa się z pojedynczego regionu na dysku lub wielu regionów połączonych ze sobą na tym samym dysku. (Woluminy proste można tworzyć tylko na dyskach dynamicznych). Woluminy proste nie są odporne na uszkodzenia.
-* **Woluminy dynamiczne** — wolumin dynamiczny to wolumin utworzony na dysku dynamicznym. Dyski dynamiczne używają bazy danych do śledzenia informacji o woluminach, które znajdują się na dyskach dynamicznych w komputerze. 
-* **Woluminy dynamiczne z dublowaniem** — woluminy dynamiczne z dublowanie są oparte na architekturze RAID 1. W macierzy RAID 1 identyczne dane są zapisywane na dwóch lub więcej dyskach, tworząc zestaw dublowany. Żądanie odczytu może być następnie obsługiwane przez dowolny dysk, który zawiera żądane dane.
-* **Woluminy udostępnione przez klaster** — dzięki woluminom współużytkowym klastra (CSV) wiele węzłów w klastrze trybu failover może jednocześnie odczytywać lub zapisywać na tym samym dysku. Przełączenie awaryjne z jednego węzła do innego węzła może nastąpić szybko, bez konieczności zmiany własności dysku lub montażu, demontażu i usuwania woluminu. 
+* Woluminy **proste** — wolumin prosty to wolumin dynamiczny, który zawiera miejsce na dysku z pojedynczego dysku dynamicznego. Wolumin prosty składa się z jednego regionu na dysku lub wielu regionów połączonych ze sobą na tym samym dysku. (Woluminy proste można tworzyć tylko na dyskach dynamicznych). Woluminy proste nie są odporne na uszkodzenia.
+* **Woluminy dynamiczne** — wolumin dynamiczny to wolumin utworzony na dysku dynamicznym. Dyski dynamiczne używają bazy danych do śledzenia informacji o woluminach, które są zawarte na dyskach dynamicznych na komputerze. 
+* **Woluminy dynamiczne ze dublowaniem** — woluminy dynamiczne ze dublowaniem są oparte na architekturze RAID 1. W przypadku macierzy RAID 1 identyczne dane są zapisywane na co najmniej dwóch dyskach, co powoduje wygenerowanie dublowanego zestawu. Żądanie odczytu można następnie obsługiwać na dowolnym dysku zawierającym żądane dane.
+* **Woluminy udostępnione klastra** — z udostępnionymi woluminami klastra (CSV) wiele węzłów w klastrze trybu failover może jednocześnie odczytywać lub zapisywać dane na tym samym dysku. Przejście w tryb failover z jednego węzła do innego może odbywać się szybko, bez konieczności zmiany prawa własności dysku lub instalowania, odinstalowywania i usuwania woluminu. 
 
 > [!IMPORTANT]
-> Nie mieszaj csv i innych niż CSV w tej samej migawce. Mieszanie csv i innych niż CSV w migawce nie jest obsługiwane. 
+> W tej samej migawce nie należy mieszać CSV i innych niż CSV. Mieszanie CSV i innych niż CSV w migawce nie jest obsługiwane. 
 > 
 > 
 
-Za pomocą StorSimple Snapshot Manager można przywrócić całe grupy woluminów lub sklonować poszczególne woluminy i odzyskać poszczególne pliki.
+StorSimple Snapshot Manager służy do przywracania całej grupy woluminów lub klonowania poszczególnych woluminów i odzyskiwania pojedynczych plików.
 
 * [Woluminy i grupy woluminów](#volumes-and-volume-groups) 
 * [Typy kopii zapasowych i zasady tworzenia kopii zapasowych](#backup-types-and-backup-policies) 
 
-Aby uzyskać więcej informacji na temat funkcji Menedżera migawek StorSimple i sposobu ich używania, zobacz [Interfejs użytkownika StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
+Aby uzyskać więcej informacji na temat funkcji StorSimple Snapshot Manager i sposobu ich używania, zobacz [StorSimple Snapshot Manager interfejsu użytkownika](storsimple-use-snapshot-manager.md).
 
 ## <a name="volumes-and-volume-groups"></a>Woluminy i grupy woluminów
-Za pomocą StorSimple Snapshot Manager można utworzyć woluminy, a następnie skonfigurować je w grupach woluminów. 
+Program StorSimple Snapshot Manager tworzy woluminy, a następnie konfiguruje je w grupach woluminów. 
 
-StorSimple Snapshot Manager używa grup woluminów do tworzenia kopii zapasowych, które są spójne z aplikacjami. Spójność aplikacji istnieje, gdy wszystkie powiązane pliki i bazy danych są synchronizowane i reprezentują prawdziwy stan aplikacji w określonym momencie w czasie. Grupy woluminów (które są również nazywane *grupami spójności)* stanowią podstawę zadania tworzenia kopii zapasowej lub przywracania.
+StorSimple Snapshot Manager używa grup woluminów do tworzenia kopii zapasowych, które są spójne z aplikacjami. Spójność aplikacji istnieje, gdy wszystkie powiązane pliki i bazy danych są zsynchronizowane i reprezentują prawdziwą kondycję aplikacji w określonym punkcie czasu. Grupy woluminów (które są również znane jako *grupy spójności*) stanowią podstawę zadania tworzenia kopii zapasowej lub przywracania.
 
-Grupy woluminów nie są takie same jak kontenery woluminów. Kontener woluminu zawiera jeden lub więcej woluminów współużytkujących konto magazynu w chmurze i inne atrybuty, takie jak szyfrowanie i zużycie przepustowości. Kontener pojedynczego woluminu może zawierać maksymalnie 256 woluminów storaprowizowanych w sposób cienki. Aby uzyskać więcej informacji na temat kontenerów woluminów, przejdź do [witryny Zarządzanie kontenerami woluminów](storsimple-manage-volume-containers.md). Grupy woluminów to kolekcje woluminów skonfigurowane w celu ułatwienia operacji tworzenia kopii zapasowych. Jeśli wybierzesz dwa woluminy, które należą do różnych kontenerów woluminów, umieść je w jednej grupie woluminów, a następnie utworzysz zasady tworzenia kopii zapasowych dla tej grupy woluminów, kopia zapasowa każdego woluminu zostanie utworzona w odpowiednim kontenerze woluminu przy użyciu odpowiedniego konta magazynu.
+Grupy woluminów nie są takie same jak kontenery woluminów. Kontener woluminów zawiera jeden lub więcej woluminów, które współużytkują konto magazynu w chmurze i inne atrybuty, takie jak szyfrowanie i użycie przepustowości. Kontener pojedynczego woluminu może zawierać maksymalnie 256 alokowanych elastycznie woluminów StorSimple. Aby uzyskać więcej informacji na temat kontenerów woluminów, przejdź do obszaru [Zarządzanie kontenerami woluminów](storsimple-manage-volume-containers.md). Grupy woluminów są kolekcjami woluminów skonfigurowanych w celu ułatwienia operacji tworzenia kopii zapasowych. W przypadku wybrania dwóch woluminów należących do różnych kontenerów woluminów należy umieścić je w pojedynczej grupie woluminów, a następnie utworzyć zasady tworzenia kopii zapasowej dla tej grupy woluminów. kopia zapasowa każdego woluminu zostanie utworzona w odpowiednim kontenerze woluminów przy użyciu odpowiedniego konta magazynu.
 
 > [!NOTE]
 > Wszystkie woluminy w grupie woluminów muszą pochodzić od jednego dostawcy usług w chmurze.
 > 
 > 
 
-## <a name="integration-with-windows-volume-shadow-copy-service"></a>Integracja z usługą kopiowania woluminów w tle systemu Windows
-StorSimple Snapshot Manager używa usługi kopiowania woluminów w tle systemu Windows (VSS) do przechwytywania danych spójnych z aplikacją. Usługa VSS ułatwia spójność aplikacji, komunikując się z aplikacjami obsługującymi usługę VSS w celu koordynowania tworzenia migawek przyrostowych. Usługa VSS zapewnia, że aplikacje są tymczasowo nieaktywne lub spoczynkowe, gdy migawki są pobierane. 
+## <a name="integration-with-windows-volume-shadow-copy-service"></a>Integracja z systemem Windows Usługa kopiowania woluminów w tle
+StorSimple Snapshot Manager używa Usługa kopiowania woluminów w tle systemu Windows (VSS) do przechwytywania danych spójnych z zastosowaniem aplikacji. Usługa VSS ułatwia spójność aplikacji przez komunikowanie się z aplikacjami obsługującymi usługę VSS w celu koordynowania tworzenia migawek przyrostowych. Usługa VSS zapewnia, że aplikacje są tymczasowo nieaktywne lub quiescent, gdy są wykonywane migawki. 
 
-Implementacja Menedżera migawek StorSimple usługi VSS współpracuje z programem SQL Server i ogólnymi woluminami NTFS. Proces jest następujący: 
+Implementacja StorSimple Snapshot Manager usługi VSS współdziała z SQL Server i ogólnymi woluminami NTFS. Proces jest następujący: 
 
-1. Żądacz, który jest zazwyczaj rozwiązanie do zarządzania danymi i ochrony (takie jak StorSimple Snapshot Manager) lub aplikacji kopii zapasowej, wywołuje usługi VSS i prosi o zebranie informacji z oprogramowania modułu zapisującego w aplikacji docelowej.
-2. Usługa VSS kontaktuje się ze składnikiem modułu zapisującego w celu pobrania opisu danych. Moduł zapisujący zwraca opis danych, które mają być archiwizowane. 
-3. Usługa VSS sygnalizuje moduł zapisujący, aby przygotować aplikację do tworzenia kopii zapasowych. Moduł zapisujący przygotowuje dane do tworzenia kopii zapasowych, wykonując otwarte transakcje, aktualizując dzienniki transakcji i tak dalej, a następnie powiadamia usługi VSS.
-4. Usługa VSS nakazuje modułowi zapisującego tymczasowe zatrzymanie magazynów danych aplikacji i upewnienie się, że żadne dane nie są zapisywane na woluminie podczas tworzenia kopii w tle. Ten krok zapewnia spójność danych i trwa nie więcej niż 60 sekund.
-5. Usługa VSS instruuje dostawcę, aby utworzyć kopię w tle. Dostawcy, którzy mogą być oparte na oprogramowaniu lub sprzęcie, zarządzają woluminami, które są aktualnie uruchomione, i tworzą ich kopie w tle na żądanie. Dostawca tworzy kopię w tle i powiadamia vss po jej zakończeniu.
-6. Usługa VSS kontaktuje się z modułem zapisu, aby powiadomić aplikację, że operacje we/wy mogą zostać wznowione, a także potwierdzić, że operacje we/wy zostały pomyślnie wstrzymane podczas tworzenia kopii w tle. 
-7. Jeśli kopia zakończyła się pomyślnie, usługa VSS zwraca lokalizację kopii żądaczowi. 
-8. Jeśli dane zostały zapisane podczas tworzenia kopii w tle, kopia zapasowa będzie niespójna. Usługa VSS usuwa kopię w tle i powiadamia żądającego. Żądający może automatycznie powtórzyć proces tworzenia kopii zapasowej lub powiadomić administratora o ponowieniu próby w późniejszym czasie.
+1. Obiekt żądający, który jest zazwyczaj rozwiązaniem do zarządzania danymi i ich ochrony (na przykład StorSimple Snapshot Manager) lub aplikacji do tworzenia kopii zapasowych, wywołuje usługę VSS i prosi o zebranie informacji z oprogramowania zapisywania w aplikacji docelowej.
+2. Usługa VSS kontaktuje się ze składnikiem składnika zapisywania w celu pobrania opisu danych. Moduł zapisujący zwraca opis danych, których kopia zapasowa ma zostać utworzona. 
+3. Usługa VSS sygnalizuje składnik zapisywania, aby przygotować aplikację do tworzenia kopii zapasowych. Moduł zapisujący przygotowuje dane do kopii zapasowej przez wykonanie otwartych transakcji, zaktualizowanie dzienników transakcji itd., a następnie powiadamia o usłudze VSS.
+4. Usługa VSS instruuje moduł zapisujący, aby tymczasowo zatrzymał magazyny danych aplikacji, i upewnić się, że podczas tworzenia kopii w tle nie są zapisywane żadne dane na woluminie. Ten krok zapewnia spójność danych i nie przekracza 60 sekund.
+5. Usługa VSS instruuje dostawcę o utworzenie kopii w tle. Dostawcy, którzy mogą być oprogramowaniem lub sprzętowym, zarządzać aktualnie uruchomionymi woluminami i tworzyć na żądanie kopie w tle. Dostawca tworzy kopię w tle i powiadamia usługę VSS po jej zakończeniu.
+6. Usługa VSS kontaktuje się z modułem zapisywania w celu powiadomienia aplikacji o tym, że operacje we/wy można wznowić, a także potwierdzić pomyślne wstrzymanie operacji we/wy podczas tworzenia kopii w tle. 
+7. Jeśli kopia zakończyła się pomyślnie, usługa VSS zwraca lokalizację kopii do osoby żądającej. 
+8. Jeśli podczas tworzenia kopii w tle zapisano dane, kopia zapasowa nie będzie spójna. Usługa VSS usuwa kopię w tle i powiadamia obiekt żądający. Obiekt żądający może powtórzyć proces tworzenia kopii zapasowej automatycznie lub poprosić administratora o ponowne ponowienie próby.
 
-Zobacz poniższą ilustrację.
+Zapoznaj się z poniższą ilustracją.
 
-![Proces usługi VSS](./media/storsimple-what-is-snapshot-manager/HCS_SSM_VSS_process.png)
+![Proces VSS](./media/storsimple-what-is-snapshot-manager/HCS_SSM_VSS_process.png)
 
-**Proces usługi kopiowania woluminów w tle systemu Windows** 
+**Proces Usługa kopiowania woluminów w tle systemu Windows** 
 
 ## <a name="backup-types-and-backup-policies"></a>Typy kopii zapasowych i zasady tworzenia kopii zapasowych
-Za pomocą StorSimple Snapshot Manager można wyw. Za pomocą StorSimple Snapshot Manager można natychmiast wykonać kopię zapasową danych lub użyć zasad tworzenia kopii zapasowych, aby utworzyć harmonogram automatycznego wykonywania kopii zapasowych. Zasady tworzenia kopii zapasowych umożliwiają również określenie liczby migawek, które zostaną zachowane. 
+Za pomocą StorSimple Snapshot Manager można tworzyć kopie zapasowe danych i przechowywać je lokalnie i w chmurze. Można użyć Snapshot Manager StorSimple do natychmiastowego utworzenia kopii zapasowej danych lub użyć zasad tworzenia kopii zapasowej w celu utworzenia harmonogramu automatycznego wykonywania kopii zapasowych. Zasady tworzenia kopii zapasowych umożliwiają również określenie liczby zachowywanych migawek. 
 
 ### <a name="backup-types"></a>Typy kopii zapasowych
-Za pomocą StorSimple Snapshot Manager można utworzyć następujące typy kopii zapasowych:
+Za pomocą Snapshot Manager StorSimple można tworzyć następujące typy kopii zapasowych:
 
-* **Migawki lokalne** — migawki lokalne są kopie w czasie danych woluminu, które są przechowywane na urządzeniu StorSimple. Zazwyczaj ten typ kopii zapasowej można szybko utworzyć i przywrócić. Można użyć migawki lokalnej, tak jak lokalnej kopii zapasowej.
-* **Migawki chmury** — migawki chmury są kopie w czasie danych woluminów, które są przechowywane w chmurze. Migawka w chmurze jest odpowiednikiem migawki replikowanej w innym systemie magazynu poza siedzibą firmy. Migawki chmury są szczególnie przydatne w scenariuszach odzyskiwania po awarii.
+* **Migawki lokalne** — migawki lokalne to kopie danych woluminu do punktu w czasie przechowywane na urządzeniu StorSimple. Zazwyczaj ten typ kopii zapasowej można utworzyć i przywrócić szybko. Możesz użyć lokalnej migawki w taki sam sposób, jak w przypadku lokalnej kopii zapasowej.
+* **Migawki w chmurze** — migawki w chmurze to kopie danych woluminu w danym momencie, które są przechowywane w chmurze. Migawka w chmurze jest równoważna z migawką replikowaną w innym systemie magazynu poza lokacją. Migawki w chmurze są szczególnie przydatne w scenariuszach odzyskiwania po awarii.
 
 ### <a name="on-demand-and-scheduled-backups"></a>Kopie zapasowe na żądanie i zaplanowane
-Za pomocą StorSimple Snapshot Manager można zainicjować jednorazową kopię zapasową, która ma zostać utworzona natychmiast, lub użyć zasad tworzenia kopii zapasowych, aby zaplanować operacje cyklicznego tworzenia kopii zapasowych.
+Za pomocą StorSimple Snapshot Manager można zainicjować jednorazową kopię zapasową do natychmiastowego utworzenia lub można użyć zasad tworzenia kopii zapasowych, aby zaplanować cykliczne operacje tworzenia kopii zapasowych.
 
-Zasady tworzenia kopii zapasowych to zestaw reguł automatycznych, których można używać do planowania regularnych kopii zapasowych. Zasady tworzenia kopii zapasowych umożliwiają zdefiniowanie częstotliwości i parametrów do wykonywania migawek określonej grupy woluminów. Za pomocą zasad można określić daty rozpoczęcia i wygaśnięcia, godziny, częstotliwości i wymagania dotyczące przechowywania, zarówno dla migawek lokalnych, jak i w chmurze. Zasady są stosowane natychmiast po zdefiniowaniu. 
+Zasady tworzenia kopii zapasowych to zestaw zautomatyzowanych reguł, których można użyć do planowania zwykłych kopii zapasowych. Zasady tworzenia kopii zapasowych umożliwiają zdefiniowanie częstotliwości i parametrów w celu utworzenia migawek określonej grupy woluminów. Za pomocą zasad można określić daty rozpoczęcia i wygaśnięcia, czasy, częstotliwości i wymagania dotyczące przechowywania, zarówno dla migawek lokalnych, jak i w chmurze. Zasady są stosowane natychmiast po jego zdefiniowaniu. 
 
-Za pomocą StorSimple Snapshot Manager można skonfigurować lub ponownie skonfigurować zasady tworzenia kopii zapasowych w razie potrzeby. 
+W razie potrzeby można użyć Snapshot Manager StorSimple do konfigurowania lub ponownego konfigurowania zasad tworzenia kopii zapasowych. 
 
-Skonfiguruj następujące informacje dla każdej utworzonej zasady tworzenia kopii zapasowych:
+Należy skonfigurować następujące informacje dla każdej utworzonej zasady tworzenia kopii zapasowych:
 
-* **Nazwa** — unikatowa nazwa wybranej zasady tworzenia kopii zapasowych.
+* **Nazwa** — unikatowa nazwa wybranych zasad tworzenia kopii zapasowych.
 * **Typ** — typ zasad tworzenia kopii zapasowych; migawka lokalna lub migawka w chmurze.
-* **Grupa woluminów** — grupa woluminów, do której przypisano wybrane zasady tworzenia kopii zapasowej.
-* **Przechowywanie** — liczba kopii zapasowych do zachowania. Jeśli zaznaczysz pole **Wszystkie,** wszystkie kopie zapasowe są zachowywane do momentu osiągnięcia maksymalnej liczby kopii zapasowych na woluminie, w którym to momencie zasady nie powiodą się i wygenerują komunikat o błędzie. Alternatywnie można określić liczbę kopii zapasowych do zachowania (od 1 do 64).
-* **Data** — data utworzenia zasad tworzenia kopii zapasowej.
+* **Grupa woluminów** — Grupa woluminów, do której przypisane są wybrane zasady tworzenia kopii zapasowych.
+* **Przechowywanie** — liczba kopii zapasowych zachowywanych. Po zaznaczeniu pola **wszystkie** kopie zapasowe są zachowywane do momentu osiągnięcia maksymalnej liczby kopii zapasowych na wolumin, a w tym momencie zasady zakończą się niepowodzeniem i generują komunikat o błędzie. Alternatywnie możesz określić liczbę kopii zapasowych do zachowania (od 1 do 64).
+* **Data** — Data utworzenia zasad tworzenia kopii zapasowych.
 
-Aby uzyskać informacje dotyczące konfigurowania zasad tworzenia kopii zapasowych, przejdź do [tematu Tworzenie zasad tworzenia kopii zapasowych i zarządzanie nimi za pomocą Menedżera migawek StorSimple](storsimple-snapshot-manager-manage-backup-policies.md).
+Aby uzyskać informacje o konfigurowaniu zasad tworzenia kopii zapasowych, przejdź do [StorSimple Snapshot Manager do tworzenia zasad tworzenia kopii zapasowych i zarządzania nimi](storsimple-snapshot-manager-manage-backup-policies.md).
 
-### <a name="backup-job-monitoring-and-management"></a>Monitorowanie zadań tworzenia kopii zapasowych i zarządzanie nimi
-Menedżer migawek StorSimple służy do monitorowania nadchodzących, zaplanowanych i ukończonych zadań tworzenia kopii zapasowych oraz zarządzania nimi. Ponadto StorSimple Snapshot Manager udostępnia katalog do 64 ukończonych kopii zapasowych. Za pomocą katalogu można znaleźć i przywrócić woluminy lub pojedyncze pliki. 
+### <a name="backup-job-monitoring-and-management"></a>Monitorowanie i zarządzanie zadaniami tworzenia kopii zapasowej
+Snapshot Manager StorSimple służy do monitorowania nadchodzących, zaplanowanych i zakończonych zadań tworzenia kopii zapasowych oraz zarządzania nimi. Ponadto StorSimple Snapshot Manager udostępnia wykaz do 64 ukończonych kopii zapasowych. Wykazu można używać do znajdowania i przywracania woluminów lub pojedynczych plików. 
 
-Aby uzyskać informacje dotyczące monitorowania zadań tworzenia kopii zapasowych, przejdź do punktu [Użyj Menedżera migawek StorSimple, aby wyświetlić zadania tworzenia kopii zapasowych i zarządzać nimi.](storsimple-snapshot-manager-manage-backup-jobs.md)
+Aby uzyskać informacje o monitorowaniu zadań tworzenia kopii zapasowych, przejdź do [StorSimple Snapshot Manager do wyświetlania zadań tworzenia kopii zapasowych i zarządzania nimi](storsimple-snapshot-manager-manage-backup-jobs.md).
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [administrowaniu rozwiązaniem StorSimple za pomocą Menedżera migawek StorSimple.](storsimple-snapshot-manager-admin.md)
-* Pobierz [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
+* Dowiedz się więcej o [korzystaniu z usługi StorSimple Snapshot Manager do administrowania rozwiązaniem StorSimple](storsimple-snapshot-manager-admin.md).
+* Pobierz [Snapshot Manager StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 

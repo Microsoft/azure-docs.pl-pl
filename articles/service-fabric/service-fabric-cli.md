@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 46c5e1ed0a1d0db100c3415c40f59d46f62b21f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258943"
 ---
 # <a name="azure-service-fabric-cli"></a>Interfejs wiersza polecenia usługi Azure Service Fabric
@@ -22,7 +22,7 @@ Interfejs wiersza polecenia usługi Azure Service Fabric jest narzędziem wiersz
 
 Przed instalacją upewnij się, że w środowisku zainstalowano zarówno język Python, jak i narzędzie pip. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją Szybki start dotyczącą narzędzia pip](https://pip.pypa.io/en/latest/quickstart/) i oficjalną [dokumentacją dotyczącą instalowania języka Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-Interfejs wiersza polecenia obsługuje wersje Python 2.7, 3.5, 3.6 i 3.7. Python 3.x jest zalecaną wersją, ponieważ Python 2.7 wkrótce dotrze do końca wsparcia.
+Interfejs wiersza polecenia obsługuje środowisko Python w wersji 2,7, 3,5, 3,6 i 3,7. Zalecana wersja to Python 3. x, ponieważ środowisko Python 2,7 wkrótce osiągnie koniec wsparcia.
 
 ### <a name="service-fabric-target-runtime"></a>Docelowe środowisko uruchomieniowe usługi Service Fabric
 
@@ -30,7 +30,7 @@ Interfejs wiersza polecenia usługi Service Fabric jest przeznaczony do obsługi
 
 | Wersja interfejsu wiersza polecenia   | Obsługiwana wersja środowiska uruchomieniowego |
 |---------------|---------------------------|
-| Najnowsze (~=9)  | Najnowsze (~=7)              |
+| Najnowsze (~ = 9)  | Najnowsze (~ = 7)              |
 | 8.0.0         | 6.5                       |
 | 7.1.0         | 6.4                       |
 | 6.0.0         | 6.3                       |
@@ -57,11 +57,11 @@ Dostępnych jest szereg sposobów instalowania narzędzia pip i środowiska Pyth
 
 W przypadku systemów Windows 10, Windows Server 2016 i Windows Server 2012 R2 należy postępować zgodnie z oficjalnymi instrukcjami standardowej instalacji. Instalator środowiska Python domyślnie instaluje też narzędzie pip.
 
-1. Przejdź do oficjalnej [strony pobierania Pythona](https://www.python.org/downloads/)i pobierz najnowszą wersję Pythona 3.7.
+1. Przejdź do oficjalnej [strony pobierania środowiska Python](https://www.python.org/downloads/)i Pobierz najnowszą wersję środowiska Python 3,7.
 
 2. Uruchom instalatora.
 
-3. U dołu monitu wybierz pozycję **Dodaj Python 3.7 do PATH**.
+3. W dolnej części monitu wybierz pozycję **Dodaj język Python 3,7 do ścieżki**.
 
 4. Wybierz pozycję **Install Now (Zainstaluj teraz)** i dokończ instalację.
 
@@ -72,7 +72,7 @@ python --version
 pip --version
 ```
 
-Następnie uruchom następujące polecenie, aby zainstalować interfejsu wiersza polecenia sieci szkieletowej usługi Azure (sfctl) i wyświetlić stronę pomocy interfejsu wiersza polecenia:
+Następnie uruchom następujące polecenie, aby zainstalować interfejs wiersza polecenia platformy Azure Service Fabric (sfctl) i wyświetlić stronę pomocy interfejsu wiersza polecenia:
 
 ```shell
 pip install sfctl
@@ -114,7 +114,7 @@ sudo pip3 install sfctl
 
 ### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (obsługa wersji zapoznawczej usługi Service Fabric)
 
-Aby zainstalować interfejsu wiersza polecenia sieci szkieletowej usług w red hat, uruchom następujące polecenia:
+Aby zainstalować interfejs wiersza polecenia Service Fabric na Red Hat, uruchom następujące polecenia:
 
 ```bash
 sudo yum install -y python34
@@ -123,7 +123,7 @@ sudo easy_install-3.4 pip
 sudo pip3 install sfctl
 ```
 
-Aby przetestować instalację, można zapoznać się z krokami wymienionymi w sekcji **Ubuntu i Windows dla systemu Linux**
+W celu przetestowania instalacji można zapoznać się z krokami opisanymi w sekcji **Ubuntu i podsystem Windows dla systemu Linux** .
 
 <a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
@@ -134,7 +134,7 @@ W przypadku systemu MacOS zaleca się użycie [menedżera pakietów HomeBrew](ht
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Następnie z terminala zainstaluj Python 3.7, pip i interfejs wiersza polecenia sieci szkieletowej usług, uruchamiając następujące polecenia:
+Następnie z terminalu zainstaluj środowisko Python 3,7, PIP i interfejs wiersza polecenia Service Fabric, uruchamiając następujące polecenia:
 
 ```bash
 brew install python3
@@ -240,7 +240,7 @@ Sprawdź, czy punkt końcowy określonego klastra jest dostępny i przeprowadza 
 
 ### <a name="detailed-logs"></a>Szczegółowe dzienniki
 
-Szczegółowe dzienniki często bywają przydatne w przypadku debugowania lub zgłaszania problemu. Flaga `--debug` zwiększa szczegółowość danych wyjściowych.
+Szczegółowe dzienniki często bywają przydatne w przypadku debugowania lub zgłaszania problemu. `--debug` Flaga zwiększa poziom szczegółowości danych wyjściowych.
 
 ### <a name="command-help-and-syntax"></a>Polecenia — pomoc i składnia
 

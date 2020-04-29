@@ -1,130 +1,130 @@
 ---
 title: Wprowadzenie do usługi Azure Advisor
-description: Wprowadzenie do usługi Azure Advisor.
+description: Rozpocznij pracę z Azure Advisor.
 ms.topic: article
 ms.date: 02/01/2019
 ms.openlocfilehash: 8c2699030b1a6d428ddc2a4db40a66003824cf10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259632"
 ---
 # <a name="get-started-with-azure-advisor"></a>Wprowadzenie do usługi Azure Advisor
 
-Dowiedz się, jak uzyskać dostęp do klasyfikatora za pośrednictwem witryny Azure portal, uzyskać zalecenia i zaimplementować zalecenia.
+Dowiedz się, jak uzyskać dostęp do usługi Advisor za pomocą Azure Portal, uzyskać rekomendacje i zaimplementować zalecenia.
 
 > [!NOTE]
-> Usługa Azure Advisor jest automatycznie uruchamiana w tle w celu znalezienia nowo utworzonych zasobów. Dostarczenie zaleceń dotyczących tych zasobów może potrwać do 24 godzin.
+> Azure Advisor automatycznie uruchamiane w tle w celu znalezienia nowo utworzonych zasobów. Udostępnienie zaleceń dotyczących tych zasobów może potrwać do 24 godzin.
 
-## <a name="get-recommendations"></a>Uzyskaj rekomendacje
+## <a name="get-recommendations"></a>Pobierz zalecenia
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. W lewym okienku kliknij pozycję **Doradca**.  Jeśli w lewym okienku nie widać funkcji Doradca, kliknij pozycję **Wszystkie usługi**.  W okienku menu usługi w obszarze **Monitorowanie i zarządzanie**kliknij pozycję **Doradca**. Zostanie wyświetlony pulpit nawigacyjny doradcy.
+1. W lewym okienku kliknij pozycję **Advisor**.  Jeśli usługa Advisor nie jest widoczna w okienku po lewej stronie, kliknij pozycję **wszystkie usługi**.  W okienku menu usługi w obszarze **monitorowanie i zarządzanie**kliknij pozycję **Advisor**. Zostanie wyświetlony pulpit nawigacyjny usługi Advisor.
 
-   ![Uzyskiwanie dostępu do usługi Azure Advisor przy użyciu witryny Azure portal](./media/advisor-get-started/advisor-portal-menu.png) 
+   ![Azure Advisor dostępu przy użyciu Azure Portal](./media/advisor-get-started/advisor-portal-menu.png) 
 
 1. Na pulpicie nawigacyjnym usługi Advisor zostanie wyświetlone podsumowanie zaleceń dla wszystkich wybranych subskrypcji.  Możesz wybrać subskrypcje, do których mają być wyświetlane zalecenia, przy użyciu listy rozwijanej filtru subskrypcji.
 
-1. Aby uzyskać zalecenia dotyczące określonej kategorii, kliknij jedną z kart: **Wysoka dostępność,** **Bezpieczeństwo,** **Wydajność**lub **Koszt**. 
+1. Aby uzyskać zalecenia dotyczące określonej kategorii, kliknij jedną z kart: **wysoka dostępność**, **zabezpieczenia**, **wydajność**lub **koszt**. 
 
-   ![Pulpit nawigacyjny usługi Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
+   ![Pulpit nawigacyjny Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 
-## <a name="get-recommendation-details-and-implement-a-solution"></a>Uzyskaj szczegółowe informacje o rekomendacji i zaimplementuj rozwiązanie
+## <a name="get-recommendation-details-and-implement-a-solution"></a>Pobierz szczegóły rekomendacji i zaimplementuj rozwiązanie
 
-Można wybrać zalecenie w programie Advisor, aby wyświetlić dodatkowe szczegóły — takie jak akcje rekomendacji i zasoby, których dotyczy problem — i wdrożyć rozwiązanie do zalecenia.  
+Możesz wybrać rekomendację w usłudze Advisor, aby wyświetlić dodatkowe szczegóły, takie jak akcje rekomendacji i zasoby, których dotyczy problem, i wdrożyć rozwiązanie do zalecenia.  
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com), a następnie otwórz [program Advisor](https://aka.ms/azureadvisordashboard).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), a następnie otwórz program [Advisor](https://aka.ms/azureadvisordashboard).
 
-1. Wybierz kategorię rekomendacji, aby wyświetlić listę rekomendacji w tej kategorii, lub wybierz kartę **Wszystkie,** aby wyświetlić wszystkie rekomendacje.
+1. Wybierz kategorię rekomendacji, aby wyświetlić listę zaleceń w tej kategorii, lub wybierz kartę **wszystkie** , aby wyświetlić wszystkie zalecenia.
 
-1. Kliknij zalecenie, które chcesz szczegółowo przejrzeć.
+1. Kliknij zalecenie, które chcesz przejrzeć szczegółowo.
 
-1. Przejrzyj informacje o zaleceniu i zasobach, których dotyczy zalecenie.
+1. Zapoznaj się z informacjami na temat zalecenia i zasobów, których dotyczy zalecenie.
 
-1. Kliknij **polecane działanie,** aby wdrożyć zalecenie.
+1. Kliknij **zalecaną akcję** , aby zaimplementować zalecenie.
 
-## <a name="filter-recommendations"></a>Zalecenia dotyczące filtrowania
+## <a name="filter-recommendations"></a>Zaleceń filtru
 
-Możesz filtrować zalecenia, aby przejść do szczegółów, co jest dla Ciebie najważniejsze.  Można filtrować według subskrypcji, typu zasobu lub stanu rekomendacji.  
+Możesz filtrować zalecenia, aby przejść do szczegółów najważniejszych dla Ciebie.  Można filtrować według subskrypcji, typu zasobu lub stanu rekomendacji.  
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com), a następnie otwórz [program Advisor](https://aka.ms/azureadvisordashboard).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), a następnie otwórz program [Advisor](https://aka.ms/azureadvisordashboard).
 
-1. Listy rozwijane na pulpicie nawigacyjnym klasyfikatora można filtrować według subskrypcji, typu zasobu lub stanu rekomendacji.
+1. Użyj listy rozwijanej na pulpicie nawigacyjnym klasyfikatora, aby filtrować według subskrypcji, typu zasobu lub stanu rekomendacji.
 
-    ![Kryteria filtrowania wyszukiwania doradcy](./media/advisor-get-started/advisor-filters.png)
+    ![Wyszukiwanie w usłudze Advisor — kryteria filtrowania](./media/advisor-get-started/advisor-filters.png)
 
-## <a name="postpone-or-dismiss-recommendations"></a>Odroczenie lub odrzucenie zaleceń
+## <a name="postpone-or-dismiss-recommendations"></a>Odłożenie lub Odrzuć rekomendacje
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com), a następnie otwórz [program Advisor](https://aka.ms/azureadvisordashboard).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), a następnie otwórz program [Advisor](https://aka.ms/azureadvisordashboard).
 
-1. Przejdź do zalecenia, które chcesz odroczyć lub odrzucić.
+1. Przejdź do zalecenia, które chcesz odłożyć lub odrzucić.
 
 1. Kliknij zalecenie.
 
-1. Kliknij pozycję **Odłóż**. 
+1. Kliknij przycisk **Odłóż**. 
 
-1. Określ odroczenie okresu lub wybierz **opcję Nigdy,** aby odrzucić zalecenie.
+1. Określ przedział czasu odroczenia lub wybierz pozycję **nigdy nie** należy odrzucić zalecenia.
 
-## <a name="exclude-subscriptions-or-resource-groups"></a>Wykluczanie subskrypcji lub grup zasobów
+## <a name="exclude-subscriptions-or-resource-groups"></a>Wyklucz subskrypcje lub grupy zasobów
 
-Możesz mieć grupy zasobów lub subskrypcje, dla których nie chcesz otrzymywać zaleceń klasyfikatora — takich jak zasoby "testowe".  Klasyfikatora można skonfigurować tak, aby wygenerował tylko zalecenia dotyczące określonych subskrypcji i grup zasobów.
+Mogą istnieć grupy zasobów lub subskrypcje, dla których nie ma potrzeby otrzymywania zaleceń klasyfikatora — na przykład zasobów "test".  Usługę Advisor można skonfigurować tak, aby generować tylko zalecenia dotyczące określonych subskrypcji i grup zasobów.
 
 > [!NOTE]
-> Aby uwzględnić lub wykluczyć subskrypcję lub grupę zasobów z klasyfikatora, musisz być właścicielem subskrypcji.  Jeśli nie masz wymaganych uprawnień dla subskrypcji lub grupy zasobów, opcja włączenia lub wykluczenia jest wyłączona w interfejsie użytkownika.
+> Aby dołączyć lub wykluczyć subskrypcję lub grupę zasobów z usługi Advisor, musisz być właścicielem subskrypcji.  Jeśli nie masz wymaganych uprawnień dla subskrypcji lub grupy zasobów, opcja dołączania lub wykluczania jest wyłączona w interfejsie użytkownika.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com), a następnie otwórz [program Advisor](https://aka.ms/azureadvisordashboard).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), a następnie otwórz program [Advisor](https://aka.ms/azureadvisordashboard).
 
-1. Kliknij **pozycję Konfiguruj** na pasku akcji.
+1. Na pasku akcji kliknij pozycję **Konfiguruj** .
 
-1. Odznacz wszystkie subskrypcje lub grupy zasobów, dla których nie chcesz otrzymywać zaleceń klasyfikatora.
+1. Usuń zaznaczenie wszystkich subskrypcji lub grup zasobów, dla których nie chcesz otrzymywać zaleceń usługi Advisor.
 
-    ![Przykład konfigurowania zasobów przez doradcę](./media/advisor-get-started/advisor-configure-resources.png)
+    ![Przykład konfigurowania zasobów usługi Advisor](./media/advisor-get-started/advisor-configure-resources.png)
 
 1. Następnie kliknij przycisk **Apply** (Zastosuj).
 
-## <a name="configure-low-usage-vm-recommendation"></a>Konfigurowanie rekomendacji maszyny wirtualnej o niskim zużyciu
+## <a name="configure-low-usage-vm-recommendation"></a>Konfigurowanie rekomendacji o niskim użyciu maszyny wirtualnej
 
-Ta procedura konfiguruje regułę średniego wykorzystania procesora CPU dla zalecenia maszyny wirtualnej niskiego użycia.
+Ta procedura służy do konfigurowania średniej reguły użycia procesora CPU dla zalecenia dotyczącego niskiego użycia maszyn wirtualnych.
 
-Doradca monitoruje użycie maszyny wirtualnej przez 7 dni, a następnie identyfikuje maszyny wirtualne o niskim wykorzystaniu. Maszyny wirtualne są uważane za niskie wykorzystanie, jeśli ich wykorzystanie procesora CPU wynosi 5% lub mniej, a ich wykorzystanie sieci jest mniejsze niż 2% lub jeśli bieżące obciążenie może być uwzględnione przez mniejszy rozmiar maszyny wirtualnej.
+Usługa Advisor monitoruje użycie maszyn wirtualnych przez 7 dni, a następnie identyfikuje maszyny wirtualne o niskiej przepustowości. Maszyny wirtualne są uznawane za niskie wykorzystanie, jeśli ich użycie procesora CPU wynosi 5% lub mniej, a ich użycie sieci jest mniejsze niż 2% lub jeśli bieżące obciążenie może być dostosowane do mniejszego rozmiaru maszyny wirtualnej.
 
-Jeśli chcesz być bardziej agresywny w identyfikowaniu maszyn wirtualnych o niskim użyciu, można dostosować regułę średniego wykorzystania procesora CPU na podstawie subskrypcji.  Regułę wykorzystania procesora CPU można ustawić na 5%, 10%, 15% lub 20%.
+Jeśli chcesz bardziej agresywnie identyfikować maszyny wirtualne o niskim zużyciu, możesz dostosować średnią regułę użycia procesora CPU dla każdej subskrypcji.  Reguła użycia procesora CPU może być ustawiona na 5%, 10%, 15% lub 20%.
 
 > [!NOTE]
-> Aby dostosować regułę średniego wykorzystania procesora CPU do identyfikowania maszyn wirtualnych o niskim zużyciu, musisz być *właścicielem*subskrypcji .  Jeśli nie masz wymaganych uprawnień dla subskrypcji lub grupy zasobów, opcja włączenia lub wykluczenia zostanie wyłączona w interfejsie użytkownika. 
+> Aby dostosować średnią regułę użycia procesora CPU do identyfikowania maszyn wirtualnych o niskim zużyciu, musisz być *właścicielem*subskrypcji.  Jeśli nie masz wymaganych uprawnień dla subskrypcji lub grupy zasobów, opcja dołączania lub wykluczania zostanie wyłączona w interfejsie użytkownika. 
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com), a następnie otwórz [program Advisor](https://aka.ms/azureadvisordashboard).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), a następnie otwórz program [Advisor](https://aka.ms/azureadvisordashboard).
 
-1. Kliknij **pozycję Konfiguruj** na pasku akcji.
+1. Na pasku akcji kliknij pozycję **Konfiguruj** .
 
-1. Kliknij kartę **Reguły.**
+1. Kliknij kartę **reguły** .
 
-1. Wybierz subskrypcje, dla których chcesz dostosować średnią regułę wykorzystania procesora, a następnie kliknij przycisk **Edytuj**.
+1. Wybierz subskrypcje, dla których chcesz dostosować średnią regułę użycia procesora CPU, a następnie kliknij przycisk **Edytuj**.
 
-1. Wybierz żądaną średnią wartość wykorzystania procesora CPU i kliknij przycisk **Zastosuj**.
+1. Wybierz żądaną wartość średniego użycia procesora CPU, a następnie kliknij przycisk **Zastosuj**.
 
-1. Kliknij przycisk **Odśwież zalecenia,** aby zaktualizować istniejące zalecenia, aby użyć nowej reguły średniego wykorzystania procesora CPU. 
+1. Kliknij przycisk **Odśwież zalecenia** , aby zaktualizować istniejące zalecenia, aby użyć nowej zasady średniego użycia procesora CPU. 
 
-   ![Przykład reguł konfigurowania przez doradcę](./media/advisor-get-started/advisor-configure-rules.png)
+   ![Przykład konfigurowania reguł rekomendacji usługi Advisor](./media/advisor-get-started/advisor-configure-rules.png)
 
-## <a name="download-recommendations"></a>Zalecenia dotyczące pobierania
+## <a name="download-recommendations"></a>Pobierz zalecenia
 
-Program Advisor umożliwia pobranie podsumowania rekomendacji.  Rekomendacje można pobrać jako plik PDF lub CSV.  Pobieranie rekomendacji umożliwia łatwe udostępnianie współpracownikom lub przeprowadzanie własnej analizy na podstawie danych rekomendacji.
+Program Advisor umożliwia pobranie podsumowania zaleceń.  Zalecenia można pobrać w postaci pliku PDF lub pliku CSV.  Pobranie zaleceń pozwala łatwo udostępniać współpracownikom lub przeprowadzać własne analizy na podstawie danych rekomendacji.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com), a następnie otwórz [program Advisor](https://aka.ms/azureadvisordashboard).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), a następnie otwórz program [Advisor](https://aka.ms/azureadvisordashboard).
 
-1. Kliknij **pozycję Pobierz jako CSV** lub Pobierz jako plik **PDF** na pasku akcji.
+1. Kliknij pozycję **Pobierz jako wolumin CSV** lub **Pobierz jako plik PDF** na pasku akcji.
 
-Opcja pobierania jest zgodna z wszelkimi filtrami zastosowanymi do pulpitu nawigacyjnego klasyfikatora.  Jeśli wybierzesz opcję pobierania podczas wyświetlania określonej kategorii rekomendacji lub rekomendacji, pobrane podsumowanie zawiera tylko informacje dotyczące tej kategorii lub zalecenia. 
+Opcja pobierania uwzględnia wszystkie filtry, które zostały zastosowane do pulpitu nawigacyjnego usługi Advisor.  W przypadku wybrania opcji pobierania podczas wyświetlania określonej kategorii lub rekomendacji rekomendacji pobrane podsumowanie zawiera informacje dotyczące tej kategorii lub rekomendacji. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o doradcy, zobacz:
+Aby dowiedzieć się więcej na temat usługi Advisor, zobacz:
 
-- [Wprowadzenie do usługi Azure Advisor](advisor-overview.md)
-- [Zalecenia dotyczące wysokiej dostępności advisor](advisor-high-availability-recommendations.md)
-- [Zalecenia dotyczące zabezpieczeń doradcy](advisor-security-recommendations.md)
-- [Zalecenia dotyczące wydajności doradcy](advisor-performance-recommendations.md)
-- [Rekomendacje dotyczące kosztów doradcy](advisor-performance-recommendations.md)
+- [Wprowadzenie do Azure Advisor](advisor-overview.md)
+- [Zalecenia dotyczące wysokiej dostępności usługi Advisor](advisor-high-availability-recommendations.md)
+- [Zalecenia dotyczące zabezpieczeń usługi Advisor](advisor-security-recommendations.md)
+- [Zalecenia dotyczące wydajności usługi Advisor](advisor-performance-recommendations.md)
+- [Zalecenia dotyczące kosztów usługi Advisor](advisor-performance-recommendations.md)

@@ -1,81 +1,81 @@
 ---
-title: Wprowadzenie do modelu zasobów sieci szkieletowej usług Azure
-description: Dowiedz się więcej o modelu zasobów sieci szkieletowej usług, uproszczone podejście do definiowania aplikacji sieci szkieletowej sieci szkieletowej usług.
+title: Wprowadzenie do modelu zasobów usługi Azure Service Fabric
+description: Dowiedz się więcej o modelu zasobów Service Fabric — uproszczone podejście do definiowania aplikacji Service Fabric siatki.
 author: vturecek
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 0ae2ed163560aee4c0c3525ab31910e37afaa5b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259138"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Wprowadzenie do modelu zasobów usługi Service Fabric
 
-Model zasobów sieci szkieletowej usług opisuje proste podejście do definiowania zasobów, które składają się na aplikację siatki sieci szkieletowej usług. Poszczególne zasoby można wdrożyć w dowolnym środowisku sieci szkieletowej usług.  Model zasobów sieci szkieletowej usług jest również zgodny z modelem usługi Azure Resource Manager. Następujące typy zasobów są obecnie obsługiwane w tym modelu:
+Model zasobów Service Fabric opisuje proste podejście do definiowania zasobów, które składają się na aplikację Service Fabric siatką. Poszczególne zasoby można wdrożyć w dowolnym środowisku Service Fabric.  Model zasobów Service Fabric jest również zgodny z modelem Azure Resource Manager. Następujące typy zasobów są obecnie obsługiwane w tym modelu:
 
 - Aplikacje i usługi
 - Sieci
 - Bramy
-- Wpisy tajne/wartości
+- Wpisy tajne i wpisy tajne/wartości
 - Woluminy
 
-Każdy zasób jest opisany deklaratywnie w pliku zasobów, który jest prostym dokumentem YAML lub JSON, który opisuje aplikację siatki i jest aprowizowana przez platformę sieci szkieletowej usług.
+Każdy zasób jest szczegółowo opisany w pliku zasobów, który jest prostym dokumentem YAML lub JSON opisującym aplikację siatkową i jest obsługiwany przez platformę Service Fabric.
 
 ## <a name="applications-and-services"></a>Aplikacje i usługi
 
-Zasób aplikacji jest jednostką wdrożenia, przechowywania wersji i okresu istnienia aplikacji Mesh. Składa się z jednego lub więcej zasobów usługi, które reprezentują mikrousługi. Każdy zasób usługi z kolei składa się z jednego lub więcej pakietów kodu, które opisują wszystko, co potrzebne do uruchomienia obrazu kontenera skojarzonego z pakietem kodu.
+Zasób aplikacji jest jednostką wdrożenia, przechowywaniem wersji i okresem istnienia aplikacji siatki. Składa się z jednego lub więcej zasobów usług, które reprezentują mikrousługi. Każdy zasób usługi z kolei składa się z jednego lub więcej pakietów kodu, które opisują wszystko, czego potrzebujesz do uruchomienia obrazu kontenera skojarzonego z pakietem kodu.
 
 ![Aplikacje i usługi][Image1]
 
-Zasób usługi deklaruje, co następuje:
+Zasób usługi deklaruje następujące kwestie:
 
-- Nazwa kontenera, wersja i rejestr
+- Nazwa, wersja i rejestr kontenera
 - Zasoby procesora i pamięci wymagane dla każdego kontenera
-- Sieciowe punkty końcowe
+- Punkty końcowe sieci
 - Odwołania do innych zasobów, takich jak sieci, woluminy i wpisy tajne 
 
-Wszystkie pakiety kodu zdefiniowane jako część zasobu usługi są wdrażane i aktywowane razem jako grupa. Zasób usługi opisuje również, ile wystąpień usługi do uruchomienia, a także odwołuje się do innych zasobów (na przykład zasobów sieciowych), od których zależy.
+Wszystkie pakiety kodu zdefiniowane w ramach zasobu usługi są wdrażane i uaktywniane razem jako Grupa. Zasób usługi zawiera również informacje o liczbie wystąpień usługi do uruchomienia, a także odwołuje się do innych zasobów (na przykład zasobów sieciowych), od których zależy.
 
-Jeśli aplikacja siatki składa się z więcej niż jednej usługi, nie są one gwarantowane do uruchamiania razem w tym samym węźle. Ponadto podczas uaktualniania Aplikacji niepowodzenie uaktualnienia pojedynczej Usługi spowoduje przywrócenie wszystkich Usług do poprzedniej wersji.
+Jeśli aplikacja siatkowa składa się z więcej niż jednej usługi, nie ma gwarancji, że są one uruchamiane w tym samym węźle. Ponadto podczas uaktualniania aplikacji Niepowodzenie uaktualnienia pojedynczej usługi spowoduje przywrócenie wszystkich usług z powrotem do ich poprzedniej wersji.
 
-Jak nawiązywał wcześniej, cykl życia każdego wystąpienia aplikacji można zarządzać niezależnie. Na przykład jedno wystąpienie aplikacji można uaktualnić niezależnie od innych wystąpień aplikacji. Zazwyczaj liczba usług w aplikacji jest dość mała, ponieważ im więcej usług zostanie wprowadzonych do aplikacji, tym trudniej będzie zarządzać każdą usługą niezależnie.
+Jak sugerowali wcześniej, cykl życia każdego wystąpienia aplikacji może być zarządzany niezależnie. Na przykład jedno wystąpienie aplikacji można uaktualnić niezależnie od innych wystąpień aplikacji. Zazwyczaj liczba usług w aplikacji jest dość mała, ponieważ im więcej usług zostało umieszczonych w aplikacji, tym trudniejsze jest zarządzanie każdą usługą niezależnie.
 
 ## <a name="networks"></a>Sieci
 
-Zasób sieciowy jest indywidualnie wdrażany zasób, niezależnie od aplikacji lub usługi zasobu, który może odnosić się do niego jako ich zależności. Służy do tworzenia sieci dla aplikacji. Wiele usług z różnych aplikacji może być częścią tej samej sieci.  Aby uzyskać więcej informacji, przeczytaj artykuł o [sieci w aplikacjach sieci szkieletowej usług](service-fabric-mesh-networks-and-gateways.md).
+Zasób sieciowy jest indywidualnie wdrażany zasób, niezależnie od zasobu aplikacji lub usługi, który może odwoływać się do niego jako zależność. Służy do tworzenia sieci dla aplikacji. Wiele usług z różnych aplikacji może być częścią tej samej sieci.  Aby uzyskać więcej informacji, zapoznaj się z tematem [Obsługa sieci w aplikacjach Service Fabric siatki](service-fabric-mesh-networks-and-gateways.md).
 
 > [!NOTE]
 > Bieżąca wersja zapoznawcza obsługuje tylko mapowanie jeden do jednego między aplikacjami i sieciami
 
-![Sieć i brama][Image2]
+![Sieć i Brama][Image2]
 
 ## <a name="gateways"></a>Bramy
-Zasób bramy łączy dwie sieci i kieruje ruch.  Brama umożliwia usługom komunikowanie się z klientami zewnętrznymi i zapewnia przychylić się do usług.  Brama może być również używana do łączenia aplikacji Mesh z własną istniejącą siecią wirtualną. Aby uzyskać więcej informacji, przeczytaj artykuł o [sieci w aplikacjach sieci szkieletowej usług](service-fabric-mesh-networks-and-gateways.md).
+Zasób bramy łączy dwie sieci i kieruje ruchem.  Brama umożliwia usługom komunikowanie się z klientami zewnętrznymi i zapewnia ruch przychodzący do usług.  Bramy można również używać do łączenia aplikacji siatkowej z własną istniejącą siecią wirtualną. Aby uzyskać więcej informacji, zapoznaj się z tematem [Obsługa sieci w aplikacjach Service Fabric siatki](service-fabric-mesh-networks-and-gateways.md).
 
-![Sieć i brama][Image2]
+![Sieć i Brama][Image2]
 
 ## <a name="secrets"></a>Wpisy tajne
 
-Zasoby wpisowe można wdrożyć niezależnie od aplikacji lub zasobu usługi, które mogą odnosić się do niego jako ich zależności. Służy do bezpiecznego dostarczania wpisów tajnych do aplikacji. Wiele usług z różnych aplikacji można odwoływać się do wartości tego samego klucza tajnego.
+Zasoby tajne są wdrażane niezależnie od zasobów aplikacji lub usług, które mogą odwoływać się do niej w zależności od siebie. Służy do bezpiecznego dostarczania wpisów tajnych do aplikacji. Wiele usług z różnych aplikacji może odwoływać się do wartości tego samego klucza tajnego.
 
 ## <a name="volumes"></a>Woluminy
 
-Kontenery często udostępniają dyski tymczasowe. Dyski tymczasowe są jednak efemeryczne, więc otrzymasz nowy dysk tymczasowy i utracisz informacje, gdy kontener ulegnie awarii. Jest również trudne do udostępniania informacji na dyskach tymczasowych z innymi kontenerami. Woluminy są katalogi, które są zainstalowane wewnątrz wystąpień kontenera, które można użyć do utrwalenia stanu. Woluminy zapewniają magazyn plików ogólnego przeznaczenia i umożliwiają odczytywanie/zapisywanie plików przy użyciu zwykłych interfejsów API plików we/wy dysku. Zasób woluminu jest deklaratywny sposób, aby opisać, jak katalog jest zainstalowany i magazynu zapasowego dla niego (albo Wolumin azure files lub sieci szkieletowej usługi niezawodny wolumin).  Aby uzyskać więcej informacji, przeczytaj [stan przechowywania](service-fabric-mesh-storing-state.md#volumes).
+Kontenery często udostępniają dyski tymczasowe. Dyski tymczasowe są nieulotne, jednak dzięki temu otrzymujesz nowy dysk tymczasowy i utracisz informacje w przypadku awarii kontenera. Trudno jest również udostępniać informacje na dyskach tymczasowych innym kontenerom. Woluminy są katalogami, które są instalowane w ramach wystąpień kontenera, których można użyć do utrwalania stanu. Woluminy zapewniają magazyn plików ogólnego przeznaczenia i umożliwiają odczytywanie i zapisywanie plików przy użyciu standardowych interfejsów API plików we/wy dysku. Zasób woluminu jest deklaratywnym sposobem opisywania sposobu, w jaki katalog jest zainstalowany, oraz magazynu zapasowego dla niego (Azure Files wolumin lub Service Fabric niezawodny wolumin).  Aby uzyskać więcej informacji, przeczytaj artykuł [przechowywanie stanu](service-fabric-mesh-storing-state.md#volumes).
 
 ![Woluminy][Image3]
 
 ## <a name="programming-models"></a>Modele programowania
-Zasób usługi wymaga tylko uruchomienia obrazu kontenera, do którego odwołuje się pakiet kodu skojarzony z zasobem. Można uruchomić dowolny kod, napisany w dowolnym języku, przy użyciu dowolnej struktury wewnątrz kontenera bez konieczności wiedzieć lub używać, Service Fabric Mesh określonych interfejsów API. 
+Zasób usługi wymaga tylko obrazu kontenera do uruchomienia, do którego odwołuje się pakiet kodu skojarzony z zasobem. Można uruchomić dowolny kod, który jest pisany w dowolnym języku, przy użyciu dowolnych struktur wewnątrz kontenera, bez konieczności znajomości i używania interfejsów API specyficznych dla Service Fabric siatki. 
 
-Kod aplikacji pozostaje przenośny nawet poza siecią szkieletową usługi Mesh, a wdrożenia aplikacji pozostają spójne niezależnie od języka lub struktury używanej do implementacji usług. Niezależnie od tego, czy aplikacja jest ASP.NET Core, Go, czy tylko zestaw procesów i skryptów, model wdrażania zasobów sieci szkieletowej sieci szkieletowej usługi pozostaje taki sam. 
+Kod aplikacji pozostaje przenośny nawet poza Service Fabric siatką, a wdrożenia aplikacji pozostają spójne niezależnie od języka lub platformy używanego do implementowania usług. Niezależnie od tego, czy aplikacja jest ASP.NET Core, czy tylko zestaw procesów i skryptów, model wdrażania zasobów siatki Service Fabric pozostaje taki sam. 
 
 ## <a name="packaging-and-deployment"></a>Pakowanie i wdrażanie
 
-Aplikacje sieci szkieletowej usługi oparte na modelu zasobów są pakowane jako kontenery platformy Docker.  Usługa Mesh sieci szkieletowej jest środowiskiem współużytkowane, wielodostępne i kontenery zapewniają wysoki poziom izolacji.  Aplikacje te są opisane przy użyciu formatu JSON lub formatu YAML (który jest następnie konwertowany na JSON). Podczas wdrażania aplikacji mesh w usłudze Azure Service Fabric Mesh, JSON używane do opisywania aplikacji jest szablonem Usługi Azure Resource Manager. Zasoby są mapowane na zasoby platformy Azure.  Podczas wdrażania aplikacji mesh do klastra sieci szkieletowej usług (autonomiczne lub hostowane na platformie Azure), JSON używane do opisywania aplikacji jest format podobny do szablonu Usługi Azure Resource Manager.  Po wdrożeniu aplikacjami mesh można zarządzać za pomocą interfejsów HTTP lub interfejsu wiersza polecenia platformy Azure. 
+Aplikacje siatki Service Fabric w oparciu o model zasobów są spakowane jako kontenery platformy Docker.  Service Fabric siatka to udostępnione środowisko i kontenery z wieloma dzierżawcami zapewniają wysoki poziom izolacji.  Te aplikacje są opisane przy użyciu formatu JSON lub formatu YAML (który następnie jest konwertowany na format JSON). W przypadku wdrażania aplikacji siatki na platformie Azure Service Fabric siatka kod JSON używany do opisywania aplikacji jest szablonem Azure Resource Manager. Zasoby są mapowane na zasoby platformy Azure.  W przypadku wdrażania aplikacji sieci w klastrze Service Fabric (autonomicznym lub hostowanym przez platformę Azure) kod JSON używany do opisywania aplikacji jest formatem podobnym do szablonu Azure Resource Manager.  Po wdrożeniu aplikacje siatkowe mogą być zarządzane za pośrednictwem interfejsów HTTP lub interfejsu wiersza polecenia platformy Azure. 
 
 
 ## <a name="next-steps"></a>Następne kroki 

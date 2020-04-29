@@ -1,6 +1,6 @@
 ---
-title: Migrowanie maszyn wirtualnych VMware na platformę Azure za pomocą szyfrowania po stronie serwera (SSE) i kluczy zarządzanych przez klienta (CMK) przy użyciu migracji serwera migracji usługi Azure
-description: Dowiedz się, jak migrować maszyny wirtualne VMware na platformę Azure za pomocą szyfrowania po stronie serwera (SSE) i kluczy zarządzanych przez klienta (CMK) przy użyciu migracji serwera migracji usługi Azure
+title: Migrowanie maszyn wirtualnych VMware na platformę Azure za pomocą szyfrowania po stronie serwera (SSE) i kluczy zarządzanych przez klienta (CMK) przy użyciu migracji serwera Azure Migrate
+description: Dowiedz się, jak migrować maszyny wirtualne VMware na platformę Azure za pomocą szyfrowania po stronie serwera (SSE) i kluczy zarządzanych przez klienta (CMK) przy użyciu migracji serwera Azure Migrate
 author: bsiva
 ms.service: azure-migrate
 ms.manager: carmonm
@@ -8,57 +8,57 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
 ms.openlocfilehash: c6b791fda43a018a26204b2b43dc1e581ff3a945
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79269486"
 ---
-# <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrowanie maszyn wirtualnych VMware na maszyny wirtualne platformy Azure z włączoną obsługą szyfrowania po stronie serwera i kluczy zarządzanych przez klienta
+# <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrowanie maszyn wirtualnych VMware do maszyn wirtualnych platformy Azure z włączoną funkcją szyfrowania po stronie serwera i kluczami zarządzanymi przez klienta
 
-W tym artykule opisano sposób migracji maszyn wirtualnych VMware na maszyny wirtualne platformy Azure z dyskami zaszyfrowanymi przy użyciu szyfrowania po stronie serwera (SSE) z kluczami zarządzanymi przez klienta (CMK), przy użyciu migracji serwera migracji usługi Azure (replikacja bezagentowa).
+W tym artykule opisano sposób migrowania maszyn wirtualnych VMware do usługi Azure Virtual Machines z dyskami szyfrowanymi przy użyciu funkcji szyfrowania po stronie serwera (SSE) z kluczami zarządzanymi przez klienta (CMK) przy użyciu migracji serwera Azure Migrate (replikacja bez wykorzystania agentów).
 
-Środowisko portalu migracji serwera migracji migracji usługi Azure Migrate Server umożliwia [migrację maszyn wirtualnych VMware na platformę Azure za pomocą replikacji bez agenta.](tutorial-migrate-vmware.md) Środowisko portalu obecnie nie oferuje możliwość włączenia SSE z CMK dla dysków replikowanych na platformie Azure. Możliwość włączania SSE z cmk dla dysków replikowanych jest obecnie dostępna tylko za pośrednictwem interfejsu API REST. W tym artykule zobaczysz, jak utworzyć i wdrożyć [szablon usługi Azure Resource Manager](../azure-resource-manager/templates/overview.md) do replikowania maszyny Wirtualnej VMware i konfigurowania replikowanych dysków na platformie Azure do używania SSE z cmk.
+Środowisko portalu migracji serwera Azure Migrate umożliwia [Migrowanie maszyn wirtualnych VMware na platformę Azure z replikacją bez agenta.](tutorial-migrate-vmware.md) Środowisko portalu obecnie nie oferuje możliwości włączania funkcji SSE z CMK dla replikowanych dysków na platformie Azure. Możliwość włączenia instrukcji SSE z CMK dla replikowanych dysków jest obecnie dostępna tylko za pomocą interfejsu API REST. W tym artykule opisano sposób tworzenia i wdrażania [szablonu Azure Resource Manager](../azure-resource-manager/templates/overview.md) , aby replikować maszynę wirtualną VMware i skonfigurować zreplikowane dyski na platformie Azure, aby używać instrukcji SSE z CMK.
 
-Przykłady w tym artykule używają [programu Azure PowerShell](/powershell/azure/new-azureps-module-az) do wykonywania zadań potrzebnych do utworzenia i wdrożenia szablonu Menedżera zasobów.
+W przykładach w tym artykule użyto [Azure PowerShell](/powershell/azure/new-azureps-module-az) do wykonywania zadań wymaganych do utworzenia i wdrożenia szablonu Menedżer zasobów.
 
-[Dowiedz się więcej](../virtual-machines/windows/disk-encryption.md) o szyfrowaniu po stronie serwera (SSE) za pomocą kluczy zarządzanych przez klienta (CMK) dla dysków zarządzanych.
+[Dowiedz się więcej](../virtual-machines/windows/disk-encryption.md) o szyfrowaniu po stronie serwera (SSE) z kluczami zarządzanymi przez klienta (CMK) dla dysków zarządzanych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Zapoznaj się z [samouczkiem](tutorial-migrate-vmware.md) na temat migracji maszyn wirtualnych VMware na platformę Azure za pomocą replikacji bez agenta, aby zrozumieć wymagania dotyczące narzędzi.
-- [Postępuj zgodnie z tymi instrukcjami,](how-to-add-tool-first-time.md) aby utworzyć projekt migracji platformy Azure i dodać narzędzie **migracji platformy Azure: Migracja serwera** do projektu.
-- [Postępuj zgodnie z tymi instrukcjami,](how-to-set-up-appliance-vmware.md) aby skonfigurować urządzenie migracji platformy Azure dla oprogramowania VMware w środowisku lokalnym i pełne odnajdowanie.
+- [Zapoznaj się z samouczkiem](tutorial-migrate-vmware.md) dotyczącym migracji maszyn wirtualnych VMware na platformę Azure z replikacją bez agenta, aby poznać wymagania dotyczące narzędzi.
+- [Postępuj zgodnie z poniższymi instrukcjami](how-to-add-tool-first-time.md) , aby utworzyć projekt Azure Migrate i Azure Migrate dodać do projektu narzędzie do **migracji serwera** .
+- [Postępuj zgodnie z tymi instrukcjami](how-to-set-up-appliance-vmware.md) , aby skonfigurować urządzenie Azure Migrate dla oprogramowania VMware w środowisku lokalnym i pełne odnajdowanie.
 
-## <a name="prepare-for-replication"></a>Przygotowanie do replikacji
+## <a name="prepare-for-replication"></a>Przygotuj do replikacji
 
-Po zakończeniu odnajdowania maszyn wirtualnych linia Odnalezione serwery na kafelku Migracja serwera będzie wyświetlać liczbę maszyn wirtualnych VMware wykrytych przez urządzenie.
+Po zakończeniu odnajdywania maszyny wirtualnej w wierszu odnalezione serwery na kafelku Migracja serwera zostanie wyświetlona liczba maszyn wirtualnych VMware odnalezionych przez urządzenie.
 
-Przed rozpoczęciem replikacji maszyn wirtualnych, infrastruktury replikacji musi być przygotowany.
+Aby można było rozpocząć replikację maszyn wirtualnych, należy przygotować infrastrukturę replikacji.
 
-1. Utwórz wystąpienie usługi Service Bus w regionie docelowym. Usługa Service Bus jest używana przez lokalne urządzenie migracji platformy Azure do komunikowania się z usługą migracji serwera w celu koordynowania replikacji i migracji.
-2. Utwórz konto magazynu do przenoszenia dzienników operacji z replikacji.
-3. Utwórz konto magazynu, do które urządzenie migracji platformy Azure przekazuje dane replikacji.
-4. Utwórz magazyn kluczy i skonfiguruj magazyn kluczy do zarządzania tokenami podpisu dostępu współdzielonego dla dostępu do obiektów blob na kontach magazynu utworzonych w kroku 3 i 4.
-5. Wygeneruj token podpisu dostępu współdzielonego dla magistrali usług utworzonej w kroku 1 i utwórz klucz tajny dla tokenu w magazynie kluczy utworzonym w poprzednim kroku.
-6. Utwórz zasady dostępu usługi Key Vault, aby zapewnić lokalnemu urządzeniu migracji platformy Azure (przy użyciu aplikacji AAD urządzenia) i usłudze migracji serwera dostęp do usługi Key Vault.
+1. Utwórz wystąpienie Service Bus w regionie docelowym. Service Bus jest używany przez lokalne urządzenie Azure Migrate do komunikowania się z usługą migracji serwera w celu koordynowania replikacji i migracji.
+2. Utwórz konto magazynu na potrzeby transferu dzienników operacji z replikacji.
+3. Utwórz konto magazynu, do którego urządzenie Azure Migrate przekazuje dane replikacji.
+4. Utwórz Key Vault i skonfiguruj Key Vault do zarządzania tokenami sygnatury dostępu współdzielonego dla dostępu do obiektów BLOB na kontach magazynu utworzonych w kroku 3 i 4.
+5. Wygeneruj token sygnatury dostępu współdzielonego dla magistrali usług utworzonej w kroku 1 i Utwórz wpis tajny dla tokenu w Key Vault utworzonym w poprzednim kroku.
+6. Utwórz zasady dostępu Key Vault, aby zapewnić lokalne urządzenie Azure Migrate (za pomocą aplikacji usługi AAD) i usługę migracji serwera dostęp do Key Vault.
 7. Utwórz zasady replikacji i skonfiguruj usługę migracji serwera ze szczegółami infrastruktury replikacji utworzonej w poprzednim kroku.
 
-Infrastruktura replikacji musi zostać utworzona w docelowym regionie platformy Azure dla migracji i w docelowej subskrypcji platformy Azure, do których są migrowane maszyny wirtualne.
+Infrastruktura replikacji musi być utworzona w docelowym regionie platformy Azure na potrzeby migracji i w docelowej subskrypcji platformy Azure, do której są migrowane maszyny wirtualne.
 
-Środowisko portalu migracji serwera upraszcza przygotowanie infrastruktury replikacji, automatycznie wykonując to w celu uzyskania replikacji maszyny wirtualnej po raz pierwszy w projekcie. W tym artykule zakładamy, że masz już zreplikowane co najmniej jedną maszynę wirtualną przy użyciu środowiska portalu i że infrastruktura replikacji jest już utworzona. Przyjrzymy się, jak odnajdywać szczegóły istniejącej infrastruktury replikacji i jak używać tych szczegółów jako danych wejściowych do szablonu Menedżera zasobów, który będzie używany do konfigurowania replikacji za pomocą cmk.
+Środowisko portalu migracji serwera upraszcza Przygotowanie infrastruktury replikacji przez automatyczne wykonanie tej czynności podczas replikowania maszyny wirtualnej po raz pierwszy w projekcie. W tym artykule przyjęto założenie, że jedna lub więcej maszyn wirtualnych została już zreplikowana przy użyciu środowiska portalu i że infrastruktura replikacji została już utworzona. Dowiesz się, jak odnaleźć szczegóły istniejącej infrastruktury replikacji i jak używać tych szczegółów jako danych wejściowych szablonu Menedżer zasobów, który zostanie użyty do skonfigurowania replikacji z CMK.
 
 ### <a name="identifying-replication-infrastructure-components"></a>Identyfikowanie składników infrastruktury replikacji
 
-1. W witrynie Azure portal przejdź do strony grupy zasobów i wybierz grupę zasobów, w której utworzono projekt migracji platformy Azure.
-2. Wybierz **wdrożeń** z lewego menu i wyszukaj nazwę wdrożenia rozpoczynającą się od ciągu *"Microsoft.MigrateV2.VMwareV2EnableMigrate"*. Zostanie wyświetlona lista szablonów Menedżera zasobów utworzonych przez środowisko portalu w celu skonfigurowania replikacji maszyn wirtualnych w tym projekcie. Pobierzemy jeden taki szablon i użyjemy go jako podstawy do przygotowania szablonu do replikacji za pomocą cmk.
-3. Aby pobrać szablon, wybierz dowolne wdrożenie pasujące do wzorca ciągu w poprzednim kroku, > wybierz **szablon** z lewego menu > Kliknij przycisk **Pobierz** z górnego menu. Zapisz plik template.json lokalnie. Edytujesz ten plik szablonu w ostatnim kroku.
+1. Na Azure Portal przejdź do strony grupy zasobów i wybierz grupę zasobów, w której został utworzony projekt Azure Migrate.
+2. Wybierz pozycję **wdrożenia** z menu po lewej stronie i wyszukaj nazwę wdrożenia zaczynającą się od ciągu *"Microsoft. MigrateV2. VMwareV2EnableMigrate"*. Zostanie wyświetlona lista szablonów Menedżer zasobów utworzonych przez środowisko portalu, aby skonfigurować replikację dla maszyn wirtualnych w tym projekcie. Pobierzemy ten szablon i użyjesz go jako podstawy do przygotowania szablonu do replikacji za pomocą CMK.
+3. Aby pobrać szablon, Wybierz dowolne wdrożenie zgodne ze wzorcem ciągu w poprzednim kroku > wybierz opcję **szablon** z menu po lewej stronie, > kliknij pozycję **Pobierz** w górnym menu. Zapisz lokalnie plik Template. JSON. Ten plik szablonu należy edytować w ostatnim kroku.
 
-## <a name="create-a-disk-encryption-set"></a>Tworzenie zestawu szyfrowania dysku
+## <a name="create-a-disk-encryption-set"></a>Tworzenie zestawu szyfrowania dysków
 
-Obiekt zestawu szyfrowania dysku mapuje dyski zarządzane do magazynu kluczy, który zawiera cmk do użycia dla SSE. Aby replikować maszyny wirtualne za pomocą współrzędnościowej maszyny pomiarowej, utworzysz zestaw szyfrowania dysku i przekażesz go jako dane wejściowe do operacji replikacji.
+Obiekt zestawu szyfrowania dysku mapuje Managed Disks do Key Vault, który zawiera CMK do użycia na potrzeby SSE. Aby replikować maszyny wirtualne za pomocą CMK, należy utworzyć zestaw szyfrowania dysku i przekazać go jako dane wejściowe do operacji replikacji.
 
-Postępuj zgodnie z przykładem [tutaj,](../virtual-machines/windows/disk-encryption.md#powershell) aby utworzyć zestaw szyfrowania dysku przy użyciu programu Azure PowerShell. Upewnij się, że zestaw szyfrowania dysku jest tworzony w subskrypcji docelowej, do których są migrowane maszyny wirtualne, oraz w docelowym regionie platformy Azure dla migracji.
+Postępuj zgodnie [z poniższym przykładem](../virtual-machines/windows/disk-encryption.md#powershell) , aby utworzyć zestaw szyfrowania dysków przy użyciu Azure PowerShell. Upewnij się, że zestaw szyfrowania dysków został utworzony w subskrypcji docelowej, do której maszyny wirtualne są migrowane, i w docelowym regionie świadczenia usługi Azure na potrzeby migracji.
 
 ```azurepowershell
 $Location = "southcentralus"                           #Target Azure region for migration 
@@ -81,12 +81,12 @@ Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ObjectId $des.Identity.Prin
 New-AzRoleAssignment -ResourceName $KeyVaultName -ResourceGroupName $TargetResourceGroupName -ResourceType "Microsoft.KeyVault/vaults" -ObjectId $des.Identity.PrincipalId -RoleDefinitionName "Reader"
 ```
 
-## <a name="get-details-of-the-vmware-vm-to-migrate"></a>Uzyskaj szczegółowe informacje o maszynie wirtualnej VMware do migracji
+## <a name="get-details-of-the-vmware-vm-to-migrate"></a>Pobierz szczegóły maszyny wirtualnej VMware do migracji
 
-W tym kroku użyjesz programu Azure PowerShell, aby uzyskać szczegółowe informacje o maszynie wirtualnej, która musi zostać zmigrowana. Te szczegóły będą używane do konstruowania szablonu Menedżera zasobów dla replikacji. W szczególności dwie interesujące właściwości to:
+W tym kroku użyjesz Azure PowerShell, aby uzyskać szczegółowe informacje o maszynie wirtualnej, która ma zostać zmigrowana. Te szczegóły będą używane do konstruowania szablonu Menedżer zasobów na potrzeby replikacji. W szczególnych przypadkach istnieją dwie właściwości zainteresowania:
 
-- Identyfikator zasobu komputera dla odnalezionych maszyn wirtualnych.
-- Lista dysków dla maszyny Wirtualnej i ich identyfikatorów dysków.
+- Identyfikator zasobu maszyny dla odnalezionych maszyn wirtualnych.
+- Lista dysków dla maszyny wirtualnej i ich identyfikatorów dysków.
 
 ```azurepowershell
 
@@ -105,7 +105,7 @@ ApplianceName  SiteId
 VMwareApplianc /subscriptions/509099b2-9d2c-4636-b43e-bd5cafb6be69/resourceGroups/ContosoVMwareCMK/providers/Microsoft.OffAzure/VMwareSites/VMwareApplianca8basite
 ```
 
-Skopiuj wartość ciągu SiteId odpowiadającą urządzeniu migracji platformy Azure, za pośrednictwem których zostanie wykryta maszyna wirtualna. W przykładzie pokazanym powyżej Identyfikator witryny to *"/subscriptions/509099b2-9d2c-4636-b43e-bd5cafb6be669/resourceGroups/ContosoVMwareCMK/providers/Microsoft.OffAzure/VMwareSites/VMwareApplianca8basite"*
+Skopiuj wartość ciągu identyfikator odpowiadającego urządzeniu Azure Migrate, za pomocą którego wykryto maszynę wirtualną. W przykładzie pokazanym powyżej identyfikator witryny to *"/subscriptions/509099b2-9d2c-4636-b43e-bd5cafb6be69/resourceGroups/ContosoVMwareCMK/Providers/Microsoft.OffAzure/VMwareSites/VMwareApplianca8basite"*
 
 ```azurepowershell
 
@@ -120,7 +120,7 @@ PS /home/bharathram> $machine = $Discoveredmachines | where {$_.Properties.displ
 PS /home/bharathram> $machine.count   #Validate that only 1 VM was found matching this name.
 ```
 
-Skopiuj resourceid, nazwę i wartości uuid dysku dla komputera, który ma zostać zmigrowany.
+Skopiuj wartości identyfikatora ResourceId, nazwy i dysku dla maszyny, która ma zostać poddana migracji.
 ```Output
 PS > $machine.Name
 10-150-8-52-b090bef3-b733-5e34-bc8f-eb6f2701432a_50098f99-f949-22ca-642b-724ec6595210
@@ -137,12 +137,12 @@ uuid                                 label       name    maxSizeInBytes
 
 ```
 
-## <a name="create-resource-manager-template-for-replication"></a>Tworzenie szablonu Menedżera zasobów dla replikacji
+## <a name="create-resource-manager-template-for-replication"></a>Utwórz szablon Menedżer zasobów na potrzeby replikacji
 
-- Otwórz plik szablonu Menedżera zasobów pobrany w kroku **Identyfikowanie składników infrastruktury replikacji** w wybranym edytorze.
-- Usuń wszystkie definicje zasobów z szablonu z wyjątkiem zasobów typu *"Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems"*
-- Jeśli istnieje wiele definicji zasobów powyższego typu, usuń wszystkie oprócz jednego. Usuń wszelkie **dependsOn** definicje właściwości z definicji zasobu.
-- Na końcu tego kroku powinien mieć plik, który wygląda jak w poniższym przykładzie i ma ten sam zestaw właściwości.
+- Otwórz plik szablonu Menedżer zasobów pobrany w kroku **Identyfikowanie składników infrastruktury replikacji** w wybranym edytorze.
+- Usuń wszystkie definicje zasobów z szablonu, z wyjątkiem zasobów typu *"Microsoft. RecoveryServices/magazyns/replicationFabrics/replicationProtectionContainers/replicationMigrationItems"*
+- Jeśli istnieje wiele definicji zasobów powyższego typu, Usuń wszystkie oprócz jednego. Usuń wszystkie definicje właściwości **dependsOn** z definicji zasobu.
+- Na końcu tego kroku powinien znajdować się plik, który wygląda podobnie do poniższego przykładu i ma ten sam zestaw właściwości.
 
 ```
 {
@@ -182,14 +182,14 @@ uuid                                 label       name    maxSizeInBytes
 }
 ```
 
-- Edytuj właściwość **name** w definicji zasobu. Zastąp ciąg, który następuje po ostatnim "/" we właściwości name z wartością *$machine. Nazwa*(z poprzedniego kroku).
-- Zmień wartość **właściwości properties.providerSpecificDetails.vmwareMachineId** o wartości *$machine. Identyfikator zasobu*( z poprzedniego kroku).
-- Ustaw wartości dla **targetResourceGroupId**, **targetNetworkId**, **targetSubnetName** na identyfikator docelowej grupy zasobów, docelowy identyfikator zasobu sieci wirtualnej i nazwę podsieci docelowej.
-- Ustaw wartość **licenseType** na "WindowsServer", aby zastosować korzyść hybrydową platformy Azure dla tej maszyny Wirtualnej. Jeśli ta maszyna wirtualna nie kwalifikuje się do korzystania z usługi Azure Hybrid Benefit, ustaw wartość **licenseType** na NoLicenseType.
-- Zmień wartość właściwości **targetVmName** na żądaną nazwę maszyny wirtualnej platformy Azure dla zmigrowanych maszyn wirtualnych.
-- Opcjonalnie dodaj właściwość o nazwie **targetVmSize** poniżej właściwości **targetVmName.** Ustaw wartość właściwości **targetVmSize** na żądany rozmiar maszyny wirtualnej platformy Azure dla zmigrowanych maszyn wirtualnych.
-- Właściwość **disksToInclude** jest listą danych wejściowych dysku do replikacji z każdym elementem listy reprezentującym jeden dysk lokalny. Utwórz tyle elementów listy, ile liczba dysków na lokalnej maszynie wirtualnej. Zastąp właściwość **diskId** w elemencie listy na uuid dysków zidentyfikowanych w poprzednim kroku. Ustaw wartość **isOSDisk** na "true" dla dysku systemu operacyjnego maszyny Wirtualnej i "false" dla wszystkich innych dysków. Pozostaw **logStorageAccountId** i **logStorageAccountSasSecretName** właściwości bez zmian. Ustaw wartość **diskType** na typ dysku zarządzanego platformy Azure *(Standard_LRS, Premium_LRS, StandardSSD_LRS*) do użycia na dysku. W przypadku dysków, które muszą być szyfrowane za pomocą cmk, dodaj właściwość o nazwie **diskEncryptionSetId** i ustaw wartość identyfikatora zasobu utworzonego zestawu szyfrowania dysku(**$des. Identyfikator**) w kroku *Tworzenie zestawu szyfrowania dysku*
-- Zapisz edytowany plik szablonu. W powyższym przykładzie edytowany plik szablonu wygląda następująco:
+- Edytuj Właściwość **name** w definicji zasobu. Zastąp ciąg, który następuje po ostatnim "/" we właściwości Name wartością *$Machine. Nazwa*(z poprzedniego kroku).
+- Zmień wartość właściwości **właściwości. providerSpecificDetails. vmwareMachineId** na wartość *$Machine. ResourceId*(z poprzedniego kroku).
+- Ustaw wartości dla **targetResourceGroupId**, **targetNetworkId**, **targetSubnetName** na identyfikator docelowej grupy zasobów, identyfikator docelowego zasobu sieci wirtualnej i odpowiednio nazwę podsieci docelowej.
+- Ustaw wartość "WindowsServer" dla elementu **LicenseType** , aby zastosować korzyść użycia hybrydowego platformy Azure dla tej maszyny wirtualnej. Jeśli ta maszyna wirtualna nie kwalifikuje się do Korzyść użycia hybrydowego platformy Azure, ustaw wartość **LicenseType** na nolicensetype.
+- Zmień wartość właściwości **targetVmName** na żądaną nazwę maszyny wirtualnej platformy Azure dla MIGROWANEJ maszyny wirtualnej.
+- Opcjonalnie Dodaj właściwość o nazwie **targetVmSize** pod właściwością **targetVmName** . Ustaw wartość właściwości **targetVmSize** na żądany rozmiar maszyny wirtualnej platformy Azure dla MIGROWANEj maszyny wirtualnej.
+- Właściwość **disksToInclude** jest listą danych wejściowych dysku do replikacji za pomocą poszczególnych elementów listy reprezentujących jeden dysk lokalny. Utwórz dowolną liczbę elementów listy jako liczbę dysków na lokalnej maszynie wirtualnej. Zastąp Właściwość **diskId** w elemencie list do identyfikatora UUID dysków zidentyfikowanych w poprzednim kroku. Dla opcji **isOSDisk** ustaw wartość "true" dla dysku systemu operacyjnego maszyny wirtualnej i "false" dla wszystkich innych dysków. Pozostaw właściwości **logStorageAccountId** i **logStorageAccountSasSecretName** bez zmian. Ustaw wartość typ **dysku** na dysk zarządzany platformy Azure (*Standard_LRS, Premium_LRS, StandardSSD_LRS),* który ma być używany dla tego dysku. W przypadku dysków, które mają być szyfrowane za pomocą CMK, Dodaj właściwość o nazwie **diskEncryptionSetId** i ustaw wartość na identyfikator zasobu utworzonego zestawu szyfrowania dysku (**$des. ID**) w kroku *Tworzenie zestawu szyfrowania dysku*
+- Zapisz edytowany plik szablonu. W przypadku powyższego przykładu edytowany plik szablonu wygląda następująco:
 
 ```
 {
@@ -249,7 +249,7 @@ uuid                                 label       name    maxSizeInBytes
 
 ## <a name="set-up-replication"></a>Konfigurowanie replikacji
 
-Teraz można wdrożyć edytowany szablon Menedżera zasobów w grupie zasobów projektu, aby skonfigurować replikację dla maszyny Wirtualnej. Dowiedz się, jak [wdrożyć zasób za pomocą szablonów usługi Azure Resource Manager i programu Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+Teraz możesz wdrożyć edytowany szablon Menedżer zasobów w grupie zasobów projektu, aby skonfigurować replikację dla maszyny wirtualnej. Dowiedz się [, jak wdrażać zasoby za pomocą szablonów Azure Resource Manager i Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName $ProjectResourceGroup -TemplateFile "C:\Users\Administrator\Downloads\template.json"
@@ -270,4 +270,4 @@ DeploymentDebugLogLevel :
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Monitoruj](tutorial-migrate-vmware.md#track-and-monitor) stan replikacji za pośrednictwem portalu i wykonuj migracje testowe i migrację.
+[Monitoruj stan replikacji](tutorial-migrate-vmware.md#track-and-monitor) za pomocą środowiska portalu i Przeprowadź migrację testów i migrację.

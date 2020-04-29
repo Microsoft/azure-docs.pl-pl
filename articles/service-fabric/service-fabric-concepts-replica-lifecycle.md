@@ -1,139 +1,139 @@
 ---
-title: Repliki i wystąpienia w sieci szkieletowej usług Azure
-description: Dowiedz się więcej o replikach i wystąpieniach w sieci szkieletowej usług, w tym omówienie ich cyklu życia i funkcji.
+title: Repliki i wystąpienia w usłudze Azure Service Fabric
+description: Informacje o replikach i wystąpieniach w Service Fabric, w tym omówienie ich cyklów życia i funkcji.
 author: appi101
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: cf21af43de553a2802289e44eaece12952d077d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258566"
 ---
 # <a name="replicas-and-instances"></a>Repliki i wystąpienia 
-W tym artykule przedstawiono omówienie cyklu życia replik usług stanowych i wystąpień usług bezstanowych.
+Ten artykuł zawiera omówienie cyklu życia replik usług stanowych i wystąpień usług bezstanowych.
 
-## <a name="instances-of-stateless-services"></a>Wystąpienia usług bezpaństwowych
-Wystąpienie usługi bezstanowej jest kopią logiki usługi, która działa na jednym z węzłów klastra. Wystąpienie w obrębie partycji jest jednoznacznie identyfikowane przez jego **Identyfikator Wystąpienia**. Cykl życia wystąpienia jest modelowany na poniższym diagramie:
+## <a name="instances-of-stateless-services"></a>Wystąpienia usług bezstanowych
+Wystąpienie usługi bezstanowej to kopia logiki usługi, która jest uruchamiana na jednym z węzłów klastra. Wystąpienie w ramach partycji jest jednoznacznie identyfikowane przez jego **Identyfikator InstanceId**. Cykl życia wystąpienia jest modelowany na poniższym diagramie:
 
 ![Cykl życia wystąpienia](./media/service-fabric-concepts-replica-lifecycle/instance.png)
 
-### <a name="inbuild-ib"></a>InBuild (IB)
-Po tym, jak Menedżer zasobów klastra określi miejsce docelowe dla wystąpienia, wejdzie w ten stan cyklu życia. Wystąpienie jest uruchamiane w węźle. Host aplikacji jest uruchamiany, wystąpienie jest tworzone, a następnie otwierane. Po zakończeniu uruchamiania wystąpienie przechodzi do stanu gotowości. 
+### <a name="inbuild-ib"></a>Kompilacja (IB)
+Gdy klaster Menedżer zasobów określi położenie wystąpienia, przechodzi do tego stanu cyklu życia. Wystąpienie jest uruchamiane w węźle. Host aplikacji został uruchomiony, wystąpienie zostanie utworzone, a następnie otwarte. Po zakończeniu uruchamiania wystąpienie przechodzi do stanu gotowości. 
 
-Jeśli host aplikacji lub węzeł dla tego wystąpienia ulega awarii, przechodzi do stanu porzuconego.
+Jeśli host lub węzeł aplikacji dla tego wystąpienia ulegnie awarii, przechodzi do stanu porzucenia.
 
-### <a name="ready-rd"></a>Gotowy (RD)
-W stanie gotowości wystąpienie jest uruchomione w węźle. Jeśli to wystąpienie jest niezawodną usługą, **RunAsync** został wywołany. 
+### <a name="ready-rd"></a>Gotowe (RD)
+W stanie gotowe wystąpienie jest uruchomione w węźle. Jeśli to wystąpienie jest niezawodne, **RunAsync** został wywołany. 
 
-Jeśli host aplikacji lub węzeł dla tego wystąpienia ulega awarii, przechodzi do stanu porzuconego.
+Jeśli host lub węzeł aplikacji dla tego wystąpienia ulegnie awarii, przechodzi do stanu porzucenia.
 
 ### <a name="closing-cl"></a>Zamykanie (CL)
-W stanie zamknięcia usługi Azure Service Fabric jest w trakcie zamykania wystąpienia w tym węźle. To zamknięcie może być spowodowane wieloma przyczynami — na przykład uaktualnienie aplikacji, równoważenie obciążenia lub usuwana usługa. Po zakończeniu zamykania przechodzi do stanu porzuconego.
+W stanie zamykania usługa Azure Service Fabric jest w trakcie zamykania wystąpienia w tym węźle. To zamknięcie może wynikać z wielu powodów — na przykład uaktualnienie aplikacji, równoważenie obciążenia lub usunięcie usługi. Po zakończeniu zamykania przechodzi do stanu porzucenia.
 
-### <a name="dropped-dd"></a>Upuszczony (DD)
-W stanie upuszczonego wystąpienie nie jest już uruchomiony w węźle. W tym momencie sieci szkieletowej usług przechowuje metadane dotyczące tego wystąpienia, który ostatecznie zostanie usunięty, jak również.
+### <a name="dropped-dd"></a>Porzucone (DD)
+W stanie opuszczone wystąpienie nie jest już uruchomione w węźle. W tym momencie Service Fabric utrzymuje metadane dotyczące tego wystąpienia, które ostatecznie również zostały usunięte.
 
 > [!NOTE]
-> Możliwe jest przejście z dowolnego stanu do stanu porzuconego za `Remove-ServiceFabricReplica`pomocą opcji **ForceRemove** on .
+> Istnieje możliwość przejścia z dowolnego stanu do stanu porzuconego przy użyciu opcji **ForceRemove** w systemie `Remove-ServiceFabricReplica`.
 >
 
 ## <a name="replicas-of-stateful-services"></a>Repliki usług stanowych
-Replika usługi stanowej jest kopią logiki usługi uruchomionej w jednym z węzłów klastra. Ponadto replika przechowuje kopię stanu tej usługi. Dwie powiązane pojęcia opisują cykl życia i zachowanie replik stanowych:
+Replika usługi stanowej to kopia logiki usługi działającej na jednym z węzłów klastra. Ponadto replika zachowuje kopię stanu tej usługi. Dwa powiązane koncepcje opisują cykl życia i zachowanie replik stanowych:
 - Cykl życia repliki
 - Rola repliki
 
-W poniższej dyskusji opisano utrwalone usługi stanowe. W przypadku usług stanowych volatile (lub w pamięci) stany w dół i porzucone są równoważne.
+W poniższej dyskusji opisano trwałe usługi stanowe. W przypadku nietrwałych (lub w pamięci) usług stanowych, Stany Down i rzucony są równoważne.
 
 ![Cykl życia repliki](./media/service-fabric-concepts-replica-lifecycle/replica.png)
 
-### <a name="inbuild-ib"></a>InBuild (IB)
-Replika InBuild jest repliką, która jest tworzona lub przygotowywana do łączenia zestawu replik. W zależności od roli repliki IB ma różne semantyki. 
+### <a name="inbuild-ib"></a>Kompilacja (IB)
+Replika inbuild to replika utworzona lub przygotowana do przyłączenia do zestawu replik. W zależności od roli repliki IB ma inną semantykę. 
 
-Jeśli host aplikacji lub węzeł repliki InBuild ulegnie awarii, przechodzi do stanu w dół.
+Jeśli host aplikacji lub węzeł dla repliki inbuild ulegnie awarii, przechodzi do stanu Down.
 
-   - **Podstawowe repliki InBuild:** Podstawowe InBuild są pierwszymi replikami dla partycji. Ta replika zwykle dzieje się podczas tworzenia partycji. Podstawowe repliki InBuild również powstają, gdy wszystkie repliki partycji ponownie uruchomić lub są usuwane.
+   - **Repliki podstawowej kompilacji**: podstawowa kompilacja jest pierwszą repliką partycji. Ta replika zwykle występuje, gdy tworzona jest partycja. Repliki podstawowej kompilacji powstają również wtedy, gdy wszystkie repliki partycji zostaną ponownie uruchomione lub usunięte.
 
-   - **Repliki InBuild w systemie IdleSecondary:** Są to nowe repliki utworzone przez Menedżera zasobów klastra lub istniejące repliki, które spadły i muszą zostać dodane z powrotem do zestawu. Repliki te są rozstawione lub komponowane przez podstawowy, zanim będą mogły dołączyć do zestawu replik jako ActiveSecondary i uczestniczyć w potwierdzeniu kworum operacji.
+   - **Repliki IdleSecondary inbuild**: są to nowe repliki, które są tworzone przez klaster Menedżer zasobów, lub istniejące repliki, które pozostały i muszą zostać dodane z powrotem do zestawu. Te repliki są umieszczane lub tworzone przez podstawowy przed dołączeniem ich do zestawu replik jako ActiveSecondary i uczestniczenia w potwierdzeniu kworum operacji.
 
-   - **ActiveSecondary InBuild repliki:** Ten stan jest obserwowany w niektórych kwerend. Jest to optymalizacja, w której zestaw replik nie zmienia się, ale replika musi zostać zbudowana. Sama replika jest zgodna z przejściami maszyny stanu normalnego (zgodnie z opisem w sekcji ról repliki).
+   - **Repliki ActiveSecondary inbuild**: ten stan jest zaobserwowany w niektórych zapytaniach. Jest to Optymalizacja, w której zestaw replik nie ulega zmianie, ale należy utworzyć replikę. Replika jest zgodna z normalnymi przejściami stanu komputera (zgodnie z opisem w sekcji role repliki).
 
-### <a name="ready-rd"></a>Gotowy (RD)
-Replika Ready to replika, która uczestniczy w replikacji i potwierdzaniu kworum operacji. Stan gotowości ma zastosowanie do replik pomocniczych podstawowych i aktywnych.
+### <a name="ready-rd"></a>Gotowe (RD)
+Replika jest przygotowana do repliki, która uczestniczy w replikacji oraz potwierdzania kworum operacji. Stan gotowości dotyczy podstawowych i aktywnych replik pomocniczych.
 
-Jeśli host aplikacji lub węzeł dla gotowej repliki ulega awarii, przechodzi do stanu w dół.
+Jeśli host aplikacji lub węzeł dla gotowej repliki ulegnie awarii, przechodzi do stanu Down.
 
 ### <a name="closing-cl"></a>Zamykanie (CL)
-Replika wchodzi w stan zamknięcia w następujących scenariuszach:
+Replika przechodzi w stan zamknięcia w następujących scenariuszach:
 
-- **Zamykanie kodu repliki:** może być konieczne zamknięcie uruchomionego kodu repliki. To zamknięcie może być z wielu powodów. Na przykład może się zdarzyć z powodu uaktualnienia aplikacji, sieci szkieletowej lub infrastruktury lub z powodu błędu zgłoszonego przez replikę. Po zakończeniu zamykania repliki repliki przechodzi do stanu w dół. Utrwalony stan skojarzony z tą repliką przechowywaną na dysku nie jest czyszczony.
+- **Zamykanie kodu repliki**: Service Fabric może zajść konieczność zamknięcia uruchomionego kodu dla repliki. To zamknięcie może się nie powieść z wielu powodów. Na przykład może się to zdarzyć ze względu na uaktualnienie aplikacji, sieci szkieletowej lub infrastruktury lub z powodu błędu zgłoszonego przez replikę. Po zakończeniu zamknięcia repliki następuje przejście do stanu Down. Utrwalony stan skojarzony z tą repliką przechowywaną na dysku nie został wyczyszczony.
 
-- **Usuwanie repliki z klastra:** Sieci szkieletowej usług może być konieczne usunięcie stanu utrwalone i zamknięcie uruchomionego kodu repliki. To zamknięcie może być z wielu powodów, na przykład równoważenia obciążenia.
+- **Usuwanie repliki z klastra**: Service Fabric może być konieczne usunięcie stanu trwałego i zamknięcie uruchomionego kodu dla repliki. To zamknięcie może mieć wiele przyczyn, na przykład Równoważenie obciążenia.
 
-### <a name="dropped-dd"></a>Upuszczony (DD)
-W stanie upuszczonego wystąpienie nie jest już uruchomiony w węźle. Nie ma również stan w lewo na węźle. W tym momencie sieci szkieletowej usług przechowuje metadane dotyczące tego wystąpienia, który ostatecznie zostanie usunięty, jak również.
+### <a name="dropped-dd"></a>Porzucone (DD)
+W stanie opuszczone wystąpienie nie jest już uruchomione w węźle. W węźle nie ma również żadnego stanu. W tym momencie Service Fabric utrzymuje metadane dotyczące tego wystąpienia, które ostatecznie również zostały usunięte.
 
 ### <a name="down-d"></a>W dół (D)
-W stanie w dół kod repliki nie jest uruchomiony, ale utrwalony stan dla tej repliki istnieje w tym węźle. Replika może być wyłączona z wielu powodów — na przykład węzeł jest w dół, awaria w kodzie repliki, uaktualnienie aplikacji lub błędy repliki.
+W stanie down kod repliki nie jest uruchomiony, ale trwały stan dla tej repliki istnieje w tym węźle. Replika może być nieprzerwana z wielu powodów — na przykład, w którym węźle jest wyłączony, awaria w kodzie repliki, uaktualnienie aplikacji lub błędy replik.
 
-Replika w dół jest otwierana przez sieci szkieletowej usług zgodnie z wymaganiami, na przykład po zakończeniu uaktualniania w węźle.
+Replika w dół jest otwierana przez Service Fabric zgodnie z potrzebami, na przykład po zakończeniu uaktualniania w węźle.
 
-Rola repliki nie jest istotne w stanie w dół.
+Rola repliki nie jest odpowiednia w stanie down.
 
-### <a name="opening-op"></a>Otwarcie (PO)
-Replika w dół wchodzi w stan otwarcia, gdy sieci szkieletowej usług musi przywrócić replikę. Na przykład ten stan może być po uaktualnieniu kodu dla aplikacji kończy się w węźle. 
+### <a name="opening-op"></a>Otwieranie (OP)
+Replika w dół przechodzi do stanu otwarcia, gdy Service Fabric musi ponownie wykonać kopię zapasową repliki. Na przykład ten stan może być po zakończeniu uaktualniania kodu dla aplikacji na węźle. 
 
-Jeśli host aplikacji lub węzeł repliki otwierającej ulega awarii, przechodzi do stanu w dół.
+Jeśli host aplikacji lub węzeł dla repliki otwierającej ulegnie awarii, przechodzi do stanu Down.
 
 Rola repliki nie jest istotna w stanie otwarcia.
 
-### <a name="standby-sb"></a>Tryb gotowości (SB)
-Replika wstrzymania jest repliką utrwalone usługi, która została wyłączona, a następnie otwarty. Ta replika może być używana przez sieci szkieletowej usług, jeśli musi dodać inną replikę do zestawu replik (ponieważ replika ma już pewną część stanu, a proces kompilacji jest szybszy). Po wygaśnięciu standbyreplicaKeepDuration repliki wstrzymania jest odrzucany.
+### <a name="standby-sb"></a>Wstrzymanie (SB)
+Replika rezerwa to replika utrwalonej usługi, która uległa i została otwarta. Ta replika może być używana przez Service Fabric, jeśli musi dodać kolejną replikę do zestawu replik (ponieważ replika ma już część stanu i proces kompilacji jest szybszy). Po wygaśnięciu StandByReplicaKeepDuration replika wstrzymania zostanie odrzucona.
 
-Jeśli host aplikacji lub węzeł repliki rezerwowej ulega awarii, przechodzi do stanu w dół.
+Jeśli host aplikacji lub węzeł dla repliki zapasowej ulegnie awarii, przechodzi do stanu Down.
 
-Rola repliki nie jest istotna w stanie wstrzymania.
+Rola repliki nie jest odpowiednia w stanie wstrzymania.
 
 > [!NOTE]
-> Każda replika, która nie jest w dół lub upuszczona jest uważana za *górę*.
+> Każda replika, która nie została wyłączona ani porzucona, jest traktowana jako *nieaktualna*.
 >
 
 > [!NOTE]
-> Możliwe jest przejście z dowolnego stanu do stanu porzuconego za `Remove-ServiceFabricReplica`pomocą opcji **ForceRemove** na .
+> Istnieje możliwość przejścia z dowolnego stanu do stanu porzuconego przy użyciu opcji **ForceRemove** w systemie `Remove-ServiceFabricReplica`.
 >
 
 ## <a name="replica-role"></a>Rola repliki 
 Rola repliki określa jej funkcję w zestawie replik:
 
-- **Podstawowy (P)**: Istnieje jeden podstawowy w zestawie replik, który jest odpowiedzialny za wykonywanie operacji odczytu i zapisu. 
-- **ActiveSecondary (S)**: Są to repliki, które otrzymują aktualizacje stanu z podstawowego, zastosować je, a następnie odesłać potwierdzenia. Istnieje wiele aktywnych pomocniczych w zestawie replik. Liczba tych aktywnych pomocniczych określa liczbę błędów, które usługa może obsłużyć.
-- **IdleSecondary (I)**: Te repliki są budowane przez podstawowy. Są one odbieranie stanu od podstawowego, zanim mogą być promowane do aktywnego pomocniczego. 
-- **Brak (N)**: Te repliki nie mają odpowiedzialności w zestawie replik.
-- **Nieznany (U)**: Jest to początkowa rola repliki, zanim otrzyma wywołanie interfejsu API **ChangeRole** z sieci szkieletowej usług.
+- **Podstawowe (P)**: w zestawie replik istnieje jeden podstawowy, który jest odpowiedzialny za wykonywanie operacji odczytu i zapisu. 
+- **ActiveSecondary**: są to repliki, które odbierają aktualizacje stanu z podstawowego, stosują je, a następnie wysyłają potwierdzenia zwrotne. Zestaw replik zawiera wiele aktywnych elementów pomocniczych. Liczba aktywnych elementów pomocniczych określa liczbę błędów, które może obsłużyć usługa.
+- **IdleSecondary (I)**: te repliki są kompilowane przez podstawowy. Są one wysyłane z poziomu podstawowego, zanim będą mogły zostać podwyższone do aktywnej pomocniczej. 
+- **Brak (N)**: te repliki nie mają odpowiedzialności w zestawie replik.
+- **Nieznane (U)**: jest to początkowa Rola repliki przed odebraniem dowolnego wywołania interfejsu API **ChangeRole** z Service Fabric.
 
-Na poniższym diagramie przedstawiono przejścia roli repliki i kilka przykładowych scenariuszy, w których mogą one wystąpić:
+Na poniższym diagramie przedstawiono przejście roli repliki oraz kilka przykładowych scenariuszy, w których mogą one wystąpić:
 
 ![Rola repliki](./media/service-fabric-concepts-replica-lifecycle/role.png)
 
-- U -> P: Tworzenie nowej repliki podstawowej.
-- U -> I: Tworzenie nowej repliki bezczynności.
-- U -> N: Usunięcie repliki rezerwowej.
-- I -> S: Promocja bezczynności wtórnej do aktywnego wtórnego, tak aby jego uznanie przyczyniło się do kworum.
-- I -> P: Promocja bezczynności wtórnej do podstawowej. Może się to zdarzyć w ramach specjalnych rekonfiguracji, gdy bezczynny pomocniczy jest właściwym kandydatem do podstawowej.
-- I -> N: Usuwanie bezczynnej repliki pomocniczej.
-- S -> P: Promocja aktywnego wtórnego do podstawowego. Może to być spowodowane przewijanym w stan failover ruchu podstawowego lub podstawowego zainicjowanym przez Menedżera zasobów klastra. Na przykład może to być odpowiedź na uaktualnienie aplikacji lub równoważenie obciążenia.
-- S -> N: Usunięcie aktywnej repliki pomocniczej.
-- P -> S: Degradacja repliki podstawowej. Może to być spowodowane ruchem podstawowym zainicjowanym przez Menedżera zasobów klastra. Na przykład może to być odpowiedź na uaktualnienie aplikacji lub równoważenie obciążenia.
-- P -> N: Usunięcie repliki podstawowej.
+- U-> P: Tworzenie nowej repliki podstawowej.
+- U-> I: Tworzenie nowej repliki bezczynnej.
+- U-> N: usuwanie repliki w stanie wstrzymania.
+- I-> S: podwyższanie poziomu bezczynności do aktywnej pomocniczej, tak aby jej potwierdzenia miały wpływ na kworum.
+- I-> P: Promocja bezczynnej wartości dodatkowej do wartości podstawowej. Może się to zdarzyć w przypadku specjalnych ponownych konfiguracji, gdy bezczynna wartość pomocnicza jest poprawnym kandydatem do podstawowego.
+- I-> N: usuwanie repliki pomocniczej bezczynnej.
+- S-> P: Promocja aktywnego elementu pomocniczego do podstawowego. Może to być spowodowane przełączeniem w tryb failover podstawowego lub podstawowego przepływu zainicjowanego przez klaster Menedżer zasobów. Na przykład może to być w odpowiedzi na uaktualnienie aplikacji lub Równoważenie obciążenia.
+- S-> N: usuwanie aktywnej repliki pomocniczej.
+- P-> S: obniżanie repliki podstawowej. Może to być spowodowane przemieszczeniem podstawowym zainicjowanym przez klaster Menedżer zasobów. Na przykład może to być w odpowiedzi na uaktualnienie aplikacji lub Równoważenie obciążenia.
+- P-> N: usuwanie repliki podstawowej.
 
 > [!NOTE]
-> Modele programowania wyższego poziomu, takie jak [Reliable Actors](service-fabric-reliable-actors-introduction.md) i [Reliable Services](service-fabric-reliable-services-introduction.md), ukrywają koncepcję ról repliki przed deweloperem. W Actors pojęcie roli jest niepotrzebne. W usługach jest w dużej mierze uproszczone dla większości scenariuszy.
+> Modele programowania wyższego poziomu, takie jak [Reliable Actors](service-fabric-reliable-actors-introduction.md) i [Reliable Services](service-fabric-reliable-services-introduction.md), ukrywają koncepcję ról repliki od dewelopera. W aktorach pojęcie roli jest niepotrzebne. W usługach usługa jest w dużym stopniu uproszczona w przypadku większości scenariuszy.
 >
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat koncepcji sieci szkieletowej usług, zobacz następujący artykuł:
+Aby uzyskać więcej informacji na temat pojęć Service Fabric, zobacz następujący artykuł:
 
-[Cykl życia usług Reliable Services — C#](service-fabric-reliable-services-lifecycle.md)
+[Cykl życia interfejsu Reliable Services — C#](service-fabric-reliable-services-lifecycle.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Warstwa usług o krytycznym znaczeniu dla firmy
-description: Dowiedz się więcej o warstwie krytyczna dla usługi Azure SQL Database Business
+title: Krytyczne dla działania firmy warstwy usług
+description: Dowiedz się więcej na temat warstwy Krytyczne dla działania firmy Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -12,54 +12,54 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
 ms.openlocfilehash: fc328c34c1543a75fdc885087d44b28e24c0850a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268680"
 ---
-# <a name="business-critical-tier---azure-sql-database"></a>Warstwa krytyczna dla firmy — baza danych SQL platformy Azure
+# <a name="business-critical-tier---azure-sql-database"></a>Warstwa Krytyczne dla działania firmy — Azure SQL Database
 
 > [!NOTE]
-> Warstwa Krytyczna dla firmy jest nazywana premium w modelu zakupu y DTU. Aby zapoznać się z porównaniem modelu zakupów opartego na procesorach vCore z modelem zakupów opartym na USŁUDZE DTU, zobacz [Tworzenie modeli i zasobów w bazie danych SQL usługi Azure .](sql-database-purchase-models.md)
+> Warstwa Krytyczne dla działania firmy jest nazywana Premium w modelu zakupu jednostek DTU. Aby zapoznać się z porównaniem modelu zakupu opartego na rdzeń wirtualny z modelem zakupów opartym na jednostkach DTU, zobacz [Azure SQL Database kupowanie modeli i zasobów](sql-database-purchase-models.md).
 
-Usługa Azure SQL Database jest oparta na architekturze aparatu bazy danych programu SQL Server, która jest dostosowana do środowiska w chmurze, aby zapewnić dostępność 99,99% nawet w przypadku awarii infrastruktury. Istnieją trzy modele architektury, które są używane w usłudze Azure SQL Database:
-- Ogólnego przeznaczenia/standardu 
-- Krytyczna dla biznesu/Premium
+Azure SQL Database jest oparta na architekturze SQL Server Database Engine, która jest dostosowywana do środowiska chmury w celu zapewnienia dostępności 99,99% nawet w przypadku awarii infrastruktury. Istnieją trzy modele architektury, które są używane w Azure SQL Database:
+- Ogólnego przeznaczenia/Standard 
+- Krytyczne dla działania firmy/Premium
 - Hiperskala
 
-Model warstwy usług Premium/Business Critical jest oparty na klastrze procesów aparatu bazy danych. Ten model architektury opiera się na fakt, że zawsze istnieje kworum dostępnych węzłów aparatu bazy danych i ma minimalny wpływ na wydajność obciążenia nawet podczas czynności konserwacyjnych.
+Model warstwy usług premium/Krytyczne dla działania firmy jest oparty na klastrze procesów aparatu bazy danych. Ten model architektury polega na tym, że zawsze jest kworum dostępnych węzłów aparatu bazy danych i ma minimalny wpływ na wydajność, nawet w trakcie czynności konserwacyjnych.
 
-Uaktualnienia i poprawki platformy Azure podstawowy system operacyjny, sterowniki i sql server database engine w sposób przejrzysty z minimalnym czasie przestoju dla użytkowników końcowych. 
+Platforma Azure uaktualnia i aktualizuje podstawowy system operacyjny, sterowniki oraz aparat SQL Server Database w sposób niewidoczny dla użytkowników końcowych w minimalnym czasie. 
 
-Dostępność w warstwie Premium jest włączona w warstwach usług Usługi Azure SQL Database w warstwach Premium i Krytycznych dla przedsiębiorstw i jest przeznaczona dla intensywnych obciążeń, które nie tolerują wpływu na wydajność z powodu trwających operacji konserwacji.
+Dostępność Premium jest włączona w warstwach usług premium i Krytyczne dla działania firmy Azure SQL Database i jest przeznaczona do intensywnych obciążeń, które nie mogą tolerować wpływu na wydajność wynikające z trwających operacji konserwacyjnych.
 
-W modelu premium baza danych SQL platformy Azure integruje zasoby obliczeniowe i magazyn w jednym węźle. Wysoka dostępność w tym modelu architektonicznym jest osiągana przez replikację obliczeń (proces aparatu baz danych programu SQL Server) i magazyn (lokalnie dołączony dysk SSD) wdrożonych w klastrze czterech węzłów przy użyciu technologii podobnej do grup dostępności programu SQL Server [Always On Availability .](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+W modelu Premium usługa Azure SQL Database integruje obliczenia i magazyn w jednym węźle. Wysoka dostępność w tym modelu architektury jest osiągana przez replikację operacji obliczeniowych (SQL Server procesie aparatu bazy danych) i magazynu (lokalnie dołączony dysk SSD) wdrożonego w czterech węzłach klastra przy użyciu technologii podobnej do SQL Server [zawsze włączone grupy dostępności](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server).
 
 ![Klaster węzłów aparatu bazy danych](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-Zarówno proces aparatu bazy danych SQL, jak i podstawowe pliki mdf/ldf są umieszczane w tym samym węźle z lokalnie dołączoną pamięcią SSD zapewniającą małe opóźnienia obciążenia. Wysoka dostępność jest implementowana przy użyciu technologii podobnej do grup dostępności programu SQL Server [Always On Availability.](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) Każda baza danych jest klastrem węzłów bazy danych z jedną podstawową bazą danych, która jest dostępna dla obciążenia klienta i trzema pomocniczymi procesami zawierającymi kopie danych. Węzeł podstawowy stale wypycha zmiany do węzłów pomocniczych w celu zapewnienia, że dane są dostępne w replikach pomocniczych, jeśli węzeł podstawowy ulegnie awarii z jakiegokolwiek powodu. Praca awaryjna jest obsługiwana przez aparat bazy danych programu SQL Server — jedna replika pomocnicza staje się węzłem podstawowym, a nowa replika pomocnicza jest tworzona w celu zapewnienia wystarczającej liczby węzłów w klastrze. Obciążenie jest automatycznie przekierowywane do nowego węzła podstawowego.
+Zarówno proces aparatu bazy danych SQL, jak i bazowe pliki MDF/ldf są umieszczane w tym samym węźle, w którym lokalnie dołączony magazyn SSD zapewnia małe opóźnienia w obciążeniu. Wysoka dostępność jest implementowana przy użyciu technologii podobnego do SQL Server [zawsze włączonymi grupami dostępności](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Każda baza danych jest klastrem węzłów bazy danych z jedną podstawową bazą danych, która jest dostępna do obciążania klienta, oraz trzech procesów pomocniczych zawierających kopie danych. Węzeł podstawowy ciągle wypychanie zmian do węzłów pomocniczych w celu upewnienia się, że dane są dostępne w replikach pomocniczych, jeśli węzeł podstawowy ulegnie awarii z dowolnego powodu. Tryb failover jest obsługiwany przez aparat bazy danych SQL Server — jedna replika pomocnicza jest węzłem podstawowym, a Nowa replika pomocnicza jest tworzona w celu zapewnienia wystarczającej liczby węzłów w klastrze. Obciążenie jest automatycznie przekierowywane do nowego węzła podstawowego.
 
-Ponadto klaster o znaczeniu krytycznym dla firmy ma wbudowaną funkcję [skalowania w poziomie odczytu,](sql-database-read-scale-out.md) która zapewnia bezpłatny wbudowany węzeł tylko do odczytu, który może służyć do uruchamiania zapytań tylko do odczytu (na przykład raportów), które nie powinny mieć wpływu na wydajność obciążenia podstawowego.
+Ponadto klaster Krytyczne dla działania firmy ma wbudowaną funkcję [odczytu](sql-database-read-scale-out.md) w poziomie, która zapewnia bezpłatny, wbudowany węzeł tylko do odczytu, który może służyć do uruchamiania zapytań tylko do odczytu (na przykład raportów), które nie powinny wpływać na wydajność podstawowego obciążenia.
 
-## <a name="when-to-choose-this-service-tier"></a>Kiedy wybrać tę warstwę usług?
+## <a name="when-to-choose-this-service-tier"></a>Kiedy należy wybrać tę warstwę usług?
 
-Warstwa usług o krytycznym znaczeniu dla firmy jest przeznaczona dla aplikacji, które wymagają odpowiedzi o małym opóźnieniu z podstawowej pamięci masowej SSD (średnio 1-2 ms), szybkiego odzyskiwania w przypadku awarii podstawowej infrastruktury lub konieczności wyłączania raportów, analiz i tylko do odczytu zapytania do bezpłatnej, czytelnej repliki pomocniczej podstawowej bazy danych.
+Krytyczne dla działania firmy warstwa usług została zaprojektowana dla aplikacji, które wymagają odpowiedzi o małym opóźnieniu z bazowego magazynu SSD (średnio 1-2 ms), szybkiego odzyskiwania w przypadku awarii infrastruktury podstawowej lub konieczności wyłączania raportów, analiz i zapytań tylko do odczytu w celu uzyskania bezpłatnej repliki pomocniczej podstawowej bazy danych.
 
-Główne powody, dla których należy wybrać warstwę usług o krytycznym znaczeniu dla firmy zamiast warstwy ogólnego przeznaczenia, to:
--   Wymagania dotyczące niskich opóźnień we/wy — obciążenie, które wymaga szybkiej reakcji z warstwy magazynu (średnio 1-2 milisekundy) powinno używać warstwy Krytyczne dla firmy. 
--   Częsta komunikacja między aplikacją a bazą danych. Aplikacja, która nie może wykorzystać buforowania warstwy aplikacji lub [żądania przetwarzania wsadowego](sql-database-use-batching-to-improve-performance.md) i trzeba wysłać wiele zapytań SQL, które muszą być szybko przetwarzane są dobrymi kandydatami do warstwy krytycznej firmy.
--   Duża liczba aktualizacji — operacje wstawiania, aktualizowania i usuwania modyfikują strony `CHECKPOINT` danych w pamięci (brudną stronę), które muszą być zapisane w plikach danych z działaniem. Awaria procesu potencjalnego aparatu bazy danych lub praca awaryjna bazy danych z dużą liczbą brudnych stron może wydłużyć czas odzyskiwania w warstwie ogólnego przeznaczenia. Użyj warstwy Krytyczne dla firmy, jeśli masz obciążenie, które powoduje wiele zmian w pamięci. 
--   Długotrwałe transakcje, które modyfikują dane. Transakcje, które są otwierane przez dłuższy czas, uniemożliwiają obcięcie pliku dziennika, które może zwiększyć rozmiar dziennika i liczbę [plików dziennika wirtualnego (VLF).](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch) Duża liczba VLF może spowolnić odzyskiwanie bazy danych po pracy awaryjnej.
--   Obciążenie z raportowania i zapytań analitycznych, które mogą być przekierowywane do bezpłatnej repliki pomocniczej tylko do odczytu.
-- Większa odporność i szybsze odzyskiwanie po awarii. W przypadku awarii systemu baza danych w wystąpieniu podstawowym zostanie wyłączona, a jedna z replik pomocniczych zostanie natychmiast stała się nową podstawową bazą danych odczytu i zapisu, która jest gotowa do przetwarzania zapytań. Aparat bazy danych nie trzeba analizować i ponawiać transakcje z pliku dziennika i załadować wszystkie dane w buforze pamięci.
-- Zaawansowana ochrona przed uszkodzeniem danych — warstwa Business Critical wykorzystuje repliki baz danych za kulisami do celów ciągłości biznesowej, a więc usługa wykorzystuje również automatyczną naprawę stron, która jest tą samą technologią, która jest tą samą technologią, która jest tą samą technologią, która jest używana w [grupach dublowania i dostępności](https://docs.microsoft.com/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring)bazy danych programu SQL Server. W przypadku, gdy replika nie może odczytać strony z powodu problemu z integralnością danych, nowa kopia strony zostanie pobrana z innej repliki, zastępując nieczytelną stronę bez utraty danych lub przestoju klienta. Ta funkcja ma zastosowanie w warstwie ogólnego przeznaczenia, jeśli baza danych ma replikę pomocniczą.
-- Wyższa dostępność — warstwa Krytyczna dla firmy w konfiguracji Multi-AZ gwarantuje dostępność na poziomie 99,995% w porównaniu z 99,99% warstwy ogólnego przeznaczenia.
-- Szybkie odzyskiwanie geograficzne — warstwa Krytyczna dla firmy skonfigurowana z replikacją geograficzną ma gwarantowany cel punktu odzyskiwania (RPO) 5 sekund i cel czasu odzyskiwania (RTO) 30 sekund dla 100% wdrożonych godzin.
+Najważniejsze przyczyny wyboru Krytyczne dla działania firmy warstwy usług zamiast warstwy Ogólnego przeznaczenia są następujące:
+-   Niskie wymagania dotyczące opóźnień we/wy — obciążenie wymagające szybkiej odpowiedzi z warstwy magazynowania (średnia 1-2 milisekund) powinno korzystać z warstwy Krytyczne dla działania firmy. 
+-   Częsta komunikacja między aplikacjami i bazami danych. Aplikacja, która nie może korzystać z buforowania warstwy aplikacji lub [żądania wsadowego](sql-database-use-batching-to-improve-performance.md) i musi wysyłać wiele zapytań SQL, które muszą być szybko przetwarzane, są dobrym kandydatami do warstwy krytyczne dla działania firmy.
+-   Duża liczba aktualizacji — operacje INSERT, Update i DELETE modyfikują strony danych w pamięci (zanieczyszczoną stronę), które muszą zostać zapisane w plikach danych z `CHECKPOINT` operacją. Potencjalna awaria procesu aparatu bazy danych lub przełączenia w tryb failover bazy danych z dużą liczbą zanieczyszczonych stron może zwiększyć czas odzyskiwania w warstwie Ogólnego przeznaczenia. Użyj warstwy Krytyczne dla działania firmy, jeśli masz obciążenie, które powoduje wiele zmian w pamięci. 
+-   Długotrwałe transakcje, które modyfikują dane. Transakcje, które są otwierane przez dłuższy czas, uniemożliwiają Obcinanie pliku dziennika, co może spowodować zwiększenie rozmiaru dziennika i liczby [wirtualnych plików dziennika (VLF)](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch). Duża liczba VLF może spowolnić odzyskiwanie bazy danych po przejściu do trybu failover.
+-   Obciążenie przy użyciu zapytań i raportów analitycznych, które można przekierować do bezpłatnej repliki tylko do odczytu.
+- Wyższa odporność i szybsze odzyskiwanie po awarii. W przypadku awarii systemu baza danych w wystąpieniu podstawowym zostanie wyłączona, a jedna z replik pomocniczych stanie się natychmiast nową podstawową bazą danych do odczytu i zapisu, która jest gotowa do przetwarzania zapytań. Aparat bazy danych nie musi analizować i ponawiać transakcji z pliku dziennika i ładować wszystkich danych w buforze pamięci.
+- Zaawansowana ochrona przed uszkodzeniem danych — warstwa Krytyczne dla działania firmy korzysta z replik bazy danych w tle w celu zapewnienia ciągłości działania, a więc usługa korzysta z automatycznej naprawy strony, która jest tą samą technologią, która jest używana do SQL Server [dublowania baz danych i grup dostępności](https://docs.microsoft.com/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring). W przypadku, gdy replika nie może odczytać strony z powodu problemu z integralnością danych, Nowa kopia strony zostanie pobrana z innej repliki, zastępując nieczytelną stronę bez utraty danych lub przestoju klienta. Ta funkcja ma zastosowanie w warstwie Ogólnego przeznaczenia, jeśli baza danych ma replikę geograficzną.
+- Wyższa dostępność — warstwa Krytyczne dla działania firmy w ramach konfiguracji z obsługą wiele-AZ — zapewnia dostępność na 99,995% w porównaniu do 99,99% warstwy Ogólnego przeznaczenia.
+- Szybka replikacja geograficzna — warstwa Krytyczne dla działania firmy skonfigurowana z replikacją geograficzną ma gwarantowany cel punktu odzyskiwania (RPO) wynoszący 5 sekund i cel czasu odzyskiwania (RTO) wynoszący 30 sekund przez 100% czasu wdrożenia.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Znajdź charakterystykę zasobów (liczba rdzeni, we/wy, pamięć) warstwy Krytyczna dla firmy w [wystąpieniu zarządzanym,](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)Pojedyncza baza danych w [modelu rdzeni wirtualnych](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) lub [modelu DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)lub Pula elastyczna w [modelu rdzeni wirtualnych](sql-database-vcore-resource-limits-elastic-pools.md#business-critical---provisioned-compute---gen4) i [modelu jednostek DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
-- Dowiedz się więcej o [warstwach Ogólnego przeznaczenia](sql-database-service-tier-general-purpose.md) i [hiperskali.](sql-database-service-tier-hyperscale.md)
-- Dowiedz się więcej o [sieci szkieletowej usług](../service-fabric/service-fabric-overview.md).
-- Aby uzyskać więcej opcji wysokiej dostępności i odzyskiwania po awarii, zobacz [Ciągłość działania](sql-database-business-continuity.md).
+- Znajdź charakterystykę zasobu (liczbę rdzeni, operacji we/wy, pamięci) warstwy Krytyczne dla działania firmy w [wystąpieniu zarządzanym](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), pojedynczą bazę danych w [modelu rdzeń wirtualny](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) lub [modelu DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)lub elastyczną pulę w [modelu rdzeń wirtualny](sql-database-vcore-resource-limits-elastic-pools.md#business-critical---provisioned-compute---gen4) i [modelu DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
+- Dowiedz się więcej na temat warstw [ogólnego przeznaczenia](sql-database-service-tier-general-purpose.md) i [skalowania](sql-database-service-tier-hyperscale.md) .
+- Dowiedz się więcej na temat [Service Fabric](../service-fabric/service-fabric-overview.md).
+- Aby uzyskać więcej opcji dotyczących wysokiej dostępności i odzyskiwania po awarii, zobacz [ciągłość](sql-database-business-continuity.md)działania.

@@ -1,29 +1,29 @@
 ---
-title: Jak uaktualnić narzędzia azure dev spaces
+title: Jak uaktualnić narzędzia Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 07/03/2018
 ms.topic: conceptual
-description: Dowiedz się, jak uaktualnić narzędzia wiersza polecenia usługi Azure Dev Spaces, rozszerzenie kodu programu Visual Studio i rozszerzenie programu Visual Studio
-keywords: Docker, Kubernetes, Azure, AKS, Usługa kontenera azure, kontenery
+description: Dowiedz się, jak uaktualnić Azure Dev Spaces narzędzia wiersza polecenia, rozszerzenia Visual Studio Code i rozszerzenia programu Visual Studio
+keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kontenery
 ms.openlocfilehash: 748ed4699591a21a5a09da924e093011b0813b46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265235"
 ---
-# <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Jak uaktualnić narzędzia azure dev spaces
+# <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Jak uaktualnić narzędzia Azure Dev Spaces
 
-Jeśli istnieje nowa wersja i już używasz usługi Azure Dev Spaces, może być konieczne uaktualnienie narzędzi klienckich usługi Azure Dev Spaces.
+Jeśli istnieje nowa wersja i używasz już Azure Dev Spaces, może być konieczne uaktualnienie narzędzi klienta Azure Dev Spaces.
 
 ## <a name="update-the-azure-cli"></a>Aktualizowanie interfejsu wiersza polecenia platformy Azure
 
-Po zaktualizowaniu najnowszego interfejsu wiersza polecenia platformy Azure otrzymujesz również najnowszą wersję rozszerzenia interfejsu wiersza polecenia dev spaces.
+Podczas aktualizowania najnowszego interfejsu wiersza polecenia platformy Azure można również uzyskać najnowszą wersję rozszerzenia interfejsu wiersza polecenia dev Spaces.
 
-Nie musisz odinstalowywać poprzedniej wersji, po prostu znajdź odpowiednie pobieranie w [usłudze Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Nie musisz odinstalować poprzedniej wersji. wystarczy znaleźć odpowiednie pobieranie w [interfejsie wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 
-## <a name="update-the-dev-spaces-cli-extension-and-command-line-tools"></a>Aktualizowanie rozszerzenia interfejsu wiersza polecenia i narzędzi wiersza polecenia dev spaces
+## <a name="update-the-dev-spaces-cli-extension-and-command-line-tools"></a>Aktualizowanie rozszerzenia i narzędzi wiersza polecenia funkcji Spaces dla deweloperów
 
 Uruchom następujące polecenie:
 
@@ -31,16 +31,16 @@ Uruchom następujące polecenie:
 az aks use-dev-spaces -n <your-aks-cluster> -g <your-aks-cluster-resource-group> --update
 ```
 
-## <a name="update-the-vs-code-extension"></a>Aktualizowanie rozszerzenia kodu VS
+## <a name="update-the-vs-code-extension"></a>Aktualizowanie rozszerzenia VS Code
 
-Po zainstalowaniu rozszerzenie zostanie zaktualizowane automatycznie. Może być konieczne ponowne załadowanie rozszerzenia, aby korzystać z nowych funkcji. W programie VS Code otwórz okienko **Rozszerzenia,** wybierz rozszerzenia **usługi Azure Dev Spaces** i wybierz pozycję **Załaduj ponownie**.
+Po zainstalowaniu rozszerzenia aktualizacje są aktualizowane automatycznie. Może być konieczne ponowne załadowanie rozszerzenia w celu korzystania z nowych funkcji. W VS Code Otwórz okienko **rozszerzenia** , wybierz rozszerzenia **Azure dev Spaces** i wybierz pozycję **Załaduj ponownie**.
 
 ## <a name="update-the-visual-studio-extension"></a>Aktualizowanie rozszerzenia programu Visual Studio
 
-Podobnie jak w przypadku innych rozszerzeń i aktualizacji, program Visual Studio powiadomi Cię, gdy dostępna jest aktualizacja dla narzędzi programu Visual Studio dla aplikacji Kubernetes, która obejmuje usługi Azure Dev Spaces. Poszukaj ikony flagi w prawym górnym rogu ekranu.
+Podobnie jak w przypadku innych rozszerzeń i aktualizacji, program Visual Studio wyświetli powiadomienie, gdy dla Visual Studio Tools for Kubernetes jest dostępna aktualizacja obejmująca Azure Dev Spaces. Wyszukaj ikonę flagi w prawym górnym rogu ekranu.
 
-Aby zaktualizować narzędzia w programie Visual Studio, wybierz pozycję menu **Narzędzia > rozszerzenia i aktualizacje,** a po lewej stronie wybierz pozycję **Aktualizacje**. Znajdź **narzędzia programu Visual Studio dla witryn Kubernetes** i wybierz przycisk **Aktualizuj.**
+Aby zaktualizować narzędzia w programie Visual Studio, wybierz element menu **narzędzia > rozszerzenia i aktualizacje** , a następnie po lewej stronie wybierz pozycję **aktualizacje**. Znajdź **Visual Studio Tools for Kubernetes** i kliknij przycisk **Aktualizuj** .
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przetestuj nowe narzędzia, tworząc nowy klaster. Wypróbuj przewodniki Szybki start i samouczki dostępne w [witrynie Azure Dev Spaces](/azure/dev-spaces).
+Przetestuj nowe narzędzia, tworząc nowy klaster. Wypróbuj Przewodniki Szybki Start i samouczki w [Azure dev Spaces](/azure/dev-spaces).
