@@ -6,23 +6,23 @@ ms.topic: include
 ms.date: 04/07/2020
 ms.author: mimart
 ms.openlocfilehash: 31a6d116ae1afce9afdd3786747490980963d823
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678035"
 ---
 ## <a name="register-an-azure-ad-app"></a>Rejestrowanie aplikacji usługi Azure AD
 
-Aby włączyć logowanie dla użytkowników z określonej organizacji usługi Azure AD, należy zarejestrować aplikację w dzierżawie usługi Azure AD.
+Aby włączyć Logowanie użytkowników z określonej organizacji usługi Azure AD, musisz zarejestrować aplikację w ramach organizacji dzierżawy usługi Azure AD.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD (na przykład contoso.com). Wybierz **filtr subskrypcja katalogu +** w górnym menu, a następnie wybierz katalog zawierający dzierżawę usługi Azure AD.
-1. Wybierz **pozycję Wszystkie usługi** w lewym górnym rogu witryny Azure portal, a następnie wyszukaj i wybierz pozycję **Rejestracje aplikacji.**
-1. Wybierz **pozycję Nowa rejestracja**.
+1. Upewnij się, że używasz katalogu zawierającego swoją organizacyjną dzierżawę usługi Azure AD (na przykład contoso.com). Wybierz **Filtr katalog + subskrypcja** w górnym menu, a następnie wybierz katalog zawierający dzierżawę usługi Azure AD.
+1. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **rejestracje aplikacji**.
+1. Wybierz pozycję **Nowa rejestracja**.
 1. Wprowadź **nazwę** aplikacji. Na przykład `Azure AD B2C App`.
 1. Zaakceptuj domyślny wybór **kont w tym katalogu organizacyjnym tylko** dla tej aplikacji.
-1. W przypadku **identyfikatora URI przekierowania**zaakceptuj wartość **sieci Web**i wprowadź `your-B2C-tenant-name` następujący adres URL we wszystkich małych literach, gdzie jest zastępowany nazwą dzierżawy usługi Azure AD B2C.
+1. Dla **identyfikatora URI przekierowania**Zaakceptuj wartość **sieci Web**i wprowadź następujący adres URL w postaci małych liter, gdzie `your-B2C-tenant-name` jest zastępowana nazwą dzierżawy Azure AD B2C.
 
     ```
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
@@ -30,19 +30,19 @@ Aby włączyć logowanie dla użytkowników z określonej organizacji usługi Az
 
     Na przykład `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
-1. Wybierz pozycję **Zarejestruj**. Zarejestruj **identyfikator aplikacji (klienta)** do użycia w późniejszym kroku.
-1. Wybierz **pozycję Certyfikaty & wpisy tajne**, a następnie wybierz pozycję Nowy klucz tajny **klienta**.
-1. Wprowadź **opis klucza** tajnego, wybierz wygaśnięcie, a następnie wybierz pozycję **Dodaj**. Zapisz **wartość** klucza tajnego do użycia w późniejszym kroku.
+1. Wybierz pozycję **Zarejestruj**. Zapisz **Identyfikator aplikacji (klienta)** do użycia w późniejszym kroku.
+1. Wybierz pozycję **certyfikaty & wpisy tajne**, a następnie wybierz pozycję **nowy klucz tajny klienta**.
+1. Wprowadź **Opis** wpisu tajnego, wybierz pozycję Wygaśnięcie, a następnie wybierz pozycję **Dodaj**. Zapisz **wartość** wpisu tajnego do użycia w późniejszym kroku.
 
 ### <a name="configuring-optional-claims"></a>Konfigurowanie oświadczeń opcjonalnych
 
-Jeśli chcesz uzyskać `family_name` i `given_name` oświadczeń z usługi Azure AD, można skonfigurować opcjonalne oświadczenia dla aplikacji w interfejsie użytkownika witryny azure portalu lub manifestu aplikacji. Aby uzyskać więcej informacji, zobacz [Jak podać opcjonalne oświadczenia do aplikacji usługi Azure AD](/active-directory/develop/active-directory-optional-claims.md).
+Jeśli chcesz uzyskać oświadczenia `family_name` i `given_name` usługi Azure AD, możesz skonfigurować opcjonalne oświadczenia dla swojej aplikacji w Azure Portal interfejsie użytkownika lub manifeście aplikacji. Aby uzyskać więcej informacji, zobacz [jak dostarczyć opcjonalne oświadczenia do aplikacji usługi Azure AD](/active-directory/develop/active-directory-optional-claims.md).
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wyszukaj i wybierz pozycję **Azure Active Directory**.
-1. W sekcji **Zarządzanie** wybierz pozycję **Rejestracje aplikacji**.
-1. Wybierz aplikację, dla której chcesz skonfigurować opcjonalne oświadczenia na liście.
+1. W sekcji **Zarządzanie** wybierz pozycję **rejestracje aplikacji**.
+1. Wybierz aplikację, dla której chcesz skonfigurować oświadczenia opcjonalne.
 1. W sekcji **Zarządzanie** wybierz pozycję **Konfiguracja tokenu**.
-1. Wybierz **dodaj oświadczenie opcjonalne**.
-1. Dla **typu tokenu**wybierz **id**.
-1. Wybierz opcjonalne oświadczenia `family_name` do `given_name`dodania i .
-1. Kliknij pozycję **Add** (Dodaj).
+1. Wybierz pozycję **Dodaj opcjonalne**pole.
+1. W polu **Typ tokenu**wybierz pozycję **Identyfikator**.
+1. Wybierz opcjonalne oświadczenia do dodania, `family_name` a `given_name`następnie.
+1. Kliknij pozycję **Dodaj**.

@@ -1,7 +1,7 @@
 ---
-title: Korzystanie z usługi MSAL w usłudze Azure Active Directory B2CLearn | Azure
+title: Użyj MSAL z Azure Active Directory B2CLearn | Azure
 titleSuffix: Microsoft identity platform
-description: Biblioteka uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL.js) umożliwia aplikacjom pracę z usługą Azure AD B2C i uzyskiwanie tokenów do wywoływania zabezpieczonych interfejsów API sieci Web. Te internetowe interfejsy API mogą być microsoft graph, inne interfejsy API firmy Microsoft, interfejsy API sieci web od innych lub własnego interfejsu API sieci web.
+description: Biblioteka Microsoft Authentication Library for JavaScript (MSAL. js) umożliwia aplikacjom współpracują z Azure AD B2C i pozyskiwanie tokenów w celu wywoływania zabezpieczonych interfejsów API sieci Web. Te interfejsy API sieci Web mogą być Microsoft Graph, inne interfejsy API firmy Microsoft, interfejsy API sieci Web od innych, lub własny internetowy interfejs API.
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -14,53 +14,53 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 8e076dfd6670265d458eb35d8e1b3e4500009a12
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81534486"
 ---
-# <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-active-directory-b2c"></a>Korzystanie z biblioteki uwierzytelniania Firmy Microsoft w języku JavaScript w celu współpracy z usługą Azure Active Directory B2C
+# <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-active-directory-b2c"></a>Użyj biblioteki uwierzytelniania firmy Microsoft dla języka JavaScript do pracy z Azure Active Directory B2C
 
-[Biblioteka uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) umożliwia deweloperom javascript uwierzytelnianie użytkowników przy użyciu tożsamości społecznościowych i lokalnych przy użyciu [usługi Azure Active Directory B2C (Azure AD B2C).](https://docs.microsoft.com/azure/active-directory-b2c/) Korzystając z usługi Azure AD B2C jako usługi zarządzania tożsamościami, można dostosować i kontrolować sposób, w jaki klienci się logują, logują się i zarządzają swoimi profilami podczas korzystania z aplikacji.
+[Biblioteka Microsoft Authentication Library for JavaScript (MSAL. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) umożliwia deweloperom języka JavaScript uwierzytelnianie użytkowników za pomocą tożsamości społecznościowych i lokalnych przy użyciu [Azure Active Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/). Korzystając z Azure AD B2C jako usługi zarządzania tożsamościami, można dostosowywać i kontrolować sposób tworzenia konta, logowania i zarządzania profilami klientów podczas korzystania z aplikacji.
 
-Usługa Azure AD B2C umożliwia również znakowanie i dostosowywanie interfejsu użytkownika aplikacji podczas procesu uwierzytelniania w celu zapewnienia klientom bezproblemowego korzystania z nich.
+Azure AD B2C umożliwia również markę i dostosowanie interfejsu użytkownika aplikacji podczas procesu uwierzytelniania, aby zapewnić klientom bezproblemowe środowisko.
 
-W tym artykule pokazano, jak używać msal.js do pracy z usługą Azure AD B2C i podsumowuje kluczowych punktów, które należy pamiętać. Aby uzyskać pełną dyskusję i samouczek, zapoznaj się z [dokumentacją usługi Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview).
+W tym artykule pokazano, jak używać MSAL. js do pracy z Azure AD B2C i podsumowywania najważniejszych punktów, z którymi należy się zapoznać. Aby uzyskać pełną dyskusję i samouczek, zapoznaj się z [dokumentacją Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie utworzono jeszcze własnej [dzierżawy usługi Azure AD B2C,](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)zacznij od utworzenia jej teraz (możesz również użyć istniejącej dzierżawy usługi Azure AD B2C, jeśli już ją masz).
+Jeśli nie utworzono jeszcze własnej [dzierżawy Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant), Zacznij od jej utworzenia (możesz też użyć istniejącej dzierżawy Azure AD B2C, jeśli już istnieje).
 
-Ta demonstracja składa się z dwóch części:
+Ta Demonstracja zawiera dwie części:
 
-- jak chronić internetowy interfejs API.
-- jak zarejestrować aplikację jednostronicową do uwierzytelniania i wywołania *tego* internetowego interfejsu API.
+- Jak chronić internetowy interfejs API.
+- Jak zarejestrować jednostronicową aplikację w celu uwierzytelnienia i wywołania *tego* internetowego interfejsu API.
 
 ## <a name="nodejs-web-api"></a>Interfejs API sieci Web platformy Node.js
 
 > [!NOTE]
-> W tej chwili MSAL.js dla Node jest nadal w fazie rozwoju (patrz [mapa drogowa](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)). W międzyczasie zalecamy użycie [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad), biblioteki uwierzytelniania dla node.js opracowanej i obsługiwanej przez firmę Microsoft.
+> W tej chwili MSAL. js dla węzła nadal jest opracowywany (zobacz [Plan](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)). W międzyczasie sugerujemy korzystanie z [usługi Passport-Azure-AD](https://github.com/AzureAD/passport-azure-ad), biblioteki uwierzytelniania dla środowiska Node. js opracowanego i obsługiwanego przez firmę Microsoft.
 
-Poniższe kroki pokazują, jak **internetowy interfejs API** może używać usługi Azure AD B2C do ochrony i udostępnienia wybranych zakresów aplikacji klienckiej.
+Poniższe kroki przedstawiają sposób, w jaki **interfejs API sieci Web** może używać Azure AD B2C do ochrony samej siebie i uwidaczniania wybranych zakresów w aplikacji klienckiej.
 
 ### <a name="step-1-register-your-application"></a>Krok 1. Rejestrowanie aplikacji
 
-Aby chronić internetowy interfejs API za pomocą usługi Azure AD B2C, należy go najpierw zarejestrować. Zobacz [Rejestrowanie aplikacji, aby](https://docs.microsoft.com/azure/active-directory-b2c/add-web-application?tabs=applications) uzyskać szczegółowe kroki.
+Aby chronić internetowy interfejs API za pomocą Azure AD B2C, należy najpierw go zarejestrować. Aby uzyskać szczegółowe instrukcje, zobacz artykuł [Rejestrowanie aplikacji](https://docs.microsoft.com/azure/active-directory-b2c/add-web-application?tabs=applications) .
 
-### <a name="step-2-download-the-sample-application"></a>Krok 2: Pobierz przykładową aplikację
+### <a name="step-2-download-the-sample-application"></a>Krok 2. Pobieranie przykładowej aplikacji
 
-Pobierz próbkę jako plik zip lub sklonuj go z GitHub:
+Pobierz przykład jako plik zip lub Sklonuj go z witryny GitHub:
 
 ```console
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
 ```
 
-### <a name="step-3-configure-authentication"></a>Krok 3: Konfigurowanie uwierzytelniania
+### <a name="step-3-configure-authentication"></a>Krok 3. Konfigurowanie uwierzytelniania
 
 1. Otwórz plik `config.js` w przykładowej aplikacji.
 
-2. Skonfiguruj przykład z poświadczeniami aplikacji, które zostały uzyskane wcześniej podczas rejestrowania aplikacji. Zmień następujące wiersze kodu, zastępując wartości nazwami identyfikatora klienta, hosta, identyfikatora dzierżawcy i nazwy zasad.
+2. Skonfiguruj przykład za pomocą poświadczeń aplikacji, które zostały uzyskane wcześniej podczas rejestrowania aplikacji. Zmień następujące wiersze kodu, zastępując wartości nazwami clientID, hosta, tenantId i zasad.
 
 ```JavaScript
 const clientID = "<Application ID for your Node.js web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
@@ -69,36 +69,36 @@ const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can u
 const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
 ```
 
-Aby uzyskać więcej informacji, zapoznaj się z tym [przykładem internetowego interfejsu API Node.js B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
+Aby uzyskać więcej informacji, zapoznaj się z [przykładem interfejsu API sieci Web B2C środowiska Node. js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
 
 ---
 
 ## <a name="javascript-spa"></a>JavaScript SPA
 
-Poniższe kroki pokazują, jak **aplikacja jednostronicowa** może używać usługi Azure AD B2C do rejestrowania się, logowania i wywoływania chronionego interfejsu API sieci Web.
+Poniższe kroki przedstawiają sposób, w jaki **aplikacja jednostronicowa** może używać Azure AD B2C do rejestrowania, logowania i wywoływania chronionego internetowego interfejsu API.
 
 ### <a name="step-1-register-your-application"></a>Krok 1. Rejestrowanie aplikacji
 
-Aby zaimplementować uwierzytelnianie, należy najpierw zarejestrować aplikację. Zobacz [Rejestrowanie aplikacji, aby](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications) uzyskać szczegółowe kroki.
+Aby zaimplementować uwierzytelnianie, należy najpierw zarejestrować aplikację. Aby uzyskać szczegółowe instrukcje, zobacz artykuł [Rejestrowanie aplikacji](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications) .
 
-### <a name="step-2-download-the-sample-application"></a>Krok 2: Pobierz przykładową aplikację
+### <a name="step-2-download-the-sample-application"></a>Krok 2. Pobieranie przykładowej aplikacji
 
-Pobierz próbkę jako plik zip lub sklonuj go z GitHub:
+Pobierz przykład jako plik zip lub Sklonuj go z witryny GitHub:
 
 ```console
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
 
-### <a name="step-3-configure-authentication"></a>Krok 3: Konfigurowanie uwierzytelniania
+### <a name="step-3-configure-authentication"></a>Krok 3. Konfigurowanie uwierzytelniania
 
-Konfigurowanie aplikacji mają dwa punkty szczególne:
+Aby skonfigurować aplikację, istnieją dwa kwestie:
 
-- Konfigurowanie punktu końcowego interfejsu API i ujawnionych zakresów
+- Konfigurowanie punktu końcowego interfejsu API i uwidocznionych zakresów
 - Konfigurowanie parametrów uwierzytelniania i zakresów tokenów
 
 1. Otwórz plik `apiConfig.js` w przykładowej aplikacji.
 
-2. Skonfiguruj przykład z parametrami uzyskanymi wcześniej podczas rejestrowania internetowego interfejsu API. Zmień następujące wiersze kodu, zastępując wartości adresem internetowego interfejsu API i ujawnionych zakresów.
+2. Skonfiguruj przykład za pomocą parametrów uzyskanych wcześniej podczas rejestrowania internetowego interfejsu API. Zmień następujące wiersze kodu, zastępując wartości adresami internetowego interfejsu API i uwidocznionych zakresów.
 
    ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
@@ -110,7 +110,7 @@ Konfigurowanie aplikacji mają dwa punkty szczególne:
 
 3. Otwórz plik `authConfig.js` w przykładowej aplikacji.
 
-4. Skonfiguruj przykład z parametrami uzyskanymi wcześniej podczas rejestrowania aplikacji jednostronicowej. Zmień następujące wiersze kodu, zastępując wartości identyfikatorem klienta, metadanymi uprawnień i zakresami żądań tokenu.
+4. Skonfiguruj przykład za pomocą parametrów uzyskanych wcześniej podczas rejestrowania aplikacji jednostronicowej. Zmień następujące wiersze kodu, zastępując wartości z ClientId, metadanych urzędu i zakresów żądania tokenu.
 
    ```javascript
     // Config object to be passed to Msal on creation.
@@ -132,7 +132,7 @@ Konfigurowanie aplikacji mają dwa punkty szczególne:
     };
    ```
 
-Aby uzyskać więcej informacji, zapoznaj się z tym [javascript B2C próbka aplikacji jednostronicowej](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp).
+Aby uzyskać więcej informacji, zapoznaj się z tą [przykładową aplikacją B2C w języku JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp).
 
 ---
 

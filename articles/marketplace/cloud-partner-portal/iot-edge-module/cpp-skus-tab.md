@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
 ms.openlocfilehash: 0a394c14842fe0c4eb4baa18cbb13acb8ca3170a
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82142460"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Karta jednostki SKU modułu IoT Edge
@@ -52,7 +52,7 @@ W poniższej tabeli opisano przeznaczenie, zawartość i formatowanie pól w obs
 
 |  **Pole**       |     **Opis**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Tytuł\***        | Tytuł dla tej jednostki SKU. Maksymalna długość 50 znaków. <br/> Zostanie on wyświetlony w Azure Portal i będzie używany jako domyślna nazwa modułu (bez spacji i znaków specjalnych) podczas wdrażania. Zobacz poniższe obrazy, aby zobaczyć dokładnie miejsce wyświetlania tego pola.|
+| **Tytuły\***        | Tytuł dla tej jednostki SKU. Maksymalna długość 50 znaków. <br/> Zostanie on wyświetlony w Azure Portal i będzie używany jako domyślna nazwa modułu (bez spacji i znaków specjalnych) podczas wdrażania. Zobacz poniższe obrazy, aby zobaczyć dokładnie miejsce wyświetlania tego pola.|
 | **Podsumowanie\***      | Krótkie podsumowanie tej jednostki SKU. Maksymalna długość 100 znaków. **Nie** Sumuj oferty, tylko dla jednostki SKU.  To podsumowanie zostanie wyświetlone w portalu Azure Marketplace. Zobacz poniższe obrazy, aby zobaczyć dokładnie miejsce wyświetlania tego pola.|
 | **Opis\***  | Krótki opis tej jednostki SKU. Maksymalna długość 3000 znaków. NIE należy opisywać oferty, ale tylko tej jednostki SKU. Zostanie ona wyświetlona w portalu Azure Marketplace i w Azure Portal. W Azure Portal zostanie on dołączony do opisu witryny Marketplace opisującej ofertę zdefiniowaną na karcie Marketplace.  Może być taka sama jak w podsumowaniu jednostki SKU. Zobacz poniższe obrazy, aby zobaczyć dokładnie miejsce wyświetlania tego pola.|
 | **Ukryj tę jednostkę SKU\*** | Zachowaj ustawienie domyślne, które **nie**jest. |

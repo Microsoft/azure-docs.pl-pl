@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z aktywacją maszyny wirtualnej systemu Windows na platformie Azure| Dokumenty firmy Microsoft
-description: Zawiera kroki rozwiązywania problemów z rozwiązywaniem problemów z aktywacją maszyny wirtualnej systemu Windows na platformie Azure
+title: Rozwiązywanie problemów z aktywacją maszyn wirtualnych systemu Windows na platformie Azure | Microsoft Docs
+description: Zawiera opis kroków rozwiązywania problemów z aktywacją maszyn wirtualnych systemu Windows na platformie Azure
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: genlin
@@ -14,30 +14,30 @@ ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
 ms.openlocfilehash: fd38f646b8dfc58839cd2645f7fadf7332693854
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81605984"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Rozwiązywanie problemów z aktywacją maszyny wirtualnej z systemem Windows na platformie Azure
 
-Jeśli masz problemy podczas aktywacji maszyny wirtualnej systemu Azure Windows (VM), który jest tworzony na podstawie obrazu niestandardowego, można użyć informacji zawartych w tym dokumencie, aby rozwiązać problem. 
+Jeśli występują problemy podczas aktywowania maszyny wirtualnej systemu Windows Azure, która została utworzona na podstawie niestandardowego obrazu, możesz skorzystać z informacji podanych w tym dokumencie, aby rozwiązać problem. 
 
 ## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Opis punktów końcowych usługi Azure KMS dotyczący aktywacji produktu systemu Windows maszyn wirtualnych platformy Azure
 
-Platforma Azure używa różnych punktów końcowych dla aktywacji usług zarządzania kluczami (Usługi zarządzania kluczami) w zależności od regionu chmury, w którym znajduje się maszyna wirtualna. Korzystając z tego przewodnika rozwiązywania problemów, należy użyć odpowiedniego punktu końcowego usługi zarządzania kluczami, który ma zastosowanie do danego regionu.
+Platforma Azure używa różnych punktów końcowych dla aktywacji usługi KMS (usług zarządzania kluczami) w zależności od regionu w chmurze, w którym znajduje się maszyna wirtualna. Korzystając z tego przewodnika rozwiązywania problemów, należy użyć odpowiedniego punktu końcowego usługi KMS, który jest stosowany w Twoim regionie.
 
 * Regiony chmury publicznej platformy Azure: kms.core.windows.net:1688
-* Regiony chmury krajowej Azure China 21Vianet: kms.core.chinacloudapi.cn:1688
-* Regiony chmury krajowej azure w Niemczech: kms.core.cloudapi.de:1688
-* Regiony chmury krajowej usługi Azure Gov w usłudze US Gov: kms.core.usgovcloudapi.net:1688
+* Azure Chiny — narodowe regiony w chmurze 21Vianet: kms.core.chinacloudapi.cn:1688
+* Regiony chmury krajowej platformy Azure (Niemcy): kms.core.cloudapi.de:1688
+* Regiony chmury krajowej US Gov platformy Azure: kms.core.usgovcloudapi.net:1688
 
 ## <a name="symptom"></a>Objaw
 
-Podczas próby aktywowania maszyny Wirtualnej systemu Windows platformy Azure pojawia się komunikat o błędzie podobny do następującego przykładu:
+Podczas próby aktywowania maszyny wirtualnej z systemem Windows Azure zostanie wyświetlony komunikat o błędzie podobny do następującego:
 
-**Błąd: 0xC004F074 Usługa licencjonowania oprogramowania poinformowała, że nie można aktywować komputera. Nie można skontaktować się z usługą zarządzania kluczami (KMS). Dodatkowe informacje można znaleźć w dzienniku zdarzeń aplikacji.**
+**Błąd: 0xC004F074 LicensingService oprogramowania zgłosił, że nie można aktywować komputera. Nie można skontaktować się z usługą Key ManagementService (KMS). Więcej informacji można znaleźć w dzienniku zdarzeń aplikacji.**
 
 ## <a name="cause"></a>Przyczyna
 
@@ -46,15 +46,15 @@ Ogólnie problemy z aktywacją maszyn wirtualnych platformy Azure występują, g
 ## <a name="solution"></a>Rozwiązanie
 
 >[!NOTE]
->Jeśli korzystasz z sieci VPN typu lokacja lokacja i wymuszonego tunelowania, zobacz Korzystanie z tras niestandardowych platformy Azure w [celu włączenia aktywacji usługi zarządzania kluczami z wymuszonym tunelowaniem.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling) 
+>Jeśli używasz sieci VPN typu lokacja-lokacja i wymuszonego tunelowania, zobacz [Używanie niestandardowych tras platformy Azure, aby włączyć aktywację usługi KMS z wymuszonym tunelowaniem](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling). 
 >
->Jeśli korzystasz z usługi ExpressRoute i opublikowano trasę domyślną, zobacz [Czy mogę zablokować połączenie z Internetem z sieciami wirtualnymi połączonymi z obwodami usługi ExpressRoute?](https://docs.microsoft.com/azure/expressroute/expressroute-faqs).
+>Jeśli używasz programu ExpressRoute i masz opublikowaną trasę domyślną, zobacz, [czy można zablokować łączność internetową z sieciami wirtualnymi podłączonymi do obwodów usługi ExpressRoute?](https://docs.microsoft.com/azure/expressroute/expressroute-faqs).
 
-### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Krok 1 Konfigurowanie odpowiedniego klucza konfiguracji klienta usługi zarządzania kluczem
+### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Krok 1. Konfigurowanie odpowiedniego klucza instalacji klienta usługi KMS
 
-W przypadku maszyny Wirtualnej utworzonej na podstawie obrazu niestandardowego należy skonfigurować odpowiedni klucz konfiguracji klienta usługi zarządzania kluczem zarządzania kluczem zarządzania kluczem dla maszyny Wirtualnej.
+W przypadku maszyny wirtualnej utworzonej na podstawie obrazu niestandardowego należy skonfigurować odpowiedni klucz instalacji klienta usługi KMS dla maszyny wirtualnej.
 
-1. Uruchom **slmgr.vbs /dlv** w wierszu polecenia z podwyższonym poziomem uprawnień. Sprawdź wartość Opis w danych wyjściowych, a następnie określ, czy została utworzona z nośnika licencji detalicznego (kanał DETALICZNY) czy nośnika licencji woluminu (VOLUME_KMSCLIENT):
+1. Uruchom polecenie **slmgr. vbs/dlv** w wierszu polecenia z podwyższonym poziomem uprawnień. Sprawdź wartość Opis w danych wyjściowych, a następnie ustal, czy została ona utworzona na podstawie nośnika licencji detalicznej lub woluminu (VOLUME_KMSCLIENT):
   
 
     ```
@@ -69,17 +69,17 @@ W przypadku maszyny Wirtualnej utworzonej na podstawie obrazu niestandardowego n
     cscript c:\windows\system32\slmgr.vbs /ato
      ```
 
-    Na przykład w centrum danych systemu Windows Server 2016 należy uruchomić następujące polecenie:
+    Na przykład w przypadku systemu Windows Server 2016 Datacenter można uruchomić następujące polecenie:
 
     ```
     cscript c:\windows\system32\slmgr.vbs /ipk CB7KF-BWN84-R7R2Y-793K2-8XDDG
     ```
 
-### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Krok 2 Sprawdź łączność między maszyną wirtualną a usługą Azure KMS
+### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Krok 2. Weryfikowanie łączności między maszyną wirtualną a usługą Azure KMS
 
-1. Pobierz i wyodrębnij narzędzie [PSping](https://docs.microsoft.com/sysinternals/downloads/psping) do folderu lokalnego na maszynie Wirtualnej, która nie jest aktywowana. 
+1. Pobierz i wyodrębnij narzędzie [PSping](https://docs.microsoft.com/sysinternals/downloads/psping) do folderu lokalnego na maszynie wirtualnej, która nie jest aktywowana. 
 
-2. Przejdź do ekranu startowego, wyszukaj w programie Windows PowerShell, kliknij prawym przyciskiem myszy pozycję Windows PowerShell, a następnie wybierz polecenie Uruchom jako administrator.
+2. Przejdź do menu Start, Wyszukaj w programie Windows PowerShell, kliknij prawym przyciskiem myszy program Windows PowerShell, a następnie wybierz polecenie Uruchom jako administrator.
 
 3. Upewnij się, że maszyna wirtualna jest skonfigurowana do używania właściwego serwera usługi Azure KMS. Aby to zrobić, uruchom następujące polecenie:
   
@@ -87,22 +87,22 @@ W przypadku maszyny Wirtualnej utworzonej na podstawie obrazu niestandardowego n
     Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
 
-    Polecenie powinno zwrócić: Nazwa komputera usługi zarządzania kluczami ustawiona na kms.core.windows.net:1688 pomyślnie.
+    Polecenie powinno zostać zwrócone: Nazwa maszyny usługi zarządzania kluczami ustawiona na kms.core.windows.net:1688 pomyślnie.
 
 4. Sprawdź przy użyciu narzędzia Psping, czy masz połączenie z serwerem usługi KMS. Przejdź do folderu, w którym wyodrębniono pobrany plik Pstools.zip, a następnie uruchom:
   
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-   W przedostatnim wierszu danych wyjściowych upewnij się, że widzisz: Wysłane = 4, Odebrane = 4, Utracone = 0 (0% straty).
+   W drugim wierszu danych wyjściowych upewnij się, że zobaczysz: wysłane = 4, odebrane = 4, utrata = 0 (0% straty).
 
-   Jeśli Lost jest większa niż 0 (zero), maszyna wirtualna nie ma łączności z serwerem usługi zarządzania kluczami. W tej sytuacji jeśli maszyna wirtualna znajduje się w sieci wirtualnej i ma określony niestandardowy serwer DNS, należy upewnić się, że serwer DNS jest w stanie rozwiązać kms.core.windows.net. Możesz też zmienić serwer DNS na serwer, który rozwiązuje kms.core.windows.net.
+   Jeśli wartość utracona jest większa niż 0 (zero), maszyna wirtualna nie ma łączności z serwerem usługi KMS. W takiej sytuacji, jeśli maszyna wirtualna znajduje się w sieci wirtualnej i ma określony niestandardowy serwer DNS, należy upewnić się, że serwer DNS jest w stanie rozpoznać kms.core.windows.net. Lub Zmień serwer DNS na taki, który rozwiązuje kms.core.windows.net.
 
-   Należy zauważyć, że jeśli usuniesz wszystkie serwery DNS z sieci wirtualnej, maszyny wirtualne korzystają z wewnętrznej usługi DNS platformy Azure. Ta usługa może rozwiązać kms.core.windows.net.
+   Zwróć uwagę, że w przypadku usunięcia wszystkich serwerów DNS z sieci wirtualnej maszyny wirtualne używają wewnętrznej usługi DNS platformy Azure. Ta usługa może rozwiązać kms.core.windows.net.
   
-    Upewnij się również, że wychodzący ruch sieciowy do punktu końcowego usługi 1688 z portem 1688 nie jest blokowany przez zaporę na maszynie Wirtualnej.
+    Upewnij się również, że wychodzący ruch sieciowy do punktu końcowego usługi KMS z portem 1688 nie jest blokowany przez zaporę na maszynie wirtualnej.
 
-5. Sprawdź za pomocą [funkcji Kontrola sieci następnego przeskoku,](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) czy następny typ przeskoku z danej maszyny Wirtualnej do docelowej ip 23.102.135.246 (dla kms.core.windows.net) lub adres IP odpowiedniego punktu końcowego usługi zarządzania kluczami, który ma zastosowanie do danego regionu, to **Internet**.  Jeśli wynikiem jest VirtualAppliance lub VirtualNetworkGateway, jest prawdopodobne, że istnieje trasa domyślna.  Skontaktuj się z administratorem sieci i pracuj z nimi, aby określić prawidłowy kierunek działania.  Może to być [trasa niestandardowa,](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) jeśli to rozwiązanie jest zgodne z zasadami organizacji.
+5. Sprawdź przy użyciu [Network Watcher następnym przeskokiem](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) typ następnego przeskoku z maszyny wirtualnej, który ma być używany do docelowego adresu IP 23.102.135.246 (dla KMS.Core.Windows.NET) lub adres IP odpowiedniego punktu końcowego usługi KMS, który ma zastosowanie do Twojego regionu, to **Internet**.  Jeśli wynik to VirtualAppliance lub VirtualNetworkGateway, prawdopodobnie istnieje trasa domyślna.  Skontaktuj się z administratorem sieci i pracuj z nimi, aby określić poprawność działania.  Może to być [trasa niestandardowa](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) , jeśli to rozwiązanie jest zgodne z zasadami organizacji.
 
 6. Po zweryfikowaniu pomyślnego połączenia z maszyną wirtualną kms.core.windows.net uruchom poniższe polecenie w wierszu programu Windows PowerShell z podwyższonym poziomem uprawnień. To polecenie podejmuje próbę aktywacji wiele razy.
 
@@ -112,25 +112,25 @@ W przypadku maszyny Wirtualnej utworzonej na podstawie obrazu niestandardowego n
 
     Pomyślna aktywacja zwraca informacje podobne do następujących:
     
-    **Aktywacja systemu Windows(R), ServerDatacenter edition (12345678-1234-1234-1234-12345678) ...  Produkt został pomyślnie aktywowany.**
+    **Aktywowanie systemu Windows (R), ServerDatacenter Edition (12345678-1234-1234-1234-12345678)...  Produkt został aktywowany pomyślnie.**
 
 ## <a name="faq"></a>Często zadawane pytania 
 
-### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>System Windows Server 2016 został utworzony w portalu Azure Marketplace. Czy muszę skonfigurować klucz usługi zarządzania kluczem zarządzania kluczem do aktywacji systemu Windows Server 2016? 
+### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>Po utworzeniu systemu Windows Server 2016 z witryny Azure Marketplace. Czy muszę skonfigurować klucz usługi KMS na potrzeby aktywowania systemu Windows Server 2016? 
 
  
-Nie. Obraz w portalu Azure Marketplace ma już skonfigurowany klucz konfiguracji klienta usługi zarządzania kluczem zarządzania kluczem. 
+Nie. Na obrazie w witrynie Azure Marketplace jest już skonfigurowany odpowiedni klucz instalacji klienta usługi KMS. 
 
-### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>Czy aktywacja systemu Windows działa w ten sam sposób, niezależnie od tego, czy maszyna wirtualna korzysta z korzyści użycia hybrydowego platformy Azure (HUB), czy nie? 
+### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>Czy aktywacja systemu Windows działa tak samo, niezależnie od tego, czy maszyna wirtualna korzysta z korzyści z używania hybrydowej platformy Azure (HUB) czy nie? 
 
  
 Tak. 
  
 
-### <a name="what-happens-if-windows-activation-period-expires"></a>Co się stanie, jeśli upłynie okres aktywacji systemu Windows? 
+### <a name="what-happens-if-windows-activation-period-expires"></a>Co się stanie w przypadku wygaśnięcia okresu aktywacji systemu Windows? 
 
  
-Po upływie okresu prolongaty i nadal nie jest aktywowany system Windows Server 2008 R2 i nowsze wersje systemu Windows będą wyświetlać dodatkowe powiadomienia o aktywacji. Tapeta pulpitu pozostaje czarna, a usługa Windows Update zainstaluje tylko aktualizacje zabezpieczeń i aktualizacje krytyczne, ale nie są to aktualizacje opcjonalne. Zobacz sekcję Powiadomienia u dołu strony [Warunki licencjonowania.](https://technet.microsoft.com/library/ff793403.aspx)   
+Po wygaśnięciu okresu prolongaty, gdy system Windows nadal nie jest aktywowany, w systemie Windows Server 2008 R2 i nowszych wersjach systemu Windows zostaną wyświetlone dodatkowe powiadomienia dotyczące aktywowania. Tapeta pulpitu pozostaje czarna, a Windows Update zainstaluje tylko zabezpieczenia i aktualizacje krytyczne, ale nie aktualizacje opcjonalne. Zobacz sekcję powiadomienia w dolnej części strony [Warunki licencjonowania](https://technet.microsoft.com/library/ff793403.aspx) .   
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Skontaktuj się z pomocą techniczną.
 

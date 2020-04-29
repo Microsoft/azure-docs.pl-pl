@@ -1,6 +1,6 @@
 ---
-title: Tryb debugowania przepływu danych mapowania
-description: Rozpoczynanie interaktywnej sesji debugowania podczas tworzenia przepływów danych
+title: Mapowanie trybu debugowania przepływu danych
+description: Rozpocznij interaktywną sesję debugowania podczas kompilowania przepływów danych
 ms.author: makromer
 author: kromerm
 ms.reviewer: douglasl
@@ -9,85 +9,85 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/06/2019
 ms.openlocfilehash: 4a763a3bb4d46ba03808423d4d1283381c1174a3
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81605391"
 ---
-# <a name="mapping-data-flow-debug-mode"></a>Tryb debugowania przepływu danych mapowania
+# <a name="mapping-data-flow-debug-mode"></a>Mapowanie trybu debugowania przepływu danych
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## <a name="overview"></a>Omówienie
 
-Tryb debugowania przepływu danych usługi Azure Data Factory umożliwia interaktywne obserwowanie przekształcania kształtu danych podczas tworzenia i debugowania przepływów danych. Sesja debugowania może być używana zarówno w sesjach projektowania przepływu danych, jak i podczas wykonywania przepływów danych debugowania potoku. Aby włączyć tryb debugowania, użyj przycisku "Debugowanie przepływu danych" u góry powierzchni projektowej.
+Tryb debugowania Azure Data Factory mapowania przepływu danych pozwala interaktywnie monitorować transformację kształtu danych podczas kompilowania i debugowania przepływów danych. Sesja debugowania może być używana zarówno w sesjach projektu przepływu danych, jak i podczas wykonywania debugowania przez potok przepływów danych. Aby włączyć tryb debugowania, użyj przycisku "Debugowanie przepływu danych" w górnej części powierzchni projektowej.
 
 ![Suwak debugowania](media/data-flow/debugbutton.png "Suwak debugowania")
 
-Po włączeniu suwaka zostanie wyświetlony monit o wybranie konfiguracji środowiska uruchomieniowego integracji, której chcesz użyć. Jeśli autoresolveIntegrationRuntime zostanie wybrany, klaster z ośmioma rdzeniami obliczeń ogólnych z 60-minutowym czasem wygaśnięcia zostanie spun up. Aby uzyskać więcej informacji na temat środowiska uruchomień integracji przepływu danych, zobacz [Wydajność przepływu danych](concepts-data-flow-performance.md#increasing-compute-size-in-azure-integration-runtime).
+Po włączeniu suwaka zostanie wyświetlony monit z pytaniem o wybór konfiguracji środowiska Integration Runtime, która ma być używana. Jeśli wybrano AutoResolveIntegrationRuntime, klaster zawierający osiem rdzeni obliczeń ogólnych z 60-minutowym czasem na żywo zostanie przypadany. Aby uzyskać więcej informacji na temat środowisk integracji przepływu danych, zobacz [wydajność przepływu danych](concepts-data-flow-performance.md#increasing-compute-size-in-azure-integration-runtime).
 
-![Wybór podczerwenia debugowania](media/data-flow/debugbutton2.png "Wybór podczerwenia debugowania")
+![Debuguj wybór IR](media/data-flow/debugbutton2.png "Debuguj wybór IR")
 
-Gdy tryb debugowania jest włączony, interaktywnie skompilujesz przepływ danych za pomocą aktywnego klastra platformy Spark. Sesja zostanie zamknięta po wyłączeniu debugowania w usłudze Azure Data Factory. Należy pamiętać o opłatach godzinowych ponoszonych przez usługę Azure Databricks w czasie, w którym masz włączoną sesję debugowania.
+Gdy tryb debugowania jest włączony, będziesz interaktywnie kompilować przepływ danych przy użyciu aktywnego klastra Spark. Sesja zostanie zamknięta po wyłączeniu debugowania w Azure Data Factory. Należy zwrócić uwagę na opłaty godzinowe naliczane przez Azure Databricks w czasie, gdy sesja debugowania jest włączona.
 
-W większości przypadków jest dobrą praktyką do tworzenia przepływów danych w trybie debugowania, dzięki czemu można sprawdzić poprawność logiki biznesowej i wyświetlić przekształcenia danych przed opublikowaniem pracy w usłudze Azure Data Factory. Użyj przycisku "Debugowanie" na panelu potoku, aby przetestować przepływ danych w potoku.
+W większości przypadków dobrym sposobem jest skompilowanie przepływów danych w trybie debugowania, aby można było zweryfikować logikę biznesową i wyświetlić przekształcenia danych przed opublikowaniem pracy w Azure Data Factory. Użyj przycisku "Debuguj" w panelu potoku, aby przetestować przepływ danych w potoku.
 
 ## <a name="cluster-status"></a>Stan klastra
 
-Wskaźnik stanu klastra w górnej części powierzchni projektowej zmienia kolor na zielony, gdy klaster jest gotowy do debugowania. Jeśli klaster jest już ciepły, zielony wskaźnik pojawi się niemal natychmiast. Jeśli klaster nie był jeszcze uruchomiony po wejściu w tryb debugowania, musisz odczekać 5-7 minut, aż klaster zostanie rozdzielony. Wskaźnik będzie obracać aż do jego gotowości.
+Wskaźnik stanu klastra w górnej części powierzchni projektowej zmieni kolor na zielony, gdy klaster jest gotowy do debugowania. Jeśli klaster jest już grzany, zielony wskaźnik zostanie wyświetlony niemal natychmiast. Jeśli klaster nie był jeszcze uruchomiony po wprowadzeniu trybu debugowania, należy poczekać 5-7 minut, aż klaster wyjdzie. Wskaźnik zostanie zastosowany do momentu jego gotowości.
 
-Po zakończeniu debugowania, należy wyłączyć debugowanie, tak aby klaster usługi Azure Databricks można zakończyć i nie będzie już naliczane na użytkownika za działanie debugowania.
+Po zakończeniu debugowania należy wyłączyć przełącznik debugowania, aby klaster Azure Databricks mógł zakończyć pracę i nie będzie już rozliczany dla działania debugowania.
 
 ## <a name="debug-settings"></a>Ustawienia debugowania
 
-Ustawienia debugowania można edytować, klikając "Ustawienia debugowania" na pasku narzędzi obszaru roboczego przepływ danych. W tym miejscu można wybrać limit wierszy lub źródło pliku, które mają być używane dla każdego przekształcenia źródła. Limity wierszy w tym ustawieniu są tylko dla bieżącej sesji debugowania. Można również wybrać usługę przemieszczania połączone, które mają być używane dla źródła DW SQL. 
+Ustawienia debugowania można edytować, klikając pozycję "ustawienia debugowania" na pasku narzędzi kanwy przepływu danych. W tym miejscu możesz wybrać limit wierszy lub źródło pliku do użycia dla każdego z przekształceń źródłowych. Limity wierszy w tym ustawieniu są tylko dla bieżącej sesji debugowania. Możesz również wybrać połączoną usługę, która ma być używana dla źródła magazynu danych SQL. 
 
 ![Ustawienia debugowania](media/data-flow/debug-settings.png "Ustawienia debugowania")
 
-Jeśli masz parametry w przepływie danych lub którykolwiek z jego zestawów danych, do których istnieją odwołania, można określić, jakie wartości mają być używane podczas debugowania, wybierając kartę **Parametry.**
+Jeśli masz parametry w przepływie danych lub w dowolnym z nich, do których istnieją odwołania, możesz określić wartości, które mają być używane podczas debugowania, wybierając kartę **Parametry** .
 
 ![Parametry ustawień debugowania](media/data-flow/debug-settings2.png "Parametry ustawień debugowania")
 
 ## <a name="data-preview"></a>Podgląd danych
 
-Po włączeniu debugowania karta Podgląd danych zapali się na dolnym panelu. Bez trybu debugowania włączony przepływ danych pokaże tylko bieżące metadane w i z każdego przekształcenia w inspekcji kartę. Podgląd danych będzie wysyłać tylko zapytania o liczbę wierszy ustawionych jako limit w ustawieniach debugowania. Kliknij **przycisk Odśwież,** aby pobrać podgląd danych.
+Po zakończeniu debugowania na karcie Podgląd danych zostanie wystawiony dolny panel. Bez trybu debugowania w przepływie danych będzie zawierać tylko bieżące metadane z i z każdego przekształcenia na karcie Inspekcja. W podglądzie danych zostanie zbadana tylko liczba wierszy, które zostały ustawione jako limit w ustawieniach debugowania. Kliknij przycisk **Odśwież** , aby pobrać Podgląd danych.
 
 ![Podgląd danych](media/data-flow/datapreview.png "Podgląd danych")
 
 > [!NOTE]
-> Źródła plików ograniczają tylko wyświetlane wiersze, a nie odczytywane wiersze. W przypadku bardzo dużych zestawów danych zaleca się wykonanie niewielkiej części tego pliku i użycie go do testowania. Można wybrać plik tymczasowy w ustawieniach debugowania dla każdego źródła, które jest typem zestawu danych pliku.
+> Źródła plików ograniczają tylko te wiersze, które są widoczne, a nie odczytywane wiersze. W przypadku bardzo dużych zestawów danych zaleca się wykonanie małej części tego pliku i użycie jej do testowania. Można wybrać plik tymczasowy w ustawieniach debugowania dla każdego źródła, które jest typem zestawu danych.
 
-Podczas uruchamiania w trybie debugowania w przepływie danych, dane nie zostaną zapisane do transformacji sink. Sesja debugowania ma służyć jako wiązka testowa dla przekształceń. Pochłaniacze nie są wymagane podczas debugowania i są ignorowane w przepływie danych. Jeśli chcesz przetestować zapisywanie danych w usłudze Sink, należy wykonać przepływ danych z potoku fabryki danych platformy Azure i użyć wykonania debugowania z potoku.
+Podczas uruchamiania w trybie debugowania w przepływie danych dane nie będą zapisywane do transformacji ujścia. Sesja debugowania jest przeznaczona do użycia jako zespół testów dla transformacji. Ujścia nie są wymagane podczas debugowania i są ignorowane w przepływie danych. Jeśli chcesz przetestować zapisywanie danych w ujściach, wykonaj przepływ danych z potoku Azure Data Factory i użyj wykonywania debugowania z potoku.
 
-### <a name="testing-join-conditions"></a>Warunki przystąpienia do testowania
+### <a name="testing-join-conditions"></a>Testowanie warunków sprzężenia
 
-Podczas testowania jednostkowego sprzężenia, istnieje lub odnoś transformacje, upewnij się, że używasz niewielki zestaw znanych danych dla testu. Można użyć opcji Ustawienia debugowania powyżej, aby ustawić plik tymczasowy do użycia do testowania. Jest to konieczne, ponieważ podczas ograniczania lub próbkowania wierszy z dużego zestawu danych, nie można przewidzieć, które wiersze i które klucze będą odczytywane do przepływu do testowania. Wynik jest niedeterministyczne, co oznacza, że warunki sprzężenia może zakończyć się niepowodzeniem.
+Gdy Przekształć testy jednostkowe, istnieją lub przekształcenia wyszukiwania, upewnij się, że używasz małego zestawu znanych danych dla testu. Możesz użyć opcji Ustawienia debugowania powyżej, aby ustawić plik tymczasowy do użycia na potrzeby testowania. Jest to konieczne, ponieważ w przypadku ograniczania lub próbkowania wierszy z dużego zestawu danych nie można przewidzieć, które wiersze i które klucze będą odczytywane w przepływie na potrzeby testowania. Wynik nie jest deterministyczny, co oznacza, że warunki sprzężenia mogą się nie powieść.
 
 ### <a name="quick-actions"></a>Szybkie akcje
 
-Po wyświetleniu podglądu danych można wygenerować szybką transformację w celu wygenerowania tekstu, usunięcia lub wykonania modyfikacji w kolumnie. Kliknij nagłówek kolumny, a następnie wybierz jedną z opcji z paska narzędzi podglądu danych.
+Gdy zobaczysz Podgląd danych, możesz wygenerować szybką transformację, aby rzutowanie, usunąć lub zmodyfikować kolumnę. Kliknij nagłówek kolumny, a następnie wybierz jedną z opcji na pasku narzędzi Podgląd danych.
 
 ![Szybkie akcje](media/data-flow/quick-actions1.png "Szybkie akcje")
 
-Po wybraniu modyfikacji podgląd danych zostanie natychmiast odświeżony. Kliknij **przycisk Potwierdź** w prawym górnym rogu, aby wygenerować nową transformację.
+Po wybraniu modyfikacji Podgląd danych zostanie natychmiast odświeżony. Kliknij przycisk **Potwierdź** w prawym górnym rogu, aby wygenerować nowe przekształcenie.
 
 ![Szybkie akcje](media/data-flow/quick-actions2.png "Szybkie akcje")
 
-**Typecast** i **Modify** wygeneruje transformację kolumny pochodnej i **Usuń** wygeneruje transformację Select.
+**Rzutowanie** i **Modify** wygenerują transformację kolumn pochodnych, a **usunięcie** spowoduje wygenerowanie transformacji SELECT.
 
 ![Szybkie akcje](media/data-flow/quick-actions3.png "Szybkie akcje")
 
 > [!NOTE]
-> W przypadku edytowania przepływu danych należy ponownie pobrać podgląd danych przed dodaniem szybkiej transformacji.
+> W przypadku edycji przepływu danych należy ponownie pobrać Podgląd danych przed dodaniem szybkiej transformacji.
 
 ### <a name="data-profiling"></a>Profilowanie danych
 
-Wybranie kolumny na karcie podglądu danych i **kliknięcie przycisku Statystyka** na pasku narzędzi podglądu danych spowoduje wyświetlenie wykresu po prawej stronie siatki danych ze szczegółowymi statystykami dotyczącymi każdego pola. Usługa Azure Data Factory dokona określenia na podstawie próbkowania danych, który typ wykresu do wyświetlenia. Pola wysokiej kardynalności będą domyślnie wyświetlane na wykresach NULL/NOT NULL, podczas gdy dane kategorii i liczbowe o niskiej kardynalności będą wyświetlać wykresy słupkowe z częstotliwością wartości danych. Zobaczysz również maksymalną/len długości pól ciągu, wartości min/max w polach liczbowych, dewelopera standardowego, percentyli, liczby i średniej.
+Wybranie kolumny na karcie Podgląd danych i kliknięcie pozycji **statystyki** na pasku narzędzi Podgląd danych spowoduje wyczyszczenie wykresu z prawej strony siatki danych z szczegółowymi statystykami dotyczącymi każdego pola. Azure Data Factory wykona Określanie na podstawie próbkowania danych, którego wykres ma być wyświetlany. Pola o dużej kardynalności będą domyślnie mieć wartości NULL/NOT NULL, podczas gdy kategorii i dane liczbowe o niskiej kardynalności będą wyświetlać wykresy słupkowe pokazujące częstotliwość wartości danych. Zobaczysz również maksymalną/len długość pól ciągów, minimalną/maksymalną wartość w polach liczbowych, standardowe dev, percentyly, liczniki i średnie.
 
 ![Statystyki kolumn](media/data-flow/stats.png "Statystyki kolumn")
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Po zakończeniu tworzenia i debugowania przepływu danych, [należy wykonać go z potoku.](control-flow-execute-data-flow-activity.md)
-* Podczas testowania potoku z przepływem danych należy użyć [opcji wykonywania uruchamiania debugowania potoku.](iterative-development-debugging.md)
+* Po zakończeniu kompilowania i debugowania przepływu danych [Wykonaj go z potoku.](control-flow-execute-data-flow-activity.md)
+* Podczas testowania potoku przy użyciu przepływu danych Użyj [opcji wykonywania uruchamiania debugowania](iterative-development-debugging.md) potoku.

@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell: Przekazywanie i wiązanie protokołu TLS/SSL'
-description: Dowiedz się, jak za pomocą programu Azure PowerShell zautomatyzować wdrażanie usługi App Service i zarządzanie nimi. W tym przykładzie pokazano, jak powiązać niestandardowy certyfikat TLS/SSL z aplikacją.
+title: 'PowerShell: przekazywanie i powiązywanie protokołów TLS/SSL'
+description: Dowiedz się, jak używać Azure PowerShell do automatyzowania wdrażania App Service i zarządzania nimi. Ten przykład pokazuje, jak powiązać niestandardowy certyfikat TLS/SSL z aplikacją.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 23e83b74-614a-49a0-bc08-7542120eeec5
@@ -8,21 +8,21 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 5116585b701717a82b757cae70f938c321a1f7d1
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81532554"
 ---
-# <a name="bind-a-custom-tlsssl-certificate-to-a-web-app-using-powershell"></a>Powiązywać niestandardowy certyfikat TLS/SSL z aplikacją sieci Web przy użyciu programu PowerShell
+# <a name="bind-a-custom-tlsssl-certificate-to-a-web-app-using-powershell"></a>Powiązywanie niestandardowego certyfikatu TLS/SSL z aplikacją internetową przy użyciu programu PowerShell
 
-Ten przykładowy skrypt tworzy aplikację sieci web w usłudze App Service z powiązanymi zasobami, a następnie wiąże z nim certyfikat TLS/SSL niestandardowej nazwy domeny. 
+Ten przykładowy skrypt tworzy aplikację internetową w App Service z jej powiązanymi zasobami, a następnie wiąże certyfikat TLS/SSL z niestandardową nazwą domeny. 
 
-W razie potrzeby zainstaluj program Azure PowerShell przy użyciu instrukcji znalezionych `Connect-AzAccount` w [przewodniku programu Azure PowerShell](/powershell/azure/overview), a następnie uruchom w celu utworzenia połączenia z platformą Azure. Ponadto upewnij się, że:
+W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdującej się w [przewodniku Azure PowerShell](/powershell/azure/overview), a następnie `Connect-AzAccount` Uruchom polecenie, aby utworzyć połączenie z platformą Azure. Ponadto upewnij się, że:
 
 - Utworzono połączenie z platformą Azure za pomocą polecenia `az login`.
 - Masz dostęp do strony konfiguracji serwera DNS rejestratora domen.
-- Masz prawidłowy plik . PFX i jego hasło do certyfikatu TLS/SSL, który chcesz przekazać i powiązać.
+- Jesteś prawidłowy. Plik PFX i jego hasło dla certyfikatu TLS/SSL, który ma zostać przekazany i powiązany.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -49,7 +49,7 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Tworzy aplikację internetową. |
 | [Set-AzAppServicePlan](/powershell/module/az.websites/set-azappserviceplan) | Modyfikuje plan usługi App Service, aby zmienić jej warstwę cenową. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modyfikuje konfigurację aplikacji internetowej. |
-| [New-AzWebAppSSLBinding](/powershell/module/az.websites/new-azwebappsslbinding) | Tworzy powiązanie certyfikatu TLS/SSL dla aplikacji sieci web. |
+| [New-AzWebAppSSLBinding](/powershell/module/az.websites/new-azwebappsslbinding) | Tworzy powiązanie certyfikatu TLS/SSL dla aplikacji internetowej. |
 
 ## <a name="next-steps"></a>Następne kroki
 

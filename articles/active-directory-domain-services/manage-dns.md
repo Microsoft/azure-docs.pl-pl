@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie usługami domenowymi usługi USŁUGI AZURE AD | Dokumenty firmy Microsoft
-description: Dowiedz się, jak zainstalować narzędzia serwera DNS do zarządzania systemem DNS i tworzyć usługi przesyłania dalej warunkowe dla domeny zarządzanej Usług domenowych Usługi active directory platformy Azure.
+title: Zarządzanie usługą DNS dla Azure AD Domain Services | Microsoft Docs
+description: Dowiedz się, jak zainstalować narzędzia serwera DNS w celu zarządzania systemem DNS i tworzenia usług przesyłania warunkowego dla domeny zarządzanej Azure Active Directory Domain Services.
 author: iainfoulds
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -11,103 +11,103 @@ ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: iainfou
 ms.openlocfilehash: f4bd3f75c3246cb11e88dbaae817eba8ac76b394
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81603542"
 ---
-# <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-ad-domain-services-managed-domain"></a>Administrowanie systemem DNS i tworzenie usług przesyłania dalej warunkowego w domenie zarządzanej usług domenowych usługi Azure AD
+# <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-ad-domain-services-managed-domain"></a>Administrowanie systemem DNS i tworzenie usług przesyłania dalej warunkowego w Azure AD Domain Services domenie zarządzanej
 
-W usługach domenowych Usługi active directory platformy Azure (Azure AD DS) kluczowym składnikiem jest DNS (Domain Name Resolution). Usługi Azure AD DS zawiera serwer DNS, który zapewnia rozpoznawanie nazw dla domeny zarządzanej. Ten serwer DNS zawiera wbudowane rekordy DNS i aktualizacje dla kluczowych składników, które umożliwiają uruchomienie usługi.
+W Azure Active Directory Domain Services (Azure AD DS), składnik klucza to DNS (rozpoznawanie nazw domen). Usługa Azure AD DS obejmuje serwer DNS, który zapewnia rozpoznawanie nazw dla domeny zarządzanej. Ten serwer DNS zawiera wbudowane rekordy DNS i aktualizacje dla kluczowych składników, które umożliwiają uruchomienie usługi.
 
-Podczas uruchamiania własnych aplikacji i usług może być konieczne utworzenie rekordów DNS dla maszyn, które nie są przyłączone do domeny, skonfigurowanie wirtualnych adresów IP dla modułów równoważenia obciążenia lub skonfigurowanie zewnętrznych usług przesyłania dalej DNS. Użytkownicy należący do grupy *Administratorzy kontrolera domeny kontrolera domeny usługi AAD* otrzymują uprawnienia administracyjne DNS w domenie zarządzanej usług Azure AD DS i mogą tworzyć i edytować niestandardowe rekordy DNS.
+Podczas uruchamiania własnych aplikacji i usług może być konieczne utworzenie rekordów DNS dla komputerów, które nie są przyłączone do domeny, skonfigurować wirtualne adresy IP dla modułów równoważenia obciążenia lub skonfigurować zewnętrzne usługi przesyłania dalej DNS. Użytkownicy, którzy należą do grupy *administratorów DC usługi AAD* , mają uprawnienia do administrowania systemem DNS w domenie zarządzanej usługi Azure AD DS i mogą tworzyć i edytować niestandardowe rekordy DNS.
 
-W środowisku hybrydowym strefy i rekordy DNS skonfigurowane w innych obszarach nazw DNS, takich jak lokalne środowisko usług AD DS, nie są synchronizowane z usługą Azure AD DS. Aby rozwiązać nazwane zasoby w innych obszarach nazw DNS, należy utworzyć i używać usług przesyłania dalej warunkowego, które wskazują istniejące serwery DNS w twoim środowisku.
+W środowisku hybrydowym strefy i rekordy DNS skonfigurowane w innych przestrzeniach nazw DNS, takich jak lokalne środowisko AD DS, nie są synchronizowane z usługą Azure AD DS. Aby rozwiązać nazwane zasoby w innych przestrzeniach nazw DNS, należy utworzyć i użyć usług przesyłania dalej warunkowego, które wskazują istniejące serwery DNS w danym środowisku.
 
-W tym artykule pokazano, jak zainstalować narzędzia serwera DNS, a następnie użyć konsoli DNS do zarządzania rekordami i tworzenia warunkowych usług przesyłania dalej w usługach Azure AD DS.
+W tym artykule opisano sposób instalowania narzędzi serwera DNS, a następnie używania konsoli DNS do zarządzania rekordami i tworzenia usług przesyłania dalej warunkowego w usłudze Azure AD DS.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Aby ukończyć ten artykuł, potrzebne są następujące zasoby i uprawnienia:
+Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
 * Aktywna subskrypcja platformy Azure.
-    * Jeśli nie masz subskrypcji platformy Azure, [utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem tylko w chmurze.
-    * W razie potrzeby [utwórz dzierżawę usługi Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z kontem.][associate-azure-ad-tenant]
-* Domena zarządzana usługami domenowymi Usługi Active Directory platformy Azure włączona i skonfigurowana w dzierżawie usługi Azure AD.
-    * W razie potrzeby wykonaj samouczek, aby [utworzyć i skonfigurować wystąpienie usług domenowych Usługi domenowe Active Directory][create-azure-ad-ds-instance]platformy Azure .
-* Łączność z sieci wirtualnej usług Azure AD DS do miejsca, w którym znajdują się inne obszary nazw DNS.
-    * Ta łączność może być dostarczona z [połączeniem Azure ExpressRoute][expressroute] lub [Azure VPN Gateway.][vpn-gateway]
-* Maszyna wirtualna z zarządzaniem systemem Windows Server, która jest przyłączona do domeny zarządzanej usług Azure AD DS.
-    * W razie potrzeby wykonaj samouczek, aby [utworzyć maszynę wirtualną systemu Windows Server i dołączyć ją do domeny zarządzanej][create-join-windows-vm].
-* Konto użytkownika, które jest członkiem grupy *administratorów usługi Azure AD DC* w dzierżawie usługi Azure AD.
+    * Jeśli nie masz subskrypcji platformy Azure, [Utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem w chmurze.
+    * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
+* Azure Active Directory Domain Services zarządzana domena włączona i skonfigurowana w dzierżawie usługi Azure AD.
+    * W razie potrzeby Uzupełnij samouczek, aby [utworzyć i skonfigurować wystąpienie Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+* Łączność z sieci wirtualnej platformy Azure AD DS do lokalizacji, w której są hostowane inne przestrzenie nazw DNS.
+    * Tę łączność można uzyskać za pomocą [usługi Azure ExpressRoute][expressroute] lub połączenia [VPN Gateway platformy Azure][vpn-gateway] .
+* Maszyna wirtualna zarządzania systemem Windows Server, która jest dołączona do domeny zarządzanej AD DS platformy Azure.
+    * W razie potrzeby uzupełnij ten samouczek, aby [utworzyć maszynę wirtualną z systemem Windows Server i dołączyć ją do domeny zarządzanej][create-join-windows-vm].
+* Konto użytkownika, które jest członkiem grupy *administratorów DC usługi Azure AD* w dzierżawie usługi Azure AD.
 
 ## <a name="install-dns-server-tools"></a>Instalowanie narzędzi serwera DNS
 
-Aby tworzyć i modyfikować rekordy DNS w usługach Azure AD DS, należy zainstalować narzędzia serwera DNS. Narzędzia te można zainstalować jako funkcję w systemie Windows Server. Aby uzyskać więcej informacji na temat instalowania narzędzi administracyjnych na kliencie systemu Windows, zobacz [instalowanie narzędzi administracji zdalnej (RSAT)][install-rsat].
+Aby tworzyć i modyfikować rekordy DNS w usłudze Azure AD DS, należy zainstalować narzędzia serwera DNS. Te narzędzia można zainstalować jako funkcję systemu Windows Server. Aby uzyskać więcej informacji na temat instalowania narzędzi administracyjnych na kliencie systemu Windows, zobacz Install [Narzędzia administracji zdalnej serwera (RSAT)][install-rsat].
 
-1. Zaloguj się do maszyny wirtualnej zarządzania. Aby uzyskać instrukcje dotyczące łączenia się przy użyciu portalu Azure portal, zobacz [Łączenie się z maszyną wirtualną systemu Windows Server][connect-windows-server-vm].
-1. Jeśli **Menedżer serwera** nie otwiera się domyślnie po zalogowaniu się do maszyny Wirtualnej, wybierz menu **Start,** a następnie wybierz pozycję **Menedżer serwera**.
-1. W okienku *Pulpit nawigacyjny* okna **Menedżer serwera** wybierz pozycję Dodaj role **i funkcje**.
-1. Na stronie **Przed rozpoczęciem** *Kreatora dodawania ról i funkcji*wybierz pozycję **Dalej**.
-1. W przypadku *typu instalacji*pozostaw zaznaczoną opcję **instalacji opartą na rolach lub funkcjach** i wybierz pozycję **Dalej**.
-1. Na stronie **Wybór serwera** wybierz bieżącą maszynę wirtualną z puli serwerów, taką jak *myvm.aaddscontoso.com*, a następnie wybierz pozycję **Dalej**.
-1. Na stronie **Role serwera** kliknij przycisk **Dalej**.
-1. Na stronie **Funkcje** rozwiń węzeł **Narzędzia administracji zdalnej serwera,** a następnie rozwiń węzeł **Narzędzia administrowania rolami.** Wybierz funkcję **Narzędzia serwera DNS** z listy narzędzi do administrowania rolami.
+1. Zaloguj się do maszyny wirtualnej zarządzania. Aby uzyskać instrukcje dotyczące sposobu nawiązywania połączenia przy użyciu Azure Portal, zobacz [nawiązywanie połączenia z maszyną wirtualną z systemem Windows Server][connect-windows-server-vm].
+1. Jeśli **Menedżer serwera** nie zostanie otwarta domyślnie po zalogowaniu się do maszyny wirtualnej, wybierz menu **Start** , a następnie wybierz pozycję **Menedżer serwera**.
+1. W okienku *pulpit nawigacyjny* okna **Menedżer serwera** wybierz pozycję **Dodaj role i funkcje**.
+1. Na stronie **zanim rozpoczniesz** *Kreatora dodawania ról i funkcji*wybierz pozycję **dalej**.
+1. W polu *Typ instalacji*pozostaw zaznaczoną opcję **Instalacja oparta na rolach lub oparta na funkcjach** , a następnie wybierz pozycję **dalej**.
+1. Na stronie **Wybór serwera** wybierz bieżącą maszynę wirtualną z puli serwerów, takiej jak *MyVM.aaddscontoso.com*, a następnie wybierz przycisk **dalej**.
+1. Na stronie **role serwera** kliknij przycisk **dalej**.
+1. Na stronie **funkcje** rozwiń węzeł **Narzędzia administracji zdalnej serwera** , a następnie rozwiń węzeł Narzędzia do **administrowania rolami** . Wybierz funkcję **Narzędzia serwera DNS** z listy narzędzi do administrowania rolami.
 
-    ![Aby zainstalować narzędzia serwera DNS z listy dostępnych narzędzi administracyjnych ról](./media/manage-dns/install-dns-tools.png)
+    ![Wybierz, aby zainstalować narzędzia serwera DNS z listy dostępnych narzędzi do administrowania rolami](./media/manage-dns/install-dns-tools.png)
 
-1. Na stronie **Potwierdzenie** wybierz pozycję **Zainstaluj**. Zainstalowanie narzędzi zarządzania zasadami grupy może potrwać minutę lub dwie.
-1. Po zakończeniu instalacji funkcji wybierz pozycję **Zamknij,** aby zakończyć pracę **kreatora Dodawanie ról i funkcji.**
+1. Na stronie **potwierdzenie** wybierz pozycję **Zainstaluj**. Zainstalowanie zasady grupy narzędzi do zarządzania może potrwać minutę lub dwa.
+1. Po zakończeniu instalacji funkcji wybierz pozycję **Zamknij** , aby zakończyć działanie kreatora **dodawania ról i funkcji** .
 
-## <a name="open-the-dns-management-console-to-administer-dns"></a>Otwórz konsolę zarządzania DNS, aby administrować systemem DNS
+## <a name="open-the-dns-management-console-to-administer-dns"></a>Otwórz konsolę zarządzania DNS w celu administrowania usługą DNS
 
-Po zainstalowaniu narzędzi serwera DNS można administrować rekordami DNS w domenie zarządzanej usług Azure AD DS.
+Za pomocą zainstalowanych narzędzi serwera DNS można administrować rekordami DNS w domenie zarządzanej AD DS platformy Azure.
 
 > [!NOTE]
-> Aby administrować usługą DNS w domenie zarządzanej usług Azure AD DS, musisz zalogować się do konta użytkownika, które jest członkiem grupy *Administratorzy kontrolera domeny kontrolera domeny usługi AAD.*
+> Aby administrować systemem DNS w domenie zarządzanej AD DS platformy Azure, musisz zalogować się na konto użytkownika, które jest członkiem grupy *administratorów kontrolera domeny usługi AAD* .
 
-1. Na ekranie startowym wybierz pozycję **Narzędzia administracyjne**. Zostanie wyświetlona lista dostępnych narzędzi do zarządzania, w tym **system DNS** zainstalowany w poprzedniej sekcji. Wybierz **pozycję DNS,** aby uruchomić konsolę Zarządzania DNS.
-1. W oknie dialogowym **Połącz z serwerem DNS** wybierz pozycję **Następujący komputer**, a następnie wprowadź nazwę domeny DNS domeny zarządzanej, taką jak *aaddscontoso.com:*
+1. Na ekranie startowym wybierz pozycję **Narzędzia administracyjne**. Zostanie wyświetlona lista dostępnych narzędzi do zarządzania, w tym **usługi DNS** zainstalowane w poprzedniej sekcji. Wybierz pozycję **DNS** , aby uruchomić konsolę zarządzania DNS.
+1. W oknie dialogowym **łączenie z serwerem DNS** wybierz **następujący komputer**, a następnie wprowadź nazwę domeny DNS domeny zarządzanej, taką jak *aaddscontoso.com*:
 
-    ![Łączenie się z domeną zarządzałą usługą Azure AD DS w konsoli DNS](./media/manage-dns/connect-dns-server.png)
+    ![Nawiązywanie połączenia z domeną zarządzaną platformy Azure AD DS w konsoli DNS](./media/manage-dns/connect-dns-server.png)
 
-1. Konsola DNS łączy się z określoną domeną zarządzana usługą Azure AD DS. Rozwiń **strefy wyszukiwania do przodu** lub strefy **odnośnego wstecznego,** aby utworzyć wymagane wpisy DNS lub w razie potrzeby edytować istniejące rekordy.
+1. Konsola DNS nawiązuje połączenie z określoną domeną zarządzaną AD DS platformy Azure. Rozwiń **strefy wyszukiwania do przodu** lub **strefy wyszukiwania wstecznego** , aby utworzyć wymagane wpisy DNS, lub edytuj istniejące rekordy stosownie do potrzeb.
 
-    ![Konsola DNS — administrowanie domeną](./media/manage-dns/dns-manager.png)
+    ![Konsola DNS-Administruj domeną](./media/manage-dns/dns-manager.png)
 
 > [!WARNING]
-> Podczas zarządzania rekordami przy użyciu narzędzi serwera DNS upewnij się, że nie usuwasz ani nie modyfikujesz wbudowanych rekordów DNS używanych przez usługi Azure AD DS. Wbudowane rekordy DNS obejmują rekordy DNS domeny, rekordy serwera nazw i inne rekordy używane dla lokalizacji kontrolera domeny. Jeśli zmodyfikujesz te rekordy, usługi domeny zostaną zakłócone w sieci wirtualnej.
+> Podczas zarządzania rekordami przy użyciu narzędzi serwera DNS upewnij się, że nie usunięto ani nie modyfikujesz wbudowanych rekordów DNS, które są używane przez usługę Azure AD DS. Wbudowane rekordy DNS obejmują rekordy DNS domeny, rekordy serwera nazw i inne rekordy używane do lokalizacji kontrolera domeny. W przypadku zmodyfikowania tych rekordów usługi domenowe są zakłócone w sieci wirtualnej.
 
-## <a name="create-conditional-forwarders"></a>Tworzenie warunkowych spedytów
+## <a name="create-conditional-forwarders"></a>Tworzenie usług przesyłania dalej warunkowego
 
-Strefa DNS usług Azure AD DS powinna zawierać tylko strefę i rekordy dla samej domeny zarządzanej. Nie należy tworzyć dodatkowych stref w usługach Azure AD DS, aby rozwiązać nazwane zasoby w innych obszarach nazw DNS. Zamiast tego należy użyć usług przesyłania dalej warunkowej w domenie zarządzanej usługi Azure AD DS, aby poinformować serwer DNS, gdzie należy się udać, aby rozpoznać adresy dla tych zasobów.
+Strefa DNS usługi Azure AD DS powinna zawierać tylko strefy i rekordy dla samej domeny zarządzanej. Nie należy tworzyć dodatkowych stref w usłudze Azure AD DS do rozwiązywania nazwanych zasobów w innych przestrzeniach nazw DNS. Zamiast tego należy użyć usług przesyłania dalej warunkowego w domenie zarządzanej AD DS platformy Azure, aby poinformować serwer DNS, gdzie ma się znaleźć, aby rozwiązać adresy tych zasobów.
 
-Usługa przesyłania dalej warunkowej to opcja konfiguracji na serwerze DNS, która umożliwia zdefiniowanie domeny DNS, takiej jak *contoso.com*, do przekazywania zapytań. Zamiast lokalnego serwera DNS próbującego rozpoznać kwerendy dotyczące rekordów w tej domenie, kwerendy DNS są przekazywane do skonfigurowanego systemu DNS dla tej domeny. Ta konfiguracja zapewnia, że są zwracane poprawne rekordy DNS, ponieważ nie tworzysz lokalnej strefy DNS ze zduplikowanymi rekordami w domenie zarządzanej usługi Azure AD DS w celu odzwierciedlenia tych zasobów.
+Usługa przesyłania dalej warunkowego jest opcją konfiguracji na serwerze DNS, która umożliwia zdefiniowanie domeny DNS, takiej jak *contoso.com*, do przesyłania zapytań do programu. Zamiast lokalnego serwera DNS próbującego rozpoznać zapytania dotyczące rekordów w tej domenie zapytania DNS są przekazywane do skonfigurowanego systemu DNS dla tej domeny. Ta konfiguracja gwarantuje, że zwracane są poprawne rekordy DNS, ponieważ nie utworzysz lokalnej strefy DNS zawierającej zduplikowane rekordy w domenie zarządzanej AD DS platformy Azure w celu odzwierciedlenia tych zasobów.
 
-Aby utworzyć usługę przesyłania dalej warunkowej w domenie zarządzanej usług Azure AD DS, wykonaj następujące kroki:
+Aby utworzyć usługę przesyłania dalej warunkowego w domenie zarządzanej AD DS platformy Azure, wykonaj następujące czynności:
 
-1. Wybierz strefę DNS usług Azure AD DS, taką jak *aaddscontoso.com*.vb
-1. Wybierz **warunkowe przesyłanie dalej**, a następnie wybierz prawym przyciskiem wyboru i wybierz pozycję **Nowy warunkowy przesyłania dalej...**
-1. Wprowadź inną **domenę DNS**, taką jak *contoso.com,* a następnie wprowadź adresy IP serwerów DNS dla tego obszaru nazw, jak pokazano w poniższym przykładzie:
+1. Wybierz strefę DNS usługi Azure AD DS, na przykład *aaddscontoso.com*. vb
+1. Wybierz pozycję **usługi przesyłania dalej warunkowe**, a następnie kliknij prawym przyciskiem myszy i wybierz pozycję **Nowa usługa przesyłania dalej warunkowego...**
+1. Wprowadź inną **domenę DNS**, na przykład *contoso.com*, a następnie wprowadź adresy IP serwerów DNS dla tej przestrzeni nazw, jak pokazano w następującym przykładzie:
 
-    ![Dodawanie i konfigurowanie usługi przesyłania dalej warunkowej serwera DNS](./media/manage-dns/create-conditional-forwarder.png)
+    ![Dodawanie i Konfigurowanie usługi przesyłania dalej warunkowej dla serwera DNS](./media/manage-dns/create-conditional-forwarder.png)
 
-1. Zaznacz pole wyboru **Przechowywanie tej usługi przesyłania dalej warunkowej w usłudze Active Directory i replikuj ją w następujący sposób,** a następnie wybierz opcję dla wszystkich *serwerów DNS w tej domenie,* jak pokazano w poniższym przykładzie:
+1. Zaznacz pole wyboru **przechowuj tę usługę przesyłania dalej warunkowego w Active Directory i Replikuj ją w następujący sposób**, a następnie wybierz opcję dla *wszystkich serwerów DNS w tej domenie*, jak pokazano w następującym przykładzie:
 
-    ![Konsola DNS — administrowanie domeną](./media/manage-dns/store-in-domain.png)
+    ![Konsola DNS-Administruj domeną](./media/manage-dns/store-in-domain.png)
 
     > [!IMPORTANT]
-    > Jeśli usługa przesyłania dalej warunkowej jest przechowywana w *lesie,* a nie w *domenie,* usługa przesyłania dalej warunkowej kończy się niepowodzeniem.
+    > Jeśli usługa przesyłania dalej warunkowego jest przechowywana w *lesie* , a nie w *domenie*, warunkowego przesyłania dalej kończy się niepowodzeniem.
 
-1. Aby utworzyć warunkową przesyłanie dalej, wybierz przycisk **OK**.
+1. Aby utworzyć usługę przesyłania dalej warunkowego, wybierz **przycisk OK**.
 
-Rozpoznawanie nazw zasobów w innych obszarach nazw z maszyn wirtualnych połączonych z domeną zarządzana usługą Azure AD DS powinno teraz zostać poprawnie rozpoznane. Zapytania dotyczące domeny DNS skonfigurowanej w uiwarowanym warunkowym uchyłka są przekazywane do odpowiednich serwerów DNS.
+Rozpoznawanie nazw zasobów w innych przestrzeniach nazw z maszyn wirtualnych połączonych z domeną zarządzaną AD DS platformy Azure powinno teraz rozwiązać problem. Zapytania dotyczące domeny DNS skonfigurowanej w warunkowej usługi przesyłania dalej są przekazywane do odpowiednich serwerów DNS.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat zarządzania systemem DNS, zobacz [artykuł o narzędziach DNS w serwisie Technet](https://technet.microsoft.com/library/cc753579.aspx).
+Aby uzyskać więcej informacji na temat zarządzania usługą DNS, zobacz [artykuł dotyczący narzędzi DNS w witrynie TechNet](https://technet.microsoft.com/library/cc753579.aspx).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

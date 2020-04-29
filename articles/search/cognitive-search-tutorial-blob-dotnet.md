@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek: C# i AI nad obiektami blob platformy Azure'
+title: 'Samouczek: C# i AI za pośrednictwem obiektów blob platformy Azure'
 titleSuffix: Azure Cognitive Search
-description: Krok po przykładzie wyodrębniania tekstu i przetwarzania języka naturalnego za pośrednictwem zawartości w magazynie obiektów Blob przy użyciu języka C# i azure cognitive search .NET SDK.
+description: Przechodzenie między przykładem wyodrębniania tekstu i przetwarzania języka naturalnego za pośrednictwem zawartości w usłudze BLOB Storage przy użyciu języka C# i zestawu Azure Wyszukiwanie poznawcze .NET SDK.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
@@ -9,155 +9,155 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.openlocfilehash: 169a33d12e98235dcb4e4f317dbb8d91eb7446a4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78851139"
 ---
-# <a name="tutorial-use-c-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Samouczek: Generowanie zawartości z przeszukiwaniem z obiektów blob platformy Azure za pomocą języka C# i AI
+# <a name="tutorial-use-c-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Samouczek: używanie języka C# i AI do generowania zawartości z możliwością wyszukiwania z obiektów blob platformy Azure
 
-Jeśli masz nieustrukturyzowanego tekstu lub obrazów w magazynie obiektów Blob platformy Azure potok [wzbogacania sztucznej inteligencji](cognitive-search-concept-intro.md) można wyodrębnić informacje i utworzyć nową zawartość, która jest przydatna w przypadku wyszukiwania pełnotekstowego lub eksploracji wiedzy scenariuszy. W tym samouczku języka C# zastosuj optyczne rozpoznawanie znaków (OCR) na obrazach i wykonaj przetwarzanie języka naturalnego, aby utworzyć nowe pola, które można wykorzystać w kwerendach, aspektach i filtrach.
+Jeśli w usłudze Azure Blob Storage znajduje się tekst lub obrazy bez struktury, [potok wzbogacenia AI](cognitive-search-concept-intro.md) może wyodrębnić informacje i utworzyć nową zawartość, która jest przydatna w przypadku wyszukiwania pełnotekstowego lub scenariuszy wyszukiwania w bazie wiedzy. W tym samouczku w języku C# Zastosuj optyczne rozpoznawanie znaków (OCR) na obrazach i wykonaj przetwarzanie języka naturalnego, aby utworzyć nowe pola, których można użyć w zapytaniach, aspektach i filtrach.
 
-W tym samouczku użyto języka C# i [zestawu .NET SDK](https://aka.ms/search-sdk) do wykonywania następujących zadań:
+Ten samouczek używa języka C# i [zestawu SDK platformy .NET](https://aka.ms/search-sdk) do wykonywania następujących zadań:
 
 > [!div class="checklist"]
-> * Zacznij od plików aplikacji i obrazów w magazynie obiektów blob platformy Azure.
-> * Zdefiniuj potok, aby dodać OCR, wyodrębnianie tekstu, wykrywanie języka, rozpoznawanie encji i fraz kluczowych.
-> * Zdefiniuj indeks do przechowywania danych wyjściowych (zawartość nieprzetworzona oraz pary nazwa-wartość wygenerowana przez potok).
-> * Wykonaj potok, aby rozpocząć transformacje i analizy oraz utworzyć i załadować indeks.
-> * Eksploruj wyniki przy użyciu wyszukiwania pełnotekstowego i składni kwerendy rozszerzonej.
+> * Zacznij od plików aplikacji i obrazów w usłudze Azure Blob Storage.
+> * Zdefiniuj potok w celu dodania OCR, wyodrębnienia tekstu, wykrywania języka, rozpoznawania jednostek i frazy kluczowej.
+> * Zdefiniuj indeks do przechowywania danych wyjściowych (nieprzetworzona zawartość oraz pary nazwa-wartość w postaci potoku).
+> * Wykonaj potok, aby rozpocząć transformacje i analizę oraz utworzyć i załadować indeks.
+> * Eksplorowanie wyników przy użyciu wyszukiwania pełnotekstowego i zaawansowanej składni zapytań.
 
-Jeśli nie masz subskrypcji platformy Azure, otwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-+ [Azure Storage](https://azure.microsoft.com/services/storage/)
++ [Usługa Azure Storage](https://azure.microsoft.com/services/storage/)
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-+ [Tworzenie](search-create-service-portal.md) lub [znajdowanie istniejącej usługi wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
++ [Utwórz](search-create-service-portal.md) lub [Znajdź istniejącą usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
-> Możesz skorzystać z bezpłatnej usługi dla tego samouczka. Bezpłatna usługa wyszukiwania ogranicza do trzech indeksów, trzech indeksatorów i trzech źródeł danych. W ramach tego samouczka tworzony jest jeden element każdego z tych typów. Przed rozpoczęciem upewnij się, że masz miejsce w usłudze, aby zaakceptować nowe zasoby.
+> Możesz skorzystać z bezpłatnej usługi dla tego samouczka. Bezpłatna usługa wyszukiwania ogranicza do trzech indeksów, trzech indeksatorów i trzech źródeł danych. W ramach tego samouczka tworzony jest jeden element każdego z tych typów. Przed rozpoczęciem upewnij się, że masz miejsce w usłudze, aby akceptować nowe zasoby.
 
 ## <a name="download-files"></a>Pobieranie plików
 
-1. Otwórz ten [folder usługi OneDrive,](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) a w lewym górnym rogu kliknij pozycję **Pobierz,** aby skopiować pliki na komputer. 
+1. Otwórz ten [folder w usłudze OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) i w lewym górnym rogu, kliknij pozycję **Pobierz** , aby skopiować pliki do komputera. 
 
-1. Kliknij prawym przyciskiem myszy plik zip i wybierz polecenie **Wyodrębnij wszystkie**. Istnieje 14 plików różnych typów. Użyj ich wszystkich w tym samouczku.
+1. Kliknij prawym przyciskiem myszy plik zip i wybierz polecenie **Wyodrębnij wszystko**. Istnieje 14 plików różnych typów. Użyj wszystkich z nich dla tego samouczka.
 
-## <a name="1---create-services"></a>1 - Tworzenie usług
+## <a name="1---create-services"></a>1 — Tworzenie usług
 
-W tym samouczku użyto usługi Azure Cognitive Search do indeksowania i kwerend, usług Cognitive Services w wewnętrznej bazy danych w celu wzbogacania sztucznej inteligencji i magazynu obiektów Blob platformy Azure w celu dostarczenia danych. Ten samouczek pozostaje w ramach bezpłatnej alokacji 20 transakcji na indeksator dziennie w usługach Cognitive Services, więc jedynymi usługami, które musisz utworzyć, są wyszukiwanie i przechowywanie.
+Ten samouczek używa usługi Azure Wyszukiwanie poznawcze do indeksowania i zapytań, Cognitive Services w zapleczu do wzbogacania AI i usługi Azure Blob Storage, aby zapewnić dane. Ten samouczek jest objęty bezpłatną alokacją 20 transakcji na indeksator dziennie na Cognitive Services, więc jedyne usługi, które należy utworzyć, to wyszukiwanie i magazynowanie.
 
-Jeśli to możliwe, utwórz zarówno w tym samym regionie, jak i w grupie zasobów, aby uzyskać bliskość i łatwość zarządzania. W praktyce twoje konto usługi Azure Storage może znajdować się w dowolnym regionie.
+Jeśli to możliwe, Utwórz zarówno w tym samym regionie, jak i w grupie zasobów, co umożliwia bliskość i łatwość zarządzania. W tym przypadku konto usługi Azure Storage może znajdować się w dowolnym regionie.
 
-### <a name="start-with-azure-storage"></a>Zacznij od usługi Azure Storage
+### <a name="start-with-azure-storage"></a>Rozpoczynanie pracy z usługą Azure Storage
 
-1. [Zaloguj się do witryny Azure portal](https://portal.azure.com/) i kliknij przycisk **+ Utwórz zasób**.
+1. [Zaloguj się do Azure Portal](https://portal.azure.com/) i kliknij pozycję **+ Utwórz zasób**.
 
 1. Wyszukaj *konto magazynu* i wybierz ofertę konta magazynu firmy Microsoft.
 
    ![Utwórz konto magazynu](media/cognitive-search-tutorial-blob/storage-account.png "Utwórz konto magazynu")
 
-1. Na karcie Podstawy wymagane są następujące elementy. Zaakceptuj ustawienia domyślne dla wszystkich innych.
+1. Na karcie podstawowe wymagane są następujące elementy. Zaakceptuj wartości domyślne dla wszystkich innych elementów.
 
-   + **Grupa zasobów**. Wybierz istniejącą lub utwórz nową, ale użyj tej samej grupy dla wszystkich usług, aby można było zarządzać nimi zbiorowo.
+   + **Grupa zasobów**. Wybierz istniejący lub Utwórz nowy, ale Użyj tej samej grupy dla wszystkich usług, aby można było zarządzać nimi zbiorczo.
 
-   + **Nazwa konta magazynu**. Jeśli uważasz, że możesz mieć wiele zasobów tego samego typu, użyj nazwy, aby odróżnić według typu i regionu, na przykład *blobstoragewestus*. 
+   + **Nazwa konta magazynu**. Jeśli uważasz, że może istnieć wiele zasobów tego samego typu, użyj nazwy, aby odróżnić według typu i regionu, na przykład *blobstoragewestus*. 
 
-   + **Lokalizacja**. Jeśli to możliwe, wybierz tę samą lokalizację, która jest używana dla usługi Azure Cognitive Search i Usług Cognitive Services. Pojedyncza lokalizacja powoduje unieważnienie opłat za przepustowość.
+   + **Lokalizacja**. Jeśli to możliwe, wybierz tę samą lokalizację, która jest używana dla usługi Azure Wyszukiwanie poznawcze i Cognitive Services. Pojedyncza lokalizacja unieważnia opłaty za przepustowość.
 
-   + **Rodzaj konta**. Wybierz *domyślny, StorageV2 (ogólnego przeznaczenia v2)*.
+   + **Rodzaj konta**. Wybierz wartość domyślną *StorageV2 (ogólnego przeznaczenia w wersji 2)*.
 
-1. Kliknij **przycisk Recenzja + Utwórz,** aby utworzyć usługę.
+1. Kliknij przycisk **Przegląd + Utwórz** , aby utworzyć usługę.
 
-1. Po utworzeniu kliknij pozycję **Przejdź do zasobu,** aby otworzyć stronę Przegląd.
+1. Po jego utworzeniu kliknij pozycję **Przejdź do zasobu** , aby otworzyć stronę przegląd.
 
-1. Kliknij pozycję Usługa **obiektów Blobs.**
+1. Kliknij pozycję **obiekty blob** usługa.
 
-1. Kliknij **+ Kontener,** aby utworzyć kontener i nazwać go *basic-demo-data-pr*.
+1. Kliknij pozycję **+ kontener** , aby utworzyć kontener i nazwij go *Basic-demonstracyjn-Data-PR*.
 
-1. Wybierz *opcję Basic-demo-data-pr,* a następnie kliknij przycisk **Przekaż,** aby otworzyć folder, w którym zostały zapisane pliki do pobrania. Zaznacz wszystkie czternaście plików i kliknij przycisk **OK,** aby je przesłać.
+1. Wybierz pozycję *Basic-demonstracyjne-Data-PR* , a następnie kliknij przycisk **Przekaż** , aby otworzyć folder, w którym zapisano pliki do pobrania. Zaznacz wszystkie czternaście plików i kliknij przycisk **OK** , aby przekazać.
 
-   ![Przekazywanie przykładowych plików](media/cognitive-search-quickstart-blob/sample-data.png "Przekazywanie przykładowych plików")
+   ![Przekaż pliki przykładowe](media/cognitive-search-quickstart-blob/sample-data.png "Przekaż pliki przykładowe")
 
-1. Przed opuszczeniem usługi Azure Storage pobierz ciąg połączenia, aby można było sformułować połączenie w usłudze Azure Cognitive Search. 
+1. Przed opuszczeniem usługi Azure Storage należy uzyskać parametry połączenia, aby można było sformułować połączenie w usłudze Azure Wyszukiwanie poznawcze. 
 
-   1. Przejdź z powrotem do strony Przegląd konta magazynu (użyliśmy *blobstragewestus* jako przykład). 
+   1. Przejdź z powrotem do strony Przegląd Twojego konta magazynu (na przykład użyto *blobstragewestus* ). 
    
-   1. W lewym okienku nawigacji wybierz pozycję **Klawisze programu Access** i skopiuj jeden z ciągów połączeń. 
+   1. W okienku nawigacji po lewej stronie wybierz pozycję **klucze dostępu** i skopiuj jeden z parametrów połączenia. 
 
-   Parametry połączenia to adres URL podobny do następującego przykładu:
+   Ciąg połączenia jest adresem URL podobnym do poniższego przykładu:
 
       ```http
       DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
-1. Zapisz ciąg połączenia w Notatniku. Będzie on potrzebny później podczas konfigurowania połączenia źródła danych.
+1. Zapisz parametry połączenia w Notatniku. Będzie ona potrzebna później podczas konfigurowania połączenia ze źródłem danych.
 
 ### <a name="cognitive-services"></a>Cognitive Services
 
-Wzbogacanie sztucznej inteligencji jest wspierane przez usługi Cognitive Services, w tym analizę tekstu i wizję komputerową w zakresie przetwarzania języka naturalnego i obrazu. Jeśli celem było ukończenie rzeczywistego prototypu lub projektu, w tym momencie należy udostępnić usługi Cognitive Services (w tym samym regionie co usługa Azure Cognitive Search), aby można było dołączyć go do operacji indeksowania.
+Wzbogacanie AI jest obsługiwane przez Cognitive Services, w tym analiza tekstu i przetwarzanie obrazów dla przetwarzania w języku naturalnym i obrazie. Jeśli celem było ukończenie rzeczywistego prototypu lub projektu, w tym momencie należy zastanowić się, Cognitive Services (w tym samym regionie co usługa Azure Wyszukiwanie poznawcze), aby można było dołączyć go do operacji indeksowania.
 
-W tym ćwiczeniu można jednak pominąć inicjowanie obsługi administracyjnej zasobów, ponieważ usługa Azure Cognitive Search może łączyć się z usługami Cognitive Services w tle i zapewniać 20 bezpłatnych transakcji na uruchomienie indeksatora. Ponieważ ten samouczek używa 7 transakcji, przydział bezpłatnych uprawnień jest wystarczający. W przypadku większych projektów należy zaplanować inicjowanie obsługi administracyjnej usług Cognitive Services w warstwie S0 zgodnie z rzeczywistym obciążeniem. Aby uzyskać więcej informacji, zobacz [Dołączanie usług Cognitive Services](cognitive-search-attach-cognitive-services.md).
+W tym ćwiczeniu można jednak pominąć Inicjowanie obsługi zasobów, ponieważ usługa Azure Wyszukiwanie poznawcze może nawiązać połączenie Cognitive Services w tle i zapewnić 20 bezpłatnych transakcji dla indeksatora. Ponieważ w tym samouczku są stosowane 7 transakcji, wystarczające jest bezpłatne przydzielanie. W przypadku większych projektów Zaplanuj obsługę Cognitive Services w warstwie płatność zgodnie z rzeczywistym użyciem. Aby uzyskać więcej informacji, zobacz [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md).
 
 ### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
-Trzecim składnikiem jest usługa Azure Cognitive Search, którą można [utworzyć w portalu](search-create-service-portal.md). Aby ukończyć ten instruktaż, można użyć warstwy Bezpłatna. 
+Trzeci składnik to Wyszukiwanie poznawcze platformy Azure, który można [utworzyć w portalu](search-create-service-portal.md). Aby ukończyć ten przewodnik, możesz skorzystać z warstwy Bezpłatna. 
 
-### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Pobierz klucz api administratora i adres URL usługi Azure Cognitive Search
+### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Pobierz klucz API i adres URL administratora dla usługi Azure Wyszukiwanie poznawcze
 
-Do interakcji z usługą Azure Cognitive Search trzeba będzie adres URL usługi i klucz dostępu. Usługa wyszukiwania jest tworzona z obu, więc jeśli dodano usługę Azure Cognitive Search do subskrypcji, wykonaj następujące kroki, aby uzyskać niezbędne informacje:
+Aby można było korzystać z usługi Azure Wyszukiwanie poznawcze, wymagany jest adres URL usługi i klucz dostępu. Usługa wyszukiwania jest tworzona razem z usługą, więc jeśli do subskrypcji dodano Wyszukiwanie poznawcze platformy Azure, wykonaj następujące kroki, aby uzyskać niezbędne informacje:
 
-1. [Zaloguj się do witryny Azure portal](https://portal.azure.com/), a na stronie **przegląd** usługi wyszukiwania pobierz adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
+1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Uzyskaj adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
 
-1. W **ustawieniach** > **klawiszy**pobierz klucz administratora, aby uzyskać pełne prawa do usługi. Istnieją dwa wymienne klucze administracyjne, przewidziane dla ciągłości biznesowej w przypadku, gdy trzeba przewrócić jeden. Klucz podstawowy lub pomocniczy można używać w żądaniach dodawania, modyfikowania i usuwania obiektów.
+1. W obszarze **Ustawienia** > **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
-   Pobierz klucz zapytania, jak również. Jest najlepszym rozwiązaniem do wystawiania żądań zapytań z dostępem tylko do odczytu.
+   Pobierz również klucz zapytania. Najlepszym rozwiązaniem jest wydawanie żądań zapytań z dostępem tylko do odczytu.
 
-   ![Pobierz nazwę usługi i klucze administratora i zapytania](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Pobieranie nazwy usługi i administratora oraz kluczy zapytań](media/search-get-started-nodejs/service-name-and-keys.png)
 
 Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
-## <a name="2---set-up-your-environment"></a>2 - Skonfiguruj środowisko
+## <a name="2---set-up-your-environment"></a>2 — Konfigurowanie środowiska
 
-Rozpocznij od otwarcia programu Visual Studio i utworzenia nowego projektu aplikacji konsoli, który można uruchomić w programie .NET Core.
+Zacznij od otwierania programu Visual Studio i tworzenia nowego projektu aplikacji konsolowego, który można uruchomić w środowisku .NET Core.
 
 ### <a name="install-nuget-packages"></a>Instalowanie pakietów NuGet
 
-[Zestaw SDK usługi Azure Cognitive Search .NET](https://aka.ms/search-sdk) składa się z kilku bibliotek klienckich, które umożliwiają zarządzanie indeksami, źródłami danych, indeksatorami i zestawami umiejętności, a także przekazywanie dokumentów i wykonywanie zapytań oraz zarządzanie nimi, a wszystko to bez konieczności zajmowania się szczegółami protokołu HTTP i JSON. Wszystkie te biblioteki klienckie są dystrybuowane jako pakiety NuGet.
+[Zestaw Azure wyszukiwanie poznawcze .NET SDK](https://aka.ms/search-sdk) składa się z kilku bibliotek klienckich, które umożliwiają zarządzanie indeksami, źródłami danych, indeksatorami i umiejętności, a także przekazywaniem i zarządzaniem dokumentami oraz wykonywanie zapytań, bez konieczności zajmowania się szczegółowymi informacjami dotyczącymi protokołu HTTP i JSON. Te biblioteki klienckie są dystrybuowane jako pakiety NuGet.
 
-W tym projekcie zainstaluj wersję 9 `Microsoft.Azure.Search` lub nowszą pakietu NuGet.
+Dla tego projektu Zainstaluj pakiet `Microsoft.Azure.Search` NuGet w wersji 9 lub nowszej.
 
-1. Otwórz konsolę Menedżera pakietów. Wybierz **opcję Konsola** > Menedżera**pakietów Menedżera** > **pakietów**Narzędzia NuGet . 
+1. Otwórz konsolę Menedżera pakietów. Wybierz kolejno pozycje **Narzędzia** > **Menedżer pakietów** > NuGet**konsola Menedżera pakietów**. 
 
-1. Przejdź do [strony pakietu Microsoft.Azure.Search NuGet](https://www.nuget.org/packages/Microsoft.Azure.Search).
+1. Przejdź do [strony pakietu NuGet Microsoft. Azure. Search](https://www.nuget.org/packages/Microsoft.Azure.Search).
 
 1. Wybierz najnowszą wersję (9 lub nowszą).
 
-1. Skopiuj polecenie Menedżer pakietów.
+1. Skopiuj polecenie Menedżera pakietów.
 
 1. Wróć do konsoli Menedżera pakietów i uruchom polecenie skopiowane w poprzednim kroku.
 
 Następnie zainstaluj najnowszy `Microsoft.Extensions.Configuration.Json` pakiet NuGet.
 
-1. Wybierz **narzędzia** > **NuGet Package Manager** > **Zarządzaj pakietami NuGet dla rozwiązania...**. 
+1. Wybierz kolejno pozycje **Narzędzia** > **Menedżer** > pakietów NuGet**Zarządzaj pakietami NuGet dla rozwiązania...** 
 
-1. Kliknij **przycisk Przeglądaj** `Microsoft.Extensions.Configuration.Json` i wyszukaj pakiet NuGet. 
+1. Kliknij przycisk **Przeglądaj** i Wyszukaj pakiet `Microsoft.Extensions.Configuration.Json` NuGet. 
 
-1. Wybierz pakiet, wybierz projekt, potwierdź, że wersja jest najnowszą stabilną wersją, a następnie kliknij przycisk **Zainstaluj**.
+1. Wybierz pakiet, wybierz projekt, potwierdź, że wersja to najnowsza stabilna wersja, a następnie kliknij przycisk **Instaluj**.
 
-### <a name="add-service-connection-information"></a>Dodawanie informacji o połączeniu usługi
+### <a name="add-service-connection-information"></a>Dodaj informacje o połączeniu z usługą
 
-1. Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz pozycję **Dodaj** > **nowy element...** . 
+1. Kliknij prawym przyciskiem myszy projekt w Eksplorator rozwiązań i wybierz polecenie **Dodaj** > **nowy element.** ... 
 
-1. Nazwij `appsettings.json` plik i wybierz pozycję **Dodaj**. 
+1. Nazwij plik `appsettings.json` i wybierz pozycję **Dodaj**. 
 
 1. Dołącz ten plik do katalogu wyjściowego.
-    1. Kliknij prawym `appsettings.json` przyciskiem myszy i wybierz polecenie **Właściwości**. 
-    1. Zmień wartość **kopiuj na Katalog wyjściowy** na **Kopiuj, jeśli jest nowszy**.
+    1. Kliknij prawym przyciskiem `appsettings.json` myszy i wybierz pozycję **Właściwości**. 
+    1. Zmień wartość w polu **Kopiuj do katalogu wyjściowego** na **Kopiuj, jeśli nowszy**.
 
-1. Skopiuj poniższy plik JSON do nowego pliku JSON.
+1. Skopiuj poniższy kod JSON do nowego pliku JSON.
 
     ```json
     {
@@ -168,11 +168,11 @@ Następnie zainstaluj najnowszy `Microsoft.Extensions.Configuration.Json` pakiet
     }
     ```
 
-Dodaj informacje o koncie usługi wyszukiwania i magazynu obiektów blob. Przypomnijmy, że te informacje można uzyskać z kroków inicjowania obsługi administracyjnej usługi wskazanych w poprzedniej sekcji.
+Dodaj usługę wyszukiwania i informacje o koncie usługi BLOB Storage. Odwołaj te informacje można uzyskać, korzystając z kroków inicjowania obsługi usługi, wskazanych w poprzedniej sekcji.
 
-### <a name="add-namespaces"></a>Dodawanie obszarów nazw
+### <a name="add-namespaces"></a>Dodaj przestrzenie nazw
 
-W `Program.cs`obszarze dodaj następujące przestrzenie nazw.
+W `Program.cs`programie Dodaj następujące przestrzenie nazw.
 
 ```csharp
 using System;
@@ -186,7 +186,7 @@ namespace EnrichwithAI
 
 ### <a name="create-a-client"></a>Tworzenie klienta
 
-Utwórz wystąpienie `SearchServiceClient` klasy `Main`w obszarze .
+Utwórz wystąpienie `SearchServiceClient` klasy w obszarze `Main`.
 
 ```csharp
 public static void Main(string[] args)
@@ -197,7 +197,7 @@ public static void Main(string[] args)
     SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
 ```
 
-`CreateSearchServiceClient`tworzy nowy `SearchServiceClient` przy użyciu wartości, które są przechowywane w pliku konfiguracyjnym aplikacji (appsettings.json).
+`CreateSearchServiceClient`Tworzy nowe `SearchServiceClient` wartości przy użyciu, które są przechowywane w pliku konfiguracyjnym aplikacji (appSettings. JSON).
 
 ```csharp
 private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
@@ -214,11 +214,11 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 > Klasa `SearchServiceClient` zarządza połączeniami z usługą wyszukiwania. W celu uniknięcia otwarcia zbyt wielu połączeń, należy, w miarę możliwości, udostępnić pojedyncze wystąpienie klasy `SearchServiceClient` w aplikacji. Metody tej klasy są bezpieczne wątkowo, co pozwala na tego rodzaju udostępnianie.
 > 
 
-### <a name="add-function-to-exit-the-program-during-failure"></a>Dodaj funkcję, aby zamknąć program podczas awarii
+### <a name="add-function-to-exit-the-program-during-failure"></a>Dodaj funkcję, aby wyjść z programu w trakcie awarii
 
-Ten samouczek ma na celu pomóc zrozumieć każdy krok potoku indeksowania. Jeśli istnieje krytyczny problem, który uniemożliwia programowi tworzenie źródła danych, skillset, indeks lub indeksatora program będzie wyprowadzać komunikat o błędzie i wyjść, tak aby problem można było zrozumieć i rozwiązać.
+Ten samouczek ma pomóc zrozumieć każdy krok potoku indeksowania. W przypadku wystąpienia problemu krytycznego, który uniemożliwia programowi utworzenie źródła danych, zestawu umiejętności, indeksu lub indeksatora, program będzie wyprowadzał komunikat o błędzie i wyjść, aby można było zrozumieć i rozwiązać problem.
 
-Dodaj `ExitProgram` `Main` do obsługi scenariuszy, które wymagają programu do zakończenia.
+Dodaj `ExitProgram` do `Main` , aby obsługiwać scenariusze, które wymagają zakończenia działania programu.
 
 ```csharp
 private static void ExitProgram(string message)
@@ -230,15 +230,15 @@ private static void ExitProgram(string message)
 }
 ```
 
-## <a name="3---create-the-pipeline"></a>3 - Tworzenie potoku
+## <a name="3---create-the-pipeline"></a>3 — Tworzenie potoku
 
-W usłudze Azure Cognitive Search przetwarzanie sztucznej inteligencji występuje podczas indeksowania (lub pozyskiwania danych). Ta część przewodnika tworzy cztery obiekty: źródło danych, definicja indeksu, skillset, indeksator. 
+W przypadku usługi Azure Wyszukiwanie poznawcze przetwarzanie AI odbywa się podczas indeksowania (lub pozyskiwania danych). W tej części przewodnika utworzono cztery obiekty: Źródło danych, definicja indeksu, zestawu umiejętności, indeksator. 
 
 ### <a name="step-1-create-a-data-source"></a>Krok 1. Tworzenie źródła danych
 
-`SearchServiceClient` ma właściwość `DataSources`. Ta właściwość zawiera wszystkie metody potrzebne do tworzenia, listy, aktualizacji lub usuwania źródeł danych usługi Azure Cognitive Search.
+`SearchServiceClient` ma właściwość `DataSources`. Ta właściwość zawiera wszystkie metody potrzebne do tworzenia, wyświetlania, aktualizowania lub usuwania źródeł danych Azure Wyszukiwanie poznawcze.
 
-Utwórz `DataSource` nowe wystąpienie, wywołując program `serviceClient.DataSources.CreateOrUpdate(dataSource)`. `DataSource.AzureBlobStorage`wymaga określenia nazwy źródła danych, parametry połączenia i nazwy kontenera obiektów blob.
+Utwórz nowe `DataSource` wystąpienie, wywołując `serviceClient.DataSources.CreateOrUpdate(dataSource)`element. `DataSource.AzureBlobStorage`wymaga określenia nazwy źródła danych, parametrów połączenia i nazwy kontenera obiektów BLOB.
 
 ```csharp
 private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceClient, IConfigurationRoot configuration)
@@ -265,9 +265,9 @@ private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceCl
 }
 ```
 
-W przypadku pomyślnego żądania metoda zwróci źródło danych, które zostało utworzone. Jeśli występuje problem z żądaniem, takich jak nieprawidłowy parametr, metoda zgłosić wyjątek.
+W przypadku pomyślnego żądania Metoda zwróci źródło danych, które zostało utworzone. Jeśli wystąpi problem z żądaniem, na przykład nieprawidłowym parametrem, Metoda zgłosi wyjątek.
 
-Teraz dodaj `Main` wiersz, aby `CreateOrUpdateDataSource` wywołać funkcję, którą właśnie dodałeś.
+Teraz Dodaj wiersz `Main` do wywołania `CreateOrUpdateDataSource` funkcji, która właśnie została dodana.
 
 ```csharp
 public static void Main(string[] args)
@@ -310,27 +310,27 @@ catch (Exception e)
 }
 ``` -->
 
-Skompiluj i uruchom rozwiązanie. Ponieważ jest to twoje pierwsze żądanie, sprawdź witrynę Azure portal, aby potwierdzić, że źródło danych zostało utworzone w usłudze Azure Cognitive Search. Na stronie pulpitu nawigacyjnego usługi wyszukiwania zweryfikuj, czy kafelek Źródła danych zawiera nowy element. Może trzeba będzie zaczekać kilka minut na odświeżenie strony portalu.
+Skompiluj i uruchom rozwiązanie. Ponieważ jest to Twoje pierwsze żądanie, sprawdź Azure Portal, aby potwierdzić, że źródło danych zostało utworzone w usłudze Azure Wyszukiwanie poznawcze. Na stronie pulpitu nawigacyjnego usługi wyszukiwania zweryfikuj, czy kafelek Źródła danych zawiera nowy element. Może trzeba będzie zaczekać kilka minut na odświeżenie strony portalu.
 
-  ![Kafelek źródeł danych w portalu](./media/cognitive-search-tutorial-blob/data-source-tile.png "Kafelek źródeł danych w portalu")
+  ![Kafelek źródła danych w portalu](./media/cognitive-search-tutorial-blob/data-source-tile.png "Kafelek źródła danych w portalu")
 
-### <a name="step-2-create-a-skillset"></a>Krok 2: Tworzenie umiejętności
+### <a name="step-2-create-a-skillset"></a>Krok 2. Tworzenie elementu zestawu umiejętności
 
-W tej sekcji można zdefiniować zestaw kroków wzbogacania, które chcesz zastosować do danych. Każdy krok wzbogacenia nazywa się *umiejętnością,* a zestaw kroków wzbogacenia *jest zestawem umiejętności.* W tym samouczku użyto [wbudowanych umiejętności poznawczych](cognitive-search-predefined-skills.md) dla zestawu umiejętności:
+W tej sekcji definiujesz zestaw kroków wzbogacania, które chcesz zastosować do danych. Każdy krok wzbogacania jest określany jako *umiejętność* i zestaw kroków wzbogacania *zestawu umiejętności*. W tym samouczku są stosowane [wbudowane umiejętności poznawcze](cognitive-search-predefined-skills.md) dla zestawu umiejętności:
 
-+ [Optyczne rozpoznawanie znaków](cognitive-search-skill-ocr.md) do rozpoznawania drukowanego i odręcznego tekstu w plikach obrazów.
++ [Optyczne rozpoznawanie znaków](cognitive-search-skill-ocr.md) do rozpoznawania tekstu napisanego i odręcznego w plikach obrazów.
 
-+ [Połączenie tekstu w](cognitive-search-skill-textmerger.md) celu skonsolidowania tekstu z kolekcji pól w jedno pole.
++ [Łączenie tekstu](cognitive-search-skill-textmerger.md) do konsolidowania tekstu z kolekcji pól w jedno pole.
 
 + [Wykrywanie języka](cognitive-search-skill-language-detection.md) — identyfikowanie języka zawartości.
 
-+ [Tekst Split,](cognitive-search-skill-textsplit.md) aby podzielić dużą zawartość na mniejsze fragmenty przed wywołaniem umiejętności wyodrębniania fraz kluczowych i umiejętności rozpoznawania jednostek. Wyodrębnianie fraz kluczowych i rozpoznawanie encji akceptują dane wejściowe o wartości co najmniej 50 000 znaków. Kilka przykładowych plików należy podzielić, aby zmieścić się w tym limicie.
++ [Dzielenie tekstu](cognitive-search-skill-textsplit.md) w celu podziału dużej zawartości na mniejsze fragmenty przed wywołaniem umiejętności wyodrębniania kluczowych fraz i umiejętności rozpoznawania jednostek. Wyodrębnianie kluczowych fraz i rozpoznawanie jednostek akceptuje dane wejściowe z 50 000 znaków lub mniej. Kilka przykładowych plików należy podzielić, aby zmieścić się w tym limicie.
 
-+ [Rozpoznawanie jednostek](cognitive-search-skill-entity-recognition.md) do wyodrębniania nazw organizacji z zawartości w kontenerze obiektów blob.
++ [Rozpoznawanie jednostek](cognitive-search-skill-entity-recognition.md) do wyodrębniania nazw organizacji z zawartości kontenera obiektów BLOB.
 
 + [Wyodrębnianie kluczowych fraz](cognitive-search-skill-keyphrases.md) — określanie najczęściej występujących fraz kluczowych.
 
-Podczas wstępnego przetwarzania usługa Azure Cognitive Search pęka każdy dokument, aby odczytać zawartość z różnych formatów plików. Tekst znaleziony w pliku źródłowym jest umieszczany w polu ```content``` generowanym pojedynczo dla każdego dokumentu. W związku z tym ```"/document/content"``` należy ustawić dane wejściowe, aby użyć tego tekstu. 
+Podczas wstępnego przetwarzania platforma Azure Wyszukiwanie poznawcze pęknięcia każdego dokumentu w celu odczytania zawartości z różnych formatów plików. Tekst znaleziony w pliku źródłowym jest umieszczany w polu ```content``` generowanym pojedynczo dla każdego dokumentu. W związku z tym ustaw wartość wejściową, tak ```"/document/content"``` aby używała tego tekstu. 
 
 Dane wyjściowe można mapować na indeks i/lub używać ich jako danych wejściowych umiejętności podrzędnej — jak w przypadku kodu języka. W indeksie kod języka jest przydatny do filtrowania. Kod języka jest używany jako dane wejściowe przez umiejętności analizy tekstu w celu określenia zasad podziału wyrazów przez reguły językowe.
 
@@ -338,7 +338,7 @@ Aby uzyskać więcej podstawowych informacji na temat zestawów umiejętności, 
 
 ### <a name="ocr-skill"></a>Umiejętność OCR
 
-Umiejętność **OCR** wyodrębnia tekst z obrazów. Ta umiejętność zakłada, że istnieje pole normalized_images. Aby wygenerować to pole, w ```"imageAction"``` dalszej części samouczka ```"generateNormalizedImages"```ustawimy konfigurację w definicji indeksatora na .
+Umiejętność **OCR** wyodrębnia tekst z obrazów. Ta umiejętność zakłada, że pole normalized_images istnieje. Aby wygenerować to pole, w dalszej części samouczka ustawimy ```"imageAction"``` konfigurację w definicji indeksatora na ```"generateNormalizedImages"```.
 
 ```csharp
 private static OcrSkill CreateOcrSkill()
@@ -365,9 +365,9 @@ private static OcrSkill CreateOcrSkill()
 }
 ```
 
-### <a name="merge-skill"></a>Scalanie umiejętności
+### <a name="merge-skill"></a>Scal umiejętność
 
-W tej sekcji utworzysz **umiejętność Scalanie,** która scala pole zawartości dokumentu z tekstem utworzonym przez umiejętność OCR.
+W tej sekcji utworzysz umiejętność **scalania** , która scala pole zawartości dokumentu z tekstem wyprodukowanym przez umiejętność OCR.
 
 ```csharp
 private static MergeSkill CreateMergeSkill()
@@ -402,7 +402,7 @@ private static MergeSkill CreateMergeSkill()
 
 ### <a name="language-detection-skill"></a>Umiejętność wykrywania języka
 
-**Umiejętność wykrywania języka** wykrywa język tekstu wejściowego i zgłasza jeden kod języka dla każdego dokumentu przesłanego na żądanie. Użyjemy danych wyjściowych umiejętności **Wykrywanie języka** jako część wprowadzania do **umiejętności Podział tekstu.**
+Umiejętność **wykrywanie języka** wykrywa język tekstu wejściowego i raportuje jeden kod języka dla każdego dokumentu przesłanego w żądaniu. Będziemy używać danych wyjściowych **wykrywanie języka** w ramach danych wejściowych do kwalifikacji **tekstu** .
 
 ```csharp
 private static LanguageDetectionSkill CreateLanguageDetectionSkill()
@@ -429,7 +429,7 @@ private static LanguageDetectionSkill CreateLanguageDetectionSkill()
 
 ### <a name="text-split-skill"></a>Umiejętność podziału tekstu
 
-Poniższa umiejętność **Podziału** dzieli tekst według stron i ogranicza długość strony do `String.Length`4000 znaków mierzonych za pomocą . Algorytm spróbuje podzielić tekst na fragmenty, `maximumPageLength` które mają co najwyżej rozmiar. W takim przypadku algorytm dołoży wszelkich starań, aby złamać zdanie na granicy zdania, więc `maximumPageLength`rozmiar fragmentu może być nieco mniejszy niż .
+Poniższa umiejętność **podziału** podzieli tekst na strony i Ogranicz długość strony do 4 000 znaków, mierzoną `String.Length`przez. Algorytm podejmie próbę podzielenia tekstu na fragmenty o największej `maximumPageLength` wielkości. W takim przypadku algorytm będzie najlepiej przekroczyć zdanie na granicy zdania, dzięki czemu rozmiar fragmentu może być nieco mniejszy niż `maximumPageLength`.
 
 ```csharp
 private static SplitSkill CreateSplitSkill()
@@ -462,9 +462,9 @@ private static SplitSkill CreateSplitSkill()
 
 ### <a name="entity-recognition-skill"></a>Umiejętność rozpoznawania jednostek
 
-To `EntityRecognitionSkill` wystąpienie jest ustawione `organization`na rozpoznawanie typu kategorii . Umiejętność **Rozpoznawanie jednostek** może `person` `location`również rozpoznawać typy kategorii i .
+To `EntityRecognitionSkill` wystąpienie jest ustawione na rozpoznawanie typu `organization`kategorii. Umiejętność **rozpoznawania jednostek** może również rozpoznać typy `person` kategorii i `location`.
 
-Należy zauważyć, że pole "kontekst" jest ustawione ```"/document/pages/*"``` z gwiazdką, co oznacza, ```"/document/pages"```że krok wzbogacania jest wywoływany dla każdej strony w obszarze .
+Zwróć uwagę, że pole "context" ma ustawioną ```"/document/pages/*"``` gwiazdkę, co oznacza, że krok wzbogacania jest wywoływany dla ```"/document/pages"```każdej strony w obszarze.
 
 ```csharp
 private static EntityRecognitionSkill CreateEntityRecognitionSkill()
@@ -494,9 +494,9 @@ private static EntityRecognitionSkill CreateEntityRecognitionSkill()
 }
 ```
 
-### <a name="key-phrase-extraction-skill"></a>Umiejętność ekstrakcji fraz kluczowych
+### <a name="key-phrase-extraction-skill"></a>Umiejętność wyodrębniania kluczowych fraz
 
-Podobnie `EntityRecognitionSkill` jak wystąpienie, które zostało właśnie utworzone, **klucz wyrażenie wyodrębnianie** umiejętności jest wywoływana dla każdej strony dokumentu.
+Podobnie jak `EntityRecognitionSkill` w przypadku wystąpienia, które zostało właśnie utworzone, **wyodrębnianie kluczowych fraz** umiejętności są wywoływane dla każdej strony dokumentu.
 
 ```csharp
 private static KeyPhraseExtractionSkill CreateKeyPhraseExtractionSkill()
@@ -524,9 +524,9 @@ private static KeyPhraseExtractionSkill CreateKeyPhraseExtractionSkill()
 }
 ```
 
-### <a name="build-and-create-the-skillset"></a>Tworzenie i tworzenie umiejętności
+### <a name="build-and-create-the-skillset"></a>Kompilowanie i tworzenie zestawu umiejętności
 
-Twórz `Skillset` umiejętności, które stworzyłeś.
+Kompiluj `Skillset` przy użyciu utworzonych umiejętności.
 
 ```csharp
 private static Skillset CreateOrUpdateDemoSkillSet(SearchServiceClient serviceClient, IList<Skill> skills)
@@ -553,7 +553,7 @@ private static Skillset CreateOrUpdateDemoSkillSet(SearchServiceClient serviceCl
 }
 ```
 
-Dodaj następujące wiersze do . `Main`
+Dodaj następujące wiersze do `Main`.
 
 ```csharp
     // Create the skills
@@ -578,7 +578,7 @@ Dodaj następujące wiersze do . `Main`
     Skillset skillset = CreateOrUpdateDemoSkillSet(serviceClient, skills);
 ```
 
-### <a name="step-3-create-an-index"></a>Krok 3: Tworzenie indeksu
+### <a name="step-3-create-an-index"></a>Krok 3. Tworzenie indeksu
 
 W tej sekcji zdefiniujesz schemat indeksu przez określenie pól do umieszczenia w indeksie z możliwością wyszukiwania oraz atrybutów wyszukiwania dla każdego pola. Pola mogą mieć typ i atrybuty, które określają sposób używania pola (z możliwością wyszukiwania, sortowania itp.). Nazwy pól w indeksie nie muszą dokładnie zgadzać się z nazwami pól w źródle. W kolejnym kroku są dodawane mapowania pól w indeksatorze w celu połączenia pól źródłowych z polami docelowymi. W tym kroku zdefiniuj indeks przy użyciu konwencji nazewnictwa pól właściwej dla aplikacji wyszukiwania.
 
@@ -589,15 +589,15 @@ W tym ćwiczeniu są używane następujące pola i typy pól:
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
 
-#### <a name="create-demoindex-class"></a>Tworzenie klasy DemoIndex
+#### <a name="create-demoindex-class"></a>Utwórz klasę DemoIndex
 
 Pola dla tego indeksu są definiowane przy użyciu klasy modelu. Każda właściwość klasy modelu ma atrybuty, które określają związane z wyszukiwaniem zachowania odpowiedniego pola indeksu. 
 
-Dodamy klasę modelu do nowego pliku języka C#. Kliknij prawym przyciskiem myszy projekt i wybierz pozycję **Dodaj** > nowy `DemoIndex.cs`**element...** wybierz "Klasa" i nazwij plik , a następnie wybierz pozycję **Dodaj**.
+Dodamy klasę modelu do nowego pliku C#. Kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Dodaj** > **nowy element...**, wybierz pozycję "Klasa" i `DemoIndex.cs`Nazwij plik, a następnie wybierz pozycję **Dodaj**.
 
-Upewnij się, że chcesz używać typów `Microsoft.Azure.Search` `Microsoft.Azure.Search.Models` z i obszarów nazw.
+Upewnij się, że chcesz użyć typów z przestrzeni nazw `Microsoft.Azure.Search` i. `Microsoft.Azure.Search.Models`
 
-Dodaj poniższą definicję `DemoIndex.cs` klasy modelu i dołącz ją w tej samej przestrzeni nazw, w której utworzysz indeks.
+Dodaj poniższą definicję klasy modelu `DemoIndex.cs` do i Uwzględnij ją w tej samej przestrzeni nazw, w której utworzysz indeks.
 
 ```csharp
 using Microsoft.Azure.Search;
@@ -657,7 +657,7 @@ public class DemoIndex
 }
 ``` -->
 
-Po zdefiniowaniu klasy modelu można `Program.cs` dość łatwo utworzyć definicję indeksu. Nazwa tego indeksu `demoindex`będzie . Jeśli indeks już istnieje o tej nazwie, zostanie usunięty.
+Teraz, po zdefiniowaniu klasy modelu, `Program.cs` można łatwo utworzyć definicję indeksu. Nazwa tego indeksu będzie `demoindex`. Jeśli istnieje już indeks o tej nazwie, zostanie on usunięty.
 
 ```csharp
 private static Index CreateDemoIndex(SearchServiceClient serviceClient)
@@ -689,9 +689,9 @@ private static Index CreateDemoIndex(SearchServiceClient serviceClient)
 }
 ```
 
-Podczas testowania może się okazać, że próbujesz utworzyć indeks więcej niż jeden raz. Z tego powodu sprawdź, czy indeks, który zamierzasz utworzyć, już istnieje przed podjęciem próby jego utworzenia.
+Podczas testowania może się okazać, że próbujesz utworzyć indeks więcej niż raz. Z tego powodu Sprawdź, czy indeks, który ma zostać utworzony, już istnieje, zanim spróbujesz go utworzyć.
 
-Dodaj następujące wiersze do . `Main`
+Dodaj następujące wiersze do `Main`.
 
 ```csharp
     // Create the index
@@ -718,17 +718,17 @@ catch (Exception e)
 ```
  -->
 
-Aby dowiedzieć się więcej na temat definiowania indeksu, zobacz [Tworzenie indeksu (interfejsu API REST usługi Azure Cognitive Search).](https://docs.microsoft.com/rest/api/searchservice/create-index)
+Aby dowiedzieć się więcej na temat definiowania indeksu, zobacz [create index (Azure wyszukiwanie POZNAWCZE REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-### <a name="step-4-create-and-run-an-indexer"></a>Krok 4: Tworzenie i uruchamianie indeksatora
+### <a name="step-4-create-and-run-an-indexer"></a>Krok 4. Tworzenie i uruchamianie indeksatora
 
 Do tej pory utworzono źródło danych, zestaw umiejętności i indeks. Te trzy składniki staną się częścią [indeksatora](search-indexer-overview.md), który łączy wszystkie części w pojedynczą operację obejmującą wiele faz. Aby powiązać je razem w indeksatorze, należy zdefiniować mapowania pól.
 
-+ FieldMappings są przetwarzane przed zestawem umiejętności, mapowanie pól źródłowych ze źródła danych do pól docelowych w indeksie. Jeśli nazwy pól i typy są takie same na obu końcach, nie jest wymagane mapowanie.
++ FieldMappings są przetwarzane przed zestawu umiejętności, mapując pola źródłowe ze źródła danych do pól docelowych w indeksie. Jeśli nazwy pól i typy są takie same na obu końcach, mapowanie nie jest wymagane.
 
-+ OutputFieldMappings są przetwarzane po skillset, odwołując się sourceFieldNames, które nie istnieją, dopóki dokument pękanie lub wzbogacanie tworzy je. TargetFieldName jest polem w indeksie.
++ OutputFieldMappings są przetwarzane po zestawu umiejętności, do których odwołuje się sourceFieldNames, które nie istnieją do momentu utworzenia przez nich pęknięć lub wzbogacania dokumentów. TargetFieldName to pole w indeksie.
 
-Oprócz podłączania danych wejściowych do wyjść można również użyć mapowań pól, aby spłaszczyć struktury danych. Aby uzyskać więcej informacji, zobacz [Jak mapować wzbogacone pola do indeksu z wyszukanego](cognitive-search-output-field-mapping.md).
+Oprócz podłączania danych wejściowych do danych wyjściowych, można również używać mapowań pól do spłaszczania struktur. Aby uzyskać więcej informacji, zobacz [Jak mapować wzbogacone pola na indeks wyszukiwania](cognitive-search-output-field-mapping.md).
 
 ```csharp
 private static Indexer CreateDemoIndexer(SearchServiceClient serviceClient, DataSource dataSource, Skillset skillSet, Index index)
@@ -795,7 +795,7 @@ private static Indexer CreateDemoIndexer(SearchServiceClient serviceClient, Data
     return indexer;
 }
 ```
-Dodaj następujące wiersze do . `Main`
+Dodaj następujące wiersze do `Main`.
 
 ```csharp
     // Create the indexer, map fields, and execute transformations
@@ -803,24 +803,24 @@ Dodaj następujące wiersze do . `Main`
     Indexer demoIndexer = CreateDemoIndexer(serviceClient, dataSource, skillset, demoIndex);
 ```
 
-Spodziewaj się, że utworzenie indeksatora zajmie trochę czasu, aby zakończyć. Mimo że zestaw danych jest mały, umiejętności analityczne wykorzystują znaczną moc obliczeniową. Wykonywanie niektórych umiejętności, takich jak analiza obrazu, jest długotrwałe.
+Należy oczekiwać, że tworzenie indeksatora trwa trochę czasu. Mimo że zestaw danych jest mały, umiejętności analityczne wykorzystują znaczną moc obliczeniową. Wykonywanie niektórych umiejętności, takich jak analiza obrazu, jest długotrwałe.
 
 > [!TIP]
 > Utworzenie indeksatora powoduje wywołanie potoku. Jeśli występują problemy z dostępem do danych, mapowaniem danych wejściowych i wyjściowych lub kolejnością operacji, pojawią się one na tym etapie.
 
 ### <a name="explore-creating-the-indexer"></a>Eksplorowanie tworzenia indeksatora
 
-Kod ustawia ```"maxFailedItems"``` się na -1, co nakazuje aparatowi indeksowania ignorowanie błędów podczas importowania danych. Jest to przydatne, ponieważ pokazowe źródło danych zawiera tak mało dokumentów. W przypadku większego źródła danych należy ustawić wartość większą od 0.
+Kod jest ustawiony ```"maxFailedItems"``` na wartość-1, co powoduje ignorowanie błędów podczas importowania danych przez aparat indeksowania. Jest to przydatne, ponieważ pokazowe źródło danych zawiera tak mało dokumentów. W przypadku większego źródła danych należy ustawić wartość większą od 0.
 
-Zwróć również ```"dataToExtract"``` uwagę ```"contentAndMetadata"```na ustawienie . Ta instrukcja nakazuje indeksatorowi automatyczne wyodrębnianie zawartości z plików w różnych formatach, a także metadanych związanych z każdym plikiem.
+Zauważ również, ```"dataToExtract"``` że jest ustawiony ```"contentAndMetadata"```na. Ta instrukcja nakazuje indeksatorowi automatyczne wyodrębnianie zawartości z plików w różnych formatach, a także metadanych związanych z każdym plikiem.
 
-Gdy zawartość zostanie wyodrębniona, możesz ustawić element `imageAction`, aby wyodrębnić tekst z obrazów znalezionych w źródle danych. Zestaw ```"imageAction"``` do ```"generateNormalizedImages"``` konfiguracji, w połączeniu z umiejętnością Skill I Text Merge OCR, nakazuje indeksatorowi wyodrębnienie tekstu z obrazów (na przykład słowo "stop" ze znaku zatrzymania ruchu) i osadzenie go jako część pola zawartości. To zachowanie dotyczy zarówno obrazów osadzonych w dokumentach (np. w pliku PDF), jak i znalezionych w źródle danych (np. pliku JPG).
+Gdy zawartość zostanie wyodrębniona, możesz ustawić element `imageAction`, aby wyodrębnić tekst z obrazów znalezionych w źródle danych. ```"imageAction"``` Zestaw do ```"generateNormalizedImages"``` konfiguracji, w połączeniu z umiejętnością OCR i umiejętnością scalania tekstu, informuje indeksator, aby wyodrębnił tekst z obrazów (na przykład słowo "Stop" od znaku zatrzymania ruchu) i osadzić je jako część pola zawartość. To zachowanie dotyczy zarówno obrazów osadzonych w dokumentach (np. w pliku PDF), jak i znalezionych w źródle danych (np. pliku JPG).
 
 <a name="check-indexer-status"></a>
 
-## <a name="4---monitor-indexing"></a>4 - Monitorowanie indeksowania
+## <a name="4---monitor-indexing"></a>4 — monitorowanie indeksowania
 
-Po zdefiniowaniu indeksatora jest on uruchamiany automatycznie przy przesyłaniu żądania. W zależności od tego, które umiejętności poznawcze zdefiniowano, indeksowanie może trwać dłużej, niż oczekujesz. Aby dowiedzieć się, czy indeksator `GetStatus` jest nadal uruchomiony, należy użyć metody.
+Po zdefiniowaniu indeksatora jest on uruchamiany automatycznie przy przesyłaniu żądania. W zależności od tego, które umiejętności poznawcze zdefiniowano, indeksowanie może trwać dłużej, niż oczekujesz. Aby dowiedzieć się, czy indeksator jest nadal uruchomiony, użyj `GetStatus` metody.
 
 ```csharp
 private static void CheckIndexerOverallStatus(SearchServiceClient serviceClient, Indexer indexer)
@@ -856,7 +856,7 @@ private static void CheckIndexerOverallStatus(SearchServiceClient serviceClient,
 
 Ostrzeżenia często występują dla niektórych kombinacji plików źródłowych i umiejętności oraz nie zawsze wskazują istnienie problemu. W tym samouczku ostrzeżenia są niegroźne (np. brak tekstowych danych wejściowych dla plików JPEG).
 
-Dodaj następujące wiersze do . `Main`
+Dodaj następujące wiersze do `Main`.
 
 ```csharp
     // Check indexer overall status
@@ -864,13 +864,13 @@ Dodaj następujące wiersze do . `Main`
     CheckIndexerOverallStatus(serviceClient, demoIndexer);
 ```
  
-## <a name="5---search"></a>5 - Szukaj
+## <a name="5---search"></a>5 — wyszukiwanie
 
-Po zakończeniu indeksowania można uruchamiać kwerendy zwracające zawartość poszczególnych pól. Domyślnie usługa Azure Cognitive Search zwraca 50 najlepszych wyników. Przykładowych danych jest mało, więc wartość domyślna działa dobrze. Jednak podczas pracy z większymi zestawami danych może być konieczne dołączenie do ciągu zapytania parametrów powodujących zwrócenie większej liczby wyników. Aby uzyskać instrukcje, zobacz [Jak wyświetlić wyniki strony w usłudze Azure Cognitive Search](search-pagination-page-layout.md).
+Po zakończeniu indeksowania można uruchamiać zapytania, które zwracają zawartość poszczególnych pól. Domyślnie usługa Azure Wyszukiwanie poznawcze zwraca górne wyniki 50. Przykładowych danych jest mało, więc wartość domyślna działa dobrze. Jednak podczas pracy z większymi zestawami danych może być konieczne dołączenie do ciągu zapytania parametrów powodujących zwrócenie większej liczby wyników. Aby uzyskać instrukcje, zobacz [How to Page Results in Azure wyszukiwanie poznawcze](search-pagination-page-layout.md).
 
 W ramach kroku weryfikacji odpytaj indeks o wszystkie pola.
 
-Dodaj następujące wiersze do . `Main`
+Dodaj następujące wiersze do `Main`.
 
 ```csharp
 DocumentSearchResult<DemoIndex> results;
@@ -893,7 +893,7 @@ catch (Exception e)
 }
 ```
 
-`CreateSearchIndexClient`tworzy nowy `SearchIndexClient` przy użyciu wartości, które są przechowywane w pliku konfiguracyjnym aplikacji (appsettings.json). Należy zauważyć, że klucz interfejsu API kwerendy usługi wyszukiwania jest używany, a nie klucz administratora.
+`CreateSearchIndexClient`Tworzy nowe `SearchIndexClient` wartości przy użyciu, które są przechowywane w pliku konfiguracyjnym aplikacji (appSettings. JSON). Zwróć uwagę, że klucz interfejsu API zapytania usługi wyszukiwania jest używany, a nie klucz administratora.
 
 ```csharp
 private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
@@ -906,7 +906,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 }
 ```
 
-Dodaj następujący kod `Main`do pliku . Pierwszy try-catch zwraca definicję indeksu, z nazwą, typem i atrybutami każdego pola. Drugi to kwerenda sparametryzowana, w której `Select` określa, `organizations`które pola mają być uwzględniane w wynikach, na przykład . Ciąg wyszukiwania `"*"` zwraca całą zawartość pojedynczego pola.
+Dodaj następujący kod do `Main`. Pierwsza funkcja try-catch zwraca definicję indeksu, z nazwą, typem i atrybutami każdego pola. Druga jest zapytanie parametryczne, gdzie `Select` określa pola do uwzględnienia w wynikach, na przykład. `organizations` Ciąg wyszukiwania `"*"` zwraca całą zawartość pojedynczego pola.
 
 ```csharp
 //Verify content is returned after indexing is finished
@@ -939,35 +939,35 @@ catch (Exception e)
 }
 ```
 
-Powtórz dla dodatkowych pól: zawartość, languageCode, keyPhrases i organizacji w tym ćwiczeniu. Wiele pól można zwrócić za pośrednictwem [select](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) właściwości przy użyciu listy rozdzielane przecinkami.
+Powtórz te czynności w przypadku dodatkowych pól: Content, languageCode, phrase kluczs i organizacji w tym ćwiczeniu. Można zwrócić wiele pól za pośrednictwem właściwości [SELECT](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) przy użyciu listy rozdzielanej przecinkami.
 
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Resetowanie i ponowne uruchamianie
 
-We wczesnych etapach eksperymentalnych rozwoju najbardziej praktyczne podejście do iteracji projektowania jest usunięcie obiektów z usługi Azure Cognitive Search i umożliwić kod, aby je odbudować. Nazwy zasobów są unikatowe. Usunięcie obiektu umożliwia jego ponowne utworzenie przy użyciu tej samej nazwy.
+W przypadku wczesnych eksperymentalnych etapów tworzenia najlepszym podejściem do iteracji projektu jest usunięcie obiektów z platformy Azure Wyszukiwanie poznawcze i umożliwienie kodowi odbudowania. Nazwy zasobów są unikatowe. Usunięcie obiektu umożliwia jego ponowne utworzenie przy użyciu tej samej nazwy.
 
-Przykładowy kod dla tego samouczka sprawdza istniejące obiekty i usuwa je, dzięki czemu można ponownie uruchomić kod.
+Przykładowy kod dla tego samouczka sprawdza istniejące obiekty i usuwa je, aby można było ponownie uruchomić kod.
 
-Można również użyć portalu do usuwania indeksów, indeksatorów, źródeł danych i skillsets.
+Możesz również użyć portalu, aby usunąć indeksy, indeksatory, źródła danych i umiejętności.
 
 ## <a name="takeaways"></a>Wnioski
 
-W tym samouczku pokazano podstawowe kroki tworzenia potoku indeksowania wzbogaconego poprzez tworzenie części składowych: źródło danych, zestaw umiejętności, indeks i indeksator.
+W tym samouczku przedstawiono podstawowe kroki tworzenia przebudowanego potoku indeksowania przez tworzenie części składników: źródła danych, zestawu umiejętności, indeksu i indeksatora.
 
-[Wprowadzono wbudowane umiejętności,](cognitive-search-predefined-skills.md) wraz z definicją umiejętności i mechaniką łączenia umiejętności poprzez wejścia i wyjścia. Dowiedziałeś się `outputFieldMappings` również, że w definicji indeksatora jest wymagane do routingu wzbogacone wartości z potoku do indeksu z wyszukujalny w usłudze Azure Cognitive Search.
+Wprowadzono [wbudowane umiejętności](cognitive-search-predefined-skills.md) , wraz z definicją zestawu umiejętności oraz Mechanics umiejętności związanych z łańcuchem, a także za pomocą danych wejściowych i wyjściowych. Poznasz również, że `outputFieldMappings` w definicji indeksatora jest wymagany do routingu wzbogaconych wartości z potoku do indeksu wyszukiwania w usłudze Azure wyszukiwanie poznawcze.
 
 Ponadto przedstawiono sposób testowania wyników i resetowania systemu na potrzeby przyszłych iteracji. Omówiono proces, w ramach którego odpytanie indeksu powoduje zwrócenie danych wyjściowych utworzonych przez wzbogacony potok indeksowania. Zaprezentowano procedurę sprawdzania stanu indeksatora i usuwania obiektów przed ponownym uruchomieniem potoku.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Podczas pracy we własnej subskrypcji, na końcu projektu, to dobry pomysł, aby usunąć zasoby, które nie są już potrzebne. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
-Zasoby można znaleźć i zarządzać nimi w portalu, korzystając z łącza Wszystkie zasoby lub Grupy zasobów w lewym okienku nawigacji.
+Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie zasoby lub grupy zasobów w okienku nawigacji po lewej stronie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy znasz wszystkie obiekty w potoku wzbogacania SI, przyjrzyjmy się bliżej definicjom zestawów umiejętności i indywidualnym umiejętnościom.
+Teraz, gdy znasz wszystkie obiekty w potoku wzbogacenia, przyjrzyjmy się dokładniej definicjom zestawu umiejętności i indywidualnym umiejętnościom.
 
 > [!div class="nextstepaction"]
-> [Jak utworzyć zestaw umiejętności](cognitive-search-defining-skillset.md)
+> [Jak utworzyć zestawu umiejętności](cognitive-search-defining-skillset.md)

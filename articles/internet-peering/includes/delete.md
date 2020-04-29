@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 2d3f866064790fb3936fb76c1deef15ee2a38773
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678649"
 ---
-W tej chwili anulowania obsługi administracyjnej nie jest obsługiwany przy użyciu witryny Azure portal lub programu PowerShell. Aby anulować aprowizję, skontaktuj się z [programem Microsoft w komunikacji równorzędnej](mailto:peeringexperience@microsoft.com).
+W tej chwili anulowanie aprowizacji nie jest obsługiwane przy użyciu Azure Portal lub programu PowerShell. Aby anulować obsługę administracyjną, skontaktuj się z pomocą techniczną [firmy Microsoft](mailto:peeringexperience@microsoft.com).

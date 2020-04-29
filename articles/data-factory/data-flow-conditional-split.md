@@ -1,6 +1,6 @@
 ---
-title: Transformacja podziału warunkowego w przepływie danych mapowania
-description: Dzielenie danych na różne strumienie przy użyciu transformacji podziału warunkowego w przepływie danych mapowania usługi Azure Data Factory
+title: Przekształcenie podziału warunkowego w mapowaniu przepływu danych
+description: Dzielenie danych na różne strumienie przy użyciu transformacji podziału warunkowego w przepływie danych mapowania Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,25 +9,25 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
 ms.openlocfilehash: bd9241e526d7cf42f0697afb8635c085a08c80d8
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606484"
 ---
-# <a name="conditional-split-transformation-in-mapping-data-flow"></a>Transformacja podziału warunkowego w przepływie danych mapowania
+# <a name="conditional-split-transformation-in-mapping-data-flow"></a>Przekształcenie podziału warunkowego w mapowaniu przepływu danych
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Transformacja podziału warunkowego kieruje wiersze danych do różnych strumieni na podstawie warunków dopasowania. Transformacja podziału warunkowego jest podobna do struktury decyzji CASE w języku programowania. Transformacja ocenia wyrażenia i na podstawie wyników kieruje wiersz danych do określonego strumienia.
+Transformacja podziału warunkowego przekierowuje wiersze danych do różnych strumieni na podstawie pasujących warunków. Przekształcenie podziału warunkowego jest podobne do struktury decyzji CASE w języku programowania. Transformacja oblicza wyrażenia, a na podstawie wyników kieruje wiersz danych do określonego strumienia.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
-**Podziel na** ustawienie określa, czy wiersz danych przepływa do pierwszego pasującego strumienia lub każdy strumień, który pasuje do.
+Ustawienie **Split on** określa, czy wiersz danych jest przepływem do pierwszego zgodnego strumienia lub każdego strumienia, do którego jest zgodny.
 
-Użyj konstruktora wyrażeń przepływu danych, aby wprowadzić wyrażenie dla warunku podziału. Aby dodać nowy warunek, kliknij ikonę plus w istniejącym wierszu. Domyślny strumień można również dodać dla wierszy, które nie pasują do żadnego warunku.
+Użyj konstruktora wyrażeń przepływu danych, aby wprowadzić wyrażenie dla warunku podziału. Aby dodać nowy warunek, kliknij ikonę znaku plus w istniejącym wierszu. Domyślny strumień można również dodać do wierszy, które nie pasują do żadnego warunku.
 
-![podział warunkowy](media/data-flow/conditionalsplit1.png "warunkowe opcje podziału")
+![podział warunkowy](media/data-flow/conditionalsplit1.png "Opcje podziału warunkowego")
 
 ## <a name="data-flow-script"></a>Skrypt przepływu danych
 
@@ -45,13 +45,13 @@ Użyj konstruktora wyrażeń przepływu danych, aby wprowadzić wyrażenie dla w
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład jest warunkową `SplitByYear` transformacją podziału `CleanData`o nazwie, która ma w strumieniu przychodzącym . Transformacja ta ma `year < 1960` `year > 1980`dwa podzielone warunki i . `disjoint`false, ponieważ dane przechodzi do pierwszego dopasowania warunek. Każdy wiersz pasujący do pierwszego `moviesBefore1960`warunku przechodzi do strumienia wyjściowego . Wszystkie pozostałe wiersze pasujące do `moviesAFter1980`drugiego warunku przechodzą do strumienia wyjściowego . Wszystkie pozostałe wiersze przepływają `AllOtherMovies`przez domyślny strumień .
+Poniższy przykład to transformacja podziału warunkowego o nazwie `SplitByYear` , która przyjmuje strumień `CleanData`przychodzący. Ta transformacja ma dwa warunki `year < 1960` podziału i `year > 1980`. `disjoint`ma wartość false, ponieważ dane przechodzą do pierwszego warunku dopasowywania. Każdy wiersz pasujący do pierwszego warunku przechodzi do `moviesBefore1960`strumienia wyjściowego. Wszystkie pozostałe wiersze zgodne z drugim warunkiem przechodzą do `moviesAFter1980`strumienia wyjściowego. Wszystkie inne wiersze przepływają przez domyślny `AllOtherMovies`strumień.
 
-W ux fabryki danych ta transformacja wygląda jak poniższy obraz:
+W Data Factory środowisku użytkownika Ta transformacja wygląda jak na poniższym obrazie:
 
-![podział warunkowy](media/data-flow/conditionalsplit1.png "warunkowe opcje podziału")
+![podział warunkowy](media/data-flow/conditionalsplit1.png "Opcje podziału warunkowego")
 
-Skrypt przepływu danych dla tej transformacji znajduje się we urywce poniżej:
+Skrypt przepływu danych dla tego przekształcenia znajduje się w poniższym fragmencie kodu:
 
 ```
 CleanData
@@ -64,4 +64,4 @@ CleanData
 
 ## <a name="next-steps"></a>Następne kroki
 
-Typowe przekształcenia przepływu danych używane z podziałem warunkowym to [transformacja sprzężenia,](data-flow-join.md) [transformacja odnośnika](data-flow-lookup.md)i [transformacja wyboru](data-flow-select.md)
+Typowe przekształcenia przepływu danych używane z podziałem warunkowym to [transformacja sprzężenia](data-flow-join.md), [transformacja wyszukiwania](data-flow-lookup.md)i [wybór transformacji](data-flow-select.md) .

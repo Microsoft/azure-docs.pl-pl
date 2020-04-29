@@ -1,21 +1,21 @@
 ---
-title: Samouczek - Kompilacja obrazu wyzwalającego na aktualizacji obrazu podstawowego
-description: W tym samouczku dowiesz się, jak skonfigurować zadanie rejestru kontenera platformy Azure, aby automatycznie wyzwalać kompilacje obrazu kontenera w chmurze, gdy obraz podstawowy jest aktualizowany w tym samym rejestrze.
+title: Samouczek — kompilacja obrazu wyzwalacza w ramach aktualizacji obrazu podstawowego
+description: W tym samouczku dowiesz się, jak skonfigurować zadanie Azure Container Registry, aby automatycznie wyzwalać kompilacje obrazu kontenera w chmurze, gdy obraz podstawowy zostanie zaktualizowany w tym samym rejestrze.
 ms.topic: tutorial
 ms.date: 01/22/2020
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 4797dd1f1fe19b98ab94c4743ad4af3c43ce0627
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78402862"
 ---
-# <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Samouczek: Automatyzuj kompilacje obrazów kontenerów, gdy obraz podstawowy jest aktualizowany w rejestrze kontenerów platformy Azure 
+# <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Samouczek: Automatyzowanie kompilowania obrazu kontenera podczas aktualizowania obrazu podstawowego w usłudze Azure Container Registry 
 
-Zadania usługi ACR obsługuje automatyczny obraz kontenera kompilacji, gdy obraz podstawowy kontenera [jest aktualizowany,](container-registry-tasks-base-images.md)na przykład podczas poprawki systemu operacyjnego lub struktury aplikacji w jednym z obrazów podstawowych. 
+Zadania ACR obsługują automatyczne kompilacje obrazu kontenera, gdy [zostanie zaktualizowany obraz podstawowy](container-registry-tasks-base-images.md)kontenera, na przykład w przypadku zastosowania poprawki do struktury systemu operacyjnego lub aplikacji w jednym z obrazów podstawowych. 
 
-W tym samouczku dowiesz się, jak utworzyć zadanie usługi ACR, które wyzwala kompilację w chmurze, gdy obraz podstawowy kontenera jest wypychany do tego samego rejestru. Można również spróbować samouczek, aby utworzyć zadanie ACR, który wyzwala kompilacji obrazu, gdy obraz podstawowy jest wypychany do [innego rejestru kontenerów platformy Azure](container-registry-tutorial-private-base-image-update.md). 
+W tym samouczku dowiesz się, jak utworzyć zadanie ACR wyzwalające kompilację w chmurze, gdy podstawowy obraz kontenera jest wypychany do tego samego rejestru. Możesz również skorzystać z samouczka, aby utworzyć zadanie ACR wyzwalające kompilację obrazu, gdy podstawowy obraz jest wypychany do [innego rejestru kontenerów platformy Azure](container-registry-tutorial-private-base-image-update.md). 
 
 W tym samouczku:
 
@@ -41,7 +41,7 @@ W tym samouczku założono, że zostały już wykonane czynności opisane w dwó
 * Klonowanie przykładowego repozytorium
 * Tworzenie osobistego tokenu dostępu usługi GitHub
 
-Jeśli jeszcze tego nie zrobiłeś, wykonaj następujące samouczki przed kontynuowaniem:
+Jeśli jeszcze tego nie zrobiono, przed kontynuowaniem wykonaj następujące samouczki:
 
 [Tworzenie obrazów kontenera w chmurze przy użyciu usługi Azure Container Registry Tasks](container-registry-tutorial-quick-task.md)
 
@@ -49,9 +49,9 @@ Jeśli jeszcze tego nie zrobiłeś, wykonaj następujące samouczki przed kontyn
 
 ### <a name="configure-the-environment"></a>Konfigurowanie środowiska
 
-Wypełnij te zmienne środowiskowe powłoki przy użyciu wartości odpowiednich dla danego środowiska. Ten krok nie jest ściśle wymagany, ale trochę ułatwia wykonywanie przedstawionych w tym samouczku wielowierszowych poleceń interfejsu wiersza polecenia platformy Azure. Jeśli te zmienne środowiskowe nie zostaną zapełniane, należy ręcznie zastąpić każdą wartość wszędzie tam, gdzie pojawia się ona w przykładowych poleceniach.
+Wypełnij te zmienne środowiskowe powłoki przy użyciu wartości odpowiednich dla danego środowiska. Ten krok nie jest ściśle wymagany, ale trochę ułatwia wykonywanie przedstawionych w tym samouczku wielowierszowych poleceń interfejsu wiersza polecenia platformy Azure. Jeśli te zmienne środowiskowe nie zostaną wypełnione, należy ręcznie zastąpić każdą wartość w dowolnym miejscu w przykładowych poleceniach.
 
-[![Uruchom osadź](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)
+[![Uruchom osadzenie](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)
 
 ```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
@@ -62,9 +62,9 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 ### <a name="base-image-update-scenario"></a>Scenariusz aktualizacji obrazu podstawowego
 
-W tym samouczku zostaniesz przechytrzył scenariusz aktualizacji obrazu podstawowego, w którym obraz podstawowy i obraz aplikacji są przechowywane w jednym rejestrze. 
+Ten samouczek przeprowadzi Cię przez scenariusz aktualizacji obrazu podstawowego, w którym obraz podstawowy i obraz aplikacji są przechowywane w jednym rejestrze. 
 
-[Przykładowy kod][code-sample] obejmuje dwa pliki Dockerfile: obraz aplikacji i obraz określony w nim jako podstawowy. W poniższych sekcjach utworzysz zadanie usługi ACR, które automatycznie wyzwala kompilację obrazu aplikacji, gdy nowa wersja obrazu podstawowego zostanie wypchnięta do tego samego rejestru kontenerów.
+[Przykładowy kod][code-sample] obejmuje dwa pliki Dockerfile: obraz aplikacji i obraz określony w nim jako podstawowy. W poniższych sekcjach utworzysz zadanie ACR, które automatycznie wyzwala kompilację obrazu aplikacji, gdy nowa wersja obrazu podstawowego jest wypychana do tego samego rejestru kontenerów.
 
 * [Dockerfile-app][dockerfile-app]: mała aplikacja internetowa Node.js, która renderuje statyczną stronę internetową wyświetlającą wersję środowiska Node.js, na której się opiera. Ciąg wersji jest symulowany: wyświetla zawartość zmiennej środowiskowej `NODE_VERSION`, którą zdefiniowano w obrazie podstawowym.
 
@@ -72,11 +72,11 @@ W tym samouczku zostaniesz przechytrzył scenariusz aktualizacji obrazu podstawo
 
 W poniższych sekcjach utworzysz zadanie, zaktualizujesz wartość `NODE_VERSION` w pliku Dockerfile obrazu podstawowego, a następnie użyjesz usługi ACR Tasks do skompilowania obrazu podstawowego. Gdy usługa ACR Tasks wypycha nowy obraz podstawowy do rejestru, następuje automatyczne wyzwolenie kompilacji obrazu aplikacji. Opcjonalnie możesz uruchomić obraz kontenera aplikacji lokalnie, aby zobaczyć inne ciągi wersji we wbudowanych obrazach.
 
-W tym samouczku zadanie usługi ACR tworzy i wypycha obraz kontenera aplikacji określony w pliku Dockerfile. Zadania usługi ACR można również uruchamiać [zadania wieloetapowe,](container-registry-tasks-multi-step.md)używając pliku YAML do definiowania kroków do tworzenia, wypychania i opcjonalnie testowania wielu kontenerów.
+W tym samouczku zadanie ACR kompiluje i wypycha obraz kontenera aplikacji określony w pliku dockerfile. Zadania ACR mogą również uruchamiać [zadania wieloetapowe](container-registry-tasks-multi-step.md), używając pliku YAML do definiowania kroków do kompilowania, wypychania i opcjonalnego testowania wielu kontenerów.
 
 ## <a name="build-the-base-image"></a>Tworzenie obrazu podstawowego
 
-Zacznij od utworzenia obrazu bazowego za pomocą *szybkiego zadania*ACR Tasks , za pomocą [kompilacji az acr][az-acr-build]. Zgodnie z opisem w [pierwszym samouczku](container-registry-tutorial-quick-task.md) z serii, w tym procesie następuje nie tylko kompilacja obrazu, ale także wypchnięcie go do rejestru kontenerów, jeśli kompilacja zakończy się pomyślnie.
+Zacznij od utworzenia obrazu podstawowego z *ACR zadaniami, używając*polecenia [AZ ACR Build][az-acr-build]. Zgodnie z opisem w [pierwszym samouczku](container-registry-tutorial-quick-task.md) z serii, w tym procesie następuje nie tylko kompilacja obrazu, ale także wypchnięcie go do rejestru kontenerów, jeśli kompilacja zakończy się pomyślnie.
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base .
@@ -97,17 +97,17 @@ az acr task create \
     --git-access-token $GIT_PAT
 ```
 
-To zadanie jest podobne do zadania utworzonego w [poprzednim samouczku](container-registry-tutorial-build-task.md). Przesyła ono do usługi ACR Tasks instrukcję wyzwolenia kompilacji obrazu, gdy zatwierdzenia są wypychane do repozytorium określonego przez element `--context`. Podczas gdy plik Dockerfile używany do tworzenia obrazu w poprzednim`FROM node:9-alpine`samouczku określa publiczny obraz podstawowy ( ), Plik Dockerfile w tym zadaniu, [Dockerfile-app][dockerfile-app], określa obraz podstawowy w tym samym rejestrze:
+To zadanie jest podobne do zadania utworzonego w [poprzednim samouczku](container-registry-tutorial-build-task.md). Przesyła ono do usługi ACR Tasks instrukcję wyzwolenia kompilacji obrazu, gdy zatwierdzenia są wypychane do repozytorium określonego przez element `--context`. Podczas gdy pliku dockerfile używany do kompilowania obrazu w poprzednim samouczku określa publiczny obraz podstawowy (`FROM node:9-alpine`), pliku dockerfile w tym zadaniu, [pliku dockerfile-App][dockerfile-app], określa podstawowy obraz w tym samym rejestrze:
 
 ```dockerfile
 FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
 ```
 
-Ta konfiguracja ułatwia symulowanie poprawki struktury w obrazie podstawowym w dalszej części tego samouczka.
+Ta konfiguracja ułatwia symulowanie stosowania poprawek struktury w obrazie podstawowym w dalszej części tego samouczka.
 
 ## <a name="build-the-application-container"></a>Kompilowanie kontenera aplikacji
 
-Użyj [az acr zadanie uruchom][az-acr-task-run] ręcznie wyzwolić zadanie i utworzyć obraz aplikacji. Ten krok jest potrzebny, aby zadanie śledzi zależność obrazu aplikacji od obrazu podstawowego.
+Użyj [AZ ACR Task Run][az-acr-task-run] , aby ręcznie wyzwolić zadanie i utworzyć obraz aplikacji. Ten krok jest zbędny, aby zadanie śledzi zależność obrazu aplikacji na obrazie podstawowym.
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name taskhelloworld
@@ -119,13 +119,13 @@ Po ukończeniu zadania zanotuj **identyfikator przebiegu** (na przykład „da6�
 
 Jeśli pracujesz lokalnie (nie w usłudze Cloud Shell) i masz zainstalowaną platformę Docker, uruchom kontener, aby zobaczyć renderowaną aplikację w przeglądarce internetowej przed ponownym skompilowaniem jej obrazu podstawowego. Jeśli używasz usługi Cloud Shell, pomiń tę sekcję (usługa Cloud Shell nie obsługuje poleceń `az acr login` ani `docker run`).
 
-Najpierw uwierzytelnij się w rejestrze kontenerów za pomocą [logowania az acr:][az-acr-login]
+Najpierw należy uwierzytelnić się w rejestrze kontenerów za pomocą [AZ ACR login][az-acr-login]:
 
 ```azurecli
 az acr login --name $ACR_NAME
 ```
 
-Teraz uruchom komputer lokalnie przy użyciu polecenia `docker run`. Zamień ** \<run-id\> ** na identyfikator uruchomienia znaleziony w danych wyjściowych z poprzedniego kroku (na przykład "da6"). W tym przykładzie nazwy kontenera `myapp` i zawiera `--rm` parametr, aby usunąć kontener po zatrzymaniu go.
+Teraz uruchom komputer lokalnie przy użyciu polecenia `docker run`. Zastąp ** \<\> identyfikator uruchomieniowy** identyfikatorem przebiegu znalezionym w danych wyjściowych z poprzedniego kroku (na przykład "DA6"). Ten przykład określa nazwę kontenera `myapp` i zawiera `--rm` parametr do usuwania kontenera po jego zatrzymaniu.
 
 ```bash
 docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-id>

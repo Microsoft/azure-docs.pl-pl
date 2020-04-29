@@ -9,23 +9,23 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: b2609a069872ec55ac9068fadcbb3f312d68a630
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81680791"
 ---
-W tej sekcji opisano sposób wykonywania następujących operacji modyfikacji dla komunikacji bezpośredniej komunikacji równorzędnej:
+W tej sekcji opisano sposób wykonywania następujących operacji modyfikacji dla bezpośredniej komunikacji równorzędnej:
 
-* Dodawanie bezpośrednich połączeń komunikacji równorzędnej.
-* Usuń bezpośrednie połączenia równorzędne.
-* Uaktualnianie lub obniżanie przepustowości w połączeniach aktywnych.
-* Dodawanie sesji IPv4 lub IPv6 w aktywnych połączeniach.
-* Usuń sesje IPv4 lub IPv6 w aktywnych połączeniach.
+* Dodaj bezpośrednie połączenia komunikacji równorzędnej.
+* Usuń bezpośrednie połączenia komunikacji równorzędnej.
+* Uaktualnij lub obniżaj poziom przepustowości dla aktywnych połączeń.
+* Dodaj sesje IPv4 lub IPv6 dla aktywnych połączeń.
+* Usuń sesje IPv4 lub IPv6 dla aktywnych połączeń.
 
-### <a name="add-direct-peering-connections"></a>Dodawanie bezpośrednich połączeń komunikacji równorzędnej
+### <a name="add-direct-peering-connections"></a>Dodaj bezpośrednie połączenia komunikacji równorzędnej
 
-W tym przykładzie opisano sposób dodawania połączeń do istniejącej komunikacji bezpośredniej komunikacji równorzędnej.
+W tym przykładzie opisano sposób dodawania połączeń do istniejącej bezpośredniej komunikacji równorzędnej.
 
 ```powershell
 
@@ -44,9 +44,9 @@ $directPeering.Connections.Add($connection)
 $directPeering | Update-AzPeering
 ```
 
-### <a name="remove-direct-peering-connections"></a>Usuwanie bezpośrednich połączeń komunikacji równorzędnej
+### <a name="remove-direct-peering-connections"></a>Usuń bezpośrednie połączenia komunikacji równorzędnej
 
-Usuwanie połączenia nie jest obecnie obsługiwane w programie PowerShell. Aby uzyskać więcej informacji, skontaktuj się z [programem Microsoft peering](mailto:peeringexperience@microsoft.com).
+Usuwanie połączenia nie jest obecnie obsługiwane w programie PowerShell. Aby uzyskać więcej informacji, skontaktuj się z pomocą techniczną [firmy Microsoft](mailto:peeringexperience@microsoft.com).
 
 <!--
 ```powershell
@@ -56,9 +56,9 @@ $directPeering | Update-AzPeering
 ```
 -->
 
-### <a name="upgrade-or-downgrade-bandwidth-on-active-connections"></a>Uaktualnianie lub obniżanie przepustowości połączeń aktywnych
+### <a name="upgrade-or-downgrade-bandwidth-on-active-connections"></a>Przepustowość uaktualnienia lub obniżenia poziomu aktywnych połączeń
 
-W tym przykładzie opisano sposób dodawania 10 Gb/s do istniejącego połączenia bezpośredniego.
+W tym przykładzie opisano sposób dodawania 10 GB/s do istniejącego połączenia bezpośredniego.
 
 ```powershell
 
@@ -68,9 +68,9 @@ $directPeering | Update-AzPeering
 
 ```
 
-### <a name="add-ipv4-or-ipv6-sessions-on-active-connections"></a>Dodawanie sesji IPv4 lub IPv6 w aktywnych połączeniach
+### <a name="add-ipv4-or-ipv6-sessions-on-active-connections"></a>Dodawanie sesji IPv4 lub IPv6 dla aktywnych połączeń
 
-W tym przykładzie opisano sposób dodawania sesji IPv6 w istniejącym połączeniu bezpośrednim tylko z sesją IPv4. 
+W tym przykładzie opisano sposób dodawania sesji IPv6 na istniejącym połączeniu bezpośrednim z tylko sesją IPv4. 
 
 ```powershell
 
@@ -80,6 +80,6 @@ $directPeering | Update-AzPeering
 
 ```
 
-### <a name="remove-ipv4-or-ipv6-sessions-on-active-connections"></a>Usuwanie sesji IPv4 lub IPv6 w aktywnych połączeniach
+### <a name="remove-ipv4-or-ipv6-sessions-on-active-connections"></a>Usuń sesje IPv4 lub IPv6 w aktywnych połączeniach
 
-Usuwanie sesji IPv4 lub IPv6 z istniejącego połączenia nie jest obecnie obsługiwane w programie PowerShell. Aby uzyskać więcej informacji, skontaktuj się z [programem Microsoft peering](mailto:peeringexperience@microsoft.com).
+Usuwanie sesji IPv4 lub IPv6 z istniejącego połączenia nie jest obecnie obsługiwane w programie PowerShell. Aby uzyskać więcej informacji, skontaktuj się z pomocą techniczną [firmy Microsoft](mailto:peeringexperience@microsoft.com).

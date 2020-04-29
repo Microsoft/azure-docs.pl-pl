@@ -1,117 +1,117 @@
 ---
 title: Wdrażanie zawartości przy użyciu protokołu FTP/S
-description: Dowiedz się, jak wdrożyć aplikację w usłudze Azure App Service przy użyciu protokołu FTP lub FTPS. Zwiększ bezpieczeństwo witryny sieci Web, wyłączając niezaszyfrowany protokół FTP.
+description: Dowiedz się, jak wdrożyć aplikację w Azure App Service przy użyciu protokołu FTP lub FTPS. Zwiększ bezpieczeństwo witryny sieci Web, wyłączając nieszyfrowany protokół FTP.
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.topic: article
 ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: fcc7c5b8fa182cace6e3dae0b1cae4cd41c5dcb9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81532597"
 ---
-# <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Wdrażanie aplikacji w usłudze Azure App Service przy użyciu protokołu FTP/S
+# <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Wdrażanie aplikacji do Azure App Service przy użyciu protokołu FTP/S
 
-W tym artykule pokazano, jak za pomocą protokołu FTP lub FTPS wdrożyć aplikację sieci web, zaplecze aplikacji mobilnej lub aplikację interfejsu API w [usłudze Azure App Service.](https://go.microsoft.com/fwlink/?LinkId=529714)
+W tym artykule pokazano, jak za pomocą protokołu FTP lub FTPS wdrożyć aplikację internetową, zaplecze aplikacji mobilnej lub aplikację interfejsu API w celu [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
 
-Punkt końcowy FTP/S dla aplikacji jest już aktywny. Do włączenia wdrażania ftp/s nie jest konieczna żadna konfiguracja.
+Punkt końcowy FTP/S aplikacji jest już aktywny. W celu włączenia wdrożenia protokołu FTP/S nie jest wymagana żadna konfiguracja.
 
 ## <a name="open-ftp-dashboard"></a>Otwórz pulpit nawigacyjny FTP
 
-1. W [witrynie Azure portal](https://portal.azure.com)wyszukaj i wybierz **pozycję Usługi aplikacji**.
+1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **App Services**.
 
-    ![Wyszukaj usługi aplikacji.](media/app-service-continuous-deployment/search-for-app-services.png)
+    ![Wyszukaj usługi App Services.](media/app-service-continuous-deployment/search-for-app-services.png)
 
 2. Wybierz aplikację sieci Web, którą chcesz wdrożyć.
 
     ![Wybierz aplikację.](media/app-service-continuous-deployment/select-your-app.png)
 
-3. Wybierz **pozycję Centrum** > wdrażania**ftp** > **dashboard**.
+3. Wybierz pozycję**pulpit nawigacyjny** > **FTP** >  **centrum wdrażania**.
 
     ![Otwórz pulpit nawigacyjny FTP](./media/app-service-deploy-ftp/open-dashboard.png)
 
-## <a name="get-ftp-connection-information"></a>Uzyskaj informacje o połączeniu FTP
+## <a name="get-ftp-connection-information"></a>Pobierz informacje o połączeniu FTP
 
-Na pulpicie nawigacyjnym FTP wybierz pozycję **Kopiuj,** aby skopiować punkt końcowy FTPS i poświadczenia aplikacji.
+Na pulpicie nawigacyjnym FTP wybierz pozycję **Kopiuj** , aby skopiować FTPS punkt końcowy i poświadczenia aplikacji.
 
-![Kopiowanie informacji FTP](./media/app-service-deploy-ftp/ftp-dashboard.png)
+![Kopiuj informacje FTP](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
-Zaleca się, aby użyć **poświadczeń aplikacji** do wdrożenia w aplikacji, ponieważ jest unikatowa dla każdej aplikacji. Jeśli jednak klikniesz **pozycję Poświadczenia użytkownika,** można ustawić poświadczenia na poziomie użytkownika, których można użyć do logowania FTP/S do wszystkich aplikacji usługi App Service w ramach subskrypcji.
+Zalecamy użycie **poświadczeń aplikacji** do wdrożenia aplikacji, ponieważ jest ona unikatowa dla każdej aplikacji. Jeśli jednak klikniesz pozycję **poświadczenia użytkownika**, możesz ustawić poświadczenia na poziomie użytkownika, których można użyć do logowania za pomocą protokołu FTP/S do wszystkich aplikacji App Service w ramach subskrypcji.
 
 > [!NOTE]
-> Uwierzytelnianie w punkcie końcowym FTP/FTPS przy użyciu numerów poświadczeń na poziomie użytkownika wymaga nazwy użytkownika w następującym formacie: 
+> Uwierzytelnianie do punktu końcowego FTP/FTPS przy użyciu poświadczeń na poziomie użytkownika nazwa użytkownika w następującym formacie: 
 >
 >`<app-name>\<user-name>`
 >
-> Ponieważ poświadczenia na poziomie użytkownika są połączone z użytkownikiem, a nie z określonym zasobem, nazwa użytkownika musi być w tym formacie, aby skierować akcję logowania do odpowiedniego punktu końcowego aplikacji.
+> Ponieważ poświadczenia na poziomie użytkownika są połączone z użytkownikiem, a nie konkretnym zasobem, nazwa użytkownika musi być w tym formacie, aby skierować akcję logowania do właściwego punktu końcowego aplikacji.
 >
 
 ## <a name="deploy-files-to-azure"></a>Wdrażanie plików na platformie Azure
 
-1. Z klienta FTP (na przykład [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/)lub [WinSCP](https://winscp.net/index.php)) użyj informacji o połączeniu zebranych w celu połączenia się z aplikacją.
-2. Skopiuj pliki i ich odpowiednią strukturę katalogów do katalogu [ **/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) na platformie Azure (lub **katalogu /site/wwwroot/App_Data/Jobs/** dla webjobs).
-3. Przejdź do adresu URL aplikacji, aby sprawdzić, czy aplikacja działa prawidłowo. 
+1. Korzystając z klienta FTP (na przykład [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/)lub [WinSCP](https://winscp.net/index.php)), użyj zebranych informacji o połączeniu, aby nawiązać połączenie z Twoją aplikacją.
+2. Skopiuj pliki i ich strukturę katalogów do [katalogu **/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) na platformie Azure (lub **/site/wwwroot/App_Data/Jobs/** Directory for WebJobs).
+3. Przejdź do adresu URL swojej aplikacji, aby sprawdzić, czy aplikacja działa prawidłowo. 
 
 > [!NOTE] 
-> W przeciwieństwie do [wdrożeń opartych na git,](deploy-local-git.md)wdrożenie FTP nie obsługuje następujących automatyzacji wdrażania: 
+> W przeciwieństwie do [wdrożeń opartych na git](deploy-local-git.md), wdrożenie FTP nie obsługuje następujących automatyzacji wdrożenia: 
 >
-> - przywraca zależności (takich jak NuGet, NPM, PIP i automatyzacji kompozytora)
-> - kompilacja plików binarnych .NET
-> - generowanie web.config (oto [przykład Node.js)](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps)
+> - Przywracanie zależności (takie jak NuGet, NPM, PIP i Automation Composer)
+> - Kompilacja plików binarnych platformy .NET
+> - generacja pliku Web. config (Oto przykład środowiska [Node. js](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 
-> Wygeneruj te niezbędne pliki ręcznie na komputerze lokalnym, a następnie wdrożyć je razem z aplikacją.
+> Ręcznie Wygeneruj te wymagane pliki na komputerze lokalnym, a następnie wdróż je razem z aplikacją.
 >
 
-## <a name="enforce-ftps"></a>Wymuszanie FTPS
+## <a name="enforce-ftps"></a>Wymuś FTPS
 
-Aby zwiększyć bezpieczeństwo, należy zezwolić tylko na protokół FTP za tl/SSL. Można również wyłączyć zarówno FTP, jak i FTPS, jeśli nie używasz wdrożenia FTP.
+Aby zapewnić większe bezpieczeństwo, należy zezwalać tylko na protokół FTP przez protokół TLS/SSL. Jeśli nie korzystasz z wdrażania FTP, możesz również wyłączyć zarówno protokół FTP, jak i FTPS.
 
-Na stronie zasobów aplikacji w [witrynie Azure portal](https://portal.azure.com)wybierz**pozycję Ustawienia ogólne** **konfiguracji** > z lewej strony nawigacji.
+Na stronie zasobów aplikacji w obszarze [Azure Portal](https://portal.azure.com)wybierz pozycję **Konfiguracja** > **Ogólne ustawienia** w lewym okienku nawigacji.
 
-Aby wyłączyć niezaszyfrowany protokół FTP, wybierz pozycję **FTPS Only** w **stanie FTP**. Aby całkowicie wyłączyć ftp i FTPS, wybierz **wyłączone**. Po skończeniu kliknij przycisk **Zapisz**. Jeśli **używasz tylko protokołu FTPS,** należy wymusić protokół TLS 1.2 lub nowszą, przechodząc do bloku **ustawień TLS/SSL** aplikacji sieci web. Protokół TLS 1.0 i 1.1 nie są obsługiwane tylko przez **protokół FTPS**.
+Aby wyłączyć nieszyfrowane FTP, wybierz pozycję **FTPS tylko** w polu **stan FTP**. Aby całkowicie wyłączyć protokół FTP i FTPS, wybierz pozycję **wyłączone**. Po skończeniu kliknij przycisk **Zapisz**. W przypadku używania **tylko FTPS**należy wymusić TLS 1,2 lub nowszy, przechodząc do bloku **Ustawienia protokołu TLS/SSL** w aplikacji sieci Web. Protokoły TLS 1,0 i 1,1 nie są obsługiwane **tylko**w przypadku FTPS.
 
-![Wyłączanie ftp/s](./media/app-service-deploy-ftp/disable-ftp.png)
+![Wyłącz FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 
 ## <a name="automate-with-scripts"></a>Automatyzowanie przy użyciu skryptów
 
-W przypadku wdrażania protokołu FTP przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure)zobacz Tworzenie aplikacji sieci web i [wdrażanie plików za pomocą protokołu FTP (Azure CLI)](./scripts/cli-deploy-ftp.md).
+Aby wdrożyć FTP przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure), zobacz [Tworzenie aplikacji internetowej i wdrażanie plików przy użyciu protokołu FTP (interfejs wiersza polecenia platformy Azure)](./scripts/cli-deploy-ftp.md).
 
-W przypadku wdrażania protokołu FTP przy użyciu [programu Azure PowerShell](/cli/azure)zobacz [Przekazywanie plików do aplikacji sieci Web przy użyciu protokołu FTP (PowerShell)](./scripts/powershell-deploy-ftp.md).
+Aby wdrożyć FTP przy użyciu [Azure PowerShell](/cli/azure), zobacz [przekazywanie plików do aplikacji internetowej przy użyciu protokołu FTP (PowerShell)](./scripts/powershell-deploy-ftp.md).
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
-## <a name="troubleshoot-ftp-deployment"></a>Rozwiązywanie problemów z wdrażaniem ftp
+## <a name="troubleshoot-ftp-deployment"></a>Rozwiązywanie problemów z wdrażaniem FTP
 
-- [Jak rozwiązać problem z wdrożeniem ftp?](#how-can-i-troubleshoot-ftp-deployment)
-- [Nie jestem w stanie FTP i opublikować mój kod. Jak rozwiązać ten problem?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
-- [Jak połączyć się z ftp w usłudze Azure App Service w trybie pasywnym?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
+- [Jak rozwiązywać problemy z wdrażaniem FTP?](#how-can-i-troubleshoot-ftp-deployment)
+- [Nie mogę przeprowadzić FTP i opublikować mojego kodu. Jak mogę rozwiązać ten problem?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+- [Jak połączyć się z FTP w Azure App Service za pośrednictwem trybu pasywnego?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
 
-### <a name="how-can-i-troubleshoot-ftp-deployment"></a>Jak rozwiązać problem z wdrożeniem ftp?
+### <a name="how-can-i-troubleshoot-ftp-deployment"></a>Jak rozwiązywać problemy z wdrażaniem FTP?
 
-Pierwszym krokiem rozwiązywania problemów z wdrażaniem protokołu FTP jest izolowanie problemu z wdrażaniem z powodu problemu z aplikacją środowiska wykonawczego.
+Pierwszym krokiem w przypadku rozwiązywania problemów z wdrażaniem za pomocą usługi FTP jest izolowanie problemu wdrażania z powodu problemu z aplikacją środowiska uruchomieniowego.
 
-Problem z wdrażaniem zazwyczaj powoduje, że żadne pliki lub nieprawidłowe pliki wdrożone w aplikacji. Rozwiązywanie problemów można rozwiązać, badając wdrożenie FTP lub wybierając alternatywną ścieżkę wdrażania (taką jak kontrola źródła).
+Problem z wdrożeniem zwykle skutkuje brakiem plików lub nieprawidłowymi plikami wdrożonymi w aplikacji. Możesz rozwiązywać problemy, badając wdrożenie FTP lub wybierając alternatywną ścieżkę wdrożenia (np. kontrolę źródła).
 
-Problem z aplikacją środowiska wykonawczego zazwyczaj powoduje odpowiedni zestaw plików wdrożonych w aplikacji, ale nieprawidłowe zachowanie aplikacji. Można rozwiązać problem, koncentrując się na zachowanie kodu w czasie wykonywania i badania określonych ścieżek błędów.
+Problem z aplikacją środowiska uruchomieniowego zwykle polega na odpowiednim zestawie plików wdrożonym w aplikacji, ale nieprawidłowym zachowaniu aplikacji. Możesz rozwiązywać problemy, koncentrując się na zachowaniu kodu w czasie wykonywania i badając konkretne ścieżki błędów.
 
-Aby określić problem z wdrożeniem lub czasem wykonywania, zobacz [Problemy z wdrażaniem a czasem wykonywania](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
+Aby określić problem dotyczący wdrożenia lub środowiska uruchomieniowego, zobacz [problemy dotyczące wdrażania i środowiska uruchomieniowego](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
 
-### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>I'm not able to FTP and publish my code. Jak rozwiązać ten problem?
-Sprawdź, czy wprowadzono poprawną nazwa hosta i [poświadczenia](#open-ftp-dashboard). Sprawdź również, czy następujące porty FTP na komputerze nie są blokowane przez zaporę:
+### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>I'm not able to FTP and publish my code. Jak mogę rozwiązać ten problem?
+Sprawdź, czy wprowadzono poprawną nazwę hosta i [poświadczenia](#open-ftp-dashboard). Sprawdź również, czy następujące porty FTP na maszynie nie są blokowane przez zaporę:
 
 - Port połączenia sterowania FTP: 21
 - Port połączenia danych FTP: 989, 10001-10300
  
-### <a name="how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode"></a>Jak połączyć się z ftp w usłudze Azure App Service w trybie pasywnym?
-Usługa Azure App Service obsługuje łączenie zarówno w trybie aktywnym, jak i pasywnym. Tryb pasywny jest preferowany, ponieważ maszyny rozmieszczenia znajdują się zwykle za zaporą (w systemie operacyjnym lub jako część sieci domowej lub firmowej). Zobacz [przykład z dokumentacji WinSCP](https://winscp.net/docs/ui_login_connection). 
+### <a name="how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode"></a>Jak połączyć się z FTP w Azure App Service za pośrednictwem trybu pasywnego?
+Azure App Service obsługuje łączenie za pośrednictwem trybu aktywnego i pasywnego. Tryb pasywny jest preferowany, ponieważ maszyny wdrażania zwykle znajdują się za zaporą (w systemie operacyjnym lub w ramach sieci domowej lub firmowej). Zapoznaj się [z przykładem z dokumentacji WinSCP](https://winscp.net/docs/ui_login_connection). 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać bardziej zaawansowane scenariusze wdrażania, spróbuj [wdrożyć na platformie Azure za pomocą git](deploy-local-git.md). Wdrożenie oparte na git na platformie Azure umożliwia kontrolę wersji, przywracanie pakietów, MSBuild i inne.
+W przypadku bardziej zaawansowanych scenariuszy wdrażania spróbuj [wdrożyć platformę Azure za pomocą narzędzia Git](deploy-local-git.md). Wdrożenie oparte na usłudze Git na platformie Azure umożliwia kontrolę wersji, przywracanie pakietów, MSBuild i nie tylko.
 
 ## <a name="more-resources"></a>Więcej zasobów
 
-* [Poświadczenia wdrażania usługi Azure App Service](deploy-configure-credentials.md)
+* [Poświadczenia wdrażania Azure App Service](deploy-configure-credentials.md)

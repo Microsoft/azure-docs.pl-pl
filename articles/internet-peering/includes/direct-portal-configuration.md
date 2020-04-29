@@ -9,31 +9,31 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: fda22346a44388248e37473bc7891b8a130569c4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81681079"
 ---
-1. Na stronie **Tworzenie komunikacji równorzędnej** na karcie **Konfiguracja** wypełnij pola, jak pokazano tutaj.
+1. Na stronie **Tworzenie komunikacji równorzędnej** na karcie **Konfiguracja** Wypełnij pola, jak pokazano poniżej.
 
-    * W przypadku **typu komunikacji równorzędnej**wybierz opcję **Bezpośrednie**.
-    * W przypadku **sieci Firmy Microsoft**wybierz **AS8075**. Nie twórz komunikacji równorzędnej z ASN 8069. Jest zarezerwowany dla specjalnych aplikacji i używany tylko przez [komunikację równorzędną firmy Microsoft.](mailto:peering@microsoft.com)
-    * Wybierz **jednostkę SKU** jako **bezpłatną opcję Basic**. Nie wybieraj Premium Free, ponieważ jest on zarezerwowany dla specjalnych aplikacji.
-    * Wybierz lokalizację **metra,** w której chcesz skonfigurować komunikację równorzędnej.
+    * W obszarze **Typ komunikacji równorzędnej**wybierz pozycję **bezpośrednie**.
+    * W przypadku **sieci firmy Microsoft**wybierz pozycję **AS8075**. Nie twórz komunikacji równorzędnej z numerem ASN 8069. Jest ona zarezerwowana dla specjalnych aplikacji i jest używana tylko przez [komunikację równorzędną firmy Microsoft](mailto:peering@microsoft.com).
+    * Wybierz **jednostkę SKU** jako **bezpłatnie jako podstawową**. Nie wybieraj opcji Bezpłatna wersja Premium, ponieważ jest zarezerwowana dla aplikacji specjalnych.
+    * Wybierz lokalizację **Metro** , w której chcesz skonfigurować komunikację równorzędną.
 
         > [!NOTE]
-        > Jeśli masz już połączenia komunikacji równorzędnej z firmą Microsoft w wybranej lokalizacji **metro** i używasz portalu Azure po raz pierwszy, aby skonfigurować komunikację równorzędnych w tej lokalizacji, istniejące połączenia komunikacji równorzędnej zostaną wyświetlone w sekcji **Połączenia komunikacji równorzędnej,** jak pokazano na rysunku. Firma Microsoft automatycznie przekonwertuje te połączenia komunikacji równorzędnej na zasób platformy Azure, dzięki czemu można zarządzać nimi wszystkimi, wraz z nowymi połączeniami, w jednym miejscu. Aby uzyskać więcej informacji, zobacz [Konwertowanie starszej komunikacji bezpośredniej komunikacji równorzędnej na zasób platformy Azure przy użyciu portalu](../howto-legacy-direct-portal.md).
+        > Jeśli masz już połączenia komunikacji równorzędnej z firmą Microsoft w wybranej lokalizacji **Metro** i używasz Azure Portal po raz pierwszy w celu skonfigurowania komunikacji równorzędnej w tej lokalizacji, istniejące połączenia komunikacji równorzędnej będą wyświetlane w sekcji **połączenia komunikacji równorzędnej** . Firma Microsoft automatycznie przekonwertuje te połączenia komunikacji równorzędnej na zasób platformy Azure, aby można było zarządzać nimi, wraz z nowymi połączeniami w jednym miejscu. Aby uzyskać więcej informacji, zobacz [konwertowanie starszej bezpośredniej komunikacji równorzędnej na zasób platformy Azure przy użyciu portalu](../howto-legacy-direct-portal.md).
         >
 
-1. W obszarze **Połączenia komunikacji równorzędnej**wybierz pozycję **Utwórz nowy,** aby dodać wiersz dla każdego nowego połączenia, które chcesz skonfigurować.
+1. W obszarze **połączenia komunikacji równorzędnej**wybierz pozycję **Utwórz nowy** , aby dodać wiersz dla każdego nowego połączenia, które chcesz skonfigurować.
 
-    * Aby skonfigurować lub zmodyfikować ustawienia połączenia, wybierz przycisk edycji wiersza.
+    * Aby skonfigurować lub zmodyfikować ustawienia połączenia, wybierz przycisk Edytuj dla wiersza.
 
         > [!div class="mx-imgBorder"]
         > ![Przycisk Edytuj](../media/setup-direct-conf-tab-edit.png)
     
-    * Aby usunąć wiersz, wybierz **...**  >  **Usuń**plik .
+    * Aby usunąć linię, wybierz pozycję **...**  >  **Usuń**.
 
         > [!div class="mx-imgBorder"]
         > ![Przycisk Usuń](../media/setup-direct-conf-tab-delete.png)
@@ -41,33 +41,33 @@ ms.locfileid: "81681079"
     * Musisz podać wszystkie ustawienia połączenia, jak pokazano poniżej.
 
          > [!div class="mx-imgBorder"]
-         > ![Bezpośrednia strona połączenia równorzędnego](../media/setup-direct-conf-tab-connection.png)
+         > ![Strona połączenia bezpośredniego komunikacji równorzędnej](../media/setup-direct-conf-tab-connection.png)
 
-        1. Wybierz **obiekt komunikacji równorzędnej,** w której należy skonfigurować połączenie.
-        1. **Dostawca adresów sesji** służy do określenia, kto udostępnia podsieć potrzebną do skonfigurowania sesji BGP między siecią a firmą Microsoft. Jeśli można podać podsieć, **wybierz**peer . W przeciwnym razie **wybierz** microsoft i microsoft [komunikacji równorzędnej skontaktuje](mailto:peering@microsoft.com) się z Tobą. Wybranie tej opcji będzie trwać dłużej, aby firma Microsoft przetworzyła żądanie komunikacji równorzędnej. W niektórych przypadkach firma Microsoft może nie być w stanie podać podsieci, co spowoduje odmowę żądania.
-        1. Jeśli jako **elementów równorzędnych**wybrano opcję **Dostawca adresu sesji,** wprowadź adresy IPv4 i IPv6 wraz z maskami prefiksów w **prefiksach IPv4 sesji** i **prefiksach sesji IPv6.**
-        1. Wprowadź liczbę prefiksów IPv4 i IPv6, które będą anonsowane w **polach Maksymalna anonsowana adresy IPv4** i **Maksymalna anonsowane adresy IPv6.**
-        1. Dostosuj suwak **Całkowita przepustowość,** aby odzwierciedlić przepustowość połączenia.
-        1. Wybierz **pozycję Zapisz,** aby zapisać ustawienia połączenia.
+        1. Wybierz funkcję **komunikacji równorzędnej** , w której ma zostać skonfigurowane połączenie.
+        1. **Dostawca adresów sesji** służy do określania, kto zapewnia podsieć potrzebną do skonfigurowania sesji protokołu BGP między siecią i firmą Microsoft. Jeśli można podać podsieć, wybierz pozycję **równorzędne**. W przeciwnym razie wybierz pozycję **Microsoft** i [Komunikacja równorzędna firmy Microsoft](mailto:peering@microsoft.com) będą kontaktować się z Tobą. Wybranie tej opcji zajmie więcej czasu firmie Microsoft w celu przetworzenia żądania komunikacji równorzędnej. W niektórych przypadkach firma Microsoft może nie być w stanie zapewnić podsieci, co spowoduje odmowę żądania.
+        1. W przypadku wybrania opcji **dostawca adresów sesji** jako **elementu równorzędnego**wprowadź adresy IPv4 i IPv6 wraz z maską prefiksu odpowiednio w polach **prefiks IPv4 sesji** i **prefiks IPv6 sesji** .
+        1. Wprowadź liczbę prefiksów IPv4 i IPv6, które będą anonsowane w polach **Maksymalna liczba anonsowanych adresów IPv4** i **maksymalnych anonsowanych adresów IPv6** .
+        1. Dostosuj suwak **łączną przepustowość** , aby odzwierciedlał przepustowość połączenia.
+        1. Wybierz pozycję **Zapisz** , aby zapisać ustawienia połączenia.
 
-1. Powtórz poprzedni krok, aby dodać więcej połączeń w dowolnym obiekcie, w którym firma Microsoft jest współlokowana z siecią, w usłudze **Metro,** która została wybrana wcześniej.
+1. Powtórz poprzedni krok, aby dodać więcej połączeń w dowolnym miejscu, w którym firma Microsoft znajduje się w sieci, w ramach **linii metra** wybranej wcześniej.
 
-1. Po dodaniu wszystkich wymaganych połączeń wybierz pozycję **Przejrzyj + utwórz**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Karta Konfiguracja komunikacji równorzędnej wersja ostateczna](../media/setup-direct-conf-tab-final.png)
-
-1. Należy zauważyć, że portal uruchamia podstawowe sprawdzanie poprawności wprowadzonych informacji. Wstążka u góry wyświetla komunikat *Trwa sprawdzanie poprawności końcowej...*.
+1. Po dodaniu wszystkich wymaganych połączeń wybierz pozycję **Przegląd + Utwórz**.
 
     > [!div class="mx-imgBorder"]
-    > ![Karta Sprawdzanie poprawności komunikacji równorzędnej](../media/setup-direct-review-tab-validation.png)
+    > ![Ostatnia Karta Konfiguracja komunikacji równorzędnej](../media/setup-direct-conf-tab-final.png)
 
-1. Po zmianie wiadomości na *Sprawdzanie poprawności sprawdź*swoje informacje. Prześlij żądanie, wybierając pozycję **Utwórz**. Aby zmodyfikować żądanie, wybierz **opcję Poprzedni** i powtórz kroki.
+1. Należy zauważyć, że portal uruchamia podstawowe sprawdzanie poprawności wprowadzonych informacji. Wstążka u góry wyświetla komunikat *z uruchomioną weryfikacją ostateczną...*
+
+    > [!div class="mx-imgBorder"]
+    > ![Karta Walidacja komunikacji równorzędnej](../media/setup-direct-review-tab-validation.png)
+
+1. Gdy wiadomość zostanie *przeniesiona na weryfikację*, sprawdź informacje. Prześlij żądanie, wybierając pozycję **Utwórz**. Aby zmodyfikować żądanie, wybierz pozycję **Poprzednia** i powtórz kroki.
 
     > [!div class="mx-imgBorder"]
     > ![Przesyłanie komunikacji równorzędnej](../media/setup-direct-review-tab-submit.png)
 
-1. Po przesłaniu żądania poczekaj na zakończenie wdrożenia. Jeśli wdrożenie nie powiedzie się, skontaktuj się z [programem Microsoft w komunikacji równorzędnej](mailto:peering@microsoft.com). Pomyślne wdrożenie jest wyświetlane w następujący sposób.
+1. Po przesłaniu żądania poczekaj na zakończenie wdrożenia. Jeśli wdrożenie nie powiedzie się, skontaktuj się z pomocą techniczną [firmy Microsoft](mailto:peering@microsoft.com). Pomyślne wdrożenie zostanie wyświetlone jak pokazano poniżej.
 
     > [!div class="mx-imgBorder"]
-    > ![Sukces rówieśników](../media/setup-direct-success.png)
+    > ![Pomyślne sukcesy komunikacji równorzędnej](../media/setup-direct-success.png)

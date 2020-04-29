@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
 ms.openlocfilehash: adac73d64feb6280c5043776249072e9f7595faa
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82142989"
 ---
 # <a name="virtual-machine-test-drive-tab"></a>Karta Stacja testowa maszyn wirtualnych
@@ -33,7 +33,7 @@ W poniższej tabeli opisano przeznaczenie i zawartość tych pól.  Wymagane pol
 
 |    Pole                  |       Opis                                                            |
 |  ---------                |     ---------------                                                          |
-|  *Uzyskać*   |  |
+|  *Szczegóły*   |  |
 | **Opis\***           | Zadbaj o to, aby zapoznać się z omówieniem scenariusza testowego. Ten tekst będzie widoczny dla użytkownika podczas aprowizacji dysku testowego. To pole obsługuje podstawowy kod HTML, jeśli chcesz udostępnić sformatowaną zawartość.  |
 | **Ręczne użytkownika\***           | Przekaż szczegółowy podręcznik użytkownika (. PDF), który pomaga testować, jak korzystać z rozwiązania.  |
 | **Wideo demonstracyjne na dysku testowym** | Przekaż wideo, które przedstawia Twoje rozwiązanie.  W przypadku wybrania tej opcji należy podać nazwę, adres URL wideo (hostowane w serwisie YouTube lub Vimeo) oraz miniaturę (533x324 pikseli) dla filmu wideo. |

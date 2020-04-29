@@ -1,24 +1,24 @@
 ---
-title: Definiowanie wielu wystąpień wartości wyjściowej
-description: Użyj operacji kopiowania w szablonie usługi Azure Resource Manager, aby iterować wiele razy podczas zwracania wartości z wdrożenia.
+title: Zdefiniuj wiele wystąpień wartości wyjściowej
+description: Użyj operacji kopiowania w szablonie Azure Resource Manager, aby wykonać iterację wiele razy podczas zwracania wartości z wdrożenia.
 ms.topic: conceptual
 ms.date: 04/17/2020
 ms.openlocfilehash: 0315af2f083285c4704b08fec608341b6f0b2231
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617836"
 ---
-# <a name="output-iteration-in-arm-templates"></a>Iteracja wyjściowa w szablonach ARM
+# <a name="output-iteration-in-arm-templates"></a>Iteracja danych wyjściowych w szablonach ARM
 
-W tym artykule pokazano, jak utworzyć więcej niż jedną wartość dla danych wyjściowych w szablonie usługi Azure Resource Manager (ARM). Dodając element **kopiowania** do sekcji dane wyjściowe szablonu, można dynamicznie zwracać liczbę elementów podczas wdrażania.
+W tym artykule pokazano, jak utworzyć więcej niż jedną wartość danych wyjściowych w szablonie Azure Resource Manager (ARM). Po dodaniu elementu **copy** do sekcji dane wyjściowe szablonu można dynamicznie zwrócić liczbę elementów podczas wdrażania.
 
-Można również użyć kopiowania z [resources](copy-resources.md) [zasobami, właściwości w zasobie](copy-properties.md)i [zmiennych](copy-variables.md).
+Można również użyć kopiowania z [zasobami](copy-resources.md), [właściwości w zasobie](copy-properties.md)i [zmiennych](copy-variables.md).
 
-## <a name="outputs-iteration"></a>Wyprowadza iterację
+## <a name="outputs-iteration"></a>Iteracja danych wyjściowych
 
-Element kopiowania ma następujący ogólny format:
+Element Copy ma następujący format ogólny:
 
 ```json
 "copy": {
@@ -27,9 +27,9 @@ Element kopiowania ma następujący ogólny format:
 }
 ```
 
-Właściwość **count** określa liczbę iteracji, które mają dla wartości wyjściowej.
+Właściwość **Count** określa liczbę iteracji dla wartości wyjściowej.
 
-Właściwość **input** określa właściwości, które mają zostać powtórzone. Można utworzyć tablicę elementów zbudowanych na podstawie wartości we właściwości **wejściowej.** Może to być pojedyncza właściwość (jak ciąg) lub obiekt z kilkoma właściwościami.
+Właściwość **Input** określa właściwości, które mają być powtarzane. Tworzysz tablicę elementów skonstruowanych na podstawie wartości we właściwości **wejściowej** . Może to być pojedyncza Właściwość (na przykład ciąg) lub obiekt z kilkoma właściwościami.
 
 Poniższy przykład tworzy zmienną liczbę kont magazynu i zwraca punkt końcowy dla każdego konta magazynu:
 
@@ -132,7 +132,7 @@ Następny przykład zwraca trzy właściwości z nowych kont magazynu.
 }
 ```
 
-W poprzednim przykładzie zwraca tablicę z następującymi wartościami:
+Poprzedni przykład zwraca tablicę o następujących wartościach:
 
 ```json
 [
@@ -151,11 +151,11 @@ W poprzednim przykładzie zwraca tablicę z następującymi wartościami:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby przejść przez samouczek, zobacz [Samouczek: tworzenie wielu wystąpień zasobów przy użyciu szablonów ARM](template-tutorial-create-multiple-instances.md).
-* Aby uzyskać inne zastosowania elementu kopiowania, zobacz:
+* Aby przejść przez samouczek, zobacz [Samouczek: Tworzenie wielu wystąpień zasobów przy użyciu szablonów usługi ARM](template-tutorial-create-multiple-instances.md).
+* Aby poznać inne zastosowania elementu Copy, zobacz:
   * [Iteracja zasobów w szablonach ARM](copy-resources.md)
   * [Iteracja właściwości w szablonach ARM](copy-properties.md)
-  * [Iteracja zmiennych w szablonach ARM](copy-variables.md)
-* Jeśli chcesz dowiedzieć się więcej o sekcjach szablonu, zobacz [Tworzenie szablonów ARM](template-syntax.md).
-* Aby dowiedzieć się, jak wdrożyć szablon, zobacz [Wdrażanie aplikacji z szablonem ARM](deploy-powershell.md).
+  * [Iteracja zmiennej w szablonach ARM](copy-variables.md)
+* Jeśli chcesz dowiedzieć się więcej na temat sekcji szablonu, zobacz [Tworzenie szablonów ARM](template-syntax.md).
+* Aby dowiedzieć się, jak wdrożyć szablon, zobacz [wdrażanie aplikacji przy użyciu szablonu ARM](deploy-powershell.md).
 

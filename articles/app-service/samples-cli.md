@@ -1,16 +1,16 @@
 ---
 title: Przykłady interfejsu wiersza polecenia
-description: Znajdź przykłady interfejsu wiersza polecenia platformy Azure dla niektórych typowych scenariuszy usługi App Service. Dowiedz się, jak zautomatyzować wdrażanie usługi App Service lub zadania zarządzania.
+description: Znajdź przykłady interfejsu wiersza polecenia platformy Azure dla niektórych typowych scenariuszy App Service. Dowiedz się, jak zautomatyzować zadania związane z wdrażaniem App Service lub zarządzaniem.
 tags: azure-service-management
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
 ms.openlocfilehash: 499bf25f06030ae9fc5c1f8381ef4cd6ff6873dc
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81535625"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Przykłady interfejsu wiersza polecenia dla usługi Azure App Service
@@ -28,12 +28,12 @@ Poniższa tabela zawiera linki do skryptów bash utworzonych za pomocą interfej
 | [Tworzenie aplikacji ASP.NET Core w kontenerze platformy Docker](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy aplikację usługi App Service w systemie Linux, a następnie ładuje obraz platformy Docker z usługi Docker Hub. |
 |**Konfigurowanie aplikacji**||
 | [Mapowanie domeny niestandardowej na aplikację](./scripts/cli-configure-custom-domain.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy aplikację usługi App Service i mapuje na nią nazwę domeny niestandardowej. |
-| [Powiąż niestandardowy certyfikat TLS/SSL z aplikacją](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy aplikację usługi App Service i wiąże certyfikat TLS/SSL niestandardowej nazwy domeny z nią. |
+| [Powiązywanie niestandardowego certyfikatu TLS/SSL z aplikacją](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy aplikację App Service i wiąże się z certyfikatem TLS/SSL nazwy domeny niestandardowej. |
 |**Skalowanie aplikacji**||
 | [Ręczne skalowanie aplikacji](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy aplikację usługi App Service i skaluje ją na 2 wystąpienia. |
 | [Skalowanie aplikacji na całym świecie przy użyciu architektury wysokiej dostępności](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy dwie aplikacje usługi App Service w dwóch różnych regionach geograficznych i udostępnia je za pośrednictwem pojedynczego punktu końcowego przy użyciu usługi Azure Traffic Manager. |
-|**Chroń aplikację**||
-| [Integracja z usługą Azure Application Gateway](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy aplikację usługi App Service i integruje ją z bramą aplikacji przy użyciu punktu końcowego usługi i ograniczeń dostępu. |
+|**Ochrona aplikacji**||
+| [Integracja z usługą Azure Application Gateway](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy aplikację App Service i integruje ją z Application Gateway przy użyciu punktu końcowego usługi i ograniczeń dostępu. |
 |**Łączenie aplikacji z zasobami**||
 | [Łączenie aplikacji z programem SQL Database](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy aplikację usługi App Service i bazę danych SQL, a następnie dodaje parametry połączenia z bazą danych do ustawień aplikacji. |
 | [Łączenie aplikacji z kontem magazynu](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy aplikację usługi App Service i konto magazynu, a następnie dodaje parametry połączenia z magazynem do ustawień aplikacji. |

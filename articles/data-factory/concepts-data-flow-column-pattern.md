@@ -1,6 +1,6 @@
 ---
-title: Wzorce kolumn w przepływie danych mapowania usługi Azure Data Factory
-description: Tworzenie uogólnionych wzorców transformacji danych przy użyciu wzorców kolumn w przepływach danych mapowania usługi Azure Data Factory
+title: Wzorce kolumn w przepływie danych mapowania Azure Data Factory
+description: Tworzenie uogólnionych wzorców transformacji danych przy użyciu wzorców kolumn w Azure Data Factory mapowania przepływów danych
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -8,81 +8,81 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.openlocfilehash: aacec8830948e08f66d71da88897670f7ef43788
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606134"
 ---
-# <a name="using-column-patterns-in-mapping-data-flow"></a>Używanie wzorców kolumn w przepływie danych mapowania
+# <a name="using-column-patterns-in-mapping-data-flow"></a>Używanie wzorców kolumn w mapowaniu przepływu danych
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Kilka przekształceń przepływu danych mapowania umożliwia odwoływanie się do kolumn szablonów na podstawie wzorców zamiast zakodowanych nazw kolumn. To dopasowanie jest znane jako *wzorce kolumn*. Można zdefiniować wzorce, aby dopasować kolumny na podstawie nazwy, typu danych, strumienia lub pozycji zamiast wymagać dokładnych nazw pól. Istnieją dwa scenariusze, w których wzorce kolumn są przydatne:
+Niektóre przekształcenia przepływu danych mapowania umożliwiają odwoływanie się do kolumn szablonu na podstawie wzorców zamiast zakodowanych nazw kolumn. Takie dopasowanie jest znane jako *wzorce kolumn*. Możesz definiować wzorce, aby dopasować kolumny na podstawie nazwy, typu danych, strumienia lub pozycji, zamiast wymagać dokładnej nazwy pól. Istnieją dwa scenariusze, w których są przydatne wzorce kolumn:
 
-* Jeśli przychodzące pola źródłowe często się zmieniają, na przykład w przypadku zmiany kolumn w plikach tekstowych lub bazach danych NoSQL. Ten scenariusz jest znany jako [dryf schematu](concepts-data-flow-schema-drift.md).
-* Jeśli chcesz wykonać wspólną operację na dużej grupie kolumn. Na przykład, chcąc rzutować każdą kolumnę, która ma "suma" w nazwie kolumny do podwójnego.
+* Jeśli przychodzące pola źródłowe często zmieniają się, na przykład w przypadku zmiany kolumn w plikach tekstowych lub bazach danych NoSQL. Ten scenariusz jest nazywany [dryfem schematu](concepts-data-flow-schema-drift.md).
+* Jeśli chcesz wykonać wspólną operację na dużej grupie kolumn. Na przykład, chcemy rzutować każdą kolumnę, która ma wartość "Total" w nazwie kolumny na podwójną.
 
-Wzorce kolumn są obecnie dostępne w przekształceniach pochodnych, agregacji, zaznaczania i ujścia.
+Wzorce kolumn są obecnie dostępne w transformacje kolumn pochodnych, agregacji, wyboru i ujścia.
 
-## <a name="column-patterns-in-derived-column-and-aggregate"></a>Wzorce kolumn w kolumnie pochodnej i agregacji
+## <a name="column-patterns-in-derived-column-and-aggregate"></a>Wzorce kolumn w kolumnie pochodnej i agregowanie
 
-Aby dodać wzorzec kolumny w kolumnie pochodnej lub na karcie Agregucie transformacji agregacji, kliknij ikonę plus po prawej stronie istniejącej kolumny. Wybierz **pozycję Dodaj wzór kolumny**. 
+Aby dodać wzorzec kolumny w kolumnie pochodnej lub karcie agregowania transformacji agregowanej, kliknij ikonę znaku plus z prawej strony istniejącej kolumny. Wybierz pozycję **Dodaj wzorzec kolumny**. 
 
-![wzory kolumn](media/data-flow/columnpattern.png "Wzorce kolumn")
+![wzorce kolumn](media/data-flow/columnpattern.png "Wzorce kolumn")
 
-Użyj [konstruktora wyrażeń,](concepts-data-flow-expression-builder.md) aby wprowadzić warunek dopasowania. Utwórz wyrażenie logiczne, które dopasowuje `stream`kolumny `position` na `name`podstawie `type`, , i kolumny. Wzorzec wpłynie na dowolną kolumnę, dryfował lub zdefiniowano, gdzie warunek zwraca wartość true.
+Użyj [konstruktora wyrażeń](concepts-data-flow-expression-builder.md) , aby wprowadzić warunek dopasowania. Utwórz wyrażenie logiczne, które pasuje do kolumn na podstawie `name`kolumny `type`, `stream`, i `position` . Wzorzec będzie miał wpływ na wszystkie kolumny, przenoszące lub zdefiniowane, gdzie warunek zwraca wartość true.
 
-Dwa pola wyrażeń poniżej warunku dopasowania określają nowe nazwy i wartości kolumn, których dotyczy problem. Służy `$$` do odwoływania się do istniejącej wartości dopasowanego pola. Lewe pole wyrażenia definiuje nazwę, a prawe pole wyrażenia definiuje wartość.
+Dwa pola wyrażenia poniżej warunku Match określają nowe nazwy i wartości kolumn, których dotyczy problem. Służy `$$` do odwoływania się do istniejącej wartości dopasowanego pola. Pole wyrażenia Left definiuje nazwę i prawo pole wyrażenia definiuje wartość.
 
-![wzory kolumn](media/data-flow/columnpattern2.png "Wzorce kolumn")
+![wzorce kolumn](media/data-flow/columnpattern2.png "Wzorce kolumn")
 
-Powyższy wzorzec kolumny pasuje do każdej kolumny typu dwukrotnie i tworzy jedną kolumnę agregacji na dopasowanie. Nazwa nowej kolumny jest dopasowana nazwa kolumny połączona z "_total". Wartość nowej kolumny jest zaokrągloną, zagregowana suma istniejącej podwójnej wartości.
+Powyższy wzorzec kolumny jest zgodny z każdą kolumną typu Double i tworzy jedną kolumnę agregującą dla dopasowania. Nazwa nowej kolumny jest dopasowaną nazwą kolumny połączonej z "_total". Wartość nowej kolumny to zaokrąglona, zagregowana suma istniejącej wartości podwójnej precyzji.
 
-Aby sprawdzić, czy warunek dopasowania jest poprawny, można sprawdzić poprawność schematu wyjściowego zdefiniowanych kolumn na karcie **Inspekcja** lub uzyskać migawkę danych na karcie **Podgląd danych.** 
+Aby sprawdzić, czy odpowiedni warunek jest poprawny, można sprawdzić poprawność schematu wyjściowego zdefiniowanych kolumn na karcie **Inspekcja** lub uzyskać migawkę danych na karcie **Podgląd danych** . 
 
-![wzory kolumn](media/data-flow/columnpattern3.png "Wzorce kolumn")
+![wzorce kolumn](media/data-flow/columnpattern3.png "Wzorce kolumn")
 
-## <a name="rule-based-mapping-in-select-and-sink"></a>Mapowanie oparte na regułach w zaznaczeniu i ujściu
+## <a name="rule-based-mapping-in-select-and-sink"></a>Mapowanie oparte na regułach w SELECT i ujścia
 
-Podczas mapowania kolumn w źródle i wybierania przekształceń można dodać mapowanie stałe lub mapowania oparte na regułach. Dopasuj `name` `type`na `stream`podstawie `position` , , i kolumn. Można mieć dowolną kombinację mapowań stałych i opartych na regułach. Domyślnie wszystkie rzuty z większą niż 50 kolumn domyślnie będzie mapowanie oparte na regułach, który pasuje do każdej kolumny i wyprowadza wprowadzonej nazwy. 
+Podczas mapowania kolumn w źródle i wybierania transformacji można dodać stałe mapowania lub mapowania oparte na regułach. Dopasowanie na podstawie kolumn `name`, `type`, `stream`i `position` . Można mieć dowolną kombinację stałych i mapowań opartych na regułach. Domyślnie wszystkie projekcje zawierające więcej niż 50 kolumn będą domyślnie mapowane na podstawie reguły, które pasują do każdej kolumny i wyprowadzają wydaną nazwę. 
 
-Aby dodać mapowanie oparte na regułach, kliknij pozycję **Dodaj mapowanie** i wybierz pozycję **Mapowanie oparte na regułach**.
+Aby dodać mapowanie oparte na regułach, kliknij przycisk **Dodaj mapowanie** i wybierz **Mapowanie oparte na regułach**.
 
-![mapowanie oparte na regułach](media/data-flow/rule2.png "Mapowanie oparte na regułach")
+![Mapowanie oparte na regułach](media/data-flow/rule2.png "Mapowanie oparte na regułach")
 
-Każde mapowanie oparte na regułach wymaga dwóch danych wejściowych: warunek, dla którego ma być zgodny według i co do nazwy każdej zamapowanej kolumny. Obie wartości są wprowadzane za pośrednictwem [konstruktora wyrażeń](concepts-data-flow-expression-builder.md). W lewym polu wyrażenia wprowadź warunek dopasowania logicznego. W prawym polu wyrażenia określ, do jakiej kolumny dopasowanej będzie mapowana.
+Każde mapowanie oparte na regułach wymaga dwóch danych wejściowych: warunek, dla którego należy dopasować i co należy nazwać każdej mapowanej kolumny. Obie wartości są zwracane za pośrednictwem [konstruktora wyrażeń](concepts-data-flow-expression-builder.md). W polu wyrażenia po lewej stronie wprowadź warunek dopasowania wartości logicznej. W polu wyrażenie po prawej stronie Określ, do czego zostanie zamapowana pasująca kolumna.
 
-![mapowanie oparte na regułach](media/data-flow/rule-based-mapping.png "Mapowanie oparte na regułach")
+![Mapowanie oparte na regułach](media/data-flow/rule-based-mapping.png "Mapowanie oparte na regułach")
 
-Użyj `$$` składni, aby odwołać się do nazwy wejściowej dopasowanej kolumny. Używając powyższego obrazu jako przykładu, powiedzmy, że użytkownik chce dopasować na wszystkich kolumnach ciągów, których nazwy są krótsze niż sześć znaków. Jeśli nazwano `test`jedną kolumnę `$$ + '_short'` przychodzącą, `test_short`wyrażenie zmieni nazwę kolumny . Jeśli jest to tylko mapowanie, które istnieje, wszystkie kolumny, które nie spełniają warunek zostaną usunięte z danych wyjściowych.
+Użyj `$$` składni, aby odwołać się do nazwy wejściowej dopasowanej kolumny. Używając powyższego obrazu na przykład, Załóżmy, że użytkownik chce dopasować wszystkie kolumny ciągów, których nazwy są krótsze niż sześć znaków. Jeśli jedna kolumna przychodząca `test`ma nazwę, `$$ + '_short'` wyrażenie zmieni nazwę kolumny `test_short`. Jeśli jest to jedyne mapowanie, które istnieje, wszystkie kolumny, które nie spełniają warunku, zostaną usunięte z danych, które zostały wydane.
 
-Wzorce pasują zarówno do kolumn dryfowanych, jak i zdefiniowanych. Aby zobaczyć, które zdefiniowane kolumny są mapowane przez regułę, kliknij ikonę okularów obok reguły. Sprawdź dane wyjściowe za pomocą podglądu danych.
+Wzorce pasują do kolumn przeznaczonych i zdefiniowanych. Aby zobaczyć, które zdefiniowane kolumny są mapowane przez regułę, kliknij ikonę okularów obok reguły. Sprawdź dane wyjściowe przy użyciu podglądu danych.
 
-### <a name="regex-mapping"></a>Mapowanie regeksu
+### <a name="regex-mapping"></a>Mapowanie wyrażenia regularnego
 
-Po kliknięciu ikony szewronu w dół można określić warunek oddawania wartości. Warunek mapowania wyrażenia regularnego pasuje do wszystkich nazw kolumn, które odpowiadają określonej warunku wyrażenia regularnego. Może to być używane w połączeniu ze standardowymi mapowaniami opartymi na regułach.
+Jeśli klikniesz ikonę z dolnym cudzysłowem, możesz określić warunek mapowania wyrażenia regularnego. Warunek mapowania wyrażenia regularnego pasuje do wszystkich nazw kolumn, które pasują do określonego warunku wyrażenia regularnego. Można go używać w połączeniu z standardowymi mapowaniami opartymi na regułach.
 
-![mapowanie oparte na regułach](media/data-flow/regex-matching.png "Mapowanie oparte na regułach")
+![Mapowanie oparte na regułach](media/data-flow/regex-matching.png "Mapowanie oparte na regułach")
 
-Powyższy przykład pasuje do `(r)` wzorca wyrażenia regularnego lub dowolnej nazwy kolumny zawierającej małe litery r. Podobnie jak w przypadku mapowania opartego na regułach standardowych, wszystkie `$$` dopasowane kolumny są zmieniane przez warunek po prawej stronie przy użyciu składni.
+Powyższy przykład pasuje do wzorca `(r)` wyrażenia regularnego lub nazwy kolumny zawierającej małe litery r. Podobnie jak w przypadku standardowego mapowania opartego na regułach, wszystkie dopasowane kolumny są modyfikowane przez warunek `$$` po prawej stronie składni.
 
 ### <a name="rule-based-hierarchies"></a>Hierarchie oparte na regułach
 
-Jeśli zdefiniowana projekcja ma hierarchię, można użyć mapowania opartego na regułach do mapowania podkolumnów hierarchii. Określ pasujący warunek i kolumnę złożoną, której podkolumny chcesz zamapować. Każdy dopasowany podkolumn zostanie wysunięty przy użyciu reguły "Nazwa jako" określonej po prawej stronie.
+Jeśli zdefiniowana projekcja ma hierarchię, można użyć mapowania opartego na regułach, aby zmapować podkolumny hierarchii. Określ warunek dopasowania i kolumnę złożoną, której kolumny mają być mapowane. Każda dopasowana Podkolumna zostanie wykorzystana przy użyciu reguły "name as" określonej po prawej stronie.
 
-![mapowanie oparte na regułach](media/data-flow/rule-based-hierarchy.png "Mapowanie oparte na regułach")
+![Mapowanie oparte na regułach](media/data-flow/rule-based-hierarchy.png "Mapowanie oparte na regułach")
 
-Powyższy przykład pasuje do wszystkich podkolumnów złożonej kolumny `a`. `a`zawiera dwa podkolumny `b` i `c`. Schemat danych wyjściowych `b` będzie zawierał `c` dwie kolumny, a `$$`warunkiem "Nazwa jako" jest .
+Powyższy przykład dopasowuje wszystkie podkolumny złożonej kolumny `a`. `a`zawiera dwie podkolumny `b` i `c`. Schemat danych wyjściowych będzie zawierać dwie `b` kolumny `c` , a jako warunek "name as" `$$`.
 
-## <a name="pattern-matching-expression-values"></a>Wartości wyrażenia dopasowania wzorca.
+## <a name="pattern-matching-expression-values"></a>Wartości wyrażeń dopasowania do wzorca.
 
-* `$$`przekłada się na nazwę lub wartość każdego dopasowania w czasie wykonywania
+* `$$`tłumaczy na nazwę lub wartość każdego dopasowania w czasie wykonywania
 * `name`reprezentuje nazwę każdej kolumny przychodzącej
 * `type`reprezentuje typ danych każdej kolumny przychodzącej
 * `stream`reprezentuje nazwę skojarzoną z każdym strumieniem lub transformację w przepływie
 * `position`jest pozycją porządkową kolumn w przepływie danych
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [języku wyrażeń](data-flow-expression-functions.md) przepływu danych mapowania dla przekształceń danych
-* Użyj wzorców kolumn w [transformacji](data-flow-sink.md) ujścia i [wybierz transformację](data-flow-select.md) za pomocą mapowania opartego na regułach
+* Dowiedz się więcej o [języku wyrażeń](data-flow-expression-functions.md) przepływu danych mapowania dla transformacji danych
+* Używanie wzorców kolumn w [transformację ujścia](data-flow-sink.md) i [Wybieranie transformacji](data-flow-select.md) z mapowaniem opartym na regułach

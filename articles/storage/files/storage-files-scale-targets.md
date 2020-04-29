@@ -1,6 +1,6 @@
 ---
 title: Cele dotyczące skalowalności i wydajności usługi Azure Files
-description: Dowiedz się więcej o skalowalności i wydajności obiektów docelowych dla usług Azure Files, w tym pojemności, szybkości żądań oraz limitów przepustowości przychodzącej i wychodzącej.
+description: Poznaj elementy docelowe skalowalności i wydajności dla Azure Files, w tym pojemność, szybkość żądania oraz limity przepustowości ruchu przychodzącego i wychodzącego.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,50 +8,50 @@ ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536448"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Cele dotyczące skalowalności i wydajności usługi Azure Files
 
-[Usługa Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego protokołu SMB. W tym artykule omówiono cele skalowalności i wydajności dla usług Azure Files i Azure File Sync.
+[Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego protokołu SMB. W tym artykule omówiono elementy docelowe skalowalności i wydajności dla Azure Files i Azure File Sync.
 
-Cele skalowalności i wydajności wymienione w tym miejscu są wysokiej klasy obiekty docelowe, ale mogą mieć wpływ na inne zmienne we wdrożeniu. Na przykład przepływność pliku może być również ograniczona przez dostępną przepustowość sieci, a nie tylko serwery obsługujące usługę Azure Files. Zdecydowanie zaleca się przetestowanie wzorca użycia, aby ustalić, czy skalowalność i wydajność usług Azure Files spełniają twoje wymagania. Zobowiązujemy się również do zwiększania tych limitów w czasie. Nie wahaj się przekazać nam opinii, w komentarzach poniżej lub na [temat treści Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files), o których ograniczeniach chcesz nas zwiększyć.
+Elementy docelowe skalowalności i wydajności wymienione w tym miejscu są obiektami docelowymi wysokiej klasy, ale mogą mieć wpływ inne zmienne we wdrożeniu. Na przykład przepływność pliku może być również ograniczona przez dostępną przepustowość sieci, a nie tylko serwery obsługujące usługę Azure Files. Zdecydowanie zalecamy testowanie wzorca użycia w celu określenia, czy skalowalność i wydajność Azure Files spełniają Twoje wymagania. Ponadto firma Microsoft dokłada starań, aby zwiększyć te limity w miarę upływu czasu. Nie niechętnie zezwalają, aby przekazać nam swoją opinię, albo w poniższych komentarzach lub w [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files), o które limity chcesz zobaczyć.
 
-## <a name="azure-storage-account-scale-targets"></a>Obiekty docelowe skalowania konta magazynu platformy Azure
+## <a name="azure-storage-account-scale-targets"></a>Cele skalowania konta usługi Azure Storage
 
-Zasobem nadrzędnym dla udziału plików platformy Azure jest konto magazynu platformy Azure. Konto magazynu reprezentuje pulę magazynu na platformie Azure, która może być używana przez wiele usług magazynu, w tym usługi Azure Files, do przechowywania danych. Inne usługi, które przechowują dane na kontach magazynu to Usługa Azure Blob storage, usługa Azure Queue storage i usługa Azure Table storage. Następujące obiekty docelowe dotyczą wszystkich usług magazynowania przechowujących dane na koncie magazynu:
+Zasób nadrzędny dla udziału plików platformy Azure to konto usługi Azure Storage. Konto magazynu reprezentuje pulę magazynu na platformie Azure, która może być używana przez wiele usług magazynu, w tym Azure Files, do przechowywania danych. Inne usługi, które przechowują dane na kontach magazynu, to Azure Blob Storage, Azure queue storage i Azure Table Storage. Następujące cele dotyczą wszystkich usług magazynu przechowujących dane na koncie magazynu:
 
 [!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 > [!Important]  
-> Wykorzystanie konta magazynu ogólnego przeznaczenia z innych usług magazynu wpływa na udziały plików platformy Azure na koncie magazynu. Na przykład jeśli osiągniesz maksymalną pojemność konta magazynu magazynu usługi Azure Blob, nie będzie można utworzyć nowych plików w udziale plików platformy Azure, nawet jeśli twój udział plików platformy Azure jest poniżej maksymalnego rozmiaru udziału.
+> Użycie konta magazynu ogólnego zastosowania z innych usług magazynu ma wpływ na udziały plików platformy Azure na Twoim koncie magazynu. Jeśli na przykład osiągniesz maksymalną pojemność konta magazynu za pomocą usługi Azure Blob Storage, nie będziesz mieć możliwości tworzenia nowych plików w udziale plików platformy Azure, nawet jeśli udział plików platformy Azure jest mniejszy niż maksymalny rozmiar udziału.
 
-## <a name="azure-files-scale-targets"></a>Obiekty docelowe skalowania plików platformy Azure
+## <a name="azure-files-scale-targets"></a>Elementy docelowe skalowania Azure Files
 
-Istnieją trzy kategorie ograniczeń, które należy wziąć pod uwagę w przypadku plików platformy Azure: konta magazynu, udziały i pliki.
+Istnieją trzy kategorie ograniczeń, które należy wziąć pod uwagę w Azure Files: konta magazynu, udziały i pliki.
 
-Na przykład: w przypadku udziałów plików premium pojedynczy udział może osiągnąć 100 000 operacji We/Wy, a pojedynczy plik może skalować do 5000 operacji We/Wy. Tak więc, jeśli masz trzy pliki w jednym udziale, maksymalna liczba we/wy, które możesz uzyskać z tego udziału, wynosi 15 000.
+Na przykład: z udziałami plików w warstwie Premium pojedynczy udział może osiągać 100 000 operacji we/wy, a pojedynczy plik może skalować do 5 000 operacji we/wy na sekundę. Dlatego jeśli masz trzy pliki w jednym udziale, Maksymalna liczba IOPS, którą można uzyskać z tego udziału, to 15 000.
 
-### <a name="standard-storage-account-limits"></a>Standardowe limity kont magazynu
+### <a name="standard-storage-account-limits"></a>Limity kont magazynu w warstwie Standardowa
 
-Zobacz sekcję [cele skalowania konta magazynu platformy Azure](#azure-storage-account-scale-targets) dla tych limitów.
+Zapoznaj się z sekcją [cele skalowania konta usługi Azure Storage](#azure-storage-account-scale-targets) , aby uzyskać te limity.
 
-### <a name="premium-filestorage-account-limits"></a>Limity kont Usługi FileStorage premium
+### <a name="premium-filestorage-account-limits"></a>Limity kont FileStorage Premium
 
 [!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
-> Limity kont magazynu dotyczą wszystkich udziałów. Skalowanie do maks dla kont FileStorage jest osiągalne tylko wtedy, gdy na konto FileStorage przypada tylko jedna akcja.
+> Limity konta magazynu dotyczą wszystkich udziałów. Skalowanie w górę do maksimum dla kont FileStorage jest osiągalne tylko wtedy, gdy istnieje tylko jeden udział na konto FileStorage.
 
-### <a name="file-share-and-file-scale-targets"></a>Obiekty docelowe udziału plików i skali plików
+### <a name="file-share-and-file-scale-targets"></a>Elementy docelowe udziału plików i skalowania plików
 
 > [!NOTE]
-> Standardowe udziały plików większe niż 5 TiB mają pewne ograniczenia. Aby uzyskać listę ograniczeń i instrukcji umożliwiających włączenie większych rozmiarów udziałów plików, zobacz [sekcję Włączanie większych udziałów plików w standardowych udziałach plików](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) w przewodniku planowania.
+> Standardowe udziały plików większe niż 5 TiB mają pewne ograniczenia. Listę ograniczeń i instrukcji dotyczących włączania większych rozmiarów udziałów plików można znaleźć w sekcji Włączanie udziałów plików [w warstwie Standardowa w](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) podręczniku planowania.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -59,58 +59,58 @@ Zobacz sekcję [cele skalowania konta magazynu platformy Azure](#azure-storage-a
 
 ## <a name="azure-file-sync-scale-targets"></a>Cele skalowania usługi Azure File Sync
 
-Usługa Azure File Sync została zaprojektowana z myślą o nieograniczonym użyciu, ale nieograniczone użycie nie zawsze jest możliwe. Poniższa tabela wskazuje granice testów firmy Microsoft, a także wskazuje, które obiekty docelowe są twarde limity:
+Azure File Sync został zaprojektowany z myślą o celu nieograniczonego użycia, ale nieograniczone użycie nie zawsze jest możliwe. Poniższa tabela wskazuje granice testowania firmy Microsoft, a także wskazuje, które cele są sztywne:
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-performance-metrics"></a>Metryki wydajności usługi Azure File Sync
 
-Ponieważ agent synchronizacji plików platformy Azure działa na komputerze z systemem Windows Server, który łączy się z udziałami plików platformy Azure, wydajność efektywnej synchronizacji zależy od wielu czynników w infrastrukturze: Windows Server i podstawowej konfiguracji dysku, przepustowości sieci między serwerem a magazynem platformy Azure, rozmiaru pliku, całkowitego rozmiaru zestawu danych i aktywności w zestawie danych. Ponieważ usługa Azure File Sync działa na poziomie pliku, charakterystyka wydajności rozwiązania opartego na synchronizacji plików platformy Azure jest lepiej mierzona w liczbie obiektów (plików i katalogów) przetwarzanych na sekundę.
+Ponieważ agent Azure File Sync działa na komputerze z systemem Windows Server, który nawiązuje połączenie z udziałami plików platformy Azure, efektywna wydajność synchronizacji zależy od wielu czynników w infrastrukturze: system Windows Server i podstawowa Konfiguracja dysku, przepustowość sieci między serwerem a magazynem platformy Azure, rozmiar pliku, całkowity rozmiar zestawu danych i działanie w zestawie danych. Ponieważ Azure File Sync działa na poziomie pliku, charakterystyka wydajności rozwiązania opartego na Azure File Sync jest lepiej mierzona w liczbie obiektów (plików i katalogów) przetworzonych na sekundę.
 
-W przypadku usługi Azure File Sync wydajność ma kluczowe znaczenie w dwóch etapach:
+W przypadku Azure File Sync wydajność ma kluczowe znaczenie w dwóch etapach:
 
-1. **Początkowe jednorazowe inicjowanie obsługi administracyjnej:** Aby zoptymalizować wydajność wstępnego inicjowania obsługi administracyjnej, zapoznaj się [z dołączaniem z synchronizacją plików platformy Azure,](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) aby uzyskać optymalne szczegóły dotyczące wdrażania.
-2. **Ciągła synchronizacja:** Po początkowo rozstawienia danych w udziałach plików platformy Azure usługa Azure File Sync utrzymuje synchronizację wielu punktów końcowych.
+1. **Początkowe wstępne Inicjowanie obsługi**: aby zoptymalizować wydajność początkowej aprowizacji, zapoznaj się z tematem [dołączania do Azure File Sync](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) , aby uzyskać szczegółowe informacje na temat optymalnego wdrożenia.
+2. Aktualna **Synchronizacja**: po początkowym umieszczeniu danych w udziałach plików platformy Azure Azure File Sync synchronizuje wiele punktów końcowych.
 
-Aby ułatwić planowanie wdrożenia dla każdego z etapów, poniżej znajdują się wyniki zaobserwowane podczas wewnętrznych testów w systemie z konfiguracją
+Aby ułatwić Planowanie wdrożenia dla każdego z etapów, poniżej przedstawiono wyniki zaobserwowane podczas wewnętrznego testowania w systemie z konfiguracją
 
 | Konfiguracja systemu |  |
 |-|-|
-| Procesor CPU | 64 rdzenie wirtualne z pamięcią podręczną 64 MiB L3 |
+| Procesor CPU | 64 rdzeni wirtualnych z 64 MiB L3 pamięci podręcznej |
 | Memory (Pamięć) | 128 GiB |
-| Dysk | Dyski SAS z macierzem RAID 10 z pamięcią podręczną z baterią |
-| Sieć | Sieć 1 Gb/s |
-| Obciążenie | Serwer plików ogólnego przeznaczenia|
+| Dysk | Dyski SAS z macierzą RAID 10 z zapasową pamięcią podręczną |
+| Sieć | Sieć 1 GB/s |
+| Obciążenie | Ogólnego przeznaczenia serwera plików|
 
-| Początkowe jednorazowe inicjowanie obsługi administracyjnej  |  |
+| Początkowe Inicjowanie obsługi po raz pierwszy  |  |
 |-|-|
-| Liczba obiektów | 25 milionów obiektów |
-| Rozmiar zestawu danych| ~4,7 TiB |
-| Średni rozmiar pliku | ~200 KiB (Największy plik: 100 GiB) |
-| Prześlij przepływność | 20 obiektów na sekundę na grupę synchronizacji |
-| Przepływność pobierania obszaru nazw* | 400 obiektów na sekundę |
+| Liczba obiektów | 25 000 000 obiektów |
+| Rozmiar zestawu danych| ~ 4,7 TiB |
+| Średni rozmiar pliku | ~ 200 KiB (największy plik: 100 GiB) |
+| Przepływność przekazywania | 20 obiektów na sekundę na grupę synchronizacji |
+| Przepływność pobierania przestrzeni nazw * | 400 obiektów na sekundę |
 
-*Po utworzeniu nowego punktu końcowego serwera agent usługi Azure File Sync nie pobiera żadnej zawartości pliku. Najpierw synchronizuje pełny obszar nazw, a następnie wyzwala wycofanie w tle, aby pobrać pliki w całości lub, jeśli warstwa w chmurze jest włączona, z zasadami warstwowymi w chmurze ustawionymi w punkcie końcowym serwera.
+* Po utworzeniu nowego punktu końcowego serwera Agent Azure File Sync nie pobiera żadnej zawartości pliku. Najpierw synchronizuje pełną przestrzeń nazw, a następnie wyzwala odwołanie w tle w celu pobrania plików, w całości lub, jeśli włączono obsługę warstw w chmurze, do zasad obsługi warstw w chmurze ustawionych w punkcie końcowym serwera.
 
-| Trwa synchronizacja  |   |
+| Synchronizacja bieżąca  |   |
 |-|--|
-| Liczba zsynchronizowanych obiektów| 125 000 obiektów (~1% churn) |
-| Rozmiar zestawu danych| 50 Gib |
-| Średni rozmiar pliku | ~500 KiB |
-| Prześlij przepływność | 20 obiektów na sekundę na grupę synchronizacji |
-| Pełna przepustowość pobierania* | 60 obiektów na sekundę |
+| Liczba zsynchronizowanych obiektów| 125 000 obiektów (~ 1% zmian) |
+| Rozmiar zestawu danych| 50 GiB |
+| Średni rozmiar pliku | ~ 500 KiB |
+| Przepływność przekazywania | 20 obiektów na sekundę na grupę synchronizacji |
+| Przepływność pełnego pobierania * | 60 obiektów na sekundę |
 
-*Jeśli warstwa w chmurze jest włączona, prawdopodobnie będziesz obserwować lepszą wydajność, ponieważ pobierane są tylko niektóre dane plików. Usługa Azure File Sync pobiera dane plików w pamięci podręcznej tylko wtedy, gdy są one zmieniane w dowolnym z punktów końcowych. W przypadku plików warstwowych lub nowo utworzonych agent nie pobiera danych plików, a zamiast tego synchronizuje tylko obszar nazw ze wszystkimi punktami końcowymi serwera. Agent obsługuje również częściowe pobieranie plików warstwowych, ponieważ są one dostępne dla użytkownika. 
+* Jeśli włączono obsługę warstw w chmurze, prawdopodobnie zobaczysz lepszą wydajność, ponieważ pobierane są tylko niektóre z danych plików. Azure File Sync pobiera tylko dane plików z pamięci podręcznej, gdy zostaną zmienione na dowolnym z punktów końcowych. W przypadku wszystkich warstwowych lub nowo utworzonych plików Agent nie pobiera danych plików, a zamiast tego synchronizuje przestrzeń nazw ze wszystkimi punktami końcowymi serwera. Agent obsługuje również częściowe pobieranie plików warstwowych, które są dostępne dla użytkownika. 
 
 > [!Note]  
-> Powyższe liczby nie wskazują na wydajność, której doświadczysz. Rzeczywista wydajność będzie zależeć od wielu czynników, jak opisano na początku tej sekcji.
+> Powyższe numery nie są wskaźnikami wydajności, które będą używane. Rzeczywista wydajność będzie zależeć od wielu czynników, jak opisano na początku tej sekcji.
 
-Jako ogólny przewodnik dla wdrożenia, należy pamiętać o kilku rzeczach:
+Ogólnie rzecz biorąc, należy pamiętać o kilku kwestiach:
 
-- Przepływność obiektu jest w przybliżeniu skalowana proporcjonalnie do liczby grup synchronizacji na serwerze. Dzielenie danych na wiele grup synchronizacji na serwerze daje lepszą przepustowość, która jest również ograniczona przez serwer i sieć.
-- Przepływność obiektu jest odwrotnie proporcjonalna do przepływności MiB na sekundę. W przypadku mniejszych plików będzie większa przepływność pod względem liczby obiektów przetwarzanych na sekundę, ale niższa przepustowość MiB na sekundę. Z drugiej strony w przypadku większych plików otrzymasz mniej obiektów przetwarzanych na sekundę, ale wyższą przepustowość MiB na sekundę. Przepływność MiB na sekundę jest ograniczona przez obiekty docelowe skali usługi Azure Files.
+- Przepływność obiektu jest około skalowana proporcjonalnie do liczby grup synchronizacji na serwerze. Dzielenie danych na wiele grup synchronizacji na serwerze daje lepszą przepływność, co jest również ograniczone przez serwer i sieć.
+- Przepływność obiektu jest odwrotnie proporcjonalna do przepływności MiB na sekundę. W przypadku mniejszych plików można zwiększyć przepływność w zakresie liczby obiektów przetworzonych na sekundę, ale mniejszą przepływność MiB na sekundę. Z kolei w przypadku większych plików można uzyskać mniej obiektów przetworzonych na sekundę, ale wyższą przepływność MiB na sekundę. Przepływność MiB na sekundę jest ograniczona przez elementy docelowe skalowania Azure Files.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Planowanie wdrażania usługi Pliki Azure](storage-files-planning.md)
 - [Planowanie wdrażania usługi Azure File Sync](storage-sync-files-planning.md)

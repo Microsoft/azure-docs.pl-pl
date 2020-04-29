@@ -1,7 +1,7 @@
 ---
-title: Konwertowanie starszej komunikacji bezpośredniej komunikacji równorzędnej na zasób platformy Azure przy użyciu programu PowerShell
+title: Konwertowanie starszej bezpośredniej komunikacji równorzędnej na zasób platformy Azure przy użyciu programu PowerShell
 titleSuffix: Azure
-description: Konwertowanie starszej komunikacji bezpośredniej komunikacji równorzędnej na zasób platformy Azure przy użyciu programu PowerShell
+description: Konwertowanie starszej bezpośredniej komunikacji równorzędnej na zasób platformy Azure przy użyciu programu PowerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,31 +9,31 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 5d2a8c910c9e384e137785bc1cd491bc85c7e7a8
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678492"
 ---
-# <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-powershell"></a>Konwertowanie starszej komunikacji bezpośredniej komunikacji równorzędnej na zasób platformy Azure przy użyciu programu PowerShell
+# <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-powershell"></a>Konwertowanie starszej bezpośredniej komunikacji równorzędnej na zasób platformy Azure przy użyciu programu PowerShell
 
-W tym artykule opisano sposób konwertowania istniejącej starszej funkcji direct komunikacji równorzędnej na zasób platformy Azure przy użyciu poleceń cmdlet programu PowerShell.
+W tym artykule opisano sposób konwertowania istniejącej starszej bezpośredniej komunikacji równorzędnej na zasób platformy Azure przy użyciu poleceń cmdlet programu PowerShell.
 
-Jeśli wolisz, możesz ukończyć ten przewodnik przy użyciu [witryny](howto-legacy-direct-portal.md)Azure portal .
+Jeśli wolisz, możesz ukończyć ten przewodnik przy użyciu witryny Azure [Portal](howto-legacy-direct-portal.md).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
-* Przejrzyj [wymagania wstępne](prerequisites.md) i bezpośredni przewodnik [komunikacji równorzędnej](walkthrough-direct-all.md) przed rozpoczęciem konfiguracji.
+* Przed rozpoczęciem konfiguracji Przejrzyj [wymagania wstępne](prerequisites.md) i [bezpośredni Przewodnik po komunikacji równorzędnej](walkthrough-direct-all.md) .
 
-### <a name="work-with-azure-powershell"></a>Praca z programem Azure PowerShell
+### <a name="work-with-azure-powershell"></a>Pracuj z Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="convert-a-legacy-direct-peering-to-an-azure-resource"></a>Konwertowanie starszej komunikacji bezpośredniej komunikacji równorzędnej na zasób platformy Azure
+## <a name="convert-a-legacy-direct-peering-to-an-azure-resource"></a>Konwertowanie starszej bezpośredniej komunikacji równorzędnej na zasób platformy Azure
 
-### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Zaloguj się na swoje konto platformy Azure i wybierz subskrypcję
+### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Zaloguj się do konta platformy Azure i wybierz swoją subskrypcję
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name="get-a-legacy-direct-peering-for-conversion"></a><a name= get></a>Uzyskaj starszą komunikację równorzędną bezpośrednią w celu konwersji
-W tym przykładzie pokazano, jak uzyskać starszą bezpośrednią komunikację równorzędną w lokalizacji komunikacji równorzędnej w Seattle.
+### <a name="get-a-legacy-direct-peering-for-conversion"></a><a name= get></a>Pobieranie starszej bezpośredniej komunikacji równorzędnej na potrzeby konwersji
+Ten przykład pokazuje, jak uzyskać starszą bezpośrednią komunikację równorzędną w lokalizacji komunikacji równorzędnej w Seattle.
 
 ```powershell
 $legacyPeering = Get-AzLegacyPeering `
@@ -79,13 +79,13 @@ ProvisionedBandwidthInMbps : 20000
 ProvisioningState          : Succeeded
 ```
 
-### <a name="convert-a-legacy-direct-peering"></a>Konwertowanie starszej komunikacji bezpośredniej komunikacji równorzędnej
+### <a name="convert-a-legacy-direct-peering"></a>Konwertowanie starszej bezpośredniej komunikacji równorzędnej
 
 &nbsp;
 > [!IMPORTANT]
-> Podczas konwertowania starszej komunikacji równorzędnej na zasób platformy Azure modyfikacje nie są obsługiwane. &nbsp;
+> W przypadku konwertowania starszej komunikacji równorzędnej na zasób platformy Azure modyfikacje nie są obsługiwane. &nbsp;
 
-Użyj tego polecenia, aby przekonwertować starszą komunikację równorzędną direct na zasób platformy Azure:
+To polecenie służy do konwertowania starszej bezpośredniej komunikacji równorzędnej na zasób platformy Azure:
 
 ```powershell
 $legacyPeering[0] | New-AzPeering `
@@ -112,14 +112,14 @@ Tags                 : {}
 ```
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-Możesz uzyskać szczegółowe opisy wszystkich parametrów, uruchamiając to polecenie:
+Aby uzyskać szczegółowe opisy wszystkich parametrów, należy uruchomić następujące polecenie:
 
 ```powershell
 Get-Help Get-AzPeering -detailed
 ```
 
-Aby uzyskać więcej informacji, zobacz [Często zadawane pytania dotyczące komunikacji równorzędnej w Internecie](faqs.md).
+Aby uzyskać więcej informacji, zobacz temat [często zadawane pytania dotyczące internetowej komunikacji równorzędnej](faqs.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie lub modyfikowanie komunikacji równorzędnej direct przy użyciu programu PowerShell](howto-direct-powershell.md)
+* [Tworzenie lub modyfikowanie bezpośredniej komunikacji równorzędnej przy użyciu programu PowerShell](howto-direct-powershell.md)

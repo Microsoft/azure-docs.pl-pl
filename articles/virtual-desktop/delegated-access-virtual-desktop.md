@@ -1,6 +1,6 @@
 ---
-title: Dostęp delegowany na pulpicie wirtualnym systemu Windows — platforma Azure
-description: Jak delegować możliwości administracyjne wdrożenia pulpitu wirtualnego systemu Windows, w tym przykłady.
+title: Delegowany dostęp w programie Virtual Desktop systemu Windows — Azure
+description: Jak delegować możliwości administracyjne w ramach wdrożenia pulpitu wirtualnego systemu Windows, łącznie z przykładami.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,15 +9,15 @@ ms.date: 03/21/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 91451ff3024a9a5019b3982b0e4471e2c4d80c74
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683916"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Dostęp delegowany w usłudze Windows Virtual Desktop
 
-Pulpit wirtualny systemu Windows ma model dostępu delegowanego, który pozwala zdefiniować ilość dostępu, jaką może mieć określony użytkownik, przypisując mu rolę. Przypisanie roli ma trzy składniki: podmiot zabezpieczeń, definicja roli i zakres. Model dostępu delegowanego pulpitu wirtualnego systemu Windows jest oparty na modelu rbac platformy Azure. Aby dowiedzieć się więcej o określonych przydziałach ról i ich składnikach, zobacz [omówienie kontroli dostępu opartej na rolach platformy Azure.](../role-based-access-control/built-in-roles.md)
+Pulpit wirtualny systemu Windows ma model dostępu delegowanego, który umożliwia zdefiniowanie dostępu określonego użytkownika przez przypisanie ich do roli. Przypisanie roli ma trzy składniki: podmiot zabezpieczeń, definicja roli i zakres. Model dostępu delegowanego pulpitu wirtualnego systemu Windows jest oparty na modelu RBAC platformy Azure. Aby dowiedzieć się więcej o konkretnych przypisaniach ról i ich składnikach, zobacz [Omówienie kontroli dostępu opartej na rolach na platformie Azure](../role-based-access-control/built-in-roles.md).
 
 Dostęp delegowany pulpitu wirtualnego systemu Windows obsługuje następujące wartości dla każdego elementu przypisania roli:
 
@@ -27,44 +27,44 @@ Dostęp delegowany pulpitu wirtualnego systemu Windows obsługuje następujące 
 * Definicja roli
     * Wbudowane role
 * Zakres
-    * Grupy dzierżawców
+    * Grupy dzierżaw
     * Dzierżawy
-    * Hosty
+    * Pule hostów
     * Grupy aplikacji
 
 ## <a name="built-in-roles"></a>Wbudowane role
 
-Dostęp delegowany w programie Windows Virtual Desktop ma kilka wbudowanych definicji ról, które można przypisać do użytkowników i podmiotów korzystających z usług.
+Delegowany dostęp w programie Virtual Desktop systemu Windows ma kilka wbudowanych definicji ról, które można przypisać do użytkowników i jednostek usługi.
 
-* Właściciel usług pulpitu zdalnego może zarządzać wszystkim, w tym dostępem do zasobów.
-* Współautor usług pulpitu zdalnego może zarządzać wszystkim, ale nie może uzyskać dostępu do zasobów.
-* Czytnik RDS może wyświetlać wszystko, ale nie może wprowadzać żadnych zmian.
+* Właściciel pulpitu zdalnego może zarządzać wszystkimi, w tym dostępem do zasobów.
+* Współautor usług pulpitu zdalnego może zarządzać wszystko, ale nie może uzyskać dostępu do zasobów.
+* Czytnik usług pulpitu zdalnego może wyświetlać wszystko, ale nie może wprowadzać żadnych zmian.
 * Operator RDS może wyświetlać działania diagnostyczne.
 
 ## <a name="powershell-cmdlets-for-role-assignments"></a>Polecenia cmdlet programu PowerShell dla przypisań ról
 
-Aby utworzyć, wyświetlić i usunąć przypisania ról, można uruchamiać następujące polecenia cmdlet:
+Poniższe polecenia cmdlet umożliwiają tworzenie, wyświetlanie i usuwanie przypisań ról:
 
-* **Znak Get-RdsRoleAssignment** wyświetla listę przypisań ról.
+* **Get-RdsRoleAssignment** wyświetla listę przypisań ról.
 * **New-RdsRoleAssignment** tworzy nowe przypisanie roli.
-* **Usuń-RdsRoleAssignment** usuwa przypisania ról.
+* **Remove-RdsRoleAssignment** usuwa przypisania ról.
 
 ### <a name="accepted-parameters"></a>Akceptowane parametry
 
-Można zmodyfikować podstawowe trzy polecenia cmdlet z następującymi parametrami:
+Można modyfikować podstawowe trzy polecenia cmdlet o następujących parametrach:
 
-* **AadTenantId**: określa identyfikator dzierżawy usługi Azure Active Directory, z którego podmiotu zabezpieczeń usługi jest członkiem.
-* **AppGroupName**: nazwa grupy aplikacji pulpitu zdalnego.
-* **Diagnostyka**: wskazuje zakres diagnostyki. (Musi być sparowany z parametrami **infrastruktury** lub **dzierżawy).**
-* **HostPoolName**: nazwa puli hostów usług pulpitu zdalnego.
+* **AadTenantId**: Określa identyfikator dzierżawy Azure Active Directory, z której jest członkiem jednostki usługi.
+* **AppGroupName**: Nazwa grupy aplikacji Pulpit zdalny.
+* **Diagnostyka**: wskazuje zakres diagnostyki. (Musi być sparowany z parametrami **infrastruktury** lub **dzierżawy** ).
+* **HostPoolName**: Nazwa puli hostów pulpit zdalny.
 * **Infrastruktura**: wskazuje zakres infrastruktury.
-* **RoleDefinitionName**: nazwa roli kontroli dostępu opartej na usługach pulpitu zdalnego przypisanej do użytkownika, grupy lub aplikacji. (Na przykład właściciel usług pulpitu zdalnego, czytnik usług pulpitu zdalnego itd.)
-* **ServerPrincipleName**: nazwa aplikacji usługi Azure Active Directory.
-* **SignInName**: adres e-mail użytkownika lub nazwa głównego użytkownika.
-* **TenantName**: nazwa dzierżawy pulpitu zdalnego.
+* **RoleDefinitionName**: Nazwa roli kontroli dostępu opartej na rolach usługi pulpitu zdalnego przypisanej do użytkownika, grupy lub aplikacji. (Na przykład Usługi pulpitu zdalnego Owner, Usługi pulpitu zdalnego Reader itd.)
+* **ServerPrincipleName**: nazwa aplikacji Azure Active Directory.
+* **SignInName**: adres e-mail użytkownika lub główna nazwa użytkownika.
+* **Dzierżawca**: Nazwa dzierżawy pulpit zdalny.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać pełniejszą listę poleceń cmdlet programu PowerShell, których może używać każda rola, zobacz [odwołanie programu PowerShell](/powershell/windows-virtual-desktop/overview).
+Aby zapoznać się z bardziej kompletną listą poleceń cmdlet programu PowerShell, które mogą być używane przez poszczególne role, zobacz [informacje dotyczące programu PowerShell](/powershell/windows-virtual-desktop/overview).
 
-Aby uzyskać wskazówki dotyczące konfigurowania środowiska pulpitu wirtualnego systemu Windows, zobacz [Środowisko pulpitu wirtualnego systemu Windows](environment-setup.md).
+Aby uzyskać wskazówki dotyczące sposobu konfigurowania środowiska pulpitu wirtualnego systemu Windows, zobacz [Środowisko pulpitu wirtualnego systemu Windows](environment-setup.md).

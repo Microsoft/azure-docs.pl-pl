@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z usługą Azure Event Hubs for Apache Kafka
-description: W tym artykule pokazano, jak rozwiązywać problemy z usługą Azure Event Hubs for Apache Kafka
+title: Rozwiązywanie problemów z usługą Azure Event Hubs dla Apache Kafka
+description: W tym artykule opisano sposób rozwiązywania problemów z usługą Azure Event Hubs dla Apache Kafka
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -13,68 +13,68 @@ ms.workload: na
 ms.date: 04/01/2020
 ms.author: shvija
 ms.openlocfilehash: 12ddc5fa74b7a1b42bbd64fde9ec3410b1c1e425
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606732"
 ---
-# <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Apache Kafka przewodnik rozwiązywania problemów dla Centrum zdarzeń
-Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów, które mogą wystąpić podczas korzystania z Centrum zdarzeń dla apache platformy Kafka. 
+# <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Apache Kafka Przewodnik rozwiązywania problemów dla Event Hubs
+W tym artykule przedstawiono wskazówki dotyczące rozwiązywania problemów, które mogą wystąpić podczas korzystania z Event Hubs dla Apache Kafka. 
 
-## <a name="server-busy-exception"></a>Wyjątek zajęty serwerem
-Możesz otrzymać wyjątek zajęty serwerem z powodu ograniczania kafki. W przypadku klientów USŁUGI AMQP centra zdarzeń natychmiast zwracają wyjątek **zajęty serwerem** po ograniczeniu przepustowości usługi. Jest to równoważne z komunikatem "spróbuj ponownie później". W kafce wiadomości są opóźnione przed zakończeniem. Długość opóźnienia jest zwracana w milisekundach, jak `throttle_time_ms` w odpowiedzi produce/fetch. W większości przypadków te opóźnione żądania nie są rejestrowane jako wyjątki ServerBusy na pulpitach nawigacyjnych centrum zdarzeń. Zamiast tego `throttle_time_ms` wartość odpowiedzi powinna być używana jako wskaźnik, że przepływność przekroczyła aprowizowanym przydziałem.
+## <a name="server-busy-exception"></a>Wyjątek zajętości serwera
+Może wystąpić wyjątek zajętości serwera z powodu ograniczenia Kafka. W przypadku Event Hubs klientów AMQP funkcja natychmiast zwraca wyjątek " **zajęty serwer** " podczas ograniczania usługi. Jest to równoważne komunikat "Spróbuj ponownie później". W Kafka, komunikaty są opóźnione przed ukończeniem. Długość opóźnienia jest zwracana w milisekundach, `throttle_time_ms` jak w odpowiedzi generowania/pobierania. W większości przypadków te opóźnione żądania nie są rejestrowane jako wyjątki ServerBusy na pulpitach nawigacyjnych Event Hubs. Zamiast tego należy użyć `throttle_time_ms` wartości odpowiedzi jako wskaźnika, że przepływność przekroczyła przydział przyznanego przydziału.
 
-Jeśli ruch jest nadmierny, usługa ma następujące zachowanie:
+Jeśli ruch jest zbyt długi, usługa ma następujące zachowanie:
 
-- Jeśli opóźnienie żądania produkcji przekracza limit czasu żądania, Usługi Event Hubs zwraca kod błędu **naruszenia zasad.**
-- Jeśli opóźnienie żądania pobrania przekracza limit czasu żądania, Usługi Event Hubs rejestruje żądanie jako ograniczone i odpowiada pustym zestawem rekordów i bez kodu błędu.
+- Jeśli opóźnienie żądania wygenerowania przekracza limit czasu żądania, Event Hubs zwraca kod błędu **naruszenia zasad** .
+- Jeśli opóźnienie żądania pobrania przekracza limit czasu żądania, Event Hubs rejestruje żądanie jako ograniczone i odpowiada za pomocą pustego zestawu rekordów i nie ma kodu błędu.
 
-[Dedykowane klastry](event-hubs-dedicated-overview.md) nie mają mechanizmów ograniczania przepustowości. Możesz swobodnie korzystać ze wszystkich zasobów klastra.
+[Dedykowane klastry](event-hubs-dedicated-overview.md) nie mają mechanizmów ograniczania przepustowości. Możesz korzystać ze wszystkich zasobów klastra.
 
-## <a name="no-records-received"></a>Nie otrzymano żadnych rekordów
-Możesz zobaczyć konsumentów nie uzyskanie żadnych rekordów i stale równoważenia. W tym scenariuszu konsumenci nie otrzymują żadnych rekordów i stale równoważą się. Nie ma wyjątku lub błędu, gdy to się stanie, ale dzienniki platformy Kafka pokaże, że konsumenci są zablokowane próbuje ponownie dołączyć do grupy i przypisać partycje. Istnieje kilka możliwych przyczyn:
+## <a name="no-records-received"></a>Nie odebrano żadnych rekordów
+Klienci mogą widzieć, że nie otrzymają żadnych rekordów i ciągle ponownego zrównoważenia. W tym scenariuszu klienci nie pobierają żadnych rekordów i ciągle ponownie zrównoważą. Nie ma wyjątku lub błędu, gdy wystąpi taka sytuacja, ale dzienniki Kafka pokazują, że odbiorcy będą mogli ponownie przyłączyć się do grupy i przypisywać partycje. Istnieje kilka możliwych przyczyn:
 
-- Upewnij się, `request.timeout.ms` że jest to co najmniej zalecana wartość `session.timeout.ms` 60000, a twoja jest co najmniej zalecana wartość 30000. Zbyt niskie ustawienia mogą powodować limity czasu dla konsumentów, które następnie powodują ponowne zrównoważenie (które następnie powodują więcej limitów czasu, co powoduje większe równoważenie i tak dalej) 
-- Jeśli konfiguracja jest zgodna z zalecanymi wartościami i nadal widzisz ciągłe równoważenie, możesz otworzyć problem (upewnij się, że uwzględnisz całą konfigurację w problemie, abyśmy mogli pomóc w debugowaniu)!
+- Upewnij się, że `request.timeout.ms` masz co najmniej zalecaną wartość 60000, a wartość `session.timeout.ms` jest równa co najmniej zalecanej wartości 30000. Zbyt niska wartość tych ustawień może spowodować przekroczenie limitu czasu przez klienta, co spowoduje ponowne zrównoważenie (co spowoduje więcej limitów czasu, co może spowodować dalsze ponowne zrównoważenie itd.) 
+- Jeśli Twoja konfiguracja jest zgodna z zalecanymi wartościami i nadal widzisz stałe ponowne bilansowanie, możesz otworzyć problem (Pamiętaj o uwzględnieniu całej konfiguracji w ramach problemu, aby można było pomóc debugować)!
 
-## <a name="compressionmessage-format-version-issue"></a>Problem z wersją formatu kompresji/wiadomości
-Platforma Kafka obsługuje kompresję, a centra zdarzeń dla platformy Kafka obecnie tego nie robią. Błędy, które wspominają o wersji `The message format version on the broker does not support the request.`formatu wiadomości (na przykład) są spowodowane, gdy klient próbuje wysłać skompresowane wiadomości platformy Kafka do naszych brokerów.
+## <a name="compressionmessage-format-version-issue"></a>Problem z wersją kompresji/komunikatu
+Kafka obsługuje kompresję, a Event Hubs dla Kafka obecnie nie. Błędy wskazujące, `The message format version on the broker does not support the request.`że wersja formatu wiadomości (na przykład) jest spowodowana próbą wysłania przez klienta skompresowanych komunikatów Kafka do naszych brokerów.
 
-Jeśli skompresowane dane są konieczne, kompresja danych przed wysłaniem ich do brokerów i dekompresja po otrzymaniu jest prawidłowym obejściem. Treść wiadomości jest tylko tablicą bajtów do usługi, więc kompresja/dekompresja po stronie klienta nie spowoduje żadnych problemów.
+Jeśli są wymagane skompresowane dane, Kompresuj dane przed wysłaniem ich do brokerów i dekompresowanie po odebraniu jest prawidłowym obejściem. Treść komunikatu jest po prostu tablicą bajtów do usługi, więc kompresja i dekompresja po stronie klienta nie spowoduje żadnych problemów.
 
-## <a name="unknownserverexception"></a>Nieznanaexception
-Możesz otrzymać UnknownServerException z bibliotek klienta platformy Kafka, podobnie jak w poniższym przykładzie: 
+## <a name="unknownserverexception"></a>UnknownServerException
+Użytkownik może otrzymać UnknownServerException z bibliotek klienta Kafka, podobnie jak w poniższym przykładzie: 
 
 ```
 org.apache.kafka.common.errors.UnknownServerException: The server experienced an unexpected error when processing the request
 ```
 
-Otwórz bilet z pomocą techniczną firmy Microsoft.  Rejestrowanie na poziomie debugowania i sygnatury czasowe wyjątków w czasie UTC są pomocne w debugowaniu problemu. 
+Otwórz bilet z pomocą techniczną firmy Microsoft.  Debugowanie na poziomie debugowania i sygnatury czasowe wyjątków w formacie UTC są przydatne w debugowaniu problemu. 
 
 ## <a name="other-issues"></a>Inne problemy
-Sprawdź następujące elementy, jeśli widzisz problemy podczas korzystania z platformy Kafka w centrach zdarzeń.
+Sprawdź następujące elementy, jeśli podczas korzystania z programu Kafka na Event Hubs są widoczne problemy.
 
-- **Zapora blokująca ruch** — upewnij się, że port **9093** nie jest zablokowany przez zaporę.
-- **TopicAuthorizationException** — najczęstszymi przyczynami tego wyjątku są:
-    - Literówka w ciągu połączenia w pliku konfiguracyjnym lub
-    - Próba użycia centrów zdarzeń dla platformy Kafka w obszarze nazw warstwy Podstawowa. Centra zdarzeń dla platformy Kafka [są obsługiwane tylko dla obszarów nazw warstwy Standardowa i Dedykowana](https://azure.microsoft.com/pricing/details/event-hubs/).
-- **Niezgodność wersji platformy Kafka** — centra zdarzeń dla ekosystemów platformy Kafka obsługuje wersje platformy Kafka 1.0 i nowsze. Niektóre aplikacje korzystające z platformy Kafka w wersji 0.10 i nowszej mogą czasami działać ze względu na wsteczną zgodność protokołu Kafka, ale zdecydowanie zaleca się używanie starych wersji interfejsu API. Protokół Kafka w wersji 0.9 lub wcześniejszej nie obsługuje wymaganych protokołów SASL i nie może połączyć się z centrum zdarzeń.
-- **Dziwne kodowania w nagłówkach AMQP podczas korzystania z platformy Kafka** — podczas wysyłania zdarzeń do centrum zdarzeń za pomocą usługi AMQP wszystkie nagłówki ładunku AMQP są serializowane w kodowaniu AMQP. Konsumenci platformy Kafka nie deserializacji nagłówków z usługi AMQP. Aby odczytać wartości nagłówka, ręcznie zdekodować nagłówki AMQP. Alternatywnie można uniknąć używania nagłówków AMQP, jeśli wiesz, że będziesz używać za pośrednictwem protokołu Kafka. Aby uzyskać więcej informacji, zobacz [ten problem z githubem](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56).
-- **Uwierzytelnianie SASL** — uzyskanie struktury do współpracy z protokołem uwierzytelniania SASL wymaganym przez usługi Event Hubs może być trudniejsze niż na pierwszy rzut oka. Sprawdź, czy można rozwiązać problem konfiguracji przy użyciu zasobów struktury na uwierzytelnianie SASL. 
+- **Ruch blokowany przez zaporę** — upewnij się, że port **9093** nie jest blokowany przez zaporę.
+- **TopicAuthorizationException** — Najczęstszymi przyczynami tego wyjątku są:
+    - Literówka w parametrach połączenia w pliku konfiguracyjnym lub
+    - Próba użycia Event Hubs dla Kafka w przestrzeni nazw warstwy podstawowej. Event Hubs dla Kafka jest [obsługiwany tylko w przypadku przestrzeni nazw warstwy Standardowa i dedykowanej](https://azure.microsoft.com/pricing/details/event-hubs/).
+- **Niezgodność wersji Kafka** -Event Hubs dla ekosystemów Kafka obsługuje Kafka w wersji 1,0 i nowszych. Niektóre aplikacje korzystające z programu Kafka w wersji 0,10 i nowszych mogą czasem współdziałać ze względu na zgodność z poprzednimi wersjami protokołu Kafka, ale zdecydowanie zalecamy użycie starych wersji interfejsu API. Kafka wersje 0,9 i wcześniejsze nie obsługują wymaganych protokołów SASL i nie mogą łączyć się z Event Hubs.
+- **Dziwne kodowanie w nagłówkach AMQP podczas korzystania z Kafka** -podczas wysyłania zdarzeń do centrum zdarzeń przez AMQP, wszystkie nagłówki ładunku AMQP są serializowane w kodowaniu AMQP. Kafka konsumenci nie deserializacji nagłówków z AMQP. Aby odczytać wartości nagłówka, ręcznie Dekoduj nagłówki AMQP. Alternatywnie możesz uniknąć używania nagłówków AMQP, Jeśli wiesz, że będziesz zużywać za pośrednictwem protokołu Kafka. Aby uzyskać więcej informacji, zobacz [ten problem](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56)w serwisie GitHub.
+- **Uwierzytelnianie SASL** — Przygotowanie struktury do współpracy z protokołem uwierzytelniania SASL wymaganym przez Event Hubs może być trudniejsze. Sprawdź, czy możesz rozwiązywać problemy z konfiguracją, korzystając z zasobów platformy przy uwierzytelnianiu SASL. 
 
 ## <a name="limits"></a>Limity
-Apache Kafka vs. Event Hubs Kafka. W przeważającej części Centra zdarzeń dla ekosystemów platformy Kafka ma takie same wartości domyślne, właściwości, kody błędów i ogólne zachowanie, które wykonuje apache kafka. Wystąpienia, w których te dwa jawnie różnią się (lub gdy Centra zdarzeń nakłada limit, którego nie ma kafka) są wymienione poniżej:
+Apache Kafka a Event Hubs Kafka. W większości przypadków Event Hubs ekosystemów Kafka ma takie same wartości domyślne, właściwości, kody błędów i ogólne zachowanie, które Apache Kafka wykonuje. Wystąpienia, w których te dwa jawnie różnią się (lub gdzie Event Hubs nakładają limit Kafka nie), są wymienione poniżej:
 
-- Maksymalna długość `group.id` obiektu wynosi 256 znaków
+- Maksymalna długość `group.id` właściwości to 256 znaków
 - Maksymalny rozmiar `offset.metadata.max.bytes` to 1024 bajtów
-- Zatwierdzenia offsetowe są ograniczane przy 4 połączeniach/sekundę na partycję z maksymalnym rozmiarem dziennika wewnętrznego 1 MB
+- Zatwierdzenia przesunięcia są ograniczone o 4 wywołania/sekundę na partycję z maksymalnym rozmiarem dziennika wewnętrznego wynoszącym 1 MB
 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o centrach zdarzeń i centrach zdarzeń dla platformy Kafka, zobacz następujące artykuły:  
+Aby dowiedzieć się więcej na temat Event Hubs i Event Hubs dla Kafka, zobacz następujące artykuły:  
 
-- [Apache Kafka — przewodnik dla centrów zdarzeń](apache-kafka-developer-guide.md)
-- [Apache Kafka przewodnik migracji dla Centrów zdarzeń](apache-kafka-migration-guide.md)
-- [Często zadawane pytania - Event Hubs for Apache Kafka](apache-kafka-frequently-asked-questions.md)
+- [Apache Kafka Przewodnik dla deweloperów Event Hubs](apache-kafka-developer-guide.md)
+- [Apache Kafka Przewodnik migracji Event Hubs](apache-kafka-migration-guide.md)
+- [Często zadawane pytania — Event Hubs dla Apache Kafka](apache-kafka-frequently-asked-questions.md)
 - [Zalecane konfiguracje](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)

@@ -15,10 +15,10 @@ ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 4186a4ed369eb289360b74c0758e5ce3f7eca929
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81482159"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Co to jest program SQL Server na maszynach wirtualnych platformy Azure? (Windows)
@@ -39,7 +39,7 @@ Maszyny wirtualne platformy Azure z programem SQL Server umożliwiają korzystan
 
 Maszyny wirtualne Azure z programem SQL Server umożliwiają korzystanie z funkcji [Automatyczne kopie zapasowe](virtual-machines-windows-sql-automated-backup-v2.md), która regularnie tworzy kopie zapasowe bazy danych w usłudze Blob Storage. Tej techniki można również używać ręcznie. Aby uzyskać więcej informacji, zobacz [Use Azure Storage for SQL Server Backup and Restore](virtual-machines-windows-use-storage-sql-server-backup-restore.md) (Używanie usługi Azure Storage do tworzenia kopii zapasowych programu SQL Server i ich przywracania).
 
-Platforma Azure oferuje również rozwiązanie do tworzenia kopii zapasowych klasy korporacyjnej dla programu SQL Server działającego na maszynach wirtualnych platformy Azure. W pełni zarządzane rozwiązanie do tworzenia kopii zapasowych obsługuje grupy dostępności zawsze włączone, długoterminowe przechowywanie, odzyskiwanie w czasie oraz centralne zarządzanie i monitorowanie. Aby uzyskać więcej informacji, zobacz [Usługa Azure Backup for SQL Server w usłudze Azure VM](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
+Platforma Azure oferuje również rozwiązanie do tworzenia kopii zapasowych klasy korporacyjnej dla SQL Server działających na maszynach wirtualnych platformy Azure. W pełni zarządzane rozwiązanie do tworzenia kopii zapasowych obsługuje zawsze włączone grupy dostępności, długoterminowe przechowywanie danych, odzyskiwanie do punktu w czasie oraz centralne zarządzanie i monitorowanie. Aby uzyskać więcej informacji, zobacz [Azure Backup SQL Server na maszynie wirtualnej platformy Azure](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
   
 
 ## <a name="high-availability"></a>Wysoka dostępność
@@ -57,12 +57,12 @@ Aby rozpocząć, wybierz obraz maszyny wirtualnej z programem SQL Server w wymag
 > [!TIP]
 > Aby uzyskać więcej informacji umożliwiających zrozumienie cennika obrazów SQL, zobacz [Pricing guidance for SQL Server Azure VMs (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server)](virtual-machines-windows-sql-server-pricing-guidance.md). 
 
-### <a name="pay-as-you-go"></a><a id="payasyougo"></a>Zapłać zgodnie z oczekiwaniami
+### <a name="pay-as-you-go"></a><a id="payasyougo"></a>Płatność zgodnie z rzeczywistym użyciem
 Poniższa tabela zawiera macierz obrazów z programem SQL Server korzystających z modelu płatności zgodnie z rzeczywistym użyciem.
 
 | Wersja | System operacyjny | Wersja |
 | --- | --- | --- |
-| **SQL Server 2019** | Windows Server 2019 | [Przedsiębiorstwo](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019enterprise), [Standard](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019standard), [Web](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019web), [Developer](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019sqldev) | 
+| **SQL Server 2019** | Windows Server 2019 | [Enterprise](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019enterprise), [Standard](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019standard), [Web](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019web), [Developer](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019sqldev) | 
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016) |
 | **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2StandardWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2WebWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP2ExpressWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP2DeveloperWindowsServer2016) |
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2ExpressWindowsServer2012R2) |
@@ -82,12 +82,12 @@ Aby dostarczyć własną licencję, możesz przekonwertować istniejącą maszyn
 | Wersja | System operacyjny | Wersja |
 | --- | --- | --- |
 | **SQL Server 2019** | Windows Server 2019 | [Enterprise BYOL](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019-byolenterprise), [Standard BYOL](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019-byolstandard)| 
-| **SQL Server 2017** |Windows Server 2016 |[Przedsiębiorstwo BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016) |
-| **SQL Server 2016 SP2** |Windows Server 2016 |[Przedsiębiorstwo BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2StandardWindowsServer2016) |
-| **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Przedsiębiorstwo BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
+| **SQL Server 2017** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016), [standardowa BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016) |
+| **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2EnterpriseWindowsServer2016), [standardowa BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2StandardWindowsServer2016) |
+| **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2), [standardowa BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4StandardWindowsServer2012R2) |
 
-Istnieje możliwość wdrożenia starszego obrazu programu SQL Server, który nie jest dostępny w witrynie Azure portal przy użyciu programu PowerShell. Aby wyświetlić wszystkie dostępne obrazy przy użyciu programu Powershell, użyj następującego polecenia:
+Istnieje możliwość wdrożenia starszego obrazu SQL Server, który nie jest dostępny w Azure Portal przy użyciu programu PowerShell. Aby wyświetlić wszystkie dostępne obrazy przy użyciu programu Powershell, użyj następującego polecenia:
 
   ```powershell
   Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
@@ -102,24 +102,24 @@ Po utworzeniu maszyny wirtualnej z programem SQL Server nawiąż z nią połącz
 ### <a name="migrate-your-data"></a>Migrowanie danych
 Jeśli masz istniejącą bazę danych, najprawdopodobniej będziesz ją przenosić do nowo aprowizowanej maszyny wirtualnej z programem SQL. Aby uzyskać listę opcji migracji i wskazówki, zobacz [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md) (Migrowanie bazy danych do programu SQL Server na maszynie wirtualnej portalu Azure).
 
-## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>Tworzenie zasobów SQL platformy Azure i zarządzanie nimi za pomocą witryny Azure portal
+## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>Tworzenie zasobów usługi Azure SQL i zarządzanie nimi za pomocą Azure Portal
 
-Portal Azure zawiera jedną stronę, na której można zarządzać [wszystkimi zasobami SQL platformy Azure,](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) w tym maszynami wirtualnymi SQL.
+Azure Portal zawiera jedną stronę, na której można zarządzać [wszystkimi zasobami usługi Azure SQL, w](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) tym maszynami wirtualnymi SQL.
 
-Aby uzyskać dostęp do strony **zasobów SQL platformy Azure,** wybierz **sql platformy Azure** w menu portalu platformy Azure lub wyszukaj i wybierz sql **platformy Azure** z dowolnej strony.
+Aby uzyskać dostęp do strony **zasoby SQL platformy Azure** , wybierz pozycję **Azure sql** w menu Azure Portal lub Wyszukaj i wybierz pozycję **Azure SQL** z dowolnej strony.
 
-![Wyszukiwanie języka SQL platformy Azure](./media/quickstart-sql-vm-create-portal/search-for-azure-sql.png)
+![Wyszukiwanie w usłudze Azure SQL](./media/quickstart-sql-vm-create-portal/search-for-azure-sql.png)
 
 > [!NOTE]
 > **Usługa Azure SQL** zapewnia szybki i łatwy sposób dostępu do wszystkich baz danych SQL, pul elastycznych, serwerów baz danych, wystąpień zarządzanych SQL i maszyn wirtualnych SQL. Usługa Azure SQL nie jest usługą ani zasobem. 
 
-Aby zarządzać istniejącymi zasobami, wybierz żądany element na liście. Aby utworzyć nowe zasoby SQL platformy Azure, wybierz pozycję **+ Dodaj**. 
+Aby zarządzać istniejącymi zasobami, wybierz żądany element z listy. Aby utworzyć nowe zasoby Azure SQL, wybierz pozycję **+ Dodaj**. 
 
-![Tworzenie zasobu SQL platformy Azure](./media/quickstart-sql-vm-create-portal/create-azure-sql-resource.png)
+![Tworzenie zasobu usługi Azure SQL](./media/quickstart-sql-vm-create-portal/create-azure-sql-resource.png)
 
-Po wybraniu **+ Dodaj**, wyświetl dodatkowe informacje o różnych opcjach, wybierając **pozycję Pokaż szczegóły** na dowolnym kafelku.
+Po wybraniu **+ Dodaj**Wyświetl dodatkowe informacje o różnych opcjach, wybierając pozycję **Pokaż szczegóły** na dowolnym kafelku.
 
-![szczegóły kafelka baz danych](./media/quickstart-sql-vm-create-portal/sql-vm-details.png)
+![Szczegóły kafelka bazy danych](./media/quickstart-sql-vm-create-portal/sql-vm-details.png)
 
 Aby uzyskać szczegółowe informacje, zobacz:
 
@@ -142,7 +142,7 @@ Program poprawy jakości obsługi klienta jest domyślnie włączony. Wysyła on
 * [Wprowadzenie do usługi Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>Networking
-* [Omówienie sieci wirtualnej](../../../virtual-network/virtual-networks-overview.md)
+* [Przegląd Virtual Network](../../../virtual-network/virtual-networks-overview.md)
 * [Adresy IP na platformie Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [Tworzenie w pełni kwalifikowanej nazwy domeny w witrynie Azure Portal](../portal-create-fqdn.md)
 
@@ -160,7 +160,7 @@ Uzyskaj odpowiedzi na często zadawane pytania dotyczące maszyn wirtualnych SQL
 
 * [Często zadawane pytania dotyczące programu SQL Server w usłudze Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-faq.md)
 
-Wyświetlanie architektur referencyjnych do uruchamiania aplikacji n-warstwowych na programie SQL Server w systemie IaaS
+Wyświetlanie architektur referencyjnych na potrzeby uruchamiania aplikacji N-warstwowych na SQL Server w IaaS
 
-* [Aplikacja systemu Windows dla warstwy N na platformie Azure z programem SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
-* [Uruchamianie aplikacji n-warstwowej w wielu regionach platformy Azure w celu zapewnienia wysokiej dostępności](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
+* [Aplikacja N-warstwowa systemu Windows na platformie Azure z SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [Uruchamianie aplikacji N-warstwowej w wielu regionach platformy Azure w celu zapewnienia wysokiej dostępności](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

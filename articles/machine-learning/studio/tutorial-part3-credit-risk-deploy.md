@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek 3: Wdrażanie modelu ryzyka kredytowego'
 titleSuffix: Azure Machine Learning Studio (classic)
-description: Szczegółowy samouczek pokazujący, jak utworzyć rozwiązanie do analizy predykcyjnej do oceny ryzyka kredytowego w usłudze Azure Machine Learning Studio (klasyczny). Niniejszy samouczek jest trzecią częścią trzyczęściowej serii. Przedstawia on sposób wdrażania modelu w postaci usługi internetowej.
+description: Szczegółowy Samouczek przedstawiający sposób tworzenia rozwiązania do analizy predykcyjnej w celu oceny ryzyka kredytowego w Azure Machine Learning Studio (klasyczny). Niniejszy samouczek jest trzecią częścią trzyczęściowej serii. Przedstawia on sposób wdrażania modelu w postaci usługi internetowej.
 keywords: ryzyko kredytowe, rozwiązanie analizy predykcyjnej, ocena ryzyka, wdrażanie, usługa internetowa
 author: sdgilley
 ms.author: sgilley
@@ -11,25 +11,25 @@ ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
 ms.openlocfilehash: 9fb0b59374edf322e5e2221b90e912ee2c665bac
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79204157"
 ---
-# <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Samouczek 3: Wdrażanie modelu ryzyka kredytowego — Usługa Azure Machine Learning Studio (klasyczna)
+# <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Samouczek 3: Wdrażanie modelu ryzyka kredytowego — Azure Machine Learning Studio (klasyczny)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-W tym samouczku szczegółowo przedstawiono proces opracowywania rozwiązania analizy predykcyjnej. Opracowywkij prostego modelu w machine learning studio (klasyczny).  Następnie wdrożysz model jako usługę internetową w ramach usługi Azure Machine Learning.  Wdrożony model może tworzyć przewidywania przy użyciu nowych danych. Ten poradnik jest **częścią trzecią trzyczęściowej serii samouczków**.
+W tym samouczku szczegółowo przedstawiono proces opracowywania rozwiązania analizy predykcyjnej. Tworzysz prosty model w Machine Learning Studio (klasyczny).  Następnie wdrożysz model jako usługę internetową w ramach usługi Azure Machine Learning.  Wdrożony model może tworzyć przewidywania przy użyciu nowych danych. Ten samouczek jest **trzecią częścią serii samouczków**.
 
 Załóżmy, że chcesz przewidzieć ryzyko kredytowe osoby na podstawie informacji przekazanych we wniosku kredytowym.  
 
-Ocena ryzyka kredytowego to złożony problem, ale w tym samouczku zostanie on nieco uproszczony. Użyjesz go jako przykład, jak można utworzyć rozwiązanie analizy predykcyjnej przy użyciu microsoft azure machine learning studio (klasyczny). Użyjesz usługi Azure Machine Learning Studio (klasyczny) i usługi sieci web uczenia maszynowego dla tego rozwiązania. 
+Ocena ryzyka kredytowego to złożony problem, ale w tym samouczku zostanie on nieco uproszczony. Będziesz jej używać jako przykładu tworzenia rozwiązania do analizy predykcyjnej przy użyciu Microsoft Azure Machine Learning Studio (klasyczne). Dla tego rozwiązania będziesz używać Azure Machine Learning Studio (klasyczny) i Machine Learning usługi sieci Web. 
 
 W tym trzyczęściowym samouczku zaczniesz od publicznie dostępnych danych ryzyka kredytowego.  Następnie wdrożysz i wytrenujesz model predykcyjny.  Na koniec wdrożysz model jako usługę internetową.
 
-W [części drugiej samouczka](tutorial-part1-credit-risk.md)utworzono obszar roboczy Studio uczenia maszynowego (klasyczny), przesłano dane i utworzono eksperyment.
+W [pierwszej części samouczka](tutorial-part1-credit-risk.md)utworzono obszar roboczy Machine Learning Studio (klasyczny), przekazane dane i utworzono eksperyment.
 
 W [drugiej części samouczka](tutorial-part2-credit-risk-train.md) modele zostały przeszkolone i ocenione.
 
@@ -72,11 +72,11 @@ Musisz usunąć następujące moduły:
 
 Wybierz każdy moduł i naciśnij klawisz Delete lub kliknij prawym przyciskiem myszy moduł i wybierz pozycję **Delete (Usuń)**. 
 
-![Podświetla, które moduły usunąć, aby usunąć model maszyny wektorowej obsługi](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
+![Wyróżnia, które moduły usunąć, aby usunąć model maszyny wektorowej obsługi](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 Nasz model powinien teraz wyglądać mniej więcej tak:
 
-![Wynikowy eksperyment po usunięciu modelu maszyny wektorowej obsługi technicznej](./media/tutorial-part3-credit-risk-deploy/publish3.png)
+![Wynikowy eksperyment dotyczący usuwania modelu maszyny wektorowej pomocy technicznej](./media/tutorial-part3-credit-risk-deploy/publish3.png)
 
 Teraz jesteśmy gotowi do wdrożenia tego modelu przy użyciu [dwuklasowego wzmocnionego drzewa decyzyjnego][two-class-boosted-decision-tree].
 
@@ -91,15 +91,15 @@ Aby przygotować ten model do wdrożenia, musisz przekonwertować ten eksperymen
 Możesz to zrobić ręcznie, ale na szczęście wszystkie trzy kroki można wykonać, klikając pozycję **Set Up Web Service (Skonfiguruj usługę internetową)** w dolnej części kanwy eksperymentu (i wybierając opcję **Predictive Web Service [Predykcyjna usługa internetowa]**).
 
 > [!TIP]
-> Jeśli chcesz uzyskać więcej informacji na temat tego, co się dzieje podczas konwertowania eksperymentu szkoleniowego na eksperyment predykcyjny, zobacz [Jak przygotować model do wdrożenia w usłudze Azure Machine Learning Studio (klasyczny).](convert-training-experiment-to-scoring-experiment.md)
+> Jeśli chcesz uzyskać więcej szczegółowych informacji na temat tego, co się dzieje w przypadku konwersji eksperymentu szkoleniowego na eksperyment predykcyjny, zobacz [jak przygotować model do wdrożenia w Azure Machine Learning Studio (klasyczny)](convert-training-experiment-to-scoring-experiment.md).
 
 Po kliknięciu pozycji **Set Up Web Service (Skonfiguruj usługę internetową)** ma miejsce kilka zdarzeń:
 
 * Wytrenowany model jest konwertowany na pojedynczy moduł **Trained model (Wytrenowany model)** i zapisywany w palecie modułów z lewej strony kanwy eksperymentu (można go odnaleźć w obszarze **Trained Models [Wytrenowane modele]**)
 * Moduły, które zostały użyte do szkolenia, zostaną usunięte, a w szczególności:
   * [Two-Class Boosted Decision Tree (Dwuklasowe wzmocnione drzewo decyzyjne)][two-class-boosted-decision-tree]
-  * [Train Model (Trenuj model)][train-model]
-  * [Spil Data (Podziel dane)][split]
+  * [Trenowanie modelu][train-model]
+  * [Dzielenie danych][split]
   * Drugi moduł [Execute R Script (Wykonaj skrypt języka R)][execute-r-script], który był używany dla danych testowych
 * Zapisany wytrenowany model jest ponownie dodawany do eksperymentu
 * Zostaną dodane moduły **Web service input (Dane wejściowe usługi internetowej)** i **Web service output (Dane wyjściowe usługi internetowej)** (określają one to, czy dane użytkownika wejdą do modelu danych użytkownika i jakie dane są zwracane podczas uzyskiwania dostępu do usługi internetowej)
@@ -109,7 +109,7 @@ Po kliknięciu pozycji **Set Up Web Service (Skonfiguruj usługę internetową)*
 
 Musisz wykonać jeden dodatkowy krok dla tego konkretnego eksperymentu.
 Dodano dwa moduły [Execute R Script (Wykonaj skrypt języka R)][execute-r-script], aby zapewnić funkcję określania wagi danych. To było po prostu obejście potrzebne do trenowania i testowania, więc możesz usunąć te moduły w ostatecznym modelu.
-Machine Learning Studio (klasyczny) usunął jeden moduł [skryptu wykonywanie języka R][execute-r-script] po usunięciu modułu [Podziału.][split] Teraz możesz usunąć drugi i połączyć element [Metadata Editor (Edytor metadanych)][metadata-editor] bezpośrednio z modułem [Score Model (Wygeneruj wyniki dla modelu)][score-model].    
+Machine Learning Studio (klasyczny) usunął jeden moduł [wykonywania skryptu języka R][execute-r-script] po usunięciu modułu [podziału][split] . Teraz możesz usunąć drugi i połączyć element [Metadata Editor (Edytor metadanych)][metadata-editor] bezpośrednio z modułem [Score Model (Wygeneruj wyniki dla modelu)][score-model].    
 
 Nasz eksperyment powinien teraz wyglądać następująco:  
 
@@ -124,18 +124,18 @@ Nasz eksperyment powinien teraz wyglądać następująco:
 >Warto zwrócić uwagę na jedną ważną sprawę, a mianowicie, że jeśli oryginalny zestaw danych zawierał etykietę, wówczas oczekiwany schemat z internetowych danych wejściowych będzie również oczekiwał kolumny z etykietą. Obejściem tego problemu jest usunięcie etykiety i wszelkich innych danych, które znajdowały się w treningowym zestawie danych, ale nie będą się znajdowały w internetowych danych wejściowych przed nawiązaniem połączenia internetowych danych wejściowych i zestawu danych szkoleniowych ze wspólnym modułem. 
 > 
 
-Uruchom eksperyment po raz ostatni (kliknij przycisk **Uruchom**.) Jeśli chcesz sprawdzić, czy model nadal działa, kliknij dane wyjściowe modułu [Model wyników][score-model] i wybierz pozycję **Wyświetl wyniki**. Zobaczysz, że są wyświetlane oryginalne dane wraz z wartością ryzyka kredytowego („Scored Labels”, Wyliczone wyniki dla etykiet) i wartością generowania wyniku dla prawdopodobieństwa („Scored Probabilities”, Wyliczone wyniki dla prawdopodobieństw). 
+Uruchom eksperyment po raz ostatni (kliknij przycisk **Uruchom**). Jeśli chcesz sprawdzić, czy model nadal działa, kliknij dane wyjściowe modułu [model oceny][score-model] i wybierz pozycję **Wyświetl wyniki**. Zobaczysz, że są wyświetlane oryginalne dane wraz z wartością ryzyka kredytowego („Scored Labels”, Wyliczone wyniki dla etykiet) i wartością generowania wyniku dla prawdopodobieństwa („Scored Probabilities”, Wyliczone wyniki dla prawdopodobieństw). 
 
 ## <a name="deploy-the-web-service"></a>Wdrażanie usługi sieci Web
 Możesz wdrożyć eksperyment jako klasyczną usługę internetową albo jako nową usługę internetową, która jest oparta na usłudze Azure Resource Manager.
 
 ### <a name="deploy-as-a-classic-web-service"></a>Wdrażanie w postaci klasycznej usługi internetowej
-Aby wdrożyć klasyczną usługę internetową pochodzącą z naszego eksperymentu, kliknij pozycję **Deploy Web Service (Wdróż usługę internetową)** poniżej kanwy, a następnie wybierz pozycję **Deploy Web Service [Classic] (Wdróż usługę internetową [klasyczną])**. Machine Learning Studio (klasyczny) wdraża eksperyment jako usługę sieci web i przenosi cię do pulpitu nawigacyjnego dla tej usługi sieci web. Na tej stronie możesz wrócić do eksperymentu (**View snapshot (Wyświetl migawkę)** lub **View latest (Wyświetl najnowsze)**) i uruchomić prosty test usługi internetowej (zobacz **Testowanie usługi internetowej** poniżej). Istnieją również tutaj informacje dotyczące tworzenia aplikacji mogących uzyskiwać dostęp do usługi internetowej (więcej informacji na ten temat znajdziesz w następnym kroku tego samouczka).
+Aby wdrożyć klasyczną usługę internetową pochodzącą z naszego eksperymentu, kliknij pozycję **Deploy Web Service (Wdróż usługę internetową)** poniżej kanwy, a następnie wybierz pozycję **Deploy Web Service [Classic] (Wdróż usługę internetową [klasyczną])**. Machine Learning Studio (klasyczny) wdraża eksperyment jako usługę sieci Web i przenosi pulpit nawigacyjny dla tej usługi sieci Web. Na tej stronie możesz wrócić do eksperymentu (**View snapshot (Wyświetl migawkę)** lub **View latest (Wyświetl najnowsze)**) i uruchomić prosty test usługi internetowej (zobacz **Testowanie usługi internetowej** poniżej). Istnieją również tutaj informacje dotyczące tworzenia aplikacji mogących uzyskiwać dostęp do usługi internetowej (więcej informacji na ten temat znajdziesz w następnym kroku tego samouczka).
 
 ![Pulpit nawigacyjny usługi internetowej](./media/tutorial-part3-credit-risk-deploy/publish6.png)
 
 
-Usługę można skonfigurować, klikając kartę **KONFIGURACJA.** W tym miejscu można zmodyfikować nazwę usługi (domyślnie nadano jej nazwę eksperymentu) i nadać jej opis. Możesz również określić bardziej przyjazne etykiety dla danych wejściowych i wyjściowych.  
+Usługę można skonfigurować, klikając kartę **Konfiguracja** . W tym miejscu możesz zmodyfikować nazwę usługi (domyślnie otrzymuje nazwę eksperymentu) i podać opis. Możesz również określić bardziej przyjazne etykiety dla danych wejściowych i wyjściowych.  
 
 ![Konfigurowanie usługi internetowej](./media/tutorial-part3-credit-risk-deploy/publish5.png)
 
@@ -147,7 +147,7 @@ Usługę można skonfigurować, klikając kartę **KONFIGURACJA.** W tym miejscu
 
 Aby wdrożyć nową usługę internetową pochodzącą z naszego eksperymentu:
 
-1. Kliknij pozycję **Deploy Web Service (Wdróż usługę internetową)** poniżej kanwy, a następnie wybierz pozycję **Deploy Web Service [New] (Wdróż usługę internetową [nową])**. Studio uczenia maszynowego (klasyczne) przenosi cię do usługi azure machine learning usługi sieci web **wdrażanie eksperymentu** strony.
+1. Kliknij pozycję **Deploy Web Service (Wdróż usługę internetową)** poniżej kanwy, a następnie wybierz pozycję **Deploy Web Service [New] (Wdróż usługę internetową [nową])**. Machine Learning Studio (klasyczny) przenosi użytkownika na stronę Azure Machine Learning programu **wdrażania** usług sieci Web.
 
 1. Wprowadź nazwę usługi internetowej. 
 
@@ -157,7 +157,7 @@ Aby wdrożyć nową usługę internetową pochodzącą z naszego eksperymentu:
 
 Po kilku minutach zostanie otwarta strona **Quickstart (Szybki start)** Twojej usługi internetowej.
 
-Usługę można skonfigurować, klikając kartę **Konfiguruj.** W tym miejscu można zmodyfikować tytuł usługi i nadać mu opis. 
+Usługę można skonfigurować, klikając kartę **Konfiguracja** . W tym miejscu możesz zmodyfikować tytuł usługi i podać opis. 
 
 Aby przetestować usługę internetową, kliknij kartę **Test** (zobacz **Testowanie usługi internetowej** poniżej). Aby uzyskać informacje na temat tworzenia aplikacji, które mogą uzyskać dostęp do usługi internetowej, kliknij kartę **Consume (Zużywanie)** (następny krok w tym samouczku będzie zawierał więcej szczegółów).
 
@@ -172,19 +172,19 @@ Podczas uzyskiwania dostępu do usługi internetowej dane użytkownika są wprow
 Wyniki są zwracane użytkownikowi z usługi internetowej za pośrednictwem modułu **Web service output (Dane wyjściowe usługi internetowej)**.
 
 > [!TIP]
-> W oparciu o skonfigurowanie eksperymentu predykcyjnego są zwracane wyniki z modułu [Score Model (Wygeneruj wyniki dla modelu)][score-model]. Obejmuje to wszystkie dane wejściowe oraz wartość ryzyka kredytowego i generowania wyniku dla prawdopodobieństwa. Ale jeśli chcesz, możesz zwrócić coś innego — na przykład możesz zwrócić tylko wartość ryzyka kredytowego. Aby to zrobić, należy wstawić moduł [Wybierz kolumny][select-columns] między [modelem wynikowym][score-model] a **wyjściem usługi sieci Web,** aby wyeliminować kolumny, które nie mają być zwracane przez usługę sieci web. 
+> W oparciu o skonfigurowanie eksperymentu predykcyjnego są zwracane wyniki z modułu [Score Model (Wygeneruj wyniki dla modelu)][score-model]. Obejmuje to wszystkie dane wejściowe oraz wartość ryzyka kredytowego i generowania wyniku dla prawdopodobieństwa. Ale jeśli chcesz, możesz zwrócić coś innego — na przykład możesz zwrócić tylko wartość ryzyka kredytowego. Aby to zrobić, Wstaw moduł [Wybierz kolumny][select-columns] między [modelem punktacji][score-model] a **danymi wyjściowymi usługi sieci Web** , aby wyeliminować kolumny, które nie powinny być zwracane przez usługę sieci Web. 
 > 
 > 
 
-Klasyczną usługę sieci web można przetestować w **usłudze Machine Learning Studio (klasycznej)** lub w portalu **usług Azure Machine Learning Web Services.**
-Nową usługę sieci web można przetestować tylko w portalu **usług sieci Web uczenia maszynowego.**
+Klasyczną usługę sieci Web można testować w **Machine Learning Studio (klasyczny)** lub w portalu **Azure Machine Learning Web Services** .
+Nową usługę sieci Web można przetestować tylko w portalu **usług sieci web Machine Learning** .
 
 > [!TIP]
 > Podczas testowania w portalu usług internetowych Azure Machine Learning portal może utworzyć przykładowe dane, których możesz użyć do testowania usługi żądanie-odpowiedź. Na stronie **Configure (Konfiguracja)** wybierz opcję „Yes” (Tak) dla pozycji **Sample Data Enabled? (Włączono przykładowe dane?)**. Gdy otworzysz kartę żądanie-odpowiedź na stronie **Test**, portal wypełni przykładowe dane pobierane z oryginalnego zestawu danych ryzyka kredytowego.
 
 ### <a name="test-a-classic-web-service"></a>Testowanie klasycznej usługi internetowej
 
-Klasyczną usługę sieci web można przetestować w usłudze Machine Learning Studio (klasyczna) lub w portalu usług sieci Web uczenia maszynowego. 
+Klasyczną usługę sieci Web można testować w Machine Learning Studio (klasyczny) lub w portalu Machine Learning Web Services. 
 
 #### <a name="test-in-machine-learning-studio-classic"></a>Test w Machine Learning Studio (klasyczny)
 
@@ -229,7 +229,7 @@ Usługa internetowa to usługa internetowa platformy Azure, która może odbiera
 * **Żądanie/odpowiedź** — użytkownik wysyła co najmniej jeden wiersz danych kredytowych do usługi przy użyciu protokołu HTTP, a usługa odpowiada za pomocą co najmniej jednego zestawu wyników.
 * **Wykonywanie wsadowe** — użytkownik przechowuje jeden lub więcej wierszy danych kredytowych w obiekcie blob platformy Azure, a następnie wysyła lokalizację obiektu blob do usługi. Usługa generuje wyniki dla wszystkich wierszy danych w wejściowym obiekcie blob, zapisuje wyniki w innym obiekcie blob, a następnie zwraca adres URL tego kontenera.  
 
-Aby uzyskać więcej informacji na temat uzyskiwania dostępu do usługi sieci web i korzystania z niej, zobacz [Korzystanie z usługi azure machine learning web za pomocą szablonu aplikacji sieci Web](/azure/machine-learning/studio/consume-web-services).
+Aby uzyskać więcej informacji na temat uzyskiwania dostępu do usługi sieci Web i korzystania z niej, zobacz temat [Korzystanie z usługi sieci web Azure Machine Learning z szablonem aplikacji sieci Web](/azure/machine-learning/studio/consume-web-services).
 
 
 

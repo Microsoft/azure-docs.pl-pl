@@ -1,6 +1,6 @@
 ---
-title: Uwierzytelnij dostęp do centrów zdarzeń platformy Azure za pomocą podpisów dostępu współdzielonego
-description: W tym artykule pokazano, jak uwierzytelnić dostęp do zasobów Centrum zdarzeń przy użyciu podpisów dostępu współdzielonego.
+title: Uwierzytelnianie dostępu do usługi Azure Event Hubs przy użyciu sygnatur dostępu współdzielonego
+description: W tym artykule opisano sposób uwierzytelniania dostępu do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego.
 services: event-hubs
 ms.service: event-hubs
 documentationcenter: ''
@@ -9,73 +9,73 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.openlocfilehash: cde5992355d274410bb43b1e3e60fbba1afe4e44
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81676351"
 ---
-# <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Uwierzytelnij dostęp do zasobów Centrum zdarzeń przy użyciu sygnatur dostępu współdzielonego (SAS)
-Podpis dostępu współdzielonego (SAS) zapewnia szczegółową kontrolę nad typem dostępu udzielonego klientom, którzy mają podpis dostępu współdzielonego. Oto niektóre z formantów, które można ustawić w sygnatury dostępu Współdzielonego: 
+# <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Uwierzytelnianie dostępu do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego (SAS)
+Sygnatura dostępu współdzielonego (SAS) zapewnia szczegółową kontrolę nad typem dostępu przyznanym klientom, którzy mają sygnaturę dostępu współdzielonego. Poniżej przedstawiono niektóre kontrolki, które można ustawić w sygnaturze dostępu współdzielonego: 
 
-- Interwał, w którym sygnatury dostępu Współdzielonego jest prawidłowy, w tym czas rozpoczęcia i wygaśnięcia.
-- Uprawnienia przyznane przez sygnaturę dostępu Współdzielonego. Na przykład sygnatury dostępu Współdzielonego dla obszaru nazw usługi Event Hubs może udzielić uprawnienia nasłuchiwanie, ale nie uprawnienie do wysyłania.
-- Tylko klienci, którzy prezentują prawidłowe poświadczenia, mogą wysyłać dane do Centrum zdarzeń.
+- Interwał, w jakim sygnatura dostępu współdzielonego jest prawidłowa, włącznie z czasem rozpoczęcia i czasem wygaśnięcia.
+- Uprawnienia przyznane przez sygnaturę dostępu współdzielonego. Na przykład sygnatura dostępu współdzielonego dla Event Hubs przestrzeni nazw może udzielić uprawnienia do nasłuchiwania, ale nie do uprawnienia do wysyłania.
+- Tylko klienci, którzy zaprezentowania prawidłowych poświadczeń, mogą wysyłać dane do centrum zdarzeń.
 - Klient nie może personifikować innego klienta.
-- Nieautoryzowanego klienta można zablokować wysyłanie danych do centrum zdarzeń.
+- Nieautoryzowany klient może blokować wysyłanie danych do centrum zdarzeń.
 
-W tym artykule opisano uwierzytelnianie dostępu do zasobów usługi Event Hubs przy użyciu sygnatury dostępu Współdzielonego. Aby dowiedzieć się więcej o **autoryzowaniu** dostępu do zasobów usługi Event Hubs przy użyciu sygnatury dostępu Współdzielonego, zobacz [ten artykuł](authorize-access-shared-access-signature.md). 
+W tym artykule omówiono uwierzytelnianie dostępu do zasobów Event Hubs przy użyciu SAS. Aby dowiedzieć się więcej na temat **autoryzowania** dostępu do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego, zobacz [ten artykuł](authorize-access-shared-access-signature.md). 
 
 > [!NOTE]
-> Firma Microsoft zaleca używanie poświadczeń usługi Azure AD, jeśli to możliwe, jako najlepsze rozwiązanie w zakresie zabezpieczeń, zamiast używania podpisów dostępu udostępnionego, które mogą być łatwiej zagrożone. Chociaż można nadal używać podpisów dostępu współdzielonego (SAS) do udzielania szczegółowego dostępu do zasobów usługi Event Hubs, usługa Azure AD oferuje podobne możliwości bez konieczności zarządzania tokenami sygnatury dostępu Współdzielonego lub martwić się o odwołanie zagrożonego sygnatury dostępu Współdzielonego.
+> Firma Microsoft zaleca, aby użyć poświadczeń usługi Azure AD, jeśli to możliwe, jako najlepszych rozwiązań w zakresie zabezpieczeń, a nie przy użyciu sygnatur dostępu współdzielonego, które mogą być bardziej łatwo naruszone. Można nadal używać sygnatur dostępu współdzielonego (SAS), aby udzielać szczegółowego dostępu do zasobów Event Hubs, usługa Azure AD oferuje podobne możliwości bez konieczności zarządzania tokenami SAS ani do odwoływania się do odwołującego się do naruszenia złamanej sygnatury dostępu współdzielonego.
 > 
-> Aby uzyskać więcej informacji na temat integracji usługi Azure AD w usłudze Azure Event Hubs, zobacz [Autoryzowanie dostępu do centrów zdarzeń przy użyciu usługi Azure AD.](authorize-access-azure-active-directory.md) 
+> Aby uzyskać więcej informacji na temat integracji usługi Azure AD w usłudze Azure Event Hubs, zobacz [Autoryzuj dostęp do Event Hubs za pomocą usługi Azure AD](authorize-access-azure-active-directory.md). 
 
 
-## <a name="configuring-for-sas-authentication"></a>Konfigurowanie uwierzytelniania sygnatury dostępu Współdzielonego
-Regułę autoryzacji dostępu udostępnionego EventHubs można skonfigurować w obszarze nazw Centrum zdarzeń lub w encji (wystąpienie centrum zdarzeń lub temat platformy Kafka w centrum zdarzeń). Konfigurowanie reguły autoryzacji dostępu współdzielonego w grupie odbiorców nie jest obecnie obsługiwane, ale można użyć reguł skonfigurowanych w obszarze nazw lub encji w celu zabezpieczenia dostępu do grupy odbiorców. 
+## <a name="configuring-for-sas-authentication"></a>Konfigurowanie do uwierzytelniania za sygnaturą dostępu współdzielonego
+Można skonfigurować regułę autoryzacji dostępu współdzielonego EventHubs w przestrzeni nazw Event Hubs lub jednostkę (wystąpienie centrum zdarzeń lub temat Kafka w centrum zdarzeń). Konfigurowanie reguły autoryzacji dostępu współdzielonego w grupie odbiorców nie jest obecnie obsługiwane, ale można użyć reguł skonfigurowanych dla przestrzeni nazw lub jednostki w celu zabezpieczenia dostępu do grupy odbiorców. 
 
-Na poniższej ilustracji przedstawiono, jak reguły autoryzacji mają zastosowanie do przykładowych jednostek. 
+Na poniższej ilustracji przedstawiono sposób stosowania reguł autoryzacji na przykładowych jednostkach. 
 
 ![Konfigurowanie reguły autoryzacji](./media/authenticate-shared-access-signature/configure-sas-authorization-rule.png)
 
-W tym przykładzie przykładowy obszar nazw centrów zdarzeń (ExampleNamespace) ma dwie jednostki: eh1 i topic1. Reguły autoryzacji są definiowane zarówno na poziomie jednostki, jak i na poziomie obszaru nazw.  
+W tym przykładzie Przykładowa przestrzeń nazw Event Hubs (ExampleNamespace) ma dwie jednostki: EH1 i topic1. Reguły autoryzacji są definiowane zarówno na poziomie jednostki, jak i na poziomie przestrzeni nazw.  
 
-Reguły autoryzacji manageRuleNS, sendRuleNS i listenRuleNS mają zastosowanie zarówno do wystąpienia centrum zdarzeń eh1, jak i tematu t1. Reguły autoryzacji listenRule-eh i sendRule-eh mają zastosowanie tylko do wystąpienia centrum zdarzeń eh1 i reguły autoryzacji sendRuleT ma zastosowanie tylko do tematu temat1. 
+Reguły autoryzacji manageRuleNS, sendRuleNS i listenRuleNS dotyczą zarówno wystąpienia usługi Event Hub EH1, jak i tematu T1. Reguły autoryzacji listenRule i EH są stosowane tylko w przypadku wystąpienia centrum zdarzeń reguła autoryzacji EH1 i sendRuleT dotyczy tylko tematu topic1. 
 
-Podczas korzystania z reguły autoryzacji sendRuleNS aplikacje klienckie mogą wysyłać do eh1 i topic1. Gdy używana jest reguła autoryzacji sendRuleT, wymusza tylko szczegółowy dostęp do topic1 i dlatego aplikacje klienckie korzystające z tej reguły dostępu nie mogą teraz wysyłać do eh1, ale tylko do topic1.
+W przypadku korzystania z reguły autoryzacji sendRuleNS aplikacje klienckie mogą wysyłać do EH1 i topic1. Gdy jest używana reguła autoryzacji sendRuleT, wymusza ona szczegółowy dostęp do topic1, a więc aplikacje klienckie korzystające z tej reguły dla dostępu nie mogą wysyłać do EH1, ale tylko do topic1.
 
-## <a name="generate-a-shared-access-signature-token"></a>Generowanie tokenu podpisu dostępu współdzielonego 
-Każdy klient, który ma dostęp do nazwy nazwy reguły autoryzacji i jeden z jego kluczy podpisywania może wygenerować token sygnatury dostępu Współdzielonego. Token jest generowany przez wykonanie ciągu w następującym formacie:
+## <a name="generate-a-shared-access-signature-token"></a>Generowanie tokenu sygnatury dostępu współdzielonego 
+Każdy klient, który ma dostęp do nazwy reguły autoryzacji i jednego z jego kluczy podpisywania, może generować token SAS. Token jest generowany przez przedpływanie ciągu w następującym formacie:
 
-- `se`– Natychmiastowe wygaśnięcie tokenu. Liczba całkowita odzwierciedlająca sekundy od 00:00:00 UTC w dniu 1 stycznia 1970 r. (epoka UNIX) po wygaśnięciu tokenu
-- `skn`– Nazwa reguły autoryzacji, czyli nazwa klucza sygnatury dostępu Współdzielonego.
-- `sr`– Identyfikator URI zasobu, do który uzyskuje się dostęp.
-- `sig`– Podpis.
+- `se`— Czas wygaśnięcia tokenu. Liczba całkowita odzwierciedlająca sekundy od czasu 00:00:00 czasu UTC na 1 stycznia 1970 (Epoka systemu UNIX) po wygaśnięciu tokenu
+- `skn`— Nazwa reguły autoryzacji, która jest nazwą klucza sygnatury dostępu współdzielonego.
+- `sr`— Identyfikator URI zasobu, do którego uzyskuje się dostęp.
+- `sig`Podpisane.
 
-Ciąg podpisu jest skrótem SHA-256 obliczonym za pośrednictwem identyfikatora URI zasobu (zakres opisany w poprzedniej sekcji) i reprezentacją ciągu natychmiastowego wygaśnięcia tokenu, oddzielonym crlf.
+Ciąg sygnatury to skrót SHA-256 obliczany na podstawie identyfikatora URI zasobu (zakres, zgodnie z opisem w poprzedniej sekcji) oraz ciąg reprezentujący czas wygaśnięcia tokenu, oddzielony znakiem CRLF.
 
-Obliczenia skrótu wygląda podobnie do następującego pseudo kodu i zwraca wartość mieszania 256-bit/32-bajtowy. 
+Obliczenia skrótu wyglądają podobnie jak w poniższym pseudo kodzie i zwracają 256-bitową/32-bajtową wartość skrótu. 
 
 ```
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-Token zawiera wartości nie skrótowe, dzięki czemu odbiorca może ponownie obliczyć wartość skrótu z tymi samymi parametrami, sprawdzając, czy wystawca jest w posiadaniu prawidłowego klucza podpisywania.
+Token zawiera wartości niebędące skrótami, dzięki czemu odbiorca może ponownie obliczyć skrót z tymi samymi parametrami, sprawdzając, czy Wystawca ma prawidłowy klucz podpisywania.
 
-Identyfikator URI zasobu jest pełnym identyfikatorem URI zasobu usługi Service Bus, do którego jest żądany dostęp. Na przykład http://<namespace>.servicebus.windows.net/<entityPath> lub `sb://<namespace>.servicebus.windows.net/<entityPath>;` oznacza . `http://contoso.servicebus.windows.net/eventhubs/eh1`
+Identyfikator URI zasobu to pełny identyfikator URI zasobu Service Bus, do którego odnosi się dostęp. <namespace>Na przykład http://.<entityPath> ServiceBus.Windows.NET/lub `sb://<namespace>.servicebus.windows.net/<entityPath>;` to,. `http://contoso.servicebus.windows.net/eventhubs/eh1`
 
-Identyfikator URI musi być zakodowany w procentach.
+Identyfikator URI musi być zakodowany przy użyciu wartości procentowej.
 
-Reguła autoryzacji dostępu współdzielonego używana do podpisywania musi być skonfigurowana w jednostce określonej przez ten identyfikator URI lub przez jeden z jej hierarchicznych łzawych. Na przykład `http://contoso.servicebus.windows.net/eventhubs/eh1` `http://contoso.servicebus.windows.net` lub w poprzednim przykładzie.
+Reguła autoryzacji dostępu współdzielonego używana do podpisywania musi być skonfigurowana w jednostce określonej przez ten identyfikator URI lub według jednego z hierarchicznych obiektów nadrzędnych. Na przykład `http://contoso.servicebus.windows.net/eventhubs/eh1` lub `http://contoso.servicebus.windows.net` w poprzednim przykładzie.
 
-Token sygnatury dostępu Współdzielonego jest prawidłowy dla wszystkich zasobów <resourceURI> poprzedzonych ciągiem podpisu.
+Token sygnatury dostępu współdzielonego jest prawidłowy dla wszystkich zasobów <resourceURI> poprzedzonych prefiksem używanym w ciągu sygnatury.
 
 > [!NOTE]
-> Generowanie tokenu dostępu dla centrów zdarzeń przy użyciu zasad dostępu współdzielonego. Aby uzyskać więcej informacji, zobacz [Zasady autoryzacji dostępu współdzielonego](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
+> Token dostępu jest generowany dla Event Hubs przy użyciu zasad dostępu współdzielonego. Aby uzyskać więcej informacji, zobacz [zasady autoryzacji dostępu współdzielonego](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
 
-### <a name="generating-a-signaturetoken-from-a-policy"></a>Generowanie podpisu (tokenu) z zasad 
-W poniższej sekcji przedstawiono generowanie tokenu sygnatury dostępu współdzielonego przy użyciu zasad podpisu dostępu współdzielonego,
+### <a name="generating-a-signaturetoken-from-a-policy"></a>Generowanie sygnatury (tokenu) z zasad 
+W poniższej sekcji przedstawiono generowanie tokenu SAS przy użyciu zasad sygnatury dostępu współdzielonego.
 
 #### <a name="nodejs"></a>NodeJS
 
@@ -95,7 +95,7 @@ function createSharedAccessToken(uri, saName, saKey) {
         encodeURIComponent(hash) + '&se=' + ttl + '&skn=' + saName; 
 ```
 
-#### <a name="java"></a>Java
+#### <a name="java"></a>OPROGRAMOWANIA
 
 ```java
 private static String GetSASToken(String resourceUri, String keyName, String key)
@@ -178,19 +178,19 @@ private static string createToken(string resourceUri, string keyName, string key
 }
 ```
 
-## <a name="authenticating-event-hubs-publishers-with-sas"></a>Uwierzytelnianie wydawców centrów zdarzeń za pomocą usługi SAS 
-Wydawca zdarzeń definiuje wirtualny punkt końcowy dla centrum zdarzeń. Wydawca może służyć tylko do wysyłania wiadomości do centrum zdarzeń i nie odbierać wiadomości.
+## <a name="authenticating-event-hubs-publishers-with-sas"></a>Uwierzytelnianie Event Hubs wydawców przy użyciu sygnatury dostępu współdzielonego 
+Wydawca zdarzeń definiuje wirtualny punkt końcowy centrum zdarzeń. Wydawca może być używany tylko do wysyłania komunikatów do centrum zdarzeń i nie odbierania komunikatów.
 
-Zazwyczaj centrum zdarzeń zatrudnia jednego wydawcę na klienta. Wszystkie wiadomości, które są wysyłane do dowolnego wydawców centrum zdarzeń są ujmowane w kolejce w tym centrum zdarzeń. Wydawcy umożliwiają precyzyjną kontrolę dostępu.
+Zwykle centrum zdarzeń wykorzystuje jednego wydawcę na każdego klienta. Wszystkie komunikaty wysyłane do dowolnego wydawcy centrum zdarzeń znajdują się w kolejce w tym centrum zdarzeń. Wydawcy włączają precyzyjną kontrolę dostępu.
 
-Każdemu klientowi centrum zdarzeń jest przypisywany unikatowy token, który jest przekazywał do klienta. Tokeny są produkowane w taki sposób, że każdy unikatowy token udziela dostępu do innego unikatowego wydawcy. Klient, który posiada token można wysłać tylko do jednego wydawcy, a nie inny wydawca. Jeśli wielu klientów współużytkuje ten sam token, każdy z nich współużytkuje wydawcę.
+Każdy klient Event Hubs ma przypisany unikatowy token, który jest przekazywany do klienta programu. Tokeny są tworzone w taki sposób, że każdy unikatowy token przyznaje dostęp do innego unikatowego wydawcy. Klient, który przechowuje token, może wysyłać tylko jednego wydawcę, a nie innego wydawcy. Jeśli wielu klientów współużytkują ten sam token, każdy z nich udostępnia wydawcę.
 
-Wszystkie tokeny są przypisywane z kluczami sygnatury dostępu Współdzielonego. Zazwyczaj wszystkie tokeny są podpisane za pomocą tego samego klucza. Klienci nie są świadomi klucza, co uniemożliwia klientom produkcję tokenów. Klienci działają na tych samych tokenach, dopóki nie wygasną.
+Wszystkie tokeny są przypisywane przy użyciu kluczy SAS. Zwykle wszystkie tokeny są podpisane przy użyciu tego samego klucza. Klienci nie mają informacji o kluczu, co uniemożliwia klientom użycie tokenów produkcyjnych. Klienci działają na tych samych tokenach do momentu ich wygaśnięcia.
 
-Na przykład, aby zdefiniować reguły autoryzacji ograniczone do wysyłania/publikowania tylko do centrum zdarzeń, należy zdefiniować regułę autoryzacji wysyłania. Można to zrobić na poziomie obszaru nazw lub nadać bardziej szczegółowy zakres określonej jednostce (wystąpienie centrów zdarzeń lub temat). Klient lub aplikacja, która jest objęta zakresem z takim szczegółowym dostępem jest wywoływana, Event Hubs wydawcy. Aby to zrobić, wykonaj następujące kroki:
+Na przykład w celu zdefiniowania reguł autoryzacji objętych zakresem do wysyłania/publikowania do Event Hubs należy zdefiniować regułę autoryzacji wysyłania. Można to zrobić na poziomie przestrzeni nazw lub nadać bardziej szczegółowy zakres określonej jednostce (wystąpienie Centra zdarzeń lub temat). Jest wywoływany klient lub aplikacja objęta zakresem takich szczegółowych praw dostępu, Event Hubs wydawcy. Aby to zrobić, wykonaj następujące kroki:
 
-1. Utwórz klucz Sygnatury dostępu Współdzielonego dla encji, którą chcesz opublikować, aby przypisać zakres **wysyłania.** Aby uzyskać więcej informacji, zobacz [Zasady autoryzacji dostępu współdzielonego](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
-2. Generowanie tokenu sygnatury dostępu Współdzielonego z czasem wygaśnięcia dla określonego wydawcy przy użyciu klucza wygenerowanego w kroku 1.
+1. Utwórz klucz sygnatury dostępu współdzielonego na jednostce, którą chcesz opublikować, aby przypisać do niej zakres **wysyłania** . Aby uzyskać więcej informacji, zobacz [zasady autoryzacji dostępu współdzielonego](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
+2. Wygeneruj token sygnatury dostępu współdzielonego z upływem czasu wygaśnięcia określonego wydawcy przy użyciu klucza wygenerowanego w krok 1.
 
     ```csharp
     var sasToken = SharedAccessSignatureTokenProvider.GetPublisherSharedAccessSignature(
@@ -201,37 +201,37 @@ Na przykład, aby zdefiniować reguły autoryzacji ograniczone do wysyłania/pub
                 "sas-key",
                 TimeSpan.FromMinutes(30));
     ```
-3. Podaj token do klienta wydawcy, który można wysłać tylko do jednostki i wydawcy, który token udziela dostępu do.
+3. Podaj token dla klienta wydawcy, który może być wysyłany tylko do jednostki i wydawcy, do którego token przyznaje dostęp.
 
-    Po wygaśnięciu tokenu klient traci dostęp do wysyłania/publikowania do jednostki. 
+    Po wygaśnięciu tokenu Klient utraci dostęp do wysyłania/publikowania w jednostce. 
 
 
 > [!NOTE]
-> Chociaż nie jest to zalecane, jest możliwe wyposażenie urządzeń z tokenów, które udzielają dostępu do centrum zdarzeń lub obszaru nazw. Każde urządzenie, które przechowuje ten token może wysyłać wiadomości bezpośrednio do tego centrum zdarzeń. Ponadto urządzenia nie można na czarnej liście od wysyłania do tego centrum zdarzeń.
+> Chociaż nie jest to zalecane, istnieje możliwość wyposażenia urządzeń z tokenami, które udzielają dostępu do centrum zdarzeń lub przestrzeni nazw. Każde urządzenie, które przechowuje ten token, może wysyłać wiadomości bezpośrednio do tego centrum zdarzeń. Ponadto urządzenie nie może być zabronione wysyłanie do tego centrum zdarzeń.
 > 
-> Zawsze zaleca się nadawaj konkretne i szczegółowe zakresy.
+> Zawsze zaleca się przyznanie określonych i szczegółowych zakresów.
 
 > [!IMPORTANT]
-> Po utworzeniu tokenów każdy klient jest aprowizowany za pomocą własnego unikatowego tokenu.
+> Po utworzeniu tokenów każdy klient zostanie zainicjowany z własnym unikatowym tokenem.
 >
-> Gdy klient wysyła dane do centrum zdarzeń, oznacza jego żądanie tokenem. Aby zapobiec podsłuchiwanie i kradzież tokenu przez osobę atakującą, komunikacja między klientem a centrum zdarzeń musi odbywać się za jej zawertowanym kanałem.
+> Gdy klient wysyła dane do centrum zdarzeń, oznacza jego żądanie z tokenem. Aby zapobiec podsłuchiwaniu i kradzieży tokenu przez atakującego, komunikacja między klientem a centrum zdarzeń musi odbywać się za pośrednictwem zaszyfrowanego kanału.
 > 
-> Jeśli token zostanie skradziony przez osobę atakującą, osoba atakująca może podszyć się pod klienta, którego token został skradziony. Na czarnej liście wydawcy powoduje, że klient nie będzie używany, dopóki nie otrzyma nowego tokenu, który używa innego wydawcy.
+> W przypadku kradzieży tokenu przez atakującego, osoba atakująca może personifikować klienta, którego token został skradziony. W przypadku odczekania wydawcy program renderuje tego klienta, dopóki nie odbierze nowego tokenu korzystającego z innego wydawcy.
 
 
-## <a name="authenticating-event-hubs-consumers-with-sas"></a>Uwierzytelnianie konsumentów centrów zdarzeń za pomocą usługi SAS 
-Aby uwierzytelnić aplikacje zaplecza, które zużywają dane generowane przez producentów usługi Event Hubs, uwierzytelnianie tokenu usługi Event Hubs wymaga, aby jego klienci mieli prawa do **zarządzania** lub uprawnienia **nasłuchiwanie** przypisane do obszaru nazw Centrum zdarzeń lub wystąpienia lub tematu centrum zdarzeń. Dane są używane z Centrów zdarzeń przy użyciu grup odbiorców. Podczas gdy zasady sygnatury dostępu Współdzielonego zapewnia szczegółowy zakres, zakres ten jest zdefiniowany tylko na poziomie jednostki, a nie na poziomie konsumenta. Oznacza to, że uprawnienia zdefiniowane na poziomie obszaru nazw lub wystąpienia centrum zdarzeń lub poziomu tematu zostaną zastosowane do grup konsumentów tej jednostki.
+## <a name="authenticating-event-hubs-consumers-with-sas"></a>Uwierzytelnianie Event Hubs użytkowników przy użyciu sygnatury dostępu współdzielonego 
+Aby uwierzytelniać aplikacje zaplecza, które wykorzystują dane wygenerowane przez producentów Event Hubs, uwierzytelnianie tokenów Event Hubs wymaga, aby klienci mieli uprawnienia do **zarządzania** prawami lub **nasłuchiwanie** przypisane do jego przestrzeni nazw Event Hubs lub wystąpienia centrum zdarzeń lub tematu. Dane są używane z Event Hubs przy użyciu grup odbiorców. Chociaż zasady SAS dają szczegółowy zakres, ten zakres jest definiowany tylko na poziomie jednostki, a nie na poziomie odbiorcy. Oznacza to, że uprawnienia zdefiniowane na poziomie przestrzeni nazw lub wystąpieniu centrum zdarzeń lub poziomie tematu zostaną zastosowane do grup odbiorców tej jednostki.
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły:
 
-- [Autoryzowanie przy użyciu sygnatury dostępu Współdzielonego](authenticate-shared-access-signature.md)
-- [Autoryzacja przy użyciu podstawowej kontroli dostępu roli (RBAC)](authenticate-shared-access-signature.md)
-- [Dowiedz się więcej o Centrach zdarzeń](event-hubs-about.md)
+- [Autoryzuj przy użyciu sygnatury dostępu współdzielonego](authenticate-shared-access-signature.md)
+- [Autoryzuj przy użyciu kontroli dostępu opartej na rolach (RBAC)](authenticate-shared-access-signature.md)
+- [Dowiedz się więcej o Event Hubs](event-hubs-about.md)
 
-Zobacz następujące artykuły pokrewne:
+Zapoznaj się z następującymi artykułami:
 
-- [Uwierzytelnij żądania do usługi Azure Event Hubs z aplikacji przy użyciu usługi Azure Active Directory](authenticate-application.md)
-- [Uwierzytelnij tożsamość zarządzaną za pomocą usługi Azure Active Directory w celu uzyskania dostępu do zasobów usługi Event Hubs](authenticate-managed-identity.md)
-- [Autoryzowanie dostępu do zasobów usługi Event Hubs przy użyciu usługi Azure Active Directory](authorize-access-azure-active-directory.md)
-- [Autoryzowanie dostępu do zasobów Centrum zdarzeń przy użyciu podpisów dostępu współdzielonego](authorize-access-shared-access-signature.md)
+- [Uwierzytelniaj żądania do Event Hubs platformy Azure z aplikacji przy użyciu Azure Active Directory](authenticate-application.md)
+- [Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs](authenticate-managed-identity.md)
+- [Autoryzuj dostęp do zasobów Event Hubs przy użyciu Azure Active Directory](authorize-access-azure-active-directory.md)
+- [Autoryzuj dostęp do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego](authorize-access-shared-access-signature.md)

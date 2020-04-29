@@ -10,10 +10,10 @@ ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
 ms.openlocfilehash: aa7cba00d865bb7b2c1e0fd1f0059fb35ffff690
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80060830"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Tworzenie konta magazynu i rotowanie kluczy dostępu do konta

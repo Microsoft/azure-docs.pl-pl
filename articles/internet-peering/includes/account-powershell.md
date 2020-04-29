@@ -9,25 +9,25 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: beffb2babefd86c2807e21e9337cba66f42fcfc2
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678484"
 ---
-Przed rozpoczęciem konfiguracji należy zainstalować i zaimportować wymagane moduły. Aby zainstalować moduły w programie PowerShell, są zainstalowane uprawnienia administratora.
+Przed rozpoczęciem konfiguracji zainstaluj i zaimportuj wymagane moduły. Do zainstalowania modułów w programie PowerShell wymagane są uprawnienia administratora.
 
-1. Zainstaluj i zaimportuj moduł Az.
+1. Zainstaluj i zaimportuj AZ module.
     ```powershell
     Install-Module Az -AllowClobber
     Import-Module Az
     ```
-1. Zainstaluj i zaimportuj moduł Az.Peering.
+1. Zainstaluj i zaimportuj moduł AZ. peering.
     ```powershell
     Install-Module -Name Az.Peering -AllowClobber
     Import-Module Az.Peering
     ```
-1. Sprawdź, czy moduły zostały zaimportowane poprawnie za pomocą tego polecenia:
+1. Sprawdź, czy moduły zostały prawidłowo zaimportowane przy użyciu tego polecenia:
     ```powershell
     Get-Module
     ```
@@ -35,19 +35,19 @@ Przed rozpoczęciem konfiguracji należy zainstalować i zaimportować wymagane 
     ```powershell
     Connect-AzAccount
     ```
-1. Sprawdź subskrypcje dla konta i wybierz subskrypcję, w której chcesz utworzyć komunikację równorzędną.
+1. Sprawdź subskrypcje konta i wybierz subskrypcję, w której chcesz utworzyć komunikację równorzędną.
     ```powershell
     Get-AzSubscription
     Select-AzSubscription -SubscriptionId "subscription-id"
     ```
-1. Jeśli nie masz jeszcze grupy zasobów, należy utworzyć jej przed utworzeniem komunikacji równorzędnej. Można to zrobić, uruchamiając następujące polecenie:
+1. Jeśli nie masz jeszcze grupy zasobów, musisz ją utworzyć przed utworzeniem komunikacji równorzędnej. Możesz to zrobić, uruchamiając następujące polecenie:
 
     ```powershell
     New-AzResourceGroup -Name "PeeringResourceGroup" -Location "Central US"
     ```
 > [!IMPORTANT]
-> Jeśli nie masz jeszcze skojarzonego asn i subskrypcji, wykonaj kroki opisane w [skojarzyć peer ASN](../howto-subscription-association-powershell.md). Ta akcja jest wymagana do żądania komunikacji równorzędnej.
+> Jeśli nie skojarzono jeszcze numeru ASN i subskrypcji, wykonaj kroki opisane w sekcji [kojarzenie równorzędnego numeru ASN](../howto-subscription-association-powershell.md). Ta akcja jest wymagana do żądania komunikacji równorzędnej.
 
 > [!NOTE]
-> Lokalizacja grupy zasobów jest niezależna od lokalizacji, w której można skonfigurować komunikację równorzędną.
+> Lokalizacja grupy zasobów jest niezależna od lokalizacji, w której użytkownik zdecyduje się skonfigurować komunikację równorzędną.
 &nbsp;

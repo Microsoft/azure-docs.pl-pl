@@ -1,6 +1,6 @@
 ---
-title: Lokalizacja — usługa Azure Active Directory B2C
-description: Określ element lokalizacji zasad niestandardowych w usłudze Azure Active Directory B2C.
+title: Lokalizacja — Azure Active Directory B2C
+description: Określ element lokalizacji niestandardowych zasad w Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,20 +11,20 @@ ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 94ff7ddda41f2df2634d927a7dbf8a5a0d4fc1d8
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81681414"
 ---
 # <a name="localization"></a>Lokalizacja
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**Localization** Element umożliwia obsługę wielu ustawień regionalnych lub języków w zasadach dla podróży użytkownika. Obsługa lokalizacji w zasadach umożliwia:
+Element **Lokalizacja** umożliwia obsługę wielu ustawień regionalnych lub języków w zasadach dla podróży użytkownika. Obsługa lokalizacji w ramach zasad pozwala:
 
 - Skonfiguruj jawną listę obsługiwanych języków w zasadach i wybierz język domyślny.
-- Podaj ciągi i kolekcje specyficzne dla języka.
+- Podaj odpowiednie dla języka ciągi i kolekcje.
 
 ```XML
 <Localization Enabled="true">
@@ -37,84 +37,84 @@ ms.locfileid: "81681414"
   ...
 ```
 
-Element **Lokalizacja** zawiera następujące atrybuty:
+Element **lokalizacji** zawiera następujące atrybuty:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| Enabled (Włączony) | Nie | Możliwe `true` wartości: `false`lub . |
+| Enabled (Włączony) | Nie | Możliwe wartości: `true` lub `false`. |
 
-Element **Lokalizacja** zawiera następujące elementy XML
+Element **lokalizacji** zawiera następujące elementy XML
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| Obsługiwanelanguages | 1:n | Lista obsługiwanych języków. |
-| Zlokalizowane Źródła zasobów | 0:n | Lista zlokalizowanych zasobów. |
+| SupportedLanguages | 1: n | Lista obsługiwanych języków. |
+| LocalizedResources | 0: n | Lista zlokalizowanych zasobów. |
 
-## <a name="supportedlanguages"></a>Obsługiwanelanguages
+## <a name="supportedlanguages"></a>SupportedLanguages
 
 Element **SupportedLanguages** zawiera następujące atrybuty:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
 | DefaultLanguage | Tak | Język, który ma być używany jako domyślny dla zlokalizowanych zasobów. |
-| MergeBehavior (Zachowanie scalania) | Nie | Wartości wyliczenia wartości, które są scalane wraz z dowolnego ClaimType obecnych w zasadach nadrzędnych o tym samym identyfikatorze. Użyj tego atrybutu podczas zastępowanie oświadczenia określonego w zasadach podstawowych. Możliwe `Append`wartości: `Prepend`, `ReplaceAll`, lub . Wartość `Append` określa, że kolekcja obecnych danych powinny być dołączane na końcu kolekcji określonych w zasadach nadrzędnych. Wartość `Prepend` określa, że kolekcja obecnych danych powinny zostać dodane przed kolekcji określonych w zasadach nadrzędnych. Wartość `ReplaceAll` określa, że zbieranie danych zdefiniowanych w zasadach nadrzędnych powinny być ignorowane, zamiast tego dane zdefiniowane w bieżącej zasad. |
+| MergeBehavior | Nie | Wartości wyliczenia wartości, które są scalone ze wszystkimi oświadczeniami obecnymi w zasadach nadrzędnych o tym samym identyfikatorze. Użyj tego atrybutu podczas zastępowania żądania określonego w zasadach podstawowych. Możliwe wartości: `Append`, `Prepend`, lub `ReplaceAll`. `Append` Wartość określa, że kolekcja danych powinna być dołączana na końcu kolekcji określonej w zasadach nadrzędnych. `Prepend` Wartość określa, że kolekcja danych powinna zostać dodana przed kolekcją określoną w zasadach nadrzędnych. `ReplaceAll` Wartość określa, że kolekcja danych zdefiniowana w zasadach nadrzędnych powinna być ignorowana, przy użyciu zamiast danych zdefiniowanych w bieżących zasadach. |
 
-### <a name="supportedlanguages"></a>Obsługiwanelanguages
+### <a name="supportedlanguages"></a>SupportedLanguages
 
 Element **SupportedLanguages** zawiera następujące elementy:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| ObsługiwaneLanguage | 1:n | Wyświetla zawartość, która jest zgodna z tagiem języka na RFC 5646 — tagi dla języków identyfikujących. |
+| SupportedLanguage | 1: n | Wyświetla zawartość, która jest zgodna ze znacznikiem języka na RFC 5646-Tagi dla identyfikacji języków. |
 
-## <a name="localizedresources"></a>Zlokalizowane Źródła zasobów
+## <a name="localizedresources"></a>LocalizedResources
 
 Element **LocalizedResources** zawiera następujące atrybuty:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| Identyfikator | Tak | Identyfikator, który jest używany do jednoznacznej identyfikacji zlokalizowanych zasobów. |
+| Identyfikator | Tak | Identyfikator, który jest używany do unikatowego identyfikowania zlokalizowanych zasobów. |
 
 Element **LocalizedResources** zawiera następujące elementy:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| Zlokalizowaneukłaki | 0:n | Definiuje całe kolekcje w różnych kulturach. Kolekcja może mieć różną liczbę elementów i różne ciągi dla różnych kultur. Przykłady kolekcji obejmują wyliczenia, które pojawiają się w typach oświadczeń. Na przykład lista krajów/regionów jest wyświetlana użytkownikowi na liście rozwijanej. |
-| Zlokalizowane Sznurki | 0:n | Definiuje wszystkie ciągi, z wyjątkiem tych ciągów, które pojawiają się w kolekcjach, w różnych kulturach. |
+| LocalizedCollections | 0: n | Definiuje całe kolekcje w różnych kulturach. Kolekcja może mieć różną liczbę elementów i różne ciągi dla różnych kultur. Przykłady kolekcji obejmują wyliczenia, które pojawiają się w typach zgłoszeń. Na przykład lista krajów/regionów jest pokazywana użytkownikowi na liście rozwijanej. |
+| LocalizedStrings | 0: n | Definiuje wszystkie ciągi, z wyjątkiem tych, które znajdują się w kolekcjach w różnych kulturach. |
 
-### <a name="localizedcollections"></a>Zlokalizowaneukłaki
+### <a name="localizedcollections"></a>LocalizedCollections
 
 Element **LocalizedCollections** zawiera następujące elementy:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| Zlokalizowanacollection | 1:n | Lista obsługiwanych języków. |
+| Zlokalizowany | 1: n | Lista obsługiwanych języków. |
 
-#### <a name="localizedcollection"></a>Zlokalizowanacollection
+#### <a name="localizedcollection"></a>Zlokalizowany
 
-Element **LocalizedCollection** zawiera następujące atrybuty:
+**Zlokalizowany** ElementCollection zawiera następujące atrybuty:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| Elementtype | Tak | Odwołuje się do elementu ClaimType lub elementu interfejsu użytkownika w pliku zasad. |
-| ElementId (ład elementu) | Tak | Ciąg, który zawiera odwołanie do typu oświadczenia już zdefiniowane w ClaimsSchema sekcji, która jest używana, jeśli **ElementType** jest ustawiona na ClaimType. |
-| CelCollection (CelCollection) | Tak | Kolekcja docelowa. |
+| ElementType | Tak | Odwołuje się do elementu ClaimType lub elementu interfejsu użytkownika w pliku zasad. |
+| ElementId | Tak | Ciąg, który zawiera odwołanie do typu oświadczenia zdefiniowanego już w sekcji ClaimsSchema, która jest używana, jeśli **ElementType** jest ustawiony jako typ oświadczenia. |
+| Targetcollection | Tak | Kolekcja docelowa. |
 
-Element **LocalizedCollection** zawiera następujące elementy:
+Element **zlokalizowany** zawiera następujące elementy:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| Element | 0:n | Definiuje dostępną opcję dla użytkownika, aby wybrać dla oświadczenia w interfejsie użytkownika, takich jak wartość w rozwijanej. |
+| Element | 0: n | Definiuje dostępną opcję dla użytkownika do wyboru w interfejsie użytkownika, na przykład wartość z listy rozwijanej. |
 
-**Element element** zawiera następujące atrybuty:
+Element **Item** zawiera następujące atrybuty:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| Tekst | Tak | Przyjazny dla użytkownika ciąg wyświetlania, który powinien być wyświetlany użytkownikowi w interfejsie użytkownika dla tej opcji. |
-| Wartość | Tak | Wartość oświadczenia ciągu skojarzona z wybraniem tej opcji. |
-| Wybierz opcjęObdefault | Nie | Wskazuje, czy ta opcja powinna być zaznaczona domyślnie w interfejsie użytkownika. Możliwe wartości: Prawda lub Fałsz. |
+| Tekst | Tak | Przyjazny dla użytkownika ciąg wyświetlania, który powinien być widoczny dla użytkownika w interfejsie użytkownika dla tej opcji. |
+| Wartość | Tak | Wartość żądania ciągu skojarzona z wybraniem tej opcji. |
+| SelectByDefault | Nie | Wskazuje, czy ta opcja powinna być wybrana domyślnie w interfejsie użytkownika. Możliwe wartości: true lub false. |
 
-Poniższy przykład pokazuje użycie **LocalizedCollections** elementu. Zawiera dwa **elementy LocalizedCollection,** jeden dla języka angielskiego, a drugi dla języka hiszpańskiego. Oba ustawić **ograniczenie** kolekcji `Gender` roszczenia z listy elementów w języku angielskim i hiszpańskim.
+W poniższym przykładzie pokazano użycie elementu **LocalizedCollections** . Zawiera dwa **zlokalizowane** elementycollection, jeden dla języka angielskiego i drugi dla języka hiszpańskiego. Oba te ustawienia **Restriction** są ustawiane jako kolekcja `Gender` ograniczeń dla żądania z listą elementów w języku angielskim i hiszpańskim.
 
 ```XML
 <LocalizedResources Id="api.selfasserted.en">
@@ -134,41 +134,41 @@ Poniższy przykład pokazuje użycie **LocalizedCollections** elementu. Zawiera 
 </LocalizedCollections>
 ```
 
-### <a name="localizedstrings"></a>Zlokalizowane Sznurki
+### <a name="localizedstrings"></a>LocalizedStrings
 
 Element **LocalizedStrings** zawiera następujące elementy:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| LocalizedString | 1:n | Zlokalizowany ciąg. |
+| LocalizedString | 1: n | Zlokalizowany ciąg. |
 
 Element **LocalizedString** zawiera następujące atrybuty:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| Elementtype | Tak | Możliwe wartości: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predykat,](#predicate) [InputValidation](#inputvalidation)lub [UxElement](#uxelement).   | 
-| ElementId (ład elementu) | Tak | Jeśli **ElementType** jest `ClaimType` `Predicate`ustawiona `InputValidation`na , lub , ten element zawiera odwołanie do typu oświadczenia już zdefiniowane w ClaimsSchema sekcji. |
-| StringId (ida ciągiem) | Tak | Jeśli **ElementType** jest `ClaimType`ustawiona na , ten element zawiera odwołanie do atrybutu typu oświadczenia. Możliwe `DisplayName`wartości: `AdminHelpText`, `PatternHelpText`, lub . Wartość `DisplayName` jest używana do ustawiania nazwy wyświetlanej oświadczenia. Wartość `AdminHelpText` służy do ustawiania nazwy tekstowej pomocy użytkownika oświadczenia. Wartość `PatternHelpText` służy do ustawiania tekstu pomocy wzorca oświadczeń. Jeśli **ElementType** jest `UxElement`ustawiona na , ten element zawiera odwołanie do atrybutu elementu interfejsu użytkownika. Jeśli **elementType** jest `ErrorMessage`ustawiona na , ten element określa identyfikator komunikatu o błędzie. Zobacz [Identyfikatory ciągów lokalizacji,](localization-string-ids.md) aby `UxElement` uzyskać pełną listę identyfikatorów.|
+| ElementType | Tak | Możliwe wartości: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [predykat](#predicate), [InputValidation](#inputvalidation)lub [UxElement](#uxelement).   | 
+| ElementId | Tak | Jeśli **ElementType** ma wartość `ClaimType`,, `Predicate`lub `InputValidation`, ten element zawiera odwołanie do typu, który już został zdefiniowany w sekcji ClaimsSchema. |
+| StringId | Tak | Jeśli **ElementType** ma wartość `ClaimType`, ten element zawiera odwołanie do atrybutu typu "typ". Możliwe wartości: `DisplayName`, `AdminHelpText`, lub `PatternHelpText`. `DisplayName` Wartość jest używana do ustawiania nazwy wyświetlanej w ramach żądania. `AdminHelpText` Wartość jest używana do ustawiania nazwy tekstu pomocy dla użytkownika. `PatternHelpText` Wartość jest używana do ustawiania tekstu pomocy dla wzorca roszczeń. Jeśli **ElementType** ma wartość `UxElement`, ten element zawiera odwołanie do atrybutu elementu interfejsu użytkownika. Jeśli **ElementType** ma wartość `ErrorMessage`, ten element określa identyfikator komunikatu o błędzie. Aby uzyskać pełną listę identyfikatorów, `UxElement` zobacz [identyfikatory ciągów lokalizacji](localization-string-ids.md) .|
 
-## <a name="elementtype"></a>Elementtype
+## <a name="elementtype"></a>ElementType
 
-ElementType odwołanie do typu oświadczenia, transformacja oświadczenia lub element interfejsu użytkownika w zasadach, które mają być zlokalizowane.
+Odwołanie do typu elementu, przekształcenie lub element interfejsu użytkownika w zasadach, które mają być lokalizowane.
 
-| Element do lokalizacji | Elementtype | ElementId (ład elementu) |StringId (ida ciągiem) |
+| Element do zlokalizowania | ElementType | ElementId |StringId |
 | --------- | -------- | ----------- |----------- |
 | Nazwa dostawcy tożsamości |`ClaimsProvider`| | Identyfikator elementu ClaimsExchange|
-| Atrybuty typu oświadczenia|`ClaimType`|Nazwa typu oświadczenia| Atrybut oświadczenia, które mają być zlokalizowane. Możliwe `AdminHelpText`wartości: `DisplayName` `PatternHelpText`, `UserHelpText`, , i .|
+| Atrybuty typu zgłoszenia|`ClaimType`|Nazwa typu zgłoszenia| Atrybut, który ma zostać zlokalizowany. Możliwe wartości: `AdminHelpText`, `DisplayName`, `PatternHelpText`i `UserHelpText`.|
 |Komunikat o błędzie|`ErrorMessage`||Identyfikator komunikatu o błędzie |
-|Kopiuje zlokalizowane ciągi do oświadczeń|`GetLocalizedStringsTra nsformationClaimType`||Nazwa oświadczenia wyjściowego|
-|Predykuj komunikat użytkownika|`Predicate`|Nazwa predykatu| Atrybut predykatu, który ma być zlokalizowany. Możliwe wartości: `HelpText`.|
-|Predykat wiadomości użytkownika grupy|`InputValidation`|Identyfikator predykatuWalnewłastowanie elementu.|Identyfikator elementu PredicateGroup. Grupa predykatu musi być elementem podrzędnym elementu sprawdzania poprawności predykatu, zgodnie z definicją w ElementId.|
-|Elementy interfejsu użytkownika |`UxElement` | | Identyfikator elementu interfejsu użytkownika, który ma być zlokalizowany.|
+|Kopiuje zlokalizowane ciągi do oświadczeń|`GetLocalizedStringsTra nsformationClaimType`||Nazwa zgłoszenia wyjściowego|
+|Komunikat użytkownika predykatu|`Predicate`|Nazwa predykatu| Atrybut predykatu, który ma zostać zlokalizowany. Możliwe wartości: `HelpText`.|
+|Komunikat użytkownika grupy predykatu|`InputValidation`|Identyfikator elementu PredicateValidation.|Identyfikator elementu predykatu. Grupa predykatów musi być elementem podrzędnym elementu walidacji predykatu, jak zdefiniowano w ElementId.|
+|Elementy interfejsu użytkownika |`UxElement` | | Identyfikator elementu interfejsu użytkownika, który ma zostać zlokalizowany.|
 
 ## <a name="examples"></a>Przykłady
 
 ### <a name="claimsprovider"></a>ClaimsProvider
 
-ClaimsProvider wartość jest używana do lokalizowania jednego z dostawców oświadczeń nazwy wyświetlanej. 
+Wartość ClaimsProvider służy do lokalizowania jednej z nazw wyświetlanych dostawców. 
 
 ```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
@@ -182,7 +182,7 @@ ClaimsProvider wartość jest używana do lokalizowania jednego z dostawców oś
 
 ```
 
-W poniższym przykładzie pokazano, jak zlokalizować nazwę wyświetlaną dostawców oświadczeń.
+Poniższy przykład pokazuje, jak zlokalizować nazwę wyświetlaną dostawcy roszczeń.
 
 ```xml
 <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
@@ -190,9 +190,9 @@ W poniższym przykładzie pokazano, jak zlokalizować nazwę wyświetlaną dosta
 <LocalizedString ElementType="ClaimsProvider" StringId="LinkedInExchange">LinkedIn</LocalizedString>
 ```
 
-### <a name="claimtype"></a>Claimtype
+### <a name="claimtype"></a>Claim
 
-Wartość ClaimType służy do lokalizowania jednego z atrybutów oświadczenia. 
+Wartość oświadczenia jest używana do lokalizowania jednego z atrybutów oświadczenia. 
 
 ```xml
 <ClaimType Id="email">
@@ -203,7 +203,7 @@ Wartość ClaimType służy do lokalizowania jednego z atrybutów oświadczenia.
 </ClaimType>
 ```
 
-W poniższym przykładzie pokazano, jak zlokalizować DisplayName, UserHelpText i PatternHelpText atrybuty typu oświadczenia wiadomości e-mail.
+Poniższy przykład pokazuje, jak lokalizować atrybuty DisplayName, UserHelpText i PatternHelpText typu zgłoszenia adresu e-mail.
 
 ```XML
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
@@ -211,9 +211,9 @@ W poniższym przykładzie pokazano, jak zlokalizować DisplayName, UserHelpText 
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
 ```
 
-### <a name="errormessage"></a>Errormessage
+### <a name="errormessage"></a>ErrorMessage
 
-ErrorMessage Wartość jest używana do lokalizowania jednego z komunikatów o błędach systemu. 
+Wartość ErrorMessage służy do lokalizowania jednego z komunikatów o błędach systemu. 
 
 ```xml
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
@@ -225,7 +225,7 @@ ErrorMessage Wartość jest używana do lokalizowania jednego z komunikatów o b
 </TechnicalProfile>
 ```
 
-W poniższym przykładzie pokazano, jak zlokalizować komunikat o błędzie UserMessageIfClaimsPrincipalAlreadyExists.
+Poniższy przykład pokazuje, jak zlokalizować komunikat o błędzie UserMessageIfClaimsPrincipalAlreadyExists.
 
 
 ```XML
@@ -234,7 +234,7 @@ W poniższym przykładzie pokazano, jak zlokalizować komunikat o błędzie User
 
 ### <a name="getlocalizedstringstransformationclaimtype"></a>GetLocalizedStringsTransformationClaimType
 
-GetLocalizedStringsTransformationClaimType wartość jest używana do kopiowania zlokalizowanych ciągów do oświadczeń. Aby uzyskać więcej informacji, zobacz [Transformacja oświadczeń GetLocalizedStringsTransformation](string-transformations.md#getlocalizedstringstransformation)
+Wartość GetLocalizedStringsTransformationClaimType jest używana do kopiowania zlokalizowanych ciągów do oświadczeń. Aby uzyskać więcej informacji, zobacz [GetLocalizedStringsTransformation — przekształcanie oświadczeń](string-transformations.md#getlocalizedstringstransformation)
 
 
 ```xml
@@ -248,7 +248,7 @@ GetLocalizedStringsTransformationClaimType wartość jest używana do kopiowania
 </ClaimsTransformation>
 ```
 
-W poniższym przykładzie pokazano, jak zlokalizować oświadczenia wyjściowe transformacji oświadczeń GetLocalizedStringsTransformation.
+Poniższy przykład pokazuje, jak lokalizować żądania wyjściowe transformacji oświadczeń GetLocalizedStringsTransformation.
 
 ```xml
 <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
@@ -257,9 +257,9 @@ W poniższym przykładzie pokazano, jak zlokalizować oświadczenia wyjściowe t
 <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
 ```
 
-### <a name="predicate"></a>Predykat
+### <a name="predicate"></a>Predykatu
 
-Predykat wartość jest używana do lokalizowania jednego z [predykatu](predicates.md) komunikatów o błędach. 
+Wartość predykatu jest używana do lokalizowania jednego z komunikatów o błędach [predykatu](predicates.md) . 
 
 ```xml
 <Predicates>
@@ -282,7 +282,7 @@ Predykat wartość jest używana do lokalizowania jednego z [predykatu](predicat
 </Predicates>
 ```
 
-W poniższym przykładzie pokazano, jak zlokalizować predykaty tekst pomocy.
+Poniższy przykład przedstawia sposób lokalizowania tekstu pomocy predykatów.
 
 ```xml
 <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">The password must be between 6 and 64 characters.</LocalizedString>
@@ -290,9 +290,9 @@ W poniższym przykładzie pokazano, jak zlokalizować predykaty tekst pomocy.
 <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">an uppercase letter</LocalizedString>
 ```
 
-### <a name="inputvalidation"></a>Wartość danych wejściowych
+### <a name="inputvalidation"></a>InputValidation
 
-Wartość InputValidation służy do lokalizowania jednego z komunikatów o błędach grupy [PredicateValidation.](predicates.md) 
+Wartość InputValidation służy do lokalizowania jednego z komunikatów o błędach grupy [PredicateValidation](predicates.md) . 
 
 ```xml
 <PredicateValidations>
@@ -317,15 +317,15 @@ Wartość InputValidation służy do lokalizowania jednego z komunikatów o bł�
 </PredicateValidations>
 ```
 
-W poniższym przykładzie pokazano, jak zlokalizować tekst pomocy grupy sprawdzania poprawności predykatu.
+Poniższy przykład pokazuje, jak zlokalizować tekst pomocy grupy walidacji predykatu.
 
 ```XML
 <LocalizedString ElementType="InputValidation" ElementId="CustomPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
 ```
 
-### <a name="uxelement"></a>UxElement ( UxElement )
+### <a name="uxelement"></a>UxElement
 
-Wartość UxElement służy do lokalizowania jednego z elementów interfejsu użytkownika. W poniższym przykładzie pokazano, jak zlokalizować przyciski kontynuuj i anuluj.
+Wartość UxElement służy do lokalizowania jednego z elementów interfejsu użytkownika. Poniższy przykład pokazuje, jak zlokalizować przyciski Kontynuuj i Anuluj.
 
 ```XML
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
@@ -334,7 +334,7 @@ Wartość UxElement służy do lokalizowania jednego z elementów interfejsu uż
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz następujące artykuły przykładów lokalizacji:
+Przykłady lokalizacji można znaleźć w następujących artykułach:
 
-- [Dostosowywanie języka za pomocą zasad niestandardowych w usłudze Azure Active Directory B2C](custom-policy-localization.md)
-- [Dostosowywanie języka z przepływami użytkowników w usłudze Azure Active Directory B2C](user-flow-language-customization.md)
+- [Dostosowywanie języka za pomocą zasad niestandardowych w Azure Active Directory B2C](custom-policy-localization.md)
+- [Dostosowywanie języka za pomocą przepływów użytkowników w Azure Active Directory B2C](user-flow-language-customization.md)

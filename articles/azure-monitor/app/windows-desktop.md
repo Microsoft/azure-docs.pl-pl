@@ -4,10 +4,10 @@ description: Analizowanie użycia i wydajności klasycznej aplikacji systemu Win
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.openlocfilehash: eb9e0fc480098478a3a68265ac85e0d5450e27fe
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537393"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitorowanie użycia i wydajności klasycznych aplikacji systemu Windows
@@ -24,11 +24,11 @@ Wszystkie aplikacje hostowane lokalnie, na platformie Azure i w innych chmurach 
    
     albo w pliku ApplicationInsights.config (jeśli został zainstalowany jeden ze standardowych pakietów telemetrii):
    
-    `<InstrumentationKey>`*twój klucz*`</InstrumentationKey>` 
+    `<InstrumentationKey>`*Twój klucz*`</InstrumentationKey>` 
    
     Jeśli używasz pliku ApplicationInsights.config, upewnij się, że jego właściwości w Eksploratorze rozwiązań zostały ustawione na **Akcja kompilacji = Zawartość, Kopiuj do katalogu wyjściowego = Kopiuj**.
 5. [Użyj interfejsu API](../../azure-monitor/app/api-custom-events-metrics.md), aby wysłać telemetrię.
-6. Uruchom aplikację i zobacz dane telemetryczne w zasobie utworzonym w witrynie Azure portal.
+6. Uruchom aplikację i Wyświetl dane telemetryczne w zasobie utworzonym w Azure Portal.
 
 ## <a name="example-code"></a><a name="telemetry"></a>Przykładowy kod
 ```csharp
@@ -68,11 +68,11 @@ using Microsoft.ApplicationInsights;
 
 ```
 
-## <a name="override-storage-of-computer-name"></a>Zastępowanie przechowywania nazwy komputera
+## <a name="override-storage-of-computer-name"></a>Zastąp magazyn nazwy komputera
 
-Domyślnie ten sdk będzie zbierać i przechowywać nazwę komputera systemu emitującego dane telemetryczne. Aby zastąpić kolekcję, należy użyć inicjatora telemetrii:
+Domyślnie ten zestaw SDK będzie zbierać i przechowywać nazwę komputera, który emituje dane telemetryczne. Aby przesłonić kolekcję, należy użyć inicjatora telemetrii:
 
-**Napisz niestandardowy telemetryInitializer jak poniżej.**
+**Napisz niestandardowe TelemetryInitializer jako poniżej.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -93,7 +93,7 @@ namespace CustomInitializer.Telemetry
     }
 }
 ```
-Smówiamy inicjatora `Program.cs` `Main()` w poniższej metodzie ustawiania klucza instrumentacji:
+Utwórz wystąpienie inicjatora w `Program.cs` `Main()` metodzie poniżej ustawienia klucza Instrumentacji:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;

@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek 1: Przewidywanie ryzyka kredytowego'
+title: 'Samouczek 1: przewidywanie ryzyka kredytowego'
 titleSuffix: ML Studio (classic) - Azure
-description: Szczegółowy samouczek pokazujący, jak utworzyć rozwiązanie do analizy predykcyjnej do oceny ryzyka kredytowego w usłudze Azure Machine Learning Studio (klasyczny). Ten samouczek jest pierwszą częścią trzyczęściowej serii.  Pokazano w nim, jak utworzyć obszar roboczy, przekazać dane i utworzyć eksperyment.
+description: Szczegółowy Samouczek przedstawiający sposób tworzenia rozwiązania do analizy predykcyjnej w celu oceny ryzyka kredytowego w Azure Machine Learning Studio (klasyczny). Ten samouczek jest pierwszą częścią trzyczęściowej serii.  Pokazano w nim, jak utworzyć obszar roboczy, przekazać dane i utworzyć eksperyment.
 keywords: ryzyko kredytowe, rozwiązanie analizy predykcyjnej, ocena ryzyka
 author: sdgilley
 ms.author: sgilley
@@ -11,30 +11,30 @@ ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
 ms.openlocfilehash: 6fd8573c78d80c950bdeb41ec01e2835def3979a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79204260"
 ---
-# <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Samouczek 1: Przewidywanie ryzyka kredytowego — usługa Azure Machine Learning Studio (klasyczna)
+# <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Samouczek 1: przewidywanie ryzyka kredytowego — Azure Machine Learning Studio (klasyczny)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-W tym samouczku szczegółowo przedstawiono proces opracowywania rozwiązania analizy predykcyjnej. Opracowywkij prostego modelu w machine learning studio (klasyczny).  Następnie wdrożysz model jako usługę internetową w ramach usługi Azure Machine Learning.  Wdrożony model może tworzyć przewidywania przy użyciu nowych danych. Ten samouczek jest **pierwszą częścią trzyczęściowej serii**.
+W tym samouczku szczegółowo przedstawiono proces opracowywania rozwiązania analizy predykcyjnej. Tworzysz prosty model w Machine Learning Studio (klasyczny).  Następnie wdrożysz model jako usługę internetową w ramach usługi Azure Machine Learning.  Wdrożony model może tworzyć przewidywania przy użyciu nowych danych. Ten samouczek jest **pierwszą częścią trzyczęściowej serii**.
 
 Załóżmy, że chcesz przewidzieć ryzyko kredytowe osoby na podstawie informacji przekazanych we wniosku kredytowym.  
 
-Ocena ryzyka kredytowego to złożony problem, ale w tym samouczku zostanie on nieco uproszczony. Użyjesz go jako przykład, jak można utworzyć rozwiązanie analizy predykcyjnej przy użyciu microsoft azure machine learning studio (klasyczny). Użyjesz usługi Azure Machine Learning Studio (klasyczny) i usługi sieci web uczenia maszynowego dla tego rozwiązania.  
+Ocena ryzyka kredytowego to złożony problem, ale w tym samouczku zostanie on nieco uproszczony. Będziesz jej używać jako przykładu tworzenia rozwiązania do analizy predykcyjnej przy użyciu Microsoft Azure Machine Learning Studio (klasyczne). Dla tego rozwiązania będziesz używać Azure Machine Learning Studio (klasyczny) i Machine Learning usługi sieci Web.  
 
 W tym trzyczęściowym samouczku zaczniesz od publicznie dostępnych danych ryzyka kredytowego.  Następnie wdrożysz i wytrenujesz model predykcyjny.  Na koniec wdrożysz model jako usługę internetową.
 
 W tej części samouczka zostaną wykonane następujące czynności: 
  
 > [!div class="checklist"]
-> * Tworzenie klasycznego obszaru roboczego w studio uczenia maszynowego
+> * Tworzenie obszaru roboczego Machine Learning Studio (klasyczny)
 > * Przekazywanie istniejących danych
 > * Tworzenie eksperymentu
 
@@ -42,28 +42,28 @@ Następnie możesz użyć tego eksperymentu, aby [wytrenować modele w części 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym samouczku przyjęto założenie, że studio machine learning studio (klasyczne) co najmniej raz przed i że masz pewne zrozumienie koncepcji uczenia maszynowego. Nie zakładamy jednak, że jesteś ekspertem w którejkolwiek z tych dziedzin.
+W tym samouczku założono, że wcześniej korzystano Machine Learning Studio (klasyczny) co najmniej raz i że masz pewne zrozumienie koncepcji uczenia maszynowego. Nie zakładamy jednak, że jesteś ekspertem w którejkolwiek z tych dziedzin.
 
-Jeśli nigdy wcześniej nie używano **usługi Azure Machine Learning Studio (klasyczne),** warto rozpocząć od przewodnika Szybki start, [Utwórz pierwszy eksperyment nauki o danych w usłudze Azure Machine Learning Studio (klasyczny).](create-experiment.md) Przewodnik Szybki start po raz pierwszy przejdzie przez studio machine learning (classic). Podstawowe informacje przedstawione w tym samouczku obejmują przeciąganie modułów i upuszczanie ich w obszarze eksperymentu, łączenie modułów ze sobą, uruchamianie eksperymentu oraz przeglądanie wyników.
+Jeśli wcześniej nie korzystasz z **Azure Machine Learning Studio (klasyczny)** , możesz zacząć od przewodnika Szybki Start, [utworzyć pierwszy eksperyment nauki o danych w Azure Machine Learning Studio (klasyczny)](create-experiment.md). Przewodnik Szybki Start przeprowadzi Cię przez Machine Learning Studio (klasyczny) po raz pierwszy. Podstawowe informacje przedstawione w tym samouczku obejmują przeciąganie modułów i upuszczanie ich w obszarze eksperymentu, łączenie modułów ze sobą, uruchamianie eksperymentu oraz przeglądanie wyników.
 
 
 > [!TIP] 
-> Funkcjonalną kopię eksperymentu opracowywanego w tym samouczku można znaleźć w witrynie [Azure AI Gallery](https://gallery.azure.ai). Przejdź do **[samouczka — przewiduj ryzyko kredytowe](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** i kliknij przycisk **Otwórz w Studio,** aby pobrać kopię eksperymentu do obszaru roboczego Machine Learning Studio (klasycznego).
+> Funkcjonalną kopię eksperymentu opracowywanego w tym samouczku można znaleźć w witrynie [Azure AI Gallery](https://gallery.azure.ai). Przejdź do **[samouczka — przewidywanie ryzyka kredytowego](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** , a następnie kliknij pozycję **Otwórz w programie Studio** , aby pobrać kopię eksperymentu do obszaru roboczego Machine Learning Studio (klasycznego).
 > 
 
 
-## <a name="create-a-machine-learning-studio-classic-workspace"></a>Tworzenie klasycznego obszaru roboczego w studio uczenia maszynowego
+## <a name="create-a-machine-learning-studio-classic-workspace"></a>Tworzenie obszaru roboczego Machine Learning Studio (klasyczny)
 
-Aby korzystać ze studia Machine Learning Studio (klasycznego), musisz mieć obszar roboczy Microsoft Azure Machine Learning Studio (klasyczny). Ten obszar roboczy zawiera narzędzia potrzebne do tworzenia i publikowania eksperymentów oraz zarządzania nimi.  
+Aby użyć Machine Learning Studio (klasyczny), musisz mieć obszar roboczy Microsoft Azure Machine Learning Studio (klasyczny). Ten obszar roboczy zawiera narzędzia potrzebne do tworzenia i publikowania eksperymentów oraz zarządzania nimi.  
 
-Aby utworzyć obszar roboczy, zobacz [Tworzenie i udostępnianie obszaru roboczego usługi Azure Machine Learning Studio (klasyczny)](create-workspace.md).
+Aby utworzyć obszar roboczy, zobacz temat [Tworzenie i udostępnianie obszaru roboczego Azure Machine Learning Studio (klasycznego)](create-workspace.md).
 
-Po utworzeniu obszaru roboczego otwórz studio machine[https://studio.azureml.net/Home](https://studio.azureml.net/Home)learning studio (klasyczny) ( ). Jeśli masz więcej niż jeden obszar roboczy, możesz wybrać odpowiedni obszar roboczy na pasku narzędzi w prawym górnym rogu okna.
+Po utworzeniu obszaru roboczego Otwórz Machine Learning Studio (klasyczny) ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Jeśli masz więcej niż jeden obszar roboczy, możesz wybrać odpowiedni obszar roboczy na pasku narzędzi w prawym górnym rogu okna.
 
-![Wybierz obszar roboczy w Studio (klasyczny)](./media/tutorial-part1-credit-risk/open-workspace.png)
+![Wybieranie obszaru roboczego w programie Studio (klasyczny)](./media/tutorial-part1-credit-risk/open-workspace.png)
 
 > [!TIP]
-> Jeśli jesteś właścicielem obszaru roboczego, możesz udostępniać eksperymenty, nad którymi pracujesz, zapraszając inne osoby do obszaru roboczego. Można to zrobić w programie Machine Learning Studio (klasyczny) na stronie **USTAWIENIA.** Wystarczy, że każdy użytkownik będzie miał konto Microsoft lub konto organizacji.
+> Jeśli jesteś właścicielem obszaru roboczego, możesz udostępniać eksperymenty, nad którymi pracujesz, zapraszając inne osoby do obszaru roboczego. Można to zrobić w Machine Learning Studio (klasyczny) na stronie **Ustawienia** . Wystarczy, że każdy użytkownik będzie miał konto Microsoft lub konto organizacji.
 > 
 > Na stronie **SETTINGS** (USTAWIENIA) kliknij pozycję **USERS** (UŻYTKOWNICY), a następnie kliknij przycisk **INVITE MORE USERS** (ZAPROŚ UŻYTKOWNIKÓW) w dolnej części okna.
 > 
@@ -79,7 +79,7 @@ Zestaw danych **german.data** zawiera wiersze 20 zmiennych z 1000 złożonych w 
 
 Witryna internetowa UCI zawiera opis atrybutów wektora cech dla tych danych. Te dane obejmują informacje finansowe, historię kredytową, stan zatrudnienia i dane osobowe. Każdy wnioskodawca został poddany klasyfikacji binarnej, która wskazuje, czy jego ryzyko kredytowe jest wysokie, czy niskie. 
 
-Użyjesz tych danych, aby wytrenować model analizy predykcyjnej. Po zakończeniu model powinien być w stanie zaakceptować wektor funkcji dla nowej osoby i przewidzieć, czy są one niskie lub wysokie ryzyko kredytowe.  
+Użyjesz tych danych, aby wytrenować model analizy predykcyjnej. Gdy wszystko będzie gotowe, model powinien mieć możliwość akceptowania wektora funkcji dla nowej osoby i przewidywania, czy są to niskie czy wysokie ryzyko kredytowe.  
 
 Jest jeszcze pewien interesujący zwrot.
 
@@ -97,7 +97,7 @@ W takim przypadku, jeśli model błędnie sklasyfikuje niskie ryzyko kredytowe d
 
 ### <a name="convert-the-dataset-format"></a>Konwertowanie formatu zestawu danych
 
-Oryginalny zestaw danych ma format wartości rozdzielanych spacją. Machine Learning Studio (klasyczny) działa lepiej z plikiem wartości rozdzielonej przecinkami (CSV), więc można przekonwertować zestaw danych, zastępując spacje przecinkami.  
+Oryginalny zestaw danych ma format wartości rozdzielanych spacją. Machine Learning Studio (klasyczny) działa lepiej przy użyciu pliku wartości rozdzielanych przecinkami (CSV), dzięki czemu można przekonwertować zestaw danych, zastępując spacje przecinkami.  
 
 Istnieje wiele sposobów na przekonwertowanie danych. Jednym z nich jest użycie następującego polecenia programu Windows PowerShell:   
 
@@ -109,11 +109,11 @@ Innym sposobem jest użycie polecenia sed systemu Unix:
 
 W obu przypadkach zostanie utworzona rozdzielana przecinkami wersja danych w pliku o nazwie **german.csv**, którego możesz użyć w eksperymencie.
 
-### <a name="upload-the-dataset-to-machine-learning-studio-classic"></a>Przekazywanie zestawu danych do usługi Machine Learning Studio (klasyczne)
+### <a name="upload-the-dataset-to-machine-learning-studio-classic"></a>Przekaż zestaw danych do Machine Learning Studio (klasyczny)
 
-Po przekonwertowaniu danych na format CSV należy przesłać je do usługi Machine Learning Studio (classic). 
+Gdy dane zostaną przekonwertowane do formatu CSV, należy przekazać je do Machine Learning Studio (klasyczne). 
 
-1. Otwórz stronę główną Machine Learning[https://studio.azureml.net](https://studio.azureml.net)Studio (klasyczna) ( ). 
+1. Otwórz stronę główną Machine Learning Studio ([https://studio.azureml.net](https://studio.azureml.net)). 
 
 2. Kliknij menu ![Menu](./media/tutorial-part1-credit-risk/menu.png) w lewym górnym rogu okna, kliknij pozycję **Azure Machine Learning**, wybierz pozycję **Studio** i zaloguj się.
 
@@ -139,17 +139,17 @@ Po przekonwertowaniu danych na format CSV należy przesłać je do usługi Machi
 
 Spowoduje to przekazanie danych do modułu zestawu danych, którego możesz użyć w eksperymencie.
 
-Możesz zarządzać zestawami danych przekazanymi do Studio (klasycznym), klikając kartę **ZESTAWY DANYCH** po lewej stronie okna Studio (klasyczne).
+Można zarządzać zestawami danych, które zostały przekazane do Studio (klasyczne), klikając kartę **zestawy danych** z lewej strony okna Studio (klasyczne).
 
 ![Zarządzanie zestawami danych](./media/tutorial-part1-credit-risk/dataset-list.png)
 
-Aby uzyskać więcej informacji na temat importowania innych typów danych do eksperymentu, zobacz [Importowanie danych szkoleniowych do usługi Azure Machine Learning Studio (klasyczny)](import-data.md).
+Aby uzyskać więcej informacji na temat importowania innych typów danych do eksperymentu, zobacz [Importowanie danych szkoleniowych do Azure Machine Learning Studio (klasyczne)](import-data.md).
 
 ## <a name="create-an-experiment"></a>Tworzenie eksperymentu
 
-Następnym krokiem w tym samouczku jest utworzenie eksperymentu w udziale Machine Learning Studio (klasyczny), który używa przesłanego zestawu danych.  
+Następnym krokiem w tym samouczku jest utworzenie eksperymentu w Machine Learning Studio (klasyczny), który używa przekazanego zestawu danych.  
 
-1. W Studio (klasyczny), kliknij **+NOWOŚĆ** w dolnej części okna.
+1. W programie Studio (klasyczny) kliknij pozycję **+ Nowy** w dolnej części okna.
 1. Wybierz pozycję **EXPERIMENT** (EKSPERYMENT), a następnie wybierz pozycję „Blank Experiment” (Pusty eksperyment). 
 
     ![Tworzenie nowego eksperymentu](./media/tutorial-part1-credit-risk/create-new-experiment.png)
@@ -173,15 +173,15 @@ Następnym krokiem w tym samouczku jest utworzenie eksperymentu w udziale Machin
 
 ### <a name="prepare-the-data"></a>Przygotowywanie danych
 
-Możesz wyświetlić pierwsze 100 wierszy danych i niektóre informacje statystyczne dla całego zestawu danych: Kliknij port wyjściowy zestawu danych (małe kółko u dołu) i wybierz **wizualizuj**.  
+Można wyświetlić pierwsze 100 wierszy danych i niektóre informacje statystyczne dla całego zestawu danych: kliknij port wyjściowy zestawu danych (mały okrąg u dołu) i wybierz opcję **Wizualizuj**.  
 
-Ponieważ plik danych nie pochodzi z nagłówków kolumn, Studio (classic) dostarczyło nagłówki ogólne (Col1, Col2 *itp.).* Dobre nagłówki nie są niezbędne do utworzenia modelu, ale ułatwiają pracę z danymi w eksperymencie. Ponadto po opublikowaniu tego modelu w usłudze internetowej nagłówki pomagają w identyfikowaniu kolumn użytkownikowi usługi.  
+Ponieważ plik danych nie pochodzi z nagłówkami kolumn, program Studio (klasyczny) podał nagłówki ogólne (Kol1, Col2 *itp.*). Dobre nagłówki nie są niezbędne do utworzenia modelu, ale ułatwiają pracę z danymi w eksperymencie. Ponadto po opublikowaniu tego modelu w usłudze internetowej nagłówki pomagają w identyfikowaniu kolumn użytkownikowi usługi.  
 
 Nagłówki kolumn możesz dodać za pomocą modułu [Edit Metadata][edit-metadata] (Edytowanie metadanych).
 
 Modułu [Edit Metadata][edit-metadata] (Edytowanie metadanych) możesz użyć, aby zmienić metadane skojarzone z zestawem danych. W tym przypadku użyjesz go do nadania bardziej przyjaznych nazw nagłówkom kolumn. 
 
-Aby użyć [opcji Edytuj metadane,][edit-metadata]należy najpierw określić kolumny, które mają być modyfikowane (w tym przypadku wszystkie). Następnie należy określić akcję, która ma być wykonywana w tych kolumnach (w tym przypadku zmiana nagłówków kolumn).
+Aby użyć [edycji metadanych][edit-metadata], należy najpierw określić kolumny do zmodyfikowania (w tym przypadku wszystkie). Następnie należy określić akcję do wykonania dla tych kolumn (w tym przypadku zmiana nagłówków kolumn).
 
 1. W palecie modułów wpisz wyraz „metadata” (metadane) w polu **Search** (Wyszukaj). Moduł [Edit Metadata][edit-metadata] (Edytowanie metadanych) zostanie wyświetlony na liście modułów.
 
@@ -297,7 +297,7 @@ Aby uzyskać więcej informacji na temat używania skryptów języka R w ekspery
 W tym samouczku wykonano następujące kroki: 
  
 > [!div class="checklist"]
-> * Tworzenie klasycznego obszaru roboczego w studio uczenia maszynowego
+> * Tworzenie obszaru roboczego Machine Learning Studio (klasyczny)
 > * Przekazywanie istniejących danych do obszaru roboczego
 > * Tworzenie eksperymentu
 

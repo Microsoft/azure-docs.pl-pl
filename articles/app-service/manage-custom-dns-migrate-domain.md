@@ -1,81 +1,81 @@
 ---
 title: Migrowanie aktywnej nazwy DNS
-description: Dowiedz się, jak przeprowadzić migrację niestandardowej nazwy domeny DNS, która jest już przypisana do aktywnej witryny do usługi Azure App Service bez żadnych przestojów.
+description: Dowiedz się, jak migrować niestandardową nazwę domeny DNS, która jest już przypisana do działającej witryny, aby Azure App Service bez przestojów.
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 10/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 5c1760c746aca439e19ab5727e5be02f6dbad3cb
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81535693"
 ---
-# <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrowanie aktywnej nazwy DNS do usługi Azure App Service
+# <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrowanie aktywnej nazwy DNS do Azure App Service
 
-W tym artykule pokazano, jak przeprowadzić migrację aktywnej nazwy DNS do [usługi Azure App Service](../app-service/overview.md) bez żadnych przestojów.
+W tym artykule przedstawiono sposób migrowania aktywnej nazwy DNS w celu [Azure App Service](../app-service/overview.md) bez przestojów.
 
-Podczas migracji aktywnej witryny i jej nazwy domeny DNS do usługi App Service ta nazwa DNS już obsługuje ruch na żywo. Można uniknąć przestojów w rozpoznawaniu DNS podczas migracji, wiążąc aktywną nazwę DNS z aplikacją usługi App Service prewuwnie.
+W przypadku migrowania aktywnej witryny i jej nazwy domeny DNS do App Service, nazwa DNS ma już obsługiwać ruch na żywo. Można uniknąć przestojów rozpoznawania nazw DNS podczas migracji przez powiązanie aktywnej nazwy DNS z aplikacją App Service App zapobiegawczo.
 
-Jeśli nie martwisz się o przestoje w rozdzielczości DNS, zobacz [Mapowanie istniejącej niestandardowej nazwy DNS na usługę Azure App Service](app-service-web-tutorial-custom-domain.md).
+Jeśli nie martwisz się o przestoju w rozpoznawaniu nazw DNS, zobacz [Mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service](app-service-web-tutorial-custom-domain.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać ten sposób:
+Aby wykonać następujące czynności:
 
-- [Upewnij się, że aplikacja usługi App Service nie jest w warstwie FREE](app-service-web-tutorial-custom-domain.md#checkpricing).
+- Upewnij się [, że aplikacja App Service nie znajduje się w warstwie Bezpłatna](app-service-web-tutorial-custom-domain.md#checkpricing).
 
-## <a name="bind-the-domain-name-preemptively"></a>Powiąż nazwę domeny prewuktywnie
+## <a name="bind-the-domain-name-preemptively"></a>Powiąż nazwę domeny zapobiegawczo
 
-Po wywiązywaniu domeny niestandardowej z prewencyjnym, przed wprowadzeniem jakichkolwiek zmian w rekordach DNS należy wykonać obie następujące czynności:
+W przypadku powiązania niestandardowej domeny zapobiegawczo należy wykonać obie następujące czynności przed wprowadzeniem jakichkolwiek zmian w rekordach DNS:
 
-- Weryfikowanie własności domeny
-- Włączanie nazwy domeny aplikacji
+- Weryfikuj własność domeny
+- Włączanie nazwy domeny dla aplikacji
 
-Po krotnym migracji niestandardowej nazwy DNS ze starej witryny do aplikacji Usługi app service nie będzie żadnych przestojów w rozpoznawaniu DNS.
+Po zakończeniu migracji niestandardowej nazwy DNS ze starej lokacji do aplikacji App Service nie będzie żadnych przestojów w rozpoznawaniu nazw DNS.
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
-### <a name="create-domain-verification-record"></a>Tworzenie rekordu weryfikacji domeny
+### <a name="create-domain-verification-record"></a>Utwórz rekord weryfikacji domeny
 
-Aby zweryfikować własność domeny, dodaj rekord TXT. Mapy rekordów TXT z _awverify.&lt;>poddomeny_ do _ &lt;appname>.azurewebsites.net_. 
+Aby sprawdzić własność domeny, Dodaj rekord TXT. Rekord TXT jest mapowany z _awverify.&lt; poddomena>_ do _ &lt;nazwa_aplikacji>. azurewebsites.NET_. 
 
-Potrzebny rekord TXT zależy od rekordu DNS, który chcesz przeprowadzić migrację. Przykłady można znaleźć w`@` poniższej tabeli (zazwyczaj reprezentuje domenę główną):
+Rekord TXT, którego potrzebujesz, zależy od rekordu DNS, który ma zostać zmigrowany. Aby zapoznać się z przykładami, zobacz`@` poniższą tabelę (zazwyczaj reprezentuje domenę główną):
 
-| Przykład rekordu DNS | TXT Host | Wartość TXT |
+| Przykład rekordu DNS | Host TXT | Wartość TXT |
 | - | - | - |
-| \@(korzeń) | _awverify_ | _&lt;appname>.azurewebsites.net_ |
-| www (sub) | _awverify.www_ | _&lt;appname>.azurewebsites.net_ |
-| \*(symbol wieloznaczny) | _awverify.\*_ | _&lt;appname>.azurewebsites.net_ |
+| \@pierwiastek | _awverify_ | _&lt;nazwa_aplikacji>. azurewebsites.net_ |
+| www (Sub) | _awverify. www_ | _&lt;nazwa_aplikacji>. azurewebsites.net_ |
+| \*znaku | _awverify.\*_ | _&lt;nazwa_aplikacji>. azurewebsites.net_ |
 
-Na stronie rekordów DNS zanotuj typ rekordu nazwy DNS, którą chcesz przeprowadzić migrację. Usługa App Service obsługuje mapowania z rekordów CNAME i A.
-
-> [!NOTE]
-> Dla niektórych dostawców, takich `awverify.*` jak CloudFlare, nie jest prawidłowy rekord. Użyj `*` tylko zamiast tego.
+Na stronie rekordów DNS Zwróć uwagę na typ rekordu nazwy DNS, którą chcesz migrować. App Service obsługuje mapowania z rekordów CNAME i A.
 
 > [!NOTE]
-> Rekordy `*` symboli wieloznacznych nie sprawdzają poprawności poddomen z istniejącym rekordem CNAME. Może być konieczne jawne utworzenie rekordu TXT dla każdej poddomeny.
+> W przypadku niektórych dostawców, takich jak CloudFlare `awverify.*` , nie jest prawidłowym rekordem. Użyj `*` tylko zamiast.
+
+> [!NOTE]
+> Rekordy `*` z symbolami wieloznacznymi nie sprawdzają domen poddomen przy użyciu istniejącego rekordu CNAME. Może być konieczne jawne utworzenie rekordu TXT dla każdej poddomeny.
 
 
-### <a name="enable-the-domain-for-your-app"></a>Włączanie domeny aplikacji
+### <a name="enable-the-domain-for-your-app"></a>Włącz domenę dla aplikacji
 
-W [witrynie Azure portal](https://portal.azure.com)w lewej części strony aplikacji wybierz pozycję **Domeny niestandardowe**. 
+W [Azure Portal](https://portal.azure.com)w lewym okienku nawigacji strony aplikacji wybierz pozycję **domeny niestandardowe**. 
 
 ![Menu domen niestandardowych](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Na stronie **Domeny niestandardowe** **+** wybierz ikonę obok pozycji **Dodaj nazwę hosta**.
+Na stronie **domeny niestandardowe** wybierz **+** ikonę obok pozycji **Dodaj nazwę hosta**.
 
 ![Dodawanie nazwy hosta](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Wpisz w pełni kwalifikowaną nazwę domeny, dla której `www.contoso.com`dodano rekord TXT, na przykład . W przypadku domeny wieloznacznych (takiej jak \*contoso.com) można użyć dowolnej nazwy DNS zgodnej z domeną wieloznaczną. 
+Wpisz w pełni kwalifikowaną nazwę domeny, do której dodano rekord TXT, na przykład `www.contoso.com`. W przypadku domeny wieloznacznej \*(np. contoso.com) można użyć dowolnej nazwy DNS, która pasuje do domeny z symbolem wieloznacznym. 
 
 Wybierz przycisk **Weryfikuj**.
 
 Zostanie aktywowany przycisk **Dodaj nazwę hosta**. 
 
-Upewnij się, że **typ rekordu Nazwy Hosta** jest ustawiony na typ rekordu DNS, który chcesz przeprowadzić migrację.
+Upewnij się, że **Typ rekordu nazwy hosta** jest ustawiony na typ rekordu DNS, który ma zostać zmigrowany.
 
 Wybierz przycisk **Dodaj nazwę hosta**.
 
@@ -85,21 +85,21 @@ Może upłynąć trochę czasu, zanim nowa nazwa hosta zostanie odzwierciedlona 
 
 ![Dodany rekord CNAME](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-Twoja niestandardowa nazwa DNS jest teraz włączona w aplikacji platformy Azure. 
+Niestandardowa nazwa DNS jest teraz włączona w aplikacji platformy Azure. 
 
 ## <a name="remap-the-active-dns-name"></a>Ponowne mapowanie aktywnej nazwy DNS
 
-Jedyne, co pozostało do zrobienia, to ponowne mapowanie aktywnego rekordu DNS, aby wskazać usługę App Service. W tej chwili nadal wskazuje na swoją starą witrynę.
+Jedyną czynnością, którą pozostało do wykonania, jest ponowne mapowanie aktywnego rekordu DNS w celu wskazywania App Service. Teraz nadal wskazuje Twoją starą lokację.
 
 <a name="info"></a>
 
-### <a name="copy-the-apps-ip-address-a-record-only"></a>Kopiowanie adresu IP aplikacji (tylko rekord)
+### <a name="copy-the-apps-ip-address-a-record-only"></a>Skopiuj adres IP aplikacji (tylko rekord)
 
-Jeśli ponownie mapujesz rekord CNAME, pomiń tę sekcję. 
+Jeśli ponownie mapujesz rekord CNAME, Pomiń tę sekcję. 
 
-Aby ponownie zamapować rekord A, potrzebny jest zewnętrzny adres IP aplikacji App Service, który jest wyświetlany na stronie **Domeny niestandardowe.**
+Aby ponownie zamapować rekord A, potrzebny jest zewnętrzny adres IP aplikacji App Service, który jest wyświetlany na stronie **domeny niestandardowe** .
 
-Zamknij stronę **Dodaj nazwy hosta,** **wybierając** x w prawym górnym rogu. 
+Zamknij stronę **Dodawanie nazwy hosta** , wybierając pozycję **X** w prawym górnym rogu. 
 
 Na stronie **Domeny niestandardowe** skopiuj adres IP aplikacji.
 
@@ -107,29 +107,29 @@ Na stronie **Domeny niestandardowe** skopiuj adres IP aplikacji.
 
 ### <a name="update-the-dns-record"></a>Aktualizowanie rekordu DNS
 
-Na stronie rekordy DNS dostawcy domeny wybierz rekord DNS do ponownego zamapowania.
+Na stronie rekordy DNS dostawcy domeny wybierz rekord DNS do ponownego mapowania.
 
-W `contoso.com` przykładzie domeny głównej ponownie mapuj rekord A lub CNAME, podobnie jak w poniższej tabeli: 
+W przykładzie `contoso.com` domeny katalogu głównego ponownie zamapuj rekord A lub CNAME, jak przykłady w poniższej tabeli: 
 
-| Przykład FQDN | Typ rekordu | Host | Wartość |
+| Przykład nazwy FQDN | Typ rekordu | Host | Wartość |
 | - | - | - | - |
-| contoso.com (korzeń) | A | `@` | Adres IP z sekcji [Kopiowanie adresu IP aplikacji](#info) |
-| www\.contoso.com (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
-| \*.contoso.com (symbol wieloznaczny) | CNAME | _\*_ | _&lt;appname>.azurewebsites.net_ |
+| contoso.com (główny) | A | `@` | Adres IP z sekcji [Kopiowanie adresu IP aplikacji](#info) |
+| contoso.com\.www (Sub) | CNAME | `www` | _&lt;nazwa_aplikacji>. azurewebsites.net_ |
+| \*. contoso.com (symbol wieloznaczny) | CNAME | _\*_ | _&lt;nazwa_aplikacji>. azurewebsites.net_ |
 
 Zapisz ustawienia.
 
-Kwerendy DNS należy rozpocząć rozwiązywanie aplikacji usługi App Service natychmiast po propagacji DNS dzieje.
+Zapytania DNS powinny rozpoczynać rozpoznawanie do aplikacji App Service natychmiast po wykonaniu propagacji DNS.
 
-## <a name="active-domain-in-azure"></a>Aktywna domena na platformie Azure
+## <a name="active-domain-in-azure"></a>Domena aktywna na platformie Azure
 
-Możesz migrować aktywną domenę niestandardową na platformie Azure, między subskrypcjami lub w ramach tej samej subskrypcji. Jednak taka migracja bez przestojów wymaga aplikacji źródłowej, a aplikacji docelowej przypisano tę samą domenę niestandardową w określonym czasie. W związku z tym należy upewnić się, że dwie aplikacje nie są wdrażane w tej samej jednostce wdrażania (wewnętrznie znany jako obszar sieci Web). Nazwę domeny można przypisać tylko do jednej aplikacji w każdej jednostce wdrożeniowej.
+Możesz migrować aktywną domenę niestandardową na platformie Azure między subskrypcjami lub w ramach tej samej subskrypcji. Jednak taka migracja bez przestoju wymaga, aby aplikacja źródłowa i aplikacja docelowa była przypisana do tej samej domeny niestandardowej w określonym czasie. Z tego względu należy upewnić się, że dwie aplikacje nie są wdrożone w tej samej jednostce wdrożenia (wewnętrznie znanej jako przestrzeń internetowa). Nazwa domeny może być przypisana tylko do jednej aplikacji w każdej jednostce wdrożenia.
 
-Jednostkę wdrażania aplikacji można znaleźć, patrząc na nazwę domeny adresu `<deployment-unit>.ftp.azurewebsites.windows.net`URL FTP/S . Sprawdź i upewnij się, że jednostka wdrożeniowa różni się między aplikacją źródłową a aplikacją docelową. Jednostka wdrażania aplikacji jest określana przez [plan usługi app service,](overview-hosting-plans.md) w który się znajduje. Jest wybierany losowo przez platformę Azure podczas tworzenia planu i nie można go zmienić. Platforma Azure tylko upewnia się, że dwa plany znajdują się w tej samej jednostce wdrażania podczas [tworzenia ich w tej samej grupie zasobów *i* w tym samym regionie,](app-service-plan-manage.md#create-an-app-service-plan)ale nie ma żadnej logiki, aby upewnić się, że plany znajdują się w różnych jednostkach wdrażania. Jedynym sposobem utworzenia planu w innej jednostce wdrożeniowej jest tworzenie planu w nowej grupie zasobów lub regionie, dopóki nie pojawi się inna jednostka wdrożeniowa.
+Jednostkę wdrożenia aplikacji można znaleźć, przeglądając nazwę domeny adresu URL `<deployment-unit>.ftp.azurewebsites.windows.net`FTP/S. Sprawdź i upewnij się, że jednostka wdrożenia różni się między aplikacją źródłową a aplikacją docelową. Jednostka wdrożenia aplikacji jest określana na podstawie [planu App Service](overview-hosting-plans.md) . Jest ona wybierana losowo przez platformę Azure podczas tworzenia planu i nie można jej zmienić. Na platformie Azure upewnij się, że dwa plany znajdują się w tej samej jednostce wdrożenia podczas [tworzenia ich w tej samej grupie zasobów *i* w tym samym regionie](app-service-plan-manage.md#create-an-app-service-plan), ale nie ma żadnych logiki, aby upewnić się, że plany znajdują się w różnych jednostkach wdrożenia. Jedynym sposobem utworzenia planu w innej jednostce wdrożenia jest utworzenie planu w nowej grupie zasobów lub regionie do momentu uzyskania innej jednostki wdrożenia.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak powiązać niestandardowy certyfikat TLS/SSL z usługą App Service.
+Dowiedz się, jak powiązać niestandardowy certyfikat TLS/SSL z App Service.
 
 > [!div class="nextstepaction"]
-> [Zabezpiecz niestandardową nazwę DNS za pomocą powiązania TLS w usłudze Azure App Service](configure-ssl-bindings.md)
+> [Zabezpiecz niestandardową nazwę DNS z powiązaniem TLS w Azure App Service](configure-ssl-bindings.md)

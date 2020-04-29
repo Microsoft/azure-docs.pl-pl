@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Hostowanie statycznej witryny sieci Web w magazynie obiektów Blob — usługa Azure Storage'
+title: 'Samouczek: hostowanie statycznej witryny sieci Web w usłudze BLOB Storage — Azure Storage'
 description: Dowiedz się, w jaki sposób skonfigurować konto magazynu w celu hostowania statycznej witryny internetowej i wdrożyć statyczną witrynę internetową w usłudze Azure Storage.
 author: normesta
 ms.service: storage
@@ -9,19 +9,19 @@ ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: 03850315a05f569d2c6ba9405b6ec38bb6b1305d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78330399"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
-# <a name="tutorial-host-a-static-website-on-blob-storage"></a>Samouczek: Hostowanie statycznej witryny sieci Web w magazynie obiektów blob
+# <a name="tutorial-host-a-static-website-on-blob-storage"></a>Samouczek: hostowanie statycznej witryny sieci Web na Blob Storage
 
 W tym samouczku dowiesz się, jak skompilować i wdrożyć statyczną witrynę sieci Web w usłudze Azure Storage. Po zakończeniu będzie gotowa statyczna witryna internetowa, do której użytkownicy będą mieli publiczny dostęp. 
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie hostowania statycznej witryny internetowej
@@ -32,7 +32,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 > [!NOTE] 
-> Pamiętaj, aby utworzyć ogólne przeznaczenie v2 Standardowe konto magazynu . Statyczne witryny sieci Web nie są dostępne na żadnym innym typie konta magazynu.
+> Upewnij się, że utworzono standardowe konto magazynu ogólnego przeznaczenia w wersji 2. Statyczne witryny sieci Web nie są dostępne na żadnym innym typie konta magazynu.
 
 W tym samouczku wykorzystany zostanie program [Visual Studio Code](https://code.visualstudio.com/download), czyli bezpłatne narzędzie dla programistów umożliwiające utworzenie statycznej witryny internetowej i wdrożenie jej na koncie usługi Azure Storage.
 
@@ -93,13 +93,13 @@ Następnie utwórz stronę internetową Hello world w programie Visual Studio Co
 
 Program Visual Studio Code przekaże pliki do internetowego punktu końcowego i wyświetli pasek stanu powodzenia. Uruchom witrynę internetową, aby ją wyświetlić na platformie Azure.
 
-Pomyślnie ukończono samouczek i wdrożono statyczną witrynę sieci Web na platformie Azure.
+Samouczek został pomyślnie ukończony i wdrożono statyczną witrynę sieci Web na platformie Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku dowiesz się, jak skonfigurować konto usługi Azure Storage dla statycznego hostingu witryn sieci Web oraz jak utworzyć i wdrożyć statyczną witrynę sieci Web w punkcie końcowym platformy Azure.
+W tym samouczku przedstawiono sposób konfigurowania konta usługi Azure Storage na potrzeby hostingu statycznej witryny sieci Web oraz tworzenia i wdrażania statycznej witryny sieci Web w punkcie końcowym platformy Azure.
 
-Następnie dowiedz się, jak skonfigurować domenę niestandardową za pomocą statycznej witryny sieci Web.
+Następnie Dowiedz się, jak skonfigurować domenę niestandardową przy użyciu statycznej witryny sieci Web.
 
 > [!div class="nextstepaction"]
-> [Mapowanie domeny niestandardowej do punktu końcowego usługi Azure Blob Storage](storage-custom-domain-name.md)
+> [Mapowanie domeny niestandardowej na punkt końcowy usługi Azure Blob Storage](storage-custom-domain-name.md)

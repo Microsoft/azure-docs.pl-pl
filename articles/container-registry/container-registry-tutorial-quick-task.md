@@ -1,17 +1,17 @@
 ---
-title: Samouczek - Szybka kompilacja obrazu kontenera
+title: Samouczek — szybka kompilacja obrazu kontenera
 description: Z tego samouczka dowiesz się, jak utworzyć obraz kontenera platformy Docker na platformie Azure przy użyciu usługi Azure Container Registry Tasks (ACR Tasks), a następnie wdrożyć go w usłudze Azure Container Instances.
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 82b539ba8f275755ee31a00c2127a0dba7c38d9f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78398512"
 ---
-# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Samouczek: Tworzenie i wdrażanie obrazów kontenerów w chmurze za pomocą zadań rejestru kontenerów platformy Azure
+# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Samouczek: kompilowanie i wdrażanie obrazów kontenerów w chmurze za pomocą zadań Azure Container Registry
 
 Usługa **ACR Tasks** to pakiet funkcji usługi Azure Container Registry, który udostępnia udoskonalone i wydajne kompilacje obrazów kontenerów platformy Docker na platformie Azure. Z tego artykułu dowiesz się, jak używać funkcji *szybkiego zadania* usługi ACR Tasks.
 
@@ -26,11 +26,11 @@ W tym samouczku, będącym pierwszą częścią serii, zostaną wykonane następ
 > * Kompilowanie obrazu kontenera na platformie Azure
 > * Wdrażanie kontenera w usłudze Azure Container Instances
 
-Z kolejnych samouczków dowiesz się, jak używać zadań usługi ACR Tasks na potrzeby automatycznych kompilacji obrazu kontenera podczas zatwierdzania kodu i aktualizacji obrazu podstawowego. Zadania usługi ACR można również uruchamiać [zadania wieloetapowe,](container-registry-tasks-multi-step.md)używając pliku YAML do definiowania kroków do tworzenia, wypychania i opcjonalnie testowania wielu kontenerów.
+Z kolejnych samouczków dowiesz się, jak używać zadań usługi ACR Tasks na potrzeby automatycznych kompilacji obrazu kontenera podczas zatwierdzania kodu i aktualizacji obrazu podstawowego. Zadania ACR mogą również uruchamiać [zadania wieloetapowe](container-registry-tasks-multi-step.md), używając pliku YAML do definiowania kroków do kompilowania, wypychania i opcjonalnego testowania wielu kontenerów.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli chcesz korzystać z interfejsu wiersza polecenia platformy Azure lokalnie, musisz mieć zainstalowany interfejs wiersza polecenia platformy Azure w wersji **2.0.46** lub nowszej i zalogowany przy użyciu [logowania az.][az-login] Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja interfejsu wiersza polecenia lub jego uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli].
+Jeśli chcesz korzystać z interfejsu wiersza polecenia platformy Azure lokalnie, musisz mieć zainstalowany interfejs wiersza polecenia platformy Azure w wersji **2.0.46** lub nowszej i zalogować się przy użyciu [AZ login][az-login]. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja interfejsu wiersza polecenia lub jego uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli].
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -50,7 +50,7 @@ Utwórz rozwidlenie tego repozytorium: https://github.com/Azure-Samples/acr-buil
 
 Po utworzeniu rozwidlenia repozytorium sklonuj rozwidlenie, a następnie wprowadź katalog zawierający klon lokalny.
 
-Sklonuj repozytorium za pomocą `git`nazwy ** \<użytkownika Github-Github-\> **
+Sklonuj repozytorium za pomocą `git`usługi, Zastąp ** \<nazwę użytkownika-\> GitHub-username** nazwą użytkownika serwisu GitHub:
 
 ```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
@@ -70,9 +70,9 @@ Polecenia w tym samouczku zostały sformatowane pod kątem powłoki programu Bas
 
 Teraz, gdy kod źródłowy został pobrany do komputera, wykonaj następujące kroki, aby utworzyć rejestr kontenerów i skompilować obraz kontenera przy użyciu usługi ACR Tasks.
 
-Aby wykonywanie przykładowych poleceń było łatwiejsze, w tej serii samouczków używaj zmiennych środowiskowych powłoki. Uruchom następujące polecenie, aby ustawić zmienną `ACR_NAME`. Zastąp ** \<nazwę\> rejestru** unikatową nazwą nowego rejestru kontenerów. Nazwa rejestru musi być unikatowa na platformie Azure, zawierać tylko małe litery i zawierać 5-50 znaków alfanumerycznych. Inne zasoby tworzone w tym samouczku opierają się na tej nazwie, dlatego konieczne powinno być zmodyfikowanie tylko tej pierwszej zmiennej.
+Aby wykonywanie przykładowych poleceń było łatwiejsze, w tej serii samouczków używaj zmiennych środowiskowych powłoki. Uruchom następujące polecenie, aby ustawić zmienną `ACR_NAME`. Zastąp ** \<wartość Registry\> -Name** unikatową nazwą nowego rejestru kontenerów. Nazwa rejestru musi być unikatowa na platformie Azure, zawierać tylko małe litery i zawierać 5-50 znaków alfanumerycznych. Inne zasoby tworzone w tym samouczku opierają się na tej nazwie, dlatego konieczne powinno być zmodyfikowanie tylko tej pierwszej zmiennej.
 
-[![Uruchom osadź](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)
+[![Uruchom osadzenie](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)
 
 ```console
 ACR_NAME=<registry-name>

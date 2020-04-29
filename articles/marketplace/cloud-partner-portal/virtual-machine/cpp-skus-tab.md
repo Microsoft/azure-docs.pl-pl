@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
 ms.openlocfilehash: 6ca2ebf9d02c43c3fe6bb3abec6bc0d5815fac74
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82143012"
 ---
 # <a name="virtual-machine-skus-tab"></a>Karta jednostki SKU maszyny wirtualnej
@@ -45,7 +45,7 @@ W poniższej tabeli opisano przeznaczenie, zawartość i formatowanie tych pól.
 |  *Ustawienia jednostki SKU*   |    |
 | **IDENTYFIKATOR JEDNOSTKI SKU\***       | Identyfikator dla tej jednostki SKU.  Ta nazwa ma maksymalnie 50 znaków składających się z małych znaków alfanumerycznych lub kresek (-), ale nie może kończyć się kreską.  Nie można go modyfikować po opublikowaniu oferty.  |
 |  *Szczegóły jednostki SKU*   |  |
-| **Tytuł\***        | Przyjazna nazwa oferty do wyświetlania w portalu Marketplace. Maksymalna długość 50 znaków. |
+| **Tytuły\***        | Przyjazna nazwa oferty do wyświetlania w portalu Marketplace. Maksymalna długość 50 znaków. |
 | **Podsumowanie\***      | Zwięzły opis oferty do wyświetlania w portalu Marketplace. Maksymalna długość 100 znaków. |
 | **Opis\***  | Tekst opisu, który zawiera bardziej szczegółowy opis oferty.  <!-- TD: max len/guidance? 3k characters -->  |
 | **Ukryj tę jednostkę SKU\*** | Wskazuje, czy jednostka SKU powinna być widoczna w portalu Marketplace dla klientów.  Możesz chcieć ukryć jednostkę SKU, jeśli chcesz, aby była dostępna tylko za pośrednictwem szablonów rozwiązań, a nie do zakupu osobno.  Może to również być przydatne podczas wstępnego testowania lub dla ofert tymczasowych lub sezonowych. |

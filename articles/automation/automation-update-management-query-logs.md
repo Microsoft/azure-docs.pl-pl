@@ -1,179 +1,179 @@
 ---
-title: Kwerenda usługi Azure Update Management dzienniki
-description: W tym artykule opisano sposób wykonywania zapytań o dzienniki dotyczące zarządzania aktualizacjami w obszarze roboczym usługi Log Analytics.
+title: Tworzenie zapytań dotyczących dzienników usługi Azure Update Management
+description: W tym artykule opisano sposób wykonywania zapytań w dziennikach pod kątem Update Management w obszarze roboczym Log Analytics.
 services: automation
 ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.openlocfilehash: 09eacb42eff6ecf3a3fca2d7fb401f52195f5f2d
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617427"
 ---
-# <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Rekordy aktualizacji kwerend dla zarządzania aktualizacjami w dziennikach monitora platformy Azure
+# <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Kwerendy aktualizacji rekordów dla Update Management w dziennikach Azure Monitor
 
-Oprócz szczegółów, które są podane w rozwiązaniu zarządzanie aktualizacjami, można wyszukiwać dzienniki przechowywane w obszarze roboczym usługi Log Analytics. Na stronie rozwiązania w lewym okienku wybierz pozycję **Dzienniki**. Zostanie otwarta strona Wyszukiwanie dzienników.
+Oprócz szczegółów dostępnych w rozwiązaniu Update Management można wyszukiwać dzienniki przechowywane w Log Analytics obszarze roboczym. Na stronie rozwiązanie w lewym okienku wybierz pozycję **dzienniki**. Zostanie otwarta strona wyszukiwanie w dzienniku.
 
-Można również dowiedzieć się, jak dostosować zapytania lub używać ich od różnych klientów. Zobacz [dokumentację interfejsu API wyszukiwania usługi Log Analytics](https://dev.loganalytics.io/).
+Możesz również dowiedzieć się, jak dostosować zapytania lub użyć ich od różnych klientów. Zobacz [dokumentację interfejsu API wyszukiwania log Analytics](https://dev.loganalytics.io/).
 
 ## <a name="update-records"></a>Rekordy Update (Aktualizacja)
 
-Usługa Update Management zbiera rekordy dla maszyn wirtualnych z systemem Windows i Linux oraz typy danych wyświetlane w wynikach wyszukiwania dziennika. W poniższych sekcjach opisano te rekordy.
+Update Management zbiera rekordy dotyczące maszyn wirtualnych z systemami Windows i Linux oraz typów danych, które są wyświetlane w wynikach przeszukiwania dzienników. W poniższych sekcjach opisano te rekordy.
 
 ### <a name="required-updates"></a>Wymagane aktualizacje
 
-Tworzony jest rekord `RequiredUpdate` z typem, który reprezentuje aktualizacje wymagane przez komputer. Te rekordy mają właściwości w poniższej tabeli:
+Tworzony jest rekord typu `RequiredUpdate` , który reprezentuje aktualizacje wymagane przez komputer. Te rekordy mają właściwości w poniższej tabeli:
 
 | Właściwość | Opis | 
 |----------|-------------|
-| Computer (Komputer) | W pełni kwalifikowana nazwa domeny urządzenia do raportowania. |
-| KBID | Identyfikator artykułu bazy wiedzy Dla aktualizacji systemu Windows. |
-| ManagementGroupName | Nazwa grupy zarządzania programu Operations Manager lub obszaru roboczego Usługi Log Analytics. | 
-| Product (Produkt) | Produkty, dla których dotyczy aktualizacja. | 
-| PublishDate | Data, w którym aktualizacja jest gotowa do pobrania i zainstalowania z witryny Windows Update. |
+| Computer (Komputer) | W pełni kwalifikowana nazwa domeny komputera raportowania. |
+| KBID | Identyfikator artykułu bazy wiedzy dla usługi Windows Update. |
+| ManagementGroupName | Nazwa grupy zarządzania Operations Manager lub Log Analytics obszaru roboczego. | 
+| Product (Produkt) | Produkty, dla których ma zastosowanie aktualizacja. | 
+| PublishDate | Data gotowości do pobrania i zainstalowania aktualizacji z Windows Update. |
 | Serwer | | 
-| SourceHealthServiceId (ida usługi sourcehealthserviceid) | Unikatowy identyfikator reprezentujący identyfikator agenta systemu Windows usługi Log Analytics. |
+| SourceHealthServiceId | Unikatowy identyfikator reprezentujący identyfikator Log Analytics agenta systemu Windows. |
 | SourceSystem | *OperationsManager* | 
-| TenantId | Unikatowy identyfikator reprezentujący wystąpienie usługi Azure Active Directory w organizacjach. | 
+| TenantId | Unikatowy identyfikator reprezentujący wystąpienie organizacji Azure Active Directory. | 
 | TimeGenerated | Data i godzina utworzenia rekordu. | 
 | Typ | *Aktualizacja* | 
-| Klasyfikacja aktualizacji | Wskazuje typ aktualizacji, które można zastosować. W przypadku systemu Windows:<br> *Aktualizacje krytyczne*<br> *Aktualizacje zabezpieczeń*<br> *Pakiety zbiorcze aktualizacji*<br> *Pakiety funkcji*<br> *Dodatki Service Pack*<br> *Aktualizacje definicji*<br> *narzędzia*<br> *Aktualizacje*. Dla Linuksa:<br> *Aktualizacje krytyczne i zabezpieczeń*<br> *Inne* |
-| AktualizacjaEverity | Ocena ważności usterki. Wartości to:<br> *Krytyczny*<br> *Ważne*<br> *Średni*<br> *Niskie* |
-| Tytuł aktualizacji | Tytuł aktualizacji.|
+| UpdateClassification | Wskazuje typ aktualizacji, które mogą być stosowane. W przypadku systemu Windows:<br> *Aktualizacje krytyczne*<br> *Aktualizacje zabezpieczeń*<br> *Pakiety zbiorcze aktualizacji*<br> *Pakiety funkcji*<br> *Dodatki Service Pack*<br> *Aktualizacje definicji*<br> *Narzędzia*<br> *Aktualizacje*. Dla systemu Linux:<br> *Aktualizacje krytyczne i zabezpieczeń*<br> *Inne* |
+| UpdateSeverity | Klasyfikacja ważności luki w zabezpieczeniach. Wartości to:<br> *Krytyczny*<br> *Ważne*<br> *Średni*<br> *Małe* |
+| UpdateTitle | Tytuł aktualizacji.|
 
 ### <a name="update"></a>Aktualizowanie
 
-Tworzony jest rekord `Update` z typem, który reprezentuje dostępne aktualizacje i ich stan instalacji komputera. Te rekordy mają właściwości w poniższej tabeli:
+Tworzony jest rekord typu `Update` , który reprezentuje dostępne aktualizacje i ich stan instalacji dla komputera. Te rekordy mają właściwości w poniższej tabeli:
 
 | Właściwość | Opis | 
 |----------|-------------|
-| Źródło zatwierdzenia | Dotyczy tylko systemu operacyjnego Windows. Źródło zatwierdzenia dla rekordu. Wartością jest Microsoft Update. |
-| Approved (Zatwierdzono) | Wartość true, jeśli rekord jest zatwierdzony lub False w inny sposób. |
-| Klasyfikacja | Klasyfikacja homologacji. Wartością są aktualizacje. |
-| Computer (Komputer) | W pełni kwalifikowana nazwa domeny urządzenia do raportowania. |
-| ComputerEnvironment (Środowiska komputerowe) | Środowiska. Możliwe wartości to Platforma Azure lub nienawiązynie platformy Azure. |
-| MSRCBulletinID | Numer identyfikatora biuletynu zabezpieczeń. | 
-| MSRCSeverity | Ocena ważności usterki. Wartości to:<br> Krytyczny<br> Ważne<br> Średni<br> Małe |  
-| KBID | Identyfikator artykułu bazy wiedzy Dla aktualizacji systemu Windows. |
-| ManagementGroupName | Nazwa grupy zarządzania programu Operations Manager lub obszaru roboczego Usługi Log Analytics. |
+| ApprovalSource | Dotyczy tylko systemu operacyjnego Windows. Źródło zatwierdzenia dla rekordu. Wartość jest Microsoft Update. |
+| Approved (Zatwierdzono) | Ma wartość true, jeśli rekord został zatwierdzony lub w przeciwnym razie ma wartość false. |
+| Klasyfikacja | Klasyfikacja zatwierdzania. Wartość to aktualizacje. |
+| Computer (Komputer) | W pełni kwalifikowana nazwa domeny komputera raportowania. |
+| ComputerEnvironment | Naturalne. Możliwe wartości to Azure lub non-Azure. |
+| MSRCBulletinID | Numer IDENTYFIKACYJNy biuletynu zabezpieczeń. | 
+| MSRCSeverity | Klasyfikacja ważności luki w zabezpieczeniach. Wartości to:<br> Krytyczny<br> Ważne<br> Średni<br> Małe |  
+| KBID | Identyfikator artykułu bazy wiedzy dla usługi Windows Update. |
+| ManagementGroupName | Nazwa grupy zarządzania Operations Manager lub Log Analytics obszaru roboczego. |
 | UpdateID | Unikatowy identyfikator aktualizacji oprogramowania. |
-| RevisionNumber | Numer poprawki określonej wersji aktualizacji. |
-| Optional (Opcjonalność) | Wartość true, jeśli rekord jest opcjonalny lub False w inny sposób. | 
+| RevisionNumber | Numer poprawki określonej poprawki aktualizacji. |
+| Optional | Ma wartość true, jeśli rekord jest opcjonalny lub w przeciwnym razie ma wartość false. | 
 | RebootBehavior | Zachowanie ponownego uruchomienia po zainstalowaniu/odinstalowaniu aktualizacji. |
 | _ResourceId | Unikatowy identyfikator zasobu skojarzonego z rekordem. |
-| Typ | Typ rekordu. Wartością jest Update. |
-| VMUUID | Unikatowy identyfikator maszyny wirtualnej. |
-| MG | Unikatowy identyfikator grupy zarządzania lub obszaru roboczego usługi Log Analytics. | 
-| TenantId | Unikatowy identyfikator reprezentujący wystąpienie usługi Azure Active Directory w organizacji. | 
-| SourceSystem | System źródłowy rekordu. Wartość to `OperationsManager`. | 
+| Typ | Typ rekordu. Wartość to Update. |
+| VMUUID | Unikatowy identyfikator dla maszyny wirtualnej. |
+| MG | Unikatowy identyfikator grupy zarządzania lub Log Analytics obszaru roboczego. | 
+| TenantId | Unikatowy identyfikator reprezentujący wystąpienie Azure Active Directory organizacji. | 
+| SourceSystem | System źródłowy dla rekordu. Wartość to `OperationsManager`. | 
 | TimeGenerated | Data i godzina utworzenia rekordu. | 
 | SourceComputerId | Unikatowy identyfikator reprezentujący komputer źródłowy. | 
 | Tytuł | Tytuł aktualizacji. |
-| PublishedDate (UTC) | Data, kiedy aktualizacja jest gotowa do pobrania i zainstalowania z witryny Windows Update.  |
+| PublishedDate (UTC) | Data, kiedy aktualizacja jest gotowa do pobrania i zainstalowania z Windows Update.  |
 | UpdateState | Bieżący stan aktualizacji. | 
-| Product (Produkt) | Produkty, dla których aktualizacja ma zastosowanie. |
+| Product (Produkt) | Produkty, dla których ma zastosowanie aktualizacja. |
 | SubscriptionId | Unikatowy identyfikator subskrypcji platformy Azure. | 
 | ResourceGroup | Nazwa grupy zasobów, do której należy zasób. | 
 | ResourceProvider | Dostawca zasobów. | 
 | Zasób | Nazwa zasobu. | 
 | ResourceType | Typ zasobu. | 
 
-### <a name="update-agent"></a>Agent aktualizacji
+### <a name="update-agent"></a>Aktualizuj agenta
 
-Tworzony `UpdateAgent` jest rekord z typem, który zawiera szczegółowe informacje o agencie aktualizacji na komputerze. Te rekordy mają właściwości w poniższej tabeli:
+Tworzony jest rekord typu `UpdateAgent` , który zawiera szczegółowe informacje o agencie aktualizacji na komputerze. Te rekordy mają właściwości w poniższej tabeli:
 
 | Właściwość | Opis | 
 |----------|-------------|
-| AgeofOldMissingRequiredUpdate | | 
-| Funkcja AutomatycznaUpdateEnabled | | 
-| Computer (Komputer) | W pełni kwalifikowana nazwa domeny urządzenia do raportowania. |
+| AgeofOldestMissingRequiredUpdate | | 
+| AutomaticUpdateEnabled | | 
+| Computer (Komputer) | W pełni kwalifikowana nazwa domeny komputera raportowania. |
 | DaySinceLastUpdateBucket | | 
-| ManagementGroupName | Nazwa grupy zarządzania programu Operations Manager lub obszaru roboczego Usługi Log Analytics. |
+| ManagementGroupName | Nazwa grupy zarządzania Operations Manager lub Log Analytics obszaru roboczego. |
 | OSVersion | Wersja systemu operacyjnego. |
 | Serwer | |
-| SourceHealthServiceId (ida usługi sourcehealthserviceid) | Unikatowy identyfikator reprezentujący identyfikator agenta systemu Windows usługi Log Analytics. |
-| SourceSystem | System źródłowy rekordu. Wartość to `OperationsManager`. | 
-| TenantId | Unikatowy identyfikator reprezentujący wystąpienie usługi Azure Active Directory w organizacji. |
+| SourceHealthServiceId | Unikatowy identyfikator reprezentujący identyfikator Log Analytics agenta systemu Windows. |
+| SourceSystem | System źródłowy dla rekordu. Wartość to `OperationsManager`. | 
+| TenantId | Unikatowy identyfikator reprezentujący wystąpienie Azure Active Directory organizacji. |
 | TimeGenerated | Data i godzina utworzenia rekordu. |
-| Typ | Typ rekordu. Wartością jest Update. | 
-| WindowsUpdateAgentVersion | Wersja agenta Usługi Windows Update. |
-| WSUSServer | Błędy, jeśli agent usługi Windows Update ma problem, aby pomóc w rozwiązywaniu problemów. |
+| Typ | Typ rekordu. Wartość to Update. | 
+| WindowsUpdateAgentVersion | Wersja agenta Windows Update. |
+| WSUSServer | Błędy, jeśli wystąpił problem z agentem Windows Update w celu ułatwienia rozwiązywania problemów. |
 
-### <a name="update-deployment-status"></a>Stan wdrożenia aktualizacji 
+### <a name="update-deployment-status"></a>Aktualizuj stan wdrożenia 
 
-Tworzony `UpdateRunProgress` jest rekord z typem, który zapewnia stan wdrożenia aktualizacji zaplanowanego wdrożenia na komputerze. Te rekordy mają właściwości w poniższej tabeli:
+Tworzony jest rekord typu `UpdateRunProgress` , który zapewnia stan wdrożenia aktualizacji zaplanowane wdrożenie według maszyny. Te rekordy mają właściwości w poniższej tabeli:
 
 | Właściwość | Opis | 
 |----------|-------------|
-| Computer (Komputer) | W pełni kwalifikowana nazwa domeny urządzenia do raportowania. |
-| ComputerEnvironment (Środowiska komputerowe) | Środowiska. Wartości to platforma Azure lub nienawiązynie platformy Azure. | 
-| CorrelationId | Unikatowy identyfikator zadania runbooka uruchamianego dla aktualizacji. |
-| EndTime | Czas zakończenia procesu synchronizacji. | 
-| BłądWynik | Kod błędu usługi Windows Update wygenerowany, jeśli aktualizacja nie powiedzie się. | 
-| Stan instalacji | Możliwe stany instalacji aktualizacji na komputerze klienckim,<br> `NotStarted`- zadanie nie jest jeszcze uruchomione.<br> `FailedToStart`- nie może rozpocząć pracy na komputerze.<br> `Failed`- zadanie rozpoczęte, ale nie powiodło się z wyjątkiem.<br> `InProgress`- praca w toku.<br> `MaintenanceWindowExceeded`- jeśli wykonanie pozostało, ale osiągnięto interwał okna konserwacji.<br> `Succeeded`- praca się powiodła.<br> `InstallFailed`- aktualizacja nie została pomyślnie zainstalowana.<br> `NotIncluded`<br> `Excluded` |
-| KBID | Identyfikator artykułu bazy wiedzy Dla aktualizacji systemu Windows. | 
-| ManagementGroupName | Nazwa grupy zarządzania programu Operations Manager lub obszaru roboczego Usługi Log Analytics. |
+| Computer (Komputer) | W pełni kwalifikowana nazwa domeny komputera raportowania. |
+| ComputerEnvironment | Naturalne. Wartości to Azure lub non-Azure. | 
+| CorrelationId | Unikatowy identyfikator zadania elementu Runbook uruchomionego dla aktualizacji. |
+| EndTime | Godzina, o której zakończył się proces synchronizacji. | 
+| ErrorResult | Windows Update wygenerowany kod błędu, jeśli instalacja aktualizacji nie powiedzie się. | 
+| InstallationStatus | Możliwe stany instalacji aktualizacji na komputerze klienckim,<br> `NotStarted`-zadanie nie zostało jeszcze wyzwolone.<br> `FailedToStart`-nie można uruchomić zadania na komputerze.<br> `Failed`— zadanie zostało uruchomione, ale nie powiodło się z powodu wyjątku.<br> `InProgress`— zadanie jest w toku.<br> `MaintenanceWindowExceeded`-Jeśli wykonywanie pozostało, ale osiągnięto interwał okna obsługi.<br> `Succeeded`— zadanie zakończyło się pomyślnie.<br> `InstallFailed`-nie można pomyślnie zainstalować aktualizacji.<br> `NotIncluded`<br> `Excluded` |
+| KBID | Identyfikator artykułu bazy wiedzy dla usługi Windows Update. | 
+| ManagementGroupName | Nazwa grupy zarządzania Operations Manager lub Log Analytics obszaru roboczego. |
 | OSType | Typ systemu operacyjnego. Wartości to Windows lub Linux. | 
-| Product (Produkt) | Produkty, dla których aktualizacja ma zastosowanie. |
+| Product (Produkt) | Produkty, dla których ma zastosowanie aktualizacja. |
 | Zasób | Nazwa zasobu. | 
 | ResourceId | Unikatowy identyfikator zasobu skojarzonego z rekordem. |
 | ResourceProvider | Dostawca zasobów. | 
 | ResourceType | Typ zasobu. | 
 | SourceComputerId | Unikatowy identyfikator reprezentujący komputer źródłowy. | 
 | SourceSystem | System źródłowy dla rekordu. Wartość to `OperationsManager`. |
-| StartTime | Czas, kiedy aktualizacja jest zaplanowana do zainstalowania. |
+| StartTime | Godzina, o której zaplanowano zainstalowanie aktualizacji. |
 | SubscriptionId | Unikatowy identyfikator subskrypcji platformy Azure. | 
-| SucceededOnRetry (UdaneOnRetry) | Wartość wskazująca, jeśli wykonanie aktualizacji nie powiodło się przy pierwszej próbie, a bieżąca operacja jest próbą ponowienia próby. |
+| SucceededOnRetry | Wartość wskazująca, czy wykonanie aktualizacji nie powiodło się przy pierwszej próbie, a bieżąca operacja jest ponowieniem próby. |
 | TimeGenerated | Data i godzina utworzenia rekordu. |
 | Tytuł | Tytuł aktualizacji. |
 | Typ | Typ aktualizacji. Wartość to `UpdateRunProgress`. |
-| UpdateId (Ida aktualizacji) | Unikatowy identyfikator aktualizacji oprogramowania. |
-| VMUUID | Unikatowy identyfikator maszyny wirtualnej. |
+| UpdateId | Unikatowy identyfikator aktualizacji oprogramowania. |
+| VMUUID | Unikatowy identyfikator dla maszyny wirtualnej. |
 | ResourceId | Unikatowy identyfikator zasobu skojarzonego z rekordem. |
 
 ### <a name="update-summary"></a>Podsumowanie aktualizacji 
 
-Tworzony jest rekord `UpdateSummary` z typem, który zawiera podsumowanie aktualizacji według komputera. Te rekordy mają właściwości w poniższej tabeli:
+Tworzony jest rekord typu `UpdateSummary` , który zawiera podsumowanie aktualizacji według maszyn. Te rekordy mają właściwości w poniższej tabeli:
 
 | Właściwość | Opis | 
 |----------|-------------|
-| Computer (Komputer) | W pełni kwalifikowana nazwa domeny urządzenia do raportowania. |
-| ComputerEnvironment (Środowiska komputerowe) | Środowiska. Wartości to platforma Azure lub nienawiązynie platformy Azure. | 
-| CriticalUpdatesMissing | Liczba obowiązujących aktualizacji krytycznych, których brakuje. | 
-| ManagementGroupName | Nazwa grupy zarządzania programu Operations Manager lub obszaru roboczego Usługi Log Analytics. |
-| NETRuntimeVersion | Wersja programu .NET Framework zainstalowana na komputerze z systemem Windows. |
-| OldestMissingSecurityUpdateBucket | Specyfikator najstarszego brakującego zasobnika zabezpieczeń. Wartości to:<br> Ostatnie, jeśli wartość jest mniejsza niż 30 dni<br> 30 dni temu<br> 60 dni temu<br> 90 dni temu<br> 120 dni temu<br> 150 dni temu<br> 180 dni temu<br> Starsze, gdy wartość jest większa niż 180 dni. | 
-| OldestMissingSecurityUpdateInDays | Całkowita liczba dni dla najstarszej aktualizacji wykrytej w stosownych przypadkach, która nie została zainstalowana. |
+| Computer (Komputer) | W pełni kwalifikowana nazwa domeny komputera raportowania. |
+| ComputerEnvironment | Naturalne. Wartości to Azure lub non-Azure. | 
+| CriticalUpdatesMissing | Liczba dostępnych ważnych aktualizacji krytycznych. | 
+| ManagementGroupName | Nazwa grupy zarządzania Operations Manager lub Log Analytics obszaru roboczego. |
+| NETRuntimeVersion | Wersja .NET Framework zainstalowana na komputerze z systemem Windows. |
+| OldestMissingSecurityUpdateBucket | Specyfikator najstarszego brakującego zasobnika zabezpieczeń. Wartości to:<br> Ostatnie Jeśli wartość jest mniejsza niż 30 dni<br> 30 dni temu<br> 60 dni temu<br> 90 dni temu<br> 120 dni temu<br> 150 dni temu<br> 180 dni temu<br> Starsze, gdy wartość jest większa niż 180 dni. | 
+| OldestMissingSecurityUpdateInDays | Całkowita liczba dni dla najstarszej wykrytej aktualizacji, która nie została zainstalowana. |
 | OsVersion | Wersja systemu operacyjnego. |
-| OtherUpdatesMissing | Liczba wykrytych aktualizacji brakuje. |
-| Zasób | Nazwa zasobu rekordu. | 
+| OtherUpdatesMissing | Brak liczby wykrytych aktualizacji. |
+| Zasób | Nazwa zasobu dla rekordu. | 
 | ResourceGroup | Nazwa grupy zasobów zawierającej zasób. |
 | ResourceId | Unikatowy identyfikator zasobu skojarzonego z rekordem. |
 | ResourceProvider | Dostawca zasobów. |
 | ResourceType | Typ zasobu. |
-| Ponowne odwdzięczenie | Wartość true, jeśli oczekuje na ponowne uruchomienie lub False w inny sposób. |
-| SecurityUpdatesMissing | Liczba brakujących aktualizacji zabezpieczeń, które mają zastosowanie.| 
-| SourceComputerId | Unikatowy identyfikator maszyny wirtualnej. |
+| RestartPending | Ma wartość true, jeśli oczekiwanie na ponowne uruchomienie lub w przeciwnym razie ma wartość false. |
+| SecurityUpdatesMissing | Liczba obowiązujących brakujących aktualizacji zabezpieczeń.| 
+| SourceComputerId | Unikatowy identyfikator dla maszyny wirtualnej. |
 | SourceSystem | System źródłowy dla rekordu. Wartość to `OpsManager`. | 
 | SubscriptionId | Unikatowy identyfikator subskrypcji platformy Azure. |
 | TimeGenerated | Data i godzina utworzenia rekordu. |
-| TotalUpdatesMissing | Całkowita liczba brakujących aktualizacji, które mają zastosowanie. | 
+| TotalUpdatesMissing | Łączna liczba dostępnych aktualizacji, które mają zastosowanie. | 
 | Typ | Typ rekordu. Wartość to `UpdateSummary`. |
-| VMUUID | Unikatowy identyfikator maszyny wirtualnej. |
-| WindowsUpdateAgentVersion | Wersja agenta Usługi Windows Update. |
-| WindowsUpdateSetting | Stan agenta usługi Windows Update. Możliwe wartości:<br> `Scheduled installation`<br> `Notify before installation`<br> `Error returned from unhealthy WUA agent` | 
-| WSUSServer | Błędy, jeśli agent usługi Windows Update ma problem, aby pomóc w rozwiązywaniu problemów. |
+| VMUUID | Unikatowy identyfikator dla maszyny wirtualnej. |
+| WindowsUpdateAgentVersion | Wersja agenta Windows Update. |
+| WindowsUpdateSetting | Stan agenta Windows Update. Możliwe wartości:<br> `Scheduled installation`<br> `Notify before installation`<br> `Error returned from unhealthy WUA agent` | 
+| WSUSServer | Błędy, jeśli wystąpił problem z agentem Windows Update w celu ułatwienia rozwiązywania problemów. |
 | _ResourceId | Unikatowy identyfikator zasobu skojarzonego z rekordem. |
 
 ## <a name="sample-queries"></a>Przykładowe zapytania
 
-W poniższych sekcjach przedstawiono przykładowe kwerendy dziennika dla rekordów aktualizacji, które są zbierane dla zarządzania aktualizacjami.
+Poniższe sekcje zawierają przykładowe zapytania dzienników dla rekordów aktualizacji, które są zbierane dla Update Management.
 
-### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Upewnij się, że maszyny nienawiązane z platformą Azure są wbudowane
+### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Potwierdź, że maszyny spoza platformy Azure są dołączone
 
-Aby potwierdzić, że bezpośrednio połączone maszyny komunikują się z dziennikami usługi Azure Monitor, uruchom jedno z następujących wyszukiwań dziennika.
+Aby upewnić się, że bezpośrednio połączone maszyny komunikują się z dziennikami Azure Monitor, Uruchom jedno z poniższych wyszukiwań w dziennikach.
 
 #### <a name="linux"></a>Linux
 
@@ -189,26 +189,26 @@ Heartbeat
 | where OSType == "Windows" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-Na komputerze z systemem Windows można przejrzeć następujące informacje, aby zweryfikować łączność agenta za pomocą dzienników usługi Azure Monitor:
+Na komputerze z systemem Windows można przejrzeć następujące informacje w celu zweryfikowania łączności agentów z dziennikami Azure Monitor:
 
-1. W Panelu sterowania otwórz program **Microsoft Monitoring Agent**. Na karcie **Usługa Azure Log Analytics** agent wyświetla następujący komunikat: Agent monitorowania firmy Microsoft pomyślnie połączył się z **usługą Log Analytics.**
-2. Otwórz dziennik zdarzeń systemu Windows. Przejdź do **dzienników aplikacji i usług\Programu Operations Manager** i wyszukaj identyfikator zdarzenia 3000 i identyfikator zdarzenia 5002 ze **źródłowego łącznika usługi**. Te zdarzenia informują o tym, że komputer został zarejestrowany w obszarze roboczym usługi Log Analytics i odbiera konfigurację.
+1. W panelu sterowania Otwórz **Microsoft Monitoring Agent**. Na karcie **log Analytics Azure** Agent wyświetli następujący komunikat: **Microsoft Monitoring Agent pomyślnie nawiązał połączenie z log Analytics**.
+2. Otwórz dziennik zdarzeń systemu Windows. Przejdź do pozycji **Application and Services Logs\Operations Manager** i Wyszukaj zdarzenia o identyfikatorze 3000 i identyfikatorze 5002 z **łącznika usługi**źródłowej. Te zdarzenia informują o tym, że komputer został zarejestrowany w obszarze roboczym usługi Log Analytics i odbiera konfigurację.
 
-Jeśli agent nie może komunikować się z dziennikami usługi Azure Monitor, a agent jest skonfigurowany do komunikowania się z Internetem za pośrednictwem zapory lub serwera proxy, upewnij się, że zapora lub serwer proxy jest poprawnie skonfigurowany. Aby dowiedzieć się, jak sprawdzić, czy zapora lub serwer proxy jest poprawnie skonfigurowany, zobacz [Konfiguracja sieci dla agenta systemu Windows](../azure-monitor/platform/agent-windows.md) lub [konfiguracja sieci dla agenta systemu Linux](../log-analytics/log-analytics-agent-linux.md).
+Jeśli Agent nie może komunikować się z dziennikami Azure Monitor i Agent jest skonfigurowany do komunikacji z Internetem za pomocą zapory lub serwera proxy, upewnij się, że zapora lub serwer proxy zostały prawidłowo skonfigurowane. Aby dowiedzieć się, jak upewnić się, że zapora lub serwer proxy są prawidłowo skonfigurowane, zobacz [Konfiguracja sieci dla agenta systemu Windows](../azure-monitor/platform/agent-windows.md) lub [Konfiguracja sieci dla agentów](../log-analytics/log-analytics-agent-linux.md)z systemem Linux.
 
 > [!NOTE]
-> Jeśli systemy Linux są skonfigurowane do komunikowania się z serwerem proxy lub bramą usługi Log Analytics i dołączasz to rozwiązanie, zaktualizuj uprawnienia *proxy.conf,* aby udzielić grupie omiuser uprawnienia do odczytu pliku za pomocą następujących poleceń:
+> Jeśli system Linux jest skonfigurowany do komunikowania się z serwerem proxy lub bramą Log Analytics i dołączasz to rozwiązanie, zaktualizuj *serwer proxy. conf* , aby przyznać grupie omiuser uprawnienia do odczytu w pliku przy użyciu następujących poleceń:
 >
 > `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
 
-Nowo dodani agenci systemu Linux pokazują stan **Updated** po przeprowadzeniu oceny. Ten proces może potrwać do 6 godzin.
+Nowo dodani agenci systemu Linux pokazują stan **aktualizacji** po wykonaniu oceny. Ten proces może potrwać do 6 godzin.
 
-Aby potwierdzić, że grupa zarządzania programu Operations Manager komunikuje się z dziennikami usługi Azure Monitor, zobacz [Sprawdzanie poprawności integracji programu Operations Manager z dziennikami usługi Azure Monitor](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
+Aby upewnić się, że Operations Manager grupy zarządzania komunikuje się z dziennikami Azure Monitor, zobacz temat [Weryfikuj integrację Operations Manager z dziennikami Azure monitor](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
 
-### <a name="single-azure-vm-assessment-queries-windows"></a>Pojedyncze kwerendy oceny maszyn wirtualnych platformy Azure (Windows)
+### <a name="single-azure-vm-assessment-queries-windows"></a>Pojedyncze zapytania oceny maszyny wirtualnej platformy Azure (system Windows)
 
-Zastąp wartość VMUUID identyfikatorem graficznym maszyny wirtualnej, do której wysyłasz kwerendy. Można znaleźć VMUUID, który powinien być używany przez uruchomienie następującej kwerendy w dziennikach usługi Azure Monitor:`Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+Zastąp wartość VMUUID wartością GUID maszyny wirtualnej, która jest używana do wykonywania zapytań. Możesz znaleźć VMUUID, które powinny być używane, uruchamiając następujące zapytanie w Azure Monitor dziennikach:`Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
 
 #### <a name="missing-updates-summary"></a>Brakujące podsumowanie aktualizacji
 
@@ -221,7 +221,7 @@ Update
 | summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security")
 ```
 
-#### <a name="missing-updates-list"></a>Lista brakujących aktualizacji
+#### <a name="missing-updates-list"></a>Brak listy aktualizacji
 
 ```loganalytics
 Update
@@ -235,9 +235,9 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
-### <a name="single-azure-vm-assessment-queries-linux"></a>Pojedyncze zapytania oceny maszyn wirtualnych platformy Azure (Linux)
+### <a name="single-azure-vm-assessment-queries-linux"></a>Pojedyncze zapytania oceny maszyny wirtualnej platformy Azure (Linux)
 
-W przypadku niektórych dystrybucji systemu Linux występuje [niezgodność endianness](https://en.wikipedia.org/wiki/Endianness) z wartością VMUUID, która pochodzi z usługi Azure Resource Manager i co jest przechowywane w dziennikach usługi Azure Monitor. Poniższa kwerenda sprawdza dopasowanie na obu endianness. Zastąp wartości VMUUID z big-endian i mało endian format guiD prawidłowo zwrócić wyniki. Można znaleźć VMUUID, który powinien być używany przez uruchomienie następującej kwerendy w dziennikach usługi Azure Monitor:`Update | where Computer == "<machine name>"
+W przypadku niektórych dystrybucje systemu Linux występuje niezgodność [bajtów](https://en.wikipedia.org/wiki/Endianness) z wartością VMUUID, która pochodzi z Azure Resource Manager i co jest przechowywane w dziennikach Azure monitor. Poniższe zapytanie sprawdza zgodność z dowolną przyciągiem. Zastąp wartości VMUUID wartościami formatu big-endian i little-endian identyfikatora GUID, aby prawidłowo zwrócić wyniki. Możesz znaleźć VMUUID, które powinny być używane, uruchamiając następujące zapytanie w Azure Monitor dziennikach:`Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 #### <a name="missing-updates-summary"></a>Brakujące podsumowanie aktualizacji
@@ -251,7 +251,7 @@ Update
 | summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security")
 ```
 
-#### <a name="missing-updates-list"></a>Lista brakujących aktualizacji
+#### <a name="missing-updates-list"></a>Brak listy aktualizacji
 
 ```loganalytics
 Update
@@ -266,7 +266,7 @@ Update
 
 ```
 
-### <a name="multi-vm-assessment-queries"></a>Zapytania o ocenę wielu maszyn wirtualnych
+### <a name="multi-vm-assessment-queries"></a>Zapytania oceny z obsługą wiele maszyn wirtualnych
 
 #### <a name="computers-summary"></a>Podsumowanie komputerów
 
@@ -379,7 +379,7 @@ on SourceComputerId
 | project-away ComplianceOrder
 ```
 
-#### <a name="missing-updates-list"></a>Lista brakujących aktualizacji
+#### <a name="missing-updates-list"></a>Brak listy aktualizacji
 
 ```loganalytics
 Update
@@ -409,5 +409,5 @@ Update
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Użyj wyszukiwania dzienników w [dziennikach usługi Azure Monitor,](../log-analytics/log-analytics-log-searches.md) aby wyświetlić szczegółowe dane aktualizacji.
-* [Tworzenie alertów](automation-tutorial-update-management.md#configure-alerts) dla stanu wdrożenia aktualizacji.
+* Użyj wyszukiwania w dzienniku [Azure monitor](../log-analytics/log-analytics-log-searches.md) , aby wyświetlić szczegółowe dane aktualizacji.
+* [Utwórz alerty](automation-tutorial-update-management.md#configure-alerts) dla stanu wdrożenia aktualizacji.
