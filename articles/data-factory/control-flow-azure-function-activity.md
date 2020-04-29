@@ -1,6 +1,6 @@
 ---
-title: Działanie funkcji platformy Azure w fabryce danych platformy Azure
-description: Dowiedz się, jak używać działania funkcji platformy Azure do uruchamiania funkcji platformy Azure w potoku usługi Data Factory
+title: Działanie funkcji platformy Azure w Azure Data Factory
+description: Dowiedz się, jak używać działania funkcji platformy Azure do uruchamiania funkcji platformy Azure w potoku Data Factory
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,63 +12,63 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.openlocfilehash: ee2e59e794cf34a8fd5043a56867a81c2537f1ae
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415304"
 ---
-# <a name="azure-function-activity-in-azure-data-factory"></a>Działanie funkcji platformy Azure w fabryce danych platformy Azure
+# <a name="azure-function-activity-in-azure-data-factory"></a>Działanie funkcji platformy Azure w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-Działanie funkcji platformy Azure umożliwia [uruchamianie funkcji platformy Azure](../azure-functions/functions-overview.md) w potoku fabryki danych. Aby uruchomić funkcję platformy Azure, należy utworzyć połączenie połączonej usługi i działanie, które określa funkcję platformy Azure, którą zamierzasz wykonać.
+Działanie funkcji platformy Azure umożliwia uruchamianie [Azure Functions](../azure-functions/functions-overview.md) w potoku Data Factory. Aby uruchomić funkcję platformy Azure, należy utworzyć połączenie połączonej usługi i działanie określające funkcję platformy Azure, która ma zostać wykonana.
 
-Aby zapoznać się z ośmiominutowym wprowadzeniem i prezentacją tej funkcji, obejrzyj następujący film:
+Aby uzyskać 8-minutowy wprowadzenie i demonstrację tej funkcji, Obejrzyj następujące wideo:
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Run-Azure-Functions-from-Azure-Data-Factory-pipelines/player]
 
-## <a name="azure-function-linked-service"></a>Usługa połączona z funkcją platformy Azure
+## <a name="azure-function-linked-service"></a>Połączona usługa funkcji platformy Azure
 
-Typ zwracany funkcji platformy Azure musi `JObject`być prawidłowy. (Należy pamiętać, że [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *nie* jest `JObject`.) Każdy typ zwracany inny niż `JObject` kończy się niepowodzeniem i wywołuje błąd użytkownika Zawartość odpowiedzi nie jest *prawidłowym JObject*.
+Zwracany typ funkcji platformy Azure musi być prawidłowy `JObject`. (Należy pamiętać, że [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *nie* jest `JObject`.) Każdy typ zwracany inny niż `JObject` błąd i podnosi zawartość odpowiedzi na błędy użytkownika *nie jest prawidłowym JObject*.
 
 | **Właściwość** | **Opis** | **Wymagane** |
 | --- | --- | --- |
-| type   | Właściwość typu musi być ustawiona na: **AzureFunction** | tak |
-| url aplikacji funkcji | Adres URL aplikacji funkcji platformy Azure. Format `https://<accountname>.azurewebsites.net`jest . Ten adres URL jest wartością w sekcji **adres URL** podczas wyświetlania aplikacji funkcji w witrynie Azure portal  | tak |
-| klawisz funkcyjny | Klucz dostępu dla funkcji platformy Azure. Kliknij sekcję **Zarządzaj** dla danej funkcji i skopiuj **klucz funkcyjny** lub **klucz hosta**. Dowiedz się więcej tutaj: [Wyzwalacze i powiązania HTTP usługi Azure Functions HTTP](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | tak |
+| type   | Właściwość Type musi mieć wartość: **AzureFunction** | tak |
+| adres URL aplikacji funkcji | Adres URL aplikacja funkcji platformy Azure. Format to `https://<accountname>.azurewebsites.net`. Ten adres URL jest wartością w sekcji **adresu URL** podczas wyświetlania aplikacja funkcji w Azure Portal  | tak |
+| klucz funkcji | Klucz dostępu dla funkcji platformy Azure. Kliknij sekcję **Zarządzanie** odpowiednią funkcją i skopiuj **klucz funkcji** lub **klucz hosta**. Dowiedz się więcej tutaj: [Azure Functions wyzwalacze i powiązania HTTP](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | tak |
 |   |   |   |
 
 ## <a name="azure-function-activity"></a>Działanie funkcji platformy Azure
 
 | **Właściwość**  | **Opis** | **Dozwolone wartości** | **Wymagane** |
 | --- | --- | --- | --- |
-| name  | Nazwa działania w potoku  | Ciąg | tak |
-| type  | Typ działania to "AzureFunctionActivity" | Ciąg | tak |
-| usługa połączona | Usługa połączona z funkcją platformy Azure dla odpowiedniej aplikacji funkcji platformy Azure  | Odwołanie do usługi połączonej | tak |
-| nazwa funkcji  | Nazwa funkcji w aplikacji funkcji platformy Azure, która wywołuje to działanie | Ciąg | tak |
-| method  | REST METODA INTERFEJSU API dla wywołania funkcji | Obsługiwane typy: "GET", "POST", "PUT"   | tak |
-| nagłówek  | Nagłówki, które są wysyłane do żądania. Na przykład, aby ustawić język i wpisać na żądanie: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Ciąg (lub wyrażenie z wynikiemTylią ciągu) | Nie |
-| body  | który jest wysyłany wraz z żądaniem do metody api funkcji  | Ciąg (lub wyrażenie z wynikiemTylią ciągu) lub obiekt.   | Wymagane dla metod PUT/POST |
+| name  | Nazwa działania w potoku  | String | tak |
+| type  | Typ działania to "AzureFunctionActivity" | String | tak |
+| połączona usługa | Połączona usługa funkcji platformy Azure dla odpowiednich aplikacja funkcji platformy Azure  | Odwołanie do połączonej usługi | tak |
+| Nazwa funkcji  | Nazwa funkcji w aplikacja funkcji platformy Azure, którą wywołuje to działanie | String | tak |
+| method  | Metoda interfejsu API REST dla wywołania funkcji | Obsługiwane typy ciągów: "GET", "POST", "PUT"   | tak |
+| nagłówek  | Nagłówki wysyłane do żądania. Na przykład, aby ustawić język i typ dla żądania: "heads": {"Accept-Language": "en-us", "Content-Type": "Application/JSON"} | Ciąg (lub wyrażenie z typem ResultType ciągu) | Nie |
+| body  | treść, która jest wysyłana wraz z żądaniem do metody interfejsu API funkcji  | Ciąg (lub wyrażenie z typem ResultType String) lub Object.   | Wymagane dla metod PUT/POST |
 |   |   |   | |
 
-Zobacz schemat ładunku żądania w sekcji Schemat [ładunku żądania.](control-flow-web-activity.md#request-payload-schema)
+Zobacz schemat ładunku żądania w sekcji  [schematu ładunku żądania](control-flow-web-activity.md#request-payload-schema).
 
 ## <a name="routing-and-queries"></a>Routing i zapytania
 
-Działanie funkcji platformy Azure obsługuje **routing**. Na przykład jeśli funkcja platformy Azure `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>`ma `functionName` punkt końcowy, a następnie `<functionName>/<value>`do użycia w usłudze Azure function activity jest . Można sparametryzować tę funkcję, aby zapewnić żądane `functionName` w czasie wykonywania.
+Działanie funkcji platformy Azure obsługuje **Routing**. Jeśli na przykład funkcja platformy Azure ma punkt końcowy `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>`, do użycia w `functionName` działaniu funkcji platformy Azure znajduje się `<functionName>/<value>`wartość. Tę funkcję można Sparametryzuj, aby zapewnić odpowiednie `functionName` środowisko uruchomieniowe.
 
-Działanie funkcji platformy Azure obsługuje również **kwerendy**. Kwerenda musi zostać uwzględniona jako `functionName`część pliku . Na przykład, gdy nazwa `HttpTriggerCSharp` funkcji jest i kwerendy, które chcesz dołączyć jest `name=hello`, a następnie można skonstruować `functionName` w usłudze Azure function activity as `HttpTriggerCSharp?name=hello`. Ta funkcja może być sparametryzowana, dzięki czemu wartość można określić w czasie wykonywania.
+Działanie funkcji platformy Azure obsługuje również **zapytania**. Zapytanie musi zostać dołączone jako część elementu `functionName`. Na przykład, gdy `HttpTriggerCSharp` nazwa funkcji jest i zapytanie, które chcesz dołączyć `name=hello`, można utworzyć `functionName` w działaniu funkcji platformy Azure jako. `HttpTriggerCSharp?name=hello` Ta funkcja może być sparametryzowana, aby można było określić wartość w czasie wykonywania.
 
-## <a name="timeout-and-long-running-functions"></a>Limit czasu i funkcje długotrwałego działania
+## <a name="timeout-and-long-running-functions"></a>Funkcje limitu czasu i długotrwałego działania
 
-Upłynie czas po upływie 230 sekund, niezależnie od `functionTimeout` ustawienia skonfigurowanego w ustawieniach. Aby uzyskać więcej informacji, zobacz [ten artykuł](../azure-functions/functions-versions.md#timeout). Aby obejść to zachowanie, wykonaj wzorzec asynchronii lub użyj funkcji trwałych. Zaletą funkcji trwałych jest to, że oferują one swój własny mechanizm śledzenia stanu, więc nie trzeba implementować własne.
+Azure Functions limit czasu po 230 sekund niezależnie od `functionTimeout` ustawień skonfigurowanych w ustawieniach. Aby uzyskać więcej informacji, zobacz [ten artykuł](../azure-functions/functions-versions.md#timeout). Aby obejść ten problem, postępuj zgodnie ze wzorcem asynchronicznym lub użyj Durable Functions. Korzyść Durable Functions polega na tym, że oferują własne mechanizmy śledzenia stanu, więc nie trzeba implementować własnych.
 
-Dowiedz się więcej o funkcjach trwałych w [tym artykule](../azure-functions/durable/durable-functions-overview.md). Można skonfigurować działanie funkcji platformy Azure, aby wywołać funkcję trwałą, która zwróci odpowiedź z innym identyfikatorem URI, na [przykład.](../azure-functions/durable/durable-functions-http-features.md#http-api-url-discovery) Ponieważ `statusQueryGetUri` zwraca stan HTTP 202, gdy funkcja jest uruchomiona, można sondować stan funkcji za pomocą aktywności w sieci Web. Wystarczy skonfigurować aktywność `url` w sieci `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`Web z polem ustawionym na . Po zakończeniu funkcji trwałe, dane wyjściowe funkcji będzie dane wyjściowe działania sieci Web.
+Dowiedz się więcej na temat Durable Functions w [tym artykule](../azure-functions/durable/durable-functions-overview.md). Można skonfigurować działanie funkcji platformy Azure w celu wywołania funkcji trwałej, która zwróci odpowiedź z innym identyfikatorem URI, na przykład w [tym przykładzie](../azure-functions/durable/durable-functions-http-features.md#http-api-url-discovery). Ponieważ `statusQueryGetUri` zwraca stan http 202, gdy funkcja jest uruchomiona, można sondować stan funkcji przy użyciu działania sieci Web. Wystarczy skonfigurować działanie sieci Web z `url` polem ustawionym na. `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri` Po zakończeniu trwałej funkcji dane wyjściowe funkcji będą dane wyjściowe działania sieci Web.
 
 
 ## <a name="sample"></a>Przykład
 
-W tym miejscu można znaleźć przykład fabryki danych, która używa funkcji platformy Azure do wyodrębniania zawartości [pliku](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)tar.
+Możesz znaleźć przykład Data Factory, który korzysta z funkcji platformy Azure w celu wyodrębnienia zawartości pliku TAR w [tym miejscu](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o działaniach w obszarze Fabryka danych w [potokach i działaniach w usłudze Azure Data Factory](concepts-pipelines-activities.md).
+Dowiedz się więcej o działaniach w Data Factory w [potokach i działaniach w programie Azure Data Factory](concepts-pipelines-activities.md).

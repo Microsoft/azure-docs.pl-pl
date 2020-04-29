@@ -1,6 +1,6 @@
 ---
-title: Wykonywanie pakietów usług integracji programu SQL Server (SSIS) za pomocą narzędzia dtexec obsługującego platformę Azure
-description: Dowiedz się, jak wykonywać pakiety usług integracji programu SQL Server (SSIS) za pomocą narzędzia dtexec obsługującego platformę Azure.
+title: Wykonywanie pakietów SQL Server Integration Services (SSIS) za pomocą narzędzia dtexec z obsługą platformy Azure
+description: Dowiedz się, jak wykonywać pakiety SQL Server Integration Services (SSIS) za pomocą narzędzia dtexec z włączoną obsługą platformy Azure.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -12,65 +12,65 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.openlocfilehash: dce7fb87ee49aefdedf5653243fa5729eee34519
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414324"
 ---
-# <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Uruchamianie pakietów usług integracji programu SQL Server za pomocą narzędzia dtexec obsługującego platformę Azure
+# <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Uruchamianie pakietów SQL Server Integration Services za pomocą narzędzia dtexec z obsługą platformy Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym artykule opisano narzędzie wiersza polecenia dtexec (AzureDTExec) z obsługą platformy Azure. Służy do uruchamiania pakietów usług integracji programu SQL Server (SSIS) w czasie wykonywania integracji platformy Azure-SSIS (IR) w usłudze Azure Data Factory.
+W tym artykule opisano narzędzie wiersza polecenia dtexec (AzureDTExec) z obsługą platformy Azure. Służy do uruchamiania pakietów SQL Server Integration Services (SSIS) na Azure-SSIS Integration Runtime (IR) w Azure Data Factory.
 
-Tradycyjne narzędzie dtexec jest wyposażone w program SQL Server. Aby uzyskać więcej informacji, zobacz [narzędzie dtexec](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017). Jest często wywoływana przez innych orkiestratorów lub harmonogramów, takich jak ActiveBatch i Control-M, do uruchamiania pakietów SSIS w środowisku lokalnym. 
+Tradycyjne narzędzie dtexec zawiera SQL Server. Aby uzyskać więcej informacji, zobacz [Narzędzie dtexec](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017). Często są one wywoływane przez koordynatorów lub harmonogramów innych firm, takich jak ActiveBatch i Control-M, do uruchamiania pakietów SSIS w środowisku lokalnym. 
 
-Nowoczesne narzędzie AzureDTExec jest wyposażone w narzędzie SQL Server Management Studio (SSMS). Może być również wywoływana przez koordynatorów innych firm lub harmonogramów do uruchamiania pakietów SSIS na platformie Azure. Ułatwia podnoszenie i przenoszenie lub migrację pakietów SSIS do chmury. Po migracji, jeśli chcesz nadal używać koordynatorów lub harmonogramów innych firm w codziennych operacjach, mogą teraz wywoływać usługę AzureDTExec zamiast dtexec.
+Nowoczesne narzędzie AzureDTExec zawiera narzędzie SQL Server Management Studio (SSMS). Może być również wywoływana przez koordynatorów lub harmonogramów innych firm do uruchamiania pakietów usług SSIS na platformie Azure. Ułatwia podnoszenie i przenoszenie pakietów usług SSIS i przenoszenie ich do chmury. Jeśli po migracji chcesz nadal korzystać z koordynatorów lub harmonogramów innych firm w codziennych operacjach, można teraz wywołać AzureDTExec zamiast dtexec.
 
-Usługa AzureDTExec uruchamia pakiety jako wykonywanie działań pakietu SSIS w potokach fabryki danych. Aby uzyskać więcej informacji, zobacz [Uruchamianie pakietów SSIS jako działań usługi Azure Data Factory.](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) 
+AzureDTExec uruchamia pakiety jako działania wykonywania pakietów SSIS w potokach Data Factory. Aby uzyskać więcej informacji, zobacz [uruchamianie pakietów SSIS jako działań Azure Data Factory](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity). 
 
-Usługa AzureDTExec można skonfigurować za pomocą usługi SSMS do używania aplikacji usługi Azure Active Directory (Azure AD), która generuje potoki w fabryce danych. Można go również skonfigurować tak, aby uzyskiwał dostęp do systemów plików, udziałów plików lub plików azure, w których przechowujesz pakiety. Na podstawie wartości, które można podać dla jego opcji wywołania, AzureDTExec generuje i uruchamia unikatowy potok fabryki danych z execute SSIS działania pakietu w nim. Wywoływanie usługi AzureDTExec z tymi samymi wartościami dla swoich opcji ponownie wywraca istniejący potok.
+AzureDTExec można skonfigurować za pomocą programu SSMS, aby użyć aplikacji Azure Active Directory (Azure AD), która generuje potoki w fabryce danych. Można go również skonfigurować w taki sposób, aby uzyskiwać dostęp do systemów plików, udziałów plików lub Azure Files, w których przechowywane są pakiety. W oparciu o wartości, które dajesz dla opcji wywołania, AzureDTExec generuje i uruchamia unikatowy potok Data Factory za pomocą działania wykonaj pakiet SSIS. Wywoływanie AzureDTExec z tymi samymi wartościami dla jego opcji uruchamia ponownie istniejący potok.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby korzystać z usługi AzureDTExec, pobierz i zainstaluj najnowszą wersję usługi SSMS, która jest w wersji 18.3 lub nowszej. Pobierz go z [tej strony](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+Aby użyć AzureDTExec, Pobierz i zainstaluj najnowszą wersję programu SSMS, która jest w wersji 18,3 lub nowszej. Pobierz ją z [tej witryny sieci Web](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
 ## <a name="configure-the-azuredtexec-utility"></a>Konfigurowanie narzędzia AzureDTExec
-Instalowanie usługi SSMS na komputerze lokalnym również instaluje usługę AzureDTExec. Aby skonfigurować jego ustawienia, uruchom program SSMS z opcją **Uruchom jako administrator.** Następnie wybierz pozycję **Narzędzia** > **migruj do platformy Azure** > **Konfigurowanie usługi DTExec z obsługą platformy Azure.**
+Zainstalowanie programu SSMS na komputerze lokalnym spowoduje również zainstalowanie AzureDTExec. Aby skonfigurować ustawienia, uruchom program SSMS z opcją **Uruchom jako administrator** . Następnie wybierz pozycję **Narzędzia** > **Migrowanie na platformę Azure** > **Konfiguracja dtexec z włączoną obsługą platformy Azure**.
 
 ![Konfigurowanie menu dtexec z obsługą platformy Azure](media/how-to-invoke-ssis-package-azure-enabled-dtexec/ssms-azure-enabled-dtexec-menu.png)
 
-Ta akcja otwiera okno **AzureDTExecConfig,** które musi zostać otwarte z uprawnieniami administracyjnymi, aby można je było zapisać w pliku *AzureDTExec.settings.* Jeśli system SSMS nie został uruchomiony jako administrator, zostanie otwarte okno Kontrola konta użytkownika. Wprowadź hasło administratora, aby podnieść swoje uprawnienia.
+Ta akcja powoduje otwarcie okna **AzureDTExecConfig** , które należy otworzyć z uprawnieniami administracyjnymi do zapisu w pliku *AzureDTExec. Settings* . Jeśli program SSMS nie został uruchomiony jako administrator, zostanie otwarte okno Kontrola konta użytkownika (UAC). Wprowadź hasło administratora, aby podwyższyć poziom uprawnień.
 
 ![Konfigurowanie ustawień dtexec z obsługą platformy Azure](media/how-to-invoke-ssis-package-azure-enabled-dtexec/ssms-azure-enabled-dtexec-settings.png)
 
-W oknie **AzureDTExecConfig** wprowadź ustawienia konfiguracji w następujący sposób:
+W oknie **AzureDTExecConfig** wprowadź następujące ustawienia konfiguracji:
 
-- **ApplicationId**: Wprowadź unikatowy identyfikator aplikacji usługi Azure AD, który tworzysz z odpowiednimi uprawnieniami do generowania potoków w fabryce danych. Aby uzyskać więcej informacji, zobacz [Tworzenie aplikacji i jednostki usługi Azure AD za pośrednictwem witryny Azure portal.](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
-- **AuthenticationKey:** Wprowadź klucz uwierzytelniania dla aplikacji usługi Azure AD.
-- **Identyfikator dzierżawy:** Wprowadź unikatowy identyfikator dzierżawy usługi Azure AD, w ramach którego jest tworzona aplikacja usługi Azure AD.
-- **DataFactory:** Wprowadź nazwę fabryki danych, w którym unikatowe potoki z execute SSIS package działania w nich są generowane na podstawie wartości opcji podanych podczas wywoływania Usługi AzureDTExec.
-- **IRName:** Wprowadź nazwę usługi Azure-SSIS IR w fabryce danych, na którym pakiety określone w ich ścieżki universal naming convention (UNC) będą uruchamiane podczas wywoływania usługi AzureDTExec.
-- **PipelineNameHashStrLen:** Wprowadź długość ciągów mieszania, które mają być generowane na podstawie wartości opcji, które są podane podczas wywoływania usługi AzureDTExec. Ciągi są używane do tworzenia unikatowych nazw potoków fabryki danych, które uruchamiają pakiety na platformie Azure-SSIS IR. Zazwyczaj wystarczy długość 32 znaków.
-- **ResourceGroup**: Wprowadź nazwę grupy zasobów platformy Azure, w której utworzono fabrykę danych.
-- **SubscriptionId**: Wprowadź unikatowy identyfikator subskrypcji platformy Azure, w ramach którego utworzono fabrykę danych.
-- **LogAccessDomain**: Wprowadź poświadczenia domeny, aby uzyskać dostęp do folderu dziennika w jego ścieżce UNC podczas pisania plików dziennika, co jest wymagane, gdy **logpath** jest określony i **LogLevel** nie ma **wartości null**.
-- **LogAccessPassword**: Wprowadź poświadczenie hasła, aby uzyskać dostęp do folderu dziennika w jego ścieżce UNC podczas pisania plików dziennika, co jest wymagane, gdy **logpath** jest określony i **LogLevel** nie jest **null**.
-- **LogAccessUserName**: Wprowadź poświadczenie nazwy użytkownika, aby uzyskać dostęp do folderu dziennika w jego ścieżce UNC podczas pisania plików dziennika, co jest wymagane, gdy **logpath** jest określony i **LogLevel** nie jest **null**.
-- **LogLevel:** Wprowadź wybrany zakres rejestrowania ze wstępnie zdefiniowanych **opcji null**, **Basic**, **Verbose**lub **Performance** dla wykonań pakietów na platformie Azure-SSIS IR.
-- **LogPath:** Wprowadź ścieżkę UNC folderu dziennika, w którym są zapisywane pliki dziennika z wykonania pakietu na platformie Azure-SSIS IR.
-- **PackageAccessDomain:** Wprowadź poświadczenia domeny, aby uzyskać dostęp do pakietów w ich ścieżce UNC, która jest określona podczas wywoływania usługi AzureDTExec.
-- **PackageAccessPassword:** Wprowadź poświadczenia hasła, aby uzyskać dostęp do pakietów w ich ścieżce UNC, która jest określona podczas wywoływania usługi AzureDTExec.
-- **PackageAccessUserName:** Wprowadź poświadczenia nazwy użytkownika, aby uzyskać dostęp do pakietów w ich ścieżce UNC, która jest określona podczas wywoływania usługi AzureDTExec.
+- Identyfikator **aplikacji**: należy wprowadzić unikatowe identyfikatory aplikacji usługi Azure AD, którą tworzysz przy użyciu odpowiednich uprawnień, aby generować potoki w fabryce danych. Aby uzyskać więcej informacji, zobacz [Tworzenie aplikacji usługi Azure AD i nazwy głównej usługi za pośrednictwem Azure Portal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+- **AuthenticationKey**: Wprowadź klucz uwierzytelniania dla aplikacji usługi Azure AD.
+- **TenantId**: wprowadź unikatowy identyfikator dzierżawy usługi Azure AD, w której jest tworzona aplikacja usługi Azure AD.
+- **DataFactory**: Wprowadź nazwę fabryki danych, w której będą generowane unikatowe potoki z uruchomionym działaniem pakietu SSIS, na podstawie wartości opcji dostarczonych podczas wywoływania AzureDTExec.
+- **IRName**: wprowadź nazwę Azure-SSIS IR w fabryce danych, na której zostaną uruchomione pakiety określone w ścieżce Universal NAMING Convention (UNC) po wywołaniu AzureDTExec.
+- **PipelineNameHashStrLen**: Wprowadź długość ciągów skrótu, które mają zostać wygenerowane z wartości opcji podanej podczas wywoływania AzureDTExec. Ciągi są używane do tworzenia unikatowych nazw dla potoków Data Factory, które uruchamiają pakiety na Azure-SSIS IR. Zwykle długość 32 znaków jest wystarczająca.
+- Grupa **zasobów: wprowadź**nazwę grupy zasobu platformy Azure, w której utworzono fabrykę danych.
+- Subskrypcja **: wprowadź**unikatowy identyfikator subskrypcji platformy Azure, w ramach której utworzono fabrykę danych.
+- **LogAccessDomain**: Wprowadź poświadczenia domeny w celu uzyskania dostępu do folderu dziennika w ścieżce UNC podczas zapisywania plików dziennika, co jest wymagane, gdy określono **LogPath** , a **LogLevel** nie ma **wartości null**.
+- **LogAccessPassword**: Wprowadź poświadczenia hasła, aby uzyskać dostęp do folderu dziennika w jego ścieżce UNC podczas zapisywania plików dziennika, co jest wymagane, gdy określono **LogPath** , a **LogLevel** nie ma **wartości null**.
+- **LogAccessUserName**: Wprowadź poświadczenia nazwy użytkownika, aby uzyskać dostęp do folderu dziennika w swojej ścieżce UNC podczas zapisywania plików dziennika, co jest wymagane, gdy określono **LogPath** i **LogLevel** nie ma **wartości null**.
+- **LogLevel**: Wprowadź wybrany zakres rejestrowania ze wstępnie zdefiniowanych opcji **null**, **Basic**, **verbose**lub **Performance** dla wykonań pakietów na Azure-SSIS IR.
+- **LogPath**: wprowadź ścieżkę UNC folderu dziennika, w której będą zapisywane pliki dziennika z wykonywania pakietów na Azure-SSIS IR.
+- **PackageAccessDomain**: Wprowadź poświadczenia domeny w celu uzyskania dostępu do pakietów w ścieżce UNC określonej podczas wywoływania AzureDTExec.
+- **PackageAccessPassword**: Wprowadź poświadczenia hasła, aby uzyskać dostęp do pakietów w ścieżce UNC, która jest określona podczas wywoływania AzureDTExec.
+- **PackageAccessUserName**: Wprowadź poświadczenia nazwy użytkownika, aby uzyskać dostęp do pakietów w ścieżce UNC określonej podczas wywoływania AzureDTExec.
 
-Aby przechowywać pakiety i pliki dziennika w systemach plików lub udziałach plików lokalnie, dołącz do usługi Azure-SSIS IR do sieci wirtualnej połączonej z siecią lokalną, aby mogła pobierać pakiety i zapisywać pliki dziennika. Aby uzyskać więcej informacji, zobacz [Dołączanie usługi Azure-SSIS IR do sieci wirtualnej.](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)
+Aby przechowywać pakiety i pliki dziennika w lokalnych systemach plików lub udziałach plików, Dołącz do Azure-SSIS IR do sieci wirtualnej połączonej z siecią lokalną, aby umożliwić pobranie pakietów i zapisanie plików dziennika. Aby uzyskać więcej informacji, zobacz [Dołączanie Azure-SSIS IR do sieci wirtualnej](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
-Aby uniknąć wyświetlania poufnych wartości zapisanych w pliku *AzureDTExec.settings* w postaci zwykłego tekstu, możemy zakodować je w ciągi kodowania Base64. Po wywołaniu usługi AzureDTExec wszystkie ciągi zakodowane w usłudze Base64 są dekodowane z powrotem do ich oryginalnych wartości. Można dodatkowo zabezpieczyć plik *AzureDTExec.settings,* ograniczając konta, które mogą uzyskać do niego dostęp.
+Aby uniknąć wyświetlania poufnych wartości zapisanych w pliku *AzureDTExec. Settings* w postaci zwykłego tekstu, kodujemy je do ciągów kodowania base64. Po wywołaniu AzureDTExec wszystkie ciągi kodowane algorytmem Base64 są zdekodowane z powrotem do ich oryginalnych wartości. Można bardziej zabezpieczyć plik *AzureDTExec. Settings* , ograniczając konta, które mają do niego dostęp.
 
 ## <a name="invoke-the-azuredtexec-utility"></a>Wywoływanie narzędzia AzureDTExec
-Można wywołać AzureDTExec w wierszu polecenia i podać odpowiednie wartości dla określonych opcji w scenariuszu przypadku użycia.
+Możesz wywołać AzureDTExec w wierszu polecenia i podać odpowiednie wartości dla konkretnych opcji w scenariuszu przypadków użycia.
 
-Narzędzie jest zainstalowane `{SSMS Folder}\Common7\IDE\CommonExtensions\Microsoft\SSIS\150\Binn`w pliku . Można dodać jego ścieżkę do zmiennej środowiskowej "PATH", aby była wywoływana z dowolnego miejsca.
+Narzędzie jest instalowane pod adresem `{SSMS Folder}\Common7\IDE\CommonExtensions\Microsoft\SSIS\150\Binn`. Możesz dodać ścieżkę do zmiennej środowiskowej "PATH", aby można ją było wywołać z dowolnego miejsca.
 
 ```dos
 > cd "C:\Program Files (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\CommonExtensions\Microsoft\SSIS\150\Binn"
@@ -82,20 +82,20 @@ Narzędzie jest zainstalowane `{SSMS Folder}\Common7\IDE\CommonExtensions\Micros
   /De MyEncryptionPassword
 ```
 
-Wywoływanie usługi AzureDTExec oferuje podobne opcje, jak wywoływanie dtexec. Aby uzyskać więcej informacji, zobacz [dtexec Utility](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017). Oto opcje, które są obecnie obsługiwane:
+Wywołanie AzureDTExec oferuje podobne opcje jako wywołanie dtexec. Aby uzyskać więcej informacji, zobacz [Narzędzie dtexec](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017). Poniżej przedstawiono opcje, które są obecnie obsługiwane:
 
-- **/F[ile]**: Ładuje pakiet, który jest przechowywany w systemie plików, udziale plików lub plikach Azure. Jako wartość tej opcji można określić ścieżkę UNC dla pliku pakietu w systemie plików, udziale plików lub usłudze Azure Files z rozszerzeniem .dtsx. Jeśli określona ścieżka UNC zawiera dowolną przestrzeń, umieść cudzysłowy wokół całej ścieżki.
-- **/Conf[igFile]**: Określa plik konfiguracyjny, z wyjęty z wartości. Za pomocą tej opcji można ustawić konfigurację czasu wykonywania dla pakietu, która różni się od określonej w czasie projektowania. Można przechowywać różne ustawienia w pliku konfiguracji XML, a następnie załadować je przed wykonaniem pakietu. Aby uzyskać więcej informacji, zobacz [Konfiguracje pakietów SSIS](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017). Aby określić wartość tej opcji, należy użyć ścieżki UNC dla pliku konfiguracyjnego w systemie plików, udziale plików lub usłudze Azure Files z rozszerzeniem dtsConfig. Jeśli określona ścieżka UNC zawiera dowolną przestrzeń, umieść cudzysłowy wokół całej ścieżki.
-- **/Conn[ection]**: Określa parametry połączenia dla istniejących menedżerów połączeń w pakiecie. Za pomocą tej opcji można ustawić parametry połączenia w czasie wykonywania dla istniejących menedżerów połączeń w pakiecie, które różnią się od tych określonych w czasie projektowania. Określ wartość tej opcji `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]`w następujący sposób: .
-- **/Set**: Zastępuje konfigurację parametru, zmiennej, właściwości, kontenera, dostawcy dziennika, modułu wyliczającego Foreach lub połączenia w pakiecie. Tę opcję można określić wiele razy. Określ wartość tej opcji `property_path;value`w następujący sposób: . Na przykład `\package.variables[counter].Value;1` zastępuje wartość zmiennej `counter` jako 1. Za pomocą **Kreatora konfiguracji pakietu** można znaleźć, skopiować `property_path` i wkleić wartość elementów w pakiecie, których wartość ma zostać zastąpiona. Aby uzyskać więcej informacji, zobacz [Kreator konfiguracji pakietu](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014).
-- **/De[crypt]**: Ustawia hasło odszyfrowywania dla pakietu, który jest skonfigurowany z poziomem ochrony **EncryptAllWithPassword**/**EncryptSensitiveWithPassword.**
+- **/F [Iku]**: ładuje pakiet, który jest przechowywany w systemie plików, udziale plików lub Azure Files. Jako wartość tej opcji można określić ścieżkę UNC do pliku pakietu w systemie plików, udziale plików lub Azure Files z rozszerzeniem dtsx. Jeśli określona ścieżka UNC zawiera spację, należy umieścić znaki cudzysłowu wokół całej ścieżki.
+- **/Conf [igFile]**: Określa plik konfiguracji, z którego mają zostać wyodrębnione wartości. Korzystając z tej opcji, można ustawić konfigurację wykonawczą dla pakietu, która różni się od określonej w czasie projektowania. Można przechowywać różne ustawienia w pliku konfiguracji XML, a następnie ładować je przed wykonaniem pakietu. Aby uzyskać więcej informacji, zobacz [konfiguracje pakietów usług SSIS](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017). Aby określić wartość dla tej opcji, użyj ścieżki UNC do pliku konfiguracji w systemie plików, udziale plików lub Azure Files z rozszerzeniem dtsConfig. Jeśli określona ścieżka UNC zawiera spację, należy umieścić znaki cudzysłowu wokół całej ścieżki.
+- **/Conn [zenia]**: określa parametry połączenia dla istniejących menedżerów połączeń w pakiecie. Za pomocą tej opcji można ustawić parametry połączenia w czasie wykonywania dla istniejących menedżerów połączeń w pakiecie, które różnią się od określonych w czasie projektowania. Określ wartość dla tej opcji w następujący sposób: `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]`.
+- **/Set**: zastępuje konfigurację parametru, zmiennej, właściwości, kontenera, dostawcy dziennika, modułu wyliczającego foreach lub połączenia w pakiecie. Tę opcję można określić wiele razy. Określ wartość dla tej opcji w następujący sposób: `property_path;value`. Na przykład `\package.variables[counter].Value;1` zastępuje wartość `counter` zmiennej jako 1. Możesz użyć kreatora **konfiguracji pakietu** , aby znaleźć, skopiować i wkleić wartość `property_path` dla elementów w pakiecie, których wartość ma zostać przesłonięta. Aby uzyskać więcej informacji, zobacz [Kreator konfiguracji pakietu](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014).
+- **/De [Crypt]**: ustawia hasło odszyfrowywania dla pakietu, który jest skonfigurowany przy użyciu poziomu ochrony **EncryptAllWithPassword**/**EncryptSensitiveWithPassword** .
 
 > [!NOTE]
-> Wywoływanie usługi AzureDTExec z nowymi wartościami dla swoich opcji generuje nowy potok z wyjątkiem opcji **/De[cript]**.
+> Wywoływanie AzureDTExec z nowymi wartościami dla jego opcji generuje nowy potok z wyjątkiem opcji **/de [kryptu]**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po unikatowe potoki z execute SSIS package działania w nich są generowane i uruchamiane podczas wywoływania AzureDTExec, mogą być monitorowane w portalu fabryki danych. Można również przypisać wyzwalacze fabryki danych do nich, jeśli chcesz zorganizować/zaplanować je przy użyciu fabryki danych. Aby uzyskać więcej informacji, zobacz [Uruchamianie pakietów SSIS jako działań usługi Data Factory](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+Po wydaniu unikatowych potoków z działaniem pakietu usług SSIS i uruchomieniu ich w przypadku wywołania AzureDTExec można je monitorować w portalu Data Factory. Możesz również przypisać do nich wyzwalacze Data Factory, jeśli chcesz zorganizować/zaplanować przy użyciu Data Factory. Aby uzyskać więcej informacji, zobacz [uruchamianie pakietów SSIS jako działań Data Factory](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
 
 > [!WARNING]
-> Oczekuje się, że wygenerowany potok będzie używany tylko przez usługę AzureDTExec. Jego właściwości lub parametry mogą ulec zmianie w przyszłości, więc nie modyfikuj ich ani nie używaj ich ponownie do innych celów. Modyfikacje mogą przerwać azuredtexec. Jeśli tak się stanie, usuń potoku. Usługa AzureDTExec generuje nowy potok przy następnym wywołaniu.
+> Wygenerowany potok powinien być używany tylko przez AzureDTExec. Jego właściwości lub parametry mogą ulec zmianie w przyszłości, dlatego nie należy ich modyfikować ani ponownie używać do innych celów. Modyfikacje mogą spowodować uszkodzenie AzureDTExec. W takim przypadku Usuń potoku. AzureDTExec generuje nowy potok przy następnym wywołaniu.

@@ -1,6 +1,6 @@
 ---
-title: Ładowanie danych detalicznych contoso do magazynu danych Synapse SQL
-description: Polecenia PolyBase i T-SQL umożliwia załadowanie dwóch tabel z danych detalicznych contoso do programu Synapse SQL.
+title: Ładowanie danych detalicznych firmy Contoso do magazynu Synapse SQL Data Warehouse
+description: Użyj poleceń Base i T-SQL, aby załadować dwie tabele z danych sprzedaży Contoso do Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,35 +12,35 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 118653efc8829ac5ef6287bb36fb5595cff1147b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416123"
 ---
-# <a name="load-contoso-retail-data-to-synapse-sql"></a>Ładowanie danych detalicznych contoso do synapsy SQL 
+# <a name="load-contoso-retail-data-to-synapse-sql"></a>Ładowanie danych detalicznych contoso do Synapse SQL 
 
-W tym samouczku nauczysz się używać poleceń PolyBase i T-SQL do ładowania dwóch tabel z danych detalicznych Contoso do magazynu danych Synapse SQL.
+W ramach tego samouczka nauczysz się używać poleceń wielobazowych i T-SQL do ładowania dwóch tabel z danych sprzedaży firmy Contoso do usługi Synapse SQL Data Warehouse.
 
-W tym poradniku będziesz:
+W tym samouczku wykonasz następujące instrukcje:
 
-1. Konfigurowanie bazy danych PolyBase do ładowania z magazynu obiektów obiektów blob platformy Azure
+1. Konfigurowanie bazy danych do załadowania z usługi Azure Blob Storage
 2. Ładowanie danych publicznych do bazy danych
 3. Wykonaj optymalizacje po zakończeniu ładowania.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Aby uruchomić ten samouczek, potrzebujesz konta platformy Azure, które ma już magazyn danych Synapse SQL. Jeśli nie masz aprowizowanego magazynu danych, zobacz [Tworzenie magazynu danych i ustawianie reguły zapory na poziomie serwera](create-data-warehouse-portal.md).
+Do uruchomienia tego samouczka potrzebne jest konto platformy Azure, które ma już Synapse SQL Data Warehouse. Jeśli nie masz obsługiwanego magazynu danych, zobacz [Tworzenie magazynu danych i Ustawianie reguły zapory na poziomie serwera](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Konfigurowanie źródła danych
 
-PolyBase używa obiektów zewnętrznych T-SQL do definiowania lokalizacji i atrybutów danych zewnętrznych. Definicje obiektów zewnętrznych są przechowywane w magazynie danych Synapse SQL. Dane są przechowywane zewnętrznie.
+Baza kodu używa zewnętrznych obiektów T-SQL do definiowania lokalizacji i atrybutów danych zewnętrznych. Definicje obiektów zewnętrznych są przechowywane w usłudze Synapse SQL Data Warehouse. Dane są przechowywane zewnętrznie.
 
-## <a name="create-a-credential"></a>Tworzenie poświadczenia
+## <a name="create-a-credential"></a>Utwórz poświadczenie
 
-**Pomiń ten krok,** jeśli ładujesz dane publiczne Contoso. Nie potrzebujesz bezpiecznego dostępu do danych publicznych, ponieważ są one już dostępne dla każdego.
+**Pomiń ten krok** , Jeśli ładujesz dane publiczne contoso. Nie potrzebujesz bezpiecznego dostępu do danych publicznych, ponieważ są one już dostępne dla wszystkich użytkowników.
 
-**Nie pomijaj tego kroku,** jeśli używasz tego samouczka jako szablonu do ładowania własnych danych. Aby uzyskać dostęp do danych za pośrednictwem poświadczeń, użyj następującego skryptu, aby utworzyć poświadczenia o zakresie bazy danych. Następnie użyj go podczas definiowania lokalizacji źródła danych.
+**Nie pomijaj tego kroku** , jeśli używasz tego samouczka jako szablonu do ładowania własnych danych. Aby uzyskać dostęp do danych za pomocą poświadczeń, użyj następującego skryptu, aby utworzyć poświadczenia w zakresie bazy danych. Następnie użyj go podczas definiowania lokalizacji źródła danych.
 
 ```sql
 -- A: Create a master key.
@@ -77,7 +77,7 @@ WITH (
 
 ## <a name="create-the-external-data-source"></a>Tworzenie zewnętrznego źródła danych
 
-Użyj tego polecenia [UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH,](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) aby zapisać lokalizację danych i typ danych.
+Użyj tego polecenia [Utwórz zewnętrzne źródło danych](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby zapisać lokalizację danych i typ danych.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -89,11 +89,11 @@ WITH
 ```
 
 > [!IMPORTANT]
-> Jeśli zdecydujesz się udostępnić kontenery magazynu obiektów blob azure publicznych, należy pamiętać, że jako właściciel danych będzie naliczana opłata za transfer danych wychodzących, gdy dane opuszcza centrum danych.
+> Jeśli chcesz, aby kontenery usługi Azure Blob Storage były publiczne, pamiętaj, że jako właściciel danych zostanie naliczona opłata za naliczanie opłat za dane wychodzące, gdy dane opuszczają centrum danych.
 
-## <a name="configure-the-data-format"></a>Konfigurowanie formatu danych
+## <a name="configure-the-data-format"></a>Skonfiguruj format danych
 
-Dane są przechowywane w plikach tekstowych w magazynie obiektów blob platformy Azure, a każde pole jest oddzielone ogranicznikiem. W systemie SSMS uruchom następujące polecenie CREATE EXTERNAL FILE FORMAT, aby określić format danych w plikach tekstowych. Dane Contoso są nieskompresowane i rozdzielane potokami.
+Dane są przechowywane w plikach tekstowych w usłudze Azure Blob Storage, a każde pole jest oddzielone ogranicznikiem. W programie SSMS Uruchom następujące polecenie CREATE EXTERNAL FILE FORMAT, aby określić format danych w plikach tekstowych. Dane firmy Contoso są nieskompresowane i rozdzielane potokami.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat
@@ -107,11 +107,11 @@ WITH
 );
 ```
 
-## <a name="create-the-schema-for-the-external-tables"></a>Tworzenie schematu dla tabel zewnętrznych
+## <a name="create-the-schema-for-the-external-tables"></a>Utwórz schemat dla tabel zewnętrznych
 
-Po określeniu źródła danych i formatu pliku można przystąpić do tworzenia schematu dla tabel zewnętrznych.
+Teraz, po określeniu źródła danych i formatu pliku, można przystąpić do tworzenia schematu dla tabel zewnętrznych.
 
-Aby utworzyć miejsce do przechowywania danych Contoso w bazie danych, należy utworzyć schemat.
+Aby utworzyć miejsce do przechowywania danych firmy Contoso w bazie danych, Utwórz schemat.
 
 ```sql
 CREATE SCHEMA [asb]
@@ -120,9 +120,9 @@ GO
 
 ## <a name="create-the-external-tables"></a>Tworzenie tabel zewnętrznych
 
-Uruchom następujący skrypt, aby utworzyć tabele zewnętrzne DimProduct i FactOnlineSales. Wszystko, co robisz w tym miejscu, to definiowanie nazw kolumn i typów danych i powiązanie ich z lokalizacją i formatem plików magazynu obiektów blob platformy Azure. Definicja jest przechowywana w magazynie danych, a dane są nadal w obiekcie blob usługi Azure Storage.
+Uruchom następujący skrypt, aby utworzyć tabele zewnętrzne DimProduct i FactOnlineSales. W tym miejscu Wystarczy zdefiniować nazwy kolumn i typy danych oraz powiązać je z lokalizacją i formatem plików magazynu obiektów blob platformy Azure. Definicja jest przechowywana w magazynie danych, a dane nadal znajdują się w Azure Storage Blob.
 
-Parametr **LOKALIZACJA** jest folderem w folderze głównym w obiekcie Blob usługi Azure Storage. Każda tabela znajduje się w innym folderze.
+Parametr **Location** jest folderem w folderze głównym w Azure Storage BLOB. Każda tabela znajduje się w innym folderze.
 
 ```sql
 --DimProduct
@@ -208,24 +208,24 @@ WITH
 
 ## <a name="load-the-data"></a>Ładowanie danych
 
-Istnieją różne sposoby uzyskiwania dostępu do danych zewnętrznych.  Można wyszukiwać dane bezpośrednio z tabel zewnętrznych, ładować dane do nowych tabel w magazynie danych lub dodawać dane zewnętrzne do istniejących tabel magazynu danych.  
+Istnieją różne sposoby uzyskiwania dostępu do danych zewnętrznych.  Możesz badać dane bezpośrednio z tabel zewnętrznych, ładować dane do nowych tabel w magazynie danych lub dodawać zewnętrzne dane do istniejących tabel magazynu danych.  
 
-### <a name="create-a-new-schema"></a>Tworzenie nowego schematu
+### <a name="create-a-new-schema"></a>Utwórz nowy schemat
 
-CTAS tworzy nową tabelę, która zawiera dane.  Najpierw utwórz schemat dla contoso danych.
+CTAS tworzy nową tabelę zawierającą dane.  Najpierw Utwórz schemat dla danych firmy Contoso.
 
 ```sql
 CREATE SCHEMA [cso]
 GO
 ```
 
-### <a name="load-the-data-into-new-tables"></a>Ładowanie danych do nowych tabel
+### <a name="load-the-data-into-new-tables"></a>Załaduj dane do nowych tabel
 
-Aby załadować dane z magazynu obiektów blob platformy Azure do tabeli magazynu danych, należy użyć instrukcji [CREATE TABLE AS SELECT (Transact-SQL).](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Ładowanie za pomocą [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) wykorzystuje silnie wpisane tabele zewnętrzne, które zostały utworzone. Aby załadować dane do nowych tabel, należy użyć jednej instrukcji CTAS na tabelę.
+Aby załadować dane z usługi Azure Blob Storage do tabeli magazynu danych, użyj instrukcji [CREATE TABLE as Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) . Ładowanie za pomocą [CTAs](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) korzysta z utworzonych tabel zewnętrznych o jednoznacznie określonym typie. Aby załadować dane do nowych tabel, użyj jednej instrukcji CTAS na tabelę.
 
-CTAS tworzy nową tabelę i wypełnia ją wynikami instrukcji select. CTAS definiuje nową tabelę, aby mieć te same kolumny i typy danych, jak wyniki select instrukcji. Jeśli wybierzesz wszystkie kolumny z tabeli zewnętrznej, nowa tabela będzie repliką kolumn i typów danych w tabeli zewnętrznej.
+CTAS tworzy nową tabelę i wypełnia ją wynikami instrukcji SELECT. CTAS definiuje nową tabelę w taki sposób, aby zawierała te same kolumny i typy danych co wyniki instrukcji SELECT. W przypadku wybrania wszystkich kolumn z tabeli zewnętrznej Nowa tabela będzie repliką kolumn i typów danych w tabeli zewnętrznej.
 
-W tym przykładzie tworzymy zarówno wymiar, jak i tabelę faktów jako tabele rozproszone skrótu.
+W tym przykładzie tworzymy zarówno wymiar, jak i tabelę faktów jako tabele rozproszone w postaci skrótów.
 
 ```sql
 SELECT GETDATE();
@@ -235,9 +235,9 @@ CREATE TABLE [cso].[DimProduct]            WITH (DISTRIBUTION = HASH([ProductKey
 CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey]  ) ) AS SELECT * FROM [asb].[FactOnlineSales]        OPTION (LABEL = 'CTAS : Load [cso].[FactOnlineSales]        ');
 ```
 
-### <a name="track-the-load-progress"></a>Śledzenie postępu obciążenia
+### <a name="track-the-load-progress"></a>Śledzenie postępu ładowania
 
-Postęp obciążenia można śledzić za pomocą dynamicznych widoków zarządzania (DMV).
+Postęp ładowania można śledzić przy użyciu dynamicznych widoków zarządzania (widoków DMV).
 
 ```sql
 -- To see all requests
@@ -272,11 +272,11 @@ ORDER BY
     gb_processed desc;
 ```
 
-## <a name="optimize-columnstore-compression"></a>Optymalizacja kompresji magazynu kolumn
+## <a name="optimize-columnstore-compression"></a>Optymalizowanie kompresji magazynu kolumn
 
-Domyślnie magazyn danych Synapse SQL przechowuje tabelę jako indeks klastrowanego magazynu kolumn. Po zakończeniu ładowania niektóre wiersze danych mogą nie zostać skompresowane do magazynu kolumn.  Istnieją różne powody, dla których może się to zdarzyć. Aby dowiedzieć się więcej, zobacz [zarządzanie indeksami magazynu kolumn](sql-data-warehouse-tables-index.md).
+Domyślnie magazyn danych SQL Synapse przechowuje tabelę jako klastrowany indeks magazynu kolumn. Po zakończeniu ładowania niektóre wiersze danych mogą nie zostać skompresowane do magazynu kolumn.  Istnieją różne przyczyny, dla których może się to zdarzyć. Aby dowiedzieć się więcej, zobacz [Zarządzanie indeksami magazynu kolumn](sql-data-warehouse-tables-index.md).
 
-Aby zoptymalizować wydajność kwerend i kompresji magazynu kolumn po obciążeniu, odbuduj tabelę, aby wymusić indeks magazynu kolumn do kompresji wszystkich wierszy.
+Aby zoptymalizować wydajność zapytań i kompresję magazynu kolumn po załadowaniu, należy ponownie skompilować tabelę, aby wymusić, że indeks magazynu kolumn będzie kompresowany ze wszystkimi wierszami.
 
 ```sql
 SELECT GETDATE();
@@ -286,15 +286,15 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Aby uzyskać więcej informacji na temat obsługi indeksów magazynu kolumn, zobacz zarządzanie [indeksami magazynu kolumn](sql-data-warehouse-tables-index.md) artykułu.
+Aby uzyskać więcej informacji na temat obsługi indeksów magazynu kolumn, zobacz artykuł [Zarządzanie indeksami magazynu kolumn](sql-data-warehouse-tables-index.md) .
 
-## <a name="optimize-statistics"></a>Optymalizacja statystyk
+## <a name="optimize-statistics"></a>Optymalizowanie statystyk
 
-Najlepiej jest utworzyć statystyki jednokolumnowe natychmiast po załadowaniu. Jeśli wiesz, że niektóre kolumny nie będą w predykatach kwerendy, możesz pominąć tworzenie statystyk dla tych kolumn. Jeśli utworzysz statystyki jednokolumnowe dla każdej kolumny, odbudowanie wszystkich statystyk może zająć dużo czasu.
+Najlepiej jest utworzyć statystyki pojedynczej kolumny bezpośrednio po załadowaniu. Jeśli wiesz, że niektóre kolumny nie będą znajdować się w predykatach zapytań, możesz pominąć tworzenie statystyk dla tych kolumn. W przypadku tworzenia statystyk z jedną kolumną dla każdej kolumny może upłynąć dużo czasu, aby ponownie skompilować wszystkie statystyki.
 
-Jeśli zdecydujesz się utworzyć statystyki jednokolumnowe dla każdej kolumny każdej tabeli, możesz użyć przykładu `prc_sqldw_create_stats` kodu procedury składowanej w [artykule statystyk.](sql-data-warehouse-tables-statistics.md)
+Jeśli zdecydujesz się utworzyć statystykę jednokolumnową dla każdej kolumny każdej tabeli, możesz użyć przykładowego `prc_sqldw_create_stats` kodu procedury składowanej w artykule [Statystyka](sql-data-warehouse-tables-statistics.md) .
 
-Poniższy przykład jest dobrym punktem wyjścia do tworzenia statystyk. Tworzy jednokolumnowe statystyki dla każdej kolumny w tabeli wymiarów i dla każdej kolumny łączącej w tabelach faktów. Zawsze możesz później dodać statystyki jedno- lub wielokolumnowe do innych kolumn tabeli faktów.
+Poniższy przykład jest dobrym punktem wyjścia do tworzenia statystyk. Tworzy statystykę jednokolumnową dla każdej kolumny w tabeli wymiarów i dla każdej kolumny sprzężenia w tabelach faktów. Można zawsze dodawać pojedyncze lub wielokolumnowe statystyki do innych kolumn tabeli faktów w późniejszym czasie.
 
 ```sql
 CREATE STATISTICS [stat_cso_DimProduct_AvailableForSaleDate] ON [cso].[DimProduct]([AvailableForSaleDate]);
@@ -338,11 +338,11 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_PromotionKey] ON [cso].[FactOnlineSa
 CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]([StoreKey]);
 ```
 
-## <a name="achievement-unlocked"></a>Osiągnięcie odblokowane!
+## <a name="achievement-unlocked"></a>Nieodblokowane osiągnięcie!
 
-Pomyślnie załadowano dane publiczne do magazynu danych. Świetna robota!
+Dane publiczne zostały pomyślnie załadowane do magazynu danych. Wspaniałe zadanie!
 
-Teraz możesz rozpocząć wykonywanie zapytań do tabel w celu eksplorowania danych. Uruchom następującą kwerendę, aby dowiedzieć się, czy łączna sprzedaż na markę:
+Teraz możesz zacząć wysyłać zapytania do tabel, aby eksplorować dane. Uruchom następujące zapytanie, aby dowiedzieć się o całkowitej sprzedaży za markę:
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]
@@ -354,5 +354,5 @@ GROUP BY p.[BrandName]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby załadować pełny zestaw danych, uruchom [przykładowy moduł ładowania pełnego magazynu danych sieci sprzedaży Contoso](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) z repozytorium przykładów programu Microsoft SQL Server.
-Aby uzyskać więcej wskazówek dotyczących programowania, zobacz [Projektowanie decyzji i technik kodowania dla magazynów danych.](sql-data-warehouse-overview-develop.md)
+Aby załadować pełny zestaw danych, uruchom przykład [Załaduj pełny magazyn danych firmy Contoso](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) z repozytorium Microsoft SQL Server Samples.
+Aby uzyskać więcej porad programistycznych, zobacz [decyzje projektowe i techniki kodowania dla hurtowni danych](sql-data-warehouse-overview-develop.md).

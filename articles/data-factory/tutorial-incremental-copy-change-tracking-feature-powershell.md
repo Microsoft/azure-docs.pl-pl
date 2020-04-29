@@ -1,5 +1,5 @@
 ---
-title: Przyrostowe kopiowanie danych przy użyciu śledzenia zmian
+title: Przyrostowe kopiowanie danych przy użyciu Change Tracking
 description: W tym samouczku utworzysz potok usługi Azure Data Factory służący do przyrostowego kopiowania danych różnicowych z wielu tabel w lokalnej bazie danych SQL Server do bazy danych Azure SQL Database.
 services: data-factory
 ms.author: yexu
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: 551cf909e6f78b26f3432f3ad9fdbe2140b9702b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81415297"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Przyrostowe ładowanie danych z bazy danych Azure SQL Database do magazynu Azure Blob Storage z użyciem informacji o śledzeniu zmian
@@ -69,12 +69,12 @@ W tym samouczku utworzysz dwa potoki, za pomocą których zostaną wykonane nast
     ![Diagram przepływu ładowania przyrostowego](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-load-flow-diagram.png)
 
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.microsoft.com/free/) konto przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Azure PowerShell. Zainstaluj najnowsze moduły programu Azure PowerShell, postępując zgodnie z instrukcjami w [temacie Jak zainstalować i skonfigurować program Azure PowerShell](/powershell/azure/install-Az-ps).
-* **Baza danych SQL platformy Azure**. Baza danych jest używana jako magazyn danych **źródłowych**. Jeśli nie masz bazy danych Azure SQL Database, utwórz ją, wykonując czynności przedstawione w artykule [Create an Azure SQL database (Tworzenie bazy danych Azure SQL Database)](../sql-database/sql-database-get-started-portal.md).
+* Azure PowerShell. Zainstaluj najnowsze moduły Azure PowerShell, postępując zgodnie z instrukcjami w temacie [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/install-Az-ps).
+* **Azure SQL Database**. Baza danych jest używana jako magazyn danych **źródłowych**. Jeśli nie masz bazy danych Azure SQL Database, utwórz ją, wykonując czynności przedstawione w artykule [Create an Azure SQL database (Tworzenie bazy danych Azure SQL Database)](../sql-database/sql-database-get-started-portal.md).
 * **Konto usługi Azure Storage**. Magazyn obiektów blob jest używany jako magazyn danych **źródłowych**. Jeśli nie masz konta usługi Azure Storage, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-account-create.md). Utwórz kontener o nazwie **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Tworzenie tabeli danych źródłowych w bazie danych Azure SQL Database
@@ -179,7 +179,7 @@ Zainstaluj najnowsze moduły programu Azure PowerShell, wykonując instrukcje po
     ```powershell
     $dataFactoryName = "IncCopyChgTrackingDF";
     ```
-5. Aby utworzyć fabrykę danych, uruchom następujące polecenie cmdlet **Set-AzDataFactoryV2:**
+5. Aby utworzyć fabrykę danych, uruchom następujące polecenie cmdlet **Set-AzDataFactoryV2** :
 
     ```powershell       
     Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName
@@ -215,8 +215,8 @@ W tym kroku opisano łączenie konta usługi Azure Storage z fabryką danych.
         }
     }
     ```
-2. W **programie Azure PowerShell**przełącz się do folderu **C:\ADFTutorials\IncCopyChangeTrackingTutorial.**
-3. Uruchom polecenie cmdlet **Set-AzDataFactoryV2LinkedService** w celu utworzenia połączonej usługi: **AzureStorageLinkedService**. W poniższym przykładzie przekazujesz wartości dla parametrów **ResourceGroupName** i **DataFactoryName**.
+2. W **Azure PowerShell**przejdź do folderu **C:\ADFTutorials\IncCopyChangeTrackingTutorial** .
+3. Uruchom polecenie cmdlet **Set-AzDataFactoryV2LinkedService** , aby utworzyć połączoną usługę: **AzureStorageLinkedService**. W poniższym przykładzie przekazujesz wartości dla parametrów **ResourceGroupName** i **DataFactoryName**.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -247,7 +247,7 @@ W tym kroku opisano sposób łączenia bazy danych Azure SQL Database z fabryką
         }
     }
     ```
-2. W **programie Azure PowerShell**uruchom polecenie cmdlet **Set-AzDataFactoryV2LinkedService** w celu utworzenia połączonej usługi: **AzureSQLDatabaseLinkedService**.
+2. W **Azure PowerShell**Uruchom polecenie cmdlet **Set-AzDataFactoryV2LinkedService** , aby utworzyć połączoną usługę: **AzureSQLDatabaseLinkedService**.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -432,7 +432,7 @@ W tym kroku utworzysz potok z działaniem kopiowania, które kopiuje wszystkie d
    ```
 
 ### <a name="run-the-full-copy-pipeline"></a>Uruchamianie potoku pełnego kopiowania
-Uruchom potok: **FullCopyPipeline** przy użyciu polecenia cmdlet **Invoke-AzDataFactoryV2Pipeline.**
+Uruchom potok: **FullCopyPipeline** za pomocą polecenia cmdlet **Invoke-AzDataFactoryV2Pipeline** .
 
 ```powershell
 Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName        
@@ -440,7 +440,7 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
 
 ### <a name="monitor-the-full-copy-pipeline"></a>Monitorowanie potoku pełnego kopiowania
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 2. Kliknij pozycję **Wszystkie usługi**, przeprowadź wyszukiwanie za pomocą słowa kluczowego `data factories`, a następnie wybierz pozycję **Fabryki danych**.
 
     ![Menu fabryk danych](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png)
@@ -450,7 +450,7 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
 4. Na stronie fabryki danych kliknij kafelek **Monitorowanie i zarządzanie**.
 
     ![Kafelek Monitorowanie i zarządzanie](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
-5. **Aplikacja integracji danych** uruchamia się w osobnej karcie. Możesz zobaczyć wszystkie **uruchomienia potoku** i ich stany. Zwróć uwagę, że w poniższym przykładzie stan uruchomienia potoku to **Powodzenie**. Klikając link w kolumnie **Parametry**, można sprawdzić parametry przekazywane do potoku. Jeśli wystąpił błąd, w kolumnie **Błąd** zostanie wyświetlony link. Kliknij link w kolumnie **Akcje**.
+5. **Aplikacja integracji danych** zostanie uruchomiona na osobnej karcie. Można zobaczyć wszystkie **uruchomienia potoku** i ich Stany. Zwróć uwagę, że w poniższym przykładzie stan uruchomienia potoku to **Powodzenie**. Klikając link w kolumnie **Parametry**, można sprawdzić parametry przekazywane do potoku. Jeśli wystąpił błąd, w kolumnie **Błąd** zostanie wyświetlony link. Kliknij link w kolumnie **Akcje**.
 
     ![Uruchomienia potoków](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. Po kliknięciu linków w kolumnie **Akcje** zostanie wyświetlona następująca strona, na której będą się znajdować wszystkie **uruchomienia działań** dla potoku.
@@ -621,7 +621,7 @@ W tym kroku utworzysz potok z następującymi działaniami, który będzie okres
    ```
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Uruchamianie potoku kopiowania przyrostowego
-Uruchom potok: **IncrementalCopyPipeline** przy użyciu polecenia cmdlet **Invoke-AzDataFactoryV2Pipeline.**
+Uruchom potok: **IncrementalCopyPipeline** za pomocą polecenia cmdlet **Invoke-AzDataFactoryV2Pipeline** .
 
 ```powershell
 Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName     
@@ -663,4 +663,4 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 Przejdź do poniższego samouczka, aby dowiedzieć się więcej o kopiowaniu nowych i zmienionych plików tylko na podstawie ich daty ostatniej modyfikacji:
 
 > [!div class="nextstepaction"]
->[Kopiowanie nowych plików przez lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
+>[Kopiuj nowe pliki według LastModifiedDate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)

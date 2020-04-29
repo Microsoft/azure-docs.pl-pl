@@ -1,6 +1,6 @@
 ---
-title: Kopiowanie zbiorcze z bazy danych przy użyciu tabeli formantów
-description: Dowiedz się, jak używać szablonu rozwiązania do kopiowania danych zbiorczych z bazy danych przy użyciu zewnętrznej tabeli sterowania do przechowywania listy partycji tabel źródłowych przy użyciu usługi Azure Data Factory.
+title: Kopiowanie masowe z bazy danych przy użyciu tabeli formantów
+description: Dowiedz się, jak używać szablonu rozwiązania do kopiowania danych zbiorczych z bazy danych przy użyciu tabeli formantów zewnętrznych do przechowywania listy partycji tabel źródłowych przy użyciu Azure Data Factory.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -12,42 +12,42 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
 ms.openlocfilehash: d6d634d9a32ae1728e1122d863ddabd94f73ee27
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414843"
 ---
-# <a name="bulk-copy-from-a-database-with-a-control-table"></a>Kopiowanie zbiorcze z bazy danych z tabelą kontrolną
+# <a name="bulk-copy-from-a-database-with-a-control-table"></a>Kopiowanie masowe z bazy danych za pomocą tabeli formantów
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Aby skopiować dane z magazynu danych w oracle server, Netezza, Teradata lub SQL Server do usługi Azure SQL Data Warehouse, należy załadować ogromne ilości danych z wielu tabel. Zazwyczaj dane muszą być podzielone na partycje w każdej tabeli, dzięki czemu można załadować wiersze z wieloma wątkami równolegle z jednej tabeli. W tym artykule opisano szablon do użycia w tych scenariuszach.
+Aby skopiować dane z magazynu danych programu Oracle Server, Netezza, Teradata lub SQL Server do Azure SQL Data Warehouse, należy załadować ogromne ilości danych z wielu tabel. Zwykle dane należy podzielić na partycje w każdej tabeli, aby można było załadować wiersze z wieloma wątkami równolegle z pojedynczej tabeli. W tym artykule opisano szablon, który ma być używany w tych scenariuszach.
 
- >! UWAGA Jeśli chcesz skopiować dane z niewielkiej liczby tabel o stosunkowo małym wolumenie danych do magazynu SQL Data Warehouse, bardziej efektywne jest użycie [narzędzia Dane kopiowania danych z fabryki danych platformy Azure](copy-data-tool.md). Szablon, który jest opisany w tym artykule jest więcej niż potrzebujesz dla tego scenariusza.
+ >! Uwaga Jeśli chcesz skopiować dane z niewielkiej liczby tabel z stosunkowo małą ilością danych do SQL Data Warehouse, możesz użyć [narzędzia Kopiowanie danych Azure Data Factory](copy-data-tool.md). Szablon opisany w tym artykule jest bardziej niezbędny w przypadku tego scenariusza.
 
 ## <a name="about-this-solution-template"></a>Informacje o tym szablonie rozwiązania
 
-Ten szablon pobiera listę partycji źródłowej bazy danych do skopiowania z tabeli kontroli zewnętrznej. Następnie iteruje nad każdą partycją w źródłowej bazie danych i kopiuje dane do miejsca docelowego.
+Ten szablon pobiera listę źródłowych partycji baz danych do skopiowania z zewnętrznej tabeli formantów. Następnie wykonuje iterację dla każdej partycji w źródłowej bazie danych i kopiuje dane do miejsca docelowego.
 
 Szablon zawiera trzy działania:
-- **Wyszukiwanie** pobiera listę pewnych partycji bazy danych z tabeli sterowania zewnętrznego.
-- **ForEach** pobiera listę partycji z działania odnośników i iteruje każdą partycję do działania Kopiowanie.
-- **Kopiuj** każdą partycję ze źródłowego magazynu bazy danych do magazynu docelowego.
+- Funkcja **Lookup** pobiera listę baz danych z tabeli formantów zewnętrznych.
+- Instrukcja **foreach** pobiera listę partycji z działania Lookup i iteruje każdą partycję w działaniu kopiowania.
+- **Kopiuj** kopiuje każdą partycję ze źródłowego magazynu bazy danych do magazynu docelowego.
 
 Szablon definiuje następujące parametry:
-- *Control_Table_Name* jest tabelą kontroli zewnętrznej, która przechowuje listę partycji dla źródłowej bazy danych.
-- *Control_Table_Schema_PartitionID* jest nazwą nazwy kolumny w tabeli kontroli zewnętrznej, która przechowuje każdy identyfikator partycji. Upewnij się, że identyfikator partycji jest unikatowy dla każdej partycji w źródłowej bazie danych.
-- *Control_Table_Schema_SourceTableName* jest tabela kontroli zewnętrznej, która przechowuje każdą nazwę tabeli ze źródłowej bazy danych.
-- *Control_Table_Schema_FilterQuery* jest nazwą kolumny w tabeli kontroli zewnętrznej, która przechowuje kwerendę filtru, aby uzyskać dane z każdej partycji w źródłowej bazie danych. Na przykład, jeśli dane są podzielone na partycje według roku, kwerenda przechowywana w każdym wierszu może być podobna do 'select * z datasource where LastModifytime >= ''2015-01-01 00:00:00'' i LastModifytime <= ''2015-12-31 23:59:59.999'''.
-- *Data_Destination_Folder_Path* to ścieżka, w której dane są kopiowane do magazynu docelowego (ma zastosowanie, gdy miejsce docelowe, które wybierzesz, to "System plików" lub "Usługa Azure Data Lake Storage Gen1"). 
-- *Data_Destination_Container* jest ścieżką folderu głównego, do której dane są kopiowane w magazynie docelowym. 
-- *Data_Destination_Directory* jest ścieżką katalogu pod katalogiem głównym, w którym dane są kopiowane do magazynu docelowego. 
+- *Control_Table_Name* jest tabelą formantów zewnętrznych, która przechowuje listę partycji dla źródłowej bazy danych.
+- *Control_Table_Schema_PartitionID* to nazwa kolumny w tabeli formantów zewnętrznych, która przechowuje każdy identyfikator partycji. Upewnij się, że identyfikator partycji jest unikatowy dla każdej partycji w źródłowej bazie danych.
+- *Control_Table_Schema_SourceTableName* jest tabelą formantów zewnętrznych, która przechowuje każdą nazwę tabeli ze źródłowej bazy danych.
+- *Control_Table_Schema_FilterQuery* to nazwa kolumny w tabeli formantów zewnętrznych, która przechowuje zapytanie filtru, aby pobrać dane z każdej partycji w źródłowej bazie danych. Na przykład w przypadku partycjonowania danych według roku zapytanie przechowywane w każdym wierszu może być podobne do elementu "select * from DataSource, gdzie LastModifytime >=" "2015-01-01 00:00:00" "i LastModifytime <=" "2015-12-31 23:59:59.999" "".
+- *Data_Destination_Folder_Path* to ścieżka, w której dane są kopiowane do magazynu docelowego (odpowiednie do wybranego miejsca docelowego to "system plików" lub "Azure Data Lake Storage Gen1"). 
+- *Data_Destination_Container* to ścieżka folderu głównego, w której dane są kopiowane do magazynu docelowego. 
+- *Data_Destination_Directory* jest ścieżką katalogu w katalogu głównym, gdzie dane są kopiowane do magazynu docelowego. 
 
-Ostatnie trzy parametry, które definiują ścieżkę w magazynie docelowym są widoczne tylko wtedy, gdy miejsce docelowe, które wybierzesz, jest magazynem opartym na plikach. Jeśli wybierzesz "Azure Synapse Analytics (dawniej SQL DW)" jako magazyn docelowy, te parametry nie są wymagane. Ale nazwy tabel i schemat w magazynie danych SQL musi być taka sama jak te w źródłowej bazie danych.
+Ostatnie trzy parametry, które definiują ścieżkę w magazynie docelowym, są widoczne tylko wtedy, gdy wybrane miejsce docelowe jest magazynem opartym na plikach. Jeśli wybierzesz pozycję "Azure Synapse Analytics (wcześniej SQL DW)" jako magazyn docelowy, te parametry nie są wymagane. Nazwy tabel i schematu w SQL Data Warehouse muszą być takie same jak te w źródłowej bazie danych.
 
-## <a name="how-to-use-this-solution-template"></a>Jak korzystać z tego szablonu rozwiązania
+## <a name="how-to-use-this-solution-template"></a>Jak używać tego szablonu rozwiązania
 
-1. Utwórz tabelę formantów w programie SQL Server lub usłudze Azure SQL Database, aby przechowywać listę partycji źródłowej bazy danych do kopiowania zbiorczego. W poniższym przykładzie istnieje pięć partycji w źródłowej bazie danych. Trzy partycje są dla *datasource_table,* a dwa są dla *project_table*. Kolumna *LastModifytime* służy do partycjonowania danych w tabeli *datasource_table* ze źródłowej bazy danych. Kwerenda używana do odczytu pierwszej partycji to 'select * from datasource_table where LastModifytime >= ''2015-01-01 00:00:00'' i LastModifytime <= ''2015-12-31 23:59:59.999'''. Podobnej kwerendy można użyć do odczytu danych z innych partycji.
+1. Utwórz tabelę formantów w SQL Server lub Azure SQL Database do przechowywania listy partycji źródłowej bazy danych na potrzeby kopiowania zbiorczego. W poniższym przykładzie istnieje pięć partycji w źródłowej bazie danych. Trzy partycje są dla *datasource_table*, a dwa są dla *project_table*. Kolumna *LastModifytime* służy do partycjonowania danych w tabeli *datasource_table* ze źródłowej bazy danych. Zapytanie, które jest używane do odczytywania pierwszej partycji, to "select * from datasource_table, gdzie LastModifytime >=" "2015-01-01 00:00:00" "i LastModifytime <=" "2015-12-31 23:59:59.999" "". Możesz użyć podobnego zapytania do odczytywania danych z innych partycji.
 
      ```sql
             Create table ControlTableForTemplate
@@ -67,35 +67,35 @@ Ostatnie trzy parametry, które definiują ścieżkę w magazynie docelowym są 
             (5, 'project_table','select * from project_table where ID >= 1000 and ID < 2000');
     ```
 
-2. Przejdź do szablonu **Kopiowanie zbiorcze z bazy danych.** Utwórz **nowe** połączenie z tabelą sterowania zewnętrznego utworzoną w kroku 1.
+2. Przejdź do szablonu **kopiowania zbiorczego z bazy danych** . Utwórz **nowe** połączenie z tabelą formantów zewnętrznych utworzoną w kroku 1.
 
-    ![Tworzenie nowego połączenia z tabelą kontrolną](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable2.png)
+    ![Utwórz nowe połączenie z tabelą formantów](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable2.png)
 
-3. Utwórz **nowe** połączenie ze źródłową bazą danych, z której kopiujesz dane.
+3. Utwórz **nowe** połączenie z źródłową bazą danych, z której są kopiowane dane.
 
-    ![Tworzenie nowego połączenia ze źródłową bazą danych](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
+    ![Utwórz nowe połączenie ze źródłową bazą danych](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
     
-4. Utwórz **nowe** połączenie z docelowym magazynem danych, do którego kopiujesz dane.
+4. Utwórz **nowe** połączenie z docelowym magazynem danych, do którego chcesz skopiować dane.
 
-    ![Tworzenie nowego połączenia z magazynem docelowym](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png)
+    ![Utwórz nowe połączenie z magazynem docelowym](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png)
 
 5. Wybierz pozycję **Użyj tego szablonu**.
 
-6. Zostanie wyświetlony potok, jak pokazano w poniższym przykładzie:
+6. Zostanie wyświetlony potok, jak pokazano w następującym przykładzie:
 
-    ![Przejrzyj potok](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
+    ![Przeglądanie potoku](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
 
-7. Wybierz **debugowanie**, wprowadź **parametry**, a następnie wybierz **zakończ**.
+7. Wybierz pozycję **Debuguj**, wprowadź **Parametry**, a następnie wybierz pozycję **Zakończ**.
 
-    ![Kliknij przycisk **Debugowanie**](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
+    ![Kliknij pozycję * * Debuguj * *](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
 
-8. Zostaną wyświetlenia wyników podobnych do poniższego przykładu:
+8. Zobaczysz wyniki podobne do poniższego przykładu:
 
     ![Przejrzyj wynik](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. (Opcjonalnie) Jeśli jako miejsce docelowe danych wybrano opcję "Azure Synapse Analytics (dawniej SQL DW)", należy wprowadzić połączenie z magazynem obiektów blob platformy Azure w celu przeprowadzenia przemieszczania, zgodnie z wymaganiami bazy danych SQL Data Warehouse. Szablon automatycznie wygeneruje ścieżkę kontenera dla magazynu obiektów Blob. Sprawdź, czy kontener został utworzony po uruchomieniu potoku.
+9. Obowiązkowe W przypadku wybrania opcji "Azure Synapse Analytics (dawniej SQL DW)" jako miejsca docelowego danych należy wprowadzić połączenie z magazynem obiektów blob platformy Azure na potrzeby przemieszczania, zgodnie z wymaganiami SQL Data Warehouse Base. Szablon spowoduje automatyczne wygenerowanie ścieżki kontenera dla magazynu obiektów BLOB. Sprawdź, czy kontener został utworzony po uruchomieniu potoku.
     
-    ![Ustawienie bazy polibałowej](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
+    ![Ustawienie bazy](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        
 ## <a name="next-steps"></a>Następne kroki
 

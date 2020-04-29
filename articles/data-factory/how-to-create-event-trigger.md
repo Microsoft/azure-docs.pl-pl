@@ -1,6 +1,6 @@
 ---
-title: Tworzenie wyzwalaczy opartych na zdarzeniach w usłudze Azure Data Factory
-description: Dowiedz się, jak utworzyć wyzwalacz w usłudze Azure Data Factory, który uruchamia potok w odpowiedzi na zdarzenie.
+title: Tworzenie wyzwalaczy opartych na zdarzeniach w Azure Data Factory
+description: Dowiedz się, jak utworzyć wyzwalacz w Azure Data Factory, który uruchamia potok w odpowiedzi na zdarzenie.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -12,97 +12,97 @@ ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.openlocfilehash: d697fb8afe3e92dfe54eb5d89a2ef59425cb0cde
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414925"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Tworzenie wyzwalacza uruchamiającego potok w odpowiedzi na zdarzenie
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W tym artykule opisano wyzwalacze oparte na zdarzeniach, które można utworzyć w potokach fabryki danych.
+W tym artykule opisano wyzwalacze oparte na zdarzeniach, które można utworzyć w potokach Data Factory.
 
-Architektura oparta na zdarzeniach (EDA) to typowy wzorzec integracji danych, który obejmuje produkcję, wykrywanie, zużycie i reakcję na zdarzenia. Scenariusze integracji danych często wymagają od klientów usługi Data Factory wyzwalania potoków na podstawie zdarzeń, takich jak nadejście lub usunięcie pliku na koncie usługi Azure Storage. Usługa Data Factory jest teraz zintegrowana z [usługą Azure Event Grid,](https://azure.microsoft.com/services/event-grid/)która umożliwia wyzwalanie potoków w przypadku zdarzenia.
+Architektura sterowana zdarzeniami (EDA) to typowy wzorzec integracji danych, który obejmuje produkcję, wykrywanie, użycie i reagowanie na zdarzenia. Scenariusze integracji danych często wymagają Data Factory klientów do wyzwalania potoków w oparciu o zdarzenia, takie jak przyjęcie lub usunięcie pliku na koncie usługi Azure Storage. Data Factory jest teraz zintegrowana z [Azure Event Grid](https://azure.microsoft.com/services/event-grid/), co umożliwia wyzwalanie potoków na zdarzeniu.
 
-Aby zapoznać się z dziesięciominutowym wprowadzeniem i prezentacją tej funkcji, obejrzyj następujący film:
+W przypadku 10-minutowego wprowadzenia i pokazania tej funkcji Obejrzyj następujące wideo:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Event-based-data-integration-with-Azure-Data-Factory/player]
 
 
 > [!NOTE]
-> Integracja opisana w tym artykule zależy od [usługi Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Upewnij się, że subskrypcja jest zarejestrowana u dostawcy zasobów usługi Event Grid. Aby uzyskać więcej informacji, zobacz [Dostawcy zasobów i typy](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+> Integracja opisana w tym artykule zależy od [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Upewnij się, że subskrypcja została zarejestrowana przy użyciu dostawcy zasobów Event Grid. Aby uzyskać więcej informacji, zobacz [dostawcy zasobów i ich typy](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
 ## <a name="data-factory-ui"></a>Interfejs użytkownika usługi Data Factory
 
-W tej sekcji pokazano, jak utworzyć wyzwalacz zdarzeń w interfejsie użytkownika usługi Azure Data Factory.
+W tej sekcji pokazano, jak utworzyć wyzwalacz zdarzeń w Azure Data Factory interfejsie użytkownika.
 
-1. Przejdź do **kanwy autorskiej**
+1. Przejdź do **kanwy tworzenia**
 
-1. W lewym dolnym rogu kliknij przycisk **Wyzwalacze**
+1. W lewym dolnym rogu kliknij przycisk **wyzwalacze**
 
-1. Kliknij **+ Nowy,** który otworzy nav stronie wyzwalacza
+1. Kliknij pozycję **+ Nowy** , aby otworzyć stronę Utwórz wyzwalacz nawigacyjny
 
 1. Wybierz **zdarzenie** typu wyzwalacza
 
-    ![Tworzenie nowego wyzwalacza zdarzenia](media/how-to-create-event-trigger/event-based-trigger-image1.png)
+    ![Utwórz nowy wyzwalacz zdarzeń](media/how-to-create-event-trigger/event-based-trigger-image1.png)
 
-1. Wybierz konto magazynu z listy rozwijanej subskrypcji platformy Azure lub ręcznie przy użyciu identyfikatora zasobu konta magazynu. Wybierz kontener, na którym mają wystąpić zdarzenia. Wybór kontenera jest opcjonalny, ale należy pamiętać, że wybranie wszystkich kontenerów może prowadzić do dużej liczby zdarzeń.
+1. Wybierz konto magazynu z listy rozwijanej subskrypcja platformy Azure lub ręcznie przy użyciu identyfikatora zasobu konta magazynu. Wybierz kontener, w którym mają być wykonywane zdarzenia. Wybór kontenera jest opcjonalny, ale pamiętaj, że wybranie wszystkich kontenerów może prowadzić do dużej liczby zdarzeń.
 
    > [!NOTE]
-   > Wyzwalacz zdarzeń obsługuje obecnie tylko konta usługi Azure Data Lake Storage Gen2 i ogólnego przeznaczenia w wersji 2 magazynu. Ze względu na ograniczenie usługi Azure Event Grid usługa Azure Data Factory obsługuje tylko maksymalnie 500 wyzwalaczy zdarzeń na konto magazynu.
+   > Wyzwalacz zdarzenia obecnie obsługuje tylko konta magazynu Azure Data Lake Storage Gen2 i ogólnego przeznaczenia w wersji 2. Ze względu na ograniczenie Azure Event Grid Azure Data Factory obsługuje maksymalnie 500 wyzwalaczy zdarzeń na konto magazynu.
 
-1. **Ścieżka obiektu Blob rozpoczyna się** od i ścieżka obiektu **blob kończy się** właściwości pozwalają określić kontenery, foldery i nazwy obiektów blob, dla których chcesz otrzymywać zdarzenia. Wyzwalacz zdarzenia wymaga zdefiniowania co najmniej jednej z tych właściwości. Można użyć różnych wzorców dla ścieżki **obiektów blob zaczyna się** i ścieżka obiektu **blob kończy się** właściwości, jak pokazano w przykładach w dalszej części tego artykułu.
+1. **Ścieżka obiektu BLOB rozpoczyna się od** , a **Ścieżka obiektu BLOB zostanie zakończona z** właściwościami, co pozwala na określenie kontenerów, folderów i nazw obiektów blob, dla których mają być odbierane zdarzenia. Wyzwalacz zdarzenia wymaga zdefiniowania co najmniej jednej z tych właściwości. Można użyć różnych wzorców dla **ścieżki obiektu BLOB zaczyna** się od, a **Ścieżka obiektu BLOB zostanie zakończona z** właściwościami, jak pokazano w przykładach w dalszej części tego artykułu.
 
-    * **Ścieżka obiektu blob rozpoczyna się od:** Ścieżka obiektu blob musi zaczynać się od ścieżki folderu. Prawidłowe `2018/` wartości `2018/april/shoes.csv`obejmują i . Tego pola nie można zaznaczyć, jeśli kontener nie jest zaznaczony.
-    * **Ścieżka obiektu blob kończy się:** Ścieżka obiektu blob musi kończyć się nazwą pliku lub rozszerzeniem. Prawidłowe `shoes.csv` wartości `.csv`obejmują i . Nazwa kontenera i folderu są opcjonalne, ale `/blobs/` po określeniu muszą być oddzielone segmentem. Na przykład kontener o nazwie "zamówienia" `/orders/blobs/2018/april/shoes.csv`może mieć wartość . Aby określić folder w dowolnym kontenerze, pomiń wiodący znak "/". Na przykład `april/shoes.csv` wyzwoli zdarzenie w dowolnym `shoes.csv` pliku o nazwie w folderze o nazwie "april" w dowolnym kontenerze. 
+    * **Ścieżka obiektu BLOB zaczyna się od:** Ścieżka obiektu BLOB musi rozpoczynać się od ścieżki folderu. Prawidłowe wartości to `2018/` include `2018/april/shoes.csv`i. Nie można wybrać tego pola, jeśli nie wybrano kontenera.
+    * **Ścieżka obiektu BLOB zostanie zakończona z:** Ścieżka obiektu BLOB musi kończyć się nazwą pliku lub rozszerzeniem. Prawidłowe wartości to `shoes.csv` include `.csv`i. Nazwy kontenerów i folderów są opcjonalne, ale jeśli są określone, muszą być oddzielone `/blobs/` segmentami. Na przykład kontener o nazwie Orders może mieć wartość `/orders/blobs/2018/april/shoes.csv`. Aby określić folder w dowolnym kontenerze, Pomiń wiodący znak "/". Na przykład `april/shoes.csv` program wyzwoli zdarzenie na dowolnym pliku o nazwie `shoes.csv` w folderze a o nazwie "Kwiecień" w dowolnym kontenerze. 
 
-1. Wybierz, czy wyzwalacz będzie reagować na zdarzenie **utworzone przez obiekt Blob,** **zdarzenie usunięte obiektu Blob,** czy oba te zdarzenia. W określonej lokalizacji magazynu każde zdarzenie wyzwoli potoki fabryki danych skojarzone z wyzwalaczem.
+1. Wybierz, czy wyzwalacz będzie reagować na zdarzenie **utworzone przez obiekt BLOB** , **usunięte zdarzenie obiektu BLOB** lub oba te elementy. W określonej lokalizacji przechowywania każde zdarzenie wywoła potoki Data Factory skojarzone z wyzwalaczem.
 
-    ![Konfigurowanie wyzwalacza zdarzenia](media/how-to-create-event-trigger/event-based-trigger-image2.png)
+    ![Konfigurowanie wyzwalacza zdarzeń](media/how-to-create-event-trigger/event-based-trigger-image2.png)
 
-1. Wybierz, czy wyzwalacz ignoruje obiekty blob z zerowymi bajtami.
+1. Wybierz, czy wyzwalacz ma ignorować obiekty blob bez bajtów.
 
-1. Po skonfigurowaniu wyzwalacza kliknij **przycisk Dalej: Podgląd danych**. Na tym ekranie przedstawiono istniejące obiekty blob dopasowane do konfiguracji wyzwalacza zdarzeń. Upewnij się, że masz określone filtry. Konfigurowanie filtrów, które są zbyt szerokie, może odpowiadać dużej liczbie utworzonych/usuniętych plików i może znacząco wpłynąć na koszt. Po zweryfikowaniu warunków filtru kliknij przycisk **Zakończ**.
+1. Po skonfigurowaniu wyzwalacza kliknij przycisk **Dalej: Podgląd danych**. Na tym ekranie są wyświetlane istniejące obiekty blob dopasowane przez konfigurację wyzwalacza zdarzeń. Upewnij się, że masz określone filtry. Skonfigurowanie zbyt szerokich filtrów może być zgodne z dużą liczbą utworzonych/usuniętych plików i może znacząco wpłynąć na koszt. Po zweryfikowaniu warunków filtrowania kliknij przycisk **Zakończ**.
 
     ![Podgląd danych wyzwalacza zdarzeń](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
-1. Aby dołączyć potok do tego wyzwalacza, przejdź do kanwy potoku i kliknij pozycję **Dodaj wyzwalacz** i wybierz pozycję **Nowy/Edytuj**. Gdy pojawi się boczna nawiga, kliknij pozycję **Wybierz wyzwalacz...** i wybierz utworzony wyzwalacz. Kliknij **przycisk Dalej: Podgląd danych,** aby potwierdzić, że konfiguracja jest poprawna, a następnie **przycisk Dalej,** aby sprawdzić poprawność podglądu danych, jest poprawna.
+1. Aby dołączyć potok do tego wyzwalacza, przejdź do kanwy potoku, a następnie kliknij pozycję **Dodaj wyzwalacz** i wybierz pozycję **Nowy/Edytuj**. Gdy zostanie wyświetlona strona nawigacji bocznej, kliknij pozycję **Wybierz wyzwalacz...** listy rozwijanej i wybierz utworzony wyzwalacz. Kliknij przycisk **Dalej: Podgląd danych** , aby potwierdzić, że konfiguracja jest poprawna, **a następnie sprawdź** , czy wersja zapoznawcza danych jest poprawna.
 
-1. Jeśli potok ma parametry, można określić je na urządzeniu nawigacyjnym po stronie wyzwalacza uruchamia po stronie parametru. Wyzwalacz zdarzenia przechwytuje ścieżkę folderu i nazwę pliku `@triggerBody().folderPath` obiektu `@triggerBody().fileName`blob do właściwości i . Aby użyć wartości tych właściwości w potoku, należy mapować właściwości do parametrów potoku. Po mapowaniu właściwości do parametrów, można uzyskać dostęp `@pipeline().parameters.parameterName` do wartości przechwyconych przez wyzwalacz za pośrednictwem wyrażenia w potoku. Po zakończeniu kliknij przycisk **Zakończ.**
+1. Jeśli potok zawiera parametry, można je określić dla wyzwalacza uruchamia po stronie parametru. Wyzwalacz zdarzenia przechwytuje ścieżkę folderu i nazwę pliku obiektu BLOB do właściwości `@triggerBody().folderPath` i. `@triggerBody().fileName` Aby użyć wartości tych właściwości w potoku, należy zmapować właściwości na parametry potoku. Po zamapowaniu właściwości na parametry można uzyskać dostęp do wartości przechwytywanych przez wyzwalacz za pomocą `@pipeline().parameters.parameterName` wyrażenia w ramach potoku. Po zakończeniu kliknij przycisk **Zakończ** .
 
     ![Mapowanie właściwości do parametrów potoku](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
-W poprzednim przykładzie wyzwalacz jest skonfigurowany do uruchamiania, gdy ścieżka obiektu blob kończąca się na .csv jest tworzony w folderze testowania zdarzeń w kontenerze danych próbki. Właściwości **folderPath** i **fileName** przechwytują lokalizację nowego obiektu blob. Na przykład, gdy plik MoviesDB.csv jest dodawany do `@triggerBody().folderPath` ścieżki próbkowania danych/testowania zdarzeń, ma wartość `sample-data/event-testing` i `@triggerBody().fileName` ma wartość `moviesDB.csv`. Te wartości są mapowane w `sourceFolder` przykładzie `sourceFile` do parametrów potoku `@pipeline().parameters.sourceFolder` i `@pipeline().parameters.sourceFile` które mogą być używane w potoku jako i odpowiednio.
+W poprzednim przykładzie wyzwalacz jest skonfigurowany do uruchamiania, gdy ścieżka obiektu BLOB kończąca się w. csv zostanie utworzona w folderze Event-Tests w kontenerze przykład — dane. Właściwości **folderPath** i **filename** przechwytują lokalizację nowego obiektu BLOB. Na przykład `@triggerBody().folderPath` po dodaniu MoviesDB. CSV do przykładowej ścieżki-dane/testowanie zdarzeń ma wartość `sample-data/event-testing` i `@triggerBody().fileName` ma wartość. `moviesDB.csv` Te wartości `sourceFolder` są mapowane w przykładzie do parametrów potoku, `sourceFile` które mogą być używane w całym potoku odpowiednio `@pipeline().parameters.sourceFolder` w `@pipeline().parameters.sourceFile` zależności od siebie.
 
 ## <a name="json-schema"></a>Schemat JSON
 
-Poniższa tabela zawiera omówienie elementów schematu, które są związane z wyzwalaczy opartych na zdarzeniach:
+Poniższa tabela zawiera omówienie elementów schematu, które są powiązane z wyzwalaczami opartymi na zdarzeniach:
 
-| **JSON Element** | **Opis** | **Typ** | **Dozwolone wartości** | **Wymagane** |
+| **Element JSON** | **Opis** | **Typ** | **Dozwolone wartości** | **Wymagane** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **Zakres** | Identyfikator zasobu usługi Azure Resource Manager konta magazynu. | Ciąg | Identyfikator usługi Azure Resource Manager | Tak |
-| **Zdarzenia** | Typ zdarzeń, które powodują, że ten wyzwalacz do ognia. | Tablica    | Microsoft.Storage.BlobTworzenie, Microsoft.Storage.BloBDeleted | Tak, dowolna kombinacja tych wartości. |
-| **blobPathBeginsWith** | Ścieżka obiektu blob musi zaczynać się od wzorca przewidzianego dla wyzwalacza do ognia. Na przykład `/records/blobs/december/` tylko uruchamia wyzwalacz dla `december` obiektów `records` blob w folderze pod kontenerem. | Ciąg   | | Musisz podać wartość dla co najmniej jednej z `blobPathBeginsWith` `blobPathEndsWith`tych właściwości: lub . |
-| **blobPathEndsWith** | Ścieżka obiektu blob musi kończyć się wzorem przewidzianym dla wyzwalacza do ognia. Na przykład `december/boxes.csv` tylko uruchamia wyzwalacz `boxes` dla `december` obiektów blob o nazwie w folderze. | Ciąg   | | Musisz podać wartość dla co najmniej jednej z `blobPathBeginsWith` `blobPathEndsWith`tych właściwości: lub . |
-| **ignoreEmptyBlobs** | Określa, czy obiekty blob o zerowym bajtach wyzwoli uruchomienie potoku. Domyślnie jest to ustawiona na true. | Wartość logiczna | true lub false | Nie |
+| **Scope** | Identyfikator zasobu Azure Resource Manager konta magazynu. | String | Identyfikator Azure Resource Manager | Tak |
+| **wydarzeniach** | Typ zdarzeń, które powodują uruchomienie tego wyzwalacza. | Tablica    | Microsoft. Storage. BlobCreated, Microsoft. Storage. BlobDeleted | Tak, dowolna kombinacja tych wartości. |
+| **blobPathBeginsWith** | Ścieżka obiektu BLOB musi rozpoczynać się od wzorca dostarczonego dla wyzwalacza. Na przykład `/records/blobs/december/` wyzwala wyzwalacz dla obiektów BLOB w `december` folderze w `records` kontenerze. | String   | | Musisz podać wartość dla co najmniej jednej z następujących właściwości: `blobPathBeginsWith` lub. `blobPathEndsWith` |
+| **blobPathEndsWith** | Ścieżka obiektu BLOB musi kończyć się wzorcem podanym dla wyzwalacza. Na przykład `december/boxes.csv` wyzwala wyzwalacz dla obiektów BLOB o nazwie `boxes` w `december` folderze. | String   | | Musisz podać wartość dla co najmniej jednej z następujących właściwości: `blobPathBeginsWith` lub. `blobPathEndsWith` |
+| **ignoreEmptyBlobs** | Czy obiekty blob o zerowym bajcie będą wyzwalać uruchomienie potoku. Domyślnie jest to wartość true. | Boolean | true lub false | Nie |
 
 ## <a name="examples-of-event-based-triggers"></a>Przykłady wyzwalaczy opartych na zdarzeniach
 
-W tej sekcji przedstawiono przykłady ustawień wyzwalacza opartego na zdarzeniach.
+Ta sekcja zawiera przykłady ustawień wyzwalaczy opartych na zdarzeniach.
 
 > [!IMPORTANT]
-> Należy uwzględnić `/blobs/` segment ścieżki, jak pokazano w poniższych przykładach, za każdym razem, gdy określasz kontener i folder, kontener i plik lub kontener, folder i plik. W przypadku **obiektu blobPathBeginsWith**interfejs użytkownika `/blobs/` fabryki danych zostanie automatycznie dodany między nazwą folderu i kontenera w wyzwalaczu JSON.
+> Musisz dołączyć `/blobs/` segment ścieżki, jak pokazano w poniższych przykładach, po określeniu kontenera i folderu, kontenera i pliku lub kontenera, folderu i pliku. W przypadku **blobPathBeginsWith**interfejs użytkownika Data Factory automatycznie dodaje `/blobs/` między folderem a nazwą kontenera w kodzie JSON wyzwalacza.
 
 | Właściwość | Przykład | Opis |
 |---|---|---|
-| **Ścieżka obiektu blob zaczyna się od** | `/containername/` | Odbiera zdarzenia dla dowolnego obiektu blob w kontenerze. |
-| **Ścieżka obiektu blob zaczyna się od** | `/containername/blobs/foldername/` | Odbiera zdarzenia dla wszystkich `containername` obiektów `foldername` blob w kontenerze i folderze. |
-| **Ścieżka obiektu blob zaczyna się od** | `/containername/blobs/foldername/subfoldername/` | Można również odwoływać się do podfolderu. |
-| **Ścieżka obiektu blob zaczyna się od** | `/containername/blobs/foldername/file.txt` | Odbiera zdarzenia dla obiektu `file.txt` blob o nazwie w folderze `foldername` pod kontenerem. `containername` |
-| **Ścieżka obiektu blob kończy się** | `file.txt` | Odbiera zdarzenia dla obiektu `file.txt` blob o nazwie w dowolnej ścieżce. |
-| **Ścieżka obiektu blob kończy się** | `/containername/blobs/file.txt` | Odbiera zdarzenia dla obiektu `file.txt` blob o nazwie w kontenerze `containername`. |
-| **Ścieżka obiektu blob kończy się** | `foldername/file.txt` | Odbiera zdarzenia dla obiektu `file.txt` `foldername` blob o nazwie w folderze w dowolnym kontenerze. |
+| **Ścieżka obiektu BLOB zaczyna się od** | `/containername/` | Odbiera zdarzenia dla dowolnego obiektu BLOB w kontenerze. |
+| **Ścieżka obiektu BLOB zaczyna się od** | `/containername/blobs/foldername/` | Odbiera zdarzenia dla wszystkich obiektów BLOB w `containername` kontenerze `foldername` i folderze. |
+| **Ścieżka obiektu BLOB zaczyna się od** | `/containername/blobs/foldername/subfoldername/` | Można również odwoływać się do podfolderu. |
+| **Ścieżka obiektu BLOB zaczyna się od** | `/containername/blobs/foldername/file.txt` | Odbiera zdarzenia dla obiektu BLOB o `file.txt` nazwie w `foldername` folderze znajdującym `containername` się w kontenerze. |
+| **Ścieżka obiektu BLOB zostanie zakończona z** | `file.txt` | Odbiera zdarzenia dla obiektu BLOB o `file.txt` nazwie w dowolnej ścieżce. |
+| **Ścieżka obiektu BLOB zostanie zakończona z** | `/containername/blobs/file.txt` | Odbiera zdarzenia dla obiektu BLOB o `file.txt` nazwie w `containername`kontenerze. |
+| **Ścieżka obiektu BLOB zostanie zakończona z** | `foldername/file.txt` | Odbiera zdarzenia dla obiektu BLOB o `file.txt` nazwie `foldername` w folderze w dowolnym kontenerze. |
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać szczegółowe informacje na temat wyzwalaczy, zobacz [Wykonywanie potoku i wyzwalacze](concepts-pipeline-execution-triggers.md#trigger-execution).
+Aby uzyskać szczegółowe informacje na temat wyzwalaczy, zobacz [wykonywanie i wyzwalacze potoku](concepts-pipeline-execution-triggers.md#trigger-execution).

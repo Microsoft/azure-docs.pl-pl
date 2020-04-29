@@ -1,6 +1,6 @@
 ---
-title: Połącz się z programem VSTS
-description: Zapytanie usługi Azure Synapse Analytics w programie Visual Studio.
+title: Łączenie z usługą VSTS
+description: Tworzenie zapytań dotyczących usługi Azure Synapse Analytics przy użyciu programu Visual Studio.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,34 +12,34 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 174ee07e389e598fed6ed8487e60303fbce81f77
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416047"
 ---
-# <a name="connect-to-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Łączenie się z usługą Azure Synapse Analytics za pomocą programu Visual Studio i SSDT
+# <a name="connect-to-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Nawiązywanie połączenia z usługą Azure Synapse Analytics przy użyciu programu Visual Studio i SSDT
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-> * [Program Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [Sqlcmd](../sql/get-started-connect-sqlcmd.md) 
+> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+> * [sqlcmd](../sql/get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
-Użyj programu Visual Studio, aby zbadać pulę SQL w usłudze Azure Synapse w ciągu zaledwie kilku minut. Ta metoda używa rozszerzenia SQL Server Data Tools (SSDT) w programie Visual Studio 2019. 
+Za pomocą programu Visual Studio Zbadaj pulę SQL w ramach usługi Azure Synapse w ciągu zaledwie kilku minut. Ta metoda używa rozszerzenia SQL Server Data Tools (SSDT) w programie Visual Studio 2019. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby użyć tego samouczka, potrzebne są następujące elementy:
 
-* Istniejąca pula SQL. Aby go utworzyć, zobacz [Tworzenie puli SQL](create-data-warehouse-portal.md).
-* Rozszerzenie SSDT dla programu Visual Studio. Jeśli masz visual studio, prawdopodobnie masz już SSDT dla programu Visual Studio. Aby uzyskać instrukcje instalacji i informacje na temat dostępnych opcji, zobacz artykuł [Instalowanie programu Visual Studio i narzędzi SSDT](sql-data-warehouse-install-visual-studio.md).
-* W pełni kwalifikowana nazwa serwera SQL. Aby znaleźć te informacje, zobacz [Łączenie z pulą SQL](../sql/connect-overview.md).
+* Istniejąca Pula SQL. Aby go utworzyć, zobacz [Tworzenie puli SQL](create-data-warehouse-portal.md).
+* Rozszerzenie SSDT dla programu Visual Studio. Jeśli masz program Visual Studio, prawdopodobnie masz już SSDT dla programu Visual Studio. Aby uzyskać instrukcje instalacji i informacje na temat dostępnych opcji, zobacz artykuł [Instalowanie programu Visual Studio i narzędzi SSDT](sql-data-warehouse-install-visual-studio.md).
+* W pełni kwalifikowana nazwa serwera SQL. Aby znaleźć te informacje, zobacz [nawiązywanie połączenia z pulą SQL](../sql/connect-overview.md).
 
-## <a name="1-connect-to-your-sql-pool"></a>1. Połącz się z pulą SQL
+## <a name="1-connect-to-your-sql-pool"></a>1. Nawiązywanie połączenia z pulą SQL
 1. Otwórz program Visual Studio 2019.
-2. Otwórz Eksploratora obiektów programu SQL Server, wybierając **pozycję Wyświetl** > **Eksplorator obiektów programu SQL Server**.
+2. Otwórz Eksplorator obiektów SQL Server, wybierając pozycję **Wyświetl** > **Eksplorator obiektów SQL Server**.
    
     ![Eksplorator obiektów SQL Server](./media/sql-data-warehouse-query-visual-studio/open-ssdt.png)
 3. Kliknij **ikonę dodawania serwera SQL**.
@@ -57,19 +57,19 @@ Aby użyć tego samouczka, potrzebne są następujące elementy:
    
     ![Poznawanie bazy danych AdventureWorksDW](./media/sql-data-warehouse-query-visual-studio/explore-sample.png)
 
-## <a name="2-run-a-sample-query"></a>2. Uruchamianie przykładowej kwerendy
+## <a name="2-run-a-sample-query"></a>2. Uruchom przykładowe zapytanie
 Teraz, po nawiązaniu połączenia z bazą danych, napiszemy zapytanie.
 
 1. Kliknij prawym przyciskiem myszy bazę danych w Eksploratorze obiektów SQL Server.
 2. Wybierz pozycję **Nowe zapytanie**. Otworzy się okno nowego zapytania.
    
     ![Nowe zapytanie](./media/sql-data-warehouse-query-visual-studio/new-query2.png)
-3. Skopiuj do okna kwerendy następującą kwerendę T-SQL:
+3. Skopiuj następujące zapytanie T-SQL do okna zapytania:
    
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Uruchom kwerendę, klikając zieloną strzałkę lub `CTRL` + `SHIFT` + `E`użyj następującego skrótu: .
+4. Uruchom zapytanie, klikając zieloną strzałkę lub użyj następującego skrótu: `CTRL` + `SHIFT` + `E`.
    
     ![Uruchamianie zapytania](./media/sql-data-warehouse-query-visual-studio/run-query.png)
 5. Przejrzyj wyniki zapytania. W tym przykładzie tabela FactInternetSales ma 60398 wierszy.
@@ -77,6 +77,6 @@ Teraz, po nawiązaniu połączenia z bazą danych, napiszemy zapytanie.
     ![Wyniki zapytania](./media/sql-data-warehouse-query-visual-studio/query-results.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy możesz się połączyć i zapytać, spróbuj [zwizualizować dane za pomocą usługi Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md).
+Teraz, gdy można nawiązać połączenie i wykonywać zapytania, spróbuj [wizualizować dane za pomocą Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md).
 
-Aby skonfigurować środowisko uwierzytelniania usługi Azure Active Directory, zobacz [Uwierzytelnianie w puli SQL](sql-data-warehouse-authentication.md).
+Aby skonfigurować środowisko do uwierzytelniania Azure Active Directory, zobacz [uwierzytelnianie w puli SQL](sql-data-warehouse-authentication.md).

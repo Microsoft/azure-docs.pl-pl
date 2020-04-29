@@ -1,101 +1,101 @@
 ---
-title: Często zadawane pytania dotyczące usługi Azure Dev Spaces
+title: Często zadawane pytania dotyczące Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 01/28/2020
 ms.topic: conceptual
-description: Znajdź odpowiedzi na niektóre z często zadawanych pytań dotyczących usługi Azure Dev Spaces
-keywords: 'Docker, Kubernetes, Azure, AKS, Usługa Azure Kubernetes, kontenery, Helm, siatka usług, routing siatki usług, kubectl, k8s '
+description: Znajdź odpowiedzi na niektóre często zadawane pytania dotyczące Azure Dev Spaces
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
 ms.openlocfilehash: b5a380f20640b9bc328aa30289ff7f915cc0b73c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414310"
 ---
-# <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Często zadawane pytania dotyczące usługi Azure Dev Spaces
+# <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Często zadawane pytania dotyczące Azure Dev Spaces
 
-Dotyczy to często zadawanych pytań dotyczących usługi Azure Dev Spaces.
+Dotyczy to często zadawanych pytań dotyczących Azure Dev Spaces.
 
-## <a name="what-versions-of-kubernetes-are-supported-for-azure-dev-spaces"></a>Jakie wersje usługi Kubernetes są obsługiwane dla usługi Azure Dev Spaces?
+## <a name="what-versions-of-kubernetes-are-supported-for-azure-dev-spaces"></a>Jakie wersje Kubernetes są obsługiwane dla Azure Dev Spaces?
 
-Usługa Azure Dev Spaces obsługuje wszystkie [obecnie obsługiwane wersje usługi Kubernetes w wersji ogólnej dostępności (GA) w usłudze AKS.][aks-supported-k8s]
+Azure Dev Spaces obsługuje wszystkie [obecnie obsługiwane wersje ogólnie dostępnych usług Kubernetes w AKS][aks-supported-k8s].
 
-## <a name="which-azure-regions-currently-provide-azure-dev-spaces"></a>Które regiony platformy Azure obecnie zapewniają usługi Azure Dev Spaces?
+## <a name="which-azure-regions-currently-provide-azure-dev-spaces"></a>Które regiony platformy Azure są obecnie dostępne Azure Dev Spaces?
 
-Pełna lista dostępnych regionów można znaleźć w [obsługiwanych regionach.][supported-regions]
+Aby uzyskać pełną listę dostępnych regionów, zobacz sekcję [Obsługiwane regiony][supported-regions] .
 
-## <a name="can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region"></a>Czy mogę przeprowadzić migrację klastra AKS za pomocą usługi Azure Dev Spaces do innego regionu?
+## <a name="can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region"></a>Czy mogę migrować klaster AKS z Azure Dev Spaces do innego regionu?
 
-Tak, jeśli chcesz przenieść klaster AKS z usługą Azure Dev Spaces do innego [obsługiwanego regionu,][supported-regions]zaleca się utworzenie nowego klastra w innym regionie, a następnie zainstalowanie i skonfigurowanie usługi Azure Dev Spaces oraz wdrożenie zasobów i aplikacji w nowym klastrze. Aby uzyskać więcej informacji na temat migrowania usługi AKS, zobacz [Migrowanie do usługi Azure Kubernetes Service (AKS)][aks-migration].
+Tak. Jeśli chcesz przenieść klaster AKS z Azure Dev Spaces do innego [obsługiwanego regionu][supported-regions], zalecamy utworzenie nowego klastra w innym regionie, a następnie zainstalowanie i skonfigurowanie Azure dev Spaces i wdrożenie zasobów i aplikacji w nowym klastrze. Aby uzyskać więcej informacji na temat migrowania AKS, zobacz [Migrowanie do usługi Azure Kubernetes Service (AKS)][aks-migration].
 
-## <a name="can-i-use-azure-dev-spaces-with-existing-dockerfiles-or-helm-charts"></a>Czy mogę używać usługi Azure Dev Spaces z istniejącymi plikami dockerfile lub wykresami Helm?
+## <a name="can-i-use-azure-dev-spaces-with-existing-dockerfiles-or-helm-charts"></a>Czy mogę używać Azure Dev Spaces z istniejącymi wykresami wieloetapowe dockerfile lub Helm?
 
-Tak, jeśli projekt ma już dockerfile lub wykres Helm, można użyć tych plików z usługi Azure Dev Spaces. Po uruchomieniu `azds prep`użyj `--chart` parametru i określ lokalizację wykresu. Usługa Azure Dev Spaces nadal będzie generować plik *azds.yaml* i *Dockerfile.develop,* ale nie zastąpi ani nie zmodyfikuje istniejącego pliku dockerfile ani wykresu Helm. Może być konieczne zmodyfikowanie plików *azds.yaml* i *Dockerfile.develop,* aby wszystko działało poprawnie z istniejącą aplikacją podczas uruchamiania `azds up`.
+Tak, jeśli projekt zawiera już wykres pliku dockerfile lub Helm, można użyć tych plików z Azure Dev Spaces. Po uruchomieniu `azds prep`, użyj `--chart` parametru i określ lokalizację wykresu. Azure Dev Spaces nadal generuje plik *azds. YAML* i *pliku dockerfile. opracowywać* , ale nie zastąpi ani nie zmodyfikuje istniejącego wykresu pliku dockerfile lub Helm. Może być konieczne zmodyfikowanie plików *azds. YAML* i *pliku dockerfile. opracowywać* , aby wszystkie elementy działały prawidłowo z istniejącą aplikacją podczas uruchamiania `azds up`.
 
-Podczas korzystania z własnego wykresu Dockerfile lub Helm istnieją następujące ograniczenia:
-* Jeśli używasz tylko jednego pliku Dockerfile, musi zawierać wszystko, czego potrzebujesz, aby włączyć scenariusze rozwoju, takie jak język SDK nie tylko środowiska wykonawczego. Jeśli używasz oddzielnego pliku Dockerfile dla usługi Azure Dev Spaces, takiego jak Dockerfile.develop, wszystko, czego potrzebujesz, aby włączyć scenariusze rozwoju, musi zostać uwzględnione w tym pliku Dockerfile.
-* Wykres Helm musi obsługiwać przekazywanie części lub całego znacznika obrazu jako wartość z *pliku values.yaml*.
-* Jeśli modyfikujesz cokolwiek za pomocą transferu danych przychodzących, możesz również zaktualizować wykres Helm, aby użyć rozwiązania przychodzącego dostarczonego przez usługi Azure Dev Spaces.
-* Jeśli chcesz korzystać z [funkcji routingu oferowanych przez usługę Azure Dev Spaces,][dev-spaces-routing]wszystkie usługi dla poszczególnych projektów muszą zmieścić się w jednym obszarze nazw Kubernetes i muszą być wdrożone z prostymnazysłem, na przykład *service-a*. W standardowych wykresów Helm tej aktualizacji nazewnictwa można wykonać, określając wartość *właściwości fullnameOverride.*
+Korzystając z własnego wykresu pliku dockerfile lub Helm, istnieją następujące ograniczenia:
+* Jeśli używany jest tylko jeden pliku dockerfile, musi on zawierać wszystko, co jest potrzebne do włączenia scenariuszy programistycznych, takich jak zestaw SDK języka nie tylko środowisko uruchomieniowe. W przypadku używania oddzielnego pliku dockerfile dla Azure Dev Spaces, takich jak pliku dockerfile. Development, wszystko, czego potrzebujesz do włączenia scenariuszy deweloperskich, musi być zawarte w tym pliku dockerfile.
+* Wykres Helm musi obsługiwać przekazywanie części lub całego znacznika obrazu jako wartość z *wartości. YAML*.
+* Jeśli modyfikujesz wszystko za pomocą transferu danych przychodzących, możesz również zaktualizować wykres Helm, aby korzystał z rozwiązania transferu danych przychodzących dostarczonego przez Azure Dev Spaces.
+* Jeśli chcesz użyć [możliwości routingu zapewnianych przez Azure dev Spaces][dev-spaces-routing], wszystkie usługi dla poszczególnych projektów muszą pasować do jednej przestrzeni nazw Kubernetes i muszą zostać wdrożone przy użyciu prostego nazewnictwa, na przykład *Service-a*. W standardowych wykresach Helm tę aktualizację nazewnictwa można wykonać, określając wartość właściwości *fullnameOverride* .
 
-Aby porównać własny wykres Dockerfile lub Helm z istniejącą wersją, która współpracuje z usługą Azure Dev Spaces, przejrzyj pliki wygenerowane w [przewodniku Szybki start][quickstart-cli].
+Aby porównać własny wykres pliku dockerfile lub Helm z istniejącą wersją, która działa z Azure Dev Spaces, Przejrzyj pliki wygenerowane w [przewodniku szybki start][quickstart-cli].
 
 
-## <a name="can-i-modify-the-files-generated-by-azure-dev-spaces"></a>Czy mogę zmodyfikować pliki generowane przez usługi Azure Dev Spaces?
+## <a name="can-i-modify-the-files-generated-by-azure-dev-spaces"></a>Czy mogę modyfikować pliki wygenerowane przez Azure Dev Spaces?
 
-Tak, podczas przygotowywania projektu można zmodyfikować wykres *pliku azds.yaml,* Dockerfile i Helm [wygenerowany przez usługę Azure Dev Spaces.][dev-spaces-prep] Modyfikacja tych plików zmienia sposób tworzenia i uruchamiania projektu.
+Tak, można zmodyfikować *azds. YAML* plik, pliku dockerfile i Helm [wygenerowany przez Azure dev Spaces podczas przygotowywania projektu][dev-spaces-prep]. Modyfikowanie tych plików zmienia sposób kompilowania i uruchamiania projektu.
 
-## <a name="can-i-use-azure-dev-spaces-without-a-public-ip-address"></a>Czy mogę używać usługi Azure Dev Spaces bez publicznego adresu IP?
+## <a name="can-i-use-azure-dev-spaces-without-a-public-ip-address"></a>Czy mogę używać Azure Dev Spaces bez publicznego adresu IP?
 
-Nie, nie można aprowizować usługi Azure Dev Spaces w klastrze usługi AKS bez publicznego adresu IP. Publiczny adres IP jest [potrzebny do routingu usługi Azure Dev Spaces.][dev-spaces-routing]
+Nie, nie można zainicjować obsługi administracyjnej Azure Dev Spaces w klastrze AKS bez publicznego adresu IP. Publiczny adres IP jest [wymagany przez Azure dev Spaces do routingu][dev-spaces-routing].
 
-## <a name="can-i-use-my-own-ingress-with-azure-dev-spaces"></a>Czy mogę używać własnego transferu przychodzącego z usługą Azure Dev Spaces?
+## <a name="can-i-use-my-own-ingress-with-azure-dev-spaces"></a>Czy mogę użyć własnych danych przychodzących z Azure Dev Spaces?
 
-Tak, można skonfigurować własne przychodzące dane przychodzące wraz z przychodzącym usługi Azure Dev Spaces tworzy. Można na przykład użyć [traefik][ingress-traefik] lub [NGINX][ingress-nginx].
+Tak, możesz skonfigurować własne przychodzące po stronie przychodzące Azure Dev Spaces tworzenia. Na przykład można użyć [traefik][ingress-traefik] lub [Nginx][ingress-nginx].
 
-## <a name="can-i-use-https-with-azure-dev-spaces"></a>Czy mogę używać protokołu HTTPS z usługą Azure Dev Spaces?
+## <a name="can-i-use-https-with-azure-dev-spaces"></a>Czy mogę używać protokołu HTTPS z Azure Dev Spaces?
 
-Tak, można skonfigurować własne dane przychodzące za pomocą protokołu HTTPS za pomocą [traefik][ingress-https-traefik] lub [NGINX][ingress-https-nginx].
+Tak, możesz skonfigurować własny ruch przychodzący przy użyciu protokołu HTTPS za pomocą [traefik][ingress-https-traefik] lub [Nginx][ingress-https-nginx].
 
-## <a name="can-i-use-azure-dev-spaces-on-a-cluster-that-uses-cni-rather-than-kubenet"></a>Czy mogę używać usługi Azure Dev Spaces w klastrze, który używa CNI zamiast kubenet? 
+## <a name="can-i-use-azure-dev-spaces-on-a-cluster-that-uses-cni-rather-than-kubenet"></a>Czy mogę używać Azure Dev Spaces w klastrze korzystającym z CNI zamiast korzystającą wtyczki kubenet? 
 
-Tak, można użyć usługi Azure Dev Spaces w klastrze AKS, który używa CNI do sieci. Na przykład można użyć usługi Azure Dev Spaces w klastrze AKS z [istniejącymi kontenerami systemu Windows,][windows-containers]który używa CNI do sieci. Więcej informacji na temat korzystania z CNI do tworzenia sieci za pomocą usługi Azure Dev Spaces można znaleźć [tutaj](configure-networking.md#using-azure-cni).
+Tak, można użyć Azure Dev Spaces w klastrze AKS, który używa CNI do obsługi sieci. Na przykład można użyć Azure Dev Spaces w klastrze AKS z [istniejącymi kontenerami systemu Windows][windows-containers], które używają CNI do obsługi sieci. Więcej informacji na temat korzystania z CNI dla sieci z Azure Dev Spaces jest dostępna [tutaj](configure-networking.md#using-azure-cni).
 
-## <a name="can-i-use-azure-dev-spaces-with-windows-containers"></a>Czy mogę używać usługi Azure Dev Spaces z kontenerami systemu Windows?
+## <a name="can-i-use-azure-dev-spaces-with-windows-containers"></a>Czy mogę używać Azure Dev Spaces z kontenerami systemu Windows?
 
-Obecnie usługa Azure Dev Spaces jest przeznaczona tylko do uruchamiania zasobników i węzłów systemu Linux, ale można uruchamiać usługi Azure Dev Spaces w klastrze AKS z [istniejącymi kontenerami systemu Windows.][windows-containers]
+Obecnie Azure Dev Spaces ma być uruchamiany tylko w przypadku systemów Linux i w węzłach, ale można uruchomić Azure Dev Spaces w klastrze AKS z [istniejącymi kontenerami systemu Windows][windows-containers].
 
-## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-api-server-authorized-ip-address-ranges-enabled"></a>Czy mogę używać usługi Azure Dev Spaces w klastrach AKS z włączonymi zakresami adresów IP autoryzowanych serwera interfejsu API?
+## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-api-server-authorized-ip-address-ranges-enabled"></a>Czy można używać Azure Dev Spaces w klastrach AKS z włączonymi zakresami adresów IP autoryzowanych serwerów interfejsu API?
 
-Tak, można używać usługi Azure Dev Spaces w klastrach AKS z [włączonymi zakresami adresów IP autoryzowanych serwera interfejsu API.][aks-auth-range] Więcej informacji na temat korzystania z klastrów AKS z zakresami autoryzowanych adresów IP serwera INTERFEJSU API włączonych w usłudze Azure Dev Spaces można znaleźć [tutaj](configure-networking.md#using-api-server-authorized-ip-ranges).
+Tak, można użyć Azure Dev Spaces w klastrach AKS z włączonymi [zakresami adresów IP autoryzowanych przez serwer interfejsu API][aks-auth-range] . Więcej informacji na temat korzystania z klastrów AKS z dozwolonymi zakresami adresów IP serwera interfejsu API w Azure Dev Spaces jest dostępny [tutaj](configure-networking.md#using-api-server-authorized-ip-ranges).
 
-## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-restricted-egress-traffic-for-cluster-nodes"></a>Czy mogę używać usługi Azure Dev Spaces w klastrach AKS z ograniczonym ruchem wychodzącym dla węzłów klastra?
+## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-restricted-egress-traffic-for-cluster-nodes"></a>Czy można używać Azure Dev Spaces w klastrach AKS z ograniczonym ruchem wychodzącym dla węzłów klastra?
 
-Tak, można używać usługi Azure Dev Spaces w klastrach AKS z [ograniczonym ruchem wychodzącym dla węzłów klastra włączonym][aks-restrict-egress-traffic] po dopuszczeniu prawidłowych sieci FQDN. Więcej informacji na temat korzystania z klastrów AKS z ograniczonym ruchem wychodzącym dla węzłów klastra włączonych za pomocą usługi Azure Dev Spaces jest dostępna [tutaj](configure-networking.md#ingress-and-egress-network-traffic-requirements).
+Tak, można użyć Azure Dev Spaces w klastrach AKS z [ograniczonym ruchem wychodzącym dla węzłów klastra][aks-restrict-egress-traffic] włączonych po dodaniu prawidłowych nazw FQDN. Więcej informacji na temat używania klastrów AKS z ograniczonym ruchem wychodzącym dla węzłów klastra z włączonym Azure Dev Spaces jest dostępny [tutaj](configure-networking.md#ingress-and-egress-network-traffic-requirements).
 
-## <a name="can-i-use-azure-dev-spaces-on-rbac-enabled-aks-clusters"></a>Czy mogę używać usługi Azure Dev Spaces w klastrach AKS z włączoną funkcją RBAC?
+## <a name="can-i-use-azure-dev-spaces-on-rbac-enabled-aks-clusters"></a>Czy mogę używać Azure Dev Spaces w przypadku klastrów AKS z włączoną funkcją RBAC?
 
-Tak, można używać usługi Azure Dev Spaces w klastrach AKS z włączoną funkcją RBAC lub bez.
+Tak, można użyć Azure Dev Spaces w klastrach AKS z włączoną funkcją RBAC lub bez niej.
 
-## <a name="what-happens-when-i-enable-ingress-for-project-in-visual-studio"></a>Co się stanie po włączeniu transferu ruchu przychodzącego dla projektu w programie Visual Studio?
+## <a name="what-happens-when-i-enable-ingress-for-project-in-visual-studio"></a>Co się stanie po włączeniu ruchu przychodzącego dla projektu w programie Visual Studio?
 
-Podczas korzystania z programu Visual Studio do przygotowania projektu, masz możliwość włączenia transferu przychodzącego dla usługi. Włączenie transferu przychodzącego powoduje utworzenie publicznego punktu końcowego w celu uzyskania dostępu do usługi podczas uruchamiania w klastrze AKS, co jest opcjonalne. Jeśli nie włączysz transferu przychodzącego, usługa będzie dostępna tylko z poziomu klastra usługi AKS.
+W przypadku korzystania z programu Visual Studio w celu przygotowania projektu można włączyć obsługę ruchu przychodzącego dla usługi. Włączenie transferu danych przychodzących powoduje utworzenie publicznego punktu końcowego w celu uzyskania dostępu do usługi w ramach klastra AKS, który jest opcjonalny. Jeśli nie włączysz transferu danych przychodzących, usługa będzie dostępna tylko z poziomu klastra AKS.
 
-## <a name="can-i-use-pod-managed-identities-with-azure-dev-spaces"></a>Czy można używać tożsamości zarządzanych zasobników za pomocą usługi Azure Dev Spaces?
+## <a name="can-i-use-pod-managed-identities-with-azure-dev-spaces"></a>Czy mogę używać tożsamości zarządzanych z Azure Dev Spaces?
 
-Tak, można używać [tożsamości zarządzanych zasobników][aks-pod-managed-id] w klastrach AKS z włączoną włączoną usługą Azure Dev Spaces, ale istnieją [dodatkowe kroki konfiguracji][dev-spaces-pod-managed-id-steps] po włączeniu usługi Azure Dev Spaces w klastrze z tożsamościami zarządzanymi zasobnika. Jeśli masz zainstalowane tożsamości zarządzane i chcesz je odinstalować, możesz znaleźć więcej szczegółów w [notatkach dezinstalacji][aks-pod-managed-id-uninstall].
+Tak, można użyć [tożsamości zarządzanych][aks-pod-managed-id] w klastrach AKS z włączonym Azure dev Spaces, ale po włączeniu Azure dev Spaces w klastrze za pomocą tożsamości zarządzanych należy wykonać [dodatkowe czynności konfiguracyjne][dev-spaces-pod-managed-id-steps] . Jeśli masz zainstalowane tożsamości zarządzane i chcesz je odinstalować, możesz znaleźć więcej szczegółów w [informacjach o odinstalowaniu][aks-pod-managed-id-uninstall].
 
-## <a name="can-i-use-azure-dev-spaces-with-multiple-microservices-in-an-application"></a>Czy mogę używać usługi Azure Dev Spaces z wieloma mikrousługami w aplikacji?
+## <a name="can-i-use-azure-dev-spaces-with-multiple-microservices-in-an-application"></a>Czy można użyć Azure Dev Spaces z wieloma mikrousługami w aplikacji?
 
-Tak, można użyć usługi Azure Dev Spaces w aplikacji z wieloma mikrousługami, ale należy przygotować i uruchomić poszczególne mikrousługi w ich katalogu głównym. Interfejs wiersza polecenia cli usługi Azure Dev Spaces, rozszerzenie usługi Azure Dev Spaces VS Code i obciążenie programu Visual Studio Azure Development oczekują, że plik *azds.yaml* będzie w katalogu głównym mikrousługi w celu uruchomienia i debugowania. Zobacz [przykładową aplikację udostępniania roweru,][bike-sharing] na przykład wielu mikrousług w jednej aplikacji.
+Tak, można użyć Azure Dev Spaces w aplikacji z wieloma mikrousługami, ale należy przygotować i uruchomić poszczególne mikrousługi w ich katalogu głównym. Azure Dev Spaces interfejs wiersza polecenia, Azure Dev Spaces VS Code rozszerzenie i obciążenie Programowanie na platformie Azure dla programu Visual Studio oczekują, że plik *azds. YAML* powinien znajdować się w katalogu głównym mikrousługi do uruchamiania i debugowania. Zapoznaj się z przykładową [aplikacją do udostępniania roweru][bike-sharing] , aby zapoznać się z wieloma mikrousługami w pojedynczej aplikacji.
 
-W programie Visual Studio Code można [otworzyć oddzielne projekty w jednym obszarze roboczym][vs-code-multi-root-workspaces] i debugować je oddzielnie za pośrednictwem usługi Azure Dev Spaces. Każdy z projektów musi być samodzielny i przygotowany dla usługi Azure Dev Spaces.
+W Visual Studio Code można [otworzyć oddzielne projekty w jednym obszarze roboczym][vs-code-multi-root-workspaces] i debugować je oddzielnie za pomocą Azure dev Spaces. Każdy z projektów musi być samodzielny i przygotowany do Azure Dev Spaces.
 
-W programie Visual Studio można skonfigurować rozwiązania .NET Core do debugowania za pośrednictwem usługi Azure Dev Spaces.
+W programie Visual Studio możliwe jest skonfigurowanie rozwiązań .NET Core na potrzeby debugowania przez Azure Dev Spaces.
 
-## <a name="can-i-use-azure-dev-spaces-with-a-service-mesh"></a>Czy mogę używać usługi Azure Dev Spaces z siatką usług?
+## <a name="can-i-use-azure-dev-spaces-with-a-service-mesh"></a>Czy można użyć Azure Dev Spaces z siatką usługi?
 
-Obecnie nie można używać usługi Azure Dev Spaces z siatkami usług, takimi jak [Istio][istio] lub [Linkerd.][linkerd] Usługi Azure Dev Spaces i siatki usług można uruchomić w tym samym klastrze usługi AKS, ale nie można włączyć zarówno usługi Azure Dev Spaces, jak i siatki usług w tym samym obszarze nazw.
+W tej chwili nie można używać Azure Dev Spaces z oczkami usługi, takimi jak [Istio][istio] lub [konsolidatored][linkerd]. Można uruchomić Azure Dev Spaces i siatkę usługi w tym samym klastrze AKS, ale nie można mieć jednocześnie Azure Dev Spaces i sieci usługi w tej samej przestrzeni nazw.
 
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled

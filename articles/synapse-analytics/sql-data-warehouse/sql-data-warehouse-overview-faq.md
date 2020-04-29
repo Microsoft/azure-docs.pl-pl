@@ -1,6 +1,6 @@
 ---
-title: Usługa Azure Synapse Analytics (dawniej SQL DW) Często zadawane pytania
-description: W tym artykule wymieniono często zadawane pytania dotyczące usługi Azure Synapse Analytics (dawniej SQL DW) od klientów i deweloperów
+title: Azure Synapse Analytics (dawniej SQL DW) — często zadawane pytania
+description: Ten artykuł zawiera listę często zadawanych pytań dotyczących usługi Azure Synapse Analytics (dawniej SQL DW) od klientów i deweloperów
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,66 +11,66 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 260086d186f7e2b2d6f76c437057f5fbc8af39b5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416072"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Usługa Azure Synapse Analytics (dawniej SQL DW) Często zadawane pytania
+# <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (dawniej SQL DW) — często zadawane pytania
 
 ## <a name="general"></a>Ogólne
 
 PYTANIE: Co to jest usługa Azure Synapse?
 
-A. Azure Synapse to nieograniczona usługa analityczna, która łączy magazynowanie danych i analizę dużych zbiorów danych. Daje swobodę do wyszukiwania danych na warunkach, przy użyciu zasobów bez użycia serwera na żądanie lub aprowizacji — na dużą skalę. Usługa Azure Synapse łączy te dwa światy z ujednoliconym doświadczeniem w zakresie pozyskiwania, przygotowywania, zarządzania i obsługi danych na potrzeby natychmiastowej analizy biznesowej i uczenia maszynowego. Aby uzyskać więcej informacji, [zobacz: Co to jest usługa Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Azure Synapse to nieograniczona Usługa analityczna, która łączy magazyn danych i analizę danych Big Data. Zapewnia to swobodę wykonywania zapytań dotyczących danych na Twoich warunkach, korzystając z niezależnych od serwera zasobów na żądanie lub aprowizacji. Usługa Azure Synapse udostępnia te dwa światy wraz z ujednoliconym doświadczeniem do pozyskiwania, przygotowywania, zarządzania i obsługi danych w celu natychmiastowej analizy biznesowej i uczenia maszynowego. Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-PYTANIE: Co się stało z usługą Azure SQL Data Warehouse?
+PYTANIE: Co się stało z Azure SQL Data Warehouse?
 
-A. Usługa Azure Synapse jest ewoluowała w usłudze Azure SQL Data Warehouse (SQL DW). Przeszliśmy ten sam wiodący w branży magazyn danych na zupełnie nowy poziom wydajności i możliwości. Możesz kontynuować uruchamianie istniejących obciążeń magazynu danych w produkcji za pomocą platformy Azure Synapse i automatycznie korzystać z nowych możliwości, które są w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [Co to jest usługa Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Usługa Azure Synapse jest rozwijająca się Azure SQL Data Warehouse (SQL DW). Ten sam wiodący w branży magazyn danych jest poświęcony na cały nowy poziom wydajności i możliwości. Możesz nadal uruchamiać istniejące obciążenia magazynu danych w środowisku produkcyjnym za pomocą usługi Azure Synapse i automatycznie korzystać z nowych funkcji, które są dostępne w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-PYTANIE: Co to jest pula SQL Synapse?
+PYTANIE: Co to jest Synapsea Pula SQL?
 
-A. Pula SQL synapse odnosi się do funkcji magazynowania danych przedsiębiorstwa, które są ogólnie dostępne w usłudze Azure Synapse. Aby uzyskać więcej informacji, [zobacz: Co to jest usługa Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Synapse Pula SQL odwołuje się do funkcji magazynowania danych w przedsiębiorstwie, które są ogólnie dostępne za pomocą usługi Azure Synapse. Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-PYTANIE: Jak rozpocząć korzystanie z usługi Azure Synapse?
+PYTANIE: Jak mogę rozpocząć pracę z usługą Azure Synapse?
 
-A. Możesz rozpocząć pracę z [bezpłatnym kontem platformy Azure](https://azure.microsoft.com/free/sql-data-warehouse/) lub [skontaktować się ze sprzedażą, aby uzyskać więcej informacji.](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html)
+A. Aby uzyskać więcej informacji, możesz zacząć korzystać z [bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/sql-data-warehouse/) lub [skontaktować się z działem sprzedaży](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html).
 
-PYTANIE: Co oferuje usługa Azure Synapse w zakresie bezpieczeństwa danych?
+PYTANIE: Co to jest usługa Azure Synapse w celu zapewnienia bezpieczeństwa danych?
 
-A. Usługa Azure Synapse oferuje kilka rozwiązań do ochrony danych, takich jak TDE i inspekcji. Aby uzyskać więcej informacji, zobacz [Bezpieczeństwo](sql-data-warehouse-overview-manage-security.md).
+A. Usługa Azure Synapse oferuje kilka rozwiązań do ochrony danych, takich jak TDE i inspekcja. Aby uzyskać więcej informacji, zobacz [zabezpieczenia](sql-data-warehouse-overview-manage-security.md).
 
-PYTANIE: Gdzie mogę dowiedzieć się, z jakimi standardami prawnymi lub biznesowymi usługa Azure Synapse jest zgodna z normą?
+PYTANIE: Gdzie można dowiedzieć się, jakie standardy prawne i biznesowe są zgodne z usługą Azure Synapse?
 
-A. Odwiedź stronę [Zgodności firmy Microsoft, aby](https://www.microsoft.com/trustcenter/compliance/complianceofferings) uzyskać różne oferty zgodności według produktów, takich jak SOC i ISO.
-Najpierw wybierz według tytułu zgodności. Następnie rozwiń platformę Azure w sekcji usługi w chmurze firmy Microsoft po prawej stronie strony, aby zobaczyć, jakie usługi są zgodne z usługą Azure Synapse.
+A. Odwiedź stronę [zgodności firmy Microsoft](https://www.microsoft.com/trustcenter/compliance/complianceofferings) , aby uzyskać różne oferty zgodności według produktów, takich jak SOC i ISO.
+Najpierw wybierz pozycję według tytułu zgodności. Następnie rozwiń pozycję Azure w sekcji usługi Cloud Services w zasięgu firmy Microsoft znajdującej się po prawej stronie, aby zobaczyć, jakie usługi są zgodne z platformą Azure Synapse.
 
-PYTANIE: Czy mogę podłączyć program Power BI?
+PYTANIE: Czy mogę połączyć Power BI?
 
-A. Tak! Chociaż usługa Power BI obsługuje bezpośrednie zapytanie za pomocą usługi Azure Synapse, nie jest przeznaczona dla dużej liczby użytkowników ani danych w czasie rzeczywistym. Aby jeszcze bardziej zoptymalizować wydajność usługi Power BI, należy rozważyć użycie usługi Power BI w usłudze Azure Analysis Services lub Analysis Service IaaS.
+A. Tak! Mimo że Power BI obsługuje bezpośrednie zapytania za pomocą usługi Azure Synapse, nie jest ona przeznaczona dla dużej liczby użytkowników ani danych w czasie rzeczywistym. Aby zwiększyć wydajność Power BI, należy rozważyć użycie Power BI na platformie Azure Analysis Services lub Analysis Service IaaS.
 
-PYTANIE: Co to są limity pojemności puli synapse SQL?
+PYTANIE: Co to są Synapse limity pojemności puli SQL?
 
-A. Zobacz naszą aktualną stronę [limitów pojemności.](sql-data-warehouse-service-capacity-limits.md)
+A. Zobacz nasze bieżące [limity pojemności](sql-data-warehouse-service-capacity-limits.md) strony.
 
-PYTANIE: Dlaczego moje skalowanie/pauza/wznawianie trwa tak długo?
+PYTANIE: Dlaczego moje skalowanie/wstrzymywanie/wznawianie trwa tak długo?
 
-A. Kilka czynników może mieć wpływ na czas operacji zarządzania obliczeń. Typowym przypadkiem dla długotrwałych operacji jest wycofywanie transakcyjne. Po zainicjowaniu operacji skalowania lub wstrzymania wszystkie sesje przychodzące są blokowane, a kwerendy są opróżniane. Aby pozostawić system w stanie stabilnym, transakcje muszą zostać wycofane przed rozpoczęciem operacji. Im większa liczba i większy rozmiar dziennika transakcji, tym dłużej operacja zostanie wstrzymana przywracając system do stanu stabilnego.
+A. Kilka czynników może mieć wpływ na czas operacji zarządzania obliczeniami. Typowym przypadkiem długotrwałych operacji jest wycofywanie transakcyjne. Po zainicjowaniu operacji skalowania lub wstrzymania wszystkie sesje przychodzące są blokowane, a kwerendy są opróżniane. Aby pozostawić system w stanie stabilnym, należy ponownie wykonać transakcje przed rozpoczęciem operacji. Im większa liczba i większy rozmiar dziennika transakcji, tym dłużej operacja zostanie wstrzymana, przywracając system do stanu stabilnego.
 
 ## <a name="user-support"></a>Obsługa użytkowników
 
-PYTANIE: Mam prośbę o funkcję, gdzie mogę ją przesłać?
+PYTANIE: Mam wniosek o funkcję, gdzie go przesłać?
 
-A. Jeśli masz prośbę o funkcję, prześlij ją na naszą stronę [UserVoice](https://feedback.azure.com/forums/307516-sql-data-warehouse)
+A. Jeśli masz żądanie dotyczące funkcji, prześlij je na naszej stronie usługi [UserVoice](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 
 PYTANIE: Jak mogę zrobić x?
 
-A. Aby uzyskać pomoc dotyczącą tworzenia za pomocą usługi Azure Synapse, możesz zadawać pytania na naszej stronie [Przepełnienie stosu.](https://stackoverflow.com/questions/tagged/azure-sqldw)
+A. Aby uzyskać pomoc dotyczącą tworzenia aplikacji za pomocą usługi Azure Synapse, możesz zadawać pytania na naszej stronie [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw) .
 
-PYTANIE: Jak przesłać zgłoszenie do pomocy technicznej?
+PYTANIE: Jak mogę przesłać bilet pomocy technicznej?
 
-A. [Bilety pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md) można składać za pośrednictwem witryny Azure portal.
+A. [Bilety pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md) mogą być zgłaszane przez Azure Portal.
 
 ## <a name="sql-languagefeature-support"></a>Obsługa języka/funkcji SQL
 
@@ -78,38 +78,38 @@ PYTANIE: Jakie typy danych są obsługiwane?
 
 A. Zobacz [typy danych](sql-data-warehouse-tables-data-types.md).
 
-PYTANIE: Jakie funkcje tabeli obsługujesz?
+PYTANIE: Jakie funkcje tabel są obsługiwane?
 
-A. Wiele funkcji są obsługiwane. Funkcje, które nie są obsługiwane, można znaleźć w [nieobsługiconych funkcjach tabeli](sql-data-warehouse-tables-data-types.md).
+A. Obsługiwane są wiele funkcji. Funkcje, które nie są obsługiwane, można znaleźć w [nieobsługiwanych funkcjach tabel](sql-data-warehouse-tables-data-types.md).
 
-## <a name="tooling-and-administration"></a>Oprzyrządowanie i administracja
+## <a name="tooling-and-administration"></a>Narzędzia i administracja
 
-PYTANIE: Czy puli Synapse SQL obsługuje interfejsy API REST?
+PYTANIE: Czy usługa Synapse w puli SQL obsługuje interfejsy API REST?
 
-A. Tak. Większość funkcji REST, które mogą być używane z bazy danych SQL jest również dostępna z puli Synapse SQL. Informacje o interfejsie API można znaleźć na stronach dokumentacji REST lub [bazach danych](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+A. Tak. Większość funkcji REST, które mogą być używane z SQL Database jest również dostępna w puli SQL Synapse. Informacje o interfejsie API można znaleźć w ramach stron lub [baz danych](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)Rest.
 
-## <a name="loading"></a>Ładowania
+## <a name="loading"></a>Ładowaniu
 
-PYTANIE: Jakie sterowniki klienta obsługujesz?
+PYTANIE: Jakie sterowniki klientów są obsługiwane?
 
-A. Obsługę sterowników puli Synapse SQL można znaleźć na stronie [Parametry połączenia](../sql/connection-strings.md)
+A. Obsługę sterowników dla puli SQL Synapse można znaleźć na stronie [Parametry połączenia](../sql/connection-strings.md) .
 
-Pyt.: Jakie formaty plików są obsługiwane przez PolyBase?
+P: Jakie formaty plików są obsługiwane przez bazę wielobazową?
 
-O: Ork, RC, Parkiet i tekst z płaskim rozdzielanym
+Odp.: Orc, RC, Parquet i prosty rozdzielony tekst
 
-Pyt.: Z jakimi źródłami danych można się połączyć przy użyciu Bazy PolyBase?
+P: jakie źródła danych można połączyć z użyciem bazy
 
-Odp.: [Usługa Azure Data Lake Storage](sql-data-warehouse-load-from-azure-data-lake-store.md) i obiekty [blob usługi Azure Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+Odp.: [Azure Data Lake Storage](sql-data-warehouse-load-from-azure-data-lake-store.md) i [obiekty blob usługi Azure Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 
-Pyt.: Czy możliwe jest przesunięcia w dół obliczeń podczas łączenia się z obiektami blob usługi Azure Storage lub ADLS?
+P: Czy możliwe jest przekazywanie obliczeń podczas łączenia z obiektami BLOB usługi Azure Storage lub ADLS?
 
-Odp.: Nie, PolyBase współdziała tylko ze składnikami magazynu.
+Odp.: nie, baza nie działa tylko z składnikami magazynu.
 
-P: Czy mogę połączyć się z HDI?
+P: Czy można nawiązać połączenie z usługą HDI?
 
-O: HDI może używać ADLS lub WASB jako warstwy HDFS. Jeśli masz jedną z warstw HDFS, możesz załadować te dane do puli SQL Synapse. Nie można jednak wygenerować obliczeń wypychania w dół do wystąpienia HDI.
+Odp.: HDI może użyć ADLS lub WASB jako warstwy systemu plików HDFS. Jeśli masz albo jako warstwę systemu plików HDFS, możesz załadować te dane do puli SQL Synapse. Nie można jednak generować obliczeń przekazywania do wystąpienia HDI.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat usługi Azure Synapse jako całości, zobacz naszą stronę [przegląd.](sql-data-warehouse-overview-faq.md)
+Aby uzyskać więcej informacji na temat usługi Azure Synapse jako całości, zobacz naszą stronę z [omówieniem](sql-data-warehouse-overview-faq.md) .

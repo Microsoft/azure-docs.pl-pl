@@ -1,6 +1,6 @@
 ---
-title: Rozsyłanie przepływów danych w fabryce danych platformy Azure
-description: Omówienie przepływów danych wyjmowania w usłudze Azure Data Factory
+title: Przetwarzanie przepływy danych w Azure Data Factory
+description: Omówienie przepływów danych przetwarzanie w Azure Data Factory
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: gamal
@@ -8,62 +8,62 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.openlocfilehash: 71df574602518fdc252d9d86859ed772a17be443
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81408978"
 ---
-# <a name="what-are-wrangling-data-flows"></a>Co to są przepływy danych wrangling?
+# <a name="what-are-wrangling-data-flows"></a>Co to są przepływy danych przetwarzanie?
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Organizacje muszą przygotowywać dane i wysuwać się w celu dokładnej analizy złożonych danych, które stale rosną każdego dnia. Przygotowanie danych jest wymagane, aby organizacje mogły używać danych w różnych procesach biznesowych i skrócić czas do wartości.
+Organizacje muszą wykonywać przygotowanie i przetwarzanie danych w celu uzyskania dokładnej analizy złożonych danych, które w dalszym ciągu rosną. Przygotowanie danych jest wymagane, aby organizacje mogły korzystać z danych w różnych procesach firmowych i skrócić czas do wartości.
 
-Wrangling przepływów danych w usłudze Azure Data Factory umożliwiają przygotowanie danych bez kodu w skali chmury iteratively. Przepływy danych Wrangling integrują się z [usługą Power Query Online](https://docs.microsoft.com/power-query/) i udostępniają funkcje dodatku Power Query M użytkownikom fabryki danych.
+Przetwarzanie przepływy danych w Azure Data Factory umożliwiają iteracyjne wykonywanie bezobsługowego przygotowywania danych w skali chmury. Przetwarzanie przepływy danych integrują się z usługą [Power Query online](https://docs.microsoft.com/power-query/) i udostępniają funkcje Power Query M dla użytkowników usługi Data Factory.
 
-Wrangling przepływ danych tłumaczy M generowane przez Power Query Online Mashup Editor do kodu iskry do wykonywania skali chmury.
+Przepływ danych przetwarzanie umożliwia przetłumaczenie M wygenerowanego przez Edytor zestawu połączonych online Power Query na kod Spark na potrzeby wykonywania w skali chmury.
 
-Wrangling przepływów danych są szczególnie przydatne dla inżynierów danych lub "integratorów danych obywatelskich".
+Przepływy danych przetwarzanie są szczególnie przydatne w przypadku inżynierów danych lub integratorów danych obywatela.
 
 ## <a name="use-cases"></a>Przypadki zastosowań
 
-### <a name="fast-interactive-data-exploration-and-preparation"></a>Szybkie interaktywne eksploracja i przygotowanie danych
+### <a name="fast-interactive-data-exploration-and-preparation"></a>Szybka interaktywna Eksploracja i przygotowanie danych
 
-Wielu inżynierów danych i integratorów danych obywatelskich może interaktywnie eksplorować i przygotowywać zestawy danych w skali chmury. Wraz ze wzrostem ilości, różnorodności i prędkości danych w jeziorach danych użytkownicy potrzebują skutecznego sposobu eksplorowania i przygotowywania zestawów danych. Na przykład może być konieczne utworzenie zestawu danych, który "ma wszystkie informacje demograficzne o klientach dla nowych klientów od 2017 r.". Nie mapujesz do znanego obiektu docelowego. Eksplorujesz, wrangling i prepping zestawów danych, aby spełnić wymagania przed opublikowaniem go w jeziorze. Wrangling przepływów danych są często używane dla mniej formalnych scenariuszy analizy. Zestaw danych prepped może służyć do wykonywania przekształceń i operacji uczenia maszynowego w dalszej.
+Wiele inżynierów danych i integratorów danych obywatela mogą interaktywnie eksplorowanie i przygotowywanie zestawów DataSet w skali chmury. Ze względu na wielkość, różnorodność i szybkość danych w jeziorach danych, użytkownicy potrzebują efektywnej metody eksplorowania i przygotowywania zestawów danych. Na przykład może być konieczne utworzenie zestawu danych, który zawiera wszystkie informacje demograficzne klienta dla nowych klientów od 2017. Nie masz mapowania na znany element docelowy. Przeszukasz, przetwarzanie i przygotowywanie zestawy danych, aby spełnić wymagania przed opublikowaniem go w usłudze Lake. Przepływy danych przetwarzanie są często używane w przypadku mniej formalnych scenariuszy analitycznych. Zestawy danych jego mogą służyć do wykonywania transformacji i operacji uczenia maszynowego.
 
-### <a name="code-free-agile-data-preparation"></a>Bezkońcowe przygotowanie zwinnych danych
+### <a name="code-free-agile-data-preparation"></a>Niezależne od kodu przygotowanie danych Agile
 
-Integratorzy danych obywatelskich spędzają ponad 60% swojego czasu na poszukiwaniu i przygotowywaniu danych. Chcą to zrobić w sposób wolny od kodu, aby poprawić wydajność operacyjną. Umożliwienie integratorom danych obywatelskich wzbogacania, kształtowania i publikowania danych przy użyciu znanych narzędzi, takich jak Power Query Online, w skalowalny sposób drastycznie zwiększa ich produktywność. Wrangling przepływu danych w usłudze Azure Data Factory umożliwia znane Power Query Online mashup edytora, aby umożliwić integratorów danych obywateli, aby szybko naprawić błędy, standaryzować dane i tworzyć wysokiej jakości dane do obsługi decyzji biznesowych.
+Integrator danych obywatela poświęca więcej niż 60% czasu na wyszukiwanie i przygotowywanie danych. Są one niezbędne do wykonania kodu w celu zwiększenia produktywności operacyjnej. Umożliwienie integratorom danych obywatelom wzbogacanie, kształtowanie i publikowanie danych przy użyciu znanych narzędzi, takich jak Power Query online w skalowalny sposób znacząco zwiększają produktywność. Przepływ danych przetwarzanie w Azure Data Factory umożliwia znanego Power Query edytora zestawu narzędzi w trybie online, aby umożliwić integratorom danych obywatelom szybkie rozwiązywanie błędów, standaryzację danych i tworzenie wysokiej jakości danych w celu wspierania podejmowania decyzji biznesowe.
 
-### <a name="data-validation"></a>Weryfikacja danych
+### <a name="data-validation"></a>Walidacja danych
 
-Wizualnie skanuj dane w sposób wolny od kodu, aby usunąć wszelkie wartości odstające, anomalie i dostosować je do kształtu w celu szybkiej analizy.
+Wizualnie Skanuj dane w sposób niezależny od kodu, aby usunąć wszelkie elementy odstające, anomalie i zachować zgodność z kształtem w celu uzyskania szybkiej analizy.
 
 ## <a name="supported-sources"></a>Obsługiwane źródła
 
 | Łącznik | Format danych | Typ uwierzytelniania |
 | -- | -- | --|
-| [Magazyn obiektów blob platformy Azure](connector-azure-blob-storage.md) | CSV, Parkiet | Klucz konta |
+| [Blob Storage platformy Azure](connector-azure-blob-storage.md) | CSV, Parquet | Klucz konta |
 | [Usługa Azure Data Lake Storage 1. generacji](connector-azure-data-lake-store.md) | CSV | Jednostka usługi |
-| [Usługa Azure Data Lake Storage 2. generacji](connector-azure-data-lake-storage.md) | CSV, Parkiet | Klucz konta, podmiot obsługujący |
+| [Usługa Azure Data Lake Storage 2. generacji](connector-azure-data-lake-storage.md) | CSV, Parquet | Klucz konta, nazwa główna usługi |
 | [Azure SQL Database](connector-azure-sql-database.md) | - | Uwierzytelnianie SQL |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Uwierzytelnianie SQL |
 
-## <a name="the-mashup-editor"></a>Edytor mashup
+## <a name="the-mashup-editor"></a>Edytor mashupów
 
-Podczas tworzenia przepływu danych wrangling, wszystkie zestawy danych źródłowych stają się kwerendami zestawu danych i są umieszczane w folderze **ADFResource.** Domyślnie UserQuery wskaże pierwsze zapytanie zestawu danych. Wszystkie przekształcenia powinny być wykonywane na UserQuery jak zmiany w kwerendach zestawu danych nie są obsługiwane ani nie będą one zachowywane. Zmiana nazwy, dodawanie i usuwanie zapytań nie jest obecnie obsługiwana.
+Podczas tworzenia przepływu danych przetwarzanie, wszystkie źródłowe zestawy DataSet stają się zapytaniami zestawu danych i są umieszczane w folderze **ADFResource** . Domyślnie UserQuery będzie wskazywała na pierwsze zapytanie zestawu danych. Wszystkie przekształcenia należy wykonać w UserQuery, ponieważ zmiany w zapytaniach zestawu danych nie są obsługiwane ani nie zostaną utrwalone. Zmiana nazwy, Dodawanie i usuwanie zapytań nie jest obecnie obsługiwane.
 
-![Wrangling](media/wrangling-data-flow/editor.png)
+![Przetwarzanie](media/wrangling-data-flow/editor.png)
 
-Obecnie nie wszystkie funkcje dodatku Power Query M są obsługiwane w przypadku wranglingu danych, mimo że są dostępne podczas tworzenia. Podczas tworzenia przepływów danych wrangling, zostanie wyświetlony monit z następującym komunikatem o błędzie, jeśli funkcja nie jest obsługiwana:
+Obecnie nie wszystkie Power Query funkcje M są obsługiwane dla przetwarzanie danych, mimo że są dostępne podczas tworzenia. Podczas kompilowania przepływów danych przetwarzanie zostanie wyświetlony monit z następującym komunikatem o błędzie, jeśli funkcja nie jest obsługiwana:
 
 `The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
 
-Aby uzyskać więcej informacji na temat obsługiwanych przekształceń, zobacz [wrangling funkcji przepływu danych](wrangling-data-flow-functions.md).
+Aby uzyskać więcej informacji na temat obsługiwanych transformacji, zobacz [Przetwarzanie Data Flow Functions](wrangling-data-flow-functions.md).
 
-Obecnie wrangling przepływu danych obsługuje tylko zapis do jednego ujścia.
+Obecnie przepływ danych przetwarzanie obsługuje tylko zapisywanie do jednego ujścia.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak [utworzyć przepływ danych.](wrangling-data-flow-tutorial.md)
+Dowiedz się [, jak utworzyć przepływ danych przetwarzanie](wrangling-data-flow-tutorial.md).

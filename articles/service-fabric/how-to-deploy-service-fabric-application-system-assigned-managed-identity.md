@@ -1,27 +1,27 @@
 ---
-title: Wdrażanie aplikacji sieci szkieletowej usług z przypisanym do systemu mi
-description: W tym artykule pokazano, jak przypisać tożsamość zarządzaną przypisaną do systemu do aplikacji sieci szkieletowej usług Azure
+title: Wdrażanie aplikacji Service Fabric z przypisanym przez system
+description: W tym artykule opisano sposób przypisywania tożsamości zarządzanej przypisanej przez system do aplikacji Service Fabric platformy Azure
 ms.topic: article
 ms.date: 07/25/2019
 ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415655"
 ---
-# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Wdrażanie aplikacji sieci szkieletowej usług z tożsamością zarządzaną przypisaną do systemu
+# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Wdrażanie aplikacji Service Fabric przy użyciu tożsamości zarządzanej przypisanej przez system
 
-Aby uzyskać dostęp do funkcji tożsamości zarządzanej dla aplikacji sieci szkieletowej usług Azure, należy najpierw włączyć usługę tokenu tożsamości zarządzanej w klastrze. Ta usługa jest odpowiedzialna za uwierzytelnianie aplikacji sieci szkieletowej usług przy użyciu ich tożsamości zarządzanych i uzyskiwanie tokenów dostępu w ich imieniu. Po włączeniu usługi można ją wyświetlić w Eksploratorze sieci szkieletowej usług w sekcji **System** w lewym okienku, działającej pod nazwą **sieci szkieletowej:/System/ManagedIdentityTokenService** obok innych usług systemowych.
+Aby uzyskać dostęp do funkcji tożsamości zarządzanej dla aplikacji Service Fabric platformy Azure, należy najpierw włączyć usługę tokenu tożsamości zarządzanej w klastrze. Ta usługa jest odpowiedzialna za uwierzytelnianie aplikacji Service Fabric przy użyciu ich tożsamości zarządzanych i uzyskiwania tokenów dostępu w ich imieniu. Po włączeniu usługi zobaczysz ją w Service Fabric Explorer w sekcji **system** w okienku po lewej stronie, działając w obszarze Nazwa **sieci szkieletowej:/system/ManagedIdentityTokenService** obok innych usług systemowych.
 
 > [!NOTE] 
-> Wdrażanie aplikacji sieci szkieletowej usług z zarządzanymi `"2019-06-01-preview"`tożsamościami są obsługiwane począwszy od wersji interfejsu API . Można również użyć tej samej wersji interfejsu API dla typu aplikacji, wersji typu aplikacji i zasobów usługi. Minimalny obsługiwany środowisko uruchomieniowe sieci szkieletowej usług wynosi 6,5 CU2. W additoin, środowisko kompilacji / pakiet powinien mieć SF .Net SDK w CU2 lub wyższe
+> Wdrażanie aplikacji Service Fabric z tożsamościami zarządzanymi jest obsługiwane począwszy od wersji `"2019-06-01-preview"`interfejsu API. Możesz także użyć tej samej wersji interfejsu API dla typu aplikacji, wersji typu aplikacji i zasobów usługi. Minimalny obsługiwany Service Fabric środowiska uruchomieniowego to 6,5 ZASTOSUJESZ pakietu CU2. W programie additoin środowisko kompilacji/pakietu powinno również mieć zestaw SDK platformy w wersji ZASTOSUJESZ pakietu CU2 lub nowszej
 
-## <a name="system-assigned-managed-identity"></a>Tożsamość zarządzana przypisana do systemu
+## <a name="system-assigned-managed-identity"></a>Tożsamość zarządzana przypisana przez system
 
 ### <a name="application-template"></a>Szablon aplikacji
 
-Aby włączyć aplikację z tożsamością zarządzaną przypisaną do systemu, dodaj właściwość **tożsamości** do zasobu aplikacji, z **typem systemAssigned,** jak pokazano w poniższym przykładzie:
+Aby włączyć aplikację przy użyciu tożsamości zarządzanej przypisanej do systemu, Dodaj właściwość **Identity** do zasobu aplikacji z typem **systemAssigned** , jak pokazano w poniższym przykładzie:
 
 ```json
     {
@@ -43,11 +43,11 @@ Aby włączyć aplikację z tożsamością zarządzaną przypisaną do systemu, 
       }
     }
 ```
-Ta właściwość deklaruje (do usługi Azure Resource Manager i dostawców zasobów sieci szkieletowej zarządzanych`system assigned`i usług, odpowiednio, że ten zasób ma niejawną ( ) tożsamość zarządzana.
+Ta właściwość deklaruje (do Azure Resource Manager i dostawcy zasobów zarządzanych tożsamości i Service Fabric, że ten zasób ma niejawną (`system assigned`) tożsamość zarządzaną.
 
-### <a name="application-and-service-package"></a>Pakiet aplikacji i usług
+### <a name="application-and-service-package"></a>Pakiet aplikacji i usługi
 
-1. Zaktualizuj manifest aplikacji, aby dodać element **ManagedIdentity** w sekcji **Wiele głównie osób,** zawierający pojedynczy wpis, jak pokazano poniżej:
+1. Zaktualizuj manifest aplikacji, aby dodać element **ManagedIdentity** w sekcji **Principals** zawierający pojedynczy wpis, jak pokazano poniżej:
 
     **ApplicationManifest.xml**
 
@@ -58,9 +58,9 @@ Ta właściwość deklaruje (do usługi Azure Resource Manager i dostawców zaso
       </ManagedIdentities>
     </Principals>
     ```
-    To mapuje tożsamość przypisaną do aplikacji jako zasób do przyjaznej nazwy, do dalszego przypisania do usług składających się na aplikację. 
+    Ta funkcja mapuje tożsamość przypisaną do aplikacji jako zasób na przyjazną nazwę, aby można było uzyskać dalsze przypisanie do usług składających się na aplikację. 
 
-2. W **ServiceManifestImport** sekcji odpowiadającej usługi, która jest przypisana tożsamości zarządzanej, dodać **IdentityBindingPolicy** element, jak wskazano poniżej:
+2. W sekcji **ServiceManifestImport** odpowiadającej usłudze, która ma przypisaną tożsamość zarządzaną, Dodaj element **IdentityBindingPolicy** , jak pokazano poniżej:
 
     **ApplicationManifest.xml**
 
@@ -72,9 +72,9 @@ Ta właściwość deklaruje (do usługi Azure Resource Manager i dostawców zaso
         </ServiceManifestImport>
       ```
 
-    Ten element przypisuje tożsamość aplikacji do usługi; bez tego przypisania usługa nie będzie mogła uzyskać dostępu do tożsamości aplikacji. We powyższym urywek `SystemAssigned` tożsamość (która jest zastrzeżonym słowem kluczowym) jest mapowana `WebAdmin`na definicję usługi pod przyjazną nazwą .
+    Ten element przypisuje tożsamość aplikacji do usługi; bez tego przypisania usługa nie będzie mogła uzyskać dostępu do tożsamości aplikacji. W powyższym fragmencie kodu `SystemAssigned` tożsamość (która jest zastrzeżonym słowem kluczowym) jest zamapowana na definicję usługi pod przyjazną `WebAdmin`nazwą.
 
-3. Zaktualizuj manifest usługi, aby dodać element **ManagedIdentity** wewnątrz `ServiceIdentityRef` sekcji **Zasoby** o nazwie pasującej do wartości ustawienia z `IdentityBindingPolicy` definicji w manifeście aplikacji:
+3. Zaktualizuj manifest usługi, aby dodać element **ManagedIdentity** w sekcji **resources** o nazwie zgodnej z wartością `ServiceIdentityRef` ustawienia z `IdentityBindingPolicy` definicji w manifeście aplikacji:
 
     **ServiceManifest.xml**
 
@@ -86,12 +86,12 @@ Ta właściwość deklaruje (do usługi Azure Resource Manager i dostawców zaso
         </ManagedIdentities>
       </Resources>
     ```
-    Jest to równoważne mapowanie tożsamości do usługi, jak opisano powyżej, ale z punktu widzenia definicji usługi. Tożsamość odwołuje się tutaj przez`WebAdmin`jego przyjazną nazwę ( ), zgodnie z zadeklarowaną w manifeście aplikacji.
+    Jest to równoważne mapowanie tożsamości do usługi zgodnie z powyższym opisem, ale z perspektywy definicji usługi. Tożsamość jest przywoływana tutaj przez przyjazną nazwę`WebAdmin`(), zgodnie z deklaracją w manifeście aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
-* Przejrzyj [obsługę tożsamości zarządzanej](./concepts-managed-identity.md) w sieci szkieletowej usług Azure
-* [Wdrażanie nowego](./configure-new-azure-service-fabric-enable-managed-identity.md) Klaster sieci szkieletowej usług Azure z obsługą tożsamości zarządzanych 
-* [Włączanie tożsamości zarządzanej](./configure-existing-cluster-enable-managed-identity-token-service.md) w istniejącym klastrze sieci szkieletowej usług Azure
-* Wykorzystanie tożsamości zarządzanej aplikacji sieci szkieletowej [usług z kodu źródłowego](./how-to-managed-identity-service-fabric-app-code.md)
-* [Wdrażanie aplikacji sieci szkieletowej usług Azure z tożsamością zarządzaną przypisaną przez użytkownika](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-* [Udzielanie dostępu aplikacji sieci szkieletowej usługi Azure do innych zasobów platformy Azure](./how-to-grant-access-other-resources.md)
+* Przejrzyj [obsługę tożsamości zarządzanych](./concepts-managed-identity.md) w usłudze Azure Service Fabric
+* [Wdróż nowy](./configure-new-azure-service-fabric-enable-managed-identity.md) Klaster Service Fabric platformy Azure z obsługą tożsamości zarządzanej 
+* [Włącz zarządzaną tożsamość](./configure-existing-cluster-enable-managed-identity-token-service.md) w istniejącym klastrze Service Fabric platformy Azure
+* Korzystanie [z zarządzanej tożsamości aplikacji Service Fabric z kodu źródłowego](./how-to-managed-identity-service-fabric-app-code.md)
+* [Wdrażanie aplikacji Service Fabric platformy Azure przy użyciu tożsamości zarządzanej przypisanej przez użytkownika](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Przyznaj aplikacji Service Fabric platformy Azure dostęp do innych zasobów platformy Azure](./how-to-grant-access-other-resources.md)

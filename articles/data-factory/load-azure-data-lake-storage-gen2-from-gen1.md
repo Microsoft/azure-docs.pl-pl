@@ -1,6 +1,6 @@
 ---
-title: Kopiowanie danych z usługi Azure Data Storage Gen1 do gen2
-description: Kopiowanie danych z usługi Azure Data Storage Gen1 do Gen2 za pomocą usługi Azure Data Factory
+title: Kopiuj dane z Azure Data Lake Storage Gen1 do Gen2
+description: Użyj Azure Data Factory, aby skopiować dane z Azure Data Lake Storage Gen1 do Gen2
 services: data-factory
 documentationcenter: ''
 ms.author: jingwang
@@ -13,61 +13,61 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
 ms.openlocfilehash: 6655510a4cfdb88e98319c7fc26c7ae83255bb6f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415820"
 ---
-# <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Kopiowanie danych z usługi Azure Data Lake Storage Gen1 do gen2 za pomocą usługi Azure Data Factory
+# <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Skopiuj dane z Azure Data Lake Storage Gen1 do Gen2 z Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Usługa Azure Data Lake Storage Gen2 to zestaw funkcji dedykowanych do analizy dużych zbiorów danych wbudowanych w [magazyn obiektów Blob platformy Azure.](../storage/blobs/storage-blobs-introduction.md) Można go używać do interfejsu z danymi przy użyciu zarówno systemu plików, jak i paradygmatów przechowywania obiektów.
+Azure Data Lake Storage Gen2 to zestaw funkcji przeznaczony dla analizy danych Big Data, która jest wbudowana w [usługę Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). Można jej używać do interfejsów z danymi przy użyciu zarówno odmian systemu plików, jak i magazynu obiektów.
 
-Jeśli obecnie używasz usługi Azure Data Lake Storage Gen1, możesz ocenić usługę Azure Data Lake Storage Gen2, kopiując dane z usługi Data Lake Storage Gen1 do Gen2 przy użyciu usługi Azure Data Factory.
+Jeśli obecnie używasz Azure Data Lake Storage Gen1, możesz oszacować Azure Data Lake Storage Gen2 kopiując dane z Data Lake Storage Gen1 do Gen2 przy użyciu Azure Data Factory.
 
-Usługa Azure Data Factory to w pełni zarządzana usługa integracji danych oparta na chmurze. Za pomocą tej usługi można wypełnić jezioro danymi z bogatego zestawu lokalnych i chmurowych magazynów danych oraz zaoszczędzić czas podczas tworzenia rozwiązań analitycznych. Aby uzyskać listę obsługiwanych łączników, zobacz tabelę [obsługiwanych magazynów danych](copy-activity-overview.md#supported-data-stores-and-formats).
+Azure Data Factory to w pełni zarządzana usługa integracji danych oparta na chmurze. Możesz użyć usługi, aby wypełnić Lake danymi z bogatego zestawu lokalnych i opartych na chmurze magazynów danych, a także zaoszczędzić czas podczas budowania rozwiązań analitycznych. Aby uzyskać listę obsługiwanych łączników, zobacz tabelę [obsługiwanych magazynów danych](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Usługa Azure Data Factory oferuje rozwiązanie do skalowania w poziomie, zarządzanego przenoszenia danych. Ze względu na architekturę skalowania w poziomie usługi Data Factory, można pozyskiwania danych z dużą przepływnością. Aby uzyskać więcej informacji, zobacz [Kopiowanie wydajności działania](copy-activity-performance.md).
+Azure Data Factory oferuje skalowalne w poziomie rozwiązanie do przenoszenia danych. Ze względu na skalowalną w poziomie architekturę Data Factory można pozyskać dane przy wysokiej przepływności. Aby uzyskać więcej informacji, zobacz [wydajność działania kopiowania](copy-activity-performance.md).
 
-W tym artykule pokazano, jak używać narzędzia do kopiowania danych w fabryce danych do kopiowania danych z usługi Azure Data Lake Storage Gen1 do usługi Azure Data Lake Storage Gen2. Możesz wykonać podobne kroki, aby skopiować dane z innych typów magazynów danych.
+W tym artykule pokazano, jak za pomocą narzędzia do kopiowania danych Data Factory skopiować dane z Azure Data Lake Storage Gen1 do Azure Data Lake Storage Gen2. Możesz wykonać podobne kroki, aby skopiować dane z innych typów magazynów danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
-* Konto usługi Azure Data Lake Storage Gen1 z danymi w nim.
-* Konto usługi Azure Storage z włączoną funkcją Data Lake Storage Gen2. Jeśli nie masz konta Magazynu, [utwórz konto](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+* Azure Data Lake Storage Gen1 z danymi w tym koncie.
+* Konto usługi Azure Storage z włączonym Data Lake Storage Gen2. Jeśli nie masz konta magazynu, [Utwórz konto](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
-1. W menu po lewej stronie wybierz pozycję **Utwórz źródło** > **Data + Analytics** > **Data Factory**.
+1. W menu po lewej stronie wybierz pozycję **Utwórz zasób** > **dane + analiza** > **Data Factory**.
    
-   ![Wybór fabryki danych w okienku Nowy](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![Data Factory wybór w nowym okienku](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
-2. Na stronie **Nowa fabryka danych** podaj wartości pól wyświetlanych na poniższym obrazie: 
+2. Na stronie **Nowa fabryka danych** podaj wartości pól, które są wyświetlane na poniższej ilustracji: 
       
    ![Nowa strona fabryki danych](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
  
-    * **Nazwa:** Wprowadź globalnie unikatową nazwę dla fabryki danych platformy Azure. Jeśli zostanie wyświetlony błąd "Nazwa \"fabryki danych LoadADLSDemo\" nie jest dostępna", wprowadź inną nazwę dla fabryki danych. Na przykład użyj nazwy _**twojanazwa**_**ADFTutorialDataFactory**. Ponownie utwórz fabrykę danych. Artykuł [Data Factory naming rules (Zasady nazewnictwa fabryki danych)](naming-rules.md) zawiera zasady nazewnictwa artefaktów usługi Data Factory.
-    * **Subskrypcja**: Wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
-    * **Grupa zasobów:** Wybierz istniejącą grupę zasobów z listy rozwijanej. Można również wybrać opcję **Utwórz nowy** i wprowadzić nazwę grupy zasobów. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
-    * **Wersja**: Wybierz **V2**.
+    * **Nazwa**: wprowadź globalnie unikatową nazwę usługi Azure Data Factory. Jeśli zostanie wyświetlony komunikat o błędzie "nazwa \"fabryki danych\" LoadADLSDemo jest niedostępna", wprowadź inną nazwę fabryki danych. Na przykład użyj nazwy _**twojanazwa**_**ADFTutorialDataFactory**. Ponownie utwórz fabrykę danych. Artykuł [Data Factory naming rules (Zasady nazewnictwa fabryki danych)](naming-rules.md) zawiera zasady nazewnictwa artefaktów usługi Data Factory.
+    * **Subskrypcja**: wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
+    * **Grupa zasobów**: wybierz istniejącą grupę zasobów z listy rozwijanej. Możesz również wybrać opcję **Utwórz nową** , a następnie wprowadzić nazwę grupy zasobów. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
+    * **Wersja**: wybierz pozycję **v2**.
     * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych, które są używane przez fabrykę danych, mogą znajdować się w innych lokalizacjach i regionach. 
 
-3. Wybierz pozycję **Utwórz**.
-4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **usługi Data Factory,** jak pokazano na poniższej ilustracji: 
+3. Wybierz przycisk **Utwórz**.
+4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **Data Factory** , jak pokazano na poniższej ilustracji: 
    
    ![Strona główna fabryki danych](./media/load-azure-data-lake-storage-gen2-from-gen1/data-factory-home-page.png)
 
-5. Wybierz kafelek **Monitor & Autora,** aby uruchomić aplikację Integracja danych na osobnej karcie.
+5. Wybierz kafelek **tworzenie & monitor** , aby uruchomić aplikację integracji danych w osobnej karcie.
 
 ## <a name="load-data-into-azure-data-lake-storage-gen2"></a>Ładowanie danych do usługi Azure Data Lake Storage Gen2
 
-1. Na stronie **Wprowadzenie** wybierz kafelek **Kopiuj dane,** aby uruchomić narzędzie kopiowania danych. 
+1. Na stronie **wprowadzenie** wybierz kafelek **Kopiowanie danych** , aby uruchomić narzędzie do kopiowania danych. 
 
-   ![Kopiowanie kafelka narzędzia danych](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-tile.png)
-2. Na stronie **Właściwości** określ **polecenie CopyFromADLSGen1ToGen2** dla pola **Nazwa zadania.** Wybierz opcję **Dalej**.
+   ![Kafelek Narzędzia do kopiowania danych](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-tile.png)
+2. Na stronie **Właściwości** Określ **CopyFromADLSGen1ToGen2** dla pola **Nazwa zadania** . Wybierz pozycję **Dalej**.
 
     ![Strona właściwości](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-properties-page.png)
 3. Na stronie **Magazyn danych źródłowych** wybierz pozycję **+ Utwórz nowe połączenie**.
@@ -76,110 +76,110 @@ W tym artykule pokazano, jak używać narzędzia do kopiowania danych w fabryce 
     
 4. Z galerii łączników wybierz pozycję **Azure Data Lake Storage Gen1**, a następnie przycisk **Kontynuuj**.
     
-    ![Strona Źródło magazynu danych Usługi Azure Data Lake Storage Gen1](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
+    ![Strona Azure Data Lake Storage Gen1 magazynu danych źródłowych](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
     
-5. Na stronie **Określ połączenie usługi Azure Data Lake Gen1,** wykonaj następujące kroki:
+5. Na stronie **Określanie połączenia Azure Data Lake Storage Gen1** wykonaj następujące kroki:
 
-   a. Wybierz gen1 magazynu usługi Data Lake dla nazwy konta i określ lub sprawdź poprawność **dzierżawy**.
+   a. Wybierz Data Lake Storage Gen1 dla nazwy konta, a następnie określ lub sprawdź poprawność **dzierżawy**.
   
-   b. Wybierz **opcję Testuj połączenie,** aby sprawdzić poprawność ustawień. Następnie wybierz pozycję **Zakończ**.
+   b. Wybierz **Test connection** , aby sprawdzić poprawność ustawień. Następnie wybierz pozycję **Zakończ**.
   
-   d. Widać, że utworzono nowe połączenie. Wybierz opcję **Dalej**.
+   c. Zobaczysz, że zostało utworzone nowe połączenie. Wybierz pozycję **Dalej**.
    
    > [!IMPORTANT]
-   > W tym przejściu, użyj tożsamości zarządzanej dla zasobów platformy Azure do uwierzytelniania usługi Azure Data Lake Storage Gen1. Aby udzielić tożsamości zarządzanej odpowiednich uprawnień w usłudze Azure Data Lake Storage Gen1, wykonaj te [instrukcje.](connector-azure-data-lake-store.md#managed-identity)
+   > W tym przewodniku do uwierzytelniania Azure Data Lake Storage Gen1 służy tożsamość zarządzana dla zasobów platformy Azure. Aby udzielić zarządzanej tożsamości odpowiednich uprawnień w Azure Data Lake Storage Gen1, postępuj zgodnie z [tymi instrukcjami](connector-azure-data-lake-store.md#managed-identity).
    
-   ![Określanie konta usługi Azure Data Storage Gen1](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
+   ![Określ konto Azure Data Lake Storage Gen1](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
       
-6. Na stronie **Wybierz plik wejściowy lub folder** przejdź do folderu i pliku, który chcesz skopiować. Zaznacz folder lub plik, a następnie wybierz pozycję **Wybierz**.
+6. Na stronie **Wybieranie pliku lub folderu wejściowego** przejdź do folderu i pliku, który chcesz skopiować. Wybierz folder lub plik, a następnie wybierz pozycję **Wybierz**.
 
     ![Wybieranie pliku lub folderu wejściowego](./media/load-azure-data-lake-storage-gen2-from-gen1/choose-input-folder.png)
 
-7. Określ zachowanie kopiowania, wybierając opcje **kopiowania plików cyklicznie** i **Binarne.** Wybierz opcję **Dalej**.
+7. Określ zachowanie kopiowania, wybierając opcje **kopiowania cyklicznie** i kopiowania plików **binarnych** . Wybierz pozycję **Dalej**.
 
     ![Określ folder wyjściowy](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     
-8. Na stronie **Docelowy magazyn danych** wybierz pozycję **+ Utwórz nowe połączenie** > **Usługi Azure Data Lake Storage Gen2** > **Continue**.
+8. Na stronie **docelowy magazyn danych** wybierz pozycję **+ Utwórz nowe połączenie** > **Azure Data Lake Storage Gen2** > **Kontynuuj**.
 
     ![Strona Docelowy magazyn danych](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-storage-page.png)
 
-9. Na stronie **Określ połączenie usługi Azure Data Lake Storage Gen2** wykonaj następujące kroki:
+9. Na stronie **Określanie połączenia Azure Data Lake Storage Gen2** wykonaj następujące kroki:
 
-   a. Wybierz konto obsługujące usługę Data Lake Storage Gen2 z listy rozwijanej **Nazwa konta magazynu.**
+   a. Wybierz konto z możliwością Data Lake Storage Gen2 z listy rozwijanej **nazwa konta magazynu** .
    
-   b. Wybierz pozycję **Zakończ**, aby utworzyć połączenie. Następnie wybierz **przycisk Dalej**.
+   b. Wybierz pozycję **Zakończ**, aby utworzyć połączenie. Następnie wybierz pozycję **Dalej**.
    
-   ![Określanie konta usługi Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
+   ![Określ konto Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
-10. Na stronie **Wybierz plik wyjściowy lub folder** wprowadź nazwę folderu wyjściowego **copyfromadlsgen1** i wybierz pozycję **Dalej**. Fabryka danych tworzy odpowiedni system plików usługi Azure Data Lake Storage Gen2 i podfoldery podczas kopiowania, jeśli nie istnieją.
+10. Na stronie **Wybieranie pliku lub folderu wyjściowego** wprowadź **copyfromadlsgen1** jako nazwę folderu wyjściowego, a następnie wybierz przycisk **dalej**. Data Factory tworzy odpowiedni system plików Azure Data Lake Storage Gen2 i podfoldery Podczas kopiowania, jeśli nie istnieją.
 
     ![Określ folder wyjściowy](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
 
 11. Na stronie **Ustawienia** wybierz przycisk **Dalej**, aby użyć ustawień domyślnych.
 
-12. Na stronie **Podsumowanie** przejrzyj ustawienia i wybierz pozycję **Dalej**.
+12. Na stronie **Podsumowanie** przejrzyj ustawienia, a następnie wybierz przycisk **dalej**.
 
     ![Strona podsumowania](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-summary.png)
-13. Na **stronie Wdrażanie**wybierz pozycję **Monitoruj,** aby monitorować potok.
+13. Na **stronie wdrażanie**wybierz pozycję **Monitoruj** , aby monitorować potok.
 
     ![Strona Wdrażanie](./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png)
 14. Zwróć uwagę, że karta **Monitor** po lewej stronie jest automatycznie wybrana. Kolumna **Akcje** zawiera linki służące do wyświetlania szczegółów działań i ponownego uruchamiania potoku.
 
     ![Monitorowanie uruchomień potoku](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-pipeline-runs.png)
 
-15. Aby wyświetlić przebiegi aktywności skojarzone z uruchomieniem potoku, wybierz łącze **Wyświetl działanie uruchamiane** w kolumnie **Akcje.** W potoku jest tylko jedno działanie (działanie kopiowania), dlatego na liście jest wyświetlana tylko jedna pozycja. Aby przełączyć się z powrotem do widoku przebiegów potoku, wybierz **łącze Potoki** u góry. Wybierz pozycję **Odśwież**, aby odświeżyć listę. 
+15. Aby wyświetlić uruchomienia działań skojarzone z uruchomieniem potoku, wybierz link **Wyświetl uruchomienia działania** w kolumnie **Akcje** . W potoku jest tylko jedno działanie (działanie kopiowania), dlatego na liście jest wyświetlana tylko jedna pozycja. Aby przełączyć się z powrotem do widoku uruchomienia potoków, wybierz link **potoki** u góry. Wybierz pozycję **Odśwież**, aby odświeżyć listę. 
 
     ![Monitorowanie uruchomień działania](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-runs.png)
 
-16. Aby monitorować szczegóły wykonania dla każdego działania kopiowania, wybierz **łącze Szczegóły** (obraz okularów) w obszarze **Akcje** w widoku monitorowania aktywności. Można monitorować szczegóły, takie jak ilość danych skopiowanych ze źródła do ujścia, przepływność danych, kroki wykonywania z odpowiednim czasem trwania i używane konfiguracje.
+16. Aby monitorować szczegóły wykonania dla każdego działania kopiowania, wybierz link **szczegóły** (obraz okularów) w obszarze **Akcje** w widoku monitorowanie działania. Możesz monitorować szczegóły, takie jak ilość danych skopiowanych ze źródła do ujścia, przepływność danych, etapy wykonywania z odpowiednim czasem trwania i używane konfiguracje.
 
-    ![Monitorowanie szczegółów uruchomienia aktywności](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-run-details.png)
+    ![Monitoruj szczegóły uruchomienia działania](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-run-details.png)
 
-17. Sprawdź, czy dane są kopiowane do konta usługi Azure Data Lake Storage Gen2.
+17. Sprawdź, czy dane zostały skopiowane do konta Azure Data Lake Storage Gen2.
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
-Aby ocenić uaktualnienie z usługi Azure Data Lake Storage Gen1 do usługi Azure Data Lake Storage Gen2 w ogóle, zobacz [Uaktualnianie rozwiązań do analizy dużych zbiorów danych z usługi Azure Data Lake Storage Gen1 do usługi Azure Data Lake Storage Gen2.](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md) W poniższych sekcjach przedstawiono najlepsze rozwiązania dotyczące używania usługi Data Factory do uaktualnienia danych z usługi Data Lake Storage Gen1 do Data Lake Storage Gen2.
+Aby dowiedzieć się, jak ogólnie można ocenić uaktualnienie z Azure Data Lake Storage Gen1 do Azure Data Lake Storage Gen2, zobacz [Uaktualnianie rozwiązań do analizy danych Big Data z Azure Data Lake Storage Gen1 do Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md). W poniższych sekcjach opisano najlepsze rozwiązania dotyczące korzystania z Data Factory uaktualniania danych z Data Lake Storage Gen1 do Data Lake Storage Gen2.
 
 ### <a name="data-partition-for-historical-data-copy"></a>Partycja danych do kopiowania danych historycznych
 
-- Jeśli całkowity rozmiar danych w umiaźnej wersji danych Usługi Data Lake Storage Gen1 jest mniejszy niż 30 TB, a liczba plików jest mniejsza niż 1 milion, można skopiować wszystkie dane w jednym uruchomieniu działania kopiowania.
-- Jeśli masz większą ilość danych do skopiowania lub chcesz elastyczność zarządzania migracją danych w partiach i uczynić każdy z nich kompletny w określonym przedziale czasu, partycji danych. Partycjonowanie zmniejsza również ryzyko wystąpienia nieoczekiwanego problemu.
+- Jeśli całkowity rozmiar danych w Data Lake Storage Gen1 jest mniejszy niż 30 TB, a liczba plików jest mniejsza niż 1 000 000, można skopiować wszystkie dane w jednym przebiegu działania kopiowania.
+- Jeśli masz większą ilość danych do skopiowania lub chcesz mieć elastyczność zarządzania migracją danych w partiach i wykonać każdy z nich w określonym przedziale czasu, Podziel dane. Partycjonowanie zmniejsza również ryzyko wystąpienia nieoczekiwanego problemu.
 
-Użyj weryfikacji koncepcji, aby zweryfikować kompleksowe rozwiązanie i przetestować przepływność kopiowania w twoim środowisku. Główne kroki weryfikacji koncepcji: 
+Aby sprawdzić kompleksowe rozwiązanie i przetestować przepływność kopiowania w środowisku, należy użyć weryfikacji koncepcji. Główne kroki weryfikacji koncepcji: 
 
-1. Utwórz jeden potok fabryki danych z pojedynczym działaniem kopiowania, aby skopiować kilka tb danych z usługi Data Lake Storage Gen1 do Data Lake Storage Gen2, aby uzyskać linię bazową wydajności kopiowania. Zacznij od [jednostek integracji danych (DIU)](copy-activity-performance-features.md#data-integration-units) jako 128. 
-2. Na podstawie przepływności kopii, którą otrzymujesz w kroku 1, oblicz szacowany czas wymagany dla całej migracji danych. 
-3. (Opcjonalnie) Utwórz tabelę formantów i zdefiniuj filtr plików, aby podzielić pliki do migracji. Sposobem na partycje plików jest: 
+1. Utwórz jeden Data Factory potok z jednym działaniem kopiowania, aby skopiować kilka danych usługi TBs z Data Lake Storage Gen1 do Data Lake Storage Gen2, aby pobrać linię bazową wydajności kopiowania. Zacznij od [jednostek integracji danych (DIUs)](copy-activity-performance-features.md#data-integration-units) jako 128. 
+2. W oparciu o przepływność kopiowania uzyskaną w kroku 1 Oblicz szacowany czas wymagany do przeprowadzinia całej migracji danych. 
+3. Obowiązkowe Utwórz tabelę formantów i zdefiniuj filtr plików, aby podzielić pliki do migracji. Sposób partycjonowania plików to: 
 
-    - Partycja według nazwy folderu lub nazwy folderu z filtrem wieloznacznym. Zalecamy tę metodę.
-    - Partycja przez ostatni zmodyfikowany czas pliku.
+    - Podziel na partycje według nazwy folderu lub nazwy folderu z filtrem symboli wieloznacznych. Zalecamy wykonanie tej metody.
+    - Podziel na partycje według czasu ostatniej modyfikacji pliku.
 
-### <a name="network-bandwidth-and-storage-io"></a>Przepustowość sieci i we/wy pamięci masowej 
+### <a name="network-bandwidth-and-storage-io"></a>Przepustowość sieci i we/wy magazynu 
 
-Można kontrolować współbieżność zadań kopiowania usługi Data Factory, które odczytują dane z usługi Data Lake Storage Gen1 i zapisują dane w układzie danych Lake Storage Gen2. W ten sposób można zarządzać użyciem we/wy magazynu, aby uniknąć wpływu na normalną pracę biznesową nad gen1 magazynu usługi Data Lake podczas migracji.
+Można kontrolować współbieżność zadań Data Factory kopiowania, które odczytują dane z Data Lake Storage Gen1 i zapisują dane w Data Lake Storage Gen2. W ten sposób można zarządzać użyciem tego magazynu we/wy, aby uniknąć wpływu na normalną pracę biznesową na Data Lake Storage Gen1 podczas migracji.
 
 ### <a name="permissions"></a>Uprawnienia 
 
-W fabryce danych [łącznik Data Lake Storage Gen1](connector-azure-data-lake-store.md) obsługuje jednostkę usługi i tożsamość zarządzaną dla uwierzytelniania zasobów platformy Azure. [Łącznik Usługi Data Lake Storage Gen2](connector-azure-data-lake-storage.md) obsługuje klucz konta, jednostkę usługi i tożsamość zarządzaną dla uwierzytelniania zasobów platformy Azure. Aby usługa Data Factory mogła nawigować i kopiować wszystkie potrzebne pliki lub listy kontroli dostępu (ACL), należy udzielić wystarczających uprawnień dla konta, które udostępniasz, aby uzyskać dostęp, odczytać lub zapisać wszystkie pliki, a następnie ustawić listy ACL, jeśli użytkownik tego wyboru. Nadaj mu rolę superużytów lub właściciela w okresie migracji. 
+W Data Factory [łącznik Data Lake Storage Gen1](connector-azure-data-lake-store.md) obsługuje jednostkę usługi i zarządzaną tożsamość dla uwierzytelniania zasobów platformy Azure. [Łącznik Data Lake Storage Gen2](connector-azure-data-lake-storage.md) obsługuje klucz konta, nazwę główną usługi i tożsamość zarządzaną dla uwierzytelniania zasobów platformy Azure. Aby Data Factory można było nawigować i kopiować wszystkie pliki lub listy kontroli dostępu (ACL), które są potrzebne, należy przyznać wystarczające uprawnienia dla konta, które zapewnia dostęp, odczytywać lub zapisywać wszystkie pliki i ustawiać listy ACL. Przyznaj mu rolę administratora lub właściciela w okresie migracji. 
 
-### <a name="preserve-acls-from-data-lake-storage-gen1"></a>Zachowywanie list ACL z genu magazynu usługi Data Lake
+### <a name="preserve-acls-from-data-lake-storage-gen1"></a>Zachowaj listy ACL z Data Lake Storage Gen1
 
-Jeśli chcesz replikować listy ACL wraz z plikami danych podczas uaktualniania z usługi Data Lake Storage Gen1 do Data Lake Storage Gen2, zobacz [Zachowywanie list ACL z pamięci masowej Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls). 
+Jeśli chcesz replikować listy ACL wraz z plikami danych podczas uaktualniania z Data Lake Storage Gen1 do Data Lake Storage Gen2, zobacz temat [zachowywanie list ACL z Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls). 
 
 ### <a name="incremental-copy"></a>Kopia przyrostowa 
 
-Można użyć kilku metod, aby załadować tylko nowe lub zaktualizowane pliki z Usługi Data Lake Storage Gen1:
+Do załadowania tylko nowych lub zaktualizowanych plików z Data Lake Storage Gen1 można użyć kilku metod:
 
-- Załaduj nowe lub zaktualizowane pliki według czasu podzielonego na partycje folderu lub nazwy pliku. Przykładem jest /2019/05/13/*.
+- Załaduj nowe lub zaktualizowane pliki według partycjonowanego folderu lub nazwy pliku. Przykładem jest/2019/05/13/*.
 - Załaduj nowe lub zaktualizowane pliki przez LastModifiedDate.
-- Identyfikowanie nowych lub zaktualizowanych plików za pomocą dowolnego narzędzia lub rozwiązania innej firmy. Następnie przekaż nazwę pliku lub folderu do potoku Data Factory za pomocą parametru lub tabeli lub pliku. 
+- Zidentyfikuj nowe lub zaktualizowane pliki przez dowolne narzędzie lub rozwiązanie innej firmy. Następnie przekaż nazwę pliku lub folderu do potoku Data Factory za pośrednictwem parametru lub tabeli lub pliku. 
 
-Właściwa częstotliwość do wykonywania obciążenia przyrostowego zależy od całkowitej liczby plików w usłudze Azure Data Lake Storage Gen1 i woluminu nowych lub zaktualizowanych plików, które mają być ładowane za każdym razem. 
+Właściwa częstotliwość ładowania przyrostowego zależy od łącznej liczby plików w Azure Data Lake Storage Gen1 i woluminu nowych lub zaktualizowanych plików do załadowania za każdym razem. 
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Omówienie działania kopiowania](copy-activity-overview.md)
-> [Łącznik usługi Azure Data Lake Gen1](connector-azure-data-lake-store.md)
-> usługi Azure Data Lake Storage[Gen2](connector-azure-data-lake-storage.md)
+> [Przegląd](copy-activity-overview.md)
+> działania kopiowania Azure Data Lake Storage Gen1[łącznika Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) [łącznika](connector-azure-data-lake-store.md)
+> 

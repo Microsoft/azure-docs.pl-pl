@@ -1,34 +1,34 @@
 ---
-title: Zarządzanie wpisami tajnymi aplikacji usługi Azure
-description: Dowiedz się, jak zabezpieczyć tajne wartości w aplikacji sieci szkieletowej usług (niezależny od platformy).
+title: Zarządzanie wpisami tajnymi aplikacji platformy Azure Service Fabric
+description: Dowiedz się, jak zabezpieczyć wartości tajne w aplikacji Service Fabric (platform-niezależny od).
 author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
 ms.openlocfilehash: 4d2138935122b9e08b21963519fce3f72466ab1f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414509"
 ---
-# <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Zarządzanie zaszyfrowanymi wpisami tajnymi w aplikacjach sieci szkieletowej usług
-W tym przewodniku przeprowadzi Cię przez kroki zarządzania wpisami tajnymi w aplikacji sieci szkieletowej usług. Wpisy tajne mogą być wszelkie poufne informacje, takie jak parametry połączenia magazynu, hasła lub inne wartości, które nie powinny być obsługiwane w postaci zwykłego tekstu.
+# <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Zarządzanie zaszyfrowanymi wpisami tajnymi w aplikacjach Service Fabric
+Ten przewodnik przeprowadzi Cię przez kroki związane z zarządzaniem wpisami tajnymi w aplikacji Service Fabric. Wpisy tajne mogą być dowolnymi informacjami poufnymi, takimi jak parametry połączenia magazynu, hasła lub inne wartości, które nie powinny być obsługiwane w postaci zwykłego tekstu.
 
-Używanie zaszyfrowanych wpisów tajnych w aplikacji sieci szkieletowej usług obejmuje trzy kroki:
-* Konfigurowanie certyfikatu szyfrowania i szyfrowanie wpisów tajnych.
+Korzystanie z zaszyfrowanych wpisów tajnych w aplikacji Service Fabric obejmuje trzy kroki:
+* Skonfiguruj certyfikat szyfrowania i Szyfruj wpisy tajne.
 * Określ zaszyfrowane wpisy tajne w aplikacji.
-* Odszyfruj zaszyfrowane wpisy tajne z kodu usługi.
+* Odszyfruj zaszyfrowane klucze tajne z kodu usługi.
 
 ## <a name="set-up-an-encryption-certificate-and-encrypt-secrets"></a>Konfigurowanie certyfikatu szyfrowania i szyfrowanie wpisów tajnych
-Konfigurowanie certyfikatu szyfrowania i używanie go do szyfrowania wpisów tajnych różni się w zależności od systemu Windows i linux.
-* [Konfigurowanie certyfikatu szyfrowania i szyfrowanie wpisów tajnych w klastrach systemu Windows.][secret-management-windows-specific-link]
-* [Konfigurowanie certyfikatu szyfrowania i szyfrowanie wpisów tajnych w klastrach systemu Linux.][secret-management-linux-specific-link]
+Skonfigurowanie certyfikatu szyfrowania i użycie go do szyfrowania wpisów tajnych zależy od systemów Windows i Linux.
+* [Skonfiguruj certyfikat szyfrowania i Szyfruj wpisy tajne w klastrach systemu Windows.][secret-management-windows-specific-link]
+* [Skonfiguruj certyfikat szyfrowania i Szyfruj wpisy tajne w klastrach systemu Linux.][secret-management-linux-specific-link]
 
-## <a name="specify-encrypted-secrets-in-an-application"></a>Określanie zaszyfrowanych wpisów tajnych w aplikacji
-W poprzednim kroku opisano sposób szyfrowania klucza tajnego za pomocą certyfikatu i tworzenia ciągów zakodowanych w podstawowej 64 do użycia w aplikacji. Ten ciąg zakodowany base-64 można określić jako [zaszyfrowany parametr][parameters-link] w pliku Settings.xml usługi lub jako zaszyfrowaną [zmienną środowiskową][environment-variables-link] w pliku ServiceManifest.xml usługi.
+## <a name="specify-encrypted-secrets-in-an-application"></a>Określanie szyfrowanych wpisów tajnych w aplikacji
+W poprzednim kroku opisano sposób szyfrowania wpisu tajnego za pomocą certyfikatu i tworzenia zakodowanego ciągu Base-64 do użycia w aplikacji. Ten ciąg zakodowany Base-64 może być określony jako zaszyfrowany [parametr][parameters-link] w pliku Settings. XML usługi lub jako zaszyfrowanej [zmiennej środowiskowej][environment-variables-link] w elemencie servicemanifest. XML usługi.
 
-Określ zaszyfrowany [parametr][parameters-link] w pliku konfiguracyjnym `IsEncrypted` Settings.xml `true`usługi z atrybutem ustawionym na:
+Określ zaszyfrowany [parametr][parameters-link] w pliku konfiguracyjnym XML ustawień usługi z `IsEncrypted` atrybutem ustawionym na: `true`
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -38,7 +38,7 @@ Określ zaszyfrowany [parametr][parameters-link] w pliku konfiguracyjnym `IsEncr
   </Section>
 </Settings>
 ```
-Określ zaszyfrowaną [zmienną środowiskową][environment-variables-link] w pliku ServiceManifest.xml usługi z atrybutem `Type` ustawionym na: `Encrypted`
+Określ zaszyfrowaną [zmienną środowiskową][environment-variables-link] w pliku servicemanifest. XML usługi z `Type` atrybutem ustawionym na `Encrypted`:
 ```xml
 <CodePackage Name="Code" Version="1.0.0">
   <EnvironmentVariables>
@@ -47,7 +47,7 @@ Określ zaszyfrowaną [zmienną środowiskową][environment-variables-link] w pl
 </CodePackage>
 ```
 
-Wpisy tajne powinny być również uwzględnione w aplikacji sieci szkieletowej usług, określając certyfikat w manifeście aplikacji. Dodaj **SecretsCertificate** element do **ApplicationManifest.xml** i dołącz odcisk palca żądanego certyfikatu.
+Wpisy tajne powinny być również zawarte w aplikacji Service Fabric przez określenie certyfikatu w manifeście aplikacji. Dodaj element **SecretsCertificate** do **ApplicationManifest. XML** i Dołącz odcisk palca żądanego certyfikatu.
 
 ```xml
 <ApplicationManifest … >
@@ -58,16 +58,16 @@ Wpisy tajne powinny być również uwzględnione w aplikacji sieci szkieletowej 
 </ApplicationManifest>
 ```
 > [!NOTE]
-> Po aktywowaniu aplikacji, która określa SecretsCertificate, service fabric znajdzie pasujący certyfikat i udzieli tożsamości, którą aplikacja jest uruchomiona pod pełnymi uprawnieniami do klucza prywatnego certyfikatu. Sieci szkieletowej usług będzie również monitorować certyfikat dla zmian i ponownie zastosować uprawnienia odpowiednio. Aby wykryć zmiany dla certyfikatów zadeklarowanych przez wspólną nazwę, sieci szkieletowej usług uruchamia okresowe zadanie, które znajduje wszystkie pasujące certyfikaty i porównuje je z buforowaną listą odcisków palców. Po wykryciu nowego odcisku palca oznacza to, że certyfikat tego podmiotu został odnowiony. Zadanie jest uruchamiane raz na minutę w każdym węźle klastra.
+> Po aktywowaniu aplikacji, która określa SecretsCertificate, Service Fabric odnajdzie pasujący certyfikat i udzielą tożsamości, która jest uruchomiona przez aplikację w ramach pełnych uprawnień do klucza prywatnego certyfikatu. Service Fabric również będzie monitorować certyfikat pod kątem zmian i ponownie stosować odpowiednie uprawnienia. Aby wykryć zmiany dla certyfikatów zadeklarowanych według nazwy pospolitej, Service Fabric uruchamia zadanie okresowe, które znajduje wszystkie zgodne certyfikaty i porównuje je z zbuforowaną listą odcisków palców. Gdy zostanie wykryty nowy odcisk palca, oznacza to, że certyfikat przez ten podmiot został odnowiony. Zadanie jest uruchamiane raz na minutę w każdym węźle klastra.
 >
-> Chociaż SecretsCertificate zezwala na deklaracje oparte na tematu, należy pamiętać, że zaszyfrowane ustawienia są powiązane z parą kluczy, która została użyta do zaszyfrowania ustawienia na kliencie. Należy upewnić się, że oryginalny certyfikat szyfrowania (lub równoważny) pasuje do deklaracji opartej na tematu i że jest zainstalowany, łącznie z odpowiadającym mu kluczem prywatnym, w każdym węźle klastra, który może obsługiwać aplikację. Wszystkie certyfikaty ważne w czasie pasujące do deklaracji opartej na temacie i zbudowane z tej samej pary kluczy co oryginalny certyfikat szyfrowania są uważane za równoważne.
+> Mimo że SecretsCertificate zezwala na deklaracje oparte na podmiotach, należy pamiętać, że zaszyfrowane ustawienia są powiązane z parą kluczy, która została użyta do szyfrowania ustawienia na kliencie. Musisz się upewnić, że oryginalny certyfikat szyfrowania (lub jego odpowiednik) jest zgodny z deklaracją opartą na podmiotach i że jest zainstalowany, w tym odpowiadającym mu kluczem prywatnym, na każdym węźle klastra, który może obsługiwać aplikację. Wszystkie ważne od czasu certyfikaty zgodne z deklaracją opartą na podmiotach i tworzone na podstawie tej samej pary kluczy, co oryginalny certyfikat szyfrowania, są uznawane za równoważne.
 >
 
-### <a name="inject-application-secrets-into-application-instances"></a>Wstrzyknąć wpisy tajne aplikacji do wystąpień aplikacji
-W idealnym przypadku wdrożenie w różnych środowiskach powinno być tak zautomatyzowane, jak to możliwe. Można to osiągnąć, wykonując tajne szyfrowanie w środowisku kompilacji i zapewniając zaszyfrowane wpisy tajne jako parametry podczas tworzenia wystąpień aplikacji.
+### <a name="inject-application-secrets-into-application-instances"></a>Wsuń wpisy tajne aplikacji do wystąpień aplikacji
+W idealnym przypadku wdrożenie w różnych środowiskach powinno być tak zautomatyzowane jak to możliwe. Można to osiągnąć przez przeprowadzenie tajnego szyfrowania w środowisku kompilacji i dostarczenie zaszyfrowanych kluczy tajnych jako parametrów podczas tworzenia wystąpień aplikacji.
 
-#### <a name="use-overridable-parameters-in-settingsxml"></a>Używanie zastępowalnych parametrów w pliku Settings.xml
-Plik konfiguracyjny Settings.xml umożliwia zastępowanie parametrów, które mogą być dostarczane w czasie tworzenia aplikacji. Użyj `MustOverride` atrybutu zamiast podaj wartość parametru:
+#### <a name="use-overridable-parameters-in-settingsxml"></a>Użyj parametrów, które mają zostać zastąpione w pliku Settings. XML
+Plik konfiguracji Settings. XML umożliwia określenie parametrów, które mogą być dostarczane podczas tworzenia aplikacji. Użyj `MustOverride` atrybutu zamiast podawania wartości dla parametru:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -78,7 +78,7 @@ Plik konfiguracyjny Settings.xml umożliwia zastępowanie parametrów, które mo
 </Settings>
 ```
 
-Aby zastąpić wartości w pliku Settings.xml, zadeklaruj parametr zastępowania usługi w pliku ApplicationManifest.xml:
+Aby zastąpić wartości w pliku Settings. XML, zadeklaruj parametr przesłonięcia dla usługi w ApplicationManifest. XML:
 
 ```xml
 <ApplicationManifest ... >
@@ -99,15 +99,15 @@ Aby zastąpić wartości w pliku Settings.xml, zadeklaruj parametr zastępowania
   </ServiceManifestImport>
  ```
 
-Teraz wartość można określić jako *parametr aplikacji* podczas tworzenia wystąpienia aplikacji. Tworzenie wystąpienia aplikacji może być skryptowane przy użyciu programu PowerShell lub napisane w języku C#, dla łatwej integracji w procesie kompilacji.
+Teraz można określić wartość jako *parametr aplikacji* podczas tworzenia wystąpienia aplikacji. Tworzenie wystąpienia aplikacji może być inicjowane za pomocą programu PowerShell lub zapisywane w języku C# w celu zapewnienia łatwej integracji w procesie kompilacji.
 
-Za pomocą programu PowerShell parametr `New-ServiceFabricApplication` jest dostarczany do polecenia jako [tabela mieszania:](https://technet.microsoft.com/library/ee692803.aspx)
+Przy użyciu programu PowerShell parametr jest dostarczany do `New-ServiceFabricApplication` polecenia jako [Tablica skrótów](https://technet.microsoft.com/library/ee692803.aspx):
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}
 ```
 
-Za pomocą języka C#, `ApplicationDescription` parametry `NameValueCollection`aplikacji są określone w:
+Przy użyciu języka C# parametry aplikacji są określone w `ApplicationDescription` `NameValueCollection`:
 
 ```csharp
 FabricClient fabricClient = new FabricClient();
@@ -125,8 +125,8 @@ ApplicationDescription applicationDescription = new ApplicationDescription(
 await fabricClient.ApplicationManager.CreateApplicationAsync(applicationDescription);
 ```
 
-## <a name="decrypt-encrypted-secrets-from-service-code"></a>Odszyfrowywane zaszyfrowane wpisy tajne z kodu usługi
-Interfejsy API dostępu do [parametrów][parameters-link] i [zmiennych środowiskowych][environment-variables-link] umożliwiają łatwe odszyfrowywanie zaszyfrowanych wartości. Ponieważ zaszyfrowany ciąg zawiera informacje o certyfikacie używanym do szyfrowania, nie trzeba ręcznie określać certyfikatu. Certyfikat musi być zainstalowany w węźle, na który jest uruchomiona usługa.
+## <a name="decrypt-encrypted-secrets-from-service-code"></a>Odszyfruj zaszyfrowane klucze tajne z kodu usługi
+Interfejsy API służące do uzyskiwania dostępu do [parametrów][parameters-link] i [zmiennych środowiskowych][environment-variables-link] umożliwiają łatwe odszyfrowywanie szyfrowanych wartości. Ponieważ zaszyfrowany ciąg zawiera informacje o certyfikacie używanym do szyfrowania, nie trzeba ręcznie określać certyfikatu. Certyfikat należy zainstalować tylko w węźle, w którym uruchomiono usługę.
 
 ```csharp
 // Access decrypted parameters from Settings.xml
@@ -143,8 +143,8 @@ string MyEnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* Sklep [z tajemnicami](service-fabric-application-secret-store.md) tkaniny usługowej 
-* Dowiedz się więcej o [zabezpieczeniach aplikacji i usług](service-fabric-application-and-service-security.md)
+* [Magazyn danych tajnych](service-fabric-application-secret-store.md) Service Fabric 
+* Dowiedz się więcej o [zabezpieczeniach aplikacji i usługi](service-fabric-application-and-service-security.md)
 
 <!-- Links -->
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md

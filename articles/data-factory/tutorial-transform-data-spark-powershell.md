@@ -1,5 +1,5 @@
 ---
-title: 'Przekształcanie danych przy użyciu platformy Spark w fabryce danych platformy Azure '
+title: 'Przekształcanie danych przy użyciu platformy Spark w Azure Data Factory '
 description: Ten samouczek zawiera instrukcje krok po kroku przekształcania danych za pomocą platformy Spark w usłudze Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,10 +11,10 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: bef80cdeab32d14aeaae350adda869a8ea7b05c7
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81409084"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Przekształcanie danych w chmurze za pomocą działania platformy Spark w usłudze Azure Data Factory
@@ -30,18 +30,18 @@ W tym samouczku użyjesz programu Azure PowerShell do utworzenia potoku fabryki 
 > * Uruchom potok.
 > * Monitorowanie uruchomienia potoku.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.microsoft.com/free/) konto przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * **Konto usługi Azure Storage**. Utworzysz skrypt w języku Python i plik wejściowy, a następnie przekażesz je do usługi Azure Storage. Dane wyjściowe programu platformy Spark są przechowywane na tym koncie magazynu. Klaster platformy Spark na żądanie używa tego samego konta magazynu, jako swojego podstawowego magazynu.  
-* **Program Azure PowerShell**. Wykonaj instrukcje podane w temacie [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps).
+* **Azure PowerShell**. Wykonaj instrukcje podane w temacie [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps).
 
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Przekazywanie skryptu w języku Python do konta usługi Blob Storage
-1. Utwórz plik języka Python o nazwie **WordCount_Spark.py** z następującą zawartością: 
+1. Utwórz plik w języku Python o nazwie **WordCount_Spark. PR** z następującą zawartością: 
 
     ```python
     import sys
@@ -66,7 +66,7 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.
     if __name__ == "__main__":
         main()
     ```
-2. Zamień ** &lt;storageAccountName&gt; ** na nazwę swojego konta usługi Azure Storage. Następnie zapisz plik. 
+2. Zastąp ** &lt;storageAccountName&gt; ** nazwą konta usługi Azure Storage. Następnie zapisz plik. 
 3. W usłudze Azure Blob Storage utwórz kontener o nazwie **adftutorial**, jeśli nie istnieje. 
 4. Utwórz folder o nazwie **spark**.
 5. Utwórz podfolder o nazwie **script** w folderze **spark**. 
@@ -135,8 +135,8 @@ Utwórz plik w formacie JSON za pomocą preferowanego edytora, skopiuj poniższ�
 Zaktualizuj wartości następujących właściwości w definicji połączonej usługi: 
 
 - **hostSubscriptionId**. Zastąp właściwość &lt;SubscriptionId&gt; identyfikatorem subskrypcji platformy Azure. Klaster usługi HDInsight na żądanie jest tworzony w tej subskrypcji. 
-- **najemcy**. Zastąp właściwość &lt;tenantID&gt; identyfikatorem dzierżawy platformy Azure. 
-- **servicePrincipalId**, **servicePrincipalKey**. Zastąp właściwości &lt;servicePrincipalID&gt; i &lt;servicePrincipalKey&gt; identyfikatorem i kluczem jednostki usługi w usłudze Azure Active Directory. Jednostka usługi musi być członkiem roli współautora subskrypcji lub grupy zasobów, gdzie został utworzony klaster. Aby uzyskać szczegółowe informacje, zobacz [Create Azure Active Directory application and service principal (Tworzenie jednostki usługi i aplikacji usługi Azure Active Directory)](../active-directory/develop/howto-create-service-principal-portal.md). **Identyfikator jednostki usługi** jest odpowiednikiem *identyfikatora aplikacji,* a **klucz główny usługi** jest odpowiednikiem wartości klucza *tajnego klienta.*
+- **dzierżawca**. Zastąp właściwość &lt;tenantID&gt; identyfikatorem dzierżawy platformy Azure. 
+- **servicePrincipalId**, **servicePrincipalKey**. Zastąp właściwości &lt;servicePrincipalID&gt; i &lt;servicePrincipalKey&gt; identyfikatorem i kluczem jednostki usługi w usłudze Azure Active Directory. Jednostka usługi musi być członkiem roli współautora subskrypcji lub grupy zasobów, gdzie został utworzony klaster. Aby uzyskać szczegółowe informacje, zobacz [Create Azure Active Directory application and service principal (Tworzenie jednostki usługi i aplikacji usługi Azure Active Directory)](../active-directory/develop/howto-create-service-principal-portal.md). **Identyfikator jednostki usługi** jest odpowiednikiem *identyfikatora aplikacji* , a klucz jednostki **usługi** jest równoważny z wartością *wpisu tajnego klienta*.
 - **clusterResourceGroup**. Zastąp właściwość &lt;resourceGroupOfHDICluster&gt; nazwą grupy zasobów, w której ma zostać utworzony klaster usługi HDInsight. 
 
 > [!NOTE]
@@ -191,7 +191,7 @@ W plikach w formacie JSON zostały zredagowane połączona usługa i definicje p
     $resourceGroupName = "ADFTutorialResourceGroup" 
     ```
 
-    **Nazwa fabryki danych. Musi być unikatowa globalnie** 
+    **Nazwa Data Factory. Musi być globalnie unikatowa** 
     ```powershell
     $dataFactoryName = "MyDataFactory09102017"
     ```
@@ -212,7 +212,7 @@ W plikach w formacie JSON zostały zredagowane połączona usługa i definicje p
     ```powershell
     Get-AzSubscription
     ```
-    Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zamień **identyfikator subscriptionid** na identyfikator subskrypcji platformy Azure:
+    Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp **Identyfikator subskrypcji ID** subskrypcji platformy Azure:
 
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"    
@@ -344,7 +344,7 @@ Potok w tym przykładzie kopiuje dane z jednej lokalizacji do innej lokalizacji 
 Przejdź do następnego samouczka, aby dowiedzieć się, jak przekształcać dane, uruchamiając skrypt programu Hive w klastrze usługi Azure HDInsight, który znajduje się w sieci wirtualnej. 
 
 > [!div class="nextstepaction"]
-> [Samouczek: przekształcanie danych przy użyciu gałęzi w sieci wirtualnej platformy Azure](tutorial-transform-data-hive-virtual-network.md).
+> [Samouczek: Przekształcanie danych przy użyciu usługi Hive w usłudze Azure Virtual Network](tutorial-transform-data-hive-virtual-network.md).
 
 
 

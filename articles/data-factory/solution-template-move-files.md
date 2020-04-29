@@ -1,6 +1,6 @@
 ---
 title: Przenoszenie plików między magazynem opartym na plikach
-description: Dowiedz się, jak używać szablonu rozwiązania do przenoszenia plików między magazynem opartym na plikach przy użyciu usługi Azure Data Factory.
+description: Informacje o sposobie przenoszenia plików między magazynem opartym na plikach przy użyciu szablonu rozwiązania Azure Data Factory.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -12,54 +12,54 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
 ms.openlocfilehash: b36eb2615e98ee8ea7751c836fd43e81a5a0f4e2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414748"
 ---
-# <a name="move-files-with-azure-data-factory"></a>Przenoszenie plików za pomocą usługi Azure Data Factory
+# <a name="move-files-with-azure-data-factory"></a>Przenoszenie plików z Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W tym artykule opisano szablon rozwiązania, za pomocą którego można przenosić pliki z jednego folderu do drugiego między magazynami opartymi na plikach. Jeden z typowych scenariuszy korzystania z tego szablonu: Pliki są stale upuszczane do folderu docelowego magazynu źródłowego. Tworząc wyzwalacz harmonogramu, potok ADF może okresowo przenosić te pliki ze źródła do magazynu docelowego.  Sposób, w jaki potok ADF osiąga "ruchome pliki", polega na wyjęciem plików z folderu docelowego, skopiowaniu każdego z nich do innego folderu w magazynie docelowym, a następnie usunięciu tych samych plików z folderu docelowego w magazynie źródłowym.
+W tym artykule opisano szablon rozwiązania, którego można użyć do przenoszenia plików z jednego folderu do innego między magazynami opartymi na plikach. Jednym z typowych scenariuszy korzystania z tego szablonu: pliki są ciągle opuszczane do folderu wyładunkowego magazynu źródłowego. Tworząc wyzwalacz harmonogramu, potok ADF może okresowo przenosić te pliki ze źródła do magazynu docelowego.  Sposób, w jaki potok ADF osiąga "przeniesienie plików", pobiera pliki z folderu wyładunkowego, kopiując każdy z nich do innego folderu w magazynie docelowym, a następnie usuwając te same pliki z folderu wyładunkowego w magazynie źródłowym.
 
 > [!NOTE]
-> Należy pamiętać, że ten szablon jest przeznaczony do przenoszenia plików, a nie przenoszenia folderów.  Jeśli chcesz przenieść folder, zmieniając zestaw danych, aby zawierał tylko ścieżkę folderu, a następnie używając działania kopiowania i usuwania w odniesieniu do tego samego zestawu danych reprezentującego folder, należy zachować szczególną ostrożność. To dlatego, że trzeba upewnić się, że nie będzie nowych plików przybywających do folderu między kopiowania operacji i usuwania operacji. Jeśli do folderu pojawiają się nowe pliki w momencie, gdy działanie kopiowania zostało właśnie wykonane, ale działanie Usuń nie zostało werione, możliwe jest, że działanie Usuń usunie ten nowy plik przychodzący, który NIE został skopiowany do miejsca docelowego, usuwając cały folder.
+> Należy pamiętać, że ten szablon jest przeznaczony do przenoszenia plików, a nie do przenoszenia folderów.  Jeśli chcesz przenieść folder, zmieniając zestaw danych tak, aby zawierał tylko ścieżkę do folderu, a następnie za pomocą działania kopiowania i usuwania, aby odwołać się do tego samego zestawu danych reprezentującego folder, musisz zachować ostrożność. Jest to spowodowane tym, że trzeba upewnić się, że nie będzie nowych plików dołączanych do folderu między operacją kopiowania a operacją usuwania. Jeśli w folderze znajdują się nowe pliki docierające do folderu, gdy działanie kopiowania po prostu zostało zakończone, ale działanie usuwania nie zostało jeszcze jaśniejsze, możliwe jest, że działanie usuwania usunie ten nowy plik, który nie został skopiowany do miejsca docelowego, usuwając cały folder.
 
 ## <a name="about-this-solution-template"></a>Informacje o tym szablonie rozwiązania
 
-Ten szablon pobiera pliki ze magazynu opartego na plikach źródłowych. Następnie przenosi każdy z nich do magazynu docelowego.
+Ten szablon pobiera pliki ze źródłowego magazynu opartego na plikach. Następnie każdy z nich przenosi do magazynu docelowego.
 
 Szablon zawiera pięć działań:
-- **GetMetadata** pobiera listę obiektów, w tym pliki i podfoldery z folderu w magazynie źródłowym. Nie będzie pobierać obiektów rekursywnie. 
-- **Filtruj** listę obiektów z działania **GetMetadata,** aby wybrać tylko pliki. 
-- **ForEach** pobiera listę plików z **działania Filtr,** a następnie iteruje nad listą i przekazuje każdy plik do działania Kopiuj i Usuń.
-- **Kopiuj** jeden plik ze źródła do magazynu docelowego.
-- **Polecenie Usuń** usuwa ten sam plik z magazynu źródłowego.
+- **GetMetadata** pobiera listę obiektów, w tym pliki i podfoldery z folderu w magazynie źródłowym. Obiekty nie zostaną cyklicznie pobrane. 
+- **Filtr Filtruj** listę obiektów z działania **GetMetadata** , aby wybrać tylko pliki. 
+- Instrukcja **foreach** pobiera listę plików z działania **filtru** , a następnie wykonuje iterację na liście i przekazuje każdy plik do działania kopiowania i usuwania działania.
+- **Kopiuj** kopiuje jeden plik ze źródła do magazynu docelowego.
+- **Delete** usuwa ten sam plik z magazynu źródłowego.
 
 Szablon definiuje cztery parametry:
-- *SourceStore_Location* jest ścieżką folderu magazynu źródłowego, z której chcesz przenieść pliki. 
-- *SourceStore_Directory* jest ścieżką podfolderową magazynu źródłowego, z której chcesz przenieść pliki.
-- *DestinationStore_Location* jest ścieżką folderu w magazynie docelowym, do której chcesz przenieść pliki. 
-- *DestinationStore_Directory* jest ścieżką podfolderową magazynu docelowego, do której chcesz przenieść pliki.
+- *SourceStore_Location* to ścieżka folderu magazynu źródłowego, z której chcesz przenieść pliki. 
+- *SourceStore_Directory* to ścieżka podfolderu magazynu źródłowego, z którego chcesz przenieść pliki.
+- *DestinationStore_Location* to ścieżka folderu magazynu docelowego, do której chcesz przenieść pliki. 
+- *DestinationStore_Directory* to ścieżka podfolderu magazynu docelowego, do którego chcesz przenieść pliki.
 
-## <a name="how-to-use-this-solution-template"></a>Jak korzystać z tego szablonu rozwiązania
+## <a name="how-to-use-this-solution-template"></a>Jak używać tego szablonu rozwiązania
 
-1. Przejdź do szablonu **Przenieś pliki.** Wybierz istniejące połączenie lub utwórz **nowe** połączenie ze źródłowym magazynem plików, z którego chcesz przenieść pliki. Należy pamiętać, że **DataSource_Folder** i **DataSource_File** są odwołania do tego samego połączenia magazynu plików źródłowych.
+1. Przejdź do szablonu **przenoszenie plików** . Wybierz istniejące połączenie lub Utwórz **nowe** połączenie ze źródłowym magazynem plików, z którego chcesz przenieść pliki. Należy pamiętać, że **DataSource_Folder** i **DataSource_File** odnoszą się do tego samego połączenia ze źródłowym magazynem plików.
 
-    ![Tworzenie nowego połączenia ze źródłem](media/solution-template-move-files/move-files1.png)
+    ![Utwórz nowe połączenie ze źródłem](media/solution-template-move-files/move-files1.png)
 
-2. Wybierz istniejące połączenie lub utwórz **nowe** połączenie z docelowym magazynem plików, do którego chcesz przenieść pliki.
+2. Wybierz istniejące połączenie lub Utwórz **nowe** połączenie z docelowym magazynem plików, do którego chcesz przenieść pliki.
 
-    ![Tworzenie nowego połączenia z miejscem docelowym](media/solution-template-move-files/move-files2.png)
+    ![Utwórz nowe połączenie z miejscem docelowym](media/solution-template-move-files/move-files2.png)
 
-3. Wybierz **pozycję Użyj tej** karty szablonu.
+3. Wybierz pozycję **Użyj tego szablonu** karty.
     
-4. Zobaczysz potok, jak w poniższym przykładzie:
+4. Zostanie wyświetlony potok, jak w poniższym przykładzie:
 
     ![Pokaż potok](media/solution-template-move-files/move-files4.png)
 
-5. Wybierz **debugowanie**, wprowadź **parametry**, a następnie wybierz **zakończ**.   Parametry są ścieżką folderu, z której chcesz przenieść pliki, oraz ścieżką folderu, do której chcesz przenieść pliki. 
+5. Wybierz pozycję **Debuguj**, wprowadź **Parametry**, a następnie wybierz pozycję **Zakończ**.   Parametry są ścieżka folderu, z którego chcesz przenieść pliki, oraz ścieżka folderu, do której chcesz przenieść pliki. 
 
     ![Uruchamianie potoku](media/solution-template-move-files/move-files5.png)
 
@@ -69,6 +69,6 @@ Szablon definiuje cztery parametry:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Kopiowanie nowych i zmienionych plików przez LastModifiedDate za pomocą usługi Azure Data Factory](solution-template-copy-new-files-lastmodifieddate.md)
+- [Kopiuj nowe i zmienione pliki przez LastModifiedDate z Azure Data Factory](solution-template-copy-new-files-lastmodifieddate.md)
 
-- [Kopiowanie plików z wielu kontenerów za pomocą usługi Azure Data Factory](solution-template-copy-files-multiple-containers.md)
+- [Kopiowanie plików z wielu kontenerów za pomocą Azure Data Factory](solution-template-copy-files-multiple-containers.md)

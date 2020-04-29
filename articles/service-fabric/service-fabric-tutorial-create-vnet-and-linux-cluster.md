@@ -1,29 +1,29 @@
 ---
-title: Tworzenie klastra sieci szkieletowej usług systemu Linux na platformie Azure
+title: Tworzenie klastra Service Fabric systemu Linux na platformie Azure
 description: Dowiedz się, jak wdrożyć klaster usługi Service Fabric systemu Linux w istniejącej sieci wirtualnej platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure.
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
 ms.openlocfilehash: a9026e46f2fd386892af5a3d8f4ec8d7e0c9f649
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81411006"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>wdrażanie klastra usługi Service Fabric systemu Linux w sieci wirtualnej platformy Azure
 
-W tym artykule dowiesz się, jak wdrożyć klaster sieci szkieletowej usług systemu Linux w [sieci wirtualnej platformy Azure przy](../virtual-network/virtual-networks-overview.md) użyciu interfejsu wiersza polecenia platformy Azure i szablonu. Po wykonaniu tych czynności powstanie działający w chmurze klaster, w którym można będzie wdrażać aplikacje. Aby utworzyć klaster systemu Windows za pomocą programu PowerShell, zobacz [Tworzenie bezpiecznego klastra systemu Windows na platformie Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+W tym artykule dowiesz się, jak wdrożyć klaster Service Fabric systemu Linux w usłudze [Azure Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md) przy użyciu interfejsu wiersza polecenia platformy Azure i szablonu. Po wykonaniu tych czynności powstanie działający w chmurze klaster, w którym można będzie wdrażać aplikacje. Aby utworzyć klaster systemu Windows za pomocą programu PowerShell, zobacz [Tworzenie bezpiecznego klastra systemu Windows na platformie Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem:
 
-* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instalowanie [interfejsu wiersza polecenia sieci szkieletowej usług](service-fabric-cli.md)
+* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Instalowanie [interfejsu wiersza polecenia Service Fabric](service-fabric-cli.md)
 * Instalowanie [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
-* Aby poznać kluczowe pojęcia klastrów, przeczytaj [omówienie klastrów platformy Azure](service-fabric-azure-clusters-overview.md)
-* [Planowanie i przygotowanie do](service-fabric-cluster-azure-deployment-preparation.md) wdrożenia klastra produkcyjnego.
+* Aby poznać kluczowe pojęcia dotyczące klastrów, Przeczytaj [temat Omówienie klastrów platformy Azure](service-fabric-azure-clusters-overview.md)
+* [Planowanie i przygotowywanie](service-fabric-cluster-azure-deployment-preparation.md) wdrożenia klastra produkcyjnego.
 
 Następujące procedury umożliwiają utworzenie klastra usługi Service Fabric z siedmioma węzłami. Aby obliczyć koszt działania klastra usługi Service Fabric na platformie Azure, skorzystaj z [Kalkulatora cen platformy Azure](https://azure.microsoft.com/pricing/calculator/).
 
@@ -31,27 +31,27 @@ Następujące procedury umożliwiają utworzenie klastra usługi Service Fabric 
 
 Pobierz poniższe pliki szablonu usługi Resource Manager:
 
-Dla Ubuntu 16.04 LTS:
+Dla Ubuntu 16,04 LTS:
 
-* [Usługa AzureDeploy.json][template]
-* [Usługa AzureDeploy.Parameters.json][parameters]
+* [AzureDeploy. JSON][template]
+* [AzureDeploy. Parameters. JSON][parameters]
 
-Dla Ubuntu 18.04 LTS:
+Dla Ubuntu 18,04 LTS:
 
-* [Usługa AzureDeploy.json][template2]
-* [Usługa AzureDeploy.Parameters.json][parameters2]
+* [AzureDeploy. JSON][template2]
+* [AzureDeploy. Parameters. JSON][parameters2]
 
-Różnica między dwoma szablonami jest **vmImageSku** atrybut jest ustawiony na "18.04-LTS" i każdego węzła **typeHandlerVersion** jest ustawiona na 1.1.
+Różnica między tymi dwoma szablonami jest atrybutem **vmImageSku** ustawionym na "18,04-LTS" i **typeHandlerVersion** każdego węzła ustawionym na 1,1.
 
-Ten szablon wdraża bezpieczny klaster siedmiu maszyn wirtualnych i trzech typów węzłów w sieci wirtualnej.  Inne przykładowe szablony można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [AzureDeploy.json][template] wdraża wiele zasobów, w tym następujące.
+Ten szablon wdraża bezpieczny klaster składający się z siedmiu maszyn wirtualnych i trzech typów węzłów w sieci wirtualnej.  Inne przykładowe szablony można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Plik [AzureDeploy. JSON][template] wdraża liczbę zasobów, w tym następujące.
 
 ### <a name="service-fabric-cluster"></a>Klaster usługi Service Fabric
 
 W zasobie **Microsoft.ServiceFabric/clusters** został wdrożony klaster systemu Linux o następujących właściwościach:
 
 * Trzy typy węzła
-* pięć węzłów w typie węzła podstawowego (konfigurowalne w parametrach szablonu), jeden węzeł w każdym z pozostałych typów węzłów
-* System operacyjny: (Ubuntu 16.04 LTS / Ubuntu 18.04 LTS) (konfigurowalny w parametrach szablonu)
+* pięć węzłów w podstawowym typie węzła (konfigurowalne w parametrach szablonu), jeden węzeł w każdym z innych typów węzłów
+* System operacyjny: (Ubuntu 16,04 LTS/Ubuntu 18,04 LTS) (konfigurowalne w parametrach szablonu)
 * Zabezpieczenie przy użyciu certyfikatu (z możliwością konfiguracji za pomocą parametrów szablonu)
 * [Usługa DNS](service-fabric-dnsservice.md) jest włączona
 * [Poziom trwałości](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster): Brązowy (z możliwością konfiguracji za pomocą parametrów szablonu)
@@ -79,7 +79,7 @@ Jeśli będą potrzebne dowolne inne porty aplikacji, będzie trzeba dostosować
 
 ## <a name="set-template-parameters"></a>Ustawianie parametrów szablonu
 
-**Plik AzureDeploy.Parameters** deklaruje wiele wartości używanych do wdrażania klastra i skojarzonych zasobów. Niektóre parametry, które być może będzie trzeba zmodyfikować na potrzeby danego wdrożenia:
+Plik **AzureDeploy. Parameters** deklaruje wiele wartości używanych do wdrożenia klastra i skojarzonych zasobów. Niektóre parametry, które być może będzie trzeba zmodyfikować na potrzeby danego wdrożenia:
 
 |Parametr|Przykładowa wartość|Uwagi|
 |---|---||
@@ -88,7 +88,7 @@ Jeśli będą potrzebne dowolne inne porty aplikacji, będzie trzeba dostosować
 |clusterName|mojklastersf123| Nazwa klastra. |
 |location|southcentralus| Lokalizacja klastra. |
 |certificateThumbprint|| <p>W przypadku tworzenia certyfikatu z podpisem własnym lub podania pliku certyfikatu ta wartość powinna być pusta.</p><p>Aby użyć istniejącego certyfikatu, który został wcześniej przekazany do magazynu kluczy, wprowadź wartość odcisku palca SHA1 certyfikatu. Na przykład „6190390162C988701DB5676EB81083EA608DCCF3”. </p>|
-|certificateUrlValue|| <p>W przypadku tworzenia certyfikatu z podpisem własnym lub podania pliku certyfikatu ta wartość powinna być pusta.</p><p>Aby użyć istniejącego certyfikatu, który został wcześniej przekazany do magazynu kluczy, wprowadź adres URL certyfikatu. Na przykład "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|certificateUrlValue|| <p>W przypadku tworzenia certyfikatu z podpisem własnym lub podania pliku certyfikatu ta wartość powinna być pusta.</p><p>Aby użyć istniejącego certyfikatu, który został wcześniej przekazany do magazynu kluczy, wprowadź adres URL certyfikatu. Na przykład "https:\//mykeyvault.Vault.Azure.NET:443/Secrets/MyCertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>W przypadku tworzenia certyfikatu z podpisem własnym lub podania pliku certyfikatu ta wartość powinna być pusta.</p><p>Aby użyć istniejącego certyfikatu, który został wcześniej przekazany do magazynu kluczy, wprowadź wartość magazynu źródłowego. Na przykład „/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”.</p>|
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>

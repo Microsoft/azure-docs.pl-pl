@@ -1,6 +1,6 @@
 ---
-title: Zachowywanie metadanych i list ACL przy użyciu działania kopiowania w usłudze Azure Data Factory
-description: Dowiedz się, jak zachować metadane i listy ACL podczas kopiowania przy użyciu działania kopiowania w usłudze Azure Data Factory.
+title: Zachowywanie metadanych i list ACL przy użyciu działania kopiowania w Azure Data Factory
+description: Dowiedz się, jak zachować metadane i listy ACL podczas kopiowania przy użyciu działania kopiowania w Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,32 +12,32 @@ ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: jingwang
 ms.openlocfilehash: 5ce1b85394a7bb604841f7fb941bdebf12c0bca2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414149"
 ---
-#  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Zachowywanie metadanych i list ACL przy użyciu działania kopiowania w usłudze Azure Data Factory
+#  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Zachowywanie metadanych i list ACL przy użyciu działania kopiowania w Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Korzystając z działania kopiowania usługi Azure Data Factory do kopiowania danych ze źródła do ujścia, w następujących scenariuszach można również zachować metadane i listy ACL wzdłuż.
+W przypadku używania działania kopiowania Azure Data Factory do kopiowania danych ze źródła do ujścia w następujących scenariuszach można również zachować metadane i listy ACL.
 
-## <a name="preserve-metadata-for-lake-migration"></a><a name="preserve-metadata"></a>Zachowywanie metadanych dla migracji jezior
+## <a name="preserve-metadata-for-lake-migration"></a><a name="preserve-metadata"></a>Zachowaj metadane usługi Lake Migration
 
-Podczas migracji danych z jednego źródła danych do innego, w tym [Amazon S3,](connector-amazon-simple-storage-service.md) [Azure Blob](connector-azure-blob-storage.md)i [Azure Data Lake Storage Gen2,](connector-azure-data-lake-storage.md)można zachować metadane pliku wraz z danymi.
+W przypadku migrowania danych z jednej usługi Data Lake do innej, w tym usługi [Amazon S3](connector-amazon-simple-storage-service.md), [obiektów blob platformy Azure](connector-azure-blob-storage.md)i [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)można zachować metadane plików wraz z danymi.
 
 Działanie kopiowania obsługuje zachowywanie następujących atrybutów podczas kopiowania danych:
 
 - **Wszystkie metadane określone przez klienta** 
-- I następujące **pięć danych przechowywania wbudowanych właściwości systemu:** `contentType`, `contentLanguage` (z wyjątkiem Amazon S3), `contentEncoding`, , `contentDisposition` `cacheControl`.
+- I pięć następujących **wbudowanych właściwości systemu magazynu danych**: `contentType` `contentLanguage` , (z wyjątkiem usługi Amazon S3 `contentEncoding`) `contentDisposition`,,,. `cacheControl`
 
-Podczas kopiowania plików z amazon S3/Azure Data Lake Storage Gen2/Azure Blob do usługi Azure Data Lake Storage Gen2/Azure Blob w formacie binarnym, można znaleźć **opcję Zachowaj** na karcie**Ustawienia** **działania** > kopiowania dla tworzenia działań lub na stronie **Ustawienia** w narzędziu Kopiowanie danych.
+W przypadku kopiowania plików jako-is z usługi Amazon S3/Azure Data Lake Storage Gen2/Azure BLOB do Azure Data Lake Storage Gen2/Azure Blob z formatem binarnym można znaleźć opcję **Zachowaj** na karcie**Ustawienia** **działania** > kopiowania dla tworzenia działań lub na stronie **Ustawienia** w narzędziu kopiowanie danych.
 
-![Kopiowanie aktywności zachowywać metadane](./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png)
+![Metadane zachowywania działania kopiowania](./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png)
 
-Oto przykład konfiguracji JSON działania kopiowania `preserve`(patrz): 
+Oto przykład konfiguracji JSON działania kopiowania (zobacz `preserve`): 
 
 ```json
 "activities":[
@@ -78,29 +78,29 @@ Oto przykład konfiguracji JSON działania kopiowania `preserve`(patrz):
 ]
 ```
 
-## <a name="preserve-acls-from-data-lake-storage-gen1gen2-to-gen2"></a><a name="preserve-acls"></a>Zachowywanie list ACL z pamięci masowej Data Lake Gen1/Gen2 do Gen2
+## <a name="preserve-acls-from-data-lake-storage-gen1gen2-to-gen2"></a><a name="preserve-acls"></a>Zachowaj listy ACL z Data Lake Storage Gen1/Gen2 do Gen2
 
-Podczas uaktualniania z usługi Azure Data Lake Storage Gen1 do Gen2 lub kopiowania danych między ADLS Gen2, można zachować listy kontroli dostępu POSIX (Listy KONTROLI DOSTĘPU) wraz z plikami danych. Aby uzyskać więcej informacji na temat kontroli dostępu, zobacz [Kontrola dostępu w usłudze Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md) i [kontrola dostępu w usłudze Azure Data Lake Storage Gen2.](../storage/blobs/data-lake-storage-access-control.md)
+W przypadku uaktualniania z Azure Data Lake Storage Gen1 do Gen2 lub kopiowania danych między ADLS Gen2, można wybrać opcję zachowania list kontroli dostępu POSIX (ACL) wraz z plikami danych. Aby uzyskać więcej informacji na temat kontroli dostępu, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md) i [Kontrola dostępu w programie Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
-Działanie kopiowania obsługuje zachowanie następujących typów list ACL podczas kopiowania danych. Można wybrać jeden lub więcej typów:
+Działanie kopiowania obsługuje zachowywanie następujących typów list ACL podczas kopiowania danych. Można wybrać jeden lub więcej typów:
 
-- **ACL**: Kopiowanie i zachowywanie list kontroli dostępu POSIX w plikach i katalogach. Kopiuje pełne istniejące listy ACL ze źródła do ujścia. 
-- **Właściciel**: Kopiowanie i zachowywanie użytkownika posiadania plików i katalogów. Wymagany jest dostęp superużytnik do ujścia Data Lake Storage Gen2.
-- **Grupa**: Kopiowanie i zachowywanie grupy zawierającej pliki i katalogi. Wymagany jest dostęp superużytnik do ujścia Data Lake Storage Gen2 lub użytkownika będącego właścicielem (jeśli użytkownik będący właścicielem jest również członkiem grupy docelowej).
+- **Lista ACL**: kopiowanie i zachowywanie list kontroli dostępu POSIX dla plików i katalogów. Kopiuje wszystkie istniejące listy ACL ze źródła do ujścia. 
+- **Właściciel**: kopiowanie i zachowywanie użytkownika będącego właścicielem plików i katalogów. Wymagany jest dostęp administratora do Data Lake Storage Gen2 ujścia.
+- **Grupa**: Skopiuj i Zachowaj grupę będącą właścicielem plików i katalogów. Dostęp przez administratora do Data Lake Storage Gen2 ujścia lub użytkownika będącego właścicielem (jeśli jest również członkiem grupy docelowej) jest wymagane.
 
-Jeśli określisz, aby skopiować z folderu, data factory replikuje listy ACL dla `recursive` danego folderu i pliki i katalogi pod nim, jeśli jest ustawiona na true. Jeśli określisz, aby skopiować z jednego pliku, listy ACL w tym pliku są kopiowane.
+Jeśli wybierzesz opcję kopiowania z folderu, Data Factory replikuje listy ACL dla danego folderu oraz plików i katalogów w tym folderze, jeśli `recursive` jest ustawiona na true. W przypadku wybrania kopiowania z jednego pliku listy ACL w tym pliku zostaną skopiowane.
 
 >[!NOTE]
->W przypadku używania adf do zachowania list ACL z usługi Data Lake Storage Gen1/Gen2 do Gen2, istniejące listy ACL w odpowiednim folderze/plikach ujścia Gen2 zostaną zastąpione.
+>W przypadku korzystania z podajnika APD w celu zachowania list ACL z Data Lake Storage Gen1/Gen2 do Gen2, istniejące listy ACL na Gen2's.
 
 >[!IMPORTANT]
->Po wybraniu zachowania list ACL upewnij się, że udzielasz wystarczająco wysokie uprawnienia dla usługi Data Factory do działania na koncie usługi Data Lake Gen2 ujścia. Na przykład użyj uwierzytelniania klucza konta lub przypisz rolę Właściciel danych obiektu Blob magazynu do jednostki usługi lub tożsamości zarządzanej.
+>Po wybraniu opcji zachowania list kontroli dostępu należy się upewnić, że przyznano wystarczające uprawnienia, aby Data Factory działały na koncie ujścia Data Lake Storage Gen2. Na przykład Użyj uwierzytelniania klucza konta lub Przypisz rolę właściciela danych obiektu blob magazynu do nazwy głównej usługi lub tożsamości zarządzanej.
 
-Po skonfigurowaniu źródła jako data lake storage Gen1/Gen2 z formatem binarnym lub opcją kopiowania binarnego i pogrążeniem jako Data Lake Storage Gen2 w formacie binarnym lub opcji kopiowania binarnego, można znaleźć opcję **Zachowaj** na stronie **Ustawienia** w narzędziu Kopiowanie danych lub na karcie > **Ustawienia** **działania kopiowania**do tworzenia aktywności.
+Podczas konfigurowania źródła jako Data Lake Storage Gen1/Gen2 przy użyciu formatu binarnego lub opcji kopiowania binarnego oraz ujścia jako Data Lake Storage Gen2 za pomocą formatu binarnego lub opcji kopiowania binarnego można znaleźć opcję **Zachowaj** na stronie **Ustawienia** w narzędziu kopiowanie danych lub na karcie Ustawienia **działania** > **Settings** kopiowania dla tworzenia działań.
 
-![Pamięć masowa Data Lake Gen1/Gen2 do Gen2 Preserve ACL](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
+![Data Lake Storage Gen1/Gen2 do Gen2 Zachowaj listę ACL](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
 
-Oto przykład konfiguracji JSON działania kopiowania `preserve`(patrz): 
+Oto przykład konfiguracji JSON działania kopiowania (zobacz `preserve`): 
 
 ```json
 "activities":[
@@ -145,7 +145,7 @@ Oto przykład konfiguracji JSON działania kopiowania `preserve`(patrz):
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz inne artykuły dotyczące działania kopiowania:
+Zapoznaj się z innymi artykułami dotyczącymi działania kopiowania:
 
-- [Omówienie działania kopiowania](copy-activity-overview.md)
+- [Przegląd działania kopiowania](copy-activity-overview.md)
 - [Wydajność działania kopiowania](copy-activity-performance.md)

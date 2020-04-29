@@ -1,6 +1,6 @@
 ---
-title: Zasoby do tworzenia puli SQL Synapse w usłudze Azure Synapse Analytics
-description: Koncepcje programistyczne, decyzje projektowe, zalecenia i techniki kodowania dla usługi SQL Data Warehouse.
+title: Zasoby służące do tworzenia puli SQL Synapse w usłudze Azure Synapse Analytics
+description: Koncepcje dotyczące programowania, decyzje projektowe, zalecenia i techniki kodowania dla SQL Data Warehouse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,39 +11,39 @@ ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 12f91633834ee98582eaad886b48eb8619378265
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81411670"
 ---
-# <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Projektowaniaj decyzji i technik kodowania puli SQL Synapse w usłudze Azure Synapse Analytics 
- W tym artykule znajdziesz dodatkowe zasoby, które pomogą Ci lepiej zrozumieć kluczowe decyzje projektowe, zalecenia i techniki kodowania dla puli SQL w usłudze Azure Synapse.
+# <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Projektowanie decyzji i technik kodowania dla puli SQL Synapse w usłudze Azure Synapse Analytics 
+ W tym artykule znajdziesz dodatkowe zasoby, które pomogą lepiej zrozumieć najważniejsze decyzje projektowe, zalecenia i techniki kodowania dla puli SQL w usłudze Azure Synapse.
 
-## <a name="key-design-decisions"></a>Kluczowe decyzje projektowe
-W poniższych artykułach przedstawiono pojęcia i decyzje projektowe dotyczące tworzenia rozproszonego magazynu danych przy użyciu możliwości puli SQL w usłudze Azure Synapse:
+## <a name="key-design-decisions"></a>Najważniejsze decyzje projektowe
+W poniższych artykułach wyróżniono koncepcje i decyzje projektowe dotyczące tworzenia rozproszonego magazynu danych przy użyciu możliwości puli SQL w usłudze Azure Synapse:
 
-* [Połączenia](../sql/connect-overview.md)
-* [Współbieżności](resource-classes-for-workload-management.md)
-* [Transakcji](sql-data-warehouse-develop-transactions.md)
+* [Licznik](../sql/connect-overview.md)
+* [współbieżności](resource-classes-for-workload-management.md)
+* [Akcja](sql-data-warehouse-develop-transactions.md)
 * [schematy zdefiniowane przez użytkownika](sql-data-warehouse-develop-user-defined-schemas.md)
-* [rozkład tabeli](sql-data-warehouse-tables-distribute.md)
-* [indeksy tabel](sql-data-warehouse-tables-index.md)
+* [Dystrybucja tabel](sql-data-warehouse-tables-distribute.md)
+* [indeksy tabeli](sql-data-warehouse-tables-index.md)
 * [partycje tabeli](sql-data-warehouse-tables-partition.md)
 * [CTAS](sql-data-warehouse-develop-ctas.md)
 * [Statystyki](sql-data-warehouse-tables-statistics.md)
 
-## <a name="development-recommendations-and-coding-techniques"></a>Zalecenia dotyczące rozwoju i techniki kodowania
-Następujące artykuły zawierają określone techniki kodowania, porady i zalecenia dotyczące tworzenia puli SQL:
+## <a name="development-recommendations-and-coding-techniques"></a>Zalecenia dotyczące programowania i techniki kodowania
+Poniższe artykuły zawierają charakterystyczne techniki kodowania, porady i zalecenia dotyczące tworzenia puli SQL:
 
 * [procedury składowane](sql-data-warehouse-develop-stored-procedures.md)
-* [Etykiety](sql-data-warehouse-develop-label.md)
+* [Etykieta](sql-data-warehouse-develop-label.md)
 * [Widoki](sql-data-warehouse-develop-views.md)
 * [tabele tymczasowe](sql-data-warehouse-tables-temporary.md)
 * [dynamiczny SQL](sql-data-warehouse-develop-dynamic-sql.md)
-* [Pętli](sql-data-warehouse-develop-loops.md)
-* [grupowanie według opcji](sql-data-warehouse-develop-group-by-options.md)
+* [pętli](sql-data-warehouse-develop-loops.md)
+* [Grupuj według opcji](sql-data-warehouse-develop-group-by-options.md)
 * [przypisanie zmiennej](sql-data-warehouse-develop-variable-assignment.md)
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji referencyjnych, zobacz [Instrukcje T-SQL](sql-data-warehouse-reference-tsql-statements.md).
+Aby uzyskać więcej informacji, zobacz [instrukcje języka T-SQL](sql-data-warehouse-reference-tsql-statements.md).

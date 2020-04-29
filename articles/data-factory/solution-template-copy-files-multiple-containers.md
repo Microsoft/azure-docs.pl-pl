@@ -1,6 +1,6 @@
 ---
 title: Kopiowanie plików z wielu kontenerów
-description: Dowiedz się, jak używać szablonu rozwiązania do kopiowania plików z wielu kontenerów przy użyciu usługi Azure Data Factory.
+description: Dowiedz się, jak używać szablonu rozwiązania do kopiowania plików z wielu kontenerów za pomocą Azure Data Factory.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -12,54 +12,54 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
 ms.openlocfilehash: 383b70bbb02e7a200c7ec0a994f7cf11e9b9520e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414814"
 ---
-# <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Kopiowanie plików z wielu kontenerów za pomocą usługi Azure Data Factory
+# <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Kopiowanie plików z wielu kontenerów za pomocą Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W tym artykule opisano szablon rozwiązania, którego można użyć do kopiowania plików z wielu kontenerów między magazynami plików. Na przykład można go użyć do migracji aplikacji data lake z usługi AWS S3 do usługi Azure Data Lake Store. Lub można użyć szablonu do replikowania wszystkiego z jednego konta magazynu obiektów Blob platformy Azure do innego.
+W tym artykule opisano szablon rozwiązania, którego można użyć do kopiowania plików z wielu kontenerów między magazynami plików. Na przykład możesz użyć jej do migrowania usługi Data Lake z AWS S3 do Azure Data Lake Store. Można też użyć szablonu, aby replikować wszystko z jednego konta usługi Azure Blob Storage do innego.
 
 > [!NOTE]
-> Jeśli chcesz skopiować pliki z jednego kontenera, bardziej efektywne jest użycie [narzędzia Kopiowanie danych](copy-data-tool.md) do utworzenia potoku z działaniem pojedynczej kopii. Szablon w tym artykule jest więcej niż potrzebujesz dla tego prostego scenariusza.
+> Jeśli chcesz skopiować pliki z jednego kontenera, bardziej wydajne jest użycie [narzędzia kopiowanie danych](copy-data-tool.md) , aby utworzyć potok z jednym działaniem kopiowania. Szablon w tym artykule jest bardziej niezbędny dla tego prostego scenariusza.
 
 ## <a name="about-this-solution-template"></a>Informacje o tym szablonie rozwiązania
 
-Ten szablon wylicza kontenery z magazynu magazynu źródłowego. Następnie kopiuje te kontenery do magazynu docelowego.
+Ten szablon wylicza kontenery ze źródłowego magazynu magazynu. Następnie kopiuje te kontenery do magazynu docelowego.
 
 Szablon zawiera trzy działania:
-- **GetMetadata** skanuje magazyn magazynu źródłowego i pobiera listę kontenerów.
-- **ForEach** pobiera listę kontenerów z **GetMetadata** działania, a następnie iteruje na liście i przekazuje każdy kontener do copy działania.
-- **Kopiowanie** kopiuje każdy kontener z magazynu źródłowego do magazynu docelowego.
+- **GetMetadata** skanuje źródłowy magazyn magazynu i pobiera listę kontenerów.
+- Instrukcja **foreach** pobiera listę kontenerów z działania **GetMetadata** , a następnie wykonuje iterację na liście i przekazuje poszczególne kontenery do działania kopiowania.
+- **Kopiuj** kopiuje każdy kontener ze źródłowego magazynu magazynu do magazynu docelowego.
 
 Szablon definiuje następujące parametry:
-- *SourceFileFolder* jest ścieżką folderu magazynu źródła danych, gdzie można uzyskać listę kontenerów. Ścieżka jest katalogiem głównym, który zawiera wiele folderów kontenera. Domyślną wartością tego `sourcefolder`parametru jest .
-- *SourceFileDirectory* jest ścieżką podfolderu w katalogu głównym magazynu źródeł danych. Domyślną wartością tego `subfolder`parametru jest .
-- *DestinationFileFolder* to ścieżka folderu, do której pliki zostaną skopiowane do magazynu docelowego. Domyślną wartością tego `destinationfolder`parametru jest .
-- *DestinationFileDirectory* to ścieżka podfolderu, do której pliki zostaną skopiowane do magazynu docelowego. Domyślną wartością tego `subfolder`parametru jest .
+- *SourceFileFolder* to ścieżka folderu magazynu źródła danych, w której można uzyskać listę kontenerów. Ścieżka jest katalogiem głównym, który zawiera wiele folderów kontenerów. Wartość domyślna tego parametru to `sourcefolder`.
+- *SourceFileDirectory* to ścieżka podfolderu w katalogu głównym magazynu źródła danych. Wartość domyślna tego parametru to `subfolder`.
+- *DestinationFileFolder* to ścieżka folderu, w której pliki zostaną skopiowane do magazynu docelowego. Wartość domyślna tego parametru to `destinationfolder`.
+- *DestinationFileDirectory* to ścieżka podfolderu, w którym pliki zostaną skopiowane do magazynu docelowego. Wartość domyślna tego parametru to `subfolder`.
 
-## <a name="how-to-use-this-solution-template"></a>Jak korzystać z tego szablonu rozwiązania
+## <a name="how-to-use-this-solution-template"></a>Jak używać tego szablonu rozwiązania
 
-1. Przejdź do **szablonu Kopiuj wiele plików między szablonami Magazyny plików.** Utwórz **nowe** połączenie z magazynem magazynu źródłowego. Magazyn magazynu źródłowego jest, gdzie chcesz skopiować pliki z wielu kontenerów z.
+1. Przejdź do szablonu **kopiowanie wielu plików między szablonem magazyny plików** . Utwórz **nowe** połączenie ze źródłowym magazynem magazynu. Źródłowy magazyn magazynów to miejsce, w którym chcesz skopiować pliki z wielu kontenerów.
 
-    ![Tworzenie nowego połączenia ze źródłem](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
+    ![Utwórz nowe połączenie ze źródłem](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
 
-2. Utwórz **nowe** połączenie z docelowym magazynem magazynowym.
+2. Utwórz **nowe** połączenie z docelowym magazynem magazynu.
 
-    ![Tworzenie nowego połączenia z miejscem docelowym](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
+    ![Utwórz nowe połączenie z miejscem docelowym](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
 
 3. Wybierz pozycję **Użyj tego szablonu**.
 
     ![Użyj tego szablonu](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
     
-4. Zobaczysz potok, jak w poniższym przykładzie:
+4. Zostanie wyświetlony potok, jak w poniższym przykładzie:
 
     ![Pokaż potok](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Wybierz **debugowanie**, wprowadź **parametry**, a następnie wybierz **zakończ**.
+5. Wybierz pozycję **Debuguj**, wprowadź **Parametry**, a następnie wybierz pozycję **Zakończ**.
 
     ![Uruchamianie potoku](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 
@@ -69,6 +69,6 @@ Szablon definiuje następujące parametry:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Kopiowanie zbiorcze z bazy danych przy użyciu tabeli sterowania z usługą Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
+- [Kopiowanie masowe z bazy danych przy użyciu tabeli formantów z Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
 
-- [Kopiowanie plików z wielu kontenerów za pomocą usługi Azure Data Factory](solution-template-copy-files-multiple-containers.md)
+- [Kopiowanie plików z wielu kontenerów za pomocą Azure Data Factory](solution-template-copy-files-multiple-containers.md)

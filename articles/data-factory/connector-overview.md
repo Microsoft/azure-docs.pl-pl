@@ -1,6 +1,6 @@
 ---
-title: Omówienie łącznika usługi Azure Data Factory
-description: Poznaj obsługiwane łączniki w fabryce danych.
+title: Omówienie łącznika Azure Data Factory
+description: Poznaj obsługiwane łączniki w Data Factory.
 services: data-factory
 author: linda33wj
 ms.service: data-factory
@@ -10,16 +10,16 @@ ms.date: 12/10/2019
 ms.author: jingwang
 ms.reviewer: craigg
 ms.openlocfilehash: 623ee15c5071fdc7a36677481e98872b8c2bd562
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81410413"
 ---
-# <a name="azure-data-factory-connector-overview"></a>Omówienie łącznika usługi Azure Data Factory
+# <a name="azure-data-factory-connector-overview"></a>Omówienie łącznika Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Usługa Azure Data Factory obsługuje następujące magazyny danych i formaty za pośrednictwem działań kopiowania, przepływu danych, wyszukiwania, pobierz metadane i usuń. Kliknij każdy magazyn danych, aby dowiedzieć się, jakie są obsługiwane funkcje i odpowiednie konfiguracje w szczegółach.
+Azure Data Factory obsługiwać następujące magazyny i formaty danych za pomocą funkcji kopiowania, przepływu danych, wyszukiwania, pobierania metadanych i usuwania działań. Kliknij każdy magazyn danych, aby poznać obsługiwane możliwości i odpowiednie konfiguracje w szczegółach.
 
 ## <a name="supported-data-stores"></a>Obsługiwane magazyny danych
 
@@ -32,7 +32,7 @@ Usługa Azure Data Factory obsługuje następujące magazyny danych i formaty za
 ## <a name="next-steps"></a>Następne kroki
 
 - [Działanie kopiowania](copy-activity-overview.md)
-- [Mapowanie przepływu danych](concepts-data-flow-overview.md)
+- [Przepływ mapowania danych](concepts-data-flow-overview.md)
 - [Działanie wyszukiwania](control-flow-lookup-activity.md)
 - [Działanie pobierania metadanych](control-flow-get-metadata-activity.md)
 - [Usuń działanie](delete-activity.md)

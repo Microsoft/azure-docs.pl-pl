@@ -1,6 +1,6 @@
 ---
-title: Tworzenie środowiska wykonawczego integracji platformy Azure w usłudze Azure Data Factory
-description: Dowiedz się, jak utworzyć środowisko uruchomieniowe integracji platformy Azure w usłudze Azure Data Factory, która służy do kopiowania danych i wysyłania działań transformacji.
+title: Tworzenie środowiska Azure Integration Runtime w Azure Data Factory
+description: Dowiedz się, jak utworzyć środowisko Azure Integration Runtime w Azure Data Factory, które jest używane do kopiowania działań przekształcania danych i wysyłania.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,64 +11,64 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: e32530ece3626807b199850a2b4af5461ff51cde
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414075"
 ---
-# <a name="how-to-create-and-configure-azure-integration-runtime"></a>Jak utworzyć i skonfigurować środowisko uruchomieniowe integracji platformy Azure
+# <a name="how-to-create-and-configure-azure-integration-runtime"></a>Jak utworzyć i skonfigurować Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Integration Runtime (IR) to infrastruktura obliczeniowa używana przez usługę Azure Data Factory w celu zapewnienia możliwości integracji danych w różnych środowiskach sieciowych. Aby uzyskać więcej informacji na temat środowiska IR, zobacz [Środowisko uruchomieniowe integracji](concepts-integration-runtime.md).
+Integration Runtime (IR) to infrastruktura obliczeniowa używana przez Azure Data Factory do zapewniania możliwości integracji danych w różnych środowiskach sieciowych. Aby uzyskać więcej informacji na temat środowiska IR, zobacz [Integration Runtime](concepts-integration-runtime.md).
 
-Usługa Azure IR zapewnia w pełni zarządzane obliczenia do natywnie wykonywać działania przekształcania danych i wysyłać dane do usług obliczeniowych, takich jak HDInsight. Jest on hostowany w środowisku platformy Azure i obsługuje łączenie się z zasobami w środowisku sieci publicznej z publicznych dostępnych punktów końcowych.
+Azure IR udostępnia w pełni zarządzane obliczenia, które umożliwiają natywne wykonywanie operacji przekształcania danych i wysyłanie danych do usług obliczeniowych, takich jak HDInsight. Jest ona hostowana w środowisku platformy Azure i obsługuje łączenie się z zasobami w środowisku sieci publicznej za pomocą dostępnych publicznie punktów końcowych.
 
-W tym dokumencie przedstawiono sposób tworzenia i konfigurowania środowiska uruchomieniowego integracji platformy Azure. 
+W tym dokumencie przedstawiono sposób tworzenia i konfigurowania Azure Integration Runtime. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="default-azure-ir"></a>Domyślna usługa Azure IR
-Domyślnie każda fabryka danych ma środowisko Azure IR w wewnętrznej pońończeniu, który obsługuje operacje w magazynach danych w chmurze i usługach obliczeniowych w sieci publicznej. Lokalizacja tej usługi Azure IR jest automatyczne rozwiązywanie. Jeśli **właściwość connectVia** nie jest określona w definicji usługi połączonej, używana jest domyślna usługa Azure IR. Wystarczy jawnie utworzyć podczerwenie platformy Azure, gdy chcesz jawnie zdefiniować lokalizację podczerwonego lub jeśli chcesz praktycznie pogrupować wykonania działań na różnych irs do celów zarządzania. 
+## <a name="default-azure-ir"></a>Azure IR domyślne
+Domyślnie każda Fabryka danych ma Azure IR w zapleczu, który obsługuje operacje dotyczące magazynów danych w chmurze i usług obliczeniowych w sieci publicznej. Lokalizacja tego Azure IR jest rozwiązywana automatycznie. Jeśli właściwość **właściwością connectvia** nie została określona w definicji połączonej usługi, zostanie użyta domyślna Azure IR. Musisz jawnie utworzyć Azure IR, gdy chcesz jawnie zdefiniować lokalizację środowiska IR, lub jeśli chcesz praktycznie grupować wykonania działania w innym urzędzie skarbowym do celów zarządzania. 
 
-## <a name="create-azure-ir"></a>Tworzenie usługi Azure IR
+## <a name="create-azure-ir"></a>Utwórz Azure IR
 
-Aby utworzyć i skonfigurować usługę Azure IR, można użyć następujących procedur.
+Aby utworzyć i skonfigurować Azure IR, można użyć poniższych procedur.
 
-### <a name="create-an-azure-ir-via-azure-powershell"></a>Tworzenie usługi Azure IR za pośrednictwem programu Azure PowerShell
-Środowisko uruchomieniowe integracji można tworzyć za pomocą polecenia cmdlet Programu PowerShell **Set-AzDataFactoryV2IntegrationRuntime.** Aby utworzyć usługę Azure IR, należy określić nazwę, lokalizację i typ polecenia. Oto przykładowe polecenie utworzenia podczerwonego podczerwenia platformy Azure z lokalizacją ustawioną na "Europa Zachodnia":
+### <a name="create-an-azure-ir-via-azure-powershell"></a>Tworzenie Azure IR za pośrednictwem Azure PowerShell
+Integration Runtime można utworzyć przy użyciu polecenia cmdlet **Set-AzDataFactoryV2IntegrationRuntime** programu PowerShell. Aby utworzyć Azure IR, należy określić nazwę, lokalizację i typ polecenia. Oto przykładowe polecenie służące do tworzenia Azure IR z lokalizacją "Europa Zachodnia":
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
 ```  
-W przypadku usługi Azure IR typ musi być ustawiony na **Zarządzany**. Nie trzeba określać szczegóły obliczeń, ponieważ jest w pełni zarządzane elastycznie w chmurze. Określ szczegóły obliczeń, takie jak rozmiar węzła i liczba węzłów, gdy chcesz utworzyć usługę Azure-SSIS IR. Aby uzyskać więcej informacji, zobacz [Tworzenie i konfigurowanie usługi Azure-SSIS IR](create-azure-ssis-integration-runtime.md).
+W przypadku Azure IR typ musi być ustawiony na **zarządzany**. Nie trzeba określać szczegółów obliczeń, ponieważ jest w pełni zarządzana elastycznie w chmurze. Określ szczegóły obliczeń, takie jak rozmiar węzła i liczba węzłów, jeśli chcesz utworzyć Azure-SSIS IR. Aby uzyskać więcej informacji, zobacz [Tworzenie i konfigurowanie Azure-SSIS IR](create-azure-ssis-integration-runtime.md).
 
-Można skonfigurować istniejącą usługę Azure IR, aby zmienić jego lokalizację przy użyciu polecenia cmdlet Programu PowerShell Set-AzDataFactoryV2IntegrationRuntime PowerShell. Aby uzyskać więcej informacji na temat lokalizacji środowiska IR platformy Azure, zobacz [Wprowadzenie do środowiska wykonawczego integracji.](concepts-integration-runtime.md)
+Istniejące Azure IR można skonfigurować w celu zmiany jego lokalizacji za pomocą polecenia cmdlet Set-AzDataFactoryV2IntegrationRuntime programu PowerShell. Aby uzyskać więcej informacji na temat lokalizacji Azure IR, zobacz [wprowadzenie do środowiska Integration Runtime](concepts-integration-runtime.md).
 
-### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Tworzenie usługi Azure IR za pośrednictwem interfejsu użytkownika usługi Azure Data Factory
-Aby utworzyć usługę Azure IR przy użyciu interfejsu użytkownika usługi Azure Data Factory, należy wykonać następujące kroki.
+### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Tworzenie Azure IR za pośrednictwem interfejsu użytkownika Azure Data Factory
+Wykonaj następujące kroki, aby utworzyć Azure IR przy użyciu Azure Data Factory interfejsu użytkownika.
 
-1. Na stronie **Rozpocznijmy pracę** interfejsu użytkownika usługi Azure Data Factory, wybierz kartę **Autor** w lewym okienku.
+1. Na stronie Wprowadzenie Azure Data Factory interfejsie użytkownika wybierz kartę **autor** w okienku po **lewej stronie.**
 
-   ![Przycisk Autor strony głównej](media/doc-common-process/get-started-page-author-button.png)
+   ![Przycisk autora strony głównej](media/doc-common-process/get-started-page-author-button.png)
 
-1. Wybierz **pozycję Połączenia** u dołu lewego okienka i wybierz pozycję Środowiska **wykonawcze integracji** w oknie **Połączenia.** Wybierz **+Nowy**.
+1. Wybierz pozycję **połączenia** w dolnej części okienka po lewej stronie, a następnie wybierz pozycję **Integration Runtimes** w oknie **połączenia** . Wybierz pozycję **+ Nowy**.
 
    ![Tworzenie środowiska Integration Runtime](media/create-azure-integration-runtime/new-integration-runtime.png)
 
-1. Na stronie **Ustawienia środowiska wykonawczego integracji** wybierz pozycję **Azure, Self-Hosted**, a następnie wybierz pozycję **Kontynuuj**. 
+1. Na stronie **Konfiguracja środowiska Integration Runtime** wybierz pozycję **Azure, pozycję samodzielny**, a następnie wybierz pozycję **Kontynuuj**. 
 
-1. Na następnej stronie wybierz pozycję **Azure,** aby utworzyć usługę Azure IR, a następnie wybierz pozycję **Kontynuuj**.
+1. Na poniższej stronie wybierz pozycję **Azure** , aby utworzyć Azure IR, a następnie wybierz pozycję **Kontynuuj**.
    ![Tworzenie środowiska Integration Runtime](media/create-azure-integration-runtime/new-azure-ir.png)
 
-1. Wprowadź nazwę urządzenia IR platformy Azure i wybierz pozycję **Utwórz**.
-   ![Tworzenie usługi Azure IR](media/create-azure-integration-runtime/create-azure-ir.png)
+1. Wprowadź nazwę Azure IR i wybierz pozycję **Utwórz**.
+   ![Tworzenie Azure IR](media/create-azure-integration-runtime/create-azure-ir.png)
 
-1. Po zakończeniu tworzenia zostanie wyświetlone wyskakujące powiadomienie. Na stronie **Środowiska wykonawcze integracji** upewnij się, że na liście jest widoczna nowo utworzona podczerwona.
+1. Po zakończeniu tworzenia zostanie wyświetlone wyskakujące powiadomienie. Na stronie **Integration Runtime (środowisko uruchomieniowe** ) Upewnij się, że na liście jest widoczny nowo utworzony port IR.
 
-## <a name="use-azure-ir"></a>Korzystanie z usługi Azure IR
+## <a name="use-azure-ir"></a>Użyj Azure IR
 
-Po utworzeniu usługi Azure IR można odwoływać się do niego w definicji usługi połączonej. Poniżej znajduje się przykład, jak można odwoływać się do środowiska wykonawczego integracji platformy Azure utworzone powyżej z usługi linked Azure Storage:
+Po utworzeniu Azure IR można odwołać się do niego w definicji połączonej usługi. Poniżej znajduje się przykład sposobu odwoływania się do Azure Integration Runtime utworzonego powyżej z połączonej usługi Azure Storage:
 
 ```json
 {
@@ -88,8 +88,8 @@ Po utworzeniu usługi Azure IR można odwoływać się do niego w definicji usł
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz następujące artykuły na temat tworzenia innych typów środowiska wykonawczego integracji:
+Zapoznaj się z następującymi artykułami dotyczącymi tworzenia innych typów środowiska Integration Runtime:
 
-- [Tworzenie środowiska wykonawczego integracji hostowanego samodzielnie](create-self-hosted-integration-runtime.md)
+- [Tworzenie własnego środowiska Integration Runtime](create-self-hosted-integration-runtime.md)
 - [Tworzenie środowiska Azure SSIS Integration Runtime](create-azure-ssis-integration-runtime.md)
  

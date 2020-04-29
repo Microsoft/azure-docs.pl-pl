@@ -1,6 +1,6 @@
 ---
-title: Migrowanie danych z usługi Amazon S3 do usługi Azure Data Lake Storage Gen2
-description: Dowiedz się, jak używać szablonu rozwiązania do migracji danych z amazon S3 przy użyciu zewnętrznej tabeli sterowania do przechowywania listy partycji w Usłudze AWS S3 w usłudze Azure Data Factory.
+title: Migrowanie danych z usługi Amazon S3 do Azure Data Lake Storage Gen2
+description: Dowiedz się, jak za pomocą szablonu rozwiązania przeprowadzić migrację danych z usługi Amazon S3 przy użyciu zewnętrznej tabeli formantów do przechowywania listy partycji na AWS S3 z Azure Data Factory.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -12,69 +12,69 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
 ms.openlocfilehash: 23d799f84cb3ac3ca911a5669041b0a25394a7ff
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414772"
 ---
-# <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrowanie danych z usługi Amazon S3 do usługi Azure Data Lake Storage Gen2
+# <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrowanie danych z usługi Amazon S3 do Azure Data Lake Storage Gen2
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Szablony można migrować petabajtami danych składających się z setek milionów plików z amazon s3 do usługi Azure Data Lake Storage Gen2. 
+Za pomocą szablonów można migrować petabajtów danych składające się z setek milionów plików z usługi Amazon S3 do Azure Data Lake Storage Gen2. 
 
  > [!NOTE]
- > Jeśli chcesz skopiować mały wolumin danych z usługi AWS S3 na platformę Azure (na przykład mniej niż 10 TB), jest to bardziej wydajne i łatwe w użyciu [narzędzie Azure Data Factory Copy Data](copy-data-tool.md). Szablon opisany w tym artykule jest więcej niż to, czego potrzebujesz.
+ > Jeśli chcesz skopiować małe ilości danych z AWS S3 na platformę Azure (na przykład mniej niż 10 TB), jest to wydajniejsze i łatwe w użyciu [narzędzie Azure Data Factory kopiowanie danych](copy-data-tool.md). Szablon, który jest opisany w tym artykule, jest większy niż to, czego potrzebujesz.
 
-## <a name="about-the-solution-templates"></a>Szablony rozwiązań — informacje
+## <a name="about-the-solution-templates"></a>Informacje o szablonach rozwiązań
 
-Partycja danych jest zalecane szczególnie podczas migracji więcej niż 10 TB danych. Aby podzielić dane na partycje, wykorzystaj ustawienie "prefiks", aby filtrować foldery i pliki na Amazon S3 według nazwy, a następnie każde zadanie kopiowania ADF może kopiować jedną partycję naraz. Można uruchomić wiele zadań kopiowania podajnika ADF jednocześnie w celu uzyskania lepszej przepływności.
+Partycja danych jest zalecana szczególnie w przypadku migrowania więcej niż 10 TB danych. Aby podzielić dane na partycje, Skorzystaj z ustawienia "prefiks" w celu odfiltrowania folderów i plików w usłudze Amazon S3 według nazwy, a następnie każde zadanie kopiowania ADF może skopiować jedną partycję w danym momencie. Aby zapewnić lepszą przepływność, można uruchomić wiele zadań kopiowania ADF współbieżnie.
 
-Migracja danych zwykle wymaga jednorazowej migracji danych historycznych oraz okresowej synchronizacji zmian z usługi AWS S3 na platformę Azure. Poniżej znajdują się dwa szablony, w których jeden szablon obejmuje jednorazową migrację danych historycznych, a drugi szablon obejmuje synchronizowanie zmian z usługi AWS S3 na platformę Azure.
+Migracja danych zwykle wymaga jednorazowej, historycznej migracji danych oraz okresowe synchronizowanie zmian z AWS S3 na platformę Azure. Poniżej znajdują się dwa szablony, w których jeden szablon obejmuje jednokrotną migrację danych historycznych, a inny szablon obejmuje synchronizowanie zmian z AWS S3 na platformie Azure.
 
-### <a name="for-the-template-to-migrate-historical-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Aby szablon migrować dane historyczne z amazon S3 do usługi Azure Data Lake Storage Gen2
+### <a name="for-the-template-to-migrate-historical-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Szablon służący do migrowania danych historycznych z usługi Amazon S3 do Azure Data Lake Storage Gen2
 
-Ten szablon *(nazwa szablonu: migrowanie danych historycznych z usługi AWS S3 do usługi Azure Data Lake Storage Gen2)* zakłada, że została napisana lista partycji w tabeli kontroli zewnętrznej w usłudze Azure SQL Database. Dlatego użyje działania *odnośników,* aby pobrać listę partycji z tabeli kontroli zewnętrznej, iterować na każdej partycji i sprawić, że każde zadanie kopiowania kopii adf po jednej partycji naraz. Po zakończeniu dowolnego zadania kopiowania używa działania *procedura składowana,* aby zaktualizować stan kopiowania każdej partycji w tabeli sterowania.
+Ten szablon (*Nazwa szablonu: Migruj dane historyczne z AWS S3 do Azure Data Lake Storage Gen2*) zakłada, że Zapisano listę partycji w zewnętrznej tabeli formantów w Azure SQL Database. Dlatego użyje działania *Lookup* do pobrania listy partycji z tabeli formantów zewnętrznych, iteracji na każdą partycję, a każde zadanie kopiowania ADF kopiuje jedną partycję w danym momencie. Po zakończeniu każdego zadania kopiowania korzysta ono z działania *procedury składowanej* w celu zaktualizowania stanu kopiowania każdej partycji w tabeli kontroli.
 
 Szablon zawiera pięć działań:
-- **Wyszukiwanie** pobiera partycje, które nie zostały skopiowane do usługi Azure Data Lake Storage Gen2 z zewnętrznej tabeli sterowania. Nazwa tabeli jest *s3_partition_control_table,* a kwerenda do ładowania danych z tabeli to *"SELECT PartitionPrefix FROM s3_partition_control_table WHERE SuccessOrFailure = 0"*.
-- **ForEach** pobiera listę partycji z *działania odnośnika* i iteruje każdą partycję do *triggercopy* działania. Można ustawić *batchCount* do uruchamiania wielu zadań kopiowania podajnika ADF jednocześnie. Ustawiliśmy 2 w tym szablonie.
-- **ExecutePipeline** wykonuje potok *CopyFolderPartitionFromS3.* Powodem, dla którego tworzymy inny potok, aby każda kopia zadania kopiowania partycji jest, ponieważ ułatwi ponowne uruchomienie zadania kopiowania nie powiodło się ponownie, aby ponownie załadować tę określoną partycję z AWS S3. Wszystkie inne zadania kopiowania ładowania innych partycji nie będzie miało wpływu.
-- **Kopiuj** każdą partycję z usługi AWS S3 do usługi Azure Data Lake Storage Gen2.
+- Funkcja **Lookup** pobiera partycje, które nie zostały skopiowane do Azure Data Lake Storage Gen2 z tabeli formantów zewnętrznych. Nazwa tabeli jest *s3_partition_control_table* a zapytanie do ładowania danych z tabeli to *"SELECT PartitionPrefix from S3_partition_control_table, gdzie SuccessOrFailure = 0"*.
+- Instrukcja **foreach** pobiera listę partycji z działania *Lookup* i iteruje każdą partycję do działania *TriggerCopy* . Można ustawić *batchCount* do uruchamiania wielu zadań kopiowania ADF współbieżnie. W tym szablonie ustawimy 2.
+- **ExecutePipeline** wykonuje potok *CopyFolderPartitionFromS3* . Należy utworzyć kolejny potok, aby każde zadanie kopiowania skopiował partycję, ponieważ ułatwia ponowne uruchomienie zadania kopiowania zakończonego niepowodzeniem w celu ponownego załadowania określonej partycji z AWS S3. Nie wpłynie to na wszystkie inne zadania kopiowania ładujące inne partycje.
+- **Kopiuj** kopiuje każdą partycję z AWS S3 do Azure Data Lake Storage Gen2.
 - **SqlServerStoredProcedure** zaktualizować stan kopiowania każdej partycji w tabeli kontroli.
 
 Szablon zawiera dwa parametry:
-- **AWS_S3_bucketName** to nazwa zasobnika w AWS S3, z którego chcesz przeprowadzić migrację danych. Jeśli chcesz przeprowadzić migrację danych z wielu zasobników w systemie AWS S3, możesz dodać jeszcze jedną kolumnę w tabeli sterowania zewnętrznego, aby zapisać nazwę zasobnika dla każdej partycji, a także zaktualizować potok, aby odpowiednio pobrać dane z tej kolumny.
-- **Azure_Storage_fileSystem** jest nazwą fileSystem w usłudze Azure Data Lake Storage Gen2, do której chcesz przeprowadzić migrację danych.
+- **AWS_S3_bucketName** to nazwa zasobnika w AWS S3, w którym chcesz migrować dane. Jeśli chcesz przeprowadzić migrację danych z wielu przedziałów w AWS S3, możesz dodać jedną kolumnę w tabeli formantów zewnętrznych do przechowywania nazwy zasobnika dla każdej partycji, a także zaktualizować potok, aby odpowiednio pobrać dane z tej kolumny.
+- **Azure_Storage_fileSystem** jest nazwą systemu plików na Azure Data Lake Storage Gen2, do której chcesz migrować dane.
 
-### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Aby szablon skopiował zmienione pliki tylko z Amazon S3 na Azure Data Lake Storage Gen2
+### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Szablon do kopiowania zmienionych plików tylko z usługi Amazon S3 do Azure Data Lake Storage Gen2
 
-Ten szablon *(nazwa szablonu: skopiować dane delta z AWS S3 do usługi Azure Data Lake Storage Gen2)* używa LastModifiedTime każdego pliku, aby skopiować nowe lub zaktualizowane pliki tylko z AWS S3 na platformę Azure. Należy pamiętać, jeśli pliki lub foldery zostały już czas podzielony z informacjami timeslice jako część nazwy pliku lub folderu na AWS S3 (na przykład /yyyy/mm/dd/file.csv), możesz przejść do tego [samouczka,](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) aby uzyskać bardziej wydajne podejście do przyrostowego ładowania nowych plików. Ten szablon zakłada, że została napisana lista partycji w tabeli kontroli zewnętrznej w usłudze Azure SQL Database. Dlatego użyje działania *odnośników,* aby pobrać listę partycji z tabeli kontroli zewnętrznej, iterować na każdej partycji i sprawić, że każde zadanie kopiowania kopii adf po jednej partycji naraz. Podczas każdy kopiować zadanie wzdrygnąć się wobec kopiować ten akta z AWS S3, ono opiera się u LastModifiedTime majątek wobec zidentyfikować i kopiować ten nowy albo zaktualizować akta tylko. Po zakończeniu dowolnego zadania kopiowania używa działania *procedura składowana,* aby zaktualizować stan kopiowania każdej partycji w tabeli sterowania.
+Ten szablon (*Nazwa szablonu: Kopiuj dane różnicowe z AWS S3 do Azure Data Lake Storage Gen2*) używa LastModifiedTime każdego pliku do kopiowania nowych lub zaktualizowanych plików tylko z AWS S3 na platformę Azure. Należy pamiętać, że pliki lub foldery zostały już podzielone na partycje za pomocą timeslice informacji w ramach nazwy pliku lub folderu w AWS S3 (na przykład/yyyy/mm/dd/File.csv), można przejść do tego [samouczka](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) , aby uzyskać bardziej wydajne podejście do przyrostowego ładowania nowych plików. W tym szablonie przyjęto założenie, że lista partycji została zapisywana w tabeli formantów zewnętrznych w Azure SQL Database. Dlatego użyje działania *Lookup* do pobrania listy partycji z tabeli formantów zewnętrznych, iteracji na każdą partycję, a każde zadanie kopiowania ADF kopiuje jedną partycję w danym momencie. Gdy każde zadanie kopiowania rozpocznie kopiowanie plików z AWS S3, opiera się on na właściwości LastModifiedTime, aby identyfikować i kopiować tylko nowe lub zaktualizowane pliki. Po zakończeniu każdego zadania kopiowania korzysta ono z działania *procedury składowanej* w celu zaktualizowania stanu kopiowania każdej partycji w tabeli kontroli.
 
 Szablon zawiera siedem działań:
-- **Wyszukiwanie** pobiera partycje z zewnętrznej tabeli sterowania. Nazwa tabeli jest *s3_partition_delta_control_table,* a kwerenda do ładowania danych z tabeli to *"wybierz odrębny PartitionPrefix z s3_partition_delta_control_table"*.
-- **ForEach** pobiera listę partycji z działania *odnośnika* i iteruje każdą partycję do *triggerdeltacopy* działania. Można ustawić *batchCount* do uruchamiania wielu zadań kopiowania podajnika ADF jednocześnie. Ustawiliśmy 2 w tym szablonie.
-- **ExecutePipeline** wykonuje potok *DeltaCopyFolderPartitionFromS3.* Powodem, dla którego tworzymy inny potok, aby każda kopia zadania kopiowania partycji jest, ponieważ ułatwi ponowne uruchomienie zadania kopiowania nie powiodło się ponownie, aby ponownie załadować tę określoną partycję z AWS S3. Wszystkie inne zadania kopiowania ładowania innych partycji nie będzie miało wpływu.
-- **Wyszukiwanie** pobiera czas wykonywania zadania ostatniej kopii z tabeli kontroli zewnętrznej, dzięki czemu nowe lub zaktualizowane pliki mogą być identyfikowane za pośrednictwem LastModifiedTime. Nazwa tabeli jest *s3_partition_delta_control_table,* a kwerenda do ładowania danych z tabeli to *"select max(JobRunTime) as LastModifiedTime from s3_partition_delta_control_table where PartitionPrefix = '@{pipeline().parameters.prefixStr}' i SuccessOrFailure = 1"*.
-- **Kopiowanie** kopiuje nowe lub zmienione pliki tylko dla każdej partycji z AWS S3 do usługi Azure Data Lake Storage Gen2. Właściwość *modifiedDatetimeStart* jest ustawiona na czas wykonywania zadania ostatniej kopii. Właściwość *modifiedDatetimeEnd* jest ustawiona na bieżący czas wykonywania zadania kopiowania. Należy pamiętać, że czas jest stosowany do strefy czasowej UTC.
-- **SqlServerStoredProcedure** zaktualizować stan kopiowania każdej partycji i skopiować czas wykonywania w tabeli sterowania, gdy powiedzie się. Kolumna SuccessOrFailure jest ustawiona na 1.
-- **SqlServerStoredProcedure** zaktualizować stan kopiowania każdej partycji i skopiować czas wykonywania w tabeli sterowania, gdy nie powiedzie się. Kolumna SuccessOrFailure jest ustawiona na 0.
+- Funkcja **Lookup** pobiera partycje z tabeli formantów zewnętrznych. Nazwa tabeli jest *s3_partition_delta_control_table* a zapytanie do ładowania danych z tabeli to *"Select distinct PartitionPrefix from s3_partition_delta_control_table"*.
+- Instrukcja **foreach** pobiera listę partycji z działania *Lookup* i iteruje każdą partycję do działania *TriggerDeltaCopy* . Można ustawić *batchCount* do uruchamiania wielu zadań kopiowania ADF współbieżnie. W tym szablonie ustawimy 2.
+- **ExecutePipeline** wykonuje potok *DeltaCopyFolderPartitionFromS3* . Należy utworzyć kolejny potok, aby każde zadanie kopiowania skopiował partycję, ponieważ ułatwia ponowne uruchomienie zadania kopiowania zakończonego niepowodzeniem w celu ponownego załadowania określonej partycji z AWS S3. Nie wpłynie to na wszystkie inne zadania kopiowania ładujące inne partycje.
+- Funkcja **Lookup** Pobiera czas wykonywania zadania ostatniego kopiowania z tabeli formantów zewnętrznych, dzięki czemu nowe lub zaktualizowane pliki można zidentyfikować za pośrednictwem LastModifiedTime. Nazwa tabeli jest *s3_partition_delta_control_table* a zapytanie do ładowania danych z tabeli to *"Select Max (JobRunTime) as LastModifiedTime from s3_partition_delta_control_table WHERE PartitionPrefix =" @ {potok (). Parameters. prefixStr} "i SuccessOrFailure = 1"*.
+- **Kopiuj** kopiuje nowe lub zmienione pliki tylko dla każdej partycji z AWS S3 do Azure Data Lake Storage Gen2. Właściwość *modifiedDatetimeStart* jest ustawiona na ostatni czas wykonywania zadania kopiowania. Właściwość *modifiedDatetimeEnd* jest ustawiona na bieżącą godzinę wykonywania zadania kopiowania. Należy pamiętać, że czas jest stosowany do strefy czasowej UTC.
+- **SqlServerStoredProcedure** Aktualizuj stan kopiowania każdej partycji i skopiuj czas wykonywania w tabeli kontroli po jej pomyślnym zakończeniu. Kolumna SuccessOrFailure ma ustawioną wartość 1.
+- **SqlServerStoredProcedure** aktualizowanie stanu kopiowania każdej partycji i kopiowanie czasu wykonywania w tabeli kontroli, gdy nie powiedzie się. Kolumna SuccessOrFailure jest ustawiona na 0.
 
 Szablon zawiera dwa parametry:
-- **AWS_S3_bucketName** to nazwa zasobnika w AWS S3, z którego chcesz przeprowadzić migrację danych. Jeśli chcesz przeprowadzić migrację danych z wielu zasobników w systemie AWS S3, możesz dodać jeszcze jedną kolumnę w tabeli sterowania zewnętrznego, aby zapisać nazwę zasobnika dla każdej partycji, a także zaktualizować potok, aby odpowiednio pobrać dane z tej kolumny.
-- **Azure_Storage_fileSystem** jest nazwą fileSystem w usłudze Azure Data Lake Storage Gen2, do której chcesz przeprowadzić migrację danych.
+- **AWS_S3_bucketName** to nazwa zasobnika w AWS S3, w którym chcesz migrować dane. Jeśli chcesz przeprowadzić migrację danych z wielu przedziałów w AWS S3, możesz dodać jedną kolumnę w tabeli formantów zewnętrznych do przechowywania nazwy zasobnika dla każdej partycji, a także zaktualizować potok, aby odpowiednio pobrać dane z tej kolumny.
+- **Azure_Storage_fileSystem** jest nazwą systemu plików na Azure Data Lake Storage Gen2, do której chcesz migrować dane.
 
-## <a name="how-to-use-these-two-solution-templates"></a>Jak korzystać z tych dwóch szablonów rozwiązań
+## <a name="how-to-use-these-two-solution-templates"></a>Jak używać tych dwóch szablonów rozwiązań
 
-### <a name="for-the-template-to-migrate-historical-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Aby szablon migrować dane historyczne z amazon S3 do usługi Azure Data Lake Storage Gen2 
+### <a name="for-the-template-to-migrate-historical-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Szablon służący do migrowania danych historycznych z usługi Amazon S3 do Azure Data Lake Storage Gen2 
 
-1. Utwórz tabelę formantów w usłudze Azure SQL Database, aby przechowywać listę partycji AWS S3. 
+1. Utwórz tabelę formantów w Azure SQL Database, aby zapisać listę partycji AWS S3. 
 
     > [!NOTE]
     > Nazwa tabeli jest s3_partition_control_table.
-    > Schemat tabeli sterowania jest PartitionPrefix i SuccessOrFailure, gdzie PartitionPrefix jest ustawienie prefiksu w S3 do filtrowania folderów i plików w Amazon S3 według nazwy i SuccessOrFailure jest stan kopiowania każdej partycji: 0 oznacza, że ta partycja nie została skopiowana na platformę Azure i 1 oznacza, że ta partycja została pomyślnie skopiowana do platformy Azure.
-    > Istnieje 5 partycji zdefiniowanych w tabeli sterowania i domyślny stan kopiowania każdej partycji jest 0.
+    > Schemat tabeli formantów to PartitionPrefix i SuccessOrFailure, gdzie PartitionPrefix jest ustawieniem prefiksu w S3 do filtrowania folderów i plików w usłudze Amazon S3 według nazwy, a SuccessOrFailure jest stanem kopiowania każdej partycji: 0 oznacza, że ta partycja nie została skopiowana na platformę Azure i 1 oznacza, że ta partycja została pomyślnie skopiowana na platformę Azure.
+    > W tabeli formantów zdefiniowano 5 partycji i domyślny stan kopiowania każdej partycji wynosi 0.
 
     ```sql
     CREATE TABLE [dbo].[s3_partition_control_table](
@@ -91,10 +91,10 @@ Szablon zawiera dwa parametry:
     ('e', 0);
     ```
 
-2. Tworzenie procedury składowanej w tej samej bazie danych SQL platformy Azure dla tabeli sterowania. 
+2. Utwórz procedurę przechowywaną na tym samym Azure SQL Database tabeli formantów. 
 
     > [!NOTE]
-    > Nazwa procedury składowanej jest sp_update_partition_success. Zostanie on wywołany przez działanie SqlServerStoredProcedure w potoku usługi ADF.
+    > Nazwa procedury składowanej jest sp_update_partition_success. Będzie on wywoływany przez działanie SqlServerStoredProcedure w potoku ADF.
 
     ```sql
     CREATE PROCEDURE [dbo].[sp_update_partition_success] @PartPrefix varchar(255)
@@ -107,7 +107,7 @@ Szablon zawiera dwa parametry:
     GO
     ```
 
-3. Przejdź do szablonu **Migracji danych historycznych z usługi AWS S3 do usługi Azure Data Lake Storage Gen2.** Wprowadź połączenia do zewnętrznej tabeli sterowania, AWS S3 jako magazynu źródeł danych i usługi Azure Data Lake Storage Gen2 jako magazynu docelowego. Należy pamiętać, że zewnętrzna tabela sterowania i procedura składowana są odwołania do tego samego połączenia.
+3. Przejdź do szablonu " **Migrowanie danych historycznych z AWS S3 do Azure Data Lake Storage Gen2** . Wprowadź połączenia z tabelą formantów zewnętrznych, AWS S3 jako magazyny danych i Azure Data Lake Storage Gen2 jako magazyn docelowy. Należy pamiętać, że zewnętrzna tabela formantów i procedura składowana odnoszą się do tego samego połączenia.
 
     ![Tworzenie nowego połączenia](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
 
@@ -115,27 +115,27 @@ Szablon zawiera dwa parametry:
 
     ![Użyj tego szablonu](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
     
-5. 2 potoki i 3 zestawy danych zostały utworzone, jak pokazano w poniższym przykładzie:
+5. Zobaczysz 2 potoki i 3 zestawy danych, jak pokazano w następującym przykładzie:
 
-    ![Przejrzyj potok](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
+    ![Przeglądanie potoku](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
-6. Wybierz **debugowanie**, wprowadź **parametry**, a następnie wybierz **zakończ**.
+6. Wybierz pozycję **Debuguj**, wprowadź **Parametry**, a następnie wybierz pozycję **Zakończ**.
 
-    ![Kliknij przycisk **Debugowanie**](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
+    ![Kliknij pozycję * * Debuguj * *](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
-7. Zostaną wyświetlenia wyników podobnych do poniższego przykładu:
+7. Zobaczysz wyniki podobne do poniższego przykładu:
 
     ![Przejrzyj wynik](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
 
 
-### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Aby szablon skopiował zmienione pliki tylko z Amazon S3 na Azure Data Lake Storage Gen2
+### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Szablon do kopiowania zmienionych plików tylko z usługi Amazon S3 do Azure Data Lake Storage Gen2
 
-1. Utwórz tabelę formantów w usłudze Azure SQL Database, aby przechowywać listę partycji AWS S3. 
+1. Utwórz tabelę formantów w Azure SQL Database, aby zapisać listę partycji AWS S3. 
 
     > [!NOTE]
     > Nazwa tabeli jest s3_partition_delta_control_table.
-    > Schemat tabeli sterowania jest PartitionPrefix, JobRunTime i SuccessOrFailure, gdzie PartitionPrefix jest ustawieniem prefiksu w S3 do filtrowania folderów i plików w Amazon S3 według nazwy, JobRunTime jest datetime wartość po uruchomieniu zadań kopiowania i SuccessOrFailure jest stan kopiowania każdej partycji: 0 oznacza, że ta partycja nie została skopiowana na platformę Azure i 1 oznacza, że ta partycja została pomyślnie skopiowana do platformy Azure.
-    > W tabeli sterowania zdefiniowano 5 partycji. Domyślną wartością jobruntime może być czas, kiedy rozpoczyna się jednorazowa migracja danych historycznych. ADF skopiuje pliki na AWS S3, które zostały ostatnio zmodyfikowane po tym czasie. Domyślny stan kopiowania każdej partycji wynosi 1.
+    > Schemat tabeli formantów to PartitionPrefix, JobRunTime i SuccessOrFailure, gdzie PartitionPrefix jest ustawieniem prefiksu w S3 do filtrowania folderów i plików w usłudze Amazon S3 według nazwy, JobRunTime jest wartością DateTime, gdy zadania kopiowania są uruchamiane, a SuccessOrFailure to stan kopiowania każdej partycji: 0 oznacza, że ta partycja nie została skopiowana na platformę Azure i 1 oznacza pomyślne skopiowanie tej partycji na platformę Azure.
+    > W tabeli kontrolek zdefiniowano 5 partycji. Wartość domyślna parametru JobRunTime to czas, po którym rozpocznie się jednokrotne Migrowanie danych historycznych. Działanie kopiowania ADF skopiuje pliki w AWS S3, które zostały ostatnio zmodyfikowane po tym czasie. Domyślnym stanem kopiowania każdej partycji jest 1.
 
     ```sql
     CREATE TABLE [dbo].[s3_partition_delta_control_table](
@@ -153,10 +153,10 @@ Szablon zawiera dwa parametry:
     ('e','1/1/2019 12:00:00 AM',1);
     ```
 
-2. Tworzenie procedury składowanej w tej samej bazie danych SQL platformy Azure dla tabeli sterowania. 
+2. Utwórz procedurę przechowywaną na tym samym Azure SQL Database tabeli formantów. 
 
     > [!NOTE]
-    > Nazwa procedury składowanej jest sp_insert_partition_JobRunTime_success. Zostanie on wywołany przez działanie SqlServerStoredProcedure w potoku usługi ADF.
+    > Nazwa procedury składowanej jest sp_insert_partition_JobRunTime_success. Będzie on wywoływany przez działanie SqlServerStoredProcedure w potoku ADF.
 
     ```sql
         CREATE PROCEDURE [dbo].[sp_insert_partition_JobRunTime_success] @PartPrefix varchar(255), @JobRunTime datetime, @SuccessOrFailure bit
@@ -170,7 +170,7 @@ Szablon zawiera dwa parametry:
     ```
 
 
-3. Przejdź do **szablonu Kopiowanie danych delta z usługi AWS S3 do usługi Azure Data Lake Storage Gen2.** Wprowadź połączenia do zewnętrznej tabeli sterowania, AWS S3 jako magazynu źródeł danych i usługi Azure Data Lake Storage Gen2 jako magazynu docelowego. Należy pamiętać, że zewnętrzna tabela sterowania i procedura składowana są odwołania do tego samego połączenia.
+3. Przejdź do szablonu **Kopiuj dane różnicowe z AWS S3 do Azure Data Lake Storage Gen2** . Wprowadź połączenia z tabelą formantów zewnętrznych, AWS S3 jako magazyny danych i Azure Data Lake Storage Gen2 jako magazyn docelowy. Należy pamiętać, że zewnętrzna tabela formantów i procedura składowana odnoszą się do tego samego połączenia.
 
     ![Tworzenie nowego połączenia](media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png)
 
@@ -178,19 +178,19 @@ Szablon zawiera dwa parametry:
 
     ![Użyj tego szablonu](media/solution-template-migration-s3-azure/delta-migration-s3-azure2.png)
     
-5. 2 potoki i 3 zestawy danych zostały utworzone, jak pokazano w poniższym przykładzie:
+5. Zobaczysz 2 potoki i 3 zestawy danych, jak pokazano w następującym przykładzie:
 
-    ![Przejrzyj potok](media/solution-template-migration-s3-azure/delta-migration-s3-azure3.png)
+    ![Przeglądanie potoku](media/solution-template-migration-s3-azure/delta-migration-s3-azure3.png)
 
-6. Wybierz **debugowanie**, wprowadź **parametry**, a następnie wybierz **zakończ**.
+6. Wybierz pozycję **Debuguj**, wprowadź **Parametry**, a następnie wybierz pozycję **Zakończ**.
 
-    ![Kliknij przycisk **Debugowanie**](media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png)
+    ![Kliknij pozycję * * Debuguj * *](media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png)
 
-7. Zostaną wyświetlenia wyników podobnych do poniższego przykładu:
+7. Zobaczysz wyniki podobne do poniższego przykładu:
 
     ![Przejrzyj wynik](media/solution-template-migration-s3-azure/delta-migration-s3-azure5.png)
 
-8. Wyniki z tabeli kontrolnej można również sprawdzić za pomocą kwerendy *"wybierz * z s3_partition_delta_control_table",* zobaczysz dane wyjściowe podobne do następującego przykładu:
+8. Wyniki z tabeli formantów można także sprawdzić za pomocą zapytania *"select * from s3_partition_delta_control_table"*, ale dane wyjściowe są podobne do następującego przykładu:
 
     ![Przejrzyj wynik](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
     

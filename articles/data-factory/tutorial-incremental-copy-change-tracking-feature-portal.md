@@ -1,5 +1,5 @@
 ---
-title: Przyrostowe kopiowanie danych przy użyciu śledzenia zmian
+title: Przyrostowe kopiowanie danych przy użyciu Change Tracking
 description: W tym samouczku utworzysz potok usługi Azure Data Factory służący do przyrostowego kopiowania danych różnicowych z wielu tabel w lokalnej bazie danych SQL Server do bazy danych Azure SQL Database.
 services: data-factory
 ms.author: yexu
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
 ms.openlocfilehash: 40e4fed9755edc2204c7b6b24a003995a14212d0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81415426"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Przyrostowe ładowanie danych z bazy danych Azure SQL Database do magazynu Azure Blob Storage z użyciem informacji o śledzeniu zmian
@@ -67,10 +67,10 @@ W tym samouczku utworzysz dwa potoki, za pomocą których zostaną wykonane nast
     ![Diagram przepływu ładowania przyrostowego](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-load-flow-diagram.png)
 
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.microsoft.com/free/) konto przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* **Baza danych SQL platformy Azure**. Baza danych jest używana jako magazyn danych **źródłowych**. Jeśli nie masz bazy danych Azure SQL Database, utwórz ją, wykonując czynności przedstawione w artykule [Create an Azure SQL database (Tworzenie bazy danych Azure SQL Database)](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database**. Baza danych jest używana jako magazyn danych **źródłowych**. Jeśli nie masz bazy danych Azure SQL Database, utwórz ją, wykonując czynności przedstawione w artykule [Create an Azure SQL database (Tworzenie bazy danych Azure SQL Database)](../sql-database/sql-database-get-started-portal.md).
 * **Konto usługi Azure Storage**. Magazyn obiektów blob jest używany jako magazyn danych **źródłowych**. Jeśli nie masz konta usługi Azure Storage, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-account-create.md). Utwórz kontener o nazwie **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Tworzenie tabeli danych źródłowych w bazie danych Azure SQL Database
@@ -154,7 +154,7 @@ Zainstaluj najnowsze moduły programu Azure PowerShell, wykonując instrukcje po
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
 1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
-1. W menu po lewej stronie wybierz pozycję **Utwórz źródło** > **Data + Analytics** > **Data Factory**:
+1. W menu po lewej stronie wybierz pozycję **Utwórz zasób** > **dane + analiza** > **Data Factory**:
 
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -162,21 +162,21 @@ Zainstaluj najnowsze moduły programu Azure PowerShell, wykonując instrukcje po
 
      ![Strona Nowa fabryka danych](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)
 
-   Nazwa fabryki danych platformy Azure musi być **unikatowa globalnie.** Jeśli wystąpi poniższy błąd, zmień nazwę fabryki danych (np. twojanazwaADFTutorialDataFactory) i spróbuj utworzyć ją ponownie. Artykuł [Data Factory — Naming Rules (Usługa Data Factory — reguły nazewnictwa)](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
+   Nazwa fabryki danych Azure musi być **globalnie unikatowa**. Jeśli wystąpi poniższy błąd, zmień nazwę fabryki danych (np. twojanazwaADFTutorialDataFactory) i spróbuj utworzyć ją ponownie. Artykuł [Data Factory — Naming Rules (Usługa Data Factory — reguły nazewnictwa)](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
 
        `Data factory name “ADFTutorialDataFactory” is not available`
 3. Wybierz **subskrypcję** Azure, w której chcesz utworzyć fabrykę danych.
 4. Dla opcji **Grupa zasobów** wykonaj jedną z następujących czynności:
 
       - Wybierz pozycję **Użyj istniejącej**, a następnie wybierz istniejącą grupę zasobów z listy rozwijanej.
-      - Wybierz **pozycję Utwórz nowy**i wprowadź nazwę grupy zasobów.   
+      - Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę grupy zasobów.   
          
         Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 4. Wybierz wartość **V2 (wersja zapoznawcza)** dla **wersji**.
 5. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
 6. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**.     
 7. Kliknij przycisk **Utwórz**.      
-8. Na pulpicie nawigacyjnym jest widoczny następujący kafelek o stanie: **Wdrażanie fabryki danych**.
+8. Na pulpicie nawigacyjnym jest widoczny następujący kafelek ze stanem: **wdrażanie fabryki danych**.
 
     ![kafelek Wdrażanie fabryki danych](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
 9. Po zakończeniu tworzenia zostanie wyświetlona strona **Fabryka danych**, jak pokazano na poniższej ilustracji.
@@ -203,7 +203,7 @@ W tym kroku opisano łączenie konta usługi Azure Storage z fabryką danych.
 
     1. Wprowadź wartość **AzureStorageLinkedService** w polu **Nazwa**.
     2. Wybierz swoje konto usługi Azure Storage w polu **Nazwa konta magazynu**.
-    3. Kliknij pozycję **Zapisz**.
+    3. Kliknij przycisk **Zapisz**.
 
    ![Ustawienia konta usługi Azure Storage](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-storage-linked-service-settings.png)
 
@@ -243,7 +243,7 @@ W tym kroku utworzysz zestaw danych reprezentujący źródło danych.
 4. Przejdź do karty **Połączenie** i wykonaj następujące czynności:
 
     1. Wybierz wartość **AzureSqlDatabaseLinkedService** w polu **Połączona usługa**.
-    2. Wybierz **[dbo].[ data_source_table]** dla **tabeli**.
+    2. Wybierz pozycję **[dbo]. [ data_source_table]** dla **tabeli**.
 
    ![Połączenie ze źródłem](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-connection.png)
 
@@ -263,7 +263,7 @@ W tym kroku utworzysz zestaw danych reprezentujący dane skopiowane z magazynu d
 
     1. Wybierz pozycję **AzureStorageLinkedService** w polu **Połączona usługa**.
     2. Wprowadź ciąg **adftutorial/incchgtracking** w części **folder** ścieżki **filePath**.
-    3. Wprowadź ** \@CONCAT('Przyrostowe-', pipeline(). RunId, '.txt')** dla **części pliku** **filePath**.  
+    3. Wprowadź ** \@concat ("Incremental-", Pipeline (). RunId, ". txt")** dla części **pliku** **FilePath**.  
 
        ![Zestaw danych będący ujściem — połączenie](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 
@@ -358,7 +358,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ## <a name="create-a-pipeline-for-the-delta-copy"></a>Tworzenie potoku na potrzeby kopii przyrostowej
 W tym kroku utworzysz potok z następującymi działaniami, który będzie okresowo uruchamiany. Za pomocą **działań wyszukiwania** zostanie pobrana stara i nowa wartość parametru SYS_CHANGE_VERSION z bazy danych Azure SQL Database, która zostanie następnie przekazana do działania kopiowania. Za pomocą **działania kopiowania** zostaną skopiowane wstawione, zaktualizowane lub usunięte dane między dwiema wartościami parametru SYS_CHANGE_VERSION z bazy danych Azure SQL Database do magazynu Azure Blob Storage. Za pomocą **działania procedury składowanej** zostanie zaktualizowana wartość parametru SYS_CHANGE_VERSION na potrzeby następnego uruchomienia potoku.
 
-1. W interfejsie użytkownika fabryki danych przełącz się na kartę **Edycja.** Kliknij **+ (plus)** w lewym okienku i kliknij pozycję **Potok**.
+1. W interfejsie użytkownika Data Factory przejdź do karty **Edycja** . kliknij pozycję **+ (plus)** w lewym okienku, a następnie kliknij pozycję **potok**.
 
     ![Menu Nowy potok](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
 2. Zostanie wyświetlona nowa karta służąca do konfigurowania potoku. Potok powinien być też widoczny w widoku drzewa. W oknie **Właściwości** zmień nazwę potoku na **IncrementalCopyPipeline**.
@@ -419,10 +419,10 @@ W tym kroku utworzysz potok z następującymi działaniami, który będzie okres
         | Nazwa | Typ | Wartość |
         | ---- | ---- | ----- |
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} |
-        | TableName | Ciąg | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
+        | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
 
         ![Działanie Stored Procedure (Procedura składowana) — parametry](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
-14. **Połącz działanie Kopiowanie z działaniem procedura składowana**. Przeciągnij i upuść **zielony** przycisk dołączony do działania Copy (Kopiowanie) w obszarze działania Stored Procedure (Procedura składowana).
+14. **Połącz działanie Copy z działaniem procedury składowanej**. Przeciągnij i upuść **zielony** przycisk dołączony do działania Copy (Kopiowanie) w obszarze działania Stored Procedure (Procedura składowana).
 
     ![Łączenie działań Copy (Kopiowanie) i Stored Procedure (Procedura składowana)](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-copy-stored-procedure.png)
 15. Na pasku narzędzi kliknij pozycję **Weryfikuj**. Potwierdź, że weryfikacja nie zwróciła błędów. Zamknij okno **Raport weryfikacji potoku**, klikając pozycję **>>**.
@@ -473,4 +473,4 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 Przejdź do poniższego samouczka, aby dowiedzieć się więcej o kopiowaniu nowych i zmienionych plików tylko na podstawie ich daty ostatniej modyfikacji:
 
 > [!div class="nextstepaction"]
->[Kopiowanie nowych plików przez lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
+>[Kopiuj nowe pliki według LastModifiedDate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)

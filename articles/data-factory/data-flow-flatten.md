@@ -1,6 +1,6 @@
 ---
-title: Spłaszczanie transformacji w przepływie danych mapowania
-description: Denormalize danych hierarchicznych przy użyciu spłaszczenia transformacji
+title: Spłaszcz transformację w strumieniu danych mapowania
+description: Denormalizowanie danych hierarchicznych przy użyciu transformacji spłaszczania
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
@@ -8,41 +8,41 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: a0e75957a0ab49394dab56f2b7fb847dee4b43cb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81413672"
 ---
-# <a name="flatten-transformation-in-mapping-data-flow"></a>Spłaszczanie transformacji w przepływie danych mapowania
+# <a name="flatten-transformation-in-mapping-data-flow"></a>Spłaszcz transformację w strumieniu danych mapowania
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Spłaszczyć transformacji do podjęcia wartości tablicy wewnątrz struktur hierarchicznych, takich jak JSON i rozwiń je w poszczególnych wierszach. Proces ten jest znany jako denormalizacji.
+Użyj przekształcenia Spłaszcz, aby przyjmować wartości tablicowe wewnątrz struktur hierarchicznych, takich jak JSON, i odrzucić je w poszczególnych wierszach. Ten proces jest nazywany denormalizacją.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
-Transformacja spłaszczenia zawiera następujące ustawienia konfiguracji
+Transformacja spłaszczania zawiera następujące ustawienia konfiguracji
 
-![Spłaszcz ustawienia](media/data-flow/flatten1.png "Spłaszcz ustawienia")
+![Ustawienia spłaszczania](media/data-flow/flatten1.png "Ustawienia spłaszczania")
 
-### <a name="unroll-by"></a>Rozwiń
+### <a name="unroll-by"></a>Odwrócenie według
 
-Wybierz tablicę do rozwiania. Dane wyjściowe będą miały jeden wiersz na element w każdej tablicy. Jeśli rozwiń przez tablicę w wierszu wejściowym jest null lub puste, będzie jeden wiersz wyjściowy z unrolled wartości jako null.
+Wybierz tablicę do odwrócenia. Dane wyjściowe będą mieć jeden wiersz dla każdego elementu w każdej tablicy. Jeśli odwrócenie przez tablicę w wierszu wejściowym ma wartość null lub jest puste, będzie istnieć jeden wiersz danych wyjściowych z wartościami nierzutowanymi jako null.
 
-### <a name="unroll-root"></a>Rozwiń katalog główny
+### <a name="unroll-root"></a>Odwrócenie elementu głównego
 
-Domyślnie spłaszczenie transformacji rozwija tablicę na początku hierarchii, w jakiej istnieje. Opcjonalnie można wybrać tablicę jako root unroll. Katalog główny unroll musi być tablicą złożonych obiektów, które są lub zawierają rozwiń przez tablicę. Jeśli wybrano katalog główny, dane wyjściowe będą zawierać co najmniej jeden wiersz na elementy w katalogu głównym rozwiać. Jeśli wiersz wejściowy nie ma żadnych elementów w katalogu głównym unroll, zostanie usunięty z danych wyjściowych. Wybranie katalogu głównego rozwiać zawsze spowoduje wysunienie mniejszą lub taką samą liczbę wierszy niż domyślne zachowanie.
+Domyślnie transformacja Spłaszcz odrzuci tablicę w górnej części hierarchii, w której istnieje. Opcjonalnie możesz wybrać tablicę jako element główny rozwinięcia. Element główny rozrzutu musi być tablicą obiektów złożonych, które są lub zawierają odwrócenie przez tablicę. W przypadku wybrania elementu nadrzędnego odwrócenia dane wyjściowe będą zawierać co najmniej jeden wiersz dla każdego elementu w elemencie głównym odrzutu. Jeśli wiersz wejściowy nie zawiera żadnych elementów w głównym elemencie nadrzędnym, zostanie on porzucony z danych wyjściowych. Wybranie elementu głównego odwrócenia spowoduje zawsze wyprowadzanie mniejszej lub równej liczby wierszy niż zachowanie domyślne.
 
 ### <a name="flatten-mapping"></a>Spłaszcz mapowanie
 
-Podobnie jak transformacja select, wybierz rzut nowej struktury z pól przychodzących i tablicy zdenormalizowanej. Jeśli zdenormalowana tablica jest mapowana, kolumna wyjściowa będzie tego samego typu danych co tablica. Jeśli rozwiń przez tablicę jest tablica złożonych obiektów, która zawiera podamaty, mapowanie elementu tego podarry spowoduje wysunie tablicę.
+Podobnie jak w przypadku transformacji SELECT, wybierz rzutowanie nowej struktury z pól przychodzących i nieznormalizowanej tablicy. W przypadku zamapowania tablicy nieznormalizowanej kolumna wyjściowa będzie tego samego typu danych co tablica. Jeśli rozrzutowanie według tablic jest tablicą obiektów złożonych, które zawierają podtablice, mapowanie elementu subarry będzie wyprowadzać tablicę.
 
-Zapoznaj się z kartą inspekcji i podglądem danych, aby zweryfikować dane wyjściowe mapowania.
+Zapoznaj się z kartą inspekcją i podglądem danych, aby zweryfikować dane wyjściowe mapowania.
 
 ## <a name="examples"></a>Przykłady
 
-Zapoznaj się z następującym obiektem JSON, aby zapoznać się z poniższymi przykładami spłaszczenia transformacji
+Zapoznaj się z poniższym obiektem JSON, aby zapoznać się z poniższymi przykładami transformacji spłaszczania
 
 ``` json
 {
@@ -64,11 +64,11 @@ Zapoznaj się z następującym obiektem JSON, aby zapoznać się z poniższymi p
 {"name": "Company3", "location": "Kirkland"}
 ```
 
-### <a name="no-unroll-root-with-string-array"></a>Brak wyrejestrowania katalogu głównego z tablicą ciągów
+### <a name="no-unroll-root-with-string-array"></a>Brak elementu głównego Unroll z tablicą ciągów
 
-| Rozwiń | Rozwiń katalog główny | Projekcja |
+| Odwrócenie według | Odwrócenie elementu głównego | Projekcja |
 | --------- | ----------- | ---------- |
-| towary.klienci | Brak | name <br> klient = goods.customer |
+| towary. klienci | Brak | name <br> Klient = towary. Klient |
 
 #### <a name="output"></a>Dane wyjściowe
 
@@ -82,11 +82,11 @@ Zapoznaj się z następującym obiektem JSON, aby zapoznać się z poniższymi p
 { 'Company3', null}
 ```
 
-### <a name="no-unroll-root-with-complex-array"></a>Brak rolowania roota ze złożoną tablicą
+### <a name="no-unroll-root-with-complex-array"></a>Brak elementu głównego odwrócenia z tablicą złożoną
 
-| Rozwiń | Rozwiń katalog główny | Projekcja |
+| Odwrócenie według | Odwrócenie elementu głównego | Projekcja |
 | --------- | ----------- | ---------- |
-| towary.zamówienia.shipped.orderItems | Brak | name <br> orderId = goods.orders.orderId <br> itemName = goods.orders.shipped.orderItems.itemName <br> itemQty = goods.orders.shipped.orderItems.itemQty <br> lokalizacja = lokalizacja |
+| towary. Orders. wydana. orderItems | Brak | name <br> IDZamówienia = towary. Orders. IDZamówienia <br> itemName = towary. Orders. orderItems. itemName <br> itemQty = towary. Orders. orderItems. itemQty <br> Lokalizacja = Lokalizacja |
 
 #### <a name="output"></a>Dane wyjściowe
 
@@ -103,11 +103,11 @@ Zapoznaj się z następującym obiektem JSON, aby zapoznać się z poniższymi p
 { 'Company3', null, null, null, 'Kirkland'}
 ```
 
-### <a name="same-root-as-unroll-array"></a>Ten sam katalog główny co tablica unroll
+### <a name="same-root-as-unroll-array"></a>Ten sam katalog główny jako odrzut macierzy
 
-| Rozwiń | Rozwiń katalog główny | Projekcja |
+| Odwrócenie według | Odwrócenie elementu głównego | Projekcja |
 | --------- | ----------- | ---------- |
-| towary.zamówienia | towary.zamówienia | name <br> towary.zamówienia.shipped.orderItems.itemName <br> towary.klienci <br> location |
+| towary. zamówienia | towary. zamówienia | name <br> Items. Orders. <br> towary. klienci <br> location |
 
 #### <a name="output"></a>Dane wyjściowe
 
@@ -119,11 +119,11 @@ Zapoznaj się z następującym obiektem JSON, aby zapoznać się z poniższymi p
 { 'Company2', null, ['Bank'], 'Bellevue'}
 ```
 
-### <a name="unroll-root-with-complex-array"></a>Rozwiń katalog główny ze złożoną tablicą
+### <a name="unroll-root-with-complex-array"></a>Odwrócenie elementu głównego za pomocą złożonej tablicy
 
-| Rozwiń | Rozwiń katalog główny | Projekcja |
+| Odwrócenie według | Odwrócenie elementu głównego | Projekcja |
 | --------- | ----------- | ---------- |
-| towary.zamówienia.shipped.orderItem | towary.zamówienia |name <br> orderId = goods.orders.orderId <br> itemName = goods.orders.shipped.orderItems.itemName <br> itemQty = goods.orders.shipped.orderItems.itemQty <br> lokalizacja = lokalizacja |
+| towary. Orders. wydana. orderItem | towary. zamówienia |name <br> IDZamówienia = towary. Orders. IDZamówienia <br> itemName = towary. Orders. orderItems. itemName <br> itemQty = towary. Orders. orderItems. itemQty <br> Lokalizacja = Lokalizacja |
 
 #### <a name="output"></a>Dane wyjściowe
 
@@ -171,5 +171,5 @@ source foldDown(unroll(goods.orders.shipped.orderItems, goods.orders),
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Transformacja przestawna](data-flow-pivot.md) służy do obracania wierszy do kolumn.
-* Transformacja [unpivot służy](data-flow-unpivot.md) do przestawiania kolumn do wierszy.
+* Użyj [transformacji przestawnej](data-flow-pivot.md) , aby przestawić wiersze do kolumn.
+* Użyj [transformacji UNPIVOT](data-flow-unpivot.md) , aby przestawić kolumny do wierszy.

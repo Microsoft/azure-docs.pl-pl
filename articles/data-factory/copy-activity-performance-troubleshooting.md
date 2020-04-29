@@ -1,6 +1,6 @@
 ---
 title: Rozwiązywanie problemów z wydajnością działania kopiowania
-description: Dowiedz się, jak rozwiązywać problemy z wydajnością działania kopiowania w usłudze Azure Data Factory.
+description: Dowiedz się więcej na temat rozwiązywania problemów z wydajnością działania kopiowania w Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.author: jingwang
@@ -13,182 +13,182 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
 ms.openlocfilehash: 6df1903e828c0c4cafa6589d4a85f4016bed893e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414139"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Rozwiązywanie problemów z wydajnością działania kopiowania
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W tym artykule opisano, jak rozwiązać problem z wydajnością działania kopiowania w usłudze Azure Data Factory. 
+W tym artykule opisano sposób rozwiązywania problemów z wydajnością działania kopiowania w Azure Data Factory. 
 
-Po uruchomieniu działania kopiowania, można zebrać statystyki wyników uruchomienia i wydajności w widoku [monitorowania aktywności kopiowania.](copy-activity-monitoring.md) Poniżej przedstawiono przykład.
+Po uruchomieniu działania kopiowania można zebrać wyniki uruchamiania i statystyki wydajności w widoku [monitorowanie działania kopiowania](copy-activity-monitoring.md) . Poniżej przedstawiono przykład.
 
-![Szczegóły uruchomienia działania kopiowania monitoruj](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
+![Monitoruj szczegóły uruchomienia działania kopiowania](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
 
 ## <a name="performance-tuning-tips"></a>Porady dotyczące dostrajania wydajności
 
-W niektórych scenariuszach po uruchomieniu działania kopiowania w fabryce danych u góry zobaczysz **"Porady dotyczące dostrajania wydajności",** jak pokazano w powyższym przykładzie. Porady informują o wąskim gardle zidentyfikowanym przez podajnikU ADF dla tego konkretnego uruchomienia kopii, wraz z sugestią, jak zwiększyć przepływność kopiowania. Spróbuj ponownie zamienić polecenie, a następnie uruchom kopię ponownie.
+W niektórych scenariuszach, gdy uruchomisz działanie kopiowania w Data Factory, zobaczysz **"porady dotyczące dostrajania wydajności"** u góry, jak pokazano w powyższym przykładzie. Porady przedstawiają wąskie gardła identyfikowane przez ADF dla danego przebiegu kopii, a także sugestie dotyczące sposobu zwiększenia przepływności kopiowania. Spróbuj ponownie wykonać zmiany, a następnie uruchom kopię.
 
-Jako punkt odniesienia obecnie wskazówki dotyczące dostrajania wydajności zawierają sugestie dotyczące następujących przypadków:
+Obecnie wskazówki dotyczące dostrajania wydajności udostępniają sugestie dotyczące następujących przypadków:
 
 | Kategoria              | Porady dotyczące dostrajania wydajności                                      |
 | --------------------- | ------------------------------------------------------------ |
-| Specyficzny magazyn danych   | Ładowanie danych do **usługi Azure Synpase Analytics (dawniej SQL DW)**: sugeruj użycie instrukcji PolyBase lub COPY, jeśli nie jest używana. |
-| &nbsp;                | Kopiowanie danych z/do **usługi Azure SQL Database:** gdy obiekt DTU jest w trakcie wysokiego wykorzystania, zaproponuj uaktualnienie do wyższej warstwy. |
-| &nbsp;                | Kopiowanie danych z/do **usługi Azure Cosmos DB:** gdy ru jest w trakcie wysokiego wykorzystania, zaproponuj uaktualnienie do większych RU. |
-| &nbsp;                | Połknięcia danych z **Amazon Redshift**: zasugeruj użycie UNLOAD, jeśli nie jest używany. |
-| Ograniczanie przepustowości magazynu danych | Jeśli liczba operacji odczytu/zapisu są ograniczane przez magazyn danych podczas kopiowania, zaproponuj sprawdzanie i zwiększyć dozwoloną szybkość żądania dla magazynu danych lub zmniejszyć równoczesne obciążenie. |
-| Środowisko uruchomieniowe integracji  | Jeśli używasz **self-hosted Integration Runtime (IR)** i działania kopiowania czeka długo w kolejce, aż IR ma dostępny zasób do wykonania, sugeruj skalowanie w poziomie/w górę podczerwieni. |
-| &nbsp;                | Jeśli używasz **środowiska uruchomieniowego integracji platformy Azure,** który znajduje się w nieoptymalnym regionie, co powoduje powolny odczyt/zapis, zaproponuj skonfigurowanie do używania środowiska IR w innym regionie. |
-| Odporność na uszkodzenia       | Jeśli skonfigurujesz odporność na uszkodzenia i pomijanie niezgodnych wierszy powoduje powolną wydajność, sugeruj zapewnienie zgodności danych źródłowych i ujścia. |
-| Kopia etapowa           | Jeśli kopia etapowa jest skonfigurowana, ale nie jest przydatna dla pary źródła ujścia, zaproponuj jej usunięcie. |
-| Resume                | Po wznowieniu aktywności kopiowania z ostatniego punktu awarii, ale zdarzy się, aby zmienić ustawienie DIU po uruchomieniu oryginalnym, należy pamiętać, że nowe ustawienie DIU nie działa. |
+| Specyficzne dla magazynu danych   | Ładowanie danych do **usługi Azure Synpase Analytics (dawniej SQL DW)**: Sugeruj przy użyciu instrukcji Base lub Copy, jeśli nie jest używana. |
+| &nbsp;                | Kopiowanie danych z/do **Azure SQL Database**: gdy jednostka DTU jest w wysokim obciążeniu, Sugeruj uaktualnienie do wyższej warstwy. |
+| &nbsp;                | Kopiowanie danych z/do **Azure Cosmos DB**: gdy ru jest w wysokim wykorzystaniu, Sugeruj uaktualnienie do większej wartości ru. |
+| &nbsp;                | Pozyskiwanie danych z **Amazon RedShift**: SUGERUJ użycie Unload, jeśli nie jest używany. |
+| Ograniczanie magazynu danych | Jeśli liczba operacji odczytu/zapisu jest ograniczona przez magazyn danych podczas kopiowania, Sugeruj sprawdzanie i Zwiększ liczbę dozwolonych żądań dla magazynu danych lub Zmniejsz obciążenie współbieżne. |
+| Środowisko Integration Runtime  | W przypadku korzystania z samodzielnej obsługi **Integration Runtime (IR)** i działania kopiowania czekają na ukończenie kolejki do momentu, w którym środowisko IR będzie dostępne, Sugeruj skalowanie w górę/w górę dla środowiska IR. |
+| &nbsp;                | Jeśli używasz **Azure Integration Runtime** , który znajduje się w nieoptymalnym regionie, co powoduje powolne odczyt/zapis, Sugeruj konfigurację, aby używać środowiska IR w innym regionie. |
+| Odporność na uszkodzenia       | W przypadku skonfigurowania odporności na uszkodzenia i pomijania niezgodnych wierszy wyniki są powolne, Sugeruj, że dane źródłowe i ujścia są zgodne. |
+| Kopia przygotowana           | Jeśli kopia przygotowana jest skonfigurowana, ale nie jest pomocna dla pary Source-sink, Sugeruj jej usunięcie. |
+| Resume                | Gdy działanie kopiowania jest wznawiane od ostatniego punktu awarii, ale zmiana ustawienia DIU po zakończeniu oryginalnego przebiegu jest konieczna, należy pamiętać, że nowe ustawienie DIU nie zacznie obowiązywać. |
 
-## <a name="understand-copy-activity-execution-details"></a>Opis szczegółów wykonywania działania kopiowania
+## <a name="understand-copy-activity-execution-details"></a>Informacje o wykonywaniu działania kopiowania
 
-Szczegóły wykonania i czas trwania w dolnej części widoku monitorowania działania kopiowania opisuje kluczowych etapów działania kopiowania przechodzi (zobacz przykład na początku tego artykułu), co jest szczególnie przydatne do rozwiązywania problemów z wydajnością kopiowania. Wąskie gardło przebiegu kopii jest tym, który ma najdłuższy czas trwania. Zapoznaj się z poniższą tabelą dotyczącą definicji każdego etapu i dowiedz się, jak [rozwiązywać problemy z aktywnością kopiowania na platformie Azure IR](#troubleshoot-copy-activity-on-azure-ir) i rozwiązywać problemy z [kopiowaniem na samodzielnym podczerwieni](#troubleshoot-copy-activity-on-self-hosted-ir) z takimi informacjami.
+Szczegóły wykonania i czasy trwania w dolnej części widoku monitorowanie działania kopiowania opisują kluczowe etapy działania kopiowania (Zobacz przykład na początku tego artykułu), które jest szczególnie przydatne w przypadku rozwiązywania problemów z wydajnością kopiowania. Wąskie gardła przebiegu kopii są takie same, jak najdłuższy czas trwania. Zapoznaj się z poniższą tabelą w każdej definicji etapu i Dowiedz się, jak [rozwiązywać problemy z działaniem kopiowania na Azure IR](#troubleshoot-copy-activity-on-azure-ir) i [rozwiązywać problemy z działaniem kopiowania na samoobsługowym środowisku IR](#troubleshoot-copy-activity-on-self-hosted-ir) z takimi informacjami.
 
 | Etap           | Opis                                                  |
 | --------------- | ------------------------------------------------------------ |
-| Kolejka           | Czas, jaki upłynął, dopóki działanie kopiowania faktycznie rozpocznie się w czasie wykonywania integracji. |
-| Skrypt przed kopiowaniem | Czas, jaki upłynął między aktywnością kopiowania, począwszy od podczerwania, a zakończeniem wykonywania skryptu przed kopiowaniem w magazynie danych ujścia. Zastosuj podczas konfigurowania skryptu przed kopiowaniem dla ujścia bazy danych, na przykład podczas zapisywania danych w usłudze Azure SQL Database należy oczyścić przed skopiowaniem nowych danych. |
-| Transfer        | Czas, jaki upłynął między końcem poprzedniego kroku a podczerwienią przesyłania wszystkich danych ze źródła do ujścia. Podkroki w obszarze "Transfer" przebiegają równolegle.<br><br>- **Czas do pierwszego bajtu:** Czas, jaki upłynął między końcem poprzedniego kroku a czasem, kiedy iR odbiera pierwszy bajt z magazynu danych źródłowych. Dotyczy źródeł nienapartych na plikach.<br>- **Źródło aukcji:** Ilość czasu spędzonego na wyliczanie plików źródłowych lub partycji danych. Ten ostatni ma zastosowanie podczas konfigurowania opcji partycji dla źródeł baz danych, na przykład podczas kopiowania danych z baz danych, takich jak Oracle / SAP HANA / Teradata / Netezza / etc.<br/>-**Czytanie ze źródła:** Czas poświęcony na pobieranie danych z magazynu danych źródłowych.<br/>- **Pisanie do zlewu:** Ilość czasu poświęconego na zapisywanie danych do magazynu danych ujścia. |
+| Kolejka           | Czas, który upłynął do momentu rzeczywistego uruchomienia działania kopiowania w środowisku Integration Runtime. |
+| Skrypt poprzedzający kopiowanie | Upłynęło czasu między działaniem kopiowania, rozpoczynającym się od działania funkcji IR i kopiowania, kończący wykonywanie skryptu przed kopiowaniem w magazynie danych ujścia. Zastosuj podczas konfigurowania skryptu przed kopiowaniem dla obiektów ujścia bazy danych, na przykład podczas zapisywania danych do Azure SQL Database Wyczyść przed skopiowaniem nowych danych. |
+| Transfer        | Czas, który upłynął między końcem poprzedniego kroku a środowiskiem IR transferu wszystkie dane ze źródła do ujścia. Podetapy w obszarze "Transfer" są uruchamiane równolegle.<br><br>- **Czas do pierwszego bajtu:** Czas, który upłynął między końcem poprzedniego kroku a czasem, gdy środowisko IR odbierze pierwszy bajt z magazynu danych źródłowych. Dotyczy źródeł nieopartych na plikach.<br>- **Źródło listy:** Ilość czasu poświęcanego na Wyliczenie plików źródłowych lub partycji danych. Ten ostatni ma zastosowanie w przypadku konfigurowania opcji partycji dla źródeł baz danych, na przykład podczas kopiowania danych z baz danych, takich jak Oracle/SAP HANA/Teradata/Netezza/itd.<br/>-**Odczytywanie ze źródła:** Czas spędzony na pobieraniu danych ze źródłowego magazynu danych.<br/>- **Zapisywanie do ujścia:** Ilość czasu poświęcanego na zapisanie danych do magazynu danych ujścia. |
 
-## <a name="troubleshoot-copy-activity-on-azure-ir"></a>Rozwiązywanie problemów z aktywnośćą kopiowania na podstawie usługi Azure IR
+## <a name="troubleshoot-copy-activity-on-azure-ir"></a>Rozwiązywanie problemów z działaniem kopiowania na Azure IR
 
-Wykonaj [kroki dostrajania wydajności,](copy-activity-performance.md#performance-tuning-steps) aby zaplanować i przeprowadzić test wydajności dla twojego scenariusza. 
+Postępuj zgodnie z [krokami dostrajania wydajności](copy-activity-performance.md#performance-tuning-steps) , aby planować i przeprowadzać testy wydajnościowe w danym scenariuszu. 
 
-Gdy wydajność działania kopiowania nie spełnia twoich oczekiwań, aby rozwiązać problem z działaniem pojedynczej kopii uruchomionym w czasie wykonywania integracji platformy Azure, jeśli widzisz [porady dotyczące dostrajania wydajności](#performance-tuning-tips) wyświetlane w widoku monitorowania kopiowania, zastosuj sugestię i spróbuj ponownie. W przeciwnym razie [należy zrozumieć szczegóły wykonania działania kopiowania,](#understand-copy-activity-execution-details)sprawdzić, który etap ma **najdłuższy** czas trwania i zastosować poniższe wskazówki, aby zwiększyć wydajność kopiowania:
+Gdy wydajność działania kopiowania nie spełnia oczekiwań, aby rozwiązywać problemy z działaniem pojedynczej kopii uruchomionej w Azure Integration Runtime, jeśli w widoku monitorowanie kopiowania widoczne są [porady dotyczące dostrajania wydajności](#performance-tuning-tips) , Zastosuj sugestię i spróbuj ponownie. W przeciwnym razie należy zapoznać się ze [szczegółami wykonywania działania kopiowania](#understand-copy-activity-execution-details), sprawdzić, który etap ma **najdłuższy** czas trwania, i zastosować poniższe wskazówki, aby zwiększyć wydajność kopiowania:
 
-- **"Skrypt przed kopiowaniem" doświadczony długi czas trwania:** oznacza to, że skrypt przed kopiowaniem uruchomiony w bazie danych zlewu trwa długo, aby zakończyć. Dostroić określoną logikę skryptu przed kopiowaniem, aby zwiększyć wydajność. Jeśli potrzebujesz dalszej pomocy w ulepszaniu skryptu, skontaktuj się z zespołem bazy danych.
+- **"Skrypt przed kopiowaniem" miał długi czas trwania:** oznacza to, że skrypt poprzedzający kopiowanie działający w bazie danych ujścia kończy się długo. Dostosuj określoną logikę skryptu przed kopiowaniem, aby zwiększyć wydajność. Jeśli potrzebujesz dalszej pomocy na temat ulepszania skryptu, skontaktuj się z zespołem bazy danych.
 
-- **"Transfer - Time to first byte" doświadczony długi czas pracy:** oznacza to, że zapytanie źródłowe trwa długo, aby zwrócić wszelkie dane. Sprawdź i zoptymalizuj kwerendę lub serwer. Jeśli potrzebujesz dalszej pomocy, skontaktuj się z zespołem magazynu danych.
+- **"Czas przesyłania do pierwszego bajtu" był długi czas pracy**: oznacza to, że zapytanie źródłowe zajmuje dużo czasu na zwrócenie jakichkolwiek danych. Sprawdź i zoptymalizuj zapytanie lub serwer. Jeśli potrzebujesz dalszej pomocy, skontaktuj się z zespołem ds. magazynu danych.
 
-- **"Transfer - Źródło aukcji" doświadczył długiego czasu pracy:** oznacza to wyliczanie plików źródłowych lub partycji danych źródłowej bazy danych jest powolny.
+- **"Źródło listy transferu" ma długi czas pracy**: oznacza to, że wyliczane pliki źródłowe lub źródłowe partycje danych bazy danych są wolne.
 
-  - Podczas kopiowania danych ze źródła opartego na plikach, jeśli używasz `wildcardFileName` **filtru wieloznacznego** w ścieżce folderu lub nazwie pliku (`wildcardFolderPath` lub ), lub **użyjesz filtru czasu ostatniej modyfikacji pliku** (`modifiedDatetimeStart` lub`modifiedDatetimeEnd`), uwaga, taki filtr spowoduje, że działanie kopiowania spowoduje wystawienie wszystkich plików w określonym folderze po stronie klienta, a następnie zastosuje filtr. Takie wyliczenie plików może stać się wąskim gardłem, zwłaszcza gdy tylko niewielki zestaw plików spełnia regułę filtru.
+  - W przypadku kopiowania danych z źródła plików, jeśli używasz **filtru symboli wieloznacznych** dla ścieżki folderu lub nazwy pliku`wildcardFolderPath` ( `wildcardFileName`lub) lub Użyj **filtru czasu ostatniej modyfikacji pliku** (`modifiedDatetimeStart` lub`modifiedDatetimeEnd`), zwróć uwagę na to, że ten filtr spowoduje wyświetlenie wszystkich plików w określonym folderze po stronie klienta, a następnie Zastosuj filtr. Takie Wyliczenie plików może stać się wąskim gardłem, szczególnie w przypadku spełnienia przez regułę filtru tylko małego zestawu plików.
 
-    - Sprawdź, czy można [kopiować pliki na podstawie ścieżki pliku podzielonego na partycje datetime lub nazwy](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)pliku . Taki sposób nie obciąża strony źródła aukcji.
+    - Sprawdź, czy można [kopiować pliki na podstawie ścieżki lub nazwy pliku podzielonego na partycje DateTime](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Taki sposób nie powoduje obciążenia po stronie źródłowej.
 
-    - Sprawdź, czy zamiast tego możesz użyć filtru macierzystego magazynu danych, w szczególności **"prefiks**" dla Amazon S3 i Azure Blob. Filtr prefiksów jest filtrem po stronie serwera magazynu danych i miałby znacznie lepszą wydajność.
+    - Sprawdź, czy zamiast tego można użyć natywnego filtru magazynu danych, w tym "**prefiks**" dla Amazon S3 i Azure Blob. Filtr prefiksu to filtr po stronie serwera magazynu danych i ma znacznie lepszą wydajność.
 
-    - Należy rozważyć podzielenie pojedynczego dużego zestawu danych na kilka mniejszych zestawów danych i niech te zadania kopiowania są uruchamiane jednocześnie, każda rozwiązuje część danych. Możesz to zrobić za pomocą funkcji Odnośnik/GetMetadata + ForEach + Copy. Na przykład [można znaleźć pozycję Kopiuj pliki z wielu kontenerów](solution-template-copy-files-multiple-containers.md) lub Migruj dane z szablonów rozwiązań [Amazon S3 do ADLS Gen2.](solution-template-migration-s3-azure.md)
+    - Rozważ podzielenie pojedynczych dużych ilości danych na kilka mniejszych zestawów danych i umożliwienie wykonywania tych zadań kopiowania współbieżnie każdej części danych. Można to zrobić za pomocą metody Lookup/GetMetadata + ForEach + Copy. Zapoznaj się z tematem [Kopiowanie plików z wielu kontenerów](solution-template-copy-files-multiple-containers.md) lub [Migrowanie danych z usługi Amazon S3 do ADLS Gen2](solution-template-migration-s3-azure.md) szablonów rozwiązań jako ogólnego przykładu.
 
-  - Sprawdź, czy usługa ADF zgłasza błąd ograniczania przepustowości w źródle lub jeśli magazyn danych jest w stanie wysokiego wykorzystania. Jeśli tak, zmniejsz obciążenia w magazynie danych lub spróbuj skontaktować się z administratorem magazynu danych, aby zwiększyć limit ograniczania przepustowości lub dostępny zasób.
+  - Sprawdź, czy funkcja ADF zgłasza jakikolwiek błąd ograniczania w źródle lub czy magazyn danych jest w stanie wyższym niż użycie. Jeśli tak, Zmniejsz obciążenie magazynu danych lub spróbuj skontaktować się z administratorem magazynu danych w celu zwiększenia limitu ograniczania przepustowości lub dostępnego zasobu.
 
-  - Użyj usługi Azure IR w tym samym lub blisko regionu magazynu danych źródłowych.
+  - Użyj Azure IR w tym samym lub blisko regionu źródłowego magazynu danych.
 
-- **"Transfer - czytanie ze źródła" doświadczonych długi czas pracy:** 
+- **"Transfer-odczyt ze źródła" długotrwały czas pracy**: 
 
-  - Zastosuj najlepsze rozwiązanie dotyczące ładowania danych specyficznych dla łącznika, jeśli ma zastosowanie. Na przykład podczas kopiowania danych z [Amazon Redshift,](connector-amazon-redshift.md)skonfigurować do korzystania z Redshift UNLOAD.
+  - Należy zastosować najlepsze rozwiązanie do ładowania danych specyficznych dla łącznika, jeśli ma zastosowanie. Na przykład podczas kopiowania danych z usługi [Amazon RedShift](connector-amazon-redshift.md)należy skonfigurować do korzystania z usługi RedShift Unload.
 
-  - Sprawdź, czy usługa ADF zgłasza błąd ograniczania przepustowości w źródle lub jeśli magazyn danych jest obciążony wysokim wykorzystaniem. Jeśli tak, zmniejsz obciążenia w magazynie danych lub spróbuj skontaktować się z administratorem magazynu danych, aby zwiększyć limit ograniczania przepustowości lub dostępny zasób.
+  - Sprawdź, czy funkcja ADF zgłasza jakikolwiek błąd ograniczania w źródle lub czy magazyn danych jest w wysokim obciążeniu. Jeśli tak, Zmniejsz obciążenie magazynu danych lub spróbuj skontaktować się z administratorem magazynu danych w celu zwiększenia limitu ograniczania przepustowości lub dostępnego zasobu.
 
-  - Sprawdź źródło kopii i wzór ujścia: 
+  - Sprawdź Źródło kopii i wzorzec ujścia: 
 
-    - Jeśli wzorzec kopiowania obsługuje większe niż 4 jednostki integracji danych (DIU) — zapoznaj się z [tą sekcją](copy-activity-performance-features.md#data-integration-units) dotyczącą szczegółów, zazwyczaj możesz spróbować zwiększyć dius, aby uzyskać lepszą wydajność. 
+    - Jeśli wzorzec kopiowania obsługuje więcej niż 4 jednostki integracji danych (DIUs) — zapoznaj się z [tą sekcją](copy-activity-performance-features.md#data-integration-units) , aby uzyskać lepszą wydajność. 
 
-    - W przeciwnym razie należy rozważyć podzielenie pojedynczego dużego zestawu danych na kilka mniejszych zestawów danych i pozwolić tym zadaniam kopiowania uruchamiać się jednocześnie, z których każda rozwiązuje część danych. Możesz to zrobić za pomocą funkcji Odnośnik/GetMetadata + ForEach + Copy. Należy zapoznać się [z poleceniem Kopiuj pliki z wielu kontenerów](solution-template-copy-files-multiple-containers.md), [Migruj dane z Amazon S3 do ADLS Gen2](solution-template-migration-s3-azure.md)lub [Kopiuj zbiorczo z](solution-template-bulk-copy-with-control-table.md) szablonami rozwiązań tabeli sterowania jako ogólny przykład.
+    - W przeciwnym razie należy rozważyć rozdzielenie pojedynczych dużych ilości danych na kilka mniejszych zestawów danych i umożliwienie wykonywania tych zadań kopiowania współbieżnie każdej części danych. Można to zrobić za pomocą metody Lookup/GetMetadata + ForEach + Copy. Zapoznaj się z [kopiowaniem plików z wielu kontenerów](solution-template-copy-files-multiple-containers.md), [Migrowanie danych z usługi Amazon S3 do ADLS Gen2](solution-template-migration-s3-azure.md)lub [zbiorcze kopiowanie za pomocą szablonów rozwiązań tabeli formantów](solution-template-bulk-copy-with-control-table.md) .
 
-  - Użyj usługi Azure IR w tym samym lub blisko regionu magazynu danych źródłowych.
+  - Użyj Azure IR w tym samym lub blisko regionu źródłowego magazynu danych.
 
-- **"Transfer - pisanie do zlewu" doświadczonych długi czas pracy:**
+- **"Przesyłanie zapisu do ujścia" ma długi czas pracy**:
 
-  - Zastosuj najlepsze rozwiązanie dotyczące ładowania danych specyficznych dla łącznika, jeśli ma zastosowanie. Na przykład podczas kopiowania danych do [usługi Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) (dawniej SQL DW), należy użyć PolyBase lub COPY instrukcji. 
+  - Należy zastosować najlepsze rozwiązanie do ładowania danych specyficznych dla łącznika, jeśli ma zastosowanie. Na przykład podczas kopiowania danych do [usługi Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) (dawniej SQL DW) Użyj instrukcji Base lub Copy. 
 
-  - Sprawdź, czy usługa ADF zgłasza błąd ograniczania przepustowości w zlewie lub jeśli magazyn danych jest obciążony wysokim wykorzystaniem. Jeśli tak, zmniejsz obciążenia w magazynie danych lub spróbuj skontaktować się z administratorem magazynu danych, aby zwiększyć limit ograniczania przepustowości lub dostępny zasób.
+  - Sprawdź, czy funkcja ADF zgłasza jakikolwiek błąd ograniczania przepustowości w ujściach lub czy magazyn danych jest w wysokim obciążeniu. Jeśli tak, Zmniejsz obciążenie magazynu danych lub spróbuj skontaktować się z administratorem magazynu danych w celu zwiększenia limitu ograniczania przepustowości lub dostępnego zasobu.
 
-  - Sprawdź źródło kopii i wzór ujścia: 
+  - Sprawdź Źródło kopii i wzorzec ujścia: 
 
-    - Jeśli wzorzec kopiowania obsługuje większe niż 4 jednostki integracji danych (DIU) — zapoznaj się z [tą sekcją](copy-activity-performance-features.md#data-integration-units) dotyczącą szczegółów, zazwyczaj możesz spróbować zwiększyć dius, aby uzyskać lepszą wydajność. 
+    - Jeśli wzorzec kopiowania obsługuje więcej niż 4 jednostki integracji danych (DIUs) — zapoznaj się z [tą sekcją](copy-activity-performance-features.md#data-integration-units) , aby uzyskać lepszą wydajność. 
 
-    - W przeciwnym razie stopniowo dostrajaj [równoległe kopie,](copy-activity-performance-features.md)zwróć uwagę, że zbyt wiele kopii równoległych może nawet zaszkodzić wydajności.
+    - W przeciwnym razie należy stopniowo dostrajać [kopie równoległe](copy-activity-performance-features.md), pamiętaj, że zbyt wiele kopii równoległych może nawet obniżyć wydajność.
 
-  - Użyj usługi Azure IR w tym samym lub blisko regionu magazynu danych ujścia.
+  - Użyj Azure IR w tym samym lub blisko regionu magazynu danych ujścia.
 
-## <a name="troubleshoot-copy-activity-on-self-hosted-ir"></a>Rozwiązywanie problemów z aktywność kopiowania na samodzielnym podczerwonym podczerwone
+## <a name="troubleshoot-copy-activity-on-self-hosted-ir"></a>Rozwiązywanie problemów z kopiowaniem do samodzielnego środowiska IR
 
-Wykonaj [kroki dostrajania wydajności,](copy-activity-performance.md#performance-tuning-steps) aby zaplanować i przeprowadzić test wydajności dla twojego scenariusza. 
+Postępuj zgodnie z [krokami dostrajania wydajności](copy-activity-performance.md#performance-tuning-steps) , aby planować i przeprowadzać testy wydajnościowe w danym scenariuszu. 
 
-Gdy wydajność kopiowania nie spełnia twoich oczekiwań, aby rozwiązać problem z działaniem pojedynczej kopii uruchomionym w czasie wykonywania integracji platformy Azure, jeśli widzisz [wskazówki dotyczące dostrajania wydajności](#performance-tuning-tips) wyświetlane w widoku monitorowania kopiowania, zastosuj sugestię i spróbuj ponownie. W przeciwnym razie [należy zrozumieć szczegóły wykonania działania kopiowania,](#understand-copy-activity-execution-details)sprawdzić, który etap ma **najdłuższy** czas trwania i zastosować poniższe wskazówki, aby zwiększyć wydajność kopiowania:
+Gdy wydajność kopiowania nie spełnia oczekiwań, aby rozwiązywać problemy z pojedynczym kopiowaniem uruchomionym na Azure Integration Runtime, jeśli w widoku monitorowanie kopiowania widoczne są [porady dotyczące dostrajania wydajności](#performance-tuning-tips) , Zastosuj sugestię i spróbuj ponownie. W przeciwnym razie należy zapoznać się ze [szczegółami wykonywania działania kopiowania](#understand-copy-activity-execution-details), sprawdzić, który etap ma **najdłuższy** czas trwania, i zastosować poniższe wskazówki, aby zwiększyć wydajność kopiowania:
 
-- **"Kolejka" doświadczonych długi czas trwania:** oznacza to, że działanie kopiowania czeka długo w kolejce, aż samodzielnie hostowane IR ma zasobów do wykonania. Sprawdź pojemność i użycie podczerwień i [skaluj w górę lub w poziomie](create-self-hosted-integration-runtime.md#high-availability-and-scalability) w zależności od obciążenia.
+- **"Kolejka" napotkała długi czas trwania:** oznacza to, że działanie kopiowania czeka długo w kolejce, dopóki nie zostanie uruchomione własne środowisko IR. Sprawdź pojemność i użycie IR oraz Skaluj w [górę lub](create-self-hosted-integration-runtime.md#high-availability-and-scalability) w dół zgodnie z obciążeniem.
 
-- **"Transfer - Time to first byte" doświadczony długi czas pracy:** oznacza to, że zapytanie źródłowe trwa długo, aby zwrócić wszelkie dane. Sprawdź i zoptymalizuj kwerendę lub serwer. Jeśli potrzebujesz dalszej pomocy, skontaktuj się z zespołem magazynu danych.
+- **"Czas przesyłania do pierwszego bajtu" był długi czas pracy**: oznacza to, że zapytanie źródłowe zajmuje dużo czasu na zwrócenie jakichkolwiek danych. Sprawdź i zoptymalizuj zapytanie lub serwer. Jeśli potrzebujesz dalszej pomocy, skontaktuj się z zespołem ds. magazynu danych.
 
-- **"Transfer - Źródło aukcji" doświadczył długiego czasu pracy:** oznacza to wyliczanie plików źródłowych lub partycji danych źródłowej bazy danych jest powolny.
+- **"Źródło listy transferu" ma długi czas pracy**: oznacza to, że wyliczane pliki źródłowe lub źródłowe partycje danych bazy danych są wolne.
 
-  - Sprawdź, czy komputer z własnym hostem podczerwony ma małe opóźnienia łączące się ze źródłowym magazynem danych. Jeśli źródło jest na platformie Azure, można użyć [tego narzędzia,](http://www.azurespeed.com/Azure/Latency) aby sprawdzić opóźnienie z komputera podczerwone hostowane samodzielnie do regionu platformy Azure, tym mniej lepiej.
+  - Sprawdź, czy własna maszyna IR ma małe opóźnienia łączące się z magazynem danych źródłowych. Jeśli Twoje źródło znajduje się na platformie Azure, możesz użyć [tego narzędzia](http://www.azurespeed.com/Azure/Latency) , aby sprawdzić opóźnienia z samodzielnej maszyny podczerwieni z regionem świadczenia usługi Azure, im mniej lepiej.
 
-  - Podczas kopiowania danych ze źródła opartego na plikach, jeśli używasz `wildcardFileName` **filtru wieloznacznego** w ścieżce folderu lub nazwie pliku (`wildcardFolderPath` lub ), lub **użyjesz filtru czasu ostatniej modyfikacji pliku** (`modifiedDatetimeStart` lub`modifiedDatetimeEnd`), uwaga, taki filtr spowoduje, że działanie kopiowania spowoduje wystawienie wszystkich plików w określonym folderze po stronie klienta, a następnie zastosuje filtr. Takie wyliczenie plików może stać się wąskim gardłem, zwłaszcza gdy tylko niewielki zestaw plików spełnia regułę filtru.
+  - W przypadku kopiowania danych z źródła plików, jeśli używasz **filtru symboli wieloznacznych** dla ścieżki folderu lub nazwy pliku`wildcardFolderPath` ( `wildcardFileName`lub) lub Użyj **filtru czasu ostatniej modyfikacji pliku** (`modifiedDatetimeStart` lub`modifiedDatetimeEnd`), zwróć uwagę na to, że ten filtr spowoduje wyświetlenie wszystkich plików w określonym folderze po stronie klienta, a następnie Zastosuj filtr. Takie Wyliczenie plików może stać się wąskim gardłem, szczególnie w przypadku spełnienia przez regułę filtru tylko małego zestawu plików.
 
-    - Sprawdź, czy można [kopiować pliki na podstawie ścieżki pliku podzielonego na partycje datetime lub nazwy](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)pliku . Taki sposób nie obciąża strony źródła aukcji.
+    - Sprawdź, czy można [kopiować pliki na podstawie ścieżki lub nazwy pliku podzielonego na partycje DateTime](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Taki sposób nie powoduje obciążenia po stronie źródłowej.
 
-    - Sprawdź, czy zamiast tego możesz użyć filtru macierzystego magazynu danych, w szczególności **"prefiks**" dla Amazon S3 i Azure Blob. Filtr prefiksów jest filtrem po stronie serwera magazynu danych i miałby znacznie lepszą wydajność.
+    - Sprawdź, czy zamiast tego można użyć natywnego filtru magazynu danych, w tym "**prefiks**" dla Amazon S3 i Azure Blob. Filtr prefiksu to filtr po stronie serwera magazynu danych i ma znacznie lepszą wydajność.
 
-    - Należy rozważyć podzielenie pojedynczego dużego zestawu danych na kilka mniejszych zestawów danych i niech te zadania kopiowania są uruchamiane jednocześnie, każda rozwiązuje część danych. Możesz to zrobić za pomocą funkcji Odnośnik/GetMetadata + ForEach + Copy. Na przykład [można znaleźć pozycję Kopiuj pliki z wielu kontenerów](solution-template-copy-files-multiple-containers.md) lub Migruj dane z szablonów rozwiązań [Amazon S3 do ADLS Gen2.](solution-template-migration-s3-azure.md)
+    - Rozważ podzielenie pojedynczych dużych ilości danych na kilka mniejszych zestawów danych i umożliwienie wykonywania tych zadań kopiowania współbieżnie każdej części danych. Można to zrobić za pomocą metody Lookup/GetMetadata + ForEach + Copy. Zapoznaj się z tematem [Kopiowanie plików z wielu kontenerów](solution-template-copy-files-multiple-containers.md) lub [Migrowanie danych z usługi Amazon S3 do ADLS Gen2](solution-template-migration-s3-azure.md) szablonów rozwiązań jako ogólnego przykładu.
 
-  - Sprawdź, czy usługa ADF zgłasza błąd ograniczania przepustowości w źródle lub jeśli magazyn danych jest w stanie wysokiego wykorzystania. Jeśli tak, zmniejsz obciążenia w magazynie danych lub spróbuj skontaktować się z administratorem magazynu danych, aby zwiększyć limit ograniczania przepustowości lub dostępny zasób.
+  - Sprawdź, czy funkcja ADF zgłasza jakikolwiek błąd ograniczania w źródle lub czy magazyn danych jest w stanie wyższym niż użycie. Jeśli tak, Zmniejsz obciążenie magazynu danych lub spróbuj skontaktować się z administratorem magazynu danych w celu zwiększenia limitu ograniczania przepustowości lub dostępnego zasobu.
 
-- **"Transfer - czytanie ze źródła" doświadczonych długi czas pracy:** 
+- **"Transfer-odczyt ze źródła" długotrwały czas pracy**: 
 
-  - Sprawdź, czy komputer z własnym hostem podczerwony ma małe opóźnienia łączące się ze źródłowym magazynem danych. Jeśli źródło jest na platformie Azure, można użyć [tego narzędzia,](http://www.azurespeed.com/Azure/Latency) aby sprawdzić opóźnienie z komputera podczerwone hostowane samodzielnie do regionów platformy Azure, tym mniej lepiej.
+  - Sprawdź, czy własna maszyna IR ma małe opóźnienia łączące się z magazynem danych źródłowych. Jeśli Twoje źródło znajduje się na platformie Azure, możesz użyć [tego narzędzia](http://www.azurespeed.com/Azure/Latency) , aby sprawdzić opóźnienia z samodzielnej maszyny podczerwieni z regionami świadczenia usługi Azure, im mniej lepiej.
 
-  - Sprawdź, czy komputer z własnym hostem podczerwony ma wystarczającą przepustowość przychodzącą do odczytu i transferu danych. Jeśli źródłowy magazyn danych znajduje się na platformie Azure, można użyć [tego narzędzia,](https://www.azurespeed.com/Azure/Download) aby sprawdzić szybkość pobierania.
+  - Sprawdź, czy własna maszyna IR ma wystarczającą przepustowość przychodzącą, aby efektywnie odczytywać i przesyłać dane. Jeśli źródłowy magazyn danych znajduje się na platformie Azure, możesz użyć [tego narzędzia](https://www.azurespeed.com/Azure/Download) , aby sprawdzić szybkość pobierania.
 
-  - Sprawdź samodzielnie hostowany procesor IR użycie procesora i pamięci trend w witrynie Azure portal -> na stronie przeglądu fabryki danych >. Należy rozważyć [skalowanie w górę/w poziomie IR,](create-self-hosted-integration-runtime.md#high-availability-and-scalability) jeśli użycie procesora CPU jest wysokie lub dostępna pamięć jest niska.
+  - Zapoznaj się z trendem użycia procesora CPU i pamięci przez środowisko IR w Azure Portal-> stronie Przegląd > usługi Data Factory. Należy rozważyć [skalowanie w górę/](create-self-hosted-integration-runtime.md#high-availability-and-scalability) w poziomie środowiska IR, jeśli użycie procesora CPU jest wysokie lub dostępna pamięć jest niska.
 
-  - Zastosuj najlepsze rozwiązanie dotyczące ładowania danych specyficznych dla łącznika, jeśli ma zastosowanie. Przykład:
+  - Należy zastosować najlepsze rozwiązanie do ładowania danych specyficznych dla łącznika, jeśli ma zastosowanie. Przykład:
 
-    - Podczas kopiowania danych z [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source)i SAP [Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)), włącz opcje partycji danych, aby kopiować dane równolegle.
+    - Podczas kopiowania danych z programu [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [tabeli SAP](connector-sap-table.md#sap-table-as-source)i [oprogramowania SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source), Włącz opcje partycji danych, aby równolegle kopiować dane.
 
-    - Podczas kopiowania danych z [usługi HDFS](connector-hdfs.md)należy skonfigurować do używania protokołu DistCp.
+    - Podczas kopiowania danych z systemu plików [HDFS](connector-hdfs.md)Skonfiguruj do korzystania z pomocą distcp.
 
-    - Podczas kopiowania danych z [Amazon Redshift,](connector-amazon-redshift.md)skonfigurować do korzystania z Redshift UNLOAD.
+    - Podczas kopiowania danych z usługi [Amazon RedShift](connector-amazon-redshift.md)Skonfiguruj do korzystania z usługi RedShift Unload.
 
-  - Sprawdź, czy usługa ADF zgłasza błąd ograniczania przepustowości w źródle lub jeśli magazyn danych jest objęty wysokim wykorzystaniem. Jeśli tak, zmniejsz obciążenia w magazynie danych lub spróbuj skontaktować się z administratorem magazynu danych, aby zwiększyć limit ograniczania przepustowości lub dostępny zasób.
+  - Sprawdź, czy funkcja ADF zgłasza jakikolwiek błąd ograniczania w źródle lub czy magazyn danych jest w wysokim obciążeniu. Jeśli tak, Zmniejsz obciążenie magazynu danych lub spróbuj skontaktować się z administratorem magazynu danych w celu zwiększenia limitu ograniczania przepustowości lub dostępnego zasobu.
 
-  - Sprawdź źródło kopii i wzór ujścia: 
+  - Sprawdź Źródło kopii i wzorzec ujścia: 
 
-    - Jeśli kopiujesz dane z magazynów danych z opcją partycji, należy rozważyć stopniowe dostrajanie [kopii równoległych,](copy-activity-performance-features.md)należy pamiętać, że zbyt wiele kopii równoległych może nawet zaszkodzić wydajności.
+    - W przypadku kopiowania danych z magazynów danych z włączoną opcją partycji należy rozważyć stopniowe Dostosowywanie [kopii równoległych](copy-activity-performance-features.md), co oznacza, że zbyt wiele kopii równoległych może nawet obniżyć wydajność.
 
-    - W przeciwnym razie należy rozważyć podzielenie pojedynczego dużego zestawu danych na kilka mniejszych zestawów danych i pozwolić tym zadaniam kopiowania uruchamiać się jednocześnie, z których każda rozwiązuje część danych. Możesz to zrobić za pomocą funkcji Odnośnik/GetMetadata + ForEach + Copy. Należy zapoznać się [z poleceniem Kopiuj pliki z wielu kontenerów](solution-template-copy-files-multiple-containers.md), [Migruj dane z Amazon S3 do ADLS Gen2](solution-template-migration-s3-azure.md)lub [Kopiuj zbiorczo z](solution-template-bulk-copy-with-control-table.md) szablonami rozwiązań tabeli sterowania jako ogólny przykład.
+    - W przeciwnym razie należy rozważyć rozdzielenie pojedynczych dużych ilości danych na kilka mniejszych zestawów danych i umożliwienie wykonywania tych zadań kopiowania współbieżnie każdej części danych. Można to zrobić za pomocą metody Lookup/GetMetadata + ForEach + Copy. Zapoznaj się z [kopiowaniem plików z wielu kontenerów](solution-template-copy-files-multiple-containers.md), [Migrowanie danych z usługi Amazon S3 do ADLS Gen2](solution-template-migration-s3-azure.md)lub [zbiorcze kopiowanie za pomocą szablonów rozwiązań tabeli formantów](solution-template-bulk-copy-with-control-table.md) .
 
-- **"Transfer - pisanie do zlewu" doświadczonych długi czas pracy:**
+- **"Przesyłanie zapisu do ujścia" ma długi czas pracy**:
 
-  - Zastosuj najlepsze rozwiązanie dotyczące ładowania danych specyficznych dla łącznika, jeśli ma zastosowanie. Na przykład podczas kopiowania danych do [usługi Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) (dawniej SQL DW), należy użyć PolyBase lub COPY instrukcji. 
+  - Należy zastosować najlepsze rozwiązanie do ładowania danych specyficznych dla łącznika, jeśli ma zastosowanie. Na przykład podczas kopiowania danych do [usługi Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) (dawniej SQL DW) Użyj instrukcji Base lub Copy. 
 
-  - Sprawdź, czy samodzielnie hostowany na komputerze podczerwony ma małe opóźnienia łączące się z magazynem danych ujścia. Jeśli ujście jest na platformie Azure, można użyć [tego narzędzia,](http://www.azurespeed.com/Azure/Latency) aby sprawdzić opóźnienie z komputera podczerwone hostowane samodzielnie do regionu platformy Azure, tym mniej lepiej.
+  - Sprawdź, czy własna maszyna IR ma małe opóźnienia łączące się z magazynem danych ujścia. Jeśli ujścia znajduje się na platformie Azure, możesz użyć [tego narzędzia](http://www.azurespeed.com/Azure/Latency) , aby sprawdzić opóźnienia z samodzielnej maszyny IR w regionie świadczenia usługi Azure, im mniej lepiej.
 
-  - Sprawdź, czy komputer z własnym hostem podczerwieni ma wystarczającą przepustowość wychodzącą, aby efektywnie przesyłać i zapisywać dane. Jeśli magazyn danych ujścia znajduje się na platformie Azure, można użyć [tego narzędzia,](https://www.azurespeed.com/Azure/UploadLargeFile) aby sprawdzić szybkość przekazywania.
+  - Sprawdź, czy maszyna z własnymi środowiskami IR ma wystarczającą przepustowość wychodzącą, aby efektywnie przesyłać i zapisywać dane. Jeśli magazyn danych ujścia znajduje się na platformie Azure, możesz użyć [tego narzędzia](https://www.azurespeed.com/Azure/UploadLargeFile) , aby sprawdzić szybkość przekazywania.
 
-  - Sprawdź, czy samodzielnie hostowany procesor IR i trend użycia pamięci w witrynie Azure portal -> strony przeglądu fabryki danych >. Należy rozważyć [skalowanie w górę/w poziomie IR,](create-self-hosted-integration-runtime.md#high-availability-and-scalability) jeśli użycie procesora CPU jest wysokie lub dostępna pamięć jest niska.
+  - Sprawdź, czy w Azure Portal na stronie Omówienie usługi Fabryka danych > — >, czy jest dostępna wartość trend użycia procesora i pamięci przez środowisko IR. Należy rozważyć [skalowanie w górę/](create-self-hosted-integration-runtime.md#high-availability-and-scalability) w poziomie środowiska IR, jeśli użycie procesora CPU jest wysokie lub dostępna pamięć jest niska.
 
-  - Sprawdź, czy usługa ADF zgłasza błąd ograniczania przepustowości w zlewie lub jeśli magazyn danych jest obciążony wysokim wykorzystaniem. Jeśli tak, zmniejsz obciążenia w magazynie danych lub spróbuj skontaktować się z administratorem magazynu danych, aby zwiększyć limit ograniczania przepustowości lub dostępny zasób.
+  - Sprawdź, czy funkcja ADF zgłasza jakikolwiek błąd ograniczania przepustowości w ujściach lub czy magazyn danych jest w wysokim obciążeniu. Jeśli tak, Zmniejsz obciążenie magazynu danych lub spróbuj skontaktować się z administratorem magazynu danych w celu zwiększenia limitu ograniczania przepustowości lub dostępnego zasobu.
 
-  - Należy wziąć pod uwagę, aby stopniowo dostroić [równoległe kopie,](copy-activity-performance-features.md)należy pamiętać, że zbyt wiele kopii równoległych może nawet zaszkodzić wydajności.
+  - Rozważ stopniowe dopasowanie [kopii równoległych](copy-activity-performance-features.md), co oznacza, że zbyt wiele kopii równoległych może nawet obniżyć wydajność.
 
-## <a name="other-references"></a>Inne referencje
+## <a name="other-references"></a>Inne odwołania
 
-Oto monitorowanie wydajności i dostrajanie odwołań dla niektórych obsługiwanych magazynów danych:
+Poniżej przedstawiono informacje dotyczące monitorowania wydajności i dostrajania dla niektórych obsługiwanych magazynów danych:
 
-* Magazyn obiektów Blob platformy Azure: [cele dotyczące skalowalności i wydajności magazynu obiektów Blob](../storage/blobs/scalability-targets.md) oraz [listy kontrolnej wydajności i skalowalności magazynu obiektów Blob.](../storage/blobs/storage-performance-checklist.md)
-* Magazyn tabel platformy Azure: [cele dotyczące skalowalności i wydajności dla magazynu tabel](../storage/tables/scalability-targets.md) oraz listy [kontrolnej wydajności i skalowalności dla magazynu tabel](../storage/tables/storage-performance-checklist.md).
-* Usługa Azure SQL Database: można [monitorować wydajność](../sql-database/sql-database-single-database-monitor.md) i sprawdzić procent jednostki transakcji bazy danych (DTU).
-* Usługa Azure SQL Data Warehouse: jego możliwości są mierzone w jednostkach hurtowni danych (DWU). Zobacz [Zarządzanie mocą obliczeniową w usłudze Azure SQL Data Warehouse (Omówienie)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
-* Usługa Azure Cosmos DB: [poziomy wydajności w usłudze Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* Lokalny program SQL Server: [Monitoruj i dostrajaj wydajność](https://msdn.microsoft.com/library/ms189081.aspx).
-* Lokalny serwer plików: [dostrajanie wydajności serwerów plików](https://msdn.microsoft.com/library/dn567661.aspx).
+* Azure Blob Storage: [elementy docelowe skalowalności i wydajności dla magazynu obiektów BLOB](../storage/blobs/scalability-targets.md) i [wydajności i skalowalności dla usługi BLOB Storage](../storage/blobs/storage-performance-checklist.md).
+* Azure Table Storage: [elementy docelowe skalowalności i wydajności dla magazynu tabel](../storage/tables/scalability-targets.md) oraz [listę kontrolną wydajności i skalowalności w magazynie tabel](../storage/tables/storage-performance-checklist.md).
+* Azure SQL Database: można [monitorować wydajność](../sql-database/sql-database-single-database-monitor.md) i sprawdzać wartość procentową jednostki transakcji bazy danych (DTU).
+* Azure SQL Data Warehouse: jej możliwości są mierzone w jednostkach magazynu danych (jednostek dwu). Zobacz [zarządzanie mocą obliczeniową w Azure SQL Data Warehouse (omówienie)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+* Azure Cosmos DB: [poziomy wydajności w Azure Cosmos DB](../cosmos-db/performance-levels.md).
+* SQL Server lokalnego: [monitorowanie i dostrajanie wydajności](https://msdn.microsoft.com/library/ms189081.aspx).
+* Lokalny serwer plików: [dostrajanie wydajności dla serwerów plików](https://msdn.microsoft.com/library/dn567661.aspx).
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz inne artykuły dotyczące aktywności kopiowania:
+Zapoznaj się z innymi artykułami dotyczącymi działania kopiowania:
 
-- [Omówienie działania kopiowania](copy-activity-overview.md)
-- [Przewodnik po wydajności i skalowalności działania kopiowania](copy-activity-performance.md)
-- [Kopiowanie funkcji optymalizacji wydajności działania](copy-activity-performance-features.md)
-- [Użyj usługi Azure Data Factory do migracji danych z usługi Data Lake lub magazynu danych na platformę Azure](data-migration-guidance-overview.md)
+- [Przegląd działania kopiowania](copy-activity-overview.md)
+- [Przewodnik dotyczący wydajności i skalowalności działania kopiowania](copy-activity-performance.md)
+- [Funkcje optymalizacji wydajności działania kopiowania](copy-activity-performance-features.md)
+- [Używanie Azure Data Factory do migrowania danych z usługi Data Lake lub magazynu danych na platformę Azure](data-migration-guidance-overview.md)
 - [Migrowanie danych z usługi Amazon S3 do usługi Azure Storage](data-migration-guidance-s3-azure-storage.md)

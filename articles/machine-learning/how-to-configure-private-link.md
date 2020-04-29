@@ -1,7 +1,7 @@
 ---
-title: Konfigurowanie łącza prywatnego platformy Azure
+title: Konfigurowanie prywatnego linku platformy Azure
 titleSuffix: Azure Machine Learning
-description: Użyj łącza prywatnego platformy Azure, aby bezpiecznie uzyskać dostęp do obszaru roboczego usługi Azure Machine Learning z sieci wirtualnej.
+description: Użyj prywatnego linku platformy Azure, aby bezpiecznie uzyskać dostęp do obszaru roboczego Azure Machine Learning z sieci wirtualnej.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,67 +11,67 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
 ms.openlocfilehash: 8140fc4286ac97260e0b23ea700a70303ec69e2e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81411199"
 ---
-# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Konfigurowanie łącza prywatnego platformy Azure dla obszaru roboczego usługi Azure Machine Learning (wersja zapoznawcza)
+# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Konfigurowanie prywatnego linku platformy Azure dla obszaru roboczego Azure Machine Learning (wersja zapoznawcza)
 
-W tym dokumencie dowiesz się, jak używać łącza prywatnego platformy Azure w obszarze roboczym usługi Azure Machine Learning. Ta funkcja jest obecnie w wersji zapoznawczej i jest dostępna w regionach Wschodnich Stanów Zjednoczonych, Zachodnie stany USA 2, Południowo-Środkowe stany USA. 
+W tym dokumencie dowiesz się, jak korzystać z prywatnego linku platformy Azure z obszarem roboczym Azure Machine Learning. Ta funkcja jest obecnie dostępna w wersji zapoznawczej, a w regionach Południowo-środkowe stany USA 2, Stany USA — Europa Zachodnia. 
 
-Usługa Azure Private Link umożliwia łączenie się z obszarem roboczym przy użyciu prywatnego punktu końcowego. Prywatny punkt końcowy to zestaw prywatnych adresów IP w sieci wirtualnej. Następnie można ograniczyć dostęp do obszaru roboczego, aby występował tylko za pomocą prywatnych adresów IP. Private Link pomaga zmniejszyć ryzyko eksfiltracji danych. Aby dowiedzieć się więcej o prywatnych punktach końcowych, zobacz artykuł [Azure Private Link.](/azure/private-link/private-link-overview)
+Link prywatny platformy Azure umożliwia nawiązanie połączenia z obszarem roboczym przy użyciu prywatnego punktu końcowego. Prywatny punkt końcowy to zestaw prywatnych adresów IP w sieci wirtualnej. Następnie można ograniczyć dostęp do obszaru roboczego tylko w przypadku prywatnych adresów IP. Link prywatny pomaga ograniczyć ryzyko związane z eksfiltracji danych. Aby dowiedzieć się więcej o prywatnych punktach końcowych, zobacz artykuł [prywatny link do platformy Azure](/azure/private-link/private-link-overview) .
 
 > [!IMPORTANT]
-> Usługa Azure Private Link nie ma wpływu na płaszczyznę sterowania platformy Azure (operacje zarządzania), takie jak usuwanie obszaru roboczego lub zarządzanie zasobami obliczeniowymi. Na przykład tworzenie, aktualizowanie lub usuwanie obiektu docelowego obliczeń. Operacje te są wykonywane przez publiczny Internet w zwykły sposób.
+> Łącze prywatne platformy Azure nie wpływa na płaszczyznę kontroli platformy Azure (operacje zarządzania), takie jak usuwanie obszaru roboczego lub zarządzanie zasobami obliczeniowymi. Na przykład tworzenie, aktualizowanie lub usuwanie elementu docelowego obliczeń. Te operacje są wykonywane za pośrednictwem publicznej sieci Internet jako normalne.
 >
-> Podgląd wystąpień obliczeniowych usługi Azure Machine Learning nie jest obsługiwany w obszarze roboczym, w którym jest włączone łącze prywatne.
+> Azure Machine Learning wystąpienia obliczeniowe w wersji zapoznawczej nie są obsługiwane w obszarze roboczym, w którym włączono link prywatny.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Tworzenie obszaru roboczego korzystającego z prywatnego punktu końcowego
 
-Obecnie obsługujemy tylko włączanie prywatnego punktu końcowego podczas tworzenia nowego obszaru roboczego usługi Azure Machine Learning. Następujące szablony są dostępne dla kilku popularnych konfiguracji:
+Obecnie obsługujemy tylko Włączanie prywatnego punktu końcowego podczas tworzenia nowego obszaru roboczego Azure Machine Learning. Następujące szablony są dostępne dla kilku popularnych konfiguracji:
 
 > [!TIP]
-> Automatyczne zatwierdzanie steruje automatycznym dostępem do zasobu włączonego łącza prywatnego. Aby uzyskać więcej informacji, zobacz [Co to jest usługa Azure Private Link](../private-link/private-link-service-overview.md).
+> Automatyczne zatwierdzanie kontroluje zautomatyzowany dostęp do zasobu z włączoną obsługą linku prywatnego. Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Private Link Service](../private-link/private-link-service-overview.md).
 
-* [Obszar roboczy z kluczami zarządzanymi przez klienta i automatyczną akceptacją łącza prywatnego](#cmkaapl)
-* [Obszar roboczy z kluczami zarządzanymi przez klienta i ręcznym zatwierdzaniem łącza prywatnego](#cmkmapl)
-* [Obszar roboczy z kluczami zarządzanymi przez firmę Microsoft i automatyczną akceptacją łącza prywatnego](#mmkaapl)
-* [Obszar roboczy z kluczami zarządzanymi przez firmę Microsoft i ręcznym zatwierdzaniem łącza prywatnego](#mmkmapl)
+* [Obszar roboczy z kluczami zarządzanymi przez klienta i autozatwierdzeniem dla prywatnego linku](#cmkaapl)
+* [Obszar roboczy z kluczami zarządzanymi przez klienta i ręczne zatwierdzanie dla prywatnego linku](#cmkmapl)
+* [Obszar roboczy z kluczami zarządzanymi przez firmę Microsoft i autozatwierdzeniem dla prywatnego linku](#mmkaapl)
+* [Obszar roboczy z kluczami zarządzanymi przez firmę Microsoft i ręczne zatwierdzanie dla prywatnego linku](#mmkmapl)
 
 Podczas wdrażania szablonu należy podać następujące informacje:
 
 * Nazwa obszaru roboczego
-* regionu platformy Azure w celu utworzenia zasobów w
-* Wersja obszaru roboczego (podstawowa lub enterprise)
-* Jeśli należy włączyć wysokie ustawienia poufności obszaru roboczego
-* Jeśli powinno być włączone szyfrowanie obszaru roboczego za pomocą klucza zarządzanego przez klienta i skojarzone wartości klucza
-* Nazwa sieci wirtualnej i podsieci, szablon utworzy nową sieć wirtualną i podsieć
+* Region platformy Azure, w którym mają zostać utworzone zasoby
+* Wersja robocza (podstawowa lub korporacyjna)
+* Jeśli należy włączyć ustawienia wysokiego poufności dla obszaru roboczego
+* Jeśli należy włączyć szyfrowanie dla obszaru roboczego z kluczem zarządzanym przez klienta oraz skojarzone wartości klucza
+* Virtual Network i nazwa podsieci, szablon utworzy nową sieć wirtualną i podsieć
 
-Po przesłaniu szablonu i zakończeniu inicjowania obsługi administracyjnej grupa zasobów zawierająca obszar roboczy będzie zawierać trzy nowe typy artefaktów związane z łączem prywatnym:
+Po przesłaniu szablonu i zakończeniu aprowizacji Grupa zasobów, która zawiera obszar roboczy, będzie zawierać trzy nowe typy artefaktów powiązane z prywatnym łączem:
 
 * Prywatny punkt końcowy
 * Interfejs sieciowy
 * Prywatna strefa DNS
 
-Obszar roboczy zawiera również sieć wirtualną platformy Azure, która może komunikować się z obszarem roboczym za pośrednictwem prywatnego punktu końcowego.
+Obszar roboczy zawiera również Virtual Network platformy Azure, które mogą komunikować się z obszarem roboczym za pośrednictwem prywatnego punktu końcowego.
 
-### <a name="deploy-the-template-using-the-azure-portal"></a>Wdrażanie szablonu przy użyciu portalu Azure
+### <a name="deploy-the-template-using-the-azure-portal"></a>Wdróż szablon przy użyciu Azure Portal
 
-1. Wykonaj kroki opisane w [programze Wdrażanie zasobów z szablonu niestandardowego](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Po dotarciu do ekranu __Edytuj szablon__ wklej jeden z szablonów od końca tego dokumentu.
-1. Wybierz __pozycję Zapisz,__ aby użyć szablonu. Podaj następujące informacje i zaakceptuj wymienione warunki:
+1. Wykonaj kroki opisane w sekcji [wdrażanie zasobów z szablonu niestandardowego](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Po nadejściu ekranu __Edytuj szablon__ wklej jeden z szablonów na końcu tego dokumentu.
+1. Wybierz pozycję __Zapisz__ , aby użyć szablonu. Podaj następujące informacje i zaakceptuj wymienione warunki i postanowienia:
 
-   * Subskrypcja: Wybierz subskrypcję platformy Azure do użycia dla tych zasobów.
-   * Grupa zasobów: wybierz lub utwórz grupę zasobów zawierającą usługi.
-   * Nazwa obszaru roboczego: nazwa używana dla obszaru roboczego usługi Azure Machine Learning, który zostanie utworzony. Nazwa obszaru roboczego musi zawierać od 3 do 33 znaków. Może zawierać tylko znaki alfanumeryczne i '-'.
-   * Lokalizacja: wybierz lokalizację, w której będą tworzone zasoby.
+   * Subskrypcja: wybierz subskrypcję platformy Azure, która ma być używana dla tych zasobów.
+   * Grupa zasobów: wybierz lub Utwórz grupę zasobów zawierającą usługi.
+   * Nazwa obszaru roboczego: Nazwa do użycia dla obszaru roboczego Azure Machine Learning, który zostanie utworzony. Nazwa obszaru roboczego musi zawierać od 3 do 33 znaków. Może zawierać tylko znaki alfanumeryczne i znak "-".
+   * Lokalizacja: Wybierz lokalizację, w której zostaną utworzone zasoby.
 
-Aby uzyskać więcej informacji, zobacz [Wdrażanie zasobów z szablonu niestandardowego](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów z szablonu niestandardowego](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-### <a name="deploy-the-template-using-azure-powershell"></a>Wdrażanie szablonu przy użyciu programu Azure PowerShell
+### <a name="deploy-the-template-using-azure-powershell"></a>Wdróż szablon przy użyciu Azure PowerShell
 
-W tym przykładzie przyjęto założenie, że jeden z szablonów został `azuredeploy.json` zapisany od końca tego dokumentu do pliku o nazwie w bieżącym katalogu:
+W tym przykładzie założono, że Zapisano jeden z szablonów na końcu tego dokumentu do pliku o nazwie `azuredeploy.json` w bieżącym katalogu:
 
 ```powershell
 New-AzResourceGroup -Name examplegroup -Location "East US"
@@ -80,11 +80,11 @@ new-azresourcegroupdeployment -name exampledeployment `
   -templatefile .\azuredeploy.json -workspaceName "exampleworkspace" -sku "basic"
 ```
 
-Aby uzyskać więcej informacji, zobacz [Wdrażanie zasobów za pomocą szablonów Usługi Resource Manager i szablonu](../azure-resource-manager/templates/deploy-powershell.md) prywatnego menedżera zasobów usługi Azure PowerShell i [wdrażanie go za pomocą tokena Sygnatury dostępu Współdzielonego i programu Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
+Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) i [wdrażanie prywatnego szablonu Menedżer zasobów z tokenem SAS i Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ### <a name="deploy-the-template-using-the-azure-cli"></a>Wdrażanie szablonu przy użyciu interfejsu wiersza polecenia platformy Azure
 
-W tym przykładzie przyjęto założenie, że jeden z szablonów został `azuredeploy.json` zapisany od końca tego dokumentu do pliku o nazwie w bieżącym katalogu:
+W tym przykładzie założono, że Zapisano jeden z szablonów na końcu tego dokumentu do pliku o nazwie `azuredeploy.json` w bieżącym katalogu:
 
 ```azurecli-interactive
 az group create --name examplegroup --location "East US"
@@ -95,46 +95,46 @@ az group deployment create \
   --parameters workspaceName=exampleworkspace location=eastus sku=basic
 ```
 
-Aby uzyskać więcej informacji, zobacz [Wdrażanie zasobów za pomocą szablonów Menedżera zasobów i szablonu interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md) oraz [wdrażania prywatnego szablonu Menedżera zasobów z tokenem Sygnatury dostępu Współdzielonego i interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/secure-template-with-sas-token.md).
+Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md) oraz [wdrażanie szablonu prywatnego Menedżer zasobów z tokenem SAS i interfejsem wiersza polecenia platformy Azure](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
-## <a name="using-a-workspace-over-a-private-endpoint"></a>Korzystanie z obszaru roboczego nad prywatnym punktem końcowym
+## <a name="using-a-workspace-over-a-private-endpoint"></a>Używanie obszaru roboczego w prywatnym punkcie końcowym
 
-Ponieważ komunikacja z obszarem roboczym jest dozwolona tylko z sieci wirtualnej, wszystkie środowiska programistyczne korzystające z obszaru roboczego muszą być członkami sieci wirtualnej. Na przykład maszyna wirtualna w sieci wirtualnej lub maszyna połączona z siecią wirtualną przy użyciu bramy sieci VPN.
+Ponieważ komunikacja z obszarem roboczym jest dozwolona tylko w sieci wirtualnej, wszystkie środowiska deweloperskie korzystające z obszaru roboczego muszą należeć do sieci wirtualnej. Na przykład maszyna wirtualna w sieci wirtualnej lub maszyna połączona z siecią wirtualną przy użyciu bramy sieci VPN.
 
 > [!IMPORTANT]
-> Aby uniknąć tymczasowych zakłóceń łączności, firma Microsoft zaleca opróżnianie pamięci podręcznej DNS na komputerach łączących się z obszarem roboczym po włączeniu łącza prywatnego. 
+> Aby uniknąć tymczasowego zakłócenia łączności, firma Microsoft zaleca opróżnianie pamięci podręcznej DNS na komputerach łączących się z obszarem roboczym po włączeniu linku prywatnego. 
 
-Aby uzyskać informacje na temat maszyn wirtualnych platformy Azure, zobacz [dokumentację maszyn wirtualnych](/azure/virtual-machines/).
+Aby uzyskać informacje na temat usługi Azure Virtual Machines, zobacz [dokumentację Virtual Machines](/azure/virtual-machines/).
 
-Aby uzyskać informacje o bramkach sieci VPN, zobacz [Co to jest brama sieci VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+Aby uzyskać informacje na temat bram sieci VPN, zobacz [co to jest Brama sieci VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
 ## <a name="using-azure-storage"></a>Korzystanie z usługi Azure Storage
 
-Aby zabezpieczyć konto usługi Azure Storage używane przez obszar roboczy, umieść go w sieci wirtualnej.
+Aby zabezpieczyć konto usługi Azure Storage używane przez obszar roboczy, umieść je w sieci wirtualnej.
 
-Aby uzyskać informacje na temat umieszczania konta magazynu w sieci wirtualnej, zobacz [Używanie konta magazynu dla obszaru roboczego](how-to-enable-virtual-network.md#use-a-storage-account-for-your-workspace).
+Aby uzyskać informacje dotyczące umieszczania konta magazynu w sieci wirtualnej, zobacz [Korzystanie z konta magazynu dla obszaru roboczego](how-to-enable-virtual-network.md#use-a-storage-account-for-your-workspace).
 
-## <a name="using-azure-key-vault"></a>Korzystanie z usługi Azure Key Vault
+## <a name="using-azure-key-vault"></a>Używanie Azure Key Vault
 
-Aby zabezpieczyć usługę Azure Key Vault używane przez obszar roboczy, można umieścić go w sieci wirtualnej lub włączyć łącze prywatne dla niego.
+Aby zabezpieczyć Azure Key Vault używany przez obszar roboczy, możesz go umieścić w sieci wirtualnej lub włączyć dla niego link prywatny.
 
-Aby uzyskać informacje na temat umieszczania magazynu kluczy w sieci wirtualnej, zobacz [Używanie wystąpienia magazynu kluczy w obszarze roboczym](how-to-enable-virtual-network.md#use-a-key-vault-instance-with-your-workspace).
+Aby uzyskać informacje dotyczące umieszczania magazynu kluczy w sieci wirtualnej, zobacz [Korzystanie z wystąpienia magazynu kluczy z obszarem roboczym](how-to-enable-virtual-network.md#use-a-key-vault-instance-with-your-workspace).
 
-Aby uzyskać informacje na temat włączania łącza prywatnego dla magazynu [kluczy, zobacz Integrowanie usługi Key Vault z łączem prywatnym platformy Azure](/azure/key-vault/private-link-service).
+Aby uzyskać informacje na temat włączania prywatnego linku do magazynu kluczy, zobacz [integrowanie Key Vault z prywatnym łączem platformy Azure](/azure/key-vault/private-link-service).
 
-## <a name="using-azure-kubernetes-services"></a>Korzystanie z usług Azure Kubernetes
+## <a name="using-azure-kubernetes-services"></a>Korzystanie z usług Azure Kubernetes Services
 
-Aby zabezpieczyć usługi Azure Kubernetes używane przez obszar roboczy, umieść ją w sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Korzystanie z usług Azure Kubernetes z obszarem roboczym](how-to-enable-virtual-network.md#aksvnet).
+Aby zabezpieczyć usługi Azure Kubernetes używane przez obszar roboczy, umieść je w sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Korzystanie z usług Azure Kubernetes Services z Twoim obszarem roboczym](how-to-enable-virtual-network.md#aksvnet).
 
 > [!WARNING]
-> Usługa Azure Machine Learning nie obsługuje korzystania z usługi Azure Kubernetes, która ma włączone łącze prywatne.
+> Azure Machine Learning nie obsługuje korzystania z usługi Azure Kubernetes, która ma włączone łącze prywatne.
 
 ## <a name="azure-container-registry"></a>Azure Container Registry
 
-Aby uzyskać informacje na temat zabezpieczania rejestru kontenerów platformy Azure w sieci wirtualnej, zobacz [Korzystanie z rejestru kontenerów platformy Azure](how-to-enable-virtual-network.md#use-azure-container-registry).
+Aby uzyskać informacje na temat zabezpieczania Azure Container Registry wewnątrz sieci wirtualnej, zobacz [Korzystanie z Azure Container Registry](how-to-enable-virtual-network.md#use-azure-container-registry).
 
 > [!IMPORTANT]
-> Jeśli używasz łącza prywatnego dla obszaru roboczego usługi Azure Machine Learning i umieścisz rejestr kontenerów platformy Azure dla obszaru roboczego w sieci wirtualnej, należy również zastosować następujący szablon usługi Azure Resource Manager. Ten szablon umożliwia obszarowi roboczemu komunikowanie się z acr za pomocą łącza prywatnego.
+> Jeśli używasz prywatnego linku do obszaru roboczego Azure Machine Learning i umieścisz Azure Container Registry dla obszaru roboczego w sieci wirtualnej, musisz również zastosować następujący szablon Azure Resource Manager. Ten szablon umożliwia obszarowi roboczemu komunikowanie się z ACR za pośrednictwem prywatnego linku.
 
 ```json
 {
@@ -189,7 +189,7 @@ Aby uzyskać informacje na temat zabezpieczania rejestru kontenerów platformy A
 ## <a name="azure-resource-manager-templates"></a>Szablony usługi Azure Resource Manager
 
 <a id="cmkaapl"></a>
-### <a name="workspace-with-customer-managed-keys-and-auto-approval-for-private-link"></a>Obszar roboczy z kluczami zarządzanymi przez klienta i automatyczną akceptacją łącza prywatnego
+### <a name="workspace-with-customer-managed-keys-and-auto-approval-for-private-link"></a>Obszar roboczy z kluczami zarządzanymi przez klienta i autozatwierdzeniem dla prywatnego linku
 
 ```json
 {
@@ -492,7 +492,7 @@ Aby uzyskać informacje na temat zabezpieczania rejestru kontenerów platformy A
 ```
 
 <a id="cmkmapl"></a>
-### <a name="workspace-with-customer-managed-keys-and-manual-approval-for-private-link"></a>Obszar roboczy z kluczami zarządzanymi przez klienta i ręcznym zatwierdzaniem łącza prywatnego
+### <a name="workspace-with-customer-managed-keys-and-manual-approval-for-private-link"></a>Obszar roboczy z kluczami zarządzanymi przez klienta i ręczne zatwierdzanie dla prywatnego linku
 
 ```json
 {
@@ -718,7 +718,7 @@ Aby uzyskać informacje na temat zabezpieczania rejestru kontenerów platformy A
 ```
 
 <a id="mmkaapl"></a>
-### <a name="workspace-with-microsoft-managed-keys-and-auto-approval-for-private-link"></a>Obszar roboczy z kluczami zarządzanymi przez firmę Microsoft i automatyczną akceptacją łącza prywatnego
+### <a name="workspace-with-microsoft-managed-keys-and-auto-approval-for-private-link"></a>Obszar roboczy z kluczami zarządzanymi przez firmę Microsoft i autozatwierdzeniem dla prywatnego linku
 
 ```json
 {
@@ -979,7 +979,7 @@ Aby uzyskać informacje na temat zabezpieczania rejestru kontenerów platformy A
 ```
 
 <a id="mmkmapl"></a>
-### <a name="workspace-with-microsoft-managed-keys-and-manual-approval-for-private-link"></a>Obszar roboczy z kluczami zarządzanymi przez firmę Microsoft i ręcznym zatwierdzaniem łącza prywatnego
+### <a name="workspace-with-microsoft-managed-keys-and-manual-approval-for-private-link"></a>Obszar roboczy z kluczami zarządzanymi przez firmę Microsoft i ręczne zatwierdzanie dla prywatnego linku
 
 ```json
 {
@@ -1164,4 +1164,4 @@ Aby uzyskać informacje na temat zabezpieczania rejestru kontenerów platformy A
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat zabezpieczania obszaru roboczego usługi Azure Machine Learning, zobacz artykuł [o zabezpieczeniach przedsiębiorstwa.](concept-enterprise-security.md)
+Aby uzyskać więcej informacji na temat zabezpieczania obszaru roboczego Azure Machine Learning, zobacz artykuł [zabezpieczenia przedsiębiorstwa](concept-enterprise-security.md) .
