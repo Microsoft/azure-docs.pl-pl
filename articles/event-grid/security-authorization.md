@@ -1,5 +1,5 @@
 ---
-title: Zabezpieczenia i uwierzytelnianie usługi Azure Event Grid
+title: Azure Event Grid zabezpieczenia i uwierzytelnianie
 description: Opis usługi Azure Event Grid i pojęć z nią związanych.
 services: event-grid
 author: banisadr
@@ -9,35 +9,35 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
 ms.openlocfilehash: 03bc2f9de6f50f08c9f62f86a3d1791a067cecd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78899284"
 ---
-# <a name="authorizing-access-to-event-grid-resources"></a>Autoryzowanie dostępu do zasobów siatki zdarzeń
-Usługa Azure Event Grid umożliwia kontrolowanie poziomu dostępu przyznanego różnym użytkownikom w celu wykonywania różnych operacji zarządzania, takich jak subskrypcje zdarzeń listy, tworzenie nowych i generowanie kluczy. Usługa Event Grid używa kontroli dostępu opartej na rolach platformy Azure (RBAC).
+# <a name="authorizing-access-to-event-grid-resources"></a>Autoryzowanie dostępu do zasobów Event Grid
+Azure Event Grid umożliwia kontrolowanie poziomu dostępu nadawanego różnym użytkownikom w celu wykonywania różnych operacji zarządzania, takich jak subskrypcje zdarzeń listy, tworzenie nowych i generowanie kluczy. Event Grid używa kontroli dostępu opartej na rolach (RBAC) na platformie Azure.
 
 ## <a name="operation-types"></a>Typy operacji
 
-Usługa Event Grid obsługuje następujące akcje:
+Event Grid obsługuje następujące akcje:
 
-* Microsoft.EventGrid/*/odczyt
-* Microsoft.EventGrid/*/napisz
-* Microsoft.EventGrid/*/delete
-* Microsoft.EventGrid/eventSubscriptions/getFullUrl/action
-* Microsoft.EventGrid/topics/listKeys/action
-* Microsoft.EventGrid/topics/regenerateKey/action
+* Microsoft. EventGrid/*/Read
+* Microsoft. EventGrid/*/Write
+* Microsoft. EventGrid/*/Delete
+* Microsoft. EventGrid/eventSubscriptions/getFullUrl/akcja
+* Microsoft. EventGrid/tematy/listKeys/akcja
+* Microsoft. EventGrid/tematy/regenerateKey/akcja
 
 Ostatnie trzy operacje zwracają potencjalnie tajne informacje, które są filtrowane z normalnych operacji odczytu. Zaleca się ograniczenie dostępu do tych operacji. 
 
 ## <a name="built-in-roles"></a>Wbudowane role
 
-Usługa Event Grid udostępnia dwie wbudowane role do zarządzania subskrypcjami zdarzeń. Są one ważne podczas implementowania [domen zdarzeń,](event-domains.md) ponieważ dają użytkownikom uprawnienia potrzebne do subskrybowania tematów w domenie zdarzeń. Te role koncentrują się na subskrypcjach zdarzeń i nie udzielają dostępu do akcji, takich jak tworzenie tematów.
+Event Grid udostępnia dwie wbudowane role do zarządzania subskrypcjami zdarzeń. Są one ważne podczas implementowania [domen zdarzeń](event-domains.md) , ponieważ zapewniają użytkownikom uprawnienia wymagane do subskrybowania tematów w domenie zdarzeń. Role te są skoncentrowane na subskrypcjach zdarzeń i nie udzielają dostępu do akcji, takich jak tworzenie tematów.
 
-Te [role](../role-based-access-control/quickstart-assign-role-user-portal.md)można przypisać do użytkownika lub grupy .
+[Te role można przypisać do użytkownika lub grupy](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-**EventGrid EventSubscription Contributor**: zarządzanie operacjami subskrypcji usługi Event Grid
+**Współautor EventGrid EventSubscription**: Zarządzanie operacjami subskrypcji Event Grid
 
 ```json
 [
@@ -73,7 +73,7 @@ Te [role](../role-based-access-control/quickstart-assign-role-user-portal.md)mo�
 ]
 ```
 
-**EventGrid EventSubscription Reader**: przeczytaj subskrypcje usługi Event Grid
+**EventGrid EventSubscription Reader**: Odczytuj Event Grid subskrypcje
 
 ```json
 [
@@ -107,11 +107,11 @@ Te [role](../role-based-access-control/quickstart-assign-role-user-portal.md)mo�
 
 ## <a name="custom-roles"></a>Role niestandardowe
 
-Jeśli trzeba określić uprawnienia, które są inne niż wbudowane role, można utworzyć role niestandardowe.
+Jeśli musisz określić uprawnienia, które są inne niż wbudowane role, możesz utworzyć role niestandardowe.
 
-Poniżej przedstawiono przykładowe definicje ról siatki zdarzeń, które umożliwiają użytkownikom podejmowanie różnych akcji. Te role niestandardowe różnią się od ról wbudowanych, ponieważ zapewniają szerszy dostęp niż tylko subskrypcje zdarzeń.
+Poniżej przedstawiono Event Grid przykładowe definicje ról, które umożliwiają użytkownikom podejmowanie różnych akcji. Te role niestandardowe różnią się od wbudowanych ról, ponieważ udzielają szerszego dostępu niż tylko subskrypcje zdarzeń.
 
-**EventGridReadOnlyRole.json:** Zezwalaj tylko na operacje tylko do odczytu.
+**EventGridReadOnlyRole. JSON**: Zezwalaj tylko na operacje tylko do odczytu.
 
 ```json
 {
@@ -130,7 +130,7 @@ Poniżej przedstawiono przykładowe definicje ról siatki zdarzeń, które umoż
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json**: Zezwalaj na akcje wpisów z ograniczeniami, ale nie zezwalaj na usuwanie akcji.
+**EventGridNoDeleteListKeysRole. JSON**: Zezwalaj na ograniczone akcje post, ale nie Zezwalaj na akcje usuwania.
 
 ```json
 {
@@ -153,7 +153,7 @@ Poniżej przedstawiono przykładowe definicje ról siatki zdarzeń, które umoż
 }
 ```
 
-**EventGridContributorRole.json**: Umożliwia wszystkie akcje siatki zdarzeń.
+**EventGridContributorRole. JSON**: zezwala na wszystkie akcje związane z siatką zdarzeń.
 
 ```json
 {
@@ -175,14 +175,14 @@ Poniżej przedstawiono przykładowe definicje ról siatki zdarzeń, które umoż
 }
 ```
 
-Role niestandardowe można tworzyć za pomocą programów [PowerShell,](../role-based-access-control/custom-roles-powershell.md) [Azure CLI](../role-based-access-control/custom-roles-cli.md)i [REST](../role-based-access-control/custom-roles-rest.md).
+Role niestandardowe można tworzyć przy użyciu [programu PowerShell](../role-based-access-control/custom-roles-powershell.md), [interfejsu wiersza polecenia platformy Azure i usługi](../role-based-access-control/custom-roles-cli.md) [rest](../role-based-access-control/custom-roles-rest.md).
 
 
 
 ### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
 
-Wszystkie zdarzenia lub dane zapisane na dysku przez usługę Event Grid są szyfrowane przez klucz zarządzany przez firmę Microsoft, zapewniając, że jest zaszyfrowany w spoczynku. Ponadto maksymalny okres przechowywania zdarzeń lub danych wynosi 24 godziny w przestrzeganiu [zasad ponawiania prób w siatce zdarzeń.](delivery-and-retry.md) Usługa Event Grid automatycznie usunie wszystkie zdarzenia lub dane po 24 godzinach lub czas zdarzenia na żywo, w zależności od tego, która z tych wartości jest mniejsza.
+Wszystkie zdarzenia lub dane zapisywane na dysku przez usługę Event Grid są szyfrowane przez klucz zarządzany przez firmę Microsoft, dzięki czemu są szyfrowane w stanie spoczynku. Ponadto maksymalny okres czasu, przez jaki zdarzenia lub dane są przechowywane, wynosi 24 godziny zgodnie z [zasadami ponowienia Event Grid](delivery-and-retry.md). Event Grid automatycznie usunie wszystkie zdarzenia lub dane po 24 godzinach lub czas wygaśnięcia zdarzenia na żywo, w zależności od tego, która wartość jest mniejsza.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby zapoznać się z wprowadzeniem do siatki zdarzeń, zobacz [Informacje o siatce zdarzeń](overview.md)
+* Aby zapoznać się z wprowadzeniem do Event Grid, zobacz [Informacje o Event Grid](overview.md)

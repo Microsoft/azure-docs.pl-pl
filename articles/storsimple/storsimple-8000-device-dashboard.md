@@ -1,6 +1,6 @@
 ---
-title: Użyj podsumowania urządzenia w usłudze StorSimple Device Manager
-description: W tym artykule opisano podsumowanie urządzenia usługi StorSimple Device Manager i jak go używać do wyświetlania metryk magazynu i podłączonych inicjatorów oraz znajdowania numeru seryjnego i IQN.
+title: Używanie podsumowania urządzenia w usłudze StorSimple Menedżer urządzeń
+description: Zawiera opis podsumowania urządzeń usługi StorSimple Menedżer urządzeń i sposobu ich używania do wyświetlania metryk magazynu i podłączonych inicjatorów oraz znajdowania numeru seryjnego i nazwy IQN.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,85 +15,85 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 7801cdc6573799330e5173db82dead8d4f2cd83f
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80398248"
 ---
-# <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Użyj podsumowania urządzenia w usłudze StorSimple Device Manager
+# <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Korzystanie z podsumowania urządzenia w usłudze StorSimple Menedżer urządzeń
 
 ## <a name="overview"></a>Omówienie
-Narzędzie StorSimple podsumowanie urządzenia zawiera omówienie informacji dla określonego urządzenia StorSimple, w przeciwieństwie do bloku podsumowania usługi, który zawiera informacje o wszystkich urządzeniach zawartych w rozwiązaniu Microsoft Azure StorSimple.
+Blok podsumowania urządzenia StorSimple zawiera przegląd informacji dotyczących określonego urządzenia StorSimple, w przeciwieństwie do bloku podsumowania usługi, który zawiera informacje o wszystkich urządzeniach uwzględnionych w rozwiązaniu Microsoft Azure StorSimple.
 
-Blok podsumowania urządzenia zawiera widok podsumowania urządzenia z serii StorSimple 8000 zarejestrowanego w danym Menedżerze urządzeń StorSimple, podkreślając te problemy z urządzeniem, które wymagają uwagi administratora systemu. W tym samouczku przedstawiono blok podsumowania urządzenia, wyjaśniono zawartość i funkcję oraz opisano zadania, które można wykonać z tego bloku.
+Blok podsumowanie urządzenia zawiera widok podsumowania urządzenia z serii StorSimple 8000, które jest zarejestrowane w danym StorSimple Menedżer urządzeń, oraz wyróżnienia tych problemów dotyczących urządzeń, które wymagają uwagi administratora systemu. W tym samouczku przedstawiono blok podsumowania urządzenia, wyjaśniono zawartość i funkcję oraz opisano zadania, które można wykonać z tego bloku.
 
-W bloku podsumowania urządzenia wyświetlane są następujące informacje:
+W bloku podsumowanie urządzenia są wyświetlane następujące informacje:
 
-![Ostrze podsumowujące urządzenie](./media/storsimple-8000-device-dashboard/device-summary1.png)
+![Blok podsumowania urządzenia](./media/storsimple-8000-device-dashboard/device-summary1.png)
 
 ## <a name="management-command-bar"></a>Pasek poleceń zarządzania
 
-W storsimple urządzenia bloku, zobaczysz opcje zarządzania urządzeniem StorSimple. Polecenia zarządzania są widoczne w górnej części bloku i po lewej stronie. Użyj tych opcji, aby dodać udziały lub woluminy, zaktualizować lub przejażyć w pracy urządzenia.
+W bloku urządzenia StorSimple widoczne są opcje zarządzania urządzeniem StorSimple. Zobaczysz polecenia zarządzania w górnej części bloku i po lewej stronie. Za pomocą tych opcji można dodawać udziały lub woluminy albo aktualizować lub przełączać urządzenia do trybu failover.
 
 ![Pasek poleceń zarządzania](./media/storsimple-8000-device-dashboard/device-summary2.png)
 
 ## <a name="essentials"></a>Podstawy
 
-Podstawowy obszar przechwytuje niektóre z ważnych właściwości, takich jak stan, model, docelowy IQN i wersja oprogramowania. 
+Obszar podstawy przechwytuje niektóre ważne właściwości, takie jak stan, model, nazwa IQN docelowej i wersja oprogramowania. 
 
 ![Podstawowe informacje o urządzeniu](./media/storsimple-8000-device-dashboard/device-summary3.png)
 
 ## <a name="monitoring"></a>Monitorowanie
 
-* **Kafelek Alerty** zawiera migawkę wszystkich aktywnych alertów dla urządzenia, pogrupowane według ważności alertu.
+* Kafelek **alerty** zawiera migawkę wszystkich aktywnych alertów dla urządzenia pogrupowanych według ważności alertu.
 
-    ![Kafelek Alert](./media/storsimple-8000-device-dashboard/device-summary4.png)
+    ![Kafelek alertu](./media/storsimple-8000-device-dashboard/device-summary4.png)
 
-    Kliknij kafelek, aby otworzyć blok **Alerty,** a następnie kliknij pojedynczy alert, aby wyświetlić dodatkowe szczegóły dotyczące tego alertu, w tym wszelkie zalecane akcje. Można również wyczyścić alert, jeśli problem został rozwiązany.
+    Kliknij kafelek, aby otworzyć blok **alerty** , a następnie kliknij indywidualny alert, aby wyświetlić dodatkowe szczegóły dotyczące tego alertu, w tym wszystkie zalecane akcje. Możesz również wyczyścić alert, jeśli problem został rozwiązany.
 
     ![Kliknij kafelek alertu](./media/storsimple-8000-device-dashboard/device-summary10.png)
 
-* Kafelek **Stan i kondycja** zapewnia wgląd w kondycję składnika sprzętowego urządzenia, w tym stan urządzenia. Stan urządzenia może być w trybie offline, w trybie online, dezaktywowany lub gotowy do skonfigurowania.
+* Kafelek **stan i kondycja** zawiera szczegółowe informacje o kondycji składników sprzętowych urządzenia, w tym o stanie urządzenia. Stan urządzenia może być w trybie offline, w trybie online, dezaktywowany lub gotowy do skonfigurowania.
 
-    ![Kafelek Stan i kondycja](./media/storsimple-8000-device-dashboard/device-summary5.png)
+    ![Kafelek stan i kondycja](./media/storsimple-8000-device-dashboard/device-summary5.png)
 
-* **Kafelek Woluminy** zawiera podsumowanie liczby woluminów w urządzeniu pogrupowanych według stanu.
+* Kafelek **woluminy** zawiera podsumowanie liczby woluminów w urządzeniu pogrupowanych według stanu.
 
-    ![Kafelek woluminów](./media/storsimple-8000-device-dashboard/device-summary6.png)
+    ![Kafelek woluminy](./media/storsimple-8000-device-dashboard/device-summary6.png)
 
-    Kliknij kafelek, aby otworzyć blok listy **Woluminy,** a następnie kliknij pojedynczy wolumin, aby wyświetlić lub zmodyfikować jego właściwości.
+    Kliknij kafelek, aby otworzyć blok listy **woluminów** , a następnie kliknij pojedynczy wolumin, aby wyświetlić lub zmodyfikować jego właściwości.
     
-    ![Kliknij kafelek woluminów](./media/storsimple-8000-device-dashboard/device-summary9.png)
+    ![Kliknij kafelek woluminy](./media/storsimple-8000-device-dashboard/device-summary9.png)
     
     Aby uzyskać więcej informacji, zobacz jak [zarządzać woluminami](storsimple-8000-manage-volumes-u2.md).
 
-* Na wykresie **Użycia** można wyświetlić magazyn podstawowy używany na urządzeniu, a magazyn w chmurze używany w ciągu ostatnich 7 dni, domyślny okres czasu.
+* Na wykresie **użycia** można wyświetlić magazyn podstawowy używany na urządzeniu i magazyn w chmurze zużyty w ciągu ostatnich 7 dni — domyślny okres.
 
-     ![Kafelek Użycia](./media/storsimple-8000-device-dashboard/device-summary7.png)
+     ![Kafelek użycie](./media/storsimple-8000-device-dashboard/device-summary7.png)
     
      Aby wybrać inną skalę czasu, użyj opcji **Edytuj** w prawym górnym rogu wykresu.
 
-     ![Edytowanie wykresu użycia](./media/storsimple-8000-device-dashboard/device-summary12.png)
+     ![Edytuj wykres użycia](./media/storsimple-8000-device-dashboard/device-summary12.png)
 
-     Na tym wykresie można wyświetlić metryki całkowitej pamięci podstawowej (ilość danych zapisywanych przez hosty na urządzeniu) i całkowitą ilość miejsca w chmurze zużywanego przez urządzenie przez pewien czas.
+     Na tym wykresie można wyświetlić metryki całkowitego magazynu podstawowego (ilość danych zapisywana przez hosty na urządzenie) oraz łączny magazyn w chmurze zużyty przez urządzenie w danym okresie czasu.
   
-     W tym kontekście *magazyn podstawowy* odnosi się do całkowitej ilości danych zapisanych przez hosta i może być podzielony według typu woluminu: podstawowy *magazyn warstwowy* obejmuje zarówno lokalnie przechowywane dane, jak i dane warstwowe w chmurze. *Podstawowy magazyn przypięty lokalnie* zawiera tylko dane przechowywane lokalnie. Natomiast przechowywanie w *chmurze*to pomiar całkowitej ilości danych przechowywanych w chmurze. Ten magazyn zawiera warstwowe dane i kopie zapasowe. Dane przechowywane w chmurze są deduplikowane i kompresowane, natomiast magazyn podstawowy wskazuje ilość magazynu używanego przed deduplikowaniem i kompresowaniem danych. (Można porównać te dwie liczby, aby zorientować się w szybkości kompresji.) W przypadku magazynu podstawowego i w chmurze wyświetlane kwoty są oparte na skonfigurowanych częstotliwości śledzenia. Jeśli na przykład wybierzesz częstotliwość jednego tygodnia, na wykresie są wyświetlane dane za każdy dzień w poprzednim tygodniu.
+     W tym kontekście *magazyn podstawowy* odnosi się do łącznej ilości danych zapisanych przez hosta i może być podzielony według typu woluminu: *podstawowy magazyn warstwowy* obejmuje zarówno dane przechowywane lokalnie, jak i dane warstwowe w chmurze. *Magazyn podstawowy lokalnie przypięty* obejmuje tylko dane przechowywane lokalnie. *Magazyn w chmurze*, z drugiej strony, to pomiar całkowitej ilości danych przechowywanych w chmurze. Ten magazyn zawiera dane warstwowe i kopie zapasowe. Dane przechowywane w chmurze są deduplikowane i kompresowane, natomiast podstawowy magazyn wskazuje ilość miejsca używanego do deduplikowania i kompresowania danych. (Można porównać te dwie liczby, aby uzyskać pomysł o szybkość kompresji). W przypadku magazynu podstawowego i w chmurze podane kwoty są zależne od skonfigurowanej częstotliwości śledzenia. Na przykład jeśli zostanie wybrana częstotliwość z jedną tygodnią, wykres będzie przedstawiał dane dla każdego dnia w poprzednim tygodniu.
 
-     Aby zobaczyć ilość magazynu w chmurze zużywanego w czasie, wybierz opcję **UŻYWANA PAMIĘĆ MASOWA W CHMURZE.** Aby wyświetlić całkowitą ilość magazynu, który został napisany przez hosta, wybierz **opcje UŻYWANEJ PAMIĘCI MASOWEJ WARSTWOWEJ PODSTAWOWEJ** i **PODSTAWOWA PAMIĘĆ MASOWA PRZYPIĘTA LOKALNIE.** 
-     Aby uzyskać więcej informacji, zobacz [Monitorowanie urządzenia StorSimple za pomocą usługi StorSimple Device Manager](storsimple-monitor-device.md).
+     Aby sprawdzić ilość magazynu w chmurze zużytego w czasie, wybierz opcję **użyty magazyn w chmurze** . Aby wyświetlić łączny magazyn, który został zapisany przez hosta, wybierz **używany magazyn warstwowy** i **podstawowy, PRZYpięty lokalny** magazyn. 
+     Aby uzyskać więcej informacji, zobacz [Korzystanie z usługi StorSimple Menedżer urządzeń do monitorowania urządzenia StorSimple](storsimple-monitor-device.md).
 
 
-* Kafelek **Capacity** wyświetla magazyn podstawowy, który jest aprowizowany i pozostaje na urządzeniu względem całkowitej dostępnej dla tego samego miejsca. **Aprowizowana** dotyczy ilości magazynu, który jest przygotowany i przydzielony do użycia, **Pozostałe** odnosi się do pozostałej pojemności, które mogą być aprowizacji na tym urządzeniu. 
+* Kafelek **pojemność** przedstawia magazyn podstawowy, który jest inicjowany i pozostały w całym urządzeniu względem łącznego magazynu dostępnego dla tego samego. **Przygotowana odnosi się** do ilości miejsca przeznaczonego do użycia i przystosowanego do użytku, **pozostała** odnosi się do pozostałej pojemności, która może zostać zainicjowana na tym urządzeniu. 
 
-    ![Kafelek Użycia](./media/storsimple-8000-device-dashboard/device-summary8.png)
+    ![Kafelek użycie](./media/storsimple-8000-device-dashboard/device-summary8.png)
 
-    Kliknij ten kafelek, aby zobaczyć, jak pojemność jest aprowizowana przez woluminy warstwowe i przypięte lokalnie. **Pozostała pojemność warstwowa** to dostępna pojemność, która może być aprowizowana, w tym chmura, podczas gdy **pozostała lokalizacja** to pojemność pozostała na dyskach dołączonych do tego urządzenia.
+    Kliknij ten kafelek, aby zobaczyć, jak pojemność jest obsługiwana w warstwach i przypiętych lokalnie. **Pozostała pojemność warstwowa** to dostępna pojemność, która może zostać zainicjowana, w tym w chmurze, a **pozostała wartość jest** równa pozostałej pojemności na dyskach dołączonych do tego urządzenia.
 
     ![Kliknij wykres użycia](./media/storsimple-8000-device-dashboard/device-summary13.png)
 
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [bloku podsumowania usługi StorSimple](storsimple-8000-service-dashboard.md).
-* Dowiedz się więcej o [administrowaniu urządzeniem StorSimple za pomocą usługi StorSimple Device Manager.](storsimple-8000-manager-service-administration.md)
+* Dowiedz się więcej o [korzystaniu z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
 

@@ -1,62 +1,62 @@
 ---
-title: Rozwiązywanie problemów z szyfrowaniem danych — usługa Azure Database for MySQL
-description: Dowiedz się, jak rozwiązywać problemy z szyfrowaniem danych w usłudze Azure Database for MySQL
+title: Rozwiązywanie problemów z szyfrowaniem danych — Azure Database for MySQL
+description: Dowiedz się, jak rozwiązywać problemy z szyfrowaniem danych w Azure Database for MySQL
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: 42956d115590fd322d2851fd546c505a76a851fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79297044"
 ---
-# <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Rozwiązywanie problemów z szyfrowaniem danych w bazie danych platformy Azure dla mysql
+# <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Rozwiązywanie problemów z szyfrowaniem danych w Azure Database for MySQL
 
-W tym artykule opisano sposób identyfikowania i rozwiązywania typowych problemów, które mogą wystąpić w usłudze Azure Database for MySQL po skonfigurowaniu przy użyciu szyfrowania danych przy użyciu klucza zarządzanego przez klienta.
+W tym artykule opisano sposób identyfikowania i rozwiązywania typowych problemów, które mogą wystąpić w Azure Database for MySQL w przypadku skonfigurowania szyfrowania danych przy użyciu klucza zarządzanego przez klienta.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Podczas konfigurowania szyfrowania danych do używania klucza zarządzanego przez klienta w usłudze Azure Key Vault serwery wymagają ciągłego dostępu do klucza. Jeśli serwer utraci dostęp do klucza zarządzanego przez klienta w usłudze Azure Key Vault, odmówi wszystkich połączeń, zwróci odpowiedni komunikat o błędzie i zmieni jego stan ***na Niedostępny*** w witrynie Azure Portal.
+Podczas konfigurowania szyfrowania danych w celu używania klucza zarządzanego przez klienta w Azure Key Vault serwery wymagają ciągłego dostępu do klucza. Jeśli serwer utraci dostęp do klucza zarządzanego przez klienta w Azure Key Vault, spowoduje to odmowę wszystkich połączeń, zwrócenie odpowiedniego komunikatu o błędzie i zmianę jego stanu na ***niedostępny*** w Azure Portal.
 
-Jeśli nie potrzebujesz już niedostępnej bazy danych platformy Azure dla serwera MySQL, możesz go usunąć, aby zatrzymać poniesienie kosztów. Żadne inne akcje na serwerze nie są dozwolone, dopóki dostęp do magazynu kluczy nie zostanie przywrócony, a serwer będzie dostępny. Nie można również zmienić opcji szyfrowania `Yes`danych z (zarządzanego przez klienta) na `No` (zarządzanego przez usługę) na niedostępnym serwerze, gdy jest on zaszyfrowany za pomocą klucza zarządzanego przez klienta. Przed ponownym dostępem do serwera należy ponownie ponownie ocenić klucz. Ta akcja jest niezbędna do ochrony danych przed nieautoryzowanym dostępem, podczas gdy uprawnienia do klucza zarządzanego przez klienta są odwoływane.
+Jeśli serwer Azure Database for MySQL nie jest już potrzebny, możesz go usunąć, aby zatrzymać ponoszenia kosztów. Żadne inne akcje na serwerze nie są dozwolone do momentu przywrócenia dostępu do magazynu kluczy i udostępnienia serwera. Nie jest również możliwe Zmiana opcji szyfrowania danych z (zarządzane przez `Yes`klienta) na `No` (zarządzana przez usługę) na niedostępnym serwerze, gdy jest on szyfrowany przy użyciu klucza zarządzanego przez klienta. Należy ponownie sprawdzić poprawność klucza przed ponownym uzyskaniem dostępu do serwera. Ta akcja jest niezbędna do ochrony danych przed nieautoryzowanym dostępem podczas odwoływania uprawnień do klucza zarządzanego przez klienta.
 
-## <a name="common-errors-that-cause-the-server-to-become-inaccessible"></a>Typowe błędy, które powodują, że serwer staje się niedostępny
+## <a name="common-errors-that-cause-the-server-to-become-inaccessible"></a>Typowe błędy, które powodują, że serwer stał się niedostępny
 
-Następujące błędy konfiguracji powodują większość problemów z szyfrowaniem danych, które używają kluczy usługi Azure Key Vault:
+Następujące nieprawidłowe konfiguracje powodują większość problemów z szyfrowaniem danych, które używają Azure Key Vault kluczy:
 
 - Magazyn kluczy jest niedostępny lub nie istnieje:
   - Magazyn kluczy został przypadkowo usunięty.
-  - Sporadyczny błąd sieciowy powoduje, że magazyn kluczy jest niedostępny.
+  - Sporadyczny błąd sieci powoduje, że magazyn kluczy jest niedostępny.
 
 - Nie masz uprawnień dostępu do magazynu kluczy lub klucz nie istnieje:
   - Klucz wygasł lub został przypadkowo usunięty lub wyłączony.
-  - Tożsamość zarządzana wystąpienia usługi Azure Database for MySQL została przypadkowo usunięta.
-  - Tożsamość zarządzana wystąpienia usługi Azure Database for MySQL ma niewystarczające uprawnienia klucza. Na przykład uprawnienia nie obejmują Get, Wrap i Unwrap.
-  - Uprawnienia tożsamości zarządzanej do wystąpienia usługi Azure Database dla MySQL zostały odwołane lub usunięte.
+  - Tożsamość zarządzana wystąpienia Azure Database for MySQL została przypadkowo usunięta.
+  - Zarządzana tożsamość wystąpienia Azure Database for MySQL ma niewystarczające uprawnienia klucza. Na przykład uprawnienia nie obejmują Get, zawijania i depakowania.
+  - Uprawnienia do tożsamości zarządzanej do wystąpienia Azure Database for MySQL zostały odwołane lub usunięte.
 
 ## <a name="identify-and-resolve-common-errors"></a>Identyfikowanie i rozwiązywanie typowych błędów
 
 ### <a name="errors-on-the-key-vault"></a>Błędy w magazynie kluczy
 
-#### <a name="disabled-key-vault"></a>Wyłączony przechowalnia kluczy
+#### <a name="disabled-key-vault"></a>Wyłączony Magazyn kluczy
 
 - `AzureKeyVaultKeyDisabledMessage`
-- **Wyjaśnienie:** Nie można ukończyć operacji na serwerze, ponieważ klucz usługi Azure Key Vault jest wyłączony.
+- **Wyjaśnienie**: nie można ukończyć operacji na serwerze, ponieważ klucz Azure Key Vault jest wyłączony.
 
-#### <a name="missing-key-vault-permissions"></a>Brak uprawnień do przechowalni kluczy
+#### <a name="missing-key-vault-permissions"></a>Brak uprawnień magazynu kluczy
 
 - `AzureKeyVaultMissingPermissionsMessage`
-- **Wyjaśnienie:** Serwer nie ma wymaganych uprawnień Pobierz, Zawijaj i Rozpakuj do usługi Azure Key Vault. Udziel brakujących uprawnień podmiotowi usługi o identyfikatorze.
+- **Wyjaśnienie**: serwer nie ma wymaganych uprawnień Get, otocz i unotoką do Azure Key Vault. Udziel każdemu brakującemu uprawnienia do nazwy głównej usługi o IDENTYFIKATORze.
 
 ### <a name="mitigation"></a>Środki zaradcze
 
-- Upewnij się, że klucz zarządzany przez klienta jest obecny w magazynie kluczy.
-- Zidentyfikuj magazyn kluczy, a następnie przejdź do magazynu kluczy w witrynie Azure portal.
-- Upewnij się, że klucz identyfikatora URI identyfikuje klucz, który jest obecny.
+- Upewnij się, że klucz zarządzany przez klienta znajduje się w magazynie kluczy.
+- Zidentyfikuj Magazyn kluczy, a następnie przejdź do magazynu kluczy w Azure Portal.
+- Upewnij się, że identyfikator URI klucza identyfikuje klucz, który jest obecny.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Konfigurowanie szyfrowania danych za pomocą klucza zarządzanego przez klienta w usłudze Azure Database for MySQL za pomocą witryny Azure Portal](howto-data-encryption-portal.md)
+[Użyj Azure Portal, aby skonfigurować szyfrowanie danych z kluczem zarządzanym przez klienta w Azure Database for MySQL](howto-data-encryption-portal.md)

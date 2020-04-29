@@ -1,6 +1,6 @@
 ---
-title: Często zadawane pytania dotyczące migracji usługi Azure Storage | Dokumenty firmy Microsoft
-description: Odpowiedzi na często zadawane pytania dotyczące migracji usługi Azure Storage
+title: Migracja magazynu Azure — często zadawane pytania | Microsoft Docs
+description: Odpowiedzi na często zadawane pytania dotyczące migrowania usługi Azure Storage
 services: storage
 author: genlin
 manager: dcscontentpm
@@ -10,107 +10,107 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
 ms.openlocfilehash: 39f1137638f9cd4926b712bdd18e681d90adcdc4
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668546"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Często zadawane pytania dotyczące migracji usługi Azure Storage
 
-Ten artykuł zawiera odpowiedzi na typowe pytania dotyczące migracji usługi Azure Storage.
+W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące migracji usługi Azure Storage.
 
-## <a name="copy-upload-or-download"></a>Kopiowanie, przesyłanie lub pobieranie
+## <a name="copy-upload-or-download"></a>Kopiowanie, przekazywanie lub pobieranie
 
-**Jak utworzyć skrypt do kopiowania plików z jednego kontenera do drugiego?**
+**Jak mogę utworzyć skrypt do kopiowania plików z jednego kontenera do innego?**
 
-Aby skopiować pliki między kontenerami, można użyć AzCopy. Zobacz poniższy przykład:
+Aby skopiować pliki między kontenerami, możesz użyć AzCopy. Zobacz poniższy przykład:
 
     AzCopy /Source:https://xxx.blob.core.windows.net/xxx
     /Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
     /S
 
-AzCopy używa [interfejsu API kopiowania obiektów blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob) do kopiowania każdego pliku w kontenerze.  
+AzCopy używa [interfejsu API kopiowania obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob) do kopiowania każdego pliku w kontenerze.  
 
-Do uruchomienia azcopy można użyć dowolnej maszyny wirtualnej lub maszyny lokalnej, która ma dostęp do Internetu. Można również użyć harmonogramu usługi Azure Batch, aby to zrobić automatycznie, ale jest to bardziej skomplikowane.  
+Do uruchomienia AzCopy można użyć dowolnej maszyny wirtualnej lub komputera lokalnego z dostępem do Internetu. Możesz również użyć harmonogramu Azure Batch, aby to zrobić automatycznie, ale jest to bardziej skomplikowane.  
 
-Skrypt automatyzacji jest przeznaczony do wdrażania usługi Azure Resource Manager zamiast manipulowania zawartością magazynu. Aby uzyskać więcej informacji, zobacz [Wdrażanie zasobów za pomocą szablonów Usługi Resource Manager i programu Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
+Skrypt automatyzacji został zaprojektowany na potrzeby wdrażania Azure Resource Manager zamiast manipulowania zawartością magazynu. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
-**Czy istnieje opłata za kopiowanie danych między dwoma udziałami plików na tym samym koncie magazynu w tym samym regionie?**
+**Czy jest naliczana opłata za kopiowanie danych między dwoma udziałami plików na jednym koncie magazynu w tym samym regionie?**
 
-Nie. Nie ma żadnych opłat za ten proces.
+Nie. Za ten proces nie są naliczane opłaty.
 
-**Jak pobrać 1-2 TB danych z witryny Azure portal?**
+**Jak mogę pobrać 1-2 TB danych z Azure Portal?**
 
-Użyj AzCopy, aby pobrać dane. Aby uzyskać więcej informacji, zobacz [Transfer danych z AzCopy w systemie Windows](storage-use-azcopy.md) i Transfer danych z [AzCopy na Linuksie](storage-use-azcopy-linux.md).
+Użyj AzCopy, aby pobrać dane. Aby uzyskać więcej informacji, zobacz [transfer danych za pomocą usługi AzCopy w systemie Windows](storage-use-azcopy.md) i [Transferowanie danych przy użyciu usługi AzCopy w systemie Linux](storage-use-azcopy-linux.md).
 
-**Jak mogę pobrać dysk VHD na komputer lokalny, inny niż za pomocą opcji pobierania w portalu?**
+**Jak pobrać dysk VHD na maszynę lokalną, inną niż przy użyciu opcji pobierania w portalu?**
 
-Za pomocą [Eksploratora pamięci masowej](https://azure.microsoft.com/features/storage-explorer/) można pobrać dysk VHD.
+Za pomocą [Eksplorator usługi Storage](https://azure.microsoft.com/features/storage-explorer/) można pobrać dysk VHD.
 
-**Jak pobrać dane na komputer z systemem Linux z konta magazynu platformy Azure lub przesłać dane z komputera z systemem Linux?**
+**Jak mogę pobrać danych na komputer z systemem Linux z konta usługi Azure Storage lub przekazać dane z maszyny z systemem Linux?**
 
-Można użyć interfejsu wiersza polecenia platformy Azure.
+Możesz użyć interfejsu wiersza polecenia platformy Azure.
 
-- Pobierz pojedynczy obiekt blob:
+- Pobierz pojedynczy obiekt BLOB:
 
       azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
 
-- Prześlij pojedynczy obiekt blob:
+- Przekaż pojedynczy obiekt BLOB:
 
       azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
 
-**Jak przeprowadzić migrację obiektów Blob z jednego konta magazynu do innego?**
+**Jak mogę Migrowanie obiektów blob z jednego konta magazynu do innego?**
 
- Można to zrobić za pomocą naszego [skryptu migracji obiektów Blob](../scripts/storage-common-transfer-between-storage-accounts.md).
+ Można to zrobić przy użyciu naszego [skryptu migracji obiektów BLOB](../scripts/storage-common-transfer-between-storage-accounts.md).
  
-## <a name="migration-or-backup"></a>Migracja lub tworzenie kopii zapasowych
+## <a name="migration-or-backup"></a>Migracja lub kopia zapasowa
 
-**Jak przenieść dane z jednego kontenera magazynu do drugiego?**
+**Jak mogę przenieść dane z jednego kontenera magazynu do innego?**
 
 Wykonaj następujące kroki:
 
 1.  Utwórz kontener (folder) w docelowym obiekcie blob.
 
-2.  Użyj [AzCopy](https://azure.microsoft.com/blog/azcopy-5-1-release/) skopiować zawartość z oryginalnego kontenera obiektów blob do innego kontenera obiektu blob.
+2.  Użyj [AzCopy](https://azure.microsoft.com/blog/azcopy-5-1-release/) , aby skopiować zawartość z oryginalnego kontenera obiektów BLOB do innego kontenera obiektów BLOB.
 
-**Jak utworzyć skrypt programu PowerShell, aby przenieść dane z jednego udziału plików platformy Azure do innego w usłudze Azure Storage?**
+**Jak mogę utworzyć skrypt programu PowerShell służący do przenoszenia danych z jednego udziału plików platformy Azure do innego w usłudze Azure Storage?**
 
-Użyj AzCopy, aby przenieść dane z jednego udziału plików platformy Azure do innego w usłudze Azure Storage. Aby uzyskać więcej informacji, zobacz [Transfer danych z AzCopy w systemie Windows](storage-use-azcopy.md) i Transfer danych z [AzCopy na Linuksie](storage-use-azcopy-linux.md).
+Użyj AzCopy, aby przenieść dane z jednego udziału plików platformy Azure do innego w usłudze Azure Storage. Aby uzyskać więcej informacji, zobacz [transfer danych za pomocą usługi AzCopy w systemie Windows](storage-use-azcopy.md) i [Transferowanie danych przy użyciu usługi AzCopy w systemie Linux](storage-use-azcopy-linux.md).
 
-**Jak przekazać duże pliki csv do usługi Azure Storage?**
+**Jak mogę przekazać duże pliki CSV do usługi Azure Storage?**
 
-Przekazywanie dużych plików csv do usługi Azure Storage za pomocą programu AzCopy. Aby uzyskać więcej informacji, zobacz [Transfer danych z AzCopy w systemie Windows](storage-use-azcopy.md) i Transfer danych z [AzCopy na Linuksie](storage-use-azcopy-linux.md).
+Użyj AzCopy, aby przekazać duże pliki CSV do usługi Azure Storage. Aby uzyskać więcej informacji, zobacz [transfer danych za pomocą usługi AzCopy w systemie Windows](storage-use-azcopy.md) i [Transferowanie danych przy użyciu usługi AzCopy w systemie Linux](storage-use-azcopy-linux.md).
 
-**Muszę codziennie przenosić dzienniki z dysku D na moje konto magazynu platformy Azure. Jak to zautomatyzować?**
+**Muszę przenieść dzienniki z dysku D na konto usługi Azure Storage codziennie. Jak mogę zautomatyzować ten proces?**
 
-Można użyć AzCopy i utworzyć zadanie w Harmonogramie zadań. Przekazywanie plików do konta magazynu platformy Azure przy użyciu skryptu wsadowego AzCopy. Aby uzyskać więcej informacji, zobacz [Jak skonfigurować i uruchomić zadania uruchamiania usługi w chmurze](../../cloud-services/cloud-services-startup-tasks.md).
+Możesz użyć AzCopy i utworzyć zadanie w Harmonogram zadań. Przekaż pliki na konto usługi Azure Storage za pomocą skryptu wsadowego AzCopy. Aby uzyskać więcej informacji, zobacz [jak skonfigurować i uruchomić zadania uruchamiania dla usługi w chmurze](../../cloud-services/cloud-services-startup-tasks.md).
 
-**Jak przenieść konto magazynu między subskrypcjami?**
+**Jak mogę przenieść konto magazynu między subskrypcjami?**
 
-Użyj AzCopy, aby przenieść konto magazynu między subskrypcjami. Aby uzyskać więcej informacji, zobacz [Transfer danych z AzCopy w systemie Windows](storage-use-azcopy.md) i Transfer danych z [AzCopy na Linuksie](storage-use-azcopy-linux.md).
+Użyj AzCopy, aby przenieść konto magazynu między subskrypcjami. Aby uzyskać więcej informacji, zobacz [transfer danych za pomocą usługi AzCopy w systemie Windows](storage-use-azcopy.md) i [Transferowanie danych przy użyciu usługi AzCopy w systemie Linux](storage-use-azcopy-linux.md).
 
-**Jak przenieść około 10 TB danych do magazynu w innym regionie?**
+**Jak można przenieść około 10 TB danych do magazynu w innym regionie?**
 
-Użyj AzCopy, aby przenieść dane. Aby uzyskać więcej informacji, zobacz [Transfer danych z AzCopy w systemie Windows](storage-use-azcopy.md) i Transfer danych z [AzCopy na Linuksie](storage-use-azcopy-linux.md).
+Użyj AzCopy, aby przenieść dane. Aby uzyskać więcej informacji, zobacz [transfer danych za pomocą usługi AzCopy w systemie Windows](storage-use-azcopy.md) i [Transferowanie danych przy użyciu usługi AzCopy w systemie Linux](storage-use-azcopy-linux.md).
 
-**Jak skopiować dane z lokalnego do usługi Azure Storage?**
+**Jak mogę skopiować dane z lokalizacji lokalnej do usługi Azure Storage?**
 
-Użyj AzCopy, aby skopiować dane. Aby uzyskać więcej informacji, zobacz [Transfer danych z AzCopy w systemie Windows](storage-use-azcopy.md) i Transfer danych z [AzCopy na Linuksie](storage-use-azcopy-linux.md).
+Użyj AzCopy, aby skopiować dane. Aby uzyskać więcej informacji, zobacz [transfer danych za pomocą usługi AzCopy w systemie Windows](storage-use-azcopy.md) i [Transferowanie danych przy użyciu usługi AzCopy w systemie Linux](storage-use-azcopy-linux.md).
 
-**Jak przenieść dane z lokalnego do usługi Azure Files?**
+**Jak przenieść dane z lokalizacji lokalnej do Azure Files?**
 
-Użyj AzCopy, aby przenieść dane. Aby uzyskać więcej informacji, zobacz [Transfer danych z AzCopy w systemie Windows](storage-use-azcopy.md) i Transfer danych z [AzCopy na Linuksie](storage-use-azcopy-linux.md).
+Użyj AzCopy, aby przenieść dane. Aby uzyskać więcej informacji, zobacz [transfer danych za pomocą usługi AzCopy w systemie Windows](storage-use-azcopy.md) i [Transferowanie danych przy użyciu usługi AzCopy w systemie Linux](storage-use-azcopy-linux.md).
 
-**Jak przenieść dyski zarządzane na inne konto magazynu?**
+**Jak mogę przenieść dyski zarządzane na inne konto magazynu?**
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Wykonaj następujące kroki:
 
-1.  Zatrzymaj maszynę wirtualną, do których jest dołączony dysk zarządzany.
+1.  Zatrzymaj maszynę wirtualną, do której jest dołączony dysk zarządzany.
 
-2.  Skopiuj dysk zarządzany VHD z jednego obszaru do drugiego, uruchamiając następujący skrypt programu Azure PowerShell:
+2.  Skopiuj wirtualny dysk twardy dysku zarządzanego z jednego obszaru do drugiego, uruchamiając następujący skrypt Azure PowerShell:
 
     ```
     Connect-AzAccount
@@ -124,7 +124,7 @@ Wykonaj następujące kroki:
     Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
     ```
 
-3.  Utwórz dysk zarządzany przy użyciu pliku VHD w innym regionie, do którego skopiowano dysk VHD. Aby to zrobić, uruchom następujący skrypt programu Azure PowerShell:  
+3.  Utwórz dysk zarządzany przy użyciu pliku VHD w innym regionie, do którego skopiowano dysk VHD. Aby to zrobić, uruchom następujący skrypt Azure PowerShell:  
 
     ```
     $resourceGroupName = 'MDDemo'
@@ -144,17 +144,17 @@ Wykonaj następujące kroki:
     $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ```
 
-Aby uzyskać więcej informacji na temat wdrażania maszyny wirtualnej z dysku zarządzanego, zobacz [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
+Aby uzyskać więcej informacji na temat sposobu wdrażania maszyny wirtualnej z dysku zarządzanego, zobacz [CreateVmFromManagedOsDisk. ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
 
-**Jak przenieść lub pobrać dane z konta magazynu?**
+**Jak mogę przenieść lub pobrać dane z konta magazynu?**
 
-Użyj AzCopy, aby pobrać dane. Aby uzyskać więcej informacji, zobacz [Transfer danych z AzCopy w systemie Windows](storage-use-azcopy.md) i Transfer danych z [AzCopy na Linuksie](storage-use-azcopy-linux.md).
+Użyj AzCopy, aby pobrać dane. Aby uzyskać więcej informacji, zobacz [transfer danych za pomocą usługi AzCopy w systemie Windows](storage-use-azcopy.md) i [Transferowanie danych przy użyciu usługi AzCopy w systemie Linux](storage-use-azcopy-linux.md).
 
-**Jak przenieść konto magazynu w wersji premium na standardowe konto magazynu?**
+**Jak mogę przenieść z konta usługi Premium Storage do konta magazynu w warstwie Standardowa?**
 
 Wykonaj następujące kroki:
 
-1.  Utwórz standardowe konto magazynu. (Lub użyj istniejącego standardowego konta magazynu w ramach subskrypcji).
+1.  Utwórz konto magazynu w warstwie Standardowa. (Lub Użyj istniejącego konta magazynu w ramach subskrypcji).
 
 2.  Pobierz AzCopy. Uruchom jedno z następujących poleceń AzCopy.
 
@@ -164,29 +164,29 @@ Wykonaj następujące kroki:
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
         /SourceKey:key1 /DestKey:key2 /S
 
-    Aby skopiować tylko jeden dysk, podaj nazwę dysku w **wzorzec:**
+    Aby skopiować tylko jeden dysk, podaj nazwę dysku we **wzorcu**:
 
         AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
         /SourceKey:key1 /DestKey:key2 /Pattern:abc.vhd
 
-Operacja może potrwać kilka godzin.
+Ukończenie operacji może potrwać kilka godzin.
 
-Aby upewnić się, że transfer zakończył się pomyślnie, sprawdź kontener konta magazynu docelowego w witrynie Azure portal. Po skopiowaniu dysków do standardowego konta magazynu można dołączyć je do maszyny wirtualnej jako istniejącego dysku. Aby uzyskać więcej informacji, zobacz [Jak dołączyć zarządzany dysk danych do maszyny wirtualnej systemu Windows w witrynie Azure portal](../../virtual-machines/windows/attach-managed-disk-portal.md).  
+Aby upewnić się, że transfer zakończył się pomyślnie, sprawdź kontener docelowego konta magazynu w Azure Portal. Po skopiowaniu dysków na konto magazynu w warstwie Standardowa możesz dołączyć je do maszyny wirtualnej jako istniejący dysk. Aby uzyskać więcej informacji, zobacz [jak dołączyć dysk danych zarządzanych do maszyny wirtualnej z systemem Windows w Azure Portal](../../virtual-machines/windows/attach-managed-disk-portal.md).  
 
-**Jak przenieść konto magazynu klasycznego na konto magazynu usługi Azure Resource Manager?**
+**Jak mogę przeniesieniu z klasycznego konta magazynu na konto magazynu Azure Resource Manager?**
 
-Można użyć polecenia cmdlet **Move-AzureStorageAccount.** To polecenie cmdlet ma wiele kroków (sprawdzanie poprawności, przygotowanie, zatwierdzanie). Możesz sprawdzić poprawność przeniesienia przed jego dokonaniem.
+Można użyć polecenia cmdlet **Move-AzureStorageAccount** . To polecenie cmdlet zawiera wiele kroków (Walidacja, przygotowanie, zatwierdzenie). Możesz sprawdzić poprawność przenoszenia przed jego wprowadzeniem.
 
-Jeśli masz maszyny wirtualne, należy podjąć dodatkowe kroki przed migracją danych konta magazynu. Aby uzyskać więcej informacji, zobacz [Migrowanie zasobów IaaS z klasycznego do usługi Azure Resource Manager przy użyciu programu Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
+Jeśli masz maszyny wirtualne, musisz wykonać dodatkowe czynności przed przeprowadzeniem migracji danych konta magazynu. Aby uzyskać więcej informacji, zobacz [Migrowanie zasobów IaaS z wersji klasycznej do Azure Resource Manager przy użyciu Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 
-**Jak wykonać pełną akces do innego konta magazynu?**
+**Jak mogę utworzyć kopię zapasową całego konta magazynu na innym koncie magazynu?**
 
-Nie ma opcji bezpośredniego utworzenia kopii zapasowej całego konta magazynu. Ale można ręcznie przenieść kontenera na tym koncie magazynu do innego konta przy użyciu AzCopy lub Eksploratora magazynu. Poniższe kroki pokazują, jak przenieść kontener za pomocą programu AzCopy:  
+Nie ma możliwości bezpośredniej kopii zapasowej całego konta magazynu. Można jednak ręcznie przenieść kontener z tego konta magazynu na inne konto za pomocą AzCopy lub Eksplorator usługi Storage. W poniższych krokach pokazano, jak przenieść kontener przy użyciu AzCopy:  
 
-1.  Zainstaluj narzędzie wiersza polecenia [AzCopy.](storage-use-azcopy.md) To narzędzie pomaga przenosić plik VHD między kontami magazynu.
+1.  Zainstaluj narzędzie wiersza polecenia [AzCopy](storage-use-azcopy.md) . To narzędzie pomaga przenieść plik VHD między kontami magazynu.
 
-2.  Po zainstalowaniu programu AzCopy w systemie Windows przy użyciu instalatora otwórz okno wiersza polecenia, a następnie przejdź do folderu instalacyjnego AzCopy na komputerze. Domyślnie AzCopy jest instalowany w **%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy** lub **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
+2.  Po zainstalowaniu programu AzCopy w systemie Windows za pomocą Instalatora Otwórz okno wiersza polecenia, a następnie przejdź do folderu instalacyjnego AzCopy na komputerze. Domyślnie AzCopy jest instalowany w folderze **% ProgramFiles (x86)% \ Microsoft SDKs\Azure\AzCopy** lub **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
 
 3.  Uruchom następujące polecenie, aby przenieść kontener. Należy zastąpić tekst wartościami rzeczywistymi.   
 
@@ -194,111 +194,111 @@ Nie ma opcji bezpośredniego utworzenia kopii zapasowej całego konta magazynu. 
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
 
-    - `/Source`: Podaj identyfikator URI dla konta magazynu źródłowego (do kontenera).  
+    - `/Source`: Podaj identyfikator URI dla źródłowego konta magazynu (do kontenera).  
     - `/Dest`: Podaj identyfikator URI dla docelowego konta magazynu (do kontenera).  
-    - `/SourceKey`: Podaj klucz podstawowy dla konta magazynu źródłowego. Ten klucz można skopiować z witryny Azure portal, wybierając konto magazynu.  
-    - `/DestKey`: Podaj klucz podstawowy dla docelowego konta magazynu. Ten klucz można skopiować z portalu, wybierając konto magazynu.
+    - `/SourceKey`: Podaj klucz podstawowy dla konta magazynu źródłowego. Możesz skopiować ten klucz z Azure Portal, wybierając konto magazynu.  
+    - `/DestKey`: Podaj klucz podstawowy dla docelowego konta magazynu. Możesz skopiować ten klucz z portalu, wybierając konto magazynu.
 
 Po uruchomieniu tego polecenia pliki kontenera są przenoszone na docelowe konto magazynu.
 
 > [!NOTE]
-> AzCopy CLI nie działa razem z **przełącznikiem wzorzec** podczas kopiowania z jednego obiektu blob platformy Azure do innego.
+> Interfejs wiersza polecenia AzCopy nie współpracuje ze specyfikatorem **wzorca** podczas kopiowania z jednego obiektu blob platformy Azure do innego.
 >
-> Można bezpośrednio skopiować i edytować polecenie AzCopy i sprawdzić krzyżowo, aby upewnić się, że **wzorzec** pasuje do źródła. Upewnij się również, że **/S** symbole wieloznaczne są w mocy. Aby uzyskać więcej informacji, zobacz [parametry AzCopy](storage-use-azcopy.md).
+> Można bezpośrednio kopiować i edytować polecenie AzCopy oraz sprawdzać krzyżowo, aby upewnić się, że **wzorzec** jest zgodny ze źródłem. Upewnij **się również, że** symbole wieloznaczne są włączone. Aby uzyskać więcej informacji, zobacz [Parametry AzCopy](storage-use-azcopy.md).
 
-**Jak wykonać zapasowy magazynu plików platformy Azure?**
+**Jak mogę utworzyć kopii zapasowej usługi Azure File Storage?**
 
-Nie ma rozwiązania do tworzenia kopii zapasowych. Jednak usługa Azure Files obsługuje również kopię asynchronizacjową. Tak, można kopiować pliki:
+Nie istnieje rozwiązanie do tworzenia kopii zapasowych. Jednak Azure Files obsługuje również kopiowanie asynchroniczne. Można więc kopiować pliki:
 
-- Od udziału do innego udziału na koncie magazynu lub do innego konta magazynu.
+- Z udziału w innym udziale w ramach konta magazynu lub na inne konto magazynu.
 
-- Z udziału do kontenera obiektu blob w ramach konta magazynu lub do innego konta magazynu.
+- Z udziału do kontenera obiektów BLOB w ramach konta magazynu lub na inne konto magazynu.
 
-Aby uzyskać więcej informacji, zobacz [Przenoszenie danych za pomocą programu AzCopy w systemie Windows](storage-use-azcopy.md).
-## <a name="configuration"></a>Konfigurowanie
+Aby uzyskać więcej informacji, zobacz [transfer danych za pomocą usługi AzCopy w systemie Windows](storage-use-azcopy.md).
+## <a name="configuration"></a>Konfiguracja
 
-**Jak zmienić lokalizację pomocniczą na region Europy dla konta magazynu?**
+**Jak mogę zmienić lokalizację dodatkową na Region Europa dla konta magazynu?**
 
-Podczas tworzenia konta magazynu należy wybrać region podstawowy dla konta. Wybór regionu pomocniczego jest oparty na regionie podstawowym i nie można go zmienić. Aby uzyskać więcej informacji, zobacz [Magazyn geograficznie nadmiarowy (GRS): Replikacja międzyregionalna dla usługi Azure Storage](storage-redundancy.md).
+Podczas tworzenia konta magazynu należy wybrać region podstawowy dla konta. Wybór regionu pomocniczego jest oparty na regionie podstawowym i nie można go zmienić. Aby uzyskać więcej informacji, zobacz [Magazyn Geograficznie nadmiarowy (GRS): replikacja między regionami w ramach usługi Azure Storage](storage-redundancy.md).
 
-**Gdzie można uzyskać więcej informacji na temat szyfrowania usługi Azure Storage Service (SSE)?**  
+**Gdzie można uzyskać więcej informacji na temat platformy Azure szyfrowanie usługi Storage (SSE)?**  
 
 Zobacz następujące artykuły:
 
--  [Przewodnik po zabezpieczeniach usługi Azure Storage](../blobs/security-recommendations.md)
+-  [Azure Storage security guide (Przewodnik po zabezpieczeniach usługi Azure Storage)](../blobs/security-recommendations.md)
 
--  [Szyfrowanie usługi Usługi Azure Storage dla danych w spoczynku](storage-service-encryption.md)
+-  [szyfrowanie usługi Storage platformy Azure dla danych magazynowanych](storage-service-encryption.md)
 
-**Jak zaszyfrować dane na koncie magazynu?**
+**Jak mogę zaszyfrować dane na koncie magazynu?**
 
 Po włączeniu szyfrowania na koncie magazynu istniejące dane nie są szyfrowane. Aby zaszyfrować istniejące dane, należy przekazać je ponownie na konto magazynu.
 
-Użyj AzCopy, aby skopiować dane do innego konta magazynu, a następnie przenieść dane z powrotem. Można również użyć [szyfrowania w spoczynku](storage-service-encryption.md).
+Użyj AzCopy, aby skopiować dane na inne konto magazynu, a następnie ponownie Przenieś dane. Można również użyć [szyfrowania w stanie spoczynku](storage-service-encryption.md).
 
-**Czy istnieją wymagania wstępne dotyczące zmiany replikacji konta magazynu z magazynu geograficznie nadmiarowego na magazyn lokalnie nadmiarowy?**
+**Czy istnieją jakieś wymagania wstępne dotyczące zmiany replikacji konta magazynu z magazynu geograficznie nadmiarowego na magazyn lokalnie nadmiarowy?**
 
 Nie.
 
-**Jak przekonwertować na usługę Azure Premium Storage dla udziału plików?**
+**Jak mogę skonwertować do Premium Storage platformy Azure dla udziału plików?**
 
-Magazyn w wersji Premium nie jest dozwolony w udziale plików platformy Azure.
+Premium Storage nie jest dozwolony w udziale plików platformy Azure.
 
-**Jak uaktualnić standardowe konto magazynu do konta magazynu w wersji Premium? Jak przejść z konta magazynu w wersji premium na standardowe konto magazynu?**
+**Jak mogę uaktualnić konto magazynu w warstwie Standardowa do konta magazynu w warstwie Premium? Jak mogę obniżanie poziomu konta magazynu w warstwie Premium do konta magazynu w warstwie Standardowa?**
 
-Należy utworzyć konto magazynu docelowego, skopiować dane z konta źródłowego do konta docelowego, a następnie usunąć konto źródłowe. Do skopiowania danych można użyć narzędzia, takiego jak AzCopy.
+Należy utworzyć docelowe konto magazynu, skopiować dane z konta źródłowego na konto docelowe, a następnie usunąć konto źródłowe. Aby skopiować dane, można użyć narzędzia, takiego jak AzCopy.
 
-Jeśli masz maszyny wirtualne, należy podjąć dodatkowe kroki przed migracją danych konta magazynu. Aby uzyskać więcej informacji, zobacz [Migracja do usługi Azure Premium Storage (dyski niezarządzane).](storage-migration-to-premium-storage.md)
+Jeśli masz maszyny wirtualne, musisz wykonać dodatkowe czynności przed przeprowadzeniem migracji danych konta magazynu. Aby uzyskać więcej informacji, zobacz [Migrowanie do usługi Azure Premium Storage (dysków niezarządzanych)](storage-migration-to-premium-storage.md).
 
-**Jak przyznać innym osobom dostęp do moich zasobów pamięci masowej?**
+**Jak umożliwić innym osobom dostęp do zasobów magazynu?**
 
-Aby zapewnić innym osobom dostęp do zasobów magazynu:
+Aby umożliwić innym osobom dostęp do zasobów magazynu:
 
 -   Użyj tokenu sygnatury dostępu współdzielonego (SAS), aby zapewnić dostęp do zasobu.
 
 -   Podaj użytkownikowi klucz podstawowy lub pomocniczy dla konta magazynu. Aby uzyskać więcej informacji, zobacz [Zarządzanie kluczami dostępu do konta magazynu](storage-account-keys-manage.md).
 
--   Zmień zasady dostępu, aby zezwolić na dostęp anonimowy. Aby uzyskać więcej informacji, zobacz [Udzielanie użytkownikom anonimowym uprawnień do kontenerów i obiektów blob.](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs)
+-   Zmień zasady dostępu, aby zezwolić na dostęp anonimowy. Aby uzyskać więcej informacji, zobacz [udzielanie użytkownikom anonimowym uprawnień do kontenerów i obiektów BLOB](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
-**Gdzie jest zainstalowany AzCopy?**
+**Gdzie jest zainstalowana AzCopy?**
 
--   Jeśli uzyskujesz dostęp do programu AzCopy z wiersza polecenia usługi Microsoft Azure Storage, wpisz **AzCopy**. Wiersz polecenia jest zainstalowany obok AzCopy.
+-   Jeśli uzyskujesz dostęp do AzCopy z wiersza polecenia Microsoft Azure Storage, wpisz **AzCopy**. Wiersz polecenia jest instalowany razem z AzCopy.
 
--   Jeśli zainstalowano wersję 32-bitową, znajduje się tutaj: **\\%ProgramFiles(x86)%\\\\Microsoft SDKs Azure AzCopy**.
+-   Jeśli zainstalowano wersję 32-bitową, znajduje się ona tutaj: **% ProgramFiles (x86)\\% Microsoft\\SDK\\Azure AzCopy**.
 
--   Jeśli zainstalowano wersję 64-bitową, znajduje się tutaj: **\\%ProgramFiles%\\\\Microsoft SDKs Azure AzCopy**.
+-   Jeśli zainstalowano wersję 64-bitową, znajduje się ona tutaj: **% ProgramFiles\\% Microsoft\\SDK\\Azure AzCopy**.
 
-**Jak używać domeny niestandardowej HTTPS z kontem magazynu? Na przykład, jak sprawić,\/aby "https: /mystorageaccountname.blob.core.windows.net/images/image.gif" były\/wyświetlane jako "https: /www.contoso.com/images/image.gif"?**
+**Jak mogę użyć domeny niestandardowej protokołu HTTPS z kontem magazynu? Na przykład jak utworzyć "https:\//mystorageaccountname.blob.Core.Windows.net/images/Image.gif" jako "https:\//www.contoso.com/images/Image.gif"?**
 
-TLS/SSL nie jest obecnie obsługiwany na kontach magazynu z domenami niestandardowymi.
-Można jednak używać domen niestandardowych innych niż HTTPS. Aby uzyskać więcej informacji, zobacz [Konfigurowanie niestandardowej nazwy domeny dla punktu końcowego magazynu obiektów Blob](../blobs/storage-custom-domain-name.md).
+Protokoły TLS/SSL nie są obecnie obsługiwane na kontach magazynu z domenami niestandardowymi.
+Można jednak używać domen niestandardowych innych niż HTTPS. Aby uzyskać więcej informacji, zobacz [Konfigurowanie niestandardowej nazwy domeny dla punktu końcowego usługi BLOB Storage](../blobs/storage-custom-domain-name.md).
 
-## <a name="access-to-storage"></a>Dostęp do pamięci masowej
+## <a name="access-to-storage"></a>Dostęp do magazynu
 
-**Jak zamapować folder kontenera na maszynie wirtualnej?**
+**Jak mogę zmapować folderu kontenerów na maszynę wirtualną?**
 
 Użyj udziału plików platformy Azure.
 
-**Jak uzyskać dostęp do nadmiarowego magazynu usługi Azure Files?**
+**Jak mogę dostępu Azure Files magazynu nadmiarowego?**
 
-Dostęp do odczytu magazynu geograficznego nadmiarowego jest wymagany do uzyskania dostępu do magazynu nadmiarowego. Jednak usługa Azure Files obsługuje tylko lokalnie nadmiarowy magazyn i standardowy magazyn geograficznie nadmiarowy, który nie zezwala na dostęp tylko do odczytu.
+Magazyn Geograficznie nadmiarowy do odczytu jest wymagany w celu uzyskania dostępu do magazynu nadmiarowego. Jednak Azure Files obsługuje tylko Magazyn lokalnie nadmiarowy i standardowy magazyn Geograficznie nadmiarowy, który nie zezwala na dostęp tylko do odczytu.
 
-**W przypadku konta magazynu replikowanego (takiego jak magazyn strefowy nadmiarowy, magazyn geograficznie nadmiarowy lub magazyn geograficzny dostępu do odczytu) mogę uzyskać dostęp do danych przechowywanych w regionie pomocniczym?**
+**W jaki sposób można uzyskać dostęp do danych przechowywanych w regionie pomocniczym dla zreplikowanego konta magazynu (takiego jak magazyn strefowo nadmiarowy, magazyn Geograficznie nadmiarowy lub magazyn Geograficznie nadmiarowy do odczytu).**
 
--   Jeśli używasz magazynu strefowo nadmiarowego lub magazynu geograficznie nadmiarowego, nie możesz uzyskać dostępu do danych z regionu pomocniczego, chyba że zainicjujesz pracę awaryjną w tym regionie. Aby uzyskać więcej informacji na temat procesu pracy awaryjnej, zobacz [Odzyskiwanie po awarii i przetwarzanie awaryjne konta magazynu (w wersji zapoznawczej) w usłudze Azure Storage](storage-disaster-recovery-guidance.md).
+-   W przypadku korzystania z magazynu Strefowo nadmiarowego lub magazynu geograficznie nadmiarowego nie można uzyskać dostępu do danych z regionu pomocniczego, chyba że zostanie zainicjowany tryb failover w tym regionie. Aby uzyskać więcej informacji na temat procesu przełączania do trybu failover, zobacz [odzyskiwanie po awarii i konto magazynu w trybie failover (wersja zapoznawcza) w usłudze Azure Storage](storage-disaster-recovery-guidance.md).
 
--   Jeśli używasz magazynu geograficznego dostępu do odczytu, możesz w dowolnym momencie uzyskać dostęp do danych z regionu pomocniczego. Użyj jednej z następujących metod:  
+-   W przypadku korzystania z magazynu geograficznie nadmiarowego dostępnego do odczytu można w dowolnym momencie uzyskać dostęp do danych z regionu pomocniczego. Użyj jednej z następujących metod:  
 
-    - **AzCopy**: Dołącz **-secondary** do nazwy konta magazynu w adresie URL, aby uzyskać dostęp do pomocniczego punktu końcowego. Przykład:  
+    - **AzCopy**: Dołącz do nazwy konta magazynu w adresie URL **, aby uzyskać** dostęp do pomocniczego punktu końcowego. Przykład:  
 
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **Sygnatura dostępu**Współdzielonego: Użyj tokenu sygnatury dostępu, aby uzyskać dostęp do danych z punktu końcowego. Aby uzyskać więcej informacji, zobacz [Korzystanie z podpisów dostępu współdzielonego](storage-sas-overview.md).
+    - **Token SAS**: Użyj tokenu sygnatury dostępu współdzielonego, aby uzyskać dostęp do danych z punktu końcowego. Aby uzyskać więcej informacji, zobacz [Używanie sygnatur dostępu współdzielonego](storage-sas-overview.md).
 
-**Jak korzystać z protokołu FTP w celu uzyskania dostępu do danych, które są na koncie magazynu?**
+**Jak mogę używać protokołu FTP do uzyskiwania dostępu do danych znajdujących się na koncie magazynu?**
 
-Nie ma możliwości bezpośredniego dostępu do konta magazynu przy użyciu protokołu FTP. Można jednak skonfigurować maszynę wirtualną platformy Azure, a następnie zainstalować serwer FTP na maszynie wirtualnej. Pliki magazynu serwera FTP mogą mieć w udziale usługi Azure Files lub na dysku danych, który jest dostępny dla maszyny wirtualnej.
+Nie ma możliwości uzyskania dostępu do konta magazynu bezpośrednio przy użyciu protokołu FTP. Można jednak skonfigurować maszynę wirtualną platformy Azure, a następnie zainstalować na niej serwer FTP. Serwer FTP może przechowywać pliki w udziale Azure Files lub na dysku z danymi, który jest dostępny dla maszyny wirtualnej.
 
-Jeśli chcesz pobierać tylko dane bez konieczności korzystania z Eksploratora magazynu lub podobnej aplikacji, możesz użyć tokenu sygnatury dostępu Współdzielonego. Aby uzyskać więcej informacji, zobacz [Korzystanie z podpisów dostępu współdzielonego](storage-sas-overview.md).
+Jeśli chcesz tylko pobrać dane bez konieczności używania Eksplorator usługi Storage lub podobnej aplikacji, może być możliwe użycie tokenu SAS. Aby uzyskać więcej informacji, zobacz [Używanie sygnatur dostępu współdzielonego](storage-sas-overview.md).
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Skontaktuj się z pomocą techniczną.
 

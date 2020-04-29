@@ -1,6 +1,6 @@
 ---
-title: Aktualizacje i uaktualnienia składników w usłudze Azure Site Recovery
-description: Zawiera omówienie aktualizacji usługi Azure Site Recovery i uaktualnień składników.
+title: Aktualizacje i uaktualnienia składników w Azure Site Recovery
+description: Zawiera omówienie aktualizacji usług Azure Site Recovery i uaktualnień składników.
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
@@ -8,137 +8,137 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.openlocfilehash: 3489f7f812798504d0c57a265a04e57344105419
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257825"
 ---
-# <a name="service-updates-in-site-recovery"></a>Aktualizacje usługi w odzyskiwaniu witryn
+# <a name="service-updates-in-site-recovery"></a>Aktualizacje usługi w Site Recovery
 
-W tym artykule przedstawiono omówienie aktualizacji [usługi Azure Site Recovery](site-recovery-overview.md) i opisano sposób uaktualniania składników usługi Site Recovery.
+Ten artykuł zawiera omówienie aktualizacji [Azure Site Recovery](site-recovery-overview.md) i opisuje sposób uaktualniania składników Site Recovery.
 
-Usługa Site Recovery regularnie publikuje aktualizacje usług. Aktualizacje obejmują nowe funkcje, ulepszenia pomocy technicznej, aktualizacje składników i poprawki błędów. Aby korzystać z najnowszych funkcji i poprawek, zalecamy uruchomienie najnowszych wersji składników usługi Site Recovery. 
+Site Recovery regularnie publikuje aktualizacje usługi. Aktualizacje obejmują nowe funkcje, ulepszenia obsługi, aktualizacje składników i poprawki błędów. Aby móc korzystać z najnowszych funkcji i poprawek, zalecamy korzystanie z najnowszych wersji składników Site Recovery. 
  
  
 ## <a name="updates-support"></a>Obsługa aktualizacji
 
-### <a name="support-statement-for-azure-site-recovery"></a>Instrukcja pomocy technicznej dla usługi Azure Site Recovery
+### <a name="support-statement-for-azure-site-recovery"></a>Deklaracja wsparcia dla Azure Site Recovery
 
-Zalecamy zawsze uaktualnianie do najnowszych wersji komponentów:
+Zalecamy zawsze uaktualnienie do najnowszej wersji składników:
 
-**Z każdą nową wersją 'N' składnika usługi Azure Site Recovery, który został wydany, wszystkie wersje poniżej "N-4" są uważane za niewsporcie.** 
+**W przypadku każdej nowej wersji "n" wydanego składnika Azure Site Recovery wszystkie wersje poniżej "n-4" są uznawane za nieobsługiwane**. 
 
 > [!IMPORTANT]
-> Oficjalna pomoc techniczna jest dla aktualizacji z > wersji N-4 do wersji N. Na przykład, jeśli korzystasz z N-6, musisz najpierw uaktualnić do N-4, a następnie uaktualnić do N.
+> Oficjalne wsparcie dotyczy uaktualniania programu z wersji > N-4 do N wersji. Jeśli na przykład korzystasz z wersji N-6, musisz najpierw przeprowadzić uaktualnienie do wersji N-4, a następnie uaktualnić do N.
 
 
-### <a name="links-to-currently-supported-update-rollups"></a>Łącza do aktualnie obsługiwanych pakietów zbiorczych aktualizacji
+### <a name="links-to-currently-supported-update-rollups"></a>Linki do obecnie obsługiwanych pakietów zbiorczych aktualizacji
 
- Przejrzyj najnowszy pakiet zbiorczy aktualizacji (wersja N) w [tym artykule](site-recovery-whats-new.md). Należy pamiętać, że odzysk witryny zapewnia obsługę wersji N-4.
+ Zapoznaj się z najnowszym pakietem zbiorczym aktualizacji (wersja N) w [tym artykule](site-recovery-whats-new.md). Należy pamiętać, że Site Recovery zapewnia obsługę wersji N-4.
 
 
 
 ## <a name="component-expiry"></a>Wygaśnięcie składnika
 
-Usługa Site Recovery powiadamia użytkownika o wygasłych składnikach (lub zbliżających się wygaśnięciu) pocztą e-mail (jeśli zasubskrybujesz powiadomienia e-mail) lub na pulpicie nawigacyjnym magazynu w portalu.
+Site Recovery powiadamia o wygasłych składnikach (lub bliskich wygaśnięcia) poczty e-mail (Jeśli subskrybujesz powiadomienia e-mail) lub na pulpicie nawigacyjnym magazynu w portalu.
 
-- Ponadto gdy aktualizacje są dostępne, w widoku infrastruktury dla scenariusza w portalu obok składnika pojawi się przycisk **Aktualizuj dostępne.** Ten przycisk przekierowuje do łącza do pobrania najnowszej wersji składnika.
--  Powiadomienia pulpitu nawigacyjnego przechowalni nie są dostępne w przypadku replikowania maszyn wirtualnych funkcji Hyper V. 
+- Ponadto gdy aktualizacje są dostępne, w widoku infrastruktura dla danego scenariusza w portalu, obok składnika zostanie wyświetlony przycisk **Aktualizuj dostępne** . Ten przycisk przekierowuje do linku do pobrania najnowszej wersji składnika.
+-  Powiadomienia pulpitu nawigacyjnego dla magazynów nie są dostępne w przypadku replikowania maszyn wirtualnych funkcji Hyper-V. 
 
 Powiadomienia e-mail są wysyłane w następujący sposób.
 
-**Czas** | **Częstotliwości**
+**Pierwszym** | **Częstotliwość**
 --- | ---
-60 dni przed wygaśnięciem składnika | Raz dwa razy w tygodniu
+60 dni przed wygaśnięciem składnika | Raz w tygodniu
 Następne 53 dni | Raz w tygodniu
 Ostatnie 7 dni | raz dziennie
-Po wygaśnięciu | Raz dwa razy w tygodniu
+Po wygaśnięciu | Raz w tygodniu
 
 
-### <a name="upgrading-outside-official-support"></a>Modernizacja poza oficjalnym wsparciem
+### <a name="upgrading-outside-official-support"></a>Uaktualnianie poza oficjalną pomocą techniczną
 
-Jeśli różnica między wersją składnika a najnowszą wersją jest większa niż cztery, jest to uważane za niew pomocy technicznej. W takim przypadku uaktualnij w następujący sposób: 
+Jeśli różnica między wersją składnika a najnowszą wersją jest większa niż 4, jest to uznawane za pomoc techniczną. W takim przypadku należy przeprowadzić uaktualnienie w następujący sposób: 
 
-1. Uaktualnienie aktualnie zainstalowanego składnika do bieżącej wersji plus cztery. Na przykład jeśli wersja, jeśli 9.16, a następnie uaktualnić do 9.20.
-2. Następnie uaktualnij do następnej zgodnej wersji. Tak więc w naszym przykładzie, po uaktualnieniu 9.16 do 9.20, uaktualnienie do 9.24. 
+1. Uaktualnij aktualnie zainstalowany składnik do bieżącej wersji plus cztery. Na przykład jeśli Twoja wersja jest 9,16, a następnie przeprowadź uaktualnienie do 9,20.
+2. Następnie przejdź do następnej zgodnej wersji. W naszym przykładzie po uaktualnieniu 9,16 do 9,20 należy przeprowadzić uaktualnienie do 9,24. 
 
-Postępuj zgodnie z tym samym procesem dla wszystkich odpowiednich składników.
+Wykonaj ten sam proces dla wszystkich odpowiednich składników.
 
-### <a name="support-for-latest-operating-systemskernels"></a>Obsługa najnowszych systemów operacyjnych/jąder
+### <a name="support-for-latest-operating-systemskernels"></a>Obsługa najnowszych systemów operacyjnych/jądra
 
 > [!NOTE]
-> Jeśli masz zaplanowane okno konserwacji i znajduje się w nim ponowne uruchomienie, zaleca się najpierw uaktualnienie składników odzyskiwania witryny, a następnie kontynuowanie pozostałych zaplanowanych działań w oknie konserwacji.
+> Jeśli zaplanowano okno obsługi i w nim znajduje się ponowny rozruch, zalecamy najpierw uaktualnić składniki Site Recovery, a następnie kontynuować pracę z pozostałą częścią zaplanowanych działań w oknie obsługi.
 
-1. Przed uaktualnieniem wersji systemu operacyjnego/jądra sprawdź, czy wersja docelowa jest obsługiwana przez odzyskiwanie witryny. 
+1. Przed uaktualnieniem systemu operacyjnego/wersji jądra Sprawdź, czy wersja docelowa jest obsługiwana Site Recovery. 
 
-    - Obsługa [maszyny wirtualnej platformy Azure.](azure-to-azure-support-matrix.md#replicated-machine-operating-systems)
-    - [Obsługa serwerów VMware/fizycznego](vmware-physical-azure-support-matrix.md#replicated-machines)
-    - Obsługa [funkcji Hyper-V.](hyper-v-azure-support-matrix.md#replicated-vms)
-2. Przejrzyj [dostępne aktualizacje,](site-recovery-whats-new.md) aby dowiedzieć się, co chcesz uaktualnić.
-3. Uaktualnienie do najnowszej wersji usługi Site Recovery.
+    - Obsługa [maszyn wirtualnych platformy Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) .
+    - Obsługa oprogramowania [VMware/serwera fizycznego](vmware-physical-azure-support-matrix.md#replicated-machines)
+    - Obsługa [funkcji Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms) .
+2. Przejrzyj [dostępne aktualizacje](site-recovery-whats-new.md) , aby dowiedzieć się, co chcesz uaktualnić.
+3. Uaktualnij do najnowszej wersji Site Recovery.
 4. Uaktualnij system operacyjny/jądro do wymaganych wersji.
-5. Ponownie obuwać.
+5. Ponowne uruchomienie.
 
 
-Ten proces gwarantuje, że system operacyjny komputera/jądro zostanie uaktualniony do najnowszej wersji i że najnowsze zmiany w układzie odzyskiwania lokacji potrzebne do obsługi nowej wersji są ładowane na komputerze.
+Ten proces zapewnia, że system operacyjny komputera/jądro zostanie uaktualnione do najnowszej wersji, a najnowsze Site Recovery zmiany, które są konieczne do obsługi nowej wersji, są ładowane na komputerze.
 
 ## <a name="azure-vm-disaster-recovery-to-azure"></a>Odzyskiwanie po awarii maszyn wirtualnych platformy Azure na platformę Azure
 
-W tym scenariuszu zdecydowanie zaleca się [włączenie aktualizacji automatycznych](azure-to-azure-autoupdate.md). Można zezwolić funkcji Site Recovery na zarządzanie aktualizacjami w następujący sposób:
+W tym scenariuszu zdecydowanie zalecamy [włączenie aktualizacji automatycznych](azure-to-azure-autoupdate.md). Można zezwolić Site Recovery na zarządzanie aktualizacjami w następujący sposób:
 
 - Podczas procesu włączania replikacji.
-- Ustawiając ustawienia aktualizacji rozszerzenia wewnątrz przechowalni.
+- Ustawiając ustawienia aktualizacji rozszerzenia w magazynie.
 
 Jeśli chcesz ręcznie zarządzać aktualizacjami, wykonaj następujące czynności:
 
-1. W przechowalni > **elementy replikowane**kliknij to powiadomienie u góry ekranu: 
+1. W magazynie > **zreplikowane elementy**kliknij to powiadomienie w górnej części ekranu: 
     
-    **Dostępna jest nowa aktualizacja agenta replikacji odzyskiwania witryny. Kliknij, aby zainstalować ->**
+    **Dostępna jest nowa aktualizacja agenta Site Recovery replikacji. Kliknij, aby zainstalować >**
 
-4. Wybierz maszyny wirtualne, dla których chcesz zastosować aktualizację, a następnie kliknij przycisk **OK**.
+4. Wybierz Maszyny wirtualne, dla których chcesz zastosować aktualizację, a następnie kliknij przycisk **OK**.
 
 
-## <a name="vmware-vmphysical-server-disaster-recovery-to-azure"></a>Odzyskiwanie po awarii vmware VMware VM/server physical server na platformie Azure
+## <a name="vmware-vmphysical-server-disaster-recovery-to-azure"></a>Odzyskiwanie maszyn wirtualnych VMware/serwerów fizycznych na platformę Azure
 
-1. Na podstawie bieżącej wersji i [instrukcji pomocy technicznej](#support-statement-for-azure-site-recovery)należy najpierw zainstalować aktualizację na lokalnym serwerze konfiguracyjnym, korzystając z tych [instrukcji](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server). 
-2. Jeśli masz serwery procesów skalowanych w poziomie, zaktualizuj je dalej, korzystając z [tych instrukcji](vmware-azure-manage-process-server.md#upgrade-a-process-server).
-3. Aby zaktualizować agenta mobilności na każdym chronionym komputerze, zapoznaj się z [tym](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) artykułem.
+1. W oparciu o bieżącą wersję i [instrukcję pomocy technicznej](#support-statement-for-azure-site-recovery)Zainstaluj najpierw aktualizację na lokalnym serwerze konfiguracji, korzystając z [tych instrukcji](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server). 
+2. Jeśli masz skalowalne w poziomie serwery procesów, zaktualizuj je dalej, korzystając z [tych instrukcji](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+3. Aby zaktualizować agenta mobilności na każdej chronionej maszynie, zapoznaj się z [tym](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) artykułem.
 
-### <a name="reboot-after-mobility-service-upgrade"></a>Ponowne uruchomienie po uaktualnieniu usługi mobilności
+### <a name="reboot-after-mobility-service-upgrade"></a>Uruchom ponownie po uaktualnieniu usługi mobilności
 
-Po każdym uaktualnieniu usługi mobilności zaleca się ponowne uruchomienie komputera, aby upewnić się, że wszystkie najnowsze zmiany są ładowane na komputerze źródłowym.
+Zaleca się ponowne uruchomienie po każdym uaktualnieniu usługi mobilności, aby upewnić się, że wszystkie najnowsze zmiany są ładowane na maszynie źródłowej.
 
-Ponowne uruchomienie nie jest obowiązkowe, chyba że różnica między wersją agenta podczas ostatniego ponownego uruchomienia a bieżącą wersją jest większa niż cztery.
+Nie jest wymagany ponowny rozruch, chyba że różnica między wersją agenta podczas ostatniego ponownego rozruchu a bieżącą wersją jest większa niż 4.
 
 W przykładzie w tabeli pokazano, jak to działa.
 
-|**Wersja agenta (ostatni restart)** | **Uaktualnienie do** | **Obowiązkowy restart?**|
+|**Wersja agenta (ostatni ponowny rozruch)** | **Uaktualnienie do** | **Obowiązkowy ponowny rozruch?**|
 |---------|---------|---------|
-|9.16 |  9.18 | Nieojasze|
-|9.16 | 9.19 | Nieojasze|
-| 9.16 | 9.20 | Nieojasze
- | 9.16 | 9.21 | Obowiązkowy.<br/><br/> Uaktualnij do 9.20, a następnie uruchom ponownie przed uaktualnieniem do 9.21.
+|9,16 |  9,18 | Nieobowiązkowe|
+|9,16 | 9,19 | Nieobowiązkowe|
+| 9,16 | 9,20 | Nieobowiązkowe
+ | 9,16 | 9,21 | Obowiązkowy.<br/><br/> Uaktualnij program do wersji 9,20, a następnie uruchom ponownie przed uaktualnieniem do wersji 9,21.
 
 ## <a name="hyper-v-vm-disaster-recovery-to-azure"></a>Odzyskiwanie po awarii maszyn wirtualnych funkcji Hyper-V na platformę Azure
 
-### <a name="between-a-hyper-v-site-and-azure"></a>Między witryną funkcji Hyper-V a platformą Azure
+### <a name="between-a-hyper-v-site-and-azure"></a>Między lokacją funkcji Hyper-V i platformą Azure
 
-1. Pobierz aktualizację dla dostawcy odzyskiwania witryny platformy Microsoft Azure.
-2. Zainstaluj dostawcę na każdym serwerze funkcji Hyper-V zarejestrowanym w programie Site Recovery. Jeśli używasz klastra, uaktualnij wszystkie węzły klastra.
-
-
-## <a name="between-an-on-premises-vmm-site-and-azure"></a>Między lokalną lokacją programu VMM a platformą Azure
-1. Pobierz aktualizację dla dostawcy odzyskiwania witryny platformy Microsoft Azure.
-2. Zainstaluj dostawcę na serwerze programu VMM. Jeśli program VMM jest wdrożony w klastrze, zainstaluj dostawcę we wszystkich węzłach klastra.
-3. Zainstaluj najnowszy agent usług odzyskiwania platformy Microsoft Azure we wszystkich hostach funkcji Hyper-V lub węzłach klastra.
+1. Pobierz aktualizację dla dostawcy Site Recovery Microsoft Azure.
+2. Zainstaluj dostawcę na każdym serwerze funkcji Hyper-V zarejestrowanym w Site Recovery. Jeśli używasz klastra, Uaktualnij go we wszystkich węzłach klastra.
 
 
-## <a name="between-two-on-premises-vmm-sites"></a>Między dwoma lokalnymi obiektami VMM
-1. Pobierz najnowszą aktualizację dostawcy odzyskiwania witryny platformy Microsoft Azure.
-2. Zainstaluj najnowszego dostawcę na serwerze programu VMM zarządzającego dodatkową lokacją odzyskiwania. Jeśli program VMM jest wdrożony w klastrze, zainstaluj dostawcę we wszystkich węzłach klastra.
+## <a name="between-an-on-premises-vmm-site-and-azure"></a>Między lokalną lokacją programu VMM i platformą Azure
+1. Pobierz aktualizację dla dostawcy Site Recovery Microsoft Azure.
+2. Zainstaluj dostawcę na serwerze programu VMM. Jeśli program VMM został wdrożony w klastrze, zainstaluj go we wszystkich węzłach klastra.
+3. Zainstaluj najnowszego agenta Microsoft Azure Recovery Services na wszystkich hostach funkcji Hyper-V lub w węzłach klastra.
+
+
+## <a name="between-two-on-premises-vmm-sites"></a>Między dwiema lokalnymi lokacjami programu VMM
+1. Pobierz najnowszą aktualizację dla dostawcy Site Recovery Microsoft Azure.
+2. Zainstaluj najnowszego dostawcę na serwerze programu VMM zarządzającym pomocniczą lokacją odzyskiwania. Jeśli program VMM został wdrożony w klastrze, zainstaluj go we wszystkich węzłach klastra.
 3. Po zaktualizowaniu lokacji odzyskiwania zainstaluj dostawcę na serwerze programu VMM, który zarządza lokacją główną.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Śledź naszą stronę [Aktualizacje platformy Azure,](https://azure.microsoft.com/updates/?product=site-recovery) aby śledzić nowe aktualizacje i wydania.
+Postępuj zgodnie z naszą stroną [aktualizacji platformy Azure](https://azure.microsoft.com/updates/?product=site-recovery) , aby śledzić nowe aktualizacje i wydania.

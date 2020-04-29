@@ -1,6 +1,6 @@
 ---
-title: Analizowanie raportu Planisty wdrażania funkcji Hyper-V w usłudze Azure Site Recovery
-description: W tym artykule opisano sposób analizowania raportu wygenerowanego przez planista wdrażania usługi Azure Site Recovery w celu odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V na platformie Azure.
+title: Analizowanie raportu Planista wdrażania funkcji Hyper-V w programie Azure Site Recovery
+description: W tym artykule opisano sposób analizowania raportu wygenerowanego przez Planista wdrażania usługi Azure Site Recovery na potrzeby odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V na platformie Azure.
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257903"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analizowanie raportu Planista wdrażania usługi Azure Site Recovery
@@ -23,7 +23,7 @@ Arkusz podsumowania środowiska lokalnego zawiera omówienie profilowanego środ
 
 ![Podsumowanie środowiska lokalnego](media/hyper-v-deployment-planner-analyze-report/on-premises-summary-h2a.png)
 
-**Data rozpoczęcia** i **data zakończenia:** daty rozpoczęcia i zakończenia danych profilowania uwzględnianych dla generowania raportu. Domyślnie data rozpoczęcia to data rozpoczęcia profilowania, a data zakończenia to data zatrzymania profilowania. Tymi informacjami mogą być wartości „StartDate” i „EndDate”, jeśli raport jest generowany przy użyciu tych parametrów.
+**Data rozpoczęcia** i **Data zakończenia**: daty rozpoczęcia i zakończenia profilowania danych do wygenerowania raportu. Domyślnie data rozpoczęcia to data rozpoczęcia profilowania, a data zakończenia to data zatrzymania profilowania. Tymi informacjami mogą być wartości „StartDate” i „EndDate”, jeśli raport jest generowany przy użyciu tych parametrów.
 
 **Łączna liczba dni profilowania**: całkowita liczba dni profilowania od daty rozpoczęcia do daty zakończenia, dla których jest generowany raport.
 
@@ -35,7 +35,7 @@ Arkusz podsumowania środowiska lokalnego zawiera omówienie profilowanego środ
 
 **Średni rozmiar dysku (GB)**: średni rozmiar dysku obliczany dla wszystkich zgodnych maszyn wirtualnych.
 
-**Żądany cel punktu odzyskiwania (w minutach):** Domyślny cel punktu odzyskiwania lub wartość przekazana dla parametru "DesiredRPO" w czasie generowania raportu w celu oszacowania wymaganej przepustowości.
+**Żądany punkt odzyskiwania (w minutach)**: domyślny cel punktu odzyskiwania lub wartość przekazaną dla parametru "DesiredRPO" podczas generowania raportu w celu oszacowania wymaganej przepustowości.
 
 **Żądana przepustowość (Mb/s)**: przekazana wartość parametru „Bandwidth” podczas generowania raportu umożliwiająca oszacowanie osiągalnego celu punktu odzyskiwania (RPO, recovery point objective).
 
@@ -179,7 +179,7 @@ Raport programu Excel generowany przez Planistę wdrażania usługi Site Recover
 
 **Nazwa maszyny wirtualnej**: nazwa maszyny wirtualnej używana w pliku VMListFile podczas generowania raportu. Ta kolumna obejmuje też dyski (VHD) dołączone do maszyn wirtualnych. Nazwy obejmują nazwy hostów funkcji Hyper-V, na których zostały rozmieszczone maszyny wirtualne po tym, jak narzędzie odnalazło je w trakcie okresu profilowania.
 
-**Zgodność maszyny wirtualnej**: wartości to **Tak** i **Tak**\*. **Tak** \* jest w przypadkach, w których maszyna wirtualna jest odpowiednia dla [najwyższej jakości SSD](../virtual-machines/windows/disks-types.md). Tutaj profilowany dysk o wysokim współczynniku zmian lub dużej liczbie operacji we/wy na sekundę pasuje do rozmiaru dysku w warstwie Premium większego niż rozmiar mapowany do dysku. Decyzja o tym, na jaki typ dysku magazynu Premium będzie mapowany dysk, jest podejmowana na podstawie jego rozmiaru na poziomie konta magazynu: 
+**Zgodność maszyny wirtualnej**: wartości to **Tak** i **Tak**\*. **Tak** \* jest dla wystąpień, w których maszyna wirtualna jest zgodna z [dysków SSD Premium](../virtual-machines/windows/disks-types.md). Tutaj profilowany dysk o wysokim współczynniku zmian lub dużej liczbie operacji we/wy na sekundę pasuje do rozmiaru dysku w warstwie Premium większego niż rozmiar mapowany do dysku. Decyzja o tym, na jaki typ dysku magazynu Premium będzie mapowany dysk, jest podejmowana na podstawie jego rozmiaru na poziomie konta magazynu: 
 * Mniej niż 128 GB — P10.
 * 128 GB do 256 GB — P15.
 * 256 GB do 512 GB — P20.
@@ -187,7 +187,7 @@ Raport programu Excel generowany przez Planistę wdrażania usługi Site Recover
 * 1025 GB do 2048 GB — P40.
 * 2049 GB do 4095 GB — P50.
 
-Na przykład jeśli charakterystyka obciążenia dysku umieścić go w kategorii P20 lub P30, ale rozmiar mapuje go w dół do niższego typu dysku magazynu premium, narzędzie oznacza, że maszyna wirtualna jako **Tak**\*. Narzędzie zaleca również zmianę rozmiaru dysku źródłowego tak, aby mieścił się w zalecanym typie dysku Premium Storage lub zmianę docelowego typu dysku po zakończeniu pracy w trybie failover.
+Na przykład jeśli charakterystyki obciążenia dysku są umieszczone w kategorii P20 lub P30, ale rozmiar mapuje go na niższy typ dysku magazynu Premium, narzędzie oznacza tę maszynę wirtualną jako **tak**\*. Narzędzie zaleca również zmianę rozmiaru dysku źródłowego tak, aby mieścił się w zalecanym typie dysku Premium Storage lub zmianę docelowego typu dysku po zakończeniu pracy w trybie failover.
 
 **Typ magazynu**: dostępne typy magazynu to Standardowa i Premium.
 
@@ -203,7 +203,7 @@ Na przykład jeśli charakterystyka obciążenia dysku umieścić go w kategorii
 
 **Liczba dysków**: łączna liczba dysków (VHD) na maszynie wirtualnej.
 
-**Rozmiar dysku (GB)**: Całkowity rozmiar wszystkich dysków maszyny Wirtualnej. W narzędziu jest też wyświetlany rozmiar poszczególnych dysków maszyny wirtualnej.
+**Rozmiar dysku (GB)**: łączny rozmiar wszystkich dysków maszyny wirtualnej. W narzędziu jest też wyświetlany rozmiar poszczególnych dysków maszyny wirtualnej.
 
 **Rdzenie**: liczba rdzeni procesora CPU maszyny wirtualnej.
 
@@ -246,7 +246,7 @@ Raport programu Excel generowany przez Planistę wdrażania usługi Site Recover
 
 * Liczba źródłowych operacji we/wy na sekundę przekracza obsługiwany limit operacji we/wy na sekundę magazynu wynoszący 80 000 operacji na maszynę wirtualną.
 
-* Średni współczynnik zmian danych źródłowej maszyny Wirtualnej przekracza obsługiwany limit zmian danych odzyskiwania witryny wynoszący 20 MB/s dla średniego rozmiaru we/wy.
+* Średni współczynnik zmian danych źródłowej maszyny wirtualnej przekracza obsługiwany limit zmian danych Site Recovery równy 20 MB/s dla średniego rozmiaru operacji we/wy.
 
 * Średnia liczba operacji we/wy zapisu na sekundę źródłowej maszyny wirtualnej przekracza obsługiwany limit operacji we/wy na sekundę usługi Site Recovery równy 840 operacji.
 
@@ -258,7 +258,7 @@ Raport programu Excel generowany przez Planistę wdrażania usługi Site Recover
 
 **Liczba dysków**: łączna liczba dysków VHD maszyny wirtualnej.
 
-**Rozmiar dysku (GB)**: Całkowity rozmiar konfiguracji wszystkich dysków maszyny Wirtualnej. W narzędziu jest też wyświetlany rozmiar poszczególnych dysków maszyny wirtualnej.
+**Rozmiar dysku (GB)**: łączny rozmiar wszystkich dysków maszyny wirtualnej. W narzędziu jest też wyświetlany rozmiar poszczególnych dysków maszyny wirtualnej.
 
 **Rdzenie**: liczba rdzeni procesora CPU maszyny wirtualnej.
 
@@ -271,7 +271,7 @@ Raport programu Excel generowany przez Planistę wdrażania usługi Site Recover
 ## <a name="azure-site-recovery-limits"></a>Limity usługi Azure Site Recovery
 W poniższej tabeli przedstawiono limity usługi Site Recovery. Limity te są oparte na testach, ale nie obejmują wszystkich możliwych kombinacji operacji we/wy aplikacji. Rzeczywiste wyniki mogą różnić w zależności od kombinacji operacji we/wy aplikacji. Aby uzyskać najlepsze wyniki nawet po zakończeniu planowania wdrożenia, dokładnie przetestuj aplikację przy użyciu testu pracy w trybie failover w celu uzyskania prawdziwych informacji o wydajności aplikacji.
  
-**Miejsce docelowe magazynu replikacji** | **Źródłowy średni rozmiar we/wy maszyny Wirtualnej** |**Źródło zmiany danych średniej maszyny Wirtualnej** | **Łączny współczynnik zmian danych źródłowej maszyny wirtualnej dziennie**
+**Cel magazynu replikacji** | **Średni rozmiar operacji we/wy źródłowej maszyny wirtualnej** |**Średni współczynnik zmian danych źródłowej maszyny wirtualnej** | **Łączny współczynnik zmian danych źródłowej maszyny wirtualnej dziennie**
 ---|---|---|---
 Standard Storage | 8 KB | 2 MB/s na maszynę wirtualną | 168 GB na maszynę wirtualną
 Premium Storage | 8 KB  | 5 MB/s na maszynę wirtualną | 421 GB na maszynę wirtualną
@@ -302,7 +302,7 @@ Arkusz zawiera informacje o łącznym wymaganym wolnym miejscu w magazynie dla k
 
 **Dostępne wolne miejsce (GB)**: wolne miejsce dostępne na woluminie.
 
-**Całkowita ilość miejsca na woluminie (GB)**: Całkowita ilość wolnego miejsca na woluminie do pomyślnej replikacji początkowej i replikacji różnicowej. 
+**Całkowite miejsce do magazynowania wymagane na woluminie (GB)**: całkowita ilość wolnego miejsca do magazynowania wymaganego do pomyślnej replikacji początkowej i replikacji różnicowej. 
 
 **Łączne dodatkowe miejsce w magazynie do aprowizowania na woluminie na potrzeby pomyślnego zakończenia replikacji (GB)**: zalecane łączne dodatkowe miejsce, które należy aprowizować na woluminie, aby zapewnić pomyślne zakończenie replikacji początkowej i replikacji różnicowej.
 
@@ -323,36 +323,36 @@ Jeśli zostanie wykonane zalecenie dotyczące wymaganego magazynu lokalnego dla 
 ### <a name="each-batch-provides-the-following-information"></a>Każda partia udostępnia następujące informacje: 
 **Host funkcji Hyper-V**: host funkcji Hyper-V maszyny wirtualnej do objęcia ochroną.
 
-**Maszyna wirtualna:** maszyna wirtualna, która ma być chroniona. 
+**Maszyna wirtualna**: maszynę wirtualną, która ma być chroniona. 
 
 **Komentarze**: jeśli w przypadku określonego woluminu maszyny wirtualnej wymagane jest wykonanie akcji, w tym miejscu znajduje się komentarz. Jeśli na przykład ilość wolnego miejsca dostępnego na woluminie jest niewystarczająca, tekst komentarza jest następujący: „Dodaj dodatkowy magazyn, aby chronić tę maszynę wirtualną”.
 
 **Wolumin (ścieżka dysku VHD)**: nazwa woluminu, na którym znajdują się dyski VHD maszyny wirtualnej. 
 
-**Wolne miejsce dostępne na woluminie (GB)**: Wolne miejsce na dysku dostępne na woluminie dla maszyny Wirtualnej. Podczas obliczania wolnego miejsca dostępnego na woluminach jest uwzględniane miejsce na dysku używane do replikacji różnicowej przez maszyny wirtualne z poprzednich partii, których dyski VHD znajdują się na tym samym woluminie. 
+**Wolne miejsce dostępne na woluminie (GB)**: wolne miejsce na dysku dostępne na woluminie dla maszyny wirtualnej. Podczas obliczania wolnego miejsca dostępnego na woluminach jest uwzględniane miejsce na dysku używane do replikacji różnicowej przez maszyny wirtualne z poprzednich partii, których dyski VHD znajdują się na tym samym woluminie. 
 
 Na przykład maszyny VM1, VM2 i VM3 znajdują się na woluminie E:\VHDpath. Przed replikacją wolne miejsce na woluminie wynosi 500 GB. Maszyna VM1 jest częścią partii 1, maszyna VM2 jest częścią partii 2, a maszyna VM3 jest częścią partii 3. W przypadku maszyny VM1 dostępne wolne miejsce wynosi 500 GB. W przypadku maszyny VM2 dostępne wolne miejsce wynosi 500 — miejsce na dysku wymagane dla replikacji różnicowej maszyny VM1. Jeśli maszyna VM1 wymaga 300 GB miejsca dla replikacji różnicowej, wolne miejsce dostępne dla maszyny VM2 wynosi 500 GB - 300 GB = 200 GB. Podobnie maszyna VM2 wymaga 300 GB dla replikacji różnicowej. Wolne miejsce dostępne dla maszyny VM3 wynosi 200 GB - 300 GB = -100 GB.
 
 **Magazyn na woluminie wymagany dla replikacji początkowej (GB)**: wolne miejsce do magazynowania wymagane na woluminie dla maszyny wirtualnej do pomyślnego zakończenia replikacji początkowej i replikacji różnicowej.
 
-**Magazyn wymagany na woluminie dla replikacji różnicowej (GB)**: Wolne miejsce wymagane na woluminie dla maszyny Wirtualnej dla replikacji różnicowej.
+**Magazyn wymagany na woluminie na potrzeby replikacji różnicowej (GB)**: wolne miejsce do magazynowania wymagane na woluminie dla maszyny wirtualnej na potrzeby replikacji różnicowej.
 
 **Wymagany dodatkowy magazyn oparty na niedoborze umożliwiający uniknięcie niepowodzenia replikacji (GB)**: dodatkowe wymagane miejsce na woluminie dla maszyny wirtualnej. Jest to maksymalna wartość wymaganego miejsca do magazynowania na potrzeby replikacji początkowej i replikacji różnicowej pomniejszona o wolne miejsce dostępne na woluminie.
 
 **Minimalna przepustowość wymagana dla replikacji początkowej (Mb/s)**: minimalna przepustowość wymagana na potrzeby replikacji początkowej dla maszyny wirtualnej.
 
-**Minimalna przepustowość wymagana dla replikacji różnicowej (Mb/s)**: Minimalna przepustowość wymagana dla replikacji różnicowej dla maszyny Wirtualnej.
+**Minimalna przepustowość wymagana dla replikacji różnicowej (MB/s)**: minimalna przepustowość wymagana na potrzeby replikacji różnicowej dla maszyny wirtualnej.
 
 ### <a name="network-utilization-details-for-each-batch"></a>Szczegóły wykorzystania sieci dla każdej partii 
 Każda tabela partii zawiera podsumowanie wykorzystania sieci przez partię.
 
-**Przepustowość dostępna dla partii**: Przepustowość dostępna dla partii po uwzględnieniu przepustowości replikacji delta poprzedniej partii.
+**Przepustowość dostępna dla partii**: przepustowość dostępna dla partii po uwzględnieniu przepustowości replikacji różnicowej poprzedniej partii.
 
 **Przybliżona przepustowość dostępna dla replikacji początkowej partii**: przepustowość dostępna dla replikacji początkowej maszyn wirtualnych w partii. 
 
 **Przybliżona przepustowość wykorzystana dla replikacji różnicowej partii**: przepustowość potrzebna do replikacji różnicowej maszyn wirtualnych w partii. 
 
-**Szacowany początkowy czas replikacji dla partii (HH:MM)**: Szacowany początkowy czas replikacji w godzinach:minuty.
+**Szacowany czas replikacji początkowej dla partii (gg: mm)**: szacowany czas replikacji początkowej w godzinach: minuty.
 
 
 

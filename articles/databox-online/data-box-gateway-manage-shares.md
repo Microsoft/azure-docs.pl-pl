@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: e5463a32e299d9d4d151049ab5afffd4975d5182
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265443"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Zarządzanie udziałami w usłudze Azure Data Box Gateway przy użyciu witryny Azure Portal 
@@ -50,7 +50,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
 5. W obszarze **Usługa magazynu** wybierz blokowy obiekt blob, stronicowy obiekt blob lub pliki. Wybrany typ usługi zależy od tego, jaki format mają mieć dane na platformie Azure. Na przykład w tym wypadku chcemy, aby dane zostały umieszczone na platformie Azure jako blokowe obiekty blob, dlatego wybierzemy opcję **Blokowy obiekt blob**. Jeśli wybierzesz opcję **Stronicowy obiekt blob**, upewnij się, że dane są wyrównane o 512 bajtów. Na przykład dysk VHDX jest zawsze wyrównany o 512 bajtów.
 
    > [!IMPORTANT]
-   > Upewnij się, że konto usługi Azure Storage, którego używasz, nie ma zasad niezmienności ustawionych na nim, jeśli używasz go z urządzeniem usługi Azure Stack Edge lub Data Box Gateway. Aby uzyskać więcej informacji, zobacz [Ustawianie zasad niezmienności i zarządzanie nimi dla magazynu obiektów blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Upewnij się, że używane konto usługi Azure Storage nie ma ustawionych zasad niezmiennościymi, jeśli są używane z urządzeniem Azure Stack Edge lub Data Box Gateway. Aby uzyskać więcej informacji, zobacz [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. Ten krok zależy od tego, czy tworzysz udział SMB, czy udział NFS.
     - **W przypadku tworzenia udziału SMB** — w polu **Użytkownik lokalny ze wszystkimi uprawnieniami** wybierz pozycję **Utwórz nowy** lub **Użyj istniejącego**. W przypadku tworzenia nowego użytkownika lokalnego podaj **nazwę użytkownika**, **hasło**, a następnie potwierdź hasło. Spowoduje to przypisanie uprawnień do użytkownika lokalnego. Po przypisaniu uprawnień w tym miejscu możesz następnie zmodyfikować te uprawnienia przy użyciu Eksploratora plików.
@@ -72,7 +72,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby usunąć udział.
 
     ![Wybieranie udziału](media/data-box-gateway-manage-shares/delete-1.png)
 
-2. Kliknij **pozycję Usuń**. 
+2. Kliknij przycisk **Usuń**. 
 
     ![Klikanie polecenia Usuń](media/data-box-gateway-manage-shares/delete-2.png)
 
@@ -88,7 +88,7 @@ Lista udziałów zostanie zaktualizowana w celu uwzględnienia usuniętego udzia
 Funkcja odświeżania umożliwia odświeżenie zawartości udziału lokalnego. Podczas odświeżania udziału inicjowane jest wyszukiwanie w celu odnalezienia wszystkich obiektów platformy Azure, w tym obiektów blob i plików, które zostały dodane do chmury po ostatnio przeprowadzonym odświeżaniu. Te dodatkowe pliki są następnie używane do odświeżenia zawartości udziału lokalnego na urządzeniu. 
 
 > [!NOTE]
-> Uprawnienia i listy kontroli dostępu (Listy kontroli dostępu) nie są zachowywane w całej operacji odświeżania. 
+> Uprawnienia i listy kontroli dostępu (ACL) nie są zachowywane w trakcie operacji odświeżania. 
 
 Wykonaj następujące czynności w witrynie Azure Portal, aby odświeżyć udział.
 
@@ -113,7 +113,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby odświeżyć udzia
 W przypadku awarii zostanie zgłoszony alert. Alert zawiera szczegółowe informacje o przyczynie awarii oraz zalecenia dotyczące rozwiązania problemu. Alert wskazuje również plik, który zawiera pełne podsumowanie awarii — w tym pliki, których nie udało się zaktualizować lub usunąć.
 
 >[!IMPORTANT]
-> W tej wersji nie odświeżaj więcej niż jednego udziału naraz.
+> W tej wersji nie odświeżaj więcej niż jednego udziału jednocześnie.
 
 ## <a name="sync-storage-keys"></a>Synchronizowanie kluczy magazynu
 
@@ -122,7 +122,7 @@ Jeśli klucze konta magazynu zostały wymienione, należy zsynchronizować klucz
 Wykonaj następujące czynności w witrynie Azure Portal, aby zsynchronizować klucz dostępu do magazynu.
 
 1. W zasobie przejdź do sekcji **Przegląd**. 
-2. Z listy udziałów wybierz i kliknij udział skojarzony z kontem magazynu, który chcesz zsynchronizować. Kliknij pozycję **Synchronizuj klucz pamięci masowej**. 
+2. Z listy udziałów wybierz i kliknij udział skojarzony z kontem magazynu, które ma być synchronizowane. Kliknij pozycję **Synchronizuj klucz magazynu**. 
 
      ![Synchronizowanie klucza magazynu 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 

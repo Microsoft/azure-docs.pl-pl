@@ -1,6 +1,6 @@
 ---
-title: Tworzenie harmonogramu dla laboratoriów w laboratoriach w usłudze Azure Lab Services | Dokumenty firmy Microsoft
-description: Dowiedz się, jak tworzyć harmonogramy dla laboratoriów w laboratoriach platformy Azure Lab Services, aby maszyny wirtualne w laboratoriach uruchamiały się i wyłączały w określonym czasie.
+title: Tworzenie harmonogramu dla laboratoriów zajęć w Azure Lab Services | Microsoft Docs
+description: Dowiedz się, jak tworzyć harmonogramy dla laboratoriów stacjonarnych w Azure Lab Services tak, aby maszyny wirtualne w laboratoriach były uruchamiane i zamykane w określonym czasie.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,70 +14,70 @@ ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 4887b4359451ca5ce85042b4de42d5376bf4a730
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80667761"
 ---
-# <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Tworzenie harmonogramów laboratoriów w laboratoriach w usłudze Azure Lab Services i zarządzanie nimi 
-Harmonogramy umożliwiają skonfigurowanie laboratorium w klasie w taki sposób, aby maszyny wirtualne w laboratorium automatycznie uruchamiane i zamykane w określonym czasie. Można zdefiniować harmonogram jednorazowy lub harmonogram cykliczny. Poniższe procedury umożliwiają tworzenie harmonogramów dla laboratorium w klasie i zarządzanie nimi: 
+# <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Twórz harmonogramy dla laboratoriów stacjonarnych w Azure Lab Services i zarządzaj nimi 
+Harmonogramy umożliwiają skonfigurowanie laboratorium klasy w taki sposób, aby maszyny wirtualne w laboratorium były automatycznie uruchamiane i zamykane w określonym czasie. Można zdefiniować harmonogram jednorazowy lub cykliczny. Poniższe procedury umożliwiają tworzenie harmonogramów dla laboratorium zajęć i zarządzanie nimi: 
 
 > [!IMPORTANT]
-> Zaplanowany czas pracy maszyn wirtualnych nie jest wliczany [do przydziału przydzielonego użytkownikowi.](how-to-configure-student-usage.md#set-quotas-for-users) Przydział jest dla czasu poza godzinami harmonogramu, które student spędza na maszynach wirtualnych. 
+> Zaplanowany czas działania maszyn wirtualnych nie jest uwzględniany w stosunku do [przydziału przydzielonego dla użytkownika](how-to-configure-student-usage.md#set-quotas-for-users). Limit przydziału jest przeznaczony dla czasu poza godzinami harmonogramu, które student spędza na maszynach wirtualnych. 
 
-## <a name="set-a-schedule-for-the-lab"></a>Ustawianie harmonogramu laboratorium
-Utwórz zaplanowane zdarzenie dla laboratorium, tak aby maszyny wirtualne w laboratorium były automatycznie uruchamiane/zatrzymywane o określonych porach. Przydział użytkownika określony wcześniej jest dodatkowy czas przypisany do każdego użytkownika poza tym zaplanowanym czasie. 
+## <a name="set-a-schedule-for-the-lab"></a>Ustaw harmonogram dla laboratorium
+Utwórz zaplanowane zdarzenie dla laboratorium, aby maszyny wirtualne w laboratorium były automatycznie uruchamiane/zatrzymywane w określonych godzinach. Określony wcześniej limit przydziału użytkownika to dodatkowy czas przypisany do każdego użytkownika poza zaplanowanym czasem. 
 
 > [!NOTE]
-> Zanim zaczniemy, oto jak harmonogramy wpływają na maszyny wirtualne w laboratorium: 
->- Maszyna wirtualna szablonu nie jest uwzględniona w harmonogramach. 
->- Uruchamiane są tylko przypisane maszyny wirtualne. Oznacza to, że jeśli maszyna nie zostanie odebrana przez użytkownika końcowego (studenta), urządzenie nie zostanie uruchomiony w zaplanowanych godzinach. 
->- Wszystkie maszyny wirtualne (niezależnie od tego, czy zostały zgłoszone przez użytkownika, czy nie) są zatrzymywane na podstawie harmonogramu laboratorium. 
+> Zanim zaczniemy, Oto, jak harmonogramy mają wpływ na maszyny wirtualne laboratorium: 
+>- Maszyna wirtualna szablonu nie jest dołączona do harmonogramów. 
+>- Uruchomiono tylko przypisane maszyny wirtualne. Oznacza to, że jeśli komputer nie zostanie przejęty przez użytkownika końcowego (student), maszyna nie zostanie uruchomiona w zaplanowanych godzinach. 
+>- Wszystkie maszyny wirtualne (bez względu na to, czy zostały przejęte przez użytkownika) są zatrzymane na podstawie harmonogramu laboratorium. 
 
-1. Przełącz się do strony **Harmonogramy** i wybierz pozycję **Dodaj zaplanowane zdarzenie** na pasku narzędzi. 
+1. Przejdź do strony **harmonogramy** , a następnie wybierz pozycję **Dodaj wydarzenie zaplanowane** na pasku narzędzi. 
 
-    ![Przycisk Dodaj harmonogram na stronie Harmonogramy](../media/how-to-create-schedules/add-schedule-button.png)
-2. Upewnij się, że **standard** jest wybrany **typ zdarzenia**. Wybierz **start tylko** określić tylko czas rozpoczęcia dla maszyn wirtualnych. Wybierz **stop tylko** określić tylko czas zatrzymania dla maszyn wirtualnych. 
-7. W sekcji **Powtórz** wybierz bieżący harmonogram. 
+    ![Przycisk dodawania harmonogramu na stronie harmonogramów](../media/how-to-create-schedules/add-schedule-button.png)
+2. Upewnij się, że w polu **Standardowy** wybrano **Typ zdarzenia**. Wybierz pozycję **Rozpocznij tylko** , aby określić tylko godzinę rozpoczęcia dla maszyn wirtualnych. Wybierz pozycję **Zatrzymaj tylko** , aby określić tylko czas zatrzymania dla maszyn wirtualnych. 
+7. W sekcji **Repeat (powtarzanie** ) wybierz bieżący harmonogram. 
 
-    ![Przycisk Dodaj harmonogram na stronie Harmonogramy](../media/how-to-create-schedules/select-current-schedule.png)
-5. W oknie dialogowym **Powtarzanie** wykonaj następujące czynności:
-    1. Upewnij się, że dla pola **Powtórz** jest ustawiony **co tydzień.** 
+    ![Przycisk dodawania harmonogramu na stronie harmonogramów](../media/how-to-create-schedules/select-current-schedule.png)
+5. W oknie dialogowym **powtarzanie** wykonaj następujące czynności:
+    1. Upewnij się, że dla **każdego tygodnia** jest ustawiona wartość pole **powtarzanie** . 
     3. Określ **datę rozpoczęcia**.
-    4. Określ **godzinę rozpoczęcia,** w której mają być uruchamiane maszyny wirtualne.
-    5. Określ **czas zatrzymania,** w którym maszyny wirtualne mają zostać zamknięte. 
-    6. Określ **strefę czasową** dla określonych godzin rozpoczęcia i zatrzymania. 
-    2. Wybierz dni, w których harmonogram ma obowiązywać. W poniższym przykładzie wybrano od poniedziałku do czwartku. 
-    8. Wybierz **pozycję Zapisz**. 
+    4. Określ **godzinę rozpoczęcia** uruchamiania maszyn wirtualnych.
+    5. Określ **czas zatrzymania** , w którym maszyny wirtualne mają zostać zamknięte. 
+    6. Określ **strefę czasową** dla określonego czasu rozpoczęcia i zakończenia. 
+    2. Wybierz dni, w których harmonogram ma obowiązywać. W poniższym przykładzie wybrano poniedziałek-czwartek. 
+    8. Wybierz pozycję **Zapisz**. 
 
-        ![Ustawianie harmonogramu powtarzania](../media/how-to-create-schedules/set-repeat-schedule.png)
+        ![Ustaw harmonogram powtarzania](../media/how-to-create-schedules/set-repeat-schedule.png)
 
-3. Teraz na stronie **Dodaj zaplanowane wydarzenie** w polu **Notatki (opcjonalnie)** wprowadź dowolny opis lub uwagi dotyczące harmonogramu. 
-4. Na stronie **Dodawanie zaplanowanego wydarzenia** wybierz pozycję **Zapisz**. 
+3. Teraz na stronie **Dodawanie zaplanowanego zdarzenia** dla **notatek (opcjonalnie)** wprowadź dowolny opis lub uwagi dotyczące harmonogramu. 
+4. Na stronie **Dodawanie zaplanowanego zdarzenia** wybierz pozycję **Zapisz**. 
 
     ![Harmonogram tygodniowy](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
-## <a name="view-schedules-in-calendar"></a>Wyświetlanie harmonogramów w kalendarzu
-Zaplanowane daty i godziny są wyróżnione w widoku kalendarza, jak pokazano na poniższej ilustracji:
+## <a name="view-schedules-in-calendar"></a>Wyświetl harmonogramy w kalendarzu
+W widoku kalendarza można zobaczyć zaplanowane daty i godziny, jak pokazano na poniższej ilustracji:
 
 ![Harmonogramy w widoku kalendarza](../media/how-to-create-schedules/schedules-calendar.png)
 
-Wybierz przycisk **Dzisiaj** w prawym górnym rogu, aby przełączyć się na bieżącą datę w kalendarzu. Wybierz strzałkę w **lewo,** aby przełączyć się na poprzedni tydzień i strzałkę w **prawo,** aby przełączyć się na następny tydzień w kalendarzu. 
+Wybierz przycisk **dzisiaj** w prawym górnym rogu, aby przełączyć się na bieżącą datę w kalendarzu. Wybierz **strzałkę w lewo** , aby przełączyć się do poprzedniego tygodnia i **strzałki w prawo** , aby przejść do następnego tygodnia w kalendarzu. 
 
 ## <a name="edit-a-schedule"></a>Edytowanie harmonogramu
-Po wybraniu wyróżnionego harmonogramu w kalendarzu zostaną wyświetlone przyciski służące do **edytowania** lub **usuwania** harmonogramu. 
+Po wybraniu wyróżnionego harmonogramu w kalendarzu widoczne są przyciski umożliwiające **Edytowanie** lub **usuwanie** harmonogramu. 
 
 ![Edytuj stronę harmonogramu](../media/how-to-create-schedules/schedule-edit-button.png)
 
-Na stronie **Edytowanie zaplanowanego wydarzenia** możesz zaktualizować harmonogram i wybrać pozycję **Zapisz**. 
+Na stronie **Edytowanie zaplanowanego zdarzenia** możesz zaktualizować harmonogram i wybrać pozycję **Zapisz**. 
 
 ## <a name="delete-a-schedule"></a>Usuwanie harmonogramu
 
-1. Aby usunąć harmonogram, wybierz wyróżniony harmonogram w kalendarzu i wybierz przycisk Ikona kosza (usuń):
+1. Aby usunąć harmonogram, wybierz wyróżniony harmonogram w kalendarzu, a następnie wybierz przycisk ikony kosza (Usuń):
 
     ![Przycisk Usuń na pasku narzędzi](../media/how-to-create-schedules/schedule-delete-button.png)
-2. W oknie dialogowym **Usuwanie zaplanowanego zdarzenia** wybierz pozycję **Tak,** aby potwierdzić usunięcie. 
+2. W oknie dialogowym **usuwanie zaplanowanego zdarzenia** wybierz pozycję **tak** , aby potwierdzić usunięcie. 
 
 
 
@@ -87,4 +87,4 @@ Zobacz następujące artykuły:
 - [As an admin, create and manage lab accounts (Tworzenie kont laboratoriów i zarządzanie nimi jako administrator)](how-to-manage-lab-accounts.md)
 - [As a lab owner, create and manage labs (Tworzenie laboratoriów i zarządzanie nimi jako właściciel laboratorium)](how-to-manage-classroom-labs.md)
 - [As a lab owner, configure and control usage of a lab (Konfigurowanie i kontrolowanie użycia laboratorium jako właściciel laboratorium)](how-to-configure-student-usage.md)
-- [Jako użytkownik laboratorium, uzyskaj dostęp do laboratoriów szkolnych](how-to-use-classroom-lab.md)
+- [Jako użytkownik laboratorium Uzyskuj dostęp do laboratoriów zajęć](how-to-use-classroom-lab.md)

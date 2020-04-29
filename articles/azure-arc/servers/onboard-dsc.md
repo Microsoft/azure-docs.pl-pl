@@ -1,6 +1,6 @@
 ---
-title: Instalowanie agenta podłączonego komputera przy użyciu programu Windows PowerShell DSC
-description: W tym artykule dowiesz się, jak połączyć maszyny z platformą Azure przy użyciu usługi Azure Arc dla serwerów (w wersji zapoznawczej) przy użyciu programu Windows PowerShell DSC.
+title: Instalowanie agenta połączonej maszyny przy użyciu programu Windows PowerShell DSC
+description: W tym artykule dowiesz się, jak połączyć maszyny z platformą Azure przy użyciu usługi Azure ARC dla serwerów (wersja zapoznawcza) przy użyciu programu Windows PowerShell DSC.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -9,88 +9,88 @@ ms.author: magoedte
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.openlocfilehash: 1fb64463b0372202adb04c2deb304c389c7773b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79164685"
 ---
-# <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Jak zainstalować agenta podłączonego komputera przy użyciu programu Windows PowerShell DSC
+# <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Jak zainstalować agenta połączonej maszyny przy użyciu programu Windows PowerShell DSC
 
-Korzystając z [konfiguracji żądanego stanu programu Windows PowerShell](https://docs.microsoft.com/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) (DSC) można zautomatyzować instalację i konfigurację oprogramowania dla komputera z systemem Windows. W tym artykule opisano sposób instalowania programu Azure Arc dla serwerów Connected Machine agenta na hybrydowych komputerach z systemem Windows za pomocą dsc.
+Przy użyciu [konfiguracji żądanego stanu (DSC) programu Windows PowerShell](https://docs.microsoft.com/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) można zautomatyzować instalację oprogramowania i konfigurację dla komputera z systemem Windows. W tym artykule opisano sposób instalowania usługi Azure ARC dla serwerów połączonych z agentem maszyn na hybrydowych komputerach z systemem Windows.
 
 ## <a name="requirements"></a>Wymagania
 
-- Program Windows PowerShell w wersji 4.0 lub nowszej
+- Windows PowerShell w wersji 4,0 lub nowszej
 
-- Moduł [DSC usługi AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc/1.0.1.0)
+- Moduł [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc/1.0.1.0) DSC
 
-- Podmiot usługi do łączenia maszyn do usługi Azure Arc dla serwerów nieinterakcyjnie. Wykonaj kroki opisane w sekcji [Tworzenie jednostki usługi dla dołączania na dużą skalę,](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) jeśli nie utworzono już jednostki usługi dla arc dla serwerów.
+- Nazwa główna usługi do łączenia maszyn z usługą Azure Arc w przypadku serwerów nieinteraktywnie. Wykonaj kroki opisane w sekcji [Tworzenie jednostki usługi na potrzeby](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) dołączania w odpowiedniej skali, jeśli nie utworzono jednostki usługi dla łuku dla serwerów.
 
 ## <a name="install-the-connectedmachine-dsc-module"></a>Instalowanie modułu ConnectedMachine DSC
 
-1. Aby ręcznie zainstalować moduł, pobierz kod źródłowy i rozpakowywać zawartość `$env:ProgramFiles\WindowsPowerShell\Modules folder`katalogu projektu do pliku . Możesz też uruchomić następujące polecenie, aby zainstalować je z galerii programu PowerShell przy użyciu programu PowerShellGet (w programie PowerShell 5.0):
+1. Aby ręcznie zainstalować moduł, należy pobrać kod źródłowy i rozpakować zawartość katalogu projektu do programu `$env:ProgramFiles\WindowsPowerShell\Modules folder`. Lub uruchom następujące polecenie, aby zainstalować program z galerii programu PowerShell przy użyciu programu PowerShellGet (w programie PowerShell 5,0):
 
     ```powershell
     Find-Module -Name AzureConnectedMachineDsc -Repository PSGallery | Install-Module
     ```
 
-2. Aby potwierdzić instalację, uruchom następujące polecenie i upewnij się, że są dostępne zasoby dsc podłączonego komputera platformy Azure.
+2. Aby potwierdzić instalację, uruchom następujące polecenie i upewnij się, że dostępne są zasoby DSC połączonej maszyny z platformą Azure.
 
     ```powershell
     Get-DscResource -Module AzureConnectedMachineDsc
     ```
 
-   Na danych wyjściowych powinien być widoczny coś podobnego do następującego:
+   W danych wyjściowych powinien zostać wyświetlony komunikat podobny do następującego:
 
-   ![Potwierdzenie przykładu instalacji modułu DSC podłączonej maszyny](./media/onboard-dsc/confirm-module-installation.png)
+   ![Potwierdzenie przykładu instalacji modułu połączonej maszyny DSC](./media/onboard-dsc/confirm-module-installation.png)
 
-## <a name="install-the-agent-and-connect-to-azure"></a>Instalowanie agenta i łączenie się z platformą Azure
+## <a name="install-the-agent-and-connect-to-azure"></a>Instalowanie agenta i nawiązywanie połączenia z platformą Azure
 
-Zasoby w tym module są przeznaczone do zarządzania konfiguracją agenta połączonego komputera platformy Azure. W zestawie znajduje się również `AzureConnectedMachineAgent.ps1`skrypt programu `AzureConnectedMachineDsc\examples` PowerShell, który znajduje się w folderze. Używa zasobów społeczności do automatyzacji pobierania i instalacji oraz nawiązania połączenia z programem Azure Arc. Ten skrypt wykonuje podobne kroki opisane w connect maszyn hybrydowych do platformy Azure z artykułu [witryny Azure portal.](onboard-portal.md)
+Zasoby w tym module są przeznaczone do zarządzania konfiguracją agenta połączonej maszyny platformy Azure. Uwzględniono również skrypt `AzureConnectedMachineAgent.ps1`programu PowerShell, który znajduje się `AzureConnectedMachineDsc\examples` w folderze. Używa zasobów społeczności do automatyzowania pobierania i instalacji oraz nawiązywania połączenia z usługą Azure Arc. Ten skrypt wykonuje podobne kroki opisane w artykule [łączenie maszyn hybrydowych z platformą Azure z artykułu Azure Portal](onboard-portal.md) .
 
-Jeśli komputer musi komunikować się za pośrednictwem serwera proxy do usługi, po zainstalowaniu agenta należy uruchomić polecenie, które jest opisane [w tym miejscu](onboard-portal.md#configure-the-agent-proxy-setting). Spowoduje to ustawienie zmiennej `https_proxy`środowiskowej systemu serwera proxy . Zamiast uruchamiać polecenie ręcznie, można wykonać ten krok za pomocą DSC przy użyciu modułu [ComputeManagementDsc.](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0)
+Jeśli komputer musi komunikować się z usługą za pomocą serwera proxy, po zainstalowaniu agenta należy uruchomić polecenie, które jest opisane w [tym miejscu](onboard-portal.md#configure-the-agent-proxy-setting). Powoduje to ustawienie zmiennej `https_proxy`środowiskowej serwera proxy. Zamiast ręcznego uruchamiania polecenia można wykonać ten krok za pomocą usługi DSC przy użyciu modułu [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) .
 
 >[!NOTE]
->Aby umożliwić uruchamianie dsc, system Windows musi być skonfigurowany do odbierania zdalnych poleceń programu PowerShell, nawet gdy używasz konfiguracji hosta lokalnego. Aby łatwo skonfigurować środowisko poprawnie, wystarczy uruchomić `Set-WsManQuickConfig -Force` w podwyższonym rozsyłaniu terminalu programu PowerShell.
+>Aby można było uruchomić DSC, system Windows musi być skonfigurowany do odbierania poleceń zdalnych programu PowerShell nawet w przypadku uruchamiania konfiguracji hosta lokalnego. Aby prawidłowo skonfigurować środowisko, po prostu uruchom `Set-WsManQuickConfig -Force` w terminalu programu PowerShell z podwyższonym poziomem uprawnień.
 >
 
-Dokumenty konfiguracyjne (pliki MOF) można zastosować `Start-DscConfiguration` do urządzenia za pomocą polecenia cmdlet.
+Dokumenty konfiguracyjne (pliki MOF) mogą być stosowane do maszyny przy użyciu `Start-DscConfiguration` polecenia cmdlet.
 
-Poniżej przedstawiono parametry, które można przekazać do skryptu programu PowerShell do użycia.
+Poniżej przedstawiono parametry, które są przekazywane do skryptu programu PowerShell do użycia.
 
-- `TenantId`: Unikatowy identyfikator (GUID), który reprezentuje dedykowane wystąpienie usługi Azure AD.
+- `TenantId`: Unikatowy identyfikator (GUID) reprezentujący dedykowane wystąpienie usługi Azure AD.
 
-- `SubscriptionId`: Identyfikator subskrypcji (GUID) subskrypcji platformy Azure, w której mają być na komputerze.
+- `SubscriptionId`: Identyfikator subskrypcji (GUID) subskrypcji platformy Azure, w której mają być używane maszyny.
 
-- `ResourceGroup`: Nazwa grupy zasobów, do której mają należeć podłączone komputery.
+- `ResourceGroup`: Nazwa grupy zasobów, do której mają należeć połączone maszyny.
 
-- `Location`: Zobacz [obsługiwane regiony platformy Azure](overview.md#supported-regions). Ta lokalizacja może być taka sama lub inna, jak lokalizacja grupy zasobów.
+- `Location`: Zobacz [Obsługiwane regiony platformy Azure](overview.md#supported-regions). Ta lokalizacja może być taka sama lub inna, jak lokalizacja grupy zasobów.
 
-- `Tags`: Tablica ciągów tagów, które powinny być stosowane do podłączonego zasobu komputera.
+- `Tags`: Tablica ciągów znaczników, które powinny być stosowane do zasobu połączonej maszyny.
 
-- `Credential`: Obiekt poświadczeń programu PowerShell z **identyfikatorem applicationid** i **hasłem używanym** do rejestrowania maszyn na dużą skalę przy użyciu [jednostki usługi.](onboard-service-principal.md) 
+- `Credential`: Obiekt poświadczeń programu PowerShell z identyfikatorem **aplikacji** i **hasłem** używanym do rejestrowania maszyn na dużą skalę przy użyciu [nazwy głównej usługi](onboard-service-principal.md). 
 
-1. W konsoli programu PowerShell przejdź do folderu, w `.ps1` którym został zapisany plik.
+1. W konsoli programu PowerShell przejdź do folderu, w którym zapisano `.ps1` plik.
 
-2. Uruchom następujące polecenia programu PowerShell w celu skompilowania dokumentu MOF (aby uzyskać informacje dotyczące kompilowania konfiguracji DSC, zobacz [Konfiguracje DSC:](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations?view=powershell-7)
+2. Uruchom następujące polecenia programu PowerShell, aby skompilować dokument MOF (Aby uzyskać informacje na temat kompilowania konfiguracji DSC, zobacz [konfiguracje DSC](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations?view=powershell-7):
 
     ```powershell
     .\`AzureConnectedMachineAgent.ps1 -TenantId <TenantId GUID> -SubscriptionId <SubscriptionId GUID> -ResourceGroup '<ResourceGroupName>' -Location '<LocationName>' -Tags '<Tag>' -Credential <psCredential>
     ```
 
-3. Spowoduje to `localhost.mof file` utworzenie w nowym `C:\dsc`folderze o nazwie .
+3. Spowoduje to utworzenie `localhost.mof file` nowego folderu o nazwie `C:\dsc`.
 
-Po zainstalowaniu agenta i skonfigurowaniu go do łączenia się z programem Azure Arc dla serwerów (wersja zapoznawcza) przejdź do witryny Azure Portal, aby sprawdzić, czy serwer został pomyślnie połączony. Wyświetlanie maszyn w [witrynie Azure portal](https://aka.ms/hybridmachineportal).
+Po zainstalowaniu agenta programu i skonfigurowaniu go w celu nawiązania połączenia z usługą Azure ARC dla serwerów (wersja zapoznawcza) przejdź do Azure Portal, aby sprawdzić, czy serwer został pomyślnie połączony. Wyświetlanie maszyn w [Azure Portal](https://aka.ms/hybridmachineportal).
 
 ## <a name="adding-to-existing-configurations"></a>Dodawanie do istniejących konfiguracji
 
-Ten zasób można dodać do istniejących konfiguracji DSC do reprezentowania konfiguracji end-to-end dla komputera. Na przykład można dodać ten zasób do konfiguracji, która ustawia bezpieczne ustawienia systemu operacyjnego.
+Ten zasób można dodać do istniejących konfiguracji DSC, aby reprezentować konfigurację kompleksową dla maszyny. Na przykład możesz chcieć dodać ten zasób do konfiguracji, która ustawia bezpieczne ustawienia systemu operacyjnego.
 
-[Moduł CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) z galerii programu PowerShell może służyć do tworzenia [zasobu złożonego](https://docs.microsoft.com/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) przykładowej konfiguracji, aby jeszcze bardziej uprościć łączenie konfiguracji.
+Moduł [CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) z Galeria programu PowerShell może służyć do tworzenia [zasobów złożonych](https://docs.microsoft.com/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) przykładowej konfiguracji, aby dodatkowo uprościć łączenie konfiguracji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak zarządzać komputerem przy użyciu [usługi Azure Policy](../../governance/policy/overview.md), dla takich rzeczy, jak [konfiguracja gościa](../../governance/policy/concepts/guest-configuration.md)maszyny wirtualnej, sprawdzanie, że maszyna zgłasza się do oczekiwanego obszaru roboczego usługi Log Analytics, włącz monitorowanie za pomocą [usługi Azure Monitor za pomocą maszyn wirtualnych](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)i wiele więcej.
+- Dowiedz się, jak zarządzać maszyną za pomocą [Azure Policy](../../governance/policy/overview.md), na przykład w [konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md)maszyny wirtualnej, sprawdzając, czy komputer jest raportowany do oczekiwanego log Analytics obszaru roboczego, włącz monitorowanie za pomocą [Azure monitor z maszynami wirtualnymi](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)i wiele więcej.
 
-- Dowiedz się więcej o [agencie usługi Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). Agent analizy dzienników dla systemów Windows i Linux jest wymagany, gdy chcesz aktywnie monitorować system operacyjny i obciążenia uruchomione na komputerze, zarządzać nim przy użyciu umnień umowniczych automatyzacji lub rozwiązań, takich jak zarządzanie aktualizacjami, lub korzystać z innych usług platformy Azure Security [Center.](../../security-center/security-center-intro.md)
+- Dowiedz się więcej o [agencie log Analytics](../../azure-monitor/platform/log-analytics-agent.md). Agent Log Analytics dla systemów Windows i Linux jest wymagany, gdy użytkownik chce aktywnie monitorować system operacyjny i obciążenia uruchomione na komputerze, zarządzać nim za pomocą elementów Runbook usługi Automation lub rozwiązań, takich jak Update Management, lub używać innych usług platformy Azure, takich jak [Azure Security Center](../../security-center/security-center-intro.md).

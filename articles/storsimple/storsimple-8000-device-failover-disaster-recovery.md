@@ -1,6 +1,6 @@
 ---
-title: Tryb failover i odzyskiwanie po awarii dla urządzenia storsimple serii 8000
-description: Dowiedz się, jak przewinąć urządzenie StorSimple w trybie fail over your StorSimple na siebie, innym urządzeniu fizycznym lub urządzeniu w chmurze.
+title: Tryb failover i odzyskiwanie po awarii dla urządzenia z serii StorSimple 8000
+description: Dowiedz się, jak przełączać Urządzenie StorSimple do trybu failover, z innego urządzenia fizycznego lub urządzenia w chmurze.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,129 +15,129 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 179bc5cdf982792f41e0dec209341f346959a31a
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80397522"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Przechodzenie w tryb failover i odzyskiwanie po awarii dla urządzenia StorSimple z serii 8000
 
 ## <a name="overview"></a>Omówienie
 
-W tym artykule opisano funkcję trybu failover urządzenia dla urządzeń z serii StorSimple 8000 i jak ta funkcja może służyć do odzyskiwania urządzeń StorSimple w przypadku wystąpienia awarii. StorSimple używa pracy awaryjnej urządzenia do migracji danych z urządzenia źródłowego w centrum danych do innego urządzenia docelowego. Wskazówki zawarte w tym artykule dotyczą urządzeń fizycznych serii StorSimple 8000 i urządzeń w chmurze z systemem aktualizacji 3 i nowszych.
+W tym artykule opisano funkcję przełączenia urządzenia w tryb failover dla urządzeń z serii StorSimple 8000 i sposobu jej użycia w celu odzyskania urządzeń StorSimple w przypadku wystąpienia awarii. StorSimple używa trybu failover urządzenia do migrowania danych z urządzenia źródłowego w centrum danych do innego urządzenia docelowego. Wskazówki zawarte w tym artykule dotyczą urządzeń fizycznych z serii StorSimple 8000 i urządzeń w chmurze z uruchomionymi wersjami oprogramowania Update 3 i nowszymi.
 
-StorSimple używa **urządzenia** bloku do uruchomienia funkcji pracy awaryjnej urządzenia w przypadku awarii. Ten blok zawiera listę wszystkich urządzeń StorSimple podłączonych do usługi StorSimple Device Manager.
+StorSimple używa bloku **Devices** do uruchomienia funkcji przełączania do trybu failover urządzenia w przypadku awarii. Ten blok zawiera listę wszystkich urządzeń StorSimple podłączonych do usługi StorSimple Menedżer urządzeń.
 
-![Ostrze urządzenia](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev1.png)
+![Blok urządzeń](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev1.png)
 
 
-## <a name="disaster-recovery-dr-and-device-failover"></a>Odzyskiwanie po awarii (DR) i funkcja failover urządzenia
+## <a name="disaster-recovery-dr-and-device-failover"></a>Odzyskiwanie po awarii (DR) i tryb failover urządzenia
 
-W scenariuszu odzyskiwania po awarii (DR) urządzenie podstawowe przestaje działać. StorSimple używa urządzenia podstawowego jako _źródła_ i przenosi skojarzone dane w chmurze do innego urządzenia _docelowego._ Ten proces jest określany jako *pracy awaryjnej*. Poniższa grafika przedstawia proces pracy awaryjnej.
+W scenariuszu odzyskiwania po awarii urządzenie podstawowe przestaje działać. StorSimple używa urządzenia podstawowego jako _źródła_ i przenosi skojarzone dane w chmurze na inne urządzenie _docelowe_ . Ten proces jest określany jako *tryb failover*. Poniższa ilustracja ilustruje proces trybu failover.
 
-![Co się dzieje w pracy awaryjnej urządzenia?](./media/storsimple-8000-device-failover-disaster-recovery/failover-dr-flow.png)
+![Co się dzieje w przypadku przełączenia urządzenia w tryb failover?](./media/storsimple-8000-device-failover-disaster-recovery/failover-dr-flow.png)
 
-Urządzenie docelowe dla pracy awaryjnej może być urządzenie fizyczne lub nawet urządzenia w chmurze. Urządzenie docelowe może znajdować się w tym samym lub innym miejscu geograficznym niż urządzenie źródłowe.
+Urządzenie docelowe dla trybu failover może być urządzeniem fizycznym, a nawet urządzeniem w chmurze. Urządzenie docelowe może znajdować się w tej samej lub innej lokalizacji geograficznej niż urządzenie źródłowe.
 
-Podczas pracy awaryjnej można wybrać kontenery woluminów do migracji. StorSimple następnie zmienia własność tych kontenerów woluminu z urządzenia źródłowego na urządzenie docelowe. Gdy kontenery woluminów zmienić własność StorSimple usuwa te kontenery z urządzenia źródłowego. Po zakończeniu usuwania można przywrócić urządzenie docelowe po awarii. _Powrót po awarii_ przenosi własność z powrotem do oryginalnego urządzenia źródłowego.
+Podczas pracy w trybie failover można wybrać kontenery woluminów do migracji. StorSimple następnie zmienia własność tych kontenerów woluminów z urządzenia źródłowego na urządzenie docelowe. Gdy kontenery woluminów zmienią własność, StorSimple usuwa te kontenery z urządzenia źródłowego. Po zakończeniu usuwania można wrócić do urządzenia docelowego. _Powrót po awarii_ przenosi własność z powrotem na oryginalne urządzenie źródłowe.
 
-### <a name="cloud-snapshot-used-during-device-failover"></a>Migawka w chmurze używana podczas pracy awaryjnej urządzenia
+### <a name="cloud-snapshot-used-during-device-failover"></a>Migawka w chmurze używana podczas przełączania do trybu failover urządzenia
 
-Po dr najnowszej kopii zapasowej w chmurze jest używany do przywracania danych do urządzenia docelowego. Aby uzyskać więcej informacji na temat migawek w chmurze, zobacz [Korzystanie z usługi StorSimple Device Manager w celu wykonywania ręcznej kopii zapasowej](storsimple-8000-manage-backup-policies-u2.md#take-a-manual-backup).
+Po uruchomieniu programu DR najnowsza kopia zapasowa w chmurze jest używana do przywracania danych na urządzeniu docelowym. Aby uzyskać więcej informacji na temat migawek w chmurze, zobacz [Ręczne tworzenie kopii zapasowej za pomocą usługi StorSimple Menedżer urządzeń](storsimple-8000-manage-backup-policies-u2.md#take-a-manual-backup).
 
-W serii StorSimple 8000 zasady tworzenia kopii zapasowych są skojarzone z kopiami zapasowymi. Jeśli istnieje wiele zasad tworzenia kopii zapasowych dla tego samego woluminu, storsimple wybiera zasady tworzenia kopii zapasowych z największą liczbą woluminów. StorSimple następnie używa najnowszej kopii zapasowej z wybranych zasad tworzenia kopii zapasowych, aby przywrócić dane na urządzeniu docelowym.
+W serii StorSimple 8000 zasady tworzenia kopii zapasowych są skojarzone z kopiami zapasowymi. Jeśli istnieje wiele zasad tworzenia kopii zapasowych dla tego samego woluminu, StorSimple wybiera zasady tworzenia kopii zapasowych z największą liczbą woluminów. StorSimple następnie używa najnowszej kopii zapasowej z wybranych zasad tworzenia kopii zapasowej w celu przywrócenia danych na urządzeniu docelowym.
 
-Załóżmy, że istnieją dwie zasady tworzenia kopii zapasowych, *defaultPol* i *customPol:*
+Załóżmy, że istnieją dwie zasady tworzenia kopii zapasowych, *defaultPol* i *customPol*:
 
-* *defaultPol*: Jeden wolumin, *vol1*, działa codziennie od 22:30.
-* *customPol*: Cztery tomy, *vol1*, *vol2*, *vol3*, *vol4*, działa codziennie od 22:00.
+* *defaultPol*: jeden wolumin, *vol1*, działa codziennie, zaczynając od 10:30 PM.
+* *customPol*: cztery woluminy, *vol1*, *VOL2*, *vol3*, *VOL4*, uruchamiane codziennie, zaczynając od 10:00 PM.
 
-W takim przypadku StorSimple priorytety dla spójności awarii i używa *customPol,* ponieważ ma więcej woluminów. Najnowsza kopia zapasowa z tej zasady służy do przywracania danych. Aby uzyskać więcej informacji na temat tworzenia zasad tworzenia kopii zapasowych i zarządzania nimi, zobacz [Zarządzanie zasadami tworzenia kopii zapasowych za pomocą usługi StorSimple Device Manager](storsimple-8000-manage-backup-policies-u2.md).
+W tym przypadku StorSimple priorytety dla spójności awaryjnej i używa *customPol* , ponieważ zawiera więcej woluminów. Najnowsza kopia zapasowa z tych zasad jest używana do przywracania danych. Aby uzyskać więcej informacji na temat tworzenia zasad tworzenia kopii zapasowych i zarządzania nimi, przejdź do, aby [zarządzać zasadami tworzenia kopii zapasowych za pomocą usługi StorSimple Menedżer urządzeń](storsimple-8000-manage-backup-policies-u2.md).
 
-## <a name="common-considerations-for-device-failover"></a>Typowe zagadnienia dotyczące pracy awaryjnej urządzenia
+## <a name="common-considerations-for-device-failover"></a>Typowe zagadnienia dotyczące trybu failover urządzenia
 
-Przed przełączeniem urządzenia w stan fail over a, zapoznaj się z następującymi informacjami:
+Przed przejściem do trybu failover na urządzeniu zapoznaj się z następującymi informacjami:
 
-* Przed uruchomieniem pracy awaryjnej urządzenia wszystkie woluminy w kontenerach woluminów muszą być w trybie offline. W nieplanowanej pracy awaryjnej woluminy StotSimple automatycznie przejdzie do trybu offline. Ale jeśli wykonujesz planowaną tryb failover (do testowania odzyskiwania po awarii), należy wykonać wszystkie woluminy w trybie offline.
-* Tylko kontenery woluminów, które mają skojarzoną migawkę chmury są wyświetlane dla odzyskiwania po awarii. Musi istnieć co najmniej jeden kontener woluminu ze skojarzoną migawką chmury, aby odzyskać dane.
-* Jeśli istnieją migawki w chmurze, które obejmują wiele kontenerów woluminów, StorSimple w trybie fail-over tych kontenerów woluminów jako zestaw. W rzadkich przypadkach, jeśli istnieją migawki lokalne, które obejmują wiele kontenerów woluminów, ale skojarzone migawki w chmurze nie, StorSimple nie działa w trybie fail over migawek lokalnych i dane lokalne są tracone po dr. dr.
-* Dostępne urządzenia docelowe dla odzyskiwania po awarii to urządzenia, które mają wystarczająco dużo miejsca, aby pomieścić wybrane kontenery woluminów. Wszystkie urządzenia, które nie mają wystarczającej ilości miejsca, nie są wymienione jako urządzenia docelowe.
-* Po dr (przez ograniczony czas), wydajność dostępu do danych może mieć znaczący wpływ, ponieważ urządzenie musi uzyskać dostęp do danych z chmury i przechowywać je lokalnie.
+* Przed rozpoczęciem pracy w trybie failover urządzenia wszystkie woluminy w kontenerach woluminów muszą być w trybie offline. W przypadku nieplanowanego przejścia w tryb failover woluminy StotSimple będą przełączane do trybu offline. Ale jeśli wykonujesz planowaną pracę w trybie failover (w celu przetestowania programu DR), musisz przełączyć wszystkie woluminy w tryb offline.
+* Na potrzeby odzyskiwania po awarii są wyświetlane tylko kontenery woluminów ze skojarzoną migawką w chmurze. Aby odzyskać dane, musi istnieć co najmniej jeden kontener woluminów ze skojarzoną migawką w chmurze.
+* W przypadku migawek chmurowych obejmujących wiele kontenerów woluminów StorSimple przejdzie w tryb failover w ramach zestawu. W rzadkich przypadkach, jeśli istnieją migawki lokalne, które obejmują wiele kontenerów woluminów, ale skojarzone migawki chmury nie StorSimple, przechodzą w tryb failover migawek lokalnych, a dane lokalne są tracone po rozpoczęciu odzyskiwania po awarii.
+* Dostępne urządzenia docelowe dla odzyskiwania po awarii to urządzenia z wystarczającą ilością miejsca, aby pomieścić wybrane kontenery woluminów. Wszystkie urządzenia, które nie mają wystarczającej ilości miejsca, nie są wyświetlane jako urządzenia docelowe.
+* Po rozpoczęciu odzyskiwania po awarii (przez ograniczony czas) wydajność dostępu do danych może być istotna, ponieważ urządzenie musi uzyskać dostęp do danych z chmury i przechowywać je lokalnie.
 
-#### <a name="device-failover-across-software-versions"></a>Funkcja pracy awaryjnej urządzenia w różnych wersjach oprogramowania
+#### <a name="device-failover-across-software-versions"></a>Tryb failover urządzenia w różnych wersjach oprogramowania
 
-Usługa StorSimple Device Manager we wdrożeniu może mieć wiele urządzeń, zarówno fizycznych, jak i chmurze, wszystkie z różnymi wersjami oprogramowania.
+Usługa StorSimple Menedżer urządzeń w ramach wdrożenia może mieć wiele urządzeń, zarówno fizycznych, jak i w chmurze, a wszystkie uruchomione różne wersje oprogramowania.
 
-Poniższa tabela służy do określenia, czy można awaryjnie lub po awarii z innym urządzeniem z inną wersją oprogramowania i jak zachowują się typy woluminów podczas odzyskiwania po awarii.
+Skorzystaj z poniższej tabeli, aby określić, czy można przełączyć się w tryb failover lub wrócić do trybu failover na innym urządzeniu z uruchomioną inną wersją oprogramowania i jak typy woluminów zachowują się podczas odzyskiwania po awarii.
 
-#### <a name="failover-and-failback-across-software-versions"></a>Przejście w stan failover i powiększe po awarii w różnych wersjach oprogramowania
+#### <a name="failover-and-failback-across-software-versions"></a>Przełączanie do trybu failover i powrotu po awarii w różnych wersjach oprogramowania
 
-| Przewijaniu awaryjnego/ Powrót po awarii z | Urządzenie fizyczne | Urządzenie w chmurze |
+| Przełączenie w tryb failover/powrót po awarii z | Urządzenie fizyczne | Urządzenie w chmurze |
 | --- | --- | --- |
-| Aktualizacja 3 do aktualizacji 4 |Woluminy warstwowe są przemijane w stan failed jako warstwowe. <br></br>Woluminy przypięte lokalnie są przesiąknięte awaryjnie jako przypięte lokalnie. <br></br> Po przejściu pracy awaryjnej podczas robienia migawki na urządzeniu z aktualizacją 4 rozpoczyna [się śledzenie oparte na mapach cieplnych.](storsimple-update4-release-notes.md#whats-new-in-update-4) |Woluminy przypięte lokalnie są awaryjne w miarę warstwowego. |
-| Aktualizacja 4 do aktualizacji 3 |Woluminy warstwowe są przemijane w stan failed jako warstwowe. <br></br>Woluminy przypięte lokalnie są przesiąknięte awaryjnie jako przypięte lokalnie. <br></br> Kopie zapasowe używane do przywracania metadanych mapy cieplnej. <br></br>Śledzenie oparte na mapach cieplnych nie jest dostępne w aktualizacji 3 po powiększeniu po awarii. |Woluminy przypięte lokalnie są awaryjne w miarę warstwowego. |
+| Aktualizacja Update 4 |Woluminy warstwowe są przełączane w tryb failover jako warstwowe. <br></br>Woluminy przypięte lokalnie są bezawaryjnie przypięte lokalnie. <br></br> Po przejściu w tryb failover podczas tworzenia migawki na urządzeniu z aktualizacją Update 4 [śledzenie mapę cieplną](storsimple-update4-release-notes.md#whats-new-in-update-4) jest uruchamiane w systemie. |Woluminy przypięte lokalnie są przełączane do trybu failover. |
+| Aktualizacja Update 4 |Woluminy warstwowe są przełączane w tryb failover jako warstwowe. <br></br>Woluminy przypięte lokalnie są bezawaryjnie przypięte lokalnie. <br></br> Kopie zapasowe używane do przywracania przechowują metadane mapę cieplną. <br></br>Śledzenie na podstawie mapę cieplną nie jest dostępne w Update 3 po awarii. |Woluminy przypięte lokalnie są przełączane do trybu failover. |
 
 
-## <a name="device-failover-scenarios"></a>Scenariusze pracy awaryjnej urządzenia
+## <a name="device-failover-scenarios"></a>Scenariusze trybu failover urządzenia
 
-W przypadku awarii można zdecydować się na przełączenie urządzenia StorSimple w tryb fail over:
+Jeśli wystąpi awaria, możesz zdecydować się na przełączenie urządzenia z systemem StorSimple do trybu failover:
 
-* [Do urządzenia fizycznego](storsimple-8000-device-failover-physical-device.md).
-* [Do siebie](storsimple-8000-device-failover-same-device.md).
-* [Do urządzenia w chmurze](storsimple-8000-device-failover-cloud-appliance.md).
+* [Na urządzenie fizyczne](storsimple-8000-device-failover-physical-device.md).
+* [Do samego siebie](storsimple-8000-device-failover-same-device.md).
+* [Z urządzeniem w chmurze](storsimple-8000-device-failover-cloud-appliance.md).
 
-Powyższe artykuły zawierają szczegółowe kroki dla każdego z powyższych przypadków pracy awaryjnej.
+Powyższe artykuły zawierają szczegółowe instrukcje dla każdego z powyższych przypadków pracy awaryjnej.
 
 
 ## <a name="failback"></a>Powrót po awarii
 
-W przypadku aktualizacji 3 i nowszych wersji StorSimple obsługuje również powrót po awarii. Powrót po awarii jest tylko odwrotną od pracy awaryjnej, obiekt docelowy staje się źródłem, a oryginalne urządzenie źródłowe podczas pracy awaryjnej staje się teraz urządzeniem docelowym. 
+W przypadku wersji Update 3 i nowszych StorSimple obsługuje również powrót po awarii. Powrót po awarii to przełączenie w tryb failover, a obiekt docelowy stanie się źródłem, a oryginalne urządzenie źródłowe w trakcie pracy w trybie failover stanie się urządzeniem docelowym. 
 
-Podczas powrotu po awarii StorSimple ponownie synchronizuje dane z powrotem do lokalizacji podstawowej, zatrzymuje we/wy i działania aplikacji i przechodzi z powrotem do oryginalnej lokalizacji.
+Podczas powrotu po awarii program StorSimple ponownie zsynchronizuje dane z powrotem z lokalizacją podstawową, zatrzymuje działanie we/wy i aplikacji, a następnie przechodzi z powrotem do oryginalnej lokalizacji.
 
-Po zakończeniu pracy awaryjnej StorSimple wykonuje następujące akcje:
+Po zakończeniu pracy w trybie failover StorSimple wykonuje następujące czynności:
 
-* StorSimple czyści kontenery woluminów, które są przejęte awaryjnie z urządzenia źródłowego.
-* StorSimple inicjuje zadanie w tle na kontener woluminu (przejęte awaryjnie) na urządzeniu źródłowym. Jeśli spróbujesz wrócić po awarii, gdy zadanie jest w toku, otrzymasz powiadomienie w tej sprawie. Poczekaj, aż zadanie zostanie ukończone, aby rozpocząć powrót po awarii.
-* Czas ukończenia usuwania kontenerów woluminów zależy od różnych czynników, takich jak ilość danych, wiek danych, liczba kopii zapasowych i przepustowość sieci dostępna dla operacji.
+* StorSimple czyści kontenery woluminów przełączone do trybu failover z urządzenia źródłowego.
+* StorSimple inicjuje zadanie w tle dla kontenera woluminów (przełączone do trybu failover) na urządzeniu źródłowym. Jeśli podjęto próbę powrotu po awarii, gdy zadanie jest w toku, zostanie wyświetlone powiadomienie. Poczekaj na zakończenie zadania w celu rozpoczęcia powrotu po awarii.
+* Czas potrzebny do ukończenia usuwania kontenerów woluminów zależy od różnych czynników, takich jak ilość danych, wiek danych, liczba kopii zapasowych i przepustowość sieci dostępna dla operacji.
 
-Jeśli planujesz testowe testy awaryjne lub testowe powroty po awarii, zaleca się przetestowanie kontenerów woluminów z mniejszą ilością danych (Gbs). Zazwyczaj można uruchomić powrót po awarii 24 godziny po zakończeniu pracy awaryjnej.
+Jeśli planujesz test pracy w trybie failover lub test failbacks, zalecamy przetestowanie kontenerów woluminów z mniejszą ilością danych (GB). Zwykle można uruchomić 24 godziny powrotu po awarii po zakończeniu pracy w trybie failover.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
-PYTANIE: **Co się stanie, jeśli dr odzyskiwania po awarii lub ma częściowy sukces?**
+PYTANIE: **Co się stanie w przypadku niepowodzenia odzyskiwania po awarii lub jego częściowego sukcesu?**
 
-A. Jeśli odzyskiwania po awarii, zaleca się spróbować ponownie. Drugie zadanie pracy awaryjnej urządzenia jest świadome postępu pierwszego zadania i rozpoczyna się od tego momentu.
+A. Jeśli odzyskiwanie zakończy się niepowodzeniem, zalecamy ponowną próbę. Drugie zadanie trybu failover urządzenia jest świadome postępu pierwszego zadania i zaczyna się od tego momentu.
 
-PYTANIE: **Czy mogę usunąć urządzenie w trakcie pracy awaryjnej urządzenia?**
+PYTANIE: **Czy mogę usunąć urządzenie, gdy trwa przełączanie do trybu failover urządzenia?**
 
-A. Nie można usunąć urządzenia, gdy dr jest w toku. Urządzenie można usunąć tylko po zakończeniu odzyskiwania po awarii. Można monitorować postęp zadania pracy awaryjnej urządzenia w **zadaniach zadań** bloku.
+A. Nie można usunąć urządzenia, gdy trwa odzyskiwanie po awarii. Urządzenie można usunąć tylko po zakończeniu odzyskiwania po awarii. Postęp zadania trybu failover urządzenia można monitorować w bloku **zadania** .
 
-PYTANIE: **Kiedy rozpoczyna się zbieranie elementów bezużytecznych na urządzeniu źródłowym, aby dane lokalne na urządzeniu źródłowym zostały usunięte?**
+PYTANIE: **Kiedy odzyskiwanie pamięci zostanie rozpoczęte na urządzeniu źródłowym, aby dane lokalne na urządzeniu źródłowym zostały usunięte?**
 
-A. Wyrzucanie elementów bezużytecznych jest włączone na urządzeniu źródłowym tylko po całkowitym oczyszczeniu urządzenia. Oczyszczanie obejmuje czyszczenie obiektów, które zostały przejęte awaryjnie z urządzenia źródłowego, takich jak woluminy, obiekty kopii zapasowych (nie dane), kontenery woluminów i zasady.
+A. Odzyskiwanie pamięci jest włączone na urządzeniu źródłowym dopiero po całkowitym oczyszczeniu urządzenia. Oczyszczanie obejmuje czyszczenie obiektów, które zostały przełączone w tryb failover z urządzenia źródłowego, takie jak woluminy, obiekty kopii zapasowej (nie dane), kontenery woluminów i zasady.
 
-PYTANIE: **Co się stanie, jeśli zadanie usuwania skojarzone z kontenerami woluminów w urządzeniu źródłowym ulegnie awarii?**
+PYTANIE: **Co się stanie, jeśli zadanie usuwania skojarzone z kontenerami woluminów na urządzeniu źródłowym ulegnie awarii?**
 
-A.  Jeśli zadanie usuwania nie powiedzie się, można ręcznie usunąć kontenery woluminów. W bloku **Urządzenia** wybierz urządzenie źródłowe i kliknij pozycję **Kontenery woluminów**. Wybierz kontenery woluminów, które zostały przejęte awaryjnie i w dolnej części bloku, kliknij przycisk **Usuń**. Po usunięciu wszystkich kontenerów woluminów awaryjnych na urządzeniu źródłowym można uruchomić powrót po awarii. Aby uzyskać więcej informacji, przejdź do temat [Usuwanie kontenera woluminów](storsimple-8000-manage-volume-containers.md#delete-a-volume-container).
+A.  Jeśli zadanie usuwania zakończy się niepowodzeniem, można ręcznie usunąć kontenery woluminów. W bloku **urządzenia** wybierz urządzenie źródłowe, a następnie kliknij pozycję **kontenery woluminów**. Wybierz kontenery woluminów w trybie failover, a następnie w dolnej części bloku kliknij przycisk **Usuń**. Po usunięciu wszystkich kontenerów przełączenia w tryb failover na urządzeniu źródłowym można uruchomić powrót po awarii. Aby uzyskać więcej informacji, przejdź do obszaru [usuwanie kontenera woluminów](storsimple-8000-manage-volume-containers.md#delete-a-volume-container).
 
-## <a name="business-continuity-disaster-recovery-bcdr"></a>Odzyskiwanie po awarii ciągłości działania (BCDR)
+## <a name="business-continuity-disaster-recovery-bcdr"></a>Ciągłość działania — odzyskiwanie po awarii (BCDR)
 
-Scenariusz odzyskiwania po awarii ciągłości biznesowej (BCDR) występuje, gdy całe centrum danych platformy Azure przestaje działać. W tym scenariuszu może mieć wpływ na usługę StorSimple Device Manager i skojarzone urządzenia StorSimple.
+Scenariusz ciągłości działania odzyskiwania po awarii (BCDR) występuje, gdy całe centrum danych platformy Azure przestanie działać. Ten scenariusz może mieć wpływ na usługę StorSimple Menedżer urządzeń i skojarzone urządzenia StorSimple.
 
-Jeśli urządzenie StorSimple zostało zarejestrowane tuż przed wystąpieniem awarii, to urządzenie może wymagać przywrócenia ustawień fabrycznych. Po awarii urządzenie StorSimple jest wyświetlane w witrynie Azure portal w trybie offline. To urządzenie musi zostać usunięte z portalu. Zresetuj domyślne ustawienia fabryczne urządzenia i zarejestruj go ponownie w usłudze.
+Jeśli urządzenie StorSimple zostało zarejestrowane tuż przed wystąpieniem awarii, może być konieczne przeprowadzenie resetowania do ustawień fabrycznych. Po awarii Urządzenie StorSimple zostanie wyświetlone w Azure Portal jako offline. To urządzenie musi zostać usunięte z portalu. Zresetuj urządzenie do domyślnych ustawień fabrycznych i zarejestruj je ponownie w usłudze.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli urządzenie jest gotowe do pracy awaryjnej urządzenia, wybierz jeden z następujących scenariuszy, aby uzyskać szczegółowe instrukcje:
+Jeśli wszystko jest gotowe do przełączenia urządzenia w tryb failover, aby uzyskać szczegółowe instrukcje, wybierz jeden z następujących scenariuszy:
 
-- [Praca awaryjna na innym urządzeniu fizycznym](storsimple-8000-device-failover-physical-device.md)
-- [Przeładuj awaryjnie na tym samym urządzeniu](storsimple-8000-device-failover-same-device.md)
-- [Przełączenie awaryjne na urządzenie storsimple w chmurze](storsimple-8000-device-failover-cloud-appliance.md)
+- [Przełączanie do trybu failover na innym urządzeniu fizycznym](storsimple-8000-device-failover-physical-device.md)
+- [Przechodzenie w tryb failover na tym samym urządzeniu](storsimple-8000-device-failover-same-device.md)
+- [Przechodzenie w tryb failover do urządzenia w chmurze StorSimple](storsimple-8000-device-failover-cloud-appliance.md)
 
-Jeśli urządzenie uległo awarii, wybierz jedną z następujących opcji:
+Jeśli urządzenie zostało przełączone w tryb failover, wybierz jedną z następujących opcji:
 
-* [Dezaktywuj lub usuń urządzenie StorSimple](storsimple-8000-deactivate-and-delete-device.md).
-* [Użyj usługi StorSimple Device Manager do administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
+* [Dezaktywuj lub Usuń urządzenie StorSimple](storsimple-8000-deactivate-and-delete-device.md).
+* [Do administrowania urządzeniem StorSimple służy Usługa StorSimple Menedżer urządzeń](storsimple-8000-manager-service-administration.md).
 

@@ -1,70 +1,70 @@
 ---
-title: Limity usługi Azure Blockchain
-description: Omówienie limitów usług i funkcjonalności w usłudze Azure Blockchain
+title: Limity usługi Azure łańcucha bloków
+description: Omówienie limitów usługi i funkcjonalności w usłudze Azure łańcucha bloków Service
 ms.date: 04/02/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 ms.openlocfilehash: 71e1bebf10fa0142870d03977182472da1ad031f
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80676514"
 ---
-# <a name="limits-in-azure-blockchain-service"></a>Limity w usłudze Blockchain platformy Azure
+# <a name="limits-in-azure-blockchain-service"></a>Limity w usłudze Azure łańcucha bloków Service
 
-Usługa Azure Blockchain service ma limity usług i funkcjonalności, takie jak liczba węzłów, które może mieć członek, ograniczenia konsorcjum i kwoty magazynu.
+Usługa Azure łańcucha bloków ma limity usługi i funkcjonalne, takie jak liczba węzłów, które może mieć członek, ograniczenia konsorcjum i kwoty magazynu.
 
 ## <a name="pricing-tier"></a>Warstwa cenowa
 
-Maksymalne limity transakcji i węzłów walidatora zależą od tego, czy aprowizujesz usługę Azure Blockchain w podstawowych czy standardowych warstwach cenowych.
+Maksymalne limity dotyczące transakcji i węzłów modułu sprawdzania poprawności zależą od tego, czy usługa Azure łańcucha bloków jest udostępniana w warstwach cenowych w warstwie Podstawowa czy standardowa.
 
-| Warstwa cenowa | Maksymalna liczba węzłów transakcji | Maksymalne węzły walidatora |
+| Warstwa cenowa | Maksymalna liczba węzłów transakcji | Maksymalna liczba węzłów modułu sprawdzania poprawności |
 |:---|:---:|:---:|
 | Podstawowy | 10 | 1 |
 | Standardowa | 10 | 2 |
 
-Sieć konsorcjum powinna mieć co najmniej dwa węzły warstwy standardowej usługi Azure Blockchain Service. Węzły warstwy standardowej obejmują dwa węzły walidatora. Cztery węzły walidatora są wymagane, aby spełnić [konsensus Stambulskiej Tolerancji Na uszkodzenia.](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus)
+Sieć konsorcjum powinna mieć co najmniej dwa węzły warstwy Standardowa usługi Azure łańcucha bloków. Węzły warstwy standardowej obejmują dwa węzły modułu sprawdzania poprawności. Cztery węzły modułu sprawdzania poprawności są wymagane do zaspokojenia [Byzantine z odpornością na uszkodzenia Stambuł](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
 
-Użyj podstawowej warstwy jest do tworzenia, testowania i weryfikacji koncepcji. Użyj warstwy standardowej dla wdrożeń klasy produkcyjnej. Należy również użyć *warstwy Standardowa,* jeśli używasz Menedżera danych Blockchain lub wysyłasz dużą liczbę transakcji prywatnych.
+Warstwa Podstawowa służy do tworzenia, testowania i sprawdzania poprawności koncepcji. Użyj warstwy Standardowa dla wdrożeń klasy produkcyjnej. W przypadku korzystania z łańcucha bloków Data Manager lub wysyłania dużej liczby transakcji prywatnych należy również użyć warstwy *standardowa* .
 
-Zmiana warstwy cenowej między podstawową a standardową po utworzeniu elementu członkowskiego nie jest obsługiwana.
+Zmiana warstwy cenowej między podstawowa i Standardowa po utworzeniu elementu członkowskiego nie jest obsługiwana.
 
 ## <a name="storage-capacity"></a>Pojemność magazynu
 
-Maksymalna ilość miejsca do magazynowania, który może być używany na węzeł dla danych księgi i dzienników wynosi 1,8 terabajtów.
+Maksymalna ilość miejsca do magazynowania, która może być używana na węzeł dla danych i dzienników księgi, to 1,8 terabajtów.
 
-Zmniejszanie rozmiaru magazynu księgi i dziennika nie jest obsługiwane.
+Zmniejszenie rozmiaru księgi i magazynu dzienników nie jest obsługiwane.
 ## <a name="consortium-limits"></a>Limity konsorcjum
 
-* **Nazwy konsorcjum i członków muszą być unikatowe** od innych nazw konsorcjum i członków w usłudze Azure Blockchain.
+* **Nazwy konsorcjum i składowe muszą być unikatowe** z innych konsorcjów i nazw członków w usłudze Azure łańcucha bloków.
 
 * **Nie można zmienić nazw członków i konsorcjum**
 
-* **Wszyscy członkowie konsorcjum muszą być w tym samym poziomie cenowym**
+* **Wszyscy członkowie konsorcjum muszą znajdować się w tej samej warstwie cenowej**
 
-* **Wszyscy członkowie uczestniczący w konsorcjum muszą mieszkać w tym samym regionie**
+* **Wszyscy członkowie, którzy uczestniczą w konsorcjum, muszą znajdować się w tym samym regionie**
 
-    Pierwszy element członkowski utworzony w konsorcjum dyktuje region. Zaproszeni członkowie do konsorcjum muszą znajdować się w tym samym regionie co pierwszy element członkowski. Ograniczenie wszystkich członków do tego samego regionu pomaga zapewnić, że konsensus sieciowy nie ma negatywnego wpływu.
+    Pierwszy członek utworzony w ramach konsorcjum wymusza region. Zaproszeni członkowie do konsorcjum muszą znajdować się w tym samym regionie co pierwszy członek. Ograniczenie wszystkich elementów członkowskich do tego samego regionu pomaga zapewnić, że konsensus nie wpłynie negatywnie na sieć.
 
 * **Konsorcjum musi mieć co najmniej jednego administratora**
 
-    Jeśli w konsorcjum jest tylko jeden administrator, nie może usunąć się z konsorcjum ani usunąć swojego członka, dopóki inny administrator nie zostanie dodany lub promowany w konsorcjum.
+    Jeśli konsorcjum ma tylko jednego administratora, nie może usunąć siebie z konsorcjum ani usunąć ich członka do momentu dodania lub promocji innego administratora w ramach konsorcjum.
 
-* **Członkowie usunięci z konsorcjum nie mogą zostać ponownie dodani**
+* **Nie można ponownie dodać członków usuniętych z konsorcjum**
 
-    Zamiast tego muszą zostać ponownie zaproszeni do przyłączenia się do konsorcjum i utworzenia nowego członka. Ich istniejące zasoby członkowskie nie są usuwane w celu zachowania transakcji historycznych.
+    Należy pamiętać, aby dołączyć do konsorcjum i utworzyć nowego członka. Ich istniejące zasoby składowe nie zostaną usunięte, aby zachować historyczne transakcje.
 
-* **Wszyscy członkowie konsorcjum muszą używać tej samej wersji księgi**
+* **Wszyscy członkowie w konsorcjum muszą używać tej samej wersji księgi**
 
-    Aby uzyskać więcej informacji na temat poprawek, aktualizacji i wersji księgi dostępnych w usłudze Azure Blockchain, zobacz [Łatanie, aktualizacje i wersje](ledger-versions.md).
+    Aby uzyskać więcej informacji na temat poprawek, aktualizacji i wersji księgi dostępnych w usłudze Azure łańcucha bloków, zobacz [poprawki, aktualizacje i wersje](ledger-versions.md).
 
 ## <a name="performance"></a>Wydajność
 
-Nie należy używać *funkcji eth.estimate* gazu dla każdego zgłoszenia transakcji. *Eth.estimate* Funkcja jest intensywnie pamięci. Wywołanie funkcji wiele razy zmniejsza transakcje na sekundę drastycznie.
+Nie należy używać funkcji *ETH. oszacowanie* gazów dla każdego przesłania transakcji. Funkcja *ETH. oszacowanie* ma duże ilości pamięci. Wywołanie funkcji wielokrotnie zmniejsza liczbę transakcji na sekundę.
 
-Jeśli to możliwe, użyj konserwatywnej wartości gazu do składania transakcji i zminimalizuj użycie *eth.estimate*.
+Jeśli to możliwe, należy użyć wartości zachowawczej gazu do przesyłania transakcji i zminimalizować użycie *ETH. oszacowanie*.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o zasadach dotyczących poprawek i uaktualnień systemów — [łatanie, aktualizacje i wersje](ledger-versions.md).
+Dowiedz się więcej o zasadach dotyczących poprawek i uaktualnień systemów, [poprawek, aktualizacji i wersji](ledger-versions.md).

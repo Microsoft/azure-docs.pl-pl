@@ -1,124 +1,124 @@
 ---
-title: Narzędzie do kontroli ArrInspector
-description: Instrukcja obsługi narzędzia ArrInspector
+title: Narzędzie do inspekcji ArrInspector
+description: Podręcznik użytkownika narzędzia ArrInspector
 author: florianborn71
 ms.author: flborn
 ms.date: 03/09/2020
 ms.topic: article
 ms.openlocfilehash: e3acfc15b0c12822e48009bef4aabadac701fb2d
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680078"
 ---
-# <a name="the-arrinspector-inspection-tool"></a>Narzędzie do kontroli ArrInspector
+# <a name="the-arrinspector-inspection-tool"></a>Narzędzie do inspekcji ArrInspector
 
-ArrInspector jest narzędziem opartym na sieci Web używanym do inspekcji uruchomionej sesji zdalnego renderowania platformy Azure. Jest przeznaczony do celów debugowania, do sprawdzania struktury sceny renderowane, pokaż komunikaty dziennika i monitorowania wydajności na żywo na serwerze.
+ArrInspector to narzędzie oparte na sieci Web służące do sprawdzania uruchomionej sesji renderowania zdalnego platformy Azure. Ma być używany do celów debugowania, do sprawdzania struktury renderowanej sceny, wyświetlania komunikatów dziennika i monitorowania wydajności na żywo na serwerze.
 
-![ArrInspector (ArrInspector)](./media/arr-inspector.png)
+![ArrInspector](./media/arr-inspector.png)
 
-## <a name="connecting-to-the-arrinspector"></a>Podłączanie do ArrInspector
+## <a name="connecting-to-the-arrinspector"></a>Łączenie z ArrInspector
 
-Po uzyskaniu nazwy hosta (kończącej się na) `mixedreality.azure.com`serwera ARR, połącz się za pomocą [ConnectToArrInspectorAsync](../../how-tos/frontend-apis.md#connect-to-arr-inspector). Ta funkcja `StartArrInspector.html` tworzy na urządzeniu, na którym aplikacja jest uruchomiona. Aby uruchomić ArrInspector, otwórz ten plik za pomocą przeglądarki (Edge, Firefox lub Chrome) na komputerze. Plik jest ważny tylko przez 24 godziny.
+Po uzyskaniu nazwy hosta (kończącej `mixedreality.azure.com`) serwera z ARR, Połącz się za pomocą [ConnectToArrInspectorAsync](../../how-tos/frontend-apis.md#connect-to-arr-inspector). Ta funkcja tworzy `StartArrInspector.html` na urządzeniu, na którym działa aplikacja. Aby uruchomić ArrInspector, otwórz ten plik za pomocą przeglądarki (Edge, Firefox lub Chrome) na komputerze. Plik jest prawidłowy tylko przez 24 godziny.
 
-Jeśli aplikacja, `ConnectToArrInspectorAsync` która wywołuje jest już uruchomiona na komputerze:
+Jeśli aplikacja, która wywołuje `ConnectToArrInspectorAsync` program, jest już URUCHOMIONA na komputerze:
 
-* Jeśli używasz integracji Unity, może zostać uruchomiony automatycznie dla Ciebie.
-* W przeciwnym razie plik zostanie odnalezieny w *folderach\\użytkownika LocalAppData\\\\[your_app] TEMP AC\\*.
+* Jeśli używasz integracji aparatu Unity, może ona zostać automatycznie uruchomiona.
+* W przeciwnym razie plik zostanie znaleziony w *\\folderach użytkowników LocalAppData\\[your_app]\\AC\\temp*.
 
-Jeśli aplikacja jest uruchomiona na HoloLens:
+Jeśli aplikacja działa na serwerze HoloLens:
 
-1. Dostęp do urządzenia HoloLens za pomocą [portalu urządzeń systemu Windows](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal).
-1. Przejdź do *Eksploratora plików > systemowej*.
-1. Przejdź do *folderów\\użytkownika\\LocalAppData\\[your_app] Temp ac\\*.
-1. Zapisz *StartArrInspector.html* na komputerze.
-1. Otwórz *plik StartArrInspector.html,* aby załadować arrInspector sesji.
+1. Dostęp do urządzenia HoloLens przy użyciu [portalu urządzeń z systemem Windows](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal).
+1. Przejdź do *Eksploratora systemu > plików*.
+1. Przejdź do *\\folderów użytkowników LocalAppData\\[your_app]\\AC\\temp*.
+1. Zapisz *StartArrInspector. html* na komputerze.
+1. Otwórz *plik StartArrInspector. html* , aby załadować ArrInspector sesji.
 
-## <a name="the-performance-panel"></a>Panel Wydajność
+## <a name="the-performance-panel"></a>Panel wydajności
 
 ![Panel wydajności](./media/performance-panel.png)
 
-Ten panel pokazuje wykresy wszystkich wartości wydajności dla klatki udostępniane przez serwer. Wartości obejmują obecnie czas klatek, fps, użycie procesora i pamięci, statystyki pamięci, takie jak ogólne użycie pamięci RAM, liczba obiektów itp.
+Ten panel przedstawia wykresy wszystkich wartości wydajności poszczególnych klatek uwidocznionych przez serwer. Obecnie wartości obejmują czas klatki, FPS, użycie procesora CPU i pamięci, statystyki pamięci, takie jak całkowite użycie pamięci RAM, liczniki obiektów itd.
 
-Aby zwizualizować jeden z tych parametrów, kliknij przycisk **Dodaj nowy** i wybierz jedną z dostępnych wartości wyświetlanych w oknie dialogowym. Ta akcja dodaje nowy wykres przewijania do panelu, śledząc wartości w czasie rzeczywistym. Po prawej stronie widać *minimalną,* *maksymalną* i *bieżącą* wartość.
+Aby wizualizować jeden z tych parametrów, kliknij przycisk **Dodaj nowy** i wybierz jedną z dostępnych wartości wyświetlanych w oknie dialogowym. Ta akcja dodaje nowy wykres przewijania do panelu, śledząc wartości w czasie rzeczywistym. Po prawej stronie można zobaczyć *minimalną*, *maksymalną* i *bieżącą* wartość.
 
-Wykres można przesuwać, przeciągając jego zawartość za pomocą myszy, jednak przesuwanie w poziomie jest możliwe tylko wtedy, gdy ArrInspector jest w stanie wstrzymania.
+Możesz przesunąć wykres, przeciągając jego zawartość za pomocą myszy, jednak przesuwanie w poziomie jest możliwe tylko wtedy, gdy ArrInspector jest w stanie wstrzymania.
 
-Przytrzymanie ctrl podczas przeciągania, pozwala na powiększanie. Powiększenie poziome można również kontrolować za pomocą suwaka u dołu.
+Przytrzymaj klawisz CTRL podczas przeciągania, aby powiększyć. Powiększenie w poziomie można również kontrolować przy użyciu suwaka u dołu.
 
-Zakres pionowy jest domyślnie obliczany na podstawie aktualnie wyświetlanych wartości, a wartości min i max są wyświetlane w polach tekstowych po prawej stronie. Gdy wartości są ustawiane ręcznie, wpisując je bezpośrednio w polu tekstowym lub przesuwając/powiększając, wykres użyje tych wartości. Aby przywrócić automatyczne ramki pionowe, kliknij ikonę w prawym górnym rogu.
+Zakres pionowy jest domyślnie obliczany na podstawie aktualnie wyświetlanych wartości, a wartości minimalna i maksymalna są wyświetlane w polach tekstowych po prawej stronie. Gdy wartości są ustawiane ręcznie, przez wpisanie ich bezpośrednio w polu tekstowym lub przez panoramowanie/powiększanie, wykres będzie używać tych wartości. Aby przywrócić automatyczne ramki pionowe, kliknij ikonę w prawym górnym rogu.
 
 ![zakres pionowy](./media/vertical-range.png)
 
-## <a name="the-log-panel"></a>Panel Dziennik
+## <a name="the-log-panel"></a>Panel dziennik
 
-![Panel dziennika](./media/log-panel.png)
+![Panel dziennik](./media/log-panel.png)
 
-Panel dziennika zawiera listę komunikatów dziennika generowanych po stronie serwera. Po połączeniu pojawi się do 200 poprzednich komunikatów dziennika i będzie drukować nowe, gdy się pojawią.
+Panel dziennik przedstawia listę komunikatów dziennika generowanych po stronie serwera. W przypadku połączenia będą wyświetlane do 200 poprzednich komunikatów dziennika i będą drukowane w miarę ich występowania.
 
-Listę można filtrować na podstawie `[Error/Warning/Info/Debug]` typu dziennika za pomocą przycisków u góry.
+Listę można filtrować na podstawie typu `[Error/Warning/Info/Debug]` dziennika za pomocą przycisków znajdujących się u góry.
 ![Przyciski filtru dziennika](./media/log-filter.png)
 
-## <a name="the-timing-data-capture-panel"></a>Panel Przechwytywanie danych czasowych
+## <a name="the-timing-data-capture-panel"></a>Panel przechwytywania danych chronometrażu
 
 ![Przechwytywanie danych chronometrażu](./media/timing-data-capture.png)
 
-Ten panel służy do przechwytywania informacji o czasie z serwera i pobierania ich. Plik używa [formatu Chrome Tracing JSON](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit). Aby sprawdzić dane, otwórz Chrome `Chrome://tracing` w adresie URL i przeciągnij i upuść pobrany plik na stronę. Dane chronometrażu są stale zbierane w buforze pierścieniowym o stałym rozmiarze. Po wypisywanie, przechwytywanie zawiera tylko informacje o bezpośredniej przeszłości, co oznacza kilka sekund do kilku minut.
+Ten panel służy do przechwytywania informacji o chronometrażu z serwera i pobierania go. Plik używa [formatu JSON śledzenia Chrome](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit). Aby sprawdzić dane, Otwórz program Chrome w adresie `Chrome://tracing` URL, a następnie przeciągnij i upuść pobrany plik na stronę. Dane chronometrażu są stale zbierane w buforze pierścieniowym o ustalonym rozmiarze. Po zapisaniu przechwycenie obejmuje tylko informacje o przeszłości, co oznacza kilka sekund.
 
-## <a name="the-scene-inspection-panel"></a>Panel kontroli scen
+## <a name="the-scene-inspection-panel"></a>Panel Inspekcja sceny
 
-![Panel kontroli scen](./media/scene-inspection-panel.png)
+![Panel inspekcji sceny](./media/scene-inspection-panel.png)
 
-Ten panel pokazuje strukturę renderowanego sceny. Hierarchia obiektów znajduje się po lewej stronie, zawartość zaznaczonego obiektu znajduje się po prawej stronie. Panel jest tylko do odczytu i jest aktualizowany w czasie rzeczywistym.
+Ten panel przedstawia strukturę renderowanej sceny. Hierarchia obiektów znajduje się po lewej stronie, zawartość zaznaczonego obiektu znajduje się po prawej stronie. Panel jest tylko do odczytu i jest aktualizowany w czasie rzeczywistym.
 
-## <a name="the-vm-debug-information-panel"></a>Panel informacji debugowania maszyny Wirtualnej
+## <a name="the-vm-debug-information-panel"></a>Panel informacje debugowania maszyny wirtualnej
 
-![Panel informacyjny debugowania maszyny Wirtualnej](./media/state-debugger-panel.png)
+![Panel informacji debugowania maszyny wirtualnej](./media/state-debugger-panel.png)
 
 Ten panel oferuje pewne funkcje debugowania.
 
 ### <a name="restart-service"></a>Ponownie uruchom usługę
 
-Przycisk **Uruchom ponownie usługę** uruchamia środowisko uruchomieniowe na maszynie wirtualnej, z którą jest połączony arrInspector. Każdy dołączony klient zostanie rozłączony, a strona arrInspector musi zostać ponownie załadowana, aby połączyć się z uruchomioną ponownie usługą.
+Przycisk **Uruchom ponownie usługę** uruchamia ponownie środowisko uruchomieniowe na maszynie wirtualnej, z którą jest połączona arrInspector. Każdy dołączony klient zostanie odłączony, a strona arrInspector musi zostać ponownie załadowana, aby można było połączyć się z uruchomioną usługą.
 
-### <a name="collect-debug-information"></a>Zbieranie informacji o debugowaniu
+### <a name="collect-debug-information"></a>Zbierz informacje debugowania
 
-Przycisk **Zbieraj informacje debugowania dla maszyny Wirtualnej** otwiera okno dialogowe, które umożliwia wyzwolenie wystąpienia ARR w celu zbierania informacji debugowania na maszynie wirtualnej:
+Przycisk **Zbierz informacje debugowania dla maszyny wirtualnej** otwiera okno dialogowe, które umożliwia Wyzwól wystąpienie klasy ARR w celu zebrania informacji debugowania na maszynie wirtualnej:
 
-![Okno dialogowe informacji debugowania maszyny Wirtualnej](./media/state-debugger-dialog.png)
+![Okno dialogowe informacji debugowania maszyny wirtualnej](./media/state-debugger-dialog.png)
 
-Informacje debugowania pomaga zespołowi renderowania zdalnego platformy Azure analizować wszelkie problemy występujące w uruchomionym wystąpieniu ARR. Okno dialogowe zawiera pole tekstowe, aby podać dodatkowe szczegóły, na przykład kroki, aby odtworzyć problem.
+Informacje debugowania ułatwiają zespołowi renderowania zdalnego systemu Azure analizowanie wszelkich problemów występujących w działającym wystąpieniu ARR. Okno dialogowe zawiera pole tekstowe umożliwiające dostarczenie dodatkowych informacji, na przykład kroki umożliwiające odtworzenie problemu.
 
-Po kliknięciu przycisku **Rozpocznij zbieranie** okno dialogowe zostanie zamknięte i rozpocznie się proces zbierania. Zbieranie informacji na maszynie wirtualnej może potrwać kilka minut.
+Po kliknięciu przycisku **Rozpocznij zbieranie** okno dialogowe zostanie zamknięte i rozpocznie się proces zbierania danych. Zbieranie informacji na maszynie wirtualnej może potrwać kilka minut.
 
-![Trwa zbieranie informacji o debugowaniu maszyn wirtualnych](./media/state-debugger-panel-in-progress.png)
+![Trwa zbieranie informacji o debugowaniu maszyny wirtualnej](./media/state-debugger-panel-in-progress.png)
 
-Po zakończeniu kolekcji otrzymasz powiadomienie w oknie ArrInspector. To powiadomienie zawiera identyfikator, który identyfikuje tej konkretnej kolekcji. Pamiętaj, aby zapisać ten identyfikator, aby przekazać go do zespołu renderowania zdalnego platformy Azure.
+Po zakończeniu zbierania zostanie wyświetlone powiadomienie w oknie ArrInspector. To powiadomienie zawiera identyfikator, który identyfikuje tę określoną kolekcję. Pamiętaj, aby zapisać ten identyfikator w celu przekazania go do zespołu zdalnego renderowania platformy Azure.
 
-![Sukces zbierania informacji debugowania maszyny Wirtualnej](./media/state-debugger-snackbar-success.png)
+![Pomyślne zbieranie informacji debugowania maszyny wirtualnej](./media/state-debugger-snackbar-success.png)
 
 > [!IMPORTANT]
-> Nie można pobrać ani w inny sposób uzyskać informacji debugowania maszyny Wirtualnej. Tylko zespół renderowania zdalnego platformy Azure ma dostęp do zebranych danych. Musisz skontaktować się z nami i wysłać identyfikator kolekcji, abyśmy mogli zbadać problem, który widzisz.
+> Nie można pobrać ani uzyskać w inny sposób dostępu do informacji debugowania maszyny wirtualnej. Tylko zespół zdalnego renderowania platformy Azure ma dostęp do zebranych danych. Musisz skontaktować się z nami i wysłać identyfikator kolekcji, aby sprawdzić, czy problem widzisz.
 
-## <a name="pause-mode"></a>Tryb pauzy
+## <a name="pause-mode"></a>Tryb wstrzymania
 
-W prawym górnym rogu przełącznik umożliwia wstrzymanie aktualizacji paneli na żywo. Ten tryb może być przydatne do dokładnego sprawdzenia określonego stanu.
+W prawym górnym rogu przełącznik umożliwia wstrzymanie aktualizacji na żywo paneli. Ten tryb może być przydatny do dokładnego zbadania określonego stanu.
 
-![Tryb pauzy](./media/pause-mode.png)
+![Tryb wstrzymania](./media/pause-mode.png)
 
-Po ponownym włączeniu aktualizacji na żywo wszystkie panele są resetowane.
+Po ponownym włączeniu aktualizacji na żywo wszystkie panele zostaną zresetowane.
 
 ## <a name="host-configuration"></a>Konfiguracja hosta
 
-Domyślnie narzędzie łączy się z serwerem ARR, który jest uruchomiony na tym samym hoście obsługującym ArrInspector. Można jednak skonfigurować go do inspekcji innego serwera, przy założeniu, że jest uruchomiony wystąpienie ARR z portem narzędziowym otwarte.
+Domyślnie narzędzie nawiązuje połączenie z serwerem ARR, który działa na tym samym hoście obsługującym ArrInspector. Można jednak skonfigurować go do inspekcji innego serwera, przy założeniu, że jest uruchomione wystąpienie ARR z otwartym portem narzędzia.
 
-Aby to zrobić, przejdź do menu głównego po lewej stronie paska nagłówka i wybierz *opcję Konfiguracja hosta*. Kliknij **pozycję Dodaj nowego hosta**i wprowadź nazwę i nazwę hosta. W przypadku *nazwy hosta* należy używać `.mixedreality.azure.com`tylko nazwy `http://` hosta kończącej się na , nie obejmują lub portu.
+Aby to zrobić, uzyskaj dostęp do menu głównego po lewej stronie paska nagłówka i wybierz pozycję *Konfiguracja hosta*. Kliknij pozycję **Dodaj nowy host**, a następnie wprowadź nazwę i nazwa hosta. Dla *nazwy hosta* Używaj tylko nazwy hosta kończącej się `.mixedreality.azure.com`na `http://` , nie dołączaj ani portu.
 
 ![Konfiguracja hosta](./media/host-configuration.png)
 
-Aby szybko przełączyć się z jednego hosta na drugi, użyj listy rozwijanej w prawym górnym rogu.
+Aby szybko przełączać się między hostami, Użyj listy rozwijanej w prawym górnym rogu.
 
-![Kombinacja gospodarzy](./media/host-switch-combo.png)
+![Pole kombi hosta](./media/host-switch-combo.png)
 
-Lista hostów jest przechowywana w lokalnej pamięci przeglądarki, więc zostanie zachowana podczas ponownego otwierania tej samej przeglądarki.
+Lista hostów jest przechowywana w lokalnym magazynie przeglądarki, więc zostanie zachowana przy ponownym otwarciu tej samej przeglądarki.

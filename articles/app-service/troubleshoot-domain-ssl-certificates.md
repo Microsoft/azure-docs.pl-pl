@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z certyfikatami domeny i protokołu TLS/SSL
-description: Znajdź rozwiązania typowych problemów, które mogą wystąpić podczas konfigurowania domeny lub certyfikatu TLS/SSL w usłudze Azure App Service.
+title: Rozwiązywanie problemów z certyfikatami i protokołem TLS/SSL
+description: Znajdź rozwiązania typowych problemów, które mogą wystąpić podczas konfigurowania domeny lub certyfikatu TLS/SSL w Azure App Service.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -9,22 +9,22 @@ ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: d61b95c7136a4cbce11789a58d27cc1a164ae374
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668026"
 ---
-# <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Rozwiązywanie problemów z domeną i certyfikatami TLS/SSL w usłudze Azure App Service
+# <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Rozwiązywanie problemów z certyfikatami domeny i protokołu TLS/SSL w Azure App Service
 
-W tym artykule wymieniono typowe problemy, które mogą wystąpić podczas konfigurowania domeny lub certyfikatu TLS/SSL dla aplikacji sieci web w usłudze Azure App Service. Opisano również możliwe przyczyny i rozwiązania tych problemów.
+W tym artykule wymieniono typowe problemy, które mogą wystąpić podczas konfigurowania domeny lub certyfikatu TLS/SSL dla aplikacji sieci Web w programie Azure App Service. Opisano w nim również możliwe przyczyny i rozwiązania tych problemów.
 
-Jeśli potrzebujesz więcej pomocy w dowolnym momencie tego artykułu, możesz skontaktować się z ekspertami platformy Azure na [forach MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie można zgłosić zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję Uzyskaj pomoc **techniczną**.
+Jeśli potrzebujesz więcej pomocy w dowolnym punkcie tego artykułu, możesz skontaktować się z ekspertami platformy Azure na [forach MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie możesz zaplikować zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną**.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="certificate-problems"></a>Problemy z certyfikatem
+## <a name="certificate-problems"></a>Problemy z certyfikatami
 
 ### <a name="you-cant-add-a-tlsssl-certificate-binding-to-an-app"></a>Nie można dodać powiązania certyfikatu TLS/SSL do aplikacji 
 
@@ -32,18 +32,18 @@ Jeśli potrzebujesz więcej pomocy w dowolnym momencie tego artykułu, możesz s
 
 Po dodaniu powiązania TLS zostanie wyświetlony następujący komunikat o błędzie:
 
-"Nie można dodać powiązania SSL. Nie można ustawić certyfikatu dla istniejącego adresu VIP, ponieważ inny adres VIP już używa tego certyfikatu."
+"Nie można dodać powiązania SSL. Nie można ustawić certyfikatu dla istniejącego adresu VIP, ponieważ inny wirtualny adres IP już używa tego certyfikatu ".
 
 #### <a name="cause"></a>Przyczyna
 
-Ten problem może wystąpić, jeśli masz wiele powiązań SSL opartych na protokosze dla tego samego adresu IP w wielu aplikacjach. Na przykład aplikacja A ma protokół SSL oparty na protokoi z certyfikatem IP ze starym certyfikatem. Aplikacja B ma protokół SSL oparty na protokoi z nowym certyfikatem dla tego samego adresu IP. Po zaktualizowaniu powiązania TLS aplikacji z nowym certyfikatem, nie powiedzie się z tym błędem, ponieważ ten sam adres IP jest używany dla innej aplikacji. 
+Ten problem może wystąpić, jeśli istnieje wiele powiązań SSL opartych na protokole IP dla tego samego adresu IP w wielu aplikacjach. Na przykład aplikacja A ma protokół SSL oparty na protokole IP ze starym certyfikatem. Aplikacja B ma protokół SSL oparty na protokole IP z nowym certyfikatem dla tego samego adresu IP. Aktualizacja powiązania TLS aplikacji z nowym certyfikatem kończy się niepowodzeniem z powodu tego błędu, ponieważ ten sam adres IP jest używany przez inną aplikację. 
 
 #### <a name="solution"></a>Rozwiązanie 
 
 Aby rozwiązać ten problem, należy użyć jednej z następujących metod:
 
-- Usuń powiązanie SSL oparte na protoke ip dla aplikacji, która używa starego certyfikatu. 
-- Utwórz nowe powiązanie SSL oparte na protokocze IP, które używa nowego certyfikatu.
+- Usuń powiązanie SSL oparte na protokole IP w aplikacji, która używa starego certyfikatu. 
+- Utwórz nowe powiązanie protokołu SSL opartego na protokole IP, które używa nowego certyfikatu.
 
 ### <a name="you-cant-delete-a-certificate"></a>Nie można usunąć certyfikatu 
 
@@ -51,7 +51,7 @@ Aby rozwiązać ten problem, należy użyć jednej z następujących metod:
 
 Podczas próby usunięcia certyfikatu pojawia się następujący komunikat o błędzie:
 
-"Nie można usunąć certyfikatu, ponieważ jest on obecnie używany w powiązaniu TLS/SSL. Powiązanie TLS musi zostać usunięte, zanim będzie można usunąć certyfikat."
+"Nie można usunąć certyfikatu, ponieważ jest on obecnie używany w powiązaniu TLS/SSL. Aby można było usunąć certyfikat, należy usunąć powiązanie TLS ".
 
 #### <a name="cause"></a>Przyczyna
 
@@ -59,38 +59,38 @@ Ten problem może wystąpić, jeśli inna aplikacja używa certyfikatu.
 
 #### <a name="solution"></a>Rozwiązanie
 
-Usuń powiązanie TLS dla tego certyfikatu z aplikacji. Następnie spróbuj usunąć certyfikat. Jeśli nadal nie można usunąć certyfikatu, wyczyść pamięć podręczną przeglądarki internetowej i otwórz ponownie witrynę Azure portal w nowym oknie przeglądarki. Następnie spróbuj usunąć certyfikat.
+Usuń powiązanie TLS dla tego certyfikatu z aplikacji. Następnie spróbuj usunąć certyfikat. Jeśli nadal nie możesz usunąć certyfikatu, wyczyść pamięć podręczną przeglądarki internetowej i ponownie otwórz Azure Portal w nowym oknie przeglądarki. Następnie spróbuj usunąć certyfikat.
 
-### <a name="you-cant-purchase-an-app-service-certificate"></a>Nie można kupić certyfikatu usługi app service 
+### <a name="you-cant-purchase-an-app-service-certificate"></a>Nie można kupić certyfikatu App Service 
 
 #### <a name="symptom"></a>Objaw
-Nie można kupić [certyfikatu usługi Azure App Service](./configure-ssl-certificate.md#import-an-app-service-certificate) z witryny Azure portal.
+Nie można kupić [certyfikatu Azure App Service](./configure-ssl-certificate.md#import-an-app-service-certificate) z Azure Portal.
 
-#### <a name="cause-and-solution"></a>Przyczyna i roztwór
+#### <a name="cause-and-solution"></a>Przyczyna i rozwiązanie
 Ten problem może wystąpić z następujących powodów:
 
-- Plan usługi aplikacji jest bezpłatny lub udostępniony. Te warstwy cenowe nie obsługują protokołu TLS. 
+- Plan App Service jest bezpłatny lub udostępniony. Te warstwy cenowe nie obsługują protokołu TLS. 
 
-    **Rozwiązanie:** Uaktualnij plan usługi app dla aplikacji do standardu.
+    **Rozwiązanie**: Uaktualnij plan App Service w przypadku aplikacji do warstwy Standardowa.
 
-- Subskrypcja nie ma ważnej karty kredytowej.
+- Subskrypcja nie ma prawidłowej karty kredytowej.
 
-    **Rozwiązanie:** Dodaj prawidłową kartę kredytową do subskrypcji. 
+    **Rozwiązanie**: Dodaj prawidłową kartę kredytową do subskrypcji. 
 
-- Oferta subskrypcji nie obsługuje zakupu certyfikatu usługi App Service, takiego jak Microsoft Student.  
+- Oferta subskrypcji nie obsługuje zakupu certyfikatu App Service, takiego jak Microsoft Student.  
 
-    **Rozwiązanie:** Uaktualnij subskrypcję. 
+    **Rozwiązanie**: Uaktualnij subskrypcję. 
 
-- Subskrypcja osiągnęła limit zakupów, które są dozwolone w ramach subskrypcji.
+- Subskrypcja osiągnęła limit zakupów dozwolonych w ramach subskrypcji.
 
-    **Rozwiązanie:** Certyfikaty usługi App Service mają limit 10 zakupów certyfikatów dla typów subskrypcji płatności zgodnie z rzeczywistym i ea. W przypadku innych typów subskrypcji limit wynosi 3. Aby zwiększyć limit, skontaktuj się z [pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- Certyfikat usługi app service został oznaczony jako oszustwo. Pojawił się następujący komunikat o błędzie: "Twój certyfikat został oflagowany w celu zgłoszenia oszustwa. Wniosek jest obecnie w trakcie rozpatrywana. Jeśli certyfikat nie stanie się użyteczny w ciągu 24 godzin, skontaktuj się z pomocą techniczną platformy Azure."
+    **Rozwiązanie**: certyfikaty App Service mają limit 10 zakupów certyfikatów dla typów subskrypcji płatność zgodnie z rzeczywistym użyciem i EA. W przypadku innych typów subskrypcji limit wynosi 3. Aby zwiększyć limit, skontaktuj się z [pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Certyfikat App Service został oznaczony jako oszustwo. Został wyświetlony następujący komunikat o błędzie: "certyfikat został oflagowany dla potencjalnego oszustwa. Żądanie jest obecnie objęte przeglądem. Jeśli certyfikat nie będzie można użyć w ciągu 24 godzin, skontaktuj się z pomocą techniczną platformy Azure.
 
-    **Rozwiązanie:** Jeśli certyfikat jest oznaczony jako oszustwo i nie został rozwiązany po 24 godzinach, wykonaj następujące kroki:
+    **Rozwiązanie**: Jeśli certyfikat jest oznaczony jako oszustwo i nie jest rozpoznawany po 24 godzinach, wykonaj następujące czynności:
 
-    1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
-    2. Przejdź do strony **Certyfikaty usługi app service**i wybierz certyfikat.
-    3. Wybierz krok konfiguracji **certyfikatu** > **2: Weryfikuj** > **weryfikację domeny**. Ten krok wysyła powiadomienie e-mail do dostawcy certyfikatów platformy Azure, aby rozwiązać problem.
+    1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+    2. Przejdź do obszaru **App Service Certificates**i wybierz certyfikat.
+    3. Wybierz pozycję **Konfiguracja** > certyfikatu**krok 2** > .**weryfikacja weryfikacji domeny**. Ten krok powoduje wysłanie powiadomienia e-mail do dostawcy certyfikatów platformy Azure w celu rozwiązania problemu.
 
 ## <a name="custom-domain-problems"></a>Problemy z domeną niestandardową
 
@@ -98,11 +98,11 @@ Ten problem może wystąpić z następujących powodów:
 
 #### <a name="symptom"></a>Objaw
 
-Podczas przeglądania witryny przy użyciu niestandardowej nazwy domeny jest wyświetlany następujący komunikat o błędzie:
+Gdy przejdziesz do witryny przy użyciu niestandardowej nazwy domeny, zostanie wyświetlony następujący komunikat o błędzie:
 
-"Nie znaleziono aplikacji o błędzie 404-Web."
+"Błąd 404 — nie znaleziono aplikacji sieci Web".
 
-#### <a name="cause-and-solution"></a>Przyczyna i roztwór
+#### <a name="cause-and-solution"></a>Przyczyna i rozwiązanie
 
 **Przyczyna 1** 
 
@@ -110,138 +110,138 @@ W skonfigurowanej domenie niestandardowej brakuje rekordu CNAME lub A.
 
 **Rozwiązanie dla przyczyny 1**
 
-- Jeśli dodano rekord A, upewnij się, że dodano również rekord TXT. Aby uzyskać więcej informacji, zobacz [Tworzenie rekordu A](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
-- Jeśli nie musisz używać domeny głównej dla aplikacji, zalecamy użycie rekordu CNAME zamiast rekordu A.
-- Nie używaj zarówno rekordu CNAME, jak i rekordu A dla tej samej domeny. Ten problem może spowodować konflikt i uniemożliwić rozwiązanie domeny. 
+- W przypadku dodania rekordu A upewnij się, że został również dodany rekord TXT. Aby uzyskać więcej informacji, zobacz [Tworzenie rekordu A](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
+- Jeśli nie musisz używać domeny głównej dla swojej aplikacji, zalecamy użycie rekordu CNAME zamiast rekordu A.
+- Nie używaj rekordu CNAME i rekordu A dla tej samej domeny. Ten problem może spowodować konflikt i uniemożliwić rozpoznanie domeny. 
 
 **Przyczyna 2** 
 
-Przeglądarka internetowa może nadal buforować stary adres IP twojej domeny. 
+Przeglądarka internetowa nadal może buforować stary adres IP dla Twojej domeny. 
 
 **Rozwiązanie dla przyczyny 2**
 
-Wyczyść przeglądarkę. W przypadku urządzeń z systemem `ipconfig /flushdns`Windows można uruchomić polecenie . Użyj [WhatsmyDNS.net,](https://www.whatsmydns.net/) aby sprawdzić, czy twoja domena wskazuje adres IP aplikacji. 
+Wyczyść przeglądarkę. W przypadku urządzeń z systemem Windows można uruchomić polecenie `ipconfig /flushdns`. Użyj [WhatsmyDNS.NET](https://www.whatsmydns.net/) , aby sprawdzić, czy domena wskazuje adres IP aplikacji. 
 
 ### <a name="you-cant-add-a-subdomain"></a>Nie można dodać poddomeny 
 
 #### <a name="symptom"></a>Objaw
 
-Nie można dodać nowej nazwy hosta do aplikacji, aby przypisać poddomenę.
+Nie możesz dodać nowej nazwy hosta do aplikacji, aby przypisać poddomenę.
 
 #### <a name="solution"></a>Rozwiązanie
 
 - Skontaktuj się z administratorem subskrypcji, aby upewnić się, że masz uprawnienia do dodawania nazwy hosta do aplikacji.
-- Jeśli potrzebujesz więcej poddomen, zalecamy zmianę hostingu domeny na usługę Dns (Azure Domain Name Service). Za pomocą usługi Azure DNS można dodać 500 nazw hostów do aplikacji. Aby uzyskać więcej informacji, zobacz [Dodawanie poddomeny](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+- Jeśli potrzebujesz więcej domen poddomen, zalecamy zmianę hostingu domeny w usłudze Azure Domain Name Service (DNS). Za pomocą Azure DNS można dodać do aplikacji nazwy hostów 500. Aby uzyskać więcej informacji, zobacz [Dodawanie poddomeny](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
 
 ### <a name="dns-cant-be-resolved"></a>Nie można rozpoznać systemu DNS
 
 #### <a name="symptom"></a>Objaw
 
-Pojawi się następujący komunikat o błędzie:
+Został wyświetlony następujący komunikat o błędzie:
 
-"Nie można zlokalizować rekordu DNS."
+"Nie można zlokalizować rekordu DNS".
 
 #### <a name="cause"></a>Przyczyna
 Ten problem występuje z jednego z następujących powodów:
 
-- Okres wygaśnięcia czasu życia (TTL) nie upłynął. Sprawdź konfigurację DNS domeny, aby określić wartość TTL, a następnie poczekaj, aż okres wygaśnie.
+- Okres czasu wygaśnięcia (TTL) nie wygasł. Sprawdź konfigurację DNS domeny, aby określić wartość czasu wygaśnięcia, a następnie poczekaj na wygaśnięcie okresu.
 - Konfiguracja DNS jest niepoprawna.
 
 #### <a name="solution"></a>Rozwiązanie
-- Poczekaj 48 godzin, aż ten problem sam się rozwiąże.
-- Jeśli można zmienić ustawienie czasu wygaśnięcia w konfiguracji DNS, zmień wartość na 5 minut, aby zobaczyć, czy to rozwiązuje problem.
-- Użyj [WhatsmyDNS.net,](https://www.whatsmydns.net/) aby sprawdzić, czy twoja domena wskazuje adres IP aplikacji. Jeśli tak nie jest, skonfiguruj rekord A na poprawny adres IP aplikacji.
+- Aby rozwiązać ten problem, poczekaj przez 48 godzin.
+- Jeśli można zmienić ustawienie czasu wygaśnięcia w konfiguracji DNS, należy zmienić wartość na 5 minut, aby sprawdzić, czy problem został rozwiązany.
+- Użyj [WhatsmyDNS.NET](https://www.whatsmydns.net/) , aby sprawdzić, czy domena wskazuje adres IP aplikacji. Jeśli tak nie jest, skonfiguruj rekord A na prawidłowy adres IP aplikacji.
 
-### <a name="you-need-to-restore-a-deleted-domain"></a>Musisz przywrócić usuniętą domenę 
+### <a name="you-need-to-restore-a-deleted-domain"></a>Należy przywrócić usuniętą domenę. 
 
 #### <a name="symptom"></a>Objaw
-Twoja domena nie jest już widoczna w witrynie Azure portal.
+Twoja domena nie jest już widoczna w Azure Portal.
 
 #### <a name="cause"></a>Przyczyna 
-Właściciel subskrypcji mógł przypadkowo usunąć domenę.
+Właściciel subskrypcji może przypadkowo usunąć domenę.
 
 #### <a name="solution"></a>Rozwiązanie
-Jeśli domena została usunięta mniej niż siedem dni temu, domena nie rozpoczęła jeszcze procesu usuwania. W takim przypadku można ponownie kupić tę samą domenę w witrynie Azure portal w ramach tej samej subskrypcji. (Pamiętaj, aby wpisać dokładną nazwę domeny w polu wyszukiwania). Opłata za tę domenę nie zostanie naliczona ponownie. Jeśli domena została usunięta więcej niż siedem dni temu, skontaktuj się z [pomocą techniczną platformy Azure,](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) aby uzyskać pomoc dotyczącą przywracania domeny.
+Jeśli domena została usunięta mniej niż siedem dni temu, w domenie nie uruchomiono jeszcze procesu usuwania. W takim przypadku można ponownie kupić tę samą domenę w Azure Portal w ramach tej samej subskrypcji. (Pamiętaj, aby w polu wyszukiwania wpisać dokładną nazwę domeny). Nie zostanie naliczona opłata ponownie dla tej domeny. Jeśli domena została usunięta ponad siedem dni temu, skontaktuj się z [pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , aby uzyskać pomoc dotyczącą przywracania domeny.
 
 ## <a name="domain-problems"></a>Problemy z domeną
 
-### <a name="you-purchased-a-tlsssl-certificate-for-the-wrong-domain"></a>Zakupiono certyfikat TLS/SSL dla niewłaściwej domeny
+### <a name="you-purchased-a-tlsssl-certificate-for-the-wrong-domain"></a>Zakupiłeś certyfikat TLS/SSL dla niewłaściwej domeny
 
 #### <a name="symptom"></a>Objaw
 
-Zakupiono certyfikat usługi App Service dla niewłaściwej domeny. Nie można zaktualizować certyfikatu, aby użyć poprawnej domeny.
+Zakupiłeś certyfikat App Service dla niewłaściwej domeny. Nie można zaktualizować certyfikatu w celu używania prawidłowej domeny.
 
 #### <a name="solution"></a>Rozwiązanie
 
-Usuń ten certyfikat, a następnie kup nowy certyfikat.
+Usuń ten certyfikat, a następnie Kup nowy certyfikat.
 
-Jeśli bieżący certyfikat, który używa niewłaściwej domeny, jest w stanie "Wystawione", zostanie również naliczona naliczona naliczona naliczona kwota tego certyfikatu. Certyfikaty usługi App Service nie podlegają zwrotowi, ale możesz skontaktować się z [pomocą techniczną platformy Azure,](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) aby sprawdzić, czy istnieją inne opcje. 
+Jeśli bieżący certyfikat, który używa niewłaściwej domeny, jest w stanie "wystawiony", opłaty będą naliczane również za ten certyfikat. App Service certyfikaty nie podlegają zwrotowi, ale możesz skontaktować się z [pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , aby sprawdzić, czy są dostępne inne opcje. 
 
-### <a name="an-app-service-certificate-was-renewed-but-the-app-shows-the-old-certificate"></a>Certyfikat usługi App Service został odnowiony, ale aplikacja pokazuje stary certyfikat 
+### <a name="an-app-service-certificate-was-renewed-but-the-app-shows-the-old-certificate"></a>Certyfikat App Service został odnowiony, ale aplikacja pokazuje stary certyfikat 
 
 #### <a name="symptom"></a>Objaw
 
-Certyfikat usługi App Service został odnowiony, ale aplikacja korzystająca z certyfikatu usługi App Service nadal używa starego certyfikatu. Ponadto odebrano ostrzeżenie, że wymagany jest protokół HTTPS.
+Certyfikat App Service został odnowiony, ale Aplikacja korzystająca z certyfikatu App Service nadal używa starego certyfikatu. Otrzymano również ostrzeżenie, że protokół HTTPS jest wymagany.
 
 #### <a name="cause"></a>Przyczyna 
-Usługa App Service automatycznie synchronizuje certyfikat w ciągu 48 godzin. Podczas obracania lub aktualizowania certyfikatu czasami aplikacja nadal pobiera stary certyfikat, a nie nowo zaktualizowany certyfikat. Powodem jest to, że zadanie synchronizacji zasobu certyfikatu nie zostało jeszcze uruchomione. Kliknij pozycję Synchronizuj. Operacja synchronizacji automatycznie aktualizuje powiązania nazwy hosta certyfikatu w usłudze App Service bez powodowania przestojów w aplikacjach.
+App Service automatycznie synchronizuje certyfikat w ciągu 48 godzin. Gdy użytkownik obraca lub aktualizuje certyfikat, czasami aplikacja wciąż pobiera stary certyfikat, a nie nowo zaktualizowany certyfikat. Przyczyną jest to, że zadanie synchronizacji zasobu certyfikatu nie zostało jeszcze uruchomione. Kliknij pozycję Synchronizuj. Operacja synchronizacji automatycznie aktualizuje powiązania nazwy hosta dla certyfikatu w App Service bez powodowania przestojów aplikacji.
  
 #### <a name="solution"></a>Rozwiązanie
 
 Można wymusić synchronizację certyfikatu:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). Wybierz pozycję **Certyfikaty usługi app service**, a następnie wybierz certyfikat.
-2. Wybierz **pozycję Ponownieklucz i Synchronizuj**, a następnie wybierz pozycję **Synchronizuj**. Synchronizacja zajmuje trochę czasu, aby zakończyć. 
-3. Po zakończeniu synchronizacji zostanie wyświetlone następujące powiadomienie: "Pomyślnie zaktualizowano wszystkie zasoby za pomocą najnowszego certyfikatu".
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **App Service certyfikaty**, a następnie wybierz certyfikat.
+2. Wybierz pozycję Wymień **i zsynchronizuj**, a następnie wybierz pozycję **Synchronizuj**. Synchronizacja zajmuje trochę czasu. 
+3. Po zakończeniu synchronizacji zostanie wyświetlone następujące powiadomienie: "pomyślnie zaktualizowano wszystkie zasoby przy użyciu najnowszego certyfikatu".
 
 ### <a name="domain-verification-is-not-working"></a>Weryfikacja domeny nie działa 
 
 #### <a name="symptom"></a>Objaw 
-Certyfikat usługi App Service wymaga weryfikacji domeny, zanim certyfikat będzie gotowy do użycia. Po wybraniu opcji **Sprawdź**proces zakończy się niepowodzeniem.
+Certyfikat App Service wymaga weryfikacji domeny, zanim certyfikat będzie gotowy do użycia. Po wybraniu opcji **Weryfikuj**proces kończy się niepowodzeniem.
 
 #### <a name="solution"></a>Rozwiązanie
-Ręcznie zweryfikuj domenę, dodając rekord TXT:
+Ręcznie Zweryfikuj domenę przez dodanie rekordu TXT:
  
-1.  Przejdź do dostawcy usługi dns (Domain Name Service), który obsługuje twoją nazwę domeny.
-2.  Dodaj rekord TXT dla domeny, który używa wartości tokenu domeny, który jest wyświetlany w witrynie Azure portal. 
+1.  Przejdź do dostawcy usługi nazw domen (DNS), który hostuje nazwę domeny.
+2.  Dodaj rekord TXT dla domeny korzystającej z wartości tokenu domeny pokazanego w Azure Portal. 
 
-Poczekaj kilka minut na uruchomienie propagacji DNS, a następnie wybierz przycisk **Odśwież,** aby wyzwolić weryfikację. 
+Poczekaj kilka minut, aż Propagacja DNS zostanie uruchomiona, a następnie wybierz przycisk **Odśwież** , aby wyzwolić weryfikację. 
 
-Alternatywnie można użyć metody strony HTML, aby ręcznie zweryfikować domenę. Ta metoda umożliwia urząd certyfikacji potwierdzenie własności domeny, dla których wystawiono certyfikat.
+Alternatywnie możesz użyć metody sieci Web HTML do ręcznego zweryfikowania domeny. Ta metoda umożliwia urzędowi certyfikacji potwierdzenie własności domeny, dla której certyfikat został wystawiony.
 
-1.  Utwórz plik HTML o nazwie {token weryfikacji domeny}.html. Zawartość tego pliku powinna być wartością tokenu weryfikacji domeny.
-3.  Przekaż ten plik w katalogu głównym serwera sieci web, na który znajduje się Twoja domena.
-4.  Wybierz **przycisk Odśwież,** aby sprawdzić stan certyfikatu. Weryfikacja może potrwać kilka minut.
+1.  Utwórz plik HTML o nazwie {Domain Verification token}. html. Zawartość tego pliku powinna być wartością tokenu weryfikacji domeny.
+3.  Przekaż ten plik w katalogu głównym serwera sieci Web, który hostuje Twoją domenę.
+4.  Wybierz pozycję **Odśwież** , aby sprawdzić stan certyfikatu. Zweryfikowanie może potrwać kilka minut.
 
-Na przykład jeśli kupujesz standardowy certyfikat dla azure.com z tokenem weryfikacji domeny 1234abcd, żądanie sieci web, do https://azure.com/1234abcd.html którego został złożony, powinno zostać odesłane 1234abcd. 
+Na przykład jeśli kupujesz standardowy certyfikat dla usługi azure.com z tokenem weryfikacji domeny 1234abcd, żądanie sieci Web, które https://azure.com/1234abcd.html miało zwrócić 1234abcd. 
 
 > [!IMPORTANT]
-> Zamówienie certyfikatu ma tylko 15 dni na ukończenie operacji weryfikacji domeny. Po 15 dniach urząd certyfikacji odmawia certyfikatu i nie są obciążane za certyfikat. W tej sytuacji usuń ten certyfikat i spróbuj ponownie.
+> Kolejność certyfikatów ma tylko 15 dni, aby ukończyć operację weryfikacji domeny. Po upływie 15 dni urząd certyfikacji odrzuca certyfikat i nie jest naliczana opłata za certyfikat. W tej sytuacji usuń ten certyfikat i spróbuj ponownie.
 >
 > 
 
 ### <a name="you-cant-purchase-a-domain"></a>Nie można kupić domeny
 
 #### <a name="symptom"></a>Objaw
-Nie można kupić domeny usługi app service w witrynie Azure portal.
+Nie można kupić domeny App Service w Azure Portal.
 
-#### <a name="cause-and-solution"></a>Przyczyna i roztwór
+#### <a name="cause-and-solution"></a>Przyczyna i rozwiązanie
 
 Ten problem występuje z jednego z następujących powodów:
 
 - W subskrypcji platformy Azure nie ma karty kredytowej lub karta kredytowa jest nieprawidłowa.
 
-    **Rozwiązanie:** Dodaj prawidłową kartę kredytową do subskrypcji.
+    **Rozwiązanie**: Dodaj prawidłową kartę kredytową do subskrypcji.
 
 - Nie jesteś właścicielem subskrypcji, dlatego nie masz uprawnień do zakupu domeny.
 
-    **Rozwiązanie:** [Przypisz rolę Właściciel](../role-based-access-control/role-assignments-portal.md) do swojego konta. Możesz też skontaktować się z administratorem subskrypcji, aby uzyskać pozwolenie na zakup domeny.
+    **Rozwiązanie**: [Przypisz rolę właściciela](../role-based-access-control/role-assignments-portal.md) do Twojego konta. Lub skontaktuj się z administratorem subskrypcji, aby uzyskać uprawnienia do zakupu domeny.
 - Osiągnięto limit zakupów domen w ramach subskrypcji. Bieżący limit wynosi 20.
 
-    **Rozwiązanie:** Aby zażądać zwiększenia limitu, skontaktuj się z [pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+    **Rozwiązanie**: Aby zażądać zwiększenia limitu, skontaktuj się z [pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Typ subskrypcji platformy Azure nie obsługuje zakupu domeny usługi App Service.
 
-    **Rozwiązanie:** Uaktualnij subskrypcję platformy Azure do innego typu subskrypcji, takiego jak subskrypcja płatności zgodnie z rzeczywistym rozwiązaniem.
+    **Rozwiązanie**: Uaktualnij subskrypcję platformy Azure do innego typu subskrypcji, takiego jak subskrypcja z płatność zgodnie z rzeczywistym użyciem.
 
 ### <a name="you-cant-add-a-host-name-to-an-app"></a>Nie można dodać nazwy hosta do aplikacji 
 
@@ -253,71 +253,71 @@ Po dodaniu nazwy hosta proces nie może zweryfikować i zweryfikować domeny.
 
 Ten problem występuje z jednego z następujących powodów:
 
-- Nie masz uprawnień do dodawania nazwy hosta.
+- Nie masz uprawnień do dodania nazwy hosta.
 
-    **Rozwiązanie:** Poproś administratora subskrypcji o pozwolenie na dodanie nazwy hosta.
+    **Rozwiązanie**: poproszenie administratora subskrypcji o przyznanie uprawnień do dodawania nazwy hosta.
 - Nie można zweryfikować własności domeny.
 
-    **Rozwiązanie:** Sprawdź, czy rekord CNAME lub A jest poprawnie skonfigurowany. Aby zamapować domenę niestandardową na aplikację, utwórz rekord CNAME lub rekord A. Jeśli chcesz użyć domeny głównej, musisz użyć rekordów A i TXT:
+    **Rozwiązanie**: Sprawdź, czy rekord CNAME lub A został skonfigurowany poprawnie. Aby zmapować domenę niestandardową na aplikację, Utwórz rekord CNAME lub rekord A. Jeśli chcesz użyć domeny głównej, musisz użyć rekordów a i TXT:
 
-    |Typ rekordu|Host|Wskaż do|
+    |Typ rekordu|Host|Wskaż|
     |------|------|-----|
     |A|@|Adres IP aplikacji|
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
-**Czy muszę skonfigurować domenę niestandardową dla mojej witryny sieci Web po jej zakupie?**
+**Czy muszę skonfigurować moją domenę niestandardową dla mojej witryny internetowej po jej zakupie?**
 
-Podczas zakupu domeny z witryny Azure portal aplikacja usługi App Service jest automatycznie skonfigurowana do używania tej domeny niestandardowej. Nie musisz podejmować żadnych dodatkowych kroków. Aby uzyskać więcej informacji, obejrzyj [samootuac usługi Azure App Service: Dodaj niestandardową nazwę domeny](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) w kanale Channel9.
+W przypadku zakupienia domeny z Azure Portal aplikacja App Service jest automatycznie konfigurowana do korzystania z tej domeny niestandardowej. Nie trzeba podejmować żadnych dodatkowych kroków. Aby uzyskać więcej informacji, zobacz [Azure App Service samodzielna pomoc: Dodaj niestandardową nazwę domeny](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) w channel9.
 
-**Czy mogę użyć domeny zakupionej w witrynie Azure portal, aby wskazać maszynę wirtualną platformy Azure zamiast tego?**
+**Czy mogę użyć domeny zakupionej w Azure Portal, aby wskazać zamiast niej maszynę wirtualną platformy Azure?**
 
-Tak, możesz skierować domenę na maszynę wirtualną. Aby uzyskać więcej informacji, zobacz [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md) (Korzystanie z usługi Azure DNS w celu udostępnienia niestandardowych ustawień domeny dla usługi platformy Azure).
+Tak, możesz wskazać domenę na maszynę wirtualną. Aby uzyskać więcej informacji, zobacz [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md) (Korzystanie z usługi Azure DNS w celu udostępnienia niestandardowych ustawień domeny dla usługi platformy Azure).
 
-**Czy moja domena jest hostowana przez goDaddy lub usługę Azure DNS?**
+**Czy moja domena jest hostowana przez GoDaddy czy Azure DNS?**
 
-Domeny usługi app service używają goDaddy do rejestracji domeny i usługi Azure DNS do hostowania domen. 
+Domeny App Service używają GoDaddy do rejestracji domeny i Azure DNS do hostowania domen. 
 
-**Mam włączone automatyczne odnawianie, ale nadal otrzymałem powiadomienie o odnowieniu mojej domeny za pośrednictwem poczty e-mail. Co należy zrobić?**
+**Mam włączoną funkcję autoodnawiania, ale nadal otrzymujesz powiadomienie o odnowieniu dla mojej domeny za pośrednictwem poczty e-mail. Co mam zrobić?**
 
-Jeśli masz włączoną funkcję automatycznego odnawiania, nie musisz podejmować żadnych działań. Wiadomość e-mail z powiadomieniem jest dostarczana w celu poinformowania, że domena jest bliska wygaśnięcia i ręcznego odnawiania, jeśli automatyczne odnawianie nie jest włączone.
+Jeśli włączono funkcję autoodnawiania, nie musisz podejmować żadnych działań. Powiadomienie e-mail zostanie przekazane, aby poinformować użytkownika o tym, że domena zbliża się do wygaśnięcia, i przenowić ręcznie, jeśli nie jest włączona funkcja autoodnawiania.
 
-**Czy naliczona zostanie opłata za hosting mojej domeny przez usługę Azure DNS?**
+**Czy zostanie naliczona opłata za Azure DNS Hostowanie mojej domeny?**
 
-Początkowy koszt zakupu domeny dotyczy tylko rejestracji domeny. Oprócz kosztów rejestracji, istnieją opłaty za usługi Azure DNS na podstawie użycia. Aby uzyskać więcej informacji, zobacz [cennik usługi Azure DNS, aby](https://azure.microsoft.com/pricing/details/dns/) uzyskać więcej informacji.
+Początkowy koszt zakupu domeny dotyczy tylko rejestracji domeny. Oprócz kosztu rejestracji naliczane są opłaty za Azure DNS w zależności od użycia. Aby uzyskać więcej informacji, zobacz [Azure DNS cennika](https://azure.microsoft.com/pricing/details/dns/) , aby uzyskać więcej szczegółów.
 
-**Kupiłem domenę wcześniej z witryny Azure portal i chcę przejść z hostingu GoDaddy do hostingu DNS platformy Azure. Jak to zrobić?**
+**Mam moją domenę wcześniej z Azure Portal i chcesz przenieść z hostingu GoDaddy do usługi Azure DNS hosting. Jak można to zrobić?**
 
-Migracja do usługi Azure DNS hosting nie jest obowiązkowa. Jeśli chcesz przeprowadzić migrację do usługi Azure DNS, środowisko zarządzania domeną w witrynie Azure portal o zawiera informacje na temat kroków niezbędnych do przejścia do usługi Azure DNS. Jeśli domena została zakupiona za pośrednictwem usługi App Service, migracja z hostingu GoDaddy do usługi Azure DNS jest stosunkowo bezproblemowa procedura.
+Migracja do Azure DNS hostingu nie jest obowiązkowa. Jeśli chcesz przeprowadzić migrację do Azure DNS, środowisko zarządzania domeną w Azure Portal zawiera informacje na temat kroków niezbędnych do przejścia do Azure DNS. Jeśli domena została zakupiona za pośrednictwem App Service, migracja z hostingu GoDaddy do Azure DNS jest relatywnie bezproblemową procedurą.
 
-**Chcę kupić domenę w domenie usługi App Service, ale czy mogę hostować moją domenę w witrynie GoDaddy zamiast usługi Azure DNS?**
+**Chcę kupić moją domenę z domeny App Service, ale mogę hostować moją domenę na GoDaddy zamiast Azure DNS?**
 
-Od 24 lipca 2017 r. domeny usługi App Service zakupione w portalu są hostowane w usłudze Azure DNS. Jeśli wolisz używać innego dostawcy hostingu, musisz przejść do jego witryny, aby uzyskać rozwiązanie hostingowe domeny.
+Od 24 lipca 2017 App Service domen zakupionych w portalu są hostowane na Azure DNS. Jeśli wolisz używać innego dostawcy hostingu, musisz przejść do swojej witryny sieci Web, aby uzyskać rozwiązanie hostingu domeny.
 
-**Czy muszę płacić za ochronę prywatności mojej domeny?**
+**Czy muszę uregulować ochronę prywatności dla mojej domeny?**
 
-Podczas zakupu domeny za pośrednictwem witryny Azure portal, można dodać prywatność bez dodatkowych kosztów. Jest to jedna z zalet zakupu domeny za pośrednictwem usługi Azure App Service.
+W przypadku zakupu domeny za pomocą Azure Portal można wybrać opcję dodania prywatności bez dodatkowych kosztów. Jest to jedna z zalet kupowania domeny za pomocą Azure App Service.
 
-**Jeśli uznam, że nie chcę już mojej domeny, czy mogę odzyskać pieniądze?**
+**Czy nie chcę już korzystać z mojej domeny?**
 
-W przypadku zakupu domeny nie są naliczane opłaty za okres pięciu dni, w tym czasie możesz zdecydować, że nie chcesz domeny. Jeśli zdecydujesz, że nie chcesz domeny w tym okresie pięciu dni, nie są naliczane opłaty. (Domeny.uk są wyjątkiem od tego. Jeśli kupisz domenę .uk, zostaniesz obciążony natychmiast i nie możesz uzyskać zwrotu pieniędzy).
+W przypadku zakupienia domeny nie jest naliczana opłata przez okres pięciu dni, podczas której można zdecydować, że nie chcesz, aby dana domena została wybrana. Jeśli zdecydujesz, że nie chcesz, aby domena była w tym pięciu dni, opłaty nie są naliczone. (domeny. uk to wyjątek dla tego elementu. W przypadku zakupienia domeny z. uk opłata zostanie naliczona natychmiast i nie będzie można jej ponownie obfundować.
 
-**Czy mogę używać domeny w innej aplikacji usługi Azure App Service w mojej subskrypcji?**
+**Czy mogę użyć domeny w innej aplikacji Azure App Service w mojej subskrypcji?**
 
-Tak. Po dodaniu dostępu do domen niestandardowych i TLS bloku w witrynie Azure portal, zobaczysz domeny, które zostały zakupione. Możesz skonfigurować aplikację tak, aby używała dowolnej z tych domen.
+Tak. Gdy uzyskujesz dostęp do niestandardowych domen i protokołu TLS w Azure Portal, zobaczysz zakupione domeny. Aplikację można skonfigurować tak, aby korzystała z dowolnej z tych domen.
 
-**Czy mogę przenieść domenę z jednej subskrypcji do innej subskrypcji?**
+**Czy mogę przenieść domenę z jednej subskrypcji do innej?**
 
-Domenę można przenieść do innej grupy subskrypcji/zasobów przy użyciu polecenia cmdlet [programu Move-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) Programu PowerShell.
+Domenę można przenieść do innej subskrypcji/grupy zasobów przy użyciu polecenia cmdlet [Move-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) programu PowerShell.
 
-**Jak zarządzać domeną niestandardową, jeśli nie mam obecnie aplikacji usługi Azure App Service?**
+**Jak mogę zarządzać moją domeną niestandardową, jeśli nie mam obecnie aplikacji Azure App Service?**
 
-Możesz zarządzać domeną, nawet jeśli nie masz aplikacji sieci Web usługi aplikacji. Domena może być używana dla usług platformy Azure, takich jak maszyna wirtualna, magazyn itp. Jeśli zamierzasz używać domeny dla aplikacji sieci Web Usługi aplikacji, należy dołączyć aplikację sieci Web, która nie znajduje się w planie bezpłatnej usługi aplikacji, aby powiązać domenę z aplikacją sieci web.
+Możesz zarządzać domeną, nawet jeśli nie masz aplikacji sieci Web App Service. Domeny można używać dla usług platformy Azure, takich jak maszyna wirtualna, magazyn itp. Jeśli zamierzasz używać domeny do App Service Web Apps, musisz dołączyć aplikację sieci Web, która nie znajduje się w planie App Service w warstwie Bezpłatna, aby powiązać domenę z aplikacją sieci Web.
 
-**Czy mogę przenieść aplikację sieci web z domeną niestandardową do innej subskrypcji lub ze środowiska usługi App Service w wersji 1 do wersji 2?**
+**Czy mogę przenieść aplikację sieci Web z domeną niestandardową do innej subskrypcji lub z App Service Environment V1 do wersji v2?**
 
-Tak, możesz przenieść aplikację internetową między subskrypcjami. Postępuj zgodnie ze wskazówkami dotyczącymi [przenoszenia zasobów na platformie Azure](../azure-resource-manager/management/move-resource-group-and-subscription.md). Istnieje kilka ograniczeń podczas przenoszenia aplikacji internetowej. Aby uzyskać więcej informacji, zobacz [Ograniczenia dotyczące przenoszenia zasobów usługi App Service](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
+Tak, możesz przenieść swoją aplikację sieci Web między subskrypcjami. Postępuj zgodnie ze wskazówkami dotyczącymi [przenoszenia zasobów na platformie Azure](../azure-resource-manager/management/move-resource-group-and-subscription.md). Podczas przechodzenia do aplikacji internetowej istnieje kilka ograniczeń. Aby uzyskać więcej informacji, zobacz [ograniczenia dotyczące przeniesienia App Service zasobów](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
-Po przeniesieniu aplikacji sieci web powiązania nazw hostów domen w ramach ustawienia domen niestandardowych powinny pozostać takie same. Aby skonfigurować powiązania nazw hostów, nie są wymagane żadne dodatkowe kroki.
+Po przeniesieniu aplikacji sieci Web powiązania nazw hostów domen w ramach ustawienia domen niestandardowych powinny pozostać takie same. Nie są wymagane żadne dodatkowe kroki, aby skonfigurować powiązania nazw hostów.

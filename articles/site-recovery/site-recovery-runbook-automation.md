@@ -1,6 +1,6 @@
 ---
-title: Dodawanie umowoś jako umnażnika usługi Azure Automation do planów odzyskiwania usługi Site Recovery
-description: Dowiedz się, jak rozszerzyć plany odzyskiwania za pomocą usługi Azure Automation w celu odzyskiwania po awarii przy użyciu usługi Azure Site Recovery.
+title: Dodawanie Azure Automation elementów Runbook do planów Site Recovery Recovery
+description: Dowiedz się, jak rozłożyć plany odzyskiwania z Azure Automation na potrzeby odzyskiwania po awarii przy użyciu Azure Site Recovery.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
@@ -8,54 +8,54 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
 ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257487"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Dodawanie elementów Runbook usługi Azure Automation do planów odzyskiwania
 
-W tym artykule opisano sposób integrowania śmięty uruchomieniu usługi Azure Automation w celu rozszerzenia planów odzyskiwania [usługi Azure Site Recovery.](site-recovery-overview.md) Pokażemy Ci, jak zautomatyzować podstawowe zadania, które w przeciwnym razie wymagałyby ręcznej interwencji, oraz jak przekonwertować odzyskiwanie wieloetapowe na akcję pojedynczego kliknięcia.
+W tym artykule opisano sposób integrowania Azure Automation elementów Runbook w celu rozbudowy [Azure Site Recovery](site-recovery-overview.md) planów odzyskiwania. Pokazujemy, jak zautomatyzować podstawowe zadania, w przypadku których w przeciwnym razie będzie potrzebna ręczna interwencja, i jak przekonwertować wieloetapowe odzyskiwanie na akcję pojedynczego kliknięcia.
 
 ## <a name="recovery-plans"></a>Plany odzyskiwania 
 
-Planów odzyskiwania można używać podczas pracy awaryjnej na komputerach lokalnych lub maszyn wirtualnych platformy Azure. Plany odzyskiwania ułatwiają zdefiniowanie systematycznego procesu odzyskiwania, który definiuje sposób pracy maszyn w pracy awaryjnej oraz sposób uruchamiania i odzyskiwania po pracy awaryjnej. 
+Planów odzyskiwania można użyć po przełączeniu w tryb failover maszyn lokalnych lub maszyn wirtualnych platformy Azure. Plany odzyskiwania ułatwiają zdefiniowanie procesu odzyskiwania systematyczne, który definiuje sposób przełączenia maszyn w tryb failover oraz sposób ich uruchamiania i odzyskiwania po przejściu w tryb pracy awaryjnej. 
 
-Odzyskiwanie dużych aplikacji może być skomplikowane. Plany odzyskiwania pomagają narzucać porządek, dzięki czemu odzyskiwanie jest stale dokładne, powtarzalne i zautomatyzowane. Można zautomatyzować zadania w ramach planu odzyskiwania przy użyciu skryptów, a także uruchomieniu usługi Azure Automation. Typowymi przykładami może być konfigurowanie ustawień na maszynie Wirtualnej platformy Azure po przekładniu awaryjnym lub ponowne konfigurowanie aplikacji uruchomionej na maszynie wirtualnej.
+Duże aplikacje odzyskiwania mogą być złożone. Plany odzyskiwania ułatwiają zmianę kolejności, dzięki czemu odzyskiwanie jest stale dokładne, powtarzalne i zautomatyzowane. Można zautomatyzować zadania w ramach planu odzyskiwania przy użyciu skryptów, a także Azure Automation elementów Runbook. Typowymi przykładami mogą być Konfigurowanie ustawień na maszynie wirtualnej platformy Azure po przejściu w tryb failover lub ponowne skonfigurowanie aplikacji uruchomionej na maszynie wirtualnej.
 
 - [Dowiedz się więcej](recovery-plan-overview.md) o planach odzyskiwania.
-- [Dowiedz się więcej](../automation/automation-runbook-types.md) o podręcznikach uruchomieniu usługi Azure Automation.
+- [Dowiedz się więcej](../automation/automation-runbook-types.md) na temat Azure Automation elementów Runbook.
 
 
 
-## <a name="runbooks-in-recovery-plans"></a>Programy runbook w planach odzyskiwania
+## <a name="runbooks-in-recovery-plans"></a>Elementy Runbook w planach odzyskiwania
 
-Dodaj konto usługi Azure Automation i elementy runbook do planu odzyskiwania. Projekt runbook jest wywoływany po uruchomieniu planu odzyskiwania.
+Dodawanie konta Azure Automation i elementów Runbook do planu odzyskiwania. Element Runbook jest wywoływany po uruchomieniu planu odzyskiwania.
 
-- Konto automatyzacji może znajdować się w dowolnym regionie platformy Azure i musi znajdować się w tej samej subskrypcji co magazyn odzyskiwania witryny. 
-- Projekt runbook można uruchomić w planie odzyskiwania podczas pracy awaryjnej z lokalizacji podstawowej do pomocniczego lub podczas powrotu po awarii z lokalizacji pomocniczej do podstawowego.
-- Księgi runbook w planie odzyskiwania są uruchamiane szeregowo, jeden po drugim, w ustalonej kolejności.
-- Jeśli programy runbook w planie odzyskiwania skonfigurować maszyny wirtualne, aby rozpocząć w różnych grupach, plan odzyskiwania będzie kontynuowana tylko wtedy, gdy platforma Azure raportuje wszystkie maszyny wirtualne jako uruchomione.
-- Plany odzyskiwania nadal działać, nawet jeśli skrypt nie powiedzie się.
+- Konto usługi Automation może znajdować się w dowolnym regionie świadczenia usługi Azure i musi znajdować się w tej samej subskrypcji co magazyn Site Recovery. 
+- Element Runbook można uruchomić w planie odzyskiwania podczas pracy w trybie failover z lokalizacji podstawowej do pomocniczej lub podczas powrotu po awarii z lokalizacji dodatkowej do lokacji głównej.
+- Elementy Runbook w planie odzyskiwania są uruchamiane sekwencyjnie, jeden po drugim w kolejności.
+- Jeśli elementy Runbook w planie odzyskiwania skonfigurują maszyny wirtualne do uruchamiania w różnych grupach, plan odzyskiwania będzie kontynuowany tylko wtedy, gdy platforma Azure zgłosi wszystkie maszyny wirtualne jako uruchomione.
+- Plany odzyskiwania nadal są uruchamiane, nawet jeśli wystąpi błąd skryptu.
 
 ### <a name="recovery-plan-context"></a>Kontekst planu odzyskiwania
 
-Po uruchomieniu skryptu wstrzykuje kontekst planu odzyskiwania do elementów runbook. Kontekst zawiera zmienne podsumowane w tabeli.
+Po uruchomieniu skryptu wprowadza kontekst planu odzyskiwania do elementu Runbook. Kontekst zawiera zmienne podsumowane w tabeli.
 
 | **Nazwa zmiennej** | **Opis** |
 | --- | --- |
-| Nazwa odzyskiwania |Nazwa planu odzyskiwania. Używane w akcjach opartych na nazwie. |
-| Typ pracy awaryjnej |Określa, czy jest to test lub produkcja pracy awaryjnej. 
-| Kierunek pracy w podróży awaryjnej | Określa, czy odzyskiwanie jest do lokalizacji podstawowej lub pomocniczej. |
-| Groupid |Identyfikuje numer grupy w planie odzyskiwania, gdy plan jest uruchomiony. |
-| Vmmap |Tablica wszystkich maszyn wirtualnych w grupie. |
-| Klucz VMMap |Unikatowy klucz (GUID) dla każdej maszyny Wirtualnej. |
-| SubscriptionId |Identyfikator subskrypcji platformy Azure, w którym utworzono maszynę wirtualną. |
+| RecoveryPlanName |Nazwa planu odzyskiwania. Używane w akcjach na podstawie nazwy. |
+| Tryb failovertype |Określa, czy jest to testowe, czy produkcyjne przejście w tryb failover. 
+| Element failoverdirection | Określa, czy odzyskiwanie ma być lokalizacją główną czy dodatkową. |
+| GroupID |Identyfikuje numer grupy w planie odzyskiwania, gdy plan jest uruchomiony. |
+| VmMap |Tablica wszystkich maszyn wirtualnych w grupie. |
+| Klucz VMMap |Unikatowy klucz (GUID) dla każdej maszyny wirtualnej. |
+| SubscriptionId |Identyfikator subskrypcji platformy Azure, w której utworzono maszynę wirtualną. |
 | ResourceGroupName | Nazwa grupy zasobów, w której znajduje się maszyna wirtualna.
-| Nazwa usługi w chmurze |Nazwa usługi w chmurze platformy Azure, pod którą utworzono maszynę wirtualną. |
-| RoleName |Nazwa maszyny Wirtualnej platformy Azure. |
-| RecoveryPointId (ida programu RecoveryPointId)|Sygnatura czasowa odzyskiwania maszyny Wirtualnej. |
+| CloudServiceName |Nazwa usługi w chmurze platformy Azure, w której została utworzona maszyna wirtualna. |
+| RoleName |Nazwa maszyny wirtualnej platformy Azure. |
+| RecoveryPointId|Sygnatura czasowa odzyskiwania maszyny wirtualnej. |
 
 W poniższym przykładzie przedstawiono zmienną kontekstową:
 
@@ -91,48 +91,48 @@ $vmMap = $RecoveryPlanContext.VmMap
 ```
 
 
-Blog Aman Sharma na co [Harvesting Clouds](http://harvestingclouds.com) ma przydatny przykład [skryptu kontekstowego planu odzyskiwania.](http://harvestingclouds.com/post/script-sample-azure-automation-runbook-for-asr-recovery-plan/)
+Blog Aman Sharma w usłudze w [chmurze zbierających](http://harvestingclouds.com) ma przydatny przykład [skryptu kontekstowego planu odzyskiwania](http://harvestingclouds.com/post/script-sample-azure-automation-runbook-for-asr-recovery-plan/).
 
 
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-- Jeśli jesteś nowym użytkownikiem usługi Azure Automation, możesz [zarejestrować się](https://azure.microsoft.com/services/automation/) i [pobrać przykładowe skrypty.](https://azure.microsoft.com/documentation/scripts/)
-- Upewnij się, że konto automatyzacji ma następujące moduły:
-    - AzureRM.profile
+- Jeśli dopiero zaczynasz Azure Automation, możesz [zarejestrować się](https://azure.microsoft.com/services/automation/) i [pobrać przykładowe skrypty](https://azure.microsoft.com/documentation/scripts/).
+- Upewnij się, że konto usługi Automation ma następujące moduły:
+    - AzureRM. profile
     - AzureRM.Resources
     - AzureRM.Automation
     - AzureRM.Network
     - AzureRM.Compute
 
-    Wszystkie moduły powinny być zgodne wersje. Najprostszym sposobem jest zawsze korzystać z najnowszych wersji wszystkich modułów.
+    Wszystkie moduły powinny być zgodne z wersjami. Najprostszym sposobem jest zawsze korzystanie z najnowszych wersji wszystkich modułów.
 
 
 
 ## <a name="customize-the-recovery-plan"></a>Dostosowywanie planu odzyskiwania
 
-1. W przechowalni wybierz plany **odzyskiwania (Odzyskiwanie witryny)**
-2. Aby utworzyć plan odzyskiwania, kliknij **+Plan odzyskiwania**. [Dowiedz się więcej](site-recovery-create-recovery-plans.md). Jeśli masz już plan odzyskiwania, wybierz, aby go otworzyć.
-3. Na stronie planu odzyskiwania kliknij pozycję **Dostosuj**.
+1. W magazynie wybierz pozycję **plany odzyskiwania (Site Recovery)**
+2. Aby utworzyć plan odzyskiwania, kliknij pozycję **+ plan odzyskiwania**. [Dowiedz się więcej](site-recovery-create-recovery-plans.md). Jeśli masz już plan odzyskiwania, wybierz go, aby go otworzyć.
+3. Na stronie plan odzyskiwania kliknij przycisk **Dostosuj**.
 
     ![Kliknij przycisk Dostosuj](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. Kliknij wielokropek (...) obok **pozycji Grupa 1: Rozpocznij** > **akcję Dodaj post**.
-3. W **obszarze Wstaw akcję**sprawdź, czy **skrypt** jest zaznaczony, i określ nazwę skryptu ( Hello**World**).
-4. Określ konto automatyzacji i wybierz element runbook. Aby zapisać skrypt, kliknij przycisk **OK**. Skrypt jest dodawany do **grupy 1: Post-steps**.
+2. Kliknij przycisk wielokropka (...) obok pozycji **Grupa 1: Rozpocznij** > **Dodawanie wpisu**.
+3. W obszarze **Wstaw akcję**Sprawdź, czy jest wybrany **skrypt** , a następnie określ nazwę skryptu (**Hello World**).
+4. Określ konto usługi Automation i wybierz element Runbook. Aby zapisać skrypt, kliknij przycisk **OK**. Skrypt zostanie dodany do **grupy 1: kroki po kroku**.
 
 
-## <a name="reuse-a-runbook-script"></a>Ponowne używanie skryptu żytnika
+## <a name="reuse-a-runbook-script"></a>Ponowne używanie skryptu elementu Runbook
 
-Za pomocą zmiennych zewnętrznych można użyć pojedynczego skryptu żytnika w wielu planach odzyskiwania. 
+Możesz użyć pojedynczego skryptu elementu Runbook w wielu planach odzyskiwania, używając zmiennych zewnętrznych. 
 
-- Zmiennych [usługi Azure Automation](../automation/automation-variables.md) służy do przechowywania parametrów do uruchamiania planu odzyskiwania.
+- [Zmienne Azure Automation](../automation/automation-variables.md) są używane do przechowywania parametrów do uruchamiania planu odzyskiwania.
 - Dodając nazwę planu odzyskiwania jako prefiks do zmiennej, można utworzyć poszczególne zmienne dla każdego planu odzyskiwania. Następnie użyj zmiennych jako parametrów.
-- Można zmienić parametr bez zmiany skryptu, ale nadal zmieniać sposób działania skryptu.
+- Można zmienić parametr bez zmiany skryptu, ale nadal zmienia sposób działania skryptu.
 
-### <a name="use-a-simple-string-variable-in-a-runbook-script"></a>Używanie prostej zmiennej ciągu w skrypcie życiorysu
+### <a name="use-a-simple-string-variable-in-a-runbook-script"></a>Używanie prostej zmiennej ciągu w skrypcie elementu Runbook
 
-W tym przykładzie skrypt pobiera dane wejściowe sieciowej grupy zabezpieczeń (NSG) i stosuje go do maszyn wirtualnych w planie odzyskiwania. 
+W tym przykładzie skrypt pobiera dane wejściowe sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) i stosuje je do maszyn wirtualnych w planie odzyskiwania. 
 
 1. Aby skrypt mógł wykryć, który plan odzyskiwania jest uruchomiony, użyj tego kontekstu planu odzyskiwania:
 
@@ -146,17 +146,17 @@ W tym przykładzie skrypt pobiera dane wejściowe sieciowej grupy zabezpieczeń 
         $RPName = $RecoveryPlanContext.RecoveryPlanName
     ```
 
-2. Zanotuj nazwę grupy zasobów płciowych i zasobów. Te zmienne są używane jako dane wejściowe dla skryptów planu odzyskiwania. 
-1. W zasobach kont automatyzacji. utworzyć zmienną do przechowywania nazwy grupy ndg. Dodaj prefiks do nazwy zmiennej o nazwie planu odzyskiwania.
+2. Zanotuj nazwę sieciowej grupy zabezpieczeń i grupę zasobów. Te zmienne są używane jako dane wejściowe skryptów planu odzyskiwania. 
+1. W obszarze zasoby konta usługi Automation. Utwórz zmienną do przechowywania nazwy sieciowej grupy zabezpieczeń. Dodaj prefiks do nazwy zmiennej z nazwą planu odzyskiwania.
 
-    ![Tworzenie zmiennej nazwy grupy nsg](media/site-recovery-runbook-automation-new/var1.png)
+    ![Utwórz zmienną nazwy sieciowej grupy zabezpieczeń](media/site-recovery-runbook-automation-new/var1.png)
 
-2. Utwórz zmienną do przechowywania nazwy grupy zasobów zasobu grupy ndg. Dodaj prefiks do nazwy zmiennej o nazwie planu odzyskiwania.
+2. Utwórz zmienną do przechowywania nazwy grupy zasobów dla zasobu sieciowej grupy zabezpieczeń. Dodaj prefiks do nazwy zmiennej z nazwą planu odzyskiwania.
 
-    ![Tworzenie nazwy grupy zasobów grupy zasobów grupy zasobów grupy nsg](media/site-recovery-runbook-automation-new/var2.png)
+    ![Utwórz nazwę grupy zasobów sieciowej grupy zabezpieczeń](media/site-recovery-runbook-automation-new/var2.png)
 
 
-3.  W skrypcie użyj tego kodu referencyjnego, aby uzyskać wartości zmiennych:
+3.  W skrypcie Użyj tego kodu referencyjnego, aby uzyskać wartości zmiennych:
 
     ```
     $NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
@@ -166,7 +166,7 @@ W tym przykładzie skrypt pobiera dane wejściowe sieciowej grupy zabezpieczeń 
     $RGnameVar = Get-AutomationVariable -Name $NSGRGValue
     ```
 
-4.  Użyj zmiennych w biełliku runbook, aby zastosować sieciowej grupy ściągniętej do interfejsu sieciowego maszyny wirtualnej, która uległa awarii:
+4.  Użyj zmiennych w elemencie Runbook, aby zastosować sieciowej grupy zabezpieczeń do interfejsu sieciowego maszyny wirtualnej w trybie failover:
 
     ```
     InlineScript {
@@ -182,25 +182,25 @@ W tym przykładzie skrypt pobiera dane wejściowe sieciowej grupy zabezpieczeń 
     ```
 
 
-Dla każdego planu odzyskiwania należy utworzyć niezależne zmienne, aby można było ponownie użyć skryptu. Dodaj prefiks przy użyciu nazwy planu odzyskiwania. 
+Dla każdego planu odzyskiwania Utwórz zmienne niezależne, aby można było ponownie użyć skryptu. Dodaj prefiks przy użyciu nazwy planu odzyskiwania. 
 
-Aby uzyskać kompletny, kompleksowy skrypt dla tego [scenariusza,](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee)przejrzyj ten skrypt .
+Aby uzyskać kompletny, kompleksowy skrypt w tym scenariuszu, przejrzyj [ten skrypt](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee).
 
 
-### <a name="use-a-complex-variable-to-store-more-information"></a>Przechowywanie większej ilości informacji za pomocą zmiennej złożonej
+### <a name="use-a-complex-variable-to-store-more-information"></a>Przechowywanie większej ilości informacji za pomocą złożonej zmiennej
 
-W niektórych scenariuszach może nie być możliwe utworzenie oddzielnych zmiennych dla każdego planu odzyskiwania. Należy wziąć pod uwagę scenariusz, w którym chcesz pojedynczy skrypt przypisać publiczny adres IP na określonych maszynach wirtualnych. W innym scenariuszu można zastosować różne sieciowe sieciowe na różnych maszynach wirtualnych (nie na wszystkich maszynach wirtualnych). Należy pamiętać, że:
+W niektórych scenariuszach może nie być możliwe utworzenie oddzielnych zmiennych dla każdego planu odzyskiwania. Rozważmy scenariusz, w którym jeden skrypt ma przypisywać publiczny adres IP na określonych maszynach wirtualnych. W innym scenariuszu możesz chcieć zastosować różne sieciowych grup zabezpieczeń na różnych maszynach wirtualnych (poza wszystkimi maszynami wirtualnymi). Należy pamiętać, że:
 
-- Można wykonać skrypt, który jest wielokrotnego użytku dla dowolnego planu odzyskiwania.
+- Można utworzyć skrypt do ponownego użycia dla dowolnego planu odzyskiwania.
 - Każdy plan odzyskiwania może mieć zmienną liczbę maszyn wirtualnych.
-- Na przykład odzyskiwanie programu SharePoint ma dwa frontowe. Podstawowa aplikacja biznesowa (LOB) ma tylko jeden front-end.
+- Na przykład odzyskiwanie programu SharePoint ma dwa Frontony. Podstawowa aplikacja biznesowa (LOB) ma tylko jeden fronton.
 - W tym scenariuszu nie można utworzyć oddzielnych zmiennych dla każdego planu odzyskiwania.
 
-W poniższym przykładzie utworzymy [złożoną zmienną](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) na koncie usługi Azure Automation.
+W poniższym przykładzie utworzysz [zmienną złożoną](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) na koncie Azure Automation.
 
-Robimy to, określając wiele wartości przy użyciu programu Azure PowerShell.
+W tym celu należy określić wiele wartości przy użyciu Azure PowerShell.
 
-1. W programie PowerShell zaloguj się do subskrypcji platformy Azure:
+1. W programie PowerShell Zaloguj się do subskrypcji platformy Azure:
 
     ```
     Connect-AzureRmAccount
@@ -208,24 +208,24 @@ Robimy to, określając wiele wartości przy użyciu programu Azure PowerShell.
     $sub | Select-AzureRmSubscription
     ```
 
-2. Aby zapisać parametry, utwórz złożoną zmienną przy użyciu nazwy planu odzyskiwania:
+2. Aby przechowywać parametry, Utwórz zmienną złożoną przy użyciu nazwy planu odzyskiwania:
 
     ```
     $VMDetails = @{"VMGUID"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"};"VMGUID2"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"}}
         New-AzureRmAutomationVariable -ResourceGroupName <RG of Automation Account> -AutomationAccountName <AA Name> -Name <RecoveryPlanName> -Value $VMDetails -Encrypted $false
     ```
 
-3. W tej złożonej zmiennej **VMDetails** jest identyfikatorem maszyny Wirtualnej dla chronionej maszyny Wirtualnej. Aby uzyskać identyfikator maszyny Wirtualnej, w witrynie Azure portal, zobacz właściwości maszyny Wirtualnej. Poniższy zrzut ekranu przedstawia zmienną, która przechowuje szczegóły dwóch maszyn wirtualnych:
+3. W tej złożonej zmiennej **VMDetails** jest identyfikatorem maszyny wirtualnej chronionej maszyny wirtualnej. Aby uzyskać identyfikator maszyny wirtualnej, w Azure Portal wyświetlić właściwości maszyny wirtualnej. Poniższy zrzut ekranu przedstawia zmienną, która przechowuje szczegóły dwóch maszyn wirtualnych:
 
-    ![Używanie identyfikatora maszyny Wirtualnej jako identyfikatora GUID](media/site-recovery-runbook-automation-new/vmguid.png)
+    ![Użyj identyfikatora maszyny wirtualnej jako identyfikatora GUID](media/site-recovery-runbook-automation-new/vmguid.png)
 
-4. Użyj tej zmiennej w biełgodniku. Jeśli wskazany identyfikator GUID maszyny Wirtualnej znajduje się w kontekście planu odzyskiwania, zastosuj sieciowej sieciowej na maszynie Wirtualnej:
+4. Użyj tej zmiennej w elemencie Runbook. Jeśli wskazany identyfikator GUID maszyny wirtualnej zostanie znaleziony w kontekście planu odzyskiwania, Zastosuj sieciowej grupy zabezpieczeń na maszynie wirtualnej:
 
     ```
     $VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
     ```
 
-4. W uruchomieniu pętli za pośrednictwem maszyn wirtualnych kontekstu planu odzyskiwania. Sprawdź, czy maszyna wirtualna istnieje w **$VMDetailsObj**. Jeśli istnieje, należy uzyskać dostęp do właściwości zmiennej, aby zastosować sieciowej grupy sieciowej:
+4. W elemencie Runbook pętla za pośrednictwem maszyn wirtualnych kontekstu planu odzyskiwania. Sprawdź, czy maszyna wirtualna istnieje w **$VMDetailsObj**. Jeśli istnieje, uzyskaj dostęp do właściwości zmiennej, aby zastosować sieciowej grupy zabezpieczeń:
 
     ```
         $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
@@ -245,15 +245,15 @@ Robimy to, określając wiele wartości przy użyciu programu Azure PowerShell.
         }
     ```
 
-Można użyć tego samego skryptu dla różnych planów odzyskiwania. Wprowadź różne parametry, przechowując wartość odpowiadającą planowi odzyskiwania w różnych zmiennych.
+Możesz użyć tego samego skryptu dla różnych planów odzyskiwania. Wprowadź inne parametry, przechowując wartość odpowiadającą planowi odzyskiwania w różnych zmiennych.
 
 ## <a name="sample-scripts"></a>Przykładowe skrypty
 
-Aby wdrożyć przykładowe skrypty na koncie automatyzacji, kliknij przycisk Wdrażanie na **platformie Azure.**
+Aby wdrożyć przykładowe skrypty na koncie usługi Automation, kliknij przycisk **Wdróż na platformie Azure** .
 
 [![Wdrażanie na platformie Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-Ten film wideo zawiera inny przykład. Pokazuje, jak odzyskać dwuwarstwową aplikację WordPress na platformie Azure:
+Ten film wideo zapewnia inny przykład. Przedstawiono w nim sposób odzyskiwania dwuwarstwowej aplikacji WordPress na platformę Azure:
 
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
@@ -261,9 +261,9 @@ Ten film wideo zawiera inny przykład. Pokazuje, jak odzyskać dwuwarstwową apl
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [koncie Uruchamianie automatyzacji platformy Azure jako](../automation/automation-create-runas-account.md)
-- Przejrzyj [przykładowe skrypty usługi Azure Automation](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
-- [Dowiedz się więcej](site-recovery-failover.md) o uruchamianiu pracy w pracy w pracy awaryjnej.
+- Dowiedz się więcej na temat [Azure Automation konta Uruchom jako](../automation/automation-create-runas-account.md)
+- Przejrzyj [Azure Automation przykładowe skrypty](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
+- [Dowiedz się więcej](site-recovery-failover.md) o uruchamianiu trybu failover.
 
 
 

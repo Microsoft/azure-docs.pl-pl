@@ -1,91 +1,91 @@
 ---
-title: Użyj Istio do inteligentnego wyznaczania tras
+title: Korzystanie z Istio na potrzeby inteligentnego routingu
 titleSuffix: Azure Kubernetes Service
-description: Dowiedz się, jak używać programu Istio do dostarczania inteligentnego routingu i wdrażania wersji kanarek w klastrze usługi Azure Kubernetes (AKS)
+description: Dowiedz się, jak korzystać z usługi Istio w celu zapewnienia inteligentnego routingu i wdrażania wydań oprogramowania Kanaryjskie w klastrze usługi Azure Kubernetes Service (AKS)
 author: paulbouwer
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: 01a7764eb0a353e6842441093f70ad29c9316bbd
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668275"
 ---
-# <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Użyj inteligentnego routingu i wersji kanaryjskich z Istio w usłudze Azure Kubernetes Service (AKS)
+# <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Używanie inteligentnych wersji routingu i oprogramowania Kanaryjskie z Istio w usłudze Azure Kubernetes Service (AKS)
 
-[Istio][istio-github] to siatka usługi typu open source, która zapewnia kluczowy zestaw funkcji w mikrousługach w klastrze Kubernetes. Funkcje te obejmują zarządzanie ruchem, tożsamość usługi i bezpieczeństwo, wymuszanie zasad i obserwowalność. Aby uzyskać więcej informacji na temat Istio, zobacz [oficjalnej Dokumentacji Istio?][istio-docs-concepts]
+[Istio][istio-github] to siatka usługi typu "open source", która udostępnia kluczowy zestaw funkcji dla mikrousług w klastrze Kubernetes. Te funkcje obejmują zarządzanie ruchem, tożsamość usługi i zabezpieczenia, wymuszanie zasad oraz ich przestrzeganie. Aby uzyskać więcej informacji na temat Istio, zobacz oficjalny dokument dotyczący [Istio?][istio-docs-concepts] .
 
-W tym artykule pokazano, jak korzystać z funkcji zarządzania ruchem istio. Przykładowa aplikacja do głosowania AKS służy do eksplorowania inteligentnego routingu i wersji kanarek.
+W tym artykule przedstawiono sposób korzystania z funkcji zarządzania ruchem w programie Istio. Przykładowa aplikacja do głosowania AKS służy do eksplorowania inteligentnych wersji routingu i oprogramowania Kanaryjskie.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
 > [!div class="checklist"]
 > * Wdrażanie aplikacji
 > * Aktualizowanie aplikacji
-> * Rozwałkować kanarek zwolnienie aplikacji
+> * Wdrażanie aplikacji w wersji kanaryjskiej
 > * Finalizowanie wdrożenia
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 > [!NOTE]
-> Ten scenariusz został przetestowany w `1.3.2`wersji Istio .
+> Ten scenariusz został przetestowany w stosunku `1.3.2`do wersji Istio.
 
-Kroki opisane w tym artykule zakładają, że utworzono `1.13` klaster AKS (Kubernetes i `kubectl` powyżej, z włączoną funkcją RBAC) i nawiązałeś połączenie z klastrem. Musisz również Istio zainstalowany w klastrze.
+W krokach przedstawionych w tym artykule przyjęto założenie, że utworzono `1.13` klaster AKS (Kubernetes lub nowszy z WŁĄCZONĄ funkcją RBAC) `kubectl` i nawiązano połączenie z klastrem. Wymagany jest również Istio zainstalowany w klastrze.
 
-Jeśli potrzebujesz pomocy z dowolnym z tych elementów, zobacz [szybki start usługi AKS][aks-quickstart] i zainstaluj istio w wskazówkach [AKS.][istio-install]
+Jeśli potrzebujesz pomocy dotyczącej któregokolwiek z tych elementów, zobacz Przewodnik [Szybki Start AKS][aks-quickstart] i [Install Istio in AKS][istio-install] .
 
 ## <a name="about-this-application-scenario"></a>Informacje o tym scenariuszu aplikacji
 
-Przykładowa aplikacja do głosowania AKS udostępnia użytkownikom dwie opcje głosowania (**Koty** lub **Psy).** Istnieje składnik magazynu, który utrzymuje liczbę głosów dla każdej opcji. Ponadto istnieje składnik analizy, który zawiera szczegółowe informacje wokół głosów oddanych dla każdej opcji.
+Przykładowa aplikacja do głosowania AKS udostępnia dwie opcje głosowania (**koty** lub **psy**) dla użytkowników. Istnieje składnik magazynu, który zachowuje liczbę głosów dla każdej opcji. Ponadto istnieje składnik analityczny, który zawiera szczegółowe informacje na temat rzutowania głosów dla każdej opcji.
 
-W tym scenariuszu aplikacji można `1.0` rozpocząć od wdrożenia `1.0` wersji aplikacji do głosowania i wersji składnika analizy. Składnik analizy zapewnia proste liczby głosów. Aplikacja do głosowania i składnik `1.0` analizy interakcji z wersją składnika magazynu, który jest wspierany przez Redis.
+W tym scenariuszu aplikacji Zacznij od wdrożenia wersji `1.0` aplikacji do głosowania i wersji `1.0` składnika analitycznego. Składnik analizy oferuje proste liczniki liczby głosów. Aplikacja do głosowania i składnik analizy współdziałają `1.0` z wersją składnika magazynu, która jest obsługiwana przez Redis.
 
-Uaktualnienie składnika analizy `1.1`do wersji , która zawiera liczby, a teraz sumy i wartości procentowe.
+Składnik analityczny jest uaktualniany do `1.1`wersji, która zapewnia liczby, a teraz sumuje i wartości procentowe.
 
-Podzbiór użytkowników `2.0` testuje wersję aplikacji za pośrednictwem wersji kanaryjnej. Ta nowa wersja używa składnika magazynu, który jest wspierany przez bazę danych MySQL.
+Podzbiór użytkowników, którzy testują wersję `2.0` aplikacji za pośrednictwem wersji systemu kanaryjskiej. Ta nowa wersja używa składnika magazynu, który jest objęty bazą danych MySQL.
 
-Gdy masz pewność, `2.0` że wersja działa zgodnie z oczekiwaniami na `2.0` podgrupie użytkowników, możesz wdrożyć wersję dla wszystkich użytkowników.
+Po upewnieniu się, że `2.0` wersja działa zgodnie z oczekiwaniami w podzbiorze użytkowników, możesz wycofać wersję `2.0` do wszystkich użytkowników.
 
 ## <a name="deploy-the-application"></a>Wdrażanie aplikacji
 
-Zacznijmy od wdrożenia aplikacji w klastrze usługi Azure Kubernetes (AKS). Na poniższym diagramie przedstawiono, co `1.0` jest uruchamiane do końca tej sekcji — wersja wszystkich składników z żądaniami przychodzącymi obsługiwanymi za pośrednictwem bramy transferu danych przychodzących Istio:
+Zacznijmy od wdrożenia aplikacji do klastra usługi Azure Kubernetes Service (AKS). Na poniższym diagramie przedstawiono działania wykonywane na końcu tej sekcji — wersja `1.0` wszystkich składników z żądaniami przychodzącymi, które są realizowane za pośrednictwem bramy Istioal:
 
-![Składniki aplikacji AKS voting i routingu.](media/servicemesh/istio/scenario-routing-components-01.png)
+![Składniki aplikacji do głosowania i routingu AKS.](media/servicemesh/istio/scenario-routing-components-01.png)
 
-Artefakty, które należy wykonać wraz z tym artykułem są dostępne w repozytorium GitHub [usługi Azure-Samples/aks-voting.The][github-azure-sample] artifacts you need to follow along with this article are available in the Azure-Samples/aks-voting-app GitHub repo. Artefakty można pobrać lub sklonować repozytorium w następujący sposób:
+Artefakty, które należy wykonać wraz z tym artykułem, są dostępne w repozytorium [Azure-Samples/AKS-głosujących aplikacji][github-azure-sample] . Możesz pobrać artefakty lub sklonować repozytorium w następujący sposób:
 
 ```console
 git clone https://github.com/Azure-Samples/aks-voting-app.git
 ```
 
-Zmień do następującego folderu w pobranym / sklonowanym repozytorium i uruchom wszystkie kolejne kroki z tego folderu:
+Przejdź do następującego folderu w obszarze pobrane/Sklonowane repozytorium i uruchom wszystkie kolejne kroki z tego folderu:
 
 ```console
 cd aks-voting-app/scenarios/intelligent-routing-with-istio
 ```
 
-Najpierw utwórz obszar nazw w klastrze AKS dla przykładowej aplikacji do głosowania AKS o następującej `voting` nazwie:
+Najpierw utwórz przestrzeń nazw w klastrze AKS dla przykładowej aplikacji do głosowania AKS o nazwie `voting` w następujący sposób:
 
 ```console
 kubectl create namespace voting
 ```
 
-Oznacz obszar nazw `istio-injection=enabled`etykietą . Ta etykieta nakazuje Istio, aby automatycznie wstrzyknąć istio-proxy jako sidecars do wszystkich zasobników w tej przestrzeni nazw.
+Oznacz przestrzeń nazw za `istio-injection=enabled`pomocą. Ta etykieta instruuje Istio, aby automatycznie wstrzyknąć Istio-proxy jako przyczepki do wszystkich swoich zasobników w tej przestrzeni nazw.
 
 ```console
 kubectl label namespace voting istio-injection=enabled
 ```
 
-Teraz utwórzmy składniki aplikacji AKS Voting. Utwórz te `voting` składniki w obszarze nazw utworzonym w poprzednim kroku.
+Teraz Utwórzmy składniki aplikacji do głosowania AKS. Utwórz te składniki w `voting` przestrzeni nazw utworzonej w poprzednim kroku.
 
 ```console
 kubectl apply -f kubernetes/step-1-create-voting-app.yaml --namespace voting
 ```
 
-Poniższe przykładowe dane wyjściowe pokazują tworzone zasoby:
+Następujące przykładowe dane wyjściowe przedstawiają tworzone zasoby:
 
 ```output
 deployment.apps/voting-storage-1-0 created
@@ -97,15 +97,15 @@ service/voting-app created
 ```
 
 > [!NOTE]
-> Istio ma pewne szczególne wymagania dotyczące zasobników i usług. Aby uzyskać więcej informacji, zobacz [dokumentację Istio Requirements for Strąki i usługi][istio-requirements-pods-and-services].
+> Istio ma pewne konkretne wymagania dotyczące jednek i usług. Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [wymagań Istio dotyczących usługi i usług][istio-requirements-pods-and-services].
 
-Aby wyświetlić zasobników, które zostały utworzone, użyj [polecenia kubectl get strąki][kubectl-get] w następujący sposób:
+Aby wyświetlić utworzone zasobniki, użyj polecenia [polecenia kubectl Get][kubectl-get] -Binding w następujący sposób:
 
 ```console
 kubectl get pods -n voting --show-labels
 ```
 
-Poniższe przykładowe dane wyjściowe pokazuje, że istnieją trzy wystąpienia `voting-app` zasobnika i pojedyncze wystąpienie zarówno `voting-analytics` zasobników, jak i `voting-storage` zasobników. Każdy z zasobników ma dwa pojemniki. Jednym z tych pojemników jest komponent, `istio-proxy`a drugim jest:
+Następujące przykładowe dane wyjściowe pokazują, że istnieją trzy wystąpienia elementu `voting-app` a i jednego wystąpienia `voting-analytics` `voting-storage` . Każdy z tych zasobników ma dwa kontenery. Jeden z tych kontenerów jest składnikiem, a drugi to `istio-proxy`:
 
 ```output
 NAME                                    READY     STATUS    RESTARTS   AGE   LABELS
@@ -116,7 +116,7 @@ voting-app-1-0-956756fd-wsxvt           2/2       Running   0          39s   app
 voting-storage-1-0-5d8fcc89c4-2jhms     2/2       Running   0          39s   app=voting-storage,pod-template-hash=5d8fcc89c4,version=1.0
 ```
 
-Aby wyświetlić informacje o zasobniku, użyjemy [polecenia kubectl describe pod][kubectl-describe] z selektorami etykiet, aby wybrać `voting-analytics` zasobnik. Przefiltrujemy dane wyjściowe, aby wyświetlić szczegóły dwóch kontenerów znajdujących się w zasobniku:
+Aby wyświetlić informacje o tym pod, użyjemy polecenia [polecenia kubectl opisz pod][kubectl-describe] z selektorami etykiet, aby wybrać pozycję `voting-analytics` pod. Przefiltruje dane wyjściowe, aby wyświetlić szczegóły dwóch kontenerów znajdujących się w obszarze:
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -136,73 +136,73 @@ Aby wyświetlić informacje o zasobniku, użyjemy [polecenia kubectl describe po
 
 ::: zone-end
 
-Nie można połączyć się z aplikacją do głosowania, dopóki nie utworzysz [bramy][istio-reference-gateway] Istio i [usługi wirtualnej][istio-reference-virtualservice]. Te zasoby Istio kierują ruch z domyślnej bramy przychodzącej Istio do naszej aplikacji.
+Nie można nawiązać połączenia z aplikacją do głosowania, dopóki nie utworzysz [bramy][istio-reference-gateway] Istio i [usługi wirtualnej][istio-reference-virtualservice]. Te zasoby Istio kierują ruch z domyślnej bramy usługi Istio do naszej aplikacji.
 
 > [!NOTE]
-> **Brama** jest składnikiem na krawędzi siatki usługi, który odbiera przychodzący lub wychodzący ruch HTTP i TCP.
+> **Brama** to składnik na granicy siatki usługi, który odbiera przychodzące lub wychodzące ruch HTTP i TCP.
 > 
-> **Usługa wirtualna** definiuje zestaw reguł routingu dla jednej lub więcej usług docelowych.
+> **Usługa wirtualna** definiuje zestaw reguł routingu dla co najmniej jednej usługi docelowej.
 
-Użyj `kubectl apply` polecenia, aby wdrożyć yaml bramy i usługi wirtualnej. Pamiętaj, aby określić obszar nazw, w których te zasoby są wdrażane.
+Użyj `kubectl apply` polecenia, aby wdrożyć bramę i usługę wirtualną YAML. Pamiętaj, aby określić przestrzeń nazw, w której są wdrażane te zasoby.
 
 ```console
 kubectl apply -f istio/step-1-create-voting-app-gateway.yaml --namespace voting
 ```
 
-Poniższy przykładowy wynik przedstawia nową bramę i usługę wirtualną, która jest tworzona:
+Następujące przykładowe dane wyjściowe przedstawiają utworzoną nową bramę i usługę wirtualną:
 
 ```output
 virtualservice.networking.istio.io/voting-app created
 gateway.networking.istio.io/voting-app-gateway created
 ```
 
-Uzyskaj adres IP bramy istio ingress za pomocą następującego polecenia:
+Uzyskaj adres IP bramy Istio ingresing przy użyciu następującego polecenia:
 
 ```output
 kubectl get service istio-ingressgateway --namespace istio-system -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
 ```
 
-Poniższy przykładowy wynik przedstawia adres IP bramy przychodzącej:
+Następujące przykładowe dane wyjściowe przedstawiają adres IP bramy transferu danych przychodzących:
 
 ```output
 20.188.211.19
 ```
 
-Otwórz przeglądarkę i wklej adres IP. Zostanie wyświetlona przykładowa aplikacja do głosowania AKS.
+Otwórz przeglądarkę i wklej adres IP. Zostanie wyświetlona Przykładowa aplikacja do głosowania AKS.
 
-![Aplikacja AKS Voting działająca w naszym klastrze AKS istio.](media/servicemesh/istio/scenario-routing-deploy-app-01.png)
+![Aplikacja do głosowania AKS uruchomiona w naszym Istio włączonym klastrze AKS.](media/servicemesh/istio/scenario-routing-deploy-app-01.png)
 
-Informacje na dole ekranu pokazuje, że aplikacja `1.0` używa `voting-app` wersji `1.0` `voting-storage` i wersji (Redis).
+Informacje w dolnej części ekranu pokazują, że aplikacja używa `1.0` wersji programu `voting-app` i `1.0` programu `voting-storage` (Redis).
 
 ## <a name="update-the-application"></a>Aktualizowanie aplikacji
 
-Zastosujmy nową wersję składnika analizy. Ta nowa `1.1` wersja wyświetla sumy i wartości procentowe oprócz liczby dla każdej kategorii.
+Wdróżmy nową wersję składnika analizy. W tej nowej `1.1` wersji są wyświetlane sumy i wartości procentowe, a także liczba dla każdej kategorii.
 
-Na poniższym diagramie pokazano, co będzie uruchomione `1.1` na `voting-analytics` końcu tej sekcji — `voting-app` tylko wersja naszego składnika ma ruch kierowany z komponentu. Mimo że `1.0` wersja `voting-analytics` naszego składnika nadal działa `voting-analytics` i odwołuje się do niej usługa, serwery proxy Istio nie zezwalają na ruch do i z niego.
+Na poniższym diagramie przedstawiono, co będzie działać na końcu tej sekcji. wersja `1.1` naszego `voting-analytics` składnika zawiera ruch kierowany ze `voting-app` składnika. Mimo że wersja `1.0` naszego `voting-analytics` składnika nadal jest uruchomiona i odwołuje się do niej `voting-analytics` usługa, serwery proxy Istio nie zezwalają na ruch do i z niego.
 
-![Składniki aplikacji AKS voting i routingu.](media/servicemesh/istio/scenario-routing-components-02.png)
+![Składniki aplikacji do głosowania i routingu AKS.](media/servicemesh/istio/scenario-routing-components-02.png)
 
-Zastosujmy `1.1` wersję `voting-analytics` składnika. Utwórz ten `voting` składnik w obszarze nazw:
+Wdróżmy wersję `1.1` `voting-analytics` składnika. Utwórz ten składnik w `voting` przestrzeni nazw:
 
 ```console
 kubectl apply -f kubernetes/step-2-update-voting-analytics-to-1.1.yaml --namespace voting
 ```
 
-Poniższe przykładowe dane wyjściowe pokazują tworzone zasoby:
+Następujące przykładowe dane wyjściowe przedstawiają tworzone zasoby:
 
 ```output
 deployment.apps/voting-analytics-1-1 created
 ```
 
-Otwórz ponownie przykładową aplikację do głosowania AKS w przeglądarce, używając adresu IP bramy istio ingress uzyskanej w poprzednim kroku.
+Ponownie otwórz przykładową aplikację do głosowania w AKS w przeglądarce przy użyciu adresu IP bramy transferu danych przychodzących Istio uzyskanej w poprzednim kroku.
 
-Twoja przeglądarka zmienia się między dwoma widokami pokazanymi poniżej. Ponieważ używasz [usługi][kubernetes-service] Kubernetes `voting-analytics` dla składnika z tylko`app: voting-analytics`jednym selektorem etykiet ( ), Kubernetes używa domyślnego zachowania okrężnego między zasobnikami, które pasują do tego selektora. W tym przypadku jest `1.0` to `1.1` zarówno `voting-analytics` wersja, jak i zasobników.
+Twoja przeglądarka jest alternatywna dla dwóch widoków przedstawionych poniżej. Ponieważ używasz [usługi][kubernetes-service] Kubernetes dla `voting-analytics` składnika z tylko jednym selektorem etykiet (`app: voting-analytics`), Kubernetes używa domyślnego zachowania Round-Robin między obszarami, które pasują do tego selektora. W tym przypadku jest to zarówno wersja `1.0` , jak `1.1` i w `voting-analytics` Twoim zasobniku.
 
-![Wersja 1.0 składnika analitycznego uruchomionego w naszej aplikacji do głosowania AKS.](media/servicemesh/istio/scenario-routing-deploy-app-01.png)
+![Wersja 1,0 składnika analitycznego działającego w naszej aplikacji do głosowania AKS.](media/servicemesh/istio/scenario-routing-deploy-app-01.png)
 
-![Wersja 1.1 składnika analitycznego uruchomionego w naszej aplikacji do głosowania AKS.](media/servicemesh/istio/scenario-routing-update-app-01.png)
+![Wersja 1,1 składnika analitycznego działającego w naszej aplikacji do głosowania AKS.](media/servicemesh/istio/scenario-routing-update-app-01.png)
 
-Można wizualizować przełączanie między dwiema `voting-analytics` wersjami składnika w następujący sposób. Pamiętaj, aby użyć adresu IP własnej bramy Istio Ingress.
+Można wizualizować przełączanie między dwiema wersjami `voting-analytics` składnika w następujący sposób. Pamiętaj, aby użyć adresu IP własnej bramy Istio ingresd.
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -222,7 +222,7 @@ Można wizualizować przełączanie między dwiema `voting-analytics` wersjami s
 
 ::: zone-end
 
-Poniższy przykładowy wynik przedstawia odpowiednią część zwróconej witryny sieci web, gdy witryna przełącza się między wersjami:
+Poniższe przykładowe dane wyjściowe przedstawiają odpowiednią część zwróconej witryny sieci Web w miarę przełączania lokacji między wersjami:
 
 ```output
   <div id="results"> Cats: 2 | Dogs: 4 </div>
@@ -232,24 +232,24 @@ Poniższy przykładowy wynik przedstawia odpowiednią część zwróconej witryn
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
 ```
 
-### <a name="lock-down-traffic-to-version-11-of-the-application"></a>Blokowanie ruchu do wersji 1.1 aplikacji
+### <a name="lock-down-traffic-to-version-11-of-the-application"></a>Zablokuj ruch do wersji 1,1 aplikacji
 
-Teraz zablokujmy ruch `1.1` tylko `voting-analytics` do wersji `1.0` składnika `voting-storage` i do wersji składnika. Następnie należy zdefiniować reguły routingu dla wszystkich innych składników.
+Teraz Zablokuj ruch `1.1` tylko do wersji `voting-analytics` składnika i wersji `1.0` `voting-storage` składnika. Następnie zdefiniuj reguły routingu dla wszystkich innych składników programu.
 
-> * **Usługa wirtualna** definiuje zestaw reguł routingu dla jednej lub więcej usług docelowych.
-> * **Reguła docelowa** definiuje zasady ruchu i zasady specyficzne dla wersji.
-> * Zasady **Policy** określa, jakie metody uwierzytelniania mogą być akceptowane na obciążeniach.
+> * **Usługa wirtualna** definiuje zestaw reguł routingu dla co najmniej jednej usługi docelowej.
+> * **Reguła docelowa** określa zasady ruchu i zasady dotyczące wersji.
+> * **Zasady** definiują metody uwierzytelniania, które można zaakceptować w przypadku obciążeń.
 
-Użyj `kubectl apply` polecenia, aby zastąpić definicję `voting-app` usługi wirtualnej na swoim i dodać [reguły miejsca docelowego][istio-reference-destinationrule] i [usługi wirtualne][istio-reference-virtualservice] dla innych składników. Do obszaru `voting` nazw zostaną dodane [zasady,][istio-reference-policy] aby upewnić się, że cała komunikacja między usługami jest zabezpieczona przy użyciu wzajemnych certyfikatów TLS i klientów.
+Użyj `kubectl apply` polecenia, aby zamienić definicję usługi wirtualnej na `voting-app` i dodać [reguły docelowe][istio-reference-destinationrule] i [usługi wirtualne][istio-reference-virtualservice] dla innych składników. Należy dodać [zasady][istio-reference-policy] do `voting` przestrzeni nazw, aby upewnić się, że wszystkie połączenia między usługami są zabezpieczone przy użyciu wzajemnego protokołu TLS i certyfikatów klienta.
 
-* Zasady `peers.mtls.mode` ustawiła `STRICT` się, aby upewnić się, że `voting` wzajemne TLS jest wymuszane między usługami w obszarze nazw.
-* We wszystkich `trafficPolicy.tls.mode` naszych `ISTIO_MUTUAL` Zasadach docelowych. Istio zapewnia usługi o silnej tożsamości i zabezpiecza komunikację między usługami przy użyciu wzajemnych certyfikatów TLS i klientów, którymi zarządza Istio w sposób przejrzysty.
+* Zasady zostały `peers.mtls.mode` ustawione tak `STRICT` , aby zapewnić, że wzajemna TLS jest wymuszana między usługami `voting` w ramach przestrzeni nazw.
+* Ustawimy również `trafficPolicy.tls.mode` dla `ISTIO_MUTUAL` wszystkich naszych reguł docelowych. Usługa Istio zapewnia usługi z silnymi tożsamościami i zabezpiecza komunikację między usługami przy użyciu protokołu TLS i certyfikatów klientów, które są w sposób niewidoczny do zarządzania.
 
 ```console
 kubectl apply -f istio/step-2-update-and-add-routing-for-all-components.yaml --namespace voting
 ```
 
-Poniższe przykładowe dane wyjściowe pokazują nowe zasady, reguły miejsca docelowe i usługi wirtualne aktualizowane/tworzone:
+Następujące przykładowe dane wyjściowe przedstawiają nowe zasady, reguły docelowe i zaktualizowane/utworzone usługi wirtualne:
 
 ```output
 virtualservice.networking.istio.io/voting-app configured
@@ -261,11 +261,11 @@ destinationrule.networking.istio.io/voting-storage created
 virtualservice.networking.istio.io/voting-storage created
 ```
 
-Jeśli ponownie otworzysz aplikację AKS Voting w przeglądarce, `voting-analytics` składnik będzie `voting-app` używany tylko nowa wersja `1.1` składnika.
+Po ponownym otwarciu aplikacji do głosowania w programie AKS w przeglądarce zostanie użyta `1.1` `voting-analytics` `voting-app` tylko nowa wersja składnika.
 
-![Wersja 1.1 składnika analitycznego uruchomionego w naszej aplikacji do głosowania AKS.](media/servicemesh/istio/scenario-routing-update-app-01.png)
+![Wersja 1,1 składnika analitycznego działającego w naszej aplikacji do głosowania AKS.](media/servicemesh/istio/scenario-routing-update-app-01.png)
 
-Można wizualizować, że teraz są `1.1` teraz `voting-analytics` tylko kierowane do wersji składnika w następujący sposób. Pamiętaj, aby użyć adresu IP własnej bramy Istio Ingress:
+Możesz wizualizować, że jesteś teraz kierowany do wersji `1.1` `voting-analytics` składnika tylko w następujący sposób. Pamiętaj, aby użyć adresu IP własnej bramy Istio Ingres:
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -285,7 +285,7 @@ Można wizualizować, że teraz są `1.1` teraz `voting-analytics` tylko kierowa
 
 ::: zone-end
 
-Poniższy przykład wyjściowy przedstawia odpowiednią część zwróconej witryny sieci web:
+Poniższe przykładowe dane wyjściowe przedstawiają odpowiednią część zwróconej witryny sieci Web:
 
 ```output
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
@@ -295,13 +295,13 @@ Poniższy przykład wyjściowy przedstawia odpowiednią część zwróconej witr
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
 ```
 
-Teraz potwierdźmy, że Istio używa wzajemnego TLS do zabezpieczenia komunikacji między każdą z naszych usług. W tym celu użyjemy polecenia [authn tls-check][istioctl-authn-tls-check] na `istioctl` pliku binarnym klienta, które przyjmuje następującą formę.
+Potwierdźmy, że usługa Istio używa wzajemnego protokołu TLS do zabezpieczania komunikacji między poszczególnymi usługami. W tym celu użyjemy polecenia [authn TLS-Check][istioctl-authn-tls-check] w pliku binarnym `istioctl` klienta, który ma następującą formę:.
 
 ```console
 istioctl authn tls-check <pod-name[.namespace]> [<service>]
 ```
 
-Ten zestaw poleceń dostarcza informacji o dostępie do określonych usług, ze wszystkich zasobników, które znajdują się w obszarze nazw i pasują do zestawu etykiet:
+Ten zestaw poleceń zapewnia informacje o dostępie do określonych usług, ze wszystkich zestawów, które znajdują się w przestrzeni nazw i pasują do zestawu etykiet:
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -321,7 +321,7 @@ Ten zestaw poleceń dostarcza informacji o dostępie do określonych usług, ze 
 
 ::: zone-end
 
-W tym przykładzie dane wyjściowe pokazuje, że wzajemne TLS jest wymuszane dla każdego z naszych zapytań powyżej. Dane wyjściowe pokazują również zasady i reguły docelowe, które wymusza wzajemne TLS:
+Poniższe przykładowe dane wyjściowe pokazują, że dla każdego z naszych zapytań zostało wymuszone wzajemne szyfrowanie TLS. W danych wyjściowych znajdują się również zasady i zasady dotyczące zasad, które wymuszają wzajemne zaufanie TLS:
 
 ```output
 # mTLS configuration between istio ingress pods and the voting-app service
@@ -349,27 +349,27 @@ HOST:PORT                                        STATUS     SERVER     CLIENT   
 voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS       default/voting     voting-storage/voting
 ```
 
-## <a name="roll-out-a-canary-release-of-the-application"></a>Rozwałkować kanarek zwolnienie aplikacji
+## <a name="roll-out-a-canary-release-of-the-application"></a>Wdrażanie aplikacji w wersji kanaryjskiej
 
-Teraz zastosujmy `2.0` nową `voting-app`wersję `voting-analytics`programu `voting-storage` , i składników. Nowy `voting-storage` składnik używa MySQL zamiast Redis, `voting-app` `voting-analytics` a składniki i składniki są `voting-storage` aktualizowane, aby umożliwić im korzystanie z tego nowego składnika.
+Teraz wdróżmy nową `2.0` wersję składników `voting-app`, `voting-analytics`i. `voting-storage` Nowy `voting-storage` składnik używa programu MySQL zamiast Redis, a składniki `voting-app` i `voting-analytics` są aktualizowane, aby umożliwić im korzystanie z tego nowego `voting-storage` składnika.
 
-Składnik `voting-app` obsługuje teraz funkcje flagi funkcji. Ta flaga funkcji umożliwia przetestowanie możliwości wydania kanaryjnego Istio dla podzbioru użytkowników.
+`voting-app` Składnik obsługuje teraz funkcję flagi funkcji. Ta flaga funkcji umożliwia przetestowanie możliwości wersji programu Kanaryjskie Istio dla podzbioru użytkowników.
 
-Na poniższym diagramie przedstawiono, co będzie działać na końcu tej sekcji.
+Na poniższym diagramie przedstawiono działanie, które zostanie uruchomione na końcu tej sekcji.
 
-* Wersja `1.0` `voting-app` składnika, `1.1` wersja `voting-analytics` składnika `1.0` i `voting-storage` wersja składnika są w stanie komunikować się ze sobą.
-* Wersja `2.0` `voting-app` składnika, `2.0` wersja `voting-analytics` składnika `2.0` i `voting-storage` wersja składnika są w stanie komunikować się ze sobą.
-* Wersja `2.0` składnika `voting-app` są dostępne tylko dla użytkowników, którzy mają określony zestaw flag funkcji. Ta zmiana jest zarządzana przy użyciu flagi funkcji za pośrednictwem pliku cookie.
+* `voting-app` Wersja `1.0` składnika, wersja `1.1` `voting-analytics` składnika i wersja `1.0` `voting-storage` składnika, są w stanie komunikować się ze sobą.
+* `voting-app` Wersja `2.0` składnika, wersja `2.0` `voting-analytics` składnika i wersja `2.0` `voting-storage` składnika, są w stanie komunikować się ze sobą.
+* Wersja `2.0` `voting-app` składnika jest dostępna tylko dla użytkowników, którzy mają określoną flagę funkcji. Ta zmiana jest zarządzana przy użyciu flagi funkcji za pośrednictwem pliku cookie.
 
-![Składniki aplikacji AKS voting i routingu.](media/servicemesh/istio/scenario-routing-components-03.png)
+![Składniki aplikacji do głosowania i routingu AKS.](media/servicemesh/istio/scenario-routing-components-03.png)
 
-Najpierw zaktualizuj reguły miejsca docelowego Istio i usługi wirtualne, aby zaspokoić potrzeby tych nowych składników. Te aktualizacje zapewniają, że ruch nie jest nieprawidłowo kierowany do nowych składników, a użytkownicy nie uzyskują nieoczekiwanego dostępu:
+Najpierw należy zaktualizować reguły docelowe Istio i usługi wirtualne, aby były one przeznaczone dla nowych składników. Te aktualizacje gwarantują, że nie są nieprawidłowo kierowane ruch do nowych składników, a użytkownicy nie otrzymują nieoczekiwanego dostępu:
 
 ```console
 kubectl apply -f istio/step-3-add-routing-for-2.0-components.yaml --namespace voting
 ```
 
-Poniższe przykładowe dane wyjściowe pokazują reguły miejsca docelowego i usługi wirtualne aktualizowane:
+Następujące przykładowe dane wyjściowe przedstawiają aktualizowane reguły docelowe i usługi wirtualne:
 
 ```output
 destinationrule.networking.istio.io/voting-app configured
@@ -380,13 +380,13 @@ destinationrule.networking.istio.io/voting-storage configured
 virtualservice.networking.istio.io/voting-storage configured
 ```
 
-Następnie dodajmy Kubernetes obiektów dla składników `2.0` nowej wersji. Można również `voting-storage` zaktualizować usługę, `3306` aby uwzględnić port dla MySQL:
+Następnie Dodajmy obiekty Kubernetes dla nowych składników wersji `2.0` . Należy również zaktualizować `voting-storage` usługę w celu uwzględnienia `3306` portu dla programu MySQL:
 
 ```console
 kubectl apply -f kubernetes/step-3-update-voting-app-with-new-storage.yaml --namespace voting
 ```
 
-Poniższy przykładowy wynik pokazuje, że obiekty Kubernetes zostały pomyślnie zaktualizowane lub utworzone:
+Następujące przykładowe dane wyjściowe pokazują, że obiekty Kubernetes zostały pomyślnie zaktualizowane lub utworzone:
 
 ```output
 service/voting-storage configured
@@ -397,43 +397,43 @@ deployment.apps/voting-analytics-2-0 created
 deployment.apps/voting-app-2-0 created
 ```
 
-Poczekaj, aż `2.0` wszystkie zasobniki wersji są uruchomione. Użyj [polecenia kubectl get strąki][kubectl-get] z przełącznikiem zegarka, `-w` `voting` aby obserwować zmiany we wszystkich zasobnikach w obszarze nazw:
+Poczekaj, aż `2.0` wszystkie te zasobniki zostaną uruchomione. Użyj [polecenia kubectl GetBinding][kubectl-get] polecenia z przełącznikiem `-w` Watch, aby obejrzeć zmiany we wszystkich zasobnikach w `voting` przestrzeni nazw:
 
 ```console
 kubectl get pods --namespace voting -w
 ```
 
-Teraz powinieneś być w stanie `1.0` przełączać się między wersją a wersją `2.0` (kanarek) aplikacji do głosowania. Przełącznik flagi funkcji u dołu ekranu ustawia plik cookie. Ten plik cookie `voting-app` jest używany przez usługę wirtualną do kierowania użytkowników do nowej wersji `2.0`.
+Teraz powinno być możliwe przełączenie między wersją `1.0` i wersją `2.0` (Wyspy Kanaryjskie) aplikacji do głosowania. Flaga funkcji przełącznika w dolnej części ekranu ustawia plik cookie. Ten plik cookie jest używany przez `voting-app` usługę wirtualną do przesyłania użytkownikom nowej wersji `2.0`.
 
-![Wersja 1.0 aplikacji AKS Voting - flaga funkcji NIE JEST ustawiona.](media/servicemesh/istio/scenario-routing-canary-release-01.png)
+![NIE ustawiono wersji 1,0 aplikacji do głosowania AKS — flaga funkcji.](media/servicemesh/istio/scenario-routing-canary-release-01.png)
 
-![Wersja 2.0 aplikacji AKS Voting - ustawiona flaga funkcji.](media/servicemesh/istio/scenario-routing-canary-release-02.png)
+![ZOSTANIE ustawiona wersja 2,0 flagi "aplikacja do głosowania AKS".](media/servicemesh/istio/scenario-routing-canary-release-02.png)
 
-Liczba głosów różni się między wersjami aplikacji. Ta różnica podkreśla, że używasz dwóch różnych zaplecza magazynu.
+Liczby głosu są różne w zależności od wersji aplikacji. Ta różnica oznacza, że korzystasz z dwóch różnych punktów końcowych magazynu.
 
 ## <a name="finalize-the-rollout"></a>Finalizowanie wdrożenia
 
-Po pomyślnym przetestowaniu wersji kanarek zaktualizuj usługę wirtualną, `voting-app` aby przekierować cały ruch do wersji `2.0` składnika. `voting-app` Następnie wszyscy użytkownicy zobaczą wersję `2.0` aplikacji, niezależnie od tego, czy flaga funkcji jest ustawiona, czy nie:
+Po pomyślnym przetestowaniu wersji programu kanaryjskiej `voting-app` zaktualizuj usługę wirtualną, aby kierować cały ruch `2.0` do wersji `voting-app` składnika. Wszyscy użytkownicy zobaczą wersję `2.0` aplikacji, niezależnie od tego, czy flaga funkcji jest ustawiona, czy nie:
 
-![Składniki aplikacji AKS voting i routingu.](media/servicemesh/istio/scenario-routing-components-04.png)
+![Składniki aplikacji do głosowania i routingu AKS.](media/servicemesh/istio/scenario-routing-components-04.png)
 
-Zaktualizuj wszystkie reguły docelowe, aby usunąć wersje składników, które nie mają być już aktywne. Następnie zaktualizuj wszystkie usługi wirtualne, aby zatrzymać odwoływanie się do tych wersji.
+Zaktualizuj wszystkie reguły docelowe, aby usunąć wersje składników, które nie powinny już być aktywne. Następnie zaktualizuj wszystkie usługi wirtualne, aby zakończyć odwoływanie się do tych wersji.
 
 Ponieważ nie ma już żadnego ruchu do żadnej ze starszych wersji składników, można teraz bezpiecznie usunąć wszystkie wdrożenia dla tych składników.
 
-![Składniki aplikacji AKS voting i routingu.](media/servicemesh/istio/scenario-routing-components-05.png)
+![Składniki aplikacji do głosowania i routingu AKS.](media/servicemesh/istio/scenario-routing-components-05.png)
 
-Teraz pomyślnie wdrożono nową wersję aplikacji do głosowania AKS.
+Pomyślnie przeprowadzono nową wersję aplikacji do głosowania AKS.
 
 ## <a name="clean-up"></a>Czyszczenie 
 
-Aplikację do głosowania AKS, której używaliśmy w tym scenariuszu, można `voting` usunąć z klastra AKS usunięcie obszaru nazw w następujący sposób:
+W tym scenariuszu możesz usunąć AKSą aplikację do głosowania z klastra AKS, usuwając `voting` przestrzeń nazw w następujący sposób:
 
 ```console
 kubectl delete namespace voting
 ```
 
-Poniższe przykładowe dane wyjściowe pokazują, że wszystkie składniki aplikacji do głosowania AKS zostały usunięte z klastra AKS.
+Następujące przykładowe dane wyjściowe pokazują, że wszystkie składniki aplikacji do głosowania AKS zostały usunięte z klastra AKS.
 
 ```output
 namespace "voting" deleted
@@ -441,7 +441,7 @@ namespace "voting" deleted
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dodatkowe scenariusze można eksplorować w [przykładzie aplikacji Istio Bookinfo][istio-bookinfo-example].
+Dodatkowe scenariusze można eksplorować przy użyciu [przykładu aplikacji Istio Bookinfo][istio-bookinfo-example].
 
 <!-- LINKS - external -->
 [github-azure-sample]: https://github.com/Azure-Samples/aks-voting-app

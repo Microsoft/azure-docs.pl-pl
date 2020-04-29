@@ -1,130 +1,130 @@
 ---
-title: Szyfrowanie danych za pomocą klucza zarządzanego przez klienta — usługa Azure Database for PostgreSQL — pojedynczy serwer
-description: Usługa Azure Database for PostgreSQL Single server data encryption with a customer-managed key umożliwia wprowadzenie własnego klucza (BYOK) w celu ochrony danych w spoczynku. Umożliwia również organizacjom wdrożenie rozdzielenia obowiązków w zarządzaniu kluczami i danymi.
+title: Szyfrowanie danych z kluczem zarządzanym przez klienta — Azure Database for PostgreSQL — pojedynczy serwer
+description: Azure Database for PostgreSQL szyfrowanie danych za pomocą jednego serwera z kluczem zarządzanym przez klienta umożliwia Bring Your Own Key (BYOK) na potrzeby ochrony danych w spoczynku. Pozwala to również organizacjom na wdrażanie rozdzieleń obowiązków związanych z zarządzaniem kluczami i danymi.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.openlocfilehash: 20e01e681c382e3c9c69f76c95a90f709f409d6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79297026"
 ---
-# <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Usługa Azure Database for PostgreSQL Single server data encryption with a customer-managed key (Usługa Azure Database for PostgreSQL Single server data encryption with a customer-managed key)
+# <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database for PostgreSQL szyfrowanie danych na jednym serwerze z kluczem zarządzanym przez klienta
 
 > [!NOTE]
-> W tej chwili należy zażądać dostępu do korzystania z tej funkcji. Aby to zrobić, skontaktuj się z . AskAzureDBforPostgreSQL@service.microsoft.com
+> W tej chwili należy zażądać dostępu do korzystania z tej funkcji. Aby to zrobić, skontaktuj AskAzureDBforPostgreSQL@service.microsoft.comsię z firmą.
 
-Szyfrowanie danych za pomocą kluczy zarządzanych przez klienta dla usługi Azure Database for PostgreSQL Single server umożliwia przynoszenie własnego klucza (BYOK) w celu ochrony danych w spoczynku. Umożliwia również organizacjom wdrożenie rozdzielenia obowiązków w zarządzaniu kluczami i danymi. Dzięki szyfrowaniu zarządzanej przez klienta użytkownik jest odpowiedzialny za cykl życia klucza, uprawnienia do użycia klucza i inspekcję operacji na kluczach i pod pełną kontrolą.
+Szyfrowanie danych za pomocą kluczy zarządzanych przez klienta dla Azure Database for PostgreSQL pojedynczy serwer umożliwia korzystanie z własnego klucza (BYOK) na potrzeby ochrony danych w spoczynku. Pozwala to również organizacjom na wdrażanie rozdzieleń obowiązków związanych z zarządzaniem kluczami i danymi. W przypadku szyfrowania zarządzanego przez klienta użytkownik jest odpowiedzialny za oraz w pełni kontrolujący cykl życia klucza, uprawnienia do użycia klucza i inspekcje operacji na kluczach.
 
-Szyfrowanie danych za pomocą kluczy zarządzanych przez klienta dla usługi Azure Database dla pojedynczego serwera PostgreSQL jest ustawione na poziomie serwera. W przypadku danego serwera klucz zarządzany przez klienta, nazywany kluczem szyfrowania klucza (KEK), jest używany do szyfrowania klucza szyfrowania danych (DEK) używanego przez usługę. KEK jest kluczem asymetrycznym przechowywanym w wystąpieniu [usługi Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) należącym do klienta i zarządzanym przez klienta. Klucz szyfrowania klucza (KEK) i klucz szyfrowania danych (DEK) jest opisany bardziej szczegółowo w dalszej części tego artykułu.
+Szyfrowanie danych z kluczami zarządzanymi przez klienta dla Azure Database for PostgreSQL pojedynczego serwera, jest ustawiany na poziomie serwera. Dla danego serwera klucz zarządzany przez klienta o nazwie klucz szyfrowania klucza (KEK) jest używany do szyfrowania klucza szyfrowania danych używanego przez usługę. KEK jest kluczem asymetrycznym przechowywanym w wystąpieniu [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) klienta i zarządzanym przez klienta. Klucz szyfrowania klucza (KEK) i klucz szyfrowania danych (w tym artykule) opisano szczegółowo w dalszej części tego artykułu.
 
-Key Vault to oparty na chmurze, zewnętrzny system zarządzania kluczami. Jest wysoce dostępny i zapewnia skalowalną, bezpieczną pamięć masową dla kluczy kryptograficznych RSA, opcjonalnie wspieranych przez sprawdzone moduły zabezpieczeń sprzętu (HSM) fips 140-2 Level 2. Nie zezwala na bezpośredni dostęp do przechowywanego klucza, ale zapewnia usługi szyfrowania i odszyfrowywania autoryzowanym jednostkom. Usługa Key Vault może wygenerować klucz, zaimportować go lub [przenieść z lokalnego urządzenia HSM.](../key-vault/key-Vault-hsm-protected-keys.md)
+Key Vault to oparty na chmurze zewnętrzny system zarządzania kluczami. Jest ona wysoce dostępna i zapewnia skalowalny, bezpieczny magazyn dla kluczy kryptograficznych RSA, opcjonalnie obsługiwane przez program FIPS 140-2 Level 2 sprawdzone sprzętowe moduły zabezpieczeń (sprzętowych modułów zabezpieczeń). Nie zezwala na bezpośredni dostęp do przechowywanego klucza, ale zapewnia usługi szyfrowania i odszyfrowywania do autoryzowanych jednostek. Key Vault może wygenerować klucz, zaimportować go lub [przetransferować z lokalnego urządzenia HSM](../key-vault/key-Vault-hsm-protected-keys.md).
 
 > [!NOTE]
-> Ta funkcja jest dostępna we wszystkich regionach platformy Azure, gdzie usługa Azure Database for PostgreSQL Single server obsługuje warstwy cenowe "Ogólnego przeznaczenia" i "Zoptymalizowane pod kątem pamięci".
+> Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których Azure Database for PostgreSQL jeden serwer obsługuje warstwy cenowe "Ogólnego przeznaczenia" i "zoptymalizowane pod kątem pamięci".
 
 ## <a name="benefits"></a>Korzyści
 
-Szyfrowanie danych dla usługi Azure Database dla pojedynczego serwera PostgreSQL zapewnia następujące korzyści:
+Szyfrowanie danych dla Azure Database for PostgreSQL pojedynczego serwera zapewnia następujące korzyści:
 
-* Dostęp do danych jest w pełni kontrolowany przez możliwość usunięcia klucza i uczynienie bazy danych niedostępną 
-*    Pełna kontrola nad cyklem życia klucza, w tym rotacja klucza w celu dostosowania go do zasad korporacyjnych
-*    Centralne zarządzanie kluczami i organizacja kluczy w usłudze Azure Key Vault
-*    Możliwość wykonywania rozdzielenia obowiązków między funkcjonariuszami ochrony a DBA i administratorami systemu
+* Dostęp do danych jest w pełni kontrolowany przez użytkownika przez możliwość usuwania klucza i uzyskiwania dostępu do bazy danych 
+*    Pełna kontrola nad cyklem życia klucza, włącznie z rotacją klucza do dopasowania do zasad firmowych
+*    Centralne zarządzanie i organizacja kluczy w Azure Key Vault
+*    Możliwość wdrożenia separacji obowiązków między biurami zabezpieczeń i administratorami systemów i administratorów systemu
 
 ## <a name="terminology-and-description"></a>Terminologia i opis
 
-**Klucz szyfrowania danych (DEK)**: Symetryczny klucz AES256 używany do szyfrowania partycji lub bloku danych. Szyfrowanie każdego bloku danych za pomocą innego klucza utrudnia ataki analizy kryptograficznej. Dostęp do deks jest potrzebny przez dostawcę zasobów lub wystąpienie aplikacji, który szyfruje i odszyfrowuje określony blok. Po zastąpieniu pliku DEK nowym kluczem tylko dane w skojarzonym z nim bloku muszą być ponownie zaszyfrowane za pomocą nowego klucza.
+**Klucz szyfrowania danych (unencryption)**: symetryczny klucz AES256 używany do szyfrowania partycji lub bloku danych. Szyfrowanie każdego bloku danych przy użyciu innego klucza sprawia, że ataki analizy kryptograficznej są trudniejsze. Dostęp do DEKs jest wymagany przez dostawcę zasobów lub wystąpienie aplikacji, które szyfruje i odszyfrowuje określony blok. Gdy zastąpisz klucz szyfrowania danych za pomocą nowego klucza, tylko dane w skojarzonym bloku muszą zostać ponownie zaszyfrowane przy użyciu nowego klucza.
 
-**Klucz szyfrowania klucza (KEK)**: Klucz szyfrowania używany do szyfrowania plików DEK. KEK, który nigdy nie opuszcza Key Vault pozwala deks się być szyfrowane i kontrolowane. Jednostka, która ma dostęp do KEK może być inna niż jednostka, która wymaga DEK. Ponieważ KEK jest wymagane do odszyfrowania DEKs, KEK jest skutecznie pojedynczy punkt, przez który DEKs mogą być skutecznie usunięte przez usunięcie KEK.
+**Klucz szyfrowania klucza (KEK)**: klucz szyfrowania używany do szyfrowania DEKs. Element KEK, który nigdy nie pozostawia Key Vault umożliwia zaszyfrowanie i kontrola DEKs. Jednostka, która ma dostęp do KEK, może różnić się od jednostki, która wymaga tego klucza. Ponieważ KEK jest wymagany do odszyfrowania DEKs, KEK jest efektywnie jednym punktem, przez który DEKs może być skutecznie usunięty przez usunięcie KEK.
 
-Deks, szyfrowane za pomocą KEKs, są przechowywane oddzielnie. Tylko jednostka z dostępem do KEK może odszyfrować te deks. Aby uzyskać więcej informacji, zobacz [Zabezpieczenia w szyfrowaniu w spoczynku](../security/fundamentals/encryption-atrest.md).
+DEKs szyfrowany za pomocą KEKs są przechowywane oddzielnie. Tylko jednostka z dostępem do KEK może odszyfrować te DEKs. Aby uzyskać więcej informacji, zobacz [zabezpieczenia w szyfrowaniu](../security/fundamentals/encryption-atrest.md)w stanie spoczynku.
 
-## <a name="how-data-encryption-with-a-customer-managed-key-works"></a>Jak działa szyfrowanie danych za pomocą klucza zarządzanego przez klienta
+## <a name="how-data-encryption-with-a-customer-managed-key-works"></a>Jak działa szyfrowanie danych z kluczem zarządzanym przez klienta
 
-![Diagram przedstawiający omówienie programu Bring Your Own Key](media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png)
+![Diagram przedstawiający przegląd Bring Your Own Key](media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png)
 
-Aby serwer PostgreSQL używał kluczy zarządzanych przez klienta przechowywanych w uchoniem kluczy do szyfrowania usługi DEK, administrator usługi Key Vault przyznaje serwerowi następujące prawa dostępu:
+Aby serwer PostgreSQL mógł używać kluczy zarządzanych przez klienta przechowywanych w Key Vault na potrzeby szyfrowania bazy danych programu, administrator Key Vault ma następujące prawa dostępu do serwera:
 
-* **get**: Do pobierania części publicznej i właściwości klucza w magazynie kluczy.
-* **wrapKey:** Aby móc zaszyfrować DEK.
-* **unwrapKey**: Aby móc odszyfrować DEK.
+* **Pobierz**: w celu pobrania publicznej części i właściwości klucza w magazynie kluczy.
+* **wrapKey**: aby można było zaszyfrować klucz szyfrowania danych.
+* **unwrapKey**: aby można było odszyfrować klucz szyfrowania danych.
 
-Administrator magazynu kluczy może również [włączyć rejestrowanie zdarzeń inspekcji usługi Key Vault,](../azure-monitor/insights/azure-key-vault.md)dzięki czemu można je później poddać inspekcji.
+Administrator magazynu kluczy może również [włączyć rejestrowanie Key Vault zdarzeń inspekcji](../azure-monitor/insights/azure-key-vault.md), aby mogły być później poddane inspekcji.
 
-Gdy serwer jest skonfigurowany do używania klucza zarządzanego przez klienta przechowywanego w magazynie kluczy, serwer wysyła plik DEK do magazynu kluczy w celu szyfrowania. Usługa Key Vault zwraca zaszyfrowany kod DEK, który jest przechowywany w bazie danych użytkowników. Podobnie, w razie potrzeby serwer wysyła chronionyDEK do magazynu kluczy w celu odszyfrowania. Audytorzy mogą używać usługi Azure Monitor do przeglądania dzienników zdarzeń inspekcji usługi Key Vault, jeśli rejestrowanie jest włączone.
+Gdy serwer jest skonfigurowany do korzystania z klucza zarządzanego przez klienta przechowywanego w magazynie kluczy, serwer wysyła do magazynu kluczy, w którym są szyfrowane. Key Vault zwraca zaszyfrowany klucz szyfrowania danych, który jest przechowywany w bazie. Analogicznie, jeśli jest to konieczne, serwer wysyła chronione szyfrowanie szyfrowania danych do magazynu kluczy w celu odszyfrowania. Audytorzy mogą używać Azure Monitor do przeglądania dzienników zdarzeń inspekcji Key Vault, jeśli rejestrowanie jest włączone.
 
-## <a name="requirements-for-configuring-data-encryption-for-azure-database-for-postgresql-single-server"></a>Wymagania dotyczące konfigurowania szyfrowania danych dla usługi Azure Database dla pojedynczego serwera PostgreSQL
+## <a name="requirements-for-configuring-data-encryption-for-azure-database-for-postgresql-single-server"></a>Wymagania dotyczące konfigurowania szyfrowania danych dla Azure Database for PostgreSQL pojedynczego serwera
 
-Następujące wymagania dotyczące konfigurowania usługi Key Vault:
+Poniżej przedstawiono wymagania dotyczące konfigurowania Key Vault:
 
-* Usługa Key Vault i Azure Database for PostgreSQL Single server must belong to the same Azure Active Directory (Azure AD) tenant. Interakcja między dzierżawcami usługi Key Vault i serwer nie są obsługiwane. Przenoszenie zasobów wymaga ponownego skonfigurowania szyfrowania danych.
-* Należy włączyć funkcję usuwania nietrwałego w magazynie kluczy, aby chronić przed utratą danych, jeśli nastąpi przypadkowe usunięcie klucza (lub magazynu kluczy). Nietrwałe usunięte zasoby są zachowywane przez 90 dni, chyba że użytkownik odzyskuje lub czyści je w międzyczasie. Akcje odzyskiwania i przeczyszczania mają własne uprawnienia skojarzone z zasadami dostępu usługi Key Vault. Funkcja usuwania nietrwałego jest domyślnie wyłączona, ale można ją włączyć za pośrednictwem programu PowerShell lub interfejsu wiersza polecenia platformy Azure (należy pamiętać, że nie można jej włączyć za pośrednictwem witryny Azure portal).
-* Udziel usługi Azure Database dla postgreSql dostęp do magazynu kluczy z get, wrapKey i unwrapKey uprawnień przy użyciu jego unikatowej tożsamości zarządzanej. W witrynie Azure portal unikatowa tożsamość jest automatycznie tworzona, gdy szyfrowanie danych jest włączone na serwerze PostgreSQL Single. Zobacz [szyfrowanie danych dla usługi Azure Database dla pojedynczego serwera PostgreSQL przy użyciu portalu Azure,](howto-data-encryption-portal.md) aby uzyskać szczegółowe instrukcje krok po kroku podczas korzystania z witryny Azure portal.
+* Key Vault i Azure Database for PostgreSQL pojedynczy serwer musi należeć do tej samej dzierżawy Azure Active Directory (Azure AD). Między dzierżawcami Key Vault i interakcje serwera nie są obsługiwane. Późniejsze przeniesienie zasobów wymaga ponownego skonfigurowania szyfrowania danych.
+* Należy włączyć funkcję usuwania nietrwałego w magazynie kluczy, aby chronić przed utratą danych w przypadku, gdy zostanie usunięte przypadkowe wystąpienie (lub Key Vault). Zasoby usunięte nietrwale są przechowywane przez 90 dni, chyba że użytkownik odzyskuje lub przeczyści je w międzyczasie. Akcje odzyskania i przeczyszczania mają własne uprawnienia skojarzone z zasadami dostępu Key Vault. Funkcja usuwania nietrwałego jest domyślnie wyłączona, ale można ją włączyć za pomocą programu PowerShell lub interfejsu wiersza polecenia platformy Azure (należy zauważyć, że nie można włączyć jej za pomocą Azure Portal).
+* Udziel Azure Database for PostgreSQL jednoserwerowego dostępu do magazynu kluczy za pomocą uprawnień Get, wrapKey i unwrapKey przy użyciu unikatowej tożsamości zarządzanej. W Azure Portal unikatowa tożsamość jest tworzona automatycznie po włączeniu szyfrowania danych na pojedynczym serwerze PostgreSQL. Aby uzyskać szczegółowe instrukcje krok po kroku, jeśli używasz Azure Portal, zobacz [szyfrowanie danych dla Azure Database for PostgreSQL pojedynczego serwera przy użyciu Azure Portal](howto-data-encryption-portal.md) .
 
-* W przypadku korzystania z zapory z usługą Key Vault należy włączyć opcję **Zezwalaj zaufanym usługom firmy Microsoft na ominięcie zapory**.
+* W przypadku korzystania z zapory z Key Vault należy włączyć opcję **Zezwalaj zaufanym usługom firmy Microsoft na pomijanie zapory**.
 
 Poniżej przedstawiono wymagania dotyczące konfigurowania klucza zarządzanego przez klienta:
 
-* Klucz zarządzany przez klienta, który ma być używany do szyfrowania DEK może być tylko asymetryczny, RSA 2028.
-* Data aktywacji klucza (jeśli jest ustawiona) musi być datą i godziną w przeszłości. Data wygaśnięcia (jeśli jest ustawiona) musi być datą i godziną przyszłą.
-* Klucz musi być w stanie *Włączone.*
-* Jeśli importujesz istniejący klucz do magazynu kluczy, upewnij się, że jest`.pfx`on `.byok` `.backup`podtrzymywał w obsługiwanych formatach plików ( , , ).
+* Klucz zarządzany przez klienta, który ma być używany na potrzeby szyfrowania, może być tylko asymetryczny, RSA 2028.
+* Data aktywacji klucza (jeśli jest ustawiona) musi być datą i godziną w przeszłości. Data wygaśnięcia (jeśli jest ustawiona) musi być przyszłą datą i godziną.
+* Klucz musi być w stanie *włączony* .
+* W przypadku importowania istniejącego klucza do magazynu kluczy upewnij się, że jest on udostępniany w obsługiwanych formatach plików (`.pfx`, `.byok`, `.backup`).
 
 ## <a name="recommendations"></a>Zalecenia
 
-W przypadku korzystania z szyfrowania danych przy użyciu klucza zarządzanego przez klienta oto zalecenia dotyczące konfigurowania usługi Key Vault:
+W przypadku korzystania z szyfrowania danych przy użyciu klucza zarządzanego przez klienta poniżej przedstawiono zalecenia dotyczące konfigurowania Key Vault:
 
-* Ustaw blokadę zasobów w Magazynie kluczy, aby kontrolować, kto może usunąć ten krytyczny zasób i zapobiec przypadkowemu lub nieautoryzowanemu usunięciu.
-* Włącz inspekcję i raportowanie wszystkich kluczy szyfrowania. Usługa Key Vault udostępnia dzienniki, które można łatwo wstrzyknąć do innych narzędzi do zarządzania informacjami zabezpieczającymi i zdarzeniami. Usługa Azure Monitor Log Analytics jest jednym z przykładów usługi, która jest już zintegrowana.
+* Ustaw blokadę zasobów Key Vault, aby określić, kto może usunąć ten krytyczny zasób i zapobiegać przypadkowemu lub nieautoryzowanemu usuwaniu.
+* Włącz inspekcję i raportowanie dla wszystkich kluczy szyfrowania. Key Vault udostępnia dzienniki, które można łatwo wstrzyknąć do innych informacji o zabezpieczeniach i narzędzi do zarządzania zdarzeniami. Azure Monitor Log Analytics to jeden przykład usługi, która jest już zintegrowana.
 
-* Upewnij się, że usługa Key Vault i usługa Azure Database dla pojedynczego serwera PostgreSQL znajdują się w tym samym regionie, aby zapewnić szybszy dostęp do operacji zawijania i odwijania DEK.
+* Upewnij się, że Key Vault i Azure Database for PostgreSQL pojedynczy serwer znajduje się w tym samym regionie, aby zapewnić szybszy dostęp do operacji zawijania i odpakowania danych.
 
 Poniżej przedstawiono zalecenia dotyczące konfigurowania klucza zarządzanego przez klienta:
 
-* Zachowaj kopię klucza zarządzanego przez klienta w bezpiecznym miejscu lub escrow go do usługi escrow.
+* Przechowuj kopię klucza zarządzanego przez klienta w bezpiecznym miejscu lub wykorzystaj ją w usłudze Escrow.
 
-* Jeśli magazyn kluczy generuje klucz, utwórz kopię zapasową klucza przed użyciem klucza po raz pierwszy. Kopię zapasową można przywrócić tylko do magazynu kluczy. Aby uzyskać więcej informacji na temat polecenia tworzenia kopii zapasowej, zobacz [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyVault/backup-azkeyVaultkey).
+* Jeśli Key Vault generuje klucz, Utwórz kopię zapasową klucza przed użyciem klucza po raz pierwszy. Możesz przywrócić kopię zapasową tylko do Key Vault. Aby uzyskać więcej informacji na temat polecenia Backup, zobacz [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyVault/backup-azkeyVaultkey).
 
-## <a name="inaccessible-customer-managed-key-condition"></a>Niedostępny warunek klucza zarządzany przez klienta
+## <a name="inaccessible-customer-managed-key-condition"></a>Niedostępny warunek klucza zarządzanego przez klienta
 
-Podczas konfigurowania szyfrowania danych za pomocą klucza zarządzanego przez klienta w uchoniem programu Key Vault wymagany jest ciągły dostęp do tego klucza, aby serwer pozostał w trybie online. Jeśli serwer utraci dostęp do klucza zarządzanego przez klienta w ucho. Serwer wydaje odpowiedni komunikat o błędzie i zmienia stan serwera *na Niedostępny.* Jedyną czynnością dozwoloną w bazie danych w tym stanie jest usunięcie go.
+W przypadku konfigurowania szyfrowania danych przy użyciu klucza zarządzanego przez klienta w programie Key Vault dostęp do tego klucza jest wymagany, aby serwer mógł pozostać w trybie online. Jeśli serwer utraci dostęp do klucza zarządzanego przez klienta w Key Vault, serwer rozpoczyna odrzucanie wszystkich połączeń w ciągu 10 minut. Serwer wystawia odpowiedni komunikat o błędzie i zmieni stan serwera na *niedostępny*. Jedyną akcją dozwoloną dla bazy danych w tym stanie jest usunięcie jej.
 
-### <a name="accidental-key-access-revocation-from-key-vault"></a>Przypadkowe odwołanie dostępu do kluczy z usługi Key Vault
+### <a name="accidental-key-access-revocation-from-key-vault"></a>Przypadkowe odwoływanie dostępu do klucza z Key Vault
 
-Może się zdarzyć, że osoba posiadająca wystarczające prawa dostępu do usługi Key Vault przypadkowo wyłączy dostęp serwera do klucza przez:
+Może się zdarzyć, że ktoś mający wystarczające prawa dostępu do Key Vault przypadkowo wyłącza dostęp serwera do klucza przez:
 
-* Odwoływanie uprawnień get, wrapKey i unwrapKey z serwera.
-* Usunięcie klucza.
+* Odwoływanie uprawnień Get, wrapKey i unwrapKey magazynu kluczy z serwera.
+* Usuwanie klucza.
 * Usuwanie magazynu kluczy.
 * Zmiana reguł zapory magazynu kluczy.
 
 * Usuwanie tożsamości zarządzanej serwera w usłudze Azure AD.
 
-## <a name="monitor-the-customer-managed-key-in-key-vault"></a>Monitorowanie klucza zarządzanego przez klienta w magazynie kluczy
+## <a name="monitor-the-customer-managed-key-in-key-vault"></a>Monitoruj klucz zarządzany przez klienta w Key Vault
 
-Aby monitorować stan bazy danych i włączyć alerty o utracie dostępu do ochrony szyfrowania przezroczystych danych, skonfiguruj następujące funkcje platformy Azure:
+Aby monitorować stan bazy danych i włączyć alerty na potrzeby utraty dostępu do funkcji ochrony za pomocą szyfrowania danych, skonfiguruj następujące funkcje platformy Azure:
 
-* [Kondycja zasobów platformy Azure:](../service-health/resource-health-overview.md)niedostępna baza danych, która utraciła dostęp do klucza klienta, jest wyświetlana jako "Niedostępna" po odrzuceniu pierwszego połączenia z bazą danych.
-* [Dziennik aktywności:](../service-health/alerts-activity-log-service-notifications.md)Gdy dostęp do klucza klienta w magazynie kluczy zarządzanym przez klienta nie powiedzie się, wpisy są dodawane do dziennika działań. Dostęp można przywrócić tak szybko, jak to możliwe, jeśli utworzysz alerty dla tych zdarzeń.
+* [Azure Resource Health](../service-health/resource-health-overview.md): niedostępna baza danych, która utraciła dostęp do klucza klienta, jest wyświetlana jako "niedostępna" po odmowie pierwszego połączenia z bazą danych.
+* [Dziennik aktywności](../service-health/alerts-activity-log-service-notifications.md): Jeśli dostęp do klucza klienta w Key Vault zarządzanym przez klienta nie powiedzie się, wpisy zostaną dodane do dziennika aktywności. Można przywrócić dostęp najszybciej, jak to możliwe, w przypadku tworzenia alertów dla tych zdarzeń.
 
-* [Grupy akcji:](../azure-monitor/platform/action-groups.md)Zdefiniuj je, aby wysyłać powiadomienia i alerty na podstawie twoich preferencji.
+* [Grupy akcji](../azure-monitor/platform/action-groups.md): Zdefiniuj te, aby wysyłać powiadomienia i alerty na podstawie Twoich preferencji.
 
-## <a name="restore-and-replicate-with-a-customers-managed-key-in-key-vault"></a>Przywracanie i replikowanie za pomocą klucza zarządzanego klienta w magazynie kluczy
+## <a name="restore-and-replicate-with-a-customers-managed-key-in-key-vault"></a>Przywracanie i replikowanie z kluczem zarządzanym klienta w Key Vault
 
-Po usłudze Azure Database for PostgreSQL Single server jest szyfrowany za pomocą klucza zarządzanego klienta przechowywane w key vault, każda nowo utworzona kopia serwera jest również szyfrowana. Tę nową kopię można wykonać za pomocą operacji lokalnego lub przywracania geograficznego lub replik odczytu. Jednak kopię można zmienić, aby odzwierciedlić klucz zarządzany nowego klienta do szyfrowania. Po zmianie klucza zarządzanego przez klienta stare kopie zapasowe serwera rozpoczynają się przy użyciu najnowszego klucza.
+Po zaszyfrowaniu pojedynczego serwera Azure Database for PostgreSQL z kluczem zarządzanym przez klienta przechowywanego w Key Vault, nowo utworzona kopia serwera zostanie również zaszyfrowana. Tę nową kopię można wykonać za pomocą operacji w trybie lokalnym lub z możliwością przywracania geograficznego albo za pomocą replik odczytu. Jednak kopię można zmienić w celu odzwierciedlenia klucza zarządzanego nowego klienta na potrzeby szyfrowania. Gdy klucz zarządzany przez klienta zostanie zmieniony, stare kopie zapasowe serwera zaczynają korzystać z najnowszego klucza.
 
-Aby uniknąć problemów podczas konfigurowania szyfrowania danych zarządzanych przez klienta podczas tworzenia repliki przywracania lub odczytu, należy wykonać następujące kroki na serwerach wzorcowych i przywróconych/replik:
+Aby uniknąć problemów podczas konfigurowania szyfrowania danych zarządzanych przez klienta podczas przywracania lub tworzenia repliki odczytu, należy wykonać następujące kroki na serwerach głównych i przywróconych/replice:
 
-* Inicjowanie procesu tworzenia repliki przywracania lub odczytu z nadrzędnej bazy danych azure dla serwera PostgreSQL Single.
-* Nowo utworzony serwer (przywrócony/replika) pozostaje w stanie niedostępnym, ponieważ jego unikatowa tożsamość nie została jeszcze przyznana uprawnieniom do usługi Key Vault.
-* Na serwerze przywrócony/replika ponownie zaatruj certyfikat klucza zarządzanego przez klienta w ustawieniach szyfrowania danych. Gwarantuje to, że nowo utworzony serwer otrzymuje uprawnienia do zawijania i odwijania klucza do klucza przechowywanego w magazynie kluczy.
+* Zainicjuj proces przywracania lub odczytywania repliki z głównego Azure Database for PostgreSQL jednego serwera.
+* Zachowaj nowo utworzony serwer (przywrócony/Replica) w stanie niedostępnym, ponieważ jego unikatowa tożsamość nie otrzymała jeszcze uprawnień do Key Vault.
+* Na serwerze przywrócenia/repliki ponownie sprawdź poprawność klucza zarządzanego przez klienta w ustawieniach szyfrowania danych. Gwarantuje to, że nowo utworzony serwer ma uprawnienia zawijania i odwinięcia klucza przechowywanego w Key Vault.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak [skonfigurować szyfrowanie danych za pomocą klucza zarządzanego przez klienta dla bazy danych platformy Azure dla pojedynczego serwera PostgreSQL przy użyciu portalu Azure.](howto-data-encryption-portal.md)
+Dowiedz się [, jak skonfigurować szyfrowanie danych za pomocą klucza zarządzanego przez klienta dla usługi Azure Database for PostgreSQL na jednym serwerze przy użyciu Azure Portal](howto-data-encryption-portal.md).
 

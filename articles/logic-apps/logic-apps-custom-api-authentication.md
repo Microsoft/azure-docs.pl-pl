@@ -1,91 +1,91 @@
 ---
-title: Dodawanie uwierzytelniania do zabezpieczania wywołań do niestandardowych interfejsów API
-description: Jak skonfigurować uwierzytelnianie w celu zwiększenia zabezpieczeń dla wywołań niestandardowych interfejsów API z usługi Azure Logic Apps
+title: Dodawanie uwierzytelniania na potrzeby zabezpieczania wywołań niestandardowych interfejsów API
+description: Jak skonfigurować uwierzytelnianie, aby zwiększyć bezpieczeństwo wywołań niestandardowych interfejsów API z Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656235"
 ---
-# <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Zwiększ bezpieczeństwo wywołań niestandardowych interfejsów API z usługi Azure Logic Apps
+# <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Zwiększ bezpieczeństwo wywołań niestandardowych interfejsów API z Azure Logic Apps
 
-Aby zwiększyć bezpieczeństwo wywołań interfejsów API, można skonfigurować uwierzytelnianie usługi Azure Active Directory (Azure AD) za pośrednictwem witryny Azure portal, dzięki czemu nie trzeba aktualizować kodu. Alternatywnie można wymagać i wymuszać uwierzytelnianie za pomocą kodu interfejsu API.
+Aby zwiększyć bezpieczeństwo wywołań interfejsów API, można skonfigurować uwierzytelnianie Azure Active Directory (Azure AD) za pomocą Azure Portal, dzięki czemu nie trzeba aktualizować kodu. Alternatywnie można wymagać i wymuszać uwierzytelnianie za pomocą kodu interfejsu API.
 
-## <a name="authentication-options-for-your-api"></a>Opcje uwierzytelniania interfejsu API
+## <a name="authentication-options-for-your-api"></a>Opcje uwierzytelniania dla interfejsu API
 
-Można zwiększyć bezpieczeństwo wywołań niestandardowego interfejsu API w następujących sposób:
+Możesz poprawić zabezpieczenia wywołań niestandardowego interfejsu API w następujący sposób:
 
-* [Brak zmian w kodzie:](#no-code)Chroń interfejs API za pomocą [usługi Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) za pośrednictwem witryny Azure Portal, więc nie trzeba aktualizować kodu ani ponownie wdrożyć interfejsu API.
+* [Brak zmian w kodzie](#no-code): Chroń swój interfejs API za pomocą [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) za pomocą Azure Portal, więc nie musisz aktualizować kodu ani ponownie wdrażać interfejsu API.
 
   > [!NOTE]
-  > Domyślnie uwierzytelnianie usługi Azure AD, które można włączyć w witrynie Azure portal nie zapewnia szczegółowej autoryzacji. Na przykład to uwierzytelnianie blokuje interfejs API tylko do określonej dzierżawy, a nie do określonego użytkownika lub aplikacji. 
+  > Domyślnie uwierzytelnianie usługi Azure AD, które można włączyć w Azure Portal nie zapewnia szczegółowej autoryzacji. Na przykład to uwierzytelnianie blokuje interfejs API tylko dla określonej dzierżawy, a nie do określonego użytkownika lub aplikacji. 
 
-* [Zaktualizuj kod interfejsu API:](#update-code)Chroń swój interfejs API, wymuszając [uwierzytelnianie certyfikatu,](#certificate) [uwierzytelnianie podstawowe](#basic)lub [uwierzytelnianie usługi Azure AD](#azure-ad-code) za pomocą kodu.
+* [Aktualizowanie kodu interfejsu API](#update-code): Chroń swój interfejs API, wymuszając [uwierzytelnianie certyfikatu](#certificate), [uwierzytelnianie podstawowe](#basic)lub [uwierzytelnianie usługi Azure AD](#azure-ad-code) za pomocą kodu.
 
 <a name="no-code"></a>
 
-### <a name="authenticate-calls-to-your-api-without-changing-code"></a>Uwierzytelnij wywołania do interfejsu API bez zmiany kodu
+### <a name="authenticate-calls-to-your-api-without-changing-code"></a>Uwierzytelniaj wywołania interfejsu API bez konieczności zmieniania kodu
 
-Oto ogólne kroki dla tej metody:
+Poniżej przedstawiono ogólne kroki tej metody:
 
-1. Utwórz dwie tożsamości aplikacji usługi Azure Active Directory (Azure AD): jedną dla aplikacji logiki i jedną dla aplikacji sieci Web (lub aplikacji interfejsu API).
+1. Utwórz dwie tożsamości aplikacji Azure Active Directory (Azure AD): jedną dla aplikacji logiki i jedną dla aplikacji sieci Web (lub aplikacji interfejsu API).
 
-2. Aby uwierzytelnić wywołania do interfejsu API, użyj poświadczeń (identyfikator klienta i klucz tajny) dla jednostki usługi skojarzonej z tożsamością aplikacji usługi Azure AD dla aplikacji logiki.
+2. Aby uwierzytelnić wywołania interfejsu API, Użyj poświadczeń (identyfikatora klienta i klucza tajnego) dla jednostki usługi, która jest skojarzona z tożsamością aplikacji usługi Azure AD dla aplikacji logiki.
 
 3. Uwzględnij identyfikatory aplikacji w definicji aplikacji logiki.
 
-#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Część 1: Tworzenie tożsamości aplikacji usługi Azure AD dla aplikacji logiki
+#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Część 1. Tworzenie tożsamości aplikacji usługi Azure AD dla aplikacji logiki
 
-Aplikacja logiki używa tej tożsamości aplikacji usługi Azure AD do uwierzytelniania za pomocą usługi Azure AD. Tę tożsamość należy skonfigurować tylko raz dla katalogu. Na przykład można użyć tej samej tożsamości dla wszystkich aplikacji logiki, nawet jeśli można utworzyć unikatowe tożsamości dla każdej aplikacji logiki. Te tożsamości można skonfigurować w witrynie Azure portal lub użyć programu [PowerShell](#powershell).
+Aplikacja logiki używa tej tożsamości aplikacji usługi Azure AD do uwierzytelniania w usłudze Azure AD. Wystarczy skonfigurować tę tożsamość tylko raz dla katalogu. Można na przykład wybrać używanie tej samej tożsamości dla wszystkich aplikacji logiki, nawet jeśli można utworzyć unikatowe tożsamości dla każdej aplikacji logiki. Można skonfigurować te tożsamości w Azure Portal lub użyć [programu PowerShell](#powershell).
 
-**Tworzenie tożsamości aplikacji dla aplikacji logiki w witrynie Azure portal**
+**Utwórz tożsamość aplikacji dla aplikacji logiki w Azure Portal**
 
-1. W [witrynie Azure portal](https://portal.azure.com "https://portal.azure.com")wybierz pozycję **Azure Active Directory**. 
+1. W [Azure Portal](https://portal.azure.com "https://portal.azure.com")wybierz pozycję **Azure Active Directory**. 
 
-2. Upewnij się, że jesteś w tym samym katalogu co aplikacja sieci web lub aplikacja interfejsu API.
-
-   > [!TIP]
-   > Aby przełączyć katalogi, wybierz swój profil i wybierz inny katalog. Możesz też wybrać **pozycję Katalog przełączania przeglądu** > **Switch directory**.
-
-3. W menu katalogu w obszarze **Zarządzaj**wybierz pozycję **Rejestracje** > aplikacji**Nowa rejestracja aplikacji**.
+2. Upewnij się, że jesteś w tym samym katalogu, co aplikacja sieci Web lub aplikacja interfejsu API.
 
    > [!TIP]
-   > Domyślnie na liście rejestracji aplikacji są wyświetlane wszystkie rejestracje aplikacji w katalogu. Aby wyświetlić tylko rejestracje aplikacji, obok pola wyszukiwania wybierz **pozycję Moje aplikacje**. 
+   > Aby przełączyć katalogi, wybierz swój profil i wybierz inny katalog. Lub wybierz opcję **Overview** > **katalog przełączników**przegląd.
+
+3. W menu katalog w obszarze **Zarządzaj**wybierz pozycję **rejestracje aplikacji** > **rejestracja nowej aplikacji**.
+
+   > [!TIP]
+   > Domyślnie lista rejestracji aplikacji zawiera wszystkie rejestracje aplikacji w Twoim katalogu. Aby wyświetlić tylko rejestracje aplikacji, obok pola wyszukiwania wybierz pozycję **Moje aplikacje**. 
 
    ![Tworzenie rejestracji nowej aplikacji](./media/logic-apps-custom-api-authentication/new-app-registration-azure-portal.png)
 
-4. Nadaj tożsamości aplikacji nazwę, pozostaw **typ aplikacji** ustawiony na aplikację / **INTERFEJS API,** podaj unikatowy ciąg sformatowany jako domena dla **adresu URL logowania**i wybierz pozycję **Utwórz**.
+4. Nadaj nazwę tożsamości aplikacji, pozostaw **Typ aplikacji** ustawiony na **Web App/API**, podaj unikatowy ciąg sformatowany jako domenę dla **adresu URL logowania**, a następnie wybierz pozycję **Utwórz**.
 
    ![Podaj nazwę i adres URL logowania dla tożsamości aplikacji](./media/logic-apps-custom-api-authentication/logic-app-identity-azure-portal.png)
 
-   Tożsamość aplikacji utworzoną dla aplikacji logiki jest teraz wyświetlana na liście rejestracji aplikacji.
+   Tożsamość aplikacji utworzona dla aplikacji logiki zostanie teraz wyświetlona na liście rejestracje aplikacji.
 
    ![Tożsamość aplikacji dla aplikacji logiki](./media/logic-apps-custom-api-authentication/logic-app-identity-created.png)
 
-5. Na liście rejestracji aplikacji wybierz nową tożsamość aplikacji. Skopiuj i zapisz **identyfikator aplikacji** do użycia jako "identyfikator klienta" dla aplikacji logiki w części 3.
+5. Z listy rejestracje aplikacji wybierz swoją nową tożsamość aplikacji. Skopiuj i Zapisz **Identyfikator aplikacji** , który ma być używany jako "identyfikator klienta" aplikacji logiki w części 3.
 
    ![Kopiowanie i zapisywanie identyfikatora aplikacji dla aplikacji logiki](./media/logic-apps-custom-api-authentication/logic-app-application-id.png)
 
-6. Jeśli ustawienia tożsamości aplikacji nie są widoczne, wybierz pozycję **Ustawienia** lub **Wszystkie ustawienia**.
+6. Jeśli ustawienia tożsamości aplikacji nie są widoczne, wybierz pozycję **Ustawienia** lub **wszystkie ustawienia**.
 
-7. W obszarze **Dostęp do interfejsu API**wybierz pozycję **Klawisze**. W **obszarze Opis**podaj nazwę klucza. W obszarze **Wygasa**wybierz czas trwania klucza.
+7. W obszarze **dostęp do interfejsu API**wybierz pozycję **klucze**. W obszarze **Opis**Podaj nazwę klucza. W obszarze **wygaśnięcie**wybierz czas trwania dla klucza.
 
-   Klucz, który tworzysz działa jako "tajny" tożsamości aplikacji lub hasło dla aplikacji logiki.
+   Tworzony klucz działa jako "klucz tajny" tożsamości aplikacji lub hasło aplikacji logiki.
 
-   ![Tworzenie klucza dla tożsamości aplikacji logiki](./media/logic-apps-custom-api-authentication/create-logic-app-identity-key-secret-password.png)
+   ![Utwórz klucz dla tożsamości aplikacji logiki](./media/logic-apps-custom-api-authentication/create-logic-app-identity-key-secret-password.png)
 
-8. Na pasku narzędzi wybierz pozycję **Zapisz**. W obszarze **Wartość**pojawi się teraz klucz. 
-**Pamiętaj, aby skopiować i zapisać klucz** do późniejszego użycia, ponieważ klucz jest ukryty po opuszczeniu strony **Klucze.**
+8. Na pasku narzędzi wybierz pozycję **Zapisz**. W obszarze **wartość**zostanie wyświetlony klucz. 
+**Pamiętaj o skopiowaniu i zapisaniu klucza** do późniejszego użycia, ponieważ klucz jest ukryty, gdy opuścisz stronę **klucze** .
 
-   Podczas konfigurowania aplikacji logiki w części 3, należy określić ten klucz jako "tajny" lub hasło.
+   Podczas konfigurowania aplikacji logiki w części 3 należy określić ten klucz jako klucz tajny lub hasło.
 
-   ![Kopiowanie i zapisywanie klucza na później](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
+   ![Kopiuj i Zapisz klucz do późniejszego](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
 
 <a name="powershell"></a>
 
@@ -93,71 +93,71 @@ Aplikacja logiki używa tej tożsamości aplikacji usługi Azure AD do uwierzyte
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-To zadanie można wykonać za pośrednictwem usługi Azure Resource Manager za pomocą programu PowerShell. W programie PowerShell uruchom następujące polecenia:
+To zadanie można wykonać za pomocą Azure Resource Manager za pomocą programu PowerShell. W programie PowerShell uruchom następujące polecenia:
 
 1. `Add-AzAccount`
 
 1. `$SecurePassword = Read-Host -AsSecureString`
 
-1. Wprowadź hasło i naciśnij klawisz Enter.
+1. Wprowadź hasło i naciśnij klawisz ENTER.
 
 1. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
-1. Upewnij się, aby skopiować **identyfikator dzierżawy** (GUID dla dzierżawy usługi Azure AD), **identyfikator aplikacji**i hasło, którego użyto.
+1. Pamiętaj o skopiowaniu **identyfikatora dzierżawy** (identyfikatora GUID dla dzierżawy usługi Azure AD), **identyfikatora aplikacji**i użytego hasła.
 
-Aby uzyskać więcej informacji, dowiedz się, jak [utworzyć jednostkę usługi za pomocą programu PowerShell, aby uzyskać dostęp do zasobów.](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+Aby uzyskać więcej informacji, Dowiedz się, jak [utworzyć jednostkę usługi przy użyciu programu PowerShell, aby uzyskać dostęp do zasobów](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
-#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Część 2: Tworzenie tożsamości aplikacji usługi Azure AD dla aplikacji sieci Web lub aplikacji interfejsu API
+#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Część 2. Tworzenie tożsamości aplikacji usługi Azure AD dla aplikacji sieci Web lub aplikacji interfejsu API
 
-Jeśli aplikacja sieci web lub aplikacja interfejsu API jest już wdrożona, możesz włączyć uwierzytelnianie i utworzyć tożsamość aplikacji w witrynie Azure portal. W przeciwnym razie można [włączyć uwierzytelnianie podczas wdrażania za pomocą szablonu usługi Azure Resource Manager](#authen-deploy). 
+Jeśli aplikacja sieci Web lub aplikacja interfejsu API została już wdrożona, można włączyć uwierzytelnianie i utworzyć tożsamość aplikacji w Azure Portal. W przeciwnym razie podczas [wdrażania przy użyciu szablonu Azure Resource Manager można włączyć uwierzytelnianie](#authen-deploy). 
 
-**Tworzenie tożsamości aplikacji i włączanie uwierzytelniania w portalu Azure dla wdrożonych aplikacji**
+**Utwórz tożsamość aplikacji i Włącz uwierzytelnianie w Azure Portal dla wdrożonych aplikacji**
 
-1. W [witrynie Azure portal](https://portal.azure.com "https://portal.azure.com")znajdź i wybierz aplikację sieci Web lub aplikację interfejsu API. 
+1. W [Azure Portal](https://portal.azure.com "https://portal.azure.com")Znajdź i wybierz aplikację sieci Web lub aplikację interfejsu API. 
 
-2. W obszarze **Ustawienia**wybierz **pozycję Uwierzytelnianie/Autoryzacja**. W obszarze **Uwierzytelnianie usługi aplikacji**włącz **uwierzytelnianie**. W obszarze **Dostawcy uwierzytelniania**wybierz pozycję **Azure Active Directory**.
+2. W obszarze **Ustawienia**wybierz pozycję **uwierzytelnianie/autoryzacja**. W obszarze **uwierzytelnianie App Service**Włącz uwierzytelnianie **.** W obszarze **dostawcy uwierzytelniania**wybierz pozycję **Azure Active Directory**.
 
-   ![Włączanie uwierzytelniania](./media/logic-apps-custom-api-authentication/custom-web-api-app-authentication.png)
+   ![Włącz uwierzytelnianie](./media/logic-apps-custom-api-authentication/custom-web-api-app-authentication.png)
 
-3. Teraz utwórz tożsamość aplikacji dla aplikacji sieci web lub aplikacji interfejsu API, jak pokazano tutaj. Na stronie **Ustawienia usługi Azure Active Directory** ustaw tryb **zarządzania** na **Express**. Wybierz pozycję **Utwórz nową aplikację AD**. Nadaj swojej tożsamości aplikacji nazwę i wybierz **przycisk OK**. 
+3. Teraz Utwórz tożsamość aplikacji dla aplikacji sieci Web lub aplikacji interfejsu API, jak pokazano poniżej. Na stronie **ustawienia Azure Active Directory** Ustaw **tryb zarządzania** na **Express**. Wybierz pozycję **Utwórz nową aplikację usługi AD**. Nadaj aplikacji nazwę, a następnie wybierz **przycisk OK**. 
 
    ![Tworzenie tożsamości aplikacji dla aplikacji sieci Web lub aplikacji interfejsu API](./media/logic-apps-custom-api-authentication/custom-api-application-identity.png)
 
 4. Na stronie **Uwierzytelnianie/autoryzacja** wybierz pozycję **Zapisz**.
 
-Teraz musisz znaleźć identyfikator klienta i identyfikator dzierżawy dla tożsamości aplikacji skojarzonej z aplikacją sieci web lub aplikacją interfejsu API. Te identyfikatory są używane w części 3. Wykonaj te kroki dla witryny Azure portal.
+Teraz musisz znaleźć identyfikator klienta i identyfikator dzierżawy dla tożsamości aplikacji skojarzonej z aplikacją sieci Web lub aplikacją interfejsu API. Te identyfikatory są używane w części 3. Wykonaj następujące kroki, aby uzyskać Azure Portal.
 
-**Znajdowanie identyfikatora klienta tożsamości aplikacji i identyfikatora dzierżawy aplikacji sieci Web lub aplikacji interfejsu API w witrynie Azure portal**
+**Znajdź identyfikator klienta i identyfikator dzierżawy tożsamości aplikacji dla aplikacji sieci Web lub aplikacji interfejsu API w Azure Portal**
 
-1. W obszarze **Dostawcy uwierzytelniania**wybierz pozycję **Azure Active Directory**. 
+1. W obszarze **dostawcy uwierzytelniania**wybierz pozycję **Azure Active Directory**. 
 
    ![Wybieranie pozycji „Azure Active Directory”](./media/logic-apps-custom-api-authentication/custom-api-app-identity-client-id-tenant-id.png)
 
-2. Na stronie **Ustawienia usługi Azure Active Directory** ustaw tryb **zarządzania** na **Zaawansowane**.
+2. Na stronie **ustawienia Azure Active Directory** Ustaw **tryb zarządzania** na **Zaawansowane**.
 
-3. Skopiuj **identyfikator klienta**i zapisz ten identyfikator GUID do użycia w części 3.
+3. Skopiuj **Identyfikator klienta**i Zapisz ten identyfikator GUID do użycia w części 3.
 
    > [!TIP] 
-   > Jeśli **identyfikator klienta** i adres URL **wystawcy** nie są wyświetlane, spróbuj odświeżyć witrynę Azure portal i powtórz krok 1.
+   > Jeśli **Identyfikator klienta** i **adres URL wystawcy** nie są wyświetlane, spróbuj odświeżyć Azure Portal i powtórz krok 1.
 
-4. W obszarze **Adres URL wystawcy**skopiuj i zapisz tylko identyfikator GUID dla części 3. Możesz również użyć tego identyfikatora GUID w szablonie wdrażania aplikacji sieci web lub aplikacji interfejsu API, jeśli to konieczne.
+4. W obszarze **adres URL wystawcy**, skopiuj i Zapisz tylko identyfikator GUID dla części 3. W razie potrzeby można również użyć tego identyfikatora GUID w szablonie wdrożenia aplikacji sieci Web lub aplikacji interfejsu API.
 
-   Ten identyfikator GUID jest identyfikatorem GUID określonej dzierżawy ("identyfikator dzierżawy") i powinien być wyświetlany w tym adresie URL:`https://sts.windows.net/{GUID}`
+   Ten identyfikator GUID jest identyfikatorem GUID określonej dzierżawy ("Identyfikator dzierżawy") i powinien pojawić się w tym adresie URL:`https://sts.windows.net/{GUID}`
 
-5. Bez zapisywania zmian zamknij stronę **Ustawienia usługi Azure Active Directory.**
+5. Bez zapisywania zmian Zamknij stronę **ustawień Azure Active Directory** .
 
 <a name="authen-deploy"></a>
 
-**Włączanie uwierzytelniania podczas wdrażania za pomocą szablonu usługi Azure Resource Manager**
+**Włącz uwierzytelnianie podczas wdrażania przy użyciu szablonu Azure Resource Manager**
 
-Nadal musisz utworzyć tożsamość aplikacji usługi Azure AD dla aplikacji sieci web lub aplikacji interfejsu API, która różni się od tożsamości aplikacji dla aplikacji logiki. Aby utworzyć tożsamość aplikacji, wykonaj poprzednie kroki w części 2 dla witryny Azure portal. 
+Nadal musisz utworzyć tożsamość aplikacji usługi Azure AD dla aplikacji sieci Web lub aplikacji interfejsu API, która różni się od tożsamości aplikacji dla aplikacji logiki. Aby utworzyć tożsamość aplikacji, wykonaj czynności opisane w części 2 dla Azure Portal. 
 
-Możesz również wykonać kroki opisane w części 1, ale upewnij się, `https://{URL}` że używasz aplikacji internetowej lub aplikacji interfejsu API rzeczywistego dla **adresu URL logowania** i **identyfikatora aplikacji URI**. W tych krokach należy zapisać zarówno identyfikator klienta, jak i identyfikator dzierżawy do użycia w szablonie wdrażania aplikacji, a także w części 3.
+Możesz również wykonać czynności opisane w części 1, ale upewnij się, że korzystasz z aplikacji sieci Web lub rzeczywistej `https://{URL}` aplikacji interfejsu API dla **adresu URL logowania** i **identyfikatora aplikacji**. Z tych kroków należy zapisać identyfikator klienta i identyfikator dzierżawy do użycia w szablonie wdrożenia aplikacji, a także dla części 3.
 
 > [!NOTE]
-> Podczas tworzenia tożsamości aplikacji usługi Azure AD dla aplikacji sieci web lub aplikacji interfejsu API, należy użyć witryny Azure portal, a nie programu PowerShell. Polecenie programu PowerShell nie skonfiguruje wymaganych uprawnień do logowania użytkowników w witrynie sieci Web.
+> Podczas tworzenia tożsamości aplikacji usługi Azure AD dla aplikacji sieci Web lub aplikacji interfejsu API należy użyć Azure Portal, a nie programu PowerShell. Program PowerShell polecenia cmdlet nie konfiguruje wymaganych uprawnień do podpisywania użytkowników w witrynie sieci Web.
 
-Po otrzymasz identyfikator klienta i identyfikator dzierżawy, uwzględnij te identyfikatory jako pododdział aplikacji sieci web lub aplikacji interfejsu API w szablonie wdrożenia:
+Po otrzymaniu identyfikatora klienta i identyfikatora dzierżawy należy uwzględnić te identyfikatory jako zasób aplikacji sieci Web lub aplikacji interfejsu API w szablonie wdrożenia:
 
 ``` json
 "resources": [ 
@@ -177,15 +177,15 @@ Po otrzymasz identyfikator klienta i identyfikator dzierżawy, uwzględnij te id
 ]
 ```
 
-Aby automatycznie wdrożyć pustą aplikację sieci web i aplikację logiki wraz z uwierzytelnianiem usługi Azure Active Directory, [wyświetl pełny szablon tutaj](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json)lub kliknij przycisk **Wdrażanie na platformie Azure** tutaj:
+Aby automatycznie wdrożyć pustą aplikację sieci Web i aplikację logiki wraz z Azure Active Directory uwierzytelnianiem, [Zobacz kompletny szablon w tym miejscu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json)lub kliknij pozycję **Wdróż na platformie Azure** tutaj:
 
 [![Wdrażanie na platformie Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
-#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Część 3: Wypełnij sekcję Autoryzacja w aplikacji logiki
+#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Część 3: wypełnienie sekcji autoryzacja w aplikacji logiki
 
-Poprzedni szablon ma już skonfigurowany ten rozdział autoryzacji, ale jeśli bezpośrednio autoring aplikacji logiki, należy dołączyć pełną sekcję autoryzacji.
+Dla poprzedniego szablonu została już skonfigurowana Ta sekcja autoryzacji, ale jeśli tworzysz bezpośrednio aplikację logiki, musisz dołączyć sekcję pełna autoryzacja.
 
-Otwórz definicję aplikacji logiki w widoku kodu, przejdź do definicji akcji **HTTP,** znajdź sekcję **Autoryzacja** i uwzględnij następujące właściwości:
+Otwórz definicję aplikacji logiki w widoku Kod, przejdź do definicji akcji **http** , Znajdź sekcję **autoryzacja** i Uwzględnij następujące właściwości:
 
 ```json
 {
@@ -199,11 +199,11 @@ Otwórz definicję aplikacji logiki w widoku kodu, przejdź do definicji akcji *
 
 | Właściwość | Wymagany | Opis | 
 | -------- | -------- | ----------- | 
-| Dzierżawy | Tak | Identyfikator GUID dla dzierżawy usługi Azure AD | 
-| Publiczności | Tak | Identyfikator GUID dla zasobu docelowego, do którego chcesz uzyskać dostęp, czyli identyfikator klienta z tożsamości aplikacji dla aplikacji sieci Web lub aplikacji interfejsu API | 
-| clientId | Tak | Identyfikator GUID dla klienta żądającego dostępu, który jest identyfikatorem klienta z tożsamości aplikacji dla aplikacji logiki | 
-| wpis tajny | Tak | Klucz lub hasło z tożsamości aplikacji dla klienta, który żąda tokenu dostępu | 
-| type | Tak | Typ uwierzytelniania. W przypadku uwierzytelniania ActiveDirectoryOAuth wartość to `ActiveDirectoryOAuth`. | 
+| dzierżaw | Tak | Identyfikator GUID dzierżawy usługi Azure AD | 
+| publiczn | Tak | Identyfikator GUID zasobu docelowego, do którego chcesz uzyskać dostęp, czyli identyfikator klienta z tożsamości aplikacji dla aplikacji sieci Web lub aplikacji interfejsu API | 
+| clientId | Tak | Identyfikator GUID klienta żądającego dostępu, który jest IDENTYFIKATORem klienta z tożsamości aplikacji dla aplikacji logiki | 
+| wpis tajny | Tak | Klucz lub hasło tożsamości aplikacji dla klienta żądającego tokenu dostępu | 
+| type | Tak | Typ uwierzytelniania. W przypadku uwierzytelniania ActiveDirectoryOAuth wartość jest `ActiveDirectoryOAuth`równa. | 
 |||| 
 
 Przykład:
@@ -230,15 +230,15 @@ Przykład:
 
 <a name="update-code"></a>
 
-### <a name="secure-api-calls-through-code"></a>Bezpieczne wywołania interfejsu API za pomocą kodu
+### <a name="secure-api-calls-through-code"></a>Bezpieczne wywołania interfejsu API za poorednictwem kodu
 
 <a name="certificate"></a>
 
 #### <a name="certificate-authentication"></a>Uwierzytelnianie certyfikatu
 
-Aby sprawdzić poprawność żądań przychodzących z aplikacji logiki do aplikacji sieci web lub aplikacji interfejsu API, można użyć certyfikatów klienta. Aby skonfigurować kod, dowiedz się, [jak skonfigurować wzajemne uwierzytelnianie TLS](../app-service/app-service-web-configure-tls-mutual-auth.md).
+Aby zweryfikować przychodzące żądania z aplikacji logiki do aplikacji sieci Web lub aplikacji interfejsu API, można użyć certyfikatów klienta. Aby skonfigurować swój kod, Dowiedz się, [jak skonfigurować wzajemne uwierzytelnianie protokołu TLS](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
-W sekcji **Autoryzacja** uwzględnij następujące właściwości:
+W sekcji **autoryzacja** uwzględnij następujące właściwości:
 
 ```json
 {
@@ -250,18 +250,18 @@ W sekcji **Autoryzacja** uwzględnij następujące właściwości:
 
 | Właściwość | Wymagany | Opis |
 | -------- | -------- | ----------- |
-| `type` | Tak | Typ uwierzytelniania. W przypadku certyfikatów klientów TLS/SSL wartość musi być `ClientCertificate`. |
-| `password` | Nie | Hasło dostępu do certyfikatu klienta (plik PFX) |
-| `pfx` | Tak | Zakodowana w bazie zawartość certyfikatu klienta (plik PFX) |
+| `type` | Tak | Typ uwierzytelniania. W przypadku certyfikatów klienta protokołu TLS/SSL wartość musi być `ClientCertificate`równa. |
+| `password` | Nie | Hasło do uzyskiwania dostępu do certyfikatu klienta (plik PFX) |
+| `pfx` | Tak | Zakodowana w formacie base64 zawartość certyfikatu klienta (plik PFX) |
 ||||
 
 <a name="basic"></a>
 
 #### <a name="basic-authentication"></a>Uwierzytelnianie podstawowe
 
-Aby sprawdzić poprawność żądań przychodzących z aplikacji logiki do aplikacji sieci web lub aplikacji interfejsu API, można użyć uwierzytelniania podstawowego, takiego jak nazwa użytkownika i hasło. Uwierzytelnianie podstawowe jest typowym wzorcem i można użyć tego uwierzytelniania w dowolnym języku używanym do tworzenia aplikacji sieci web lub aplikacji interfejsu API.
+Aby zweryfikować przychodzące żądania z aplikacji logiki do aplikacji sieci Web lub aplikacji interfejsu API, możesz użyć uwierzytelniania podstawowego, takiego jak nazwa użytkownika i hasło. Uwierzytelnianie podstawowe jest typowym wzorcem i można użyć tego uwierzytelniania w dowolnym języku używanym do kompilowania aplikacji sieci Web lub aplikacji interfejsu API.
 
-W sekcji **Autoryzacja** uwzględnij następujące właściwości:
+W sekcji **autoryzacja** uwzględnij następujące właściwości:
 
 ```json
 {
@@ -273,18 +273,18 @@ W sekcji **Autoryzacja** uwzględnij następujące właściwości:
 
 | Właściwość | Wymagany | Opis | 
 | -------- | -------- | ----------- | 
-| type | Tak | Typ uwierzytelniania, którego chcesz użyć. W przypadku uwierzytelniania podstawowego wartość musi być `Basic`. | 
-| nazwa użytkownika | Tak | Nazwa użytkownika, której chcesz użyć do uwierzytelniania | 
-| hasło | Tak | Hasło, którego chcesz użyć do uwierzytelniania | 
+| type | Tak | Typ uwierzytelniania, którego chcesz użyć. W przypadku uwierzytelniania podstawowego należy wykonać wartość `Basic`. | 
+| nazwa użytkownika | Tak | Nazwa użytkownika, która ma być używana do uwierzytelniania | 
+| hasło | Tak | Hasło, które ma być używane do uwierzytelniania | 
 |||| 
 
 <a name="azure-ad-code"></a>
 
-#### <a name="azure-active-directory-authentication-through-code"></a>Uwierzytelnianie usługi Azure Active Directory za pomocą kodu
+#### <a name="azure-active-directory-authentication-through-code"></a>Azure Active Directory uwierzytelniania za poorednictwem kodu
 
-Domyślnie uwierzytelnianie usługi Azure AD, które można włączyć w witrynie Azure portal nie zapewnia szczegółowej autoryzacji. Na przykład to uwierzytelnianie blokuje interfejs API tylko do określonej dzierżawy, a nie do określonego użytkownika lub aplikacji. 
+Domyślnie uwierzytelnianie usługi Azure AD, które można włączyć w Azure Portal nie zapewnia szczegółowej autoryzacji. Na przykład to uwierzytelnianie blokuje interfejs API tylko dla określonej dzierżawy, a nie do określonego użytkownika lub aplikacji. 
 
-Aby ograniczyć dostęp interfejsu API do aplikacji logiki za pomocą kodu, wyodrębnić nagłówek, który ma token internetowy JSON (JWT). Sprawdź tożsamość osoby dzwoniącej i odrzuć żądania, które nie są zgodne.
+Aby ograniczyć dostęp API do aplikacji logiki za pomocą kodu, Wyodrębnij nagłówek, który ma token sieci Web JSON (JWT). Sprawdź tożsamość obiektu wywołującego i Odrzuć żądania, które nie są zgodne.
 
 <!-- Going further, to implement this authentication entirely in your own code, 
 and not use the Azure portal, learn how to 

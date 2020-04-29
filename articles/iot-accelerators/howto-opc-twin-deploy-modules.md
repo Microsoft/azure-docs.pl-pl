@@ -1,6 +1,6 @@
 ---
-title: Jak wdrożyć moduł OPC Twin dla platformy Azure od podstaw | Dokumenty firmy Microsoft
-description: W tym artykule opisano sposób wdrażania modułów bliźniaczych oczek OPC od podstaw przy użyciu bloku usługi IoT edge witryny Azure portal, a także przy użyciu interfejsu wiersza polecenia AZ.
+title: Jak wdrożyć moduł OPC bliźniaczy dla platformy Azure od podstaw | Microsoft Docs
+description: W tym artykule opisano sposób wdrażania przędzy OPC od podstaw przy użyciu bloku IoT Edge Azure Portal, a także przy użyciu polecenia AZ CLI.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -9,27 +9,27 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 6c8ceeaf49d8ebfa15a83118e8b518190f6ff85e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241057"
 ---
-# <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Wdrażanie modułu OPC Twin i zależności od podstaw
+# <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Wdróż moduł OPC i zależności od podstaw
 
-Moduł OPC Twin działa na ioT Edge i zapewnia kilka usług brzegowych do bliźniaczej reprezentacji urządzenia OPC i usług rejestru. 
+Moduł OPC bliźniaczy działa na IoT Edge i oferuje kilka usług brzegowych dla usług OPC i rejestrów urządzeń. 
 
-Istnieje kilka opcji wdrażania modułów w bramie [usługi Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) Gateway, wśród nich
+Istnieje kilka opcji wdrażania modułów do bramy [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) , między nimi
 
-- [Wdrażanie z bloku Usługi IoT Edge usługi Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal)
-- [Wdrażanie przy użyciu interfejsu wiersza polecenia AZ](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor-cli)
+- [Wdrażanie z bloku IoT Edge Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal)
+- [Wdrażanie przy użyciu polecenia AZ CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor-cli)
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat szczegółów wdrażania i instrukcji, zobacz [repozytorium](https://github.com/Azure/azure-iiot-components)GitHub .
+> Aby uzyskać więcej informacji na temat szczegółów wdrożenia i instrukcje, zobacz [repozytorium](https://github.com/Azure/azure-iiot-components)GitHub.
 
 ## <a name="deployment-manifest"></a>Manifest wdrożenia
 
-Wszystkie moduły są wdrażane przy użyciu manifestu wdrażania.  Poniżej przedstawiono przykładowy manifest do wdrożenia zarówno [programu OPC Publisher,](https://github.com/Azure/iot-edge-opc-publisher) jak i [OPC Twin.](https://github.com/Azure/azure-iiot-opc-twin-module)
+Wszystkie moduły są wdrażane przy użyciu manifestu wdrożenia.  Poniżej przedstawiono przykładowy manifest do wdrożenia zarówno [OPC wydawcy](https://github.com/Azure/iot-edge-opc-publisher) , jak i [OPCa](https://github.com/Azure/azure-iiot-opc-twin-module) .
 
 ```json
 {
@@ -105,59 +105,59 @@ Wszystkie moduły są wdrażane przy użyciu manifestu wdrażania.  Poniżej prz
 }
 ```
 
-## <a name="deploying-from-azure-portal"></a>Wdrażanie w witrynie Azure portal
+## <a name="deploying-from-azure-portal"></a>Wdrażanie z Azure Portal
 
-Najprostszym sposobem wdrożenia modułów na urządzeniu bramy usługi Azure IoT Edge jest za pośrednictwem witryny Azure portal.  
+Najprostszym sposobem wdrożenia modułów na urządzeniu bramy Azure IoT Edge jest przechodzenie przez Azure Portal.  
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-1. Wdrażanie [zależności](howto-opc-twin-deploy-dependencies.md) OPC Twin i `.env` uzyskał wynikowy plik. Zanotuj `hub name` wdrożoną zmienną `PCS_IOTHUBREACT_HUB_NAME` `.env` w pliku wynikowym.
+1. Wdróż [zależności](howto-opc-twin-deploy-dependencies.md) OPC i uzyskać powstały `.env` plik. Zanotuj wdrożoną `hub name` `PCS_IOTHUBREACT_HUB_NAME` zmienną w `.env` pliku.
 
-2. Zarejestruj i uruchom bramę [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) lub [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) `device id`IoT Edge i zanotuj jej .
+2. Zarejestruj i uruchom bramę IoT Edge [systemu](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) `device id` [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) lub Windows i zanotuj jej.
 
 ### <a name="deploy-to-an-edge-device"></a>Wdrażanie na urządzeniu brzegowym
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com/) i przejdź do centrum IoT Hub.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) i przejdź do centrum IoT Hub.
 
-2. Wybierz pozycję **IoT Edge** z menu po lewej stronie.
+2. Wybierz **IoT Edge** z menu po lewej stronie.
 
 3. Kliknij identyfikator urządzenia docelowego z listy urządzeń.
 
 4. Wybierz pozycję **Ustaw moduły**.
 
-5. W sekcji **Moduły wdrażania** na stronie wybierz pozycję **Dodaj** i **Moduł krawędzi IoT.**
+5. W sekcji **moduły wdrażania** strony wybierz pozycję **Dodaj** i **IoT Edge moduł.**
 
-6. W oknie dialogowym **Moduł niestandardowy usługi IoT Edge** służy `opctwin` jako nazwa modułu, a następnie określ identyfikator *URI obrazu* kontenera jako
+6. W oknie dialogowym **IoT Edge module niestandardowym** Użyj `opctwin` jako nazwy dla modułu, a następnie określ *Identyfikator URI obrazu* kontenera jako
 
    ```bash
    mcr.microsoft.com/iotedge/opc-twin:latest
    ```
 
-   Jako *opcje tworzenia kontenera*użyj następującego JSON:
+   Jako *Opcje tworzenia kontenera*Użyj następującego kodu JSON:
 
    ```json
    {"NetworkingConfig": {"EndpointsConfig": {"host": {}}}, "HostConfig": {"NetworkMode": "host" }}
    ```
 
-   W razie potrzeby wypełnij pola opcjonalne. Aby uzyskać więcej informacji na temat opcji tworzenia kontenera, zasad ponownego uruchamiania i żądanego stanu, zobacz [Polecenie EdgeAgent żądane właściwości](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub#edgeagent-desired-properties). Aby uzyskać więcej informacji na temat bliźniaczej reprezentacji modułu, zobacz [Definiowanie lub aktualizowanie żądanych właściwości](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
+   Wypełnij pola opcjonalne w razie potrzeby. Aby uzyskać więcej informacji o opcjach tworzenia kontenera, zasadach ponownego uruchamiania i żądanym stanie, zobacz [EdgeAgent wymagane właściwości](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub#edgeagent-desired-properties). Aby uzyskać więcej informacji na temat sznurka modułu, zobacz [Definiowanie lub aktualizowanie żądanych właściwości](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
 
-7. Wybierz **zapisz** i powtórz krok **5**.  
+7. Wybierz pozycję **Zapisz** i powtórz krok **5**.  
 
-8. W oknie dialogowym Moduł niestandardowy `opcpublisher` usługi IoT Edge użyj jako nazwy modułu i *identyfikatora URI obrazu* kontenera 
+8. W oknie dialogowym IoT Edge modułu niestandardowego Użyj `opcpublisher` jako nazwy modułu i *identyfikatora URI obrazu* kontenera jako 
 
    ```bash
    mcr.microsoft.com/iotedge/opc-publisher:latest
    ```
 
-   Jako *opcje tworzenia kontenera*użyj następującego JSON:
+   Jako *Opcje tworzenia kontenera*Użyj następującego kodu JSON:
 
    ```json
    {"Hostname":"publisher","Cmd":["publisher","--pf=./pn.json","--di=60","--to","--aa","--si=0","--ms=0"],"ExposedPorts":{"62222/tcp":{}},"HostConfig":{"PortBindings":{"62222/tcp":[{"HostPort":"62222"}] }}}
    ```
 
-9. Wybierz **pozycję Zapisz,** a następnie **pozycję Dalej,** aby przejść do sekcji Trasy.
+9. Wybierz pozycję **Zapisz** , a następnie kliknij przycisk **dalej** , aby przejść do sekcji trasy.
 
-10. Na karcie Trasy wklej następujące 
+10. Na karcie trasy Wklej następujące elementy: 
 
     ```json
     {
@@ -168,42 +168,42 @@ Najprostszym sposobem wdrożenia modułów na urządzeniu bramy usługi Azure Io
     }
     ```
 
-    i wybierz przycisk **Dalej**
+    i wybierz pozycję **dalej** .
 
-11. Przejrzyj informacje o wdrożeniu i manifest.  Powinien wyglądać jak powyższy manifest wdrażania.  Wybierz pozycję **Prześlij**.
+11. Przejrzyj informacje o wdrożeniu i manifest.  Powinien wyglądać podobnie do powyższego manifestu wdrażania.  Wybierz pozycję **Prześlij**.
 
-12. Po wdrożeniu modułów na urządzeniu możesz wyświetlić je wszystkie na stronie **Szczegóły urządzenia** w portalu. Na tej stronie wyświetlana jest nazwa każdego wdrożonego modułu, a także przydatne informacje, takie jak stan wdrożenia i kod zakończenia.
+12. Po wdrożeniu modułów na urządzeniu można wyświetlić wszystkie z nich na stronie **szczegóły urządzenia** w portalu. Ta strona zawiera nazwę każdego wdrożonego modułu, a także przydatne informacje, takie jak stan wdrożenia i kod zakończenia.
 
 ## <a name="deploying-using-azure-cli"></a>Wdrażanie przy użyciu interfejsu wiersza polecenia platformy Azure
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-1. Zainstaluj najnowszą wersję [interfejsu wiersza polecenia platformy Azure (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) [w tym miejscu](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Zainstaluj najnowszą wersję [interfejsu wiersza polecenia platformy Azure (az)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) w [tym miejscu](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="quickstart"></a>Szybki start
 
-1. Zapisz powyższy manifest `deployment.json` wdrożenia w pliku.  
+1. Zapisz powyższy manifest wdrożenia w `deployment.json` pliku.  
 
-2. Użyj następującego polecenia, aby zastosować konfigurację do urządzenia Usługi IoT Edge:
+2. Użyj następującego polecenia, aby zastosować konfigurację do urządzenia IoT Edge:
 
    ```azurecli
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content ./deployment.json
    ```
 
-   W `device id` przypadku przypadku przypadku tej jest rozróżniana wielkość liter. Parametr zawartości wskazuje zapisany plik manifestu wdrożenia. 
-    ![az IoT Edge zestaw modułów wyjściowych](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
+   W `device id` parametrze jest rozróżniana wielkość liter. Parametr Content wskazuje plik manifestu wdrożenia, który został zapisany. 
+    ![AZ IoT Edge Set-modules Output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
-3. Po wdrożeniu modułów na urządzeniu można wyświetlić je za pomocą następującego polecenia:
+3. Po wdrożeniu modułów na urządzeniu można wyświetlić wszystkie z nich za pomocą następującego polecenia:
 
    ```azurecli
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-   W parametrze identyfikatora urządzenia rozróżniana jest wielkość liter. ![az iot hub module-identity list output az iot hub module-identity list output az iot](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
+   W parametrze identyfikatora urządzenia jest rozróżniana wielkość liter. ![AZ IoT Hub module-Identity list Output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy nauczyłeś się wdrażać OPC Twin od podstaw, oto sugerowany następny krok:
+Teraz, gdy wiesz już, jak wdrożyć OPCą sznurki od podstaw, poniżej przedstawiono sugerowany następny krok:
 
 > [!div class="nextstepaction"]
-> [Wdrażanie programu OPC Twin w istniejącym projekcie](howto-opc-twin-deploy-existing.md)
+> [Wdróż bliźniaczy OPC do istniejącego projektu](howto-opc-twin-deploy-existing.md)

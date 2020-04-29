@@ -1,6 +1,6 @@
 ---
-title: Omówienie uwierzytelniania wieloskładnikowego platformy Azure
-description: Dowiedz się, jak uwierzytelnianie wieloskładnikowe platformy Azure pomaga chronić dostęp do danych i aplikacji, spełniając jednocześnie zapotrzebowanie użytkowników na prosty proces logowania.
+title: Omówienie usługi Azure Multi-Factor Authentication
+description: Dowiedz się, w jaki sposób usługa Azure Multi-Factor Authentication pomaga chronić dostęp do danych i aplikacji, a jednocześnie spełnia wymagania użytkowników dotyczące prostego procesu logowania.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,58 +12,58 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c50232abd12c8c0390409bd7bf72833b4f153e02
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80667360"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Jak to działa: usługa Azure Multi-Factor Authentication
 
-Uwierzytelnianie wieloskładnikowe to proces, w którym użytkownik jest monitowany podczas procesu logowania o dodatkową formę identyfikacji, taką jak wprowadzenie kodu na telefonie komórkowym lub dostarczenie skanowania odcisków palców.
+Uwierzytelnianie wieloskładnikowe to proces, w którym użytkownik jest monitowany podczas procesu logowania w celu uzyskania dodatkowej formy identyfikacji, na przykład w celu wprowadzenia kodu w Cellphone lub zapewnienia skanowania odcisku palca.
 
-Jeśli używasz tylko hasła do uwierzytelniania użytkownika, pozostawia niezabezpieczony wektor do ataku. Jeśli hasło jest słabe lub zostało ujawnione w innym miejscu, czy rzeczywiście użytkownik loguje się przy użyciu nazwy użytkownika i hasła, czy też jest to osoba atakująca? Jeśli potrzebujesz drugiej formy uwierzytelniania, zwiększa się bezpieczeństwo, ponieważ ten dodatkowy czynnik nie jest łatwym dla osoby atakującej w uzyskaniu lub zduplikowaniu.
+Jeśli używasz tylko hasła do uwierzytelniania użytkownika, opuszcza on niezabezpieczony wektor na potrzeby ataku. Jeśli hasło jest słabe lub zostało ujawnione w innym miejscu, czy użytkownik loguje się przy użyciu nazwy użytkownika i hasła, czy też jest osoba atakująca? Gdy wymagana jest druga forma uwierzytelniania, zabezpieczenia są zwiększane, ponieważ ten dodatkowy czynnik nie jest czymś, co jest łatwe do uzyskania lub zduplikowania przez osobę atakującą.
 
-![Obraz koncepcyjny różnych form uwierzytelniania wieloskładnikowego](./media/concept-mfa-howitworks/methods.png)
+![Obraz przedstawiający koncepcję różnych form uwierzytelniania wieloskładnikowego](./media/concept-mfa-howitworks/methods.png)
 
-Uwierzytelnianie wieloskładnikowe platformy Azure działa, wymagając co najmniej dwóch z następujących metod uwierzytelniania:
+Usługa Azure Multi-Factor Authentication działa, wymagając co najmniej dwóch następujących metod uwierzytelniania:
 
 * Coś, co wiesz, zazwyczaj hasło.
-* Coś, co masz, takie jak zaufane urządzenie, które nie jest łatwo powielane, takie jak telefon lub klucz sprzętowy.
-* Coś, czym jesteś - biometria, taka jak odcisk palca lub skanowanie twarzy.
+* Coś, na przykład zaufanego urządzenia, które nie jest łatwo duplikowane, takie jak telefon lub klucz sprzętowy.
+* Coś, co jest bardzo metryczne, takie jak skanowanie odcisku palca lub z przodu.
 
-Użytkownicy mogą zarejestrować się w celu resetowania hasła samoobsługowego i uwierzytelniania wieloskładnikowego platformy Azure w jednym kroku, aby uprościć środowisko przy wejściu na pokład. Administratorzy mogą definiować, jakie formy uwierzytelniania pomocniczego mogą być używane. Uwierzytelnianie wieloskładnikowe platformy Azure może być również wymagane, gdy użytkownicy wykonują samoobsługowe resetowanie hasła w celu dalszego zabezpieczenia tego procesu.
+Użytkownicy mogą zarejestrować się w ramach samoobsługowego resetowania haseł i platformy Azure Multi-Factor Authentication w jednym kroku, aby uprościć środowisko pracy. Administratorzy mogą definiować, które formy uwierzytelniania pomocniczego mogą być używane. Usługa Azure Multi-Factor Authentication może być również wymagana, gdy użytkownicy wykonują Samoobsługowe resetowanie hasła w celu dodatkowego zabezpieczenia tego procesu.
 
 ![Metody uwierzytelniania używane na ekranie logowania](media/concept-authentication-methods/overview-login.png)
 
-Uwierzytelnianie wieloskładnikowe platformy Azure pomaga chronić dostęp do danych i aplikacji przy zachowaniu prostoty dla użytkowników. Zapewnia dodatkowe bezpieczeństwo, wymagając drugiej formy uwierzytelniania i zapewnia silne uwierzytelnianie za pomocą szeregu łatwych w użyciu [metod uwierzytelniania.](concept-authentication-methods.md) Użytkownicy mogą lub nie mogą być kwestionowane dla usługi MFA na podstawie decyzji konfiguracji, które administrator sprawia, że.
+Usługa Azure Multi-Factor Authentication pomaga w zabezpieczeniu dostępu do danych i aplikacji przy jednoczesnym zachowaniu prostoty dla użytkowników. Zapewnia dodatkowe zabezpieczenia, wymagając drugiej formy uwierzytelniania i zapewnia silne uwierzytelnianie za pośrednictwem różnych [metod uwierzytelniania](concept-authentication-methods.md). Użytkownicy mogą lub nie mogą zakwestionować usługi MFA w oparciu o decyzje konfiguracyjne wykonywane przez administratora.
 
-Aplikacje lub usługi nie trzeba wprowadzać żadnych zmian, aby korzystać z uwierzytelniania wieloskładnikowego platformy Azure. Monity weryfikacji są częścią zdarzenia logowania usługi Azure AD, które automatycznie żąda i przetwarza wyzwanie usługi MFA, gdy jest to wymagane.
+Aplikacje lub usługi nie muszą wprowadzać żadnych zmian w celu korzystania z usługi Azure Multi-Factor Authentication. Monity weryfikacyjne są częścią zdarzenia logowania usługi Azure AD, które automatycznie żąda i przetwarza żądanie MFA, jeśli jest to wymagane.
 
 ## <a name="available-verification-methods"></a>Dostępne metody weryfikacji
 
-Gdy użytkownik loguje się do aplikacji lub usługi i otrzymuje monit usługi MFA, może wybrać jeden z zarejestrowanych formularzy dodatkowej weryfikacji. Administrator może wymagać rejestracji tych metod weryfikacji uwierzytelniania wieloskładnikowego platformy Azure lub użytkownik może uzyskać dostęp do własnego [profilu Mój profil,](https://myprofile.microsoft.com) aby edytować lub dodać metody weryfikacji.
+Gdy użytkownik loguje się do aplikacji lub usługi i odbiera monit o uwierzytelnianie wieloskładnikowe, może wybrać jedną z ich zarejestrowanych form dodatkowej weryfikacji. Administrator może wymagać rejestracji tych metod weryfikacji usługi Azure Multi-Factor Authentication lub użytkownik może uzyskać dostęp do własnego [mojego profilu](https://myprofile.microsoft.com) , aby edytować lub dodać metody weryfikacyjne.
 
-Z uwierzytelnianiem wieloskładnikowym azure multiskładnikowego można używać następujących dodatkowych form weryfikacji:
+Następujące dodatkowe formy weryfikacji mogą być używane z usługą Azure Multi-Factor Authentication:
 
 * Aplikacja Microsoft Authenticator
-* TOKEN SPRZĘTOWY OATH
+* Token sprzętowy OATH
 * SMS
 * Połączenie głosowe
 
-## <a name="how-to-enable-and-use-azure-multi-factor-authentication"></a>Jak włączyć i używać uwierzytelniania wieloskładnikowego platformy Azure
+## <a name="how-to-enable-and-use-azure-multi-factor-authentication"></a>Jak włączyć usługę Azure Multi-Factor Authentication i korzystać z niej
 
-Użytkownicy i grupy można włączyć dla usługi Azure Multi-Factor Authentication, aby monitować o dodatkową weryfikację podczas zdarzenia logowania. [Domyślne zabezpieczenia](../fundamentals/concept-fundamentals-security-defaults.md) są dostępne dla wszystkich dzierżaw usługi Azure AD, aby szybko włączyć korzystanie z aplikacji Microsoft Authenticator dla wszystkich użytkowników.
+Użytkownicy i grupy można włączyć dla Multi-Factor Authentication platformy Azure, aby monitować o dodatkową weryfikację w trakcie zdarzenia logowania. [Wartości domyślne zabezpieczeń](../fundamentals/concept-fundamentals-security-defaults.md) są dostępne dla wszystkich dzierżawców usługi Azure AD, aby szybko włączyć korzystanie z aplikacji Microsoft Authenticator dla wszystkich użytkowników.
 
-W przypadku bardziej szczegółowych formantów zasady [dostępu warunkowego](../conditional-access/overview.md) mogą być używane do definiowania zdarzeń lub aplikacji, które wymagają usługi MFA. Te zasady mogą zezwalać na regularne zdarzenia logowania, gdy użytkownik znajduje się w sieci firmowej lub zarejestrowanym urządzeniu, ale monitują o dodatkowe czynniki weryfikacji, gdy są zdalne lub na urządzeniu osobistym.
+W celu uzyskania bardziej szczegółowych kontroli zasady [dostępu warunkowego](../conditional-access/overview.md) mogą służyć do definiowania zdarzeń lub aplikacji, które wymagają uwierzytelniania wieloskładnikowego. Te zasady mogą zezwalać na regularne zdarzenia logowania, gdy użytkownik znajduje się w sieci firmowej lub zarejestrowane urządzenie, ale wyświetla monit o dodatkowe czynniki weryfikacyjne w przypadku zdalnego lub na urządzeniu osobistym.
 
-![Omówienie diagramu działania programu Dostęp warunkowy w celu zabezpieczenia procesu logowania](media/tutorial-enable-azure-mfa/conditional-access-overview.png)
+![Diagram omówienia sposobu działania dostępu warunkowego w celu zabezpieczenia procesu logowania](media/tutorial-enable-azure-mfa/conditional-access-overview.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o licencjonowaniu, zobacz [Funkcje i licencje na uwierzytelnianie wieloskładnikowe platformy Azure](concept-mfa-licensing.md).
+Aby dowiedzieć się więcej o licencjonowaniu, zobacz [funkcje i licencje dla platformy Azure Multi-Factor Authentication](concept-mfa-licensing.md).
 
-Aby wyświetlić usługę MFA w akcji, włącz uwierzytelnianie wieloskładnikowe platformy Azure dla zestawu użytkowników testowych w następującym samouczku:
+Aby zobaczyć, jak działa MFA, Włącz Multi-Factor Authentication platformy Azure dla zestawu użytkowników testowych w następującym samouczku:
 
 > [!div class="nextstepaction"]
 > [Włączanie usługi Azure Multi-Factor Authentication](tutorial-mfa-applications.md)

@@ -1,32 +1,32 @@
 ---
-title: Praca z ciągami w kwerendach dziennika usługi Azure Monitor | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera samouczek dotyczący używania usługi Azure Monitor Log Analytics w portalu Azure do wykonywania zapytań i analizowania danych dziennika w usłudze Azure Monitor.
+title: Praca z ciągami w zapytaniach dziennika Azure Monitor | Microsoft Docs
+description: Ten artykuł zawiera samouczek dotyczący używania Log Analytics Azure Monitor w Azure Portal do wykonywania zapytań i analizowania danych dziennika w Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: f792820b7b0dff20e647031410ba87ac26c2495a
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80672971"
 ---
-# <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Praca z JSON i strukturami danych w kwerendach dziennika usługi Azure Monitor
+# <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Praca ze strukturami JSON i danych w zapytaniach dziennika Azure Monitor
 
 > [!NOTE]
-> Przed ukończeniem tej lekcji należy wykonać wprowadzenie [do usługi Azure Monitor Log Analytics](get-started-portal.md) i wprowadzenie do [zapytań dziennika usługi Azure Monitor.](get-started-queries.md)
+> Przed ukończeniem tej lekcji należy ukończyć pracę [z Azure Monitor Log Analytics](get-started-portal.md) i [zacząć korzystać z zapytań dziennika Azure monitor](get-started-queries.md) .
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Obiekty zagnieżdżone to obiekty, które zawierają inne obiekty w tablicy lub mapę par klucz-wartość. Obiekty te są reprezentowane jako ciągi JSON. W tym artykule opisano, jak JSON jest używany do pobierania danych i analizowania obiektów zagnieżdżonych.
+Obiekty zagnieżdżone to obiekty, które zawierają inne obiekty w tablicy lub mapę par klucz-wartość. Te obiekty są reprezentowane jako ciągi JSON. W tym artykule opisano, jak kod JSON jest używany do pobierania danych i analizowania obiektów zagnieżdżonych.
 
 ## <a name="working-with-json-strings"></a>Praca z ciągami JSON
 Służy `extractjson` do uzyskiwania dostępu do określonego elementu JSON w znanej ścieżce. Ta funkcja wymaga wyrażenia ścieżki, które używa następujących konwencji.
 
-- _$_, aby odwołać się do folderu głównego
-- Użyj wspornika lub kropki, aby odwołać się do indeksów i elementów, jak pokazano w poniższych przykładach.
+- _$_ Aby odwołać się do folderu głównego
+- Aby odwoływać się do indeksów i elementów, jak pokazano w poniższych przykładach, użyj notacji z nawiasem lub kropką.
 
 
 Użyj nawiasów dla indeksów i kropek, aby oddzielić elementy:
@@ -37,7 +37,7 @@ print hosts_report
 | extend status = extractjson("$.hosts[0].status", hosts_report)
 ```
 
-Jest to ten sam wynik przy użyciu tylko w nawiasach notacji:
+Jest to ten sam wynik przy użyciu tylko notacji z nawiasów kwadratowych:
 
 ```Kusto
 let hosts_report='{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}';
@@ -45,7 +45,7 @@ print hosts_report
 | extend status = extractjson("$['hosts'][0]['status']", hosts_report)
 ```
 
-Jeśli istnieje tylko jeden element, można użyć tylko kropki:
+Jeśli istnieje tylko jeden element, można użyć tylko notacji kropkowej:
 
 ```Kusto
 let hosts_report=dynamic({"location":"North_DC", "status":"running", "rate":5});
@@ -56,8 +56,8 @@ print hosts_report
 
 ## <a name="working-with-objects"></a>Praca z obiektami
 
-### <a name="parsejson"></a>parsejson ( parsejson )
-Aby uzyskać dostęp do wielu elementów w strukturze json, łatwiej jest uzyskać do niego dostęp jako obiekt dynamiczny. Służy `parsejson` do rzutowanie danych tekstowych na obiekt dynamiczny. Po przekonwertowaniu na typ dynamiczny można użyć dodatkowych funkcji do analizy danych.
+### <a name="parsejson"></a>parsejson
+Aby uzyskać dostęp do wielu elementów w strukturze JSON, łatwiej jest uzyskać do nich dostęp jako obiekt dynamiczny. Służy `parsejson` do rzutowania danych tekstowych do obiektu dynamicznego. Po przekonwertowaniu na typ dynamiczny, za pomocą dodatkowych funkcji można analizować dane.
 
 ```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
@@ -67,8 +67,8 @@ print hosts_object
 
 
 
-### <a name="arraylength"></a>połówek
-Służy `arraylength` do zliczania liczby elementów w tablicy:
+### <a name="arraylength"></a>arraylength
+Użyj `arraylength` , aby obliczyć liczbę elementów w tablicy:
 
 ```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
@@ -77,7 +77,7 @@ print hosts_object
 ```
 
 ### <a name="mvexpand"></a>mvexpand
-Służy `mvexpand` do podziału właściwości obiektu na oddzielne wiersze.
+Użyj `mvexpand` , aby przerwać właściwości obiektu w osobnych wierszach.
 
 ```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
@@ -87,8 +87,8 @@ print hosts_object
 
 ![mvexpand](media/json-data-structures/mvexpand.png)
 
-### <a name="buildschema"></a>buildschema ( buildschema )
-Służy `buildschema` do uzyskania schematu, który dopuszcza wszystkie wartości obiektu:
+### <a name="buildschema"></a>buildschema
+Użyj `buildschema` , aby uzyskać schemat, który dopuszcza wszystkie wartości obiektu:
 
 ```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
@@ -96,7 +96,7 @@ print hosts_object
 | summarize buildschema(hosts_object)
 ```
 
-Dane wyjściowe to schemat w formacie JSON:
+Dane wyjściowe są schematem w formacie JSON:
 ```json
 {
     "hosts":
@@ -110,7 +110,7 @@ Dane wyjściowe to schemat w formacie JSON:
     }
 }
 ```
-To dane wyjściowe opisuje nazwy pól obiektów i ich pasujące typy danych. 
+Dane wyjściowe opisują nazwy pól obiektów i ich zgodne typy danych. 
 
 Obiekty zagnieżdżone mogą mieć różne schematy, takie jak w poniższym przykładzie:
 
@@ -121,10 +121,10 @@ print hosts_object
 ```
 
 
-![Tworzenie schematu](media/json-data-structures/buildschema.png)
+![Schemat kompilacji](media/json-data-structures/buildschema.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz inne lekcje dotyczące używania zapytań dziennika w usłudze Azure Monitor:
+Zapoznaj się z innymi lekcjami dotyczącymi używania zapytań dzienników w Azure Monitor:
 
 - [Operacje dotyczące ciągów](string-operations.md)
 - [Operacje dotyczące daty i godziny](datetime-operations.md)

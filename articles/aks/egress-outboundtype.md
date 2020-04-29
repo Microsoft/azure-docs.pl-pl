@@ -1,35 +1,35 @@
 ---
 title: Dostosowywanie tras zdefiniowanych przez użytkownika (UDR) w usłudze Azure Kubernetes Service (AKS)
-description: Dowiedz się, jak zdefiniować niestandardową trasę wychodzącą w usłudze Azure Kubernetes (AKS)
+description: Informacje o definiowaniu niestandardowej trasy ruchu wychodzącego w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
 ms.openlocfilehash: 3780680c485aebf1ffc654d31c577821a9b96fff
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80676501"
 ---
-# <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Dostosowywanie wyjścia klastra za pomocą trasy zdefiniowanej przez użytkownika (wersja zapoznawcza)
+# <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Dostosowywanie ruchu wychodzącego klastra przy użyciu trasy zdefiniowanej przez użytkownika (wersja zapoznawcza)
 
-Ruch wychodzący z klastra AKS można dostosować do określonych scenariuszy. Domyślnie AKS będzie aprowizować standardowy moduł równoważenia obciążenia SKU do konfiguracji i używane dla ruchu wychodzącego. Jednak domyślna konfiguracja może nie spełniać wymagań wszystkich scenariuszy, jeśli publiczne adresy IP są niedozwolone lub dodatkowe przeskoki są wymagane dla ruchu wychodzącego.
+Ruch wychodzący z klastra AKS można dostosować do określonych scenariuszy. Domyślnie AKS będzie obsługiwać standardową jednostkę SKU, Load Balancer być skonfigurowana i używana do wychodzącego. Jednak konfiguracja domyślna może nie spełniać wymagań wszystkich scenariuszy, jeśli publiczne adresy IP są niedozwolone lub dodatkowe przeskoki są wymagane dla ruchu wychodzącego.
 
-W tym artykule opisano, jak dostosować trasę wychodzącą klastra do obsługi scenariuszy sieci niestandardowych, takich jak te, które nie zezwalają na publiczne adresy IP i wymaga klastra, aby usiąść za wirtualnym urządzeniem sieciowym (NVA).
+W tym artykule opisano sposób dostosowywania trasy ruchu wychodzącego klastra w celu zapewnienia obsługi niestandardowych scenariuszy sieciowych, takich jak te, które uniemożliwiają publiczne adresy IP i wymagają, aby klaster znajduje się za sieciowym urządzeniem wirtualnym (urządzenie WUS).
 
 > [!IMPORTANT]
-> Funkcje w wersji zapoznawczej usługi AKS są samoobsługowe i są oferowane na zasadzie opt-in. Wersje zapoznawcza są dostarczane *w stanie, w jakim są* *dostępne* i są wyłączone z umowy dotyczącej poziomu usług (SLA) i ograniczonej gwarancji. Podglądy AKS są częściowo objęte obsługą klienta na podstawie *najlepszych starań.* W związku z tym funkcje nie są przeznaczone do użytku produkcyjnego. Aby uzyskać więcej informacji, zobacz następujące artykuły pomocy technicznej:
+> Funkcje w wersji zapoznawczej AKS są samoobsługowe i są oferowane na zasadzie zgody. Wersje zapoznawcze są udostępniane *w postaci* , w jakiej są *dostępne* i są wyłączone z umowy dotyczącej poziomu usług (SLA) i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte wsparciem klienta w oparciu o *najlepszą* pracę. W związku z tym funkcje te nie są przeznaczone do użytku produkcyjnego. Aby uzyskać więcej informacji, zobacz następujące artykuły pomocy technicznej:
 >
-> * [Zasady wsparcia AKS](support-policies.md)
-> * [Często zadawane pytania dotyczące pomocy technicznej platformy Azure](faq.md)
+> * [Zasady pomocy technicznej AKS](support-policies.md)
+> * [Pomoc techniczna platformy Azure — często zadawane pytania](faq.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* Interfejsu wiersza polecenia platformy Azure w wersji 2.0.81 lub większej
-* Rozszerzenie interfejsu wiersza polecenia platformy Azure w wersji 0.4.28 lub większej
-* Wersja interfejsu `2020-01-01` API lub większa
+* Interfejs wiersza polecenia platformy Azure w wersji 2.0.81 lub nowszej
+* Rozszerzenie interfejsu wiersza polecenia platformy Azure w wersji zapoznawczej 0.4.28 lub nowszej
+* Wersja interfejsu API `2020-01-01` lub nowsza
 
-## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Instalowanie najnowszego rozszerzenia usługi Azure CLI AKS Preview
-Aby ustawić typ wychodzący klastra, potrzebujesz rozszerzenia AKS Preview platformy Azure w wersji 0.4.18 lub nowszej. Zainstaluj rozszerzenie AKS Preview platformy Azure przy użyciu polecenia dodawania rozszerzenia az, a następnie sprawdź dostępność dostępnych aktualizacji za pomocą następującego polecenia aktualizacji rozszerzenia az:
+## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Zainstaluj najnowsze rozszerzenie AKS w wersji zapoznawczej interfejsu wiersza polecenia platformy Azure
+Aby można było ustawić typ wychodzący klastra, wymagany jest interfejs wiersza polecenia platformy Azure AKS w wersji zapoznawczej 0.4.18 lub nowszej. Zainstaluj rozszerzenie AKS interfejsu wiersza polecenia platformy Azure w wersji zapoznawczej za pomocą poleceń AZ Extension Add, a następnie sprawdź, czy są dostępne aktualizacje przy użyciu następującego polecenia AZ Extension Update:
 
 ```azure-cli
 # Install the aks-preview extension
@@ -40,61 +40,61 @@ az extension update --name aks-preview
 ```
 
 ## <a name="limitations"></a>Ograniczenia
-* Podczas podglądu, `outboundType` mogą być definiowane tylko w czasie tworzenia klastra i nie mogą być aktualizowane później.
-* Podczas podglądu klastry `outboundType` usługi AKS powinny używać usługi Azure CNI. Kubenet jest konfigurowalny, użycie wymaga ręcznych skojarzeń tabeli marszruty z podsiecią AKS.
-* Ustawienie `outboundType` wymaga klastrów AKS `vm-set-type` z i `VirtualMachineScaleSets` `load-balancer-sku` z `Standard`.
+* W trakcie okresu `outboundType` zapoznawczego można zdefiniować tylko w czasie tworzenia klastra i nie można go później zaktualizować.
+* W trakcie okresu `outboundType` zapoznawczego klastry AKS powinny korzystać z usługi Azure CNI. Korzystającą wtyczki kubenet można skonfigurować, użycie wymaga ręcznego skojarzenia tabeli tras z podsiecią AKS.
+* Ustawienie `outboundType` wymaga `vm-set-type` klastrów AKS z `VirtualMachineScaleSets` i `load-balancer-sku` z. `Standard`
 * Ustawienie `outboundType` wartości `UDR` wymaga trasy zdefiniowanej przez użytkownika z prawidłową łącznością wychodzącą dla klastra.
-* Ustawienie `outboundType` wartości oznacza, że adres IP źródła ruchu przychodzącego `UDR` kierowanego do modułu równoważenia obciążenia może nie **odpowiadać** wychodzącemu adresowi docelowemu wychodzącego wyjścia klastra.
+* Ustawienie `outboundType` wartości `UDR` powoduje, że adres IP źródła danych przychodzących kierowany do modułu równoważenia obciążenia może być **niezgodny** z wychodzącym docelowym ruchem wyjściowym klastra.
 
-## <a name="overview-of-outbound-types-in-aks"></a>Omówienie typów ruchu wychodzącego w aks
+## <a name="overview-of-outbound-types-in-aks"></a>Przegląd typów wychodzących w AKS
 
-Klaster AKS można dostosować za `outboundType` pomocą unikatowego modułu równoważenia obciążenia typu lub routingu zdefiniowanego przez użytkownika.
+Klaster AKS można dostosować przy użyciu unikatowego `outboundType` typu modułu równoważenia obciążenia lub routingu zdefiniowanego przez użytkownika.
 
 > [!IMPORTANT]
-> Typ wychodzący wpływa tylko na ruch wychodzący klastra. Aby uzyskać więcej informacji, zobacz [konfigurowanie kontrolerów transferu danych przychodzących.](ingress-basic.md)
+> Typ wychodzący ma wpływ tylko na ruch wyjściowy klastra. Aby uzyskać więcej informacji, zobacz [Konfigurowanie kontrolerów](ingress-basic.md) przychodzących.
 
-### <a name="outbound-type-of-loadbalancer"></a>Typ ładunku loadBalancer wychodzący
+### <a name="outbound-type-of-loadbalancer"></a>Typ wychodzącego modułu równoważenia obciążenia
 
-Jeśli `loadBalancer` jest ustawiona, program AKS automatycznie zakończy następującą konfigurację. Moduł równoważenia obciążenia jest używany do wyjścia za pośrednictwem publicznego adresu IP przypisanego przez usługi AKS. Typ wychodzący `loadBalancer` obsługuje usługi typu `loadBalancer`Kubernetes, które oczekują wyjścia z modułu równoważenia obciążenia utworzonego przez dostawcę zasobów usługi AKS.
+Jeśli `loadBalancer` jest ustawiona, AKS automatycznie wykonuje następujące czynności konfiguracyjne. Moduł równoważenia obciążenia jest używany do ruchu wychodzącego przez AKS przypisany publiczny adres IP. Typ wychodzący `loadBalancer` obsługuje usługi Kubernetes Services typu `loadBalancer`, które oczekują wyjście z modułu równoważenia obciążenia utworzonego przez dostawcę zasobów AKS.
 
 Następująca konfiguracja jest wykonywana przez AKS.
-   * Publiczny adres IP jest aprowizowany dla wyjścia klastra.
-   * Publiczny adres IP jest przypisany do zasobu modułu równoważenia obciążenia.
-   * Pule wewnętrznej bazy danych dla modułu równoważenia obciążenia są konfigurowane dla węzłów agenta w klastrze.
+   * Publiczny adres IP jest inicjowany dla ruchu wychodzącego klastra.
+   * Publiczny adres IP jest przypisywany do zasobu modułu równoważenia obciążenia.
+   * Pule zaplecza dla modułu równoważenia obciążenia są skonfigurowane dla węzłów agenta w klastrze.
 
-Poniżej znajduje się topologia sieci wdrożona domyślnie w `outboundType` klastrach AKS, które używają pliku `loadBalancer`.
+Poniżej znajduje się topologia sieci wdrożona domyślnie w klastrach AKS, która `outboundType` korzysta `loadBalancer`z programu.
 
-![typ-lb](media/egress-outboundtype/outboundtype-lb.png)
+![niepowiązanytype — lb](media/egress-outboundtype/outboundtype-lb.png)
 
-### <a name="outbound-type-of-userdefinedrouting"></a>Typ ruchu wychodzącego użytkownikaDefdefiniowanyRouting
+### <a name="outbound-type-of-userdefinedrouting"></a>Typ wychodzący userDefinedRouting
 
 > [!NOTE]
-> Przy użyciu typu wychodzącego jest zaawansowany scenariusz sieci i wymaga odpowiedniej konfiguracji sieci.
+> Użycie typu wychodzącego jest zaawansowanym scenariuszem sieci i wymaga odpowiedniej konfiguracji sieci.
 
-Jeśli `userDefinedRouting` jest ustawiona, AKS nie będzie automatycznie konfigurować ścieżki wychodzące. Użytkownik powinien wykonać następujące **czynności.**
+Jeśli `userDefinedRouting` jest ustawiona, AKS nie skonfiguruje automatycznie ścieżek ruchu wychodzącego. **Użytkownik**powinien wykonać następujące czynności.
 
-Klaster musi zostać wdrożony w istniejącej sieci wirtualnej z skonfigurowaną podsiecią. Prawidłowa trasa zdefiniowana przez użytkownika (UDR) musi istnieć w podsieci z łącznością wychodzącą.
+Klaster należy wdrożyć w istniejącej sieci wirtualnej z skonfigurowaną podsiecią. Prawidłowa zdefiniowana przez użytkownika trasa (UDR) musi istnieć w podsieci z łącznością wychodzącą.
 
-Dostawca zasobów AKS wdroży standardowy moduł równoważenia obciążenia (SLB). Moduł równoważenia obciążenia nie jest skonfigurowany z żadnymi regułami i [nie pobiera opłaty, dopóki nie zostanie umieszczona reguła.](https://azure.microsoft.com/pricing/details/load-balancer/) Usługa AKS **nie** będzie automatycznie aprowizować publiczny adres IP dla frontendu SLB. AKS **nie** będzie automatycznie konfigurować puli wewnętrznej bazy danych modułu równoważenia obciążenia.
+Dostawca zasobów AKS będzie wdrażać usługę równoważenia obciążenia w warstwie Standardowa. Moduł równoważenia obciążenia nie jest skonfigurowany z żadną regułą i nie [ponosi opłaty do momentu, gdy reguła zostanie umieszczona](https://azure.microsoft.com/pricing/details/load-balancer/). AKS **nie** będzie automatycznie inicjować publicznego adresu IP dla frontonu modułu równoważenia obciążenia. Usługa AKS **nie** będzie automatycznie konfigurować puli zaplecza modułu równoważenia obciążenia.
 
-## <a name="deploy-a-cluster-with-outbound-type-of-udr-and-azure-firewall"></a>Wdrażanie klastra z typem UDR i Zaporą platformy Azure typu wychodzącego
+## <a name="deploy-a-cluster-with-outbound-type-of-udr-and-azure-firewall"></a>Wdrażanie klastra z typem wychodzącym UDR i zaporą platformy Azure
 
-Aby zilustrować zastosowanie klastra z typem wychodzącym przy użyciu trasy zdefiniowanej przez użytkownika, klaster można skonfigurować w sieci wirtualnej równorzędnej z zaporą platformy Azure.
+Aby zilustrować aplikację klastra z typem wychodzącym przy użyciu trasy zdefiniowanej przez użytkownika, klaster można skonfigurować w sieci wirtualnej za pomocą komunikacji równorzędnej z zaporą platformy Azure.
 
-![Zamknięta topologia](media/egress-outboundtype/outboundtype-udr.png)
+![Topologia blokady](media/egress-outboundtype/outboundtype-udr.png)
 
 * Ruch przychodzący jest zmuszony do przepływu przez filtry zapory
-   * Izolowana podsieć przechowuje wewnętrzny moduł równoważenia obciążenia do routingu do węzłów agenta
-   * Węzły agenta są izolowane w dedykowanej podsieci
+   * Izolowana podsieć przechowuje wewnętrzny moduł równoważenia obciążenia do routingu w węzłach agenta
+   * Węzły agentów są izolowane w dedykowanej podsieci
 * Żądania wychodzące rozpoczynają się od węzłów agenta do wewnętrznego adresu IP zapory platformy Azure przy użyciu trasy zdefiniowanej przez użytkownika
-   * Żądania z węzłów agenta AKS są zgodne z identyfikatorem UDR umieszczonym w podsieci, w których wdrożono klaster AKS.
-   * Wyjście zapory azure z sieci wirtualnej z publicznego frontendu IP
-   * Dostęp do płaszczyzny sterowania AKS jest chroniony przez grupę sieciową sieciowej, która włączyła adres IP frontonu zapory
-   * Dostęp do publicznego Internetu lub innych usług platformy Azure przepływa do i z adresu IP frontonia zapory
+   * Żądania z węzłów agenta AKS są zgodne z UDRem umieszczonym w podsieci, do której został wdrożony klaster AKS.
+   * Zapora platformy Azure egresses z sieci wirtualnej z publicznego frontonu IP
+   * Dostęp do płaszczyzny kontroli AKS jest chroniony przez sieciowej grupy zabezpieczeń, który włączył adres IP frontonu zapory
+   * Dostęp do publicznej sieci Internet lub innych usług platformy Azure przepływy do i z adresu IP frontonu zapory
 
 ### <a name="set-configuration-via-environment-variables"></a>Ustawianie konfiguracji za pomocą zmiennych środowiskowych
 
-Zdefiniuj zestaw zmiennych środowiskowych, które mają być używane w tworzeniu zasobów.
+Zdefiniuj zestaw zmiennych środowiskowych, które mają być używane podczas tworzenia zasobów.
 
 ```bash
 PREFIX="contosofin"
@@ -135,11 +135,11 @@ SUBID=$(az account show -s '<SUBSCRIPTION_NAME_GOES_HERE>' -o tsv --query 'id')
 
 ## <a name="create-a-virtual-network-with-multiple-subnets"></a>Tworzenie sieci wirtualnej z wieloma podsieciami
 
-Aprowizuj sieć wirtualną z trzema oddzielnymi podsieciami, jedną dla klastra, jedną dla zapory i jedną dla transferu danych przychodzących usługi.
+Zainicjuj obsługę sieci wirtualnej z trzema oddzielnymi podsieciami, jedną dla klastra, jedną dla zapory i jedną dla usługi transferu danych przychodzących.
 
 ![Pusta topologia sieci](media/egress-outboundtype/empty-network.png)
 
-Utwórz grupę zasobów, aby pomieścić wszystkie zasoby.
+Utwórz grupę zasobów, w której mają być przechowywane wszystkie zasoby.
 
 ```azure-cli
 # Create Resource Group
@@ -147,7 +147,7 @@ Utwórz grupę zasobów, aby pomieścić wszystkie zasoby.
 az group create --name $RG --location $LOC
 ```
 
-Utwórz dwie sieci wirtualne do obsługi klastra AKS i Zapory azure. Każdy z nich będzie miał własną podsieć. Zacznijmy od sieci AKS.
+Utwórz dwie sieci wirtualne do hostowania klastra AKS i zapory platformy Azure. Każda z nich będzie miała własną podsieć. Zacznijmy od sieci AKS.
 
 ```
 # Dedicated virtual network with AKS subnet
@@ -176,19 +176,19 @@ az network vnet subnet create \
     --address-prefix 100.64.3.0/24
 ```
 
-## <a name="create-and-setup-an-azure-firewall-with-a-udr"></a>Tworzenie i konfigurowanie zapory platformy Azure przy za pomocą narzędzia UDR
+## <a name="create-and-setup-an-azure-firewall-with-a-udr"></a>Tworzenie i Konfigurowanie zapory platformy Azure za pomocą UDR
 
-Należy skonfigurować reguły przychodzące i wychodzące zapory azure. Głównym celem zapory jest umożliwienie organizacjom konfigurowania szczegółowych reguł ruchu przychodzącego i wychodzącego do i z klastra AKS.
+Reguły ruchu przychodzącego i wychodzącego zapory platformy Azure muszą być skonfigurowane. Głównym celem zapory jest umożliwienie organizacjom konfigurowania szczegółowych zasad ruchu przychodzącego i wychodzącego w klastrze AKS.
 
-![Zapora sieciowa i UDR](media/egress-outboundtype/firewall-udr.png)
+![Zapora i UDR](media/egress-outboundtype/firewall-udr.png)
 
-Utwórz standardowy publiczny zasób IP jednostki SKU, który będzie używany jako adres frontendu zapory platformy Azure.
+Utwórz zasób publicznego adresu IP jednostki SKU, który będzie używany jako adres frontonu zapory platformy Azure.
 
 ```azure-cli
 az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
 ```
 
-Zarejestruj rozszerzenie interfejsu wiersza polecenia podglądu, aby utworzyć zaporę platformy Azure.
+Zarejestruj interfejs wiersza polecenia w wersji zapoznawczej, aby utworzyć zaporę platformy Azure.
 ```azure-cli
 # Install Azure Firewall preview CLI extension
 
@@ -199,11 +199,11 @@ az extension add --name azure-firewall
 az network firewall create -g $RG -n $FWNAME -l $LOC
 ```
 
-Adres IP utworzony wcześniej można teraz przypisać do frontendu zapory.
+Utworzony wcześniej adres IP można teraz przypisać do frontonu zapory.
 > [!NOTE]
-> Konfiguracja publicznego adresu IP w Zaporze platformy Azure może potrwać kilka minut.
+> Konfiguracja publicznego adresu IP w zaporze platformy Azure może potrwać kilka minut.
 > 
-> Jeśli błędy są wielokrotnie odbierane w poniższym poleceniu, usuń istniejącą zaporę i publiczny adres IP i aprowizuj publiczny adres IP i zaporę platformy Azure za pośrednictwem portalu w tym samym czasie.
+> Jeśli błędy są często odbierane przy użyciu poniższego polecenia, należy usunąć istniejącą zaporę i publiczny adres IP oraz udostępnić publiczny adres IP i zaporę platformy Azure w tym samym czasie.
 
 ```azure-cli
 # Configure Firewall IP Config
@@ -211,7 +211,7 @@ Adres IP utworzony wcześniej można teraz przypisać do frontendu zapory.
 az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
 ```
 
-Po pomyślnym wykonaniu poprzedniego polecenia zapisz adres IP frontendu zapory do konfiguracji później.
+Gdy poprzednie polecenie zakończyło się pomyślnie, Zapisz adres IP frontonu zapory, aby skonfigurować go później.
 
 ```bash
 # Capture Firewall IP Address for Later Use
@@ -222,9 +222,9 @@ FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurati
 
 ### <a name="create-a-udr-with-a-hop-to-azure-firewall"></a>Tworzenie UDR z przeskokiem do zapory platformy Azure
 
-Platforma Azure automatycznie kieruje ruchem między podsieciami platformy Azure, sieciami wirtualnymi i sieciami lokalnymi. Jeśli chcesz zmienić dowolną z domyślnych routingu platformy Azure, należy to zrobić, tworząc tabelę marszruty.
+Platforma Azure automatycznie kieruje ruchem między podsieciami platformy Azure, sieciami wirtualnymi i sieciami lokalnymi. Jeśli chcesz zmienić domyślny Routing systemu Azure, możesz to zrobić, tworząc tabelę tras.
 
-Utwórz pustą tabelę marszruty, która ma być skojarzona z daną podsiecią. Tabela marszruty zdefiniuje następny przeskok jako zaporę azure utworzoną powyżej. Każda podsieć może mieć skojarzoną ze sobą żadną lub jedną tabelę tras.
+Utwórz pustą tabelę tras, która ma zostać skojarzona z daną podsiecią. W tabeli tras zostanie zdefiniowany następny przeskok, który został utworzony powyżej przez zaporę platformy Azure. Każda podsieć może mieć skojarzoną ze sobą żadną lub jedną tabelę tras.
 
 ```azure-cli
 # Create UDR and add a route for Azure Firewall
@@ -234,16 +234,16 @@ az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-na
 az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
 ```
 
-Zobacz [dokumentację tabeli tras sieci wirtualnej,](../virtual-network/virtual-networks-udr-overview.md#user-defined) w jaki sposób można zastąpić domyślne trasy systemowe platformy Azure lub dodać dodatkowe trasy do tabeli tras podsieci.
+Zapoznaj się z [dokumentacją dotyczącą trasy sieci wirtualnej](../virtual-network/virtual-networks-udr-overview.md#user-defined) , aby dowiedzieć się, jak zastąpić domyślne trasy systemu platformy Azure lub dodać dodatkowe trasy do tabeli tras podsieci.
 
 ## <a name="adding-network-firewall-rules"></a>Dodawanie reguł zapory sieciowej
 
 > [!WARNING]
-> Poniżej przedstawiono jeden przykład dodawania reguły zapory. Wszystkie punkty końcowe ruchu wychodzącego zdefiniowane w [wymaganych punktach końcowych ruchu wychodzącego](egress.md) muszą być włączone przez reguły zapory aplikacji dla klastrów AKS do działania. Bez tych punktów końcowych włączone, klaster nie może działać.
+> Poniżej przedstawiono przykład dodawania reguły zapory. Wszystkie punkty końcowe wyjściowe zdefiniowane w [wymaganych punktach końcowych ruchu](egress.md) wychodzącego muszą być włączone przez reguły zapory aplikacji dla klastrów AKS do działania. Bez włączonych punktów końcowych klaster nie może działać.
 
-Poniżej znajduje się przykład reguły sieci i aplikacji. Dodajemy regułę sieci, która zezwala na dowolny protokół, adres źródłowy, adres docelowy i porty docelowe. Możemy również dodać regułę aplikacji dla **niektórych** punktów końcowych wymaganych przez usługi AKS.
+Poniżej znajduje się przykład reguły sieci i aplikacji. Dodawana jest reguła sieci, która zezwala na dowolny protokół, adres źródłowy, adres docelowy i port docelowy. Dodajemy również regułę aplikacji dla **niektórych** punktów końcowych wymaganych przez AKS.
 
-W scenariuszu produkcyjnym należy włączyć dostęp tylko do wymaganych punktów końcowych dla aplikacji i tych zdefiniowanych w [programie AKS wymagane wyjście](egress.md).
+W scenariuszu produkcyjnym należy włączyć tylko dostęp do wymaganych punktów końcowych dla aplikacji oraz tych zdefiniowanych w [AKS](egress.md).
 
 ```
 # Add Network FW Rules
@@ -273,11 +273,11 @@ az network firewall application-rule create -g $RG -f $FWNAME \
         'acs-mirror.azureedge.net'
 ```
 
-Aby dowiedzieć się więcej o usłudze Zapora azure, zobacz [dokumentację zapory platformy](https://docs.microsoft.com/azure/firewall/overview) Azure.
+Zobacz [dokumentację zapory platformy Azure](https://docs.microsoft.com/azure/firewall/overview) , aby dowiedzieć się więcej na temat usługi Zapora systemu Azure.
 
-## <a name="associate-the-route-table-to-aks"></a>Skojarz tabelę marszruty z programem AKS
+## <a name="associate-the-route-table-to-aks"></a>Skojarz tabelę tras z AKS
 
-Aby skojarzyć klaster z zaporą, dedykowana podsieć podsieci klastra musi odwoływać się do tabeli marszruty utworzonej powyżej. Skojarzenie można wykonać, wydając polecenie do sieci wirtualnej, w którym znajduje się klaster i zapora, aby zaktualizować tabelę tras podsieci klastra.
+Aby można było skojarzyć klaster z zaporą, dedykowana podsieć klastra musi odwoływać się do utworzonej powyżej tabeli tras. Skojarzenie można wykonać, wydając polecenie do sieci wirtualnej, w której klaster i Zapora mają aktualizować tabelę tras w podsieci klastra.
 
 ```azure-cli
 # Associate route table with next hop to Firewall to the AKS subnet
@@ -285,15 +285,15 @@ Aby skojarzyć klaster z zaporą, dedykowana podsieć podsieci klastra musi odwo
 az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --route-table $FWROUTE_TABLE_NAME
 ```
 
-## <a name="deploy-aks-with-outbound-type-of-udr-to-the-existing-network"></a>Wdrażanie usługi AKS z typem chYłka w istniejącej sieci
+## <a name="deploy-aks-with-outbound-type-of-udr-to-the-existing-network"></a>Wdróż AKS z typem wychodzącym UDR do istniejącej sieci
 
-Teraz klaster AKS można wdrożyć w istniejącej konfiguracji sieci wirtualnej. Aby ustawić typ wychodzący klastra na routing zdefiniowany przez użytkownika, do usługi AKS należy podać istniejącą podsieć.
+Teraz klaster AKS można wdrożyć w istniejącej konfiguracji sieci wirtualnej. Aby można było ustawić typ ruchu wychodzącego klastra do routingu zdefiniowanego przez użytkownika, należy podać istniejącą podsieć do AKS.
 
-![aks-deploy](media/egress-outboundtype/outboundtype-udr.png)
+![AKS — Wdróż](media/egress-outboundtype/outboundtype-udr.png)
 
-### <a name="create-a-service-principal-with-access-to-provision-inside-the-existing-virtual-network"></a>Tworzenie jednostki usługi z dostępem do aprowizy w istniejącej sieci wirtualnej
+### <a name="create-a-service-principal-with-access-to-provision-inside-the-existing-virtual-network"></a>Tworzenie jednostki usługi z dostępem do inicjowania obsługi administracyjnej w istniejącej sieci wirtualnej
 
-Podmiot zabezpieczeń usługi jest używany przez usługę AKS do tworzenia zasobów klastra. Podmiot zabezpieczeń usługi przekazywane w czasie tworzenia jest używany do tworzenia podstawowych zasobów AKS, takich jak maszyny wirtualne, magazyn i moduły równoważenia obciążenia używane przez usługę AKS. Jeśli udzielono zbyt mało uprawnień, nie będzie w stanie aprowizować klastra usługi AKS.
+Nazwa główna usługi jest używana przez AKS do tworzenia zasobów klastra. Nazwa główna usługi przenoszona podczas tworzenia czasu służy do tworzenia podstawowych zasobów AKS, takich jak maszyny wirtualne, magazyn i moduły równoważenia obciążenia używane przez AKS. W przypadku przyznania zbyt małej liczby uprawnień nie będzie możliwe Inicjowanie obsługi administracyjnej klastra AKS.
 
 ```azure-cli
 # Create SP and Assign Permission to Virtual Network
@@ -301,7 +301,7 @@ Podmiot zabezpieczeń usługi jest używany przez usługę AKS do tworzenia zaso
 az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
 ```
 
-Teraz zastąp `APPID` i `PASSWORD` poniżej z jednostki usługi appid i service dublowane hasło jednostki generowane przez poprzednie dane wyjściowe polecenia. Odwołamy się do identyfikatora zasobu sieci wirtualnej, aby udzielić uprawnień podmiotowi usługi, aby usługa AKS mogła wdrażać w nim zasoby.
+Teraz Zastąp `APPID` poniższe `PASSWORD` i poniżej z identyfikatorem jednostki usługi i hasłem głównym usługi generowanym automatycznie przez poprzednie dane wyjściowe polecenia. Odwołujemy się do identyfikatora zasobu sieci wirtualnej, aby przyznać uprawnienia do nazwy głównej usługi, dzięki czemu AKS może wdrożyć w niej zasoby.
 
 ```azure-cli
 APPID="<SERVICE_PRINCIPAL_APPID_GOES_HERE>"
@@ -316,20 +316,20 @@ az role assignment create --assignee $APPID --scope $VNETID --role Contributor
 az role assignment list --assignee $APPID --all -o table
 ```
 
-### <a name="deploy-aks"></a>Wdrażanie AKS
+### <a name="deploy-aks"></a>Wdróż AKS
 
-Na koniec klaster AKS można wdrożyć w istniejącej podsieci, którą mamy dedykowaną dla klastra. Podsieć docelowa, w która ma zostać `$SUBNETID`wdrożona, jest definiowana ze zmienną środowiskową . Nie zdefiniowaliśmy zmiennej `$SUBNETID` w poprzednich krokach. Aby ustawić wartość identyfikatora podsieci, można użyć następującego polecenia:
+Na koniec klaster AKS można wdrożyć w istniejącej podsieci, która jest dedykowana dla klastra. Podsieć docelowa do wdrożenia jest zdefiniowana za pomocą zmiennej środowiskowej `$SUBNETID`. Nie zdefiniowano `$SUBNETID` zmiennej w poprzednich krokach. Aby ustawić wartość identyfikatora podsieci, można użyć następującego polecenia:
 
 ```azurecli
 SUBNETID="/subscriptions/$SUBID/resourceGroups/$RG/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$AKSSUBNET_NAME"
 ```
 
-Firma We will define the outbound type to follow the UDR which exists on the subnet, enabling AKS to skip setup and IP provisioning for the load balanceer which can now be strictly internal.
+Zdefiniujemy typ wychodzący, który będzie podążał za UDR, który istnieje w podsieci, umożliwiając AKS w celu pominięcia instalacji i inicjowania obsługi protokołu IP dla modułu równoważenia obciążenia, który może być teraz wyłącznie wewnętrzny.
 
-Funkcję AKS dla [nieautoryzowanych zakresów adresów IP serwera interfejsu API](api-server-authorized-ip-ranges.md) można dodać, aby ograniczyć dostęp serwera interfejsu API tylko do publicznego punktu końcowego zapory. Autoryzowana funkcja zakresów adresów IP jest oznaczona na diagramie jako grupa sieciowych sieciowej, która musi zostać przekazana, aby uzyskać dostęp do płaszczyzny sterowania. Po włączeniu funkcji nieautoryzowanego zakresu adresów IP w celu ograniczenia dostępu do serwera interfejsu API narzędzia programistyczne muszą używać pola szybkiego dostępu z sieci wirtualnej zapory lub należy dodać wszystkie punkty końcowe dewelopera do autoryzowanego zakresu adresów IP.
+Można dodać funkcję AKS dla [dozwolonych zakresów adresów IP serwera interfejsu API](api-server-authorized-ip-ranges.md) , aby ograniczyć dostęp serwera API tylko do publicznego punktu końcowego zapory. Funkcja zakresów autoryzowanych adresów IP jest określana na diagramie jako sieciowej grupy zabezpieczeń, który musi zostać przesłany w celu uzyskania dostępu do płaszczyzny kontroli. W przypadku włączenia funkcji autoryzowanego zakresu adresów IP w celu ograniczenia dostępu do serwera interfejsu API narzędzia deweloperskie muszą używać serwera przesiadkowego z sieci wirtualnej zapory lub należy dodać wszystkie punkty końcowe dewelopera do autoryzowanego zakresu adresów IP.
 
 > [!TIP]
-> Dodatkowe funkcje można dodać do wdrożenia klastra, takie jak (Private Cluster)[]. W przypadku korzystania z autoryzowanych zakresów adresów IP do uzyskania dostępu do serwera interfejsu API wymagany będzie jumpbox wewnątrz sieci klastra.
+> Do wdrożenia klastra można dodać dodatkowe funkcje, takie jak (klaster prywatny) []. W przypadku korzystania z autoryzowanych zakresów adresów IP serwera przesiadkowego w sieci klastra musi być wymagana w celu uzyskania dostępu do serwera interfejsu API.
 
 ```azure-cli
 az aks create -g $RG -n $AKS_NAME -l $LOC \
@@ -346,11 +346,11 @@ az aks create -g $RG -n $AKS_NAME -l $LOC \
   --api-server-authorized-ip-ranges $FWPUBLIC_IP
   ```
 
-### <a name="enable-developer-access-to-the-api-server"></a>Włączanie dostępu deweloperów do serwera interfejsu API
+### <a name="enable-developer-access-to-the-api-server"></a>Włącz dostęp dewelopera do serwera interfejsu API
 
-Ze względu na autoryzowaną konfigurację zakresów adresów IP dla klastra należy dodać adresy IP narzędzi programisty do listy zatwierdzonych zakresów adresów IP programu AKS, aby uzyskać dostęp do serwera interfejsu API. Inną opcją jest skonfigurowanie jumpbox z niezbędnym narzędziem wewnątrz oddzielnej podsieci w sieci wirtualnej zapory.
+Ze względu na konfigurację zakresów autoryzowanych adresów IP dla klastra należy dodać adresy IP narzędzi deweloperskich do listy klastrów AKS zatwierdzonych zakresów adresów IP w celu uzyskania dostępu do serwera interfejsu API. Innym rozwiązaniem jest skonfigurowanie serwera przesiadkowego z wymaganymi narzędziami w ramach oddzielnej podsieci w sieci wirtualnej zapory.
 
-Dodaj kolejny adres IP do zatwierdzonych zakresów za pomocą następującego polecenia
+Dodaj inny adres IP do zatwierdzonych zakresów przy użyciu następującego polecenia
 
 ```bash
 # Retrieve your IP address
@@ -361,17 +361,17 @@ az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/
 
 ```
 
- Użyj polecenia [az aks get-credentials,][az-aks-get-credentials] aby skonfigurować `kubectl` łączenie się z nowo utworzonym klastrem Kubernetes. 
+ Użyj polecenia [AZ AKS Get-Credentials][az-aks-get-credentials] , aby skonfigurować `kubectl` program do nawiązywania połączenia z nowo utworzonym klastrem Kubernetes. 
 
  ```azure-cli
  az aks get-credentials -g $RG -n $AKS_NAME
  ```
 
-### <a name="setup-the-internal-load-balancer"></a>Ustawianie wewnętrznego modułu równoważenia obciążenia
+### <a name="setup-the-internal-load-balancer"></a>Konfigurowanie wewnętrznego modułu równoważenia obciążenia
 
-AKS wdrożył moduł równoważenia obciążenia z klastrem, który można skonfigurować jako [wewnętrzny moduł równoważenia obciążenia](internal-lb.md).
+Usługa AKS wdrożyła moduł równoważenia obciążenia z klastrem, który może być skonfigurowany jako [wewnętrzny moduł równoważenia obciążenia](internal-lb.md).
 
-Aby utworzyć wewnętrzny moduł równoważenia obciążenia, utwórz manifest usługi o nazwie internal-lb.yaml o typie usługi LoadBalancer i adnotację azure-load-balance-internal, jak pokazano w poniższym przykładzie:
+Aby utworzyć wewnętrzny moduł równoważenia obciążenia, należy utworzyć manifest usługi o nazwie Internal-LB. YAML z typem usługi równoważenia obciążenia i funkcją Azure-load-module — wewnętrzna Adnotacja, jak pokazano w następującym przykładzie:
 
 ```yaml
 apiVersion: v1
@@ -389,7 +389,7 @@ spec:
     app: internal-app
 ```
 
-Wdrażanie wewnętrznego modułu równoważenia obciążenia przy użyciu aplikacji kubectl i określ nazwę manifestu YAML:
+Wdróż wewnętrzny moduł równoważenia obciążenia przy użyciu polecenia kubectl Zastosuj i określ nazwę manifestu YAML:
 
 ```bash
 kubectl apply -f internal-lb.yaml
@@ -397,9 +397,9 @@ kubectl apply -f internal-lb.yaml
 
 ## <a name="deploy-a-kubernetes-service"></a>Wdrażanie usługi Kubernetes
 
-Ponieważ typ wychodzący klastra jest ustawiony jako UDR, kojarzenie węzłów agenta jako puli wewnętrznej bazy danych dla modułu równoważenia obciążenia nie jest automatycznie wykonywane przez AKS w czasie tworzenia klastra. Jednak skojarzenie puli wewnętrznej bazy danych jest obsługiwane przez dostawcę chmury platformy Azure platformy Kubernetes po wdrożeniu usługi Kubernetes.
+Ponieważ typ wychodzący klastra jest ustawiony jako UDR, skojarzenie węzłów agenta jako puli zaplecza dla modułu równoważenia obciążenia nie jest wykonywane automatycznie przez AKS podczas tworzenia klastra. Jednak skojarzenie puli zaplecza jest obsługiwane przez dostawcę chmury platformy Azure Kubernetes podczas wdrażania usługi Kubernetes.
 
-Wdrażanie aplikacji do głosowania platformy Azure przez skopiowanie `example.yaml`yaml poniżej do pliku o nazwie .
+Wdróż aplikację do głosowania na platformie Azure, kopiując YAML poniżej do pliku o nazwie `example.yaml`.
 
 ```yaml
 apiVersion: apps/v1
@@ -489,7 +489,7 @@ spec:
     app: azure-vote-front
 ```
 
-Wdrażanie usługi przez uruchomienie:
+Wdróż usługę, uruchamiając:
 
 ```bash
 kubectl apply -f example.yaml
@@ -497,9 +497,9 @@ kubectl apply -f example.yaml
 
 ## <a name="add-a-dnat-rule-to-azure-firewall"></a>Dodawanie reguły DNAT do zapory platformy Azure
 
-Aby skonfigurować łączność przychodzącą, reguła DNAT musi być zapisana w zaporze platformy Azure. Aby przetestować łączność z naszym klastrem, reguła jest zdefiniowana dla publicznego adresu IP zapory do trasy do wewnętrznego adresu IP udostępnianego przez usługę wewnętrzną.
+Aby można było skonfigurować łączność z ruchem przychodzącym, reguła DNAT musi być zapisywana w zaporze platformy Azure. Aby przetestować łączność z naszym klastrem, reguła jest definiowana dla publicznego adresu IP frontonu w celu kierowania do wewnętrznego adresu IP uwidocznionego przez usługę wewnętrzną.
 
-Adres docelowy można dostosować, ponieważ jest to port na zaporze, do który ma zostać dostęp. Przetłumaczony adres musi być adresem IP wewnętrznego modułu równoważenia obciążenia. Przetłumaczony port musi być narażonym portem usługi Kubernetes.
+Adres docelowy można dostosować, ponieważ jest to port w zaporze, do którego ma być uzyskiwany dostęp. Przetłumaczony adres musi być adresem IP wewnętrznego modułu równoważenia obciążenia. Przetłumaczony port musi być widocznym portem dla usługi Kubernetes.
 
 Należy określić wewnętrzny adres IP przypisany do modułu równoważenia obciążenia utworzonego przez usługę Kubernetes. Pobierz adres, uruchamiając:
 
@@ -507,7 +507,7 @@ Należy określić wewnętrzny adres IP przypisany do modułu równoważenia obc
 kubectl get services
 ```
 
-Potrzebny adres IP zostanie wyświetlony w kolumnie EXTERNAL-IP, podobnie jak w poniższej kolumnie.
+Wymagany adres IP zostanie wyświetlony w kolumnie zewnętrzny adres IP, podobnie do poniższego.
 
 ```bash
 NAME               TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
@@ -523,25 +523,25 @@ az network firewall nat-rule create --collection-name exampleset --destination-a
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 > [!NOTE]
-> Podczas usuwania usługi wewnętrznej usługi Kubernetes, jeśli wewnętrzny moduł równoważenia obciążenia nie jest już używany przez żadną usługę, dostawca chmury platformy Azure usunie wewnętrzny moduł równoważenia obciążenia. Przy następnym wdrożeniu usługi moduł równoważenia obciążenia zostanie wdrożony, jeśli nie można znaleźć żadnego z żądaną konfiguracją.
+> W przypadku usuwania usługi wewnętrznej Kubernetes, jeśli wewnętrzny moduł równoważenia obciążenia nie jest już używany przez żadną usługę, dostawca chmury platformy Azure usunie wewnętrzny moduł równoważenia obciążenia. W następnym wdrożeniu usługi moduł równoważenia obciążenia zostanie wdrożony, jeśli nie można znaleźć żadnej z żądanych konfiguracji.
 
-Aby wyczyścić zasoby platformy Azure, usuń grupę zasobów AKS.
+Aby wyczyścić zasoby platformy Azure, Usuń grupę zasobów AKS.
 
 ```azure-cli
 az group delete -g $RG
 ```
 
-## <a name="validate-connectivity"></a>Sprawdzanie poprawności łączności
+## <a name="validate-connectivity"></a>Sprawdź poprawność łączności
 
-Przejdź do adresu IP frontendu zapory platformy Azure w przeglądarce, aby sprawdzić poprawność łączności.
+Przejdź do adresu IP frontonu zapory platformy Azure w przeglądarce, aby sprawdzić poprawność łączności.
 
 Powinien zostać wyświetlony obraz aplikacji do głosowania platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [omówienie UDR sieci platformy Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+Zobacz [Omówienie usługi Azure Network UDR](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
-Zobacz, [jak utworzyć, zmienić lub usunąć tabelę marszrut](https://docs.microsoft.com/azure/virtual-network/manage-route-table).
+Zobacz [jak utworzyć, zmienić lub usunąć tabelę tras](https://docs.microsoft.com/azure/virtual-network/manage-route-table).
 
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
