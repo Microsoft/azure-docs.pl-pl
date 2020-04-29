@@ -8,10 +8,10 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: fcc9876caf0c002650ab30b7eaed7dc44e2f135e
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82137743"
 ---
 # <a name="use-azure-files-with-linux"></a>Używanie usługi Azure Files z systemem Linux
@@ -249,18 +249,18 @@ Począwszy od jądra systemu Linux 4,18, moduł jądra protokołu SMB wywoływan
 | Dystrybucja | Może wyłączyć protokół SMB 1 |
 |--------------|-------------------|
 | Ubuntu 14.04-16.04 | Nie |
-| Ubuntu 18.04 | Yes |
-| Ubuntu 19.04 + | Yes |
+| Ubuntu 18.04 | Tak |
+| Ubuntu 19.04 + | Tak |
 | Debian 8-9 | Nie |
-| Debian 10 + | Yes |
-| Fedora 29 + | Yes |
+| Debian 10 + | Tak |
+| Fedora 29 + | Tak |
 | CentOS 7 | Nie | 
-| CentOS 8 + | Yes |
+| CentOS 8 + | Tak |
 | Red Hat Enterprise Linux 6. x-7. x | Nie |
-| Red Hat Enterprise Linux 8 + | Yes |
+| Red Hat Enterprise Linux 8 + | Tak |
 | openSUSE przestępnie 15,0 | Nie |
-| openSUSE przestępny 15.1 + | Yes |
-| openSUSE Tumbleweed | Yes |
+| openSUSE przestępny 15.1 + | Tak |
+| openSUSE Tumbleweed | Tak |
 | SUSE Linux Enterprise 11. x-12. x | Nie |
 | SUSE Linux Enterprise 15 | Nie |
 | SUSE Linux Enterprise 15,1 | Nie |
@@ -324,5 +324,5 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Azure Files:
 
 * [Planowanie wdrażania usługi Pliki Azure](storage-files-planning.md)
-* [Często zadawane pytania](../storage-files-faq.md)
+* [Najczęściej zadawane pytania](../storage-files-faq.md)
 * [Rozwiązywanie problemów](storage-troubleshoot-linux-file-connection-problems.md)

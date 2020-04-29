@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: mimckitt
 ms.openlocfilehash: 105279940546c8e5b40d1d8378b35f85af1ea98b
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82099550"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events maszyn wirtualnych z systemem Windows
@@ -56,7 +56,7 @@ Jeśli maszyna wirtualna nie zostanie utworzona w ramach Virtual Network, domyś
 ### <a name="version-and-region-availability"></a>Dostępność wersji i regionu
 Usługa Scheduled Events jest w wersji. Wersje są obowiązkowe, a bieżąca wersja to `2019-01-01`.
 
-| Wersja | Typ wydania | Regiony | Uwagi do wersji | 
+| Wersja | Typ wydania | Regiony | Informacje o wersji | 
 | - | - | - | - |
 | 2019-01-01 | Ogólna dostępność | Wszystkie | <li> Dodano obsługę funkcji EventType dla zestawów skalowania maszyn wirtualnych |
 | 2017-11-01 | Ogólna dostępność | Wszystkie | <li> Dodano obsługę elementu EventType punktu wykluczania maszyny wirtualnej<br> | 

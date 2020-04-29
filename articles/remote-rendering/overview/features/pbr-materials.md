@@ -6,83 +6,83 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 64553506f75451c50a87932904f00a7275ea9286
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680260"
 ---
 # <a name="pbr-materials"></a>Materiały PBR
 
-*Materiały PBR* są jednym z obsługiwanych [typów materiałów](../../concepts/materials.md) w renderowaniu zdalnym platformy Azure. Są one używane do [oczek,](../../concepts/meshes.md) które powinny otrzymać realistyczne oświetlenie.
+*Materiały PBR* to jeden z obsługiwanych [typów materiałów](../../concepts/materials.md) w ramach renderowania zdalnego na platformie Azure. Są one używane w przypadku [siatek](../../concepts/meshes.md) , które powinny otrzymać realistyczne oświetlenie.
 
-PBR oznacza **P**hysically **B**ased **R**endering i oznacza, że materiał opisuje właściwości wizualne powierzchni w sposób fizycznie wiarygodne, tak, że realistyczne wyniki są możliwe w każdych warunkach oświetleniowych. Większość nowoczesnych silników gier i narzędzi do tworzenia treści obsługuje materiały PBR, ponieważ są one uważane za najlepsze przybliżenie rzeczywistych scenariuszy renderowania w czasie rzeczywistym.
+Sekcja PBR to **P**hysically **B**ased **R**endering i oznacza, że materiał opisuje wizualizacje właściwości powierzchni w sposób fizyczny, tak że realistyczne wyniki są możliwe w przypadku wszystkich warunków oświetlenia. Większość nowoczesnych aparatów gier i narzędzi do tworzenia zawartości obsługuje te materiały, ponieważ są one uznawane za najlepsze przybliżenie rzeczywistych scenariuszy dla renderowania w czasie rzeczywistym.
 
-![Model próbki glTF kasku renderowany przez ARR](media/helmet.png)
+![Przykładowy model Kaska glTF renderowany przez ARR](media/helmet.png)
 
-Materiały PBR nie są jednak rozwiązaniem uniwersalnym. Istnieją materiały, które odbijają kolor inaczej w zależności od kąta widzenia. Na przykład, niektóre tkaniny lub farby samochodowe. Tego rodzaju materiały nie są obsługiwane przez standardowy model PBR i obecnie nie są obsługiwane przez zdalne renderowanie platformy Azure. Obejmuje to rozszerzenia PBR, takie jak *Cienka folia* (powierzchnie wielowarstwowe) i *Clear-Coat* (do farb samochodowych).
+Materiały PBR nie są rozwiązaniem uniwersalnym, chociaż. Istnieją materiały, które odzwierciedlają kolor inaczej, w zależności od kąta wyświetlania. Na przykład niektóre sieci szkieletowe lub farby samochodu. Tego rodzaju materiały nie są obsługiwane przez standardowy model PBR i nie są obecnie obsługiwane przez zdalne renderowanie na platformie Azure. Obejmuje to rozszerzenia PBR, takie jak *cienkie klisze* (powierzchnie wielowarstwowe) i *jasne* (dla farb samochodowych).
 
-## <a name="common-material-properties"></a>Wspólne właściwości materiału
+## <a name="common-material-properties"></a>Właściwości wspólnego materiału
 
-Właściwości te są wspólne dla wszystkich materiałów:
+Te właściwości są wspólne dla wszystkich materiałów:
 
-* **albedoColor:** Ten kolor jest mnożony z innymi kolorami, takimi jak *albedoMap* lub *kolory wierzchołków*. Jeśli *przezroczystość* jest włączona na materiale, kanał alfa jest `1` używany do regulacji `0` krycia, co oznacza, że jest w pełni nieprzezroczysty i oznacza w pełni przezroczysty. Wartość domyślna to biały.
+* **albedoColor:** Ten kolor jest mnożony przez inne kolory, takie jak *albedoMap* lub *kolor wierzchołka*. Jeśli *przezroczystość* jest włączona w materiale, kanał alfa jest używany do dostosowywania nieprzezroczystości, `1` co oznacza całkowite nieprzezroczystość i `0` znaczenie w pełni przezroczyste. Wartość domyślna to biały.
 
   > [!NOTE]
-  > Gdy materiał PBR jest w pełni przezroczysty, jak idealnie czysty kawałek szkła, nadal odzwierciedla środowisko. Jasne plamy, takie jak słońce, są nadal widoczne w refleksji. Inaczej jest w przypadku [materiałów kolorowych](color-materials.md).
+  > Gdy materiał PBR jest całkowicie przezroczysty, podobnie jak idealnie czysty fragment, nadal odzwierciedla środowisko. Jasne plamy, takie jak słońce, są nadal widoczne w odbiciu. Różni się to w przypadku [materiałów kolorowych](color-materials.md).
 
-* **albedoMap:** [Tekstura 2D](../../concepts/textures.md) dla wartości albedo na piksel.
+* **albedoMap:** [Tekstura 2D](../../concepts/textures.md) dla wartości albedo dla pikseli.
 
-* **alphaClipEnabled** i **alphaClipThreshold:** Jeśli *alphaClipEnabled* jest prawdziwe, wszystkie piksele, w których wartość alfa albedo jest niższa niż *alfaClipThreshold* nie zostaną narysowane. Przycinanie alfa może być używane nawet bez włączania przezroczystości i jest znacznie szybsze do renderowania. Alpha obcięte materiały są nadal wolniejsze do renderowania niż w pełni nieprzezroczyste materiały, choć. Domyślnie przycinanie alfa jest wyłączone.
+* **alphaClipEnabled** i **AlphaClipThreshold:** Jeśli *alphaClipEnabled* ma wartość true, wszystkie piksele, w których wartość alfa albedo jest niższa niż *alphaClipThreshold* , nie będą rysowane. Przycinanie alfa może być używane nawet bez włączania przezroczystości i jest znacznie szybsze do renderowania. Materiały przycinane alfa są ciągle wolniejsze, aby były renderowane od całkowicie nieprzezroczystych materiałów. Domyślnie przycinanie alfa jest wyłączone.
 
-* **textureCoordinateScale** i **textureCoordinateOffset:** Skala jest mnożona do współrzędnych tekstury UV, do niej dodaje się przesunięcie. Może być używany do rozciągania i przesuwania tekstur. Domyślna skala to (1, 1), a przesunięcie to (0, 0).
+* **textureCoordinateScale** i **textureCoordinateOffset:** Skala jest mnożona do współrzędnych tekstury UV, przesunięcie jest dodawane do niego. Może służyć do rozciągnięcia i przesunięcia tekstur. Domyślna Skala to (1, 1), a przesunięcie to (0, 0).
 
-* **useVertexColor:** Jeśli siatka zawiera kolory wierzchołków i ta opcja jest włączona, kolory wierzchołków siatki są mnożone do *albedoColor* i *albedoMap*. Domyślnie kolory wierzchołków są wyłączone.
+* **useVertexColor:** Jeśli siatka zawiera kolory wierzchołków, a ta opcja jest włączona, kolory wierzchołka siatki są mnożone do *albedoColor* i *albedoMap*. Domyślnie kolory wierzchołków są wyłączone.
 
-* **isDoubleSided:** Jeśli dwustronność jest ustawiona na true, trójkąty z tym materiałem są renderowane, nawet jeśli aparat patrzy na ich tylne ściany. W przypadku materiałów PBR oświetlenie jest również prawidłowo obliczane dla tylnych ścian. Domyślnie ta opcja jest wyłączona. Zobacz też [Renderowanie jednostronne](single-sided-rendering.md).
+* **isDoubleSided:** Jeśli jest ustawiona wartość true, Trójkąty z tym materiałem są renderowane, nawet jeśli lampa jest oglądana na ich powierzchni. W przypadku oświetlenia materiałów PBR również jest obliczana prawidłowo dla twarzy z tyłu. Domyślnie ta opcja jest wyłączona. Zobacz również [renderowanie jednostronne](single-sided-rendering.md).
 
 ## <a name="pbr-material-properties"></a>Właściwości materiału PBR
 
-Podstawową ideą renderowania opartego fizycznie jest użycie właściwości *BaseColor,* *Metalness*i *Roughness* do emulowania szerokiej gamy rzeczywistych materiałów. Szczegółowy opis PBR wykracza poza zakres tego artykułu. Aby uzyskać więcej informacji na temat PBR, zobacz [inne źródła](http://www.pbr-book.org). Następujące właściwości są specyficzne dla materiałów PBR:
+Podstawowy pomysł renderowania opartego na fizycznie polega na użyciu właściwości *BaseColor*, *metalu*i *chropowatości* do emulowania szerokiego zakresu materiałów rzeczywistych. Szczegółowy opis programu PBR wykracza poza zakres tego artykułu. Aby uzyskać więcej informacji na temat usługi PBR, zobacz [inne źródła](http://www.pbr-book.org). Następujące właściwości są specyficzne dla materiałów PBR:
 
-* **baseKolor:** W materiałach PBR *kolor albedo* jest określany jako *kolor bazowy.* W usłudze Azure Remote Rendering właściwość *koloru albedo* jest już obecna za pośrednictwem wspólnych właściwości materiału, więc nie ma żadnej dodatkowej właściwości koloru bazowego.
+* **baseColor:** W materiałach PBR *kolor albedo* jest określany jako *kolor podstawowy*. W przypadku renderowania zdalnego na platformie Azure Właściwość *Color albedo* jest już obecna za pomocą wspólnych właściwości materiału, więc nie istnieje dodatkowa Właściwość koloru podstawowego.
 
-* **chropowatość** i **chropowatośćMap:** Chropowatość określa, jak chropowatość jest chropowata lub gładka. Szorstkie powierzchnie rozpraszają światło w większej liczbie kierunków niż gładkie powierzchnie, co sprawia, że odbicia są niewyraźne, a nie ostre. Zakres wartości wynosi `0.0` `1.0`od do . Gdy `roughness` jest `0.0`równa , odbicia będą ostre. Gdy `roughness` jest `0.5`równa , odbicia staną się rozmazane.
+* **niesztywność** i **roughnessMap:** sztywność definiuje, jak sztywne lub gładkie powierzchni. Nieprzemieszczone powierzchnie rozpraszają światło w większej liczbie kierunków niż gładkie powierzchnie, co sprawia, że odbicia są rozmyte, a nie ostre. Zakres wartości jest z `0.0` do. `1.0` Gdy `roughness` jest `0.0`równe, odbicia będzie ostro. Gdy `roughness` jest `0.5`równe, odbicia staną się zamazane.
 
-  Jeśli podano zarówno wartość chropowatości, jak i mapę chropowatości, wartość końcowa będzie wynikiem tych dwóch.
+  W przypadku podania zarówno wartości nieilościowej, jak i mapy o niesztywnej wartości końcowej będzie iloczyn dwóch.
 
-* **metalowość** i **metalowośćMapa:** W fizyce ta właściwość odpowiada, czy powierzchnia jest przewodząca, czy dielektryczna. Materiały przewodzące mają różne właściwości odblaskowe i wydają się być odblaskowe bez koloru albedo. W materiałach PBR ta właściwość wpływa na to, jak bardzo powierzchnia odzwierciedla otaczające środowisko. Wartości wahają `0.0` `1.0`się od do . Gdy metalowość jest, `0.0`kolor albedo jest w pełni widoczny, a materiał wygląda jak plastik lub ceramika. Gdy metalowość jest `0.5`, wygląda jak malowany metal. Gdy metalowość jest `1.0`, powierzchnia prawie całkowicie traci swój kolor albedo i odzwierciedla tylko otoczenie. Na przykład, `metalness` `1.0` jeśli `roughness` `0.0` jest i jest to powierzchnia wygląda jak prawdziwe lustro.
+* **metalu** i **metalnessMap:** w fizyka, ta właściwość odnosi się do tego, czy powierzchnia jest przeprowadzona czy nieruchoma. Materiały przewodzące mają różne właściwości odbijające i mają być odzwierciedlane bez koloru albedo. W materiałach PBR ta właściwość ma wpływ na to, ile powierzchni odzwierciedla otoczenie otoczenia. Zakres wartości od `0.0` do `1.0`. Gdy metalu jest `0.0`, kolor albedo jest w pełni widoczny i materiał wygląda jak plastikowe lub ceramiczne. Gdy metale jest `0.5`, wygląda na to, że jest to kolor malowany. Gdy metalowy jest `1.0`, powierzchnia niemal całkowicie traci kolor albedo i odzwierciedla tylko otoczenie. `metalness` Na przykład jeśli `1.0` jest i `roughness` jest `0.0` to powierzchnia wygląda podobnie jak w świecie rzeczywistym.
 
-  Jeśli podano zarówno wartość metalowości, jak i mapę metalowości, wartość końcowa będzie wynikiem tych dwóch.
+  Jeśli zostanie podana zarówno wartość metalu, jak i mapa metalu, końcowa wartość będzie iloczynem dwóch.
 
-  ![metalność i chropowatość](./media/metalness-roughness.png)
+  ![metalowy i niesztywność](./media/metalness-roughness.png)
 
-  Na powyższym zdjęciu kula w prawym dolnym rogu wygląda jak prawdziwy metalowy materiał, lewy dolny róg wygląda jak ceramika lub plastik. Kolor albedo zmienia się również w zależności od właściwości fizycznych. Wraz ze wzrostem chropowatości materiał traci ostrość odbicia.
+  Na powyższym rysunku sfera w prawym dolnym rogu wygląda podobnie do rzeczywistego materiału metalowego, po lewej stronie wygląda jak ceramiczna lub plastikowa. Kolor albedo jest zmieniany również w zależności od właściwości fizycznych. Dzięki zwiększeniu sztywności materiał traci ostrość odbicia.
 
-* **normalMap:** Aby symulować szczegółowe dane, można zapewnić [normalną mapę.](https://en.wikipedia.org/wiki/Normal_mapping)
+* **normalMap:** Aby symulować szczegółowe informacje, można podać [mapę normalną](https://en.wikipedia.org/wiki/Normal_mapping) .
 
-* **okluzjiMapa** i **aoScale:** [Okluzja otoczenia](https://en.wikipedia.org/wiki/Ambient_occlusion) sprawia, że obiekty z szczelinami wyglądają bardziej realistycznie, dodając cienie do obszarów okluzjonych. Wartość okluzji `0.0` waha `1.0`się `0.0` od do , gdzie `1.0` oznacza ciemność (okludy) i oznacza brak okluzji. Jeśli tekstura 2D jest dostarczana jako mapa okluzji, efekt jest włączony i *aoScale* działa jako mnożnik.
+* **occlusionMap** i **aoScale:** otoczenie [zamknięcia](https://en.wikipedia.org/wiki/Ambient_occlusion) sprawia, że obiekty z crevices wyglądają bardziej realistycznie przez dodanie cieni do obszarów zamknięte. Zamknięcia zakres wartości z `0.0` do `1.0`, gdzie `0.0` oznacza zaciemnienie (zamknięte) `1.0` i oznacza brak Occlusions. Jeśli tekstura 2D jest określona jako mapa zamknięcia, efekt jest włączony i *aoScale* działa jako mnożnik.
 
-  ![Mapa okluzji](./media/boom-box-ao2.gif)
+  ![Mapa zamknięcia](./media/boom-box-ao2.gif)
 
-* **przejrzyste:** W przypadku materiałów PBR istnieje tylko jedno ustawienie przezroczystości: jest włączone lub nie. Krycie jest definiowane przez kanał alfa koloru albedo. Po włączeniu potok renderowania bardziej złożony jest wywoływany do rysowania powierzchni półprzezroczystych. Renderowanie zdalne platformy Azure implementuje [przezroczystość niezależną od](https://en.wikipedia.org/wiki/Order-independent_transparency) rzeczywistych zamówień (OIT).
+* **przezroczysty:** W przypadku materiałów PBR istnieje tylko jedno ustawienie przejrzystości: jest ono włączone lub nie. Nieprzezroczystość jest definiowana przez kanał alfa koloru albedo. Gdy ta funkcja jest włączona, zostanie wywołany bardziej skomplikowany potok renderowania, aby rysować powierzchnie częściowo przezroczyste. Zdalne renderowanie na platformie Azure implementuje prawdziwie [niezależną od kolejności przejrzystości](https://en.wikipedia.org/wiki/Order-independent_transparency) (OIT).
 
-  Przezroczysta geometria jest kosztowna do renderowania. Jeśli potrzebujesz tylko otworów w powierzchni, na przykład dla liści drzewa, lepiej jest użyć przycinania alfa.
+  Renderowanie przezroczystej geometrii jest kosztowne. Jeśli potrzebujesz tylko otworów na powierzchni, na przykład dla liści drzewa, lepiej jest użyć przycinania alfa.
 
-  ![Przejrzystość](./media/transparency.png) Zawiadomienie na powyższym obrazie, jak prawo najbardziej kula jest w pełni przezroczyste, ale odbicie jest nadal widoczne.
+  ![Na](./media/transparency.png) powyższym obrazie powinna zostać wyświetlona informacja o przezroczystości, w jaki sposób najbardziej przejrzysty jest zakres z prawej strony, ale odbicie jest nadal widoczne.
 
   > [!IMPORTANT]
-  > Jeśli dowolny materiał ma zostać przełączony z nieprzezroczystego na przezroczysty w czasie wykonywania, moduł renderowania musi użyć [trybu renderowania](../../concepts/rendering-modes.md) *TileBasedComposition* . Ograniczenie to nie ma zastosowania do materiałów, które są konwertowane jako przezroczyste materiały na początek.
+  > Jeśli dowolny materiał ma być przełączany z nieprzezroczystego na przezroczysty w czasie wykonywania, moduł renderowania musi używać [trybu renderowania](../../concepts/rendering-modes.md) *TileBasedComposition* . To ograniczenie nie ma zastosowania do materiałów, które są konwertowane jako przezroczyste materiały, aby zaczynać się od.
 
 ## <a name="technical-details"></a>Szczegóły techniczne
 
-Renderowanie zdalne platformy Azure używa programu BrDF mikroasetowego Cook-Torrance z GGX NDF, Schlick Fresnel i terminem GGX Smith skorelowanym terminem widoczności z terminem rozproszonym Lamberta. Ten model jest obecnie de facto standardem branżowym. Aby uzyskać więcej szczegółowych informacji, zapoznaj się z tym [artykułem: Renderowanie oparte fizycznie - Cook Torrance](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
+Zdalne renderowanie na platformie Azure używa mikroaspektu Cooka-Torrance BRDF z systemem GGX NDF, Schlick wygaszania Fresnela i GGXego okresu widoczności z lambertaą Ten model jest w tej chwili niefaktycznym standardem branżowym. Więcej szczegółowych informacji można znaleźć w tym artykule: [Torrance renderowanie oparte na fizycznie](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
 
- Alternatywą dla modelu PBR *metalness-Roughness* używanego w renderowaniu zdalnym platformy Azure jest model PBR *specular-Glossiness.* Ten model może reprezentować szerszą gamę materiałów. Jednak jest droższy i zwykle nie działa dobrze w przypadkach w czasie rzeczywistym.
-Nie zawsze jest możliwe przekonwertowanie z *Specular-Glossiness* na *Metalness-Roughness,* ponieważ istnieją pary wartości *(rozproszone, specularne),* które nie mogą być konwertowane na *(BaseColor, Metalness)*. Konwersja w drugim kierunku jest prostsza i bardziej precyzyjna, ponieważ wszystkie pary *(BaseColor, Metalness)* odpowiadają dobrze zdefiniowanym *parom (rozproszonym, specularnym).*
+ Alternatywą dla modelu *"Niesztywności"* używanym podczas renderowania zdalnego na platformie Azure jest model *odblasków-Glossiness* PBR. Ten model może reprezentować szerszy zakres materiałów. Jest to jednak droższe i zwykle nie działa prawidłowo w przypadku przypadków w czasie rzeczywistym.
+Nie zawsze jest możliwe przekonwertowanie z *odblasków-Glossiness* na *sztywność* , ponieważ istnieją pary wartości *(rozpraszające, odblasków)* , których nie można przekonwertować na *(BaseColor, metalu)*. Konwersja w innym kierunku jest prostsza i bardziej precyzyjna, ponieważ wszystkie pary *(BaseColor, metale)* odpowiadają dokładnie zdefiniowanym par *(rozpraszaniem, odblasków)* .
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Materiały kolorowe](color-materials.md)
+* [Materiały kolorów](color-materials.md)
 * [Tekstury](../../concepts/textures.md)
 * [Siatki](../../concepts/meshes.md)

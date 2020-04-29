@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie hasłami i numerami telefonów za pomocą programu Mój personel (wersja zapoznawcza) — Azure AD | Dokumenty firmy Microsoft
-description: Zarządzanie hasłami i numerami telefonów dla użytkowników za pomocą usługi Mój personel
+title: Zarządzanie hasłami i numerami telefonów z moim personelem (wersja zapoznawcza) — Azure AD | Microsoft Docs
+description: Zarządzanie hasłami i numerami telefonów użytkowników z moim personelem
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,103 +14,103 @@ ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: 29c27c876e90bce6a38226f68adf44a26465cfea
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81770868"
 ---
 # <a name="delegate-user-management-with-my-staff-preview"></a>Delegowanie zarządzania użytkownikami za pomocą mojego personelu (wersja zapoznawcza)
 
-Organizacja może używać **moich pracowników** do delegowania zadań zarządzania użytkownikami do osób odpowiedzialnych, takich jak kierownik sklepu lub kierownik zespołu, aby pomóc swoim pracownikom uzyskać dostęp do potrzebnych im aplikacji. Jeśli członek zespołu nie może uzyskać dostępu do aplikacji, ponieważ nie zapomni hasła, wydajność zostanie utracona. Zwiększa to również koszty pomocy technicznej i powoduje wąskie gardło w procesach administracyjnych.  Dzięki mojemu personelowi członek zespołu, który nie może uzyskać dostępu do swojego konta, może odzyskać dostęp za pomocą zaledwie kilku kliknięć, bez potrzeby pomocy administratora.
+Organizacja może używać **mojego personelu** do delegowania zadań związanych z zarządzaniem użytkownikami do danych o urzędach, takich jak kierownik sklepu lub lider zespołu, aby pomóc swoim członkom personelu uzyskiwać dostęp do aplikacji, których potrzebują. Jeśli członek zespołu nie może uzyskać dostępu do aplikacji, ponieważ zapomina hasła, produktywność zostanie utracona. Umożliwia to także zmniejszenie kosztów pomocy technicznej i powoduje wąskie gardło w procesach administracyjnych.  W przypadku mojego personelu członek zespołu, który nie może uzyskać dostępu do swojego konta, może odzyskać dostęp w zaledwie kilka kliknięć, bez konieczności pomocy administratora.
 
-## <a name="manage-your-staff-in-my-staff"></a>Zarządzaj swoimi pracownikami w my staff
+## <a name="manage-your-staff-in-my-staff"></a>Zarządzanie personelem w mojej kadrze
 
-Zarządzanie członkami zespołu w moim sztabie jest proste. Aby rozpocząć, [przejdź do pozycji Mój personel](https://aka.ms/mystaff), wybierz zespół lub lokalizację, a następnie wybierz użytkownika. Lokalizacje i członkowie zespołu w lokalizacji są określane przez administratora IT i nie można ich zmienić.
+Zarządzanie członkami zespołu w obszarze mój personel jest proste. Aby rozpocząć, [Przejdź do obszaru mój personel](https://aka.ms/mystaff), wybierz zespół lub lokalizację, a następnie wybierz użytkownika. Lokalizacje i członkowie zespołu w lokalizacji są określane przez administratora IT i nie można ich zmienić.
 
-Jeśli zarządzasz więcej niż jedną lokalizacją, gdy przejdziesz do strony Mój personel, musisz wybrać lokalizację, aby wyświetlić członka zespołu, który jest przypisany do lokalizacji.
+Jeśli zarządzasz więcej niż jedną lokalizacją, po przejściu do obszaru mój personel musisz wybrać lokalizację, aby zobaczyć członka zespołu, który jest przypisany do lokalizacji.
 
-Jeśli nie masz jeszcze wystarczających uprawnień dostępu do mojego personelu, zobaczysz następujący komunikat "Ups, wydaje się, że nie masz uprawnień do wyświetlania moich pracowników w tej chwili. Aby uzyskać więcej informacji, skontaktuj się z administratorem."
+Jeśli jeszcze nie masz wystarczających uprawnień, aby uzyskać dostęp do mojego personelu, zobaczysz następujący komunikat "Niestety, prawdopodobnie nie masz uprawnień do wyświetlenia mojego personelu w tym momencie. Aby uzyskać więcej informacji, skontaktuj się z administratorem.
 
-### <a name="find-a-staff-member-in-my-staff"></a>Znajdź pracownika w : Mój personel
+### <a name="find-a-staff-member-in-my-staff"></a>Znajdź członka personelu w mojej kadrze
 
-Aby rozpocząć zarządzanie nim, należy otworzyć profil pracownika.
+Aby móc rozpocząć zarządzanie nimi, musisz otworzyć profil członka personelu.
 
-1. [Otwórz pozycję Mój personel](https://aka.ms/mystaff) i w razie potrzeby wybierz lokalizację.
+1. [Otwórz mój personel](https://aka.ms/mystaff) i w razie konieczności wybierz lokalizację.
 
-    ![Wybieranie lokalizacji dla członka zespołu w obszarze Mój personel](media/my-staff-team-manager/allaus.png)
+    ![Wybierz lokalizację członka zespołu w obszarze mój personel](media/my-staff-team-manager/allaus.png)
 
 1. Otwórz profil członka zespołu.
 
-    ![Wybierz jednego z użytkowników w lokalizacji w obszarze Mój personel](media/my-staff-team-manager/aupage.png)
+    ![Wybierz jednego z użytkowników w lokalizacji w obszarze mój personel](media/my-staff-team-manager/aupage.png)
 
 ## <a name="reset-a-user-password"></a>Resetowanie hasła użytkownika
 
-Jeśli twoja organizacja udzieliła Ci uprawnień, możesz zresetować hasła dla członków personelu.
+Jeśli Twoja organizacja ma odpowiednie uprawnienia, możesz zresetować hasła dla członków personelu.
 
-1. [Otwórz mój personel](https://aka.ms/mystaff).
-1. Otwórz profil pracownika.
-1. Wybierz **pozycję Resetuj hasło**.
+1. [Otwórz stronę mój personel](https://aka.ms/mystaff).
+1. Otwórz profil członka personelu.
+1. Wybierz pozycję **Resetuj hasło**.
 
-    ![Resetowanie hasła użytkownika w obszarze Mój personel](media/my-staff-team-manager/resetpassword1.png)
+    ![Zresetuj hasło użytkownika w obszarze mój personel](media/my-staff-team-manager/resetpassword1.png)
 
-1. Wygeneruj lub wprowadź nowe hasło. Może zostać wyświetlone automatycznie wygenerowane hasło tymczasowe lub może zostać wyświetlony monit o wprowadzenie tymczasowego hasła dla użytkownika.
+1. Generuj lub wprowadź nowe hasło. Może zostać wyświetlone automatycznie generowane hasło tymczasowe lub może zostać wyświetlony monit o wprowadzenie hasła tymczasowego dla użytkownika.
 
-    ![Kopiowanie tymczasowego hasła użytkownika po zresetowaniu w folderze Mój personel](media/my-staff-team-manager/resetpassword2.png)
+    ![Skopiuj hasło użytkownika tymczasowego po zresetowaniu do mojego personelu](media/my-staff-team-manager/resetpassword2.png)
 
-Po zresetowaniu hasła użytkownika podaj użytkownikowi hasło tymczasowe. Gdy użytkownik zaloguje się przy za pomocą tymczasowego hasła, musi je zmienić.
+Po zresetowaniu hasła użytkownika nadaj użytkownikowi hasło tymczasowe. Gdy użytkownik zaloguje się przy użyciu hasła tymczasowego, musi je zmienić.
 
 ## <a name="manage-a-users-phone-number"></a>Zarządzanie numerem telefonu użytkownika
 
-Jeśli twoja organizacja udzieliła Ci uprawnień, możesz zarządzać numerami telefonów dla członków personelu.
+Jeśli Twoja organizacja ma odpowiednie uprawnienia, możesz zarządzać numerami telefonów dla członków personelu.
 
 ### <a name="add-a-phone-number"></a>Dodawanie numeru telefonu
 
-1. [Otwórz mój personel](https://aka.ms/mystaff).
-1. Otwórz profil pracownika.
-1. Wybierz **pozycję Dodaj numer telefonu**.
+1. [Otwórz stronę mój personel](https://aka.ms/mystaff).
+1. Otwórz profil członka personelu.
+1. Wybierz pozycję **Dodaj numer telefonu**.
 
-    ![Dodawanie numeru telefonu użytkownika w aplikacji Mój personel](media/my-staff-team-manager/addphone1.png)
+    ![Dodawanie numeru telefonu użytkownika w obszarze mój personel](media/my-staff-team-manager/addphone1.png)
 
 1. Dodaj numer telefonu i wybierz pozycję **Zapisz**.
 
-    ![Zapisywanie dodanego numeru telefonu użytkownika w aplikacji Mój personel](media/my-staff-team-manager/addphone2.png)
+    ![Zapisz dodany numer telefonu użytkownika w obszarze mój personel](media/my-staff-team-manager/addphone2.png)
 
-Po zarejestrowaniu numeru telefonu dla użytkownika może go używać do logowania się za pomocą wiadomości SMS, przeprowadzania weryfikacji dwuetapowej lub samodzielnego resetowania hasła, w zależności od ustawień organizacji.
+Po zarejestrowaniu numeru telefonu użytkownika mogą go używać do logowania się przy użyciu programu SMS, przeprowadzania weryfikacji dwuetapowej lub resetowania własnego hasła w zależności od ustawień organizacji.
 
-![Nowy numer telefonu zarejestrowany w my staff](media/my-staff-team-manager/addphone3.png)
+![Nowy numer telefonu zarejestrowany dla mojego personelu](media/my-staff-team-manager/addphone3.png)
 
 ### <a name="edit-a-phone-number"></a>Edytowanie numeru telefonu
 
-1. [Otwórz mój personel](https://aka.ms/mystaff).
-1. Otwórz profil pracownika.
-1. Wybierz **pozycję Edytuj numer telefonu**.
+1. [Otwórz stronę mój personel](https://aka.ms/mystaff).
+1. Otwórz profil członka personelu.
+1. Wybierz pozycję **Edytuj numer telefonu**.
 
-    ![Wybierz pozycję Edytuj z profilu użytkownika w obszarze Mój personel](media/my-staff-team-manager/editphone2.png)
+    ![Wybierz pozycję Edytuj z profilu użytkownika w obszarze mój personel](media/my-staff-team-manager/editphone2.png)
 
 1. Wprowadź nowy numer telefonu i wybierz pozycję **Zapisz**.
 
-    ![Edytowanie numeru telefonu pracownika w aplikacji Mój personel](media/my-staff-team-manager/editphone1.png)
+    ![Edytowanie służbowego numeru telefonu członka personelu](media/my-staff-team-manager/editphone1.png)
 
-### <a name="enable-phone-number-sign-in-for-a-user"></a>Włączanie logowania numeru telefonu dla użytkownika
+### <a name="enable-phone-number-sign-in-for-a-user"></a>Włącz logowanie do numeru telefonu dla użytkownika
 
-Jeśli logowanie przy użyciu numeru telefonu jako nazwy użytkownika (logowania SMS) jest włączone w organizacji, można dodać to uwierzytelnianie do istniejącego numeru telefonu użytkownika.
+Jeśli w organizacji jest włączona funkcja logowania przy użyciu numeru telefonu jako nazwy użytkownika (Logowanie SMS), możesz dodać to uwierzytelnianie do istniejącego numeru telefonu użytkownika.
 
-1. [Otwórz mój personel](https://aka.ms/mystaff).
-1. Otwórz profil pracownika.
-1. Jeśli u dołu ekranu znajduje się komunikat informujący, że logowanie się przy użyciu numeru telefonu jako nazwy użytkownika jest dla Ciebie dostępne, wybierz **włącz,** aby rozpocząć proces. Ten komunikat pojawia się, jeśli użytkownik ma włączoną funkcję logowania się przy za pomocą swojego numeru telefonu.
+1. [Otwórz stronę mój personel](https://aka.ms/mystaff).
+1. Otwórz profil członka personelu.
+1. Jeśli na dole ekranu znajduje się komunikat informujący o tym, że logowanie przy użyciu numeru telefonu jest dostępne dla Ciebie, wybierz pozycję **Włącz** , aby rozpocząć proces. Ten komunikat jest wyświetlany, jeśli użytkownik włączył Logowanie przy użyciu numeru telefonu.
 
-    ![Wyświetlanie wiadomości, gdy logowanie się przez telefon jest obsługiwane w lokalizacji w umiejeń i personelu](media/my-staff-team-manager/enableforms1.png)
+    ![Zobacz komunikat, gdy logowanie za pomocą telefonu jest obsługiwane w lokalizacji w ramach mojego personelu](media/my-staff-team-manager/enableforms1.png)
 
-1. Po zakończeniu wybierz przycisk **OK.**
+1. Po zakończeniu wybierz **przycisk OK** .
 
-    ![Usuwanie numeru telefonu pracownika w aplikacji Mój personel](media/my-staff-team-manager/enableforms2.png)
+    ![Usuwanie służbowego numeru telefonu członka personelu](media/my-staff-team-manager/enableforms2.png)
 
-### <a name="remove-a-phone-number"></a>Usuwanie numeru telefonu
+### <a name="remove-a-phone-number"></a>Usuń numer telefonu
 
-1. [Otwórz mój personel](https://aka.ms/mystaff).
-1. Otwórz profil pracownika.
-1. Wybierz **pozycję Usuń numer telefonu**.
-1. Po zakończeniu wybierz **pozycję Usuń.**
+1. [Otwórz stronę mój personel](https://aka.ms/mystaff).
+1. Otwórz profil członka personelu.
+1. Wybierz pozycję **Usuń numer telefonu**.
+1. Po zakończeniu wybierz pozycję **Usuń** .
 
-    ![Usuwanie numeru telefonu pracownika w aplikacji Mój personel](media/my-staff-team-manager/deletephone1.png)
+    ![Usuwanie służbowego numeru telefonu członka personelu](media/my-staff-team-manager/deletephone1.png)

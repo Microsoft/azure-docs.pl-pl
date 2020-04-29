@@ -1,6 +1,6 @@
 ---
-title: Tworzenie oferty maszyny wirtualnej platformy Azure — azure marketplace
-description: Dowiedz się, jak utworzyć ofertę maszyn wirtualnych w komercyjnym rynku.
+title: Tworzenie oferty maszyny wirtualnej platformy Azure — Azure Marketplace
+description: Dowiedz się, jak utworzyć ofertę maszyny wirtualnej w portalu komercyjnym.
 author: emuench
 ms.author: mingshen
 ms.service: marketplace
@@ -8,553 +8,553 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.openlocfilehash: d598f741c5add58a89aa2b7aa01802a7e35f9a19
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869058"
 ---
-# <a name="create-an-azure-virtual-machine-offer"></a>Tworzenie oferty maszyn wirtualnych platformy Azure
+# <a name="create-an-azure-virtual-machine-offer"></a>Tworzenie oferty maszyny wirtualnej platformy Azure
 
 > [!IMPORTANT]
-> Przenosimy zarządzanie ofertami maszyn wirtualnych platformy Azure z portalu Cloud Partner do Centrum partnerów. Dopóki oferty nie zostaną zmigrowane, postępuj zgodnie z instrukcjami w [programie Tworzenie maszyny wirtualnej](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-offer) w portalu cloud partner, aby zarządzać ofertami.
+> Przenosimy zarządzanie ofertami maszyn wirtualnych platformy Azure z usługi portal Cloud Partner do Centrum partnerskiego. Dopóki Twoje oferty nie zostaną zmigrowane, nadal postępuj zgodnie z instrukcjami zawartymi w temacie [Tworzenie oferty maszyny wirtualnej](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-offer) w Portal Cloud partner, aby zarządzać ofertami.
 
-W tym artykule opisano sposób tworzenia i publikowania oferty maszyny wirtualnej platformy Azure w [portalu Azure Marketplace.](https://azuremarketplace.microsoft.com/) Dotyczy zarówno maszyn wirtualnych opartych na systemie Windows, jak i Linux, które zawierają system operacyjny, wirtualny dysk twardy (VHD) i maksymalnie 16 dysków z danymi.
+W tym artykule opisano sposób tworzenia i publikowania oferty maszyny wirtualnej platformy Azure w [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com/). Dotyczy zarówno maszyn wirtualnych opartych na systemie Windows, jak i Linux, które zawierają system operacyjny, wirtualny dysk twardy (VHD) oraz maksymalnie 16 dysków danych.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-### <a name="publishing-benefits"></a>Korzyści związane z publikowaniem
+### <a name="publishing-benefits"></a>Korzyści z publikowania
 
-Publikowanie w portalu Azure Marketplace ma następujące zalety:
+Publikowanie w witrynie Azure Marketplace ma następujące zalety:
 
 - Promuj swoją firmę przy użyciu marki Microsoft
-- Docieranie do ponad 100 milionów użytkowników usługi Office 365 i Dynamics 365 oraz ponad 200 000 organizacji za pośrednictwem portalu Azure Marketplace
-- Uzyskaj wysokiej jakości potencjalnych klientów z tych rynków
-- Promowanie usług przez zespoły firmy Microsoft i telesprzedaży
+- Docieraj do ponad 100 000 000 klientów z 365 pakietem Dynamics 200 000 365 i z platformą Azure
+- Zyskaj wysokiej jakości potencjalni klienci z tych rynków
+- Zyskaj swoje usługi przez zespoły pól i telesprzedaży firmy Microsoft
 
 ### <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Jeśli jeszcze tego nie zrobiono, zapoznaj się z [przewodnikiem publikowania oferty maszyny wirtualnej](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) i materiałem tej maszyny wirtualnej platformy Azure:
+Jeśli jeszcze tego nie zrobiono, zapoznaj się z [przewodnikiem publikowania oferty maszyn wirtualnych](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) i tym materiałem maszyny wirtualnej platformy Azure:
 
-- Przewodniki szybki start
-  - [Szablony szybki start platformy Azure](https://azure.microsoft.com/resources/templates/)
-  - [Szablony przewodnika Szybki start platformy GitHub](https://github.com/azure/azure-quickstart-templates)
+- Przewodniki Szybki Start
+  - [Szablony przewodników Szybki start platformy Azure](https://azure.microsoft.com/resources/templates/)
+  - [Szablony szybkiego startu platformy Azure w witrynie GitHub](https://github.com/azure/azure-quickstart-templates)
 - Samouczki
   - [Maszyny wirtualne z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
   - [Maszyny wirtualne z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - Samples
   - [Przykłady interfejsu wiersza polecenia platformy Azure dla maszyn wirtualnych z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
-  - [Maszyny wirtualne programu Azure PowerShell dla systemów Linux](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
+  - [Azure PowerShell dla maszyn wirtualnych z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
   - [Przykłady interfejsu wiersza polecenia platformy Azure dla maszyn wirtualnych z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
-  - [Maszyny wirtualne programu Azure PowerShell dla systemów Windows](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
+  - [Azure PowerShell dla maszyn wirtualnych z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
 
 ### <a name="fundamentals-in-technical-knowledge"></a>Podstawy wiedzy technicznej
 
-Projektowanie, tworzenie i testowanie tych zasobów wymaga czasu i wymaga wiedzy technicznej zarówno platformy Azure, jak i technologii używanych do tworzenia oferty.
+Projektowanie, kompilowanie i testowanie tych zasobów zabiera czas i wymaga znajomości wiedzy technicznej platformy Azure oraz technologii używanych do tworzenia oferty.
 
-Zespół inżynierów powinien zrozumieć następujące technologie firmy Microsoft:
+Zespół inżynieryjny powinien zrozumieć następujące technologie firmy Microsoft:
 
-- Podstawowa wiedza o [usługach platformy Azure](https://azure.microsoft.com/services/)
-- Jak [projektować i projektować aplikacje platformy Azure](https://azure.microsoft.com/solutions/architecture/)
-- Wiedza robocza na temat [maszyn wirtualnych platformy Azure,](https://azure.microsoft.com/services/virtual-machines/) [usługi Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)i sieci platformy [Azure](https://azure.microsoft.com/services/?filter=networking#networking)
+- Podstawowe informacje o [usługach platformy Azure](https://azure.microsoft.com/services/)
+- [Projektowanie i tworzenie architektury aplikacji platformy Azure](https://azure.microsoft.com/solutions/architecture/)
+- Wiedza praktyczna [Virtual Machines platformy](https://azure.microsoft.com/services/virtual-machines/)Azure, [usługi Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)i [sieci platformy Azure](https://azure.microsoft.com/services/?filter=networking#networking)
 
-## <a name="create-an-azure-virtual-machine-offer"></a>Tworzenie oferty maszyn wirtualnych platformy Azure
+## <a name="create-an-azure-virtual-machine-offer"></a>Tworzenie oferty maszyny wirtualnej platformy Azure
 
-Aby można było utworzyć ofertę maszyny wirtualnej platformy Azure, musisz mieć konto w portalu partnerów. Jeśli jeszcze go nie utworzyłeś, zobacz [Tworzenie konta w portalu partnerów](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+Aby można było utworzyć ofertę maszyny wirtualnej platformy Azure, musisz mieć komercyjne konto w witrynie Marketplace w centrum partnerskim. Jeśli jeszcze tego nie zrobiono, zobacz [Tworzenie komercyjnego konta witryny Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
 
-1. Zaloguj się do [Centrum partnerów,](https://partner.microsoft.com/dashboard/home)a następnie z górnego menu wybierz pozycję **Pulpit nawigacyjny**.
-2. Na pasku po lewej stronie nawigacyjnej wybierz pozycję **Rynek komercyjny**, a następnie **przegląd**.
-3. Na stronie **Przegląd** wybierz pozycję **+ Nowa oferta**, a następnie **maszynę wirtualną platformy Azure**. Zostanie wyświetlone okno dialogowe **Nowa oferta.**
+1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home), a następnie z górnego menu wybierz pozycję **pulpit nawigacyjny**.
+2. Na pasku nawigacyjnym po lewej stronie wybierz pozycję **komercyjna witryna Marketplace**, a następnie kliknij pozycję **Przegląd**.
+3. Na stronie **Przegląd** wybierz pozycję **+ Nowa oferta**, a następnie pozycję **maszyna wirtualna platformy Azure**. Zostanie wyświetlone okno dialogowe **Nowa oferta** .
 
-    ![Ilustruje stronę Przegląd w Centrum partnerów z wybranym przyciskiem Nowa oferta i ofertą maszyny wirtualnej platformy Azure.](media/avm-create7.png)
+    ![Ilustruje stronę przegląd w centrum partnerskim z wybraną pozycją nowy przycisk oferta i oferta Azure Virtual Machine.](media/avm-create7.png)
 
 ## <a name="offer-id-and-alias"></a>Identyfikator oferty i alias
 
-Wprowadź identyfikator **oferty**. Jest to unikatowy identyfikator dla każdej oferty na Twoim koncie.
+Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
-- Ten identyfikator jest widoczny dla klientów w adresie internetowym dla oferty portalu Marketplace oraz w usłudze Azure PowerShell i interfejsie wiersza polecenia platformy Azure, jeśli ma to zastosowanie.
-- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale bez spacji i jest ograniczona do 50 znaków. Na przykład, jeśli wprowadzisz **test-offer-1** tutaj, `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`adres internetowy oferty będzie .
-- Nie można zmienić identyfikatora oferty po wybraniu opcji **Utwórz**.
+- Ten identyfikator jest widoczny dla klientów w adresie sieci Web oferty witryny Marketplace oraz w Azure PowerShell i interfejsu wiersza polecenia platformy Azure, jeśli ma zastosowanie.
+- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1** tutaj, adres internetowy oferty będzie miał `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`wartość.
+- Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
 
-Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w Centrum partnerów. Ta nazwa nie jest używana w portalu Marketplace i różni się od nazwy oferty i innych wartości wyświetlanych klientom.
+Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim. Ta nazwa nie jest używana w portalu Marketplace i różni się od nazwy oferty i innych wartości widocznych dla klientów.
 
-Wybierz **pozycję Utwórz,** aby wygenerować ofertę i kontynuować.
+Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 ## <a name="offer-setup"></a>Konfiguracja oferty
 
-### <a name="test-drive"></a>Jazda próbna
+### <a name="test-drive"></a>Wersja testowa
 
-Skonfiguruj pokazową (jazdę próbną), która umożliwia klientom wypróbowanie oferty przed jej zakupem. Aby utworzyć środowisko demonstracyjne, które umożliwia klientom wypróbowanie oferty przez określony czas, zobacz [Test Drive oferty na rynku komercyjnym.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive)
+Skonfiguruj demonstrację (Test Drive), która umożliwia klientom wypróbowanie oferty przed jej zakupem. Aby utworzyć środowisko demonstracyjne, które umożliwia klientom wypróbowanie oferty przez ustalony okres, zobacz temat [testowanie oferty w komercyjnej witrynie Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
 
-Aby włączyć jazdę próbną, zaznacz pole wyboru **Włącz jazdę próbną.** Aby usunąć jazdę próbną z oferty, wyczyść to pole wyboru.
+Aby włączyć dysk testowy, zaznacz pole wyboru **Włącz dysk testowy** . Aby usunąć dysk testowy z oferty, wyczyść to pole wyboru.
 
-Dodatkowe zasoby dysku próbne:
+Dodatkowe zasoby dotyczące stacji testowych:
 
-- [Najlepsze praktyki techniczne](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Najlepsze rozwiązania techniczne](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Najlepsze rozwiązania marketingowe](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [Omówienie dysków testowych](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (upewnij się, że bloker wyskakujących wyskakujących wyskakujących jest wyłączony).
+- [Przegląd dysków testowych](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone).
 
 ### <a name="lead-management"></a>Zarządzanie potencjalnymi klientami
 
-Publikując ofertę na rynku komercyjnym za pomocą Centrum partnerskiego, połącz ją z systemem CRM (Customer Relationship Management). Dzięki temu możesz otrzymywać informacje kontaktowe klienta, gdy tylko ktoś wyrazi zainteresowanie produktem lub z niego korzysta. Podłączenie do crm jest wymagane, jeśli włączysz **jazdę próbną** (patrz poprzednia sekcja), w przeciwnym razie jest to opcjonalne.
+Po opublikowaniu oferty na komercyjnym rynku w centrum partnerskim połącz ją z systemem zarządzania relacjami z klientami (CRM). Pozwala to na otrzymywanie informacji kontaktowych klienta, gdy tylko ktoś wyrazi zainteresowanie lub skorzysta z produktu. Połączenie z programem CRM jest wymagane, jeśli zostanie włączone **testowanie dysku** (patrz wcześniejsza sekcja), w przeciwnym razie jest to opcjonalne.
 
 1. Wybierz miejsce docelowe potencjalnych klientów, do którego chcesz wysyłać potencjalnych klientów. Centrum partnerskie obsługuje następujące systemy CRM:
-    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) dla zaangażowania klientów
+    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) dla zaangażowania klienta
     - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
     - [SalesForce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
-    > Jeśli systemu CRM nie ma na liście powyżej, użyj [tabeli Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) lub [punktu końcowego https](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) do przechowywania danych potencjalnych klientów. Następnie wyeksportuj dane do systemu CRM.
+    > Jeśli Twój system CRM nie jest wymieniony powyżej, użyj [tabeli platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) lub [punktu końcowego HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) do przechowywania danych potencjalnych klientów. Następnie wyeksportuj dane do systemu CRM.
 
-2. Połącz ofertę z głównym miejscem docelowym podczas publikowania w Centrum partnerów.
-3. Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta jest poprawnie skonfigurowane. Po opublikowaniu go w Centrum partnerów, firma Microsoft sprawdź poprawność połączenia i wysłać potencjalnego klienta testowego. Podczas wyświetlania podglądu oferty przed jej wyświetleniem można również przetestować połączenie potencjalnego klienta, próbując samodzielnie wdrożyć ofertę w środowisku w wersji zapoznawczej.
-4. Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta pozostaje zaktualizowane, aby nie utracić potencjalnych klientów.
+2. Połącz ofertę z miejscem docelowym potencjalnego klienta podczas publikowania w centrum partnerskim.
+3. Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta jest skonfigurowane prawidłowo. Po opublikowaniu go w centrum partnerskim sprawdzimy połączenie i wyślesz potencjalnego klienta. Podczas wyświetlania podglądu oferty przed jej rozpoczęciem możesz również przetestować połączenie z liderem, próbując samodzielnie wdrożyć ofertę w środowisku wersji zapoznawczej.
+4. Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta zostało zaktualizowane, więc nie utracisz żadnych potencjalnych klientów.
 
-Wybierz **pozycję Zapisz pochyłość** przed kontynuowaniem.
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ## <a name="properties"></a>Właściwości
 
-Ta strona umożliwia zdefiniowanie kategorii i branż używanych do grupowanie oferty w portalu Marketplace, wersja aplikacji i umowy prawne, które obsługują twoją ofertę.
+Ta strona umożliwia definiowanie kategorii i branż używanych do grupowania oferty w witrynie Marketplace, wersji aplikacji oraz umów prawnych, które obsługują Twoją ofertę.
 
 ### <a name="categories"></a>Kategorie
 
-Wybierz co najmniej jedną i maksymalnie pięć kategorii. Te kategorie służą do umieszczania oferty w odpowiednich obszarach wyszukiwania w portalu marketplace. W opisie oferty wyjaśnij, w jaki sposób Twoja oferta obsługuje te kategorie. Oferty maszyn wirtualnych są wyświetlane w kategorii **Obliczeniowa** w portalu Azure Marketplace.
+Wybierz co najmniej jedną i maksymalnie pięć kategorii. Te kategorie służą do złożenia oferty w odpowiednich obszarach wyszukiwania w portalu Marketplace. W opisie oferty Wyjaśnij, w jaki sposób oferta obsługuje te kategorie. Oferty maszyn wirtualnych są wyświetlane w kategorii **obliczenia** w portalu Azure Marketplace.
 
 ### <a name="legal"></a>Informacje prawne
 
-Musisz podać warunki oferty. Dostępne są dwie opcje:
+Musisz podać warunki i postanowienia oferty. Dostępne są dwie opcje:
 
-- Korzystaj z własnych warunków
-- Korzystanie z kontraktu standardowego dla komercyjnego portalu Microsoft
+- Korzystanie z własnych warunków i postanowień
+- Korzystanie z standardowej umowy dotyczącej portalu komercyjnego firmy Microsoft
 
-#### <a name="use-your-own-terms-and-conditions"></a>Korzystaj z własnych warunków
+#### <a name="use-your-own-terms-and-conditions"></a>Korzystanie z własnych warunków i postanowień
 
-Aby podać własne warunki niestandardowe, wprowadź do 10 000 znaków tekstu w polu **Warunki.** Jeśli potrzebujesz dłuższego opisu, wprowadź jeden adres internetowy, który wskazuje, gdzie można znaleźć warunki. Będzie wyświetlany klientom jako aktywne łącze.
+Aby zapewnić własne niestandardowe warunki i postanowienia, wprowadź do 10 000 znaków tekstu w polu **warunki i** postanowienia. Jeśli potrzebujesz dłuższego opisu, wprowadź pojedynczy adres internetowy wskazujący, gdzie można znaleźć warunki i postanowienia. Będzie ona wyświetlana klientom jako aktywne łącze.
 
-Klienci muszą zaakceptować te warunki, zanim będą mogli wypróbować Twoją ofertę.
+Aby wypróbować ofertę, klienci muszą zaakceptować te warunki.
 
-#### <a name="use-the-standard-contract-for-the-microsoft-commercial-marketplace"></a>Korzystanie z kontraktu standardowego dla komercyjnego portalu Microsoft
+#### <a name="use-the-standard-contract-for-the-microsoft-commercial-marketplace"></a>Korzystanie z standardowej umowy dotyczącej portalu komercyjnego firmy Microsoft
 
-Aby uprościć proces zaopatrzenia dla klientów i zmniejszyć złożoność prawną dla dostawców oprogramowania, firma Microsoft oferuje umowę standardową dla rynku komercyjnego. Gdy oferujesz oprogramowanie w ramach umowy standardowej, klienci muszą je przeczytać i zaakceptować tylko raz i nie musisz tworzyć niestandardowych warunków.
+Aby uprościć proces zakupów dla klientów i zmniejszyć złożoność prawną dla dostawców oprogramowania, firma Microsoft oferuje standardowy kontrakt dla komercyjnego rynku. W przypadku oferowania oprogramowania zgodnie z umową standardowa klienci muszą tylko raz odczytywać i akceptować je, a nie musisz tworzyć niestandardowych warunków i postanowień.
 
-Użyj umowy standardowej, zaznaczając pole wyboru **Użyj kontraktu standardowego dla komercyjnego portalu marketplace firmy Microsoft,** a następnie **zaakceptuj** w wyskakującym oknie (może być konieczne przewinięcie w górę, aby go wyświetlić).
+Użyj standardowej umowy, zaznaczając pole wyboru **Użyj standardowej umowy dla komercyjnej witryny Microsoft Marketplace** , a następnie **Zaakceptuj** ją w oknie podręcznym (może być konieczne przewinięcie w górę, aby zobaczyć).
 
-![Ilustruje stronę Przegląd w Centrum partnerów z wybranym przyciskiem Nowa oferta i ofertą usług konsultingowych.](media/use-standard-contract.png)
-
-> [!NOTE]
-> Po opublikowaniu oferty przy użyciu umowy standardowej dla komercyjnego rynku nie możesz korzystać z własnych warunków niestandardowych. Zaoferuj swoje rozwiązanie w ramach umowy standardowej **lub** na własnych warunkach.
-
-Aby dowiedzieć się więcej o umowie standardowej, zobacz Umowa standardowa dla [komercyjnego rynku](https://docs.microsoft.com/azure/marketplace/standard-contract)firmy Microsoft . Możesz pobrać [standardowy kontrakt](https://go.microsoft.com/fwlink/?linkid=2041178) w formacie PDF (upewnij się, że bloker wyskakujących wyskakujących wyskakujących wyskakujących jest wyłączony).
-
-##### <a name="standard-contract-amendments"></a>Zmiany w umowie standardowej
-
-Standardowe zmiany umowy pozwalają wybrać warunki umowy standardowej dla uproszczenia i stworzyć warunki dla twojego produktu lub firmy. Klienci muszą zapoznać się ze zmianami umowy tylko wtedy, gdy już przejrzeli i zaakceptowali umowę standardową firmy Microsoft. Dostępne są dwa rodzaje poprawek: uniwersalny i zwyczajowy.
-
-**Uniwersalne zmiany** – są one powszechnie stosowane do umowy standardowej dla wszystkich klientów. Są one wyświetlane każdemu klientowi oferty w przepływie zakupu. Klienci muszą zaakceptować warunki Umowy Standardowej i zmiany, zanim będą mogli skorzystać z Twojej oferty. Możesz podać jedną uniwersalną poprawkę na ofertę. W tym polu można wprowadzić nieograniczoną liczbę znaków. Te warunki są wyświetlane klientom w usłudze AppSource, Azure Marketplace i/lub witrynie Azure portal podczas odnajdowania i zakupu.
-
-**Zmiany niestandardowe** — są to specjalne zmiany umowy standardowej, które są przeznaczone dla określonych klientów za pośrednictwem identyfikatorów dzierżawy platformy Azure. Możesz wybrać dzierżawę, na którą chcesz kierować reklamy. Tylko klienci z najemcy zostaną przedstawieni z niestandardowymi warunkami zmian w przepływie zakupu oferty. Klienci muszą zaakceptować warunki Umowy Standardowej i zmiany, zanim będą mogli skorzystać z Twojej oferty.
-
-Zacznij od wybrania opcji **Dodaj niestandardowe warunki zmiany (Maks. 10).** Możesz podać maksymalnie dziesięć niestandardowych warunków zmiany na ofertę.
-
-- **Niestandardowe warunki poprawek** — wprowadź własne warunki poprawek w polu terminy zmiany niestandardowej. Można wprowadzić nieograniczoną liczbę znaków. Tylko klienci z identyfikatorów dzierżawy, które określisz dla tych warunków niestandardowych, zobaczą je w przepływie zakupów oferty w witrynie Azure portal.
-- **Identyfikatory dzierżawy** (wymagane) — każda poprawka niestandardowa może być kierowana do maksymalnie 20 identyfikatorów dzierżawy. Jeśli dodasz poprawkę niestandardową, musisz podać co najmniej jeden identyfikator dzierżawy, który identyfikuje klienta na platformie Azure. klient może znaleźć dla Ciebie na platformie Azure w obszarze, a następnie Właściwości. Wartość identyfikatora katalogu jest identyfikatorem dzierżawy (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Identyfikator dzierżawy klienta w organizacji można również znaleźć przy użyciu adresu sieci Web nazwy domeny pod adresem Co to jest mój identyfikator [dzierżawy platformy Microsoft Azure i usługi Office 365?](https://www.whatismytenantid.com/).
-- **Opis** (opcjonalnie) — podaj przyjazny opis identyfikatora dzierżawy, który pomaga zidentyfikować klienta, na który kierujesz reklamy, za pomocą poprawki.
+![Ilustruje stronę przegląd w centrum partnerskim z wybraną pozycją Nowa oferta i oferta usługi konsultingowej.](media/use-standard-contract.png)
 
 > [!NOTE]
-> Te dwa rodzaje poprawek kumulują się jeden na drugim. Klienci objęci niestandardowymi zmianami otrzymają również uniwersalną zmianę umowy standardowej podczas zakupu.
+> Po opublikowaniu oferty przy użyciu standardowej umowy dotyczącej komercyjnej witryny Marketplace nie możesz użyć własnych niestandardowych warunków i postanowień. Oferuj swoje rozwiązanie w ramach standardowej umowy **lub** w ramach własnych warunków i postanowień.
 
-Wybierz **pozycję Zapisz pochyłość** przed kontynuowaniem.
+Aby dowiedzieć się więcej na temat standardowej umowy, zobacz temat standardowy kontrakt dla [komercyjnego portalu Microsoft Marketplace](https://docs.microsoft.com/azure/marketplace/standard-contract). Możesz pobrać [kontrakt standardowy](https://go.microsoft.com/fwlink/?linkid=2041178) jako plik PDF (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone).
 
-## <a name="offer-listing"></a>Oferta aukcji
+##### <a name="standard-contract-amendments"></a>Standardowe zmiany kontraktu
 
-Ta strona umożliwia zdefiniowanie szczegółów oferty, takich jak nazwa oferty, opis, łącza i kontakty.
+Standardowe zmiany kontraktu pozwalają wybrać standardowe warunki umowy dla uproszczenia i utworzyć warunki dla produktu lub firmy. Klienci muszą jedynie przejrzeć zmiany w umowie, jeśli zostały już przejrzane i zaakceptowały umowę standardową firmy Microsoft. Dostępne są dwa rodzaje zmian: uniwersalne i niestandardowe.
+
+**Uniwersalne zmiany** — są one stosowane uniwersalnie do standardowej umowy dla wszystkich klientów. Są one widoczne dla każdego klienta oferty w przepływie zakupu. Aby można było korzystać z oferty, klienci muszą zaakceptować warunki umowy standardowej i poprawki. Możesz wprowadzić pojedynczą zmianę uniwersalną dla każdej oferty. W tym polu można wprowadzić nieograniczoną liczbę znaków. Te warunki są wyświetlane klientom w AppSource, w witrynie Azure Marketplace i/lub Azure Portal podczas odnajdywania i przepływu zakupów.
+
+**Zmiany niestandardowe** — są to specjalne zmiany w standardowej umowie, które są przeznaczone dla określonych klientów za pomocą identyfikatorów dzierżaw platformy Azure. Możesz wybrać dzierżawcę, który ma być celem. Tylko klienci z dzierżawy będą widzieć niestandardowe warunki zmiany w przepływie zakupu oferty. Aby można było korzystać z oferty, klienci muszą zaakceptować warunki umowy standardowej i poprawki.
+
+Zacznij od wybrania pozycji **Dodaj niestandardowe warunki zmiany (maks. 10)**. Możesz dostarczyć do dziesięciu postanowień w ramach oferty.
+
+- **Niestandardowe warunki zmiany** — wprowadź własne warunki zmiany w polu niestandardowe warunki zmiany. Można wprowadzić nieograniczoną liczbę znaków. Tylko klienci z identyfikatorów dzierżawy określonych dla tych terminów niestandardowych będą widzieć je w przepływie zakupu oferty w Azure Portal.
+- **Identyfikatory dzierżawców** (wymagane) — Każda Poprawka niestandardowa może być przeznaczona do maksymalnie 20 identyfikatorów dzierżawy. W przypadku dodania niestandardowej zmiany należy podać co najmniej jeden identyfikator dzierżawy, który identyfikuje klienta na platformie Azure. Klient może znaleźć Cię na platformie Azure w obszarze, a następnie właściwości. Wartość identyfikatora katalogu to identyfikator dzierżawy (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również znaleźć identyfikator dzierżawy w organizacji, używając adresu sieci Web nazwy domeny w obszarze [co to jest mój Microsoft Azure i identyfikator dzierżawy pakietu Office 365?](https://www.whatismytenantid.com/).
+- **Opis** (opcjonalnie) — podaj przyjazny opis identyfikatora dzierżawy, który pomaga zidentyfikować klienta, którego celem jest zmiana.
 
 > [!NOTE]
-> Zawartość aukcji oferty (taka jak opis, dokumenty, zrzuty ekranu i warunki użytkowania) nie musi być w języku angielskim, o ile opis oferty zaczyna się od wyrażenia" Ta aplikacja jest dostępna tylko w języku [nieanglojęzycznym]". Możesz również podać _adres internetowy Przydatne łącze,_ aby oferować treści w języku innym niż ten używany w treści aukcji Oferty.
+> Te dwa typy zmian stosują się między sobą. Klienci z niestandardowymi zmianami otrzymają także uniwersalną zmianę do standardowej umowy podczas zakupu.
 
-### <a name="marketplace-details"></a>Szczegóły portalu Marketplace
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
+
+## <a name="offer-listing"></a>Lista oferty
+
+Na tej stronie można zdefiniować szczegóły oferty, takie jak nazwa oferty, opis, linki i kontakty.
+
+> [!NOTE]
+> Oferta zawartości oferty (na przykład opis, dokumenty, zrzuty ekranu i warunki użytkowania) nie jest wymagana w języku angielskim, o ile opis oferty zaczyna się od frazy "Ta aplikacja jest dostępna tylko w języku innym niż angielski]". Możesz również podać _przydatny adres internetowy linku_ , aby zaoferować zawartość w języku innym niż ten, który jest używany w ofercie dotyczącej oferty.
+
+### <a name="marketplace-details"></a>Szczegóły witryny Marketplace
 
 #### <a name="name"></a>Nazwa
 
-Nazwa, którą wpiszesz w tym miejscu, jest wyświetlana klientom jako tytuł twojej oferty. To pole jest wstępnie wypełnione tekstem wprowadzonym w polu **Alias oferty** podczas tworzenia oferty. Tę nazwę można później zmienić.
+Nazwa wprowadzona w tym miejscu jest pokazywana klientom jako tytuł oferty. To pole jest wstępnie wypełnione tekstem wprowadzonym w polu **alias oferty** podczas tworzenia oferty. Tę nazwę można później zmienić.
 
 Nazwa:
 
-- Może być znakiem towarowym (i możesz zawierać znaki towarowe i symbole praw autorskich)
-- Nie może mieć więcej niż 50 znaków
-- Nie można dołączać emotikonów.
+- Mogą być znakami towarowymi (i można zawierać symbole towarowe i praw autorskich)
+- Nie może być dłuższa niż 50 znaków
+- Nie może zawierać znaków emoji.
 
 #### <a name="search-results-summary"></a>Podsumowanie wyników wyszukiwania
 
-Krótki opis twojej oferty. Może to mieć do 100 znaków i jest używana w wynikach wyszukiwania w portalu Marketplace.
+Krótki opis oferty. Może to być maksymalnie 100 znaków i jest używana w wynikach wyszukiwania w portalu Marketplace.
 
 #### <a name="long-summary"></a>Długie podsumowanie
 
-Podaj dłuższy opis swojej oferty. Może to mieć do 256 znaków i jest używana w wynikach wyszukiwania w marketplace.
+Podaj dłuższy opis oferty. Może to być maksymalnie 256 znaków i jest używana w wynikach wyszukiwania w portalu Marketplace.
 
 #### <a name="description"></a>Opis
 
-Podaj szczegółowy opis swojej oferty, do 3000 znaków. Jest to wyświetlane klientom w przeglądzie aukcji w rynku komercyjnym.
+Podaj szczegółowy opis oferty, do 3 000 znaków. Ten komunikat jest wyświetlany klientom w przeglądzie komercyjnej aukcji Marketplace.
 
-W opisie należy uwzględnić co najmniej jedną z następujących opcji:
+W opisie Uwzględnij co najmniej jeden z następujących elementów:
 
-- Wartość i najważniejsze korzyści twojej oferty
-- Kategorie lub stowarzyszenia branżowe, lub oba
-- Możliwości zakupu w aplikacji
-- Wszelkie wymagane informacje
+- Wartość i kluczowe korzyści wynikające z oferty
+- Skojarzenia kategorii lub branżowych
+- Szanse zakupu w aplikacji
+- Wszelkie wymagane ujawnienie
 
-Oto kilka wskazówek dotyczących pisania opisu:
+Oto kilka porad dotyczących pisania opisu:
 
-- Wyraźnie opisz propozycję wartości swojej oferty w pierwszych kilku zdaniach opisu. Dołącz następujące elementy:
+- Jasno opisz wartość oferty w pierwszych kilku zdaniach opisu. Uwzględnij następujące elementy:
   - Opis oferty.
   - Typ użytkownika, który korzysta z oferty.
-  - Klient potrzebuje lub problemów, które dotyczy oferta.
-- Pamiętaj, że kilka pierwszych zdań może być wyświetlanych w wynikach wyszukiwania.
-- Nie polegaj na funkcjach i funkcjach, aby sprzedawać swoją ofertę. Zamiast tego skup się na wartości, która zapewnia twoja oferta.
-- Używaj słów branżowych lub opartych na korzyściach.
+  - Wymagania klientów lub problemy z ofertą.
+- Należy pamiętać, że pierwsze niektóre zdania mogą być wyświetlane w wynikach wyszukiwania.
+- Nie należy polegać na funkcjach i funkcjach, które umożliwiają sprzedawanie oferty. Zamiast tego należy skoncentrować się na wartości, którą oferuje oferta.
+- Używaj słów specyficznych dla branży lub korzyści.
 
-Aby opis oferty był bardziej atrakcyjny, użyj edytora tekstu sformatowania opisu. Edytor tekstu sformatowego umożliwia dodawanie liczb, punktorów, pogrubienia, kursywy i wcjęcia, aby opis był bardziej czytelny.
+Aby zwiększyć atrakcyjność opisu oferty, użyj edytora tekstu sformatowanego do formatowania opisu. Edytor tekstu sformatowanego pozwala dodawać numery, punktory, pogrubienie, kursywę i wcięcia, aby zwiększyć czytelność opisu.
 
-![Ilustruje stronę Przegląd w Centrum partnerów z wybranym przyciskiem Nowa oferta i ofertą usług konsultingowych.](media/power-bi-rich-text-editor.png)
+![Ilustruje stronę przegląd w centrum partnerskim z wybraną pozycją Nowa oferta i oferta usługi konsultingowej.](media/power-bi-rich-text-editor.png)
 
-#### <a name="privacy-policy-link"></a>Link do polityki prywatności
+#### <a name="privacy-policy-link"></a>Link zasad ochrony prywatności
 
-Wprowadź adres internetowy (URL) do zasad ochrony prywatności organizacji. Upewnij się, że Twoja oferta jest zgodna z przepisami i regulacjami dotyczącymi prywatności. Musisz również opublikować ważną politykę prywatności na swojej stronie internetowej.
+Wprowadź adres internetowy (URL) do zasad zachowania poufności informacji organizacji. Upewnij się, że oferta jest zgodna z przepisami i przepisami dotyczącymi ochrony prywatności. Należy również opublikować prawidłowe zasady zachowania poufności informacji w witrynie sieci Web.
 
 ### <a name="useful-links"></a>Przydatne łącza
 
-Podaj dodatkowe dokumenty online dotyczące swojej oferty. Aby dodać łącze, wybierz **+ Dodaj łącze,** a następnie wypełnij następujące pola:
+Podaj uzupełniające dokumenty online dotyczące Twojej oferty. Aby dodać łącze, wybierz pozycję **+ Dodaj łącze** , a następnie wykonaj następujące pola:
 
-- **Nazwa** — klienci zobaczą nazwę na stronie szczegółów.
-- **Link (URL)** — wprowadź link dla klientów, aby wyświetlić dokument online.
+- **Nazwa** — klienci będą widzieli nazwę na stronie szczegółów.
+- **Link (adres URL)** — wprowadź link dla klientów, aby wyświetlić dokument w trybie online.
 
-### <a name="customer-support-links"></a>Linki do obsługi klienta
+### <a name="customer-support-links"></a>Linki obsługi klienta
 
-Udostępnij witrynę pomocy technicznej, w której klienci mogą skontaktować się z twoim zespołem pomocy technicznej.
+Podaj witrynę sieci Web pomocy technicznej, w której klienci mogą skontaktować się z zespołem pomocy technicznej.
 
-- Witryna pomocy technicznej platformy Azure Global
-- Witryna pomocy technicznej platformy Azure dla instytucji rządowych
+- Witryna internetowa pomocy technicznej platformy Azure
+- Witryna sieci Web pomocy technicznej Azure Government
 
 ### <a name="partner-support-contact"></a>Kontakt z pomocą techniczną partnera
 
-Podaj informacje kontaktowe partnerom firmy Microsoft, z których będą korzystać klienci, którzy otworzą bilet pomocy technicznej. Nie będzie to wyświetlane na rynku.
+Podaj informacje kontaktowe dla partnerów firmy Microsoft, które mają być używane, gdy klienci otworzą bilet pomocy technicznej. Ta wartość nie zostanie wyświetlona na liście w portalu Marketplace.
 
 - Nazwa
 - Poczta e-mail
 - Telefon
 
-### <a name="engineering-contact"></a>Kontakt techniczny
+### <a name="engineering-contact"></a>Kontakt inżynieryjny
 
-Podaj informacje kontaktowe firmy Microsoft do użycia w przypadku wystąpienia problemów z ofertą, w tym problemów z certyfikacją. Nie będzie to wyświetlane na rynku.
+Podaj informacje kontaktowe firmy Microsoft, które mają być używane w przypadku problemów z ofertą, w tym problemy z certyfikatem. Ta wartość nie zostanie wyświetlona na liście w portalu Marketplace.
 
 - Nazwa
 - Poczta e-mail
 - Telefon
 
-### <a name="marketplace-media"></a>Media w marketplace
+### <a name="marketplace-media"></a>Multimedia dla portalu Marketplace
 
-Podaj logo i obrazy do wykorzystania w swojej ofercie. Wszystkie obrazy muszą być w formacie PNG. Rozmazane obrazy spowodują odrzucenie zgłoszenia.
+Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy muszą mieć format PNG. Nierozmyte obrazy spowodują odrzucenie zgłoszenia.
 
 >[!Note]
->Jeśli masz problem z przekazywaniem plików, upewnij się, https://upload.xboxlive.com że sieć lokalna nie blokuje usługi używanej przez Centrum partnerów.
+>Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
 
-#### <a name="marketplace-logos"></a>Logo Marketplace
+#### <a name="marketplace-logos"></a>Logo witryny Marketplace
 
-Podaj pliki PNG z logo oferty w następujących rozmiarach czterech pikseli:
+Udostępniaj pliki PNG logo oferty w następujących czterech rozmiarach pikseli:
 
 - **Mały** (48 x 48)
 - **Średni** (90 x 90)
-- **Duży** (216 x 216)
+- **Duże** (216 x 216)
 - **Szeroki** (255 x 115)
 
-Wszystkie cztery logo są wymagane i są używane w różnych miejscach na liście marketplace.
+Wszystkie cztery logo są wymagane i są używane w różnych miejscach na liście w portalu Marketplace.
 
 #### <a name="screenshots"></a>Zrzuty ekranu
 
-Dodaj do pięciu zrzutów ekranu, które pokazują, jak działa Twoja oferta. Każdy zrzut ekranu musi mieć rozmiar 1280 x 720 pikseli i w formacie PNG. Należy również dodać podpis, aby opisać zrzut ekranu.
+Dodaj maksymalnie pięć zrzutów ekranu, które pokazują, jak działa Twoja oferta. Każdy zrzut ekranu musi mieć 1280 x 720 pikseli w rozmiarze i formacie PNG. Należy również dodać podpis, aby opisać zrzut ekranu.
 
 #### <a name="videos"></a>Filmy wideo
 
-Dodaj do pięciu filmów, które pokazują twoją ofertę. Powinny one być hostowane w zewnętrznej usłudze wideo. Wprowadź nazwę, adres internetowy i miniaturę obrazu wideo w trybie PNG każdego filmu o wymiarach 1280 x 720 pikseli.
+Dodaj do pięciu filmów wideo, które przedstawiają Twoją ofertę. Powinny one być hostowane w zewnętrznej usłudze wideo. Wprowadź nazwę pliku wideo, adres sieci Web i obraz miniatury PNG wideo o rozmiarze 1280 x 720 pikseli.
 
-Aby uzyskać dodatkowe zasoby dotyczące aukcji w portalu marketplace, zobacz [Najważniejsze wskazówki dotyczące aukcji ofert w portalu Marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
+Aby uzyskać dodatkowe zasoby dotyczące aukcji z witryny Marketplace, zobacz [najlepsze rozwiązania dotyczące aukcji z ofertą Marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
 
-Wybierz **pozycję Zapisz pochyłość** przed kontynuowaniem.
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ## <a name="preview"></a>Wersja zapoznawcza
 
-Na karcie Podgląd wybierz ograniczoną **grupę odbiorców w wersji zapoznawczej,** aby zweryfikować ofertę, zanim opublikujesz ją na żywo szerszym odbiorcom marketplace.
+Na karcie Podgląd Wybierz ograniczony **odbiorcę w wersji zapoznawczej** , aby sprawdzić poprawność oferty przed opublikowaniem jej na żywo w szerszej grupie odbiorców w portalu Marketplace.
 
 > [!IMPORTANT]
-> Po sprawdzeniu oferty w wersji zapoznawczej wybierz **pozycję Przejdź na żywo,** aby opublikować ofertę w publicznej reklamie rynku komercyjnego.
+> Po sprawdzeniu oferty w wersji zapoznawczej wybierz pozycję **Przejdź na żywo** , aby opublikować ofertę do komercyjnych odbiorców w portalu Marketplace.
 
-Grupa odbiorców w wersji zapoznawczej jest identyfikowana przez identyfikatory identyfikatorów subskrypcji platformy Azure wraz z opcjonalnym opisem dla każdego z nich. Żadne z tych pól nie może być postrzegane przez klientów. Identyfikator subskrypcji platformy Azure można znaleźć na stronie Subskrypcje w **witrynie** Azure portal.
+Odbiorca w wersji zapoznawczej jest identyfikowany przez identyfikatory GUID subskrypcji platformy Azure, a także opcjonalny opis dla każdej z nich. Żadne z tych pól nie może być widoczne dla klientów. Identyfikator subskrypcji platformy Azure można znaleźć na stronie **subskrypcje** w Azure Portal.
 
-Dodaj co najmniej jeden identyfikator subskrypcji platformy Azure, indywidualnie (do 10) lub przekazując plik CSV (do 100). Dodając te identyfikatory subskrypcji, można zdefiniować, kto może wyświetlić podgląd oferty, zanim zostanie opublikowana na żywo. Jeśli twoja oferta jest już dostępna, możesz zdefiniować grupę odbiorców w wersji zapoznawczej, aby testowała zmiany oferty lub aktualizacje oferty.
+Dodaj co najmniej jeden identyfikator subskrypcji platformy Azure — pojedynczo (do 10) lub przekazując plik CSV (do 100). Dodając te identyfikatory subskrypcji, można zdefiniować, kto może wyświetlać podgląd oferty przed opublikowaniem jej na żywo. Jeśli Twoja oferta jest już aktywna, możesz nadal zdefiniować odbiorcę w wersji zapoznawczej w celu przetestowania zmian lub aktualizacji oferty.
 
 > [!NOTE]
-> Grupa odbiorców podglądu różni się od grupy prywatnej. Grupa odbiorców w wersji zapoznawczej może uzyskać dostęp do Twojej _oferty, zanim_ zostanie opublikowana na żywo na rynkuch. Mogą zobaczyć i zweryfikować wszystkie plany, w tym te, które będą dostępne tylko dla odbiorców prywatnych po pełnym opublikowaniu oferty na rynku. Prywatna publiczność (zdefiniowana na karcie **Ceny i dostępność** planu) ma wyłączny dostęp do określonego planu.
+> Odbiorca w wersji zapoznawczej różni się od odbiorców prywatnych. Odbiorca wersji zapoznawczej może uzyskać dostęp do oferty _przed_ opublikowaniem jej na żywo na rynku. Mogą oni wyświetlać i sprawdzać wszystkie plany, w tym te, które będą dostępne tylko dla odbiorców prywatnych po opublikowaniu oferty w portalu Marketplace. Prywatni odbiorcy (zdefiniowani na karcie **ceny i dostępność** ) mają wyłączny dostęp do konkretnego planu.
 
-Wybierz **pozycję Zapisz pochyłość** przed przejściem do następnej sekcji Przegląd planu.
+Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej sekcji, Zaplanuj przegląd.
 
-## <a name="plan-overview"></a>Omówienie planu
+## <a name="plan-overview"></a>Przegląd planu
 
-W Centrum partnerskim można podać różne opcje planu w ramach tej samej oferty. Plany te były wcześniej określane jako jednostki SKU. Oferta wymaga co najmniej jednego planu, który może się różnić pod względem odbiorców monetyzacji, regionów platformy Azure, funkcji lub obrazów maszyn wirtualnych.
+W ramach tej samej oferty w centrum partnerskim można udostępnić różne opcje planu. Te plany były wcześniej określane jako jednostki SKU. Oferta wymaga co najmniej jednego planu, który może różnić się pod względem odbiorców zysków, regionów platformy Azure, funkcji lub obrazów maszyn wirtualnych.
 
-Po utworzeniu planów na karcie **Przegląd planu** jest wyświetlany:
+Po utworzeniu planów na karcie **Przegląd planu** jest wyświetlana wartość:
 
 - Nazwy planów
 - Modele licencji
-- Publiczność (publiczna lub prywatna)
+- Odbiorcy (publiczna lub prywatna)
 - Bieżący stan publikowania
 - Dostępne akcje
 
-Działania dostępne w przeglądzie planu różnią się w zależności od bieżącego stanu planu. Obejmują one następujące raporty:
+Akcje dostępne w przeglądzie planu różnią się w zależności od bieżącego stanu planu. Obejmują one następujące raporty:
 
-- **Usuwanie wersji roboczej** — jeśli stan planu jest wersja robocza
-- **Zatrzymaj plan sprzedaży** lub **Synchronizuj odbiorców prywatnych** — jeśli stan planu jest publikowany na żywo
+- **Usuń wersję roboczą** — Jeśli plan jest stanem wersja robocza
+- **Przestań sprzedawać plan** lub **zsynchronizuj odbiorców prywatnych** — Jeśli stan planu jest opublikowany na żywo
 
-### <a name="create-new-plan"></a>Tworzenie nowego planu
+### <a name="create-new-plan"></a>Utwórz nowy plan
 
-Wybierz **+ Utwórz nowy plan** u góry. Zostanie wyświetlone okno dialogowe **Nowy plan.**
+Wybierz pozycję **+ Utwórz nowy plan** u góry. Zostanie wyświetlone okno dialogowe **nowy plan** .
 
-W polu **Identyfikator planu** utwórz unikatowy identyfikator planu dla każdego planu w tej ofercie. Ten identyfikator będzie widoczny dla klientów w adresie internetowym produktu. Używaj tylko małych liter i cyfr, kresek lub podkreśleń oraz maksymalnie 50 znaków.
-
-> [!NOTE]
-> Identyfikator planu nie można zmienić po wybraniu opcji **Utwórz**.
-
-W polu **Nazwa planu** wprowadź nazwę tego planu. Klienci widzą tę nazwę przy podejmowaniu decyzji, który plan wybrać w ramach oferty. Utwórz unikatową nazwę, która wyraźnie wskazuje różnice każdego planu. Na przykład można użyć **systemu Windows Server** z planami Płatności zgodnie z rzeczywistym **użyciem**, **BYOL**, **Zaawansowane**i **Przedsiębiorstwo**.
-
-Wybierz pozycję **Utwórz**.
-
-### <a name="plan-setup"></a>Konfiguracja planu
-
-Ustaw konfigurację wysokiego poziomu dla typu planu, czy ponownie używa konfiguracji technicznej z innego planu i w których regionach platformy Azure plan powinien być dostępny. Wybrane w tym miejscu określają, które pola są wyświetlane na innych kartach dla tego samego planu.
-
-#### <a name="reuse-technical-configuration"></a>Ponowne wykorzystanie konfiguracji technicznej
-
-Jeśli masz więcej niż jeden plan tego samego typu, a pakiety są identyczne między nimi, można wybrać **ten plan ponownie używa konfiguracji technicznej z innego planu**. Ta opcja umożliwia wybranie jednego z innych planów tego samego typu dla tej oferty i ponowne użycie jej konfiguracji technicznej.
+W polu **identyfikator planu** Utwórz unikatowy identyfikator planu dla każdego planu w tej ofercie. Ten identyfikator będzie widoczny dla klientów w adresie sieci Web produktu. Używaj tylko małych liter i cyfr, kresek lub podkreśleń i maksymalnie 50 znaków.
 
 > [!NOTE]
-> Po ponownym użyć konfiguracji technicznej z innego planu, cała karta **konfiguracji technicznej** znika z tego planu. Szczegóły konfiguracji technicznej z innego planu, w tym wszelkie aktualizacje, które zostaną zainstalowane w przyszłości, będą również używane dla tego planu. Tego ustawienia nie można zmienić po opublikowaniu tego planu.
+> Nie można zmienić identyfikatora planu po wybraniu opcji **Utwórz**.
+
+W polu **Nazwa planu** wprowadź nazwę dla tego planu. Klienci widzą tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę, która jasno wskazuje różnice w każdym planie. Na przykład możesz użyć **systemu Windows Server** z planami **płatność zgodnie z rzeczywistym**użyciem, **BYOL**, **Advanced**i **Enterprise**.
+
+Wybierz przycisk **Utwórz**.
+
+### <a name="plan-setup"></a>Konfigurowanie planu
+
+Ustaw konfigurację wysokiego poziomu dla typu planu, niezależnie od tego, czy jest ona ponownie wykorzystywana przez konfigurację techniczną z innego planu, a w jakich regionach platformy Azure ma być dostępny plan. Wybrane tutaj ustawienia określają, które pola są wyświetlane na innych kartach dla tego samego planu.
+
+#### <a name="reuse-technical-configuration"></a>Ponownie Użyj konfiguracji technicznej
+
+Jeśli masz więcej niż jeden plan tego samego typu, a pakiety są identyczne między nimi, możesz wybrać **ten plan ponownie korzysta z konfiguracji technicznej z innego planu**. Ta opcja umożliwia wybranie jednego z innych planów tego samego typu dla tej oferty i ponowne użycie konfiguracji technicznej.
+
+> [!NOTE]
+> W przypadku ponownego użycia konfiguracji technicznej z poziomu innego planu, cała karta **konfiguracja techniczna** znika z tego planu. Szczegóły konfiguracji technicznej z innego planu, w tym wszelkie aktualizacje wprowadzone w przyszłości, zostaną użyte również dla tego planu. Nie można zmienić tego ustawienia po opublikowaniu tego planu.
 
 #### <a name="azure-regions"></a>Regiony świadczenia usługi Azure
 
-Plan musi być udostępniony w co najmniej jednym regionie platformy Azure.
+Plan musi być dostępny w co najmniej jednym regionie świadczenia usługi Azure.
 
-Wybierz opcję **Azure Global,** aby udostępnić swój plan klientom we wszystkich publicznych regionach platformy Azure, które mają integrację z komercyjnym rynkiem. Aby uzyskać szczegółowe informacje, zobacz [Dostępność geograficzna i obsługa walut](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Wybierz opcję **globalną platformy Azure** , aby udostępnić plan klientom we wszystkich publicznych regionach świadczenia usługi Azure z komercyjną integracją z portalu Marketplace. Aby uzyskać szczegółowe informacje, zobacz [dostępność geograficzna i obsługa waluty](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Wybierz opcję **Azure Dla Instytucji Rządowych,** aby udostępnić swój plan w regionie [azure dla instytucji rządowych.](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) Region ten zapewnia kontrolowany dostęp dla klientów z amerykańskich podmiotów federalnych, stanowych, lokalnych lub plemiennych, a także partnerów uprawnionych do ich obsługi. Użytkownik, jako wydawca, jest odpowiedzialny za wszelkie mechanizmy kontroli zgodności, środki bezpieczeństwa i najlepsze rozwiązania. Platforma Azure Government używa fizycznie odizolowanych centrów danych i sieci (zlokalizowanych tylko w Stanach Zjednoczonych).
+Wybierz opcję **Azure Government** , aby udostępnić plan w regionie [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) . Ten region zapewnia klientom kontrolowany dostęp do jednostek federalnych, stanowych, lokalnych i plemienne, a także partnerów uprawnionych do ich świadczenia. Ponieważ Wydawca jest odpowiedzialny za wszelkie kontrole zgodności, miary zabezpieczeń i najlepsze rozwiązania. Azure Government używa fizycznie wyizolowanych centrów danych i sieci (znajdujących się tylko w Stanach Zjednoczonych).
 
-Przed opublikowaniem w [usłudze Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)należy przetestować i zweryfikować plan w środowisku, ponieważ niektóre punkty końcowe mogą się różnić. Aby skonfigurować i przetestować plan, poproś o konto próbne z [wersji próbnej platformy Microsoft Azure dla instytucji rządowych](https://azure.microsoft.com/global-infrastructure/government/request/).
+Przed opublikowaniem w celu [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)Przetestuj i zweryfikuj swój plan w środowisku, ponieważ niektóre punkty końcowe mogą się różnić. Aby skonfigurować i przetestować plan, zażądaj konta próbnego od [Microsoft Azure Government wersji próbnej](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
-> Po opublikowaniu planu i udostępnienie go w określonym regionie platformy Azure nie można usunąć tego regionu.
+> Po opublikowaniu planu i udostępnieniu go w określonym regionie świadczenia usługi Azure nie można usunąć tego regionu.
 
-#### <a name="azure-government-certifications"></a>Certyfikaty platformy Azure dla instytucji rządowych
+#### <a name="azure-government-certifications"></a>Certyfikaty Azure Government
 
-Ta opcja jest widoczna tylko wtedy, gdy w obszarze **Regiony platformy Azure**wybierzesz **opcję Azure Government** .
+Ta opcja jest widoczna tylko w przypadku wybrania **Azure Government** w obszarze **regionów świadczenia usługi Azure**.
 
-Usługi azure dla instytucji rządowych obsługują dane podlegające określonym przepisom i wymaganiom rządowym. Na przykład FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 i CJIS. Aby zwiększyć świadomość certyfikatów dla tych programów, możesz podać do 100 linków, które je opisują. Mogą to być linki do twojej aukcji w programie bezpośrednio lub linki do opisów zgodności z nimi na własnych stronach internetowych. Te łącza widoczne tylko dla klientów platformy Azure dla instytucji rządowych.
+Usługi Azure Government Services obsługują dane, które podlegają określonym przepisom i wymogom rządowym. Na przykład FedRAMP, NIST 800,171 (DIB), ITAR, IRS 1075, DoD P4 i CJIS. Aby zapewnić świadomość certyfikatów dla tych programów, możesz udostępnić do 100 linków, które je opisują. Mogą to być albo linki do swojej aukcji bezpośrednio w programie, jak i linki do opisów zgodności z ich własnymi witrynami sieci Web. Te linki są widoczne tylko dla Azure Government klientów.
 
-Wybierz **pozycję Zapisz pochyłość** przed kontynuowaniem.
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-### <a name="plan-listing"></a>Lista planu
+### <a name="plan-listing"></a>Zaplanuj listę
 
-W tym miejscu można skonfigurować szczegóły aukcji planu. Na tej karcie są wyświetlane określone informacje, które mogą się różnić między planami w tej samej ofercie.
+Jest to miejsce, w którym można skonfigurować szczegółowe informacje dotyczące planu. Na tej karcie są wyświetlane określone informacje, które mogą się różnić w zależności od planów w ramach tej samej oferty.
 
 #### <a name="plan-name"></a>Nazwa planu
 
-Jest to wstępnie wypełnione nazwą nadany plan podczas jego tworzenia. Ta nazwa pojawia się na rynku jako tytuł tego planu i jest ograniczona do 100 znaków.
+Jest to wstępnie wypełnione nazwą, która została nadana przez Ciebie podczas jego tworzenia. Ta nazwa jest wyświetlana w portalu Marketplace jako tytuł tego planu i jest ograniczona do 100 znaków.
 
 #### <a name="plan-summary"></a>Podsumowanie planu
 
-Podaj krótkie podsumowanie planu (nie ofertę). To podsumowanie jest ograniczone do 100 znaków.
+Podaj krótkie podsumowanie planu (nie oferty). To podsumowanie jest ograniczone do 100 znaków.
 
 #### <a name="plan-description"></a>Opis planu
 
-Opisz, co sprawia, że ten plan oprogramowania jest wyjątkowy, a także różnice między planami w ramach oferty. Nie opisuj oferty, tylko plan. Opis planu może zawierać maksymalnie 2000 znaków.
+Opisz, co sprawia, że ten plan oprogramowania jest unikatowy, a także różnice między planami w ramach oferty. Nie opisz oferty, tylko plan. Opis planu może zawierać maksymalnie 2 000 znaków.
 
-Wybierz **pozycję Zapisz pochyłość** przed kontynuowaniem.
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ### <a name="pricing-and-availability"></a>Cennik i dostępność
 
 Na tej karcie skonfigurujesz następujące elementy:
 
-- Rynki, które plan ten będzie dostępny w
+- Rynki, w których ten plan będzie dostępny
 - Cena za godzinę
-- Czy plan ma być widoczny dla wszystkich, czy tylko dla konkretnych klientów (prywatna publiczność)
+- Określa, czy plan ma być widoczny dla wszystkich, czy tylko dla określonych klientów (odbiorców prywatnych).
 
-#### <a name="markets"></a>Rynków
+#### <a name="markets"></a>Wprowadza
 
-Każdy plan musi być dostępny na co najmniej jednym rynku. Zaznacz pole wyboru dla każdej lokalizacji rynku, w której plan ten powinien być dostępny do zakupu (użytkownicy na tych rynkach nadal mogą wdrażać ofertę we wszystkich regionach platformy Azure wybranych w **[konfiguracji planu).](#plan-setup)** Przycisk **Umorzenie podatku** pokazuje kraje, w których firma Microsoft przekazuje podatek od sprzedaży i korzystać z niego w twoim imieniu. Publikowanie w Chinach jest ograniczone do planów, które są **bezpłatne** lub **przynieś własną licencję** (BYOL).
+Każdy plan musi być dostępny na co najmniej jednym rynku. Zaznacz pole wyboru dla każdej lokalizacji rynkowej, w której plan ma być dostępny do zakupu (Użytkownicy na tych rynkach mogą nadal wdrażać oferty we wszystkich regionach platformy Azure wybranych w obszarze **[Konfiguracja planu](#plan-setup)**). Przycisk **podatek z podatkiem** przedstawia kraje, w których firma Microsoft przekazuje sprzedaż i korzysta z podatku w Twoim imieniu. Publikowanie w Chinach jest ograniczone do planów, które są **bezpłatne** lub **Bring Your Own License** (BYOL).
 
-Jeśli masz już ustawione ceny planu w dolarach amerykańskich (USD) i dodasz inną lokalizację rynkową, cena nowego rynku zostanie obliczona zgodnie z aktualnymi kursami wymiany. Zawsze sprawdzaj cenę dla każdego rynku przed opublikowaniem. Przejrzyj ceny za pomocą linku **Ceny eksportowe (xlsx)** po zapisaniu zmian.
+Jeśli już ustawisz ceny dla planu w Stany Zjednoczone dolarów (USD) i dodasz kolejną lokalizację na rynku, cena nowego rynku zostanie obliczona zgodnie z bieżącymi stawkami za wymianę. Zawsze sprawdzaj ceny poszczególnych rynków przed opublikowaniem. Po zapisaniu zmian zapoznaj się z cenami przy użyciu linku **ceny eksport (xlsx)** .
 
-Po usunięciu rynku klienci z tego rynku przy użyciu aktywnych wdrożeń nie będą mogli tworzyć nowych wdrożeń ani skalować istniejących wdrożeń. Nie będzie to miało wpływu na istniejące wdrożenia.
+Po usunięciu rynku klienci z tego rynku korzystający z aktywnych wdrożeń nie będą mogli tworzyć nowych wdrożeń ani skalować istniejących wdrożeń. Nie wpłynie to na istniejące wdrożenia.
 
 #### <a name="pricing"></a>Cennik
 
-**Model licencji** — wybierz **miesięczny plan rozliczany oparty na użyciu,** aby skonfigurować ceny dla tego planu lub **Przynieś własną licencję,** aby umożliwić klientom korzystanie z tego planu z istniejącą licencją.
+**Model licencji** — wybierz **miesięczny plan rozliczeniowy oparty na użyciu** , aby skonfigurować Cennik dla tego planu lub **Bring Your Own License** , aby umożliwić klientom korzystanie z tego planu w ramach istniejącej licencji.
 
-W przypadku miesięcznego planu rozliczeniowego opartego na użyciu użyj jednej z następujących trzech opcji wprowadzania cen:
+W przypadku miesięcznego planu rozliczeniowego opartego na użyciu należy użyć jednej z następujących trzech opcji wprowadzania cen:
 
-- **Za rdzeń** — podaj cenę za rdzeń w dolarach amerykańskich (USD). Obliczymy ceny według rozmiaru rdzenia i przeliczymy na waluty lokalne przy użyciu bieżącego kursu wymiany.
-- **Rozmiar rdzenia** — podaj ceny za rozmiar rdzenia w USD. Ceny przeliczymy na waluty lokalne przy użyciu aktualnego kursu wymiany walut.
-- **Na rynek i rozmiar rdzenia** — podaj ceny dla każdego rozmiaru rdzenia dla wszystkich rynków. Ceny można importować z arkusza kalkulacyjnego.
+- **Na rdzeń** — Podaj cenę za rdzeń w Stany Zjednoczone dolarów (USD). Obliczamy ceny według rozmiaru rdzenia i Konwertujemy na waluty lokalne przy użyciu bieżącego kursu wymiany.
+- **Na rozmiar podstawowy** — podaj ceny na rozmiar podstawowy w USD. Ceny zostaną przekonwertowane na waluty lokalne przy użyciu bieżącego kursu wymiany.
+- **Na rynek i rozmiar podstawowy** — zapewniają ceny za każdy rozmiar podstawowy dla wszystkich rynków. Możesz zaimportować ceny z arkusza kalkulacyjnego.
 
 > [!NOTE]
-> Zapisz zmiany cen, aby umożliwić eksport danych cenowych. Po opublikowaniu ceny na rynku w planie nie można jej później zmienić. Upewnij się, że te ceny są tuż przed opublikowaniem, eksportując arkusz kalkulacyjny cen i przeglądając cenę na każdym rynku.
+> Zapisz zmiany cen, aby włączyć eksport danych cen. Po opublikowaniu ceny na rynku planu nie można jej później zmienić. Upewnij się, że te ceny są odpowiednie przed opublikowaniem, eksportując arkusz cen i sprawdzając cenę na każdym rynku.
 
 #### <a name="free-trial"></a>Bezpłatna wersja próbna
 
-Możesz zaoferować swoim klientom miesięczny lub trzymiesięczny bezpłatny okres próbny.
+Możesz zaoferować klientom jedną lub trzy miesiące bezpłatnej wersji próbnej.
 
 #### <a name="visibility"></a>Widoczność
 
-Możesz zaprojektować każdy plan tak, aby był widoczny dla wszystkich lub tylko dla wstępnie wybranej grupy odbiorców. Przypisz członkostwo w tej ograniczonej grupy odbiorców przy użyciu identyfikatorów subskrypcji platformy Azure.
+Każdy plan można zaprojektować jako widoczny dla wszystkich użytkowników lub tylko do wybranych użytkowników. Przypisz członkostwo w tych ograniczonych odbiorcach przy użyciu identyfikatorów subskrypcji platformy Azure.
 
-**Publiczny** - Twój plan może być postrzegany przez wszystkich.
+**Publiczna** — Twój plan może być widoczny dla wszystkich użytkowników.
 
-**Prywatna publiczność** — udostępnij swój plan tylko wstępnie wybranej publiczności. Po opublikowaniu go jako planu prywatnego możesz zaktualizować odbiorców lub zmienić ją na publiczną. Po upublicznienie planu musi on pozostać publiczny; nie można go zmienić z powrotem na prywatny.
+**Prywatni odbiorcy** — ustaw, aby Twój plan był widoczny tylko dla wybranych odbiorców. Po opublikowaniu jako planu prywatnego można zaktualizować odbiorców lub zmienić je na publiczną. Po dokonaniu publicznego planu musi on pozostać publiczny; nie można zmienić jej z powrotem na prywatną.
 
-**Ograniczone grupy odbiorców (identyfikatory subskrypcji platformy Azure)** — przypisz odbiorców, którzy będą mieli dostęp do tego planu prywatnego przy użyciu identyfikatorów subskrypcji platformy Azure. Opcjonalnie dołącz opis każdego przypisanego identyfikatora subskrypcji platformy Azure. Jeśli importowanie arkusza kalkulacyjnego CSV, należy dodać maksymalnie 10 identyfikatorów subskrypcji ręcznie lub 20 000. Identyfikatory subskrypcji platformy Azure są reprezentowane jako identyfikatory GUID, a litery muszą być małe.
+**Odbiorcy z ograniczeniami (identyfikatory subskrypcji platformy Azure)** — Przypisz odbiorców, którzy będą mieli dostęp do tego planu prywatnego przy użyciu identyfikatorów subskrypcji platformy Azure. Opcjonalnie Dołącz opis każdego przypisanego identyfikatora subskrypcji platformy Azure. Dodaj maksymalnie 10 identyfikatorów subskrypcji ręcznie lub 20 000 w przypadku importowania arkusza kalkulacyjnego CSV. Identyfikatory subskrypcji platformy Azure są reprezentowane jako identyfikatory GUID i litery muszą być małymi literami.
 
 > [!NOTE]
-> Grupa odbiorców prywatnych lub z ograniczeniami różni się od grupy odbiorców w wersji zapoznawczej zdefiniowanej na karcie **Podgląd.** Grupa odbiorców w wersji zapoznawczej może uzyskać dostęp do Twojej oferty _przed_ jej opublikowaniem na żywo w portalu marketplace. Wybór grupy odbiorców prywatnych dotyczy tylko określonego planu, ale odbiorcy wersji zapoznawczej mogą wyświetlać wszystkie plany (prywatne lub nie) do celów weryfikacji.
+> Prywatna lub ograniczona Grupa odbiorców różni się od odbiorców w wersji zapoznawczej zdefiniowanej na karcie **Podgląd** . Odbiorca wersji zapoznawczej może uzyskać dostęp do oferty _przed_ opublikowaniem jej na żywo w portalu Marketplace. Gdy wybór odbiorców prywatnych dotyczy tylko określonego planu, odbiorcy wersji zapoznawczej mogą wyświetlić wszystkie plany (prywatne lub nie) do celów weryfikacji.
 
 #### <a name="hide-plan"></a>Ukryj plan
 
-Jeśli maszyna wirtualna ma być używana tylko pośrednio, gdy odwołuje się do innego szablonu rozwiązania lub aplikacji zarządzanej, zaznacz to pole, aby opublikować maszynę wirtualną, ale ukryj ją przed klientami wyszukującymi i przeglądającymi ją bezpośrednio.
+Jeśli Twoja maszyna wirtualna ma być używana tylko pośrednio, gdy jest przywoływana za pośrednictwem innego szablonu rozwiązania lub aplikacji zarządzanej, zaznacz to pole, aby opublikować swoją maszynę wirtualną, ale ukryć ją od klientów wyszukiwania bezpośrednio i przeglądania.
 
 > [!NOTE]
-> Ukryte plany nie obsługują łączy w wersji zapoznawczej.
+> Ukryte plany nie obsługują linków podglądu.
 
-Wybierz **pozycję Zapisz pochyłość** przed kontynuowaniem.
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ### <a name="technical-configuration"></a>Konfiguracja techniczna
 
-Podaj obrazy i inne właściwości techniczne skojarzone z tym planem. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie zasobu technicznego maszyny Wirtualnej platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
+Podaj obrazy i inne właściwości techniczne skojarzone z tym planem. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie zasobów technicznych maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
 
 > [!NOTE]
-> Ta karta nie jest wyświetlana, jeśli ten plan został skonfigurowany do ponownego użycia pakietów z innego planu na karcie **Ustawienia planu.**
+> Ta karta nie jest wyświetlana, jeśli ten plan został skonfigurowany tak, aby ponownie używał pakietów z innego planu na karcie **Konfiguracja planu** .
 
 #### <a name="operating-system"></a>System operacyjny
 
 - **Rodzina systemów operacyjnych** — wybierz z systemu operacyjnego **Windows** lub **Linux**
-- **Zwolnij** lub **dostawca** — wybierz wersję systemu Windows lub dostawcę systemu Linux
-- **Nazwa przyjazna systemowi operacyjnemu** — wybierz przyjazną nazwę systemu operacyjnego. Ta nazwa jest widoczna dla klientów
+- **Wydanie** lub **dostawca** — wybieranie dostawcy systemu Windows w wersji lub Linux
+- **Przyjazna nazwa** systemu operacyjnego — wybierz przyjazną nazwę system operacyjny. Ta nazwa jest widoczna dla klientów
 
 #### <a name="recommended-vm-sizes"></a>Zalecane rozmiary maszyn wirtualnych
 
-Wybierz maksymalnie sześć zalecanych rozmiarów maszyn wirtualnych do wyświetlenia w portalu Azure Marketplace.
+Wybierz maksymalnie sześć zalecanych rozmiarów maszyn wirtualnych do wyświetlenia w witrynie Azure Marketplace.
 
 #### <a name="open-ports"></a>Otwieranie portów
 
 Otwórz porty publiczne lub prywatne na wdrożonej maszynie wirtualnej.
 
-#### <a name="storage-option-for-deployment"></a>Opcja magazynowania dla wdrożenia
+#### <a name="storage-option-for-deployment"></a>Opcja magazynu dla wdrożenia
 
 **Opcja wdrażania dysku** — wybierz rodzaj wdrożenia dysku, którego użytkownicy mogą używać podczas korzystania z maszyny wirtualnej. Firma Microsoft zaleca ograniczenie wdrożenia tylko do wdrożenia dysku zarządzanego.
 
 #### <a name="properties"></a>Właściwości
 
-**Obsługa przyspieszonej sieci** — wybierz, czy maszyna wirtualna obsługuje [przyspieszoną sieć](https://go.microsoft.com/fwlink/?linkid=2124513).
+**Obsługa przyspieszonej sieci** — wybierz, czy maszyna wirtualna obsługuje [przyspieszone sieci](https://go.microsoft.com/fwlink/?linkid=2124513).
 
 #### <a name="vm-images"></a>Obrazy maszyn wirtualnych
 
-Podaj wersję dysku i identyfikator URI sygnatury dostępu Współdzielonego dla obrazów maszyn wirtualnych. Dodaj do 16 dysków danych dla każdego obrazu maszyny Wirtualnej. Podaj tylko jedną nową wersję obrazu na plan w danym zgłoszeniu. Po opublikowaniu obrazu nie można go edytować, ale można go usunąć. Usunięcie wersji uniemożliwi zarówno nowym, jak i istniejącym użytkownikom wdrożenie nowego wystąpienia usuniętej wersji.
+Podaj wersję dysku i identyfikator URI sygnatury dostępu współdzielonego dla obrazów maszyn wirtualnych. Dodaj do 16 dysków danych dla każdego obrazu maszyny wirtualnej. Dla danego planu należy podać tylko jedną nową wersję obrazu. Po opublikowaniu obrazu nie można go edytować, ale można go usunąć. Usunięcie wersji uniemożliwi nowym i istniejącym użytkownikom wdrażanie nowego wystąpienia usuniętej wersji.
 
-- **Wersja płyty** jest wersją obrazu, który dostarczasz.
-- **Identyfikator URI** sygnatury dostępu Współdzielonego to lokalizacja w usłudze Azure Storage, w której przechowywana jest dysk VHD systemu operacyjnego.
-- Obrazy dysków danych są również identyfikatory URI SYGNAUSZ VHD przechowywane w ich magazynie platformy Azure.
-- Dodaj tylko jeden obraz na zgłoszenie w planie.
+- **Wersja dysku** to wersja obrazu, który jest udostępniany.
+- **Identyfikator URI sygnatury dostępu współdzielonego** to lokalizacja w usłudze Azure Storage, w której zapisano wirtualny dysk twardy systemu operacyjnego.
+- Obrazy dysków danych to również identyfikatory URI sygnatury dostępu współdzielonego dysku VHD przechowywane w usłudze Azure Storage.
+- Dodaj tylko jeden obraz do każdego przesłania w planie.
 
-Niezależnie od używanego systemu operacyjnego dodaj tylko minimalną liczbę dysków danych potrzebnych do rozwiązania. Klienci nie mogą usuwać dysków, które są częścią obrazu w czasie wdrażania, ale zawsze mogą dodawać dyski podczas lub po wdrożeniu.
+Niezależnie od używanego systemu operacyjnego, należy dodać tylko minimalną liczbę dysków z danymi wymaganą przez rozwiązanie. Klienci nie mogą usunąć dysków, które są częścią obrazu w czasie wdrażania, ale mogą zawsze dodawać dyski w trakcie wdrażania lub po nim.
 
-Wybierz **pozycję Zapisz pochyłość** przed kontynuowaniem i wróć do **przeglądu planu**.
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem i wróć do **omówienia planu**.
 
-## <a name="resell-through-csps"></a>Odsprzedaj za pośrednictwem dostawców usług internetowych
+## <a name="resell-through-csps"></a>Odsprzedaż za poorednictwem dostawców CSP
 
-Zwiększ zasięg swojej oferty, udostępniając ją partnerom w programie [Dostawców rozwiązań](https://azure.microsoft.com/offers/ms-azr-0145p/) w chmurze (CSP). Wszystkie plany Bring Your Own License (BYOL) są automatycznie włączane; możesz zdecydować się na swoje plany inne niż BYOL.
+Rozszerz zasięg oferty, udostępniając ją partnerom w programie [dostawcy rozwiązań w chmurze](https://azure.microsoft.com/offers/ms-azr-0145p/) (CSP). Wszystkie plany przenoszenia własnych licencji (BYOL) są automatycznie wybrały; Możesz wybrać opcję rezygnacji z planów BYOL.
 
-Wybierz **pozycję Zapisz pochyłość** przed kontynuowaniem.
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-## <a name="test-drive"></a>Jazda próbna
+## <a name="test-drive"></a>Wersja testowa
 
-Skonfiguruj pokazową (jazdę próbną), która umożliwia klientom wypróbowanie oferty przed jej zakupem. Aby utworzyć środowisko demonstracyjne, które umożliwia klientom wypróbowanie oferty przez określony czas, zobacz [Test Drive oferty na rynku komercyjnym.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive)
+Skonfiguruj demonstrację (Test Drive), która umożliwia klientom wypróbowanie oferty przed jej zakupem. Aby utworzyć środowisko demonstracyjne, które umożliwia klientom wypróbowanie oferty przez ustalony okres, zobacz temat [testowanie oferty w komercyjnej witrynie Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
 
-Aby włączyć jazdę próbną, zaznacz pole wyboru Włącz dysk testowy na karcie [Ustawienia oferty.](#test-drive) Aby usunąć jazdę próbną z oferty, wyczyść to pole wyboru.
+Aby włączyć stację testową, zaznacz pole wyboru Włącz dysk testowy na karcie [Konfiguracja oferty](#test-drive) . Aby usunąć dysk testowy z oferty, wyczyść to pole wyboru.
 
-Dodatkowe zasoby dysku próbne:
+Dodatkowe zasoby dotyczące stacji testowych:
 
-- Najlepsze praktyki techniczne
+- Najlepsze rozwiązania techniczne
 - Najlepsze rozwiązania marketingowe
-- Omówienie dysków testowych (PDF; upewnij się, że bloker wyskakujących wyskakujących wyskakujących jest wyłączony).
+- Informacje o testowaniu dysków (PDF; upewnij się, że blokowanie wyskakujących okienek jest wyłączone).
 
-Wybierz **pozycję Zapisz pochyłość** przed kontynuowaniem.
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-## <a name="review-and-publish"></a>Przeglądanie i publikowanie
+## <a name="review-and-publish"></a>Przejrzyj i Opublikuj
 
-Po wypełnić wszystkie wymagane sekcje oferty, można przesłać go do przeglądu i opublikowania.
+Po zakończeniu wszystkich wymaganych sekcji oferty możesz przesłać ją do przeglądu i publikacji.
 
-W prawym górnym rogu portalu wybierz pozycję **Przejrzyj i opublikuj**.
+W prawym górnym rogu portalu wybierz pozycję **Przejrzyj i Opublikuj**.
 
-Na tej stronie możesz:
+Na tej stronie można:
 
-- Zobacz stan ukończenia każdej sekcji oferty.
-  - **Nie rozpoczęto** — sekcja nie została uruchomiona i musi zostać ukończona.
-  - **Niekompletne** — sekcja zawiera błędy, które muszą zostać naprawione lub wymagają podania większej ilości informacji. Zapoznaj się z sekcjami we wcześniejszej części tego dokumentu, aby uzyskać wskazówki dotyczące aktualizowania tej sekcji.
-  - **Ukończono** — sekcja jest kompletna i nie ma żadnych błędów. Przed złożeniem oferty należy wypełnić wszystkie sekcje oferty.
-- **Uwagi dotyczące certyfikacji** — dostarczaj zespołowi certyfikacyjnemu instrukcje testowania, aby upewnić się, że aplikacja jest poprawnie przetestowana. Podaj wszelkie dodatkowe notatki pomocne w zrozumieniu aplikacji.
+- Zobacz stan ukończenia dla każdej sekcji oferty.
+  - **Nie uruchomiono** — sekcja nie została uruchomiona i musi zostać zakończona.
+  - **Niekompletne** — sekcja zawiera błędy, które muszą zostać naprawione lub wymaga podania dodatkowych informacji. Zapoznaj się z pozostałymi sekcjami w tym dokumencie, aby uzyskać wskazówki dotyczące aktualizowania tej sekcji.
+  - **Ukończono** — sekcja jest kompletna i nie ma błędów. Aby można było przesłać ofertę, wszystkie sekcje oferty muszą zostać ukończone.
+- **Uwagi dotyczące certyfikacji** — Podaj instrukcje dotyczące testowania dla zespołu certyfikacji, aby upewnić się, że aplikacja została prawidłowo przetestowana. Podaj wszelkie dodatkowe uwagi pomocne przy zrozumieniu swojej aplikacji.
 
-Aby przesłać ofertę publikacji, wybierz **pozycję Przejrzyj i opublikuj**.
+Aby przesłać ofertę do publikacji, wybierz pozycję **Przejrzyj i Opublikuj**.
 
-Wyślemy Ci wiadomość e-mail z powiadomieniem, kiedy wersja zapoznawcza oferty będzie dostępna do przejrzenia i zatwierdzenia. Aby opublikować ofertę publiczną (lub prywatną, dla odbiorców prywatnych), przejdź do Centrum partnerów, znajdź stronę **Przegląd** oferty i wybierz **opcję Przejdź na żywo.** Stan oferty pojawi się w górnej części strony, gdy trwa publikowanie.
+Wyślemy Ci wiadomość e-mail z prośbą o poinformowanie o udostępnieniu wersji zapoznawczej oferty do przejrzenia i zatwierdzenia. Aby opublikować ofertę publicznie (lub w przypadku prywatnej oferty, w przypadku odbiorców prywatnych), przejdź do Centrum partnerskiego, Znajdź stronę **omówienia** oferty i wybierz pozycję **Przejdź na żywo**. Gdy publikowanie jest w toku, w górnej części strony zostanie wyświetlony stan oferty.
 
-### <a name="errors-and-review-feedback"></a>Błędy i opinie
+### <a name="errors-and-review-feedback"></a>Błędy i przejrzyj opinię
 
-Krok **weryfikacji ręcznej** w procesie publikowania reprezentuje obszerny przegląd oferty i skojarzonych z nią zasobów technicznych. Jeśli ten proces wykryje błędy w ofercie, otrzymasz raport certyfikacyjny, który wyszczegnie problemy. Wystarczy wprowadzić wymagane poprawki i ponownie opublikować ofertę.
+Krok **walidacji ręcznej** w procesie publikowania reprezentuje obszerny przegląd oferty i skojarzonych z nią zasobów technicznych. Jeśli ten proces odzyskuje błędy oferty, zostanie wyświetlony Raport z certyfikatem zawierającym szczegóły dotyczące problemów. Po prostu wprowadź wymagane poprawki i ponownie Opublikuj swoją ofertę.
 
 ## <a name="offer-overview"></a>Przegląd oferty
 
-Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków wymaganych do opublikowania tej oferty (zarówno ukończonych, jak i w toku) oraz czasu, jaki powinien potrwać każdy krok.
+Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno w toku, jak i w trakcie) oraz czas trwania każdego kroku.
 
-Ta strona zawiera łącza do wykonywania operacji w tej ofercie na podstawie dokonanych wyborów. Przykład:
+Ta strona zawiera linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Przykład:
 
-- Jeśli oferta jest wersja robocza — [usuwanie wersji roboczej oferty](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- Jeśli oferta jest na żywo - [Przestań sprzedawać ofertę](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- Jeśli oferta jest w wersji zapoznawczej - [Go-live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Jeśli nie zostało ukończone logowanie do wydawcy — [anulowanie publikowania](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
+- Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
+- Jeśli oferta jest dostępna w wersji zapoznawczej — [Przejdź na żywo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
+- Jeśli nie ukończono wylogowania wydawcy — [Anulowanie publikowania](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
 
-## <a name="marketplace-examples"></a>Przykłady z Marketplace
+## <a name="marketplace-examples"></a>Przykłady dla witryny Marketplace
 
-Te przykłady pokazują, jak oferta pojawia się w portalu Azure Marketplace.
+W poniższych przykładach pokazano, jak oferta pojawia się w witrynie Azure Marketplace.
 
-### <a name="azure-marketplace-offer-details"></a>Szczegóły oferty w portalu Azure Marketplace
+### <a name="azure-marketplace-offer-details"></a>Szczegóły oferty witryny Azure Marketplace
 
-![Przykład ekranu szczegółów oferty usługi Azure Marketplace](media/avm-create1.png)
+![Przykład ekranu szczegółów oferty w witrynie Azure Marketplace](media/avm-create1.png)
 
 ### <a name="azure-marketplace-search-results"></a>Wyniki wyszukiwania w portalu Azure Marketplace
 
-![Przykład ekranu szczegółów wyszukiwania w portalu Azure Marketplace](media/avm-create2.png)
+![Przykład ekranu szczegółów wyszukiwania w witrynie Azure Marketplace](media/avm-create2.png)
 
-### <a name="azure-marketplace-plan-details"></a>Szczegóły planu portalu Azure Marketplace
+### <a name="azure-marketplace-plan-details"></a>Szczegóły planu witryny Azure Marketplace
 
-![Przykład ekranu szczegółów planu portalu azure marketplace](media/avm-create3.png)
+![Przykład ekranu szczegółów planu witryny Azure Marketplace](media/avm-create3.png)
 
-### <a name="azure-portal-offer-details"></a>Szczegóły oferty usługi Azure portal
+### <a name="azure-portal-offer-details"></a>Szczegóły oferty Azure Portal
 
-![Przykład ekranu szczegółów oferty usługi azure portal](media/avm-create4.png)
+![Przykład ekranu Azure Portal szczegóły oferty](media/avm-create4.png)
 
-### <a name="azure-portal-search-results"></a>Wyniki wyszukiwania w portalu Azure
+### <a name="azure-portal-search-results"></a>Wyniki wyszukiwania Azure Portal
 
-![Przykład ekranu wyników wyszukiwania w portalu Azure](media/avm-create5.png)
+![Przykład ekranu wyników wyszukiwania Azure Portal](media/avm-create5.png)
 
-### <a name="azure-portal-plan-details"></a>Szczegóły planu portalu platformy Azure
+### <a name="azure-portal-plan-details"></a>Szczegóły planu Azure Portal
 
-![Przykład ekranu szczegółów planu portalu platformy Azure](media/avm-create6.png)
+![Przykład ekranu szczegółów planu Azure Portal](media/avm-create6.png)
 
 ## <a name="next-step"></a>Następny krok
 
-- [Aktualizowanie istniejącej oferty na rynku komercyjnym](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
+- [Aktualizowanie istniejącej oferty w komercyjnej witrynie Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)

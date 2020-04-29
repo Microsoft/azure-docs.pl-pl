@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie zarządzania potencjalnymi klientami przy użyciu punktu końcowego HTTPS | Azure Marketplace
-description: Dowiedz się, jak używać punktu końcowego HTTP do obsługi potencjalnych klientów microsoft appsource i portalu Azure Marketplace.
+title: Konfigurowanie zarządzania liderem za pomocą punktu końcowego HTTPS | Portal Azure Marketplace
+description: Dowiedz się, jak korzystać z punktu końcowego HTTP do obsługi potencjalnych klientów Microsoft AppSource i Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,105 +8,105 @@ ms.topic: conceptual
 ms.date: 04/21/2020
 ms.author: dsindona
 ms.openlocfilehash: f56cc5aaad7d77ff8dc753115ef1becb08ddde73
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81770196"
 ---
-# <a name="configure-lead-management-using-an-https-endpoint"></a>Konfigurowanie zarządzania potencjalnymi klientami przy użyciu punktu końcowego HTTPS
+# <a name="configure-lead-management-using-an-https-endpoint"></a>Konfigurowanie zarządzania liderem za pomocą punktu końcowego HTTPS
 
-Punktu końcowego protokołu HTTPS można używać do obsługi potencjalnych klientów microsoft appsource i portalu Azure Marketplace. Przewody te mogą być zapisywane do systemu zarządzania relacjami z klientami (CRM) lub wysyłane jako powiadomienie e-mail. W tym artykule opisano sposób konfigurowania zarządzania potencjalnymi klientami za pomocą usługi [automatyzacji automatyzacji microsoft power automatyki.](https://powerapps.microsoft.com/automate-processes/)
+Za pomocą punktu końcowego HTTPS można obsługiwać Microsoft AppSource i potencjalnych klientów portalu Azure Marketplace. Potencjalni klienci mogą być zapisanie w systemie zarządzania relacjami klienta (CRM) lub wysyłane jako powiadomienia e-mail. W tym artykule opisano, jak skonfigurować zarządzanie potencjalnymi klientami przy użyciu usługi [Microsoft energooszczędnej](https://powerapps.microsoft.com/automate-processes/) automatyzacji.
 
-## <a name="create-a-flow-using-microsoft-power-automate"></a>Tworzenie przepływu przy użyciu automatyzacji zasilania Microsoft Power
+## <a name="create-a-flow-using-microsoft-power-automate"></a>Tworzenie przepływu przy użyciu usługi Microsoft PowerShell
 
-1. Otwórz stronę power [automatyzuj.](https://flow.microsoft.com/) Wybierz **pozycję Zaloguj się** lub wybierz zarejestruj się **bezpłatnie,** aby utworzyć bezpłatne konto Flow.
+1. Otwórz stronę sieci Web [automatyzacji](https://flow.microsoft.com/) . Wybierz pozycję **Zaloguj** lub wybierz pozycję **zarejestruj się bezpłatnie** , aby utworzyć bezpłatne konto przepływu.
 
-1. Zaloguj się i wybierz **pozycję Moje przepływy** na pasku menu.
+1. Zaloguj się i wybierz pozycję **Moje przepływy** na pasku menu.
     > [!div class="mx-imgBorder"]
     > ![Moje przepływy](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows.png)
 
-1. W obszarze **+ Nowy**, wybierz **+ Natychmiastowy — z pustego**.
+1. W obszarze **+ Nowy**wybierz pozycję **+ błyskawiczne — od zera**.
     > [!div class="mx-imgBorder"]
     > ![Tworzenie z pustego](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-1. Nazwij przepływ, a następnie w obszarze **Wybierz sposób wyzwalania tego przepływu**wybierz pozycję Po **odebraniu żądania HTTP**.
+1. Nadaj nazwę przepływowi, a następnie w obszarze **Wybierz sposób wyzwalania tego przepływu**wybierz opcję **po odebraniu żądania HTTP**.
 
     > [!div class="mx-imgBorder"]
-    > ![Wybieranie wyzwalacza odebranego żądania HTTP](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
+    > ![Wybierz wyzwalacz odebrane żądanie HTTP](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
 
 1. Kliknij krok przepływu, aby go rozwinąć.
 
     > [!div class="mx-imgBorder"]
     > ![Rozwiń krok przepływu](./media/cloud-partner-portal-lead-management-instructions-https/expand-flow-step.png)
 
-1. Użyj jednej z następujących metod, aby skonfigurować **schemat JSON treści żądania:**
+1. Użyj jednej z następujących metod, aby skonfigurować **schemat JSON treści żądania**:
 
-   - Skopiuj [schemat JSON](#json-schema) na końcu tego artykułu do pola tekstowego **Schemat JSON treści żądania.**
-   - Wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**. W polu **tekstowym Wprowadzanie lub wklejanie przykładowego ładunku JSON** wklej w [przykładzie JSON](#json-example). Wybierz **pozycję Gotowe,** aby utworzyć schemat.
+   - Skopiuj [schemat JSON](#json-schema) na końcu tego artykułu do pola tekstowego **schemat JSON treści żądania** .
+   - Wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**. W polu tekstowym **wprowadź lub wklej przykładowy ładunek JSON** Wklej w [przykładzie JSON](#json-example). Wybierz pozycję **gotowe** , aby utworzyć schemat.
 
    >[!Note]
-   >W tym momencie w przepływie można połączyć się z systemem CRM lub skonfigurować powiadomienie e-mail.
+   >W tym momencie w przepływie możesz połączyć się z systemem CRM lub skonfigurować powiadomienie e-mail.
 
-### <a name="to-connect-to-a-crm-system"></a>Aby połączyć się z systemem CRM
+### <a name="to-connect-to-a-crm-system"></a>Aby nawiązać połączenie z systemem CRM
 
 1. Wybierz pozycję **+ Nowy krok**.
-2. Wybierz wybrany system CRM z akcją, aby utworzyć nowy rekord. Następujące zrzut ekranu pokazuje **Dynamics 365 — utwórz nowy rekord** jako przykład.
+2. Wybierz wybrany system CRM z akcją tworzenia nowego rekordu. Na poniższym zrzucie ekranu przedstawiono **Dynamics 365 — Utwórz nowy rekord** jako przykład.
 
     ![Tworzenie nowego rekordu](./media/cloud-partner-portal-lead-management-instructions-https/https-image009.png)
 
-3. Podaj **nazwę organizacji,** która jest wejściami połączenia dla łącznika. Wybierz **pozycję Potencjalni klienci** z listy rozwijanej Nazwa **encji.**
+3. Podaj **nazwę organizacji** , która jest danymi wejściowymi połączenia dla łącznika. Wybierz pozycję **potencjalni klienci** z listy rozwijanej **Nazwa jednostki** .
 
-    ![Wybieranie potencjalnych klientów](./media/cloud-partner-portal-lead-management-instructions-https/https-image011.png)
+    ![Wybierz potencjalnych klientów](./media/cloud-partner-portal-lead-management-instructions-https/https-image011.png)
 
-4. Przepływ pokazuje formularz do dostarczania informacji o potencjalnych klientach. Elementy można mapować z żądania wprowadzania, wybierając opcję dodawania zawartości dynamicznej. Poniższe zrzut ekranu pokazuje **OfferTitle** jako przykład.
+4. Flow pokazuje formularz do udostępniania informacji o potencjalnych klientach. Możesz mapować elementy z żądania wejściowego, wybierając pozycję Dodaj zawartość dynamiczną. Poniższy przykład przechwytywania ekranu pokazuje **OfferTitle** .
 
     ![Dodaj zawartość dynamiczną](./media/cloud-partner-portal-lead-management-instructions-https/https-image013.png)
 
-5. Zamapuj żądane pola, a następnie wybierz pozycję **Zapisz,** aby zapisać przepływ.
+5. Zamapuj odpowiednie pola, a następnie wybierz pozycję **Zapisz** , aby zapisać przepływ.
 
-6. W żądaniu zostanie utworzony adres URL wpisu HTTP. Skopiuj ten adres URL i użyj go jako punktu końcowego HTTPS.
+6. W żądaniu zostanie utworzony adres URL POST protokołu HTTP. Skopiuj ten adres URL i użyj go jako punktu końcowego HTTPS.
 
-    ![Adres URL wpisu HTTP](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-get-post-url.png)
+    ![Adres URL post protokołu HTTP](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-get-post-url.png)
 
-### <a name="to-set-up-email-notification"></a>Aby skonfigurować powiadomienia e-mail
+### <a name="to-set-up-email-notification"></a>Aby skonfigurować powiadomienie e-mail
 
 1. Wybierz pozycję **+ Nowy krok**.
 2. W obszarze **Wybierz akcję**wybierz pozycję **Akcje**.
 3. W obszarze **Akcje** wybierz pozycję **Wyślij wiadomość e-mail**.
 
-    ![Dodawanie akcji e-mail](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-add-email-action.png)
+    ![Dodaj akcję poczty e-mail](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-add-email-action.png)
 
-4. W **polu Wyślij wiadomość e-mail**skonfiguruj następujące wymagane pola:
+4. W polu **Wyślij wiadomość e-mail**skonfiguruj następujące wymagane pola:
 
-   - **Do** - Wprowadź co najmniej jeden prawidłowy adres e-mail.
-   - **Temat** — przepływ umożliwia dodanie zawartości dynamicznej, takiej jak **LeadSource** w poniższym przechwytywaniu ekranu.
+   - **Aby** wprowadzić co najmniej jeden prawidłowy adres e-mail.
+   - Przepływ **tematu** umożliwia dodanie zawartości dynamicznej, na przykład **LeadSource** , na poniższym zrzucie ekranu.
 
-     ![Dodawanie akcji wiadomości e-mail przy użyciu zawartości dynamicznej](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-dynamic-content.png)
+     ![Dodawanie akcji poczty e-mail przy użyciu zawartości dynamicznej](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-dynamic-content.png)
 
-   - **Treść** — z listy Zawartość dynamiczna dodaj żądane informacje w treści wiadomości e-mail. Na przykład LastName, FirstName, E-mail i Firma.
+   - **Treść** — z listy zawartość dynamiczna Dodaj odpowiednie informacje w treści wiadomości e-mail. Na przykład LastName, FirstName, email i Company.
 
-   Po zakończeniu konfigurowania powiadomienia e-mail będzie wyglądać jak przykład w poniższym przechwytywaniu ekranu.
+   Po zakończeniu konfigurowania powiadomienia e-mail będzie on wyglądał jak przykład na poniższym zrzucie ekranu.
 
-   ![Dodawanie akcji e-mail](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-action.png)
+   ![Dodaj akcję poczty e-mail](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-action.png)
 
-5. Wybierz **pozycję Zapisz,** aby zakończyć przepływ.
+5. Wybierz pozycję **Zapisz** , aby zakończyć przepływ.
 
-6. W żądaniu zostanie utworzony adres URL wpisu HTTP. Skopiuj ten adres URL i użyj go jako punktu końcowego HTTPS.
+6. W żądaniu zostanie utworzony adres URL POST protokołu HTTP. Skopiuj ten adres URL i użyj go jako punktu końcowego HTTPS.
 
-    ![Adres URL wpisu HTTP](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-get-post-url.png)
+    ![Adres URL post protokołu HTTP](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-get-post-url.png)
 
 ## <a name="configure-your-offer-to-send-leads-to-the-https-endpoint"></a>Konfigurowanie oferty do wysyłania potencjalnych klientów do punktu końcowego HTTPS
 
-Podczas konfigurowania informacji o zarządzaniu potencjalnymi klientami dla oferty wybierz pozycję **Punkt końcowy HTTPS** dla **miejsca docelowego potencjalnego klienta** i wklej adres URL HTTP POST skopiowany w poprzednim kroku.  
+Podczas konfigurowania informacji o zarządzaniu potencjalnym liderem oferty wybierz pozycję **punkt końcowy https** dla **miejsca docelowego potencjalnego klienta** i wklej w adresie URL post protokołu HTTP skopiowanym w poprzednim kroku.  
 
 ![Dodaj zawartość dynamiczną](./media/cloud-partner-portal-lead-management-instructions-https/https-image017.png)
 
-Gdy potencjalni klienci są generowani, firma Microsoft wysyła potencjalnych klientów do przepływu automatyzacji zasilania, które są kierowane do skonfigurowanyego systemu CRM lub adresu e-mail.
+Gdy są generowane potencjalni klienci, firma Microsoft wysyła potencjalni klienci do przepływu automatyzacji, który jest kierowany do skonfigurowanego systemu CRM lub adresu e-mail.
 
 ## <a name="json-schema-and-example"></a>Schemat JSON i przykład
 
-W przykładzie testu JSON użyto następującego schematu:
+W przykładzie testu JSON jest stosowany następujący schemat:
 
 ### <a name="json-schema"></a>Schemat JSON
 
@@ -171,7 +171,7 @@ W przykładzie testu JSON użyto następującego schematu:
 }
 ```
 
-Można skopiować i edytować następujący przykład JSON do użycia jako test w przepływie.
+Poniższy przykład kodu JSON można skopiować i edytować, aby użyć go jako testu w przepływie.
 
 ### <a name="json-example"></a>Przykład JSON
 
@@ -195,4 +195,4 @@ Można skopiować i edytować następujący przykład JSON do użycia jako test 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli jeszcze tego nie zrobiono, skonfiguruj [potencjalnych klientów](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) w portalu cloud partner.
+Jeśli jeszcze tego nie zrobiono, należy skonfigurować [potencjalnych klientów](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) w Portal Cloud partner.

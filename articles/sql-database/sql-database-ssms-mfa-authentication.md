@@ -14,10 +14,10 @@ ms.reviewer: vanto
 ms.date: 02/06/2020
 tags: azure-synapse
 ms.openlocfilehash: 137e1919f460d2f5631810edbc09b6e213bfe651
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133190"
 ---
 # <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-synapse-analytics-ssms-support-for-mfa"></a>Korzystanie z uwierzytelniania wieloskładnikowego w usłudze AAD przy użyciu Azure SQL Database i usługi Azure Synapse Analytics (Obsługa programu SSMS)

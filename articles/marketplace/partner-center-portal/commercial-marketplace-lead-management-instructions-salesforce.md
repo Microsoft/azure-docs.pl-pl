@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
 ms.openlocfilehash: e0fbb09370e198772b4fc485b3c0fe8a56da4226
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133631"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Konfigurowanie zarządzania liderem w usłudze Salesforce
@@ -73,7 +73,7 @@ Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania
 
 1. W obszarze **kontaktowy adres e-mail**wprowadź adresy e-mail osób w firmie, które powinny otrzymywać powiadomienia e-mail po odebraniu nowego potencjalnego klienta. Można podać wiele wiadomości e-mail, rozdzielając je średnikami.
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
 Aby upewnić się, że pomyślnie nawiązano połączenie z miejscem docelowym potencjalnego klienta, wybierz przycisk **Weryfikuj** . Jeśli się powiedzie, będziesz mieć test w miejscu docelowym potencjalnego klienta.
 

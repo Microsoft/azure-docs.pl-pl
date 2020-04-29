@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c7598aafea85e91f28233645d3d71bf85bf45425
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82130993"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Utwórz potok ciągłej integracji/ciągłego wdrażania dla IoT Edge z Azure DevOps Projects
@@ -28,11 +28,11 @@ Usługa DevOps Projects tworzy potok ciągłej integracji/ciągłego wdrażania 
 
 1. W okienku po lewej stronie wybierz pozycję **Utwórz zasób**, a następnie wyszukaj pozycję **DevOps Projects**.  
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ## <a name="create-a-new-application-pipeline"></a>Tworzenie nowego potoku aplikacji
 
-1. Moduły Azure IoT Edge można napisać w [językach C#](tutorial-csharp-module.md), [Node. js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) i [Java](tutorial-java-module.md). Wybierz preferowany język, aby rozpocząć nową aplikację: **.NET**, **Node. js**, **Python**, **C**lub **Java**. Kliknij przycisk **Dalej**, aby kontynuować.
+1. Moduły Azure IoT Edge można napisać w [językach C#](tutorial-csharp-module.md), [Node. js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) i [Java](tutorial-java-module.md). Wybierz preferowany język, aby rozpocząć nową aplikację: **.NET**, **Node. js**, **Python**, **C**lub **Java**. Wybierz przycisk **Dalej**, aby kontynuować.
 
    ![Wybierz język, aby utworzyć nową aplikację](./media/how-to-devops-project/select-language.png)
 

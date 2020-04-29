@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: f5b0aeec851c8f514492e32792f48e955597ced5
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82096575"
 ---
 # <a name="database-advisor-performance-recommendations-for-single-and-pooled-databases"></a>Zalecenia dotyczące wydajności Database Advisor dla jednej i puli baz danych
@@ -102,7 +102,7 @@ Po zastosowaniu tego zalecenia włącza wymuszone parametryzacja w ciągu kilku 
 
 Zalecenie "Rozwiąż problem ze schematem" pojawia się, gdy usługa Azure SQL Database wykryje anomalię w liczbie błędów SQL związanych ze schematami, które są wykonywane w bazie danych SQL. W poniższej tabeli przedstawiono błędy związane z problemami ze schematem:
 
-| Kod błędu SQL | Komunikat |
+| Kod błędu SQL | Wiadomość |
 | --- | --- |
 | 201 |Procedura lub funkcja "*" oczekuje parametru "*", który nie został podany. |
 | 207 |Nieprawidłowa nazwa kolumny "*". |

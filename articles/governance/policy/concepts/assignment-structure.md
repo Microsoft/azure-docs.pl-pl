@@ -1,30 +1,30 @@
 ---
-title: Szczegóły struktury przypisywania zasad
-description: W tym artykule opisano definicję przypisania zasad używaną przez usługę Azure Policy do powiązania definicji zasad i parametrów z zasobami do oceny.
+title: Szczegóły struktury przypisania zasad
+description: Zawiera opis definicji przypisania zasad używanej przez Azure Policy do powiązania definicji zasad i parametrów z zasobami do oceny.
 ms.date: 04/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: cdb2fc0c6f057ece44383f68bc79fca54507db9b
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683214"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struktura przypisań usługi Azure Policy
 
-Przypisania zasad są używane przez usługę Azure Policy do definiowania, które zasoby są przypisywane, które zasady lub inicjatywy. Przypisanie zasad można określić wartości parametrów dla tej grupy zasobów w czasie przydziału, dzięki czemu można ponownie użyć definicji zasad, które dotyczą tych samych właściwości zasobów z różnych potrzeb zgodności.
+Przypisania zasad są używane przez Azure Policy do definiowania zasobów, które są przypisane do zasad lub inicjatyw. Przypisanie zasad pozwala określić wartości parametrów dla tej grupy zasobów w czasie przypisywania, dzięki czemu można ponownie użyć definicji zasad, które odnoszą się do tych samych właściwości zasobów z różnymi potrzebami zgodności.
 
-JSON służy do tworzenia przypisania zasad. Przypisanie zasad zawiera elementy dla:
+Aby utworzyć przypisanie zasad, należy użyć formatu JSON. Przypisanie zasad zawiera elementy dla:
 
-- nazwa wyświetlana
+- Nazwa wyświetlana
 - description
 - metadane
-- tryb egzekwowania
+- Tryb wymuszania
 - wykluczone zakresy
-- definicja zasad
+- Definicja zasad
 - parameters
 
-Na przykład następujący JSON pokazuje przypisanie zasad w trybie _DoNotEnforce_ z parametrami dynamicznymi:
+Na przykład poniższy kod JSON przedstawia przypisanie zasad w trybie _DoNotEnforce_ z parametrami dynamicznymi:
 
 ```json
 {
@@ -49,38 +49,38 @@ Na przykład następujący JSON pokazuje przypisanie zasad w trybie _DoNotEnforc
 }
 ```
 
-Wszystkie przykłady zasad platformy Azure znajdują się w [przykładach zasad platformy Azure.](../samples/index.md)
+Wszystkie przykłady Azure Policy znajdują się na [Azure Policy próbkach](../samples/index.md).
 
-## <a name="display-name-and-description"></a>Wyświetlana nazwa i opis
+## <a name="display-name-and-description"></a>Nazwa wyświetlana i opis
 
-**DisplayName** i **opis** służy do identyfikowania przypisania zasad i podaj kontekst do jego użycia z określonym zestawem zasobów. **displayName** ma maksymalną długość _128_ znaków i **opis** maksymalną długość _512_ znaków.
+Użyj **DisplayName** i **Description** , aby zidentyfikować przypisanie zasad i zapewnić kontekst do użycia z określonym zestawem zasobów. **Nazwa wyświetlana** ma maksymalną długość _128_ znaków i **Opis** ma maksymalną długość _512_ znaków.
 
-## <a name="enforcement-mode"></a>Tryb egzekwowania
+## <a name="enforcement-mode"></a>Tryb wymuszania
 
-Właściwość **enforcementMode** zapewnia klientom możliwość testowania wyników zasad dotyczących istniejących zasobów bez inicjowania efektu zasad lub wyzwalania wpisów w [dzienniku aktywności platformy Azure.](../../../azure-monitor/platform/platform-logs-overview.md) Ten scenariusz jest powszechnie określany jako "Co jeśli" i dostosowuje się do bezpiecznych praktyk wdrażania. **enforcementMode** różni się od [wyłączonego](./effects.md#disabled) efektu, ponieważ ten efekt zapobiega oceny zasobów w ogóle.
+Właściwość **wymuszmode** zapewnia klientom możliwość testowania wyniku zasad w istniejących zasobach bez zainicjowania efektu zasad ani wyzwalania wpisów w [dzienniku aktywności platformy Azure](../../../azure-monitor/platform/platform-logs-overview.md). Ten scenariusz jest często określany jako "What If" i wyrównany do bezpiecznych praktyk wdrażania. **wymuszanie** różni się od [wyłączonego](./effects.md#disabled) efektu, ponieważ ten efekt uniemożliwia wykonywanie oceny zasobów.
 
 Ta właściwość ma następujące wartości:
 
-|Tryb |Wartość JSON |Typ |Korygowanie ręcznie |Wpis dziennika aktywności |Opis |
+|Tryb |Wartość JSON |Typ |Koryguj ręcznie |Wpis dziennika aktywności |Opis |
 |-|-|-|-|-|-|
-|Enabled (Włączony) |Domyślne |ciąg |Tak |Tak |Efekt zasad jest wymuszany podczas tworzenia lub aktualizowania zasobów. |
-|Disabled (Wyłączony) |DoNotEnforce (DoNotEnforce) |ciąg |Tak |Nie | Efekt zasad nie jest wymuszany podczas tworzenia lub aktualizowania zasobów. |
+|Enabled (Włączony) |Domyślny |ciąg |Tak |Tak |Efekt zasad jest wymuszany podczas tworzenia lub aktualizowania zasobu. |
+|Disabled (Wyłączony) |DoNotEnforce |ciąg |Tak |Nie | Efekt zasad nie jest wymuszany podczas tworzenia lub aktualizowania zasobu. |
 
-Jeśli **tryb enforcementMode** nie jest określony w definicji zasad lub inicjatywy, używana jest wartość _Domyślna._ [Zadania korygowania](../how-to/remediate-resources.md) można uruchomić dla [wdrażaniaIfNotExists](./effects.md#deployifnotexists) zasad, nawet wtedy, gdy **enforcementMode** jest ustawiona na _DoNotEnforce_.
+Jeśli w definicji zasad lub inicjatywy nie określono **wymuszania** , używana jest wartość _Domyślna_ . [Zadania korygowania](../how-to/remediate-resources.md) można uruchamiać dla zasad [deployIfNotExists](./effects.md#deployifnotexists) , nawet jeśli ustawienie **wymuszania** ma wartość _DoNotEnforce_.
 
 ## <a name="excluded-scopes"></a>Wykluczone zakresy
 
-Zakres **scope** przydziału obejmuje wszystkie kontenery zasobów podrzędnych i zasoby podrzędne. Jeśli kontener zasobów podrzędnych lub zasób podrzędny nie powinien mieć zastosowanej definicji, każdy z nich może zostać wykluczony z oceny, ustawiając **notScopes**. Ta właściwość jest tablicą, aby włączyć wykluczając jeden lub więcej kontenerów zasobów lub zasobów z oceny. **notScopes** mogą być dodawane lub aktualizowane po utworzeniu początkowego przypisania.
+**Zakres** przypisania obejmuje wszystkie podrzędne kontenery zasobów i zasoby podrzędne. Jeśli podrzędny kontener zasobów lub zasób podrzędny nie powinien mieć zastosowanej definicji, każdy z nich może zostać wykluczony przez ustawienie **notScopes**. Ta właściwość jest tablicą, która umożliwia wykluczenie co najmniej jednego kontenera zasobów lub zasobów z oceny. **notScopes** można dodać lub zaktualizować po utworzeniu przypisania początkowego.
 
 ## <a name="policy-definition-id"></a>Identyfikator definicji zasad
 
-To pole musi być pełną nazwą ścieżki definicji zasad lub definicji inicjatywy.
-`policyDefinitionId`jest ciągiem, a nie tablicą. Zaleca się, aby w przypadku często przypisywanych do siebie wielu zasad, zamiast tego użyć [inicjatywy.](./definition-structure.md#initiatives)
+To pole musi zawierać pełną nazwę ścieżki definicji zasad lub definicji inicjatywy.
+`policyDefinitionId`jest ciągiem, a nie tablicą. Zaleca się, aby w zamian była często przypisywanych wielu zasad w celu użycia [inicjatywy](./definition-structure.md#initiatives) .
 
 ## <a name="parameters"></a>Parametry
 
-Ten segment przypisania zasad zawiera wartości parametrów zdefiniowanych w [definicji zasad lub definicji inicjatywy](./definition-structure.md#parameters).
-Ten projekt umożliwia ponowne użycie definicji zasad lub inicjatywy z różnymi zasobami, ale sprawdź różne wartości biznesowe lub wyniki.
+Ten segment przydziału zasad zawiera wartości parametrów zdefiniowanych w [definicji zasad lub definicji inicjatywy](./definition-structure.md#parameters).
+Dzięki temu projektowi można ponownie używać zasad lub definicji inicjatywy z różnymi zasobami, ale sprawdzać różne wartości biznesowe lub wyniki.
 
 ```json
 "parameters": {
@@ -93,12 +93,12 @@ Ten projekt umożliwia ponowne użycie definicji zasad lub inicjatywy z różnym
 }
 ```
 
-W tym przykładzie parametry zdefiniowane wcześniej `prefix` w `suffix`definicji zasad są i . To konkretne przypisanie zasad `prefix` ustawia `suffix` **deptA** i **-LC**. Ta sama definicja zasad jest wielokrotnego użytku z innym zestawem parametrów dla innego działu, zmniejszając powielanie i złożoność definicji zasad, zapewniając jednocześnie elastyczność.
+W tym przykładzie parametry wcześniej zdefiniowane w definicji zasad są `prefix` i. `suffix` Ten konkretny zestaw `prefix` przypisań zasad należy do `suffix` **działu** i do **-LC**. Ta sama definicja zasad jest wielokrotnego użytku z innym zestawem parametrów dla innego działu, zmniejszając duplikowanie i złożoność definicji zasad przy jednoczesnym zapewnianiu elastyczności.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [strukturze definicji zasad](./definition-structure.md).
-- Dowiedz się, jak [programowo tworzyć zasady](../how-to/programmatically-create.md).
-- Dowiedz się, jak [uzyskać dane dotyczące zgodności](../how-to/get-compliance-data.md).
-- Dowiedz się, jak [korygować niezgodne zasoby](../how-to/remediate-resources.md).
-- Sprawdź, czym jest grupa zarządzania, [organizuj swoje zasoby za pomocą grup zarządzania platformy Azure](../../management-groups/overview.md).
+- Dowiedz się, jak [programowo utworzyć zasady](../how-to/programmatically-create.md).
+- Dowiedz się, jak [uzyskać dane zgodności](../how-to/get-compliance-data.md).
+- Dowiedz się, jak [skorygować niezgodne zasoby](../how-to/remediate-resources.md).
+- Zapoznaj się z informacjami o tym, czym jest Grupa zarządzania, aby [zorganizować swoje zasoby za pomocą grup zarządzania platformy Azure](../../management-groups/overview.md).

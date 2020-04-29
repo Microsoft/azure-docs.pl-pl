@@ -1,65 +1,65 @@
 ---
-title: Konfigurowanie ciągłej integracji/ciągłego wdrażania za pomocą akcji usługi GitHub
-description: Dowiedz się, jak wdrożyć kod w usłudze Azure App Service z potoku ciągłej integracji/ciągłego wdrażania za pomocą akcji GitHub. Dostosuj zadania kompilacji i wykonaj złożone wdrożenia.
+title: Konfigurowanie ciągłej integracji/ciągłego wdrażania za pomocą akcji GitHub
+description: Dowiedz się, jak wdrożyć kod w celu Azure App Service z potoku ciągłej integracji/ciągłego wdrażania za pomocą akcji GitHub. Dostosuj zadania kompilacji i wykonuj złożone wdrożenia.
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.openlocfilehash: 57ca5b0880d4b027e33bc0d01fc6225eb886029b
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82084995"
 ---
-# <a name="deploy-to-app-service-using-github-actions"></a>Wdrażanie w usłudze app service przy użyciu akcji usługi GitHub
+# <a name="deploy-to-app-service-using-github-actions"></a>Wdrażanie do App Service przy użyciu akcji usługi GitHub
 
-[GitHub Actions](https://help.github.com/en/articles/about-github-actions) zapewnia elastyczność tworzenia zautomatyzowanego przepływu pracy cyklu życia tworzenia oprogramowania. Dzięki akcji usługi Azure App Service dla usługi GitHub można zautomatyzować przepływ pracy do wdrożenia w [usłudze Azure App Service](overview.md) przy użyciu akcji Usługi GitHub.
+Dzięki [akcjom GitHub](https://help.github.com/en/articles/about-github-actions) można tworzyć zautomatyzowane przepływy pracy tworzenia oprogramowania. Za pomocą Azure App Service działań w witrynie GitHub można zautomatyzować przepływ pracy w celu wdrożenia w [Azure App Service](overview.md) za pomocą akcji usługi GitHub.
 
 > [!IMPORTANT]
-> GitHub Actions jest obecnie w wersji beta. Musisz najpierw [zarejestrować się, aby dołączyć do wersji zapoznawczej](https://github.com/features/actions) przy użyciu konta GitHub.
+> Akcje usługi GitHub są obecnie dostępne w wersji beta. Musisz najpierw [utworzyć konto, aby dołączyć do wersji zapoznawczej](https://github.com/features/actions) przy użyciu konta usługi GitHub.
 > 
 
-Przepływ pracy jest definiowany przez plik YAML (.yml) w `/.github/workflows/` ścieżce w repozytorium. Ta definicja zawiera różne kroki i parametry, które składają się na przepływ pracy.
+Przepływ pracy jest definiowany przez plik YAML (. yml) w `/.github/workflows/` ścieżce w repozytorium. Ta definicja zawiera różne kroki i parametry wchodzące w skład przepływu pracy.
 
-W przypadku przepływu pracy usługi Azure App Service plik składa się z trzech sekcji:
+W przypadku przepływu pracy Azure App Service plik ma trzy sekcje:
 
 |Sekcja  |Zadania  |
 |---------|---------|
-|**Authentication** | 1. Zdefiniuj jednostkę usługi <br /> 2. Tworzenie tajemnicy GitHub |
-|**Kompilacja** | 1. Konfigurowanie środowiska <br /> 2. Zbuduj aplikację internetową |
-|**Wdróż** | 1. Wdrażanie aplikacji internetowej |
+|**Uwierzytelnianie** | 1. Zdefiniuj nazwę główną usługi <br /> 2. Utwórz wpis tajny usługi GitHub |
+|**Kompilacja** | 1. Skonfiguruj środowisko <br /> 2. Tworzenie aplikacji sieci Web |
+|**Wdróż** | 1. Wdróż aplikację sieci Web |
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
-[Jednostkę usługi](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) można utworzyć za pomocą polecenia [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) w [usłudze Azure CLI](https://docs.microsoft.com/cli/azure/). To polecenie można uruchomić przy użyciu [usługi Azure Cloud Shell](https://shell.azure.com/) w witrynie Azure portal lub wybierając przycisk **Wypróbuj.**
+[Nazwę główną usługi](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) można utworzyć przy użyciu polecenia [AZ AD Sp Create-for-RBAC](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) w [interfejsie użytkownika platformy Azure](https://docs.microsoft.com/cli/azure/). Można uruchomić to polecenie przy użyciu [Azure Cloud Shell](https://shell.azure.com/) w Azure Portal lub wybierając przycisk **Wypróbuj** .
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> --sdk-auth
 ```
 
-W tym przykładzie zastąp symbole zastępcze w zasobie identyfikatorem subskrypcji, nazwą grupy zasobów i nazwą aplikacji. Dane wyjściowe to poświadczenia przypisania roli, które zapewniają dostęp do aplikacji usługi App Service. Skopiuj ten obiekt JSON, którego można użyć do uwierzytelniania z usługi GitHub.
+W tym przykładzie Zastąp symbole zastępcze w zasobie IDENTYFIKATORem subskrypcji, nazwą grupy zasobów i nazwą aplikacji. Dane wyjściowe to poświadczenia przypisania roli, które zapewniają dostęp do aplikacji App Service. Skopiuj ten obiekt JSON, którego możesz użyć do uwierzytelniania z usługi GitHub.
 
 > [!NOTE]
-> Nie trzeba tworzyć jednostki usługi, jeśli zdecydujesz się użyć profilu publikowania do uwierzytelniania.
+> Nie trzeba tworzyć jednostki usługi, jeśli zdecydujesz się na użycie profilu publikowania na potrzeby uwierzytelniania.
 
 > [!IMPORTANT]
-> Zawsze dobrą praktyką jest przyznanie minimalnego dostępu. Dlatego zakres w poprzednim przykładzie jest ograniczony do określonej aplikacji usługi App Service, a nie do całej grupy zasobów.
+> Zawsze dobrym sposobem jest przyznanie minimalnego dostępu. Dlatego zakres w poprzednim przykładzie jest ograniczony do konkretnej aplikacji App Service, a nie całej grupy zasobów.
 
-## <a name="configure-the-github-secret"></a>Konfigurowanie klucza tajnego usługi GitHub
+## <a name="configure-the-github-secret"></a>Konfigurowanie wpisu tajnego usługi GitHub
 
-Można również użyć poświadczeń na poziomie aplikacji, czyli profilu publikowania do wdrożenia. Wykonaj kroki, aby skonfigurować klucz tajny:
+Można również użyć poświadczeń na poziomie aplikacji, takich jak profil publikowania dla wdrożenia. Postępuj zgodnie z instrukcjami, aby skonfigurować klucz tajny:
 
-1. Pobierz profil publikowania aplikacji Usługi app service z portalu przy użyciu opcji **Pobierz profil publikowania.**
+1. Pobierz profil publikowania dla aplikacji App Service z portalu przy użyciu opcji **Pobierz profil publikowania** .
 
-2. W [usłudze GitHub](https://github.com/)przeglądaj repozytorium, wybierz **ustawienia > wpisowe > Dodaj nowy klucz tajny**
+2. W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło**
 
     ![wpisy tajne](media/app-service-github-actions/secrets.png)
 
-3. Wklej zawartość pobranego pliku profilu publikowania do pola wartości klucza tajnego.
+3. Wklej zawartość pobranego pliku profilu publikowania w polu wartość klucza tajnego.
 
-4. Teraz w pliku przepływu pracy `.github/workflows/workflow.yml` w gałęzi: zastąp klucz tajny dla wprowadzania akcji `publish-profile` wdrażania aplikacji Azure Web App.
+4. Teraz w pliku przepływu pracy w gałęzi: `.github/workflows/workflow.yml` Zastąp wpis tajny dla danych `publish-profile` wejściowych akcji Wdróż aplikację sieci Web platformy Azure.
     
     ```yaml
         - uses: azure/webapps-deploy@v2
@@ -67,22 +67,22 @@ Można również użyć poświadczeń na poziomie aplikacji, czyli profilu publi
             creds: ${{ secrets.azureWebAppPublishProfile }}
     ```
 
-5. Widzisz klucz tajny, jak pokazano poniżej po zdefiniowaniu.
+5. Zobaczysz wpis tajny, jak pokazano poniżej.
 
     ![wpisy tajne](media/app-service-github-actions/app-service-secrets.png)
 
 ## <a name="set-up-the-environment"></a>Konfigurowanie środowiska
 
-Konfigurowanie środowiska można wykonać za pomocą jednej z akcji konfiguracji.
+Konfigurowanie środowiska można wykonać przy użyciu jednej z akcji instalacji.
 
-|**Język**  |**Akcja instalacji**  |
+|**Język**  |**Akcja konfiguracji**  |
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
 |**Java**     | `actions/setup-java` |
 |**JavaScript** | `actions/setup-node` |
 |**Python**     | `actions/setup-python` |
 
-Poniższe przykłady przedstawiają część przepływu pracy, która konfiguruje środowisko dla różnych obsługiwanych języków:
+W poniższych przykładach przedstawiono część przepływu pracy, który konfiguruje środowisko dla różnych obsługiwanych języków:
 
 **JavaScript**
 
@@ -121,11 +121,11 @@ Poniższe przykłady przedstawiają część przepływu pracy, która konfiguruj
         java-version: '1.8.x'
 ```
 
-## <a name="build-the-web-app"></a>Tworzenie aplikacji sieci Web
+## <a name="build-the-web-app"></a>Kompilowanie aplikacji sieci Web
 
-To zależy od języka i dla języków obsługiwanych przez usługę Azure App Service, ta sekcja powinna być standardowe kroki kompilacji każdego języka.
+Jest to zależne od języka i języków obsługiwanych przez Azure App Service Ta sekcja powinna być standardowym etapem kompilacji każdego języka.
 
-Poniższe przykłady pokazują część przepływu pracy, która tworzy aplikację sieci web w różnych obsługiwanych językach.
+W poniższych przykładach przedstawiono część przepływu pracy, który kompiluje aplikację sieci Web, w różnych obsługiwanych językach.
 
 **JavaScript**
 
@@ -182,18 +182,18 @@ Poniższe przykłady pokazują część przepływu pracy, która tworzy aplikacj
 ```
 ## <a name="deploy-to-app-service"></a>Wdrażanie w usłudze App Service
 
-Aby wdrożyć kod w aplikacji usługi `azure/webapps-deploy@v2` App Service, użyj akcji. Ta akcja ma cztery parametry:
+Aby wdrożyć kod w aplikacji App Service, użyj `azure/webapps-deploy@v2` akcji. Ta akcja ma cztery parametry:
 
-| **Parametr**  | **Wyjaśnienie**  |
+| **Konstruktora**  | **Wyjaśnienie**  |
 |---------|---------|
-| **nazwa aplikacji** | (Wymagane) Nazwa aplikacji Usługi aplikacji | 
-| **publikuj profil** | (Opcjonalnie) Publikowanie zawartości pliku profilu za pomocą wpisów tajnych wdrażania sieci Web |
-| **Pakiet** | (Opcjonalnie) Ścieżka do pakietu lub folderu. *.zip, *.war, *.jar lub folder do wdrożenia |
-| **nazwa gniazda** | (Opcjonalnie) Wprowadź istniejące gniazdo inne niż gniazdo produkcyjne |
+| **Nazwa aplikacji** | Potrzeb Nazwa aplikacji App Service | 
+| **Publikuj — profil** | Obowiązkowe Publikuj zawartość pliku profilu za pomocą wpisów tajnych Web Deploy |
+| **Package** | Obowiązkowe Ścieżka do pakietu lub folderu. *. zip, *. War, *. jar lub folder do wdrożenia |
+| **Nazwa gniazda** | Obowiązkowe Wprowadź istniejące miejsce poza miejscem produkcyjnym |
 
-### <a name="deploy-using-publish-profile"></a>Wdrażanie przy użyciu profilu publikowania
+### <a name="deploy-using-publish-profile"></a>Wdróż przy użyciu profilu publikowania
 
-Poniżej znajduje się przykładowy przepływ pracy do tworzenia i wdrażania aplikacji Node.js na platformie Azure przy użyciu profilu publikowania.
+Poniżej znajduje się przykładowy przepływ pracy do kompilowania i wdrażania aplikacji node. js na platformie Azure przy użyciu profilu publikowania.
 
 ```yaml
 # File: .github/workflows/workflow.yml
@@ -225,9 +225,9 @@ jobs:
             publish-profile: ${{ secrets.azureWebAppPublishProfile }}
 ```
 
-### <a name="deploy-using-azure-service-principal"></a>Wdrażanie przy użyciu jednostki usługi platformy Azure
+### <a name="deploy-using-azure-service-principal"></a>Wdrażanie przy użyciu nazwy głównej usługi platformy Azure
 
-Poniżej znajduje się przykładowy przepływ pracy do tworzenia i wdrażania aplikacji Node.js na platformie Azure przy użyciu jednostki usługi platformy Azure.
+Poniżej znajduje się przykładowy przepływ pracy do kompilowania i wdrażania aplikacji node. js na platformie Azure przy użyciu jednostki usługi platformy Azure.
 
 ```yaml
 on: [push]
@@ -270,7 +270,7 @@ jobs:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz znaleźć nasz zestaw akcji pogrupowanych w różne repozytoria w usłudze GitHub, z których każdy zawiera dokumentację i przykłady ułatwiające korzystanie z usługi GitHub dla ciągłej integracji/ciągłego wdrażania i wdrażanie aplikacji na platformie Azure.
+Zestaw akcji można znaleźć w różnych repozytoriach w usłudze GitHub, z których każda zawiera dokumentację i przykłady ułatwiające korzystanie z usługi GitHub w przypadku ciągłej integracji/ciągłego wdrażania oraz wdrażanie aplikacji na platformie Azure.
 
 - [Przepływ pracy akcji do wdrożenia na platformie Azure](https://github.com/Azure/actions-workflow-samples)
 
@@ -280,10 +280,10 @@ Możesz znaleźć nasz zestaw akcji pogrupowanych w różne repozytoria w usłud
 
 - [Usługa Azure WebApp dla kontenerów](https://github.com/Azure/webapps-container-deploy)
 
-- [Logowanie/wylogowywki platformy Docker](https://github.com/Azure/docker-login)
+- [Logowanie/wylogowywanie platformy Docker](https://github.com/Azure/docker-login)
 
 - [Zdarzenia wyzwalające przepływy pracy](https://help.github.com/en/articles/events-that-trigger-workflows)
 
-- [K8s wdrożyć](https://github.com/Azure/k8s-deploy)
+- [K8s wdrażanie](https://github.com/Azure/k8s-deploy)
 
-- [Przepływy pracy rozrusznika](https://github.com/actions/starter-workflows)
+- [Początkowe przepływy pracy](https://github.com/actions/starter-workflows)

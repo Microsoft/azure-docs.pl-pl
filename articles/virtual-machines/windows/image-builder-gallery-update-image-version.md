@@ -1,30 +1,30 @@
 ---
-title: Tworzenie nowej wersji obrazu z istniejącej wersji obrazu przy użyciu programu Azure Image Builder (wersja zapoznawcza)
-description: Utwórz nową wersję obrazu maszyny Wirtualnej z istniejącej wersji obrazu przy użyciu programu Azure Image Builder.
+title: Tworzenie nowej wersji obrazu z istniejącej wersji obrazu przy użyciu narzędzia Azure Image Builder (wersja zapoznawcza)
+description: Utwórz nową wersję obrazu maszyny wirtualnej z istniejącej wersji obrazu przy użyciu narzędzia Azure Image Builder.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.openlocfilehash: 766e7d5c4151000a582bcf07d80b89af3b7d8a65
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869537"
 ---
-# <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Wersja zapoznawcza: tworzenie nowej wersji obrazu maszyny Wirtualnej z istniejącej wersji obrazu przy użyciu programu Azure Image Builder
+# <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Wersja zapoznawcza: Tworzenie nowej wersji obrazu maszyny wirtualnej na podstawie istniejącej wersji obrazu przy użyciu narzędzia Azure Image Builder
 
-W tym artykule pokazano, jak zrobić istniejącą wersję obrazu w [galerii obrazów udostępnionych,](shared-image-galleries.md)zaktualizować ją i opublikować jako nową wersję obrazu w galerii.
+W tym artykule pokazano, jak zastosować istniejącą wersję obrazu w [galerii obrazów udostępnionych](shared-image-galleries.md), zaktualizować ją i opublikować jako nową wersję obrazu w galerii.
 
-Będziemy używać przykładowego szablonu .json do skonfigurowania obrazu. Plik .json używamy jest tutaj: [helloImageTemplateforSIGfromWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
+Aby skonfigurować obraz, będziemy używać szablonu przykład. JSON. Używany plik JSON jest tutaj: [helloImageTemplateforSIGfromWinSIG. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
 
 > [!IMPORTANT]
-> Usługa Azure Image Builder jest obecnie w publicznej wersji zapoznawczej.
+> Usługa Azure Image Builder jest obecnie dostępna w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="register-the-features"></a>Zarejestruj funkcje
-Aby korzystać z usługi Azure Image Builder podczas podglądu, należy zarejestrować nową funkcję.
+## <a name="register-the-features"></a>Rejestrowanie funkcji
+Aby korzystać z usługi Azure Image Builder w wersji zapoznawczej, należy zarejestrować nową funkcję.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
@@ -44,7 +44,7 @@ az provider show -n Microsoft.Storage | grep registrationState
 az provider show -n Microsoft.Compute | grep registrationState
 ```
 
-Jeśli nie mówią zarejestrowane, uruchom następujące czynności:
+Jeśli nie powiedzie się, uruchom następujące polecenie:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -55,9 +55,9 @@ az provider register -n Microsoft.Compute
 
 ## <a name="set-variables-and-permissions"></a>Ustawianie zmiennych i uprawnień
 
-Jeśli [użyto utworzenia obrazu i dystrybucji do galerii obrazów udostępnionych](image-builder-gallery.md) w celu utworzenia galerii obrazów udostępnionych, utworzono już potrzebne zmienne. Jeśli nie, należy skonfigurować niektóre zmienne, które mają być używane w tym przykładzie.
+Jeśli użyto [tworzenia obrazu i dystrybucji do galerii obrazów udostępnionych](image-builder-gallery.md) w celu utworzenia galerii obrazów udostępnionych, należy utworzyć już potrzebne zmienne. Jeśli nie, skonfiguruj kilka zmiennych, które mają być używane w tym przykładzie.
 
-W przypadku wersji zapoznawczej konstruktor obrazów będzie obsługiwał tworzenie obrazów niestandardowych tylko w tej samej grupie zasobów, co obraz zarządzany źródłowy. Zaktualizuj nazwę grupy zasobów w tym przykładzie, aby była tą samą grupą zasobów co obraz zarządzany źródłowy.
+W przypadku wersji zapoznawczej Konstruktor obrazów będzie obsługiwał tworzenie obrazów niestandardowych w tej samej grupie zasobów co źródłowy obraz zarządzany. Zaktualizuj nazwę grupy zasobów w tym przykładzie do tej samej grupy zasobów co źródłowy obraz zarządzany.
 
 ```azurecli-interactive
 # Resource group name - we are using ibsigRG in this example
@@ -77,7 +77,7 @@ username="user name for the VM"
 vmpassword="password for the VM"
 ```
 
-Utwórz zmienną dla identyfikatora subskrypcji. Można to uzyskać `az account show | grep id`za pomocą programu .
+Utwórz zmienną dla identyfikatora subskrypcji. Można to zrobić za pomocą `az account show | grep id`polecenia.
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>
@@ -94,7 +94,7 @@ sigDefImgVersionId=$(az sig image-version list \
 ```
 
 
-Jeśli masz już własną galerię obrazów udostępnionych i nie postępuj zgodnie z poprzednim przykładem, musisz przypisać uprawnienia do Konstruktora obrazów, aby uzyskać dostęp do grupy zasobów, aby mogła uzyskać dostęp do galerii.
+Jeśli masz już własną galerię obrazów udostępnionych i nie wykonano jej w poprzednim przykładzie, musisz przypisać uprawnienia dla konstruktora obrazów, aby uzyskać dostęp do tej grupy zasobów, dzięki czemu będzie można uzyskać dostęp do galerii.
 
 
 ```azurecli-interactive
@@ -105,11 +105,11 @@ az role assignment create \
 ```
 
 
-## <a name="modify-helloimage-example"></a>Modyfikowanie przykładu helloImage
-Możesz przejrzeć przykład, którego mamy zamiar użyć, otwierając plik .json tutaj: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) wraz z [odwołaniem do szablonu Image Builder](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+## <a name="modify-helloimage-example"></a>Modyfikuj przykład helloImage
+Możesz przejrzeć przykład, którego zamierzasz użyć, otwierając plik. JSON tutaj: [helloImageTemplateforSIGfromSIG. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) wraz z [odwołaniem do szablonu konstruktora obrazów](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 
-Pobierz przykład .json i skonfiguruj go ze zmiennymi. 
+Pobierz przykład. JSON i skonfiguruj go przy użyciu zmiennych. 
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json -o helloImageTemplateforSIGfromWinSIG.json
@@ -125,7 +125,7 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIGfromWinSI
 
 ## <a name="create-the-image"></a>Tworzenie obrazu
 
-Prześlij konfigurację obrazu do usługi konstruktora obrazów maszyn wirtualnych.
+Prześlij konfigurację obrazu do usługi Konstruktor obrazów maszyn wirtualnych.
 
 ```azurecli-interactive
 az resource create \
@@ -136,7 +136,7 @@ az resource create \
     -n imageTemplateforSIGfromWinSIG01
 ```
 
-Rozpocznij kompilację obrazu.
+Uruchom kompilację obrazu.
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -146,7 +146,7 @@ az resource invoke-action \
      --action Run 
 ```
 
-Poczekaj, aż obraz zostanie utworzony i replikacji przed przejściem do następnego kroku.
+Poczekaj na skompilowanie obrazu i replikację przed przejściem do następnego kroku.
 
 
 ## <a name="create-the-vm"></a>Tworzenie maszyny wirtualnej
@@ -161,18 +161,18 @@ az vm create \
   --location $location
 ```
 
-## <a name="verify-the-customization"></a>Weryfikowanie dostosowywania
-Utwórz połączenie pulpitu zdalnego z maszyną wirtualną przy użyciu nazwy użytkownika i hasła ustawionego podczas tworzenia maszyny Wirtualnej. Wewnątrz maszyny Wirtualnej otwórz monit cmd i wpisz:
+## <a name="verify-the-customization"></a>Sprawdzanie dostosowania
+Utwórz połączenie Pulpit zdalny z maszyną wirtualną przy użyciu nazwy użytkownika i hasła ustawione podczas tworzenia maszyny wirtualnej. Na maszynie wirtualnej Otwórz wiersz polecenia i wpisz:
 
 ```console
 dir c:\
 ```
 
-Powinny być teraz widoczne dwa katalogi:
-- `buildActions`który został utworzony w pierwszej wersji obrazu.
-- `buildActions2`który został utworzony jako część aktualizacji pierwszej wersji obrazu, aby utworzyć drugą wersję obrazu.
+Powinny teraz być widoczne dwa katalogi:
+- `buildActions`została utworzona w pierwszej wersji obrazu.
+- `buildActions2`Ten element został utworzony w ramach aktualizacji pierwszej wersji obrazu w celu utworzenia drugiej wersji obrazu.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o składnikach pliku .json użytego w tym artykule, zobacz [Odwołanie do szablonu konstruktora obrazów](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Aby dowiedzieć się więcej o składnikach pliku JSON używanego w tym artykule, zobacz [Dokumentacja szablonu konstruktora obrazów](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

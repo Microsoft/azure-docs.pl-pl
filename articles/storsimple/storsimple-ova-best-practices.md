@@ -1,6 +1,6 @@
 ---
-title: Najważniejsze wskazówki dotyczące tablicy wirtualnej StorSimple | Dokumenty firmy Microsoft
-description: W tym artykule opisano najlepsze rozwiązania dotyczące wdrażania i zarządzania StorSimple Virtual Array.
+title: Najlepsze rozwiązania dotyczące macierzy wirtualnej StorSimple | Microsoft Docs
+description: W tym artykule opisano najlepsze rozwiązania dotyczące wdrażania macierzy wirtualnej StorSimple i zarządzania nią.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460651"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple Virtual Array best practices (Najlepsze rozwiązania dotyczące macierzy wirtualnej StorSimple)
@@ -27,266 +27,266 @@ ms.locfileid: "81460651"
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-Microsoft Azure StorSimple Virtual Array to zintegrowane rozwiązanie magazynu, które zarządza zadaniami magazynu między lokalnym urządzeniem wirtualnym działającym w hipernadzorcy a magazynem w chmurze platformy Microsoft Azure. StorSimple Virtual Array jest wydajną i ekonomiczną alternatywą dla macierzy fizycznej serii 8000. Macierz wirtualna może działać w istniejącej infrastrukturze funkcji hypervisor, obsługuje zarówno protokoły iSCSI, jak i SMB i doskonale nadaje się do scenariuszy zdalnego biura/oddziału. Aby uzyskać więcej informacji na temat rozwiązań StorSimple, przejdź do [przeglądu usługi Microsoft Azure StorSimple](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
+Microsoft Azure StorSimple Virtual Array to zintegrowane rozwiązanie magazynu, które zarządza zadaniami magazynu między lokalnym urządzeniem wirtualnym działającym w ramach funkcji hypervisor i Microsoft Azure magazynu w chmurze. StorSimple Virtual Array to wydajna i ekonomiczna alternatywa dla macierzy fizycznej serii 8000. Macierz wirtualna może działać w istniejącej infrastrukturze funkcji hypervisor, obsługuje zarówno Protokoły iSCSI, jak i SMB, a także jest odpowiednia dla scenariuszy zdalnego biura/biura oddziału. Aby uzyskać więcej informacji na temat rozwiązań StorSimple, przejdź do [omówienia Microsoft Azure StorSimple](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
 
-W tym artykule opisano najlepsze rozwiązania zaimplementowane podczas początkowej instalacji, wdrażania i zarządzania tablicą wirtualną StorSimple. Te najlepsze rozwiązania zawierają sprawdzone wskazówki dotyczące konfigurowania i zarządzania macierzą wirtualną. Ten artykuł jest skierowany do administratorów IT, którzy wdrażają tablice wirtualne w swoich centrach danych i zarządzają nimi.
+W tym artykule opisano najlepsze rozwiązania zaimplementowane podczas wstępnej instalacji, wdrożenia i zarządzania macierzą wirtualną StorSimple. Te najlepsze rozwiązania zawierają sprawdzone wskazówki dotyczące instalacji i zarządzania macierzą wirtualną. Ten artykuł jest przeznaczony dla administratorów IT, którzy wdrażają tablice wirtualne i zarządzają nimi w swoich centrach danych.
 
-Firma Microsoft zaleca okresowy przegląd najlepszych rozwiązań, aby upewnić się, że urządzenie jest nadal zgodne, gdy zmiany są wprowadzane do konfiguracji lub przepływu operacji. Jeśli podczas implementowania tych najlepszych rozwiązań w macierzy [wirtualnej](storsimple-virtual-array-log-support-ticket.md) wystąpią jakiekolwiek problemy, skontaktuj się z pomocą techniczną firmy Microsoft w celu uzyskania pomocy.
+Zalecamy okresowe przeglądy najlepszych rozwiązań w celu zapewnienia, że urządzenie jest nadal zgodne, gdy zmiany zostaną wprowadzone w ramach instalacji lub przepływu operacji. Jeśli podczas wdrażania tych najlepszych rozwiązań w macierzy wirtualnej wystąpią jakiekolwiek problemy, [skontaktuj się z pomoc techniczna firmy Microsoft](storsimple-virtual-array-log-support-ticket.md) w celu uzyskania pomocy.
 
-## <a name="configuration-best-practices"></a>Najważniejsze wskazówki dotyczące konfiguracji
-Te najlepsze rozwiązania obejmują wytyczne, które muszą być przestrzegane podczas początkowej instalacji i wdrażania macierzy wirtualnych. Te najlepsze rozwiązania obejmują te związane z inicjowania obsługi administracyjnej maszyny wirtualnej, ustawienia zasad grupy, zmiany rozmiaru, konfigurowanie sieci, konfigurowanie kont magazynu i tworzenie udziałów i woluminów dla tablicy wirtualnej. 
+## <a name="configuration-best-practices"></a>Najlepsze rozwiązania dotyczące konfiguracji
+Te najlepsze rozwiązania obejmują wytyczne, które należy wykonać podczas wstępnej instalacji i wdrożenia macierzy wirtualnych. Poniżej przedstawiono najlepsze rozwiązania związane z obsługą administracyjną maszyny wirtualnej, ustawieniami zasad grupy, rozmiarami, konfigurowaniem sieci, konfigurowaniem kont magazynu oraz tworzeniem udziałów i woluminów dla macierzy wirtualnej. 
 
 ### <a name="provisioning"></a>Inicjowanie obsługi
-StorSimple Virtual Array to maszyna wirtualna (VM) aprowizowana na hipernadzorcy (Hyper-V lub VMware) serwera hosta. Podczas inicjowania obsługi administracyjnej maszyny wirtualnej, upewnij się, że host jest w stanie poświęcić wystarczające zasoby. Aby uzyskać więcej informacji, przejdź do [minimalnych wymagań dotyczących zasobów,](storsimple-virtual-array-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements) aby aprowizować tablicę.
+StorSimple Virtual Array to maszyna wirtualna (VM) obsługiwana w funkcji hypervisor (Hyper-V lub VMware) serwera hosta. Podczas aprowizacji maszyny wirtualnej upewnij się, że host może przeznaczyć wystarczającą ilość zasobów. Aby uzyskać więcej informacji, przejdź do [minimalnych wymagań dotyczących zasobów](storsimple-virtual-array-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements) , aby udostępnić tablicę.
 
-Implementowanie następujących najlepszych rozwiązań podczas inicjowania obsługi administracyjnej tablicy wirtualnej:
+Podczas aprowizacji macierzy wirtualnej należy zaimplementować następujące najlepsze rozwiązania:
 
 |  | Funkcja Hyper-V | VMware |
 | --- | --- | --- |
-| **Typ maszyny wirtualnej** |**Generacja 2** Maszyna wirtualna do użytku z systemem Windows Server 2012 lub nowszym oraz obrazem *vhdx.* <br></br> **Generacja 1** Maszyna wirtualna do użytku z systemem Windows Server 2008 lub nowszym i obrazem *vhd.* |Użyj maszyny wirtualnej w wersji 8 podczas korzystania z obrazu *vmdk.* |
-| **Typ pamięci** |Skonfiguruj jako **pamięć statyczną**. <br></br> Nie należy używać opcji **pamięci dynamicznej.** | |
-| **Typ dysku danych** |Udostępnianie jako **dynamicznie rozwijające się**.<br></br> **Stały rozmiar** zajmuje dużo czasu. <br></br> Nie należy używać opcji **różnicowania.** |Użyj opcji **thin provision.** |
-| **Modyfikacja dysku danych** |Rozszerzanie lub zmniejszanie jest niedozwolone. Próba w tym celu powoduje utratę wszystkich danych lokalnych na urządzeniu. |Rozszerzanie lub zmniejszanie jest niedozwolone. Próba w tym celu powoduje utratę wszystkich danych lokalnych na urządzeniu. |
+| **Typ maszyny wirtualnej** |**Generacja 2** Maszyna wirtualna do użycia z systemem Windows Server 2012 lub nowszym oraz obrazem *VHDX* . <br></br> **Generacja 1** Maszyna wirtualna do użycia z systemem Windows Server 2008 lub nowszym oraz obrazem *VHD* . |Użyj maszyny wirtualnej w wersji 8 przy użyciu obrazu *. vmdk* . |
+| **Typ pamięci** |Skonfiguruj jako **pamięć statyczną**. <br></br> Nie używaj opcji **pamięci dynamicznej** . | |
+| **Typ dysku danych** |Inicjowanie obsługi **administracyjnej.**<br></br> **Stały rozmiar** zajmuje dużo czasu. <br></br> Nie należy używać opcji **różnicowych** . |Użyj opcji **alokowania elastycznego** . |
+| **Modyfikowanie dysku danych** |Rozszerzanie lub zmniejszanie jest niedozwolone. Próba wykonania tej czynności spowoduje utratę wszystkich danych lokalnych na urządzeniu. |Rozszerzanie lub zmniejszanie jest niedozwolone. Próba wykonania tej czynności spowoduje utratę wszystkich danych lokalnych na urządzeniu. |
 
 ### <a name="sizing"></a>Ustalanie rozmiaru
-Podczas zmiany rozmiaru tablicy wirtualnej StorSimple należy wziąć pod uwagę następujące czynniki:
+Podczas określania wielkości macierzy wirtualnej StorSimple należy wziąć pod uwagę następujące czynniki:
 
-* Lokalna rezerwacja wolumenów lub udziałów. Około 12% miejsca jest zarezerwowane w warstwie lokalnej dla każdego aprowizowanego woluminu warstwowego lub udziału. Około 10% miejsca jest również zarezerwowane dla woluminu przypiętego lokalnie dla systemu plików.
+* Rezerwacja lokalna dla woluminów lub udziałów. Około 12% miejsca jest zarezerwowane w warstwie lokalnej dla każdego udostępnionego woluminu warstwowego lub udziału. Około 10% miejsca jest również zarezerwowane dla woluminu przypiętego lokalnie dla systemu plików.
 * Obciążenie migawki. Około 15% miejsca w warstwie lokalnej jest zarezerwowane dla migawek.
-* Potrzeba przywracania. Jeśli wykonanie przywracania jako nowa operacja, zmiana rozmiaru powinna uwzględniać miejsce potrzebne do przywrócenia. Przywracanie odbywa się do udziału lub woluminu o tym samym rozmiarze.
-* Niektóre bufory powinny być przydzielane dla nieoczekiwanego wzrostu.
+* Potrzeba do przywracania. W przypadku przywracania jako nowej operacji, ustalanie wielkości powinno uwzględniać miejsce na potrzeby przywracania. Przywracanie jest wykonywane w udziale lub woluminie o takim samym rozmiarze.
+* Pewien bufor powinien zostać przydzielony do dowolnego nieoczekiwanego wzrostu.
 
-Na podstawie powyższych czynników wymagania dotyczące rozmiaru mogą być reprezentowane przez następujące równanie:
+W oparciu o powyższe czynniki wymagania dotyczące ustalania wielkości mogą być reprezentowane przez następujące równanie:
 
 `Total usable local disk size = (Total provisioned locally pinned volume/share size including space for file system) + (Max (local reservation for a volume/share) for all tiered volumes/share) + (Local reservation for all tiered volumes/shares)`
 
 `Data disk size = Total usable local disk size + Snapshot overhead + buffer for unexpected growth or new share or volume`
 
-Poniższe przykłady ilustrują, jak można rozmiar tablicy wirtualnej na podstawie wymagań.
+W poniższych przykładach pokazano, jak można zmienić rozmiar tablicy wirtualnej zgodnie z wymaganiami.
 
 #### <a name="example-1"></a>Przykład 1:
 W macierzy wirtualnej chcesz mieć możliwość
 
-* aprowizuj wolumin warstwowy o pojemności 2 TB lub udział.
-* aprowizyj 1 TB warstwowego woluminu lub udziału.
-* aprowizuj 300 GB lokalnie przypiętego woluminu lub udziału.
+* Udostępnij wolumin o pojemności 2 TB lub udział w poziomie.
+* Inicjowanie obsługi administracyjnej woluminu lub udziału warstwowego o pojemności 1 TB.
+* Zapewnij 300 GB woluminu przypiętego lokalnie lub udziału.
 
-W przypadku poprzednich woluminów lub udziałów obliczmy wymagania dotyczące miejsca w warstwie lokalnej.
+W przypadku poprzednich woluminów lub udziałów pozwól nam obliczyć wymagania dotyczące miejsca w warstwie lokalnej.
 
-Po pierwsze, dla każdego warstwowego wolumenu/udziału rezerwacja lokalna będzie równa 12% wielkości wolumenu/udziału. W przypadku lokalnie przypiętego woluminu/udziału rezerwacja lokalna wynosi 10 % lokalnie przypiętego rozmiaru woluminu/udziału (oprócz aprowizowanego rozmiaru). W tym przykładzie
+Po pierwsze dla każdego woluminu/udziału warstwowego rezerwacja lokalna będzie równa 12% rozmiaru woluminu/udziału. W przypadku przypiętego lokalnie woluminu/udziału lokalna rezerwacja wynosi 10% rozmiaru woluminu przypiętego lokalnie lub udziału (poza rozmiarem zainicjowanym). W tym przykładzie potrzebujesz
 
-* Rezerwacja lokalna o pojemności 240 GB (dla woluminu/udziału warstwowego o pojemności 2 TB)
-* Rezerwacja lokalna o pojemności 120 GB (dla woluminu/udziału warstwowego o pojemności 1 TB)
-* 330 GB dla lokalnie przypiętego woluminu lub udziału (dodanie 10 % lokalnej rezerwacji do rozmiaru aprowizacji 300 GB)
+* Rezerwacja lokalna 240 GB (dla woluminu/udziału warstwowego 2 TB)
+* Rezerwacja lokalna 120 GB (dla woluminu/udziału warstwowego 1 TB)
+* 330 GB dla woluminów przypiętych lokalnie lub udziału (dodanie 10% rezerwacji lokalnej do rozmiaru o rozmiarze 300 GB)
 
-Całkowita ilość miejsca wymaganego do tej pory w warstwie lokalnej wynosi: 240 GB + 120 GB + 330 GB = 690 GB.
+Całkowite wymagane miejsce w warstwie lokalnej to: 240 GB + 120 GB + 330 GB = 690 GB.
 
-Po drugie, potrzebujemy co najmniej tyle miejsca na poziomie lokalnym, co największa pojedyncza rezerwacja. Ta dodatkowa kwota jest używana w przypadku, gdy trzeba przywrócić z migawki w chmurze. W tym przykładzie największa rezerwacja lokalna wynosi 330 GB (w tym rezerwacja dla systemu plików), więc należy dodać, że do 690 GB: 690 GB + 330 GB = 1020 GB.
-Jeśli wykonaliśmy kolejne dodatkowe przywracanie, zawsze możemy zwolnić miejsce z poprzedniej operacji przywracania.
+Po drugie potrzebujemy co najmniej tak dużej ilości miejsca w warstwie lokalnej jako największej rezerwacji pojedynczej. Ta dodatkowa kwota jest używana w przypadku konieczności przywrócenia z migawki w chmurze. W tym przykładzie największe rezerwacja lokalna to 330 GB (w tym rezerwacja dla systemu plików), dlatego należy dodać ją do 690 GB: 690 GB + 330 GB = 1020 GB.
+Jeśli wykonasz kolejne dodatkowe operacje przywracania, zawsze można zwolnić miejsce z poprzedniej operacji przywrócenia.
 
-Po trzecie, potrzebujemy 15% całkowitej przestrzeni lokalnej do przechowywania lokalnych migawek, tak aby tylko 85% z nich było dostępnych. W tym przykładzie byłoby to około 1020 GB&ast;= 0,85 aprowizowanego dysku danych TB. Tak więc aprowizowany dysk danych będzie&ast;(1020 (1/0.85))= 1200 GB = 1,20 TB ~ 1,25 TB (zaokrąglanie do najbliższego kwartyla)
+Trzecia potrzeba 15% całkowitego miejsca lokalnego do przechowywania lokalnych migawek, dzięki czemu dostępna będzie tylko 85%. W tym przykładzie będzie to około 1020 GB = 0,85&ast;miejsca na dysku z danymi, które zainicjowano. W związku z tym dysk danych z zainicjowaną obsługą&ast;będzie (1020 (1/0.85)) = 1200 GB = 1,20 tb ~ 1,25 TB (zaokrąglanie do najbliższego kwartyl)
 
-Faktoring w nieoczekiwany wzrost i nowe przywraca, należy aprowizować dysk lokalny około 1,25 - 1,5 TB.
+W nieoczekiwanym wzroście i nowym przywracaniu należy udostępnić dysk lokalny o pojemności około 1,25 – 1,5 TB.
 
 > [!NOTE]
-> Zaleca się również, że dysk lokalny jest cienko aprowizacji. To zalecenie jest, ponieważ miejsce przywracania jest potrzebne tylko wtedy, gdy chcesz przywrócić dane, które są starsze niż pięć dni. Odzyskiwanie na poziomie elementu umożliwia przywracanie danych z ostatnich pięciu dni bez konieczności dodatkowego miejsca na przywracanie.
+> Zalecamy również, aby dysk lokalny został alokowany elastycznie. To zalecenie wynika z faktu, że miejsce przywracania jest wymagane tylko wtedy, gdy chcesz przywrócić dane starsze niż pięć dni. Odzyskiwanie na poziomie elementu umożliwia przywracanie danych z ostatnich pięciu dni bez konieczności dodatkowego miejsca na przywracanie.
 
 
 #### <a name="example-2"></a>Przykład 2:
 W macierzy wirtualnej chcesz mieć możliwość
 
-* aprowizacji woluminu warstwowego o pojemności 2 TB
-* aprowizacji woluminu przypiętego lokalnie o pojemności 300 GB
+* Udostępnianie woluminu warstwowego o pojemności 2 TB
+* Udostępnianie woluminu przypiętego lokalnie 300 GB
 
-Na podstawie 12 % lokalnej rezerwacji przestrzeni dla wolumenów/udziałów warstwowych i 10 % dla lokalnie przypiętych wolumenów/udziałów,
+W oparciu o 12% zarezerwowane miejsce lokalne dla woluminów warstwowych/udziałów i 10% dla lokalnie przypiętych woluminów/udziałów, potrzebujemy
 
-* Rezerwacja lokalna o pojemności 240 GB (dla woluminu/udziału warstwowego o pojemności 2 TB)
-* 330 GB dla lokalnie przypiętego woluminu lub udziału (dodanie 10% lokalnej rezerwacji do aprowizowanego miejsca o pojemności 300 GB)
+* 240 GB rezerwacji lokalnej (dla 2 TB woluminu warstwowego/udziału)
+* 330 GB dla woluminów przypiętych lokalnie lub udziału (do 10% rezerwacji lokalnej na miejsce zainicjowane 300 GB)
 
-Całkowita ilość miejsca w warstwie lokalnej wynosi: 240 GB + 330 GB = 570 GB
+Łączna ilość miejsca wymaganego w warstwie lokalnej to: 240 GB + 330 GB = 570 GB
 
-Minimalna ilość miejsca lokalnego potrzebnego do przywracania wynosi 330 GB.
+Minimalna przestrzeń lokalna wymagana do przywracania to 330 GB.
 
-15% całkowitego dysku jest używane do przechowywania migawek, dzięki czemu jest dostępnych tylko 0,85. Tak więc rozmiar dysku wynosi (900&ast;(1/0,85)) = 1,06 TB ~ 1,25 TB (zaokrąglanie do najbliższego kwartyla)
+15% całkowitego dysku służy do przechowywania migawek, aby była dostępna tylko 0,85. Oznacza to, że rozmiar dysku to (&ast;900 (1/0.85)) = 1,06 TB ~ 1,25 TB (zaokrąglanie do najbliższego kwartyl)
 
-Faktoring u wszelki nieoczekiwany wzrost, można aprowizować 1,25 - 1,5 TB dysku lokalnego.
+W przypadku nieoczekiwanego wzrostu można zainicjować obsługę dysku lokalnego 1,25-1,5 TB.
 
 ### <a name="group-policy"></a>Zasady grupy
-Zasady grupy to infrastruktura, która umożliwia implementowanie określonych konfiguracji dla użytkowników i komputerów. Ustawienia zasad grupy są zawarte w obiektach zasad grupy (GPO), które są połączone z następującymi kontenerami Usług domenowych Active Directory (AD DS): lokacje, domeny lub jednostki organizacyjne. 
+Zasady grupy to infrastruktura, która umożliwia implementowanie określonych konfiguracji dla użytkowników i komputerów. Ustawienia zasady grupy są zawarte w obiektach zasady grupy (GPO), które są połączone z następującymi kontenerami Active Directory Domain Services (AD DS): lokacje, domeny lub jednostki organizacyjne (OU). 
 
-Jeśli tablica wirtualna jest przyłączona do domeny, można zastosować do niej obiekty zasad grupy. Te obiekty zasad grupy mogą instalować aplikacje, takie jak oprogramowanie antywirusowe, które mogą niekorzystnie wpłynąć na działanie tablicy wirtualnej StorSimple.
+Jeśli Macierz wirtualna jest przyłączona do domeny, można do niej zastosować obiekty zasad grupy. Te obiekty zasad grupy mogą instalować aplikacje, takie jak oprogramowanie antywirusowe, które może niekorzystnie wpłynąć na działanie macierzy wirtualnej StorSimple.
 
 W związku z tym zalecamy:
 
-* Upewnij się, że tablica wirtualna znajduje się we własnej jednostce organizacyjnej (OU) dla usługi Active Directory.
-* Upewnij się, że do tablicy wirtualnej nie są stosowane żadne obiekty zasad grupy. Można zablokować dziedziczenie, aby upewnić się, że tablica wirtualna (węzeł podrzędny) nie dziedziczy automatycznie żadnych zasad grupy od obiektu nadrzędnego. Aby uzyskać więcej informacji, przejdź do [blokowania dziedziczenia](https://technet.microsoft.com/library/cc731076.aspx).
+* Upewnij się, że tablica wirtualna ma własną jednostkę organizacyjną (OU) dla Active Directory.
+* Upewnij się, że żadne obiekty zasad grupy (GPO) nie są stosowane do macierzy wirtualnej. Można zablokować dziedziczenie, aby upewnić się, że Macierz wirtualna (węzeł podrzędny) nie dziedziczy automatycznie żadnych obiektów zasad grupy z elementu nadrzędnego. Aby uzyskać więcej informacji, przejdź do [bloku Blokowanie dziedziczenia](https://technet.microsoft.com/library/cc731076.aspx).
 
 ### <a name="networking"></a>Networking
-Konfiguracja sieci dla tablicy wirtualnej odbywa się za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Interfejs sieci wirtualnej jest włączony za pośrednictwem funkcji hypervisor, w którym jest aprowizowana tablica wirtualna. Strona [Ustawienia sieciowe](storsimple-virtual-array-deploy3-fs-setup.md) służy do konfigurowania adresu IP interfejsu sieci wirtualnej, podsieci i bramy.  Można również skonfigurować podstawowy i pomocniczy serwer DNS, ustawienia czasu i opcjonalne ustawienia serwera proxy dla urządzenia. Większość konfiguracji sieci jest konfiguracją jednorazową. Przejrzyj [storsimple wymagania sieciowe](storsimple-ova-system-requirements.md#networking-requirements) przed wdrożeniem tablicy wirtualnej.
+Konfiguracja sieci dla macierzy wirtualnej odbywa się za pomocą lokalnego interfejsu użytkownika sieci Web. Interfejs sieci wirtualnej jest włączany za pomocą funkcji hypervisor, w której zainicjowano obsługę macierzy wirtualnej. Na stronie [Ustawienia sieci](storsimple-virtual-array-deploy3-fs-setup.md) można skonfigurować adres IP, podsieć i bramę interfejsu sieci wirtualnej.  Można również skonfigurować podstawowy i pomocniczy serwer DNS, ustawienia czasu oraz opcjonalne ustawienia serwera proxy dla urządzenia. Większość konfiguracji sieci to jednorazowa konfiguracja. Przed wdrożeniem macierzy wirtualnej zapoznaj się z [wymaganiami dotyczącymi sieci StorSimple](storsimple-ova-system-requirements.md#networking-requirements) .
 
-Podczas wdrażania tablicy wirtualnej zaleca się przestrzeganie następujących najlepszych rozwiązań:
+Podczas wdrażania macierzy wirtualnej zalecamy przestrzeganie następujących najlepszych rozwiązań:
 
-* Upewnij się, że sieć, w której wdrożona jest macierz wirtualna, zawsze ma możliwość poświęcania przepustowości Internetu 5 Mb/s (lub większej).
+* Upewnij się, że sieć, w której wdrożono macierz wirtualną, ma zawsze pojemność dedykowanej przepustowości internetowej 5 MB/s (lub więcej).
   
-  * Zapotrzebowanie na przepustowość Internetu zależy od charakterystyki obciążenia i szybkości zmiany szybkości transmisji danych.
-  * Zmiana danych, która może być obsługiwana, jest wprost proporcjonalna do przepustowości Internetu. Na przykład podczas wykonywania kopii zapasowej przepustowość 5 Mb/s może pomieścić zmianę danych o około 18 GB w ciągu 8 godzin. Dzięki czterokrotnie większej przepustowości (20 Mb/s) możesz obsłużyć czterokrotnie większą zmianę danych (72 GB).
-* Upewnij się, że łączność z Internetem jest zawsze dostępna. Sporadyczne lub zawodne połączenia internetowe z urządzeniami mogą spowodować utratę dostępu do danych w chmurze i mogą spowodować nieobsługiwać konfiguracji.
-* Jeśli planujesz wdrożyć urządzenie jako serwer iSCSI:
+  * Przepustowość internetowa jest różna w zależności od charakterystyki obciążenia i współczynnika zmian danych.
+  * Zmiana danych, którą można obsłużyć, jest bezpośrednio proporcjonalna do przepustowości Internetu. Przykładowo podczas tworzenia kopii zapasowej przepustowość 5 MB/s może obsłużyć zmianę danych wynoszącą około 18 GB w ciągu 8 godzin. W przypadku czterech razy większej przepustowości (20 MB/s) można obsłużyć cztery razy więcej zmian danych (72 GB).
+* Upewnij się, że połączenie z Internetem jest zawsze dostępne. Sporadyczne lub zawodne połączenia internetowe z urządzeniami mogą skutkować utratą dostępu do danych w chmurze i może to spowodować nieobsługiwaną konfigurację.
+* Jeśli planujesz wdrożenie urządzenia jako serwera iSCSI:
   
-  * Zaleca się wyłączenie opcji **Pobierz adres IP automatycznie** (DHCP).
-  * Konfigurowanie statycznych adresów IP. Należy skonfigurować podstawowy i pomocniczy serwer DNS.
-  * Jeśli definiowanie wielu interfejsów sieciowych w macierzy wirtualnej, tylko pierwszy interfejs sieciowy (domyślnie ten interfejs jest **Ethernet)** może dotrzeć do chmury. Aby kontrolować typ ruchu, można utworzyć wiele interfejsów sieci wirtualnej w macierzy wirtualnej (skonfigurowanej jako serwer iSCSI) i połączyć te interfejsy z różnymi podsieciami.
-* Aby ograniczyć tylko przepustowość chmury (używanej przez macierz wirtualną), należy skonfigurować ograniczanie przepustowości routera lub zapory. Jeśli zdefiniujesz ograniczanie przepustowości w hipernadzorcy, będzie ona ograniczać wszystkie protokoły, w tym iSCSI i SMB, a nie tylko przepustowość chmury.
-* Upewnij się, że synchronizacja czasu dla hipernadzorców jest włączona. Jeśli używasz funkcji Hyper-V, wybierz tablicę wirtualną w Menedżerze funkcji Hyper-V, przejdź do **usługi integracji ustawień &gt; **i upewnij się, że **synchronizacja czasu** jest zaznaczona.
+  * Zalecamy wyłączenie opcji **Pobierz adres IP automatycznie** (DHCP).
+  * Skonfiguruj statyczne adresy IP. Należy skonfigurować podstawowy i pomocniczy serwer DNS.
+  * Jeśli zdefiniowano wiele interfejsów sieciowych w macierzy wirtualnej, tylko pierwszy interfejs sieciowy (Domyślnie ten interfejs to **Ethernet**) może dotrzeć do chmury. Aby kontrolować typ ruchu, można utworzyć wiele interfejsów sieci wirtualnych w macierzy wirtualnej (skonfigurowany jako serwer iSCSI) i połączyć te interfejsy z różnymi podsieciami.
+* Aby ograniczyć przepustowość chmury (używaną przez macierz wirtualną), skonfiguruj ograniczenie przepustowości routera lub zapory. Jeśli zdefiniujesz ograniczenie w funkcji hypervisor, zostaną one ograniczone do wszystkich protokołów, w tym iSCSI i SMB, a nie tylko z przepustowością chmury.
+* Upewnij się, że synchronizacja czasu dla funkcji hypervisor jest włączona. W przypadku korzystania z funkcji Hyper-V wybierz macierz wirtualną w Menedżerze funkcji Hyper-V, przejdź do pozycji **ustawienia &gt; usługi integracji**i upewnij się, że jest zaznaczona opcja **synchronizacja czasu** .
 
 ### <a name="storage-accounts"></a>Konta magazynu
-StorSimple Virtual Array może być skojarzony z jednym kontem magazynu. To konto magazynu może być automatycznie wygenerowanym kontem magazynu, kontem w tej samej subskrypcji co usługa lub kontem magazynu powiązanym z inną subskrypcją. Aby uzyskać więcej informacji, zobacz jak [zarządzać kontami magazynu dla tablicy wirtualnej](storsimple-virtual-array-manage-storage-accounts.md).
+Macierz wirtualna StorSimple może być skojarzona z jednym kontem magazynu. To konto magazynu może być automatycznie wygenerowanym kontem magazynu, kontem w tej samej subskrypcji co usługa lub kontem magazynu związanym z inną subskrypcją. Aby uzyskać więcej informacji, zobacz jak [zarządzać kontami magazynu dla macierzy wirtualnej](storsimple-virtual-array-manage-storage-accounts.md).
 
-Użyj następujących zaleceń dla kont magazynu skojarzonych z macierzą wirtualną.
+Poniższe zalecenia dotyczą kont magazynu skojarzonych z wirtualną tablicą.
 
-* Podczas łączenia wielu macierzy wirtualnych z jednym kontem magazynu należy uwzględnić maksymalną pojemność (64 TB) dla macierzy wirtualnej i maksymalny rozmiar (500 TB) dla konta magazynu. Ogranicza to liczbę pełnowymiarowych tablic wirtualnych, które mogą być skojarzone z tym kontem magazynu do około 7.
+* W przypadku łączenia wielu tablic wirtualnych z jednym kontem magazynu współczynnik w maksymalnej pojemności (64 TB) dla macierzy wirtualnej oraz maksymalny rozmiar (500 TB) dla konta magazynu. Ogranicza to liczbę tablic wirtualnych o pełnym rozmiarze, które mogą być skojarzone z tym kontem magazynu, do około 7.
 * Podczas tworzenia nowego konta magazynu
   
-  * Zaleca się utworzenie go w regionie najbliższym zdalnemu biuru/oddziałowi, w którym jest wdrażana tablica wirtualna StorSimple w celu zminimalizowania opóźnień.
-  * Pamiętaj, że nie można przenosić konta magazynu w różnych regionach. Również nie można przenieść usługi między subskrypcjami.
-  * Użyj konta magazynu, który implementuje nadmiarowość między centrami danych. Magazyn geograficznie nadmiarowy (GRS), magazyn strefowy nadmiarowy (ZRS) i lokalnie nadmiarowa pamięć masowa (LRS) są obsługiwane do użytku z macierzą wirtualną. Aby uzyskać więcej informacji na temat różnych typów kont magazynu, przejdź do [replikacji magazynu platformy Azure](../storage/common/storage-redundancy.md).
+  * Zalecamy utworzenie go w regionie najbliższym zdalnej biurze/oddziału, w którym wdrożono macierz wirtualną StorSimple, aby zminimalizować opóźnienia.
+  * Należy pamiętać, że nie można przenieść konta magazynu w różnych regionach. Nie można również przenieść usługi między subskrypcjami.
+  * Użyj konta magazynu, które implementuje nadmiarowość między centrami danych. Magazyn Geograficznie nadmiarowy (GRS), pamięć nadmiarowa stref (ZRS) i Magazyn lokalnie nadmiarowy (LRS) są obsługiwane do użycia z wirtualną tablicą. Aby uzyskać więcej informacji na temat różnych typów kont magazynu, przejdź do [replikacji usługi Azure Storage](../storage/common/storage-redundancy.md).
 
-### <a name="shares-and-volumes"></a>Udziały i wolumeny
-W przypadku tablicy wirtualnej StorSimple można aprowizować udziały, gdy jest on skonfigurowany jako serwer plików i woluminy skonfigurowane jako serwer iSCSI. Najlepsze rozwiązania dotyczące tworzenia udziałów i woluminów są związane z rozmiarem i typem skonfigurowanym.
+### <a name="shares-and-volumes"></a>Udziały i woluminy
+W przypadku macierzy wirtualnej StorSimple można udostępnić udziały, gdy jest ona skonfigurowana jako serwer plików i woluminy, gdy są skonfigurowane jako serwer iSCSI. Najlepsze rozwiązania dotyczące tworzenia udziałów i woluminów są związane z rozmiarem i skonfigurowanym typem.
 
 #### <a name="volumeshare-size"></a>Rozmiar woluminu/udziału
-W macierzy wirtualnej można aprowizować udziały, gdy jest on skonfigurowany jako serwer plików i woluminy skonfigurowane jako serwer iSCSI. Najlepsze rozwiązania dotyczące tworzenia udziałów i woluminów odnoszą się do rozmiaru i typu skonfigurowane. 
+W macierzy wirtualnej można udostępnić udziały, gdy jest ona skonfigurowana jako serwer plików i woluminy, gdy są skonfigurowane jako serwer iSCSI. Najlepsze rozwiązania związane z tworzeniem udziałów i woluminów odnoszą się do rozmiaru i skonfigurowanego typu. 
 
-Należy pamiętać o następujących sprawdzonych praktyk podczas inicjowania obsługi administracyjnej udziałów lub woluminów na urządzeniu wirtualnym.
+Należy pamiętać o następujących najlepszych rozwiązaniach dotyczących aprowizacji udziałów lub woluminów na urządzeniu wirtualnym.
 
-* Rozmiary plików względem aprowizowanego rozmiaru udziału warstwowego mogą mieć wpływ na wydajność warstwowego. Praca z dużymi plikami może spowodować spowolnienie warstwy. Podczas pracy z dużymi plikami zaleca się, aby największy plik był mniejszy niż 3% rozmiaru udziału.
-* W macierzy wirtualnej można utworzyć maksymalnie 16 woluminów/udziałów. Limity rozmiaru woluminów/udziałów przypiętych lokalnie i warstwowych należy zawsze zapoznać się z [limitami tablic wirtualnych StorSimple](storsimple-ova-limits.md).
-* Podczas tworzenia woluminu należy uwzględnić oczekiwane zużycie danych, a także przyszły wzrost. Woluminu lub udziału nie można później rozwinąć.
+* Rozmiary plików względem alokowanego rozmiaru udziału warstwowego mogą mieć wpływ na wydajność warstw. Praca z dużymi plikami może spowodować spowolnienie warstwy. Podczas pracy z dużymi plikami zalecamy, aby największy plik był mniejszy niż 3% rozmiaru udziału.
+* W macierzy wirtualnej można utworzyć maksymalnie 16 woluminów/udziałów. W przypadku limitów rozmiaru przypiętych lokalnie i woluminów warstwowych/udziałów zawsze odwołują się do [limitów macierzy wirtualnych StorSimple](storsimple-ova-limits.md).
+* Podczas tworzenia woluminu należy wziąć pod uwagę zużycie danych, jak również w przyszłości. Nie można później rozszerzyć woluminu lub udziału.
 * Po utworzeniu woluminu/udziału nie można zmniejszyć rozmiaru woluminu/udziału w StorSimple.
-* Podczas zapisywania do woluminu warstwowego na StorSimple, gdy dane woluminu osiągnie pewien próg (względem miejsca lokalnego zarezerwowanego dla woluminu), we/wy jest ograniczona. Dalsze zapisywanie do tego woluminu spowalnia we/wy znacznie. Chociaż można zapisywać do woluminu warstwowego poza jego pojemności aprowizacji (nie aktywnie zatrzymać użytkownika od zapisu poza pojemność aprowizowana), zobaczysz powiadomienie alertu, że masz oversubscribed. Po wyświetleniu alertu konieczne jest podjęcie środków zaradczych, takich jak usunięcie danych woluminu (rozszerzenie woluminu nie jest obecnie obsługiwane).
-* W przypadku odzyskiwania po awarii, ponieważ liczba dopuszczalnych udziałów/wolumenów wynosi 16, a maksymalna liczba udziałów/wolumenów, które mogą być przetwarzane równolegle, wynosi również 16, liczba udziałów/wolumenów nie ma wpływu na RPO i RTO.
+* Podczas zapisywania do woluminu warstwowego w StorSimple, gdy dane woluminu osiągnie określony próg (względem lokalnego miejsca zarezerwowanego dla woluminu), operacja we/wy jest ograniczana. Kontynuowanie zapisu w tym woluminie powoduje znaczne spowolnienie operacji we/wy. Chociaż można zapisywać na woluminie warstwowym poza swoją zainicjowaną pojemnością (nie zatrzymasz aktywnie możliwości zapisu poza zainicjowaną pojemnością), zobaczysz powiadomienie o alercie, które spowoduje zasubskrybowanie subskrypcji. Po wyświetleniu alertu konieczne jest wykonanie środków zaradczych, takich jak usuwanie danych woluminu (rozwinięcie woluminu nie jest obecnie obsługiwane).
+* W przypadku przypadków użycia odzyskiwania po awarii, ponieważ liczba dozwolonych udziałów/woluminów wynosi 16, a maksymalna liczba udziałów/woluminów, które mogą być przetwarzane równolegle, również wynosi 16, liczba udziałów/woluminów nie ma wpływu na cel i RTO.
 
 #### <a name="volumeshare-type"></a>Typ woluminu/udziału
-StorSimple obsługuje dwa typy woluminów/udziałów na podstawie użycia: lokalnie przypięte i warstwowe. Lokalnie przypięte woluminy/udziały są aprowizacji grubo, podczas gdy woluminy warstwowe/udziały są cienko aprowizacji. Nie można przekonwertować lokalnie przypięty wolumin/udział do warstwowych lub *odwrotnie* po utworzeniu.
+StorSimple obsługuje dwa typy woluminów/udziałów na podstawie użycia: lokalnie przypięte i warstwowe. Woluminy przypięte lokalnie/udziały są elastycznie udostępniane, a woluminy/udziały warstwowe są alokowane elastycznie. Po utworzeniu woluminu przypiętego lokalnie lub udziału nie można skonwertować na warstwowy lub *odwrotnie* .
 
-Podczas konfigurowania woluminów/udziałów StorSimple zaleca się zaimplementowanie następujących sprawdzonych rozwiązań:
+Zalecamy wdrożenie następujących najlepszych rozwiązań podczas konfigurowania woluminów StorSimple/udziałów:
 
-* Zidentyfikuj typ woluminu na podstawie obciążeń, które zamierzasz wdrożyć przed utworzeniem woluminu. Użyj woluminów przypiętych lokalnie dla obciążeń, które wymagają lokalnych gwarancji danych (nawet podczas awarii chmury) i które wymagają niskich opóźnień w chmurze. Po utworzeniu woluminu w tablicy wirtualnej nie można zmienić typu woluminu z lokalnie przypiętego do warstwowego lub *odwrotnie*. Na przykład utwórz woluminy przypięte lokalnie podczas wdrażania obciążeń SQL lub obciążeń obsługujących maszyny wirtualne (maszyny wirtualne); użyj woluminów warstwowych dla obciążeń udziału plików.
+* Określ typ woluminu na podstawie obciążeń, które zamierzasz wdrożyć przed utworzeniem woluminu. Używaj woluminów przypiętych lokalnie dla obciążeń wymagających lokalnych gwarancji danych (nawet w przypadku przestoju w chmurze) i wymagających niskich opóźnień w chmurze. Po utworzeniu woluminu w macierzy wirtualnej nie można zmienić typu woluminu z lokalnego przypiętego na warstwowy lub *odwrotnie*. Na przykład utwórz woluminy przypięte lokalnie podczas wdrażania obciążeń SQL lub obciążeń obsługujących maszyny wirtualne (VM); Użyj woluminów warstwowych dla obciążeń udziałów plików.
 
 
 #### <a name="volume-format"></a>Format woluminu
-Po utworzeniu woluminów StorSimple na serwerze iSCSI należy zainicjować, zainstalować i sformatować woluminy. Ta operacja jest wykonywana na hoście podłączonym do urządzenia StorSimple. Podczas montażu i formatowania woluminów na hoście StorSimple zalecane są następujące najlepsze rozwiązania.
+Po utworzeniu woluminów StorSimple na serwerze iSCSI należy zainicjować, zainstalować i sformatować woluminy. Ta operacja jest wykonywana na hoście połączonym z urządzeniem StorSimple. W przypadku instalowania i formatowania woluminów na hoście StorSimple zalecane są następujące najlepsze rozwiązania.
 
-* Wykonaj szybki format na wszystkich woluminach StorSimple.
-* Podczas formatowania woluminu StorSimple użyj rozmiaru jednostki alokacji (AUS) 64 KB (domyślnie jest to 4 KB). 64 KB AUS opiera się na testach przeprowadzanych we w domu dla typowych obciążeń StorSimple i innych obciążeń.
-* W przypadku korzystania z tablicy wirtualnej StorSimple skonfigurowanej jako serwer iSCSI nie należy używać woluminów łączonych ani dysków dynamicznych, ponieważ te woluminy lub dyski nie są obsługiwane przez storsimple.
+* Wykonaj szybkie formatowanie na wszystkich woluminach StorSimple.
+* Podczas formatowania woluminu StorSimple Użyj rozmiaru jednostki alokacji (Australia) z 64 KB (wartość domyślna to 4 KB). Badanie na 64 KB opiera się na testowaniu wykonanym we własnym zakresie dla wspólnych obciążeń StorSimple i innych obciążeń.
+* W przypadku używania macierzy wirtualnej StorSimple skonfigurowanej jako serwer iSCSI nie należy używać woluminów łączonych ani dysków dynamicznych, ponieważ te woluminy lub dyski nie są obsługiwane przez program StorSimple.
 
-#### <a name="share-access"></a>Udostępnianie dostępu
-Podczas tworzenia udziałów na serwerze plików tablicy wirtualnej należy postępować zgodnie z tymi wskazówkami:
+#### <a name="share-access"></a>Dostęp do udziału
+Podczas tworzenia udziałów na serwerze plików macierzy wirtualnej postępuj zgodnie z następującymi wskazówkami:
 
-* Podczas tworzenia udziału przypisz grupę użytkowników jako administratora udziału, a nie jednego użytkownika.
-* Uprawnienia NTFS można zarządzać po utworzeniu udziału, edytując udziały za pośrednictwem Eksploratora Windows.
+* Podczas tworzenia udziału należy przypisać grupę użytkowników jako administratora udziału zamiast pojedynczego użytkownika.
+* Możesz zarządzać uprawnieniami NTFS po utworzeniu udziału, edytując udziały za pomocą Eksploratora Windows.
 
 #### <a name="volume-access"></a>Dostęp do woluminu
-Podczas konfigurowania woluminów iSCSI w tablicy wirtualnej StorSimple ważne jest kontrolowanie dostępu w razie potrzeby. Aby określić, które serwery hosta mogą uzyskiwać dostęp do woluminów, należy utworzyć i skojarzyć rekordy kontroli dostępu (ARS) z woluminami StorSimple.
+Podczas konfigurowania woluminów iSCSI w macierzy wirtualnej StorSimple należy kontrolować dostęp wszędzie tam, gdzie jest to konieczne. Aby określić, które serwery hosta mogą uzyskać dostęp do woluminów, tworzyć i kojarzyć rekordy kontroli dostępu (rekordami ACR) z woluminami StorSimple.
 
-Podczas konfigurowania analiz ARS dla woluminów StorSimple należy stosować następujące najlepsze rozwiązania:
+Podczas konfigurowania rekordami ACR dla woluminów StorSimple należy stosować następujące najlepsze rozwiązania:
 
-* Zawsze skojarzyć co najmniej jeden ACR z woluminem.
+* Zawsze należy skojarzyć co najmniej jeden ACR z woluminem.
 
-* Podczas przypisywania więcej niż jednego acr do woluminu, upewnij się, że wolumin nie jest narażony w sposób, w którym może być jednocześnie dostępne przez więcej niż jednego hosta nieklastrowanego. Jeśli do woluminu przypisano wiele ARS, zostanie wyświetlony komunikat ostrzegawczy, aby przejrzeć konfigurację.
+* Podczas przypisywania więcej niż jednego ACR do woluminu upewnij się, że wolumin nie jest ujawniony w sposób, w którym może być jednocześnie dostępny przez więcej niż jeden nieklastrowany host. Jeśli do woluminu przypisano wiele rekordami ACR, zostanie wyświetlony komunikat ostrzegawczy umożliwiający przejrzenie konfiguracji.
 
 ### <a name="data-security-and-encryption"></a>Bezpieczeństwo i szyfrowanie danych
-Twoja tablica wirtualna StorSimple ma funkcje zabezpieczeń i szyfrowania danych, które zapewniają poufność i integralność danych. Podczas korzystania z tych funkcji zaleca się przestrzeganie następujących najlepszych rozwiązań: 
+Wirtualna macierz StorSimple ma funkcje zabezpieczeń i szyfrowania danych, które zapewniają poufność i integralność danych. W przypadku korzystania z tych funkcji zaleca się wykonanie następujących najlepszych rozwiązań: 
 
-* Zdefiniuj klucz szyfrowania magazynu w chmurze, aby wygenerować szyfrowanie AES-256 przed wysłaniem danych z macierzy wirtualnej do chmury. Ten klucz nie jest wymagany, jeśli dane są szyfrowane na początek. Klucz może być generowany i przechowywany w bezpiecznym miejscu przy użyciu systemu zarządzania kluczami, takiego jak [magazyn kluczy platformy Azure.](../key-vault/general/overview.md)
-* Podczas konfigurowania konta magazynu za pośrednictwem usługi StorSimple Manager, upewnij się, że tryb TLS, aby utworzyć bezpieczny kanał komunikacji sieciowej między urządzeniem StorSimple i chmury.
-* Okresowo ponownie wygeneruj klucze dla kont magazynu (uzyskując dostęp do usługi Azure Storage), aby uwzględnić wszelkie zmiany dostępu na podstawie zmienionej listy administratorów.
-* Dane w macierzy wirtualnej są kompresowane i deduplikowane przed wysłaniem ich na platformę Azure. Nie zaleca się korzystania z usługi roli Deduplikacja danych na hoście systemu Windows Server.
+* Zdefiniuj klucz szyfrowania magazynu w chmurze, aby generować szyfrowanie AES-256 przed wysłaniem danych z macierzy wirtualnej do chmury. Ten klucz nie jest wymagany, jeśli dane są szyfrowane i zaczynają się od. Klucz może być wygenerowany i bezpieczny przy użyciu systemu zarządzania kluczami, takiego jak [Magazyn kluczy Azure](../key-vault/general/overview.md).
+* Podczas konfigurowania konta magazynu za pośrednictwem usługi StorSimple Manager upewnij się, że włączono tryb TLS, aby utworzyć bezpieczny kanał na potrzeby komunikacji sieciowej między urządzeniem StorSimple a chmurą.
+* Wygeneruj ponownie klucze dla kont magazynu (przez uzyskanie dostępu do usługi Azure Storage) okresowo, aby uwzględnić wszelkie zmiany dostępu na podstawie zmienionej listy administratorów.
+* Dane w macierzy wirtualnej są kompresowane i deduplikowane przed wysłaniem ich do platformy Azure. Nie zalecamy korzystania z usługi roli deduplikacji danych na hoście z systemem Windows Server.
 
 ## <a name="operational-best-practices"></a>Najlepsze rozwiązania w zakresie operacji
-Najlepsze rozwiązania operacyjne są wytyczne, które powinny być przestrzegane podczas codziennego zarządzania lub działania tablicy wirtualnej. Praktyki te obejmują określone zadania zarządzania, takie jak wykonywanie kopii zapasowych, przywracanie z zestawu kopii zapasowych, wykonywanie pracy awaryjnej, dezaktywacja i usuwanie tablicy, monitorowanie użycia systemu i kondycji oraz uruchamianie skanowania antywirusowego w macierzy wirtualnej.
+Najlepsze rozwiązania praktyczne to wskazówki, które należy stosować w trakcie codziennego zarządzania lub operacji macierzy wirtualnej. Te praktyki obejmują określone zadania zarządzania, takie jak wykonywanie kopii zapasowych, przywracanie z zestawu kopii zapasowych, wykonywanie trybu failover, dezaktywowanie i usuwanie macierzy, monitorowanie użycia systemu i kondycji oraz uruchamianie skanów wirusów w macierzy wirtualnej.
 
 ### <a name="backups"></a>Tworzenie kopii zapasowych
-Kopia zapasowa danych w macierzy wirtualnej jest tworzona w chmurze na dwa sposoby— domyślna automatyczna codzienna kopia zapasowa całego urządzenia rozpoczyna się o godzinie 22:30 lub za pośrednictwem ręcznej kopii zapasowej na żądanie. Domyślnie urządzenie automatycznie tworzy codzienne migawki w chmurze wszystkich danych na nim przebywających. Aby uzyskać więcej informacji, przejdź do [kopii zapasowej tablicy wirtualnej StorSimple](storsimple-virtual-array-backup.md).
+Kopie zapasowe danych w macierzy wirtualnej są tworzone w chmurze na dwa sposoby — domyślnie zautomatyzowana, automatyczna kopia zapasowa całego urządzenia, rozpoczynając od 22:30 lub przez ręczną kopię zapasową na żądanie. Domyślnie urządzenie automatycznie tworzy codzienne migawki w chmurze wszystkich znajdujących się na niej danych. Aby uzyskać więcej informacji, przejdź do [kopii zapasowej macierzy wirtualnej StorSimple](storsimple-virtual-array-backup.md).
 
-Nie można zmienić częstotliwości i przechowywania skojarzonego z domyślnymi kopiami zapasowymi, ale można skonfigurować czas, w którym codziennie inicjowane są codzienne kopie zapasowe. Podczas konfigurowania godziny rozpoczęcia automatycznych kopii zapasowych zaleca się:
+Nie można zmienić częstotliwości i przechowywania skojarzonych z domyślnymi kopiami zapasowymi, ale można skonfigurować czas, w którym codzienne kopie zapasowe są inicjowane codziennie. Podczas konfigurowania czasu rozpoczęcia dla zautomatyzowanych kopii zapasowych zalecamy:
 
-* Zaplanuj tworzenie kopii zapasowych poza godzinami szczytu. Czas rozpoczęcia kopii zapasowej nie powinien pokrywać się z licznymi we/wy hosta.
-* Inicjuj ręczną kopię zapasową na żądanie podczas planowania pracy awaryjnej urządzenia lub przed oknem konserwacji, aby chronić dane w macierzy wirtualnej.
+* Zaplanuj kopie zapasowe w godzinach poza godzinami szczytu. Godzina rozpoczęcia tworzenia kopii zapasowej nie powinna być zbieżna z licznymi operacjami we/wy hosta.
+* Zainicjuj ręczne tworzenie kopii zapasowej na żądanie podczas planowania przełączenia urządzenia w tryb failover lub przed oknem obsługi, aby chronić dane w macierzy wirtualnej.
 
 ### <a name="restore"></a>Przywracanie
-Można przywrócić z zestawu kopii zapasowych na dwa sposoby: przywrócić do innego woluminu lub udostępnić lub wykonać odzyskiwanie na poziomie elementu (dostępne tylko w macierzy wirtualnej skonfigurowanej jako serwer plików). Odzyskiwanie na poziomie elementu umożliwia szczegółowe odzyskiwanie plików i folderów z kopii zapasowej w chmurze wszystkich udziałów na urządzeniu StorSimple. Aby uzyskać więcej informacji, przejdź do [przywracania z kopii zapasowej](storsimple-virtual-array-clone.md).
+Można przywrócić z zestawu kopii zapasowych na dwa sposoby: przywrócić do innego woluminu lub udziału lub wykonać odzyskiwanie na poziomie elementu (dostępne tylko w przypadku macierzy wirtualnej skonfigurowanej jako serwer plików). Odzyskiwanie na poziomie elementu umożliwia przeprowadzenie szczegółowego odzyskiwania plików i folderów z kopii zapasowej w chmurze wszystkich udziałów na urządzeniu StorSimple. Aby uzyskać więcej informacji, przejdź do [przywracania z kopii zapasowej](storsimple-virtual-array-clone.md).
 
-Podczas przywracania należy pamiętać o następujących wskazówkach:
+Podczas wykonywania przywracania należy pamiętać o następujących kwestiach:
 
-* Aplikacja StorSimple Virtual Array nie obsługuje przywracania w miejscu. Można to jednak łatwo osiągnąć za pomocą dwuetapowego procesu: zrobić miejsce na tablicy wirtualnej, a następnie przywrócić do innego woluminu/udziału.
-* Podczas przywracania z woluminu lokalnego, należy pamiętać, że przywracanie będzie długotrwałą operacją. Chociaż wolumin może szybko przejść do trybu online, dane nadal są nawodnione w tle.
-* Typ woluminu pozostaje taki sam podczas procesu przywracania. Wolumin warstwowy jest przywracany do innego woluminu warstwowego, a wolumin przypięty lokalnie do innego woluminu przypiętego lokalnie.
-* Podczas próby przywrócenia woluminu lub udziału z zestawu kopii zapasowych, jeśli zadanie przywracania zakończy się niepowodzeniem, wolumin docelowy lub udział mogą być nadal tworzone w portalu. Ważne jest, aby usunąć ten nieużyny wolumin docelowy lub udział w portalu, aby zminimalizować wszelkie przyszłe problemy wynikające z tego elementu.
+* Wirtualna macierz StorSimple nie obsługuje przywracania w miejscu. Można to jednak łatwo osiągnąć przez dwuetapowy proces: Zwolnij miejsce na macierzy wirtualnej, a następnie Przywróć inny wolumin/udział.
+* W przypadku przywracania z woluminu lokalnego należy pamiętać, że przywracanie będzie długotrwałą operacją. Mimo że wolumin może szybko przechodzić w tryb online, dane są nadal odwodnione w tle.
+* Typ woluminu pozostaje taki sam podczas procesu przywracania. Wolumin warstwowy jest przywracany do innego woluminu warstwowego i wolumin przypięty lokalnie do innego woluminu przypiętego lokalnie.
+* W przypadku próby przywrócenia woluminu lub udziału z zestawu kopii zapasowych w przypadku niepowodzenia zadania przywracania w portalu nadal można utworzyć wolumin docelowy lub udział. Ważne jest, aby usunąć ten nieużywany wolumin docelowy lub udział w portalu w celu zminimalizowania wszelkich przyszłych problemów wynikających z tego elementu.
 
-### <a name="failover-and-disaster-recovery"></a>Awaryjne i odzyskiwanie po awarii
-Funkcja pracy awaryjnej urządzenia umożliwia migrację danych z urządzenia *źródłowego* w centrum danych do innego urządzenia *docelowego* znajdującego się w tej samej lub innej lokalizacji geograficznej. Przewija się w stan failover urządzenia jest dla całego urządzenia. Podczas pracy awaryjnej dane w chmurze dla urządzenia źródłowego zmienia własność na własność urządzenia docelowego.
+### <a name="failover-and-disaster-recovery"></a>Tryb failover i odzyskiwanie po awarii
+Tryb failover urządzenia umożliwia Migrowanie danych z urządzenia *źródłowego* w centrum danych do innego urządzenia *docelowego* znajdującego się w tej samej lub innej lokalizacji geograficznej. Tryb failover urządzenia jest przeznaczony dla całego urządzenia. Podczas pracy w trybie failover dane w chmurze dla urządzenia źródłowego zmieniają własność na urządzenie docelowe.
 
-W przypadku tablicy wirtualnej StorSimple można przejść w tryb fail over tylko do innej tablicy wirtualnej zarządzanej przez tę samą usługę Menedżera StorSimple. Niedozwolone jest przewijowanie awaryjne na urządzeniu z serii 8000 lub macierz zarządzane przez inną usługę StorSimple Manager (niż dla urządzenia źródłowego). Aby dowiedzieć się więcej na temat zagadnień dotyczących pracy awaryjnej, przejdź do [wymagań wstępnych dotyczących trybu failover urządzenia](storsimple-virtual-array-failover-dr.md).
+W przypadku macierzy wirtualnej StorSimple można przełączyć się w tryb failover tylko do innej macierzy wirtualnej zarządzanej przez tę samą usługę StorSimple Manager. Przełączenie w tryb failover do urządzenia z serii 8000 lub macierzy zarządzanej przez inną usługę StorSimple Manager (niż w przypadku urządzenia źródłowego) jest niedozwolone. Aby dowiedzieć się więcej na temat zagadnień dotyczących trybu failover, przejdź do [sekcji wymagania wstępne dotyczące](storsimple-virtual-array-failover-dr.md)przełączenia urządzenia w tryb failover.
 
-Podczas wykonywania pracy awaryjnej dla tablicy wirtualnej należy pamiętać o następujących zachowaniach:
+W przypadku przełączenia w tryb failover dla macierzy wirtualnej należy pamiętać o następujących kwestiach:
 
-* W przypadku planowanej pracy awaryjnej zaleca się przetraktowanie wszystkich woluminów/udziałów w trybie offline przed rozpoczęciem pracy awaryjnej. Postępuj zgodnie z instrukcjami specyficznymi dla systemu operacyjnego, aby najpierw przetraktować woluminy/udziały na hoście, a następnie przetraktować je w trybie offline na urządzeniu wirtualnym.
-* W przypadku odzyskiwania po awarii serwera plików zaleca się dołączenie urządzenia docelowego do tej samej domeny co źródło, aby uprawnienia udziału były automatycznie rozpoznawane. Tylko przewija się w ten sposób na urządzeniu docelowym w tej samej domenie.
-* Po pomyślnym zakończeniu odzyskiwania po awarii urządzenie źródłowe jest automatycznie usuwane. Chociaż urządzenie nie jest już dostępne, maszyna wirtualna, która została zainicjowana w systemie hosta, nadal zużywa zasoby. Zaleca się usunięcie tej maszyny wirtualnej z systemu hosta, aby zapobiec naliczaniu opłat.
-* Należy pamiętać, że nawet jeśli przewija się w trybie failover, **dane są zawsze bezpieczne w chmurze**. Należy wziąć pod uwagę następujące trzy scenariusze, w których praca awaryjna nie została pomyślnie ukończona:
+* W przypadku planowanego przejścia w tryb failover zaleca się, aby przed zainicjowaniem trybu failover wszystkie woluminy/udziały zostały przełączony do trybu offline. Postępuj zgodnie z instrukcjami specyficznymi dla systemu operacyjnego, aby najpierw przełączyć woluminy/udziały w tryb offline na hoście, a następnie przełączyć je do trybu offline na urządzeniu wirtualnym.
+* W przypadku odzyskiwania po awarii serwera plików (DR) zaleca się dołączenie urządzenia docelowego do tej samej domeny, co źródło, aby uprawnienia do udziału były automatycznie rozwiązywane. W tej wersji jest obsługiwane tylko przejście w tryb failover do urządzenia docelowego w tej samej domenie.
+* Po pomyślnym zakończeniu odzyskiwania po awarii urządzenie źródłowe zostanie automatycznie usunięte. Chociaż urządzenie nie jest już dostępne, maszyna wirtualna, która została zainicjowana w systemie hosta, nadal zużywa zasoby. Zalecamy usunięcie tej maszyny wirtualnej z systemu hosta, aby uniknąć naliczania opłat.
+* Należy pamiętać, że nawet jeśli przejście w tryb failover nie powiedzie się, **dane są zawsze bezpieczne w chmurze**. Rozważ następujące trzy scenariusze, w których praca w trybie failover nie została pomyślnie ukończona:
   
-  * Wystąpił błąd w początkowych etapach pracy awaryjnej, takich jak podczas przeprowadzania wstępnych kontroli odzyskiwania po awarii. W tej sytuacji urządzenie docelowe jest nadal użyteczne. Możesz ponowić próbę pracy awaryjnej na tym samym urządzeniu docelowym.
-  * Wystąpił błąd podczas rzeczywistego procesu pracy awaryjnej. W takim przypadku urządzenie docelowe jest oznaczone jako bezużyteczne. Należy aprowizować i skonfigurować inną docelową tablicę wirtualną i używać jej do pracy awaryjnej.
-  * Przewija się w pełni po tym, jak urządzenie źródłowe zostało usunięte, ale urządzenie docelowe ma problemy i nie można uzyskać dostępu do żadnych danych. Dane są nadal bezpieczne w chmurze i można je łatwo pobrać, tworząc inną tablicę wirtualną, a następnie używając jej jako urządzenia docelowego dla odzyskiwania po awarii.
+  * Wystąpił błąd podczas początkowych etapów trybu failover, takich jak podczas przeprowadzania wstępnego sprawdzania odzyskiwania po awarii. W takiej sytuacji urządzenie docelowe nadal będzie można użyć. Możesz ponowić próbę przełączenia w tryb failover na tym samym urządzeniu docelowym.
+  * Wystąpił błąd podczas rzeczywistego procesu przełączania do trybu failover. W takim przypadku urządzenie docelowe jest oznaczone jako niezdatne do użytku. Musisz zainicjować obsługę administracyjną i skonfigurować inną docelową macierz wirtualną i użyć jej do przejścia w tryb failover.
+  * Przełączenie w tryb failover zostało ukończone, gdy urządzenie źródłowe zostało usunięte, ale urządzenie docelowe ma problemy i nie można uzyskać dostępu do żadnych danych. Dane są nadal bezpieczne w chmurze i można je łatwo pobrać, tworząc kolejną tablicę wirtualną, a następnie używając jej jako urządzenia docelowego na potrzeby odzyskiwania po awarii.
 
 ### <a name="deactivate"></a>Dezaktywuj
-Dezaktywacja tablicy wirtualnej StorSimple powoduje zerwanie połączenia między urządzeniem a odpowiednią usługą StorSimple Manager. Dezaktywacja jest **operacją trwałą** i nie można jej cofnąć. Dezaktywowanego urządzenia nie można ponownie zarejestrować w usłudze StorSimple Manager. Aby uzyskać więcej informacji, przejdź do [dezaktywacji i usunięcia tablicy wirtualnej StorSimple](storsimple-virtual-array-deactivate-and-delete-device.md).
+W przypadku dezaktywowania macierzy wirtualnej StorSimple można nawiązać połączenie między urządzeniem i odpowiadającą mu usługą StorSimple Manager. Dezaktywacja jest operacją **trwałą** i nie można jej cofnąć. Nie można ponownie zarejestrować dezaktywowanego urządzenia w usłudze StorSimple Manager. Aby uzyskać więcej informacji, przejdź do obszaru [dezaktywowanie i usuwanie macierzy wirtualnej StorSimple](storsimple-virtual-array-deactivate-and-delete-device.md).
 
-Podczas dezaktywacji tablicy wirtualnej należy pamiętać o następujących sprawdzonych praktykach:
+Podczas dezaktywowania macierzy wirtualnej należy pamiętać o następujących najlepszych rozwiązaniach:
 
-* Zrób migawkę wszystkich danych w chmurze przed dezaktywacją urządzenia wirtualnego. Po dezaktywacji tablicy wirtualnej wszystkie dane urządzenia lokalnego zostaną utracone. Zrobienie migawki w chmurze pozwoli na odzyskanie danych na późniejszym etapie.
-* Przed dezaktywacją tablicy wirtualnej StorSimple należy zatrzymać lub usunąć klientów i hosty, które zależą od tego urządzenia.
-* Usuń dezaktywowane urządzenie, jeśli nie jest już używane, aby nie naliczać opłat.
+* Przed zdezaktywowaniem urządzenia wirtualnego Wykonaj migawkę w chmurze dla wszystkich danych. W przypadku dezaktywowania macierzy wirtualnej wszystkie dane na urządzeniu lokalnym zostaną utracone. Wykonanie migawki w chmurze umożliwi odzyskanie danych na późniejszym etapie.
+* Przed dezaktywacją macierzy wirtualnej StorSimple należy zatrzymać lub usunąć klientów i hosty, które są zależne od tego urządzenia.
+* Usuń zdezaktywowane urządzenie, jeśli nie jest już używane, aby nie naliczać opłat.
 
 ### <a name="monitoring"></a>Monitorowanie
-Aby upewnić się, że storsimple virtual array jest w stanie ciągłej dobrej kondycji, należy monitorować tablicy i upewnij się, że otrzymujesz informacje z systemu, w tym alerty. Aby monitorować ogólną kondycję tablicy wirtualnej, należy zaimplementować następujące najlepsze rozwiązania:
+Aby upewnić się, że Macierz wirtualna StorSimple jest w stanie ciągłej kondycji, musisz monitorować tablicę i upewnić się, że otrzymujesz informacje z systemu, w tym alerty. Aby monitorować ogólną kondycję macierzy wirtualnej, należy zaimplementować następujące najlepsze rozwiązania:
 
-* Skonfiguruj monitorowanie w celu śledzenia użycia dysku z dysku danych tablicy wirtualnej oraz dysku systemu operacyjnego. Jeśli jest uruchomiony program Hyper-V, można użyć kombinacji Menedżera maszyn wirtualnych programu System Center (SCVMM) i programu System Center Operations Manager do monitorowania hostów wirtualizacji.
-* Skonfiguruj powiadomienia e-mail w tablicy wirtualnej, aby wysyłać alerty na określonych poziomach użycia.                                                                                                                                                                                                
+* Skonfiguruj monitorowanie, aby śledzić użycie dysku z dysku danych macierzy wirtualnych oraz dysk systemu operacyjnego. W przypadku korzystania z funkcji Hyper-V można użyć kombinacji System Center Virtual Machine Manager (SCVMM) i System Center Operations Manager do monitorowania hostów wirtualizacji.
+* Skonfiguruj powiadomienia e-mail w macierzy wirtualnej w celu wysyłania alertów na określonych poziomach użycia.                                                                                                                                                                                                
 
-### <a name="index-search-and-virus-scan-applications"></a>Aplikacje do wyszukiwania indeksów i skanowania antywirusowego
-A StorSimple Virtual Array można automatycznie warstwy danych z warstwy lokalnej do chmury Microsoft Azure. Gdy aplikacja, taka jak wyszukiwanie indeksu lub skanowanie antywirusowe jest używana do skanowania danych przechowywanych na StorSimple, należy zadbać, aby dane w chmurze nie były dostępne i pobierane z powrotem do warstwy lokalnej.
+### <a name="index-search-and-virus-scan-applications"></a>Wyszukiwanie indeksu i aplikacje antywirusowe
+Macierz wirtualna StorSimple może automatycznie warstwować dane z warstwy lokalnej do chmury Microsoft Azure. Gdy aplikacja, taka jak wyszukiwanie indeksu lub skanowanie w poszukiwaniu wirusów, jest używana do skanowania danych przechowywanych w usłudze StorSimple, należy zadbać o to, aby dane w chmurze nie były dostępne i ściągane z powrotem do warstwy lokalnej.
 
-Podczas konfigurowania wyszukiwania indeksów lub skanowania antywirusowego w macierzy wirtualnej zaleca się zaimplementowanie następujących sprawdzonych rozwiązań:
+Zalecamy zaimplementowanie następujących najlepszych rozwiązań podczas konfigurowania wyszukiwania indeksu lub skanowania wirusów w macierzy wirtualnej:
 
 * Wyłącz wszystkie automatycznie skonfigurowane operacje pełnego skanowania.
-* W przypadku woluminów warstwowych skonfiguruj aplikację wyszukiwania indeksu lub skanowania antywirusowego w celu wykonania skanowania przyrostowego. Spowoduje to skanowanie tylko nowych danych prawdopodobnie przebywających w warstwie lokalnej. Dane, które są warstwowe do chmury nie jest dostępny podczas operacji przyrostowej.
-* Upewnij się, że poprawne filtry wyszukiwania i ustawienia są skonfigurowane tak, aby skanowane były tylko zamierzone typy plików. Na przykład pliki obrazów (JPEG, GIF i TIFF) i rysunki inżynierskie nie powinny być skanowane podczas przebudowy indeksu przyrostowego lub pełnego.
+* W przypadku woluminów warstwowych Skonfiguruj przeszukiwanie indeksu lub aplikację skanowania antywirusowego w celu przeprowadzenia skanowania przyrostowego. Spowoduje to przeskanowanie tylko nowych danych znajdujących się w warstwie lokalnej. Podczas operacji przyrostowej nie można uzyskać dostępu do danych, które są warstwowe w chmurze.
+* Upewnij się, że skonfigurowano poprawne filtry i ustawienia wyszukiwania, aby były skanowane tylko odpowiednie typy plików. Na przykład pliki obrazów (JPEG, GIF i TIFF) i rysunki inżynieryjne nie powinny być skanowane podczas ponownego kompilowania indeksu przyrostowego lub pełnego.
 
-Jeśli korzystasz z procesu indeksowania systemu Windows, postępuj zgodnie z tymi wskazówkami:
+W przypadku korzystania z procesu indeksowania systemu Windows postępuj zgodnie z następującymi wskazówkami:
 
-* Nie należy używać indeksatora systemu Windows dla woluminów warstwowych, ponieważ odwołuje duże ilości danych (TBs) z chmury, jeśli indeks musi być często przebudowywany. Przebudowa indeksu spowoduje pobranie wszystkich typów plików w celu indeksowania ich zawartości.
-* Użyj procesu indeksowania systemu Windows dla woluminów przypiętych lokalnie, ponieważ będzie to uzyskiwać dostęp tylko do danych w warstwach lokalnych do tworzenia indeksu (dane w chmurze nie będą dostępne).
+* Nie należy używać indeksatora systemu Windows dla woluminów warstwowych, ponieważ odwołują duże ilości danych (TBs) z chmury, jeśli indeks wymaga ponownego skompilowania. Ponowne skompilowanie indeksu spowoduje pobranie wszystkich typów plików w celu indeksowania ich zawartości.
+* Użyj procesu indeksowania systemu Windows dla woluminów przypiętych lokalnie, ponieważ spowoduje to uzyskanie dostępu tylko do danych w warstwach lokalnych w celu skompilowania indeksu (dane w chmurze nie będą dostępne).
 
 ### <a name="byte-range-locking"></a>Blokowanie zakresu bajtów
-Aplikacje mogą blokować określony zakres bajtów w plikach. Jeśli blokowanie zakresu bajtów jest włączone w aplikacjach, które zapisują do StorSimple, warstwa nie działa na tablicy wirtualnej. Aby warstwa działała, wszystkie obszary plików, do których dostęp uzyskał dostęp, powinny zostać odblokowane. Blokowanie zakresu bajtów nie jest obsługiwane w przypadku woluminów warstwowych w macierzy wirtualnej.
+Aplikacje mogą blokować określony zakres bajtów w plikach. Jeśli blokowanie zakresu bajtów jest włączone dla aplikacji, które są zapisywane w StorSimple, warstwowe nie działa w macierzy wirtualnej. Aby przedziały działały, wszystkie obszary plików, do których uzyskuje się dostęp, powinny być odblokowane. Blokowanie zakresu bajtów nie jest obsługiwane w przypadku woluminów warstwowych w macierzy wirtualnej.
 
-Zalecane środki w celu złagodzenia blokady zakresu bajtów obejmują:
+Zalecane miary umożliwiające złagodzenie blokowania zakresu bajtów obejmują:
 
 * Wyłącz blokowanie zakresu bajtów w logice aplikacji.
-* Użyj woluminów przypiętych lokalnie (zamiast warstwowych) dla danych skojarzonych z tą aplikacją. Woluminy przypięte lokalnie nie są warstwowe w chmurze.
-* W przypadku korzystania z woluminów przypiętych lokalnie z włączoną blokadą zakresu bajtów wolumin może być w trybie online przed zakończeniem przywracania. W takich przypadkach należy poczekać na przywrócenie do ukończenia.
+* Użyj lokalnie przypiętych woluminów (zamiast warstwowych) dla danych skojarzonych z tą aplikacją. Woluminy przypięte lokalnie nie są warstwami w chmurze.
+* W przypadku używania woluminów przypiętych lokalnie z włączonym blokowaniem zakresu bajtów wolumin może przejść do trybu online przed ukończeniem przywracania. W tych przypadkach należy poczekać na zakończenie przywracania.
 
 ## <a name="multiple-arrays"></a>Wiele tablic
-Wiele macierzy wirtualnych może być konieczne wdrożenie w celu uwzględnienia rosnącego zestawu roboczego danych, które mogą rozlać się na chmurę, wpływając w ten sposób na wydajność urządzenia. W takich przypadkach najlepiej jest skalować urządzenia w miarę wzrostu zestawu roboczego. Wymaga to dodania jednego lub więcej urządzeń w lokalnym centrum danych. Podczas dodawania urządzeń można:
+Może być konieczne wdrożenie wielu tablic wirtualnych na potrzeby rosnącego zestawu roboczego danych, które mogą zostać rozlane w chmurze w taki sposób, aby miało to wpływ na wydajność urządzenia. W tych przypadkach najlepszym rozwiązaniem jest skalowanie urządzeń w miarę wzrostu zestawu roboczego. Wymaga to dodania co najmniej jednego urządzenia do lokalnego centrum danych. Podczas dodawania urządzeń można:
 
 * Podziel bieżący zestaw danych.
-* Wdrażanie nowych obciążeń na nowych urządzeniach.
-* W przypadku wdrażania wielu tablic wirtualnych zaleca się, aby z perspektywy równoważenia obciążenia rozdzielać tablicę między różne hosty funkcji hypervisor.
-* Wiele macierzy wirtualnych (skonfigurowanych jako serwer plików lub serwer iSCSI) można wdrożyć w rozproszonym obszarze nazw systemu plików. Aby uzyskać szczegółowe kroki, przejdź do [rozwiązania Rozproszonego systemu nazw systemu plików z przewodnikiem wdrażania magazynu w chmurze hybrydowej](https://www.microsoft.com/download/details.aspx?id=45507). Replikacja rozproszonego systemu plików nie jest obecnie zalecana do użytku z tablicą wirtualną. 
+* Wdróż nowe obciążenia na nowych urządzeniach.
+* W przypadku wdrażania wielu tablic wirtualnych zaleca się, aby z perspektywy równoważenia obciążenia rozesłać tablicę między różnymi hostami funkcji hypervisor.
+* Wiele macierzy wirtualnych (w przypadku skonfigurowania serwera plików lub serwera iSCSI) można wdrożyć w przestrzeni nazw rozproszony system plików. Aby uzyskać szczegółowe instrukcje, przejdź do [rozwiązania rozproszony system plików przestrzeń nazw z przewodnikiem wdrażania hybrydowego magazynu w chmurze](https://www.microsoft.com/download/details.aspx?id=45507). Replikacja rozproszony system plików nie jest obecnie zalecana do użycia z wirtualną macierzą. 
 
-## <a name="see-also"></a>Zobacz też
-Dowiedz się, jak [administrować tablicą wirtualną StorSimple](storsimple-virtual-array-manager-service-administration.md) za pośrednictwem usługi StorSimple Manager.
+## <a name="see-also"></a>Zobacz także
+Dowiedz się, jak [administrować macierzą wirtualną StorSimple](storsimple-virtual-array-manager-service-administration.md) za pośrednictwem usługi StorSimple Manager.
 

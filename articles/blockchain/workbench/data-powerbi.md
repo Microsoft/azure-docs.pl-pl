@@ -5,23 +5,23 @@ ms.date: 04/22/2020
 ms.topic: article
 ms.reviewer: sunri
 ms.openlocfilehash: 4245603fee5b3d24488426c3dc2d026a3c0d7848
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82082530"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Korzystanie z danych usługi Azure Blockchain Workbench w usłudze Microsoft Power BI
 
-Usługa Microsoft Power BI umożliwia łatwe generowanie zaawansowanych raportów z baz danych [https://www.powerbi.com](https://www.powerbi.com)bazy danych SQL DB przy użyciu programu Power BI Desktop, a następnie publikowanie ich w programie .
+Program Microsoft Power BI umożliwia łatwe generowanie zaawansowanych raportów z baz danych SQL DB przy użyciu Power BI Desktop i publikowanie ich w usłudze [https://www.powerbi.com](https://www.powerbi.com).
 
 Ten artykuł zawiera przewodnik krok po kroku, w którym przedstawiono instrukcje dotyczące połączenia z bazą danych SQL Database usługi Azure Blockchain Workbench z poziomu programu Power BI Desktop, tworzenia raportu i wdrażania go w witrynie powerbi.com.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Pobierz [program Power BI Desktop](https://powerbi.microsoft.com/desktop/).
+* Pobierz [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
-## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Łączenie usługi Power BI z danymi w usłudze Azure Blockchain Workbench
+## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Łączenie Power BI z danymi w usłudze Azure łańcucha bloków Workbench
 
 1.  Otwórz program Power BI Desktop.
 2.  Wybierz pozycję **Pobieranie danych**.
@@ -29,7 +29,7 @@ Ten artykuł zawiera przewodnik krok po kroku, w którym przedstawiono instrukcj
     ![Pobieranie danych](./media/data-powerbi/get-data.png)
 3.  Wybierz pozycję **SQL Server** z listy typów źródeł danych.
 
-4.  Podaj nazwę serwera i bazy danych w oknie dialogowym. Określ, czy chcesz importować dane lub wykonać zapytanie w trybie **DirectQuery**. Kliknij przycisk **OK**.
+4.  Podaj nazwę serwera i bazy danych w oknie dialogowym. Określ, czy chcesz importować dane lub wykonać zapytanie w trybie **DirectQuery**. Wybierz przycisk **OK**.
 
     ![Wybieranie pozycji SQL Server](./media/data-powerbi/select-sql.png)
 
@@ -43,7 +43,7 @@ Ten artykuł zawiera przewodnik krok po kroku, w którym przedstawiono instrukcj
 
     ![Nawigator](./media/data-powerbi/navigator.png)
 
-7.  Wybierz widoki, które mają zostać uwzględnione. W celach demonstracyjnych dołączamy **vwContractAction**, która zawiera szczegółowe informacje na temat działań, które miały miejsce na umowie.
+7.  Wybierz widoki, które mają zostać uwzględnione. W celach demonstracyjnych zawieramy **vwContractAction**, który zawiera szczegółowe informacje o akcjach, które zostały wykonane w ramach kontraktu.
 
     ![Wybieranie widoków](./media/data-powerbi/select-views.png)
 

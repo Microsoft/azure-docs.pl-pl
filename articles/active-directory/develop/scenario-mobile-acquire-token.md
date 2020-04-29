@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 2be074c457eaadd1fb6467cbcfdd45a2e7745613
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82098904"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Uzyskaj token dla aplikacji mobilnej, która wywołuje interfejsy API sieci Web

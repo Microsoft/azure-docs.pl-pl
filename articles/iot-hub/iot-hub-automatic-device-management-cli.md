@@ -1,6 +1,6 @@
 ---
-title: Automatyczne zarządzanie urządzeniami na dużą skalę za pomocą usługi Azure IoT Hub (CLI) | Dokumenty firmy Microsoft
-description: Używanie konfiguracji automatycznych usługi Azure IoT Hub do zarządzania wieloma urządzeniami lub modułami IoT
+title: Automatyczne zarządzanie urządzeniami na dużą skalę za pomocą usługi Azure IoT Hub (CLI) | Microsoft Docs
+description: Korzystanie z usługi Azure IoT Hub konfiguracjami automatycznymi do zarządzania wieloma urządzeniami lub modułami IoT
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,49 +8,49 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
 ms.openlocfilehash: 60d0ef30a1c7d948a9e837a8bc37c76ace415545
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82024969"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Automatyczne zarządzanie urządzeniami i modułami IoT przy użyciu interfejsu wiersza polecenia platformy Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-Automatyczne zarządzanie urządzeniami w usłudze Azure IoT Hub automatyzuje wiele powtarzających się i złożonych zadań związanych z zarządzaniem flotami dużych urządzeń. Dzięki automatycznemu zarządzaniu urządzeniami można kierować zestaw urządzeń na podstawie ich właściwości, definiować żądaną konfigurację, a następnie pozwolić Centrum IoT na aktualizowanie urządzeń, gdy wchodzą w zakres. Ta aktualizacja jest wykonywana przy użyciu _automatycznej konfiguracji urządzenia_ lub _automatycznej konfiguracji modułu,_ która pozwala podsumować zakończenie i zgodność, obsługiwać scalanie i konflikty oraz wdrażać konfiguracje w podejściu etapowym.
+Automatyczne zarządzanie urządzeniami w systemie Azure IoT Hub automatyzuje wiele powtarzających się i złożonych zadań związanych z zarządzaniem dużymi flotami urządzeń. Za pomocą funkcji automatycznego zarządzania urządzeniami można kierować zestawem urządzeń na podstawie ich właściwości, definiować żądaną konfigurację, a następnie zezwalać IoT Hub na aktualizowanie urządzeń w zakresie. Ta aktualizacja jest wykonywana przy użyciu _automatycznej konfiguracji urządzenia_ lub _automatycznej konfiguracji modułu_, która umożliwia podsumowywanie i zgodność, obsługę scalania i konfliktów oraz wdrażanie konfiguracji w ramach podejścia etapowego.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Automatyczne zarządzanie urządzeniami działa przez aktualizowanie zestawu bliźniaczych reprezentacji urządzeń lub bliźniaczych reprezentacji modułów z żądanymi właściwościami i raportowanie podsumowania opartego na bliźniaczych zgłoszonych właściwościach.  Wprowadza nową klasę i dokument JSON o nazwie *Configuration,* który składa się z trzech części:
+Automatyczne zarządzanie urządzeniami działa przez aktualizację zestawu bliźniaczych reprezentacji urządzeń lub bliźniaczych reprezentacji modułu z żądanymi właściwościami oraz raportowanie podsumowania opartego na raportowanych właściwościach.  Wprowadza nową klasę i dokument JSON o nazwie *Konfiguracja* , która ma trzy części:
 
-* **Warunek docelowy** definiuje zakres bliźniacze urządzenia lub bliźniacze moduły bliźniacze do aktualizacji. Warunek docelowy jest określony jako kwerenda na bliźniaczej reprezentacji urządzenia tagów i/lub zgłoszonych właściwości.
+* **Warunek docelowy** definiuje zakres bliźniaczych reprezentacji urządzeń lub bliźniaczych reprezentacji modułu do zaktualizowania. Warunek docelowy jest określony jako zapytanie dotyczące tagów sznurka urządzenia i/lub zgłoszonych właściwości.
 
-* **Zawartość docelowa** definiuje żądane właściwości, które mają zostać dodane lub zaktualizowane w bliźniacze urządzenia docelowe lub bliźniacze moduły bliźniacze. Zawartość zawiera ścieżkę do sekcji żądanych właściwości, które mają zostać zmienione.
+* **Zawartość docelowa** definiuje żądane właściwości, które mają zostać dodane lub zaktualizowane w docelowym urządzeniu bliźniaczych reprezentacji lub bliźniaczych reprezentacji modułu. Zawartość zawiera ścieżkę do sekcji żądanych właściwości, które mają zostać zmienione.
 
-* **Metryki definiują** sumę podsumowań różnych stanów konfiguracji, takich jak **Sukces**, **W toku**i **Błąd**. Metryki niestandardowe są określone jako zapytania dotyczące właściwości zgłoszonych bliźniaczej reprezentacji.  Metryki systemu są domyślne metryki, które mierzą stan podwójnej aktualizacji, takich jak liczba bliźniaczych reprezentacji, które są kierowane i liczba bliźniaczych reprezentacji, które zostały pomyślnie zaktualizowane.
+* **Metryki** definiują podsumowania różnych stanów konfiguracji, takich jak **sukces**, **w toku**i **błąd**. Metryki niestandardowe są określane jako zapytania dotyczące właściwości zgłaszanych przez sznurek.  Metryki systemu są domyślnymi metrykami, które mierzą stan aktualizacji bliźniaczych, takich jak liczba bliźniaczych reprezentacji, które są przeznaczone do użycia i liczba pomyślnie zaktualizowanych bliźniaczych reprezentacji.
 
-Konfiguracje automatyczne są uruchamiane po raz pierwszy krótko po utworzeniu konfiguracji, a następnie w odstępach pięciu minut. Zapytania metryk są uruchamiane przy każdym uruchomieniu konfiguracji automatycznej.
+Automatyczne konfiguracje są uruchamiane po raz pierwszy wkrótce po utworzeniu konfiguracji, a następnie co pięć minut. Zapytania metryk są uruchamiane przy każdym uruchomieniu automatycznej konfiguracji.
 
 ## <a name="cli-prerequisites"></a>Wymagania wstępne interfejsu wiersza polecenia
 
-* [Centrum IoT w](../iot-hub/iot-hub-create-using-cli.md) subskrypcji platformy Azure. 
+* [Centrum IoT](../iot-hub/iot-hub-create-using-cli.md) w ramach subskrypcji platformy Azure. 
 
-* [Narzędzie CLI platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) w twoim środowisku. Co najmniej wersja interfejsu wiersza polecenia platformy Azure musi mieć wartość 2.0.70 lub nowszy. Użyj polecenia `az –-version` w celu przeprowadzenia weryfikacji. Ta wersja obsługuje polecenia rozszerzenia az i wprowadza platformę poleceń Knack. 
+* [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) w Twoim środowisku. Minimalna wersja interfejsu wiersza polecenia platformy Azure musi być 2.0.70 lub nowsza. Użyj polecenia `az –-version` w celu przeprowadzenia weryfikacji. Ta wersja obsługuje polecenia rozszerzenia az i wprowadza platformę poleceń Knack. 
 
 * [Rozszerzenie IoT dla interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-cli).
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="implement-twins"></a>Wdrażanie bliźniąt
+## <a name="implement-twins"></a>Implementuj bliźniaczych reprezentacji
 
-Automatyczne konfiguracje urządzeń wymagają użycia bliźniąt bliźniąt urządzeń do synchronizacji stanu między chmurą a urządzeniami.  Aby uzyskać więcej informacji, zobacz [Opis bliźniaczej reprezentacji urządzenia w usłudze IoT Hub oraz sposoby jej używania](iot-hub-devguide-device-twins.md).
+Automatyczne konfiguracje urządzeń wymagają synchronizowania stanu między chmurą i urządzeniami przy użyciu usługi Device bliźniaczych reprezentacji.  Aby uzyskać więcej informacji, zobacz [Opis bliźniaczej reprezentacji urządzenia w usłudze IoT Hub oraz sposoby jej używania](iot-hub-devguide-device-twins.md).
 
-Automatyczne konfiguracje modułów wymagają użycia bliźniacze modułów do synchronizacji stanu między chmurą a modułami. Aby uzyskać więcej informacji, zobacz [Opis i używanie bliźniaczych modułów w Centrum IoT Hub](iot-hub-devguide-module-twins.md).
+Automatyczne konfiguracje modułów wymagają użycia modułu bliźniaczych reprezentacji do synchronizowania stanu między chmurą i modułami. Aby uzyskać więcej informacji, zobacz [Omówienie i Używanie modułu bliźniaczych reprezentacji w IoT Hub](iot-hub-devguide-module-twins.md).
 
-## <a name="use-tags-to-target-twins"></a>Używanie znaczników do kierowania na bliźniacze reprezentacje
+## <a name="use-tags-to-target-twins"></a>Użyj tagów, aby docelowa bliźniaczych reprezentacji
 
-Przed utworzeniem konfiguracji należy określić, na które urządzenia lub moduły mają mieć wpływ. Usługa Azure IoT Hub identyfikuje urządzenia i przy użyciu tagów w bliźniaczej reprezentacji urządzenia i identyfikuje moduły przy użyciu tagów w bliźniaczej reprezentacji modułu. Każde urządzenie lub moduły mogą mieć wiele tagów i można je zdefiniować w dowolny sposób, który ma sens dla rozwiązania. Jeśli na przykład zarządzasz urządzeniami w różnych lokalizacjach, dodaj następujące znaczniki do bliźniaczej reprezentacji urządzenia:
+Przed utworzeniem konfiguracji należy określić, które urządzenia lub moduły mają mieć wpływ. Usługa Azure IoT Hub identyfikuje urządzenia i używa tagów w bliźniaczych urządzeniach i identyfikuje moduły przy użyciu tagów w bliźniaczych modułach. Każde urządzenie lub moduły może mieć wiele tagów i można je zdefiniować w dowolny sposób, który ma sens dla danego rozwiązania. Na przykład Jeśli zarządzasz urządzeniami w różnych lokalizacjach, Dodaj następujące znaczniki do sznurka urządzenia:
 
 ```json
 "tags": {
@@ -61,11 +61,11 @@ Przed utworzeniem konfiguracji należy określić, na które urządzenia lub mod
 },
 ```
 
-## <a name="define-the-target-content-and-metrics"></a>Definiowanie docelowej zawartości i danych
+## <a name="define-the-target-content-and-metrics"></a>Definiowanie docelowej zawartości i metryk
 
-Docelowa zawartość i zapytania metryk są określone jako dokumenty JSON, które opisują bliźniaczej reprezentacji urządzenia lub bliźniaczej reprezentacji modułu żądane właściwości, aby ustawić i zgłosił właściwości do pomiaru.  Aby utworzyć konfigurację automatyczną przy użyciu interfejsu wiersza polecenia platformy Azure, zapisz zawartość docelową i metryki lokalnie jako pliki txt. Ścieżki plików w dalszej sekcji są używane po uruchomieniu polecenia w celu zastosowania konfiguracji do urządzenia.
+Docelowe zapytania o zawartość i metryki są określane jako dokumenty JSON opisujące sznurki lub właściwości sznurka urządzenia, aby ustawić i zgłosić właściwości do miary.  Aby utworzyć automatyczną konfigurację przy użyciu interfejsu wiersza polecenia platformy Azure, Zapisz zawartość docelową i metryki lokalnie jako pliki txt. Ścieżki plików są używane w dalszej części, gdy uruchamiasz polecenie, aby zastosować konfigurację na urządzeniu.
 
-Oto podstawowy przykład zawartości docelowej dla automatycznej konfiguracji urządzenia:
+Oto podstawowa przykład zawartości docelowej dla automatycznej konfiguracji urządzenia:
 
 ```json
 {
@@ -79,7 +79,7 @@ Oto podstawowy przykład zawartości docelowej dla automatycznej konfiguracji ur
 }
 ```
 
-Automatyczne konfiguracje modułów zachowują się `moduleContent` bardzo podobnie, ale cel zamiast `deviceContent`.
+Automatyczne konfiguracje modułów zachowują się bardzo podobnie, ale `moduleContent` zamiast `deviceContent`.
 
 ```json
 {
@@ -93,7 +93,7 @@ Automatyczne konfiguracje modułów zachowują się `moduleContent` bardzo podob
 }
 ```
 
-Oto przykłady zapytań metrycznych:
+Oto przykłady zapytań metryk:
 
 ```json
 {
@@ -105,7 +105,7 @@ Oto przykłady zapytań metrycznych:
 }
 ```
 
-Zapytania metryczne dla modułów są również podobne do zapytań `devices.modules`dla urządzeń, ale można wybrać z `moduleId` . Przykład: 
+Zapytania dotyczące metryk dla modułów są również podobne do zapytań dotyczących urządzeń, ale wybierasz `moduleId` opcję `devices.modules`z. Przykład: 
 
 ```json
 {
@@ -115,11 +115,11 @@ Zapytania metryczne dla modułów są również podobne do zapytań `devices.mod
 }
 ```
 
-## <a name="create-a-configuration"></a>Tworzenie konfiguracji
+## <a name="create-a-configuration"></a>Utwórz konfigurację
 
-Konfigurowanie urządzeń docelowych przez utworzenie konfiguracji, która składa się z zawartości docelowej i metryki. 
+Aby skonfigurować urządzenia docelowe, należy utworzyć konfigurację, która składa się z docelowej zawartości i metryk. 
 
-Aby utworzyć konfigurację, użyj następującego polecenia:
+Użyj następującego polecenia, aby utworzyć konfigurację:
 
 ```azurecli
    az iot hub configuration create --config-id [configuration id] \
@@ -128,21 +128,21 @@ Aby utworzyć konfigurację, użyj następującego polecenia:
      --metrics [metric queries]
 ```
 
-* --**config-id** — nazwa konfiguracji, która zostanie utworzona w centrum IoT Hub. Nadaj konfiguracji unikatową nazwę, która wynosi do 128 małych liter. Unikaj spacji i następujących `& ^ [ ] { } \ | " < > /`nieprawidłowych znaków: .
+* --**config-ID** — nazwa konfiguracji, która zostanie utworzona w usłudze IoT Hub. Nadaj swojej konfiguracji unikatową nazwę, która jest maksymalnie 128 małymi literami. Unikaj spacji i następujących nieprawidłowych `& ^ [ ] { } \ | " < > /`znaków:.
 
-* --**etykiety** — dodaj etykiety, aby ułatwić śledzenie konfiguracji. Etykiety to Name, Value par, które opisują wdrożenia. Na przykład `HostPlatform, Linux` lub `Version, 3.0.1`
+* --**etykiety** — Dodaj etykiety, aby pomóc w śledzeniu konfiguracji. Etykiety to nazwy i pary wartości opisujące wdrożenie. Na przykład `HostPlatform, Linux` lub `Version, 3.0.1`
 
-* --**zawartość** — wbudowana ścieżka JSON lub ścieżka pliku do zawartości docelowej, która ma być ustawiona jako dwie j.in. 
+* --**zawartość** w formacie JSON lub ścieżka pliku do zawartości docelowej, która ma zostać ustawiona jako wartość właściwości "bliźniaczych". 
 
-* --**nazwa koncentratora** — nazwa centrum IoT hub, w którym zostanie utworzona konfiguracja. Centrum musi znajdować się w bieżącej subskrypcji. Przełączanie do żądanej subskrypcji za pomocą polecenia`az account set -s [subscription name]`
+* --**Hub-Name** -Name Centrum IoT, w którym zostanie utworzona konfiguracja. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia`az account set -s [subscription name]`
 
-* --**warunek docelowy** — wprowadź warunek docelowy, aby określić, które urządzenia lub moduły będą kierowane z tą konfiguracją.W przypadku automatycznej konfiguracji urządzenia warunek jest oparty na podwójnych tagach urządzenia lub bliźniaczej reprezentacji urządzenia żądanych właściwości i powinien być zgodny z formatem wyrażenia.Na przykład: `tags.environment='test'` lub `properties.desired.devicemodel='4000x'`.W przypadku automatycznej konfiguracji modułu warunek jest oparty na podwójnych znacznikach modułu lub bliźniaczej reprezentacji modułu żądanych właściwości.. Na przykład: `from devices.modules where tags.environment='test'` lub `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
+* --**warunek docelowy** — wprowadź warunek docelowy, aby określić, które urządzenia lub moduły będą ukierunkowane na tę konfigurację.W przypadku automatycznej konfiguracji urządzenia warunek jest oparty na tagach sznurka urządzenia lub odpowiednich właściwościach urządzenia i powinien być zgodny z formatem wyrażenia.Na przykład: `tags.environment='test'` lub `properties.desired.devicemodel='4000x'`.W przypadku automatycznej konfiguracji modułu warunek jest oparty na tagach wieloosiowych modułu lub odpowiednich właściwościach modułu. Na przykład: `from devices.modules where tags.environment='test'` lub `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
 
-* --**priorytet** — dodatnia wartość całkowita. W przypadku, gdy dwie lub więcej konfiguracji są przeznaczone dla tego samego urządzenia lub modułu, zostanie zastosowana konfiguracja o najwyższej wartości liczbowej dla priorytetu.
+* --**priorytet** — dodatnia liczba całkowita. W przypadku, gdy co najmniej dwie konfiguracje są przeznaczone dla tego samego urządzenia lub modułu, zostanie zastosowana konfiguracja o najwyższej wartości liczbowej dla priorytetu.
 
-* --**metryki** — ścieżka pliku do zapytań metrycznych. Metryki zawierają podsumowanie liczby różnych stanów, które urządzenie lub moduł może raportować po zastosowaniu zawartości konfiguracji. Na przykład można utworzyć metrykę dla oczekujących zmian ustawień, metrykę błędów i metrykę dla pomyślnych zmian ustawień. 
+* --**metryki** -FilePath do zapytań metryk. Metryki zawierają podsumowanie liczb różnych stanów, które urządzenie lub moduł może zgłosić po zastosowaniu zawartości konfiguracyjnej. Można na przykład utworzyć metrykę dla oczekujących zmian ustawień, metrykę dla błędów oraz metrykę dla pomyślnych zmian ustawień. 
 
-## <a name="monitor-a-configuration"></a>Monitorowanie konfiguracji
+## <a name="monitor-a-configuration"></a>Monitoruj konfigurację
 
 Użyj następującego polecenia, aby wyświetlić zawartość konfiguracji:
 
@@ -151,44 +151,44 @@ az iot hub configuration show --config-id [configuration id] \
   --hub-name [hub name]
 ```
 
-* --**config-id** — nazwa konfiguracji, która istnieje w centrum IoT Hub.
+* --**config-ID** — nazwa konfiguracji, która istnieje w usłudze IoT Hub.
 
-* --**nazwa koncentratora** — nazwa centrum IoT hub, w którym istnieje konfiguracja. Centrum musi znajdować się w bieżącej subskrypcji. Przełączanie do żądanej subskrypcji za pomocą polecenia`az account set -s [subscription name]`
+* --**Hub-Name** -Name Centrum IoT, w którym istnieje konfiguracja. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia`az account set -s [subscription name]`
 
-Sprawdź konfigurację w oknie polecenia.Właściwość **metryki** zawiera listę licznika dla każdej metryki, która jest oceniana przez każdego koncentratora:
+Sprawdź konfigurację w oknie poleceń.Właściwość **metryki** zawiera liczbę dla każdej metryki ocenianej przez poszczególne centra:
 
-* **targetedCount** - metryka systemu określająca liczbę bliźniaczych urządzeń lub bliźniaczych modułów bliźniąt w centrum IoT Hub, które odpowiadają warunkowi kierowania.
+* **targetedCount** — Metryka systemowa, która określa liczbę bliźniaczych reprezentacji urządzeń lub bliźniaczych reprezentacji modułu w IoT Hub, które pasują do warunku określania wartości docelowej.
 
-* **appliedCount** — metryka systemu określa liczbę urządzeń lub modułów, które miały zawartość docelową stosowane.
+* **appliedCount** — Metryka systemowa określa liczbę urządzeń lub modułów, dla których zastosowano zawartość docelową.
 
-* **Metryka niestandardowa** — wszystkie zdefiniowane dane są danymi użytkownika.
+* **Metryka niestandardowa** — wszystkie zdefiniowane metryki to metryki użytkowników.
 
-Można wyświetlić listę identyfikatorów urządzeń, identyfikatorów modułów lub obiektów dla każdej z metryk, używając następującego polecenia:
+Można wyświetlić listę identyfikatorów urządzeń, identyfikatorów modułów lub obiektów dla każdej z metryk przy użyciu następującego polecenia:
 
 ```azurecli
 az iot hub configuration show-metric --config-id [configuration id] \
    --metric-id [metric id] --hub-name [hub name] --metric-type [type] 
 ```
 
-* --**config-id** — nazwa wdrożenia, które istnieje w centrum IoT Hub.
+* --**config-ID** — nazwa wdrożenia, która istnieje w usłudze IoT Hub.
 
-* --**identyfikator metryki** — nazwa metryki, dla której ma zostać wyświetlona lista identyfikatorów urządzeń `appliedCount`lub identyfikatorów modułów, na przykład .
+* --**Metric-ID** — Nazwa metryki, dla której chcesz zobaczyć listę identyfikatorów urządzeń lub identyfikatorów modułów, na przykład `appliedCount`.
 
-* --**nazwa koncentratora** — nazwa centrum IoT hub, w którym istnieje wdrożenie. Centrum musi znajdować się w bieżącej subskrypcji. Przełącz się do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]`.
+* --**Hub-Name** -Name Centrum IoT, w którym istnieje wdrożenie. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]`.
 
-* --**typ metryki** - Typ `system` metryki może być lub `user`.  Metryki systemowe są `targetedCount` i `appliedCount`. Wszystkie inne metryki są metryki użytkownika.
+* --**Typ metryki** — typ metryki może `system` być `user`lub.  Metryki systemu `targetedCount` są `appliedCount`i. Wszystkie inne metryki są metrykami użytkownika.
 
 ## <a name="modify-a-configuration"></a>Modyfikowanie konfiguracji
 
-Podczas modyfikowania konfiguracji zmiany natychmiast replikują się na wszystkie urządzenia docelowe. 
+Po zmodyfikowaniu konfiguracji zmiany są natychmiast replikowane na wszystkie urządzenia objęte usługą. 
 
-W przypadku aktualizacji warunku docelowego wystąpią następujące aktualizacje:
+W przypadku zaktualizowania warunku docelowego następujące aktualizacje są wykonywane:
 
-* Jeśli bliźniacza reprezentacja nie spełnia starego warunku docelowego, ale spełnia nowy warunek docelowy i ta konfiguracja jest najwyższy priorytet dla tego bliźniaczego, a następnie ta konfiguracja jest stosowana. 
+* Jeśli dwuosiowy nie spełnił starego warunku docelowego, ale spełnia nowy warunek docelowy, a ta konfiguracja jest najwyższy priorytetem dla tej dwuosiowej, ta konfiguracja zostanie zastosowana. 
 
-* Jeśli bliźniacza aktualnie uruchomiona ta konfiguracja nie spełnia już warunku docelowego, ustawienia z konfiguracji zostaną usunięte, a bliźniacza reprezentacja zostanie zmodyfikowana przez następną konfigurację o najwyższym priorytecie. 
+* Jeśli dwuosiowy, na którym uruchomiona jest ta konfiguracja, już nie spełnia warunku docelowego, ustawienia z konfiguracji zostaną usunięte, a dwuosiowy zostanie zmodyfikowany przez następną konfigurację o najwyższym priorytecie. 
 
-* Jeśli bliźniacza aktualnie uruchomiona ta konfiguracja nie spełnia już warunku docelowego i nie spełnia warunku docelowego innych konfiguracji, ustawienia z konfiguracji zostaną usunięte i nie zostaną wprowadzone żadne inne zmiany w bliźniaczej reprezentacji. 
+* Jeśli jeden z tych konfiguracji nie spełnia już warunku docelowego i nie spełnia warunku docelowego innych konfiguracji, ustawienia z konfiguracji zostaną usunięte i żadne inne zmiany nie zostaną wprowadzone na przędze. 
 
 Aby zaktualizować konfigurację, użyj następującego polecenia:
 
@@ -197,46 +197,46 @@ az iot hub configuration update --config-id [configuration id] \
    --hub-name [hub name] --set [property1.property2='value']
 ```
 
-* --**config-id** — nazwa konfiguracji, która istnieje w centrum IoT Hub.
+* --**config-ID** — nazwa konfiguracji, która istnieje w usłudze IoT Hub.
 
-* --**nazwa koncentratora** — nazwa centrum IoT hub, w którym istnieje konfiguracja. Centrum musi znajdować się w bieżącej subskrypcji. Przełącz się do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]`.
+* --**Hub-Name** -Name Centrum IoT, w którym istnieje konfiguracja. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]`.
 
-* --**set** - Zaktualizuj właściwość w konfiguracji. Można zaktualizować następujące właściwości:
+* --**Ustaw** — zaktualizuj właściwość w konfiguracji. Można zaktualizować następujące właściwości:
 
-    * targetCondition - na przykład`targetCondition=tags.location.state='Oregon'`
+    * targetCondition — na przykład`targetCondition=tags.location.state='Oregon'`
 
-    * Etykiety 
+    * Etykieta 
 
     * priority
 
-## <a name="delete-a-configuration"></a>Usuwanie konfiguracji
+## <a name="delete-a-configuration"></a>Usuń konfigurację
 
-Po usunięciu konfiguracji wszystkie bliźniacze dane bliźniacze lub bliźniacze modułów przyjmują następną konfigurację o najwyższym priorytecie. Jeśli bliźniacze nie spełniają warunku docelowego innej konfiguracji, nie są stosowane żadne inne ustawienia. 
+Usunięcie konfiguracji powoduje, że wszystkie urządzenia bliźniaczych reprezentacji lub bliźniaczych reprezentacji modułu przyjmują następną konfigurację o najwyższym priorytecie. Jeśli bliźniaczych reprezentacji nie spełnia warunku docelowego żadnej innej konfiguracji, nie są stosowane żadne inne ustawienia. 
 
-Użyj następującego polecenia, aby usunąć konfigurację:
+Aby usunąć konfigurację, użyj następującego polecenia:
 
 ```azurecli
 az iot hub configuration delete --config-id [configuration id] \
    --hub-name [hub name] 
 ```
 
-* --**config-id** — nazwa konfiguracji, która istnieje w centrum IoT Hub.
+* --**config-ID** — nazwa konfiguracji, która istnieje w usłudze IoT Hub.
 
-* --**nazwa koncentratora** — nazwa centrum IoT hub, w którym istnieje konfiguracja. Centrum musi znajdować się w bieżącej subskrypcji. Przełącz się do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]`.
+* --**Hub-Name** -Name Centrum IoT, w którym istnieje konfiguracja. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]`.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule dowiesz się, jak skonfigurować i monitorować urządzenia IoT na dużą skalę. Skorzystaj z tych łączy, aby dowiedzieć się więcej o zarządzaniu usługą Azure IoT Hub:
+W tym artykule przedstawiono sposób konfigurowania i monitorowania urządzeń IoT na dużą skalę. Skorzystaj z poniższych linków, aby dowiedzieć się więcej o zarządzaniu usługą Azure IoT Hub:
 
 * [Zbiorcze zarządzanie tożsamościami urządzeń usługi IoT Hub](iot-hub-bulk-identity-mgmt.md)
-* [Metryki usługi IoT Hub](iot-hub-metrics.md)
+* [Metryki IoT Hub](iot-hub-metrics.md)
 * [Monitorowanie operacji](iot-hub-operations-monitoring.md)
 
-Aby dokładniej zbadać możliwości usługi IoT Hub, zobacz:
+Aby dowiedzieć się więcej o możliwościach IoT Hub, zobacz:
 
-* [Przewodnik dla deweloperów usługi IoT Hub](iot-hub-devguide.md)
+* [Przewodnik dla deweloperów IoT Hub](iot-hub-devguide.md)
 * [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
-Aby eksplorować korzystanie z usługi inicjowania obsługi administracyjnej urządzeń usługi IoT Hub, aby włączyć obsługę obsługi administracyjnej typu "tylko w czasie" typu "zero-touch", zobacz: 
+Aby poznać korzystanie z IoT Hub Device Provisioning Service w celu włączenia funkcji bezobsługowego, zainicjowania obsługi just-in-Time, zobacz: 
 
 * [Usługa Azure IoT Hub Device Provisioning](/azure/iot-dps)

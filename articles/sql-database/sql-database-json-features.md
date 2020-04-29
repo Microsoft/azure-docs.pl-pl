@@ -1,6 +1,6 @@
 ---
 title: Praca z danymi w formacie JSON
-description: Usługa Azure SQL Database umożliwia analizowanie, wykonywanie zapytań i formatowanie danych w notacji notacji obiektu JavaScript (JSON).
+description: Azure SQL Database umożliwia analizowanie, wykonywanie zapytań i formatowanie danych w notacji JavaScript Object Notation (JSON).
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,23 +12,23 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 04/19/2020
 ms.openlocfilehash: 992c981d49e7c6fbf8b6156570f6554a05caab5d
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687755"
 ---
-# <a name="getting-started-with-json-features-in-azure-sql-database"></a>Wprowadzenie do funkcji JSON w bazie danych SQL usługi Azure
-Usługa Azure SQL Database umożliwia analizowanie i wykonywanie zapytań danych reprezentowanych w formacie notacji obiektów JavaScript [(JSON)](https://www.json.org/) oraz eksportowanie danych relacyjnych jako tekstu JSON. Następujące scenariusze JSON są dostępne w usłudze Azure SQL Database:
+# <a name="getting-started-with-json-features-in-azure-sql-database"></a>Wprowadzenie do funkcji JSON w Azure SQL Database
+Azure SQL Database umożliwia analizowanie i wykonywanie zapytań o dane reprezentowane w formacie JavaScript Object Notation [(JSON)](https://www.json.org/) i eksportowanie danych relacyjnych jako tekstu JSON. W Azure SQL Database są dostępne następujące scenariusze JSON:
 - [Formatowanie danych relacyjnych w formacie JSON](#formatting-relational-data-in-json-format) przy użyciu `FOR JSON` klauzuli.
 - [Praca z danymi w formacie JSON](#working-with-json-data)
-- [Wykonywanie zapytań o dane JSON](#querying-json-data) przy użyciu funkcji skalarnych JSON.
-- [Przekształcanie JSON w format tabelaryczny](#transforming-json-into-tabular-format) za pomocą `OPENJSON` funkcji.
+- [Wykonywanie zapytań dotyczących danych JSON](#querying-json-data) przy użyciu funkcji skalarnych JSON.
+- [Przekształcanie kodu JSON do formatu tabelarycznego](#transforming-json-into-tabular-format) za pomocą `OPENJSON` funkcji.
 
 ## <a name="formatting-relational-data-in-json-format"></a>Formatowanie danych relacyjnych w formacie JSON
-Jeśli masz usługę sieci web, która pobiera dane z warstwy bazy danych i zapewnia odpowiedź w formacie JSON lub po stronie klienta javascript struktur lub bibliotek, które akceptują dane sformatowane jako JSON, można sformatować zawartość bazy danych jako JSON bezpośrednio w kwerendzie SQL. Nie trzeba już pisać kodu aplikacji, który formatuje wyniki z usługi Azure SQL Database jako JSON lub dołączyć niektóre biblioteki serializacji JSON do konwersji wyników kwerendy tabelaryczne, a następnie serializacji obiektów do formatu JSON. Zamiast tego można użyć klauzuli FOR JSON do formatowania wyników zapytań SQL jako JSON w usłudze Azure SQL Database i używać go bezpośrednio w aplikacji.
+Jeśli masz usługę sieci Web, która pobiera dane z warstwy bazy danych i zawiera odpowiedź w formacie JSON lub struktury lub biblioteki JavaScript po stronie klienta, które akceptują dane sformatowane jako JSON, możesz sformatować zawartość bazy danych jako plik JSON bezpośrednio w zapytaniu SQL. Nie trzeba już pisać kodu aplikacji, który formatuje wyniki z Azure SQL Database jako JSON, lub dołączać bibliotekę serializacji JSON, aby konwertować wyniki zapytania tabelarycznego, a następnie serializować obiekty do formatu JSON. Zamiast tego można użyć klauzuli FOR JSON, aby sformatować wyniki zapytania SQL jako dane JSON w Azure SQL Database i używać ich bezpośrednio w aplikacji.
 
-W poniższym przykładzie wiersze z tabeli Sales.Customer są formatowane jako JSON przy użyciu klauzuli FOR JSON:
+W poniższym przykładzie wiersze z tabeli Sales. Customer są sformatowane jako JSON przy użyciu klauzuli FOR JSON:
 
 ```sql
 select CustomerName, PhoneNumber, FaxNumber
@@ -36,7 +36,7 @@ from Sales.Customers
 FOR JSON PATH
 ```
 
-Klauzula FOR JSON PATH formatuje wyniki kwerendy jako tekst JSON. Nazwy kolumn są używane jako klucze, podczas gdy wartości komórek są generowane jako wartości JSON:
+Klauzula FOR JSON PATH formatuje wyniki zapytania jako tekst JSON. Nazwy kolumn są używane jako klucze, podczas gdy wartości komórek są generowane jako wartości JSON:
 
 ```json
 [
@@ -46,9 +46,9 @@ Klauzula FOR JSON PATH formatuje wyniki kwerendy jako tekst JSON. Nazwy kolumn s
 ]
 ```
 
-Zestaw wyników jest formatowany jako tablica JSON, gdzie każdy wiersz jest sformatowany jako oddzielny obiekt JSON.
+Zestaw wyników jest sformatowany jako tablica JSON, w której każdy wiersz jest sformatowany jako oddzielny obiekt JSON.
 
-Ścieżka wskazuje, że można dostosować format wyjściowy wyniku JSON za pomocą notacji kropkowej w aliasach kolumn. Następująca kwerenda zmienia nazwę klucza "CustomerName" w wyjściowym formacie JSON i umieszcza numery telefonów i faksów w podobiekcie "Kontakt":
+ŚCIEŻKA wskazuje, że można dostosować format danych wyjściowych wyniku JSON przy użyciu notacji kropkowej w aliasach kolumn. Następujące zapytanie zmienia nazwę klucza "CustomerName" w wyjściowym formacie JSON i umieszcza numery telefonów i faksów w podobiektie "Contact":
 
 ```sql
 select CustomerName as Name, PhoneNumber as [Contact.Phone], FaxNumber as [Contact.Fax]
@@ -57,7 +57,7 @@ where CustomerID = 931
 FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
 ```
 
-Dane wyjściowe tej kwerendy wygląda następująco:
+Dane wyjściowe tego zapytania wyglądają następująco:
 
 ```json
 {
@@ -69,9 +69,9 @@ Dane wyjściowe tej kwerendy wygląda następująco:
 }
 ```
 
-W tym przykładzie zwróciliśmy pojedynczy obiekt JSON zamiast tablicy, określając opcję [WITHOUT_ARRAY_WRAPPER.](https://msdn.microsoft.com/library/mt631354.aspx) Tej opcji można użyć, jeśli wiadomo, że zwracasz pojedynczy obiekt w wyniku kwerendy.
+W tym przykładzie został zwrócony pojedynczy obiekt JSON zamiast tablicy przez określenie opcji [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) . Możesz użyć tej opcji, Jeśli wiesz, że zwracasz pojedynczy obiekt w wyniku zapytania.
 
-Główną wartością klauzuli FOR JSON jest to, że umożliwia zwracanie złożonych danych hierarchicznych z bazy danych sformatowanych jako zagnieżdżone obiekty JSON lub tablice. W poniższym przykładzie pokazano, jak `Orders` uwzględnić wiersze z tabeli, które należą do `Customer` tablicy zagnieżdżonej: `Orders`
+Główną wartością klauzuli FOR JSON jest możliwość zwrócenia złożonych danych hierarchicznych z bazy danych sformatowane jako zagnieżdżone obiekty JSON lub tablice. Poniższy przykład pokazuje, jak uwzględnić wiersze z `Orders` tabeli, która należy do `Customer` jako zagnieżdżoną tablicę: `Orders`
 
 ```sql
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,
@@ -83,7 +83,7 @@ where Customer.CustomerID = 931
 FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
 ```
 
-Zamiast wysyłać oddzielne zapytania, aby pobrać dane klienta, a następnie pobrać listę powiązanych zamówień, można uzyskać wszystkie niezbędne dane za pomocą jednego zapytania, jak pokazano w poniższym przykładowym wyjściu:
+Zamiast wysyłać oddzielne zapytania w celu uzyskania danych klienta, a następnie pobierania listy powiązanych zamówień, można uzyskać wszystkie niezbędne dane za pomocą pojedynczego zapytania, jak pokazano w następujących przykładowych danych wyjściowych:
 
 ```json
 {
@@ -99,9 +99,9 @@ Zamiast wysyłać oddzielne zapytania, aby pobrać dane klienta, a następnie po
 ```
 
 ## <a name="working-with-json-data"></a>Praca z danymi w formacie JSON
-Jeśli nie masz ściśle ustrukturyzowanych danych, jeśli masz złożone podniemiarze, tablice lub dane hierarchiczne lub jeśli struktury danych ewoluują w czasie, format JSON może pomóc w reprezentowaniu dowolnej złożonej struktury danych.
+Jeśli nie masz ściśle uporządkowanych danych, jeśli masz złożone obiekty podrzędne, tablice lub dane hierarchiczne lub jeśli Twoje struktury danych są rozwijane w czasie, format JSON może pomóc w zaprezentowaniu dowolnej złożonej struktury danych.
 
-JSON jest formatem tekstowym, który może być używany jak każdy inny typ ciągu w usłudze Azure SQL Database. Dane JSON można wysyłać lub przechowywać w standardzie NVARCHAR:
+JSON jest formatem tekstowym, który może być używany jak każdy inny typ ciągu w Azure SQL Database. Dane JSON można wysyłać lub przechowywać jako standardowy NVARCHAR:
 
 ```sql
 CREATE TABLE Products (
@@ -117,18 +117,18 @@ AS BEGIN
 END
 ```
 
-Dane JSON używane w tym przykładzie są reprezentowane przy użyciu typu NVARCHAR(MAX). JSON można wstawić do tej tabeli lub podać jako argument procedury składowanej przy użyciu standardowej składni Transact-SQL, jak pokazano w poniższym przykładzie:
+Dane JSON używane w tym przykładzie są reprezentowane przy użyciu typu NVARCHAR (MAX). KOD JSON można wstawić do tej tabeli lub podać jako argument procedury składowanej przy użyciu standardowej składni języka Transact-SQL, jak pokazano w następującym przykładzie:
 
 ```sql
 EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","children","games"]}'
 ```
 
-Każdy język lub biblioteka po stronie klienta, który współpracuje z danymi ciągu w usłudze Azure SQL Database będzie również współpracować z danymi JSON. JSON mogą być przechowywane w dowolnej tabeli, która obsługuje typ NVARCHAR, takich jak tabela zoptymalizowana pod kątem pamięci lub tabeli wersji systemowej. JSON nie wprowadza żadnych ograniczeń ani w kodzie po stronie klienta lub w warstwie bazy danych.
+Wszystkie języki lub biblioteki po stronie klienta, które współdziałają z danymi ciągu w Azure SQL Database, również będą działać z danymi JSON. Dane JSON mogą być przechowywane w dowolnej tabeli, która obsługuje typ NVARCHAR, taki jak tabela zoptymalizowana pod kątem pamięci lub tabela z systemową obsługą wersji. Kod JSON nie wprowadza żadnego ograniczenia w kodzie po stronie klienta lub w warstwie bazy danych.
 
-## <a name="querying-json-data"></a>Wykonywanie zapytań o dane JSON
-Jeśli masz dane sformatowane jako JSON przechowywane w tabelach SQL platformy Azure, funkcje JSON umożliwiają użycie tych danych w dowolnej kwerendzie SQL.
+## <a name="querying-json-data"></a>Wykonywanie zapytania dotyczącego danych JSON
+Jeśli dane są sformatowane w formacie JSON przechowywanym w tabelach SQL platformy Azure, funkcja JSON pozwala używać tych danych w dowolnym zapytaniu SQL.
 
-Funkcje JSON, które są dostępne w bazie danych SQL platformy Azure umożliwiają traktowanie danych sformatowanych jako JSON jako innego typu danych SQL. Można łatwo wyodrębnić wartości z tekstu JSON i użyć danych JSON w dowolnej kwerendzie:
+Funkcje JSON, które są dostępne w usłudze Azure SQL Database, pozwalają traktować dane sformatowane jako kod JSON jako każdy inny typ danych SQL. Można łatwo wyodrębnić wartości z tekstu JSON i użyć danych JSON w dowolnych zapytaniach:
 
 ```sql
 select Id, Title, JSON_VALUE(Data, '$.Color'), JSON_QUERY(Data, '$.tags')
@@ -140,13 +140,13 @@ set Data = JSON_MODIFY(Data, '$.Price', 60)
 where Id = 1
 ```
 
-Funkcja JSON_VALUE wyodrębnia wartość z tekstu JSON przechowywanego w kolumnie Dane. Ta funkcja używa ścieżki podobnej do języka JavaScript, aby odwołać się do wartości w tekście JSON w celu wyodrębnienia. Wyodrębniona wartość może być używana w dowolnej części kwerendy SQL.
+Funkcja JSON_VALUE wyodrębnia wartość z tekstu JSON przechowywanego w kolumnie dane. Ta funkcja używa ścieżki podobnej do języka JavaScript, aby odwołać wartość w tekście JSON do wyodrębnienia. Wyodrębnionej wartości można użyć w dowolnej części zapytania SQL.
 
-Funkcja JSON_QUERY jest podobna do JSON_VALUE. W przeciwieństwie do JSON_VALUE ta funkcja wyodrębnia złożony obiekt podrzędny, taki jak tablice lub obiekty umieszczone w tekście JSON.
+Funkcja JSON_QUERY jest podobna do JSON_VALUE. W przeciwieństwie do JSON_VALUE, ta funkcja wyodrębnia złożone obiekty podrzędne, takie jak tablice lub obiekty, które są umieszczane w tekście JSON.
 
-Funkcja JSON_MODIFY umożliwia określenie ścieżki wartości w tekście JSON, która ma zostać zaktualizowana, a także nową wartość, która zastąpi starą. W ten sposób można łatwo aktualizować tekst JSON bez ponownego ponaglenia całej struktury.
+Funkcja JSON_MODIFY pozwala określić ścieżkę wartości w tekście JSON, która ma zostać zaktualizowana, a także nową wartość, która spowoduje zastąpienie Starego. W ten sposób można łatwo aktualizować tekst JSON bez konieczności przeanalizowania całej struktury.
 
-Ponieważ JSON jest przechowywany w tekście standardowym, nie ma żadnych gwarancji, że wartości przechowywane w kolumnach tekstowych są poprawnie sformatowane. Można sprawdzić, czy tekst przechowywany w kolumnie JSON jest poprawnie sformatowany przy użyciu standardowych ograniczeń sprawdzania bazy danych SQL azure i funkcji ISJSON:
+Ponieważ kod JSON jest przechowywany w tekście standardowym, nie ma gwarancji, że wartości przechowywane w kolumnach tekstowych są poprawnie sformatowane. Można sprawdzić, czy tekst przechowywany w kolumnie JSON jest poprawnie sformatowany przy użyciu standardowych ograniczeń check Azure SQL Database i funkcji isjson:
 
 ```sql
 ALTER TABLE Products
@@ -154,18 +154,18 @@ ALTER TABLE Products
         CHECK (ISJSON(Data) > 0)
 ```
 
-Jeśli tekst wejściowy jest poprawnie sformatowany JSON, funkcja ISJSON zwraca wartość 1. Przy każdym wstawieniu lub aktualizacji kolumny JSON to ograniczenie sprawdza, czy nowa wartość tekstowa nie jest zniekształcona JSON.
+Jeśli tekst wejściowy jest poprawnie sformatowany w formacie JSON, funkcja isjson zwraca wartość 1. W każdym wstawieniu lub aktualizacji kolumny JSON to ograniczenie sprawdzi, czy nowa wartość tekstowa nie jest źle sformułowanym kodem JSON.
 
-## <a name="transforming-json-into-tabular-format"></a>Przekształcanie JSON w format tabelaryczny
-Usługa Azure SQL Database umożliwia również przekształcanie kolekcji JSON w format tabelaryczny i ładowanie lub wykonywanie zapytań o dane JSON.
+## <a name="transforming-json-into-tabular-format"></a>Przekształcanie kodu JSON w format tabelaryczny
+Azure SQL Database umożliwia również przekształcanie kolekcji JSON w formacie tabelarycznym oraz ładowanie i wykonywanie zapytań dotyczących danych JSON.
 
-OPENJSON jest funkcją wartości tabeli, która analizuje tekst JSON, lokalizuje tablicę obiektów JSON, iteruje za pośrednictwem elementów tablicy i zwraca jeden wiersz w wyniku wyjściowym dla każdego elementu tablicy.
+OPENJSON to funkcja Table-Value, która analizuje tekst JSON, lokalizuje tablicę obiektów JSON, iteruje elementy tablicy i zwraca jeden wiersz w wyniku danych wyjściowych dla każdego elementu tablicy.
 
 ![Tabelaryczny JSON](./media/sql-database-json-features/image_2.png)
 
-W powyższym przykładzie możemy określić, gdzie należy zlokalizować tablicę JSON, która powinna zostać otwarta (w $. Ścieżka zamówień), jakie kolumny powinny być zwracane w wyniku i gdzie znaleźć wartości JSON, które zostaną zwrócone jako komórki.
+W powyższym przykładzie możemy określić, gdzie należy zlokalizować tablicę JSON, która ma zostać otwarta (w $. Ścieżka Orders), jakie kolumny należy zwrócić jako wynik i gdzie można znaleźć wartości JSON, które będą zwracane jako komórki.
 
-Możemy przekształcić tablicę JSON @orders w zmiennej w zestaw wierszy, analizować ten zestaw wyników lub wstawić wiersze do standardowej tabeli:
+Możemy przekształcić tablicę JSON w @orders zmiennej na zestaw wierszy, analizować ten zestaw wyników lub wstawiać wiersze do tabeli standardowej:
 
 ```sql
 CREATE PROCEDURE InsertOrders(@orders nvarchar(max))
@@ -183,14 +183,14 @@ AS BEGIN
 END
 ```
 
-Kolekcja zamówień sformatowanych jako tablica JSON i dostarczonych jako parametr procedury składowanej może być analizowana i wstawiana do tabeli Zamówienia.
+Kolekcja zamówień sformatowana jako tablica JSON i podana jako parametr procedury składowanej można analizować i wstawiać do tabeli Orders.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się, jak zintegrować JSON z aplikacją, zapoznaj się z tymi zasobami:
+Aby dowiedzieć się, jak zintegrować kod JSON z aplikacją, zapoznaj się z następującymi zasobami:
 
-* [TechNet Blog](https://blogs.technet.microsoft.com/dataplatforminsider/20../../json-in-sql-server-2016-part-1-of-4/)
+* [Blog TechNet](https://blogs.technet.microsoft.com/dataplatforminsider/20../../json-in-sql-server-2016-part-1-of-4/)
 * [Dokumentacja MSDN](https://msdn.microsoft.com/library/dn921897.aspx)
-* [Kanał 9 wideo](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
+* [Wideo Channel 9](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 
-Aby dowiedzieć się więcej o różnych scenariuszach integracji JSON z aplikacją, zobacz wersje demonstracyjne w tym [klipie wideo kanału 9](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) lub znajdź scenariusz, który pasuje do twojego przypadku użycia w [postach json blogów](https://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
+Aby dowiedzieć się więcej na temat różnych scenariuszy integracji kodu JSON z aplikacją, zobacz pokazy w tym [filmie wideo kanału 9](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) lub Znajdź scenariusz pasujący do przypadku użycia w [wpisach w blogu JSON](https://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
 

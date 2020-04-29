@@ -1,6 +1,6 @@
 ---
-title: Charakterystyka interakcji z wieloma dzierżawcami — usługa Azure AD | Dokumenty firmy Microsoft
-description: Opis dzierżaw usługi Azure Active Directory jako w pełni niezależnych organizacji
+title: Charakterystyki wielu interakcji dzierżawców — Azure AD | Microsoft Docs
+description: Zrozumienie Azure Active Directory dzierżawców jako w pełni niezależnych organizacji
 services: active-tenant
 documentationcenter: ''
 author: curtand
@@ -15,44 +15,44 @@ ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 175d9ce7db1657e0e654f46adaf8a8d8ef28c25e
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878123"
 ---
-# <a name="understand-how-multiple-azure-active-directory-organizations-interact"></a>Dowiedz się, jak wiele organizacji usługi Azure Active Directory współdziała
+# <a name="understand-how-multiple-azure-active-directory-organizations-interact"></a>Informacje o tym, jak działa wiele Azure Active Directory organizacji
 
-W usłudze Azure Active Directory (Azure AD) każda dzierżawa jest w pełni niezależną organizacją: element równorzędny, który jest logicznie niezależny od innych organizacji usługi Azure AD, którymi zarządzasz. Ta niezależność między organizacjami obejmuje niezależność zasobów, niezależność administracyjną i niezależność synchronizacji. Nie ma relacji nadrzędny podrzędny między organizacjami.
+W Azure Active Directory (Azure AD) Każda dzierżawa jest w pełni niezależną organizacją: element równorzędny logicznie niezależny od innych organizacji usługi Azure AD, którymi zarządzasz. Ta niezależność między organizacjami obejmuje niezależność zasobów, niezależność administracyjną i niezależność synchronizacji. Między organizacjami nie ma relacji nadrzędny-podrzędny.
 
 ## <a name="resource-independence"></a>Niezależność zasobów
 
-* Jeśli utworzysz lub usuniesz zasób usługi Azure AD w jednej organizacji, nie ma on wpływu na żaden zasób w innej organizacji, z częściowym wyjątkiem użytkowników zewnętrznych.
-* Jeśli zarejestrujesz jedną z nazw domen w jednej organizacji, nie będzie mogła być używana przez żadną inną organizację.
+* Jeśli utworzysz lub usuniesz zasób usługi Azure AD w jednej organizacji, nie będzie to miało wpływu na żaden zasób w innej organizacji, z częściowym wyjątkiem użytkowników zewnętrznych.
+* Jeśli jedna z nazw domen zostanie zarejestrowana w jednej organizacji, nie będzie ona używana przez żadną inną organizację.
 
 ## <a name="administrative-independence"></a>Niezależność administracyjna
 
-Jeśli użytkownik nieadawidacyjny organizacji "Contoso" utworzy organizację testową "Test", wówczas:
+Jeśli użytkownik niebędący administratorami organizacji "contoso" utworzy test w organizacji testowej, to:
 
-* Domyślnie użytkownik tworzący organizację jest dodawany jako użytkownik zewnętrzny w tej nowej organizacji i przypisywany roli administratora globalnego w tej organizacji.
-* Administratorzy organizacji "Contoso" nie mają bezpośrednich uprawnień administracyjnych do organizacji "Test", chyba że administrator "Testuj" wyraźnie przyznaje im te uprawnienia. Jednak administratorzy "Contoso" mogą kontrolować dostęp do organizacji "Test", jeśli kontrolują konto użytkownika, które utworzyło "Test".
-* Jeśli dodasz lub usuniesz rolę usługi Azure AD dla użytkownika w jednej organizacji, zmiana nie wpłynie na role, które użytkownik jest przypisany w innej organizacji usługi Azure AD.
+* Domyślnie użytkownik, który tworzy organizację, jest dodawany jako użytkownik zewnętrzny w nowej organizacji i ma przypisaną rolę administratora globalnego w tej organizacji.
+* Administratorzy organizacji "contoso" nie mają bezpośrednich uprawnień administracyjnych do testowania w organizacji, chyba że administrator "test" jawnie przyznał im te uprawnienia. Administratorzy programu "contoso" mogą jednak kontrolować dostęp do testu w organizacji, jeśli kontroluje konto użytkownika, które utworzyło "test".
+* W przypadku dodania lub usunięcia roli usługi Azure AD dla użytkownika w jednej organizacji zmiana nie ma wpływu na role, do których użytkownik jest przypisany w żadnej innej organizacji usługi Azure AD.
 
 ## <a name="synchronization-independence"></a>Niezależność synchronizacji
 
-Każdą organizację usługi Azure AD można skonfigurować niezależnie, aby uzyskać dane zsynchronizowane z jednego wystąpienia:
+Każdą organizację usługi Azure AD można skonfigurować niezależnie, aby pobierać dane zsynchronizowane z jednego wystąpienia:
 
 * Narzędzie Azure AD Connect do synchronizowania danych z pojedynczym lasem usługi AD.
-* Usługa Azure Active Directory Connector for Forefront Identity Manager, aby zsynchronizować dane z co najmniej jednym lasem lokalnym i/lub źródłami danych usługi AD innej niż azure.
+* Łącznik Azure Active Directory dla programu Forefront Identity Manager, służący do synchronizowania danych z co najmniej jednymi lokalnymi lasami i/lub źródłami danych spoza usługi Azure AD.
 
 ## <a name="add-an-azure-ad-organization"></a>Dodawanie organizacji usługi Azure AD
 
-Aby dodać organizację usługi Azure AD w witrynie Azure portal, zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy za pomocą konta, które jest globalnym administratorem usługi Azure AD, i wybierz pozycję **Nowy**.
+Aby dodać organizację usługi Azure AD do Azure Portal, zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym usługi Azure AD, a następnie wybierz pozycję **Nowy**.
 
 > [!NOTE]
-> W przeciwieństwie do innych zasobów platformy Azure organizacje usługi Azure AD nie są zasobami podrzędnymi subskrypcji platformy Azure. Jeśli subskrypcja platformy Azure została anulowana lub wygasła, nadal można uzyskać dostęp do danych organizacji usługi Azure AD przy użyciu programu Azure PowerShell, interfejsu API programu Microsoft Graph lub centrum administracyjnego usługi Microsoft 365. Można również [skojarzyć inną subskrypcję z organizacją](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+> W przeciwieństwie do innych zasobów platformy Azure, organizacje usługi Azure AD nie są zasobami podrzędnymi subskrypcji platformy Azure. Jeśli subskrypcja platformy Azure została anulowana lub wygasła, nadal możesz uzyskać dostęp do danych organizacji usługi Azure AD za pomocą Azure PowerShell, interfejsu API Microsoft Graph lub centrum administracyjnego Microsoft 365. Możesz również [skojarzyć kolejną subskrypcję z organizacją](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
 >
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapoznać się z zagadnieniami i najlepszymi rozwiązaniami w zakresie licencjonowania usługi Azure AD, zobacz [Co to jest licencjonowanie usługi Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md).
+Zagadnienia dotyczące licencjonowania usługi Azure AD i najlepsze rozwiązania można znaleźć w artykule [co to jest Azure Active Directory Licencjonowanie?](../fundamentals/active-directory-licensing-whatis-azure-portal.md).

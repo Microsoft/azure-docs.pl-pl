@@ -1,6 +1,6 @@
 ---
 title: Ponowne konfigurowanie środowiska Azure SSIS Integration Runtime
-description: Dowiedz się, jak ponownie skonfigurować środowisko uruchomieniowe integracji platformy Azure-SSIS w usłudze Azure Data Factory po jego zainicjowaniu.
+description: Dowiedz się, jak ponownie skonfigurować środowisko Azure-SSIS Integration Runtime w Azure Data Factory po jego zainicjowaniu.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -12,81 +12,81 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
 ms.openlocfilehash: ffebb8f82a69f0404974e6c8ea91bec951ca80e1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415767"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Ponowne konfigurowanie środowiska Azure SSIS Integration Runtime
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym artykule opisano sposób ponownego skonfigurowania istniejącego środowiska wykonawczego integracji platformy Azure-SSIS. Aby utworzyć środowisko uruchomieniowe integracji platformy Azure-SSIS (IR) w usłudze Azure Data Factory, zobacz [Tworzenie środowiska wykonawczego integracji platformy Azure-SSIS.](create-azure-ssis-integration-runtime.md)  
+W tym artykule opisano sposób zmiany konfiguracji istniejącego środowiska Azure-SSIS Integration Runtime. Aby utworzyć środowisko Azure-SSIS Integration Runtime (IR) w Azure Data Factory, zobacz [Tworzenie środowiska Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md).  
 
 ## <a name="data-factory-ui"></a>Interfejs użytkownika usługi Data Factory 
-Za pomocą interfejsu użytkownika fabryki danych można zatrzymać, edytować/ponownie skonfigurować lub usunąć identyfikator IR usługi Azure-SSIS. 
+Za pomocą interfejsu użytkownika Data Factory można zatrzymać, edytować/zmienić konfigurację lub usunąć Azure-SSIS IR. 
 
-1. W interfejsie **użytkownika fabryki danych**przełącz się na kartę **Edycja.** Aby uruchomić interfejs użytkownika fabryki danych, kliknij pozycję **Author & Monitor** na stronie głównej fabryki danych.
-2. W lewym okienku kliknij pozycję **Połączenia**.
-3. W prawym okienku przełącz się do **środowiska wykonawczego integracji**. 
-4. Za pomocą przycisków w kolumnie Akcje można **zatrzymać,** **edytować**lub **usunąć** środowisko uruchomieniowe integracji. Przycisk **Kod** w kolumnie **Akcje** umożliwia wyświetlanie definicji JSON skojarzonej ze środowiska wykonawczego integracji.  
+1. W **interfejsie użytkownika Data Factory**przejdź do karty **Edycja** . Aby uruchomić interfejs użytkownika Data Factory, kliknij przycisk **utwórz & monitor** na stronie głównej fabryki danych.
+2. W lewym okienku kliknij pozycję **połączenia**.
+3. W okienku po prawej stronie przejdź do **środowiska Integration Runtime**. 
+4. Za pomocą przycisków w kolumnie akcje można **zatrzymać**, **edytować**lub **usunąć** środowisko Integration Runtime. Przycisk **kod** w kolumnie **Akcje** umożliwia wyświetlenie definicji JSON skojarzonej z środowiskiem Integration Runtime.  
     
-    ![Akcje dla usługi Azure SSIS IR](./media/manage-azure-ssis-integration-runtime/actions-for-azure-ssis-ir.png)
+    ![Akcje dla środowiska Azure SSIS IR](./media/manage-azure-ssis-integration-runtime/actions-for-azure-ssis-ir.png)
 
-### <a name="to-reconfigure-an-azure-ssis-ir"></a>Aby ponownie skonfigurować identyfikator IR usługi Azure-SSIS
-1. Zatrzymaj środowisko uruchomieniowe integracji, klikając **przycisk Zatrzymaj** w kolumnie **Akcje.** Aby odświeżyć widok listy, kliknij przycisk **Odśwież** na pasku narzędzi. Po zatrzymaniu podczerwaskowego widać, że pierwsza akcja umożliwia uruchomienie podczerwa. 
+### <a name="to-reconfigure-an-azure-ssis-ir"></a>Aby skonfigurować Azure-SSIS IR
+1. Zatrzymaj środowisko Integration Runtime, klikając przycisk **Zatrzymaj** w kolumnie **Akcje** . Aby odświeżyć widok listy, kliknij przycisk **Odśwież** na pasku narzędzi. Po zatrzymaniu podczerwieni zobaczysz, że pierwsza akcja pozwala uruchomić środowisko IR. 
 
-    ![Akcje dla usługi Azure SSIS IR — po zatrzymaniu](./media/manage-azure-ssis-integration-runtime/actions-after-ssis-ir-stopped.png)
-2. Edytuj/ponownie skonfiguruj podczerwone środowisko, klikając przycisk **Edytuj** w kolumnie **Akcje.** W oknie **Ustawienia środowiska wykonawczego integracji** zmień ustawienia (na przykład rozmiar węzła, liczbę węzłów lub maksymalne równoległe wykonania na węzeł). 
-3. Aby ponownie uruchomić podczerwenie, kliknij przycisk **Start** w kolumnie **Akcje.**     
+    ![Akcje środowiska Azure SSIS IR — po zatrzymaniu](./media/manage-azure-ssis-integration-runtime/actions-after-ssis-ir-stopped.png)
+2. Edytuj/Zmień konfigurację środowiska IR, klikając przycisk **Edytuj** w kolumnie **Akcje** . W oknie **instalatora Integration Runtime** Zmień ustawienia (na przykład rozmiar węzła, liczbę węzłów lub Maksymalna Liczba wykonań równoległych na węzeł). 
+3. Aby ponownie uruchomić środowisko IR, kliknij przycisk **Start** w kolumnie **Akcje** .     
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Po zainicjowaniu aprowizyzności i uruchomienia wystąpienia środowiska wykonawczego integracji platformy Azure-SSIS można go ponownie skonfigurować, uruchamiając kolejno sekwencję `Stop`  -  `Set`  -  `Start` poleceń cmdlet programu PowerShell. Na przykład następujący skrypt programu PowerShell zmienia liczbę węzłów przydzielonych dla wystąpienia środowiska uruchomieniowego integracji platformy Azure-SSIS na pięć.
+Po zainicjowaniu i uruchomieniu wystąpienia środowiska Azure-SSIS Integration runtime można skonfigurować go `Stop`  -  `Set`  -  `Start` ponownie, uruchamiając sekwencję poleceń cmdlet programu PowerShell w następujący sposób. Na przykład poniższy skrypt programu PowerShell zmienia liczbę węzłów przydzieloną dla wystąpienia środowiska Azure-SSIS Integration Runtime na pięć.
 
-### <a name="reconfigure-an-azure-ssis-ir"></a>Ponowne konfigurowanie identyfikatora IR usługi Azure-SSIS
+### <a name="reconfigure-an-azure-ssis-ir"></a>Skonfiguruj ponownie Azure-SSIS IR
 
-1. Najpierw zatrzymaj środowisko uruchomieniowe integracji Azure-SSIS przy użyciu polecenia cmdlet [Stop-AzDataFactoryV2IntegrationRuntime.](/powershell/module/az.datafactory/stop-Azdatafactoryv2integrationruntime) To polecenie zwalnia wszystkie jego węzły i zatrzymuje rozliczenia.
+1. Najpierw Zatrzymaj środowisko Azure-SSIS Integration Runtime za pomocą polecenia cmdlet [stop-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/stop-Azdatafactoryv2integrationruntime) . To polecenie zwalnia wszystkie jego węzły i przerywa rozliczanie.
 
     ```powershell
     Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
     ```
-2. Następnie ponownie skonfiguruj identyfikator IR azure-SSIS przy użyciu polecenia cmdlet [Set-AzDataFactoryV2IntegrationRuntime.](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) Poniższe przykładowe polecenie skaluje środowisko uruchomieniowe integracji platformy Azure-SSIS do pięciu węzłów.
+2. Następnie skonfiguruj ponownie Azure-SSIS IR przy użyciu polecenia cmdlet [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) . Następujące przykładowe polecenie skaluje środowisko Azure-SSIS Integration Runtime do pięciu węzłów.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
     ```  
-3. Następnie uruchom środowisko uruchomieniowe integracji Azure-SSIS przy użyciu polecenia cmdlet [Start-AzDataFactoryV2IntegrationRuntime.](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) To polecenie przydziela wszystkie węzły do uruchamiania pakietów SSIS.   
+3. Następnie uruchom środowisko Azure-SSIS Integration Runtime za pomocą polecenia cmdlet [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) . To polecenie przypisuje wszystkie węzły do uruchamiania pakietów SSIS.   
 
     ```powershell
     Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
     ```
 
-### <a name="delete-an-azure-ssis-ir"></a>Usuwanie identyfikatora IR usługi Azure-SSIS
-1. Najpierw wyekslij wszystkie istniejące identyfikatory IRS usługi Azure SSIS w fabryce danych.
+### <a name="delete-an-azure-ssis-ir"></a>Usuwanie Azure-SSIS IR
+1. Najpierw utwórz listę wszystkich istniejących usług Azure SSIS IRs w ramach fabryki danych.
 
     ```powershell
     Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName -Status
     ```
-2. Następnie zatrzymaj wszystkie istniejące identyfikatory IRS usługi Azure SSIS w fabryce danych.
+2. Następnie Zatrzymaj wszystkie istniejące IRs usługi Azure SSIS w fabryce danych.
 
     ```powershell
     Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
     ```
-3. Następnie usuń wszystkie istniejące identyfikatory IRS usługi Azure SSIS w fabryce danych jeden po drugim.
+3. Następnie usuń wszystkie istniejące IRs z usługi Azure SSIS w swojej fabryce danych.
 
     ```powershell
     Remove-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
     ```
-4. Na koniec usuń fabrykę danych.
+4. Na koniec Usuń fabrykę danych.
 
     ```powershell
     Remove-AzDataFactoryV2 -Name $DataFactoryName -ResourceGroupName $ResourceGroupName -Force
     ```
-5. Jeśli utworzono nową grupę zasobów, usuń grupę zasobów.
+5. Jeśli utworzono nową grupę zasobów, Usuń grupę zasobów.
 
     ```powershell
     Remove-AzResourceGroup -Name $ResourceGroupName -Force 
@@ -95,9 +95,9 @@ Po zainicjowaniu aprowizyzności i uruchomienia wystąpienia środowiska wykonaw
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji na temat środowiska uruchomieniowego Azure-SSIS, zobacz następujące tematy: 
 
-- [Środowisko uruchomieniowe integracji platformy Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). Ten artykuł zawiera informacje koncepcyjne dotyczące środowiska wykonawczego integracji w ogóle, w tym azure-SSIS IR. 
+- [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). Ten artykuł zawiera ogólne informacje koncepcyjne dotyczące środowiska Integration Runtime, w tym Azure-SSIS IR. 
 - [Samouczek: Wdrażanie pakietów usług SSIS na platformie Azure](tutorial-create-azure-ssis-runtime-portal.md). Ten artykuł zawiera szczegółowe instrukcje dotyczące tworzenia środowiska Azure-SSIS IR i używania bazy danych Azure SQL Database do hostowania wykazu usług SSIS. 
-- [How to: Create an Azure-SSIS integration runtime (Jak: Tworzenie środowiska Azure SSIS Integration Runtime)](create-azure-ssis-integration-runtime.md). Ten artykuł rozwija się w samouczku i zawiera instrukcje dotyczące korzystania z wystąpienia zarządzanego bazy danych SQL azure i dołączania do podczerwenia do sieci wirtualnej. 
+- [How to: Create an Azure-SSIS integration runtime (Jak: Tworzenie środowiska Azure SSIS Integration Runtime)](create-azure-ssis-integration-runtime.md). Ten artykuł rozszerza się w samouczku i zawiera instrukcje dotyczące używania wystąpienia zarządzanego Azure SQL Database i dołączania do sieci wirtualnej. 
 - [Join an Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md) (Dołączanie środowiska IR Azure SSIS do sieci wirtualnej). Ten artykuł zawiera podstawowe informacje na temat dołączania środowiska IR Azure-SSIS do sieci wirtualnej platformy Azure. Opisano w nim kroki konfigurowania sieci wirtualnej za pomocą witryny Azure Portal tak, aby umożliwić dołączanie środowiska IR Azure-SSIS do sieci wirtualnej. 
 - [Monitor an Azure-SSIS IR (Monitorowanie środowiska Azure-SSIS IR)](monitor-integration-runtime.md#azure-ssis-integration-runtime). W tym artykule przedstawiono sposób pobierania informacji o środowisku Azure-SSIS IR i opisów stanów w pobranych informacjach. 
  

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
 ms.openlocfilehash: b9158f7b2e3fc73a2fe2a9b20ead2558b7467f6f
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82131051"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Konfigurowanie zarządzania liderem dla usługi Dynamics 365 Customer Engagement
@@ -62,7 +62,7 @@ Wykonaj następujące kroki, aby utworzyć konto usługi i przypisać uprawnieni
 >[!NOTE]
 >Przejdź do odpowiednich instrukcji w zależności od wybranej opcji uwierzytelniania. Zobacz [Azure Active Directory](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#azure-active-directory) lub [Office 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#office-365).
 
-### <a name="azure-active-directory"></a>Usługa Azure Active Directory
+### <a name="azure-active-directory"></a>Azure Active Directory
 
 Zalecamy korzystanie z tej opcji, ponieważ nie trzeba aktualizować nazwy użytkownika ani hasła, aby nadal otrzymywać potencjalnych klientów. Aby użyć opcji Azure Active Directory, należy podać identyfikator aplikacji, klucz aplikacji i identyfikator katalogu w aplikacji Active Directory.
 
@@ -192,7 +192,7 @@ Aby skonfigurować informacje dotyczące zarządzania potencjalnymi klientami dl
     ![Pole nazwy użytkownika pakietu Office 365](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
 
 1. W polu **kontaktowy adres e-mail**wprowadź adresy e-mail osób w firmie, które powinny otrzymywać powiadomienia e-mail po odebraniu nowego potencjalnego klienta. Możesz wprowadzić wiele adresów e-mail, rozdzielając je średnikami.
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
 Aby upewnić się, że pomyślnie nawiązano połączenie z miejscem docelowym potencjalnego klienta, wybierz przycisk **Weryfikuj** . Jeśli się powiedzie, będziesz mieć test w miejscu docelowym potencjalnego klienta.
 

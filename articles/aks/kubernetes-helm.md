@@ -1,42 +1,42 @@
 ---
-title: Instalowanie istniejących aplikacji z helmem w AKS
-description: Dowiedz się, jak używać narzędzia do pakowania helm do wdrażania kontenerów w klastrze usługi Azure Kubernetes (AKS)
+title: Instalowanie istniejących aplikacji za pomocą programu Helm w AKS
+description: Dowiedz się, jak wdrażać kontenery w klastrze usługi Azure Kubernetes Service (AKS) za pomocą narzędzia do pakowania Helm
 services: container-service
 author: zr-msft
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: zarhoads
 ms.openlocfilehash: e46bed5fc9fd83a907f8c9e716317a54548c58cc
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870247"
 ---
-# <a name="install-existing-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalowanie istniejących aplikacji z usługą Helm w usłudze Azure Kubernetes Service (AKS)
+# <a name="install-existing-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalowanie istniejących aplikacji przy użyciu usługi Helm w usłudze Azure Kubernetes Service (AKS)
 
-[Helm][helm] to narzędzie do pakowania typu open source, które pomaga zainstalować cykl życia aplikacji Kubernetes i zarządzać nimi. Podobnie jak w przypadku menedżerów pakietów Linuksa, takich jak *APT* i *Yum,* Helm służy do zarządzania wykresami Kubernetes, które są pakietami wstępnie skonfigurowanych zasobów Kubernetes.
+[Helm][helm] to narzędzie do tworzenia pakietów typu "open source", które ułatwia Instalowanie i zarządzanie cyklem życia aplikacji Kubernetes. Podobnie jak w przypadku menedżerów pakietów systemu Linux, takich jak *apt* i *yum*, Helm służy do zarządzania wykresami Kubernetes, które są pakietami wstępnie skonfigurowanych zasobów Kubernetes.
 
-W tym artykule pokazano, jak skonfigurować i używać helm w klastrze Kubernetes w uzywki AKS.
+W tym artykule opisano sposób konfigurowania i używania Helm w klastrze Kubernetes w systemie AKS.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zobacz szybki start usługi AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub za pomocą portalu [Azure.][aks-quickstart-portal]
+W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
-Potrzebujesz również helm cli zainstalowany, który jest klientem, który działa w systemie deweloperów. Umożliwia uruchamianie, zatrzymywania i zarządzanie aplikacjami za pomocą aplikacji Helm. Jeśli używasz usługi Azure Cloud Shell, helm cli jest już zainstalowany. Aby uzyskać instrukcje instalacji na lokalnej platformie, zobacz [Instalowanie helma][helm-install].
+Wymagany jest również interfejs wiersza polecenia Helm, który jest klientem uruchomionym w systemie deweloperskim. Pozwala ona uruchamiać, zatrzymywać i zarządzać aplikacjami za pomocą Helm. W przypadku korzystania z Azure Cloud Shell interfejs wiersza polecenia Helm jest już zainstalowany. Aby uzyskać instrukcje dotyczące instalacji na lokalnej platformie, zobacz [Installing Helm][helm-install].
 
 > [!IMPORTANT]
-> Helm jest przeznaczony do uruchamiania w węzłach systemu Linux. Jeśli masz węzły systemu Windows Server w klastrze, należy upewnić się, że zasobniki helm są zaplanowane tylko do uruchomienia w węzłach systemu Linux. Należy również upewnić się, że wszystkie wykresy Helm, które można zainstalować są również zaplanowane do uruchomienia w odpowiednich węzłach. Polecenia w tym artykule używają [selektorów węzłów,][k8s-node-selector] aby upewnić się, że zasobniki są zaplanowane do odpowiednich węzłów, ale nie wszystkie wykresy Helm może uwidaczniać selektor węzła. Można również rozważyć użycie innych opcji w klastrze, takich jak [skazy][taints].
+> Helm jest przeznaczony do uruchamiania w węzłach systemu Linux. Jeśli w klastrze znajdują się węzły systemu Windows Server, musisz upewnić się, że Helm są zaplanowane do uruchomienia tylko na węzłach z systemem Linux. Należy również upewnić się, że wszystkie zainstalowane wykresy Helm są również zaplanowane do uruchomienia w prawidłowych węzłach. Polecenia w tym artykule używają selektorów [węzłów][k8s-node-selector] , aby upewnić się, że zasobniki są zaplanowane do poprawnych węzłów, ale nie wszystkie wykresy Helm mogą uwidocznić wybór węzła. Możesz również rozważyć użycie innych opcji w klastrze, [takich jak][taints]przypisania.
 
-## <a name="verify-your-version-of-helm"></a>Sprawdź swoją wersję Helma
+## <a name="verify-your-version-of-helm"></a>Weryfikowanie wersji programu Helm
 
-Użyj `helm version` polecenia, aby zweryfikować zainstalowaną wersję helma:
+Użyj polecenia `helm version` , aby sprawdzić zainstalowaną wersję programu Helm:
 
 ```console
 helm version
 ```
 
-W poniższym przykładzie pokazano zainstalowany program Helm w wersji 3.0.0:
+W poniższym przykładzie przedstawiono zainstalowaną Helm wersję 3.0.0:
 
 ```console
 $ helm version
@@ -44,13 +44,13 @@ $ helm version
 version.BuildInfo{Version:"v3.0.0", GitCommit:"e29ce2a54e96cd02ccfce88bee4f58bb6e2a28b6", GitTreeState:"clean", GoVersion:"go1.13.4"}
 ```
 
-W przypadku sieci Helm v3 wykonaj czynności opisane w [sekcji Helm v3](#install-an-application-with-helm-v3). W przypadku helm v2 wykonaj czynności opisane w [sekcji Helm v2](#install-an-application-with-helm-v2)
+W przypadku wersji Helm v3 wykonaj kroki opisane w [sekcji Helm v3](#install-an-application-with-helm-v3). W przypadku Helm v2 postępuj zgodnie z instrukcjami w [sekcji Helm v2](#install-an-application-with-helm-v2)
 
-## <a name="install-an-application-with-helm-v3"></a>Instalowanie aplikacji z aplikacją Helm v3
+## <a name="install-an-application-with-helm-v3"></a>Instalowanie aplikacji z Helm v3
 
-### <a name="add-the-official-helm-stable-charts-repository"></a>Dodaj oficjalne repozytorium wykresów stabilnych Helm
+### <a name="add-the-official-helm-stable-charts-repository"></a>Dodawanie oficjalnego repozytorium Helm stabilnych wykresów
 
-Użyj polecenia [repozytorium helm,][helm-repo-add] aby dodać oficjalne repozytorium wykresów stabilnych Helm.
+Użyj polecenia [Helm repozytorium][helm-repo-add] , aby dodać oficjalne repozytorium Helm stabilnych wykresów.
 
 ```console
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
@@ -58,13 +58,13 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 ### <a name="find-helm-charts"></a>Znajdź wykresy Helm
 
-Wykresy helm są używane do wdrażania aplikacji w klastrze Kubernetes. Aby wyszukać wstępnie utworzone wykresy Helm, użyj polecenia [wyszukiwania helm:][helm-search]
+Wykresy Helm są używane do wdrażania aplikacji w klastrze Kubernetes. Aby wyszukać wstępnie utworzone wykresy Helm, użyj polecenia [wyszukiwania Helm][helm-search] :
 
 ```console
 helm search repo stable
 ```
 
-Następujące skrócone przykładowe dane wyjściowe przedstawiają niektóre wykresy Helm dostępne do użycia:
+Następujące wąskie przykładowe dane wyjściowe pokazują niektóre wykresy Helm dostępne do użycia:
 
 
 ```console
@@ -114,7 +114,7 @@ stable/datadog                          1.38.3          6.14.0                  
 ...
 ```
 
-Aby zaktualizować listę wykresów, użyj polecenia [aktualizacji repozytorium helm.][helm-repo-update] W poniższym przykładzie przedstawiono pomyślną aktualizację repozytorium:
+Aby zaktualizować listę wykresów, użyj polecenia [Helm repozytorium aktualizacji][helm-repo-update] . Poniższy przykład przedstawia pomyślne aktualizowanie repozytorium:
 
 ```console
 $ helm repo update
@@ -124,9 +124,9 @@ Hang tight while we grab the latest from your chart repositories...
 Update Complete. ⎈ Happy Helming!⎈
 ```
 
-### <a name="run-helm-charts"></a>Uruchamianie wykresów Helm
+### <a name="run-helm-charts"></a>Uruchom wykresy Helm
 
-Aby zainstalować wykresy za pomocą polecenia Helm install, należy użyć polecenia [instalacji helm][helm-install-command] i określić nazwę wydania oraz nazwę wykresu do zainstalowania. Aby wyświetlić instalowanie wykresu Helm w akcji, zainstalujmy podstawowe wdrożenie nginx przy użyciu wykresu Helm.
+Aby zainstalować wykresy z programem Helm, użyj polecenia [Install Helm][helm-install-command] i określ nazwę wydania oraz nazwę wykresu do zainstalowania. Aby zapoznać się z tematem Instalowanie wykresu Helm w działaniu, Zainstalujmy podstawowe wdrożenie Nginx przy użyciu wykresu Helm.
 
 ```console
 helm install my-nginx-ingress stable/nginx-ingress \
@@ -134,7 +134,7 @@ helm install my-nginx-ingress stable/nginx-ingress \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-Następujące skrócone przykładowe dane wyjściowe przedstawiają stan wdrożenia zasobów kubernetes utworzonych przez wykres Helm:
+Następujące wąskie przykładowe dane wyjściowe pokazują stan wdrożenia zasobów Kubernetes utworzonych przez wykres Helm:
 
 ```console
 $ helm install my-nginx-ingress stable/nginx-ingress \
@@ -154,7 +154,7 @@ You can watch the status by running 'kubectl --namespace default get services -o
 ...
 ```
 
-Użyj `kubectl get services` polecenia, aby uzyskać *ADRES IP usługi.* Na przykład poniższe polecenie pokazuje *ADRES IP dla* usługi *my-nginx-ingress-controller:*
+Użyj `kubectl get services` polecenia, aby uzyskać *zewnętrzny adres IP* usługi. Na przykład poniższe polecenie pokazuje *zewnętrzny adres IP* dla usługi *My-Nginx-Ingres-Controller* :
 
 ```console
 $ kubectl --namespace default get services -o wide -w my-nginx-ingress-controller
@@ -163,15 +163,15 @@ NAME                          TYPE           CLUSTER-IP     EXTERNAL-IP     PORT
 my-nginx-ingress-controller   LoadBalancer   10.0.123.1     <EXTERNAL-IP>   80:31301/TCP,443:31623/TCP   96s   app=nginx-ingress,component=controller,release=my-nginx-ingress
 ```
 
-### <a name="list-releases"></a>Lista wydań
+### <a name="list-releases"></a>Listy wydań
 
-Aby wyświetlić listę wersji zainstalowanych w `helm list` klastrze, użyj polecenia.
+Aby wyświetlić listę wersji zainstalowanych w klastrze, użyj `helm list` polecenia.
 
 ```console
 helm list
 ```
 
-W poniższym przykładzie przedstawiono wydanie *my-nginx-ingress wdrożone* w poprzednim kroku:
+W poniższym przykładzie przedstawiono wydanie *My-Nginx-Ingress* wdrożone w poprzednim kroku:
 
 ```console
 $ helm list
@@ -182,13 +182,13 @@ my-nginx-ingress    default     1           2019-11-22 10:08:06.048477 -0600 CST
 
 ### <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Podczas wdrażania wykresu Helm tworzone są wiele zasobów Kubernetes. Zasoby te obejmują zasoby, wdrożenia i usługi. Aby wyczyścić te zasoby, użyj polecenia [odinstaluj helm][helm-cleanup] i `helm list` określ nazwę wydania, jak w poprzednim poleceniu.
+Po wdrożeniu wykresu Helm są tworzone różne zasoby Kubernetes. Do tych zasobów należą między innymi: zasoby, wdrożenia i usługi. Aby wyczyścić te zasoby, użyj polecenia [Helm Uninstall][helm-cleanup] i określ nazwę wydania, jak to zostało znalezione w poprzednim `helm list` poleceniu.
 
 ```console
 helm uninstall my-nginx-ingress
 ```
 
-Poniższy przykład pokazuje, że wersja o nazwie *my-nginx-ingress* została odinstalowana:
+W poniższym przykładzie pokazano wydanie o nazwie *My-Nginx-* Transfered zostało odinstalowane:
 
 ```console
 $ helm uninstall my-nginx-ingress
@@ -196,13 +196,13 @@ $ helm uninstall my-nginx-ingress
 release "my-nginx-ingress" uninstalled
 ```
 
-## <a name="install-an-application-with-helm-v2"></a>Instalowanie aplikacji z aplikacją Helm v2
+## <a name="install-an-application-with-helm-v2"></a>Instalowanie aplikacji z Helm v2
 
-### <a name="create-a-service-account"></a>Tworzenie konta usługi
+### <a name="create-a-service-account"></a>Utwórz konto usługi
 
-Przed wdrożeniem helm w klastrze AKS z włączoną funkcją RBAC, należy konto usługi i powiązanie roli dla usługi Tiller. Aby uzyskać więcej informacji na temat zabezpieczania helm / tiller w klastrze z włączoną funkcją RBAC, zobacz [Tiller, Przestrzenie nazw i RBAC][tiller-rbac]. Jeśli klaster AKS nie jest włączony RBAC, pomiń ten krok.
+Przed wdrożeniem Helm w klastrze AKS z włączoną funkcją RBAC należy mieć konto usługi i powiązanie roli dla usługi. Aby uzyskać więcej informacji na temat zabezpieczania Helm/do usługi w klastrze z obsługą RBAC, zobacz odniesień [, przestrzenie nazw i RBAC][tiller-rbac]. Jeśli w klastrze AKS nie włączono kontroli RBAC, Pomiń ten krok.
 
-Utwórz plik `helm-rbac.yaml` o nazwie i skopiuj w następującym pliku YAML:
+Utwórz plik o nazwie `helm-rbac.yaml` i skopiuj w następującym YAML:
 
 ```yaml
 apiVersion: v1
@@ -225,29 +225,29 @@ subjects:
     namespace: kube-system
 ```
 
-Utwórz powiązanie konta usługi `kubectl apply` i roli za pomocą polecenia:
+Utwórz konto usługi i powiązanie roli za pomocą `kubectl apply` polecenia:
 
 ```console
 kubectl apply -f helm-rbac.yaml
 ```
 
-### <a name="secure-tiller-and-helm"></a>Bezpieczny kultywator i ster
+### <a name="secure-tiller-and-helm"></a>Zabezpieczanie do i Helm
 
-Klient Helm i usługa Tiller uwierzytelniają się i komunikują się ze sobą przy użyciu protokołu TLS/SSL. Ta metoda uwierzytelniania pomaga zabezpieczyć klaster Kubernetes i jakie usługi można wdrożyć. Aby zwiększyć bezpieczeństwo, można wygenerować własne podpisane certyfikaty. Każdy użytkownik helmu otrzyma własny certyfikat klienta, a program Tiller zostanie zainicjowany w klastrze Kubernetes z zastosowanymi certyfikatami. Aby uzyskać więcej informacji, zobacz [Korzystanie z protokołu TLS/SSL między helmem a kultywatorem][helm2-ssl].
+Klient Helm i usługa do odczekania uwierzytelniają się i komunikują się ze sobą przy użyciu protokołu TLS/SSL. Ta metoda uwierzytelniania pomaga zabezpieczyć klaster Kubernetes i jakie usługi można wdrożyć. Aby zwiększyć bezpieczeństwo, można wygenerować własne certyfikaty z podpisem. Każdy użytkownik Helm otrzyma swój własny certyfikat klienta i zostanie on zainicjowany w klastrze Kubernetes z zastosowanymi certyfikatami. Aby uzyskać więcej informacji, zobacz [Korzystanie z protokołu TLS/SSL między Helm i przydziałem][helm2-ssl]IT.
 
-Za pomocą klastra Kubernetes z włączoną funkcją RBAC można kontrolować poziom dostępu, jaki firma Tiller ma do klastra. Można zdefiniować obszar nazw Kubernetes, w której jest wdrożony program Tiller, i ograniczyć, w jakich przestrzeniach nazw firma Tiller może następnie wdrażać zasoby. Takie podejście umożliwia tworzenie wystąpień Tiller w różnych przestrzeniach nazw i ograniczyć granice wdrażania i zakres użytkowników klienta Helm do niektórych obszarów nazw. Aby uzyskać więcej informacji, zobacz [Sterowanie dostępem oparte na rolach sterów .][helm2-rbac]
+W przypadku klastra Kubernetes z obsługą kontroli RBAC można kontrolować poziom dostępu do klastra. Można zdefiniować przestrzeń nazw Kubernetes, która jest wdrażana w programie, i ograniczyć zakres przestrzeni nazw, które mogą następnie wdrożyć zasoby w programie. Takie podejście umożliwia tworzenie wystąpień programu w różnych przestrzeniach nazw i ograniczanie granic wdrożenia oraz określanie zakresu użytkowników programu Helm Client do określonych przestrzeni nazw. Aby uzyskać więcej informacji, zobacz [Helm kontroli dostępu opartej na rolach][helm2-rbac].
 
-### <a name="configure-helm"></a>Konfigurowanie helma
+### <a name="configure-helm"></a>Konfigurowanie Helm
 
-Aby wdrożyć podstawowy kultywator w klastrze AKS, użyj polecenia [init helm.][helm2-init] Jeśli klaster nie jest włączony RBAC, usuń `--service-account` argument i wartość. Poniższe przykłady również ustawić [history-max][helm2-history-max] do 200.
+Aby wdrożyć podstawową usługę do klastra AKS, użyj polecenia [init Helm][helm2-init] . Jeśli w `--service-account` klastrze nie włączono kontroli RBAC, Usuń argument i wartość. W poniższych przykładach ustawiono również [historię — maks][helm2-history-max] . do 200.
 
-Jeśli skonfigurowano TLS/SSL dla Tiller i Helm, pomiń ten podstawowy `--tiller-tls-` krok inicjowania i zamiast tego podaj wymagane, jak pokazano w następnym przykładzie.
+W przypadku skonfigurowania protokołu TLS/SSL dla operacji do odniesień i Helm należy pominąć ten podstawowy krok inicjujący, a następnie podać wymagane `--tiller-tls-` , jak pokazano w następnym przykładzie.
 
 ```console
 helm init --history-max 200 --service-account tiller --node-selectors "beta.kubernetes.io/os=linux"
 ```
 
-Jeśli skonfigurowano TLS/SSL między Helm i `--tiller-tls-*` Tiller podaj parametry i nazwy własnych certyfikatów, jak pokazano w poniższym przykładzie:
+W przypadku skonfigurowania protokołu TLS/SSL między Helm i do przydzielenia przez `--tiller-tls-*` program do dostarczania parametrów i nazw własnych certyfikatów, jak pokazano w następującym przykładzie:
 
 ```console
 helm init \
@@ -263,13 +263,13 @@ helm init \
 
 ### <a name="find-helm-charts"></a>Znajdź wykresy Helm
 
-Wykresy helm są używane do wdrażania aplikacji w klastrze Kubernetes. Aby wyszukać wstępnie utworzone wykresy Helm, użyj polecenia [wyszukiwania helm:][helm2-search]
+Wykresy Helm są używane do wdrażania aplikacji w klastrze Kubernetes. Aby wyszukać wstępnie utworzone wykresy Helm, użyj polecenia [wyszukiwania Helm][helm2-search] :
 
 ```console
 helm search
 ```
 
-Następujące skrócone przykładowe dane wyjściowe przedstawiają niektóre wykresy Helm dostępne do użycia:
+Następujące wąskie przykładowe dane wyjściowe pokazują niektóre wykresy Helm dostępne do użycia:
 
 ```
 $ helm search
@@ -304,7 +304,7 @@ stable/datadog                 0.18.0           6.3.0        DataDog Agent
 ...
 ```
 
-Aby zaktualizować listę wykresów, użyj polecenia [aktualizacji repozytorium helm.][helm2-repo-update] W poniższym przykładzie przedstawiono pomyślną aktualizację repozytorium:
+Aby zaktualizować listę wykresów, użyj polecenia [Helm repozytorium aktualizacji][helm2-repo-update] . Poniższy przykład przedstawia pomyślne aktualizowanie repozytorium:
 
 ```console
 $ helm repo update
@@ -315,9 +315,9 @@ Hold tight while we grab the latest from your chart repositories...
 Update Complete.
 ```
 
-### <a name="run-helm-charts"></a>Uruchamianie wykresów Helm
+### <a name="run-helm-charts"></a>Uruchom wykresy Helm
 
-Aby zainstalować wykresy za pomocą polecenia Helm install, należy użyć polecenia [instalacji steru][helm2-install-command] i określić nazwę wykresu do zainstalowania. Aby wyświetlić instalowanie wykresu Helm w akcji, zainstalujmy podstawowe wdrożenie nginx przy użyciu wykresu Helm. Jeśli skonfigurowano TLS/SSL, `--tls` dodaj parametr, aby użyć certyfikatu klienta Helm.
+Aby zainstalować wykresy z Helm, użyj polecenia [Install Helm][helm2-install-command] i określ nazwę wykresu do zainstalowania. Aby zapoznać się z tematem Instalowanie wykresu Helm w działaniu, Zainstalujmy podstawowe wdrożenie Nginx przy użyciu wykresu Helm. Jeśli skonfigurowano protokół TLS/SSL, Dodaj `--tls` parametr, aby użyć certyfikatu klienta Helm.
 
 ```console
 helm install stable/nginx-ingress \
@@ -325,7 +325,7 @@ helm install stable/nginx-ingress \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-Następujące skrócone przykładowe dane wyjściowe przedstawiają stan wdrożenia zasobów kubernetes utworzonych przez wykres Helm:
+Następujące wąskie przykładowe dane wyjściowe pokazują stan wdrożenia zasobów Kubernetes utworzonych przez wykres Helm:
 
 ```
 $ helm install stable/nginx-ingress --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
@@ -352,11 +352,11 @@ flailing-alpaca-nginx-ingress-default-backend  ClusterIP     10.0.44.97  <none> 
 ...
 ```
 
-Wypełnianie adresu *IP usługi* nginx-ingress-controller zajmuje minutę lub dwie i umożliwia dostęp do niego za pomocą przeglądarki internetowej.
+Aby można było wypełniać zewnętrzny adres *IP* usługi Nginx-transfer-Controller i umożliwić dostęp do niej przy użyciu przeglądarki sieci Web, potrwa minutę lub dwa.
 
-### <a name="list-helm-releases"></a>Lista wydań Helm
+### <a name="list-helm-releases"></a>Lista wersji Helm
 
-Aby wyświetlić listę wersji zainstalowanych w klastrze, użyj polecenia [listy sterów.][helm2-list] W poniższym przykładzie przedstawiono zwolnienie nginx-ingress wdrożone w poprzednim kroku. Jeśli skonfigurowano TLS/SSL, `--tls` dodaj parametr, aby użyć certyfikatu klienta Helm.
+Aby wyświetlić listę wersji zainstalowanych w klastrze, użyj polecenia [listy Helm][helm2-list] . Poniższy przykład przedstawia wydanie Nginx-Ingress wdrożone w poprzednim kroku. Jeśli skonfigurowano protokół TLS/SSL, Dodaj `--tls` parametr, aby użyć certyfikatu klienta Helm.
 
 ```console
 $ helm list
@@ -367,7 +367,7 @@ flailing-alpaca   1         Thu May 23 12:55:21 2019    DEPLOYED    nginx-ingres
 
 ### <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Podczas wdrażania wykresu Helm tworzone są wiele zasobów Kubernetes. Zasoby te obejmują zasoby, wdrożenia i usługi. Aby wyczyścić te zasoby, użyj `helm delete` polecenia i określ nazwę `helm list` wydania, jak w poprzednim poleceniu. Poniższy przykład usuwa wydanie o nazwie *flailing-alpaca:*
+Po wdrożeniu wykresu Helm są tworzone różne zasoby Kubernetes. Do tych zasobów należą między innymi: zasoby, wdrożenia i usługi. Aby wyczyścić te zasoby, użyj `helm delete` polecenia i określ nazwę wydania, jak to zostało znalezione w poprzednim `helm list` poleceniu. Poniższy przykład usuwa wydanie o nazwie *Flailing-Alpaca*:
 
 ```console
 $ helm delete flailing-alpaca
@@ -377,10 +377,10 @@ release "flailing-alpaca" deleted
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat zarządzania wdrożeniami aplikacji Kubernetes za pomocą helm, zobacz dokumentację helm.
+Aby uzyskać więcej informacji na temat zarządzania wdrożeniami aplikacji Kubernetes z Helm, zobacz dokumentację Helm.
 
 > [!div class="nextstepaction"]
-> [Dokumentacja steru][helm-documentation]
+> [Dokumentacja Helm][helm-documentation]
 
 <!-- LINKS - external -->
 [helm]: https://github.com/kubernetes/helm/

@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie rozwiązaniem Azure VMware przez CloudSimple private cloud
-description: W tym artykule opisano możliwości zarządzania zasobami i aktywnością cloudsimple private cloud
+title: Zarządzanie rozwiązaniem VMware platformy Azure za pomocą chmury prywatnej CloudSimple
+description: Opisuje możliwości dostępne do zarządzania zasobami i aktywności w chmurze prywatnej CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/10/2019
@@ -9,15 +9,15 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 13496a18f4c99b69a5b8095caf5b74a04d1bba88
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869299"
 ---
-# <a name="manage-private-cloud-resources-and-activity"></a>Zarządzanie zasobami i aktywnością w chmurze prywatnej
+# <a name="manage-private-cloud-resources-and-activity"></a>Zarządzanie zasobami i aktywnością chmury prywatnej
 
-Chmury prywatne są zarządzane z portalu CloudSimple.  Sprawdź stan, dostępne zasoby, aktywność w chmurze prywatnej i inne ustawienia z portalu CloudSimple.
+Chmurami prywatnymi zarządza się z poziomu portalu CloudSimple.  Sprawdź stan, dostępne zasoby, działanie w chmurze prywatnej oraz inne ustawienia w portalu CloudSimple.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -25,68 +25,68 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 ## <a name="access-the-cloudsimple-portal"></a>Uzyskiwanie dostępu do portalu CloudSimple
 
-Uzyskaj dostęp do [portalu CloudSimple](access-cloudsimple-portal.md).
+Dostęp do [portalu CloudSimple](access-cloudsimple-portal.md).
 
-## <a name="view-the-list-of-private-clouds"></a>Wyświetlanie listy chmur prywatnych
+## <a name="view-the-list-of-private-clouds"></a>Wyświetl listę chmur prywatnych
 
-Karta **Chmury prywatne** na stronie **Zasoby** zawiera listę wszystkich chmur prywatnych w ramach subskrypcji. Informacje obejmują nazwę, liczbę klastrów vSphere, lokalizację, bieżący stan chmury prywatnej i informacje o zasobach.
+Na karcie **chmury prywatne** na stronie **zasoby** są wyświetlane wszystkie chmury prywatne w ramach subskrypcji. Informacje obejmują nazwę, liczbę klastrów vSphere, lokalizację, bieżący stan chmury prywatnej i informacje o zasobach.
 
 ![Strona chmury prywatnej](media/manage-private-cloud.png)
 
-Wybierz chmurę prywatną, aby uzyskać dodatkowe informacje i działania.
+Wybierz chmurę prywatną, aby uzyskać dodatkowe informacje i akcje.
 
 ## <a name="private-cloud-summary"></a>Podsumowanie chmury prywatnej
 
-Wyświetl obszerne podsumowanie wybranej chmury prywatnej.  Strona Podsumowanie zawiera serwery DNS wdrożone w chmurze prywatnej.  Przekazywanie dns można skonfigurować z lokalnych serwerów DNS na serwery DNS w chmurze prywatnej.  Aby uzyskać więcej informacji na temat przekazywania usług DNS, zobacz [Konfigurowanie rozpoznawania nazw systemu DNS dla centrum vCenter w chmurze prywatnej z lokalnego](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-dns-setup/).
+Wyświetl kompleksowe podsumowanie wybranej chmury prywatnej.  Strona podsumowania zawiera serwery DNS wdrożone w chmurze prywatnej.  Można skonfigurować przekazywanie DNS z lokalnych serwerów DNS do serwerów DNS w chmurze prywatnej.  Aby uzyskać więcej informacji na temat przekazywania DNS, zobacz [Konfigurowanie systemu DNS do rozpoznawania nazw w przypadku chmury prywatnej dla programu vCenter](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-dns-setup/)w środowisku lokalnym.
 
 ![Podsumowanie chmury prywatnej](media/private-cloud-summary.png)
 
 ### <a name="available-actions"></a>Dostępne akcje
 
-* [Uruchom klienta vSphere](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access). Dostęp do centrum wirtualnego dla tej chmury prywatnej.
-* [Węzły zakupu](create-nodes.md). Dodaj węzły do tej chmury prywatnej.
-* [Rozwiń](expand-private-cloud.md). Dodaj węzły do tej chmury prywatnej.
-* **Odśwież**. Zaktualizuj informacje na tej stronie.
-* **Usuń**plik . Chmurę prywatną można usunąć w dowolnym momencie. **Przed usunięciem upewnij się, że wykonasz kopię zapasową wszystkich systemów i danych.** Usunięcie chmury prywatnej powoduje usunięcie wszystkich maszyn wirtualnych, konfiguracji vCenter i danych. Kliknij **pozycję Usuń** w sekcji podsumowania dla wybranej chmury prywatnej. Po usunięciu wszystkie dane private cloud są usuwane w bezpiecznym, wysoce zgodnym procesie usuwania.
-* [Zmień uprawnienia vSphere](escalate-private-cloud-privileges.md).  Eskaluj swoje uprawnienia w tej chmurze prywatnej.
+* [Uruchom klienta vSphere](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access). Uzyskaj dostęp do programu vCenter dla tej chmury prywatnej.
+* [Kup węzły](create-nodes.md). Dodaj węzły do tej chmury prywatnej.
+* [Rozwiń węzeł](expand-private-cloud.md). Dodaj węzły do tej chmury prywatnej.
+* **Odświeżanie**. Zaktualizuj informacje na tej stronie.
+* **Usuń**. Chmurę prywatną można usunąć w dowolnym momencie. **Przed usunięciem upewnij się, że utworzono kopię zapasową wszystkich systemów i danych.** Usunięcie chmury prywatnej spowoduje usunięcie wszystkich maszyn wirtualnych, konfiguracji programu vCenter i danych. Kliknij pozycję **Usuń** w sekcji Podsumowanie dla wybranej chmury prywatnej. Po usunięciu wszystkie dane w chmurze prywatnej są usuwane w bezpiecznym, wysoce zgodnym procesie wymazywania.
+* [Zmień uprawnienia vSphere](escalate-private-cloud-privileges.md).  Eskalacja uprawnień do tej chmury prywatnej.
 
-## <a name="private-cloud-vlanssubnets"></a>Sieć VLANS/podsieci w chmurze prywatnej
+## <a name="private-cloud-vlanssubnets"></a>Sieci VLAN/podsieci w chmurze prywatnej
 
-Wyświetl listę zdefiniowanych sieci/podsieci VLAN dla wybranej chmury prywatnej.  Lista zawiera sieci VLAN/podsieci zarządzania utworzone podczas tworzenia chmury prywatnej.
+Wyświetl listę zdefiniowanych sieci VLAN/podsieci dla wybranej chmury prywatnej.  Lista zawiera sieci VLAN i podsieci zarządzania utworzone podczas tworzenia chmury prywatnej.
 
-![Chmura prywatna — sieci/podsieci](media/private-cloud-vlans-subnets.png) 
+![Chmura prywatna — sieci VLAN/podsieci](media/private-cloud-vlans-subnets.png) 
 
 ### <a name="available-actions"></a>Dostępne akcje
 
-* [Dodaj sieć VLANS/Podsieci](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/). Dodaj sieć VLAN/podzbiór do tej chmury prywatnej.
+* [Dodawanie sieci VLAN/podsieci](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/). Dodaj sieć VLAN/podzestaw do tej chmury prywatnej.
 
-Wybierz sieć VLAN/Podsieć dla następujących akcji
+Wybierz sieć VLAN/podsieć dla następujących akcji
 * [Dołącz tabelę zapory](https://docs.microsoft.com/azure/vmware-cloudsimple/firewall/). Dołącz tabelę zapory do tej chmury prywatnej.
 * **Edytuj**
-* **Usuń** (tylko sieci/podsieci zdefiniowane przez użytkownika)
+* **Usuń** (tylko zdefiniowane przez użytkownika sieci VLAN/podsieci)
 
-## <a name="private-cloud-activity"></a>Aktywność w chmurze prywatnej
+## <a name="private-cloud-activity"></a>Aktywność chmury prywatnej
 
-Wyświetl następujące informacje dotyczące wybranej chmury prywatnej.  Informacje o aktywności to filtrowana lista wszystkich działań dla wybranej chmury prywatnej.  Na tej stronie przedstawiono maksymalnie 25 ostatnich działań.
+Wyświetl następujące informacje dotyczące wybranej chmury prywatnej.  Informacje o działaniu to filtrowana lista wszystkich działań dla wybranej chmury prywatnej.  Ta strona zawiera maksymalnie 25 ostatnich działań.
 
-* Najnowsze alerty
-* Ostatnie wydarzenia
+* Ostatnie alerty
+* Ostatnie zdarzenia
 * Ostatnie zadania
-* Ostatnia kontrola
+* Ostatnia Inspekcja
 
 ![Chmura prywatna — aktywność](media/private-cloud-activity.png)
 
 ## <a name="cloud-racks"></a>Stojaki w chmurze
 
-Stojaki w chmurze są budulcem chmury prywatnej. Każdy stojak zapewnia jednostkę pojemności. CloudSimple automatycznie konfiguruje stojaki w chmurze na podstawie wybranych opcji podczas tworzenia lub rozszerzania chmury prywatnej.  Wyświetl pełną listę stojaków w chmurze, w tym chmurę prywatną, do których każdy jest przypisany.
+Stojaki w chmurze są blokami konstrukcyjnymi chmury prywatnej. Każdy stojak zapewnia jednostkę pojemności. CloudSimple automatycznie konfiguruje Stojaki w chmurze na podstawie wybranych opcji podczas tworzenia lub rozszerzania chmury prywatnej.  Zapoznaj się z pełną listą stojaków w chmurze, w tym chmurę prywatną, do której każdy jest przypisany.
 
-![Chmura prywatna - Stojaki w chmurze](media/private-cloud-cloudracks.png)
+![Chmura prywatna — Stojaki w chmurze](media/private-cloud-cloudracks.png)
 
 ## <a name="vsphere-management-network"></a>Sieć zarządzania programu vSphere
 
-Lista zasobów zarządzania VMware i maszyn wirtualnych, które są obecnie skonfigurowane w chmurze prywatnej. Informacje obejmują wersję oprogramowania, w pełni kwalifikowaną nazwę domeny (FQDN) i adres IP zasobów.
+Lista zasobów zarządzania VMware i maszyn wirtualnych aktualnie skonfigurowanych w chmurze prywatnej. Informacje obejmują wersję oprogramowania, w pełni kwalifikowaną nazwę domeny (FQDN) i adres IP zasobów.
 
-![Chmura prywatna - sieć zarządzania vSphere](media/private-cloud-vsphere-management-network.png)
+![Chmura prywatna — sieć zarządzania vSphere](media/private-cloud-vsphere-management-network.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

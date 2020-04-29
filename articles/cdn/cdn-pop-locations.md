@@ -1,6 +1,6 @@
 ---
-title: Lokalizacje pop usługi Azure CDN według regionów | Dokumenty firmy Microsoft
-description: W tym artykule wymieniono lokalizacje pop usługi Azure CDN, posortowane według regionów, dla produktów usługi Azure CDN.
+title: Azure CDN lokalizacje POP według regionu | Microsoft Docs
+description: W tym artykule wymieniono Azure CDN lokalizacje POP, posortowane według regionów, dla Azure CDN produktów.
 services: cdn
 documentationcenter: ''
 author: sohamnchatterjee
@@ -15,39 +15,39 @@ ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
 ms.openlocfilehash: 227aae23babbcd5d734a10821d9311f91532ea4e
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81770976"
 ---
-# <a name="azure-cdn-coverage-by-metro"></a>Pokrycie usługi Azure CDN przez metro 
+# <a name="azure-cdn-coverage-by-metro"></a>Azure CDN pokrycia według Metro 
 > [!div class="op_single_selector"]
 > * [Lokalizacje POP według regionu](cdn-pop-locations.md)
 > * [Lokalizacje POP według skrótu](cdn-pop-abbreviations.md)
 > 
 
 
-W tym artykule wymieniono bieżące metro zawierające lokalizacje punktu obecności (POP), posortowane według regionu, dla produktów sieci dostarczania zawartości platformy Azure (CDN). Każda metro może zawierać więcej niż jeden POP. Na przykład usługa Azure CDN firmy Microsoft ma 130 obiektów OCP w 82 metrach. 
+W tym artykule wymieniono bieżące Metro zawierające lokalizacje punktów obecności (POP), posortowane według regionów, dla produktów usługi Azure Content Delivery Network (CDN). Każda linia metra może zawierać więcej niż jeden punkt obecności. Na przykład Azure CDN od firmy Microsoft ma 130 punktów obecności w poprzek 82 Metro. 
 
 > [!IMPORTANT]
-> Lokalizacje miast POP dla **usługi Azure CDN firmy Akamai** nie są ujawniane indywidualnie.  
+> Lokalizacje punktów obecności dla **Azure CDN z Akamai** nie są oddzielnie ujawniane.  
 > 
-> Ponieważ każdy produkt usługi Azure CDN ma odrębny sposób tworzenia infrastruktury sieci CDN, firma Microsoft zaleca, aby nie używać lokalizacji POP, aby zdecydować, który produkt usługi Azure CDN do użycia. Zamiast tego należy wziąć pod uwagę jego funkcje i wydajność użytkownika końcowego. Przetestuj wydajność z każdym produktem usługi Azure CDN, aby wybrać odpowiedni produkt dla użytkowników. 
+> Ponieważ każdy Azure CDN produkt ma odrębny sposób tworzenia infrastruktury sieci CDN, firma Microsoft zaleca korzystanie z lokalizacji POP, aby zdecydować, które Azure CDN produkt ma być używany. Zamiast tego należy wziąć pod uwagę jej funkcje i wydajność użytkowników końcowych. Przetestuj wydajność za pomocą każdego Azure CDN produktu, aby wybrać odpowiedni produkt dla użytkowników. 
 > 
 
 | Region | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
-| Ameryka Północna | Toronto, Kanada<br />Vancouver, Kanada<br />Montreal, Kanada<br />Querétaro, Meksyk<br />San Juan, Portoryko<br />Ashburn, VA, Stany Zjednoczone<br />Atlanta, GA, Stany Zjednoczone<br />Boston, MA, Stany Zjednoczone<br />Cheyenne, WY, Stany Zjednoczone<br />Chicago, IL, Stany Zjednoczone<br /> Dallas, TX, Stany Zjednoczone<br />Denver, CO, Stany Zjednoczone<br />Honolulu, HI, Stany Zjednoczone<br />Houston, TX, Stany Zjednoczone<br />Las Vegas, NV, Stany Zjednoczone Ameryki<br />Los Angeles, KALIFORNIA, Stany Zjednoczone<br />Miami, FLORYDA, Stany Zjednoczone<br />Nowy Jork, NY, Stany Zjednoczone<br />Newark, NJ, Stany Zjednoczone Ameryki<br />Phoenix, AZ, Stany Zjednoczone<br />Portland, OR, STANY ZJEDNOCZONE AMERYKI<br />San Antonio, TX, Stany Zjednoczone<br />San Jose, KALIFORNIA, Stany Zjednoczone<br />Seattle, WA, Stany Zjednoczone | Guadalajara, Meksyk<br />Mexico City, Mexico<br />Puebla, Meksyk<br />Querétaro, Meksyk<br />Atlanta, GA, Stany Zjednoczone<br />Boston, MA, Stany Zjednoczone<br />Chicago, IL, Stany Zjednoczone<br />Dallas, TX, Stany Zjednoczone<br />Denver, CO, Stany Zjednoczone<br />Detroit, MI, Stany Zjednoczone<br />Los Angeles, KALIFORNIA, Stany Zjednoczone<br />Miami, FLORYDA, Stany Zjednoczone<br />Nowy Jork, NY, Stany Zjednoczone<br />Filadelfia, PA, Stany Zjednoczone<br />San Jose, KALIFORNIA, Stany Zjednoczone<br />Seattle, WA, Stany Zjednoczone<br />Waszyngton, DC, Stany Zjednoczone | Kanada<br />Meksyk<br />Stany Zjednoczone |
-| Ameryka Południowa | Campinas, Brazylia<br />Rio de Janeiro, Brazylia<br />Sao Paulo, Brazylia<br />Santiago, Chile | Buenos Aires, Argentyna<br />Rio de Janeiro, Brazylia<br />São Paulo, Brazylia<br />Valparaíso, Chile<br />Bogota, Kolumbia<br />Barranquilla, Kolumbia<br />Medellin, Kolumbia<br />Quito, Ekwador<br />Lima, Peru | Argentyna<br />Brazylia<br />Chile<br />Columbia<br />Ekwador<br />Peru<br />Urugwaj |
-| Europa | Wiedeń, Austria<br />Bruksela, Belgia<br />Sofia, Bułgaria<br />Zagrzeb, Chorwacja<br />Praga, Czechy<br />Kopenhaga, Dania<br /> Helsinki, Finlandia<br /> Oslo, Norwegia<br />Marsylia, Francja<br />Paryż, Francja<br />Berlin, Niemcy<br />Frankfurt, Niemcy<br />Ateny, Grecja<br />Budapeszt, Węgry<br />Dublin, Irlandia<br />Milan, Włochy<br />Amsterdam, Holandia<br />Warszawa, Polska<br />Lizbona, Portugalia<br />Bukareszt, Rumunia<br />Barcelona, Hiszpania<br />Madryt, Hiszpania<br />Sztokholm, Szwecja<br />Zurich, Szwajcaria<br />Londyn, Wielka Brytania<br />Manchester, Wielka Brytania | Wiedeń, Austria<br />Kopenhaga, Dania<br />Helsinki, Finlandia<br />Marsylia, Francja<br />Paryż, Francja<br />Frankfurt, Niemcy<br />Milan, Włochy<br />Ryga, Łotwa<br />Amsterdam, Holandia<br />Warszawa, Polska<br />Madryt, Hiszpania<br />Sztokholm, Szwecja<br />Londyn, Wielka Brytania | Austria<br />Bułgaria<br />Dania<br />Finlandia<br />Francja<br />Niemcy<br />Grecja<br />Irlandia<br />Włochy<br />Holandia<br />Polska<br />Rosja<br />Hiszpania<br />Szwecja<br />Szwajcaria<br />Wielka Brytania |
-| Afryka | Kapsztad, Republika Południowej Afryki<br />Johannesburg, Republika Południowej Afryki<br />Lagos, Nigeria<br />Nairobi, Kenia | Johannesburg, Republika Południowej Afryki | Republika Południowej Afryki |
-| Bliski Wschód | Dubai, Zjednoczone Emiraty Arabskie<br />Tel Awiw<br />Istanbul, Turcja | Maskat, Oman<br />Fujirah, Zjednoczone Emiraty Arabskie | Katar<br />Zjednoczone Emiraty Arabskie |
-| Indie | Chennai, Indie<br />Hyderabad, Indie<br />Bombaj, Indie<br />New Delhi, Indie | Bengaluru (Bangalore), Indie<br />Chennai, Indie<br />Bombaj, Indie<br />New Delhi, Indie<br /> | Indie |
-| Azja | Hongkong<br />Osaka, Japonia<br />Tokio, Japonia<br />Kuala Lumpur, Malezja<br />Dżakarta, Indonezja<br />Manila, Filipiny<br />Singapur<br />Busan, Korea Południowa<br />Seoul, Korea Południowa<br />Tajpej, Tajwan<br />Bangkok, Tajlandia<br />Sajgon, Wietnam | Hongkong<br />Batam, Indonezja<br />Dżakarta, Indonezja<br />Osaka, Japonia<br />Tokio, Japonia<br />Singapur<br />Seoul, Korea Południowa<br />Kaohsiung, Tajwan<br />Tajpej, Tajwan | Hongkong<br />Indonezja<br />Izrael<br />Japonia<br />SRA Makau<br />Malezja<br />Filipiny<br />Singapur<br />Korea Południowa<br />Tajwan<br />Tajlandia<br />Turcja<br />Wietnam |
+| Ameryka Północna | Toronto, Kanada<br />Vancouver, Kanada<br />Montrealu, Kanada<br />Querétaro, Meksyk<br />San Juan, Portoryko<br />Ashburn, VA, USA<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Cheyenne, WY, USA<br />Chicago, IL, USA<br /> Dallas, TX, USA<br />Denver, CO, USA<br />Honolulu, HI, USA<br />Houston, TX, USA<br />Las Vegas, NV, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />Nowy Jork, NY, USA<br />Newark, NJ, USA<br />Phoenix, AZ, USA<br />Portland, lub, USA<br />San Antonio, TX, USA<br />San Jose, CA, USA<br />Seattle, WA, USA | Guadalajara, Meksyk<br />Mexico City, Mexico<br />Puebla, Meksyk<br />Querétaro, Meksyk<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Dallas, TX, USA<br />Denver, CO, USA<br />Detroit, MI, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />Nowy Jork, NY, USA<br />Philadelphia, PA, USA<br />San Jose, CA, USA<br />Seattle, WA, USA<br />Waszyngton, DC, USA | Kanada<br />Meksyk<br />Stany Zjednoczone |
+| Ameryka Południowa | Campinas, Brazylia<br />Rio de Janeiro, Brazylia<br />Wyspa Świętego Paulo, Brazylia<br />Do dnia, Chile | Buenos Aires, Argentyna<br />Rio de Janeiro, Brazylia<br />So Paulo, Brazylia<br />Valparaíso, Chile<br />Bogota, Kolumbia<br />Barranquilla, Kolumbia<br />Medellin, Kolumbia<br />Quito, Ekwador<br />Lima, Peru | Argentyna<br />Brazylia<br />Chile<br />Brytyjska<br />Ekwador<br />Peru<br />Urugwaj |
+| Europa | Wiedeń, Austria<br />Bruksela, Belgia<br />Sofia, Bułgaria<br />Zagrzeb, Chorwacja<br />Praga, Czechy<br />Kopenhaga, Dania<br /> Helsinki, Finlandia<br /> Oslo, Norwegia<br />Marsylii, Francja<br />Paryż, Francja<br />Berlin, Niemcy<br />Frankfurt, Niemcy<br />Ateny, Grecja<br />Budapeszt, Węgry<br />Dublin, Irlandia<br />Mediolan, Włochy<br />Amsterdam, Holandia<br />Warszawa, Polska<br />Lizbona, Portugalia<br />Bukareszt, Rumunia<br />Barcelona, Hiszpania<br />Madryt, Hiszpania<br />Sztokholm, Szwecja<br />Zurych, Szwajcaria<br />Londyn, Zjednoczone Królestwo<br />Manchester, Zjednoczone Królestwo | Wiedeń, Austria<br />Kopenhaga, Dania<br />Helsinki, Finlandia<br />Marsylii, Francja<br />Paryż, Francja<br />Frankfurt, Niemcy<br />Mediolan, Włochy<br />Ryga, Łotwa<br />Amsterdam, Holandia<br />Warszawa, Polska<br />Madryt, Hiszpania<br />Sztokholm, Szwecja<br />Londyn, Zjednoczone Królestwo | Austria<br />Bułgaria<br />Dania<br />Finlandia<br />Francja<br />Niemcy<br />Grecja<br />Irlandia<br />Włochy<br />Holandia<br />Polska<br />Rosja<br />Hiszpania<br />Szwecja<br />Szwajcaria<br />Wielka Brytania |
+| Afryka | Miasto, Republika Południowej Afryki<br />Johannesburg, Republika Południowej Afryki<br />Lagos, Nigeria<br />Nairobi, Kenia | Johannesburg, Republika Południowej Afryki | Republika Południowej Afryki |
+| Bliski Wschód | Dubaj, Zjednoczone Emiraty Arabskie<br />Tel Awiw, Izrael<br />Stambuł, Turcja | Maskat, Oman<br />Fujirah, Zjednoczone Emiraty Arabskie | Katar<br />Zjednoczone Emiraty Arabskie |
+| Indie | Chennai, Indie<br />Hyderabad, Indie<br />Mumbaj, Indie<br />Nowe Delhi, Indie | Bengaluru (Bangalore), Indie<br />Chennai, Indie<br />Mumbaj, Indie<br />Nowe Delhi, Indie<br /> | Indie |
+| Azja | Hongkong<br />Osaka, Japonia<br />Tokio, Japonia<br />Kuala Lumpur, Malezja<br />Dżakarta, Indonezja<br />Manila, Filipiny<br />Singapur<br />Pusan, Korea Południowa<br />Seul, Korea Południowa<br />Tajpej, Tajwan<br />Bangkok, Tajlandia<br />Saigon, Wietnam | Hongkong<br />Batam, Indonezja<br />Dżakarta, Indonezja<br />Osaka, Japonia<br />Tokio, Japonia<br />Singapur<br />Seul, Korea Południowa<br />Kaohsiung, Tajwan<br />Tajpej, Tajwan | Hongkong<br />Indonezja<br />Izrael<br />Japonia<br />SRA Makau<br />Malezja<br />Filipiny<br />Singapur<br />Korea Południowa<br />Tajwan<br />Tajlandia<br />Turcja<br />Wietnam |
 | Australia i Nowa Zelandia | Brisbane, Australia<br />Melbourne, Australia<br />Perth, Australia<br />Sydney, Australia<br />Auckland, Nowa Zelandia | Melbourne, Australia<br />Sydney, Australia<br />Auckland, Nowa Zelandia | Australia<br />Nowa Zelandia |
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać najnowsze adresy IP do umieszczenia na białej liście, zobacz [interfejs API węzłów usługi Azure CDN Edge](https://docs.microsoft.com/rest/api/cdn/edgenodes).
+* Aby uzyskać najnowsze adresy IP dla listy dozwolonych, zapoznaj się z [interfejsem API Azure CDN węzłów krawędzi](https://docs.microsoft.com/rest/api/cdn/edgenodes).
 

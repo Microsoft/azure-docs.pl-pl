@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
 ms.openlocfilehash: 42d3360b7defaab2ff0a62dc125a213860b13a6a
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133615"
 ---
 # <a name="azure-networking-services-overview"></a>Omówienie usług sieciowych platformy Azure
@@ -93,7 +93,7 @@ W tej sekcji opisano usługi sieciowe na platformie Azure, które ułatwiają oc
 |Usługa|Dlaczego warto używać?|Scenariusz|
 |---|---|---|
 |[Ochrona DDoS](#ddosprotection) |Wysoka dostępność dla aplikacji z ochroną przed nadmiernymi opłatami za ruch IP|[Zarządzaj Azure DDoS Protection](../virtual-network/manage-ddos-protection.md)|
-|[Zapora aplikacji sieci Web](#waf)|<p>[Usługa Azure WAF z Application Gateway](../web-application-firewall/ag/ag-overview.md) zapewnia ochronę regionalną jednostek w publicznych i prywatnych przestrzeni adresowej</p><p>[Usługa Azure WAF z przednimi drzwiami](../web-application-firewall/afds/afds-overview.md) zapewnia ochronę w granicach sieci z publicznymi punktami końcowymi.</p>|<p>[Konfigurowanie reguł ochrony bot](../frontdoor/waf-front-door-policy-configure-bot-protection.md)</p> <p>[Konfigurowanie niestandardowego kodu odpowiedzi](../frontdoor/waf-front-door-configure-custom-response-code.md)</p> <p>[Konfigurowanie reguł ograniczeń adresów IP](../frontdoor/waf-front-door-configure-ip-restriction.md)</p> <p>[Konfigurowanie reguły limitu szybkości](../frontdoor/waf-front-door-rate-limit-powershell.md)</p> |
+|[Zapora aplikacji internetowej](#waf)|<p>[Usługa Azure WAF z Application Gateway](../web-application-firewall/ag/ag-overview.md) zapewnia ochronę regionalną jednostek w publicznych i prywatnych przestrzeni adresowej</p><p>[Usługa Azure WAF z przednimi drzwiami](../web-application-firewall/afds/afds-overview.md) zapewnia ochronę w granicach sieci z publicznymi punktami końcowymi.</p>|<p>[Konfigurowanie reguł ochrony bot](../frontdoor/waf-front-door-policy-configure-bot-protection.md)</p> <p>[Konfigurowanie niestandardowego kodu odpowiedzi](../frontdoor/waf-front-door-configure-custom-response-code.md)</p> <p>[Konfigurowanie reguł ograniczeń adresów IP](../frontdoor/waf-front-door-configure-ip-restriction.md)</p> <p>[Konfigurowanie reguły limitu szybkości](../frontdoor/waf-front-door-rate-limit-powershell.md)</p> |
 |[Azure Firewall](#firewall)|Azure Firewall to zarządzana, sieciowa usługa zabezpieczeń oparta na chmurze, która zabezpiecza zasoby usługi Azure Virtual Network. Jest to w pełni stanowa zapora jako usługa z wbudowaną wysoką dostępnością i możliwością nieograniczonego skalowania w chmurze.|<p>[Wdrażanie zapory platformy Azure w sieci wirtualnej](../firewall/tutorial-firewall-deploy-portal.md)</p> <p>[-Wdrażanie zapory platformy Azure w sieci hybrydowej](../firewall/tutorial-hybrid-ps.md)</p> <p>[Filtrowanie ruchu przychodzącego za pomocą usługi Azure firewall DNAT](../firewall/tutorial-firewall-dnat.md)</p>|
 |[Grupy zabezpieczeń sieci](#nsg)|Pełny szczegółowy formant węzła końcowego rozproszonego na maszynie wirtualnej/podsieci dla wszystkich przepływów ruchu sieciowego|[Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](../virtual-network/tutorial-filter-network-traffic.md)|
 |[Punkty końcowe usługi dla sieci wirtualnej](#serviceendpoints)|Umożliwia ograniczenie dostępu sieciowego do niektórych zasobów usługi platformy Azure do podsieci sieci wirtualnej|[Ograniczanie dostępu sieciowego do zasobów PaaS](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md)|
@@ -104,7 +104,7 @@ W tej sekcji opisano usługi sieciowe na platformie Azure, które ułatwiają oc
 
 ![DDoS Protection](./media/networking-overview/ddos-protection.png)
 
-### <a name="web-application-firewall"></a><a name="waf"></a>Zapora aplikacji sieci Web
+### <a name="web-application-firewall"></a><a name="waf"></a>Zapora aplikacji internetowej
 
 [Zapora aplikacji sieci Web](../web-application-firewall/overview.md) (WAF) platformy Azure zapewnia ochronę aplikacji sieci Web przed typowymi atakami sieci Web i lukami w zabezpieczeniach, takimi jak iniekcja SQL i wykonywanie skryptów między lokacjami. Usługa Azure WAF zapewnia ochronę poza Box od OWASP 10 najważniejszych luk w zabezpieczeniach za pośrednictwem reguł zarządzanych. Dodatkowo klienci mogą również konfigurować reguły niestandardowe, które są regułami zarządzanymi przez klienta, aby zapewnić dodatkową ochronę na podstawie źródłowego zakresu adresów IP, a także atrybuty żądania, takie jak nagłówki, pliki cookie, pola danych formularza lub parametry ciągu zapytania.
 

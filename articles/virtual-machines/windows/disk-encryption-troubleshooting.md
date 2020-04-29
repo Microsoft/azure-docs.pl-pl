@@ -1,6 +1,6 @@
 ---
-title: Przewodnik rozwiązywania problemów z szyfrowaniem dysków platformy Azure
-description: Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów z szyfrowaniem dysków platformy Microsoft Azure dla maszyn wirtualnych z systemem Windows.
+title: Przewodnik rozwiązywania problemów Azure Disk Encryption
+description: Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów z Microsoft Azure szyfrowaniem dysków dla maszyn wirtualnych z systemem Windows.
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
@@ -9,43 +9,43 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: 11c1e0bf10725173a2a341addf4c3f845bbb7fba
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82085692"
 ---
-# <a name="azure-disk-encryption-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z szyfrowaniem dysków platformy Azure
+# <a name="azure-disk-encryption-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów Azure Disk Encryption
 
-Ten przewodnik jest przeznaczony dla specjalistów IT, analityków zabezpieczeń informacji i administratorów chmury, których organizacje używają szyfrowania dysków platformy Azure. Ten artykuł ułatwia rozwiązywanie problemów związanych z szyfrowaniem dysku.
+Ten przewodnik jest przeznaczony dla specjalistów IT, analityków zabezpieczeń informacji i administratorów chmury, których organizacje używają Azure Disk Encryption. Ten artykuł ma na celu pomoc w rozwiązywaniu problemów związanych z szyfrowaniem dysków.
 
-Przed podjęciem któregokolwiek z poniższych kroków, najpierw upewnij się, że maszyny wirtualne, które próbujesz zaszyfrować, należą do [obsługiwanych rozmiarów maszyn wirtualnych i systemów operacyjnych](disk-encryption-overview.md#supported-vms-and-operating-systems)i że spełnione są wszystkie wymagania wstępne:
+Przed wykonaniem poniższych czynności należy najpierw upewnić się, że maszyny wirtualne, które mają zostać zaszyfrowane, znajdują się wśród [obsługiwanych rozmiarów maszyn wirtualnych i w systemach operacyjnych](disk-encryption-overview.md#supported-vms-and-operating-systems)oraz że zostały spełnione wszystkie wymagania wstępne:
 
 - [Wymagania dotyczące sieci](disk-encryption-overview.md#networking-requirements)
 - [Wymagania dotyczące zasad grupy](disk-encryption-overview.md#group-policy-requirements)
-- [Wymagania dotyczące przechowywania kluczy szyfrowania](disk-encryption-overview.md#encryption-key-storage-requirements)
+- [Wymagania dotyczące magazynu kluczy szyfrowania](disk-encryption-overview.md#encryption-key-storage-requirements)
 
  
 
-## <a name="troubleshooting-azure-disk-encryption-behind-a-firewall"></a>Rozwiązywanie problemów z szyfrowaniem dysku platformy Azure za zaporą
+## <a name="troubleshooting-azure-disk-encryption-behind-a-firewall"></a>Rozwiązywanie problemów Azure Disk Encryption za zaporą
 
-Gdy łączność jest ograniczona przez zaporę, wymagania serwera proxy lub ustawienia sieciowej grupy zabezpieczeń (NSG), możliwość wykonywania potrzebnych zadań przez rozszerzenie może zostać zakłócona. To zakłócenie może spowodować komunikaty o stanie, takie jak "Stan rozszerzenia nie jest dostępny na maszynie wirtualnej." W oczekiwanych scenariuszach szyfrowanie nie powiedzie się. Sekcje, które należy wykonać mają pewne typowe problemy z zaporą, które można zbadać.
+Gdy łączność jest ograniczona przez ustawienia zapory, wymagania serwera proxy lub sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń), zdolność rozszerzenia do wykonywania wymaganych zadań może być zakłócona. Zakłócenia te mogą spowodować komunikaty o stanie, takie jak "stan rozszerzenia nie jest dostępny na maszynie wirtualnej". W oczekiwanych scenariuszach szyfrowanie nie powiedzie się. Poniższe sekcje zawierają kilka typowych problemów z zaporą, które mogą być zbadane.
 
 ### <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
-Wszystkie zastosowane ustawienia sieciowej grupy zabezpieczeń muszą nadal zezwalać punktowi końcowemu na spełnienie wymagań wstępnych dotyczących konfiguracji sieci [udokumentowanych dla](disk-encryption-overview.md#networking-requirements) szyfrowania dysku.
+Wszystkie ustawienia sieciowej grupy zabezpieczeń, które są stosowane, muszą nadal zezwalać, aby punkt końcowy spełniał udokumentowane [wymagania wstępne](disk-encryption-overview.md#networking-requirements) konfiguracji sieci na potrzeby szyfrowania dysku.
 
-### <a name="azure-key-vault-behind-a-firewall"></a>Usługa Azure Key Vault za zaporą
+### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault za zaporą
 
-Gdy szyfrowanie jest włączone przy użyciu [poświadczeń usługi Azure AD,](disk-encryption-windows-aad.md#)docelowa maszyna wirtualna musi zezwalać na łączność z punktami końcowymi usługi Azure Active Directory i punktami końcowymi usługi Key Vault. Bieżące punkty końcowe uwierzytelniania usługi Azure Active Directory są obsługiwane w sekcjach 56 i 59 z dokumentacji [adresów URL i zakresów adresów IP usługi Office 365.](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) Instrukcje usługi Key Vault znajdują się w dokumentacji dotyczącej sposobu uzyskiwania dostępu do [usługi Azure Key Vault za zaporą.](../../key-vault/general/access-behind-firewall.md)
+Gdy szyfrowanie jest włączane przy użyciu [poświadczeń usługi Azure AD](disk-encryption-windows-aad.md#), docelowa maszyna wirtualna musi zezwalać na połączenie z punktami końcowymi Azure Active Directory i Key Vault punktów końcowych. Bieżące punkty końcowe uwierzytelniania Azure Active Directory są obsługiwane w sekcjach 56 i 59 w dokumentacji [pakietu Office 365 adresy URL i zakresy adresów IP](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) . Instrukcje Key Vault są dostępne w dokumentacji dotyczącej sposobu [uzyskiwania dostępu Azure Key Vault za zaporą](../../key-vault/general/access-behind-firewall.md).
 
-### <a name="azure-instance-metadata-service"></a>Usługa metadanych wystąpienia platformy Azure 
-Maszyna wirtualna musi mieć dostęp do punktu końcowego [usługi metadanych wystąpienia platformy Azure,](../windows/instance-metadata-service.md) który używa dobrze znanego nie rutowalnej adresu IP (`169.254.169.254`), który jest dostępny tylko z poziomu maszyny Wirtualnej.  Konfiguracje serwera proxy, które zmieniają lokalny ruch HTTP na ten adres (na przykład dodawanie nagłówka X-Forwarded-For) nie są obsługiwane.
+### <a name="azure-instance-metadata-service"></a>Instance Metadata Service platformy Azure 
+Maszyna wirtualna musi mieć dostęp do punktu końcowego [usługi metadanych wystąpienia platformy Azure](../windows/instance-metadata-service.md) , w którym jest używany dobrze znany adres IP bez obsługi routingu`169.254.169.254`(), do którego można uzyskać dostęp tylko z poziomu maszyny wirtualnej.  Konfiguracje serwera proxy, które modyfikują lokalny ruch HTTP na ten adres (na przykład dodanie nagłówka X-forwardd-for) nie są obsługiwane.
 
-## <a name="troubleshooting-windows-server-2016-server-core"></a>Rozwiązywanie problemów z rdzeniem serwera systemu Windows Server 2016
+## <a name="troubleshooting-windows-server-2016-server-core"></a>Rozwiązywanie problemów z systemem Windows Server 2016 Server Core
 
-W systemie Windows Server 2016 Server Core składnik bdehdcfg nie jest domyślnie dostępny. Ten składnik jest wymagany przez szyfrowanie dysków platformy Azure. Służy do dzielenia woluminu systemowego z woluminu systemu operacyjnego, który odbywa się tylko raz przez cały okres eksploatacji maszyny Wirtualnej. Te pliki binarne nie są wymagane podczas późniejszych operacji szyfrowania.
+W systemie Windows Server 2016 Server Core składnik BdeHdCfg nie jest dostępny domyślnie. Ten składnik jest wymagany przez Azure Disk Encryption. Służy do dzielenia woluminu systemowego z woluminu systemu operacyjnego, który jest wykonywany tylko raz dla czasu życia maszyny wirtualnej. Te pliki binarne nie są wymagane podczas późniejszych operacji szyfrowania.
 
-Aby obejść ten problem, skopiuj następujące cztery pliki z maszyny Wirtualnej Centrum danych systemu Windows Server 2016 do tej samej lokalizacji na serwerze Core:
+Aby obejść ten problem, Skopiuj następujące cztery pliki z maszyny wirtualnej centrum danych systemu Windows Server 2016 do tej samej lokalizacji na serwerze Core:
 
    ```
    \windows\system32\bdehdcfg.exe
@@ -60,9 +60,9 @@ Aby obejść ten problem, skopiuj następujące cztery pliki z maszyny Wirtualne
    bdehdcfg.exe -target default
    ```
 
-1. To polecenie tworzy partycję systemową o rozmiarze 550 MB. Uruchom ponownie system.
+1. To polecenie tworzy partycję systemową 550 MB. Uruchom ponownie system.
 
-1. Użyj programu DiskPart, aby sprawdzić woluminy, a następnie kontynuować.  
+1. Użyj narzędzia DiskPart, aby sprawdzić woluminy, a następnie wybierz pozycję wykonaj.  
 
 Przykład:
 
@@ -78,15 +78,15 @@ DISKPART> list vol
 
 ## <a name="troubleshooting-encryption-status"></a>Rozwiązywanie problemów ze stanem szyfrowania 
 
-Portal może wyświetlać dysk jako zaszyfrowany nawet po jego niezaszyfrowaniu w maszynie wirtualnej.  Taka możliwość może wystąpić, gdy polecenia niskiego poziomu są używane do bezpośredniego odszyfrowywania dysku z poziomu maszyny Wirtualnej, zamiast używać poleceń zarządzania szyfrowaniem usługi Azure Disk wyższego poziomu.  Polecenia wyższego poziomu nie tylko odszyfrowywać dysk z poziomu maszyny Wirtualnej, ale poza maszyną wirtualną aktualizują również ważne ustawienia szyfrowania na poziomie platformy i ustawienia rozszerzenia skojarzone z maszyną wirtualną.  Jeśli nie są one przechowywane w wyrównaniu, platforma nie będzie w stanie poprawnie zgłosić stanu szyfrowania lub aprowizować maszyny Wirtualnej.   
+W portalu może być wyświetlany dysk zaszyfrowany nawet po zaszyfrowaniu go w ramach maszyny wirtualnej.  Taka sytuacja może wystąpić, gdy polecenia niskiego poziomu są używane do bezpośredniego wyszyfrowania dysku z poziomu maszyny wirtualnej, a nie przy użyciu Azure Disk Encryption polecenia zarządzania wyższego poziomu.  Polecenia wyższego poziomu nie tylko deszyfrują dysk z maszyny wirtualnej, ale poza maszyną wirtualną również aktualizują ważne ustawienia szyfrowania na poziomie platformy i ustawienia rozszerzenia skojarzone z maszyną wirtualną.  Jeśli nie są one zachowane, platforma nie będzie mogła zgłosić stanu szyfrowania ani zainicjować obsługi maszyny wirtualnej.   
 
-Aby wyłączyć szyfrowanie dysków platformy Azure za pomocą programu PowerShell, należy użyć [funkcji Disable-AzVMDiskEncryption,](/powershell/module/az.compute/disable-azvmdiskencryption) a następnie [usunąć-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Uruchomienie Remove-AzVMDiskEncryptionExtension przed wyłączeniem szyfrowania zakończy się niepowodzeniem.
+Aby wyłączyć Azure Disk Encryption za pomocą programu PowerShell, użyj polecenia [disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) , a następnie polecenie [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Uruchomienie Remove-AzVMDiskEncryptionExtension przed wyłączeniem szyfrowania zakończy się niepowodzeniem.
 
-Aby wyłączyć szyfrowanie dysków platformy Azure za pomocą interfejsu wiersza polecenia, użyj [funkcji szyfrowania az vm disable](/cli/azure/vm/encryption). 
+Aby wyłączyć Azure Disk Encryption przy użyciu interfejsu wiersza polecenia, użyj polecenie [AZ VM Encryption Disable](/cli/azure/vm/encryption). 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym dokumencie dowiesz się więcej o niektórych typowych problemach w szyfrowaniu dysków platformy Azure i o tym, jak rozwiązać te problemy. Aby uzyskać więcej informacji na temat tej usługi i jej możliwości, zobacz następujące artykuły:
+W tym dokumencie zawarto więcej informacji o niektórych typowych problemach w Azure Disk Encryption i sposobach rozwiązywania tych problemów. Aby uzyskać więcej informacji o tej usłudze i jej możliwościach, zobacz następujące artykuły:
 
-- [Stosowanie szyfrowania dysku w usłudze Azure Security Center](../../security-center/security-center-apply-disk-encryption.md)
+- [Zastosuj szyfrowanie dysków w Azure Security Center](../../security-center/security-center-apply-disk-encryption.md)
 - [Szyfrowanie danych platformy Azure w spoczynku](../../security/fundamentals/encryption-atrest.md)

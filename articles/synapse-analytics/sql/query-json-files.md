@@ -1,6 +1,6 @@
 ---
-title: Kwerenda JSON plików przy użyciu SQL na żądanie (wersja zapoznawcza)
-description: W tej sekcji wyjaśniono, jak odczytywać pliki JSON przy użyciu języka SQL na żądanie w usłudze Azure Synapse Analytics.
+title: Wykonywanie zapytań dotyczących plików JSON przy użyciu języka SQL na żądanie (wersja zapoznawcza)
+description: W tej sekcji opisano sposób odczytywania plików JSON przy użyciu funkcji SQL na żądanie w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,26 +10,26 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 645baf9102785d223fd1f23ae52a4609725f795b
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81770806"
 ---
-# <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Kwerenda plików JSON przy użyciu SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
+# <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików JSON przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
-W tym artykule dowiesz się, jak napisać kwerendę przy użyciu języka SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics. Celem kwerendy jest odczyt plików JSON.
+W tym artykule dowiesz się, jak napisać zapytanie przy użyciu języka SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics. Celem zapytania jest odczytanie plików JSON.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed przeczytaniem pozostałej części tego artykułu zapoznaj się z następującymi artykułami:
 
-- [Konfiguracja po raz pierwszy](query-data-storage.md#first-time-setup)
+- [Konfiguracja pierwszego czasu](query-data-storage.md#first-time-setup)
 - [Wymagania wstępne](query-data-storage.md#prerequisites)
 
 ## <a name="sample-json-files"></a>Przykładowe pliki JSON
 
-Poniższa sekcja zawiera przykładowe skrypty do odczytu plików JSON. Pliki są przechowywane w kontenerze *json,* *portfele folderów*i zawierają pojedynczy wpis książki z następującą strukturą:
+Poniższa sekcja zawiera przykładowe skrypty do odczytu plików JSON. Pliki są przechowywane w kontenerze *JSON* , w *książkach*folderów i zawierają pojedynczy wpis książki o następującej strukturze:
 
 ```json
 {
@@ -47,9 +47,9 @@ Poniższa sekcja zawiera przykładowe skrypty do odczytu plików JSON. Pliki są
 }
 ```
 
-## <a name="read-json-files"></a>Odczytywanie plików JSON
+## <a name="read-json-files"></a>Odczytaj pliki JSON
 
-Aby przetworzyć pliki JSON przy użyciu JSON_VALUE i [JSON_QUERY,](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)należy odczytać plik JSON z magazynu jako pojedynczą kolumnę. Następujący skrypt odczytuje plik *book1.json* jako pojedynczą kolumnę:
+Aby przetwarzać pliki JSON przy użyciu JSON_VALUE i [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), należy odczytać plik JSON z magazynu jako pojedynczą kolumnę. Poniższy skrypt odczytuje plik *Book1. JSON* jako pojedynczą kolumnę:
 
 ```sql
 SELECT
@@ -68,11 +68,11 @@ FROM
 ```
 
 > [!NOTE]
-> Cały plik JSON jest odczytywaniem jako pojedynczego wiersza lub kolumny. Tak więc FIELDTERMINATOR, FIELDQUOTE i ROWTERMINATOR są ustawione na 0x0b.
+> Odczytujesz cały plik JSON jako pojedynczy wiersz lub kolumnę. Tak więc FIELDTERMINATOR, FIELDQUOTE i ROWTERMINATOR są ustawione na 0x0B.
 
-## <a name="query-json-files-using-json_value"></a>Kwerenda JSON plików przy użyciu JSON_VALUE
+## <a name="query-json-files-using-json_value"></a>Wykonywanie zapytań dotyczących plików JSON przy użyciu JSON_VALUE
 
-Poniższa kwerenda pokazuje, jak używać [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) do pobierania wartości skalarnych (tytuł, wydawca) z książki zatytułowanej *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles:*
+Poniższe zapytanie pokazuje, jak za pomocą [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) pobierać wartości skalarne (tytuł, wydawca) z książki zatytułowanej *probabilistyczne i metody statystyczne w Cryptology, wprowadzenie do wybranych artykułów*:
 
 ```sql
 SELECT
@@ -94,9 +94,9 @@ WHERE
     JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics';
 ```
 
-## <a name="query-json-files-using-json_query"></a>Kwerenda JSON plików przy użyciu JSON_QUERY
+## <a name="query-json-files-using-json_query"></a>Wykonywanie zapytań dotyczących plików JSON przy użyciu JSON_QUERY
 
-W poniższej kwerendzie pokazano, jak używać [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) do pobierania obiektów i tablic (autorów) z książki zatytułowanej *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics:*
+Poniższe zapytanie pokazuje, w jaki sposób używać [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) do pobierania obiektów i tablic (autorów) z książki zatytułowanej *probabilistyczne i metody statystyczne w Cryptology, wprowadzenie do wybranych tematów*:
 
 ```sql
 SELECT
@@ -117,9 +117,9 @@ WHERE
     JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics';
 ```
 
-## <a name="query-json-files-using-openjson"></a>Kwerenda plików JSON przy użyciu OPENJSON
+## <a name="query-json-files-using-openjson"></a>Wykonywanie zapytań dotyczących plików JSON przy użyciu OPENJSON
 
-Następująca kwerenda używa [funkcji OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Będzie pobierać obiekty i właściwości w książce zatytułowanej *Probabilistic i metody statystyczne w kryptologii, Wprowadzenie wybranych artykułów:*
+Następujące zapytanie używa [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Spowoduje to pobranie obiektów i właściwości w ramach książki zatytułowanej *probabilistyczne i metody statystyczne w Cryptology, wprowadzenie do wybranych artykułów*:
 
 ```sql
 SELECT
@@ -142,7 +142,7 @@ WHERE
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następne artykuły z tej serii zademonstrują, jak:
+W następnych artykułach w tej serii pokazano, jak:
 
-- [Wykonywanie zapytań o foldery i wiele plików](query-folders-multiple-csv-files.md)
+- [Wykonywanie zapytań dotyczących folderów i wielu plików](query-folders-multiple-csv-files.md)
 - [Tworzenie widoków i korzystanie z nich](create-use-views.md)

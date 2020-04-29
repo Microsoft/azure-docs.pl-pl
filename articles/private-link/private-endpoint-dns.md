@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: allensu
-ms.openlocfilehash: 46ecf1bf2f5bd7900677cd115f8571ec3551a874
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 477a5ffa971120d1a98c09ac4ae8ebda1c82b770
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134275"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209030"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Konfiguracja usługi DNS prywatnego punktu końcowego platformy Azure
 
@@ -55,7 +55,7 @@ W przypadku usług platformy Azure Użyj zalecanych nazw stref, zgodnie z opisem
 |Azure Database for MySQL (Microsoft. DBforMySQL/serwery)|Mójserwersql|privatelink.mysql.database.azure.com|
 |Azure Database for MariaDB (Microsoft. DBforMariaDB/serwery)|mariadbServer|privatelink.mariadb.database.azure.com|
 |Azure Key Vault (magazyn/magazyny Microsoft. kluczy)|magazyn|privatelink.vaultcore.azure.net|
-|Usługa Azure Kubernetes Service — Kubernetes API (Microsoft. ContainerService/managedClusters)    | managedCluster | {GUID}. privatelink. <region>. azmk8s.IO|
+|Usługa Azure Kubernetes Service — Kubernetes API (Microsoft. ContainerService/managedClusters)    | managedCluster | {GUID}. privatelink. {Region}. azmk8s. IO|
 |Azure Search (Microsoft. Search/searchServices)|searchService|privatelink.search.windows.net|   
 |Azure Container Registry (Microsoft. ContainerRegistry/rejestry) | registry | privatelink.azurecr.io |
 |Konfiguracja aplikacji platformy Azure (Microsoft. Appconfiguration/configurationStores)| Magazyn konfiguracji | privatelink.azconfig.io|

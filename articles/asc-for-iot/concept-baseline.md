@@ -1,6 +1,6 @@
 ---
-title: Kontrole według planu bazowego i niestandardowe
-description: Dowiedz się więcej o koncepcji usługi Azure Security Center dla linii bazowej IoT.
+title: Testy bazowe i niestandardowe
+description: Dowiedz się więcej na temat koncepcji Azure Security Center dla linii bazowej usługi IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,35 +16,35 @@ ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
 ms.openlocfilehash: c52a3e55e3801eaaac885b9a3c364283f74906ba
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311655"
 ---
-# <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Usługa Azure Security Center dla planu bazowego IoT i kontrole niestandardowe
+# <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Azure Security Center dla linii bazowej i czeków niestandardowych
 
-W tym artykule opisano usługę Azure Security Center for IoT baseline i podsumowuje wszystkie skojarzone właściwości kontroli niestandardowych według planu bazowego.
+W tym artykule wyjaśniono Azure Security Center dla linii bazowej IoT oraz podsumowano wszystkie skojarzone właściwości niestandardowych kontroli linii bazowej.
 
 ## <a name="baseline"></a>Punkt odniesienia
 
-Linia bazowa ustanawia standardowe zachowanie dla każdego urządzenia i ułatwia ustanawianie nietypowego zachowania lub odchylenia od oczekiwanych norm.
+Linia bazowa ustala standardowe zachowanie poszczególnych urządzeń i ułatwia ustalenie nietypowego zachowania lub odchylenia od oczekiwanych norm.
 
-## <a name="baseline-custom-checks"></a>Kontrole niestandardowe według planu bazowego
+## <a name="baseline-custom-checks"></a>Niestandardowe kontrole linii bazowej
 
-Kontrole niestandardowe planu bazowego ustanawiają niestandardową listę kontroli dla każdego planu bazowego urządzenia przy użyciu **bliźniaczej reprezentacji tożsamości modułu** urządzenia.
+Niestandardowe kontrole linii bazowej określają niestandardową listę kontroli dla każdej linii bazowej urządzenia przy użyciu **sznurka tożsamości modułu** urządzenia.
 
 ## <a name="setting-baseline-properties"></a>Ustawianie właściwości linii bazowej
 
-1. W centrum IoT Hub znajdź i wybierz urządzenie, które chcesz zmienić.
-1. Kliknij na urządzeniu, a następnie kliknij moduł **azureiotsecurity.**
-1. Kliknij **pozycję Bliźniacza tożsamości modułu**.
-1. Przekaż plik **niestandardowych kontroli linii bazowej** na urządzenie.
-1. Dodaj właściwości planu bazowego do modułu zabezpieczeń i kliknij przycisk **Zapisz**.
+1. W IoT Hub Znajdź i wybierz urządzenie, które chcesz zmienić.
+1. Kliknij urządzenie, a następnie kliknij moduł **azureiotsecurity** .
+1. Kliknij pozycję **moduł identyfikacja sznurka**.
+1. Przekaż **niestandardowy plik kontroli linii bazowej** na urządzenie.
+1. Dodaj właściwości linii bazowej do modułu zabezpieczeń, a następnie kliknij przycisk **Zapisz**.
 
-### <a name="baseline-custom-check-file-example"></a>Przykład niestandardowego pliku wyboru planu bazowego
+### <a name="baseline-custom-check-file-example"></a>Przykład podstawowego pliku sprawdzania niestandardowego
 
-Aby skonfigurować niestandardowe kontrole według planu bazowego:
+Aby skonfigurować niestandardowe kontrole linii bazowej:
 
    ```json
     "desired": {
@@ -62,19 +62,19 @@ Aby skonfigurować niestandardowe kontrole według planu bazowego:
     },
    ```
 
-## <a name="baseline-custom-check-properties"></a>Właściwości sprawdzania niestandardowego planu bazowego
+## <a name="baseline-custom-check-properties"></a>Właściwości niestandardowego sprawdzania kontroli linii bazowej
 
 | Nazwa| Stan | Prawidłowe wartości| Wartości domyślne| Opis |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|linia bazowaCustomChecksEnabled|Wymagane: prawda |Prawidłowe wartości: **wartość logiczna** |Wartość domyślna: **false** |Maksymalny przedział czasu przed wysłaniem wiadomości o wysokim priorytecie.|
-|ścieżka linii bazowejCustomChecksFilePath |Wymagane: prawda|Prawidłowe wartości: **Ciąg ,** **null** |Wartość domyślna: **null** |Pełna ścieżka podstawowej konfiguracji xml|
-|linia bazowaCustomChecksFileHash |Wymagane: prawda|Prawidłowe wartości: **Ciąg ,** **null** |Wartość domyślna: **null** |`sha256sum`pliku konfiguracyjnego xml. Użyj [sha256sum odniesienia](https://linux.die.net/man/1/sha256sum) dla dodatkowych informacji. |
+|baselineCustomChecksEnabled|Wymagane: prawda |Prawidłowe wartości: **wartość logiczna** |Wartość domyślna: **Fałsz** |Maksymalny przedział czasu przed wysłaniem komunikatów o wysokim priorytecie.|
+|baselineCustomChecksFilePath |Wymagane: prawda|Prawidłowe wartości: **String**, **null** |Wartość domyślna: **null** |Pełna ścieżka do podstawowej konfiguracji XML|
+|baselineCustomChecksFileHash |Wymagane: prawda|Prawidłowe wartości: **String**, **null** |Wartość domyślna: **null** |`sha256sum`pliku konfiguracyjnego XML. Aby uzyskać dodatkowe informacje, użyj [odwołania sha256sum](https://linux.die.net/man/1/sha256sum) . |
 
-Aby przejrzeć dodatkowe przykłady planu bazowego, zobacz [przykład niestandardowej linii bazowej -1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml) i [przykład niestandardowej linii bazowej -2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml).
+Aby zapoznać się z dodatkowymi przykładami linii bazowej, zobacz [przykład niestandardowego punktu odniesienia-1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml) i [niestandardowy punkt odniesienia — 2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dostęp do [nieprzetworzonych danych zabezpieczających](how-to-security-data-access.md)
+- Uzyskiwanie dostępu do [danych pierwotnych zabezpieczeń](how-to-security-data-access.md)
 - [Badanie urządzenia](how-to-investigate-device.md)
-- Zrozumienie i eksplorowanie [zaleceń dotyczących zabezpieczeń](concept-recommendations.md)
-- Opis i eksplorowanie [alertów zabezpieczeń](concept-security-alerts.md)
+- Omówienie i eksplorowanie [zaleceń dotyczących zabezpieczeń](concept-recommendations.md)
+- Poznawanie i eksplorowanie [alertów zabezpieczeń](concept-security-alerts.md)

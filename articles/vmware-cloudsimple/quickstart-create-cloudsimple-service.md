@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: tworzenie usługi VMware CloudSimple'
+title: 'Szybki Start: Tworzenie usługi VMware CloudSimple'
 titleSuffix: Azure VMware Solution by CloudSimple
-description: Dowiedz się, jak utworzyć usługę CloudSimple, węzły zakupu i węzły rezerwy
+description: Dowiedz się, jak utworzyć usługę CloudSimple, węzły zakupu i rezerwowe węzły
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/16/2019
@@ -10,27 +10,27 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: d7c137a75c0a021aa8bca3aec23da6c4d1ada300
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81868030"
 ---
-# <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>Szybki start — tworzenie rozwiązania Azure VMware przez usługę CloudSimple
+# <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>Szybki Start — Tworzenie rozwiązania VMware platformy Azure według usługi CloudSimple
 
-Aby rozpocząć, utwórz rozwiązanie Azure VMware przez CloudSimple w witrynie Azure portal.
+Aby rozpocząć, Utwórz rozwiązanie Azure VMware przez CloudSimple w Azure Portal.
 
-## <a name="vmware-solution-by-cloudsimple---service-overview"></a>VMware Solution by CloudSimple — omówienie usługi
+## <a name="vmware-solution-by-cloudsimple---service-overview"></a>Rozwiązanie VMware według CloudSimple — Omówienie usługi
 
-Usługa CloudSimple umożliwia korzystanie z rozwiązania Azure VMware przez CloudSimple.  Tworzenie usługi umożliwia aprowizowanie węzłów, zarezerwowanie węzłów i tworzenie chmur prywatnych.  Dodaj usługę CloudSimple w każdym regionie platformy Azure, w którym jest dostępna usługa CloudSimple.  Usługa definiuje sieć brzegową rozwiązania Azure VMware przez CloudSimple.  Ta sieć brzegowa jest używana w usługach obejmujących sieć VPN, usługę ExpressRoute i łączność z Internetem z chmurami prywatnymi.
+Usługa CloudSimple umożliwia korzystanie z rozwiązań VMware platformy Azure przez CloudSimple.  Tworzenie usługi pozwala na inicjowanie obsługi węzłów, rezerwowanie węzłów i tworzenie chmur prywatnych.  Należy dodać usługę CloudSimple w każdym regionie świadczenia usługi Azure, w którym jest dostępna usługa CloudSimple.  Usługa definiuje sieć brzegową rozwiązania Azure VMware przez CloudSimple.  Ta sieć brzegowa jest używana w przypadku usług, które obejmują sieci VPN, ExpressRoute i łączność z Internetem z chmurami prywatnymi.
 
-Aby dodać usługę CloudSimple, należy utworzyć podsieć bramy. Podsieć bramy jest używana podczas tworzenia sieci brzegowej i wymaga bloku CIDR /28. Przestrzeń adresowa podsieci bramy musi być unikatowa. Nie może nakładać się na żadne lokalne przestrzenie adresowe sieciowe ani przestrzeń adresową sieci wirtualnej platformy Azure.
+Aby dodać usługę CloudSimple, należy utworzyć podsieć bramy. Podsieć bramy jest używana podczas tworzenia sieci brzegowej i wymaga bloku/28 CIDR. Przestrzeń adresowa podsieci bramy musi być unikatowa. Nie może pokrywać się z żadnym z lokalnych przestrzeni adresowych sieci ani przestrzenią adresową sieci wirtualnej platformy Azure.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Przydziel blok CIDR /28 dla podsieci bramy.  Podsieć bramy jest wymagana dla usługi CloudSimple i jest unikatowa dla regionu, w którym została utworzona. Podsieć bramy jest używana dla usługi Azure VMware Solution by CloudSimple usługi sieciowe usługi brzegowe i wymaga /28 bloku CIDR. Przestrzeń adresowa podsieci bramy musi być unikatowa. Nie może pokrywać się z żadną siecią, która komunikuje się ze środowiskiem CloudSimple.  Sieci, które komunikują się z CloudSimple obejmują sieci lokalne i sieci wirtualne platformy Azure.
+Przydziel blok CIDR/28 dla podsieci bramy.  Podsieć bramy jest wymagana dla usługi CloudSimple i jest unikatowa dla regionu, w którym została utworzona. Podsieć bramy jest używana dla rozwiązań VMware platformy Azure przez usługi sieciowe CloudSimple Edge i wymaga bloków CIDR/28. Przestrzeń adresowa podsieci bramy musi być unikatowa. Nie może pokrywać się z żadną siecią, która komunikuje się ze środowiskiem CloudSimple.  Sieci, które komunikują się z usługą CloudSimple, obejmują sieci lokalne i sieci wirtualne platformy Azure.
 
-Przejrzyj [wymagania wstępne sieci .](cloudsimple-network-checklist.md) 
+Przejrzyj [wymagania wstępne dotyczące sieci](cloudsimple-network-checklist.md). 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -41,50 +41,50 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 1. Wybierz pozycję **Wszystkie usługi**.
 2. Wyszukaj **usługę CloudSimple**.
 
-    ![Usługa Search CloudSimple](media/create-cloudsimple-service-search.png)
+    ![Wyszukaj usługę CloudSimple](media/create-cloudsimple-service-search.png)
 
-3. Wybierz **pozycję CloudSimple Services**.
-4. Kliknij **przycisk Dodaj,** aby utworzyć nową usługę.
+3. Wybierz pozycję **CloudSimple Services**.
+4. Kliknij przycisk **Dodaj** , aby utworzyć nową usługę.
 
     ![Dodaj usługę CloudSimple](media/create-cloudsimple-service-add.png)
 
 5. Wybierz subskrypcję, w której chcesz utworzyć usługę CloudSimple.
-6. Wybierz grupę zasobów dla usługi. Aby dodać nową grupę zasobów, kliknij przycisk **Utwórz nowy**.
-7. Wprowadź nazwę, aby zidentyfikować usługę.
-8. Wprowadź cidr bramy usługi. Określ podsieć /28, która nie pokrywa się z żadnymi podsieciami lokalnymi, podsieciami platformy Azure lub planowanymi podsieciami CloudSimple. Nie można zmienić CIDR po utworzeniu usługi.
+6. Wybierz grupę zasobów dla usługi. Aby dodać nową grupę zasobów, kliknij pozycję **Utwórz nową**.
+7. Wprowadź nazwę identyfikującą usługę.
+8. Wprowadź wartość CIDR dla bramy usługi. Określ podsieć/28, która nie nakłada się na żadną z podsieci lokalnych, podsieci platformy Azure lub podsieci planowanych CloudSimple. Po utworzeniu usługi nie można zmienić CIDR.
 
     ![Tworzenie usługi CloudSimple](media/create-cloudsimple-service.png)
 
 9. Kliknij przycisk **OK**.
 
-Usługa jest tworzona i dodawana do listy usług.
+Usługa zostanie utworzona i dodana do listy usług.
 
 ## <a name="provision-nodes"></a>Aprowizowanie węzłów
 
-Aby skonfigurować pojemność płatności zgodnie z rzeczywistym idziemy dla środowiska cloudsimple private cloud, najpierw inicjuj węzełe w witrynie Azure portal.
+Aby skonfigurować funkcję płatność zgodnie z rzeczywistym użyciem dla środowiska chmury prywatnej CloudSimple, należy najpierw udostępnić węzły w Azure Portal.
 
 1. Wybierz pozycję **Wszystkie usługi**.
 2. Wyszukaj **węzły CloudSimple**.
 
-    ![Szukaj węzłów CloudSimple](media/create-cloudsimple-node-search.png)
+    ![Wyszukaj węzły CloudSimple](media/create-cloudsimple-node-search.png)
 
-3. Wybierz **opcję Węzły CloudSimple**.
-4. Kliknij **przycisk Dodaj,** aby utworzyć węzły.
+3. Wybierz **węzły CloudSimple**.
+4. Kliknij przycisk **Dodaj** , aby utworzyć węzły.
 
-    ![Dodawanie węzłów CloudSimple](media/create-cloudsimple-node-add.png)
+    ![Dodaj węzły CloudSimple](media/create-cloudsimple-node-add.png)
 
-5. Wybierz subskrypcję, w której chcesz aprowizować węzły CloudSimple.
-6. Wybierz grupę zasobów dla węzłów. Aby dodać nową grupę zasobów, kliknij przycisk **Utwórz nowy**.
+5. Wybierz subskrypcję, w której chcesz udostępnić węzły CloudSimple.
+6. Wybierz grupę zasobów dla węzłów. Aby dodać nową grupę zasobów, kliknij pozycję **Utwórz nową**.
 7. Wprowadź prefiks, aby zidentyfikować węzły.
 8. Wybierz lokalizację dla zasobów węzła.
-9. Wybierz dedykowaną lokalizację, aby obsługiwać zasoby węzła.
-10. Wybierz [typ węzła](cloudsimple-node.md).
-11. Wybierz liczbę węzłów do zainicjowania.
-12. Wybierz **pozycję Recenzja + Utwórz**.
-13. Przejrzyj ustawienia. Aby zmodyfikować dowolne ustawienia, kliknij przycisk **Poprzedni**.
-14. Wybierz pozycję **Utwórz**.
+9. Wybierz dedykowaną lokalizację do hostowania zasobów węzła.
+10. Wybierz [Typ węzła](cloudsimple-node.md).
+11. Wybierz liczbę węzłów do aprowizacji.
+12. Wybierz pozycję **Recenzja + Utwórz**.
+13. Przejrzyj ustawienia. Aby zmodyfikować wszystkie ustawienia, kliknij przycisk **Wstecz**.
+14. Wybierz przycisk **Utwórz**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie chmury prywatnej i konfigurowanie środowiska](quickstart-create-private-cloud.md)
+* [Utwórz chmurę prywatną i skonfiguruj środowisko](quickstart-create-private-cloud.md)
 * Dowiedz się więcej o [usłudze CloudSimple](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-service)

@@ -1,6 +1,6 @@
 ---
-title: Pulpit nawigacyjny marketplace Insights w analizie komercyjnej w Centrum partnerów
-description: Uzyskaj dostęp do podsumowania analizy sieci Web w portalu Marketplace, która umożliwia wydawcom mierzenie zaangażowania klientów w witrynach sklepu AppSource i Azure Marketplace.
+title: Pulpit nawigacyjny usługi Marketplace Insights w komercyjnej analizie Marketplace w centrum partnerskim
+description: Uzyskaj dostęp do podsumowania analizy sieci Web w portalu Marketplace, dzięki któremu wydawcy mogą mierzyć zaangażowanie klientów w AppSource i witryny Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,137 +8,137 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.openlocfilehash: 05389f0aea7e2637dd28281236e7fd7ec2b412fd
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81251711"
 ---
-# <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Marketplace Insights w analizie komercyjnej
+# <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny usługi Marketplace Insights w komercyjnej analizie Marketplace
 
-Ten artykuł zawiera informacje na pulpicie nawigacyjnym aplikacji Marketplace Insights w Centrum partnerów. Ten pulpit nawigacyjny wyświetla podsumowanie analizy sieci Web w portalu Marketplace, która umożliwia wydawcom mierzenie zaangażowania klientów dla odpowiednich stron szczegółów produktu wymienionych w witrynach sklepu marketplace: AppSource i Azure Marketplace.
+Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego usługi Marketplace Insights w centrum partnerskim. Ten pulpit nawigacyjny zawiera podsumowanie analizy sieci Web w portalu Marketplace, dzięki czemu wydawcy mogą mierzyć zaangażowanie klientów na odpowiednie strony szczegółów produktów wymienione w witrynie witryny Marketplace: AppSource i Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Pulpit nawigacyjny Szczegółowe informacje na temat platformy handlowej
 
-Aby uzyskać dostęp do **pulpitu nawigacyjnego Marketplace Insights** w Centrum partnerów, otwórz **[kartę Analizuj](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** w obszarze Rynek komercyjny.
+Aby uzyskać dostęp do **pulpitu nawigacyjnego usługi Marketplace Insights** w centrum partnerskim, Otwórz **[kartę Analiza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** w obszarze komercyjne Marketplace.
 
 Można wyświetlić graficzne reprezentacje następujących elementów:  
 
-- [Podsumowanie statystyk portalu Marketplace](#marketplace-insights-summary)
-- [Wizyty na stronie według geografii](#page-visits-by-geography)  
-- [Wizyty na stronie a unikalny trend odwiedzających](#page-visits-versus-unique-visitors-trend)
-- [Wezwanie do działania w porównaniu z unikalnymi gośćmi z CTA](#call-to-action-versus-unique-visitors-with-ctas)
-- [Wizyty na stronie i wezwanie do działania przez oferty](#page-visits-and-calls-to-action-by-offers)
-- [Trend procentowy wezwania do działania](#call-to-action-percentage-trend)
-- [Wizyty na stronie i wezwania do działania przez domeny polecania](#page-visits-and-calls-to-action-by-referral-domains)
-- [Tabela szczegółów statystyk portalu Marketplace](#marketplace-insights-details-table)
+- [Podsumowanie informacji o portalu Marketplace](#marketplace-insights-summary)
+- [Wizyty stron według położenia geograficznego](#page-visits-by-geography)  
+- [Liczba odwiedzin stron i trend unikatowych osób odwiedzających](#page-visits-versus-unique-visitors-trend)
+- [Wywoływanie akcji i unikatowych osób odwiedzających przy użyciu CTAs](#call-to-action-versus-unique-visitors-with-ctas)
+- [Odwiedziny stron i wywoływanie akcji przez oferty](#page-visits-and-calls-to-action-by-offers)
+- [Wywołaj trend wartości procentowej akcji](#call-to-action-percentage-trend)
+- [Odwiedziny stron i wywołania akcji według domen odwołań](#page-visits-and-calls-to-action-by-referral-domains)
+- [Tabela szczegółów szczegółowych informacji o portalu Marketplace](#marketplace-insights-details-table)
 
 >[!NOTE]
-> Szczegółowe definicje terminologii analitycznej można znaleźć w części [Często zadawane pytania i terminologia dotyczące analizy rynku komercyjnego.](./faq-terminology.md)
+> Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz [często zadawane pytania i terminologię dotyczącą komercyjnej analizy portalu Marketplace](./faq-terminology.md).
 
-### <a name="insights-dashboard-layout"></a>Układ pulpitu nawigacyjnego aplikacji Insights
+### <a name="insights-dashboard-layout"></a>Układ pulpitu nawigacyjnego wglądu w szczegółowe dane
 
-Dane z Marketplace można wyświetlać na różne sposoby:
+Metryki portalu Marketplace można przeglądać na wiele sposobów:
 
 - Karty witryny sklepu
 - Filtry stron
 - Filtry dat
 
-**Karty witryny**sklepu: metryki ofert można wyświetlać oddzielnie za pośrednictwem kart AppSource & Azure Marketplace. Wybierz oferty z listy rozwijanej oferty po prawej stronie, aby wyświetlić wizualizację metryk dla wybranych ofert. Domyślnie wszystkie oferty są wybierane.
+**Karty witryny sklepu**: możesz wyświetlać metryki ofert oddzielnie za pośrednictwem kart AppSource & Azure Marketplace. Wybierz oferty z listy rozwijanej oferta po prawej stronie, aby wyświetlić wizualizację metryk dla wybranych ofert. Domyślnie są wybierane wszystkie oferty.
 
-![Lista rozwijana oferty rozwijanej usługi programu Partner Center Insights](./media/insights-offer-dropdown.png)
+![Lista rozwijana oferty pulpitu nawigacyjnego usługi Partner Center](./media/insights-offer-dropdown.png)
 
-**Filtry stron statystyk:** Filtry te są stosowane na poziomie oferty (strona szczegółów produktu). Można wybrać wiele filtrów dla kryteriów, które chcesz wyświetlić. Ten filtr dotyczy całej sekcji Statystyki marketplace, w tym wykresów i szczegółów.
+**Filtry stron usługi Insights**: te filtry są stosowane na poziomie oferty (strony szczegółów produktu). Można wybrać wiele filtrów dla kryteriów, które chcesz wyświetlić. Ten filtr ma zastosowanie do całej sekcji szczegółowe informacje o portalu Marketplace, w tym wykresów i szczegółów.
 
-![Filtry stron pulpitu nawigacyjnego centrum partnerów](./media/insights-page-filter.png)
+![Filtry stron pulpitu nawigacyjnego usługi Partner Center Insights](./media/insights-page-filter.png)
 
-- Nazwy ofert są wyświetlane tylko dla ofert, które mają wizyty na stronie w wybranym zakresie dat.  
-- Domyślnym wyborem jest "Wszystkie" dla każdej z opcji filtru
-- Zastosowane filtry pokazują liczbę selekcji dla dokonanych wyborów. Zastosowane filtry nie będą wyświetlane dla domyślnego wyboru "Wszystkie".
+- Nazwy ofert są wyświetlane tylko dla ofert, które mają odwiedziny stron w wybranym zakresie dat.  
+- Domyślny wybór to "All" dla każdej opcji filtrowania
+- Zastosowane filtry wyświetlają liczbę wybranych opcji. Zastosowane filtry nie będą wyświetlane dla domyślnego wyboru "wszystkie".
 
-![Zastosowane filtry usługi Centrum partnerów](./media/insights-page-filter-two.png)
+![Zastosowane filtry usługi Partner Center](./media/insights-page-filter-two.png)
 
-**Filtry dat statystyk:** ten filtr dotyczy całej sekcji Wgląd w usługi Marketplace. Filtry mogą zawierać wstępnie określone zakresy dat lub niestandardowy zakres dat.
+**Filtry dat usługi Insights**: ten filtr ma zastosowanie do całej sekcji szczegółowych informacji o portalu Marketplace. Filtry mogą zawierać wstępnie ustalone zakresy dat lub niestandardowy zakres dat.
 
-![Filtry dat usługi Centrum partnerów](./media/insights-date-range.png)
+![Filtry dat usługi Partner Center](./media/insights-date-range.png)
 
-## <a name="marketplace-insights-summary"></a>Podsumowanie statystyk portalu Marketplace
+## <a name="marketplace-insights-summary"></a>Podsumowanie informacji o portalu Marketplace
 
-W sekcji Podsumowanie statystyk marketplace jest wyświetlana liczba **wizyt na stronie,** **wywołania do działania**i **Unikatowych użytkowników** dla wybranego zakresu dat.
+Sekcja podsumowania usługi Marketplace Insights zawiera liczbę **odwiedzin stron**, **wywołań akcji**i **unikatowych odwiedzających** dla wybranego zakresu dat.
 
-### <a name="page-visits"></a>Wizyty na stronie
+### <a name="page-visits"></a>Wizyty stron
 
-Ta liczba reprezentuje liczbę różnych sesji użytkownika na stronie oferty (strona szczegółów produktu) dla wybranego zakresu dat. Wskaźnik procentowy czerwony/zielony reprezentuje wzrost % odwiedzin strony. Wykres trendu reprezentuje liczbę wizyt na stronie w ciągu miesiąca do miesiąca.
+Ta liczba przedstawia liczbę różnych sesji użytkownika na stronie oferty (Strona szczegółów produktu) dla wybranego zakresu dat. Czerwony/zielony wskaźnik procentowy przedstawia wzrost% liczby odwiedzin strony. Wykres trendu przedstawia liczbę odwiedzin strony od początku do miesiąca.
 
-### <a name="unique-visitors"></a>Wyjątkowi goście
+### <a name="unique-visitors"></a>Unikatowych odwiedzających
 
-Liczba ta reprezentuje odrębną liczbę odwiedzających w wybranym zakresie dat dla ofert wybranych w filtrze strony. Użytkownik, który odwiedził jedną lub więcej stron szczegółów produktu, będzie liczony jako jeden unikalny użytkownik.
+Ta liczba reprezentuje liczbę różnych odwiedzających w wybranym zakresie dat dla ofert wybranych w filtrze strony. Osoba odwiedzająca, która odwiedziła co najmniej jedną stronę szczegółów produktu, będzie traktowana jako jeden unikatowy użytkownik.
 
-### <a name="call-to-action"></a>Wezwanie do działania
+### <a name="call-to-action"></a>Wywołanie akcji
 
-Ten numer reprezentuje liczbę kliknięć przycisku **Wezwanie do działania** ukończonych na stronie oferty (strona szczegółów produktu). **Wezwania do działania** są liczone po wybraniu przycisków **Pobierz teraz**, **Bezpłatna wersja próbna**, **Skontaktuj się ze mną**i **Przyciski Jazdy testowej.**
+Ta liczba reprezentuje liczbę wywołań przycisku **akcji, które** zostały wykonane na stronie oferty (Strona szczegółów produktu). **Wywołania akcji** są zliczane, gdy są zaznaczone przyciski **Pobierz teraz**, **bezpłatna wersja próbna**, **kontakt ze mną**i **Test Drive** .
 
-![Podsumowanie wezwania do działania usługi Centrum partnerów](./media/insights-summary.png)
+![Podsumowanie akcji w usłudze Partner Center](./media/insights-summary.png)
 
-## <a name="page-visits-by-geography"></a>Wizyty na stronie według geografii
+## <a name="page-visits-by-geography"></a>Wizyty stron według położenia geograficznego
 
-Poniższa mapa cieplna wyświetla liczbę **wizyt strony,** **wezwania do działania**i **unikalnych użytkowników w zależności od kraju klienta.** Wyższe wizyty na stronie są reprezentowane przez ciemniejsze kolory map, a wizyty na niższych stronicowach są reprezentowane przez jaśniejsze kolory map.
+Poniższa mapę cieplną przedstawia liczbę **odwiedzin stron**, **wywołań akcji**i **unikatowych osób odwiedzających zgodnie z krajem klienta**. Wyższe odwiedziny stron są reprezentowane przez ciemniejszy kolor mapy, a dolne wizyty na stronach są reprezentowane przez jaśniejsze kolory mapy.
 
-![Rozmieszczenie geograficzne usługi Centrum partnerów](./media/insights-geography.png)
+![Geograficznie rozmieszczenie w usłudze Partner Center](./media/insights-geography.png)
 
-Mapa cieplna zawiera następujące możliwości:
+Mapę cieplną obejmuje następujące możliwości:
 
-- Mapa cieplna ma dodatkową siatkę do wyświetlania szczegółów **wizyt na stronie,** **wezwań do działania** i **unikalnych użytkowników** w określonej lokalizacji; można powiększyć w określonej lokalizacji, jeśli jest to preferowane.  
-- **Spread kraje** to liczba wszystkich krajów, z których klienci zgłosili wizyty na stronie w wybranym zakresie dat.
-- Możesz wyszukiwać i wybierać kraj w siatce, aby powiększyć lokalizację na mapie. Powróć oryginalny widok, wybierając pozycję **Strona główna** na mapie.
+- Mapę cieplną ma dodatkową siatkę do wyświetlania szczegółów **odwiedzin strony**, **wywołań akcji** i **unikatowych osób odwiedzających** w określonej lokalizacji; Jeśli to możliwe, możesz powiększyć do określonej lokalizacji.  
+- **Rozmieszczenie krajów** to liczba wszystkich krajów, w których klienci mają zgłoszone wizyty na stronach w wybranym zakresie dat.
+- Możesz wyszukać i wybrać kraj w siatce, aby powiększyć do lokalizacji na mapie. Przywróć widok oryginalny, wybierając pozycję **Strona główna** na mapie.
 
-## <a name="page-visits-versus-unique-visitors-trend"></a>Wizyty na stronie a unikalny trend odwiedzających
+## <a name="page-visits-versus-unique-visitors-trend"></a>Liczba odwiedzin stron i trend unikatowych osób odwiedzających
 
-Poniższe kolumny przedstawiają liczbę miesięcznych wizyt na stronie, które są wyświetlane na osi Y (oś po lewej stronie wykresu). Linia trendu reprezentuje miesięczny trend unikatowych użytkowników, który jest wyświetlany na pomocniczej osi Y (oś po prawej stronie wykresu), dla ofert opublikowanych w witrynach sklepowych: Azure Marketplace i AppSource.
+Poniższe kolumny zawierają liczbę comiesięcznych wizyt stron, które są wyświetlane na osi Y (oś po lewej stronie wykresu). Linia trendu reprezentuje miesięczny trend unikatowych osób odwiedzających, które są wyświetlane na pomocniczej osi Y (oś po prawej stronie wykresu), w przypadku ofert opublikowanych w witrynie sklepu: Azure Marketplace i AppSource.
 
-![Wizyty na stronie Centrum partnerów w porównaniu z unikalnym trendem odwiedzających](./media/insights-page-vists-unique-visitors.png)
+![Informacje na temat odwiedzin stron usługi Partner Center i unikatowych trendów odwiedzających](./media/insights-page-vists-unique-visitors.png)
 
-## <a name="call-to-action-versus-unique-visitors-with-ctas"></a>Wezwanie do działania w porównaniu z unikalnymi gośćmi z CTA
+## <a name="call-to-action-versus-unique-visitors-with-ctas"></a>Wywoływanie akcji i unikatowych osób odwiedzających przy użyciu CTAs
 
-Skumulowane kolumny reprezentują miesięczne wywołania działania (CTA), które są podzielone według typów CTA **(Pobierz teraz**, **Skontaktuj się ze mną**i **Bezpłatna wersja próbna)** i wykreślone na osi Y (oś po lewej stronie). Linia trendu reprezentuje miesięczny trend unikatowych użytkowników z ctas, który jest wyświetlany na pomocniczej osi Y (oś po prawej stronie wykresu), dla ofert opublikowanych w usłudze Azure Marketplace i AppSource.
+Skumulowane kolumny reprezentują miesięczne wywołania akcji (CTA), które są podzielone według typów CTA (**Pobierz teraz**, **skontaktuj się z**nami i **bezpłatna wersja próbna**) i kreślone na osi Y (oś po lewej stronie). Linia trendu reprezentuje miesięczny trend unikatowych odwiedzających z CTAs, który jest wyświetlany na pomocniczej osi Y (oś po prawej stronie wykresu), w przypadku ofert opublikowanych w witrynie Azure Marketplace i AppSource.
 
-![Centrum partnerów Insights wezwanie do działania w porównaniu do unikatowych użytkowników z CTA](./media/insights-call-to-action-unique-visitors.png)
+![Wywołanie usługi Partner Center Insights do akcji i unikatowych osób odwiedzających z CTAs](./media/insights-call-to-action-unique-visitors.png)
 
-## <a name="page-visits-and-calls-to-action-by-offers"></a>Wizyty na stronie i wezwania do działania przez oferty
+## <a name="page-visits-and-calls-to-action-by-offers"></a>Odwiedziny stron i wywołania akcji przez oferty
 
-Zewnętrzny wykres kołowy przedstawia podział **wizyt strony** na podstawie ofert opublikowanych w portalu marketplace i wybranych w filtrze. Wewnętrzny wykres reprezentuje podział **wywołań do działania** dla tych samych ofert.
+Zewnętrzny wykres kołowy reprezentuje podział **wizyt stron** opartych na ofertach opublikowanych w portalu Marketplace i wybranych w filtrze. Wewnętrzny wykres reprezentuje wywołania podziału **akcji** dla tych samych ofert.
 
-![Wizyty na stronie Centrum partnerów i wezwania do działania według ofert](./media/insights-page-visits-and-cta-by-offer.png)
+![Informacje o stronach usługi Partner Center Insights i wywołaniach akcji przez oferty](./media/insights-page-visits-and-cta-by-offer.png)
 
-## <a name="call-to-action-percentage-trend"></a>Trend procentowy wezwania do działania
+## <a name="call-to-action-percentage-trend"></a>Wywołaj trend wartości procentowej akcji
 
-**Trend procentowy wezwania do działania** przedstawia procent CTA dla ofert opublikowanych na rynku. CTA % = (CTA/wizyty na stronie) * 100.
+**Trend wartości procentowej wywołania** w ramach akcji przedstawia wartość procentową CTA dla ofert opublikowanych w portalu Marketplace. CTA% = (CTAs/wizyty stron) * 100.
 
-![Trend procentowy wezwania do działania w centrum partnerów](./media/insights-call-to-action-percentage-trend.png)
+![Informacje dotyczące trendu wartości procentowej akcji w usłudze Partner Center](./media/insights-call-to-action-percentage-trend.png)
 
-## <a name="page-visits-and-calls-to-action-by-referral-domains"></a>Wizyty na stronie i wezwania do działania przez domeny polecania
+## <a name="page-visits-and-calls-to-action-by-referral-domains"></a>Odwiedziny stron i wywołania akcji według domen odwołań
 
-Poniższy wykres przedstawia 50 najlepszych domen poleceń. Wybranie określonej domeny referencyjnej pokazuje miesięczny trend odwiedzin stron i wywołań do działania na wykresie po prawej stronie.
+Wykres poniżej przedstawia najpopularniejsze domeny odwołań 50. Wybranie konkretnej domeny odwołań spowoduje wyświetlenie miesięcznego trendu wizyt stron i wywoływanie akcji na wykresie po prawej stronie.
 
-![Wizyty na stronie Centrum partnerów i wezwania do działania według domen i kampanii polecających](./media/insights-page-visits-call-to-actions.png)
+![Szczegółowe informacje na temat stron usługi Partner Center oraz wywołania akcji przez odwołania do domen i kampanii](./media/insights-page-visits-call-to-actions.png)
 
-## <a name="marketplace-insights-details-table"></a>Tabela szczegółów statystyk portalu Marketplace
+## <a name="marketplace-insights-details-table"></a>Tabela szczegółów szczegółowych informacji o portalu Marketplace
 
-Ta tabela zawiera widok listy wizyt na stronie i wywołań akcji wybranych ofert posortowanych według daty.
+Ta tabela zawiera widok listy wizyt stron oraz wywołania akcji wybranych ofert posortowanych według daty.
 
-![Tabela szczegółów usługi Centrum partnerów](./media/insights-details-page.png)
+![Tabela szczegółów usługi Partner Center](./media/insights-details-page.png)
 
 - Dane można wyodrębnić do pliku CSV, jeśli liczba rekordów jest mniejsza niż 1000.
-- Jeśli liczba rekordów wynosi ponad 1000, eksportowane dane zostaną asynchronicznie umieszczone na stronie pobierania przez następne 30 dni.
-- Filtry można zastosować do wyświetlania danych, które Cię interesują. Dane można filtrować według nazw ofert i nazw kampanii.  
+- Jeśli liczba rekordów przekracza 1000, eksportowane dane będą asynchroniczne umieszczane na stronie pobierania przez następne 30 dni.
+- Filtry można zastosować, aby wyświetlić dane, które Cię interesują. Dane można filtrować według nazw ofert i nazw kampanii.  
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać przegląd raportów analitycznych dostępnych w komercyjnym rynku Centrum partnerów, zobacz [Analytics dla rynku komercyjnego w Centrum partnerów.](./analytics.md)
-- Aby uzyskać wykresy, trendy i wartości danych agregujących, które podsumowują aktywność w portalu marketplace dla Twojej oferty, zobacz [Podsumowanie pulpitu nawigacyjnego w analizie rynku komercyjnego.](./summary-dashboard.md)
-- Aby uzyskać informacje o zamówieniach w formacie graficznym i do pobrania, zobacz [Pulpit nawigacyjny zamówień w analizie rynku komercyjnego](./orders-dashboard.md).
-- W przypadku maszyny wirtualnej (VM) oferuje użycie i metryki rozliczeniowe taryfowe, zobacz [Pulpit nawigacyjny użycia w analizie komercyjnego rynku.](./usage-dashboard.md)
-- Aby uzyskać szczegółowe informacje o klientach, w tym trendy wzrostu, zobacz [Pulpit nawigacyjny klientów w analizie rynku komercyjnego.](./customer-dashboard.md)
-- Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [Pulpit nawigacyjny pobierania w analizie rynku komercyjnego](./downloads-dashboard.md).
-- Aby wyświetlić skonsolidowany widok opinii klientów dotyczących ofert w witrynie Azure Marketplace i AppSource, zobacz [Pulpit nawigacyjny ocen i opinii w analizie komercyjnego portalu marketplace.](./ratings-reviews.md)
-- W przypadku często zadawanych pytań dotyczących analityki rynku komercyjnego i kompleksowego słownika terminów danych zobacz [Często zadawane pytania i terminologia w celu analizy rynku komercyjnego.](./faq-terminology.md)
+- Aby zapoznać się z omówieniem raportów analitycznych dostępnych na rynku komercyjnym centrum partnerskiego, zobacz [Analiza portalu komercyjnego w centrum partnerskim](./analytics.md).
+- W przypadku grafów, trendów i wartości zagregowanych danych, które podsumowują aktywność witryny Marketplace dla oferty, zobacz [pulpit nawigacyjny podsumowania w portalu komercyjnej analizy Marketplace](./summary-dashboard.md).
+- Aby uzyskać informacje o zamówieniach w formacie graficznym i do pobrania, zobacz temat [Zamówienie pulpitu nawigacyjnego w portalu komercyjnej analizy Marketplace](./orders-dashboard.md).
+- W przypadku maszyn wirtualnych (VM) są dostępne metryki dotyczące użycia i taryfowego rozliczania, zobacz [pulpit nawigacyjny użycia w portalu komercyjnej analizy Marketplace](./usage-dashboard.md).
+- Aby uzyskać szczegółowe informacje na temat klientów, w tym trendów wzrostu, zobacz [pulpit nawigacyjny klienta w komercyjnej analizie portalu Marketplace](./customer-dashboard.md).
+- Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [pulpit nawigacyjny w portalu komercyjnej analizy Marketplace](./downloads-dashboard.md).
+- Aby wyświetlić skonsolidowany widok opinii klientów na temat ofert w witrynie Azure Marketplace i AppSource, zobacz [pulpit nawigacyjny oceny i przeglądów w portalu komercyjnej analizy Marketplace](./ratings-reviews.md).
+- Często zadawane pytania dotyczące analizy komercyjnej portalu Marketplace i kompleksowego słownika warunków dotyczących danych można znaleźć [w temacie często zadawane pytania i terminologia dotyczące komercyjnej analizy w portalu Marketplace](./faq-terminology.md).

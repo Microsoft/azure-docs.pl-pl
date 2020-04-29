@@ -1,65 +1,65 @@
 ---
-title: Monitorowanie kondycji i użycia aplikacji za pomocą usługi Application Insights
-description: Wprowadzenie do usługi Application Insights. Analizuj użycie, dostępność i wydajność aplikacji lokalnych lub microsoft azure.
+title: Monitoruj kondycję i użycie aplikacji przy użyciu Application Insights
+description: Rozpocznij pracę z Application Insights. Analizowanie użycia, dostępności i wydajności aplikacji lokalnych lub Microsoft Azure.
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.openlocfilehash: 873fc41585c387246d83008a8f97d6c4d9a32c3b
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985069"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitorowanie wydajności w aplikacjach internetowych
 
 
-Upewnij się, że aplikacja działa dobrze i szybko dowiedzieć się o wszelkich błędach. [Usługa Application Insights][start] poinformuje Cię o wszelkich problemach z wydajnością i wyjątkami oraz pomoże Ci znaleźć i zdiagnozować główne przyczyny.
+Upewnij się, że aplikacja działa prawidłowo, i Dowiedz się szybko o wszelkich błędach. [Application Insights][start] poinformuje o wszelkich problemach z wydajnością i wyjątkach oraz ułatwia znalezienie i zdiagnozowanie głównych przyczyn.
 
-Usługa Application Insights może monitorować zarówno aplikacje i usługi internetowe Java, jak i ASP.NET, usługi WCF. Mogą one być hostowane lokalnie, na maszynach wirtualnych lub w witrynach sieci Web platformy Microsoft Azure. 
+Application Insights może monitorować zarówno aplikacje i usługi sieci Web w języku Java, jak i ASP.NET, usługi WCF. Mogą być hostowane lokalnie, na maszynach wirtualnych lub jako Microsoft Azure witryn sieci Web. 
 
-Po stronie klienta usługa Application Insights może przyjmować dane telemetryczne ze stron sieci web i wielu różnych urządzeń, w tym aplikacji z systemem iOS, Android i Ze Sklepu Windows.
+Po stronie klienta Application Insights może przyjmować dane telemetryczne ze stron sieci Web i różne urządzenia, w tym aplikacje dla systemów iOS, Android i Windows.
 
 ## <a name="set-up-performance-monitoring"></a><a name="setup"></a>Konfigurowanie monitorowania wydajności
-Jeśli usługa Application Insights nie została jeszcze dodana do projektu (oznacza to, że jeśli nie ma aplikacji ApplicationInsights.config), wybierz jeden z następujących sposobów rozpoczęcia pracy:
+Jeśli Application Insights nie zostały jeszcze dodane do projektu (oznacza to, że jeśli nie ma pliku ApplicationInsights. config), wybierz jedną z następujących metod, aby rozpocząć pracę:
 
 * [Aplikacje internetowe platformy ASP.NET](../../azure-monitor/app/asp-net.md)
-  * [Dodawanie monitorowania wyjątków](../../azure-monitor/app/asp-net-exceptions.md)
-  * [Dodawanie monitorowania zależności](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Aplikacje internetowe Java EE](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+  * [Dodaj Monitorowanie wyjątków](../../azure-monitor/app/asp-net-exceptions.md)
+  * [Dodaj monitorowanie zależności](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Aplikacje sieci Web Java EE](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
 
-## <a name="exploring-performance-metrics"></a><a name="view"></a>Eksplorowanie wskaźników wydajności
-W [witrynie Azure portal](https://portal.azure.com)przejdź do zasobu usługi Application Insights skonfigurowany dla aplikacji. Blok przeglądu zawiera podstawowe dane dotyczące wydajności:
+## <a name="exploring-performance-metrics"></a><a name="view"></a>Eksplorowanie metryk wydajności
+W [Azure Portal](https://portal.azure.com)przejdź do zasobu Application Insights, który został skonfigurowany dla aplikacji. W bloku przeglądu są wyświetlane podstawowe dane dotyczące wydajności:
 
-Kliknij dowolny wykres, aby wyświetlić więcej szczegółów i wyświetlić wyniki przez dłuższy okres. Na przykład kliknij kafelek Żądania, a następnie wybierz zakres czasu:
+Kliknij dowolny wykres, aby wyświetlić więcej szczegółów i wyświetlić wyniki dłuższy okres. Na przykład kliknij kafelek żądania, a następnie wybierz zakres czasu:
 
 ![Kliknij, aby uzyskać więcej danych i wybrać zakres czasu](./media/web-monitor-performance/appinsights-48metrics.png)
 
-Kliknij wykres, aby wybrać wyświetlane metryki, lub dodaj nowy wykres i wybierz jego dane:
+Kliknij wykres, aby wybrać metryki, które są wyświetlane, lub Dodaj nowy wykres i wybierz jego metryki:
 
-![Kliknij wykres, aby wybrać dane](./media/web-monitor-performance/appinsights-61perfchoices.png)
+![Kliknij wykres, aby wybrać metryki](./media/web-monitor-performance/appinsights-61perfchoices.png)
 
 > [!NOTE]
-> **Odznacz wszystkie metryki,** aby wyświetlić pełny dostępny wybór. Wskaźniki dzielą się na grupy; gdy wybrano dowolnego członka grupy, pojawiają się tylko inni członkowie tej grupy.
+> **Usuń zaznaczenie wszystkich metryk** , aby zobaczyć pełne dostępne opcje. Metryki wchodzą w zakres grup; w przypadku wybrania dowolnego elementu członkowskiego grupy pojawiają się tylko inni członkowie tej grupy.
 
-## <a name="what-does-it-all-mean-performance-tiles-and-reports"></a><a name="metrics"></a>Co to wszystko oznacza? Kafelki i raporty wydajności
-Istnieją różne metryki wydajności, które można uzyskać. Zacznijmy od tych, które pojawiają się domyślnie w bloku aplikacji.
+## <a name="what-does-it-all-mean-performance-tiles-and-reports"></a><a name="metrics"></a>Co to znaczy? Kafelki i raporty wydajności
+Istnieją różne metryki wydajności, które można uzyskać. Zacznijmy od tych, które są domyślnie wyświetlane w bloku aplikacji.
 
 ### <a name="requests"></a>Żądania
-Liczba żądań HTTP odebranych w określonym czasie. Porównaj to z wynikami w innych raportach, aby zobaczyć, jak aplikacja zachowuje się w zależności od obciążenia.
+Liczba odebranych żądań HTTP w określonym przedziale czasu. Porównaj ją z wynikami innych raportów, aby zobaczyć, jak działa aplikacja, gdy obciążenie jest różne.
 
 Żądania HTTP obejmują wszystkie żądania GET lub POST dla stron, danych i obrazów.
 
-Kliknij kafelek, aby uzyskać liczbę określonych adresów URL.
+Kliknij kafelek, aby uzyskać liczniki dla określonych adresów URL.
 
-### <a name="average-response-time"></a>Średni czas reakcji
-Mierzy czas między żądaniem sieci web wprowadzania aplikacji i odpowiedzi zwracane.
+### <a name="average-response-time"></a>Średni czas odpowiedzi
+Mierzy czas między żądaniem sieci Web wprowadzającym aplikację a zwracaną odpowiedzią.
 
-Punkty pokazują średnią ruchomą. Jeśli istnieje wiele żądań, mogą istnieć pewne, które odbiegają od średniej bez oczywistego szczytu lub spadku na wykresie.
+Punkty pokazują średnią wartość przesunięcia. W przypadku wielu żądań może istnieć kilka odchyleń od średniej bez oczywistego szczytu lub wartości DIP na wykresie.
 
-Poszukaj niezwykłych szczytów. Ogólnie rzecz biorąc, należy spodziewać się wzrostu czasu reakcji wraz ze wzrostem liczby żądań. Jeśli wzrost jest nieproporcjonalny, aplikacja może być uderzenie limitu zasobów, takich jak procesor CPU lub pojemność usługi, której używa.
+Poszukaj nietypowych szczytów. Ogólnie rzecz biorąc, oczekiwany jest czas odpowiedzi na wzrost liczby żądań. Jeśli wzrost jest nieproporcjonalny, aplikacja może być powodem limitu zasobów, takiego jak procesor CPU lub pojemność usługi, której używa.
 
-Kliknij kafelek, aby uzyskać czas dla określonych adresów URL.
+Kliknij kafelek, aby uzyskać czasy dla określonych adresów URL.
 
 ![](./media/web-monitor-performance/appinsights-42reqs.png)
 
@@ -71,72 +71,72 @@ Pokazuje, które żądania mogą wymagać dostrajania wydajności.
 ### <a name="failed-requests"></a>Żądania zakończone niepowodzeniem
 ![](./media/web-monitor-performance/appinsights-46failed.png)
 
-Liczba żądań, które zgłosiły nieprzechowywczone wyjątki.
+Liczba żądań, które wywołały nieprzechwycone wyjątki.
 
-Kliknij kafelek, aby wyświetlić szczegóły określonych błędów, a następnie wybierz indywidualne żądanie, aby wyświetlić jego szczegóły. 
+Kliknij kafelek, aby wyświetlić szczegóły określonych błędów, a następnie wybierz pojedyncze żądanie, aby wyświetlić jego szczegóły. 
 
-Do indywidualnej kontroli zatrzymywane są jedynie reprezentatywna próbka uschy.
+Tylko reprezentatywna próbka błędów jest zachowywana na potrzeby indywidualnej inspekcji.
 
 ### <a name="other-metrics"></a>Inne metryki
-Aby zobaczyć, jakie inne metryki można wyświetlić, kliknij wykres, a następnie usuń zaznaczenie wszystkich metryk, aby wyświetlić pełny dostępny zestaw. Kliknij (i), aby wyświetlić definicję każdej metryki.
+Aby zobaczyć, jakie inne metryki można wyświetlić, kliknij wykres, a następnie usuń zaznaczenie wszystkich metryk, aby zobaczyć pełny dostępny zestaw. Kliknij (i), aby zobaczyć definicję każdej metryki.
 
-![Usuń zaznaczenie wszystkich danych, aby wyświetlić cały zestaw](./media/web-monitor-performance/appinsights-62allchoices.png)
+![Usuń zaznaczenie wszystkich metryk, aby wyświetlić cały zestaw](./media/web-monitor-performance/appinsights-62allchoices.png)
 
-Wybranie dowolnej metryki powoduje wyłączenie innych, które nie mogą pojawić się na tym samym wykresie.
+Wybranie dowolnej metryki powoduje wyłączenie innych, które nie są wyświetlane na tym samym wykresie.
 
 ## <a name="set-alerts"></a>Ustawianie alertów
-Aby otrzymywać powiadomienia pocztą e-mail o nietypowych wartościach dowolnej metryki, dodaj alert. Możesz wysłać wiadomość e-mail do administratorów konta lub na określone adresy e-mail.
+Aby otrzymywać powiadomienia pocztą e-mail o nietypowych wartościach dowolnej metryki, Dodaj alert. Możesz wybrać opcję wysłania wiadomości e-mail do administratorów konta lub do określonych adresów e-mail.
 
 ![](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
 
-Ustaw zasób przed innymi właściwościami. Nie wybieraj zasobów webtest, jeśli chcesz ustawić alerty dotyczące wydajności lub metryk użycia.
+Ustaw zasób przed innymi właściwościami. Nie wybieraj zasobów WebTest, jeśli chcesz ustawić alerty dotyczące wydajności lub metryk użycia.
 
-Należy zwrócić uwagę na jednostki, w których zostaniesz poproszony o wprowadzenie wartości progowej.
+Należy zwrócić uwagę na jednostki, w których zostanie wyświetlony monit o wprowadzenie wartości progowej.
 
-*Nie widzę przycisku Dodaj alert.* - Czy jest to konto grupowe, do którego masz dostęp tylko do odczytu? Skontaktuj się z administratorem konta.
+*Nie widzę przycisku Dodaj alert.* -Czy to konto grupy, do którego masz dostęp tylko do odczytu? Skontaktuj się z administratorem konta.
 
 ## <a name="diagnosing-issues"></a><a name="diagnosis"></a>Diagnozowanie problemów
-Oto kilka wskazówek dotyczących znajdowania i diagnozowania problemów z wydajnością:
+Oto kilka porad dotyczących znajdowania i diagnozowania problemów z wydajnością:
 
-* Skonfiguruj [testy internetowe,][availability] aby otrzymywać alerty, jeśli witryna sieci Web ustępuje lub reaguje niepoprawnie lub wolno. 
-* Porównaj liczbę żądań z innymi metrykami, aby sprawdzić, czy błędy lub powolna odpowiedź są związane z obciążeniem.
-* [Wstaw i wyszukaj instrukcje śledzenia][diagnostic] w kodzie, aby ułatwić określenie problemów.
-* Monitoruj aplikację sieci Web w pracy za pomocą [strumienia metryk na żywo][livestream].
-* Przechwyć stan aplikacji .NET za pomocą [debugera migawek][snapshot].
+* Skonfiguruj [testy sieci Web][availability] , aby otrzymywać alerty, jeśli witryna sieci Web ulegnie awarii lub reaguje niepoprawnie lub powoli. 
+* Porównaj liczbę żądań z innymi metrykami, aby sprawdzić, czy występują błędy lub powolna odpowiedź do załadowania.
+* [Wstawianie i przeszukiwanie instrukcji Trace][diagnostic] w kodzie, aby pomóc w wykrywaniu problemów.
+* Monitoruj aplikację sieci Web w ramach operacji przy użyciu [Live Metrics Stream][livestream].
+* Przechwyć stan aplikacji .NET za pomocą [Snapshot Debugger][snapshot].
 
-## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Znajdowanie i naprawianie wąskich gardeł wydajności dzięki badaniu wydajności
+## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Znajdowanie i rozwiązywanie wąskich gardeł wydajności przy użyciu środowiska badania wydajności
 
-Za pomocą środowiska badania wydajności można przejrzeć operacje powolne wykonywanie w aplikacji sieci Web. Można szybko wybrać określoną powolną operację i użyć [profilera](../../azure-monitor/app/profiler.md) do głównego źródła, co powoduje, że powolne operacje są wykonywane do kodu. Korzystając z nowej dystrybucji czasu trwania wyświetlanej dla wybranej operacji, można szybko szybko ocenić, jak złe jest środowisko dla klientów. Możesz zobaczyć, ile interakcji użytkownika miało wpływ na każdą powolną operację. W poniższym przykładzie zdecydowaliśmy się przyjrzeć bliżej środowisko dla get klienci/szczegóły operacji. W dystrybucji czasu trwania widzimy, że istnieją trzy kolce. Kolec po lewej stronie wynosi około 400 ms i reprezentuje świetne wrażenia responsywne. Średni skok wynosi około 1,2 s i stanowi przeciętne doświadczenie. Wreszcie na 3,6 s mamy kolejny mały skok, który reprezentuje 99-ty percentyl doświadczenie, co może spowodować, że nasi klienci zostawić niezadowolony. To doświadczenie jest dziesięć razy wolniejsze niż wielkie doświadczenie dla tej samej operacji. 
+Możesz użyć środowiska badania wydajności, aby przejrzeć wolno wykonywane operacje w aplikacji sieci Web. Można szybko wybrać konkretną operację powolnej i użyć [profilera](../../azure-monitor/app/profiler.md) do katalogu głównego, co spowoduje spowolnienie operacji w kodzie. Korzystając z nowego rozkładu czasu trwania podanego dla wybranej operacji, możesz szybko ocenić, jak to jest niewłaściwe dla klientów. Można sprawdzić, jak wiele interakcji użytkownika miało wpływ na każdą powolne działanie. W poniższym przykładzie poprosimy o zapoznaniu się z doświadczeniem w zakresie pobierania klientów/szczegółów operacji. W dystrybucji czasu trwania można zobaczyć, że istnieją trzy skoki. Lewy skok to około 400 MS i reprezentuje doskonałe środowisko reagowania. Drugie przybliżenie jest około 1,2 s i przedstawia środowisko mediocre. Na koniec 3,6 s mamy kolejną małą liczbę, która reprezentuje 99 percentyl, co może spowodować niespełnienie naszych klientów. To środowisko działa dziesięć razy wolniej niż doskonałe środowisko dla tej samej operacji. 
 
-![UZYSKAJ klientów/Szczegóły trzy skoki czasu trwania](./media/web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
+![Uzyskaj klientów/szczegóły trzech skoków czasu trwania](./media/web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
-Aby lepiej zrozumieć środowisko użytkownika dla tej operacji, możemy wybrać większy zakres czasu. Następnie możemy również zawęzić w czasie w określonym oknie czasowym, w którym operacja była powolna. W poniższym przykładzie przełączyliśmy domyślny zakres czasu 24 godzin do zakresu czasu 7 dni, a następnie powiększyliśmy przedział czasu 9:47 na 12:47 między wt wt. 12 i 13. Zarówno rozkład czasu trwania, jak i liczba śladów próbki i profilera zostały zaktualizowane po prawej stronie.
+Aby lepiej zrozumieć środowisko użytkownika dla tej operacji, można wybrać większy zakres czasu. Możemy również zawęzić w czasie w określonym przedziale czasu, w którym operacja była niska. W poniższym przykładzie przejdziemy od domyślnego 24-godzinnego zakresu czasowego do 7 dni, a następnie powiększamy do przedziału od 9:47 do 12:47 czasu między WT a od 13. Zarówno rozkład czasu trwania, jak i liczba śladów przykładu i profilera zostały zaktualizowane po prawej stronie.
 
-![UZYSKAJ klientów/Szczegóły trzy skoki czasu trwania w zakresie 7 dni z przedziałem czasu](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
+![Uzyskaj klientów/szczegóły trzech okresów trwania w ciągu 7 dni zakresu z przedziałem czasu](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
 
-Aby zawęzić powolne doświadczenia, następnie przybliżamy czas trwania, który przypada między 95 a 99 percentylem. Stanowią one 4% interakcji użytkownika, które były powolne.
+Aby zawęzić w przypadku wolnych środowisk, należy dalej powiększyć czas trwania między używany 95. a 99 percentylu. Reprezentują one 4% interakcji z użytkownikami, które były powolne.
 
-![UZYSKAJ klientów/Szczegóły trzy skoki czasu trwania w zakresie 7 dni z przedziałem czasu](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
+![Uzyskaj klientów/szczegóły trzech okresów trwania w ciągu 7 dni zakresu z przedziałem czasu](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
 
-Możemy teraz albo spojrzeć na reprezentatywne próbki, klikając przycisk Próbki lub na reprezentatywne ślady profilera, klikając przycisk Ślady profilera. W tym przykładzie istnieją cztery ślady, które zostały zebrane dla klientów GET/Szczegóły w przedziale czasu i zakresie czasu trwania zainteresowania.
+Teraz możemy przyjrzeć się reprezentatywnym przykładom, klikając przycisk przykłady lub na reprezentatywnych śladów profilera, klikając przycisk ślady profilera. W tym przykładzie wprowadzono cztery ślady, które zostały zebrane w celu uzyskania klientom/szczegóły w przedziale czasu i przedziały okresu zainteresowania.
 
-Czasami problem nie będzie w kodzie, ale raczej w zależności wywołane kodem. Można przełączyć się do zależności kartę w widoku klasyfikacji wydajności, aby zbadać takie powolne zależności. Domyślnie widok wydajności jest trendy średnie, ale to, co naprawdę chcesz spojrzeć na to 95 percentyl (lub 99,, w przypadku monitorowania usługi dojrzałe). W poniższym przykładzie skupiliśmy się na powolnej zależności usługi Azure BLOB, gdzie nazywamy PUT fabrikamaccount. Dobre doświadczenia klastra około 40 ms, podczas gdy powolne wywołania tej samej zależności są trzy razy wolniejsze, klastrowanie około 120 ms. Nie trzeba wiele z tych wywołań, aby dodać do spowodować odpowiednie działanie zauważalnie spowolnić. Można przejść do szczegółów w reprezentatywnych próbek i śladów profilera, podobnie jak w za pomocą operacji kartę.
+Czasami problem nie będzie znajdował się w kodzie, ale raczej w zależności od kodu. Aby zbadać takie wolne zależności, możesz przełączyć się na kartę zależności w widoku Klasyfikacja wydajności. Domyślnie widok wydajności jest trendem średnim, ale na pewno chcesz się zapoznać z używany 95. percentylem (lub 99, w przypadku monitorowania usługi dla dorosłych). W poniższym przykładzie koncentrujemy się na powolnej zależności obiektów BLOB platformy Azure, w której wywoływana jest funkcja PUT fabrikamaccount. Klaster dobrego środowiska działa wokół 40 MS, podczas gdy powolne wywołania tej samej zależności są trzy razy wolniejsze, klaster wokół 120 MS. Nie przyjmuje wielu z tych wywołań, aby można było dodać do nich nieprzerwane działanie. Możesz przejść do szczegółów reprezentatywnych przykładów i śladów profilera, tak jak w przypadku karty operacje.
 
-![UZYSKAJ klientów/Szczegóły trzy skoki czasu trwania w zakresie 7 dni z przedziałem czasu](./media/web-monitor-performance/SlowDependencies95thTrend.png)
+![Uzyskaj klientów/szczegóły trzech okresów trwania w ciągu 7 dni zakresu z przedziałem czasu](./media/web-monitor-performance/SlowDependencies95thTrend.png)
 
-Doświadczenie badania wydajności pokazuje istotne spostrzeżenia wraz z zestawem próbek, na których zdecydowano się skupić. Najlepszym sposobem, aby spojrzeć na wszystkie dostępne statystyki jest przejście do zakresu czasu 30 dni, a następnie wybierz ogólne, aby zobaczyć szczegółowe informacje we wszystkich operacjach w ciągu ostatniego miesiąca.
+Środowisko badania wydajności pokazuje odpowiednie szczegółowe informacje po stronie zestawu przykładowego, na którym zamierzasz się skupić. Najlepszym sposobem, aby poznać wszystkie dostępne informacje, jest przełączenie na 30-dniowy zakres czasu, a następnie wybierz pozycję Ogólne, aby zobaczyć szczegółowe informacje na temat wszystkich operacji w ostatnim miesiącu.
 
-![UZYSKAJ klientów/Szczegóły trzy skoki czasu trwania w zakresie 7 dni z przedziałem czasu](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
+![Uzyskaj klientów/szczegóły trzech okresów trwania w ciągu 7 dni zakresu z przedziałem czasu](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
 ## <a name="next-steps"></a><a name="next"></a>Następne kroki
-[Testy sieci Web][availability] — żądania sieci web wysyłane do aplikacji w regularnych odstępach czasu z całego świata.
+[Testy sieci Web][availability] — żądania sieci Web wysyłane do aplikacji w regularnych odstępach czasu z całego świata.
 
-[Przechwytywanie i wyszukiwanie śladów diagnostycznych][diagnostic] — wstaw wywołania śledzenia i przesiewać wyniki, aby zidentyfikować problemy.
+[Przechwytywanie i wyszukiwanie śladów diagnostycznych][diagnostic] — Wstawianie wywołań śledzenia i przechodzenie przez wyniki do lokalizowania problemów.
 
-[Śledzenie użycia][usage] — dowiedz się, jak użytkownicy korzystają z Twojej aplikacji.
+[Śledzenie użycia][usage] — Dowiedz się, jak użytkownicy korzystają z Twojej aplikacji.
 
-[Rozwiązywanie problemów][qna] - i Q & A
+[Rozwiązywanie problemów][qna] — i Q & a
 
 
 

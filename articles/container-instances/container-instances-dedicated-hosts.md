@@ -1,46 +1,46 @@
 ---
-title: Wdrażanie na dedykowanym hoście
-description: Użyj dedykowanego hosta, aby osiągnąć prawdziwą izolację na poziomie hosta dla obciążeń wystąpień kontenerów platformy Azure
+title: Wdróż na dedykowanym hoście
+description: Użyj dedykowanego hosta, aby osiągnąć prawdziwą izolację na poziomie hosta dla obciążeń Azure Container Instances
 ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82025037"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Wdrażanie na dedykowanych hostach
 
-"Dedykowane" to sku wystąpienia kontenerów platformy Azure (ACI), które zapewnia izolowane i dedykowane środowisko obliczeniowe dla bezpiecznie uruchomionych kontenerów. Przy użyciu dedykowanych wyników sku w każdej grupie kontenerów posiadających dedykowany serwer fizyczny w centrum danych platformy Azure, zapewniając pełną izolację obciążenia, aby pomóc spełnić wymagania dotyczące zabezpieczeń i zgodności organizacji. 
+"Dedykowana" to jednostka SKU Azure Container Instances (ACI), która zapewnia odizolowane i dedykowane środowisko obliczeniowe do bezpiecznego uruchamiania kontenerów. Użycie dedykowanej jednostki SKU powoduje, że każda grupa kontenerów ma dedykowany serwer fizyczny w centrum danych platformy Azure, zapewniając pełną izolację obciążenia, która pomaga spełnić wymagania dotyczące zabezpieczeń i zgodności w organizacji. 
 
-Dedykowane sku jest odpowiedni dla obciążeń kontenera, które wymagają izolacji obciążenia z perspektywy serwera fizycznego.
+Dedykowana jednostka SKU jest odpowiednia dla obciążeń kontenera, które wymagają izolacji obciążenia z perspektywy serwera fizycznego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Domyślny limit dla każdej subskrypcji do korzystania z dedykowanego sku jest 0. Jeśli chcesz użyć tego sku dla wdrożeń kontenera produkcyjnego, utwórz [żądanie pomocy technicznej platformy Azure,][azure-support] aby zwiększyć limit.
+* Domyślny limit dla każdej subskrypcji w celu użycia dedykowanej jednostki SKU wynosi 0. Jeśli chcesz używać tej jednostki SKU do wdrożeń kontenerów produkcyjnych, Utwórz [support Request platformy Azure][azure-support] w celu zwiększenia limitu.
 
-## <a name="use-the-dedicated-sku"></a>Użyj dedykowanego sku
+## <a name="use-the-dedicated-sku"></a>Użyj dedykowanej jednostki SKU
 
 > [!IMPORTANT]
-> Korzystanie z dedykowanego sku jest dostępne tylko w najnowszej wersji interfejsu API (2019-12-01), która jest obecnie wprowadzana. Określ tę wersję interfejsu API w szablonie wdrożenia.
+> Użycie dedykowanej jednostki SKU jest dostępne tylko w najnowszej wersji interfejsu API (2019-12-01), która jest obecnie wycofywana. Określ tę wersję interfejsu API w szablonie wdrożenia.
 >
 
-Począwszy od wersji interfejsu API 2019-12-01, istnieje `sku` właściwość w sekcji właściwości grupy kontenerów szablonu wdrożenia, która jest wymagana dla wdrożenia usługi ACI. Obecnie można użyć tej właściwości jako część szablonu wdrażania usługi Azure Resource Manager dla usługi ACI. Dowiedz się więcej o wdrażaniu zasobów usługi ACI za pomocą szablonu w [samouczku: Wdrażanie grupy wielu kontenerów przy użyciu szablonu Menedżera zasobów](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Począwszy od interfejsu API w wersji 2019-12-01, istnieje `sku` właściwość w sekcji Właściwości grupy kontenerów szablonu wdrożenia, który jest wymagany do wdrożenia ACI. Obecnie można użyć tej właściwości jako części szablonu wdrażania Azure Resource Manager ACI. Dowiedz się więcej o wdrażaniu zasobów ACI za pomocą szablonu w [samouczku: Wdróż grupę z wieloma kontenerami przy użyciu szablonu Menedżer zasobów](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
 
-Właściwość `sku` może mieć jedną z następujących wartości:
-* `Standard`- standardowy wybór wdrożenia ACI, który nadal gwarantuje bezpieczeństwo na poziomie hipernadzorcy 
-* `Dedicated`- służy do izolacji na poziomie obciążenia z dedykowanymi hostami fizycznymi dla grupy kontenerów
+`sku` Właściwość może mieć jedną z następujących wartości:
+* `Standard`— wybór standardowego wdrożenia ACI, który nadal gwarantuje zabezpieczenia na poziomie funkcji hypervisor 
+* `Dedicated`— służy do izolacji poziomu obciążenia z dedykowanymi hostami fizycznymi dla grupy kontenerów.
 
 ## <a name="modify-your-json-deployment-template"></a>Modyfikowanie szablonu wdrożenia JSON
 
-W szablonie wdrożenia zmodyfikuj lub dodaj następujące właściwości:
-* W `resources`obszarze `apiVersion` `2019-12-01`, ustawiono na .
-* W obszarze właściwości grupy kontenerów `sku` dodaj `Dedicated`właściwość o wartości .
+W szablonie wdrożenia zmodyfikuj lub Dodaj następujące właściwości:
+* W `resources`obszarze Ustaw `apiVersion` wartość `2019-12-01`.
+* W obszarze właściwości grupy kontenerów Dodaj `sku` właściwość o wartości. `Dedicated`
 
-Oto przykładowy fragment kodu dla sekcji zasobów szablonu wdrażania grupy kontenerów, który używa dedykowanego sku:
+Oto przykładowy fragment dla sekcji Resources szablonu wdrożenia grupy kontenerów, który używa dedykowanej jednostki SKU:
 
 ```json
 [...]
@@ -127,9 +127,9 @@ Poniżej znajduje się kompletny szablon, który wdraża przykładową grupę ko
 }
 ```
 
-## <a name="deploy-your-container-group"></a>Wdrażanie grupy kontenerów
+## <a name="deploy-your-container-group"></a>Wdróż grupę kontenerów
 
-Jeśli plik szablonu wdrożenia został utworzony i edytowany na pulpicie, można go przekazać do katalogu Cloud Shell, przeciągając do niego plik. 
+Jeśli utworzono i edytowano plik szablonu wdrożenia na pulpicie, można przekazać go do katalogu Cloud Shell, przeciągając plik do niego. 
 
 Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create].
 
@@ -137,7 +137,7 @@ Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create].
 az group create --name myResourceGroup --location eastus
 ```
 
-Wdrażanie szablonu za pomocą polecenia [tworzenie wdrażania grupy AZ.][az-group-deployment-create]
+Wdróż szablon za pomocą polecenia [AZ Group Deployment Create][az-group-deployment-create] .
 
 ```azurecli-interactive
 az group deployment create --resource-group myResourceGroup --template-file deployment-template.json

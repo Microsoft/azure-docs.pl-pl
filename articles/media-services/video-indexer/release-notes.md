@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
 ms.openlocfilehash: 8a9c1ba8e6316ea79941fbec1fbd339893afdb35
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82131208"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Informacje o wersji Azure Media Services Video Indexer
@@ -30,7 +30,7 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 * Poprawki błędów
 * Funkcje uznane za przestarzałe
 
-## <a name="april-2020"></a>Kwiecień 2020 r.
+## <a name="april-2020"></a>Kwiecień 2020 r.
 
 ### <a name="new-widget-parameters-capabilities"></a>Nowe możliwości parametrów widżetu
 

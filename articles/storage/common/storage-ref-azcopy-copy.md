@@ -1,6 +1,6 @@
 ---
-title: kopia azcopy| Dokumenty firmy Microsoft
-description: Ten artykuł zawiera informacje referencyjne dla polecenia kopiowania azcopy.
+title: kopia AzCopy | Microsoft Docs
+description: Ten artykuł zawiera informacje referencyjne dotyczące polecenia copy AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 0325a71fb069f3d96f05d106afac1639fc38fe42
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253343"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
@@ -21,39 +21,39 @@ Kopiuje dane źródłowe do lokalizacji docelowej.
 
 ## <a name="synopsis"></a>Streszczenie
 
-Kopiuje dane źródłowe do lokalizacji docelowej. Obsługiwane kierunki to:
+Kopiuje dane źródłowe do lokalizacji docelowej. Obsługiwane są następujące wskazówki:
 
-  - lokalny <-> azure blob (uwierzytelnianie Sygnatury dostępu Współdzielonego lub OAuth)
-  - lokalne < > usługi Azure Files (uwierzytelnianie SAS udziału/katalogu)
-  - lokalne <-> ADLS Gen 2 (uwierzytelnianie SAS, OAuth lub SharedKey)
-  - Usługa Azure Blob (SAS lub public) -> Azure Blob (uwierzytelnianie SYGNATUR LUB OAuth)
-  - Usługa Azure Blob (SAS lub public) -> Usługi Azure Files (SAS)
-  - Usługi Azure Files (SAS) -> usługi Azure Files (SAS)
-  - Usługi Azure Files (SAS) -> azure blob (uwierzytelnianie SAS lub OAuth)
-  - AWS S3 (klucz dostępu) - > azure blok blob (uwierzytelnianie SYGNAUTH lub OAuth)
+  - < lokalnego — > obiektu blob platformy Azure (uwierzytelnianie SAS lub OAuth)
+  - < lokalnego > Azure Files (uwierzytelnianie SAS udziału/katalogu)
+  - Local <-> ADLS Gen 2 (uwierzytelnianie SAS, OAuth lub SharedKey)
+  - Obiekt blob platformy Azure (SAS lub public) — > obiektów blob platformy Azure (uwierzytelnianie SAS lub OAuth)
+  - Obiekt blob platformy Azure (SAS lub public) — > Azure Files (SAS)
+  - Azure Files (SAS) — > Azure Files (SAS)
+  - Azure Files (SAS) — > obiekt blob platformy Azure (uwierzytelnianie SAS lub OAuth)
+  - AWS S3 (klucz dostępu) — > blokowych obiektów blob platformy Azure (uwierzytelnianie SAS lub OAuth)
 
-Więcej informacji można znaleźć w przykładach.
+Aby uzyskać więcej informacji, zapoznaj się z przykładami.
 
-## <a name="related-conceptual-articles"></a>Powiązane artykuły koncepcyjne
+## <a name="related-conceptual-articles"></a>Pokrewne artykuły koncepcyjne
 
 - [Wprowadzenie do narzędzia AzCopy](storage-use-azcopy-v10.md)
-- [Przesyłanie danych za pomocą pamięci masowej AzCopy i Blob](storage-use-azcopy-blobs.md)
-- [Przesyłanie danych za pomocą AzCopy i przechowywania plików](storage-use-azcopy-files.md)
-- [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z programem AzCopy](storage-use-azcopy-configure.md)
+- [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](storage-use-azcopy-blobs.md)
+- [Transferowanie danych za pomocą AzCopy i magazynu plików](storage-use-azcopy-files.md)
+- [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="advanced"></a>Zaawansowane
 
-AzCopy automatycznie wykrywa typ zawartości plików podczas przekazywania z dysku lokalnego na podstawie rozszerzenia pliku lub zawartości (jeśli nie określono rozszerzenia).
+AzCopy automatycznie wykrywa typ zawartości plików podczas przekazywania z dysku lokalnego na podstawie rozszerzenia lub zawartości pliku (jeśli nie określono rozszerzenia).
 
-Wbudowana tabela odnośnictwa jest mała, ale w systemie Unix jest rozszerzana przez pliki mime.types systemu lokalnego, jeśli są dostępne pod jedną lub kilkoma z tych nazw:
+Wbudowana tabela wyszukiwania jest mała, ale w systemie UNIX jest rozszerzana przez system lokalny. typy plików MIME. Types, jeśli są dostępne w co najmniej jednej z tych nazw:
 
-- /etc/mime.typy
+- /etc/mime.types
 - /etc/apache2/mime.types
 - /etc/apache/mime.types
 
-W systemie Windows typy MIME są wyodrębniane z rejestru. Tę funkcję można wyłączyć za pomocą flagi. Zapoznaj się z sekcją flagi.
+W systemie Windows typy MIME są wyodrębniane z rejestru. Tę funkcję można wyłączyć za pomocą pomocy flagi. Zapoznaj się z sekcją flagi.
 
-Jeśli ustawisz zmienną środowiskową przy użyciu wiersza polecenia, ta zmienna będzie czytelna w historii wiersza polecenia. Należy wziąć pod uwagę wyczyszczenie zmiennych, które zawierają poświadczenia z historii wiersza polecenia. Aby zachować zmienne z pojawiających się w historii, można użyć skryptu, aby monitować użytkownika o ich poświadczenia i ustawić zmienną środowiskową.
+W przypadku ustawienia zmiennej środowiskowej przy użyciu wiersza polecenia ta zmienna zostanie odczytana w historii wiersza polecenia. Rozważ wyczyszczenie zmiennych, które zawierają poświadczenia z historii wiersza polecenia. Aby zachować zmienne w historii, można użyć skryptu w celu wyświetlenia monitu o podanie poświadczeń użytkownika i ustawienia zmiennej środowiskowej.
 
 ```
 azcopy copy [source] [destination] [flags]
@@ -61,194 +61,194 @@ azcopy copy [source] [destination] [flags]
 
 ## <a name="examples"></a>Przykłady
 
-Przekaż pojedynczy plik przy użyciu uwierzytelniania OAuth. Jeśli nie zalogowano się jeszcze do AzCopy, uruchom polecenie azcopy login przed uruchomieniem następującego polecenia.
+Przekaż pojedynczy plik przy użyciu uwierzytelniania OAuth. Jeśli jeszcze nie zalogowano się w usłudze AzCopy, uruchom polecenie logowania AzCopy przed uruchomieniem następującego polecenia.
 
-- azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
+- AzCopy CP "/Path/to/File.txt" "https://[Account]. blob. Core. Windows. NET/[Container]/[path/to/BLOB]"
 
-Tak samo jak powyżej, ale tym razem również obliczyć md5 skrót zawartości pliku i zapisać go jako właściwości Content-MD5 obiektu blob:
+Analogicznie jak powyżej, ale ten czas również oblicza skrót MD5 zawartości pliku i zapisuje go jako właściwość Content-MD5 obiektu BLOB:
 
-- azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --put-md5
+- AzCopy CP "/Path/to/File.txt" "https://[Account]. blob. Core. Windows. NET/[Container]/[path/to/BLOB]"--Put-MD5
 
-Przekaż pojedynczy plik przy użyciu tokenu sygnatury dostępu Współdzielonego:
+Przekaż pojedynczy plik przy użyciu tokenu sygnatury dostępu współdzielonego:
 
-- azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]? [SAS]"
+- AzCopy CP "/Path/to/File.txt" "https://[Account]. blob. Core. Windows. NET/[Container]/[path/to/BLOB]? [SAS] "
 
-Przekaż pojedynczy plik przy użyciu tokenu sygnatury dostępu Współdzielonego i rurociągów (tylko blokowe obiekty BLOB):
+Przekaż pojedynczy plik przy użyciu tokenu SAS i potoków (tylko blokowe obiekty blob):
   
-- kat "/path/to/file.txt" | azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]? [SAS]"
+- Kot "/Path/to/File.txt" | AzCopy CP "https://[Account]. blob. Core. Windows. NET/[Container]/[ścieżka/do/BLOB]? [SAS] "
 
-Przekaż cały katalog przy użyciu tokenu sygnatury dostępu Współdzielonego:
+Przekaż cały katalog przy użyciu tokenu sygnatury dostępu współdzielonego:
   
-- azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]? [SAS]" --rekurencyjna=true
+- AzCopy CP "/Path/to/dir" "https://[Account]. blob. Core. Windows. NET/[Container]/[path/to/Directory]? [SAS] "--rekursywnie = true
 
 lub
 
-- azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]? [SAS]" --rekurencyjna=true --put-md5
+- AzCopy CP "/Path/to/dir" "https://[Account]. blob. Core. Windows. NET/[Container]/[path/to/Directory]? [SAS] "--rekursywny = true--Put-MD5
 
-Przekaż zestaw plików przy użyciu tokenu Sygnatury dostępu Współdzielonego i symboli wieloznacznych (*):
+Przekaż zestaw plików przy użyciu tokenu sygnatury dostępu współdzielonego i symboli wieloznacznych (*):
 
-- azcopy cp "/path/*foo/* bar/*.pdf" "https://[account].blob.core.windows.net/[container]/[path/to/directory]? [SAS]"
+- AzCopy CP "/Path/*foo/* bar/*. PDF" "https://[Account]. blob. Core. Windows. NET/[Container]/[path/to/Directory]? [SAS] "
 
-Przekazywanie plików i katalogów przy użyciu tokenu Sygnatury dostępu Współdzielonego i symboli wieloznacznych (*):
+Przekaż pliki i katalogi, używając tokenu SAS i symboli wieloznacznych (*):
 
-- azcopy cp "/path/*foo/* bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]? [SAS]" --rekurencyjna=true
+- AzCopy CP "/Path/*foo/* bar *" "https://[Account]. blob. Core. Windows. NET/[Container]/[path/to/Directory]? [SAS] "--rekursywnie = true
 
-Pobierz pojedynczy plik przy użyciu uwierzytelniania OAuth. Jeśli nie zalogowano się jeszcze do AzCopy, uruchom polecenie azcopy login przed uruchomieniem następującego polecenia.
+Pobierz pojedynczy plik przy użyciu uwierzytelniania OAuth. Jeśli jeszcze nie zalogowano się w usłudze AzCopy, uruchom polecenie logowania AzCopy przed uruchomieniem następującego polecenia.
 
-- azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]" "/path/to/file.txt"
+- AzCopy CP "https://[Account]. blob. Core. Windows. NET/[Container]/[ścieżka/do/BLOB]" ""/Path/to/File.txt "
 
-Pobierz pojedynczy plik przy użyciu tokenu sygnatury dostępu Współdzielonego:
+Pobieranie pojedynczego pliku przy użyciu tokenu SAS:
 
-- azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]? [SAS]" "/path/to/file.txt"
+- AzCopy CP "https://[Account]. blob. Core. Windows. NET/[Container]/[ścieżka/do/BLOB]? [SAS] ""/Path/to/File.txt "
 
-Pobierz pojedynczy plik przy użyciu tokenu Sygnatury dostępu Współdzielonego, a następnie przesuń dane wyjściowe do pliku (tylko blokowe obiekty BLOB):
+Pobieranie pojedynczego pliku przy użyciu tokenu SAS, a następnie przekazanie danych wyjściowych do pliku (tylko blokowe obiekty blob):
   
-- azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]? [SAS]" > "/path/to/file.txt"
+- AzCopy CP "https://[Account]. blob. Core. Windows. NET/[Container]/[ścieżka/do/BLOB]? [SAS] ">"/Path/to/File.txt "
 
-Pobierz cały katalog przy użyciu tokenu sygnatury dostępu Współdzielonego:
+Pobierz cały katalog przy użyciu tokenu sygnatury dostępu współdzielonego:
   
-- azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/directory]? [SAS]" "/path/to/dir" --rekursywny=true
+- AzCopy CP "https://[Account]. blob. Core. Windows. NET/[Container]/[path/to/Directory]? [Sygnatura dostępu współdzielonego] ""/Path/to/dir "--rekursywnie = prawda
 
 Uwaga dotycząca używania symbolu wieloznacznego (*) w adresach URL:
 
-W adresie URL można używać tylko dwóch obsługiwanych sposobów używania symbolu wieloznacznego. 
+Istnieją tylko dwa obsługiwane sposoby używania symbolu wieloznacznego w adresie URL. 
 
-- Możesz użyć go tuż po ostatnim ukośniku (/) adresu URL. Spowoduje to skopiowanie wszystkich plików w katalogu bezpośrednio do miejsca docelowego bez umieszczania ich w podkatalogu.
+- Możesz użyć jednej tuż po końcowym ukośniku (/) adresu URL. Spowoduje to skopiowanie wszystkich plików znajdujących się w katalogu bezpośrednio do miejsca docelowego bez umieszczania ich w podkatalogu.
 
-- Można również użyć jednego w nazwie kontenera, tak długo, jak adres URL odnosi się tylko do kontenera, a nie do obiektu blob. Za pomocą tej metody można uzyskać pliki z podzbioru kontenerów.
+- Można go również użyć w nazwie kontenera, tak długo, jak adres URL odwołuje się tylko do kontenera, a nie do obiektu BLOB. Takie podejście służy do uzyskiwania plików z podzestawu kontenerów.
 
-Pobierz zawartość katalogu bez kopiowania samego katalogu zawierającego.
+Pobierz zawartość katalogu bez kopiowania zawierającego go katalogu.
 
-- azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/folder]/*? [SAS]" "/path/to/dir"
+- AzCopy CP "https://[srcaccount]. blob. Core. Windows. NET/[Container]/[ścieżka/do/folder]/*? [SAS] ""/Path/to/dir "
 
 Pobierz całe konto magazynu.
 
-- azcopy cp "https://[srcaccount].blob.core.windows.net/" "/path/to/dir" --rekursywne
+- AzCopy CP "https://[srcaccount]. blob. Core. Windows. NET/" "/Path/to/dir"-rekursywnie
 
-Pobierz podzbiór kontenerów w ramach konta magazynu przy użyciu symbolu wieloznacznego (*) w nazwie kontenera.
+Pobierz podzestaw kontenerów w ramach konta magazynu, używając symbolu wieloznacznego (*) w nazwie kontenera.
 
-- azcopy cp "https://[srcaccount].blob.core.windows.net/[nazwa kontenera]" "/path/to/dir" --rekursywny
+- AzCopy CP "https://[srcaccount]. blob. Core. Windows. NET/[Container * Name]" "/Path/to/dir"--rekursywnie
 
-Skopiuj pojedynczy obiekt blob do innego obiektu blob przy użyciu tokenu sygnatury dostępu Współdzielonego.
+Skopiuj pojedynczy obiekt BLOB do innego obiektu BLOB przy użyciu tokenu SAS.
 
-- azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]? [SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]? [SAS]"
+- AzCopy CP "https://[srcaccount]. blob. Core. Windows. NET/[Container]/[ścieżka/do/BLOB]? [SAS] "" https://[destaccount]. blob. Core. Windows. NET/[Container]/[ścieżka/do/BLOB]? [SAS] "
 
-Skopiuj pojedynczy obiekt blob do innego obiektu blob przy użyciu tokenu Sygnatury dostępu Współdzielonego i tokenu OAuth. Musisz użyć tokenu Sygnatury dostępu Współdzielonego na końcu adresu URL konta źródłowego, ale konto docelowe nie jest potrzebne, jeśli zalogujesz się do AzCopy za pomocą polecenia azcopy login. 
+Skopiuj pojedynczy obiekt BLOB do innego obiektu BLOB przy użyciu tokenu SAS i tokenu OAuth. Musisz użyć tokenu sygnatury dostępu współdzielonego na końcu adresu URL konta źródłowego, ale konto docelowe nie jest potrzebne, jeśli zalogujesz się do AzCopy przy użyciu polecenia logowania AzCopy. 
 
-- azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]? [SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]"
+- AzCopy CP "https://[srcaccount]. blob. Core. Windows. NET/[Container]/[ścieżka/do/BLOB]? [SAS] "" https://[destaccount]. blob. Core. Windows. NET/[Container]/[ścieżka/do/BLOB] "
 
-Skopiuj jeden katalog wirtualny obiektu blob do innego przy użyciu tokenu sygnatury dostępu Współdzielonego:
+Kopiowanie jednego katalogu wirtualnego obiektów BLOB do innego przy użyciu tokenu SAS:
 
-- azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/directory]? [SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]? [SAS]" --rekurencyjna=true
+- AzCopy CP "https://[srcaccount]. blob. Core. Windows. NET/[Container]/[ścieżka/do/katalog]? [SAS] "" https://[destaccount]. blob. Core. Windows. NET/[Container]/[ścieżka/do/katalog]? [SAS] "--rekursywnie = true
 
-Skopiuj wszystkie kontenery obiektów blob, katalogi i obiekty blob z konta magazynu do innego przy użyciu tokenu sygnatury dostępu Współdzielonego:
+Skopiuj wszystkie kontenery obiektów blob, katalogi i obiekty blob z konta magazynu do innego przy użyciu tokenu SAS:
 
-- azcopy cp "https://[srcaccount].blob.core.windows.net? [SAS]" "https://[destaccount].blob.core.windows.net? [SAS]" --rekurencyjna=true
+- AzCopy CP "https://[srcaccount]. blob. Core. Windows. NET? [SAS] "" https://[destaccount]. blob. Core. Windows. NET? [SAS] "--rekursywnie = true
 
-Skopiuj pojedynczy obiekt do magazynu obiektów Blob z amazon web services (AWS) S3 przy użyciu klucza dostępu i tokenu SYGNAŁÓW dostępu. Najpierw ustaw zmienną środowiskową AWS_ACCESS_KEY_ID i AWS_SECRET_ACCESS_KEY dla źródła AWS S3.
+Skopiuj pojedynczy obiekt do Blob Storage z Amazon Web Services (AWS) S3 przy użyciu klucza dostępu i tokenu SAS. Najpierw Ustaw zmienną środowiskową AWS_ACCESS_KEY_ID i AWS_SECRET_ACCESS_KEY dla źródła AWS S3.
   
-- azcopy cphttps://s3.amazonaws.com/" [bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]? [SAS]"
+- AzCopy CP "https://s3.amazonaws.com/[przedział]/[Object]" "https://[destaccount]. blob. Core. Windows. NET/[Container]/[path/to/BLOB]? [SAS] "
 
-Skopiuj cały katalog do magazynu obiektów Blob z usługi AWS S3 przy użyciu klucza dostępu i tokenu Sygnatury dostępu. Najpierw ustaw zmienną środowiskową AWS_ACCESS_KEY_ID i AWS_SECRET_ACCESS_KEY dla źródła AWS S3.
+Skopiuj cały katalog do Blob Storage z AWS S3 przy użyciu klucza dostępu i tokenu SAS. Najpierw Ustaw zmienną środowiskową AWS_ACCESS_KEY_ID i AWS_SECRET_ACCESS_KEY dla źródła AWS S3.
 
-- azcopy cphttps://s3.amazonaws.com/" [bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]? [SAS]" --rekurencyjna=true
+- AzCopy CP "https://s3.amazonaws.com/[zasobnik]/[folder]" "https://[destaccount]. blob. Core. Windows. NET/[Container]/[path/to/Directory]? [SAS] "--rekursywnie = true
 
-Zapoznaj się https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html z lepszym zrozumieniem symbolu zastępczego [folder].
+Zapoznaj się https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html z tematem, aby lepiej zrozumieć symbol zastępczy [folder].
 
-Skopiuj wszystkie zasobniki do magazynu obiektów Blob z usług Amazon Web Services (AWS) przy użyciu klucza dostępu i tokenu Sygnatury dostępu Współdzielonego. Najpierw ustaw zmienną środowiskową AWS_ACCESS_KEY_ID i AWS_SECRET_ACCESS_KEY dla źródła AWS S3.
+Skopiuj wszystkie zasobniki do Blob Storage z Amazon Web Services (AWS) przy użyciu klucza dostępu i tokenu SAS. Najpierw Ustaw zmienną środowiskową AWS_ACCESS_KEY_ID i AWS_SECRET_ACCESS_KEY dla źródła AWS S3.
 
-- azcopy cphttps://s3.amazonaws.com/" " "https://[destaccount].blob.core.windows.net? [SAS]" --rekurencyjna=true
+- AzCopy CP "https://s3.amazonaws.com/" "https://[destaccount]. blob. Core. Windows. NET? [SAS] "--rekursywnie = true
 
-Skopiuj wszystkie zasobniki do magazynu obiektów Blob z regionu Amazon Web Services (AWS) przy użyciu klucza dostępu i tokenu Sygnatury dostępu. Najpierw ustaw zmienną środowiskową AWS_ACCESS_KEY_ID i AWS_SECRET_ACCESS_KEY dla źródła AWS S3.
+Skopiuj wszystkie zasobniki do Blob Storage z regionu Amazon Web Services (AWS) przy użyciu klucza dostępu i tokenu SAS. Najpierw Ustaw zmienną środowiskową AWS_ACCESS_KEY_ID i AWS_SECRET_ACCESS_KEY dla źródła AWS S3.
 
-- azcopy cphttps://s3-" [region].amazonaws.com/" "https://[destaccount].blob.core.windows.net? [SAS]" --rekurencyjna=true
+- AzCopy CP "https://s3-[region]. amazonaws. com/" "https://[destaccount]. blob. Core. Windows. NET? [SAS] "--rekursywnie = true
 
-Skopiuj podzbiór zasobników przy użyciu symbolu wieloznacznego (*) w nazwie zasobnika. Podobnie jak w poprzednich przykładach, potrzebny jest klucz dostępu i token sygnatury dostępu współdzielonego. Upewnij się, że dla źródła AWS S3 ustawiono zmienną środowiskową AWS_ACCESS_KEY_ID i AWS_SECRET_ACCESS_KEY.
+Skopiuj podzestaw zasobników przy użyciu symbolu wieloznacznego (*) w nazwie zasobnika. Podobnie jak w poprzednich przykładach, potrzebny będzie klucz dostępu i token SAS. Upewnij się, że ustawienie zmienna środowiskowa AWS_ACCESS_KEY_ID i AWS_SECRET_ACCESS_KEY dla źródła AWS S3.
 
-- azcopy cphttps://s3.amazonaws.com/" [bucket*name]/" "https://[destaccount].blob.core.windows.net? [SAS]" --rekurencyjna=true
+- AzCopy CP "https://s3.amazonaws.com/[zasobnik * Name]/" "https://[destaccount]. blob. Core. Windows. NET? [SAS] "--rekursywnie = true
 
 ## <a name="options"></a>Opcje
 
-**--backup**                               Aktywuje system Windows SeBackupPrivilege do przekazywania lub SeRestorePrivilege do pobrania, aby umożliwić AzCopy zobaczyć wszystkie pliki, niezależnie od ich uprawnień systemu plików, i przywrócić wszystkie uprawnienia. Wymaga, aby konto z uruchomionym programem AzCopy miało już te uprawnienia (np. ma uprawnienia administratora lub jest członkiem grupy "Operatorzy kopii zapasowych"). Wszystko, co robi ta flaga, to aktywowanie uprawnień, które konto już ma.
+**--kopia zapasowa**                               Aktywuje SeBackupPrivilege systemu Windows pod kątem przekazywania lub SeRestorePrivilege do pobrania, aby zezwolić AzCopy na odczytywanie wszystkich plików, niezależnie od ich uprawnień systemu plików oraz przywracanie wszystkich uprawnień. Wymaga, aby konto z systemem AzCopy już miało te uprawnienia (np. ma prawa administratora lub jest członkiem grupy "Operatorzy kopii zapasowych"). Wszystkie te flagi są uaktywniane, gdy konto ma już uprawnienia.
 
-**Ciąg typu --blob** definiuje typ obiektu blob w miejscu docelowym. Służy do przekazywania obiektów blob i kopiowania między kontami (domyślnie "Detect"). Prawidłowe wartości to "Detect", "BlockBlob", "PageBlob" i "AppendBlob". Podczas kopiowania między kontami wartość "Detect" powoduje, że AzCopy używa typu źródłowego obiektu blob do określenia typu docelowego obiektu blob. Podczas przesyłania pliku "Detect" określa, czy plik jest VHD lub VHDX plik oparty na rozszerzeniu pliku. Jeśli plik jest eterem pliku VHD lub VHDX, AzCopy traktuje plik jako obiekt blob strony. (domyślnie "Detect")
+**--ciąg typu BLOB** definiuje typ obiektu BLOB w miejscu docelowym. Służy do przekazywania obiektów blob i kopiowania między kontami (domyślnie "wykrywanie"). Prawidłowe wartości to "Detection", "BlockBlob", "PageBlob" i "AppendBlob". Podczas kopiowania między kontami, wartość "Detect" powoduje, że AzCopy używają typu źródłowego obiektu BLOB do określenia typu docelowego obiektu BLOB. Podczas przekazywania pliku polecenie "Detection" określa, czy plik jest dyskiem VHD lub plikiem VHDX na podstawie rozszerzenia pliku. Jeśli plik jest eterem pliku VHD lub VHDX, AzCopy traktuje ten plik jako stronicowy obiekt BLOB. (domyślnie "Detect")
 
-**--block-blob-tier** string Przekaż blokowe obiekty blob bezpośrednio do [wybranej warstwy dostępu.](../blobs/storage-blob-storage-tiers.md) (domyślnie "Brak"). Prawidłowe wartości to "Brak", "Hot", "Cool" i "Archive". Jeśli zostanie przekazana warstwa "Brak" lub nie zostanie przekazana żadna warstwa, obiekt blob odziedziczy warstwę konta magazynu.
+**--Block-String-warstwowe** przekazywanie bloków BLOB bezpośrednio do wybranej [warstwy dostępu](../blobs/storage-blob-storage-tiers.md) . (domyślnie "none"). Prawidłowe wartości to "none", "gorąca", "chłodna" i "archiwalne". Jeśli nie przeszedł żadnej warstwy, obiekt BLOB będzie dziedziczyć warstwę konta magazynu.
 
-**--block-size-mb** float Użyj tego rozmiaru bloku (określonego w MiB) podczas przekazywania do usługi Azure Storage i pobierania z usługi Azure Storage. Wartość domyślna jest obliczana automatycznie na podstawie rozmiaru pliku. Frakcje dziesiętne są dozwolone (na przykład: 0,25).
+**--rozmiar bloku-MB** zmiennoprzecinkowy Użyj tego rozmiaru bloku (określonego w MIB) podczas przekazywania do usługi Azure Storage i pobierania z usługi Azure Storage. Wartość domyślna jest obliczana automatycznie na podstawie rozmiaru pliku. Dozwolone są ułamki dziesiętne (na przykład: 0,25).
 
-**--cache-control** string Ustaw nagłówek kontroli pamięci podręcznej. Zwrócono po pobraniu.
+**--ciąg sterujący pamięci podręcznej** ustawia nagłówek Cache-Control. Zwrócony przy pobieraniu.
 
-**--check-length**                         Sprawdź długość pliku w miejscu docelowym po przeniesieniu. Jeśli występuje niezgodność między źródłem a miejscem docelowym, transfer jest oznaczony jako nie powiodło się. (domyślna wartość true)
+**--check-Length**                         Sprawdź długość pliku w miejscu docelowym po przeniesieniu. Jeśli występuje niezgodność między źródłem i miejscem docelowym, transfer zostanie oznaczony jako niepowodzenie. (wartość domyślna to true)
 
-**--check-md5** string Określa, jak ściśle skróty MD5 powinny być sprawdzane podczas pobierania. Dostępne tylko podczas pobierania. Dostępne opcje: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (domyślnie "FailIfDifferent")
+**--check-MD5** ciąg Określa, jak ściśle skróty MD5 powinny być sprawdzane podczas pobierania. Dostępne tylko podczas pobierania. Dostępne opcje: NOCHECK, LogOnd, FailIfDifferent, FailIfDifferentOrMissing. (domyślnie "FailIfDifferent")
 
-**--content-disposition** string Ustaw nagłówek dyspozycji zawartości. Zwrócono po pobraniu.
+**--ciąg dyspozycji** do usuwania zawartości — nagłówek dyspozycji. Zwrócony przy pobieraniu.
 
-**--content-kodowanie** ciągu Ustaw nagłówek kodowania zawartości. Zwrócono po pobraniu.
+**--ciąg kodowania zawartości** ustawia nagłówek Content-Encoding. Zwrócony przy pobieraniu.
 
-**--content-language** string Ustaw nagłówek języka zawartości. Zwrócono po pobraniu.
+**--ciąg języka zawartości** ustawia nagłówek Content-Language. Zwrócony przy pobieraniu.
 
-**Ciąg typu --content** Określa typ zawartości pliku. Oznacza no-guess-mime typu. Zwrócono po pobraniu.
+**--ciąg typu zawartości** określa typ zawartości pliku. Oznacza brak typu MIME-Type. Zwrócony przy pobieraniu.
 
-**--dekompresja**                           Automatycznie dekompresuj pliki podczas pobierania, jeśli ich kodowanie zawartości wskazuje, że są skompresowane. Obsługiwane wartości kodowania zawartości to "gzip" i "deflate". Rozszerzenia plików '.gz'/'.gzip' lub '.zz' nie są konieczne, ale zostaną usunięte, jeśli są obecne.
+**--dekompresowanie**                           Automatycznie Kompresuj pliki podczas pobierania, jeśli ich kodowanie zawartości wskazuje, że są skompresowane. Obsługiwane wartości kodowania zawartości to "gzip" i "Wklęśnięcie". Rozszerzenia plików ". gz"/". gzip" lub ". ZZ" nie są konieczne, ale zostaną usunięte, jeśli istnieją.
 
-**Ciąg --exclude-attributes** (tylko windows) Wyklucz pliki, których atrybuty pasują do listy atrybutów. Na przykład: A; S; R
+**--exclude-Attribute** (tylko system Windows) wyklucza pliki, których atrybuty pasują do listy atrybutów. Na przykład: A; Wolumin ®
 
-**Ciąg typu --exclude-blob** Opcjonalnie określa typ obiektu blob (BlockBlob/ PageBlob/ AppendBlob), który ma być wykluczony podczas kopiowania obiektów blob z kontenera lub konta. Użycie tej flagi nie ma zastosowania do kopiowania danych z usługi nie azure do usługi. Więcej niż jeden obiekt blob powinien być oddzielony przez ';'.
+**--exclude-BLOB-Type** , opcjonalnie określa typ obiektu BLOB (BlockBlob/PageBlob/AppendBlob) do wykluczenia podczas kopiowania obiektów blob z kontenera lub konta. Użycie tej flagi nie ma zastosowania do kopiowania danych z usług spoza usługi Azure do usługi. Więcej niż jeden obiekt BLOB powinien być oddzielony znakiem ";".
 
-**Ciąg --exclude-path** Wyklucz te ścieżki podczas kopiowania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza względny prefiks ścieżki(Na przykład: mójFolder;mójFolder/subDirName/file.pdf). W połączeniu z przechodzeniem do konta ścieżki nie zawierają nazwy kontenera.
+**--exclude-Path** ciąg Wyklucz te ścieżki podczas kopiowania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej (na przykład: Moja folder; folder/subDirName/plik. PDF). W przypadku użycia w połączeniu z przechodzeniem konta ścieżki nie uwzględniają nazwy kontenera.
 
-**Ciąg --exclude-pattern** Wyklucz te pliki podczas kopiowania. Ta opcja obsługuje symbole wieloznaczne (*)
+**--wykluczanie-wzorzec** ciąg Wyklucz te pliki podczas kopiowania. Ta opcja obsługuje symbole wieloznaczne (*)
 
-**--follow-symlinks**                      Podczas przesyłania z lokalnego systemu plików należy obserwować łącza symboliczne.
+**--Obserwuj-linków symbolicznych**                      Śledź linki symboliczne podczas przekazywania z lokalnego systemu plików.
 
-**--od-do** ciągu Opcjonalnie określa kombinację docelową źródła. Na przykład: LocalBlob, BlobLocal, LocalBlobfs.
+**--ciąg od do do** , opcjonalnie określa kombinację źródłowej lokalizacji docelowej. Na przykład: LocalBlob, BlobLocal, LocalBlobFS.
 
-**-h, --help** pomoc dla kopiowania
+**-h,--** Pomoc dotycząca kopiowania
 
-**--include-attributes** string (tylko windows) Dołącz pliki, których atrybuty pasują do listy atrybutów. Na przykład: A; S; R
+**--include — ciąg atrybutów** (tylko system Windows) Uwzględnij pliki, których atrybuty pasują do listy atrybutów. Na przykład: A; Wolumin ®
 
-**--include-path** string Uwzględnij tylko te ścieżki podczas kopiowania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej (na przykład: mójFolder;mójFolder/subDirName/file.pdf).
+**--include-Path** ciąg Uwzględnij tylko te ścieżki podczas kopiowania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej (na przykład: Moja folder; folder/subDirName/plik. PDF).
 
-**--include-pattern** string Uwzględnij tylko te pliki podczas kopiowania. Ta opcja obsługuje symbole wieloznaczne (*). Oddzielaj pliki za pomocą ';'.
+**--ciąg include-Pattern** zawiera tylko te pliki podczas kopiowania. Ta opcja obsługuje symbole wieloznaczne (*). Oddziel pliki przy użyciu ";".
 
-**--log-level** string Zdefiniuj szczegółowość dziennika dla pliku dziennika, dostępne poziomy: INFO (wszystkie żądania/odpowiedzi), OSTRZEŻENIE (powolne odpowiedzi), ERROR (tylko żądania nieudane) i NONE (brak dzienników wyjściowych). (domyślnie "INFO")
+**--ciąg na poziomie dziennika** definiuje szczegółowość dziennika dla pliku dziennika, dostępne poziomy: info (wszystkie żądania/odpowiedzi), ostrzeżenie (wolne odpowiedzi), błąd (tylko Nieudane żądania) i brak (bez dzienników wyjściowych). (wartość domyślna: "INFO")
 
-**--metadanych** ciąg Przekaż do usługi Azure Storage z tych par klucza wartości jako metadane.
+**—** przesyłanie ciągu metadanych do usługi Azure Storage przy użyciu tych par klucz-wartość jako metadanych.
 
-**--no-guess-mime-type**                   Zapobiega wykrywaniu przez AzCopy typu zawartości na podstawie rozszerzenia lub zawartości pliku.
+**--no-zgadywanie-MIME-Type**                   Uniemożliwia programowi AzCopy wykrywanie typu zawartości na podstawie rozszerzenia lub zawartości pliku.
 
-**--overwrite** string Zastąp pliki powodujące konflikt i obiekty BLOB w miejscu docelowym, jeśli ta flaga jest ustawiona na true. Możliwe wartości to "true", "false", "ifSourceNewer" i "prompt". (domyślnie "true")
+**--Zastąp** ciąg nadpisać pliki powodujące konflikt i obiekty blob w miejscu docelowym, jeśli ta flaga jest ustawiona na wartość true. Możliwe wartości to "true", "false", "ifSourceNewer" i "Prompt". (wartość domyślna to "true")
 
-**Ciąg -page-blob-tier** Przekaż obiekt blob strony do usługi Azure Storage przy użyciu tej warstwy obiektu blob. (domyślnie "Brak")
+**--Strona-ciąg warstwy obiektu** BLOB przekazywanie stronicowego obiektu BLOB do usługi Azure Storage przy użyciu tej warstwy obiektów BLOB. (domyślnie "none")
 
-**--preserve-last-modified-time**          Dostępne tylko wtedy, gdy miejscem docelowym jest system plików.
+**--Preserve-Last-Modified-Time**          Dostępne tylko wtedy, gdy miejscem docelowym jest system plików.
 
-**--preserve-smb-permissions** string False domyślnie. Zachowuje listy AMB ACL między świadomymi zasobami (Windows i Pliki platformy Azure). W przypadku pobierania należy również użyć `--backup` flagi, aby przywrócić uprawnienia, w których nowy właściciel nie będzie użytkownikiem z uruchomionym programem AzCopy. Ta flaga ma zastosowanie zarówno do plików, jak i folderów, `include-pattern`chyba że określono filtr tylko do plików (np. ).
+**--Preserve-SMB —** domyślnie wartość false. Zachowuje listy ACL protokołu SMB między zasobami zależnymi (Windows i Azure Files). W przypadku pobierania należy również użyć `--backup` flagi, aby przywrócić uprawnienia, w których nowy właściciel nie będzie użytkownikiem, na którym jest uruchomiony program AzCopy. Ta flaga ma zastosowanie do plików i folderów, chyba że określono filtr tylko dla plików (np. `include-pattern`).
 
-**--preserve-smb-info** string False domyślnie. Zachowuje informacje o właściwości SMB (ostatni czas zapisu, czas tworzenia, bity atrybutów) między zasobami obsługującymi SMB (Windows i Usługi Azure Files). Zostaną przeniesione tylko bity atrybutów obsługiwane przez usługi Azure Files; wszystkie inne zostaną zignorowane. Ta flaga ma zastosowanie zarówno do plików, jak i folderów, chyba że określono filtr tylko do plików (np. wzór dołączany). Informacje przesyłane dla folderów są takie same jak w przypadku plików, z wyjątkiem czasu ostatniego zapisu, który nigdy nie jest zachowywany dla folderów.
+**--Preserve-SMB-info** parametry false domyślnie. Zachowuje informacje o właściwościach protokołu SMB (czas ostatniego zapisu, czas utworzenia, bity atrybutów) między zasobami opartymi na protokole SMB (Windows i Azure Files). Tylko bity atrybutu obsługiwane przez Azure Files zostaną przesłane; wszystkie inne zostaną zignorowane. Ta flaga ma zastosowanie do plików i folderów, chyba że określony jest filtr tylko dla plików (np. include-wzorzec). Informacje przesyłane do folderów są takie same jak dla plików, z wyjątkiem czasu ostatniego zapisu, który nigdy nie jest zachowywany dla folderów.
 
-**--preserve-owner**                       Ma wpływ tylko podczas pobierania danych i `--preserve-smb-permissions` tylko wtedy, gdy są używane. Jeśli wartość true (wartość domyślna), plik Właściciel i grupa są zachowywane w plikach do pobrania. Jeśli ta flaga jest `--preserve-smb-permissions` ustawiona na false, nadal będzie zachowywać listy ACL, ale właściciel i grupa będą oparte na użytkowniku, który jest uruchomiony AzCopy.
+**--Preserve-Owner**                       Tylko podczas pobierania danych i tylko wtedy, gdy `--preserve-smb-permissions` jest używany. Jeśli wartość jest równa true (domyślnie), właściciel pliku i Grupa są zachowywane w plikach do pobrania. Jeśli flaga jest ustawiona na wartość false, `--preserve-smb-permissions` nadal zachowuje listy ACL, ale właściciel i Grupa będą oparte na użytkowniku, na którym działa AzCopy.
 
-**--put-md5**                             Utwórz skrót MD5 każdego pliku i zapisz skrót jako właściwość Content-MD5 docelowego obiektu blob lub pliku. (Domyślnie skrót NIE jest tworzony). Dostępne tylko podczas przesyłania.
+**--Put-MD5**                             Utwórz skrót MD5 każdego pliku i Zapisz skrót jako właściwość Content-MD5 docelowego obiektu BLOB lub pliku. (Domyślnie skrót nie jest tworzony). Dostępne tylko podczas przekazywania.
 
-**--rekursywny**                            Podczas przekazywania z lokalnego systemu plików zajrzyj do podkatarzy cyklicznie.
+**--rekursywnie**                            Poszukaj podkatalogów cyklicznie podczas przekazywania z lokalnego systemu plików.
 
-**--s2s-detect-source-zmieniono**           Sprawdź, czy źródło uległo zmianie po wyliczenia.
+**--S2S-Detect-Source-zmiana**           Sprawdź, czy po wyliczyć źródła uległo zmianie.
 
-**--s2s-handle-invalid-metadata** string Określa sposób obsługi nieprawidłowych kluczy metadanych. Dostępne opcje: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (domyślnie "ExcludeIfInvalid")
+**--S2S-Handle-nieprawidłowy** ciąg Określa sposób obsługi nieprawidłowych kluczy metadanych. Dostępne opcje: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (domyślnie "ExcludeIfInvalid")
 
-**--s2s-preserve-access-tier**             Zachowaj warstwę dostępu podczas usługi do kopiowania usługi. Zapoznaj się z [usługi Azure Blob storage: hot, cool i archiwum warstwy dostępu,](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) aby upewnić się, że konto magazynu docelowego obsługuje ustawienie warstwy dostępu. W przypadkach, gdy ustawienie warstwy dostępu nie jest obsługiwane, użyj s2sPreserveAccessTier=false, aby pominąć kopiowanie warstwy dostępu. (domyślna wartość true)
+**--S2S-Preserve-dostęp-warstwa**             Zachowaj warstwę dostępu podczas kopiowania usługi do usługi. Zapoznaj się z [usługą Azure Blob Storage: warstwami dostępu gorąca, chłodna i archiwalna](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) , aby upewnić się, że docelowe konto magazynu obsługuje ustawienie Warstwa dostępu. W przypadkach, gdy ustawienie warstwy dostępu nie jest obsługiwane, użyj s2sPreserveAccessTier = false, aby obejść kopiowanie warstwy dostępu. (wartość domyślna to true)
 
-**--s2s-preserve-właściwości**              Zachowaj pełne właściwości podczas kopiowania usługi do serwisu. W przypadku aws S3 i usługi Azure File bez pojedynczego źródła plików operacja listy nie zwraca pełnych właściwości obiektów i plików. Aby zachować pełne właściwości, AzCopy musi wysłać jedno dodatkowe żądanie na obiekt lub plik. (domyślna wartość true)
+**--S2S-Preserve-Properties**              Zachowaj pełne właściwości podczas kopiowania usługi do usługi. W przypadku AWS S3 i plików platformy Azure, które nie są pojedynczym źródłem plików, operacja listy nie zwraca pełnych właściwości obiektów i plików. Aby zachować pełne właściwości, AzCopy musi wysłać jedno dodatkowe żądanie dla każdego obiektu lub pliku. (wartość domyślna to true)
 
 ## <a name="options-inherited-from-parent-commands"></a>Opcje dziedziczone z poleceń nadrzędnych
 
-**--cap-mbps uint32**      Limity szybkości transferu w megabitach na sekundę. Przepływność moment po chwili może się nieznacznie różnić od limitu. Jeśli ta opcja jest ustawiona na zero lub jest pomijana, przepływność nie jest ograniczona.
+**--Cap-MB/s UInt32**      Szybkość transferu w megabitach na sekundę. Przepływność czasu na chwilę może się nieco różnić od końca. Jeśli ta opcja jest ustawiona na zero lub zostanie pominięta, przepływność nie zostanie ograniczona.
 
-**--output-type** string Format wyjścia polecenia. Do wyboru są: tekst, json. Wartością domyślną jest "text". (domyślny "tekst")
+**--** format ciągu typu danych wyjściowych polecenia. Dostępne opcje to: text, JSON. Wartość domyślna to "text". (domyślny "tekst")
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [azcopy](storage-ref-azcopy.md)

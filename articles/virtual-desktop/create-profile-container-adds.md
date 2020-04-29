@@ -1,6 +1,6 @@
 ---
-title: Tworzenie kontenera profilu FSLogix Usługi domenowe Usługi domenowe Active Directory — Azure
-description: W tym artykule opisano sposób tworzenia kontenera profilu FSLogix za pomocą plików azure i usług domenowych Active Directory platformy Azure.
+title: Tworzenie kontenera profilu FSLogix Azure Files Active Directory Domain Services — Azure
+description: W tym artykule opisano sposób tworzenia kontenera profilu FSLogix z Azure Files i Azure Active Directory Domain Services.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,93 +9,93 @@ ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: dd01b950435fadb96a961b6bb1c6b28ff436907a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81265774"
 ---
-# <a name="create-an-fslogix-profile-container-with-azure-files"></a>Tworzenie kontenera profilu FSLogix za pomocą usługi Azure Files
+# <a name="create-an-fslogix-profile-container-with-azure-files"></a>Tworzenie kontenera profilu FSLogix z Azure Files
 
-W tym artykule pokazano, jak utworzyć kontener profilu FSLogix za pomocą plików Azure i usług domenowych Active Directory platformy Azure (AD DS).
+W tym artykule przedstawiono sposób tworzenia kontenera profilu FSLogix z Azure Files i Azure Active Directory Domain Services (AD DS).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym artykule przyjęto założenie, że zostało już skonfigurowane wystąpienie usług Azure AD DS. Jeśli jeszcze go nie masz, postępuj zgodnie z instrukcjami w [obszarze Utwórz podstawową domenę zarządzaną,](../active-directory-domain-services/tutorial-create-instance.md) a następnie wróć tutaj.
+W tym artykule przyjęto założenie, że zostało już skonfigurowane wystąpienie usługi Azure AD DS. Jeśli jeszcze tego nie masz, postępuj zgodnie z instrukcjami w temacie [Tworzenie podstawowej domeny zarządzanej](../active-directory-domain-services/tutorial-create-instance.md) , a następnie wróć tutaj.
 
-## <a name="add-azure-ad-ds-admins"></a>Dodawanie administratorów usług Ad DS
+## <a name="add-azure-ad-ds-admins"></a>Dodawanie administratorów usługi Azure AD DS
 
-Aby dodać dodatkowych administratorów, należy utworzyć nowego użytkownika i przyznać im uprawnienia.
+Aby dodać kolejnych administratorów, należy utworzyć nowego użytkownika i przyznać im uprawnienia.
 
 Aby dodać administratora:
 
-1. Wybierz **pozycję Azure Active Directory** z paska bocznego, a następnie wybierz pozycję Wszyscy **użytkownicy**, a następnie wybierz pozycję **Nowy użytkownik**.
+1. Wybierz **Azure Active Directory** z paska bocznego, a następnie wybierz pozycję **Wszyscy użytkownicy**, a następnie wybierz pozycję **nowy użytkownik**.
 
 2.  Wprowadź szczegóły użytkownika w polach.
 
-3. W okienku usługi Azure Active Directory po lewej stronie ekranu wybierz pozycję **Grupy**.
+3. W okienku Azure Active Directory po lewej stronie ekranu wybierz pozycję **grupy**.
 
-4. Wybierz grupę **Administratorzy kontrolera domeny usługi AAD.**
+4. Wybierz grupę **Administratorzy domeny usługi AAD** .
 
-5. W lewym okienku wybierz pozycję **Członkowie**, a następnie wybierz pozycję **Dodaj członków** w głównym okienku. Spowoduje to wyświetlenia listy wszystkich użytkowników dostępnych w usłudze Azure AD. Wybierz nazwę utworzonego właśnie profilu użytkownika.
+5. W lewym okienku wybierz pozycję **elementy członkowskie**, a następnie wybierz pozycję **Dodaj członków** w okienku głównym. Zostanie wyświetlona lista wszystkich użytkowników dostępnych w usłudze Azure AD. Wybierz nazwę utworzonego profilu użytkownika.
 
 ## <a name="set-up-an-azure-storage-account"></a>Konfigurowanie konta usługi Azure Storage
 
-Teraz nadszedł czas, aby włączyć uwierzytelnianie usług Ad DS za pomocą bloku komunikatów serwera (SMB). 
+Teraz czas na włączenie uwierzytelniania za pomocą usługi Azure AD DS przy użyciu bloku komunikatów serwera (SMB). 
 
 Aby włączyć uwierzytelnianie:
 
-1. Jeśli jeszcze tego nie zrobiłeś, skonfiguruj i wdrażaj ogólne konto usługi Azure Storage w wersji 2, postępując zgodnie z instrukcjami w [obszarze Tworzenie konta usługi Azure Storage.](../storage/common/storage-account-create.md)
+1. Jeśli jeszcze tego nie zrobiono, skonfiguruj i Wdróż konto usługi Azure Storage ogólnego przeznaczenia w wersji 2, postępując zgodnie z instrukcjami w temacie [Tworzenie konta usługi Azure Storage](../storage/common/storage-account-create.md).
 
 2. Po zakończeniu konfigurowania konta wybierz pozycję **Przejdź do zasobu**.
 
-3. Wybierz **opcję Konfiguracja** z okienka po lewej stronie ekranu, a następnie włącz **uwierzytelnianie usługi Azure Active Directory dla plików platformy Azure** w głównym okienku. Po zakończeniu wybierz pozycję **Zapisz**.
+3. Wybierz pozycję **Konfiguracja** z okienka po lewej stronie ekranu, a następnie Włącz **Azure Active Directory uwierzytelnianie dla Azure Files** w okienku głównym. Po zakończeniu wybierz pozycję **Zapisz**.
 
-4. Wybierz **pozycję Przegląd** w okienku po lewej stronie ekranu, a następnie wybierz pozycję **Pliki** w głównym okienku.
+4. Wybierz pozycję **Przegląd** w okienku po lewej stronie ekranu, a następnie wybierz pozycję **pliki** w okienku głównym.
 
-5. Wybierz **pozycję Udział plików** i wprowadź **nazwę** i **przydział** w polach wyświetlanych po prawej stronie ekranu.
+5. Wybierz pozycję **udział plików** , a następnie wprowadź **nazwę** i **przydział** do pól, które pojawiają się po prawej stronie ekranu.
 
 ## <a name="assign-access-permissions-to-an-identity"></a>Przypisywanie uprawnień dostępu do tożsamości
 
-Inni użytkownicy będą potrzebować uprawnień dostępu, aby uzyskać dostęp do udziału plików. Aby to zrobić, musisz przypisać każdemu użytkownikowi rolę z odpowiednimi uprawnieniami dostępu.
+Inni użytkownicy będą musieli uzyskać dostęp do udziału plików. W tym celu należy przypisać każdemu użytkownikowi rolę z odpowiednimi uprawnieniami dostępu.
 
-Aby przypisać użytkownikom uprawnienia dostępu:
+Aby przypisać uprawnienia dostępu użytkowników:
 
-1. W witrynie Azure Portal otwórz utworzony w witrynie [Konfigurowanie konta usługi Azure Storage](#set-up-an-azure-storage-account).
+1. W Azure Portal Otwórz udział plików utworzony w obszarze [Konfigurowanie konta usługi Azure Storage](#set-up-an-azure-storage-account).
 
-2. Wybierz **pozycję Kontrola dostępu (IAM)**.
+2. Wybierz pozycję **Access Control (IAM)**.
 
-3. Wybierz **pozycję Dodaj przypisanie roli**.
+3. Wybierz pozycję **Dodaj przypisanie roli**.
 
-4. Na karcie **Dodawanie przypisania roli** wybierz odpowiednią wbudowaną rolę z listy ról. Aby uzyskać odpowiednie uprawnienia, musisz przynajmniej wybrać **współautora udziału w danych magazynu SMB** dla konta.
+4. Na karcie **Dodaj przypisanie roli** wybierz odpowiednią wbudowaną rolę z listy rola. Aby uzyskać odpowiednie uprawnienia, należy wybrać co najmniej pozycję **plik usługi Storage współautor udziału SMB** dla konta.
 
-5. Aby **przypisać dostęp do**, wybierz **użytkownika, grupę lub jednostkę usługi Azure Active Directory**.
+5. W obszarze **Przypisz dostęp do**wybierz pozycję **Azure Active Directory użytkownika, grupy lub nazwy głównej usługi**.
 
-6. Wybierz nazwę lub adres e-mail docelowej tożsamości usługi Azure Active Directory.
+6. Wybierz nazwę lub adres e-mail dla Azure Active Directory tożsamości docelowej.
 
-7. Wybierz **pozycję Zapisz**.
+7. Wybierz pozycję **Zapisz**.
 
-## <a name="get-the-storage-account-access-key"></a>Uzyskiwanie klucza dostępu do konta magazynu
+## <a name="get-the-storage-account-access-key"></a>Pobieranie klucza dostępu do konta magazynu
 
-Następnie musisz uzyskać klucz dostępu do swojego konta magazynu.
+Następnie musisz uzyskać klucz dostępu do konta magazynu.
 
 Aby uzyskać klucz dostępu do konta magazynu:
 
-1. Na pasku bocznym portalu Azure wybierz pozycję **Konta magazynu**.
+1. Na pasku bocznym Azure Portal wybierz pozycję **konta magazynu**.
 
-2. Z listy kont magazynu wybierz konto, dla którego włączono usługi Azure AD DS i utworzono role niestandardowe w powyższych krokach.
+2. Z listy kont magazynu wybierz konto, dla którego włączono usługę Azure AD DS i utworzono role niestandardowe w powyższych krokach.
 
-3. W obszarze **Ustawienia**wybierz pozycję **Klawisze programu Access** i skopiuj klucz z **key1**.
+3. W obszarze **Ustawienia**wybierz pozycję **klucze dostępu** i skopiuj klucz z **Klucz1**.
 
-4. Przejdź do karty **Maszyny wirtualne** i znajdź dowolną maszynę wirtualną, która stanie się częścią puli hostów.
+4. Przejdź do karty **Virtual Machines** i Znajdź wszystkie maszyny wirtualne, które staną się częścią puli hostów.
 
-5. Wybierz nazwę maszyny wirtualnej (VM) w obszarze **Maszyny wirtualne (adVM)** i wybierz **pozycję Połącz**
+5. Wybierz nazwę maszyny wirtualnej (VM) w obszarze **Virtual Machines (adVM)** , a następnie wybierz pozycję **Połącz** .
 
-    Spowoduje to pobranie pliku RDP, który pozwoli Ci zalogować się do maszyny Wirtualnej przy użyciu własnych poświadczeń.
+    Spowoduje to pobranie pliku RDP, który umożliwi zalogowanie się do maszyny wirtualnej przy użyciu własnych poświadczeń.
 
-    ![Zrzut ekranu przedstawiający kartę RDP w oknie Połącz z maszyną wirtualną.](media/rdp-tab.png)
+    ![Zrzut ekranu karty RDP okna łączenie z maszyną wirtualną.](media/rdp-tab.png)
 
-6. Po zalogowaniu się do maszyny Wirtualnej uruchom wiersz polecenia jako administrator.
+6. Po zalogowaniu się do maszyny wirtualnej Uruchom wiersz polecenia jako administrator.
 
 7. Uruchom następujące polecenie:
 
@@ -103,10 +103,10 @@ Aby uzyskać klucz dostępu do konta magazynu:
      net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
      ```
 
-    - Wymień `<desired-drive-letter>` na wybraną literę dysku (na `y:`przykład).
-    - Zastąp `<storage-account-name>` wszystkie wystąpienia nazwą konta magazynu określonego wcześniej.
+    - Zamień `<desired-drive-letter>` na wybraną literę dysku (na przykład `y:`).
+    - Zamień wszystkie wystąpienia `<storage-account-name>` z nazwą konta magazynu określonego wcześniej.
     - Zamień `<share-name>` na nazwę utworzonego wcześniej udziału.
-    - Zamień `<storage-account-key>` klucz konta magazynu z platformy Azure.
+    - Zamień `<storage-account-key>` na klucz konta magazynu z platformy Azure.
 
     Przykład:  
   
@@ -114,14 +114,14 @@ Aby uzyskać klucz dostępu do konta magazynu:
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
 
-8. Uruchom następujące polecenie, aby udzielić użytkownikowi pełnego dostępu do udziału usługi Azure Files.
+8. Uruchom następujące polecenie, aby udzielić użytkownikowi pełnego dostępu do udziału Azure Files.
 
      ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(f)
      ```
 
-    - Zamień `<mounted-drive-letter>` ją literą dysku, z którego ma korzystać użytkownik.
-    - Zamień `<user-email>` ją na nazwy UPN użytkownika, który będzie używał tego profilu do uzyskiwania dostępu do maszyn wirtualnych hosta sesji.
+    - Zamień `<mounted-drive-letter>` na literę dysku, który ma być używany przez użytkownika.
+    - Zamień `<user-email>` na nazwę UPN użytkownika, który będzie używać tego profilu do uzyskiwania dostępu do maszyn wirtualnych hosta sesji.
 
     Przykład:
      
@@ -131,36 +131,36 @@ Aby uzyskać klucz dostępu do konta magazynu:
 
 ## <a name="create-a-profile-container"></a>Tworzenie kontenera profilu
 
-Teraz, gdy Twoje profile są gotowe do pracy, utwórzmy kontener profilu FSLogix.
+Teraz, gdy Twoje profile są gotowe, Utwórzmy kontener profilu FSLogix.
 
 Aby skonfigurować kontener profilu FSLogix:
 
-1. Zaloguj się do maszyny wirtualnej hosta sesji skonfigurowanej na początku tego artykułu, a następnie [pobierz i zainstaluj agenta FSLogix](/fslogix/install-ht/).
+1. Zaloguj się do maszyny wirtualnej hosta sesji skonfigurowanej na początku tego artykułu, a następnie [Pobierz i Zainstaluj agenta FSLogix](/fslogix/install-ht/).
 
-2. Rozpakuj pobrany plik agenta FSLogix i przejdź do**wersji** **x64,** > a następnie otwórz **plik FSLogixAppsSetup.exe**.
+2. Rozpakuj pobrany plik agenta FSLogix i przejdź do wersji **x64** > **Releases**, a następnie otwórz **FSLogixAppsSetup. exe**.
 
-3. Po uruchomieniu instalatora, wybierz **zgadzam się z warunkami licencji.** Jeśli dotyczy, podaj nowy klucz.
+3. Po uruchomieniu Instalatora zaznacz opcję **Akceptuję warunki i postanowienia licencyjne.** Jeśli ma to zastosowanie, podaj nowy klucz.
 
 4. Wybierz pozycję **Zainstaluj**.
 
-5. Otwórz **dysk C**, a następnie przejdź do Program **Files** > **FSLogix** > **Apps,** aby upewnić się, że agent FSLogix został poprawnie zainstalowany.
+5. Otwórz **dysk C**, a następnie przejdź do pozycji **Program Files** > **FSLogix** > **Apps** , aby upewnić się, że Agent FSLogix został prawidłowo zainstalowany.
 
      >[!NOTE]
-     > Jeśli w puli hostów znajduje się wiele maszyn wirtualnych, należy powtórzyć kroki od 1 do 5 dla każdej maszyny Wirtualnej.
+     > Jeśli w puli hostów istnieje wiele maszyn wirtualnych, należy powtórzyć kroki od 1 do 5 dla każdej maszyny wirtualnej.
 
-6. Uruchom **Edytor rejestru** (RegEdit) jako administrator.
+6. Uruchom **Edytor rejestru** (regedit) jako administrator.
 
-7. Przejdź do **aplikacji Komputer** > **HKEY_LOCAL_MACHINE** > **FSLogix****software** > , kliknij prawym przyciskiem myszy **na FSLogix**, wybierz pozycję **Nowy**, a następnie wybierz **klawisz**.
+7. Przejdź do **komputera** > **HKEY_LOCAL_MACHINE** > **Software** > **FSLogix**, kliknij prawym przyciskiem myszy pozycję **FSLogix**, wybierz pozycję **Nowy**, a następnie wybierz pozycję **klucz**.
 
 8. Utwórz nowy klucz o nazwie **Profile**.
 
-9.  Kliknij prawym przyciskiem myszy **pozycję Profile**, wybierz pozycję **Nowy**, a następnie wybierz pozycję **DWORD (32-bitowa) Wartość.** Nazwij wartość **Włączono** i ustaw wartość **Data** na **1**.
+9.  Kliknij prawym przyciskiem myszy pozycję **Profile**, wybierz pozycję **Nowy**, a następnie wybierz **wartość DWORD (32-bitową).** Nazwij wartość **Enabled** i ustaw wartość **danych** na **1**.
 
-    ![Zrzut ekranu przedstawiający klucz Profiles. Wyróżniony REG_DWORD plik, a jego wartość Data ustawiona jest na 1.](media/dword-value.png)
+    ![Zrzut ekranu przedstawiający klucz profile. Plik REG_DWORD jest wyróżniony, a jego wartość danych jest ustawiona na 1.](media/dword-value.png)
 
-10. Kliknij prawym przyciskiem myszy **pozycję Profile**, wybierz pozycję **Nowy**, a następnie wybierz pozycję **Wartość wielostrunowa**. Nazwij wartość **VHDLocations** i ustaw wprowadź identyfikator `\\fsprofile.file.core.windows.net\share` URI dla udziału usługi Azure Files jako wartość danych.
+10. Kliknij prawym przyciskiem myszy pozycję **Profile**, wybierz pozycję **Nowy**, a następnie wybierz pozycję **wartość ciągu wielociągowego**. Nadaj wartość **VHDLocations** , a w polu wartość danych wprowadź identyfikator URI dla `\\fsprofile.file.core.windows.net\share` udziału Azure Files.
 
-    ![Zrzut ekranu przedstawiający klucz Profiles przedstawiający plik VHDLocations. Jego wartość Data pokazuje identyfikator URI dla udziału usługi Azure Files.](media/multi-string-value.png)
+    ![Zrzut ekranu przedstawiający klucz profile pokazujący plik VHDLocations. Jego wartość danych pokazuje identyfikator URI udziału Azure Files.](media/multi-string-value.png)
 
 ## <a name="assign-users-to-a-session-host"></a>Przypisywanie użytkowników do hosta sesji
 
@@ -168,7 +168,7 @@ Teraz musisz przypisać użytkowników do hosta sesji.
 
 Aby przypisać użytkowników:
 
-1. Uruchom program Windows PowerShell jako administrator, a następnie uruchom następujące polecenie cmdlet, aby zalogować się do pulpitu wirtualnego systemu Windows za pomocą programu PowerShell:
+1. Uruchom program Windows PowerShell jako administrator, a następnie uruchom następujące polecenie cmdlet, aby zalogować się do pulpitu wirtualnego systemu Windows przy użyciu programu PowerShell:
 
    ```powershell
    Import-Module Microsoft.RdInfra.RdPowershell
@@ -181,7 +181,7 @@ Aby przypisać użytkowników:
    Add-RdsAccount -DeploymentUrl $brokerurl
    ```
 
-   Po wyświetleniu monitu o poświadczenia wprowadź tego samego użytkownika, któremu przyznano rolę TenantCreator, RDS Owner lub RDS Contributor w dzierżawie pulpitu wirtualnego systemu Windows.
+   Gdy zostanie wyświetlony monit o podanie poświadczeń, wprowadź tego samego użytkownika, którym udzielono roli współautor TenantCreator, RDS lub RDS w dzierżawie pulpitu wirtualnego systemu Windows.
 
 2. Uruchom następujące polecenia cmdlet, aby przypisać użytkownika do grupy pulpitów zdalnych:
 
@@ -197,7 +197,7 @@ Aby przypisać użytkowników:
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
-    Podobnie jak wcześniejsze polecenia cmdlet, `<your-wvd-tenant>` `<wvd-pool>`należy `<user-principal>` zastąpić , i z odpowiednimi wartościami.
+    Podobnie jak w przypadku wcześniejszych poleceń cmdlet, pamiętaj, `<your-wvd-tenant>`aby `<wvd-pool>`zastąpić, `<user-principal>` i z odpowiednimi wartościami.
 
     Przykład:
 
@@ -215,29 +215,29 @@ Aby przypisać użytkowników:
 
 ## <a name="make-sure-your-profile-works"></a>Upewnij się, że Twój profil działa
 
-Teraz wszystko, co musisz zrobić, to upewnić się, że utworzony profil istnieje i działa zgodnie z przeznaczeniem.
+Teraz wystarczy upewnić się, że utworzony profil istnieje i działa zgodnie z oczekiwaniami.
 
-Aby zweryfikować swój profil:
+Aby zweryfikować profil:
 
 1. Otwórz przeglądarkę i przejdź do [klienta sieci Web pulpitu wirtualnego systemu Windows](https://rdweb.wvd.microsoft.com/webclient/index.html).
 
-2. Zaloguj się przy pomocy konta użytkownika przypisanego do grupy Pulpit zdalny.
+2. Zaloguj się przy użyciu konta użytkownika przypisanego do grupy Pulpit zdalny.
 
-3. Po ustanowieniu sesji użytkownika otwórz witrynę Azure portal i zaloguj się przy za pomocą konta administracyjnego.
+3. Po nawiązaniu sesji użytkownika Otwórz Azure Portal i zaloguj się przy użyciu konta administracyjnego.
 
-4. Na pasku bocznym wybierz pozycję **Konta magazynu**.
+4. Na pasku bocznym wybierz pozycję **konta magazynu**.
 
-5. Wybierz konto magazynu skonfigurowane jako udział plików dla puli hostów sesji i włączone za pomocą usług Azure AD DS.
+5. Wybierz konto magazynu skonfigurowane jako udział plików dla puli hostów sesji i włączone przy użyciu usługi Azure AD DS.
 
-6. Wybierz ikonę **Pliki,** a następnie rozwiń udział.
+6. Wybierz ikonę **pliki** , a następnie rozwiń swój udział.
 
-    Jeśli wszystko jest poprawnie skonfigurowane, powinien zostać wyświetlony **katalog** o sformatowanej w ten sposób: `<user SID>-<username>`.
+    Jeśli wszystko zostało skonfigurowane prawidłowo, powinien zostać wyświetlony **katalog** o nazwie, który jest sformatowany w następujący sposób: `<user SID>-<username>`.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli szukasz alternatywnych sposobów tworzenia kontenerów profilu FSLogix, zapoznaj się z następującymi artykułami:
+Jeśli szukasz alternatywnych metod tworzenia kontenerów profilów FSLogix, zapoznaj się z następującymi artykułami:
 
 - [Utwórz kontener profilu dla puli hostów przy użyciu udziału plików](create-host-pools-user-profile.md).
-- [Tworzenie kontenera profilu FSLogix dla puli hostów przy użyciu plików NetApp platformy Azure](create-fslogix-profile-container.md)
+- [Tworzenie kontenera profilu FSLogix dla puli hostów przy użyciu Azure NetApp Files](create-fslogix-profile-container.md)
 
-Bardziej szczegółowe informacje na temat pojęć związanych z kontenerami FSlogix dla plików platformy Azure można znaleźć w [kontenerach profilu FSLogix i plikach platformy Azure.](fslogix-containers-azure-files.md)
+Bardziej szczegółowe informacje na temat pojęć związanych z kontenerami FSlogix dla plików platformy Azure można znaleźć w [kontenerach profilów FSlogix i plikach platformy Azure](fslogix-containers-azure-files.md).

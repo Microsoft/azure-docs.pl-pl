@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z kondycją zaplecza w usłudze Azure Application Gateway
-description: W tym artykule opisano sposób rozwiązywania problemów z kondycją wewnętrznej bazy danych dla bramy aplikacji platformy Azure
+title: Rozwiązywanie problemów z kondycją zaplecza na platformie Azure Application Gateway
+description: Opisuje sposób rozwiązywania problemów z kondycją zaplecza dla usługi Azure Application Gateway
 services: application-gateway
 author: surajmb
 ms.service: application-gateway
@@ -8,42 +8,42 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
 ms.openlocfilehash: a16120194b1b8015466005f42336828c2b4ace6c
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80983844"
 ---
-<a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Rozwiązywanie problemów ze zdrowiem zaplecza w bramie aplikacji
+<a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Rozwiązywanie problemów z kondycją zaplecza w Application Gateway
 ==================================================
 
 <a name="overview"></a>Omówienie
 --------
 
-Domyślnie usługa Azure Application Gateway sonduje serwery wewnętrznej bazy danych, aby sprawdzić ich stan kondycji i sprawdzić, czy są one gotowe do obsługi żądań. Użytkownicy mogą również tworzyć niestandardowe sondy, aby wspomnieć o nazwie hosta, ścieżce do sondowania i kodach stanu, które mają być zaakceptowane jako w dobrej kondycji. W każdym przypadku, jeśli serwer wewnętrznej bazy danych nie odpowiada pomyślnie, brama aplikacji oznacza serwer jako złej kondycji i zatrzymuje przekazywanie żądań do serwera. Po pomyślnym rozpoczęciu odpowiadania przez serwer brama aplikacji wznawia przekazywanie żądań.
+Domyślnie usługa Azure Application Gateway sonduje serwery zaplecza, aby sprawdzić ich stan kondycji i sprawdzić, czy są one gotowe do obsłużenia żądań. Użytkownicy mogą również tworzyć niestandardowe sondy, aby wspominać o nazwie hosta, ścieżce do sondowania oraz kodów stanu, które mają być akceptowane w dobrej kondycji. W każdym przypadku, jeśli serwer zaplecza nie odpowie pomyślnie, Application Gateway oznacza, że serwer jest w złej kondycji i przestanie przekazywać przekazywanie żądań do serwera. Po pomyślnym rozpoczęciu odpowiedzi serwer Application Gateway wznawia przekazywanie żądań.
 
-### <a name="how-to-check-backend-health"></a>Jak sprawdzić kondycję zaplecza
+### <a name="how-to-check-backend-health"></a>Sprawdzanie kondycji zaplecza
 
-Aby sprawdzić kondycję puli wewnętrznej bazy danych, można użyć health **wewnętrznej** strony w witrynie Azure portal. Można też użyć [interfejsu Api programu Azure PowerShell,](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0) [CLI](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health)lub [REST](https://docs.microsoft.com/rest/api/application-gateway/applicationgateways/backendhealth).
+Aby sprawdzić kondycję puli zaplecza, można użyć strony **kondycja zaplecza** na Azure Portal. Można też użyć [interfejsu API](https://docs.microsoft.com/rest/api/application-gateway/applicationgateways/backendhealth) [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), interfejsu [wiersza polecenia](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health)lub protokołu REST.
 
-Stan pobrany przez dowolną z tych metod może być jedną z następujących czynności:
+Stan pobrany przez dowolną z tych metod może być jednym z następujących:
 
-- W dobrej kondycji
+- Dobra kondycja
 
-- W niedobrej kondycji
+- Nieprawidłowy
 
 - Nieznane
 
-Jeśli stan kondycji wewnętrznej bazy danych serwera jest w dobrej kondycji, oznacza to, że brama aplikacji przekaże żądania do tego serwera. Ale jeśli kondycja wewnętrznej bazy danych dla wszystkich serwerów w puli wewnętrznej bazy danych jest w złej kondycji lub nieznany, mogą wystąpić problemy podczas próby uzyskania dostępu do aplikacji. W tym artykule opisano symptomy, przyczynę i rozwiązanie dla każdego z wyświetlanych błędów.
+Jeśli kondycja zaplecza serwera jest w dobrej kondycji, oznacza to, że Application Gateway przekaże żądania do tego serwera. Jeśli jednak kondycja zaplecza dla wszystkich serwerów w puli zaplecza jest zła lub nieznana, podczas próby uzyskania dostępu do aplikacji mogą wystąpić problemy. W tym artykule opisano objawy, przyczynę i rozwiązanie dla każdego z wymienionych błędów.
 
-<a name="backend-health-status-unhealthy"></a>Stan kondycji zaplecza: w złej kondycji
+<a name="backend-health-status-unhealthy"></a>Stan kondycji zaplecza: zła kondycja
 -------------------------------
 
-Jeśli stan kondycji wewnętrznej bazy danych jest w złej kondycji, widok portalu będzie podobny do następującego zrzutu ekranu:
+Jeśli kondycja zaplecza jest zła, widok portalu będzie wyglądać następująco:
 
-![Kondycja zaplecza bramy aplikacji — w złej kondycji](./media/application-gateway-backend-health-troubleshooting/appgwunhealthy.png)
+![Kondycja zaplecza Application Gateway — zła kondycja](./media/application-gateway-backend-health-troubleshooting/appgwunhealthy.png)
 
-Lub jeśli używasz kwerendy interfejsu API usługi Azure PowerShell, cli lub azure rest, otrzymasz odpowiedź podobną do następującej:
+Lub jeśli korzystasz Azure PowerShell z kwerendy interfejsu API REST platformy Azure, możesz uzyskać odpowiedź podobną do następującej:
 ```azurepowershell
 PS C:\Users\testuser\> Get-AzApplicationGatewayBackendHealth -Name "appgw1" -ResourceGroupName "rgOne"
 BackendAddressPools :
@@ -76,188 +76,188 @@ BackendAddressPoolsText : [
                             }
                         ]
 ```
-Po otrzymaniu stanu serwera wewnętrznej bazy danych w złej kondycji dla wszystkich serwerów w puli wewnętrznej bazy danych żądania nie są przekazywane do serwerów, a brama aplikacji zwraca błąd "502 Bad Gateway" do żądającego klienta. Aby rozwiązać ten problem, sprawdź **szczegóły** kolumny na **karcie Kondycja wewnętrznej bazy danych.**
+Po otrzymaniu stanu serwera wewnętrznej bazy danych w złej kondycji dla wszystkich serwerów w puli zaplecza żądania nie są przekazywane do serwerów, a Application Gateway zwraca błąd "502 zła brama" do żądającego klienta. Aby rozwiązać ten problem, Sprawdź kolumnę **szczegóły** na karcie **kondycja zaplecza** .
 
-Komunikat wyświetlany w kolumnie **Szczegóły** zawiera bardziej szczegółowe informacje na temat problemu i na ich podstawie można rozpocząć rozwiązywanie problemu.
+Komunikat wyświetlany w kolumnie **szczegóły** zawiera bardziej szczegółowe informacje o problemie i na podstawie tych informacji można rozpocząć rozwiązywanie problemu.
 
 > [!NOTE]
-> Domyślne żądanie sondy jest \<wysyłane\>w formacie protokołu ://127.0.0.1:\<port\>/. Na przykład http://127.0.0.1:80 dla sondy http na porcie 80. Tylko kody stanu HTTP od 200 do 399 są uważane za zdrowe. Protokół i port docelowy są dziedziczone z ustawień HTTP. Jeśli chcesz, aby brama aplikacji sondować na inny protokół, nazwę hosta lub ścieżkę i rozpoznać inny kod stanu jako w dobrej kondycji, skonfiguruj niestandardową sondę i skojarz ją z ustawieniami HTTP.
+> Domyślne żądanie sondowania jest wysyłane w \<formacie protokołu\>://127.0.0.1:\<port\>/. Na przykład w http://127.0.0.1:80 przypadku sondy http na porcie 80. Tylko kody stanu HTTP od 200 do 399 są uznawane za zdrowe. Protokół i port docelowy są dziedziczone z ustawień HTTP. Jeśli chcesz, aby Application Gateway sondować różne protokoły, nazwy hostów lub ścieżki i rozpoznawać inny kod stanu jako dobry, skonfiguruj sondę niestandardową i skojarz ją z ustawieniami protokołu HTTP.
 
 <a name="error-messages"></a>Komunikaty o błędach
 ------------------------
 #### <a name="backend-server-timeout"></a>Limit czasu serwera wewnętrznej bazy danych
 
-**Komunikat:** Czas wykonany przez wewnętrznej bazy danych, aby odpowiedzieć na sondę kondycji bramy\'aplikacji s jest więcej niż próg limitu czasu w ustawieniu sondy.
+**Komunikat:** Czas reakcji zaplecza na sondę kondycji bramy\'aplikacji jest większy niż próg limitu czasu w ustawieniu sondy.
 
-**Przyczyna:** Po wysłaniu żądania sondy HTTP(S) do serwera wewnętrznej bazy danych, czeka na odpowiedź z serwera wewnętrznej bazy danych dla skonfigurowanego okresu. Jeśli serwer wewnętrznej bazy danych nie odpowiada w skonfigurowanym okresie (wartość limitu czasu), jest oznaczony jako w złej kondycji, dopóki nie zacznie odpowiadać w skonfigurowanym okresie limitu czasu ponownie.
+**Przyczyna:** Gdy Application Gateway wysyła żądanie sondy HTTP (S) do serwera wewnętrznej bazy danych, czeka na odpowiedź z serwera wewnętrznej bazy danych przez skonfigurowany okres. Jeśli serwer wewnętrznej bazy danych nie odpowiada w skonfigurowanym okresie (wartość limitu czasu), zostanie oznaczony jako nieprawidłowy do momentu, aż zacznie reagować w skonfigurowanym limicie czasu.
 
-**Rozdzielczość:** Sprawdź, dlaczego serwer lub aplikacja wewnętrznej bazy danych nie odpowiada w skonfigurowanym okresie limitu czasu, a także sprawdź zależności aplikacji. Na przykład sprawdź, czy baza danych ma żadnych problemów, które mogą wywołać opóźnienie w odpowiedzi. Jeśli znasz zachowanie aplikacji i powinna ona odpowiadać tylko po przesuwu czasu, zwiększ wartość limitu czasu z niestandardowych ustawień sondy. Aby zmienić wartość limitu czasu, musi istnieć niestandardowa sonda. Informacje na temat konfigurowania sondy niestandardowej [można znaleźć na stronie dokumentacji](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
+**Rozwiązanie:** Sprawdź, dlaczego serwer zaplecza lub aplikacja nie odpowiada przed upływem skonfigurowanego limitu czasu, a także sprawdź zależności aplikacji. Na przykład sprawdź, czy baza danych ma jakiekolwiek problemy, które mogą spowodować opóźnienie w odpowiedzi. Jeśli masz świadomość zachowania aplikacji i powinna ona reagować tylko po wartości limitu czasu, zwiększ wartość limitu czasu z ustawień sondy niestandardowej. Aby zmienić wartość limitu czasu, trzeba mieć niestandardową sondę. Informacje o sposobie konfigurowania sondy niestandardowej [znajdują się na stronie dokumentacji](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
 
 Aby zwiększyć wartość limitu czasu, wykonaj następujące kroki:
 
-1.  Dostęp bezpośrednio do serwera wewnętrznej bazy danych i sprawdź czas, przez który serwer musi odpowiedzieć na tej stronie. Za pomocą dowolnego narzędzia można uzyskać dostęp do serwera wewnętrznej bazy danych, w tym do przeglądarki za pomocą narzędzi programistycznych.
+1.  Bezpośredni dostęp do serwera wewnętrznej bazy danych i sprawdź czas odpowiedzi serwera na Tę stronę. Możesz użyć dowolnego narzędzia, aby uzyskać dostęp do serwera wewnętrznej bazy danych, w tym przeglądarki przy użyciu narzędzi deweloperskich.
 
-1.  Po zorientowali się, czas przeznaczony dla aplikacji, aby odpowiedzieć, wybierz **sondy kondycji** kartę, a następnie wybierz sondę, która jest skojarzona z ustawieniami HTTP.
+1.  Po pobraniu czasu na odpowiedź aplikacji wybierz kartę **sondy kondycji** , a następnie wybierz sondę, która jest skojarzona z ustawieniami protokołu HTTP.
 
-1.  Wprowadź dowolną wartość limitu czasu, która jest większa niż czas odpowiedzi aplikacji w sekundach.
+1.  Wprowadź wartość limitu czasu, która jest większa niż czas odpowiedzi aplikacji (w sekundach).
 
-1.  Zapisz niestandardowe ustawienia sondy i sprawdź, czy kondycja wewnętrznej bazy danych jest teraz wyświetlana jako w dobrej kondycji.
+1.  Zapisz ustawienia sondy niestandardowej i sprawdź, czy kondycja zaplecza jest teraz wyświetlana jako dobra kondycja.
 
-#### <a name="dns-resolution-error"></a>Błąd rozpoznawania dns
+#### <a name="dns-resolution-error"></a>Błąd rozpoznawania nazw DNS
 
-**Komunikat:** Bramy aplikacji nie można utworzyć sondy dla tego zaplecza. Dzieje się tak zazwyczaj wtedy, gdy nazwa FQDN zaplecza nie została wprowadzona prawidłowo. 
+**Komunikat:** Application Gateway nie może utworzyć sondy dla tego zaplecza. Dzieje się tak zazwyczaj wtedy, gdy nazwa FQDN zaplecza nie została wprowadzona prawidłowo. 
 
-**Przyczyna:** Jeśli pula zaplecza jest typu Adres IP/FQDN lub Usługa aplikacji, brama aplikacji jest rozpoznawana na adres IP nazwy FQDN wprowadzonej za pośrednictwem systemu nazw domen (DNS) (domyślnie niestandardowego lub domyślnego standardu Azure) i próbuje połączyć się z serwerem na porcie TCP wymienionym w ustawieniach HTTP. Ale jeśli ten komunikat jest wyświetlany, sugeruje, że brama aplikacji nie może pomyślnie rozpoznać adres IP wprowadzonej sieci FQDN.
+**Przyczyna:** Jeśli pula zaplecza jest typu adresu IP/FQDN lub App Service, Application Gateway jest rozpoznawana jako adres IP nazwy FQDN wprowadzonej za pośrednictwem systemu nazw domen (DNS) (niestandardowa lub Azure default) i próbuje nawiązać połączenie z serwerem na porcie TCP wymienionym w ustawieniach protokołu HTTP. Ale jeśli ten komunikat jest wyświetlany, sugeruje, że Application Gateway nie może pomyślnie rozpoznać adresu IP wprowadzonej nazwy FQDN.
 
-**Rozdzielczość:**
+**Tłumaczenia**
 
-1.  Sprawdź, czy nazwa FQDN wprowadzona w puli wewnętrznej bazy danych jest poprawna i czy jest to domena publiczna, a następnie spróbuj rozwiązać ją z komputera lokalnego.
+1.  Sprawdź, czy nazwa FQDN wprowadzona w puli zaplecza jest poprawna i czy jest domeną publiczną, a następnie spróbuj rozwiązać ją z komputera lokalnego.
 
-1.  Jeśli można rozpoznać adres IP, może być coś nie tak z konfiguracją DNS w sieci wirtualnej.
+1.  W przypadku rozpoznania adresu IP może wystąpić problem z konfiguracją DNS w sieci wirtualnej.
 
-1.  Sprawdź, czy sieć wirtualna jest skonfigurowana z niestandardowym serwerem DNS. Jeśli tak jest, sprawdź serwer DNS, dlaczego nie może rozpoznać adresu IP określonej nazwy FQDN.
+1.  Sprawdź, czy sieć wirtualna jest skonfigurowana za pomocą niestandardowego serwera DNS. Jeśli tak jest, sprawdź serwer DNS, dlaczego nie można go rozpoznać jako adresu IP podanej nazwy FQDN.
 
-1.  Jeśli używasz domyślnego dns platformy Azure, skontaktuj się z rejestratorem nazw domen, czy prawidłowe mapowanie rekordu lub CNAME zostało ukończone.
+1.  Jeśli używasz domyślnej usługi DNS platformy Azure, skontaktuj się z rejestratorem nazw domen, aby dowiedzieć się, czy zakończono poprawne mapowanie rekordów lub rekordu CNAME.
 
-1.  Jeśli domena jest prywatna lub wewnętrzna, spróbuj ją rozwiązać z maszyny Wirtualnej w tej samej sieci wirtualnej. Jeśli możesz go rozwiązać, uruchom ponownie bramę aplikacji i sprawdź ponownie. Aby ponownie uruchomić bramę aplikacji, należy [zatrzymać](https://docs.microsoft.com/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) i [rozpocząć](https://docs.microsoft.com/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) przy użyciu poleceń programu PowerShell opisanych w tych połączonych zasobach.
+1.  Jeśli domena jest prywatna lub wewnętrzna, spróbuj ją rozpoznać z poziomu maszyny wirtualnej w tej samej sieci wirtualnej. Jeśli możesz rozwiązać ten problem, ponownie uruchom Application Gateway i sprawdź ponownie. Aby ponownie uruchomić Application Gateway, należy [zatrzymać](https://docs.microsoft.com/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) i [uruchomić](https://docs.microsoft.com/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) program przy użyciu poleceń programu PowerShell opisanych w tych połączonych zasobach.
 
 #### <a name="tcp-connect-error"></a>Błąd połączenia TCP
 
-**Komunikat:** Brama aplikacji nie może połączyć się z zapleczem.
-Sprawdź, czy wewnętrznej bazy danych reaguje na porcie używanym do sondy.
-Sprawdź również, czy jakiekolwiek NSG /UDR/Firewall blokuje dostęp do ip i portu tego zaplecza
+**Komunikat:** Application Gateway nie może nawiązać połączenia z zapleczem.
+Sprawdź, czy zaplecze reaguje na port używany dla sondy.
+Sprawdź również, czy jakakolwiek sieciowej grupy zabezpieczeń/UDR/zapora blokuje dostęp do adresu IP i portu tego zaplecza
 
-**Przyczyna:** Po zakończeniu fazy rozpoznawania dns brama aplikacji próbuje połączyć się z serwerem wewnętrznej bazy danych na porcie TCP skonfigurowanym w ustawieniach HTTP. Jeśli brama aplikacji nie może ustanowić sesji TCP na określonym porcie, sonda jest oznaczona jako w złej kondycji za pomocą tego komunikatu.
+**Przyczyna:** Po fazie rozpoznawania nazw DNS Application Gateway próbuje nawiązać połączenie z serwerem zaplecza na porcie TCP, który jest skonfigurowany w ustawieniach protokołu HTTP. Jeśli Application Gateway nie może ustanowić sesji TCP na określonym porcie, sonda zostanie oznaczona jako zła w złej kondycji.
 
-**Rozwiązanie:** Jeśli ten błąd zostanie wyświetlony, wykonaj następujące czynności:
+**Rozwiązanie:** Jeśli ten błąd wystąpi, wykonaj następujące kroki:
 
-1.  Sprawdź, czy można połączyć się z serwerem wewnętrznej bazy danych na porcie wymienionym w ustawieniach HTTP przy użyciu przeglądarki lub programu PowerShell. Na przykład uruchom następujące polecenie:`Test-NetConnection -ComputerName
+1.  Sprawdź, czy możesz nawiązać połączenie z serwerem zaplecza na porcie wymienionym w ustawieniach protokołu HTTP przy użyciu przeglądarki lub programu PowerShell. Na przykład uruchom następujące polecenie:`Test-NetConnection -ComputerName
     www.bing.com -Port 443`
 
-1.  Jeśli wspomniany port nie jest żądanym portem, wprowadź poprawny numer portu dla bramy aplikacji, aby połączyć się z serwerem wewnętrznej bazy danych
+1.  Jeśli wymieniony port nie jest pożądanym portem, wprowadź poprawny numer portu dla Application Gateway, aby nawiązać połączenie z serwerem wewnętrznej bazy danych
 
-1.  Jeśli nie możesz połączyć się na porcie z komputera lokalnego, a następnie:
+1.  Jeśli nie można nawiązać połączenia z portem na komputerze lokalnym, a następnie:
 
-    a.  Sprawdź ustawienia sieciowej grupy zabezpieczeń karty sieciowej i podsieci serwera wewnętrznej bazy danych oraz czy połączenia przychodzące ze skonfigurowanym portem są dozwolone. Jeśli tak nie jest, utwórz nową regułę zezwalania na połączenia. Aby dowiedzieć się, jak tworzyć reguły sieciowej sieciowej sieciowej, [zobacz stronę dokumentacji](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic#create-security-rules).
+    a.  Sprawdź ustawienia sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) karty sieciowej i podsieci serwera wewnętrznej bazy danych oraz czy dozwolone są połączenia przychodzące ze skonfigurowanym portem. Jeśli nie, Utwórz nową regułę, aby zezwolić na połączenia. Aby dowiedzieć się, jak utworzyć reguły sieciowej grupy zabezpieczeń, [Zobacz stronę z dokumentacją](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic#create-security-rules).
 
-    b.  Sprawdź, czy ustawienia sieciowej sieciowej podsieci bramy aplikacji zezwalają na ruch publiczny i prywatny wychodzący, aby można było nawiązać połączenie. Sprawdź stronę dokumentu, która jest dostępna w kroku 3a, aby dowiedzieć się więcej o tworzeniu reguł sieciowej tożsamości z siecią roboczą.
+    b.  Sprawdź, czy ustawienia sieciowej grupy zabezpieczeń podsieci Application Gateway zezwalają na ruch wychodzący publicznego i prywatnego, aby można było nawiązać połączenie. Aby dowiedzieć się więcej na temat tworzenia reguł sieciowej grupy zabezpieczeń, zapoznaj się ze stroną dokumentu dostarczoną w kroku 3a.
     ```azurepowershell
             $vnet = Get-AzVirtualNetwork -Name "vnetName" -ResourceGroupName "rgName"
             Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
     ```
 
-    d.  Sprawdź ustawienia tras zdefiniowanych przez użytkownika (UDR) bramy aplikacji i podsieci serwera wewnętrznej bazy danych pod kątem wszelkich anomalii routingu. Upewnij się, że UDR nie kieruje ruchu z podsieci wewnętrznej bazy danych. Na przykład sprawdź trasy do sieciowych urządzeń wirtualnych lub tras domyślnych anonsowanych do podsieci bramy aplikacji za pośrednictwem usługi Azure ExpressRoute i/lub sieci VPN.
+    c.  Sprawdź ustawienia tras zdefiniowanych przez użytkownika (UDR) Application Gateway i podsieci serwera wewnętrznej bazy danych dla wszelkich anomalii routingu. Upewnij się, że UDR nie kieruje ruchu z podsieci zaplecza. Na przykład sprawdź trasy do wirtualnych urządzeń sieciowych lub trasy domyślne anonsowane do podsieci Application Gateway za pośrednictwem usługi Azure ExpressRoute i/lub sieci VPN.
 
-    d.  Aby sprawdzić efektywne trasy i reguły dla karty sieciowej, można użyć następujących poleceń programu PowerShell:
+    d.  Aby sprawdzić obowiązujące trasy i reguły dla karty sieciowej, można użyć następujących poleceń programu PowerShell:
     ```azurepowershell
             Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName "nic1" -ResourceGroupName "testrg"
             Get-AzEffectiveRouteTable -NetworkInterfaceName "nic1" -ResourceGroupName "testrg"
     ```
-1.  Jeśli nie znajdziesz żadnych problemów z siecią NSG lub UDR, sprawdź serwer wewnętrznej bazy danych pod kątem problemów związanych z aplikacjami, które uniemożliwiają klientom ustanowienie sesji TCP na skonfigurowanych portach. Kilka rzeczy do sprawdzenia:
+1.  Jeśli nie masz żadnych problemów z usługą sieciowej grupy zabezpieczeń lub UDR, sprawdź serwer zaplecza pod kątem problemów związanych z aplikacjami, które uniemożliwiają klientom nawiązywanie połączeń TCP na skonfigurowanych portach. Kilka kwestii do sprawdzenia:
 
-    a.  Otwórz wiersz polecenia (Win+R -\> `netstat`cmd), wprowadź i wybierz enter.
+    a.  Otwórz wiersz polecenia (Win + R-\> cmd), wprowadź `netstat`i wybierz ENTER.
 
-    b.  Sprawdź, czy serwer nasłuchuje na porcie, który jest skonfigurowany. Przykład:
+    b.  Sprawdź, czy serwer nasłuchuje na skonfigurowanym porcie. Przykład:
     ```
             Proto Local Address Foreign Address State PID
             TCP 0.0.0.0:80 0.0.0.0:0 LISTENING 4
     ```
-    d.  Jeśli nie nasłuchuje na skonfigurowanym porcie, sprawdź ustawienia serwera www. Na przykład: powiązania lokacji w usługach IIS, blok serwera w NGINX i host wirtualny w Apache.
+    c.  Jeśli nie nasłuchuje na skonfigurowanym porcie, sprawdź ustawienia serwera sieci Web. Na przykład: powiązania witryny w usługach IIS, bloku serwera w NGINX i hosta wirtualnego w Apache.
 
     d.  Sprawdź ustawienia zapory systemu operacyjnego, aby upewnić się, że ruch przychodzący do portu jest dozwolony.
 
 #### <a name="http-status-code-mismatch"></a>Niezgodność kodu stanu HTTP
 
-**Komunikat:** Kod stanu odpowiedzi\'HTTP wewnętrznej bazy danych nie był zgodny z ustawieniem sondy. Oczekiwano:{HTTPStatusCode0} Odebrane:{HTTPStatusCode1}.
+**Komunikat:** Kod stanu odpowiedzi HTTP zaplecza\'nie jest zgodny z ustawieniem sondy. Oczekiwano: {HTTPStatusCode0} odebrano: {HTTPStatusCode1}.
 
-**Przyczyna:** Po nawiązaniu połączenia TCP i wykonaniu uzgadniania TLS (jeśli protokół TLS jest włączony), brama aplikacji wyśle sondę jako żądanie HTTP GET do serwera wewnętrznej bazy danych. Jak opisano wcześniej, domyślną \<sondą\>będzie protokół ://127.0.0.1:\<port\>/, i uznaje kody stanu odpowiedzi w rage 200 do 399 jako zdrowy. Jeśli serwer zwraca inny kod stanu, zostanie oznaczony jako w złej kondycji z tej wiadomości.
+**Przyczyna:** Po nawiązaniu połączenia TCP i zakończeniu uzgadniania TLS (Jeśli protokół TLS jest włączony), Application Gateway wyśle sondę jako żądanie HTTP GET do serwera wewnętrznej bazy danych. Zgodnie z wcześniejszym opisem, domyślną sondą będzie \<protokół\>://127.0.0.1:\<port\>/i traktuje kody stanu odpowiedzi w próg 200 do 399 jako dobra kondycja. Jeśli serwer zwróci inny kod stanu, zostanie oznaczony jako nieprawidłowy dla tej wiadomości.
 
-**Rozwiązanie:** W zależności od kodu odpowiedzi serwera wewnętrznej bazy danych można wykonać następujące kroki. Kilka wspólnych kodów stanu są wymienione tutaj:
+**Rozwiązanie:** W zależności od kodu odpowiedzi serwera wewnętrznej bazy danych można wykonać następujące czynności. Poniżej przedstawiono kilka typowych kodów stanu:
 
 | **Błąd** | **Akcje** |
 | --- | --- |
-| Niezgodność kodu stanu sondy: Odebrano 401 | Sprawdź, czy serwer wewnętrznej bazy danych wymaga uwierzytelniania. Sondy bramy aplikacji nie mogą przekazywać poświadczeń do uwierzytelniania w tym momencie. Zezwalaj \"na http 401\" w kodzie stanu sondy lub sondować ścieżkę, w której serwer nie wymaga uwierzytelniania. | |
-| Niezgodność kodu stanu sondy: Odebrano 403 | Dostęp zabroniony. Sprawdź, czy dostęp do ścieżki jest dozwolony na serwerze wewnętrznej bazy danych. | |
-| Niezgodność kodu stanu sondy: Odebrano 404 | Nie znaleziono strony. Sprawdź, czy ścieżka nazwy hosta jest dostępna na serwerze wewnętrznej bazy danych. Zmień nazwę hosta lub parametr ścieżki na wartość dostępną. | |
-| Niezgodność kodu stanu sondy: Odebrano 405 | Żądania sondy dla bramy aplikacji używają metody HTTP GET. Sprawdź, czy serwer zezwala na tę metodę. | |
-| Niezgodność kodu stanu sondy: Odebrano 500 | Wewnętrzny błąd serwera. Sprawdź kondycję serwera zaplecza i sprawdź, czy usługi są uruchomione. | |
-| Niezgodność kodu stanu sondy: Odebrano 503 | Usługa niedostępna. Sprawdź kondycję serwera zaplecza i sprawdź, czy usługi są uruchomione. | |
+| Niezgodność kodu stanu sondy: odebrane 401 | Sprawdź, czy serwer wewnętrznej bazy danych wymaga uwierzytelniania. Sondy Application Gateway nie mogą przekazywać poświadczeń do uwierzytelniania w tym momencie. Zezwalaj na \"użycie protokołu\" HTTP 401 w kodzie stanu sondy lub sondy do ścieżki, w której serwer nie wymaga uwierzytelniania. | |
+| Niezgodność kodu stanu sondy: odebrane 403 | Dostęp zabroniony. Sprawdź, czy dostęp do ścieżki jest dozwolony na serwerze wewnętrznej bazy danych. | |
+| Niezgodność kodu stanu sondy: odebrane 404 | Nie znaleziono strony. Sprawdź, czy ścieżka nazwy hosta jest dostępna na serwerze wewnętrznej bazy danych. Zmień nazwę hosta lub parametr ścieżki na dostępną wartość. | |
+| Niezgodność kodu stanu sondy: odebrane 405 | Dla Application Gateway jest używana metoda HTTP GET. Sprawdź, czy serwer zezwala na tę metodę. | |
+| Niezgodność kodu stanu sondy: odebrane 500 | Wewnętrzny błąd serwera. Sprawdź kondycję serwera zaplecza i sprawdź, czy usługi są uruchomione. | |
+| Niezgodność kodu stanu sondy: odebrane 503 | Usługa niedostępna. Sprawdź kondycję serwera zaplecza i sprawdź, czy usługi są uruchomione. | |
 
-Lub jeśli uważasz, że odpowiedź jest prawidłowa i chcesz, aby brama aplikacji akceptowała inne kody stanu jako w dobrej kondycji, możesz utworzyć niestandardową sondę. Takie podejście jest przydatne w sytuacjach, gdy witryna sieci Web wewnętrznej bazy danych wymaga uwierzytelniania. Ponieważ żądania sondy nie zawierają żadnych poświadczeń użytkownika, nie powiodą się one, a kod stanu HTTP 401 zostanie zwrócony przez serwer wewnętrznej bazy danych.
+Lub, jeśli uważasz, że odpowiedź jest uzasadniona i chcesz, aby Application Gateway akceptowała inne kody stanu w dobrej kondycji, możesz utworzyć niestandardową sondę. Takie podejście jest przydatne w sytuacjach, gdy witryna sieci Web zaplecza wymaga uwierzytelniania. Ponieważ żądania sondowania nie mają żadnych poświadczeń użytkownika, nie powiodą się, a serwer wewnętrznej bazy danych zwróci kod stanu HTTP 401.
 
-Aby utworzyć sondę niestandardową, wykonaj [następujące kroki](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
+Aby utworzyć niestandardową sondę, wykonaj następujące [kroki](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
 
 #### <a name="http-response-body-mismatch"></a>Niezgodność treści odpowiedzi HTTP
 
-**Komunikat:** Treść odpowiedzi HTTP\'wewnętrznej bazy danych nie była zgodna z ustawieniem sondy. Treść odebranej odpowiedzi nie zawiera {string}.
+**Komunikat:** Treść odpowiedzi HTTP zaplecza\'jest niezgodna z ustawieniem sondy. Odebrana treść odpowiedzi nie zawiera ciągu {String}.
 
-**Przyczyna:** Podczas tworzenia sondy niestandardowej, masz możliwość oznaczenia serwera wewnętrznej bazy danych jako w dobrej kondycji przez dopasowanie ciągu z treści odpowiedzi. Na przykład można skonfigurować bramę aplikacji, aby akceptowała "nieautoryzowane" jako ciąg do dopasowania. Jeśli odpowiedź serwera wewnętrznej bazy danych dla żądania sondy zawiera **nieautoryzowany**ciąg, zostanie oznaczona jako W dobrej kondycji. W przeciwnym razie zostanie oznaczona jako w złej kondycji z tej wiadomości.
+**Przyczyna:** Podczas tworzenia niestandardowej sondy można oznaczyć serwer zaplecza jako zdrowy przez dopasowanie ciągu z treści odpowiedzi. Można na przykład skonfigurować Application Gateway tak, aby akceptował "nieautoryzowane" jako ciąg do dopasowania. Jeśli odpowiedź serwera wewnętrznej bazy danych dla żądania sondowania zawiera ciąg **nieautoryzowany**, zostanie oznaczony jako w dobrej kondycji. W przeciwnym razie zostanie ona oznaczona jako w złej kondycji za pomocą tej wiadomości.
 
 **Rozwiązanie:** Aby rozwiązać ten problem, wykonaj następujące kroki:
 
-1.  Dostęp do serwera wewnętrznej bazy danych lokalnie lub z komputera klienckiego na ścieżce sondy i sprawdź treść odpowiedzi.
+1.  Uzyskaj dostęp do serwera wewnętrznej bazy danych lokalnie lub z komputera klienckiego w ścieżce sondy i sprawdź treść odpowiedzi.
 
-1.  Sprawdź, czy treść odpowiedzi w konfiguracji sondy niestandardowej bramy aplikacji jest zgodna z konfiguracją skonfigurowanych.
+1.  Sprawdź, czy treść odpowiedzi w konfiguracji sondy niestandardowej Application Gateway jest zgodna z konfiguracją.
 
-1.  Jeśli nie są zgodne, zmień konfigurację sondy, tak aby ma poprawną wartość ciągu do zaakceptowania.
+1.  Jeśli nie są zgodne, Zmień konfigurację sondy tak, aby stała się wartością ciągu do zaakceptowania.
 
-Dowiedz się więcej o [dopasowywaniu sondy bramy aplikacji](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching).
+Dowiedz się więcej na temat [dopasowywania sond Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching).
 
-#### <a name="backend-server-certificate-invalid-ca"></a>Nieprawidłowy urząd certyfikacji certyfikatu serwera wewnętrznej bazy danych
+#### <a name="backend-server-certificate-invalid-ca"></a>Nieprawidłowy urząd certyfikacji dla certyfikatu serwera wewnętrznej bazy danych
 
-**Komunikat:** Certyfikat serwera używany przez zaplecze nie jest podpisany przez dobrze znany urząd certyfikacji (CA). Umieszczaj na białej liście wewnętrznej bazy danych w bramie aplikacji, przekazując certyfikat główny certyfikatu serwera używanego przez wewnętrznej bazy danych.
+**Komunikat:** Certyfikat serwera używany przez zaplecze nie jest podpisany przez dobrze znany urząd certyfikacji (CA). Dozwolonych zaplecze na Application Gateway, przekazując certyfikat główny certyfikatu serwera używanego przez zaplecze.
 
-**Przyczyna:** Kompleksowy ssl z bramą aplikacji w wersji 2 wymaga weryfikacji certyfikatu serwera wewnętrznej bazy danych w celu uznania serwera za zdrowy.
-Aby certyfikat TLS/SSL miał być zaufany, ten certyfikat serwera wewnętrznej bazy danych musi być wystawiony przez urząd certyfikacji, który znajduje się w zaufanym magazynie bramy aplikacji. Jeśli certyfikat nie został wystawiony przez zaufany urząd certyfikacji (na przykład, jeśli użyto certyfikatu z podpisem własnym), użytkownicy powinni przekazać certyfikat wystawcy do bramy aplikacji.
+**Przyczyna:** Kompleksowy protokół SSL z Application Gateway v2 wymaga zweryfikowania certyfikatu serwera wewnętrznej bazy danych w celu uznania kondycji serwera.
+Aby certyfikat TLS/SSL był zaufany, certyfikat serwera wewnętrznej bazy danych musi być wystawiony przez urząd certyfikacji, który znajduje się w zaufanym magazynie Application Gateway. Jeśli certyfikat nie został wystawiony przez zaufany urząd certyfikacji (na przykład jeśli został użyty certyfikat z podpisem własnym), użytkownicy powinni przekazać certyfikat wystawcy do Application Gateway.
 
-**Rozwiązanie:** Wykonaj następujące kroki, aby wyeksportować i przekazać zaufany certyfikat główny do bramy aplikacji. (Te kroki są przeznaczone dla klientów systemu Windows).
+**Rozwiązanie:** Wykonaj następujące kroki, aby wyeksportować i przekazać zaufany certyfikat główny do Application Gateway. (Te kroki są przeznaczone dla klientów z systemem Windows).
 
-1.  Zaloguj się na komputerze, na którym znajduje się aplikacja.
+1.  Zaloguj się na komputerze, na którym jest hostowana aplikacja.
 
-1.  Wybierz pozycję Win+R lub kliknij prawym przyciskiem myszy przycisk **Start,** a następnie wybierz polecenie **Uruchom**.
+1.  Wybierz pozycję Win + R lub kliknij prawym przyciskiem myszy przycisk **Start** , a następnie wybierz polecenie **Uruchom**.
 
-1.  Wprowadź `certmgr.msc` i wybierz pozycję Wprowadź. Menedżera certyfikatów można również wyszukać w menu **Start.**
+1.  Wprowadź `certmgr.msc` i wybierz ENTER. Możesz również wyszukać Menedżera certyfikatów w menu **Start** .
 
-1.  Znajdź certyfikat, zazwyczaj `\Certificates - Current User\\Personal\\Certificates\`w , i otwórz go.
+1.  Znajdź certyfikat, zazwyczaj w `\Certificates - Current User\\Personal\\Certificates\`i otwórz go.
 
 1.  Wybierz certyfikat główny, a następnie wybierz pozycję **Wyświetl certyfikat**.
 
-1.  We właściwościach certyfikatu wybierz kartę **Szczegóły.**
+1.  We właściwościach certyfikatu wybierz kartę **szczegóły** .
 
-1.  Na karcie **Szczegóły** wybierz opcję **Kopiuj do pliku** i zapisz plik w kodowanym kodowanym x.509 base-64 (. CER).
+1.  Na karcie **szczegóły** wybierz opcję **Kopiuj do pliku** i Zapisz plik w formacie X. 509 z kodowaniem Base-64 (. CER).
 
-1.  Otwórz stronę **Ustawienia** HTTP bramy aplikacji w witrynie Azure portal.
+1.  Otwórz stronę **Ustawienia** protokołu HTTP Application Gateway w Azure Portal.
 
-1. Otwórz ustawienia HTTP, wybierz pozycję **Dodaj certyfikat**i znajdź właśnie zapisany plik certyfikatu.
+1. Otwórz ustawienia protokołu HTTP, wybierz pozycję **Dodaj certyfikat**i Znajdź plik certyfikatu, który został właśnie zapisany.
 
-1. Wybierz **pozycję Zapisz,** aby zapisać ustawienia HTTP.
+1. Wybierz pozycję **Zapisz** , aby zapisać ustawienia protokołu HTTP.
 
-Alternatywnie można wyeksportować certyfikat główny z komputera klienckiego, uzyskując bezpośredni dostęp do serwera (pomijając bramę aplikacji) za pośrednictwem przeglądarki i eksportując certyfikat główny z przeglądarki.
+Alternatywnie można wyeksportować certyfikat główny z komputera klienckiego, uzyskując bezpośrednio dostęp do serwera (pomijając Application Gateway) za pośrednictwem przeglądarki i eksportując certyfikat główny z przeglądarki.
 
-Aby uzyskać więcej informacji na temat wyodrębniania i przekazywania zaufanych certyfikatów głównych w bramie aplikacji, zobacz [Eksportowanie zaufanego certyfikatu głównego (dla jednostki SKU w wersji 2).](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku)
+Aby uzyskać więcej informacji na temat wyodrębniania i przekazywania zaufanych certyfikatów głównych w Application Gateway, zobacz [Eksportowanie zaufanego certyfikatu głównego (dla jednostki SKU w wersji 2)](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku).
 
-#### <a name="trusted-root-certificate-mismatch"></a>Niedopasowanie certyfikatów głównych zaufanych
+#### <a name="trusted-root-certificate-mismatch"></a>Niezgodność zaufanych certyfikatów głównych
 
-**Komunikat:** Certyfikat główny certyfikatu serwera używanego przez wewnętrznej bazy danych nie jest zgodny z zaufanym certyfikatem głównym dodanym do bramy aplikacji. Upewnij się, że dodasz poprawny certyfikat główny, aby dodać do białej listy wewnętrznej bazy danych
+**Komunikat:** Certyfikat główny certyfikatu serwera używanego w zapleczu nie jest zgodny z zaufanym certyfikatem głównym dodanym do bramy aplikacji. Upewnij się, że dodano prawidłowy certyfikat główny, aby dozwolonych zaplecza
 
-**Przyczyna:** Kompleksowy ssl z bramą aplikacji w wersji 2 wymaga weryfikacji certyfikatu serwera wewnętrznej bazy danych w celu uznania serwera za zdrowy.
-Aby certyfikat TLS/SSL miał być zaufany, certyfikat serwera wewnętrznej bazy danych musi być wystawiony przez urząd certyfikacji, który znajduje się w zaufanym magazynie bramy aplikacji. Jeśli certyfikat nie został wystawiony przez zaufany urząd certyfikacji (na przykład użyto certyfikatu z podpisem własnym), użytkownicy powinni przekazać certyfikat wystawcy do bramy aplikacji.
+**Przyczyna:** Kompleksowy protokół SSL z Application Gateway v2 wymaga zweryfikowania certyfikatu serwera wewnętrznej bazy danych w celu uznania kondycji serwera.
+Aby certyfikat TLS/SSL był zaufany, certyfikat serwera wewnętrznej bazy danych musi zostać wystawiony przez urząd certyfikacji, który znajduje się w zaufanym magazynie Application Gateway. Jeśli certyfikat nie został wystawiony przez zaufany urząd certyfikacji (na przykład został użyty certyfikat z podpisem własnym), użytkownicy powinni przekazać certyfikat wystawcy do Application Gateway.
 
-Certyfikat przekazany do ustawień HTTP bramy aplikacji musi być zgodny z certyfikatem głównym certyfikatu serwera wewnętrznej bazy danych.
+Certyfikat przekazany do Application Gateway ustawień protokołu HTTP musi być zgodny z certyfikatem głównym certyfikatu serwera wewnętrznej bazy danych.
 
-**Rozwiązanie:** Jeśli zostanie wyświetlony ten komunikat o błędzie, istnieje niezgodność między certyfikatem, który został przekazany do bramy aplikacji, a certyfikatem, który został przekazany do serwera wewnętrznej bazy danych.
+**Rozwiązanie:** Jeśli zostanie wyświetlony komunikat o błędzie, wystąpi niezgodność między certyfikatem przekazanym do Application Gateway a tym, który został przekazany do serwera wewnętrznej bazy danych.
 
-Wykonaj kroki 1-11 w powyższej metodzie, aby przekazać poprawny zaufany certyfikat główny do bramy aplikacji.
+Wykonaj kroki 1-11 w poprzedniej metodzie, aby przekazać prawidłowy zaufany certyfikat główny do Application Gateway.
 
-Aby uzyskać więcej informacji na temat wyodrębniania i przekazywania zaufanych certyfikatów głównych w bramie aplikacji, zobacz [Eksportowanie zaufanego certyfikatu głównego (dla jednostki SKU w wersji 2).](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku)
+Aby uzyskać więcej informacji na temat wyodrębniania i przekazywania zaufanych certyfikatów głównych w Application Gateway, zobacz [Eksportowanie zaufanego certyfikatu głównego (dla jednostki SKU w wersji 2)](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku).
 > [!NOTE]
-> Ten błąd może również wystąpić, jeśli serwer wewnętrznej bazy danych nie wymienia pełnego łańcucha certyfikatu, w tym głównego > pośredniego (jeśli dotyczy) > Liść podczas uzgadniania TLS. Aby sprawdzić, można użyć poleceń OpenSSL z dowolnego klienta i połączyć się z serwerem wewnętrznej bazy danych przy użyciu skonfigurowanych ustawień w sondzie bramy aplikacji.
+> Ten błąd może również wystąpić, jeśli serwer wewnętrznej bazy danych nie wymienia kompletnego łańcucha certyfikatu, łącznie z głównym > pośrednią (jeśli dotyczy) > liścia podczas uzgadniania TLS. Aby sprawdzić, można użyć poleceń OpenSSL z dowolnego klienta i połączyć się z serwerem zaplecza przy użyciu skonfigurowanych ustawień sondy Application Gateway.
 
 Przykład:
 ```
 OpenSSL> s_client -connect 10.0.0.4:443 -servername www.example.com -showcerts
 ```
-Jeśli dane wyjściowe nie pokazują pełnego łańcucha zwracanego certyfikatu, wyeksportuj certyfikat ponownie z pełnym łańcuchem, w tym certyfikatem głównym. Skonfiguruj ten certyfikat na serwerze wewnętrznej bazy danych. 
+Jeśli dane wyjściowe nie zawierają pełnego łańcucha zwracanego certyfikatu, wyeksportuj certyfikat ponownie z pełnym łańcuchem, łącznie z certyfikatem głównym. Skonfiguruj ten certyfikat na serwerze wewnętrznej bazy danych. 
 
 ```
   CONNECTED(00000188)\
@@ -276,122 +276,122 @@ Jeśli dane wyjściowe nie pokazują pełnego łańcucha zwracanego certyfikatu,
   \-----END CERTIFICATE-----
 ```
 
-#### <a name="backend-certificate-invalid-common-name-cn"></a>Nieprawidłowa nazwa pospolita certyfikatu wewnętrznej bazy danych (CN)
+#### <a name="backend-certificate-invalid-common-name-cn"></a>Nieprawidłowa nazwa pospolita certyfikatu zaplecza (CN)
 
-**Komunikat:** Nazwa pospolita (CN) certyfikatu wewnętrznej bazy danych nie jest zgodna z nagłówkiem hosta sondy.
+**Komunikat:** Nazwa pospolita (CN) certyfikatu wewnętrznej bazy danych nie pasuje do nagłówka hosta sondy.
 
-**Przyczyna:** Brama aplikacji sprawdza, czy nazwa hosta określona w ustawieniach HTTP wewnętrznej bazy danych jest zgodna z nazwą cn przedstawioną przez certyfikat TLS/SSL serwera wewnętrznej bazy danych. Jest to zachowanie Standard_v2 i WAF_v2 jednostki SKU. Standardowe i WAF SKU's Server Name Indication (SNI) jest ustawiona jako FQDN w adresie puli wewnętrznej bazy danych.
+**Przyczyna:** Application Gateway sprawdza, czy nazwa hosta określona w ustawieniach protokołu HTTP zaplecza jest zgodna z identyfikatorem CN przedstawionym przez certyfikat TLS/SSL serwera wewnętrznej bazy danych. Jest to Standard_v2 i WAF_v2 zachowanie jednostki SKU. Oznaczanie nazwy serwera jednostki SKU w warstwie Standardowa i WAF (SNI) jest ustawiona jako nazwa FQDN w adresie puli zaplecza.
 
-W jednostce SKU w wersji 2, jeśli istnieje domyślna sonda (nie skonfigurowano i nie skojarzono niestandardowej sondy), SNI zostanie ustawiona na podstawie nazwy hosta wymienionej w ustawieniach HTTP. Lub jeśli "Wybierz nazwę hosta z adresu wewnętrznej bazy danych" jest wymieniony w ustawieniach HTTP, gdzie pula adresów wewnętrznej bazy danych zawiera prawidłową nazwę FQDN, to ustawienie zostanie zastosowane.
+Jeśli w jednostce SKU v2 istnieje domyślna sonda (nie skonfigurowano żadnej niestandardowej sondy i skojarzono z nią), SNI zostanie ustawiona z nazwy hosta wymienionej w ustawieniach protokołu HTTP. Lub jeśli opcja "Wybierz nazwę hosta z adresu zaplecza" jest wymieniona w ustawieniach HTTP, gdzie Pula adresów zaplecza zawiera prawidłową nazwę FQDN, to ustawienie zostanie zastosowane.
 
-Jeśli istnieje niestandardowa sonda skojarzona z ustawieniami HTTP, SNI zostanie ustawiona na podstawie nazwy hosta wymienionej w konfiguracji sondy niestandardowej. Lub jeśli **wybierz nazwę hosta z wewnętrznej bazy danych ustawienia HTTP** jest zaznaczone w sondzie niestandardowej, SNI zostanie ustawiona na podstawie nazwy hosta wymienionej w ustawieniach HTTP.
+Jeśli istnieje niestandardowa sonda skojarzona z ustawieniami HTTP, SNI zostanie ustawiona z nazwy hosta wymienionej w konfiguracji sondy niestandardowej. W przypadku wybrania w niestandardowej sondy **Wybierz nazwę hosta z ustawień protokołu HTTP zaplecza** SNI zostanie ustawiona z nazwy hosta wymienionej w ustawieniach protokołu HTTP.
 
-Jeśli **wybierz adres hosta z adresu wewnętrznej bazy danych** jest ustawiona w ustawieniach HTTP, pula adresów wewnętrznej bazy danych musi zawierać prawidłową numer FQDN.
+Jeśli w ustawieniach protokołu HTTP zostanie ustawiona **Nazwa hosta z adresu zaplecza** , Pula adresów zaplecza musi zawierać prawidłową nazwę FQDN.
 
-Jeśli zostanie wyświetlony ten komunikat o błędzie, cn certyfikatu wewnętrznej bazy danych nie jest zgodny z nazwą hosta skonfigurowaną w sondzie niestandardowej lub ustawieniami HTTP (jeśli zaznaczona jest opcja **Wybierz nazwę hosta z ustawień HTTP wewnętrznej bazy danych).** Jeśli używasz sondy domyślnej, nazwa hosta zostanie ustawiona na **127.0.0.1**. Jeśli nie jest to żądana wartość, należy utworzyć niestandardową sondę i skojarzyć ją z ustawieniami HTTP.
+Jeśli zostanie wyświetlony komunikat o błędzie, nazwa POSPOLITa certyfikatu wewnętrznej bazy danych nie jest zgodna z nazwą hosta skonfigurowaną w sondie niestandardowej lub w ustawieniach protokołu HTTP (Jeśli wybrano opcję **Wybierz nazwę hosta z ustawień protokołu HTTP zaplecza** ). Jeśli używasz domyślnej sondy, nazwa hosta zostanie ustawiona jako **127.0.0.1**. Jeśli ta wartość nie jest wymagana, należy utworzyć niestandardową sondę i skojarzyć ją z ustawieniami protokołu HTTP.
 
-**Rozwiązanie:**
+**Narzędzie**
 
 Aby rozwiązać ten problem, wykonaj poniższe czynności.
 
 W przypadku systemu Windows:
 
-1.  Zaloguj się na komputerze, na którym znajduje się aplikacja.
+1.  Zaloguj się na komputerze, na którym jest hostowana aplikacja.
 
-1.  Wybierz pozycję Win+R lub kliknij prawym przyciskiem myszy przycisk **Start** i wybierz polecenie **Uruchom**.
+1.  Wybierz pozycję Win + R lub kliknij prawym przyciskiem myszy przycisk **Start** i wybierz polecenie **Uruchom**.
 
-1.  Wprowadź **plik certmgr.msc** i wybierz pozycję Enter. Menedżera certyfikatów można również wyszukać w menu **Start.**
+1.  Wprowadź **certmgr. msc** i wybierz klawisz ENTER. Możesz również wyszukać Menedżera certyfikatów w menu **Start** .
 
-1.  Znajdź certyfikat (zazwyczaj `\Certificates - Current User\\Personal\\Certificates`w) i otwórz certyfikat.
+1.  Znajdź certyfikat (zazwyczaj w `\Certificates - Current User\\Personal\\Certificates`), a następnie otwórz certyfikat.
 
-1.  Na karcie **Szczegóły** sprawdź **temat**certyfikatu .
+1.  Na karcie **szczegóły** zapoznaj się z **tematem**certyfikatu.
 
-1.  Sprawdź CN certyfikatu na podstawie szczegółów i wprowadź to samo w polu nazwy hosta sondy niestandardowej lub w ustawieniach HTTP (jeśli wybrano **pozycję Wybierz nazwę hosta z ustawień HTTP wewnętrznej bazy danych).** Jeśli nie jest to żądana nazwa hosta dla witryny sieci Web, musisz uzyskać certyfikat dla tej domeny lub wprowadzić poprawną nazwę hosta w niestandardowej konfiguracji sondy lub ustawienia HTTP.
+1.  Sprawdź nazwę POSPOLITą certyfikatu ze szczegółowych informacji i wprowadź tę samą wartość w polu Nazwa hosta sondy niestandardowej lub w ustawieniach protokołu HTTP (Jeśli wybrano pozycję **Wybierz nazwę hosta z ustawień protokołu HTTP zaplecza** ). Jeśli to nie jest wymagana nazwa hosta dla witryny sieci Web, należy uzyskać certyfikat dla tej domeny lub wprowadzić poprawną nazwę hosta w niestandardowej sondze lub konfiguracji ustawienia HTTP.
 
-Dla Linuksa za pomocą OpenSSL:
+W przypadku systemu Linux przy użyciu OpenSSL:
 
-1.  Uruchom to polecenie w openssl:
+1.  Uruchom to polecenie w OpenSSL:
     ```
     openssl x509 -in certificate.crt -text -noout
     ```
 
-2.  Na wyświetlonych właściwościach znajdź cn certyfikatu i wprowadź to samo w polu nazwy hosta w ustawieniach http. Jeśli nie jest to żądana nazwa hosta dla witryny sieci Web, musisz uzyskać certyfikat dla tej domeny lub wprowadzić poprawną nazwę hosta w niestandardowej konfiguracji sondy lub ustawienia HTTP.
+2.  Na wyświetlone właściwości Znajdź nazwę POSPOLITą certyfikatu i wprowadź tę samą wartość w polu Nazwa hosta w ustawieniach protokołu HTTP. Jeśli to nie jest wymagana nazwa hosta dla witryny sieci Web, należy uzyskać certyfikat dla tej domeny lub wprowadzić poprawną nazwę hosta w niestandardowej sondze lub konfiguracji ustawienia HTTP.
 
-#### <a name="backend-certificate-is-invalid"></a>Certyfikat wewnętrznej bazy danych jest nieprawidłowy
+#### <a name="backend-certificate-is-invalid"></a>Certyfikat zaplecza jest nieprawidłowy
 
-**Komunikat:** Certyfikat wewnętrznej bazy danych jest nieprawidłowy. Bieżąca data nie \"mieści\" \"się\" w zakresie Ważny od i Ważny do daty na certyfikacie.
+**Komunikat:** Certyfikat zaplecza jest nieprawidłowy. Bieżąca data nie należy do przedziału od \"prawidłowych od\" i \"do\" zakresu dat dla certyfikatu.
 
-**Przyczyna:** Każdy certyfikat jest wyposażony w zakres ważności, a połączenie HTTPS nie będzie bezpieczne, chyba że certyfikat TLS/SSL serwera jest ważny. Bieżące dane muszą znajdować się w **zakresie prawidłowym od** i **prawidłowym do** zakresu. Jeśli tak nie jest, certyfikat jest uważany za nieprawidłowy, a to spowoduje utworzenie problemu zabezpieczeń, w którym brama aplikacji oznacza serwer wewnętrznej bazy danych jako w złej kondycji.
+**Przyczyna:** Każdy certyfikat jest dostarczany z zakresem ważności, a połączenie HTTPS nie będzie bezpieczne, chyba że certyfikat TLS/SSL serwera jest prawidłowy. Bieżące dane muszą znajdować się w przedziale **od prawidłowym** **do** zakresu. Jeśli tak nie jest, certyfikat jest uznawany za nieprawidłowy i spowoduje to utworzenie problemu zabezpieczeń, w którym Application Gateway oznacza, że serwer zaplecza jest w złej kondycji.
 
-**Rozwiązanie:** Jeśli certyfikat TLS/SSL wygasł, odnowi certyfikat u dostawcy i zaktualizuj ustawienia serwera o nowy certyfikat. Jeśli jest to certyfikat z podpisem własnym, należy wygenerować prawidłowy certyfikat i przekazać certyfikat główny do ustawień HTTP bramy aplikacji. W tym celu wykonaj następujące kroki:
+**Rozwiązanie:** Jeśli certyfikat TLS/SSL wygasł, odnów certyfikat u dostawcy i zaktualizuj ustawienia serwera przy użyciu nowego certyfikatu. Jeśli jest to certyfikat z podpisem własnym, należy wygenerować prawidłowy certyfikat i przekazać certyfikat główny do Application Gateway ustawień protokołu HTTP. W tym celu wykonaj następujące kroki:
 
-1.  Otwórz ustawienia HTTP bramy aplikacji w portalu.
+1.  Otwórz ustawienia protokołu HTTP Application Gateway w portalu.
 
-1.  Wybierz ustawienie, które ma wygasły certyfikat, wybierz pozycję **Dodaj certyfikat**i otwórz nowy plik certyfikatu.
+1.  Wybierz ustawienie z wygasłym certyfikatem, wybierz pozycję **Dodaj certyfikat**i Otwórz nowy plik certyfikatu.
 
-1.  Usuń stary certyfikat za pomocą ikony **Usuń** obok certyfikatu, a następnie wybierz pozycję **Zapisz**.
+1.  Usuń stary certyfikat przy użyciu ikony **usuwania** obok certyfikatu, a następnie wybierz pozycję **Zapisz**.
 
 #### <a name="certificate-verification-failed"></a>Weryfikacja certyfikatu nie powiodła się
 
-**Komunikat:** Nie można zweryfikować ważności certyfikatu wewnętrznej bazy danych. Aby znaleźć przyczynę, sprawdź diagnostykę OpenSSL dla wiadomości skojarzonej z kodem błędu {errorCode}
+**Komunikat:** Nie można zweryfikować ważności certyfikatu zaplecza. Aby sprawdzić przyczynę, sprawdź diagnostykę OpenSSL dla komunikatu skojarzonego z kodem błędu {errorCode}
 
-**Przyczyna:** Ten błąd występuje, gdy brama aplikacji nie może zweryfikować ważności certyfikatu.
+**Przyczyna:** Ten błąd występuje, gdy Application Gateway nie może zweryfikować ważności certyfikatu.
 
-**Rozwiązanie:** Aby rozwiązać ten problem, sprawdź, czy certyfikat na serwerze został poprawnie utworzony. Na przykład można użyć [OpenSSL,](https://www.openssl.org/docs/man1.0.2/man1/verify.html) aby zweryfikować certyfikat i jego właściwości, a następnie spróbować ponownie załadować certyfikat do ustawień HTTP bramy aplikacji.
+**Rozwiązanie:** Aby rozwiązać ten problem, sprawdź, czy certyfikat na serwerze został utworzony prawidłowo. Na przykład można użyć [OpenSSL](https://www.openssl.org/docs/man1.0.2/man1/verify.html) do zweryfikowania certyfikatu i jego właściwości, a następnie spróbuj ponownie przekazać certyfikat do Application Gateway ustawień http.
 
 <a name="backend-health-status-unknown"></a>Stan kondycji zaplecza: nieznany
 -------------------------------
-Jeśli kondycja wewnętrznej bazy danych jest wyświetlana jako Nieznany, widok portalu będzie podobny do następującego zrzutu ekranu:
+Jeśli kondycja zaplecza jest wyświetlana jako nieznana, widok portalu będzie wyglądać następująco:
 
-![Kondycja zaplecza bramy aplikacji — nieznany](./media/application-gateway-backend-health-troubleshooting/appgwunknown.png)
+![Kondycja zaplecza Application Gateway — nieznany](./media/application-gateway-backend-health-troubleshooting/appgwunknown.png)
 
-To zachowanie może wystąpić z co najmniej jednego z następujących powodów:
+Takie zachowanie może wystąpić z następujących powodów:
 
-1.  Grupa sieciowa sieciowej w podsieci bramy aplikacji blokuje dostęp przychodzący do portów 65503-65534 (jednostka SKU w wersji 1) lub 65200-65535 (sku w wersji 2) z "Internetu".
-1.  UDR w podsieci bramy aplikacji jest ustawiona na trasę domyślną (0.0.0.0/0), a następny przeskok nie jest określony jako "Internet".
-1.  Trasa domyślna jest anonsowana przez połączenie Usługi ExpressRoute/VPN z siecią wirtualną za pośrednictwem protokołu BGP.
+1.  SIECIOWEJ grupy zabezpieczeń w podsieci Application Gateway blokuje dostęp przychodzący do portów 65503-65534 (SKU v1) lub 65200-65535 (wersja 2 SKU) z "Internet".
+1.  UDR w podsieci Application Gateway jest ustawiona na trasę domyślną (0.0.0.0/0), a następny przeskok nie jest określony jako "Internet".
+1.  Trasa domyślna jest anonsowana przez połączenie ExpressRoute/VPN z siecią wirtualną za pośrednictwem protokołu BGP.
 1.  Niestandardowy serwer DNS jest skonfigurowany w sieci wirtualnej, która nie może rozpoznać nazw domen publicznych.
-1.  Brama aplikacji jest w stanie niezdrowej kondycji.
+1.  Application Gateway jest w złej kondycji.
 
-**Rozwiązanie:**
+**Narzędzie**
 
-1.  Sprawdź, czy sieciowe sieciowe sieciowe blokuje dostęp do portów 65503-65534 (v1 SKU) lub 65200-65535 (v2 SKU) z **Internetu:**
+1.  Sprawdź, czy Twój sieciowej grupy zabezpieczeń blokuje dostęp do portów 65503-65534 (SKU v1) lub 65200-65535 (jednostka SKU v2) z **Internetu**:
 
-    a.  Na karcie **Omówienie** bramy aplikacji wybierz **łącze Sieć wirtualna/Podsieć.**
+    a.  Na karcie **przegląd** Application Gateway wybierz łącze **Virtual Network/podsieć** .
 
-    b.  Na karcie **Podsieci** sieci wirtualnej wybierz podsieć, w której wdrożono bramę aplikacji.
+    b.  Na karcie **podsieci** w sieci wirtualnej wybierz podsieć, w której wdrożono Application Gateway.
 
-    d.  Sprawdź, czy skonfigurowano dowolną szkoliwę nsg.
+    c.  Sprawdź, czy sieciowej grupy zabezpieczeń jest skonfigurowany.
 
-    d.  Jeśli skonfigurowana jest grupa sieciowej grupy, wyszukaj ten zasób sieciowej grupy płciowych na karcie **Wyszukiwanie** lub w obszarze **Wszystkie zasoby**.
+    d.  Jeśli skonfigurowano sieciowej grupy zabezpieczeń, wyszukaj ten zasób sieciowej grupy zabezpieczeń na karcie **Wyszukiwanie** lub w obszarze **wszystkie zasoby**.
 
-    e.  W sekcji **Reguły przychodzące** dodaj regułę przychodzącą, aby zezwolić na zakres portów docelowych 65503-65534 dla jednostki SKU w wersji 1 lub jednostki SKU w wersji 65200-65535 v2 z **zestawem źródło** jako **dowolny** lub **Internet**.
+    e.  W sekcji **reguły ruchu przychodzącego** Dodaj regułę ruchu przychodzącego zezwalającą na zakres portów docelowych 65503-65534 dla jednostki SKU w wersji 1 lub 65200-65535 v2 z zestawem **źródłowym** ustawionym jako **dowolny** lub **internetowy**.
 
-    f.  Wybierz **pozycję Zapisz** i sprawdź, czy można wyświetlić wewnętrznej bazy danych jako w dobrej kondycji. Alternatywnie można to zrobić za pośrednictwem [programu PowerShell/CLI](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+    f.  Wybierz pozycję **Zapisz** i sprawdź, czy zaplecze można wyświetlić w dobrej kondycji. Alternatywnie możesz to zrobić za poorednictwem [programu PowerShell/interfejsu wiersza polecenia](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
-1.  Sprawdź, czy twój UDR ma trasę domyślną (0.0.0.0/0) z następnym przeskokiem nie ustawionym jako **Internet:**
+1.  Sprawdź, czy Twój UDR ma trasę domyślną (0.0.0.0/0) z następnym przeskokiem, który nie został ustawiony jako **Internet**:
     
-    a.  Wykonaj kroki 1a i 1b, aby określić podsieć.
+    a.  Wykonaj kroki 1a i 1B, aby określić podsieć.
 
-    b.  Sprawdź, czy nie skonfigurowano żadnych UDR. Jeśli tak, wyszukaj zasób na pasku wyszukiwania lub w obszarze **Wszystkie zasoby**.
+    b.  Sprawdź, czy nie ma skonfigurowanych UDR. Jeśli jest, wyszukaj zasób na pasku wyszukiwania lub w obszarze **wszystkie zasoby**.
 
-    d.  Sprawdź, czy istnieją jakieś trasy domyślne (0.0.0.0/0) z następnym przeskokiem nie ustawionym jako **Internet**. Jeśli ustawieniem jest **urządzenie wirtualne** lub **brama sieci wirtualnej,** należy upewnić się, że urządzenie wirtualne lub urządzenie lokalne może prawidłowo przekierować pakiet z powrotem do miejsca docelowego internetu bez modyfikowania pakietu.
+    c.  Sprawdź, czy istnieją trasy domyślne (0.0.0.0/0) z następnym przeskokiem nie ustawionym jako **Internet**. Jeśli to ustawienie jest **urządzeniem wirtualnym** lub **bramą Virtual Network**, należy upewnić się, że urządzenie wirtualne lub urządzenie lokalne może prawidłowo skierować pakiet z powrotem do internetowego miejsca docelowego bez modyfikowania pakietu.
 
-    d.  W przeciwnym razie zmień następny przeskok na **Internet**, wybierz pozycję **Zapisz**i sprawdź kondycję wewnętrznej bazy danych.
+    d.  W przeciwnym razie zmień następny przeskok na **Internet**, wybierz pozycję **Zapisz**, a następnie Sprawdź kondycję zaplecza.
 
-1.  Domyślna trasa anonsowana przez połączenie Usługi ExpressRoute/VPN z siecią wirtualną za pośrednictwem protokołu BGP:
+1.  Trasa domyślna anonsowana przez połączenie ExpressRoute/VPN z siecią wirtualną za pośrednictwem protokołu BGP:
 
-    a.  Jeśli masz połączenie Usługi ExpressRoute/VPN z siecią wirtualną za pośrednictwem protokołu BGP i reklamujesz trasę domyślną, upewnij się, że pakiet jest kierowany z powrotem do miejsca docelowego Internetu bez modyfikowania go. Można sprawdzić za pomocą opcji **Rozwiązywanie problemów z połączeniem** w portalu bramy aplikacji.
+    a.  Jeśli istnieje połączenie ExpressRoute/VPN z siecią wirtualną za pośrednictwem protokołu BGP, a w przypadku anonsowania trasy domyślnej, należy się upewnić, że pakiet jest kierowany z powrotem do lokalizacji docelowej Internetu bez modyfikowania. Za pomocą opcji **Rozwiązywanie problemów z połączeniem** można sprawdzić w portalu Application Gateway.
 
-    b.  Wybierz miejsce docelowe ręcznie jako dowolny adres IP z routingiem internetowym, taki jak 1.1.1.1. Ustaw port docelowy jako cokolwiek i sprawdź łączność.
+    b.  Wybierz lokalizację docelową ręcznie jako dowolny adres IP z obsługą Internetu, taki jak 1.1.1.1. Ustaw port docelowy jako wszystkie i sprawdź łączność.
 
-    d.  Jeśli następnym przeskokiem jest brama sieci wirtualnej, może istnieć domyślna trasa anonsowana za pośrednictwem usługi ExpressRoute lub SIECI VPN.
+    c.  Jeśli następnym przeskokiem jest Brama sieci wirtualnej, może istnieć trasa domyślna anonsowana za pośrednictwem ExpressRoute lub sieci VPN.
 
-1.  Jeśli w sieci wirtualnej skonfigurowano niestandardowy serwer DNS, sprawdź, czy serwer (lub serwery) może rozpoznać domeny publiczne. Rozpoznawanie nazw domen publicznych może być wymagane w scenariuszach, w których brama aplikacji musi dotrzeć do domen zewnętrznych, takich jak serwery USŁUGI OCSP lub sprawdzić stan odwołania certyfikatu.
+1.  Jeśli w sieci wirtualnej jest skonfigurowany niestandardowy serwer DNS, sprawdź, czy serwer (lub serwery) mogą rozpoznać domeny publiczne. W scenariuszach, w których Application Gateway musi nawiązać połączenie z domenami zewnętrznymi, takimi jak serwery OCSP lub sprawdzić stan odwołania certyfikatu, może być wymagane rozpoznawanie nazw domen publicznych.
 
-1.  Aby sprawdzić, czy brama aplikacji jest w dobrej kondycji i działa, przejdź do opcji **Kondycja zasobów** w portalu i sprawdź, czy stan jest **w dobrej kondycji**. Jeśli widzisz stan **w złej kondycji** lub **stan awaryjny,** [skontaktuj się z pomocą techniczną](https://azure.microsoft.com/support/options/).
+1.  Aby sprawdzić, czy Application Gateway jest w dobrej kondycji, przejdź do opcji **Resource Health** w portalu i sprawdź, czy stan jest w **dobrej kondycji**. Jeśli widzisz stan **złej kondycji** lub **obniżonej wydajności** , [skontaktuj się z pomocą techniczną](https://azure.microsoft.com/support/options/).
 
 <a name="next-steps"></a>Następne kroki
 ----------
 
-Dowiedz się więcej o [diagnostyce i rejestrowaniu bramy aplikacji](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
+Dowiedz się więcej na temat [diagnostyki i rejestrowania Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).

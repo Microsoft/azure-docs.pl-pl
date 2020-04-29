@@ -1,5 +1,5 @@
 ---
-title: 'SAP na platformie Azure: Jakie oprogramowanie SAP jest obsługiwane na platformie Azure'
+title: 'SAP na platformie Azure: jakie oprogramowanie SAP jest obsługiwane na platformie Azure'
 description: Wyjaśnia, jakie oprogramowanie SAP jest obsługiwane do wdrożenia na platformie Azure
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -17,133 +17,133 @@ ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8b2f4e7a16c967b26b545d1405f973bf8b8afaae
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086134"
 ---
-# <a name="what-sap-software-is-supported-for-azure-deployments"></a>Jakie oprogramowanie SAP jest obsługiwane we wdrożeniach platformy Azure
-W tym artykule opisano, jak dowiedzieć się, jakie oprogramowanie SAP jest obsługiwane dla wdrożeń platformy Azure i jakie są niezbędne wersje systemu operacyjnego lub dbms.
+# <a name="what-sap-software-is-supported-for-azure-deployments"></a>Jakie oprogramowanie SAP jest obsługiwane w przypadku wdrożeń platformy Azure
+W tym artykule opisano sposób, w jaki można dowiedzieć się, jakie oprogramowanie SAP jest obsługiwane przez wdrożenia platformy Azure oraz jakie są niezbędne wersje systemu operacyjnego lub wersje DBMS.
 
-Oceniając, czy bieżące oprogramowanie SAP jest obsługiwane i jakie wersje systemu operacyjnego i dbms są obsługiwane przez oprogramowanie SAP na platformie Azure, będziesz potrzebować dostępu do:
+Ocenianie, czy bieżące oprogramowanie SAP jest obsługiwane i jakie wersje systemów operacyjnych i DBMS są obsługiwane przez oprogramowanie SAP na platformie Azure, będziesz potrzebować dostępu do:
 
 - Uwagi dotyczące pomocy technicznej SAP
-- Macierz dostępności produktów SAP
+- Macierz dostępności produktu SAP
 
 
 
-## <a name="general-restrictions-for-sap-workload"></a>Ogólne ograniczenia dotyczące obciążenia SAP
-Usługi Azure IaaS, które mogą być używane dla obciążenia SAP są ograniczone do sprzętu x86-64 lub x64. Nie ma ofert opartych na sparc lub power cpu, które mają zastosowanie do obciążenia SAP. Klienci, którzy korzystają ze swoich aplikacji w systemach operacyjnych zastrzeżonych do architektury sprzętowej, takich jak IBM mainframe lub AS400, lub w których używane są systemy operacyjne HP-UX, Solaris lub AIX, muszą zmienić swoje aplikacje SAP, w tym DBMS, na jeden z następujących systemów operacyjnych:
+## <a name="general-restrictions-for-sap-workload"></a>Ogólne ograniczenia dotyczące obciążeń SAP
+Usługi Azure IaaS Services, które mogą być używane na potrzeby obciążeń SAP, są ograniczone do sprzętu x86-64 lub x64. Nie ma żadnych ofert opartych na PROCESORAch SPARC lub mocy, które dotyczą obciążeń SAP. Klienci, którzy działają w swoich aplikacjach w systemach operacyjnych, które są zgodne z architekturą sprzętową, takimi jak IBM mainframe lub systemu AS400, lub gdy systemy operacyjne HP-UX, Solaris lub AIX są używane, muszą zmienić swoje aplikacje SAP, w tym system DBMS, na jeden z następujących systemów operacyjnych:
 
-- Windows server 64bit dla platformy x86-64
-- SUSE linux 64bit dla platformy x86-64
-- Czerwony kapelusz Linux 64Bit dla platformy x86-64
-- Oracle Linux 64bit dla platformy x86-64
+- 64-bitowy system Windows Server dla platformy x86-64
+- System SUSE Linux 64 dla platformy x86-64
+- System Red Hat Linux (64) dla platformy x86-64
+- Oracle Linux 64-bitowy dla platformy x86-64
 
-W połączeniu z oprogramowaniem SAP nie są obsługiwane żadne inne wersje systemu operacyjnego ani dystrybucje linuksa. Dokładne szczegóły dotyczące określonych wersji i spraw są udokumentowane w dalszej części dokumentu.
+W połączeniu z oprogramowaniem SAP nie są obsługiwane żadne inne wersje systemów operacyjnych i dystrybucje systemu Linux. Dokładne szczegółowe informacje o określonych wersjach i przypadkach zostały udokumentowane w dalszej części dokumentu.
 
 
-## <a name="you-start-here"></a>Zaczynasz tutaj
-Punktem wyjścia jest [notatka o obsłudze sap #1928533](https://launchpad.support.sap.com/#/notes/1928533). W miarę przechodzenia przez tę notatkę SAP od góry do dołu wyświetlanych jest kilka obszarów obsługiwanego oprogramowania i maszyn wirtualnych
+## <a name="you-start-here"></a>Zacznij tutaj
+Punktem początkowym dla Ciebie jest [Pomoc techniczna SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533). Po przejściu do tej notatki SAP od góry do dołu są wyświetlane różne obszary obsługiwanego oprogramowania i maszyn wirtualnych
 
-Pierwsza sekcja zawiera listę minimalnych wymagań dotyczących wersji operacyjnych, które są ogólnie obsługiwane przez oprogramowanie SAP na maszynach wirtualnych platformy Azure. Jeśli nie spełniasz tych minimalnych wymagań i uruchamiasz starsze wersje tych systemów operacyjnych, musisz uaktualnić wydanie systemu operacyjnego do takiej minimalnej wersji lub jeszcze nowszych wersji. Prawdą jest, że platforma Azure w ogóle będzie obsługiwać starsze wersje niektórych z tych systemów operacyjnych. Ale ograniczenia lub minimalne zwolnienia wymienione są oparte na testach i kwalifikacjach wykonanych i nie zostaną rozszerzone dalej wstecz. 
+W pierwszej sekcji wymieniono minimalne wymagania dotyczące wydań operacyjnych, które są ogólnie obsługiwane przez oprogramowanie SAP na maszynach wirtualnych platformy Azure. Jeśli nie dotrzesz do tych minimalnych wymagań i uruchamiasz starsze wersje tych systemów operacyjnych, musisz uaktualnić wersję systemu operacyjnego do takiej minimalnej wersji lub nawet w nowszych wersjach. Jest to rozwiązanie, że platforma Azure ogólnie obsługuje starsze wersje niektórych systemów operacyjnych. Jednak ograniczenia lub minimalne wersje wymienione na liście są oparte na testach i zadawanych kwalifikacjach i nie zostaną jeszcze rozszerzone. 
 
 
 > [!NOTE]
->Istnieją pewne określone typy maszyn wirtualnych, duże wystąpienia HANA lub obciążeń SAP, które będą wymagać nowszych wersji systemu operacyjnego. Takie przypadki będą wymienione w całym dokumencie. Takie przypadki są wyraźnie udokumentowane w notatkach SAP lub innych publikacjach SAP.
+>Istnieją pewne typy maszyn wirtualnych, Duże wystąpienia HANA lub obciążenia SAP, które będą wymagały zastosowania nowszych wersji systemu operacyjnego. Takie przypadki jak te, które zostaną wymienione w całym dokumencie. Takie przypadki jak te, które są wyraźnie udokumentowane w uwagi SAP lub innych publikacji SAP.
 
-W poniższej sekcji wymieniono ogólne platformy SAP, które są obsługiwane z wersjami, które są obsługiwane i ważniejsze jądra SAP, które są obsługiwane. Wyświetla listę stosów NetWeaver/ABAP lub Java, które są obsługiwane i, które wymagają minimalnych wersji jądra. Nowsze stosy ABAP są obsługiwane na platformie Azure, ale nie wymagają minimalnych wersji jądra, ponieważ zmiany na platformie Azure zostały zaimplementowane od początku opracowywania nowszych stosów
+W poniższej sekcji wymieniono ogólne platformy SAP obsługiwane przez obsługiwane wersje i ważniejsze, obsługiwane przez nie jądra SAP. Wyświetla listę obsługiwanych stosów NetWeaver/ABAP lub Java, które wymagają minimalnych wersji jądra. Najnowsze stosy ABAP są obsługiwane na platformie Azure, ale nie wymagają minimalnych wersji jądra, ponieważ zmiany dotyczące platformy Azure zostały zaimplementowane od początku opracowywania najnowszych stosów
 
-Musisz sprawdzić:
+Należy sprawdzić:
 
-- Czy aplikacje SAP, które są uruchomione, są objęte minimalnych wersji podanych. Jeśli nie, należy zdefiniować nową wersję docelową, sprawdź w macierzy dostępności produktów SAP, jakie kompilacje systemu operacyjnego i kombinacje DBMS są obsługiwane w nowej wersji docelowej. Tak, że można wybrać odpowiednią wersję systemu operacyjnego i wersji DBMS
-- Czy chcesz zaktualizować jądra SAP w przejściu na platformę Azure
-- Czy trzeba zaktualizować pakiety pomocy technicznej SAP. Szczególnie pakiety obsługi bazy, które mogą być wymagane w przypadkach, gdy wymagane jest przejście do nowszej wersji DBMS
+- Czy używane aplikacje SAP są objęte minimalnymi wydaniami. W przeciwnym razie należy zdefiniować nową wersję docelową, zaewidencjonować macierz dostępności produktu SAP, jakie kompilacje systemu operacyjnego i w systemie DBMS są obsługiwane przez nową wersję docelową. Dlatego możesz wybrać odpowiednią wersję systemu operacyjnego i wersję DBMS
+- Czy należy zaktualizować jądra SAP w przejściu na platformę Azure
+- Czy należy zaktualizować pakiety pomocy technicznej SAP. W szczególności pakiety pomocy technicznej, które mogą być wymagane w przypadku, gdy wymagane jest przejście do nowszej wersji systemu DBMS
 
 
-Następna sekcja zawiera więcej szczegółów na temat innych produktów SAP i wersji DBMS, które są obsługiwane przez SAP na platformie Azure dla systemów Windows i Linux. 
-
-> [!NOTE]
-> Minimalne wersje różnych dbms jest starannie dobrane i nie zawsze może odzwierciedlać całe spektrum dbms zwalnia różnych dostawców dbms wsparcia na platformie Azure w ogóle. Wiele zagadnień związanych z obciążeniem SAP zostały uwzględnione w celu zdefiniowania tych minimalnych wydań. Nie ma żadnego wysiłku, aby przetestować i zakwalifikować starsze wersje DBMS. 
+W następnej sekcji znajdują się szczegółowe informacje o innych produktach SAP i w systemie DBMS, które są obsługiwane przez oprogramowanie SAP na platformie Azure dla systemów Windows i Linux. 
 
 > [!NOTE]
-> Wymienione minimalne wersje reprezentują starszą wersję systemów operacyjnych i wersji bazy danych. Gorąco zachęcamy do korzystania z najnowszych wersji systemu operacyjnego i wersji baz danych. W wielu przypadkach nowsze wersje systemu operacyjnego i bazy danych uwzględniały przypadek użycia działającego w chmurze publicznej i dostosowywały kod w celu optymalizacji pod kątem działania w chmurze publicznej lub w szczególności na platformie Azure
+> Minimalne wersje systemu DBMS są starannie wybierane i mogą nie odzwierciedlać całego spektrum systemu DBMS, które w ogóle nie obsługują wielu dostawców systemów DBMS. Wiele zagadnień związanych z obciążeniem SAP zostało uwzględnionych w celu zdefiniowania tych minimalnych wersji. Nie ma wysiłku do testowania i kwalifikowania starszych wersji systemu DBMS. 
 
-## <a name="oracle-dbms-support"></a>Pomoc techniczna w programie Oracle DBMS
-System operacyjny, wersje Oracle DBMS i funkcje Oracle obsługiwane na platformie Azure są wyraźnie wymienione w [notatce technicznej SAP #2039619](https://launchpad.support.sap.com/#/notes/2039619). Esencja z tej notatki można podsumować w ten sposób:
+> [!NOTE]
+> Wymienione poniżej minimalne wersje przedstawiają starszą wersję systemów operacyjnych i wydań baz danych. Zdecydowanie zachęcamy do korzystania z najnowszych wersji systemu operacyjnego i wydań baz danych. W wielu przypadkach nowsza wersja systemu operacyjnego i bazy danych zajęła przypadek użycia w chmurze publicznej w celu rozważenia i dostosowania kodu do optymalizacji pod kątem działania w chmurze publicznej lub bardziej szczegółowej platformy Azure
 
-- Minimalna wersja Oracle obsługiwana na maszynach wirtualnych platformy Azure, które są certyfikowane dla NetWeaver, to Oracle 11g Release 2 Patchset 3 (11.2.0.4)
-- Jako systemy operacyjne dla gości kwalifikują się tylko systemy Windows i Oracle Linux. Dokładne wersje systemu operacyjnego i związane z nimi minimalne wersje DBMS są wymienione w nocie
-- Obsługa oracle linux rozciąga się również na klienta Oracle DBMS. Oznacza to, że wszystkie składniki SAP, takie jak wystąpienia okien dialogowych ABAP lub Java Stack, muszą być również uruchamiane w systemie Oracle Linux. Tylko składniki SAP w takim systemie SAP, które nie połączyłyby się z Oracle DBMS, będą mogły uruchamiać inny system operacyjny Linux
-- Oracle RAC nie jest obsługiwany 
-- Oracle ASM jest obsługiwany w niektórych przypadkach. Szczegóły są wymienione w nocie
-- Systemy SAP inne niż Unicode są obsługiwane tylko z serwerami aplikacji z systemem operacyjnym gościa systemu Windows. Gościnnym systemem operacyjnym dbms może być Oracle Linux lub Windows. Przyczyna tego ograniczenia jest widoczna podczas sprawdzania macierzy dostępności produktów SAP (PAM). W przypadku systemu Oracle Linux sap nigdy nie wydał jąder SAP innych niż Unicode
+## <a name="oracle-dbms-support"></a>Obsługa systemu Oracle DBMS
+System operacyjny, wersje systemu Oracle DBMS i funkcje Oracle obsługiwane na platformie Azure są wymienione w temacie [uwagi dotyczące pomocy technicznej SAP #2039619](https://launchpad.support.sap.com/#/notes/2039619). Część tej notatki może być podsumowana, na przykład:
 
-Znając wersje DBMS, które są obsługiwane przy pomocy docelowej infrastruktury platformy Azure, należy sprawdzić macierz dostępności produktów SAP, czy wersje systemu operacyjnego i wymagane usługi dbms są obsługiwane w wersjach produktów SAP, które zamierzasz uruchomić. 
+- Minimalna wersja programu Oracle obsługiwana na maszynach wirtualnych platformy Azure certyfikowanych do NetWeaver to Oracle 11g Release 2 Z zestawem poprawek 3 (11.2.0.4)
+- Jako systemy operacyjne gościa tylko Windows i Oracle Linux. Dokładne wersje systemu operacyjnego i powiązane z nim minimalne wersje DBMS są wymienione w notatce
+- Obsługa Oracle Linux obejmuje również klienta Oracle DBMS. Oznacza to, że wszystkie składniki SAP, takie jak wystąpienia okna dialogowego stosu ABAP lub Java, muszą działać również na Oracle Linux. Tylko składniki SAP w systemie SAP, które nie łączą się z systemem Oracle DBMS, mogą uruchomić inny system operacyjny Linux
+- Certyfikat certyfikatu Oracle nie jest obsługiwany 
+- W przypadku niektórych przypadków jest obsługiwany Oracle ASM. Szczegóły znajdują się na liście w notatce
+- Systemy SAP inne niż Unicode są obsługiwane tylko na serwerach aplikacji z systemem operacyjnym gościa systemu Windows. Systemem operacyjnym gościa w systemie DBMS może być Oracle Linux lub Windows. Powód tego ograniczenia jest oczywisty podczas sprawdzania platformy SAP Product Availability Matrix (PAM). W przypadku Oracle Linux, SAP nigdy nie wydano jądra SAP inne niż Unicode
+
+Znajomość wersji systemu DBMS, które są obsługiwane przez docelową infrastrukturę platformy Azure, należy sprawdzić macierz dostępności produktu SAP w przypadku, gdy wersje systemów operacyjnych i DBMS są obsługiwane w ramach Twoich wersji produktu SAP przeznaczonych do uruchomienia. 
 
 
-## <a name="sap-hana-support"></a>Pomoc techniczna firmy SAP HANA
-Na platformie Azure istnieją dwie usługi, które mogą służyć do uruchamiania bazy danych HANA:
+## <a name="sap-hana-support"></a>Obsługa SAP HANA
+Na platformie Azure są dostępne dwie usługi, których można użyć do uruchomienia bazy danych HANA:
 
 - Azure Virtual Machines
 - [Duże wystąpienia HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 
-W przypadku uruchamiania systemu SAP HANA sap ma więcej i silniejsze warunki infrastruktury musi spełniać niż do uruchamiania NetWeaver lub innych aplikacji SAP i DBMS. W rezultacie mniejsza liczba maszyn wirtualnych platformy Azure kwalifikuje się do uruchamiania sap HANA DBMS. Listę obsługiwanej infrastruktury platformy Azure obsługiwanej dla sap HANA można znaleźć w tak zwanym [katalogu sprzętowym SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). 
+W przypadku uruchamiania SAP HANA rozwiązanie SAP ma więcej i silniejsze warunki, które muszą spełniać infrastruktura niż w przypadku uruchamiania NetWeaver lub innych aplikacji SAP i systemu DBMS. W związku z tym mniejsza liczba maszyn wirtualnych platformy Azure kwalifikuje się do uruchamiania SAP HANA systemu DBMS. Listę obsługiwanych infrastruktury platformy Azure obsługiwaną dla SAP HANA można znaleźć w [katalogu sprzętowym SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). 
 
 > [!NOTE]
-> Jednostki zaczynające się od litery "S" są [jednostkami dużych wystąpień HANA.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 
+> Jednostki zaczynające się od litery "są jednostkami [dużej liczby wystąpień Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) . 
 
 > [!NOTE]
-> Sap nie ma określonego certyfikatu zależnego od głównych wersji SAP HANA. Wbrew powszechnej opinii, **scenariusz certyfikacji** kolumny w [certyfikowanych platformach IaaS z certyfikatem HANA, kolumna](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)nie zawiera **oświadczenia o certyfikowanym wydaniu głównym lub niewielkim HANA.** Należy założyć, że wszystkie wymienione jednostki, które mogą być używane dla HANA 1.0 i HANA 2.0 tak długo, jak certyfikowane wersje systemu operacyjnego dla określonych jednostek są obsługiwane przez wersje HANA 1.0, jak również. 
+> System SAP nie ma określonej certyfikacji zależnej od SAP HANA głównych wersji. W przeciwieństwie do typowej opinii **scenariusz certyfikacji** kolumny na [platformach IaaS Certified z certyfikatem Hana](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) **nie zawiera żadnych instrukcji dotyczących głównych i pomocniczych wersji platformy Hana**. Należy założyć, że wszystkie jednostki wymienione na liście mogą być używane dla platformy HANA 1,0 i HANA 2,0, o ile certyfikowane wersje systemu operacyjnego dla określonych jednostek są również obsługiwane przez usługi HANA 1,0. 
 
-Do użycia sap HANA, różne minimalne wersje systemu operacyjnego mogą mieć zastosowanie niż w przypadku ogólnych przypadków NetWeaver. Należy sprawdzić obsługiwane systemy operacyjne dla każdej jednostki indywidualnie, ponieważ mogą one się różnić. Można to zrobić, klikając na każdej jednostce. Pojawią się więcej szczegółów. Jednym z wymienionych szczegółów jest różne systemy operacyjne obsługiwane dla tej konkretnej jednostki.
+W przypadku użycia SAP HANA różne minimalne wersje systemu operacyjnego mogą być stosowane niż w przypadku ogólnych przypadków NetWeaver. Należy sprawdzić obsługiwane systemy operacyjne osobno dla każdej jednostki, ponieważ mogą się one różnić. Możesz to zrobić, klikając każdą jednostkę. Zostanie wyświetlonych więcej szczegółów. Jednym z wymienionych szczegółów jest różne systemy operacyjne obsługiwane przez tę konkretną jednostkę.
 
 > [!NOTE]
-> Jednostki dużych wystąpień platformy Azure HANA są bardziej restrykcyjne w przypadku obsługiwanych systemów operacyjnych w porównaniu z maszynami wirtualnymi platformy Azure. Z drugiej strony maszyny wirtualne platformy Azure mogą wymuszać nowsze wersje operacyjne jako minimalne wersje. Jest to szczególnie ważne w przypadku niektórych większych jednostek maszyn wirtualnych, które wymagały zmian w jądrach Linuksa
+> Jednostki duże wystąpienia platformy Azure HANA są bardziej restrykcyjne w porównaniu z obsługiwanymi systemami operacyjnymi w odniesieniu do maszyn wirtualnych platformy Azure Z drugiej strony maszyny wirtualne platformy Azure mogą wymuszać nowsze wersje operacyjne jako minimalne wersje. Jest to szczególnie ważne w przypadku niektórych większych jednostek maszyn wirtualnych, które wymagają zmian w jądrach systemu Linux
 
-Znając obsługiwany system operacyjny dla infrastruktury platformy Azure, należy sprawdzić [uwagę pomocy technicznej SAP #2235581](https://launchpad.support.sap.com/#/notes/2235581) dla dokładnych wersji SAP HANA i poziomów poprawek, które są obsługiwane w jednostkach platformy Azure, które są kierowane. 
+Znajomość obsługiwanego systemu operacyjnego dla infrastruktury platformy Azure wymaga sprawdzenia, czy [#2235581 uwagi dotyczące pomocy technicznej SAP](https://launchpad.support.sap.com/#/notes/2235581) dla dokładnych wydań SAP HANA i poziomów poprawek, które są obsługiwane w przypadku docelowych jednostek platformy Azure. 
 
 > [!IMPORTANT]
-> Krok sprawdzania dokładnych wersji SAP HANA i obsługiwanych poziomów poprawek jest bardzo ważny. W wielu przypadkach obsługa określonej wersji systemu operacyjnego zależy od określonego poziomu poprawek plików wykonywalnych SAP HANA.
+> Najważniejszym krokiem jest sprawdzenie dokładnego wydania SAP HANA i obsługiwanych poziomów poprawek. W wielu przypadkach obsługa określonej wersji systemu operacyjnego zależy od określonego poziomu poprawek SAP HANA plików wykonywalnych.
 
-Jak wiesz, konkretne wersje HANA można uruchomić na docelowej infrastruktury platformy Azure, należy sprawdzić w Macierzy dostępności produktów SAP, aby dowiedzieć się, czy istnieją ograniczenia z wersji produktów SAP, które obsługują wersje HANA, które zostały odfiltrowane
+Znając konkretne wersje platformy HANA, które można uruchomić w ramach dostosowanej infrastruktury platformy Azure, należy zaewidencjonować macierz dostępności produktu SAP, aby dowiedzieć się, czy istnieją ograniczenia dotyczące wydań produktów SAP, które obsługują odfiltrowane wersje platformy HANA.
 
 
-## <a name="certified-azure-vms-and-hana-large-instance-units-and-business-transaction-throughput"></a>Certyfikowane maszyny wirtualne platformy Azure i jednostki dużych wystąpień HANA i przepływność transakcji biznesowych
-Oprócz oceny obsługiwanych wersji systemu operacyjnego, wersji DBMS i zależnych wersji oprogramowania SAP dla jednostek infrastruktury platformy Azure, musisz zakwalifikować te jednostki według przepływności transakcji biznesowych, która jest wyrażona w jednostce "SAP" przez SAP. Wszystkie rozmiary SAP zależy od obliczeń SAPS. Oceniając istniejące systemy SAP, zwykle można, za pomocą dostawcy infrastruktury, obliczyć SAPS jednostek. Dla warstwy DBMS, a także dla warstwy aplikacji. W innych przypadkach, gdy tworzona jest nowa funkcjonalność, ćwiczenie zmiany rozmiaru za pomocą sap może ujawnić wymagane numery SAPS dla warstwy aplikacji i warstwy DBMS. Jako dostawca infrastruktury firma Microsoft jest zobowiązana do zapewnienia charakterystyki przepływności SAP różnych jednostek, które mają certyfikat NetWeaver i/lub HANA.
+## <a name="certified-azure-vms-and-hana-large-instance-units-and-business-transaction-throughput"></a>Certyfikowane jednostki maszyn wirtualnych platformy Azure oraz duże wystąpienia usługi HANA i przepływność transakcji biznesowej
+Oprócz oceny obsługiwanych wersji systemu operacyjnego, wydań DBMS i obsługiwane wersje oprogramowania SAP dla jednostek infrastruktury platformy Azure należy zakwalifikować te jednostki według przepływności transakcji biznesowej, która jest wyrażona w jednostce "SAP" przez SAP. Wszystkie rozmiary SAP są zależne od obliczeń dla punktów SAP. Oceniając istniejące systemy SAP, zazwyczaj można, przy pomocy dostawcy infrastruktury, obliczyć SAP jednostek. Dla warstwy DBMS oraz dla warstwy aplikacji. W innych przypadkach, gdy zostanie utworzona nowa funkcja, naprawka zmiany wielkości z SAP może ujawnić wymagane numery punktów SAP dla warstwy aplikacji i warstwy DBMS. Jako dostawca infrastruktury firma Microsoft jest zobowiązana do zapewnienia charakterystyki przepływności SAP dla różnych jednostek, które są certyfikowane jako NetWeaver i/lub HANA.
 
-W przypadku maszyn wirtualnych platformy Azure te numery przepływności SAPS są udokumentowane w [nocie pomocy technicznej SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533). W przypadku jednostek dużych wystąpień platformy Azure HANA numery przepływności SAPS są udokumentowane w [nocie pomocy technicznej SAP #2316233](https://launchpad.support.sap.com/#/notes/2316233)
+W przypadku maszyn wirtualnych platformy Azure te numery przepływności SAP są udokumentowane w [uwagach pomocy technicznej SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533). W przypadku jednostek dużych wystąpień usługi Azure HANA numery przepływności SAP są udokumentowane w [uwagach pomocy technicznej SAP #2316233](https://launchpad.support.sap.com/#/notes/2316233)
 
-Patrząc na [notatkę techniczną SAP #1928533,](https://launchpad.support.sap.com/#/notes/1928533)obowiązują następujące uwagi:
+W #1928533 uwagi na temat [pomocy technicznej SAP](https://launchpad.support.sap.com/#/notes/1928533)są stosowane następujące uwagi:
 
-- **W przypadku maszyn wirtualnych platformy Azure z serii M i maszyn wirtualnych platformy Azure z serii Mv2 obowiązują różne minimalne wersje systemu operacyjnego niż w przypadku innych typów maszyn wirtualnych platformy Azure.** Wymaganie dotyczące nowszych wersji systemu operacyjnego opiera się na zmianach, które różni dostawcy systemów operacyjnych musieli podać w swoich wersjach systemu operacyjnego, aby włączyć swoje systemy operacyjne uruchomione na określonych typach maszyn wirtualnych platformy Azure lub zoptymalizować wydajność i przepustowość obciążenia SAP dla tych typów maszyn wirtualnych
-- Istnieją dwie tabele, które określają różne typy maszyn wirtualnych. Druga tabela określa przepływność SAPS dla typów maszyn wirtualnych platformy Azure, które obsługują tylko usługę Azure standard Storage. Wdrożenie dbms na jednostkach określonych w drugiej tabeli notatki nie jest obsługiwane
+- **W przypadku maszyn wirtualnych platformy Azure z serii M i maszyn wirtualnych platformy Azure z serii Mv2 są stosowane różne minimalne wersje systemu operacyjnego niż w przypadku innych typów maszyn wirtualnych platformy Azure**. Wymagania dotyczące nowszych wersji systemu operacyjnego są oparte na zmianach wprowadzonych przez różnych dostawców systemów operacyjnych w ich wersjach systemu operacyjnego w celu umożliwienia ich systemów operacyjnych działających na określonych typach maszyn wirtualnych platformy Azure lub optymalizacji wydajności i przepływności obciążeń SAP na tych typach maszyn wirtualnych
+- Istnieją dwie tabele, które określają różne typy maszyn wirtualnych. Druga tabela określa przepływność SAP dla typów maszyn wirtualnych platformy Azure, które obsługują tylko usługę Azure Standard Storage. Wdrożenie systemu DBMS w jednostkach określonych w drugiej tabeli notatki nie jest obsługiwane.
 
 
 ## <a name="other-sap-products-supported-on-azure"></a>Inne produkty SAP obsługiwane na platformie Azure
-Ogólnie rzecz biorąc założenie jest to, że w stanie chmur hiperskalowych, takich jak Azure, większość oprogramowania SAP powinny działać bez problemów funkcjonalnych na platformie Azure. Niemniej jednak i w przeciwieństwie do wizualizacji chmury prywatnej, SAP nadal wyraża obsługę różnych produktów SAP jawnie dla różnych dostawców chmury hyerpscale. W rezultacie istnieją różne uwagi dotyczące obsługi SAP wskazujące obsługę platformy Azure dla różnych produktów SAP. 
+Ogólnie rzecz biorąc, zakłada się, że wraz ze stanem chmur w ramach skalowania, takich jak platforma Azure, większość oprogramowania SAP powinna działać bez problemów funkcjonalnych na platformie Azure. Jednak w przeciwieństwie do wizualizacji w chmurze prywatnej system SAP nadal obsługuje różne produkty SAP dla różnych dostawców chmury hyerpscale. W związku z tym istnieją różne uwagi dotyczące pomocy technicznej SAP wskazujące pomoc techniczną dla platformy Azure dla różnych produktów SAP. 
 
-Dla platformy BI obiektów biznesowych, [uwaga pomocy technicznej SAP #2145537](https://launchpad.support.sap.com/#/notes/2145537) zawiera listę produktów SAP Business Objects obsługiwanych na platformie Azure. Jeśli istnieją pytania dotyczące składników lub kombinacji wersji oprogramowania i wersji systemu operacyjnego, które wydają się nie być wymienione lub obsługiwane i które są nowsze niż minimalne wersje wymienione, należy otworzyć żądanie pomocy technicznej SAP względem składnika, o który pytasz o pomoc techniczną.
+W przypadku platformy BI dla obiektów biznesowych, [Uwaga dotycząca pomocy technicznej SAP #2145537](https://launchpad.support.sap.com/#/notes/2145537) zawiera listę produktów SAP Business Objects obsługiwanych na platformie Azure. Jeśli występują pytania dotyczące składników lub kombinacji wydań oprogramowania i wersji systemu operacyjnego, które nie są wyświetlane ani obsługiwane, a które są nowsze niż wymienione w minimalnych wersjach, należy otworzyć żądanie pomocy technicznej SAP względem składnika, dla którego chcesz uzyskać pomoc techniczną.
 
-W przypadku usług danych obiektów biznesowych [#22288344 pkt.](https://launchpad.support.sap.com/#/notes/2288344) 
+W przypadku obiektów firmowych Data Services [Uwaga dotycząca pomocy technicznej sap #22288344](https://launchpad.support.sap.com/#/notes/2288344) wyjaśnia minimalną obsługę oprogramowania SAP Data Services działającego na platformie Azure. 
 
 > [!NOTE]
-> Jak wskazano w nocie pomocy technicznej SAP, należy sprawdzić w SAP PAM, aby zidentyfikować poprawny poziom pakietu pomocy technicznej, który ma być obsługiwany na platformie Azure
+> Zgodnie z opisem w uwagach dotyczących pomocy technicznej SAP należy zaewidencjonować usługę SAP PAM w celu zidentyfikowania poprawnego poziomu pakietu dla pomocy technicznej na platformie Azure
 
-Obsługa sap datahub/Vora w usługach Azure Kubernetes Services (AKS) jest szczegółowo opisana w [nocie pomocy technicznej SAP #2464722](https://launchpad.support.sap.com/#/notes/2464722)
+Wsparcie SAP Datahub/Vora w usłudze Azure Kubernetes Services (AKS) zostało szczegółowo opisane w [uwagach pomocy technicznej sap #2464722](https://launchpad.support.sap.com/#/notes/2464722)
 
-Obsługa sap BPC 10.1 SP08 jest opisana w [nocie pomocy technicznej SAP #2451795](https://launchpad.support.sap.com/#/notes/2451795)
+Pomoc techniczna dla oprogramowania SAP BPC 10,1 SP08 jest opisana w artykule [dotyczącym pomocy technicznej sap #2451795](https://launchpad.support.sap.com/#/notes/2451795)
 
-Pomoc techniczna dla platformy SAP Hybris Commerce Platform na platformie Azure jest szczegółowo opisana w [dokumentacji hybris](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html). W przypadku obsługiwanych programów DBMS dla platformy SAP Hybris Commerce, wymienia się w nim:
+Pomoc techniczna dla platformy SAP Hybris Commerce platform na platformie Azure znajduje się szczegółowo w [dokumentacji Hybris](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html). Jak w przypadku obsługiwanej platformy SAP Hybris Commerce platform system DBMS wygląda następująco:
 
-- SQL Server i Oracle na platformie systemu operacyjnego Windows. Te same minimalne zwolnienia mają zastosowanie, jak w przypadku SAP NetWeaver. Szczegółowe informacje na temat informacji na temat pomocy [technicznej sap #1928533](https://launchpad.support.sap.com/#/notes/1928533)
-- SAP HANA na Red Hat i SUSE Linux. Typy maszyn wirtualnych z certyfikatem SAP HANA są wymagane zgodnie z wcześniejszymi dokumentami w [tym dokumencie.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support) Platforma handlowa SAP (Hybris) jest uważana za obciążenie OLTP
-- Baza danych SQL Azure DB od platformy handlowej SAP (Hybris) w wersji 1811
+- SQL Server i Oracle na platformie systemu operacyjnego Windows. W przypadku oprogramowania SAP NetWeaver stosowane są te same wersje minimalne. Aby uzyskać szczegółowe informacje, zobacz [uwagi dotyczące pomocy technicznej SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533)
+- SAP HANA w systemach Red Hat i SUSE Linux. SAP HANA typy certyfikowanych maszyn wirtualnych są wymagane zgodnie z opisem we wcześniejszej części [tego dokumentu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support). Platforma SAP (Hybris) Commerce platform jest traktowana jako obciążenie OLTP
+- Baza danych SQL Azure jako platformy SAP (Hybris) w wersji 1811
 
 
 
 
 ## <a name="next-steps"></a>Następne kroki
-Przeczytaj kolejne kroki w [planowaniu i implementacji maszyn wirtualnych platformy Azure dla sap NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
+Przeczytaj następne kroki w temacie [Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
 

@@ -1,6 +1,6 @@
 ---
-title: Aktualizacje dokumentacji usługi Azure Media Services w wersji 3
-description: Aby być na bieżąco z najnowszymi aktualizacjami dokumentacji usługi Media Services w wersji 3.
+title: Aktualizacje dokumentacji Azure Media Services v3
+description: Na bieżąco z najnowszymi aktualizacjami dokumentacji Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,28 +12,28 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
 ms.openlocfilehash: b0f01f5f044fd096704683fe67d2068e4ab4c3f4
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81772147"
 ---
-# <a name="azure-media-services-v3-documentation-updates"></a>Aktualizacje dokumentacji usługi Azure Media Services w wersji 3
+# <a name="azure-media-services-v3-documentation-updates"></a>Aktualizacje dokumentacji Azure Media Services v3
 
->Otrzymuj powiadomienia o tym, kiedy można ponownie odwiedzić `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+documentation+updates%22&locale=en-us` tę stronę, aby uzyskać aktualizacje, kopiując i wklejając ten adres URL: do czytnika kanałów RSS.
+>Otrzymuj powiadomienia o tym, kiedy należy ponownie odwiedzić Tę stronę pod kątem aktualizacji przez skopiowanie i wklejenie `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+documentation+updates%22&locale=en-us` tego adresu URL: do czytnika źródła danych RSS.
 
-W tym artykule o mówi o najnowszych aktualizacjach dokumentacji usługi Media Services w wersji 3.
+W tym artykule omówiono najnowsze aktualizacje dokumentacji programu Media Services v3.
 
-## <a name="april-2020"></a>Kwiecień 2020 r.
+## <a name="april-2020"></a>Kwiecień 2020 r.
 
-* Dokumenty programu Azure Media Player zostały zmigrowane do [dokumentacji platformy Azure.](../azure-media-player/azure-media-player-overview.md)
-* Dodano szybki start [na żywo z open broadcasting studio (OBS).](live-events-obs-quickstart.md) Pokazano na nim, jak utworzyć strumień na żywo usługi Media Services przy użyciu witryny Azure portal i usługi OBS.
+* Azure Media Player dokumenty zostały zmigrowane do [dokumentacji platformy Azure](../azure-media-player/azure-media-player-overview.md).
+* Dodano obsługę [przesyłania strumieniowego na żywo za pomocą programu Open Broadcast Studio (obs)](live-events-obs-quickstart.md) . Przedstawiono sposób tworzenia Media Services strumienia na żywo przy użyciu Azure Portal i OBS.
 
 ## <a name="march-2020"></a>Marzec 2020 r.
 
-Dodano transmisję na żywo z szybki [startu Telestream Wirecast.](live-events-wirecast-quickstart.md) Pokazuje, jak utworzyć strumień na żywo usługi Azure Media Services przy użyciu portalu Azure i telestream wirecast.
+Dodano obsługę [przesyłania strumieniowego na żywo ze Wirecast](live-events-wirecast-quickstart.md) Szybki Start. Pokazano, jak utworzyć strumień na żywo Azure Media Services przy użyciu Azure Portal i usługi Wirecast.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Omówienie](media-services-overview.md)
-- [Informacje o wersji usługi Media Services w wersji 3](release-notes.md)
+- [Informacje o wersji Media Services v3](release-notes.md)

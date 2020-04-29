@@ -223,16 +223,6 @@
               href: virtual-network-network-interface-addresses.md
     - name: Zabezpieczenia
       items:
-        - name: Ograniczanie dostępu przy użyciu sieciowych grup zabezpieczeń
-          items:
-            - name: Azure Portal
-              href: tutorial-restrict-network-access-to-resources.md
-            - name: Azure PowerShell
-              href: tutorial-restrict-network-access-to-resources-powershell.md
-            - name: Interfejs wiersza polecenia platformy Azure
-              href: tutorial-restrict-network-access-to-resources-cli.md
-            - name: Zarządzanie sieciowymi grupami zabezpieczeń
-              href: manage-network-security-group.md
         - name: Filtrowanie ruchu sieciowego
           items:
             - name: Azure Portal
@@ -271,6 +261,8 @@
           href: manage-ddos-protection.md
         - name: Dołączanie partnerów do usługi DDoS Protection w warstwie Standardowa
           href: ddos-protection-partner-onboarding.md
+        - name: Zarządzanie sieciowymi grupami zabezpieczeń
+          href: manage-network-security-group.md
         - name: Scenariusze zabezpieczeń
           items:
             - name: Zabezpieczanie sieci przy użyciu urządzeń wirtualnych

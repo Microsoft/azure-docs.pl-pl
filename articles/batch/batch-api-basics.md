@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.custom: seodec18
 ms.openlocfilehash: fdc04c49521c9d91ef836c4d1dba76091db8f16a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115384"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Tworzenie rozbudowanych rozwiązań przetwarzania równoległego przy użyciu usługi Batch
@@ -49,7 +49,7 @@ Niektóre z poniższych zasobów — konta, węzły obliczeniowe, pule, zadania 
 * [Pula](#pool)
 * [Zadanie](#job)
   * [Harmonogramy zadań](#scheduled-jobs)
-* [Zadaniem](#task)
+* [Zadanie](#task)
   * [Zadanie podrzędne uruchamiania](#start-task)
   * [Zadanie podrzędne Menedżera zadań](#job-manager-task)
   * [Zadania podrzędne przygotowania i zwolnienia zadań](#job-preparation-and-release-tasks)

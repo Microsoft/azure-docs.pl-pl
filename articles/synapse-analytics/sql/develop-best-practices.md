@@ -1,6 +1,6 @@
 ---
-title: Najlepsze rozwiązania dotyczące programowania synapse SQL
-description: Zalecenia i najlepsze rozwiązania, które należy znać podczas opracowywania dla Synapse SQL.
+title: Najlepsze rozwiązania dotyczące programowania Synapse SQL
+description: Zalecenia i najlepsze rozwiązania, które należy znać podczas opracowywania programu SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: ed2638cfe4ab7e849e428729ccd17ffdeb6314af
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086355"
 ---
-# <a name="development-best-practices-for-synapse-sql"></a>Najlepsze rozwiązania dotyczące programowania synapse SQL
-W tym artykule opisano wskazówki i najlepsze rozwiązania podczas opracowywania rozwiązania magazynu danych. 
+# <a name="development-best-practices-for-synapse-sql"></a>Najlepsze rozwiązania dotyczące programowania Synapse SQL
+W tym artykule opisano wskazówki i najlepsze rozwiązania w zakresie tworzenia rozwiązań magazynu danych. 
 
-## <a name="sql-pool-development-best-practices"></a>Najważniejsze wskazówki dotyczące tworzenia puli SQL
+## <a name="sql-pool-development-best-practices"></a>Najlepsze rozwiązania dotyczące programowania puli SQL
 
 ### <a name="reduce-cost-with-pause-and-scale"></a>Obniżenie kosztów dzięki wstrzymaniu i skalowaniu
 
@@ -28,51 +28,51 @@ Aby uzyskać więcej informacji dotyczących obniżania kosztów za pomocą wstr
 
 ### <a name="maintain-statistics"></a>Prowadzenie statystyk
 
-Upewnij się, że aktualizujesz statystyki codziennie lub po każdym obciążeniu.  Zawsze istnieje możliwość wypracowania kompromisu pomiędzy wydajnością a kosztami tworzenia i aktualizowania statystyk. Jeśli okaże się, że utrzymanie wszystkich statystyk trwa zbyt długo, bądź bardziej selektywny, jeśli kolumny mają statystyki lub które kolumny wymagają częstego aktualizowania.  
+Pamiętaj o aktualizowaniu statystyk codziennie lub po każdym załadowaniu.  Zawsze istnieje możliwość wypracowania kompromisu pomiędzy wydajnością a kosztami tworzenia i aktualizowania statystyk. Jeśli okaże się, że obsługa wszystkich statystyk trwa zbyt długo, należy bardziej wybiórczo o tym, które kolumny mają statystykę lub które kolumny wymagają częstego aktualizowania.  
 
-Na przykład można zaktualizować kolumny daty, w których nowe wartości mogą być dodawane codziennie. 
+Na przykład możesz chcieć zaktualizować kolumny dat, w których można codziennie dodawać nowe wartości. 
 
 > [!NOTE]
-> Najwięcej korzyści można uzyskać dzięki statystykom kolumn zaangażowanych w sprzężenia, kolumnom używanym w klauzuli WHERE i kolumnach znalezionych w polu GROUP BY.
+> Dzięki temu można uzyskać statystykę na temat kolumn związanych z sprzężeniami, kolumnami używanymi w klauzuli WHERE oraz kolumnami, które znajdują się w grupie według.
 
-Zobacz też [Zarządzanie statystykami tabeli](develop-tables-statistics.md), [TWORZENIE STATYSTYK](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [AKTUALIZOWANIE STATYSTYK](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Zobacz też [Zarządzanie statystykami tabel](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)i [Update Statistics](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="hash-distribute-large-tables"></a>Dystrybucja dużych tabel z użyciem skrótów
 
-Domyślnym sposobem dystrybucji tabel jest działanie okrężne.  Ułatwia to użytkownikom rozpoczęcie tworzenia tabel bez konieczności decydowania o sposobie dystrybucji ich tabel.  Okrągłe tabele Robin może działać wystarczająco dla niektórych obciążeń. Ale w większości przypadków wybranie kolumny dystrybucji będzie działać znacznie lepiej.  
+Domyślnym sposobem dystrybucji tabel jest działanie okrężne.  Dzięki temu użytkownicy mogą łatwo rozpocząć tworzenie tabel bez konieczności podejmowania decyzji o sposobie dystrybuowania ich tabel.  Tabele działające w trybie okrężnym mogą być wystarczająco wydajne w przypadku niektórych obciążeń. Jednak w większości przypadków wybranie kolumny dystrybucji będzie dużo lepsze.  
 
 Najbardziej typowym przykładem sytuacji, w której zastosowanie dla tabeli dystrybucji według kolumny przyniesie znacznie lepsze wyniki niż zastosowanie tabeli z działaniem okrężnym, jest połączenie dwóch dużych tabel faktów.  
 
-Na przykład jeśli masz tabelę zamówień, która jest dystrybuowana przez order_id, i tabelę transakcji, która jest również dystrybuowana przez order_id, po połączeniu tabeli zamówień z tabelą transakcji w order_id, ta kwerenda staje się kwerendą przekazową. 
+Na przykład jeśli masz tabelę Orders, która jest dystrybuowana przez order_id, a tabela transakcji, która jest również dystrybuowana przez order_id, po dołączeniu tabeli Orders do tabeli transakcji w order_id, to zapytanie zostanie przekazane do kwerendy przekazującej. 
 
 Oznacza to, że eliminujemy operacje przenoszenia danych.  Mniej kroków to szybsze kwerendy.  Mniejsza konieczność przenoszenia danych wpływa także na skrócenie czasu działania kwerend.
 
 > [!TIP]
 > Podczas ładowania dystrybuowanej tabeli należy upewnić się, że dane przychodzące nie są sortowane według klucza dystrybucji, ponieważ mogłoby to spowolnić ładowanie.  
 
-Zobacz poniższe łącza, aby uzyskać dodatkowe informacje na temat sposobu wyboru kolumny dystrybucji może zwiększyć wydajność, a także jak zdefiniować tabelę rozproszoną w with klauzuli z create tabel instrukcji.
+Zobacz poniższe linki, aby uzyskać dodatkowe informacje o tym, jak wybór kolumny dystrybucji może poprawić wydajność, a także określić sposób definiowania rozproszonej tabeli w klauzuli WITH instrukcji CREATE TABLES.
 
-Zobacz też [omówienie tabeli](develop-tables-overview.md), [Rozkład tabeli](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Wybieranie rozkładu tabeli,](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/) [TWORZENIE TABELI](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)i [TWORZENIE TABELI JAKO WYBIERZ](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Zobacz również [Omówienie tabeli](develop-tables-overview.md), [dystrybucji tabel](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [wybierania dystrybucji tabel](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)i [CREATE TABLE jako wybrane](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="do-not-over-partition"></a>Unikanie nadmiernego partycjonowania
-Podczas partycjonowania danych może być skuteczne dla utrzymania danych za pośrednictwem przełączania partycji lub optymalizacji skanowania za pomocą eliminacji partycji, o zbyt wiele partycji może spowolnić zapytania.  Często strategia partycjonowania o wysokiej szczegółowości, która może działać dobrze na programie SQL Server, może nie działać dobrze w puli SQL.  
+Gdy Partycjonowanie danych może być skuteczne do obsługi danych za pomocą przełączania partycji lub optymalizowania skanowania za pomocą eliminacji partycji, zbyt wiele partycji może spowalniać zapytania.  Często wysoce ziarnista strategia partycjonowania, która może być dobrze włączona SQL Server może nie współpracować z pulą SQL.  
 
 > [!NOTE]
-> Często strategia partycjonowania o wysokiej szczegółowości, która może działać dobrze na programie SQL Server, może nie działać dobrze w puli SQL.  
+> Często wysoce ziarnista strategia partycjonowania, która może być dobrze włączona SQL Server może nie współpracować z pulą SQL.  
 
-Zbyt duża liczba partycji danych może także zmniejszyć skuteczność indeksów klastrowanego magazynu kolumn, jeśli każda partycja ma mniej niż milion wierszy. Pula SQL dzieli dane na 60 baz danych. 
+Zbyt duża liczba partycji danych może także zmniejszyć skuteczność indeksów klastrowanego magazynu kolumn, jeśli każda partycja ma mniej niż milion wierszy. Pula SQL dzieli Twoje dane na 60 baz danych. 
 
-Tak więc, jeśli utworzysz tabelę ze 100 partycjami, wynikiem będzie partycje 6000.  Każde obciążenie jest inne, więc warto eksperymentować z podziałem na partycje — w ten sposób można przekonać się, jakie rozwiązanie sprawdzi się najlepiej w przypadku danego obciążenia.  
+Dlatego, jeśli utworzysz tabelę z 100 partycji, wynik będzie wynosić 6000 partycji.  Każde obciążenie jest inne, więc warto eksperymentować z podziałem na partycje — w ten sposób można przekonać się, jakie rozwiązanie sprawdzi się najlepiej w przypadku danego obciążenia.  
 
-Jedną z opcji do rozważenia jest przy użyciu ziarnistość, która jest niższa niż to, co może pracował dla Ciebie w programie SQL Server.  Można na przykład rozważyć wykorzystanie partycji cotygodniowych lub comiesięcznych zamiast partycji codziennych.
+Jedną z opcji, które należy wziąć pod uwagę, jest użycie stopnia szczegółowości, który jest mniejszy niż to, co może być w SQL Server.  Można na przykład rozważyć wykorzystanie partycji cotygodniowych lub comiesięcznych zamiast partycji codziennych.
 
-Zobacz też [Partycjonowanie tabeli](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Zobacz też [partycjonowanie tabel](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="minimize-transaction-sizes"></a>Minimalizowanie rozmiarów transakcji
 
 Instrukcje INSERT, UPDATE i DELETE działają w obrębie transakcji i muszą zostać wycofane, jeśli zakończą się niepowodzeniem.  Aby zminimalizować ryzyko długiego czasu wycofywania, warto minimalizować rozmiary transakcji, gdy tylko jest to możliwe.  Można to zrobić poprzez podział instrukcji INSERT, UPDATE i DELETE na części.  
 
-Na przykład, jeśli masz INSERT, które mają potrwać 1 godzinę, można podzielić INSERT na cztery części, a tym samym skrócenie każdego uruchomienia do 15 minut.
+Na przykład jeśli masz WSTAWIENIE, którego oczekujesz na 1 godzinę, możesz przerwać Wstawianie do czterech części, a tym samym skrócić każdy przebieg do 15 minut.
 
 > [!TIP]
 > Stosuj szczególne przypadki minimalnego rejestrowania, takie jak CTAS, TRUNCATE, DROP TABLE lub INSERT, do opróżniania tabel, aby zmniejszyć ryzyko wycofywania.  
@@ -83,7 +83,7 @@ Na przykład zamiast wykonywać instrukcję DELETE w celu usunięcia z tabeli ws
 
 W przypadku tabel niepartycjonowanych zamiast korzystać z instrukcji DELETE, należy rozważyć użycie instrukcji CTAS do zapisu danych, które mają zostać zachowane w tabeli.  Jeśli wykonanie instrukcji CTAS trwa tyle samo czasu, to na jej korzyść nadal przemawia znacznie większe bezpieczeństwo. Jej uruchomienie wiąże się z minimalnym rejestrowaniem, przez co operacja może w razie potrzeby zostać szybko anulowana.
 
-Zobacz też [Opis transakcji](develop-transactions.md), [Optymalizacja transakcji](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Partycjonowanie tabeli,](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) [OBCINANIE TABELI,](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) [ZMIEŃ TABELĘ](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)i [Utwórz tabelę jako wybierz (CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Zobacz też [Omówienie transakcji](develop-transactions.md), [Optymalizowanie transakcji](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [partycjonowanie tabel](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)i [CREATE TABLE as Select (CTAs)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="use-the-smallest-possible-column-size"></a>Użycie możliwie najmniejszego rozmiaru kolumny
 
@@ -91,82 +91,82 @@ Użycie podczas definiowania kwerendy DDL najmniejszego typu danych, który umo�
 
 Jeśli najdłuższa wartość w kolumnie ma 25 znaków, należy zdefiniować typ kolumny jako VARCHAR(25).  Należy unikać domyślnego definiowania wszystkich kolumn znaków jako kolumn długich wartości.  Ponadto należy unikać stosowania kolumn NVARCHAR, jeśli zastosowanie typu VARCHAR spełni wymagania danego zastosowania.
 
-Zobacz też [omówienie tabeli](develop-tables-overview.md), [Typy danych tabeli](develop-tables-data-types.md)i [TWORZENIE TABELI](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Zobacz także [Omówienie tabel](develop-tables-overview.md), [typy danych tabeli](develop-tables-data-types.md)i [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="optimize-clustered-columnstore-tables"></a>Optymalizowanie tabel klastrowanego magazynu kolumn
 
-Indeksy klastrowanego magazynu kolumn są jednym z najbardziej efektywnych sposobów przechowywania danych w puli SQL.  Domyślnie tabele w puli SQL są tworzone jako klastrowane ColumnStore.  
+Klastrowane indeksy magazynu kolumn to jeden z najbardziej wydajnych sposobów przechowywania danych w puli SQL.  Domyślnie tabele w puli SQL są tworzone jako klastrowane magazynu kolumn.  
 
 Dla uzyskania najlepszej wydajności kwerend w odniesieniu do tabel magazynu kolumn ważne jest zapewnienie dobrej jakości segmentów.  Jeśli wiersze są zapisywane w tabelach magazynu kolumn przy dużym wykorzystaniu pamięci, może to spowodować obniżenie jakości segmentów w magazynie kolumn.  
 
-Jakość segmentu określa się na podstawie liczby wierszy w skompresowanej grupie wierszy.  Zobacz [przyczyny niskiej jakości indeksu magazynu kolumn](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#causes-of-poor-columnstore-index-quality) i [indeksy tabel artykuł](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) krok po kroku instrukcje dotyczące wykrywania i poprawy jakości segmentu dla klastrowanych tabel magazynu kolumn.  
+Jakość segmentu określa się na podstawie liczby wierszy w skompresowanej grupie wierszy.  Zobacz [przyczyny słabej jakości indeksu magazynu kolumn](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#causes-of-poor-columnstore-index-quality) i [indeksów tabeli](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , aby uzyskać instrukcje krok po kroku dotyczące wykrywania i poprawiania jakości segmentu dla klastrowanych tabel magazynu kolumn.  
 
-Ponieważ segmenty magazynu kolumn wysokiej jakości są ważne, warto używać identyfikatorów użytkowników, które znajdują się w klasie średnich lub dużych zasobów do ładowania danych. Korzystanie z [niższych jednostek magazynu danych](resource-consumption-models.md) oznacza, że chcesz przypisać większą klasę zasobów do użytkownika ładującego.
+Ponieważ duże jakości segmenty magazynu kolumn są ważne, dobrym pomysłem jest użycie identyfikatorów użytkowników, które znajdują się w średniej lub dużej klasie zasobów do ładowania danych. W przypadku korzystania z niższych [jednostek magazynu danych](resource-consumption-models.md) do użytkownika ładującego należy przypisać większą klasę zasobów.
 
-Ponieważ tabele magazynu kolumn zazwyczaj nie wypchnie danych do skompresowanego segmentu magazynu kolumn, dopóki nie będzie więcej niż 1 milion wierszy na tabelę, a każda tabela puli SQL jest podzielona na 60 tabel, tabele magazynu kolumn nie będą korzystać z kwerendy, chyba że tabela ma więcej niż 60 milionów wierszy.  
+Ponieważ tabele magazynu kolumn zwykle nie przepychają danych do skompresowanego segmentu magazynu kolumn, dopóki nie będzie więcej niż 1 000 000 wierszy na tabelę, a każda tabela puli SQL zostanie podzielona na 60 tabel, tabele magazynu kolumn nie będą korzystać z zapytania, chyba że tabela ma więcej niż 60 000 000 wierszy.  
 
 > [!TIP]
-> W przypadku tabel z mniej niż 60 milionami wierszy indeks columstore może nie być optymalnym rozwiązaniem.  
+> W przypadku tabel zawierających mniej niż 60 000 000 wierszy, których indeks columstore może nie być najlepszym rozwiązaniem.  
 
-Ponadto w przypadku partycjonowania danych warto wziąć pod uwagę, że każda partycja będzie musiała mieć milion wierszy, aby można było odnieść korzyść z zastosowania klastrowanego indeksu magazynu kolumn.  Jeśli tabela ma 100 partycji, to będzie musiał mieć co najmniej 6 miliardów wierszy, aby korzystać z magazynu kolumn klastrowanych (60 dystrybucji *100 partycji* 1 milion wierszy).  
+Ponadto w przypadku partycjonowania danych warto wziąć pod uwagę, że każda partycja będzie musiała mieć milion wierszy, aby można było odnieść korzyść z zastosowania klastrowanego indeksu magazynu kolumn.  Jeśli tabela ma 100 partycji, będzie musiała mieć co najmniej 6 000 000 000 wierszy do skorzystania z magazynu kolumn klastrowanych (60 distributions *100 partycje* 1 000 000 wiersze).  
 
-Jeśli tabela nie ma 6 miliardów wierszy, zmniejsz liczbę partycji lub rozważ użycie tabeli sterty.  Warto również eksperymentować, aby sprawdzić, czy można uzyskać lepszą wydajność przy użyciu tabeli sterty z indeksami pomocniczymi, a nie tabelą magazynu kolumn.
+Jeśli tabela nie zawiera 6 000 000 000 wierszy, zmniejsz liczbę partycji lub Rozważ użycie w zamian tabeli sterty.  Może być również warto eksperymentować, aby sprawdzić, czy lepsza wydajność może być uzyskana przy użyciu tabeli sterty z indeksami pomocniczymi, a nie z tabeli magazynu kolumn.
 
 Podczas wykonywania zapytania odnoszącego się do tabeli magazynu kolumn kwerendy będą uruchamiane szybciej, jeśli wybrane zostaną tylko niezbędne kolumny.  
 
-Zobacz też [Indeksy tabeli](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Przewodnik po indeksach magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), Przebudowa [indeksów magazynu kolumn](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#rebuilding-indexes-to-improve-segment-quality).
+Zobacz również [indeksy tabel](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Przewodnik po indeksach magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), ponowne [Kompilowanie indeksów magazynu kolumn](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#rebuilding-indexes-to-improve-segment-quality).
 
-## <a name="sql-on-demand-development-best-practices"></a>Najlepsze rozwiązania dotyczące programowania sql na żądanie
+## <a name="sql-on-demand-development-best-practices"></a>Najlepsze rozwiązania dotyczące programowania na żądanie w języku SQL
 
 ### <a name="general-considerations"></a>Zagadnienia ogólne
 
-SQL na żądanie umożliwia wykonywanie zapytań o pliki na kontach magazynu platformy Azure. Nie ma możliwości magazynu lokalnego lub pozyskiwania, co oznacza, że wszystkie pliki, które są docelowe kwerendy są zewnętrzne do SQL na żądanie. W związku z tym wszystko związane z odczytywaniem plików z magazynu może mieć wpływ na wydajność kwerendy.
+Usługa SQL na żądanie umożliwia wykonywanie zapytań dotyczących plików na kontach usługi Azure Storage. Nie ma ona lokalnego magazynu ani możliwości pozyskiwania, co oznacza, że wszystkie pliki docelowe zapytań są zewnętrzne na żądanie. W związku z tym wszystkie informacje dotyczące odczytywania plików z magazynu mogą mieć wpływ na wydajność zapytań.
 
-### <a name="colocate-azure-storage-account-and-sql-on-demand"></a>Kolokowanie konta usługi Azure Storage i języka SQL na żądanie
+### <a name="colocate-azure-storage-account-and-sql-on-demand"></a>Lokalizowanie konta usługi Azure Storage i SQL na żądanie
 
-Aby zminimalizować opóźnienia, współlokuj swoje konto magazynu platformy Azure i punkt końcowy SQL na żądanie. Konta magazynu i punkty końcowe aprowizowane podczas tworzenia obszaru roboczego znajdują się w tym samym regionie.
+Aby zminimalizować opóźnienie, umieść konto usługi Azure Storage i punkt końcowy na żądanie SQL. Konta magazynu i punkty końcowe inicjowane podczas tworzenia obszaru roboczego znajdują się w tym samym regionie.
 
-Aby uzyskać optymalną wydajność, jeśli uzyskujesz dostęp do innych kont magazynu z SQL na żądanie, upewnij się, że znajdują się w tym samym regionie. W przeciwnym razie będzie zwiększone opóźnienie transferu sieciowego danych z regionu zdalnego do regionu punktu końcowego.
+Aby uzyskać optymalną wydajność, Jeśli uzyskujesz dostęp do innych kont magazynu za pomocą programu SQL na żądanie, upewnij się, że znajdują się one w tym samym regionie. W przeciwnym razie nastąpi zwiększone opóźnienie transferu sieciowego danych z regionu zdalnego do regionu punktu końcowego.
 
-### <a name="azure-storage-throttling"></a>Ograniczanie przepustowości usługi Azure Storage
+### <a name="azure-storage-throttling"></a>Ograniczanie usługi Azure Storage
 
-Wiele aplikacji i usług może uzyskać dostęp do konta magazynu. Gdy połączone we/wy usługi We/Wy lub przepływność generowane przez aplikacje, usługi i sql na żądanie obciążenia przekracza limity konta magazynu, występuje ograniczanie magazynu. Gdy występuje ograniczanie magazynu, istnieje znaczny negatywny wpływ na wydajność kwerendy.
+Wiele aplikacji i usług może uzyskać dostęp do konta magazynu. Gdy połączone operacje we/wy są generowane przez aplikacje, usługi i obciążenie na żądanie SQL, przekraczają limity konta magazynu. W przypadku ograniczenia przepustowości magazynu występuje znaczny negatywny wpływ na wydajność zapytań.
 
-Po wykryciu ograniczania przepustowości sql na żądanie ma wbudowaną obsługę tego scenariusza. SQL na żądanie będzie żądania do magazynu w wolniejszym tempie, dopóki ograniczanie przepustowości zostanie rozwiązany. 
+Po wykryciu ograniczenia przepustowości SQL na żądanie ma wbudowaną obsługę tego scenariusza. Program SQL na żądanie będzie przesyłał żądania do magazynu w wolniejszym tempie, dopóki ograniczanie zostanie rozwiązane. 
 
-Jednak w celu optymalnego wykonywania kwerendy zaleca się, aby nie naprężać konta magazynu z innymi obciążeniami podczas wykonywania kwerendy.
+Jednak w celu zapewnienia optymalnego wykonywania zapytań zaleca się, aby nie naciskać konta magazynu z innymi obciążeniami podczas wykonywania zapytania.
 
-### <a name="prepare-files-for-querying"></a>Przygotowywanie plików do wykonywania zapytań
+### <a name="prepare-files-for-querying"></a>Przygotuj pliki do zapytania
 
-Jeśli to możliwe, można przygotować pliki do lepszej wydajności:
+Jeśli to możliwe, można przygotować pliki w celu uzyskania lepszej wydajności:
 
-- Konwertuj CSV na parkiet – Parkiet jest formatem kolumnowym. Ponieważ jest skompresowany, ma mniejsze rozmiary plików niż pliki CSV z tymi samymi danymi, a SQL na żądanie będzie potrzebował mniej czasu i żądań magazynu, aby go odczytać.
-- Jeśli kwerenda jest przeznaczona dla pojedynczego dużego pliku, skorzystasz z podziału go na wiele mniejszych plików.
+- Konwertuj CSV na Parquet — Parquet jest formatem kolumnowym. Ponieważ jest ona skompresowana, ma mniejsze rozmiary plików niż pliki CSV z tymi samymi danymi, a na żądanie musi być krótszy czas i liczba żądań magazynu, aby je odczytać.
+- Jeśli zapytanie odwołuje się do pojedynczego dużego pliku, można je podzielić na wiele mniejszych plików.
 - Spróbuj zachować rozmiar pliku CSV poniżej 10 GB.
-- Zaleca się, aby mieć pliki o jednakowym rozmiarze dla pojedynczej ścieżki OPENROWSET lub zewnętrznej lokalizacji tabeli.
-- Partycjonowanie danych przez przechowywanie partycji do różnych folderów lub nazw plików - sprawdź [użyć funkcji nazwy pliku i ścieżki pliku, aby kierować określone partycje](#use-fileinfo-and-filepath-functions-to-target-specific-partitions).
+- Preferowane jest posiadanie plików o równym rozmiarze dla pojedynczej ścieżki OPENROWSET lub lokalizacji tabeli zewnętrznej.
+- Podziel dane przez przechowywanie partycji w różnych folderach lub nazwach plików — zaznacz [opcję Użyj funkcji filename i FilePath, aby określić docelowe partycje](#use-fileinfo-and-filepath-functions-to-target-specific-partitions).
 
-### <a name="use-fileinfo-and-filepath-functions-to-target-specific-partitions"></a>Użyj funkcji fileinfo i filepath do kierowania określonych partycji
+### <a name="use-fileinfo-and-filepath-functions-to-target-specific-partitions"></a>Używanie funkcji FileInfo i FilePath do określonych partycji
 
-Dane są często zorganizowane w partycje. Można poinstruować sql na żądanie do kwerendy poszczególnych folderów i plików. Zmniejszy to liczbę plików i ilość danych, które kwerenda musi odczytać i przetworzyć. 
+Dane często są zorganizowane w partycjach. Można wydać instrukcję SQL na żądanie, aby wykonywać zapytania dotyczące określonych folderów i plików. Spowoduje to zmniejszenie liczby plików i ilości danych, które zapytanie musi odczytać i przetworzyć. 
 
-W związku z tym, można osiągnąć lepszą wydajność. Aby uzyskać więcej informacji, sprawdź funkcje [nazwy pliku](develop-storage-files-overview.md#filename-function) i [ścieżki plików](develop-storage-files-overview.md#filepath-function) oraz przykłady dotyczące [wykonywania zapytań](query-specific-files.md)o określone pliki .
+W związku z tym osiągniesz lepszą wydajność. Aby uzyskać więcej informacji, zapoznaj się z funkcjami [filename](develop-storage-files-overview.md#filename-function) i [FilePath](develop-storage-files-overview.md#filepath-function) i przykładami dotyczącymi [zapytań określonych plików](query-specific-files.md).
 
-Jeśli dane w magazynie nie jest podzielony na partycje, należy wziąć pod uwagę partycjonowanie go, dzięki czemu można użyć tych funkcji do optymalizacji kwerend docelowych tych plików.
+Jeśli dane w magazynie nie są partycjonowane, rozważ ich partycjonowanie, aby można było używać tych funkcji do optymalizowania zapytań przeznaczonych dla tych plików.
 
-Podczas [wykonywania zapytań o partycjonowane tabele platformy Spark](develop-storage-files-spark-tables.md) z języka SQL na żądanie, kwerenda będzie automatycznie kierować tylko pliki potrzebne.
+Podczas [wykonywania zapytania dotyczącego partycjonowanych tabel platformy Spark](develop-storage-files-spark-tables.md) z poziomu bazy danych SQL na żądanie zapytanie będzie automatycznie dotyczyć tylko plików wymaganych.
 
-### <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Stosowanie cetasu w celu zwiększenia wydajności zapytań i sprzężenia
+### <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Korzystanie z CETAS w celu zwiększenia wydajności zapytań i sprzężeń
 
-[CETAS](develop-tables-cetas.md) jest jedną z najważniejszych funkcji dostępnych w sql na żądanie. CETAS to operacja równoległa, która tworzy metadane tabeli zewnętrznej i eksportuje wynik kwerendy SELECT do zestawu plików na koncie magazynu.
+[CETAS](develop-tables-cetas.md) to jedna z najważniejszych funkcji dostępnych w programie SQL na żądanie. CETAS to równoległa operacja, która tworzy metadane tabeli zewnętrznej i eksportuje wynik zapytania SELECT do zestawu plików na koncie magazynu.
 
-Za pomocą programu CETAS można przechowywać często używane części zapytań, takie jak przyłączone tabele odwołań, w nowym zestawie plików. Później można dołączyć do tej pojedynczej tabeli zewnętrznej zamiast powtarzać wspólne sprzężenia w wielu kwerendach. 
+Można użyć CETAS do przechowywania często używanych części zapytań, takich jak sprzężone tabele odwołań, do nowego zestawu plików. Później można przyłączyć się do tej pojedynczej tabeli zewnętrznej zamiast powtarzających się wspólnych sprzężeń w wielu zapytaniach. 
 
-Gdy CETAS generuje pliki parkietu, statystyki będą tworzone automatycznie, gdy pierwsze zapytanie będzie skierowane do tej zewnętrznej tabeli, a uzyskasz lepszą wydajność.
+Ponieważ CETAS generuje pliki Parquet, statystyki zostaną automatycznie utworzone, gdy pierwsze zapytanie jest przeznaczone dla tej tabeli zewnętrznej i zostanie zwiększona wydajność.
 
 ### <a name="next-steps"></a>Następne kroki
 
-Jeśli potrzebujesz informacji, które nie zostały podane w tym artykule, użyj "Wyszukaj dokumenty" po lewej stronie tej strony, aby przeszukać wszystkie dokumenty puli SQL.  [Forum puli SQL](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) to miejsce, w które można zadawać pytania innym użytkownikom i grupie produktów puli SQL.  
+Jeśli potrzebujesz informacji, które nie zostały podane w tym artykule, użyj "Wyszukaj dokumenty" po lewej stronie tej strony, aby wyszukać wszystkie dokumenty w puli SQL.  [Forum puli SQL](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) to miejsce, w którym można zadawać pytania innym użytkownikom i grupie produktów puli SQL.  
 
-Firma Microsoft aktywnie monitoruje to forum, aby mieć pewność, że użytkownicy uzyskują odpowiedzi od innych użytkowników lub pracowników firmy Microsoft.  Jeśli wolisz zadać pytania na przepełnienie stosu, mamy również [platformę Azure SQL pool Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
+Firma Microsoft aktywnie monitoruje to forum, aby mieć pewność, że użytkownicy uzyskują odpowiedzi od innych użytkowników lub pracowników firmy Microsoft.  Jeśli wolisz zadać pytania na Stack Overflow, masz również [Forum usługi Azure SQL pool Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw).
  

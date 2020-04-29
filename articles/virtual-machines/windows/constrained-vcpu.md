@@ -1,6 +1,6 @@
 ---
-title: Rozmiary procesorów wirtualnych z ograniczeniami platformy Azure — Windows
-description: Wyświetla listę rozmiarów maszyn wirtualnych, które mogą mieć ograniczoną liczbę procesorów wirtualnych.
+title: Ograniczone rozmiary vCPU platformy Azure — Windows
+description: Wyświetla listę rozmiarów maszyn wirtualnych, które mogą mieć ograniczoną liczbę vCPU.
 services: virtual-machines-windows
 author: joelpelley
 ms.service: virtual-machines
@@ -11,13 +11,13 @@ ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: jonbeck
 ms.openlocfilehash: eeb43247253386d6dd58a4c35ef0cba15a991b9e
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086202"
 ---
-# <a name="constrained-vcpu-capable-vm-sizes"></a>Rozmiary maszyn wirtualnych z obsługą procesora vCPU
+# <a name="constrained-vcpu-capable-vm-sizes"></a>Ograniczone rozmiary maszyn wirtualnych z ograniczeniami vCPU
 
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-constrained-vcpu.md)]
@@ -31,5 +31,5 @@ ms.locfileid: "82086202"
 - [Obliczenia o wysokiej wydajności](sizes-hpc.md)
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o tym, jak [jednostki obliczeniowe platformy Azure (ACU)](acu.md) mogą pomóc w porównywaniu wydajności obliczeniowej w jednostkach SKU platformy Azure.
+Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.
 

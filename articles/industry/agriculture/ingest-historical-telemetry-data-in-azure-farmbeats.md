@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 5b50906fac613a4e7470b0e13d6f068c3872f625
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82136910"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Pozyskiwanie historycznych danych telemetrycznych
@@ -45,7 +45,7 @@ Wykonaj następujące kroki:
 
       b. Wybierz **rejestrację aplikacji** , która została utworzona w ramach wdrożenia FarmBeats. Ma taką samą nazwę jak FarmBeats datahub.
 
-      d. Wybierz opcję **Uwidacznianie interfejsu API** > wybierz pozycję **Dodaj aplikację kliencką** i wprowadź **04b07795-8ddb-461a-bbee-02f9e1bf7b46** i sprawdź **zakres autoryzacji**. Umożliwi to dostęp do interfejsu wiersza polecenia platformy Azure (Cloud Shell) w celu wykonania poniższych czynności:
+      c. Wybierz opcję **Uwidacznianie interfejsu API** > wybierz pozycję **Dodaj aplikację kliencką** i wprowadź **04b07795-8ddb-461a-bbee-02f9e1bf7b46** i sprawdź **zakres autoryzacji**. Umożliwi to dostęp do interfejsu wiersza polecenia platformy Azure (Cloud Shell) w celu wykonania poniższych czynności:
 
 3. Otwórz usługę Cloud Shell. Ta opcja jest dostępna na pasku narzędzi w prawym górnym rogu Azure Portal.
 
@@ -141,7 +141,7 @@ Aby uzyskać więcej informacji na temat obiektów, zobacz [Swagger](https://aka
 
 Aby wykonać żądanie interfejsu API, należy połączyć metodę HTTP (POST), adres URL usługi interfejsu API i identyfikator URI zasobu do wysłania zapytania, przesłać dane do żądania, utworzyć lub usunąć żądanie. Następnie dodasz co najmniej jeden nagłówek żądania HTTP. Adres URL usługi interfejsu API to punkt końcowy interfejsu API, czyli adres URL Datahub (https://\<yourdatahub>. azurewebsites.NET).  
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 FarmBeats Datahub używa uwierzytelniania okaziciela, który wymaga następujących poświadczeń, które zostały wygenerowane w poprzedniej sekcji:
 
