@@ -1,6 +1,6 @@
 ---
 title: Autoryzacja dostępu do usługi Azure Event Hubs
-description: Ten artykuł zawiera informacje o różnych opcjach autoryzowania dostępu do zasobów usługi Azure Event Hubs.
+description: Ten artykuł zawiera informacje o różnych opcjach autoryzacji dostępu do zasobów usługi Azure Event Hubs.
 services: event-hubs
 ms.service: event-hubs
 documentationcenter: ''
@@ -9,46 +9,46 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
 ms.openlocfilehash: f44be4e1d3d1186f0122bd4669ae800ab42e31d6
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521308"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Autoryzacja dostępu do usługi Azure Event Hubs
-Za każdym razem, gdy publikujesz lub zużywasz zdarzenia/dane z centrum zdarzeń, klient próbuje uzyskać dostęp do zasobów centrum zdarzeń. Każde żądanie do bezpiecznego zasobu musi być autoryzowane, aby usługa mogła zapewnić, że klient ma wymagane uprawnienia do publikowania/korzystania z danych. 
+Za każdym razem, gdy publikujesz lub zużywasz zdarzenia/dane z centrum zdarzeń, klient próbuje uzyskać dostęp do zasobów Event Hubs. Każde żądanie do bezpiecznego zasobu musi być autoryzowane, aby usługa mogła zapewnić, że klient ma uprawnienia wymagane do publikowania/używania danych. 
 
-Usługa Azure Event Hubs oferuje następujące opcje autoryzowania dostępu do bezpiecznych zasobów:
+Usługa Azure Event Hubs oferuje następujące opcje autoryzacji dostępu do bezpiecznych zasobów:
 
-- Usługa Azure Active Directory
+- Azure Active Directory
 - Sygnatura dostępu współdzielonego
 
 > [!NOTE]
-> Ten artykuł dotyczy zarówno centrów zdarzeń, jak i scenariuszy [platformy Apache Kafka.](event-hubs-for-kafka-ecosystem-overview.md) 
+> Ten artykuł dotyczy scenariuszy Event Hubs i [Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) . 
 
-## <a name="azure-active-directory"></a>Usługa Azure Active Directory
-Integracja usługi Azure Active Directory (Azure AD) dla zasobów usługi Event Hubs zapewnia kontrolę dostępu opartą na rolach (RBAC) dla szczegółowej kontroli nad dostępem klienta do zasobów. Kontroli dostępu opartej na rolach (RBAC) można użyć do udzielania uprawnień podmiotowi zabezpieczeń, który może być użytkownikiem, grupą lub jednostką usługi aplikacji. Podmiot zabezpieczeń jest uwierzytelniony przez usługę Azure AD w celu zwrócenia tokenu OAuth 2.0. Token może służyć do autoryzowania żądania dostępu do zasobu Usługi Event Hubs.
+## <a name="azure-active-directory"></a>Azure Active Directory
+Integracja Azure Active Directory (Azure AD) dla zasobów Event Hubs zapewnia kontrolę dostępu opartą na rolach (RBAC) na potrzeby precyzyjnej kontroli dostępu klienta do zasobów. Za pomocą kontroli dostępu opartej na rolach (RBAC) można przyznać uprawnienia podmiotowi zabezpieczeń, które mogą być użytkownikami, grupami lub podmiotem usługi aplikacji. Podmiot zabezpieczeń jest uwierzytelniany przez usługę Azure AD w celu zwrócenia tokenu OAuth 2,0. Token może służyć do autoryzowania żądania dostępu do zasobu Event Hubs.
 
-Aby uzyskać więcej informacji na temat uwierzytelniania za pomocą usługi Azure AD, zobacz następujące artykuły:
+Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu usługi Azure AD, zobacz następujące artykuły:
 
-- [Uwierzytelnij żądania w centrach zdarzeń platformy Azure przy użyciu usługi Azure Active Directory](authenticate-application.md)
-- [Autoryzuj dostęp do zasobów Centrum zdarzeń przy użyciu usługi Azure Active Directory](authorize-access-azure-active-directory.md).
+- [Uwierzytelniaj żądania na platformie Azure Event Hubs przy użyciu Azure Active Directory](authenticate-application.md)
+- [Autoryzuj dostęp do zasobów Event Hubs przy użyciu Azure Active Directory](authorize-access-azure-active-directory.md).
 
-## <a name="shared-access-signatures"></a>Podpisy dostępu współdzielonego 
-Sygnatury dostępu współdzielonego (SAS) dla zasobów centrum zdarzeń zapewniają ograniczony dostęp delegowany do zasobów centrum zdarzeń. Dodawanie ograniczeń dotyczących przedziału czasu, dla którego podpis jest prawidłowy lub uprawnień, które przyznaje, zapewnia elastyczność w zarządzaniu zasobami. Aby uzyskać więcej informacji, zobacz [Uwierzytelnij przy użyciu sygnatur dostępu współdzielonego (SAS).](authenticate-shared-access-signature.md) 
+## <a name="shared-access-signatures"></a>Sygnatury dostępu współdzielonego 
+Sygnatury dostępu współdzielonego (SAS) dla zasobów Event Hubs zapewniają ograniczonego delegowanego dostępu do Event Hubs zasobów. Dodanie ograniczeń w przedziale czasowym, dla którego podpis jest prawidłowy lub na uprawnienia, które ma w ten sposób zapewnia elastyczność zarządzania zasobami. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie przy użyciu sygnatur dostępu współdzielonego (SAS)](authenticate-shared-access-signature.md). 
 
-Autoryzowanie użytkowników lub aplikacji przy użyciu tokenu OAuth 2.0 zwróconego przez usługę Azure AD zapewnia doskonałe zabezpieczenia i łatwość użycia za pośrednictwem sygnatur dostępu współdzielonego (SAS). Dzięki usłudze Azure AD nie ma potrzeby przechowywania tokenów dostępu z kodem i potencjalnymi lukami w zabezpieczeniach. Chociaż można nadal używać podpisów dostępu współdzielonego (SAS) do udzielania szczegółowego dostępu do zasobów usługi Event Hubs, usługa Azure AD oferuje podobne możliwości bez konieczności zarządzania tokenami sygnatury dostępu Współdzielonego lub martwić się o odwołanie naruszonego sygnatury dostępu Współdzielonego. 
+Autoryzowanie użytkowników lub aplikacji przy użyciu tokenu OAuth 2,0 zwróconego przez usługę Azure AD zapewnia doskonałe zabezpieczenia i łatwość użycia w odniesieniu do sygnatur dostępu współdzielonego (SAS). W przypadku usługi Azure AD nie ma potrzeby przechowywania tokenów dostępu wraz z kodem i ryzykiem potencjalnych luk w zabezpieczeniach. Można nadal używać sygnatur dostępu współdzielonego (SAS) do przyznawania szczegółowego dostępu do zasobów Event Hubs, usługa Azure AD oferuje podobne możliwości bez konieczności zarządzania tokenami SAS ani martwania się o odwoływanie się do naruszenia zabezpieczeń SAS. 
 
-Domyślnie wszystkie zasoby usługi Event Hubs są zabezpieczone i są dostępne tylko dla właściciela konta. Chociaż można użyć dowolnej ze strategii autoryzacji opisanych powyżej, aby udzielić klientom dostępu do zasobów usługi Event Hub. Firma Microsoft zaleca korzystanie z usługi Azure AD, jeśli to możliwe, aby zapewnić maksymalne bezpieczeństwo i łatwość użycia.
+Domyślnie wszystkie zasoby Event Hubs są zabezpieczone i są dostępne tylko dla właściciela konta. Mimo że można użyć dowolnego z tych strategii autoryzacji w celu udzielenia klientom dostępu do zasobów centrum zdarzeń. Firma Microsoft zaleca korzystanie z usługi Azure AD, gdy jest to możliwe, aby uzyskać maksymalne zabezpieczenia i łatwość użycia.
 
-Aby uzyskać więcej informacji na temat autoryzacji przy użyciu sygnatury dostępu współdzielonego, zobacz [Autoryzowanie dostępu do zasobów Centrum zdarzeń przy użyciu podpisów dostępu współdzielonego](authorize-access-shared-access-signature.md).
+Aby uzyskać więcej informacji na temat autoryzacji za pomocą SYGNATURy [dostępu współdzielonego, zobacz Zezwalanie na dostęp do zasobów Event Hubs za pomocą sygnatur danych udostępnionych](authorize-access-shared-access-signature.md).
 
 ## <a name="next-steps"></a>Następne kroki
-- Przejrzyj [przykłady RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) opublikowane w naszym repozytorium GitHub. 
+- Zapoznaj się z [przykładami RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) opublikowanymi w naszym repozytorium GitHub. 
 - Zobacz następujące artykuły:
-    - [Uwierzytelnij żądania do usługi Azure Event Hubs z aplikacji przy użyciu usługi Azure Active Directory](authenticate-application.md)
-    - [Uwierzytelnij tożsamość zarządzaną za pomocą usługi Azure Active Directory w celu uzyskania dostępu do zasobów usługi Event Hubs](authenticate-managed-identity.md)
-    - [Uwierzytelnij żądania w centrach zdarzeń platformy Azure przy użyciu podpisów dostępu współdzielonego](authenticate-shared-access-signature.md)
-    - [Autoryzowanie dostępu do zasobów usługi Event Hubs przy użyciu usługi Azure Active Directory](authorize-access-azure-active-directory.md)
-    - [Autoryzowanie dostępu do zasobów Centrum zdarzeń przy użyciu podpisów dostępu współdzielonego](authorize-access-shared-access-signature.md)
+    - [Uwierzytelniaj żądania do Event Hubs platformy Azure z aplikacji przy użyciu Azure Active Directory](authenticate-application.md)
+    - [Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs](authenticate-managed-identity.md)
+    - [Uwierzytelnianie żądań na platformie Azure Event Hubs przy użyciu sygnatur dostępu współdzielonego](authenticate-shared-access-signature.md)
+    - [Autoryzuj dostęp do zasobów Event Hubs przy użyciu Azure Active Directory](authorize-access-azure-active-directory.md)
+    - [Autoryzuj dostęp do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego](authorize-access-shared-access-signature.md)
 

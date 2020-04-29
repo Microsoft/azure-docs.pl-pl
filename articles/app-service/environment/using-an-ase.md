@@ -1,6 +1,6 @@
 ---
-title: Używanie środowiska usługi app service i zarządzanie nim
-description: Dowiedz się, jak tworzyć, publikować i skalować aplikacje w środowisku usługi aplikacji. Znajdź wszystkie typowe zadania w tym artykule.
+title: Używanie App Service Environment i zarządzanie nim
+description: Dowiedz się, jak tworzyć, publikować i skalować aplikacje w App Service Environment. Znajdź wszystkie typowe zadania w tym artykule.
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
@@ -8,123 +8,123 @@ ms.date: 3/26/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 4565580feeddc2df8f6ed3011302016bb39977b4
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80586134"
 ---
 # <a name="use-an-app-service-environment"></a>Używanie środowiska usługi App Service
 
-Środowisko usługi aplikacji (ASE) to wdrożenie usługi Azure App Service w podsieci w wystąpieniu sieci wirtualnej platformy Azure klienta. ASE składa się z:
+App Service Environment (ASE) to wdrożenie Azure App Service w podsieci w wystąpieniu usługi Azure Virtual Network klienta. Środowisko ASE składa się z:
 
-- **Front ends**: Gdzie protokół HTTP lub HTTPS kończy się w środowisku usługi aplikacji
-- **Pracownicy:** zasoby hostują aplikacje
-- **Baza danych**: Przechowuje informacje definiujące środowisko
-- **Magazyn:** służy do obsługi aplikacji opublikowanych przez klienta
+- **Frontony**: gdzie http lub https kończy się w App Service Environment
+- **Procesy robocze**: zasoby obsługujące aplikacje
+- **Baza danych**: zawiera informacje, które definiują środowisko
+- **Magazyn**: używany do hostowania aplikacji opublikowanych przez klienta
 
-Program ASE można wdrożyć z zewnętrznym lub wewnętrznym wirtualnym adresem IP (VIP) w celu uzyskania dostępu do aplikacji. Wdrożenie z zewnętrznym elementem VIP jest powszechnie nazywane *zewnętrznym ASE.* Wdrożenie z wewnętrznym elementem VIP jest nazywane *ase równoważenia obciążenia,* ponieważ używa wewnętrznego modułu równoważenia obciążenia (ILB). Aby dowiedzieć się więcej o ase równoważenia obciążenia, zobacz [Tworzenie i używanie ASE ILB][MakeILBASE].
+Środowisko ASE można wdrożyć przy użyciu zewnętrznego lub wewnętrznego wirtualnego adresu IP (VIP) na potrzeby dostępu do aplikacji. Wdrożenie z zewnętrznym adresem VIP jest zwykle nazywane *zewnętrznym*środowiskiem ASE. Wdrożenie z wewnętrznym adresem VIP nosi nazwę *ILB ASE* , ponieważ używa wewnętrznego modułu równoważenia obciążenia (ILB). Aby dowiedzieć się więcej na temat środowiska ILB ASE, zobacz [Tworzenie i używanie środowiska ILB ASE][MakeILBASE].
 
-## <a name="create-an-app-in-an-ase"></a>Tworzenie aplikacji w ase
+## <a name="create-an-app-in-an-ase"></a>Tworzenie aplikacji w środowisku ASE
 
-Aby utworzyć aplikację w ase, należy użyć tego samego procesu, jak podczas normalnie utworzyć aplikację, ale z kilkoma niewielkimi różnicami. Podczas tworzenia nowego planu usługi app service:
+Aby utworzyć aplikację w środowisku ASE, należy użyć tego samego procesu jak w przypadku normalnego tworzenia aplikacji, ale z kilkoma niewielkimi różnicami. Podczas tworzenia nowego planu App Service:
 
-- Zamiast wybierać lokalizację geograficzną, w której ma być wdrażana aplikacja, jako lokalizację wybierzesz ase.
-- Wszystkie plany usługi app service utworzone w ASE może być tylko w warstwie cenowej izolowane.
+- Zamiast wybierać lokalizację geograficzną, w której ma zostać wdrożona aplikacja, należy wybrać środowisko ASE jako lokalizację.
+- Wszystkie plany App Service utworzone w środowisku ASE mogą znajdować się tylko w warstwie cenowej izolowanej.
 
-Jeśli nie masz środowiska ASE, możesz go utworzyć, postępując zgodnie z instrukcjami w aplikacji [Tworzenie środowiska usługi app service.][MakeExternalASE]
+Jeśli nie masz środowiska ASE, możesz go utworzyć, postępując zgodnie z instrukcjami w temacie [tworzenie App Service Environment][MakeExternalASE].
 
-Aby utworzyć aplikację w ase:
+Aby utworzyć aplikację w środowisku ASE:
 
-1. Wybierz **pozycję Utwórz zasób** > **Web + Mobile** > **Web App**.
+1. Wybierz pozycję **Utwórz zasób** > **Sieć Web + aplikacje mobilne** > **aplikacji sieci Web**.
 
-1. wprowadź nazwę aplikacji. Jeśli już wybrano plan usługi app service w ase, nazwa domeny aplikacji odzwierciedla nazwę domeny ASE:
+1. wprowadź nazwę aplikacji. Jeśli w środowisku ASE został już wybrany plan App Service, nazwa domeny aplikacji odzwierciedla nazwę domeny środowiska ASE:
 
     ![Wybór nazwy aplikacji][1]
 
 1. Wybierz subskrypcję.
 
-1. Wprowadź nazwę nowej grupy zasobów lub wybierz pozycję **Użyj istniejącego** i wybierz jedną z listy rozwijanej.
+1. Wprowadź nazwę nowej grupy zasobów lub wybierz pozycję **Użyj istniejącej** , a następnie wybierz jedną z listy rozwijanej.
 
 1. Wybierz system operacyjny.
 
-1. Wybierz istniejący plan usługi App Service w ase lub utwórz nowy, wykonując następujące kroki:
+1. Wybierz istniejący plan App Service w środowisku ASE lub Utwórz nowy, wykonując następujące czynności:
 
-    a. Z menu po lewej stronie portalu platformy Azure wybierz polecenie **Utwórz zasób > aplikacji Sieci Web**.
+    a. Z menu po lewej stronie Azure Portal wybierz pozycję **Utwórz zasób > aplikacji sieci Web**.
 
     b. Wybierz subskrypcję.
 
-    d. Zaznacz lub utwórz grupę zasobów.
+    c. Wybierz lub Utwórz grupę zasobów.
 
-    d. Wprowadź nazwę aplikacji internetowej.
+    d. Wprowadź nazwę aplikacji sieci Web.
 
-    e. Wybierz **kod** lub **dockerContainer**.
+    e. Wybierz pozycję **Code** lub **DockerContainer**.
 
     f. Wybierz stos środowiska uruchomieniowego.
 
-    g. Wybierz **Linux** lub **Windows**. 
+    g. Wybierz pozycję **Linux** lub **Windows**. 
 
-    h. Wybierz swój ASE na liście rozwijanej **Region.** 
+    h. Wybierz środowisko ASE na liście rozwijanej **region** . 
 
-    i. Wybierz lub utwórz nowy plan usługi aplikacji. Jeśli tworzysz nowy plan usługi aplikacji, wybierz odpowiedni rozmiar **Izolowanej jednostki** SKU.
+    i. Wybierz lub Utwórz nowy plan App Service. W przypadku tworzenia nowego planu App Service wybierz odpowiedni **wyizolowany** rozmiar jednostki SKU.
 
-    ![Pojedyncze warstwy cenowe][2]
+    ![Warstwy cenowe izolowane][2]
 
     > [!NOTE]
-    > Aplikacje systemu Linux i windows nie mogą znajdować się w tym samym planie usługi App Service, ale mogą znajdować się w tym samym środowisku usługi app service.
+    > Aplikacje Linux i aplikacje systemu Windows nie mogą znajdować się w tym samym planie App Service, ale mogą być w tej samej App Service Environment.
     >
 
-1. Wybierz **pozycję Recenzja + utwórz**, upewnij się, że informacje są poprawne, a następnie wybierz pozycję **Utwórz**.
+1. Wybierz pozycję **Przegląd + Utwórz**, upewnij się, że informacje są poprawne, a następnie wybierz pozycję **Utwórz**.
 
-## <a name="how-scale-works"></a>Jak działa skala
+## <a name="how-scale-works"></a>Jak działa skalowanie
 
-Każda aplikacja usługi app service jest uruchamiana w planie usługi app service. Środowiska usługi app service przechowują plany usługi App Service, a plany usługi App Service przechowują aplikacje. Podczas skalowania aplikacji skalujesz również plan usługi app service i wszystkie aplikacje w tym samym planie.
+Każda aplikacja App Service uruchamiana w planie App Service. Środowiska App Service przechowują plany App Service, a App Service plany przechowują aplikacje. Skalowanie aplikacji pozwala skalować plan App Service i wszystkie aplikacje tego samego planu.
 
-Podczas skalowania planu usługi app service wymagana infrastruktura jest dodawana automatycznie. Istnieje opóźnienie czasowe skalowania operacji podczas dodawania infrastruktury. Jeśli wykonasz kilka operacji skalowania w sekwencji, pierwsze żądanie skalowania infrastruktury jest uruchamiane, a pozostałe są umieszczane w kolejce. Po zakończeniu operacji pierwszej skali, inne żądania infrastruktury wszystkie działają razem. A po dodaniu infrastruktury plany usługi app service są przypisywane odpowiednio. Tworzenie nowego planu usługi app service jest sama operacja skalowania, ponieważ żąda dodatkowego sprzętu.
+W przypadku skalowania planu App Service wymagana jest automatyczna infrastruktura. Istnieje opóźnienie czasu na skalowanie operacji podczas dodawania infrastruktury. Jeśli w sekwencji jest kilka operacji skalowania, pierwsze żądanie skalowania infrastruktury jest przetwarzane na, a pozostałe są umieszczane w kolejce. Po zakończeniu pierwszej operacji skalowania pozostałe żądania infrastruktury działają razem. Po dodaniu infrastruktury App Service plany są przypisywane zgodnie z potrzebami. Tworzenie nowego planu App Service jest operacją skalowania, ponieważ żąda dodatkowego sprzętu.
 
-W usługi aplikacji wielodostępnej skalowanie jest natychmiastowe, ponieważ pula zasobów jest łatwo dostępna do jej obsługi. W ase nie ma takiego buforu i zasoby są przydzielane na podstawie potrzeb.
+W App Service wielodostępnym skalowanie jest natychmiastowe, ponieważ pula zasobów jest łatwo dostępna do obsługi. W środowisku ASE nie ma takiego buforu, a zasoby są przyliczane na podstawie potrzeb.
 
-W ase można skalować usługi app service zaplanować maksymalnie 100 wystąpień. ASE może mieć maksymalnie 201 wystąpień ogółem we wszystkich planach usługi app service w tym ASE.
+W środowisku ASE można skalować plan App Service do 100 wystąpień. Środowisko ASE może mieć nawet 201 wszystkich wystąpień dla wszystkich planów App Service w tym środowisku ASE.
 
 ## <a name="ip-addresses"></a>Adresy IP
 
-Usługa App Service może przydzielić dedykowany adres IP do aplikacji. Ta funkcja jest dostępna po skonfigurowaniu protokołu SSL opartego na protokoście IP, zgodnie z opisem w temacie [Powiązanie istniejącego niestandardowego certyfikatu TLS/SSL z usługą Azure App Service.][ConfigureSSL] W ase równoważenia obciążenia sieciowego nie można dodać więcej adresów IP, które mają być używane dla protokołu SSL opartego na protokosze.
+App Service może przydzielić dedykowany adres IP do aplikacji. Ta funkcja jest dostępna po skonfigurowaniu protokołu SSL opartego na protokole IP, zgodnie z opisem w [powiązaniu istniejącego niestandardowego certyfikatu TLS/SSL do Azure App Service][ConfigureSSL]. W środowisku ILB ASE nie można dodać więcej adresów IP, które mają być używane dla protokołu SSL opartego na protokole IP.
 
-Za pomocą zewnętrznego programu ASE można skonfigurować protokół SSL oparty na protokona ip dla aplikacji w taki sam sposób, jak w usłudze aplikacji wielodostępnej. W ASE zawsze jest jeden wolny adres, do 30 adresów IP. Za każdym razem, gdy używasz jednego, inny jest dodawany tak, że adres jest zawsze łatwo dostępny. Opóźnienie czasowe jest wymagane do przydzielenia innego adresu IP. To opóźnienie zapobiega dodawaniu adresów IP w krótkim odstępie czasu.
+Za pomocą zewnętrznego środowiska ASE można skonfigurować protokół SSL oparty na protokole IP dla aplikacji w taki sam sposób, jak w App Service wielodostępnej. W środowisku ASE zawsze istnieje jeden adres zapasowy, do 30 adresów IP. Za każdym razem, gdy używasz jednej z nich, zostanie dodany inny, aby adres był zawsze dostępny. Do przydzielenia innego adresu IP wymagany jest czas opóźnienia. To opóźnienie uniemożliwia Dodawanie adresów IP w krótkim czasie.
 
-## <a name="front-end-scaling"></a>Skalowanie front-end
+## <a name="front-end-scaling"></a>Skalowanie frontonu
 
-Po skalowaniu w poziomie planów usługi app service, pracownicy są automatycznie dodawane do ich obsługi. Każdy ASE jest tworzony z dwoma przednimi końcami. Front ends automatycznie skalować w poziomie z szybkością jednego frontu dla każdego zestawu 15 wystąpień planu usługi app service. Na przykład jeśli masz trzy plany usługi App Service z pięcioma wystąpieniami, masz w sumie 15 wystąpień i trzy frontowe. Jeśli skalujesz do 30 wystąpień, masz cztery frontowe. Ten wzorzec jest kontynuowany podczas skalowania w poziomie.
+Po skalowaniu planów App Service procesy robocze są automatycznie dodawane do ich obsługi. Każde środowisko ASE jest tworzone z dwoma frontonami. Frontony są automatycznie skalowane z szybkością jednego frontonu dla każdego zestawu 15 App Service wystąpienia planu. Na przykład jeśli masz trzy App Service plany z pięcioma wystąpieniami, masz łącznie 15 wystąpień i trzy frontony. Jeśli skalujesz do całkowitej liczby 30 wystąpień, będziesz mieć cztery frontony. Ten wzorzec jest kontynuowany po skalowaniu w poziomie.
 
-Liczba przednich końcówek, które są domyślnie przydzielane, jest dobra dla umiarkowanego obciążenia. Można obniżyć stosunek do zaledwie jednego frontu na każde pięć wystąpień. Można również zmienić rozmiar przednich końcówek. Domyślnie są one pojedyncze rdzenia. W witrynie Azure portal można zmienić ich rozmiar na dwa lub cztery rdzenie zamiast tego.
+Liczba frontonów, które są przydzielone domyślnie, jest dobra do umiarkowanego obciążenia. Można obniżyć stosunek do najmniejszego, jak jeden fronton dla każdego pięciu wystąpień. Możesz również zmienić rozmiar frontonu. Domyślnie są to pojedyncze rdzeń. W Azure Portal można zmienić ich rozmiar na dwa lub cztery rdzenie.
 
-Istnieje opłata za zmianę proporcji lub rozmiarów front-end. Aby uzyskać więcej informacji, zobacz [Ceny usługi Azure App Service][Pricing]. Jeśli chcesz zwiększyć nośność systemu ASE, uzyskasz większą poprawę, najpierw skalując do dwurdzeniowych końcówek przed dostosowaniem współczynnika skali. Zmiana rozmiaru rdzenia przednich końcówek spowoduje aktualizację ase i powinna być wykonywana poza zwykłymi godzinami pracy.
+Istnieje opłata za zmianę współczynnika lub rozmiaru frontonu. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure App Service][Pricing]. Jeśli chcesz poprawić pojemność obciążenia środowiska ASE, uzyskasz większą poprawę dzięki pierwszemu skalowaniu do frontonów dwurdzeniowych przed dopasowaniem współczynnika skalowania. Zmiana rozmiaru rdzenia frontonu spowoduje uaktualnienie środowiska ASE i należy wykonać poza zwykłymi godzinami pracy.
 
-Zasoby front-end są punktem końcowym HTTP/HTTPS dla ASE. W domyślnej konfiguracji front-end użycie pamięci na frontonie wynosi stale około 60 procent. Głównym powodem skalowania frontów jest użycie procesora CPU, które jest głównie spowodowane ruchem HTTPS.
+Zasoby frontonu są punktami końcowymi protokołu HTTP/HTTPS dla środowiska ASE. Z domyślną konfiguracją frontonu użycie pamięci na fronton jest spójne około 60 procent. Podstawowym powodem skalowania frontonu jest użycie procesora CPU, które jest przede wszystkim związane z ruchem HTTPS.
 
 ## <a name="app-access"></a>Dostęp do aplikacji
 
-W zewnętrznym ase sufiks domeny używany do tworzenia aplikacji jest *.&lt; asename&gt;.p.azurewebsites.net*. Jeśli twój ASE nosi nazwę _zewnętrznego ase_ i hostujesz aplikację o nazwie _contoso_ w tym użymie, docierasz do niej pod następującymi adresami URL:
+W zewnętrznym środowisku ASE sufiks domeny używany do tworzenia aplikacji jest *.&lt; asename&gt;. p.azurewebsites.NET*. Jeśli środowisko ASE ma nazwę _External-ASE_ i hostuje aplikację o nazwie _contoso_ w tym środowisku ASE, dotrzesz do niej przy użyciu następujących adresów URL:
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
-Aby uzyskać informacje dotyczące tworzenia zewnętrznego środowiska ASE, zobacz [Tworzenie środowiska usługi app service][MakeExternalASE].
+Aby uzyskać informacje o sposobach tworzenia zewnętrznego środowiska ASE, zobacz [tworzenie App Service Environment][MakeExternalASE].
 
-W ase równoważenia obciążenia sieciowego sufiks domeny używany do tworzenia aplikacji jest *.&lt; asename&gt;.appserviceenvironment.net*. Jeśli twój ase nosi nazwę _ilb-ase_ i hostujesz aplikację o nazwie _contoso_ w tym użymie, docierasz do niej pod następującymi adresami URL:
+W środowisku ILB ASE sufiks domeny używany do tworzenia aplikacji to *.&lt; asename&gt;. appserviceenvironment.NET*. Jeśli środowisko ASE ma nazwę _ILB-ASE_ i hostuje aplikację o nazwie _contoso_ w tym środowisku ASE, dotrzesz do niej przy użyciu następujących adresów URL:
 
 - contoso.ilb-ase.appserviceenvironment.net
 - contoso.scm.ilb-ase.appserviceenvironment.net
 
-Aby uzyskać informacje dotyczące tworzenia ase ILB, zobacz [Tworzenie i używanie ASE ILB][MakeILBASE].
+Informacje o sposobach tworzenia środowiska ILB ASE można znaleźć w temacie [Create and Use the ILB ASE][MakeILBASE].
 
-Adres URL SCM jest używany do uzyskiwania dostępu do konsoli Kudu lub do publikowania aplikacji przy użyciu narzędzia Web Deploy. Aby uzyskać informacje na temat konsoli Kudu, zobacz [konsolę Kudu dla usługi Azure App Service][Kudu]. Konsola Kudu udostępnia internetowy interfejs użytkownika do debugowania, przekazywania plików, edytowania plików i wielu innych.
+Adres URL usługi SCM służy do uzyskiwania dostępu do konsoli usługi kudu lub publikowania aplikacji przy użyciu Web Deploy. Aby uzyskać informacje na temat konsoli kudu, zobacz [kudu Console for Azure App Service][Kudu]. Konsola kudu udostępnia interfejs użytkownika sieci Web do debugowania, przekazywania plików, edytowania plików i wielu innych.
 
 ### <a name="dns-configuration"></a>Konfiguracja usługi DNS 
 
-Podczas korzystania z zewnętrznego ase, aplikacje wykonane w ase są rejestrowane w usłudze Azure DNS. Za pomocą ase równoważenia obciążenia sieciowego należy zarządzać własnym systemem DNS. 
+W przypadku korzystania z zewnętrznego środowiska ASE aplikacje utworzone w środowisku ASE są rejestrowane przy użyciu Azure DNS. W środowisku ILB ASE należy zarządzać własnym systemem DNS. 
 
-Aby skonfigurować system DNS przy takze ase równoważenia obciążenia sieciowego:
+Aby skonfigurować system DNS w środowisku ILB ASE:
 
     create a zone for <ASE name>.appserviceenvironment.net
     create an A record in that zone that points * to the ILB IP address
@@ -132,118 +132,118 @@ Aby skonfigurować system DNS przy takze ase równoważenia obciążenia sieciow
     create a zone in <ASE name>.appserviceenvironment.net named scm
     create an A record in the scm zone that points * to the ILB IP address
 
-Ustawienia DNS domyślnego sufiksu domeny ASE nie ograniczają aplikacji do dostępu tylko do tych nazw. Niestandardową nazwę domeny można ustawić bez sprawdzania poprawności aplikacji w ase równoważenia obciążenia sieciowego. Jeśli następnie chcesz utworzyć strefę o nazwie *contoso.net*, możesz to zrobić i wskazać jej adres IP równoważenia obciążenia. Niestandardowa nazwa domeny działa dla żądań aplikacji, ale nie dla witryny scm. Strona scm jest dostępna tylko w * &lt;appname&gt;.scm.&lt; asename&gt;.appserviceenvironment.net*. 
+Ustawienia DNS dla domyślnego sufiksu domeny środowiska ASE nie ograniczają aplikacji do dostępu do tych nazw. Możesz ustawić niestandardową nazwę domeny bez żadnej weryfikacji w aplikacjach w środowisku ILB ASE. Jeśli chcesz utworzyć strefę o nazwie *contoso.NET*, możesz to zrobić i wskazać adres IP ILB. Niestandardowa nazwa domeny działa w przypadku żądań aplikacji, ale nie dla witryny SCM. Witryna SCM jest dostępna tylko w * &lt;witrynie nazwa_aplikacji&gt;. SCM.&lt; asename&gt;. appserviceenvironment.NET*. 
 
-Strefa o nazwie *.&lt; asename&gt;.appserviceenvironment.net* jest unikatowa na całym świecie. Przed majem 2019 r. klienci mogli określić sufiks domeny ase ILB. Jeśli chcesz użyć *.contoso.com* dla sufiksu domeny, można było to zrobić i to będzie zawierać witryny scm. Były wyzwania związane z tym modelem, w tym; zarządzanie domyślnym certyfikatem SSL, brak logowania jednokrotnego w lokacji scm i wymóg używania certyfikatu wieloznacznego. Domyślny proces uaktualniania certyfikatu ASE przy przywęzowaniu równoważenia obciążenia sieciowego był również zakłócający działanie i powodował ponowne uruchomienie aplikacji. Aby rozwiązać te problemy, zachowanie ASE równoważenia obciążenia sieciowego zostało zmienione w celu użycia sufiksu domeny na podstawie nazwy programu ASE i sufiksu należącego do firmy Microsoft. Zmiana zachowania ASE ILB dotyczy tylko ases ILB wprowadzone po maju 2019. Istniejące ases równoważenia obciążenia sieciowego i nadal muszą zarządzać domyślnym certyfikatem ASE i ich konfiguracją DNS.
+Strefa o nazwie *.&lt; asename&gt;. appserviceenvironment.NET* jest globalnie unikatowy. Przed 2019 maja klienci mogli określić sufiks domeny ILB ASE. Jeśli chcesz użyć *. contoso.com* dla sufiksu domeny, możesz to zrobić, aby uwzględnić witrynę SCM. Istniały problemy związane z tym modelem, w tym: Zarządzanie domyślnym certyfikatem SSL, brakiem logowania jednokrotnego w witrynie SCM oraz wymaganie użycia certyfikatu wieloznacznego. Proces uaktualniania domyślnego certyfikatu programu ILB ASE został również zakłócony i spowodowało ponowne uruchomienie aplikacji. Aby rozwiązać te problemy, zachowanie ILB ASE zostało zmienione tak, aby używało sufiksu domeny na podstawie nazwy środowiska ASE i z sufiksem własności firmy Microsoft. Zmiana zachowania środowiska ILB ASE ma wpływ tylko na ILB środowisk ASE wykonane po 2019 maja. Wcześniej istniejące ILB środowisk ASE muszą nadal zarządzać domyślnym certyfikatem środowiska ASE i ich konfiguracją DNS.
 
 ## <a name="publishing"></a>Publikowanie
 
-W ase, podobnie jak w przypadku usługi aplikacji wielodostępnej, można opublikować za pomocą następujących metod:
+W środowisku ASE, podobnie jak w App Service wielodostępne, można publikować według następujących metod:
 
 - Wdrażanie w sieci Web
 - FTP
 - Ciągła integracja (CI)
-- Przeciągnij i upuść w konsoli Kudu
-- IDE, takie jak Visual Studio, Eclipse lub IntelliJ IDEA
+- Przeciąganie i upuszczanie w konsoli kudu
+- Środowisko IDE, takie jak Visual Studio, zaćmienie lub IntelliJ pomysł
 
-W przypadku zewnętrznego ase te opcje publikowania działają w ten sam sposób. Aby uzyskać więcej informacji, zobacz [Wdrażanie w usłudze Azure App Service][AppDeploy].
+W przypadku zewnętrznego środowiska ASE te opcje publikowania działają w ten sam sposób. Aby uzyskać więcej informacji, zobacz [wdrażanie w Azure App Service][AppDeploy].
 
-W ase ILB, punkty końcowe publikowania są dostępne tylko za pośrednictwem równoważenia obciążenia sieciowego. Równoważenie obciążenia sieciowego znajduje się na prywatnym adresie IP w podsieci ASE w sieci wirtualnej. Jeśli nie masz dostępu do sieci do równoważenia obciążenia sieciowego, nie możesz publikować żadnych aplikacji na tym ASE. Jak wspomniano w [Tworzenie i używać ASE ILB][MakeILBASE], należy skonfigurować DNS dla aplikacji w systemie. Wymóg ten obejmuje punkt końcowy SCM. Jeśli punkty końcowe nie są poprawnie zdefiniowane, nie można opublikować. Interfejsy adresowe muszą mieć również dostęp do sieci do równoważenia obciążenia sieciowego, aby publikować je bezpośrednio.
+Za pomocą ILB ASE punkty końcowe publikowania są dostępne tylko w ILB. ILB znajduje się w prywatnym adresie IP w podsieci środowiska ASE w sieci wirtualnej. Jeśli nie masz dostępu do sieci do ILB, nie możesz publikować żadnych aplikacji w tym środowisku ASE. Zgodnie z opisem w temacie [Tworzenie i używanie środowiska ILB ASE][MakeILBASE]należy skonfigurować serwer DNS dla aplikacji w systemie. To wymaganie obejmuje punkt końcowy SCM. Jeśli punkty końcowe nie są prawidłowo zdefiniowane, nie można publikować. Środowisk IDE musi również mieć dostęp sieciowy do ILB, aby opublikować go bezpośrednio.
 
-Bez dodatkowych zmian internetowe systemy ciągłej integracji, takie jak GitHub i Azure DevOps, nie działają z ase ilb, ponieważ punkt końcowy publikowania nie jest dostępny w Internecie. Można włączyć publikowanie do środowiska ASE równoważenia obciążenia współużytka z usługi Azure DevOps, instalując agenta wydania hostowanego samodzielnie w sieci wirtualnej, która zawiera środowisko ASE równoważenia obciążenia sieciowego. Możesz też użyć systemu ciągłej integracji, który korzysta z modelu ściągania, takiego jak Dropbox.
+Bez dodatkowych zmian internetowe systemy CI, takie jak GitHub i Azure DevOps, nie współpracują z ILB ASE, ponieważ punkt końcowy publikowania nie jest dostępny dla Internetu. Możesz włączyć publikowanie w środowisku ILB ASE z poziomu usługi Azure DevOps, instalując własny Agent wydania w sieci wirtualnej, która zawiera ILB ASE. Alternatywnie można również użyć systemu CI, który używa modelu ściągania, takiego jak Dropbox.
 
-Punkty końcowe publikowania dla aplikacji w środowisku ASE z wewnętrznym modułem równoważenia obciążenia używają domeny, za pomocą której utworzono to środowisko. Można go zobaczyć w profilu publikowania aplikacji oraz w okienku portalu aplikacji (w **podstawowych elementów przeglądu,** > **Essentials** a także we **właściwościach).**
+Punkty końcowe publikowania dla aplikacji w środowisku ASE z wewnętrznym modułem równoważenia obciążenia używają domeny, za pomocą której utworzono to środowisko. Zobaczysz ją w profilu publikowania aplikacji i w okienku portalu aplikacji (w temacie **Omówienie** > **podstawowe** i również w obszarze **Właściwości**).
 
 ## <a name="storage"></a>Magazyn
 
-ASE ma 1 TB pamięci masowej dla wszystkich aplikacji w ASE. Plan usługi aplikacji w jednostce SKU cen izolowanych ma domyślnie limit 250 GB. Jeśli masz co najmniej pięć planów usługi app service, należy uważać, aby nie przekroczyć limitu 1 TB ase. Jeśli potrzebujesz więcej niż limit 250 GB w jednym planie usługi App Service, skontaktuj się z pomocą techniczną, aby dostosować limit planu usługi app service do maksymalnie 1 TB. Po skorygowaniu limitu planu nadal istnieje limit 1 TB we wszystkich planach usługi app service w ase.
+Środowisko ASE ma 1 TB magazynu dla wszystkich aplikacji w środowisku ASE. Plan App Service w odizolowanej cenie SKU ma domyślnie limit 250 GB. Jeśli masz pięć lub więcej planów App Service, uważaj, aby nie przekroczyć limitu 1 TB środowiska ASE. Jeśli potrzebujesz więcej niż limit 250 GB w jednym planie App Service, skontaktuj się z pomocą techniczną, aby dostosować limit planu App Service do maksymalnie 1 TB. Po dostosowaniu limitu planu nadal obowiązuje limit 1 TB dla wszystkich planów App Service w środowisku ASE.
 
 ## <a name="logging"></a>Rejestrowanie
 
-Program ASE można zintegrować z usługą Azure Monitor, aby wysyłać dzienniki dotyczące usługi ASE do usługi Azure Storage, usługi Azure Event Hubs lub usługi Log Analytics. Te elementy są rejestrowane dzisiaj:
+Możesz zintegrować środowisko ASE z Azure Monitor, aby wysyłać dzienniki dotyczące środowiska ASE do usługi Azure Storage, Azure Event Hubs lub Log Analytics. Te elementy są rejestrowane Dzisiaj:
 
-| Sytuacji | Komunikat |
+| Istniał | Wiadomość |
 |---------|----------|
-| ASE jest niezdrowe | Określony ase jest w złej kondycji z powodu nieprawidłowej konfiguracji sieci wirtualnej. Ase zostanie zawieszony, jeśli stan złej kondycji będzie kontynuowany. Upewnij się, że wytyczne https://docs.microsoft.com/azure/app-service/environment/network-infozdefiniowane tutaj są przestrzegane: . |
-| Podsieć ASE jest prawie poza przestrzenią | Określony ASE znajduje się w podsieci, która jest prawie poza przestrzenią. Istnieją {0} pozostałe adresy. Po wyczerpaniu tych adresów, ASE nie będzie w stanie skalować.  |
-| ASE zbliża się do całkowitego limitu wystąpień | Określony ASE zbliża się do całkowitego limitu wystąpienia ASE. Obecnie zawiera {0} wystąpienia planu usługi app service maksymalnie 201 wystąpień. |
-| ASE nie może osiągnąć zależności | Określony ASE nie jest {0}w stanie osiągnąć .  Upewnij się, że wytyczne https://docs.microsoft.com/azure/app-service/environment/network-infozdefiniowane tutaj są przestrzegane: . |
-| ASE jest zawieszony | Określony ASE jest zawieszony. Zawieszenie ASE może być spowodowane niedoborem konta lub nieprawidłową konfiguracją sieci wirtualnej. Rozwiąż przyczynę i wznowić ase, aby kontynuować obsługę ruchu. |
-| Rozpoczęto uaktualnienie ASE | Rozpoczęto uaktualnianie platformy do określonego ASE. Spodziewaj się opóźnień w operacjach skalowania. |
-| Aktualizacja ASE została zakończona | Uaktualnienie platformy do określonego ASE zostało zakończone. |
-| Rozpoczęto operacje skalowania | Plan usługi aplikacji{0}( ) rozpoczął skalowanie. Pożądany {1} stan: Ja{2} pracownicy.
-| Operacje skalowania zostały zakończone | Plan usługi aplikacji{0}( ) zakończył skalowanie. Aktualny {1} stan:{2} I pracownicy. |
-| Operacje skalowania nie powiodły się | Nie można skalować planu usługi aplikacji ({0}) nie powiodło się. Aktualny {1} stan:{2} I pracownicy. |
+| Środowisko ASE jest w złej kondycji | Określony środowisko ASE jest w złej kondycji ze względu na nieprawidłową konfigurację sieci wirtualnej. Środowisko ASE zostanie zawieszone w przypadku kontynuowania stanu złej kondycji. Upewnij się, że zostały wykonane następujące wytyczne https://docs.microsoft.com/azure/app-service/environment/network-info:. |
+| Za mało miejsca w podsieci ASE | Określone środowisko ASE znajduje się w podsieci, która jest w prawie nieprawidłowym miejscu. {0} Istnieją adresy. Po wyczerpaniu tych adresów środowisko ASE nie będzie w stanie skalować.  |
+| Środowisko ASE zbliża się do łącznego limitu wystąpień | Określone środowisko ASE zbliża się do całkowitego limitu wystąpień środowiska ASE. Obecnie zawiera {0} App Service wystąpienia planu o maksymalnej liczbie 201 wystąpień. |
+| Środowisko ASE nie może nawiązać połączenia z zależnością | Nie można nawiązać połączenia {0}z określonym środowiskiem ASE.  Upewnij się, że zostały wykonane następujące wytyczne https://docs.microsoft.com/azure/app-service/environment/network-info:. |
+| Środowisko ASE jest zawieszone | Określona środowisko ASE jest zawieszone. Zawieszenie środowiska ASE może być spowodowane brakiem konta lub konfiguracją nieprawidłowej sieci wirtualnej. Rozwiąż główną przyczynę i Wznów środowisko ASE, aby kontynuować obsługę ruchu. |
+| Rozpoczęto Uaktualnianie środowiska ASE | Rozpoczęto Uaktualnianie platformy do określonego środowiska ASE. Oczekiwane opóźnienia operacji skalowania. |
+| Ukończono Uaktualnianie środowiska ASE | Uaktualnianie platformy do określonego środowiska ASE zostało zakończone. |
+| Rozpoczęto operacje skalowania | Rozpoczęcie skalowanie planu App Service ({0}). Żądany stan: {1} I{2} pracownicy.
+| Ukończono operacje skalowania | Zakończono skalowanie{0}planu App Service (). Bieżący stan: {1} I{2} pracownicy. |
+| Operacje skalowania zakończyły się niepowodzeniem | Skalowanie planu App Service{0}() nie powiodło się. Bieżący stan: {1} I{2} pracownicy. |
 
-Aby włączyć logowanie na ase:
+Aby włączyć rejestrowanie w środowisku ASE:
 
-1. W portalu przejdź do **ustawień diagnostyki**.
-1. Wybierz **pozycję Dodaj ustawienie diagnostyczne**.
-1. Podaj nazwę integracji dziennika.
-1. Wybierz i skonfiguruj żądane miejsca docelowe dziennika.
-1. Wybierz **AppServiceEnvironmentPlatformLogs**.
+1. W portalu przejdź do pozycji **Ustawienia diagnostyki**.
+1. Wybierz pozycję **Dodaj ustawienie diagnostyczne**.
+1. Podaj nazwę dla integracji dzienników.
+1. Wybierz i skonfiguruj lokalizacje docelowe dzienników.
+1. Wybierz pozycję **AppServiceEnvironmentPlatformLogs**.
 
-![Ustawienia dziennika diagnostycznego ASE][4]
+![Ustawienia dziennika diagnostyki środowiska ASE][4]
 
-Jeśli integrujesz się z usługą Log Analytics, można zobaczyć dzienniki, wybierając **dzienniki** z portalu ASE i tworząc kwerendę względem **AppServiceEnvironmentPlatformLogs**. Dzienniki są emitowane tylko wtedy, gdy program ASE ma zdarzenie, które go wyzwoli. Jeśli twój ASE nie ma takiego zdarzenia, nie będzie żadnych dzienników. Aby szybko wyświetlić przykład dzienników w obszarze roboczym usługi Log Analytics, wykonaj operację skalowania z jednym z planów usługi App Service w ase. Następnie można uruchomić kwerendę względem **AppServiceEnvironmentPlatformLogs,** aby wyświetlić te dzienniki. 
+W przypadku integracji z usługą Log Analytics można zobaczyć dzienniki, wybierając pozycję **dzienniki** w portalu środowiska ASE i tworząc zapytanie względem **AppServiceEnvironmentPlatformLogs**. Dzienniki są emitowane tylko wtedy, gdy środowisko ASE ma zdarzenie, które zostanie wyzwolone. Jeśli środowisko ASE nie ma takiego zdarzenia, nie będzie żadnych dzienników. Aby szybko zobaczyć przykład dzienników w obszarze roboczym Log Analytics, wykonaj operację skalowania z jednym z planów App Service w środowisku ASE. Następnie można uruchomić zapytanie z **AppServiceEnvironmentPlatformLogs** , aby wyświetlić te dzienniki. 
 
 **Tworzenie alertu**
 
-Aby utworzyć alert przed dziennikami, postępuj zgodnie z instrukcjami w [obszarze Tworzenie, wyświetlanie i zarządzanie alertami dziennika za pomocą usługi Azure Monitor.][logalerts] W skrócie:
+Aby utworzyć alert dotyczący dzienników, postępuj zgodnie z instrukcjami w temacie [Tworzenie, wyświetlanie i zarządzanie alertami dzienników przy użyciu Azure monitor][logalerts]. W skrócie:
 
-* Otwórz stronę Alerty w portalu ASE
+* Otwieranie strony alertów w portalu ASE
 * Wybierz **nową regułę alertu**
-* Wybierz zasób jako obszar roboczy usługi Log Analytics
-* Ustaw swój warunek za pomocą niestandardowego wyszukiwania dziennika, aby użyć zapytania, takiego jak "AppServiceEnvironmentPlatformLogs | gdzie ResultDescription zawiera "rozpoczął skalowanie" lub cokolwiek chcesz. Ustaw próg odpowiednio. 
-* Dodaj lub utwórz grupę akcji zgodnie z potrzebami. Grupa akcji to miejsce, w którym definiujesz odpowiedź na alert, na przykład wysyłając wiadomość e-mail lub wiadomość SMS
-* Nazwij swój alert i zapisz go.
+* Wybierz zasób, który ma być obszarem roboczym Log Analytics
+* Ustaw warunek z niestandardowym wyszukiwaniem w dzienniku, aby użyć zapytania, takiego jak "AppServiceEnvironmentPlatformLogs | gdzie ResultDescription zawiera "rozpoczęto skalowanie" lub dowolny z nich. Ustaw odpowiednio próg. 
+* Dodaj lub Utwórz grupę akcji zgodnie z potrzebami. Grupa akcji służy do definiowania odpowiedzi na alert, takiej jak wysyłanie wiadomości e-mail lub wiadomości SMS
+* Nazwij swój alert i Zapisz go.
 
 ## <a name="upgrade-preference"></a>Preferencja uaktualniania
 
-Jeśli masz wiele ases, możesz chcieć, aby niektóre asy były uaktualniane przed innymi. W ramach obiektu ASE **HostingEnvironment Resource Manager** można ustawić wartość **upgradePreference**. Ustawienie **upgradePreference** można skonfigurować za pomocą szablonu, https://resources.azure.comarmclient lub . Trzy możliwe wartości to:
+Jeśli masz wiele środowisk ASE, możesz chcieć uaktualnić niektóre środowisk ASE przed innymi. W ramach obiektu **Menedżer zasobów ASE HostingEnvironment** można ustawić wartość dla **upgradePreference**. Ustawienie **upgradePreference** można skonfigurować przy użyciu szablonu, ARMClient lub https://resources.azure.com. Trzy możliwe wartości to:
 
-- **Brak:** Platforma Azure uaktualni twój ase w żadnej konkretnej partii. Ta wartość jest domyślna.
-- **Wcześnie**: Twój ase zostanie uaktualniony w pierwszej połowie uaktualnień usługi App Service.
-- **Późno:** Twój ase zostanie uaktualniony w drugiej połowie uaktualnień usługi App Service.
+- **Brak**: platforma Azure UAKTUALNI środowisko ASE bez określonej partii. Ta wartość jest domyślna.
+- **Wczesne**: środowisko ASE zostanie uaktualnione w pierwszej połowie App Service uaktualnieniami.
+- **Późne**: środowisko ASE zostanie uaktualnione w drugiej połowie App Service uaktualnień.
 
-Jeśli używasz https://resources.azure.com, wykonaj następujące kroki, aby ustawić **upgradePreferences** wartość:
+Jeśli używasz programu https://resources.azure.com, wykonaj następujące kroki, aby ustawić wartość **upgradePreferences** :
 
-1. Przejdź do resources.azure.com i zaloguj się za pomocą konta platformy Azure.
-1. Przejdź przez zasoby do\/\[subskrypcji\]\/nazwa\/\[subskrypcji resourceGroups resource group\]\/name providers\/Microsoft.Web\/hostingEnvironments\/\[ASE name\].
-1. Wybierz **opcję Odczyt/Zapis** u góry.
+1. Przejdź do resources.azure.com i zaloguj się przy użyciu konta platformy Azure.
+1. \/\[Zapoznaj się z tematem Resources\/\[for subscriptions\]\/Name\/\]\/resourceGroups nazwa grupy zasobów\/\[Providers\]Microsoft. Web\/hostingEnvironments ASE Name.
+1. Na górze wybierz pozycję **Odczyt/zapis** .
 1. Wybierz pozycję **Edit** (Edytuj).
-1. Ustaw **upgradePreference** do jednej z trzech wartości, które chcesz.
-1. Wybierz **patch**.
+1. Ustaw **upgradePreference** na jedną z trzech wartości, które chcesz.
+1. Wybierz pozycję **poprawka**.
 
-![zasoby azure com wyświetlacz][5]
+![zasoby ekranu platformy Azure com][5]
 
-Funkcja **upgradePreferences** ma największy sens, gdy masz wiele asów, ponieważ twoje "Wczesne" ASE zostaną uaktualnione przed "Późnym" ASE. Jeśli masz wiele ases, należy ustawić rozwoju i testowania ASES być "Early", a ases produkcji być "Late".
+Funkcja **upgradePreferences** jest najbardziej zrozumiała, gdy masz wiele środowisk aseów, ponieważ "wczesne" środowisk ASE zostanie uaktualnione przed "późnym" środowisk ASE. Jeśli masz wiele środowisk aseów, należy ustawić swoje programowanie i test środowisk ASE na "wczesne", a produkcyjny środowisk ASE "późno".
 
 ## <a name="pricing"></a>Cennik
 
-Cena SKU o nazwie *Isolated* jest do użytku tylko z ASE. Wszystkie plany usługi app service, które są hostowane w ase są w Izolowane jednostki SKU cen. Izolowane stawki dla planów usługi App Service mogą się różnić w zależności od regionu.
+Jednostka SKU cenowej o nazwie *izolowanej* jest używana tylko z środowisk ASE. Wszystkie plany App Service, które są hostowane w środowisku ASE, znajdują się w odizolowanej jednostce SKU cenowej. Stawki odizolowane dla planów App Service mogą różnić się w zależności od regionu.
 
-Oprócz ceny planów usługi app service istnieje stawka ryczałtowa dla samego ASE. Stawka ryczałtowa nie zmienia się wraz z rozmiarem ASE. Płaci za infrastrukturę ASE z domyślną szybkością skalowania jednego dodatkowego frontonia dla każdego wystąpienia planu usługi App Service 15.
+Oprócz ceny planów App Service, istnieje stała stawka dla samego ASE. Płaska stawka nie zmienia rozmiaru środowiska ASE. Płaci za infrastrukturę środowiska ASE przy domyślnej szybkości skalowania jednego dodatkowego frontonu dla każdego 15 App Service wystąpienia planu.
 
-Jeśli domyślna szybkość skalowania jednego frontu dla każdego wystąpienia planu usługi App Service nie jest wystarczająco szybka, można dostosować współczynnik, z którym są dodawane przednie końce, lub rozmiar frontów. Po dostosowaniu współczynnika lub rozmiaru płacisz za rdzenie front-end, które nie zostaną dodane domyślnie.
+Jeśli domyślna szybkość skalowania jednego frontonu dla każdego 15 App Service wystąpienia planu nie jest wystarczająco szybko dostępna, można dostosować współczynnik, w którym są dodawane frontony lub rozmiar frontonu. Po dostosowaniu współczynnika lub rozmiaru płacisz za rdzenie frontonu, które nie zostaną dodane domyślnie.
 
-Na przykład jeśli dostosujesz stosunek skali do 10, fronto-koniec zostanie dodany dla każdego 10 wystąpień w planach usługi App Service. Opłata ryczałtowa obejmuje stawkę skali jednego frontu na każde 15 wystąpień. Przy współczynniku skali 10 płacisz opłatę za trzeci front-end, który jest dodawany dla 10 wystąpień planu usługi app service. Nie musisz za to płacić po osiągnięciu 15 wystąpień, ponieważ został dodany automatycznie.
+Na przykład, jeśli dostosowujesz współczynnik skalowania do 10, fronton zostanie dodany dla każdego 10 wystąpień w planach App Service. Stała opłata obejmuje szybkość skalowania jednego frontonu dla każdego 15 wystąpień. Ze stosunkiem skali 10 opłata jest naliczana za trzeci fronton, który jest dodawany do 10 wystąpień planu App Service. Nie musisz płacisz za niego w przypadku osiągnięcia 15 wystąpień, ponieważ została ona dodana automatycznie.
 
-Jeśli dostosujesz rozmiar przednich końcówek do dwóch rdzeni, ale nie dostosujesz proporcji, zapłacisz za dodatkowe rdzenie. ASE jest tworzony z dwoma frontami, więc nawet poniżej automatycznego progu skalowania zapłacisz za dwa dodatkowe rdzenie, jeśli zwiększysz rozmiar do dwurdzeniowych przódów.
+W przypadku dostosowania rozmiaru frontonu do dwóch rdzeni, ale nie dostosowania współczynnika, płacisz za dodatkowe rdzenie. Środowisko ASE jest tworzone z dwoma frontonami, więc nawet poniżej progu skalowania automatycznego, które byłyby płatne za dwa dodatkowe rdzenie, jeśli zwiększono rozmiar do frontonów dwurdzeniowych.
 
-Aby uzyskać więcej informacji, zobacz [Ceny usługi Azure App Service][Pricing].
+Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure App Service][Pricing].
 
-## <a name="delete-an-ase"></a>Usuwanie ase
+## <a name="delete-an-ase"></a>Usuwanie środowiska ASE
 
-Aby usunąć ASE:
+Aby usunąć środowisko ASE:
 
-1. Wybierz **pozycję Usuń** u góry okienka Środowisko usługi app **service.**
+1. Wybierz pozycję **Usuń** w górnej części okienka **App Service Environment** .
 
-1. Wprowadź nazwę swojego ASE, aby potwierdzić, że chcesz ją usunąć. Usunięcie ase powoduje również usunięcie całej zawartości w nim.
+1. Wprowadź nazwę środowiska ASE, aby potwierdzić, że chcesz go usunąć. Usunięcie środowiska ASE spowoduje również usunięcie całej jego zawartości.
 
-    ![Usunięcie ASE][3]
+    ![Usuwanie środowiska ASE][3]
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
 <!--Image references-->
 [1]: ./media/using_an_app_service_environment/usingase-appcreate.png

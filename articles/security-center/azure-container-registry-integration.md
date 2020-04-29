@@ -1,6 +1,6 @@
 ---
-title: Usługa Azure Security Center i rejestr kontenerów platformy Azure
-description: Dowiedz się więcej o integracji usługi Azure Security Center z rejestrem kontenerów platformy Azure
+title: Azure Security Center i Azure Container Registry
+description: Dowiedz się więcej o integracji Azure Security Center z usługą Azure Container Registry
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,40 +13,40 @@ ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
 ms.openlocfilehash: 1c1b48d3715d838827f88f99fc0849d25677fdcc
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80585738"
 ---
-# <a name="azure-container-registry-integration-with-security-center"></a>Integracja z usługą Azure Container Registry z Centrum zabezpieczeń
+# <a name="azure-container-registry-integration-with-security-center"></a>Azure Container Registry integrację z usługą Security Center
 
-Usługa Azure Container Registry (ACR) to zarządzana, prywatna usługa rejestru platformy Docker, która przechowuje obrazy kontenerów i zarządza nimi dla wdrożeń platformy Azure w rejestrze centralnym. Jest on oparty na open-source Docker Registry 2.0.
+Azure Container Registry (ACR) to zarządzana usługa rejestru prywatnego platformy Docker, która przechowuje obrazy kontenerów dla wdrożeń platformy Azure i zarządza nimi w rejestrze centralnym. Jest ona oparta na rejestrze platformy Docker open source 2,0.
 
-Jeśli korzystasz ze standardowej warstwy usługi Azure Security Center, możesz dodać pakiet Rejestry kontenerów. Ta opcjonalna funkcja zapewnia lepszy wgląd w luki w zabezpieczeniach obrazów w rejestrach opartych na systemie ARM. Włącz lub wyłącz pakiet na poziomie subskrypcji, aby objąć wszystkie rejestry w ramach subskrypcji. Ta funkcja jest naliczana za obraz, jak pokazano na [stronie z cennikiem](security-center-pricing.md). Włączenie pakietu rejestrów kontenerów zapewnia, że usługa Security Center jest gotowa do skanowania obrazów, które są wypychane do rejestru. 
+Jeśli jesteś w warstwie Standardowa Azure Security Center, możesz dodać pakiet rejestrów kontenerów. Ta opcjonalna funkcja zapewnia dokładniejszy wgląd w luki w zabezpieczeniach obrazów w rejestrach opartych na usłudze ARM. Włącz lub Wyłącz pakiet na poziomie subskrypcji, aby uwzględnić wszystkie rejestry w subskrypcji. Ta funkcja jest naliczana za obraz, jak pokazano na [stronie z cennikiem](security-center-pricing.md). Włączenie pakietu rejestrów kontenerów zapewnia, że Security Center jest gotowy do skanowania obrazów, które są przekazywane do rejestru. 
 
-Za każdym razem, gdy obraz jest wypychany do rejestru, usługa Security Center automatycznie skanuje ten obraz. Aby wyzwolić skanowanie obrazu, wypchnij go do repozytorium.
+Za każdym razem, gdy obraz jest wypychany do rejestru, Security Center automatycznie skanuje ten obraz. Aby wyzwolić skanowanie obrazu, wypchnij go do repozytorium.
 
-Po zakończeniu skanowania (zazwyczaj po około 10 minutach) wyniki są dostępne w zaleceniach centrum zabezpieczeń w ten sposób:
+Po zakończeniu skanowania (zwykle po około 10 minutach) wyniki są dostępne w Security Center zalecenia w następujący sposób:
 
-[![Przykładowe zalecenie usługi Azure Security Center dotyczące luk wykrytych w obrazie hosta rejestru kontenerów platformy Azure (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+[![Przykładowe Azure Security Center zalecenia dotyczące luk w zabezpieczeniach odnalezionych w obrazie hostowanym Azure Container Registry (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
-## <a name="benefits-of-integration"></a>Korzyści z integracji
+## <a name="benefits-of-integration"></a>Zalety integracji
 
-Usługa Security Center identyfikuje rejestry ACR oparte na udziale ARM w ramach subskrypcji i bezproblemowo udostępnia:
+Security Center identyfikuje rejestry ACR oparte na architekturze ARM w Twojej subskrypcji i bezproblemowo udostępnia:
 
-* **Skanowanie luk w zabezpieczeniach natywnej platformy Azure** dla wszystkich wypychanych obrazów systemu Linux. Usługa Security Center skanuje obraz za pomocą skanera od wiodącego w branży dostawcy skanowania luk w zabezpieczeniach Qualys. To natywne rozwiązanie jest domyślnie bezproblemowo zintegrowane.
+* **Skanowanie w poszukiwaniu luk w zabezpieczeniach platformy Azure** w przypadku wszystkich wypychanych obrazów systemu Linux. Security Center skanuje obraz przy użyciu skanera z wiodącej w branży skanowania dostawcy, Qualys. To rozwiązanie natywne jest w sposób ciągły zintegrowane.
 
-* **Zalecenia dotyczące zabezpieczeń** dla obrazów systemu Linux ze znanymi lukami w zabezpieczeniach. Usługa Security Center zawiera szczegółowe informacje o każdej zgłoszonej luce w zabezpieczeniach i klasyfikację ważności. Ponadto zawiera wskazówki dotyczące korygowania określonych luk znalezionych na każdym obrazie wypchniętym do rejestru.
+* **Zalecenia dotyczące zabezpieczeń** obrazów systemu Linux z znanymi lukami w zabezpieczeniach. Security Center zawiera szczegółowe informacje o każdej raportowanej luce w zabezpieczeniach i klasyfikacji ważności. Ponadto zawiera wskazówki dotyczące sposobu korygowania określonych luk w zabezpieczeniach w każdym obrazie wypychanym do rejestru.
 
-![Omówienie wysokiego poziomu usługi Azure Security Center i azure container registry (ACR)](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
+![Ogólne omówienie Azure Security Center i Azure Container Registry (ACR)](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o funkcjach zabezpieczeń kontenerów usługi Security Center, zobacz:
+Aby dowiedzieć się więcej o funkcjach zabezpieczeń kontenera Security Center, zobacz:
 
-* [Usługa Azure Security Center i zabezpieczenia kontenerów](container-security.md)
+* [Zabezpieczenia Azure Security Center i kontenera](container-security.md)
 
 * [Integracja z usługą Azure Kubernetes Service](azure-kubernetes-service-integration.md)
 
-* [Ochrona maszyny wirtualnej](security-center-virtual-machine-protection.md) — zawiera opis zaleceń centrum zabezpieczeń
+* [Ochrona maszyny wirtualnej](security-center-virtual-machine-protection.md) — opis zaleceń dotyczących Security Center

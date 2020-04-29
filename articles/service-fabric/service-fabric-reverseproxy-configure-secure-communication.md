@@ -1,41 +1,41 @@
 ---
-title: Bezpieczna komunikacja z serwerem proxy odwrotnej usługi Azure Service
-description: Skonfiguruj odwrotny serwer proxy, aby włączyć bezpieczną komunikację end-to-end w aplikacji sieci szkieletowej usług Azure.
+title: Bezpieczna komunikacja z usługą Azure Service Fabric zwrotny bezpieczny serwer proxy
+description: Skonfiguruj zwrotny serwer proxy, aby zapewnić bezpieczną kompleksową komunikację w aplikacji Service Fabric platformy Azure.
 author: kavyako
 ms.topic: conceptual
 ms.date: 08/10/2017
 ms.author: kavyako
 ms.openlocfilehash: 61a8d1e766ea576f7d2984add239b0da7e2e8183
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80617109"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Connect to a secure service with the reverse proxy (Łączenie z bezpieczną usługą przy użyciu zwrotnego serwera proxy)
 
-W tym artykule wyjaśniono, jak ustanowić bezpieczne połączenie między odwrotnym serwerem proxy a usługami, umożliwiając w ten sposób zakończenie bezpiecznego kanału. Aby dowiedzieć się więcej o odwrotnym serwerze proxy, zobacz [Odwracanie serwera proxy w sieci szkieletowej usług Azure](service-fabric-reverseproxy.md)
+W tym artykule wyjaśniono, jak ustanowić bezpieczne połączenie między zwrotnym serwerem proxy a usługami, umożliwiając w ten sposób kompleksowe bezpiecznego kanału. Aby dowiedzieć się więcej na temat zwrotnego serwera proxy, zobacz [zwrotny serwer proxy na platformie Azure Service Fabric](service-fabric-reverseproxy.md)
 
-Łączenie się z usługami bezpiecznymi jest obsługiwane tylko wtedy, gdy serwer proxy odwrotny jest skonfigurowany do nasłuchiwania na https. W tym artykule przyjęto założenie, że tak jest.
-Zapoznaj się z [instalatorem odwrotnego serwera proxy w sieci szkieletowej usług Azure,](service-fabric-reverseproxy-setup.md) aby skonfigurować odwrotny serwer proxy w sieci szkieletowej usług.
+Łączenie z usługami zabezpieczonymi jest obsługiwane tylko wtedy, gdy serwer proxy odwrotny jest skonfigurowany do nasłuchiwania przy użyciu protokołu HTTPS. W tym artykule założono, że jest to przypadek.
+Aby skonfigurować zwrotny serwer proxy w programie Service Fabric, zobacz temat [Konfiguracja zwrotnego serwera proxy w usłudze Azure Service Fabric](service-fabric-reverseproxy-setup.md) .
 
-## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Bezpieczne połączenie między odwrotnym serwerem proxy a usługami 
+## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Ustanowienie bezpiecznego połączenia między zwrotnym serwerem proxy a usługami 
 
-### <a name="reverse-proxy-authenticating-to-services"></a>Odwróć uwierzytelnianie serwera proxy do usług:
-Odwrotny serwer proxy identyfikuje się do usług przy użyciu certyfikatu. W przypadku klastrów platformy Azure certyfikat jest określony za pomocą właściwości ***reverseProxyCertificate*** w sekcji [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource type szablonu](../azure-resource-manager/templates/template-syntax.md) Menedżera zasobów. W przypadku klastrów autonomicznych certyfikat jest określony za pomocą właściwości ***ReverseProxyCertificate*** lub ***ReverseProxyCertificateCommonNames*** w sekcji **Zabezpieczenia** w pliku ClusterConfig.json. Aby dowiedzieć się więcej, zobacz [Włączanie odwrotnego serwera proxy w klastrach autonomicznych](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
+### <a name="reverse-proxy-authenticating-to-services"></a>Zwrotny serwer proxy uwierzytelniania do usług:
+Zwrotny serwer proxy identyfikuje siebie w usługach przy użyciu swojego certyfikatu. W przypadku klastrów platformy Azure certyfikat jest określony za pomocą właściwości ***reverseProxyCertificate*** w [sekcji Typ zasobu](../azure-resource-manager/templates/template-syntax.md) [**Microsoft. servicefabric/klastrów**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) szablonu Menedżer zasobów. W przypadku klastrów autonomicznych certyfikat jest określany za pomocą właściwości ***ReverseProxyCertificate*** lub ***ReverseProxyCertificateCommonNames*** w sekcji **Security** pliku ClusterConfig. JSON. Aby dowiedzieć się więcej, zobacz [Włączanie zwrotnego serwera proxy w klastrach autonomicznych](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
 
-Usługi można zaimplementować logikę, aby zweryfikować certyfikat przedstawiony przez odwrotnego serwera proxy. Usługi mogą określać szczegóły certyfikatu akceptowanego klienta jako ustawienia konfiguracji w pakiecie konfiguracyjnym. Można to odczytać w czasie wykonywania i służyć do sprawdzania poprawności certyfikatu przedstawionego przez odwrotny serwer proxy. Aby dodać ustawienia konfiguracji, zobacz [Zarządzanie parametrami aplikacji.](service-fabric-manage-multiple-environment-app-configuration.md) 
+Usługi mogą wdrożyć logikę w celu zweryfikowania certyfikatu przedstawionego przez zwrotny serwer proxy. Usługi mogą określić zaakceptowane szczegóły certyfikatu klienta jako ustawienia konfiguracji w pakiecie konfiguracyjnym. Można go odczytać w czasie wykonywania i służy do weryfikowania certyfikatu przedstawionego przez zwrotny serwer proxy. Aby dodać ustawienia konfiguracji, zapoznaj się z tematem [Zarządzanie parametrami aplikacji](service-fabric-manage-multiple-environment-app-configuration.md) . 
 
-### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Odwróć serwer proxy weryfikujący tożsamość usługi za pomocą certyfikatu przedstawionego przez usługę:
-Serwer proxy odwrotny obsługuje następujące zasady do sprawdzania poprawności certyfikatów serwera certyfikatów prezentowanych przez usługi: Brak, ServiceCommonNameAndIssuer i ServiceCertificateThumbprints.
-Aby wybrać zasady dla odwrotnego serwera proxy do użycia, określ **ApplicationCertificateValidationPolicy** w **ApplicationGateway/Http** sekcji w [fabricSettings](service-fabric-cluster-fabric-settings.md).
+### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Zwrotny serwer proxy weryfikujący tożsamość usługi za pośrednictwem certyfikatu przedstawionego przez usługę:
+Zwrotny serwer proxy obsługuje następujące zasady, aby przeprowadzić walidację certyfikatu serwera certyfikatów przedstawionych przez usługi: None, ServiceCommonNameAndIssuer i ServiceCertificateThumbprints.
+Aby wybrać zasady dla zwrotnego serwera proxy do użycia, określ **ApplicationCertificateValidationPolicy** w sekcji **elementu applicationgateway/http** w obszarze [fabricSettings](service-fabric-cluster-fabric-settings.md).
 
 W następnej sekcji przedstawiono szczegóły konfiguracji dla każdej z tych opcji.
 
-### <a name="service-certificate-validation-options"></a>Opcje sprawdzania poprawności certyfikatu usługi 
+### <a name="service-certificate-validation-options"></a>Opcje walidacji certyfikatu usługi 
 
-- **Brak:** Odwrócony serwer proxy pomija weryfikację certyfikatu usługi proxy i ustanawia bezpieczne połączenie. Jest to zachowanie domyślne.
-Określ **ApplicationCertificateValidationPolicy** z wartością **Brak** w [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) sekcji.
+- **Brak**: zwrotny serwer proxy pomija weryfikację certyfikatu usługi proxy i ustanawia bezpieczne połączenie. Jest to zachowanie domyślne.
+Określ **ApplicationCertificateValidationPolicy** o wartości **none** w sekcji [**elementu applicationgateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) .
 
    ```json
    {
@@ -55,7 +55,7 @@ Określ **ApplicationCertificateValidationPolicy** z wartością **Brak** w [**A
    }
    ```
 
-- **ServiceCommonNameAndIssuer**: Reverse proxy weryfikuje certyfikat przedstawiony przez usługę na podstawie nazwy pospolitej certyfikatu i odcisku palca natychmiastowego wystawcy: Określ **ApplicationCertificateValidationPolicy** z wartością **ServiceCommonNameAndIssuer** w [**applicationgateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) sekcji.
+- **ServiceCommonNameAndIssuer**: zwrotny serwer proxy weryfikuje certyfikat przedstawiony przez usługę na podstawie nazwy pospolitej certyfikatu i odcisku palca bezpośredniego wystawcy: Określ **ApplicationCertificateValidationPolicy** o wartości **ServiceCommonNameAndIssuer** w sekcji [**elementu applicationgateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) .
 
    ```json
    {
@@ -75,10 +75,10 @@ Określ **ApplicationCertificateValidationPolicy** z wartością **Brak** w [**A
    }
    ```
 
-   Aby określić listę nazwy pospolitej usługi i odciski palców wystawcy, dodaj [**applicationgateway/http/ServiceCommonNameAndIssuer**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttpservicecommonnameandissuer) sekcji w **fabricSettings**, jak pokazano poniżej. W tablicy **parametrów** można dodać wiele nazw pospolitych certyfikatów i par odcisków palców wystawcy. 
+   Aby określić listę wspólnych nazw usług i odcisków palców wystawcy, Dodaj sekcję [**elementu applicationgateway/http/ServiceCommonNameAndIssuer**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttpservicecommonnameandissuer) w obszarze **fabricSettings**, jak pokazano poniżej. W tablicy **parametrów** można dodać wiele par wspólnych nazw certyfikatów i odcisków palców wystawcy. 
 
-   Jeśli odwrotny serwer proxy punktu końcowego łączy się z przedstawia certyfikat, który ma wspólną nazwę i odcisk palca wystawcy pasuje do dowolnej wartości określonej w tym miejscu, ustanawia się kanał TLS.
-   W przypadku niepowodzenia dopasowania szczegółów certyfikatu odwrotny serwer proxy nie powiedzie się żądanie klienta z kodem stanu 502 (Bad Gateway). Wiersz stanu HTTP będzie również zawierał frazę "Nieprawidłowy certyfikat SSL". 
+   Jeśli nawiązanie połączenia zwrotnego z punktem końcowym jest nawiązywane z certyfikatem, który jest zgodny z dowolnymi z wartości określonych w tym miejscu, zostanie utworzony kanał TLS.
+   W przypadku niepowodzenia dopasowania certyfikatu zwrotny serwer proxy nie powiedzie żądania klienta z kodem stanu 502 (zła brama). Wiersz stanu HTTP będzie również zawierać frazę "nieprawidłowy certyfikat SSL". 
 
    ```json
    {
@@ -102,7 +102,7 @@ Określ **ApplicationCertificateValidationPolicy** z wartością **Brak** w [**A
    }
    ```
 
-- **ServiceCertificateThumbprints:** Reverse proxy zweryfikuje certyfikat usługi proxy na podstawie jego odcisku palca. Można wybrać, aby przejść tę trasę, gdy usługi są skonfigurowane z certyfikatami z podpisem własnym: Określ **ApplicationCertificateValidationPolicy** z wartości **ServiceCertificateThumbprints** w [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) sekcji.
+- **ServiceCertificateThumbprints**: zwrotny serwer proxy sprawdzi certyfikat usługi proxy na podstawie jego odcisku palca. Możesz wybrać tę trasę, gdy usługi są skonfigurowane przy użyciu certyfikatów z podpisem własnym: Określ **ApplicationCertificateValidationPolicy** z wartością **ServiceCertificateThumbprints** w sekcji [**elementu applicationgateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) .
 
    ```json
    {
@@ -122,7 +122,7 @@ Określ **ApplicationCertificateValidationPolicy** z wartością **Brak** w [**A
    }
    ```
 
-   Należy również określić odciski palców z **servicecertificateThumbprints** wpis w **ApplicationGateway/Http** sekcji. W polu wartości można określić wiele odcisków palców jako listę oddzieloną przecinkami, jak pokazano poniżej:
+   Należy również określić odciski palców z wpisem **ServiceCertificateThumbprints** w sekcji **elementu applicationgateway/http** . W polu wartość można określić wiele odcisków palców jako listę rozdzieloną przecinkami, jak pokazano poniżej:
 
    ```json
    {
@@ -143,12 +143,12 @@ Określ **ApplicationCertificateValidationPolicy** z wartością **Brak** w [**A
    }
    ```
 
-   Jeśli odcisk palca certyfikatu serwera znajduje się na liście w tym wpisie konfiguracji, serwer proxy wsteczny zakończy się pomyślnie połączeniem TLS. W przeciwnym razie kończy połączenie i kończy pracę żądania klienta za pomocą 502 (Bad Gateway). Wiersz stanu HTTP będzie również zawierał frazę "Nieprawidłowy certyfikat SSL".
+   Jeśli odcisk palca certyfikatu serwera znajduje się w tym wpisie konfiguracji, zwrotny serwer proxy pomyślnie nawiązać połączenie TLS. W przeciwnym razie kończy połączenie i kończy się niepowodzeniem żądania klienta z 502 (zła brama). Wiersz stanu HTTP będzie również zawierać frazę "nieprawidłowy certyfikat SSL".
 
-## <a name="endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints"></a>Logika wyboru punktu końcowego, gdy usługi ujawniają bezpieczne i niezabezpieczone punkty końcowe
-Sieci szkieletowej usług obsługuje konfigurowanie wielu punktów końcowych dla usługi. Aby uzyskać więcej informacji, zobacz [Określanie zasobów w manifeście usługi](service-fabric-service-manifest-resources.md).
+## <a name="endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints"></a>Logika wyboru punktu końcowego, gdy usługi ujawniają bezpieczne, a także niezabezpieczone punkty końcowe
+Usługa Service Fabric obsługuje Konfigurowanie wielu punktów końcowych dla usługi. Aby uzyskać więcej informacji, zobacz [określanie zasobów w manifeście usługi](service-fabric-service-manifest-resources.md).
 
-Odwrócony serwer proxy wybiera jeden z punktów końcowych do przekazania żądania na podstawie parametru zapytania **ListenerName** w [usłudze URI](./service-fabric-reverseproxy.md#uri-format-for-addressing-services-by-using-the-reverse-proxy). Jeśli parametr **ListenerName** nie jest określony, reverse proxy można wybrać dowolny punkt końcowy z listy punktów końcowych. W zależności od punktów końcowych skonfigurowanych dla usługi wybrany punkt końcowy może być punktem końcowym HTTP lub HTTPS. Mogą istnieć scenariusze lub wymagania, w których serwer proxy odwrotnej ma działać w trybie "tylko bezpieczne"; oznacza to, że nie chcesz, aby bezpieczny serwer proxy wsteczny przesyłał dalej żądania do niezabezpieczonych punktów końcowych. Aby ustawić odwrotny serwer proxy do trybu bezpiecznego tylko, należy określić wpis konfiguracji **SecureOnlyMode** o wartości **true** w [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) sekcji.   
+Zwrotny serwer proxy wybiera jeden z punktów końcowych do przesyłania dalej żądania na podstawie parametru zapytania **listenername** w [identyfikatorze URI usługi](./service-fabric-reverseproxy.md#uri-format-for-addressing-services-by-using-the-reverse-proxy). Jeśli nie określono parametru **listenername** , zwrotny serwer proxy może wybrać dowolny punkt końcowy z listy punktów końcowych. W zależności od punktów końcowych skonfigurowanych dla usługi wybrany punkt końcowy może być punktem końcowym HTTP lub HTTPS. Mogą istnieć scenariusze lub wymagania, w których zwrotny serwer proxy ma działać w trybie "tylko zabezpieczenia"; oznacza to, że nie chcesz, aby bezpieczny zwrotny serwer proxy przekazywał żądania do niezabezpieczonych punktów końcowych. Aby ustawić zwrotny serwer proxy w trybie tylko zabezpieczony, określ wpis konfiguracji **SecureOnlyMode** o wartości **true** w sekcji [**elementu applicationgateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) .   
 
 ```json
 {
@@ -170,26 +170,26 @@ Odwrócony serwer proxy wybiera jeden z punktów końcowych do przekazania żąd
 ```
 
 > [!NOTE]
-> Podczas pracy w **SecureOnlyMode**, jeśli klient określił **ListenerName** odpowiadające http(niezabezpieczone) punkt końcowy, odwrotny serwer proxy nie powiedzie się żądanie z 404 (Nie znaleziono) kod stanu HTTP.
+> W przypadku korzystania z programu **SecureOnlyMode**, jeśli klient określił element **listenername** odpowiadający punktowi końcowemu http (niezabezpieczonemu), zwrotny serwer proxy nie może wykonać żądania o kodzie stanu HTTP 404 (nie można odnaleźć).
 
-## <a name="setting-up-client-certificate-authentication-through-the-reverse-proxy"></a>Konfigurowanie uwierzytelniania certyfikatu klienta za pośrednictwem odwrotnego serwera proxy
-Zakończenie protokołu TLS odbywa się na serwerze proxy odwrotnym i wszystkie dane certyfikatu klienta są tracone. Aby usługi przeprowadzały uwierzytelnianie certyfikatów klienta, określ ustawienie **ForwardClientCertificate** w sekcji [**ApplicationGateway/Http.**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
+## <a name="setting-up-client-certificate-authentication-through-the-reverse-proxy"></a>Konfigurowanie uwierzytelniania certyfikatu klienta za pomocą zwrotnego serwera proxy
+Zakończenie protokołu TLS odbywa się na odwrotnym serwerze proxy i wszystkie dane certyfikatu klienta zostaną utracone. Aby usługi wykonywały uwierzytelnianie certyfikatu klienta, określ ustawienie **ForwardClientCertificate** w sekcji [**elementu applicationgateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) .
 
-1. Gdy **forwardClientCertificate** jest ustawiona na **false,** reverse proxy nie zażąda certyfikatu klienta podczas uzgadniania TLS z klientem.
+1. Gdy **ForwardClientCertificate** ma **wartość false**, zwrotny serwer proxy nie będzie żądać certyfikatu klienta podczas uzgadniania protokołu TLS z klientem.
 Jest to zachowanie domyślne.
 
-2. Gdy **forwardClientCertificate** jest ustawiona na **true,** reverse proxy żąda certyfikatu klienta podczas jego uzgadniania TLS z klientem.
-Następnie przekaże dane certyfikatu klienta w niestandardowym nagłówku HTTP o nazwie **X-Client-Certificate**. Wartość nagłówka jest ciągiem formatu PEM zakodowanego w formacie PEM base64 certyfikatu klienta. Usługa może zakończyć się powodzeniem/niepowodzeniem żądania z odpowiednim kodem stanu po sprawdzeniu danych certyfikatu.
-Jeśli klient nie przedstawi certyfikatu, reverse proxy przesyła dalej pusty nagłówek i zezwala na obsługę sprawy przez usługę.
+2. Gdy **ForwardClientCertificate** ma **wartość true**, zwrotny serwer proxy żąda certyfikatu klienta podczas uzgadniania protokołu TLS z klientem.
+Następnie przekazuje dane certyfikatu klienta w niestandardowym nagłówku HTTP o nazwie **X-Client-Certificate**. Wartość nagłówka to ciąg formatu PEM szyfrowany algorytmem Base64 certyfikatu klienta. Usługa może zakończyć się powodzeniem/niepowodzeniem żądania przy użyciu odpowiedniego kodu stanu po sprawdzeniu danych certyfikatu.
+Jeśli klient nie zaprezentuje certyfikatu, zwrotny serwer proxy przekazuje pusty nagłówek i zezwoli usłudze na obsługę tego przypadku.
 
 > [!NOTE]
-> Odwrócony serwer proxy jest zwykłym usługą przesyłania dalej. Nie będzie wykonywać sprawdzania poprawności certyfikatu klienta.
+> Zwrotny serwer proxy to usługa przesyłania dalej. Nie zostanie przeprowadzone żadne sprawdzenie poprawności certyfikatu klienta.
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Konfigurowanie i konfigurowanie odwrotnego serwera proxy w klastrze](service-fabric-reverseproxy-setup.md).
-* Zapoznaj się [z pozycję Konfigurowanie odwrotnego serwera proxy w celu łączenia się z bezpiecznymi usługami](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services)
-* Zobacz przykład komunikacji HTTP między usługami w [przykładowym projekcie w usłudze GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
-* [Zdalne wywołania procedury z obsługą komunikacji zdalnej z niezawodnymi usługami](service-fabric-reliable-services-communication-remoting.md)
-* [Internetowy interfejs API, który używa OWIN w niezawodnych usługach](service-fabric-reliable-services-communication-webapi.md)
+* Skonfiguruj [i skonfiguruj zwrotny serwer proxy w klastrze](service-fabric-reverseproxy-setup.md).
+* Zapoznaj się z tematem [Konfigurowanie zwrotnego serwera proxy w celu nawiązania połączenia z zabezpieczeniami](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services)
+* Zobacz przykład komunikacji HTTP między usługami w [przykładowym projekcie w witrynie GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
+* [Zdalne wywołania procedur z Reliable Services komunikacji zdalnej](service-fabric-reliable-services-communication-remoting.md)
+* [Internetowy interfejs API, który używa OWIN w Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Zarządzanie certyfikatami klastra](service-fabric-cluster-security-update-certs-azure.md)

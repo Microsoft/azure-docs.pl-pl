@@ -1,28 +1,28 @@
 ---
-title: Ograniczenia — usługa Azure Database dla mysql
-description: W tym artykule opisano ograniczenia w usłudze Azure Database dla MySQL, takie jak liczba opcji aparatu połączeń i magazynu.
+title: Ograniczenia — Azure Database for MySQL
+description: W tym artykule opisano ograniczenia w Azure Database for MySQL, takie jak liczba opcji połączenia i aparatu magazynu.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/1/2020
 ms.openlocfilehash: 6ca09ab0578fb88e443d6e9e1f920c22457eb042
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548468"
 ---
-# <a name="limitations-in-azure-database-for-mysql"></a>Ograniczenia w usłudze Azure Database dla mysql
-W poniższych sekcjach opisano pojemność, obsługę aparatu magazynu, obsługę uprawnień, obsługę instrukcji manipulowania danymi i limity funkcjonalności w usłudze bazy danych. Zobacz także [ogólne ograniczenia](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) mające zastosowanie do aparatu bazy danych MySQL.
+# <a name="limitations-in-azure-database-for-mysql"></a>Ograniczenia w Azure Database for MySQL
+W poniższych sekcjach opisano pojemność, obsługę aparatu magazynu, obsługę uprawnień, obsługę instrukcji manipulowania danymi oraz limity funkcjonalne w usłudze bazy danych. Zapoznaj się również z [ogólnymi ograniczeniami](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) dotyczącymi aparatu bazy danych MySQL.
 
 ## <a name="server-parameters"></a>Parametry serwera
 
-Minimalne i maksymalne wartości kilku popularnych parametrów serwera są określane przez warstwę cenową i pole wirtualne. Limity znajdują się w poniższych tabelach.
+Minimalne i maksymalne wartości kilku popularnych parametrów serwera są określane przez warstwę cenową i rdzeni wirtualnych. Limity można znaleźć w poniższych tabelach.
 
-### <a name="max_connections"></a>Max_connections
+### <a name="max_connections"></a>max_connections
 
-|**Warstwa cenowa**|**vCore(s)**|**Wartość domyślna**|**Wartość min.**|**Wartość maksymalna**|
+|**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna**|**Wartość minimalna**|**Wartość maksymalna**|
 |---|---|---|---|---|
 |Podstawowy|1|50|10|50|
 |Podstawowy|2|100|10|100|
@@ -38,27 +38,27 @@ Minimalne i maksymalne wartości kilku popularnych parametrów serwera są okre�
 |Optymalizacja pod kątem pamięci|16|5000|10|10 000|
 |Optymalizacja pod kątem pamięci|32|10 000|10|20000|
 
-Gdy połączenia przekraczają limit, może pojawić się następujący błąd:
-> BŁĄD 1040 (08004): Zbyt wiele połączeń
+Gdy połączenia przekroczą limit, może zostać wyświetlony następujący błąd:
+> BŁĄD 1040 (08004): zbyt wiele połączeń
 
 > [!IMPORTANT]
-> Aby uzyskać najlepsze wrażenia, zaleca się używanie puli połączeń, takiej jak ProxySQL, do efektywnego zarządzania połączeniami.
+> W celu uzyskania najlepszego środowiska zalecamy użycie połączenia pulę, takiego jak ProxySQL, aby efektywnie zarządzać połączeniami.
 
-Tworzenie nowych połączeń klientów z MySQL wymaga czasu i po ustanowieniu, połączenia te zajmują zasoby bazy danych, nawet gdy bezczynne. Większość aplikacji żąda wielu krótkotrwałych połączeń, co potęguje tę sytuację. Rezultatem jest mniej zasobów dostępnych dla rzeczywistego obciążenia, co prowadzi do zmniejszenia wydajności. Pooler połączenia, który zmniejsza bezczynne połączenia i ponownie używa istniejących połączeń pomoże uniknąć tego. Aby dowiedzieć się więcej o konfigurowaniu pliku ProxySQL, odwiedź nasz [wpis na blogu.](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042)
+Tworzenie nowych połączeń klientów z usługą MySQL trwa po upływie czasu i po jego ustanowieniu te połączenia zajmują zasoby bazy danych, nawet jeśli są bezczynne. Większość aplikacji żąda wielu krótkich połączeń, które są związane z tą sytuacją. Wynikiem jest mniej zasobów dostępnych dla rzeczywistego obciążenia, co prowadzi do zmniejszenia wydajności. Pulę połączenia, który zmniejsza bezczynne połączenia i ponownie używa istniejących połączeń, będzie pomóc w uniknięciu tego działania. Aby dowiedzieć się więcej o konfigurowaniu ProxySQL, odwiedź nasz [wpis w blogu](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
 
 ### <a name="query_cache_size"></a>query_cache_size
 
-Pamięć podręczna kwerend jest domyślnie wyłączona. Aby włączyć pamięć podręczną `query_cache_type` kwerend, skonfiguruj parametr. 
+Pamięć podręczna zapytań jest domyślnie wyłączona. Aby włączyć pamięć podręczną zapytań, należy `query_cache_type` skonfigurować parametr. 
 
-Przejrzyj [dokumentację MySQL,](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size) aby dowiedzieć się więcej o tym parametrze.
+Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size) , aby dowiedzieć się więcej o tym parametrze.
 
 > [!NOTE]
-> Pamięć podręczna zapytań jest przestarzała od mysql 5.7.20 i została usunięta w MySQL 8.0
+> Pamięć podręczna zapytań jest przestarzała w przypadku programu MySQL 5.7.20 i została usunięta w programie MySQL 8,0
 
-|**Warstwa cenowa**|**vCore(s)**|**Wartość domyślna**|**Wartość min.**|**Wartość maksymalna**|
+|**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna**|**Wartość minimalna**|**Wartość maksymalna**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można konfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można konfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
 |Ogólnego przeznaczenia|2|0|0|16777216|
 |Ogólnego przeznaczenia|4|0|0|33554432|
 |Ogólnego przeznaczenia|8|0|0|67108864|
@@ -73,12 +73,12 @@ Przejrzyj [dokumentację MySQL,](https://dev.mysql.com/doc/refman/5.7/en/server-
 
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 
-Przejrzyj [dokumentację MySQL,](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) aby dowiedzieć się więcej o tym parametrze.
+Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) , aby dowiedzieć się więcej o tym parametrze.
 
-|**Warstwa cenowa**|**vCore(s)**|**Wartość domyślna**|**Wartość min.**|**Wartość maksymalna**|
+|**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna**|**Wartość minimalna**|**Wartość maksymalna**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można konfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można konfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
 |Ogólnego przeznaczenia|2|524288|32768|4194304|
 |Ogólnego przeznaczenia|4|524288|32768|8388608|
 |Ogólnego przeznaczenia|8|524288|32768|16777216|
@@ -93,12 +93,12 @@ Przejrzyj [dokumentację MySQL,](https://dev.mysql.com/doc/refman/5.7/en/server-
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
-Przejrzyj [dokumentację MySQL,](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) aby dowiedzieć się więcej o tym parametrze.
+Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) , aby dowiedzieć się więcej o tym parametrze.
 
-|**Warstwa cenowa**|**vCore(s)**|**Wartość domyślna**|**Wartość min.**|**Wartość maksymalna**|
+|**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna**|**Wartość minimalna**|**Wartość maksymalna**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można konfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można konfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
 |Ogólnego przeznaczenia|2|262144|128|268435455|
 |Ogólnego przeznaczenia|4|262144|128|536870912|
 |Ogólnego przeznaczenia|8|262144|128|1073741824|
@@ -113,12 +113,12 @@ Przejrzyj [dokumentację MySQL,](https://dev.mysql.com/doc/refman/5.7/en/server-
 
 ### <a name="max_heap_table_size"></a>max_heap_table_size
 
-Przejrzyj [dokumentację MySQL,](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) aby dowiedzieć się więcej o tym parametrze.
+Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) , aby dowiedzieć się więcej o tym parametrze.
 
-|**Warstwa cenowa**|**vCore(s)**|**Wartość domyślna**|**Wartość min.**|**Wartość maksymalna**|
+|**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna**|**Wartość minimalna**|**Wartość maksymalna**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można konfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można konfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
 |Ogólnego przeznaczenia|2|16777216|16384|268435455|
 |Ogólnego przeznaczenia|4|16777216|16384|536870912|
 |Ogólnego przeznaczenia|8|16777216|16384|1073741824|
@@ -133,12 +133,12 @@ Przejrzyj [dokumentację MySQL,](https://dev.mysql.com/doc/refman/5.7/en/server-
 
 ### <a name="tmp_table_size"></a>tmp_table_size
 
-Przejrzyj [dokumentację MySQL,](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) aby dowiedzieć się więcej o tym parametrze.
+Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) , aby dowiedzieć się więcej o tym parametrze.
 
-|**Warstwa cenowa**|**vCore(s)**|**Wartość domyślna**|**Wartość min.**|**Wartość maksymalna**|
+|**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna**|**Wartość minimalna**|**Wartość maksymalna**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można konfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można konfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
 |Ogólnego przeznaczenia|2|16777216|1024|67108864|
 |Ogólnego przeznaczenia|4|16777216|1024|134217728|
 |Ogólnego przeznaczenia|8|16777216|1024|268435456|
@@ -153,31 +153,31 @@ Przejrzyj [dokumentację MySQL,](https://dev.mysql.com/doc/refman/5.7/en/server-
 
 ### <a name="time_zone"></a>time_zone
 
-Tabele stref czasowych można `mysql.az_load_timezone` wypełniać, wywołując procedurę składowaną z narzędzia, takiego jak wiersz polecenia MySQL lub MySQL Workbench. Zapoznaj się z artykułami [portalu Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) lub [interfejsu wiersza polecenia platformy Azure,](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) aby dowiedzieć się, jak wywołać procedurę składowaną i ustawić strefy czasowe na poziomie globalnym lub sesji.
+Tabele strefy czasowej mogą być wypełniane przez wywołanie `mysql.az_load_timezone` procedury składowanej z narzędzia, takiego jak wiersz polecenia MySQL lub MySQL Workbench. Zapoznaj się z artykułami [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) lub [interfejsem wiersza polecenia platformy Azure](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) dotyczącymi sposobu wywoływania procedury składowanej i ustawiania stref czasowych na poziomie globalnym lub w sesji.
 
-## <a name="storage-engine-support"></a>Obsługa silnika pamięci masowej
+## <a name="storage-engine-support"></a>Obsługa aparatu magazynu
 
 ### <a name="supported"></a>Obsługiwane
-- [Innodb](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
-- [Pamięci](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
+- [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
+- [ROZMIAR](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
 
 ### <a name="unsupported"></a>Nieobsługiwane
-- [Myisam](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
-- [Blackhole](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
-- [Archiwum](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
-- [Federacyjnych](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
+- [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
+- [BLACKHOLE](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
+- [FOLDERU](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
+- [FEDERACYJNY](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
 
 ## <a name="privilege-support"></a>Obsługa uprawnień
 
 ### <a name="unsupported"></a>Nieobsługiwane
-- Rola DBA: Wiele parametrów i ustawień serwera może przypadkowo obniżyć wydajność serwera lub zanegować właściwości ACID systemu DBMS. W związku z tym, aby zachować integralność usługi i umowy SLA na poziomie produktu, ta usługa nie udostępnia roli DBA. Domyślne konto użytkownika, które jest tworzone podczas tworzenia nowego wystąpienia bazy danych, umożliwia użytkownikowi wykonywanie większości instrukcji DDL i DML w wystąpieniu zarządzanej bazy danych. 
-- Super privilege: Podobnie [przywilej SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) jest również ograniczony.
-- DEFINER: Wymaga super uprawnień do tworzenia i jest ograniczona. Jeśli importowanie danych przy użyciu `CREATE DEFINER` kopii zapasowej, usunąć `--skip-definer` polecenia ręcznie lub za pomocą polecenia podczas wykonywania mysqldump.
+- Rola DBA: wiele parametrów serwera i ustawień może przypadkowo obniżyć wydajność serwera lub Negate właściwości KWASów systemu DBMS. W związku z tym, aby zachować integralność usługi i umowę SLA na poziomie produktu, ta usługa nie ujawnia roli DBA. Domyślne konto użytkownika, które jest konstruowane podczas tworzenia nowego wystąpienia bazy danych, umożliwia temu użytkownikowi wykonywanie większości instrukcji języka DDL i DML w zarządzanym wystąpieniu bazy danych. 
+- Uprawnienie "noprivileged": podobne [nieuprzywilejowane](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) również jest ograniczone.
+- Zdefiniuj: wymagane są uprawnienia administratora do tworzenia i jest ograniczone. W `CREATE DEFINER` przypadku importowania danych przy użyciu kopii zapasowej Usuń polecenia ręcznie lub przy użyciu `--skip-definer` polecenia podczas wykonywania mysqldump.
 
 ## <a name="data-manipulation-statement-support"></a>Obsługa instrukcji manipulowania danymi
 
 ### <a name="supported"></a>Obsługiwane
-- `LOAD DATA INFILE`jest obsługiwany, ale `[LOCAL]` parametr musi być określony i skierowany do ścieżki UNC (magazyn platformy Azure zainstalowany za pośrednictwem SMB).
+- `LOAD DATA INFILE`jest obsługiwane, ale `[LOCAL]` parametr musi być określony i skierowany do ścieżki UNC (magazyn platformy Azure zainstalowany za pomocą protokołu SMB).
 
 ### <a name="unsupported"></a>Nieobsługiwane
 - `SELECT ... INTO OUTFILE`
@@ -186,24 +186,24 @@ Tabele stref czasowych można `mysql.az_load_timezone` wypełniać, wywołując 
 
 ### <a name="scale-operations"></a>Operacje skalowania
 - Dynamiczne skalowanie do i z podstawowych warstw cenowych nie jest obecnie obsługiwane.
-- Zmniejszanie rozmiaru magazynu serwera nie jest obsługiwane.
+- Zmniejszenie rozmiaru magazynu serwera nie jest obsługiwane.
 
 ### <a name="server-version-upgrades"></a>Uaktualnienia wersji serwera
-- Automatyczna migracja między głównymi wersjami aparatu bazy danych nie jest obecnie obsługiwana. Jeśli chcesz uaktualnić do następnej wersji głównej, zrób [zrzut i przywróć](./concepts-migrate-dump-restore.md) go na serwerze, który został utworzony z nową wersją aparatu.
+- Automatyczna Migracja między wersjami aparatu głównej bazy danych nie jest obecnie obsługiwana. Jeśli chcesz uaktualnić do następnej wersji głównej, zrób [zrzut i Przywróć](./concepts-migrate-dump-restore.md) go na serwerze, który został utworzony przy użyciu nowej wersji aparatu.
 
 ### <a name="point-in-time-restore"></a>Przywracanie do punktu w czasie
-- Podczas korzystania z funkcji PITR nowy serwer jest tworzony z tymi samymi konfiguracjami co serwer, na którym jest oparty.
+- W przypadku korzystania z funkcji kopie nowy serwer jest tworzony z tymi samymi konfiguracjami co serwer, na którym jest oparta.
 - Przywracanie usuniętego serwera nie jest obsługiwane.
 
 ### <a name="vnet-service-endpoints"></a>Punkty końcowe usługi sieci wirtualnej
-- Obsługa punktów końcowych usługi sieci wirtualnej jest dostępna tylko dla serwerów ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
+- Obsługa punktów końcowych usługi sieci wirtualnej jest obsługiwana tylko w przypadku serwerów Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
 
 ### <a name="storage-size"></a>Rozmiar magazynu
-- Aby uzyskać limity rozmiaru magazynu dla warstwy cenowej, zapoznaj się z [warstwami cenowymi.](concepts-pricing-tiers.md)
+- Zapoznaj się z [warstwami cenowymi](concepts-pricing-tiers.md) dla limitów rozmiaru magazynu dla warstwy cenowej.
 
 ## <a name="current-known-issues"></a>Bieżące znane problemy
-- Wystąpienie serwera MySQL wyświetla niewłaściwą wersję serwera po nawiązaniu połączenia. Aby uzyskać poprawną wersję aparatu `select version();` wystąpienia serwera, użyj polecenia.
+- Wystąpienie serwera MySQL wyświetla nieprawidłową wersję serwera po nawiązaniu połączenia. Aby uzyskać poprawną wersję aparatu wystąpienia serwera, użyj `select version();` polecenia.
 
 ## <a name="next-steps"></a>Następne kroki
-- [Co jest dostępne w każdej warstwie usług](concepts-pricing-tiers.md)
+- [Co jest dostępne w poszczególnych warstwach usług](concepts-pricing-tiers.md)
 - [Obsługiwane wersje bazy danych MySQL](concepts-supported-versions.md)

@@ -1,6 +1,6 @@
 ---
-title: Omówienie akceleratora rozwiązań do zdalnego monitorowania — Platforma Azure | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera omówienie niektórych kluczowych elementów rozwiązania zdalnego monitorowania, aby umożliwić zrozumienie, jak to działa.
+title: Omówienie akceleratora rozwiązań zdalnego monitorowania — Azure | Microsoft Docs
+description: Ten artykuł zawiera omówienie niektórych najważniejszych elementów rozwiązania do monitorowania zdalnego, dzięki którym można zrozumieć, jak to działa.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,162 +9,162 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: f501eb55f72811063ddf1d8e02a0ce2137d598f3
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80546311"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Omówienie akceleratora rozwiązania do monitorowania zdalnego
 
-[Akcelerator rozwiązań](../iot-accelerators/about-iot-accelerators.md) do zdalnego monitorowania implementuje kompleksowe rozwiązanie do monitorowania wielu komputerów w odległych lokalizacjach. Rozwiązanie to łączy najważniejsze usługi platformy Azure, aby umożliwić ogólną implementację scenariusza biznesowego. Możesz go użyć jako punktu wyjścia dla Twojej własnej implementacji i je [dostosować](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md), aby spełniało Twoje własne określone wymagania biznesowe.
+[Akcelerator rozwiązania](../iot-accelerators/about-iot-accelerators.md) do monitorowania zdalnego implementuje kompleksowe rozwiązanie do monitorowania dla wielu maszyn w zdalnych lokalizacjach. Rozwiązanie to łączy najważniejsze usługi platformy Azure, aby umożliwić ogólną implementację scenariusza biznesowego. Możesz go użyć jako punktu wyjścia dla Twojej własnej implementacji i je [dostosować](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md), aby spełniało Twoje własne określone wymagania biznesowe.
 
-W tym artykule otrzymasz od niektórych kluczowych elementów rozwiązania do zdalnego monitorowania, aby zrozumieć, jak to działa. Ta wiedza ułatwi Ci:
+W tym artykule omówiono niektóre kluczowe elementy rozwiązania do monitorowania zdalnego, dzięki którym można zrozumieć, jak to działa. Ta wiedza ułatwi Ci:
 
 * Rozwiązywanie problemów w rozwiązaniu.
 * Planowanie sposobu dostosowywania rozwiązania, aby spełniało Twoje wymagania.
 * Projektowanie własnego rozwiązania IoT korzystającego z usług Azure.
 
-Kod akceleratora rozwiązania do zdalnego monitorowania jest dostępny w usłudze GitHub:
+Kod akceleratora rozwiązania do monitorowania zdalnego jest dostępny w witrynie GitHub:
 
 * [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
 * [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 
 ## <a name="logical-architecture"></a>Architektura logiczna
 
-Na poniższym diagramie przedstawiono składniki logiczne akceleratora rozwiązania zdalnego monitorowania nałożone na [architekturę IoT:](../iot-fundamentals/iot-introduction.md)
+Na poniższym diagramie przedstawiono składniki logiczne akceleratora rozwiązania do monitorowania zdalnego przełożonego na [architekturę IoT](../iot-fundamentals/iot-introduction.md):
 
 ![Architektura logiczna](./media/iot-accelerators-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
-## <a name="why-microservices"></a>Dlaczego mikrousług?
+## <a name="why-microservices"></a>Dlaczego mikrousługi?
 
-Architektura chmury ewoluowała od czasu wydania przez firmę Microsoft pierwszych akceleratorów rozwiązań. [Mikrousługi](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) pojawiły się jako sprawdzona praktyka, aby osiągnąć skalę i elastyczność bez utraty szybkości rozwoju. Kilka usług firmy Microsoft używa tego wzorca architektury wewnętrznie z dużą niezawodnością i skalowalnością. Zaktualizowane akceleratory rozwiązań wcielić te nauki w życie, dzięki czemu można również korzystać z nich.
+Architektura chmury została rozwinięta od czasu udostępnienia pierwszego akceleratora rozwiązań przez firmę Microsoft. [Mikrousługi](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) okazały się sprawdzoną metodą osiągnięcia skalowalności i elastyczności bez pogorszenia szybkości tworzenia oprogramowania. Kilka usług firmy Microsoft korzysta z tego wzorca architektury wewnętrznie z doskonałymi wynikami niezawodności i skalowalności. Zaktualizowane Akceleratory rozwiązań wprowadzają te informacje do ćwiczeń, dzięki czemu można z nich korzystać.
 
 > [!TIP]
 > Aby dowiedzieć się więcej na temat architektury mikrousług, zobacz [Architektura aplikacji .NET](https://www.microsoft.com/net/learn/architecture) i [Mikrousługi: rewolucja w aplikacjach wspierana przez chmurę](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
 ## <a name="device-connectivity"></a>Łączność urządzeń
 
-Rozwiązanie zawiera następujące składniki w części łączności urządzenia architektury logicznej:
+Rozwiązanie obejmuje następujące składniki w ramach łączności urządzenia w ramach architektury logicznej:
 
 ### <a name="real-devices"></a>Rzeczywiste urządzenia
 
-Do rozwiązania można podłączyć prawdziwe urządzenia. Można zaimplementować zachowanie symulowanych urządzeń przy użyciu zestawów SDK urządzeń IoT platformy Azure.
+Można połączyć rzeczywiste urządzenia z rozwiązaniem. Zachowanie symulowanych urządzeń można zaimplementować przy użyciu zestawów SDK urządzeń usługi Azure IoT.
 
-Można aprowizować rzeczywiste urządzenia z pulpitu nawigacyjnego w portalu rozwiązania.
+Rzeczywiste urządzenia można udostępnić z poziomu pulpitu nawigacyjnego w portalu rozwiązania.
 
 ### <a name="device-simulation-microservice"></a>Mikrousługa symulacji urządzenia
 
-Rozwiązanie obejmuje [mikrousługi symulacji urządzenia,](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation) która umożliwia zarządzanie pulą symulowanych urządzeń z portalu rozwiązania, aby przetestować przepływ end-to-end w rozwiązaniu. Symulowane urządzenia:
+Rozwiązanie obejmuje [mikrousługę symulacji urządzenia](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation) , która umożliwia zarządzanie pulą symulowanych urządzeń z portalu rozwiązania w celu przetestowania kompleksowego przepływu w rozwiązaniu. Symulowane urządzenia:
 
-* Generowanie danych telemetrycznych między urządzeniami do chmury.
-* Odpowiadanie na wywołania metody chmury do urządzenia z usługi IoT Hub.
+* Generuj dane telemetryczne z urządzenia do chmury.
+* Odpowiadanie na wywołania metody z chmury do urządzenia z IoT Hub.
 
-Mikrousługa zapewnia punkt końcowy RESTful do tworzenia, uruchamiania i zatrzymywania symulacji. Każda symulacja składa się z zestawu urządzeń wirtualnych różnych typów, które wysyłają dane telemetryczne i odpowiadają na wywołania metody.
+Mikrousługa udostępnia RESTful punkt końcowy, aby można było tworzyć, uruchamiać i zatrzymywać symulacje. Każda symulacja składa się z zestawu urządzeń wirtualnych różnych typów, które wysyła telemetrię i reaguje na wywołania metod.
 
-Można aprowizować symulowane urządzenia z pulpitu nawigacyjnego w portalu rozwiązania.
+Symulowane urządzenia można udostępnić z poziomu pulpitu nawigacyjnego w portalu rozwiązania.
 
 ### <a name="iot-hub"></a>Usługa IoT Hub
 
-[Centrum IoT](../iot-hub/index.yml) posuwania danych telemetrycznych wysyłanych z rzeczywistych i symulowanych urządzeń do chmury. Centrum IoT hub udostępnia dane telemetryczne do usług w wewnętrznej bazy danych rozwiązania IoT do przetwarzania.
+Usługa [IoT Hub](../iot-hub/index.yml) pozyskuje dane telemetryczne wysyłane z rzeczywistych i symulowanych urządzeń do chmury. Usługa IoT Hub udostępnia dane telemetryczne dla usług w zapleczu rozwiązania IoT do przetwarzania.
 
 Usługa IoT Hub w rozwiązaniu wykonuje ponadto następujące czynności:
 
-* Utrzymuje rejestr tożsamości, który przechowuje identyfikatory i klucze uwierzytelniania wszystkich urządzeń, które mogą łączyć się z portalem.
-* Wywołuje metody na urządzeniach w imieniu akceleratora rozwiązań.
+* Obsługuje rejestr tożsamości przechowujący identyfikatory i klucze uwierzytelniania wszystkich urządzeń, które mogą nawiązywać połączenia z portalem.
+* Wywołuje metody na urządzeniach w imieniu akceleratora rozwiązania.
 * Obsługuje bliźniacze reprezentacje wszystkich zarejestrowanych urządzeń. W bliźniaczej reprezentacji urządzenia są przechowywane wartości właściwości zgłaszanych przez urządzenie. W bliźniaczej reprezentacji urządzenia są także przechowywane żądane właściwości ustawione w portalu rozwiązania, które mają zostać pobrane przez urządzanie podczas nawiązywania następnego połączenia.
 * Planuje zadania ustawiania właściwości dla wielu urządzeń lub wywoływania metod na wielu urządzeniach.
 
 ## <a name="data-processing-and-analytics"></a>Przetwarzanie danych i analiza
 
-Rozwiązanie obejmuje następujące składniki w części przetwarzania i analizy danych architektury logicznej:
+Rozwiązanie obejmuje następujące składniki w części przetwarzanie danych i analiza architektury logicznej:
 
-### <a name="iot-hub-manager-microservice"></a>Mikrousługi menedżera usługi IoT Hub
+### <a name="iot-hub-manager-microservice"></a>Mikrousługa IoT Hub Manager
 
-Rozwiązanie obejmuje [mikrousługi menedżera usługi IoT Hub](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager) do obsługi interakcji z centrum IoT hub, takich jak:
+Rozwiązanie obejmuje [mikrousługę IoT Hub Manager](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager) do obsługi interakcji z Centrum IoT, takich jak:
 
 * Tworzenie urządzeń IoT i zarządzanie nimi.
-* Zarządzanie bliźniacze urządzenia.
+* Zarządzanie bliźniaczych reprezentacji urządzeń.
 * Wywoływanie metod na urządzeniach.
 * Zarządzanie poświadczeniami IoT.
 
-Ta usługa uruchamia również zapytania Usługi IoT Hub w celu pobrania urządzeń należących do grup zdefiniowanych przez użytkownika.
+Ta usługa uruchamia również IoT Hub zapytania, aby pobrać urządzenia należące do grup zdefiniowanych przez użytkownika.
 
-Mikrousługa zapewnia punkt końcowy RESTful do zarządzania urządzeniami i bliźniaczymi urządzeń, wywoływania metod i uruchamiania zapytań Usługi IoT Hub.
+Mikrousługa udostępnia RESTful punkt końcowy do zarządzania urządzeniami i bliźniaczych reprezentacji urządzeń, wywoływania metod i uruchamiania zapytań IoT Hub.
 
 ### <a name="device-telemetry-microservice"></a>Mikrousługa telemetrii urządzenia
 
-[Mikrousługa telemetryczna urządzenia](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry) zapewnia punkt końcowy RESTful dla dostępu do odczytu danych telemetrycznych urządzeń przechowywanych w usłudze Time Series Insights. Punkt końcowy RESTful umożliwia również operacje CRUD na regułach i dostęp do odczytu/zapisu dla definicji alarmów z magazynu.
+[Mikrousługa telemetrii urządzenia](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry) udostępnia punkt końcowy RESTful na potrzeby dostępu do odczytu do danych telemetrycznych urządzenia przechowywanych w Time Series Insights. Punkt końcowy RESTful umożliwia również wykonywanie operacji CRUD na zasadach i dostęp do odczytu/zapisu dla definicji alarmów z magazynu.
 
-### <a name="storage-adapter-microservice"></a>Mikrousługa karty pamięci masowej
+### <a name="storage-adapter-microservice"></a>Mikrousługa kart pamięci
 
-[Mikrousługa karty magazynu](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/storage-adapter) zarządza parami klucz-wartość, abstrakcjonowanie semantyki usługi magazynu i prezentowanie prostego interfejsu do przechowywania danych dowolnego formatu przy użyciu usługi Azure Cosmos DB.
+[Mikrousługa karty magazynu](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/storage-adapter) zarządza parami klucz-wartość, abstrakcją semantyki usługi magazynu i przedstawieniem prostego interfejsu do przechowywania danych dowolnego formatu przy użyciu Azure Cosmos DB.
 
-Wartości są zorganizowane w kolekcjach. Można pracować nad poszczególnymi wartościami lub pobrać całe kolekcje. Złożone struktury danych są serializowane przez klientów i zarządzane jako prosty ładunek tekstu.
+Wartości są zorganizowane w kolekcje. Możesz korzystać z poszczególnych wartości lub pobrać całe kolekcje. Złożone struktury danych są serializowane przez klientów i zarządzane jako zwykły ładunek tekstu.
 
-Usługa zapewnia punkt końcowy RESTful dla operacji CRUD na pary klucza wartości. values
+Usługa udostępnia punkt końcowy RESTful dla operacji CRUD w parach klucz-wartość. values
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Wdrożenia akceleratora rozwiązań używają [usługi Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) do przechowywania reguł, alertów, ustawień konfiguracji i wszystkich innych chłodni.
+Wdrożenia akceleratora rozwiązań używają [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) do przechowywania zasad, alertów, ustawień konfiguracji i wszystkich innych magazynów w chłodnym magazynie.
 
-### <a name="azure-stream-analytics-manager-microservice"></a>Mikrousługi usługi Azure Stream Analytics manager
+### <a name="azure-stream-analytics-manager-microservice"></a>Mikrousługa Azure Stream Analytics Manager
 
-[Mikrousługa usługi Azure Stream Analytics manager](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/asa-manager) zarządza zadaniami usługi Azure Stream Analytics (ASA), w tym ustawianiem ich konfiguracji, uruchamianiem i zatrzymywaniem ich oraz monitorowaniem ich stanu.
+[Mikrousługa Azure Stream Analytics Manager](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/asa-manager) zarządza zadaniami Azure Stream Analytics (ASA), w tym ustawiania ich konfiguracji, uruchamiania i zatrzymywania oraz monitorowania ich stanu.
 
-Zadanie ASA jest obsługiwane przez dwa zestawy danych referencyjnych. Jeden zestaw danych definiuje reguły, a jeden definiuje grupy urządzeń. Dane referencyjne reguł są generowane na podstawie informacji zarządzanych przez mikrousługi telemetryczne urządzenia. Mikrousługi menedżera usługi Azure Stream Analytics przekształca reguły telemetryczne w logikę przetwarzania strumienia.
+Zadanie ASA jest obsługiwane przez dwa zestawy danych referencyjnych. Jeden zestaw danych definiuje reguły i jeden definiuje grupy urządzeń. Dane referencyjne reguł są generowane na podstawie informacji zarządzanych przez mikrousługę telemetrii urządzenia. Mikrousługa Azure Stream Analytics Manager przekształca reguły telemetrii w logikę przetwarzania strumienia.
 
-Dane referencyjne grup urządzeń są używane do identyfikowania grupy reguł, które mają być stosowane do przychodzącego komunikatu telemetrycznego. Grupy urządzeń są zarządzane przez mikrousługi konfiguracji i używać usługi Azure IoT Hub bliźniaczej reprezentacji zapytań.
+Dane referencyjne grup urządzeń są używane do identyfikowania grupy reguł, które mają zostać zastosowane do przychodzącego komunikatu telemetrii. Grupy urządzeń są zarządzane przez mikrousługę konfiguracji i używają zapytań bliźniaczych dla usługi Azure IoT Hub Device.
 
-Zadania ASA dostarczają dane telemetryczne z podłączonych urządzeń do usługi Time Series Insights do przechowywania i analizy.
+Zadania ASA zapewniają dane telemetryczne z połączonych urządzeń, aby Time Series Insights do magazynu i analizy.
 
 ### <a name="azure-stream-analytics"></a>Usługa Azure Stream Analytics
 
-[Usługa Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) to aparat przetwarzania zdarzeń, który umożliwia sprawdzanie dużej ilości przesyłania strumieniowego danych z urządzeń.
+[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) to aparat przetwarzania zdarzeń, który umożliwia badanie dużych ilości danych przesyłanych strumieniowo z urządzeń.
 
 ### <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
-[Usługa Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) przechowuje dane telemetryczne z urządzeń podłączonych do akceleratora rozwiązań. Umożliwia również wizualizację i wyszukiwanie danych telemetrycznych urządzenia w interfejsie użytkownika sieci web rozwiązania.
+[Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) przechowuje dane telemetryczne z urządzeń podłączonych do akceleratora rozwiązania. Umożliwia także wizualizację i wykonywanie zapytań dotyczących telemetrii urządzenia w interfejsie użytkownika sieci Web rozwiązania.
 
 ### <a name="configuration-microservice"></a>Mikrousługa konfiguracji
 
-[Mikrousługa konfiguracji](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config) zapewnia punkt końcowy RESTful dla operacji CRUD w grupach urządzeń, ustawieniach rozwiązania i ustawieniach użytkownika w akceleratorze rozwiązań. Współpracuje z mikrousługą karty magazynu, aby utrwalić dane konfiguracji.
+[Mikrousługa konfiguracji](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config) udostępnia punkt końcowy RESTful dla operacji CRUD w grupach urządzeń, ustawieniach rozwiązania i ustawieniach użytkownika w akceleratorze rozwiązania. Współpracuje z mikrousługą karty pamięci, aby zachować dane konfiguracyjne.
 
-### <a name="authentication-and-authorization-microservice"></a>Uwierzytelnianie i autoryzacja mikrousług
+### <a name="authentication-and-authorization-microservice"></a>Mikrousługa uwierzytelniania i autoryzacji
 
-[Mikrousługa uwierzytelniania i autoryzacji](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) zarządza użytkownikami autoryzowanym do uzyskania dostępu do akceleratora rozwiązań. Zarządzanie użytkownikami można wykonać za pomocą dowolnego dostawcy usług tożsamości obsługującego [openid connect](https://openid.net/connect/).
+[Mikrousługa uwierzytelniania i autoryzacji](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) zarządza użytkownikami uprawnionymi do uzyskiwania dostępu do akceleratora rozwiązań. Zarządzanie użytkownikami można wykonać przy użyciu dowolnego dostawcy usługi tożsamości, który obsługuje [OpenID Connect Connect](https://openid.net/connect/).
 
-### <a name="azure-active-directory"></a>Usługa Azure Active Directory
+### <a name="azure-active-directory"></a>Azure Active Directory
 
-Wdrożenia akceleratora rozwiązań używają [usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) jako dostawcy openid connect. Usługa Azure Active Directory przechowuje informacje o użytkowniku i udostępnia certyfikaty do sprawdzania poprawności podpisów tokenów JWT.
+Wdrożenia akceleratora rozwiązań używają [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) jako dostawcy połączenia OpenID Connect. Azure Active Directory przechowuje informacje o użytkowniku i udostępnia certyfikaty do weryfikowania podpisów tokenów JWT.
 
 ## <a name="presentation"></a>Prezentacja
 
-Rozwiązanie zawiera następujące składniki w części prezentacji architektury logicznej:
+Rozwiązanie obejmuje następujące składniki w części Prezentacja architektury logicznej:
 
-Internetowy [interfejs użytkownika jest aplikacją React Javascript](https://github.com/Azure/pcs-remote-monitoring-webui). Zastosowanie:
+[Interfejs użytkownika sieci Web to aplikacja JavaScript do reagowania](https://github.com/Azure/pcs-remote-monitoring-webui). Aplikacja:
 
-* Używa tylko Javascript React i działa w całości w przeglądarce.
-* Jest stylizowany na CSS.
-* Współdziała z mikrousług publicznych stoi za pośrednictwem wywołań AJAX.
+* Używa tylko do obsługi skryptów języka JavaScript i działa wyłącznie w przeglądarce.
+* Jest stylem CSS.
+* Współdziała z przychodzącymi mikrousługami za pomocą wywołań AJAX.
 
 Interfejs użytkownika przedstawia wszystkie funkcje akceleratora rozwiązań i współdziała z innymi mikrousługami, takimi jak:
 
-* Mikrousługi uwierzytelniania i autoryzacji w celu ochrony danych użytkownika.
-* Mikrousługi menedżera usługi IoT Hub do listy i zarządzania urządzeniami IoT.
+* Mikrousługa uwierzytelniania i autoryzacji do ochrony danych użytkownika.
+* Mikrousługa IoT Hub Manager, aby wyświetlić listę urządzeń IoT i zarządzać nimi.
 
-Interfejs użytkownika integruje Eksploratora usługi Azure Time Series Insights, aby umożliwić wykonywanie zapytań i analizę telemetrii urządzenia.
+Interfejs użytkownika integruje Eksploratora Azure Time Series Insights, aby umożliwić wykonywanie zapytań i analizy danych telemetrycznych urządzeń.
 
-Mikrousługa konfiguracji umożliwia interfejs użytkownika do przechowywania i pobierania ustawień konfiguracji.
+Mikrousługa konfiguracji umożliwia interfejsowi użytkownika przechowywanie i pobieranie ustawień konfiguracji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli chcesz zapoznać się z kodem źródłowym i dokumentacją dewelopera, zacznij od jednego z dwóch repozytoriów GitHub:
+Jeśli chcesz poznać kod źródłowy i dokumentację dla deweloperów, Zacznij od jednego z dwóch repozytoriów usługi GitHub:
 
-* [Akcelerator rozwiązań do zdalnego monitorowania za pomocą usługi Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
-* [Akcelerator rozwiązań do zdalnego monitorowania za pomocą usługi Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+* [Akcelerator rozwiązania do zdalnego monitorowania za pomocą usługi Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
+* [Akcelerator rozwiązania do zdalnego monitorowania za pomocą usługi Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 
-Szczegółowe diagramy architektury rozwiązania:
-* [Akcelerator rozwiązań dla architektury zdalnego monitorowania](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
+Szczegółowe diagramy architektury rozwiązań:
+* [Akcelerator rozwiązania dla architektury zdalnego monitorowania](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-Aby uzyskać więcej informacji koncepcyjnych dotyczących akceleratora rozwiązań do zdalnego monitorowania, zobacz [Dostosowywanie akceleratora rozwiązań](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).
+Aby uzyskać więcej informacji o pojęciach dotyczących akceleratora rozwiązania do monitorowania zdalnego, zobacz [Dostosowywanie akceleratora rozwiązania](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

@@ -1,6 +1,6 @@
 ---
-title: Funkcje usługi Azure Cloud Shell | Dokumenty firmy Microsoft
-description: Omówienie funkcji w usłudze Azure Cloud Shell
+title: Funkcje Azure Cloud Shell | Microsoft Docs
+description: Omówienie funkcji w Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: maertendMSFT
@@ -15,70 +15,70 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
 ms.openlocfilehash: 78275211b77cb34cf9aa92e44778e5d4d81fffed
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521011"
 ---
-# <a name="features--tools-for-azure-cloud-shell"></a>Funkcje & narzędzia dla usługi Azure Cloud Shell
+# <a name="features--tools-for-azure-cloud-shell"></a>Funkcje & narzędzia dla Azure Cloud Shell
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
-Usługa Azure Cloud `Ubuntu 16.04 LTS`Shell działa na .
+Azure Cloud Shell uruchomiony `Ubuntu 16.04 LTS`.
 
 ## <a name="features"></a>Funkcje
 
 ### <a name="secure-automatic-authentication"></a>Bezpieczne uwierzytelnianie automatyczne
 
-Usługa Cloud Shell bezpiecznie i automatycznie uwierzytelnia dostęp do konta dla interfejsu wiersza polecenia platformy Azure i programu Azure PowerShell.
+Cloud Shell bezpiecznie i automatycznie uwierzytelnia dostęp do konta dla interfejsu wiersza polecenia platformy Azure i Azure PowerShell.
 
-### <a name="home-persistence-across-sessions"></a>$HOME wytrwałość w sesjach
+### <a name="home-persistence-across-sessions"></a>$HOME trwałość między sesjami
 
-Aby utrwalić pliki w sesjach, usługa Cloud Shell przeprowadzi Cię przez dołączanie udziału plików platformy Azure przy pierwszym uruchomieniu.
-Po zakończeniu Cloud Shell automatycznie dołączy pamięć `$HOME\clouddrive`masową (zamontowaną jako) dla wszystkich przyszłych sesji.
-Ponadto katalog `$HOME` jest zachowywany jako .img w udziale pliku azure.
-Pliki poza `$HOME` i stan komputera nie są utrwalone w sesjach. Należy użyć najlepszych rozwiązań podczas przechowywania wpisów tajnych, takich jak klucze SSH. Usługi takie jak [Azure Key Vault mają samouczki dotyczące konfiguracji](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
+Aby utrwalać pliki między sesjami, Cloud Shell przeprowadzi Cię przez dołączenie udziału plików platformy Azure przy pierwszym uruchomieniu.
+Po zakończeniu Cloud Shell automatycznie dołączy magazyn (zainstalowany jako `$HOME\clouddrive`) dla wszystkich przyszłych sesji.
+Ponadto `$HOME` katalog jest utrwalony jako. img w udziale plików platformy Azure.
+Pliki poza programem `$HOME` i stan komputera nie są utrwalane między sesjami. W przypadku przechowywania wpisów tajnych, takich jak klucze SSH, należy stosować najlepsze rozwiązania. Usługi, takie jak [Azure Key Vault, mają samouczki dla Instalatora](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
-[Dowiedz się więcej o utrwalaniu plików w usłudze Cloud Shell.](persisting-shell-storage.md)
+[Dowiedz się więcej o utrwalaniu plików w Cloud Shell.](persisting-shell-storage.md)
 
 ### <a name="azure-drive-azure"></a>Dysk platformy Azure (Azure:)
 
-Program PowerShell w usłudze`Azure:`Cloud Shell udostępnia dysk platformy Azure ( ). Możesz przełączyć się na `cd Azure:` dysk platformy Azure z `cd  ~`i z powrotem do katalogu domowego za pomocą .
-Dysk platformy Azure umożliwia łatwe wykrywanie i nawigację zasobów platformy Azure, takich jak zasoby obliczeniowe, sieć, magazyn itp., podobnie jak nawigacja w systemie plików.
-Możesz nadal używać znanych [poleceń cmdlet programu Azure PowerShell](https://docs.microsoft.com/powershell/azure) do zarządzania tymi zasobami, niezależnie od dysku, na który się znajdujesz.
-Wszelkie zmiany wprowadzone w zasobach platformy Azure, wprowadzone bezpośrednio w witrynie Azure portal lub za pośrednictwem poleceń cmdlet programu Azure PowerShell, są odzwierciedlane na dysku platformy Azure.  Można uruchomić, `dir -Force` aby odświeżyć swoje zasoby.
+Program PowerShell w Cloud Shell udostępnia dysk platformy Azure`Azure:`(). Możesz przełączyć się na dysk platformy Azure w `cd Azure:` usłudze i z powrotem do katalogu macierzystego `cd  ~`przy użyciu programu.
+Dysk platformy Azure umożliwia łatwe odnajdowanie zasobów platformy Azure, takich jak obliczenia, Sieć, magazyn itp., podobnie jak nawigowanie po systemie plików.
+Aby zarządzać tymi zasobami niezależnie od używanego dysku, można nadal używać znanych [poleceń cmdlet Azure PowerShell](https://docs.microsoft.com/powershell/azure) .
+Wszystkie zmiany wprowadzone w zasobach platformy Azure, które zostały wprowadzone bezpośrednio w Azure Portal lub za pomocą poleceń cmdlet Azure PowerShell, są odzwierciedlone na dysku platformy Azure.  Aby odświeżyć `dir -Force` zasoby, można uruchomić.
 
 ![](media/features-powershell/azure-drive.png)
 
 ### <a name="manage-exchange-online"></a>Zarządzanie usługą Exchange Online
 
-Program PowerShell w usłudze Cloud Shell zawiera prywatną kompilację modułu usługi Exchange Online.  Uruchom, `Connect-EXOPSSession` aby uzyskać polecenia cmdlet exchange.
+Program PowerShell w Cloud Shell zawiera prywatną kompilację modułu usługi Exchange Online.  Uruchom `Connect-EXOPSSession` polecenie, aby uzyskać polecenia cmdlet programu Exchange.
 
 ![](media/features-powershell/exchangeonline.png)
 
  Uruchom polecenie `Get-Command -Module tmp_*`
 > [!NOTE]
-> Nazwa modułu powinna `tmp_`zaczynać się od , jeśli zainstalowano moduły z tym samym prefiksem, ich polecenia cmdlet również zostaną ukazywany. 
+> Nazwa modułu powinna rozpoczynać się `tmp_`od, jeśli zainstalowano moduły z tym samym prefiksem, zostaną również wyświetlone te polecenia cmdlet. 
 
 ![](media/features-powershell/exchangeonlinecmdlets.png)
 
-### <a name="deep-integration-with-open-source-tooling"></a>Głęboka integracja z narzędziami typu open source
+### <a name="deep-integration-with-open-source-tooling"></a>Ścisła integracja z narzędziami Open Source
 
-Usługa Cloud Shell zawiera wstępnie skonfigurowane uwierzytelnianie dla narzędzi typu open source, takich jak Terraform, Ansible i Chef InSpec. Wypróbuj go z przykładowych instruktajm.
+Cloud Shell obejmuje wstępnie skonfigurowane uwierzytelnianie dla narzędzi typu "open source", takich jak Terraform, rozwiązania ansible i Chef. Wypróbuj ją z przykładowych przewodników.
 
-## <a name="tools"></a>narzędzia
+## <a name="tools"></a>Narzędzia
 
 |Kategoria   |Nazwa   |
 |---|---|
-|Narzędzia linuksa            |bash<br> Zsh<br> Sh<br> tmux<br> Kopać<br>               |
-|Narzędzia platformy Azure            |[Interfejs wiersza polecenia interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-cli) i [klasycznego interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy (Polski)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Interfejs wiersza polecenia usługi Azure Functions](https://github.com/Azure/azure-functions-core-tools)<br> [Interfejs wiersza polecenia usługi Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Usługa Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
-|Edytory tekstu           |(edytor Cloud Shell)<br> vim<br> nano<br> emacs    |
+|Narzędzia systemu Linux            |bash<br> zsh<br> pok<br> tmux<br> Dig<br>               |
+|Narzędzia platformy Azure            |[Interfejs wiersza polecenia platformy Azure](https://github.com/Azure/azure-cli) i [klasyczny interfejs wiersza polecenia platformy Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Interfejs wiersza polecenia usługi Azure Functions](https://github.com/Azure/azure-functions-core-tools)<br> [Interfejs wiersza polecenia usługi Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Usługa Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
+|Edytory tekstu           |kod (Edytor Cloud Shell)<br> vim<br> nano<br> emacs    |
 |Kontrola źródła         |git                    |
-|Tworzenie narzędzi            |make<br> maven<br> npm<br> Pip         |
-|Kontenery             |[Docker Machine](https://github.com/docker/machine)<br> [Okręg wyborczy Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Hełm](https://github.com/kubernetes/helm)<br> [Interfejsu wiersza polecenia DC/OS](https://github.com/dcos/dcos-cli)         |
-|Bazy danych              |Klient MySQL<br> Klient PostgreSql<br> [Sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Inne                  |Klient iPython<br> [Cli odlewnicza chmury](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Szef kuchni InSpec](https://www.chef.io/inspec/)<br> [Lalkowa śruba](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
+|Narzędzia kompilacji            |make<br> maven<br> npm<br> graczy         |
+|Containers             |[Docker Machine](https://github.com/docker/machine)<br> [Polecenia kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [INTERFEJS WIERSZA POLECENIA DC/OS](https://github.com/dcos/dcos-cli)         |
+|Bazy danych              |Klient MySQL<br> Klient PostgreSql<br> [Narzędzie sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [MSSQL-Scripter](https://github.com/Microsoft/sql-xplat-cli) |
+|Inne                  |Klient iPython<br> [Interfejs wiersza polecenia Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef — Specyfikacja](https://www.chef.io/inspec/)<br> [Puppet](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
 
 ## <a name="language-support"></a>Obsługa języków
 
@@ -89,10 +89,10 @@ Usługa Cloud Shell zawiera wstępnie skonfigurowane uwierzytelnianie dla narzę
 |Java       |1.8        |
 |Node.js    |8.16.0      |
 |PowerShell |[7.0.0](https://github.com/PowerShell/powershell/releases)       |
-|Python     |2.7 i 3.5 (domyślnie)|
+|Python     |2,7 i 3,5 (wartość domyślna)|
 
 ## <a name="next-steps"></a>Następne kroki
-[Bash w Cloud Shell Szybki start](quickstart.md) <br>
-[Program PowerShell w programie Cloud Shell Szybki start](quickstart-powershell.md) <br>
-[Dowiedz się więcej o platformie Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
-[Dowiedz się więcej o programie Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>
+[Bash w Cloud Shell Szybki Start](quickstart.md) <br>
+[Program PowerShell w Cloud Shell Szybki Start](quickstart-powershell.md) <br>
+[Informacje o interfejsie wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/) <br>
+[Dowiedz się więcej o Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

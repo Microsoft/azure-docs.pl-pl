@@ -1,7 +1,7 @@
 ---
-title: Metryki usługi Media Services i dzienniki diagnostyczne za pomocą usługi Azure Monitor
+title: Media Services metryki i dzienników diagnostycznych z Azure Monitor
 titleSuffix: Azure Media Services
-description: Dowiedz się, jak monitorować metryki i dzienniki diagnostyczne usługi Azure Media Services za pośrednictwem usługi Azure Monitor.
+description: Informacje na temat monitorowania Azure Media Services metryk i dzienników diagnostycznych za pośrednictwem Azure Monitor.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,103 +15,103 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: 75363212684bb09e84a4bc4881af26e6d2a8e7e3
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80585275"
 ---
-# <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitorowanie metryk i dzienników diagnostycznych usługi Media Services za pośrednictwem usługi Azure Monitor
+# <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitoruj Media Services metryki i dzienniki diagnostyczne za pośrednictwem Azure Monitor
 
-[Usługa Azure Monitor](../../azure-monitor/overview.md) umożliwia monitorowanie metryk i dzienników diagnostycznych, które pomagają zrozumieć, jak działają aplikacje. Wszystkie dane zbierane przez usługę Azure Monitor są jednym z dwóch podstawowych typów: metryk i dzienników. Można monitorować dzienniki diagnostyczne usługi Media Services i tworzyć alerty i powiadomienia dla zebranych metryk i dzienników. Można wizualizować i analizować dane metryk za pomocą [Eksploratora metryk.](../../azure-monitor/platform/metrics-getting-started.md) Dzienniki można wysyłać do [usługi Azure Storage,](https://azure.microsoft.com/services/storage/)przesyłać strumieniowo do [usługi Azure Event Hubs,](https://azure.microsoft.com/services/event-hubs/)eksportować je do [usługi Log Analytics](https://azure.microsoft.com/services/log-analytics/)lub korzystać z usług innych firm.
+[Azure monitor](../../azure-monitor/overview.md) umożliwia monitorowanie metryk i dzienników diagnostycznych, które ułatwiają zrozumienie sposobu działania aplikacji. Wszystkie dane zbierane przez Azure Monitor są uwzględniane w jednym z dwóch podstawowych typów: metryki i dzienniki. Można monitorować Media Services dzienników diagnostycznych oraz tworzyć alerty i powiadomienia dotyczące zebranych metryk i dzienników. Możesz wizualizować i analizować dane metryk przy użyciu [Eksploratora metryk](../../azure-monitor/platform/metrics-getting-started.md). Możesz wysyłać dzienniki do usługi [Azure Storage](https://azure.microsoft.com/services/storage/), przesyłać strumieniowo do [usługi Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), eksportować je do [log Analytics](https://azure.microsoft.com/services/log-analytics/)lub korzystać z usług innych firm.
 
-Aby uzyskać szczegółowe informacje, zobacz [Metryki usługi Azure Monitor](../../azure-monitor/platform/data-platform.md) i [dzienniki diagnostyczne usługi Azure Monitor.](../../azure-monitor/platform/platform-logs-overview.md)
+Aby zapoznać się z szczegółowym omówieniem, zobacz [Azure monitor metryki](../../azure-monitor/platform/data-platform.md) i [Azure monitor dzienników diagnostycznych](../../azure-monitor/platform/platform-logs-overview.md).
 
-W tym temacie omówiono obsługiwane [dzienniki metryk usługi Media Services](#media-services-metrics) i [dzienniki diagnostyczne usługi Media Services](#media-services-diagnostic-logs).
+W tym temacie omówiono obsługiwane [Media Services metryki](#media-services-metrics) i [dzienniki diagnostyczne Media Services](#media-services-diagnostic-logs).
 
-## <a name="media-services-metrics"></a>Metryki usługi Media Services
+## <a name="media-services-metrics"></a>Metryki Media Services
 
-Metryki są zbierane w regularnych odstępach czasu, czy wartość zmienia się. Są one przydatne do alertów, ponieważ mogą być pobierane często próbkowania i alert może być uruchamiany szybko za pomocą stosunkowo prostej logiki. Aby uzyskać informacje na temat tworzenia alertów metryk, zobacz [Tworzenie, wyświetlanie i zarządzanie alertami metryk przy użyciu usługi Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+Metryki są zbierane w regularnych odstępach czasu, niezależnie od tego, czy wartość jest zmieniana. Są one przydatne w przypadku alertów, ponieważ mogą być próbkowane często, a alert może być uruchamiany szybko z stosunkowo prostą logiką. Aby uzyskać informacje na temat tworzenia alertów metryk, zobacz [Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi za pomocą Azure monitor](../../azure-monitor/platform/alerts-metric.md).
 
-Usługi Media Services obsługuje metryki monitorowania dla następujących zasobów:
+Media Services obsługuje metryki monitorowania dla następujących zasobów:
 
 * Konto
 * Punkt końcowy przesyłania strumieniowego
 
 ### <a name="account"></a>Konto
 
-Możesz monitorować następujące dane konta.
+Można monitorować następujące metryki konta.
 
 |Nazwa metryki|Nazwa wyświetlana|Opis|
 |---|---|---|
-|AssetCount (licz assetcount)|Liczba zasobów|Zasoby na twoim koncie.|
-|AssetQuota (Quota aktywów)|Przydział środków trwałych|Przydział zasobów na koncie.|
-|AssetQuotaUsedPercentage|Użyta wartość procentowa przydziału zasobów|Procent już użytego przydziału zasobów.|
-|ContentKeyPolicyCount (Liczba klawiatur contentkeypolicycount)|Liczba zasad klucza zawartości|Zasady dotyczące kluczy zawartości na twoim koncie.|
-|ContentKeyPolicyQuota (ContentKeyPolicyQuota)|Przydział zasad klucza zawartości|Przydział zasad klucza zawartości na koncie.|
-|ContentKeyPolicyQuotaUsedPercentage|Użyto wartości procentowej przydziału zasad klucza zawartości|Procent już użytego przydziału zasad klucza zawartości.|
-|StreamingPolicyCount|Liczba zasad przesyłania strumieniowego|Zasady przesyłania strumieniowego na twoim koncie.|
-|StreamingPolicyQuota|Przydział zasad przesyłania strumieniowego|Przydział zasad przesyłania strumieniowego na koncie.|
-|StreamingPolicyQuotaUsedPercentage|Użyty procent przydziału zasad przesyłania strumieniowego|Procent już użytego przydziału zasad przesyłania strumieniowego.|
+|AssetCount|Liczba zasobów|Zasoby na Twoim koncie.|
+|AssetQuota|Przydział zasobów|Przydział zasobów na koncie.|
+|AssetQuotaUsedPercentage|Procent użycia przydziału zasobów|Wartość procentowa przydziału zasobów jest już używana.|
+|ContentKeyPolicyCount|Liczba zasad dotyczących kluczy zawartości|Zasady kluczy zawartości na Twoim koncie.|
+|ContentKeyPolicyQuota|Przydział zasad dotyczących kluczy zawartości|Przydział zasad kluczy zawartości na Twoim koncie.|
+|ContentKeyPolicyQuotaUsedPercentage|Procent użycia przydziału zasad klucza zawartości|Wartość procentowa przydziału zasad klucza zawartości już użyta.|
+|StreamingPolicyCount|Liczba zasad przesyłania strumieniowego|Zasady przesyłania strumieniowego na Twoim koncie.|
+|StreamingPolicyQuota|Limit przydziału zasad przesyłania strumieniowego|Przekroczono limit przydziału zasad przesyłania strumieniowego na Twoim koncie.|
+|StreamingPolicyQuotaUsedPercentage|Procent użycia limitu przydziału zasad przesyłania strumieniowego|Wartość procentowa przydziału zasad przesyłania strumieniowego już używana.|
 
-Należy również przejrzeć [przydziały i limity kont](limits-quotas-constraints.md).
+Należy również sprawdzić [przydziały i limity kont](limits-quotas-constraints.md).
 
 ### <a name="streaming-endpoint"></a>Punkt końcowy przesyłania strumieniowego
 
-Obsługiwane są następujące [metryki punktów końcowych przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingendpoints) usługi Media Services:
+Następujące metryki [punktów końcowych przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingendpoints) Media Services są obsługiwane:
 
 |Nazwa metryki|Nazwa wyświetlana|Opis|
 |---|---|---|
-|Żądania|Żądania|Zawiera całkowitą liczbę żądań HTTP obsługiwanych przez punkt końcowy przesyłania strumieniowego.|
+|Żądania|Żądania|Zapewnia łączną liczbę żądań HTTP obsłużonych przez punkt końcowy przesyłania strumieniowego.|
 |Ruch wychodzący|Ruch wychodzący|Całkowita liczba bajtów wychodzących. Na przykład bajty przesyłane strumieniowo przez punkt końcowy przesyłania strumieniowego.|
-|SuccessE2ELatency|Sukces koniec do końca Latencja|Czas trwania od momentu odebrania punktu końcowego przesyłania strumieniowego do momentu wysłania ostatniego bajtu odpowiedzi.|
+|SuccessE2ELatency|Pomyślne zakończenie oczekiwania|Czas trwania od momentu, gdy punkt końcowy przesyłania strumieniowego otrzymał żądanie do momentu wysłania ostatniego bajtu odpowiedzi.|
 
-### <a name="why-would-i-want-to-use-metrics"></a>Dlaczego warto używać danych?
+### <a name="why-would-i-want-to-use-metrics"></a>Dlaczego warto używać metryk?
 
-Oto przykłady, w jaki sposób monitorowanie metryk usługi Media Services może pomóc w zrozumieniu, jak działają aplikacje. Oto kilka pytań, które można rozwiązać za pomocą metryk usługi Media Services:
+Poniżej przedstawiono przykłady sposobu, w jaki monitorowanie Media Services metryki mogą pomóc zrozumieć sposób działania aplikacji. Oto kilka pytań, na które można rozwiązać Media Services metryki:
 
-* Jak monitorować standardowy punkt końcowy przesyłania strumieniowego, aby wiedzieć, kiedy przekroczyłem limity?
-* Skąd mam wiedzieć, czy mam wystarczającą liczbę jednostek w skali premium w skali punktu końcowego przesyłania strumieniowego?
-* Jak ustawić alert, aby wiedzieć, kiedy skalować punkty końcowe przesyłania strumieniowego w górę?
-* Jak ustawić alert, aby wiedzieć, kiedy osiągnięto maksymalny ruch wychodzący skonfigurowany na koncie?
-* Jak sprawdzić, jak podział żądań nie powiódł się i co jest przyczyną awarii?
-* Jak sprawdzić, ile żądań HLS lub DASH jest pobieranych z pakowania?
-* Jak ustawić alert, aby wiedzieć, kiedy wartość progowa # żądań nie powiodło się został trafiony?
+* Jak mogę monitorować mój standardowy punkt końcowy przesyłania strumieniowego, aby sprawdzić, czy przekroczono limity?
+* Jak mogę sprawdzić, czy mam wystarczającą liczbę jednostek skalowania punktów końcowych przesyłania strumieniowego w warstwie Premium?
+* Jak ustawić alert, aby dowiedzieć się, kiedy skalować punkty końcowe przesyłania strumieniowego?
+* Jak mogę ustawić alert, aby sprawdzić, czy osiągnięto maksymalną liczbę wyjściową skonfigurowaną na koncie?
+* Jak można zobaczyć podział żądań zakończonych niepowodzeniem i przyczynę niepowodzenia?
+* Jak mogę sprawdzić, ile żądań HLS lub PAUZy jest pobieranych z Pakowarki?
+* Jak mogę ustawić alert, aby sprawdzić, czy osiągnięto wartość progową liczby nieudanych żądań?
 
 ### <a name="example"></a>Przykład
 
-Zobacz [Jak monitorować metryki usługi Media Services](media-services-metrics-howto.md).
+Zobacz [, jak monitorować Media Services metryki](media-services-metrics-howto.md).
 
-## <a name="media-services-diagnostic-logs"></a>Dzienniki diagnostyczne usługi Media Services
+## <a name="media-services-diagnostic-logs"></a>Media Services dzienników diagnostycznych
 
-Dzienniki diagnostyczne zapewniają bogate i częste dane dotyczące działania zasobu platformy Azure. Aby uzyskać więcej informacji, zobacz [Jak zbierać i wykorzystywać dane dziennika z zasobów platformy Azure.](../../azure-monitor/platform/platform-logs-overview.md)
+Dzienniki diagnostyczne zapewniają rozbudowane i częste dane dotyczące operacji zasobu platformy Azure. Aby uzyskać więcej informacji, zobacz [jak zbierać i zużywać dane dzienników z zasobów platformy Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
-Usługa Media Services obsługuje następujące dzienniki diagnostyczne:
+Media Services obsługuje następujące dzienniki diagnostyczne:
 
-* Dostawa kluczy
+* Dostarczanie klucza
 
-### <a name="key-delivery"></a>Dostawa kluczy
+### <a name="key-delivery"></a>Dostarczanie klucza
 
 |Nazwa|Opis|
 |---|---|
-|Żądanie usługi dostarczania kluczy|Dzienniki, które pokazują informacje o żądaniu usługi dostarczania kluczy. Aby uzyskać więcej informacji, zobacz [schematy](media-services-diagnostic-logs-schema.md).|
+|Żądanie usługi dostarczania kluczy|Dzienniki pokazujące informacje o żądaniu usługi dostarczania kluczy. Aby uzyskać więcej informacji, zobacz [schematy](media-services-diagnostic-logs-schema.md).|
 
-### <a name="why-would-i-want-to-use-diagnostics-logs"></a>Dlaczego warto korzystać z dzienników diagnostycznych?
+### <a name="why-would-i-want-to-use-diagnostics-logs"></a>Dlaczego warto używać dzienników diagnostycznych?
 
-Oto kilka czynności, które można zbadać za pomocą dzienników diagnostycznych dostarczania kluczy:
+Niektóre elementy, które można przeanalizować za pomocą dzienników diagnostycznych dostarczania kluczy, to:
 
-* Zobacz liczbę licencji dostarczonych przez typ DRM.
+* Sprawdź liczbę licencji dostarczonych przez typ DRM.
 * Zobacz liczbę licencji dostarczonych przez zasady.
-* Zobacz błędy drm lub typu zasad.
-* Zobacz liczbę nieautoryzowanych żądań licencji od klientów.
+* Zobacz błędy według typów DRM lub zasad.
+* Sprawdź liczbę nieautoryzowanych żądań licencji od klientów.
 
 ### <a name="example"></a>Przykład
 
-Zobacz [Jak monitorować dzienniki diagnostyczne usługi Media Service](media-services-diagnostic-logs-howto.md).
+Zobacz [monitorowanie dzienników diagnostycznych usługi Media Service](media-services-diagnostic-logs-howto.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Jak zbierać i wykorzystywać dane dziennika z zasobów platformy Azure](../../azure-monitor/platform/platform-logs-overview.md)
+* [Jak zbierać i zużywać dane dzienników z zasobów platformy Azure](../../azure-monitor/platform/platform-logs-overview.md)
 * [Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi w usłudze Azure Monitor](../../azure-monitor/platform/alerts-metric.md)
-* [Jak monitorować metryki usługi Media Services](media-services-metrics-howto.md)
-* [Jak monitorować dzienniki diagnostyczne usługi Media Service](media-services-diagnostic-logs-howto.md)
+* [Jak monitorować metryki Media Services](media-services-metrics-howto.md)
+* [Monitorowanie dzienników diagnostycznych usługi Media Service](media-services-diagnostic-logs-howto.md)

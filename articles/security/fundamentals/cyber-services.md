@@ -1,6 +1,6 @@
 ---
-title: Usługi firmy Microsoft w dziedzinie cyberbezpieczeństwa | Dokumenty firmy Microsoft
-description: W tym artykule przedstawiono wprowadzenie dotyczące usług firmy Microsoft związanych z cyberbezpieczeństwem i sposobu uzyskiwania większej ilości informacji o tych usługach.
+title: Usługi firmy Microsoft w cyberbezpieczeństwa | Microsoft Docs
+description: Artykuł zawiera wprowadzenie do usług firmy Microsoft związanych z usługą cyberbezpieczeństwa oraz informacje o tym, jak uzyskać więcej informacji na temat tych usług.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -16,28 +16,28 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
 ms.openlocfilehash: 997bd480fd8b552d7cff61d7a4798e0a3d4db5bf
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548641"
 ---
-# <a name="microsoft-services-in-cybersecurity"></a>Usługi firmy Microsoft w dziedzinie cyberbezpieczeństwa
+# <a name="microsoft-services-in-cybersecurity"></a>Usługi firmy Microsoft w cyberbezpieczeństwa
 
-Usługi firmy Microsoft zapewniają kompleksowe podejście do zabezpieczeń, tożsamości i cyberbezpieczeństwa. Obejmują one szereg usług zabezpieczeń i tożsamości w całej strategii, planowania, wdrażania i bieżącej pomocy technicznej. Usługi te mogą pomóc klientom korporacyjnym w wdrażaniu rozwiązań zabezpieczeń zgodnych z ich celami strategicznymi.
+Usługi firmy Microsoft stanowią kompleksowe podejście do zabezpieczeń, tożsamości i cyberbezpieczeństwa. Obejmują one tablicę usług zabezpieczeń i tożsamości między strategiami, planowaniem, implementacją i ciągłą pomocą techniczną. Te usługi mogą pomóc klientom korporacyjnym wdrożyć rozwiązania zabezpieczeń, które są dostosowane do ich celów strategicznych.
 
-Usługi firmy Microsoft mogą tworzyć rozwiązania, które integrują i zwiększają najnowsze funkcje zabezpieczeń i tożsamości naszych produktów, aby chronić Twoją firmę i napędzać innowacje.
+Usługi firmy Microsoft mogą tworzyć rozwiązania, które integrują się z najnowszymi funkcjami bezpieczeństwa i tożsamości naszych produktów, aby pomóc w ochronie Twojej firmy i ulepszaniu innowacji.
 
-Nasz zespół specjalistów technicznych składa się z wysoko wykwalifikowanych ekspertów, którzy oferują bogate doświadczenie w zakresie bezpieczeństwa i tożsamości.
+Nasz zespół specjalistów technicznych składa się z wysoce przeszkolonych ekspertów, którzy oferują wiele możliwości związanych z bezpieczeństwem i tożsamością.
 
-Dowiedz się więcej o usługach świadczonych przez usługi firmy Microsoft:
+Dowiedz się więcej na temat usług oferowanych przez usługi firmy Microsoft:
 
-* [Ocena ryzyka dla bezpieczeństwa](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-security-risk-assessment-solution-brief.pdf)
-* [Dynamiczna ocena ram tożsamości](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/dynamic-identity-framework-identity-assessment-datasheet.pdf)
-* [Ocena offline dla usług Active Directory](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/offline-assessment-for-active-directory-security-datasheet.pdf)
-* [Ulepszone środowisko administracji zabezpieczeń](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/enhanced-security-administrative-environment-solution-brief.pdf)
+* [Ocena ryzyka związanego z zabezpieczeniami](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-security-risk-assessment-solution-brief.pdf)
+* [Ocena dynamicznej struktury tożsamości](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/dynamic-identity-framework-identity-assessment-datasheet.pdf)
+* [Ocena w trybie offline dla usług Active Directory Services](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/offline-assessment-for-active-directory-security-datasheet.pdf)
+* [Ulepszone środowisko administracyjne zabezpieczeń](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/enhanced-security-administrative-environment-solution-brief.pdf)
 * [Usługi implementacji usługi Azure AD](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/azure-active-directory-implementation-services-solution-brief.pdf)
-* [Zabezpieczenie przed ruchem konta poprzecznego](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/pop-securing-lateral-account-movement.pdf)
-* [Reagowanie na incydenty i odzyskiwanie](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
+* [Zabezpieczanie przed przenoszeniem na konto boczne](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/pop-securing-lateral-account-movement.pdf)
+* [Reagowanie na zdarzenia i odzyskiwanie](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
 
-[Dowiedz się więcej](https://aka.ms/cyberserv) o usługach konsultingowych microsoft services security.
+[Dowiedz się więcej](https://aka.ms/cyberserv) na temat usług doradczych dotyczących zabezpieczeń usług firmy Microsoft.

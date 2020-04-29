@@ -1,6 +1,6 @@
 ---
-title: Ustawienia portu usługi Azure Relay | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera tabelę opisującą wymaganą konfigurację wartości portów dla usługi Azure Relay.
+title: Ustawienia portów Azure Relay | Microsoft Docs
+description: Ten artykuł zawiera tabelę opisującą wymaganą konfigurację wartości portów dla Azure Relay.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,42 +15,42 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 532e3c297c42ea16b1f462a01699fc2fd71c6cce
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80529108"
 ---
-# <a name="azure-relay-port-settings"></a>Ustawienia portu usługi Azure Relay
+# <a name="azure-relay-port-settings"></a>Ustawienia portu Azure Relay
 
-W poniższej tabeli opisano wymaganą konfigurację wartości portów dla usługi Azure Relay.
+W poniższej tabeli opisano wymaganą konfigurację dla wartości portów dla Azure Relay.
 
 ## <a name="hybrid-connections"></a>Połączenia hybrydowe
 
-Połączenia hybrydowe używa WebSockets na porcie 443 z TLS jako podstawowy mechanizm transportu, który używa tylko **HTTPS.** 
+Połączenia hybrydowe używa obiektów WebSockets na porcie 443 przy użyciu protokołu TLS jako podstawowego mechanizmu transportowego, który używa tylko **protokołu HTTPS** . 
 
 ## <a name="wcf-relays"></a>Przekaźniki WCF
   
 |Wiązanie|Zabezpieczenia transportu|Port|  
 |-------------|------------------------|----------|  
-|[Podstawowa klasaHttpRelayBinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (klient)|Tak|HTTPS| 
+|[BasicHttpRelayBinding — Klasa](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (klient)|Tak|HTTPS| 
 |" |Nie|HTTP|  
-|[Podstawowa klasaHttpRelayBinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (usługa)|Albo|9351/HTTP|  
-|[Klasa NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (klient)|Tak|9351/HTTPS|  
+|[BasicHttpRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (usługa)|Żadnego|9351/HTTP|  
+|[NetEventRelayBinding — Klasa](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (klient)|Tak|9351/HTTPS|  
 |" |Nie|9350/HTTP|  
-|[Klasa NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (usługa)|Albo|9351/HTTP|  
-|[Klasa NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) (klient/usługa)|Albo|5671/9352/HTTP (9352/9353 w przypadku używania hybrydy)|  
-|[Klasa NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (klient)|Tak|9351/HTTPS|  
+|[NetEventRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (usługa)|Żadnego|9351/HTTP|  
+|[NetTcpRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.nettcprelaybinding) (klient/usługa)|Żadnego|5671/9352/HTTP (9352/9353, jeśli używasz hybrydowej)|  
+|[NetOnewayRelayBinding — Klasa](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (klient)|Tak|9351/HTTPS|  
 |" |Nie|9350/HTTP|  
-|[NetOnewayRelayBinding Klasa](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (usługa)|Albo|9351/HTTP|  
-|[Klasa powiązania z sieci Web (klient)](/dotnet/api/microsoft.servicebus.webhttprelaybinding)|Tak|HTTPS|  
+|[NetOnewayRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (usługa)|Żadnego|9351/HTTP|  
+|[WebHttpRelayBinding — Klasa](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (klient)|Tak|HTTPS|  
 |" |Nie|HTTP|  
-|[Klasa powiązania z sieci Web (usługa)](/dotnet/api/microsoft.servicebus.webhttprelaybinding)|Albo|9351/HTTP|  
-|[Klasa WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (klient)|Tak|HTTPS|  
+|[WebHttpRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (usługa)|Żadnego|9351/HTTP|  
+|[WS2007HttpRelayBinding — Klasa](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (klient)|Tak|HTTPS|  
 |" |Nie|HTTP|  
-|[Klasa WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (usługa)|Albo|9351/HTTP|
+|[WS2007HttpRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (usługa)|Żadnego|9351/HTTP|
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o usłudze Azure Relay, odwiedź następujące łącza:
+Aby dowiedzieć się więcej na temat Azure Relay, odwiedź następujące linki:
 * [Co to jest usługa Azure Relay?](relay-what-is-it.md)
 * [Często zadawane pytania dotyczące usługi Relay](relay-faq.md)

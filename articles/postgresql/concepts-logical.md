@@ -1,39 +1,39 @@
 ---
-title: Dekodowanie logiczne — usługa Azure Database for PostgreSQL — pojedynczy serwer
-description: W tym artykule opisano dekodowanie logiczne i wal2json do przechwytywania danych zmian w usłudze Azure Database dla postgreSQL — pojedynczy serwer
+title: Dekodowanie logiczne-Azure Database for PostgreSQL-pojedynczy serwer
+description: Opisuje logiczne dekodowanie i wal2json na potrzeby przechwytywania zmian danych w ramach jednego serwera Azure Database for PostgreSQL
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: 1213b38f2b67e8fed179cfda4308943808893e1b
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80522149"
 ---
 # <a name="logical-decoding"></a>Dekodowanie logiczne
  
-[Dekodowanie logiczne w PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) umożliwia strumieniowe przesyłanie zmian danych do zewnętrznych konsumentów. Dekodowanie logiczne jest powszechnie używane do przesyłania strumieniowego zdarzeń i zmiany scenariuszy przechwytywania danych.
+[Dekodowanie logiczne w programie PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) umożliwia przesyłanie strumieniowe zmian danych do użytkowników zewnętrznych. Dekodowanie logiczne jest popularne w przypadku scenariuszy przesyłania strumieniowego zdarzeń i przechwytywania zmian danych.
 
-Dekodowanie logiczne używa wtyczki wyjściowej do konwersji dziennika zapisu postgres z wyprzedzeniem (WAL) do czytelnego formatu. Usługa Azure Database for PostgreSQL udostępnia dwie wtyczki wyjściowe: [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) i [wal2json](https://github.com/eulerto/wal2json).
+Dekodowanie logiczne używa wtyczki wyjściowej do przekonwertowania dziennika zapisu z wyprzedzeniem (WAL) Postgres na format możliwy do odczytu. Azure Database for PostgreSQL oferuje dwa wtyczki wyjściowe: [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) i [wal2json](https://github.com/eulerto/wal2json).
  
 
 > [!NOTE]
-> Dekodowanie logiczne jest w publicznej wersji zapoznawczej w usłudze Azure Database dla PostgreSQL — single server.
+> Dekodowanie logiczne jest w publicznej wersji zapoznawczej na Azure Database for PostgreSQL-pojedynczym serwerze.
 
 
-## <a name="set-up-your-server"></a>Konfigurowanie serwera
-Aby rozpocząć korzystanie z dekodowania logicznego, włącz serwer do zapisywania i przesyłania strumieniowego WAL. 
+## <a name="set-up-your-server"></a>Skonfiguruj serwer
+Aby rozpocząć korzystanie z dekodowania logicznego, zezwól serwerowi na zapisywanie i przesyłanie strumieniowe w WAL. 
 
-1. Ustaw azure.replication_support przy `logical` użyciu interfejsu wiersza polecenia platformy Azure. 
+1. Skonfiguruj platformę Azure. `logical` replication_support, aby korzystać z interfejsu wiersza polecenia platformy Azure. 
    ```
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ```
 
    > [!NOTE]
-   > Jeśli używasz replik odczytu, azure.replication_support `logical` ustawić również umożliwia uruchamianie replik. Jeśli przestaniesz używać dekodowania `replica`logicznego, zmień ustawienie z powrotem na . 
+   > Jeśli używasz replik odczytu, platforma Azure. replication_support ustawiona na `logical` opcję zezwala na uruchamianie replik. Jeśli zatrzymasz korzystanie z dekodowania logicznego, Zmień ustawienie `replica`z powrotem na. 
 
 
 2. Uruchom ponownie serwer, aby zastosować zmiany.
@@ -43,25 +43,25 @@ Aby rozpocząć korzystanie z dekodowania logicznego, włącz serwer do zapisywa
 
 ## <a name="start-logical-decoding"></a>Rozpocznij dekodowanie logiczne
 
-Dekodowanie logiczne może być używane za pośrednictwem protokołu przesyłania strumieniowego lub interfejsu SQL. Obie metody używają [gniazd replikacji](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS). Gniazdo reprezentuje strumień zmian z jednej bazy danych.
+Dekodowanie logiczne może być używane za pośrednictwem protokołu przesyłania strumieniowego lub interfejsu SQL. Obie metody używają [miejsc replikacji](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS). Gniazdo reprezentuje strumień zmian z pojedynczej bazy danych.
 
-Użycie gniazda replikacji wymaga uprawnień replikacji postgres. W tej chwili uprawnienie replikacji jest dostępne tylko dla administratora serwera. 
+Korzystanie z gniazda replikacji wymaga uprawnień replikacji Postgres. W tej chwili uprawnienie replikacji jest dostępne tylko dla administratora serwera. 
 
 ### <a name="streaming-protocol"></a>Protokół przesyłania strumieniowego
-Często zaleca się stosowanie zmian przy użyciu protokołu przesyłania strumieniowego. Możesz utworzyć własne konsumenta / złącze, lub użyć narzędzia takiego jak [Debezium](https://debezium.io/). 
+Użycie protokołu przesyłania strumieniowego jest często preferowane. Możesz utworzyć własnego użytkownika/łącznik lub użyć narzędzia, takiego jak [Debezium](https://debezium.io/). 
 
-Odwiedź dokumentację wal2json na [przykład przy użyciu protokołu przesyłania strumieniowego z pg_recvlogical](https://github.com/eulerto/wal2json#pg_recvlogical).
+Zapoznaj się z dokumentacją wal2json, aby zapoznać się [z przykładem przy użyciu protokołu przesyłania strumieniowego z pg_recvlogical](https://github.com/eulerto/wal2json#pg_recvlogical).
 
 
 ### <a name="sql-interface"></a>Interfejs SQL
-W poniższym przykładzie używamy interfejsu SQL z wtyczką wal2json.
+W poniższym przykładzie użyto interfejsu SQL z wtyczką wal2json.
  
 1. Utwórz miejsce.
    ```SQL
    SELECT * FROM pg_create_logical_replication_slot('test_slot', 'wal2json');
    ```
  
-2. Wydawanie poleceń SQL. Przykład:
+2. Wydaj polecenia SQL. Przykład:
    ```SQL
    CREATE TABLE a_table (
       id varchar(40) NOT NULL,
@@ -73,7 +73,7 @@ W poniższym przykładzie używamy interfejsu SQL z wtyczką wal2json.
    DELETE FROM a_table WHERE id='id1';
    ```
 
-3. Zużywają zmiany.
+3. Użyj zmian.
    ```SQL
    SELECT data FROM pg_logical_slot_get_changes('test_slot', NULL, NULL, 'pretty-print', '1');
    ```
@@ -112,41 +112,41 @@ W poniższym przykładzie używamy interfejsu SQL z wtyczką wal2json.
    }
    ```
 
-4. Upuść gniazdo po zakończeniu korzystania z niego.
+4. Upuść miejsce po zakończeniu korzystania z niego.
    ```SQL
    SELECT pg_drop_replication_slot('test_slot'); 
    ```
 
 
-## <a name="monitoring-slots"></a>Gniazda monitorujące
+## <a name="monitoring-slots"></a>Gniazda monitorowania
 
-Należy monitorować dekodowanie logiczne. Wszelkie nieużywane gniazdo replikacji muszą zostać usunięte. Sloty przytrzymują dzienniki Postgres WAL i odpowiednie katalogi systemowe, dopóki zmiany nie zostaną odczytane przez konsumenta. Jeśli konsument zawiedzie lub nie został poprawnie skonfigurowany, nieskonsumowane dzienniki będą piętrzą się i wypełnią magazyn. Ponadto nieskonsumowane dzienniki zwiększają ryzyko zawijania identyfikatora transakcji. Obie sytuacje mogą spowodować, że serwer stanie się niedostępny. W związku z tym jest bardzo ważne, że gniazda replikacji logicznej są używane w sposób ciągły. Jeśli gniazdo replikacji logicznej nie jest już używane, upuść go natychmiast.
+Należy monitorować logiczne dekodowanie. Wszystkie nieużywane gniazda replikacji muszą zostać porzucone. Gniazda znajdują się na Postgres dzienników i odpowiednich wykazów systemowych do momentu odczytania zmian przez konsumenta. Jeśli użytkownik ulegnie awarii lub nie został prawidłowo skonfigurowany, nieużywane dzienniki będą wymagały użycia i wypełnienia magazynu. Ponadto niewykorzystane dzienniki zwiększają ryzyko związane z IDENTYFIKATORem transakcji wraparound. Obie sytuacje mogą spowodować, że serwer stanie się niedostępny. W związku z tym ważne jest, aby gniazda replikacji logicznej były używane w sposób ciągły. Jeśli gniazdo replikacji logicznej nie jest już używane, Porzuć je od razu.
 
-Kolumna "aktywna" w widoku pg_replication_slots wskazuje, czy do gniazda jest podłączony konsument.
+Kolumna "Active" w widoku pg_replication_slots wskazuje, czy klient jest połączony z miejscem.
 ```SQL
 SELECT * FROM pg_replication_slots;
 ```
 
-[Ustaw alerty](howto-alert-on-metric.md) na *używane magazynu* i *max opóźnienia w danych replik,* aby powiadomić, gdy wartości zwiększyć powyżej normalnych progów. 
+[Ustawianie alertów](howto-alert-on-metric.md) dotyczących *używanej przestrzeni dyskowej* oraz *maksymalnego opóźnienia między replikami* w celu powiadomienia, gdy wartości rosną do poprzednich progów normalnych. 
 
 > [!IMPORTANT]
-> Należy upuścić nieużywane gniazda replikacji. Niezastosowanie się do tego może prowadzić do niedostępności serwera.
+> Należy porzucić nieużywane gniazda replikacji. Niewykonanie tej czynności może prowadzić do niedostępności serwera.
 
-## <a name="how-to-drop-a-slot"></a>Jak upuścić szczelinę
-Jeśli nie są aktywnie zużywa gniazda replikacji należy go upuścić.
+## <a name="how-to-drop-a-slot"></a>Jak usunąć gniazdo
+Jeśli nie korzystasz aktywnie z miejsca replikacji, należy je usunąć.
 
-Aby upuścić gniazdo `test_slot` replikacji wywoływane przy użyciu języka SQL:
+Aby porzucić miejsce replikacji o `test_slot` nazwie przy użyciu języka SQL:
 ```SQL
 SELECT pg_drop_replication_slot('test_slot');
 ```
 
 > [!IMPORTANT]
-> Jeśli przestaniesz używać dekodowania logicznego, `replica` zmień `off`plik azure.replication_support z powrotem do lub . Szczegóły WAL zachowane `logical` przez są bardziej pełne i powinny być wyłączone, gdy dekodowanie logiczne nie jest używany. 
+> Jeśli zatrzymasz korzystanie z dekodowania logicznego, Zmień platformę `replica` azure `off`. replication_support z powrotem na lub. Szczegóły WAL przechowywane przez `logical` program są bardziej pełne i powinny być wyłączone, gdy dekodowanie logiczne nie jest używane. 
 
  
 ## <a name="next-steps"></a>Następne kroki
 
-* Odwiedź dokumentację Postgres, aby [dowiedzieć się więcej o dekodowaniu logicznym](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html).
-* Jeśli masz pytania dotyczące dekodowania logicznego, skontaktuj się z [naszym zespołem.](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)
-* Dowiedz się więcej o [replikach odczytu](concepts-read-replicas.md).
+* Zapoznaj się z dokumentacją Postgres, aby [dowiedzieć się więcej na temat dekodowania logicznego](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html).
+* Skontaktuj się z [naszym zespołem](mailto:AskAzureDBforPostgreSQL@service.microsoft.com) , jeśli masz pytania dotyczące dekodowania logicznego.
+* Dowiedz się więcej o [odczytaniu replik](concepts-read-replicas.md).
 

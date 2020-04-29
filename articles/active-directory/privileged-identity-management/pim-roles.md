@@ -1,6 +1,6 @@
 ---
-title: Role, którymi nie można zarządzać w zarządzania tożsamościami uprzywilejowanymi — usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: W tym artykule opisano role, którymi nie można zarządzać w usłudze Azure AD Privileged Identity Management (PIM).
+title: Role, którymi nie można zarządzać w Privileged Identity Management Azure Active Directory | Microsoft Docs
+description: Opisuje role, którymi nie można zarządzać w programie Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,34 +15,34 @@ ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b6eaa50f57dd8037ef0ad96b69284f565bd3558f
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80607519"
 ---
-# <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Role, którymi nie można zarządzać w zarządzania tożsamościami uprzywilejowanymi
+# <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Role, którymi nie można zarządzać w Privileged Identity Management
 
-Zarządzanie tożsamościami uprzywilejowanymi usługi Azure Directory (Azure AD) (PIM) umożliwia zarządzanie wszystkimi [rolami usługi Azure AD](../users-groups-roles/directory-assign-admin-roles.md) i [wszystkimi rolami platformy Azure.](../../role-based-access-control/built-in-roles.md) Role platformy Azure mogą również zawierać role niestandardowe dołączone do grup zarządzania, subskrypcji, grup zasobów i zasobów. Istnieje jednak kilka ról, których nie można zarządzać. W tym artykule opisano role, którymi nie można zarządzać w zarządzaniu tożsamościami uprzywilejowanymi.
+Usługa Azure Active Directory (Azure AD) Privileged Identity Management (PIM) umożliwia zarządzanie wszystkimi [rolami usługi Azure AD](../users-groups-roles/directory-assign-admin-roles.md) i wszystkimi [rolami platformy Azure](../../role-based-access-control/built-in-roles.md). Role platformy Azure mogą również obejmować niestandardowe role dołączone do grup zarządzania, subskrypcji, grup zasobów i zasobów. Istnieje jednak kilka ról, których nie można zarządzać. W tym artykule opisano role, którymi nie można zarządzać w programie Privileged Identity Management.
 
 ## <a name="classic-subscription-administrator-roles"></a>Role klasycznego administratora subskrypcji
 
-Nie można zarządzać następującymi klasycznymi rolami administratora subskrypcji w zarządzania tożsamościami uprzywilejowanymi:
+W Privileged Identity Management nie można zarządzać następującymi rolami klasycznych administratorów subskrypcji:
 
 - Administrator konta
 - Administrator usługi
 - Współadministrator
 
-Aby uzyskać więcej informacji na temat ról administratora subskrypcji klasycznej, zobacz [Klasyczne role administratora subskrypcji, role usługi Azure RBAC i role administratora usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+Aby uzyskać więcej informacji na temat ról administratora klasycznej subskrypcji, zobacz Role [administratora subskrypcji klasycznej, role RBAC platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-## <a name="what-about-office-365-admin-roles"></a>Co z rolami administratora usługi Office 365?
+## <a name="what-about-office-365-admin-roles"></a>Jakie są role administratorów pakietu Office 365?
 
-Obsługujemy wszystkie role usługi Office365 w środowisku portalu Role usługi Azure AD i Administratorzy, takie jak Administrator programu Exchange i Administrator programu SharePoint, ale nie obsługujemy określonych ról w programie Exchange RBAC lub sharepoint RBAC. Aby uzyskać więcej informacji na temat tych usług Office 365, zobacz [Role administratora usługi Office 365](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles).
+Obsługiwane są wszystkie role usługi Office 365 w witrynie Azure AD role i portalu administratorów, takie jak administrator programu Exchange i administrator programu SharePoint, ale nie są obsługiwane określone role w ramach usług Exchange RBAC lub RBAC programu SharePoint. Aby uzyskać więcej informacji na temat tych usług Office 365, zobacz [role administratora pakietu office 365](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
-> Uprawnieni użytkownicy do roli administratora programu SharePoint, a także do wszystkich ról próbujących uzyskać dostęp do Centrum zabezpieczeń i zgodności firmy Microsoft mogą wystąpić opóźnienia do kilku godzin po aktywowaniu ich roli. Pracujemy z tymi zespołami, aby rozwiązać problemy.
+> Uprawnieni użytkownicy do roli administratora programu SharePoint, a także wszelkie role próbujące uzyskać dostęp do centrum zabezpieczeń i zgodności firmy Microsoft mogą napotkać opóźnienia nawet kilka godzin po aktywowaniu ich roli. Pracujemy nad tymi zespołami, aby rozwiązać te problemy.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przypisywanie ról usługi Azure AD w zarządzania tożsamościami uprzywilejowanymi](pim-how-to-add-role-to-user.md)
-- [Przypisywanie ról zasobów platformy Azure w zarządzania tożsamościami uprzywilejowanymi](pim-resource-roles-assign-roles.md)
+- [Przypisywanie ról usługi Azure AD w Privileged Identity Management](pim-how-to-add-role-to-user.md)
+- [Przypisywanie ról zasobów platformy Azure w Privileged Identity Management](pim-resource-roles-assign-roles.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: tabele ARP — rozwiązywanie problemów'
-description: Ta strona zawiera instrukcje dotyczące uzyskiwania tabel ARP dla obwodu usługi ExpressRoute
+title: 'Azure ExpressRoute: tabele ARP — Rozwiązywanie problemów'
+description: Ta strona zawiera instrukcje dotyczące pobierania tabel ARP dla obwodu usługi ExpressRoute
 services: expressroute
 author: charwen
 ms.service: expressroute
@@ -9,38 +9,38 @@ ms.date: 01/30/2017
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: b31e9eb852c69d5f02eb855e319d2a4901942994
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80618522"
 ---
-# <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Uzyskiwanie tabel ARP w modelu wdrażania Menedżera zasobów
+# <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Pobieranie tabel ARP w modelu wdrażania Menedżer zasobów
 > [!div class="op_single_selector"]
 > * [Program PowerShell — model usługi Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
 > * [PowerShell — model klasyczny](expressroute-troubleshooting-arp-classic.md)
 > 
 > 
 
-W tym artykule otrzymasz od kroków, aby poznać tabele ARP dla obwodu usługi ExpressRoute.
+W tym artykule przedstawiono kroki, które należy wykonać, aby poznać tabelę ARP dla obwodu usługi ExpressRoute.
 
 > [!IMPORTANT]
-> Ten dokument ma na celu pomóc w diagnozowaniu i rozwiązywaniu prostych problemów. Nie jest przeznaczony do zastąpienia pomocy technicznej firmy Microsoft. Jeśli nie można rozwiązać problemu, należy otworzyć bilet pomocy technicznej z [pomocą techniczną firmy Microsoft,](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) korzystając ze wskazówek opisanych poniżej.
+> Ten dokument ma pomóc w diagnozowaniu i rozwiązywaniu prostych problemów. Nie jest to zamiennik dla pomocy technicznej firmy Microsoft. Musisz otworzyć bilet pomocy technicznej z pomocą [techniczną firmy Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , jeśli nie możesz rozwiązać problemu przy użyciu wskazówek opisanych poniżej.
 > 
 > 
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
-## <a name="address-resolution-protocol-arp-and-arp-tables"></a>Tabele ARP (Address Resolution Protocol) i ARP
-Address Resolution Protocol (ARP) to protokół warstwy 2 zdefiniowany w [RFC 826](https://tools.ietf.org/html/rfc826). ARP służy do mapowania adresu Ethernet (adres MAC) z adresem IP.
+## <a name="address-resolution-protocol-arp-and-arp-tables"></a>Protokół ARP (Address Resolution Protocol) i tabele ARP
+Protokół ARP (Address Resolution Protocol) to protokół warstwy 2 zdefiniowany w [dokumencie RFC 826](https://tools.ietf.org/html/rfc826). Protokół ARP jest używany do mapowania adresu IP (adres MAC) przy użyciu adresu.
 
-Tabela ARP zawiera mapowanie adresu ipv4 i adresu MAC dla określonej komunikacji równorzędnej. Tabela ARP dla komunikacji równorzędnej obwodu usługi ExpressRoute zawiera następujące informacje dla każdego interfejsu (podstawowego i pomocniczego)
+Tabela ARP zawiera mapowanie adresów IPv4 i adresów MAC dla określonej komunikacji równorzędnej. Tabela ARP dla komunikacji równorzędnej obwodu usługi ExpressRoute zawiera następujące informacje dotyczące poszczególnych interfejsów (podstawowych i pomocniczych)
 
-1. Mapowanie adresu IP interfejsu routera lokalnego na adres MAC
-2. Mapowanie adresu IP interfejsu routera Usługi ExpressRoute na adres MAC
+1. Mapowanie adresu IP lokalnego interfejsu routera na adres MAC
+2. Mapowanie adresu IP interfejsu ExpressRoute router na adres MAC
 3. Wiek mapowania
 
-Tabele ARP mogą pomóc w weryfikacji konfiguracji warstwy 2 i rozwiązywaniu podstawowych problemów z łącznością warstwy 2. 
+Tabele ARP mogą pomóc w sprawdzeniu konfiguracji warstwy 2 i rozwiązywaniu problemów z podstawowymi problemami z łącznością warstwy 2. 
 
 Przykładowa tabela ARP: 
 
@@ -50,26 +50,26 @@ Przykładowa tabela ARP:
           0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 
 
-Poniższa sekcja zawiera informacje na temat sposobu wyświetlania tabel ARP widzianych przez routery brzegowe usługi ExpressRoute. 
+Poniższa sekcja zawiera informacje na temat sposobu wyświetlania tabel ARP widocznych dla routerów brzegowych ExpressRoute. 
 
-## <a name="prerequisites-for-learning-arp-tables"></a>Warunki wstępne do nauki tabel ARP
-Przed dalszym postępem upewnij się, że masz następujące
+## <a name="prerequisites-for-learning-arp-tables"></a>Wymagania wstępne dotyczące tabel uczenia ARP
+Przed kontynuowaniem upewnij się, że masz następujące czynności
 
-* Prawidłowy obwód usługi ExpressRoute skonfigurowany z co najmniej jednym elementem równorzędnym. Obwód musi być w pełni skonfigurowany przez dostawcę łączności. Użytkownik (lub twój dostawca łączności) musi skonfigurować co najmniej jedną z komunikacji równorzędnej (prywatna platforma Azure, platforma azure public i microsoft) w tym obwodzie.
-* Zakresy adresów IP używane do konfigurowania komunikacji równorzędnej (prywatna platforma Azure, platforma Azure public i microsoft). Przejrzyj przykłady przypisywania adresów IP na [stronie Wymagania dotyczące routingu usługi ExpressRoute,](expressroute-routing.md) aby dowiedzieć się, jak adresy IP są mapowane do interfejsów po twojej stronie i po stronie usługi ExpressRoute. Informacje na temat konfiguracji komunikacji równorzędnej można uzyskać, przeglądając [stronę konfiguracji komunikacji równorzędnej usługi ExpressRoute](expressroute-howto-routing-arm.md).
-* Informacje od zespołu sieciowego / dostawcy łączności na adresach MAC interfejsów używanych z tymi adresami IP.
-* Musisz mieć najnowszy moduł programu PowerShell dla platformy Azure (wersja 1.50 lub nowsza).
+* Prawidłowy obwód ExpressRoute skonfigurowany przy użyciu co najmniej jednej komunikacji równorzędnej. Obwód musi być w pełni skonfigurowany przez dostawcę połączenia. Użytkownik (lub dostawca połączenia) musi skonfigurować co najmniej jedną komunikację równorzędną (prywatną platformy Azure, publiczną i Microsoft) w tym obwodzie.
+* Zakresy adresów IP używane do konfigurowania komunikacji równorzędnej (prywatny Azure, Azure Public i Microsoft). Zapoznaj się z przykładami przypisywania adresów IP na [stronie Wymagania dotyczące routingu ExpressRoute](expressroute-routing.md) , aby uzyskać informacje na temat sposobu mapowania adresów IP na interfejsy po stronie i po stronie ExpressRoute. Informacje na temat konfiguracji komunikacji równorzędnej można uzyskać, przeglądając [stronę konfiguracji komunikacji równorzędnej ExpressRoute](expressroute-howto-routing-arm.md).
+* Informacje od zespołu sieciowego/dostawcy łączności na adresy MAC interfejsów używanych z tymi adresami IP.
+* Wymagany jest najnowszy moduł programu PowerShell dla platformy Azure (wersja 1,50 lub nowsza).
 
 > [!NOTE]
-> Jeśli warstwa 3 jest dostarczana przez usługodawcę, a tabele ARP są puste w portalu/danych wyjściowych poniżej, odśwież konfigurację obwodu za pomocą przycisku odświeżania w portalu. Ta operacja spowoduje zastosowanie odpowiedniej konfiguracji routingu w obwodzie. 
+> Jeśli dostawca usług udostępnia warstwę 3, a tabele ARP są puste w portalu/danych wyjściowych, Odśwież konfigurację obwodu za pomocą przycisku Odśwież w portalu. Ta operacja spowoduje zastosowanie odpowiedniej konfiguracji routingu w obwodzie. 
 >
 >
 
-## <a name="getting-the-arp-tables-for-your-expressroute-circuit"></a>Uzyskiwanie tabel ARP dla obwodu usługi ExpressRoute
-W tej sekcji przedstawiono instrukcje dotyczące sposobu wyświetlania tabel ARP na komunikację równorzędną przy użyciu programu PowerShell. Użytkownik lub dostawca łączności musi skonfigurować komunikację równorzędnej przed postępem. Każdy obwód ma dwie ścieżki (podstawowej i pomocniczej). Tabelę ARP można sprawdzić niezależnie dla każdej ścieżki.
+## <a name="getting-the-arp-tables-for-your-expressroute-circuit"></a>Pobieranie tabel ARP dla obwodu usługi ExpressRoute
+Ta sekcja zawiera instrukcje dotyczące wyświetlania tabel ARP dla komunikacji równorzędnej za pomocą programu PowerShell. Ty lub Twój dostawca połączenia musi skonfigurować komunikację równorzędną przed dalszej dalszej realizacji. Każdy obwód ma dwie ścieżki (podstawowe i pomocnicze). Tabelę ARP można sprawdzić niezależnie od ścieżki.
 
-### <a name="arp-tables-for-azure-private-peering"></a>Tabele ARP dla prywatnej komunikacji równorzędnej platformy Azure
-Następujące polecenie cmdlet udostępnia tabele ARP dla prywatnej komunikacji równorzędnej platformy Azure
+### <a name="arp-tables-for-azure-private-peering"></a>Tabele ARP dla prywatnej komunikacji równorzędnej Azure
+Następujące polecenie cmdlet udostępnia tabele ARP dla prywatnej komunikacji równorzędnej Azure
 
         # Required Variables
         $RG = "<Your Resource Group Name Here>"
@@ -81,7 +81,7 @@ Następujące polecenie cmdlet udostępnia tabele ARP dla prywatnej komunikacji 
         # ARP table for Azure private peering - Secondary path
         Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Secondary 
 
-Przykładowy wynik jest pokazany poniżej dla jednej ze ścieżek
+Przykładowe dane wyjściowe pokazano poniżej dla jednej ze ścieżek
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
@@ -89,8 +89,8 @@ Przykładowy wynik jest pokazany poniżej dla jednej ze ścieżek
           0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 
 
-### <a name="arp-tables-for-azure-public-peering"></a>Tabele ARP dla publicznej komunikacji równorzędnej platformy Azure
-Następujące polecenie cmdlet udostępnia tabele ARP dla publicznej komunikacji równorzędnej platformy Azure
+### <a name="arp-tables-for-azure-public-peering"></a>Tabele ARP dla publicznej komunikacji równorzędnej Azure
+Następujące polecenie cmdlet udostępnia tabele ARP dla publicznej komunikacji równorzędnej Azure
 
         # Required Variables
         $RG = "<Your Resource Group Name Here>"
@@ -103,7 +103,7 @@ Następujące polecenie cmdlet udostępnia tabele ARP dla publicznej komunikacji
         Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
 
 
-Przykładowy wynik jest pokazany poniżej dla jednej ze ścieżek
+Przykładowe dane wyjściowe pokazano poniżej dla jednej ze ścieżek
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
@@ -112,7 +112,7 @@ Przykładowy wynik jest pokazany poniżej dla jednej ze ścieżek
 
 
 ### <a name="arp-tables-for-microsoft-peering"></a>Tabele ARP dla komunikacji równorzędnej firmy Microsoft
-Następujące polecenie cmdlet zawiera tabele ARP dla komunikacji równorzędnej firmy Microsoft
+Następujące polecenie cmdlet udostępnia tabele ARP dla komunikacji równorzędnej firmy Microsoft
 
         # Required Variables
         $RG = "<Your Resource Group Name Here>"
@@ -125,7 +125,7 @@ Następujące polecenie cmdlet zawiera tabele ARP dla komunikacji równorzędnej
         Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Secondary 
 
 
-Przykładowy wynik jest pokazany poniżej dla jednej ze ścieżek
+Przykładowe dane wyjściowe pokazano poniżej dla jednej ze ścieżek
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
@@ -133,22 +133,22 @@ Przykładowy wynik jest pokazany poniżej dla jednej ze ścieżek
           0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 
-## <a name="how-to-use-this-information"></a>Jak wykorzystać te informacje
-Tabela ARP komunikacji równorzędnej może służyć do określenia sprawdzania poprawności konfiguracji warstwy 2 i łączności. W tej sekcji przedstawiono omówienie wyglądu tabel ARP w różnych scenariuszach.
+## <a name="how-to-use-this-information"></a>Jak korzystać z tych informacji
+Tabela ARP komunikacji równorzędnej może służyć do określenia, czy ma zostać zweryfikowana konfiguracja warstwy 2 i łączność. Ta sekcja zawiera omówienie sposobu, w jaki tabele ARP będą wyglądały w różnych scenariuszach.
 
-### <a name="arp-table-when-a-circuit-is-in-operational-state-expected-state"></a>Tabela ARP, gdy obwód jest w stanie operacyjnym (stan oczekiwany)
-* Tabela ARP będzie miała wpis po stronie lokalnej z prawidłowym adresem IP i adresem MAC oraz podobnym wpisem po stronie firmy Microsoft. 
-* Ostatni oktet lokalnego adresu IP będzie zawsze numerem nieparzystym.
-* Ostatni oktet adresu IP firmy Microsoft zawsze będzie liczbą parzysty.
-* Ten sam adres MAC pojawi się po stronie firmy Microsoft dla wszystkich 3 komunikacji równorzędnej (podstawowy / pomocniczy). 
+### <a name="arp-table-when-a-circuit-is-in-operational-state-expected-state"></a>Tabela ARP, gdy obwód jest w stanie operacyjnym (oczekiwany stan)
+* Tabela ARP będzie zawierać wpis dla lokalnej strony z prawidłowym adresem IP i adresem MAC oraz podobnym wpisem dla strony firmy Microsoft. 
+* Ostatni oktet lokalnego adresu IP zawsze będzie liczbą nieparzystą.
+* Ostatni oktet adresu IP firmy Microsoft zawsze będzie liczbą parzystą.
+* Ten sam adres MAC zostanie wyświetlony po stronie firmy Microsoft dla wszystkich 3 komunikacji równorzędnych (podstawowy/pomocniczy). 
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
          10 On-Prem           65.0.0.1   ffff.eeee.dddd
           0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
-### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Tabela ARP, gdy po stronie lokalnego / dostawcy łączności występują problemy
-Jeśli występują problemy z lokalnym lub dostawcą łączności, może się okazać, że tylko jeden wpis pojawi się w tabeli ARP lub lokalny adres MAC będzie wyświetlany jako niekompletny. Spowoduje to wyświetle mapowanie między adresem MAC a adresem IP używanym po stronie firmy Microsoft. 
+### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Tabela ARP, gdy po stronie dostawcy usług lokalnych/łączności występuje problem
+W przypadku problemów związanych z dostawcą lokalnym lub połączeniem można zobaczyć, że w tabeli ARP zostanie wyświetlony tylko jeden wpis lub na lokalnym adresie MAC będzie wyświetlana wartość niepełna. Spowoduje to wyświetlenie mapowania między adresem MAC i adresem IP używanym po stronie firmy Microsoft. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    
@@ -163,20 +163,20 @@ lub
 
 
 > [!NOTE]
-> Otwórz żądanie pomocy technicznej z dostawcą łączności, aby debugować takie problemy. Jeśli tabela ARP nie ma adresów IP interfejsów mapowanych na adresy MAC, zapoznaj się z następującymi informacjami:
+> Otwórz żądanie pomocy technicznej z dostawcą połączenia, aby debugować takie problemy. Jeśli tabela ARP nie zawiera adresów IP interfejsów mapowanych na adresy MAC, zapoznaj się z następującymi informacjami:
 > 
-> 1. Jeśli pierwszy adres IP podsieci /30 przypisany do łącza między MSEE-PR i MSEE jest używany w interfejsie MSEE-PR. Platforma Azure zawsze używa drugiego adresu IP dla msee.
-> 2. Sprawdź, czy tagi VLAN klienta (C-Tag) i usługi (S-Tag) są zgodne zarówno na parze MSEE-PR, jak i MSEE.
+> 1. Jeśli pierwszy adres IP podsieci/30 przypisany dla linku między MSEE-PR i MSEE jest używany w interfejsie MSEE-PR. Platforma Azure zawsze używa drugiego adresu IP dla MSEE.
+> 2. Sprawdź, czy Tagi sieci VLAN klienta (C-tag) i Service (S-tag) pasują zarówno do pary MSEE-PR i MSEE.
 > 
 
-### <a name="arp-table-when-microsoft-side-has-problems"></a>Tabela ARP, gdy po stronie firmy Microsoft występują problemy
-* Nie będzie widoczna tabela ARP wyświetlana dla komunikacji równorzędnej, jeśli występują problemy po stronie firmy Microsoft. 
-* Otwórz bilet pomocy technicznej z [pomocą techniczną firmy Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Określ, że występuje problem z łącznością warstwy 2. 
+### <a name="arp-table-when-microsoft-side-has-problems"></a>Tabela ARP, gdy firma Microsoft ma problemy
+* Nie zostanie wyświetlona tabela ARP wyświetlana dla komunikacji równorzędnej, jeśli występują problemy po stronie firmy Microsoft. 
+* Otwórz bilet pomocy technicznej w [pomocy technicznej firmy Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Określ, że masz problem z łącznością z warstwą 2. 
 
 ## <a name="next-steps"></a>Następne kroki
-* Sprawdzanie poprawności konfiguracji warstwy 3 dla obwodu usługi ExpressRoute
-  * Pobierz podsumowanie trasy w celu określenia stanu sesji BGP 
-  * Pobierz tabelę tras, aby określić, które prefiksy są anonsowane w uliczce usługi ExpressRoute
-* Sprawdzanie poprawności transferu danych przez przeglądanie bajtów w / na zewnątrz
-* Otwórz bilet pomocy technicznej z [pomocą techniczną firmy Microsoft,](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) jeśli nadal występują problemy.
+* Weryfikowanie konfiguracji warstwy 3 dla obwodu usługi ExpressRoute
+  * Pobierz Podsumowanie trasy, aby określić stan sesji protokołu BGP 
+  * Pobierz tabelę tras, aby określić, które prefiksy są anonsowane w ExpressRoute
+* Sprawdź poprawność transferu danych, przeglądając/wychodzące bajty
+* Otwórz bilet pomocy technicznej w [pomocy technicznej firmy Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , jeśli nadal występują problemy.
 

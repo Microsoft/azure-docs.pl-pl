@@ -1,6 +1,6 @@
 ---
-title: Łatwość zarządzania i monitorowanie - przegląd
-description: Omówienie monitorowania i zarządzania dla wykorzystania zasobów, rejestrowania i wykonywania zapytań, zaleceń i ochrony danych (tworzenie kopii zapasowych i przywracanie) z puli Synapse SQL.
+title: Zarządzanie i monitorowanie — Omówienie
+description: Przegląd monitorowania i możliwości zarządzania dotyczącego wykorzystania zasobów, działania dzienników i zapytań, zalecenia oraz ochrona danych (kopia zapasowa i przywracanie) przy użyciu puli SQL Synapse.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,25 +12,25 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: e41bf003af7d0926aab04ffed86bf6ec5031c4f7
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80586418"
 ---
-# <a name="manageability-and-monitoring-with-synapse-sql-pool"></a>Możliwość zarządzania i monitorowania za pomocą puli Synapse SQL
+# <a name="manageability-and-monitoring-with-synapse-sql-pool"></a>Zarządzanie i monitorowanie za pomocą puli SQL Synapse
 
-Synapse SQL umożliwia aprowizycję magazynu danych za pośrednictwem puli SQL. Następujące artykuły pomogą Ci zarządzać magazynem danych i monitorować go. Dowiesz się również, jak zoptymalizować użycie i wydajność magazynu danych.
+Synapse SQL umożliwia obsługę administracyjną magazynu danych za pośrednictwem puli SQL. Poniższe artykuły ułatwią Ci Zarządzanie magazynem danych i monitorowanie go. Dowiesz się również, jak zoptymalizować użycie i wydajność magazynu danych.
 
 ## <a name="overview"></a>Omówienie
 
-* [Dowiedz się więcej o zarządzaniu obliczami i elastyczności](sql-data-warehouse-manage-compute-overview.md)
-* [Dowiedz się, jakie metryki i dzienniki są dostępne w witrynie Azure portal](sql-data-warehouse-concept-resource-utilization-query-activity.md)
-* [Dowiedz się więcej o możliwościach tworzenia kopii zapasowych i przywracania](backup-and-restore.md)
-* [Dowiedz się więcej o wbudowanej inteligencji i zaleceniach](sql-data-warehouse-concept-recommendations.md)
-* [Dowiedz się więcej o okresach konserwacji i dostępnych okresach przestojów w magazynie danych](maintenance-scheduling.md)
+* [Informacje na temat zarządzania i elastyczności obliczeniowej](sql-data-warehouse-manage-compute-overview.md)
+* [Informacje o metrykach i dziennikach dostępnych w Azure Portal](sql-data-warehouse-concept-resource-utilization-query-activity.md)
+* [Informacje o możliwościach tworzenia kopii zapasowych i przywracania](backup-and-restore.md)
+* [Dowiedz się więcej na temat wbudowanej analizy i rekomendacji](sql-data-warehouse-concept-recommendations.md)
+* [Poznaj okresy konserwacji i dostępność, aby zminimalizować czas przestoju hurtowni danych](maintenance-scheduling.md)
 * [Znajdź typowe wskazówki dotyczące rozwiązywania problemów](sql-data-warehouse-troubleshoot.md)
 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby zapoznać się z instrukcjami, zobacz [Monitorowanie i dostrajanie puli SQL](sql-data-warehouse-manage-monitor.md).
+Aby uzyskać instrukcje dotyczące przewodników, zobacz [monitorowanie i dostrajanie puli SQL](sql-data-warehouse-manage-monitor.md).

@@ -1,95 +1,95 @@
 ---
-title: Obracanie certyfikatów w usłudze Azure Kubernetes Service (AKS)
-description: Dowiedz się, jak obracać certyfikaty w klastrze usługi Azure Kubernetes (AKS).
+title: Obróć certyfikaty w usłudze Azure Kubernetes Service (AKS)
+description: Dowiedz się, jak obrócić certyfikaty w klastrze usługi Azure Kubernetes Service (AKS).
 services: container-service
 author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
 ms.openlocfilehash: 00dcef4ae0f04fc7f550859238ae8c7e1ad19384
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80549067"
 ---
-# <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Obracanie certyfikatów w usłudze Azure Kubernetes Service (AKS)
+# <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Obróć certyfikaty w usłudze Azure Kubernetes Service (AKS)
 
-Usługa Azure Kubernetes Service (AKS) używa certyfikatów do uwierzytelniania z wieloma jej składnikami. Okresowo może być konieczne obracanie tych certyfikatów ze względów bezpieczeństwa lub zasad. Na przykład może być zasadą obracania wszystkich certyfikatów co 90 dni.
+Usługa Azure Kubernetes Service (AKS) używa certyfikatów do uwierzytelniania z wieloma składnikami. Okresowo może być konieczne obrócenie tych certyfikatów z przyczyn związanych z zabezpieczeniami lub zasadami. Na przykład może istnieć zasada, aby obrócić wszystkie certyfikaty co 90 dni.
 
-W tym artykule pokazano, jak obrócić certyfikaty w klastrze usługi AKS.
+W tym artykule pokazano, jak obrócić certyfikaty w klastrze AKS.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Ten artykuł wymaga, aby użytkownik był uruchomiony w wersji interfejsu wiersza polecenia platformy Azure w wersji 2.0.77 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
+Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.77 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
 
-## <a name="aks-certificates-certificate-authorities-and-service-accounts"></a>Certyfikaty AKS, urzędy certyfikacji i konta usług
+## <a name="aks-certificates-certificate-authorities-and-service-accounts"></a>AKS certyfikaty, urzędy certyfikacji i konta usług
 
-Usługa AKS generuje i używa następujących certyfikatów, urzędów certyfikacji i kont usług:
+AKS generuje i używa następujących certyfikatów, urzędów certyfikacji i kont usług:
 
-* Serwer interfejsu API usługi AKS tworzy urząd certyfikacji o nazwie Urząd certyfikacji klastra.
-* Serwer interfejsu API ma urząd certyfikacji klastra, który podpisuje certyfikaty dla komunikacji jednokierunkowej z serwera interfejsu API do kubeletów.
-* Każdy kubelet tworzy również żądanie podpisywania certyfikatów (CSR), które jest podpisane przez urząd certyfikacji klastra, w celu komunikacji z kubelet do serwera interfejsu API.
-* Magazyn wartości klucza etcd ma certyfikat podpisany przez urząd certyfikacji klastra do komunikacji z etcd do serwera interfejsu API.
-* Magazyn wartości klucza etcd tworzy urząd certyfikacji, który podpisuje certyfikaty do uwierzytelniania i autoryzowania replikacji danych między replikami itp.
-* Agregator interfejsu API używa urzędu certyfikacji klastra do wystawiania certyfikatów do komunikacji z innymi interfejsami API. Agregator interfejsu API może również mieć własny urząd certyfikacji do wystawiania tych certyfikatów, ale obecnie używa urzędu certyfikacji klastra.
-* Każdy węzeł używa tokenu konta usługi (SA), który jest podpisany przez urząd certyfikacji klastra.
-* Klient `kubectl` ma certyfikat do komunikowania się z klastrem AKS.
+* Serwer interfejsu API AKS tworzy urząd certyfikacji (CA) o nazwie Cluster-CA.
+* Serwer interfejsu API ma urząd certyfikacji klastra, który podpisuje certyfikaty do jednokierunkowej komunikacji z serwera interfejsu API do kubelets.
+* Każdy kubelet tworzy również żądanie podpisania certyfikatu (CSR) podpisane przez urząd certyfikacji klastra w celu komunikacji z kubelet z serwerem interfejsu API.
+* Magazyn wartości klucza etcd ma certyfikat podpisany przez urząd certyfikacji klastra na potrzeby komunikacji z etcd z serwerem interfejsu API.
+* Magazyn wartości klucza etcd tworzy urząd certyfikacji, który podpisuje certyfikaty w celu uwierzytelniania i autoryzacji replikacji danych między replikami etcd w klastrze AKS.
+* Agregator interfejsów API używa urzędu certyfikacji klastra do wystawiania certyfikatów do komunikacji z innymi interfejsami API. Agregator API może również mieć własny urząd certyfikacji do wystawiania tych certyfikatów, ale obecnie używa urzędu certyfikacji klastra.
+* W każdym węźle jest używany token konta usługi (SA), który jest podpisany przez urząd certyfikacji klastra.
+* `kubectl` Klient ma certyfikat do komunikacji z klastrem AKS.
 
 > [!NOTE]
-> Klastry AKS utworzone przed marcem 2019 r. mają certyfikaty, które wygasają po dwóch latach. Każdy klaster utworzony po marcu 2019 r. lub dowolny klaster, który ma swoje certyfikaty, ma certyfikaty urzędu certyfikacji klastra, które wygasają po 30 latach. Wszystkie pozostałe certyfikaty wygasają po dwóch latach. Aby sprawdzić, kiedy klaster `kubectl get nodes` został utworzony, należy użyć, aby wyświetlić *wiek* pul węzłów.
+> W przypadku klastrów AKS utworzonych przed Marzec 2019 istnieją certyfikaty, które wygasną po upływie dwóch lat. Każdy klaster utworzony po marcu 2019 lub dowolny klaster, który ma swoje certyfikaty, został obrócony, ma certyfikaty urzędu certyfikacji klastra, które wygasną po 30 latach. Wszystkie inne certyfikaty wygasną po upływie dwóch lat. Aby sprawdzić, kiedy klaster został utworzony, użyj `kubectl get nodes` , aby zobaczyć *wiek* pul węzłów.
 > 
-> Ponadto można sprawdzić datę wygaśnięcia certyfikatu klastra. Na przykład następujące polecenie wyświetla szczegóły certyfikatu dla klastra *myAKSCluster.*
+> Ponadto możesz sprawdzić datę wygaśnięcia certyfikatu klastra. Na przykład następujące polecenie wyświetla szczegóły certyfikatu dla klastra *myAKSCluster* .
 > ```console
 > kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d > my-cert.crt
 > openssl x509 -in my-cert.crt -text
 > ```
 
-## <a name="rotate-your-cluster-certificates"></a>Obracanie certyfikatów klastra
+## <a name="rotate-your-cluster-certificates"></a>Obróć certyfikaty klastra
 
 > [!WARNING]
-> Obracanie certyfikatów `az aks rotate-certs` przy użyciu może spowodować do 30 minut przestoju dla klastra AKS.
+> Obrócenie certyfikatów przy `az aks rotate-certs` użyciu programu może spowodować przestoje dla klastra AKS do 30 minut.
 
-Użyj [az aks get-credentials,][az-aks-get-credentials] aby zalogować się do klastra AKS. To polecenie pobiera i konfiguruje certyfikat `kubectl` klienta na komputerze lokalnym.
+Użyj [AZ AKS Get-Credentials][az-aks-get-credentials] , aby zalogować się do klastra AKS. To polecenie pobiera również i konfiguruje `kubectl` certyfikat klienta na komputerze lokalnym.
 
 ```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
-Służy `az aks rotate-certs` do obracania wszystkich certyfikatów, certyfikatów I IZ w klastrze.
+Służy `az aks rotate-certs` do rotacji wszystkich certyfikatów, urzędów certyfikacji i sygnatury dostępu współdzielonego w klastrze.
 
 ```azurecli
 az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
 > [!IMPORTANT]
-> Ukończenie może potrwać do `az aks rotate-certs` 30 minut. Jeśli polecenie nie powiedzie `az aks show` się przed zakończeniem, użyj, aby sprawdzić stan klastra jest *Certyfikat obracanie*. Jeśli klaster jest w stanie awarii, uruchom `az aks rotate-certs` ponownie, aby ponownie obrócić certyfikaty.
+> Ukończenie tego procesu może potrwać do `az aks rotate-certs` 30 minut. Jeśli polecenie zakończy się niepowodzeniem przed `az aks show` ukończeniem, należy użyć do sprawdzenia stanu klastra jako *rotacji certyfikatu*. Jeśli klaster jest w stanie niepowodzenia, uruchom `az aks rotate-certs` ponownie, aby ponownie obrócić certyfikaty.
 
-Sprawdź, czy stare certyfikaty nie `kubectl` są już prawidłowe, uruchamiając polecenie. Ponieważ certyfikaty używane przez `kubectl`program nie zostały zaktualizowane, zostanie wyświetlony błąd.  Przykład:
+Sprawdź, czy stare certyfikaty nie są już prawidłowe, uruchamiając `kubectl` polecenie. Ponieważ certyfikaty używane przez `kubectl`program nie zostały zaktualizowane, zostanie wyświetlony komunikat o błędzie.  Przykład:
 
 ```console
 $ kubectl get no
 Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "ca")
 ```
 
-Zaktualizuj `kubectl` certyfikat `az aks get-credentials`używany przez uruchomienie pliku .
+Zaktualizuj certyfikat używany przez program `kubectl` przez uruchomienie `az aks get-credentials`.
 
 ```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-Sprawdź, czy certyfikaty zostały `kubectl` zaktualizowane przez uruchomienie polecenia, które zakończy się pomyślnie. Przykład:
+Sprawdź, czy certyfikaty zostały zaktualizowane, uruchamiając `kubectl` polecenie, które zakończy się pomyślnie. Przykład:
 
 ```console
 kubectl get no
 ```
 
 > [!NOTE]
-> Jeśli masz jakieś usługi, które są uruchamiane na szczycie usługi AKS, takie jak [Usługi Azure Dev Spaces,][dev-spaces]może być konieczne [zaktualizowanie certyfikatów związanych z tymi usługami.][dev-spaces-rotate]
+> Jeśli masz jakiekolwiek usługi działające na AKS, takie jak [Azure dev Spaces][dev-spaces], może być konieczne [zaktualizowanie również certyfikatów związanych z tymi usługami][dev-spaces-rotate] .
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule pokazano, jak automatycznie obracać certyfikaty klastra, certyfikaty II i SA. Aby uzyskać więcej informacji na temat najlepszych rozwiązań dotyczących zabezpieczeń systemu AKS, można zapoznać się z najlepszymi rozwiązaniami dotyczącymi [zabezpieczeń i uaktualnień klastra w usłudze Azure Kubernetes Service (AKS).][aks-best-practices-security-upgrades]
+W tym artykule pokazano, jak automatycznie obrócić certyfikaty klastra, urzędy certyfikacji i sygnaturę dostępu współdzielonego. Aby uzyskać więcej informacji na temat najlepszych rozwiązań dotyczących zabezpieczeń [, Zobacz najlepsze rozwiązania dotyczące zabezpieczeń klastrów i uaktualnień w usłudze Azure Kubernetes Service (AKS)][aks-best-practices-security-upgrades] .
 
 
 [azure-cli-install]: /cli/azure/install-azure-cli

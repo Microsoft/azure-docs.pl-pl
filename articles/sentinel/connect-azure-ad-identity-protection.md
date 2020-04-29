@@ -1,6 +1,6 @@
 ---
-title: Łączenie danych usługi Azure AD Identity Protection z usługą Azure Sentinel
-description: Dowiedz się, jak połączyć dane usługi Azure AD Identity Protection z usługą Azure Sentinel.
+title: Łączenie Azure AD Identity Protection danych z platformą Azure — wskaźnikiem
+description: Dowiedz się, jak połączyć Azure AD Identity Protection dane z platformą Azure — wskaźnikiem.
 author: yelevin
 manager: rkarlin
 ms.assetid: 91c870e5-2669-437f-9896-ee6c7fe1d51d
@@ -10,39 +10,39 @@ ms.topic: conceptual
 ms.date: 11/17/2019
 ms.author: yelevin
 ms.openlocfilehash: b82ddfef57efaaca0ae43750cd306a63a772b911
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80616821"
 ---
-# <a name="connect-data-from-azure-ad-identity-protection"></a>Łączenie danych z usługi Azure AD Identity Protection
+# <a name="connect-data-from-azure-ad-identity-protection"></a>Łączenie danych z Azure AD Identity Protection
 
 
 
-Dzienniki [usługi Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) można przesyłać strumieniowo do usługi Azure Sentinel, aby przesyłać strumieniowo alerty do usługi Azure Sentinel w celu wyświetlania pulpitów nawigacyjnych, tworzenia niestandardowych alertów i usprawnienia badania. Usługa Azure Active Directory Identity Protection zapewnia skonsolidowany widok użytkowników ryzyka, wykrywanie ryzyka i luki w zabezpieczeniach, z możliwością natychmiastowego korygować ryzyko i ustawiania zasad w celu automatycznego korygowanie przyszłych zdarzeń. Usługa jest oparta na doświadczeniu firmy Microsoft w ochronie tożsamości konsumentów i zyskuje ogromną dokładność z sygnału z ponad 13 miliardów logowań dziennie. 
+Można przesyłać strumieniowo dzienniki z [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) do usługi Azure wskaźnikowego, aby przesyłać strumieniowo alerty do usługi Azure wskaźnikowego, aby wyświetlać pulpity nawigacyjne, tworzyć niestandardowe alerty i ulepszać badanie. Azure Active Directory Identity Protection zapewnia skonsolidowany widok narażonych użytkowników, wykrywanie ryzyka i luki w zabezpieczeniach, z możliwością natychmiastowego korygowania ryzyka i ustawiania zasad automatycznego korygowania przyszłych zdarzeń. Usługa jest oparta na doświadczeniu firmy Microsoft chroniącym tożsamości klientów i uzyskuje ogromną dokładność od sygnału od ponad 13 000 000 000 logowań dziennie. 
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Musisz mieć [licencję Premium P1 lub P2 usługi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
+- Wymagana jest licencja na [Azure Active Directory — wersja Premium P1 lub P2](https://azure.microsoft.com/pricing/details/active-directory/)
 - Użytkownik z uprawnieniami administratora globalnego lub administratora zabezpieczeń
 
 
-## <a name="connect-to-azure-ad-identity-protection"></a>Łączenie się z usługą Azure AD Identity Protection
+## <a name="connect-to-azure-ad-identity-protection"></a>Połącz z Azure AD Identity Protection
 
-Jeśli masz już usługę Azure AD Identity Protection, upewnij się, że jest [włączona w sieci](../active-directory/identity-protection/overview-identity-protection.md).
-Jeśli usługa Azure AD Identity Protection zostanie wdrożona i będzie otrzymywać dane, dane alertów można łatwo przesyłać strumieniowo do usługi Azure Sentinel.
-
-
-1. W usłudze Azure Sentinel wybierz **łączniki danych,** a następnie kliknij kafelek **usługi Azure AD Identity Protection.**
-
-2. Kliknij **przycisk Połącz,** aby rozpocząć przesyłanie strumieniowe zdarzeń usługi Azure AD Identity Protection do usługi Azure Sentinel.
+Jeśli masz już Azure AD Identity Protection, upewnij się, że jest [włączona w sieci](../active-directory/identity-protection/overview-identity-protection.md).
+Jeśli Azure AD Identity Protection jest wdrożona i pobiera dane, dane alertów można łatwo przesłać strumieniowo do usługi Azure wskaźnikowej.
 
 
-6. Aby użyć odpowiedniego schematu w usłudze Log Analytics dla alertów usługi Azure AD Identity Protection, wyszukaj **securityalert**.
+1. W obszarze wskaźnik platformy Azure wybierz pozycję **Łączniki danych** , a następnie kliknij kafelek **Azure AD Identity Protection** .
+
+2. Kliknij przycisk **Połącz** , aby rozpocząć przesyłanie strumieniowe zdarzeń Azure AD Identity Protection do usługi Azure wskaźnikowej.
+
+
+6. Aby użyć odpowiedniego schematu w Log Analytics dla alertów Azure AD Identity Protection, Wyszukaj pozycję **SecurityAlert**.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym dokumencie dowiesz się, jak połączyć usługę Azure AD Identity Protection z usługą Azure Sentinel. Aby dowiedzieć się więcej o usłudze Azure Sentinel, zobacz następujące artykuły:
-- Dowiedz się, jak [uzyskać wgląd w dane i potencjalne zagrożenia.](quickstart-get-visibility.md)
-- Rozpocznij [wykrywanie zagrożeń za pomocą usługi Azure Sentinel](tutorial-detect-threats-built-in.md).
+W tym dokumencie przedstawiono sposób nawiązywania połączenia Azure AD Identity Protection z platformą Azure — wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
+- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
+- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).

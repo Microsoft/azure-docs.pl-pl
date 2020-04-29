@@ -1,6 +1,6 @@
 ---
-title: Głębokie nurkowanie bramy i najlepsze rozwiązania dotyczące gałęzi Apache w usłudze Azure HDInsight
-description: Dowiedz się, jak poruszać się po najlepszych rozwiązaniach dotyczących uruchamiania zapytań hive za pomocą bramy usługi Azure HDInsight
+title: Głębokie szczegółowe i najlepsze praktyki dotyczące bramy dla Apache Hive w usłudze Azure HDInsight
+description: Dowiedz się, jak nawigować po najlepszych rozwiązaniach dotyczących uruchamiania zapytań programu Hive za pośrednictwem bramy usługi Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,79 +8,79 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 924b1132efeb3ee4211593da190f5b7251029ae3
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80586979"
 ---
-# <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Głębokie nurkowanie bramy i najlepsze rozwiązania dotyczące gałęzi Apache w usłudze Azure HDInsight
+# <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Głębokie szczegółowe i najlepsze praktyki dotyczące bramy dla Apache Hive w usłudze Azure HDInsight
 
-Brama usługi Azure HDInsight (brama) jest frontendem HTTPS dla klastrów HDInsight. Brama jest odpowiedzialna za: uwierzytelnianie, rozpoznawanie hostów, odnajdowanie usług i inne przydatne funkcje niezbędne dla nowoczesnego systemu rozproszonego. Funkcje dostarczone przez bramę spowodować pewne obciążenie, dla których ten dokument opisze najlepsze rozwiązania do nawigacji. Omówione są również techniki rozwiązywania problemów z bramą.
+Brama usługi Azure HDInsight (brama) to fronton protokołu HTTPS dla klastrów usługi HDInsight. Brama jest odpowiedzialna za: uwierzytelnianie, rozpoznawanie hosta, odnajdowanie usług i inne przydatne funkcje niezbędne do nowoczesnego systemu rozproszonego. Funkcje świadczone przez bramę powodują pewne obciążenie, dla których ten dokument zawiera opis najlepszych rozwiązań do przeprowadzenia nawigacji. Omówiono także techniki rozwiązywania problemów z bramą.
 
-## <a name="the-hdinsight-gateway"></a>Brama HDInsight
+## <a name="the-hdinsight-gateway"></a>Brama usługi HDInsight
 
-Brama HDInsight jest jedyną częścią klastra HDInsight, która jest publicznie dostępna przez Internet. Dostęp do usługi Gateway można uzyskać bez przechodzenia `clustername-int.azurehdinsight.net` przez publiczny Internet przy użyciu punktu końcowego bramy wewnętrznej. Wewnętrzny punkt końcowy bramy umożliwia nawiązywanie połączeń z usługą bramy bez zamykania sieci wirtualnej klastra. Brama obsługuje wszystkie żądania, które są wysyłane do klastra i przekazuje takie żądania do odpowiednich składników i hostów klastra.
+Brama usługi HDInsight jest jedyną częścią klastra usługi HDInsight, który jest publicznie dostępny za pośrednictwem Internetu. Dostęp do usługi bramy można uzyskać bez przechodzenia do publicznej sieci Internet przy użyciu `clustername-int.azurehdinsight.net` wewnętrznego punktu końcowego bramy. Wewnętrzny punkt końcowy bramy umożliwia nawiązywanie połączeń z usługą bramy bez opuszczania sieci wirtualnej klastra. Brama obsługuje wszystkie żądania wysyłane do klastra i przekazuje takie żądania do prawidłowych składników i hostów klastra.
 
-Poniższy diagram zawiera przybliżone ilustracji, jak brama zapewnia abstrakcję przed wszystkich różnych możliwości rozpoznawania hosta w ramach usługi HDInsight.
+Poniższy diagram zawiera przybliżoną ilustrację sposobu, w jaki brama zapewnia streszczenie przed wszystkimi różnymi możliwościami rozpoznawania hosta w usłudze HDInsight.
 
-![Diagram rozpoznawania hostów](./media/gateway-best-practices/host-resolution-diagram.png "Diagram rozpoznawania hostów")
+![Diagram rozpoznawania hosta](./media/gateway-best-practices/host-resolution-diagram.png "Diagram rozpoznawania hosta")
 
 ## <a name="motivation"></a>Motywacja
 
-Motywacją do umieszczania bramy przed klastrami HDInsight jest zapewnienie interfejsu do odnajdowania usług i uwierzytelniania użytkowników. Mechanizmy uwierzytelniania dostarczane przez bramę są szczególnie istotne dla klastrów obsługujących protokół ESP.
+Przed umieszczeniem bramy przed klastrami usługi HDInsight jest zapewnienie interfejsu do odnajdowania usług i uwierzytelniania użytkowników. Mechanizmy uwierzytelniania udostępniane przez bramę są szczególnie przydatne w przypadku klastrów obsługujących ESP.
 
-W przypadku odnajdowania usług zaletą bramy jest to, że każdy składnik w `clustername.azurehdinsight.net/hive2`klastrze jest dostępny jako `host:port` inny punkt końcowy w witrynie sieci Web bramy ( ), w przeciwieństwie do wielu par.
+W przypadku odnajdywania usług korzystanie z bramy polega na tym, że każdy składnik w klastrze jest dostępny jako inny punkt końcowy w ramach witryny sieci `clustername.azurehdinsight.net/hive2`Web bramy (), a nie wiele `host:port` par.
 
-W przypadku uwierzytelniania brama umożliwia `username:password` użytkownikom uwierzytelnianie przy użyciu pary poświadczeń. W przypadku klastrów obsługujących protokół ESP to poświadczenie będzie nazwą użytkownika i hasłem domeny. Uwierzytelnianie klastrów HDInsight za pośrednictwem bramy nie wymaga od klienta uzyskania biletu kerberos. Ponieważ brama `username:password` akceptuje poświadczenia i uzyskuje bilet protokołu Kerberos użytkownika w imieniu użytkownika, można nawiązać bezpieczne połączenia z bramą z dowolnego hosta klienta, w tym klientów przyłączonych do różnych domen AA-DDS niż klaster (ESP).
+W przypadku uwierzytelniania Brama zezwala użytkownikom na uwierzytelnianie za pomocą pary `username:password` poświadczeń. W przypadku klastrów obsługujących ESP to poświadczenie będzie nazwą użytkownika domeny i hasłem. Uwierzytelnianie klastrów usługi HDInsight za pośrednictwem bramy nie wymaga, aby klient uzyskał bilet protokołu Kerberos. Ponieważ Brama akceptuje `username:password` poświadczenia i uzyskuje bilet protokołu Kerberos użytkownika w imieniu użytkownika, można nawiązać bezpieczne połączenia z bramą z dowolnego hosta klienta, w tym klientów przyłączonych do różnych domen AA-DDS niż klaster (ESP).
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
-Brama to pojedyncza usługa (równoważona obciążeniem między dwoma hostami) odpowiedzialna za przekazywanie żądań i uwierzytelnianie. Brama może stać się wąskie gardło przepływności dla zapytań hive przekraczających określony rozmiar. Spadek wydajności kwerendy mogą być obserwowane, gdy bardzo duże kwerendy **SELECT** są wykonywane na bramie za pośrednictwem ODBC lub JDBC. "Bardzo duże" oznacza kwerendy, które tworzą więcej niż 5 GB danych w wierszach lub kolumnach. Ta kwerenda może zawierać długą listę wierszy i lub dużą liczbę kolumn.
+Brama to pojedyncza usługa (równoważna obciążenie na dwóch hostach) odpowiedzialna za przekazywanie żądań i uwierzytelnianie. Brama może stać się wąskim gardła przepływności dla zapytań Hive przekraczających określony rozmiar. Pogorszenie wydajności zapytania może być zaobserwowane, gdy bardzo duże zapytania **SELECT** są wykonywane na bramie za pośrednictwem ODBC lub JDBC. "Bardzo duże" oznacza zapytania, które składają się z więcej niż 5 GB danych w wierszach lub kolumnach. To zapytanie może zawierać długą listę wierszy i lub dużą liczbę kolumn.
 
-Spadek wydajności bramy wokół kwerend o dużym rozmiarze jest, ponieważ dane muszą być przesyłane z magazynu danych źródłowych (ADLS Gen2) do: hdinsight hive server, bramy i wreszcie za pośrednictwem sterowników JDBC lub ODBC do hosta klienta.
+Spadek wydajności bramy dla kwerend o dużym rozmiarze wynika z faktu, że dane muszą być transferowane z bazowego magazynu danych (ADLS Gen2) do: serwera Hive programu HDInsight, bramy i na koniec za pośrednictwem sterowników JDBC lub ODBC na hoście klienta.
 
-Na poniższym diagramie przedstawiono kroki związane z kwerendą SELECT.
+Na poniższym diagramie przedstawiono kroki, które są uwzględnione w zapytaniu SELECT.
 
 ![Diagram wyników](./media/gateway-best-practices/result-retrieval-diagram.png "Diagram wyników")
 
-Apache Hive jest abstrakcją relacyjną na szczycie systemu plików zgodnego z systemem plików HDFS. Ta abstrakcja oznacza **SELECT** instrukcji w gałęzi odpowiadają **operacji ODCZYT** w systemie plików. Operacje **READ** są tłumaczone na odpowiedni schemat przed zgłoszeniem do użytkownika. Opóźnienie tego procesu zwiększa się wraz z rozmiarem danych i całkowitymi przeskokami wymaganymi do dotarcia do użytkownika końcowego.
+Apache Hive to relacyjna Abstrakcja na bazie systemu plików zgodnej z systemem HDFS. Streszczenie oznacza, że instrukcje **SELECT** w gałęziach odpowiadają operacjom **odczytu** w systemie plików. Operacje **odczytu** są tłumaczone na odpowiedni schemat przed wysłaniem go do użytkownika. Opóźnienie tego procesu zwiększa się wraz z rozmiarem danych i łącznym przeskokami wymaganym do uzyskania dostępu do użytkownika końcowego.
 
-Podobne zachowanie może wystąpić podczas wykonywania **instrukcji CREATE** lub **INSERT** dużych danych, ponieważ te polecenia będą odpowiadać operacjom **ZAPISu** w podstawowym systemie plików. Rozważ zapisanie danych, takich jak surowy ORC, do systemu plików/datalake zamiast ładować go za pomocą **INSERT** lub **LOAD**.
+Podobne zachowanie może wystąpić podczas wykonywania instrukcji **Create** lub **INSERT** w przypadku dużych ilości danych, ponieważ te polecenia będą odpowiadać na operacje **zapisu** w podstawowym systemie plików. Rozważ zapisanie danych, takich jak RAW ORC, do systemu plików/datalake zamiast ładowania go przy użyciu funkcji **INSERT** lub **Load**.
 
-W klastrach z włączoną funkcją pakietu zabezpieczeń dla przedsiębiorstw wystarczająco złożone zasady Apache Ranger mogą powodować spowolnienie czasu kompilacji kwerend, co może prowadzić do przekroczeniu limitu czasu bramy. Jeśli limit czasu bramy zostanie zauważony w klastrze ESP, należy rozważyć zmniejszenie lub połączenie liczby zasad ranger.
+W klastrach z włączonym pakietem zabezpieczeń przedsiębiorstwa wystarczająco złożone zasady Apache Ranger mogą powodować spowolnienie w czasie kompilacji kwerendy, co może prowadzić do przekroczenia limitu czasu bramy. Jeśli w klastrze ESP zauważono limit czasu bramy, należy rozważyć zmniejszenie lub połączenie liczby zasad rangerymi.
 
 ## <a name="troubleshooting-techniques"></a>Techniki rozwiązywania problemów
 
-Istnieje wiele miejsc do łagodzenia i zrozumienia problemów z wydajnością spełnione w ramach powyższego zachowania. Użyj następującej listy kontrolnej, gdy występuje spadek wydajności kwerendy przez bramę USŁUGI HDInsight:
+Istnieje wiele miejsc, aby ograniczyć i zrozumieć problemy z wydajnością, które zostały spełnione w ramach powyższego zachowania. Użyj poniższej listy kontrolnej, gdy wystąpi spadek wydajności zapytania w ramach bramy usługi HDInsight:
 
-* Użyj klauzuli **LIMIT** podczas wykonywania dużych kwerend **SELECT.** Klauzula **LIMIT** zmniejszy sumę wierszy zgłoszonych do hosta klienta. Klauzula **LIMIT** wpływa tylko na generowanie wyników i nie zmienia planu kwerend. Aby zastosować klauzulę **LIMIT** do planu `hive.limit.optimize.enable`kwerend, użyj konfiguracji . **LIMIT** można łączyć z przesunięciem za pomocą formularza **argumentu LIMIT x,y**.
+* Użyj klauzuli **Limit** podczas wykonywania dużych zapytań **SELECT** . Klauzula **Limit** zmniejsza łączną liczbę wierszy raportowanych do hosta klienta. Klauzula **Limit** wpływa tylko na generowanie wyników i nie zmienia planu zapytania. Aby zastosować klauzulę **limitu** do planu zapytania, użyj konfiguracji `hive.limit.optimize.enable`. **Limit** może być połączony z przesunięciem przy użyciu argumentu w postaci **limitu x, y**.
 
-* Nazwij interesujące kolumny podczas uruchamiania kwerend **SELECT** zamiast **wybierać \* **. Wybranie mniejszej liczby kolumn spowoduje zmniejszenie ilości odczytu danych.
+* Nazwij interesujące Cię kolumny podczas uruchamiania **wybranych** zapytań zamiast używać **opcji Select \* **. Wybranie mniejszej liczby kolumn spowoduje zmniejszenie ilości odczytanych danych.
 
-* Spróbuj uruchomić kwerendę zainteresowania za pośrednictwem Apache Beeline. Jeśli pobieranie wyników za pośrednictwem Apache Beeline zajmuje dłuższy czas, należy spodziewać się opóźnień podczas pobierania tych samych wyników za pomocą narzędzi zewnętrznych.
+* Spróbuj uruchomić zapytanie o zainteresowanie za pomocą platformy Apache Z usługi Beeline. Jeśli pobieranie wyników za pośrednictwem platformy Apache Z usługi Beeline trwa dłuższy czas, oczekiwanie na opóźnienia podczas pobierania tych samych wyników za pośrednictwem zewnętrznych narzędzi.
 
-* Przetestuj podstawowe zapytanie gałęzi, aby upewnić się, że można ustanowić połączenie z bramą HDInsight. Spróbuj uruchomić podstawowe zapytanie z dwóch lub więcej narzędzi zewnętrznych, aby upewnić się, że żadne pojedyncze narzędzie nie jest uruchomione w problemach.
+* Przetestuj podstawowe zapytanie programu Hive, aby upewnić się, że można nawiązać połączenie z bramą usługi HDInsight. Spróbuj uruchomić podstawowe zapytanie z poziomu dwóch lub więcej zewnętrznych narzędzi, aby upewnić się, że żadne narzędzie nie działa w problemach.
 
-* Przejrzyj alerty Apache Ambari, aby upewnić się, że usługi HDInsight są w dobrej kondycji. Alerty Ambari można zintegrować z usługą Azure Monitor do raportowania i analizy.
+* Przejrzyj wszystkie alerty Ambari Apache, aby upewnić się, że usługi HDInsight są w dobrej kondycji. Alerty Ambari można zintegrować z Azure Monitor na potrzeby raportowania i analizy.
 
-* Jeśli używasz zewnętrznego magazynu hive metastore, sprawdź, czy usługa Azure SQL DB DTU dla magazynu hive metastore nie osiągnęła limitu. Jeśli DTU zbliża się do limitu, należy zwiększyć rozmiar bazy danych.
+* Jeśli używasz zewnętrznego magazynu metadanych Hive, sprawdź, czy nie osiągnął limitu liczby jednostek DTU usługi Azure SQL DB dla magazynu metadanych Hive. Jeśli wartość DTU zbliża się do limitu, należy zwiększyć rozmiar bazy danych.
 
-* Upewnij się, że wszystkie narzędzia innych firm, takie jak PBI lub Tableau, używają podziałów na strony do wyświetlania tabel lub baz danych. Skonsultuj się z partnerami pomocy technicznej, aby uzyskać pomoc w sprawie podziałania na strony. Głównym narzędziem używanym do podziałania `fetchSize` na strony jest parametr JDBC. Mały rozmiar pobierania może spowodować obniżenie wydajności bramy, ale rozmiar pobierania zbyt duży może spowodować limit czasu bramy. Dostrajanie rozmiaru pobierania musi odbywać się na podstawie obciążenia.
+* Upewnij się, że wszystkie narzędzia innych firm, takie jak PBI lub Tableau, używają stronicowania do wyświetlania tabel lub baz danych. Zapoznaj się z partnerami pomocy technicznej, aby uzyskać pomoc dotyczącą dzielenia na strony. Głównym narzędziem używanym do stronicowania jest parametr `fetchSize` JDBC. Niewielki rozmiar pobierania może spowodować obniżenie wydajności bramy, ale rozmiar pobieranych za duży może spowodować przekroczenie limitu czasu bramy. Dostrajanie rozmiaru pobierania musi być wykonywane na podstawie obciążenia.
 
-* Jeśli potok danych obejmuje odczyt dużej ilości danych z magazynu źródłowego klastra HDInsight, należy rozważyć użycie narzędzia, które łączy się bezpośrednio z usługą Azure Storage, takich jak usługa Azure Data Factory
+* Jeśli potok danych obejmuje odczytywanie dużej ilości danych z magazynu bazowego klastra usługi HDInsight, należy rozważyć użycie narzędzia bezpośrednio powiązanego z magazynem platformy Azure, takiego jak Azure Data Factory
 
-* Rozważ użycie apache hive LLAP podczas uruchamiania obciążeń interaktywnych, ponieważ LLAP może zapewnić płynniejsze środowisko szybkiego zwracania wyników kwerendy
+* Rozważ użycie Apache Hive LLAP podczas uruchamiania interakcyjnych obciążeń, ponieważ LLAP może zapewnić płynny komfort szybkiego zwracania wyników zapytania
 
-* Należy rozważyć zwiększenie liczby wątków dostępnych dla usługi `hive.server2.thrift.max.worker.threads`Hive Metastore przy użyciu . To ustawienie jest szczególnie istotne, gdy duża liczba równoczesnych użytkowników przesyła zapytania do klastra
+* Rozważ zwiększenie liczby wątków dostępnych dla usługi magazynu metadanych Hive przy użyciu `hive.server2.thrift.max.worker.threads`programu. To ustawienie jest szczególnie przydatne, gdy duża liczba równoczesnych użytkowników przesyła zapytania do klastra
 
-* Zmniejsz liczbę ponownych prób użycia do dotarcia do bramy z dowolnych narzędzi zewnętrznych. Jeśli jest używanych wiele ponownych prób, należy rozważyć następujące wykładnicze wycofywanie się z zasad ponawiania
+* Zmniejsz liczbę ponownych prób używanych do uzyskania dostępu do bramy z dowolnego narzędzia zewnętrznego. W przypadku użycia wielu ponownych prób należy rozważyć zastosowanie zasad ponawiania wycofywania
 
-* Rozważ włączenie funkcji Gałąź `hive.exec.compress.output` `hive.exec.compress.intermediate`kompresji przy użyciu konfiguracji i .
+* Rozważ włączenie gałęzi kompresji przy użyciu konfiguracji `hive.exec.compress.output` i `hive.exec.compress.intermediate`.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Apache Beeline na HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-beeline)
-* [Kroki rozwiązywania problemów z limitem czasu bramy HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/troubleshoot-gateway-timeout)
-* [Sieci wirtualne dla HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)
-* [HDInsight z trasą ekspresową](https://docs.microsoft.com/azure/hdinsight/connect-on-premises-network)
+* [Apache Z usługi Beeline w usłudze HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-beeline)
+* [Kroki rozwiązywania problemów z limitem czasu bramy usługi HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/troubleshoot-gateway-timeout)
+* [Sieci wirtualne dla usługi HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)
+* [HDInsight z usługą Express Route](https://docs.microsoft.com/azure/hdinsight/connect-on-premises-network)

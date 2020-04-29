@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: b-juche
 ms.openlocfilehash: b21db3e842898e8ce11b560714888b946373300e
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80616433"
 ---
 # <a name="set-up-a-capacity-pool"></a>Konfigurowanie puli pojemności
@@ -47,9 +47,9 @@ Potrzebujesz utworzonego konta usługi NetApp.
 
    * **Poziom usług**   
      To pole wskazuje docelową wydajność puli pojemności.  
-     Określ poziom usług dla puli pojemności: [**Ultra,**](azure-netapp-files-service-levels.md#Ultra) [**Premium**](azure-netapp-files-service-levels.md#Premium)lub [**Standard**](azure-netapp-files-service-levels.md#Standard).
+     Określ poziom usługi dla puli pojemności: [**Ultra**](azure-netapp-files-service-levels.md#Ultra), [**Premium**](azure-netapp-files-service-levels.md#Premium)lub [**Standard**](azure-netapp-files-service-levels.md#Standard).
 
-   * **Rozmiar**     
+   * **Zmienia**     
      Określ rozmiar kupowanej puli pojemności.        
      Minimalny rozmiar puli pojemności to 4 TiB. Można utworzyć pulę o rozmiarze będącym wielokrotnością 4 TiB.   
       

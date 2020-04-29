@@ -1,6 +1,6 @@
 ---
-title: Limity i przydziały IoT Plug and Play Preview | Dokumenty firmy Microsoft
-description: Opis limitów, przydziałów i ograniczania przepustowości, które mają zastosowanie podczas korzystania z wersji Zapoznawczej i odtworzania IoT.
+title: Limity i przydziały IoT Plug and Play w wersji zapoznawczej | Microsoft Docs
+description: Zapoznaj się z limitami, przydziałami i ograniczeniami dotyczącymi korzystania z programu IoT Plug and Play w wersji zapoznawczej.
 author: miagdp
 ms.author: miag
 ms.date: 04/01/2020
@@ -8,55 +8,55 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: cce99b7d9de09134fd01afb36c41bce3966e8536
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80518168"
 ---
-# <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Limity podglądu i przepustnice IoT Plug and Play, przydziały i ograniczenia
+# <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Limity, przydziały i ograniczenia dotyczące Plug and Play IoT
 
-W tym artykule wyjaśniono limity specyficzne dla i odtworzania IoT, przydziały i ograniczanie przepustowości, które mają zastosowanie w publicznej wersji zapoznawczej. Istnieją istniejące [przydziały IoT Hub i ograniczania przepustowości,](../iot-hub/iot-hub-devguide-quotas-throttling.md) które również mają zastosowanie.
+W tym artykule wyjaśniono limity, przydziały i ograniczenia dotyczące Plug and Play IoT, które są stosowane w publicznej wersji zapoznawczej. Istnieją także [przydziały IoT Hub i ograniczanie przepustowości](../iot-hub/iot-hub-devguide-quotas-throttling.md) .
 
 ## <a name="iot-hub"></a>Usługa IoT Hub
 
-W przypadku publicznej wersji zapoznawczej do centrum IoT hub mają zastosowanie następujące limity i przydziały:
+W publicznej wersji zapoznawczej do centrum IoT są stosowane następujące limity i przydziały:
 
 | Limity, ograniczenia i ograniczenia | Wartość | Uwagi |
 |-----|-----|-----|
-| Liczba modeli możliwości urządzenia (DCM) lub interfejsów, które można zarejestrować na koncentrator | 1500 ||
-| Maksymalna liczba interfejsów, które można zarejestrować na urządzenie | 40 ||
-| Maksymalna liczba dcmów, które mogą być rejestrowane na urządzenie | 1 ||
-| Maksymalny rozmiar pliku interfejsu/kontrolera domeny | 512 KB ||
+| Liczba modeli możliwości urządzeń (DCMs) lub interfejsów, które mogą być zarejestrowane na Hub | 1500 ||
+| Maksymalna liczba interfejsów, które mogą być zarejestrowane na urządzenie | 40 ||
+| Maksymalna liczba DCMs, które można zarejestrować na urządzenie | 1 ||
+| Maksymalny rozmiar pliku interfejsu/DCM | 512 KB ||
 | Maksymalny rozmiar nazwy interfejsu | 256 znaków ||
-| Maksymalny rozmiar nazwy właściwości  | 64 bajty, 7 poziomów głębokości (a pierwszy `$iotin`poziom jest zarezerwowany dla) | Dozwolone znaki: a-z, A-Z, 0-9 (nie jako pierwszy znak) i podkreślenia. |
+| Maksymalny rozmiar nazwy właściwości  | 64 bajtów, 7 poziomów na głębokości (a pierwszy poziom jest zarezerwowany dla `$iotin`) | Dozwolone znaki: a-z, A-Z, 0-9 (nie jako pierwszy znak) i podkreślenia. |
 | Maksymalny rozmiar wartości właściwości | 512 bajtów ||
 | Maksymalny rozmiar nazwy polecenia | 100 bajtów ||
-| Podwójny rozmiar urządzenia | Tak samo jak [limity koncentratora IoT](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||
-| Rozpoznawanie wywołań interfejsu API w jednostce SKU (niezależnie od jednostek) | 100 żądań na sekundę ||
+| Rozmiar przędzy urządzenia | Analogicznie jak [limity IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||
+| Rozpoznawanie wywołań interfejsu API między jednostkami SKU (niezależnie od jednostek) | 100 żądań na sekundę ||
 
-## <a name="model-repository"></a>Repozytorium modeli
+## <a name="model-repository"></a>Repozytorium modelu
 
-W przypadku publicznej wersji zapoznawczej do repozytorium modelu mają zastosowanie następujące limity i przydziały:
+W publicznej wersji zapoznawczej następujące limity i przydziały mają zastosowanie do repozytorium modelu:
 
 | Limity, ograniczenia i ograniczenia | Wartość |
 |-----|-----|
-| Liczba repozytoriów modeli firmy na dzierżawę usługi Azure Active Directory | 1 |
+| Liczba repozytoriów modelu firmy dla dzierżawy Azure Active Directory | 1 |
 | Liczba kluczy autoryzacji na repozytorium modelu | 10  |
-| Liczba modeli (DCM lub interfejsów) na repozytorium modelu firmy| 1500  |
-| Liczba modeli (DCM lub interfejsów) w publicznym repozytorium modeli na dzierżawę usługi Azure Active Directory| 1500  |
-| Liczba kontrolerów DOMENY lub interfejsów usuwanych w repozytorium modeli firmy | 10 zapytań na sekundę (QPS)|
-| Liczba repozytoriów modelu tworzonych/aktualizowanych przez dzierżawę| 1 k/k |
-| Liczba tworzonych/aktualizowanych/usuwanych kluczy autoryzacji w repozytorium modelu | 1 k/k|
-| Liczba dcm tworzonych w repozytorium modelu firmy | 10 k.p.m. |
-| Liczba interfejsów tworzonych w repozytorium modeli firmy | 10 k.p.m.|
-| Liczba dcm tworzonych w publicznym repozytorium modelu | 10 k.p.m.|
-| Liczba interfejsów tworzonych w publicznym repozytorium modelu | 10 k.p.m.|
+| Liczba modeli (DCMs lub interfejsy) na repozytorium modelu firmy| 1500  |
+| Liczba modeli (DCMs lub Interfaces) w repozytorium modelu publicznego dla dzierżawy Azure Active Directory| 1500  |
+| Liczba DCMs lub interfejsów usuniętych w repozytorium modelu firmy | 10 zapytań na sekundę (zapytań)|
+| Liczba repozytoriów modelu tworzonych/aktualizowanych przez dzierżawcę| 1 ZAPYTAŃ |
+| Liczba kluczy autoryzacji tworzonych/aktualizowanych/usuniętych w repozytorium modelu | 1 ZAPYTAŃ|
+| Liczba tworzonych DCMs w repozytorium modelu firmy | 10 ZAPYTAŃ |
+| Liczba tworzonych interfejsów w repozytorium modelu firmy | 10 ZAPYTAŃ|
+| Liczba tworzonych DCMs w repozytorium modelu publicznego | 10 ZAPYTAŃ|
+| Liczba tworzonych interfejsów w repozytorium modelu publicznego | 10 ZAPYTAŃ|
 
 ## <a name="parser-library"></a>Biblioteka analizatora
 
-Biblioteka analizatora jest zgodna z ograniczeniami, które mają zastosowanie do [języka cyfrowej podwójnej definicji](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+Biblioteka analizatorów stosuje się do ograniczeń, które mają zastosowanie do [języka definicji cyfrowej sznurka](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Sugerowanym następnym krokiem jest nauczenie się, jak [połączyć się z urządzeniem IoT Plug and Play i wchodzić w nią w interakcje.](./howto-develop-solution.md)
+Sugerowany następny krok to Dowiedz się [, jak nawiązać połączenie z urządzeniem IoT Plug and Play i korzystać z niego](./howto-develop-solution.md).

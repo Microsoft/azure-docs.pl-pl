@@ -1,35 +1,35 @@
 ---
-title: Integracja rejestru kontenerów platformy Azure z usługą Azure Kubernetes
-description: Dowiedz się, jak zintegrować usługę Azure Kubernetes Service (AKS) z rejestrem kontenerów platformy Azure (ACR)
+title: Integracja Azure Container Registry z usługą Azure Kubernetes Service
+description: Dowiedz się, jak zintegrować usługę Azure Kubernetes Service (AKS) z usługą Azure Container Registry (ACR)
 services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 02/25/2020
 ms.openlocfilehash: 514cc25e1959145c65fe60cd3054cec4ed28f44d
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80617421"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Uwierzytelnianie za pomocą usługi Azure Container Registry z poziomu usługi Azure Kubernetes Service
 
-Podczas korzystania z usługi Azure Container Registry (ACR) z usługą Azure Kubernetes Service (AKS), należy ustanowić mechanizm uwierzytelniania. W tym artykule przedstawiono przykłady konfigurowania uwierzytelniania między tymi dwiema usługami platformy Azure. 
+W przypadku korzystania z Azure Container Registry (ACR) z usługą Azure Kubernetes Service (AKS) należy nawiązać mechanizm uwierzytelniania. W tym artykule przedstawiono przykłady konfigurowania uwierzytelniania między tymi dwiema usługami platformy Azure. 
 
-Można skonfigurować AKS do integracji ACR w kilku prostych poleceń z interfejsu wiersza polecenia platformy Azure. Ta integracja przypisuje rolę AcrPull do jednostki usługi skojarzonej z klastrem AKS.
+Za pomocą interfejsu wiersza polecenia platformy Azure można skonfigurować AKS do integracji z ACR w kilku prostych poleceniach. Ta integracja przypisuje rolę AcrPull do jednostki usługi skojarzonej z klastrem AKS.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Te przykłady wymagają:
 
-* **Rola** **administratora konta** lub konta platformy Azure w **ramach subskrypcji platformy Azure**
-* Interfejsu wiersza polecenia platformy Azure w wersji 2.0.73 lub nowszej
+* Rola **właściciela** lub **administratora konta platformy Azure** w **subskrypcji platformy Azure**
+* Interfejs wiersza polecenia platformy Azure w wersji 2.0.73 lub nowszej
 
-Aby uniknąć konieczności **właściciela** lub **roli administratora konta platformy Azure,** można skonfigurować jednostki usługi ręcznie lub użyć istniejącego podmiotu usługi do uwierzytelniania usługi ACR z usługi AKS. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie usługi ACR za pomocą podmiotów usługi](../container-registry/container-registry-auth-service-principal.md) lub [Uwierzytelnianie z kubernetes z kluczem tajnym ściągania](../container-registry/container-registry-auth-kubernetes.md).
+Aby uniknąć konieczności korzystania z roli **właściciela** lub **administratora konta platformy Azure** , można skonfigurować jednostkę usługi ręcznie lub użyć istniejącej jednostki usługi do uwierzytelniania ACR z AKS. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie ACR za pomocą jednostek usługi](../container-registry/container-registry-auth-service-principal.md) lub [uwierzytelnianie z Kubernetes przy użyciu klucza tajnego ściągania](../container-registry/container-registry-auth-kubernetes.md).
 
-## <a name="create-a-new-aks-cluster-with-acr-integration"></a>Tworzenie nowego klastra AKS z integracją ACR
+## <a name="create-a-new-aks-cluster-with-acr-integration"></a>Utwórz nowy klaster AKS z integracją ACR
 
-Integrację aks i ACR można skonfigurować podczas początkowego tworzenia klastra AKS.  Aby zezwolić klastrowi AKS na interakcję z usługą ACR, używana jest **jednostka usługi** Azure Active Directory. Następujące polecenie interfejsu wiersza polecenia umożliwia autoryzowanie istniejącego usługi ACR w ramach subskrypcji i konfiguruje odpowiednią rolę **ACRPull** dla jednostki usługi. Podaj prawidłowe wartości dla swoich parametrów poniżej.
+Integrację AKS i ACR można skonfigurować podczas początkowego tworzenia klastra AKS.  Aby umożliwić klastrowi AKS współdziałanie z ACR, używana jest jednostka **usługi** Azure Active Directory. Następujące polecenie interfejsu wiersza polecenia pozwala autoryzować istniejące ACR w ramach subskrypcji i skonfigurować odpowiednią rolę **ACRPull** dla jednostki usługi. Podaj prawidłowe wartości parametrów poniżej.
 
 ```azurecli
 # set this to the name of your Azure Container Registry.  It must be globally unique
@@ -42,7 +42,7 @@ az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
 az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr $MYACR
 ```
 
-Alternatywnie można określić nazwę usługi ACR przy użyciu identyfikatora zasobu usługi ACR, który ma następujący format:
+Alternatywnie można określić nazwę ACR przy użyciu identyfikatora zasobu ACR, który ma następujący format:
 
 `/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\>` 
 
@@ -50,23 +50,23 @@ Alternatywnie można określić nazwę usługi ACR przy użyciu identyfikatora z
 az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr /subscriptions/<subscription-id>/resourceGroups/myContainerRegistryResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry
 ```
 
-Ten krok może potrwać kilka minut.
+Wykonanie tego kroku może potrwać kilka minut.
 
-## <a name="configure-acr-integration-for-existing-aks-clusters"></a>Konfigurowanie integracji ACR dla istniejących klastrów AKS
+## <a name="configure-acr-integration-for-existing-aks-clusters"></a>Konfigurowanie integracji usługi ACR dla istniejących klastrów AKS
 
-Zintegruj istniejący program ACR z istniejącymi klastrami AKS, podając prawidłowe wartości dla **acr-name** lub **acr-resource-id,** jak poniżej.
+Zintegruj istniejący ACR z istniejącymi klastrami AKS, dostarczając prawidłowe wartości dla **ACR-Name** lub **ACR-Resource-ID** w następujący sposób.
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
 ```
 
-Lub
+oraz
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```
 
-Można również usunąć integrację między klasterem ACR a klasterem AKS z następującymi
+Można również usunąć integrację między usługą ACR a klastrem AKS z następującymi elementami:
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
@@ -80,16 +80,16 @@ az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 
 ## <a name="working-with-acr--aks"></a>Praca z ACR & AKS
 
-### <a name="import-an-image-into-your-acr"></a>Importowanie obrazu do usługi ACR
+### <a name="import-an-image-into-your-acr"></a>Importowanie obrazu do ACR
 
-Zaimportuj obraz z centrum docker do usługi ACR, uruchamiając następujące elementy:
+Zaimportuj obraz z usługi Docker Hub do ACR, wykonując następujące czynności:
 
 
 ```azurecli
 az acr import  -n <myContainerRegistry> --source docker.io/library/nginx:latest --image nginx:v1
 ```
 
-### <a name="deploy-the-sample-image-from-acr-to-aks"></a>Wdrażanie przykładowego obrazu z usługi ACR do usługi AKS
+### <a name="deploy-the-sample-image-from-acr-to-aks"></a>Wdrażanie przykładowego obrazu z ACR do AKS
 
 Upewnij się, że masz odpowiednie poświadczenia AKS
 
@@ -97,7 +97,7 @@ Upewnij się, że masz odpowiednie poświadczenia AKS
 az aks get-credentials -g myResourceGroup -n myAKSCluster
 ```
 
-Utwórz plik o nazwie **acr-nginx.yaml,** który zawiera następujące elementy:
+Utwórz plik o nazwie **ACR-Nginx. YAML** , który zawiera następujące elementy:
 
 ```yaml
 apiVersion: apps/v1
@@ -123,19 +123,19 @@ spec:
         - containerPort: 80
 ```
 
-Następnie uruchom to wdrożenie w klastrze AKS:
+Następnie Uruchom to wdrożenie w klastrze AKS:
 
 ```console
 kubectl apply -f acr-nginx.yaml
 ```
 
-Wdrożenie można monitorować, uruchamiając:
+Wdrożenie można monitorować, uruchamiając następujące:
 
 ```console
 kubectl get pods
 ```
 
-Powinieneś mieć dwa uruchomione zasobniki.
+Należy mieć dwa uruchomione zasobniki.
 
 ```output
 NAME                                 READY   STATUS    RESTARTS   AGE

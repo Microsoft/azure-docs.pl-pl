@@ -1,6 +1,6 @@
 ---
-title: 'Bastion platformy Azure: wyświetlanie sesji maszyny wirtualnej: na pełnym ekranie'
-description: W tym artykule dowiesz się, jak zmienić widok na pełnoekranowy.
+title: 'Azure bastionu: wyświetlanie sesji maszyny wirtualnej: pełny ekran'
+description: W tym artykule dowiesz się, jak zmienić widok na pełny ekran.
 services: bastion
 author: charwen
 ms.service: bastion
@@ -8,29 +8,29 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: charwen
 ms.openlocfilehash: 2e72eb9ffc3affa0bf09692ac0780f9310308521
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80619292"
 ---
-# <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Przejście na widok pełnoekranowy dla sesji maszyny wirtualnej: Bastion platformy Azure
+# <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Przejdź do widoku pełnoekranowego sesji maszyny wirtualnej: Azure bastionu
 
-Ten artykuł ułatwia zmianę widoku maszyny wirtualnej na pełny ekran i z powrotem w przeglądarce. Przed rozpoczęciem pracy z maszyną wirtualną upewnij się, że postępujesz do kroków, aby [utworzyć host bastionu](bastion-create-host-portal.md). Następnie połącz się z maszyną wirtualną, z którą chcesz pracować, korzystając z [protokołu RDP](bastion-connect-vm-rdp.md) lub [SSH](bastion-connect-vm-ssh.md).
+Ten artykuł pomaga zmienić widok maszyny wirtualnej na pełny ekran i z powrotem w przeglądarce. Przed rozpoczęciem pracy z maszyną wirtualną upewnij się, że wykonano kroki umożliwiające [utworzenie hosta bastionu](bastion-create-host-portal.md). Następnie nawiąż połączenie z maszyną wirtualną, z którą chcesz współpracować przy użyciu [protokołu RDP](bastion-connect-vm-rdp.md) lub [SSH](bastion-connect-vm-ssh.md).
 
-## <a name="launch-the-clipboard-tool"></a>Uruchamianie narzędzia Schowka
+## <a name="launch-the-clipboard-tool"></a>Uruchom narzędzie do schowka
 
-Podczas sesji zdalnej uruchom paletę narzędzi dostępu do schowka Bastion, wybierając dwie strzałki znajdujące się po lewej stronie środka sesji.
+Podczas sesji zdalnej Uruchom paletę Narzędzia dostępu do schowka bastionu, wybierając dwie strzałki, które znajdują się w lewym środku sesji.
 
 ![narzędzia](./media/bastion-vm-manage/left.png)
 
-## <a name="select-full-screen"></a>Wybieranie pełnego ekranu
+## <a name="select-full-screen"></a>Wybierz pełny ekran
 
-Wybierz przycisk **Pełnoekranowy,** aby przełączyć sesję na tryb pełnoekranowy. Po przełączeniu sesja zostanie ponownie zainicjowana na pełnym ekranie.
+Wybierz przycisk **pełny** ekran, aby przełączyć sesję na pełne środowisko ekranu. Po przełączeniu sesja zostanie zainicjowana na pełny ekran.
 
 ![pełny ekran](./media/bastion-vm-manage/full-screen.png)
  
 ## <a name="next-steps"></a>Następne kroki
 
-Przeczytaj często zadawane pytania dotyczące [bastionu](bastion-faq.md).
-Dowiedz się, jak [kopiować i wklejać](bastion-vm-copy-paste.md) do i z maszyny wirtualnej platformy Azure.
+Zapoznaj się z [bastionu często zadawanych pytań](bastion-faq.md).
+Dowiedz się [, jak kopiować i wklejać](bastion-vm-copy-paste.md) do i z maszyny wirtualnej platformy Azure.

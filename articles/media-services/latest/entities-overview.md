@@ -1,7 +1,7 @@
 ---
-title: Filtrowanie, zamawianie i stronicowanie encji usługi Media Services
+title: Filtrowanie, porządkowanie i stronicowanie jednostek Media Services
 titleSuffix: Azure Media Services
-description: Dowiedz się więcej o filtrowaniu, zamawianiu i stronicowaniu jednostek usługi Azure Media Services w wersji 3.
+description: Dowiedz się więcej na temat filtrowania, porządkowania i stronicowania jednostek Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,80 +14,80 @@ ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80584531"
 ---
-# <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrowanie, zamawianie i stronicowanie encji usługi Media Services
+# <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrowanie, porządkowanie i stronicowanie jednostek Media Services
 
-W tym temacie omówiono opcje kwerendy OData i obsługę podziałów na strony dostępne podczas wystawiania jednostek usługi Azure Media Services w wersji 3.
+W tym temacie omówiono opcje zapytania OData i obsługa podziału na strony dostępne podczas wyświetlania listy jednostek Azure Media Services v3.
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 
-* Właściwości jednostek, które są `Datetime` typu są zawsze w formacie UTC.
-* Biały znak w ciągu zapytania powinien być zakodowany w adresie URL przed wysłaniem żądania.
+* Właściwości jednostek, które są `Datetime` typu, są zawsze w formacie UTC.
+* Biały znak w ciągu zapytania powinien być kodowany przy użyciu adresu URL przed wysłaniem żądania.
 
 ## <a name="comparison-operators"></a>Operatory porównania
 
-Do porównania pola ze stałą wartością można użyć następujących operatorów:
+Aby porównać pole z wartością stałą, można użyć następujących operatorów:
 
 Operatory równości:
 
-- `eq`: Sprawdź, czy pole jest *równe* wartości stałej.
-- `ne`: Sprawdź, czy pole nie jest *równe* wartości stałej.
+- `eq`: Sprawdź, czy pole jest *równe* stałej wartości.
+- `ne`: Sprawdź, czy pole *nie jest równe* wartości stałej.
 
-Operatorzy asortymentu:
+Operatory zakresu:
 
 - `gt`: Sprawdź, czy pole jest *większe niż* wartość stała.
 - `lt`: Sprawdź, czy pole jest *mniejsze niż* wartość stała.
-- `ge`: Sprawdź, czy pole jest *większe lub równe* wartości stałej.
-- `le`: Sprawdź, czy pole jest *mniejsze lub równe* wartości stałej.
+- `ge`: Sprawdź, czy pole jest *większe niż lub równe* wartości stałej.
+- `le`: Sprawdź, czy pole jest *mniejsze niż lub równe* wartości stałej.
 
 ## <a name="filter"></a>Filtr
 
-Służy `$filter` do dostarczania parametru filtru OData, aby znaleźć tylko obiekty, które Cię interesują.
+Użyj `$filter` , aby podać parametr filtru OData, aby znaleźć tylko te obiekty, które Cię interesują.
 
-Poniższy przykład REST filtruje `alternateId` wartość środka trwałego:
+Poniższy przykład zarest filtruje `alternateId` wartość elementu zawartości:
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$filter=properties/alternateId%20eq%20'unique identifier'
 ```
 
-Następujący przykład języka C# filtruje datę utworzenia zasobu:
+W poniższym przykładzie w języku C# filtry dotyczące daty utworzenia zasobu:
 
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
 ```
 
-## <a name="order-by"></a>Zamów według
+## <a name="order-by"></a>Porządkuj według
 
-Służy `$orderby` do sortowania zwróconych obiektów według określonego parametru. Przykład:  
+Służy `$orderby` do sortowania zwracanych obiektów przez określony parametr. Przykład:  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-Aby posortować wyniki w kolejności rosnącej `asc` lub `desc` malejącej, należy dołączyć albo do nazwy pola, oddzielone spacją. Na przykład: `$orderby properties/created desc`.
+Aby posortować wyniki w kolejności rosnącej lub malejącej, Dołącz `asc` albo `desc` do nazwy pola, oddzielone spacją. Na przykład: `$orderby properties/created desc`.
 
 ## <a name="skip-token"></a>Pomiń token
 
-Jeśli odpowiedź na kwerendę zawiera wiele `$skiptoken` `@odata.nextLink`elementów, usługa zwraca ( ) wartość, której używasz, aby uzyskać następną stronę wyników. Użyj go, aby przeglądać cały zestaw wyników.
+Jeśli odpowiedź na zapytanie zawiera wiele elementów, usługa zwraca wartość `$skiptoken` (`@odata.nextLink`), która jest używana do uzyskania następnej strony wyników. Użyj go do strony za pomocą całego zestawu wyników.
 
-W programie Media Services w wersji 3 nie można skonfigurować rozmiaru strony. Rozmiar strony zależy od typu encji. Przeczytaj poszczególne sekcje, które należy wykonać, aby uzyskać szczegółowe informacje.
+W Media Services V3 nie można skonfigurować rozmiaru strony. Rozmiar strony jest różny w zależności od typu jednostki. Przeczytaj poszczególne sekcje, które obserwują, aby uzyskać szczegółowe informacje.
 
-Jeśli jednostki są tworzone lub usuwane podczas stronicowania za pośrednictwem kolekcji, zmiany są odzwierciedlane w zwróconych wyników (jeśli te zmiany znajdują się w części kolekcji, która nie została pobrana).
+Jeśli obiekty są tworzone lub usuwane podczas stronicowania w kolekcji, zmiany zostaną odzwierciedlone w zwracanych wynikach (jeśli te zmiany znajdują się w części kolekcji, która nie została pobrana).
 
 > [!TIP]
-> Zawsze `nextLink` służy do wyliczanie kolekcji i nie zależą od określonego rozmiaru strony.
+> Zawsze używaj `nextLink` do wyliczania kolekcji i nie zależą od określonego rozmiaru strony.
 >
-> Wartość `nextLink` będzie obecna tylko wtedy, gdy istnieje więcej niż jedna strona encji.
+> `nextLink` Wartość będzie obecna tylko wtedy, gdy istnieje więcej niż jedna strona jednostek.
 
-Rozważmy poniższy `$skiptoken` przykład, gdzie jest używany. Upewnij się, że zamienisz *konto amstestaccount* nazwą swojego konta i ustaw wartość *wersji interfejsu API* na najnowszą wersję.
+Rozważmy następujący przykład `$skiptoken` użycia. Upewnij się, że zastąpisz *amstestaccount* z nazwą konta i ustawisz wartość *interfejsu API-Version* w najnowszej wersji.
 
-Jeśli poprosisz o listę zasobów w ten sposób:
+W przypadku żądania listy zasobów takich jak:
 
 ```
 GET  https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
@@ -117,13 +117,13 @@ HTTP/1.1 200 OK
 }
 ```
 
-Następnie należy poprosić o następną stronę, wysyłając żądanie otrzymasz:
+Następnie Zażądaj następnej strony, wysyłając żądanie Get dla:
 
 ```
 https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
 ```
 
-W poniższym przykładzie języka C# pokazano, jak wyliczyć za pośrednictwem wszystkich lokalizatorów przesyłania strumieniowego na koncie.
+W poniższym przykładzie w języku C# pokazano, jak wyliczyć wszystkie lokalizatory przesyłania strumieniowego na koncie.
 
 ```csharp
 var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
@@ -135,9 +135,9 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-## <a name="using-logical-operators-to-combine-query-options"></a>Łączenie opcji kwerendy za pomocą operatorów logicznych
+## <a name="using-logical-operators-to-combine-query-options"></a>Używanie operatorów logicznych do łączenia opcji zapytania
 
-Usługi Media Services w wersji 3 obsługuje operatory logiczne **OR** **i AND.** 
+Media Services v3 obsługuje operatory logiczne **lub** i **i** . 
 
 Poniższy przykład REST sprawdza stan zadania:
 
@@ -145,47 +145,47 @@ Poniższy przykład REST sprawdza stan zadania:
 https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/qbtest/providers/Microsoft.Media/mediaServices/qbtest/transforms/VideoAnalyzerTransform/jobs?$filter=properties/state%20eq%20Microsoft.Media.JobState'Scheduled'%20or%20properties/state%20eq%20Microsoft.Media.JobState'Processing'&api-version=2018-07-01
 ```
 
-Konstruujesz tę samą kwerendę w języku C# w ten sposób: 
+To samo zapytanie jest konstruowane w języku C# w następujący sposób: 
 
 ```csharp
 var odataQuery = new ODataQuery<Job>("properties/state eq Microsoft.Media.JobState'Scheduled' or properties/state eq Microsoft.Media.JobState'Processing'");
 client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransformName, odataQuery);
 ```
 
-## <a name="filtering-and-ordering-options-of-entities"></a>Opcje filtrowania i zamawiania encji
+## <a name="filtering-and-ordering-options-of-entities"></a>Opcje filtrowania i porządkowania jednostek
 
-W poniższej tabeli przedstawiono, jak można zastosować opcje filtrowania i zamawiania do różnych encji:
+W poniższej tabeli przedstawiono sposób stosowania opcji filtrowania i porządkowania do różnych jednostek:
 
 |Nazwa jednostki|Nazwa właściwości|Filtr|Zamówienie|
 |---|---|---|---|
 |[Elementy zawartości](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` i `desc`|
-||właściwości.alternateId |`eq`||
-||właściwości.assetId |`eq`||
-||properties.created| `eq`, `gt`, `lt`| `asc` i `desc`|
+||Właściwości. alternateId |`eq`||
+||Właściwości. assetId |`eq`||
+||Właściwości. utworzone| `eq`, `gt`, `lt`| `asc` i `desc`|
 |[Zasady kluczy zawartości](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
-||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
-||właściwości.description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
-||właściwości.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
-||właściwości.policyId|`eq`, `ne`||
+||Właściwości. utworzone    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
+||Properties. Description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
+||Właściwości. lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
+||Właściwości. policyId|`eq`, `ne`||
 |[Stanowiska](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` i `desc`|
-||właściwości.state        | `eq`, `ne`        |                         |
-||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` i `desc`|
-||właściwości.lastModified | `gt`, `ge`, `lt`, `le` | `asc` i `desc`| 
+||Properties. State        | `eq`, `ne`        |                         |
+||Właściwości. utworzone      | `gt`, `ge`, `lt`, `le`| `asc` i `desc`|
+||Właściwości. lastModified | `gt`, `ge`, `lt`, `le` | `asc` i `desc`| 
 |[Lokalizatory przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
-||properties.created    |`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` i `desc`|
-||właściwości.endCzas    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
+||Właściwości. utworzone    |`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` i `desc`|
+||Właściwości. endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
 |[Zasady przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
-||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
+||Właściwości. utworzone    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
 |[Przekształcenia](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` i `desc`|
-|| properties.created      | `gt`, `ge`, `lt`, `le`| `asc` i `desc`|
-|| właściwości.lastModified | `gt`, `ge`, `lt`, `le`| `asc` i `desc`|
+|| Właściwości. utworzone      | `gt`, `ge`, `lt`, `le`| `asc` i `desc`|
+|| Właściwości. lastModified | `gt`, `ge`, `lt`, `le`| `asc` i `desc`|
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Lista zasobów](https://docs.microsoft.com/rest/api/media/assets/list)
-* [Lista zasad klucza zawartości](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
-* [Lista zadań](https://docs.microsoft.com/rest/api/media/jobs/list)
-* [Lista zasad przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
-* [Lista lokalizatorów przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+* [Wyświetl listę zasobów](https://docs.microsoft.com/rest/api/media/assets/list)
+* [Wyświetl listę zasad dotyczących kluczy zawartości](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
+* [Wyświetl listę zadań](https://docs.microsoft.com/rest/api/media/jobs/list)
+* [Wyświetlanie listy zasad przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
+* [Wyświetlanie listy lokalizatorów przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 * [Strumieniowe przesyłanie pliku](stream-files-dotnet-quickstart.md)
 * [Limity przydziału i ograniczenia](limits-quotas-constraints.md)

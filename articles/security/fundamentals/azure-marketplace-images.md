@@ -1,6 +1,6 @@
 ---
-title: Zalecenia dotyczące zabezpieczeń dla obrazów w portalu Azure Marketplace | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera zalecenia dotyczące obrazów uwzględnionych na rynku
+title: Zalecenia dotyczące zabezpieczeń obrazów portalu Azure Marketplace | Microsoft Docs
+description: Ten artykuł zawiera zalecenia dotyczące obrazów uwzględnionych w miejscu na rynku
 services: security
 documentationcenter: na
 author: terrylanfear
@@ -13,65 +13,65 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
 ms.openlocfilehash: 3925e39824d1702ff43a6b981ac997ddab658b96
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548655"
 ---
-# <a name="security-recommendations-for-azure-marketplace-images"></a>Zalecenia dotyczące zabezpieczeń dla obrazów portalu Azure Marketplace
+# <a name="security-recommendations-for-azure-marketplace-images"></a>Zalecenia dotyczące zabezpieczeń obrazów portalu Azure Marketplace
 
-Obraz musi spełniać te zalecenia dotyczące konfiguracji zabezpieczeń. Pomaga to utrzymać wysoki poziom zabezpieczeń obrazów rozwiązań partnerskich w portalu Azure Marketplace.
+Obraz musi spełniać te zalecenia dotyczące konfiguracji zabezpieczeń. Pozwala to zachować wysoki poziom zabezpieczeń obrazów rozwiązań partnerskich w portalu Azure Marketplace.
 
-Przed przesłaniem obrazu należy zawsze uruchamiać wykrywanie luk w zabezpieczeniach. W przypadku wykrycia luki w zabezpieczeniach we własnym opublikowanym obrazie należy w odpowiednim czasie poinformować klientów o luce w zabezpieczeniach i o tym, jak ją rozwiązać.
+Przed przesłaniem obrazu należy zawsze uruchomić Wykrywanie luk w zabezpieczeniach. Jeśli wykryjesz lukę w zabezpieczeniach w publikowanym obrazie, musisz powiadomić klientów w odpowiednim czasie o lukę i sposobach jego naprawy.
 
-## <a name="open-source-based-images"></a>Obrazy oparte na open source
+## <a name="open-source-based-images"></a>Obrazy na podstawie otwartych źródeł
 
 |||
 |--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Kategoria**                                                 | **Sprawdzić**                                                                                                                                                                                                                                                                              |
-| Zabezpieczenia                                                     | Zainstaluj wszystkie najnowsze poprawki zabezpieczeń dla dystrybucji Linuksa.                                                                                                                                                                                                              |
-| Zabezpieczenia                                                     | Postępuj zgodnie z wytycznymi branżowymi, aby zabezpieczyć obraz maszyny Wirtualnej dla określonej dystrybucji systemu Linux.                                                                                                                                                                                     |
-| Zabezpieczenia                                                     | Ogranicz obszar ataku, zachowując minimalny ślad przy użyciu tylko niezbędnych ról, funkcji, usług i portów sieciowych systemu Windows Server.                                                                                                                                               |
-| Zabezpieczenia                                                     | Skanowanie kodu źródłowego i wynikowego obrazu maszyny Wirtualnej w poszukiwaniu złośliwego oprogramowania.                                                                                                                                                                                                                                   |
-| Zabezpieczenia                                                     | Obraz VHD zawiera tylko niezbędne zablokowane konta, które nie mają domyślnych haseł, które umożliwiają interaktywne logowanie; brak tylnych drzwi.                                                                                                                                           |
-| Zabezpieczenia                                                     | Wyłącz reguły zapory, chyba że aplikacja funkcjonalnie polega na nich, takich jak urządzenie zapory.                                                                                                                                                                             |
-| Zabezpieczenia                                                     | Usuń wszystkie poufne informacje z obrazu VHD, takie jak testowanie kluczy SSH, znanego pliku hosts, plików dziennika i niepotrzebnych certyfikatów.                                                                                                                                       |
-| Zabezpieczenia                                                     | Należy unikać stosowania LVM.                                                                                                                                                                                                                                            |
-| Zabezpieczenia                                                     | Dołącz najnowsze wersje wymaganych bibliotek: </br> - OpenSSL v1.0 lub większy </br> - Python 2.5 lub wyższy (Python 2.6+ jest wysoce zalecane) </br> - Pakiet Python pyasn1, jeśli nie jest jeszcze zainstalowany </br> - d.OpenSSL v 1.0 lub więcej                                                                |
-| Zabezpieczenia                                                     | Wyczyść wpisy historii bash/shell.                                                                                                                                                                                                                                             |
-| Networking                                                   | Domyślnie uwzględnij serwer SSH. Ustaw SSH zachować przy życiu do sshd config z następującą opcją: ClientAliveInterval 180.                                                                                                                                                        |
-| Networking                                                   | Usuń dowolną niestandardową konfigurację sieci z obrazu. Usuń resolv.conf: `rm /etc/resolv.conf`.                                                                                                                                                                                |
-| Wdrożenie                                                   | Zainstaluj najnowszego agenta systemu Azure Linux.</br> - Zainstaluj za pomocą pakietu RPM lub Deb.  </br> - Można również użyć procesu instalacji ręcznej, ale pakiety instalatora są zalecane i preferowane. </br> - Jeśli instalujesz agenta ręcznie z repozytorium `waagent` GitHub, najpierw skopiuj plik do `/usr/sbin` i uruchom (jako root): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>Plik konfiguracyjny `/etc/waagent.conf`agenta jest umieszczany w punkcie . |
-| Wdrożenie                                                   | Upewnij się, że pomoc techniczna platformy Azure może zapewnić naszym partnerom dane wyjściowe konsoli szeregowej w razie potrzeby i zapewnić odpowiedni limit czasu do montażu dysku systemu operacyjnego z magazynu w chmurze. Dodaj następujące parametry do linii rozruchowej `console=ttyS0 earlyprintk=ttyS0 rootdelay=300`jądra obrazu: . |
-| Wdrożenie                                                   | Brak partycji wymiany na dysku systemu operacyjnego. Swap można zażądać do utworzenia na dysku zasobów lokalnych przez agenta systemu Linux.         |
-| Wdrożenie                                                   | Utwórz pojedynczą partycję główną dla dysku systemu operacyjnego.      |
-| Wdrożenie                                                   | Tylko 64-bitowy system operacyjny.                                                                                                                                                                                                                                                          |
+| **Kategoria**                                                 | **Niezaznaczone**                                                                                                                                                                                                                                                                              |
+| Zabezpieczenia                                                     | Zainstaluj wszystkie najnowsze poprawki zabezpieczeń dla dystrybucji systemu Linux.                                                                                                                                                                                                              |
+| Zabezpieczenia                                                     | Postępuj zgodnie z wytycznymi branżowymi, aby zabezpieczyć obraz maszyny wirtualnej dla określonej dystrybucji systemu Linux.                                                                                                                                                                                     |
+| Zabezpieczenia                                                     | Ogranicz obszar narażony na ataki, utrzymując minimalny wpływ na niezbędną rolę, funkcje, usługi i porty sieci systemu Windows Server.                                                                                                                                               |
+| Zabezpieczenia                                                     | Skanuj kod źródłowy i otrzymany obraz maszyny wirtualnej w poszukiwaniu złośliwego oprogramowania.                                                                                                                                                                                                                                   |
+| Zabezpieczenia                                                     | Obraz VHD obejmuje tylko niepotrzebne zablokowane konta, które nie mają domyślnych haseł, które mogłyby zezwalać na logowanie interakcyjne. Brak tylnych drzwi.                                                                                                                                           |
+| Zabezpieczenia                                                     | Wyłącz reguły zapory, chyba że aplikacja opiera się na nich, na przykład urządzenie zapory.                                                                                                                                                                             |
+| Zabezpieczenia                                                     | Usuń wszystkie informacje poufne z obrazu wirtualnego dysku twardego, takie jak testowanie kluczy SSH, plików hostów i plików dzienników oraz niepotrzebnych certyfikatów.                                                                                                                                       |
+| Zabezpieczenia                                                     | Unikaj używania LVM.                                                                                                                                                                                                                                            |
+| Zabezpieczenia                                                     | Uwzględnij najnowsze wersje wymaganych bibliotek: </br> -OpenSSL v 1.0 lub nowszy </br> — Python 2,5 lub nowszy (zdecydowanie zalecane jest środowisko Python 2.6 +) </br> — Pakiet pyasn1 języka Python, jeśli nie został jeszcze zainstalowany </br> -d. OpenSSL v 1,0 lub nowszy                                                                |
+| Zabezpieczenia                                                     | Wyczyść wpisy historii bash/Shell.                                                                                                                                                                                                                                             |
+| Networking                                                   | Domyślnie Dołącz serwer SSH. Ustaw opcję utrzymywanie aktywności SSH na sshd konfiguracji z następującą opcją: ClientAliveInterval 180.                                                                                                                                                        |
+| Networking                                                   | Usuń niestandardową konfigurację sieci z obrazu. Usuń plik resolv. conf: `rm /etc/resolv.conf`.                                                                                                                                                                                |
+| Wdrożenie                                                   | Zainstaluj najnowszego agenta systemu Azure Linux.</br> -Zainstaluj przy użyciu pakietu RPM lub deb.  </br> — Można również użyć procesu instalacji ręcznej, ale pakiety Instalatora są zalecane i preferowane. </br> — Jeśli ręcznie Zainstaluj agenta z repozytorium GitHub, najpierw skopiuj `waagent` plik do `/usr/sbin` i uruchom (jako główny): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>Plik konfiguracji agenta jest umieszczony pod adresem `/etc/waagent.conf`. |
+| Wdrożenie                                                   | Upewnij się, że pomoc techniczna systemu Azure zapewnia naszym partnerom dane wyjściowe w konsoli szeregowej, jeśli jest to możliwe, i podaj odpowiedni limit czasu dla instalowania dysków systemu operacyjnego z magazynu Dodaj następujące parametry do wiersza rozruchu jądra obrazu: `console=ttyS0 earlyprintk=ttyS0 rootdelay=300`. |
+| Wdrożenie                                                   | Brak partycji wymiany na dysku systemu operacyjnego. Można zażądać wymiany na lokalnym dysku zasobu przez agenta systemu Linux.         |
+| Wdrożenie                                                   | Utwórz jedną partycję główną dla dysku systemu operacyjnego.      |
+| Wdrożenie                                                   | 64-bitowy tylko system operacyjny.                                                                                                                                                                                                                                                          |
 
-## <a name="windows-server-based-images"></a>Obrazy z systemem Windows Server
+## <a name="windows-server-based-images"></a>Obrazy systemu Windows Server
 
 |||
 |-------------| -------------------------|
-| **Kategoria**                                                     | **Sprawdzić**                                                                                                                                                                |
-| Zabezpieczenia                                                         | Użyj bezpiecznego obrazu bazowego systemu operacyjnego. Dysk VHD używany dla źródła dowolnego obrazu opartego na systemie Windows Server musi pochodzić z obrazów systemu operacyjnego Windows Server dostarczonych za pośrednictwem platformy Microsoft Azure. |
+| **Kategoria**                                                     | **Niezaznaczone**                                                                                                                                                                |
+| Zabezpieczenia                                                         | Użyj bezpiecznego obrazu podstawowego systemu operacyjnego. Wirtualny dysk twardy używany do źródła dowolnego obrazu na podstawie systemu Windows Server musi pochodzić z obrazów systemu operacyjnego Windows Server dostarczonych za pośrednictwem Microsoft Azure. |
 | Zabezpieczenia                                                         | Zainstaluj wszystkie najnowsze aktualizacje zabezpieczeń.                                                                                                                                     |
-| Zabezpieczenia                                                         | Aplikacje nie powinny zależeć od ograniczonych nazw użytkowników, takich jak administrator, katalog główny lub administrator.                                                                |
-| Zabezpieczenia                                                         | Włącz szyfrowanie dysków funkcją BitLocker zarówno dla dysków twardych systemu operacyjnego, jak i dysków twardych danych.                                                             |
-| Zabezpieczenia                                                         | Ogranicz obszar ataku, zachowując minimalny ślad dzięki włączonym tylko niezbędnym rolom, funkcjom, usługom i portom sieciowym systemu Windows Server.                         |
-| Zabezpieczenia                                                         | Skanowanie kodu źródłowego i wynikowego obrazu maszyny Wirtualnej w poszukiwaniu złośliwego oprogramowania.                                                                                                                     |
-| Zabezpieczenia                                                         | Ustaw aktualizację zabezpieczeń obrazów systemu Windows Server na automatyczną aktualizację.                                                                                                                |
-| Zabezpieczenia                                                         | Obraz VHD zawiera tylko niezbędne zablokowane konta, które nie mają domyślnych haseł, które umożliwiają interaktywne logowanie; brak tylnych drzwi.                             |
-| Zabezpieczenia                                                         | Wyłącz reguły zapory, chyba że aplikacja funkcjonalnie polega na nich, takich jak urządzenie zapory.                                                               |
-| Zabezpieczenia                                                         | Usuń wszystkie poufne informacje z obrazu VHD, w tym pliki HOSTS, pliki dziennika i niepotrzebne certyfikaty.                                              |
-| Wdrożenie                                                       | Tylko 64-bitowy system operacyjny.                            |
+| Zabezpieczenia                                                         | Aplikacje nie powinny być zależne od nazw użytkowników z ograniczeniami, takich jak administrator, root lub administrator.                                                                |
+| Zabezpieczenia                                                         | Włącz szyfrowanie dysków funkcją BitLocker zarówno dla dysków twardych systemu operacyjnego, jak i dysków twardych z danymi.                                                             |
+| Zabezpieczenia                                                         | Ogranicz obszar narażony na ataki, utrzymując minimalny wpływ na tylko niezbędne role, funkcje, usługi i porty sieci systemu Windows Server.                         |
+| Zabezpieczenia                                                         | Skanuj kod źródłowy i otrzymany obraz maszyny wirtualnej w poszukiwaniu złośliwego oprogramowania.                                                                                                                     |
+| Zabezpieczenia                                                         | Ustaw aktualizację zabezpieczeń obrazów systemu Windows Server na autoaktualizację.                                                                                                                |
+| Zabezpieczenia                                                         | Obraz VHD obejmuje tylko niepotrzebne zablokowane konta, które nie mają domyślnych haseł, które mogłyby zezwalać na logowanie interakcyjne. Brak tylnych drzwi.                             |
+| Zabezpieczenia                                                         | Wyłącz reguły zapory, chyba że aplikacja opiera się na nich, na przykład urządzenie zapory.                                                               |
+| Zabezpieczenia                                                         | Usuń wszystkie informacje poufne z obrazu VHD, w tym pliki hostów, pliki dzienników i niepotrzebne certyfikaty.                                              |
+| Wdrożenie                                                       | 64-bitowy tylko system operacyjny.                            |
 
-Nawet jeśli twoja organizacja nie ma obrazów w portalu Azure Marketplace, należy rozważyć sprawdzenie konfiguracji obrazu systemu Windows i systemu Linux pod kątem tych zaleceń.
+Nawet jeśli Twoja organizacja nie ma obrazów w portalu Azure Marketplace, rozważ sprawdzenie konfiguracji obrazów systemów Windows i Linux przed zaleceń.
 
-## <a name="contacting-customers"></a>Kontakt z klientami
+## <a name="contacting-customers"></a>Kontaktowanie się z klientami
 
-Aby zidentyfikować klientów i ich kontaktowe wiadomości e-mail:
+Aby zidentyfikować klientów i ich kontaktowe adresy e-mail:
 
-1.  W portalu cloud partner na lewej stronie wybierz pozycję **Insights**.
-2.  Na karcie **Zamówienia i użycie** użyj pól Data **rozpoczęcia** i **Data zakończenia,** aby zbadać użycie w wymaganym zakresie dat. Spowoduje to pokazano, które subskrypcje platformy Azure były używane dla oferty na co dzień. Wyeksportuj te dane. 
-3.  Podobnie na karcie **Klient zapytaj** i eksportuj bazę klientów.
-4.  Dopasuj identyfikator subskrypcji od kroku 2 do identyfikatora subskrypcji z kroku 3, aby znaleźć niezbędne informacje o kliencie.
+1.  W portal Cloud Partner na lewej szyny wybierz pozycję **szczegółowe informacje**.
+2.  Na karcie **zamówienia i użycie** Użyj pól **Data rozpoczęcia** i **Data zakończenia** , aby zbadać użycie w wymaganym zakresie dat. Pokazuje, które subskrypcje platformy Azure są codziennie używane na potrzeby oferty. Wyeksportuj te dane. 
+3.  Na przykład na karcie **Klient** należy wykonać zapytanie i wyeksportować bazę klientów.
+4.  Dopasuj Identyfikator subskrypcji z kroku 2 do identyfikatora subskrypcji z kroku 3, aby znaleźć niezbędne informacje o klientach.

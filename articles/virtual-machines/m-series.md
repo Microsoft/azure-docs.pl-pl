@@ -1,6 +1,6 @@
 ---
-title: Seria M — maszyny wirtualne platformy Azure
-description: Dane techniczne maszyn wirtualnych serii M.
+title: Seria M Virtual Machines platformy Azure
+description: Specyfikacje dotyczące maszyn wirtualnych z serii M.
 services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
@@ -8,34 +8,34 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: jushiman
 ms.openlocfilehash: 3e0552570d5bdb7f812852cd058710b833b7fdd4
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521344"
 ---
 # <a name="m-series"></a>Seria M
 
-Seria M oferuje wysoką liczbę procesorów wirtualnych (do 128 procesorów wirtualnych) i dużą ilość pamięci (do 3,8 TiB). Jest również idealny dla bardzo dużych baz danych lub innych aplikacji, które korzystają z wysokiej liczby procesorów wirtualnych i dużych ilości pamięci. Rozmiary serii M są obsługiwane zarówno&reg; w&reg; procesorach Intel Xeon E7-8890 v3 @ 2.50GHz, jak i w Intel&reg; Xeon&reg; Platinum 8280M 2.7GHz (Cascade Lake).
+Seria M oferuje dużą liczbę vCPU (do 128 procesorów wirtualnych vCPU) i dużą ilość pamięci (do 3,8 TiB). Jest on również idealny dla bardzo dużych baz danych lub innych aplikacji, które korzystają z dużej liczby vCPU i dużych ilości pamięci. Rozmiary serii M są obsługiwane zarówno w procesorze Intel&reg; Xeon&reg; E7-8890 v3 o godzinie 3 GHz, jak i&reg; na&reg; Intel Xeon Platinum 8280M 2,7 GHz (Kaskada Lake).
 
-VM serii M jest&reg; wyposażony w technologię Intel Hyper-Threading.
+Funkcja maszyny wirtualnej serii M z technologią Intel&reg; Hyper-Threading.
 
 ACU: 160–180
 
-Pamięć masowa w wersji premium: obsługiwane
+Premium Storage: obsługiwane
 
-Buforowanie magazynu w wersji Premium: obsługiwane
+Buforowanie Premium Storage: obsługiwane
 
-Migracja na żywo: nie jest obsługiwana
+Migracja na żywo: nieobsługiwane
 
-Aktualizacje zachowywania pamięci: nie są obsługiwane
+Aktualizacje z zachowaniem pamięci: nieobsługiwane
 
-Akcelerator zapisu: [Obsługiwane](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Akcelerator zapisu: [obsługiwane](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność pamięci podręcznej i magazynu tymczasowego: IOPS/MBPS (rozmiar pamięci podręcznej w GiB) | Maksymalna przepustowość dysku bez buforów: IOPS/MB/s | Maksymalna przepustowość sieci ową/oczekiwana przepustowość sieci (Mb/s) |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i temp: IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|
-| Standard_M8ms <sup>2</sup>       | 8   | 218.75 | 256   | 8  | 10000/100 (793)     | 5000/125   | 4/2000  |
-| Standard_M16ms <sup>2</sup>      | 16  | 437.5  | 512   | 16 | 20000/200 (1587)    | 10000/250  | 8/4000  |
+| Standard_M8ms <sup>2</sup>       | 8   | 218,75 | 256   | 8  | 10000/100 (793)     | 5000/125   | 4/2000  |
+| Standard_M16ms <sup>2</sup>      | 16  | 437,5  | 512   | 16 | 20000/200 (1587)    | 10000/250  | 8/4000  |
 | Standard_M32ts                   | 32  | 192    | 1024  | 32 | 40000/400 (3174)    | 20000/500  | 8/8000  |
 | Standard_M32ls                   | 32  | 256    | 1024  | 32 | 40000/400 (3174)    | 20000/500  | 8/8000  |
 | Standard_M32ms <sup>2</sup>      | 32  | 875    | 1024  | 32 | 40000/400 (3174)    | 20000/500  | 8/8000  |
@@ -43,17 +43,17 @@ Akcelerator zapisu: [Obsługiwane](https://docs.microsoft.com/azure/virtual-mach
 | Standard_M64ls                   | 64  | 512    | 2048  | 64 | 80000/800 (6348)    | 40000/1000 | 8/16000 |
 | Standard_M64ms <sup>3</sup>      | 64  | 1792   | 2048  | 64 | 80000/800 (6348)    | 40000/1000 | 8/16000 |
 | Standard_M128s <sup>1</sup>      | 128 | 2048   | 4096  | 64 | 160000/1600 (12696) | 80000/2000 | 8/30000 |
-| Standard_M128ms <sup>1,2,3</sup> | 128 | 3892   | 4096  | 64 | 160000/1600 (12696) | 80000/2000 | 8/30000 |
+| Standard_M128ms <sup>1, 2, 3</sup> | 128 | 3892   | 4096  | 64 | 160000/1600 (12696) | 80000/2000 | 8/30000 |
 | Standard_M64                     | 64  | 1024   | 7168  | 64 | 80000/800 (1228)    | 40000/1000 | 8/16000 |
 | Standard_M64m                    | 64  | 1792   | 7168  | 64 | 80000/800 (1228)    | 40000/1000 | 8/16000 |
 | Standard_M128 <sup>1</sup>       | 128 | 2048   | 14336 | 64 | 250000/1600 (2456)  | 80000/2000 | 8/32000 |
 | Standard_M128m <sup>1</sup>      | 128 | 3892   | 14336 | 64 | 250000/1600 (2456)  | 80000/2000 | 8/32000 |
 
-<sup>1</sup> Ponad 64 procesory wirtualne wymagają jednego z tych obsługiwanych systemów operacyjnych gościa: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 i Red Hat Enterprise Linux, CentOS 7.3 lub Oracle Linux 7.3 z LIS 4.2.1.
+<sup>1</sup> więcej niż 64 vCPU wymaga jednego z tych obsługiwanych systemów operacyjnych gościa: Windows Server 2016, Ubuntu 16,04 LTS, SLES 12 SP2 i Red Hat Enterprise Linux, CentOS 7,3 lub Oracle Linux 7,3 z prze4.2.1.
 
-<sup>2</sup> Dostępne ograniczone rozmiary rdzeni.
+dostępne <sup>dwa</sup> ograniczone rozmiary rdzeni.
 
-<sup>3</sup> Wystąpienie jest izolowane do sprzętu dedykowanego jednemu klientowi.
+<sup>3</sup> wystąpienie jest izolowane do sprzętu dedykowanego pojedynczemu klientowi.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -68,4 +68,4 @@ Akcelerator zapisu: [Obsługiwane](https://docs.microsoft.com/azure/virtual-mach
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tym, jak [jednostki obliczeniowe platformy Azure (ACU)](acu.md) mogą pomóc w porównywaniu wydajności obliczeniowej w jednostkach SKU platformy Azure.
+Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.

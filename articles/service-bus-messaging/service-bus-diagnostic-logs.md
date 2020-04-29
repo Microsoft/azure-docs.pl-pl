@@ -1,6 +1,6 @@
 ---
-title: Dzienniki diagnostyczne usługi Azure Service Bus | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera omówienie wszystkich dzienników operacyjnych i diagnostycznych, które są dostępne dla usługi Azure Service Bus.
+title: Dzienniki diagnostyki Azure Service Bus | Microsoft Docs
+description: Ten artykuł zawiera omówienie wszystkich dzienników operacyjnych i diagnostycznych, które są dostępne dla Azure Service Bus.
 keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
@@ -16,38 +16,38 @@ ms.workload: data-services
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: a80fb97810fee04a4eb50c43178c168e66f29173
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80618725"
 ---
-# <a name="enable-diagnostics-logs-for-service-bus"></a>Włączanie dzienników diagnostyki dla magistrali usługOwej
+# <a name="enable-diagnostics-logs-for-service-bus"></a>Włączanie dzienników diagnostycznych dla Service Bus
 
-Po rozpoczęciu korzystania z obszaru nazw usługi Azure Service Bus, można monitorować, jak i kiedy obszar nazw jest tworzony, usuwany lub uzyskiwać dostęp. Ten artykuł zawiera omówienie wszystkich dzienników operacyjnych i diagnostycznych, które są dostępne.
+Po rozpoczęciu korzystania z przestrzeni nazw Azure Service Bus można monitorować sposób i czas tworzenia, usuwania lub uzyskiwania dostępu do przestrzeni nazw. Ten artykuł zawiera omówienie wszystkich dostępnych dzienników operacyjnych i diagnostycznych.
 
-Usługa Azure Service Bus obsługuje obecnie dzienniki działań i operacji, które przechwytują *operacje zarządzania* wykonywane w obszarze nazw usługi Azure Service Bus. W szczególności te dzienniki przechwytują typ operacji, w tym tworzenie kolejki, używane zasoby i stan operacji.
+Azure Service Bus obecnie obsługuje dzienniki aktywności i działania, które przechwytują *operacje zarządzania* wykonywane w przestrzeni nazw Azure Service Bus. W szczególności te dzienniki przechwytują typ operacji, w tym Tworzenie kolejki, używane zasoby i stan operacji.
 
 ## <a name="operational-logs-schema"></a>Schemat dzienników operacyjnych
 
 Wszystkie dzienniki są przechowywane w formacie JavaScript Object Notation (JSON) w następujących dwóch lokalizacjach:
 
-- **AzureActivity:** Wyświetla dzienniki z operacji i akcji, które są prowadzone dla obszaru nazw w witrynie Azure portal lub za pośrednictwem wdrożenia szablonów usługi Azure Resource Manager.
-- **AzureDiagnostics:** Wyświetla dzienniki z operacji i akcji, które są prowadzone dla obszaru nazw przy użyciu interfejsu API lub za pośrednictwem klientów zarządzania w języku SDK.
+- **Azure**: wyświetla dzienniki z operacji i akcji, które są wykonywane względem przestrzeni nazw w Azure Portal lub wdrożenia szablonów Azure Resource Manager.
+- **AzureDiagnostics**: wyświetla dzienniki operacji i akcji, które są wykonywane względem przestrzeni nazw za pomocą interfejsu API, lub przez klientów zarządzania w zestawie SDK języka.
 
-Parametry JSON dziennika operacyjnego obejmują elementy wymienione w poniższej tabeli:
+Ciągi JSON dziennika operacyjnego zawierają elementy wymienione w poniższej tabeli:
 
 | Nazwa | Opis |
 | ------- | ------- |
-| Activityid | Identyfikator wewnętrzny, używany do identyfikacji określonego działania |
+| ActivityId | Wewnętrzny identyfikator używany do identyfikowania określonego działania |
 | EventName | Nazwa operacji |
-| ResourceId | Identyfikator zasobu usługi Azure Resource Manager |
+| ResourceId | Identyfikator zasobu Azure Resource Manager |
 | SubscriptionId | Identyfikator subskrypcji |
-| EventTimeString | Czas pracy |
+| EventTimeString | Czas operacji |
 | EventProperties | Właściwości operacji |
 | Stan | Stan operacji |
-| Obiekt wywołujący | Obiekt wywołujący operację (portal Azure lub klient zarządzania) |
-| Kategoria | Dzienniki operacyjne |
+| Obiekt wywołujący | Obiekt wywołujący operacji (Azure Portal lub klient zarządzania) |
+| Kategoria | OperationalLogs |
 
 Oto przykład ciągu JSON dziennika operacyjnego:
 
@@ -67,19 +67,19 @@ Oto przykład ciągu JSON dziennika operacyjnego:
 
 ## <a name="events-and-operations-captured-in-operational-logs"></a>Zdarzenia i operacje przechwycone w dziennikach operacyjnych
 
-Dzienniki operacyjne przechwytują wszystkie operacje zarządzania wykonywane w obszarze nazw usługi Azure Service Bus. Operacje na danych nie są przechwytywane ze względu na dużą liczbę operacji danych, które są prowadzone w usłudze Azure Service Bus.
+Dzienniki operacyjne przechwytują wszystkie operacje zarządzania, które są wykonywane w przestrzeni nazw Azure Service Bus. Operacje na danych nie są przechwytywane z powodu dużej ilości operacji na danych, które są wykonywane w Azure Service Bus.
 
 > [!NOTE]
-> Aby ułatwić lepsze śledzenie operacji danych, zalecamy korzystanie z śledzenia po stronie klienta.
+> Aby ułatwić lepsze śledzenie operacji na danych, zalecamy korzystanie z funkcji śledzenia po stronie klienta.
 
 Następujące operacje zarządzania są przechwytywane w dziennikach operacyjnych: 
 
 | Zakres | Operacja|
 |-------| -------- |
-| Przestrzeń nazw | <ul> <li> Tworzenie obszaru nazw</li> <li> Aktualizowanie obszaru nazw </li> <li> Usuń obszar nazw </li> <li> Aktualizowanie zasad sharedaccess obszaru nazw </li> </ul> | 
-| Kolejka | <ul> <li> Utwórz kolejkę</li> <li> Kolejka aktualizacji</li> <li> Usuń kolejkę </li> <li> Kolejka usuwania autodeletu </li> </ul> | 
-| Temat | <ul> <li> Utwórz temat </li> <li> Temat aktualizacji </li> <li> Usuń temat </li> <li> Temat usuwania autodeletu </li> </ul> |
-| Subskrypcja | <ul> <li> Tworzenie subskrypcji </li> <li> Aktualizuj subskrypcję </li> <li> Usuń subskrypcję </li> <li> Subskrypcja usuwania autodeletu </li> </ul> |
+| Przestrzeń nazw | <ul> <li> Utwórz przestrzeń nazw</li> <li> Aktualizowanie przestrzeni nazw </li> <li> Usuń przestrzeń nazw </li> <li> Aktualizowanie zasad SharedAccess obszaru nazw </li> </ul> | 
+| Kolejka | <ul> <li> Utwórz kolejkę</li> <li> Aktualizuj kolejkę</li> <li> Usuń kolejkę </li> <li> Autousuwanie kolejki usuwania </li> </ul> | 
+| Temat | <ul> <li> Utwórz temat </li> <li> Aktualizowanie tematu </li> <li> Usuń temat </li> <li> Usuwanie tematu usuwania </li> </ul> |
+| Subskrypcja | <ul> <li> Tworzenie subskrypcji </li> <li> Aktualizowanie subskrypcji </li> <li> Usuń subskrypcję </li> <li> Usuń autosubskrypcję usuwania </li> </ul> |
 
 > [!NOTE]
 > Obecnie operacje *odczytu* nie są śledzone w dziennikach operacyjnych.
@@ -88,36 +88,36 @@ Następujące operacje zarządzania są przechwytywane w dziennikach operacyjnyc
 
 Dzienniki operacyjne są domyślnie wyłączone. Aby włączyć dzienniki diagnostyczne, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com)przejdź do obszaru nazw usługi Azure Service Bus, a następnie w obszarze **Monitorowanie**wybierz pozycję **Ustawienia diagnostyczne**.
+1. W [Azure Portal](https://portal.azure.com)przejdź do przestrzeni nazw Azure Service Bus, a następnie w obszarze **monitorowanie**wybierz pozycję **Ustawienia diagnostyczne**.
 
    ![Łącze "Ustawienia diagnostyczne"](./media/service-bus-diagnostic-logs/image1.png)
 
 1. W okienku **Ustawienia diagnostyki** wybierz pozycję **Dodaj ustawienie diagnostyczne**.  
 
-   ![Łącze "Dodaj ustawienie diagnostyczne"](./media/service-bus-diagnostic-logs/image2.png)
+   ![Link "Dodaj ustawienie diagnostyczne"](./media/service-bus-diagnostic-logs/image2.png)
 
 1. Skonfiguruj ustawienia diagnostyki, wykonując następujące czynności:
 
-   a. W polu **Nazwa** wprowadź nazwę ustawień diagnostyki.  
+   a. W polu **Nazwa** wprowadź nazwę ustawień diagnostycznych.  
 
-   b. Wybierz jedno z następujących trzech miejsc docelowych dla dzienników diagnostycznych:  
-   - Jeśli wybierzesz **Archiwum do konta magazynu,** musisz skonfigurować konto magazynu, na którym będą przechowywane dzienniki diagnostyczne.  
-   - Jeśli wybierzesz **Strumień do centrum zdarzeń,** należy skonfigurować centrum zdarzeń, do którego chcesz przesyłać strumieniowo dzienniki diagnostyczne.
-   - Jeśli wybierzesz **Wyślij do usługi Log Analytics,** musisz określić, do którego wystąpienia usługi Log Analytics zostanie wysłana diagnostyka.  
+   b. Wybierz jeden z następujących trzech miejsc docelowych dla dzienników diagnostycznych:  
+   - W przypadku wybrania opcji **Archiwizuj na koncie magazynu**należy skonfigurować konto magazynu, na którym będą przechowywane dzienniki diagnostyczne.  
+   - W przypadku wybrania **strumienia do centrum zdarzeń**należy skonfigurować centrum zdarzeń, do którego mają być przesyłane strumieniowo dzienniki diagnostyczne.
+   - W przypadku wybrania opcji **Wyślij do log Analytics**należy określić wystąpienie log Analytics, do którego zostanie wysłana Diagnostyka.  
 
-   d. Zaznacz pole wyboru **OperationalLogs.**
+   c. Zaznacz pole wyboru **OperationalLogs** .
 
     ![Okienko "Ustawienia diagnostyki"](./media/service-bus-diagnostic-logs/image3.png)
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
-Nowe ustawienia zajmą się efektem około 10 minut. Dzienniki są wyświetlane w skonfigurowanym celu archiwizacji w okienku **Dzienniki diagnostyki.**
+Nowe ustawienia zaczną obowiązywać od około 10 minut. Dzienniki są wyświetlane w skonfigurowanym miejscu docelowym archiwizowania w okienku **dzienniki diagnostyczne** .
 
-Aby uzyskać więcej informacji na temat konfigurowania ustawień diagnostycznych, zobacz [omówienie dzienników diagnostyki platformy Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Więcej informacji o konfigurowaniu ustawień diagnostycznych znajduje się w temacie [Omówienie dzienników diagnostyki platformy Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o usłudze Service Bus, zobacz:
+Aby dowiedzieć się więcej na temat Service Bus, zobacz:
 
-* [Wprowadzenie do usługi Service Bus](service-bus-messaging-overview.md)
+* [Wprowadzenie do Service Bus](service-bus-messaging-overview.md)
 * [Rozpoczynanie pracy z usługą Service Bus](service-bus-dotnet-get-started-with-queues.md)
