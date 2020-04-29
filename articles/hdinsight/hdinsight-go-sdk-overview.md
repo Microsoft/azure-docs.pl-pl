@@ -1,6 +1,6 @@
 ---
-title: Zestaw SDK usługi Azure HDInsight dla go
-description: Materiał referencyjny do korzystania z zestawu Azure HDInsight SDK dla klastrów Go i Apache Hadoop
+title: Zestaw Azure HDInsight SDK dla języka go
+description: Materiały referencyjne dotyczące korzystania z zestawu SDK usługi Azure HDInsight dla klastrów go i Apache Hadoop
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,47 +9,47 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 01/03/2020
 ms.openlocfilehash: 292496c4d458621213fe62105149ac845d78891e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79479590"
 ---
-# <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK for Go (wersja zapoznawcza)
+# <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK for go (wersja zapoznawcza)
 
 ## <a name="overview"></a>Omówienie
-Zestawu HDInsight SDK for Go udostępnia klasy i funkcje, które umożliwiają zarządzanie klastrami HDInsight. Obejmuje operacje tworzenia, usuwania, aktualizowania, listy, ponownego rozmiaru, wykonywania akcji skryptów, monitorowania, uzyskania właściwości klastrów HDInsight i innych.
+Zestaw SDK usługi HDInsight dla języka go zawiera klasy i funkcje, które umożliwiają zarządzanie klastrami usługi HDInsight. Obejmuje operacje umożliwiające tworzenie, usuwanie, aktualizowanie, wyświetlanie i zmienianie rozmiaru, wykonywanie akcji skryptu, monitorowanie, pobieranie właściwości klastrów usługi HDInsight itd.
 
 > [!NOTE]  
->Materiał referencyjny GoDoc dla tego SDK jest również [dostępny tutaj](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
+>Materiał referencyjny GoDoc dla tego zestawu SDK jest również [dostępny tutaj](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [ `go get` Narzędzie](https://github.com/golang/go/wiki/GoGetTools).
-* [Idź](https://golang.org/dl/).
+* [Przejdź](https://golang.org/dl/).
 
-## <a name="sdk-installation"></a>Instalacja SDK
+## <a name="sdk-installation"></a>Instalacja zestawu SDK
 
-Z lokalizacji GOPATH uruchom`go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
+W lokalizacji ZMIENNĄ GOPATH Uruchom polecenie`go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
 
 ## <a name="authentication"></a>Uwierzytelnianie
 
-Zestaw SDK musi najpierw zostać uwierzytelniony za pomocą subskrypcji platformy Azure.  Postępuj zgodnie z poniższym przykładem, aby utworzyć jednostkę usługi i użyć go do uwierzytelniania. Po wykonaniu tej czynności będziesz mieć wystąpienie `ClustersClient`, który zawiera wiele funkcji (opisane w poniższych sekcjach), które mogą być używane do wykonywania operacji zarządzania.
+Najpierw należy uwierzytelnić zestaw SDK w ramach subskrypcji platformy Azure.  Postępuj zgodnie z poniższym przykładem, aby utworzyć nazwę główną usługi i użyć jej do uwierzytelnienia. Po wykonaniu tej czynności będziesz mieć wystąpienie a `ClustersClient`, które zawiera wiele funkcji (opisanych w poniższych sekcjach), które mogą być używane do wykonywania operacji zarządzania.
 
 > [!NOTE]  
-> Istnieją inne sposoby uwierzytelniania oprócz poniższego przykładu, które potencjalnie mogą być lepiej dostosowane do Twoich potrzeb. Wszystkie funkcje są opisane w tym miejscu: [Funkcje uwierzytelniania w usłudze Azure SDK for Go](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)
+> Istnieją inne sposoby uwierzytelniania oprócz poniższego przykładu, które mogą być lepiej dopasowane do Twoich potrzeb. Wszystkie funkcje są opisane tutaj: [funkcje uwierzytelniania w Azure SDK dla języka go](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)
 
-### <a name="authentication-example-using-a-service-principal"></a>Przykład uwierzytelniania przy użyciu jednostki usługi
+### <a name="authentication-example-using-a-service-principal"></a>Przykład uwierzytelniania przy użyciu nazwy głównej usługi
 
-Najpierw zaloguj się do [usługi Azure Cloud Shell](https://shell.azure.com/bash). Sprawdź, czy aktualnie używasz subskrypcji, w której chcesz utworzyć jednostkę usługi.
+Najpierw Zaloguj się do [Azure Cloud Shell](https://shell.azure.com/bash). Upewnij się, że korzystasz obecnie z subskrypcji, w której ma zostać utworzona jednostka usługi.
 
 ```azurecli-interactive
 az account show
 ```
 
-Informacje o subskrypcji są wyświetlane jako JSON.
+Informacje o subskrypcji są wyświetlane jako dane JSON.
 
 ```json
 {
@@ -67,24 +67,24 @@ Informacje o subskrypcji są wyświetlane jako JSON.
 }
 ```
 
-Jeśli nie jesteś zalogowany do właściwej subskrypcji, wybierz właściwą, uruchamiając: 
+Jeśli nie zalogowano się do poprawnej subskrypcji, wybierz odpowiednią opcję, wykonując następujące działania: 
 ```azurecli-interactive
 az account set -s <name or ID of subscription>
 ```
 
 > [!IMPORTANT]  
-> Jeśli dostawca zasobów HDInsight nie został jeszcze zarejestrowany przez inną funkcję (na przykład przez utworzenie klastra HDInsight za pośrednictwem witryny Azure portal), należy to zrobić raz, zanim będzie można uwierzytelnić. Można to zrobić za pomocą usługi [Azure Cloud Shell,](https://shell.azure.com/bash) uruchamiając następujące polecenie:
+> Jeśli dostawca zasobów usługi HDInsight nie został jeszcze zarejestrowany przez inną funkcję (na przykład przez utworzenie klastra usługi HDInsight za pomocą Azure Portal), należy wykonać tę czynność raz, aby umożliwić uwierzytelnianie. Można to zrobić z poziomu [Azure Cloud Shell](https://shell.azure.com/bash) , uruchamiając następujące polecenie:
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
 >```
 
-Następnie wybierz nazwę jednostki usługi i utwórz ją za pomocą następującego polecenia:
+Następnie wybierz nazwę swojej nazwy głównej usługi i utwórz ją za pomocą następującego polecenia:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name <Service Principal Name> --sdk-auth
 ```
 
-Informacje o jednostki usługi są wyświetlane jako JSON.
+Informacje o jednostce usługi są wyświetlane jako dane JSON.
 
 ```json
 {
@@ -100,7 +100,7 @@ Informacje o jednostki usługi są wyświetlane jako JSON.
 }
 ```
 
-Skopiuj poniższy fragment `TENANT_ID` `CLIENT_ID`kodu `CLIENT_SECRET`i `SUBSCRIPTION_ID` wypełnij , , i z ciągami z JSON, który został zwrócony po uruchomieniu polecenia, aby utworzyć jednostkę usługi.
+Skopiuj poniższy fragment kodu i wypełnij pola `TENANT_ID`, `CLIENT_ID`, `CLIENT_SECRET`, i `SUBSCRIPTION_ID` z ciągami z kodu JSON, które zostały zwrócone po uruchomieniu polecenia, aby utworzyć jednostkę usługi.
 
 ```golang
 package main
@@ -136,22 +136,22 @@ func main() {
 ## <a name="cluster-management"></a>Zarządzanie klastrami
 
 > [!NOTE]  
-> W tej sekcji przyjęto założenie, że `ClusterClient` zostało już uwierzytelnione `client`i skonstruowane wystąpienie i przechowywanie go w zmiennej o nazwie . Instrukcje dotyczące uwierzytelniania i `ClusterClient` uzyskiwania można znaleźć w sekcji Uwierzytelnianie powyżej.
+> W tej sekcji założono, że masz już uwierzytelnione `ClusterClient` i skonstruowane wystąpienie i zapisujesz je w `client`zmiennej o nazwie. Instrukcje dotyczące uwierzytelniania i uzyskiwania `ClusterClient` można znaleźć w powyższej sekcji uwierzytelniania.
 
 ### <a name="create-a-cluster"></a>Tworzenie klastra
 
-Nowy klaster można utworzyć, wywołując program `client.Create()`. 
+Nowy klaster można utworzyć przez wywołanie `client.Create()`. 
 
 #### <a name="example"></a>Przykład
 
-W tym przykładzie pokazano, jak utworzyć klaster [Platformy Spark Apache](https://spark.apache.org/) z dwoma węzłami głównymi i jednym węzłem procesu roboczego.
+W tym przykładzie pokazano, jak utworzyć klaster [Apache Spark](https://spark.apache.org/) z dwoma węzłami głównymi i jednym węzłem procesu roboczego.
 
 > [!NOTE]  
-> Najpierw musisz utworzyć konto grupy zasobów i magazynu, jak wyjaśniono poniżej. Jeśli zostały już utworzone, można pominąć te kroki.
+> Najpierw musisz utworzyć grupę zasobów i konto magazynu, jak wyjaśniono poniżej. Jeśli zostały już utworzone, możesz pominąć te kroki.
 
 ##### <a name="creating-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupę zasobów można utworzyć przy użyciu [usługi Azure Cloud Shell,](https://shell.azure.com/bash) uruchamiając
+Grupę zasobów można utworzyć przy użyciu [Azure Cloud Shell](https://shell.azure.com/bash) , uruchamiając
 
 ```azurecli-interactive
 az group create -l <Region Name (i.e. eastus)> --n <Resource Group Name>
@@ -159,20 +159,20 @@ az group create -l <Region Name (i.e. eastus)> --n <Resource Group Name>
 
 ##### <a name="creating-a-storage-account"></a>Tworzenie konta magazynu
 
-Konto magazynu można utworzyć przy użyciu usługi [Azure Cloud Shell,](https://shell.azure.com/bash) uruchamiając:
+Konto magazynu można utworzyć przy użyciu [Azure Cloud Shell](https://shell.azure.com/bash) , uruchamiając następujące polecenia:
 
 ```azurecli-interactive
 az storage account create -n <Storage Account Name> -g <Existing Resource Group Name> -l <Region Name (i.e. eastus)> --sku <SKU i.e. Standard_LRS>
 ```
 
-Teraz uruchom następujące polecenie, aby uzyskać klucz dla konta magazynu (będzie to potrzebne do utworzenia klastra):
+Teraz uruchom następujące polecenie, aby uzyskać klucz dla konta magazynu (konieczne będzie utworzenie klastra):
 
 ```azurecli-interactive
 az storage account keys list -n <Storage Account Name>
 ```
 
 ---
-Poniższy fragment kodu Go tworzy klaster platformy Spark z dwoma węzłami głównymi i jednym węzłem procesu roboczego. Wypełnij puste zmienne, jak wyjaśniono w komentarzach i możesz zmienić inne parametry, aby dostosować je do konkretnych potrzeb.
+Poniższy fragment kodu go tworzy klaster Spark z dwoma węzłami głównymi i jednym węzłem roboczym. Wypełnij puste zmienne, jak wyjaśniono w komentarzach i śmiało, aby zmienić inne parametry zgodnie z konkretnymi potrzebami.
 
 ```golang
 // The name for the cluster you are creating
@@ -253,7 +253,7 @@ var parameters = hdi.ClusterCreateParametersExtended {
 client.Create(context.Background(), resourceGroupName, clusterName, parameters)
 ```
 
-### <a name="get-cluster-details"></a>Uzyskaj szczegółowe informacje o klastrze
+### <a name="get-cluster-details"></a>Pobierz szczegóły klastra
 
 Aby uzyskać właściwości dla danego klastra:
 
@@ -263,7 +263,7 @@ client.Get(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 
 #### <a name="example"></a>Przykład
 
-Można użyć, `get` aby potwierdzić, że pomyślnie utworzono klaster.
+Za pomocą `get` programu można potwierdzić, że klaster został pomyślnie utworzony.
 
 ```golang
 cluster, err := client.Get(context.Background(), resourceGroupName, clusterName)
@@ -281,7 +281,7 @@ Dane wyjściowe powinny wyglądać następująco:
 /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<Resource Group Name>/providers/Microsoft.HDInsight/clusters/<Cluster Name>
 ```
 
-### <a name="list-clusters"></a>Listy klastrów
+### <a name="list-clusters"></a>Wyświetl listę klastrów
 
 #### <a name="list-clusters-under-the-subscription"></a>Wyświetlanie listy klastrów w ramach subskrypcji
 
@@ -289,14 +289,14 @@ Dane wyjściowe powinny wyglądać następująco:
 client.List()
 ```
 
-#### <a name="list-clusters-by-resource-group"></a>Wyświetlanie listy klastrów według grup zasobów
+#### <a name="list-clusters-by-resource-group"></a>Wyświetl listę klastrów według grupy zasobów
 
 ```golang
 client.ListByResourceGroup("<Resource Group Name>")
 ```
 
 > [!NOTE]  
-> Oba `List()` `ListByResourceGroup()` i `ClusterListResultPage` zwracać strukturę. Aby uzyskać następną stronę, `Next()`możesz zadzwonić . Można to powtórzyć `ClusterListResultPage.NotDone()` `false`do momentu zwrotu , jak pokazano w poniższym przykładzie.
+> Obie `List()` i `ListByResourceGroup()` zwracają `ClusterListResultPage` strukturę. Aby uzyskać następną stronę, możesz wywołać metodę `Next()`. Można to powtórzyć do `ClusterListResultPage.NotDone()` momentu pokazywania `false`, jak pokazano w poniższym przykładzie.
 
 #### <a name="example"></a>Przykład
 
@@ -326,9 +326,9 @@ Aby usunąć klaster:
 client.Delete(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 ```
 
-### <a name="update-cluster-tags"></a>Aktualizowanie znaczników klastra
+### <a name="update-cluster-tags"></a>Aktualizowanie tagów klastra
 
-Można zaktualizować znaczniki danego klastra w taki sposób:
+Możesz zaktualizować Tagi danego klastra, takie jak:
 
 ```golang
 client.Update(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ClusterPatchParameters{<map[string]*string} of Tags>)
@@ -340,9 +340,9 @@ client.Update(context.Background(), "<Resource Group Name>", "<Cluster Name>", h
 client.Update(context.Background(), "SDKTestRG", "SDKTest", hdi.ClusterPatchParameters{map[string]*string{"tag1Name" : to.StringPtr("tag1Value"), "tag2Name" : to.StringPtr("tag2Value")}})
 ```
 
-### <a name="resize-cluster"></a>Ponowne rozmiary klastra
+### <a name="resize-cluster"></a>Zmień rozmiar klastra
 
-Można zmienić rozmiar liczby węzłów procesu roboczego danego klastra, określając nowy rozmiar w taki sposób:
+Można zmienić rozmiar danego klastra liczba węzłów procesu roboczego przez określenie nowego rozmiaru, takiego jak:
 
 ```golang
 client.Resize(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ClusterResizeParameters{<Num of Worker Nodes (int)>})
@@ -350,9 +350,9 @@ client.Resize(context.Background(), "<Resource Group Name>", "<Cluster Name>", h
 
 ## <a name="cluster-monitoring"></a>Monitorowanie klastrów
 
-Zestaw SDK zarządzania hdinsight może być również używany do zarządzania monitorowaniem klastrów za pośrednictwem pakietu Operations Management Suite (OMS).
+Zestawu SDK zarządzania usługi HDInsight można także użyć do zarządzania monitorowaniem w klastrach za pomocą pakietu Operations Management Suite (OMS).
 
-Podobnie jak utworzone `ClusterClient` do użycia dla operacji zarządzania, `ExtensionClient` należy utworzyć do użycia do monitorowania operacji. Po zakończeniu powyższej sekcji Uwierzytelnianie możesz `ExtensionClient` utworzyć w ten sposób:
+Podobnie jak `ClusterClient` w przypadku operacji zarządzania, należy utworzyć element `ExtensionClient` do użycia na potrzeby operacji monitorowania. Po zakończeniu powyższej sekcji uwierzytelniania można utworzyć `ExtensionClient` podobny do tego:
 
 ```golang
 extClient := hdi.NewExtensionsClient(SUBSCRIPTION_ID)
@@ -360,30 +360,30 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ```
 
 > [!NOTE]  
-> Poniższe przykłady monitorowania zakładają, `ExtensionClient` że `extClient` już `Authorizer` zainicjowano wywołanie i ustaw jego, jak pokazano powyżej.
+> W poniższych przykładach monitorowania założono, że został `ExtensionClient` on `extClient` już zainicjowany i `Authorizer` ustawił go tak jak pokazano powyżej.
 
-### <a name="enable-oms-monitoring"></a>Włącz monitorowanie systemu OMS
+### <a name="enable-oms-monitoring"></a>Włącz monitorowanie pakietu OMS
 
 > [!NOTE]  
-> Aby włączyć monitorowanie systemu oms, musisz mieć istniejący obszar roboczy usługi Log Analytics. Jeśli jeszcze go nie utworzono, możesz dowiedzieć się, jak to zrobić tutaj: [Utwórz obszar roboczy usługi Log Analytics w witrynie Azure portal](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+> Aby włączyć monitorowanie pakietu OMS, musisz mieć istniejący obszar roboczy Log Analytics. Jeśli jeszcze tego nie zrobiono, możesz dowiedzieć się, jak to zrobić tutaj: [Utwórz obszar roboczy log Analytics w Azure Portal](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
-Aby włączyć monitorowanie systemu oms w klastrze:
+Aby włączyć monitorowanie pakietu OMS w klastrze:
 
 ```golang
 extClient.EnableMonitoring(context.Background(), "<Resource Group Name", "Cluster Name", hdi.ClusterMonitoringRequest {WorkspaceID: to.StringPtr("<Workspace Id>")})
 ```
 
-### <a name="view-status-of-oms-monitoring"></a>Wyświetlanie stanu monitorowania systemu OMS
+### <a name="view-status-of-oms-monitoring"></a>Wyświetl stan monitorowania pakietu OMS
 
-Aby uzyskać stan usługi OMS w klastrze:
+Aby uzyskać stan pakietu OMS w klastrze:
 
 ```golang
 extClient.GetMonitoringStatus(context.Background(), "<Resource Group Name", "Cluster Name")
 ```
 
-### <a name="disable-oms-monitoring"></a>Wyłączanie monitorowania systemu OMS
+### <a name="disable-oms-monitoring"></a>Wyłącz monitorowanie pakietu OMS
 
-Aby wyłączyć usługę OMS w klastrze:
+Aby wyłączyć pakiet OMS w klastrze:
 
 ```golang
 extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Cluster Name")
@@ -391,21 +391,21 @@ extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Clust
 
 ## <a name="script-actions"></a>Akcje skryptu
 
-Usługa HDInsight udostępnia funkcję konfiguracji o nazwie akcje skryptu, która wywołuje skrypty niestandardowe w celu dostosowania klastra.
+Usługa HDInsight udostępnia funkcję konfiguracji o nazwie akcje skryptu, które wywołuje niestandardowe skrypty w celu dostosowania klastra.
 
 > [!NOTE]  
-> Więcej informacji na temat używania akcji skryptów można znaleźć tutaj: [Dostosowywanie klastrów HDInsight opartych na systemie Linux przy użyciu akcji skryptów](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
+> Więcej informacji na temat sposobu korzystania z akcji skryptu można znaleźć tutaj: [Dostosowywanie klastrów usługi HDInsight opartych na systemie Linux przy użyciu akcji skryptu](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
 
-### <a name="execute-script-actions"></a>Wykonywanie akcji skryptu
+### <a name="execute-script-actions"></a>Akcje wykonywania skryptu
 
-Akcje skryptu w danym klastrze można wykonać w taki sposób:
+Akcje skryptu można wykonywać w danym klastrze, takie jak:
 
 ```golang
 var scriptAction1 = hdi.RuntimeScriptAction{Name: to.StringPtr("<Script Name>"), URI: to.StringPtr("<URL To Script>"), Roles: <&[]string of roles>} //valid roles are "headnode", "workernode", "zookeepernode", and "edgenode"
 client.ExecuteScriptActions(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ExecuteScriptActionParameters{PersistOnSuccess: to.BoolPtr(true), ScriptActions: &[]hdi.RuntimeScriptAction{scriptAction1}}) //add more RuntimeScriptActions to the list to execute multiple scripts
 ```
 
-W przypadku operacji "Usuń akcję skryptu" i "Lista akcji `ScriptActionsClient`skryptu utrwalone" należy utworzyć program , podobnie jak utworzony `ClusterClient` do użycia w operacjach zarządzania. Po zakończeniu powyższej sekcji Uwierzytelnianie możesz `ScriptActionsClient` utworzyć podobny sposób:
+W przypadku operacji "Usuń skrypt akcji" i "Wyświetlaj utrwalone akcje skryptu" należy utworzyć obiekt `ScriptActionsClient`, podobnie jak `ClusterClient` w przypadku operacji zarządzania. Po zakończeniu powyższej sekcji uwierzytelniania można utworzyć `ScriptActionsClient` podobny do tego:
 
 ```golang
 scriptActionsClient := hdi.NewScriptActionsClient(SUBSCRIPTION_ID)
@@ -413,9 +413,9 @@ scriptActionsClient.Authorizer, _ = credentials.Authorizer()
 ```
 
 > [!NOTE]  
-> Poniższe przykłady akcji skryptu zakładają, `scriptActionsClient` że `Authorizer` już zainicjowano wywołanie `ScriptActionsClient` i ustawiłeś jego, jak pokazano powyżej.
+> W poniższych akcjach skryptu założono, że `ScriptActionsClient` zainicjowano `scriptActionsClient` już wywołanie metody `Authorizer` wywoływanej i ustawimy ją jak pokazano powyżej.
 
-### <a name="delete-script-action"></a>Akcja usuń skrypt
+### <a name="delete-script-action"></a>Akcja usuwania skryptu
 
 Aby usunąć określoną akcję utrwalonego skryptu w danym klastrze:
 
@@ -423,12 +423,12 @@ Aby usunąć określoną akcję utrwalonego skryptu w danym klastrze:
 scriptActionsClient.Delete(context.Background(), "<Resource Group Name>", "<Cluster Name>", "<Script Name>")
 ```
 
-### <a name="list-persisted-script-actions"></a>Lista akcji skryptu utrwalonych
+### <a name="list-persisted-script-actions"></a>Wyświetl listę utrwalonych akcji skryptów
 
 > [!NOTE]  
-> Oba `ListByCluster()` zwraca `ScriptActionsListPage` strukturę. Aby uzyskać następną stronę, `Next()`możesz zadzwonić . Można to powtórzyć `ClusterListResultPage.NotDone()` `false`do momentu zwrotu , jak pokazano w poniższym przykładzie.
+> Oba `ListByCluster()` zwracają `ScriptActionsListPage` strukturę. Aby uzyskać następną stronę, możesz wywołać metodę `Next()`. Można to powtórzyć do `ClusterListResultPage.NotDone()` momentu pokazywania `false`, jak pokazano w poniższym przykładzie.
 
-Aby wyświetlić listę wszystkich akcji skryptu utrwalonych dla określonego klastra:
+Aby wyświetlić listę wszystkich akcji utrwalonego skryptu dla określonego klastra:
 ```golang
 scriptActionsClient.ListByCluster(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 ```
@@ -451,9 +451,9 @@ for (page.NotDone()) {
 }
 ```
 
-### <a name="list-all-scripts-execution-history"></a>Wyświetl listę historii wykonywania wszystkich skryptów
+### <a name="list-all-scripts-execution-history"></a>Wyświetl listę wszystkich historii wykonywania skryptów
 
-W przypadku tej operacji należy `ScriptExecutionHistoryClient`utworzyć program , `ClusterClient` podobnie jak utworzony do użycia dla operacji zarządzania. Po zakończeniu powyższej sekcji Uwierzytelnianie możesz `ScriptActionsClient` utworzyć podobny sposób:
+W przypadku tej operacji należy utworzyć obiekt `ScriptExecutionHistoryClient`, podobnie jak `ClusterClient` w przypadku operacji zarządzania. Po zakończeniu powyższej sekcji uwierzytelniania można utworzyć `ScriptActionsClient` podobny do tego:
 
 ```golang
 scriptExecutionHistoryClient := hdi.NewScriptExecutionHistoryClient(SUBSCRIPTION_ID)
@@ -461,9 +461,9 @@ scriptExecutionHistoryClient.Authorizer, _ = credentials.Authorizer()
 ```
 
 > [!NOTE]  
-> Poniżej założono, że już `ScriptExecutionHistoryClient` `scriptExecutionHistoryClient` zainicjowano `Authorizer` wywołanie i ustaw jego, jak pokazano powyżej.
+> W poniższym przykładzie przyjęto, że został `ScriptExecutionHistoryClient` już `scriptExecutionHistoryClient` zainicjowany obiekt wywoływany i ustawiony `Authorizer` powyżej.
 
-Aby wyświetlić listę historii wykonywania wszystkich skryptów dla określonego klastra:
+Aby wyświetlić listę wszystkich skryptów wykonywania dla określonego klastra:
 
 ```golang
 scriptExecutionHistoryClient.ListByCluster(context.Background(), "<Resource Group Name>", "<Cluster Name>")
@@ -471,7 +471,7 @@ scriptExecutionHistoryClient.ListByCluster(context.Background(), "<Resource Grou
 
 #### <a name="example"></a>Przykład
 
-W tym przykładzie odbite wszystkie szczegóły dla wszystkich poprzednich wykonań skryptu.
+Ten przykład drukuje wszystkie szczegóły wszystkich wykonanych wykonań skryptu.
 
 ```golang
 page, err := scriptExecutionHistoryClient.ListByCluster(context.Background(), resourceGroupName, clusterName)
@@ -491,4 +491,4 @@ for (page.NotDone()) {
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [materiałem referencyjnym GoDoc](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight). GoDocs zawierają dokumentację referencyjną dla wszystkich funkcji w SDK.
+Zapoznaj się z [materiałem referencyjnym GoDoc](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight). GoDocs dostarcza dokumentację referencyjną dla wszystkich funkcji w zestawie SDK.

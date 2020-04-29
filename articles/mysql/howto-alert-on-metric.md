@@ -1,89 +1,89 @@
 ---
-title: Konfigurowanie alertów metryk — witryna Azure portal — usługa Azure Database for MySQL
-description: W tym artykule opisano sposób konfigurowania alertów metryk usługi Azure Database dla usługi Azure Database i uzyskiwania do nich dostępu z witryny Azure portal.
+title: Konfigurowanie alertów metryk — Azure Portal-Azure Database for MySQL
+description: W tym artykule opisano sposób konfigurowania i uzyskiwania dostępu do alertów metryk dla Azure Database for MySQL z Azure Portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: c917804b42bc987228bbb2542682fe9fb308a467
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067893"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Konfigurowanie alertów dotyczących metryk usługi Azure Database dla mysql za pomocą witryny Azure Portal 
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Użyj Azure Portal, aby skonfigurować alerty dotyczące metryk dla Azure Database for MySQL 
 
-W tym artykule pokazano, jak skonfigurować usługę Azure Database dla alertów MySQL przy użyciu witryny Azure portal. Możesz otrzymać alert na podstawie monitorowania metryk dla usług platformy Azure.
+W tym artykule opisano sposób konfigurowania alertów Azure Database for MySQL przy użyciu Azure Portal. Możesz otrzymywać alerty na podstawie metryk monitorowania dla usług platformy Azure.
 
-Alert wyzwala, gdy wartość określonej metryki przekracza próg, który można przypisać. Alert wyzwala zarówno wtedy, gdy warunek jest po raz pierwszy spełnione, a następnie, gdy warunek ten nie jest już spełniony. 
+Alert jest wyzwalany, gdy wartość określonej metryki przekroczy przypisany próg. Alert jest wyzwalany podczas pierwszego spełnienia warunku, a następnie gdy ten warunek nie jest już spełniany. 
 
-Alert można skonfigurować tak, aby uruchamiał następujące czynności:
+Można skonfigurować alert, aby wykonał następujące akcje po jego wyzwoleniu:
 * Wysyłanie powiadomień e-mail do administratora usługi i współadministratorów
-* Wyślij wiadomość e-mail na dodatkowe określone wiadomości e-mail.
+* Wyślij wiadomość e-mail do dodatkowych wiadomości e-mail, które określisz.
 * Wywołanie elementu webhook
 
-Za pomocą:
-* [Portal Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
+* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Interfejs wiersza polecenia platformy Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [Interfejs API REST usługi Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
-## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Tworzenie reguły alertów na metryce z witryny Azure portal
-1. W [witrynie Azure portal](https://portal.azure.com/)wybierz usługę Azure Database dla serwera MySQL, który chcesz monitorować.
+## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Tworzenie reguły alertu na podstawie metryki z Azure Portal
+1. W [Azure Portal](https://portal.azure.com/)wybierz serwer Azure Database for MySQL, który chcesz monitorować.
 
-2. W sekcji **Monitorowanie** paska bocznego wybierz **pozycję Alerty,** jak pokazano na rysunku:
+2. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **alerty** , jak pokazano:
 
    ![Wybierz reguły alertów](./media/howto-alert-on-metric/2-alert-rules.png)
 
-3. Wybierz **pozycję Dodaj alert metryki** (+ ikona).
+3. Wybierz pozycję **Dodaj alert dotyczący metryki** (+ ikona).
 
-4. Zostanie otwarta strona **Reguła tworzenia,** jak pokazano poniżej. Wypełnij wymagane informacje:
+4. Zostanie otwarta strona **Tworzenie reguły** , jak pokazano poniżej. Wprowadź wymagane informacje:
 
-   ![Dodaj formularz alertu metryki](./media/howto-alert-on-metric/4-add-rule-form.png)
+   ![Formularz dodawania alertu metryki](./media/howto-alert-on-metric/4-add-rule-form.png)
 
-5. W sekcji **Warunek** wybierz pozycję **Dodaj warunek**.
+5. W sekcji **warunek** wybierz pozycję **Dodaj warunek**.
 
-6. Wybierz metrykę z listy sygnałów, które mają być alertowane. W tym przykładzie wybierz "Procent magazynu".
+6. Wybierz metrykę z listy sygnałów, dla których chcesz otrzymywać alerty. W tym przykładzie wybierz pozycję "procent magazynu".
    
    ![Wybierz metrykę](./media/howto-alert-on-metric/6-configure-signal-logic.png)
 
-7. Skonfiguruj logikę alertu, w tym **Warunek** (np. "Większa niż"), **Próg** (np. 85 procent), **Agregacja czasu,** **Okres** czasu reguła metryki musi zostać spełniona przed wyzwoleniem alertu (np. "W ciągu ostatnich 30 minut") i **Częstotliwość**.
+7. Skonfiguruj logikę alertów, łącznie z **warunkiem** (np. "Większe niż"), **próg** (np. 85 procent), **agregacja czasu**, **okres** czasu reguły metryki musi być spełniony przed wyzwalaczami alertu (np. "W ciągu ostatnich 30 minut") i **częstotliwość**.
    
-   Po zakończeniu wybierz **pozycję Gotowe.**
+   Wybierz pozycję **gotowe** po zakończeniu.
 
    ![Wybierz metrykę](./media/howto-alert-on-metric/7-set-threshold-time.png)
 
-8. W sekcji **Grupy akcji** wybierz pozycję **Utwórz nowy,** aby utworzyć nową grupę, która będzie otrzymywać powiadomienia w alertie.
+8. W sekcji **grupy akcji** wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę, która będzie otrzymywać powiadomienia dotyczące alertu.
 
-9. Wypełnij formularz "Dodaj grupę akcji" nazwą, krótką nazwą, subskrypcją i grupą zasobów.
+9. Wypełnij formularz "Dodawanie grupy akcji" z nazwą, krótką nazwą, subskrypcją i grupą zasobów.
 
-10. Skonfiguruj typ akcji **e-mail/SMS/Push/Voice.**
+10. Skonfiguruj typ akcji **poczty e-mail/SMS/wypychania/głosu** .
     
-    Wybierz opcję "Rola usługi Azure Resource Manager poczty e-mail", aby wybrać właścicieli subskrypcji, współautorów i czytników, aby otrzymywać powiadomienia.
+    Wybierz pozycję "Azure Resource Manager rolę E-mail", aby wybrać właścicieli subskrypcji, współautorów i czytelników, którzy mają otrzymywać powiadomienia.
    
-    Opcjonalnie podaj prawidłowy identyfikator URI w polu **Element webhook,** jeśli chcesz, aby został wywołany podczas uruchamiania alertu.
+    Opcjonalnie Podaj prawidłowy identyfikator URI w polu **elementu webhook** , jeśli ma on być wywoływany po uruchomieniu alertu.
 
-    Po zakończeniu wybierz **przycisk OK.**
+    Po zakończeniu wybierz **przycisk OK** .
 
     ![Grupa akcji](./media/howto-alert-on-metric/10-action-group-type.png)
 
-11. Określ nazwę reguły alertu, opis i ważność.
+11. Określ nazwę, opis i ważność reguły alertu.
 
     ![Grupa akcji](./media/howto-alert-on-metric/11-name-description-severity.png) 
 
-12. Wybierz **pozycję Utwórz regułę alertu,** aby utworzyć alert.
+12. Wybierz pozycję **Utwórz regułę alertu** , aby utworzyć alert.
 
-    W ciągu kilku minut alert jest aktywny i wyzwala, jak opisano wcześniej.
+    W ciągu kilku minut alert jest aktywny i wyzwalacze opisane wcześniej.
 
 ## <a name="manage-your-alerts"></a>Zarządzanie alertami
-Po utworzeniu alertu można go wybrać i wykonać następujące czynności:
+Po utworzeniu alertu możesz go zaznaczyć i wykonać następujące czynności:
 
-* Wyświetl wykres przedstawiający próg metryki i rzeczywiste wartości z poprzedniego dnia istotne dla tego alertu.
-* **Edytuj** lub **usuń** regułę alertu.
-* **Wyłącz** lub **włącz** alert, jeśli chcesz tymczasowo zatrzymać lub wznowić otrzymywanie powiadomień.
+* Wyświetl wykres pokazujący próg metryki i rzeczywiste wartości z poprzedniego dnia odpowiednie dla tego alertu.
+* **Edytuj** lub **Usuń** regułę alertów.
+* **Wyłączenie** lub **włączenie** alertu, jeśli chcesz tymczasowo zatrzymać lub wznowić otrzymywanie powiadomień.
 
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [konfigurowaniu elementów webhook w alertach](../azure-monitor/platform/alerts-webhooks.md).
-* Zapoznaj się [z omówieniem kolekcji metryk,](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) aby upewnić się, że usługa jest dostępna i responsywna.
+* Zapoznaj się z [omówieniem kolekcji metryk](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) , aby upewnić się, że usługa jest dostępna i odpowiada.

@@ -1,20 +1,20 @@
 ---
-title: Rozwiązywanie problemów z wydajnością kwerend — usługa Azure Database for MariaDB
-description: Dowiedz się, jak używać funkcji OBJ. w celu rozwiązywania problemów z wydajnością kwerend w usłudze Azure Database for MariaDB.
+title: Rozwiązywanie problemów z wydajnością zapytań — Azure Database for MariaDB
+description: Informacje na temat rozwiązywania problemów z wydajnością zapytań w Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: b06fe37b63494eb4ee0ca680733a801c26415d67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79530057"
 ---
-# <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Jak używać funkcji EXPLAIN do wykonywania zapytań profilowych w usłudze Azure Database for MariaDB
-**EXPLAIN** to przydatne narzędzie do optymalizacji zapytań. Instrukcja EXPLAIN może służyć do uzyskania informacji o tym, jak instrukcje SQL są wykonywane. Poniższe dane wyjściowe przedstawia przykład wykonywania explain instrukcji.
+# <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Jak użyć WYJAŚNIj, aby uzyskać informacje o wydajności zapytań dotyczących profilów w Azure Database for MariaDB
+**Wyjaśnienie** to przydatne narzędzie do optymalizowania zapytań. Instrukcji WYJAŚNIj można użyć do uzyskania informacji o sposobie wykonywania instrukcji SQL. Poniższe dane wyjściowe przedstawiają przykład wykonania instrukcji WYJAŚNIeń.
 
 ```sql
 mysql> EXPLAIN SELECT * FROM tb1 WHERE id=100\G
@@ -33,7 +33,7 @@ possible_keys: NULL
         Extra: Using where
 ```
 
-Jak widać w tym przykładzie, wartość *klucza* jest NULL. To dane wyjściowe oznacza MariaDB nie można znaleźć żadnych indeksów zoptymalizowanych dla kwerendy i wykonuje skanowanie pełnej tabeli. Zoptymalizujmy tę kwerendę, dodając indeks w kolumnie **Identyfikator.**
+Jak widać na podstawie tego przykładu, wartość *klucza* jest równa null. To wyjście oznacza, że MariaDB nie może znaleźć żadnych indeksów zoptymalizowanych pod kątem zapytania i wykonuje pełne skanowanie tabeli. Zoptymalizujmy to zapytanie, dodając indeks w kolumnie **ID** .
 
 ```sql
 mysql> ALTER TABLE tb1 ADD KEY (id);
@@ -53,10 +53,10 @@ possible_keys: id
         Extra: NULL
 ```
 
-Nowe EXPLAIN pokazuje, że MariaDB teraz używa indeksu, aby ograniczyć liczbę wierszy do 1, co z kolei znacznie skróciło czas wyszukiwania.
+Nowe wyjaśnienie pokazuje, że MariaDB teraz używa indeksu, aby ograniczyć liczbę wierszy do 1, co z kolei znacznie skraca czas wyszukiwania.
  
 ## <a name="covering-index"></a>Indeks obejmujący
-Indeks obejmujący składa się ze wszystkich kolumn kwerendy w indeksie, aby zmniejszyć pobieranie wartości z tabel danych. Oto ilustracja w poniższej instrukcji **GROUP BY.**
+Indeks obejmujący zawiera wszystkie kolumny zapytania w indeksie, aby zmniejszyć liczbę pobieranych wartości z tabel danych. Oto ilustracja w następującej instrukcji **Group by** .
  
 ```sql
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
@@ -75,9 +75,9 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Jak widać na danych wyjściowych, MariaDB nie używa żadnych indeksów, ponieważ nie odpowiednie indeksy są dostępne. Pokazuje również *korzystanie z tymczasowych; Za pomocą sortowania plików*, co oznacza, że MariaDB tworzy tabelę tymczasową, aby spełnić **klauzulę GROUP BY.**
+Jak widać na podstawie danych wyjściowych, MariaDB nie używa żadnych indeksów, ponieważ nie są dostępne żadne prawidłowe indeksy. Pokazuje także *czas użycia tymczasowego; Użycie sortowania plików*, co oznacza, że MariaDB tworzy tabelę tymczasową w celu spełnienia klauzuli **Group by** .
  
-Tworzenie indeksu w kolumnie **c2** sam nie ma znaczenia, i MariaDB nadal musi utworzyć tabelę tymczasową:
+Utworzenie indeksu dla samego kolumny **C2** nie powoduje żadnych różnic, a MariaDB nadal musi utworzyć tabelę tymczasową:
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY (c2);
@@ -97,7 +97,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-W takim przypadku można utworzyć **indeks objęty** **c1** i **c2,** przy czym dodanie wartości **c2**" bezpośrednio w indeksie w celu wyeliminowania dalszego wyszukiwania danych.
+W takim przypadku można utworzyć **pokryty indeks** zarówno **C1** , jak i **C2** , dodając wartość **C2**"bezpośrednio w indeksie, aby wyeliminować dalsze wyszukiwanie danych.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);
@@ -117,10 +117,10 @@ possible_keys: covered
         Extra: Using where; Using index
 ```
 
-Jak pokazuje powyższe wyjaśnienie, MariaDB używa teraz zadaszonego indeksu i unika tworzenia tabeli tymczasowej. 
+Zgodnie z powyższym WYJAŚNIENIEm, MariaDB używa teraz indeksu pokrytego i nie należy tworzyć tabeli tymczasowej. 
 
-## <a name="combined-index"></a>Indeks łączony
-Połączony indeks składa się z wartości z wielu kolumn i można go uznać za tablicę wierszy, które są sortowane przez łączenie wartości indeksowanych kolumn.Ta metoda może być przydatna w instrukcji **GROUP BY.**
+## <a name="combined-index"></a>Połączony indeks
+Połączony indeks zawiera wartości z wielu kolumn i może być traktowany jako tablica wierszy, które są posortowane przez konkatenację wartości indeksowanych kolumn.Ta metoda może być przydatna w instrukcji **Group by** .
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
@@ -139,7 +139,7 @@ possible_keys: NULL
         Extra: Using where; Using filesort
 ```
 
-MariaDB wykonuje operację *sortowania plików,* która jest dość powolna, zwłaszcza gdy ma do sortowania wielu wierszy. Aby zoptymalizować tę kwerendę, można utworzyć połączony indeks na obu kolumnach, które są sortowane.
+MariaDB wykonuje operację *sortowania plików* , która jest stosunkowo niska, zwłaszcza gdy musi sortować wiele wierszy. Aby zoptymalizować to zapytanie, połączony indeks można utworzyć dla obu kolumn, które są sortowane.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY my_sort2 (c1, c2);
@@ -159,11 +159,11 @@ possible_keys: NULL
         Extra: Using where; Using index
 ```
 
-EXPLAIN teraz pokazuje, że MariaDB jest w stanie użyć połączonego indeksu, aby uniknąć dodatkowego sortowania, ponieważ indeks jest już posortowane.
+W WYJAŚNIeniu są teraz widoczne, że MariaDB jest w stanie użyć połączonego indeksu, aby uniknąć dodatkowego sortowania, ponieważ indeks jest już posortowany.
  
 ## <a name="conclusion"></a>Podsumowanie
  
-Za pomocą EXPLAIN i innego typu indeksy można znacznie zwiększyć wydajność. Posiadanie indeksu w tabeli nie musi oznaczać, że MariaDB będzie mógł go używać do zapytań. Zawsze sprawdzaj poprawność założeń przy użyciu funkcji OBJ. i optymalizuj zapytania przy użyciu indeksów.
+Użycie WYJAŚNIeń i różnych typów indeksów może znacząco zwiększyć wydajność. Indeks tabeli nie musi oznaczać, że MariaDB będzie mógł użyć jej do wykonywania zapytań. Zawsze Weryfikuj założenia przy użyciu WYJAŚNIeń i Optymalizuj zapytania przy użyciu indeksów.
 
 ## <a name="next-steps"></a>Następne kroki
-- Aby znaleźć odpowiedzi na najbardziej zainteresowanych pytań lub opublikować nowe pytanie / odpowiedź, odwiedź [forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMariadb) lub [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).
+- Aby znaleźć odpowiedzi na najczęściej zadawane pytania lub opublikować nowe pytanie/odpowiedź, odwiedź [forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMariadb) lub [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).

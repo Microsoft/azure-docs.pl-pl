@@ -12,10 +12,10 @@ ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 43ba4eed4dcfd6d8e86c21f1ee5214108c44a8c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80060234"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Aprowizowanie maszyny wirtualnej z programem SQL Server w witrynie Azure Portal
@@ -26,20 +26,20 @@ ms.locfileid: "80060234"
 
 W tym samouczku Szybki start użyjesz witryny Azure Portal do utworzenia maszyny wirtualnej z systemem Linux z zainstalowanym programem SQL Server 2017.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 * [Tworzenie maszyny wirtualnej z systemem Linux i programem SQL przy użyciu galerii](#create)
 * [Łączenie z nową maszyną wirtualną przy użyciu protokołu SSH](#connect)
-* [Zmienianie hasła SA](#password)
-* [Konfigurowanie połączeń zdalnych](#remote)
+* [Zmienianie hasła administratora systemu](#password)
+* [Konfiguruj dla połączeń zdalnych](#remote)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free) .
 
 ## <a name="create-a-linux-vm-with-sql-server-installed"></a><a id="create"></a> Tworzenie maszyny wirtualnej z systemem Linux i zainstalowanym programem SQL Server
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. W okienku po lewej stronie wybierz pozycję **Utwórz zasób**.
 
@@ -49,18 +49,18 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 
    ![Wyświetlanie wszystkich obrazów maszyn wirtualnych](./media/provision-sql-server-linux-virtual-machine/azure-compute-blade.png)
 
-1. W polu wyszukiwania wpisz SQL **Server 2019**i wybierz pozycję **Enter,** aby rozpocząć wyszukiwanie.
+1. W polu wyszukiwania wpisz **SQL Server 2019**, a następnie wybierz **klawisz ENTER** , aby rozpocząć wyszukiwanie.
 
-1. Ogranicz wyniki wyszukiwania, wybierając **system** > operacyjny**Redhat**.
+1. Ogranicz wyniki wyszukiwania, wybierając pozycję **system** > operacyjny**RedHat**.
 
-    ![Filtr wyszukiwania obrazów maszyn wirtualnych programu SQL Server 2019](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
+    ![Filtr wyszukiwania dla obrazów maszyn wirtualnych z SQL Server 2019](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
 
-1. Wybierz obraz systemu LINUX programu SQL Server 2019 z wyników wyszukiwania. Ten samouczek używa **programu SQL Server 2019 na RHEL74**.
+1. Wybierz obraz systemu Linux w systemie SQL Server 2019 z wyników wyszukiwania. Ten samouczek używa **SQL Server 2019 w RHEL74**.
 
    > [!TIP]
    > Wersja Developer umożliwia testowanie lub programowanie przy użyciu funkcji wersji Enterprise, ale bez kosztów licencjonowania programu SQL Server. Ponosisz tylko koszty obsługi maszyny wirtualnej z systemem Linux.
 
-1. Wybierz **pozycję Utwórz**. 
+1. Wybierz przycisk **Utwórz**. 
 
 
 ### <a name="set-up-your-linux-vm"></a>Konfigurowanie maszyny wirtualnej z systemem Linux
@@ -71,29 +71,29 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 
 1. W polu **Nazwa maszyny wirtualnej** wprowadź nazwę nowej maszyny wirtualnej z systemem Linux.
 1. Następnie wpisz lub wybierz następujące wartości:
-   * **Region:** Wybierz region platformy Azure, który jest odpowiedni dla Ciebie.
-   * **Opcje dostępności:** wybierz opcję dostępności i nadmiarowości, która jest najlepsza dla twoich aplikacji i danych.
-   * **Zmień rozmiar**: Wybierz tę opcję, aby wybrać rozmiar maszyny, a po zakończeniu wybierz pozycję **Wybierz**. Aby uzyskać więcej informacji na temat rozmiarów maszyn wirtualnych, zobacz [Linux VM sizes (Rozmiary maszyn wirtualnych z systemem Linux)](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+   * **Region**: wybierz odpowiedni region platformy Azure.
+   * **Opcje dostępności**: wybierz opcję dostępność i nadmiarowość, która jest Najlepsza dla aplikacji i danych.
+   * **Zmień rozmiar**: Wybierz tę opcję, aby wybrać rozmiar maszyny, a następnie wybierz **pozycję Wybierz**. Aby uzyskać więcej informacji na temat rozmiarów maszyn wirtualnych, zobacz [Linux VM sizes (Rozmiary maszyn wirtualnych z systemem Linux)](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
      ![Wybieranie rozmiaru maszyny wirtualnej](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
    > [!TIP]
    > Do programowania i testowania funkcjonalnego wybierz rozmiar maszyny wirtualnej **DS2** lub większy. Do testowania wydajnościowego należy użyć rozmiaru **DS13** lub większego.
 
-   * **Typ uwierzytelniania**: Wybierz **klucz publiczny SSH**.
+   * **Typ uwierzytelniania**: wybierz opcję **klucz publiczny SSH**.
 
      > [!Note]
      > Do uwierzytelniania możesz używać klucza publicznego SSH lub hasła. Protokół SSH jest bezpieczniejszy. Aby uzyskać instrukcje na temat sposobu generowania klucza SSH, zobacz [Create SSH keys on Linux and Mac for Linux VMs in Azure (Tworzenie kluczy SSH w systemie Linux i na komputerach Mac dla maszyn wirtualnych z systemem Linux na platformie Azure)](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
 
    * **Nazwa użytkownika**: Wprowadź nazwę administratora maszyny wirtualnej.
-   * **Klucz publiczny SSH:** Wprowadź klucz publiczny RSA.
-   * **Publiczne porty przychodzące:** Wybierz **pozycję Zezwalaj na wybrane porty** i wybierz port **SSH (22)** na liście **Wybierz publiczne porty przychodzące.** W tym przewodniku Szybki start ten krok jest konieczny do połączenia z programem SQL Server i ukończenia jego konfiguracji. Jeśli chcesz zdalnie połączyć się z programem SQL Server, musisz ręcznie zezwolić na ruch do portu domyślnego (1433) używanego przez program Microsoft SQL Server dla połączeń przez Internet po utworzeniu maszyny wirtualnej.
+   * **Klucz publiczny SSH**: Wprowadź klucz publiczny RSA.
+   * **Publiczne porty przychodzące**: wybierz opcję **Zezwalaj na wybrane porty** i wybierz port **SSH (22)** na liście **Wybierz publiczne porty przychodzące** . W tym przewodniku Szybki start ten krok jest konieczny do połączenia z programem SQL Server i ukończenia jego konfiguracji. Jeśli chcesz zdalnie nawiązać połączenie z usługą SQL Server, musisz ręcznie zezwolić na ruch przychodzący do portu domyślnego (1433), który będzie używany przez Microsoft SQL Server dla połączeń przez Internet po utworzeniu maszyny wirtualnej.
 
      ![Porty wejściowe](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
 1. Wprowadź wszelkie wymagane zmiany ustawień na następujących kartach dodatkowych lub zachowaj ustawienia domyślne.
     * **Dyski**
-    * **Obsługa sieci**
+    * **Networking**
     * **Zarządzanie**
     * **Konfiguracja gościa**
     * **Tagi**

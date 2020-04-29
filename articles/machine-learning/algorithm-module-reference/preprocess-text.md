@@ -1,7 +1,7 @@
 ---
-title: 'Tekst przetwarzania wstępnego: odwołanie do modułu'
+title: 'Wstępnie przetworzony tekst: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak wyczyścić i uprościć tekst za pomocą modułu Tekst przetwarzania wstępnego w usłudze Azure Machine Learning.
+description: Dowiedz się, jak za pomocą wstępnie przetwarzanego modułu tekstu w Azure Machine Learning wyczyścić i uprościć tekst.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,81 +10,81 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
 ms.openlocfilehash: 6e4d4c8f798418e090caeba091dec33c71f0458f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477497"
 ---
 # <a name="preprocess-text"></a>Wstępne przetwarzanie tekstu
 
-W tym artykule opisano moduł w projektancie usługi Azure Machine Learning (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
 
-Moduł **Tekst przetwarzania wstępnego** służy do czyszczenia i upraszczania tekstu. Obsługuje te typowe operacje przetwarzania tekstu:
+Użyj modułu **tekstu przetwarzania wstępnego** , aby wyczyścić i uprościć tekst. Obsługuje te Typowe operacje przetwarzania tekstu:
 
-* Usuwanie słów stop-
-* Używanie wyrażeń regularnych do wyszukiwania i zastępowania określonych ciągów docelowych
-* Lemmatization, która konwertuje wiele powiązanych słów na jedną formę kanoniczną
-* Normalizacja przypadków
-* Usuwanie niektórych klas znaków, takich jak liczby, znaki specjalne i sekwencje powtarzających się znaków, takich jak "aaaa"
-* Identyfikacja i usuwanie wiadomości e-mail i adresów URL
+* Usuwanie wyrazów Stop
+* Wyszukiwanie i zastępowanie określonych ciągów docelowych przy użyciu wyrażeń regularnych
+* Lematyzacja, który konwertuje wiele pokrewnych wyrazów na pojedynczą postać kanoniczną
+* Normalizacja przypadku
+* Usuwanie niektórych klas znaków, takich jak liczby, znaki specjalne i sekwencje powtórzonych znaków, takich jak "aaaa"
+* Identyfikowanie i usuwanie wiadomości e-mail i adresów URL
 
-Moduł **Tekst przetwarzania wstępnego** obsługuje obecnie tylko język angielski.
+Moduł **tekstu przetwarzania wstępnego** obsługuje obecnie tylko język angielski.
 
 ## <a name="configure-text-preprocessing"></a>Konfigurowanie przetwarzania wstępnego tekstu  
 
-1.  Dodaj moduł **tekst przetwarzania wstępnego** do potoku w usłudze Azure Machine Learning. Ten moduł można znaleźć w obszarze **Analiza tekstu**.
+1.  Dodaj **wstępnie przetworzony moduł tekstowy** do potoku w Azure Machine Learning. Ten moduł można znaleźć w obszarze **Analiza tekstu**.
 
-1. Połącz zestaw danych zawierający co najmniej jedną kolumnę zawierającą tekst.
+1. Połącz zestaw danych, który zawiera co najmniej jedną kolumnę zawierającą tekst.
 
-1. Wybierz język z listy rozwijanej **Język.**
+1. Wybierz język z listy rozwijanej **Język** .
 
-1. **Kolumna tekst do czyszczenia**: Zaznacz kolumnę, którą chcesz wstępnie przetworzyć.
+1. **Kolumna tekstowa do oczyszczenia**: wybierz kolumnę, którą chcesz wstępnie przetworzyć.
 
-1. **Usuń słowa stop:** Zaznacz tę opcję, jeśli chcesz zastosować wstępnie zdefiniowaną listę stopword do kolumny tekstowej. 
+1. **Usuń słowa Stop**: zaznacz tę opcję, jeśli chcesz zastosować wstępnie zdefiniowaną listę odrzucany termin do kolumny tekst. 
 
-    Listy stopword są zależne od języka i konfigurowalne.
+    Listy odrzucany termin są zależne od języka i dostosowywalne.
 
-1. **Lemmatization**: Wybierz tę opcję, jeśli chcesz, aby wyrazy były reprezentowane w formie kanonicznej. Ta opcja jest przydatna do zmniejszenia liczby unikatowych wystąpień podobnych tokenów tekstowych.
+1. **Lematyzacja**: Wybierz tę opcję, jeśli chcesz, aby wyrazy były reprezentowane w postaci kanonicznej. Ta opcja jest przydatna do zmniejszenia liczby unikatowych wystąpień podobnych tokenów tekstowych.
 
-    Proces lemmatyzacji jest w dużym stopniu zależny od języka..
+    Proces Lematyzacja jest wysoce zależny od języka...
 
-1. **Wykrywanie zdań:** Wybierz tę opcję, jeśli chcesz, aby moduł wstawił znacznik granicy zdania podczas przeprowadzania analizy.
+1. **Wykryj zdania**: zaznacz tę opcję, jeśli chcesz, aby moduł wstawiał znak graniczny zdania podczas przeprowadzania analizy.
 
-    Ten moduł używa serii trzech `|||` znaków potoku do reprezentowania terminatora zdania.
+    Ten moduł używa serii trzech znaków `|||` potoku do reprezentowania terminatora zdania.
 
-1. Wykonywanie opcjonalnych operacji znajdowania i zamieniania przy użyciu wyrażeń regularnych.
+1. Wykonaj opcjonalne operacje znajdowania i zamieniania przy użyciu wyrażeń regularnych.
 
-    * **Niestandardowe wyrażenie regularne:** zdefiniuj poszukiwany tekst.
-    * **Niestandardowy ciąg zastępczy:** Zdefiniuj pojedynczą wartość zastępczą.
+    * **Niestandardowe wyrażenie regularne**: Zdefiniuj szukany tekst.
+    * **Niestandardowy ciąg zamienny**: Zdefiniuj pojedynczą wartość zastępczą.
 
-1. **Normalizuj wielką literę na małe :** Wybierz tę opcję, jeśli chcesz przekonwertować wielkie litery ASCII na ich małe litery.
+1. **Normalizing Case do małych liter**: zaznacz tę opcję, jeśli chcesz skonwertować wielką literę ASCII na postać małych liter.
 
-    Jeśli znaki nie są znormalizowane, to samo słowo pisane i pisane prawymi literami są traktowane jako dwa różne słowa.
+    Jeśli znaki nie są znormalizowane, ten sam wyraz pisany wielkimi literami i małe litery jest uznawany za dwa różne słowa.
 
-1. Z przetworzonego tekstu wyjściowego można również usunąć następujące typy znaków lub sekwencji znaków:
+1. Można również usunąć następujące typy znaków lub sekwencje znaków z przetworzonego tekstu wyjściowego:
 
-    * **Usuń liczby**: Wybierz tę opcję, aby usunąć wszystkie znaki liczbowe dla określonego języka. Numery identyfikacyjne są zależne od domeny i są zależne od języka. Jeśli znaki liczbowe są integralną częścią znanego wyrazu, liczba może nie zostać usunięta.
+    * **Usuń numery**: zaznacz tę opcję, aby usunąć wszystkie znaki numeryczne dla określonego języka. Numery identyfikacyjne są zależne od domeny i języka. Jeśli znaki numeryczne są integralną częścią znanego wyrazu, numer nie może zostać usunięty.
     
-    * **Usuń znaki specjalne:** Użyj tej opcji, aby usunąć wszelkie niealnumericzne znaki specjalne.
+    * **Usuń znaki specjalne**: Użyj tej opcji, aby usunąć wszystkie znaki specjalne inne niż alfanumeryczne.
     
-    * **Usuń zduplikowane znaki**: Wybierz tę opcję, aby usunąć dodatkowe znaki w sekwencjach powtarzanych przez więcej niż dwa razy. Na przykład sekwencja taka jak "aaaaa" zostanie zredukowana do "aa".
+    * **Usuń zduplikowane znaki**: zaznacz tę opcję, aby usunąć dodatkowe znaki w każdej sekwencji powtarzanej przez więcej niż dwa razy. Na przykład sekwencja, taka jak "AAAAA", zostanie zredukowana do "AA".
     
-    * **Usuń adresy e-mail**: Wybierz tę `<string>@<string>`opcję, aby usunąć dowolną sekwencję formatu .  
-    * **Usuń adresy URL**: Wybierz tę opcję, aby usunąć `http`dowolną `https` `ftp`sekwencję zawierającą następujące prefiksy adresu URL: , ,`www`
+    * **Usuń adresy e-mail**— wybierz tę opcję, aby usunąć dowolną sekwencję formatu `<string>@<string>`.  
+    * **Usuń adresy URL**: zaznacz tę opcję, aby usunąć sekwencję zawierającą następujące PREFIKSY adresów `http`URL `https`: `ftp`,,,`www`
     
-1. **Rozwiń skurcze czasowników**: Ta opcja ma zastosowanie tylko do języków, które używają skurczów czasowników; obecnie tylko w języku angielskim. 
+1. **Rozwiń kontrakty czasownikowe**: Ta opcja ma zastosowanie tylko do języków, które używają umów czasownikowych; obecnie tylko w języku angielskim. 
 
-    Na przykład, wybierając tę opcję, można zastąpić wyrażenie *"nie pozostanie tam"* *na "nie pozostanie tam"*.
+    Na przykład po wybraniu tej opcji można zastąpić frazę " *nie*Zostań *tam"* ".
 
-1. **Znormalizuj ukośniki do ukośników:** Wybierz tę opcję, aby zamapować wszystkie wystąpienia `\\` na `/`.
+1. **Normalizowanie ukośników odwrotnych do ukośników**: Wybierz tę opcję, aby zmapować wszystkie `\\` wystąpienia `/`elementu do.
 
-1. **Podziel tokeny na znaki specjalne:** Wybierz tę opcję, jeśli `&` `-`chcesz podzielić wyrazy na znaki, takie jak , i tak dalej. Ta opcja może również zmniejszyć liczbę znaków specjalnych, gdy powtarza się więcej niż dwa razy. 
+1. **Podziel tokeny na znaki specjalne**: zaznacz tę opcję, jeśli chcesz przerwać słowa na znakach, `&`takich `-`jak, i tak dalej. Ta opcja może również zmniejszyć liczbę znaków specjalnych, gdy powtarza się więcej niż dwa razy. 
 
-    Na przykład ciąg `MS---WORD` zostanie podzielony na trzy `MS`tokeny, , `-`i `WORD`.
+    `MS---WORD` Na przykład ciąg zostałby podzielony na trzy `MS`tokeny,, `-`, i. `WORD`
 
 1. Prześlij potok.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

@@ -1,97 +1,97 @@
 ---
-title: Diagnostyka transakcji usługi Azure Application Insights | Dokumenty firmy Microsoft
-description: Kompleksowa diagnostyka transakcji usługi Application Insights
+title: Diagnostyka transakcji Application Insights platformy Azure | Microsoft Docs
+description: Application Insights kompleksowej diagnostyki transakcji
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671141"
 ---
-# <a name="unified-cross-component-transaction-diagnostics"></a>Ujednolicona diagnostyka transakcji międzyskcowych
+# <a name="unified-cross-component-transaction-diagnostics"></a>Ujednolicona Diagnostyka transakcji między składnikami
 
-Ujednolicone środowisko diagnostyczne automatycznie koreluje dane telemetryczne po stronie serwera ze wszystkich monitorowanych składników usługi Application Insights w jednym widoku. Nie ma znaczenia, czy masz wiele zasobów z oddzielnymi kluczami instrumentacji. Usługa Application Insights wykrywa podstawową relację i umożliwia łatwe diagnozowanie składnika aplikacji, zależności lub wyjątku, który spowodował spowolnienie lub niepowodzenie transakcji.
+Ujednolicone środowisko diagnostyki automatycznie skorelowanie danych telemetrycznych po stronie serwera ze wszystkich Application Insights monitorowanych składników w jednym widoku. Nie ma znaczenia, czy masz wiele zasobów z osobnymi kluczami Instrumentacji. Application Insights wykrywa podstawową relację i pozwala łatwo zdiagnozować składnik aplikacji, zależność lub wyjątek, który spowodował spowolnienie lub niepowodzenie transakcji.
 
 ## <a name="what-is-a-component"></a>Co to jest składnik?
 
-Składniki są niezależnie wdrażalne części aplikacji rozproszonych/mikrousług. Deweloperzy i zespoły operacyjne mają wgląd na poziomie kodu lub dostęp do danych telemetrycznych generowanych przez te składniki aplikacji.
+Składniki są niezależnie wdrażane części aplikacji rozproszonej/mikrousług. Deweloperzy i zespoły operacyjne mają widoczność na poziomie kodu lub uzyskują dostęp do danych telemetrycznych generowanych przez te składniki aplikacji.
 
-* Składniki różnią się od "obserwowanych" zależności zewnętrznych, takich jak SQL, EventHub itp., do których twój zespół/organizacja może nie mieć dostępu (kod lub dane telemetryczne).
+* Składniki różnią się od "obserwowanych" zależności zewnętrznych, takich jak SQL, EventHub itp., do których zespół/organizacja może nie mieć dostępu (kod lub dane telemetryczne).
 * Składniki są uruchamiane na dowolnej liczbie wystąpień serwera/roli/kontenera.
-* Składniki mogą być oddzielne klucze instrumentacji usługi Application Insights (nawet jeśli subskrypcje są różne) lub różne role raportowania do jednego klucza instrumentacji usługi Application Insights. Nowe środowisko pokazuje szczegóły we wszystkich składnikach, niezależnie od tego, jak zostały skonfigurowane.
+* Składnikiem programu mogą być oddzielne klucze Instrumentacji Application Insights (nawet jeśli subskrypcje są różne) lub różne role zgłaszają do jednego klucza Instrumentacji Application Insights. Nowe środowisko pokazuje szczegóły wszystkich składników, niezależnie od tego, jak zostały skonfigurowane.
 
 > [!NOTE]
-> * **Brakuje cisów powiązanych elementów?** Wszystkie powiązane dane telemetryczne znajdują się w [górnej](#cross-component-transaction-chart) i [dolnej](#all-telemetry-with-this-operation-id) części lewej strony. 
+> * **Brak linków do powiązanego elementu?** Wszystkie powiązane dane telemetryczne znajdują się u [góry](#cross-component-transaction-chart) i [u dołu](#all-telemetry-with-this-operation-id) części po lewej stronie. 
 
-## <a name="transaction-diagnostics-experience"></a>Diagnostyka transakcji
-Ten widok zawiera cztery kluczowe części: listę wyników, wykres transakcji międzyskładnikowych, listę sekwencji czasowych wszystkich danych telemetrycznych związanych z tą operacją oraz okienko szczegółów dla dowolnego wybranego elementu telemetrii po lewej stronie.
+## <a name="transaction-diagnostics-experience"></a>Środowisko diagnostyki transakcji
+Ten widok zawiera cztery kluczowe części: listę wyników, wykres transakcji między składnikami, listę sekwencji czasowych wszystkich danych telemetrycznych związanych z tą operacją oraz okienko szczegółów dla każdego wybranego elementu telemetrii po lewej stronie.
 
-![Kluczowe części](media/transaction-diagnostics/4partsCrossComponent.png)
+![Części klucza](media/transaction-diagnostics/4partsCrossComponent.png)
 
-## <a name="cross-component-transaction-chart"></a>Wykres transakcji międzyskcjowych
+## <a name="cross-component-transaction-chart"></a>Wykres transakcji między składnikami
 
-Ten wykres zawiera oś czasu z poziomymi słupkami dla czasu trwania żądań i zależności między składnikami. Wszelkie wyjątki, które są zbierane są również oznaczone na osi czasu.
+Ten wykres zawiera oś czasu z poziomymi paskami dla czasu trwania żądań i zależności między składnikami. Wszystkie zebrane wyjątki są również oznaczone na osi czasu.
 
-* Górny wiersz na tym wykresie reprezentuje punkt wejścia, przychodzące żądanie do pierwszego składnika o nazwie w tej transakcji. Czas trwania to całkowity czas ukończenia transakcji.
-* Wszelkie wywołania zależności zewnętrznych są proste wiersze nie zwijalne, z ikonami reprezentującymi typ zależności.
-* Wywołania innych składników są zwijane wiersze. Każdy wiersz odpowiada określonej operacji wywoływane w komponencie.
-* Domyślnie wybrane żądanie, zależność lub wyjątek są wyświetlane po prawej stronie.
-* Wybierz dowolny wiersz, aby wyświetlić jego [szczegóły po prawej stronie](#details-of-the-selected-telemetry). 
+* Górny wiersz na tym wykresie reprezentuje punkt wejścia, żądanie przychodzące do pierwszego składnika o nazwie w tej transakcji. Czas trwania to łączny czas wykonania transakcji.
+* Wszystkie wywołania zależności zewnętrznych są prostymi niezwijanymi wierszami z ikonami reprezentującymi typ zależności.
+* Wywołania innych składników są zwijane. Każdy wiersz odpowiada określonej operacji wywoływanej w składniku.
+* Domyślnie zostanie wyświetlone żądanie, zależność lub wyjątek, który został wybrany po prawej stronie.
+* Zaznacz dowolny wiersz, aby wyświetlić jego [szczegóły po prawej stronie](#details-of-the-selected-telemetry). 
 
 > [!NOTE]
-> Wywołania do innych składników mają dwa wiersze: jeden wiersz reprezentuje wywołanie wychodzące (zależność) ze składnika wywołującego, a drugi wiersz odpowiada żądaniu przychodzącemu w wywoływanemu składniku. Ikona wiodąca i wyrazisty styl pasków czasu trwania pomagają odróżnić je od nich.
+> Wywołania innych składników mają dwa wiersze: jeden wiersz reprezentuje wywołanie wychodzące (zależność) ze składnika wywołującego, a drugi wiersz odpowiada żądaniu przychodzącemu dla wywoływanego składnika. Ikona wiodąca i różne style pasków czasu trwania pomagają rozróżnić między nimi.
 
 ## <a name="all-telemetry-with-this-operation-id"></a>Wszystkie dane telemetryczne z tym identyfikatorem operacji
 
-W tej sekcji przedstawiono widok listy płaskiej w sekwencji czasu wszystkich danych telemetrycznych związanych z tą transakcją. Pokazuje również zdarzenia niestandardowe i ślady, które nie są wyświetlane na wykresie transakcji. Tę listę można filtrować do danych telemetrycznych generowanych przez określony składnik/wywołanie. Można wybrać dowolny element telemetrii [na](#details-of-the-selected-telemetry)tej liście, aby wyświetlić odpowiednie szczegóły po prawej stronie .
+Ta sekcja zawiera widok płaskiej listy w sekwencji czasowej wszystkich danych telemetrycznych związanych z tą transakcją. Przedstawiono w nim także zdarzenia niestandardowe i ślady, które nie są wyświetlane na wykresie transakcji. Możesz filtrować tę listę do telemetrii wygenerowanej przez określony składnik/wywołanie. Możesz wybrać dowolny element telemetrii na tej liście, aby zobaczyć odpowiednie [szczegóły po prawej stronie](#details-of-the-selected-telemetry).
 
-![Sekwencja czasu wszystkich danych telemetrycznych](media/transaction-diagnostics/allTelemetryDrawerOpened.png)
+![Sekwencja czasu dla wszystkich danych telemetrycznych](media/transaction-diagnostics/allTelemetryDrawerOpened.png)
 
 ## <a name="details-of-the-selected-telemetry"></a>Szczegóły wybranej telemetrii
 
-To zwijane okienko zawiera szczegóły dowolnego zaznaczonego elementu z wykresu transakcji lub listy. "Pokaż wszystko" zawiera listę wszystkich standardowych atrybutów, które są zbierane. Wszystkie atrybuty niestandardowe są oddzielnie wymienione poniżej zestawu standardowego. Kliknij na "..." poniżej okna śledzenia stosu, aby uzyskać opcję skopiowania śledzenia. "Otwórz ślady profilera" lub "Otwórz migawkę debugowania" pokazuje diagnostykę poziomu kodu w odpowiednich okienkach szczegółów.
+To okienko zwijane pokazuje szczegóły dowolnego wybranego elementu z wykresu transakcji lub listy. "Pokaż wszystko" wyświetla wszystkie standardowe atrybuty, które są zbierane. Wszystkie atrybuty niestandardowe są osobno wymienione poniżej zestawu standardowego. Kliknij "..." poniżej okna śledzenia stosu, aby pobrać opcję kopiowania śladu. "Otwarte ślady profilera" lub "Otwórz migawkę debugowania" pokazuje diagnostykę na poziomie kodu w odpowiednich okienkach szczegółów.
 
 ![Szczegóły wyjątku](media/transaction-diagnostics/exceptiondetail.png)
 
 ## <a name="search-results"></a>Wyniki wyszukiwania
 
-To okienko zwijane pokazuje inne wyniki, które spełniają kryteria filtru. Kliknij dowolny wynik, aby zaktualizować odpowiednie szczegóły 3 sekcje wymienione powyżej. Staramy się znaleźć próbki, które są najbardziej prawdopodobne, aby uzyskać szczegółowe informacje dostępne ze wszystkich składników, nawet jeśli pobieranie próbek jest w życie w każdym z nich. Są one wyświetlane jako "sugerowane" próbki.
+To okienko zwijane pokazuje inne wyniki, które spełniają kryteria filtrowania. Kliknij dowolny wynik, aby zaktualizować odpowiednie szczegóły do 3 sekcji wymienionych powyżej. Spróbujemy znaleźć przykłady, które najprawdopodobniej będą mieć szczegółowe informacje ze wszystkich składników, nawet jeśli próbkowanie jest stosowane w którymkolwiek z nich. Są one wyświetlane jako "sugerowane" przykłady.
 
 ![Wyniki wyszukiwania](media/transaction-diagnostics/searchResults.png)
 
-## <a name="profiler-and-snapshot-debugger"></a>Debuger profilera i migawki
+## <a name="profiler-and-snapshot-debugger"></a>Profiler i debuger migawek
 
-[Profiler usługi Application Insights](../../azure-monitor/app/profiler.md) lub [debuger migawki](snapshot-debugger.md) pomocy z diagnostyki na poziomie kodu problemów z wydajnością i błędami. Dzięki temu doświadczeniu można wyświetlić ślady profilera lub migawki z dowolnego składnika za pomocą jednego kliknięcia.
+[Application Insights profilerem](../../azure-monitor/app/profiler.md) lub [debugerem migawek](snapshot-debugger.md) pomoc w diagnostyce na poziomie kodu problemów z wydajnością i błędami. Korzystając z tego środowiska, można wyświetlać ślady profilera lub migawki z dowolnego składnika za pomocą jednego kliknięcia.
 
-Jeśli nie możesz uzyskać profiler pracy, prosimy o kontakt **serviceprofilerhelp\@microsoft.com**
+Jeśli nie możesz uzyskać pracy profilera, skontaktuj się z **firmą\@serviceprofilerhelp Microsoft.com**
 
-Jeśli nie można uzyskać Debuger migawki pracy, skontaktuj się **snapshothelp\@microsoft.com**
+Jeśli nie możesz uzyskać Snapshot Debugger pracy, skontaktuj się z **firmą\@snapshothelp Microsoft.com**
 
 ![Integracja profilera](media/transaction-diagnostics/profilerTraces.png)
 
 ## <a name="faq"></a>Najczęściej zadawane pytania
 
-*Widzę jeden składnik na wykresie, a pozostałe są wyświetlane tylko jako zależności zewnętrzne bez żadnych szczegółów, co się stało w tych składnikach.*
+*Widzę pojedynczy składnik na wykresie, a inne są wyświetlane tylko jako zależności zewnętrzne, bez żadnych szczegółowych informacji o tym, co się stało w tych składnikach.*
 
-Potencjalne powody:
+Możliwe przyczyny:
 
-* Czy inne składniki są instrumentowane za pomocą usługi Application Insights?
-* Czy używają najnowszego stabilnego SDK usługi Application Insights?
-* Jeśli te składniki są oddzielne zasoby usługi Application Insights, czy masz wymagany dostęp do ich danych telemetrycznych?
+* Czy inne składniki są Instrumentacją Application Insights?
+* Czy używają najnowszych stabilnych Application Insights SDK?
+* Czy te składniki są oddzielnymi Application Insightsmi zasobami, czy masz wymagany dostęp do swoich danych telemetrycznych?
 
-Jeśli masz dostęp, a składniki są instrumentowane za pomocą najnowszych zestawów SDK usługi Application Insights, połóż nas za pośrednictwem kanału opinii w prawym górnym rogu.
+Jeśli masz dostęp, a składniki są Instrumentacją przy użyciu najnowszych zestawów SDK Application Insights, poinformuj nas za pośrednictwem odpowiedniego kanału opinii.
 
-*Widzę zduplikowane wiersze zależności. Czy to się spodziewa?*
+*Widzę zduplikowane wiersze dla zależności. Czy jest to oczekiwane?*
 
-W tej chwili pokazujemy wywołanie zależności wychodzącej oddzielnie od żądania przychodzącego. Zazwyczaj dwa wywołania wyglądają identycznie, a tylko wartość czasu trwania jest inna ze względu na sieć w obie strony. Ikona wiodąca i wyrazisty styl pasków czasu trwania pomagają odróżnić je od nich. Czy ta prezentacja danych jest myląca? Przejrzyj nam swoją opinię!
+Obecnie pokazywane jest wywołanie zależności wychodzącej niezależnie od żądania przychodzącego. Zazwyczaj dwa wywołania wyglądają identycznie z tylko wartością czasu trwania, która jest różna z powodu rundy sieci. Ikona wiodąca i różne style pasków czasu trwania pomagają rozróżnić między nimi. Czy ta prezentacja danych jest myląca? Przekaż nam swoją opinię.
 
-*Co z przeciąwienia zegara w różnych wystąpieniach składników?*
+*Co informacje o zegarach są rozchylone między różnymi wystąpieniami składników?*
 
-Osie czasu są dostosowywane do pochylenia zegara na wykresie transakcji. Możesz zobaczyć dokładne sygnatury czasowe w okienku szczegółów lub za pomocą Analytics.
+Osie czasu są dostosowywane pod kątem obchylania zegara na wykresie transakcji. Dokładne znaczniki czasu można zobaczyć w okienku szczegółów lub przy użyciu funkcji analizy.
 
-*Dlaczego w nowym doświadczeniu brakuje większości zapytań powiązanych elementów?*
+*Dlaczego nowe środowisko nie ma większości zapytań dotyczących elementów pokrewnych?*
 
-Jest to celowe. Wszystkie powiązane elementy, we wszystkich komponentach, są już dostępne po lewej stronie (górna i dolna sekcja). Nowe środowisko ma dwa powiązane elementy, które po lewej stronie nie obejmuje: wszystkie dane telemetryczne z pięciu minut przed i po tym zdarzeniu i osi czasu użytkownika.
+Jest to celowe. Wszystkie powiązane elementy, we wszystkich składnikach, są już dostępne po lewej stronie (sekcje górne i dolne). Nowe środowisko zawiera dwa pokrewne elementy, które nie obejmują: wszystkie dane telemetryczne z pięciu minut przed tym zdarzeniem i po nim.

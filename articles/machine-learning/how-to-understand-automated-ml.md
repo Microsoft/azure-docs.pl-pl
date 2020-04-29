@@ -1,7 +1,7 @@
 ---
 title: Zrozumienie zautomatyzowanych wyników ML
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak wyświetlać i rozumieć wykresy i metryki dla każdego z automatycznych przebiegów uczenia maszynowego.
+description: Dowiedz się, jak wyświetlać i zrozumieć wykresy oraz metryki dla każdego z zautomatyzowanych przebiegów uczenia maszynowego.
 services: machine-learning
 author: RachelKellam
 ms.author: rakellam
@@ -11,262 +11,262 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.openlocfilehash: c5f12da3606361b504d4581916d9645fa3cd24f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79283461"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Opis wyników zautomatyzowanego uczenia maszynowego
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym artykule dowiesz się, jak wyświetlić i zrozumieć wykresy i metryki dla każdego z automatycznych uruchomień uczenia maszynowego. 
+W tym artykule dowiesz się, jak wyświetlać i zrozumieć wykresy i metryki dla każdego z zautomatyzowanych przebiegów uczenia maszynowego. 
 
 Dowiedz się więcej o usługach:
 + [Metryki, wykresy i krzywe dla modeli klasyfikacji](#classification)
 + [Metryki, wykresy i wykresy dla modeli regresji](#regression)
-+ [Możliwość interpretacji modelu i znaczenie funkcji](#explain-model)
++ [Interpretacja modelu i ważność funkcji](#explain-model)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję usługi Azure Machine Learning](https://aka.ms/AMLFree) już dziś.
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj.
 
-* Utwórz eksperyment dla automatycznego uruchamiania uczenia maszynowego za pomocą sdk lub w studio usługi Azure Machine Learning.
+* Utwórz eksperyment dla automatycznego przebiegu uczenia maszynowego z zestawem SDK lub w programie Azure Machine Learning Studio.
 
-    * Tworzenie [modelu klasyfikacji](how-to-auto-train-remote.md) lub [modelu regresji](tutorial-auto-train-models.md) za pomocą sdk
-    * Użyj [usługi Azure Machine Learning studio,](how-to-use-automated-ml-for-ml-models.md) aby utworzyć model klasyfikacji lub regresji przez przekazanie odpowiednich danych.
+    * Użyj zestawu SDK, aby utworzyć [model klasyfikacji](how-to-auto-train-remote.md) lub [model regresji](tutorial-auto-train-models.md)
+    * Użyj [Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md) , aby utworzyć model klasyfikacji lub regresji przez przekazanie odpowiednich danych.
 
-## <a name="view-the-run"></a>Zobacz bieg
+## <a name="view-the-run"></a>Wyświetlanie przebiegu
 
-Po uruchomieniu eksperymentu automatycznego uczenia maszynowego historię przebiegów można znaleźć w obszarze roboczym uczenia maszynowego. 
+Po uruchomieniu zautomatyzowanego eksperymentu w usłudze Machine Learning historia przebiegów jest dostępna w obszarze roboczym uczenia maszynowego. 
 
 1. Przejdź do swojego obszaru roboczego.
 
-1. W lewym panelu obszaru roboczego wybierz pozycję **Eksperymenty**.
+1. W lewym panelu obszaru roboczego wybierz pozycję **eksperymenty**.
 
    ![Zrzut ekranu przedstawiający menu eksperymentu](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-menu.png)
 
-1. Na liście eksperymentów wybierz eksperymenty, które chcesz eksplorować.
+1. Na liście eksperymentów wybierz ten, który chcesz poznać.
 
    [![Lista eksperymentów](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list-expanded.png)
 
-1. W dolnej tabeli wybierz **pozycję Uruchom**.
+1. W dolnej tabeli wybierz **przebieg**.
 
-   Przebieg eksperymentu ) [ ![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png)
+   [ ![Przebieg eksperymentu](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png))
 
-1. W models wybierz **nazwę algorytmu** dla modelu, który chcesz zbadać dalej.
+1. W obszarze modele wybierz **nazwę algorytmu** dla modelu, który chcesz szczegółowo zbadać.
 
    [![Model eksperymentu](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
-Te same wyniki są również widoczne podczas `RunDetails`biegu podczas korzystania z [widżetu Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
+Te same wyniki są również widoczne podczas uruchamiania, gdy używasz `RunDetails` [widżetu Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 
 ## <a name="classification-results"></a><a name="classification"></a>Wyniki klasyfikacji
 
-Poniższe metryki i wykresy są dostępne dla każdego modelu klasyfikacji, który tworzysz przy użyciu automatycznych funkcji uczenia maszynowego usługi Azure Machine Learning
+Thee następujące metryki i wykresy są dostępne dla każdego modelu klasyfikacji kompilowanego przy użyciu funkcji automatycznego uczenia maszynowego Azure Machine Learning
 
 + [Metryki](#classification-metrics)
-+ [Macierz zamieszania](#confusion-matrix)
-+ [Wykres precyzyjnego wycofywania](#precision-recall-chart)
-+ [Charakterystyka działania odbiornika (lub ROC)](#roc)
++ [Zamieszanie macierzy](#confusion-matrix)
++ [Wykres dokładności do odzyskania](#precision-recall-chart)
++ [Charakterystyki operacyjne odbiornika (lub ROC)](#roc)
 + [Krzywa podnoszenia](#lift-curve)
 + [Krzywa zysków](#gains-curve)
-+ [Wykres kalibracji](#calibration-plot)
++ [Wykres kalibracyjny](#calibration-plot)
 
 ### <a name="classification-metrics"></a>Metryki klasyfikacji
 
-Następujące metryki są zapisywane w każdej iteracji uruchamiania dla zadania klasyfikacji.
+Następujące metryki są zapisywane w każdej iteracji uruchomienia dla zadania klasyfikacji.
 
 Metryka|Opis|Obliczenia|Dodatkowe parametry
 --|--|--|--
-AUC_Macro| AUC jest obszarem pod krzywą charakterystyki charakterystycznej dla odbiorcy. Makro jest średnią arytmetyczną AUC dla każdej klasy.  | [Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | średnia ="makro"|
-AUC_Micro| AUC jest obszarem pod krzywą charakterystyki charakterystycznej dla odbiorcy. Micro jest obliczany globalnie przez połączenie prawdziwych alarmów i fałszywych alarmów z każdej klasy.| [Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | średnia ="mikro"|
-AUC_Weighted  | AUC jest obszarem pod krzywą charakterystyki charakterystycznej dla odbiorcy. Ważona jest średnia arytmetyczna wynik dla każdej klasy, ważona przez liczbę wystąpień true w każdej klasie.| [Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|średnia ="ważona"
-accuracy|Dokładność to procent przewidywanych etykiet, które dokładnie odpowiadają prawdziwym etykietom. |[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Brak|
-average_precision_score_macro|Średnia precyzja podsumowuje krzywą precyzyjnego przypomnienia jako średnią ważoną dokładności osiągniętą przy każdym progu, przy czym wzrost wycofywania z poprzedniego progu jest używany jako waga. Makro jest średnią arytmetyczną średniej precyzji każdej klasy.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|średnia ="makro"|
-average_precision_score_micro|Średnia precyzja podsumowuje krzywą precyzyjnego przypomnienia jako średnią ważoną dokładności osiągniętą przy każdym progu, przy czym wzrost wycofywania z poprzedniego progu jest używany jako waga. Micro jest obliczany globalnie przez połączenie prawdziwych pozytywów i fałszywych alarmów przy każdym odcięciu.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|średnia ="mikro"|
-average_precision_score_weighted|Średnia precyzja podsumowuje krzywą precyzyjnego przypomnienia jako średnią ważoną dokładności osiągniętą przy każdym progu, przy czym wzrost wycofywania z poprzedniego progu jest używany jako waga. Ważona jest średnią arytmetyczną średniej precyzji dla każdej klasy, ważona przez liczbę wystąpień rzeczywistych w każdej klasie.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|średnia ="ważona"|
-balanced_accuracy|Zrównoważona dokładność jest średnią arytmetyczną odwołania dla każdej klasy.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|średnia ="makro"|
-f1_score_macro|Wynik F1 jest harmonicznym pod względem precyzji i przywołania. Makro jest średnią arytmetyczną wyniku F1 dla każdej klasy.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|średnia ="makro"|
-f1_score_micro|Wynik F1 jest harmonicznym pod względem precyzji i przywołania. Micro jest obliczany globalnie przez zliczanie całkowitej liczby prawdziwych wartości dodatnich, fałszywych negatywów i fałszywych alarmów.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|średnia ="mikro"|
-f1_score_weighted|Wynik F1 jest harmonicznym pod względem precyzji i przywołania. Średnia ważona według częstotliwości klasy wyniku F1 dla każdej klasy|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|średnia ="ważona"|
-log_loss|Jest to funkcja utraty używana w (wielonomiastowej) regresji logistycznej i rozszerzeniach, takich jak sieci neuronowe, zdefiniowana jako ujemne prawdopodobieństwo logowania prawdziwych etykiet, biorąc pod uwagę prognozy klasyfikatora probabilistycznego. Dla pojedynczej próbki z prawdziwą {0,1} etykietą yt in i szacowanym prawdopodobieństwem yp, które yt = 1, utrata dziennika to -log P(yt&#124;yp) = -(yt log(yp) + (1 - yt) log(1 - yp)).|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Brak|
-norm_macro_recall|Znormalizowane makro Przywołanie jest makro Przypomnieć znormalizowane tak, że losowa wydajność ma wynik 0 i doskonała wydajność ma wynik 1. Osiąga się to poprzez norm_macro_recall := (recall_score_macro - R)/(1 - R), gdzie R jest oczekiwaną wartością recall_score_macro dla prognoz losowych (tj. R=0,5 dla klasyfikacji binarnej i R=(1/C) dla problemów z klasyfikacją klasy C).|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|średnia = "makro" |
-precision_score_macro|Dokładność jest procentem pozytywnie przewidywanych elementów, które są poprawnie oznaczone. Makro jest arytmetycznym średnią precyzji dla każdej klasy.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|średnia ="makro"|
-precision_score_micro|Dokładność jest procentem pozytywnie przewidywanych elementów, które są poprawnie oznaczone. Micro jest obliczany globalnie przez zliczanie całkowitej liczby prawdziwych alarmów i fałszywych alarmów.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|średnia ="mikro"|
-precision_score_weighted|Dokładność jest procentem pozytywnie przewidywanych elementów, które są poprawnie oznaczone. Ważona jest arytmetyczną średnią precyzji dla każdej klasy, ważoną liczbą wystąpień true w każdej klasie.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|średnia ="ważona"|
-recall_score_macro|Odwołanie jest procent poprawnie oznaczone elementy określonej klasy. Makro jest średnią arytmetyczną odwołania dla każdej klasy.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|średnia ="makro"|
-recall_score_micro|Odwołanie jest procent poprawnie oznaczone elementy określonej klasy. Micro jest obliczany globalnie przez zliczanie całkowitej liczby prawdziwych alarmów, fałszywych negatywów i fałszywych alarmów|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|średnia ="mikro"|
-recall_score_weighted|Odwołanie jest procent poprawnie oznaczone elementy określonej klasy. Ważona jest średnią arytmetyczną odwołania dla każdej klasy, ważona przez liczbę wystąpień true w każdej klasie.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|średnia ="ważona"|
-weighted_accuracy|Dokładność ważona to dokładność, w której waga podana do każdego przykładu jest równa proporcji prawdziwych wystąpień w prawdziwej klasie tego przykładu.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight jest wektorem równym proporcji tej klasy dla każdego elementu w docelowym|
+AUC_Macro| AUC to obszar pod krzywą charakterystyczną dla odbiornika. Makro jest średnią arytmetyczną AUC dla każdej klasy.  | [Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Average = "Macro"|
+AUC_Micro| AUC to obszar pod krzywą charakterystyczną dla odbiornika. Mikro jest obliczany globalnie, łącząc prawdziwe dodatnie i fałszywie dodatnie z każdej klasy.| [Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Średnia = "mikro"|
+AUC_Weighted  | AUC to obszar pod krzywą charakterystyczną dla odbiornika. Ważone to średnia arytmetyczna wyniku dla każdej klasy, ważona przez liczbę wystąpień prawdziwych w każdej klasie.| [Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|Średnia = "ważone"
+accuracy|Dokładność to procent prognozowanych etykiet, które dokładnie pasują do prawdziwych etykiet. |[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Brak|
+average_precision_score_macro|Średnia precyzja podsumowuje krzywą odwołań dokładności jako średnią ważoną dokładności osiągniętą dla każdego progu, z zwiększeniem odzyskania z poprzedniego progu używanego jako waga. Makro jest średnią arytmetyczną średniego wyniku dokładności dla każdej klasy.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|Average = "Macro"|
+average_precision_score_micro|Średnia precyzja podsumowuje krzywą odwołań dokładności jako średnią ważoną dokładności osiągniętą dla każdego progu, z zwiększeniem odzyskania z poprzedniego progu używanego jako waga. Mikro jest obliczany globalnie, łącząc prawdziwe dodatnie i fałszywie dodatnie dla każdego odcięcia.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|Średnia = "mikro"|
+average_precision_score_weighted|Średnia precyzja podsumowuje krzywą odwołań dokładności jako średnią ważoną dokładności osiągniętą dla każdego progu, z zwiększeniem odzyskania z poprzedniego progu używanego jako waga. Ważone jest średnią arytmetyczną średniego oceny dokładności dla każdej klasy, ważonej przez liczbę wystąpień prawdziwych w każdej klasie.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|Średnia = "ważone"|
+balanced_accuracy|Równoważna dokładność to arytmetyczna średnia odwołania dla każdej klasy.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "Macro"|
+f1_score_macro|Wynik F1 jest średnią harmoniczną precyzji i odwołania. Makro jest średnią arytmetyczną wyniku F1 dla każdej klasy.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|Average = "Macro"|
+f1_score_micro|Wynik F1 jest średnią harmoniczną precyzji i odwołania. Mikro jest obliczany globalnie przez zliczanie całkowitej liczby pozytywnych dodatnich, fałszywych wartości ujemnych i fałszywych dodatnich.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|Średnia = "mikro"|
+f1_score_weighted|Wynik F1 jest średnią harmoniczną precyzji i odwołania. Ważone średnie według częstotliwości klasy wyników F1 dla każdej klasy|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|Średnia = "ważone"|
+log_loss|Jest to funkcja strat użyta w (MULTINOMIAL) logistyki i rozszerzenia, takie jak sieci neuronowych, zdefiniowane jako negatywna prawdopodobieństwo rejestrowania dla prawdziwych etykiet z przewidywaniami klasyfikatora probabilistyczne. Dla pojedynczego przykładu o prawdziwej etykiecie yt {0,1} w i szacowane prawdopodobieństwo YP, że yt = 1, utrata dziennika to-log P (YT&#124;YP) =-(YT log (YP) + (1-yt) log (1-YP)).|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Brak|
+norm_macro_recall|Znormalizowane makro odwołuje się do znormalizowanego, tak aby losowo wydajność miało wynik 0, a doskonałe wydajność ma wynik 1. Jest to osiągane przez norm_macro_recall: = (recall_score_macro-R)/(1-R), gdzie R jest oczekiwaną wartością recall_score_macro dla prognoz losowych (tj. R = 0,5 dla klasyfikacji binarnej i języka R = (1/C) dla błędów klasyfikacji klasy C).|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "Macro" |
+precision_score_macro|Precyzja to procent nieprzewidywalnych elementów, które są poprawnie oznaczone etykietami. Makro jest arytmetyczną dokładnością dla każdej klasy.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Average = "Macro"|
+precision_score_micro|Precyzja to procent nieprzewidywalnych elementów, które są poprawnie oznaczone etykietami. Mikro jest obliczany globalnie przez obliczenie całkowitej liczby pozytywnych dodatnich i fałszywych wartości dodatnich.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Średnia = "mikro"|
+precision_score_weighted|Precyzja to procent nieprzewidywalnych elementów, które są poprawnie oznaczone etykietami. Ważone jest średnią arytmetyczną dokładności dla każdej klasy, ważonej według liczby prawdziwych wystąpień w każdej klasie.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Średnia = "ważone"|
+recall_score_macro|Funkcja odwoływania jest wartością procentową poprawnie oznaczonych elementów pewnej klasy. Makro jest średnią arytmetyczną operacji odwoływania dla każdej klasy.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "Macro"|
+recall_score_micro|Funkcja odwoływania jest wartością procentową poprawnie oznaczonych elementów pewnej klasy. Mikro jest obliczany globalnie przez zliczanie całkowitej liczby pozytywnych dodatnich, fałszywych wartości ujemnych i fałszywych wartości dodatnich|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Średnia = "mikro"|
+recall_score_weighted|Funkcja odwoływania jest wartością procentową poprawnie oznaczonych elementów pewnej klasy. Ważone to średnia arytmetyczna operacji odwoływania dla każdej klasy, ważona według liczby prawdziwych wystąpień w każdej klasie.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Średnia = "ważone"|
+weighted_accuracy|Waga ważona jest dokładnością, gdzie waga określona dla każdego przykładu jest równa proporcji prawdziwe wystąpienia w tym przykładzie.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight to wektor równy proporcji tej klasy dla każdego elementu w elemencie docelowym|
 
 <a name="confusion-matrix"></a>
 
-### <a name="confusion-matrix"></a>Macierz zamieszania
+### <a name="confusion-matrix"></a>Zamieszanie macierzy
 
-#### <a name="what-is-a-confusion-matrix"></a>Co to jest matryca zamieszania?
-Macierz pomyłek jest używana do opisywania wydajności modelu klasyfikacji. Każdy wiersz wyświetla wystąpienia true lub rzeczywistej klasy w zestawie danych, a każda kolumna reprezentuje wystąpienia klasy, która została przewidziana przez model. 
+#### <a name="what-is-a-confusion-matrix"></a>Co to jest macierz niepomylena?
+Macierz niepomylena służy do opisywania wydajności modelu klasyfikacji. Każdy wiersz zawiera wystąpienia prawdy lub rzeczywistej klasy w zestawie danych, a każda kolumna reprezentuje wystąpienia klasy, które zostały przewidywalne przez model. 
 
-#### <a name="what-does-automated-ml-do-with-the-confusion-matrix"></a>Co zautomatyzowane ML zrobić z matrycy zamieszania?
-W przypadku problemów z klasyfikacją usługa Azure Machine Learning automatycznie udostępnia macierz nieporozumień dla każdego zbudowanego modelu. Dla każdej macierzy pomyłek automatyczna ml pokaże częstotliwość każdej przewidywanej etykiety (kolumny) w porównaniu z prawdziwą etykietą (wiersz). Im ciemniejszy kolor, tym wyższa liczba w tej konkretnej części macierzy. 
+#### <a name="what-does-automated-ml-do-with-the-confusion-matrix"></a>Co robią automatyczne znaczenie w odróżnieniu od macierzy?
+W przypadku problemów z klasyfikacją Azure Machine Learning automatycznie zapewnia niepomyleną macierz dla każdego skompilowanego modelu. Dla każdej matrycy nieistotnej, zautomatyzowany ML będzie wyświetlał częstotliwość każdej tabeli przewidywanej (kolumny) w porównaniu z rzeczywistą etykietą (wiersz). Ciemniejszy kolor, im wyższy licznik w danej części macierzy. 
 
 #### <a name="what-does-a-good-model-look-like"></a>Jak wygląda dobry model?
-Porównujemy rzeczywistą wartość zestawu danych z przewidywanymi wartościami, które podał model. Z tego powodu modele uczenia maszynowego mają większą dokładność, jeśli model ma większość swoich wartości wzdłuż przekątnej, co oznacza, że model przewidział poprawną wartość. Jeśli model ma nierównowagę klasy, macierz pomyłek pomoże wykryć tendencyjny model.
+Porównujemy rzeczywistą wartość zestawu danych z przewidywanymi wartościami, które otrzymał model. Z tego powodu modele uczenia maszynowego mają wyższą dokładność, jeśli model ma większość wartości na przekątnej, co oznacza, że model przewiduje poprawną wartość. Jeśli model ma niezrównoważoną klasę, macierz niezauważalna pomoże wykryć model z obciążeniem.
 
-##### <a name="example-1-a-classification-model-with-poor-accuracy"></a>Przykład 1: Model klasyfikacji o niskiej dokładności
-![Model klasyfikacji o niskiej dokładności](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
+##### <a name="example-1-a-classification-model-with-poor-accuracy"></a>Przykład 1: model klasyfikacji z niską dokładnością
+![Model klasyfikacji z niską dokładnością](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
 
-##### <a name="example-2-a-classification-model-with-high-accuracy"></a>Przykład 2: Model klasyfikacji z wysoką dokładnością 
-![Model klasyfikacji z wysoką dokładnością](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
+##### <a name="example-2-a-classification-model-with-high-accuracy"></a>Przykład 2: model klasyfikacji o wysokiej dokładności 
+![Model klasyfikacji o wysokiej dokładności](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
 
-##### <a name="example-3-a-classification-model-with-high-accuracy-and-high-bias-in-model-predictions"></a>Przykład 3: Model klasyfikacji z wysoką dokładnością i wysoką stronniczością w prognozach modelu
-![Model klasyfikacji z wysoką dokładnością i wysoką stronniczością w prognozach modelu](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-biased-model.png)
+##### <a name="example-3-a-classification-model-with-high-accuracy-and-high-bias-in-model-predictions"></a>Przykład 3: model klasyfikacji z wysoką dokładnością i wysoką bias w przewidywaniach modelu
+![Model klasyfikacji z wysoką dokładnością i wysoką bias w przewidywaniach modelu](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-biased-model.png)
 
 <a name="precision-recall-chart"></a>
-### <a name="precision-recall-chart"></a>Wykres precyzyjnego wycofywania
-#### <a name="what-is-a-precision-recall-chart"></a>Co to jest wykres precyzyjnego wycofywania?
-Krzywa precyzyjnego przypomnienia pokazuje relację między precyzją a odwołaniem z modelu. Termin precyzja reprezentuje tę możliwość dla modelu do etykiety wszystkich wystąpień poprawnie. Odwołanie reprezentuje możliwość klasyfikatora, aby znaleźć wszystkie wystąpienia określonej etykiety.
+### <a name="precision-recall-chart"></a>Wykres dokładności do odzyskania
+#### <a name="what-is-a-precision-recall-chart"></a>Co to jest wykres z dokładnoocią dokładności?
+Krzywa odwołań dokładności przedstawia relację między dokładnością i odwołaniem z modelu. Termin dokładność reprezentuje możliwość poprawnego etykietowania wszystkich wystąpień przez model. Funkcja odwoływania reprezentuje możliwość, aby klasyfikator znalazł wszystkie wystąpienia określonej etykiety.
 
-#### <a name="what-does-automated-ml-do-with-the-precision-recall-chart"></a>Co zautomatyzowane ml zrobić z wykresu precyzyjnego przypomnienia?
+#### <a name="what-does-automated-ml-do-with-the-precision-recall-chart"></a>Co robią automatyczne ML z wykresem dokładności do odzyskania?
 
-Za pomocą tego wykresu można porównać krzywe precyzyjnego przypomnienia dla każdego modelu, aby określić, który model ma akceptowalną relację między precyzją a odwołaniem dla danego problemu biznesowego. Na tym wykresie przedstawiono makro średniej precyzji przypomnieć, Mikro średnia precyzja przypomnieć i precyzyjnewywołanie skojarzone ze wszystkimi klasami dla modelu. 
+Za pomocą tego wykresu można porównać krzywe odwołań dokładności dla każdego modelu, aby określić model, który ma akceptowalną relację między dokładnością i odwołaniem dla konkretnego problemu biznesowego. Ten wykres pokazuje średnią precyzję makra — odwołanie, średnią precyzję i odwołanie do odwołania do wszystkich klas modelu. 
 
-Makro-średnia obliczy metrykę niezależnie od każdej klasy, a następnie wziąć średnią, traktując wszystkie klasy jednakowo. Jednak mikro-średnia będzie agregować składki wszystkich klas do obliczenia średniej. Mikro-średnia jest korzystnie, jeśli istnieje nierównowaga klasy występuje w zestawie danych.
+Średnie makro obliczy metrykę niezależnie od klasy, a następnie obliczy średnią, traktując wszystkie klasy w równym stopniu. Jednak funkcja Micro Average agreguje wkłady wszystkich klas, aby obliczyć średnią. Większość średniej jest preferowana, jeśli istnieje nierównoważność klasy w zestawie danych.
 
 #### <a name="what-does-a-good-model-look-like"></a>Jak wygląda dobry model?
-W zależności od celu problemu biznesowego, idealna krzywa precyzyjnego wycofywania może się różnić. Poniżej podano kilka przykładów
+W zależności od celu problemu biznesowego, idealna krzywa odwołań może się różnić. Poniżej przedstawiono kilka przykładów
 
-##### <a name="example-1-a-classification-model-with-low-precision-and-low-recall"></a>Przykład 1: Model klasyfikacji o niskiej precyzji i niskim odwołaniu
-![Model klasyfikacji o niskiej precyzji i niskim przywoływaniu](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
+##### <a name="example-1-a-classification-model-with-low-precision-and-low-recall"></a>Przykład 1: model klasyfikacji z małą dokładnością i niskim wycofywaniem
+![Model klasyfikacji z małą dokładnością i niskim odwołaniem](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
 
-##### <a name="example-2-a-classification-model-with-100-precision-and-100-recall"></a>Przykład 2: Model klasyfikacji z ~100% precyzją i ~100% przypomnieć 
-![Model klasyfikacji wysoka precyzja i przywołanie](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
+##### <a name="example-2-a-classification-model-with-100-precision-and-100-recall"></a>Przykład 2: model klasyfikacji o 100% dokładności i ~ 100% odwoływania 
+![Model klasyfikacji o wysokiej precyzji i odwołaniu](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
 <a name="roc"></a>
 ### <a name="roc-chart"></a>Wykres ROC
 
 #### <a name="what-is-a-roc-chart"></a>Co to jest wykres ROC?
-Charakterystyka pracy odbiornika (lub ROC) jest wykresem prawidłowo sklasyfikowanych etykiet w porównaniu z nieprawidłowo sklasyfikowanymi etykietami dla danego modelu. Krzywa ROC może być mniej pouczająca, gdy modele szkoleniowe na zestawach danych o wysokiej odchyleniu, ponieważ nie będą wyświetlane etykiety fałszywie dodatnie.
+Charakterystyka operacyjna odbiornika (lub ROC) to wykres poprawnie sklasyfikowanych etykiet i niewłaściwie sklasyfikowanych etykiet dla określonego modelu. Krzywa ROC może być mniej informacyjna podczas uczenia modeli w zestawach danych o wysokiej odchylenia, ponieważ nie będą one pokazywały fałszywych etykiet pozytywnych.
 
-#### <a name="what-does-automated-ml-do-with-the-roc-chart"></a>Co zautomatyzowane ML zrobić z wykresu ROC?
-Automatyczne ML generuje makro średniej precyzji przypomnieć, Micro Średnia precyzja przypomnieć i precyzyjnewywołanie skojarzone ze wszystkimi klasami dla modelu. 
+#### <a name="what-does-automated-ml-do-with-the-roc-chart"></a>Co robią automatyczne ML przy użyciu wykresu ROC?
+Funkcja zautomatyzowanej sieci generuje średnią precyzję makra — odwołanie, średnią precyzję i odwołanie do zestawu, które są skojarzone ze wszystkimi klasami modelu. 
 
-Makro-średnia obliczy metrykę niezależnie od każdej klasy, a następnie wziąć średnią, traktując wszystkie klasy jednakowo. Jednak mikro-średnia będzie agregować składki wszystkich klas do obliczenia średniej. Mikro-średnia jest korzystnie, jeśli istnieje nierównowaga klasy występuje w zestawie danych.
+Średnie makro obliczy metrykę niezależnie od klasy, a następnie obliczy średnią, traktując wszystkie klasy w równym stopniu. Jednak funkcja Micro Average agreguje wkłady wszystkich klas, aby obliczyć średnią. Większość średniej jest preferowana, jeśli istnieje nierównoważność klasy w zestawie danych.
 
 #### <a name="what-does-a-good-model-look-like"></a>Jak wygląda dobry model?
-Idealnie, model będzie miał bliżej 100% true dodatniej stopy i bliżej 0% fałszywie dodatnie stawki. 
+W idealnym przypadku model będzie miał wartość zbliżoną do 100% true dodatnią i zbliżoną do 0% fałszywych dodatniej. 
 
-##### <a name="example-1-a-classification-model-with-low-true-labels-and-high-false-labels"></a>Przykład 1: Model klasyfikacji z niskimi etykietami true i wysokimi fałszywymi etykietami
-![Model klasyfikacji z niskimi etykietami true i wysokimi fałszywymi etykietami](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
+##### <a name="example-1-a-classification-model-with-low-true-labels-and-high-false-labels"></a>Przykład 1: model klasyfikacji z niską rzeczywistą etykietami i silnymi etykietami fałszywymi
+![Model klasyfikacji z niskimi etykietami o niskiej wartości i fałszywych etykiet](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
 
-##### <a name="example-2-a-classification-model-with-high-true-labels-and-low-false-labels"></a>Przykład 2: Model klasyfikacji z wysokimi etykietami true i niskimi fałszywymi etykietami
-![model klasyfikacji z wysokimi etykietami true i niskimi fałszywymi etykietami](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
+##### <a name="example-2-a-classification-model-with-high-true-labels-and-low-false-labels"></a>Przykład 2: model klasyfikacji z wysoką prawdziwymi etykietami i niskimi etykietami fałszywych
+![model klasyfikacji z wysoką prawdziwymi etykietami i niskimi etykietami fałszywymi](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
 <a name="lift-curve"></a>
-### <a name="lift-chart"></a>Wykres podnoszenia
-#### <a name="what-is-a-lift-chart"></a>Co to jest wykres windy?
-Wykresy dźwigu są używane do oceny wydajności modelu klasyfikacji. Pokazuje, o ile lepiej można oczekiwać, aby zrobić z wygenerowanego modelu w porównaniu do bez modelu pod względem dokładności.
-#### <a name="what-does-automated-ml-do-with-the-lift-chart"></a>Co zautomatyzowane ml zrobić z wykresu windy?
-Można porównać windy modelu utworzonego automatycznie z usługi Azure Machine Learning do linii bazowej w celu wyświetlenia przyrostu wartości tego konkretnego modelu.
+### <a name="lift-chart"></a>Wykres przyrostu
+#### <a name="what-is-a-lift-chart"></a>Co to jest wykres przyrostu?
+Wykresy przyrostowe służą do oceny wydajności modelu klasyfikacji. Pokazuje, ile lepiej można wykonać z wygenerowanym modelem w porównaniu z niemodelem pod względem dokładności.
+#### <a name="what-does-automated-ml-do-with-the-lift-chart"></a>Co robią automatyczne ML z wykresem przyrostowym?
+Można porównać automatycznie dźwig modelu z Azure Machine Learningm z linią bazową, aby wyświetlić jego wartość w tym konkretnym modelu.
 #### <a name="what-does-a-good-model-look-like"></a>Jak wygląda dobry model?
 
-##### <a name="example-1-a-classification-model-that-does-worse-than-a-random-selection-model"></a>Przykład 1: Model klasyfikacji, który wypada gorzej niż model losowego wyboru
-![Model klasyfikacji, który wypada gorzej niż model losowego wyboru](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
-##### <a name="example-2-a-classification-model-that-performs-better-than-a-random-selection-model"></a>Przykład 2: Model klasyfikacji, który działa lepiej niż model losowego wyboru
-![Model klasyfikacji, który działa lepiej](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
+##### <a name="example-1-a-classification-model-that-does-worse-than-a-random-selection-model"></a>Przykład 1: model klasyfikacji, który jest niezgodny z losowym modelem wyboru
+![Model klasyfikacji, który jest niezgodny z losowym modelem wyboru](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
+##### <a name="example-2-a-classification-model-that-performs-better-than-a-random-selection-model"></a>Przykład 2: model klasyfikacji, który wykonuje lepszy niż losowy model wyboru
+![Model klasyfikacji, który wykonuje lepsze](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
 <a name="gains-curve"></a>
 ### <a name="gains-chart"></a>Wykres zysków
 #### <a name="what-is-a-gains-chart"></a>Co to jest wykres zysków?
 
-Wykres zysków ocenia wydajność modelu klasyfikacji przez każdą część danych. Pokazuje dla każdego percentyla zestawu danych, o ile lepiej można oczekiwać, aby wykonać w porównaniu z modelu losowego wyboru.
+Wykres zysków oblicza wydajność modelu klasyfikacji według każdej części danych. Pokazuje ona dla każdego percentylu zestawu danych, ile lepiej można oczekiwać w porównaniu z losowym modelem wyboru.
 
-#### <a name="what-does-automated-ml-do-with-the-gains-chart"></a>Co zautomatyzowane ML zrobić z wykresu zysków?
-Użyj skumulowanego wykresu zysków, aby ułatwić wybór odcięcia klasyfikacji przy użyciu wartości procentowej odpowiadającej żądanemu zyskowi z modelu. Informacje te zapewniają inny sposób patrzenia na wyniki na załączonym wykresie dźwigu.
+#### <a name="what-does-automated-ml-do-with-the-gains-chart"></a>Co robią automatyczne ML z wykresem zysków?
+Użyj wykresu skumulowanych zysków, aby pomóc w wyborze odcięcia klasyfikacji przy użyciu wartości procentowej odpowiadającej żądanemu zyskowi z modelu. Te informacje zapewniają inny sposób przeglądania wyników na dołączonym wykresie podnoszenia.
 
 #### <a name="what-does-a-good-model-look-like"></a>Jak wygląda dobry model?
-##### <a name="example-1-a-classification-model-with-minimal-gain"></a>Przykład 1: Model klasyfikacji z minimalnym wzmocnieniem
-![model klasyfikacji z minimalnym wzmocnieniem](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
+##### <a name="example-1-a-classification-model-with-minimal-gain"></a>Przykład 1: model klasyfikacji z minimalnym wzrostem
+![model klasyfikacji z minimalnym wzrostem](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
 
-##### <a name="example-2-a-classification-model-with-significant-gain"></a>Przykład 2: Model klasyfikacji ze znacznym wzmocnieniem
-![Model klasyfikacji ze znacznym zyskiem](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
+##### <a name="example-2-a-classification-model-with-significant-gain"></a>Przykład 2: model klasyfikacji z znaczącym wzrostem
+![Model klasyfikacji z znaczącym wzrostem](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
 <a name="calibration-plot"></a>
-### <a name="calibration-chart"></a>Wykres kalibracji
+### <a name="calibration-chart"></a>Wykres kalibracyjny
 
-#### <a name="what-is-a-calibration-chart"></a>Co to jest wykres kalibracji?
-Wykres kalibracji służy do wyświetlania ufności modelu predykcyjnego. Czyni to, pokazując relację między przewidywane prawdopodobieństwo i rzeczywiste prawdopodobieństwo, gdzie "prawdopodobieństwo" reprezentuje prawdopodobieństwo, że określone wystąpienie należy pod pewną etykietą.
-#### <a name="what-does-automated-ml-do-with-the-calibration-chart"></a>Co zautomatyzowane ml zrobić z wykresu kalibracji?
-W przypadku wszystkich problemów z klasyfikacją można przejrzeć linię kalibracji dla mikroprzeciwowej, średniej makro i każdej klasy w danym modelu predykcyjnym.
+#### <a name="what-is-a-calibration-chart"></a>Co to jest wykres kalibracyjny?
+Wykres kalibracyjny służy do wyświetlania pewności dotyczącej modelu predykcyjnego. Robi to, pokazując zależność między przewidywanym prawdopodobieństwem a rzeczywistym prawdopodobieństwem, gdzie "prawdopodobieństwo" oznacza prawdopodobieństwo, że określone wystąpienie należy do pewnej etykiety.
+#### <a name="what-does-automated-ml-do-with-the-calibration-chart"></a>Co robią automatyczne ML z wykresem kalibracyjnym?
+W przypadku wszystkich problemów z klasyfikacją można sprawdzić linię kalibracji dla mikrośredniej, średniej przez makro i każdej klasy w danym modelu predykcyjnym.
 
-Makro-średnia obliczy metrykę niezależnie od każdej klasy, a następnie wziąć średnią, traktując wszystkie klasy jednakowo. Jednak mikro-średnia będzie agregować składki wszystkich klas do obliczenia średniej. 
+Średnie makro obliczy metrykę niezależnie od klasy, a następnie obliczy średnią, traktując wszystkie klasy w równym stopniu. Jednak funkcja Micro Average agreguje wkłady wszystkich klas, aby obliczyć średnią. 
 #### <a name="what-does-a-good-model-look-like"></a>Jak wygląda dobry model?
- Dobrze skalibrowany model jest wyrównany z linią y=x, gdzie jest dość pewny swoich prognoz. Zbyt pewny siebie model jest wyrównany z wierszem y=0, w którym występuje przewidywane prawdopodobieństwo, ale nie ma rzeczywistego prawdopodobieństwa. 
+ Dobrze skalibrowane modele są wyrównane z linią y = x, gdzie w jej przewidywaniach jest to uzasadnione. Model z nadmiernym prawdopodobieństwem jest wyrównany do osi y = 0, w której przewidywane prawdopodobieństwo jest obecne, ale nie ma rzeczywistego prawdopodobieństwa. 
 
 
-##### <a name="example-1-a-well-calibrated-model"></a>Przykład 1: Dobrze skalibrowany model
-![ bardziej dobrze skalibrowany model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
+##### <a name="example-1-a-well-calibrated-model"></a>Przykład 1: model dobrze kalibrowany
+![ bardziej dobrze skalibrowane modele](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
 
-##### <a name="example-2-an-over-confident-model"></a>Przykład 2: Model zbyt pewny siebie
-![Zbyt pewny siebie model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
+##### <a name="example-2-an-over-confident-model"></a>Przykład 2: model o nadmiernej pewności
+![Model o nadmiernej pewności](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
 
 ## <a name="regression-results"></a><a name="regression"></a>Wyniki regresji
 
-Poniższe metryki i wykresy są dostępne dla każdego modelu regresji, który tworzysz przy użyciu automatycznych funkcji uczenia maszynowego usługi Azure Machine Learning
+Thee następujące metryki i wykresy są dostępne dla każdego modelu regresji kompilowanego przy użyciu funkcji automatycznego uczenia maszynowego Azure Machine Learning
 
 + [Metryki](#reg-metrics)
-+ [Przewidywane vs. True](#pvt)
-+ [Histogram pozostałości](#histo)
++ [Przewidywany a prawdziwy](#pvt)
++ [Histogram reszty](#histo)
 
 
 ### <a name="regression-metrics"></a><a name="reg-metrics"></a>Metryki regresji
 
-Następujące metryki są zapisywane w każdej iteracji uruchamiania dla zadania regresji lub prognozowania.
+Następujące metryki są zapisywane w każdej iteracji uruchomienia dla zadania regresji lub prognozowania.
 
 |Metryka|Opis|Obliczenia|Dodatkowe parametry
 --|--|--|--|
-explained_variance|Wariancja wyjaśniona jest proporcją, do której model matematyczny uwzględnia odmianę danego zestawu danych. Jest to procentowy spadek wariancji oryginalnych danych do odchylenia błędów. Gdy średnia błędów wynosi 0, jest równa wyjaśnionej wariancji.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Brak|
-r2_score|R2 jest współczynnikiem oznaczania lub procentowej redukcji błędów kwadratowych w porównaniu z modelem bazowym, który wyprowadza średnią. |[Obliczenia](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Brak|
-spearman_correlation|Korelacja spearmana jest nieparametryczną miarą monotonności relacji między dwoma zestawami danych. W przeciwieństwie do korelacji Pearsona korelacji Spearman nie zakłada, że oba zestawy danych są zwykle rozproszone. Podobnie jak inne współczynniki korelacji, ten waha się między -1 i +1 z 0 oznacza brak korelacji. Korelacje -1 lub +1 oznaczają dokładną relację monotoniczną. Pozytywne korelacje sugerują, że wraz ze wzrostem x, tak samo jak y. Negatywne korelacje oznaczają, że wraz ze wzrostem x zmniejsza się y.|[Obliczenia](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Brak|
-mean_absolute_error|Średni błąd bezwzględny jest oczekiwaną wartością wartości bezwzględnej różnicy między celem a przewidywaniem|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Brak|
-normalized_mean_absolute_error|Znormalizowany średni błąd bezwzględny oznacza błąd bezwzględny podzielony przez zakres danych|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Dzielenie według zakresu danych|
-median_absolute_error|Mediana błędu bezwzględnego jest medianą wszystkich różnic bezwzględnych między obiektem docelowym a przewidywaniem. Ta strata jest odporna na odstające.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Brak|
-normalized_median_absolute_error|Znormalizowana mediana błędu bezwzględnego to mediana błędu bezwzględnego podzielona przez zakres danych|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Dzielenie według zakresu danych|
-root_mean_squared_error|Główny średni kwadratowy błąd jest pierwiastek kwadratowy oczekiwanej kwadratowej różnicy między celem a przewidywaniem|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Brak|
-normalized_root_mean_squared_error|Znormalizowany błąd do kwadratu jest głównym średnia kwadratu błąd podzielony przez zakres danych|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Dzielenie według zakresu danych|
-root_mean_squared_log_error|Główny średnia kwadratowy błąd dziennika jest pierwiastek kwadratowy oczekiwanego kwadratu logarytmicznego błędu|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Brak|
-normalized_root_mean_squared_log_error|Znormalizowany główny średnia kwadratowy błąd dziennika jest głównym średnia kwadratowy błąd dziennika podzielone przez zakres danych|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Dzielenie według zakresu danych|
+explained_variance|Wyjaśniono wariancję to proporcja, do której model matematyczny jest przeznaczony dla odmiany danego zestawu danych. Jest to procentowy spadek wariancji oryginalnych danych do wariancji błędów. Gdy średnią z błędów jest 0, jest równa objaśnionej wariancji.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Brak|
+r2_score|R2 to współczynnik wyznaczania lub procent redukcji w przypadku błędów kwadratowych w porównaniu z modelem bazowym, który wyprowadza średnią. |[Obliczenia](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Brak|
+spearman_correlation|Korelacja Spearman jest miarą nieparametryczną monotonicity relacji między dwoma zestawami danych. W przeciwieństwie do korelacji Pearsona korelacja Spearman nie zakłada, że oba zestawy danych są zwykle dystrybuowane. Podobnie jak inne Współczynniki korelacji, ta wartość różni się od-1 do + 1 i 0 oznacza brak korelacji. Korelacje-1 lub + 1 implikują dokładną relację monotoniczny. Korelacje pozytywne implikują, że w miarę wzrostu x, więc jest to wartość y. Korelacje negatywne oznacza, że w miarę wzrostu x zmniejsza się wartość y.|[Obliczenia](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Brak|
+mean_absolute_error|Średni błąd bezwzględny jest oczekiwaną wartością bezwzględną różnicy między obiektem docelowym a prognozą|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Brak|
+normalized_mean_absolute_error|Znormalizowany błąd bezwzględny oznacza błąd bezwzględny podzielony przez zakres danych|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Dzielenie według zakresu danych|
+median_absolute_error|Średni błąd bezwzględny to mediana wszystkich bezwzględnych różnic między obiektem docelowym a przewidywaniam. Ta utrata jest niezawodna dla wartości odstających.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Brak|
+normalized_median_absolute_error|Znormalizowany błąd bezwzględny jest średnim błędem bezwzględnym podzielonym przez zakres danych|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Dzielenie według zakresu danych|
+root_mean_squared_error|Wartość "pierwiastek" oznacza pierwiastek kwadratowy o oczekiwanej różnicy kwadratowej między elementem docelowym a prognozą|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Brak|
+normalized_root_mean_squared_error|Znormalizowany, średni błąd oznaczający, że błąd oznaczający pierwiastek jako średni, podzielony przez zakres danych|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Dzielenie według zakresu danych|
+root_mean_squared_log_error|Główny średni kwadratowy błąd w dzienniku jest pierwiastek kwadratowy oczekiwanego kwadratowego błędu logarytmicznego|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Brak|
+normalized_root_mean_squared_log_error|Znormalizowany błąd oznaczający, że w przypadku standardowego elementu głównego jest średni kwadratowy błąd dziennika podzielony przez zakres danych|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Dzielenie według zakresu danych|
 
-### <a name="predicted-vs-true-chart"></a><a name="pvt"></a>Przewidywany wykres a prawdziwy
-#### <a name="what-is-a-predicted-vs-true-chart"></a>Co to jest wykres Przewidywany vs. Prawda?
-Przewidywane vs True pokazuje relację między przewidywaną wartością a jej korelacją wartości true dla problemu regresji. Ten wykres może służyć do pomiaru wydajności modelu, jak bliżej linii y = x przewidywane wartości są, tym lepsza dokładność modelu predykcyjnego.
+### <a name="predicted-vs-true-chart"></a><a name="pvt"></a>Wykres przewidywany a rzeczywisty
+#### <a name="what-is-a-predicted-vs-true-chart"></a>Co to jest wykres predykcyjny a prawda?
+Przewidywany a prawda przedstawia relację między przewidywaną wartością a jej skorelowane wartości prawdziwe dla problemu z regresją. Ten wykres może służyć do mierzenia wydajności modelu, jak bliżej osi y = x, a wartości przewidywane to lepsza dokładność modelu predykcyjnego.
 
-#### <a name="what-does-automated-ml-do-with-the-predicted-vs-true-chart"></a>Co zautomatyzowane ml zrobić z przewidywane vs. True wykresu?
-Po każdym uruchomieniu można zobaczyć przewidywany wykres vs. true dla każdego modelu regresji. Aby chronić prywatność danych, wartości są łączone razem, a rozmiar każdego pojemnika jest wyświetlany jako wykres słupkowy w dolnej części obszaru wykresu. Można porównać model predykcyjny z jaśniejszym obszarem cienia przedstawiającym marginesy błędu z idealną wartością, w której powinien znajdować się model.
+#### <a name="what-does-automated-ml-do-with-the-predicted-vs-true-chart"></a>Co robią automatyczne ML z przewidzianym wykresem a prawdziwym?
+Po każdym uruchomieniu można zobaczyć przewidywany wykres a true dla każdego modelu regresji. Aby chronić prywatność danych, wartości są Binned razem, a rozmiar każdego pojemnika jest pokazywany jako wykres słupkowy w dolnej części obszaru wykresu. Można porównać model predykcyjny, korzystając z jaśniejszego obszaru cieniowania pokazującego marginesy błędów, względem idealnej wartości, w której powinien się znajdować model.
 
 #### <a name="what-does-a-good-model-look-like"></a>Jak wygląda dobry model?
-##### <a name="example-1-a-classification-model-with-low-accuracy"></a>Przykład 1: Model klasyfikacji o niskiej dokładności
-![Model regresji z niską dokładnością w prognozach](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
+##### <a name="example-1-a-classification-model-with-low-accuracy"></a>Przykład 1: model klasyfikacji o niskiej dokładności
+![Model regresji z niską dokładnością w prognozie](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-##### <a name="example-2-a-regression-model-with-high-accuracy"></a>Przykład 2: Model regresji z wysoką dokładnością 
-[![Model regresji z dużą dokładnością w swoich przewidywaniach](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2-expanded.png)
+##### <a name="example-2-a-regression-model-with-high-accuracy"></a>Przykład 2: model regresji o wysokiej dokładności 
+[![Model regresji o wysokiej dokładności w jego przewidywaniach](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2-expanded.png)
 
 
 
-### <a name="histogram-of-residuals-chart"></a><a name="histo"></a>Histogram wykresu pozostałości
-#### <a name="what-is-a-residuals-chart"></a>Co to jest wykres resztkowy?
-Rezydual reprezentuje obserwowane y – przewidywane y. Aby pokazać margines błędu przy niskim odchyleniu, histogram resztk powinien być kształtowany jako krzywa dzwonu, wyśrodkowany wokół 0. 
-#### <a name="what-does-automated-ml-do-with-the-residuals-chart"></a>Co zautomatyzowane ml zrobić z wykresu resztkowego?
-Automatyczne ML automatycznie udostępnia wykres pozostałości, aby pokazać rozkład błędów w prognozach.
+### <a name="histogram-of-residuals-chart"></a><a name="histo"></a>Histogram wykresu reszty
+#### <a name="what-is-a-residuals-chart"></a>Co to jest wykres reszty?
+Reszta reprezentuje zaobserwowane y — przewidywane y. Aby pokazać margines błędu z niską ilością bias, histogram reszty powinien być w kształcie krzywej dzwonka, wyśrodkowany wokół 0. 
+#### <a name="what-does-automated-ml-do-with-the-residuals-chart"></a>Co robią automatyczne ML z wykresem reszty?
+Automatyczna część ML udostępnia wykres reszty, aby pokazać dystrybucję błędów w przewidywaniach.
 #### <a name="what-does-a-good-model-look-like"></a>Jak wygląda dobry model?
 Dobry model zazwyczaj ma krzywą dzwonka lub błędy wokół zera.
 
-##### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>Przykład 1: Model regresji z błędami
-![Model regresji SA z odchyleniami w błędach](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
+##### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>Przykład 1: model regresji z bias w jego błędach
+![Model regresji SA z odchyleniami w jego błędach](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
 
-##### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>Przykład 2: Model regresji z bardziej równomiernym rozkładem błędów
-![Model regresji z bardziej równomiernym rozkładem błędów](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
+##### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>Przykład 2: model regresji z bardziej równomiernym rozkładem błędów
+![Model regresji z większą ilością równomiernej dystrybucji błędów](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
-## <a name="model-interpretability-and-feature-importance"></a><a name="explain-model"></a>Możliwość interpretacji modelu i znaczenie funkcji
-Automatyczna ml zapewnia pulpit nawigacyjny interpretability uczenia maszynowego dla swoich przebiegów.
-Aby uzyskać więcej informacji na temat włączania funkcji interpretalności, zobacz [instrukcje](how-to-machine-learning-interpretability-automl.md) dotyczące włączania interpretowania w zautomatyzowanych eksperymentach uczenia się.
+## <a name="model-interpretability-and-feature-importance"></a><a name="explain-model"></a>Interpretacja modelu i ważność funkcji
+Zautomatyzowana ML udostępnia pulpit nawigacyjny do tłumaczenia maszynowego dla przebiegów.
+Aby uzyskać więcej informacji na temat włączania funkcji interpretacji, zobacz [instrukcje](how-to-machine-learning-interpretability-automl.md) włączania interpretacji w zautomatyzowanych eksperymentach ml.
 
 ## <a name="next-steps"></a>Następne kroki
 
-+ Dowiedz się więcej o [zautomatyzowanych ml](concept-automated-ml.md) w usłudze Azure Machine Learning.
-+ Wypróbuj przykładowe notesy [przykładowe objaśnienia modelu automatycznego uczenia maszynowego.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
++ Dowiedz się więcej o [zautomatyzowanych ml](concept-automated-ml.md) w Azure Machine Learning.
++ Wypróbuj przykładowe notesy w programie [zautomatyzowanego modelowania Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) .

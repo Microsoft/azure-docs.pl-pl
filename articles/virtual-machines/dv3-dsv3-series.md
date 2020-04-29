@@ -1,6 +1,6 @@
 ---
-title: Seria Dv3 i Dsv3 — maszyny wirtualne platformy Azure
-description: Dane techniczne maszyn wirtualnych z serii Dv3 i Dsv3.
+title: Dv3 i Dsv3 — seria Virtual Machines platformy Azure
+description: Specyfikacje dotyczące maszyn wirtualnych z serii Dv3 i Dsv3.
 services: virtual-machines
 author: joelpelley
 ms.service: virtual-machines
@@ -8,37 +8,37 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 9ea5811fa20ea4866655de74d79ff3905ba03f16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78164410"
 ---
 # <a name="dv3-and-dsv3-series"></a>Serie Dv3 i Dsv3
 
-Seria Dv3 działa na procesorze Intel® Xeon® 8171M 2.1GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) lub procesory Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) w konfiguracji hiperwątkowej, ofertę o lepszej wartości dla większości obciążeń celowych. Pamięć została rozszerzona (z ~3,5 GiB/vCPU do 4 GiB/vCPU), podczas gdy limity dysków i sieci zostały dostosowane na podstawie rdzenia, aby wyrównać z przejściem do hiperwątkowości. Seria Dv3 nie ma już wysokiej pamięci rozmiarów maszyn wirtualnych z serii D/Dv2, które zostały przeniesione do zoptymalizowanych pod kątem pamięci [serii Ev3 i Esv3.](ev3-esv3-series.md)
+Seria Dv3 jest uruchamiana na procesorach Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) lub procesora Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) w konfiguracji wielowątkowej, co zapewnia lepszą wartość dla większości obciążeń ogólnego przeznaczenia. Pamięć została rozszerzona (od ~ 3,5 GiB/vCPU do 4 GiB/vCPU), podczas gdy limity dysku i sieci zostały skorygowane w oparciu o rdzeń, aby dostosować je do przechodzenia do wielowątkowości. Seria Dv3 nie ma już rozmiaru maszyn wirtualnych z serii D/Dv2, które zostały przeniesione do zoptymalizowanej pod kątem pamięci [i serii Esv3](ev3-esv3-series.md).
 
 Przykładowe przypadki użycia serii D obejmują aplikacje klasy korporacyjnej, relacyjne bazy danych, buforowanie w pamięci i analizy.
 
 ## <a name="dv3-series"></a>Seria Dv3
 
-Rozmiary serii Dv3 działają na procesorach Intel® Xeon® 8171M 2.1GHz (Skylake), Intel® Xeon® E5-2673 v4 2 Procesory Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) z technologią Intel Turbo Boost 2.0. Rozmiary serii Dv3 oferują kombinację procesora wirtualnego vCPU, pamięci i magazynu tymczasowego spełniającą potrzeby większości obciążeń produkcyjnych.
+Rozmiary serii Dv3 są uruchamiane w procesorze Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) lub Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) procesorów z technologią Intel Turbo — rozwiązanie 2,0. Rozmiary serii Dv3 oferują kombinację procesora wirtualnego vCPU, pamięci i magazynu tymczasowego spełniającą potrzeby większości obciążeń produkcyjnych.
 
 Opłaty za magazyn dysków danych są naliczane oddzielnie od opłat za maszyny wirtualne. Aby korzystać z dysków magazynu Premium Storage, użyj rozmiarów Dsv3. Liczniki cen i rozliczeń dla rozmiarów Dsv3 są takie same jak dla serii Dv3.
 
-Maszyny wirtualne z serii Dv3 są wyposażone w technologię Intel® Hyper-Threading.
+Maszyny wirtualne z serii Dv3 są wyposażone w technologię Hyper-Threading firmy Intel®.
 
 ACU: 160–190
 
-Pamięć masowa w wersji Premium: nie jest obsługiwana
+Premium Storage: nieobsługiwane
 
-Buforowanie magazynu w wersji Premium: nie jest obsługiwane
+Buforowanie Premium Storage: nieobsługiwane
 
 Migracja na żywo: obsługiwane
 
-Aktualizacje zachowywania pamięci: Obsługiwane
+Aktualizacje z zachowaniem pamięci: obsługiwane
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepustowość magazynu temp: IOPS / Odczyt MB/Zapis MB/s | Maksymalna przepustowość kart sieciowych/sieci |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu: IOPS/Odczyt MB/s/zapis MB/s | Maksymalna liczba kart sieciowych/przepustowość sieci |
 |---|---|---|---|---|---|---|
 | Standardowa_D2_v3  | 2  | 8   | 50   | 4  | 3000/46/23     | 2/1000  |
 | Standardowa_D4_v3  | 4  | 16  | 100  | 8  | 6000/93/46     | 2/2000  |
@@ -50,21 +50,21 @@ Aktualizacje zachowywania pamięci: Obsługiwane
 
 ## <a name="dsv3-series"></a>Seria Dsv3
 
-Rozmiary serii DSV3 działają na procesorach Intel® Xeon® 8171M 2.1GHz (Skylake), Intel® Xeon® E5-2673 v4 2.. 3 GHz (Broadwell) lub procesory Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) z technologią Intel Turbo Boost 2.0 i korzystają z pamięci masowej premium. Rozmiary serii Dsv3 oferują kombinację procesora wirtualnego vCPU, pamięci i magazynu tymczasowego spełniającą potrzeby większości obciążeń produkcyjnych.
+Rozmiary serii Dsv3 są uruchamiane na procesorach Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) lub procesora Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) z technologią Intel Turbo — rozwiązanie 2,0 i korzystanie z magazynu Premium Storage. Rozmiary serii Dsv3 oferują kombinację procesora wirtualnego vCPU, pamięci i magazynu tymczasowego spełniającą potrzeby większości obciążeń produkcyjnych.
 
-Maszyny wirtualne z serii DSV3 są wyposażone w technologię Intel® Hyper-Threading.
+Maszyny wirtualne z serii Dsv3 są wyposażone w technologię Hyper-Threading firmy Intel®.
 
 ACU: 160–190
 
-Pamięć masowa w wersji premium: obsługiwane
+Premium Storage: obsługiwane
 
-Buforowanie magazynu w wersji Premium: obsługiwane
+Buforowanie Premium Storage: obsługiwane
 
 Migracja na żywo: obsługiwane
 
-Aktualizacje zachowywania pamięci: Obsługiwane
+Aktualizacje z zachowaniem pamięci: obsługiwane
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność pamięci podręcznej i magazynu tymczasowego: IOPS/MBPS (rozmiar pamięci podręcznej w GiB) | Maksymalna przepustowość dysku bez buforów: IOPS/MB/s | Maksymalna przepustowość sieci ową/oczekiwana przepustowość sieci (Mb/s) |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i temp: IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|
 | Standardowa_D2s_v3  | 2  | 8   | 16  | 4  | 4000/32 (50)       | 3200/48    | 2/1000  |
 | Standardowa_D4s_v3  | 4  | 16  | 32  | 8  | 8000/64 (100)      | 6400/96    | 2/2000  |
@@ -87,4 +87,4 @@ Aktualizacje zachowywania pamięci: Obsługiwane
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tym, jak [jednostki obliczeniowe platformy Azure (ACU)](acu.md) mogą pomóc w porównywaniu wydajności obliczeniowej w jednostkach SKU platformy Azure.
+Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.

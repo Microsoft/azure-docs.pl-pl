@@ -1,89 +1,89 @@
 ---
-title: Wpływ użycia usługi Azure Application Insights | Dokumenty firmy Microsoft
-description: Przeanalizuj, jak różne właściwości mogą mieć wpływ na współczynniki konwersji części aplikacji.
+title: Wpływ na korzystanie z platformy Azure Application Insights | Dokumentacja firmy Microsoft
+description: Analizuj, w jaki sposób różne właściwości mogą mieć wpływ na szybkość konwersji dla części aplikacji.
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 787221c4df3f06029d19ee779a28bb763723f27d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671039"
 ---
-# <a name="impact-analysis-with-application-insights"></a>Analiza wpływu za pomocą usługi Application Insights
+# <a name="impact-analysis-with-application-insights"></a>Analiza wpływu za pomocą Application Insights
 
-Impact analizuje, jak czasy ładowania i inne właściwości wpływają na współczynniki konwersji dla różnych części aplikacji. Mówiąc dokładniej, odkrywa, jak **dowolny wymiar** **widoku strony,** **zdarzenia niestandardowego**lub **żądania** wpływa na użycie innego **widoku strony** lub **zdarzenia niestandardowego.** 
+Wpływ analizuje, jak czasy ładowania i inne właściwości wpływają na szybkość konwersji dla różnych części aplikacji. Aby dokładniej wprowadzić ten element, wykrywa on, jak **każdy wymiar** **widoku strony**, **zdarzenia niestandardowe**lub **żądanie** ma wpływ na użycie innego **widoku strony** lub **zdarzenia niestandardowego**. 
 
-![Narzędzie udarowe](./media/usage-impact/0001-impact.png)
+![Narzędzie do wpływu](./media/usage-impact/0001-impact.png)
 
-## <a name="still-not-sure-what-impact-does"></a>Nadal nie wiesz, jaki wpływ ma?
+## <a name="still-not-sure-what-impact-does"></a>Nadal nie masz pewności, jaki ma wpływ?
 
-Jednym ze sposobów myślenia o Wpływ jest jako ostateczne narzędzie do rozstrzygania sporów z kimś w zespole o tym, jak powolność w jakimś aspekcie witryny wpływa na to, czy użytkownicy trzymają się. Podczas gdy użytkownicy mogą tolerować pewną powolność, Wpływ daje wgląd w to, jak najlepiej zrównoważyć optymalizację i wydajność, aby zmaksymalizować konwersję użytkowników.
+Jednym ze sposobów na zaspokojenie wpływu jest to ostateczne narzędzie do rozliczania argumentów dla kogoś w zespole o tym, jak spowolnienie w niektórych aspektach witryny ma wpływ na to, czy użytkownicy są w niej odkładać. Gdy użytkownicy mogą tolerować określoną ilość wolnego czasu, wpływ na to, jak najlepiej zrównoważyć optymalizację i wydajność w celu zmaksymalizowania konwersji użytkownika.
 
-Ale analizowanie wydajności to tylko podzbiór możliwości Impact. Ponieważ Impact obsługuje niestandardowe zdarzenia i wymiary, odpowiadając na pytania, takie jak to, w jaki sposób wybór przeglądarki użytkownika koreluje z różnymi współczynnikami konwersji, znajduje się zaledwie kilka kliknięć.
+Jednak analizowanie wydajności jest tylko podzbiorem możliwości. Ze względu na to, że wpływ obsługuje zdarzenia niestandardowe i wymiary, odpowiedzi na pytania, takie jak wybór przeglądarki użytkownika jest skorelowany z różnymi stawkami konwersji, to zaledwie kilka kliknięć.
 
-![Konwersja zrzutu ekranu przez przeglądarki](./media/usage-impact/0004-browsers.png)
+![Konwersja zrzutu ekranu według przeglądarek](./media/usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> Zasób usługi Application Insights musi zawierać widoki strony lub zdarzenia niestandardowe, aby użyć narzędzia Wpływ. [Dowiedz się, jak skonfigurować aplikację do automatycznego zbierania widoków stron za pomocą zestawu SDK JavaScript aplikacji Insights](../../azure-monitor/app/javascript.md). Należy również pamiętać, że ponieważ analizujesz korelację, rozmiar próbki ma znaczenie.
+> Zasób Application Insights musi zawierać widoki stron lub zdarzenia niestandardowe, aby można było użyć narzędzia do wpływu. [Dowiedz się, jak skonfigurować aplikację do automatycznego zbierania wyświetleń stron przy użyciu zestawu SDK języka JavaScript Application Insights](../../azure-monitor/app/javascript.md). Należy również pamiętać, że ponieważ analizowanie korelacji, wielkość próbki jest ważna.
 >
 >
 
-## <a name="is-page-load-time-impacting-how-many-people-convert-on-my-page"></a>Czy czas ładowania strony ma wpływ na liczbę osób konwertujących na mojej stronie?
+## <a name="is-page-load-time-impacting-how-many-people-convert-on-my-page"></a>Czy czas ładowania strony ma wpływ na liczbę osób konwertowanych na moją stronę?
 
-Aby rozpocząć odpowiadanie na pytania za pomocą narzędzia Wpływ, wybierz początkowy widok strony, zdarzenie niestandardowe lub żądanie.
+Aby zacząć odpowiadać na pytania za pomocą narzędzia do obsługi, wybierz początkowy widok strony, zdarzenie niestandardowe lub żądanie.
 
-![Narzędzie udarowe](./media/usage-impact/0002-dropdown.png)
+![Narzędzie do wpływu](./media/usage-impact/0002-dropdown.png)
 
-1. Wybierz widok strony z listy rozwijanej **Dla widoku strony.**
-2. Pozostaw **analizę, jak jego** listy rozwijanej na domyślny wybór **czas trwania** (W tym kontekście **Czas trwania** jest aliasem czasu **ładowania strony**.)
-3. Aby **uzyskać wpływ na użycie listy rozwijanej,** wybierz zdarzenie niestandardowe. To zdarzenie powinno odpowiadać element interfejsu użytkownika w widoku strony wybranym w kroku 1.
+1. Wybierz widok strony z listy rozwijanej **dla widoku strony** .
+2. Pozostaw listę rozwijaną, w **jaki sposób** zostanie ona rozwinięta, w domyślnym wyborze **czasu trwania** (w tym **czasie trwania** kontekstu jest alias **czasu ładowania strony**).
+3. Aby uzyskać **wpływ na użycie** listy rozwijanej, wybierz zdarzenie niestandardowe. To zdarzenie powinno odpowiadać elementowi interfejsu użytkownika w widoku strony wybranym w kroku 1.
 
 ![Zrzut ekranu przedstawiający wyniki](./media/usage-impact/0003-results.png)
 
-W tym przypadku, gdy czas ładowania **strony produktu** zwiększa współczynnik konwersji do **kliknięcia produktu zakupu,** spada. Na podstawie powyższego rozkładu optymalny czas ładowania strony wynoszący 3,5 sekundy może być ukierunkowany na osiągnięcie potencjalnego współczynnika konwersji wynoszącego 55%. Dalsze ulepszenia wydajności w celu skrócenia czasu ładowania poniżej 3,5 sekundy nie są obecnie skorelowane z dodatkowymi korzyściami konwersji.
+W tym przypadku, gdy czas ładowania **strony produktu** zwiększa szybkość konwersji **klikniętego produktu** , zostaje wyłączona. Zgodnie z powyższym rozkładem optymalny czas ładowania strony wynoszący 3,5 sekund może być celem osiągnięcia potencjalnego współczynnika konwersji 55%. Dalsze ulepszenia wydajności pozwalające zmniejszyć czas ładowania poniżej 3,5 sekund nie są obecnie skorelowane z dodatkowymi korzyściami z konwersji.
 
-## <a name="what-if-im-tracking-page-views-or-load-times-in-custom-ways"></a>Co zrobić, jeśli śledzę widoki stron lub czasy ładowania w niestandardowy sposób?
+## <a name="what-if-im-tracking-page-views-or-load-times-in-custom-ways"></a>Co zrobić, Jeśli śledzisz widoki stron lub czasy ładowania w sposób niestandardowy?
 
-Impact obsługuje zarówno standardowe, jak i niestandardowe właściwości i pomiary. Użyj tego, co chcesz. Zamiast czasu trwania, użyj filtrów na zdarzenia podstawowe i pomocnicze, aby uzyskać bardziej szczegółowe.
+Wpływ obsługuje zarówno standardowe, jak i niestandardowe właściwości i pomiary. Użyj dowolnej z nich. Zamiast czasu trwania należy użyć filtrów dla zdarzeń podstawowych i pomocniczych w celu uzyskania bardziej szczegółowych informacji.
 
-## <a name="do-users-from-different-countries-or-regions-convert-at-different-rates"></a>Czy użytkownicy z różnych krajów lub regionów konwertują się po różnym tempie?
+## <a name="do-users-from-different-countries-or-regions-convert-at-different-rates"></a>Czy użytkownicy z różnych krajów lub regionów konwertują różne stawki?
 
-1. Wybierz widok strony z listy rozwijanej **Dla widoku strony.**
-2. Wybierz "Kraj lub region" w **analizowaniu sposobu jego** listy rozwijanej
-3. Aby **uzyskać wpływ na użycie listy rozwijanej,** wybierz zdarzenie niestandardowe, które odpowiada elementowi interfejsu użytkownika w widoku strony wybranym w kroku 1.
+1. Wybierz widok strony z listy rozwijanej **dla widoku strony** .
+2. Wybierz pozycję "kraj lub region" w temacie **Analizowanie sposobu jego** rozwijania
+3. Aby uzyskać **wpływ na użycie** listy rozwijanej, wybierz niestandardowe zdarzenie odpowiadające ELEMENTOWI interfejsu użytkownika w widoku strony wybranym w kroku 1.
 
-W takim przypadku wyniki nie pasują już do ciągłego modelu osi x, tak jak w pierwszym przykładzie. Zamiast tego przedstawiona jest wizualizacja podobna do ścieżki segmentowanej. Sortuj według **użycia,** aby wyświetlić odmianę konwersji na wydarzenie niestandardowe na podstawie kraju/regionu.
+W takim przypadku wyniki nie pasują do ciągłego modelu osi x, jak w pierwszym przykładzie. Zamiast tego jest prezentowana Wizualizacja podobna do lejka z segmentacją. Sortuj według **użycia** , aby wyświetlić odmianę konwersji do zdarzenia niestandardowego na podstawie kraju/regionu.
 
 
-## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>W jaki sposób narzędzie Impact oblicza te współczynniki konwersji?
+## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Jak narzędzie do obliczania wpływu oblicza te szybkości konwersji?
 
-Pod maską narzędzie Impact opiera się na [współczynniku korelacji Pearsona.](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient) Wyniki są obliczane między -1 i 1 z -1 reprezentujący ujemną korelację liniową i 1 reprezentujący dodatnią korelację liniową.
+W obszarze okapu narzędzie do wpływu zależy od [współczynnika korelacji Pearsona](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Wyniki są obliczane między-1 i 1 z-1 reprezentujące negatywną korelację liniową i 1 reprezentującą dodatnią korelację liniową.
 
-Podstawowy podział działania analizy wpływu jest następujący:
+Podstawowe informacje na temat sposobu działania analizy wpływu są następujące:
 
-Let _A_ = widok strony głównej/niestandardowe zdarzenie/żądanie wybrane w pierwszym menu rozwijanym. (Dla**widoku strony**).
+Zezwól _na to_ , aby widok strony głównej/zdarzenie niestandardowe/żądanie wybrane w pierwszej liście rozwijanej. (**W przypadku widoku strony**).
 
-Let _B_ = pomocniczy widok strony/zdarzenie**niestandardowe, które wybierzesz**( wpływa na użycie ).
+Zezwól _B_ = widok strony dodatkowej/wybrane zdarzenie niestandardowe (**wpływ na użycie**).
 
-Impact analizuje próbkę wszystkich sesji od użytkowników w wybranym zakresie czasu. Dla każdej sesji wyszukuje każde wystąpienie _A_.
+Wpływ na próbkę wszystkich sesji od użytkowników w wybranym zakresie czasu. Dla każdej sesji szuka każdego wystąpienia _A_.
 
-Sesje są następnie podzielone na dwa różne rodzaje _podsesji_ na podstawie jednego z dwóch warunków:
+Sesje są podzielone na dwa różne rodzaje _podsesji_ w oparciu o jeden z dwóch warunków:
 
-- Przekonwertowana podsesja składa się z sesji kończącej się zdarzeniem _B_ i obejmuje wszystkie zdarzenia _A_ występujące przed _B_.
-- Nieprzekonwertowana podsesja występuje, gdy wszystkie _A_występują bez zacisku _B_.
+- Przekonwertowane podsesja składa się z sesji kończącej się na zdarzeniu _b_ i _obejmuje wszystkie zdarzenia, które_ wystąpiły przed _B_.
+- Nieskonwertowane podsesja _występuje, gdy wszystkie wystąpienia_wystąpią bez terminalu _B_.
 
-Sposób ostatecznego obliczania wpływu zależy od tego, czy analizujemy według metryki, czy według wymiaru. Dla metryki wszystkie _A_'s w podsesji są uśredniania. W przypadku wymiarów wartość każdego _A_ przyczynia się _1/N_ do wartości przypisanej do _B,_ gdzie _N_ jest liczbą _A_w podsesji.
+Sposób obliczenia wpływu jest różny w zależności od tego, czy analizujemy według metryki, czy przez wymiar. Dla metryk wszystkie _a_w podsesji są uśredniane. W odniesieniu do wymiarów każda wartość _A_ składa się z _1/N_ do wartości przypisanej do _B_ , gdzie _N_ to _Liczba w_podsesji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby włączyć środowisko użycia, zacznij wysyłać [niestandardowe zdarzenia](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) lub [widoki strony](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
-- Jeśli wysyłasz już niestandardowe zdarzenia lub widoki stron, zapoznaj się z narzędziami Użycia, aby dowiedzieć się, jak użytkownicy korzystają z usługi.
+- Aby włączyć środowiska użycia, Rozpocznij wysyłanie [zdarzeń niestandardowych](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) lub [wyświetleń stron](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Jeśli masz już wysłane zdarzenia niestandardowe lub widoki stron, zapoznaj się z narzędziami użycia, aby dowiedzieć się, jak użytkownicy korzystają z usługi.
     - [Lejki](usage-funnels.md)
     - [Przechowywanie](usage-retention.md)
-    - [User Flows (Przepływy użytkowników)](usage-flows.md)
+    - [Przepływy użytkowników](usage-flows.md)
     - [Skoroszyty](../../azure-monitor/app/usage-workbooks.md)
     - [Dodawanie kontekstu użytkownika](usage-send-user-context.md)

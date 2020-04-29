@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie lvm na maszynie wirtualnej z systemem Linux
-description: Dowiedz się, jak skonfigurować lvm na linuksie na platformie Azure.
+title: Konfigurowanie LVM na maszynie wirtualnej z systemem Linux
+description: Dowiedz się, jak skonfigurować LVM w systemie Linux na platformie Azure.
 author: gbowerman
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -8,22 +8,22 @@ ms.date: 09/27/2018
 ms.author: guybo
 ms.subservice: disks
 ms.openlocfilehash: 7f560a1e6266b5f2452bf9442d2d4c983de1236e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066794"
 ---
-# <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Konfigurowanie usługi LVM na maszynie Wirtualnej z systemem Linux na platformie Azure
-W tym dokumencie omówimy sposób konfigurowania menedżera woluminów logicznych (LVM) na maszynie wirtualnej platformy Azure. LVM może być używany na dysku systemu operacyjnego lub dysków z danymi na maszynach wirtualnych platformy Azure, jednak domyślnie większość obrazów w chmurze nie będzie skonfigurowana lvm na dysku systemu operacyjnego. Poniższe kroki skupią się na konfigurowaniu lvm dla dysków z danymi.
+# <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Konfigurowanie LVM na maszynie wirtualnej z systemem Linux na platformie Azure
+W tym dokumencie omówiono sposób konfigurowania Menedżera woluminów logicznych (LVM) na maszynie wirtualnej platformy Azure. LVM mogą być używane na dysku systemu operacyjnego lub na dyskach z danymi na maszynach wirtualnych platformy Azure, jednak domyślnie większość obrazów w chmurze nie ma skonfigurowanych LVM na dysku systemu operacyjnego. Poniższe kroki zakoncentrują się na konfigurowaniu LVM dla dysków z danymi.
 
 ## <a name="linear-vs-striped-logical-volumes"></a>Liniowe a rozłożone woluminy logiczne
-LVM może służyć do łączenia wielu dysków fizycznych w jeden wolumin pamięci masowej. Domyślnie LVM zwykle tworzy liniowe woluminy logiczne, co oznacza, że magazyn fizyczny jest łączony ze sobą. W takim przypadku operacje odczytu/zapisu zazwyczaj będą wysyłane tylko na jeden dysk. Natomiast możemy również tworzyć rozłożone woluminy logiczne, w których odczyty i zapisy są dystrybuowane na wiele dysków znajdujących się w grupie woluminów (podobnie jak RAID0). Ze względu na wydajność jest prawdopodobne, że będzie chcesz paski woluminów logicznych, tak aby odczyty i zapisy wykorzystać wszystkie dołączone dyski danych.
+LVM może służyć do łączenia wielu dysków fizycznych w jeden wolumin magazynu. Domyślnie LVM zazwyczaj tworzy liniowe woluminy logiczne, co oznacza, że magazyn fizyczny jest połączony ze sobą. W takim przypadku operacje odczytu/zapisu zwykle będą wysyłane tylko do jednego dysku. Z kolei możemy również utworzyć rozłożone woluminy logiczne, w przypadku których operacje odczytu i zapisu są dystrybuowane do wielu dysków znajdujących się w grupie woluminów (podobnie jak RAID0). Ze względu na wydajność prawdopodobnie chcesz umieścić woluminy logiczne, aby odczyty i zapisy używały wszystkich dołączonych dysków danych.
 
-W tym dokumencie opisano sposób łączenia kilku dysków danych w jedną grupę woluminów, a następnie tworzenie rozłożonego woluminu logicznego. Poniższe kroki są uogólnione do pracy z większością dystrybucji. W większości przypadków narzędzia i przepływy pracy do zarządzania LVM na platformie Azure nie różnią się zasadniczo od innych środowisk. Jak zwykle, należy również skonsultować się z dostawcą systemu Linux dokumentacji i najlepszych praktyk dotyczących korzystania LVM z określonej dystrybucji.
+W tym dokumencie opisano sposób łączenia kilku dysków z danymi w jedną grupę woluminów, a następnie tworzenia woluminu logicznego. Poniższe kroki są uogólnione w celu pracy z większością dystrybucji. W większości przypadków narzędzia i przepływy pracy związane z zarządzaniem LVM na platformie Azure różnią się od innych środowisk. W zwykły sposób należy również zapoznać się z dostawcą systemu Linux w celu uzyskania dokumentacji i najlepszych rozwiązań dotyczących używania LVM z określoną dystrybucją.
 
-## <a name="attaching-data-disks"></a>Dołączanie dysków z danymi
-Zwykle chcesz zacząć od dwóch lub więcej pustych dysków z danymi podczas korzystania z LVM. W zależności od potrzeb we/wy możesz dołączyć dyski przechowywane w naszym standardowym magazynie, z maksymalnie 500 we/wy na dysk lub naszą pamięć masową Premium z maksymalnie 5000 we/wy na dysk. W tym artykule nie będzie wchodzić w szczegóły dotyczące sposobu aprowizowania i dołączania dysków danych do maszyny wirtualnej systemu Linux. Zobacz artykuł microsoft azure [dołączyć dysk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) szczegółowe instrukcje dotyczące podłączania pustego dysku danych do maszyny wirtualnej systemu Linux na platformie Azure.
+## <a name="attaching-data-disks"></a>Dołączanie dysków danych
+Jeden z nich będzie zazwyczaj miał być uruchamiany z co najmniej dwoma pustymi dyskami danych podczas korzystania z LVM. W zależności od potrzeb we/wy można dołączać dyski, które są przechowywane w magazynie w warstwie Standardowa, z maksymalnie 500 operacji we/wy na dysk lub w naszym magazynie w warstwie Premium przy użyciu maksymalnie 5000 operacji we/wy na dysk. W tym artykule opisano sposób aprowizacji i dołączania dysków danych do maszyny wirtualnej z systemem Linux. Zapoznaj się z artykułem Microsoft Azure. [Dołącz dysk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , aby uzyskać szczegółowe instrukcje dotyczące dołączania pustego dysku danych do maszyny wirtualnej z systemem Linux na platformie Azure.
 
 ## <a name="install-the-lvm-utilities"></a>Instalowanie narzędzi LVM
 * **Ubuntu**
@@ -51,14 +51,14 @@ Zwykle chcesz zacząć od dwóch lub więcej pustych dysków z danymi podczas ko
     sudo zypper install lvm2
     ```
 
-    Na SLES11 należy również `/etc/sysconfig/lvm` edytować i ustawić `LVM_ACTIVATED_ON_DISCOVERED` na "włącz":
+    W programie SLES11 należy również edytować `/etc/sysconfig/lvm` i ustawić wartość `LVM_ACTIVATED_ON_DISCOVERED` "Enable":
 
     ```sh   
     LVM_ACTIVATED_ON_DISCOVERED="enable" 
     ```
 
 ## <a name="configure-lvm"></a>Konfigurowanie maszyny wirtualnej z systemem Linux
-W tym przewodniku założymy, że załączyłeś trzy dyski `/dev/sdd` `/dev/sde`z danymi, które będziemy nazywać `/dev/sdc`, i . Te ścieżki mogą nie odpowiadać nazw ścieżek dysku w maszynie wirtualnej. Można uruchomić`sudo fdisk -l`polecenie ' ' lub podobne, aby wyświetlić listę dostępnych dysków.
+W tym przewodniku przyjęto założenie, że zostały dołączone trzy dyski danych, do których odnosimy się do `/dev/sdc` `/dev/sdd` i `/dev/sde`. Ścieżki te mogą być niezgodne z nazwami ścieżek dysków w maszynie wirtualnej. Aby wyświetlić dostępne dyski`sudo fdisk -l`, można uruchomić "" lub podobne polecenie.
 
 1. Przygotuj woluminy fizyczne:
 
@@ -69,14 +69,14 @@ W tym przewodniku założymy, że załączyłeś trzy dyski `/dev/sdd` `/dev/sde
     Physical volume "/dev/sde" successfully created
     ```
 
-2. Tworzenie grupy woluminów. W tym przykładzie wywołujemy `data-vg01`grupę woluminów:
+2. Utwórz grupę woluminów. W tym przykładzie wywołujemy grupę `data-vg01`woluminów:
 
     ```bash    
     sudo vgcreate data-vg01 /dev/sd[cde]
     Volume group "data-vg01" successfully created
     ```
 
-3. Tworzenie woluminów logicznych. Poniższe polecenie utworzymy pojedynczy `data-lv01` wolumin logiczny wywoływany w celu utworzenia całej grupy woluminów, ale należy zauważyć, że możliwe jest również utworzenie wielu woluminów logicznych w grupie woluminów.
+3. Utwórz woluminy logiczne. Poniższe polecenie utworzy pojedynczy wolumin logiczny o nazwie `data-lv01` do rozdzielenia całej grupy woluminów, ale należy pamiętać, że jest również możliwe utworzenie wielu woluminów logicznych w grupie woluminów.
 
     ```bash   
     sudo lvcreate --extents 100%FREE --stripes 3 --name data-lv01 data-vg01
@@ -90,11 +90,11 @@ W tym przewodniku założymy, że załączyłeś trzy dyski `/dev/sdd` `/dev/sde
     ```
    
    > [!NOTE]
-   > Z SLES11 `-t ext3` używać zamiast ext4. SLES11 obsługuje tylko dostęp tylko do odczytu do systemów plików ext4.
+   > Za pomocą SLES11 `-t ext3` zamiast ext4. SLES11 obsługuje tylko dostęp tylko do odczytu do systemów plików ext4.
 
-## <a name="add-the-new-file-system-to-etcfstab"></a>Dodaj nowy system plików do /etc/fstab
+## <a name="add-the-new-file-system-to-etcfstab"></a>Dodaj nowy system plików do/etc/fstab
 > [!IMPORTANT]
-> Nieprawidłowe edytowanie pliku `/etc/fstab` może uniemożliwić rozruch systemu. Jeśli nie masz pewności, jak to zrobić, sprawdź informacje na temat prawidłowego edytowania tego pliku w dokumentacji dystrybucji. Zaleca się również utworzenie kopii `/etc/fstab` zapasowej pliku przed edycją.
+> Nieprawidłowe edytowanie pliku `/etc/fstab` może uniemożliwić rozruch systemu. Jeśli nie masz pewności, jak to zrobić, sprawdź informacje na temat prawidłowego edytowania tego pliku w dokumentacji dystrybucji. Zaleca się również utworzenie kopii zapasowej `/etc/fstab` pliku przed rozpoczęciem edycji.
 
 1. Utwórz żądany punkt instalacji dla nowego systemu plików, na przykład:
 
@@ -111,22 +111,22 @@ W tym przewodniku założymy, że załączyłeś trzy dyski `/dev/sdd` `/dev/sde
     ....
     ```
 
-3. Otwórz `/etc/fstab` w edytorze tekstu i dodaj wpis dla nowego systemu plików, na przykład:
+3. Otwórz `/etc/fstab` w edytorze tekstów i Dodaj wpis dla nowego systemu plików, na przykład:
 
     ```bash    
     /dev/data-vg01/data-lv01  /data  ext4  defaults  0  2
     ```   
-    Następnie zapisz i `/etc/fstab`zamknij .
+    Następnie Zapisz i Zamknij `/etc/fstab`.
 
-4. Sprawdzić, `/etc/fstab` czy wpis jest poprawny:
+4. Sprawdź, czy `/etc/fstab` wpis jest poprawny:
 
     ```bash    
     sudo mount -a
     ```
 
-    Jeśli to polecenie powoduje komunikat o błędzie, `/etc/fstab` sprawdź składnię w pliku.
+    Jeśli to polecenie spowoduje komunikat o błędzie, Sprawdź składnię w `/etc/fstab` pliku.
    
-    Następnie uruchom `mount` polecenie, aby upewnić się, że system plików jest zamontowany:
+    Następnie uruchom polecenie `mount` , aby upewnić się, że system plików jest zainstalowany:
 
     ```bash    
     mount
@@ -134,9 +134,9 @@ W tym przewodniku założymy, że załączyłeś trzy dyski `/dev/sdd` `/dev/sde
     /dev/mapper/data--vg01-data--lv01 on /data type ext4 (rw)
     ```
 
-5. (Opcjonalnie) Failsafe parametry rozruchu w`/etc/fstab`
+5. Obowiązkowe Failsafe parametry rozruchu w`/etc/fstab`
    
-    Wiele dystrybucji zawiera parametry `nobootwait` `nofail` lub instalację, które `/etc/fstab` mogą zostać dodane do pliku. Parametry te pozwalają na błędy podczas montażu określonego systemu plików i pozwalają systemowi Linux kontynuować rozruch, nawet jeśli nie jest w stanie prawidłowo zamontować systemu plików RAID. Więcej informacji na temat tych parametrów można znaleźć w dokumentacji dystrybucji.
+    Wiele dystrybucji zawiera `nobootwait` parametry `nofail` instalacji, które mogą zostać dodane do `/etc/fstab` pliku. Te parametry zezwalają na błędy podczas instalowania określonego systemu plików i umożliwiają dalsze rozruch systemu Linux, nawet jeśli nie można poprawnie zainstalować systemu plików RAID. Aby uzyskać więcej informacji na temat tych parametrów, zapoznaj się z dokumentacją dystrybucji.
    
     Przykład (Ubuntu):
 
@@ -144,18 +144,18 @@ W tym przewodniku założymy, że załączyłeś trzy dyski `/dev/sdd` `/dev/sde
     /dev/data-vg01/data-lv01  /data  ext4  defaults,nobootwait  0  2
     ```
 
-## <a name="trimunmap-support"></a>Obsługa TRIM/UNMAP
-Niektóre jądra Linuksa obsługują operacje TRIM/UNMAP, aby odrzucić nieużywane bloki na dysku. Te operacje są przydatne przede wszystkim w magazynie standardowym, aby poinformować platformę Azure, że usunięte strony nie są już prawidłowe i mogą zostać odrzucone. Odrzucanie stron może zaoszczędzić koszty, jeśli utworzysz duże pliki, a następnie je usuniesz.
+## <a name="trimunmap-support"></a>Obsługa przycinania/mapowania
+Niektóre jądra systemu Linux obsługują operacje przycinania/mapowania do odrzucania nieużywanych bloków na dysku. Te operacje są szczególnie przydatne w przypadku magazynu w warstwie Standardowa, aby poinformować platformę Azure, że usunięte strony nie są już prawidłowe i mogą zostać odrzucone. Odrzucanie stron może zaoszczędzić koszt w przypadku tworzenia dużych plików, a następnie ich usuwania.
 
-Istnieją dwa sposoby włączania obsługi TRIM w maszynie wirtualnej z systemem Linux. Jak zwykle, skonsultuj się z dystrybucją, aby uzyskać zalecane podejście:
+Istnieją dwa sposoby włączania obsługi przycinania na maszynie wirtualnej z systemem Linux. W zwykły sposób zapoznaj się z dystrybucją, aby uzyskać zalecane podejście:
 
-- Użyj `discard` opcji montowania w `/etc/fstab`, na przykład:
+- Użyj opcji `discard` instalacji w programie `/etc/fstab`, na przykład:
 
     ```bash 
     /dev/data-vg01/data-lv01  /data  ext4  defaults,discard  0  2
     ```
 
-- W niektórych `discard` przypadkach opcja może mieć wpływ na wydajność. Alternatywnie można uruchomić `fstrim` polecenie ręcznie z wiersza polecenia lub dodać je do crontab, aby działać regularnie:
+- W niektórych przypadkach opcja `discard` może mieć wpływ na wydajność. Alternatywnie można uruchomić `fstrim` polecenie ręcznie z wiersza polecenia lub dodać je do crontab w celu regularnego uruchamiania:
 
     **Ubuntu**
 

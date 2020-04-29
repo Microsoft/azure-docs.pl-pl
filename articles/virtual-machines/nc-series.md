@@ -1,6 +1,6 @@
 ---
-title: Seria NC — maszyny wirtualne platformy Azure
-description: Dane techniczne maszyn wirtualnych serii NC.
+title: Seria NC — Virtual Machines platformy Azure
+description: Specyfikacje dotyczące maszyn wirtualnych z serii NC.
 services: virtual-machines
 author: vikancha
 ms.service: virtual-machines
@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: eab7dfe79aa5cdf234c8bc9472387214f7df3563
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78164529"
 ---
 # <a name="nc-series"></a>Seria NC
 
-Maszyny wirtualne z serii NC są zasilane przez kartę [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) i procesor Intel Xeon E5-2690 v3 (Haswell). Użytkownicy mogą szybciej przeglądać dane, wykorzystując CUDA do zastosowań w eksploracji energii, symulacji awarii, renderowania śledzenia promieni, uczenia głębokiego i innych. Konfiguracja NC24r zapewnia interfejs sieciowy o niskiej opóźnień i wysokiej przepustowości zoptymalizowany pod kątem ściśle łączonych obciążeń równoległych.
+Maszyny wirtualne z serii NC są obsługiwane przez kartę [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) i procesor Intel Xeon E5-2690 v3 (Haswell). Użytkownicy mogą szybciej przetwarzanie dane, wykorzystując CUDA do obsługi aplikacji, symulacji awarii, renderowanie śledzenia, śledzenie, uczenie głębokie i wiele innych. Konfiguracja NC24r zapewnia małe opóźnienia i wysoką przepływność interfejsu sieciowego zoptymalizowane pod kątem ściśle sprzężonych równoległych obciążeń obliczeniowych.
 
-Pamięć masowa w wersji Premium: nie jest obsługiwana
+Premium Storage: nieobsługiwane
 
-Buforowanie magazynu w wersji Premium: nie jest obsługiwane
+Buforowanie Premium Storage: nieobsługiwane
 
-Migracja na żywo: nie jest obsługiwana
+Migracja na żywo: nieobsługiwane
 
-Aktualizacje zachowywania pamięci: nie są obsługiwane
+Aktualizacje z zachowaniem pamięci: nieobsługiwane
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Pamięć GPU: GiB | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Pamięć procesora GPU: GiB | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych |
 |---|---|---|---|---|---|---|---|
 | Standardowa_NC6    | 6  | 56  | 340  | 1 | 12 | 24 | 1 |
 | Standardowa_NC12   | 12 | 112 | 680  | 2 | 24 | 48 | 2 |
@@ -41,11 +41,11 @@ Aktualizacje zachowywania pamięci: nie są obsługiwane
 
 ## <a name="supported-operating-systems-and-drivers"></a>Obsługiwane systemy operacyjne i sterowniki
 
-Aby korzystać z możliwości procesorów GPU maszyn wirtualnych z serii N platformy Azure, należy zainstalować sterowniki gpu nvidia.
+Aby skorzystać z możliwości procesora GPU maszyn wirtualnych z serii N, należy zainstalować sterowniki graficznego procesora NVIDIA.
 
-[Rozszerzenie sterownika GPU NVIDIA](./extensions/hpccompute-gpu-windows.md) instaluje odpowiednie sterowniki NVIDIA CUDA lub GRID na maszynie wirtualnej z serii N. Zainstaluj rozszerzenie lub zarządzaj nim za pomocą witryny Azure portal lub narzędzi, takich jak szablony programu Azure PowerShell lub Usługi Azure Resource Manager. Zapoznaj się z [dokumentacją rozszerzenia sterowników procesora graficznego NVIDIA, aby](./extensions/hpccompute-gpu-windows.md) zapoznać się z obsługiwanymi systemami operacyjnymi i krokami wdrażania. Aby uzyskać ogólne informacje na temat rozszerzeń maszyn wirtualnych, zobacz [rozszerzenia i funkcje maszyny wirtualnej platformy Azure](./extensions/overview.md).
+[Rozszerzenie sterownika NVIDIA GPU](./extensions/hpccompute-gpu-windows.md) instaluje odpowiednie sterowniki NVIDIA CUDA lub Grid na maszynie wirtualnej z serii N. Zainstaluj rozszerzenie lub Zarządzaj nim przy użyciu Azure Portal lub narzędzi, takich jak szablony Azure PowerShell lub Azure Resource Manager. Zapoznaj się z [dokumentacją rozszerzenia sterownika graficznego procesora NVIDIA](./extensions/hpccompute-gpu-windows.md) dla obsługiwanych systemów operacyjnych i kroków wdrażania. Aby uzyskać ogólne informacje o rozszerzeniach maszyn wirtualnych, zobacz [rozszerzenia i funkcje maszyny wirtualnej platformy Azure](./extensions/overview.md).
 
-Jeśli zdecydujesz się zainstalować sterowniki GPU NVIDIA ręcznie, zobacz [Konfiguracja sterowników GPU serii N dla systemu Windows](./windows/n-series-driver-setup.md) lub N dla systemu [Linux](./linux/n-series-driver-setup.md) dla obsługiwanych systemów operacyjnych, sterowników, instrukcji instalacji i weryfikacji.
+W przypadku wybrania opcji ręcznego instalowania sterowników procesora GPU firmy NVIDIA należy zapoznać się z tematem Konfiguracja [sterownika procesora GPU dla systemu Windows](./windows/n-series-driver-setup.md) lub [n-Series](./linux/n-series-driver-setup.md) w systemie Linux dla obsługiwanych systemów operacyjnych, sterowników, instalacji i kroków weryfikacyjnych.
 
 ## <a name="other-sizes"></a>Inne rozmiary
 
@@ -58,4 +58,4 @@ Jeśli zdecydujesz się zainstalować sterowniki GPU NVIDIA ręcznie, zobacz [Ko
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tym, jak [jednostki obliczeniowe platformy Azure (ACU)](acu.md) mogą pomóc w porównywaniu wydajności obliczeniowej w jednostkach SKU platformy Azure.
+Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.

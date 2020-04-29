@@ -1,7 +1,7 @@
 ---
-title: 'Train SVD Recommender: Odwołanie do modułu'
+title: 'Polecający ciąg SVD: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak użyć modułu train SVD Recommender w usłudze Azure Machine Learning do uczenia narzędzia bayesowskiego przy użyciu algorytmu SVD.
+description: Dowiedz się, w jaki sposób używać modułu polecania SVD (pociąg) w Azure Machine Learning, aby szkolić Bayesowskieer przy użyciu algorytmu SVD.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,67 +10,67 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 417ef716c391126982809574fc16f6681115cac3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477412"
 ---
 # <a name="train-svd-recommender"></a>Trenowanie modułu poleceń SVD
 
-W tym artykule opisano, jak używać modułu rekomendatora SVD pociągu w projektancie usługi Azure Machine Learning (wersja zapoznawcza). Ten moduł służy do szkolenia modelu rekomendacji na podstawie algorytmu rozkładu pojedynczej wartości (SVD).  
+W tym artykule opisano, jak używać modułu polecania SVD w programie Azure Machine Learning Designer (wersja zapoznawcza). Ten moduł służy do uczenia modelu rekomendacji na podstawie algorytmu pojedynczego rozkładu wartości (SVD).  
 
-Moduł Train SVD Recommender odczytuje zestaw danych potrójnych klasyfikacji przedmiotów użytkownika. Zwraca przeszkolony rekomendator SVD. Następnie można użyć przeszkolonego modelu do przewidywania ocen lub generowania zaleceń, przy użyciu [score SVD recommender](score-svd-recommender.md) modułu.  
+Moduł polecający SVD pociąg odczytuje zestaw danych potrójnych ocen elementów użytkownika. Zwraca zalecany polecający SVD. Można następnie użyć przeszkolonego modelu do przewidywania klasyfikacji lub wygenerowania zaleceń przy użyciu modułu [zalecanego do oceny SVD](score-svd-recommender.md) .  
 
 
   
-## <a name="more-about-recommendation-models-and-the-svd-recommender"></a>Więcej informacji o modelach rekomendacji i rekomendatorze SVD  
+## <a name="more-about-recommendation-models-and-the-svd-recommender"></a>Więcej informacji na temat modeli rekomendacji i zalecenia dotyczącego SVD  
 
-Głównym celem systemu rekomendacji jest polecanie *jednego* lub więcej *elementów* użytkownikom systemu. Przykładami elementu może być film, restauracja, książka lub utwór. Użytkownikiem może być osoba, grupa osób lub inna jednostka z preferencjami towaru.  
+Głównym celem systemu rekomendacji jest zalecanie co najmniej jednego *elementu* *użytkownikom* systemu. Przykładami elementów może być film, restauracji, książka lub utwór. Użytkownik może być osobą, grupą osób lub inną jednostką z preferencjami elementu.  
 
-Istnieją dwa główne podejścia do systemów rekomendatorów: 
+Istnieją dwa główne podejścia do zalecanych systemów: 
 
-+ Podejście **oparte na zawartości** korzysta z funkcji zarówno dla użytkowników, jak i elementów. Użytkownicy mogą być opisane przez właściwości, takie jak wiek i płeć. Elementy mogą być opisane przez właściwości, takie jak autor i producent. Typowe przykłady systemów rekomendacji opartych na zawartości można znaleźć w witrynach dobierania graczy społecznościowych. 
-+ **Wspólne filtrowanie** używa tylko identyfikatorów użytkowników i elementów. Pobiera niejawne informacje o tych jednostkach z (rozrzedzone) macierzy ocen podanych przez użytkowników do elementów. Możemy dowiedzieć się o użytkowniku z elementów, które ocenił i od innych użytkowników, którzy ocenili te same elementy.  
++ Podejście **oparte na zawartości** umożliwia korzystanie z funkcji zarówno dla użytkowników, jak i elementów. Użytkowników można opisać według właściwości, takich jak wiek i płeć. Elementy można opisać według właściwości, takich jak autor i producent. Typowe przykłady opartych na zawartości systemów rekomendacji można znaleźć w witrynach Matchmaking społecznościowych. 
++ **Filtrowanie do współpracy** korzysta wyłącznie z identyfikatorów użytkowników i elementów. Uzyskuje niejawne informacje o tych jednostkach z macierzy (rozrzedzonej) klasyfikacji przyznanych przez użytkowników do elementów. Możemy dowiedzieć się więcej o użytkowniku z przedmiotowych elementów i od innych użytkowników, którzy oceniali te same elementy.  
 
-Polecający SVD używa identyfikatorów użytkowników i elementów oraz macierzy ocen nadanych przez użytkowników do elementów. Jest to *wspólny relecator.* 
+Polecający SVD używa identyfikatorów użytkowników i elementów oraz matrycy ocen określonych przez użytkowników do elementów. Jest to *polecana wspólnie*. 
 
-Aby uzyskać więcej informacji na temat rekomendatora SVD, zobacz odpowiedni dokument badawczy: [Techniki faktoryzacji matrycy dla systemów rekomendacyjnych](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
+Aby uzyskać więcej informacji na temat zalecenia SVD, zobacz odpowiedni dokument badawczy: [techniki factorization macierzy dla systemów zalecanych](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
 
 
-## <a name="how-to-configure-train-svd-recommender"></a>Jak skonfigurować train SVD Recommender  
+## <a name="how-to-configure-train-svd-recommender"></a>Jak skonfigurować zalecany polecający pociąg  
 
 ### <a name="prepare-data"></a>Przygotowywanie danych
 
-Przed użyciem modułu dane wejściowe muszą być w formacie, którego oczekuje model rekomendacji. Wymagany jest zestaw danych szkoleniowych potrójnych wartości elementu użytkownika.
+Przed użyciem modułu, dane wejściowe muszą być w formacie, którego oczekuje model rekomendacji. Wymagany jest zestaw danych szkoleniowych o trzech klasyfikacjach elementów użytkownika.
 
 + Pierwsza kolumna zawiera identyfikatory użytkowników.
 + Druga kolumna zawiera identyfikatory elementów.
-+ Trzecia kolumna zawiera klasyfikację dla pary element użytkownika. Wartości znamionowe muszą być typu numerycznego.  
++ Trzecia kolumna zawiera klasyfikację dla pary elementu User-Item. Wartości klasyfikacji muszą być typu liczbowego.  
 
-Zestaw danych Oceny filmów w **projektancie** usługi Azure Machine Learning (wybierz **zestawy danych,** a następnie **przykłady)** pokazuje oczekiwany format:
+Zestaw danych **klasyfikacji filmów** w projektancie Azure Machine Learning (wybierz **zestawy danych** , a następnie **przykłady**) demonstruje oczekiwany format:
 
-![Oceny filmów](media/module/movie-ratings-dataset.png)
+![Klasyfikacje filmów](media/module/movie-ratings-dataset.png)
 
-Z tego przykładu widać, że jeden użytkownik ocenił kilka filmów. 
+Z tego przykładu można zobaczyć, że jeden użytkownik ma sklasyfikowane kilka filmów. 
 
 ### <a name="train-the-model"></a>Uczenie modelu
 
-1.  Dodaj moduł Train SVD Recommender do potoku w projektancie i połącz go z danymi szkoleniowymi.  
+1.  Dodaj moduł polecający SVD (szkolenie) do potoku w Projektancie i podłącz go do danych szkoleniowych.  
    
-2.  W przypadku **liczby czynników**należy określić liczbę czynników, które mają być używane z polecającym.  
+2.  Dla **liczby czynników**Określ liczbę czynników, które mają być używane z zaleceniem.  
     
-    Każdy współczynnik mierzy, ile użytkownik jest związany z towarem. Liczba czynników jest również wymiarowość przestrzeni współczynnika utajonego. Wraz ze wzrostem liczby użytkowników i elementów lepiej ustawić większą liczbę czynników. Ale jeśli liczba jest zbyt duża, wydajność może spaść.
+    Każdy czynnik mierzy, jak dużo użytkownik jest odnosił się do elementu. Liczba czynników jest również wymiarem obszaru ukryty obszar. Po zwiększeniu liczby użytkowników i elementów lepiej jest ustawić większą liczbę czynników. Ale jeśli liczba jest zbyt duża, może to spowodować spadek wydajności.
     
-3.  **Liczba iteracji algorytmu rekomendacji** wskazuje, ile razy algorytm powinien przetwarzać dane wejściowe. Im wyższa jest ta liczba, tym dokładniejsze są prognozy. Jednak większa liczba oznacza wolniejsze szkolenie. Wartość domyślna to 30.
+3.  **Liczba iteracji algorytmu rekomendacji** wskazuje, ile razy algorytm powinien przetworzyć dane wejściowe. Im wyższy numer to, tym dokładniejsze są przewidywania. Jednak wyższa liczba oznacza wolniejsze szkolenie. Wartość domyślna to 30.
 
-4.  W przypadku **wskaźnika uczenia się**wprowadź liczbę z 0,0 a 2,0, która określa rozmiar kroku do nauki.
+4.  W polu **stawka szkoleniowa**wprowadź liczbę z zakresu od 0,0 do 2,0, która definiuje rozmiar kroku uczenia się.
 
-    Szybkość uczenia się określa rozmiar kroku w każdej iteracji. Jeśli rozmiar kroku jest zbyt duży, można przekroczyć optymalne rozwiązanie. Jeśli rozmiar kroku jest zbyt mały, szkolenie trwa dłużej, aby znaleźć najlepsze rozwiązanie. 
+    Szybkość uczenia określa rozmiar kroku w każdej iteracji. Jeśli rozmiar tego kroku jest zbyt duży, można przekroczyć optymalne rozwiązanie. Jeśli rozmiar tego kroku jest zbyt mały, szkolenie zajmuje więcej czasu na znalezienie najlepszego rozwiązania. 
   
 5.  Prześlij potok.  
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

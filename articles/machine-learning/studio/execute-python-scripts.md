@@ -1,7 +1,7 @@
 ---
 title: Wykonywanie skryptów w języku Python
 titleSuffix: ML Studio (classic) - Azure
-description: Dowiedz się, jak używać modułu Wykonywanie skryptu języka Python do używania kodu Języka Python w eksperymentach i usługach internetowych usługi machine learning studio (klasyczne).
+description: Dowiedz się, jak używać modułu skryptu języka Python do używania kodu Python w Machine Learning Studio (klasyczne) eksperymenty i usługi sieci Web.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,93 +11,93 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
 ms.openlocfilehash: c79f6bd63fa5d8d8c6b22ff271d8ca513a94fd64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79218080"
 ---
-# <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Wykonywanie skryptów uczenia maszynowego języka Python w usłudze Azure Machine Learning Studio (klasyczny)
+# <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Wykonywanie skryptów w języku Python Machine Learning w Azure Machine Learning Studio (klasyczny)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Python jest cennym narzędziem w skrzyni narzędzi wielu analityków danych. Jest on używany na każdym etapie typowych przepływów pracy uczenia maszynowego, w tym eksploracji danych, wyodrębniania funkcji, szkolenia modelu i sprawdzania poprawności oraz wdrażania.
+Język Python jest cennym narzędziem w obszarze klatki narzędzia wielu analityków danych. Jest on używany w każdym etapie typowych przepływów pracy uczenia maszynowego, takich jak Eksploracja danych, wyodrębnianie funkcji, szkolenia modeli i sprawdzanie poprawności oraz wdrażanie.
 
-W tym artykule opisano, jak można użyć modułu Wykonywanie skryptu języka Python do używania kodu języka Python w eksperymentach i usługach sieci Web usługi Azure Machine Learning Studio (klasyczne).
+W tym artykule opisano, jak można użyć modułu skryptu języka Python do użycia kodu w języku Python w Azure Machine Learning Studio (klasyczny) eksperymenty i usługi sieci Web.
 
-## <a name="using-the-execute-python-script-module"></a>Korzystanie z modułu Wykonywanie skryptu języka Python
+## <a name="using-the-execute-python-script-module"></a>Korzystanie z modułu skryptu języka Python
 
-Podstawowy interfejs pythona w Studio (klasyczny) jest za pośrednictwem modułu [Wykonywanie skryptu Pythona.][execute-python-script] Akceptuje do trzech wejść i produkuje do dwóch wyjść, podobnie jak [execute r script][execute-r-script] modułu. Kod języka Python jest wprowadzany w polu parametrów za `azureml_main`pośrednictwem specjalnie nazwanej funkcji punktu wejścia o nazwie .
+Interfejs podstawowy do języka Python w programie Studio (klasyczny) polega na użyciu modułu [uruchamiania skryptów języka Python][execute-python-script] . Akceptuje do trzech danych wejściowych i tworzy do dwóch wyjść, podobnie jak moduł [wykonywania skryptu języka R][execute-r-script] . Kod języka Python jest wprowadzany do pola parametru za pomocą specjalnie wywołanej `azureml_main`funkcji punktu wejścia o nazwie.
 
-![Wykonywanie modułu skryptu Języka Python](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
+![Wykonaj moduł skryptu języka Python](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
-![Przykładowy kod języka python w polu parametrów modułu](./media/execute-python-scripts/embedded-machine-learning-python-script.png)
+![Przykładowy kod w języku Python w polu parametru modułu](./media/execute-python-scripts/embedded-machine-learning-python-script.png)
 
 ### <a name="input-parameters"></a>Parametry wejściowe
 
-Dane wejściowe do modułu Python są udostępniane jako Pandas DataFrames. Funkcja `azureml_main` akceptuje maksymalnie dwa opcjonalne Pandas DataFrames jako parametry.
+Dane wejściowe modułu języka Python są ujawniane jako Pandas dataframes. `azureml_main` Funkcja akceptuje do dwóch opcjonalnych ramek dataPandas jako parametry.
 
-Mapowanie między portami wejściowymi a parametrami funkcji ma położenie:
+Mapowanie między portami wejściowymi i parametrami funkcji jest pozycyjne:
 
-- Pierwszy podłączony port wejściowy jest mapowany na pierwszy parametr funkcji.
-- Drugie wejście (jeśli jest podłączone) jest mapowane na drugi parametr funkcji.
-- Trzecie wejście służy do [importowania dodatkowych modułów Pythona](#import-modules).
+- Pierwszy połączony port wejściowy jest mapowany na pierwszy parametr funkcji.
+- Drugie dane wejściowe (jeśli są połączone) są mapowane na drugi parametr funkcji.
+- Trzecia wartość wejściowa jest używana do [importowania dodatkowych modułów języka Python](#import-modules).
 
-Poniżej przedstawiono bardziej szczegółową semantycę sposobu `azureml_main` mapowania portów wejściowych na parametry funkcji.
+Poniżej przedstawiono bardziej szczegółową semantykę sposobu mapowania portów wejściowych do parametrów `azureml_main` funkcji.
 
-![Tabela konfiguracji portów wejściowych i wynikowy podpis języka Python](./media/execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
+![Tabela konfiguracji portów wejściowych i wynikający z tego sygnatury języka Python](./media/execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
-### <a name="output-return-values"></a>Wyjściowe wartości zwrotu
+### <a name="output-return-values"></a>Wyjściowe wartości zwracane
 
-Funkcja `azureml_main` musi zwracać pojedynczy Pandas DataFrame spakowane w [sekwencji](https://docs.python.org/2/c-api/sequence.html) Języka Python, takich jak krotka, lista lub NumPy tablicy. Pierwszy element tej sekwencji jest zwracany do pierwszego portu wyjściowego modułu. Drugi port wyjściowy modułu jest używany do [wizualizacji](#visualizations) i nie wymaga wartości zwracanej. Schemat ten przedstawiono poniżej.
+`azureml_main` Funkcja musi zwracać pojedynczą Pandas Dataframe spakowany w [sekwencji](https://docs.python.org/2/c-api/sequence.html) w języku Python, taką jak krotka, lista lub tablica numpy. Pierwszy element tej sekwencji jest zwracany do pierwszego portu wyjściowego modułu. Drugi port wyjściowy modułu jest używany do [wizualizacji](#visualizations) i nie wymaga wartości zwracanej. Ten schemat jest przedstawiony poniżej.
 
-![Mapowanie portów wejściowych na parametry i zwracanie wartości do portu wyjściowego](./media/execute-python-scripts/map-of-python-script-inputs-outputs.png)
+![Mapowanie portów wejściowych do parametrów i zwracanie wartości do portu wyjściowego](./media/execute-python-scripts/map-of-python-script-inputs-outputs.png)
 
 ## <a name="translation-of-input-and-output-data-types"></a>Tłumaczenie typów danych wejściowych i wyjściowych
 
-Zestawy danych Studio nie są takie same jak Panda DataFrames. W rezultacie wejściowe zestawy danych w Studio (klasyczne) są konwertowane na Pandas DataFrame, a wyjściowe dataframe są konwertowane z powrotem do zestawów danych Studio (klasycznych). Podczas tego procesu konwersji wykonywane są również następujące tłumaczenia:
+Zestawy danych programu Studio nie są takie same jak Panda dataframes. W efekcie wejściowe zestawy danych w programie Studio (klasyczne) są konwertowane na Pandas Dataframe, a wyjściowe ramki danych są konwertowane z powrotem do zestawu danych programu Studio (klasycznego). W trakcie tego procesu konwersji są również wykonywane następujące tłumaczenia:
 
- **Typ danych języka Python** | **Procedura tłumaczenia studyjnego** |
+ **Typ danych języka Python** | **Studio — procedura tłumaczenia** |
 | --- | --- |
-| Ciągi i numeryki| Przetłumaczone tak, jak jest |
-| Pandy 'NA' | Przetłumaczone jako "Brak wartości" |
-| Wektory indeksu | Nieobsługiwały się* |
-| Nazwy kolumn bez ciągu | Zadzwoń `str` do nazw kolumn |
-| Zduplikowane nazwy kolumn | Dodaj sufiks numeryczny: (1), (2), (3) i tak dalej.
+| Ciągi i wartości liczbowe| Przetłumaczone jako |
+| Pandas "NA" | Przetłumaczone jako "brakująca wartość" |
+| Wektory indeksu | Ich |
+| Nazwy kolumn niebędących ciągami | Wywoływanie `str` nazw kolumn |
+| Zduplikowane nazwy kolumn | Dodaj sufiks liczbowy: (1), (2), (3) i tak dalej.
 
-**Wszystkie klatki danych wejściowych w funkcji Pythona mają zawsze 64-bitowy indeks numeryczny od 0 do liczby wierszy minus 1*
+**Wszystkie wejściowe ramki danych w funkcji języka Python zawsze mają 64-bitowy indeks liczbowy z przedziału od 0 do liczby wierszy minus 1*
 
 ## <a name="importing-existing-python-script-modules"></a><a id="import-modules"></a>Importowanie istniejących modułów skryptów języka Python
 
-Backend używany do wykonywania Pythona opiera się na [Anaconda](https://www.anaconda.com/distribution/), szeroko stosowanej naukowej dystrybucji Pythona. Zawiera blisko 200 najpopularniejszych pakietów języka Python używanych w obciążeniach zorientowanych na dane. Studio (classic) obecnie nie obsługuje korzystania z systemów zarządzania pakietami, takich jak Pip lub Conda do instalowania i zarządzania bibliotekami zewnętrznymi.  Jeśli okaże się, że trzeba włączyć dodatkowe biblioteki, użyj następującego scenariusza jako przewodnika.
+Zaplecze używane do wykonywania języka Python opiera się na [Anaconda](https://www.anaconda.com/distribution/), szeroko używanym do nauki dystrybucji języka Python. Jest on dostępny w pobliżu 200 najpopularniejszych pakietów języka Python używanych w obciążeniu zorientowanym na dane. Studio (klasyczny) obecnie nie obsługuje korzystania z systemów zarządzania pakietami, takich jak PIP lub Conda, do instalowania bibliotek zewnętrznych i zarządzania nimi.  Jeśli okaże się, że musisz uwzględnić dodatkowe biblioteki, użyj następującego scenariusza jako przewodnika.
 
-Typowym przypadkiem użycia jest włączenie istniejących skryptów języka Python do eksperymentów studio (klasyczne). Moduł [Execute Python Script][execute-python-script] akceptuje plik zip zawierający moduły Języka Python na trzecim porcie wejściowym. Plik jest rozpakowany przez strukturę wykonywania w czasie wykonywania, a zawartość są dodawane do ścieżki biblioteki interpretera języka Python. Funkcja `azureml_main` punktu wejścia może następnie importować te moduły bezpośrednio. 
+Typowy przypadek użycia polega na uwzględnieniu istniejących skryptów języka Python w programie Studio (klasycznym). Moduł [wykonywania skryptu języka Python][execute-python-script] akceptuje plik zip zawierający moduły Python na trzecim porcie wejściowym. Plik jest rozpakowany przez strukturę wykonywania w czasie wykonywania, a zawartość jest dodawana do ścieżki biblioteki interpretera języka Python. Funkcja `azureml_main` punktu wejścia może następnie zaimportować te moduły bezpośrednio. 
 
-Na przykład należy wziąć pod uwagę plik Hello.py zawierający prostą funkcję "Hello, World".
+Rozważmy na przykład plik Hello.py zawierający prostą funkcję "Hello, World".
 
 ![Funkcja zdefiniowana przez użytkownika w pliku Hello.py](./media/execute-python-scripts/figure4.png)
 
-Następnie tworzymy plik Hello.zip, który zawiera Hello.py:
+Następnie tworzymy plik Hello. zip, który zawiera Hello.py:
 
-![Plik pocztowy zawierający zdefiniowany przez użytkownika kod Języka Python](./media/execute-python-scripts/figure5.png)
+![Plik zip zawierający kod języka Python zdefiniowany przez użytkownika](./media/execute-python-scripts/figure5.png)
 
-Przekaż plik zip jako zestaw danych do Studio (klasyczny). Następnie utwórz i uruchom eksperyment, który używa kodu Języka Python w pliku Hello.zip, dołączając go do trzeciego portu wejściowego modułu **Wykonywanie skryptu Języka Python,** jak pokazano na poniższej ilustracji.
+Przekaż plik zip jako zestaw danych do programu Studio (klasyczny). Następnie utwórz i uruchom eksperyment, który używa kodu Python w pliku Hello. zip przez dołączenie go do trzeciego portu wejściowego modułu **skryptu języka Python** , jak pokazano na poniższej ilustracji.
 
-![Przykładowy eksperyment z Hello.zip jako dane wejściowe do modułu Wykonywanie skryptu Języka Python](./media/execute-python-scripts/figure6a.png)
+![Przykładowy eksperyment z Hello. zip jako dane wejściowe do modułu skryptu języka Python](./media/execute-python-scripts/figure6a.png)
 
-![Zdefiniowany przez użytkownika kod Pythona przesłany jako plik zip](./media/execute-python-scripts/figure6b.png)
+![Zdefiniowany przez użytkownika kod języka Python przekazany jako plik zip](./media/execute-python-scripts/figure6b.png)
 
-Dane wyjściowe modułu pokazują, że plik zip został `print_hello` rozpakowany i że funkcja została uruchomiony.
+Dane wyjściowe modułu pokazują, że plik zip został usunięty z pakietu i że funkcja `print_hello` została uruchomiona.
 
-![Wyjście modułu z funkcją zdefiniowaną przez użytkownika](./media/execute-python-scripts/figure7.png)
+![Dane wyjściowe modułu pokazujące funkcję zdefiniowaną przez użytkownika](./media/execute-python-scripts/figure7.png)
 
-## <a name="accessing-azure-storage-blobs"></a>Uzyskiwanie dostępu do obiektów blob usługi Azure Storage
+## <a name="accessing-azure-storage-blobs"></a>Uzyskiwanie dostępu do obiektów BLOB usługi Azure Storage
 
-Możesz uzyskać dostęp do danych przechowywanych na koncie usługi Azure Blob Storage, wykonując następujące kroki:
+Możesz uzyskać dostęp do danych przechowywanych na koncie usługi Azure Blob Storage, wykonując następujące czynności:
 
-1. Pobierz [pakiet usługi Azure Blob Storage dla języka Python](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) lokalnie.
-1. Przekaż plik zip do obszaru roboczego Studio (klasycznego) jako zestaw danych.
-1. Tworzenie obiektu BlobService za pomocą`protocol='http'`
+1. Pobierz [pakiet BLOB Storage platformy Azure dla języka Python](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) lokalnie.
+1. Przekaż plik zip do obszaru roboczego programu Studio (klasycznego) jako zestaw danych.
+1. Utwórz obiekt BlobService za pomocą`protocol='http'`
 
 ```
 from azure.storage.blob import BlockBlobService
@@ -106,80 +106,80 @@ from azure.storage.blob import BlockBlobService
 block_blob_service = BlockBlobService(account_name='account_name', account_key='account_key', protocol='http')
 ```
 
-1. Wyłącz **bezpieczne przesyłanie wymagane** na karcie Ustawienia **konfiguracji** magazynu
+1. Na karcie Ustawienia **konfiguracji** magazynu wymagane jest wyłączenie **bezpiecznego transferu**
 
-![Wyłącz bezpieczne transfery wymagane w witrynie Azure portal](./media/execute-python-scripts/disable-secure-transfer-required.png)
+![Należy wyłączyć bezpieczny transfer wymagany w Azure Portal](./media/execute-python-scripts/disable-secure-transfer-required.png)
 
-## <a name="operationalizing-python-scripts"></a>Operacjonalizacja skryptów języka Python
+## <a name="operationalizing-python-scripts"></a>Operacjonalizowania skrypty języka Python
 
-Wszelkie [moduły skryptu wykonywania języka Python][execute-python-script] używane w eksperymencie oceniania są wywoływane po opublikowaniu jako usługa sieci web. Na przykład na poniższej ilustracji przedstawiono eksperyment oceniania, który zawiera kod do oceny pojedynczego wyrażenia Języka Python.
+Wszystkie moduły [uruchamiania skryptów języka Python][execute-python-script] używane w eksperymentie oceniania są wywoływane, gdy są publikowane jako usługa sieci Web. Na przykład na poniższym obrazie przedstawiono eksperyment oceniania zawierający kod służący do oceny pojedynczego wyrażenia w języku Python.
 
-![Obszar roboczy studio dla usługi sieci web](./media/execute-python-scripts/figure3a.png)
+![Obszar roboczy programu Studio dla usługi sieci Web](./media/execute-python-scripts/figure3a.png)
 
-![Wyrażenie Python Pandas](./media/execute-python-scripts/python-script-with-python-pandas.png)
+![Wyrażenie Pandas języka Python](./media/execute-python-scripts/python-script-with-python-pandas.png)
 
-Usługa sieci web utworzona na podstawie tego eksperymentu podejmie następujące działania:
+Usługa sieci Web utworzona na podstawie tego eksperymentu zajmie następujące działania:
 
-1. Weź wyrażenie Języka Python jako dane wejściowe (jako ciąg)
-1. Wyślij wyrażenie Pythona do interpretera języka Python
+1. Wypełnij wyrażenie języka Python jako dane wejściowe (jako ciąg)
+1. Wyślij wyrażenie języka Python do interpretera języka Python
 1. Zwraca tabelę zawierającą zarówno wyrażenie, jak i obliczony wynik.
 
 ## <a name="working-with-visualizations"></a><a id="visualizations"></a>Praca z wizualizacjami
 
-Wykresy utworzone za pomocą MatplotLib mogą być zwracane przez [skrypt Wykonywania języka Python][execute-python-script]. Jednak wykresy nie są automatycznie przekierowywane do obrazów, jak są one podczas korzystania z języka R. Dlatego użytkownik musi jawnie zapisać wszelkie wykresy w plikach PNG.
+Wykresy utworzone za pomocą MatplotLib mogą być zwracane przez [skrypt wykonywania skryptu języka Python][execute-python-script]. Jednak wykresy nie są automatycznie przekierowywane do obrazów, ponieważ są używane w języku R. Dlatego użytkownik musi jawnie zapisać wszystkie wykresy w plikach PNG.
 
-Aby wygenerować obrazy z matplotLib, należy wykonać następujące kroki:
+Aby generować obrazy z MatplotLib, należy wykonać następujące czynności:
 
-1. Przełącz wewnętrznej bazy danych na "AGG" z domyślnego modułu renderowania opartego na Qt.
-1. Utwórz nowy obiekt rysunkowy.
-1. Pobierz oś i wygeneruj do niej wszystkie wykresy.
+1. Przełącz zaplecze do "AGG" z domyślnego modułu renderowania opartego na przełączniku QT.
+1. Utwórz nowy obiekt rysunku.
+1. Pobierz oś i Wygeneruj na niej wszystkie wykresy.
 1. Zapisz rysunek w pliku PNG.
 
-Ten proces jest zilustrowany na poniższych obrazach, które tworzą macierz wydruku punktowego przy użyciu funkcji scatter_matrix w pandach.
+Ten proces jest przedstawiony w poniższych obrazach, które tworzą macierz punktową, przy użyciu funkcji scatter_matrix w Pandas.
 
-![Kod do zapisywania figur MatplotLib na obrazach](./media/execute-python-scripts/figure-v1-8.png)
+![Kod umożliwiający zapisanie MatplotLib rysunków do obrazów](./media/execute-python-scripts/figure-v1-8.png)
 
-![Kliknij wizualizację modułu Wykonywanie skryptu Pythona, aby wyświetlić rysunki](./media/execute-python-scripts/figure-v2-9a.png)
+![Kliknij pozycję Wizualizuj w module wykonaj skrypt języka Python, aby wyświetlić dane](./media/execute-python-scripts/figure-v2-9a.png)
 
-![Wizualizacja wykresów dla przykładowego eksperymentu przy użyciu kodu języka Python](./media/execute-python-scripts/figure-v2-9b.png)
+![Wizualizacja wykresów na potrzeby przykładowego eksperymentu przy użyciu kodu języka Python](./media/execute-python-scripts/figure-v2-9b.png)
 
-Możliwe jest zwrócenie wielu liczb, zapisując je na różnych obrazach. Studio (klasyczne) środowisko uruchomieniowe pobiera wszystkie obrazy i łączy je w celu wizualizacji.
+Istnieje możliwość zwrócenia wielu cyfr przez zapisanie ich w różnych obrazach. Studio (klasyczne) środowisko uruchomieniowe pobiera wszystkie obrazy i łączy je w celu wizualizacji.
 
-## <a name="advanced-examples"></a>Przykłady zaawansowane
+## <a name="advanced-examples"></a>Zaawansowane przykłady
 
-Środowisko Anaconda zainstalowane w Studio (klasyczny) zawiera typowe pakiety, takie jak NumPy, SciPy i Scikits-Learn. Te pakiety mogą być skutecznie używane do przetwarzania danych w potoku uczenia maszynowego.
+Środowisko Anaconda zainstalowane w programie Studio (klasyczne) zawiera wspólne pakiety, takie jak NumPy, SciPy i Scikits — uczenie się. Te pakiety mogą być efektywnie używane do przetwarzania danych w potoku uczenia maszynowego.
 
-Na przykład poniższy eksperyment i skrypt ilustrują użycie uczniów zespołu w Scikits-Learn obliczyć wyniki ważności funkcji dla zestawu danych. Wyniki mogą być używane do wykonywania nadzorowanego wyboru funkcji przed wprowadzeniem do innego modelu.
+Na przykład następujące eksperymenty i skrypty ilustrują korzystanie z wieloskładnikowych informacji w Scikits — Dowiedz się więcej na temat oceny ważności funkcji obliczeniowej dla zestawu danych. Wyniki mogą być używane do przeprowadzania nadzorowanego wyboru funkcji przed wprowadzeniem ich do innego modelu.
 
-Oto funkcja Pythona używana do obliczania wyników ważności i porządkowania funkcji na podstawie wyników:
+Oto funkcja języka Python użyta do obliczenia oceny ważności i uporządkowania funkcji na podstawie wyników:
 
-![Funkcja klasyfikowania obiektów według wyników](./media/execute-python-scripts/figure8.png)
+![Funkcja do rangi funkcji według wyników](./media/execute-python-scripts/figure8.png)
 
-Poniższy eksperyment następnie oblicza i zwraca wyniki ważności funkcji w zestawie danych "Pima Indian Diabetes" w usłudze Azure Machine Learning Studio (klasyczny):
+Poniższy eksperyment następnie obliczy i zwróci wyniki ważności funkcji w zestawie danych "Pima indyjski cukrzycą" w Azure Machine Learning Studio (klasyczny):
 
-![Eksperymentuj, aby uszeregować funkcje w zestawie danych Pima Indian Diabetes przy użyciu języka Python](./media/execute-python-scripts/figure9a.png)
+![Eksperymentowanie z funkcjami rangi w Pima indyjskich zestawów danych cukrzycą przy użyciu języka Python](./media/execute-python-scripts/figure9a.png)
 
-![Wizualizacja danych wyjściowych modułu Wykonywanie skryptu Pythona](./media/execute-python-scripts/figure9b.png)
+![Wizualizacja danych wyjściowych modułu skryptu języka Python](./media/execute-python-scripts/figure9b.png)
 
 ## <a name="limitations"></a>Ograniczenia
 
-Moduł [Wykonywanie skryptu języka Python][execute-python-script] ma obecnie następujące ograniczenia:
+Moduł [wykonywania skryptu języka Python][execute-python-script] ma obecnie następujące ograniczenia:
 
-### <a name="sandboxed-execution"></a>Wykonanie w trybie piaskownicy
+### <a name="sandboxed-execution"></a>Wykonywanie w trybie piaskownicy
 
-Środowisko wykonawcze języka Python jest obecnie piaskownicy i nie zezwala na dostęp do sieci lub lokalnego systemu plików w sposób trwały. Wszystkie pliki zapisane lokalnie są izolowane i usuwane po zakończeniu modułu. Kod języka Python nie może uzyskać dostępu do większości katalogów na komputerze, na który działa, wyjątek jest bieżący katalog i jego podkatalogów.
+Środowisko uruchomieniowe języka Python jest obecnie w piaskownicy i nie zezwala na dostęp do sieci lub lokalnego systemu plików w sposób trwały. Wszystkie pliki zapisane lokalnie są izolowane i usuwane po zakończeniu działania modułu. Kod języka Python nie może uzyskać dostępu do większości katalogów na komputerze, na którym jest ono uruchomione, wyjątek w bieżącym katalogu i jego podkatalogach.
 
-### <a name="lack-of-sophisticated-development-and-debugging-support"></a>Brak zaawansowanego wsparcia w zakresie rozwoju i debugowania
+### <a name="lack-of-sophisticated-development-and-debugging-support"></a>Brak zaawansowanej obsługi programowania i debugowania
 
-Moduł Języka Python obecnie nie obsługuje funkcji IDE, takich jak intellisense i debugowania. Ponadto jeśli moduł ulegnie awarii w czasie wykonywania, dostępny jest pełny śledzenia stosu języka Python. Ale musi być oglądany w dzienniku wyjściowym dla modułu. Obecnie zaleca się tworzenie i debugowanie skryptów języka Python w środowisku takim jak IPython, a następnie importowanie kodu do modułu.
+Moduł Python obecnie nie obsługuje funkcji środowiska IDE, takich jak IntelliSense i debugowanie. Ponadto, jeśli moduł kończy się niepowodzeniem w czasie wykonywania, dostępny jest pełny ślad stosu języka Python. Ale musi być on wyświetlony w dzienniku wyjściowym modułu. Obecnie zalecamy tworzenie i debugowanie skryptów języka Python w środowisku, takim jak IPython, a następnie zaimportowanie kodu do modułu.
 
-### <a name="single-data-frame-output"></a>Wyjście z pojedynczą ramką danych
+### <a name="single-data-frame-output"></a>Dane wyjściowe pojedynczej ramki danych
 
-Punkt wejścia języka Python jest dozwolone tylko do zwrócenia pojedynczej ramki danych jako dane wyjściowe. Obecnie nie jest możliwe zwracanie dowolnych obiektów języka Python, takich jak wyszkolone modele bezpośrednio z powrotem do środowiska wykonawczego Studio (klasycznego). Podobnie jak [Wykonanie skryptu R][execute-r-script], który ma takie samo ograniczenie, jest możliwe w wielu przypadkach pikle obiektów do tablicy bajtowej, a następnie zwrócić, że wewnątrz ramki danych.
+Punkt wejścia języka Python może zwrócić pojedynczą ramkę danych jako dane wyjściowe. Obecnie nie jest możliwe zwracanie dowolnych obiektów języka Python, takich jak przeszkolone modele, bezpośrednio z powrotem do środowiska uruchomieniowego Studio (klasycznego). Podobnie jak w przypadku [wykonywania skryptu języka R][execute-r-script], który ma takie samo ograniczenie, można w wielu przypadkach pakietu pickle obiekty do tablicy bajtów, a następnie zwrócić ją wewnątrz ramki danych.
 
-### <a name="inability-to-customize-python-installation"></a>Niemożność dostosowania instalacji języka Python
+### <a name="inability-to-customize-python-installation"></a>Brak możliwości dostosowania instalacji języka Python
 
-Obecnie jedynym sposobem na dodanie niestandardowych modułów Pythona jest opisany wcześniej mechanizm plików zip. Chociaż jest to możliwe w przypadku małych modułów, jest to uciążliwe dla dużych modułów (zwłaszcza modułów z natywnymi bibliotekami DLL) lub dużej liczby modułów.
+Obecnie jedynym sposobem dodawania niestandardowych modułów języka Python jest za pośrednictwem opisanego wcześniej mechanizmu pliku zip. Chociaż jest to możliwe w przypadku małych modułów, jest to bardzo skomplikowane w przypadku dużych modułów (zwłaszcza modułów z natywnymi bibliotekami DLL) lub z dużą liczbą modułów.
 
 ## <a name="next-steps"></a>Następne kroki
 

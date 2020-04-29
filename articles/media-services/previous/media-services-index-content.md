@@ -1,6 +1,6 @@
 ---
-title: Indeksowanie plików multimediów za pomocą programu Azure Media Indexer
-description: Usługa Azure Media Indexer umożliwia wyszukiwanie zawartości plików multimedialnych i generowanie transkrypcji pełnotekstowej dla podpisów kodowych i słów kluczowych. W tym temacie pokazano, jak używać indeksatora multimediów.
+title: Indeksowanie plików multimedialnych za pomocą Azure Media Indexer
+description: Azure Media Indexer umożliwia przeszukiwanie zawartości plików multimedialnych oraz generowanie pełnotekstowego transkrypcji napisów i słów kluczowych. W tym temacie pokazano, jak używać Media Indexer.
 services: media-services
 documentationcenter: ''
 author: Asolanki
@@ -16,41 +16,41 @@ ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 7ccc2d5956b44a8cd85f19e0905539c32f58bc5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78164002"
 ---
-# <a name="indexing-media-files-with-azure-media-indexer"></a>Indeksowanie plików multimediów za pomocą programu Azure Media Indexer
+# <a name="indexing-media-files-with-azure-media-indexer"></a>Indeksowanie plików multimedialnych za pomocą Azure Media Indexer
 
 > [!NOTE]
-> Procesor multimediów **indeksu mediów azure** zostanie wycofany. Aby uzyskać daty wycofania, zobacz ten temat [starszych składników.](legacy-components.md) [Indeksator wideo usługi Azure Media Services](https://docs.microsoft.com/azure/media-services/video-indexer/) zastępuje ten starszy procesor multimediów. Aby uzyskać więcej informacji, zobacz [Migrowanie z indeksatora multimediów azure i indeksatora multimediów azure 2 do indeksatora wideo usługi Azure Media Services.](migrate-indexer-v1-v2.md)
+> Procesor multimediów **Azure Media Indexer** zostanie wycofany. Aby uzyskać daty wycofania, zobacz temat ten [starszy składnik](legacy-components.md) . [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) zastępuje ten starszy procesor nośnika. Aby uzyskać więcej informacji, zobacz [Migrowanie z Azure Media Indexer i Azure Media Indexer 2 do Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
-Usługa Azure Media Indexer umożliwia wyszukiwanie zawartości plików multimedialnych i generowanie transkrypcji pełnotekstowej dla podpisów kodowych i słów kluczowych. W partii można przetworzyć jeden plik multimedialny lub wiele plików multimedialnych.  
+Azure Media Indexer umożliwia przeszukiwanie zawartości plików multimedialnych oraz generowanie pełnotekstowego transkrypcji napisów i słów kluczowych. W partii można przetwarzać jeden plik multimedialny lub kilka plików multimedialnych.  
 
-Podczas indeksowania zawartości należy używać plików multimedialnych, które mają wyraźną mowę (bez muzyki w tle, szumów, efektów lub syc mikrofonu). Oto kilka przykładów odpowiedniej zawartości: nagrane spotkania, wykłady lub prezentacje. Następująca zawartość może nie być odpowiednia do indeksowania: filmy, programy telewizyjne, wszystko z mieszanym dźwiękiem i efektami dźwiękowymi, źle nagrana zawartość z szumem tła (syk).
+Podczas indeksowania zawartości upewnij się, że używasz plików multimedialnych z jasną mową (bez muzyki w tle, szumu, efektów lub HISS mikrofonu). Oto kilka przykładów odpowiedniej zawartości: zarejestrowane spotkania, wykłady lub prezentacje. Następująca zawartość może nie być odpowiednia do indeksowania: filmy, programy telewizyjne, wszystko z mieszaniem dźwięku i dYwiękiem, źle zarejestrowano zawartość z hałasem w tle (HISS).
 
 Zadanie indeksowania może generować następujące dane wyjściowe:
 
-* Pliki podpisów kodowane w następujących formatach: **TTML**i **WebVTT**.
+* Pliki napisów kodowanych w następujących formatach: **ttml**i **WebVTT**.
   
-    Pliki z podpisami kodowymi zawierają znacznik o nazwie Rozpoznawalność, który ocenia zadanie indeksowania na podstawie rozpoznawalności mowy w źródłowym filmie wideo.  Można użyć wartości rozpoznawalność do ekranu plików wyjściowych dla użyteczności. Niski wynik oznaczałby słabe wyniki indeksowania ze względu na jakość dźwięku.
+    Pliki napisów kodowanych zawierają tag o nazwie rozpoznawalność, który ocenia zadanie indeksowania w zależności od tego, jak rozpoznawalna jest mowa w źródłowym wideo.  Można użyć wartości rozpoznawalność do wygenerowania plików wyjściowych na ekranie w celu zapewnienia użyteczności. Niska ocena oznacza niską wyniki indeksowania z powodu jakości audio.
 * Plik słów kluczowych (XML).
 
-W tym artykule pokazano, jak utworzyć zadania indeksowania do **indeksowania zasobu** i **indeksowania wielu plików**.
+W tym artykule przedstawiono sposób tworzenia zadań indeksowania do **indeksowania elementu zawartości** i **indeksowania wielu plików**.
 
-## <a name="using-configuration-and-manifest-files-for-indexing-tasks"></a>Używanie plików konfiguracyjnych i manifestów do indeksowania zadań
-Można określić więcej szczegółów dla zadań indeksowania przy użyciu konfiguracji zadania. Na przykład można określić, które metadane mają być używane dla pliku multimedialnego. Te metadane są używane przez aparat języka, aby rozwinąć jego słownictwa i znacznie poprawia dokładność rozpoznawania mowy.  Można również określić żądane pliki wyjściowe.
+## <a name="using-configuration-and-manifest-files-for-indexing-tasks"></a>Korzystanie z plików konfiguracji i manifestów dla zadań indeksowania
+Można określić więcej szczegółów dotyczących zadań indeksowania przy użyciu konfiguracji zadania. Można na przykład określić, które metadane mają być używane dla pliku multimedialnego. Te metadane są używane przez Aparat języka do rozwinięcia słownika i znacznie poprawiają dokładność rozpoznawania mowy.  Można również określić żądane pliki wyjściowe.
 
-Można również przetwarzać wiele plików multimedialnych jednocześnie za pomocą pliku manifestu.
+Można również przetwarzać wiele plików multimedialnych jednocześnie przy użyciu pliku manifestu.
 
-Aby uzyskać więcej informacji, zobacz [Predefiniowane ustawienia zadań dla indeksatora multimediów platformy Azure](https://msdn.microsoft.com/library/dn783454.aspx).
+Aby uzyskać więcej informacji, zobacz [Ustawienia wstępne zadania dla Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
-## <a name="index-an-asset"></a>Indeksować środek trwały
-Poniższa metoda przekazuje plik multimedialny jako zasób i tworzy zadanie indeksowania zasobu.
+## <a name="index-an-asset"></a>Indeksowanie elementu zawartości
+Poniższa metoda przekazuje plik multimedialny jako element zawartości i tworzy zadanie indeksowania elementu zawartości.
 
-Jeśli nie określono pliku konfiguracyjnego, plik multimedialny jest indeksowany ze wszystkimi ustawieniami domyślnymi.
+Jeśli plik konfiguracji nie zostanie określony, plik multimedialny jest indeksowany ze wszystkimi ustawieniami domyślnymi.
 
 ```csharp
     static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
@@ -143,22 +143,22 @@ Jeśli nie określono pliku konfiguracyjnego, plik multimedialny jest indeksowan
 
 <!-- __ -->
 ### <a name="output-files"></a><a id="output_files"></a>Pliki wyjściowe
-Domyślnie zadanie indeksowania generuje następujące pliki wyjściowe. Pliki są przechowywane w pierwszym zasób wyjściowy.
+Domyślnie zadanie indeksowania generuje następujące pliki wyjściowe. Pliki są przechowywane w pierwszym elemencie zawartości wyjściowej.
 
-Gdy istnieje więcej niż jeden plik nośnika wejściowego, indeksator generuje plik manifestu dla wyjść zadania o nazwie "JobResult.txt". Dla każdego pliku nośnika wejściowego wynikowe pliki TTML, WebVTT i słowa kluczowe są kolejno numerowane i nazwane przy użyciu "Alias".
+Jeśli istnieje więcej niż jeden plik nośnika wejściowego, indeksator generuje plik manifestu dla danych wyjściowych zadania o nazwie "wynik zadania. txt". Dla każdego pliku nośnika wejściowego pliki TTML, WebVTT i słowo kluczowe są numerowane sekwencyjnie i nazwane przy użyciu "alias".
 
 | Nazwa pliku | Opis |
 | --- | --- |
-| **InputFileName.ttml**<br/>**InputFileName.vtt** |Pliki podpisów kodowych (CC) w formatach TTML i WebVTT.<br/><br/>Mogą być używane do udostępnienia plików audio i wideo osobom z niepełnosprawnością słuchu.<br/><br/>Pliki podpisów kodowane zawierają znacznik o nazwie <b>Rozpoznawalność,</b> który ocenia zadanie indeksowania na podstawie rozpoznawalności mowy w źródłowym filmie wideo.  Można użyć wartości <b>rozpoznawalność</b> do ekranu plików wyjściowych dla użyteczności. Niski wynik oznaczałby słabe wyniki indeksowania ze względu na jakość dźwięku. |
-| **InputFileName.kw.xml<br/>InputFileName.info** |Pliki słów kluczowych i informacji. <br/><br/>Plik słowa kluczowego to plik XML zawierający słowa kluczowe wyodrębnione z zawartości mowy, z informacjami o częstotliwości i przesunięciu. <br/><br/>Plik informacji jest plikiem w postaci zwykłego tekstu, który zawiera szczegółowe informacje o każdym rozpoznanym terminie. Pierwsza linia jest szczególna i zawiera wynik rozpoznawalności. Każdy kolejny wiersz jest oddzieloną kartą listą następujących danych: czas rozpoczęcia, czas zakończenia, słowo/fraza, pewność siebie. Czasy podane są w sekundach, a pewność siebie jest podana jako liczba od 0-1. <br/><br/>Przykładowa linia: "1,20 1,45 słowa 0,67" <br/><br/>Pliki te mogą być używane do wielu celów, takich jak, do przeprowadzania analizy mowy lub narażone na wyszukiwarki, takie jak Bing, Google lub Microsoft SharePoint, aby pliki multimedialne były bardziej wykrywalne, a nawet używane do wyświetlania trafniejszych reklam. |
-| **JobResult.txt** |Manifest wyjściowy, obecny tylko podczas indeksowania wielu plików, zawierający następujące informacje:<br/><br/><table border="1"><tr><th>Plik wejściowy</th><th>Alias</th><th>MediaLength (właso)</th><th>Błąd</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
+| **InputFileName. ttml**<br/>**InputFileName. VTT** |Pliki napisów (DW) w formatach TTML i WebVTT.<br/><br/>Mogą one służyć do udostępniania plików audio i wideo osobom niepełnosprawnym.<br/><br/>Pliki napisów kodowanych zawierają tag o nazwie <b>rozpoznawalny</b> , który ocenia zadanie indeksowania w zależności od tego, jak rozpoznawalna jest mowa w źródłowym wideo.  Można użyć wartości <b>rozpoznawalność</b> do wygenerowania plików wyjściowych na ekranie w celu zapewnienia użyteczności. Niska ocena oznacza niską wyniki indeksowania z powodu jakości audio. |
+| **InputFileName. kW. XML<br/>InputFileName.info** |Pliki słów kluczowych i informacji. <br/><br/>Plik słów kluczowych to plik XML, który zawiera słowa kluczowe wyodrębnione z zawartości mowy i informacje o częstotliwości i przesunięciu. <br/><br/>Plik info to zwykły plik tekstowy, który zawiera szczegółowe informacje dotyczące każdego rozpoznanego terminu. Pierwszy wiersz jest specjalny i zawiera wynik rozpoznania. Każdy kolejny wiersz jest rozdzielaną tabulatorami listą następujących danych: czas rozpoczęcia, czas zakończenia, słowo/fraza, pewność. Czasy są wyrażone w sekundach, a poziom pewności jest podawany jako liczba z przedziału od 0-1. <br/><br/>Przykładowy wiersz: "1,20 1,45 Word 0,67" <br/><br/>Te pliki mogą być używane w wielu celach, na przykład w celu przeprowadzenia analizy mowy lub udostępnienia aparatów wyszukiwania, takich jak Bing, Google lub Microsoft SharePoint, aby pliki multimedialne mogły być bardziej wykrywalne lub nawet wykorzystane do dostarczenia bardziej przydatnych reklam. |
+| **Wynik zadania. txt** |Manifest wyjściowy, obecny tylko podczas indeksowania wielu plików, zawierający następujące informacje:<br/><br/><table border="1"><tr><th>Plik_wejściowy</th><th>Alias</th><th>MediaLength</th><th>Error</th></tr><tr><td>a. mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b. mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c. mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
 
-Jeśli nie wszystkie wejściowe pliki multimedialne są indeksowane pomyślnie, zadanie indeksowania kończy się niepowodzeniem z kodem błędu 4000. Aby uzyskać więcej informacji, zobacz [Kody błędów](#error_codes).
+Jeśli nie wszystkie pliki multimediów wejściowych są indeksowane pomyślnie, zadanie indeksowania kończy się niepowodzeniem z kodem błędu 4000. Aby uzyskać więcej informacji, zobacz [kody błędów](#error_codes).
 
 ## <a name="index-multiple-files"></a>Indeksowanie wielu plików
-Poniższa metoda przekazuje wiele plików multimedialnych jako zasób i tworzy zadanie indeksowania wszystkich tych plików w partii.
+Poniższa metoda przekazuje wiele plików multimedialnych jako element zawartości i tworzy zadanie indeksowania wszystkich plików w partii.
 
-Tworzony jest plik manifestu z rozszerzeniem ".lst" i przesyłany do zasobu. Plik manifestu zawiera listę wszystkich plików zasobów. Aby uzyskać więcej informacji, zobacz [Predefiniowane ustawienia zadań dla indeksatora multimediów platformy Azure](https://msdn.microsoft.com/library/dn783454.aspx).
+Plik manifestu z rozszerzeniem ". lst" jest tworzony i przekazywany do elementu zawartości. Plik manifestu zawiera listę wszystkich plików zasobów. Aby uzyskać więcej informacji, zobacz [Ustawienia wstępne zadania dla Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
@@ -235,38 +235,38 @@ Tworzony jest plik manifestu z rozszerzeniem ".lst" i przesyłany do zasobu. Pli
     }
 ```
 
-### <a name="partially-succeeded-job"></a>Zadanie częściowo powiodło się
-Jeśli nie wszystkie wejściowe pliki multimedialne są indeksowane pomyślnie, zadanie indeksowania zakończy się niepowodzeniem z kodem błędu 4000. Aby uzyskać więcej informacji, zobacz [Kody błędów](#error_codes).
+### <a name="partially-succeeded-job"></a>Zadanie częściowo zakończone powodzeniem
+Jeśli nie wszystkie pliki multimediów wejściowych są indeksowane pomyślnie, zadanie indeksowania zakończy się niepowodzeniem z kodem błędu 4000. Aby uzyskać więcej informacji, zobacz [kody błędów](#error_codes).
 
-Generowane są te same dane wyjściowe (jako zadania, które powiodły się). Można odwołać się do pliku manifestu wyjściowego, aby dowiedzieć się, które pliki wejściowe nie powiodły się, zgodnie z wartościami kolumny Błąd. W przypadku plików wejściowych, które nie powiodły się, wynikowe pliki TTML, WebVTT i słowa kluczoweego NIE zostaną wygenerowane.
+Generowane są te same dane wyjściowe (zgodnie z zakończonymi pomyślnie zadaniami). Można odwołać się do pliku manifestu wyjściowego, aby dowiedzieć się, które pliki wejściowe nie powiodły się, zgodnie z wartościami kolumny błędu. W przypadku plików wejściowych, które nie powiodły się, powstałe pliki TTML, WebVTT i Keywords nie będą generowane.
 
-### <a name="task-preset-for-azure-media-indexer"></a><a id="preset"></a>Predefiniowane ustawienia zadań dla indeksatora multimediów platformy Azure
-Przetwarzanie z usługi Azure Media Indexer można dostosować, zapewniając opcjonalne zadanie ustawione wraz z zadaniem.  Poniżej opisano format tej konfiguracji xml.
+### <a name="task-preset-for-azure-media-indexer"></a><a id="preset"></a>Ustawienia wstępne zadania dla Azure Media Indexer
+Przetwarzanie z Azure Media Indexer może być dostosowane przez udostępnienie opcjonalnego ustawienia wstępnego zadania obok zadania.  Poniżej opisano Format tego pliku XML konfiguracji.
 
 | Nazwa | Wymagane | Opis |
 | --- | --- | --- |
-| **Wejście** |false |Pliki zasobów, które chcesz indeksować.</p><p>Usługa Azure Media Indexer obsługuje następujące formaty plików multimedialnych: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Nazwę pliku można określić w **atrybucie nazwa** lub **lista** elementu **wejściowego** (jak pokazano poniżej). Jeśli nie określisz, który plik zasobu ma być indeksowane, plik podstawowy jest pobierany. Jeśli nie ustawiono żadnego pliku zasobu podstawowego, pierwszy plik w zasobie wejściowym jest indeksowany.</p><p>Aby jawnie określić nazwę pliku zasobu, wykonaj następujące polecenie:<br/>`<input name="TestFile.wmv">`<br/><br/>Można również indeksować wiele plików zasobów jednocześnie (maksymalnie 10 plików). W tym celu:<br/><br/><ol class="ordered"><li><p>Utwórz plik tekstowy (plik manifestu) i nadaj mu rozszerzenie lst. </p></li><li><p>Dodaj listę wszystkich nazw plików zasobów w zasobie wejściowym do tego pliku manifestu. </p></li><li><p>Dodaj (przekaż) plik manifestu do zasobu.  </p></li><li><p>Określ nazwę pliku manifestu w atrybucie listy danych wejściowych.<br/>`<input list="input.lst">`</li></ol><br/><br/>Uwaga: Jeśli dodasz więcej niż 10 plików do pliku manifestu, zadanie indeksowania zakończy się niepowodzeniem z kodem błędu 2006. |
-| **Metadanych** |false |Metadane dla określonych plików zasobów używanych do adaptacji słownictwa.  Przydatne do przygotowania indeksatora do rozpoznawania niestandardowych słów słownictwa, takich jak rzeczowniki.<br/>`<metadata key="..." value="..."/>` <br/><br/>Można podać **wartości** wstępnie zdefiniowanych **kluczy**. Obecnie obsługiwane są następujące klucze:<br/><br/>"title" i "description" - używane do adaptacji słownictwa, aby dostosować model języka do swojej pracy i poprawić dokładność rozpoznawania mowy.  Wartości seed Wyszukiwania internetowe, aby znaleźć kontekstowo istotne dokumenty tekstowe, przy użyciu zawartości, aby rozszerzyć słownika wewnętrznego na czas trwania zadania indeksowania.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **Funkcje** <br/><br/> Dodano w wersji 1.2. Obecnie jedyną obsługiwaną funkcją jest rozpoznawanie mowy ("ASR"). |false |Funkcja rozpoznawania mowy ma następujące klawisze ustawień:<table><tr><th><p>Klucz</p></th>        <th><p>Opis</p></th><th><p>Przykładowa wartość</p></th></tr><tr><td><p>Język</p></td><td><p>Język naturalny, który ma być rozpoznawany w pliku multimedialnym.</p></td><td><p>Angielski, hiszpański</p></td></tr><tr><td><p>PodpisFormaty</p></td><td><p>oddzielona średnikami lista żądanych formatów podpisów wyjściowych (jeśli istnieje)</p></td><td><p>ttml;webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>To prawda; False</p></td></tr><tr><td><p>Generowanie słów</p></td><td><p>Flaga logiczna określająca, czy plik XML słowa kluczowego jest wymagany.</p></td><td><p>To prawda; False. </p></td></tr><tr><td><p>SiłaFullCaption</p></td><td><p>Flaga logiczna określająca, czy mają być wymuszane pełne podpisy (niezależnie od poziomu ufności).  </p><p>Wartość domyślna jest false, w którym to przypadku wyrazy i frazy, które mają mniej niż 50% poziomu ufności są pomijane w końcowych wyjściach podpisu i zastępowane elipsami ("...").  Elipsy są przydatne do kontroli jakości podpisów i inspekcji.</p></td><td><p>To prawda; False. </p></td></tr></table> |
+| **klawiatur** |fałsz |Pliki zasobów, które mają być indeksowane.</p><p>Azure Media Indexer obsługuje następujące formaty plików multimedialnych: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Można określić nazwy plików w atrybucie **nazwy** lub **listy** elementu **wejściowego** (jak pokazano poniżej). Jeśli nie określisz pliku zasobów do indeksowania, plik podstawowy jest wybierany. Jeśli nie ustawiono podstawowego pliku zasobów, pierwszy plik w wejściowym elemencie zawartości jest indeksowany.</p><p>Aby jawnie określić nazwę pliku zasobu, wykonaj następujące czynności:<br/>`<input name="TestFile.wmv">`<br/><br/>Można również indeksować wiele plików zasobów jednocześnie (do 10 plików). W tym celu:<br/><br/><ol class="ordered"><li><p>Utwórz plik tekstowy (plik manifestu) i nadaj mu rozszerzenie. lst. </p></li><li><p>Dodaj listę wszystkich nazw plików zasobów w danych wejściowych do tego pliku manifestu. </p></li><li><p>Dodaj (Przekaż) plik manifestu do elementu zawartości.  </p></li><li><p>Określ nazwę pliku manifestu w atrybucie listy danych wejściowych.<br/>`<input list="input.lst">`</li></ol><br/><br/>Uwaga: Jeśli dodasz więcej niż 10 plików do pliku manifestu, zadanie indeksowania zakończy się niepowodzeniem z kodem błędu 2006. |
+| **metadane** |fałsz |Metadane dla określonych plików zasobów używanych na potrzeby adaptacji słownika.  Przydatne do przygotowania indeksatora do rozpoznawania niestandardowych słów słownika, takich jak poprawne rzeczowniki.<br/>`<metadata key="..." value="..."/>` <br/><br/>Można podać **wartości** wstępnie zdefiniowanych **kluczy**. Obecnie obsługiwane są następujące klucze:<br/><br/>"title" i "Description" — służy do adaptacji słownictwa w celu dostosowania modelu języka dla zadania i poprawiania dokładności rozpoznawania mowy.  Wartości odnoszą się do wyszukiwania w Internecie, aby znaleźć kontekstowe dokumenty tekstowe, przy użyciu zawartości, aby rozszerzyć wewnętrzny słownik na czas trwania zadania indeksowania.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
+| **oferowanych** <br/><br/> Dodano w wersji 1,2. Obecnie jedyną obsługiwaną funkcją jest rozpoznawanie mowy ("ASR"). |fałsz |Funkcja rozpoznawania mowy ma następujące klucze ustawień:<table><tr><th><p>Key</p></th>        <th><p>Opis</p></th><th><p>Przykładowa wartość</p></th></tr><tr><td><p>Język</p></td><td><p>Język naturalny, który ma zostać rozpoznany w pliku multimedialnym.</p></td><td><p>Angielski, hiszpański</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>rozdzielana średnikami lista formatów żądanych napisów wyjściowych (jeśli istnieją)</p></td><td><p>ttml; WebVTT</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>Oznacza False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Flaga logiczna określająca, czy plik XML jest wymagany.</p></td><td><p>Oznacza False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Flaga logiczna określająca, czy wymuszać pełne podpisy (niezależnie od poziomu ufności).  </p><p>Wartość domyślna to false. w takim przypadku wyrazy i frazy, które mają mniej niż 50% poziomu ufności, są pomijane na podstawie końcowych etykiet wyjściowych i zastępowane przez wielokropek ("...").  Elipsy są przydatne do kontroli jakości napisów i inspekcji.</p></td><td><p>Oznacza False. </p></td></tr></table> |
 
 ### <a name="error-codes"></a><a id="error_codes"></a>Kody błędów
-W przypadku błędu indeksator multimediów platformy Azure powinien zgłosić jeden z następujących kodów błędów:
+W przypadku błędu, Azure Media Indexer powinien zgłosić jeden z następujących kodów błędów:
 
 | Code | Nazwa | Możliwe przyczyny |
 | --- | --- | --- |
 | 2000 |Nieprawidłowa konfiguracja |Nieprawidłowa konfiguracja |
-| 2001 |Nieprawidłowe zasoby wejściowe |Brak zasobów wejściowych lub pustego zasobu. |
+| 2001 |Nieprawidłowe zasoby wejściowe |Brak zawartości wejściowej lub pustego elementu zawartości. |
 | 2002 |Nieprawidłowy manifest |Manifest jest pusty lub manifest zawiera nieprawidłowe elementy. |
 | 2003 |Nie można pobrać pliku multimedialnego |Nieprawidłowy adres URL w pliku manifestu. |
-| 2004 |Nieobsługiwał protokołu |Protokół adresu URL nośnika nie jest obsługiwany. |
-| 2005 |Nieobsługiwany typ pliku |Typ pliku nośnika wejściowego nie jest obsługiwany. |
-| 2006 |Zbyt wiele plików wejściowych |Istnieje więcej niż 10 plików w manifeście wejściowym. |
-| 3000 |Nie można zdekodować pliku multimedialnego |Nieobsługiwał kodek nośników <br/>lub<br/> Uszkodzony plik multimedialny <br/>lub<br/> Brak strumienia audio na nośnikach wejściowych. |
-| 4000 |Indeksowanie wsadowe częściowo zakończyło się pomyślnie |Niektóre wejściowe pliki multimedialne nie mogą być indeksowane. Aby uzyskać więcej informacji, zobacz <a href="#output_files">Pliki wyjściowe</a>. |
+| 2004 |Nieobsługiwany protokół |Protokół URL protokołu nie jest obsługiwany. |
+| 2005 |Nieobsługiwany typ pliku |Typ pliku nośnika danych wejściowych nie jest obsługiwany. |
+| 2006 |Zbyt wiele plików wejściowych |Manifest wejściowy zawiera więcej niż 10 plików. |
+| 3000 |Dekodowanie pliku nośnika nie powiodło się |Nieobsługiwany koder-dekoder multimediów <br/>lub<br/> Uszkodzony plik multimedialny <br/>lub<br/> Brak strumienia audio w nośniku wejściowym. |
+| 4000 |Indeksowanie wsadowe częściowo powiodło się |Nie można indeksować niektórych plików multimediów wejściowych. Aby uzyskać więcej informacji, zobacz <a href="#output_files">pliki wyjściowe</a>. |
 | inne |Błędy wewnętrzne |Skontaktuj się z zespołem pomocy technicznej. indexer@microsoft.com |
 
 ## <a name="supported-languages"></a><a id="supported_languages"></a>Obsługiwane języki
-Obecnie obsługiwane są języki angielski i hiszpański.  
+Obecnie obsługiwane są języki w języku angielskim i hiszpańskim.  
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -275,7 +275,7 @@ Obecnie obsługiwane są języki angielski i hiszpański.
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Powiązane linki
-[Omówienie usługi Azure Media Services Analytics](media-services-analytics-overview.md)
+[Omówienie Azure Media Services Analytics](media-services-analytics-overview.md)
 
-[Indeksowanie plików multimedialnych za pomocą programu Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
+[Indeksowanie plików multimedialnych z Azure Media Indexer 2 wersja zapoznawcza](media-services-process-content-with-indexer2.md)
 

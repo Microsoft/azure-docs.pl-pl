@@ -1,6 +1,6 @@
 ---
-title: Typy liveevent usługi Azure Media Services | Dokumenty firmy Microsoft
-description: W usłudze Azure Media Services zdarzenie na żywo można ustawić na kodowanie *przekazywane* lub *na żywo.* W tym artykule przedstawiono szczegółową tabelę, która porównuje typy zdarzeń na żywo.
+title: Azure Media Services typy LiveEvent | Microsoft Docs
+description: W Azure Media Services wydarzenie na żywo można ustawić na jedno *-* lub *kodowanie na żywo*. W tym artykule przedstawiono szczegółową tabelę, która porównuje typy zdarzeń na żywo.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,67 +14,67 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.openlocfilehash: a28d4d96f643c12eeb6aa542db2c6af06f4fd954
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78244640"
 ---
 # <a name="live-event-types-comparison"></a>Porównanie typów zdarzeń na żywo
 
-W usłudze Azure Media Services [zdarzenie na żywo](https://docs.microsoft.com/rest/api/media/liveevents) można ustawić na *przekazywanie* (lokalny koder na żywo wysyła strumień wielu bitrate) lub *kodowanie* na żywo (lokalny koder na żywo wysyła pojedynczy strumień szybkości transmisji bitów). 
+W Azure Media Services wydarzenie na [żywo](https://docs.microsoft.com/rest/api/media/liveevents) można ustawić na *przekazywanie* (lokalny koder na żywo wysyła strumień o wielokrotnej szybkości transmisji bitów) lub *kodowanie na żywo* (lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów). 
 
-W tym artykułach porównano funkcje typów zdarzeń na żywo.
+W tym artykule porównano funkcje typów zdarzeń na żywo.
 
 ## <a name="types-comparison"></a>Porównanie typów 
 
-W poniższej tabeli porównano funkcje typów zdarzeń na żywo. Typy są ustawiane podczas tworzenia przy użyciu [LiveEventEncodingType:](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype)
+Poniższa tabela zawiera porównanie funkcji typów zdarzeń na żywo. Typy są ustawiane podczas tworzenia przy użyciu [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType.None** — lokalny koder na żywo wysyła strumień wielu szybkości transmisji bitów. Pozyskane strumienie przechodzą przez wydarzenie na żywo bez dalszego przetwarzania. Nazywane również wydarzeniem na żywo.
-* **LiveEventEncodingType.Standard** — lokalny koder na żywo wysyła pojedynczy strumień szybkości transmisji bitów do usługi Live Event, a usługa Media Services tworzy wiele strumieni szybkości transmisji bitów. Jeśli plik danych o udziale ma rozdzielczość 720p lub wyższą, ustawienie predefiniowane **Default720p** zakoduje zestaw par 6 rozdzielczości/szybkości transmisji bitów (szczegóły można śledzić w dalszej części artykułu).
-* **LiveEventEncodingType.Premium1080p** — lokalny koder na żywo wysyła pojedynczy strumień szybkości transmisji bitów do usługi Live Event, a usługa Media Services tworzy wiele strumieni szybkości transmisji bitów. Ustawienie predefiniowane Default1080p określa wyjściowy zestaw par rozdzielczości/szybkości transmisji bitów (szczegóły znajdują się w dalszej części artykułu). 
+* **LiveEventEncodingType. None** — lokalny koder na żywo wysyła strumień o wielokrotnej szybkości transmisji bitów. Pozyskiwane strumienie są przekazywane przez wydarzenie na żywo bez dalszej obróbki. Nazywana również zdarzeniem przekazującym.
+* **LiveEventEncodingType. Standard** — lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów do zdarzenia na żywo, a Media Services tworzy wiele strumieni szybkości transmisji bitów. Jeśli kanał informacyjny udziału ma rozdzielczość 720 lub wyższą, ustawienia wstępne **Default720p** zakodują zestaw par rozdzielczości i szybkości transmisji bitów (szczegóły znajdują się w dalszej części artykułu).
+* **LiveEventEncodingType. Premium1080p** — lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów do zdarzenia na żywo, a Media Services tworzy wiele strumieni szybkości transmisji bitów. Ustawienie wstępne Default1080p określa zestaw danych wyjściowych par rozdzielczości/szybkości transmisji bitów (szczegóły znajdują się w dalszej części artykułu). 
 
-| Funkcja | Wydarzenie na żywo | Standardowe lub premium1080p wydarzenie na żywo |
+| Funkcja | Zdarzenie przekazywania na żywo | Standardowe lub Premium1080p zdarzenie na żywo |
 | --- | --- | --- |
-| Pojedyncze dane wejściowe o szybkości transmisji bitów są kodowane do wielu szybkości transmisji bitów w chmurze |Nie |Tak |
-| Maksymalna rozdzielczość wideo dla kanału wsuwu |4K (4096x2160 przy 60 klatkach na sekundę) |1080p (1920x1088 przy 30 klatkach na sekundę)|
-| Zalecane maksymalne warstwy w kanale insekcjowym|Do 12|Jeden dźwięk|
-| Maksymalna liczba warstw na wyjściu| Tak samo jak dane wejściowe|Do 6 (patrz Ustawienia systemu poniżej)|
-| Maksymalna łączna przepustowość kanału informacyjnego|60 Mb/s|Nie dotyczy|
-| Maksymalna szybkość transmisji bitów dla pojedynczej warstwy wkładu |20 Mb/s|20 Mb/s|
-| Obsługa wielu ścieżek audio w języku|Tak|Nie|
-| Obsługiwane kodeki wideo |H.264/AVC i H.265/HEVC|H.264/AVC|
-| Obsługiwane kodeki wideo wyjściowe|Tak samo jak dane wejściowe|H.264/AVC|
-| Obsługiwana głębia bitowa wideo, wejście i wyjście|Do 10-bitowe z HDR 10/HLG|8-bitowy|
-| Obsługiwane kodeki audio wejściowe|AAC-LC, HE-AAC v1, HE-AAC v2|AAC-LC, HE-AAC v1, HE-AAC v2|
-| Obsługiwane kodeki audio wyjściowe|Tak samo jak dane wejściowe|AAC-LC|
-| Maksymalna rozdzielczość wideo wyjściowego wideo|Tak samo jak dane wejściowe|Standard - 720p, Premium1080p - 1080p|
-| Maksymalna liczba klatek na sekundę wejściowego wideo|60 klatek na sekundę|Standard lub Premium1080p - 30 klatek na sekundę|
-| Protokoły wejściowe|RTMP, rozdrobniony-MP4 (płynne przesyłanie strumieniowe)|RTMP, rozdrobniony-MP4 (płynne przesyłanie strumieniowe)|
-| Price|Zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/media-services/) i kliknij kartę "Wideo na żywo"|Zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/media-services/) i kliknij kartę "Wideo na żywo"|
-| Maksymalny czas wykonywania| 24 godziny x 365 dni, liniowy na żywo | 24 godziny x 365 dni, liniowy na żywo (podgląd)|
-| Możliwość przechodzenia przez osadzone dane podpisów CEA 608/708|Tak|Tak|
+| Dane wejściowe o pojedynczej szybkości transmisji bitów są zakodowane w wielu szybkościach transmisji bitów w chmurze |Nie |Tak |
+| Maksymalna rozdzielczość wideo dla kanału informacyjnego udziału |4K (4096x2160 o 60 klatek/s) |1080p (1920x1088 o 30 klatkach/s)|
+| Zalecana maksymalna liczba warstw w strumieniu wkładu|Do 12|Jeden dźwięk|
+| Maksymalna liczba warstw w danych wyjściowych| Analogicznie jak dane wejściowe|Do 6 (Zobacz poniższe ustawienia wstępne systemu)|
+| Maksymalna agregowana przepustowość kanału informacyjnego udziału|60 MB/s|Nie dotyczy|
+| Maksymalna szybkość transmisji bitów dla pojedynczej warstwy w udziale |20 MB/s|20 MB/s|
+| Obsługa wielu ścieżek audio z wieloma językami|Tak|Nie|
+| Obsługiwane wejściowe kodery-dekoder wideo |H. 264/AVC i H. 265/HEVC|H. 264/AVC|
+| Obsługiwane wyjściowe kodery-dekoder wideo|Analogicznie jak dane wejściowe|H. 264/AVC|
+| Obsługiwana głębia bitowa wideo, dane wejściowe i wyjściowe|Do 10 bitów włącznie z HDR 10/HLG|8-bitowa|
+| Obsługiwane wejściowe kodery-dekoder audio|AAC-LC, IT-AAC V1, IT-AAC v2|AAC-LC, IT-AAC V1, IT-AAC v2|
+| Obsługiwane wyjściowe kodery-dekoder audio|Analogicznie jak dane wejściowe|AAC — LC|
+| Maksymalna rozdzielczość wideo dla wyjściowego wideo|Analogicznie jak dane wejściowe|Standard-720, Premium1080p-1080p|
+| Maksymalna szybkość klatek dla wejściowego wideo|60 klatek na sekundę|Standardowe lub Premium1080p — 30 klatek na sekundę|
+| Protokoły wejściowe|RTMP, pofragmentowane — MP4 (Smooth Streaming)|RTMP, pofragmentowane — MP4 (Smooth Streaming)|
+| Price|Zobacz [stronę cennika](https://azure.microsoft.com/pricing/details/media-services/) i kliknij kartę "wideo na żywo"|Zobacz [stronę cennika](https://azure.microsoft.com/pricing/details/media-services/) i kliknij kartę "wideo na żywo"|
+| Maksymalny czas działania| 24 godz. x 365 dni, na żywo liniowe | 24 godz. x 365 dni, na żywo liniowe (wersja zapoznawcza)|
+| Możliwość przekazywania osadzonych podpisów CEA 608/708|Tak|Tak|
 | Możliwość włączenia transkrypcji na żywo|Tak|Tak|
-| Obsługa wstawiania łupków|Nie|Nie|
-| Obsługa sygnalizacji reklam za pośrednictwem interfejsu API| Nie|Nie|
-| Obsługa sygnalizacji reklamowej za pośrednictwem wiadomości w paśmie SCTE-35|Tak|Tak|
-| Możliwość odzyskania sił po krótkich straganach w paszy|Tak|Częściowo|
-| Obsługa nieujemnych wejściowych gopów|Tak|Nie – wejście musi mieć stały czas trwania GOP|
-| Obsługa wprowadzania zmiennej liczby klatek na sekundę|Tak|Nie – wejście musi być ustaloną szybkością klatek na sekundę. Niewielkie różnice są tolerowane, na przykład podczas scen o dużym ruchu. Ale kanał wkładu nie może obniżyć liczby klatek na sekundę (na przykład do 15 klatek na sekundę).|
-| Automatyczne wyłączania zdarzenia na żywo po utracie źródła danych wejściowych|Nie|Po 12 godzinach, jeśli nie działa LiveOutput|
+| Obsługa wstawiania przednich|Nie|Nie|
+| Obsługa sygnałów usługi AD za pośrednictwem interfejsu API| Nie|Nie|
+| Obsługa sygnałów usługi AD przy użyciu komunikatów SCTE-35 w paśmie|Tak|Tak|
+| Możliwość odzyskania od krótkich miejsc w źródle wkładu|Tak|Częściowe|
+| Obsługa niejednorodnych danych wejściowych GOPs|Tak|Nie — dane wejściowe muszą mieć stały czas trwania grupę GOP|
+| Obsługa danych wejściowych stawki ramki zmiennej|Tak|Nie — dane wejściowe muszą być stałym wskaźnikiem ramki. Niewielkie wahania są tolerowane, na przykład podczas wysokiego poziomu ruchów. Ale kanał informacyjny udziału nie może porzucić szybkości klatek (na przykład do 15 klatek na sekundę).|
+| Automatyczny ShutOff zdarzenia na żywo, gdy źródło danych wejściowych zostanie utracone|Nie|Po upływie 12 godzin, jeśli nie ma LiveOutput uruchomionego|
 
 ## <a name="system-presets"></a>Ustawienia wstępne systemu
 
-Rozdzielczości i szybkości transmisji bitów zawarte w danych wyjściowych z kodera na żywo są określane przez [presetName](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencoding). W przypadku korzystania ze **standardowego** kodera na żywo (LiveEventEncodingType.Standard), ustawienie predefiniowane *Default720p* określa zestaw 6 par rozdzielczości/szybkości transmisji bitów opisanych poniżej. W przeciwnym razie, jeśli używasz **kodera premium1080p** na żywo (LiveEventEncodingType.Premium1080p), a następnie *default1080p* preset określa wyjściowy zestaw par rozdzielczości/szybkości transmisji bitów.
+Rozdzielczości i szybkości transmisji bitów zawarte w danych wyjściowych z kodera na żywo są określane przez [ustawienie wstępnename](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencoding). W przypadku korzystania ze **standardowego** kodera na żywo (LiveEventEncodingType. Standard) *Default720p* ustawienie wstępne określa zestaw 6 par rozdzielczości/szybkości transmisji bitów opisanych poniżej. W przeciwnym razie, jeśli używany jest koder **Premium1080p** na żywo (LiveEventEncodingType. Premium1080p), a następnie ustawienie wstępne *Default1080p* określa wyjściowy zestaw par rozdzielczości/szybkości transmisji bitów.
 
 > [!NOTE]
-> Nie można zastosować ustawienia domyślnego1080p do zdarzenia na żywo, jeśli zostało ono skonfigurowane dla standardowego kodowania na żywo — zostanie wyświetlony błąd. Pojawi się również błąd, jeśli spróbujesz zastosować ustawienie domyślne720p do kodera premium1080p na żywo.
+> Nie można zastosować ustawienia wstępnego Default1080p dla zdarzenia na żywo, jeśli został on skonfigurowany dla standardowego kodowania na żywo — zostanie wyświetlony komunikat o błędzie. Zostanie również wyświetlony komunikat o błędzie w przypadku próby zastosowania ustawienia wstępnego Default720p do Premium1080p Live Encoder.
 
-### <a name="output-video-streams-for-default720p"></a>Wyjściowe strumienie wideo dla default720p
+### <a name="output-video-streams-for-default720p"></a>Wyjściowe strumienie wideo dla Default720p
 
-Jeśli plik danych o wkładzie ma rozdzielczość 720p lub wyższą, ustawienie **domyślne720p** zakoduje kanał informacyjny w następujących warstwach 6. W poniższej tabeli Szybkość transmisji bitów jest w kb/s, MaxFPS reprezentuje maksymalną dozwoloną liczbę klatek (w klatkach/sekundę), Profil reprezentuje używany profil H.264.
+Jeśli kanał informacyjny udziału ma rozdzielczość 720 lub wyższą, ustawienia wstępne **Default720p** zakodowania źródła strumieniowego do następujących 6 warstw. W poniższej tabeli szybkość transmisji bitów jest w KB/s, MaxFPS reprezentuje maksymalną dozwoloną liczbę klatek (w klatkach/sekundę), profil reprezentuje używany profil H. 264.
 
-| Bitrate | impulsów | Właściwość Height | Maksymalna liczba klatek na sekundę | Profil |
+| Multimedia | impulsów | Właściwość Height | MaxFPS | Profil |
 | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Wysoka |
 | 2200 |960 |540 |30 |Wysoka |
@@ -84,14 +84,14 @@ Jeśli plik danych o wkładzie ma rozdzielczość 720p lub wyższą, ustawienie 
 | 200 |340 |192 |30 |Wysoka |
 
 > [!NOTE]
-> Jeśli chcesz dostosować ustawienia predefiniowane kodowania na żywo, otwórz bilet pomocy technicznej za pośrednictwem witryny Azure Portal. Musisz określić odpowiednią tabelę z rozdzielczością i szybkościami transmisji bitów. Sprawdź, czy istnieje tylko jedna warstwa dla rozdzielczości 720p i maksymalnie 6 warstw. Należy również określić, że żądasz predefiniowane dla standardowego kodera na żywo.
+> Jeśli musisz dostosować ustawienie wstępne kodowania na żywo, Otwórz bilet pomocy technicznej za pośrednictwem witryny Azure Portal. Musisz określić odpowiednią tabelę z rozdzielczością i szybkościami transmisji bitów. Sprawdź, czy istnieje tylko jedna warstwa dla rozdzielczości 720p i maksymalnie 6 warstw. Należy również określić, że zażądano ustawienia wstępnego dla standardowego kodera na żywo.
 > Określone wartości szybkości transmisji bitów i rozdzielczości mogą być dostosowywane w czasie
 
-### <a name="output-video-streams-for-default1080p"></a>Wyjściowe strumienie wideo dla default1080p
+### <a name="output-video-streams-for-default1080p"></a>Wyjściowe strumienie wideo dla Default1080p
 
-Jeśli plik danych o udziale ma rozdzielczość 1080p, ustawienie **domyślne 1080p** zakoduje kanał informacyjny w następujących warstwach 6.
+Jeśli kanał informacyjny udziału ma rozdzielczość 1080p, ustawienia wstępne **Default1080p** zakodują źródło danych do następujących 6 warstw.
 
-| Bitrate | impulsów | Właściwość Height | Maksymalna liczba klatek na sekundę | Profil |
+| Multimedia | impulsów | Właściwość Height | MaxFPS | Profil |
 | --- | --- | --- | --- | --- |
 | 5500 |1920 |1080 |30 |Wysoka |
 | 3000 |1280 |720 |30 |Wysoka |
@@ -101,35 +101,35 @@ Jeśli plik danych o udziale ma rozdzielczość 1080p, ustawienie **domyślne 10
 | 200 |320 |180 |30 |Wysoka |
 
 > [!NOTE]
-> Jeśli chcesz dostosować ustawienia predefiniowane kodowania na żywo, otwórz bilet pomocy technicznej za pośrednictwem witryny Azure Portal. Musisz określić odpowiednią tabelę z rozdzielczością i szybkościami transmisji bitów. Sprawdź, czy w rozdzielczości 1080p jest tylko jedna warstwa, a co najwyżej 6 warstw. Należy również określić, że żądasz predefiniowane dla premium1080p koder na żywo.
-> Określone wartości szybkości transmisji bitów i rozdzielczości mogą być dostosowywane w czasie.
+> Jeśli musisz dostosować ustawienie wstępne kodowania na żywo, Otwórz bilet pomocy technicznej za pośrednictwem witryny Azure Portal. Musisz określić odpowiednią tabelę z rozdzielczością i szybkościami transmisji bitów. Upewnij się, że istnieje tylko jedna warstwa w lokalizacji 1080p i co najwyżej 6 warstw. Należy również określić, że żądasz ustawienia wstępnego dla kodera Premium1080p na żywo.
+> Określone wartości szybkości transmisji bitów i rozdzielczości mogą być dostosowane z upływem czasu.
 
-### <a name="output-audio-stream-for-default720p-and-default1080p"></a>Wyjściowy strumień audio dla default720p i default1080p
+### <a name="output-audio-stream-for-default720p-and-default1080p"></a>Wyjściowy strumień audio dla Default720p i Default1080p
 
-W przypadku ustawień domyślnych *720p* i *Default1080p* dźwięk jest kodowany do stereo AAC-LC z prędkością 128 kb/s. Częstotliwość próbkowania wynika z poziomu ścieżki dźwiękowej w paszy wkładu.
+W przypadku ustawień wstępnych *Default720p* i *Default1080p* dźwięk jest zakodowany do stereo AAC-LC o 128 kb/s. Częstotliwość próbkowania następuje po ścieżce audio w kanale informacyjnym udziału.
 
 ## <a name="implicit-properties-of-the-live-encoder"></a>Niejawne właściwości kodera na żywo
 
-W poprzedniej sekcji opisano właściwości kodera na żywo, które mogą być kontrolowane jawnie, za pomocą predefiniowanych — takich jak liczba warstw, rozdzielczości i szybkości transmisji bitów. W tej sekcji wyjaśniono właściwości niejawne.
+W poprzedniej sekcji opisano właściwości kodera na żywo, który można jawnie kontrolować przy użyciu ustawień predefiniowanych — takich jak liczba warstw, rozdzielczości i szybkości transmisji bitów. W tej sekcji objaśniono niejawne właściwości.
 
-### <a name="group-of-pictures-gop-duration"></a>Czas trwania grupy zdjęć (GOP)
+### <a name="group-of-pictures-gop-duration"></a>Czas trwania grupy obrazów (grupę GOP)
 
-Koder na żywo podąża za strukturą [GOP](https://en.wikipedia.org/wiki/Group_of_pictures) kanału informacyjnego - co oznacza, że warstwy wyjściowe będą miały ten sam czas trwania GOP. W związku z tym zaleca się skonfigurowanie kodera lokalnego do tworzenia źródła danych o składku, który ma stały czas trwania GOP (zazwyczaj 2 sekundy). Zapewni to, że wychodzące strumienie HLS i MPEG DASH z usługi mają również stałe czasy trwania GOP. Większość urządzeń może tolerować niewielkie różnice w czasie trwania gop.
+Koder na żywo jest zgodny ze strukturą [grupę GOP](https://en.wikipedia.org/wiki/Group_of_pictures) kanału informacyjnego, co oznacza, że warstwy wyjściowe będą miały ten sam czas grupę GOP. W związku z tym zaleca się skonfigurowanie kodera lokalnego w celu utworzenia kanału informacyjnego, który ma stały czas trwania grupę GOP (zazwyczaj 2 sekundy). Zapewni to, że strumienie wychodzące HLS i MPEG z usługi również mają stałe czasy grupę GOP. Małe wahania w czasie trwania grupę GOP są prawdopodobnie tolerowane przez większość urządzeń.
 
-### <a name="frame-rate"></a>Klatek
+### <a name="frame-rate"></a>Szybkość klatek
 
-Koder na żywo śledzi również czas trwania poszczególnych klatek wideo w kanale insekcjowym - co oznacza, że warstwy wyjściowe będą miały klatki o tym samym czasie trwania. W związku z tym zaleca się skonfigurowanie kodera lokalnego w celu uzyskania źródła danych o insekcji ze stałą szybkością klatek (najwyżej 30 klatek na sekundę). Zapewni to, że wychodzące strumienie HLS i MPEG DASH z usługi mają również stałe czasy trwania klatek. Większość urządzeń może tolerować niewielkie różnice w szybkości klatek, ale nie ma gwarancji, że koder na żywo będzie produkował dane wyjściowe, które będzie odtwarzane poprawnie. Lokalny koder na żywo nie powinien upuszczać ramek (np. w warunkach niskiego poziomu naładowania baterii) lub w jakikolwiek sposób zmieniać liczbę klatek na sekundę.
+Koder na żywo również następuje po czasie trwania poszczególnych klatek wideo w kanale informacyjnym, co oznacza, że warstwy wyjściowe będą zawierały ramki o tych samych czasach. W związku z tym zaleca się skonfigurowanie kodera lokalnego w taki sposób, aby generował źródło danych, które ma stałą szybkość klatek (co najwyżej 30 klatek na sekundę). Zapewni to, że strumienie wychodzące HLS i MPEG z usługi również mają czasy trwania stałych klatek. Małe wahania stawek za ramki mogą być tolerowane przez większość urządzeń, ale nie ma żadnej gwarancji, że koder na żywo będzie generował dane wyjściowe, które będą prawidłowo odtwarzane. Lokalny koder na żywo nie powinien zawierać ramek (np. w obszarze niskie warunki baterii lub w jakikolwiek sposób zmieniana jest szybkość klatek.
 
-### <a name="resolution-of-contribution-feed-and-output-layers"></a>Rozdzielczość warstw paszowych i wyjściowych
+### <a name="resolution-of-contribution-feed-and-output-layers"></a>Rozwiązanie kanału informacyjnego dotyczącego udziału i warstw wyjściowych
 
-Koder na żywo jest skonfigurowany tak, aby uniknąć upconverting źródła wkładu. W rezultacie maksymalna rozdzielczość warstw wyjściowych nie przekroczy rozdzielczości kanału informacyjnego.
+Koder na żywo jest skonfigurowany tak, aby uniknąć konwersji kanału informacyjnego udziału. W wyniku tego nie zostanie przekroczenie maksymalnej rozdzielczości warstwy wyjściowej.
 
-Na przykład, jeśli wyślesz kanał wpłaty w rozdzielczości 720p do zdarzenia na żywo skonfigurowanego do kodowania na żywo Default1080p, dane wyjściowe będą miały tylko 5 warstw, począwszy od 720p przy 3Mbps, zejściem do 1080p przy 200 kbps. Jeśli wyślesz kanał wpłaty w rozdzielczości 360p do zdarzenia na żywo skonfigurowanego do standardowego kodowania na żywo, dane wyjściowe będą zawierać 3 warstwy (w rozdzielczościach 288p, 216p i 192p). W przypadku degeneracji, jeśli wyślesz kanał wkładu, powiedzmy, 160x90 pikseli do standardowego kodera na żywo, dane wyjściowe będą zawierać jedną warstwę o rozdzielczości 160x90 przy tej samej szybkości transmisji bitów co kanał wkładu.
+Na przykład w przypadku wysłania kanału informacyjnego o wartości 720 do zdarzenia na żywo skonfigurowanego do Default1080p na żywo, wyjście będzie miało tylko 5 warstw, rozpoczynając od 720 o godzinie 3Mbps, przechodząc do 1080p o 200 KB/s. Lub w przypadku wysłania kanału informacyjnego udziału o 360p do zdarzenia na żywo skonfigurowanego dla standardowego kodowania na żywo, dane wyjściowe będą zawierać 3 warstwy (w rozdzielczościach 288p, 216p i 192p). W przypadku wygenerowania w przypadku wysłania kanału informacyjnego, powiedzmy, 160x90 pikseli do standardowego kodera na żywo, dane wyjściowe będą zawierać jedną warstwę w rozdzielczości 160x90, która ma taką samą szybkość transmisji bitów jak w przypadku źródła strumieniowego.
 
-### <a name="bitrate-of-contribution-feed-and-output-layers"></a>Szybkość transmisji bitów warstw paszowych i wyjściowych
+### <a name="bitrate-of-contribution-feed-and-output-layers"></a>Szybkość transmisji bitów dla kanału informacyjnego i warstwy wyjściowe
 
-Koder na żywo jest skonfigurowany tak, aby szanował ustawienia szybkości transmisji bitów w ustawieniach predefiniowanych, niezależnie od szybkości transmisji bitów kanału wkładu. W rezultacie szybkość transmisji bitów warstw wyjściowych może przekraczać szybkość podawania. Na przykład jeśli wyślesz kanał wkładu w rozdzielczości 720p przy 1 Mbps, warstwy wyjściowe pozostaną takie same jak w powyższej [tabeli.](live-event-types-comparison.md#output-video-streams-for-default720p)
+Koder na żywo jest skonfigurowany tak, aby przestrzegać ustawień szybkości transmisji bitów w ustawieniach wstępnych, niezależnie od szybkości transmisji strumieniowej źródła danych. Z tego powodu szybkość transmisji bitów warstwy wyjściowej może przekroczyć wielkość źródła danych. Jeśli na przykład wyślesz wiadomość w kanale informacyjnym o rozdzielczości 720 na 1 MB/s, warstwy wyjściowe pozostaną takie same, jak w powyższej [tabeli](live-event-types-comparison.md#output-video-streams-for-default720p) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Omówienie transmisji na żywo](live-streaming-overview.md)
+[Omówienie przesyłania strumieniowego na żywo](live-streaming-overview.md)

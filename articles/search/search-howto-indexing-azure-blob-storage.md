@@ -1,7 +1,7 @@
 ---
-title: Wyszukiwanie zawartości magazynu obiektów Blob platformy Azure
+title: Wyszukaj zawartość usługi Azure Blob Storage
 titleSuffix: Azure Cognitive Search
-description: Dowiedz się, jak indeksować usługę Azure Blob Storage i wyodrębniać tekst z dokumentów za pomocą usługi Azure Cognitive Search.
+description: Dowiedz się, jak indeksować Blob Storage platformy Azure i wyodrębnić tekst z dokumentów przy użyciu usługi Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -11,45 +11,45 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 5df1198e6681431738f886eb7c3ad549936eab1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067643"
 ---
-# <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Jak indeksować dokumenty w usłudze Azure Blob Storage za pomocą usługi Azure Cognitive Search
+# <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Jak indeksować dokumenty w usłudze Azure Blob Storage przy użyciu usługi Azure Wyszukiwanie poznawcze
 
-W tym artykule pokazano, jak używać usługi Azure Cognitive Search do indeksowania dokumentów (takich jak pliki PDF, dokumenty pakietu Microsoft Office i kilka innych popularnych formatów) przechowywanych w magazynie obiektów Blob platformy Azure. Po pierwsze wyjaśniono podstawy konfigurowania i konfigurowania indeksatora obiektów blob. Następnie oferuje głębszą eksplorację zachowań i scenariuszy, które mogą wystąpić.
+W tym artykule pokazano, jak za pomocą usługi Azure Wyszukiwanie poznawcze indeksować dokumenty (takie jak pliki PDF, dokumenty Microsoft Office i inne popularne formaty) przechowywane w usłudze Azure Blob Storage. Najpierw objaśnia podstawowe informacje na temat konfigurowania i konfigurowania indeksatora obiektów BLOB. Następnie oferuje dokładniejszą eksplorację zachowań i scenariuszy, które prawdopodobnie napotkasz.
 
 <a name="SupportedFormats"></a>
 
 ## <a name="supported-document-formats"></a>Obsługiwane formaty dokumentów
-Indeksator obiektów blob może wyodrębnić tekst z następujących formatów dokumentu:
+Indeksator obiektów BLOB może wyodrębnić tekst z następujących formatów dokumentu:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-## <a name="setting-up-blob-indexing"></a>Konfigurowanie indeksowania obiektów blob
-Indeksatora usługi Azure Blob Storage można skonfigurować przy użyciu:
+## <a name="setting-up-blob-indexing"></a>Konfigurowanie indeksowania obiektów BLOB
+Można skonfigurować usługę Azure Blob Storage indeksator przy użyciu:
 
-* [Portal Azure](https://ms.portal.azure.com)
-* [Interfejs API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) usługi Azure Cognitive Search
-* Zestaw [SDK](https://aka.ms/search-sdk) usługi Azure Cognitive Search .NET
+* [Azure Portal](https://ms.portal.azure.com)
+* [Interfejs API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) usługi Azure wyszukiwanie poznawcze
+* Azure Wyszukiwanie poznawcze [.NET SDK](https://aka.ms/search-sdk)
 
 > [!NOTE]
 > Niektóre funkcje (na przykład mapowania pól) nie są jeszcze dostępne w portalu i muszą być używane programowo.
 >
 
-W tym miejscu zademonstrujemy przepływ przy użyciu interfejsu API REST.
+W tym miejscu zademonstrowano przepływ przy użyciu interfejsu API REST.
 
 ### <a name="step-1-create-a-data-source"></a>Krok 1. Tworzenie źródła danych
-Źródło danych określa, które dane mają być indeksowane, poświadczenia potrzebne do uzyskania dostępu do danych i zasady umożliwiające efektywną identyfikację zmian w danych (nowe, zmodyfikowane lub usunięte wiersze). Źródło danych może być używane przez wiele indeksatorów w tej samej usłudze wyszukiwania.
+Źródło danych określa, które dane mają być indeksowane, które są potrzebne do uzyskiwania dostępu do danych, oraz zasady umożliwiające wydajne identyfikowanie zmian w danych (nowych, zmodyfikowanych lub usuniętych wierszy). Źródło danych może być używane przez wiele indeksatorów w tej samej usłudze wyszukiwania.
 
-W przypadku indeksowania obiektów blob źródło danych musi mieć następujące wymagane właściwości:
+W przypadku indeksowania obiektów BLOB źródło danych musi mieć następujące wymagane właściwości:
 
-* **nazwa** jest unikatową nazwą źródła danych w usłudze wyszukiwania.
-* **musi** być `azureblob`.
-* **poświadczenia** udostępnia parametry połączenia konta `credentials.connectionString` magazynu jako parametr. Zobacz [Jak określić poświadczenia](#Credentials) poniżej, aby uzyskać szczegółowe informacje.
-* **kontener** określa kontener na koncie magazynu. Domyślnie wszystkie obiekty BLOB w kontenerze są możliwe do pobrania. Jeśli chcesz indeksować tylko obiekty blob w określonym katalogu wirtualnym, można określić ten katalog przy użyciu opcjonalnego parametru **zapytania.**
+* **Nazwa** jest unikatową nazwą źródła danych w ramach usługi wyszukiwania.
+* **Typ** musi być `azureblob`.
+* **poświadczenia** udostępniają parametry połączenia konta magazynu jako `credentials.connectionString` parametr. Aby uzyskać szczegółowe informacje [, zobacz Jak określić poświadczenia](#Credentials) poniżej.
+* **kontener** Określa kontener na koncie magazynu. Domyślnie można pobrać wszystkie obiekty blob w kontenerze. Jeśli chcesz tylko indeksować obiekty blob w konkretnym katalogu wirtualnym, możesz określić ten katalog przy użyciu opcjonalnego parametru **zapytania** .
 
 Aby utworzyć źródło danych:
 
@@ -64,26 +64,26 @@ Aby utworzyć źródło danych:
         "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
     }   
 
-Aby uzyskać więcej informacji na temat interfejsu API tworzenia źródła danych, zobacz [Tworzenie źródła danych](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
+Aby uzyskać więcej informacji na temat interfejsu API tworzenia źródła danych, zobacz [Create DataSource](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
 #### <a name="how-to-specify-credentials"></a>Jak określić poświadczenia ####
 
-Poświadczenia kontenera obiektów blob można podać na jeden z następujących sposobów:
+Poświadczenia dla kontenera obiektów BLOB można podać w jeden z następujących sposobów:
 
-- **Parametry połączenia konta magazynu pełnego dostępu:** `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` ciąg połączenia można uzyskać z witryny Azure Portal, przechodząc do bloku konta magazynu > Ustawienia > klucze (dla klasycznych kont magazynu) lub Ustawienia > klucze programu Access (dla kont magazynu Usługi Azure Resource Manager).
-- Ciąg połączenia **sygnatury dostępu współdzielonego (SAS) konta magazynu:** `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` sygnatury dostępu współdzielonego powinna mieć uprawnienia listy i odczytu kontenerów i obiektów (w tym przypadku obiektów blob).
--  **Podpis dostępu współdzielonego kontenera:** `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` Sygnatury dostępu współdzielonego powinna mieć listę i uprawnienia do odczytu w kontenerze.
+- **Pełny dostęp do parametrów połączenia konta magazynu**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` parametry połączenia można uzyskać z Azure Portal, przechodząc do bloku konto magazynu > ustawienia > klucze (dla klasycznych kont magazynu) lub ustawienia > klucze dostępu (dla Azure Resource Manager kont magazynu).
+- Parametry połączenia **sygnatury dostępu współdzielonego** (SAS) `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` dla konta magazynu: Sygnatura SAS powinna mieć uprawnienia do listy i odczytu w kontenerach i obiektach (w tym przypadku obiektów BLOB).
+-  **Sygnatura dostępu współdzielonego kontenera**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` skojarzenia zabezpieczeń muszą mieć uprawnienia do listy i odczytu kontenera.
 
-Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego magazynu, zobacz [Korzystanie z podpisów dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego magazynu, zobacz [Używanie sygnatur dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Jeśli używasz poświadczeń sygnatury dostępu Współdzielonego, należy okresowo aktualizować poświadczenia źródła danych z odnowionymi podpisami, aby zapobiec ich wygaśnięciu. Jeśli poświadczenia sygnatury dostępu Współdzielonego `Credentials provided in the connection string are invalid or have expired.`wygasną, indeksator zakończy się niepowodzeniem z komunikatem o błędzie podobnym do .  
+> W przypadku używania poświadczeń SAS należy okresowo zaktualizować poświadczenia źródła danych za pomocą odnowionych podpisów, aby zapobiec ich wygaśnięciu. Jeśli poświadczenia sygnatury dostępu współdzielonego wygasną, indeksator zakończy się niepowodzeniem z `Credentials provided in the connection string are invalid or have expired.`komunikatem o błędzie podobnym do.  
 
 ### <a name="step-2-create-an-index"></a>Krok 2. Tworzenie indeksu
 Indeks określa pola w dokumencie, atrybuty i inne konstrukcje, które kształtują środowisko wyszukiwania.
 
-Oto jak utworzyć indeks z przeszukiwalnym `content` polem do przechowywania tekstu wyodrębnionego z obiektów blob:   
+Oto jak utworzyć indeks z `content` polem z możliwością wyszukiwania, aby przechowywać tekst wyodrębniony z obiektów blob:   
 
     POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
@@ -99,10 +99,10 @@ Oto jak utworzyć indeks z przeszukiwalnym `content` polem do przechowywania tek
 
 Aby uzyskać więcej informacji na temat tworzenia indeksów, zobacz [Tworzenie indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
-### <a name="step-3-create-an-indexer"></a>Krok 3: Tworzenie indeksatora
-Indeksator łączy źródło danych z docelowym indeksem wyszukiwania i udostępnia harmonogram automatyzacji odświeżania danych.
+### <a name="step-3-create-an-indexer"></a>Krok 3. Tworzenie indeksatora
+Indeksator łączy źródło danych z docelowym indeksem wyszukiwania i zawiera harmonogram do automatyzowania odświeżania danych.
 
-Po utworzeniu indeksu i źródła danych można przystąpić do tworzenia indeksatora:
+Po utworzeniu indeksu i źródła danych można rozpocząć tworzenie indeksatora:
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -115,71 +115,71 @@ Po utworzeniu indeksu i źródła danych można przystąpić do tworzenia indeks
       "schedule" : { "interval" : "PT2H" }
     }
 
-Ten indeksator będzie uruchamiany co dwie godziny (interwał harmonogramu jest ustawiony na "PT2H"). Aby uruchomić indeksator co 30 minut, należy ustawić interwał na "PT30M". Najkrótszy obsługiwany interwał wynosi 5 minut. Harmonogram jest opcjonalny — jeśli pominięto, indeksator uruchamia się tylko raz podczas jego tworzenia. Jednak można uruchomić indeksatora na żądanie w dowolnym momencie.   
+Ten indeksator będzie uruchamiany co dwie godziny (interwał harmonogramu jest ustawiony na wartość "PT2H"). Aby uruchomić indeksator co 30 minut, ustaw interwał na wartość "PT30M". Najkrótszy obsługiwany interwał to 5 minut. Harmonogram jest opcjonalny — w przypadku pominięcia, indeksator jest uruchamiany tylko raz, gdy zostanie utworzony. Można jednak uruchomić indeksator na żądanie w dowolnym momencie.   
 
-Aby uzyskać więcej informacji na temat interfejsu API tworzenia indeksatora, zapoznaj się z [programem Utwórz indeksator](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Aby uzyskać więcej informacji na temat interfejsu API tworzenia indeksatora, zapoznaj się z tematem [Tworzenie indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-Aby uzyskać więcej informacji na temat definiowania harmonogramów indeksatora, zobacz [Jak zaplanować indeksatory dla usługi Azure Cognitive Search](search-howto-schedule-indexers.md).
+Więcej informacji o definiowaniu harmonogramów indeksatorów znajduje się w temacie [jak zaplanować indeksatory dla platformy Azure wyszukiwanie poznawcze](search-howto-schedule-indexers.md).
 
 <a name="how-azure-search-indexes-blobs"></a>
 
-## <a name="how-azure-cognitive-search-indexes-blobs"></a>Jak usługa Azure Cognitive Search indeksuje obiekty blob
+## <a name="how-azure-cognitive-search-indexes-blobs"></a>Jak usługa Azure Wyszukiwanie poznawcze indeksuje obiekty blob
 
-W zależności od [konfiguracji indeksatora](#PartsOfBlobToIndex)indeksatora, indeksator obiektów blob może indeksować tylko metadane magazynu (przydatne tylko wtedy, gdy zależy Ci tylko na metadanych i nie trzeba indeksować zawartości obiektów blob), metadanych magazynu i zawartości lub zarówno metadanych, jak i zawartości tekstowej. Domyślnie indeksator wyodrębnia metadane i zawartość.
+W zależności od [konfiguracji indeksatora](#PartsOfBlobToIndex)indeksator obiektów BLOB może indeksować tylko metadane magazynu (przydatne w przypadku ponoszenia informacji o metadanych i braku potrzeby indeksowania zawartości obiektów BLOB), magazynu i metadanych zawartości, a także metadanych i zawartości tekstowej. Domyślnie indeksator wyodrębnia zarówno metadane, jak i zawartość.
 
 > [!NOTE]
-> Domyślnie obiekty BLOB ze strukturą zawartości, takich jak JSON lub CSV są indeksowane jako pojedynczy fragment tekstu. Jeśli chcesz indeksować obiekty BLOB JSON i CSV w sposób strukturalny, zobacz [Indeksowanie obiektów BLOB JSON](search-howto-index-json-blobs.md) i [indeksowanie obiektów BLOB csv,](search-howto-index-csv-blobs.md) aby uzyskać więcej informacji.
+> Domyślnie obiekty blob o zawartości strukturalnej, takiej jak JSON lub CSV, są indeksowane jako pojedynczy fragment tekstu. Jeśli chcesz indeksować obiekty blob JSON i CSV w uporządkowany sposób, zobacz [indeksowanie obiektów BLOB JSON](search-howto-index-json-blobs.md) i [indeksowanie obiektów BLOB woluminów CSV](search-howto-index-csv-blobs.md) , aby uzyskać więcej informacji.
 >
-> Dokument złożony lub osadzony (taki jak archiwum ZIP lub dokument programu Word z osadzoną pocztą e-mail programu Outlook zawierającą załączniki) jest również indeksowany jako pojedynczy dokument.
+> Dokument złożony lub osadzony (na przykład archiwum ZIP lub dokument programu Word z osadzoną pocztą e-mail programu Outlook zawierający załączniki) również jest indeksowany jako pojedynczy dokument.
 
-* Zawartość tekstowa dokumentu jest wyodrębniona w polu `content`ciągu o nazwie .
-
-> [!NOTE]
-> Usługa Azure Cognitive Search ogranicza ilość tekstu wyodrębnianych w zależności od warstwy cenowej: 32 000 znaków dla warstwy bezpłatnej, 64 000 dla basic, 4 miliony dla standardu, 8 milionów dla standardu S2 i 16 milionów dla standardu S3. Ostrzeżenie jest zawarte w odpowiedzi stanu indeksatora dla obciętych dokumentów.  
-
-* Właściwości metadanych określone przez użytkownika obecne w obiekcie blob, jeśli istnieją, są wyodrębniane dosłownie. Należy zauważyć, że wymaga to pola, które ma być zdefiniowane w indeksie o takiej samej nazwie jak klucz metadanych obiektu blob. Na przykład, jeśli obiekt blob ma `Sensitivity` klucz `High`metadanych z `Sensitivity` wartością, należy zdefiniować pole o `High`nazwie w indeksie wyszukiwania i zostanie wypełnione wartością .
-* Standardowe właściwości metadanych obiektów blob są wyodrębniane w następujących polach:
-
-  * **nazwa\_magazynu\_metadanych** (Edm.String) - nazwa pliku obiektu blob. Jeśli na przykład masz obiekt blob /my-container/my-folder/subfolder/resume.pdf, wartość `resume.pdf`tego pola to .
-  * **ścieżka\_przechowywania\_metadanych** (Edm.String) — pełny identyfikator URI obiektu blob, w tym konto magazynu. Na przykład: `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
-  * **typ\_zawartości\_\_magazynu metadanych** (Edm.String) - typ zawartości określony przez kod użyty do przekazania obiektu blob. Na przykład `application/octet-stream`.
-  * **ostatnio\_\_zmodyfikowany magazyn\_metadanych** (Edm.DateTimeOffset) — ostatnio zmodyfikowany znacznik czasu dla obiektu blob. Usługa Azure Cognitive Search używa tej sygnatury czasowej do identyfikowania zmienionych obiektów blob, aby uniknąć ponownego indeksowania wszystkiego po początkowym indeksowaniu.
-  * **rozmiar\_magazynu\_metadanych** (Edm.Int64) - rozmiar obiektu blob w bajtach.
-  * **zawartość\_\_magazynu\_metadanych md5** (Edm.String) — skrót MD5 zawartości obiektu blob, jeśli jest dostępny.
-  * **token\_sas\_\_magazynu metadanych** (Edm.String) — tymczasowy token Sygnatury dostępu Współdzielonego, który może być używany przez [umiejętności niestandardowe,](cognitive-search-custom-skill-interface.md) aby uzyskać dostęp do obiektu blob. Ten token nie powinien być przechowywany do późniejszego użycia, ponieważ może wygasnąć.
-
-* Właściwości metadanych specyficzne dla każdego formatu dokumentu są wyodrębniane w polach wymienionych [w tym miejscu](#ContentSpecificMetadata).
-
-Nie trzeba definiować pól dla wszystkich powyższych właściwości w indeksie wyszukiwania — wystarczy przechwycić właściwości potrzebne dla aplikacji.
+* Zawartość tekstowa dokumentu jest wyodrębniana do pola ciągu o nazwie `content`.
 
 > [!NOTE]
-> Często nazwy pól w istniejącym indeksie będą się różnić od nazw pól generowanych podczas wyodrębniania dokumentów. **Mapowania pól** można użyć do mapowania nazw właściwości dostarczonych przez usługę Azure Cognitive Search na nazwy pól w indeksie wyszukiwania. Poniżej zobaczysz przykład mapowań pól.
+> Usługa Azure Wyszukiwanie poznawcze ogranicza ilość tekstu wyodrębnianego w zależności od warstwy cenowej: 32 000 znaków dla warstwy Bezpłatna, 64 000 w przypadku wersji podstawowa, 4 000 000 dla Standard, 8 000 000 dla standardu S2 i 16 000 000 dla standardowego stanu S3. Ostrzeżenie jest zawarte w odpowiedzi stanu indeksatora dla obciętych dokumentów.  
+
+* Właściwości metadanych określone przez użytkownika w obiekcie BLOB (jeśli istnieją) są wyodrębniane Verbatim. Należy zauważyć, że wymaga to pola, które ma być zdefiniowane w indeksie o takiej samej nazwie jak klucz metadanych obiektu BLOB. Na przykład jeśli obiekt `Sensitivity` BLOB zawiera klucz metadanych o wartości `High`, należy zdefiniować pole o nazwie `Sensitivity` w indeksie wyszukiwania i zostanie ono wypełnione wartością. `High`
+* Standardowe właściwości metadanych obiektów BLOB są wyodrębniane do następujących pól:
+
+  * **nazwa\_magazynu\_metadanych** (EDM. String) — nazwa pliku obiektu BLOB. Na przykład jeśli masz obiekt BLOB/my-Container/my-folder/subfolder/Resume.PDF, wartość tego pola to `resume.pdf`.
+  * **ścieżka\_magazynu\_metadanych** (EDM. String) — pełny identyfikator URI obiektu BLOB, w tym konto magazynu. Na przykład: `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  * **Typ\_\_zawartości\_magazynu metadanych** (EDM. String) — typ zawartości określony przez kod, który został użyty do przekazania obiektu BLOB. Na przykład `application/octet-stream`.
+  * **\_ostatnio\_modyfikowany magazyn\_metadanych** (EDM. DateTimeOffset) — sygnatura czasowa ostatniej modyfikacji dla obiektu BLOB. Usługa Azure Wyszukiwanie poznawcze używa tej sygnatury czasowej do identyfikowania zmienionych obiektów blob, aby uniknąć ponownego indeksowania wszystkiego po początkowej indeksowaniu.
+  * **rozmiar\_magazynu\_metadanych** (EDM. Int64) — rozmiar obiektu BLOB w bajtach.
+  * **wartość\_MD5\_zawartości\_magazynu metadanych** (EDM. String) — skrót MD5 zawartości obiektu BLOB, jeśli jest dostępny.
+  * **token\_SAS\_magazynu\_metadanych** (EDM. String) — tymczasowy token SAS, który może być używany przez [niestandardowe umiejętności](cognitive-search-custom-skill-interface.md) w celu uzyskania dostępu do obiektu BLOB. Ten token nie powinien być przechowywany do późniejszego użycia, ponieważ mógł wygasnąć.
+
+* Właściwości metadanych specyficzne dla każdego formatu dokumentu są wyodrębniane do pól wymienionych w [tym miejscu](#ContentSpecificMetadata).
+
+Nie musisz definiować pól dla wszystkich powyższych właściwości w indeksie wyszukiwania — wystarczy przechwycić właściwości potrzebne dla aplikacji.
+
+> [!NOTE]
+> Często nazwy pól w istniejącym indeksie będą różnić się od nazw pól generowanych podczas wyodrębniania dokumentu. **Mapowania pól** można użyć do mapowania nazw właściwości dostarczanych przez usługę Azure wyszukiwanie poznawcze do nazw pól w indeksie wyszukiwania. Zobaczysz przykładowe mapowania pól poniżej.
 >
 >
 
 <a name="DocumentKeys"></a>
-### <a name="defining-document-keys-and-field-mappings"></a>Definiowanie kluczy dokumentów i mapowań pól
-W usłudze Azure Cognitive Search klucz dokumentu jednoznacznie identyfikuje dokument. Każdy indeks wyszukiwania musi mieć dokładnie jedno pole kluczowe typu Edm.String. Pole klucza jest wymagane dla każdego dokumentu, który jest dodawany do indeksu (w rzeczywistości jest to jedyne wymagane pole).  
+### <a name="defining-document-keys-and-field-mappings"></a>Definiowanie kluczy dokumentu i mapowań pól
+W usłudze Azure Wyszukiwanie poznawcze klucz dokumentu jednoznacznie identyfikuje dokument. Każdy indeks wyszukiwania musi mieć dokładnie jedno pole klucza typu EDM. String. Pole klucza jest wymagane dla każdego dokumentu dodawanego do indeksu (w rzeczywistości jest to jedyne pole wymagane).  
 
-Należy dokładnie rozważyć, które wyodrębnione pole powinno być mapowane do pola kluczowego dla indeksu. Kandydatami są:
+Należy uważnie rozważyć, które wyodrębnione pole powinno być mapowane na pole klucza dla indeksu. Kandydaci są:
 
-* **nazwa\_magazynu\_metadanych** — może to być wygodny kandydat, ale należy pamiętać, że 1) nazwy mogą nie być unikatowe, ponieważ mogą istnieć obiekty blob o tej samej nazwie w różnych folderach i 2) nazwa może zawierać znaki, które są nieprawidłowe w kluczach dokumentu, takie jak myślniki. Nieprawidłowe znaki można mieć `base64Encode` na uwadze za pomocą [funkcji mapowania pól](search-indexer-field-mappings.md#base64EncodeFunction) — jeśli to zrobisz, pamiętaj o kodowaniu kluczy dokumentu podczas przekazywania ich w wywołaniach interfejsu API, takich jak wyszukiwanie. (Na przykład w .NET można użyć [Metody UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) w tym celu).
-* **ścieżka\_przechowywania\_metadanych** - użycie pełnej ścieżki zapewnia `/` unikatowość, ale ścieżka zdecydowanie zawiera znaki [nieprawidłowe w kluczu dokumentu](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Jak wyżej, masz możliwość kodowania kluczy `base64Encode` za pomocą [funkcji](search-indexer-field-mappings.md#base64EncodeFunction).
-* Jeśli żadna z powyższych opcji nie działa dla Ciebie, można dodać właściwość metadanych niestandardowych do obiektów blob. Ta opcja wymaga jednak procesu przekazywania obiektów blob, aby dodać tę właściwość metadanych do wszystkich obiektów blob. Ponieważ klucz jest wymaganą właściwością, wszystkie obiekty BLOB, które nie mają tej właściwości, nie zostaną zindeksowane.
+* **nazwa\_magazynu\_metadanych** — może to być wygodny kandydat, ale należy zauważyć, że 1) nazwy mogą nie być unikatowe, ponieważ mogą istnieć obiekty blob o takiej samej nazwie w różnych folderach i 2) nazwa może zawierać znaki, które są nieprawidłowe w kluczach dokumentów, takich jak łączniki. Za pomocą `base64Encode` [funkcji mapowania pól](search-indexer-field-mappings.md#base64EncodeFunction) można zajmować się nieprawidłowymi znakami — Jeśli to zrobisz, pamiętaj, aby zakodować klucze dokumentu podczas przekazywania ich w wywołaniach interfejsu API, takich jak odnośnik. (Na przykład w programie .NET można użyć w tym celu [metody UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) ).
+* **ścieżka\_magazynu\_metadanych** — przy użyciu pełnej ścieżki zapewnia unikatowość, ale ścieżka w nieskończoność `/` zawiera znaki, które są [nieprawidłowe w kluczu dokumentu](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Jak powyżej, można zakodować klucze przy użyciu `base64Encode` [funkcji](search-indexer-field-mappings.md#base64EncodeFunction).
+* Jeśli żadna z powyższych opcji nie zadziałała, możesz dodać niestandardową Właściwość metadanych do obiektów BLOB. Ta opcja wymaga jednak, aby proces przekazywania obiektów BLOB mógł dodać tę właściwość metadanych do wszystkich obiektów BLOB. Ponieważ klucz jest wymaganą właściwością, wszystkie obiekty blob, które nie mają tej właściwości, będą kończyć się niepowodzeniem.
 
 > [!IMPORTANT]
-> Jeśli nie ma jawnego mapowania dla pola klucza w `metadata_storage_path` indeksie, usługa Azure Cognitive Search automatycznie używa jako klucza, a base-64 koduje wartości klucza (druga opcja powyżej).
+> Jeśli nie istnieje jawne mapowanie pola klucza w indeksie, usługa Azure Wyszukiwanie poznawcze automatycznie używa `metadata_storage_path` jako klucza i base-64 wartości klucza (druga opcja powyżej).
 >
 >
 
-W tym przykładzie wybierzmy `metadata_storage_name` pole jako klucz dokumentu. Załóżmy również, że indeks ma `key` pole `fileSize` klucza o nazwie i pole do przechowywania rozmiaru dokumentu. Aby wysuwać elementy zgodnie z potrzebami, podczas tworzenia lub aktualizowania indeksatora należy określić następujące mapowania pól:
+Na potrzeby tego przykładu wybierzemy `metadata_storage_name` pole jako klucz dokumentu. Załóżmy również, że indeks ma pole klucza o nazwie `key` i pole `fileSize` do przechowywania rozmiaru dokumentu. Aby odpowiednio podpracować, określ następujące mapowania pól podczas tworzenia lub aktualizowania indeksatora:
 
     "fieldMappings" : [
       { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
       { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
     ]
 
-Aby połączyć to wszystko razem, oto jak można dodać mapowania pól i włączyć base-64 kodowanie kluczy dla istniejącego indeksatora:
+Aby to zrobić, możesz dodać mapowania pól i włączyć kodowanie Base-64 kluczy dla istniejącego indeksatora:
 
     PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2019-05-06
     Content-Type: application/json
@@ -196,16 +196,16 @@ Aby połączyć to wszystko razem, oto jak można dodać mapowania pól i włąc
     }
 
 > [!NOTE]
-> Aby dowiedzieć się więcej o mapowaniach pól, zobacz [ten artykuł](search-indexer-field-mappings.md).
+> Aby dowiedzieć się więcej o mapowaniu pól, zobacz [ten artykuł](search-indexer-field-mappings.md).
 >
 >
 
 <a name="WhichBlobsAreIndexed"></a>
 ## <a name="controlling-which-blobs-are-indexed"></a>Kontrolowanie, które obiekty blob są indeksowane
-Można kontrolować, które obiekty BLOB są indeksowane, a które są pomijane.
+Można kontrolować, które obiekty blob są indeksowane i które są pomijane.
 
 ### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Indeksuj tylko obiekty blob z określonymi rozszerzeniami plików
-Można indeksować tylko obiekty blob z rozszerzeniami nazw `indexedFileNameExtensions` plików, które określisz przy użyciu parametru konfiguracji indeksatora. Wartość jest ciągiem zawierającym oddzieloną przecinkami listę rozszerzeń plików (z wiodącą kropką). Na przykład, aby indeksować tylko . PDF i . Obiekty BLOBX, wykonaj tę te te procesy:
+Można indeksować tylko obiekty blob z rozszerzeniami nazw plików, które można określić za `indexedFileNameExtensions` pomocą parametru konfiguracji indeksatora. Wartość jest ciągiem zawierającym listę rozszerzeń plików rozdzielanych przecinkami (z kropką wiodącą). Na przykład, aby zindeksować tylko. PDF i. Pliki BLOB DOCX, wykonaj następujące czynności:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
@@ -216,8 +216,8 @@ Można indeksować tylko obiekty blob z rozszerzeniami nazw `indexedFileNameExte
       "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
     }
 
-### <a name="exclude-blobs-with-specific-file-extensions"></a>Wykluczanie obiektów blob z określonymi rozszerzeniami plików
-Obiekty blob z określonymi rozszerzeniami nazw plików `excludedFileNameExtensions` można wykluczyć z indeksowania przy użyciu parametru konfiguracji. Wartość jest ciągiem zawierającym oddzieloną przecinkami listę rozszerzeń plików (z wiodącą kropką). Na przykład, aby indeksować wszystkie obiekty blob z wyjątkiem tych z . PNG i . rozszerzenia JPEG, wykonaj tę umowę:
+### <a name="exclude-blobs-with-specific-file-extensions"></a>Wyklucz obiekty blob z określonymi rozszerzeniami plików
+Można wykluczyć obiekty blob z określonymi rozszerzeniami nazw plików z indeksowania przy użyciu `excludedFileNameExtensions` parametru konfiguracji. Wartość jest ciągiem zawierającym listę rozszerzeń plików rozdzielanych przecinkami (z kropką wiodącą). Na przykład, aby indeksować wszystkie obiekty blob z wyjątkiem. PNG i. Rozszerzenia JPEG, wykonaj następujące czynności:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
@@ -228,18 +228,18 @@ Obiekty blob z określonymi rozszerzeniami nazw plików `excludedFileNameExtensi
       "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
     }
 
-Jeśli `indexedFileNameExtensions` oba `excludedFileNameExtensions` i parametry są obecne, `indexedFileNameExtensions`usługa Azure `excludedFileNameExtensions`Cognitive Search najpierw patrzy na , a następnie na . Oznacza to, że jeśli to samo rozszerzenie pliku znajduje się na obu listach, zostanie wykluczone z indeksowania.
+Jeśli oba `indexedFileNameExtensions` parametry `excludedFileNameExtensions` i są obecne, platforma Azure wyszukiwanie poznawcze najpierw wyszukać `indexedFileNameExtensions`, `excludedFileNameExtensions`a następnie na. Oznacza to, że jeśli to samo rozszerzenie pliku znajduje się na obu listach, zostanie wyłączone z indeksowania.
 
 <a name="PartsOfBlobToIndex"></a>
-## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Kontrolowanie, które części obiektu blob są indeksowane
+## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Kontrolowanie, które części obiektu BLOB są indeksowane
 
-Można kontrolować, które części obiektów blob `dataToExtract` są indeksowane przy użyciu parametru konfiguracji. Może to zająć następujące wartości:
+Można kontrolować, które fragmenty obiektów BLOB są indeksowane przy użyciu parametru `dataToExtract` konfiguracji. Może przyjmować następujące wartości:
 
-* `storageMetadata`- określa, że indeksowane są tylko [standardowe właściwości obiektu blob i metadane określone przez użytkownika.](../storage/blobs/storage-properties-metadata.md)
-* `allMetadata`- określa, że metadane magazynu i [metadane specyficzne dla typu zawartości](#ContentSpecificMetadata) wyodrębnione z zawartości obiektu blob są indeksowane.
-* `contentAndMetadata`- określa, że wszystkie metadane i zawartość tekstową wyodrębnione z obiektu blob są indeksowane. Jest to wartość domyślna.
+* `storageMetadata`-Określa, że indeksowane są tylko [standardowe właściwości obiektów blob i metadane określone przez użytkownika](../storage/blobs/storage-properties-metadata.md) .
+* `allMetadata`-Określa, że metadane magazynu i [metadane specyficzne dla typu zawartości](#ContentSpecificMetadata) wyodrębnione z zawartości obiektu BLOB są indeksowane.
+* `contentAndMetadata`-Określa, że wszystkie metadane i zawartość tekstowa wyodrębnione z obiektu BLOB są indeksowane. Jest to wartość domyślna.
 
-Na przykład, aby indeksować tylko metadane magazynu, należy użyć:
+Na przykład aby zindeksować tylko metadane magazynu, użyj:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
@@ -250,19 +250,19 @@ Na przykład, aby indeksować tylko metadane magazynu, należy użyć:
       "parameters" : { "configuration" : { "dataToExtract" : "storageMetadata" } }
     }
 
-### <a name="using-blob-metadata-to-control-how-blobs-are-indexed"></a>Używanie metadanych obiektów blob do kontrolowania sposobu indeksowanie obiektów blob
+### <a name="using-blob-metadata-to-control-how-blobs-are-indexed"></a>Używanie metadanych obiektów BLOB do kontrolowania sposobu indeksowania obiektów BLOB
 
-Parametry konfiguracji opisane powyżej dotyczą wszystkich obiektów blob. Czasami można kontrolować sposób *indeksowane poszczególnych obiektów blob.* Można to zrobić, dodając następujące właściwości i wartości metadanych obiektu blob:
+Opisane powyżej parametry konfiguracji dotyczą wszystkich obiektów BLOB. Czasami może być konieczne sterowanie sposobem indeksowania *poszczególnych obiektów BLOB* . Można to zrobić, dodając następujące właściwości i wartości metadanych obiektu BLOB:
 
 | Nazwa właściwości | Wartość właściwości | Wyjaśnienie |
 | --- | --- | --- |
-| AzureSearch_Skip |"to prawda" |Nakazuje indeksatorowi obiektów blob, aby całkowicie pominąć obiekt blob. Nie podjęto próby wyodrębnienia metadanych ani zawartości. Jest to przydatne, gdy określony obiekt blob kończy się niepowodzeniem wielokrotnie i przerywa proces indeksowania. |
-| AzureSearch_SkipContent |"to prawda" |Jest to `"dataToExtract" : "allMetadata"` równoważne ustawienie opisane [powyżej](#PartsOfBlobToIndex) o zakresie do określonego obiektu blob. |
+| AzureSearch_Skip |oznacza |Instruuje indeksator obiektu BLOB, aby całkowicie pominąć obiekt BLOB. Nie podjęto próby przeprowadzenia żadnej metadanych ani wyodrębniania zawartości. Jest to przydatne, gdy konkretny obiekt BLOB powtarza się wielokrotnie i przerywa proces indeksowania. |
+| AzureSearch_SkipContent |oznacza |Jest to odpowiednik `"dataToExtract" : "allMetadata"` ustawienia opisanego [powyżej](#PartsOfBlobToIndex) w zakresie określonego obiektu BLOB. |
 
 <a name="DealingWithErrors"></a>
-## <a name="dealing-with-errors"></a>Radzenie sobie z błędami
+## <a name="dealing-with-errors"></a>Rozpatrywanie błędów
 
-Domyślnie indeksator obiektów blob zatrzymuje się, gdy tylko napotka obiekt blob z nieobsługiwał typ zawartości (na przykład obraz). Oczywiście można użyć `excludedFileNameExtensions` parametru, aby pominąć niektóre typy zawartości. Jednak może być konieczne indeksowane obiekty BLOB bez znajomości wszystkich możliwych typów zawartości z wyprzedzeniem. Aby kontynuować indeksowanie po napotkaniu nieobsługiwałego `false`typu zawartości, ustaw parametr konfiguracji na: `failOnUnsupportedContentType`
+Domyślnie indeksator obiektu BLOB jest zatrzymywany zaraz po napotkaniu obiektu BLOB z nieobsługiwanym typem zawartości (na przykład obrazem). Możesz użyć parametru, `excludedFileNameExtensions` aby pominąć niektóre typy zawartości. Jednak może być konieczne indeksowanie obiektów Blob bez znajomości wszystkich możliwych typów zawartości z wyprzedzeniem. Aby kontynuować indeksowanie, gdy zostanie napotkany nieobsługiwany typ zawartości `failOnUnsupportedContentType` , ustaw parametr `false`konfiguracji na:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
@@ -273,46 +273,46 @@ Domyślnie indeksator obiektów blob zatrzymuje się, gdy tylko napotka obiekt b
       "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
     }
 
-W przypadku niektórych obiektów blob usługa Azure Cognitive Search nie może określić typu zawartości lub nie może przetworzyć dokumentu innego obsługiwanego typu zawartości. Aby zignorować ten tryb `failOnUnprocessableDocument` błędu, ustaw parametr konfiguracji na false:
+W przypadku niektórych obiektów BLOB usługa Azure Wyszukiwanie poznawcze nie może określić typu zawartości lub nie może przetworzyć dokumentu z nieobsługiwanym typem zawartości. Aby zignorować ten tryb niepowodzenia, ustaw `failOnUnprocessableDocument` dla parametru konfiguracji wartość false:
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 
-Usługa Azure Cognitive Search ogranicza rozmiar obiektów blob, które są indeksowane. Limity te są udokumentowane w [limitach usług w usłudze Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Przewymiarowane obiekty blob są domyślnie traktowane jako błędy. Jednak nadal można indeksować metadane magazynu ponadgabarytowych obiektów blob, jeśli ustawisz `indexStorageMetadataOnlyForOversizedDocuments` parametr konfiguracji na true: 
+Usługa Azure Wyszukiwanie poznawcze ogranicza rozmiar indeksowanych obiektów BLOB. Limity te są udokumentowane w [limitach usługi w usłudze Azure wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Zbyt duże obiekty blob są domyślnie traktowane jako błędy. Można jednak nadal indeksować metadane magazynu o zwiększonym rozmiarze obiektów BLOB w `indexStorageMetadataOnlyForOversizedDocuments` przypadku ustawienia dla parametru konfiguracji wartości true: 
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-Można również kontynuować indeksowanie, jeśli błędy zdarzają się w dowolnym momencie przetwarzania, podczas analizowania obiektów blob lub podczas dodawania dokumentów do indeksu. Aby zignorować określoną liczbę błędów, należy ustawić parametry `maxFailedItems` i `maxFailedItemsPerBatch` konfigurację na żądane wartości. Przykład:
+Możesz również kontynuować indeksowanie w przypadku wystąpienia błędów w dowolnym momencie przetwarzania, podczas analizowania obiektów blob lub dodawania dokumentów do indeksu. Aby zignorować określoną liczbę błędów, należy ustawić wymagane wartości `maxFailedItems` parametrów `maxFailedItemsPerBatch` i konfiguracji. Przykład:
 
     {
       ... other parts of indexer definition
       "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
     }
 
-## <a name="incremental-indexing-and-deletion-detection"></a>Wykrywanie indeksowania przyrostowego i usuwania
+## <a name="incremental-indexing-and-deletion-detection"></a>Wykrywanie przyrostowe i usuwanie
 
-Po skonfigurowaniu indeksatora obiektów blob do uruchamiania zgodnie z harmonogramem, ponownie indeksuje tylko `LastModified` zmienionych obiektów blob, zgodnie z ustaleniami sygnatury czasowej obiektu blob.
+W przypadku skonfigurowania indeksatora obiektu BLOB do uruchamiania zgodnie z harmonogramem program ponownie indeksuje tylko zmienione obiekty blob, zgodnie z `LastModified` sygnaturą czasową obiektu BLOB.
 
 > [!NOTE]
-> Nie trzeba określać zasady wykrywania zmian — indeksowanie przyrostowe jest włączone automatycznie.
+> Nie trzeba określać zasad wykrywania zmian — indeksowanie przyrostowe jest automatycznie włączone.
 
-Aby obsługiwać usuwanie dokumentów, należy użyć metody "usuwania nietrwałego". Jeśli usuniesz obiekty blob wprost, odpowiednie dokumenty nie zostaną usunięte z indeksu wyszukiwania.
+Aby obsługiwać usuwanie dokumentów, użyj podejścia "usuwanie nietrwałe". Po usunięciu obiektów blob z prawej strony, odpowiednie dokumenty nie zostaną usunięte z indeksu wyszukiwania.
 
-Istnieją dwa sposoby implementacji metody usuwania nietrwałego. Oba są opisane poniżej.
+Istnieją dwa sposoby implementacji nietrwałego podejścia do usuwania. Oba te elementy zostały opisane poniżej.
 
-### <a name="native-blob-soft-delete-preview"></a>Usuwanie nietrwałe obiektu blob natywne (podgląd)
+### <a name="native-blob-soft-delete-preview"></a>Natywne usuwanie nietrwałego obiektu BLOB (wersja zapoznawcza)
 
 > [!IMPORTANT]
-> Obsługa usuwania nietrwałego obiektu blob natywnego jest w wersji zapoznawczej. Funkcja w wersji zapoznawczej jest dostarczana bez umowy dotyczącej poziomu usług i nie jest zalecana dla obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Ta funkcja zapewnia [interfejs API REST w wersji 2019-05-06-Preview.](https://docs.microsoft.com/azure/search/search-api-preview) Obecnie nie ma obsługi portalu ani SDK .NET.
+> Obsługa natywnego usuwania nietrwałego obiektu BLOB jest w wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2019-05-06 — wersja zapoznawcza](https://docs.microsoft.com/azure/search/search-api-preview) zawiera tę funkcję. Obecnie nie ma obsługi portalu lub zestawu SDK platformy .NET.
 
 > [!NOTE]
-> Podczas korzystania z natywnych zasad usuwania nietrwałego obiektu blob klucze dokumentu dla dokumentów w indeksie musi być właściwość obiektu blob lub metadane obiektu blob.
+> W przypadku używania natywnych zasad usuwania nietrwałego obiektu BLOB klucze dokumentów dla dokumentów w indeksie muszą być właściwościami obiektu BLOB lub obiektami BLOB.
 
-W tej metodzie użyjesz [natywnej funkcji usuwania nietrwałego obiektu blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) oferowanej przez magazyn obiektów Blob platformy Azure. Jeśli natywne usuwanie nietrwałe obiektów blob jest włączone na koncie magazynu, źródło danych ma natywny zestaw zasad usuwania nietrwałego, a indeksator znajdzie obiekt blob, który został przeniesiony do stanu nietrwałego usuniętego, indeksator usunie ten dokument z indeksu. Natywna zasada usuwania nietrwałego obiektu blob nie jest obsługiwana podczas indeksowania obiektów blob z usługi Azure Data Lake Storage Gen2.
+W tej metodzie będziesz używać [natywnej funkcji usuwania nietrwałego obiektu BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) oferowanej przez usługę Azure Blob Storage. Jeśli na koncie magazynu jest włączone natywne trwałe usuwanie obiektów blob, źródło danych ma natywny zestaw zasad usuwania nietrwałego, a indeksator odnajdzie obiekt BLOB, który został przeniesiony do nietrwałego stanu usuniętego, indeksator usunie ten dokument z indeksu. Natywne zasady usuwania nietrwałego obiektu BLOB nie są obsługiwane podczas indeksowania obiektów blob z Azure Data Lake Storage Gen2.
 
 Wykonaj następujące czynności:
-1. Włącz [natywne usuwanie nietrwałe dla magazynu obiektów Blob platformy Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete). Zaleca się ustawienie zasad przechowywania na wartość, która jest znacznie wyższa niż harmonogram interwału indeksatora. W ten sposób, jeśli istnieje problem z uruchomieniem indeksatora lub jeśli masz dużą liczbę dokumentów do indeksowania, istnieje dużo czasu dla indeksatora, aby ostatecznie przetworzyć miękkie usunięte obiekty blob. Indeksatory usługi Azure Cognitive Search usunie dokument z indeksu tylko wtedy, gdy przetwarza obiekt blob, gdy jest w stanie nietrwałego usuniętego.
-1. Skonfiguruj natywną zasadę wykrywania usuwania nieumiejętnego obiektu blob w źródle danych. Przykład przedstawiono poniżej. Ponieważ ta funkcja jest w wersji zapoznawczej, należy użyć interfejsu API rest w wersji zapoznawczej.
-1. Uruchom indeksatora lub ustaw indeksatora do uruchomienia zgodnie z harmonogramem. Gdy indeksator uruchamia i przetwarza obiekt blob dokument zostanie usunięty z indeksu.
+1. Włącz [natywne usuwanie nietrwałe dla magazynu obiektów blob platformy Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete). Zalecamy ustawienie zasad przechowywania na wartość, która jest znacznie wyższa niż harmonogram interwału indeksatora. W ten sposób, jeśli wystąpi problem z uruchamianiem indeksatora lub jeśli masz dużą liczbę dokumentów do indeksowania, istnieje dużo czasu, aby indeksator mógł ostatecznie przetworzyć usunięte nietrwałe obiekty blob. Indeksatory usługi Azure Wyszukiwanie poznawcze spowodują usunięcie dokumentu z indeksu tylko wtedy, gdy przetwarza on obiekt BLOB w stanie nietrwałego usunięcia.
+1. Skonfiguruj zasady wykrywania natywnych usunięć obiektów BLOB w źródle danych. Przykład przedstawiono poniżej. Ponieważ ta funkcja jest dostępna w wersji zapoznawczej, należy użyć interfejsu API REST.
+1. Uruchom indeksator lub ustaw indeksator do uruchomienia zgodnie z harmonogramem. Gdy indeksator działa i przetwarza obiekt BLOB, dokument zostanie usunięty z indeksu.
 
     ```
     PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06-Preview
@@ -329,21 +329,21 @@ Wykonaj następujące czynności:
     }
     ```
 
-#### <a name="reindexing-undeleted-blobs"></a>Ponowne indeksowanie nieusuniętych obiektów blob
+#### <a name="reindexing-undeleted-blobs"></a>Ponowne indeksowanie nieusuniętych obiektów BLOB
 
-Jeśli usuniesz obiekt blob z magazynu obiektów Blob platformy Azure z włączonym natywnym usuwaniem nietrwałym na koncie magazynu, obiekt blob przejdzie do nietrwale usuniętego stanu, co daje możliwość cofnięcia usunięcia tego obiektu blob w okresie przechowywania. Gdy źródło danych usługi Azure Cognitive Search ma natywną zasadę usuwania nietrwałego obiektu blob, a indeksator przetwarza nietrwale usunięty obiekt blob, usunie ten dokument z indeksu. Jeśli ten obiekt blob jest później cofnięte indeksator nie zawsze reindex tego obiektu blob. Dzieje się tak, ponieważ indeksator określa, które obiekty BLOB do indeksowania na podstawie sygnatury czasowej `LastModified` obiektu blob. Gdy nietrwałe usunięte obiektu blob jest cofnięte jego `LastModified` sygnatura czasowa nie `LastModified` zostanie zaktualizowana, więc jeśli indeksator już przetworzone obiekty BLOB z sygnaturami czasowymi nowsze niż nieusunięty obiekt blob nie będzie ponownie indeksować undeleted obiektu blob. Aby upewnić się, że nieusunięty obiekt blob jest ponownie indeksowany, `LastModified` należy zaktualizować sygnaturę czasową obiektu blob. Jednym ze sposobów, aby to zrobić jest ponowne wymazyowanie metadanych tego obiektu blob. Nie trzeba zmieniać metadanych, ale ponowne ich ponowne aktualizowanie metadanych zaktualizuje sygnaturę czasową `LastModified` obiektu blob, dzięki czemu indeksator wie, że musi ponownie indeksować ten obiekt blob.
+W przypadku usunięcia obiektu BLOB z usługi Azure Blob Storage z włączonym natywnym usuwaniem nieaktywnym na koncie magazynu obiekt BLOB przejdzie do nietrwałego usunięcia, dając możliwość cofnięcia usunięcia tego obiektu BLOB w ramach okresu przechowywania. Gdy źródło danych Wyszukiwanie poznawcze platformy Azure ma natywne zasady usuwania nietrwałego obiektu BLOB, a indeksator przetwarza usunięty nietrwały obiekt BLOB, spowoduje to usunięcie tego dokumentu z indeksu. Jeśli ten obiekt BLOB zostanie później cofnięty, indeksator nie zawsze ponownie indeksuje ten obiekt BLOB. Wynika to z faktu, że indeksator określa, które obiekty blob mają być indeksowane `LastModified` na podstawie sygnatury czasowej obiektu BLOB. Gdy usunięty obiekt BLOB nieusuniętego elementu jest nieusunięty, jego `LastModified` sygnatura czasowa nie jest aktualizowana, więc jeśli indeksator już `LastModified` przetworzył obiekty blob z sygnaturami czasowymi nowszymi niż nieusunięty obiekt BLOB, nie będzie ponownie indeksować nieusuniętego obiektu BLOB. Aby upewnić się, że nieusunięty obiekt BLOB jest ponownie indeksowany, należy zaktualizować `LastModified` sygnaturę czasową obiektu BLOB. Jednym ze sposobów na wykonanie tej czynności jest ponowne zapisanie metadanych tego obiektu BLOB. Nie musisz zmieniać metadanych, ale ponowne Zapisywanie metadanych spowoduje zaktualizowanie `LastModified` sygnatury czasowej obiektu BLOB, aby indeksator wiedział, że musi on ponownie zindeksować ten obiekt BLOB.
 
-### <a name="soft-delete-using-custom-metadata"></a>Usuwanie nietrwałe przy użyciu niestandardowych metadanych
+### <a name="soft-delete-using-custom-metadata"></a>Usuwanie nietrwałe przy użyciu metadanych niestandardowych
 
-W tej metodzie użyjesz metadanych obiektu blob, aby wskazać, kiedy dokument powinien zostać usunięty z indeksu wyszukiwania.
+W tej metodzie metadane obiektu BLOB zostaną użyte do wskazania, kiedy dokument powinien zostać usunięty z indeksu wyszukiwania.
 
 Wykonaj następujące czynności:
 
-1. Dodaj parę klucz-wartość metadanych niestandardowych do obiektu blob, aby wskazać w usłudze Azure Cognitive Search, że jest logicznie usuwany.
-1. Skonfiguruj zasady wykrywania kolumn o nieudzielenia łajdakiem w źródle danych. Przykład przedstawiono poniżej.
-1. Gdy indeksator przetworzył obiekt blob i usunął dokument z indeksu, można usunąć obiekt blob dla magazynu obiektów Blob platformy Azure.
+1. Dodaj niestandardową parę klucz-wartość metadanych do obiektu BLOB, aby wskazać, że usługa Azure Wyszukiwanie poznawcze jest usuwana logicznie.
+1. Skonfiguruj zasady wykrywania nietrwałej kolumny usuwania w źródle danych. Przykład przedstawiono poniżej.
+1. Gdy indeksator przetworzył obiekt BLOB i usunął dokument z indeksu, można usunąć obiekt blob magazynu obiektów blob platformy Azure.
 
-Na przykład następująca zasada uważa obiekt blob za usunięty, `IsDeleted` jeśli ma `true`właściwość metadanych o wartości:
+Na przykład następujące zasady uznają obiekt BLOB, który ma zostać usunięty, jeśli ma właściwość `IsDeleted` metadanych o wartości: `true`
 
     PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06
     Content-Type: application/json
@@ -361,16 +361,16 @@ Na przykład następująca zasada uważa obiekt blob za usunięty, `IsDeleted` j
         }
     }
 
-#### <a name="reindexing-undeleted-blobs"></a>Ponowne indeksowanie nieusuniętych obiektów blob
+#### <a name="reindexing-undeleted-blobs"></a>Ponowne indeksowanie nieusuniętych obiektów BLOB
 
-Jeśli ustawisz zasady wykrywania kolumn usuwania nietrwałego w źródle danych, a następnie dodaj niestandardowe metadane do obiektu blob z wartością znacznika, a następnie uruchomisz indeksator, indeksator usunie ten dokument z indeksu. Jeśli chcesz ponownie zakediiować ten dokument, po prostu zmień wartość nietrwałych metadanych usuwania nietrwałego dla tego obiektu blob i uruchom ponownie indeksatora.
+Jeśli ustawisz zasady wykrywania nietrwałej kolumny usuwania dla źródła danych, Dodaj niestandardowe metadane do obiektu BLOB z wartością znacznika, a następnie uruchomimy indeksator, indeksator usunie ten dokument z indeksu. Jeśli chcesz ponownie zindeksować ten dokument, po prostu zmień wartość metadanych usuwania nietrwałego dla tego obiektu BLOB i uruchom indeksator.
 
 ## <a name="indexing-large-datasets"></a>Indeksowanie dużych zestawów danych
 
-Indeksowanie obiektów blob może być procesem czasochłonnym. W przypadkach, gdy masz miliony obiektów blob do indeksowania, można przyspieszyć indeksowanie przez partycjonowanie danych i przy użyciu wielu indeksatorów do przetwarzania danych równolegle. Oto jak to skonfigurować:
+Indeksowanie obiektów BLOB może być czasochłonnym procesem. W przypadkach, gdy masz miliony obiektów BLOB do indeksowania, możesz przyspieszyć indeksowanie, partycjonowanie danych i używanie wielu indeksatorów do równoległego przetwarzania danych. Oto, jak można je skonfigurować:
 
-- Partycjonowanie danych na wiele kontenerów obiektów blob lub folderów wirtualnych
-- Skonfiguruj kilka źródeł danych usługi Azure Cognitive Search, po jednym na kontener lub folder. Aby wskazać folder obiektów blob, użyj parametru: `query`
+- Partycjonowanie danych w wielu kontenerach obiektów blob lub w folderach wirtualnych
+- Skonfiguruj kilka źródeł danych usługi Azure Wyszukiwanie poznawcze, jeden dla każdego kontenera lub folderu. Aby wskazać folder obiektu BLOB, użyj `query` parametru:
 
     ```
     {
@@ -381,20 +381,20 @@ Indeksowanie obiektów blob może być procesem czasochłonnym. W przypadkach, g
     }
     ```
 
-- Utwórz odpowiedni indeksator dla każdego źródła danych. Wszystkie indeksatory można wskazać ten sam indeks wyszukiwania docelowego.  
+- Utwórz odpowiedni indeksator dla każdego źródła danych. Wszystkie indeksatory mogą wskazywać na ten sam docelowy indeks wyszukiwania.  
 
-- Jedna jednostka wyszukiwania w usłudze może uruchomić jeden indeksator w danym momencie. Tworzenie wielu indeksatorów, jak opisano powyżej jest przydatne tylko wtedy, gdy faktycznie działają równolegle. Aby uruchomić wiele indeksatorów równolegle, skaluj w poziomie usługi wyszukiwania, tworząc odpowiednią liczbę partycji i replik. Na przykład jeśli usługa wyszukiwania ma 6 jednostek wyszukiwania (na przykład 2 partycje x 3 repliki), a następnie 6 indeksatorów można uruchomić jednocześnie, co powoduje sześciokrotny wzrost przepływności indeksowania. Aby dowiedzieć się więcej na temat skalowania i planowania pojemności, zobacz [Skalowanie poziomów zasobów dla obciążeń zapytań i indeksowania w usłudze Azure Cognitive Search](search-capacity-planning.md).
+- Jedna jednostka wyszukiwania w usłudze może uruchamiać jeden indeksator w danym momencie. Tworzenie wielu indeksatorów, jak opisano powyżej, jest przydatne tylko wtedy, gdy rzeczywiście są uruchamiane równolegle. Aby uruchamiać wiele indeksatorów równolegle, Skaluj w poziomie usługę wyszukiwania, tworząc odpowiednią liczbę partycji i replik. Jeśli na przykład usługa wyszukiwania ma 6 jednostek wyszukiwania (na przykład 2 repliki x 3), to 6 indeksatorów może być uruchomionych jednocześnie, co powoduje sześć przyrostów przepływności indeksowania. Aby dowiedzieć się więcej na temat skalowania i planowania pojemności, zobacz [poziomy zasobów skalowania dla obciążeń zapytań i indeksowania na platformie Azure wyszukiwanie poznawcze](search-capacity-planning.md).
 
 ## <a name="indexing-documents-along-with-related-data"></a>Indeksowanie dokumentów wraz z powiązanymi danymi
 
-Można "zmontować" dokumenty z wielu źródeł w indeksie. Na przykład można scalić tekst z obiektów blob z innymi metadanymi przechowywanymi w usłudze Cosmos DB. Można nawet użyć interfejsu API indeksowania wypychającego wraz z różnymi indeksatorami do tworzenia dokumentów wyszukiwania z wielu części. 
+Możesz chcieć "złożyć" dokumenty z wielu źródeł w indeksie. Na przykład możesz chcieć scalić tekst z obiektów blob z innymi metadanymi przechowywanymi w Cosmos DB. Można nawet użyć interfejsu API indeksowania wypychania razem z różnymi indeksatorami w celu utworzenia dokumentów wyszukiwania z wielu części. 
 
-Aby to zadziałało, wszystkie indeksatory i inne składniki muszą uzgodnić klucz dokumentu. Aby uzyskać dodatkowe informacje na ten temat, zobacz [Indeksowanie wielu źródeł danych platformy Azure](https://docs.microsoft.com/azure/search/tutorial-multiple-data-sources). Aby uzyskać szczegółowe informacje, zobacz ten artykuł [zewnętrzny: Łączenie dokumentów z innymi danymi w usłudze Azure Cognitive Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Aby to działało, wszystkie indeksatory i inne składniki muszą wyrazić zgodę na klucz dokumentu. Aby uzyskać dodatkowe informacje na temat tego tematu, zobacz [indeksowanie wielu źródeł danych platformy Azure](https://docs.microsoft.com/azure/search/tutorial-multiple-data-sources). Aby uzyskać szczegółowy przewodnik, zobacz artykuł zewnętrzny: [łączenie dokumentów z innymi danymi na platformie Azure wyszukiwanie poznawcze](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indeksowanie zwykłego tekstu 
 
-Jeśli wszystkie obiekty blob zawierają zwykły tekst w tym samym kodowaniu, można znacznie poprawić wydajność indeksowania przy użyciu **trybu analizy tekstu**. Aby użyć trybu analizy tekstu, `parsingMode` ustaw `text`właściwość konfiguracj na:
+Jeśli wszystkie obiekty blob zawierają zwykły tekst w tym samym kodowaniu, można znacząco poprawić wydajność indeksowania przy użyciu **trybu analizowania tekstu**. Aby użyć trybu analizowania tekstu, ustaw właściwość `parsingMode` konfiguracja na `text`:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
@@ -405,7 +405,7 @@ Jeśli wszystkie obiekty blob zawierają zwykły tekst w tym samym kodowaniu, mo
       "parameters" : { "configuration" : { "parsingMode" : "text" } }
     }
 
-Domyślnie zakłada `UTF-8` się kodowanie. Aby określić inne kodowanie, należy użyć właściwości `encoding` konfiguracji: 
+Domyślnie jest założono `UTF-8` kodowanie. Aby określić inne kodowanie, użyj właściwości `encoding` konfiguracja: 
 
     {
       ... other parts of indexer definition
@@ -415,36 +415,36 @@ Domyślnie zakłada `UTF-8` się kodowanie. Aby określić inne kodowanie, nale�
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>Właściwości metadanych specyficznych dla typu zawartości
-W poniższej tabeli podsumowano przetwarzanie wykonane dla każdego formatu dokumentu i opisano właściwości metadanych wyodrębnione przez usługę Azure Cognitive Search.
+Poniższa tabela zawiera podsumowanie przetwarzania dla każdego formatu dokumentu oraz opis właściwości metadanych wyodrębnionych przez usługę Azure Wyszukiwanie poznawcze.
 
-| Format dokumentu / typ zawartości | Właściwości metadanych określonego typu zawartości | Szczegóły przetwarzania |
+| Format dokumentu/typ zawartości | Właściwości metadanych specyficznych dla typu zawartości | Szczegóły przetwarzania |
 | --- | --- | --- |
-| HTML (tekst/html) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |Rozłącz znaczniki HTML i wyodrębnij tekst |
-| PDF (aplikacja/pdf) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Wyodrębnianie tekstu wraz z osadzonymi dokumentami (z wyłączeniem obrazów) |
-| DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Wyodrębnianie tekstu wraz z osadzonymi dokumentami |
-| DOC (aplikacja/msword) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Wyodrębnianie tekstu wraz z osadzonymi dokumentami |
-| DOCM (aplikacja/vnd.ms-word.document.macroenabled.12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Wyodrębnianie tekstu wraz z osadzonymi dokumentami |
-| WORD XML (aplikacja/vnd.ms-word2006ml) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Rozłącz znaczniki XML i wyodrębnij tekst |
-| WORD 2003 XML (application/vnd.ms-wordml) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date` |Rozłącz znaczniki XML i wyodrębnij tekst |
-| XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Wyodrębnianie tekstu wraz z osadzonymi dokumentami |
-| XLS (aplikacja/vnd.ms-excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Wyodrębnianie tekstu wraz z osadzonymi dokumentami |
-| XLSM (aplikacja/vnd.ms-excel.sheet.macroenabled.12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Wyodrębnianie tekstu wraz z osadzonymi dokumentami |
-| PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Wyodrębnianie tekstu wraz z osadzonymi dokumentami |
-| PPT (aplikacja/vnd.ms-powerpoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Wyodrębnianie tekstu wraz z osadzonymi dokumentami |
-| PPTM (aplikacja/vnd.ms-powerpoint.presentation.macroenabled.12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Wyodrębnianie tekstu wraz z osadzonymi dokumentami |
-| MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_from_email`<br/>`metadata_message_to`<br/>`metadata_message_to_email`<br/>`metadata_message_cc`<br/>`metadata_message_cc_email`<br/>`metadata_message_bcc`<br/>`metadata_message_bcc_email`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Wyodrębnij tekst, łącznie z załącznikami. `metadata_message_to_email`i `metadata_message_cc_email` `metadata_message_bcc_email` są kolekcjami ciągów, pozostałe pola są ciągami.|
-| ODT (application/vnd.oasis.opendocument.text) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Wyodrębnianie tekstu wraz z osadzonymi dokumentami |
-| ODS (arkusz kalkulacyjny application/vnd.oasis.opendocument.) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Wyodrębnianie tekstu wraz z osadzonymi dokumentami |
-| ODP (aplikacja/vnd.oasis.opendocument.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`title` |Wyodrębnianie tekstu wraz z osadzonymi dokumentami |
-| ZIP (aplikacja/zamek błyskawiczny) |`metadata_content_type` |Wyodrębnianie tekstu ze wszystkich dokumentów w archiwum |
-| GZ (aplikacja/gzip) |`metadata_content_type` |Wyodrębnianie tekstu ze wszystkich dokumentów w archiwum |
-| EPUB (aplikacja/epub+zip) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_title`<br/>`metadata_description`<br/>`metadata_language`<br/>`metadata_keywords`<br/>`metadata_identifier`<br/>`metadata_publisher` |Wyodrębnianie tekstu ze wszystkich dokumentów w archiwum |
-| XML (aplikacja/xml) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> |Rozłącz znaczniki XML i wyodrębnij tekst |
-| JSON (aplikacja/json) |`metadata_content_type`<br/>`metadata_content_encoding` |Wyodrębnij tekst<br/>UWAGA: Jeśli chcesz wyodrębnić wiele pól dokumentu z obiektu blob JSON, zobacz [Indeksowanie obiektów blob JSON, aby](search-howto-index-json-blobs.md) uzyskać szczegółowe informacje |
-| EML (wiadomość/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Wyodrębnianie tekstu wraz z załącznikami |
-| RTF (aplikacja/rtf) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_page_count`<br/>`metadata_word_count`<br/> | Wyodrębnij tekst|
+| HTML (tekst/HTML) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |Rozpakowywanie znacznika HTML i wyodrębnienie tekstu |
+| PDF (aplikacja/PDF) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Wyodrębnij tekst, w tym osadzone dokumenty (z wyjątkiem obrazów) |
+| DOCX (application/vnd. openxmlformats-officedocument. WordprocessingML. Document) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Wyodrębnij tekst, w tym osadzone dokumenty |
+| DOC (application/msword) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Wyodrębnij tekst, w tym osadzone dokumenty |
+| DOCM (application/vnd. MS-Word. Document. macroenabled. 12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Wyodrębnij tekst, w tym osadzone dokumenty |
+| WORD XML (application/vnd. MS-word2006ml) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Przepakowywanie znacznika XML i wyodrębnienie tekstu |
+| WORD 2003 XML (application/vnd. MS-WordML) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date` |Przepakowywanie znacznika XML i wyodrębnienie tekstu |
+| XLSX (application/vnd. openxmlformats-officedocument. SpreadsheetML. Sheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Wyodrębnij tekst, w tym osadzone dokumenty |
+| XLS (application/vnd. MS-Excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Wyodrębnij tekst, w tym osadzone dokumenty |
+| XLSM (application/vnd. MS-Excel. Sheet. macroenabled. 12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Wyodrębnij tekst, w tym osadzone dokumenty |
+| PPTX (application/vnd. openxmlformats-officedocument. presentationml. Presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Wyodrębnij tekst, w tym osadzone dokumenty |
+| PPT (application/vnd. MS-PowerPoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Wyodrębnij tekst, w tym osadzone dokumenty |
+| PPTM (application/vnd. MS-PowerPoint. Presentation. macroenabled. 12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Wyodrębnij tekst, w tym osadzone dokumenty |
+| MSG (application/vnd. MS-Outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_from_email`<br/>`metadata_message_to`<br/>`metadata_message_to_email`<br/>`metadata_message_cc`<br/>`metadata_message_cc_email`<br/>`metadata_message_bcc`<br/>`metadata_message_bcc_email`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Wyodrębnij tekst, w tym załączniki. `metadata_message_to_email``metadata_message_cc_email` i `metadata_message_bcc_email` są kolekcjami ciągów, pozostałe pola są ciągami.|
+| ODT (application/vnd. języka Oasis. OpenDocument. Text) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Wyodrębnij tekst, w tym osadzone dokumenty |
+| ODS (application/vnd. języka Oasis. OpenDocument. arkusza kalkulacyjnego) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Wyodrębnij tekst, w tym osadzone dokumenty |
+| ODP (application/vnd. języka Oasis. OpenDocument. Presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`title` |Wyodrębnij tekst, w tym osadzone dokumenty |
+| Plik ZIP (Application/zip) |`metadata_content_type` |Wyodrębnij tekst ze wszystkich dokumentów w archiwum |
+| GZ (aplikacja/gzip) |`metadata_content_type` |Wyodrębnij tekst ze wszystkich dokumentów w archiwum |
+| EPUB (Application/EPUB + zip) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_title`<br/>`metadata_description`<br/>`metadata_language`<br/>`metadata_keywords`<br/>`metadata_identifier`<br/>`metadata_publisher` |Wyodrębnij tekst ze wszystkich dokumentów w archiwum |
+| XML (aplikacja/XML) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> |Przepakowywanie znacznika XML i wyodrębnienie tekstu |
+| JSON (Application/JSON) |`metadata_content_type`<br/>`metadata_content_encoding` |Wyodrębnij tekst<br/>Uwaga: Jeśli chcesz wyodrębnić wiele pól dokumentu z obiektu BLOB JSON, zobacz [indeksowanie obiektów BLOB JSON](search-howto-index-json-blobs.md) w celu uzyskania szczegółów |
+| EML (Message/RFC822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Wyodrębnij tekst, w tym załączniki |
+| RTF (aplikacja/RTF) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_page_count`<br/>`metadata_word_count`<br/> | Wyodrębnij tekst|
 | Zwykły tekst (tekst/zwykły) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | Wyodrębnij tekst|
 
 
-## <a name="help-us-make-azure-cognitive-search-better"></a>Pomóż nam poprawić usługę Azure Cognitive Search
-Jeśli masz prośby o ulepszenia lub pomysły dotyczące ulepszeń, poinformuj nas o tym na naszej [stronie UserVoice.](https://feedback.azure.com/forums/263029-azure-search/)
+## <a name="help-us-make-azure-cognitive-search-better"></a>Pomóż nam ulepszyć platformę Azure Wyszukiwanie poznawcze
+Jeśli masz żądania dotyczące funkcji lub pomysły dotyczące ulepszeń, daj nam znać w naszej [witrynie UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

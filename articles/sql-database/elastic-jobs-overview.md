@@ -1,6 +1,6 @@
 ---
-title: Zadania elastycznej bazy danych (wersja zapoznawcza)
-description: Konfigurowanie zadań elastycznej bazy danych (wersja zapoznawcza) w celu uruchamiania skryptów Transact-SQL (T-SQL) w zestawie co najmniej jednej bazy danych SQL platformy Azure
+title: Zadania Elastic Database (wersja zapoznawcza)
+description: Skonfiguruj zadania Elastic Database (wersja zapoznawcza), aby uruchamiać skrypty Transact-SQL (T-SQL) w zestawie co najmniej jednej bazy danych Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,34 +12,34 @@ ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: e5b07ac0e9421cbca034b17c573cab16641f49f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79214474"
 ---
-# <a name="create-configure-and-manage-elastic-jobs"></a>Tworzenie, konfigurowanie i zarządzanie zadaniami elastycznymi
+# <a name="create-configure-and-manage-elastic-jobs"></a>Tworzenie, Konfigurowanie i zarządzanie zadaniami elastycznymi
 
-W tym artykule dowiesz się, jak tworzyć, konfigurować i zarządzać zadaniami elastycznymi.
+W tym artykule przedstawiono sposób tworzenia i konfigurowania zadań elastycznych oraz zarządzania nimi.
 
-Jeśli nie używano zadań elastycznych, [dowiedz się więcej o pojęciach automatyzacji zadań w usłudze Azure SQL Database](sql-database-job-automation-overview.md).
+Jeśli nie korzystasz z zadań elastycznych, [Dowiedz się więcej na temat koncepcji automatyzacji zadań w Azure SQL Database](sql-database-job-automation-overview.md).
 
 ## <a name="create-and-configure-the-agent"></a>Tworzenie i konfigurowanie agenta
 
-1. Utwórz lub zidentyfikuj pustą bazę danych SQL w warstwie S0 lub wyższej. Ta baza danych będzie używana jako *baza danych zadań* podczas tworzenia agenta zadania elastycznego.
-2. Utwórz agenta zadania elastycznego w [portalu](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) lub za pomocą programu [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
+1. Utwórz lub zidentyfikuj pustą bazę danych SQL w warstwie S0 lub wyższej. Ta baza danych będzie używana jako *baza danych zadań* podczas tworzenia agenta zadań elastycznych.
+2. Utwórz agenta elastycznego zadania w [portalu](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) lub za pomocą [programu PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
-   ![Tworzenie elastycznego agenta zadania](media/elastic-jobs-overview/create-elastic-job-agent.png)
+   ![Tworzenie agenta zadań elastycznych](media/elastic-jobs-overview/create-elastic-job-agent.png)
 
 ## <a name="create-run-and-manage-jobs"></a>Tworzenie i uruchamianie zadań oraz zarządzanie nimi
 
-1. Utwórz poświadczenia do wykonania zadania w *bazie danych zadań* przy użyciu programu [PowerShell](elastic-jobs-powershell.md) lub [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
-2. Zdefiniuj grupę docelową (bazy danych, przeciwko których chcesz uruchomić zadanie) za pomocą [programu PowerShell](elastic-jobs-powershell.md) lub [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
+1. Utwórz poświadczenie wykonywania zadania w *bazie danych zadań* przy użyciu [programu PowerShell](elastic-jobs-powershell.md) lub [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
+2. Zdefiniuj grupę docelową (bazy danych, dla których chcesz uruchomić zadanie) przy użyciu [programu PowerShell](elastic-jobs-powershell.md) lub [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
 3. Utwórz poświadczenia agenta zadań w każdej bazie danych, w której będzie wykonywane zadanie [(dodaj użytkownika lub rolę do każdej bazy danych w grupie)](sql-database-manage-logins.md). Aby uzyskać przykład, zobacz [samouczek programu PowerShell](elastic-jobs-powershell.md).
-4. Tworzenie zadania przy użyciu programu [PowerShell](elastic-jobs-powershell.md) lub [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
+4. Utwórz zadanie przy użyciu [programu PowerShell](elastic-jobs-powershell.md) lub [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 5. Dodaj kroki zadania za pomocą programu [PowerShell](elastic-jobs-powershell.md) lub języka [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
-6. Uruchom zadanie przy użyciu programu [PowerShell](elastic-jobs-powershell.md#run-the-job) lub [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
-7. Monitoruj stan wykonania zadania za pomocą portalu, [programu PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) lub [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
+6. Uruchom zadanie przy użyciu [programu PowerShell](elastic-jobs-powershell.md#run-the-job) lub [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
+7. Monitoruj stan wykonywania zadania za pomocą portalu, [programu PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) lub [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
 
    ![Portal](media/elastic-jobs-overview/elastic-job-executions-overview.png)
 
@@ -50,8 +50,8 @@ Za pomocą [poświadczeń o zakresie bazy danych](/sql/t-sql/statements/create-d
 Konfigurowanie odpowiednich poświadczeń służących do uruchamiania zadania może wydawać się nieco mylące, więc należy mieć na uwadze następujące kwestie:
 
 - Poświadczenia o zakresie bazy danych należy utworzyć w *bazie danych zadań*.
-- **Wszystkie docelowe bazy danych muszą mieć login z [wystarczającymi uprawnieniami,](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) aby zadanie mogło zakończyć się pomyślnie** (na`jobuser` poniższym diagramie).
-- Poświadczenia mogą być ponownie używane w zadaniach, a hasła poświadczeń są szyfrowane i zabezpieczone od użytkowników, którzy mają dostęp tylko do odczytu do obiektów zadań.
+- **Aby zadanie zostało pomyślnie ukończone [sufficient permissions](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) (** `jobuser` na poniższym diagramie), wszystkie docelowe bazy danych muszą mieć uprawnienia do logowania z odpowiednimi uprawnieniami.
+- Poświadczenia mogą być ponownie używane między zadaniami, a hasła poświadczeń są szyfrowane i zabezpieczone przez użytkowników, którzy mają dostęp tylko do odczytu do obiektów zadań.
 
 Poniższa ilustracja ułatwia zrozumienie i ustawienie odpowiednich poświadczeń zadań. **Pamiętaj, aby utworzyć użytkownika w każdej bazie danych (wszystkie *docelowe bazy danych użytkowników*), w której ma być uruchamiane zadanie**.
 
@@ -62,8 +62,8 @@ Poniższa ilustracja ułatwia zrozumienie i ustawienie odpowiednich poświadcze�
 Kilka uwag dotyczących najlepszych rozwiązań podczas pracy z zadaniami elastycznymi:
 
 - Ogranicz użycie interfejsów API do tych zaufanych.
-- Poświadczenia powinny mieć możliwie najmniejsze uprawnienia niezbędne do wykonania kroku zadania. Aby uzyskać więcej informacji, zobacz [Autoryzacja i uprawnienia programu SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
-- W przypadku korzystania z członka grupy docelowej serwera i/lub puli zaleca się utworzenie oddzielnych poświadczeń z prawami do głównej bazy danych w celu wyświetlania/listy baz danych używanych do rozwijania list baz danych serwerów i/lub puli przed wykonaniem zadania.
+- Poświadczenia powinny mieć możliwie najmniejsze uprawnienia niezbędne do wykonania kroku zadania. Aby uzyskać więcej informacji, zobacz [SQL Server autoryzacji i uprawnień](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
+- W przypadku korzystania z elementu członkowskiego serwera i/lub grupy docelowej puli zdecydowanie zaleca się utworzenie oddzielnego poświadczenia z prawami w bazie danych Master, aby wyświetlić/wyświetlić bazy danych, które są używane do rozszerzania listy baz danych serwerów i/lub pul przed wykonaniem zadania.
 
 ## <a name="agent-performance-capacity-and-limitations"></a>Wydajność agenta, pojemność i ograniczenia
 
@@ -77,7 +77,7 @@ Wersja zapoznawcza jest obecnie ograniczona do 100 współbieżnych zadań.
 
 Aby zapewnić, że zasoby nie będą przeciążone podczas uruchamiania zadań w ramach baz danych w elastycznej puli SQL, możliwe jest skonfigurowanie zadań w taki sposób, aby ograniczana była liczba baz danych, w ramach których mogą one być jednocześnie uruchamiane.
 
-Ustaw liczbę równoczesnych baz danych, na które `sp_add_jobstep` działa zadanie, ustawiając parametr procedury `@max_parallelism` składowanej w języku T-SQL lub `Add-AzSqlElasticJobStep -MaxParallelism` w programie PowerShell.
+Ustaw liczbę współbieżnych baz danych wykonywanych przez zadanie przez ustawienie `sp_add_jobstep` `@max_parallelism` parametru procedury składowanej w języku T-SQL lub `Add-AzSqlElasticJobStep -MaxParallelism` w programie PowerShell.
 
 ## <a name="best-practices-for-creating-jobs"></a>Najlepsze rozwiązania dotyczące tworzenia zadań
 

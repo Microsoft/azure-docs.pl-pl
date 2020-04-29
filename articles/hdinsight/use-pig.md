@@ -1,7 +1,7 @@
 ---
 title: Korzystanie z platformy Apache Pig
 titleSuffix: Azure HDInsight
-description: Dowiedz się, jak używać Pig z Apache Hadoop na HDInsight.
+description: Dowiedz się, jak używać świni z Apache Hadoop w usłudze HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,54 +10,54 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: ea960a92aee1c9447bb12d27cffdc42de9fd907a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77672127"
 ---
-# <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Użyj Apache Pig z Apache Hadoop na HDInsight
+# <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Korzystanie z usługi Apache świni z usługą Apache Hadoop w usłudze HDInsight
 
-Dowiedz się, jak używać [Apache Pig](https://pig.apache.org/) z HDInsight.
+Dowiedz się, jak używać oprogramowania [Apache świni](https://pig.apache.org/) z usługą HDInsight.
 
-Apache Pig jest platformą do tworzenia programów dla Apache Hadoop za pomocą języka proceduralnego znanego jako *Pig Latin*. Pig jest alternatywą dla języka Java do tworzenia rozwiązań *MapReduce* i jest dołączony do usługi Azure HDInsight. Poniższa tabela służy do odkrywania różnych sposobów używania leku Pig z programem HDInsight:
+Apache świni to platforma służąca do tworzenia programów dla Apache Hadoop przy użyciu języka proceduralnego znanego jako *świnie*. Świnie są alternatywą dla języka Java do tworzenia rozwiązań *MapReduce* i są dołączone do usługi Azure HDInsight. Skorzystaj z poniższej tabeli, aby poznać różne sposoby używania świni z usługą HDInsight:
 
-## <a name="why-use-apache-pig"></a><a id="why"></a>Dlaczego warto skorzystać z Apache Pig
+## <a name="why-use-apache-pig"></a><a id="why"></a>Dlaczego warto używać oprogramowania Apache świni
 
-Jednym z wyzwań związanych z przetwarzaniem danych przy użyciu MapReduce w Hadoop jest implementowanie logiki przetwarzania przy użyciu tylko mapy i funkcji zmniejszenia. W przypadku przetwarzania złożonego często trzeba podzielić przetwarzania na wiele operacji MapReduce, które są połączone ze sobą, aby osiągnąć pożądany wynik.
+Jednym z wyzwań związanych z przetwarzaniem danych przy użyciu MapReduce w usłudze Hadoop jest implementowanie logiki przetwarzania przy użyciu tylko mapy i funkcji ograniczania. W przypadku przetwarzania złożonego często trzeba przerwać przetwarzanie w wielu operacjach MapReduce, które są połączone ze sobą, aby osiągnąć żądany wynik.
 
-Pig pozwala zdefiniować przetwarzanie jako serię przekształceń, które dane przepływają w celu uzyskania żądanego wyjścia.
+Świnie umożliwiają definiowanie przetwarzania w postaci serii transformacji, w których dane są przetwarzane przez program w celu wygenerowania żądanych danych wyjściowych.
 
-Język łaciński Pig pozwala opisać przepływ danych z nieprzetworzonego wejścia, za pośrednictwem jednego lub więcej przekształceń, w celu uzyskania żądanego wyjścia. Programy łaciny świni zgodne z tym ogólnym wzorem:
+Język łaciński (wieprzowina) pozwala na opisywanie przepływu danych z nieprzetworzonego wejścia, przez jedno lub więcej transformacji, w celu wygenerowania żądanych danych wyjściowych. Programy z wieprzowiną są zgodne z tym ogólnym wzorcem:
 
-* **Ładowanie:** Odczyt danych, które mają być manipulowane z systemu plików.
+* **Ładowanie**: odczytywanie danych do manipulacji z systemu plików.
 
-* **Transform**: Manipulować danymi.
+* **Przekształcanie**: manipulowanie danymi.
 
-* **Zrzut lub przechowywanie**: Dane wyjściowe na ekranie lub przechowywać go do przetworzenia.
+* **Zrzut lub przechowywanie**: dane wyjściowe na ekranie lub przechowywane do przetworzenia.
 
 ### <a name="user-defined-functions"></a>Funkcje zdefiniowane przez użytkownika
 
-Pig Latin obsługuje również funkcje zdefiniowane przez użytkownika (UDF), który pozwala na wywoływanie składników zewnętrznych, które implementują logikę, która jest trudna do modelowania w pig latin.
+Wieprzowina również obsługuje funkcje zdefiniowane przez użytkownika (UDF), które umożliwiają wywoływanie zewnętrznych składników implementujących logikę, które są trudne do modelowania w przypadku trzody chlewnej.
 
-Aby uzyskać więcej informacji na temat Pig Latin, zobacz [Pig Latin Reference Manual 1](https://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) i Pig Latin Reference Manual [2](https://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
+Aby uzyskać więcej informacji na temat wieprzowiny, zobacz artykuł dotyczący odniesienia w postaci [wieprzowiny](https://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) — Podręcznik 1 i [Dokumentacja dotycząca tuszu łacińskiego nr 2](https://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
 ## <a name="example-data"></a><a id="data"></a>Przykładowe dane
 
-HDInsight zawiera różne przykładowe zestawy danych, które są przechowywane w `/example/data` katalogach i `/HdiSamples` katalogach. Te katalogi znajdują się w domyślnym magazynie klastra. Pig przykład w tym dokumencie używa pliku `/example/data/sample.log` *log4j* z .
+Usługa HDInsight oferuje różne przykładowe zestawy danych, które są przechowywane w `/example/data` katalogach i `/HdiSamples` . Te katalogi znajdują się w domyślnym magazynie klastra. Przykładowa świnia w tym dokumencie używa pliku *Log4J* z `/example/data/sample.log`.
 
-Każdy dziennik wewnątrz pliku składa się z `[LOG LEVEL]` wiersza pól zawierającego pole, aby pokazać typ i ważność, na przykład:
+Każdy dziennik wewnątrz pliku składa się z wierszy pól, które zawierają `[LOG LEVEL]` pole, aby wyświetlić typ i ważność, na przykład:
 
     2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
 
-W poprzednim przykładzie poziom dziennika jest BŁĄD.
+W poprzednim przykładzie poziom dziennika jest błąd.
 
 > [!NOTE]  
-> Można również wygenerować plik log4j za pomocą narzędzia do rejestrowania [Apache Log4j,](https://en.wikipedia.org/wiki/Log4j) a następnie przekazać ten plik do obiektu blob. Aby uzyskać [instrukcje, zobacz Przekazywanie danych do usługi HDInsight.](hdinsight-upload-data.md) Aby uzyskać więcej informacji na temat sposobu używania obiektów blob w magazynie platformy Azure z usługą HDInsight, zobacz [Korzystanie z usługi Azure Blob Storage z usługą HDInsight.](hdinsight-hadoop-use-blob-storage.md)
+> Możesz również wygenerować plik Log4J za pomocą narzędzia rejestrowania usługi [Apache Log4J](https://en.wikipedia.org/wiki/Log4j) , a następnie przekazać ten plik do obiektu BLOB. Aby uzyskać instrukcje [, zobacz Przekazywanie danych do usługi HDInsight](hdinsight-upload-data.md) . Aby uzyskać więcej informacji na temat sposobu używania obiektów BLOB w usłudze Azure Storage w usłudze HDInsight, zobacz [Korzystanie z usługi azure BLOB Storage w usłudze HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 ## <a name="example-job"></a><a id="job"></a>Przykładowe zadanie
 
-Następujące zadanie Pig Latin `sample.log` ładuje plik z domyślnego magazynu dla klastra HDInsight. Następnie wykonuje serię przekształceń, które powodują liczbę razy każdy poziom dziennika wystąpił w danych wejściowych. Wyniki są zapisywane do STDOUT.
+Następujące zadanie łacińskie (świnie) `sample.log` ładuje plik z domyślnego magazynu dla klastra usługi HDInsight. Następnie wykonuje serię transformacji, które powodują, ile razy każdy poziom dziennika miał miejsce w danych wejściowych. Wyniki są zapisywane w strumieniu STDOUT.
 
     ```
     LOGS = LOAD 'wasb:///example/data/sample.log';
@@ -69,27 +69,27 @@ Następujące zadanie Pig Latin `sample.log` ładuje plik z domyślnego magazynu
     DUMP RESULT;
     ```
 
-Na poniższej ilustracji przedstawiono podsumowanie tego, co każda transformacja ma do danych.
+Na poniższej ilustracji przedstawiono podsumowanie poszczególnych transformacji danych.
 
 ![Graficzna reprezentacja przekształceń][image-hdi-pig-data-transformation]
 
-## <a name="run-the-pig-latin-job"></a><a id="run"></a>Uruchom zadanie Pig Latin
+## <a name="run-the-pig-latin-job"></a><a id="run"></a>Uruchamianie zadania łacińskie
 
-PROGRAM HDInsight może uruchamiać zadania Pig Latin przy użyciu różnych metod. Użyj poniższej tabeli, aby zdecydować, która metoda jest odpowiednia dla Ciebie, a następnie kliknij łącze dla instruktażu.
+Usługa HDInsight może uruchamiać zadania łacińskie z tusz przy użyciu różnych metod. Skorzystaj z poniższej tabeli, aby zdecydować, która metoda jest dla Ciebie odpowiednia, a następnie postępuj zgodnie z linkiem do przewodnika.
 
-## <a name="pig-and-sql-server-integration-services"></a>Usługi integracji pig i SQL Server
+## <a name="pig-and-sql-server-integration-services"></a>Świnie i SQL Server Integration Services
 
-Za pomocą programu SQL Server Integration Services (SSIS) można uruchomić zadanie Świnia. Pakiet funkcji platformy Azure dla pakietu SSIS zawiera następujące składniki, które współpracują z zadaniami pig w programie HDInsight.
+Do uruchomienia zadania świni można użyć SQL Server Integration Services (SSIS). Pakiet Feature Pack dla usług SSIS oferuje następujące składniki, które pracują z zadaniami dotyczącymi trzody chlewnej w usłudze HDInsight.
 
-* [Zadanie świni usługi Azure HDInsight][pigtask]
+* [Zadanie usługi Azure HDInsight świnie][pigtask]
 
 * [Menedżer połączeń subskrypcji platformy Azure][connectionmanager]
 
-Dowiedz się więcej o pakiecie funkcji platformy Azure dla SSIS [tutaj][ssispack].
+Więcej informacji na temat pakietu Azure Feature Pack dla usług SSIS [znajdziesz tutaj][ssispack].
 
 ## <a name="next-steps"></a><a id="nextsteps"></a>Następne kroki
 
-Teraz, gdy masz instrukcje korzystania z pig z HDInsight, użyj następujących łączy, aby zbadać inne sposoby pracy z usługi Azure HDInsight.
+Teraz, gdy wiesz już, jak używać świni z usługą HDInsight, Skorzystaj z poniższych linków, aby poznać inne sposoby pracy z usługą Azure HDInsight.
 
 * [Przekazywanie danych do usługi HDInsight](hdinsight-upload-data.md)
 * [Korzystanie z programu Apache Hive z usługą HDInsight](./hadoop/hdinsight-use-hive.md)

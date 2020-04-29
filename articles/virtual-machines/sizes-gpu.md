@@ -1,6 +1,6 @@
 ---
-title: Rozmiary maszyn wirtualnych platformy Azure — gpu | Dokumenty firmy Microsoft
-description: Wyświetla listę różnych rozmiarów zoptymalizowanych pod kątem procesora GPU dostępnych dla maszyn wirtualnych na platformie Azure. Wyświetla informacje o liczbie procesorów wirtualnych, dysków danych i kart sieciowych, a także przepustowości magazynu i przepustowości sieci dla rozmiarów w tej serii.
+title: Rozmiary maszyn wirtualnych platformy Azure — procesor GPU | Microsoft Docs
+description: Wyświetla różne rozmiary procesora GPU dostępne dla maszyn wirtualnych na platformie Azure. Wyświetla informacje o liczbie procesorów wirtualnych vCPU, dyskach danych i kartach sieciowych oraz o przepływności magazynu i przepustowości sieci dla rozmiarów w tej serii.
 services: virtual-machines
 documentationcenter: ''
 author: vikancha
@@ -15,43 +15,43 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
 ms.openlocfilehash: 7e1e0d488844a94bd0be2b91398678e620295729
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77913586"
 ---
-# <a name="gpu-optimized-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych zoptymalizowane pod kątem procesora graficznego
+# <a name="gpu-optimized-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych zoptymalizowane pod kątem procesora GPU
 
-Rozmiary maszyn wirtualnych zoptymalizowane pod kątem procesora GPU to wyspecjalizowane maszyny wirtualne dostępne z pojedynczymi lub wieloma procesorami graficznymi NVIDIA. Te rozmiary są przeznaczone do obciążeń wymagających dużej mocy obliczeniowej, grafiki i wizualizacji. Ten artykuł zawiera informacje o liczbie i typie procesorów GPU, procesorów wirtualnych, dysków z danymi i kart sieciowych. Przepustowość magazynu i przepustowość sieci są również uwzględniane dla każdego rozmiaru w tej grupie.
+Rozmiary maszyn wirtualnych zoptymalizowane pod kątem procesora GPU są wyspecjalizowanymi maszynami wirtualnymi z jednym lub wieloma procesorami GPU firmy NVIDIA. Te rozmiary są przeznaczone do obciążeń intensywnie korzystających z operacji obliczeniowych, intensywnie korzystających z grafiki i wizualizacji. Ten artykuł zawiera informacje o liczbie i typie procesorów GPU, procesorów wirtualnych vCPU, dysków danych i kart interfejsu sieciowego. Przepustowość magazynu i przepustowość sieci są również uwzględniane dla każdego rozmiaru w ramach grupowania.
 
-- Rozmiary [serii NC,](nc-series.md) [serii NCv2,](ncv2-series.md) [serii NCv3](ncv3-series.md) są zoptymalizowane pod kątem aplikacji i algorytmów wymagających dużej mocy obliczeniowej i sieci. Niektóre przykłady to cuda i opencl oparte aplikacji i symulacji, AI i deep learning. Seria NCv3 koncentruje się na wysokowydajnych obciążeniach obliczeniowych z procesorem graficznym Nvidia Tesla V100. Seria NC wykorzystuje procesor Intel Xeon E5-2690 v3 2.60GHz v3 (Haswell), a maszyny wirtualne serii NCv2 i NCv3 wykorzystują procesor Intel Xeon E5-2690 v4 (Broadwell).
+- Rozmiary serii [NC](nc-series.md), [NCv2](ncv2-series.md), [Seria NCV3](ncv3-series.md) są zoptymalizowane pod kątem intensywnych obliczeń i aplikacji intensywnie korzystających z sieci i algorytmów. Przykładami są aplikacje i symulacje oparte na CUDA i OpenCL, a następnie w programie AI i uczeniu głębokiego. Seria Seria NCV3 koncentruje się na obciążeniach obliczeniowych o wysokiej wydajności, które obejmują procesor GPU Tesla V100 firmy NVIDIA. W serii NC jest używany procesor Intel Xeon E5-2690 v3 2.60 GHz v3 (Haswell), a maszyny wirtualne serii NCv2 i seria NCV3 używają procesora Intel Xeon E5-2690 v4 (Broadwell).
 
-- [Rozmiary serii ND](nd-series.md)i [serii NDv2](ndv2-series.md) koncentrują się na szkoleniach i scenariuszach wnioskowania dla głębokiego uczenia się. Używają procesora graficznego NVIDIA Tesla P40 i procesora Intel Xeon E5-2690 v4 (Broadwell). Seria NDv2 wykorzystuje procesor Intel Xeon Platinum 8168 (Skylake).
+- Rozmiary serii [ND](nd-series.md)i [NDv2](ndv2-series.md) są ukierunkowane na scenariusze szkolenia i wnioskowania dotyczące uczenia głębokiego. Korzystają one z procesora GPU NVIDIA Tesla P40 i procesorów Intel Xeon E5-2690 v4 (Broadwell). Seria NDv2 używa procesora Intel Xeon Platinum 8168 (Skylake).
 
-- Rozmiary [serii NV](nv-series.md) i [NVv3](nvv3-series.md) są zoptymalizowane i zaprojektowane do zdalnej wizualizacji, przesyłania strumieniowego, gier, kodowania i scenariuszy VDI przy użyciu takich struktur jak OpenGL i DirectX. Te maszyny wirtualne są wspierane przez GPU NVIDIA Tesla M60.
+- Rozmiary [serii NV](nv-series.md) i [NVv3](nvv3-series.md) są zoptymalizowane i zaprojektowane pod kątem zdalnego wizualizacji, przesyłania strumieniowego, gier, kodowania i infrastruktury VDI przy użyciu struktur, takich jak OpenGL i DirectX. Te maszyny wirtualne są obsługiwane przez procesor GPU NVIDIA Tesla M60.
 
-- [Seria NVv4](nvv4-series.md) Rozmiary maszyn wirtualnych zoptymalizowane i zaprojektowane z myślą o VDI i wizualizacji zdalnej. Dzięki podzielonym na partycje procesorom graficznym NVv4 oferuje odpowiedni rozmiar dla obciążeń wymagających mniejszych zasobów GPU. Te maszyny wirtualne są wspierane przez PROCESOR GRAFICZNY AMD Radeon Instinct MI25. Maszyny wirtualne NVv4 obsługują obecnie tylko system operacyjny windowsa dla gości.
+- [Seria NVv4](nvv4-series.md) Rozmiary maszyn wirtualnych zoptymalizowane i zaprojektowane pod kątem infrastruktury VDI i zdalnej wizualizacji. W przypadku procesorów GPU z podziałem na partycje NVv4 oferuje odpowiedni rozmiar obciążeń wymagających mniejszych zasobów procesora GPU. Te maszyny wirtualne są obsługiwane przez procesor GPU z procesorem AMD Radeon Instinct MI25. Maszyny wirtualne NVv4 obsługują obecnie tylko system operacyjny gościa systemu Windows.
 
 ## <a name="supported-operating-systems-and-drivers"></a>Obsługiwane systemy operacyjne i sterowniki
 
-Aby korzystać z możliwości procesorów GPU maszyn wirtualnych z serii N platformy Azure, należy zainstalować sterowniki gpu nvidia.
+Aby skorzystać z możliwości procesora GPU maszyn wirtualnych z serii N, należy zainstalować sterowniki graficznego procesora NVIDIA.
 
-[Rozszerzenie sterownika GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) instaluje odpowiednie sterowniki NVIDIA CUDA lub GRID na maszynie wirtualnej z serii N. Zainstaluj rozszerzenie lub zarządzaj nim za pomocą witryny Azure portal lub narzędzi, takich jak szablony programu Azure PowerShell lub Usługi Azure Resource Manager. Zapoznaj się z [dokumentacją rozszerzenia sterowników procesora graficznego NVIDIA, aby](/azure/virtual-machines/extensions/hpccompute-gpu-windows) zapoznać się z obsługiwanymi systemami operacyjnymi i krokami wdrażania. Aby uzyskać ogólne informacje na temat rozszerzeń maszyn wirtualnych, zobacz [rozszerzenia i funkcje maszyny wirtualnej platformy Azure](/azure/virtual-machines/extensions/overview).
+[Rozszerzenie sterownika NVIDIA GPU](/azure/virtual-machines/extensions/hpccompute-gpu-windows) instaluje odpowiednie sterowniki NVIDIA CUDA lub Grid na maszynie wirtualnej z serii N. Zainstaluj rozszerzenie lub Zarządzaj nim przy użyciu Azure Portal lub narzędzi, takich jak szablony Azure PowerShell lub Azure Resource Manager. Zapoznaj się z [dokumentacją rozszerzenia sterownika graficznego procesora NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) dla obsługiwanych systemów operacyjnych i kroków wdrażania. Aby uzyskać ogólne informacje o rozszerzeniach maszyn wirtualnych, zobacz [rozszerzenia i funkcje maszyny wirtualnej platformy Azure](/azure/virtual-machines/extensions/overview).
 
-Jeśli zdecydujesz się zainstalować sterowniki GPU NVIDIA ręcznie, zobacz [Konfiguracja sterowników GPU serii N dla systemu Windows](/azure/virtual-machines/windows/n-series-driver-setup) lub N dla systemu [Linux](/azure/virtual-machines/linux/n-series-driver-setup) dla obsługiwanych systemów operacyjnych, sterowników, instrukcji instalacji i weryfikacji.
+W przypadku wybrania opcji ręcznego instalowania sterowników procesora GPU firmy NVIDIA należy zapoznać się z tematem Konfiguracja [sterownika procesora GPU dla systemu Windows](/azure/virtual-machines/windows/n-series-driver-setup) lub [n-Series](/azure/virtual-machines/linux/n-series-driver-setup) w systemie Linux dla obsługiwanych systemów operacyjnych, sterowników, instalacji i kroków weryfikacyjnych.
 
 ## <a name="deployment-considerations"></a>Zagadnienia dotyczące wdrażania
 
-- Aby uzyskać informacje o dostępności maszyn wirtualnych z serii N, zobacz [Produkty dostępne według regionu](https://azure.microsoft.com/regions/services/).
+- Aby uzyskać dostęp do maszyn wirtualnych z serii N, zobacz [produkty dostępne według regionów](https://azure.microsoft.com/regions/services/).
 
-- Maszyny wirtualne z serii N można wdrożyć tylko w modelu wdrażania Menedżera zasobów.
+- Maszyny wirtualne z serii N można wdrożyć tylko w modelu wdrażania Menedżer zasobów.
 
-- Maszyny wirtualne z serii N różnią się typem usługi Azure Storage, które obsługują dla swoich dysków. Maszyny wirtualne NC i NV obsługują tylko dyski maszyn wirtualnych, które są obsługiwane przez standardową pamięć masową (HDD). Maszyny wirtualne NCv2, NCv3, ND, NDv2 i NVv2 obsługują tylko dyski maszyn wirtualnych, które są wspierane przez magazyn dysków w wersji Premium (SSD).
+- Maszyny wirtualne serii N różnią się w zależności od typu magazynu platformy Azure obsługiwanego dla ich dysków. Maszyny wirtualne NC i NV obsługują tylko dyski maszyn wirtualnych, które są obsługiwane przez standardową Disk Storage (dysk twardy). Maszyny wirtualne NCv2, Seria NCV3, ND, NDv2 i NVv2 obsługują tylko dyski maszyn wirtualnych, których kopie zapasowe są obsługiwane przez Disk Storage Premium (SSD).
 
-- Jeśli chcesz wdrożyć więcej niż kilka maszyn wirtualnych z serii N, należy wziąć pod uwagę subskrypcję płatności zgodnie z rzeczywistym użyciem lub inne opcje zakupu. Jeśli używasz [bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/), możesz użyć ograniczonej liczby rdzeni obliczeniowych platformy Azure.
+- Jeśli chcesz wdrożyć więcej niż kilka maszyn wirtualnych serii N, weź pod uwagę subskrypcję z opcją płatność zgodnie z rzeczywistym użyciem lub inne opcje zakupu. Jeśli używasz [bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/), możesz użyć ograniczonej liczby rdzeni obliczeniowych platformy Azure.
 
-- Może być konieczne zwiększenie przydziału rdzeni (na region) w subskrypcji platformy Azure i zwiększenie oddzielnego przydziału dla rdzeni NC, NCv2, NCv3, ND, NDv2, NV lub NVv2. Aby zażądać zwiększenia przydziału, [otwórz bezpłatne żądanie obsługi klienta online.](../azure-portal/supportability/how-to-create-azure-support-request.md) Domyślne limity mogą się różnić w zależności od kategorii subskrypcji.
+- Może być konieczne zwiększenie przydziału rdzeni (na region) w ramach subskrypcji platformy Azure i zwiększenie oddzielnego przydziału rdzeni NC, NCv2, Seria NCV3, ND, NDv2, NV lub NVv2. Aby zażądać zwiększenia limitu przydziału, [Otwórz bezpłatnie żądanie pomocy technicznej w trybie online](../azure-portal/supportability/how-to-create-azure-support-request.md) . Limity domyślne mogą się różnić w zależności od kategorii subskrypcji.
 
 ## <a name="other-sizes"></a>Inne rozmiary
 
@@ -64,4 +64,4 @@ Jeśli zdecydujesz się zainstalować sterowniki GPU NVIDIA ręcznie, zobacz [Ko
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tym, jak [jednostki obliczeniowe platformy Azure (ACU)](acu.md) mogą pomóc w porównywaniu wydajności obliczeniowej w jednostkach SKU platformy Azure.
+Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.

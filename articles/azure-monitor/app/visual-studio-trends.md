@@ -8,10 +8,10 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: bb94d3596fde541f16edd1b7012f57b89ebf52eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670869"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analizowanie trendów w programie Visual Studio
@@ -56,12 +56,12 @@ Aby dostosować wyświetlane typy telemetrii, użyj kontrolek w górnej części
 * **Zakres czasu** — dowolny zakres od ostatnich 30 minut do ostatnich 3 dni
 * **Grupuj według** — typ wyjątku, identyfikator problemu, kraj/region itd.
 
-Następnie kliknij pozycję **Analizuj dane telemetryczne,** aby uruchomić kwerendę.
+Następnie kliknij pozycję **Analizuj telemetrię** , aby uruchomić zapytanie.
 
 Aby poruszać się między bąbelkami w wizualizacji:
 
 * Kliknij, aby wybrać bąbelek, który aktualizuje filtry w dolnej części okna, podsumowując tylko te zdarzenia, które wystąpiły w określonym czasie
-* Kliknij dwukrotnie dymek, aby przejść do narzędzia wyszukiwania i wyświetlić wszystkie poszczególne zdarzenia telemetryczne, które wystąpiły w tym okresie
+* Kliknij dwukrotnie dymek, aby przejść do narzędzia wyszukiwania i zobaczyć wszystkie zdarzenia telemetrii, które wystąpiły w tym okresie czasu
 * Naciśnij klawisz Ctrl i kliknij bąbelek, aby usunąć jego zaznaczenie w wizualizacji.
 
 > [!TIP]
@@ -70,7 +70,7 @@ Aby poruszać się między bąbelkami w wizualizacji:
 > 
 
 ## <a name="filter"></a>Filtr
-Odkryj bardziej szczegółowe trendy, używając kontrolek filtrów w dolnej części okna. Aby zastosować filtr, kliknij jego nazwę. Możliwość szybkiego przełączania się między różnymi filtrami ułatwia odkrywanie trendów, które mogą ukrywać się w konkretnym wymiarze telemetrii. Jeśli zastosujesz filtr w jednym wymiarze, takim jak Typ wyjątku, filtry w innych wymiarach pozostaną klikalne, nawet jeśli są wyszarzone. Aby odstąpać od zastosowania filtru, kliknij go ponownie. Naciśnij klawisz Ctrl i kliknij, aby wybrać wiele filtrów w tym samym wymiarze.
+Odkryj bardziej szczegółowe trendy, używając kontrolek filtrów w dolnej części okna. Aby zastosować filtr, kliknij jego nazwę. Możliwość szybkiego przełączania się między różnymi filtrami ułatwia odkrywanie trendów, które mogą ukrywać się w konkretnym wymiarze telemetrii. Jeśli zastosujesz filtr w jednym wymiarze, na przykład typ wyjątku, filtry w innych wymiarach pozostaną kliknięcia, nawet jeśli są wyszarzone. Aby cofnąć zastosowanie filtru, kliknij go ponownie. Naciśnij klawisz Ctrl i kliknij, aby wybrać wiele filtrów w tym samym wymiarze.
 
 ![Filtry trendów](./media/visual-studio-trends/TrendsFiltering-750.png)
 
@@ -86,7 +86,7 @@ Aby anulować zastosowanie jednego z tych filtrów, kliknij przycisk **Usuń wyb
 ![Wiele filtrów](./media/visual-studio-trends/TrendsFiltering2-750.png)
 
 ## <a name="find-anomalies"></a>Znajdowanie anomalii
-Narzędzie Trendy umożliwia wyróżnianie bąbelków zdarzeń, które są nieprawidłowe w porównaniu do innych bąbelków w tym samym szeregu czasowym. Z menu rozwijanego Typ widoku wybierz pozycję **Liczby w przedziale czasu (wyróżnij anomalie)** lub **Wartości procentowe w przedziale czasu (wyróżnij anomalie)**. Czerwone bąbelki są nieprawidłowe. Anomalie są definiowane jako bąbelki o liczbach/procentach przekraczających 2,1-krotność odchylenia standardowego liczby/wartości procentowych, które wystąpiły w ciągu ostatnich dwóch okresów (48 godzin, jeśli oglądasz ostatnie 24 godziny itp.).
+Narzędzie Trendy umożliwia wyróżnianie bąbelków zdarzeń, które są nieprawidłowe w porównaniu do innych bąbelków w tym samym szeregu czasowym. Z menu rozwijanego Typ widoku wybierz pozycję **Liczby w przedziale czasu (wyróżnij anomalie)** lub **Wartości procentowe w przedziale czasu (wyróżnij anomalie)**. Czerwone bąbelki są nieprawidłowe. Anomalie są zdefiniowane jako bąbelki z liczbami/procentami przekraczającymi 2,1 razy standardowe odchylenie liczby/procenty, które wystąpiły w ostatnich dwóch okresach (48 godz. w przypadku wyświetlenia ostatnich 24 godzin itp.).
 
 ![Kolorowe punkty oznaczają anomalie](./media/visual-studio-trends/TrendsAnomalies-750.png)
 

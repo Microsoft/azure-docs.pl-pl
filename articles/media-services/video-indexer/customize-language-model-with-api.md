@@ -1,7 +1,7 @@
 ---
-title: Dostosowywanie modelu języka za pomocą interfejsu API indeksatora wideo
+title: Dostosowywanie modelu języka za pomocą interfejsu API Video Indexer
 titlesuffix: Azure Media Services
-description: Dowiedz się, jak dostosować model języka za pomocą interfejsu API indeksatora wideo.
+description: Dowiedz się, jak dostosować model języka za pomocą interfejsu API Video Indexer.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -11,35 +11,35 @@ ms.topic: article
 ms.date: 02/04/2020
 ms.author: anzaman
 ms.openlocfilehash: 19067bbbaf93c9abc9a9220b09dd482ce9115655
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80127976"
 ---
-# <a name="customize-a-language-model-with-the-video-indexer-api"></a>Dostosowywanie modelu języka za pomocą interfejsu API indeksatora wideo
+# <a name="customize-a-language-model-with-the-video-indexer-api"></a>Dostosowywanie modelu języka za pomocą interfejsu API Video Indexer
 
-Indeksator wideo umożliwia tworzenie niestandardowych modeli języka w celu dostosowania rozpoznawania mowy przez przesłanie tekstu adaptacyjnego, a mianowicie tekstu z domeny, do którego słownictwa chcesz dostosować aparat. Po przeszkoleniu modelu zostaną rozpoznane nowe słowa pojawiające się w tekście adaptacowym.
+Video Indexer umożliwia tworzenie niestandardowych modeli języka w celu dostosowania rozpoznawania mowy przez przekazywanie tekstu adaptacji, czyli tekstu z domeny, do którego słownika ma być dołączany aparat. Po przeprowadzeniu szkolenia modelu zostaną rozpoznane nowe wyrazy pojawiające się w tekście adaptacyjnym.
 
-Aby uzyskać szczegółowe omówienie i najlepsze wskazówki dotyczące niestandardowych modeli języka, zobacz [Dostosowywanie modelu języka za pomocą indeksatora wideo](customize-language-model-overview.md).
+Aby zapoznać się z szczegółowym omówieniem i najlepszymi rozwiązaniami dotyczącymi niestandardowych modeli języków, zobacz [Dostosowywanie modelu języka za pomocą Video Indexer](customize-language-model-overview.md).
 
-Interfejsy API indeksatora wideo umożliwiają tworzenie i edytowanie niestandardowych modeli języka na koncie, zgodnie z opisem w tym temacie. Można również korzystać z witryny sieci Web, zgodnie z opisem w [modelu Dostosuj język za pomocą witryny wideo indeksatora](customize-language-model-with-api.md).
+Za pomocą interfejsów API Video Indexer można tworzyć i edytować niestandardowe modele języka na koncie, zgodnie z opisem w tym temacie. Możesz również użyć witryny sieci Web, zgodnie z opisem w temacie [Dostosowywanie modelu języka za pomocą witryny sieci web video Indexer](customize-language-model-with-api.md).
 
 ## <a name="create-a-language-model"></a>Tworzenie modelu języka
 
-Tworzenie interfejsu API [modelu języka](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?) tworzy nowy niestandardowy model języka na określonym koncie. Można przekazać pliki dla modelu języka w tym wywołaniu. Alternatywnie można utworzyć model języka tutaj i przekazać pliki dla modelu później, aktualizując model języka.
+Interfejs API [tworzenia modelu języka](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?) tworzy nowy niestandardowy model języka na określonym koncie. Można przekazać pliki dla modelu języka w tym wywołaniu. Alternatywnie możesz utworzyć model języka tutaj i przekazać pliki dla modelu później, aktualizując model języka.
 
 > [!NOTE]
-> Nadal należy trenować model z włączonymi plikami, aby model dowiedzieć się o zawartości jego plików. Wskazówki dotyczące szkolenia języka znajdują się w następnej sekcji.
+> Należy nadal przeszkolić model z włączonymi plikami dla modelu, aby poznać jego zawartość. Wskazówki dotyczące szkolenia języka znajdują się w następnej sekcji.
 
-Aby przekazać pliki, które mają zostać dodane do modelu języka, należy przekazać pliki w treści przy użyciu pliku FormData, oprócz dostarczania wartości dla wymaganych parametrów powyżej. Istnieją dwa sposoby wykonania tego zadania:
+Aby przekazać pliki, które mają zostać dodane do modelu języka, należy przekazać pliki w treści przy użyciu FormData, oprócz podania wartości wymaganych parametrów. Istnieją dwa sposoby wykonania tego zadania:
 
-* Kluczem będzie nazwa pliku, a wartością będzie plik txt.
+* Klucz będzie nazwą pliku, a wartością będzie plik txt.
 * Kluczem będzie nazwa pliku, a wartość będzie adresem URL pliku txt.
 
 ### <a name="response"></a>Odpowiedź
 
-Odpowiedź zawiera metadane na nowo utworzony model języka wraz z metadanymi na każdym z plików modelu po formacie tego przykładu JSON danych wyjściowych:
+Odpowiedź zawiera metadane dotyczące nowo utworzonego modelu języka wraz z metadanymi w każdym pliku modelu, zgodnie z formatem tego przykładowego wyjścia JSON:
 
 ```json
 {
@@ -68,16 +68,16 @@ Odpowiedź zawiera metadane na nowo utworzony model języka wraz z metadanymi na
 
 ```
 
-## <a name="train-a-language-model"></a>Trenuj model języka
+## <a name="train-a-language-model"></a>Uczenie modelu języka
 
-Szkolenie interfejsu API [modelu języka](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train) trenuje niestandardowy model języka na określonym koncie z zawartością plików, które zostały przekazane do i włączone w modelu języka.
+Interfejs API [uczenia modelu języka](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train) pociąga za siebie niestandardowy model języka na określonym koncie z zawartością plików, które zostały przekazane do i włączone w modelu języka.
 
 > [!NOTE]
-> Najpierw należy utworzyć model języka i przekazać jego pliki. Pliki można przekazywać podczas tworzenia modelu języka lub aktualizowania modelu języka.
+> Najpierw należy utworzyć model języka i przekazać jego pliki. Pliki można przekazać podczas tworzenia modelu języka lub przez aktualizację modelu języka.
 
 ### <a name="response"></a>Odpowiedź
 
-Odpowiedź zawiera metadane na nowo przeszkolony model języka wraz z metadanymi na każdym z plików modelu po formacie tego przykładu JSON output:
+Odpowiedź zawiera metadane dotyczące nowo przeszkolonego modelu języka wraz z metadanymi w każdym pliku modelu, zgodnie z formatem tego przykładowego wyjścia JSON:
 
 ```json
 {
@@ -105,31 +105,31 @@ Odpowiedź zawiera metadane na nowo przeszkolony model języka wraz z metadanymi
 }
 ```
 
-Zwrócony `id` jest unikatowy identyfikator używany do rozróżniania modeli `languageModelId` języka, podczas gdy jest używany zarówno do [przekazywania wideo do indeksu](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) i [ponowneudeksyfikowanie wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) interfejsów API (znany również jako `linguisticModelId` w Video Indexer upload/reindex API).
+Zwrócony `id` jest unikatowy identyfikator służący do rozróżniania modeli języka, podczas `languageModelId` gdy jest używany do [przekazywania wideo do indeksowania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) i ponownego [indeksowania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) interfejsów API wideo (nazywanych także `linguisticModelId` w Video Indexer interfejsów API przekazywania/ponownego indeksowania).
 
 ## <a name="delete-a-language-model"></a>Usuwanie modelu języka
 
-Usuń interfejs API [modelu języka](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) usuwa niestandardowy model języka z określonego konta. Każdy film, który był przy użyciu usuniętego modelu języka będzie zachować ten sam indeks, dopóki nie ponownie zindeksuj wideo. Jeśli ponownie zeksusz film, możesz przypisać nowy model języka do filmu. W przeciwnym razie indeksator wideo użyje swojego domyślnego modelu, aby ponownie wyeksliować wideo.
+Interfejs API [usuwania modelu języka](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) usuwa niestandardowy model języka z określonego konta. Wszystkie filmy wideo, które były używane w modelu języka, będą zachować ten sam indeks do momentu ponownego indeksowania wideo. Jeśli ponownie indeksujesz wideo, możesz przypisać nowy model języka do wideo. W przeciwnym razie Video Indexer będzie używać domyślnego modelu do ponownego indeksowania wideo.
 
 ### <a name="response"></a>Odpowiedź
 
-Nie ma zwracanej zawartości, gdy model języka zostanie pomyślnie usunięty.
+Po pomyślnym usunięciu modelu języka nie jest zwracana zawartość.
 
 ## <a name="update-a-language-model"></a>Aktualizowanie modelu języka
 
-Aktualizacja interfejsu API [modelu języka](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update) aktualizuje niestandardowy model osoby języka na określonym koncie.
+Interfejs API [aktualizacji modelu języka](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update) aktualizuje niestandardowy model osoby językowej na określonym koncie.
 
 > [!NOTE]
-> Musisz już utworzyć model języka. Za pomocą tego wywołania można włączyć lub wyłączyć wszystkie pliki w modelu, zaktualizować nazwę modelu języka i przekazać pliki, które mają zostać dodane do modelu języka.
+> Musisz już utworzyć model języka. To wywołanie służy do włączania lub wyłączania wszystkich plików w ramach modelu, aktualizowania nazwy modelu języka i przekazywania plików do dodania do modelu języka.
 
-Aby przekazać pliki, które mają zostać dodane do modelu języka, należy przekazać pliki w treści przy użyciu pliku FormData, oprócz dostarczania wartości dla wymaganych parametrów powyżej. Istnieją dwa sposoby wykonania tego zadania:
+Aby przekazać pliki, które mają zostać dodane do modelu języka, należy przekazać pliki w treści przy użyciu FormData, oprócz podania wartości wymaganych parametrów. Istnieją dwa sposoby wykonania tego zadania:
 
-* Kluczem będzie nazwa pliku, a wartością będzie plik txt.
+* Klucz będzie nazwą pliku, a wartością będzie plik txt.
 * Kluczem będzie nazwa pliku, a wartość będzie adresem URL pliku txt.
 
 ### <a name="response"></a>Odpowiedź
 
-Odpowiedź zawiera metadane na nowo przeszkolony model języka wraz z metadanymi na każdym z plików modelu po formacie tego przykładu JSON output:
+Odpowiedź zawiera metadane dotyczące nowo przeszkolonego modelu języka wraz z metadanymi w każdym pliku modelu, zgodnie z formatem tego przykładowego wyjścia JSON:
 
 ```json
 {
@@ -157,15 +157,15 @@ Odpowiedź zawiera metadane na nowo przeszkolony model języka wraz z metadanymi
 }
 ```
 
-Użyj `id` plików zwróconych w odpowiedzi, aby pobrać zawartość pliku.
+`id` Użyj plików zwracanych w odpowiedzi na potrzeby pobrania zawartości pliku.
 
 ## <a name="update-a-file-from-a-language-model"></a>Aktualizowanie pliku z modelu języka
 
-[Aktualizacja pliku](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) umożliwia zaktualizowanie nazwy `enable` i stanu pliku w niestandardowym modelu języka na określonym koncie.
+[Aktualizacja pliku](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) umożliwia zaktualizowanie nazwy i `enable` stanu pliku w niestandardowym modelu języka na określonym koncie.
 
 ### <a name="response"></a>Odpowiedź
 
-Odpowiedź zawiera metadane w pliku, który został zaktualizowany zgodnie z formatem przykładu JSON danych wyjściowych poniżej.
+Odpowiedź zawiera metadane pliku, który został zaktualizowany zgodnie z formatem przykładowych danych wyjściowych JSON poniżej.
 
 ```json
 {
@@ -177,15 +177,15 @@ Odpowiedź zawiera metadane w pliku, który został zaktualizowany zgodnie z for
 }
 ```
 
-Użyj `id` pliku zwróconego w odpowiedzi, aby pobrać zawartość pliku.
+`id` Użyj pliku zwróconego w odpowiedzi, aby pobrać zawartość pliku.
 
-## <a name="get-a-specific-language-model"></a>Uzyskaj określony model języka
+## <a name="get-a-specific-language-model"></a>Uzyskiwanie określonego modelu języka
 
-Interfejs API [get](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get) zwraca informacje o określonym modelu języka na określonym koncie, takich jak język i pliki, które znajdują się w modelu języka.
+Interfejs [Get](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get) API zwraca informacje dotyczące określonego modelu języka w określonym koncie, takim jak język i pliki, które znajdują się w modelu języka.
 
 ### <a name="response"></a>Odpowiedź
 
-Odpowiedź zawiera metadane w określonym modelu języka wraz z metadanymi na każdym z plików modelu po formacie tego przykładu JSON output:
+Odpowiedź zawiera metadane w określonym modelu języka wraz z metadanymi w każdym pliku modelu, zgodnie z formatem tego przykładowego wyjścia JSON:
 
 ```json
 {
@@ -213,15 +213,15 @@ Odpowiedź zawiera metadane w określonym modelu języka wraz z metadanymi na ka
 }
 ```
 
-Użyj `id` pliku zwróconego w odpowiedzi, aby pobrać zawartość pliku.
+`id` Użyj pliku zwróconego w odpowiedzi, aby pobrać zawartość pliku.
 
 ## <a name="get-all-the-language-models"></a>Pobierz wszystkie modele języka
 
-[Pobierz wszystkie](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get) interfejsy API zwraca wszystkie niestandardowe modele języka na określonym koncie na liście.
+Interfejs [Get All](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get) zwraca wszystkie niestandardowe modele języka na określonym koncie na liście.
 
 ### <a name="response"></a>Odpowiedź
 
-Odpowiedź zawiera listę wszystkich modeli języka na koncie i każdego z ich metadanych i plików zgodnie z formatem tego przykładu wyjścia JSON:
+Odpowiedź zawiera listę wszystkich modeli języka na Twoim koncie oraz wszystkich metadanych i plików, które są zgodne z formatem tego przykładowego wyjścia JSON:
 
 ```json
 [
@@ -261,19 +261,19 @@ Odpowiedź zawiera listę wszystkich modeli języka na koncie i każdego z ich m
 
 ## <a name="delete-a-file-from-a-language-model"></a>Usuwanie pliku z modelu języka
 
-Interfejs API [usuwania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete) usuwa określony plik z określonego modelu języka na określonym koncie.
+Interfejs API [usuwania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete) usuwa określony plik z określonego modelu języka w określonym koncie.
 
 ### <a name="response"></a>Odpowiedź
 
-Nie ma zwracanej zawartości, gdy plik zostanie pomyślnie usunięty z modelu języka.
+Nie jest zwracana zawartość, gdy plik zostanie pomyślnie usunięty z modelu języka.
 
-## <a name="get-metadata-on-a-file-from-a-language-model"></a>Pobierz metadane w pliku z modelu języka
+## <a name="get-metadata-on-a-file-from-a-language-model"></a>Pobieranie metadanych z pliku z modelu języka
 
-[Get metadanych interfejsu](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model) API pliku zwraca zawartość i metadane w określonym pliku z wybranego modelu języka na koncie.
+[Pobieranie metadanych](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model) interfejsu API plików zwraca zawartość i metadane w określonym pliku z wybranego modelu języka na Twoim koncie.
 
 ### <a name="response"></a>Odpowiedź
 
-Odpowiedź zawiera zawartość i metadane pliku w formacie JSON, podobnie jak w tym przykładzie:
+Odpowiedź zawiera zawartość i metadane pliku w formacie JSON, podobnie jak w przypadku tego przykładu:
 
 ```json
 {
@@ -287,16 +287,16 @@ Odpowiedź zawiera zawartość i metadane pliku w formacie JSON, podobnie jak w 
 ```
 
 > [!NOTE]
-> Zawartość tego przykładowego pliku to słowa "hello" i world" w dwóch oddzielnych wierszach.
+> Zawartość tego przykładowego pliku są słowami "Hello" i "World" w dwóch oddzielnych wierszach.
 
 ## <a name="download-a-file-from-a-language-model"></a>Pobieranie pliku z modelu języka
 
-Pobierz [plik](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?) interfejsu API pobiera plik tekstowy zawierający zawartość określonego pliku z określonego modelu języka na określonym koncie. Ten plik tekstowy powinien być zgodny z zawartością pliku tekstowego, który został pierwotnie przekazany.
+Plik interfejsu API [pobierania plików](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?) pobiera plik tekstowy zawierający zawartość określonego pliku z określonego modelu języka w określonym koncie. Ten plik tekstowy powinien być zgodny z zawartością pliku tekstowego, który został pierwotnie przekazany.
 
 ### <a name="response"></a>Odpowiedź
 
-Odpowiedzią będzie pobranie pliku tekstowego z zawartością pliku w formacie JSON.
+Odpowiedź będzie pobierać plik tekstowy z zawartością pliku w formacie JSON.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dostosowywanie modelu języka przy użyciu witryny sieci Web](customize-language-model-with-website.md)
+[Dostosowywanie modelu języka za pomocą witryny sieci Web](customize-language-model-with-website.md)

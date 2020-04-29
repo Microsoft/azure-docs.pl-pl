@@ -1,31 +1,31 @@
 ---
-title: Użyj filtrów funkcji, aby włączyć funkcję dla podzbioru użytkowników
+title: Używanie filtrów funkcji do włączania funkcji dla podzbioru użytkowników
 titleSuffix: Azure App Configuration
-description: Dowiedz się, jak używać filtrów funkcji do włączania funkcji dla podzbioru użytkowników
+description: Dowiedz się, jak używać filtrów funkcji, aby włączyć funkcję dla podzbioru użytkowników
 ms.service: azure-app-configuration
 author: lisaguthrie
 ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
 ms.openlocfilehash: 181c97615985283011834dcf9145810b1563fb4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80057000"
 ---
-# <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Użyj filtrów funkcji, aby włączyć funkcję dla podzbioru użytkowników
+# <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Używanie filtrów funkcji do włączania funkcji dla podzbioru użytkowników
 
-Flagi funkcji umożliwiają aktywowanie lub dezaktywację funkcji w aplikacji. Flaga prostej funkcji jest wł.lub wyłączona. Aplikacja zawsze zachowuje się tak samo. Na przykład można rozwinąć nową operację za flagą elementu. Gdy flaga funkcji jest włączona, wszyscy użytkownicy widzą nową funkcję. Wyłączenie flagi operacji powoduje ukrycie nowej funkcji.
+Flagi funkcji umożliwiają aktywowanie lub dezaktywowanie funkcji w aplikacji. Prosta flaga funkcji jest włączona lub wyłączona. Aplikacja zawsze działa tak samo. Można na przykład wdrożyć nową funkcję za flagą funkcji. Po włączeniu flagi funkcji wszyscy użytkownicy widzą nową funkcję. Wyłączenie flagi funkcji powoduje ukrycie nowej funkcji.
 
-Z kolei _flaga operacji warunkowej_ umożliwia dynamiczne włączanie lub wyłączenie flagi operacji. Aplikacja może zachowywać się inaczej, w zależności od kryteriów flagi funkcji. Załóżmy, że najpierw chcesz wyświetlić nową funkcję niewielkiej podgrupie użytkowników. Flaga funkcji warunkowych umożliwia włączenie flagi funkcji dla niektórych użytkowników, jednocześnie wyłączając ją dla innych. _Filtry funkcji_ określają stan flagi operacji za każdym razem, gdy jest oceniana.
+W przeciwieństwie _Flaga funkcji warunkowej_ pozwala na dynamiczne Włączanie lub wyłączanie flagi funkcji. Aplikacja może zachowywać się inaczej, w zależności od kryteriów flagi funkcji. Załóżmy, że chcesz najpierw pokazać swoją nową funkcję w małym podzbiorze użytkowników. Flaga funkcji warunkowej umożliwia włączenie flagi funkcji dla niektórych użytkowników podczas jej wyłączania dla innych osób. _Filtry funkcji_ określają stan flagi funkcji zawsze wtedy, gdy jest ona szacowana.
 
-Biblioteka `Microsoft.FeatureManagement` zawiera dwa filtry funkcji:
+`Microsoft.FeatureManagement` Biblioteka zawiera dwa filtry funkcji:
 
-- `PercentageFilter`włącza flagę operacji na podstawie wartości procentowej.
-- `TimeWindowFilter`włącza flagę operacji w określonym przedziale czasu.
+- `PercentageFilter`Włącza flagę funkcji na podstawie wartości procentowej.
+- `TimeWindowFilter`Włącza flagę funkcji w określonym przedziale czasu.
 
-Można również utworzyć własny filtr funkcji, który implementuje [interfejs Microsoft.FeatureManagement.IFeatureFilter](/dotnet/api/microsoft.featuremanagement.ifeaturefilter).
+Możesz również utworzyć własny filtr funkcji, który implementuje [interfejs Microsoft. FeatureManagement. IFeatureFilter](/dotnet/api/microsoft.featuremanagement.ifeaturefilter).
 
 ## <a name="registering-a-feature-filter"></a>Rejestrowanie filtru funkcji
 
@@ -41,49 +41,49 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="configuring-a-feature-filter-in-azure-app-configuration"></a>Konfigurowanie filtru funkcji w konfiguracji aplikacji platformy Azure
 
-Niektóre filtry funkcji mają dodatkowe ustawienia. Na przykład `PercentageFilter` aktywuje obiekt na podstawie wartości procentowej. Ma ustawienie definiujące procent do użycia.
+Niektóre filtry funkcji mają dodatkowe ustawienia. Na przykład `PercentageFilter` uaktywnia funkcję na podstawie wartości procentowej. Ma ustawienie definiujące wartość procentową do użycia.
 
-Można skonfigurować te ustawienia dla flag funkcji zdefiniowanych w konfiguracji aplikacji platformy Azure. Na przykład wykonaj następujące `PercentageFilter` kroki, aby użyć, aby włączyć flagę funkcji dla 50% żądań do aplikacji sieci web:
+Te ustawienia można skonfigurować dla flag funkcji zdefiniowanych w obszarze Konfiguracja aplikacji platformy Azure. Na przykład wykonaj następujące kroki `PercentageFilter` , aby włączyć flagę funkcji dla 50% żądań do aplikacji sieci Web:
 
-1. Postępuj zgodnie z instrukcjami w [przewodniku Szybki start: dodaj flagi funkcji do aplikacji ASP.NET Core,](./quickstart-feature-flag-aspnet-core.md) aby utworzyć aplikację internetową z flagą funkcji.
+1. Postępuj zgodnie z instrukcjami w [przewodniku szybki start: Dodawanie flag funkcji do aplikacji ASP.NET Core](./quickstart-feature-flag-aspnet-core.md) , aby utworzyć aplikację sieci Web przy użyciu flagi funkcji.
 
-1. W witrynie Azure portal przejdź do magazynu konfiguracji i kliknij pozycję **Menedżer funkcji**.
+1. W Azure Portal przejdź do magazynu konfiguracji, a następnie kliknij pozycję **Menedżer funkcji**.
 
-1. Kliknij menu kontekstowe flagi funkcji *beta* utworzonej w przewodniku Szybki start. Kliknij pozycję **Edytuj**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Flaga funkcji Edycja wersji beta](./media/edit-beta-feature-flag.png)
-
-1. Na ekranie **Edycja** wybierz przycisk opcji **Na,** jeśli nie jest jeszcze zaznaczony. Następnie kliknij przycisk **Dodaj filtr.** (Etykieta przycisku opcji **On** zmieni się na odczyt **warunkowy).**
-
-1. W polu **Klucz** wprowadź wartość *Microsoft.Percentage*.
+1. Kliknij menu kontekstowe dla flagi funkcji *beta* , która została utworzona w przewodniku Szybki Start. Kliknij pozycję **Edytuj**.
 
     > [!div class="mx-imgBorder"]
-    > ![Dodaj filtr operacji](./media/feature-flag-add-filter.png)
+    > ![Edytuj flagę funkcji beta](./media/edit-beta-feature-flag.png)
 
-1. Kliknij menu kontekstowe obok klawisza filtru funkcji. Kliknij **pozycję Edytuj parametry**.
+1. Na ekranie **Edycja** wybierz **przycisk radiowy** , jeśli nie został jeszcze wybrany. Następnie kliknij przycisk **Dodaj filtr** . (Etykieta **przycisku radiowego zmieni się na odczyt** **warunkowy**).
 
-    > [!div class="mx-imgBorder"]
-    > ![Edytowanie parametrów filtru operacji](./media/feature-flag-edit-filter-parameters.png)
-
-1. Umieść wskaźnik myszy pod **nagłówkiem Nazwa,** aby pola tekstowe były wyświetlane w siatce. Wprowadź **nazwę** *wartości* i **wartość** 50. Pole **Wartość** wskazuje procent żądań, dla których ma być włączany filtr operacji.
+1. W polu **klucz** wprowadź *wartość Microsoft. PERCENTAGE*.
 
     > [!div class="mx-imgBorder"]
-    > ![Ustawianie parametrów filtru operacji](./media/feature-flag-set-filter-parameters.png)
+    > ![Dodaj filtr funkcji](./media/feature-flag-add-filter.png)
 
-1. Kliknij **przycisk Zastosuj,** aby powrócić do ekranu **flagi funkcji Edycja.** Następnie kliknij przycisk **Zastosuj** ponownie, aby zapisać ustawienia flagi obiektu.
-
-1. Flaga **Stan** obiektu jest teraz wyświetlana jako *warunkowa*. Ten stan wskazuje, że flaga funkcji zostanie włączona lub wyłączona na podstawie żądania, na podstawie kryteriów wymuszanych przez filtr funkcji.
+1. Kliknij menu kontekstowe obok klucza filtru funkcji. Kliknij przycisk **Edytuj parametry**.
 
     > [!div class="mx-imgBorder"]
-    > ![Flaga obiektu warunkowego](./media/feature-flag-filter-enabled.png)
+    > ![Edytuj parametry filtru funkcji](./media/feature-flag-edit-filter-parameters.png)
+
+1. Umieść kursor pod nagłówkiem **Nazwa** , aby pola tekstowe pojawiały się w siatce. Wprowadź **nazwę** *i* **wartość** 50. **Wartość** pola wskazuje procent żądań, dla których ma zostać włączony filtr funkcji.
+
+    > [!div class="mx-imgBorder"]
+    > ![Ustaw parametry filtru funkcji](./media/feature-flag-set-filter-parameters.png)
+
+1. Kliknij przycisk **Zastosuj** , aby powrócić do ekranu **flagi edycji funkcji** . Następnie kliknij przycisk **Zastosuj** ponownie, aby zapisać ustawienia flagi funkcji.
+
+1. **Stan** flagi funkcji jest teraz wyświetlany jako *Conditional*. Ten stan wskazuje, że flaga funkcji zostanie włączona lub wyłączona dla poszczególnych żądań na podstawie kryteriów wymuszanych przez filtr funkcji.
+
+    > [!div class="mx-imgBorder"]
+    > ![Flaga funkcji warunkowej](./media/feature-flag-filter-enabled.png)
 
 ## <a name="feature-filters-in-action"></a>Filtry funkcji w akcji
 
-Aby zobaczyć efekty tej flagi funkcji, uruchom aplikację i naciśnij przycisk **Odśwież** w przeglądarce wiele razy. Zobaczysz, że element *beta* pojawia się na pasku narzędzi przez około 50% czasu. Jest ukryta przez resztę czasu, `PercentageFilter` ponieważ dezaktywuje funkcję *Beta* dla podzbioru żądań. W poniższym filmie przedstawiono to zachowanie w działaniu.
+Aby zobaczyć efekty tej flagi funkcji, uruchom aplikację i naciśnij wielokrotnie przycisk **odświeżania** w przeglądarce. Zobaczysz, że element *beta* pojawia się na pasku narzędzi około 50% czasu. Jest ona ukryta w pozostałej części czasu, ponieważ `PercentageFilter` dezaktywuje funkcję *beta* dla podzestawu żądań. Poniższe wideo pokazuje to zachowanie w działaniu.
 
 > [!div class="mx-imgBorder"]
-> ![PercentageFilter w akcji](./media/feature-flags-percentagefilter.gif)
+> ![PercentageFilter w działaniu](./media/feature-flags-percentagefilter.gif)
 
 ## <a name="next-steps"></a>Następne kroki
 

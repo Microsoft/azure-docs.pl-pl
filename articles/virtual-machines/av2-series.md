@@ -1,6 +1,6 @@
 ---
-title: Seria Av2 — maszyny wirtualne platformy Azure
-description: Dane techniczne maszyn wirtualnych serii Av2.
+title: Av2 — seria Virtual Machines platformy Azure
+description: Specyfikacje dotyczące maszyn wirtualnych z serii Av2.
 services: virtual-machines
 author: migerdes
 ms.service: virtual-machines
@@ -8,27 +8,27 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: fe27a1cc78d1f37d535f364c03803a5196090a3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78163951"
 ---
 # <a name="av2-series"></a>Seria Av2
 
-Maszyny wirtualne z serii Av2 można wdrożyć na różnych typach sprzętu i procesorach. Maszyny wirtualne z serii Av2 mają wydajność procesora i konfiguracje pamięci najlepiej dostosowane do obciążeń na poziomie podstawowym, takich jak program i testowanie. Rozmiar jest ograniczany, aby zapewnić stałą wydajność procesora dla uruchomionego wystąpienia, niezależnie od sprzętu, na który jest wdrażany. Aby określić sprzęt fizyczny, na którym jest wdrażany dany rozmiar, utwórz zapytanie o sprzęt wirtualny z poziomu maszyny wirtualnej. Niektóre przykładowe przypadki użycia obejmują serwery deweloperów i testów, serwery sieci web o małym i małym ruchu, małe i średnie bazy danych, weryfikacji koncepcji i repozytoria kodu.
+Maszyny wirtualne z serii Av2 można wdrażać na różnych typach sprzętu i procesorach. Maszyny wirtualne z serii Av2 mają wydajność procesora CPU i konfiguracje pamięci, które najlepiej pasują do obciążeń poziomu wejścia, takich jak programowanie i testowanie. Rozmiar jest ograniczany w celu oferowania spójnej wydajności procesora dla uruchomionego wystąpienia, niezależnie od sprzętu, na którym jest wdrożony. Aby określić sprzęt fizyczny, na którym jest wdrażany dany rozmiar, utwórz zapytanie o sprzęt wirtualny z poziomu maszyny wirtualnej. Przykładowe przypadki użycia obejmują serwery deweloperskie i testowe, serwery sieci Web o małym ruchu, małe i średnie bazy danych, sprawdzanie poprawności koncepcji i repozytoria kodu.
 
 ACU: 100
 
-Pamięć masowa w wersji Premium: nie jest obsługiwana
+Premium Storage: nieobsługiwane
 
-Buforowanie magazynu w wersji Premium: nie jest obsługiwane
+Buforowanie Premium Storage: nieobsługiwane
 
 Migracja na żywo: obsługiwane
 
-Aktualizacje zachowywania pamięci: Obsługiwane
+Aktualizacje z zachowaniem pamięci: obsługiwane
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepustowość magazynu temp: IOPS / Odczyt MB/Zapis MB/s | Maksymalna ilość dysków/przepływności danych: Usługi We/Wy | Maksymalna przepustowość sieci ową/oczekiwana przepustowość sieci (Mb/s) |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepływność magazynu: IOPS/Odczyt MB/s/zapis MB/s | Maksymalna liczba dysków danych/przepływność: IOPS | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|
 | Standardowa_A1_v2  | 1 | 2  | 10 | 1000/20/10  | 2/2x500   | 2/250  |
 | Standardowa_A2_v2  | 2 | 4  | 20 | 2000/40/20  | 4/4x500   | 2/500  |
@@ -51,4 +51,4 @@ Aktualizacje zachowywania pamięci: Obsługiwane
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tym, jak [jednostki obliczeniowe platformy Azure (ACU)](acu.md) mogą pomóc w porównywaniu wydajności obliczeniowej w jednostkach SKU platformy Azure.
+Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.

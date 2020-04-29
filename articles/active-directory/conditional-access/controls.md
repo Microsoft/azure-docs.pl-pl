@@ -1,6 +1,6 @@
 ---
-title: Formanty niestandardowe w usłudze Azure AD Dostęp warunkowy
-description: Dowiedz się, jak działają formanty niestandardowe w usłudze Azure Active Directory Dostęp warunkowy.
+title: Niestandardowe kontrolki dostępu warunkowego usługi Azure AD
+description: Dowiedz się, jak kontrolki niestandardowe w Azure Active Directory dostęp warunkowy.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,48 +12,48 @@ manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f8c149279a755eb186a3fdc7891e9b511d18c7f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80050551"
 ---
 # <a name="custom-controls-preview"></a>Formanty niestandardowe (wersja zapoznawcza)
 
-Formanty niestandardowe to funkcja podglądu usługi Azure Active Directory. Podczas korzystania z formantów niestandardowych użytkownicy są przekierowywani do zgodnej usługi w celu spełnienia wymagań uwierzytelniania poza usługą Azure Active Directory. Aby spełnić ten formant, przeglądarka użytkownika jest przekierowywane do usługi zewnętrznej, wykonuje wszelkie wymagane uwierzytelnianie, a następnie jest przekierowywane z powrotem do usługi Azure Active Directory. Usługa Azure Active Directory weryfikuje odpowiedź, a jeśli użytkownik został pomyślnie uwierzytelniony lub zweryfikowany, użytkownik kontynuuje przepływ dostępu warunkowego.
+Kontrolki niestandardowe są funkcją w wersji zapoznawczej Azure Active Directory. W przypadku korzystania z kontrolek niestandardowych użytkownicy są przekierowywani do zgodnej usługi, aby spełnić wymagania dotyczące uwierzytelniania poza Azure Active Directory. W celu zapewnienia zgodności z tą kontrolą przeglądarka użytkownika zostanie przekierowana do usługi zewnętrznej, wykonuje wymagane uwierzytelnianie i zostanie przekierowana z powrotem do Azure Active Directory. Azure Active Directory weryfikuje odpowiedź i, jeśli użytkownik został pomyślnie uwierzytelniony lub zweryfikowany, użytkownik kontynuuje w przepływie dostępu warunkowego.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat zmian, które planujemy w funkcji kontroli niestandardowej, zobacz luty 2020 [Co nowego aktualizować](../fundamentals/whats-new.md#upcoming-changes-to-custom-controls).
+> Aby uzyskać więcej informacji o zmianach, które są planowane dla funkcji kontrolki niestandardowej, zobacz [Aktualizacja aktualizacji](../fundamentals/whats-new.md#upcoming-changes-to-custom-controls)z lutego 2020.
 
 ## <a name="creating-custom-controls"></a>Tworzenie niestandardowych formantów
 
-Formanty niestandardowe współpracuje z ograniczonym zestawem zatwierdzonych dostawców uwierzytelniania. Aby utworzyć formant niestandardowy, należy najpierw skontaktować się z dostawcą, którego chcesz wykorzystać. Każdy dostawca firmy innej niż Microsoft ma swój własny proces i wymagania, aby zarejestrować się, subskrybować lub w inny sposób stać się częścią usługi i wskazać, że chcesz zintegrować z dostępem warunkowym. W tym momencie dostawca dostarczy Ci blok danych w formacie JSON. Te dane umożliwiają dostawcy i dostępu warunkowego do współpracy dla dzierżawy, tworzy nowy formant i określa, jak dostęp warunkowy może stwierdzić, czy użytkownicy pomyślnie wykonali weryfikację z dostawcą.
+Niestandardowe kontrolki działają z ograniczonym zestawem zatwierdzonych dostawców uwierzytelniania. Aby utworzyć kontrolkę niestandardową, należy najpierw skontaktować się z dostawcą, którego chcesz użyć. Każdy dostawca firmy innej niż Microsoft ma własny proces i wymagania, aby zarejestrować się, subskrybować lub w inny sposób stać się częścią usługi i wskazać, że chcesz zintegrować się z dostępem warunkowym. W tym momencie dostawca dostarczy blok danych w formacie JSON. Te dane umożliwiają dostawcy i dostęp warunkowy współdziałanie dla dzierżawy, tworzy nową kontrolkę i definiuje, jak dostęp warunkowy może stwierdzić, czy użytkownicy pomyślnie przeprowadzili weryfikację u dostawcy.
 
-Skopiuj dane JSON, a następnie wklej go do powiązanego pola tekstowego. Nie należy wprowadzać żadnych zmian w JSON, chyba że jawnie zrozumieć zmiany, które wprowadzasz. Wprowadzenie jakichkolwiek zmian może spowodować przerwanie połączenia między dostawcą a firmą Microsoft i potencjalnie zablokować użytkownika i użytkowników z kont.
+Skopiuj dane JSON, a następnie wklej je do powiązanego pola tekstowego. Nie wprowadzaj żadnych zmian w pliku JSON, chyba że jawnie zrozumiesz wprowadzaną zmianę. Wprowadzenie jakichkolwiek zmian może spowodować przerwanie połączenia między dostawcą i firmą Microsoft oraz zablokowanie użytkownika i użytkowników poza kontami.
 
-Opcja utworzenia formantu niestandardowego znajduje się w sekcji **Zarządzanie** na stronie **Dostęp warunkowy.**
+Opcja tworzenia kontrolki niestandardowej znajduje się w sekcji **Zarządzanie** na stronie **dostęp warunkowy** .
 
 ![Kontrola](./media/controls/82.png)
 
-Kliknięcie **przycisku Nowy formant niestandardowy**powoduje otwarcie bloku z polem tekstowym dla danych JSON formantu.  
+Kliknięcie przycisku **Nowy formant niestandardowy**powoduje otwarcie bloku z polem tekstowym dla danych JSON formantu.  
 
 ![Kontrola](./media/controls/81.png)
 
 ## <a name="deleting-custom-controls"></a>Usuwanie formantów niestandardowych
 
-Aby usunąć formant niestandardowy, należy najpierw upewnić się, że nie jest on używany w żadnych zasadach dostępu warunkowego. Po zakończeniu:
+Aby usunąć kontrolkę niestandardową, należy najpierw upewnić się, że nie jest ona używana w żadnym z zasad dostępu warunkowego. Po ukończeniu:
 
-1. Przejdź do listy Kontrole niestandardowe
-1. Kliknij...  
+1. Przejdź do listy formantów niestandardowych
+1. Kliknij przycisk...  
 1. Wybierz pozycję **Usuń**.
 
 ## <a name="editing-custom-controls"></a>Edytowanie formantów niestandardowych
 
-Aby edytować formant niestandardowy, należy usunąć bieżący formant i utworzyć nowy formant ze zaktualizowanymi informacjami.
+Aby edytować kontrolkę niestandardową, należy usunąć bieżącą kontrolkę i utworzyć nową kontrolkę z zaktualizowanymi informacjami.
 
 ## <a name="known-limitations"></a>Znane ograniczenia
 
-Formantów niestandardowych nie można używać z automatyzacją usługi Identity Protection wymagającą uwierzytelniania wieloskładnikowego platformy Azure, samoobsługowego resetowania haseł usługi Azure AD, spełniania wymagań dotyczących oświadczeń dotyczących uwierzytelniania wieloskładnikowego ani podnoszenia ról w uprzywilejowanych Menedżer tożsamości (PIM).
+Kontrolki niestandardowe nie mogą być używane z automatyzacją usługi Identity Protection wymagającą usługi Azure Multi-Factor Authentication, samoobsługowego resetowania hasła w usłudze Azure AD (SSPR), spełniającym wymagania dotyczące uwierzytelniania wieloskładnikowego lub podniesienia poziomu ról w programie Privileged Identity Manager (PIM).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -61,4 +61,4 @@ Formantów niestandardowych nie można używać z automatyzacją usługi Identit
 
 - [Tryb samego raportu](concept-conditional-access-report-only.md)
 
-- [Symulowanie zachowania logowania za pomocą narzędzia Co jeśli dostęp warunkowy](troubleshoot-conditional-access-what-if.md)
+- [Symulowanie zachowania logowania za pomocą narzędzia What If dostępu warunkowego](troubleshoot-conditional-access-what-if.md)

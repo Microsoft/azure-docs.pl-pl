@@ -1,7 +1,7 @@
 ---
-title: 'Konwersja do CSV: Odwołanie do modułu'
+title: 'Konwertuj na CSV: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak użyć modułu Konwertuj na CSV w usłudze Azure Machine Learning, aby przekonwertować zestaw danych na format CSV, który można pobrać, wyeksportować lub udostępnić modułom skryptów języka R lub Python.
+description: Dowiedz się, jak za pomocą modułu Konwertuj do woluminów CSV w Azure Machine Learning skonwertować zestaw danych do formatu CSV, który można pobrać, wyeksportować lub udostępnić za pomocą modułów skryptów języka R lub Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,48 +10,48 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: fc2a043e8f1565cf5fe45ba0b072ad015076635e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477684"
 ---
 # <a name="convert-to-csv-module"></a>Konwertuj na moduł CSV
 
-W tym artykule opisano moduł w projektancie usługi Azure Machine Learning (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
 
-Ten moduł służy do konwertowania zestawu danych na format CSV, który można pobrać, wyeksportować lub udostępnić modułom skryptów Języka R lub Pythona.
+Ten moduł służy do konwertowania zestawu danych w formacie CSV, który można pobrać, wyeksportować lub udostępnić za pomocą modułów skryptów języka R lub Python.
 
 ### <a name="more-about-the-csv-format"></a>Więcej informacji o formacie CSV 
 
-Format CSV, który oznacza "wartości oddzielone przecinkami", jest formatem pliku używanym przez wiele zewnętrznych narzędzi uczenia maszynowego. CSV jest typowym formatem wymiany podczas pracy z językami open source, takimi jak R lub Python.
+Format CSV, który oznacza "wartości rozdzielane przecinkami", jest formatem pliku używanym przez wiele zewnętrznych narzędzi uczenia maszynowego. Plik CSV jest typowym formatem wymiany podczas pracy z językami typu open source, takimi jak R lub Python.
 
-Nawet jeśli większość pracy w usłudze Azure Machine Learning, istnieją chwile, kiedy może okazać się przydatne do konwersji zestawu danych do csv do użycia w narzędziach zewnętrznych. Przykład:
+Nawet w przypadku wykonywania większości zadań w Azure Machine Learning mogą wystąpić sytuacje, w których może być przydatne przekonwertowanie zestawu danych do pliku CSV w celu użycia w zewnętrznych narzędziach. Przykład:
 
-+ Pobierz plik CSV, aby otworzyć go w programie Excel, lub zaimportować go do relacyjnej bazy danych.  
-+ Zapisz plik CSV w magazynie w chmurze i połącz się z nim z usługą Power BI, aby utworzyć wizualizacje.  
-+ Użyj formatu CSV, aby przygotować dane do użycia w językach R i Python. 
++ Pobierz plik CSV, aby otworzyć go w programie Excel, lub zaimportuj go do relacyjnej bazy danych.  
++ Zapisz plik CSV w magazynie w chmurze i Połącz się z nim z Power BI, aby tworzyć wizualizacje.  
++ Użyj formatu CSV, aby przygotować dane do użycia w języku R i Python. 
 
-Podczas konwertowania zestawu danych do pliku CSV csv jest zapisywany w obszarze roboczym usługi Azure ML. Można użyć narzędzia magazynu platformy Azure, aby otworzyć i używać pliku bezpośrednio. Można również uzyskać dostęp do pliku CSV w projektancie, wybierając moduł **Konwertuj na CSV,** a następnie wybierz ikonę histogramu na karcie Wyjścia w prawym panelu, aby wyświetlić dane **wyjściowe.** Plik CSV można pobrać z folderu Wyniki do katalogu lokalnego.  
+Podczas konwertowania zestawu danych do formatu CSV plik CSV jest zapisywany w obszarze roboczym usługi Azure ML. Możesz użyć narzędzia usługi Azure Storage, aby otworzyć plik i korzystać z niego bezpośrednio. Możesz również uzyskać dostęp do woluminu CSV w projektancie, wybierając moduł **Konwertuj na CSV** , a następnie wybierz ikonę histogramu **na karcie dane wyjściowe w** prawym panelu, aby wyświetlić dane wyjściowe. Wolumin CSV można pobrać z folderu Results do katalogu lokalnego.  
 
-## <a name="how-to-configure-convert-to-csv"></a>Jak skonfigurować konwersję na csv
+## <a name="how-to-configure-convert-to-csv"></a>Jak skonfigurować konwertowanie do formatu CSV
 
 
-1.  Dodaj moduł Konwertuj na CSV do potoku. Ten moduł można znaleźć w grupie **Transformacja danych** w projektancie. 
+1.  Dodaj moduł konwersji do woluminu CSV do potoku. Ten moduł można znaleźć w grupie **Przekształcanie danych** w projektancie. 
 
-2. Podłącz go do dowolnego modułu, który wyprowadza zestaw danych.   
+2. Połącz ją z dowolnym modułem, który wyprowadza zestaw danych.   
   
 3.  Prześlij potok.
 
 ### <a name="results"></a>Wyniki
   
 
-Wybierz kartę **Wyjścia** w prawym panelu **Konwertuj na CSV**i wybierz jedną z tych ikon w obszarze **Wyjścia portowe**.  
+Wybierz kartę dane **wyjściowe** w prawym panelu **Konwertuj do formatu CSV**, a następnie wybierz jedną z tych ikon w obszarze **wyjście portu**.  
 
-+ **Zarejestruj zestaw danych:** Wybierz ikonę i zapisz plik CSV z powrotem w obszarze roboczym usługi Azure ML jako oddzielny zestaw danych. Zestaw danych można znaleźć jako moduł w drzewie modułów w sekcji **Moje zestawy danych.**
++ **Zarejestruj zestaw danych**: wybierz ikonę i Zapisz plik CSV z powrotem w obszarze roboczym Azure ml jako oddzielny zestaw danych. Zestaw danych można znaleźć jako moduł w drzewie modułów w sekcji **moje zbiory** danych.
 
- + **Wyświetlanie danych wyjściowych**: Wybierz ikonę oka i postępuj zgodnie z instrukcją, aby przeglądać folder **Results_dataset** i pobrać plik data.csv.
+ + **Wyświetl dane wyjściowe**: wybierz ikonę oka i postępuj zgodnie z instrukcjami w celu przejrzenia folderu **Results_dataset** i pobrania pliku Data. csv.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

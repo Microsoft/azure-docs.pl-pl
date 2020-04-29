@@ -1,29 +1,29 @@
 ---
-title: Model danych telemetrycznych wyjątków usługi Azure Application Insights
-description: Model danych usługi Application Insights dla telemetrii wyjątków
+title: Model danych telemetrii wyjątku usługi Azure Application Insights
+description: Application Insights model danych dla telemetrii wyjątku
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: fa9bc4efd9549cbcb1d50439989c5dea79d9d60c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671940"
 ---
-# <a name="exception-telemetry-application-insights-data-model"></a>Dane telemetryczne wyjątku: model danych usługi Application Insights
+# <a name="exception-telemetry-application-insights-data-model"></a>Dane telemetryczne wyjątku: Application Insights model danych
 
-W [usłudze Application Insights](../../azure-monitor/app/app-insights-overview.md)wystąpienie wyjątku reprezentuje obsługiwany lub nieobsługiowany wyjątek, który wystąpił podczas wykonywania monitorowanej aplikacji.
+W [Application Insights](../../azure-monitor/app/app-insights-overview.md)wystąpienie wyjątku reprezentuje obsłużony lub nieobsługiwany wyjątek, który wystąpił podczas wykonywania monitorowanej aplikacji.
 
 ## <a name="problem-id"></a>Identyfikator problemu
 
-Identyfikator, gdzie wyjątek został zgłoszony w kodzie. Używane do grupowania wyjątków. Zazwyczaj kombinacja typu wyjątku i funkcji ze stosu wywołań.
+Identyfikator, pod którym został zgłoszony wyjątek w kodzie. Używany do grupowania wyjątków. Zwykle kombinacja typu wyjątku i funkcji ze stosu wywołań.
 
 Maksymalna długość: 1024 znaków
 
 ## <a name="severity-level"></a>Poziom ważności
 
-Śledzenie poziomu ważności. Wartość może `Verbose` `Information`być `Warning` `Error`, `Critical`, , , .
+Poziom ważności śledzenia. Wartość może być `Verbose`, `Information`, `Warning` `Error`,, `Critical`.
 
 ## <a name="exception-details"></a>Szczegóły wyjątku
 
@@ -39,6 +39,6 @@ Maksymalna długość: 1024 znaków
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [model danych](data-model.md) dla typów usługi Application Insights i modelu danych.
-- Dowiedz się, jak [diagnozować wyjątki w aplikacjach internetowych za pomocą usługi Application Insights](../../azure-monitor/app/asp-net-exceptions.md).
-- Zapoznaj się z [platformami](../../azure-monitor/app/platforms.md) obsługiwanymi przez usługa Application Insights.
+- Zobacz [model danych](data-model.md) dla typów Application Insights i modelu danych.
+- Dowiedz się, jak [zdiagnozować wyjątki w aplikacjach sieci Web za pomocą Application Insights](../../azure-monitor/app/asp-net-exceptions.md).
+- Sprawdź [platformy](../../azure-monitor/app/platforms.md) obsługiwane przez Application Insights.

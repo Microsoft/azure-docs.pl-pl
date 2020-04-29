@@ -1,7 +1,7 @@
 ---
-title: Optymalizacja algorytmów
+title: Optymalizuj algorytmy
 titleSuffix: ML Studio (classic) - Azure
-description: W tym artykule wyjaśniono, jak wybrać zestaw parametrów optymalnych dla algorytmu w usłudze Azure Machine Learning Studio (klasyczny).
+description: Wyjaśnia, jak wybrać optymalny zestaw parametrów dla algorytmu w Azure Machine Learning Studio (klasyczny).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,67 +11,67 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
 ms.openlocfilehash: 04148b482cb07665f43df5bd86a77175cbbaf08b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79218271"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Wybierz parametry, aby zoptymalizować algorytmy w usłudze Azure Machine Learning Studio (klasyczny)
+# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Wybierz parametry, aby zoptymalizować algorytmy w Azure Machine Learning Studio (klasyczny)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-W tym temacie opisano sposób wybierania odpowiedniego zestawu hiperparametrycznego dla algorytmu w usłudze Azure Machine Learning Studio (klasyczny). Większość algorytmów uczenia maszynowego ma parametry do skonfigurowania. Podczas trenowania modelu, należy podać wartości dla tych parametrów. Skuteczność przeszkolonego modelu zależy od wybranego parametru modelu. Proces znajdowania optymalnego zestawu parametrów jest znany jako *wybór modelu*.
+W tym temacie opisano, jak wybrać prawy parametr ustawiony dla algorytmu w Azure Machine Learning Studio (klasyczny). Większość algorytmów uczenia maszynowego ma parametry do ustawienia. Podczas uczenia modelu należy podać wartości tych parametrów. Skuteczność przeszkolonego modelu zależy od wybranych parametrów modelu. Proces znajdowania optymalnego zestawu parametrów jest znany jako *wybór modelu*.
 
 
 
-Istnieją różne sposoby wyboru modelu. W uczeniu maszynowym krzyżowe sprawdzanie poprawności jest jedną z najczęściej używanych metod wyboru modelu i jest domyślnym mechanizmem wyboru modelu w usłudze Azure Machine Learning Studio (klasycznym). Ponieważ usługa Azure Machine Learning Studio (klasyczna) obsługuje zarówno języka R, jak i Pythona, zawsze można zaimplementować własne mechanizmy wyboru modelu przy użyciu języka R lub Python.
+Istnieją różne sposoby wyboru modelu. W uczeniu maszynowym, krzyżowe sprawdzanie poprawności jest jednym z najczęściej używanych metod wyboru modelu i jest domyślnym mechanizmem wyboru modelu w Azure Machine Learning Studio (klasyczny). Ponieważ Azure Machine Learning Studio (klasyczny) obsługuje zarówno język R, jak i Python, zawsze można zaimplementować własne mechanizmy wyboru modelu przy użyciu języka R lub Python.
 
-Istnieją cztery kroki w procesie znajdowania najlepszego zestawu parametrów:
+W procesie znajdowania najlepszego zestawu parametrów istnieją cztery etapy:
 
-1. **Zdefiniuj spację parametrów**: Dla algorytmu najpierw zdecyduj dokładne wartości parametrów, które chcesz wziąć pod uwagę.
-2. **Zdefiniuj ustawienia sprawdzania poprawności krzyżowej**: Zdecyduj, jak wybrać fałdy sprawdzania poprawności krzyżowej dla zestawu danych.
-3. **Zdefiniuj metrykę:** Zdecyduj, jakiej metryki użyć do określenia najlepszego zestawu parametrów, takich jak dokładność, średni błąd kwadratu głównego, precyzja, odwołanie lub wynik f.
-4. **Trenuj, oceniaj i porównuj**: Dla każdej unikatowej kombinacji wartości parametrów krzyżowa walidacja jest przeprowadzana przez i na podstawie zdefiniowanej metryki błędu. Po dokonaniu oceny i porównaniu można wybrać model o najlepszej wydajności.
+1. **Zdefiniuj miejsce parametru**: dla algorytmu należy najpierw określić dokładne wartości parametrów, które mają być brane pod uwagę.
+2. **Zdefiniuj ustawienia dotyczące krzyżowego sprawdzania poprawności**: Zdecyduj, jak wybierać zgięcia krzyżowe dla zestawu danych.
+3. **Zdefiniuj metrykę**: Zdecyduj, która Metryka ma być używana do określania najlepszego zestawu parametrów, takich jak dokładność, główny znak średnika, precyzja, odwołanie lub f-Score.
+4. **Uczenie, szacowanie i porównywanie**: dla każdej unikatowej kombinacji wartości parametrów, wzajemne sprawdzanie poprawności jest wykonywane w oparciu o określoną metrykę błędu. Po dokonaniu oceny i porównaniu można wybrać model najlepiej wykonujący.
 
-Na poniższej ilustracji przedstawiono, jak można to osiągnąć w usłudze Azure Machine Learning Studio (klasyczny).
+Na poniższej ilustracji przedstawiono, jak można to osiągnąć w Azure Machine Learning Studio (klasyczny).
 
 ![Znajdź najlepszy zestaw parametrów](./media/algorithm-parameters-optimize/fig1.png)
 
-## <a name="define-the-parameter-space"></a>Definiowanie obszaru parametrów
-Można zdefiniować parametr ustawiony na etapie inicjowania modelu. Okienko parametrów wszystkich algorytmów uczenia maszynowego ma dwa tryby trenera: *Pojedynczy parametr* i *zakres parametrów*. Wybierz tryb zakresu parametrów. W trybie zakres parametrów można wprowadzić wiele wartości dla każdego parametru. W polu tekstowym można wprowadzić wartości oddzielone przecinkami.
+## <a name="define-the-parameter-space"></a>Zdefiniuj miejsce parametru
+Można zdefiniować parametr ustawiony w kroku inicjalizacji modelu. Okienko parametrów wszystkich algorytmów uczenia maszynowego ma dwa tryby Trainer: *pojedynczy parametr* i *zakres parametrów*. Wybierz tryb zakresu parametrów. W trybie zakresu parametrów można wprowadzić wiele wartości dla każdego parametru. W polu tekstowym można wprowadzić wartości rozdzielone przecinkami.
 
-![Dwuklasowe drzewo decyzyjne z premią, pojedynczy parametr](./media/algorithm-parameters-optimize/fig2.png)
+![Drzewo decyzyjne z dwoma klasami, jeden parametr](./media/algorithm-parameters-optimize/fig2.png)
 
- Alternatywnie można zdefiniować maksymalne i minimalne punkty siatki oraz całkowitą liczbę punktów, które mają zostać wygenerowane za pomocą **programu Use Range Builder**. Domyślnie wartości parametrów są generowane w skali liniowej. Ale jeśli **skala dziennika** jest zaznaczona, wartości są generowane w skali dziennika (oznacza to, że stosunek sąsiednich punktów jest stała zamiast ich różnicy). W przypadku parametrów całkowitych można zdefiniować zakres za pomocą łącznika. Na przykład "1-10" oznacza, że wszystkie liczby całkowite między 1 i 10 (zarówno włącznie) tworzą zestaw parametrów. Obsługiwany jest również tryb mieszany. Na przykład zestaw parametrów "1-10, 20, 50" będzie zawierać liczby całkowite 1-10, 20 i 50.
+ Alternatywnie można zdefiniować maksymalne i minimalne punkty siatki oraz całkowitą liczbę punktów do wygenerowania przy użyciu **konstruktora zakresu użycia**. Domyślnie wartości parametrów są generowane na skali liniowej. Jeśli jednak **skalowanie dziennika** jest zaznaczone, wartości są generowane w skali dziennika (to oznacza, że proporcja sąsiadujących punktów jest stała, a nie różnica). Dla parametrów Integer można zdefiniować zakres przy użyciu łącznika. Na przykład "1-10" oznacza, że wszystkie liczby całkowite z zakresu od 1 do 10 (włącznie) tworzą zestaw parametrów. Obsługiwany jest również tryb mieszany. Na przykład, zestaw parametrów "1-10, 20, 50" będzie zawierać liczby całkowite 1-10, 20 i 50.
 
-![Dwuklasowe drzewo decyzyjne z premią, zakres parametrów](./media/algorithm-parameters-optimize/fig3.png)
+![Drzewo decyzyjne z dwoma klasami, zakres parametrów](./media/algorithm-parameters-optimize/fig3.png)
 
-## <a name="define-cross-validation-folds"></a>Definiowanie fałd sprawdzania poprawności krzyżowej
-[Partycja i przykład moduł][partition-and-sample] może służyć do losowego przypisywania zagęszków do danych. W poniższej konfiguracji przykładowej dla modułu definiujemy pięć fałd i losowo przypisujemy liczbę zagięcia do przykładowych wystąpień.
+## <a name="define-cross-validation-folds"></a>Definiowanie zgięcia między walidacjami
+Na [partycji i przykładowym][partition-and-sample] module można używać do losowego przypisywania zapisywanych danych. W poniższej przykładowej konfiguracji modułu definiujemy pięć zagięć i losowo przypisujemy numer zgięcia do przykładowych wystąpień.
 
-![Partycja i próbka](./media/algorithm-parameters-optimize/fig4.png)
+![Partycja i przykład](./media/algorithm-parameters-optimize/fig4.png)
 
-## <a name="define-the-metric"></a>Zdefiniuj metrykę
-Moduł [Tune Model Hyperparameters][tune-model-hyperparameters] zapewnia obsługę empirycznego wybierania najlepszego zestawu parametrów dla danego algorytmu i zestawu danych. Oprócz innych informacji dotyczących szkolenia modelu, Właściwości okienka tego modułu zawiera metrykę do określania najlepszego zestawu **parametrów.** Ma dwa różne pola listy rozwijanej dla algorytmów klasyfikacji i regresji, odpowiednio. Jeśli algorytm, o który chodzi, jest algorytmem klasyfikacji, metryka regresji jest ignorowana i odwrotnie. W tym konkretnym przykładzie metryką jest **Dokładność**.   
+## <a name="define-the-metric"></a>Definiowanie metryki
+Moduł " [dostrajanie modelu][tune-model-hyperparameters] " pozwala obsłużyć doświadczalnie Wybieranie najlepszego zestawu parametrów dla danego algorytmu i zestawu danych. Oprócz innych informacji dotyczących uczenia modelu, okienko **Właściwości** tego modułu zawiera metrykę służącą do określenia najlepszego zestawu parametrów. Ma dwa różne pola listy rozwijanej odpowiednio dla algorytmów klasyfikacji i regresji. Jeśli algorytm rozważany jest algorytmem klasyfikacji, Metryka regresji jest ignorowana i odwrotnie. W tym konkretnym przykładzie Metryka jest **dokładnością**.   
 
-![Parametry wyciągnięcia po ścieżce](./media/algorithm-parameters-optimize/fig5.png)
+![Parametry odchylenia](./media/algorithm-parameters-optimize/fig5.png)
 
-## <a name="train-evaluate-and-compare"></a>Trenuj, oceniaj i porównuj
-Ten sam moduł [Tune Model Hyperparameters trenuje][tune-model-hyperparameters] wszystkie modele, które odpowiadają zestawowi parametrów, ocenia różne metryki, a następnie tworzy najlepiej wyszkolony model na podstawie wybranego metryki. Moduł ten posiada dwa obowiązkowe wejścia:
+## <a name="train-evaluate-and-compare"></a>Uczenie, ocenę i porównanie
+Ten sam moduł [strojenia modelu][tune-model-hyperparameters] pociąga za siebie wszystkie modele, które odpowiadają zestawowi parametrów, ocenia różne metryki, a następnie tworzy model najlepiej szkolony na podstawie wybranej metryki. Ten moduł ma dwa obowiązkowe dane wejściowe:
 
-* Nieprzeszkolony uczeń
+* Pouczenie się
 * Zestaw danych
 
-Moduł posiada również opcjonalne dane wejściowe zestawu danych. Połącz zestaw danych z informacjami o złożeniu z obowiązkowym wejściem zestawu danych. Jeśli zestawowi danych nie są przypisywane żadne informacje o złożeniu, 10-krotne sprawdzanie poprawności krzyżowej jest wykonywane automatycznie domyślnie. Jeśli przypisanie zagięcia nie zostanie wykonane, a zestaw danych sprawdzania poprawności zostanie dostarczony na opcjonalnym porcie zestawu danych, zostanie wybrany tryb train-test i pierwszy zestaw danych jest używany do trenowania modelu dla każdej kombinacji parametrów.
+Moduł zawiera również opcjonalne dane wejściowe zestawu danych. Połącz zestaw danych z danymi o złożeniu do obowiązkowego wejścia zestawu danych. Jeśli zestaw danych nie ma przypisanych żadnych informacji o złożeniu, domyślnie zostanie automatycznie wykonane sprawdzanie krzyżowe. Jeśli przypisanie do złożenia nie zostanie wykonane i zestaw danych sprawdzania poprawności jest dostarczany z opcjonalnym portem DataSet, wybierany jest tryb uczenia testowego, a pierwszy zestaw danych jest używany do uczenia modelu dla każdej kombinacji parametrów.
 
-![Promowany klasyfikator drzewa decyzyjnego](./media/algorithm-parameters-optimize/fig6a.png)
+![Klasyfikator drzewa podwyższanych decyzji](./media/algorithm-parameters-optimize/fig6a.png)
 
-Model jest następnie oceniany na zestaw danych sprawdzania poprawności. Lewy port wyjściowy modułu pokazuje różne metryki jako funkcje wartości parametrów. Prawy port wyjściowy daje przeszkolony model, który odpowiada modelowi o najlepszej wydajności zgodnie z wybraną metryką (**Dokładność** w tym przypadku).  
+Model jest następnie oceniany w zestawie danych walidacji. Lewy port wyjściowy modułu pokazuje różne metryki jako funkcje wartości parametrów. Prawidłowy port wyjściowy zapewnia szkolony model, który odpowiada modelowi najlepiej działającemu zgodnie z wybraną metryką (**dokładność** w tym przypadku).  
 
-![Zestaw danych sprawdzania poprawności](./media/algorithm-parameters-optimize/fig6b.png)
+![Zestaw danych walidacji](./media/algorithm-parameters-optimize/fig6b.png)
 
-Możesz zobaczyć dokładne parametry wybrane przez wizualizację odpowiedniego portu wyjściowego. Ten model może służyć do oceniania zestawu testów lub w operacyjnej usłudze sieci web po zapisaniu jako wyszkolony model.
+Można zobaczyć dokładne parametry wybrane przez wizualizację właściwego portu wyjściowego. Ten model może być używany podczas oceniania zestawu testów lub w operacyjnej usłudze sieci Web po zapisaniu jako przeszkolonego modelu.
 
 <!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/

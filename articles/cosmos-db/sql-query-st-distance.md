@@ -1,6 +1,6 @@
 ---
-title: ST_DISTANCE w języku zapytań usługi Azure Cosmos DB
-description: Dowiedz się więcej o ST_DISTANCE funkcji systemu SQL w usłudze Azure Cosmos DB.
+title: ST_DISTANCE w języku zapytań Azure Cosmos DB
+description: Dowiedz się więcej na temat funkcji systemu SQL ST_DISTANCE w Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 03/12/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 02844569137a46ea030b2189191b84a9db24ed22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79537299"
 ---
-# <a name="st_distance-azure-cosmos-db"></a>ST_DISTANCE (Usługa Azure Cosmos DB)
- Zwraca odległość między dwoma wyrażeniami Punkt GeoJSON, Wielokąt, Wielopolygon lub Sznurek liniowy. Aby dowiedzieć się więcej, zobacz [geoprzestrzenne i GeoJSON dane dotyczące lokalizacji](sql-query-geospatial-intro.md) artykułu.
+# <a name="st_distance-azure-cosmos-db"></a>ST_DISTANCE (Azure Cosmos DB)
+ Zwraca odległość między dwoma wyrażeniami GEOJSON, Wielokąt, MultiPolygon lub LineString. Aby dowiedzieć się więcej, zobacz artykuł [dane lokalizacji geograficznej i GEOJSON](sql-query-geospatial-intro.md) .
   
 ## <a name="syntax"></a>Składnia
   
@@ -26,15 +26,15 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
 ## <a name="arguments"></a>Argumenty
   
 *spatial_expr*  
-   Czy jest to prawidłowe wyrażenie obiektu GeoJSON Point, Polygon lub LineString.  
+   Jest dowolnym prawidłowym wyrażeniem GEOJSON, wielokąta lub obiektem LineString.  
   
-## <a name="return-types"></a>Typy zwrotów
+## <a name="return-types"></a>Typy zwracane
   
-  Zwraca wyrażenie liczbowe zawierające odległość. Jest to wyrażone w licznikach dla domyślnego systemu referencyjnego.  
+  Zwraca wyrażenie liczbowe zawierające odległość. Jest to wyrażane w metrach dla domyślnego systemu referencyjnego.  
   
 ## <a name="examples"></a>Przykłady
   
-  W poniższym przykładzie pokazano, jak zwrócić wszystkie dokumenty rodzinne, które `ST_DISTANCE` znajdują się w odległości 30 km od określonej lokalizacji przy użyciu wbudowanej funkcji. .  
+  Poniższy przykład pokazuje, jak zwrócić wszystkie dokumenty rodziny, które znajdują się w zakresie 30 km od określonej lokalizacji `ST_DISTANCE` przy użyciu wbudowanej funkcji. .  
   
 ```sql
 SELECT f.id
@@ -52,10 +52,10 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 
 ## <a name="remarks"></a>Uwagi
 
-Ta funkcja systemu będzie korzystać z [indeksu geoprzestrzennego](index-policy.md#spatial-indexes).
+Ta funkcja systemowa będzie korzystać z [indeksu geoprzestrzennego](index-policy.md#spatial-indexes).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Funkcje przestrzenne usługi Azure Cosmos DB](sql-query-spatial-functions.md)
-- [Funkcje systemowe Usługi Azure Cosmos DB](sql-query-system-functions.md)
+- [Funkcje przestrzenne Azure Cosmos DB](sql-query-spatial-functions.md)
+- [Azure Cosmos DB funkcje systemowe](sql-query-system-functions.md)
 - [Wprowadzenie do usługi Azure Cosmos DB](introduction.md)

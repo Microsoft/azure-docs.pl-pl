@@ -1,6 +1,6 @@
 ---
-title: Jak zainstalować magazyn obiektów Blob platformy Azure jako system plików w systemie Linux | Dokumenty firmy Microsoft
-description: Instalowanie kontenera magazynu obiektów Blob platformy Azure z systemem FUSE w systemie Linux
+title: Jak zainstalować usługę Azure Blob Storage jako system plików w systemie Linux | Microsoft Docs
+description: Instalowanie kontenera usługi Azure Blob Storage z opcją Odmów w systemie Linux
 author: rishabpoh
 ms.service: storage
 ms.subservice: blobs
@@ -9,80 +9,80 @@ ms.date: 2/1/2019
 ms.author: ripohane
 ms.reviewer: dineshm
 ms.openlocfilehash: a0a03df59bc6ecffcb4f0a701616297f2da78fdb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80061424"
 ---
-# <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Jak zamontować magazyn obiektów Blob jako system plików z bluzką
+# <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Jak zainstalować magazyn obiektów BLOB jako system plików za pomocą blobfuse
 
 ## <a name="overview"></a>Omówienie
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) jest sterownikiem wirtualnego systemu plików usługi Azure Blob Storage. Blobfuse pozwala uzyskać dostęp do istniejących danych blokowych obiektów blob na koncie pamięci masowej za pośrednictwem systemu plików Linux. Blobfuse używa schematu katalogu wirtualnego z ukośnikiem "/" jako ogranicznikiem.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) jest sterownikiem wirtualnego systemu plików usługi Azure Blob Storage. Blobfuse umożliwia dostęp do istniejących danych blokowych obiektów BLOB na koncie magazynu za pomocą systemu plików Linux. Blobfuse używa schematu katalogu wirtualnego z ukośnikiem "/" jako ogranicznika.  
 
-W tym przewodniku pokazano, jak używać blobfuse i zainstalować kontener magazynu obiektów Blob w systemie Linux i uzyskać dostęp do danych. Aby dowiedzieć się więcej o bluzce, przeczytaj szczegóły w [repozytorium bluzki](https://github.com/Azure/azure-storage-fuse).
+W tym przewodniku przedstawiono sposób korzystania z programu blobfuse i instalowania kontenera magazynu obiektów BLOB w systemie Linux i uzyskiwania dostępu do danych. Aby dowiedzieć się więcej na temat blobfuse, zapoznaj się ze szczegółami w [repozytorium blobfuse](https://github.com/Azure/azure-storage-fuse).
 
 > [!WARNING]
-> Blobfuse nie gwarantuje zgodności z POSIX 100%, ponieważ po prostu przekłada żądania na [interfejsy API spoczynku obiektów blob.](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) Na przykład operacje zmiany nazwy są niepodzielne w POSIX, ale nie w blobfuse.
-> Aby uzyskać pełną listę różnic między natywnym systemem plików a bluzką, odwiedź [repozytorium kodu źródłowego bluzki](https://github.com/azure/azure-storage-fuse).
+> Blobfuse nie gwarantuje zgodności z 100% POSIX, ponieważ po prostu tłumaczy żądania na [interfejsy API REST obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api). Na przykład operacje zmiany nazwy są niepodzielne w modelu POSIX, ale nie w blobfuse.
+> Aby zapoznać się z pełną listą różnic między natywnym systemem plików i blobfuse, odwiedź [repozytorium kodu źródłowego blobfuse](https://github.com/azure/azure-storage-fuse).
 > 
 
-## <a name="install-blobfuse-on-linux"></a>Zainstaluj bluzkę na Linuksie
-Pliki binarne blobfuse są dostępne w [repozytoriach oprogramowania firmy Microsoft dla systemów Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) dla dystrybucji Ubuntu i RHEL. Aby zainstalować bluzkę w tych dystrybucjach, skonfiguruj jedno z repozytoriów z listy. Można również utworzyć pliki binarne z kodu źródłowego zgodnie z [kroki instalacji usługi Azure Storage,](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) jeśli nie ma żadnych plików binarnych dostępnych dla dystrybucji.
+## <a name="install-blobfuse-on-linux"></a>Zainstaluj program blobfuse w systemie Linux
+Pliki binarne Blobfuse są dostępne w [repozytoriach oprogramowania firmy Microsoft dla systemu Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) na potrzeby dystrybucji Ubuntu i RHEL. Aby zainstalować blobfuse na tych dystrybucjach, należy skonfigurować jeden z repozytoriów z listy. Możesz również utworzyć pliki binarne z kodu źródłowego po [wykonaniu kroków instalacji usługi Azure Storage](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) , jeśli nie ma plików binarnych dostępnych dla dystrybucji.
 
-Blobfuse obsługuje instalację na Ubuntu 14.04, 16.04 i 18.04. Uruchom to polecenie, aby upewnić się, że masz jedną z tych wersji wdrożonych:
+Blobfuse obsługuje instalację na Ubuntu 14,04, 16,04 i 18,04. Uruchom to polecenie, aby upewnić się, że masz wdrożoną jedną z tych wersji:
 ```
 lsb_release -a
 ```
 
-### <a name="configure-the-microsoft-package-repository"></a>Konfigurowanie repozytorium pakietów firmy Microsoft
+### <a name="configure-the-microsoft-package-repository"></a>Skonfiguruj repozytorium pakietu Microsoft
 Skonfiguruj [repozytorium pakietów systemu Linux dla produktów firmy Microsoft](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
 
-Na przykład w dystrybucji Enterprise Linux 6:
+Przykładowo w dystrybucji Enterprise Linux 6:
 ```bash
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/6/packages-microsoft-prod.rpm
 ```
 
-Podobnie zmień adres URL, aby `.../rhel/7/...` wskazać dystrybucję Enterprise Linux 7.
+Analogicznie Zmień adres URL na `.../rhel/7/...` tak, aby wskazywał dystrybucję Enterprise Linux 7.
 
-Inny przykład na dystrybucji Ubuntu 14.04:
+Inny przykład na Ubuntu 14,04:
 ```bash
 wget https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-Podobnie zmień adres URL `.../ubuntu/16.04/...` `.../ubuntu/18.04/...` na inną wersję Ubuntu lub odwołujesz się do innej wersji.
+Analogicznie, Zmień adres URL `.../ubuntu/16.04/...` na `.../ubuntu/18.04/...` lub, aby odwołać się do innej wersji Ubuntu.
 
-### <a name="install-blobfuse"></a>Zainstaluj bluzkę
+### <a name="install-blobfuse"></a>Zainstaluj blobfuse
 
 W dystrybucji Ubuntu/Debian:
 ```bash
 sudo apt-get install blobfuse
 ```
 
-W przypadku dystrybucji systemu Linux dla przedsiębiorstw:
+W dystrybucji systemu Linux w przedsiębiorstwie:
 ```bash    
 sudo yum install blobfuse
 ```
 
-## <a name="prepare-for-mounting"></a>Przygotuj się do montażu
-Blobfuse zapewnia wydajność natywnej, wymagając tymczasowej ścieżki w systemie plików do buforowania i buforowania wszystkich otwartych plików. Dla tej ścieżki tymczasowej wybierz najbardziej wydajny dysk lub użyj ramdisk, aby uzyskać najlepszą wydajność. 
+## <a name="prepare-for-mounting"></a>Przygotuj do zainstalowania
+Blobfuse zapewnia wydajność podobną do natywną, wymagając ścieżki tymczasowej w systemie plików do buforowania i buforowania wszelkich otwartych plików. W przypadku tej ścieżki tymczasowej wybierz najbardziej wydajny dysk lub użyj dysku Ramdisk w celu uzyskania najlepszej wydajności. 
 
 > [!NOTE]
-> Blobfuse przechowuje całą otwartą zawartość pliku w ścieżce tymczasowej. Upewnij się, że ma wystarczająco dużo miejsca, aby pomieścić wszystkie otwarte pliki. 
+> Blobfuse przechowuje wszystkie otwarte pliki w tymczasowej ścieżce. Upewnij się, że masz wystarczająco dużo miejsca, aby pomieścić wszystkie otwarte pliki. 
 > 
 
-### <a name="optional-use-a-ramdisk-for-the-temporary-path"></a>(Opcjonalnie) Użyj ramdisk dla ścieżki tymczasowej
-Poniższy przykład tworzy ramdisk 16 GB i katalog dla blobfuse. Wybierz rozmiar w zależności od potrzeb. Ten ramdisk pozwala blobfuse otworzyć pliki do 16 GB w rozmiarze. 
+### <a name="optional-use-a-ramdisk-for-the-temporary-path"></a>Obowiązkowe Użyj dysku Ramdisk dla ścieżki tymczasowej
+Poniższy przykład tworzy dysk Ramdisk o 16 GB i katalog dla blobfuse. Wybierz rozmiar na podstawie Twoich potrzeb. Ten dysk Ramdisk umożliwia blobfuse otwieranie plików o rozmiarze do 16 GB. 
 ```bash
 sudo mount -t tmpfs -o size=16g tmpfs /mnt/ramdisk
 sudo mkdir /mnt/ramdisk/blobfusetmp
 sudo chown <youruser> /mnt/ramdisk/blobfusetmp
 ```
 
-### <a name="use-an-ssd-as-a-temporary-path"></a>Używanie ssd jako ścieżki tymczasowej
-Na platformie Azure można użyć dysków tymczasowych (SSD) dostępnych na maszynach wirtualnych, aby zapewnić bufor o małym opóźnieniu dla blobfuse. W dystrybucjach Ubuntu ten efemeryczny dysk jest zamontowany na '/mnt'. W dystrybucjach Red Hat i CentOS dysk jest zamontowany na '/mnt/resource/'.
+### <a name="use-an-ssd-as-a-temporary-path"></a>Używanie dysku SSD jako ścieżki tymczasowej
+Na platformie Azure możesz używać dysków tymczasowych (SSD) dostępnych na maszynach wirtualnych, aby zapewnić bufor o małym opóźnieniu dla blobfuse. W dystrybucjach Ubuntu ten dysk nieulotny jest instalowany na "/mnt". W przypadku dystrybucji Red Hat i CentOS dysk jest instalowany na "/mnt/Resource/".
 
 Upewnij się, że użytkownik ma dostęp do ścieżki tymczasowej:
 ```bash
@@ -90,15 +90,15 @@ sudo mkdir /mnt/resource/blobfusetmp -p
 sudo chown <youruser> /mnt/resource/blobfusetmp
 ```
 
-### <a name="configure-your-storage-account-credentials"></a>Konfigurowanie poświadczeń konta magazynu
-Blobfuse wymaga poświadczeń, które mają być przechowywane w pliku tekstowym w następującym formacie: 
+### <a name="configure-your-storage-account-credentials"></a>Skonfiguruj poświadczenia konta magazynu
+Blobfuse wymaga, aby Twoje poświadczenia były przechowywane w pliku tekstowym w następującym formacie: 
 
 ```
 accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
-Jest `accountName` to prefiks dla konta magazynu - nie pełny adres URL.
+`accountName` Jest to prefiks dla konta magazynu — a nie pełny adres URL.
 
 Utwórz ten plik przy użyciu:
 
@@ -106,16 +106,16 @@ Utwórz ten plik przy użyciu:
 touch ~/fuse_connection.cfg
 ```
 
-Po utworzeniu i edycji tego pliku należy ograniczyć dostęp, aby żaden inny użytkownik nie mógł go odczytać.
+Po utworzeniu i edytowaniu tego pliku upewnij się, że nie można go odczytać.
 ```bash
 chmod 600 fuse_connection.cfg
 ```
 
 > [!NOTE]
-> Jeśli plik konfiguracyjny został utworzony w `dos2unix` systemie Windows, upewnij się, że uruchomiono, aby odkażać i konwertować plik na format Unix. 
+> Jeśli plik konfiguracji został utworzony w systemie Windows, upewnij się, że uruchomiono `dos2unix` oczyszczanie i konwertowanie pliku do formatu systemu UNIX. 
 >
 
-### <a name="create-an-empty-directory-for-mounting"></a>Tworzenie pustego katalogu do montażu
+### <a name="create-an-empty-directory-for-mounting"></a>Utwórz pusty katalog do zainstalowania
 ```bash
 mkdir ~/mycontainer
 ```
@@ -123,16 +123,16 @@ mkdir ~/mycontainer
 ## <a name="mount"></a>Instalacja
 
 > [!NOTE]
-> Aby uzyskać pełną listę opcji montażu, sprawdź [repozytorium bluzki](https://github.com/Azure/azure-storage-fuse#mount-options).  
+> Aby uzyskać pełną listę opcji instalacji, zapoznaj [się z repozytorium blobfuse](https://github.com/Azure/azure-storage-fuse#mount-options).  
 > 
 
-Aby zamontować bluzkę, uruchom następujące polecenie z użytkownikiem. To polecenie montuje kontener określony w "/path/to/fuse_connection.cfg" na lokalizacji "/mycontainer".
+Aby zainstalować blobfuse, uruchom następujące polecenie u użytkownika. To polecenie instaluje kontener określony w elemencie "/Path/to/fuse_connection. cfg" w lokalizacji "/mycontainer".
 
 ```bash
 sudo blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
 
-Teraz powinieneś mieć dostęp do bloków obiektów blob za pośrednictwem zwykłych interfejsów API systemu plików. Użytkownik, który instaluje katalog jest jedyną osobą, która może uzyskać do niego dostęp, domyślnie, co zabezpiecza dostęp. Aby umożliwić dostęp wszystkim użytkownikom, można ```-o allow_other```zamontować za pomocą opcji . 
+Teraz masz dostęp do blokowych obiektów BLOB za pomocą zwykłych interfejsów API systemu plików. Użytkownik instalujący katalog jest jedyną osobą, która ma do niej dostęp, domyślnie, która zabezpiecza dostęp. Aby zezwolić na dostęp wszystkim użytkownikom, można zainstalować za pomocą opcji ```-o allow_other```. 
 
 ```bash
 cd ~/mycontainer
@@ -142,6 +142,6 @@ echo "hello world" > test/blob.txt
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Strona główna bluzki](https://github.com/Azure/azure-storage-fuse#blobfuse)
-* [Zgłaszanie problemów z bluzką](https://github.com/Azure/azure-storage-fuse/issues) 
+* [Strona główna Blobfuse](https://github.com/Azure/azure-storage-fuse#blobfuse)
+* [Zgłoś problemy blobfuse](https://github.com/Azure/azure-storage-fuse/issues) 
 

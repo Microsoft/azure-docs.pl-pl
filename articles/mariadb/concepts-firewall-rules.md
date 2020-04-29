@@ -1,74 +1,74 @@
 ---
-title: Reguły zapory — usługa Azure Database for MariaDB
-description: Dowiedz się więcej o używaniu reguł zapory w celu umożliwienia połączeń z usługą Azure Database dla serwera MariaDB.
+title: Reguły zapory — Azure Database for MariaDB
+description: Dowiedz się więcej na temat używania reguł zapory do włączania połączeń z serwerem Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 743e3f50d747993250399493d97fc2becab19319
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79532046"
 ---
-# <a name="azure-database-for-mariadb-server-firewall-rules"></a>Reguły zapory serwera usługi Azure Database for MariaDB
-Zapory uniemożliwiają dostęp do serwera bazy danych, dopóki nie określisz, które komputery mają uprawnienia. Zapora udziela dostępu do serwera na podstawie źródłowego adresu IP każdego żądania.
+# <a name="azure-database-for-mariadb-server-firewall-rules"></a>Reguły zapory serwera Azure Database for MariaDB
+Zapory uniemożliwiają dostęp do serwera bazy danych do momentu określenia komputerów, które mają uprawnienia. Zapora przyznaje dostęp do serwera na podstawie źródłowego adresu IP każdego żądania.
 
-Aby skonfigurować zaporę, należy utworzyć reguły zapory określające zakresy dopuszczalnych adresów IP. Reguły zapory można tworzyć na poziomie serwera.
+Aby skonfigurować zaporę, należy utworzyć reguły zapory określające zakresy akceptowalnych adresów IP. Reguły zapory można tworzyć na poziomie serwera.
 
-**Reguły zapory:** Te reguły umożliwiają klientom dostęp do całej usługi Azure Database dla serwera MariaDB, czyli wszystkich baz danych w ramach tego samego serwera logicznego. Reguły zapory na poziomie serwera można skonfigurować przy użyciu poleceń witryny Azure portal lub interfejsu wiersza polecenia platformy Azure. Aby utworzyć reguły zapory na poziomie serwera, musisz być właścicielem subskrypcji lub współautorem subskrypcji.
+**Reguły zapory:** Te reguły umożliwiają klientom dostęp do całego serwera Azure Database for MariaDB, czyli wszystkich baz danych na tym samym serwerze logicznym. Reguły zapory na poziomie serwera można skonfigurować za pomocą poleceń Azure Portal lub interfejsu wiersza polecenia platformy Azure. Aby utworzyć reguły zapory na poziomie serwera, musisz być właścicielem subskrypcji lub współautorem subskrypcji.
 
 ## <a name="firewall-overview"></a>Omówienie zapory
-Dostęp do bazy danych usługi Azure Database dla serwera MariaDB jest domyślnie blokowany przez zaporę. Aby rozpocząć korzystanie z serwera z innego komputera, należy określić co najmniej jedną regułę zapory na poziomie serwera, aby umożliwić dostęp do serwera. Użyj reguł zapory, aby określić, który adres IP ma na to pozwalać. Na dostęp do samej witryny sieci Web witryny azure portal nie mają wpływu reguły zapory.
+Dostęp wszystkich baz danych do serwera Azure Database for MariaDB jest blokowany domyślnie przez zaporę. Aby rozpocząć korzystanie z serwera z innego komputera, należy określić co najmniej jedną regułę zapory na poziomie serwera, aby umożliwić dostęp do serwera. Użyj reguł zapory, aby określić, które zakresy adresów IP z Internetu mają być dozwolone. Reguły zapory nie wpływają na dostęp do samej witryny sieci Web Azure Portal.
 
-Próby połączenia z Internetu i platformy Azure muszą najpierw przejść przez zaporę, zanim będą mogły dotrzeć do bazy danych usługi Azure Database dla mariadb, jak pokazano na poniższym diagramie:
+Próby połączenia z Internetu i platformy Azure muszą być przekazywane przez zaporę przed uzyskaniem dostępu do bazy danych Azure Database for MariaDB, jak pokazano na poniższym diagramie:
 
 ![Przykładowy przepływ działania zapory](./media/concepts-firewall-rules/1-firewall-concept.png)
 
 ## <a name="connecting-from-the-internet"></a>Łączenie się z Internetu
-Reguły zapory na poziomie serwera mają zastosowanie do wszystkich baz danych na serwerze usługi Azure Database for MariaDB.
+Reguły zapory na poziomie serwera mają zastosowanie do wszystkich baz danych na serwerze Azure Database for MariaDB.
 
-Jeśli adres IP żądania mieści się w jednym z zakresów określonych w regułach zapory na poziomie serwera, połączenie zostanie udzielone.
+Jeśli adres IP żądania należy do jednego z zakresów określonych w regułach zapory na poziomie serwera, nawiązanie połączenia zostanie nadane.
 
-Jeśli adres IP żądania znajduje się poza zakresami określonymi w dowolnej z reguł zapory na poziomie bazy danych lub serwera, żądanie połączenia nie powiedzie się.
+Jeśli adres IP żądania wykracza poza zakresy określone w regułach zapory na poziomie bazy danych lub na poziomie serwera, żądanie połączenia kończy się niepowodzeniem.
 
 ## <a name="connecting-from-azure"></a>Łączenie z platformy Azure
-Zaleca się znalezienie wychodzącego adresu IP dowolnej aplikacji lub usługi i jawne zezwolenie na dostęp do tych indywidualnych adresów IP lub zakresów. Na przykład można znaleźć wychodzący adres IP usługi Azure App Service lub użyć publicznego adresu IP powiązanego z maszyną wirtualną lub innym zasobem (zobacz poniżej, aby uzyskać informacje na temat łączenia się z prywatnym adresem IP maszyny wirtualnej za pomocą punktów końcowych usługi). 
+Zalecane jest, aby znaleźć wychodzący adres IP dowolnej aplikacji lub usługi i jawnie zezwolić na dostęp do tych pojedynczych adresów IP lub zakresów. Na przykład można znaleźć wychodzący adres IP Azure App Service lub użyć publicznego adresu IP powiązanego z maszyną wirtualną lub innym zasobem (zobacz poniżej, aby uzyskać informacje na temat nawiązywania połączenia z prywatnym adresem IP maszyny wirtualnej za pośrednictwem punktów końcowych usługi). 
 
-Jeśli stały wychodzący adres IP nie jest dostępny dla usługi platformy Azure, można rozważyć włączenie połączeń ze wszystkich adresów IP centrum danych platformy Azure. To ustawienie można włączyć w witrynie Azure portal, ustawiając opcję **Zezwalaj na dostęp do usług platformy Azure** na **Wł.** z **okienka zabezpieczeń Połączenie** i naciskając przycisk **Zapisz**. W usłudze Azure CLI ustawienie reguły zapory z adresem początkowym i końcowym równym 0.0.0.0 robi równoważne. Jeśli próba połączenia jest niedozwolona, żądanie nie dociera do usługi Azure Database dla serwera MariaDB.
+Jeśli stały wychodzący adres IP nie jest dostępny dla usługi platformy Azure, możesz rozważyć włączenie połączeń ze wszystkich adresów IP centrum danych platformy Azure. To ustawienie można włączyć z poziomu Azure Portal, ustawiając opcję **Zezwalaj na dostęp do usług platformy Azure** na **wartość z** okienka **zabezpieczenia połączenia** i naciskając polecenie **Zapisz**. W interfejsie wiersza polecenia platformy Azure ustawienie reguły zapory z adresem początkowym i końcowym równym 0.0.0.0 jest równoważne. Jeśli próba połączenia nie jest dozwolona, żądanie nie dociera do serwera Azure Database for MariaDB.
 
 > [!IMPORTANT]
-> Opcja **Zezwalaj na dostęp do usług platformy Azure** konfiguruje zaporę, aby zezwalać na wszystkie połączenia z platformy Azure, w tym połączenia z subskrypcji innych klientów. W przypadku wybrania tej opcji upewnij się, że uprawnienia logowania i użytkownika zezwalają na dostęp tylko uprawnionym użytkownikom.
+> Opcja **Zezwalaj na dostęp do usług platformy Azure** umożliwia skonfigurowanie zapory w taki sposób, aby zezwalała na wszystkie połączenia z platformy Azure, w tym połączenia z subskrypcji innych klientów. W przypadku wybrania tej opcji upewnij się, że uprawnienia logowania i użytkownika zezwalają na dostęp tylko uprawnionym użytkownikom.
 > 
 
-![Konfigurowanie zezwalaj na dostęp do usług platformy Azure w portalu](./media/concepts-firewall-rules/allow-azure-services.png)
+![Konfigurowanie zezwalania na dostęp do usług platformy Azure w portalu](./media/concepts-firewall-rules/allow-azure-services.png)
 
 ### <a name="connecting-from-a-vnet"></a>Łączenie z sieci wirtualnej
-Aby bezpiecznie połączyć się z serwerem usługi Azure Database dla mariadb z sieci wirtualnej, należy rozważyć użycie [punktów końcowych usługi sieci wirtualnej](./concepts-data-access-security-vnet.md). 
+Aby bezpiecznie połączyć się z serwerem Azure Database for MariaDB z sieci wirtualnej, należy rozważyć użycie [punktów końcowych usługi sieci wirtualnej](./concepts-data-access-security-vnet.md). 
 
 ## <a name="programmatically-managing-firewall-rules"></a>Programowe zarządzanie regułami zapory
-Oprócz witryny Azure portal reguły zapory mogą być zarządzane programowo przy użyciu interfejsu wiersza polecenia platformy Azure. 
+Oprócz Azure Portal reguły zapory można zarządzać programowo przy użyciu interfejsu wiersza polecenia platformy Azure. 
 
-Zobacz też [Tworzenie reguł zapory usługi Azure Database dla mariadb i zarządzanie nią przy użyciu interfejsu wiersza polecenia platformy Azure](./howto-manage-firewall-cli.md).
+Zobacz też [Tworzenie reguł zapory Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure i zarządzanie nimi](./howto-manage-firewall-cli.md).
 
 ## <a name="troubleshooting-firewall-issues"></a>Rozwiązywanie problemów z zaporą
-Należy wziąć pod uwagę następujące punkty, gdy dostęp do usługi serwera Bazy danych Microsoft Azure dla MariaDB nie działa zgodnie z oczekiwaniami:
+Należy wziąć pod uwagę następujące kwestie, gdy dostęp do usługi Microsoft Azure Database for MariaDB Server nie zachowuje się zgodnie z oczekiwaniami:
 
-* **Zmiany na liście dozwolonych nie weszły jeszcze w życie:** Może być aż pięć minut opóźnienia dla zmian w usłudze Azure Database dla mariadb konfiguracji zapory serwera, aby wejść w życie.
+* **Zmiany na liście dozwolonych nie zostały jeszcze zastosowane:** Aby zmiany w konfiguracji zapory serwera Azure Database for MariaDB zaczęły obowiązywać, może wystąpić nawet pięć minut.
 
-* **Logowanie nie jest autoryzowane lub użyto nieprawidłowego hasła:** Jeśli login nie ma uprawnień do usługi Azure Database dla serwera MariaDB lub hasło używane jest niepoprawne, połączenie z usługą Azure Database dla serwera MariaDB zostanie odrzucone. Utworzenie ustawień zapory zapewnia klientom jedynie możliwość próby nawiązania połączenia z serwerem, ale każdy klient musi podać niezbędne poświadczenia zabezpieczeń.
+* **Logowanie nie jest autoryzowane lub użyto nieprawidłowego hasła:** Jeśli logowanie nie ma uprawnień na serwerze Azure Database for MariaDB lub użyte hasło jest nieprawidłowe, nastąpiło odmowa połączenia z serwerem Azure Database for MariaDB. Utworzenie ustawień zapory zapewnia klientom jedynie możliwość próby nawiązania połączenia z serwerem, ale każdy klient musi podać niezbędne poświadczenia zabezpieczeń.
 
-* **Dynamiczny adres IP:** Jeśli masz połączenie internetowe z dynamicznym adresatem IP i masz problemy z przedostaniem się przez zaporę, możesz wypróbować jedno z następujących rozwiązań:
+* **Dynamiczny adres IP:** Jeśli masz połączenie internetowe z dynamicznym adresem IP i masz problemy z uzyskaniem przez zaporę, możesz wypróbować jedno z następujących rozwiązań:
 
-   * Zapytaj usługodawcę internetowego (ISP) o zakres adresów IP przypisany do komputerów klienckich, które uzyskują dostęp do usługi Azure Database dla serwera MariaDB, a następnie dodaj zakres adresów IP jako regułę zapory.
+   * Poproszenie usługodawcy internetowego (ISP) o zakres adresów IP przypisany do komputerów klienckich, które uzyskują dostęp do serwera Azure Database for MariaDB, a następnie Dodaj zakres adresów IP jako regułę zapory.
 
    * Pobierz statyczne adresy IP dla komputerów klienckich, a następnie dodaj te adresy IP jako reguły zapory.
 
-* **Adres IP serwera wydaje się być publiczny:** Połączenia z serwerem usługi Azure Database for MariaDB są kierowane za pośrednictwem publicznie dostępnej bramy platformy Azure. Rzeczywisty adres IP serwera jest jednak chroniony przez zaporę. Aby uzyskać więcej informacji, odwiedź [artykuł o architekturze łączności](concepts-connectivity-architecture.md). 
+* **Adres IP serwera wydaje się być publiczny:** Połączenia z serwerem Azure Database for MariaDB są kierowane za pomocą publicznie dostępnej bramy platformy Azure. Rzeczywisty adres IP serwera jest jednak chroniony przez zaporę. Aby uzyskać więcej informacji, zapoznaj się z [artykułem dotyczącym architektury łączności](concepts-connectivity-architecture.md). 
 
 ## <a name="next-steps"></a>Następne kroki
-- [Tworzenie reguł zapory usługi Azure Database dla mariadb i zarządzanie nimi przy użyciu portalu Azure](./howto-manage-firewall-portal.md)
-- [Tworzenie reguł zapory usługi Azure Database dla mariadb i zarządzanie nimi przy użyciu interfejsu wiersza polecenia platformy Azure](./howto-manage-firewall-cli.md)
-- [Punkty końcowe usługi sieci wirtualnej w bazie danych platformy Azure dla bazy danych MariaDB](./concepts-data-access-security-vnet.md)
+- [Tworzenie reguł zapory Azure Database for MariaDB i zarządzanie nimi za pomocą Azure Portal](./howto-manage-firewall-portal.md)
+- [Tworzenie reguł zapory Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure i zarządzanie nimi](./howto-manage-firewall-cli.md)
+- [Punkty końcowe usługi sieci wirtualnej w Azure Database for MariaDB](./concepts-data-access-security-vnet.md)

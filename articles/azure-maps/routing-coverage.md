@@ -1,6 +1,6 @@
 ---
-title: Zasięg routingu | Mapy platformy Microsoft Azure
-description: W tym artykule dowiesz się o regionach z pokryciem routingu dla usług Microsoft Azure Maps.
+title: Pokrycie routingu | Mapy Microsoft Azure
+description: Ten artykuł zawiera informacje na temat regionów z pokryciem routingu dla map Microsoft Azure.
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 04/04/2019
@@ -9,37 +9,37 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: b59816abf0cd03450c9fc4ebb8417c62df7e3288
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79529395"
 ---
-# <a name="azure-maps-routing-coverage"></a>Zasięg routingu usługi Azure Maps
+# <a name="azure-maps-routing-coverage"></a>Pokrycie routingu Azure Maps
 
-Ten artykuł zawiera informacje o zasięgu dla routingu usługi Azure Maps. W kwerendzie wyszukiwania usługa Azure Maps zwraca optymalną trasę z lokalizacji A do lokalizacji B. Otrzymasz dokładny czas podróży, aktualne informacje o podróży i instrukcje dotyczące trasy. Można również dodać dodatkowe parametry wyszukiwania, takie jak bieżący ruch, typ pojazdu i warunki, których należy unikać. Optymalizacja trasy zależy od regionu. To dlatego, że usługa Azure Maps ma różne poziomy informacji i dokładności dla różnych regionów. W poniższej tabeli wymieniono regiony i rodzaj informacji, o które można się o nie poprosić.
+Ten artykuł zawiera informacje o pokryciu dotyczące Azure Maps routingu. W zapytaniu wyszukiwania Azure Maps zwraca optymalną trasę z lokalizacji A do lokalizacji B. Masz zapewnione dokładne czasy podróży, aktualizacje informacji o podróży i instrukcje dotyczące trasy. Możesz również dodać dodatkowe parametry wyszukiwania, takie jak bieżący ruch, typ pojazdu i warunki, aby uniknąć. Optymalizacja trasy zależy od regionu. Dzieje się tak, ponieważ Azure Maps ma różne poziomy informacji i dokładności dla różnych regionów. Poniższa tabela zawiera listę regionów i rodzaj informacji, z których można żądać ich.
  
-Sprawdź pokrycie [**geokodowania**](geocoding-coverage.md).       
-Sprawdź zasięg [**ruchu**](traffic-coverage.md).  
-Sprawdź pokrycie [**renderowania**](render-coverage.md).
+Zapoznaj się z pokryciem [**geokodowania**](geocoding-coverage.md).       
+Zapoznaj się z pokryciem [**ruchu**](traffic-coverage.md).  
+Zapoznaj się z pokryciem [**renderowania**](render-coverage.md).
 <br>  
 **Legendy**
 
 | Symbol             | Znaczenie                                |
 |--------------------|----------------------------------------|
-| ✓                  | Kraj/region wraz ze szczegółowymi danymi.   |
-| Ø                  | Kraj/region wraz z uproszczonymi danymi. |
-| Brakuje kraju | Dane kraju/regionu nie są dostarczane.          |
+| ✓                  | Kraj/region dostarczany ze szczegółowymi danymi.   |
+| O                  | Kraj/region udostępniający uproszczone dane. |
+| Brak kraju | Nie podano danych kraju/regionu.          |
 
 <br>  
 
-Poniższa tabela zawiera informacje o zasięgu dla routingu usługi Azure Maps.
+Poniższa tabela zawiera informacje o pokryciu dotyczące Azure Maps routingu.
 <br>  
 
 
 ## <a name="africa"></a>Afryka
 
-| Kraj/region                 | Routing         | Routing z ruchem | Wyznaczanie tras dla ciężarówek |
+| Kraj/region                 | Routing         | Routing z ruchem | Routing ciężarówki |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Algieria                        |        ✓       |                       |             |
 | Angola                         |        ✓       |                       |             |
@@ -49,19 +49,19 @@ Poniższa tabela zawiera informacje o zasięgu dla routingu usługi Azure Maps.
 | Burundi                        |        ✓       |                       |             |
 | Kamerun                       |        ✓       |                       |             |
 | Cabo Verde                     |        ✓       |                       |             |
-| Kongo- Brazzaville Kinszasa    |        ✓       |                       |             |
-| Kongo- Kinszasa                |        ✓       |                       |             |
-| Kości słoniowej                  |        ✓       |                       |             |
+| Kongo — Brazzaville Kinszasa    |        ✓       |                       |             |
+| Kongo — Kinszasa                |        ✓       |                       |             |
+| Wybrzeże Kości Słoniowej                  |        ✓       |                       |             |
 | Egipt                          |        ✓       |         ✓            |             |
 | Gabon                          |        ✓       |                       |             |
 | Gambia                         |        ✓       |                       |             |
 | Ghana                          |        ✓       |                       |             |
 | Kenia                          |        ✓       |         ✓            |             |
-| Lesotho                        |        Ø        |         ✓            |             |
+| Lesotho                        |        O        |         ✓            |             |
 | Malawi                         |        ✓       |                       |              |
 | Mali                           |        ✓       |                       |             |
 | Mauretania                     |        ✓       |                       |             |
-| Mauritius, Majotta i Reunion |        ✓      |                       |             |
+| Mauritius, Majotta i Réunion |        ✓      |                       |             |
 | Maroko                        |        ✓       |                       |             |
 | Mozambik                     |        ✓       |         ✓            |             |
 | Namibia                        |        ✓       |                       |             |
@@ -82,7 +82,7 @@ Poniższa tabela zawiera informacje o zasięgu dla routingu usługi Azure Maps.
 
 ## <a name="americas"></a>Ameryki
 
-| Kraj/region                 | Routing         | Routing z ruchem | Wyznaczanie tras dla ciężarówek |
+| Kraj/region                 | Routing         | Routing z ruchem | Routing ciężarówki |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Argentyna                      |        ✓       |         ✓            |     ✓       |
 | Antigua i Barbuda            |        ✓       |                      |             |
@@ -111,26 +111,26 @@ Poniższa tabela zawiera informacje o zasięgu dla routingu usługi Azure Maps.
 | Panama                         |        ✓       |                      |             |
 | Paragwaj                       |        ✓       |                      |             |
 | Peru                           |        ✓       |         ✓            |             |
-| St. Kitts i Nevis            |        ✓       |                      |             |
-| Św.                      |        ✓       |                      |             |
-| & Grenadyny świętego Wincentego       |        ✓       |                      |             |
+| Saint Kitts i Nevis            |        ✓       |                      |             |
+| St. Lucia                      |        ✓       |                      |             |
+| Saint Vincent & Grenadyny       |        ✓       |                      |             |
 | Surinam                       |        ✓       |                      |             |
-| Trynidad & Tobago              |        ✓       |                      |             |
+| Trinidad & Tobago              |        ✓       |                      |             |
 | Stany Zjednoczone                  |        ✓       |         ✓            |     ✓      | 
-| +Samoa Amerykańskie                |        ✓       |                      |             |
-| +Mariany Północne      |        ✓       |                      |             |
-| +Portoryko                   |        ✓       |                      |             |
-| +Wyspy Dziewicze Stanów Zjednoczonych           |        ✓       |                      |             |
+| + Samoa Amerykańskie                |        ✓       |                      |             |
+| + Mariany Północne      |        ✓       |                      |             |
+| + Portoryko                   |        ✓       |                      |             |
+| + Wyspy Dziewicze Stanów Zjednoczonych           |        ✓       |                      |             |
 | Urugwaj                        |        ✓       |         ✓            |     ✓      | 
 | Wenezuela                      |        ✓       |                      |             |
 
 
 ## <a name="asia-pacific"></a>Azja i Pacyfik
 
-| Kraj/region                 | Routing         | Routing z ruchem | Wyznaczanie tras dla ciężarówek |
+| Kraj/region                 | Routing         | Routing z ruchem | Routing ciężarówki |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Australia                      |        ✓       |         ✓            |     ✓       |
-| +Wyspa Bożego Narodzenia              |        ✓       |                      |             |
+| + Wyspa Bożego Narodzenia              |        ✓       |                      |             |
 | Brunei                         |        ✓       |         ✓            |             |
 | Kambodża                       |        ✓       |                      |             |
 | Fidżi                           |        ✓       |                      |             |
@@ -139,7 +139,7 @@ Poniższa tabela zawiera informacje o zasięgu dla routingu usługi Azure Maps.
 | Indie                          |        ✓       |         ✓            |             |
 | Indonezja                      |        ✓       |         ✓            |             |
 | Kazachstan                |        ✓       |                     |             |
-| Korea                          |        Ø       |                      |             |
+| Korea                          |        O       |                      |             |
 | Laos                           |        ✓       |                      |             |
 | SRA Makau                      |        ✓       |         ✓            |             |
 | Malezja                       |        ✓       |         ✓            |             |
@@ -154,7 +154,7 @@ Poniższa tabela zawiera informacje o zasięgu dla routingu usługi Azure Maps.
 
 ## <a name="europe"></a>Europa
 
-| Kraj/region                 | Routing         | Routing z ruchem | Wyznaczanie tras dla ciężarówek |
+| Kraj/region                 | Routing         | Routing z ruchem | Routing ciężarówki |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Albania                        |        ✓       |                      |             |
 | Andora                        |        ✓       |         ✓            |             |
@@ -168,15 +168,15 @@ Poniższa tabela zawiera informacje o zasięgu dla routingu usługi Azure Maps.
 | Cypr                         |        ✓       |                      |             |
 | Czechy                 |        ✓       |         ✓            |     ✓      |
 | Dania                        |        ✓       |         ✓            |     ✓      |
-| +Wyspy Owcze                 |        ✓       |                      |             |
+| + Wyspy Owcze                 |        ✓       |                      |             |
 | Estonia                        |        ✓       |         ✓            |     ✓      |
 | Finlandia                        |        ✓       |         ✓            |     ✓      |
 | Francja                         |        ✓       |         ✓            |     ✓      | 
-| +Gwadelupa                    |        ✓       |                      |             |
-| +Martynika                    |        ✓       |                      |             |
-| +St. Barthélemy                |        ✓       |                      |             |
-| +Św.                    |        ✓       |                      |             |
-| +Św Pierre & Miquelon         |        ✓       |                      |             |
+| + Gwadelupa                    |        ✓       |                      |             |
+| + Martynika                    |        ✓       |                      |             |
+| + St. Barthélemy                |        ✓       |                      |             |
+| + St. Martin                    |        ✓       |                      |             |
+| + St. Pierre & Miquelon         |        ✓       |                      |             |
 | Gruzja                        |        ✓       |                      |             |
 | Niemcy                        |        ✓       |         ✓            |     ✓      | 
 | Grecja                         |        ✓       |         ✓            |     ✓      |  
@@ -196,10 +196,10 @@ Poniższa tabela zawiera informacje o zasięgu dla routingu usługi Azure Maps.
 | Monako                         |        ✓       |         ✓            |             |
 | Czarnogóra                     |        ✓       |                      |     ✓      | 
 | Holandia                    |        ✓       |         ✓            |     ✓      | 
-| +Aruba                         |        ✓       |                      |             | 
-| +Karaiby Holandia         |        ✓       |                      |             |
-| +Curaçao                       |        ✓       |                      |             |
-| +Sint Maarten                  |        ✓       |                      |             |
+| + Aruba                         |        ✓       |                      |             | 
+| + Karaiby Holandia         |        ✓       |                      |             |
+| + Curaçao                       |        ✓       |                      |             |
+| + Sint Maarten                  |        ✓       |                      |             |
 | Norwegia                         |        ✓       |         ✓            |     ✓      | 
 | Polska                         |        ✓       |         ✓            |     ✓      | 
 | Portugalia                       |        ✓       |         ✓            |     ✓      |  
@@ -215,20 +215,20 @@ Poniższa tabela zawiera informacje o zasięgu dla routingu usługi Azure Maps.
 | Turcja                         |        ✓       |         ✓            |     ✓      | 
 | Ukraina                        |        ✓       |         ✓            |             | 
 | Wielka Brytania                 |        ✓       |         ✓            |     ✓      | 
-| +Anguilla                      |        ✓       |                      |             |
-| +Bermudy                       |        ✓       |                      |             |
-| +Brytyjskie Wyspy Dziewicze        |        ✓       |                      |             |
-| +Kajmany                |        ✓       |                      |             |
-| +Gibraltar                     |        ✓       |         ✓            |             | 
-| +Montserrat                    |        ✓       |                      |             |
-| +Turks i Caicos      |        ✓       |                      |             |
+| + Anguilla                      |        ✓       |                      |             |
+| + Bermudy                       |        ✓       |                      |             |
+| + Brytyjskie Wyspy Dziewicze        |        ✓       |                      |             |
+| + Kajmany                |        ✓       |                      |             |
+| + Gibraltar                     |        ✓       |         ✓            |             | 
+| + Montserrat                    |        ✓       |                      |             |
+| + Wyspy Turks i Caicos      |        ✓       |                      |             |
 | Watykan                   |        ✓       |         ✓            |             |
 | Wyspa Man                    |        ✓       |                      |             |
 
 
 ## <a name="middle-east"></a>Bliski Wschód
 
-| Kraj/region                 | Routing         | Routing z ruchem | Wyznaczanie tras dla ciężarówek |
+| Kraj/region                 | Routing         | Routing z ruchem | Routing ciężarówki |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Bahrajn                        |        ✓       |         ✓            |             |
 | Irak                           |        ✓       |                      |             |
@@ -245,4 +245,4 @@ Poniższa tabela zawiera informacje o zasięgu dla routingu usługi Azure Maps.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat routingu usługi Azure Maps, zobacz strony odwołania [do routingu.](https://docs.microsoft.com/rest/api/maps/route)
+Aby uzyskać więcej informacji na temat routingu Azure Maps, zobacz strony referencyjne [routingu](https://docs.microsoft.com/rest/api/maps/route) .

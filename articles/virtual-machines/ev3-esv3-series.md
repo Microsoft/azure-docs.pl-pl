@@ -1,6 +1,6 @@
 ---
-title: Seria Ev3 i seria Esv3 — maszyny wirtualne platformy Azure
-description: Specyfikacje maszyn wirtualnych serii Ev3 i Esv3.
+title: Seria EV3 i Esv3 — Virtual Machines platformy Azure
+description: Specyfikacje dotyczące maszyn wirtualnych z serii EV3 i Esv3.
 services: virtual-machines
 author: joelpelley
 ms.service: virtual-machines
@@ -8,33 +8,33 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: aad4610a44c59ed95cf1ad9777329097886c5bed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78164376"
 ---
 # <a name="ev3-and-esv3-series"></a>Serie Ev3 i Esv3
 
-Seria Ev3 i Esv3 jest wyposażona w procesor Intel® Xeon® 8171M 2.1 GHz (Skylake) lub Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) w konfiguracji hiperwątkowej, zapewniając lepszą ofertę wartości dla najbardziej ogólnych obciążeń i przynosząc Ev33 GHz (Broadwell) w konfiguracji hiperwątkowo-gwintowej, zapewniając lepszą ofertę wartości dla najbardziej ogólnych obciążeń i przynosząc Ev33 do dostosowania do maszyn wirtualnych ogólnego przeznaczenia większości innych chmur.  Pamięć została rozszerzona (z 7 GiB/vCPU do 8 GiB/vCPU), podczas gdy limity dysków i sieci zostały dostosowane na podstawie rdzenia, aby wyrównać z przejściem do hiperwątkowości. Ev3 jest kontynuacją wysokiej pamięci rozmiarów maszyn wirtualnych z rodzin D/Dv2.
+EV3 i Esv3 — funkcja serii Intel® Xeon® 8171M 2,1 GHz (Skylake) lub Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) w konfiguracji wielowątkowej, zapewniając lepszą wartość dla większości obciążeń ogólnego przeznaczenia, a także dostosowanie EV3 do wyrównania z maszynami wirtualnymi ogólnego przeznaczenia dla większości innych chmur.  Pamięć została rozszerzona (od 7 GiB/vCPU do 8 GiB/vCPU), podczas gdy limity dysku i sieci zostały skorygowane dla poszczególnych rdzeni, aby dostosować je do przenoszenia do wielowątkowości. EV3 to kolejne rozmiary maszyn wirtualnych o dużej ilości pamięci w rodzinach D/Dv2.
 
 ## <a name="ev3-series"></a>Seria Ev3
 
-Wystąpienia serii Ev3 są oparte na funkcji procesora Intel® Xeon® 8171M 2.1 GHz (Skylake) lub Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) i Intel Turbo Boost Technology 2.0. Wystąpienia serii Ev3 są idealne dla aplikacji korporacyjnych intensywnie korzystających z pamięci.
+Wystąpienia serii EV3 są oparte na funkcjach Intel® Xeon® 8171M 2,1 GHz (Skylake) lub procesora Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) i technologii Intel Turbo do zwiększania wydajności 2,0. Wystąpienia serii Ev3 są idealne dla aplikacji korporacyjnych intensywnie korzystających z pamięci.
 
 Opłaty za magazyn dysków danych są naliczane oddzielnie od opłat za maszyny wirtualne. Aby korzystać z dysków magazynu Premium Storage, użyj rozmiarów ESv3. Liczniki cen i rozliczeń dla rozmiarów ESv3 są takie same jak dla serii Ev3.
 
-Funkcja maszyn wirtualnych z serii Ev3 Intel® technologia Hyper-Threading.
+Funkcja Hyper-Threading maszyny wirtualnej z serii EV3 firmy Intel®.
 
 ACU: 160–190
 
-Pamięć masowa w wersji Premium: nie jest obsługiwana
+Premium Storage: nieobsługiwane
 
-Buforowanie magazynu w wersji Premium: nie jest obsługiwane
+Buforowanie Premium Storage: nieobsługiwane
 
 Migracja na żywo: obsługiwane
 
-Aktualizacje zachowywania pamięci: Obsługiwane
+Aktualizacje z zachowaniem pamięci: obsługiwane
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu tymczasowego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba kart sieciowych / przepustowość sieci |
 |---|---|---|---|---|---|---|
@@ -46,29 +46,29 @@ Aktualizacje zachowywania pamięci: Obsługiwane
 | Standardowa_E32_v3 | 32 | 256 | 800  | 32 | 48000/750/375  | 8/16000 |
 | Standard_E48_v3 | 48 | 384 | 1200 | 32 | 96000/1000/500 | 8/24000 |
 | Standardowa_E64_v3 | 64 | 432 | 1600 | 32 | 96000/1000/500 | 8/30000 |
-| Standard_E64i_v3 <sup>1,2</sup> | 64 | 432 | 1600 | 32 | 96000/1000/500 | 8/30000 |
+| Standard_E64i_v3 <sup>1, 2</sup> | 64 | 432 | 1600 | 32 | 96000/1000/500 | 8/30000 |
 
-<sup>1</sup> Dostępne ograniczone rozmiary rdzeni.
+dostępne są <sup>1</sup> ograniczone rozmiary rdzeni.
 
-<sup>2</sup> Wystąpienie jest izolowane do sprzętu dedykowanego jednemu klientowi.
+<sup>2</sup> wystąpienie jest izolowane do sprzętu dedykowanego pojedynczemu klientowi.
 
 ## <a name="esv3-series"></a>Seria Esv3
 
-Wystąpienia serii Esv3 są oparte na funkcji procesora Intel® Xeon® 8171M 2.1 GHz (Skylake) lub Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), Intel Turbo Boost Technology 2.0 i korzystać z pamięci masowej premium. Wystąpienia serii Esv3 są idealne dla aplikacji korporacyjnych intensywnie korzystających z pamięci.
+Wystąpienia serii Esv3 są oparte na funkcjach technologii Intel® Xeon® 8171M 2,1 GHz (Skylake) lub procesora Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell), 2,0 technologii Intel Turbo do zwiększania jakości i korzystania z magazynu Premium Storage. Wystąpienia serii Esv3 są idealne dla aplikacji korporacyjnych intensywnie korzystających z pamięci.
 
-Funkcja maszyn wirtualnych z serii Esv3 intel® technologia Hyper-Threading.
+Funkcja Hyper-Threading maszyny wirtualnej z serii Esv3 firmy Intel®.
 
 ACU: 160–190
 
-Pamięć masowa w wersji premium: obsługiwane
+Premium Storage: obsługiwane
 
-Buforowanie magazynu w wersji Premium: obsługiwane
+Buforowanie Premium Storage: obsługiwane
 
 Migracja na żywo: obsługiwane
 
-Aktualizacje zachowywania pamięci: Obsługiwane
+Aktualizacje z zachowaniem pamięci: obsługiwane
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność pamięci podręcznej i magazynu tymczasowego: IOPS/MBPS (rozmiar pamięci podręcznej w GiB) | Maksymalna przepustowość dysku bez buforów: IOPS/MB/s | Maksymalna przepustowość sieci ową/oczekiwana przepustowość sieci (Mb/s) |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i temp: IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|
 | Standardowa_E2s_v3 | 2 | 16 | 32 | 4 | 4000/32 (50) | 3200/48 | 2/1000 |
 | Standard_E4s_v3 <sup>1</sup>  | 4  | 32  | 64  | 8  | 8000/64 (100)   | 6400/96   | 2/2000 |
@@ -80,9 +80,9 @@ Aktualizacje zachowywania pamięci: Obsługiwane
 | Standard_E64s_v3 <sup>1</sup>  | 64 | 432 | 864 | 32 | 128000/1024 (1600) | 80000/1200 | 8/30000 |
 | Standard_E64is_v3 <sup>2</sup> | 64 | 432 | 864 | 32 | 128000/1024 (1600) | 80000/1200 | 8/30000 |
 
-<sup>1</sup> Dostępne ograniczone rozmiary rdzeni.
+dostępne są <sup>1</sup> ograniczone rozmiary rdzeni.
 
-<sup>2</sup> Wystąpienie jest izolowane do sprzętu dedykowanego jednemu klientowi.
+<sup>2</sup> wystąpienie jest izolowane do sprzętu dedykowanego pojedynczemu klientowi.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -97,4 +97,4 @@ Aktualizacje zachowywania pamięci: Obsługiwane
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tym, jak [jednostki obliczeniowe platformy Azure (ACU)](acu.md) mogą pomóc w porównywaniu wydajności obliczeniowej w jednostkach SKU platformy Azure.
+Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.

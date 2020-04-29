@@ -1,6 +1,6 @@
 ---
-title: Zatrzymywać się przy użyciu rozszerzenia maszyny Wirtualnej tożsamości zarządzanej — usługa Azure AD
-description: Instrukcje krok po kroku, aby zatrzymać przy użyciu rozszerzenia maszyny Wirtualnej i rozpocząć korzystanie z usługi metadanych wystąpienia platformy Azure (IMDS) do uwierzytelniania.
+title: Zaprzestanie korzystania z rozszerzenia maszyny wirtualnej do zarządzania tożsamościami — Azure AD
+description: Instrukcje krok po kroku, aby zatrzymać korzystanie z rozszerzenia maszyny wirtualnej i zacząć korzystać z usługi Azure Instance Metadata Service (IMDS) do uwierzytelniania.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,34 +15,34 @@ ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
 ms.openlocfilehash: 01b8e1dbc290bed86ccfc3c7016e8bd9168e427a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80049063"
 ---
-# <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Jak przestać używać rozszerzenia tożsamości zarządzanych na maszynie wirtualnej i rozpocząć korzystanie z usługi metadanych wystąpienia platformy Azure
+# <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Jak zatrzymać korzystanie z rozszerzenia tożsamości zarządzanej maszyny wirtualnej i zacząć korzystać z usługi Azure Instance Metadata Service
 
 ## <a name="virtual-machine-extension-for-managed-identities"></a>Rozszerzenie maszyny wirtualnej dla tożsamości zarządzanych
 
-Rozszerzenie maszyny wirtualnej dla tożsamości zarządzanych jest używane do żądania tokenów dla tożsamości zarządzanej w maszynie wirtualnej. Przepływ pracy składa się z następujących kroków:
+Rozszerzenie maszyny wirtualnej dla tożsamości zarządzanych służy do żądania tokenów dla tożsamości zarządzanej w ramach maszyny wirtualnej. Przepływ pracy składa się z następujących kroków:
 
-1. Najpierw obciążenie w zasobie wywołuje lokalnego punktu końcowego, `http://localhost/oauth2/token` aby zażądać tokenu dostępu.
-2. Rozszerzenie maszyny wirtualnej następnie używa poświadczeń dla tożsamości zarządzanej, aby zażądać tokenu dostępu z usługi Azure AD.. 
-3. Token dostępu jest zwracany do obiektu wywołującego i może służyć do uwierzytelniania do usług obsługujących uwierzytelnianie usługi Azure AD, takich jak Usługa Azure Key Vault lub Azure Storage.
+1. Najpierw obciążenie w ramach zasobu wywołuje lokalny punkt końcowy `http://localhost/oauth2/token` , aby zażądać tokenu dostępu.
+2. Rozszerzenie maszyny wirtualnej używa poświadczeń dla tożsamości zarządzanej, aby zażądać tokenu dostępu z usługi Azure AD. 
+3. Token dostępu jest zwracany do obiektu wywołującego i może służyć do uwierzytelniania w usługach, które obsługują uwierzytelnianie usługi Azure AD, takie jak Azure Key Vault lub Azure Storage.
 
-Ze względu na kilka ograniczeń opisanych w następnej sekcji rozszerzenie maszyny Wirtualnej tożsamości zarządzanej zostało przestarzałe na rzecz korzystania z równoważnego punktu końcowego w usłudze metadanych wystąpienia platformy Azure (IMDS)
+Ze względu na kilka ograniczeń przedstawionych w następnej sekcji rozszerzenie maszyny wirtualnej do zarządzania tożsamościami zostało zaniechane na korzyść używania równoważnego punktu końcowego w usłudze Azure Instance Metadata Service (IMDS)
 
-### <a name="provision-the-extension"></a>Rozszerzeń 
+### <a name="provision-the-extension"></a>Inicjowanie obsługi rozszerzenia 
 
-Podczas konfigurowania maszyny wirtualnej lub maszyny wirtualnej skalowania zestaw mieć tożsamość zarządzaną, można opcjonalnie wybrać `-Type` do aprowizowania tożsamości zarządzanych dla rozszerzenia maszyny wirtualnej zasobów platformy Azure przy użyciu parametru na polecenie cmdlet [Set-AzVMExtension.](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) Można przekazać albo `ManagedIdentityExtensionForWindows` `ManagedIdentityExtensionForLinux`lub , w zależności od typu maszyny `-Name` wirtualnej i nazwać go za pomocą parametru. Parametr `-Settings` określa port używany przez punkt końcowy tokenu OAuth do pozyskiwania tokenów:
+Podczas konfigurowania maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych w celu posiadania tożsamości zarządzanej można opcjonalnie zainicjować obsługę administracyjną tożsamości dla rozszerzenia maszyny wirtualnej zasobów platformy Azure za pomocą `-Type` parametru polecenia cmdlet [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) . Można przekazać albo `ManagedIdentityExtensionForWindows` `ManagedIdentityExtensionForLinux`, w zależności od typu maszyny wirtualnej, i nazwać ją przy użyciu `-Name` parametru. `-Settings` Parametr określa port używany przez punkt końcowy tokenu OAuth do pozyskiwania tokenu:
 
 ```powershell
    $settings = @{ "port" = 50342 }
    Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
 ```
 
-Można również użyć szablonu wdrażania usługi Azure Resource Manager do aprowizowania rozszerzenia maszyny Wirtualnej, dodając następujący JSON do `resources` sekcji do szablonu (użyj `ManagedIdentityExtensionForLinux` dla elementów nazwy i typu dla wersji systemu Linux).
+Można również użyć szablonu wdrażania Azure Resource Manager, aby zainicjować rozszerzenie maszyny wirtualnej, dodając następujący kod JSON do `resources` sekcji szablonu (Użyj `ManagedIdentityExtensionForLinux` dla elementów nazwa i typ dla wersji systemu Linux).
 
     ```json
     {
@@ -66,14 +66,14 @@ Można również użyć szablonu wdrażania usługi Azure Resource Manager do ap
     ```
     
     
-Jeśli pracujesz z zestawami skalowania maszyny wirtualnej, można również aprowizować tożsamości zarządzane dla zasobów platformy Azure rozszerzenie zestawu skalowania maszyny wirtualnej przy użyciu polecenia cmdlet [Add-AzVmssExtension.](/powershell/module/az.compute/add-azvmssextension) Można przekazać albo `ManagedIdentityExtensionForWindows` `ManagedIdentityExtensionForLinux`lub , w zależności od typu zestawu skalowania `-Name` maszyny wirtualnej i nazwać go za pomocą parametru. Parametr `-Settings` określa port używany przez punkt końcowy tokenu OAuth do pozyskiwania tokenów:
+Jeśli pracujesz z zestawami skalowania maszyn wirtualnych, możesz również udostępnić zarządzane tożsamości dla rozszerzenia zestawu skalowania maszyn wirtualnych zasobów platformy Azure za pomocą polecenia cmdlet [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) . Można przekazać albo `ManagedIdentityExtensionForWindows` `ManagedIdentityExtensionForLinux`, w zależności od typu zestawu skalowania maszyn wirtualnych, i nazwać go przy użyciu `-Name` parametru. `-Settings` Parametr określa port używany przez punkt końcowy tokenu OAuth do pozyskiwania tokenu:
 
    ```powershell
    $setting = @{ "port" = 50342 }
    $vmss = Get-AzVmss
    Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
-Aby aprowizować rozszerzenie zestawu skalowania maszyny wirtualnej za pomocą `extensionpProfile` szablonu wdrażania usługi `ManagedIdentityExtensionForLinux` Azure Resource Manager, dodaj następujący JSON do sekcji do szablonu (użyj elementów nazwy i typu dla wersji systemu Linux).
+Aby zainicjować obsługę rozszerzenia zestawu skalowania maszyn wirtualnych przy użyciu szablonu wdrażania Azure Resource Manager, Dodaj następujący kod JSON do `extensionpProfile` sekcji szablonu (Użyj `ManagedIdentityExtensionForLinux` dla elementów nazwa i typ dla wersji systemu Linux).
 
     ```json
     "extensionProfile": {
@@ -93,10 +93,10 @@ Aby aprowizować rozszerzenie zestawu skalowania maszyny wirtualnej za pomocą `
             }
     ```
 
-Inicjowanie obsługi administracyjnej rozszerzenia maszyny wirtualnej może zakończyć się niepowodzeniem z powodu błędów wyszukiwania DNS. W takim przypadku uruchom ponownie maszynę wirtualną i spróbuj ponownie. 
+Inicjowanie obsługi rozszerzenia maszyny wirtualnej może zakończyć się niepowodzeniem z powodu błędów wyszukiwania DNS. Jeśli tak się stanie, uruchom ponownie maszynę wirtualną, a następnie spróbuj ponownie. 
 
 ### <a name="remove-the-extension"></a>Usuwanie rozszerzenia 
-Aby usunąć rozszerzenie, `-n ManagedIdentityExtensionForWindows` `-n ManagedIdentityExtensionForLinux` użyj lub przełącz (w zależności od typu maszyny wirtualnej) z [usunięciem rozszerzenia az vm](https://docs.microsoft.com/cli/azure/vm/)lub `Remove-AzVMExtension` [usunięciem rozszerzenia AZ VMSs](https://docs.microsoft.com/cli/azure/vmss) dla zestawów skalowania maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure lub programu Powershell:
+Aby usunąć rozszerzenie, użyj polecenia `-n ManagedIdentityExtensionForWindows` lub `-n ManagedIdentityExtensionForLinux` przełączaj (w zależności od typu maszyny wirtualnej) za pomocą polecenia [AZ VM Extension Delete](https://docs.microsoft.com/cli/azure/vm/)lub [AZ VMSS Extension Delete](https://docs.microsoft.com/cli/azure/vmss) dla zestawów skalowania maszyn wirtualnych przy użyciu platformy `Remove-AzVMExtension` Azure lub dla programu PowerShell:
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -110,9 +110,9 @@ az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGrou
 Remove-AzVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
 ```
 
-### <a name="acquire-a-token-using-the-virtual-machine-extension"></a>Uzyskiwanie tokenu przy użyciu rozszerzenia maszyny wirtualnej
+### <a name="acquire-a-token-using-the-virtual-machine-extension"></a>Pozyskiwanie tokenu przy użyciu rozszerzenia maszyny wirtualnej
 
-Poniżej przedstawiono przykładowe żądanie przy użyciu tożsamości zarządzanych dla zasobów platformy Azure Punkt końcowy rozszerzenia maszyny Wirtualnej:
+Poniżej przedstawiono przykładowe żądanie przy użyciu tożsamości zarządzanych dla punktu końcowego rozszerzenia maszyny wirtualnej dla zasobów platformy Azure:
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -121,12 +121,12 @@ Metadata: true
 
 | Element | Opis |
 | ------- | ----------- |
-| `GET` | Zlecenie HTTP, wskazując, że chcesz pobrać dane z punktu końcowego. W takim przypadku token dostępu OAuth. | 
-| `http://localhost:50342/oauth2/token` | Tożsamości zarządzane dla punktu końcowego zasobów platformy Azure, gdzie 50342 jest portem domyślnym i jest konfigurowalny. |
-| `resource` | Parametr ciągu kwerendy wskazujący identyfikator URI identyfikatora aplikacji zasobu docelowego. Pojawia się również `aud` w (odbiorcy) roszczenia wydanego tokenu. W tym przykładzie żąda tokenu dostępu do usługi Azure `https://management.azure.com/`Resource Manager, który ma identyfikator URI identyfikatora aplikacji . |
-| `Metadata` | Pole nagłówka żądania HTTP, wymagane przez tożsamości zarządzane dla zasobów platformy Azure jako ograniczenie ataków fałszerstwa żądań po stronie serwera (SSRF). Ta wartość musi być ustawiona na "true", we wszystkich przypadkach.|
-| `object_id` | (Opcjonalnie) Parametr ciągu kwerendy, wskazujący object_id tożsamości zarządzanej, dla której chcesz token. Wymagane, jeśli maszyna wirtualna ma wiele tożsamości zarządzanych przypisanych przez użytkownika.|
-| `client_id` | (Opcjonalnie) Parametr ciągu kwerendy, wskazujący client_id tożsamości zarządzanej, dla której chcesz token. Wymagane, jeśli maszyna wirtualna ma wiele tożsamości zarządzanych przypisanych przez użytkownika.|
+| `GET` | Czasownik HTTP wskazujący, że chcesz pobrać dane z punktu końcowego. W tym przypadku token dostępu OAuth. | 
+| `http://localhost:50342/oauth2/token` | Zarządzane tożsamości dla punktu końcowego zasobów platformy Azure, gdzie 50342 jest portem domyślnym i można skonfigurować. |
+| `resource` | Parametr ciągu zapytania, wskazujący identyfikator URI aplikacji dla zasobu docelowego. Pojawia się również w porozumieniu `aud` (odbiorcy) wystawionego tokenu. Ten przykład żąda tokenu w celu uzyskania dostępu do Azure Resource Manager, który ma identyfikator URI aplikacji `https://management.azure.com/`. |
+| `Metadata` | Pole nagłówka żądania HTTP wymagane przez zarządzane tożsamości dla zasobów platformy Azure jako środki zaradcze związane z atakiem z fałszerstwem żądania po stronie serwera (SSRF). Ta wartość musi być ustawiona na wartość "true" w przypadku małych liter.|
+| `object_id` | Obowiązkowe Parametr ciągu zapytania, wskazujący object_id tożsamości zarządzanej, dla której ma być token. Wymagane, jeśli maszyna wirtualna ma wiele zarządzanych tożsamości przypisanych przez użytkownika.|
+| `client_id` | Obowiązkowe Parametr ciągu zapytania, wskazujący client_id tożsamości zarządzanej, dla której ma być token. Wymagane, jeśli maszyna wirtualna ma wiele zarządzanych tożsamości przypisanych przez użytkownika.|
 
 
 Przykładowa odpowiedź:
@@ -147,20 +147,20 @@ Content-Type: application/json
 
 | Element | Opis |
 | ------- | ----------- |
-| `access_token` | Żądany token dostępu. Podczas wywoływania zabezpieczonego interfejsu API REST `Authorization` token jest osadzony w polu nagłówka żądania jako token "nośnik", umożliwiając interfejsowi API uwierzytelnienie wywołującego. | 
-| `refresh_token` | Nie używane przez tożsamości zarządzane dla zasobów platformy Azure. |
-| `expires_in` | Liczba sekund token dostępu nadal jest prawidłowa, przed wygaśnięciem, od czasu wystawienia. Czas wystawienia można znaleźć w żądaniu `iat` tokenu. |
-| `expires_on` | Czas po wygaśnięciu tokenu dostępu. Data jest reprezentowana jako liczba sekund od "1970-01-01T0:0:0Z UTC" (odpowiada `exp` żądaniu tokenu). |
-| `not_before` | Czas, gdy token dostępu staje się skuteczne i mogą być akceptowane. Data jest reprezentowana jako liczba sekund od "1970-01-01T0:0:0Z UTC" (odpowiada `nbf` żądaniu tokenu). |
-| `resource` | Zasób, dla którego zażądano tokenu dostępu, który odpowiada parametrowi `resource` ciągu zapytania żądania. |
-| `token_type` | Typ tokenu, który jest token dostępu "Bearer", co oznacza, że zasób może dać dostęp do nośnika tego tokenu. |
+| `access_token` | Żądany token dostępu. Podczas wywoływania bezpiecznego interfejsu API REST token jest osadzony w polu nagłówka `Authorization` żądania jako token "Bearer", dzięki czemu interfejs API może uwierzytelniać obiekt wywołujący. | 
+| `refresh_token` | Nieużywane przez zarządzane tożsamości dla zasobów platformy Azure. |
+| `expires_in` | Liczba sekund, przez jaką token dostępu pozostaje prawidłowy, przed wygaśnięciem, od momentu wystawienia. Czas wystawienia można znaleźć w ramach `iat` żądania tokenu. |
+| `expires_on` | Wartość TimeSpan w przypadku wygaśnięcia tokenu dostępu. Data jest reprezentowana jako liczba sekund od "1970-01-01T0:0: 0Z UTC" (odpowiada na `exp` żądania tokenu). |
+| `not_before` | Przedział czasu, gdy token dostępu zaczyna obowiązywać i można go zaakceptować. Data jest reprezentowana jako liczba sekund od "1970-01-01T0:0: 0Z UTC" (odpowiada na `nbf` żądania tokenu). |
+| `resource` | Zasób, dla którego zażądano tokenu dostępu, który jest `resource` zgodny z parametrem ciągu zapytania żądania. |
+| `token_type` | Typ tokenu, który jest tokenem dostępu "Bearer", co oznacza, że zasób może zapewnić dostęp do okaziciela tego tokenu. |
 
 
 ### <a name="troubleshoot-the-virtual-machine-extension"></a>Rozwiązywanie problemów z rozszerzeniem maszyny wirtualnej 
 
 #### <a name="restart-the-virtual-machine-extension-after-a-failure"></a>Uruchom ponownie rozszerzenie maszyny wirtualnej po awarii
 
-W systemie Windows i niektórych wersjach systemu Linux, jeśli rozszerzenie zostanie zatrzymane, do ręcznego ponownego uruchomienia może być użyte następujące polecenie cmdlet:
+W systemie Windows i niektórych wersjach systemu Linux, jeśli rozszerzenie zostanie zatrzymane, można użyć następującego polecenia cmdlet, aby ręcznie uruchomić ponownie:
 
 ```powershell
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
@@ -168,48 +168,48 @@ Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <loc
 
 Gdzie: 
 - Nazwa rozszerzenia i typ dla systemu Windows to:`ManagedIdentityExtensionForWindows`
-- Nazwa rozszerzenia i typ dla Linuksa to:`ManagedIdentityExtensionForLinux`
+- Nazwa rozszerzenia i typ dla systemu Linux to:`ManagedIdentityExtensionForLinux`
 
-#### <a name="automation-script-fails-when-attempting-schema-export-for-managed-identities-for-azure-resources-extension"></a>"Skrypt automatyzacji" kończy się niepowodzeniem podczas próby wyeksportowania schematu dla tożsamości zarządzanych dla rozszerzenia zasobów platformy Azure
+#### <a name="automation-script-fails-when-attempting-schema-export-for-managed-identities-for-azure-resources-extension"></a>"Skrypt automatyzacji" kończy się niepowodzeniem podczas próby eksportowania schematu dla tożsamości zarządzanych dla rozszerzenia zasobów platformy Azure
 
-Gdy zarządzane tożsamości zasobów platformy Azure jest włączona na maszynie wirtualnej, następujący błąd jest wyświetlany podczas próby użycia funkcji "Skrypt automatyzacji" dla maszyny wirtualnej lub jej grupy zasobów:
+Gdy zarządzane tożsamości dla zasobów platformy Azure są włączone na maszynie wirtualnej, podczas próby użycia funkcji "skrypt automatyzacji" dla maszyny wirtualnej lub jej grupy zasobów jest wyświetlany następujący błąd:
 
-![Identyfikatory zarządzane dla błędu eksportu skryptu automatyzacji zasobów platformy Azure](./media/howto-migrate-vm-extension/automation-script-export-error.png)
+![Tożsamość zarządzana dla błędu eksportowania skryptu automatyzacji zasobów platformy Azure](./media/howto-migrate-vm-extension/automation-script-export-error.png)
 
-Tożsamości zarządzane dla zasobów platformy Azure rozszerzenie maszyny wirtualnej nie obsługuje obecnie możliwość eksportowania jego schematu do szablonu grupy zasobów. W rezultacie wygenerowany szablon nie pokazuje parametrów konfiguracji, aby włączyć zarządzane tożsamości zasobów platformy Azure w zasobie. Te sekcje można dodać ręcznie, postępując zgodnie z przykładami w [Konfigurowanie tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu szablonów.](qs-configure-template-windows-vm.md)
+Zarządzane tożsamości dla rozszerzenia maszyny wirtualnej zasobów platformy Azure nie obsługują obecnie możliwości eksportowania jego schematu do szablonu grupy zasobów. W związku z tym wygenerowany szablon nie pokazuje parametrów konfiguracji, aby umożliwić zarządzanie tożsamościami dla zasobów platformy Azure w ramach zasobu. Te sekcje można dodać ręcznie, postępując zgodnie z przykładami w temacie [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu szablonów](qs-configure-template-windows-vm.md).
 
-Gdy funkcja eksportu schematu stanie się dostępna dla tożsamości zarządzanych dla rozszerzenia maszyny wirtualnej zasobów platformy Azure (planowana do wycofania w styczniu 2019 r.), zostanie ona wyświetlona w [obszarze Eksportowanie grup zasobów zawierających rozszerzenia maszyn wirtualnych.](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions)
+Po udostępnieniu funkcji eksportu schematu dla tożsamości zarządzanych dla rozszerzenia maszyny wirtualnej Azure Resources (planowanego do wycofania w styczniu 2019) zostanie ono wyświetlone w obszarze [Eksportowanie grup zasobów zawierających rozszerzenia maszyn wirtualnych](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ## <a name="limitations-of-the-virtual-machine-extension"></a>Ograniczenia rozszerzenia maszyny wirtualnej 
 
-Istnieje kilka głównych ograniczeń przy użyciu rozszerzenia maszyny wirtualnej. 
+Istnieje kilka istotnych ograniczeń dotyczących używania rozszerzenia maszyny wirtualnej. 
 
- * Najpoważniejszym ograniczeniem jest fakt, że poświadczenia używane do żądania tokenów są przechowywane na maszynie wirtualnej. Osoba atakująca, która pomyślnie narusza maszynę wirtualną, może eksfiltrować poświadczenia. 
- * Ponadto rozszerzenie maszyny wirtualnej jest nadal nieobsługiwał przez kilka dystrybucji Linuksa, z ogromnym kosztem rozwoju, aby zmodyfikować, zbudować i przetestować rozszerzenie na każdej z tych dystrybucji. Obecnie obsługiwane są tylko następujące dystrybucje Linuksa: 
-    * CoreOS Stabilny
+ * Najważniejszym ograniczeniem jest fakt, że poświadczenia używane do żądania tokenów są przechowywane na maszynie wirtualnej. Osoba atakująca, która pomyślnie naruszyła maszynę wirtualną, może wyprowadzać poświadczenia. 
+ * Ponadto rozszerzenie maszyny wirtualnej nadal jest nieobsługiwane przez kilka dystrybucji systemu Linux, dzięki czemu można modyfikować, kompilować i testować rozszerzenie dla każdej z tych dystrybucji. Obecnie obsługiwane są tylko następujące dystrybucje systemu Linux: 
+    * CoreOS stabilne
     * CentOS 7,1 
-    * Czerwony Kapelusz 7.2 
-    * Ubuntu 15.04 
+    * Red Hat 7,2 
+    * Ubuntu 15,04 
     * Ubuntu 16.04
- * Ma wpływ na wydajność wdrażania maszyn wirtualnych z tożsamościami zarządzanymi, ponieważ rozszerzenie maszyny wirtualnej również musi zostać zainicjowane. 
+ * Istnieje wpływ na wydajność wdrażania maszyn wirtualnych z tożsamościami zarządzanymi, ponieważ także należy zastanowić się nad rozszerzeniem maszyny wirtualnej. 
  * Na koniec rozszerzenie maszyny wirtualnej może obsługiwać tylko 32 tożsamości zarządzane przypisane przez użytkownika na maszynę wirtualną. 
 
-## <a name="azure-instance-metadata-service"></a>Usługa metadanych wystąpienia platformy Azure
+## <a name="azure-instance-metadata-service"></a>Instance Metadata Service platformy Azure
 
-[Usługa metadanych wystąpienia platformy Azure (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) jest punktem końcowym REST, który zawiera informacje o uruchamianiu wystąpień maszyny wirtualnej, które mogą służyć do zarządzania i konfigurowania maszyn wirtualnych. Punkt końcowy jest dostępny pod dobrze znanym nie rutowalnym adresem IP (`169.254.169.254`), do który można uzyskać dostęp tylko z poziomu maszyny wirtualnej.
+[Azure instance Metadata Service (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) to punkt końcowy REST, który zawiera informacje o uruchomionych wystąpieniach maszyn wirtualnych, które mogą służyć do zarządzania maszynami wirtualnymi i ich konfigurowania. Punkt końcowy jest dostępny w dobrze znanym adresie IP bez obsługi routingu (`169.254.169.254`), do którego można uzyskać dostęp tylko z poziomu maszyny wirtualnej.
 
-Istnieje kilka zalet przy użyciu usługi Azure IMDS do żądania tokenów. 
+Korzystanie z usługi Azure IMDS do żądania tokenów ma kilka zalet. 
 
-1. Usługa jest zewnętrzna do maszyny wirtualnej, w związku z tym poświadczenia używane przez tożsamości zarządzane nie są już obecne na maszynie wirtualnej. Zamiast tego są one hostowane i zabezpieczone na maszynie hosta maszyny wirtualnej platformy Azure.   
-2. Wszystkie systemy operacyjne Windows i Linux obsługiwane na platformie Azure IaaS mogą używać tożsamości zarządzanych.
-3. Wdrażanie jest szybsze i łatwiejsze, ponieważ rozszerzenie maszyny Wirtualnej nie musi być już aprowizowana.
-4. W punkcie końcowym IMDS do 1000 tożsamości zarządzanych przypisanych przez użytkownika można przypisać do jednej maszyny wirtualnej.
-5. Nie ma żadnych istotnych zmian w żądaniach przy użyciu imds w przeciwieństwie do tych, przy użyciu rozszerzenia maszyny wirtualnej, w związku z tym jest dość proste do portu w istniejących wdrożeń, które obecnie używają rozszerzenia maszyny wirtualnej.
+1. Usługa jest zewnętrzna dla maszyny wirtualnej, dlatego poświadczenia używane przez zarządzane tożsamości nie są już obecne na maszynie wirtualnej. Zamiast tego są one hostowane i zabezpieczone na komputerze hosta maszyny wirtualnej platformy Azure.   
+2. Wszystkie systemy operacyjne Windows i Linux obsługiwane przez usługę Azure IaaS mogą używać tożsamości zarządzanych.
+3. Wdrożenie jest szybsze i łatwiejsze, ponieważ rozszerzenie maszyny wirtualnej nie musi już być obsługiwane.
+4. Za pomocą punktu końcowego IMDS do jednej maszyny wirtualnej można przypisać do 1000 tożsamości zarządzane przypisane przez użytkownika.
+5. Nie ma żadnej znaczącej zmiany w żądaniach korzystających z IMDS, w przeciwieństwie do tych korzystających z rozszerzenia maszyny wirtualnej, dlatego jest stosunkowo proste dla portów istniejących wdrożeń, które aktualnie korzystają z rozszerzenia maszyny wirtualnej.
 
-Z tych powodów usługa Azure IMDS będzie de facto sposobem żądania tokenów, gdy rozszerzenie maszyny wirtualnej zostanie przestarzałe. 
+Z tego względu usługa Azure IMDS będzie niedrogim sposobem żądania tokenów, gdy rozszerzenie maszyny wirtualnej jest przestarzałe. 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Jak używać zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure w celu uzyskania tokenu dostępu](how-to-use-vm-token.md)
-* [Usługa metadanych wystąpienia platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+* [Jak używać tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej platformy Azure w celu uzyskania tokenu dostępu](how-to-use-vm-token.md)
+* [Instance Metadata Service platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)

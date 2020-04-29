@@ -1,6 +1,6 @@
 ---
-title: Grupy wyszukiwania i filtrowanie członków i właścicieli (wersja zapoznawcza) — usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: Wyszukiwanie i filtrowanie grup członków i właścicieli w witrynie Azure portal.
+title: Wyszukiwanie i filtrowanie członków i właścicieli grup (wersja zapoznawcza) — Azure Active Directory | Microsoft Docs
+description: Wyszukiwanie i filtrowanie grup członków i właścicieli w Azure Portal.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,68 +15,68 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a815446b79b3e5ec0a75e5d179953956643b16c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78206116"
 ---
-# <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Grupy wyszukiwania i członkowie (wersja zapoznawcza) w usłudze Azure Active Directory
+# <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Wyszukaj grupy i członków (wersja zapoznawcza) w Azure Active Directory
 
-W tym artykule opisano, jak wyszukiwać członków i właścicieli grupy oraz jak używać filtrów wyszukiwania w ramach podglądu ulepszeń grup w portalu Azure Active Directory (Azure AD). Istnieje wiele ulepszeń w środowiskach grup, które pomogą Ci szybko i łatwo zarządzać grupami, w tym członkami i właścicielami. Aby uzyskać więcej informacji na temat wersji zapoznawców, zobacz [Dodatkowe warunki użytkowania w wersji Zapoznawczej platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+W tym artykule opisano, jak wyszukiwać członków i właścicieli grupy oraz jak używać filtrów wyszukiwania w ramach wersji zapoznawczej ulepszeń grup w portalu Azure Active Directory (Azure AD). Istnieją wiele ulepszeń w zakresie grup, które ułatwiają zarządzanie grupami, w tym członków i właścicieli, szybko i łatwo. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 Zmiany w tej wersji zapoznawczej obejmują:
 
-- Nowe funkcje wyszukiwania grup, takie jak wyszukiwanie podciągów w nazwach grup
-- Nowe opcje filtrowania i sortowania na listach członków i właścicieli
-- Nowe możliwości wyszukiwania list członków i właścicieli
+- Nowe grupy możliwości wyszukiwania, takie jak wyszukiwanie podciągów w nazwach grup
+- Nowe opcje filtrowania i sortowania na listach elementów członkowskich i właścicieli
+- Nowe możliwości wyszukiwania dla list elementów członkowskich i właścicieli
 - Dokładniejsze liczby grup dla dużych grup
 
-## <a name="enabling-and-managing-the-preview"></a>Włączanie podglądu i zarządzanie nim
+## <a name="enabling-and-managing-the-preview"></a>Włączanie wersji zapoznawczej i zarządzanie nią
 
-Ułatwiliśmy dołączenie do wersji zapoznawczej:
+Dowiesz się, jak łatwo dołączyć do wersji zapoznawczej:
 
-  1. Zaloguj się do [portalu usługi Azure AD](https://portal.azure.com)i wybierz pozycję **Grupy**.
-  2. Na stronie Grupy — wszystkie grupy wybierz baner u góry strony, aby dołączyć do podglądu.
+  1. Zaloguj się do [portalu usługi Azure AD](https://portal.azure.com), a następnie wybierz pozycję **grupy**.
+  2. Na stronie grupy — wszystkie grupy wybierz transparent w górnej części strony, aby dołączyć do wersji zapoznawczej.
 
-Najnowsze funkcje i ulepszenia można również sprawdzić, wybierając **pozycję Informacje podglądu** na stronie **Wszystkie grupy.** Po dołączeniu do podglądu możesz zobaczyć znacznik podglądu na wszystkich stronach grup, które mają ulepszenia i są częścią podglądu. Nie każda strona grup została zaktualizowana w ramach tej wersji zapoznawczej.
+Najnowsze funkcje i ulepszenia można także sprawdzić, wybierając pozycję **Podgląd informacji** na stronie **wszystkie grupy** . Po dołączeniu do wersji zapoznawczej można zobaczyć znacznik podglądu na wszystkich stronach grup, które mają ulepszenia i są częścią wersji zapoznawczej. Nie każda Strona grup została zaktualizowana w ramach tej wersji zapoznawczej.
 
-Jeśli masz jakiekolwiek problemy, możesz przełączyć starsze środowisko, wybierając baner u góry strony **Wszystkie grupy.** Dziękujemy za opinie, dzięki czemu możemy poprawić nasze doświadczenie.
+Jeśli masz jakieś problemy, możesz przełączyć się ze starszego środowiska, wybierając transparent w górnej części strony **wszystkie grupy** . Dziękujemy za Twoją opinię, dzięki czemu możemy ulepszyć nasze środowisko.
 
-## <a name="group-search-and-sorting"></a>Grupowanie wyszukiwania i sortowania
+## <a name="group-search-and-sorting"></a>Wyszukiwanie i sortowanie grup
 
-Wyszukiwanie listy grup zostało rozszerzone, dzięki czemu podczas wprowadzania ciągu wyszukiwania `startswith` wyszukiwanie automatycznie przeprowadza wyszukiwanie i podciąg na liście nazw grup. Wyszukiwanie podciągów jest wykonywane tylko dla całych wyrazów i nie zawiera znaków specjalnych. W wyszukiwaniu podciągów rozróżniana jest wielkość liter.
+Przeszukiwanie listy grup zostało ulepszone, dzięki czemu w przypadku wprowadzenia ciągu wyszukiwania, wyszukiwanie automatycznie wykonuje wyszukiwanie `startswith` i podciągi na liście nazw grup. Wyszukiwanie podciągów jest wykonywane tylko na całych słowach i nie zawiera znaków specjalnych. W wyszukiwaniu podciągów jest rozróżniana wielkość liter.
 
-![nowe wyszukiwania podciągów na stronie Wszystkie grupy](./media/groups-members-owners-search/groups-search-preview.png)
+![nowe przeszukiwania podciągów na stronie wszystkie grupy](./media/groups-members-owners-search/groups-search-preview.png)
 
-Na przykład wyszukiwanie "zasady" zwróci teraz zarówno "Zasady MDM – Zachód" i "Grupa zasad". Grupa o nazwie "New_policy" nie zostanie zwrócona.
+Na przykład wyszukiwanie "zasady" spowoduje teraz zwrócenie obu "zasad zarządzania urządzeniami przenośnymi – zachodnich" i "grupy zasad". Nie można zwrócić grupy o nazwie "New_policy".
 
-- Można wykonać to samo wyszukiwanie na listach członkostwa w grupach, jak również.
-- Teraz można sortować listę grup według nazwy, używając strzałek po prawej stronie nagłówka kolumny nazwy, aby posortować listę w kolejności rosnącej lub malejącej.
+- Możesz również wykonać te same wyszukiwania na listach członkostwa w grupach.
+- Teraz można sortować listę grup według nazwy przy użyciu strzałek na prawo od nagłówka kolumny Name, aby posortować listę w kolejności rosnącej lub malejącej.
 
-## <a name="group-member-search-and-filtering"></a>Wyszukiwanie i filtrowanie członków grupy
+## <a name="group-member-search-and-filtering"></a>Wyszukiwanie i Filtrowanie elementów członkowskich grupy
 
-### <a name="search-group-member-and-owner-lists"></a>Listy członków i właścicieli grupy wyszukiwania
+### <a name="search-group-member-and-owner-lists"></a>Lista elementów członkowskich i właścicieli grup wyszukiwania
 
-Teraz możesz wyszukiwać członków określonej grupy według nazwy i wykonywać to samo wyszukiwanie na liście właścicieli grupy. W nowym doświadczeniu, jeśli wprowadzisz ciąg w polu wyszukiwania, wyszukiwanie rozpocznie się automatycznie. Na przykład, wyszukiwanie "Scott" powróci Scott Wilkinson.
+Teraz można przeszukiwać elementy członkowskie określonej grupy według nazwy i wykonywać te same wyszukiwania na liście właścicieli grupy. W nowym środowisku, jeśli wprowadzisz ciąg w polu wyszukiwania, wyszukiwanie StartsWith zostanie wykonane automatycznie. Na przykład wyszukiwanie "Scott" zwróci wartość Scott Wilkinson.
 
-![nowe wyszukiwania podciągów na listach członków i właścicieli grupy](./media/groups-members-owners-search/members-list.png)
+![nowe przeszukiwania podciągów na listach członków i właścicieli grupy](./media/groups-members-owners-search/members-list.png)
 
-### <a name="filter-member-and-owners-list"></a>Lista członków i właścicieli filtru
+### <a name="filter-member-and-owners-list"></a>Filtruj członków i listę właścicieli
 
-Oprócz wyszukiwania, teraz można filtrować listy członków i właścicieli według typu użytkownika. Są to informacje znalezione w kolumnie Typ użytkownika listy. Możesz więc filtrować listę według członków i gości, aby ustalić, czy w grupie są goście.
+Oprócz wyszukiwania możesz teraz filtrować listę elementów członkowskich i właścicieli według typu użytkownika. Te informacje znajdują się w kolumnie Typ użytkownika listy. Dlatego można filtrować listę według członków i Gości, aby określić, czy w grupie znajdują się wszyscy Goście.
 
-### <a name="view-and-manage-membership"></a>Wyświetlanie członkostwa i zarządzanie nim
+### <a name="view-and-manage-membership"></a>Wyświetl członkostwo i zarządzaj nimi
 
-Oprócz wyświetlania bezpośrednich członków określonej grupy można teraz wyświetlić listę wszystkich członków grupy na stronie Członkowie. Lista członków zawiera wszystkich unikatowych członków grupy, w tym wszystkich przechodnich członków.
+Oprócz wyświetlania bezpośrednich członków określonej grupy, można teraz wyświetlić listę wszystkich członków grupy na stronie Członkowie. Lista członków obejmuje wszystkich unikatowych członków grupy, w tym wszelkich członków przechodnich.
 
-Można również wyszukiwać i filtrować listę bezpośrednich członków i listę wszystkich członków indywidualnie. Filtrowanie listy wszystkich członków nie ma wpływu na filtry, które są stosowane na liście bezpośrednich członków.
+Możesz również wyszukiwać i filtrować listę bezpośrednich członków i listę wszystkie elementy członkowskie pojedynczo. Filtrowanie listy wszystkie elementy członkowskie nie wpływa na filtry zastosowane na liście bezpośrednich elementów członkowskich.
 
-## <a name="improved-group-member-counts"></a>Ulepszona liczba członków grupy
+## <a name="improved-group-member-counts"></a>Ulepszone liczby elementów członkowskich grupy
 
-Ulepszyliśmy stronę **Przegląd** grupy, aby zapewnić liczbę członków grupy dla grup o wszystkich rozmiarach. Możesz zobaczyć liczbę członków nawet dla grup liczących ponad 1000 członków. Teraz możesz zobaczyć całkowitą liczbę bezpośrednich członków dla grupy i całkowitą liczbę członków (wszystkich unikatowych członków grupy, w tym przechodnich członków) na stronie **Przegląd.**
+Ulepszono stronę **przeglądu** grup, aby zapewnić liczbę członków grupy dla grup wszystkich rozmiarów. Liczby elementów członkowskich można zobaczyć nawet dla grup mających więcej niż 1 000 członków. Teraz można zobaczyć łączną liczbę bezpośrednich elementów członkowskich dla grupy i całkowitą sumę członkostwa (wszystkie unikatowe elementy członkowskie grupy, łącznie z przechodnimi elementami członkowskimi) na stronie **Przegląd** .
 
-![Większa dokładność liczby członków grupy](./media/groups-members-owners-search/member-numbers.png)
+![Większa dokładność w liczbie członkostwa w grupie](./media/groups-members-owners-search/member-numbers.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -89,4 +89,4 @@ Te artykuły zawierają dodatkowe informacje na temat pracy z grupami w usłudze
 - [Zarządzanie dostępem do zasobów przy użyciu grup](../fundamentals/active-directory-manage-groups.md)
 - [Zarządzanie dostępem do aplikacji SaaS przy użyciu grup](groups-saasapps.md)
 - [Zarządzanie grupami przy użyciu poleceń programu PowerShell](groups-settings-v2-cmdlets.md)
-- [Dodawanie subskrypcji platformy Azure do usługi Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Dodaj subskrypcję platformy Azure do Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

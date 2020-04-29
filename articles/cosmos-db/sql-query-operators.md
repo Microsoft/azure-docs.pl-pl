@@ -1,109 +1,109 @@
 ---
-title: Operatory zapytań SQL dla usługi Azure Cosmos DB
-description: Dowiedz się więcej o operatorach SQL, takich jak równość, porównanie i operatory logiczne obsługiwane przez usługę Azure Cosmos DB.
+title: Operatory zapytań SQL dla Azure Cosmos DB
+description: Dowiedz się więcej na temat operatorów SQL, takich jak równość, porównanie i operatory logiczne obsługiwane przez Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: tisande
 ms.openlocfilehash: 8ef41edb687a5df39243880c897d12e83c008ec9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80063570"
 ---
-# <a name="operators-in-azure-cosmos-db"></a>Operatorzy w usłudze Azure Cosmos DB
+# <a name="operators-in-azure-cosmos-db"></a>Operatory w Azure Cosmos DB
 
-W tym artykule opisano różne operatory obsługiwane przez usługę Azure Cosmos DB.
+W tym artykule szczegółowo opisano różne operatory obsługiwane przez Azure Cosmos DB.
 
 ## <a name="equality-and-comparison-operators"></a>Operatory równości i porównania
 
 W poniższej tabeli przedstawiono wynik porównań równości w interfejsie API SQL między dwoma dowolnymi typami JSON.
 
-| **Operator** | **Niezdefiniowane** | **Null** | **Wartość logiczna** | **Numer** | **Ciąg** | **Obiektu** | **Tablicy** |
+| **Operator** | **Niezdefiniowane** | **Zero** | **Boolean** | **Liczba** | **Ciąg** | **Stream** | **Macierzy** |
 |---|---|---|---|---|---|---|---|
 | **Niezdefiniowane** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane |
-| **Null** | Niezdefiniowane | **Ok** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane |
-| **Wartość logiczna** | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane |
-| **Numer** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane |
+| **Zero** | Niezdefiniowane | **Ok** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane |
+| **Boolean** | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane |
+| **Liczba** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane |
 | **Ciąg** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane | Niezdefiniowane |
-| **Obiektu** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane |
-| **Tablicy** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | **Ok** |
+| **Stream** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane |
+| **Macierzy** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | **Ok** |
 
-Dla operatorów `>`porównania, `<`takich `<=`jak , `>=` `!=`, , i , porównanie `Undefined`między typami lub między dwoma obiektami lub tablicami tworzy .  
+Dla operatorów porównania, takich `>`jak `>=`, `!=`, `<`,, `<=`i, porównywanie między typami lub między dwoma obiektami lub `Undefined`tablicami powstaje.  
 
-Jeśli wynikiem wyrażenia skalarnego `Undefined`jest , element nie jest uwzględniony `Undefined` w wyniku, ponieważ nie jest równa `true`.
+Jeśli wynik wyrażenia skalarnego to `Undefined`, element nie jest uwzględniony w wyniku, ponieważ `Undefined` nie jest równe. `true`
 
 ## <a name="logical-and-or-and-not-operators"></a>Operatory logiczne (AND, OR i NOT)
 
-Operatory logiczne działają na wartościach logicznych. W poniższych tabelach przedstawiono logiczne tabele prawdy dla tych operatorów:
+Operatory logiczne działają na wartościach logicznych. W poniższych tabelach przedstawiono logiczne tabele prawdy dla następujących operatorów:
 
-**Operator OR**
+**OR — operator**
 
-Zwraca, `true` gdy którykolwiek `true`z warunków jest .
+Zwraca `true` , gdy spełniony jest `true`dowolny z warunków.
 
-|  | **True** | **False** | **Niezdefiniowane** |
+|  | **Prawda** | **False** | **Niezdefiniowane** |
 | --- | --- | --- | --- |
-| **True** |True |True |True |
-| **False** |True |False |Niezdefiniowane |
-| **Niezdefiniowane** |True |Niezdefiniowane |Niezdefiniowane |
+| **Prawda** |Prawda |Prawda |Prawda |
+| **False** |Prawda |Fałsz |Niezdefiniowane |
+| **Niezdefiniowane** |Prawda |Niezdefiniowane |Niezdefiniowane |
 
-**Operator AND**
+**AND — operator**
 
-Zwraca, `true` gdy oba `true`wyrażenia są .
+Zwraca `true` , gdy oba wyrażenia `true`są.
 
-|  | **True** | **False** | **Niezdefiniowane** |
+|  | **Prawda** | **False** | **Niezdefiniowane** |
 | --- | --- | --- | --- |
-| **True** |True |False |Niezdefiniowane |
-| **False** |False |False |False |
-| **Niezdefiniowane** |Niezdefiniowane |False |Niezdefiniowane |
+| **Prawda** |Prawda |Fałsz |Niezdefiniowane |
+| **False** |Fałsz |Fałsz |Fałsz |
+| **Niezdefiniowane** |Niezdefiniowane |Fałsz |Niezdefiniowane |
 
-**Operator NOT**
+**NOT — operator**
 
 Odwraca wartość dowolnego wyrażenia logicznego.
 
-|  | **Nie** |
+|  | **NIEMOŻLIWE** |
 | --- | --- |
-| **True** |False |
-| **False** |True |
+| **Prawda** |Fałsz |
+| **False** |Prawda |
 | **Niezdefiniowane** |Niezdefiniowane |
 
 **Kolejność wykonywania działań**
 
-Operatory `OR`logiczne `NOT` i `AND`mają poziom pierwszeństwa pokazany poniżej:
+Operatory `OR` `AND`logiczne i `NOT` mają poziom pierwszeństwa przedstawiony poniżej:
 
 | **Operator** | **Priorytet** |
 | --- | --- |
-| **Nie** |1 |
-| **I** |2 |
-| **Lub** |3 |
+| **NIEMOŻLIWE** |1 |
+| **LUB** |2 |
+| **ORAZ** |3 |
 
 ## <a name="-operator"></a>* — Operator
 
-Specjalny operator * projektuje cały element, tak jak jest. Jeśli go używasz, musi być to jedyne pole w projekcji. Kwerenda `SELECT * FROM Families f` jak jest `SELECT VALUE * FROM Families f` prawidłowa, ale i `SELECT *, f.id FROM Families f` nie są prawidłowe.
+Operator specjalny * projektuje cały element jako. Jeśli go używasz, musi być to jedyne pole w projekcji. Zapytanie, które `SELECT * FROM Families f` jest prawidłowe, ale `SELECT VALUE * FROM Families f` i `SELECT *, f.id FROM Families f` jest nieprawidłowe.
 
-## <a name="-and--operators"></a>? I?? Operatory
+## <a name="-and--operators"></a>? i? Operatory
 
-Operatory Ternary (?) i Coalesce (??) można używać do tworzenia wyrażeń warunkowych, tak jak w językach programowania, takich jak C# i JavaScript.
+Można użyć operatorów Trzyelementowy (?) i łączenia (??), aby kompilować wyrażenia warunkowe, jak w językach programowania, takich jak C# i JavaScript.
 
-Można użyć ? operator do konstruowania nowych właściwości JSON na bieżąco. Na przykład następująca kwerenda klasyfikuje `other`poziomy nachylenia do: `elementary`
+Można użyć ? operator do konstruowania nowych właściwości JSON na bieżąco. Na przykład następujące zapytanie klasyfikuje poziomy klasy do `elementary` lub: `other`
 
 ```sql
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel
      FROM Families.children[0] c
 ```
 
-Można również zagnieżdżać połączenia do ? operator, jak w następującej kwerendzie: 
+Możesz również zagnieżdżać wywołania do? operator, jak w następującej kwerendzie: 
 
 ```sql
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high") AS gradeLevel
     FROM Families.children[0] c
 ```
 
-Podobnie jak w przypadku innych operatorów zapytań, ? operator wyklucza elementy, jeśli brakuje właściwości, do których istnieje odwołanie lub porównywane typy są różne.
+Tak jak w przypadku innych operatorów zapytań,? operator wyklucza elementy, jeśli brakuje przywoływanych właściwości lub porównywane typy są różne.
 
-Użyj ?? operator, aby skutecznie sprawdzić właściwość w elemencie podczas wykonywania zapytań względem danych półstrukturacyjnych lub mieszanych. Na przykład następująca `lastName` kwerenda zwraca, jeśli jest obecny lub `surname` jeśli `lastName` nie jest obecny.
+Użyć? operator, który skutecznie sprawdza obecność właściwości w elemencie podczas wykonywania zapytania dotyczącego danych z częściową strukturą lub typem mieszanym. Na przykład następujące zapytanie zwraca wartość `lastName` , jeśli jest obecny, `surname` lub `lastName` Jeśli nie jest obecne.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName
@@ -114,4 +114,4 @@ Użyj ?? operator, aby skutecznie sprawdzić właściwość w elemencie podczas 
 
 - [Przykłady dla platformy .NET w usłudze Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Słowa kluczowe](sql-query-keywords.md)
-- [Klauzula SELECT](sql-query-select.md)
+- [SELECT — klauzula](sql-query-select.md)

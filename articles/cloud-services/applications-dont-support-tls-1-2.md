@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów spowodowanych przez aplikacje, które nie obsługują protokołu TLS 1.2 | Dokumenty firmy Microsoft
-description: Rozwiązywanie problemów spowodowanych przez aplikacje, które nie obsługują protokołu TLS 1.2
+title: Rozwiązywanie problemów spowodowanych przez aplikacje nieobsługujące protokołu TLS 1,2 | Microsoft Docs
+description: Rozwiązywanie problemów spowodowanych przez aplikacje nieobsługujące protokołu TLS 1,2
 services: cloud-services
 documentationcenter: ''
 author: mimckitt
@@ -15,30 +15,30 @@ ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
 ms.openlocfilehash: 6153b9d5e8ef11412b0dd53a15c565becfa1c8a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80053750"
 ---
-# <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Rozwiązywanie problemów z aplikacjami, które nie obsługują protokołu TLS 1.2
-W tym artykule opisano sposób włączania starszych protokołów TLS (TLS 1.0 i 1.1), a także stosowania starszych pakietów szyfrowania w celu obsługi dodatkowych protokołów w sieci web i rolach procesów roboczych usług w chmurze systemu Windows Server 2019. 
+# <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Rozwiązywanie problemów z aplikacjami, które nie obsługują protokołu TLS 1,2
+W tym artykule opisano sposób włączania starszych protokołów TLS (TLS 1,0 i 1,1) oraz stosowania starszych mechanizmów szyfrowania w celu obsługi dodatkowych protokołów w systemie Windows Server 2019 w sieci Web i roli procesu roboczego usługi w chmurze. 
 
-Rozumiemy, że podczas gdy podejmujemy kroki w celu przestarzałego TLS 1.0 i TLS 1.1, nasi klienci mogą potrzebować do obsługi starszych protokołów i mechanizmów szyfrowania, dopóki nie będą mogli zaplanować ich umorzenie.  Chociaż nie zalecamy ponownego włączania tych starszych wartości, zapewniamy wskazówki, aby pomóc klientom. Zachęcamy klientów do oceny ryzyka regresji przed wdrożeniem zmian opisanych w tym artykule. 
+Firma Microsoft zdaje sobie sprawę, że podczas wykonywania kroków w celu wycofania protokołu TLS 1,0 i TLS 1,1 klienci mogą potrzebować obsługi starszych protokołów i mechanizmów szyfrowania do momentu, gdy będą mogli zaplanować ich wycofanie.  Mimo że nie zalecamy ponownego włączenia tych starszych wartości, udostępniamy wskazówki ułatwiające klientom. Zachęcamy klientów do ocenienia ryzyka związanego z regresją przed wdrożeniem zmian opisanych w tym artykule. 
 
 > [!NOTE]
-> Wersja systemu operacyjnego gościa Family 6 wymusza tls 1.2, jawnie wyłączając TLS 1.0 i 1.1 i definiując określony zestaw mechanizmów szyfrowania. Aby uzyskać więcej informacji na temat rodzin systemu operacyjnego gościa zobacz [Wiadomości o wydaniu systemu operacyjnego gościa](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases)
+> Rodzina systemów operacyjnych gościa 6 wymusza protokół TLS 1,2 przez jawne wyłączenie protokołu TLS 1,0 i 1,1 i zdefiniowanie określonego zestawu mechanizmów szyfrowania. Aby uzyskać więcej informacji na temat rodzin systemów operacyjnych gościa, zobacz informacje o [wersji systemu operacyjnego gościa](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases)
 
 
-## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Upuszczanie obsługi pakietów szyfrowania TLS 1.0, TLS 1.1 i starszych 
-W czerwcu 2017 r. firma Microsoft ogłosiła plany rozpoczęcia migracji z protokołu TLS 1.0 i 1.1.   Od tego początkowego ogłoszenia firma Microsoft ogłosiła zamiar domyślnego wyłączenia zabezpieczeń warstwy transportowej (TLS) 1.0 i 1.1 w obsługiwanych wersjach przeglądarki Microsoft Edge i Internet Explorer 11 w pierwszej połowie 2020 roku.  Podobne komunikaty Apple, Google i Mozilli wskazują kierunek, w którym zmierza branża.   
+## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Porzucanie pomocy technicznej dla protokołów TLS 1,0, TLS 1,1 i starszych mechanizmów szyfrowania 
+Zgodnie z naszymi zobowiązaniami do korzystania z najlepszej klasy szyfrowania firma Microsoft ogłosiła plany rozpoczęcia migracji od protokołu TLS 1,0 i 1,1 w czerwcu z 2017.   Od tego początkowego anonsu firma Microsoft ogłosiła nasze zamiar w celu wyłączenia Transport Layer Security (TLS) 1,0 i 1,1 domyślnie w obsługiwanych wersjach programu Microsoft Edge i Internet Explorer 11 w pierwszej połowie 2020.  Podobne anonse od firmy Apple, Google i Mozilla wskazują kierunek, w którym jest on używany.   
 
-Aby uzyskać więcej informacji, zobacz [Przygotowywanie do protokołu TLS 1.2 na platformie Microsoft Azure](https://azure.microsoft.com/updates/azuretls12/)
+Aby uzyskać więcej informacji, zobacz [przygotowanie do protokołu TLS 1,2 w Microsoft Azure](https://azure.microsoft.com/updates/azuretls12/)
 
 ## <a name="tls-configuration"></a>Konfiguracja protokołu TLS  
-Obraz serwera w chmurze systemu Windows Server 2019 jest skonfigurowany z wyłączonymi systemami TLS 1.0 i TLS 1.1 na poziomie rejestru. Oznacza to, że aplikacje wdrożone w tej wersji systemu Windows i przy użyciu stosu systemu Windows do negocjacji TLS nie pozwoli TLS 1.0 i TLS 1.1 komunikacji.   
+Obraz serwera z systemem Windows Server 2019 w chmurze jest skonfigurowany przy użyciu protokołu TLS 1,0 i TLS 1,1 na poziomie rejestru. Oznacza to, że aplikacje wdrożone w tej wersji systemu Windows i przy użyciu stosu systemu Windows na potrzeby negocjacji TLS nie będą zezwalały na komunikację TLS 1,0 i TLS 1,1.   
 
-Serwer jest również wyposażony w ograniczony zestaw zestawów szyfrowania: 
+Serwer zawiera również ograniczony zestaw mechanizmów szyfrowania: 
 
 ```
     TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 
@@ -51,9 +51,9 @@ Serwer jest również wyposażony w ograniczony zestaw zestawów szyfrowania:
     TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 
 ```
 
-## <a name="step-1-create-the-powershell-script-to-enable-tls-10-and-tls-11"></a>Krok 1: Tworzenie skryptu programu PowerShell w celu włączenia protokołu TLS 1.0 i TLS 1.1 
+## <a name="step-1-create-the-powershell-script-to-enable-tls-10-and-tls-11"></a>Krok 1. utworzenie skryptu programu PowerShell w celu włączenia protokołu TLS 1,0 i TLS 1,1 
 
-Użyj następującego kodu jako przykład, aby utworzyć skrypt, który umożliwia starsze protokoły i mechanizmy szyfrowania. Na potrzeby niniejszej dokumentacji skrypt ten zostanie nazwany: **TLSsettings.ps1**. Zapisz ten skrypt na pulpicie lokalnym, aby mieć do nich łatwy dostęp w późniejszych krokach. 
+Użyj poniższego kodu jako przykładu, aby utworzyć skrypt, który umożliwia używanie starszych protokołów i mechanizmów szyfrowania. Na potrzeby tej dokumentacji ten skrypt będzie miał nazwę: **TLSsettings. ps1**. Zapisz ten skrypt na pulpicie lokalnym, aby uzyskać łatwy dostęp do kolejnych kroków. 
 
 
 ```Powershell
@@ -273,9 +273,9 @@ If ($reboot) {
 }
 ```
 
-## <a name="step-2-create-a-command-file"></a>Krok 2: Tworzenie pliku polecenia 
+## <a name="step-2-create-a-command-file"></a>Krok 2. Tworzenie pliku poleceń 
 
-Utwórz plik CMD o nazwie **RunTLSSettings.cmd,** korzystając z poniższego. Zapisz ten skrypt na pulpicie lokalnym, aby mieć do nich łatwy dostęp w późniejszych krokach. 
+Utwórz plik CMD o nazwie **RunTLSSettings. cmd** przy użyciu poniższego elementu. Zapisz ten skrypt na pulpicie lokalnym, aby uzyskać łatwy dostęp do kolejnych kroków. 
 
 ```cmd
 SET LOG_FILE="%TEMP%\StartupLog.txt"
@@ -300,9 +300,9 @@ EXIT /B %ERRORLEVEL%
 
 ```
 
-## <a name="step-3-add-the-startup-task-to-the-roles-service-definition-csdef"></a>Krok 3: Dodaj zadanie uruchamiania do definicji usługi roli (csdef) 
+## <a name="step-3-add-the-startup-task-to-the-roles-service-definition-csdef"></a>Krok 3. Dodawanie zadania uruchamiania do definicji usługi roli (csdef) 
 
-Dodaj poniższy fragment kodu do istniejącego pliku definicji usługi. 
+Dodaj następujący fragment kodu do istniejącego pliku definicji usługi. 
 
 ```
     <Startup> 
@@ -311,7 +311,7 @@ Dodaj poniższy fragment kodu do istniejącego pliku definicji usługi.
     </Startup> 
 ```
 
-Oto przykład, który pokazuje zarówno rolę procesu roboczego, jak i rolę sieci web. 
+Oto przykład, który pokazuje rolę procesu roboczego i rolę sieci Web. 
 
 ```
 <?xmlversion="1.0"encoding="utf-8"?> 
@@ -341,27 +341,27 @@ Oto przykład, który pokazuje zarówno rolę procesu roboczego, jak i rolę sie
 </ServiceDefinition> 
 ```
 
-## <a name="step-4-add-the-scripts-to-your-cloud-service"></a>Krok 4: Dodaj skrypty do usługi w chmurze 
+## <a name="step-4-add-the-scripts-to-your-cloud-service"></a>Krok 4. Dodawanie skryptów do usługi w chmurze 
 
-1) W programie Visual Studio kliknij prawym przyciskiem myszy pozycję WebRole lub WorkerRole
-2) Wybierz **pozycję Dodaj**
+1) W programie Visual Studio kliknij prawym przyciskiem myszy rolę webrole lub rola procesu roboczego
+2) Wybierz pozycję **Dodaj**
 3) Wybierz **istniejący element**
-4) W eksploratorze plików przejdź do pulpitu, na którym przechowywane są pliki **TLSsettings.ps1** i **RunTLSSettings.cmd** 
-5) Wybierz dwa pliki, aby dodać je do projektu usługi w chmurze
+4) W Eksploratorze plików przejdź do pulpitu, na którym zapisano pliki **TLSsettings. ps1** i **RunTLSSettings. cmd** 
+5) Wybierz dwa pliki, aby dodać je do projektu Cloud Services
 
-## <a name="step-5-enable-copy-to-output-directory"></a>Krok 5: Włącz kopiowanie do katalogu wyjściowego
+## <a name="step-5-enable-copy-to-output-directory"></a>Krok 5. Włączanie kopiowania do katalogu wyjściowego
 
-Aby upewnić się, że skrypty są przekazywane z każdą aktualizacją wypchniętą z programu Visual Studio, ustawienie *Kopiuj do katalogu wyjściowego* musi być ustawione na *Kopiuj zawsze*
+Aby zapewnić, że skrypty są przekazywane z każdą aktualizacją wypychaną z programu Visual Studio, ustawienie *Kopiuj do katalogu wyjściowego* musi być ustawione na wartość *zawsze Kopiuj*
 
-1) W obszarze WebRole lub WorkerRole kliknij prawym przyciskiem myszy na RunTLSSettings.cmd
-2) Wybierz **właściwości**
-3) Na karcie właściwości zmień *opcję Kopiuj do katalogu wyjściowego,* aby *zawsze kopiować"*
-4) Powtórz kroki dla **TLSsettings.ps1**
+1) W obszarze webrole lub rola procesu roboczego kliknij prawym przyciskiem myszy pozycję RunTLSSettings. cmd
+2) Wybierz **Właściwości**
+3) Na karcie Właściwości zmień wartość *Kopiuj do katalogu wyjściowego* , aby była *zawsze kopiowana "*
+4) Powtórz kroki dla **TLSsettings. ps1**
 
-## <a name="step-6-publish--validate"></a>Krok 6: Opublikuj & Sprawdź poprawność
+## <a name="step-6-publish--validate"></a>Krok 6. publikowanie & Weryfikuj
 
-Teraz, gdy powyższe kroki zostały zakończone, opublikuj aktualizację do istniejącej usługi w chmurze. 
+Teraz, po wykonaniu powyższych kroków, opublikuj aktualizację w istniejącej usłudze w chmurze. 
 
-Za pomocą [SSLLabs](https://www.ssllabs.com/) można sprawdzić poprawność stanu TLS punktów końcowych 
+Możesz użyć [SSLLabs](https://www.ssllabs.com/) , aby sprawdzić stan protokołu TLS punktów końcowych 
 
  

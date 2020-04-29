@@ -1,7 +1,7 @@
 ---
-title: Wyszukiwanie dokładnych momentów w filmach za pomocą indeksatora wideo
+title: Szukaj dokładnego momentu w filmach wideo z Video Indexer
 titleSuffix: Azure Media Services
-description: Dowiedz się, jak wyszukiwać dokładne momenty w filmach za pomocą indeksatora wideo.
+description: Dowiedz się, jak wyszukiwać dokładne chwily w filmach wideo przy użyciu Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,51 +11,51 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 1c3326456fefbbef9228cf26b5821f306cd21601
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80127912"
 ---
-# <a name="search-for-exact-moments-in-videos-with-video-indexer"></a>Wyszukiwanie dokładnych momentów w filmach za pomocą indeksatora wideo
+# <a name="search-for-exact-moments-in-videos-with-video-indexer"></a>Szukaj dokładnego momentu w filmach wideo z Video Indexer
 
-W tym temacie przedstawiono opcje wyszukiwania, które umożliwiają wyszukiwanie dokładnych momentów w filmach.
+W tym temacie przedstawiono opcje wyszukiwania, które umożliwiają wyszukiwanie dokładnego momentu w filmach wideo.
 
-1. Przejdź do witryny [indeksatora](https://www.videoindexer.ai/) wideo i zaloguj się.
-2. Wyszukaj wszystkie filmy na swoim koncie.
+1. Przejdź do witryny sieci Web [Video Indexer](https://www.videoindexer.ai/) i zaloguj się.
+2. Przeszukaj wszystkie filmy wideo na Twoim koncie.
 
-    W poniższym przykładzie wyszukujemy wszystkie filmy, które mówią o bezpieczeństwie i w których pojawia się Satya.
+    W poniższym przykładzie wyszukamy wszystkie filmy wideo, które porozmawiają z zabezpieczeniami i w których Satya pojawia się.
 
-    ![Wyszukiwanie wideo w indeksatorze wideo](./media/video-indexer-search/video-indexer-search01.png)
+    ![Wyszukaj wideo w Video Indexer](./media/video-indexer-search/video-indexer-search01.png)
 
-3. Przeszukaj podsumowane statystyki filmu.
+3. Przeszukaj podsumowanie informacji o filmie wideo.
 
-    Następnie możesz wyszukać w filmie, wybierając przycisk **Odtwórz** na filmie. Następnie możesz wyszukać dokładne momenty w filmie, wybierając kartę **Wyszukiwanie.**
+    Następnie możesz przeszukać wideo, wybierając pozycję **Odtwórz** na filmie wideo. Następnie można wyszukać dokładną chwilę w filmie wideo, wybierając kartę **Wyszukiwanie** .
 
-    W poniższym przykładzie wyszukujemy "bezpieczne" wewnątrz wybranego filmu.
+    W poniższym przykładzie wyszukamy "Secure" w wybranym filmie wideo.
 
-    ![Wyszukiwanie w klipie wideo za pomocą indeksatora wideo](./media/video-indexer-search/video-indexer-search02.png)
+    ![Wyszukaj w filmie wideo przy użyciu Video Indexer](./media/video-indexer-search/video-indexer-search02.png)
 
-    Jeśli wybierzesz jeden z wyników, odtwarzacz doprowadzi Cię do tego momentu w filmie. Możesz osiągnąć widok i synchronizację odtwarzacza/statystyk w aplikacji. Aby uzyskać więcej informacji, zobacz [Osadzanie widżetów indeksatora wideo w aplikacji](video-indexer-embed-widgets.md).
+    Jeśli wybierzesz jeden z wyników, gracz nawiąże to dokładne chwilę w filmie wideo. W aplikacji możesz uzyskać widok odtwarzacza/wglądu w szczegółowe dane. Aby uzyskać więcej informacji, zobacz [osadzanie Video Indexer elementów widget w aplikacji](video-indexer-embed-widgets.md).
 
-4. Przeszukaj szczegółowy podział filmu.
+4. Przeszukaj szczegółowy podział wideo.
 
-    Jeśli chcesz utworzyć własny klip na podstawie znalezionego klipu wideo, wybierz przycisk **Edytuj.** Na tej stronie przedstawiono film wraz z jego statystykami jako filtrami. Aby uzyskać więcej informacji, zobacz [Wyświetlanie i edytowanie statystyk indeksatora wideo](video-indexer-view-edit.md).
+    Jeśli chcesz utworzyć własny klip w oparciu o znalezione wideo, wybierz przycisk **Edytuj** . Na tej stronie przedstawiono wideo wraz ze szczegółowymi informacjami na temat filtrów. Aby uzyskać więcej informacji, zobacz [Wyświetlanie i edytowanie Video Indexer Insights](video-indexer-view-edit.md).
 
-    Możesz wyszukiwać dokładne momenty w filmie, aby pokazać tylko te linie, które Cię interesują. Użyj bocznych statystyk, aby filtrować części, które chcesz zobaczyć. Po zakończeniu można wyświetlić podgląd klipu i wybrać pozycję **Publikuj,** aby utworzyć nowy klip wyświetlany w galerii.
+    Możesz wyszukać dokładną chwilę w filmie wideo, aby wyświetlić tylko interesujące Cię wiersze. Użyj szczegółowych informacji, aby filtrować części, które chcesz zobaczyć. Po zakończeniu możesz wyświetlić podgląd klipu i wybrać pozycję **Publikuj** w celu utworzenia nowego klipu wyświetlanego w galerii.
 
-    W poniższym przykładzie szukaliśmy tekstu "rzeczywistość mieszana". Zastosowaliśmy również dodatkowe filtry, jak pokazano na poniższym ekranie.
+    W poniższym przykładzie przeszukano tekst "rzeczywistość mieszana". Zastosowano również dodatkowe filtry, jak pokazano na poniższym ekranie.
 
-    ![Wyszukaj dokładny moment w indeksatorze wideo](./media/video-indexer-search/video-indexer-search03.png)
+    ![Poszukaj dokładnego momentu w Video Indexer](./media/video-indexer-search/video-indexer-search03.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po znalezieniu dokładnego momentu w filmie, z którym chcesz pracować, możesz kontynuować przetwarzanie wideo. Aby uzyskać więcej informacji, zobacz następujące tematy:
+Po znalezieniu dokładnego momentu wideo, z którym chcesz współpracować, możesz kontynuować przetwarzanie wideo. Aby uzyskać więcej informacji, zobacz następujące tematy:
 
-- [Korzystaj z głębokich spostrzeżeń swoich filmów](use-editor-create-project.md)
+- [Korzystaj z szczegółowego wglądu w dane wideo](use-editor-create-project.md)
 - [Przetwarzanie zawartości przy użyciu interfejsu REST API usługi Video Indexer](video-indexer-use-apis.md)
 - [Osadzanie widgetów wizualnych w aplikacji](video-indexer-embed-widgets.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Omówienie usługi Video Indexer](video-indexer-overview.md)

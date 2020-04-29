@@ -1,6 +1,6 @@
 ---
-title: Zalecenia dotyczące ochrony punktów końcowych w centrach zabezpieczeń platformy Azure
-description: Jak rozwiązania ochrony punktu końcowego są odnajdowane i identyfikowane jako w dobrej kondycji.
+title: Zalecenia dotyczące programu Endpoint Protection w centrach zabezpieczeń Azure
+description: Sposób odnajdywania i identyfikowania rozwiązań programu Endpoint Protection w dobrej kondycji.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,52 +14,52 @@ ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
 ms.openlocfilehash: dcf7df501665ea3885d00b9f7668a95cbbf02428
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78208546"
 ---
-# <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Ocena i zalecenia dotyczące ochrony punktów końcowych w usłudze Azure Security Center
+# <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Ocena i zalecenia dotyczące programu Endpoint Protection w Azure Security Center
 
-Usługa Azure Security Center udostępnia oceny kondycji [obsługiwanych](security-center-services.md#endpoint-supported) wersji rozwiązań ochrony punktów końcowych. W tym artykule opisano scenariusze, które prowadzą Centrum zabezpieczeń do generowania następujących dwóch zaleceń:
+Azure Security Center zapewnia oceny kondycji [obsługiwanych](security-center-services.md#endpoint-supported) wersji rozwiązań programu Endpoint Protection. W tym artykule opisano scenariusze, które powodują Security Center w celu wygenerowania następujących dwóch zaleceń:
 
-* **Instalowanie rozwiązań ochrony punktów końcowych na maszynie wirtualnej**
-* **Rozwiązywanie problemów ze zdrowiem związanym z ochroną punktów końcowych na komputerach**
+* **Zainstaluj rozwiązania programu Endpoint Protection na maszynie wirtualnej**
+* **Rozwiązywanie problemów z kondycją programu Endpoint Protection na maszynach**
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* Usługa Security Center zaleca **"Instalowanie rozwiązań ochrony punktów końcowych na maszynie wirtualnej"** po uruchomieniu [get-mpcomputerstatus,](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) a wynikiem jest **AMServiceEnabled: False**
+* W Security Center zalecane jest **"Instalowanie rozwiązań programu Endpoint Protection na maszynie wirtualnej"** po uruchomieniu [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) , a wynikiem jest **AMServiceEnabled: false**
 
-* Usługa Security Center zaleca **"Rozwiązywanie problemów ze zdrowiem punktu końcowego na komputerach"** po uruchomieniu [get-mpcomputerstatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) i wystąpi dowolna z następujących czynności:
+* Security Center zaleca **"Rozwiązywanie problemów z kondycją programu Endpoint Protection na maszynach" w** przypadku uruchamiania [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) i dowolnego z następujących wystąpień:
 
-  * Każda z następujących właściwości są fałszywe:
+  * Każda z następujących właściwości ma wartość false:
 
-    **AmServiceEnabled (Usługa AMService)**
+    **AMServiceEnabled**
 
-    **AntispywareEnabled (Niech)**
+    **AntispywareEnabled**
 
     **RealTimeProtectionEnabled**
 
-    **BehaviorMonitorEnabled (Nie można pojąć)**
+    **BehaviorMonitorEnabled**
 
     **IoavProtectionEnabled**
 
     **OnAccessProtectionEnabled**
 
-  * Jeśli jedna lub obie z następujących właściwości są 7 lub więcej.
+  * Jeśli jedna lub obie następujące właściwości mają wartość 7 lub więcej.
 
     **AntispywareSignatureAge**
 
-    **AntivirusSasignage**
+    **AntivirusSignatureAge**
 
-## <a name="microsoft-system-center-endpoint-protection"></a>Ochrona punktów końcowych programu Microsoft System Center
+## <a name="microsoft-system-center-endpoint-protection"></a>Program Microsoft System Center Endpoint Protection
 
-* Centrum zabezpieczeń zaleca **"Instalowanie rozwiązań ochrony punktów końcowych na maszynie wirtualnej"** podczas importowania **scepmpmodule ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1")** i uruchamianie wyników **Get-MProtComputerStatus** z **AMServiceEnabled = false**
+* Security Center zaleca **"zainstalowanie rozwiązań programu Endpoint Protection na maszynie wirtualnej"** podczas importowania **SCEPMpModule ("$env:P rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** i uruchamiania wyników **Get-MProtComputerStatus** z **AMServiceEnabled = false**
 
-* Usługa Security Center zaleca **"Rozwiązywanie problemów ze zdrowiem punktu końcowego na komputerach"** po uruchomieniu **get-mprotcomputerstatus** i wystąpi dowolna z następujących czynności:
+* Security Center zaleca **"Rozwiązywanie problemów z kondycją programu Endpoint Protection na maszynach" w** przypadku uruchamiania **Get-MprotComputerStatus** i dowolnego z następujących wystąpień:
 
-    * Co najmniej jedna z następujących właściwości jest false:
+    * Co najmniej jedna z następujących właściwości ma wartość false:
 
             **AMServiceEnabled**
 
@@ -73,7 +73,7 @@ Usługa Azure Security Center udostępnia oceny kondycji [obsługiwanych](securi
     
             **OnAccessProtectionEnabled**
           
-    * Jeśli jedna lub obie z następujących aktualizacji podpisu jest większa lub równa 7. 
+    * Jeśli co najmniej jedna z poniższych aktualizacji podpisu jest większa lub równa 7. 
 
             **AntispywareSignatureAge**
     
@@ -81,104 +81,104 @@ Usługa Azure Security Center udostępnia oceny kondycji [obsługiwanych](securi
 
 ## <a name="trend-micro"></a>Trend Micro
 
-* Usługa Security Center zaleca **"Instalowanie rozwiązań ochrony punktów końcowych na maszynie wirtualnej",** gdy którykolwiek z następujących kontroli nie jest spełniony:
-    * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** istnieje
-    * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** istnieje
-    * Plik **dsa_query.cmd** znajduje się w folderze instalacyjnym
-    * Uruchamianie **wyników dsa_query.cmd** z **trybem Component.AM.: on - Wykryto program Trend Micro Deep Security Agent**
+* Security Center zaleca się **"Zainstaluj rozwiązania programu Endpoint Protection na maszynie wirtualnej"** , gdy którykolwiek z następujących kontroli nie zostanie spełniony:
+    * **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent** istnieje
+    * **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** istnieje
+    * Plik **dsa_query. cmd** zostanie znaleziony w folderze instalacyjnym
+    * Uruchamianie **polecenia dsa_query. cmd** z użyciem **składnika. am. Mode: wykryto agenta zabezpieczeń w usłudze Trend Micro głęboki**
 
-## <a name="symantec-endpoint-protection"></a>Ochrona punktów końcowych firmy Symantec
-Usługa Security Center zaleca **"Instalowanie rozwiązań ochrony punktów końcowych na maszynie wirtualnej",** gdy którykolwiek z następujących kontroli nie jest spełniony:
+## <a name="symantec-endpoint-protection"></a>Symantec Endpoint Protection
+Security Center zaleca się **"Zainstaluj rozwiązania programu Endpoint Protection na maszynie wirtualnej"** , gdy którykolwiek z następujących kontroli nie zostanie spełniony:
 
-* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
+* **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM: \ Software\Symantec\Symantec punkt końcowy Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 Lub
 
-* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
+* **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM: \ Software\Wow6432Node\Symantec\Symantec punkt końcowy Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-Usługa Security Center zaleca **"Rozwiązywanie problemów ze zdrowiem punktu końcowego na komputerach",** gdy którykolwiek z następujących kontroli nie jest spełniony:
+Security Center zaleca **"Rozwiązywanie problemów z kondycją programu Endpoint Protection na swoich maszynach" w** przypadku braku spełnienia następujących testów:
 
-* Sprawdź wersję firmy Symantec >= 12: Lokalizacja rejestru: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
+* Sprawdź wersję firmy Symantec >= 12: Lokalizacja rejestru: **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion "-value" ProductVersion "**
 
-* Sprawdzanie stanu ochrony w czasie rzeczywistym: **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff == 1**
+* Sprawdzanie stanu ochrony w czasie rzeczywistym: **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff = = 1**
 
-* Sprawdź stan aktualizacji podpisu: **HKLM\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LatestVirusDefsDate <= 7 days**
+* Sprawdź stan aktualizacji sygnatury: **HKLM\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LatestVirusDefsDate <= 7 dni**
 
-* Sprawdź stan pełnego skanowania: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime <= 7 days**
+* Sprawdź stan pełnego skanowania: **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime <= 7 dni**
 
-* Znajdź numer wersji podpisu Ścieżka do wersji podpisu dla programu Symantec 12: **Ścieżki rejestru+ "CurrentVersion\SharedDefs" -Value "SRTSP"** 
+* Znajdź ścieżkę numeru wersji sygnatury do wersji sygnatury dla firmy Symantec 12: **ścieżki rejestru + "CurrentVersion\SharedDefs"-value "SRTSP"** 
 
-* Ścieżka do wersji podpisu dla programu Symantec 14: **Ścieżki rejestru+ "CurrentVersion\SharedDefs\SDSDefs" -Value "SRTSP"**
+* Ścieżka do wersji sygnatury dla firmy Symantec 14: **ścieżki rejestru + "CurrentVersion\SharedDefs\SDSDefs"-value "SRTSP"**
 
 Ścieżki rejestru:
 
-* **"HKLM:\Software\Symantec\Symantec Endpoint Protection" + $Path;**
-* **"HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
+* **"HKLM: \ Software\Symantec\Symantec Endpoint Protection" + $Path;**
+* **"HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
 
-## <a name="mcafee-endpoint-protection-for-windows"></a>Ochrona punktów końcowych mcafee dla systemu Windows
+## <a name="mcafee-endpoint-protection-for-windows"></a>Program McAfee Endpoint Protection dla systemu Windows
 
-Usługa Security Center zaleca **"Instalowanie rozwiązań ochrony punktów końcowych na maszynie wirtualnej",** gdy którykolwiek z następujących kontroli nie jest spełniony:
+Security Center zaleca się **"Zainstaluj rozwiązania programu Endpoint Protection na maszynie wirtualnej"** , gdy którykolwiek z następujących kontroli nie zostanie spełniony:
 
-* **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** istnieje
+* **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion** istnieje
 
-* **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
+* **HKLM: \ SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
-Usługa Security Center zaleca **"Rozwiązywanie problemów ze zdrowiem punktu końcowego na komputerach",** gdy którykolwiek z następujących kontroli nie jest spełniony:
+Security Center zaleca **"Rozwiązywanie problemów z kondycją programu Endpoint Protection na swoich maszynach" w** przypadku braku spełnienia następujących testów:
 
-* Wersja McAfee: **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10**
+* Wersja McAfee: **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10**
 
-* Znajdź wersję podpisu: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "dwContentMajorVersion"**
+* Znajdź wersję podpisu: **HKLM: \ Software\McAfee\AVSolution\DS\DS-Value "dwContentMajorVersion"**
 
-* Znajdź datę podpisu: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "szContentCreationDate" >= 7 dni**
+* Znajdź datę podpisu: **HKLM: \ Software\McAfee\AVSolution\DS\DS-Value "szContentCreationDate" >= 7 dni**
 
-* Znajdź datę skanowania: **HKLM:\Software\McAfee\Endpoint\AV\ODS -Value "LastFullScanOdsRunTime" >= 7 dni**
+* Znajdź datę skanowania: **HKLM: \ Software\McAfee\Endpoint\AV\ODS-Value "LastFullScanOdsRunTime" >= 7 dni**
 
-## <a name="mcafee-endpoint-security-for-linux-threat-prevention"></a>McAfee Endpoint Security for Linux Threat Prevention 
+## <a name="mcafee-endpoint-security-for-linux-threat-prevention"></a>Zabezpieczenia programu McAfee Endpoint Protection dla ochrony przed zagrożeniami dla systemu Linux 
 
-Usługa Security Center zaleca **"Instalowanie rozwiązań ochrony punktów końcowych na maszynie wirtualnej",** gdy którykolwiek z następujących kontroli nie jest spełniony:
+Security Center zaleca się **"Zainstaluj rozwiązania programu Endpoint Protection na maszynie wirtualnej"** , gdy którykolwiek z następujących kontroli nie zostanie spełniony:
 
-- Wyjścia pliku **/opt/isec/ens/threatprevention/bin/isecav** 
+- Wyjście z **/opt/iSEC/ENS/threatprevention/bin/isecav** plików 
 
-- **"/opt/isec/ens/threatprevention/bin/isecav --version"** jest: **Nazwa McAfee = McAfee Endpoint Security for Linux Threat Prevention i Wersja McAfee >= 10**
+- **"/opt/iSEC/ENS/threatprevention/bin/isecav--Version"** Output to: **McAfee Name = McAfee Endpoint Security dla ochrony przed zagrożeniami w systemie Linux i wersji McAfee >= 10**
 
-Usługa Security Center zaleca **"Rozwiązywanie problemów ze zdrowiem punktu końcowego na komputerach",** gdy którykolwiek z następujących kontroli nie jest spełniony:
+Security Center zaleca **"Rozwiązywanie problemów z kondycją programu Endpoint Protection na swoich maszynach" w** przypadku braku spełnienia następujących testów:
 
-- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** zwraca **Szybkie skanowanie, Pełne skanowanie** i oba skany <= 7 dni
+- **"/opt/iSEC/ENS/threatprevention/bin/isecav--listtask"** zwraca **szybkie skanowanie, pełne skanowanie** i oba skanowania <= 7 dni
 
-- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** zwraca **DAT i silnik Czas aktualizacji** i oba <= 7 dni
+- **"/opt/iSEC/ENS/threatprevention/bin/isecav--listtask"** zwraca liczbę **dat i czas aktualizacji aparatu** , a oba z nich <= 7 dni
 
-- **"/opt/isec/ens/threatprevention/bin/isecav --getoasconfig --summary"** zwraca stan **Skanowania dostępu**
+- **"/opt/iSEC/ENS/threatprevention/bin/isecav--getoasconfig--Summary"** zwraca stan **skanowania dostępu**
 
-## <a name="sophos-antivirus-for-linux"></a>Sophos Antivirus dla Linuksa 
+## <a name="sophos-antivirus-for-linux"></a>Sophos Antivirus dla systemu Linux 
 
-Usługa Security Center zaleca **"Instalowanie rozwiązań ochrony punktów końcowych na maszynie wirtualnej",** gdy którykolwiek z następujących kontroli nie jest spełniony:
+Security Center zaleca się **"Zainstaluj rozwiązania programu Endpoint Protection na maszynie wirtualnej"** , gdy którykolwiek z następujących kontroli nie zostanie spełniony:
 
-- Plik **/opt/sophos-av/bin/savdstatus** wychodzi lub wyszukaj niestandardową lokalizację **"readlink $(which savscan)"**
+- **/Opt/Sophos-AV/bin/savdstatus** pliku lub wyszukiwanie dostosowanej lokalizacji **"readlink $ (savscan)"**
 
-- **"/opt/sophos-av/bin/savdstatus --version"** zwraca nazwę Sophos = **Wersja Sophos Anti-Virus i Sophos >= 9**
+- **"/opt/Sophos-AV/bin/savdstatus--Version"** zwraca Sophos Name = **Sophos Anti-Virus i sophos w wersji >= 9**
 
-Usługa Security Center zaleca **"Rozwiązywanie problemów ze zdrowiem punktu końcowego na komputerach",** gdy którykolwiek z następujących kontroli nie jest spełniony:
+Security Center zaleca **"Rozwiązywanie problemów z kondycją programu Endpoint Protection na swoich maszynach" w** przypadku braku spełnienia następujących testów:
 
-- **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Zaplanowane skanowanie . \* zakończone" | tail -1"**, zwraca wartość
+- **"/opt/Sophos-AV/bin/savlog--maxAge = 7 | grep-i "zaplanowane skanowanie. \* ukończono "| tail-1 "** zwraca wartość
 
-- **"/opt/sophos-av/bin/savlog --maxage=7 | grep "skanowanie zakończone"** | tail -1", zwraca wartość
+- **"/opt/Sophos-AV/bin/savlog--maxAge = 7 | Zakończono skanowanie grep** "| tail-1 "zwraca wartość
 
-- **"/opt/sophos-av/bin/savdstatus --lastupdate"** zwraca lastUpdate, który powinien być <= 7 dni 
+- **"/opt/Sophos-AV/bin/savdstatus--LastUpdate"** zwraca LastUpdate, które powinny być <= 7 dni 
 
-- **"/opt/sophos-av/bin/savdstatus -v"** jest równe **"Skanowanie przy dostępie jest uruchomione"** 
+- **"/opt/Sophos-AV/bin/savdstatus-v"** jest równa **"skanowanie w trakcie dostępu jest uruchomione"** 
 
-- **"/opt/sophos-av/bin/savconfig get LiveProtection"** zwraca włączony
+- **"/opt/Sophos-AV/bin/savconfig Get LiveProtection"** zwraca włączone
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i pomoc techniczna
 
 ### <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Dzienniki rozszerzeń ochrony przed złośliwym oprogramowaniem firmy Microsoft są dostępne pod adresem: **%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware(Or PaaSAntimalware)\1.5.5.x(version#)\CommandExecution.log**
+Dzienniki rozszerzeń programu Microsoft chroniące przed złośliwym kodem są dostępne pod adresem: **%SYSTEMDRIVE%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware (lub PaaSAntimalware) \1.5.5.x (wersja #) \CommandExecution.log**
 
 ### <a name="support"></a>Pomoc techniczna
 
-Aby uzyskać więcej pomocy, skontaktuj się z ekspertami platformy Azure na [forach MSDN Azure i Stack Overflow](https://azure.microsoft.com/support/forums/). Lub złożyć zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję Uzyskaj pomoc techniczną. Aby uzyskać informacje na temat korzystania z pomocy technicznej platformy Azure, przeczytaj często zadawane [pytania dotyczące pomocy technicznej platformy Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Aby uzyskać pomoc, skontaktuj się z ekspertami platformy Azure na [forach MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Lub plik zdarzenia pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję Uzyskaj pomoc techniczną. Aby uzyskać informacje o korzystaniu z pomocy technicznej platformy Azure, przeczytaj temat [Microsoft Azure support — często zadawane pytania](https://azure.microsoft.com/support/faq/).

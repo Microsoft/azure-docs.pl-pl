@@ -1,7 +1,7 @@
 ---
-title: Dostosowywanie modelu osoby za pomocą interfejsu API indeksatora wideo
+title: Dostosowywanie modelu osoby za pomocą interfejsu API Video Indexer
 titleSuffix: Azure Media Services
-description: Dowiedz się, jak dostosować model osoby za pomocą interfejsu API indeksatora wideo.
+description: Dowiedz się, jak dostosować model osoby za pomocą interfejsu API Video Indexer.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -11,33 +11,33 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: anzaman
 ms.openlocfilehash: fa41fca7f8ad96cf507aa6f04059b1254c8c3961
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80127887"
 ---
-# <a name="customize-a-person-model-with-the-video-indexer-api"></a>Dostosowywanie modelu osoby za pomocą interfejsu API indeksatora wideo
+# <a name="customize-a-person-model-with-the-video-indexer-api"></a>Dostosowywanie modelu osoby za pomocą interfejsu API Video Indexer
 
-Video Indexer obsługuje wykrywanie twarzy i rozpoznawanie gwiazd dla treści wideo. Funkcja rozpoznawania gwiazd obejmuje około miliona twarzy na podstawie powszechnie żądanego źródła danych, takiego jak IMDB, Wikipedia i najlepsi influencerzy LinkedIn. Twarze, które nie są rozpoznawane przez funkcję rozpoznawania gwiazd, są wykrywane, ale pozostawione bez nazwy. Po przesłaniu filmu do indeksatora wideo i powrocie wyników możesz wrócić i nazwać twarze, które nie zostały rozpoznane. Po oznaczeniu twarzy nazwą twarz i nazwa stają się dodawane do modelu osoby na koncie. Indeksator wideo rozpozna tę twarz w przyszłych filmach i poprzednich filmach.
+Video Indexer obsługuje wykrywanie kroju i rozpoznawanie osobistości dla zawartości wideo. Funkcja rozpoznawania osobistości obejmuje około 1 000 000 twarzy na podstawie często żądanego źródła danych, takiego jak IMDB, Wikipedia i najpopularniejszych wpływów serwisu LinkedIn. Powierzchnie, które nie są rozpoznawane przez funkcję rozpoznawania osobistości, są wykrywane, ale pozostawione bez nazwy. Po przekazaniu wideo do Video Indexer i powrocie z powrotem możesz wrócić i nazwać powierzchnie, które nie zostały rozpoznane. Po oznaczeniu kroju z nazwą zostanie dodana do modelu osoby Twojego konta. Następnie Video Indexer rozpoznają Tę miarę w przyszłych wideo i poprzednich wideo.
 
-Za pomocą interfejsu API indeksatora wideo można edytować twarze wykryte w klipie wideo, zgodnie z opisem w tym temacie. Można również użyć witryny video indexer, zgodnie z opisem w [Dostosuj model osoby za pomocą witryny wideo indeksatora](customize-person-model-with-api.md).
+Za pomocą interfejsu API Video Indexer można edytować powierzchnie wykryte w wideo, zgodnie z opisem w tym temacie. Możesz również użyć witryny sieci Web Video Indexer, zgodnie z opisem w temacie [Dostosowywanie modelu osoby za pomocą witryny sieci web video Indexer](customize-person-model-with-api.md).
 
 ## <a name="managing-multiple-person-models"></a>Zarządzanie wieloma modelami osób
 
-Indeksator wideo obsługuje wiele modeli osób na konto. Ta funkcja jest obecnie dostępna tylko za pośrednictwem interfejsów API indeksatora wideo.
+Video Indexer obsługuje wiele modeli osób na konto. Ta funkcja jest obecnie dostępna tylko za pomocą interfejsów API Video Indexer.
 
-Jeśli twoje konto obsługuje różne scenariusze przypadków użycia, możesz utworzyć wiele modeli osób na konto. Jeśli na przykład zawartość jest powiązana ze sportem, możesz utworzyć osobny model osoby dla każdego sportu (piłki nożnej, koszykówki, piłki nożnej itd.).
+Jeśli Twoje konto uwzględnia różne scenariusze przypadków użycia, można utworzyć wiele modeli osób dla każdego konta. Na przykład jeśli zawartość jest powiązana z sportem, można utworzyć osobny model dla każdej sportka (piłka, Basketball, piłka i tak dalej).
 
-Po utworzeniu modelu można go użyć, podając identyfikator modelu określonego modelu osoby podczas przesyłania/indeksowania lub ponownego indeksowania wideo. Szkolenie nowej twarzy dla wideo aktualizuje określony model niestandardowy, z który został skojarzony.
+Po utworzeniu modelu można go użyć, dostarczając Identyfikator modelu określonego modelu osoby podczas przekazywania/indeksowania lub ponownego indeksowania wideo. Uczenie nowej kroju filmu wideo aktualizuje określony model niestandardowy, z którym zostało skojarzone wideo.
 
-Każde konto ma limit 50 modeli osób. Jeśli nie potrzebujesz obsługi wielu modeli osób, nie przypisuj identyfikatora modelu osoby do filmu podczas przesyłania/indeksowania lub ponownego indeksowania. W takim przypadku indeksator wideo używa domyślnego niestandardowego modelu osoby na koncie.
+Każde konto ma limit 50 modeli osób. Jeśli nie potrzebujesz pomocy technicznej modelu wielu osób, nie przypisuj identyfikatora modelu osoby do wideo podczas przekazywania/indeksowania lub ponownego indeksowania. W takim przypadku Video Indexer używa domyślnego modelu osoby niestandardowej na Twoim koncie.
 
-## <a name="create-a-new-person-model"></a>Tworzenie nowego modelu osoby
+## <a name="create-a-new-person-model"></a>Utwórz nowy model osoby
 
-Aby utworzyć nowy model osoby na określonym koncie, należy użyć interfejsu API [modelu osoby.](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?)
+Aby utworzyć nowy model osoby na określonym koncie, użyj interfejsu API [Tworzenie modelu osoby](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?) .
 
-Odpowiedź zawiera nazwę i wygenerowany identyfikator modelu osoby, który został właśnie utworzony zgodnie z formatem poniższego przykładu.
+Odpowiedź zawiera nazwę i wygenerowany identyfikator modelu osoby, który właśnie został utworzony, zgodnie z poniższym formatem.
 
 ```json
 {
@@ -46,21 +46,21 @@ Odpowiedź zawiera nazwę i wygenerowany identyfikator modelu osoby, który zost
 }
 ```
 
-Następnie używasz wartości **identyfikatora** dla **parametru personModelId** podczas [przesyłania wideo do indeksowania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) lub [ponownego indeksowania filmu](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+Następnie należy użyć wartości **identyfikatora** parametru **personModelId** podczas [przekazywania wideo do indeksu](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) lub ponownego [indeksowania wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
 
-## <a name="delete-a-person-model"></a>Usuwanie modelu osoby
+## <a name="delete-a-person-model"></a>Usuń model osoby
 
-Aby usunąć niestandardowy model osoby z określonego konta, należy użyć interfejsu API [modelu delete osoby.](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?)
+Aby usunąć niestandardowy model osoby z określonego konta, użyj interfejsu API [usuwania modelu osoby](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?) .
 
-Po pomyślnym usunięciu modelu osoby indeks bieżących filmów, które były używane, pozostanie niezmieniony, dopóki nie zostanie ponownie zindeksowany. Po ponownym indeksowaniu twarze, które zostały nazwane w usuniętym modelu, nie zostaną rozpoznane przez indeksator wideo w bieżących filmach wideo, które zostały zindeksowane przy użyciu tego modelu, ale twarze będą nadal wykrywane. Bieżące filmy, które zostały zindeksowane przy użyciu usuniętego modelu, będą teraz korzystać z domyślnego modelu osoby na Twoim koncie. Jeśli twarze z usuniętego modelu są również nazwane w domyślnym modelu konta, te twarze będą nadal rozpoznawane w filmach.
+Po pomyślnym usunięciu modelu osoby indeks bieżących filmów wideo, przy użyciu którego usunięto model, pozostanie bez zmian do momentu ponownego indeksowania. Podczas ponownego indeksowania powierzchnie, które zostały nazwane w usuniętym modelu, nie będą rozpoznawane przez Video Indexer w bieżących filmach wideo, które były indeksowane przy użyciu tego modelu, ale twarze nadal będą wykrywane. Bieżące filmy wideo, które były indeksowane przy użyciu usuniętego modelu, będą teraz używały domyślnego modelu osoby Twojego konta. Jeśli twarze z usuniętego modelu są również nazwane w domyślnym modelu konta, te powierzchnie będą nadal rozpoznawane w filmach wideo.
 
-Nie ma zwracanych zawartości, gdy model osoby zostanie pomyślnie usunięty.
+Nie ma żadnej zwróconej zawartości, gdy model osoby został usunięty pomyślnie.
 
-## <a name="get-all-person-models"></a>Pobierz wszystkie modele person
+## <a name="get-all-person-models"></a>Pobierz wszystkie modele osób
 
-Aby uzyskać wszystkie modele osoby na określonym koncie, użyj interfejsu API [modelu osoby.](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?)
+Aby uzyskać wszystkie modele osób na określonym koncie, użyj interfejsu API [uzyskiwania modelu osoby](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?) .
 
-Odpowiedź zawiera listę wszystkich modeli osoby na koncie (w tym domyślny model osoby na określonym koncie) oraz każdą z ich nazw i identyfikatorów zgodnie z poniższym przykładem.
+Odpowiedź zawiera listę wszystkich modeli osób w Twoim koncie (w tym domyślny model osoby na określonym koncie) oraz każdej z nazw i identyfikatorów, które są zgodne z poniższym formatem przykładu.
 
 ```json
 [
@@ -75,20 +75,20 @@ Odpowiedź zawiera listę wszystkich modeli osoby na koncie (w tym domyślny mod
 ]
 ```
 
-Możesz wybrać model, którego chcesz użyć dla `id` filmu wideo, używając `personModelId` wartości modelu Osoby dla parametru podczas [przesyłania wideo do indeksu](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) lub [ponownego indeksowania wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+Można wybrać model, który ma być używany do wideo, przy `id` użyciu wartości modelu osoby dla `personModelId` parametru podczas [przekazywania wideo do indeksowania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) lub ponownego [indeksowania wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
 
-## <a name="update-a-face"></a>Aktualizowanie twarzy
+## <a name="update-a-face"></a>Aktualizowanie kroju
 
-To polecenie umożliwia zaktualizowanie twarzy w filmie o nazwie przy użyciu identyfikatora wideo i identyfikatora twarzy. Ta akcja następnie aktualizuje model osoby, z którymi film został skojarzony podczas przesyłania/indeksowania lub ponownego indeksowania. Jeśli nie przypisano żadnego modelu osoby, aktualizuje domyślny model osoby na koncie.
+To polecenie umożliwia zaktualizowanie kroju obrazu w filmie wideo przy użyciu nazwy z IDENTYFIKATORem wideo i IDENTYFIKATORem kroju. Ta akcja spowoduje zaktualizowanie modelu osoby, z którym zostało skojarzone wideo, podczas przekazywania/indeksowania lub ponownego indeksowania. Jeśli żaden model osoby nie został przypisany, aktualizuje domyślny model osoby dla konta.
 
-Następnie system rozpoznaje wystąpienia tej samej twarzy w innych bieżących filmach, które współużytkuje ten sam model osoby. Rozpoznanie twarzy w innych bieżących filmach może zająć trochę czasu, ponieważ jest to proces wsadowy.
+System rozpoznaje wystąpienia tej samej klasy z innymi bieżącymi filmami wideo, które współużytkują ten sam model osoby. Rozpoznawanie twarz w innych bieżących filmach wideo może zająć trochę czasu, ponieważ jest to proces wsadowy.
 
-Możesz zaktualizować twarz, którą indeksator wideo rozpoznał jako gwiazdę, o nowej nazwie. Nowa nazwa, którą nadasz, będzie mieć pierwszeństwo przed wbudowanym uznaniem gwiazdy.
+Możesz zaktualizować miarę, która Video Indexer rozpoznawana jako osobistości z nową nazwą. Nowa nazwa, która zostanie nadana, będzie mieć pierwszeństwo przed wbudowanym rozpoznawaniem osobistości.
 
-Aby zaktualizować twarz, użyj zaktualizowanego interfejsu API [twarzy wideo.](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?)
+Aby zaktualizować tę funkcję, użyj aktualizacji interfejsu API [rozpoznawania wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?) .
 
-Nazwy są unikatowe dla modeli person, więc jeśli podasz `name` dwie różne ściany w tym samym modelu osoby tej samej wartości parametru, indeksator wideo wyświetla ściany jako tę samą osobę i zbiega je po ponownym wydekgowania wideo.
+Nazwy są unikatowe dla modeli osób, dlatego w przypadku udostępnienia dwóch różnych twarzy w tym samym modelu osoby te `name` same wartości parametrów Video Indexer wyświetlenia twarzy jako ta sama osoba i nastąpi ich zbieżność po ponownym przeprowadzeniu indeksowania wideo.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dostosowywanie modelu osoby za pomocą witryny video Indexer](customize-person-model-with-website.md)
+[Dostosuj model osoby za pomocą witryny sieci Web Video Indexer](customize-person-model-with-website.md)

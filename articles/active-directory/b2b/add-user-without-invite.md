@@ -1,6 +1,6 @@
 ---
-title: Dodawanie gości B2B bez łącza zaproszenia lub wiadomości e-mail — Azure AD
-description: Użytkownik-gość może dodawać innych użytkowników-gości do usługi Azure AD bez realizowania zaproszenia we współpracy usługi Azure Active Directory B2B.
+title: Dodawanie Gości B2B bez linku do zaproszenia lub poczty e-mail — Azure AD
+description: Możesz pozwolić, aby użytkownik-Gość dodał innych użytkowników-Gości do usługi Azure AD bez wypełniania zaproszenia w Azure Active Directory współpracy B2B.
 documentationcenter: ''
 services: active-directory
 ms.service: active-directory
@@ -13,30 +13,30 @@ manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42c9caaf581fab37e2e55cbe408db6d6d846622a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80050906"
 ---
-# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Dodawanie użytkowników-gości współpracujących b2b bez łącza zaproszenia lub wiadomości e-mail
+# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Dodawanie użytkowników-Gości współpracy B2B bez linku do zaproszenia lub wiadomości e-mail
 
-Możesz teraz zaprosić użytkowników-gości, wysyłając bezpośredni link do udostępnionej aplikacji. Dzięki tej metodzie użytkownicy-goście nie muszą już używać wiadomości e-mail z zaproszeniem, z wyjątkiem niektórych szczególnych przypadków. Użytkownik-gość klika łącze do aplikacji, przegląda i akceptuje warunki prywatności, a następnie bezproblemowo uzyskuje dostęp do aplikacji. Aby uzyskać więcej informacji, zobacz [Wykup zaproszenia do współpracy B2B](redemption-experience.md).   
+Możesz teraz zaprosić użytkowników-Gości przez wysłanie bezpośredniego linku do udostępnionej aplikacji. W przypadku tej metody użytkownicy-Goście nie muszą już używać wiadomości e-mail z zaproszeniem, z wyjątkiem niektórych specjalnych przypadków. Użytkownik-Gość klika link aplikacji, przegląda i akceptuje warunki prywatności, a następnie bezproblemowo uzyskuje dostęp do aplikacji. Aby uzyskać więcej informacji, zobacz temat do realizacji [zaproszeń do współpracy B2B](redemption-experience.md).   
 
-Zanim ta nowa metoda była dostępna, można było zaprosić użytkowników-gości bez konieczności wysłania zaproszenia pocztą e-mail przez dodanie osoby zaproszonej (z organizacji lub organizacji partnerskiej) do roli katalogu **osoby zaproszonej gościa,** a następnie dodanie przez osobę zaproszoną użytkowników-gości do katalogu, grup lub aplikacji za pośrednictwem interfejsu użytkownika lub programu PowerShell. (Jeśli używasz programu PowerShell, można całkowicie pominąć e-mail z zaproszeniem). Przykład:
+Przed udostępnieniem tej nowej metody można zaprosić użytkowników-Gości bez konieczności wysyłania wiadomości e-mail z zaproszeniem przez dodanie osoby żądającej (z organizacji lub z organizacji partnerskiej) do roli katalogu **zapraszania gościa** , a następnie dodanie użytkowników-Gości do katalogu, grup lub aplikacji za pośrednictwem interfejsu użytkownika lub programu PowerShell. (Jeśli używasz programu PowerShell, możesz całkowicie pominąć wiadomość e-mail z zaproszeniem). Przykład:
 
-1. Użytkownik w organizacji hosta (na przykład WoodGrove) zaprasza jednego użytkownika z Sam@litware.comorganizacji partnerskiej (na przykład) jako gościa.
-2. Administrator w organizacji hosta [konfiguruje zasady,](delegate-invitations.md) które umożliwiają Same'owi identyfikowanie i dodawanie innych użytkowników z organizacji partnerskiej (Litware). (Sam musi zostać dodany do roli **osoby zapraszania gościa).**
-3. Teraz Sam może dodawać innych użytkowników z Litware do katalogu WoodGrove, grup lub aplikacji bez konieczności zapraszania do realizacji. Jeśli Sam ma odpowiednie uprawnienia wyliczenia w Litware, dzieje się to automatycznie.
+1. Użytkownik w organizacji hosta (na przykład WoodGrove) zaprasza jednego użytkownika z organizacji partnera (na przykład Sam@litware.com) jako gość.
+2. Administrator w organizacji hosta [konfiguruje zasady](delegate-invitations.md) zezwalające usłudze sam na identyfikację i dodawanie innych użytkowników z organizacji partnera (litware). (Sam należy dodać do roli **zapraszania gościa** ).
+3. Teraz można dodać innych użytkowników z litware do katalogu WoodGrove, grup lub aplikacji bez konieczności realizowania zaproszeń. Jeśli sam ma odpowiednie uprawnienia wyliczenia w litware, odbywa się to automatycznie.
  
-Ta oryginalna metoda nadal działa. Istnieje jednak niewielka różnica w zachowaniu. Jeśli używasz programu PowerShell, zauważysz, że zaproszone konto gościa ma teraz stan **Oczekująceakceptowanie** zamiast natychmiast **wyświetlać komunikat Zaakceptowane.** Chociaż stan jest oczekujący, użytkownik-gość nadal może zalogować się i uzyskać dostęp do aplikacji bez klikania łącza zaproszenia e-mail. Stan oczekiwania oznacza, że użytkownik nie przeszedł jeszcze [doświadczenia zgody,](redemption-experience.md#consent-experience-for-the-guest)gdzie akceptuje warunki prywatności zapraszania organizacji. Użytkownik-gość widzi ten ekran zgody, gdy loguje się po raz pierwszy. 
+Ta oryginalna metoda nadal działa. Istnieje jednak mała różnica w zachowaniu. Jeśli używasz programu PowerShell, możesz zauważyć, że zaproszone konto gościa ma teraz stan **PendingAcceptance** zamiast natychmiastowego wyświetlania **zaakceptowanego**. Mimo że stan jest oczekujący, użytkownik-Gość nadal może się zalogować i uzyskać dostęp do aplikacji bez kliknięcia linku do zaproszenia e-mail. Stan Oczekujący oznacza, że użytkownik nie został jeszcze przeszedł przez [proces wyrażania zgody](redemption-experience.md#consent-experience-for-the-guest), gdy akceptuje warunki prywatności organizacji zapraszanej. Użytkownik-Gość widzi ten ekran zgody, gdy loguje się po raz pierwszy. 
 
-Jeśli zaprosisz użytkownika do katalogu, użytkownik-gość musi uzyskać bezpośredni dostęp do adresu https://portal.azure.com/URL witryny azure portal specyficzne dla dzierżawy zasobów (na przykład *resourcetenant*.onmicrosoft.com), aby wyświetlić i zaakceptować warunki prywatności.
+W przypadku zaproszenia użytkownika do katalogu użytkownik-Gość musi uzyskać dostęp do adresu URL Azure Portal specyficznego dla dzierżawy zasobu bezpośrednio (na https://portal.azure.com/przykład *resourcetenant*. onmicrosoft.com) w celu wyświetlenia i zaakceptowania postanowień dotyczących prywatności.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Czym jest współpraca B2B w usłudze Azure AD?](what-is-b2b.md)
-- [Wykup zaproszenia do współpracy B2B](redemption-experience.md)
+- [Realizacja zaproszenia do współpracy B2B](redemption-experience.md)
 - [Delegate invitations for Azure Active Directory B2B collaboration (Delegowanie zaproszeń na potrzeby współpracy B2B w usłudze Azure Active Directory)](delegate-invitations.md)
-- [W jaki sposób pracownicy informacji dodają użytkowników współpracy B2B?](add-users-information-worker.md)
+- [Jak Pracownicy przetwarzający informacje dodają użytkowników współpracy B2B?](add-users-information-worker.md)
 

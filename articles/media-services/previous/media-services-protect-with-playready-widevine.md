@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 79c24eb078cc3de764ecc1c814e5b8772777eab6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78199499"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Używanie dynamicznego szyfrowania Common Encryption w usługach PlayReady i Widevine
 
 > [!NOTE]
-> Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).   > Do usługi Media Services w wersji 2 nie są dodawane żadne nowe funkcje ani funkcje. <br/>Sprawdź najnowszą wersję usługi [Media Services w wersji 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji z wersji 2 do v3](../latest/migrate-from-v2-to-v3.md)
+> Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).   > żadne nowe funkcje lub funkcje nie są dodawane do Media Services V2. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 >   
 
 ## <a name="overview"></a>Omówienie
@@ -98,7 +98,7 @@ W przypadku szyfrowania dynamicznego należy utworzyć element zawartości zawie
 
 Aby uzyskać instrukcje na temat kodowania, zobacz [Kodowanie elementów zawartości przy użyciu standardowego kodera multimediów](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a name="create-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Tworzenie klucza zawartości i kojarzenie go z zakodowanym zasobem
+## <a name="create-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Utwórz klucz zawartości i skojarz go z zakodowanym zasobem
 W usłudze Media Services klucz zawartości zawiera klucz, za pomocą którego chcesz zaszyfrować element zawartości.
 
 Aby uzyskać więcej informacji, zobacz [Tworzenie klucza zawartości](media-services-dotnet-create-contentkey.md).
@@ -147,7 +147,7 @@ Możesz przetestować strumień za pomocą usługi [Azure Media Services Player]
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
 
-1. Skonfiguruj środowisko programistyczne i wypełnij plik app.config informacjami o połączeniu, zgodnie z opisem w programie [Media Services development za pomocą platformy .NET](media-services-dotnet-how-to-use.md).
+1. Skonfiguruj środowisko deweloperskie i wypełnij plik App. config informacjami o połączeniu, zgodnie z opisem w temacie [programowanie Media Services przy użyciu platformy .NET](media-services-dotnet-how-to-use.md).
 
 2. Dodaj następujące elementy do węzła **appSettings** zdefiniowanego w pliku app.config:
 
@@ -607,7 +607,7 @@ namespace DynamicEncryptionWithDRM
 
 ## <a name="additional-notes"></a>Uwagi dodatkowe
 
-* Widevine jest usługą świadczoną przez Google Inc. i podlega warunkom korzystania z usługi oraz Polityce prywatności Firmy Google, Inc.
+* Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -616,7 +616,7 @@ namespace DynamicEncryptionWithDRM
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Używanie szyfrowania CENC z technologią multi-DRM i kontrolą dostępu](media-services-cenc-with-multidrm-access-control.md)
 * [Konfigurowanie tworzenia pakietów Widevine przy użyciu usługi Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)

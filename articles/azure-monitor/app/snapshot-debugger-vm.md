@@ -1,31 +1,31 @@
 ---
-title: Włącz debuger migawek dla aplikacji platformy .NET w sieci szkieletowej usług Azure, usłudze w chmurze i maszynach wirtualnych | Dokumenty firmy Microsoft
-description: Włącz debuger migawek dla aplikacji platformy .NET w sieci szkieletowej usług Azure, usłudze w chmurze i maszynach wirtualnych
+title: Włączanie Snapshot Debugger dla aplikacji .NET w usłudze Azure Service Fabric, w chmurze i Virtual Machines | Microsoft Docs
+description: Włączanie Snapshot Debugger dla aplikacji .NET w usłudze Azure Service Fabric, w chmurze i Virtual Machines
 ms.topic: conceptual
 author: brahmnes
 ms.author: bfung
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 194a2da23c8fb405c492df8f6ee173cc97fde4ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671348"
 ---
-# <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Włącz debuger migawek dla aplikacji platformy .NET w sieci szkieletowej usług Azure, usłudze w chmurze i maszynach wirtualnych
+# <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Włączanie Snapshot Debugger dla aplikacji .NET w usłudze Azure Service Fabric, w chmurze i Virtual Machines
 
-Jeśli ASP.NET lub ASP.NET podstawowej aplikacji działa w usłudze Azure App Service, zdecydowanie zaleca się [włączenie debugera migawek za pośrednictwem strony portalu usługi Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Jeśli jednak aplikacja wymaga dostosowanej konfiguracji debugera migawek lub wersji zapoznawczej rdzenia .NET, należy wykonać tę instrukcję ***oprócz*** instrukcji [włączania za pośrednictwem strony portalu usługi Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+Jeśli aplikacja ASP.NET lub ASP.NET Core działa w Azure App Service, zdecydowanie zaleca się [włączenie Snapshot Debugger za pomocą strony portalu Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Jeśli jednak aplikacja wymaga dostosowanej konfiguracji Snapshot Debugger lub wersji zapoznawczej platformy .NET Core, należy postępować ***zgodnie*** z instrukcjami dotyczącymi [włączania za pomocą strony portalu Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
 
-Jeśli aplikacja jest uruchamiana w sieci szkieletowej usługi Azure, usłudze w chmurze, maszynach wirtualnych lub komputerach lokalnych, należy użyć następujących instrukcji. 
+Jeśli aplikacja działa na platformie Azure Service Fabric, usłudze w chmurze, Virtual Machines lub maszynach lokalnych, należy użyć poniższych instrukcji. 
     
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>Konfigurowanie kolekcji migawek dla aplikacji ASP.NET
 
-1. [Włącz usługę Application Insights w aplikacji sieci Web](../../azure-monitor/app/asp-net.md), jeśli jeszcze tego nie zrobiono.
+1. [Włącz Application Insights w aplikacji sieci Web](../../azure-monitor/app/asp-net.md), jeśli jeszcze nie zostało to zrobione.
 
-2. Dołącz [pakiet Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet w aplikacji.
+2. Dołącz pakiet NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) do swojej aplikacji.
 
-3. W razie potrzeby dostosowano konfigurację debugera migawek dodaną do [pliku ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Domyślna konfiguracja debugera migawki jest w większości pusta, a wszystkie ustawienia są opcjonalne. Oto przykład przedstawiający konfigurację równoważną domyślnej konfiguracji:
+3. W razie potrzeby dostosowana konfiguracja Snapshot Debugger dodana do [pliku ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Domyślna konfiguracja Snapshot Debugger jest w większości puste i wszystkie ustawienia są opcjonalne. Oto przykład przedstawiający konfigurację równoważną konfiguracji domyślnej:
 
     ```xml
     <TelemetryProcessors>
@@ -59,31 +59,31 @@ Jeśli aplikacja jest uruchamiana w sieci szkieletowej usługi Azure, usłudze w
     </TelemetryProcessors>
     ```
 
-4. Migawki są zbierane tylko w wyjątkach, które są zgłaszane do usługi Application Insights. W niektórych przypadkach (na przykład starsze wersje platformy .NET), może być konieczne [skonfigurowanie kolekcji wyjątków,](../../azure-monitor/app/asp-net-exceptions.md#exceptions) aby wyświetlić wyjątki z migawkami w portalu.
+4. Migawki są zbierane tylko na wyjątkach, które są zgłaszane do Application Insights. W niektórych przypadkach (na przykład starszych wersji platformy .NET) może być konieczne [skonfigurowanie kolekcji wyjątków](../../azure-monitor/app/asp-net-exceptions.md#exceptions) , aby zobaczyć wyjątki z migawkami w portalu.
 
 
-## <a name="configure-snapshot-collection-for-applications-using-aspnet-core-20-or-above"></a>Konfigurowanie kolekcji migawek dla aplikacji korzystających z ASP.NET Core 2.0 lub wyższej
+## <a name="configure-snapshot-collection-for-applications-using-aspnet-core-20-or-above"></a>Konfigurowanie kolekcji migawek dla aplikacji przy użyciu ASP.NET Core 2,0 lub nowszej
 
-1. [Włącz usługę Application Insights w aplikacji sieci web ASP.NET Core](../../azure-monitor/app/asp-net-core.md), jeśli jeszcze tego nie zrobiono.
+1. [Włącz Application Insights w aplikacji internetowej ASP.NET Core](../../azure-monitor/app/asp-net-core.md), jeśli jeszcze nie zostało to zrobione.
 
     > [!NOTE]
-    > Upewnij się, że aplikacja odwołuje się do wersji 2.1.1 lub nowszej pakietu Microsoft.ApplicationInsights.AspNetCore.
+    > Upewnij się, że aplikacja odwołuje się do wersji 2.1.1 lub nowszej pakietu Microsoft. ApplicationInsights. AspNetCore.
 
-2. Dołącz [pakiet Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet w aplikacji.
+2. Dołącz pakiet NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) do swojej aplikacji.
 
-3. Zmodyfikuj `Startup` klasę aplikacji, aby dodać i skonfigurować procesor telemetrii modułu zbierającego migawki.
-    1. Jeśli jest używany pakiet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet w wersji 1.3.5 `Startup.cs`lub wyższej, dodaj następujące instrukcje do .
+3. Zmodyfikuj `Startup` klasę aplikacji, aby dodać i skonfigurować procesor telemetrii Snapshot collector.
+    1. Jeśli użyto pakietu NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) w wersji 1.3.5 lub nowszej, Dodaj następujące instrukcje using do `Startup.cs`.
 
        ```csharp
             using Microsoft.ApplicationInsights.SnapshotCollector;
        ```
 
-       Dodaj następujące na końcu ConfigureServices metody `Startup` w `Startup.cs`klasie w .
+       Dodaj następujące na końcu metody ConfigureServices w `Startup` klasie w. `Startup.cs`
 
        ```csharp
             services.AddSnapshotCollector((configuration) => Configuration.Bind(nameof(SnapshotCollectorConfiguration), configuration));
        ```
-    2. Jeśli jest używany pakiet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet w wersji 1.3.4 `Startup.cs`lub poniżej, dodaj następujące instrukcje do .
+    2. Jeśli użyto pakietu NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) w wersji 1.3.4 lub starszej, Dodaj następujące instrukcje using do `Startup.cs`.
 
        ```csharp
        using Microsoft.ApplicationInsights.SnapshotCollector;
@@ -92,7 +92,7 @@ Jeśli aplikacja jest uruchamiana w sieci szkieletowej usługi Azure, usłudze w
        using Microsoft.ApplicationInsights.Extensibility;
        ```
     
-       Dodaj następującą `SnapshotCollectorTelemetryProcessorFactory` `Startup` klasę do klasy.
+       Dodaj następującą `SnapshotCollectorTelemetryProcessorFactory` klasę do `Startup` klasy.
     
        ```csharp
        class Startup
@@ -112,7 +112,7 @@ Jeśli aplikacja jest uruchamiana w sieci szkieletowej usługi Azure, usłudze w
            }
            ...
         ```
-        Dodaj `SnapshotCollectorConfiguration` i `SnapshotCollectorTelemetryProcessorFactory` usług do potoku uruchamiania:
+        Dodaj usługi `SnapshotCollectorConfiguration` i `SnapshotCollectorTelemetryProcessorFactory` do potoku uruchamiania:
     
         ```csharp
            // This method gets called by the runtime. Use this method to add services to the container.
@@ -129,7 +129,7 @@ Jeśli aplikacja jest uruchamiana w sieci szkieletowej usługi Azure, usłudze w
        }
        ```
 
-4. W razie potrzeby dostosowano konfigurację debugera migawek, dodając sekcję SnapshotCollectorConfiguration do pliku appsettings.json. Wszystkie ustawienia w konfiguracji debugera migawki są opcjonalne. Oto przykład przedstawiający konfigurację równoważną domyślnej konfiguracji:
+4. W razie potrzeby dostosuj konfigurację Snapshot Debugger, dodając sekcję SnapshotCollectorConfiguration do pliku appSettings. JSON. Wszystkie ustawienia w konfiguracji Snapshot Debugger są opcjonalne. Oto przykład przedstawiający konfigurację równoważną konfiguracji domyślnej:
 
    ```json
    {
@@ -151,11 +151,11 @@ Jeśli aplikacja jest uruchamiana w sieci szkieletowej usługi Azure, usłudze w
 
 ## <a name="configure-snapshot-collection-for-other-net-applications"></a>Konfigurowanie kolekcji migawek dla innych aplikacji platformy .NET
 
-1. Jeśli aplikacja nie jest jeszcze instrumentowana za pomocą usługi Application Insights, rozpocznij pracę, [włączając aplikację Application Insights i ustawiając klucz instrumentacji.](../../azure-monitor/app/windows-desktop.md)
+1. Jeśli aplikacja nie ma już Instrumentacji Application Insights, Zacznij od [włączenia Application Insights i ustawienia klucza Instrumentacji](../../azure-monitor/app/windows-desktop.md).
 
-2. Dodaj pakiet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet w aplikacji.
+2. Dodaj pakiet NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) w aplikacji.
 
-3. Migawki są zbierane tylko w wyjątkach, które są zgłaszane do usługi Application Insights. Może być konieczne zmodyfikowanie kodu, aby je zgłosić. Kod obsługi wyjątków zależy od struktury aplikacji, ale przykład znajduje się poniżej:
+3. Migawki są zbierane tylko na wyjątkach, które są zgłaszane do Application Insights. Może być konieczne zmodyfikowanie kodu w celu zgłoszenia go. Kod obsługi wyjątków zależy od struktury aplikacji, ale przykład jest poniżej:
     ```csharp
    TelemetryClient _telemetryClient = new TelemetryClient();
 
@@ -177,6 +177,6 @@ Jeśli aplikacja jest uruchamiana w sieci szkieletowej usługi Azure, usłudze w
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Generowanie ruchu do aplikacji, która może wyzwolić wyjątek. Następnie poczekaj od 10 do 15 minut, aby migawki zostały wysłane do wystąpienia usługi Application Insights.
-- Zobacz [migawki](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) w witrynie Azure portal.
-- Aby uzyskać pomoc dotyczącą rozwiązywania problemów z debugerem migawek, zobacz [Rozwiązywanie problemów z debugerem migawek](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
+- Generuj ruch do aplikacji, która może wyzwolić wyjątek. Następnie odczekaj od 10 do 15 minut na wysłanie migawek do wystąpienia Application Insights.
+- Zobacz [migawki](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) w Azure Portal.
+- Aby uzyskać pomoc dotyczącą rozwiązywania problemów Snapshot Debugger, zobacz [Snapshot Debugger Rozwiązywanie problemów](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).

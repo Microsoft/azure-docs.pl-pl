@@ -1,27 +1,27 @@
 ---
-title: Pisanie kodu w celu śledzenia żądań za pomocą usługi Azure Application Insights | Dokumenty firmy Microsoft
-description: Napisz kod do śledzenia żądań za pomocą usługi Application Insights, dzięki czemu można uzyskać profile dla żądań.
+title: Napisz kod do śledzenia żądań za pomocą usługi Azure Application Insights | Microsoft Docs
+description: Napisz kod do śledzenia żądań za pomocą Application Insights, aby można było uzyskać profile dla swoich żądań.
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: c59cbe852a91a91c7b3adb4452328700ec718a82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671600"
 ---
-# <a name="write-code-to-track-requests-with-application-insights"></a>Pisanie kodu w celu śledzenia żądań za pomocą usługi Application Insights
+# <a name="write-code-to-track-requests-with-application-insights"></a>Napisz kod do śledzenia żądań za pomocą Application Insights
 
-Aby wyświetlić profile aplikacji na stronie Wydajność usługi Azure Application Insights, usługa Azure Application Insights musi śledzić żądania dotyczące aplikacji. Usługa Application Insights może automatycznie śledzić żądania dla aplikacji, które są oparte na już instrumentowanych ramach. Dwa przykłady to ASP.NET i ASP.NET Core. 
+Aby wyświetlić profile dla aplikacji na stronie wydajność, usługa Azure Application Insights musi śledzić żądania dla aplikacji. Application Insights może automatycznie śledzić żądania dla aplikacji, które są oparte na strukturach, które są już Instrumentacją. Dwa przykłady to ASP.NET i ASP.NET Core. 
 
-W przypadku innych aplikacji, takich jak role procesowe usług Azure Cloud Services i bezstanowe interfejsy API sieci szkieletowej usług, należy napisać kod, aby poinformować usługę Application Insights, gdzie żądania rozpoczynają się i kończą. Po napisaniu tego kodu żądania danych telemetrycznych są wysyłane do usługi Application Insights. Można wyświetlić dane telemetryczne na stronie Wydajność, a profile są zbierane dla tych żądań. 
+W przypadku innych aplikacji, takich jak role procesu roboczego platformy Azure Cloud Services i Service Fabric bezstanowych interfejsów API, należy napisać kod, aby poinformować Application Insights, gdzie Twoje żądania zaczynają się i kończą. Po napisaniu tego kodu dane telemetryczne są wysyłane do Application Insights. Możesz wyświetlić dane telemetryczne na stronie wydajność, a dla tych żądań są zbierane profile. 
 
 Aby ręcznie śledzić żądania, wykonaj następujące czynności:
 
-  1. Na początku okresu istnienia aplikacji dodaj następujący kod:  
+  1. Wcześniej w okresie istnienia aplikacji Dodaj następujący kod:  
 
         ```csharp
         using Microsoft.ApplicationInsights.Extensibility;
@@ -29,9 +29,9 @@ Aby ręcznie śledzić żądania, wykonaj następujące czynności:
         // Replace with your own Application Insights instrumentation key.
         TelemetryConfiguration.Active.InstrumentationKey = "00000000-0000-0000-0000-000000000000";
         ```
-      Aby uzyskać więcej informacji na temat tej globalnej konfiguracji klucza instrumentacji, zobacz [Używanie sieci szkieletowej usług z aplikacją Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
+      Aby uzyskać więcej informacji na temat konfiguracji globalnego klucza instrumentacji, zobacz [używanie Service Fabric z Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
 
-  1. Dla każdego fragmentu kodu, który chcesz `StartOperation<RequestTelemetry>` zainstruować, dodaj **instrukcję using** wokół niego, jak pokazano w poniższym przykładzie:
+  1. Dla dowolnego fragmentu kodu, który ma być instrumentem, Dodaj `StartOperation<RequestTelemetry>` do niego instrukcję **using** , jak pokazano w poniższym przykładzie:
 
         ```csharp
         using Microsoft.ApplicationInsights;
@@ -45,7 +45,7 @@ Aby ręcznie śledzić żądania, wykonaj następujące czynności:
         }
         ```
 
-        Wywołanie `StartOperation<RequestTelemetry>` `StartOperation<RequestTelemetry>` w innym zakresie nie jest obsługiwane. Zamiast tego `StartOperation<DependencyTelemetry>` można użyć w zakresie zagnieżdżonego. Przykład:  
+        Wywoływanie `StartOperation<RequestTelemetry>` w `StartOperation<RequestTelemetry>` innym zakresie nie jest obsługiwane. Zamiast tego można `StartOperation<DependencyTelemetry>` użyć w zagnieżdżonym zakresie. Przykład:  
         
         ```csharp
         using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))

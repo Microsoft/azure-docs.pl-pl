@@ -1,7 +1,7 @@
 ---
-title: 'Referencje: Znane problemy & rozwiązywaniu problemów'
+title: 'Dokumentacja: znane problemy & Rozwiązywanie problemów'
 titleSuffix: Azure Data Science Virtual  Machine
-description: Pobierz listę znanych problemów, obejścia i rozwiązywania problemów dla maszyny wirtualnej usługi Azure Data Science
+description: Zapoznaj się z listą znanych problemów, obejść i rozwiązywania problemów dotyczących usługi Azure Data Science Virtual Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -10,40 +10,40 @@ ms.author: gopalv
 ms.topic: reference
 ms.date: 10/10/2019
 ms.openlocfilehash: b83effa95b17d712d4019f8ab5bf13c4f02a7d2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78206524"
 ---
-# <a name="known-issues-and-troubleshooting-the-azure-data-science-virtual-machine"></a>Znane problemy i rozwiązywanie problemów z maszyną wirtualną usługi Azure Data Science
+# <a name="known-issues-and-troubleshooting-the-azure-data-science-virtual-machine"></a>Znane problemy i rozwiązywanie problemów z usługą Azure Data Science Virtual Machine
 
-Ten artykuł ułatwia znajdowanie i poprawianie błędów lub błędów, które mogą wystąpić podczas korzystania z maszyny wirtualnej do nauki o danych platformy Azure.
+Ten artykuł pomaga znaleźć i poprawić błędy lub błędy, które można napotkać podczas korzystania z usługi Azure Data Science Virtual Machine.
 
-## <a name="python-package-installation-issues"></a>Problemy z instalacją pakietu Python
+## <a name="python-package-installation-issues"></a>Problemy z instalacją pakietu języka Python
 
-### <a name="installing-packages-with-pip-breaks-dependencies-on-linux"></a>Instalowanie pakietów z pip przerywa zależności na Linuksie
+### <a name="installing-packages-with-pip-breaks-dependencies-on-linux"></a>Instalowanie pakietów z zależnościami przerw w systemie Linux
 
 Użyj `sudo pip install` zamiast `pip install` podczas instalowania pakietów.
 
 ## <a name="disk-encryption-issues"></a>Problemy z szyfrowaniem dysków
 
-### <a name="disk-encryption-fails-on-the-ubuntu-dsvm"></a>Szyfrowanie dysku kończy się niepowodzeniem na Ubuntu DSVM
+### <a name="disk-encryption-fails-on-the-ubuntu-dsvm"></a>Szyfrowanie dysków kończy się niepowodzeniem na Ubuntu DSVM
 
-Szyfrowanie dysków azure (ADE) nie jest obecnie obsługiwany na Ubuntu DSVM. Aby obejść ten problem, należy rozważyć skonfigurowanie [szyfrowania po stronie serwera dysków zarządzanych platformy Azure](../../virtual-machines/windows/disk-encryption.md).
+Azure Disk Encryption (ADE) nie jest obecnie obsługiwany w Ubuntu DSVM. Jako obejście problemu należy rozważyć skonfigurowanie [szyfrowania po stronie serwera dla usługi Azure Managed disks](../../virtual-machines/windows/disk-encryption.md).
 
-## <a name="tool-appears-disabled"></a>Narzędzie wydaje się wyłączone
+## <a name="tool-appears-disabled"></a>Narzędzie jest wyłączone
 
 ### <a name="hyper-v-does-not-work-on-the-windows-dsvm"></a>Funkcja Hyper-V nie działa w systemie Windows DSVM
 
-Ten funkcja Hyper-V początkowo nie działa w systemie Windows jest oczekiwanym zachowaniem. Aby uzyskać wydajność rozruchu, wyłączyliśmy niektóre usługi. Aby włączyć funkcję Hyper-V:
+Funkcja Hyper-V początkowo nie działa w systemie Windows. W przypadku wydajności rozruchowej wyłączono pewne usługi. Aby włączyć funkcję Hyper-V:
 
-1. Otwieranie paska wyszukiwania w systemie Windows DSVM
-1. Wpisz "Usługi",
-1. Ustaw wszystkie usługi Funkcji Hyper-V na "Ręczny"
-1. Ustaw "Zarządzanie maszynami wirtualnymi funkcji Hyper-V" na "Automatyczne"
+1. Otwórz pasek wyszukiwania w DSVM systemu Windows
+1. Wpisz "usługi"
+1. Ustaw wszystkie usługi funkcji Hyper-V na "ręczne"
+1. Ustaw "Automatyczne" zarządzania maszynami wirtualnymi funkcji Hyper-V
 
-Twój końcowy ekran powinien wyglądać następująco:
+Końcowy ekran powinien wyglądać następująco:
 
    ![Włączanie funkcji Hyper-V](./media/workaround/hyperv-enable-dsvm.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z wizualizacją oceny i zależności w programie Azure Migrate
-description: Uzyskaj pomoc dotyczącą rozwiązywania problemów z oceną i wizualizacją zależności w programie Azure Migrate.
+title: Rozwiązywanie problemów dotyczących oceny i wizualizacji zależności w programie Azure Migrate
+description: Uzyskaj pomoc dotyczącą oceny rozwiązywania problemów i wizualizacji zależności w programie Azure Migrate.
 ms.service: azure-migrate
 ms.topic: troubleshooting
 author: musa-57
@@ -8,164 +8,164 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
 ms.openlocfilehash: 205b52201edb849abab02809b58ff9dc77a32a29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80127674"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Rozwiązywanie problemów z wizualizacją zależności/oceny
 
-Ten artykuł ułatwia rozwiązywanie problemów z wizualizacją oceny i zależności za pomocą [programu Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool).
+Ten artykuł pomaga w rozwiązywaniu problemów z oceną i wizualizacją zależności przy użyciu [Azure Migrate: Ocena serwera](migrate-services-overview.md#azure-migrate-server-assessment-tool).
 
 
 ## <a name="assessment-readiness-issues"></a>Problemy z gotowością do oceny
 
-Rozwiązać problemy z gotowością do oceny w następujący sposób:
+Rozwiąż problemy z gotowością do oceny w następujący sposób:
 
 **Problem** | **Poprawka**
 --- | ---
-Nieobsługiwał typ rozruchu | Platforma Azure nie obsługuje maszyn wirtualnych z typem rozruchu EFI. Przed uruchomieniem migracji zaleca się przekonwertowanie typu rozruchu na system BIOS. <br/><br/>Migracji serwera migracji usługi Azure można używać do obsługi migracji takich maszyn wirtualnych. Zostanie przekonwertowany typ rozruchu maszyny Wirtualnej do systemu BIOS podczas migracji.
-Warunkowo obsługiwany system operacyjny Windows | System operacyjny przeszedł datę zakończenia pomocy technicznej i potrzebuje niestandardowej umowy pomocy technicznej (CSA) do [obsługi na platformie Azure](https://aka.ms/WSosstatement). Należy rozważyć uaktualnienie przed migracją na platformę Azure.
-Nieobsługiwał się system operacyjny Windows | Platforma Azure obsługuje tylko [wybrane wersje systemu operacyjnego Windows](https://aka.ms/WSosstatement). Należy rozważyć uaktualnienie komputera przed migracją na platformę Azure.
-Warunkowo zatwierdzony system operacyjny Linux | Platforma Azure promuje tylko [wybrane wersje systemu operacyjnego Linux](../virtual-machines/linux/endorsed-distros.md). Należy rozważyć uaktualnienie komputera przed migracją na platformę Azure.
-Nienakazyowany system operacyjny Linux | Komputer może zostać uruchomiony na platformie Azure, ale platforma Azure nie zapewnia obsługi systemu operacyjnego. Należy rozważyć uaktualnienie do [zatwierdzonej wersji systemu Linux](../virtual-machines/linux/endorsed-distros.md) przed migracją na platformę Azure.
-Nieznany system operacyjny | System operacyjny maszyny Wirtualnej został określony jako "Inne" w vCenter Server. To zachowanie blokuje migracji platformy Azure z weryfikacji gotowości platformy Azure maszyny Wirtualnej. Przed migracją komputera upewnij się, że system operacyjny jest [obsługiwany](https://aka.ms/azureoslist) przez platformę Azure.
-Nieobsługiwała wersja bitowa | Maszyny wirtualne z 32-bitowymi systemami operacyjnymi mogą być uruchamiane na platformie Azure, ale zaleca się uaktualnienie do 64-bitowego przed migracją na platformę Azure.
-Wymaga subskrypcji programu Microsoft Visual Studio | Na komputerze jest uruchomiony system operacyjny klienta systemu Windows, który jest obsługiwany tylko za pośrednictwem subskrypcji programu Visual Studio.
-Nie znaleziono maszyny Wirtualnej dla wymaganej wydajności pamięci masowej | Wydajność magazynu (operacje wejścia/wyjścia na sekundę [IOPS] i przepływność) wymagane dla komputera przekracza obsługę maszyny Wirtualnej platformy Azure. Przed migracją zmniejsz wymagania dotyczące pamięci masowej dla komputera.
-Nie znaleziono maszyny Wirtualnej dla wymaganej wydajności sieci | Wydajność sieci (w/na zewnątrz) wymagana dla komputera przekracza obsługę maszyny Wirtualnej platformy Azure. Zmniejsz wymagania sieciowe dla maszyny.
-Nie znaleziono maszyny Wirtualnej w określonej lokalizacji | Użyj innej lokalizacji docelowej przed migracją.
-Jeden lub więcej nieodpowiednich dysków | Co najmniej jeden dysk podłączony do maszyny Wirtualnej nie spełnia wymagań platformy Azure. A<br/><br/> Migracja platformy Azure: Ocena serwera obecnie nie obsługuje dysków Ultra SSD i ocenia dyski na podstawie limitów dysków dla dysków zarządzanych w wersji premium (32 TB).<br/><br/> Dla każdego dysku podłączonego do maszyny Wirtualnej upewnij się, że rozmiar dysku wynosi < 64 TB (obsługiwane przez dyski Ultra SSD).<br/><br/> Jeśli tak nie jest, zmniejsz rozmiar dysku przed migracją na platformę Azure lub użyj wielu dysków na platformie Azure i [rozstaw je razem,](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) aby uzyskać wyższe limity miejsca do magazynowania. Upewnij się, że wydajność (Usługi We/Wy i przepływność) wymagana przez każdy dysk jest obsługiwana przez [dyski zarządzanej maszyny wirtualnej platformy](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#storage-limits)Azure.
-Co najmniej jedna nieodpowiednia karta sieciowa. | Przed migracją usuń z komputera nieużywane karty sieciowe.
-Liczba dysków przekracza limit | Przed migracją usuń nieużywane dyski z urządzenia.
-Rozmiar dysku przekracza limit | Migracja platformy Azure: Ocena serwera obecnie nie obsługuje dysków Ultra SSD i ocenia dyski na podstawie limitów dysków w wersji premium (32 TB).<br/><br/> Jednak platforma Azure obsługuje dyski o rozmiarze do 64 TB (obsługiwane przez dyski Ultra SSD). Przed migracją zmniejsz dyski do mniej niż 64 TB lub użyj wielu dysków na platformie Azure i [połącz je,](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) aby uzyskać wyższe limity miejsca do magazynowania.
-Dysk niedostępny w określonej lokalizacji | Przed migracją upewnij się, że dysk znajduje się w lokalizacji docelowej.
-Dysk niedostępny dla określonej redundancji | Dysk powinien używać typu magazynu nadmiarowości zdefiniowanego w ustawieniach oceny (domyślnie LRS).
+Nieobsługiwany typ rozruchu | Platforma Azure nie obsługuje maszyn wirtualnych z typem rozruchu EFI. Przed uruchomieniem migracji zalecamy przekonwertowanie typu rozruchu na system BIOS. <br/><br/>Do obsługi migracji takich maszyn wirtualnych można użyć migracji serwera Azure Migrate. Spowoduje to przekonwertowanie typu rozruchowego maszyny wirtualnej na system BIOS podczas migracji.
+Warunkowo obsługiwany system operacyjny Windows | System operacyjny przeszedłł datę końca okresu obsłudze i potrzebuje niestandardowej umowy pomocy technicznej (CSA) w celu uzyskania [pomocy technicznej na platformie Azure](https://aka.ms/WSosstatement). Przed przeprowadzeniem migracji na platformę Azure Rozważ uaktualnienie.
+Nieobsługiwany system operacyjny Windows | Platforma Azure obsługuje tylko [wybrane wersje systemu operacyjnego Windows](https://aka.ms/WSosstatement). Rozważ uaktualnienie maszyny przed przeprowadzeniem migracji na platformę Azure.
+Warunkowo potwierdzony system operacyjny Linux | Platforma Azure poświadcza tylko [wybrane wersje systemu operacyjnego Linux](../virtual-machines/linux/endorsed-distros.md). Rozważ uaktualnienie maszyny przed przeprowadzeniem migracji na platformę Azure.
+Niepotwierdzony system operacyjny Linux | Maszyna może zaczynać się na platformie Azure, ale platforma Azure nie zapewnia obsługi systemu operacyjnego. Przed przeprowadzeniem migracji na platformę Azure Rozważ uaktualnienie do [zatwierdzonej wersji systemu Linux](../virtual-machines/linux/endorsed-distros.md) .
+Nieznany system operacyjny | System operacyjny maszyny wirtualnej został określony jako "inny" w vCenter Server. To zachowanie uniemożliwia Azure Migrate weryfikacji gotowości maszyny wirtualnej platformy Azure. Przed przeprowadzeniem migracji maszyny upewnij się, że system operacyjny jest [obsługiwany](https://aka.ms/azureoslist) przez platformę Azure.
+Nieobsługiwana wersja bitowa | Maszyny wirtualne z 32-bitowymi systemami operacyjnymi mogą przeprowadzić rozruch na platformie Azure, ale zalecamy uaktualnienie do wersji 64-bitowej przed migracją na platformę Azure.
+Wymaga subskrypcji Microsoft Visual Studio | Na komputerze jest uruchomiony system operacyjny klienta systemu Windows, który jest obsługiwany tylko przez subskrypcję programu Visual Studio.
+Nie znaleziono maszyny wirtualnej wymaganej wydajności magazynu | Wydajność magazynu (operacje wejścia/wyjścia na sekundę [IOPS] i przepływność) wymagane dla maszyny przekraczają obsługę maszyny wirtualnej platformy Azure. Przed migracją Zmniejsz wymagania dotyczące magazynu maszyny.
+Nie znaleziono maszyny wirtualnej dla wymaganej wydajności sieci | Wydajność sieci (WE/wychodzącej) wymagana przez maszynę przekracza obsługę maszyny wirtualnej platformy Azure. Zmniejsz wymagania dotyczące sieci dla maszyny.
+Nie znaleziono maszyny wirtualnej w określonej lokalizacji | Użyj innej lokalizacji docelowej przed migracją.
+Co najmniej jeden niewłaściwy dysk | Co najmniej jeden dysk dołączony do maszyny wirtualnej nie spełnia wymagań platformy Azure. Z<br/><br/> Azure Migrate: Ocena serwera obecnie nie obsługuje dysków SSD w warstwie Ultra i ocenia dyski w oparciu o limity dysków dla dysków zarządzanych w warstwie Premium (32 TB).<br/><br/> Dla każdego dysku podłączonego do maszyny wirtualnej upewnij się, że rozmiar dysku to < 64 TB (obsługiwane przez dyski SSD w warstwie Ultra).<br/><br/> Jeśli tak nie jest, zmniejsz rozmiar dysku przed przeprowadzeniem migracji na platformę Azure lub Użyj wielu dysków [na platformie Azure, aby uzyskać](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) wyższe limity magazynu. Należy upewnić się, że wydajność (IOPS i przepustowość) wymagana przez poszczególne dyski są obsługiwane przez [maszyny wirtualne zarządzane](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#storage-limits)przez platformę Azure.
+Co najmniej jedna nieodpowiednia karta sieciowa. | Przed migracją Usuń nieużywane karty sieciowe z maszyny.
+Liczba dysków przekracza limit | Usuń nieużywane dyski z maszyny przed migracją.
+Rozmiar dysku przekracza limit | Azure Migrate: Ocena serwera obecnie nie obsługuje dysków SSD w warstwie Ultra i ocenia dyski w oparciu o limity dysku Premium (32 TB).<br/><br/> Platforma Azure obsługuje jednak dyski o rozmiarze do 64 TB (obsługiwane przez dyski SSD w warstwie Ultra). Zmniejsz liczbę dysków do mniej niż 64 TB przed migracją lub Użyj wielu [dysków na platformie Azure, aby uzyskać](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) wyższe limity magazynu.
+Dysk niedostępny w określonej lokalizacji | Przed przeprowadzeniem migracji upewnij się, że dysk znajduje się w lokalizacji docelowej.
+Dysk niedostępny dla określonej nadmiarowości | Dysk powinien używać typu magazynu nadmiarowości zdefiniowanego w ustawieniach oceny (domyślnie LRS).
 Nie można określić przydatności dysku z powodu błędu wewnętrznego | Spróbuj utworzyć nową ocenę dla grupy.
-Nie znaleziono maszyny Wirtualnej z wymaganymi rdzeniami i pamięcią | Platforma Azure nie może znaleźć odpowiedniego typu maszyny Wirtualnej. Przed migracją zmniejsz ilość pamięci i liczby rdzeni komputera lokalnego.
-Nie można określić przydatności maszyny Wirtualnej z powodu błędu wewnętrznego | Spróbuj utworzyć nową ocenę dla grupy.
-Nie można określić przydatności dla jednego lub więcej dysków z powodu błędu wewnętrznego | Spróbuj utworzyć nową ocenę dla grupy.
-Nie można określić przydatności dla jednej lub więcej kart sieciowych z powodu błędu wewnętrznego | Spróbuj utworzyć nową ocenę dla grupy.
+Nie znaleziono maszyny wirtualnej z wymaganymi rdzeniami i pamięcią | Platforma Azure nie może znaleźć odpowiedniego typu maszyny wirtualnej. Przed migracją Zmniejsz ilość pamięci i liczbę rdzeni maszyny lokalnej.
+Nie można określić przydatności maszyny wirtualnej z powodu błędu wewnętrznego | Spróbuj utworzyć nową ocenę dla grupy.
+Nie można określić przydatności dla co najmniej jednego dysku z powodu błędu wewnętrznego | Spróbuj utworzyć nową ocenę dla grupy.
+Nie można określić przydatności dla co najmniej jednej karty sieciowej z powodu błędu wewnętrznego | Spróbuj utworzyć nową ocenę dla grupy.
 
 ## <a name="linux-vms-are-conditionally-ready"></a>Maszyny wirtualne z systemem Linux są "warunkowo gotowe"
 
-Ocena serwera oznacza maszyny wirtualne z systemem Linux jako "warunkowo gotowe" ze względu na znaną lukę w ocenie serwera.
+Ocena serwera oznacza maszyny wirtualne z systemem Linux jako "warunkowo gotowe" ze względu na znaną przerwę w ocenie serwera.
 
-- Luka uniemożliwia wykrywanie pomocniczej wersji systemu operacyjnego Linux zainstalowanego na lokalnych maszynach wirtualnych.
-- Na przykład dla RHEL 6.10, obecnie ocena serwera wykrywa tylko RHEL 6 jako wersja systemu operacyjnego.
--  Ponieważ platforma Azure promuje tylko określone wersje systemu Linux, maszyny wirtualne z systemem Linux są obecnie oznaczone jako warunkowo gotowe w ocenie serwera.
-- Można określić, czy system operacyjny Linux działający na lokalnej maszynie wirtualnej jest zatwierdzony na platformie Azure, przeglądając [obsługę systemu Azure Linux.](https://aka.ms/migrate/selfhost/azureendorseddistros)
--  Po zweryfikowaniu zatwierdzonej dystrybucji możesz zignorować to ostrzeżenie.
+- Przerwy uniemożliwiają wykrycie pomocniczej wersji systemu operacyjnego Linux zainstalowanej na lokalnych maszynach wirtualnych.
+- Na przykład w przypadku RHEL 6,10 obecnie Ocena serwera wykrywa tylko RHEL 6 jako wersję systemu operacyjnego.
+-  Ponieważ platforma Azure poświadcza tylko określone wersje systemu Linux, maszyny wirtualne z systemem Linux są obecnie oznaczone jako gotowe do oceny serwera.
+- Możesz określić, czy system operacyjny Linux uruchomiony na lokalnej maszynie wirtualnej jest zatwierdzony na platformie Azure, przeglądając [Pomoc techniczną platformy Azure](https://aka.ms/migrate/selfhost/azureendorseddistros)w systemie Linux.
+-  Po zweryfikowaniu poświadczonej dystrybucji można zignorować to ostrzeżenie.
 
 ## <a name="azure-skus-bigger-than-on-premises"></a>Jednostki SKU platformy Azure większe niż lokalne
 
-Ocena serwera migracji usługi Azure może zalecić jednostki SKU maszyn wirtualnych platformy Azure z większą liczebą rdzeni i pamięci niż bieżąca alokacja lokalna na podstawie typu oceny:
+Ocena serwera Azure Migrate może zalecać jednostki SKU maszyny wirtualnej platformy Azure z większą liczbą rdzeni i pamięci niż bieżąca alokacja lokalna na podstawie typu oceny:
 
 
-- Zalecenie SKU maszyny Wirtualnej zależy od właściwości oceny.
-- Ma na to wpływ typ oceny wykonywanej w programie Ocena serwera: oparte na *wydajności*lub *Jako lokalnie*.
-- W przypadku ocen opartych na wydajności ocena serwera uwzględnia dane wykorzystania lokalnych maszyn wirtualnych (procesora CPU, pamięci, dysku i wykorzystania sieci) w celu określenia właściwej docelowej jednostki SKU maszyny Wirtualnej dla lokalnych maszyn wirtualnych. Dodaje również współczynnik komfortu przy określaniu skutecznego wykorzystania.
-- W przypadku lokalnego rozmiaru dane dotyczące wydajności nie są brane pod uwagę, a docelowa jednostka SKU jest zalecana na podstawie alokacji lokalnej.
+- Zalecenie dotyczące jednostki SKU maszyny wirtualnej zależy od właściwości oceny.
+- Ma to wpływ na typ oceny wykonywanej w ocenie serwera: *oparty na wydajności*lub w środowisku *lokalnym*.
+- W przypadku ocen opartych na wydajności Ocena serwera traktuje dane użycia lokalnych maszyn wirtualnych (procesora CPU, pamięci, dysku i wykorzystania sieci) w celu określenia odpowiedniej docelowej jednostki SKU maszyny wirtualnej dla lokalnych maszyn wirtualnych. Dodaje również współczynnik komfortu podczas określania efektywnego wykorzystania.
+- W przypadku lokalnego określania wielkości dane wydajności nie są brane pod uwagę, a docelowa jednostka SKU jest zalecana na podstawie przydziału lokalnego.
 
-Aby pokazać, jak może to wpłynąć na zalecenia, weźmy przykład:
+Aby pokazać, jak to może mieć wpływ na zalecenia, przyjrzyjmy się przykładowi:
 
-Mamy lokalną maszynę wirtualną z czterema rdzeniami i ośmioma GB pamięci, z 50% wykorzystaniem procesora i 50% wykorzystaniem pamięci i określonym współczynnikiem komfortu 1.3.
+Mamy lokalną maszynę wirtualną z czterema rdzeniami i 8 GB pamięci, z użyciem procesora CPU 50% i 50% wykorzystania pamięci, a określonym czynnikiem komfortu wynoszącym 1,3.
 
--  Jeśli ocena jest **jako lokalna,** zaleca się jednostkę SKU maszyny Wirtualnej platformy Azure z czterema rdzeniami i 8 GB pamięci.
-- Jeśli ocena jest oparta na wydajności, w oparciu o efektywne wykorzystanie procesora i pamięci (50% z 4 rdzeni * 1,3 = 2,6 rdzeni i 50% pamięci 8 GB * 1,3 = 5,3 GB pamięci), najtańsza jednostka SKU maszyny Wirtualnej z czterema rdzeniami (najbliższa obsługiwana liczba rdzeni) i osiem GB pamięci (najbliższa obsługiwana pamięć pamięci).
-- [Dowiedz się więcej](concepts-assessment-calculation.md#types-of-assessments) o doliczanie rozmiaru.
+-  Jeśli ocena jest przeprowadzana **lokalnie**, zaleca się używanie jednostki SKU maszyny wirtualnej platformy Azure z czterema rdzeniami i 8 GB pamięci.
+- Jeśli ocena jest oparta na wydajności, w oparciu o efektywne wykorzystanie procesora CPU i pamięci (50% z 4 rdzeni * 1,3 = 2,6 rdzenie i 50% 8 GB pamięci * 1,3 = 5,3 GB pamięci), zalecana jest najtańsza jednostka SKU maszyny wirtualnej czterech rdzeni (najbliższa obsługiwana liczba rdzeni) i osiem GB pamięci (najbliższy obsługiwany rozmiar pamięci).
+- [Dowiedz się więcej](concepts-assessment-calculation.md#types-of-assessments) o ustalaniu wielkości ocen.
 
 ## <a name="azure-disk-skus-bigger-than-on-premises"></a>Jednostki SKU dysku platformy Azure większe niż lokalne
 
-Ocena serwera migracji usługi Azure może zalecić większy dysk na podstawie typu oceny.
-- Rozmiar dysku w ocenie serwera zależy od dwóch właściwości oceny: kryteriów zmiany rozmiaru i typu magazynu.
-- Jeśli kryteria zmiany rozmiaru są **oparte na wydajności,** a typ magazynu jest ustawiony na **Automatyczne**, IOPS, a wartości przepływności dysku są brane pod uwagę podczas identyfikowania typu dysku docelowego (Standardowy dysk twardy, standardowy dysk SSD lub Premium). Następnie zaleca się jednostkę SKU dysku z typu dysku, a zalecenie uwzględnia wymagania dotyczące rozmiaru dysku lokalnego.
-- Jeśli kryteria rozmiaru są **oparte na wydajności,** a typem magazynu jest **Premium,** jednostka SKU dysku premium na platformie Azure jest zalecana na podstawie wymagań dotyczących usług We/Wy, przepływności i rozmiaru dysku lokalnego. Ta sama logika jest używana do zmiany rozmiaru dysku, gdy kryterium zmiany rozmiaru jest **Jako lokalnie,** a typem magazynu jest **Standardowy dysk twardy,** **standardowy dysk SSD**lub **Premium.**
+Ocena serwera Azure Migrate może zalecić większy dysk na podstawie typu oceny.
+- Ustalanie rozmiarów dysków w ocenie serwera zależy od dwóch właściwości oceny: ustalania rozmiarów kryteriów i typu magazynu.
+- Jeśli kryteria ustalania wielkości są **oparte na wydajności**, a typ magazynu jest ustawiony na wartość **Automatyczne**, operacje we/wy i przepływność dysku są brane pod uwagę podczas identyfikowania docelowego typu dysku (HDD w warstwie Standardowa, SSD w warstwie Standardowa lub Premium). Zalecana jest jednostka SKU dysku z typu dysku, a zalecenie uwzględnia wymagania dotyczące rozmiaru dysku lokalnego.
+- Jeśli kryterium ustalania rozmiaru jest **oparte na wydajności**, a typ magazynu to **Premium**, zalecana jest jednostka SKU dysku Premium na platformie Azure na podstawie wymagań operacji we/wy na sekundę, przepływności i rozmiaru dysku lokalnego. Ta sama logika jest używana do przeprowadzania ustalania rozmiarów dysków, gdy kryteria ustalania wielkości są **jako lokalne** , a typ magazynu to **HDD w warstwie Standardowa**, **SSD w warstwie Standardowa**lub **Premium**.
 
-Na przykład, jeśli masz dysk lokalny z 32 GB pamięci, ale zagregowane operacjiE We/Wy odczytu i zapisu dla dysku to 800 Operacji We/Wy, ocena serwera zaleca dysk premium (ze względu na wyższe wymagania operacji We/Wy), a następnie zaleca sku dysku, który może obsługiwać wymaganych we/wy i rozmiarze. Najbliższym dopasowaniem w tym przykładzie byłaby jednostka P15 (256 GB, 1100 operacji we/wy na sekundę). Mimo że rozmiar wymagany przez dysk lokalny wynosił 32 GB, ocena serwera zaleca większy dysk ze względu na wysokie wymagania dotyczące we/wy dotyczące dysków lokalnych.
+Przykładowo, jeśli masz dysk lokalny z 32 GB pamięci, ale zagregowane operacje we/wy odczytu i zapisu dla dysku to 800 IOPS, Ocena serwera zaleca dysk w warstwie Premium (z powodu wyższych wymagań IOPS), a następnie zaleca użycie dysku SKU, który może obsługiwać wymagane operacje we/wy i rozmiar. Najbliższym dopasowaniem w tym przykładzie byłaby jednostka P15 (256 GB, 1100 operacji we/wy na sekundę). Mimo że rozmiar wymagany przez dysk lokalny to 32 GB, Ocena serwera zaleca większy dysk z powodu dużego wymagania IOPS dysku lokalnego.
 
-## <a name="utilized-corememory-percentage-missing"></a>Brak wykorzystania wartości procentowej rdzenia/pamięci
+## <a name="utilized-corememory-percentage-missing"></a>Brak użytego procentu rdzenia/pamięci
 
-Raporty oceny serwera "PercentageOfCoresUtilizedMissing" lub "PercentageOfMemoryUtilizedMissing", gdy urządzenie migracji platformy Azure nie może zbierać danych o wydajności dla odpowiednich lokalnych maszyn wirtualnych.
+Raporty oceny serwera "PercentageOfCoresUtilizedMissing" lub "PercentageOfMemoryUtilizedMissing", gdy urządzenie Azure Migrate nie może zbierać danych wydajności dla odpowiednich lokalnych maszyn wirtualnych.
 
-- Taka możliwość może wystąpić, jeśli maszyny wirtualne są wyłączone podczas trwania oceny. Urządzenie nie może zbierać danych o wydajności maszyny Wirtualnej, gdy jest wyłączona.
-- Jeśli brakuje tylko liczników pamięci i próbujesz ocenić maszyny wirtualne funkcji Hyper-V, sprawdź, czy na tych maszynach wirtualnych jest włączona pamięć dynamiczna. Istnieje znany problem tylko dla maszyn wirtualnych funkcji Hyper-V, w którym urządzenie migracji platformy Azure nie może zbierać danych wykorzystania pamięci dla maszyn wirtualnych, które nie mają włączonej pamięci dynamicznej.
-- Jeśli brakuje dowolnego licznika wydajności, ocena usługi Azure Migrate Server powraca do przydzielonych rdzeni i pamięci i zaleca odpowiedni rozmiar maszyny Wirtualnej.
-- Jeśli brakuje wszystkich liczników wydajności, upewnij się, że wymagania dotyczące dostępu do portu do oceny są spełnione. Dowiedz się więcej o wymaganiach dotyczących dostępu do portów dla [vmware,](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access) [funkcji Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) i oceny serwera [fizycznego.](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access)
+- Taka sytuacja może wystąpić, jeśli maszyny wirtualne są wyłączone w czasie trwania oceny. Urządzenie nie może zbierać danych wydajności dla maszyny wirtualnej, gdy jest ona wyłączona.
+- Jeśli brakuje tylko liczników pamięci i próbujesz ocenić maszyny wirtualne funkcji Hyper-V, sprawdź, czy na tych maszynach wirtualnych jest włączona pamięć dynamiczna. Istnieje znany problem dotyczący tylko maszyn wirtualnych funkcji Hyper-V, w których urządzenie Azure Migrate nie może zbierać danych użycia pamięci dla maszyn wirtualnych, dla których nie włączono pamięci dynamicznej.
+- Jeśli brakuje któregokolwiek z liczników wydajności, Azure Migrate oceny serwera powróci do przyznanych rdzeni i pamięci, a następnie zaleca rozmiar maszyny wirtualnej.
+- Jeśli brakuje wszystkich liczników wydajności, upewnij się, że zostały spełnione wymagania dotyczące dostępu do portów dla oceny. Dowiedz się więcej o wymaganiach dostępu do portów dla oprogramowania [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [funkcji Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) i oceny serwera [fizycznego](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) .
 
-## <a name="is-the-operating-system-license-included"></a>Czy licencja systemu operacyjnego jest dołączona?
+## <a name="is-the-operating-system-license-included"></a>Czy uwzględniono licencję systemu operacyjnego?
 
-Usługa Azure Migrate Server Assessment obecnie uwzględnia koszt licencji systemu operacyjnego tylko dla komputerów z systemem Windows. Koszty licencji na komputery z systemem Linux nie są obecnie brane pod uwagę.
+Ocena serwera Azure Migrate obecnie uwzględnia koszt licencji systemu operacyjnego tylko dla maszyn z systemem Windows. Koszty licencji dla maszyn z systemem Linux nie są obecnie uwzględniane.
 
-## <a name="how-does-performance-based-sizing-work"></a>Jak działa zmiana rozmiaru oparta na wydajności?
+## <a name="how-does-performance-based-sizing-work"></a>Jak działa Wymiarowanie oparte na wydajności?
 
 Narzędzie Server Assessment nieprzerwanie zbiera dane wydajności maszyn lokalnych i używa ich do określania zalecanych jednostek SKU maszyn wirtualnych i jednostek SKU dysków na platformie Azure. [Dowiedz się, jak](concepts-assessment-calculation.md#calculate-sizing-performance-based) zbierane są dane oparte na wydajności.
 
 
-## <a name="dependency-visualization-in-azure-government"></a>Wizualizacja zależności w usłudze Azure Dla instytucji rządowych
+## <a name="dependency-visualization-in-azure-government"></a>Wizualizacja zależności w Azure Government
 
-Usługa Azure Migrate zależy od mapy usługi dla funkcji wizualizacji zależności. Ponieważ mapa usługi jest obecnie niedostępna w usłudze Azure Government, ta funkcja nie jest dostępna w usłudze Azure Dla instytucji rządowych.
+Azure Migrate zależy od Service Map funkcji wizualizacji zależności. Ponieważ Service Map jest obecnie niedostępna w Azure Government, ta funkcja nie jest dostępna w Azure Government.
 
 ## <a name="dependencies-dont-show-after-agent-install"></a>Zależności nie są wyświetlane po zainstalowaniu agenta
 
-Po zainstalowaniu agentów wizualizacji zależności na lokalnych maszynach wirtualnych usługa Azure Migrate zwykle trwa 15-30 minut, aby wyświetlić zależności w portalu. Jeśli czekałeś dłużej niż 30 minut, upewnij się, że agent monitorowania firmy Microsoft (MMA) może połączyć się z obszarem roboczym usługi Log Analytics.
+Po zainstalowaniu agentów wizualizacji zależności na lokalnych maszynach wirtualnych Azure Migrate zwykle trwa 15-30 minut, aby wyświetlić zależności w portalu. Jeśli zaczekasz dłużej niż 30 minut, upewnij się, że Microsoft Monitoring Agent (MMA) może nawiązać połączenie z obszarem roboczym Log Analytics.
 
-W przypadku maszyn wirtualnych z systemem Windows:
-1. W Panelu sterowania uruchom mma.
-2. We **właściwościach** > usługi**Azure Log Analytics (OMS)** usługi Microsoft Monitoring Agent upewnij się, że **stan** obszaru roboczego jest zielony.
-3. Jeśli stan nie jest zielony, spróbuj usunąć obszar roboczy i dodać go ponownie do programu MMA.
+Dla maszyn wirtualnych z systemem Windows:
+1. W panelu sterowania uruchom MMA.
+2. We **właściwościach** > Microsoft Monitoring Agent**Azure log Analytics (OMS)** upewnij się, że **stan** obszaru roboczego to zielony.
+3. Jeśli stan nie jest zielony, spróbuj usunąć obszar roboczy i dodać go ponownie do MMA.
 
-    ![Status MMA](./media/troubleshoot-assessment/mma-properties.png)
+    ![Stan MMA](./media/troubleshoot-assessment/mma-properties.png)
 
-W przypadku maszyn wirtualnych z systemem Linux upewnij się, że polecenia instalacyjne mma i agenta zależności powiodły się.
+W przypadku maszyn wirtualnych z systemem Linux upewnij się, że polecenia instalacji programu MMA i agenta zależności powiodły się.
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
-- **Agent MMS:** Przejrzyj obsługiwane systemy operacyjne [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems)i [Linux.](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems)
-- **Agent zależności:** obsługiwane systemy operacyjne [Windows i Linux.](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems)
+- **Agent MMS**: Zapoznaj się z obsługiwanymi systemami operacyjnymi [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems)i [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) .
+- **Agent zależności**: obsługiwane systemy operacyjne [Windows i Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) .
 
 ## <a name="visualize-dependencies-for--hour"></a>Wizualizuj zależności dla > godziny
 
-Mimo że usługa Azure Migrate umożliwia powrót do określonej daty w ostatnim miesiącu, maksymalny czas trwania, dla którego można wizualizować zależności wynosi jedną godzinę.
+Chociaż Azure Migrate pozwala na powrót do określonej daty w ostatnim miesiącu, maksymalny czas trwania wizualizacji zależności wynosi godzinę.
 
-Na przykład można użyć funkcji czasu trwania w mapie zależności do wyświetlania zależności dla wczoraj, ale można wyświetlić je tylko przez okres jednej godziny.
+Można na przykład użyć funkcji czas trwania w mapie zależności, aby wyświetlić zależności dla wczoraj, ale można je wyświetlić tylko dla jednego okresu.
 
-Jednak można użyć dzienników usługi Azure Monitor do [kwerendy danych zależności](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) w dłuższym czasie trwania.
+Można jednak użyć dzienników Azure Monitor, aby [wykonać zapytanie o dane zależności](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) przez dłuższy czas.
 
-## <a name="visualized-dependencies-for--10-machines"></a>Wizualizowane zależności dla > 10 maszyn
+## <a name="visualized-dependencies-for--10-machines"></a>Wizualne zależności dla maszyn > 10
 
-W usłudze Azure Migrate Server Assessment można [wizualizować zależności dla grup](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) z maksymalnie 10 maszynami wirtualnymi. W przypadku większych grup zaleca się podzielenie maszyn wirtualnych na mniejsze grupy w celu wizualizacji zależności.
+W ocenie serwera Azure Migrate można [wizualizować zależności dla grup](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) z maksymalnie 10 maszynami wirtualnymi. W przypadku większych grup zalecamy dzielenie maszyn wirtualnych na mniejsze grupy w celu wizualizacji zależności.
 
-## <a name="machines-show-install-agent"></a>Maszyny pokazują "Zainstaluj agenta"
+## <a name="machines-show-install-agent"></a>Na maszynach zostanie wyświetlona wartość "Zainstaluj agenta"
 
-Po migracji maszyn z włączoną wizualizacją zależności na platformie Azure na maszynach może być wyświetlona akcja "Zainstaluj agenta" zamiast akcji "Wyświetl zależności" z powodu następującego zachowania:
-
-
-- Po migracji na platformę Azure maszyny lokalne są wyłączone, a równoważne maszyny wirtualne są obracane na platformie Azure. Maszyny te nabywają inny adres MAC.
-- Maszyny mogą mieć również inny adres IP, w zależności od tego, czy zachowano lokalny adres IP, czy nie.
-- Jeśli adresy MAC i IP różnią się od lokalnych, usługa Azure Migrate nie kojarzy komputerów lokalnych z żadnymi danymi zależności mapy usługi. W takim przypadku wyświetli opcję zainstalowania agenta, a nie do wyświetlania zależności.
-- Po migracji testowej na platformę Azure maszyny lokalne pozostają włączone zgodnie z oczekiwaniami. Równoważne maszyny utworzone na platformie Azure uzyskać inny adres MAC i może uzyskać różne adresy IP. Jeśli nie zablokujesz wychodzącego ruchu dziennika usługi Azure Monitor z tych maszyn, usługa Azure Migrate nie skojarzy komputerów lokalnych z dowolnymi danymi zależności mapy usługi, a tym samym wyświetli opcję instalowania agentów, a nie do wyświetlania zależności.
+Po przeprowadzeniu migracji maszyn z włączoną wizualizacją zależności na platformę Azure, na maszynach może zostać wyświetlona akcja "Zainstaluj agenta" zamiast "Wyświetl zależności" z powodu następujących zachowań:
 
 
-## <a name="capture-network-traffic"></a>Przechwytywanie ruchu sieciowego
+- Po migracji na platformę Azure maszyny lokalne są wyłączone i równoważne maszyny wirtualne są na platformie Azure. Te maszyny uzyskują inny adres MAC.
+- Maszyny mogą także mieć inny adres IP w zależności od tego, czy lokalny adres IP został zachowany.
+- Jeśli adresy MAC i IP różnią się od lokalnych, Azure Migrate nie kojarzy maszyn lokalnych z dowolnymi Service Map danymi zależności. W takim przypadku zostanie wyświetlona opcja instalacji agenta zamiast wyświetlania zależności.
+- Po przeprowadzeniu migracji testowej na platformę Azure maszyny lokalne pozostają włączone zgodnie z oczekiwaniami. Równoważne komputery z systemem na platformie Azure uzyskują różne adresy MAC i mogą uzyskiwać różne adresów IP. Jeśli nie zablokujesz wychodzącego ruchu dziennika Azure Monitor z tych maszyn, Azure Migrate nie będzie kojarzyć maszyn lokalnych z dowolnymi Service Map danymi zależności i w ten sposób będzie wyświetlana opcja instalacji agentów, a nie do wyświetlania zależności.
 
-Zbieranie dzienników ruchu sieciowego w następujący sposób:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
-2. Naciśnij klawisz F12, aby uruchomić narzędzia programistyczne. W razie potrzeby wyczyść ustawienie **Wyczyść wpisy w ustawieniach nawigacji.**
-3. Wybierz kartę **Sieć** i rozpocznij przechwytywanie ruchu sieciowego:
-   - W Chrome wybierz **pozycję Zachowaj dziennik**. Nagrywanie powinno rozpocząć się automatycznie. Czerwony okrąg wskazuje, że ruch jest przechwytywany. Jeśli czerwone kółko nie jest wyświetlane, wybierz czarne kółko, aby rozpocząć.
-   - W programach Microsoft Edge i Internet Explorer nagrywanie powinno rozpoczynać się automatycznie. Jeśli tak nie jest, wybierz zielony przycisk odtwarzania.
+## <a name="capture-network-traffic"></a>Przechwyć ruch sieciowy
+
+Zbierz dzienniki ruchu sieciowego w następujący sposób:
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Naciśnij klawisz F12, aby rozpocząć Narzędzia deweloperskie. W razie konieczności Wyczyść ustawienie **Wyczyść wpisy przy nawigacji** .
+3. Wybierz kartę **Sieć** i Rozpocznij przechwytywanie ruchu sieciowego:
+   - W programie Chrome wybierz opcję **Zachowaj dziennik**. Nagrywanie powinno być uruchamiane automatycznie. Czerwony okrąg wskazuje na to, że ruch jest przechwytywany. Jeśli czerwony okrąg nie jest wyświetlany, wybierz czarny okrąg, aby rozpocząć.
+   - W programie Microsoft Edge i Internet Explorer nagrywanie powinno być uruchamiane automatycznie. Jeśli tak nie jest, wybierz zielony przycisk odtwarzania.
 4. Spróbuj odtworzyć błąd.
-5. Po napotkaniu błędu podczas nagrywania zatrzymaj nagrywanie i zapisz kopię zarejestrowanej aktywności:
-   - W Chrome kliknij prawym przyciskiem myszy i wybierz pozycję **Zapisz jako HAR z zawartością**. Ta akcja kompresuje i eksportuje dzienniki jako plik .har.
-   - W programie Microsoft Edge lub Internet Explorer wybierz opcję **Eksportuj przechwycony ruch.** Ta akcja kompresuje i eksportuje dziennik.
-6. Wybierz kartę **Konsola,** aby sprawdzić, czy nie ma ostrzeżeń lub błędów. Aby zapisać dziennik konsoli:
-   - W Chrome kliknij prawym przyciskiem myszy dowolne miejsce w dzienniku konsoli. Wybierz **pozycję Zapisz jako**, aby wyeksportować, i skompresuj dziennik.
-   - W programie Microsoft Edge lub Internet Explorer kliknij prawym przyciskiem myszy błędy i wybierz polecenie **Kopiuj wszystkie**.
-7. Zamknij narzędzia programistyczne.
+5. Po napotkaniu błędu podczas rejestrowania, zatrzymywania rejestrowania i zapisywania kopii zapisanego działania:
+   - W programie Chrome kliknij prawym przyciskiem myszy i wybierz pozycję **Zapisz jako Har z zawartością**. Ta akcja kompresuje i eksportuje dzienniki jako plik. HAR.
+   - W przeglądarce Microsoft Edge lub Internet Explorer wybierz opcję **Eksportuj ruch przechwycony** . Ta akcja kompresuje i eksportuje dziennik.
+6. Wybierz kartę **konsola** , aby sprawdzić, czy występują ostrzeżenia lub błędy. Aby zapisać dziennik konsoli:
+   - W programie Chrome kliknij prawym przyciskiem myszy w dowolnym miejscu w dzienniku konsoli. Wybierz pozycję **Zapisz jako**, aby wyeksportować i zip log.
+   - W przeglądarce Microsoft Edge lub Internet Explorer, kliknij prawym przyciskiem myszy błędy i wybierz polecenie **Kopiuj wszystko**.
+7. Zamknij Narzędzia deweloperskie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Tworzenie](how-to-create-assessment.md) lub [dostosowywanie](how-to-modify-assessment.md) oceny.
+[Utwórz](how-to-create-assessment.md) lub [Dostosuj](how-to-modify-assessment.md) ocenę.

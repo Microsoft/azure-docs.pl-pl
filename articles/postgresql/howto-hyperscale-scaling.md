@@ -1,52 +1,52 @@
 ---
-title: Skalowanie grupy serwerów — hiperskala (Citus) — usługa Azure Database for PostgreSQL
-description: Dostosowywanie zasobów pamięci, dysku i procesora cpu grupy serwerów w celu radzenia sobie ze zwiększonym obciążeniem
+title: Skalowanie grupy serwerów — Citus — Azure Database for PostgreSQL
+description: Dostosowywanie pamięci grupy serwerów, dysku i zasobów procesora CPU w celu zwiększenia obciążenia
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 3/16/2020
 ms.openlocfilehash: fa48ca287c248155a0271b5134be782d8db1c785
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80063112"
 ---
-# <a name="scale-a-hyperscale-citus-server-group"></a>Skalowanie grupy serwerów w skali hiperskali (Citus)
+# <a name="scale-a-hyperscale-citus-server-group"></a>Skalowanie grupy serwerów ze skalą (Citus)
 
-Usługa Azure Database for PostgreSQL — hiperskali (Citus) zapewnia skalowanie samoobsługowe w celu radzenia sobie ze zwiększonym obciążeniem. Portal Azure ułatwia dodawanie nowych węzłów procesu roboczego i zwiększanie owo wirtualnych istniejących węzłów.
+Azure Database for PostgreSQL-Citus) oferuje skalowanie samoobsługowe umożliwiające zwiększenie obciążenia. Azure Portal ułatwia dodawanie nowych węzłów procesu roboczego i zwiększanie rdzeni wirtualnych istniejących węzłów.
 
-## <a name="add-worker-nodes"></a>Dodawanie węzłów procesu roboczego
+## <a name="add-worker-nodes"></a>Dodaj węzły procesu roboczego
 
-Aby dodać węzły, przejdź do karty **Konfigurowanie** w grupie serwerów w skali hiperskali (Citus).  Przeciąganie suwaka dla **liczby węzłów procesu roboczego** zmienia wartość.
+Aby dodać węzły, przejdź na kartę **Konfiguracja** w grupie serwerów moja skala (Citus).  Przeciągnięcie suwaka dla **liczby węzłów roboczych** powoduje zmianę wartości.
 
 ![Suwaki zasobów](./media/howto-hyperscale-scaling/01-sliders-workers.png)
 
-Kliknij przycisk **Zapisz,** aby zmieniona wartość została uwzględnina.
+Kliknij przycisk **Zapisz** , aby zmiana wartości zaczęła obowiązywać.
 
 > [!NOTE]
-> Po zwiększeniu i zapisaniu nie można zmniejszyć liczby węzłów procesu roboczego za pomocą suwaka.
+> Po zwiększeniu i zapisaniu liczba węzłów procesu roboczego nie może być obniżona przy użyciu suwaka.
 
-### <a name="rebalance-shards"></a>Równoważenie odłamków
+### <a name="rebalance-shards"></a>Ponowne równoważenie fragmentów
 
-Aby skorzystać z nowo dodanych węzłów, należy ponownie zrównoważyć fragmenty tabeli [rozproszonej,](concepts-hyperscale-distributed-data.md#shards)co oznacza przeniesienie niektórych fragmentów z istniejących węzłów do nowych. Najpierw sprawdź, czy nowi pracownicy pomyślnie zakończyli inicjowanie obsługi administracyjnej. Następnie uruchom balastator niezależnego fragmentu, łącząc się z węzłem koordynatora klastra z psql i uruchomiony:
+Aby skorzystać z nowo dodanych węzłów, należy ponownie zrównoważyć rozproszoną tabelę [fragmentów](concepts-hyperscale-distributed-data.md#shards), co oznacza przeniesienie niektórych fragmentów z istniejących węzłów do nowych. Najpierw sprawdź, czy nowi pracownicy pomyślnie ukończyli Inicjowanie obsługi administracyjnej. Następnie należy uruchomić moduł równoważenia fragmentu, łącząc się z węzłem koordynatora klastra z PSQL i uruchamiając następujące polecenie:
 
 ```sql
 SELECT rebalance_table_shards('distributed_table_name');
 ```
 
-Funkcja `rebalance_table_shards` równoważy wszystkie tabele w grupie [kolokacji](concepts-hyperscale-colocation.md) tabeli o nazwie w jej argumentie. W związku z tym nie trzeba wywoływać funkcji dla każdej tabeli rozproszonej, wystarczy wywołać ją w reprezentatywnej tabeli z każdej grupy kolokacji.
+`rebalance_table_shards` Funkcja ponownie równoważy wszystkie tabele w grupie wspólnej [lokalizacji](concepts-hyperscale-colocation.md) tabeli o nazwie w jej argumencie. W ten sposób nie trzeba wywoływać funkcji dla każdej tabeli rozproszonej, po prostu wywołaj ją na reprezentatywnej tabeli z każdej grupy wspólnej lokalizacji.
 
-## <a name="increase-or-decrease-vcores-on-nodes"></a>Zwiększanie lub zmniejszanie korli wirtualnych w węzłach
+## <a name="increase-or-decrease-vcores-on-nodes"></a>Zwiększ lub Zmniejsz rdzeni wirtualnych na węzłach
 
 > [!NOTE]
-> Ta funkcja jest obecnie dostępna w wersji zapoznawczej. Aby zażądać zmiany w polach wirtualnych dla węzłów w grupie serwerów, [skontaktuj się z pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> Ta funkcja jest obecnie w wersji zapoznawczej. Aby zażądać zmiany w rdzeni wirtualnych dla węzłów w grupie serwerów, [skontaktuj się z pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-Oprócz dodawania nowych węzłów, można zwiększyć możliwości istniejących węzłów. Dostosowywanie pojemności obliczeniowej w górę i w dół może być przydatne w przypadku eksperymentów wydajności, a także krótko- lub długoterminowych zmian w wymaganiach ruchu.
+Oprócz dodawania nowych węzłów można zwiększyć możliwości istniejących węzłów. Dostosowanie pojemności obliczeniowej w górę i w dół może być przydatne w przypadku eksperymentów dotyczących wydajności, a także krótko-lub długoterminowych zmian w zakresie ruchu.
 
-Aby zmienić pola wirtualne dla wszystkich węzłów procesu roboczego, dostosuj suwak **pola wirtualne** w obszarze **Konfiguracja (węzeł pracownika).** Bramki wirtualne węzła koordynatora można regulować niezależnie. Kliknij łącze **Zmień konfigurację** w **węźle koordynatora**. Pojawi się okno dialogowe z suwakami dla liczników wirtualnych i pojemności magazynowej koordynatora. Zmień suwaki zgodnie z potrzebami i wybierz **przycisk OK**.
+Aby zmienić rdzeni wirtualnych dla wszystkich węzłów procesu roboczego, Dostosuj suwak **rdzeni wirtualnych** w obszarze **Konfiguracja (na węzeł procesu roboczego)**. Rdzeni wirtualnych węzła koordynatora można dostosowywać niezależnie. Kliknij link **Zmień konfigurację** w **węźle koordynator**. Zostanie wyświetlone okno dialogowe z suwakami dla pojemności rdzeni wirtualnych i magazynu koordynatora. Zmień suwaki zgodnie z potrzebami, a następnie wybierz **przycisk OK**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [opcjach wydajności](concepts-hyperscale-configuration-options.md)grupy serwerów .
+Dowiedz się więcej o [opcjach wydajności](concepts-hyperscale-configuration-options.md)grupy serwerów.

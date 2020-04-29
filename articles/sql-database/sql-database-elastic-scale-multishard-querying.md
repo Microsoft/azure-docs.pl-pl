@@ -1,6 +1,6 @@
 ---
-title: Kwerenda podzielona baza danych
-description: Uruchamianie zapytań między fragmentami przy użyciu biblioteki klienta elastycznej bazy danych.
+title: Zapytania bazy danych podzielonej na fragmenty
+description: Uruchom zapytania w fragmentów za pomocą biblioteki klienta Elastic Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -9,28 +9,28 @@ author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: ae14a9fd8fc8479eac596fb694e12e3e0a9027f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067313"
 ---
-# <a name="multi-shard-querying-using-elastic-database-tools"></a>Wykonywanie zapytań dotyczących wielu fragmentów przy użyciu narzędzi elastycznej bazy danych
+# <a name="multi-shard-querying-using-elastic-database-tools"></a>Wykonywanie zapytań wielofragmentuowych przy użyciu narzędzi Elastic Database
 
 ## <a name="overview"></a>Omówienie
 
-Za pomocą [narzędzi elastycznej bazy danych](sql-database-elastic-scale-introduction.md)można tworzyć rozwiązania podzielonej bazy danych. **Wykonywanie zapytań z wieloma fragmentami** jest używane do zadań, takich jak zbieranie danych/raportowanie, które wymagają uruchomienia kwerendy, która rozciąga się na kilka fragmentów. (Kontrast to do [routingu zależnego od danych,](sql-database-elastic-scale-data-dependent-routing.md)który wykonuje całą pracę na jednym niezależnego fragmentu.)
+Za pomocą [narzędzi Elastic Database](sql-database-elastic-scale-introduction.md)można tworzyć rozwiązania bazy danych podzielonej na fragmenty. **Zapytania fragmentu** są używane do zadań, takich jak zbieranie danych/raportowanie, które wymagają uruchomienia zapytania, które rozciąga się na kilka fragmentów. (W przeciwieństwie do [routingu zależnego od danych](sql-database-elastic-scale-data-dependent-routing.md), które wykonuje wszystkie prace na jednym fragmentu).
 
-1. Pobierz **RangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) lub **ListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) przy użyciu **TryGetRangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetrangeshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap)), **TryGetListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetlistshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap)), lub **GetShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap)). Zobacz [Konstruowanie ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) i [Pobierz RangeShardMap lub ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap).
+1. Pobierz **RangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) lub **ListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) przy użyciu **TryGetRangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetrangeshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap)), **TryGetListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetlistshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap)) lub metody **GetShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap)). Zobacz [konstruowanie elementu ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) i [pobieranie RangeShardMap lub ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap).
 2. Utwórz obiekt **MultiShardConnection** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardconnection), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection)).
-3. Utwórz **MultiShardStatement lub MultiShardCommand** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)).
-4. Ustaw **właściwość CommandText** [(Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)) na polecenie T-SQL.
+3. Utwórz element **MultiShardStatement lub MultiShardCommand** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)).
+4. Ustaw **Właściwość CommandText** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)) na polecenie T-SQL.
 5. Wykonaj polecenie, wywołując metodę **ExecuteQueryAsync lub ExecuteReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement.executeQueryAsync), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)).
-6. Wyświetlanie wyników przy użyciu klasy **MultiShardResultSet lub MultiShardDataReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardresultset), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader)).
+6. Wyniki można wyświetlić przy użyciu klasy **MultiShardResultSet lub MultiShardDataReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardresultset), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader)).
 
 ## <a name="example"></a>Przykład
 
-Poniższy kod ilustruje użycie wielu niezależnego fragmentu kwerendy przy użyciu danego **ShardMap** o nazwie *myShardMap*.
+Poniższy kod ilustruje użycie zapytań wielofragmentuowych przy użyciu danego **ShardMap** o nazwie *myShardMap*.
 
 ```csharp
 using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards(), myShardConnectionString))
@@ -55,14 +55,14 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 }
 ```
 
-Kluczową różnicą jest budowa połączeń wieloprzęsłowych. Gdy **SqlConnection** działa w pojedynczej bazie danych, **MultiShardConnection** przyjmuje ***kolekcję fragmentów*** jako dane wejściowe. Wypełnij kolekcję fragmentów z mapy niezależnego fragmentu. Kwerenda jest następnie wykonywane na kolekcji fragmentów przy użyciu semantyki **UNION ALL** do montażu pojedynczego wyniku ogólnego. Opcjonalnie nazwa niezależnego fragmentu, z którego pochodzi wiersz, można dodać do danych wyjściowych przy użyciu właściwości **ExecutionOptions** na poleceniu.
+Kluczową różnicą jest konstrukcja połączeń wielofragmentuowych. Gdy element **SqlConnection** działa na pojedynczej bazie danych, **MultiShardConnection** pobiera ***kolekcję fragmentów*** jako dane wejściowe. Wypełnij kolekcję fragmentów z mapy fragmentu. Zapytanie jest następnie wykonywane w kolekcji fragmentów przy użyciu semantyki **All Union** do złożenia pojedynczego ogólnego wyniku. Opcjonalnie nazwę fragmentu, z którego pochodzi wiersz, można dodać do danych wyjściowych przy użyciu właściwości **ExecutionOptions** polecenia.
 
-Zanotuj wywołanie **myShardMap.GetShards()**. Ta metoda pobiera wszystkie fragmenty z mapy niezależnego fragmentu i zapewnia łatwy sposób uruchamiania kwerendy we wszystkich odpowiednich baz danych. Kolekcja fragmentów dla kwerendy wielodywersowej można udoskonalić dalej, wykonując kwerendę LINQ za pomocą kolekcji zwróconej z wywołania **do myShardMap.GetShards()**. W połączeniu z zasadami wyników częściowych bieżące możliwości w kwerendach wielosprzężowych zostały zaprojektowane tak, aby działały dobrze dla dziesiątek do setek fragmentów.
+Zwróć uwagę na wywołanie metody **myShardMap. GetShards ()**. Ta metoda pobiera wszystkie fragmentów z mapy fragmentu i zapewnia łatwy sposób uruchamiania zapytania dla wszystkich odpowiednich baz danych. Kolekcję fragmentów dla zapytania o wiele fragmentu można zwiększyć, wykonując zapytanie LINQ w kolekcji zwróconej przez wywołanie **myShardMap. GetShards ()**. W połączeniu z zasadą częściowe wyniki bieżąca możliwość w kwerendach fragmentu została zaprojektowana tak, aby była dobrze gotowa do setek fragmentów.
 
-Ograniczenie z wielu niezależnego fragmentu kwerendy jest obecnie brak sprawdzania poprawności dla fragmentów i shardlets, które są poszukiwane. Routingu zależne od danych sprawdza, czy dany fragment jest częścią mapy niezależnego fragmentu w czasie wykonywania zapytań, zapytania wielowyłamłowe nie wykonują tego sprawdzenia. Może to prowadzić do wielu niezależnego fragmentu kwerend uruchomionych w bazach danych, które zostały usunięte z mapy niezależnego fragmentu.
+Ograniczenie związane z wykonywaniem zapytań obejmujących wiele fragmentuów jest obecnie brakiem weryfikacji dla fragmentów i podfragmentów, które są wysyłane do zapytania. Podczas gdy Routing zależny od danych weryfikuje, że dana fragmentu jest częścią mapy fragmentu w czasie wykonywania zapytania, zapytania wielofragmentuowe nie wykonują tego sprawdzenia. Może to prowadzić do zapytań obejmujących wiele fragmentu uruchomionych w bazach danych, które zostały usunięte z mapy fragmentu.
 
-## <a name="multi-shard-queries-and-split-merge-operations"></a>Zapytania wielodyskowego i operacje dzielenia i scalania
+## <a name="multi-shard-queries-and-split-merge-operations"></a>Zapytania fragmentu i operacje dzielenia i scalania
 
-Zapytania wielu fragmentów nie sprawdzić, czy shardlets w bazie danych kwerendy uczestniczą w bieżących operacji scalania podziału. (Zobacz [Skalowanie za pomocą narzędzia scalanie dzielenia elastycznej bazy danych).](sql-database-elastic-scale-overview-split-and-merge.md) Może to prowadzić do niespójności, gdzie wiersze z tego samego shardlet show dla wielu baz danych w tej samej kwerendy wielowyłamków. Należy pamiętać o tych ograniczeniach i należy wziąć pod uwagę opróżnianie bieżących operacji scalania podziału i zmiany na mapie niezależnego fragmentu podczas wykonywania zapytań wielu fragmentów.
+Zapytania fragmentu nie sprawdzają, czy podfragmentów w bazie danych, której dotyczy zapytanie, uczestniczy w trwających operacjach dzielenia i scalania. (Zobacz [skalowanie przy użyciu narzędzia Elastic Database Split-Merge](sql-database-elastic-scale-overview-split-and-merge.md)). Może to prowadzić do niespójności, w których wiersze z tego samego podfragmentu są wyświetlane dla wielu baz danych w tym samym zapytaniu wielofragmentunym. Należy pamiętać o tych ograniczeniach i rozważyć opróżnianie trwających operacji Split-Scale i zmian mapy fragmentu podczas wykonywania zapytań wielofragmentuowych.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

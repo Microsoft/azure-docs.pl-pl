@@ -1,70 +1,70 @@
 ---
-title: Analizowanie danych tekstowych w dziennikach usługi Azure Monitor | Dokumenty firmy Microsoft
-description: W tym artykule opisano różne opcje analizowania danych dziennika w rekordach usługi Azure Monitor, gdy dane są pobierane i gdy są pobierane w kwerendzie, porównując względne korzyści dla każdego z nich.
+title: Analizowanie danych tekstowych w dziennikach Azure Monitor | Microsoft Docs
+description: W tym artykule opisano różne opcje analizowania danych dziennika w Azure Monitor rekordy, gdy dane są pozyskiwane i pobierane w kwerendzie, porównując zalety poszczególnych.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
 ms.openlocfilehash: d7a37d51c411488231205fd036f9a287f5206ce5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77672450"
 ---
-# <a name="parse-text-data-in-azure-monitor-logs"></a>Analizowanie danych tekstowych w dziennikach usługi Azure Monitor
-Niektóre dane dziennika zebrane przez usługę Azure Monitor będą zawierać wiele informacji w jednej właściwości. Analizowanie tych danych do wielu właściwości ułatwiają korzystanie w kwerendach. Typowym przykładem jest [dziennik niestandardowy,](../../log-analytics/log-analytics-data-sources-custom-logs.md) który zbiera cały wpis dziennika z wieloma wartościami w jednej właściwości. Tworząc oddzielne właściwości dla różnych wartości, można wyszukiwać i agregować na każdym.
+# <a name="parse-text-data-in-azure-monitor-logs"></a>Analizowanie danych tekstowych w dziennikach Azure Monitor
+Niektóre dane dziennika zbierane przez Azure Monitor będą zawierać wiele informacji w jednej właściwości. Analizowanie tych danych w wielu właściwościach ułatwia korzystanie z nich w zapytaniach. Typowym przykładem jest [Dziennik niestandardowy](../../log-analytics/log-analytics-data-sources-custom-logs.md) , który zbiera cały wpis dziennika z wieloma wartościami w jednej właściwości. Tworząc osobne właściwości różnych wartości, można wyszukiwać i agregowania na każdej z nich.
 
-W tym artykule opisano różne opcje analizowania danych dziennika w usłudze Azure Monitor, gdy dane są pobierane i gdy są pobierane w kwerendzie, porównując względne korzyści dla każdego z nich.
+W tym artykule opisano różne opcje analizowania danych dziennika w Azure Monitor podczas pozyskiwania danych i pobierania ich w zapytaniu, porównując zalety każdej z nich.
 
 
-## <a name="parsing-methods"></a>Metody analizowania
-Dane można analizować w czasie pozyskiwania, gdy dane są zbierane lub w czasie kwerendy podczas analizowania danych za pomocą kwerendy. Każda strategia ma unikalne zalety, jak opisano poniżej.
+## <a name="parsing-methods"></a>Metody analizy
+Dane można analizować w czasie pozyskiwania, gdy dane są zbierane lub w czasie wykonywania zapytania podczas analizowania danych za pomocą zapytania. Każda strategia ma unikatowe zalety, zgodnie z poniższym opisem.
 
-### <a name="parse-data-at-collection-time"></a>Analizuj dane w czasie zbierania
-Podczas analiz y danych w czasie zbierania, można skonfigurować [pola niestandardowe,](../../log-analytics/log-analytics-custom-fields.md) które tworzą nowe właściwości w tabeli. Kwerendy nie muszą zawierać żadnej logiki analizy i po prostu używać tych właściwości, jak każde inne pole w tabeli.
+### <a name="parse-data-at-collection-time"></a>Analizowanie danych w czasie zbierania
+Podczas analizowania danych w czasie zbierania można skonfigurować [niestandardowe pola](../../log-analytics/log-analytics-custom-fields.md) , które tworzą nowe właściwości w tabeli. Zapytania nie muszą zawierać żadnej logiki analizy i po prostu używają tych właściwości jako innych pól w tabeli.
 
-Zalety tej metody są następujące:
+Zalety tej metody:
 
-- Łatwiej zbadać zebrane dane, ponieważ nie trzeba dołączać poleceń analizy w kwerendzie.
-- Lepsza wydajność kwerendy, ponieważ kwerenda nie musi przeprowadzać analizowania.
+- Łatwiejsza kwerenda zebranych danych, ponieważ nie trzeba dołączać poleceń analizy do zapytania.
+- Lepsza wydajność zapytań, ponieważ zapytanie nie musi wykonywać analizy.
  
-Wady tej metody są następujące:
+Wadą tej metody są następujące:
 
-- Należy zdefiniować z wyprzedzeniem. Nie można uwzględnić danych, które zostały już zebrane.
-- Jeśli zmienisz logikę analizowania, będzie dotyczyć tylko nowych danych.
-- Mniej opcji analizowania niż dostępne w kwerendach.
-- Zwiększa czas opóźnienia do zbierania danych.
-- Błędy mogą być trudne do obsługi.
+- Musi być zdefiniowana z góry. Nie może zawierać danych, które zostały już zebrane.
+- W przypadku zmiany logiki analizy zostanie ona zastosowana tylko do nowych danych.
+- Mniej opcji analizy dostępnych w zapytaniach.
+- Zwiększa czas oczekiwania na zbieranie danych.
+- Błędy mogą być trudne do obsłużenia.
 
 
-### <a name="parse-data-at-query-time"></a>Analizuj dane w czasie kwerendy
-Podczas analizowanie danych w czasie kwerendy, należy uwzględnić logikę w kwerendzie do analizowanie danych w wielu polach. Sama tabela nie jest modyfikowana.
+### <a name="parse-data-at-query-time"></a>Analizowanie danych w czasie wykonywania zapytania
+Podczas analizowania danych w czasie wykonywania zapytania należy uwzględnić w zapytaniu logikę umożliwiającą analizowanie danych w wielu polach. Sama sama tabela nie jest modyfikowana.
 
-Zalety tej metody są następujące:
+Zalety tej metody:
 
-- Dotyczy wszystkich danych, w tym danych, które zostały już zebrane.
+- Dotyczy dowolnych danych, w tym danych, które zostały już zebrane.
 - Zmiany w logice mogą być stosowane natychmiast do wszystkich danych.
-- Elastyczne opcje analizowania, w tym wstępnie zdefiniowana logika dla poszczególnych struktur danych.
+- Elastyczne opcje analizy, w tym wstępnie zdefiniowana logika dla określonych struktur danych.
  
-Wady tej metody są następujące:
+Wadą tej metody są następujące:
 
-- Wymaga bardziej złożonych zapytań. Można to złagodzić za pomocą [funkcji do symulacji tabeli](#use-function-to-simulate-a-table).
-- Musi replikować logikę analizowania w wielu kwerendach. Może udostępniać niektóre logiki za pośrednictwem funkcji.
-- Można utworzyć obciążenie podczas uruchamiania złożonej logiki względem bardzo dużych zestawów rekordów (miliardy rekordów).
+- Wymaga bardziej złożonych zapytań. Można to ograniczyć przy użyciu funkcji, [Aby symulować tabelę](#use-function-to-simulate-a-table).
+- Należy replikować logikę analizy w wielu zapytaniach. Może udostępniać pewne logiki za poorednictwem funkcji.
+- Może tworzyć koszty w przypadku uruchamiania złożonych logiki dla bardzo dużych zestawów rekordów (miliardów rekordów).
 
-## <a name="parse-data-as-its-collected"></a>Analizuj dane w miarę ich gromadzenia
-Zobacz [Tworzenie pól niestandardowych w usłudze Azure Monitor, aby](../platform/custom-fields.md) uzyskać szczegółowe informacje na temat analizowania danych podczas ich zbierania. Spowoduje to utworzenie właściwości niestandardowych w tabeli, które mogą być używane przez kwerendy, podobnie jak inne właściwości.
+## <a name="parse-data-as-its-collected"></a>Analizowanie danych w miarę ich zbierania
+Zobacz [Tworzenie pól niestandardowych w Azure monitor](../platform/custom-fields.md) , aby uzyskać szczegółowe informacje na temat analizowania danych w miarę ich zbierania. Spowoduje to utworzenie właściwości niestandardowych w tabeli, które mogą być używane przez zapytania tak samo jak każda inna właściwość.
 
-## <a name="parse-data-in-query-using-patterns"></a>Analizuj dane w kwerendzie przy użyciu wzorców
-Gdy dane, które chcesz przeanalizować, mogą być identyfikowane przez wzorzec powtarzany w rekordach, można użyć różnych operatorów w [języku kwerendy Kusto,](/azure/kusto/query/) aby wyodrębnić określony fragment danych na jedną lub więcej nowych właściwości.
+## <a name="parse-data-in-query-using-patterns"></a>Analizowanie danych w kwerendzie przy użyciu wzorców
+Gdy dane, które mają zostać poddane analizie, mogą być identyfikowane przez wzorzec powtarzany w wielu rekordach, można użyć różnych operatorów w [języku zapytania Kusto](/azure/kusto/query/) , aby wyodrębnić określony fragment danych do jednej lub kilku nowych właściwości.
 
-### <a name="simple-text-patterns"></a>Proste wzory tekstu
+### <a name="simple-text-patterns"></a>Proste wzorce tekstu
 
-Operator [analizy](/azure/kusto/query/parseoperator) w kwerendzie służy do tworzenia co najmniej jednej właściwości niestandardowych, które można wyodrębnić z wyrażenia ciągu. Należy określić wzorzec do zidentyfikowania i nazwy właściwości do utworzenia. Jest to szczególnie przydatne w przypadku danych z ciągami klucz-wartość o formie podobnej do _key=value_.
+Użyj operatora [Parse](/azure/kusto/query/parseoperator) w zapytaniu, aby utworzyć co najmniej jedną właściwość niestandardową, którą można wyodrębnić z wyrażenia ciągu. Należy określić wzorzec do zidentyfikowania i nazwy właściwości do utworzenia. Jest to szczególnie przydatne w przypadku danych z ciągami klucz-wartość o postaci podobnej do _klucz = wartość_.
 
-Należy wziąć pod uwagę dziennik niestandardowy z danymi w następującym formacie.
+Należy rozważyć użycie dziennika niestandardowego z danymi w następującym formacie.
 
 ```
 Time=2018-03-10 01:34:36 Event Code=207 Status=Success Message=Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
@@ -74,7 +74,7 @@ Time=2018-03-10 01:38:22 Event Code=302 Status=Error Message=Application could n
 Time=2018-03-10 01:31:34 Event Code=303 Status=Error Message=Application lost connection to database
 ```
 
-Następująca kwerenda będzie przeanalizować te dane do poszczególnych właściwości. Wiersz z _projektem_ jest dodawany tylko do zwracania obliczonych właściwości, a nie _RawData_, która jest pojedynczą właściwością przechowującą cały wpis z dziennika niestandardowego.
+Następujące zapytanie przeanalizuje te dane do poszczególnych właściwości. Linia z _projektem_ jest dodawana, aby zwracać tylko obliczone właściwości, a nie _rawData_, która jest pojedynczą właściwością przechowującą cały wpis z dziennika niestandardowego.
 
 ```Kusto
 MyCustomLog_CL
@@ -82,7 +82,7 @@ MyCustomLog_CL
 | project EventTime, Code, Status, Message
 ```
 
-Poniżej przedstawiono inny przykład, który rozbija nazwę użytkownika nazwy UPN w tabeli _AzureActivity._
+Poniżej znajduje się kolejny przykład, który dzieli nazwę użytkownika nazwy UPN w tabeli _usługi Azure_ .
 
 ```Kusto
 AzureActivity
@@ -93,7 +93,7 @@ AzureActivity
 
 
 ### <a name="regular-expressions"></a>Wyrażenia regularne
-Jeśli dane można zidentyfikować za pomocą wyrażenia regularnego, można użyć [funkcji, które używają wyrażeń regularnych](/azure/kusto/query/re2) do wyodrębniania poszczególnych wartości. W poniższym przykładzie użyto [wyodrębnienia,](/azure/kusto/query/extractfunction) aby wyodrębnić pole _UPN_ z rekordów _usługi AzureActivity,_ a następnie zwrócić różnych użytkowników.
+Jeśli dane można zidentyfikować za pomocą wyrażenia regularnego, można użyć [funkcji, które używają wyrażeń regularnych](/azure/kusto/query/re2) do wyodrębniania pojedynczych wartości. Poniższy przykład używa [wyodrębnienia](/azure/kusto/query/extractfunction) w celu rozdzielenia pola _nazwy UPN_ z rekordów _usługi Azure_ , a następnie zwrócenia odrębnych użytkowników.
 
 ```Kusto
 AzureActivity
@@ -101,14 +101,14 @@ AzureActivity
 | distinct UPNUserPart, Caller
 ```
 
-Aby włączyć wydajne analizowanie na dużą skalę, usługa Azure Monitor używa wersji re2 wyrażeń regularnych, która jest podobna, ale nie identyczna z niektórymi innymi wariantami wyrażeń regularnych. Szczegółowe informacje można znaleźć w [składni wyrażenia re2.](https://aka.ms/kql_re2syntax)
+Aby umożliwić wydajne analizowanie w dużej skali, Azure Monitor używa wersji RE2 wyrażeń regularnych, która jest podobna, ale nie jest identyczna z niektórymi innymi wariantami wyrażeń regularnych. Aby uzyskać szczegółowe informacje, zapoznaj się ze [składnią wyrażenia RE2](https://aka.ms/kql_re2syntax) .
 
 
-## <a name="parse-delimited-data-in-a-query"></a>Analizuj rozdzielane dane w kwerendzie
-Rozdzielone dane oddzielają pola wspólnym znakiem, takim jak przecinek w pliku CSV. Funkcja [podziału](/azure/kusto/query/splitfunction) służy do analizowania rozdzielanych danych przy użyciu określonego ogranicznika. Można użyć tego z [operatorem extend,](/azure/kusto/query/extendoperator) aby zwrócić wszystkie pola w danych lub określić poszczególne pola, które mają zostać uwzględnione w danych wyjściowych.
+## <a name="parse-delimited-data-in-a-query"></a>Analizowanie danych z ograniczeniami w zapytaniu
+Rozdzielane dane oddziela pola ze wspólnym znakiem, takim jak przecinek w pliku CSV. Użyj funkcji [Split](/azure/kusto/query/splitfunction) , aby przeanalizować rozdzielone dane przy użyciu określonego ogranicznika. Za pomocą operatora [rozszerzając](/azure/kusto/query/extendoperator) można zwrócić wszystkie pola w danych lub określić pojedyncze pola do uwzględnienia w danych wyjściowych.
 
 > [!NOTE]
-> Ponieważ split zwraca obiekt dynamiczny, wyniki mogą wymagać jawnego rzutowania na typy danych, takie jak ciąg znaków, który ma być używany w operatorach i filtrach.
+> Ponieważ funkcja Split zwraca obiekt dynamiczny, wyniki mogą być jawnie rzutowane na typy danych, takie jak ciąg, który ma być używany w operatorach i filtrach.
 
 Należy wziąć pod uwagę dziennik niestandardowy z danymi w następującym formacie CSV.
 
@@ -120,7 +120,7 @@ Należy wziąć pod uwagę dziennik niestandardowy z danymi w następującym for
 2018-03-10 01:31:34, 303,Error,Application lost connection to database
 ```
 
-Następująca kwerenda będzie przeanalizować te dane i podsumować przez dwie właściwości obliczeniowe. Pierwszy wiersz dzieli _RawData_ właściwości do tablicy ciąg. Każdy z następnych wierszy nadaje nazwę poszczególnych właściwości i dodaje je do danych wyjściowych przy użyciu funkcji do konwersji ich do odpowiedniego typu danych.
+Poniższe zapytanie przeanalizuje te dane i podsumowuje je według dwóch właściwości obliczeniowych. Pierwszy wiersz dzieli Właściwość _rawData_ na tablicę ciągów. Każdy z następnych wierszy daje nazwę poszczególnych właściwości i dodaje je do danych wyjściowych przy użyciu funkcji, aby przekonwertować je na odpowiedni typ danych.
 
 ```Kusto
 MyCustomCSVLog_CL
@@ -133,19 +133,19 @@ MyCustomCSVLog_CL
 | summarize count() by Status,Code
 ```
 
-## <a name="parse-predefined-structures-in-a-query"></a>Analizuj wstępnie zdefiniowane struktury w kwerendzie
-Jeśli dane są sformatowane w znanej strukturze, można użyć jednej z funkcji w [języku zapytania Kusto](/azure/kusto/query/) do analizowania wstępnie zdefiniowanych struktur:
+## <a name="parse-predefined-structures-in-a-query"></a>Analizowanie wstępnie zdefiniowanych struktur w zapytaniu
+Jeśli dane są sformatowane w znanej strukturze, może być możliwe użycie jednej z funkcji w [języku zapytań Kusto](/azure/kusto/query/) do analizowania wstępnie zdefiniowanych struktur:
 
-- [Json](/azure/kusto/query/parsejsonfunction)
+- [JSON](/azure/kusto/query/parsejsonfunction)
 - [XML](/azure/kusto/query/parse-xmlfunction)
 - [Protokół IPv4](/azure/kusto/query/parse-ipv4function)
 - [Adres URL](/azure/kusto/query/parseurlfunction)
-- [Zapytanie url](/azure/kusto/query/parseurlqueryfunction)
+- [Zapytanie URL](/azure/kusto/query/parseurlqueryfunction)
 - [Ścieżka pliku](/azure/kusto/query/parsepathfunction)
 - [Agent użytkownika](/azure/kusto/query/parse-useragentfunction)
 - [Ciąg wersji](/azure/kusto/query/parse-versionfunction)
 
-Poniższa przykładowa kwerenda analizuje pole _Właściwości_ tabeli _AzureActivity,_ która jest skonstruowana w json. Zapisuje wyniki do właściwości dynamicznej o nazwie _parsedProp_, która zawiera indywidualną wartość o nazwie w JSON. Wartości te są używane do filtrowania i podsumowywania wyników kwerendy.
+Poniższe przykładowe zapytanie analizuje pole _Właściwości_ tabeli _Azure_ , która jest strukturą w formacie JSON. Zapisuje wyniki do właściwości dynamicznej o nazwie _parsedProp_, która zawiera pojedynczą wartość nazwaną w kodzie JSON. Te wartości służą do filtrowania i podsumowywania wyników zapytania.
 
 ```Kusto
 AzureActivity
@@ -154,9 +154,9 @@ AzureActivity
 | summarize count() by ResourceGroup, tostring(parsedProp.tags.businessowner)
 ```
 
-Te funkcje analizowania mogą być intensywnie obciążające procesor, więc powinny być używane tylko wtedy, gdy kwerenda używa wielu właściwości z sformatowanych danych. W przeciwnym razie proste dopasowanie do wzorca będzie szybsze.
+Te funkcje analizy mogą być intensywnym procesorem, dlatego powinny być używane tylko wtedy, gdy zapytanie używa wielu właściwości z sformatowanych danych. W przeciwnym razie proste przetwarzanie zgodne ze wzorcem będzie szybsze.
 
-Poniższy przykład przedstawia podział typu preauth kontrolera domeny. Typ istnieje tylko w polu EventData, które jest ciągiem XML, ale nie są potrzebne żadne inne dane z tego pola. W takim przypadku [analizuje](/azure/kusto/query/parseoperator) służy do wyłowić wymagany fragment danych.
+Poniższy przykład przedstawia podział typu uwierzytelniania wstępnego TGT kontrolera domeny. Typ istnieje tylko w polu EventData, który jest ciągiem XML, ale żadne inne dane z tego pola nie są zbędne. W takim przypadku [Analiza](/azure/kusto/query/parseoperator) służy do wybierania wymaganego elementu danych.
 
 ```Kusto
 SecurityEvent
@@ -166,9 +166,9 @@ SecurityEvent
 ```
 
 ## <a name="use-function-to-simulate-a-table"></a>Używanie funkcji do symulowania tabeli
-Może być wiele zapytań, które wykonują tę samą analizowanie określonej tabeli. W takim przypadku [należy utworzyć funkcję,](functions.md) która zwraca analizowane dane zamiast replikowania logiki analizowania w każdej kwerendzie. Następnie można użyć aliasu funkcji zamiast oryginalnej tabeli w innych kwerendach.
+Może istnieć wiele zapytań, które wykonują takie samo analizowanie określonej tabeli. W takim przypadku należy utworzyć funkcję, która zwraca dane przeanalizowane, zamiast [replikować](functions.md) logikę analizy w każdym zapytaniu. Następnie można użyć aliasu funkcji zamiast oryginalnej tabeli w innych zapytaniach.
 
-Należy wziąć pod uwagę rozdzielane przecinkami przykład dziennika niestandardowego powyżej. Aby użyć analizowanych danych w wielu kwerendach, utwórz funkcję przy użyciu następującej kwerendy i zapisz ją za pomocą aliasu _MyCustomCSVLog_.
+Zapoznaj się z rozdzielonym przykładem dziennika niestandardowego z rozdzieloną przecinkami. Aby użyć przeanalizowanych danych w wielu zapytaniach, Utwórz funkcję przy użyciu następującego zapytania i Zapisz ją z aliasem _MyCustomCSVLog_.
 
 ```Kusto
 MyCustomCSVLog_CL
@@ -179,7 +179,7 @@ MyCustomCSVLog_CL
 | extend Message   = tostring(CSVFields[3]) 
 ```
 
-Teraz można użyć aliasu _MyCustomCSVLog_ zamiast rzeczywistej nazwy tabeli w kwerendach, takich jak poniżej.
+Teraz można użyć aliasu _MyCustomCSVLog_ zamiast rzeczywistej nazwy tabeli w zapytaniach, takich jak następujące.
 
 ```Kusto
 MyCustomCSVLog
@@ -188,4 +188,4 @@ MyCustomCSVLog
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [zapytaniach dziennika](log-query-overview.md) do analizowania danych zebranych ze źródeł danych i rozwiązań.
+* Informacje na temat [zapytań dzienników](log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań.

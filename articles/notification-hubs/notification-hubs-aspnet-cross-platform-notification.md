@@ -1,6 +1,6 @@
 ---
-title: Wysyłanie powiadomień między platformami do użytkowników za pomocą usługi Azure Notification Hubs (ASP.NET)
-description: Dowiedz się, jak używać szablonów Centrów powiadomień do wysyłania w jednym żądaniu powiadomienia niezależnego od platformy, które są przeznaczone dla wszystkich platform.
+title: Wysyłanie powiadomień między platformami do użytkowników przy użyciu usługi Azure Notification Hubs (ASP.NET)
+description: Dowiedz się, jak za pomocą szablonów Notification Hubs wysyłać powiadomienia w ramach pojedynczego żądania, czyli niezależny od na platformę, która jest przeznaczona dla wszystkich platform.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -17,33 +17,33 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 10/02/2019
 ms.openlocfilehash: fc3cec348517244c8a7f54d2d3d17298c58e4262
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80127042"
 ---
-# <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Wysyłanie powiadomień między platformami za pomocą usługi Azure Notification Hubs
+# <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Wysyłanie powiadomień na wielu platformach za pomocą usługi Azure Notification Hubs
 
-Ten samouczek opiera się na poprzednim samouczku, [Wysyłanie powiadomień do określonych użytkowników przy użyciu usługi Azure Notification Hubs]. W tym samouczku opisano sposób przekazywania powiadomień do wszystkich urządzeń, które są zarejestrowane dla określonego uwierzytelnionego użytkownika. Takie podejście wymagało wielu żądań, aby wysłać powiadomienie do każdej obsługiwanej platformy klienta. Usługa Azure Notification Hubs obsługuje szablony, za pomocą których można określić, jak określone urządzenie chce otrzymywać powiadomienia. Ta metoda upraszcza wysyłanie powiadomień między platformami.
+Ten samouczek jest oparty na poprzednim samouczku, [wysyłania powiadomień do określonych użytkowników przy użyciu usługi Azure Notification Hubs]. W tym samouczku opisano, jak wysyłać powiadomienia wypychane do wszystkich urządzeń zarejestrowanych dla określonego uwierzytelnionego użytkownika. To podejście wymagało wysłania powiadomienia do każdej obsługiwanej platformy klienckiej przez wiele żądań. Usługa Azure Notification Hubs obsługuje szablony, za pomocą których można określić, w jaki sposób konkretne urządzenie ma otrzymywać powiadomienia. Ta metoda upraszcza wysyłanie powiadomień między platformami.
 
-W tym artykule pokazano, jak korzystać z szablonów, aby wysłać powiadomienie, które jest przeznaczone dla wszystkich platform. W tym artykule użyto pojedynczego żądania do wysłania powiadomienia neutralnego dla platformy. Aby uzyskać bardziej szczegółowe informacje o szablonach, zobacz [Centrum powiadomień — omówienie][Templates].
+W tym artykule pokazano, jak korzystać z szablonów do wysyłania powiadomień, które są przeznaczone dla wszystkich platform. W tym artykule jest używane pojedyncze żądanie do wysłania powiadomienia neutralnego od platformy. Aby uzyskać szczegółowe informacje na temat szablonów, zobacz [Notification Hubs Omówienie][Templates].
 
 > [!IMPORTANT]
-> Projekty systemu Windows Phone 8.1 i starsze nie są obsługiwane w programie Visual Studio 2019. Aby uzyskać więcej informacji, zobacz [Visual Studio 2019 Kierowanie na platformy i zgodność](/visualstudio/releases/2019/compatibility).
+> Windows Phone projekty 8,1 i wcześniejsze nie są obsługiwane w programie Visual Studio 2019. Aby uzyskać więcej informacji, zobacz temat [określanie i zgodność platformy Visual Studio 2019](/visualstudio/releases/2019/compatibility).
 
 > [!NOTE]
-> Dzięki Centrum powiadomień urządzenie może rejestrować wiele szablonów przy użyciu tego samego tagu. W takim przypadku przychodząca wiadomość, która jest przeznaczona dla tagu, powoduje dostarczenie wielu powiadomień do urządzenia, po jednym dla każdego szablonu. Ten proces umożliwia wyświetlanie tego samego komunikatu w wielu powiadomieniach wizualnych, takich jak zarówno jako plakietka, jak i jako wyskakujące powiadomienie w aplikacji ze Sklepu Windows.
+> W przypadku Notification Hubs urządzenie może zarejestrować wiele szablonów przy użyciu tego samego tagu. W takim przypadku komunikat przychodzący, który jest przeznaczony dla tagu, powoduje przepełnienie wielu powiadomień do urządzenia, po jednym dla każdego szablonu. Ten proces umożliwia wyświetlenie tego samego komunikatu w wielu powiadomieniach wizualnych, takich jak identyfikator i wyskakujące powiadomienie w aplikacji ze sklepu Windows.
 
-## <a name="send-cross-platform-notifications-using-templates"></a>Wysyłanie powiadomień między platformami przy użyciu szablonów
+## <a name="send-cross-platform-notifications-using-templates"></a>Wysyłanie powiadomień na wielu platformach przy użyciu szablonów
 
-W tej sekcji użyto przykładowego kodu utworzonego w [wiadomościach Wysyłaj powiadomienia do określonych użytkowników przy użyciu] samouczka Usługi Azure Notification Hubs. Przykład można pobrać z witryny [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
+W tej sekcji użyto przykładowego kodu skompilowanego w przypadku [wysyłania powiadomień do określonych użytkowników przy użyciu usługi Azure Notification Hubs] . Przykład można pobrać z witryny [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 
-Aby wysyłać powiadomienia między platformami przy użyciu szablonów, wykonaj następujące czynności:
+Aby wysyłać powiadomienia na wielu platformach za pomocą szablonów, wykonaj następujące czynności:
 
-1. W programie Visual Studio w **Eksploratorze rozwiązań**rozwiń folder **Kontrolery,** a następnie otwórz plik *RegisterController.cs.*
+1. W programie Visual Studio w **Eksplorator rozwiązań**rozwiń folder **Kontrolery** , a następnie otwórz plik *RegisterController.cs* .
 
-1. Zlokalizuj blok `Put` kodu w metodzie, która `switch` tworzy nową rejestrację, a następnie zastąp zawartość następującym kodem:
+1. Znajdź blok kodu w `Put` metodzie, która tworzy nową rejestrację, a następnie zastąp `switch` zawartość następującym kodem:
 
     ```csharp
     switch (deviceUpdate.Platform)
@@ -74,9 +74,9 @@ Aby wysyłać powiadomienia między platformami przy użyciu szablonów, wykonaj
     }
     ```
 
-    Ten kod wywołuje metodę specyficzne dla platformy, aby utworzyć rejestrację szablonu zamiast rejestracji macierzystej. Ponieważ rejestracje szablonów pochodzą z rejestracji natywnych, nie trzeba modyfikować istniejących rejestracji.
+    Ten kod wywołuje metodę specyficzną dla platformy w celu utworzenia rejestracji szablonu zamiast natywnej rejestracji. Ponieważ rejestracje szablonów pochodzą z natywnych rejestracji, nie trzeba modyfikować istniejących rejestracji.
 
-1. W **Eksploratorze rozwiązań**w folderze **Kontrolery** otwórz plik *NotificationsController.cs.* Zastąp metodę `Post` poniższym kodem:
+1. W **Eksplorator rozwiązań**w folderze **controllers (kontrolery** ) Otwórz plik *NotificationsController.cs* . Zastąp metodę `Post` poniższym kodem:
 
     ```csharp
     public async Task<HttpResponseMessage> Post()
@@ -91,20 +91,20 @@ Aby wysyłać powiadomienia między platformami przy użyciu szablonów, wykonaj
     }
     ```
 
-    Ten kod wysyła powiadomienie do wszystkich platform w tym samym czasie. Nie określasz ładunku macierzystego. Centra powiadomień tworzy i dostarcza poprawny ładunek do każdego urządzenia z podanej wartości tagu, jak określono w zarejestrowanych szablonów.
+    Ten kod wysyła powiadomienie do wszystkich platform w tym samym czasie. Nie określono natywnego ładunku. Notification Hubs kompiluje i dostarcza prawidłowy ładunek do każdego urządzenia z podaną wartością tagu, jak określono w zarejestrowanych szablonach.
 
-1. Ponownie opublikuj swój projekt interfejsu API sieci Web.
+1. Opublikuj ponownie projekt interfejsu API sieci Web.
 
-1. Uruchom aplikację kliencką ponownie, aby sprawdzić, czy rejestracja powiodła się.
+1. Ponownie uruchom aplikację kliencką, aby sprawdzić, czy rejestracja zakończyła się pomyślnie.
 
-1. Opcjonalnie należy wdrożyć aplikację kliencką na drugim urządzeniu, a następnie uruchomić aplikację. Powiadomienie jest wyświetlane na każdym urządzeniu.
+1. Opcjonalnie Wdróż aplikację kliencką na drugim urządzeniu, a następnie uruchom aplikację. Na każdym urządzeniu zostanie wyświetlone powiadomienie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, po wykonaniu tego samouczka, dowiedz się więcej o Centrach powiadomień i szablonach w tych artykułach:
+Teraz, po ukończeniu tego samouczka, Dowiedz się więcej na temat Notification Hubs i szablonów w następujących artykułach:
 
-* Aby uzyskać inny scenariusz korzystania z szablonów, zobacz [powiadomienia wypychane do określonych urządzeń z systemem Windows z aplikacjami uniwersalnej platformy systemu Windows][Use Notification Hubs to send breaking news] samouczek.
-* Aby uzyskać bardziej szczegółowe informacje na temat szablonów, zobacz [Centrum powiadomień — omówienie][Templates].
+* Aby zapoznać się z innym scenariuszem dotyczącym korzystania z szablonów, zobacz temat [powiadomienia wypychane do określonych urządzeń z systemem Windows, na których działają aplikacje platforma uniwersalna systemu Windows][Use Notification Hubs to send breaking news] .
+* Aby uzyskać szczegółowe informacje na temat szablonów, zobacz [Notification Hubs Omówienie][Templates].
 
 <!-- Anchors. -->
 

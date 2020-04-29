@@ -1,6 +1,6 @@
 ---
-title: Seria HC — maszyny wirtualne platformy Azure
-description: Dane techniczne maszyn wirtualnych serii HC.
+title: Seria HC Virtual Machines platformy Azure
+description: Specyfikacje dotyczące maszyn wirtualnych z serii HC.
 services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
@@ -8,27 +8,27 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: cc25fb9b21d535ef07bcfae673be48216427b370
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78164784"
 ---
 # <a name="hc-series"></a>Seria HC
 
-Maszyny wirtualne serii HC są zoptymalizowane pod kątem aplikacji opartych na gęstych obliczeniach, takich jak niejawna analiza elementów skończonych, dynamika molekularna i chemia obliczeniowa. Maszyny wirtualne HC są wyposażone w 44 rdzenie procesora Intel Xeon Platinum 8168, 8 GB pamięci RAM na rdzeń procesora i brak hiperwątkowości. Platforma Intel Xeon Platinum obsługuje bogaty ekosystem narzędzi programowych firmy Intel, takich jak biblioteka jądra matematycznego Intel.
+Maszyny wirtualne z serii HC są zoptymalizowane pod kątem aplikacji opartych na gęstym obliczaniu, takich jak niejawne ograniczone analizy elementów, biocząsteczkowa i obliczeniowa. Funkcja maszyn wirtualnych HC 44 rdzeni procesora Intel Xeon Platinum 8168, 8 GB pamięci RAM na rdzeń procesora CPU i bez wielowątkowości. Platforma Intel Xeon Platinum obsługuje bogate ekosystemy narzędzi programistycznych firmy Intel, takich jak biblioteka jądra matematycznych firmy Intel.
 
 ACU: 297-315
 
-Pamięć masowa w wersji premium: obsługiwane
+Premium Storage: obsługiwane
 
-Buforowanie magazynu w jakości Premium: obsługiwane
+Buforowanie Premium Storage: obsługiwane
 
-Migracja na żywo: nie jest obsługiwana
+Migracja na żywo: nieobsługiwane
 
-Aktualizacje zachowywania pamięci: nie są obsługiwane
+Aktualizacje z zachowaniem pamięci: nieobsługiwane
 
-| Rozmiar | Procesor wirtualny | Procesor | Pamięć (GB) | Przepustowość pamięci GB/s | Podstawowa częstotliwość procesora (GHz) | Częstotliwość wszystkich rdzeni (GHz, szczyt) | Częstotliwość jednożyłowa (GHz, szczytowa) | Wydajność RDMA (Gb/s) | Obsługa MPI | Pamięć tymczasowa (GB) | Maks. liczba dysków danych | Maksymalne karty sieciowe Ethernet |
+| Rozmiar | Procesor wirtualny | Procesor | Pamięć (GB) | Przepustowość pamięci GB/s | Podstawowa częstotliwość procesora CPU (GHz) | Częstotliwość wszystkich rdzeni (GHz, szczyt) | Częstotliwość jednordzeniowa (GHz, szczytowa) | Wydajność RDMA (GB/s) | Obsługa MPI | Magazyn tymczasowy (GB) | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych Ethernet |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | Wszystkie | 700 | 4 | 1 |
 
@@ -45,4 +45,4 @@ Aktualizacje zachowywania pamięci: nie są obsługiwane
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tym, jak [jednostki obliczeniowe platformy Azure (ACU)](acu.md) mogą pomóc w porównywaniu wydajności obliczeniowej w jednostkach SKU platformy Azure.
+Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.

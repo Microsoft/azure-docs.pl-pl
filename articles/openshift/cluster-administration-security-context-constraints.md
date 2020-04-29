@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie ograniczeniami kontekstu zabezpieczeń w usłudze Azure Red Hat OpenShift | Dokumenty firmy Microsoft
-description: Ograniczenia kontekstu zabezpieczeń dla administratorów klastrów Azure Red Hat OpenShift
+title: Zarządzanie ograniczeniami kontekstu zabezpieczeń w systemie Azure Red Hat OpenShift | Microsoft Docs
+description: Ograniczenia kontekstu zabezpieczeń dla administratorów klastrów Red Hat OpenShift platformy Azure
 services: container-service
 author: troy0820
 ms.author: b-trconn
@@ -8,19 +8,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
 ms.openlocfilehash: 24163adcec889e9eedc2362ff1f01f00257a98f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80063171"
 ---
-# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Zarządzanie ograniczeniami kontekstu zabezpieczeń w usłudze Azure Red Hat OpenShift 
+# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Zarządzanie ograniczeniami kontekstu zabezpieczeń na platformie Azure Red Hat OpenShift 
 
-Ograniczenia kontekstu zabezpieczeń (SCC) umożliwiają administratorom klastra kontrolowanie uprawnień zasobników. Aby dowiedzieć się więcej o tym typie interfejsu API, zobacz [dokumentację architektury kontrolerów SC.](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html) Scc w wystąpieniu można zarządzać jako normalne obiekty interfejsu API przy użyciu interfejsu wiersza polecenia.
+Ograniczenia kontekstu zabezpieczeń (SCCs) umożliwiają administratorom klastra kontrolowanie uprawnień dla zasobników. Aby dowiedzieć się więcej na temat tego typu interfejsu API, zobacz [dokumentację architektury dla SCCs](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). Możesz zarządzać SCCs w swoim wystąpieniu jako normalnymi obiektami interfejsu API za pomocą interfejsu wiersza polecenia.
 
-## <a name="list-security-context-constraints"></a>Wyświetlanie ograniczeń kontekstu zabezpieczeń
+## <a name="list-security-context-constraints"></a>Wyświetl listę ograniczeń kontekstu zabezpieczeń
 
-Aby uzyskać bieżącą listę kontrolerów SC, użyj tego polecenia: 
+Aby uzyskać bieżącą listę SCCs, użyj tego polecenia: 
 
 ```bash
 $ oc get scc
@@ -35,9 +35,9 @@ privileged         true      [*]       RunAsAny    RunAsAny           RunAsAny  
 restricted         false     []        MustRunAs   MustRunAsRange     MustRunAs   RunAsAny    <none>     false            [configMap downwardAPI emptyDir persistentVolumeClaim secret]
 ```
 
-## <a name="examine-an-object-for-security-context-constraints"></a>Sprawdzanie obiektu pod kątem ograniczeń kontekstu zabezpieczeń
+## <a name="examine-an-object-for-security-context-constraints"></a>Badanie obiektu pod kątem ograniczeń kontekstu zabezpieczeń
 
-Aby zbadać określony SCC, `oc describe`użyj `oc edit` `oc get`, lub .  Na przykład, aby sprawdzić **ograniczone** SCC, użyj tego polecenia:
+Aby zapoznać się z konkretnym SCC `oc get`, `oc describe`Użyj, `oc edit`, lub.  Aby na przykład przeanalizować **ograniczoną** wartość SCC, użyj tego polecenia:
 ```bash
 $ oc describe scc restricted
 Name:                    restricted

@@ -1,7 +1,7 @@
 ---
-title: Dostosowywanie modelu marki za pomocą witryny video Indexer
+title: Dostosowywanie modelu marek przy użyciu witryny sieci Web Video Indexer
 titleSuffix: Azure Media Services
-description: Dowiedz się, jak dostosować model marki za pomocą witryny wideo indeksatora.
+description: Dowiedz się, jak dostosować model marek przy użyciu witryny sieci Web Video Indexer.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -11,96 +11,96 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
 ms.openlocfilehash: 81df3897dff13823e4b97e10bc91d3a22b0e1b0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80128041"
 ---
-# <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Dostosowywanie modelu marki za pomocą witryny video Indexer
+# <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Dostosowywanie modelu marek przy użyciu witryny sieci Web Video Indexer
 
-Indeksator wideo obsługuje wykrywanie marki z mowy i tekstu wizualnego podczas indeksowania i ponownego indeksowania zawartości wideo i audio. Funkcja wykrywania marki identyfikuje wzmianki o produktach, usługach i firmach sugerowane przez bazę danych marek Bing. Na przykład jeśli firma Microsoft jest wymieniona w zawartości wideo lub audio lub jeśli jest wyświetlana w tekście wizualnym w filmie wideo, indeksator wideo wykrywa go jako markę w zawartości.
+Video Indexer obsługuje wykrywanie marki z mowy i tekstu wizualnego podczas indeksowania i ponownego indeksowania zawartości audio i wideo. Funkcja wykrywania marki identyfikuje wzmianki o produktach, usługach i firmach sugerowanych przez bazę danych marek usługi Bing. Na przykład jeśli firma Microsoft jest wymieniona w zawartości wideo lub audio lub jeśli zostanie wyświetlona w tekście wizualnym w filmie wideo, Video Indexer wykrywa ją jako markę zawartości.
 
-Niestandardowy model marki umożliwia:
+Niestandardowy model marek umożliwia:
 
-- wybierz, jeśli chcesz, aby indeksator wideo wykrywał marki z bazy danych marek Bing.
-- wybierz, jeśli chcesz, aby indeksator wideo wykluczał niektóre marki z wykrywania (zasadniczo tworząc listę odrzucających marek).
-- wybierz, jeśli chcesz, aby indeksator wideo zawierał marki, które powinny być częścią twojego modelu, które mogą nie znajdować się w bazie danych marek Bing (zasadniczo tworząc listę akceptowań marek).
+- Wybierz, jeśli chcesz, aby Video Indexer wykrywać marki z bazy danych marek Bing.
+- Wybierz, jeśli chcesz, aby Video Indexer wykluczać Niektóre marki z wykrycia (głównie przy tworzeniu listy Odmów marek).
+- Wybierz, jeśli chcesz, aby Video Indexer uwzględniać marki, które powinny być częścią modelu, który nie należy do bazy danych marek usługi Bing (głównie w przypadku tworzenia listy akceptowanych marek).
 
-Aby uzyskać szczegółowe informacje, zobacz ten [przegląd](customize-brands-model-overview.md).
+Aby zapoznać się z szczegółowym omówieniem, zobacz to [Omówienie](customize-brands-model-overview.md).
 
-Za pomocą witryny video Indexer można tworzyć, używać i edytować niestandardowe modele marek wykryte w klipie wideo, zgodnie z opisem w tym temacie. Można również użyć interfejsu API, zgodnie z opisem w [modelu Dostosuj marki przy użyciu interfejsów API](customize-brands-model-with-api.md).
+Za pomocą witryny sieci Web Video Indexer można tworzyć, używać i edytować niestandardowe modele marek wykryte w filmie wideo, zgodnie z opisem w tym temacie. Możesz również użyć interfejsu API, zgodnie z opisem w temacie [Dostosowywanie modelu marek przy użyciu interfejsów API](customize-brands-model-with-api.md).
 
-## <a name="edit-brands-model-settings"></a>Edytuj ustawienia modelu Marki
+## <a name="edit-brands-model-settings"></a>Edytuj ustawienia modeli marek
 
-Masz możliwość, aby ustawić, czy chcesz, aby marki z bazy danych marek Bing mają być wykrywane. Aby ustawić tę opcję, musisz edytować ustawienia modelu marki. Wykonaj następujące kroki:
+Możesz określić, czy chcesz wykryć marki z bazy danych marek Bing. Aby ustawić tę opcję, należy edytować ustawienia modelu marki. Wykonaj następujące kroki:
 
-1. Przejdź do witryny [indeksatora](https://www.videoindexer.ai/) wideo i zaloguj się.
+1. Przejdź do witryny sieci Web [Video Indexer](https://www.videoindexer.ai/) i zaloguj się.
 2. Aby dostosować model na koncie, wybierz przycisk **Dostosowywanie modelu zawartości** w prawym górnym rogu strony.
 
-   ![Dostosowywanie modelu zawartości w indeksatorze wideo](./media/content-model-customization/content-model-customization.png)
+   ![Dostosuj model zawartości w Video Indexer](./media/content-model-customization/content-model-customization.png)
 
-3. Aby edytować marki, wybierz kartę **Marki.**
+3. Aby edytować marki, wybierz kartę **marki** .
 
-    ![Dostosowywanie modelu marek w indeksatorze wideo](./media/customize-brand-model/customize-brand-model.png)
+    ![Dostosuj model marek w Video Indexer](./media/customize-brand-model/customize-brand-model.png)
 
-4. Zaznacz opcję **Pokaż marki sugerowane przez Bing,** jeśli chcesz, aby indeksator wideo wykrywał marki sugerowane przez Bing — pozostaw tę opcję niezaznaczone, jeśli tego nie zrobisz.
+4. Zaznacz opcję **Pokaż marki sugerowane przez Bing** , jeśli chcesz, aby Video Indexer wykrywać marki sugerowane przez usługę Bing, pozostawiając opcję niezaznaczone, jeśli nie.
 
 ## <a name="include-brands-in-the-model"></a>Uwzględnij marki w modelu
 
-Sekcja **Uwzględnij marki** reprezentuje niestandardowe marki, które chcesz, aby indeksator wideo wykrywał, nawet jeśli nie są one sugerowane przez bing.  
+Sekcja **include marek** reprezentuje znaki niestandardowe, które mają być wykrywane Video Indexer, nawet jeśli nie są sugerowane przez usługę Bing.  
 
-### <a name="add-a-brand-to-include-list"></a>Dodawanie marki w celu uwzględnienia listy
+### <a name="add-a-brand-to-include-list"></a>Dodaj markę do listy dołączania
 
-1. Wybierz **+ Dodaj markę**.
+1. Wybierz pozycję **+ Dodaj markę**.
 
-    ![Dostosowywanie modelu marek w indeksatorze wideo](./media/customize-brand-model/add-brand.png)
+    ![Dostosuj model marek w Video Indexer](./media/customize-brand-model/add-brand.png)
 
-    Podaj nazwę (wymaganą), kategorię (opcjonalnie), opis (opcjonalnie) i adres URL odwołania (opcjonalnie).
-    Pole kategorii ma na celu pomóc Ci oznaczyć marki. To pole jest wyświetlane jako tagi marki podczas korzystania z *interfejsów* API indeksatora wideo. Na przykład marki "Azure" można oznaczyć lub sklasyfikować jako "Chmura".
+    Podaj nazwę (wymagane), kategorię (opcjonalnie), opis (opcjonalnie) i adres URL odwołania (opcjonalnie).
+    Pole kategoria ma pomóc w oznaczeniu marki. To pole jest wyświetlane jako *Tagi* marki przy użyciu interfejsów API Video Indexer. Na przykład znak "Azure" może być oznaczony jako "Chmura" lub skategoryzowany.
 
-    Pole adresu URL odniesienia może być dowolną stroną referencyjną dla marki (np. link do jej strony w Wikipedii).
+    Pole adres URL odwołania może być dowolną witryną referencyjną dla marki (na przykład łączem do strony Wikipedia).
 
-2. Wybierz **pozycję Dodaj markę,** a zobaczysz, że marka została dodana do listy **Dołącz marki.**
+2. Wybierz pozycję **Dodaj markę** i zobaczysz, że marka została dodana do listy **Dołącz marki** .
 
-### <a name="edit-a-brand-on-the-include-list"></a>Edytowanie marki na liście dołączania
+### <a name="edit-a-brand-on-the-include-list"></a>Edytuj markę na liście dołączania
 
-1. Wybierz ikonę ołówka obok marki, którą chcesz edytować.
+1. Wybierz ikonę ołówka obok znaku, który chcesz edytować.
 
-    Możesz zaktualizować kategorię, opis lub adres URL odwołania marki. Nie można zmienić nazwy marki, ponieważ nazwy marek są unikatowe. Jeśli chcesz zmienić nazwę marki, usuń całą markę (patrz następna sekcja) i utwórz nową markę o nowej nazwie.
+    Możesz zaktualizować kategorię, opis lub adres URL odwołania marki. Nie można zmienić nazwy marki, ponieważ nazwy marek są unikatowe. Jeśli musisz zmienić nazwę marki, Usuń całą markę (zobacz następną sekcję) i Utwórz nową markę z nową nazwą.
 
-2. Wybierz przycisk **Aktualizuj,** aby zaktualizować markę o nowe informacje.
+2. Wybierz przycisk **Aktualizuj** , aby zaktualizować markę o nowe informacje.
 
-### <a name="delete-a-brand-on-the-include-list"></a>Usuwanie marki na liście dołączania
+### <a name="delete-a-brand-on-the-include-list"></a>Usuń markę z listy dołączania
 
-1. Wybierz ikonę kosza obok marki, którą chcesz usunąć.
-2. Wybierz **pozycję Usuń,** a marka nie będzie już wyświetlana na liście *Dołącz marki.*
+1. Wybierz ikonę kosza obok znaku, który chcesz usunąć.
+2. Wybierz pozycję **Usuń** , a marka nie będzie już widoczna na liście *Uwzględnij marki* .
 
-## <a name="exclude-brands-from-the-model"></a>Wykluczanie marek z modelu
+## <a name="exclude-brands-from-the-model"></a>Wyklucz marki z modelu
 
-Sekcja **Wyklucz marki** reprezentuje marki, których nie chcesz wykrywać indeksatora wideo.
+Sekcja **exclude marek** reprezentuje marki, które nie mają być wykrywane przez Video Indexer.
 
-### <a name="add-a-brand-to-exclude-list"></a>Dodawanie marki w celu wykluczenia listy
+### <a name="add-a-brand-to-exclude-list"></a>Dodaj markę do listy wykluczeń
 
-1. Wybierz **+ Dodaj markę.**
+1. Wybierz pozycję **+ Dodaj markę.**
 
-    Podaj nazwę (wymaganą), kategorię (opcjonalnie).
+    Podaj nazwę (wymagane), kategorię (opcjonalnie).
 
-2. Wybierz **pozycję Dodaj markę,** a zobaczysz, że marka została dodana do listy *Wyklucz marki.*
+2. Wybierz pozycję **Dodaj markę** i zobaczysz, że marka została dodana do listy *wykluczone* marki.
 
-### <a name="edit-a-brand-on-the-exclude-list"></a>Edytowanie marki na liście wykluczeń
+### <a name="edit-a-brand-on-the-exclude-list"></a>Edytuj markę na liście wykluczeń
 
-1. Wybierz ikonę ołówka obok marki, którą chcesz edytować.
+1. Wybierz ikonę ołówka obok znaku, który chcesz edytować.
 
-    Możesz zaktualizować tylko kategorię marki. Nie można zmienić nazwy marki, ponieważ nazwy marek są unikatowe. Jeśli chcesz zmienić nazwę marki, usuń całą markę (patrz następna sekcja) i utwórz nową markę o nowej nazwie.
+    Można aktualizować tylko kategorię marki. Nie można zmienić nazwy marki, ponieważ nazwy marek są unikatowe. Jeśli musisz zmienić nazwę marki, Usuń całą markę (zobacz następną sekcję) i Utwórz nową markę z nową nazwą.
 
-2. Wybierz przycisk **Aktualizuj,** aby zaktualizować markę o nowe informacje.
+2. Wybierz przycisk **Aktualizuj** , aby zaktualizować markę o nowe informacje.
 
-### <a name="delete-a-brand-on-the-exclude-list"></a>Usuwanie marki na liście wykluczeń
+### <a name="delete-a-brand-on-the-exclude-list"></a>Usuń markę z listy wykluczeń
 
-1. Wybierz ikonę kosza obok marki, którą chcesz usunąć.
-2. Wybierz **pozycję Usuń,** a marka nie będzie już wyświetlana na liście *Wyklucz marki.*
+1. Wybierz ikonę kosza obok znaku, który chcesz usunąć.
+2. Wybierz pozycję **Usuń** , a marka nie będzie już widoczna na liście *wykluczone marki* .
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dostosowywanie modelu marki przy użyciu interfejsów API](customize-brands-model-with-api.md)
+[Dostosowywanie modelu marek przy użyciu interfejsów API](customize-brands-model-with-api.md)

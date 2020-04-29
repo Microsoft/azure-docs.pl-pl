@@ -1,60 +1,60 @@
 ---
-title: Tworzenie i przesyłanie dysku VHD z systemem Linux opartym na centos
-description: Dowiedz się, jak utworzyć i przekazać wirtualny dysk twardy platformy Azure (VHD), który zawiera system operacyjny Linuksa oparty na systemie CentOS.
+title: Tworzenie i przekazywanie wirtualnego dysku twardego systemu Linux opartego na CentOS
+description: Zapoznaj się z tematem tworzenie i przekazywanie wirtualnego dysku twardego (VHD) platformy Azure, który zawiera system operacyjny Linux oparty na CentOS.
 author: gbowerman
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 11/25/2019
 ms.author: guybo
 ms.openlocfilehash: 8899249fd284f69fa26bab8cd70aaf6a67fbb83c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066779"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej bazującej na systemie CentOS dla platformy Azure
 
-Dowiedz się, jak utworzyć i przekazać wirtualny dysk twardy platformy Azure (VHD), który zawiera system operacyjny Linuksa oparty na systemie CentOS.
+Zapoznaj się z tematem tworzenie i przekazywanie wirtualnego dysku twardego (VHD) platformy Azure, który zawiera system operacyjny Linux oparty na CentOS.
 
-* [Przygotowanie maszyny wirtualnej CentOS 6.x dla platformy Azure](#centos-6x)
-* [Przygotowanie maszyny wirtualnej CentOS 7.0+ dla platformy Azure](#centos-70)
+* [Przygotuj maszynę wirtualną z systemem CentOS 6. x dla platformy Azure](#centos-6x)
+* [Przygotuj maszynę wirtualną z systemem CentOS 7.0 lub nowszym dla platformy Azure](#centos-70)
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym artykule przyjęto założenie, że system operacyjny CentOS (lub podobna pochodna) systemu operacyjnego Linux został już zainstalowany na wirtualnym dysku twardym. Istnieje wiele narzędzi do tworzenia plików vhd, na przykład rozwiązanie wirtualizacji, takie jak Hyper-V. Aby uzyskać instrukcje, zobacz [Instalowanie roli funkcji Hyper-V i konfigurowanie maszyny wirtualnej](https://technet.microsoft.com/library/hh846766.aspx).
+W tym artykule przyjęto założenie, że już zainstalowano system operacyjny CentOS (lub podobny pochodny) na wirtualnym dysku twardym. Istnieje wiele narzędzi do tworzenia plików VHD, na przykład rozwiązanie wirtualizacji, takie jak funkcja Hyper-V. Aby uzyskać instrukcje, zobacz [Instalowanie roli funkcji Hyper-V i Konfigurowanie maszyny wirtualnej](https://technet.microsoft.com/library/hh846766.aspx).
 
-**Uwagi dotyczące instalacji centos**
+**CentOS uwagi dotyczące instalacji**
 
-* Zobacz też [Ogólne uwagi dotyczące instalacji systemu Linux,](create-upload-generic.md#general-linux-installation-notes) aby uzyskać więcej wskazówek dotyczących przygotowywania systemu Linux dla platformy Azure.
-* Format VHDX nie jest obsługiwany na platformie Azure, tylko **stały dysk VHD**.  Dysk można przekonwertować na format VHD za pomocą Menedżera funkcji Hyper-V lub polecenia cmdlet convert-vhd. Jeśli używasz VirtualBox oznacza to **wybranie stałego rozmiaru,** w przeciwieństwie do domyślnego dynamicznie przydzielonego podczas tworzenia dysku.
-* Podczas instalacji systemu Linux *zaleca się* używanie standardowych partycji zamiast LVM (często domyślnych dla wielu instalacji). Pozwoli to uniknąć konfliktów nazw LVM z sklonowanych maszyn wirtualnych, szczególnie jeśli dysk systemu operacyjnego kiedykolwiek musi być dołączony do innej identycznej maszyny Wirtualnej do rozwiązywania problemów. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) mogą być używane na dyskach z danymi.
-* Wymagana jest obsługa jądra do montażu systemów plików UDF. Przy pierwszym uruchomieniu na platformie Azure konfiguracja inicjowania obsługi administracyjnej jest przekazywana do maszyny Wirtualnej systemu Linux za pośrednictwem nośnika w formacie UDF, który jest dołączony do gościa. Agent systemu Azure Linux musi być w stanie zainstalować system plików UDF, aby odczytać jego konfigurację i aprowizować maszynę wirtualną.
-* Wersje jądra linuksa poniżej 2.6.37 nie obsługują numa na Hyper-V z większymi rozmiarami maszyn wirtualnych. Ten problem dotyczy przede wszystkim starszych dystrybucji przy użyciu jądra Red Hat 2.6.32 i został naprawiony w RHEL 6.6 (jądro-2.6.32-504). Systemy z niestandardowymi jądrami starszymi niż 2.6.37 lub jądrami opartymi na RHEL starszymi niż 2.6.32-504 muszą ustawić parametr `numa=off` rozruchowy w wierszu polecenia jądra w grub.conf. Aby uzyskać więcej informacji, zobacz Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
-* Nie należy konfigurować partycji wymiany na dysku systemu operacyjnego. Agent systemu Linux można skonfigurować do tworzenia pliku wymiany na tymczasowym dysku zasobów.  Więcej informacji na ten temat można znaleźć w poniższych krokach.
-* Wszystkie dyski VHD na platformie Azure muszą mieć rozmiar wirtualny wyrównany do 1 MB. Podczas konwersji z dysku nieprzetworzonego na dysk wirtualny należy upewnić się, że rozmiar dysku nieprzetworzonego jest wielokrotnością 1 MB przed konwersją. Zobacz [Uwagi dotyczące instalacji systemu Linux, aby](create-upload-generic.md#general-linux-installation-notes) uzyskać więcej informacji.
+* Aby uzyskać więcej porad dotyczących przygotowywania systemu Linux dla platformy Azure, zobacz również [Ogólne informacje o instalacji](create-upload-generic.md#general-linux-installation-notes) w systemie Linux.
+* Format VHDX nie jest obsługiwany na platformie Azure, tylko **stałego dysku VHD**.  Dysk można przekonwertować na format VHD przy użyciu Menedżera funkcji Hyper-V lub polecenia cmdlet Convert-VHD. Jeśli używasz VirtualBox, oznacza to, że wybranie **stałego rozmiaru** w przeciwieństwie do domyślnego przydzielanego dynamicznie podczas tworzenia dysku.
+* W przypadku instalowania systemu Linux *zaleca* się używanie partycji standardowych zamiast LVM (często jest to ustawienie domyślne dla wielu instalacji). Pozwoli to uniknąć konfliktów nazw LVM z klonowanymi maszynami wirtualnymi, szczególnie w przypadku, gdy kiedykolwiek konieczne jest dołączenie dysku systemu operacyjnego do innej identycznej maszyny wirtualnej w celu rozwiązywania problemów. Na dyskach danych można używać [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
+* Wymagana jest obsługa jądra na potrzeby instalowania systemów plików UDF. Podczas pierwszego rozruchu na platformie Azure konfiguracja aprowizacji jest przesyłana do maszyny wirtualnej z systemem Linux za pomocą nośnika sformatowanego przez UDF, który jest dołączony do gościa. Agent systemu Azure Linux musi być w stanie zainstalować system plików UDF, aby odczytać jego konfigurację i zainicjować obsługę administracyjną maszyny wirtualnej.
+* Wersje jądra systemu Linux poniżej 2.6.37 nie obsługują architektury NUMA w funkcji Hyper-V o większych rozmiarach maszyn wirtualnych. Ten problem ma głównie wpływ na starsze dystrybucje przy użyciu wbudowanego jądra Red Hat 2.6.32 i został ustalony w RHEL 6,6 (jądro-2.6.32-504). Systemy z uruchomionymi niestandardowymi jądrami starszymi niż 2.6.37 lub jądrem opartym na RHEL starszym niż 2.6.32- `numa=off` 504 muszą ustawić parametr rozruchu w wierszu polecenia jądra w grub. conf. Aby uzyskać więcej informacji, zobacz Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+* Nie należy konfigurować partycji wymiany na dysku systemu operacyjnego. Agenta systemu Linux można skonfigurować tak, aby utworzył plik wymiany na tymczasowym dysku zasobów.  Więcej informacji na ten temat można znaleźć w poniższych krokach.
+* Wszystkie wirtualne dyski twarde na platformie Azure muszą mieć rozmiar wirtualny wyrównany do 1 MB. Podczas konwertowania z dysku surowego na dysk VHD należy upewnić się, że rozmiar dysku surowego jest wielokrotnością 1 MB przed konwersją. Aby uzyskać więcej informacji, zobacz [uwagi dotyczące instalacji systemu Linux](create-upload-generic.md#general-linux-installation-notes) .
 
-## <a name="centos-6x"></a>CentOS 6.x
+## <a name="centos-6x"></a>CentOS 6. x
 
 1. W Menedżerze funkcji Hyper-V wybierz maszynę wirtualną.
 
-2. Kliknij **przycisk Połącz,** aby otworzyć okno konsoli dla maszyny wirtualnej.
+2. Kliknij przycisk **Połącz** , aby otworzyć okno konsoli dla maszyny wirtualnej.
 
-3. W systemie CentOS 6 networkmanager może zakłócać działanie agenta systemu Azure Linux. Odinstaluj ten pakiet, uruchamiając następujące polecenie:
+3. W CentOS 6, usługa NetworkManager może zakłócać działanie Agenta platformy Azure w systemie Linux. Odinstaluj ten pakiet, uruchamiając następujące polecenie:
 
     ```bash
     sudo rpm -e --nodeps NetworkManager
     ```
 
-4. Utwórz lub `/etc/sysconfig/network` edytuj plik i dodaj następujący tekst:
+4. Utwórz lub edytuj plik `/etc/sysconfig/network` i Dodaj następujący tekst:
 
     ```console
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
-5. Utwórz lub `/etc/sysconfig/network-scripts/ifcfg-eth0` edytuj plik i dodaj następujący tekst:
+5. Utwórz lub edytuj plik `/etc/sysconfig/network-scripts/ifcfg-eth0` i Dodaj następujący tekst:
 
     ```console
     DEVICE=eth0
@@ -66,20 +66,20 @@ W tym artykule przyjęto założenie, że system operacyjny CentOS (lub podobna 
     IPV6INIT=no
     ```
 
-6. Zmodyfikuj reguły udev, aby uniknąć generowania reguł statycznych dla interfejsów Ethernet. Te reguły mogą powodować problemy podczas klonowania maszyny wirtualnej na platformie Microsoft Azure lub funkcji Hyper-V:
+6. Zmodyfikuj reguły udev, aby uniknąć generowania statycznych reguł dla interfejsów sieci Ethernet. Te reguły mogą spowodować problemy podczas klonowania maszyny wirtualnej w Microsoft Azure lub funkcji Hyper-V:
 
     ```bash
     sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
     sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
 
-7. Upewnij się, że usługa sieciowa zostanie uruchomiona w czasie rozruchu, uruchamiając następujące polecenie:
+7. Upewnij się, że usługa sieciowa zacznie działać w czasie rozruchu, uruchamiając następujące polecenie:
 
     ```bash
     sudo chkconfig network on
     ```
 
-8. Jeśli chcesz użyć dublowania OpenLogic, które są hostowane w centrach `/etc/yum.repos.d/CentOS-Base.repo` danych platformy Azure, następnie zastąp plik następującymi repozytoriami.  Spowoduje to również dodanie repozytorium **[openlogic],** które zawiera dodatkowe pakiety, takie jak agent systemu Azure Linux:
+8. Jeśli chcesz użyć dublowanych OpenLogic, które są hostowane w centrach danych platformy Azure, Zastąp `/etc/yum.repos.d/CentOS-Base.repo` plik poniższymi repozytoriami.  Spowoduje to również dodanie repozytorium **[OpenLogic]** zawierającego dodatkowe pakiety, takie jak Agent platformy Azure dla systemu Linux:
 
    ```console
    [openlogic]
@@ -131,41 +131,41 @@ W tym artykule przyjęto założenie, że system operacyjny CentOS (lub podobna 
    ```
 
     > [!Note]
-    > W dalszej części tego przewodnika przyjęto założenie, że używasz co najmniej `[openlogic]` repozytorium, które będzie używane do zainstalowania agenta systemu Azure Linux poniżej.
+    > W pozostałej części tego przewodnika przyjęto założenie, `[openlogic]` że używasz co najmniej repozytorium, które zostanie użyte do zainstalowania poniższego agenta systemu Linux.
 
-9. Dodaj następujący wiersz do /etc/yum.conf:
+9. Dodaj następujący wiersz do/etc/yum.conf:
 
     ```console
     http_caching=packages
     ```
 
-10. Uruchom następujące polecenie, aby wyczyścić bieżące metadane yum i zaktualizować system za pomocą najnowszych pakietów:
+10. Uruchom następujące polecenie, aby wyczyścić bieżące metadane yum i zaktualizować system przy użyciu najnowszych pakietów:
 
     ```bash
     yum clean all
     ```
 
-    Jeśli nie tworzysz obrazu dla starszej wersji CentOS, zaleca się zaktualizowanie wszystkich pakietów do najnowszych:
+    Jeśli nie tworzysz obrazu dla starszej wersji programu CentOS, zaleca się zaktualizowanie wszystkich pakietów do najnowszych:
 
     ```bash
     sudo yum -y update
     ```
 
-    Po uruchomieniu tego polecenia może być wymagane ponowne uruchomienie.
+    Po uruchomieniu tego polecenia może być wymagane ponowne uruchomienie komputera.
 
-11. (Opcjonalnie) Zainstaluj sterowniki dla usług integracji systemu Linux (LIS).
+11. Obowiązkowe Zainstaluj sterowniki dla usług integracji systemu Linux (LIS).
 
     > [!IMPORTANT]
-    > Ten krok jest **wymagany** dla CentOS 6.3 i wcześniejszych i opcjonalnych dla nowszych wersji.
+    > Ten krok jest **wymagany** w przypadku systemów CentOS 6,3 i starszych oraz opcjonalnych w nowszych wersjach.
 
     ```bash
     sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
     sudo yum install microsoft-hyper-v
     ```
 
-    Alternatywnie można wykonać instrukcje instalacji ręcznej na [stronie pobierania LIS,](https://www.microsoft.com/download/details.aspx?id=51612) aby zainstalować rpm na maszynie wirtualnej.
+    Alternatywnie można wykonać instrukcje instalacji ręcznej na [stronie pobierania lis](https://www.microsoft.com/download/details.aspx?id=51612) , aby zainstalować RPM na maszynie wirtualnej.
 
-12. Zainstaluj agenta systemu Azure Linux i zależności. Uruchom i włącz usługę waagent:
+12. Zainstaluj agenta i zależności platformy Azure dla systemu Linux. Uruchom i Włącz usługę waagent:
 
     ```bash
     sudo yum install python-pyasn1 WALinuxAgent
@@ -174,32 +174,32 @@ W tym artykule przyjęto założenie, że system operacyjny CentOS (lub podobna 
     ```
 
 
-    Pakiet WALinuxAgent usunie pakiety NetworkManager i NetworkManager-gnome, jeśli nie zostały już usunięte zgodnie z opisem w kroku 3.
+    Pakiet WALinuxAgent usunie pakiety NetworkManager i WorkManager-GNOME, jeśli nie zostały jeszcze usunięte zgodnie z opisem w kroku 3.
 
-13. Zmodyfikuj linię rozruchową jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra dla platformy Azure. Aby to zrobić, otwórz `/boot/grub/menu.lst` w edytorze tekstu i upewnij się, że domyślne jądro zawiera następujące parametry:
+13. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby to zrobić, Otwórz `/boot/grub/menu.lst` w edytorze tekstów i upewnij się, że domyślne jądro zawiera następujące parametry:
 
     ```console
     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
     ```
 
-    Zapewni to również, że wszystkie komunikaty konsoli są wysyłane do pierwszego portu szeregowego, co może pomóc w obsłudze platformy Azure w rozwiązywaniu problemów z debugowaniem.
+    Spowoduje to również, że wszystkie komunikaty konsoli są wysyłane do pierwszego portu szeregowego, który może pomóc w pomocy technicznej platformy Azure z problemami z debugowaniem.
 
-    Oprócz powyższego zaleca się *usunięcie* następujących parametrów:
+    Oprócz powyższych zaleca się *usunięcie* następujących parametrów:
 
     ```console
     rhgb quiet crashkernel=auto
     ```
 
-    Graficzny i cichy rozruch nie są przydatne w środowisku chmury, w którym chcemy, aby wszystkie dzienniki były wysyłane do portu szeregowego.  Opcja `crashkernel` może pozostać skonfigurowana w razie potrzeby, ale należy pamiętać, że ten parametr zmniejszy ilość dostępnej pamięci na maszynie Wirtualnej o 128 MB lub więcej, co może być problematyczne w przypadku mniejszych rozmiarów maszyn wirtualnych.
+    Rozruch graficzny i cichy nie są przydatne w środowisku chmury, w którym wszystkie dzienniki mają być wysyłane do portu szeregowego.  `crashkernel` Opcja może pozostać skonfigurowana w razie potrzeby, ale należy pamiętać, że ten parametr zmniejsza ilość dostępnej pamięci na maszynie wirtualnej o 128 MB/większej, co może powodować problemy w mniejszych rozmiarach maszyn wirtualnych.
 
     > [!Important]
-    > CentOS 6.5 i wcześniej musi również `numa=off`ustawić parametr jądra . Zobacz Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+    > CentOS 6,5 i wcześniejszy muszą także ustawiać parametr `numa=off`jądra. Zobacz Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 
-14. Upewnij się, że serwer SSH jest zainstalowany i skonfigurowany do uruchamiania w czasie rozruchu.  Zazwyczaj jest to wartość domyślna.
+14. Upewnij się, że serwer SSH został zainstalowany i skonfigurowany do uruchamiania w czasie rozruchu.  Zwykle jest to ustawienie domyślne.
 
-15. Nie należy tworzyć miejsca wymiany na dysku systemu operacyjnego.
+15. Nie należy tworzyć obszaru wymiany na dysku systemu operacyjnego.
 
-    Agent systemu Azure Linux można automatycznie skonfigurować miejsce wymiany przy użyciu lokalnego dysku zasobów, który jest dołączony do maszyny Wirtualnej po inicjowaniu obsługi administracyjnej na platformie Azure. Należy zauważyć, że dysk zasobów lokalnych jest dyskiem *tymczasowym* i może zostać opróżniony po usunięciu obsługi administracyjnej maszyny Wirtualnej. Po zainstalowaniu agenta systemu Azure Linux (zobacz `/etc/waagent.conf` poprzedni krok) odpowiednio zmodyfikuj następujące parametry:
+    Agent systemu Azure Linux może automatycznie skonfigurować miejsce wymiany przy użyciu lokalnego dysku zasobu dołączonego do maszyny wirtualnej po zainicjowaniu obsługi administracyjnej na platformie Azure. Należy pamiętać, że lokalny dysk zasobów jest dyskiem *tymczasowym* i może zostać opróżniony w przypadku anulowania aprowizacji maszyny wirtualnej. Po zainstalowaniu agenta systemu Linux platformy Azure (zobacz poprzedni krok) zmodyfikuj `/etc/waagent.conf` odpowiednio następujące parametry:
 
     ```console
     ResourceDisk.Format=y
@@ -209,7 +209,7 @@ W tym artykule przyjęto założenie, że system operacyjny CentOS (lub podobna 
     ResourceDisk.SwapSizeMB=2048 ## NOTE: set this to whatever you need it to be.
     ```
 
-16. Uruchom następujące polecenia, aby anulować aprovision maszyny wirtualnej i przygotować ją do inicjowania obsługi administracyjnej na platformie Azure:
+16. Uruchom następujące polecenia, aby anulować obsługę administracyjną maszyny wirtualnej i przygotować ją do aprowizacji na platformie Azure:
 
     ```bash
     sudo waagent -force -deprovision
@@ -217,34 +217,34 @@ W tym artykule przyjęto założenie, że system operacyjny CentOS (lub podobna 
     logout
     ```
 
-17. Kliknij **pozycję Akcja -> Zamknij** w Menedżerze funkcji Hyper-V. Dysk VHD systemu Linux jest teraz gotowy do przekazania na platformę Azure.
+17. Kliknij **akcję-> wyłączyć** w Menedżerze funkcji Hyper-V. Wirtualny dysk twardy z systemem Linux jest teraz gotowy do przekazania na platformę Azure.
 
 
 
-## <a name="centos-70"></a>CentOS 7.0+
+## <a name="centos-70"></a>CentOS 7.0 +
 
-**Zmiany w CentOS 7 (i podobnych instrumentach pochodnych)**
+**Zmiany w CentOS 7 (i podobnych pochodnych)**
 
-Przygotowanie maszyny wirtualnej CentOS 7 dla platformy Azure jest bardzo podobne do CentOS 6, jednak istnieje kilka ważnych różnic, na które warto zwrócić uwagę:
+Przygotowywanie maszyny wirtualnej CentOS 7 na platformie Azure jest bardzo podobne do CentOS 6, jednak istnieje kilka ważnych różnic:
 
-* Pakiet NetworkManager nie jest już w konflikcie z agentem systemu Azure Linux. Ten pakiet jest zainstalowany domyślnie i zaleca się, że nie jest usuwany.
-* GRUB2 jest teraz używany jako domyślny bootloader, więc procedura edycji parametrów jądra uległa zmianie (patrz poniżej).
-* XFS jest teraz domyślnym systemem plików. System plików ext4 może być nadal używany w razie potrzeby.
+* Pakiet programu NetworkManager nie jest już w konflikcie z agentem systemu Linux platformy Azure. Ten pakiet jest instalowany domyślnie i zalecamy, aby nie został usunięty.
+* GRUB2 jest teraz używany jako domyślne program inicjujący, więc procedura edytowania parametrów jądra została zmieniona (patrz poniżej).
+* XFS jest teraz domyślnym systemem plików. W razie potrzeby można nadal używać systemu plików ext4.
 
 **Kroki konfiguracji**
 
 1. W Menedżerze funkcji Hyper-V wybierz maszynę wirtualną.
 
-2. Kliknij **przycisk Połącz,** aby otworzyć okno konsoli dla maszyny wirtualnej.
+2. Kliknij przycisk **Połącz** , aby otworzyć okno konsoli dla maszyny wirtualnej.
 
-3. Utwórz lub `/etc/sysconfig/network` edytuj plik i dodaj następujący tekst:
+3. Utwórz lub edytuj plik `/etc/sysconfig/network` i Dodaj następujący tekst:
 
     ```console
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
-4. Utwórz lub `/etc/sysconfig/network-scripts/ifcfg-eth0` edytuj plik i dodaj następujący tekst:
+4. Utwórz lub edytuj plik `/etc/sysconfig/network-scripts/ifcfg-eth0` i Dodaj następujący tekst:
 
     ```console
     DEVICE=eth0
@@ -257,13 +257,13 @@ Przygotowanie maszyny wirtualnej CentOS 7 dla platformy Azure jest bardzo podobn
     NM_CONTROLLED=no
     ```
 
-5. Zmodyfikuj reguły udev, aby uniknąć generowania reguł statycznych dla interfejsów Ethernet. Te reguły mogą powodować problemy podczas klonowania maszyny wirtualnej na platformie Microsoft Azure lub funkcji Hyper-V:
+5. Zmodyfikuj reguły udev, aby uniknąć generowania statycznych reguł dla interfejsów sieci Ethernet. Te reguły mogą spowodować problemy podczas klonowania maszyny wirtualnej w Microsoft Azure lub funkcji Hyper-V:
 
     ```bash
     sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
     ```
 
-6. Jeśli chcesz użyć dublowania OpenLogic, które są hostowane w centrach `/etc/yum.repos.d/CentOS-Base.repo` danych platformy Azure, następnie zastąp plik następującymi repozytoriami.  Spowoduje to również dodanie repozytorium **[openlogic],** które zawiera pakiety dla agenta systemu Azure Linux:
+6. Jeśli chcesz użyć dublowanych OpenLogic, które są hostowane w centrach danych platformy Azure, Zastąp `/etc/yum.repos.d/CentOS-Base.repo` plik poniższymi repozytoriami.  Spowoduje to również dodanie repozytorium **[OpenLogic]** zawierającego pakiety dla agenta platformy Azure dla systemu Linux:
 
    ```console
    [openlogic]
@@ -306,66 +306,66 @@ Przygotowanie maszyny wirtualnej CentOS 7 dla platformy Azure jest bardzo podobn
    ```
     
    > [!Note]
-   > W dalszej części tego przewodnika przyjęto założenie, że używasz co najmniej `[openlogic]` repozytorium, które będzie używane do zainstalowania agenta systemu Azure Linux poniżej.
+   > W pozostałej części tego przewodnika przyjęto założenie, `[openlogic]` że używasz co najmniej repozytorium, które zostanie użyte do zainstalowania poniższego agenta systemu Linux.
 
-7. Uruchom następujące polecenie, aby wyczyścić bieżące metadane yum i zainstalować wszelkie aktualizacje:
+7. Uruchom następujące polecenie, aby wyczyścić bieżące metadane yum i zainstalować wszystkie aktualizacje:
 
     ```bash
     sudo yum clean all
     ```
 
-    Jeśli nie tworzysz obrazu dla starszej wersji CentOS, zaleca się zaktualizowanie wszystkich pakietów do najnowszych:
+    Jeśli nie tworzysz obrazu dla starszej wersji programu CentOS, zaleca się zaktualizowanie wszystkich pakietów do najnowszych:
 
     ```bash
     sudo yum -y update
     ```
 
-    Po uruchomieniu tego polecenia może być wymagany ponowny rozruch.
+    Po uruchomieniu tego polecenia może być wymagane ponowne uruchomienie komputera.
 
-8. Zmodyfikuj linię rozruchową jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra dla platformy Azure. Aby to zrobić, otwórz `/etc/default/grub` edytor tekstu `GRUB_CMDLINE_LINUX` i edytuj parametr, na przykład:
+8. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby to zrobić, Otwórz `/etc/default/grub` w edytorze tekstów i edytuj `GRUB_CMDLINE_LINUX` parametr, na przykład:
 
     ```console
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
-   Zapewni to również, że wszystkie komunikaty konsoli są wysyłane do pierwszego portu szeregowego, co może pomóc w obsłudze platformy Azure w rozwiązywaniu problemów z debugowaniem. Wyłącza również nowe konwencje nazewnictwa CentOS 7 dla kart sieciowych. Oprócz powyższego zaleca się *usunięcie* następujących parametrów:
+   Spowoduje to również, że wszystkie komunikaty konsoli są wysyłane do pierwszego portu szeregowego, który może pomóc w pomocy technicznej platformy Azure z problemami z debugowaniem. Wyłącza również nowe konwencje nazewnictwa CentOS 7 dla kart sieciowych. Oprócz powyższych zaleca się *usunięcie* następujących parametrów:
 
     ```console
     rhgb quiet crashkernel=auto
     ```
 
-    Graficzny i cichy rozruch nie są przydatne w środowisku chmury, w którym chcemy, aby wszystkie dzienniki były wysyłane do portu szeregowego. Opcja `crashkernel` może pozostać skonfigurowana w razie potrzeby, ale należy pamiętać, że ten parametr zmniejszy ilość dostępnej pamięci na maszynie Wirtualnej o 128 MB lub więcej, co może być problematyczne w przypadku mniejszych rozmiarów maszyn wirtualnych.
+    Rozruch graficzny i cichy nie są przydatne w środowisku chmury, w którym wszystkie dzienniki mają być wysyłane do portu szeregowego. `crashkernel` Opcja może pozostać skonfigurowana w razie potrzeby, ale należy pamiętać, że ten parametr zmniejsza ilość dostępnej pamięci na maszynie wirtualnej o 128 MB/większej, co może powodować problemy w mniejszych rozmiarach maszyn wirtualnych.
 
-9. Po zakończeniu edycji `/etc/default/grub` na powyżej uruchom następujące polecenie, aby odbudować konfigurację grub:
+9. Po zakończeniu edycji `/etc/default/grub` na powyższe Uruchom następujące polecenie, aby skompilować konfigurację grub:
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-10. Jeśli tworzenie obrazu z **VMware, VirtualBox lub KVM:** Upewnij się, że sterowniki Funkcji Hyper-V są zawarte w initramfs:
+10. W przypadku kompilowania obrazu z programu **VMware, VirtualBox lub KVM:** upewnij się, że sterowniki funkcji Hyper-V znajdują się w initramfs:
 
-    Edytuj, `/etc/dracut.conf`dodaj zawartość:
+    Edytuj `/etc/dracut.conf`, Dodaj zawartość:
 
     ```console
     add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
     ```
 
-    Odbuduj initramfs:
+    Kompiluj ponownie initramfs:
 
     ```bash
     sudo dracut -f -v
     ```
 
-11. Zainstaluj agenta systemu Azure Linux i zależności:
+11. Zainstaluj agenta i zależności platformy Azure Linux:
 
     ```bash
     sudo yum install python-pyasn1 WALinuxAgent
     sudo systemctl enable waagent
     ```
 
-12. Nie należy tworzyć miejsca wymiany na dysku systemu operacyjnego.
+12. Nie należy tworzyć obszaru wymiany na dysku systemu operacyjnego.
 
-    Agent systemu Azure Linux można automatycznie skonfigurować miejsce wymiany przy użyciu lokalnego dysku zasobów, który jest dołączony do maszyny Wirtualnej po inicjowaniu obsługi administracyjnej na platformie Azure. Należy zauważyć, że dysk zasobów lokalnych jest dyskiem *tymczasowym* i może zostać opróżniony po usunięciu obsługi administracyjnej maszyny Wirtualnej. Po zainstalowaniu agenta systemu Azure Linux (zobacz `/etc/waagent.conf` poprzedni krok) odpowiednio zmodyfikuj następujące parametry:
+    Agent systemu Azure Linux może automatycznie skonfigurować miejsce wymiany przy użyciu lokalnego dysku zasobu dołączonego do maszyny wirtualnej po zainicjowaniu obsługi administracyjnej na platformie Azure. Należy pamiętać, że lokalny dysk zasobów jest dyskiem *tymczasowym* i może zostać opróżniony w przypadku anulowania aprowizacji maszyny wirtualnej. Po zainstalowaniu agenta systemu Linux platformy Azure (zobacz poprzedni krok) zmodyfikuj `/etc/waagent.conf` odpowiednio następujące parametry:
 
     ```console
     ResourceDisk.Format=y
@@ -375,7 +375,7 @@ Przygotowanie maszyny wirtualnej CentOS 7 dla platformy Azure jest bardzo podobn
     ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
     ```
 
-13. Uruchom następujące polecenia, aby anulować aprovision maszyny wirtualnej i przygotować ją do inicjowania obsługi administracyjnej na platformie Azure:
+13. Uruchom następujące polecenia, aby anulować obsługę administracyjną maszyny wirtualnej i przygotować ją do aprowizacji na platformie Azure:
 
     ```bash
     sudo waagent -force -deprovision
@@ -383,8 +383,8 @@ Przygotowanie maszyny wirtualnej CentOS 7 dla platformy Azure jest bardzo podobn
     logout
     ```
 
-14. Kliknij **pozycję Akcja -> Zamknij** w Menedżerze funkcji Hyper-V. Dysk VHD systemu Linux jest teraz gotowy do przekazania na platformę Azure.
+14. Kliknij **akcję-> wyłączyć** w Menedżerze funkcji Hyper-V. Wirtualny dysk twardy z systemem Linux jest teraz gotowy do przekazania na platformę Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz możesz używać wirtualnego dysku twardego CentOS Linux do tworzenia nowych maszyn wirtualnych na platformie Azure. Jeśli po raz pierwszy przesyłasz plik vhd na platformę Azure, zobacz [Tworzenie maszyny Wirtualnej z systemem Linux z dysku niestandardowego](upload-vhd.md#option-1-upload-a-vhd).
+Możesz teraz przystąpić do tworzenia nowych maszyn wirtualnych na platformie Azure za pomocą wirtualnego dysku twardego z systemem CentOS Linux. Jeśli przekazujesz plik VHD na platformę Azure po raz pierwszy, zobacz [Tworzenie maszyny wirtualnej z systemem Linux z dysku niestandardowego](upload-vhd.md#option-1-upload-a-vhd).

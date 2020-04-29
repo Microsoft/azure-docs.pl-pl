@@ -1,6 +1,6 @@
 ---
-title: Kod bufora pierścieniowego XEvent
-description: Zawiera przykładowy kod Transact-SQL, który jest łatwy i szybki za pomocą docelowego buforu pierścieniowego w bazie danych SQL azure.
+title: Kod buforu pierścienia systemu XEvent
+description: Zawiera przykładowy kod języka Transact-SQL, który jest łatwy i szybki dzięki użyciu obiektu docelowego buforu pierścieniowego w Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,52 +12,52 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: ad98b61d6339388551af93671b3d4d892942f4e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79213967"
 ---
-# <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Kod docelowy buforu pierścieniowego dla zdarzeń rozszerzonych w bazie danych SQL
+# <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Kod docelowy buforu pierścieniowego dla zdarzeń rozszerzonych w SQL Database
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Chcesz kompletny przykład kodu dla najprostszego szybkiego sposobu przechwytywania i raportowania informacji dla rozszerzonego zdarzenia podczas testu. Najłatwiejszym celem dla rozszerzonych danych zdarzeń jest [cel buforu pierścieniowego](https://msdn.microsoft.com/library/ff878182.aspx).
+Chcesz uzyskać pełny przykładowy kod dla najłatwiejszego szybkiego sposobu przechwytywania i raportowania informacji dla zdarzenia rozszerzonego podczas testu. Najłatwiejszym celem dla rozszerzonych danych zdarzeń jest [obiekt docelowy bufora pierścieniowego](https://msdn.microsoft.com/library/ff878182.aspx).
 
-W tym temacie przedstawiono przykładowy kod Transact-SQL, który:
+W tym temacie przedstawiono przykładowy kod języka Transact-SQL, który:
 
-1. Tworzy tabelę z danymi do wykazania.
-2. Tworzy sesję dla istniejącego zdarzenia rozszerzonego, a mianowicie **sqlserver.sql_statement_starting**.
+1. Tworzy tabelę zawierającą dane, które mają być prezentowane za pomocą.
+2. Tworzy sesję dla istniejącego zdarzenia rozszerzonego, mianowicie **SqlServer. sql_statement_starting**.
    
-   * Zdarzenie jest ograniczone do instrukcji SQL, które zawierają określony ciąg aktualizacji: **instrukcja LIKE '%UPDATE tabEmaployee%'**.
-   * Wybiera, aby wysłać dane wyjściowe zdarzenia do obiektu docelowego typu Bufor pierścieniowy, a mianowicie **package0.ring_buffer**.
-3. Rozpoczyna sesję wydarzenia.
-4. Wydaje kilka prostych instrukcji SQL UPDATE.
-5. Wystawia instrukcję SQL SELECT w celu pobrania danych wyjściowych zdarzeń z buforu pierścieniowego.
+   * Zdarzenie jest ograniczone do instrukcji SQL zawierających określony ciąg aktualizacji: instrukcja, taka **jak "% Update tabEmployee%"**.
+   * Wybiera do wysłania danych wyjściowych zdarzenia do obiektu docelowego bufora pierścieniowego, mianowicie **package0. ring_buffer**.
+3. Uruchamia sesję zdarzeń.
+4. Wystawia kilka prostych instrukcji dotyczących aktualizacji SQL.
+5. Emituje instrukcję SELECT języka SQL w celu pobrania danych wyjściowych zdarzenia z bufora pierścieni.
    
-   * **sys.dm_xe_database_session_targets** i inne dynamiczne widoki zarządzania (DMV) są przyłączane.
-6. Zatrzymuje sesję wydarzenia.
-7. Porzuca docelowy bufor pierścieniowy, aby zwolnić jego zasoby.
-8. Porzuca sesję wydarzenia i tabelę demonstracyjną.
+   * **sys. dm_xe_database_session_targets** i inne dynamiczne widoki zarządzania (widoków DMV) są dołączone.
+6. Kończy sesję zdarzeń.
+7. Odrzuca obiekt docelowy buforu pierścieniowego, aby zwolnić jego zasoby.
+8. Odrzuca sesję zdarzeń i tabelę demonstracyjną.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Konto i subskrypcja platformy Azure. Po zarejestrowaniu się możesz skorzystać z [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
 * Dowolna baza danych, w której można utworzyć tabelę.
   
-  * Opcjonalnie można [utworzyć **adventureworkslt** demonstracji bazy danych](sql-database-get-started.md) w ciągu kilku minut.
-* SQL Server Management Studio (ssms.exe), najlepiej jego najnowsza miesięczna wersja aktualizacji. 
-  Możesz pobrać najnowsze ssms.exe z:
+  * Opcjonalnie możesz [utworzyć demonstracyjną bazę danych **AdventureWorksLT** ](sql-database-get-started.md) w ciągu kilku minut.
+* SQL Server Management Studio (SSMS. exe), najlepiej jej najnowszej wersji aktualizacji miesięcznej. 
+  Najnowszą wersję programu SSMS. exe można pobrać z:
   
-  * Temat zatytułowany [Pobierz program SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-  * [Bezpośredni link do pobrania.](https://go.microsoft.com/fwlink/?linkid=616025)
+  * Temat [SQL Server Management Studio pobierania](https://msdn.microsoft.com/library/mt238290.aspx).
+  * [Bezpośredni link do pobierania.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Przykład kodu
 
-Przy bardzo nieznaczne modyfikacje następujące przykładowy kod buforu pierścieniowego można uruchomić na bazie danych SQL Azure lub microsoft SQL Server. Różnica polega na obecności węzła "_database" w nazwie niektórych dynamicznych widoków zarządzania (DMV), używanych w klauzuli FROM w kroku 5. Przykład:
+W przypadku bardzo drobnej modyfikacji Poniższy przykład kodu buforu pierścieniowego można uruchomić na Azure SQL Database lub Microsoft SQL Server. Różnica polega na obecności węzła "_database" w nazwie niektórych dynamicznych widoków zarządzania (widoków DMV) użytego w klauzuli FROM w kroku 5. Przykład:
 
-* sys.dm_xe<strong>_database</strong>_session_targets
-* sys.dm_xe_session_targets
+* sys. dm_xe<strong>_database</strong>_session_targets
+* sys. dm_xe_session_targets
 
 &nbsp;
 
@@ -214,15 +214,15 @@ GO
 
 &nbsp;
 
-## <a name="ring-buffer-contents"></a>Zawartość buforu pierścieniowego
+## <a name="ring-buffer-contents"></a>Zawartość bufora pierścieniowego
 
-Użyliśmy ssms.exe do uruchomienia przykładu kodu.
+Użyto programu SSMS. exe do uruchomienia przykładu kodu.
 
-Aby wyświetlić wyniki, kliknięliśmy komórkę pod nagłówkiem kolumny **target_data_XML**.
+Aby wyświetlić wyniki, należy kliknąć komórkę poniżej nagłówka kolumny **target_data_XML**.
 
-Następnie w okienku wyników kliknięliśmy komórkę pod nagłówkiem kolumny **target_data_XML**. To kliknięcie utworzyło inną kartę pliku w pliku ssms.exe, w której wyświetlana była zawartość komórki wynikowej jako kod XML.
+Następnie w okienku wyników kliknięto komórkę pod nagłówkiem kolumny **target_data_XML**. W tym celu kliknij pozycję utworzono inną kartę pliku w programie SSMS. exe, w której zawartość komórki wynikowej była wyświetlana jako XML.
 
-Dane wyjściowe są wyświetlane w następującym bloku. Wygląda długo, ale to ** \<** tylko dwa zdarzenia>elementami.
+Dane wyjściowe są wyświetlane w następującym bloku. Wygląda na to, że jest on długi, ale jest tylko dwa ** \<elementy>zdarzeń** .
 
 &nbsp;
 
@@ -314,9 +314,9 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 ```
 
 
-#### <a name="release-resources-held-by-your-ring-buffer"></a>Zwolnij zasoby znajdujące się w buforze pierścieniowym
+#### <a name="release-resources-held-by-your-ring-buffer"></a>Zwalnianie zasobów przechowywanych w buforze pierścieniowym
 
-Po zakończeniu pracy z buforem pierścieniowym można go usunąć i zwolnić jego zasoby wydające **ALTER,** jak poniżej:
+Po zakończeniu pracy z buforem pierścieniowym można go usunąć i zwolnić jego zasoby, wykonując **zmiany** podobne do następujących:
 
 ```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
@@ -326,7 +326,7 @@ GO
 ```
 
 
-Definicja sesji zdarzenia jest aktualizowana, ale nie porzucona. Później można dodać kolejne wystąpienie buforu pierścieniowego do sesji wydarzenia:
+Definicja sesji zdarzeń jest aktualizowana, ale nie porzucana. Później można dodać kolejne wystąpienie buforu pierścienia do sesji zdarzeń:
 
 ```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
@@ -341,13 +341,13 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 
 ## <a name="more-information"></a>Więcej informacji
 
-Podstawowym tematem zdarzeń rozszerzonych w usłudze Azure SQL Database jest:
+Podstawowy temat dla rozszerzonych zdarzeń na Azure SQL Database to:
 
-* [Rozszerzone zagadnienia zdarzeń w bazie danych SQL](sql-database-xevent-db-diff-from-svr.md), która kontrastuje niektóre aspekty zdarzeń rozszerzonych, które różnią się między usługą Azure SQL Database a programem Microsoft SQL Server.
+* [Rozbudowane zagadnienia dotyczące zdarzeń w SQL Database](sql-database-xevent-db-diff-from-svr.md), które różnią się pewnymi aspektami rozszerzonych zdarzeń, które różnią się między Azure SQL Database a Microsoft SQL Server.
 
-Inne przykładowe tematy kodu dla zdarzeń rozszerzonych są dostępne pod następującymi łączami. Jednak należy rutynowo sprawdzić dowolny przykład, aby zobaczyć, czy przykładowe obiekty docelowe Microsoft SQL Server w porównaniu do bazy danych SQL Azure. Następnie można zdecydować, czy do uruchomienia próbki są potrzebne niewielkie zmiany.
+Inne tematy przykładowe kodu dla zdarzeń rozszerzonych są dostępne na następujących łączach. Należy jednak regularnie sprawdzać dowolną próbkę, aby zobaczyć, czy Przykładowe elementy docelowe Microsoft SQL Server, a nie Azure SQL Database. Następnie możesz zdecydować, czy niewielkie zmiany są potrzebne do uruchomienia przykładu.
 
-* Przykładowy kod dla bazy danych SQL usługi Azure: [kod docelowy pliku zdarzeń dla zdarzeń rozszerzonych w bazie danych SQL](sql-database-xevent-code-event-file.md)
+* Przykład kodu dla Azure SQL Database: [kod docelowy pliku zdarzeń dla zdarzeń rozszerzonych w SQL Database](sql-database-xevent-code-event-file.md)
 
 <!--
 ('lock_acquired' event.)

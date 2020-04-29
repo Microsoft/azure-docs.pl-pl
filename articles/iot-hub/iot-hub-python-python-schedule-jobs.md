@@ -1,6 +1,6 @@
 ---
-title: Planowanie zadań za pomocą usługi Azure IoT Hub (Python) | Dokumenty firmy Microsoft
-description: Jak zaplanować zadanie usługi Azure IoT Hub, aby wywołać metodę bezpośrednią na wielu urządzeniach. ZestawY SDK usługi Azure IoT dla języka Python umożliwiają zaimplementowanie symulowanych aplikacji urządzeń i aplikacji usługi do uruchomienia zadania.
+title: Planowanie zadań przy użyciu usługi Azure IoT Hub (Python) | Microsoft Docs
+description: Jak zaplanować zadanie IoT Hub platformy Azure w celu wywołania metody bezpośredniej na wielu urządzeniach. Korzystając z zestawów SDK usługi Azure IoT dla języka Python, można zaimplementować aplikacje symulowanych urządzeń i aplikację usługi w celu uruchomienia zadania.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -9,46 +9,46 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: robinsh
 ms.openlocfilehash: 1d721e89534c09a5572e5674796f28355f652165
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79527405"
 ---
-# <a name="schedule-and-broadcast-jobs-python"></a>Planowanie i emisja zadań (Python)
+# <a name="schedule-and-broadcast-jobs-python"></a>Planowanie i emitowanie zadań (Python)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
-Usługa Azure IoT Hub to w pełni zarządzana usługa, która umożliwia aplikacji zaplecza tworzenie i śledzenie zadań, które planują i aktualizują miliony urządzeń.  Zadania mogą być używane dla następujących akcji:
+Azure IoT Hub to w pełni zarządzana usługa, która umożliwia aplikacji zaplecza tworzenie i śledzenie zadań, które umożliwiają planowanie i aktualizowanie milionów urządzeń.  Zadania mogą służyć do wykonywania następujących czynności:
 
 * Aktualizowanie żądanych właściwości
-* Aktualizuj tagi
+* Aktualizowanie tagów
 * Wywoływanie metod bezpośrednich
 
-Koncepcyjnie zadanie zawija jedną z tych akcji i śledzi postęp wykonywania względem zestawu urządzeń, który jest zdefiniowany przez zapytanie bliźniaczej reprezentacji urządzenia.  Na przykład aplikacja zaplecza można użyć zadania do wywołania metody ponownego uruchamiania na 10 000 urządzeń, określone przez zapytanie bliźniaczej reprezentacji urządzenia i zaplanowane w przyszłości.  Ta aplikacja może następnie śledzić postęp, jak każdy z tych urządzeń odbierać i wykonywać metodę ponownego uruchamiania.
+Koncepcyjnie, zadanie otacza jedną z tych akcji i śledzi postęp wykonywania w odniesieniu do zestawu urządzeń, który jest zdefiniowany przez zapytanie o pojedyncze urządzenie.  Na przykład aplikacja zaplecza może użyć zadania do wywołania metody ponownego rozruchu na urządzeniach 10 000, określonych przez zapytanie o sznurki urządzenia i zaplanowane w przyszłości.  Następnie aplikacja może śledzić postęp, ponieważ każdy z tych urządzeń otrzyma i wykona metodę ponownego uruchomienia.
 
 Dowiedz się więcej o każdej z tych funkcji w następujących artykułach:
 
-* Bliźniaczy bliźniaczej reprezentacji urządzenia i właściwości: [Wprowadzenie do bliźniaczych reprezentacji urządzeń](iot-hub-python-twin-getstarted.md) i [samouczek: Jak używać właściwości bliźniaczej reprezentacji urządzenia](tutorial-device-twins.md)
+* Sznurki i właściwości urządzenia: [wprowadzenie do bliźniaczych reprezentacjii urządzeń](iot-hub-python-twin-getstarted.md) i [Samouczek: jak korzystać z właściwości sznurka urządzenia](tutorial-device-twins.md)
 
-* Metody bezpośrednie: [Przewodnik dla programistów IoT Hub - metody bezpośrednie](iot-hub-devguide-direct-methods.md) i [samouczek: metody bezpośrednie](quickstart-control-device-python.md)
+* Metody bezpośrednie: [przewodnik dewelopera IoT Hub — bezpośrednie metody](iot-hub-devguide-direct-methods.md) i [Samouczek: metody bezpośrednie](quickstart-control-device-python.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Ten samouczek przedstawia sposób wykonania następujących czynności:
 
-* Utwórz aplikację urządzenia symulowanego języka Python, która ma metodę bezpośrednią, która umożliwia **lockDoor**, który może być wywoływany przez zaplecze rozwiązania.
+* Utwórz aplikację symulowanego urządzenia w języku Python, która ma metodę bezpośrednią, która umożliwia **lockDoor**, który może być wywoływany przez zaplecze rozwiązania.
 
-* Utwórz aplikację konsoli Języka Python, która wywołuje metodę **lockDoor** direct w symulowanej aplikacji urządzenia przy użyciu zadania i aktualizuje żądane właściwości przy użyciu zadania urządzenia.
+* Utwórz aplikację konsolową języka Python, która wywołuje metodę **lockDoor** Direct w aplikacji symulowanego urządzenia przy użyciu zadania i aktualizuje odpowiednie właściwości przy użyciu zadania urządzenia.
 
-Na końcu tego samouczka masz dwie aplikacje Pythona:
+Na końcu tego samouczka będziesz mieć dwie aplikacje w języku Python:
 
-**simDevice.py**, który łączy się z centrum IoT hub z tożsamości urządzenia i odbiera **lockDoor** bezpośredniej metody.
+**simDevice.py**, który łączy się z Centrum IoT Hub przy użyciu tożsamości urządzenia i otrzymuje metodę **lockDoor** Direct.
 
-**scheduleJobService.py**, która wywołuje metodę bezpośrednią w symulowanej aplikacji urządzenia i aktualizuje żądane właściwości bliźniaczej reprezentacji urządzenia za pomocą zadania.
+**scheduleJobService.py**, która wywołuje metodę bezpośrednią w aplikacji symulowanego urządzenia i aktualizuje odpowiednie właściwości sznurka urządzenia przy użyciu zadania.
 
 > [!NOTE]
-> Zestaw **SDK usługi Azure IoT dla języka Python** nie obsługuje bezpośrednio funkcji **zadań.** Zamiast tego ten samouczek oferuje alternatywne rozwiązanie wykorzystujące wątki asynchroniczne i czasomierze. Aby uzyskać dalsze aktualizacje, zobacz listę funkcji **SDK klienta usługi** na stronie [Zestaw SDK usługi Azure IoT dla języka Python.](https://github.com/Azure/azure-iot-sdk-python)
+> **Zestaw SDK usługi Azure IoT dla języka Python** nie obsługuje bezpośrednio funkcji **zadań** . W zamian ten samouczek oferuje alternatywne rozwiązanie wykorzystujące asynchroniczne wątki i czasomierze. Aby uzyskać więcej aktualizacji, zobacz listę funkcji **zestawu SDK klienta usługi** na stronie [zestawu Azure IoT SDK dla języka Python](https://github.com/Azure/azure-iot-sdk-python) .
 >
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
@@ -61,23 +61,23 @@ Na końcu tego samouczka masz dwie aplikacje Pythona:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="register-a-new-device-in-the-iot-hub"></a>Zarejestruj nowe urządzenie w centrum IoT
+## <a name="register-a-new-device-in-the-iot-hub"></a>Rejestrowanie nowego urządzenia w usłudze IoT Hub
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Tworzenie aplikacji symulowanego urządzenia
 
-W tej sekcji utworzysz aplikację konsoli Języka Python, która odpowiada na metodę bezpośrednią wywoływaną przez chmurę, która wyzwala symulowaną metodę **lockDoor.**
+W tej sekcji utworzysz aplikację konsolową w języku Python, która reaguje na bezpośrednią metodę wywoływaną przez chmurę, która wyzwala symulowaną metodę **lockDoor** .
 
-1. W wierszu polecenia uruchom następujące polecenie, aby zainstalować pakiet **urządzenia azure-iot:**
+1. W wierszu polecenia Uruchom następujące polecenie, aby zainstalować pakiet **Azure-IoT-Device** :
 
     ```cmd/sh
     pip install azure-iot-device
     ```
 
-2. Za pomocą edytora tekstu utwórz nowy plik **simDevice.py** w katalogu roboczym.
+2. Za pomocą edytora tekstów Utwórz nowy plik **simDevice.py** w katalogu roboczym.
 
-3. Dodaj następujące `import` instrukcje i zmienne na początku pliku **simDevice.py.** Zastąp `deviceConnectionString` ciągiem połączenia utworzonego powyżej urządzenia:
+3. Dodaj następujące `import` instrukcje i zmienne na początku pliku **simDevice.py** . Zamień `deviceConnectionString` na parametry połączenia utworzonego powyżej urządzenia:
 
     ```python
     import threading
@@ -87,7 +87,7 @@ W tej sekcji utworzysz aplikację konsoli Języka Python, która odpowiada na me
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-4. Dodaj następujące wywołanie zwrotne funkcji, aby obsłużyć metodę **lockDoor:**
+4. Dodaj następujące wywołanie zwrotne funkcji, aby obsłużyć metodę **lockDoor** :
 
     ```python
     def lockdoor_listener(client):
@@ -102,7 +102,7 @@ W tej sekcji utworzysz aplikację konsoli Języka Python, która odpowiada na me
             client.send_method_response(method_response)
     ```
 
-5. Dodaj inną funkcję wywołania zwrotnego do obsługi bliźniąt urządzeń aktualizacje:
+5. Dodaj kolejne wywołanie zwrotne funkcji w celu obsługi aktualizacji bliźniaczych reprezentacji urządzeń:
 
     ```python
     def twin_update_listener(client):
@@ -113,7 +113,7 @@ W tej sekcji utworzysz aplikację konsoli Języka Python, która odpowiada na me
             print (patch)
     ```
 
-6. Dodaj następujący kod, aby zarejestrować program obsługi dla **lockDoor** metody. Obejmują również `main` rutynowe:
+6. Dodaj następujący kod, aby zarejestrować procedurę obsługi dla metody **lockDoor** . Uwzględnij również `main` procedurę:
 
     ```python
     def iothub_jobs_sample_run():
@@ -144,49 +144,49 @@ W tej sekcji utworzysz aplikację konsoli Języka Python, która odpowiada na me
         iothub_jobs_sample_run()
     ```
 
-7. Zapisz i zamknij plik **simDevice.py.**
+7. Zapisz i zamknij plik **simDevice.py** .
 
 > [!NOTE]
-> Dla uproszczenia ten samouczek nie zawiera opisu wdrożenia żadnych zasad ponawiania. W kodzie produkcyjnym należy zaimplementować zasady ponawiania prób (takie jak wykładnicze wycofywanie), zgodnie z sugestią w artykule Obsługa [błędów przejściowych.](/azure/architecture/best-practices/transient-faults)
+> Dla uproszczenia ten samouczek nie zawiera opisu wdrożenia żadnych zasad ponawiania. W kodzie produkcyjnym należy wdrożyć zasady ponawiania (np. wykładniczy wycofywania), zgodnie z opisem w artykule, [obsłudze błędów przejściowych](/azure/architecture/best-practices/transient-faults).
 >
 
-## <a name="get-the-iot-hub-connection-string"></a>Pobierz ciąg połączenia koncentratora IoT
+## <a name="get-the-iot-hub-connection-string"></a>Pobierz parametry połączenia usługi IoT Hub
 
-W tym artykule utworzysz usługę wewnętrznej bazy danych, która wywołuje metodę bezpośrednią na urządzeniu i aktualizuje bliźniaczej reprezentacji urządzenia. Usługa wymaga uprawnienia **do łączenia usługi,** aby wywołać metodę bezpośrednią na urządzeniu. Usługa potrzebuje również uprawnień do **odczytu** i **zapisu rejestru** rejestru do odczytu i zapisu rejestru tożsamości. Nie ma domyślnej zasady dostępu współdzielonego, która zawiera tylko te uprawnienia, więc należy je utworzyć.
+W tym artykule opisano tworzenie usługi zaplecza, która wywołuje metodę bezpośrednią na urządzeniu i aktualizuje sznurek urządzeń. Usługa musi mieć uprawnienia do **połączenia z usługą** , aby wywołać metodę bezpośrednią na urządzeniu. Usługa wymaga również uprawnienia do **odczytu** rejestru i **zapisu** rejestru w celu odczytu i zapisu rejestru tożsamości. Nie ma domyślnych zasad dostępu współdzielonego, które zawierają tylko te uprawnienia, więc należy ją utworzyć.
 
-Aby utworzyć zasadę dostępu współdzielonego, która udziela **uprawnień do zapisu usługi,** **odczytu rejestru**i **zapisu rejestru** oraz uzyskać parametry połączenia dla tej zasady, wykonaj następujące kroki:
+Aby utworzyć zasady dostępu współdzielonego, które przyznają uprawnienia do **nawiązywania połączenia z usługą**, **odczytu rejestru**i **zapisu rejestru** oraz do uzyskiwania parametrów połączenia dla tych zasad, wykonaj następujące kroki:
 
-1. Otwórz centrum IoT w [witrynie Azure portal](https://portal.azure.com). Najprostszym sposobem dostania się do centrum IoT hub jest **wybranie grup zasobów,** wybierz grupę zasobów, w której znajduje się centrum IoT, a następnie wybierz centrum IoT z listy zasobów.
+1. Otwórz Centrum IoT Hub w [Azure Portal](https://portal.azure.com). Najprostszym sposobem, aby uzyskać dostęp do usługi IoT Hub, jest wybranie opcji **grupy zasobów**, wybranie grupy zasobów, w której znajduje się centrum IoT Hub, a następnie wybranie Centrum IoT Hub z listy zasobów.
 
-2. W lewym okienku centrum IoT wybierz pozycję **Zasady dostępu współużytkowego**.
+2. W okienku po lewej stronie Centrum IoT wybierz pozycję **zasady dostępu współdzielonego**.
 
-3. W górnym menu nad listą zasad wybierz pozycję **Dodaj**.
+3. W górnym menu powyżej listy zasad wybierz pozycję **Dodaj**.
 
-4. W okienku **Dodawanie zasad dostępu udostępnionego** wprowadź opisową nazwę zasad; na przykład: *serviceAndRegistryReadWrite*. W obszarze **Uprawnienia**wybierz pozycję **Połączenie usługi** i zapis **rejestru** **(odczyt rejestru** jest automatycznie wybierany po **wybraniu wpisu rejestru**). Następnie wybierz pozycję **Utwórz**.
+4. W okienku **Dodawanie zasad dostępu współdzielonego** Wprowadź opisową nazwę zasad. na przykład: *serviceAndRegistryReadWrite*. W obszarze **uprawnienia**wybierz **pozycję Usługa Connect** i **Zapisz rejestr** (**odczyt rejestru** jest wybierany automatycznie po wybraniu pozycji **zapis w rejestrze**). Następnie wybierz pozycję **Utwórz**.
 
-    ![Pokazywale dodawania nowych zasad dostępu współdzielonego](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
+    ![Pokaż, jak dodać nowe zasady dostępu współdzielonego](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
 
-5. W okienku **Zasady dostępu współdzielonego** wybierz nową zasadę z listy zasad.
+5. W okienku **zasady dostępu współdzielonego** wybierz nowe zasady z listy zasad.
 
-6. W obszarze **Udostępnione klawisze dostępu**wybierz ikonę kopiowania **ciągu połączenia — klucz podstawowy** i zapisz wartość.
+6. W obszarze **klucze dostępu współdzielonego**wybierz ikonę kopiowania **parametrów połączenia — klucz podstawowy** i Zapisz wartość.
 
     ![Sposób pobierania parametrów połączenia](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
 
-Aby uzyskać więcej informacji na temat zasad i uprawnień dostępu współużytkowane centrum IoT Hub, zobacz [Kontrola dostępu i uprawnienia](./iot-hub-devguide-security.md#access-control-and-permissions).
+Aby uzyskać więcej informacji na temat IoT Hub zasad i uprawnień dostępu współdzielonego, zobacz [Kontrola dostępu i uprawnienia](./iot-hub-devguide-security.md#access-control-and-permissions).
 
-## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Planowanie zadań wywoływania metody bezpośredniej i aktualizowania właściwości bliźniaczej reprezentacji urządzenia
+## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Planowanie zadań związanych z wywoływaniem metody bezpośredniej i aktualizowaniem właściwości sznurka urządzenia
 
-W tej sekcji utworzysz aplikację konsoli Języka Python, która inicjuje zdalną **lockDoor** na urządzeniu przy użyciu metody bezpośredniej, a także aktualizuje żądane właściwości bliźniaczej reprezentacji urządzenia.
+W tej sekcji utworzysz aplikację konsolową języka Python, która inicjuje zdalne **lockDoor** na urządzeniu przy użyciu metody bezpośredniej, a także aktualizuje odpowiednie właściwości sznurka urządzenia.
 
-1. W wierszu polecenia uruchom następujące polecenie, aby zainstalować pakiet **azure-iot-hub:**
+1. W wierszu polecenia Uruchom następujące polecenie, aby zainstalować pakiet **Azure-IoT-Hub** :
 
     ```cmd/sh
     pip install azure-iot-hub
     ```
 
-2. Za pomocą edytora tekstu utwórz nowy plik **scheduleJobService.py** w katalogu roboczym.
+2. Za pomocą edytora tekstów Utwórz nowy plik **scheduleJobService.py** w katalogu roboczym.
 
-3. Dodaj następujące `import` instrukcje i zmienne na początku pliku **scheduleJobService.py.** Zastąp symbol zastępczy `{IoTHubConnectionString}` parametryem połączenia centrum IoT skopiowanym wcześniej w aplikacji Pobierz ciąg połączenia centrum [IoT](#get-the-iot-hub-connection-string). Zastąp `{deviceId}` symbol zastępczy identyfikatorem urządzenia zarejestrowanym w [Rejestrze nowe urządzenie w centrum IoT Hub:](#register-a-new-device-in-the-iot-hub)
+3. Dodaj następujące `import` instrukcje i zmienne na początku pliku **scheduleJobService.py** . Zastąp `{IoTHubConnectionString}` symbol zastępczy parametrami połączenia usługi IoT Hub skopiowanymi wcześniej w temacie [pobieranie parametrów połączenia usługi IoT Hub](#get-the-iot-hub-connection-string). Zastąp `{deviceId}` symbol ZASTĘPCZy identyfikatorem urządzenia zarejestrowanym w zarejestrowaniu [nowego urządzenia w usłudze IoT Hub](#register-a-new-device-in-the-iot-hub):
 
     ```python
     import sys
@@ -218,7 +218,7 @@ W tej sekcji utworzysz aplikację konsoli Języka Python, która inicjuje zdaln�
         return len(query_result.items)
     ```
 
-5. Dodaj następujące metody, aby uruchomić zadania, które wywołują metodę bezpośrednią i bliźniaczątkę urządzenia:
+5. Dodaj następujące metody, aby uruchomić zadania, które wywołują metodę bezpośrednią i sznurek urządzenia:
 
     ```python
     def device_method_job(job_id, device_id, wait_time, execution_time):
@@ -254,7 +254,7 @@ W tej sekcji utworzysz aplikację konsoli Języka Python, która inicjuje zdaln�
             print ( "Device twin updated." )
     ```
 
-6. Dodaj następujący kod, aby zaplanować zadania i zaktualizować stan zadania. Obejmują również `main` rutynowe:
+6. Dodaj następujący kod, aby zaplanować zadania i zaktualizować stan zadania. Uwzględnij również `main` procedurę:
 
     ```python
     def iothub_jobs_sample_run():
@@ -309,32 +309,32 @@ W tej sekcji utworzysz aplikację konsoli Języka Python, która inicjuje zdaln�
         iothub_jobs_sample_run()
     ```
 
-7. Zapisz i zamknij plik **scheduleJobService.py.**
+7. Zapisz i zamknij plik **scheduleJobService.py** .
 
 ## <a name="run-the-applications"></a>Uruchamianie aplikacji
 
 Teraz można uruchomić aplikacje.
 
-1. W wierszu polecenia w katalogu roboczym uruchom następujące polecenie, aby rozpocząć nasłuchiwanie metody bezpośredniej ponownego uruchomienia:
+1. W wierszu polecenia w katalogu roboczym Uruchom następujące polecenie, aby rozpocząć nasłuchiwanie metody bezpośredniego ponownego uruchomienia:
 
     ```cmd/sh
     python simDevice.py
     ```
 
-2. W innym wierszu polecenia w katalogu roboczym uruchom następujące polecenie, aby wyzwolić zadania, aby zablokować drzwi i zaktualizować bliźniaczej reprezentacji:
+2. W innym wierszu polecenia w katalogu roboczym Uruchom następujące polecenie, aby wyzwolić zadania w celu zablokowania drzwi i zaktualizowania sznurka:
   
     ```cmd/sh
     python scheduleJobService.py
     ```
 
-3. W konsoli są widoczne odpowiedzi urządzenia na metodę bezpośrednią i aktualizację bliźniaczek urządzeń.
+3. W konsoli programu są widoczne odpowiedzi urządzenia do metody bezpośredniej i aktualizacji urządzenia bliźniaczych reprezentacji.
 
-    ![Przykład zadania centrum IoT 1 - wyjście urządzenia](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
+    ![Przykład zadania IoT Hub 1 — dane wyjściowe urządzenia](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
 
-    ![Przykładowe zadanie centrum IoT — 2- wyjście urządzenia](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
+    ![Przykład zadania IoT Hub 2 — dane wyjściowe urządzenia](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku użyto zadania, aby zaplanować metodę bezpośrednią do urządzenia i aktualizację właściwości bliźniaczej reprezentacji urządzenia.
+W tym samouczku użyto zadania do zaplanowania metody bezpośredniej dla urządzenia i aktualizacji właściwości sznurka urządzenia.
 
-Aby kontynuować pracę z usługą IoT Hub i wzorcami zarządzania urządzeniami, takimi jak zdalna aktualizacja oprogramowania układowego, zobacz [Jak wykonać aktualizację oprogramowania układowego](tutorial-firmware-update.md).
+Aby nadal zacząć korzystać z wzorców IoT Hub i zarządzania urządzeniami, takimi jak zdalne przez aktualizację oprogramowania układowego, zobacz artykuł [Jak przeprowadzić aktualizację oprogramowania układowego](tutorial-firmware-update.md).

@@ -1,6 +1,6 @@
 ---
-title: Pobierz dane użycia maszyny wirtualnej platformy Azure przy użyciu interfejsu API REST
-description: Użyj interfejsów API rest platformy Azure do zbierania metryk wykorzystania maszyny wirtualnej.
+title: Pobieranie danych użycia maszyn wirtualnych platformy Azure przy użyciu interfejsu API REST
+description: Użyj interfejsów API REST platformy Azure, aby zbierać metryki wykorzystania dla maszyny wirtualnej.
 author: rloutlaw
 ms.service: virtual-machines
 ms.subservice: monitoring
@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
 ms.openlocfilehash: 07e91f3d9fd32f01db91415bfd90746cd1aef403
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78944752"
 ---
-# <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Pobierz metryki użycia maszyny wirtualnej przy użyciu interfejsu API REST
+# <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Pobieranie metryk użycia maszyn wirtualnych przy użyciu interfejsu API REST
 
-W tym przykładzie pokazano, jak pobrać użycie procesora CPU dla [maszyny wirtualnej systemu Linux](https://docs.microsoft.com/azure/virtual-machines/linux/monitor) przy użyciu interfejsu API rest platformy [Azure](/rest/api/azure/).
+Ten przykład pokazuje, jak pobrać użycie procesora dla [maszyny wirtualnej z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/monitor) przy użyciu [interfejsu API REST platformy Azure](/rest/api/azure/).
 
-Pełna dokumentacja referencyjna i dodatkowe przykłady interfejsu API REST są dostępne w [odwołaniu rest usługi Azure Monitor.](/rest/api/monitor) 
+Kompletna dokumentacja referencyjna i dodatkowe przykłady dla interfejsu API REST są dostępne w temacie [Azure monitor REST](/rest/api/monitor). 
 
 ## <a name="build-the-request"></a>Tworzenie żądania
 
-Użyj następującego żądania GET, aby zebrać [metrykę procentowego procesora CPU](/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftcomputevirtualmachines) z maszyny wirtualnej
+Użyj następującego żądania GET, aby zebrać [procentową metrykę procesora CPU](/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftcomputevirtualmachines) z maszyny wirtualnej
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
@@ -43,20 +43,20 @@ Wymagane są następujące nagłówki:
 | Nazwa | Opis |
 | :--- | :---------- |
 | subscriptionId | Identyfikator subskrypcji, który identyfikuje subskrypcję platformy Azure. Jeśli masz wiele subskrypcji, zobacz [Praca z wieloma subskrypcjami](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
-| resourceGroupName | Nazwa grupy zasobów platformy Azure skojarzonej z zasobem. Tę wartość można uzyskać z interfejsu API usługi Azure Resource Manager, interfejsu wiersza polecenia lub portalu. |
-| nazwa wirtualna | Nazwa maszyny wirtualnej platformy Azure. |
-| nazwy metryczne | Oddzielona przecinkami lista prawidłowych [wskaźników modułu równoważenia obciążenia](/azure/load-balancer/load-balancer-standard-diagnostics). |
-| api-version | Wersja interfejsu API do użycia dla żądania.<br /><br /> Ten dokument obejmuje `2018-01-01`wersję api, zawartą w powyższym adresie URL.  |
-| Timespan | Ciąg z następującym formatem, `startDateTime_ISO/endDateTime_ISO` który definiuje zakres czasu zwracanych metryk. Ten opcjonalny parametr jest ustawiony na zwracanie danych o wartości dnia w przykładzie. |
+| resourceGroupName | Nazwa grupy zasobów platformy Azure skojarzonej z zasobem. Tę wartość można uzyskać za pomocą interfejsu API Azure Resource Manager, interfejsu wiersza polecenia lub portalu. |
+| VMName | Nazwa maszyny wirtualnej platformy Azure. |
+| metricnames | Rozdzielana przecinkami lista prawidłowych [metryk Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics). |
+| api-version | Wersja interfejsu API do użycia dla żądania.<br /><br /> Ten dokument obejmuje interfejs API- `2018-01-01`Version uwzględniony w powyższym adresie URL.  |
+| zakres czasu | Ciąg o następującym formacie `startDateTime_ISO/endDateTime_ISO` , który definiuje zakres czasu zwracanych metryk. Ten opcjonalny parametr ma ustawioną wartość zwracającą wartość dnia w przykładzie. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Treść żądania
 
-Dla tej operacji nie jest potrzebna żadna treść żądania.
+Żadna treść żądania nie jest wymagana dla tej operacji.
 
 ## <a name="handle-the-response"></a>Obsługa odpowiedzi
 
-Kod stanu 200 jest zwracany po pomyślnym pomyślnym powrocie listy wartości metryki. Pełna lista kodów błędów jest dostępna w [dokumentacji referencyjnej](/rest/api/monitor/metrics/list#errorresponse).
+Kod stanu 200 jest zwracany, gdy lista wartości metryk zostanie zwrócona pomyślnie. Pełną listę kodów błędów można znaleźć w [dokumentacji referencyjnej](/rest/api/monitor/metrics/list#errorresponse).
 
 ## <a name="example-response"></a>Przykładowa odpowiedź 
 

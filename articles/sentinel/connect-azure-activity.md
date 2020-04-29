@@ -1,6 +1,6 @@
 ---
-title: Łączenie danych aktywności platformy Azure z usługą Azure Sentinel | Dokumenty firmy Microsoft
-description: Dowiedz się, jak połączyć dane aktywności platformy Azure z usługą Azure Sentinel.
+title: Łączenie danych aktywności platformy Azure z usługą Azure wskaźnikowego | Microsoft Docs
+description: Dowiedz się, jak połączyć dane aktywności platformy Azure z wskaźnikiem kontrolnym platformy Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,34 +16,34 @@ ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
 ms.openlocfilehash: 82dfcaf3394703aae531c828a1b96ad290bab798
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80124985"
 ---
-# <a name="connect-data-from-azure-activity-log"></a>Łączenie danych z dziennika aktywności platformy Azure
+# <a name="connect-data-from-azure-activity-log"></a>Połącz dane z dziennika aktywności platformy Azure
 
-Dzienniki [usługi Azure Activity](../azure-monitor/platform/platform-logs-overview.md) można przesyłać strumieniowo za pomocą jednego kliknięcia. Dziennik aktywności to dziennik subskrypcji, który rejestruje i wyświetla zdarzenia na poziomie subskrypcji na platformie Azure, od danych operacyjnych usługi Azure Resource Manager po aktualizacje zdarzeń kondycji usługi. Za pomocą dziennika działania, można określić "co, kto i kiedy" dla każdej operacji zapisu (PUT, POST, DELETE) wykonywane na zasoby w ramach subskrypcji. Można również dowiedzieć się o stanie operacji i innych odpowiednich właściwości. Dziennik działania nie zawiera operacji odczytu (GET) ani operacji dla zasobów korzystających z modelu Classic/"RDFE". 
+Dzienniki [aktywności platformy Azure](../azure-monitor/platform/platform-logs-overview.md) można przesyłać strumieniowo do usługi Azure wskaźnikowej przy użyciu jednego kliknięcia. Dziennik aktywności jest dziennikiem subskrypcji, który rejestruje i wyświetla zdarzenia na poziomie subskrypcji na platformie Azure, od Azure Resource Manager danych operacyjnych do aktualizacji Service Health zdarzeń. Za pomocą dziennika aktywności można określić, kto i kiedy "dla operacji zapisu (PUT, POST, DELETE) wykonanych dla zasobów w subskrypcji. Możesz również poznać stan operacji i inne istotne właściwości. Dziennik aktywności nie obejmuje operacji odczytu (GET) ani operacji dla zasobów, które używają modelu klasycznego/"FRONTONu". 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Użytkownik musi mieć uprawnienia współautora do obszaru roboczego usługi Log Analytics.
-- Użytkownik musi mieć uprawnienia czytnika do dowolnej subskrypcji, której dzienniki chcesz przesyłać strumieniowo do usługi Azure Sentinel.
+- Użytkownik musi mieć uprawnienia współautora do obszaru roboczego Log Analytics.
+- Użytkownik musi mieć uprawnienia czytelnika do każdej subskrypcji, której dzienniki mają być przesyłane strumieniowo do usługi Azure wskaźnikowej.
 
 ## <a name="set-up-the-azure-activity-connector"></a>Konfigurowanie łącznika aktywności platformy Azure
 
-1. Z menu nawigacji usługi Azure Sentinel wybierz polecenie **Łączniki danych**. Z listy łączników kliknij pozycję **Działanie platformy Azure**, a następnie przycisk Otwórz stronę **łącznika** w prawym dolnym dolnym przycisku.
+1. Z menu nawigacyjnego wskaźnikowego platformy Azure wybierz pozycję **Łączniki danych**. Z listy łączników kliknij pozycję **aktywność Azure**, a następnie na przycisk **Otwórz stronę łącznika** w prawym dolnym rogu.
 
-2. W obszarze **Instrukcje** kartę kliknij **łącze Konfigurowanie dzienników aktywności platformy Azure >.**
+2. Na karcie **instrukcje** kliknij link **Konfiguruj dzienniki aktywności platformy Azure >** .
 
-3. W okienku **dziennika aktywności platformy Azure** wybierz subskrypcje, których dzienniki chcesz przesyłać strumieniowo do usługi Azure Sentinel. 
+3. W okienku **Dziennik aktywności platformy Azure** wybierz subskrypcje, których dzienniki chcesz przesłać do usługi Azure wskaźnikowej. 
 
-4. W okienku subskrypcji otwierany po prawej stronie kliknij pozycję **Połącz**.
+4. W okienku subskrypcja, które jest otwierane z prawej strony, kliknij pozycję **Połącz**.
 
-5. Aby użyć odpowiedniego schematu w usłudze Log `AzureActivity` Analytics dla alertów aktywności platformy Azure, wpisz w oknie kwerendy.
+5. Aby użyć odpowiedniego schematu w Log Analytics dla alertów aktywności platformy Azure, `AzureActivity` wpisz w oknie zapytania.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym dokumencie dowiesz się, jak połączyć dziennik aktywności platformy Azure z usługą Azure Sentinel. Aby dowiedzieć się więcej o usłudze Azure Sentinel, zobacz następujące artykuły:
-- Dowiedz się, jak [uzyskać wgląd w dane i potencjalne zagrożenia.](quickstart-get-visibility.md)
-- Rozpocznij wykrywanie zagrożeń za pomocą usługi Azure Sentinel przy użyciu [wbudowanych](tutorial-detect-threats-built-in.md) lub [niestandardowych](tutorial-detect-threats-custom.md) reguł.
+W tym dokumencie przedstawiono sposób łączenia dziennika aktywności platformy Azure z wskaźnikiem kontrolnym platformy Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
+- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
+- Rozpocznij wykrywanie zagrożeń przy użyciu funkcji wskaźnikowej platformy Azure, korzystając z [wbudowanych](tutorial-detect-threats-built-in.md) lub [niestandardowych](tutorial-detect-threats-custom.md) reguł.

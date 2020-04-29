@@ -1,6 +1,6 @@
 ---
-title: Seria HB — maszyny wirtualne platformy Azure
-description: Dane techniczne maszyn wirtualnych serii HB.
+title: HB-seria-Virtual Machines platformy Azure
+description: Specyfikacje dotyczące maszyn wirtualnych z serii HB.
 services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
@@ -8,29 +8,29 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 600f10e81742e9bb66c800b747fd7b2dc062754d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78164835"
 ---
 # <a name="hb-series"></a>Seria HB
 
-Maszyny wirtualne z serii HB są zoptymalizowane pod kątem aplikacji opartych na przepustowości pamięci, takich jak dynamika płynów, jawna analiza elementów skończonych i modelowanie pogody. Maszyny wirtualne HB są wyposażone w 60 rdzeni procesorów AMD EPYC 7551, 4 GB pamięci RAM na rdzeń procesora i nie ma jednoczesnej wielowątkowości. Maszyna wirtualna HB zapewnia przepustowość pamięci do 260 GB/s.
+Maszyny wirtualne z serii HB są zoptymalizowane pod kątem aplikacji korzystających z przepustowości pamięci, takich jak dynamika płynów, jawnej, skończonej analizy elementów i modelowania pogody. HB VM funkcja 60 AMD EPYC 7551 rdzeni procesora, 4 GB pamięci RAM na rdzeń procesora CPU i bez jednoczesnego wielowątkowości. Maszyna wirtualna HB oferuje do 260 GB/s przepustowości pamięci.
 
 ACU: 199-216
 
-Pamięć masowa w wersji premium: obsługiwane
+Premium Storage: obsługiwane
 
-Buforowanie magazynu w jakości Premium: obsługiwane
+Buforowanie Premium Storage: obsługiwane
 
-Migracja na żywo: nie jest obsługiwana
+Migracja na żywo: nieobsługiwane
 
-Aktualizacje zachowywania pamięci: nie są obsługiwane
+Aktualizacje z zachowaniem pamięci: nieobsługiwane
 
-| Rozmiar | Procesor wirtualny | Procesor | Pamięć (GB) | Przepustowość pamięci GB/s | Podstawowa częstotliwość procesora (GHz) | Częstotliwość wszystkich rdzeni (GHz, szczyt) | Częstotliwość jednożyłowa (GHz, szczytowa) | Wydajność RDMA (Gb/s) | Obsługa MPI | Pamięć tymczasowa (GB) | Maks. liczba dysków danych | Maksymalne karty sieciowe Ethernet |
+| Rozmiar | Procesor wirtualny | Procesor | Pamięć (GB) | Przepustowość pamięci GB/s | Podstawowa częstotliwość procesora CPU (GHz) | Częstotliwość wszystkich rdzeni (GHz, szczyt) | Częstotliwość jednordzeniowa (GHz, szczytowa) | Wydajność RDMA (GB/s) | Obsługa MPI | Magazyn tymczasowy (GB) | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych Ethernet |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HB60rs | 60 | AMD EPYC 7551 | 240 | 263 | 2.0 | 2.55 | 2.55 | 100 | Wszystkie | 700 | 4 | 1 |
+| Standard_HB60rs | 60 | PROCESOR AMD EPYC 7551 | 240 | 263 | 2.0 | 2.55 | 2.55 | 100 | Wszystkie | 700 | 4 | 1 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -45,4 +45,4 @@ Aktualizacje zachowywania pamięci: nie są obsługiwane
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tym, jak [jednostki obliczeniowe platformy Azure (ACU)](acu.md) mogą pomóc w porównywaniu wydajności obliczeniowej w jednostkach SKU platformy Azure.
+Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.

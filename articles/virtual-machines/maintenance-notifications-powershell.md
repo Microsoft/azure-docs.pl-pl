@@ -1,6 +1,6 @@
 ---
-title: Otrzymuj powiadomienia o konserwacji maszyn wirtualnych platformy Azure przy użyciu programu PowerShell
-description: Wyświetl powiadomienia o konserwacji dla maszyn wirtualnych uruchomionych na platformie Azure i rozpocznij samoobsługową konserwację przy użyciu programu PowerShell.
+title: Pobieranie powiadomień dotyczących konserwacji maszyn wirtualnych platformy Azure przy użyciu programu PowerShell
+description: Wyświetl powiadomienia dotyczące konserwacji maszyn wirtualnych działających na platformie Azure i uruchom konserwację samoobsługową przy użyciu programu PowerShell.
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
 ms.openlocfilehash: b23c210d7c8a9f1d42e6e1b46e0f7f81bda857b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77916086"
 ---
-# <a name="handling-planned-maintenance-using-powershell"></a>Obsługa planowanej konserwacji za pomocą programu PowerShell
+# <a name="handling-planned-maintenance-using-powershell"></a>Obsługa planowanej konserwacji przy użyciu programu PowerShell
 
-**Ten artykuł dotyczy maszyn wirtualnych z systemem Linux i Windows.**
+**Ten artykuł ma zastosowanie do maszyn wirtualnych z systemami Linux i Windows.**
 
-Za pomocą programu Azure PowerShell można sprawdzić, kiedy maszyny wirtualne są zaplanowane do [konserwacji.](maintenance-notifications.md) Informacje o planowanej konserwacji są dostępne z polecenia cmdlet `-status` [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) podczas korzystania z parametru.
+Możesz użyć Azure PowerShell, aby sprawdzić, kiedy maszyny wirtualne są zaplanowane do [konserwacji](maintenance-notifications.md). Informacje o planowanej konserwacji są dostępne w poleceniu cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) podczas `-status` korzystania z parametru.
   
-Informacje o konserwacji są zwracane tylko wtedy, gdy planowana jest konserwacja. Jeśli nie jest zaplanowana żadna konserwacja, która wpływa na maszynę wirtualną, polecenie cmdlet nie zwraca żadnych informacji o konserwacji. 
+Informacje o konserwacji są zwracane tylko wtedy, gdy jest planowana konserwacja. Jeśli żadna konserwacja nie zostanie zaplanowana na maszynę wirtualną, polecenie cmdlet nie zwróci żadnych informacji o konserwacji. 
 
 
 ```powershell
@@ -31,22 +31,22 @@ Następujące właściwości są zwracane w obszarze MaintenanceRedeployStatus:
 
 | Wartość | Opis   |
 |-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed (Dozwolone) | Wskazuje, czy w tej chwili można rozpocząć konserwację maszyny Wirtualnej |
-| Czas rozpoczęcia pracy przedwidokadowy         | Początek okna samoobsługowego konserwacji, kiedy można zainicjować konserwację maszyny Wirtualnej |
-| Czas wstępnej opiekiDostępniewaczas           | Koniec okna samoobsługowego konserwacji, kiedy można zainicjować konserwację maszyny Wirtualnej |
-| Czas rozpoczęcia konserwacji            | Początek zaplanowanej konserwacji, w której platforma Azure inicjuje konserwację na maszynie Wirtualnej |
-| MaintenanceWindowEndTime (Czas konserwacji systemu Windows              | Koniec zaplanowanego okna konserwacji, w którym platforma Azure inicjuje konserwację na maszynie Wirtualnej |
-| Kod LastOperationResultCode               | Wynik ostatniej próby zainicjowania konserwacji na maszynie wirtualnej |
+| IsCustomerInitiatedMaintenanceAllowed | Wskazuje, czy w tej chwili można rozpocząć konserwację maszyny wirtualnej |
+| PreMaintenanceWindowStartTime         | Początek okna samoobsługowego konserwacji, gdy można zainicjować konserwację na maszynie wirtualnej |
+| PreMaintenanceWindowEndTime           | Koniec okna samoobsługowego konserwacji, gdy można zainicjować konserwację na maszynie wirtualnej |
+| MaintenanceWindowStartTime            | Rozpoczęcie konserwacji zaplanowanej, w której platforma Azure inicjuje konserwację na maszynie wirtualnej |
+| MaintenanceWindowEndTime              | Koniec okna zaplanowanej konserwacji, w którym platforma Azure inicjuje konserwację na maszynie wirtualnej |
+| LastOperationResultCode               | Wynik ostatniej próby zainicjowania konserwacji na maszynie wirtualnej |
 
 
 
-Można również uzyskać stan konserwacji dla wszystkich maszyn wirtualnych w grupie zasobów przy użyciu [get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) i nie określania maszyny Wirtualnej.
+Możesz również uzyskać stan konserwacji dla wszystkich maszyn wirtualnych w grupie zasobów przy użyciu polecenia [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) i nie OKREŚLAJ maszyny wirtualnej.
  
 ```powershell
 Get-AzVM -ResourceGroupName myResourceGroup -Status
 ```
 
-Poniższy przykład programu PowerShell przyjmuje identyfikator subskrypcji i zwraca listę maszyn wirtualnych, które są zaplanowane do konserwacji.
+Poniższy przykład programu PowerShell przyjmuje Identyfikator subskrypcji i zwraca listę maszyn wirtualnych, które są zaplanowane do konserwacji.
 
 ```powershell
 
@@ -74,9 +74,9 @@ function MaintenanceIterator
 
 ```
 
-### <a name="start-maintenance-on-your-vm-using-powershell"></a>Rozpoczynanie konserwacji maszyny Wirtualnej przy użyciu programu PowerShell
+### <a name="start-maintenance-on-your-vm-using-powershell"></a>Rozpocznij konserwację na maszynie wirtualnej przy użyciu programu PowerShell
 
-Korzystając z informacji z funkcji w poprzedniej sekcji, następujące rozpoczyna konserwację na maszynie Wirtualnej, jeśli **IsCustomerInitiatedMaintenanceAllowed** jest ustawiona na true.
+Przy użyciu informacji z funkcji w poprzedniej sekcji, następujące polecenie uruchamia konserwację na maszynie wirtualnej, jeśli **IsCustomerInitiatedMaintenanceAllowed** jest ustawiona na wartość true.
 
 ```powershell
 Restart-AzVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceGroupName 
@@ -86,15 +86,15 @@ Restart-AzVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceG
 
 [!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
 
-Jeśli nadal masz starsze maszyny wirtualne, które zostały wdrożone przy użyciu klasycznego modelu wdrażania, można użyć programu PowerShell do wykonywania zapytań dotyczących maszyn wirtualnych i inicjowania konserwacji.
+Jeśli nadal masz starsze maszyny wirtualne wdrożone przy użyciu klasycznego modelu wdrażania, możesz użyć programu PowerShell do wykonywania zapytań dotyczących maszyn wirtualnych i inicjowania obsługi.
 
-Aby uzyskać stan konserwacji maszyny Wirtualnej, wpisz:
+Aby uzyskać stan konserwacji maszyny wirtualnej, wpisz:
 
 ```
 Get-AzureVM -ServiceName <Service name> -Name <VM name>
 ```
 
-Aby rozpocząć konserwację klasycznej maszyny Wirtualnej, należy wpisać:
+Aby rozpocząć konserwację klasycznej maszyny wirtualnej, wpisz:
 
 ```
 Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
@@ -102,4 +102,4 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 ## <a name="next-steps"></a>Następne kroki
 
-Można również obsługiwać planowaną konserwację przy użyciu [interfejsu wiersza polecenia](maintenance-notifications-cli.md) lub portalu [azure.](maintenance-notifications-portal.md)
+Możesz również obsługiwać zaplanowaną konserwację przy użyciu [interfejsu wiersza polecenia platformy Azure](maintenance-notifications-cli.md) lub [portalu](maintenance-notifications-portal.md).

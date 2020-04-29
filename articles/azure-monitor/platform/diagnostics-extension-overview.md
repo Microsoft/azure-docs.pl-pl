@@ -1,105 +1,105 @@
 ---
-title: Omówienie rozszerzenia diagnostyki platformy Azure
-description: Używanie diagnostyki platformy Azure do debugowania, pomiaru wydajności, monitorowania, analizy ruchu w usługach w chmurze, maszynach wirtualnych i sieci szkieletowej usług
+title: Przegląd rozszerzenia Diagnostyka Azure
+description: Korzystaj z diagnostyki platformy Azure na potrzeby debugowania, mierzenia wydajności, monitorowania, analizy ruchu w usługach Cloud Services, Virtual Machines i Service Fabric
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 6cb514312db525ffd2ccf9f7b70968daaa94f322
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77672382"
 ---
-# <a name="azure-diagnostics-extension-overview"></a>Omówienie rozszerzenia diagnostyki platformy Azure
-Rozszerzenie diagnostyki platformy Azure jest [agentem w usłudze Azure Monitor,](agents-overview.md) który zbiera dane monitorowania z systemu operacyjnego gościa zasobów obliczeniowych platformy Azure, w tym maszyn wirtualnych. Ten artykuł zawiera omówienie rozszerzenia diagnostyki platformy Azure, w tym określone funkcje, które obsługuje i opcje instalacji i konfiguracji. 
+# <a name="azure-diagnostics-extension-overview"></a>Przegląd rozszerzenia Diagnostyka Azure
+Diagnostyka Azure rozszerzenie jest [agentem w Azure monitor](agents-overview.md) , który zbiera dane monitorowania z systemu operacyjnego gościa zasobów obliczeniowych platformy Azure, w tym maszyn wirtualnych. Ten artykuł zawiera Omówienie rozszerzenia Diagnostyka Azure, w tym określonych funkcji, które obsługuje, oraz opcji instalacji i konfiguracji. 
 
 > [!NOTE]
-> Rozszerzenie diagnostyki platformy Azure jest jednym z dostępnych agentów do zbierania danych monitorowania z systemu operacyjnego gościa zasobów obliczeniowych. Zobacz [Omówienie agentów usługi Azure Monitor, aby](agents-overview.md) uzyskać opis różnych agentów i wskazówki dotyczące wybierania odpowiednich agentów dla twoich wymagań.
+> Diagnostyka Azure rozszerzenie jest jednym z agentów dostępnych do zbierania danych monitorowania z systemu operacyjnego gościa zasobów obliczeniowych. Zapoznaj się z [omówieniem agentów Azure monitor](agents-overview.md) , aby uzyskać opis różnych agentów i wskazówki dotyczące wybierania odpowiednich agentów w celu spełnienia określonych wymagań.
 
-## <a name="comparison-to-log-analytics-agent"></a>Porównanie z agentem usługi Log Analytics
-Agent usługi Log Analytics w usłudze Azure Monitor może również służyć do zbierania danych monitorowania z systemu operacyjnego gościa maszyn wirtualnych. Możesz użyć jednego lub obu w zależności od wymagań. Zobacz [Omówienie agentów usługi Azure Monitor, aby](agents-overview.md) uzyskać szczegółowe porównanie agentów usługi Azure Monitor. 
+## <a name="comparison-to-log-analytics-agent"></a>Porównanie z agentem Log Analytics
+Agent Log Analytics w Azure Monitor może być również używany do zbierania danych monitorowania z systemu operacyjnego gościa maszyn wirtualnych. W zależności od potrzeb można użyć lub obu tych opcji. Szczegółowe porównanie agentów Azure Monitor można znaleźć w temacie [Omówienie agentów Azure monitor](agents-overview.md) . 
 
-Najważniejsze różnice, które należy wziąć pod uwagę, to:
+Kluczowe różnice, które należy wziąć pod uwagę:
 
-- Rozszerzenie diagnostyki platformy Azure może być używane tylko z maszynami wirtualnymi platformy Azure. Agent usługi Log Analytics może być używany z maszynami wirtualnymi na platformie Azure, innych chmurach i lokalnie.
-- Rozszerzenie diagnostyki platformy Azure wysyła dane do usługi Azure Storage, [Metryki usługi Azure Monitor](data-platform-metrics.md) (tylko dla systemu Windows) i centrum zdarzeń. Agent usługi Log Analytics zbiera dane do [dzienników monitora platformy Azure](data-platform-logs.md).
-- Agent usługi Log Analytics jest wymagany dla [rozwiązań,](../monitor-reference.md#insights-and-core-solutions) [usługi Azure Monitor dla maszyn wirtualnych](../insights/vminsights-overview.md)i innych usług, takich jak Usługa Azure Security [Center.](/azure/security-center/)
+- Rozszerzenia Diagnostyka Azure można używać tylko z maszynami wirtualnymi platformy Azure. Agent Log Analytics może być używany z maszynami wirtualnymi platformy Azure, innymi chmurami i lokalnymi.
+- Diagnostyka Azure rozszerzenie wysyła dane do usługi Azure Storage, [Azure monitor metryk](data-platform-metrics.md) (tylko system Windows) i Event Hubs. Agent Log Analytics zbiera dane do [dzienników Azure monitor](data-platform-logs.md).
+- Agent Log Analytics jest wymagany w przypadku [rozwiązań](../monitor-reference.md#insights-and-core-solutions), [Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md)i innych usług, takich jak [Azure Security Center](/azure/security-center/).
 
 ## <a name="costs"></a>Koszty
-Rozszerzenie diagnostyczne platformy Azure nie jest żadnym kosztem, ale mogą być naliczane opłaty za dane ponajmowane. Sprawdź [ceny usługi Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) dla miejsca docelowego, w którym zbierasz dane.
+Usługa Azure Diagnostic Extension nie ma kosztu, ale opłaty za dane pozyskiwane mogą być naliczane. Sprawdź [ceny Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) lokalizacji docelowej, w której zbierane są dane.
 
 ## <a name="data-collected"></a>Zbierane dane
-W poniższych tabelach przedstawiono dane, które mogą być zbierane przez rozszerzenie diagnostyki systemu Windows i Linux.
+W poniższej tabeli wymieniono dane, które mogą być zbierane przez rozszerzenie diagnostyki systemu Windows i Linux.
 
-### <a name="windows-diagnostics-extension-wad"></a>Rozszerzenie diagnostyki systemu Windows (WAD)
+### <a name="windows-diagnostics-extension-wad"></a>Rozszerzenie diagnostyki systemu Windows (funkcji wad)
 
 | Źródło danych | Opis |
 | --- | --- |
 | Dzienniki zdarzeń systemu Windows   | Zdarzenia z dziennika zdarzeń systemu Windows. |
 | Liczniki wydajności | Wartości liczbowe mierzące wydajność różnych aspektów systemu operacyjnego i obciążeń. |
 | Dzienniki usług IIS             | Informacje o użyciu witryn sieci Web usług IIS działających w systemie operacyjnym gościa. |
-| Dzienniki aplikacji     | Śledzenie wiadomości napisanych przez aplikację. |
-| Dzienniki usługi .NET EventSource |Kody zapisu zdarzeń przy użyciu klasy [.NET EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) |
+| Dzienniki aplikacji     | Komunikaty śledzenia zapisywane przez aplikację. |
+| Dzienniki zdarzeń platformy .NET |Kod pisania zdarzeń przy użyciu klasy [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) platformy .NET |
 | [Dzienniki ETW oparte na manifestach](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Śledzenie zdarzeń dla zdarzeń systemu Windows generowanych przez dowolny proces. |
 | Zrzuty awaryjne (dzienniki)   | Informacje o stanie procesu w przypadku awarii aplikacji. |
-| Dzienniki oparte na plikach    | Dzienniki utworzone przez aplikację lub usługę. |
-| Dzienniki diagnostyczne agenta | Informacje o samej diagnostyce platformy Azure. |
+| Dzienniki na podstawie plików    | Dzienniki utworzone przez aplikację lub usługę. |
+| Dzienniki diagnostyczne agenta | Informacje dotyczące Diagnostyka Azure samego siebie. |
 
 
 ### <a name="linux-diagnostics-extension-lad"></a>Rozszerzenie diagnostyki systemu Linux (LAD)
 
 | Źródło danych | Opis |
 | --- | --- |
-| Dziennik systemu | Zdarzenia wysyłane do systemu rejestrowania zdarzeń systemu Linux.   |
+| Dziennik systemu | Zdarzenia wysyłane do systemu rejestrowania zdarzeń w systemie Linux.   |
 | Liczniki wydajności  | Wartości liczbowe mierzące wydajność różnych aspektów systemu operacyjnego i obciążeń. |
-| Pliki dziennika | Wpisy wysyłane do dziennika opartego na plikach.  |
+| Pliki dziennika | Wpisy wysyłane do dziennika na podstawie plików.  |
 
 ## <a name="data-destinations"></a>Miejsca docelowe danych
-Rozszerzenie diagnostyki platformy Azure dla systemów Windows i Linux zawsze zbiera dane na konto usługi Azure Storage. Zobacz [Instalowanie i konfigurowanie rozszerzenia diagnostyki systemu Windows Azure (WAD)](diagnostics-extension-windows-install.md) i [Użyj rozszerzenia diagnostycznego systemu Linux do monitorowania metryk i dzienników, aby wyświetlić](../../virtual-machines/extensions/diagnostics-linux.md) listę określonych tabel i obiektów blob, w których te dane są zbierane.
+Rozszerzenie diagnostyki platformy Azure dla systemów Windows i Linux zawsze zbiera dane na konto usługi Azure Storage. Zapoznaj się z tematem [Instalowanie i Konfigurowanie rozszerzenia Windows Azure Diagnostics (funkcji wad)](diagnostics-extension-windows-install.md) i [Używanie rozszerzenia diagnostyki systemu Linux do monitorowania metryk i dzienników](../../virtual-machines/extensions/diagnostics-linux.md) w poszukiwaniu listy określonych tabel i obiektów blob, w których są zbierane dane.
 
-Skonfiguruj co najmniej jeden *pochłaniacz danych,* aby wysyłać dane do innych dodatkowych miejsc docelowych. W poniższych sekcjach przedstawiono pochłaniacze dostępne dla rozszerzenia diagnostyki systemu Windows i Linux.
+Skonfiguruj co najmniej jeden *ujścia danych* w celu wysyłania danych do innych dodatkowych miejsc docelowych. W poniższych sekcjach wymieniono ujścia dostępne dla rozszerzenia Diagnostyka systemu Windows i Linux.
 
-### <a name="windows-diagnostics-extension-wad"></a>Rozszerzenie diagnostyki systemu Windows (WAD)
+### <a name="windows-diagnostics-extension-wad"></a>Rozszerzenie diagnostyki systemu Windows (funkcji wad)
 
 | Element docelowy | Opis |
 |:---|:---|
-| Metryki usługi Azure Monitor | Zbieranie danych o wydajności do metryk usługi Azure Monitor. Zobacz [Wysyłanie metryk systemu operacyjnego gościa do bazy danych metryk usługi Azure Monitor](collect-custom-metrics-guestos-resource-manager-vm.md).  |
-| Usługa Event Hubs | Usługi Azure Event Hubs za pomocą usługi Azure Event Hubs do wysyłania danych poza platformą Azure. Zobacz [Przesyłanie strumieniowe danych diagnostyki platformy Azure do centrów zdarzeń](diagnostics-extension-stream-event-hubs.md) |
-| Obiekty BLOB usługi Azure Storage | Zapisz do danych do obiektów blob w usłudze Azure Storage oprócz tabel. |
-| Application Insights | Zbieranie danych z aplikacji uruchomionych na maszynie Wirtualnej do usługi Application Insights w celu zintegrowania z innym monitorowaniem aplikacji. Zobacz [Wysyłanie danych diagnostycznych do usługi Application Insights](diagnostics-extension-to-application-insights.md). |
+| Metryki Azure Monitor | Zbieranie danych wydajności do metryk Azure Monitor. Zobacz [wysyłanie metryk systemu operacyjnego gościa do bazy danych metryk Azure monitor](collect-custom-metrics-guestos-resource-manager-vm.md).  |
+| Usługa Event Hubs | Wyślij dane poza platformą Azure przy użyciu usługi Azure Event Hubs. Zobacz [przesyłanie strumieniowe danych Diagnostyka Azure do Event Hubs](diagnostics-extension-stream-event-hubs.md) |
+| Obiekty blob usługi Azure Storage | Oprócz tabel Zapisz dane w obiektach Blob w usłudze Azure Storage. |
+| Application Insights | Zbierz dane z aplikacji działających na maszynie wirtualnej, aby Application Insights integrację z innym monitorowaniem aplikacji. Zobacz [wysyłanie danych diagnostycznych do Application Insights](diagnostics-extension-to-application-insights.md). |
 
-Można również zbierać dane WAD z magazynu do obszaru roboczego usługi Log Analytics do analizy za pomocą dzienników usługi Azure Monitor, chociaż agent usługi Log Analytics jest zwykle używany dla tej funkcji. Może wysyłać dane bezpośrednio do obszaru roboczego usługi Log Analytics i obsługuje rozwiązania i szczegółowe informacje, które zapewniają dodatkowe funkcje.  Zobacz [Zbieranie dzienników diagnostycznych platformy Azure z usługi Azure Storage](diagnostics-extension-logs.md). 
+Możesz również zbierać dane funkcji wad z magazynu w obszarze roboczym Log Analytics, aby przeanalizować je za pomocą Azure Monitor dzienników, chociaż Agent Log Analytics jest zazwyczaj używany w tej funkcji. Może wysyłać dane bezpośrednio do obszaru roboczego Log Analytics i obsługuje rozwiązania i szczegółowe informacje zapewniające dodatkowe funkcje.  Zobacz [zbieranie dzienników diagnostycznych platformy Azure z usługi Azure Storage](diagnostics-extension-logs.md). 
 
 
 ### <a name="linux-diagnostics-extension-lad"></a>Rozszerzenie diagnostyki systemu Linux (LAD)
-LAD zapisuje dane w tabelach w usłudze Azure Storage. Obsługuje zlewozmywaki w poniższej tabeli.
+LAD zapisuje dane w tabelach w usłudze Azure Storage. Obsługuje ona ujścia w poniższej tabeli.
 
 | Element docelowy | Opis |
 |:---|:---|
-| Usługa Event Hubs | Usługi Azure Event Hubs za pomocą usługi Azure Event Hubs do wysyłania danych poza platformą Azure. |
-| Obiekty BLOB usługi Azure Storage | Zapisz do danych do obiektów blob w usłudze Azure Storage oprócz tabel. |
-| Metryki usługi Azure Monitor | Zainstaluj agenta Telegraf oprócz LAD. Zobacz [Zbieranie niestandardowych metryk dla maszyny Wirtualnej z systemem Linux za pomocą agenta InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md).
+| Usługa Event Hubs | Wyślij dane poza platformą Azure przy użyciu usługi Azure Event Hubs. |
+| Obiekty blob usługi Azure Storage | Oprócz tabel Zapisz dane w obiektach Blob w usłudze Azure Storage. |
+| Metryki Azure Monitor | Oprócz LAD należy zainstalować agenta telegraf. Zobacz [zbieranie niestandardowych metryk dla maszyny wirtualnej z systemem Linux za pomocą agenta InfluxData telegraf](collect-custom-metrics-linux-telegraf.md).
 
 
 ## <a name="installation-and-configuration"></a>Instalacja i konfiguracja
-Rozszerzenie diagnostyki jest implementowane jako [rozszerzenie maszyny wirtualnej](../../virtual-machines/extensions/overview.md) na platformie Azure, więc obsługuje te same opcje instalacji przy użyciu szablonów Menedżera zasobów, programu PowerShell i interfejsu wiersza polecenia. Zobacz [rozszerzenia i funkcje maszyn wirtualnych dla](../../virtual-machines/extensions/features-windows.md) [rozszerzeń i funkcji systemu Windows i maszyny wirtualnej dla systemu Linux, aby](../../virtual-machines/extensions/features-linux.md) uzyskać ogólne informacje na temat instalowania i utrzymywania rozszerzeń maszyn wirtualnych.
+Rozszerzenie diagnostyczne jest zaimplementowane jako [rozszerzenie maszyny wirtualnej](../../virtual-machines/extensions/overview.md) na platformie Azure, dlatego obsługuje te same opcje instalacji przy użyciu szablonów Menedżer zasobów, programu PowerShell i interfejsu wiersza polecenia. Aby uzyskać ogólne informacje na temat instalowania i konserwowania rozszerzeń maszyn wirtualnych, zobacz [rozszerzenia i funkcje maszyny wirtualnej dla systemu Windows](../../virtual-machines/extensions/features-windows.md) i [rozszerzeń i funkcji maszyn wirtualnych](../../virtual-machines/extensions/features-linux.md) w systemie Linux.
 
-Można również zainstalować i skonfigurować rozszerzenie diagnostyczne systemu Windows i Linux w witrynie Azure portal w obszarze **Ustawienia diagnostyczne** w sekcji **Monitorowanie** menu maszyny wirtualnej.
+Można także zainstalować i skonfigurować rozszerzenie diagnostyczne systemu Windows i Linux w Azure Portal w obszarze **Ustawienia diagnostyczne** w sekcji **monitorowanie** w menu maszyny wirtualnej.
 
 Zobacz następujące artykuły, aby uzyskać szczegółowe informacje na temat instalowania i konfigurowania rozszerzenia diagnostyki dla systemów Windows i Linux.
 
-- [Instalowanie i konfigurowanie rozszerzenia diagnostyki systemu Windows Azure (WAD)](diagnostics-extension-windows-install.md)
+- [Instalowanie i Konfigurowanie rozszerzenia diagnostyki systemu Windows Azure (funkcji wad)](diagnostics-extension-windows-install.md)
 - [Używanie rozszerzenia diagnostycznego systemu Linux do monitorowania metryk i dzienników](../../virtual-machines/extensions/diagnostics-linux.md)
 
 ## <a name="other-documentation"></a>Inna dokumentacja
 
-###  <a name="azure-cloud-service-classic-web-and-worker-roles"></a>Role usługi w chmurze azure (klasyczna) i rola procesu roboczego
-- [Wprowadzenie do monitorowania usług w chmurze](../../cloud-services/cloud-services-how-to-monitor.md)
-- [Włączanie diagnostyki platformy Azure w usługach w chmurze platformy Azure](../../cloud-services/cloud-services-dotnet-diagnostics.md)
-- [Usługa Application Insights dla usług w chmurze platformy Azure](../app/cloudservices.md)<br>[Śledzenie przepływu aplikacji usług w chmurze za pomocą diagnostyki platformy Azure](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md) 
+###  <a name="azure-cloud-service-classic-web-and-worker-roles"></a>Role sieć Web i proces roboczy w usłudze Azure Cloud Service (klasyczny)
+- [Wprowadzenie do monitorowania usługi w chmurze](../../cloud-services/cloud-services-how-to-monitor.md)
+- [Włączanie Diagnostyka Azure na platformie Azure Cloud Services](../../cloud-services/cloud-services-dotnet-diagnostics.md)
+- [Application Insights dla usług Azure Cloud Services](../app/cloudservices.md)<br>[Śledzenie przepływu aplikacji Cloud Services z Diagnostyka Azure](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md) 
 
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
 - [Monitor and diagnose services in a local machine development setup (Monitorowanie i diagnozowanie usług w konfiguracji środowiska deweloperskiego na maszynie lokalnej)](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -107,6 +107,6 @@ Zobacz następujące artykuły, aby uzyskać szczegółowe informacje na temat i
 ## <a name="next-steps"></a>Następne kroki
 
 
-* Dowiedz się, jak [używać liczników wydajności w diagnostyce platformy Azure.](../../cloud-services/diagnostics-performance-counters.md)
-* Jeśli masz problemy z uruchamianiem diagnostyki lub znajdowaniem danych w tabelach magazynu platformy Azure, zobacz Rozwiązywanie problemów z [diagnostyką platformy Azure](diagnostics-extension-troubleshooting.md)
+* Dowiedz się, jak [używać liczników wydajności w Diagnostyka Azure](../../cloud-services/diagnostics-performance-counters.md).
+* Jeśli masz problemy z uruchamianiem diagnostyki lub wyszukiwaniem danych w tabelach usługi Azure Storage, zobacz [Rozwiązywanie problemów Diagnostyka Azure](diagnostics-extension-troubleshooting.md)
 

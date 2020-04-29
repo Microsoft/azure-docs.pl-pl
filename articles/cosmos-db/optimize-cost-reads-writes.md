@@ -1,50 +1,50 @@
 ---
-title: Optymalizacja kosztów odczytów i zapisów w usłudze Azure Cosmos DB
-description: W tym artykule wyjaśniono, jak zmniejszyć koszty usługi Azure Cosmos DB podczas wykonywania operacji odczytu i zapisu na danych.
+title: Optymalizacja kosztów odczytu i zapisu w Azure Cosmos DB
+description: W tym artykule wyjaśniono, jak zmniejszyć koszty Azure Cosmos DB podczas wykonywania operacji odczytu i zapisu danych.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: 725876594a7e7c5f3b3a02802f487dc5fdfb64dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79535939"
 ---
-# <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Optymalizacja kosztów odczytów i zapisów w usłudze Azure Cosmos DB
+# <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Optymalizuj operacje odczytu i zapisu w Azure Cosmos DB
 
-W tym artykule opisano sposób obliczania kosztów wymaganych do odczytu i zapisu danych z usługi Azure Cosmos DB. Operacje odczytu obejmują operacje get na elementach i operacje zapisu obejmują wstawianie, zamienianie, usuwanie i upsert elementów.  
+W tym artykule opisano, jak koszt wymagany do odczytu i zapisu danych z Azure Cosmos DB jest obliczany. Operacje odczytu obejmują operacje pobrania dla elementów i operacje zapisu obejmują Wstawianie, zastępowanie, usuwanie i upsert elementów.  
 
-## <a name="cost-of-reads-and-writes"></a>Koszt odczytów i zapisów
+## <a name="cost-of-reads-and-writes"></a>Koszt odczytu i zapisu
 
-Usługa Azure Cosmos DB gwarantuje przewidywalną wydajność pod względem przepływności i opóźnienia przy użyciu modelu aprowizowanej przepływności. Aprowizowana przepływność jest reprezentowana w kategoriach [jednostek żądań](request-units.md) na sekundę lub jednostek RU/s. Jednostka żądania (RU) jest logiczną abstrakcją zasobów obliczeniowych, takich jak procesor, pamięć, we/wy itp., które są wymagane do wykonania żądania. Aprowizowana przepływność (RUs) jest odłożona i dedykowana do kontenera lub bazy danych, aby zapewnić przewidywalną przepływność i opóźnienie. Aprowizowana przepływność umożliwia usługi Azure Cosmos DB, aby zapewnić przewidywalną i spójną wydajność, gwarantowane małe opóźnienia i wysoką dostępność w dowolnej skali. Jednostki żądań reprezentują znormalizowaną walutę, która upraszcza rozumowanie dotyczące liczby zasobów, których potrzebuje aplikacja. 
+Azure Cosmos DB gwarantuje przewidywalną wydajność w zakresie przepływności i opóźnienia przy użyciu modelu przepływności aprowizacji. Obsługiwana przepływność jest reprezentowana w zakresie [jednostek żądań](request-units.md) na sekundę lub RU/s. Jednostka żądania (RU) to logiczne Abstrakcja zasobów obliczeniowych, takich jak procesor CPU, pamięć, we/wy itp., które są wymagane do wykonania żądania. Zainicjowana przepływność (jednostek ru) jest oddzielona i przeznaczona dla kontenera lub bazy danych, aby zapewnić przewidywalną przepływność i opóźnienia. Elastyczna przepływność umożliwia Azure Cosmos DB w celu zapewnienia przewidywalnej i spójnej wydajności, gwarantowanych małych opóźnień i wysokiej dostępności w dowolnej skali. Jednostki żądań reprezentują znormalizowaną walutę, która upraszcza powód, ile zasobów potrzebuje aplikacja. 
 
-Nie musisz myśleć o rozróżnianiu jednostek żądań między odczytami i zapisami. Ujednolicony model waluty jednostek żądań tworzy wydajność, aby zamiennie używać tej samej przepustowości dla odczytów i zapisów. W poniższej tabeli przedstawiono koszt odczytów i zapisów w kategoriach RU/s dla elementów o rozmiarze 1 KB i 100 KB.
+Nie trzeba myśleć o rozróżnieniu jednostek żądań między operacjami odczytu i zapisu. Ujednolicony model waluty jednostek żądania tworzy efektywność w celu zapewnienia niezmienionego użycia tej samej przepustowości dla operacji odczytu i zapisu. W poniższej tabeli przedstawiono koszty odczytu i zapisu w zakresie RU/s dla elementów, które mają rozmiar 1 KB i 100 KB.
 
-|**Rozmiar przedmiotu**  |**Koszt jednego odczytu** |**Koszt jednego zapisu**|
+|**Rozmiar elementu**  |**Koszt jednego odczytu** |**Koszt jednego zapisu**|
 |---------|---------|---------|
-|1 KB |1 ru |5 r.r. |
-|100 KB |10 jednostek RU |50 r./ |
+|1 KB |1 RU |5 jednostek ru |
+|100 KB |10 jednostek RU |50 jednostek ru |
 
-Odczyt elementu o rozmiarze 1 KB kosztuje jedną ru. Pisanie elementu o masie 1 KB kosztuje pięć procesorów RU. Koszty odczytu i zapisu mają zastosowanie w przypadku korzystania z domyślnego [poziomu spójności](consistency-levels.md)sesji .  Zagadnienia dotyczące obiektów typu rUs obejmują: rozmiar elementu, liczbę właściwości, spójność danych, właściwości indeksowane, indeksowanie i wzorce zapytań.
+Odczytywanie elementu o rozmiarze 1 KB jest kosztem jednego RU. Pisanie elementu z 1 KB kosztami pięciu jednostek ru. Koszty odczytu i zapisu są stosowane w przypadku korzystania z domyślnego [poziomu spójności](consistency-levels.md)sesji.  Zagadnienia dotyczące jednostek ru obejmują: rozmiar elementu, liczba właściwości, spójność danych, indeksowane właściwości, indeksowanie i wzorce zapytań.
 
-## <a name="optimize-the-cost-of-writes-and-reads"></a>Optymalizacja kosztów zapisów i odczytów
+## <a name="optimize-the-cost-of-writes-and-reads"></a>Optymalizowanie kosztów operacji zapisu i odczytu
 
-Podczas wykonywania operacji zapisu, należy aprowizować wystarczającą pojemność do obsługi liczby zapisów wymaganych na sekundę. Można zwiększyć aprowizowaną przepływność przy użyciu SDK, portal, cli przed wykonaniem zapisów, a następnie zmniejszyć przepływność po zakończeniu zapisów. Przepływność dla okresu zapisu jest minimalną przepływnością wymaganą dla danych, a także przepływnością wymaganą do wstawiania obciążenia przy założeniu, że nie są uruchomione żadne inne obciążenia. 
+Podczas wykonywania operacji zapisu należy zapewnić wystarczającą pojemność, aby obsługiwać liczbę operacji zapisu na sekundę. Można zwiększyć przepływność przy użyciu zestawu SDK, portalu, interfejsu wiersza polecenia przed wykonaniem operacji zapisu, a następnie zmniejszyć przepływność po zakończeniu zapisywania. Przepustowość dla okresu zapisu to minimalna przepływność wymagana dla danych oraz przepływność wymagana do wstawiania obciążeń przy założeniu, że żadne inne obciążenia nie są uruchomione. 
 
-Jeśli używasz innych obciążeń jednocześnie, na przykład query/read/update/delete, należy dodać dodatkowe jednostki żądań wymagane dla tych operacji. Jeśli operacje zapisu są ograniczone szybkością, można dostosować zasady ponawiania/wycofywania przy użyciu zestawów SDK usługi Azure Cosmos DB. Na przykład można zwiększyć obciążenie, dopóki niewielka liczba żądań nie zostanie ograniczona. Jeśli wystąpi limit szybkości, aplikacja kliencka powinna wycofać się z żądań ograniczających szybkość dla określonego interwału ponawiania. Przed ponowną próbą zapisu, powinien mieć minimalną ilość odstępu czasu między ponownych prób. Obsługa zasad ponawiania próby jest uwzględniona w pakietach SDK SQL .NET, Java, Node.js i Python oraz we wszystkich obsługiwanych wersjach pakietów SDK .NET Core. 
+Jeśli używasz innych obciążeń współbieżnie, na przykład zapytania/odczytu/aktualizacji/usuwania, należy dodać dodatkowe jednostki żądania wymagane dla tych operacji. Jeśli operacje zapisu są ograniczone proporcjonalnie, można dostosować zasady ponawiania/wycofywania przy użyciu zestawów SDK Azure Cosmos DB. Na przykład można zwiększyć obciążenie do momentu, aż mała częstotliwość żądań uzyska wartość rate-Limited. W przypadku wystąpienia limitu współczynnika aplikacja kliencka powinna wycofać się z żądań ograniczenia szybkości dla określonego interwału ponowień. Przed ponowną próbą zapisu należy mieć minimalny odstęp czasu między ponownymi próbami. Obsługa zasad ponownych prób jest uwzględniana w zestawach SDK programu SQL .NET, Java, Node. js i Python oraz we wszystkich obsługiwanych wersjach zestawów SDK platformy .NET Core. 
 
-Można również zbiorczo wstawiać dane do usługi Azure Cosmos DB lub kopiować dane z dowolnego obsługiwanego magazynu danych źródłowych do usługi Azure Cosmos DB przy użyciu [usługi Azure Data Factory.](../data-factory/connector-azure-cosmos-db.md) Usługa Azure Data Factory natywnie integruje się z masowym interfejsem API usługi Azure Cosmos DB, aby zapewnić najlepszą wydajność podczas pisania danych.
+Można również zbiorczo wstawiać dane do Azure Cosmos DB lub kopiować dane ze wszystkich obsługiwanych źródłowych magazynów danych do Azure Cosmos DB przy użyciu [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). Azure Data Factory natywnie integruje się z Azure Cosmos DB zbiorczej interfejsu API w celu zapewnienia najlepszej wydajności podczas zapisywania danych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następnie możesz dowiedzieć się więcej o optymalizacji kosztów w usłudze Azure Cosmos DB, aby uzyskać następujące artykuły:
+Następnie możesz dowiedzieć się więcej o optymalizacji kosztów w Azure Cosmos DB z następującymi artykułami:
 
-* Dowiedz się więcej o [optymalizacji pod kątem rozwoju i testowania](optimize-dev-test.md)
-* Dowiedz się więcej o [opisie rachunku za usługę Azure Cosmos DB](understand-your-bill.md)
-* Dowiedz się więcej o [optymalizacji kosztów przepływności](optimize-cost-throughput.md)
-* Dowiedz się więcej o [optymalizacji kosztów magazynowania](optimize-cost-storage.md)
-* Dowiedz się więcej o [optymalizacji kosztów zapytań](optimize-cost-queries.md)
-* Dowiedz się więcej o [optymalizowaniu kosztów wieloregionowych kont usługi Azure Cosmos](optimize-cost-regions.md)
+* Dowiedz się więcej [na temat optymalizacji na potrzeby programowania i testowania](optimize-dev-test.md)
+* Dowiedz się więcej o [zrozumieniu Azure Cosmos DB rachunku](understand-your-bill.md)
+* Dowiedz się więcej na temat [optymalizowania kosztu przepływności](optimize-cost-throughput.md)
+* Dowiedz się więcej o [optymalizowaniu kosztów magazynu](optimize-cost-storage.md)
+* Dowiedz się więcej o [optymalizowaniu kosztów zapytań](optimize-cost-queries.md)
+* Dowiedz się więcej [na temat optymalizowania kosztów kont usługi Azure Cosmos w wielu regionach](optimize-cost-regions.md)

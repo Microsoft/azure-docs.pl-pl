@@ -1,32 +1,32 @@
 ---
-title: Debugowanie usługi Azure Functions w programie PowerShell lokalnie
-description: Dowiedz się, jak tworzyć funkcje przy użyciu programu PowerShell.
+title: Debugowanie Azure Functions programu PowerShell lokalnie
+description: Dowiedz się, jak opracowywać funkcje przy użyciu programu PowerShell.
 author: tylerleonhardt
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
 ms.openlocfilehash: 133e89bd9187ae5e48fa208b407678760d31adfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78163764"
 ---
-# <a name="debug-powershell-azure-functions-locally"></a>Debugowanie usługi Azure Functions w programie PowerShell lokalnie
+# <a name="debug-powershell-azure-functions-locally"></a>Debugowanie Azure Functions programu PowerShell lokalnie
 
-Usługa Azure Functions umożliwia tworzenie funkcji jako skryptów programu PowerShell.
+Azure Functions umożliwia tworzenie funkcji jako skryptów programu PowerShell.
 
-Funkcje programu PowerShell można debugować lokalnie, tak jak w przypadku skryptów programu PowerShell przy użyciu następujących standardowych narzędzi programistycznych:
+Można debugować funkcje programu PowerShell lokalnie, podobnie jak wszystkie skrypty programu PowerShell, używając następujących standardowych narzędzi programistycznych:
 
-* [Visual Studio Code:](https://code.visualstudio.com/)Bezpłatny, lekki i otwarty edytor tekstu firmy Microsoft z rozszerzeniem programu PowerShell, które oferuje pełne środowisko programistyczne programu PowerShell.
-* Konsola programu PowerShell: Debugowanie przy użyciu tych samych poleceń, które służy do debugowania innego procesu programu PowerShell.
+* [Visual Studio Code](https://code.visualstudio.com/): Edytor tekstów bezpłatny, lekki i typu open source firmy Microsoft z rozszerzeniem programu PowerShell, który oferuje pełne środowisko programistyczne programu PowerShell.
+* Konsola programu PowerShell: debugowanie przy użyciu tych samych poleceń, które służą do debugowania dowolnego innego procesu programu PowerShell.
 
-[Narzędzia Podstawowe usługi Azure Functions core](functions-run-local.md) obsługuje lokalne debugowanie funkcji platformy Azure, w tym funkcje programu PowerShell.
+[Azure Functions Core Tools](functions-run-local.md) obsługuje lokalne debugowanie Azure Functions, w tym funkcje programu PowerShell.
 
 ## <a name="example-function-app"></a>Przykładowa aplikacja funkcji
 
-Aplikacja funkcji używana w tym artykule ma jedną funkcję wyzwalaną HTTP i ma następujące pliki:
+Aplikacja funkcji używana w tym artykule ma pojedynczą funkcję wyzwalaną przez protokół HTTP i ma następujące pliki:
 
 ```
 PSFunctionApp
@@ -38,9 +38,9 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-Ta aplikacja funkcji jest podobna do tej, którą otrzymujesz po zakończeniu [programu Szybki start programu PowerShell](functions-create-first-function-powershell.md).
+Ta aplikacja funkcji jest podobna do tej, którą uzyskasz po zakończeniu [przewodnika Szybki Start dla programu PowerShell](functions-create-first-function-powershell.md).
 
-Kod funkcji `run.ps1` w wygląda następująco:
+Kod funkcji w programie `run.ps1` wygląda jak poniższy skrypt:
 
 ```powershell
 param($Request)
@@ -64,9 +64,9 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 ## <a name="set-the-attach-point"></a>Ustawianie punktu dołączania
 
-Aby debugować dowolną funkcję programu PowerShell, funkcja musi zostać zatrzymana, aby debuger został dołączony. Polecenie `Wait-Debugger` cmdlet zatrzymuje wykonywanie i czeka na debugera.
+Aby debugować każdą funkcję programu PowerShell, funkcja musi zostać zatrzymana w celu dołączenia debugera. `Wait-Debugger` Polecenie cmdlet przerywa wykonywanie i czeka na debuger.
 
-Wszystko, co musisz zrobić, to `Wait-Debugger` dodać połączenie do `if` polecenia cmdlet tuż nad instrukcją, w następujący sposób:
+Wszystko, co musisz zrobić, to dodanie wywołania `Wait-Debugger` polecenia cmdlet tuż powyżej `if` instrukcji w następujący sposób:
 
 ```powershell
 param($Request)
@@ -83,57 +83,57 @@ if($name) {
 # ...
 ```
 
-Debugowanie rozpoczyna się `if` od instrukcji. 
+Debugowanie rozpocznie się `if` w instrukcji. 
 
-Z `Wait-Debugger` w miejscu, można teraz debugować funkcje przy użyciu programu Visual Studio Code lub konsoli programu PowerShell.
+`Wait-Debugger` W programie można teraz debugować funkcje przy użyciu Visual Studio Code lub konsoli programu PowerShell.
 
-## <a name="debug-in-visual-studio-code"></a>Debugowanie w programie Visual Studio Code
+## <a name="debug-in-visual-studio-code"></a>Debugowanie w Visual Studio Code
 
-Aby debugować funkcje programu PowerShell w programie Visual Studio Code, musisz mieć zainstalowane następujące elementy:
+Aby debugować funkcje programu PowerShell w Visual Studio Code, musisz mieć zainstalowane następujące elementy:
 
-* [Rozszerzenie programu PowerShell dla programu Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
+* [Rozszerzenie programu PowerShell dla Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
 * [Rozszerzenie usługi Azure Functions dla programu Visual Studio Code](functions-create-first-function-vs-code.md)
-* [Program PowerShell Core 6.2 lub nowszy](/powershell/scripting/install/installing-powershell-core-on-windows)
+* [Program PowerShell Core 6,2 lub nowszy](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-Po zainstalowaniu tych zależności załaduj istniejący projekt programu PowerShell Functions lub [utwórz pierwszy projekt programu PowerShell Functions.](functions-create-first-function-powershell.md)
-
->[!NOTE]
-> Jeśli projekt nie ma potrzebnych plików konfiguracyjnych, zostanie wyświetlony monit o ich dodanie.
-
-### <a name="set-the-powershell-version"></a>Ustawianie wersji programu PowerShell
-
-Program PowerShell Core instaluje się obok siebie za pomocą programu Windows PowerShell. Ustaw program PowerShell Core jako wersję programu PowerShell do użycia z rozszerzeniem programu PowerShell dla programu Visual Studio Code.
-
-1. Naciśnij klawisz F1, aby wyświetlić `Session`paletę poleceń, a następnie wyszukaj .
-
-1. Wybierz pozycję **PowerShell: Pokaż menu sesji**.
-
-1. Jeśli **bieżącą sesją** nie jest **program PowerShell Core 6,** wybierz opcję **Przełącz na: PowerShell Core 6**.
-
-Po otwarciu pliku programu PowerShell w prawym dolnym rogu okna zostanie wyświetlona wersja wyświetlana na zielono. Wybranie tego tekstu powoduje również wyświetlenie menu sesji. Aby dowiedzieć się więcej, zobacz [Wybieranie wersji programu PowerShell do użycia z rozszerzeniem](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
-
-### <a name="start-the-function-app"></a>Uruchamianie aplikacji funkcji
-
-Sprawdź, `Wait-Debugger` czy jest ustawiona w funkcji, w której chcesz dołączyć debuger.  Po `Wait-Debugger` dodaniu można debugować aplikację funkcji przy użyciu programu Visual Studio Code.
-
-Wybierz okienko **debugowania,** a następnie **funkcję Dołącz do programu PowerShell**.
-
-![Debuger](https://user-images.githubusercontent.com/2644648/56166073-8a7b3780-5f89-11e9-85ce-36ed38e221a2.png)
-
-Można również nacisnąć klawisz F5, aby rozpocząć debugowanie.
-
-Uruchom debugowanie operacji wykonuje następujące zadania:
-
-* Uruchamia `func extensions install` się w terminalu, aby zainstalować wszystkie rozszerzenia usługi Azure Functions wymagane przez aplikację funkcji.
-* Uruchamia `func host start` się w terminalu, aby uruchomić aplikację funkcji na hoście Functions.
-* Dołącz debuger programu PowerShell do obszaru wykonawczego programu PowerShell w środowisku wykonywania Functions.
+Po zainstalowaniu tych zależności Załaduj istniejący projekt funkcji programu PowerShell lub [Utwórz pierwszy projekt funkcji programu PowerShell](functions-create-first-function-powershell.md).
 
 >[!NOTE]
-> Należy upewnić się, PSWorkerInProcConcurrencyUpperBound jest ustawiona na 1, aby zapewnić poprawne środowisko debugowania w programie Visual Studio Code. Domyślnie włączone.
+> Jeśli projekt nie ma wymaganych plików konfiguracji, zostanie wyświetlony monit o ich dodanie.
 
-Po uruchomieniu aplikacji funkcji potrzebna jest oddzielna konsola programu PowerShell, aby wywołać funkcję wyzwalaną http.
+### <a name="set-the-powershell-version"></a>Ustaw wersję programu PowerShell
 
-W takim przypadku konsola programu PowerShell jest klientem. Jest `Invoke-RestMethod` używany do wyzwalania funkcji.
+Instalacja programu PowerShell Core obok siebie przy użyciu programu Windows PowerShell. Ustaw dla programu PowerShell rdzeń jako wersję programu PowerShell, która ma być używana z rozszerzeniem programu PowerShell dla Visual Studio Code.
+
+1. Naciśnij klawisz F1, aby wyświetlić paletę poleceń, a `Session`następnie wyszukaj ciąg.
+
+1. Wybierz polecenie **PowerShell: Pokaż menu sesji**.
+
+1. Jeśli **Bieżąca sesja** nie jest w programie **PowerShell Core 6**, wybierz polecenie **Przełącz do: PowerShell Core 6**.
+
+Gdy plik programu PowerShell jest otwarty, zobaczysz wersję wyświetlaną w kolorze zielonym w prawym dolnym rogu okna. Wybranie tego tekstu spowoduje również wyświetlenie menu sesji. Aby dowiedzieć się więcej, zobacz [Wybieranie wersji programu PowerShell, która ma być używana z rozszerzeniem](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
+
+### <a name="start-the-function-app"></a>Uruchom aplikację funkcji
+
+Sprawdź, `Wait-Debugger` czy jest ustawiona w funkcji, w której chcesz dołączyć debuger.  Po `Wait-Debugger` dodaniu można debugować aplikację funkcji przy użyciu Visual Studio Code.
+
+Wybierz okienko **debugowanie** , a następnie **Dołącz do funkcji programu PowerShell**.
+
+![oknie](https://user-images.githubusercontent.com/2644648/56166073-8a7b3780-5f89-11e9-85ce-36ed38e221a2.png)
+
+Możesz również nacisnąć klawisz F5, aby rozpocząć debugowanie.
+
+Operacja Rozpocznij debugowanie wykonuje następujące zadania:
+
+* Działa `func extensions install` w terminalu, aby zainstalować wszystkie rozszerzenia Azure Functions wymagane przez aplikację funkcji.
+* Działa `func host start` w terminalu, aby uruchomić aplikację funkcji na hoście funkcji.
+* Dołącz debuger programu PowerShell do obszaru działania programu PowerShell w środowisku uruchomieniowym funkcji.
+
+>[!NOTE]
+> Należy upewnić się, że PSWorkerInProcConcurrencyUpperBound jest ustawiona na 1, aby zapewnić poprawne środowisko debugowania w Visual Studio Code. Domyślnie włączone.
+
+Gdy aplikacja funkcji jest uruchomiona, potrzebna jest osobna konsola programu PowerShell do wywoływania funkcji wyzwalanej przez protokół HTTP.
+
+W takim przypadku konsola programu PowerShell jest klientem programu. `Invoke-RestMethod` Służy do wyzwalania funkcji.
 
 W konsoli programu PowerShell uruchom następujące polecenie:
 
@@ -141,37 +141,37 @@ W konsoli programu PowerShell uruchom następujące polecenie:
 Invoke-RestMethod "http://localhost:7071/api/HttpTrigger?Name=Functions"
 ```
 
-Zauważysz, że odpowiedź nie jest natychmiast zwracana. To dlatego, `Wait-Debugger` że ma dołączone debugera i wykonanie programu PowerShell przeszedł w tryb przerwania tak szybko, jak to możliwe. Wynika to z [koncepcji BreakAll](#breakall-might-cause-your-debugger-to-break-in-an-unexpected-place), która jest wyjaśniona później. Po naciśnięciu `continue` przycisku debuger teraz pęknie na linii zaraz po `Wait-Debugger`.
+Zauważysz, że odpowiedź nie jest natychmiast zwracana. Dzieje się tak `Wait-Debugger` , ponieważ został podłączony debuger i wykonanie programu PowerShell zakończyło się w trybie przerwania, jak tylko to możliwe. Jest to spowodowane [koncepcją BreakAll](#breakall-might-cause-your-debugger-to-break-in-an-unexpected-place), która została omówiona w dalszej części. Po naciśnięciu `continue` przycisku debuger teraz przerwie się w wierszu po `Wait-Debugger`prawej stronie.
 
-W tym momencie debuger jest dołączony i można wykonać wszystkie normalne operacje debugera. Aby uzyskać więcej informacji na temat korzystania z debugera w programie Visual Studio Code, zobacz [oficjalną dokumentację](https://code.visualstudio.com/Docs/editor/debugging#_debug-actions).
+W tym momencie debuger jest dołączony i można wykonać wszystkie normalne operacje debugera. Aby uzyskać więcej informacji na temat używania debugera w Visual Studio Code, zobacz [oficjalną dokumentację](https://code.visualstudio.com/Docs/editor/debugging#_debug-actions).
 
-Po kontynuowaniu i pełnym wywołaniu skryptu zauważysz, że:
+Po zakończeniu i pełnym wywołaniu skryptu można zauważyć, że:
 
-* Konsola programu PowerShell, która `Invoke-RestMethod` wykonała ten program, zwróciła wynik
-* Zintegrowana konsola programu PowerShell w programie Visual Studio Code oczekuje na wykonanie skryptu
+* Konsola programu PowerShell, która `Invoke-RestMethod` spowodowała zwrócenie wyniku
+* Zintegrowana konsola programu PowerShell w Visual Studio Code oczekuje na wykonanie skryptu
 
-Później po wywołaniu tej samej funkcji debuger w rozszerzeniu programu PowerShell przerywa prawo po `Wait-Debugger`.
+Później po wywołaniu tej samej funkcji debuger w rozszerzeniu programu PowerShell zostaje podzielony bezpośrednio po `Wait-Debugger`.
 
 ## <a name="debugging-in-a-powershell-console"></a>Debugowanie w konsoli programu PowerShell
 
 >[!NOTE]
-> W tej sekcji przyjęto założenie, że przeczytałeś dokumenty podstawowe `func host start` narzędzia azure [functions](functions-run-local.md) i wiesz, jak użyć polecenia do uruchomienia aplikacji funkcji.
+> W tej sekcji założono, że użytkownik przeczytał [Azure Functions Core Tools dokumenty](functions-run-local.md) i wie `func host start` , jak używać polecenia, aby uruchomić aplikację funkcji.
 
-Otwórz konsolę `cd` w katalogu aplikacji funkcyjnej i uruchom następujące polecenie:
+Otwórz konsolę programu, `cd` w katalogu aplikacji funkcji, a następnie uruchom następujące polecenie:
 
 ```sh
 func host start
 ```
 
-Po uruchomieniu aplikacji funkcji `Wait-Debugger` i miejscu, można dołączyć do procesu. Potrzebujesz jeszcze dwóch konsol Programu PowerShell.
+Po uruchomieniu aplikacji funkcji i `Wait-Debugger` w miejscu możesz dołączyć do procesu. Potrzebujesz dwóch dodatkowych konsol programu PowerShell.
 
-Jedna z konsol działa jako klient. Z tego wywołać, `Invoke-RestMethod` aby wyzwolić funkcję. Na przykład można uruchomić następujące polecenie:
+Jedna z konsol działa jako klient. Z tego wywołania wywołasz `Invoke-RestMethod` funkcję. Na przykład możesz uruchomić następujące polecenie:
 
 ```powershell
 Invoke-RestMethod "http://localhost:7071/api/HttpTrigger?Name=Functions"
 ```
 
-Zauważysz, że nie zwraca odpowiedzi, co jest wynikiem `Wait-Debugger`. Obszar runshell programu PowerShell oczekuje teraz na dołączenie debugera. Załączmy to.
+Zauważ, że nie zwróci odpowiedzi, która jest wynikiem `Wait-Debugger`. Obszar działania programu PowerShell czeka teraz na dołączenie debugera. Przyjrzyjmy się.
 
 W innej konsoli programu PowerShell uruchom następujące polecenie:
 
@@ -194,7 +194,7 @@ pwsh            32071 None
 pwsh            88785 None
 ```
 
-Zanotuj `ProcessId` element w tabeli `ProcessName` z `dotnet`jako . Ten proces jest aplikacją funkcji.
+Zanotuj `ProcessId` dla elementu w tabeli przy użyciu `ProcessName` jako. `dotnet` Ten proces to aplikacja funkcji.
 
 Następnie uruchom następujący fragment kodu:
 
@@ -207,7 +207,7 @@ Enter-PSHostProcess -Id $ProcessId
 Debug-Runspace 1
 ```
 
-Po uruchomieniu debuger przerywa i pokazuje coś podobnego do następującego wyjścia:
+Po uruchomieniu debuger przerwie i pokazuje coś, jak następujące dane wyjściowe:
 
 ```
 Debugging Runspace: Runspace1
@@ -220,29 +220,29 @@ At /Path/To/PSFunctionApp/HttpTriggerFunction/run.ps1:13 char:1
 [DBG]: [Process:49988]: [Runspace1]: PS /Path/To/PSFunctionApp>>
 ```
 
-W tym momencie zostaniesz zatrzymany w punkcie przerwania w [debugerze programu PowerShell](/powershell/module/microsoft.powershell.core/about/about_debuggers). W tym miejscu można wykonać wszystkie operacje debugowania zwykle, krok nad, krok do, kontynuować, zamknąć i inne. Aby wyświetlić pełny zestaw poleceń debugowania dostępnych `h` `?` w konsoli, uruchom polecenia lub polecenia.
+W tym momencie nastąpi zatrzymanie w punkcie przerwania w [debugerze programu PowerShell](/powershell/module/microsoft.powershell.core/about/about_debuggers). W tym miejscu można wykonywać wszystkie typowe operacje debugowania, przekroczyć, wkroczć, kontynuować, zakończyć i inne. Aby wyświetlić kompletny zestaw poleceń debugowania dostępnych w konsoli programu, uruchom polecenia `h` lub. `?`
 
-Można również ustawić punkty przerwania na `Set-PSBreakpoint` tym poziomie za pomocą polecenia cmdlet.
+Możesz również ustawić punkty przerwania na tym poziomie przy użyciu `Set-PSBreakpoint` polecenia cmdlet.
 
-Po kontynuowaniu i pełnym wywołaniu skryptu zauważysz, że:
+Gdy będziesz kontynuować i w pełni wywoływać swój skrypt, Zauważ, że:
 
-* Konsola programu PowerShell, w której wykonano, `Invoke-RestMethod` została zwrócona.
-* Konsola programu PowerShell, w której wykonano wykonanie, `Debug-Runspace` oczekuje na wykonanie skryptu.
+* Uruchomiona `Invoke-RestMethod` konsola programu PowerShell zwraca wynik.
+* Uruchomiona `Debug-Runspace` konsola programu PowerShell oczekuje na wykonanie skryptu.
 
-Można wywołać tę samą `Invoke-RestMethod` funkcję ponownie (przy użyciu na przykład) `Wait-Debugger` i debuger przerwy w prawo po poleceniu.
+Tę samą funkcję można wywołać ponownie (na przykład `Invoke-RestMethod` przy użyciu `Wait-Debugger` polecenia), a debuger przerwie się po prawej stronie.
 
 ## <a name="considerations-for-debugging"></a>Zagadnienia dotyczące debugowania
 
-Należy pamiętać o następujących problemach podczas debugowania kodu funkcji.
+Podczas debugowania kodu funkcji należy pamiętać o następujących kwestiach.
 
-### <a name="breakall-might-cause-your-debugger-to-break-in-an-unexpected-place"></a>`BreakAll`może spowodować, że debuger pęknie w nieoczekiwanym miejscu
+### <a name="breakall-might-cause-your-debugger-to-break-in-an-unexpected-place"></a>`BreakAll`może spowodować przerwanie debugera w nieoczekiwanym miejscu
 
-Rozszerzenie programu PowerShell `Debug-Runspace`używa , co z kolei `BreakAll` opiera się na funkcji programu PowerShell. Ta funkcja informuje program PowerShell, aby zatrzymać przy pierwszym poleceniem, które jest wykonywane. To zachowanie daje możliwość ustawiania punktów przerwania w debugowanym obszarze runspace.
+Rozszerzenie programu PowerShell używa `Debug-Runspace`, które z kolei jest `BreakAll` zależne od funkcji programu PowerShell. Ta funkcja informuje program PowerShell o zatrzymaniu pierwszego polecenia, które jest wykonywane. Takie zachowanie daje możliwość ustawienia punktów przerwania w debugowanym obszarze działania.
 
-Środowisko uruchomieniowe usługi Azure Functions uruchamia kilka `run.ps1` poleceń przed faktycznym wywołaniem skryptu, więc `Microsoft.Azure.Functions.PowerShellWorker.psm1` `Microsoft.Azure.Functions.PowerShellWorker.psd1`możliwe, że debuger kończy się podziałem w obrębie lub .
+Środowisko uruchomieniowe Azure Functions uruchamia kilka poleceń przed faktycznym wywołaniem `run.ps1` skryptu, dlatego istnieje możliwość, że debuger zakończy działanie w ramach `Microsoft.Azure.Functions.PowerShellWorker.psm1` lub. `Microsoft.Azure.Functions.PowerShellWorker.psd1`
 
-Jeśli ta przerwa się `continue` `c` zdarzyć, uruchom lub polecenia, aby pominąć ten punkt przerwania. Następnie zatrzymać się w oczekiwanym punkcie przerwania.
+Jeśli ta przerwanie ma miejsce, `continue` Uruchom `c` polecenie lub, aby pominąć ten punkt przerwania. Następnie zatrzymasz się w oczekiwanym punkcie przerwania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat tworzenia funkcji przy użyciu programu PowerShell, zobacz [Przewodnik dla deweloperów programu Azure Functions PowerShell.](functions-reference-powershell.md)
+Aby dowiedzieć się więcej na temat opracowywania funkcji przy użyciu programu PowerShell, zobacz [Azure Functions przewodnik dewelopera programu PowerShell](functions-reference-powershell.md).
