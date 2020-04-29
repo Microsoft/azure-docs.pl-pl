@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: używanie oprogramowania Java do wywoływania interfejsu API REST analizy tekstowej'
+title: 'Szybki Start: używanie języka Java do wywoływania interfejsu API REST analiza tekstu'
 titleSuffix: Azure Cognitive Services
-description: Ten przewodnik Szybki start pokazuje, jak uzyskać informacje i przykłady kodu, aby szybko rozpocząć korzystanie z interfejsu API analizy tekstu w usłudze Azure Cognitive Services.
+description: W tym przewodniku szybki start pokazano, jak uzyskać informacje i przykłady kodu, aby szybko rozpocząć korzystanie z interfejs API analizy tekstu na platformie Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 12/17/2019
 ms.author: aahi
 ms.custom: seo-java-july2019, seo-java-august2019
 ms.openlocfilehash: 0541438659f25780be0c7bc1c87670cab6d7ca08
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75446324"
 ---
-# <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Szybki start: używanie oprogramowania Java do wywoływania usługi Azure Text Analytics Cognitive Service
+# <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Szybki Start: używanie języka Java do wywoływania usługi poznawczej platformy Azure analiza tekstu
 <a name="HOLTop"></a>
 
 W tym artykule przedstawiono, jak [wykrywać język](#Detect), [analizować tonację](#SentimentAnalysis), [wyodrębniać kluczowe frazy](#KeyPhraseExtraction) i [identyfikować połączone jednostki](#Entities) przy użyciu [interfejsów API analizy tekstu](//go.microsoft.com/fwlink/?LinkID=759711) i języka Java.
@@ -37,11 +37,11 @@ Musisz również mieć [punkt końcowy i klucz dostępu](../../cognitive-service
 
 Interfejs API wykrywania języka wykrywa język dokumentu tekstowego przy użyciu [metody Detect Language](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-1. Utwórz nowy projekt Java w ulubionym interfejsie IDE (lub nowym folderze na pulpicie). Tworzenie klasy `DetectLanguage.java`o nazwie .
-1. Dodaj kod podany poniżej do swojej klasy.
-1. Skopiuj klucz analizy tekstu i punkt końcowy do kodu. 
-1. Upewnij się, że masz zainstalowaną bibliotekę [Gson.](https://github.com/google/gson)
-1. Uruchom program w ide lub użyj wiersza polecenia do uruchomienia (instrukcje w komentarzach kodu).
+1. Utwórz nowy projekt Java w ulubionym środowisku IDE (lub nowym folderze na pulpicie). Utwórz klasę o nazwie `DetectLanguage.java`.
+1. Dodaj kod podany poniżej do klasy.
+1. Skopiuj klucz analiza tekstu i punkt końcowy do kodu. 
+1. Upewnij się, że masz zainstalowaną bibliotekę [Gson](https://github.com/google/gson) .
+1. Uruchom program w środowisku IDE lub użyj wiersza polecenia do uruchomienia (instrukcje w komentarzach do kodu).
 
 ```java
 import java.io.*;
@@ -206,11 +206,11 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 
 Interfejs API analizy tonacji wykrywa tonację zestawu rekordów tekstowych przy użyciu [metody Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). W poniższym przykładzie oceniane są dwa dokumenty, jeden w języku angielskim, a drugi w hiszpańskim.
 
-1. Utwórz nowy projekt Java w ulubionym interfejsie IDE (lub nowym folderze na pulpicie). Utwórz w niej `GetSentiment.java`klasę o nazwie .
-1. Dodaj kod podany poniżej do swojej klasy.
-1. Skopiuj klucz analizy tekstu i punkt końcowy do kodu.
-1. Upewnij się, że masz zainstalowaną bibliotekę [Gson.](https://github.com/google/gson)
-1. Uruchom program w ide lub użyj wiersza polecenia do uruchomienia (instrukcje w komentarzach kodu).
+1. Utwórz nowy projekt Java w ulubionym środowisku IDE (lub nowym folderze na pulpicie). Utwórz klasę o nazwie `GetSentiment.java`.
+1. Dodaj kod podany poniżej do klasy.
+1. Skopiuj klucz analiza tekstu i punkt końcowy do kodu.
+1. Upewnij się, że masz zainstalowaną bibliotekę [Gson](https://github.com/google/gson) .
+1. Uruchom program w środowisku IDE lub użyj wiersza polecenia do uruchomienia (instrukcje w komentarzach do kodu).
 
 ```java
 import java.io.*;
@@ -327,7 +327,7 @@ public class GetSentiment {
 
 ### <a name="sentiment-analysis-response"></a>Odpowiedź analizy tonacji
 
-Wynik jest mierzony jako pozytywny, jeśli jest punktowany bliżej 1,0 i ujemny, jeśli zostanie oceniony bliżej 0,0.
+Wynik jest mierzony jako dodatni, jeśli ocenia się bliżej 1,0 i wartość ujemna, jeśli jest to wynik zbliżony do 0,0.
 Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie JSON, jak pokazano w następującym przykładzie:
 
 ```json
@@ -352,11 +352,11 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 
 Interfejs API wyodrębniania kluczowych fraz wyodrębnia kluczowe frazy w dokumencie tekstowym przy użyciu [metody Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). W poniższym przykładzie wyodrębniono frazy kluczowe dla dokumentów w języku angielskim i hiszpańskim.
 
-1. Utwórz nowy projekt Java w ulubionym interfejsie IDE (lub nowym folderze na pulpicie). Utwórz w niej `GetKeyPhrases.java`klasę o nazwie .
-1. Dodaj kod podany poniżej do swojej klasy.
-1. Skopiuj klucz analizy tekstu i punkt końcowy do kodu. 
-1. Upewnij się, że masz zainstalowaną bibliotekę [Gson.](https://github.com/google/gson)
-1. Uruchom program w ide lub użyj wiersza polecenia do uruchomienia (instrukcje w komentarzach kodu).
+1. Utwórz nowy projekt Java w ulubionym środowisku IDE (lub nowym folderze na pulpicie). Utwórz klasę o nazwie `GetKeyPhrases.java`.
+1. Dodaj kod podany poniżej do klasy.
+1. Skopiuj klucz analiza tekstu i punkt końcowy do kodu. 
+1. Upewnij się, że masz zainstalowaną bibliotekę [Gson](https://github.com/google/gson) .
+1. Uruchom program w środowisku IDE lub użyj wiersza polecenia do uruchomienia (instrukcje w komentarzach do kodu).
 
 ```java
 import java.io.*;
@@ -515,13 +515,13 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 
 ## <a name="identify-entities"></a>Identyfikowanie jednostek
 
-Interfejs API jednostek identyfikuje dobrze znane jednostki w dokumencie tekstowym przy użyciu [metody Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Jednostki](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) wyodrębniają słowa z tekstu, takie jak "Stany Zjednoczone", a następnie dają typ i/lub link do Wikipedii dla tego słowa(-ów). Typ "Stany Zjednoczone" `location`jest , podczas gdy `https://en.wikipedia.org/wiki/United_States`link do Wikipedii jest .  W poniższym przykładzie zidentyfikowano jednostki dla dokumentów w języku angielskim.
+Interfejs API jednostek identyfikuje dobrze znane jednostki w dokumencie tekstowym przy użyciu [metody Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Jednostki](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) wyodrębniają wyrazy z tekstu, takie jak "Stany Zjednoczone", a następnie zawierają link do typu i/lub Wikipedia dla tych wyrazów. Typ dla "Stany Zjednoczone" to `location`, podczas gdy link do witryny Wikipedia ma `https://en.wikipedia.org/wiki/United_States`wartość.  W poniższym przykładzie zidentyfikowano jednostki dla dokumentów w języku angielskim.
 
-1. Utwórz nowy projekt Java w ulubionym interfejsie IDE (lub nowym folderze na pulpicie). Utwórz w niej `GetEntities.java`klasę o nazwie .
-1. Dodaj kod podany poniżej do swojej klasy.
-1. Skopiuj klucz analizy tekstu i punkt końcowy do kodu. 
-1. Upewnij się, że masz zainstalowaną bibliotekę [Gson.](https://github.com/google/gson)
-1. Uruchom program w ide lub użyj wiersza polecenia do uruchomienia (instrukcje w komentarzach kodu).
+1. Utwórz nowy projekt Java w ulubionym środowisku IDE (lub nowym folderze na pulpicie). Utwórz klasę o nazwie `GetEntities.java`.
+1. Dodaj kod podany poniżej do klasy.
+1. Skopiuj klucz analiza tekstu i punkt końcowy do kodu. 
+1. Upewnij się, że masz zainstalowaną bibliotekę [Gson](https://github.com/google/gson) .
+1. Uruchom program w środowisku IDE lub użyj wiersza polecenia do uruchomienia (instrukcje w komentarzach do kodu).
 
 ```java
 import java.io.*;
@@ -687,9 +687,9 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Analiza tekstu za pomocą usługi Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
+> [analiza tekstu z Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
- [Analiza tekstu — omówienie](../overview.md)  
- [Często zadawane pytania (FAQ)](../text-analytics-resource-faq.md)
+ [Przegląd analiza tekstu](../overview.md)  
+ [Często zadawane pytania](../text-analytics-resource-faq.md)

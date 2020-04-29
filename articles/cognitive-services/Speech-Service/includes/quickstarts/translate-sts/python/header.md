@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: Tłumaczenie mowy na mowę, Python - Usługa mowy'
+title: 'Szybki Start: Tłumaczenie mowy na mowę, Python-Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
 ms.openlocfilehash: 45006e602cfab233840b4879f6eea2e2f9d38a6d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75469234"
 ---
-Jeśli wolisz przejść w prawo, zobacz lub pobierz wszystkie <a href="https://aka.ms/speech/github-python">próbki języka Python SDK mowy</a> na GitHub. W przeciwnym razie zacznijmy.
+Jeśli wolisz przejść bezpośrednio do programu, Wyświetl lub Pobierz wszystkie <a href="https://aka.ms/speech/github-python">przykłady języka Python zestawu Speech SDK</a> w witrynie GitHub. W przeciwnym razie Zacznijmy.

@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: rozpoznawanie mowy przechowywanej w magazynie obiektów blob, C# — usługa mowy'
+title: 'Szybki Start: Rozpoznawanie mowy przechowywanej w usłudze BLOB Storage, C#-Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 ms.openlocfilehash: bb93e182dc4515e5d8f083def1c54c249d27172f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75467511"
 ---
 > [!div class="nextstepaction"]
-> [Eksploruj przykłady języka C# w usłudze GitHub](https://aka.ms/speech/github-csharp)
+> [Poznaj przykłady w języku C# w witrynie GitHub](https://aka.ms/speech/github-csharp)

@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: tłumaczenie mowy na mowę — usługa mowy'
+title: 'Szybki Start: Tłumaczenie mowy na mowę — usługa mowy'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
 ms.openlocfilehash: c4f482b8e986ac79beb8b50f289f8b460540ce32
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75467268"
 ---
-Wyświetlanie lub pobieranie wszystkich <a href="https://aka.ms/speech/github">przykładów zestawów SDK mowy</a> w usłudze GitHub.
+Wyświetl lub Pobierz wszystkie <a href="https://aka.ms/speech/github">przykłady zestawu Speech SDK</a> w witrynie GitHub.

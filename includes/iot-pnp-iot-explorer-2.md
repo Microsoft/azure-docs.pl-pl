@@ -5,24 +5,24 @@ ms.service: iot-pnp
 ms.topic: include
 ms.date: 10/24/2019
 ms.openlocfilehash: 3e07cdb1aedb9571093a9b943393a481d9d5d75b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75473444"
 ---
-7. Wybierz stronę **Telemetria** i naciśnij przycisk _Start,_ aby wyświetlić dane telemetryczne wysyłane przez urządzenie.
+7. Wybierz stronę **Telemetria** i zacznij od _początku_ , aby wyświetlić dane telemetryczne wysyłane przez urządzenie.
 
-1. Wybierz stronę **Właściwości (nieobjętą do skrytego),** aby wyświetlić właściwości nieobjęte do skrytej zgłaszane przez urządzenie.
+1. Wybierz stronę **właściwości (bez możliwości zapisu)** , aby wyświetlić właściwości, które nie zostały zapisywalne zgłoszone przez urządzenie.
 
-1. Wybierz stronę **Właściwości (zapisywalne),** aby wyświetlić zapisywalne właściwości, które można zaktualizować.
+1. Wybierz stronę **właściwości (zapisywalne)** , aby wyświetlić właściwości do zapisu, które można zaktualizować.
 
-1. Rozwiń **nazwę**właściwości, zaktualizuj nową nazwą i wybierz **pozycję Aktualizuj właściwość zapisywalną.** 
+1. Rozwiń węzeł **Nazwa**właściwości, Aktualizuj przy użyciu nowej nazwy i wybierz opcję **Aktualizuj modyfikowalną Właściwość**. 
 
-1. Aby zobaczyć nową nazwę w kolumnie **Zgłoszona właściwość,** wybierz przycisk **Odśwież** u góry strony.
+1. Aby wyświetlić nową nazwę wyświetlaną w kolumnie **raportowane właściwości** , wybierz przycisk **Odśwież** w górnej części strony.
 
-1. Wybierz stronę **Polecenia,** aby wyświetlić wszystkie polecenia, które obsługuje urządzenie.
+1. Wybierz stronę **polecenia** , aby wyświetlić wszystkie polecenia obsługiwane przez urządzenie.
 
-1. Rozwiń polecenie **blink** i ustaw nowy interwał czasu migania. Wybierz **polecenie Wyślij,** aby wywołać polecenie na urządzeniu.
+1. Rozwiń polecenie **Blink** i Ustaw nowy przedział czasu. Wybierz pozycję **Wyślij polecenie** , aby wywołać polecenie na urządzeniu.
 
-1. Przejdź do wiersza polecenia symulowanego urządzenia i przeczytaj wydrukowane komunikaty potwierdzające, aby sprawdzić, czy polecenia zostały wykonane zgodnie z oczekiwaniami.
+1. Przejdź do wiersza polecenia symulowanego urządzenia i zapoznaj się z wydrukowanymi komunikatami potwierdzającymi, aby sprawdzić, czy polecenia zostały wykonane zgodnie z oczekiwaniami.

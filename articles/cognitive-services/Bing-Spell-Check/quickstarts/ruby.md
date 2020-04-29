@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: Sprawdzanie pisowni za pomocą interfejsu API REST i sprawdzania pisowni w usłudze Ruby - Bing'
+title: 'Szybki Start: sprawdzanie pisowni za pomocą interfejsu API REST i języka Ruby-sprawdzanie pisowni Bing'
 titleSuffix: Azure Cognitive Services
-description: Rozpocznij korzystanie z interfejsu API REST sprawdzania pisowni bing, aby sprawdzić pisownię i gramatykę za pomocą tego przewodnika Szybki start.
+description: Rozpocznij pracę z interfejsem API REST sprawdzanie pisowni Bing, aby sprawdzić pisownię i gramatykę w tym przewodniku Szybki Start.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
 ms.openlocfilehash: 89a2a345e2a4e3ca1be31297e614e86f800e6316
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75448428"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Szybki start: sprawdzanie pisowni za pomocą interfejsu API REST sprawdzania pisowni Bing i ruby
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Szybki Start: sprawdzanie pisowni przy użyciu interfejsu API REST sprawdzanie pisowni Bing i języka Ruby
 
-Użyj tego przewodnika Szybki start, aby wykonać swoje pierwsze wywołanie interfejsu API REST sprawdzania pisowni Bing przy użyciu języka Ruby. Ta prosta aplikacja wysyła żądanie do interfejsu API i zwraca listę nierozpoznanych słów oraz sugerowane poprawki. Chociaż ta aplikacja jest napisana w języku Ruby, interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania. Kod źródłowy dla tej aplikacji jest dostępny w [usłudze GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
+Użyj tego przewodnika Szybki start, aby wykonać swoje pierwsze wywołanie interfejsu API REST sprawdzania pisowni Bing przy użyciu języka Ruby. Ta prosta aplikacja wysyła żądanie do interfejsu API i zwraca listę nierozpoznanych słów oraz sugerowane poprawki. Chociaż ta aplikacja jest napisana w języku Ruby, interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania. Kod źródłowy dla tej aplikacji jest dostępny w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) lub nowsze.
+* [Ruby 2,4](https://www.ruby-lang.org/en/downloads/) lub nowszy.
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
@@ -38,7 +38,7 @@ Użyj tego przewodnika Szybki start, aby wykonać swoje pierwsze wywołanie inte
     require 'json'
     ```
 
-2. Utwórz zmienne dla klucza subskrypcji, identyfikatora URI punktu końcowego i ścieżki. Utwórz parametry żądania, dodając parametr `mkt=` do rynku i parametr `&mode` do trybu `proof`. Można użyć globalnego punktu końcowego poniżej lub niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlanego w witrynie Azure portal dla zasobu.
+2. Utwórz zmienne dla klucza subskrypcji, identyfikatora URI punktu końcowego i ścieżki. Utwórz parametry żądania, dodając parametr `mkt=` do rynku i parametr `&mode` do trybu `proof`. Możesz użyć poniższego globalnego punktu końcowego lub niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -49,7 +49,7 @@ Użyj tego przewodnika Szybki start, aby wykonać swoje pierwsze wywołanie inte
 
 ## <a name="send-a-spell-check-request"></a>Wysyłanie żądania sprawdzania pisowni
 
-1. Utwórz identyfikator URI na podstawie identyfikatora URI hosta, ścieżki oraz ciągu parametrów. Ustaw kwerendę tak, aby zawierała tekst, który chcesz sprawdzić pisownię.
+1. Utwórz identyfikator URI na podstawie identyfikatora URI hosta, ścieżki oraz ciągu parametrów. Ustaw, aby zapytanie zawierało tekst, który ma być sprawdzany.
 
    ```ruby
    uri = URI(uri + path + params)
@@ -84,7 +84,7 @@ Użyj tego przewodnika Szybki start, aby wykonać swoje pierwsze wywołanie inte
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Skompiluj i uruchom swój projekt.
+Skompiluj i Uruchom projekt.
 
 Jeśli używasz wiersza polecenia, użyj następującego polecenia, aby uruchomić aplikację.
 

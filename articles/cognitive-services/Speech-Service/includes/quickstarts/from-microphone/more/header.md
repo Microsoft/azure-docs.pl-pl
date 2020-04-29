@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: rozpoznawanie mowy z mikrofonu — usługa mowy'
+title: 'Szybki Start: Rozpoznawanie mowy z mikrofonu — usługa mowy'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 ms.openlocfilehash: a10959584ce1608e38796218342e937f435229bc
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75468850"
 ---
-Wyświetlanie lub pobieranie wszystkich <a href="https://aka.ms/speech/github">przykładów zestawów SDK mowy</a> w usłudze GitHub.
+Wyświetl lub Pobierz wszystkie <a href="https://aka.ms/speech/github">przykłady zestawu Speech SDK</a> w witrynie GitHub.
