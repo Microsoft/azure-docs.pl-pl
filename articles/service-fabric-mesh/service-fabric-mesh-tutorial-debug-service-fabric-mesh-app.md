@@ -1,5 +1,5 @@
 ---
-title: Debugowanie aplikacji sieci web usługi Azure Fabric Mesh uruchomionej lokalnie
+title: Debuguj aplikację sieci Web usługi Azure Service Fabric siatkę działającą lokalnie
 description: W tym samouczku zdebugujemy aplikację usługi Azure Service Fabric Mesh uruchomioną w klastrze lokalnym.
 author: dkkapur
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 10/31/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: c36d45919ae8a17026fc91f8e9040f3bb11d3eb0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75494945"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Samouczek: debugowanie aplikacji usługi Service Fabric Mesh w lokalnym klastrze projektowym
@@ -71,7 +71,7 @@ Znacznie przyspiesz swoje pierwsze debugowanie (F5), postępując zgodnie z inst
 
 Obecnie występuje problem, który powoduje, że nawiązanie połączenia z usługą za pomocą wywołania `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` kończy się niepowodzeniem. Tak może się zdarzyć w przypadku zmiany adresu IP hosta. Aby rozwiązać ten problem:
 
-1. Usuń aplikację z lokalnego klastra (w programie Visual Studio, **Tworzenie** > **czystego rozwiązania).**
+1. Usuń aplikację z klastra lokalnego (w programie Visual Studio **Utwórz** > **czyste rozwiązanie**).
 2. Z poziomu menedżera klastra lokalnego usługi Service Fabric wybierz pozycję **Zatrzymaj klaster lokalny**, a następnie **Uruchom klaster lokalny**.
 3. Ponowne wdróż aplikację (w programie Visual Studio naciśnij klawisz **F5**).
 

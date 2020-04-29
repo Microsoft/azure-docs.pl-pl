@@ -1,5 +1,5 @@
 ---
-title: Tworzenie i używanie udziału plików platformy Azure na maszynach wirtualnych z systemem Windows
+title: Tworzenie i używanie udziału Azure Files na maszynach wirtualnych z systemem Windows
 description: W ramach tego przewodnika Szybki start skonfigurujesz udział usługi Azure Files w witrynie Azure Portal i połączysz go z maszyną wirtualną z systemem Windows. Nawiążesz połączenie z udziałem usługi Files i przekażesz plik do udziału usługi Files. Następnie utworzysz migawkę udziału usługi Files, zmodyfikujesz plik w udziale usługi Files oraz przywrócisz poprzednią migawkę udziału usługi Files.
 author: roygara
 ms.service: storage
@@ -8,21 +8,21 @@ ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6bbab0ee2eefe6e86c150d5bddab4f8e91a7c92d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75463908"
 ---
-# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Szybki start: tworzenie i zarządzanie udostępnianiem plików platformy Azure maszynom wirtualnym z systemem Windows
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Szybki Start: Tworzenie udziału Azure Files i zarządzanie nim przy użyciu maszyn wirtualnych z systemem Windows
 
 W tym artykule przedstawiono podstawowe kroki tworzenia i używania udziału usługi Azure Files. W tym przewodniku Szybki start położono nacisk na szybkie konfigurowanie udziału usługi Azure Files, aby można było sprawdzić, jak działa ta usługa. Jeśli potrzebujesz bardziej szczegółowych instrukcji dotyczących tworzenia i używania udziałów plików platformy Azure we własnym środowisku, zobacz [Korzystanie z udziału plików platformy Azure w systemie Windows](storage-how-to-use-files-windows.md).
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Przygotowywanie środowiska
 
@@ -46,7 +46,7 @@ Następnie utwórz udział plików.
 
     ![Wybieranie pozycji Pliki](./media/storage-files-quick-create-use-windows/click-files.png)
 
-1. Wybierz **pozycję Udział plików**.
+1. Wybierz pozycję **udział plików**.
 
     ![Wybieranie przycisku Dodaj udział plików](./media/storage-files-quick-create-use-windows/create-file-share.png)
 
@@ -63,7 +63,7 @@ Na razie na platformie Azure utworzono konto magazynu i udział plików zawieraj
 ### <a name="deploy-a-vm"></a>Wdrażanie maszyny wirtualnej
 
 1. Następnie rozwiń menu po lewej stronie portalu i wybierz pozycję **Utwórz zasób** w lewym górnym rogu witryny Azure Portal.
-1. W polu wyszukiwania nad listą zasobów **portalu Azure Marketplace** wyszukaj i wybierz pozycję Centrum danych systemu Windows Server **2016**, a następnie wybierz pozycję **Utwórz**.
+1. W polu wyszukiwania powyżej listy zasobów **portalu Azure Marketplace** Wyszukaj i wybierz pozycję **Windows Server 2016 Datacenter**, a następnie wybierz pozycję **Utwórz**.
 1. Na karcie **Podstawy** w obszarze **Szczegóły projektu** wybierz grupę zasobów utworzoną w ramach tego przewodnika Szybki start.
 
    ![Wprowadzanie podstawowych informacji o maszynie wirtualnej w bloku portalu](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
@@ -73,7 +73,7 @@ Na razie na platformie Azure utworzono konto magazynu i udział plików zawieraj
 1. W obszarze **Konto administratora** dodaj wartość *VMadmin* w polu **Nazwa użytkownika** i wprowadź **hasło** dla maszyny wirtualnej.
 1. W obszarze **Reguły portów wejściowych** wybierz opcję **Zezwalaj na wybrane porty**, a następnie wybierz **RDP (3389)** i **HTTP** z listy rozwijanej.
 1. Wybierz pozycję **Przegląd + utwórz**.
-1. Wybierz **pozycję Utwórz**. Tworzenie nowej maszyny wirtualnej potrwa kilka minut.
+1. Wybierz przycisk **Utwórz**. Tworzenie nowej maszyny wirtualnej potrwa kilka minut.
 
 1. Po zakończeniu wdrażania maszyny wirtualnej wybierz pozycję **Przejdź do zasobu**.
 
@@ -101,13 +101,13 @@ Na tym etapie utworzono nową maszynę wirtualną i dołączono dysk z danymi. T
    ![Ścieżka UNC z okienka Połącz usługi Azure Files](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
 
 1. Na maszynie wirtualnej otwórz **Eksploratora plików** i w oknie wybierz pozycję **Ten komputer**. Ten wybór spowoduje zmianę menu dostępnego na wstążce. W menu **Komputer** wybierz pozycję **Mapuj dysk sieciowy**.
-1. Wybierz literę dysku i wprowadź ścieżkę UNC. Jeśli w tym przewodniku Szybki start zostały zastosowane sugestie dotyczące nazewnictwa, * \\skopiuj qsstorageacct.file.core.windows.net\qsfileshare* z **Notatnika**.
+1. Wybierz literę dysku i wprowadź ścieżkę UNC. Jeśli zostały wykonane sugestie dotyczące nazewnictwa w tym przewodniku Szybki Start, skopiuj * \\qsstorageacct. plik. Core. Windows. net\qsfileshare* z **Notatnika**.
 
    Upewnij się, że oba pola wyboru są zaznaczone.
 
    ![Zrzut ekranu przedstawiający okno dialogowe „Mapowanie dysku sieciowego”](./media/storage-files-quick-create-use-windows/mountonwindows10.png)
 
-1. Wybierz **pozycję Zakończ**.
+1. Wybierz pozycję **Zakończ**.
 1. W oknie dialogowym **Zabezpieczenia systemu Windows**:
 
    - Skopiuj nazwę konta magazynu poprzedzoną ciągiem AZURE\ z Notatnika, a następnie wklej ją w oknie dialogowym **Zabezpieczenia systemu Windows** jako nazwę użytkownika. Jeśli nadawane nazwy były zgodne z sugestiami w tym przewodniku Szybki start, skopiuj wartość *AZURE\qsstorageacct*.
@@ -173,7 +173,7 @@ Podobnie jak w przypadku migawek usługi VSS w środowisku lokalnym, możesz wy�
 
 1. Wybierz pozycję **Przywróć**. Ta akcja rekursywnie kopiuje zawartość całego katalogu do oryginalnej lokalizacji w momencie utworzenia migawki udziału.
 
-   ![Przycisk Przywróć w komunikacie](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) ostrzegawczym Uwaga: Jeśli plik nie uległ zmianie, nie zostanie wyświetlone poprzednia wersja tego pliku, ponieważ ten plik jest tą samą wersją co migawka. Jest to zgodne z tym, jak to działa na serwerze plików systemu Windows.
+   ![Przycisk Przywróć w komunikacie](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) ostrzegawczym Uwaga: Jeśli plik nie został zmieniony, nie zostanie wyświetlona Poprzednia wersja tego pliku, ponieważ ten plik jest w tej samej wersji co migawka. Jest to zgodne z tym, jak to działa na serwerze plików z systemem Windows.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

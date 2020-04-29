@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Projektowanie pierwszej relacyjnej bazy danych przy użyciu usługi SSMS'
+title: 'Samouczek: projektowanie pierwszej relacyjnej bazy danych przy użyciu programu SSMS'
 description: Dowiedz się, jak zaprojektować swoją pierwszą relacyjną bazę danych jako pojedynczą bazę danych w usłudze Azure SQL Database przy użyciu programu SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
@@ -10,13 +10,13 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.openlocfilehash: 9764c4bc794eb8d133270b762fa2bca30a056fea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75459631"
 ---
-# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Samouczek: Projektowanie relacyjnej bazy danych w pojedynczej bazie danych w bazie danych SQL azure przy użyciu usługi SSMS
+# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Samouczek: projektowanie relacyjnej bazy danych w pojedynczej bazie danych w ramach Azure SQL Database przy użyciu programu SSMS
 
 Baza danych Azure SQL Database to relacyjna baza danych oferowana jako usługa (DBaaS, database-as-a service) na platformie Microsoft Cloud (Azure). Z tego samouczka dowiesz się, jak przy użyciu witryny Azure Portal i programu [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) wykonać następujące czynności:
 
@@ -28,12 +28,12 @@ Baza danych Azure SQL Database to relacyjna baza danych oferowana jako usługa (
 > - Ładowanie zbiorcze danych za pomocą narzędzia BCP
 > - Tworzenie zapytań dotyczących danych za pomocą programu SSMS
 
-*Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+* Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 > [!TIP]
-> Poniższy moduł Microsoft Learn pomaga bezpłatnie dowiedzieć się, jak [opracować i skonfigurować aplikację ASP.NET, która wysyła kwerendy do bazy danych SQL Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), w tym tworzenie prostej bazy danych.
+> Poniższy moduł Microsoft Learn umożliwia zapoznanie się z bezpłatnymi sposobami tworzenia [i konfigurowania aplikacji ASP.NET, która wysyła zapytanie do Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), w tym tworzenia prostej bazy danych.
 > [!NOTE]
-> Na potrzeby tego samouczka użyto pojedynczej bazy danych. Możesz także użyć bazy danych w puli elastycznej lub bazy danych wystąpienia w wystąpieniu zarządzanym. Aby uzyskać łączność z wystąpieniem zarządzanym, zobacz następujące przewodniki Szybki start wystąpienia zarządzanego: [Szybki start: Konfigurowanie maszyny Wirtualnej platformy Azure w celu nawiązania połączenia z wystąpieniem zarządzanym bazy danych SQL platformy Azure](sql-database-managed-instance-configure-vm.md) i [szybkimrozstawem: Konfigurowanie połączenia typu punkt-lokacja z wystąpieniem zarządzanym bazy danych SQL platformy Azure z lokalnego](sql-database-managed-instance-configure-p2s.md).
+> Na potrzeby tego samouczka użyto pojedynczej bazy danych. Możesz także użyć bazy danych w puli elastycznej lub bazy danych wystąpienia w wystąpieniu zarządzanym. Aby uzyskać łączność z wystąpieniem zarządzanym, zobacz te Przewodniki Szybki Start: Przewodnik Szybki Start: [Konfigurowanie maszyny wirtualnej platformy Azure do nawiązywania połączenia z wystąpieniem zarządzanym Azure SQL Database](sql-database-managed-instance-configure-vm.md) i [Szybki Start: Konfigurowanie połączenia punkt-lokacja z Azure SQL Database zarządzanym lokalnie](sql-database-managed-instance-configure-p2s.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -44,7 +44,7 @@ Aby ukończyć kroki tego samouczka, upewnij się, że zainstalowano następują
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-single-database"></a>Tworzenie pustej pojedynczej bazy danych
 
@@ -57,7 +57,7 @@ Wykonaj poniższe kroki, aby utworzyć pustą pojedynczą bazę danych.
 
    ![tworzenie pustej bazy danych](./media/sql-database-design-first-database/create-empty-database.png)
 
-3. Wypełnij formularz **bazy danych SQL** następującymi informacjami, jak pokazano na poprzednim obrazie:
+3. Wypełnij formularz **SQL Database** przy użyciu następujących informacji, jak pokazano na poprzedniej ilustracji:
 
     | Ustawienie       | Sugerowana wartość | Opis |
     | ------------ | ------------------ | ------------------------------------------------- |
@@ -71,13 +71,13 @@ Wykonaj poniższe kroki, aby utworzyć pustą pojedynczą bazę danych.
     | Ustawienie       | Sugerowana wartość | Opis |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nazwa serwera** | Dowolna nazwa unikatowa w skali globalnej | Prawidłowe nazwy serwera opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Reguły i ograniczenia nazewnictwa). |
-    | **Logowanie administratora serwera** | Dowolna prawidłowa nazwa | Prawidłowe nazwy identyfikatorów logowania opisano w artykule [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identyfikatory baz danych). |
+    | **Identyfikator logowania administratora serwera** | Dowolna prawidłowa nazwa | Prawidłowe nazwy identyfikatorów logowania opisano w artykule [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identyfikatory baz danych). |
     | **Hasło** | Dowolne prawidłowe hasło | Hasło musi mieć co najmniej osiem znaków i musi zawierać znaki z trzech z następujących kategorii: wielkie litery, małe litery, cyfry i znaki inne niż alfanumeryczne. |
     | **Lokalizacja** | Dowolna prawidłowa lokalizacja | Aby uzyskać informacje na temat regionów, zobacz temat [Regiony systemu Azure](https://azure.microsoft.com/regions/). |
 
     ![tworzenie serwera bazy danych](./media/sql-database-design-first-database/create-database-server.png)
 
-5. Kliknij **pozycję Wybierz**.
+5. Kliknij pozycję **Wybierz**.
 6. Kliknij pozycję **Warstwa cenowa**, aby określić warstwę usługi, liczbę jednostek DTU lub rdzeni wirtualnych i ilość miejsca do magazynowania. Możesz przejrzeć opcje liczby jednostek DTU/rdzeni wirtualnych i miejsca do magazynowania dostępne dla poszczególnych warstw usług.
 
     Po wybraniu warstwy usługi, liczby jednostek DTU lub rdzeni wirtualnych i ilości miejsca do magazynowania kliknij pozycję **Zastosuj**.
@@ -97,15 +97,15 @@ Usługa SQL Database tworzy zaporę IP na poziomie serwera. Ta zapora uniemożli
 > [!IMPORTANT]
 > Usługa SQL Database komunikuje się przez port 1433. Jeśli próbujesz nawiązać połączenie z tą usługą z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie będzie można nawiązać połączenia z pojedynczą bazą danych, chyba że administrator otworzy port 1433.
 
-1. Po zakończeniu wdrażania wybierz **bazy danych SQL** z menu portalu Azure lub wyszukaj i wybierz bazy danych *SQL* z dowolnej strony.  
+1. Po zakończeniu wdrożenia wybierz opcję **bazy danych SQL** z menu Azure Portal lub Wyszukaj i wybierz pozycję *bazy danych SQL* z dowolnej strony.  
 
-1. Wybierz *swoją bazę danych* na stronie bazy danych **SQL.** Zostanie otwarta strona przeglądu bazy danych z w pełni `contosodatabaseserver01.database.windows.net`kwalifikowaną nazwą **serwera** (na przykład) i zawiera opcje dalszej konfiguracji.
+1. Wybierz pozycję *yourDatabase* na stronie **bazy danych SQL** . Zostanie otwarta strona przeglądu bazy danych zawierająca w pełni kwalifikowaną **nazwę serwera** (na przykład `contosodatabaseserver01.database.windows.net`) i opcje dalszej konfiguracji.
 
    ![nazwa serwera](./media/sql-database-design-first-database/server-name.png)
 
 1. Skopiuj tę w pełni kwalifikowaną nazwę serwera w celu nawiązania połączenia z serwerem i bazami danych w programie SQL Server Management Studio.
 
-1. Kliknij pozycję **Ustaw zaporę serwera** na pasku narzędzi. Zostanie otwarta strona **Ustawienia zapory** dla serwera bazy danych SQL.
+1. Kliknij pozycję **Ustaw zaporę serwera** na pasku narzędzi. Zostanie otwarta strona **Ustawienia zapory** dla serwera SQL Database.
 
    ![reguła zapory bazująca na adresach IP na poziomie serwera](./media/sql-database-design-first-database/server-firewall-rule.png)
 

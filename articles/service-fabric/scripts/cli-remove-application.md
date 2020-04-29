@@ -15,13 +15,13 @@ ms.date: 12/06/2017
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: fd5d20ed3f2cc41f4d7d51f06d4bc90a6afd22eb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75526536"
 ---
-# <a name="remove-an-application-from-a-service-fabric-cluster-using-the-service-fabric-cli"></a>Usuwanie aplikacji z klastra sieci szkieletowej usług przy użyciu interfejsu wiersza polecenia sieci szkieletowej usług
+# <a name="remove-an-application-from-a-service-fabric-cluster-using-the-service-fabric-cli"></a>Usuwanie aplikacji z klastra Service Fabric przy użyciu interfejsu wiersza polecenia Service Fabric
 
 Ten przykładowy skrypt usuwa uruchomione wystąpienie aplikacji usługi Service Fabric, a następnie wyrejestrowuje typ i wersję aplikacji z klastra.  Usuwanie wystąpienia aplikacji spowoduje usunięcie wszystkich uruchomionych wystąpień usługi skojarzonych z aplikacją. Następnie pliki aplikacji są usuwane z magazynu obrazów. 
 

@@ -1,5 +1,5 @@
 ---
-title: Szybki start — wdrażanie aplikacji sieci Web w przeglądarce sieci szkieletowej usług Azure
+title: Szybki Start — wdrażanie aplikacji sieci Web na platformie Azure Service Fabric siatką
 description: W tym przewodniku Szybki start opisano, jak utworzyć witrynę internetową platformy ASP.NET Core i opublikować ją w usłudze Azure Service Fabric Mesh za pomocą programu Visual Studio.
 author: dkkapur
 ms.topic: quickstart
@@ -7,10 +7,10 @@ ms.date: 07/17/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 276f8860f407693a7ff08048399fa6edf16aaf0a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75459069"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Szybki start: Tworzenie i wdrażanie aplikacji internetowych w usłudze Azure Service Fabric Mesh
@@ -25,7 +25,7 @@ Konieczna jest subskrypcja platformy Azure. Jeśli jej nie masz, możesz łatwo 
 
 ## <a name="create-a-service-fabric-mesh-project"></a>Tworzenie projektu usługi Service Fabric Mesh
 
-Otwórz program Visual Studio i wybierz **pozycję Plik** > **nowego** > **projektu...**
+Otwórz program Visual Studio i wybierz pozycję **plik** > **Nowy** > **projekt...**
 
 W oknie dialogowym **Nowy projekt** w polu **Wyszukaj** u góry wpisz `mesh`. Wybierz szablon **Aplikacja Service Fabric Mesh**. Jeśli go nie widzisz, upewnij się, że zainstalowano zestaw SDK usługi Mesh i narzędzia VS w wersji zapoznawczej zgodnie z opisem w temacie [Konfigurowanie środowiska projektowego](service-fabric-mesh-howto-setup-developer-environment-sdk.md). 
 

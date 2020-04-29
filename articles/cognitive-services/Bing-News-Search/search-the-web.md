@@ -1,7 +1,7 @@
 ---
 title: Co to jest interfejs API wyszukiwania wiadomości Bing?
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak używać interfejsu API wyszukiwania wiadomości Bing do wyszukiwania w internecie bieżących nagłówków w różnych kategoriach, w tym nagłówków i popularnych tematów.
+description: Dowiedz się, jak używać interfejs API wyszukiwania wiadomości Bing, aby wyszukać w Internecie bieżące nagłówki w różnych kategoriach, w tym o nagłówkach i tematach trendów.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -12,10 +12,10 @@ ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: e0e99c7f677173c64afad3109b2f4accd7cb3cb9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75448441"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Co to jest interfejs API wyszukiwania wiadomości Bing?
@@ -52,8 +52,8 @@ Najpierw wypróbuj [interaktywną demonstrację](https://azure.microsoft.com/ser
 
 Aby szybko rozpocząć pracę z pierwszym żądaniem interfejsu API, wypróbuj przewodnik Szybki start dla [interfejsu API REST](quickstart.md) lub jednego z [zestawów SDK](sdk.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * Sekcja dokumentacji [interfejsu API wyszukiwania wiadomości Bing w wersji 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) zawiera definicje i informacje dotyczące punktów końcowych, nagłówków, odpowiedzi interfejsu API i parametrów zapytania, których możesz użyć do żądania wyników wyszukiwania na podstawie obrazu.
 * [Wymagania dotyczące użycia i wyświetlania Bing](./useanddisplayrequirements.md) określają dopuszczalne zastosowania zawartości i informacji uzyskanych za pośrednictwem interfejsów API wyszukiwania Bing.
-* Odwiedź [stronę centrum interfejsu API wyszukiwania Bing,](../bing-web-search/search-the-web.md) aby zapoznać się z innymi dostępnymi interfejsami API.
+* Odwiedź [stronę centrum interfejsu API wyszukiwanie Bing](../bing-web-search/search-the-web.md) , aby poznać inne dostępne interfejsy API.

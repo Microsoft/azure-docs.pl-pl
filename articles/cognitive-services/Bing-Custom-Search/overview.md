@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
 ms.openlocfilehash: 12c255f0e4ed11ce8acbd762530604218f8bc12b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75448735"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Co to jest interfejs API wyszukiwania niestandardowego Bing?
@@ -36,7 +36,7 @@ Używając [portalu wyszukiwania niestandardowego Bing](https://customsearch.ai)
 
 Po utworzeniu wystąpienia wyszukiwania możesz zintegrować je (opcjonalnie także interfejs użytkownika) z witryną internetową lub aplikacją, wywołując interfejs API wyszukiwania niestandardowego Bing:
 
-![Obraz pokazujący, że można połączyć się z wyszukiwaniem niestandardowym usługi Bing za pośrednictwem interfejsu API](media/BCS-Overview.png "Jak działa wyszukiwanie niestandardowe bing.")
+![Obraz pokazujący, że możesz nawiązać połączenie z wyszukiwaniem niestandardowym Bing za pośrednictwem interfejsu API](media/BCS-Overview.png "Jak działa wyszukiwanie niestandardowe Bing.")
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -47,7 +47,7 @@ Aby uzyskać szczegółowe informacje na temat dostosowywania wystąpienia wyszu
 
 Pamiętaj o przeczytaniu [wymagań dotyczących używania i wyświetlania usługi Bing](./use-and-display-requirements.md) w celu korzystania z wyników wyszukiwania w Twoich usługach i aplikacjach.
 
-Odwiedź [stronę centrum interfejsu API wyszukiwania Bing,](../bing-web-search/search-the-web.md) aby zapoznać się z innymi dostępnymi interfejsami API.
+Odwiedź [stronę centrum interfejsu API wyszukiwanie Bing](../bing-web-search/search-the-web.md) , aby poznać inne dostępne interfejsy API.
 
 Zapoznaj się z dokumentacją poszczególnych punktów końcowych wyszukiwania niestandardowego. Dokumentacja zawiera listę punktów końcowych, nagłówków i parametrów zapytań, które są stosowane w żądaniach wyników wyszukiwania. Zawiera także definicje obiektów odpowiedzi.
 

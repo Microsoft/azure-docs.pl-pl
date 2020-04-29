@@ -1,5 +1,5 @@
 ---
-title: Samouczek — wdrażanie aplikacji w usłudze Azure Service Fabric Mesh
+title: Samouczek — wdrażanie aplikacji na platformie Azure Service Fabric siatką
 description: Z tego samouczka dowiesz się, jak wdrożyć aplikację w usłudze Service Fabric Mesh przy użyciu szablonu.
 author: dkkapur
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75494941"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Samouczek: wdrażanie aplikacji w usłudze Service Fabric Mesh przy użyciu szablonu
@@ -130,7 +130,7 @@ docker tag seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709 mycontainer
 docker tag seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709 mycontainerregistry.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709
 ```
 
-Zaloguj się do rejestru kontenerów platformy Azure.
+Zaloguj się do Azure Container Registry.
 
 ```azurecli
 az acr login -n myContainerRegistry
