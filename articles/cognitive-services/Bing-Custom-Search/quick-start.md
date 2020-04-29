@@ -1,7 +1,7 @@
 ---
 title: 'Szybki start: tworzenie pierwszego wystąpienia usługi wyszukiwania niestandardowego Bing'
 titleSuffix: Azure Cognitive Services
-description: Ten szybki start służy do tworzenia niestandardowego wystąpienia usługi Bing, które może wyszukiwać zdefiniowane domeny i strony sieci Web.
+description: Skorzystaj z tego przewodnika Szybki Start, aby utworzyć niestandardowe wystąpienie usługi Bing, które umożliwia wyszukiwanie zdefiniowanych domen i stron sieci Web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aahi
 ms.openlocfilehash: b8287250df4e278d4904e31121ed7d2df208e1c9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80238856"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Szybki start: tworzenie pierwszego wystąpienia usługi wyszukiwania niestandardowego Bing
@@ -46,10 +46,10 @@ Aby utworzyć wystąpienie wyszukiwania niestandardowego Bing:
 
 5. Kliknij pozycję **Publikuj**, aby opublikować zmiany w środowisku produkcyjnym i zaktualizować punkty końcowe wystąpienia.
 
-6.  Kliknij kartę **Produkcja** w obszarze **Punkty końcowe**i skopiuj identyfikator konfiguracji **niestandardowej**. Ten identyfikator jest potrzebny do wywołania interfejsu API wyszukiwania niestandardowego. Dodaje się go do parametru zapytania `customconfig=` w wywołaniach.
+6.  Kliknij kartę **produkcja** w obszarze **punkty końcowe**i skopiuj **Identyfikator konfiguracji niestandardowej**. Ten identyfikator jest potrzebny do wywołania interfejsu API wyszukiwania niestandardowego. Dodaje się go do parametru zapytania `customconfig=` w wywołaniach.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Szybki start: wywoływanie punktu końcowego wyszukiwania niestandardowego Bing](./call-endpoint-csharp.md)
+> [Szybki Start: wywoływanie punktu końcowego wyszukiwanie niestandardowe Bing](./call-endpoint-csharp.md)

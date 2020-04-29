@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: wyszukiwanie obrazów za pomocą interfejsu API REST wyszukiwania obrazów Bing i PHP'
+title: 'Szybki Start: Wyszukiwanie obrazów przy użyciu interfejsu API REST wyszukiwanie obrazów Bing i języka PHP'
 titleSuffix: Azure Cognitive Services
 description: Skorzystaj z tego przewodnika Szybki Start, aby wysyłać żądania wyszukiwania obrazów do interfejsu API wyszukiwania obrazów Bing przy użyciu języka PHP i otrzymywać odpowiedzi w formacie JSON.
 services: cognitive-services
@@ -13,19 +13,19 @@ ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: fffe56986a3b3a64910678d19321e2d04b8fcc55
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478566"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Szybki start: wyszukiwanie obrazów za pomocą interfejsu API REST wyszukiwania obrazów Bing i PHP
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Szybki Start: Wyszukiwanie obrazów przy użyciu interfejsu API REST wyszukiwanie obrazów Bing i języka PHP
 
 Ten przewodnik Szybki start umożliwia utworzenie pierwszego wywołania do interfejsu API wyszukiwania obrazów Bing i odbieranie odpowiedzi w formacie JSON. W tym artykule prosta aplikacja wysyła zapytanie wyszukiwania i wyświetla nieprzetworzone wyniki.
 
 Chociaż ta aplikacja została napisana w języku PHP, interfejs API jest usługą internetową zgodną z wzorcem REST i każdym językiem programowania, który może wysyłać żądania HTTP i analizować dane JSON.
 
-Kod źródłowy dla tego przykładu jest dostępny [w usłudze GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/php/Search/BingWebSearchv7.php).
+Kod źródłowy dla tego przykładu jest dostępny [w witrynie GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/php/Search/BingWebSearchv7.php).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,7 +41,7 @@ Aby uruchomić tę aplikację, wykonaj następujące czynności.
 
 1. Upewnij się, że w pliku `php.ini` włączono obsługę bezpiecznego protokołu HTTP. W systemie Windows ten plik znajduje się w folderze `C:\windows`.
 2. Utwórz nowy projekt PHP w ulubionym środowisku IDE lub edytorze.
-3. Zdefiniuj punkt końcowy interfejsu API, klucz subskrypcji i wyszukiwany termin. punktem końcowym może być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlany w witrynie Azure portal dla zasobu.
+3. Zdefiniuj punkt końcowy interfejsu API, klucz subskrypcji i termin wyszukiwania. punkt końcowy może być poniżej globalnego punktu końcowego lub niestandardowy punkt końcowy [domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlany w Azure Portal dla zasobu.
 
     ```php
     $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
@@ -136,11 +136,11 @@ Odpowiedzi z interfejsu API wyszukiwania obrazów Bing są zwracane w formacie J
 > [!div class="nextstepaction"]
 > [Samouczek dotyczący jednostronicowej aplikacji wyszukiwania obrazów Bing](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Czym jest funkcja wyszukiwania obrazów Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Wypróbuj interaktywny pokaz online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
 * [Szczegóły cennika](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) interfejsów API wyszukiwania Bing. 
 * [Pobieranie bezpłatnego klucza dostępu usług Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Dokumentacja usług Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
+* [Dokumentacja usługi Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
 * [Dokumentacja interfejsu API wyszukiwania obrazów Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

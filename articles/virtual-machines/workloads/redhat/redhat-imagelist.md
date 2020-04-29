@@ -1,6 +1,6 @@
 ---
-title: Obrazy red hat enterprise z systemem Linux na platformie Azure | Dokumenty firmy Microsoft
-description: Dowiedz się więcej o obrazach systemu Red Hat Enterprise z systemem Linux na platformie Microsoft Azure
+title: Red Hat Enterprise Linux obrazów na platformie Azure | Microsoft Docs
+description: Dowiedz się więcej na temat Red Hat Enterprise Linux obrazów w Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -13,79 +13,79 @@ ms.workload: infrastructure-services
 ms.date: 04/16/2020
 ms.author: alsin
 ms.openlocfilehash: 028c30fced14a60af9f5683e6c6e087b15591735
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81605480"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Obrazy Red Hat Enterprise Linux (RHEL) dostępne na platformie Azure
-Platforma Azure oferuje wiele obrazów RHEL dla różnych przypadków użycia.
+Platforma Azure oferuje różne obrazy RHEL dla różnych przypadków użycia.
 
 > [!NOTE]
-> Wszystkie obrazy RHEL są dostępne w chmurach publicznych platformy Azure i platformy Azure dla instytucji rządowych. Nie są one dostępne w chińskim chmurach platformy Azure.
+> Wszystkie obrazy RHEL są dostępne w chmurach publicznych i Azure Government platformy Azure. Nie są one dostępne w chmurach platformy Azure w Chinach.
 
 ## <a name="list-of-rhel-images"></a>Lista obrazów RHEL
-Jest to lista obrazów RHEL dostępnych na platformie Azure. O ile nie określono inaczej, wszystkie obrazy są podzielone na partycje LVM i dołączone do zwykłych repozytoriów RHEL (nie EUS, nie E4S). Następujące obrazy są obecnie dostępne do użytku ogólnego:
+Jest to lista obrazów RHEL dostępnych na platformie Azure. O ile nie określono inaczej, wszystkie obrazy są LVM i dołączone do zwykłych repozytoriów RHEL (nie EUS, a nie E4S). Następujące obrazy są obecnie dostępne do użytku ogólnego:
 
 Oferta| SKU | Partycjonowanie | Inicjowanie obsługi | Uwagi
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 6.7      | Raw    | Agent systemu Linux |
-|             | 6.8      | Raw    | Agent systemu Linux |
-|             | 6.9      | Raw    | Agent systemu Linux |
-|             | 6.10     | Raw    | Agent systemu Linux |
-|             | 7-RAW    | Raw    | Agent systemu Linux | RHEL 7.x rodzina obrazów. <br> Domyślnie dołączane do zwykłych repozytoriów (nie EUS).
-|             | 7-LVM    | Lvm    | Agent systemu Linux | RHEL 7.x rodzina obrazów. <br> Domyślnie dołączane do zwykłych repozytoriów (nie EUS). Jeśli szukasz standardowego obrazu RHEL do wdrożenia, użyj tego zestawu obrazów i/lub jego odpowiednika generacji 2.
-|             | 7lvm-gen2| Lvm    | Agent systemu Linux | Generacja 2, rodzina obrazów RHEL 7.x. <br> Domyślnie dołączane do zwykłych repozytoriów (nie EUS). Jeśli szukasz standardowego obrazu RHEL do wdrożenia, użyj tego zestawu obrazów i/lub jego odpowiednika generacji 1.
-|             | 7-RAW-CI | RAW-CI | chmura init  | RHEL 7.x rodzina obrazów. <br> Domyślnie dołączane do zwykłych repozytoriów (nie EUS).
-|             | 7.2      | Raw    | Agent systemu Linux |
-|             | 7.3      | Raw    | Agent systemu Linux |
-|             | 7.4      | Raw    | Agent systemu Linux | Domyślnie dołączone do repozytoriów EUS od kwietnia 2019 r.
-|             | 74-gen2  | Raw    | Agent systemu Linux | Domyślnie dołączone do repozytoriów EUS.
-|             | 7,5      | Raw    | Agent systemu Linux | Domyślnie dołączone do repozytoriów EUS od czerwca 2019 r.
-|             | 75-gen2  | Raw    | Agent systemu Linux | Domyślnie dołączone do repozytoriów EUS.
-|             | 7.6      | Raw    | Agent systemu Linux | Domyślnie dołączone do repozytoriów EUS od maja 2019 r.
-|             | 76-gen2  | Raw    | Agent systemu Linux | Domyślnie dołączone do repozytoriów EUS.
-|             | 7.7      | Lvm    | Agent systemu Linux | Domyślnie dołączone do repozytoriów EUS.
-|             | 8-LVM    | Lvm    | Agent systemu Linux | RHEL 8.x rodzina obrazów. Dołączone do regularnych repozytoriów.
-|             | 8-lvm-gen2| Lvm    | Agent systemu Linux | Hyper-V Generation 2 - RHEL 8.x rodzina obrazów. Dołączone do regularnych repozytoriów.
-|             | 8        | Lvm    | Agent systemu Linux | Obrazy RHEL 8.0
-|             | 8-gen2   | Lvm    | Agent systemu Linux | Obrazy Hyper-V Generacji 2 - RHEL 8.0.
-|             | 8.1      | Lvm    | Agent systemu Linux | RHEL 8.1 zdjęć. Obecnie dołączone do regularnych repozytoriów.
-|             | 81gen2   | Lvm    | Agent systemu Linux | Obrazy Hyper-V Generacji 2 - RHEL 8.1. Obecnie dołączone do regularnych repozytoriów.
-RHEL-SAP      | 7.4      | Lvm    | Agent systemu Linux | RHEL 7.4 dla SAP HANA i aplikacji biznesowych. Dołączone do repozytoriów E4S, pobiera premię za SAP i RHEL, a także podstawową opłatę obliczeniową.
-|             | 74sap-gen2| Lvm    | Agent systemu Linux | RHEL 7.4 dla SAP HANA i aplikacji biznesowych. Obraz generacji 2. Dołączone do repozytoriów E4S, pobiera premię za SAP i RHEL, a także podstawową opłatę obliczeniową.
-|             | 7,5       | Lvm    | Agent systemu Linux | RHEL 7.5 dla SAP HANA i aplikacji biznesowych. Dołączone do repozytoriów E4S, pobiera premię za SAP i RHEL, a także podstawową opłatę obliczeniową.
-|             | 75sap-gen2| Lvm    | Agent systemu Linux | RHEL 7.5 dla SAP HANA i aplikacji biznesowych. Obraz generacji 2. Dołączone do repozytoriów E4S, pobiera premię za SAP i RHEL, a także podstawową opłatę obliczeniową.
-|             | 7.6       | Lvm    | Agent systemu Linux | RHEL 7.6 dla SAP HANA i aplikacji biznesowych. Dołączone do repozytoriów E4S, pobiera premię za SAP i RHEL, a także podstawową opłatę obliczeniową.
-|             | 76sap-gen2| Lvm    | Agent systemu Linux | RHEL 7.6 dla SAP HANA i aplikacji biznesowych. Obraz generacji 2. Dołączone do repozytoriów E4S, pobiera premię za SAP i RHEL, a także podstawową opłatę obliczeniową.
-|             | 7.7       | Lvm    | Agent systemu Linux | RHEL 7.7 dla SAP HANA i aplikacji biznesowych. Dołączone do repozytoriów E4S, pobiera premię za SAP i RHEL, a także podstawową opłatę obliczeniową.
-RHEL-SAP-HANA | 6.7       | Raw    | Agent systemu Linux | RHEL 6.7 dla SAP HANA. Przestarzałe na rzecz obrazów RHEL-SAP.
-|             | 7.2       | Lvm    | Agent systemu Linux | RHEL 7.2 dla SAP HANA. Przestarzałe na rzecz obrazów RHEL-SAP.
-|             | 7.3       | Lvm    | Agent systemu Linux | RHEL 7.3 dla SAP HANA. Przestarzałe na rzecz obrazów RHEL-SAP.
-APLIKACJE RHEL-SAP | 6.8       | Raw    | Agent systemu Linux | RHEL 6.8 dla aplikacji biznesowych SAP. Przestarzałe na rzecz obrazów RHEL-SAP.
-|             | 7.3       | Lvm    | Agent systemu Linux | RHEL 7.3 dla aplikacji biznesowych SAP. Przestarzałe na rzecz obrazów RHEL-SAP.
-RHEL-HA       | 7.4       | Lvm    | Agent systemu Linux | RHEL 7.4 z dodatkiem HA. Pobiera premię za HA i RHEL oprócz podstawowej opłaty obliczeniowej.
-|             | 7,5       | Lvm    | Agent systemu Linux | RHEL 7.5 z dodatkiem HA. Pobiera premię za HA i RHEL oprócz podstawowej opłaty obliczeniowej.
-|             | 7.6       | Lvm    | Agent systemu Linux | RHEL 7.6 z dodatkiem HA. Pobiera premię za HA i RHEL oprócz podstawowej opłaty obliczeniowej.
-RHEL-SAP-HA   | 7.4          | Lvm    | Agent systemu Linux | RHEL 7.4 dla SAP z ha i usługi aktualizacji. Dołączone do repozytoriów E4S. Pobiera premię za repozytoria SAP i HA, a także RHEL, oprócz podstawowych opłat obliczeniowych.
-|             | 74safa-gen2 | Lvm    | Agent systemu Linux | RHEL 7.4 dla SAP z ha i usługi aktualizacji. Obraz generacji 2. Dołączone do repozytoriów E4S. Pobiera premię za repozytoria SAP i HA, a także RHEL, oprócz podstawowych opłat obliczeniowych.
-|             | 7,5          | Lvm    | Agent systemu Linux | RHEL 7.5 dla SAP z ha i usługi aktualizacji. Dołączone do repozytoriów E4S. Pobiera premię za repozytoria SAP i HA, a także RHEL, oprócz podstawowych opłat obliczeniowych.
-|             | 7.6          | Lvm    | Agent systemu Linux | RHEL 7.6 dla SAP z ha i usługi aktualizacji. Dołączone do repozytoriów E4S. Pobiera premię za repozytoria SAP i HA, a także RHEL, oprócz podstawowych opłat obliczeniowych.
-|             | 76safa-gen2 | Lvm    | Agent systemu Linux | RHEL 7.6 dla SAP z ha i usługi aktualizacji. Obraz generacji 2. Dołączone do repozytoriów E4S. Pobiera premię za repozytoria SAP i HA, a także RHEL, oprócz podstawowych opłat obliczeniowych.
-|             | 7.7          | Lvm    | Agent systemu Linux | RHEL 7.7 dla SAP z ha i usługi aktualizacji. Dołączone do repozytoriów E4S. Pobiera premię za repozytoria SAP i HA, a także RHEL, oprócz podstawowych opłat obliczeniowych.
-|             | 77safa-gen2 | Lvm    | Agent systemu Linux | RHEL 7.7 dla SAP z ha i usługi aktualizacji. Obraz generacji 2. Dołączone do repozytoriów E4S. Pobiera premię za repozytoria SAP i HA, a także RHEL, oprócz podstawowych opłat obliczeniowych.
-rhel-byos     |rhel-lvm74| Lvm    | Agent systemu Linux | Obrazy RHEL 7.4 BYOS, nie dołączone do żadnego źródła aktualizacji, nie będą pobierać premii RHEL.
-|             |rhel-lvm75| Lvm    | Agent systemu Linux | Obrazy RHEL 7.5 BYOS, nie dołączone do żadnego źródła aktualizacji, nie będą pobierać premii RHEL.
-|             |rhel-lvm76| Lvm    | Agent systemu Linux | Obrazy RHEL 7.6 BYOS, nie dołączone do żadnego źródła aktualizacji, nie będą pobierać premii RHEL.
-|             |rhel-lvm77| Lvm    | Agent systemu Linux | Obrazy RHEL 7.7 BYOS, nie dołączone do żadnego źródła aktualizacji, nie będą pobierać premii RHEL.
-|             |rhel-lvm8 | Lvm    | Agent systemu Linux | Obrazy RHEL 8 BYOS (wersja pomocnicza RHEL jest wyświetlana w wartości wersji obrazu), nie jest dołączona do żadnego źródła aktualizacji, nie pobiera premii RHEL.
+RHEL          | 6.7      | SUROWCÓW    | Agent systemu Linux |
+|             | 6.8      | SUROWCÓW    | Agent systemu Linux |
+|             | 6,9      | SUROWCÓW    | Agent systemu Linux |
+|             | 6,10     | SUROWCÓW    | Agent systemu Linux |
+|             | 7 — NIEPRZETWORZONY    | SUROWCÓW    | Agent systemu Linux | Rodzina obrazów RHEL 7. x. <br> Domyślnie dołączone do zwykłych repozytoriów (nie EUS).
+|             | 7 — LVM    | LVM    | Agent systemu Linux | Rodzina obrazów RHEL 7. x. <br> Domyślnie dołączone do zwykłych repozytoriów (nie EUS). Jeśli szukasz standardowego obrazu RHEL do wdrożenia, użyj tego zestawu obrazów i/lub jego odpowiednika generacji 2.
+|             | 7lvm — Gen2| LVM    | Agent systemu Linux | Rodzina obrazów generacji 2, RHEL 7. x. <br> Domyślnie dołączone do zwykłych repozytoriów (nie EUS). Jeśli szukasz standardowego obrazu RHEL do wdrożenia, użyj tego zestawu obrazów i/lub jego odpowiednika generacji 1.
+|             | 7-RAW-CI | NIEPRZETWORZONY ELEMENT CI | Cloud-init  | Rodzina obrazów RHEL 7. x. <br> Domyślnie dołączone do zwykłych repozytoriów (nie EUS).
+|             | 7.2      | SUROWCÓW    | Agent systemu Linux |
+|             | 7.3      | SUROWCÓW    | Agent systemu Linux |
+|             | 7.4      | SUROWCÓW    | Agent systemu Linux | Dołączono do EUS repozytoriów domyślnie od kwietnia 2019.
+|             | 74 – Gen2  | SUROWCÓW    | Agent systemu Linux | Domyślnie dołączone do repozytoriów EUS.
+|             | 7,5      | SUROWCÓW    | Agent systemu Linux | Dołączono do EUS repozytoriów domyślnie od czerwca 2019.
+|             | 75 – Gen2  | SUROWCÓW    | Agent systemu Linux | Domyślnie dołączone do repozytoriów EUS.
+|             | 7,6      | SUROWCÓW    | Agent systemu Linux | Dołączono do EUS repozytoriów domyślnie od maja 2019.
+|             | 76 – Gen2  | SUROWCÓW    | Agent systemu Linux | Domyślnie dołączone do repozytoriów EUS.
+|             | 7,7      | LVM    | Agent systemu Linux | Domyślnie dołączone do repozytoriów EUS.
+|             | 8 — LVM    | LVM    | Agent systemu Linux | Rodzina obrazów RHEL 8. x. Dołączone do zwykłych repozytoriów.
+|             | 8-LVM-Gen2| LVM    | Agent systemu Linux | Funkcja Hyper-V Generation 2-RHEL 8. x rodzina obrazów. Dołączone do zwykłych repozytoriów.
+|             | 8        | LVM    | Agent systemu Linux | Obrazy z RHEL 8,0
+|             | 8 — Gen2   | LVM    | Agent systemu Linux | Obrazy funkcji Hyper-V Generation 2-RHEL 8,0.
+|             | 8.1      | LVM    | Agent systemu Linux | Obrazy z RHEL 8,1. Obecnie dołączone do zwykłych repozytoriów.
+|             | 81gen2   | LVM    | Agent systemu Linux | Obrazy funkcji Hyper-V Generation 2-RHEL 8,1. Obecnie dołączone do zwykłych repozytoriów.
+RHEL — SAP      | 7.4      | LVM    | Agent systemu Linux | RHEL SAP HANA 7,4 i aplikacje biznesowe. Dołączenie do repozytoriów E4S spowoduje naliczenie wersji Premium dla SAP i RHEL, a także Podstawowa opłata obliczeniowa.
+|             | 74sap — Gen2| LVM    | Agent systemu Linux | RHEL SAP HANA 7,4 i aplikacje biznesowe. Obraz generacji 2. Dołączenie do repozytoriów E4S spowoduje naliczenie wersji Premium dla SAP i RHEL, a także Podstawowa opłata obliczeniowa.
+|             | 7,5       | LVM    | Agent systemu Linux | RHEL SAP HANA 7,5 i aplikacje biznesowe. Dołączenie do repozytoriów E4S spowoduje naliczenie wersji Premium dla SAP i RHEL, a także Podstawowa opłata obliczeniowa.
+|             | 75sap — Gen2| LVM    | Agent systemu Linux | RHEL SAP HANA 7,5 i aplikacje biznesowe. Obraz generacji 2. Dołączenie do repozytoriów E4S spowoduje naliczenie wersji Premium dla SAP i RHEL, a także Podstawowa opłata obliczeniowa.
+|             | 7,6       | LVM    | Agent systemu Linux | RHEL SAP HANA 7,6 i aplikacje biznesowe. Dołączenie do repozytoriów E4S spowoduje naliczenie wersji Premium dla SAP i RHEL, a także Podstawowa opłata obliczeniowa.
+|             | 76sap — Gen2| LVM    | Agent systemu Linux | RHEL SAP HANA 7,6 i aplikacje biznesowe. Obraz generacji 2. Dołączenie do repozytoriów E4S spowoduje naliczenie wersji Premium dla SAP i RHEL, a także Podstawowa opłata obliczeniowa.
+|             | 7,7       | LVM    | Agent systemu Linux | RHEL SAP HANA 7,7 i aplikacje biznesowe. Dołączenie do repozytoriów E4S spowoduje naliczenie wersji Premium dla SAP i RHEL, a także Podstawowa opłata obliczeniowa.
+RHEL — SAP-HANA | 6.7       | SUROWCÓW    | Agent systemu Linux | RHEL 6,7 dla SAP HANA. Nieaktualna korzyść dla obrazów RHEL-SAP.
+|             | 7.2       | LVM    | Agent systemu Linux | RHEL 7,2 dla SAP HANA. Nieaktualna korzyść dla obrazów RHEL-SAP.
+|             | 7.3       | LVM    | Agent systemu Linux | RHEL 7,3 dla SAP HANA. Nieaktualna korzyść dla obrazów RHEL-SAP.
+RHEL — SAP-APPS | 6.8       | SUROWCÓW    | Agent systemu Linux | RHEL 6,8 dla oprogramowania SAP Business Applications. Nieaktualna korzyść dla obrazów RHEL-SAP.
+|             | 7.3       | LVM    | Agent systemu Linux | RHEL 7,3 dla oprogramowania SAP Business Applications. Nieaktualna korzyść dla obrazów RHEL-SAP.
+RHEL – HA       | 7.4       | LVM    | Agent systemu Linux | RHEL 7,4 z dodatkiem HA. Naliczanie wersji Premium za HA i RHEL na podstawie podstawowej opłaty obliczeniowej.
+|             | 7,5       | LVM    | Agent systemu Linux | RHEL 7,5 z dodatkiem HA. Naliczanie wersji Premium za HA i RHEL na podstawie podstawowej opłaty obliczeniowej.
+|             | 7,6       | LVM    | Agent systemu Linux | RHEL 7,6 z dodatkiem HA. Naliczanie wersji Premium za HA i RHEL na podstawie podstawowej opłaty obliczeniowej.
+RHEL — SAP-HA   | 7.4          | LVM    | Agent systemu Linux | RHEL 7,4 dla oprogramowania SAP z usługami HA i Update Services. Dołączono do repozytoriów E4S. Naliczanie wersji Premium dla repozytoriów oprogramowania SAP i HA oraz RHEL w oparciu o podstawowe opłaty za obliczenia.
+|             | 74sapha — Gen2 | LVM    | Agent systemu Linux | RHEL 7,4 dla oprogramowania SAP z usługami HA i Update Services. Obraz generacji 2. Dołączono do repozytoriów E4S. Naliczanie wersji Premium dla repozytoriów oprogramowania SAP i HA oraz RHEL w oparciu o podstawowe opłaty za obliczenia.
+|             | 7,5          | LVM    | Agent systemu Linux | RHEL 7,5 dla oprogramowania SAP z usługami HA i Update Services. Dołączono do repozytoriów E4S. Naliczanie wersji Premium dla repozytoriów oprogramowania SAP i HA oraz RHEL w oparciu o podstawowe opłaty za obliczenia.
+|             | 7,6          | LVM    | Agent systemu Linux | RHEL 7,6 dla oprogramowania SAP z usługami HA i Update Services. Dołączono do repozytoriów E4S. Naliczanie wersji Premium dla repozytoriów oprogramowania SAP i HA oraz RHEL w oparciu o podstawowe opłaty za obliczenia.
+|             | 76sapha — Gen2 | LVM    | Agent systemu Linux | RHEL 7,6 dla oprogramowania SAP z usługami HA i Update Services. Obraz generacji 2. Dołączono do repozytoriów E4S. Naliczanie wersji Premium dla repozytoriów oprogramowania SAP i HA oraz RHEL w oparciu o podstawowe opłaty za obliczenia.
+|             | 7,7          | LVM    | Agent systemu Linux | RHEL 7,7 dla oprogramowania SAP z usługami HA i Update Services. Dołączono do repozytoriów E4S. Naliczanie wersji Premium dla repozytoriów oprogramowania SAP i HA oraz RHEL w oparciu o podstawowe opłaty za obliczenia.
+|             | 77sapha — Gen2 | LVM    | Agent systemu Linux | RHEL 7,7 dla oprogramowania SAP z usługami HA i Update Services. Obraz generacji 2. Dołączono do repozytoriów E4S. Naliczanie wersji Premium dla repozytoriów oprogramowania SAP i HA oraz RHEL w oparciu o podstawowe opłaty za obliczenia.
+RHEL — BYOS     |RHEL — lvm74| LVM    | Agent systemu Linux | RHEL 7,4 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
+|             |RHEL — lvm75| LVM    | Agent systemu Linux | RHEL 7,5 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
+|             |RHEL — lvm76| LVM    | Agent systemu Linux | RHEL 7,6 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
+|             |RHEL — lvm77| LVM    | Agent systemu Linux | RHEL 7,7 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
+|             |RHEL — lvm8 | LVM    | Agent systemu Linux | RHEL 8 BYOS obrazy (wersja pomocnicza RHEL jest wyświetlana w polu wartość wersji obrazu), nie są dołączane do żadnego źródła aktualizacji, nie nalicza opłat za usługę RHEL Premium.
 
 > [!NOTE]
-> Oferta produktów RHEL-SAP-HANA jest uważana przez Red Hat za koniec życia. Istniejące wdrożenia będą nadal działać normalnie, ale Red Hat zaleca, aby klienci migrować z obrazów RHEL-SAP-HANA do obrazów RHEL-SAP-HA, który zawiera repozytoria SAP HANA, a także dodatek wysokiej klasy. Więcej informacji na temat oferty chmury SAP firmy Red Hat można znaleźć [tutaj.](https://access.redhat.com/articles/3751271)
+> Oferta produktu RHEL-SAP-HANA jest uważana za koniec życia przez firmę Red Hat. Istniejące wdrożenia będą nadal działały normalnie, ale Red Hat zaleca klientom Migrowanie z obrazów RHEL-SAP-HANA do obrazów RHEL-SAP-HA, które obejmują SAP HANA repozytoria, a także dodatek o wysokiej dostępności. Więcej informacji o ofertach rozwiązań w chmurze firmy Red Hat można znaleźć [tutaj](https://access.redhat.com/articles/3751271).
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [obrazach Red Hat](./redhat-images.md)na platformie Azure .
+* Dowiedz się więcej o [obrazach Red Hat na platformie Azure](./redhat-images.md).
 * Dowiedz się więcej o [infrastrukturze aktualizacji Red Hat](./redhat-rhui.md).
-* Dowiedz się więcej o [ofercie RHEL BYOS.](./byos.md)
-* Informacje na temat zasad obsługi Red Hat dla wszystkich wersji RHEL można znaleźć na stronie [Red Hat Enterprise Linux Life Cycle.](https://access.redhat.com/support/policy/updates/errata)
+* Dowiedz się więcej o [ofercie BYOS RHEL](./byos.md).
+* Informacje o zasadach obsługi systemu Red Hat dla wszystkich wersji programu RHEL można znaleźć na stronie [cykl życia Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata) .

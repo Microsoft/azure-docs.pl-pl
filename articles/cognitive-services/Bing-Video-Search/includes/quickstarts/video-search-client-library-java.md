@@ -1,5 +1,5 @@
 ---
-title: Szybki start biblioteki klienta java wyszukiwania wideo bing
+title: wyszukiwanie wideo Bing Java Client Library — Szybki Start
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: aahi
 ms.openlocfilehash: 8124afef1aa12dbf3ec51e10597cb1567fc85551
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80289770"
 ---
-Użyj tego przewodnika Szybki start, aby rozpocząć wyszukiwanie wiadomości za pomocą biblioteki klienta wyszukiwania wideo Bing dla języka Java. Usługa Bing Video Search ma interfejs API REST zgodny z większością języków programowania, ale biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy dla tego przykładu można znaleźć na [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch), z dodatkowymi adnotacjami i funkcjami.
+Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć wyszukiwanie wiadomości za pomocą biblioteki klienta wyszukiwanie wideo Bing dla środowiska Java. Chociaż wyszukiwanie wideo Bing ma interfejs API REST zgodny z większością języków programowania, Biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy dla tego przykładu można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch), z dodatkowymi adnotacjami i funkcjami.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -25,7 +25,7 @@ Użyj tego przewodnika Szybki start, aby rozpocząć wyszukiwanie wiadomości za
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](~/includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-Zainstaluj zależności biblioteki klienta wyszukiwania wideo Bing przy użyciu Maven, Gradle lub innego systemu zarządzania zależnościami. Plik POM systemu Maven wymaga następującej deklaracji:
+Zainstaluj zależności biblioteki klienta wyszukiwanie wideo Bing przy użyciu programu Maven, Gradle lub innego systemu zarządzania zależnościami. Plik POM systemu Maven wymaga następującej deklaracji:
 
 ```xml
   <dependencies>
@@ -111,7 +111,7 @@ Utwórz nowy projekt w języku Java w ulubionym środowisku IDE lub edytorze i z
         //...
         ```
 
-## <a name="send-a-search-request-and-receive-the-response"></a>Wyślij żądanie wyszukiwania i otrzymaj odpowiedź 
+## <a name="send-a-search-request-and-receive-the-response"></a>Wyślij żądanie wyszukiwania i odbierz odpowiedź 
 
 1. Utwórz funkcję o nazwie `VideoSearch()`, która przyjmujące Twój klucz subskrypcji w postaci ciągu. Utwórz wystąpienie utworzonego wcześniej klienta wyszukiwania.
     
@@ -157,7 +157,7 @@ Utwórz nowy projekt w języku Java w ulubionym środowisku IDE lub edytorze i z
 > [!div class="nextstepaction"]
 > [Tworzenie internetowej aplikacji jednostronicowej](../../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Zobacz też 
+## <a name="see-also"></a>Zobacz także 
 
 * [Co to jest interfejs API wyszukiwania wideo Bing?](../../overview.md)
-* [Przykłady zestawów SDK usług cognitive.NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+* [Przykłady zestawu SDK programu .NET dla usług poznawczych](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

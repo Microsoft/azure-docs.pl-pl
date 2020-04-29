@@ -9,16 +9,16 @@ ms.date: 03/25/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 40f8f5b234a6aecb1b44e4c565873b3badbd139a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80334825"
 ---
 | Zasób | Limit |
 | --- | --- |
-| Równoczesne połączenia RDP |25* |
-| Równoczesne połączenia SSH |50** |
+| Współbieżne połączenia RDP |6,25 |
+| Współbieżne połączenia SSH |50 * * |
 
-*Mogą się różnić w zależności od innych sesji RDP lub innych sesji SSH w toku.<br>
-**Może się różnić, jeśli istnieją istniejące połączenia RDP lub użycie z innych sesji SSH w toku.
+* Może się różnić w zależności od innych sesji protokołu RDP lub innych aktywnych sesji SSH.<br>
+* * Może się różnić w przypadku istniejących połączeń RDP lub użycia z innych dostępnych w toku sesji SSH.

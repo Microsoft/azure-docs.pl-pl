@@ -1,6 +1,6 @@
 ---
-title: Wysyłanie powiadomień wypychanych do określonych urządzeń przy użyciu usługi Azure Notification Hubs i Google Firebase Cloud Messaging | Dokumenty firmy Microsoft
-description: Dowiedz się, jak używać centrów powiadomień do przekazywania powiadomień do określonych urządzeń z systemem Android przy użyciu usługi Azure Notification Hubs i Google Firebase Cloud Messaging (FCM).
+title: Wysyłanie powiadomień wypychanych do określonych urządzeń przy użyciu usługi Azure Notification Hubs i Google Firebase Cloud Messaging | Microsoft Docs
+description: Dowiedz się, jak za pomocą usługi Notification Hubs wysyłać powiadomienia wypychane do określonych urządzeń z systemem Android przy użyciu usług Azure Notification Hubs i Google Firebase Cloud Messaging (FCM).
 services: notification-hubs
 documentationcenter: android
 author: sethmanheim
@@ -18,13 +18,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/30/2019
 ms.openlocfilehash: b7ee3afc2e8b9958a868c8c117262d2017c9b600
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80126878"
 ---
-# <a name="tutorial-send-notifications-to-specific-devices-using-notification-hubs-and-google-firebase-cloud-messaging"></a>Samouczek: Wysyłanie powiadomień do określonych urządzeń za pomocą Centrów powiadomień i wiadomości w chmurze Google Firebase
+# <a name="tutorial-send-notifications-to-specific-devices-using-notification-hubs-and-google-firebase-cloud-messaging"></a>Samouczek: wysyłanie powiadomień do określonych urządzeń przy użyciu usług Notification Hubs i Google Firebase Cloud Messaging
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -44,7 +44,7 @@ W tym samouczku wykonasz następujące czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ten samouczek opiera się na aplikacji utworzonej w [samouczku: Powiadomienia wypychania do urządzeń z systemem Android przy użyciu usługi Azure Notification Hubs i Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md). Przed rozpoczęciem tego samouczka wykonaj [samouczek: Powiadomienia wypychania do urządzeń z systemem Android przy użyciu usługi Azure Notification Hubs i Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
+W tym samouczku przedstawiono aplikację utworzoną w [samouczku: powiadomienia wypychane do urządzeń z systemem Android przy użyciu usługi Azure Notification Hubs i obsługi komunikatów w chmurze Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md). Przed rozpoczęciem tego samouczka Ukończ [Samouczek: powiadomienia wypychane do urządzeń z systemem Android przy użyciu usługi Azure Notification Hubs i obsługi komunikatów w chmurze Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 ## <a name="add-category-selection-to-the-app"></a>Dodawanie wyboru kategorii do aplikacji
 
@@ -204,12 +204,12 @@ Pierwszym krokiem jest dodanie elementów interfejsu użytkownika do istniejące
     ```
 
     Ta klasa używa magazynu lokalnego do przechowywania kategorii wiadomości, które mają być odbierane na tym urządzeniu. Zawiera również metody rejestracji w tych kategoriach.
-4. W `MainActivity` klasie dodaj pole `Notifications`dla:
+4. W `MainActivity` klasie Dodaj pole dla `Notifications`:
 
     ```java
     private Notifications notifications;
     ```
-5. Następnie zaktualizuj `onCreate` metodę, jak pokazano w poniższym kodzie. Zarejestruj się w Centrach powiadomień w **subscribeToCategories** metody **Notifications** klasy. 
+5. Następnie zaktualizuj `onCreate` metodę, jak pokazano w poniższym kodzie. Rejestrujesz się w Notification Hubs w metodzie **subscribeToCategories** klasy **Notifications** . 
 
     ```java
     @Override
@@ -275,7 +275,7 @@ Aplikacja może teraz przechowywać zestaw kategorii w magazynie lokalnym na urz
 
 Te kroki umożliwiają zarejestrowanie przy użyciu centrum powiadomień przy uruchamianiu przy użyciu kategorii przechowywanych w magazynie lokalnym.
 
-1. Upewnij się, że poniższy kod `onCreate` znajduje `MainActivity` się na końcu metody w klasie:
+1. Upewnij się, że następujący kod znajduje się na końcu `onCreate` metody w `MainActivity` klasie:
 
     ```java
     notifications.subscribeToCategories(notifications.retrieveCategories());

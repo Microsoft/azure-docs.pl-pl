@@ -1,20 +1,20 @@
 ---
-title: 'Samouczek: Przeglądanie wypowiedzi punktów końcowych — usługa LUIS'
-description: W tym samouczku ulepsz prognozowanie aplikacji, weryfikując lub korygując wypowiedzi odebrane za pośrednictwem punktu końcowego usługi LUIS HTTP, o którym nie ma pewności. Niektóre wypowiedzi mogą wymagać weryfikacji pod kątem intencji, a inne — pod kątem jednostki.
+title: 'Samouczek: przeglądanie punktu końcowego wyrażenia długości — LUIS'
+description: W tym samouczku należy poprawić przewidywania aplikacji przez sprawdzenie lub poprawienie wyrażenia długości odebranych za pośrednictwem punktu końcowego LUIS HTTP, który LUIS nie ma pewności. Niektóre wypowiedzi mogą wymagać weryfikacji pod kątem intencji, a inne — pod kątem jednostki.
 services: cognitive-services
 ms.topic: tutorial
 ms.date: 04/01/2020
 ms.openlocfilehash: 307c18d3326cb1a64b884463a571985a015834ed
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548721"
 ---
-# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Samouczek: Napraw niewiążące prognozy, przeglądając wypowiedzi punktów końcowych
-W tym samouczku ulepsz prognozowanie aplikacji, weryfikując lub korygując wypowiedzi odebrane za pośrednictwem punktu końcowego HTTPS usługi LUIS, o którym usługa LUIS nie ma pewności. Należy przejrzeć wypowiedzi punktu końcowego jako regularną część zaplanowanej konserwacji usługi LUIS.
+# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Samouczek: usuwanie prognoz przez przeglądanie punktu końcowego wyrażenia długości
+W tym samouczku poprawisz przewidywania aplikacji przez sprawdzenie lub poprawienie wyrażenia długości, odebranych za pośrednictwem punktu końcowego HTTPS LUIS, który LUIS nie ma pewności. Należy zapoznać się z punktem końcowym wyrażenia długości jako regularną częścią konserwacji zaplanowanej LUIS.
 
-Ten proces przeglądu umożliwia usługi LUIS, aby dowiedzieć się domeny aplikacji. Usługa LUIS wybiera wypowiedzi, które pojawiają się na liście recenzji. Ta lista ma następujące cechy:
+Ten proces przeglądu pozwala LUIS na naznanie Twojej domeny aplikacji. LUIS wybiera wyrażenia długości, które pojawiają się na liście przegląd. Ta lista ma następujące cechy:
 
 * Jest specyficzna dla aplikacji.
 * Ma za zadanie zwiększyć dokładność przewidywania aplikacji.
@@ -28,36 +28,36 @@ Przeglądając wypowiedzi punktu końcowego, weryfikujesz lub poprawiasz przewid
 > [!div class="checklist"]
 > * Importowanie aplikacji przykładowej
 > * Przeglądanie wypowiedzi punktu końcowego
-> * Trenuj i publikuj aplikację
+> * Uczenie i publikowanie aplikacji
 > * Wysyłanie zapytania do punktu końcowego aplikacji w celu wyświetlenia odpowiedzi JSON usługi LUIS
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="import-example-app"></a>Importowanie aplikacji przykładowej
 
-Aby zaimportować aplikację, należy wykonać następujące czynności.
+Aby zaimportować aplikację, wykonaj następujące czynności.
 
 1.  Pobierz i zapisz [plik JSON aplikacji](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Trenuj aplikację, aby zastosować zmiany encji do aplikacji
+## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Uczenie aplikacji w celu zastosowania zmian jednostek w aplikacji
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publikowanie aplikacji w celu uzyskania do niej dostępu z punktu końcowego HTTP
+## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Opublikuj aplikację, aby uzyskać do niej dostęp z punktu końcowego HTTP
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
-## <a name="add-utterances-at-the-endpoint"></a>Dodawanie wypowiedzi w punkcie końcowym
+## <a name="add-utterances-at-the-endpoint"></a>Dodawanie wyrażenia długości w punkcie końcowym
 
-W tej aplikacji masz intencje i jednostki, ale nie masz żadnego użycia punktu końcowego. To użycie punktu końcowego jest wymagane do poprawy aplikacji z przeglądu wypowiedź punktu końcowego.
+W tej aplikacji masz intencje i jednostki, ale nie masz żadnego użycia punktów końcowych. To użycie punktu końcowego jest wymagane w celu usprawnienia aplikacji za pomocą przeglądu wypowiedź punktu końcowego.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Przejdź na koniec adresu URL na pasku adresu i zastąp _YOUR_QUERY_HERE_ wypowiedziami w poniższej tabeli. Dla każdej wypowiedź, prześlij wypowiedź i uzyskać wynik. Następnie zastąp wypowiedź na końcu następną wypowiedź.
+1. Przejdź na koniec adresu URL na pasku adresu i Zastąp _YOUR_QUERY_HERE_ wyrażenia długości w poniższej tabeli. Dla każdego wypowiedź Prześlij wypowiedź i Pobierz wynik. Następnie zastąp wypowiedź na końcu następnym wypowiedź.
 
-    |Wypowiedź punktu końcowego|Aligned intent (Intencja wyrównana)|
+    |Wypowiedź punktu końcowego|Wyrównany cel|
     |--|--|
     |`I'm looking for a job with Natural Language Processing`|`GetJobInformation`|
     |`I want to cancel on March 3`|`Utilities.Cancel`|
@@ -73,35 +73,35 @@ W tej aplikacji masz intencje i jednostki, ale nie masz żadnego użycia punktu 
 
 ## <a name="review-endpoint-utterances"></a>Przeglądanie wypowiedzi punktu końcowego
 
-Przejrzyj wypowiedzi punktu końcowego dla poprawnie wyrównanej intencji. Chociaż istnieje pojedyncza pula wypowiedzi do przeglądu we wszystkich wersjach, proces poprawnego wyrównania intencji dodaje wypowiedź przykładu tylko do bieżącego _modelu aktywnego._
+Przejrzyj wyrażenia długości punktu końcowego pod kątem prawidłowo dopasowanego zamiaru. Chociaż istnieje jedna pula wyrażenia długości do przejrzenia we wszystkich wersjach, proces prawidłowo wyrównany do zamiaru dodaje przykład wypowiedź do bieżącego _aktywnego modelu_ .
 
-1. W sekcji **Kompilacja** portalu wybierz **opcję Przejrzyj wypowiedzi punktów końcowych** z lewej nawigacji. Lista jest przefiltrowana pod kątem intencji **ApplyForJob**.
+1. W sekcji **kompilacja** portalu wybierz pozycję **Przegląd punktu końcowego wyrażenia długości** w lewym okienku nawigacji. Lista jest przefiltrowana pod kątem intencji **ApplyForJob**.
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przycisku Review endpoint utterances (Przejrzyj wypowiedzi punktu końcowego) w lewym obszarze nawigacji](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
 
-    Ta wypowiedź , `I'm looking for a job with Natural Language Processing`nie jest w poprawnym zamiarze.
+    Ta wypowiedź, `I'm looking for a job with Natural Language Processing`, nie jest w poprawnym zamiarem.
 
-1.  Aby wyrównać tę wypowiedź, w wierszu wypowiedź `GetJobInformation`wybierz poprawną **opcję Wyrównany zamiar** . Dodaj zmienioną wypowiedź do aplikacji, wybierając znacznik wyboru.
+1.  Aby wyrównać ten wypowiedź, w wierszu wypowiedź wybierz odpowiednią **wyrównane opcje** `GetJobInformation`. Dodaj zmieniony wypowiedź do aplikacji, zaznaczając znacznik wyboru.
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przycisku Review endpoint utterances (Przejrzyj wypowiedzi punktu końcowego) w lewym obszarze nawigacji](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
 
-    Przejrzyj pozostałe wypowiedzi w tym zamiarze, korygując wyrównane intencje w razie potrzeby. Użyj tabeli wypowiedź początkowa w tym samouczku, aby wyświetlić wyrównane intencji.
+    Zapoznaj się z pozostałymi wyrażenia długości w tym zamiarze, poprawiając odpowiednio wyrównany cel. Użyj początkowej tabeli wypowiedź w tym samouczku, aby wyświetlić wyrównany cel.
 
-    Lista **wypowiedzi punktu końcowego przeglądu** nie powinny już mieć skorygowane wypowiedzi. Jeśli pojawi się więcej wypowiedzi, kontynuuj pracę za pośrednictwem listy, poprawiając wyrównane intencje, dopóki lista nie będzie pusta.
+    Lista **wyrażenia długości punktów końcowych recenzji** nie powinna już być poprawioną wyrażenia długości. Jeśli pojawią się więcej wyrażenia długości, Kontynuuj pracę z listą, poprawiając odpowiednie zamiary do momentu, gdy lista jest pusta.
 
-    Wszelkie korekty etykietowania jednostki odbywa się po intencji jest wyrównany, na stronie Szczegóły intencji.
+    Dowolna korekta jednostek jest wykonywana po wyrównaniu zamiaru na stronie Szczegóły intencji.
 
 1. Przeszkol i ponownie opublikuj aplikację.
 
-## <a name="get-intent-prediction-from-endpoint"></a>Pobierz przewidywanie intencji z punktu końcowego
+## <a name="get-intent-prediction-from-endpoint"></a>Pobierz prognozowanie intencji z punktu końcowego
 
-Aby sprawdzić poprawnie wyrównane wypowiedzi przykład poprawiła przewidywania aplikacji, spróbuj wypowiedź blisko skorygowanej wypowiedź.
+Aby sprawdzić poprawność wyrównanego przykładu wyrażenia długości do prognozowania aplikacji, wypróbuj wypowiedź blisko poprawionej wypowiedź.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Przejdź na koniec adresu URL na pasku adresu i `Are there any natural language processing jobs in my department right now?`zastąp _YOUR_QUERY_HERE_ .
+1. Przejdź na koniec adresu URL na pasku adresu i Zastąp _YOUR_QUERY_HERE_ `Are there any natural language processing jobs in my department right now?`.
 
    ```json
     {
@@ -207,7 +207,7 @@ Aby sprawdzić poprawnie wyrównane wypowiedzi przykład poprawiła przewidywani
     }
    ```
 
-   Teraz, gdy nie pewny wypowiedzi są poprawnie wyrównane, prawidłowy zamiar został przewidziany z **wysokim wynikiem**.
+   Teraz, gdy nie ma pewności, że wyrażenia długości są prawidłowo wyrównane, poprawna Metoda została przewidywalna o **wysokiej**wartości.
 
 ## <a name="can-reviewing-be-replaced-by-adding-more-utterances"></a>Czy zamiast przeglądania można dodać więcej wypowiedzi?
 Możesz się zastanawiać, dlaczego nie dodać więcej przykładowych wypowiedzi. Jaki jest cel przeglądania wypowiedzi punktu końcowego? W rzeczywistej aplikacji usługi LUIS wypowiedzi punktu końcowego pochodzą od użytkowników, a ich dobór i kolejność słów różnią się od użytych. Gdyby użyto tych samych słów w tej samej kolejności, pierwotne przewidywanie miałoby wyższą wartość procentową.

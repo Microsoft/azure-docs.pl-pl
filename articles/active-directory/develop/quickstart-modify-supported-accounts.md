@@ -1,5 +1,5 @@
 ---
-title: Modyfikowanie kont aplikacji platformy Microsoft do identyfikowania platformy | Azure
+title: Modyfikowanie firmy Microsoft identyfikacja kont aplikacji platformy | Azure
 description: Konfigurowanie aplikacji zarejestrowanej za pomocą platformy tożsamości firmy Microsoft pod kątem zmiany zbioru osób (kont) z dostępem do aplikacji.
 services: active-directory
 author: rwike77
@@ -13,13 +13,13 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 94fed6f4aa62c7e649cf7d644e571b30561e0da4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80050241"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Szybki start: modyfikowanie kont obsługiwanych przez aplikację
+# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Szybki Start: modyfikowanie kont obsługiwanych przez aplikację
 
 Podczas rejestrowania aplikacji na platformie tożsamości firmy Microsoft możesz zdecydować, że aplikacja powinna być dostępna tylko dla użytkowników w Twojej organizacji. Możesz także planować udostępnienie aplikacji użytkownikom w organizacjach zewnętrznych lub użytkownikom w organizacjach zewnętrznych i użytkownikom nienależącym do organizacji (kontom osobistym).
 
@@ -39,7 +39,7 @@ Przed skonfigurowaniem aplikacji wykonaj następujące kroki:
 
 1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu służbowego lub osobistego konta Microsoft.
 1. Jeśli Twoje konto umożliwia dostęp do więcej niż jednej dzierżawy, wybierz konto w prawym górnym rogu, a następnie ustaw sesję portalu na odpowiednią dzierżawę usługi Azure AD.
-1. W lewym okienku nawigacji wybierz usługę **Azure Active Directory,** a następnie wybierz pozycję **Rejestracje aplikacji**.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** a następnie wybierz pozycję **rejestracje aplikacji**.
 1. Znajdź i wybierz aplikację do skonfigurowania. Po wybraniu aplikacji zobaczysz stronę **Przegląd** aplikacji lub główną stronę rejestracji.
 1. Postępuj zgodnie z instrukcjami, aby [zmienić rejestrację aplikacji pod kątem obsługi różnych kont](#change-the-application-registration-to-support-different-accounts).
 1. W przypadku aplikacji z jedną stroną [włącz niejawne udzielenie uwierzytelniania OAuth 2.0](#enable-oauth-20-implicit-grant-for-single-page-applications).
@@ -57,7 +57,7 @@ Jeśli piszesz aplikację, którą ma być dostępna dla klientów lub partneró
     * Wybierz pozycję **Konta tylko w tym katalogu organizacyjnym**, jeśli tworzysz aplikację biznesową. Ta opcja nie jest dostępna, jeśli aplikacja nie jest zarejestrowana w katalogu.
     * Wybierz pozycję **Konta w dowolnym katalogu organizacyjnym**, jeśli aplikacja jest przeznaczona dla wszystkich klientów biznesowych i edukacyjnych.
     * Wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**, aby przeznaczyć aplikację dla najszerszego możliwego grona klientów.
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 ## <a name="enable-oauth-20-implicit-grant-for-single-page-applications"></a>Włączanie przyznawania niejawnego protokołu OAuth 2.0 dla aplikacji jednostronicowych
 
@@ -72,7 +72,7 @@ Domyślnie niejawne udzielenie protokołu OAuth 2.0 jest wyłączone dla aplikac
 1. Na stronie **Przegląd** aplikacji wybierz sekcję **Uwierzytelnianie**.
 1. W obszarze **Ustawienia zaawansowane** znajdź sekcję **Niejawne udzielenie**.
 1. Wybierz pozycję **Tokeny identyfikatora**, **Tokeny dostępu** lub je obie.
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 

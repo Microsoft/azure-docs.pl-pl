@@ -1,6 +1,6 @@
 ---
-title: Samouczek — konfigurowanie usługi LDAPS dla usług domenowych Active Directory platformy Azure | Dokumenty firmy Microsoft
-description: W tym samouczku dowiesz się, jak skonfigurować bezpieczny protokół dostępu do LDAPS (LDAPS) dla domeny zarządzanej usług domenowych Usługi active directory platformy Azure.
+title: Samouczek — Konfigurowanie LDAPs dla Azure Active Directory Domain Services | Microsoft Docs
+description: W ramach tego samouczka nauczysz się konfigurować protokół Secure Lightweight Directory Access Protocol (LDAPs) dla domeny zarządzanej Azure Active Directory Domain Services.
 author: iainfoulds
 manager: daveba
 ms.service: active-directory
@@ -10,65 +10,65 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
 ms.openlocfilehash: 636f2e6139ad081d1e2fc67462a74cb7e18e3ff0
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80475872"
 ---
-# <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej usług domenowych usługi active directory platformy Azure
+# <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej Azure Active Directory Domain Services
 
-Aby komunikować się z domeną zarządzaną usług domenowych Usługi active directory platformy Azure (Usługi Azure AD DS), używany jest protokół LDAP (Lightweight Directory Access Protocol). Domyślnie ruch LDAP nie jest szyfrowany, co stanowi problem bezpieczeństwa dla wielu środowisk. Za pomocą usługi Azure AD DS można skonfigurować domenę zarządzalącą tak, aby używała bezpiecznego protokołu LDAPS (Lightweight Directory Access Protocol). Podczas korzystania z bezpiecznego protokołu LDAP ruch jest szyfrowany. Secure LDAP jest również znany jako LDAP over Secure Sockets Layer (SSL) / Transport Layer Security (TLS).
+Aby komunikować się z domeną zarządzaną Azure Active Directory Domain Services (Azure AD DS), używany jest protokół LDAP (Lightweight Directory Access Protocol). Domyślnie ruch związany z protokołem LDAP nie jest szyfrowany, co stanowi problem z zabezpieczeniami w wielu środowiskach. Za pomocą usługi Azure AD DS można skonfigurować domenę zarządzaną w taki sposób, aby korzystała z protokołu LDAPs (Secure Lightweight Directory Access Protocol). W przypadku korzystania z bezpiecznego protokołu LDAP ruch jest szyfrowany. Secure LDAP jest również znana jako LDAP over SSL (SSL) lub Transport Layer Security (TLS).
 
-W tym samouczku pokazano, jak skonfigurować usługę LDAPS dla domeny zarządzanej usług Azure AD DS.
+W tym samouczku pokazano, jak skonfigurować LDAPs dla domeny zarządzanej AD DS platformy Azure.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie certyfikatu cyfrowego do użytku z usługą Azure AD DS
-> * Włączanie bezpiecznego protokołu LDAP dla usług Azure AD DS
-> * Konfigurowanie bezpiecznego protokołu LDAP do użytku przez publiczny Internet
-> * Powiąż i przetestuj bezpieczną usługę LDAP dla domeny zarządzanej usług Azure AD DS
+> * Tworzenie certyfikatu cyfrowego do użycia z platformą Azure AD DS
+> * Włącz bezpieczny protokół LDAP dla AD DS platformy Azure
+> * Konfigurowanie bezpiecznego protokołu LDAP do użytku w publicznej sieci Internet
+> * Wiązanie i testowanie bezpiecznego protokołu LDAP dla domeny zarządzanej AD DS platformy Azure
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten samouczek, potrzebne są następujące zasoby i uprawnienia:
+Do ukończenia tego samouczka potrzebne są następujące zasoby i uprawnienia:
 
 * Aktywna subskrypcja platformy Azure.
-    * Jeśli nie masz subskrypcji platformy Azure, [utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem tylko w chmurze.
-    * W razie potrzeby [utwórz dzierżawę usługi Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z kontem.][associate-azure-ad-tenant]
-* Domena zarządzana usługami domenowymi Usługi Active Directory platformy Azure włączona i skonfigurowana w dzierżawie usługi Azure AD.
-    * W razie potrzeby [utwórz i skonfiguruj wystąpienie usług domenowych Active Directory platformy Azure][create-azure-ad-ds-instance].
-* Narzędzie *LDP.exe* zainstalowane na komputerze.
-    * W razie potrzeby [zainstaluj narzędzia RSAT (Remote Server Administration Tools)][rsat] dla *Usług domenowych Active Directory i LDAP*.
+    * Jeśli nie masz subskrypcji platformy Azure, [Utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem w chmurze.
+    * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
+* Azure Active Directory Domain Services zarządzana domena włączona i skonfigurowana w dzierżawie usługi Azure AD.
+    * W razie konieczności [Utwórz i skonfiguruj wystąpienie Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+* Narzędzie *Ldp. exe* zainstalowane na komputerze.
+    * W razie potrzeby [zainstaluj narzędzia administracji zdalnej serwera (RSAT)][rsat] dla *Active Directory Domain Services i LDAP*.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-W tym samouczku skonfigurujesz bezpieczny LDAP dla domeny zarządzanej usługi Azure AD DS przy użyciu witryny Azure portal. Aby rozpocząć, najpierw zaloguj się do [witryny Azure portal](https://portal.azure.com).
+W tym samouczku skonfigurujesz bezpieczny protokół LDAP dla domeny zarządzanej AD DS platformy Azure przy użyciu Azure Portal. Aby rozpocząć, najpierw Zaloguj się do [Azure Portal](https://portal.azure.com).
 
-## <a name="create-a-certificate-for-secure-ldap"></a>Tworzenie certyfikatu dla bezpiecznego protokołu LDAP
+## <a name="create-a-certificate-for-secure-ldap"></a>Utwórz certyfikat dla bezpiecznego protokołu LDAP
 
-Aby użyć bezpiecznego protokołu LDAP, do szyfrowania komunikacji używany jest certyfikat cyfrowy. Ten certyfikat cyfrowy jest stosowany do domeny zarządzanej usługi Azure AD DS i umożliwia narzędziom takim jak *LDP.exe* używanie bezpiecznej szyfrowanej komunikacji podczas wykonywania zapytań o dane. Istnieją dwa sposoby tworzenia certyfikatu bezpiecznego dostępu LDAP do domeny zarządzanej:
+Aby można było użyć bezpiecznego protokołu LDAP, certyfikat cyfrowy jest używany do szyfrowania komunikacji. Ten certyfikat cyfrowy jest stosowany do domeny zarządzanej platformy Azure AD DS i umożliwia narzędziom, takim jak *Ldp. exe* , używanie bezpiecznej szyfrowanej komunikacji podczas wykonywania zapytań dotyczących danych. Istnieją dwa sposoby utworzenia certyfikatu bezpiecznego dostępu do domeny zarządzanej za pomocą protokołu LDAP:
 
-* Certyfikat z publicznego urzędu certyfikacji (CA) lub urzędu certyfikacji przedsiębiorstwa.
-    * Jeśli twoja organizacja pobiera certyfikaty od publicznego urzędu certyfikacji, uzyskaj bezpieczny certyfikat LDAP od tego publicznego urzędu certyfikacji. Jeśli używasz urzędu certyfikacji przedsiębiorstwa w organizacji, pobierz bezpieczny certyfikat LDAP od urzędu certyfikacji przedsiębiorstwa.
-    * Publiczny urząd certyfikacji działa tylko wtedy, gdy używasz niestandardowej nazwy DNS z domeną zarządzaną usługą Azure AD DS. Jeśli nazwa domeny zarządzanej DNS domeny zarządzanej kończy się na *onmicrosoft.com,* nie można utworzyć certyfikatu cyfrowego w celu zabezpieczenia połączenia z tą domeną domyślną. Firma Microsoft jest właścicielem domeny *onmicrosoft.com,* więc publiczny urząd certyfikacji nie wystawi certyfikatu. W tym scenariuszu utwórz certyfikat z podpisem własnym i użyj go do skonfigurowania bezpiecznego protokołu LDAP.
-* Certyfikat z podpisem własnym, który tworzysz samodzielnie.
-    * To podejście jest dobre do celów testowych i jest to, co pokazuje ten samouczek.
+* Certyfikat z publicznego urzędu certyfikacji lub urzędu certyfikacji przedsiębiorstwa.
+    * Jeśli organizacja pobiera certyfikaty z publicznego urzędu certyfikacji, uzyskaj bezpieczny certyfikat LDAP z tego publicznego urzędu certyfikacji. Jeśli używasz urzędu certyfikacji przedsiębiorstwa w organizacji, uzyskaj bezpieczny certyfikat LDAP od urzędu certyfikacji przedsiębiorstwa.
+    * Publiczny urząd certyfikacji działa tylko wtedy, gdy używasz niestandardowej nazwy DNS z domeną zarządzaną platformy Azure AD DS. Jeśli nazwa domeny usługi DNS została zakończona w *. onmicrosoft.com*, nie można utworzyć certyfikatu cyfrowego w celu zabezpieczenia połączenia z tą domeną domyślną. Firma Microsoft jest właścicielem domeny *. onmicrosoft.com* , więc publiczny urząd certyfikacji nie wystawia certyfikatu. W tym scenariuszu należy utworzyć certyfikat z podpisem własnym i użyć go do skonfigurowania bezpiecznego protokołu LDAP.
+* Utworzony samodzielnie certyfikat z podpisem własnym.
+    * Ta metoda jest przydatna do celów testowych i zawiera informacje o tym samouczku.
 
-Wymagany lub utworzony certyfikat musi spełniać następujące wymagania. Domena zarządzana napotyka problemy, jeśli włączysz bezpieczną usługę LDAP z nieprawidłowym certyfikatem:
+Certyfikat, którego żądanie lub utworzenie, musi spełniać poniższe wymagania. W przypadku włączenia bezpiecznego protokołu LDAP z nieprawidłowym certyfikatem w domenie zarządzanej występują problemy:
 
-* **Zaufany wystawca** — certyfikat musi być wystawiony przez urząd zaufany przez komputery łączące się z domeną zarządzaną przy użyciu bezpiecznego protokołu LDAP. Ten urząd może być publicznym urzędem certyfikacji lub urzędem certyfikacji przedsiębiorstwa, któremu zaufały te komputery.
-* **Okres istnienia** — certyfikat musi być ważny przez co najmniej następne 3-6 miesięcy. Bezpieczny dostęp LDAP do domeny zarządzanej zostanie zakłócony po wygaśnięciu certyfikatu.
-* **Nazwa podmiotu** — nazwa podmiotu na certyfikacie musi być domeną zarządzaną. Na przykład, jeśli domena ma nazwę *aaddscontoso.com,* nazwa podmiotu certyfikatu musi być **.aaddscontoso.com*.
-    * Nazwa DNS lub nazwa alternatywna podmiotu certyfikatu musi być certyfikatem wieloznacznym, aby upewnić się, że bezpieczny protokół LDAP działa poprawnie z usługami domenowymi usługi Azure AD. Kontrolery domeny używają losowych nazw i mogą zostać usunięte lub dodane, aby upewnić się, że usługa pozostaje dostępna.
-* **Użycie klucza** — certyfikat musi być skonfigurowany pod kątem *podpisów cyfrowych* i *szyfrowania kluczy.*
-* **Cel certyfikatu** — certyfikat musi być ważny do uwierzytelniania serwera TLS.
+* **Zaufany wystawca** — certyfikat musi być wystawiony przez Urząd zaufany przez komputery łączące się z domeną zarządzaną przy użyciu protokołu Secure LDAP. Ten Urząd może być publicznym urzędem certyfikacji lub urzędem certyfikacji przedsiębiorstwa zaufanym przez te komputery.
+* **Okres istnienia** — certyfikat musi być ważny przez co najmniej 3-6 miesięcy. Secure LDAP dostęp do domeny zarządzanej zostanie zakłócony po wygaśnięciu certyfikatu.
+* **Nazwa podmiotu** — nazwa podmiotu w certyfikacie musi być domeną zarządzaną. Na przykład jeśli domena ma nazwę *aaddscontoso.com*, nazwa podmiotu certyfikatu musi być **. aaddscontoso.com*.
+    * Nazwa DNS lub alternatywna nazwa podmiotu certyfikatu musi być certyfikatem z symbolem wieloznacznym, aby zapewnić prawidłowe działanie bezpiecznego protokołu LDAP z Azure AD Domain Services. Kontrolery domeny używają losowo nazw i można je usunąć lub dodać, aby zapewnić, że usługa pozostanie dostępna.
+* **Użycie klucza** — certyfikat musi być skonfigurowany pod kątem *podpisów cyfrowych* i *szyfrowania kluczy*.
+* **Cel certyfikatu** — certyfikat musi być prawidłowy na potrzeby uwierzytelniania serwera TLS.
 
-Istnieje kilka narzędzi dostępnych do tworzenia certyfikatów z podpisem własnym, takich jak OpenSSL, Keytool, MakeCert, [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet itp. W tym samouczku utwórzmy certyfikat z podpisem własnym dla bezpiecznego protokołu LDAP przy użyciu polecenia cmdlet [New-SelfSignedCertificate.][New-SelfSignedCertificate] Otwórz okno programu PowerShell jako **administrator** i uruchom następujące polecenia. Zastąp zmienną *$dnsName* nazwą DNS używaną przez własną domenę zarządzaną, taką jak *aaddscontoso.com:*
+Dostępnych jest kilka narzędzi do tworzenia certyfikatów z podpisem własnym, takich jak OpenSSL, narzędzie, MakeCert, [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet itp. W tym samouczku utworzymy certyfikat z podpisem własnym dla bezpiecznego protokołu LDAP przy użyciu polecenia cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate] . Otwórz okno programu PowerShell jako **administrator** i uruchom następujące polecenia. Zastąp zmienną *$dnsname* nazwą DNS używaną przez własną domenę zarządzaną, taką jak *aaddscontoso.com*:
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
@@ -83,7 +83,7 @@ New-SelfSignedCertificate -Subject *.$dnsName `
   -Type SSLServerAuthentication -DnsName *.$dnsName, $dnsName
 ```
 
-Poniższy przykładowy wynik pokazuje, że certyfikat został pomyślnie wygenerowany i jest przechowywany w lokalnym magazynie certyfikatów (*LocalMachine\MY*):
+Następujące przykładowe dane wyjściowe pokazują, że certyfikat został pomyślnie wygenerowany i jest przechowywany w lokalnym magazynie certyfikatów (*LocalMachine\MY*):
 
 ```output
 PS C:\WINDOWS\system32> New-SelfSignedCertificate -Subject *.$dnsName `
@@ -97,121 +97,121 @@ Thumbprint                                Subject
 959BD1531A1E674EB09E13BD8534B2C76A45B3E6  CN=aaddscontoso.com
 ```
 
-## <a name="understand-and-export-required-certificates"></a>Zrozumienie i eksport wymaganych certyfikatów
+## <a name="understand-and-export-required-certificates"></a>Zrozumienie i eksportowanie wymaganych certyfikatów
 
-Aby korzystać z bezpiecznego protokołu LDAP, ruch sieciowy jest szyfrowany przy użyciu infrastruktury kluczy publicznych (PKI).
+Aby użyć bezpiecznego protokołu LDAP, ruch sieciowy jest szyfrowany przy użyciu infrastruktury kluczy publicznych (PKI).
 
-* Klucz **prywatny** jest stosowany do domeny zarządzanej usług Azure AD DS.
-    * Ten klucz prywatny służy do *odszyfrowywania* bezpiecznego ruchu LDAP. Klucz prywatny powinien być stosowany tylko do domeny zarządzanej usług Azure AD DS i nie jest szeroko rozpowszechniony na komputerach klienckich.
-    * Certyfikat zawierający klucz prywatny używa pliku *. *format pliku PFX.
-* Klucz **publiczny** jest stosowany do komputerów klienckich.
-    * Ten klucz publiczny służy do *szyfrowania* bezpiecznego ruchu LDAP. Klucz publiczny można dystrybuować na komputerach klienckich.
-    * Certyfikaty bez klucza prywatnego używają *pliku . *cer.
+* Klucz **prywatny** jest stosowany do domeny zarządzanej AD DS platformy Azure.
+    * Ten klucz prywatny jest używany do *odszyfrowywania* bezpiecznego ruchu LDAP. Klucz prywatny powinien być stosowany tylko do domeny zarządzanej platformy Azure AD DS i nie jest rozpowszechniany na komputerach klienckich.
+    * Certyfikat zawierający klucz prywatny używa *. *Format pliku PFX.
+* Na komputerach klienckich jest stosowany klucz **publiczny** .
+    * Ten klucz publiczny jest używany do *szyfrowania* bezpiecznego ruchu LDAP. Klucz publiczny może być dystrybuowany do komputerów klienckich.
+    * Certyfikaty bez klucza prywatnego korzystają z programu *. *Format pliku CER.
 
-Te dwa klucze, klucze *prywatne* i *publiczne,* upewnij się, że tylko odpowiednie komputery mogą pomyślnie komunikować się ze sobą. Jeśli używasz publicznego urzędu certyfikacji lub urzędu certyfikacji przedsiębiorstwa, wystawia się certyfikat zawierający klucz prywatny i może być stosowany do domeny zarządzanej usług Azure AD DS. Klucz publiczny powinien być już znany i zaufany przez komputery klienckie. W tym samouczku utworzono certyfikat z podpisem własnym z kluczem prywatnym, więc należy wyeksportować odpowiednie składniki prywatne i publiczne.
+Te dwa klucze, *prywatne* i *publiczne* klucze, należy upewnić się, że tylko odpowiednie komputery mogą pomyślnie komunikować się ze sobą. Jeśli używasz publicznego urzędu certyfikacji lub urzędu certyfikacji przedsiębiorstwa, zostanie wystawiony certyfikat zawierający klucz prywatny i można go zastosować do domeny zarządzanej AD DS platformy Azure. Klucz publiczny powinien już być znany i zaufany przez komputery klienckie. W tym samouczku utworzono certyfikat z podpisem własnym z kluczem prywatnym, dlatego należy wyeksportować odpowiednie składniki prywatne i publiczne.
 
-### <a name="export-a-certificate-for-azure-ad-ds"></a>Eksportowanie certyfikatu dla usług Ad DS
+### <a name="export-a-certificate-for-azure-ad-ds"></a>Eksportowanie certyfikatu dla AD DS platformy Azure
 
-Aby można było użyć certyfikatu cyfrowego utworzonego w poprzednim kroku z domeną zarządzaną usługą Azure AD DS, wyeksportuj certyfikat do *pliku . *Plik certyfikatu PFX zawierający klucz prywatny.
+Aby można było używać certyfikatu cyfrowego utworzonego w poprzednim kroku z domeną zarządzaną platformy Azure AD DS, należy wyeksportować certyfikat do programu *. *Plik certyfikatu PFX, który zawiera klucz prywatny.
 
-1. Aby otworzyć okno dialogowe *Uruchom,* wybierz klawisze **Windows** + **R.**
-1. Otwórz program Microsoft Management Console (MMC), wprowadzając **program mmc** w oknie dialogowym *Uruchom,* a następnie wybierz przycisk **OK**.
-1. W wierszu **Kontrola konta użytkownika** wybierz pozycję **Tak,** aby uruchomić program MMC jako administrator.
-1. Z menu **Plik** wybierz polecenie **Dodaj/Usuń przystawkę...**
-1. W kreatorze **przystawki Certyfikaty** wybierz pozycję **Konto komputera**, a następnie wybierz pozycję **Dalej**.
-1. Na stronie **Wybierz komputer** wybierz pozycję **Komputer lokalny: (komputer, na który jest uruchomiona)**, a następnie wybierz pozycję **Zakończ**.
-1. W oknie dialogowym **Dodawanie lub usuwanie przystawek** wybierz przycisk **OK,** aby dodać przystawkę certyfikaty do programu MMC.
-1. W oknie programu MMC rozwiń pozycję **Katalog główny konsoli**. Wybierz **pozycję Certyfikaty (komputer lokalny),** a następnie rozwiń węzeł **osobisty,** a następnie węzeł **Certyfikaty.**
+1. Aby otworzyć okno dialogowe *uruchamiania* , wybierz klucze **systemu Windows** + **R** .
+1. Otwórz program Microsoft Management Console (MMC), wprowadzając **program MMC** w oknie dialogowym *uruchamiania* , a następnie wybierz przycisk **OK**.
+1. W wierszu **Kontrola konta użytkownika** , a następnie wybierz pozycję **tak** , aby uruchomić program MMC jako administrator.
+1. Z menu **plik** wybierz pozycję **Dodaj/Usuń przystawkę...**
+1. W kreatorze **przystawek certyfikatów** wybierz pozycję **konto komputera**, a następnie wybierz przycisk **dalej**.
+1. Na stronie **Wybieranie komputera** wybierz pozycję **komputer lokalny: (komputer, na którym uruchomiona jest ta konsola)**, a następnie wybierz pozycję **Zakończ**.
+1. W oknie dialogowym **Dodawanie lub usuwanie przystawek** kliknij **przycisk OK** , aby dodać przystawkę Certyfikaty do programu MMC.
+1. W oknie programu MMC rozwiń węzeł **katalog główny konsoli**. Wybierz pozycję **Certyfikaty (komputer lokalny)**, a następnie rozwiń węzeł **osobiste** , a następnie węzeł **Certyfikaty** .
 
-    ![Otwieranie magazynu certyfikatów osobistych w programie Microsoft Management Console](./media/tutorial-configure-ldaps/open-personal-store.png)
+    ![Otwórz magazyn certyfikatów osobistych w programie Microsoft Management Console.](./media/tutorial-configure-ldaps/open-personal-store.png)
 
-1. Zostanie wyświetlony certyfikat z podpisem własnym utworzony w poprzednim kroku, na przykład *aaddscontoso.com*. Wybierz ten certyfikat z prawej strony, a następnie wybierz pozycję **Wszystkie zadania > eksportu...**
+1. Zostanie wyświetlony certyfikat z podpisem własnym utworzony w poprzednim kroku, taki jak *aaddscontoso.com*. Wybierz pozycję Ten certyfikat prawym przyciskiem myszy, a następnie wybierz pozycję **wszystkie zadania > Eksportuj...**
 
-    ![Certyfikat eksportu w programie Microsoft Management Console](./media/tutorial-configure-ldaps/export-cert.png)
+    ![Eksportowanie certyfikatu w programie Microsoft Management Console](./media/tutorial-configure-ldaps/export-cert.png)
 
-1. W **Kreatorze eksportu certyfikatów**wybierz pozycję **Dalej**.
-1. Klucz prywatny certyfikatu musi zostać wyeksportowany. Jeśli klucz prywatny nie jest uwzględniony w wyeksportowanym certyfikacie, akcja umożliwiająca bezpieczne LDAP dla domeny zarządzanej nie powiedzie się.
+1. W **Kreatorze eksportu certyfikatów**wybierz pozycję **dalej**.
+1. Należy wyeksportować klucz prywatny dla certyfikatu. Jeśli klucz prywatny nie jest uwzględniony w wyeksportowanym certyfikacie, Akcja włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej nie powiedzie się.
 
-    Na stronie **Eksportowanie klucza prywatnego** wybierz pozycję **Tak, eksportuj klucz prywatny**, a następnie wybierz pozycję **Dalej**.
-1. Domeny zarządzane usług Azure AD DS obsługują tylko *domenę . *Format pliku certyfikatu PFX zawierający klucz prywatny. Nie eksportuj certyfikatu jako *. Cer format* pliku bez klucza prywatnego.
+    Na stronie **Eksportowanie klucza prywatnego** wybierz opcję **tak, eksportuj klucz prywatny**, a następnie wybierz przycisk **dalej**.
+1. Domeny zarządzane AD DS platformy Azure obsługują tylko *. *Format pliku certyfikatu PFX, który zawiera klucz prywatny. Nie Eksportuj certyfikatu jako *. *Format pliku certyfikatu CER bez klucza prywatnego.
 
-    Na stronie **Eksportuj format pliku** wybierz pozycję **Wymiana informacji osobistych — PKCS #12 (. PFX)** jako format pliku wyeksportowanego certyfikatu. Zaznacz pole wyboru *Uwzględnij wszystkie certyfikaty w ścieżce certyfikacji, jeśli to możliwe:*
+    Na stronie **Format pliku eksportu** wybierz opcję **wymiana informacji osobistych — PKCS #12 (. PFX)** jako format pliku dla wyeksportowanego certyfikatu. Zaznacz pole wyboru *Dołącz wszystkie certyfikaty ze ścieżki certyfikacji, jeśli jest to możliwe*:
 
-    ![Wybierz opcję wyeksportowania certyfikatu w PKCS 12 (. PFX) format pliku](./media/tutorial-configure-ldaps/export-cert-to-pfx.png)
+    ![Wybierz opcję Wyeksportuj certyfikat w formacie PKCS 12 (. PFX) — format pliku](./media/tutorial-configure-ldaps/export-cert-to-pfx.png)
 
-1. Ponieważ ten certyfikat jest używany do odszyfrowywania danych, należy dokładnie kontrolować dostęp. Hasło może służyć do ochrony korzystania z certyfikatu. Bez poprawnego hasła certyfikatu nie można zastosować do usługi.
+1. Ponieważ ten certyfikat jest używany do odszyfrowywania danych, należy dokładnie kontrolować dostęp. Hasło może służyć do ochrony korzystania z certyfikatu. Bez poprawnego hasła nie można zastosować certyfikatu do usługi.
 
-    Na stronie **Zabezpieczenia** wybierz opcję **Hasło,** aby chronić *plik . *plik certyfikatu PFX. Wprowadź i potwierdź hasło, a następnie wybierz przycisk **Dalej**. To hasło jest używane w następnej sekcji, aby włączyć bezpieczne LDAP dla domeny zarządzanej usług Azure AD DS.
-1. Na stronie **Plik do eksportu** określ nazwę pliku i lokalizację, w której chcesz wyeksportować certyfikat, na przykład *C:\Users\accountname\azure-ad-ds.pfx*. Zanotuj hasło i lokalizację *pliku . PFX,* ponieważ informacje te będą wymagane w następnych krokach.
-1. Na stronie recenzji wybierz pozycję **Zakończ,** aby wyeksportować certyfikat do *pliku . *plik certyfikatu PFX. Okno dialogowe potwierdzenia jest wyświetlane po pomyślnym wyeksportowanym certyfikacie.
-1. Pozostaw program MMC otwarty do użycia w poniższej sekcji.
+    Na stronie **zabezpieczenia** wybierz opcję **hasła** , aby chronić *. *Plik certyfikatu PFX. Wprowadź i Potwierdź hasło, a następnie wybierz pozycję **dalej**. To hasło jest używane w następnej sekcji w celu włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej AD DS platformy Azure.
+1. Na stronie **Eksport pliku** Określ nazwę pliku i lokalizację, w której chcesz wyeksportować certyfikat, taki jak *C:\Users\accountname\azure-AD-DS.pfx*. Zanotuj hasło i lokalizację *. Plik PFX* , ponieważ te informacje będą wymagane w następnych krokach.
+1. Na stronie Przegląd wybierz pozycję **Zakończ** , aby wyeksportować certyfikat do programu *. *Plik certyfikatu PFX. W przypadku pomyślnego wyeksportowania certyfikatu zostanie wyświetlone okno dialogowe potwierdzenia.
+1. Pozostaw otwarty program MMC do użycia w poniższej sekcji.
 
 ### <a name="export-a-certificate-for-client-computers"></a>Eksportowanie certyfikatu dla komputerów klienckich
 
-Komputery klienckie muszą ufać wystawcy bezpiecznego certyfikatu LDAP, aby móc pomyślnie połączyć się z domeną zarządzana przy użyciu protokołu LDAPS. Komputery klienckie potrzebują certyfikatu do pomyślnego szyfrowania danych, które są odszyfrowywane przez usługi Azure AD DS. Jeśli używasz publicznego urzędu certyfikacji, komputer powinien automatycznie ufać tym wystawcom certyfikatów i mieć odpowiedni certyfikat. W tym samouczku używasz certyfikatu z podpisem własnym i wygenerowałeś certyfikat zawierający klucz prywatny w poprzednim kroku. Teraz eksportujmy, a następnie zainstalujmy certyfikat z podpisem własnym do magazynu certyfikatów zaufanych na komputerze klienckim:
+Komputery klienckie muszą ufać wystawcy certyfikatu bezpiecznego protokołu LDAP, aby można było pomyślnie nawiązać połączenie z domeną zarządzaną przy użyciu protokołu LDAPs. Komputery klienckie muszą mieć certyfikat, aby pomyślnie szyfrować dane, które są odszyfrowywane przez usługę Azure AD DS. Jeśli używasz publicznego urzędu certyfikacji, komputer powinien automatycznie ufać tym wystawcom certyfikatów i mieć odpowiedni certyfikat. W tym samouczku zostanie użyty certyfikat z podpisem własnym i Wygenerowano certyfikat zawierający klucz prywatny w poprzednim kroku. Teraz wyeksportuj i Zainstaluj certyfikat z podpisem własnym w zaufanym magazynie certyfikatów na komputerze klienckim:
 
-1. Wróć do magazynu certyfikatów programu MMC dla *certyfikatów (komputera lokalnego) > magazynu certyfikatów >* osobistych. Zostanie wyświetlony certyfikat z podpisem własnym utworzony w poprzednim kroku, na przykład *aaddscontoso.com*. Wybierz ten certyfikat z prawej strony, a następnie wybierz pozycję **Wszystkie zadania > eksportu...**
-1. W **Kreatorze eksportu certyfikatów**wybierz pozycję **Dalej**.
-1. Ponieważ klucz prywatny nie jest potrzebny klientom, na stronie **Eksportuj klucz prywatny** wybierz pozycję **Nie, nie eksportuj klucza prywatnego,** a następnie wybierz przycisk **Dalej**.
-1. Na stronie **Eksportuj format pliku** wybierz **pozycję Kod X.509 zakodowany w bazie bazowej.64 (. CER)** jako format pliku eksportowanego certyfikatu:
+1. Wróć do programu MMC dla *certyfikatów (komputer lokalny) > magazynu certyfikatów > osobistych* . Pokazany jest certyfikat z podpisem własnym utworzony w poprzednim kroku, taki jak *aaddscontoso.com*. Wybierz pozycję Ten certyfikat prawym przyciskiem myszy, a następnie wybierz pozycję **wszystkie zadania > Eksportuj...**
+1. W **Kreatorze eksportu certyfikatów**wybierz pozycję **dalej**.
+1. Ponieważ nie potrzebujesz klucza prywatnego dla klientów, na stronie **Eksportowanie klucza prywatnego** wybierz pozycję **nie Eksportuj klucza prywatnego**, a następnie wybierz przycisk **dalej**.
+1. Na stronie **Format pliku eksportu** wybierz pozycję **Base-64 encoded X. 509 (. CER)** jako format pliku dla wyeksportowanego certyfikatu:
 
-    ![Wybierz opcję wyeksportowania certyfikatu w kodowanym X.509 kodowanym numerze X.509 base-64 (. CER) format pliku](./media/tutorial-configure-ldaps/export-cert-to-cer-file.png)
+    ![Wybierz opcję Wyeksportuj certyfikat w formacie X. 509 z kodowaniem Base-64 (. CER) — format pliku](./media/tutorial-configure-ldaps/export-cert-to-cer-file.png)
 
-1. Na stronie **Plik do eksportu** określ nazwę pliku i lokalizację, w której chcesz wyeksportować certyfikat, na przykład *C:\Users\accountname\azure-ad-ds-client.cer*.
-1. Na stronie recenzji wybierz pozycję **Zakończ,** aby wyeksportować certyfikat do *pliku . *cer. Okno dialogowe potwierdzenia jest wyświetlane po pomyślnym wyeksportowanym certyfikacie.
+1. Na stronie **Eksport pliku** Określ nazwę pliku i lokalizację, w której chcesz wyeksportować certyfikat, taki jak *C:\Users\accountname\azure-AD-DS-Client.cer*.
+1. Na stronie Przegląd wybierz pozycję **Zakończ** , aby wyeksportować certyfikat do programu *. *Plik certyfikatu CER. W przypadku pomyślnego wyeksportowania certyfikatu zostanie wyświetlone okno dialogowe potwierdzenia.
 
-W *. *Plik certyfikatu CER można teraz dystrybuować do komputerów klienckich, które muszą ufać bezpiecznemu połączeniu LDAP z domeną zarządza zarządza zarządza zarządzana usługą Azure AD DS. Zainstalujmy certyfikat na komputerze lokalnym.
+*. *Plik certyfikatu CER może być teraz dystrybuowany do komputerów klienckich, które muszą ufać połączeniu bezpiecznego protokołu LDAP z domeną zarządzaną platformy Azure AD DS. Zainstalujmy certyfikat na komputerze lokalnym.
 
-1. Otwórz Eksploratora plików i przejdź do lokalizacji, w której został zapisany *plik . Cer,* na przykład *C:\Users\accountname\azure-ad-ds-client.cer*.
-1. Wybierz prawym przyciskiem *wyboru . cer,* a następnie wybierz polecenie **Zainstaluj certyfikat**.
-1. W **Kreatorze importu certyfikatów**wybierz opcję przechowywania certyfikatu na *komputerze lokalnym,* a następnie wybierz pozycję **Dalej:**
+1. Otwórz Eksploratora plików i przejdź do lokalizacji, w której zapisano plik *. *Plik certyfikatu cer, taki jak *C:\Users\accountname\azure-AD-DS-Client.cer*.
+1. Kliknij prawym przyciskiem myszy *. *Plik certyfikatu cer, a następnie wybierz pozycję **Zainstaluj certyfikat**.
+1. W **Kreatorze importu certyfikatów**wybierz opcję przechowywania certyfikatu na *komputerze lokalnym*, a następnie wybierz pozycję **dalej**:
 
-    ![Wybierz opcję zaimportowania certyfikatu do lokalnego magazynu maszyn](./media/tutorial-configure-ldaps/import-cer-file.png)
+    ![Wybierz opcję importowania certyfikatu do lokalnego magazynu maszynowego](./media/tutorial-configure-ldaps/import-cer-file.png)
 
-1. Po wyświetleniu monitu wybierz pozycję **Tak,** aby zezwolić komputerowi na wprowadzanie zmian.
-1. Wybierz opcję **Automatycznie wybierz magazyn certyfikatów na podstawie typu certyfikatu,** a następnie wybierz pozycję **Dalej**.
-1. Na stronie recenzji wybierz pozycję **Zakończ,** aby zaimportować *plik . certyfikat CER.* plik Okno dialogowe potwierdzenia jest wyświetlane po pomyślnym zaimportowaniu certyfikatu.
+1. Po wyświetleniu monitu wybierz opcję **tak** , aby umożliwić komputerowi wprowadzanie zmian.
+1. Wybierz opcję **automatycznego wybierania magazynu certyfikatów na podstawie typu certyfikatu**, a następnie wybierz przycisk **dalej**.
+1. Na stronie Przegląd wybierz pozycję **Zakończ** , aby zaimportować *. Certyfikat CER* . okno dialogowe potwierdzenia pliku jest wyświetlane, gdy certyfikat został pomyślnie zaimportowany.
 
-## <a name="enable-secure-ldap-for-azure-ad-ds"></a>Włączanie bezpiecznego protokołu LDAP dla usług Azure AD DS
+## <a name="enable-secure-ldap-for-azure-ad-ds"></a>Włącz bezpieczny protokół LDAP dla AD DS platformy Azure
 
-Po utworzeniu i wyeksportowanym certyfikatie cyfrowym zawierającym klucz prywatny i komputerze klienckim ustawionym na zaufanie połączeniu włącz teraz bezpieczną usługę LDAP w domenie zarządzanej usług Azure AD DS. Aby włączyć bezpieczne ldap w domenie zarządzanej usług Azure AD DS, wykonaj następujące kroki konfiguracji:
+Przy użyciu certyfikatu cyfrowego utworzonego i wyeksportowanego, który zawiera klucz prywatny, a komputer kliencki ustawił zaufanie połączenia, teraz Włącz bezpieczny protokół LDAP w domenie zarządzanej AD DS platformy Azure. Aby włączyć bezpieczny protokół LDAP w domenie zarządzanej AD DS platformy Azure, wykonaj następujące czynności konfiguracyjne:
 
-1. W [witrynie Azure portal](https://portal.azure.com)wprowadź *usługi domeny* w polu **Zasoby wyszukiwania.** Wybierz **usługi domenowe usługi Azure AD** z wyniku wyszukiwania.
-1. Wybierz domenę zarządzana, na przykład *aaddscontoso.com*.
-1. Po lewej stronie okna usług Ad DS wybierz pozycję **Secure LDAP**.
-1. Domyślnie bezpieczny dostęp LDAP do domeny zarządzanej jest wyłączony. Przełącz **secure LDAP,** aby **włączyć**.
-1. Bezpieczny dostęp LDAP do domeny zarządzanej przez Internet jest domyślnie wyłączony. Po włączeniu publicznego bezpiecznego dostępu LDAP domena jest podatna na ataki siłowe hasłem przez Internet. W następnym kroku sieciowa grupa zabezpieczeń jest skonfigurowana do blokowania dostępu tylko do wymaganych zakresów źródłowych adresów IP.
+1. W [Azure Portal](https://portal.azure.com)wprowadź w polu **wyszukiwania zasobów** pozycję *usługi domenowe* . Wybierz **Azure AD Domain Services** z wyniku wyszukiwania.
+1. Wybierz domenę zarządzaną, taką jak *aaddscontoso.com*.
+1. Po lewej stronie okna AD DS platformy Azure wybierz pozycję **Secure LDAP**.
+1. Domyślnie bezpieczny dostęp LDAP do domeny zarządzanej jest wyłączony. Przełącz **Secure LDAP** , aby **włączyć**.
+1. Secure LDAP dostęp do domeny zarządzanej za pośrednictwem Internetu jest domyślnie wyłączony. Po włączeniu publicznego dostępu do bezpiecznego protokołu LDAP domena jest podatna na ataki w trybie bezprawnego hasła przez Internet. W następnym kroku Grupa zabezpieczeń sieci jest skonfigurowana w celu blokowania dostępu tylko do wymaganych zakresów źródłowych adresów IP.
 
-    Przełącz **Zezwalaj na bezpieczny dostęp LDAP przez Internet,** aby **włączyć**.
+    Przełącz **Zezwalanie na włączanie bezpiecznego dostępu do protokołu LDAP przez Internet** . **Enable**
 
-1. Wybierz ikonę folderu obok **pozycji . PFX z bezpiecznym certyfikatem LDAP**. Przejdź do ścieżki pliku *. PFX,* a następnie wybierz certyfikat utworzony w poprzednim kroku, który zawiera klucz prywatny.
+1. Wybierz ikonę folderu obok **. Plik PFX z bezpiecznym certyfikatem LDAP**. Przejdź do ścieżki *. Plik PFX* , a następnie wybierz certyfikat utworzony w poprzednim kroku, który zawiera klucz prywatny.
 
-    Jak wspomniano w poprzedniej sekcji dotyczącej wymagań dotyczących certyfikatów, nie można używać certyfikatu z publicznego urzędu certyfikacji z domyślną domeną *onmicrosoft.com.* Firma Microsoft jest właścicielem domeny *onmicrosoft.com,* więc publiczny urząd certyfikacji nie wystawi certyfikatu. Upewnij się, że certyfikat jest w odpowiednim formacie. Jeśli tak nie jest, platforma Azure generuje błędy sprawdzania poprawności certyfikatów po włączeniu bezpiecznego protokołu LDAP.
+    Zgodnie z poprzednią sekcją wymagań dotyczących certyfikatów nie można używać certyfikatu z publicznego urzędu certyfikacji z domyślną domeną *. onmicrosoft.com* . Firma Microsoft jest właścicielem domeny *. onmicrosoft.com* , więc publiczny urząd certyfikacji nie wystawia certyfikatu. Upewnij się, że certyfikat ma odpowiedni format. Jeśli tak nie jest, platforma Azure generuje błędy walidacji certyfikatu po włączeniu bezpiecznego protokołu LDAP.
 
-1. Wprowadź **hasło, aby odszyfrować . PFX** zestaw w poprzednim kroku, gdy certyfikat został wyeksportowany do *. pfx.*
-1. Wybierz **pozycję Zapisz,** aby włączyć bezpieczną usługę LDAP.
+1. Wprowadź **hasło do odszyfrowania. Plik PFX** został ustawiony w poprzednim kroku, gdy certyfikat został wyeksportowany do programu *. Plik PFX* .
+1. Wybierz pozycję **Zapisz** , aby włączyć bezpieczny protokół LDAP.
 
-    ![Włączanie bezpiecznego protokołu LDAP dla domeny zarządzanej usług Azure AD DS w witrynie Azure portal](./media/tutorial-configure-ldaps/enable-ldaps.png)
+    ![Włącz Secure LDAP dla domeny zarządzanej AD DS platformy Azure w Azure Portal](./media/tutorial-configure-ldaps/enable-ldaps.png)
 
-Zostanie wyświetlone powiadomienie, że dla domeny zarządzanej jest konfigurowany bezpieczny LDAP. Nie można zmodyfikować innych ustawień domeny zarządzanej, dopóki ta operacja nie zostanie zakończona.
+Zostanie wyświetlone powiadomienie, że dla domeny zarządzanej jest konfigurowany bezpieczny protokół LDAP. Nie można modyfikować innych ustawień dla domeny zarządzanej, dopóki ta operacja nie zostanie ukończona.
 
-Włączenie bezpiecznego protokołu LDAP dla domeny zarządzanej zajmuje kilka minut. Jeśli podasz bezpieczny certyfikat LDAP nie spełnia wymaganych kryteriów, akcja umożliwiająca bezpieczne LDAP dla domeny zarządzanej nie powiedzie się. Niektóre typowe przyczyny niepowodzenia są, jeśli nazwa domeny jest niepoprawna lub certyfikat wygasa wkrótce lub już wygasł. Można ponownie utworzyć certyfikat z prawidłowymi parametrami, a następnie włączyć bezpieczny LDAP przy użyciu tego zaktualizowanego certyfikatu.
+Włączenie bezpiecznego protokołu LDAP dla domeny zarządzanej może potrwać kilka minut. Jeśli certyfikat bezpiecznego protokołu LDAP, który nie jest zgodny z wymaganymi kryteriami, Akcja włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej nie powiedzie się. Niektóre typowe przyczyny niepowodzenia to jeśli nazwa domeny jest nieprawidłowa lub certyfikat wygaśnie wkrótce lub już wygasł. Możesz ponownie utworzyć certyfikat z prawidłowymi parametrami, a następnie włączyć bezpieczny protokół LDAP przy użyciu tego zaktualizowanego certyfikatu.
 
-## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Blokowanie bezpiecznego dostępu LDAP przez Internet
+## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Zablokuj bezpieczny dostęp do protokołu LDAP za pośrednictwem Internetu
 
-Po włączeniu bezpiecznego dostępu LDAP przez Internet do domeny zarządzanej usług Azure AD DS, tworzy zagrożenie bezpieczeństwa. Domena zarządzana jest osiągalna z Internetu na porcie TCP 636. Zaleca się ograniczenie dostępu do domeny zarządzanej do określonych znanych adresów IP w danym środowisku. Reguła grupy zabezpieczeń sieci platformy Azure może służyć do ograniczania dostępu do bezpiecznego protokołu LDAP.
+Po włączeniu bezpiecznego dostępu do protokołu LDAP za pośrednictwem Internetu do domeny zarządzanej AD DS platformy Azure zostanie utworzone zagrożenie bezpieczeństwa. Domena zarządzana jest dostępna z Internetu na porcie TCP 636. Zaleca się ograniczenie dostępu do domeny zarządzanej do określonych znanych adresów IP dla danego środowiska. Reguła grupy zabezpieczeń sieci platformy Azure może służyć do ograniczania dostępu do bezpiecznego protokołu LDAP.
 
-Utwórzmy regułę zezwalaną na przychodzący bezpieczny dostęp LDAP za sprawą portu TCP 636 z określonego zestawu adresów IP. Domyślna *reguła DenyAll* o niższym priorytecie ma zastosowanie do całego innego ruchu przychodzącego z Internetu, więc tylko określone adresy mogą dotrzeć do domeny zarządzanej usług Azure AD DS przy użyciu bezpiecznego protokołu LDAP.
+Utwórz regułę zezwalającą na dostęp przychodzący do bezpiecznego protokołu LDAP za pośrednictwem portu TCP 636 z określonego zestawu adresów IP. Domyślna reguła *DenyAll* z niższym priorytetem ma zastosowanie do całego ruchu przychodzącego z Internetu, więc tylko podane adresy mogą dotrzeć do domeny zarządzanej platformy Azure AD DS przy użyciu protokołu Secure LDAP.
 
-1. W witrynie Azure portal wybierz *grup zasobów* w nawigacji po lewej stronie.
-1. Wybierz grupę zasobów, taką jak *myResourceGroup,* a następnie wybierz grupę zabezpieczeń sieci, taką jak *aaads-nsg*.
-1. Wyświetlana jest lista istniejących reguł zabezpieczeń przychodzących i wychodzących. Po lewej stronie okien sieciowej grupy zabezpieczeń wybierz pozycję **Ustawienia > Reguły zabezpieczeń przychodzących**.
-1. Wybierz **pozycję Dodaj**, a następnie utwórz regułę zezwalania na port *TCP* *636*. Aby zwiększyć bezpieczeństwo, wybierz źródło jako *adresy IP,* a następnie określ własny prawidłowy adres IP lub zakres dla organizacji.
+1. W Azure Portal wybierz pozycję *grupy zasobów* po lewej stronie nawigacyjnej.
+1. Wybierz grupę zasobów, *na przykład grupa zasobów, a*następnie wybierz grupę zabezpieczeń sieci, na przykład *aaads-sieciowej grupy zabezpieczeń*.
+1. Zostanie wyświetlona lista istniejących reguł zabezpieczeń dla ruchu przychodzącego i wychodzącego. Po lewej stronie okien sieciowych grup zabezpieczeń wybierz pozycję **ustawienia > reguły zabezpieczeń dla ruchu przychodzącego**.
+1. Wybierz pozycję **Dodaj**, a następnie utwórz regułę zezwalającą na port *TCP* *636*. Aby zwiększyć bezpieczeństwo, wybierz źródło jako *adresy IP* , a następnie określ własny prawidłowy adres IP lub zakres dla swojej organizacji.
 
     | Ustawienie                           | Wartość        |
     |-----------------------------------|--------------|
     | Element źródłowy                            | Adresy IP |
-    | Źródłowe adresy IP / zakresy CIDR | Prawidłowy adres IP lub zakres dla twojego środowiska |
+    | Źródłowe adresy IP/zakresy CIDR | Prawidłowy adres IP lub zakres dla Twojego środowiska |
     | Zakresy portów źródłowych                | *            |
     | Element docelowy                       | Dowolne          |
     | Zakresy portów docelowych           | 636          |
@@ -220,19 +220,19 @@ Utwórzmy regułę zezwalaną na przychodzący bezpieczny dostęp LDAP za spraw�
     | Priorytet                          | 401          |
     | Nazwa                              | AllowLDAPS   |
 
-1. Gdy będzie gotowy, wybierz pozycję **Dodaj,** aby zapisać i zastosuj regułę.
+1. Gdy wszystko będzie gotowe, wybierz pozycję **Dodaj** , aby zapisać i zastosować regułę.
 
-    ![Tworzenie reguły sieciowej grupy zabezpieczeń w celu zabezpieczenia dostępu LDAPS przez Internet](./media/tutorial-configure-ldaps/create-inbound-nsg-rule-for-ldaps.png)
+    ![Utwórz regułę sieciowej grupy zabezpieczeń, aby zabezpieczyć dostęp do protokołu LDAP za pośrednictwem Internetu](./media/tutorial-configure-ldaps/create-inbound-nsg-rule-for-ldaps.png)
 
-## <a name="configure-dns-zone-for-external-access"></a>Konfigurowanie strefy DNS dla dostępu zewnętrznego
+## <a name="configure-dns-zone-for-external-access"></a>Konfigurowanie strefy DNS na potrzeby dostępu zewnętrznego
 
-Dzięki aktywnej bezpiecznej usłudze LDAP dostęp w Internecie zaktualizuj strefę DNS, aby komputery klienckie mogły znaleźć tę domenę zarządzalną. *Bezpieczny zewnętrzny adres IP protokołu LDAP* znajduje się na karcie **Właściwości** domeny zarządzanej usług Azure AD DS:
+Mając bezpieczny dostęp do protokołu LDAP włączony przez Internet, zaktualizuj strefę DNS, aby komputery klienckie mogły znaleźć tę domenę zarządzaną. *Zewnętrzny adres IP Secure LDAP* zostanie wyświetlony na karcie **Właściwości** dla domeny zarządzanej AD DS platformy Azure:
 
-![Wyświetlanie bezpiecznego zewnętrznego adresu IP protokołu LDAP dla domeny zarządzanej usług Azure AD DS w witrynie Azure portal](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
+![Wyświetl zewnętrzny adres IP protokołu LDAP dla domeny zarządzanej usługi Azure AD DS w Azure Portal](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
 
-Skonfiguruj zewnętrznego dostawcę DNS, aby utworzyć rekord hosta, taki jak *ldaps*, aby rozwiązać ten zewnętrzny adres IP. Aby najpierw przetestować lokalnie na komputerze, można utworzyć wpis w pliku hostów systemu Windows. Aby pomyślnie edytować plik hosts na komputerze lokalnym, otwórz *Notatnik* jako administrator, a następnie otwórz plik *C:\Windows\System32\drivers\etc*
+Skonfiguruj zewnętrzny dostawca DNS, aby utworzyć rekord hosta, taki jak *LDAPS*, aby rozwiązać ten zewnętrzny adres IP. Aby najpierw przetestować lokalnie na swojej maszynie, możesz utworzyć wpis w pliku hosts systemu Windows. Aby pomyślnie edytować plik Hosts na komputerze lokalnym, Otwórz program *Notepad* jako administrator, a następnie otwórz plik *C:\Windows\System32\drivers\etc*
 
-Poniższy przykładowy wpis DNS z zewnętrznym dostawcą DNS lub w pliku hostów lokalnych rozwiązuje ruch dla *ldaps.aaddscontoso.com* z zewnętrznym adresem IP *168.62.205.103:*
+Poniższy przykładowy wpis DNS, z zewnętrznym dostawcą DNS lub w lokalnym pliku hosts, rozwiązuje ruch *LDAPS.aaddscontoso.com* do zewnętrznego adresu IP *168.62.205.103*:
 
 ```
 168.62.205.103    ldaps.aaddscontoso.com
@@ -240,47 +240,47 @@ Poniższy przykładowy wpis DNS z zewnętrznym dostawcą DNS lub w pliku hostów
 
 ## <a name="test-queries-to-the-managed-domain"></a>Testowanie zapytań do domeny zarządzanej
 
-Aby połączyć się i powiązać z domeną zarządzałą usługą Azure AD DS i przeszukiwać za pomocą protokołu LDAP, należy użyć narzędzia *LDP.exe.* To narzędzie znajduje się w pakiecie Narzędzia administracji zdalnej serwera (RSAT). Aby uzyskać więcej informacji, zobacz [instalowanie narzędzi administracji zdalnej serwera][rsat].
+Aby nawiązać połączenie i utworzyć powiązanie z domeną zarządzaną platformy Azure AD DS i przeszukiwać przy użyciu protokołu LDAP, użyj narzędzia *Ldp. exe* . To narzędzie jest zawarte w pakiecie Narzędzia administracji zdalnej serwera (RSAT). Aby uzyskać więcej informacji, zobacz [install narzędzia administracji zdalnej serwera][rsat].
 
-1. Otwórz *program LDP.exe* i połącz się z domeną zarządzana. Wybierz **opcję Połączenie**, a następnie wybierz pozycję **Połącz...**.
-1. Wprowadź bezpieczną nazwę domeny DNS LDAP domeny zarządzanej utworzoną w poprzednim kroku, na przykład *ldaps.aaddscontoso.com*. Aby użyć bezpiecznego protokołu LDAP, ustaw **port** na *636*, a następnie zaznacz pole wyboru **SSL**.
-1. Wybierz **przycisk OK,** aby połączyć się z domeną zarządzana.
+1. Otwórz program *Ldp. exe* i Połącz się z domeną zarządzaną. Wybierz pozycję **połączenie**, a następnie wybierz pozycję **Połącz.**
+1. Wprowadź nazwę domeny usługi DNS Secure LDAP, która została utworzona w poprzednim kroku, na przykład *LDAPS.aaddscontoso.com*. Aby użyć bezpiecznego protokołu LDAP, ustaw wartość **port** na *636*, a następnie zaznacz pole wyboru **protokołu SSL**.
+1. Wybierz **przycisk OK** , aby połączyć się z domeną zarządzaną.
 
-Następnie należy powiązać z domeną zarządzana usługą Azure AD DS. Użytkownicy (i konta usług) nie mogą wykonywać prostych powiązań LDAP, jeśli wyłączono synchronizację skrótów haseł NTLM w wystąpieniu usług Azure AD DS. Aby uzyskać więcej informacji na temat wyłączania synchronizacji skrótów haseł NTLM, zobacz [Zabezpieczanie domeny zarządzanej usług Azure AD DS][secure-domain].
+Następnie powiąż z domeną zarządzaną platformy Azure AD DS. Użytkownicy (i konta usług) nie mogą wykonać prostych powiązań LDAP, jeśli synchronizacja skrótów haseł NTLM została wyłączona w wystąpieniu usługi Azure AD DS. Aby uzyskać więcej informacji na temat wyłączania synchronizacji skrótów haseł NTLM, zobacz temat [Zabezpieczanie domeny zarządzanej usługi Azure AD DS][secure-domain].
 
-1. Wybierz opcję menu **Połączenie,** a następnie wybierz polecenie **Powiąż...**.
-1. Podaj poświadczenia konta użytkownika należącego do grupy *Administratorzy kontrolera domeny usługi AAD,* na przykład *contosoadmin*. Wprowadź hasło konta użytkownika, a następnie wprowadź domenę, na przykład *aaddscontoso.com*.
-1. W przypadku **typu powiązania**wybierz opcję Bind *z poświadczeniami*.
-1. Wybierz **przycisk OK,** aby powiązać z domeną zarządza zarządzana usługą Azure AD DS.
+1. Wybierz opcję menu **połączenie** , a następnie wybierz pozycję **bind...**.
+1. Podaj poświadczenia konta użytkownika należącego do grupy *administratorów domeny usługi AAD* , na przykład *contosoadmin*. Wprowadź hasło konta użytkownika, a następnie wprowadź domenę, na przykład *aaddscontoso.com*.
+1. W **polu Typ powiązania**wybierz opcję *powiązania z poświadczeniami*.
+1. Wybierz **przycisk OK** , aby powiązać z domeną zarządzaną platformy Azure AD DS.
 
-Aby wyświetlić obiekty przechowywane w domenie zarządzanej usług Azure AD DS:
+Aby wyświetlić obiekty przechowywane w domenie zarządzanej AD DS platformy Azure:
 
-1. Wybierz opcję menu **Widok,** a następnie wybierz polecenie **Drzewo**.
-1. Pozostaw pole *BaseDN* puste, a następnie wybierz **przycisk OK**.
-1. Wybierz kontener, na przykład *Użytkownicy usługi AADDC,* a następnie wybierz kontener z prawej i wybierz polecenie **Wyszukaj**.
-1. Pozostaw wstępnie wypełnione pola, a następnie wybierz pozycję **Uruchom**. Wyniki kwerendy są wyświetlane w oknie po prawej stronie, jak pokazano w poniższym przykładzie danych wyjściowych:
+1. Wybierz opcję menu **Widok** , a następnie wybierz **drzewo**.
+1. Pozostaw pole *BaseDN* puste, a następnie wybierz przycisk **OK**.
+1. Wybierz kontener, taki jak *AADDC Users (Użytkownicy*), a następnie wybierz kontener prawym przyciskiem myszy i wybierz polecenie **Wyszukaj**.
+1. Pozostaw ustawione wstępnie wypełnione pola, a następnie wybierz pozycję **Uruchom**. Wyniki zapytania są wyświetlane w oknie po prawej stronie, jak pokazano w następujących przykładowych danych wyjściowych:
 
-    ![Wyszukiwanie obiektów w domenie zarządzanej usług Azure AD DS przy użyciu programu LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
+    ![Wyszukaj obiekty w domenie zarządzanej platformy Azure AD DS przy użyciu narzędzia LDP. exe](./media/tutorial-configure-ldaps/ldp-query.png)
 
-Aby bezpośrednio zbadać określony kontener, z menu **Wyświetl > drzewa** można określić numer **BaseDN,** taki jak *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* lub *OU=AADDC Computers,DC=AADSCONTOSO,DC=COM*. Aby uzyskać więcej informacji na temat formatowania i tworzenia kwerend, zobacz [Podstawowe kwerendy LDAP][ldap-query-basics].
+Aby bezpośrednio wysyłać zapytania do określonego kontenera, w menu **drzewa widoku >** można określić **BaseDN** , taki jak *OU = AADDC users, DC = AADDSCONTOSO, DC = com* lub *OU = AADDC komputery, DC = AADDSCONTOSO, DC = com*. Aby uzyskać więcej informacji na temat formatowania i tworzenia zapytań, zobacz [podstawowe informacje dotyczące zapytań LDAP][ldap-query-basics].
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli wpis DNS został dodany do pliku hostów lokalnych komputera w celu przetestowania łączności dla tego samouczka, usuń ten wpis i dodaj oficjalny rekord w strefie DNS. Aby usunąć wpis z pliku hostów lokalnych, wykonaj następujące czynności:
+Jeśli dodano wpis DNS do lokalnego pliku hosts komputera w celu przetestowania łączności dla tego samouczka, Usuń ten wpis i Dodaj formalny rekord do strefy DNS. Aby usunąć wpis z lokalnego pliku hosts, wykonaj następujące czynności:
 
-1. Na komputerze lokalnym otwórz *Notatnik* jako administrator
-1. Przejdź do pliku *C:\Windows\System32\drivers\etc*
-1. Usuwanie wiersza dodanego rekordu, takiego jak`168.62.205.103    ldaps.aaddscontoso.com`
+1. Na komputerze lokalnym Otwórz *Notatnik* jako administrator
+1. Przeglądaj i Otwórz plik *C:\Windows\System32\drivers\etc*
+1. Usuń wiersz dla dodanego rekordu, taki jak`168.62.205.103    ldaps.aaddscontoso.com`
 
 ## <a name="next-steps"></a>Następne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie certyfikatu cyfrowego do użytku z usługą Azure AD DS
-> * Włączanie bezpiecznego protokołu LDAP dla usług Azure AD DS
-> * Konfigurowanie bezpiecznego protokołu LDAP do użytku przez publiczny Internet
-> * Powiąż i przetestuj bezpieczną usługę LDAP dla domeny zarządzanej usług Azure AD DS
+> * Tworzenie certyfikatu cyfrowego do użycia z platformą Azure AD DS
+> * Włącz bezpieczny protokół LDAP dla AD DS platformy Azure
+> * Konfigurowanie bezpiecznego protokołu LDAP do użytku w publicznej sieci Internet
+> * Wiązanie i testowanie bezpiecznego protokołu LDAP dla domeny zarządzanej AD DS platformy Azure
 
 > [!div class="nextstepaction"]
 > [Konfigurowanie synchronizacji skrótów haseł dla hybrydowego środowiska usługi Azure AD](tutorial-configure-password-hash-sync.md)

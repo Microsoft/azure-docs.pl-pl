@@ -1,48 +1,48 @@
 ---
-title: 'Samouczek: Jednostka wyrażenia regularnego — usługa LUIS'
-description: Wyodrębnij konsekwentnie sformatowane dane z wypowiedź przy użyciu jednostki wyrażenia regularnego.
+title: 'Samouczek: wyrażenie regularne — LUIS'
+description: Wyodrębnij spójnie sformatowane dane z wypowiedź przy użyciu jednostki wyrażenia regularnego.
 ms.topic: tutorial
 ms.date: 04/01/2020
 ms.openlocfilehash: 5b585ee52880c474d3f2736b34a267012b390aad
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80545834"
 ---
-# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Samouczek: Uzyskaj dobrze sformatowane dane z wypowiedź
-W tym samouczku utwórz jednostkę wyrażenia regularnego, aby wyodrębnić konsekwentnie sformatowane dane z wypowiedź.
+# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Samouczek: pobieranie dobrze sformatowanych danych z wypowiedź
+W tym samouczku utworzysz jednostkę wyrażenia regularnego w celu wyodrębnienia spójnie sformatowanych danych z wypowiedź.
 
 **Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Importowanie aplikacji
+> * Importuj aplikację
 > * Dodawanie intencji
 > * Dodawanie jednostki wyrażenia regularnego
-> * Szkolenie, publikowanie i wykonywanie zapytań w aplikacji w celu uzyskania wyodrębnionych danych
+> * Uczenie, publikowanie i tworzenie zapytań o aplikacje w celu pobrania wyodrębnionych danych
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="regular-expression-entities"></a>Jednostki wyrażenia regularnego
 
-Użyj jednostki wyrażenia regularnego, aby wyciągnąć dobrze sformatowany tekst z wypowiedź. Podczas gdy intencja wypowiedzi jest zawsze określana za pomocą uczenia maszynowego, ten specyficzny typ jednostki nie jest określany za pomocą uczenia maszynowego. Dobrym zastosowaniem dla encji wyrażenia regularnego jest dowolny tekst, który może być konsekwentnie reprezentowany przez [wyrażenie regularne](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).
+Użyj jednostki wyrażenia regularnego, aby pobrać dobrze sformatowany tekst z wypowiedź. Podczas gdy intencja wypowiedzi jest zawsze określana za pomocą uczenia maszynowego, ten specyficzny typ jednostki nie jest określany za pomocą uczenia maszynowego. Dobrym zastosowaniem dla jednostki wyrażenia regularnego jest dowolny tekst, który może być spójny przez [wyrażenie regularne](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).
 
 `Send pizza delivery time to x123432`
 
-W tym przykładzie użyto _krótkiego kodu_ do wysyłania wiadomości tekstowych. Ten krótki kod jest 5 lub 6-cyfrowy kod numeryczny, poprzedzony x, i `x\d{5,6}`mogą być opisane za pomocą wyrażenia regularnego .
+Ten przykład używa _krótkiego kodu_ do wysyłania wiadomości tekstowych. Ten krótki kod jest 5-lub 6-cyfrowym kodem numerycznym poprzedzonym znakiem x i może być opisany przy użyciu wyrażenia `x\d{5,6}`regularnego.
 
-Po dodaniu jednostki wyrażenia regularnego do aplikacji usługi LUIS nie trzeba [oznaczać](label-entity-example-utterance.md) tekstu jednostką zwykłego wyrażenia. Jest stosowany do wszystkich wypowiedzi we wszystkich intencji.
+Po dodaniu jednostki wyrażenia regularnego do aplikacji LUIS nie ma potrzeby [oznaczania](label-entity-example-utterance.md) tekstu za pomocą zwykłej jednostki Express. Jest on stosowany do wszystkich wyrażenia długości we wszystkich intencjach.
 
-## <a name="import-example-json-to-begin-app"></a>Importowanie przykładu .json, aby rozpocząć aplikację
+## <a name="import-example-json-to-begin-app"></a>Importuj plik example. JSON, aby rozpocząć aplikację
 
-1.  Pobierz i zapisz [plik JSON aplikacji](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
+1.  Pobierz i Zapisz [plik JSON aplikacji](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-## <a name="create-intent-for-sending-confirmation-text-messages"></a>Tworzenie intencji wysyłania wiadomości tekstowych z potwierdzeniem
+## <a name="create-intent-for-sending-confirmation-text-messages"></a>Utwórz cel wysyłania wiadomości SMS z potwierdzeniem
 
-1. Wybierz **+ Utwórz,** aby utworzyć nowy zamiar klasyfikacji intencji wypowiedź do wysyłania tekstu potwierdzenia.
+1. Wybierz pozycję **+ Utwórz** , aby utworzyć nowy cel do klasyfikowania zamiaru wypowiedź do wysyłania tekstu potwierdzenia.
 
 1. Wprowadź ciąg `ConfirmationText` w wyświetlonym oknie dialogowym, a następnie wybierz pozycję **Done** (Gotowe).
 
@@ -50,35 +50,35 @@ Po dodaniu jednostki wyrażenia regularnego do aplikacji usługi LUIS nie trzeba
 
     |Przykładowe wypowiedzi|
     |--|
-    |Wyślij czas dostawy pizzy do x123432|
-    |Txt x234567 na czas|
-    |x23987 dla ogłoszenia|
+    |Wyślij czas dostarczania Pizza do x123432|
+    |X234567 txt dla czasu|
+    |x23987 na powiadomienie|
 
-    Aby wyodrębnić jednostki nauczone maszynowo, należy podać przykłady, które obejmują jednostki w różnych wypowiedzi, ale z tej jednostki nienauczone maszynowo, odmiana nie jest ważne. Tak długo, jak tekst pasuje do wyrażenia regularnego, zostanie wyodrębniony.
+    Aby wyodrębnić jednostki, które są obsługiwane przez maszynę, należy podać przykłady, które obejmują jednostkę w różnych wyrażenia długościach, ale z tą jednostką, która nie jest zadana maszynowo. Tak długo, jak tekst jest zgodny z wyrażeniem regularnym, zostanie wyodrębniony.
 
 ## <a name="use-the-regular-expression-entity-for-well-formatted-data"></a>Używanie jednostki wyrażenia regularnego na potrzeby prawidłowo sformatowanych danych
-Utwórz encję wyrażenia regularnego, aby dopasować go do numeru tekstowego. To wyrażenie regularne dopasowuje tekst, ale ignoruje warianty sprawy i kultury.
+Utwórz jednostkę wyrażenia regularnego, aby dopasować ją do numeru tekstu. To wyrażenie regularne dopasowuje tekst, ale ignoruje warianty wielkości liter i kultur.
 
 1. Wybierz pozycję **Entities** (Jednostki) w lewym panelu.
 
-1. Wybierz **pozycję + Utwórz** na stronie listy Jednostki.
+1. Na stronie listy jednostki wybierz pozycję **+ Utwórz** .
 
-1. W oknie podręcznym wprowadź nową nazwę `ConfirmationTextRegEx`encji , wybierz **opcję RegEx** jako typ encji, a następnie wybierz pozycję **Dalej**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Rozpoczynanie kroków tworzenia encji dla encji wyrażenia regularnego](./media/luis-quickstart-intents-regex-entity/pizza-create-new-entity.png)
-
-1. W polu **Utwórz encję wyrażenia regularnego**wprowadź `x\d{5,6}` jako wartość **Regex,** a następnie wybierz pozycję **Utwórz**.
+1. W podręcznym oknie dialogowym wprowadź nową nazwę `ConfirmationTextRegEx`jednostki, wybierz **wyrażenie regularne** jako typ jednostki, a następnie wybierz przycisk **dalej**.
 
     > [!div class="mx-imgBorder"]
-    > ![Wprowadź wyrażenie regularne, aby wyodrębnić dane z przykładowej wypowiedzi](./media/luis-quickstart-intents-regex-entity/pizza-set-regular-expression-for-new-entity.png)
+    > ![Rozpocznij kroki tworzenia jednostki dla jednostki wyrażenia regularnego](./media/luis-quickstart-intents-regex-entity/pizza-create-new-entity.png)
 
-1. Wybierz **intencje** z lewego menu, a następnie **ConfirmationText** intencji, aby zobaczyć wyrażenie regularne oznaczone w wypowiedzi.
+1. W polu **Utwórz wyrażenie regularne**wpisz `x\d{5,6}` jako wartość **wyrażenia regularnego** , a następnie wybierz pozycję **Utwórz**.
 
     > [!div class="mx-imgBorder"]
-    > ![Wyświetlanie wyrażenia regularnego oznaczonego w przykładowych wypowiedziach](./media/luis-quickstart-intents-regex-entity/pizza-reg-ex-entity-shown-example-utterances-intent.png)
+    > ![Wprowadź wyrażenie regularne, aby wyodrębnić dane z przykładu wypowiedź](./media/luis-quickstart-intents-regex-entity/pizza-set-regular-expression-for-new-entity.png)
 
-    Ponieważ jednostka nie jest jednostką nauczaną maszynowo, jednostka jest stosowana do wypowiedzi i wyświetlana w portalu usługi LUIS zaraz po jej utworzeniu.
+1. Wybierz pozycję **intencje** w menu po lewej stronie, a następnie **ConfirmationText** zamiar zobaczyć wyrażenie regularne oznaczone w wyrażenia długości.
+
+    > [!div class="mx-imgBorder"]
+    > ![Wyświetl wyrażenie regularne z etykietą na przykład wyrażenia długości](./media/luis-quickstart-intents-regex-entity/pizza-reg-ex-entity-shown-example-utterances-intent.png)
+
+    Ponieważ jednostka nie jest jednostką uczenia maszynowego, jednostka jest stosowana do wyrażenia długości i wyświetlana w portalu LUIS zaraz po jego utworzeniu.
 
 ## <a name="train-the-app-before-testing-or-publishing"></a>Trenowanie aplikacji przed testowaniem lub publikowaniem
 
@@ -92,7 +92,7 @@ Utwórz encję wyrażenia regularnego, aby dopasować go do numeru tekstowego. T
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Przejdź na koniec adresu URL na pasku adresu i zastąp _YOUR_QUERY_HERE:_
+1. Przejdź na koniec adresu URL na pasku adresu i Zastąp _YOUR_QUERY_HERE_ :
 
     `Text my pizza delivery to x23456 x234567 x12345`
 
@@ -179,9 +179,9 @@ Utwórz encję wyrażenia regularnego, aby dopasować go do numeru tekstowego. T
 
 ## <a name="related-information"></a>Informacje pokrewne
 
-* [Koncepcja - jednostki](luis-concept-entity-types.md)
-* [Odwołanie JSON do encji wyrażenia regularnego](reference-entity-regular-expression.md?tabs=V3)
-* [Jak dodać jednostki do wyodrębniania danych](luis-how-to-add-entities.md)
+* [Koncepcje — jednostki](luis-concept-entity-types.md)
+* [Odwołanie JSON jednostki wyrażenia regularnego](reference-entity-regular-expression.md?tabs=V3)
+* [Jak dodać jednostki w celu wyodrębnienia danych](luis-how-to-add-entities.md)
 
 ## <a name="next-steps"></a>Następne kroki
 W tym samouczku utworzono nową intencję, dodano przykładowe wypowiedzi, a następnie utworzono jednostkę wyrażenia regularnego, aby wyodrębnić z wypowiedzi poprawnie sformatowane dane. Po wyszkoleniu i opublikowaniu aplikacji zapytanie do punktu końcowego zidentyfikowało intencję i zwróciło wyodrębnione dane.

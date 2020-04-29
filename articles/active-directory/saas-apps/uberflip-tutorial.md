@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z uberflip | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a uberflip.
+title: 'Samouczek: integracja Azure Active Directory z usługą Uberflip | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Uberflip.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,114 +16,114 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: d20c05e6ec5a413b81ede9cb4906de2595967115
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80048472"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Samouczek: Integracja usługi Azure Active Directory z uberflipem
+# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Samouczek: integracja Azure Active Directory z usługą Uberflip
 
-W tym samouczku dowiesz się, jak zintegrować Uberflip z usługą Azure Active Directory (Azure AD).
+W tym samouczku dowiesz się, jak zintegrować usługę Uberflip z usługą Azure Active Directory (Azure AD).
 
-Integracja uberflip z usługą Azure AD zapewnia następujące korzyści:
+Integracja Uberflip z usługą Azure AD zapewnia następujące korzyści:
 
-* W usłudze Azure AD można kontrolować, kto ma dostęp do uberflip.
-* Możesz włączyć automatyczne logowanie użytkowników do uberflip (logowanie jednokrotne) za pomocą swoich kont usługi Azure AD.
-* Konta można zarządzać w jednej centralnej lokalizacji: w witrynie Azure portal.
+* Możesz kontrolować usługę Azure AD, która ma dostęp do usługi Uberflip.
+* Możesz umożliwić użytkownikom automatyczne logowanie się do usługi Uberflip (Logowanie jednokrotne) przy użyciu kont w usłudze Azure AD.
+* Kontami można zarządzać w jednej centralnej lokalizacji: Azure Portal.
 
-Aby uzyskać szczegółowe informacje na temat integracji aplikacji z usługą Azure AD (SaaS) z aplikacją, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby uzyskać szczegółowe informacje na temat integracji aplikacji typu "oprogramowanie jako usługa" (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z uberflip, potrzebujesz następujących elementów:
+Aby skonfigurować integrację usługi Azure AD z usługą Uberflip, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
-* Subskrypcja Uberflip z włączoną rejestracją jednokrotną.
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+* Subskrypcja usługi Uberflip z włączonym logowaniem jednokrotnym.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-Uberflip obsługuje następujące funkcje:
+Program Uberflip obsługuje następujące funkcje:
 
-* Rejestracji jednokrotnej inicjowane przez sp iDP.
-* Just-in-time inicjowania obsługi administracyjnej użytkowników.
+* Zainicjowane przez usługę SP i dostawcy tożsamości Logowanie jednokrotne (SSO).
+* Inicjowanie obsługi użytkowników just in Time.
 
-## <a name="add-uberflip-from-the-azure-marketplace"></a>Dodawanie uberflip z portalu Azure Marketplace
+## <a name="add-uberflip-from-the-azure-marketplace"></a>Dodawanie Uberflip z witryny Azure Marketplace
 
-Aby skonfigurować integrację uberflip z usługą Azure AD, musisz dodać Uberflip z portalu Azure Marketplace do listy zarządzanych aplikacji SaaS:
+Aby skonfigurować integrację programu Uberflip z usługą Azure AD, musisz dodać Uberflip z portalu Azure Marketplace do listy zarządzanych aplikacji SaaS:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. W lewym okienku wybierz pozycję **Azure Active Directory**.
 
-   ![Opcja usługi Azure Active Directory](common/select-azuread.png)
+   ![Opcja Azure Active Directory](common/select-azuread.png)
 
 1. Przejdź do pozycji **Aplikacje dla przedsiębiorstw** i wybierz pozycję **Wszystkie aplikacje**.
 
    ![Okienko Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-1. Aby dodać nową aplikację, wybierz **+ Nowa aplikacja** w górnej części okienka.
+1. Aby dodać nową aplikację, wybierz pozycję **+ Nowa aplikacja** w górnej części okienka.
 
-   ![Opcja Nowa aplikacja](common/add-new-app.png)
+   ![Opcja nowej aplikacji](common/add-new-app.png)
 
-1. W polu wyszukiwania wpisz **Uberflip**. W wynikach wyszukiwania wybierz **uberflip**, a następnie wybierz pozycję **Dodaj,** aby dodać aplikację.
+1. W polu wyszukiwania wprowadź **Uberflip**. W wynikach wyszukiwania wybierz pozycję **Uberflip**, a następnie wybierz pozycję **Dodaj** , aby dodać aplikację.
 
    ![Uberflip na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego z Uberflip na podstawie użytkownika testowego o nazwie **B Simon**. Aby logowanie jednokrotne działało, musisz ustanowić łącze między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w uberflip.
+W tej sekcji należy skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą Uberflip na podstawie użytkownika testowego o nazwie **B Simon**. Aby logowanie jednokrotne działało, należy nawiązać połączenie między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Uberflip.
 
-Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD za pomocą uberflip, musisz wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Uberflip, należy wykonać następujące bloki konstrukcyjne:
 
-1. **[Skonfiguruj logowanie jednookrotne usługi Azure AD,](#configure-azure-ad-single-sign-on)** aby umożliwić użytkownikom korzystanie z tej funkcji.
-1. **[Skonfiguruj rejestrację jednokrotną uberflip,](#configure-uberflip-single-sign-on)** aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
-1. **[Utwórz użytkownika testowego usługi Azure AD,](#create-an-azure-ad-test-user)** aby przetestować logowanie jednokrotne usługi Azure AD za pomocą B. Simon.
-1. **[Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user)** aby włączyć B. Simon do korzystania z usługi Azure AD logowania jednokrotnego.
-1. **[Utwórz użytkownika testowego Uberflip,](#create-an-uberflip-test-user)** aby w uberflipie był użytkownik o nazwie B. Simon, który jest połączony z użytkownikiem usługi Azure AD o nazwie B. Simon.
-1. **[Przetestuj logowanie jednokrotne,](#test-single-sign-on)** aby sprawdzić, czy konfiguracja działa.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-single-sign-on)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+1. **[Skonfiguruj logowanie](#configure-uberflip-single-sign-on)** jednokrotne w usłudze Uberflip, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** , aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+1. **[Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user)** aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego usługi Azure AD.
+1. **[Utwórz użytkownika testowego Uberflip](#create-an-uberflip-test-user)** , aby uzyskać użytkownika o nazwie b. Simon w Uberflip, który jest połączony z użytkownikiem usługi Azure AD o nazwie b. Simon.
+1. **[Przetestuj logowanie](#test-single-sign-on)** jednokrotne, aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą uberflip, należy wykonać następujące kroki:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Uberflip, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **Uberflip** wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Uberflip** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Konfigurowanie opcji logowania jednokrotnego](common/select-sso.png)
 
-1. W okienku **Wybierz metodę logowania jednokrotnego** wybierz tryb **SAML/WS-Fed,** aby włączyć logowanie jednokrotne.
+1. W okienku **Wybierz metodę logowania** jednokrotnego wybierz tryb **SAML/WS-karmione** , aby włączyć logowanie jednokrotne.
 
     ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
 
-1. W okienku **Konfigurowanie logowania jednokrotnego za pomocą saml** wybierz pozycję **Edytuj** (ikona ołówka), aby otworzyć podstawowe okienko **konfiguracji SAML.**
+1. W okienku **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz pozycję **Edytuj** (ikona ołówka), aby otworzyć okienko **podstawowe ustawienia protokołu SAML** .
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W podstawowym okienku **konfiguracji SAML** wykonaj jedną z następujących czynności, w zależności od tego, który tryb jednośladu chcesz skonfigurować:
+1. W okienku **podstawowe konfiguracje języka SAML** wykonaj jedną z następujących czynności, w zależności od trybu logowania jednokrotnego, który chcesz skonfigurować:
 
-   * Aby skonfigurować aplikację w trybie SSO inicjowanym przez protokołu IDP, w polu **Adres URL odpowiedzi (adres URL usługi konsumenta potwierdzenia)** wprowadź adres URL przy użyciu następującego wzorca:
+   * Aby skonfigurować aplikację w trybie logowania jednokrotnego dostawcy tożsamości, w polu **adres URL odpowiedzi (adres URL usługi konsumenckej potwierdzenia)** wprowadź adres URL przy użyciu następującego wzorca:
 
      `https://app.uberflip.com/sso/saml2/<IDPID>/<ACCOUNTID>`
 
-     ![Informacje o domenie Uberflip i adresach URL z logami jednokrotnymi](common/both-replyurl.png)
+     ![Uberflip domenę i adresy URL Logowanie jednokrotne](common/both-replyurl.png)
 
      > [!NOTE]
-     > Ta wartość nie jest prawdziwa. Zaktualizuj tę wartość za pomocą rzeczywistego adresu URL odpowiedzi. Aby uzyskać rzeczywistą wartość, skontaktuj się z [zespołem pomocy technicznej Uberflip](mailto:support@uberflip.com). Można również odwołać się do wzorców wyświetlanych w podstawowym okienku **konfiguracji SAML** w witrynie Azure portal.
+     > Ta wartość nie jest rzeczywista. Zaktualizuj tę wartość przy użyciu adresu URL rzeczywistej odpowiedzi. Aby uzyskać wartość rzeczywistą, skontaktuj się z [zespołem pomocy technicznej Uberflip](mailto:support@uberflip.com). Można również odwołać się do wzorców przedstawionych w okienku podstawowe informacje o **konfiguracji SAML** w Azure Portal.
 
-   * Aby skonfigurować aplikację w trybie logowania typu SP, wybierz pozycję **Ustaw dodatkowe adresy URL,** a w polu **Pozycję Adresu URL logowania** wprowadź ten adres URL:
+   * Aby skonfigurować aplikację w trybie rejestracji jednokrotnej zainicjowanej przez usługę SP, wybierz opcję **Ustaw dodatkowe adresy URL**, a następnie w polu **adres URL logowania** wprowadź następujący adres URL:
 
      `https://app.uberflip.com/users/login`
 
-     ![Informacje o domenie Uberflip i adresach URL z logami jednokrotnymi](common/both-signonurl.png)
+     ![Uberflip domenę i adresy URL Logowanie jednokrotne](common/both-signonurl.png)
 
-1. W okienku **Konfigurowanie logowania jednokrotnego za pomocą saml** w sekcji **Certyfikat podpisywania SAML** wybierz pozycję **Pobierz,** aby pobrać **kod XML metadanych federacji** z podanych opcji i zapisać go na komputerze.
+1. W okienku **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **plik XML metadanych Federacji** z określonych opcji i zapisać go na komputerze.
 
-   ![Opcja pobierania kodu XML metadanych federacji](common/metadataxml.png)
+   ![Opcja pobierania XML metadanych Federacji](common/metadataxml.png)
 
-1. W okienku **Konfigurowanie uberflip** skopiuj potrzebny adres URL lub adresy URL:
+1. W okienku **Konfiguracja Uberflip** Skopiuj adres URL lub adresy URL, które są potrzebne:
 
    * **Adres URL logowania**
    * **Identyfikator usługi Azure AD**
@@ -131,77 +131,77 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą uberflip, n
 
    ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-### <a name="configure-uberflip-single-sign-on"></a>Konfigurowanie rejestracji jednokrotnej uberflip
+### <a name="configure-uberflip-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Uberflip
 
-Aby skonfigurować logowanie jednokrotne po stronie Uberflip, musisz wysłać pobrany kod XML metadanych federacji i odpowiednie skopiowane adresy URL z witryny Azure portal do [zespołu pomocy technicznej Uberflip](mailto:support@uberflip.com). Zespół Uberflip upewni się, że połączenie SSO SAML jest prawidłowo ustawione po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie Uberflip, musisz wysłać pobrany XML metadanych Federacji i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej Uberflip](mailto:support@uberflip.com). Zespół Uberflip sprawdzi, czy połączenie SSO protokołu SAML jest prawidłowo ustawione na obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w witrynie Azure portal.
+W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
 
-1. W witrynie Azure portal w lewym okienku wybierz pozycję**Użytkownicy** >  **usługi Azure Active Directory** > **Wszyscy użytkownicy**.
+1. W Azure Portal w lewym okienku wybierz pozycję **Azure Active Directory** > **Użytkownicy** > **Wszyscy użytkownicy**.
 
     ![Opcje Użytkownicy i "Wszyscy użytkownicy"](common/users.png)
 
-1. U góry ekranu wybierz pozycję **+ Nowy użytkownik**.
+1. W górnej części ekranu wybierz pozycję **+ nowy użytkownik**.
 
-    ![Nowa opcja użytkownika](common/new-user.png)
+    ![Opcja nowego użytkownika](common/new-user.png)
 
-1. W okienku **Użytkownik** wykonaj następujące czynności:
+1. W okienku **użytkownika** wykonaj następujące czynności:
 
-    ![Okienko Użytkownik](common/user-properties.png)
+    ![Okienko użytkownika](common/user-properties.png)
 
-    1. W polu **Nazwa** wprowadź **bsimon**.
+    1. W polu **Nazwa** wprowadź **BSimon**.
   
-    1. W polu **Nazwa użytkownika** wprowadź **BSimon\@\<yourcompanydomain\<>.>rozszerzenia **. Na przykład **BSimon\@contoso.com**.
+    1. W polu **Nazwa użytkownika** wprowadź **BSimon\@\<\< yourcompanydomain>.>rozszerzenia **. Na przykład **BSimon\@contoso.com**.
 
     1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
 
-    1. Wybierz **pozycję Utwórz**.
+    1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć B. Simon do korzystania z usługi Azure logowania jednokrotnego, przyznając im dostęp do Uberflip.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure, przyznając im dostęp do Uberflip.
 
-1. W witrynie Azure portal wybierz pozycję **Aplikacje** > dla przedsiębiorstw**Wszystkie aplikacje** > **Uberflip**.
+1. W Azure Portal wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** > **Uberflip**.
 
-    ![Okienko aplikacji dla przedsiębiorstw](common/enterprise-applications.png)
+    ![Okienko aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-1. Na liście aplikacji wybierz **uberflip**.
+1. Na liście Aplikacje wybierz pozycję **Uberflip**.
 
     ![Uberflip na liście aplikacji](common/all-applications.png)
 
-1. W lewym okienku w obszarze **MANAGE**wybierz pozycję **Użytkownicy i grupy**.
+1. W lewym okienku w obszarze **Zarządzaj**wybierz pozycję **Użytkownicy i grupy**.
 
     ![Opcja "Użytkownicy i grupy"](common/users-groups-blade.png)
 
-1. Wybierz **pozycję + Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w okienku Dodawanie **przydziału.**
+1. Wybierz pozycję **+ Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w okienku **Dodaj przypisanie** .
 
     ![Okienko Dodawanie przypisania](common/add-assign-user.png)
 
-1. W okienku **Użytkownicy i grupy** wybierz pozycję **B Simon** na liście **Użytkownicy,** a następnie wybierz pozycję **Wybierz** u dołu okienka.
+1. W okienku **Użytkownicy i grupy** wybierz pozycję **B Simon** na liście **Użytkownicy** , a następnie wybierz **pozycję Wybierz** w dolnej części okienka.
 
-1. Jeśli oczekujesz wartości roli w asercji SAML, a następnie w **okienku Wybierz rolę,** wybierz odpowiednią rolę dla użytkownika z listy. U dołu okienka wybierz pozycję **Wybierz**.
+1. Jeśli oczekujesz wartości roli w potwierdzeniu SAML, w okienku **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy. W dolnej części okienka wybierz **pozycję Wybierz**.
 
-1. W okienku **Dodawanie przydziału** wybierz pozycję **Przypisz**.
+1. W okienku **Dodaj przypisanie** wybierz pozycję **Przypisz**.
 
 ### <a name="create-an-uberflip-test-user"></a>Tworzenie użytkownika testowego Uberflip
 
-Użytkownik o imieniu B. Simon jest teraz tworzony w Uberflip. Nie musisz nic robić, aby utworzyć tego użytkownika. Uberflip obsługuje aprowizacji użytkowników just-in-time, która jest domyślnie włączona. Jeśli użytkownik o imieniu B. Simon jeszcze nie istnieje w Uberflip, nowy jest tworzony po uwierzytelnieniu.
+Użytkownik o nazwie B. Simon jest teraz tworzony w Uberflip. Nie trzeba wykonywać żadnych czynności w celu utworzenia tego użytkownika. Uberflip obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie włączona. Jeśli użytkownik o nazwie B. Simon nie istnieje już w Uberflip, zostanie utworzony nowy po uwierzytelnieniu.
 
 > [!NOTE]
-> Jeśli chcesz ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej Uberflip](mailto:support@uberflip.com).
+> Jeśli musisz ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej Uberflip](mailto:support@uberflip.com).
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 
-W tej sekcji można przetestować konfigurację logowania jednokrotnego usługi Azure AD przy użyciu portalu Moje aplikacje.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD za pomocą portalu My Apps.
 
-Po wybraniu **uberflip** w portalu Moje aplikacje powinieneś automatycznie zalogować się do subskrypcji Uberflip, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji o portalu Moje aplikacje, zobacz [Uzyskiwanie dostępu do aplikacji i korzystanie z nich w portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu opcji **Uberflip** w portalu Moje aplikacje należy automatycznie zalogować się do subskrypcji usługi Uberflip, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [Lista samouczków dotyczących integrowania aplikacji SaaS z Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-* [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

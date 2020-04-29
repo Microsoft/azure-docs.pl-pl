@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: biblioteka klienta analizy tekstu w wersji 3 | Dokumenty firmy Microsoft'
+title: 'Szybki Start: analiza tekstua Biblioteka kliencka v3 | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Ten przewodnik Szybki start umożliwia połączenie aplikacji z interfejsem API analizy tekstu z usługi Azure Cognitive Services.
+description: Skorzystaj z tego przewodnika Szybki Start, aby połączyć aplikacje z interfejs API analizy tekstu z poziomu platformy Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,17 +12,17 @@ ms.date: 03/24/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics
 ms.openlocfilehash: cc3f48ec1113f954336cfae0bda2cba2499d9a1d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240125"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library"></a>Szybki start: korzystanie z biblioteki klienta analizy tekstu
+# <a name="quickstart-use-the-text-analytics-client-library"></a>Szybki Start: korzystanie z biblioteki klienta analiza tekstu
 
-Wprowadzenie do biblioteki klienta analizy tekstu. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
+Rozpocznij pracę z biblioteką klienta analiza tekstu. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
 
-Użyj biblioteki klienta analizy tekstu, aby wykonać:
+Użyj biblioteki klienta analiza tekstu do wykonania:
 
 * Analiza tonacji
 * Wykrywanie języka
@@ -32,9 +32,9 @@ Użyj biblioteki klienta analizy tekstu, aby wykonać:
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * Najnowsza wersja interfejsu API analizy `3.0-preview`tekstu w wersji zapoznawczej to , która zawiera publiczną wersję zapoznawczą dla [ulepszonej analizy tonacji](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) i [rozpoznawania nazwanych jednostek (NER).](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) Najnowsza stabilna `2.1`wersja to .
->    * Pamiętaj, aby postępować tylko zgodnie z instrukcjami dotyczącymi używanej wersji.
-> * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych poświadczeń magazynu ze względu na prostotę. W scenariuszach produkcyjnych zaleca się używanie wsadowych metod asynchronicznych dla wydajności i skalowalności. Zapoznaj się z poniższą dokumentacją referencyjną.
+> * Najnowsza wersja zapoznawcza interfejs API analizy tekstu to `3.0-preview`, która obejmuje publiczną wersję zapoznawczą ulepszonego [Analiza tonacji](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) i [nazwanego rozpoznawania jednostek (ner)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). Najnowsza stabilna wersja to `2.1`.
+>    * Pamiętaj, aby postępować zgodnie z instrukcjami dotyczącymi używanej wersji.
+> * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. W przypadku scenariuszy produkcyjnych zaleca się użycie wsadowych metod asynchronicznych w celu zapewnienia wydajności i skalowalności. Zapoznaj się z dokumentacją referencyjną poniżej.
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 
@@ -43,8 +43,8 @@ Użyj biblioteki klienta analizy tekstu, aby wykonać:
 ::: zone pivot="programming-language-java"
 
 > [!IMPORTANT]
-> * Ten przewodnik Szybki start `3.0-preview` jest przeznaczony tylko dla wersji biblioteki klienta analizy tekstu, która zawiera publiczną wersję zapoznawczą dla [ulepszonej analizy tonacji](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) i [rozpoznawania nazwanych jednostek (NER).](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
-> * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych poświadczeń magazynu ze względu na prostotę. W scenariuszach produkcyjnych zaleca się używanie wsadowych metod asynchronicznych dla wydajności i skalowalności. Zapoznaj się z poniższą dokumentacją referencyjną.
+> * Ten przewodnik Szybki Start dotyczy tylko `3.0-preview` wersji biblioteki klienta analiza tekstu, która obejmuje publiczną wersję zapoznawczą ulepszonego [Analiza tonacji](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) i [nazwanego rozpoznawania jednostek (ner)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
+> * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. W przypadku scenariuszy produkcyjnych zaleca się użycie wsadowych metod asynchronicznych w celu zapewnienia wydajności i skalowalności. Zapoznaj się z dokumentacją referencyjną poniżej.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
 
@@ -53,10 +53,10 @@ Użyj biblioteki klienta analizy tekstu, aby wykonać:
 ::: zone pivot="programming-language-javascript"
 
 > [!IMPORTANT]
-> * Najnowsza wersja interfejsu API analizy `3.0-preview`tekstu w wersji zapoznawczej to , która zawiera publiczną wersję zapoznawczą dla [ulepszonej analizy tonacji](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) i [rozpoznawania nazwanych jednostek (NER).](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) Najnowsza stabilna `2.1`wersja to .
->    * Pamiętaj, aby postępować tylko zgodnie z instrukcjami dotyczącymi używanej wersji.
-> * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych poświadczeń magazynu ze względu na prostotę. W scenariuszach produkcyjnych zaleca się używanie wsadowych metod asynchronicznych dla wydajności i skalowalności. Zapoznaj się z poniższą dokumentacją referencyjną.
-> * Możesz również uruchomić tę wersję biblioteki klienta analizy tekstu [w przeglądarce](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
+> * Najnowsza wersja zapoznawcza interfejs API analizy tekstu to `3.0-preview`, która obejmuje publiczną wersję zapoznawczą ulepszonego [Analiza tonacji](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) i [nazwanego rozpoznawania jednostek (ner)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). Najnowsza stabilna wersja to `2.1`.
+>    * Pamiętaj, aby postępować zgodnie z instrukcjami dotyczącymi używanej wersji.
+> * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. W przypadku scenariuszy produkcyjnych zaleca się użycie wsadowych metod asynchronicznych w celu zapewnienia wydajności i skalowalności. Zapoznaj się z dokumentacją referencyjną poniżej.
+> * Tę wersję biblioteki klienta analiza tekstu można również uruchomić [w przeglądarce](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
 
 [!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs-sdk.md)]
 
@@ -65,9 +65,9 @@ Użyj biblioteki klienta analizy tekstu, aby wykonać:
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * Najnowsza wersja interfejsu API analizy `3.0-preview`tekstu w wersji zapoznawczej to , która zawiera publiczną wersję zapoznawczą dla [ulepszonej analizy tonacji](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) i [rozpoznawania nazwanych jednostek (NER).](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) Najnowsza stabilna `2.1`wersja to .
->    * Pamiętaj, aby postępować tylko zgodnie z instrukcjami dotyczącymi używanej wersji.
-> * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych poświadczeń magazynu ze względu na prostotę. W scenariuszach produkcyjnych zaleca się używanie wsadowych metod asynchronicznych dla wydajności i skalowalności. Zapoznaj się z poniższą dokumentacją referencyjną. 
+> * Najnowsza wersja zapoznawcza interfejs API analizy tekstu to `3.0-preview`, która obejmuje publiczną wersję zapoznawczą ulepszonego [Analiza tonacji](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) i [nazwanego rozpoznawania jednostek (ner)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). Najnowsza stabilna wersja to `2.1`.
+>    * Pamiętaj, aby postępować zgodnie z instrukcjami dotyczącymi używanej wersji.
+> * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. W przypadku scenariuszy produkcyjnych zaleca się użycie wsadowych metod asynchronicznych w celu zapewnienia wydajności i skalowalności. Zapoznaj się z dokumentacją referencyjną poniżej. 
 
 [!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 
@@ -75,20 +75,20 @@ Użyj biblioteki klienta analizy tekstu, aby wykonać:
 
 ::: zone pivot="programming-language-other"
 
-## <a name="additional-language-support"></a>Dodatkowa obsługa języków
+## <a name="additional-language-support"></a>Obsługa dodatkowych języków
 
-Jeśli klikniesz tę kartę, prawdopodobnie nie widzisz szybkiego startu w ulubionym języku programowania. Nie martw się, mamy dodatkowe dostępne przewodniki Szybki start. Użyj tabeli, aby znaleźć odpowiedni przykład dla języka programowania.
+Jeśli kliknięto tę kartę, prawdopodobnie nie widzisz przewodnika Szybki Start w ulubionym języku programowania. Nie martw się, możemy korzystać z dodatkowych przewodników Szybki Start. Użyj tabeli, aby znaleźć odpowiedni przykład dla języka programowania.
 
 | Język | Dostępna wersja | 
 |----------|------------------------|
-| Ruby     | [Wersja 2.1](ruby-sdk.md) | 
-| Przejdź       | [Wersja 2.1](go-sdk.md) | 
+| Ruby     | [Wersja 2,1](ruby-sdk.md) | 
+| Przejdź       | [Wersja 2,1](go-sdk.md) | 
 
 ::: zone-end
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli chcesz wyczyścić i usunąć subskrypcję usług Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów powoduje również usunięcie innych skojarzonych z nią zasobów.
+Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Interfejs wiersza polecenia platformy Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
@@ -96,9 +96,9 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję usług Cognitive Services, mo�
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Poznaj rozwiązanie](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
+> [Eksplorowanie rozwiązania](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
 
-* [Analiza tekstu — omówienie](../overview.md)
+* [Przegląd analiza tekstu](../overview.md)
 * [Analiza tonacji](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Rozpoznawanie jednostek](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Wykrywanie języka](../how-tos/text-analytics-how-to-keyword-extraction.md)

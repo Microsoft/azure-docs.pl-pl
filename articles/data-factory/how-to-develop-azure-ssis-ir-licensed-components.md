@@ -1,6 +1,6 @@
 ---
-title: Instalowanie licencjonowanych składników dla środowiska wykonawczego integracji usługi Azure-SSIS
-description: Dowiedz się, jak niezależny niezależny niezależny od użytkownika może tworzyć i instalować płatne lub licencjonowane składniki niestandardowe dla środowiska wykonawczego integracji usługi Azure-SSIS
+title: Zainstaluj licencjonowane składniki dla środowiska Azure-SSIS Integration Runtime
+description: Dowiedz się, w jaki sposób dostawca ISV może opracowywać i instalować płatne lub licencjonowane składniki niestandardowe dla środowiska Azure-SSIS Integration Runtime
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -12,42 +12,42 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: b7079262dc7db4f4a00a9dc79193da1574c7153a
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81605851"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Instalowanie płatnych lub licencjonowanych składników niestandardowych w środowisku Azure-SSIS Integration Runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W tym artykule opisano, jak niezależny niezależny numer niezależny może tworzyć i instalować płatne lub licencjonowane składniki niestandardowe dla pakietów usług integracji programu SQL Server (SSIS), które są uruchamiane na platformie Azure w czasie wykonywania integracji platformy Azure-SSIS.
+W tym artykule opisano, jak niezależnego dostawcy oprogramowania mogą opracowywać i instalować płatne lub licencjonowane składniki niestandardowe dla pakietów SQL Server Integration Services (SSIS) działających na platformie Azure w środowisku Azure-SSIS Integration Runtime.
 
 ## <a name="the-problem"></a>Problem
 
-Charakter środowiska wykonawczego integracji azure-SSIS przedstawia kilka wyzwań, które sprawiają, że typowe metody licencjonowania używane do instalacji lokalnej składników niestandardowych są niewystarczające. W rezultacie azure-SSIS IR wymaga innego podejścia.
+Charakter środowiska Azure-SSIS Integration Runtime zawiera kilka wyzwań, które sprawiają, że typowe metody licencjonowania używane na potrzeby instalacji lokalnych składników niestandardowych są nieodpowiednie. W związku z tym Azure-SSIS IR wymaga innego podejścia.
 
--   Węzły usługi Azure-SSIS IR są nietrwałe i mogą być przydzielane lub zwalniane w dowolnym momencie. Na przykład można uruchomić lub zatrzymać węzły, aby zarządzać kosztem lub skalować w górę iw dół za pośrednictwem różnych rozmiarów węzłów. W rezultacie powiązanie licencji składnika innej firmy z określonym węzłem przy użyciu informacji specyficznych dla komputera, takich jak adres MAC lub identyfikator procesora CPU, nie jest już opłacalne.
+-   Węzły Azure-SSIS IR są nietrwałe i mogą być przydzielona lub wydawane w dowolnym momencie. Można na przykład uruchomić lub zatrzymać węzły, aby zarządzać kosztami, lub skalować w górę i w dół za pomocą różnych rozmiarów węzłów. W związku z tym powiązanie licencji składnika innej firmy z określonym węzłem przy użyciu informacji specyficznych dla komputera, takich jak adres MAC lub identyfikator procesora, nie jest już możliwe.
 
--   Można również skalować ir azure-SSIS w lub na zewnątrz, tak aby liczba węzłów można zmniejszyć lub rozwinąć w dowolnym momencie.
+-   Możesz również skalować Azure-SSIS IR w lub na zewnątrz, tak aby liczba węzłów można było zmniejszyć lub rozszerzyć w dowolnym momencie.
 
 ## <a name="the-solution"></a>Rozwiązanie
 
-W wyniku ograniczeń tradycyjnych metod licencjonowania opisanych w poprzedniej sekcji azure-SSIS IR zapewnia nowe rozwiązanie. To rozwiązanie używa zmiennych środowiskowych systemu Windows i zmiennych systemowych SSIS do wiązania licencji i sprawdzania poprawności składników innych firm. Niezależni dostawcy oprogramowania mogą używać tych zmiennych do uzyskiwania unikatowych i trwałych informacji dla usługi Azure-SSIS IR, takich jak identyfikator klastra i liczba węzłów klastra. Dzięki tym informacjom niezależni dostawcy oprogramowania mogą następnie powiązać licencję dla swojego składnika z usługą Azure-SSIS IR *jako klaster.* To powiązanie używa identyfikatora, który nie zmienia się, gdy klienci rozpoczynają lub zatrzymują, skalują w górę lub w dół, skalują się lub wychodzą, ani w jakikolwiek sposób konfigurują ir azure-SSIS.
+W wyniku ograniczeń tradycyjnych metod licencjonowania opisanych w poprzedniej sekcji Azure-SSIS IR zawiera nowe rozwiązanie. To rozwiązanie używa zmiennych środowiskowych systemu Windows i zmiennych systemowych SSIS do powiązania licencji i weryfikacji składników innych firm. Dostawcy ISV mogą używać tych zmiennych do uzyskiwania unikatowych i trwałych informacji dla Azure-SSIS IR, takich jak identyfikator klastra i liczba węzłów klastra. Przy użyciu tych informacji dostawcy ISV mogą następnie powiązać licencję z składnikiem z Azure-SSIS IR *jako klaster*. To powiązanie używa identyfikatora, który nie zmienia się, gdy klienci zaczynają lub zatrzymują, skalować w górę lub w dół, skalować w górę lub w dół, a także ponownie skonfigurować Azure-SSIS IR w dowolny sposób.
 
-Na poniższym diagramie przedstawiono typowe przepływy instalacji, aktywacji i licencji oraz przepływy sprawdzania poprawności dla składników innych firm, które używają tych nowych zmiennych:
+Na poniższym diagramie przedstawiono typowe powiązania instalacji, aktywacji i licencji oraz przepływy walidacji dla składników innych firm korzystających z tych nowych zmiennych:
 
-![Instalacja licencjonowanych komponentów](media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png)
+![Instalacja licencjonowanych składników](media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png)
 
 ## <a name="instructions"></a>Instrukcje
-1. Dostawcy oprogramowania mogą oferować swoje licencjonowane składniki w różnych jednostkach SKU lub warstwach (na przykład pojedynczy węzeł, do 5 węzłów, do 10 węzłów itd.). Isv zapewnia odpowiedni klucz produktu, gdy klienci kupują produkt. Niezależny numer zięcia sieci owego może również dostarczyć kontener obiektów blob usługi Azure Storage zawierający skrypt instalatora niezależnego systemu i skojarzone pliki. Klienci mogą kopiować te pliki do własnego kontenera magazynu i modyfikować `IsvSetup.exe -pid xxxx-xxxx-xxxx`je za pomocą własnego klucza produktu (na przykład przez uruchomienie). Klienci mogą następnie aprowizować lub ponownie skonfigurować identyfikator Azure-SSIS IR przy za pomocą identyfikatora URI sygnatury dostępu Współdzielonego ich kontenera jako parametru. Aby uzyskać więcej informacji, zobacz [Niestandardowa konfiguracja środowiska Azure SSIS Integration Runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
+1. Niezależni dostawcy oprogramowania mogą oferować licencjonowane składniki w różnych jednostkach SKU i warstwach (na przykład pojedynczy węzeł, maksymalnie 5 węzłów, do 10 węzłów itd.). Dostawca oprogramowania dostarcza odpowiedni klucz produktu, gdy klienci kupują produkt. Dostawca niezależnego dostawcy oprogramowania może również udostępnić kontener obiektów BLOB usługi Azure Storage, który zawiera skrypt instalacji niezależnego dostawcy oprogramowania i skojarzone pliki. Klienci mogą kopiować te pliki do własnego kontenera magazynu i modyfikować je przy użyciu własnego klucza produktu (na przykład przez uruchomienie `IsvSetup.exe -pid xxxx-xxxx-xxxx`). Następnie klienci mogą inicjować lub zmieniać konfigurację Azure-SSIS IR przy użyciu identyfikatora URI sygnatury dostępu współdzielonego kontenera jako parametru. Aby uzyskać więcej informacji, zobacz [Niestandardowa konfiguracja środowiska Azure SSIS Integration Runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
 
-2. Gdy usługa Azure-SSIS IR jest aprowizowana lub ponownie skonfigurowana, Instalator isv `SSIS_CLUSTERID` uruchamia `SSIS_CLUSTERNODECOUNT`się w każdym węźle, aby wysyłać zapytania do zmiennych środowiskowych systemu Windows i . . Następnie usługa Azure-SSIS IR przesyła swój identyfikator klastra i klucz produktu licencjonowanego do serwera aktywacji niezależnego systemu isv w celu wygenerowania klucza aktywacyjnego.
+2. Po zainicjowaniu lub ponownym skonfigurowaniu Azure-SSIS IR Instalator niezależnego dostawcy oprogramowania uruchamia zapytanie o zmienne środowiskowe systemu Windows `SSIS_CLUSTERID` i. `SSIS_CLUSTERNODECOUNT` Następnie Azure-SSIS IR przesyła swój identyfikator klastra i klucz produktu licencjonowanego produktu do serwera aktywacji niezależnego dostawcy oprogramowania w celu wygenerowania klucza aktywacji.
 
-3. Po otrzymaniu klucza aktywacji Instalator isv może przechowywać klucz lokalnie w każdym węźle (na przykład w rejestrze).
+3. Po otrzymaniu klucza aktywacji program instalacyjny ISV może przechowywać klucz lokalnie w każdym węźle (na przykład w rejestrze).
 
-4. Gdy klienci uruchamiają pakiet, który używa licencjonowanego składnika isv w węźle usługi Azure-SSIS IR, pakiet odczytuje lokalnie przechowywany klucz aktywacji i sprawdza poprawność go względem identyfikatora klastra węzła. Pakiet może również opcjonalnie zgłosić liczbę węzłów klastra do serwera aktywacji isv.
+4. Gdy klienci uruchamiają pakiet, który używa licencjonowanego składnika niezależnego dostawcy oprogramowania w węźle Azure-SSIS IR, pakiet odczytuje lokalnie zapisany klucz aktywacji i weryfikuje go względem identyfikatora klastra węzła. Pakiet może również opcjonalnie zgłosić liczbę węzłów klastra do serwera aktywacji niezależnego dostawcy oprogramowania.
 
     Oto przykład kodu, który sprawdza poprawność klucza aktywacji i zgłasza liczbę węzłów klastra:
 
@@ -75,12 +75,12 @@ Na poniższym diagramie przedstawiono typowe przepływy instalacji, aktywacji i 
     }
     ```
 
-## <a name="isv-partners"></a>Partnerzy isv
+## <a name="isv-partners"></a>Partnerzy niezależnego dostawcy oprogramowania
 
-Listę partnerów dostawców usług internetowych, którzy dostosowali swoje składniki i rozszerzenia do usługi Azure-SSIS IR, można znaleźć na końcu tego wpisu w blogu — [Enterprise Edition, Custom Setup i 3rd Party Extensibility for SSIS in ADF](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Enterprise-Edition-Custom-Setup-and-3rd-Party-Extensibility-for/ba-p/388360).
+Listę partnerów niezależnych dostawców oprogramowania, którzy dostosowali składniki i rozszerzenia dla Azure-SSIS IR na końcu tego wpisu w blogu — [Enterprise Edition, Konfiguracja niestandardowa i rozszerzalność innych firm dla usług SSIS w podajniku ADF](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Enterprise-Edition-Custom-Setup-and-3rd-Party-Extensibility-for/ba-p/388360).
 
 ## <a name="next-steps"></a>Następne kroki
 
--   [Niestandardowa konfiguracja środowiska wykonawczego integracji azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md)
+-   [Konfiguracja niestandardowa środowiska Azure-SSIS Integration Runtime](how-to-configure-azure-ssis-ir-custom-setup.md)
 
--   [Wersja enterprise środowiska wykonawczego integracji azure-SSIS](how-to-configure-azure-ssis-ir-enterprise-edition.md)
+-   [Wersja Enterprise Azure-SSIS Integration Runtime](how-to-configure-azure-ssis-ir-enterprise-edition.md)

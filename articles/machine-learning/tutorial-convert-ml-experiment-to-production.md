@@ -1,39 +1,39 @@
 ---
-title: Konwertowanie kodu eksperymentu uczenia maszynowego na kod produkcyjny
+title: Konwertuj kod eksperymentu uczenia maszynowego na kod produkcyjny
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak konwertować kod eksperymentalny uczenia maszynowego do kodu produkcyjnego przy użyciu szablonu kodu MLOpsPython.
+description: Dowiedz się, jak przekonwertować kod eksperymentalny uczenia maszynowego na kod produkcyjny przy użyciu szablonu kodu MLOpsPython.
 author: bjcmit
 ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 03/13/2020
 ms.openlocfilehash: e3c9b16ae3d2b06ec19ecd29d15762a065c0c1ae
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521440"
 ---
-# <a name="tutorial-convert-ml-experimental-code-to-production-code"></a>Samouczek: Konwertowanie kodu eksperymentalnego ML na kod produkcyjny
+# <a name="tutorial-convert-ml-experimental-code-to-production-code"></a>Samouczek: konwertowanie eksperymentalnego kodu ML na kod produkcyjny
 
-Projekt uczenia maszynowego wymaga eksperymentowania, w którym hipotezy są testowane za pomocą narzędzi agile, takich jak Notebook Jupyter przy użyciu rzeczywistych zestawów danych. Gdy model jest gotowy do produkcji, kod modelu powinny być umieszczone w repozytorium kodu produkcyjnego. W niektórych przypadkach kod modelu musi zostać przekonwertowany na skrypty języka Python, które zostaną umieszczone w repozytorium kodu produkcyjnego. W tym samouczku opisano zalecane podejście do eksportowania kodu eksperymentów do skryptów języka Python.
+Projekt uczenia maszynowego wymaga eksperymentu, w którym są testowane z użyciem narzędzi agile, takich jak Jupyter Notebook przy użyciu rzeczywistych zestawów danych. Gdy model jest gotowy do produkcji, kod modelu powinien być umieszczony w repozytorium kodu produkcyjnego. W niektórych przypadkach kod modelu musi być konwertowany do skryptów języka Python, które mają zostać umieszczone w repozytorium kodu produkcyjnego. Ten samouczek obejmuje zalecane podejście do eksportowania kodu eksperymentu do skryptów języka Python.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Czysty kod nieistotny
-> * Refaktoryzator Kodu notebooka Jupyter do funkcji
-> * Tworzenie skryptów języka Python dla powiązanych zadań
+> * Czysty nieistotny kod
+> * Refaktoryzacja Jupyter Notebook kodu do funkcji
+> * Tworzenie skryptów języka Python dla zadań pokrewnych
 > * Tworzenie testów jednostkowych
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Wygeneruj [szablon MLOpsPython](https://github.com/microsoft/MLOpsPython/generate) i użyj `experimentation/Diabetes Ridge Regression Training.ipynb` notesów. `experimentation/Diabetes Ridge Regression Scoring.ipynb` Te notesy są używane jako przykład konwersji z eksperymentów do produkcji. Możesz znaleźć te notesy w [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation).
-- Zainstaluj system `nbconvert`. Postępuj zgodnie z instrukcjami instalacji w sekcji __Instalowanie nbconvert__ na stronie [Instalacja.](https://nbconvert.readthedocs.io/en/latest/install.html)
+- Wygeneruj [szablon MLOpsPython](https://github.com/microsoft/MLOpsPython/generate) i Użyj `experimentation/Diabetes Ridge Regression Training.ipynb` notesów `experimentation/Diabetes Ridge Regression Scoring.ipynb` i. Te notesy są używane jako przykład konwersji z eksperymentów do środowiska produkcyjnego. Te notesy można znaleźć pod [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation)adresem.
+- Zainstaluj system `nbconvert`. Postępuj zgodnie z instrukcjami dotyczącymi instalacji w sekcji __Instalowanie nbconvert__ na stronie [instalacji](https://nbconvert.readthedocs.io/en/latest/install.html) .
 
-## <a name="remove-all-nonessential-code"></a>Usuń wszystkie nieistotne kodu
+## <a name="remove-all-nonessential-code"></a>Usuń cały nieistotny kod
 
-Niektóre kody napisane podczas eksperymentów jest przeznaczony tylko do celów badawczych. W związku z tym pierwszym krokiem do konwersji kodu eksperymentalnego do kodu produkcyjnego jest usunięcie tego nieistotnego kodu. Usunięcie nieistotne kod będzie również kod bardziej chywalne. W tej sekcji usuniesz `experimentation/Diabetes Ridge Regression Training.ipynb` kod z notesu. Instrukcje drukowania `X` kształtu i `y` `features.describe` wywoływania komórek są tylko do eksploracji danych i mogą zostać usunięte. Po usunięciu nieistotnego kodu, `experimentation/Diabetes Ridge Regression Training.ipynb` powinien wyglądać jak następujący kod bez znaczników:
+Kod zapisany podczas eksperymentowania jest przeznaczony wyłącznie do celów badawczych. W związku z tym pierwszy krok konwersji kodu doświadczalnego na kod produkcyjny polega na usunięciu tego nieistotnego kodu. Usunięcie nieistotnego kodu spowoduje również zwiększenie utrzymania kodu. W tej sekcji usuniemy kod z `experimentation/Diabetes Ridge Regression Training.ipynb` notesu. Instrukcje drukowania kształtu `X` i `y` i wywołania `features.describe` komórki są przeznaczone tylko do eksploracji danych i można je usunąć. Po usunięciu nieistotnego `experimentation/Diabetes Ridge Regression Training.ipynb` kodu powinien wyglądać podobnie do następującego kodu:
 
 ```python
 from sklearn.datasets import load_diabetes
@@ -74,28 +74,28 @@ model_name = "sklearn_regression_model.pkl"
 joblib.dump(value=reg, filename=model_name)
 ```
 
-## <a name="refactor-code-into-functions"></a>Refaktoryzator kodu do funkcji
+## <a name="refactor-code-into-functions"></a>Refaktoryzacja kodu do funkcji
 
-Po drugie kod Jupyter musi być refaktoryzowana do funkcji. Refaktoryzowanie kodu do funkcji sprawia, że testowanie jednostek łatwiejsze i sprawia, że kod bardziej do utrzymania. W tej sekcji będziesz refaktoryzator:
+Po drugie kod Jupyter musi zostać oddzielony do funkcji. Refaktoryzacja kodu do funkcji sprawia, że testy jednostkowe są łatwiejsze i zwiększają łatwość obsługi kodu. W tej sekcji zostanie Refaktoryzacja:
 
-- Notatnik treningu regresji Diabetes Ridge(`experimentation/Diabetes Ridge Regression Training.ipynb`)
-- Notatnik oceniania regresji Diabetes Ridge(`experimentation/Diabetes Ridge Regression Scoring.ipynb`)
+- Notes uczenia regresji pierścieniowej`experimentation/Diabetes Ridge Regression Training.ipynb`cukrzycą ()
+- Notes oceniania regresji pierścieniowej`experimentation/Diabetes Ridge Regression Scoring.ipynb`cukrzycą ()
 
-### <a name="refactor-diabetes-ridge-regression-training-notebook-into-functions"></a>Regenerora Diabetes Ridge Recydywa Szkolenia notebooka do funkcji
+### <a name="refactor-diabetes-ridge-regression-training-notebook-into-functions"></a>Refaktoryzacja cukrzycą — Notes szkolenia pierścieniowego do funkcji
 
-W `experimentation/Diabetes Ridge Regression Training.ipynb`, wykonaj następujące kroki:
+W `experimentation/Diabetes Ridge Regression Training.ipynb`programie wykonaj następujące czynności:
 
-1. Utwórz funkcję `split_data` wywoływaną do dzielenia ramki danych na dane testowe i kolejowe. Funkcja powinna wziąć ramkę dataframe `df` jako parametr i zwrócić `train` słownik `test`zawierający klucze i .
+1. Utwórz funkcję o nazwie `split_data` , aby podzielić ramkę danych na testowanie i próbkowanie danych. Funkcja powinna przyjmować element Dataframe `df` jako parametr i zwracać słownik zawierający klucze `train` i. `test`
 
-    Przenieś kod w obszarze *Podziel dane do szkolenia i sprawdzania poprawności ustawia* nagłówek do `split_data` funkcji i zmodyfikować go, aby zwrócić `data` obiekt.
+    Przenieś kod w polu *Podziel dane na nagłówek szkolenia i zestawy walidacji* do `split_data` funkcji i zmodyfikuj go, aby zwracał `data` obiekt.
 
-1. Utwórz funkcję `train_model`o nazwie `data` , `args` która przyjmuje parametry i zwraca przeszkolony model.
+1. Utwórz funkcję o nazwie `train_model`, która przyjmuje parametry `data` i `args` zwraca szkolony model.
 
-    Przenieś kod pod nagłówkiem *Model szkolenia na zestaw szkolenia* do `train_model` funkcji i zmodyfikować go, aby zwrócić `reg_model` obiekt. Usuń `args` słownik, wartości będą pochodzić `args` z parametru.
+    Przenieś kod objęty *modelem szkoleń dotyczących kursów w ramach szkolenia ustawionego* na `train_model` funkcję i zmodyfikuj go `reg_model` , aby zwracał obiekt. Usunięcie `args` słownika spowoduje, że wartości będą pochodzić z `args` parametru.
 
-1. Utwórz funkcję `get_model_metrics`o nazwie `reg_model` `data`, która przyjmuje parametry i , i ocenia model następnie zwraca słownik metryk dla przeszkolonego modelu.
+1. Utwórz funkcję o nazwie `get_model_metrics`, która pobiera parametry `reg_model` i `data`i szacuje model, a następnie zwraca słownik metryk dla nauczonego modelu.
 
-    Przenieś kod w obszarze *Sprawdź poprawność modelu na sprawdzanie poprawności ustaw* nagłówek do `get_model_metrics` funkcji i zmodyfikować go, aby zwrócić `metrics` obiekt.
+    Przenieś kod w obszarze *model walidacji w polu Walidacja Ustaw* nagłówek `get_model_metrics` do funkcji i zmodyfikuj go, aby `metrics` zwracał obiekt.
 
 Trzy funkcje powinny być następujące:
 
@@ -127,11 +127,11 @@ def get_model_metrics(reg_model, data):
     return metrics
 ```
 
-Nadal `experimentation/Diabetes Ridge Regression Training.ipynb`w , wykonaj następujące kroki:
+Nadal w `experimentation/Diabetes Ridge Regression Training.ipynb`programie wykonaj następujące czynności:
 
-1. Utwórz nową `main`funkcję o nazwie , która nie przyjmuje żadnych parametrów i nic nie zwraca.
-1. Przenieś kod pod nagłówkiem "Załaduj dane" do `main` funkcji.
-1. Dodaj wywołania nowo zapisanych funkcji do `main` funkcji:
+1. Utwórz nową funkcję o nazwie `main`, która nie przyjmuje parametrów i nie zwraca żadnej wartości.
+1. Przenieś kod w nagłówku "Ładowanie danych" do `main` funkcji.
+1. Dodaj wywołania dla nowo pisanych funkcji do `main` funkcji:
     ```python
     # Split Data into Training and Validation Sets
     data = split_data(df)
@@ -149,9 +149,9 @@ Nadal `experimentation/Diabetes Ridge Regression Training.ipynb`w , wykonaj nast
     # Validate Model on Validation Set
     metrics = get_model_metrics(reg, data)
     ```
-1. Przenieś kod pod nagłówkiem "Zapisz `main` model" do funkcji.
+1. Przenieś kod w nagłówku "Zapisz model" do `main` funkcji.
 
-Funkcja `main` powinna wyglądać następująco:
+`main` Funkcja powinna wyglądać podobnie do następującego kodu:
 
 ```python
 def main():
@@ -181,15 +181,15 @@ def main():
     joblib.dump(value=reg, filename=model_name)
 ```
 
-Na tym etapie nie powinno być żadnego kodu pozostałego w notesie, który nie jest w funkcji, inne niż instrukcje importu w pierwszej komórce.
+Na tym etapie nie powinien być pozostały żaden kod w notesie, który nie znajduje się w funkcji innej niż instrukcja importu w pierwszej komórce.
 
-Dodaj instrukcję, `main` która wywołuje funkcję.
+Dodaj instrukcję, która wywołuje `main` funkcję.
 
 ```python
 main()
 ```
 
-Po refaktoryzacji, `experimentation/Diabetes Ridge Regression Training.ipynb` powinien wyglądać następującego kodu bez znaczników:
+Po refaktoryzacji `experimentation/Diabetes Ridge Regression Training.ipynb` powinien wyglądać podobnie do następującego kodu bez promocji:
 
 ```python
 from sklearn.datasets import load_diabetes
@@ -256,14 +256,14 @@ def main():
 main()
 ```
 
-### <a name="refactor-diabetes-ridge-regression-scoring-notebook-into-functions"></a>Regenerora Diabetes Ridge — notatnik punktacji regresji do funkcji
+### <a name="refactor-diabetes-ridge-regression-scoring-notebook-into-functions"></a>Refaktoryzacja Cukrzycąa w notesie do funkcji
 
-W `experimentation/Diabetes Ridge Regression Scoring.ipynb`, wykonaj następujące kroki:
+W `experimentation/Diabetes Ridge Regression Scoring.ipynb`programie wykonaj następujące czynności:
 
-1. Utwórz nową `init`funkcję o nazwie , która nie przyjmuje żadnych parametrów i nic nie zwraca.
-1. Skopiuj kod pod nagłówkiem `init` "Załaduj model" do funkcji.
+1. Utwórz nową funkcję o nazwie `init`, która nie przyjmuje parametrów i nie zwraca niczego.
+1. Skopiuj kod w nagłówku "Ładowanie modelu" do `init` funkcji.
 
-Funkcja `init` powinna wyglądać następująco:
+`init` Funkcja powinna wyglądać podobnie do następującego kodu:
 
 ```python
 def init():
@@ -272,23 +272,23 @@ def init():
     model = joblib.load(model_path)
 ```
 
-Po `init` utworzeniu funkcji zastąp cały kod pod nagłówkiem "Załaduj model" jednym wywołaniem `init` w następujący sposób:
+Po utworzeniu `init` funkcji Zastąp cały kod pod nagłówkiem "Ładowanie modelu" pojedynczym wywołaniem do `init` w następujący sposób:
 
 ```python
 init()
 ```
 
-W `experimentation/Diabetes Ridge Regression Scoring.ipynb`, wykonaj następujące kroki:
+W `experimentation/Diabetes Ridge Regression Scoring.ipynb`programie wykonaj następujące czynności:
 
-1. Utwórz nową `run`funkcję o `raw_data` `request_headers` nazwie , która przyjmuje i jako parametry i zwraca słownik wyników w następujący sposób:
+1. Utwórz nową funkcję o nazwie `run`, która przyjmuje `raw_data` i `request_headers` jako parametry i zwraca słownik wyników w następujący sposób:
 
     ```python
     {"result": result.tolist()}
     ```
 
-1. Skopiuj kod pod nagłówkami "Przygotuj dane" `run` i "Dane wynikowe" do funkcji.
+1. Skopiuj kod w nagłówkach "przygotowanie danych" i "dane oceny" do `run` funkcji.
 
-    Funkcja `run` powinna wyglądać jak następujący kod (Pamiętaj, aby usunąć `raw_data` `request_headers`instrukcje, które ustawiają zmienne i , które będą używane później, gdy `run` funkcja jest wywoływana):
+    `run` Funkcja powinna wyglądać podobnie do następującego kodu (należy pamiętać, aby usunąć instrukcje ustawiające zmienne `raw_data` i `request_headers`, które będą używane później podczas wywoływania `run` funkcji):
 
     ```python
     def run(raw_data, request_headers):
@@ -299,7 +299,7 @@ W `experimentation/Diabetes Ridge Regression Scoring.ipynb`, wykonaj następują
         return {"result": result.tolist()}
     ```
 
-Po `run` utworzeniu funkcji zastąp cały kod w nagłówkach "Przygotuj dane" i "Dane wynikowe" następującym kodem:
+Po utworzeniu `run` funkcji Zastąp cały kod w nagłówkach "przygotowanie danych" i "dane oceny" następującym kodem:
 
 ```python
 raw_data = '{"data":[[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]]}'
@@ -308,9 +308,9 @@ prediction = run(raw_data, request_header)
 print("Test result: ", prediction)
 ```
 
-Poprzedni kod ustawia `raw_data` zmienne `request_header`i `run` , `raw_data` `request_header`wywołuje funkcję z i , i drukuje prognoz.
+Poprzedni kod ustawia `raw_data` zmienne i `request_header`, wywołuje `run` funkcję z `raw_data` i `request_header`i drukuje przewidywania.
 
-Po refaktoryzacji, `experimentation/Diabetes Ridge Regression Scoring.ipynb` powinien wyglądać następującego kodu bez znaczników:
+Po refaktoryzacji `experimentation/Diabetes Ridge Regression Scoring.ipynb` powinien wyglądać podobnie do następującego kodu bez promocji:
 
 ```python
 import json
@@ -339,27 +339,27 @@ print("Test result: ", prediction)
 
 ## <a name="combine-related-functions-in-python-files"></a>Łączenie powiązanych funkcji w plikach języka Python
 
-Po trzecie, powiązane funkcje muszą zostać scalone z plikami języka Python, aby lepiej pomóc w ponownym użyciem kodu. W tej sekcji będziesz tworzyć pliki Języka Python dla następujących notesów:
+Po trzecie, powiązane funkcje muszą zostać scalone z plikami języka Python, aby lepiej ułatwić ponowne użycie kodu. W tej sekcji utworzysz pliki języka Python dla następujących notesów:
 
-- Notatnik treningu regresji Diabetes Ridge(`experimentation/Diabetes Ridge Regression Training.ipynb`)
-- Notatnik oceniania regresji Diabetes Ridge(`experimentation/Diabetes Ridge Regression Scoring.ipynb`)
+- Notes uczenia regresji pierścieniowej`experimentation/Diabetes Ridge Regression Training.ipynb`cukrzycą ()
+- Notes oceniania regresji pierścieniowej`experimentation/Diabetes Ridge Regression Scoring.ipynb`cukrzycą ()
 
-### <a name="create-python-file-for-the-diabetes-ridge-regression-training-notebook"></a>Tworzenie pliku Python dla notesu szkolenia regresji diabetes Ridge
+### <a name="create-python-file-for-the-diabetes-ridge-regression-training-notebook"></a>Utwórz plik w języku Python dla notesu szkoleniowego dla regresji cukrzycą
 
-Konwertowanie notesu na skrypt wykonywalny, uruchamiając `nbconvert` następującą instrukcję w wierszu polecenia, która używa pakietu i ścieżki `experimentation/Diabetes Ridge Regression Training.ipynb`:
+Przekonwertuj Notes na skrypt wykonywalny, uruchamiając następującą instrukcję w wierszu polecenia, który używa `nbconvert` pakietu i ścieżki: `experimentation/Diabetes Ridge Regression Training.ipynb`
 
 ```
 jupyter nbconvert -- to script "Diabetes Ridge Regression Training.ipynb" –output train
 ```
 
-Po przekonwertowaniu `train.py`notesu na usunięcie niechcianych komentarzy. Zastąp `main()` wywołanie na końcu pliku wywołaniem warunkowym, takim jak następujący kod:
+Po przekonwertowaniu notesu na `train.py`program Usuń niechciane Komentarze. Zastąp wywołanie `main()` na końcu pliku z wywołaniem warunkowym, takim jak poniższy kod:
 
 ```python
 if __name__ == '__main__':
     main()
 ```
 
-Plik `train.py` powinien wyglądać następująco:
+`train.py` Plik powinien wyglądać podobnie do następującego kodu:
 
 ```python
 from sklearn.datasets import load_diabetes
@@ -427,20 +427,20 @@ if __name__ == '__main__':
     main()
 ```
 
-`train.py`można teraz wywołać z terminala, uruchamiając `python train.py`plik .
-Funkcje `train.py` z mogą być również wywoływane z innych plików.
+`train.py`mogą teraz być wywoływane z terminalu przez uruchomienie `python train.py`.
+Funkcje z `train.py` mogą również być wywoływane z innych plików.
 
-Plik `train_aml.py` znaleziony w `diabetes_regression/training` katalogu w repozytorium MLOpsPython wywołuje `train.py` funkcje zdefiniowane w kontekście uruchomienia eksperymentu usługi Azure Machine Learning. Funkcje mogą być również wywoływane w testach jednostkowych, omówione w dalszej części tego przewodnika.
+`train_aml.py` Plik znaleziony w `diabetes_regression/training` katalogu w repozytorium MLOpsPython wywołuje funkcje zdefiniowane w `train.py` kontekście uruchomienia eksperymentu Azure Machine Learning. Funkcje mogą być również wywoływane w testach jednostkowych, omówione w dalszej części tego przewodnika.
 
-### <a name="create-python-file-for-the-diabetes-ridge-regression-scoring-notebook"></a>Tworzenie pliku Python dla notesu Oceniania regresji grzbietu cukrzycy
+### <a name="create-python-file-for-the-diabetes-ridge-regression-scoring-notebook"></a>Utwórz plik Python dla notesu oceniania regresji pierścieniowej cukrzycą
 
-Zakryj notes do skryptu wykonywalnego, uruchamiając następującą instrukcję w wierszu polecenia, która używa `nbconvert` pakietu i `experimentation/Diabetes Ridge Regression Scoring.ipynb`ścieżki:
+Przekonwertować Notes do skryptu wykonywalnego, uruchamiając następującą instrukcję w wierszu polecenia, który używa `nbconvert` pakietu i ścieżki: `experimentation/Diabetes Ridge Regression Scoring.ipynb`
 
 ```
 jupyter nbconvert -- to script "Diabetes Ridge Regression Scoring.ipynb" –output score
 ```
 
-Po przekonwertowaniu `score.py`notesu na usunięcie niechcianych komentarzy. Plik `score.py` powinien wyglądać następująco:
+Po przekonwertowaniu notesu na `score.py`program Usuń niechciane Komentarze. `score.py` Plik powinien wyglądać podobnie do następującego kodu:
 
 ```python
 import json
@@ -467,13 +467,13 @@ prediction = run(test_row, request_header)
 print("Test result: ", prediction)
 ```
 
-Zmienna musi być globalna, `model` tak aby była widoczna w całym skrypcie. Dodaj następującą instrukcję na `init` początku funkcji:
+`model` Zmienna musi być globalna, aby była widoczna w całym skrypcie. Dodaj następującą instrukcję na początku `init` funkcji:
 
 ```python
 global model
 ```
 
-Po dodaniu poprzedniej `init` instrukcji funkcja powinna wyglądać następująco:
+Po dodaniu poprzedniej instrukcji `init` funkcja powinna wyglądać podobnie do następującego kodu:
 
 ```python
 def init():
@@ -485,19 +485,19 @@ def init():
     model = joblib.load(model_path)
 ```
 
-## <a name="create-unit-tests-for-each-python-file"></a>Tworzenie testów jednostkowych dla każdego pliku języka Python
+## <a name="create-unit-tests-for-each-python-file"></a>Utwórz testy jednostkowe dla każdego pliku języka Python
 
-Po czwarte, utwórz testy jednostkowe dla funkcji języka Python. Testy jednostkowe chronią kod przed regresjami funkcjonalnymi i ułatwiają jego konserwację. W tej sekcji będziesz tworzyć testy jednostkowe dla `train.py`funkcji w .
+Czwarty, Utwórz testy jednostkowe dla funkcji języka Python. Testy jednostkowe chronią kod przed regresją funkcjonalną i ułatwiają ich obsługę. W tej sekcji utworzysz testy jednostkowe dla funkcji w programie `train.py`.
 
-`train.py`zawiera wiele funkcji, ale utworzymy tylko jeden `train_model` test jednostkowy dla funkcji przy użyciu pytest framework w tym samouczku. Pytest nie jest jedyną platformą testowania jednostek Języka Python, ale jest jedną z najczęściej używanych. Aby uzyskać więcej informacji, odwiedź [Pytest](https://pytest.org).
+`train.py`zawiera wiele funkcji, ale utworzymy tylko jeden test jednostkowy dla `train_model` funkcji przy użyciu struktury Pytest w tym samouczku. Pytest nie jest jedyną strukturą testów jednostkowych w języku Python, ale jest jednym z najczęściej używanych. Aby uzyskać więcej informacji, odwiedź stronę [Pytest](https://pytest.org).
 
-Test jednostkowy zwykle zawiera trzy główne czynności:
+Test jednostkowy zwykle zawiera trzy główne akcje:
 
-- Rozmieszczanie obiektu — tworzenie i konfigurowanie niezbędnych obiektów
-- Działaj na przedmiot
-- Potwierdzanie oczekiwanych
+- Rozmieść obiekt — tworzenie i Konfigurowanie niezbędnych obiektów
+- Działanie na obiekcie
+- Potwierdź, co jest oczekiwane
 
-Test jednostkowy `train_model` wywoła niektóre zakodowane dane i argumenty `train_model` i sprawdź poprawność, która działała zgodnie z oczekiwaniami przy użyciu wynikowego modelu uczonego, aby przewidzieć i porównując tę prognozę z oczekiwaną wartością.
+Test jednostkowy będzie wywoływał `train_model` z niektórymi ustalonymi danymi i argumentami, a `train_model` następnie sprawdza, czy działa zgodnie z oczekiwaniami, korzystając z modelu, który jest przeszkolony, aby utworzyć prognozę i porównać ją z oczekiwaną wartością.
 
 ```python
 import numpy as np
@@ -520,8 +520,8 @@ def test_train_model():
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy zrozumiesz, jak przekonwertować z eksperymentu na kod produkcyjny, zobacz następujące łącza, aby uzyskać więcej informacji i następne kroki:
+Teraz, po zrozumieniu sposobu konwersji z eksperymentu na kod produkcyjny, Skorzystaj z poniższych linków, aby uzyskać więcej informacji i następnych kroków:
 
-+ [MLOpsPython:](https://github.com/microsoft/MLOpsPython/blob/master/docs/custom_model.md)Tworzenie potoku ciągłej integracji/ciągłego wdrażania w celu uczenia, oceny i wdrażania własnego modelu przy użyciu potoków platformy Azure i usługi Azure Machine Learning
-+ [Monitorowanie przebiegów eksperymentu usługi Azure ML i metryk](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
-+ [Monitorowanie i zbieranie danych z punktów końcowych usługi sieci web ml](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights)
++ [MLOpsPython](https://github.com/microsoft/MLOpsPython/blob/master/docs/custom_model.md): Kompiluj potok ciągłej integracji/ciągłego dostarczania, aby przeprowadzić uczenie, oszacować i wdrożyć własny model przy użyciu Azure Pipelines i Azure Machine Learning
++ [Monitoruj uruchomienia eksperymentów i metryki usługi Azure ML](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
++ [Monitorowanie i zbieranie danych z punktów końcowych usługi sieci Web ML](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights)

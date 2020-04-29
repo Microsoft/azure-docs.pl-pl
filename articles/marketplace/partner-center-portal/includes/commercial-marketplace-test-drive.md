@@ -10,101 +10,101 @@ ms.date: 08/13/2019
 ms.author: dsindona
 ms.custom: include file
 ms.openlocfilehash: f2446a924ceed37c51779efc9d9e94c0252a2067
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80321707"
 ---
-Karta **Dysk testowy** umożliwia skonfigurowanie demonstracji (lub "jazdy testowej"), która umożliwi klientom wypróbowanie oferty przed jej zakupem. Dowiedz się więcej w artykule [Co to jest jazda testna?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). Jeśli nie chcesz już dostarczać dysku testowego dla swojej oferty, wróć do strony **Ustawienia oferty** i odeślij pole wyboru **Włącz jazdę próbną**.
+Na karcie **dysk testowy** można skonfigurować pokaz (lub "dysk testowy"), co umożliwi klientom wypróbowanie oferty przed zatwierdzeniem jej zakupu. Dowiedz się więcej w artykule [co to jest dysk testowy?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). Jeśli nie chcesz już podawać dysku testowego dla swojej oferty, Wróć do strony **Konfiguracja oferty** i usuń zaznaczenie opcji **Włącz dysk testowy**.
 
 ### <a name="technical-configuration"></a>Konfiguracja techniczna
-Dostępne są następujące typy dysków testowych, z których każdy ma własne wymagania techniczne konfiguracji.
+Dostępne są następujące typy dysków testowych, z których każda ma własne wymagania dotyczące konfiguracji technicznej.
 
 - [Azure Resource Manager](#technical-configuration-for-azure-resource-manager-test-drive)
 - [Dynamics 365](#technical-configuration-for-dynamics-365-test-drive)
-- [Aplikacja logika](#technical-configuration-for-logic-app-test-drive)
-- [Usługa Power BI](#technical-configuration-not-required-for-power-bi-test-drives) (konfiguracja techniczna nie jest wymagana)
+- [Aplikacja logiki](#technical-configuration-for-logic-app-test-drive)
+- [Power BI](#technical-configuration-not-required-for-power-bi-test-drives) (konfiguracja techniczna nie jest wymagana)
 
-#### <a name="technical-configuration-for-azure-resource-manager-test-drive"></a>Konfiguracja techniczna dla dysku testowego usługi Azure Resource Manager
+#### <a name="technical-configuration-for-azure-resource-manager-test-drive"></a>Konfiguracja techniczna dla Azure Resource Managergo dysku testowego
 
-Szablon wdrożenia, który zawiera wszystkie zasoby platformy Azure, które składają się na rozwiązanie. Produkty, które pasują do tego scenariusza, używają tylko zasobów platformy Azure. Dowiedz się więcej o konfigurowaniu [dysku testowego usługi Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
+Szablon wdrożenia zawierający wszystkie zasoby platformy Azure, które składają się na Twoje rozwiązanie. Produkty, które pasują do tego scenariusza, korzystają tylko z zasobów platformy Azure. Dowiedz się więcej o konfigurowaniu [Azure Resource Manager dysku testowego](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
 
-- **Regiony** (wymagane): Obecnie istnieje 26 regionów obsługiwanych przez platformę Azure, w których można udostępnić dysk testowy. Zazwyczaj należy udostępnić jazdę próbną w regionach, w których przewiduje się największą liczbę klientów, aby mogli wybrać najbliższy region dla najlepszej wydajności. Należy upewnić się, że subskrypcja może wdrożyć wszystkie zasoby potrzebne w każdym z regionów, które wybierasz.
+- **Regiony** (wymagane): obecnie istnieją 26 regionów obsługiwanych przez platformę Azure, w których można udostępnić dysk testowy. Zwykle warto udostępnić dysk testowy w regionach, w których przewidujesz największą liczbę klientów, dzięki czemu można wybrać najbliższy region dla najlepszej wydajności. Musisz się upewnić, że Twoja subskrypcja może wdrażać wszystkie wymagane przez siebie regiony.
 
-- **Wystąpienia:** Wybierz typ (gorący lub zimny) i liczbę dostępnych wystąpień, które zostaną pomnożone przez liczbę regionów, w których oferta jest dostępna.
+- **Wystąpienia**: Wybierz typ (gorąca lub zimna) oraz liczbę dostępnych wystąpień, które zostaną pomnożone przez liczbę regionów, w których oferta jest dostępna.
 
-**Hot:** Ten typ wystąpienia jest wdrażany i oczekuje na dostęp dla wybranego regionu. Klienci mogą natychmiast uzyskać dostęp *do gorących* wystąpień dysku testowego, zamiast czekać na wdrożenie. Kompromisem jest to, że te wystąpienia są zawsze uruchomione w ramach subskrypcji platformy Azure, więc poniosą one większy koszt czasu pracy bez przestojów. Zdecydowanie zaleca się mieć co najmniej jedno *wystąpienie Hot,* ponieważ większość klientów nie chce czekać na pełne wdrożenia, co powoduje spadek użycia klienta, jeśli nie jest dostępne żadne *wystąpienie Hot.*
+**Gorąca**: ten typ wystąpienia jest wdrożony i oczekuje na dostęp w wybranym regionie. Klienci mogą natychmiast uzyskać dostęp do *gorącego* wystąpienia dysku testowego, a nie muszą czekać na wdrożenie. Jest to, że te wystąpienia są zawsze uruchamiane w ramach subskrypcji platformy Azure, dzięki czemu będą one miały większy koszt przestoju. Zdecydowanie zaleca się, aby miało co najmniej jedno *aktywne* wystąpienie, ponieważ większość *klientów nie chce* czekać na pełne wdrożenia, co powoduje odrzucanie w przypadku użycia klienta w przypadku braku dostępnego wystąpienia.
 
-**Zimno:** Ten typ wystąpienia reprezentuje całkowitą liczbę wystąpień, które mogą być ewentualnie wdrożone na region. Zimne wystąpienia wymagają całego szablonu Menedżera zasobów dysku testowego do wdrożenia, gdy klient zażąda dysku testowego, *więc* zimne wystąpienia są znacznie wolniejsze do załadowania niż *wystąpienia hot.* Kompromisem jest to, że trzeba płacić tylko za czas trwania dysku testowego, *nie* zawsze jest uruchomiony w ramach subskrypcji platformy Azure, jak w przypadku *wystąpienia Hot.*
+**Zimne**: ten typ wystąpienia reprezentuje łączną liczbę wystąpień, które mogą być wdrożone w poszczególnych regionach. Zimne wystąpienia wymagają, aby cały dysk testowy Menedżer zasobów szablon do wdrożenia, gdy klient zażąda dysku testowego, więc *zimne* wystąpienia są znacznie wolniejsze, aby można było ładować je od *aktywnych* wystąpień. Wadą jest to, że musisz tylko uregulować czas trwania testu, ale *nie* zawsze działa w ramach subskrypcji platformy Azure, tak jak w przypadku wystąpienia *aktywnego* .
 
-- **Szablon usługi Azure Resource Manager na dysku testowym:** przekaż plik zip zawierający szablon usługi Azure Resource Manager.  Dowiedz się więcej o tworzeniu szablonu usługi Azure Resource Manager w artykule Szybki start [Tworzenie i wdrażanie szablonów usługi Azure Resource Manager przy użyciu portalu Azure.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)
+- **Test Azure Resource Manager szablonu**: Przekaż plik zip zawierający szablon Azure Resource Manager.  Dowiedz się więcej o tworzeniu szablonu Azure Resource Manager w artykule Szybki Start [Tworzenie i wdrażanie szablonów Azure Resource Manager przy użyciu Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
-- **Czas trwania dysku testowego** (wymagane): Wprowadź czas, przez który dysk testowy pozostanie aktywny w ciągu kilku godzin. Dysk testowy kończy się automatycznie po zakończeniu tego okresu. Czas trwania ten może być ustawiony tylko przez liczbę godzin (np. "2" godzin, "1.5" jest nieważne).
+- **Czas trwania dysku testowego** (wymagane): Wprowadź czas aktywności dysku testowego w ciągu kilku godzin. Po upływie tego czasu test kończy się automatycznie. Ten czas trwania może być ustawiony tylko przez całą liczbę godzin (np. "2" godzin, "1,5" jest nieprawidłowy).
 
-#### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Konfiguracja techniczna dla jazdy testowej Dynamics 365
+#### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Konfiguracja techniczna dla systemu Dynamics 365 Test Drive
 
-Firma Microsoft może usunąć złożoność konfigurowania dysku testowego przez hosting i utrzymywanie inicjowania obsługi administracyjnej i wdrażania usługi przy użyciu tego typu dysku testowego. Konfiguracja dla tego typu hostowanego dysku testowego jest taka sama, niezależnie od tego, czy dysk testowy jest przeznaczony dla odbiorców Business Central, Customer Engagement lub Operations.
+Firma Microsoft może usunąć złożoność konfigurowania dysku testowego, udostępniając i utrzymując obsługę administracyjną i wdrożenie usługi przy użyciu tego typu dysku testowego. Konfiguracja dla tego typu hostowanego dysku testowego jest taka sama, niezależnie od tego, czy dysk testowy jest przeznaczony dla odbiorców w biznesie, w ramach zaangażowania z klientami, czy z działu operacji.
 
-- **Maksymalna liczba równoczesnych dysków testowych** (wymagana): ustaw maksymalną liczbę klientów, którzy mogą korzystać z dysku testowego w tym samym czasie. Każdy równoczesnych użytkowników będzie używać licencji Dynamics 365, gdy dysk testowy jest aktywny, więc należy upewnić się, że masz wystarczająco dużo licencji dostępnych do obsługi maksymalnego limitu ustawionego. Zalecana wartość 3-5.
+- **Maksymalna liczba współbieżnych dysków testowych** (wymagane): Ustaw maksymalną liczbę klientów, którzy mogą jednocześnie używać danego dysku testowego. Każdy użytkownik współbieżny będzie korzystał z licencji Dynamics 365, gdy test jest aktywny, więc należy upewnić się, że masz wystarczającą liczbę dostępnych licencji do obsługi maksymalnego ustawionego limitu. Zalecana wartość 3-5.
 
-- **Czas trwania jazdy próbnej** (wymagany): Wprowadź czas, przez który testowa jazda będzie aktywna, definiując liczbę godzin. Po tych wielu godzinach sesja zostanie zakończona i nie będzie już zużywać jednej z licencji. Zalecamy wartość 2-24 godzin w zależności od złożoności oferty. Czas trwania ten może być ustawiony tylko przez liczbę godzin (np. "2" godzin, "1.5" jest nieważne).  Użytkownik może zażądać nowej sesji, jeśli zabraknie im czasu i chcesz ponownie uzyskać dostęp do dysku testowego.
+- **Czas trwania dysku testowego** (wymagane): Wprowadź czas aktywności dysku testowego, definiując liczbę godzin. Po tylu godzinach sesja zostanie zakończona i nie będzie już korzystać z jednej z Twoich licencji. Zalecamy użycie wartości 2-24 godzin w zależności od złożoności oferty. Ten czas trwania może być ustawiony tylko przez całą liczbę godzin (np. "2" godzin, "1,5" jest nieprawidłowy).  Użytkownik może zażądać nowej sesji, jeśli są one nieaktualne i chcą ponownie uzyskać dostęp do dysku testowego.
 
-- **Adres URL wystąpienia** (wymagany): adres URL, pod którym klient rozpocznie jazdę testowa. Zazwyczaj adres URL wystąpienia Dynamics 365 z zainstalowaną aplikacją z `https://testdrive.crm.dynamics.com`zainstalowanymi przykładowymi danymi (np. ).
+- **Adres URL wystąpienia** (wymagany): adres URL, pod którym klient zacznie testować swój dysk. Zwykle jest to adres URL wystąpienia Dynamics 365, na którym działa Twoja aplikacja z zainstalowanymi przykładowymi danymi (np. `https://testdrive.crm.dynamics.com`).
 
-- **Adres URL interfejsu API sieci Web wystąpienia** (wymagane): pobierz adres URL interfejsu API sieci Web dla wystąpienia dynamics 365, logując się do konta usługi Microsoft 365 i przechodząc do **ustawień** \&gt; **Dostosowanie** \&gt; **Zasoby** \&dla deweloperów gt; **Interfejs API sieci Web instancji (adres URL katalogu głównego usługi),** skopiuj adres URL znajdujący się tutaj (np. `https://testdrive.crm.dynamics.com/api/data/v9.0`).
+- **Adres URL internetowego interfejsu API wystąpienia** (wymagane): Pobierz adres URL internetowego interfejsu API dla wystąpienia usługi Dynamics 365, logując się do konta usługi Microsoft 365 i przechodząc do **ustawień** \&gt; **Dostosowywanie** \&gt; **Zasoby** \&dla deweloperów gt; **Interfejs API sieci Web wystąpienia (główny adres URL usługi)**, skopiuj adres URL znaleziony w `https://testdrive.crm.dynamics.com/api/data/v9.0`tym miejscu (np.).
 
-- **Nazwa roli** (wymagana): Podaj nazwę roli zabezpieczeń zdefiniowaną na niestandardowej dysku testowym Dynamics 365. Zostanie to przypisane do użytkownika podczas jazdy próbne (np. test-drive-role).
+- **Nazwa roli** (wymagana): Podaj nazwę roli zabezpieczeń zdefiniowaną w niestandardowym dysku testowym Dynamics 365. Ta wartość zostanie przypisana do użytkownika w trakcie jego dysku testowego (np. roli "Test-Drive-role").
 
-#### <a name="technical-configuration-for-logic-app-test-drive"></a>Konfiguracja techniczna dla aplikacji logiki jazdy testowej
+#### <a name="technical-configuration-for-logic-app-test-drive"></a>Konfiguracja techniczna dla dysku testowego aplikacji logiki
 
-Wszystkie produkty niestandardowe należy użyć tego typu szablonu wdrażania dysku testowego, który obejmuje wiele złożonych architektur rozwiązań. Aby uzyskać więcej informacji na temat konfigurowania dysków testowych aplikacji logiki, odwiedź [witrynę Operacje](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) i [customer engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) w usłudze GitHub.
+Wszystkie produkty niestandardowe powinny korzystać z tego typu szablonu wdrożenia dysku testowego, który obejmuje wiele złożonych architektur rozwiązań. Aby uzyskać więcej informacji na temat konfigurowania dysków testowych aplikacji logiki, odwiedź stronę [operacje](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) i [zaangażowanie klientów](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) w serwisie GitHub.
 
-- **Region** (wymagana lista rozwijana z jednym wyborem): obecnie istnieje 26 regionów obsługiwanych przez platformę Azure, w których można udostępnić dysk testowy. Zasoby aplikacji logiki zostaną wdrożone w wybranym regionie. Jeśli aplikacja logiki ma żadnych zasobów niestandardowych przechowywanych w określonym regionie, upewnij się, że region jest zaznaczony w tym miejscu. Najlepszym sposobem, aby to zrobić, jest pełne wdrożenie aplikacji logiki lokalnie w ramach subskrypcji platformy Azure w portalu i sprawdzenie, czy działa poprawnie przed dokonaniem tego wyboru.
+- **Region** (wymagana, lista rozwijana z pojedynczym wyborem): obecnie dostępne są 26 regionów obsługiwanych przez platformę Azure. Zasoby aplikacji logiki zostaną wdrożone w wybranym regionie. Jeśli aplikacja logiki ma jakieś zasoby niestandardowe przechowywane w określonym regionie, upewnij się, że w tym miejscu wybrano region. Najlepszym sposobem jest w pełni wdrażanie aplikacji logiki lokalnie w ramach subskrypcji platformy Azure w portalu i sprawdzenie, czy działa ona prawidłowo przed wybraniem tej opcji.
 
-- **Maksymalna liczba równoczesnych dysków testowych** (wymagana): ustaw maksymalną liczbę klientów, którzy mogą korzystać z dysku testowego w tym samym czasie. Te dyski testowe są już wdrożone, dzięki czemu klienci mogą natychmiast uzyskać do nich dostęp bez oczekiwania na wdrożenie.
+- **Maksymalna liczba współbieżnych dysków testowych** (wymagane): Ustaw maksymalną liczbę klientów, którzy mogą jednocześnie używać danego dysku testowego. Te stacje testowe są już wdrożone, umożliwiając klientom natychmiastowe uzyskiwanie dostępu do nich bez oczekiwania na wdrożenie.
 
-- **Czas trwania dysku testowego** (wymagane): Wprowadź czas, przez który dysk testowy pozostanie aktywny w ciągu kilku godzin. Po zakończeniu tego okresu dysk testowy kończy się automatycznie.
+- **Czas trwania dysku testowego** (wymagane): Wprowadź czas aktywności dysku testowego w ciągu kilku godzin. Po upływie tego czasu test kończy się automatycznie.
 
-- **Nazwa grupy zasobów platformy Azure** (wymagana): wprowadź nazwę grupy zasobów platformy [Azure,](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) w której jest zapisywany dysk testowy aplikacji logiki.
+- **Nazwa grupy zasobów platformy Azure** (wymagana): Wprowadź nazwę [grupy zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) , w której jest zapisywany dysk testowy aplikacji logiki.
 
-- **Nazwa aplikacji logiki platformy Azure** (wymagane): Wprowadź nazwę aplikacji logiki, która przypisuje dysku testowego do użytkownika. Ta aplikacja logiki musi być zapisany w grupie zasobów platformy Azure powyżej.
+- **Nazwa aplikacji logiki platformy Azure** (wymagana): Wprowadź nazwę aplikacji logiki, która przypisuje dysk testowy do użytkownika. Ta aplikacja logiki musi zostać zapisana w powyższej grupie zasobów platformy Azure.
 
-- **Nazwa aplikacji logiki deprovision** (wymagane): Wprowadź nazwę aplikacji logiki, która usuwa aprowizji dysku testowego po zakończeniu klienta. Ta aplikacja logiki musi być zapisany w grupie zasobów platformy Azure powyżej.
+- Anulowanie aprowizacji **nazwy aplikacji logiki** (wymagane): Wprowadź nazwę aplikacji logiki, która powoduje anulowanie obsługi dysku testowego po zakończeniu klienta. Ta aplikacja logiki musi zostać zapisana w powyższej grupie zasobów platformy Azure.
 
-#### <a name="technical-configuration-not-required-for-power-bi-test-drives"></a>Konfiguracja techniczna nie jest wymagana dla dysków testowych usługi Power BI
+#### <a name="technical-configuration-not-required-for-power-bi-test-drives"></a>Konfiguracja techniczna dla Power BI dysków testowych nie jest wymagana
 
-Produkty, które chcą zademonstrować interaktywną wizualizację usługi Power BI, mogą używać wbudowanego łącza do udostępniania niestandardowego pulpitu nawigacyjnego jako dysku testowego, bez konieczności dalszej konfiguracji technicznej. Dowiedz się więcej o konfigurowaniu aplikacji szablonów[usługi Power BI.](https://docs.microsoft.com/power-bi/service-template-apps-overview)
+Produkty, które chcą zaprezentować interaktywną wizualizację Power BI, mogą użyć osadzonego linku, aby udostępnić pulpit nawigacyjny, który jest wbudowanym niestandardowym jako dysk testowy, nie jest wymagana żadna dodatkowa konfiguracja techniczna. Dowiedz się więcej o konfigurowaniu aplikacji[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview) Template.
 
 ### <a name="deployment-subscription-details"></a>Szczegóły subskrypcji wdrożenia
 
-Aby wdrożyć jazdę testową w Twoim imieniu, utwórz i podaj oddzielną, unikatową subskrypcję platformy Azure. (Nie jest wymagane w przypadku dysków testowych usługi Power BI).
+Aby wdrożyć dysk testowy w Twoim imieniu, Utwórz i podaj oddzielną, unikatową subskrypcję platformy Azure. (Niewymagane w przypadku Power BI dysków testowych).
 
-- **Identyfikator subskrypcji platformy Azure** (wymagany dla usługi Azure Resource Manager i aplikacje logiki): wprowadź identyfikator subskrypcji, aby udzielić dostępu do usług konta platformy Azure w celu raportowania użycia zasobów i rozliczeń. Zaleca się, aby rozważyć [utworzenie oddzielnej subskrypcji platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription) do użycia w przypadku jazdy testowych, jeśli nie masz jeszcze. Identyfikator subskrypcji platformy Azure można znaleźć, logując się do [witryny Azure portal](https://portal.azure.com/) i przechodząc do karty **Subskrypcje** menu po lewej stronie. Wybranie karty spowoduje wyświetlenie identyfikatora subskrypcji (np.
+- **Identyfikator subskrypcji platformy Azure** (wymagany dla Azure Resource Manager i aplikacji logiki): Wprowadź identyfikator subskrypcji, aby udzielić dostępu do usług konta platformy Azure na potrzeby raportowania użycia zasobów i rozliczeń. Zalecamy [utworzenie oddzielnej subskrypcji platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription) , która ma być używana na potrzeby dysków testowych, jeśli jeszcze jej nie masz. Identyfikator subskrypcji platformy Azure można znaleźć, logując się do [Azure Portal](https://portal.azure.com/) i przechodząc do karty **subskrypcje** w menu po lewej stronie. Wybranie karty spowoduje wyświetlenie identyfikatora subskrypcji (np. "a83645ac-1234-5ab6-6789-1h234g764ghty").
 
-- **Identyfikator dzierżawy usługi Azure AD** (wymagany): wprowadź identyfikator [dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)usługi Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [portalu Azure](https://portal.azure.com/), wybierz kartę Usługi Active Directory w menu po lewej stronie, wybierz **polecenie Właściwości** , a następnie poszukaj podanego numeru **identyfikatora katalogu** (np. 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy organizacji przy użyciu [https://www.whatismytenantid.com](https://www.whatismytenantid.com)adresu URL nazwy domeny pod adresem: .
+- **Identyfikator dzierżawy usługi Azure AD** (wymagany): wprowadź [Identyfikator dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)usługi Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **Właściwości** , a następnie wyszukaj numer **identyfikatora katalogu** na liście (np. 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy w organizacji przy użyciu adresu URL nazwy domeny w [https://www.whatismytenantid.com](https://www.whatismytenantid.com):.
 
-- **Nazwa dzierżawy usługi Azure AD** (wymagana dla usługi Dynamic 365): wprowadź nazwę usługi Azure Active Directory (AD). Aby znaleźć tę nazwę, zaloguj się do [witryny Azure portal](https://portal.azure.com/), w prawym górnym rogu nazwa dzierżawy zostanie wyświetlona pod nazwą konta.
+- **Nazwa dzierżawy usługi Azure AD** (wymagana dla dynamicznego 365): wprowadź nazwę Azure Active Directory (AD). Aby znaleźć tę nazwę, zaloguj się do [Azure Portal](https://portal.azure.com/), w prawym górnym rogu nazwa dzierżawy zostanie wyświetlona w polu Nazwa konta.
 
-- **Identyfikator aplikacji usługi Azure AD** (wymagany): wprowadź identyfikator aplikacji usługi Azure Active Directory (AD). [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) Aby znaleźć ten identyfikator, zaloguj się do [portalu Azure](https://portal.azure.com/), wybierz kartę Usługi Active Directory w menu po lewej stronie, wybierz **pozycję Rejestracje aplikacji**, a następnie poszukaj numeru **identyfikatora aplikacji** na liście (np. 50c464d3-4930-494c-963c-1e951d15360e).
+- **Identyfikator aplikacji usługi Azure AD** (wymagane): wprowadź [Identyfikator aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji**, a następnie wyszukaj numer **identyfikatora aplikacji** (np. 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Klucz tajny klienta aplikacji usługi Azure AD** (wymagany): wprowadź klucz tajny [klienta](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)aplikacji usługi Azure AD . Aby znaleźć tę wartość, zaloguj się do [witryny Azure portal](https://portal.azure.com/). Wybierz kartę **Azure Active Directory** w menu po lewej stronie, wybierz pozycję **Rejestracje aplikacji**, a następnie wybierz aplikację dysku testowego. Następnie wybierz **pozycję Certyfikaty i wpisy tajne**, wybierz pozycję Nowy klucz tajny **klienta**, wprowadź opis, wybierz pozycję **Nigdy w** obszarze **Wygasa**, a następnie wybierz pozycję **Dodaj**. Pamiętaj, aby skopiować wartość. (Nie odejdź od strony, zanim to zrobisz, w przeciwnym razie nie będziesz mieć dostępu do wartości).
+- **Wpis tajny klienta aplikacji usługi Azure AD** (wymagane): wprowadź [wpis tajny klienta](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)aplikacji usługi Azure AD. Aby znaleźć tę wartość, zaloguj się do [Azure Portal](https://portal.azure.com/). Wybierz kartę **Azure Active Directory** w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji**, a następnie wybierz aplikację testową. Następnie wybierz pozycję **Certyfikaty i wpisy tajne**, wybierz pozycję **Nowy wpis tajny klienta**, wprowadź opis, wybierz pozycję **nigdy nie** w obszarze **wygaśnięcie**, a następnie wybierz pozycję **Dodaj**. Należy pamiętać o skopiowaniu wartości. (Nie opuszczaj strony przed wykonaniem tej czynności lub nie będziesz mieć dostępu do wartości).
 
-Pamiętaj, aby **zapisać** przed przejściem do następnej sekcji!
+Pamiętaj, aby **zapisać** przed przejściem do następnej sekcji.
 
-### <a name="test-drive-listings-optional"></a>Lista dysków testowych (opcjonalnie)
+### <a name="test-drive-listings-optional"></a>Aukcje na dysku testowym (opcjonalnie)
 
-Opcja **Aukcje na dysku testowym znajdująca** się na karcie **Dysk testowy** wyświetla języki (i rynki), w których jest dostępna jazda próbna, obecnie dostępna jest w języku angielskim (Stany Zjednoczone). Ponadto na tej stronie jest wyświetlany stan listy specyficznej dla języka oraz data/godzina dodania. Musisz zdefiniować szczegóły jazdy próbnej (opis, instrukcja obsługi, filmy itp.) dla każdego języka / rynku.
+Opcja **aukcje na dysku testowym** znajduje się na karcie **dysk testowy** zawiera języki (i rynki), w których jest dostępny dysk testowy. obecnie w języku angielskim (Stany Zjednoczone) jest jedyną dostępną lokalizacją. Ponadto na tej stronie jest wyświetlany stan listy charakterystycznej dla języka oraz Data/godzina dodania. Należy zdefiniować szczegóły stacji testowej (opis, Podręcznik użytkownika, wideo itp.) dla każdego języka/rynku.
 
-- **Opis** (wymagane): Opisz jazdę próbną, co zostanie zademonstrowane, cele, z jakim użytkownik może eksperymentować, funkcje do zbadania i wszelkie istotne informacje, które pomogą użytkownikowi ustalić, czy chcesz uzyskać ofertę. W tym polu można wprowadzić maksymalnie 3000 znaków tekstu. 
+- **Opis** (wymagane): opisz swój dysk testowy, co zostanie przedstawione, w jaki sposób użytkownik może eksperymentować z programem, funkcje do eksplorowania i wszelkie istotne informacje, które ułatwią użytkownikowi ustalenie, czy ma zostać pozyskana oferta. W tym polu można wprowadzić do 3 000 znaków tekstu. 
 
-- **Informacje o dostępie** (wymagane dla usług Azure Resource Manager i logic dysków testowych): Wyjaśnij, co klient musi wiedzieć, aby uzyskać dostęp do tej dysku testowego i korzystać z niego. Zapoznaj się ze scenariuszem korzystania z oferty i dokładnie tym, co klient powinien wiedzieć, aby uzyskać dostęp do funkcji podczas jazdy próbnego. W tym polu można wprowadzić maksymalnie 10 000 znaków tekstu.
+- **Informacje o dostępie** (wymagane dla Azure Resource Manager i logicznych dysków testowych): Wyjaśnij, co musi wiedzieć klient, aby uzyskać dostęp do tego dysku testowego i korzystać z niego. Zapoznaj się z scenariuszem dotyczącym korzystania z oferty i dokładnie tego, co klient powinien znać, aby uzyskać dostęp do funkcji na całym dysku testowym. W tym polu można wprowadzić do 10 000 znaków tekstu.
 
-- **Instrukcja obsługi** (wymagana): szczegółowy przewodnik po doświadczeniu jazdy próbnej. Instrukcja obsługi powinna obejmować dokładnie to, co chcesz, aby klient uzyskał z powodu wystąpienia jazdy próbnej i służyć jako punkt odniesienia dla wszelkich pytań, które mogą mieć. Plik musi być w formacie PDF i być nazwany (maks. 255 znaków) po przesłaniu.
+- **Podręcznik użytkownika** (wymagane): szczegółowy przewodnik dotyczący środowiska testowego. Podręcznik użytkownika powinien obejmować dokładnie te informacje, które klient ma uzyskać, z dysku testowego i służy jako odwołanie do wszelkich pytań, które mogą mieć. Plik musi być w formacie PDF i mieć nazwę (maksymalnie 255 znaków) po przekazaniu.
 
-- **Filmy: dodaj filmy** (opcjonalnie): filmy można przesyłać do YouTube lub Vimeo i odwoływać się tutaj za pomocą linku i obrazu miniatur (533 x 324 piksele), aby klient mógł przeglądać informacje, aby pomóc mu lepiej zrozumieć jazdę próbną, w tym jak skutecznie korzystać z funkcji oferty i zrozumieć scenariusze, które podkreślają ich zalety.
+- **Wideo: Dodaj wideo** (opcjonalnie): klipy wideo można przekazać do usługi YouTube lub Vimeo i przywoływane w tym miejscu za pomocą linku i miniatury (533 x 324 pikseli), aby klient mógł wyświetlić szczegółowe informacje ułatwiające lepsze zrozumienie dysku testowego, w tym sposób pomyślnego użycia funkcji oferty i zrozumienie scenariuszy, które wyróżnią korzyści.
   - **Nazwa** (wymagana)
-  - **Adres URL (tylko YouTube lub Vimeo)** (wymagany)
-  - **Miniatura (533 x 324px):** Plik obrazu musi być w formacie PNG.
+  - **Adres URL (tylko w usłudze YouTube lub Vimeo)** (wymagany)
+  - **Miniatura (533 x 324px)**: plik obrazu musi być w formacie PNG.
 
-Wybierz **pozycję Zapisz** po wypełnieniu tych pól.
+Po zakończeniu tych pól wybierz pozycję **Zapisz** .

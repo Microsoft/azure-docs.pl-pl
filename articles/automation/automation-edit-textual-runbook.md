@@ -1,6 +1,6 @@
 ---
-title: Edytowanie tekstów tekstów w usłudze Azure Automation
-description: Ten artykuł zawiera różne procedury pracy z uruchomieniu kamiłonami programu PowerShell i powershell w usłudze Azure Automation przy użyciu edytora tekstu.
+title: Edytowanie tekstowych elementów Runbook w Azure Automation
+description: Ten artykuł zawiera różne procedury pracy z elementami Runbook programu PowerShell i programu PowerShell w programie Azure Automation przy użyciu edytora tekstu.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -10,68 +10,68 @@ ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 2ef7db244057bc8b3b2e4d938b9f3bdd11c7940a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81406026"
 ---
-# <a name="editing-textual-runbooks-in-azure-automation"></a>Edytowanie tekstów tekstów w usłudze Azure Automation
+# <a name="editing-textual-runbooks-in-azure-automation"></a>Edytowanie tekstowych elementów Runbook w Azure Automation
 
-Edytor tekstu w usłudze Azure Automation może być używany do edytowania [śmiób ekshell](automation-runbook-types.md#powershell-runbooks) i [uruchomieniu tekstów programu PowerShell.](automation-runbook-types.md#powershell-workflow-runbooks) Ten edytor ma typowe funkcje innych edytorów kodu, takich jak IntelliSense. Posiada również kodowanie kolorów z dodatkowymi specjalnymi funkcjami, które pomagają w uzyskiwaniu dostępu do zasobów wspólnych dla elementów runbook. 
+Edytor tekstowy w Azure Automation może służyć do edytowania [elementów Runbook programu PowerShell](automation-runbook-types.md#powershell-runbooks) i [elementów Runbook przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Ten Edytor ma typowe funkcje innych edytorów kodu, takich jak IntelliSense. Ma także kolorowe kodowanie z dodatkowymi funkcjami specjalnymi ułatwiającymi uzyskiwanie dostępu do zasobów wspólnych dla elementów Runbook. 
 
-Edytor tekstu zawiera funkcję wstawiania kodu poleceń cmdlet, zasobów i elementów runbook podrzędnych do elementu runbook. Zamiast wpisywać w kodzie samodzielnie, można wybrać z listy dostępnych zasobów i edytor wstawia odpowiedni kod do emuńczy.
+Edytor tekstowy zawiera funkcję wstawiania kodu dla poleceń cmdlet, zasobów i podrzędnych elementów Runbook do elementu Runbook. Zamiast wpisywać kod samodzielnie, możesz wybrać z listy dostępnych zasobów, a Edytor wstawia odpowiedni kod do elementu Runbook.
 
-Każdy projekt runbook w usłudze Azure Automation ma dwie wersje, Wersja robocza i Opublikowane. Edytuj wersję roboczą likścień, a następnie publikujesz ją, aby można było ją wykonać. Nie można edytować wersji opublikowanej. Aby uzyskać więcej informacji, zobacz [Publikowanie likmy](manage-runbooks.md#publishing-a-runbook).
+Każdy element Runbook w Azure Automation ma dwie wersje, wersję roboczą i opublikowaną. Można edytować wersję roboczą elementu Runbook, a następnie opublikować ją, aby można ją było wykonać. Nie można edytować wersji opublikowanej. Aby uzyskać więcej informacji, zobacz [Publikowanie elementu Runbook](manage-runbooks.md#publishing-a-runbook).
 
-Ten artykuł zawiera szczegółowe kroki wykonywania różnych funkcji za pomocą tego edytora. Nie mają one zastosowania do [graficznych śmięty.](automation-runbook-types.md#graphical-runbooks) Aby pracować z tymi elementami runbook, zobacz [Tworzenie graficzne w usłudze Azure Automation](automation-graphical-authoring-intro.md).
+Ten artykuł zawiera szczegółowe instrukcje dotyczące wykonywania różnych funkcji za pomocą tego edytora. Nie mają one zastosowania do [graficznych elementów Runbook](automation-runbook-types.md#graphical-runbooks). Aby obejść te elementy Runbook, zobacz temat [Tworzenie graficzne w Azure Automation](automation-graphical-authoring-intro.md).
 
 >[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Aby uzyskać instrukcje instalacji modułu Az w hybrydowym usłudze Runbook Worker, zobacz [Instalowanie modułu programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Dla konta automatyzacji można zaktualizować moduły do najnowszej wersji przy użyciu [jak zaktualizować moduły programu Azure PowerShell w usłudze Azure Automation.](automation-update-azure-modules.md)
+>Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
 
-## <a name="editing-a-runbook-with-the-azure-portal"></a>Edytowanie uruchomieniu za pomocą witryny Azure portal
+## <a name="editing-a-runbook-with-the-azure-portal"></a>Edytowanie elementu Runbook za pomocą Azure Portal
 
-Poniższa procedura służy do otwierania elementów runbook do edycji w edytorze tekstowym.
+Aby otworzyć element Runbook do edycji w edytorze tekstu, należy wykonać czynności opisane w poniższej procedurze.
 
-1. W witrynie Azure portal wybierz swoje konto automatyzacji.
-2. W obszarze **AUTOMATYZACJA PROCESÓW**wybierz **runbooks,** aby otworzyć listę śmięty.
-3. Wybierz program runbook do edycji, a następnie kliknij pozycję **Edytuj**.
-4. Edytuj program runbook.
-5. Po zakończeniu edycji kliknij **pozycję Zapisz.**
-6. Kliknij **przycisk Publikuj,** jeśli chcesz opublikować najnowszą wersję roboczą roboczej systemu runbook.
+1. W Azure Portal wybierz konto usługi Automation.
+2. W obszarze **Automatyzacja procesów**wybierz pozycję **elementy Runbook** , aby otworzyć listę elementów Runbook.
+3. Wybierz element Runbook do edycji, a następnie kliknij przycisk **Edytuj**.
+4. Edytuj element Runbook.
+5. Po zakończeniu edycji kliknij przycisk **Zapisz** .
+6. Kliknij przycisk **Opublikuj** , aby opublikować najnowszą wersję roboczą elementu Runbook.
 
-### <a name="insert-a-cmdlet-into-a-runbook"></a>Wstawianie polecenia cmdlet do śmi tego systemu
+### <a name="insert-a-cmdlet-into-a-runbook"></a>Wstaw polecenie cmdlet do elementu Runbook
 
-1. W kanwie edytora tekstu umieść kursor w miejscu, w którym chcesz umieścić polecenie cmdlet.
-2. Rozwiń węzeł **Polecenia cmdlets** w formancie Biblioteka.
+1. Na kanwie edytora tekstu Umieść kursor w miejscu, w którym chcesz umieścić polecenie cmdlet.
+2. Rozwiń węzeł **polecenia cmdlet** w kontrolce Biblioteka.
 3. Rozwiń moduł zawierający polecenie cmdlet do użycia.
-4. Kliknij prawym przyciskiem myszy nazwę polecenia cmdlet, aby wstawić, a następnie wybierz pozycję **Dodaj do obszaru roboczego**. Jeśli polecenie cmdlet ma więcej niż jeden zestaw parametrów, edytor dodaje zestaw domyślny. Można również rozwinąć polecenie cmdlet, aby wybrać inny zestaw parametrów.
-5. Należy zauważyć, że kod polecenia cmdlet jest wstawiany z całą listą parametrów.
-6. Podać odpowiednią wartość zamiast wartości otoczonej nawiasami kątowymi (<>) dla wszystkich wymaganych parametrów. Usuń wszystkie parametry, które nie są potrzebne.
+4. Kliknij prawym przyciskiem myszy nazwę polecenia cmdlet, aby wstawić i wybrać pozycję **Dodaj do kanwy**. Jeśli polecenie cmdlet ma więcej niż jeden zestaw parametrów, Edytor dodaje zestaw domyślny. Możesz również rozwinąć polecenie cmdlet, aby wybrać inny zestaw parametrów.
+5. Należy zauważyć, że kod dla polecenia cmdlet zostanie wstawiony wraz z całą listą parametrów.
+6. Podaj odpowiednią wartość zamiast wartości ujętej w nawiasy kątowe (<>) dla wszystkich wymaganych parametrów. Usuń wszystkie parametry, które nie są potrzebne.
 
-### <a name="insert-code-for-a-child-runbook-into-a-runbook"></a>Wstawianie kodu podrzędnego eksmisji do egonatu
+### <a name="insert-code-for-a-child-runbook-into-a-runbook"></a>Wstawianie kodu dla podrzędnego elementu Runbook do elementu Runbook
 
-1. W kanwie edytora tekstu umieść kursor w miejscu, w którym chcesz umieścić kod [podrzędnego podręcznika](automation-child-runbooks.md).
-2. Rozwiń węzeł **Elementy runbook w** formancie Biblioteka.
-3. Kliknij prawym przyciskiem myszy projekt runbook, aby wstawić, a następnie wybierz pozycję **Dodaj do kanwy**.
-4. Kod podrzędnego śmiękacza jest wstawiany z dowolnymi symbolami zastępczymi dla dowolnych parametrów uruchomieniu. Chyli dowolne.
+1. Na kanwie edytora tekstu Umieść kursor w miejscu, w którym chcesz umieścić kod dla [podrzędnego elementu Runbook](automation-child-runbooks.md).
+2. Rozwiń węzeł **elementy Runbook** w kontrolce Biblioteka.
+3. Kliknij prawym przyciskiem myszy element Runbook, a następnie wybierz pozycję **Dodaj do kanwy**.
+4. Kod podrzędnego elementu Runbook jest wstawiany z dowolnym symbolem zastępczym dla każdego z parametrów elementu Runbook.
 5. Zastąp symbole zastępcze odpowiednimi wartościami dla każdego parametru.
 
-### <a name="insert-an-asset-into-a-runbook"></a>Wstawianie zasobu do elementa runbook
+### <a name="insert-an-asset-into-a-runbook"></a>Wstawianie elementu zawartości do elementu Runbook
 
-1. W kanwy formantu edytora tekstu, umieść kursor, gdzie chcesz umieścić kod dla podstawowego podstawowego podstawowego.
-2. Rozwiń węzeł **Zasoby** w formancie Biblioteka.
-3. Rozwiń węzeł dla żądanego typu zasobu.
-4. Kliknij prawym przyciskiem myszy nazwę zasobu, aby wstawić, a następnie wybierz pozycję **Dodaj do kanwy**. W przypadku [zasobów zmiennych](automation-variables.md)wybierz opcję **Dodaj "Pobierz zmienną" do kanwy** lub **Dodaj "Ustaw zmienną" do kanwy**, w zależności od tego, czy chcesz uzyskać, czy ustawić zmienną.
-5. Należy zauważyć, że kod zasobu jest wstawiany do ego księgi śrucie.
+1. W kontrolce kanwy edytora tekstu Umieść kursor w miejscu, w którym chcesz umieścić kod dla podrzędnego elementu Runbook.
+2. Rozwiń węzeł **zasobów** w kontrolce Biblioteka.
+3. Rozwiń węzeł żądanego typu elementu zawartości.
+4. Kliknij prawym przyciskiem myszy nazwę zasobu, aby wstawić, a następnie wybierz pozycję **Dodaj do kanwy**. W przypadku [zasobów zmiennych](automation-variables.md), wybierz opcję **"Pobierz zmienną" do kanwy** lub **Dodaj "Ustaw zmienną" do kanwy**, w zależności od tego, czy chcesz uzyskać lub ustawić zmienną.
+5. Należy zauważyć, że kod dla elementu zawartości jest wstawiany do elementu Runbook.
 
-## <a name="editing-an-azure-automation-runbook-using-windows-powershell"></a>Edytowanie uruchomieniu usługi Azure Automation przy użyciu programu Windows PowerShell
+## <a name="editing-an-azure-automation-runbook-using-windows-powershell"></a>Edytowanie elementu Runbook Azure Automation przy użyciu programu Windows PowerShell
 
-Aby edytować program runbook za pomocą programu Windows PowerShell, użyj wybranego edytora i zapisz go w pliku **ps1.** Do pobrania zawartości śmigieł, można użyć polecenia cmdlet [Export-AzAutomationRunbook.](/powershell/module/Az.Automation/Export-AzAutomationRunbook) Za pomocą polecenia cmdlet [Import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) można zastąpić istniejący projekt owy podręcznik zmodyfikowany.
+Aby edytować element Runbook za pomocą programu Windows PowerShell, Użyj wybranego edytora i Zapisz element Runbook w pliku **. ps1** . Aby pobrać zawartość elementu Runbook, można użyć polecenia cmdlet [Export-AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) . Możesz użyć polecenia cmdlet [Import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) , aby zamienić istniejący element Runbook o zmienionej wersji.
 
-### <a name="retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Pobieranie zawartości życióru przy użyciu programu Windows PowerShell
+### <a name="retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Pobieranie zawartości elementu Runbook za pomocą programu Windows PowerShell
 
-W następujących przykładowych poleceniach pokazano, jak pobrać skrypt dla elementu Runbook, a następnie zapisać go jako plik skryptu. W tym przykładzie jest pobierana wersja robocza. Istnieje również możliwość pobrania opublikowanej wersji systemu runbook, chociaż tej wersji nie można zmienić.
+W następujących przykładowych poleceniach pokazano, jak pobrać skrypt dla elementu Runbook, a następnie zapisać go jako plik skryptu. W tym przykładzie jest pobierana wersja robocza. Istnieje również możliwość pobrania opublikowanej wersji elementu Runbook, chociaż nie można zmienić tej wersji.
 
 ```powershell-interactive
 $resourceGroupName = "MyResourceGroup"
@@ -82,9 +82,9 @@ $scriptFolder = "c:\runbooks"
 Export-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automationAccountName -ResourceGroupName $resourceGroupName -OutputFolder $scriptFolder -Slot Draft
 ```
 
-### <a name="change-the-contents-of-a-runbook-using-windows-powershell"></a>Zmienianie zawartości życióru przy użyciu programu Windows PowerShell
+### <a name="change-the-contents-of-a-runbook-using-windows-powershell"></a>Zmiana zawartości elementu Runbook za pomocą programu Windows PowerShell
 
-Poniższe przykładowe polecenia pokazują, jak zastąpić istniejącą zawartość elementów runbook zawartością pliku skryptu. Jest to ta sama przykładowa procedura, jak w [polu Aby zaimportować program runbook z pliku skryptu za pomocą programu Windows PowerShell](manage-runbooks.md#importing-a-runbook).
+Następujące przykładowe polecenia pokazują, jak zastąpić istniejącą zawartość elementu Runbook zawartością pliku skryptu. Jest to taka sama Przykładowa procedura jak w programie w [celu zaimportowania elementu Runbook z pliku skryptu za pomocą programu Windows PowerShell](manage-runbooks.md#importing-a-runbook).
 
 ```powershell-interactive
 $resourceGroupName = "MyResourceGroup"
@@ -98,9 +98,9 @@ Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automatio
 
 ## <a name="related-articles"></a>Pokrewne artykuły:
 
-* [Zarządzanie podręcznikami runbook w usłudze Azure Automation](manage-runbooks.md)
-* [Nauka przepływu pracy programu PowerShell](automation-powershell-workflow.md)
-* [Tworzenie grafiki w usłudze Azure Automation](automation-graphical-authoring-intro.md)
+* [Zarządzanie elementami Runbook w Azure Automation](manage-runbooks.md)
+* [Uczenie przepływu pracy programu PowerShell](automation-powershell-workflow.md)
+* [Tworzenie graficzne w Azure Automation](automation-graphical-authoring-intro.md)
 * [Certyfikaty](automation-certificates.md)
 * [Połączenia](automation-connections.md)
 * [Poświadczenia](automation-credentials.md)

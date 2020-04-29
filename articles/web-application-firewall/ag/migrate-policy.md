@@ -1,6 +1,6 @@
 ---
-title: Migrowanie zasad WAF dla bramy aplikacji platformy Azure
-description: Dowiedz się, jak przeprowadzić migrację zasad Zapory aplikacji sieci Web platformy Azure przy użyciu programu Azure PowerShell.
+title: Migrowanie zasad WAFymi dla platformy Azure Application Gateway
+description: Dowiedz się, jak przeprowadzić migrację zasad zapory aplikacji sieci Web platformy Azure przy użyciu Azure PowerShell.
 services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
@@ -8,33 +8,33 @@ ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
 ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536628"
 ---
-# <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrowanie zasad zapory aplikacji sieci Web przy użyciu programu Azure PowerShell
+# <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrowanie zasad zapory aplikacji sieci Web przy użyciu Azure PowerShell
 
-Ten skrypt ułatwia przejście z konfiguracji WAF lub niestandardowych zasad WAF tylko do pełnej zasady WAF. W portalu może pojawić się ostrzeżenie, które mówi, że *migracja do zasad WAF*lub możesz chcieć nowych publicznych funkcji WAF w wersji zapoznawczej, takich jak reguły niestandardowe Geomatch, zasady WAF dla witryny i identyfikatorów URI lub znaczniki ryzyka bota. Aby korzystać z dowolnej z tych funkcji, należy pełne zasady WAF skojarzone z bramą aplikacji. 
+Ten skrypt ułatwia przejście z konfiguracji WAF lub reguł niestandardowych — tylko zasady WAFymi do pełnych zasad WAF. W portalu może zostać wyświetlone ostrzeżenie z informacją o *migracji do zasad WAFymi*lub może być potrzebna Nowa publiczna wersja zapoznawcza WAF, taka jak reguła niestandardowa, dla każdej witryny i zasad WAF dla identyfikatora URI lub zestawu reguł ograniczenia bot. Aby można było korzystać z dowolnej z tych funkcji, potrzebne są pełne zasady WAF skojarzone z bramą aplikacji. 
 
-Aby uzyskać więcej informacji na temat tworzenia nowych zasad WAF, zobacz [Tworzenie zasad zapory aplikacji sieci Web dla bramy aplikacji](create-waf-policy-ag.md). Aby uzyskać informacje dotyczące migracji, zobacz [Migracja do zasad WAF](create-waf-policy-ag.md#migrate-to-waf-policy).
+Aby uzyskać więcej informacji na temat tworzenia nowych zasad WAF, zobacz [Tworzenie zasad zapory aplikacji sieci Web dla Application Gateway](create-waf-policy-ag.md). Aby uzyskać informacje na temat migracji, zobacz [Migrowanie do zasad WAFymi](create-waf-policy-ag.md#migrate-to-waf-policy).
 
 ## <a name="to-migrate-to-waf-policy-using-the-migration-script"></a>Aby przeprowadzić migrację do zasad WAF przy użyciu skryptu migracji
 
-Aby uruchomić skrypt migracji, użyj następujących kroków: 
+Wykonaj następujące kroki, aby uruchomić skrypt migracji: 
 
-1. Otwórz następujące okno powłoki chmury lub otwórz je z poziomu portalu.
-2. Skopiuj skrypt do okna powłoki chmury i uruchom go.
-3. Skrypt prosi o identyfikator subskrypcji, nazwę grupy zasobów, nazwę bramy aplikacji, z którą jest skojarzony config WAF, oraz nazwę nowej zasady WAF, która ma być tworzona. Po wprowadzeniu tych danych wejściowych skrypt uruchamia się i tworzy nowe zasady WAF
-4. Skojarz nowe zasady WAF z bramą aplikacji. Przejdź do zasad WAF w portalu i wybierz kartę **Skojarzone bramy aplikacji.** Wybierz pozycję **Skojarz bramę aplikacji,** a następnie wybierz bramę aplikacji, z nią chcesz skojarzyć zasady WAF.
+1. Otwórz następujące okno usługi Cloud Shell lub otwórz je w portalu.
+2. Skopiuj skrypt do okna usługi Cloud Shell i uruchom go.
+3. Skrypt pyta o identyfikator subskrypcji, nazwę grupy zasobów, nazwę Application Gateway, z którym jest skojarzona konfiguracja WAF, oraz nazwę nowych zasad WAF, które mają zostać utworzone. Po wprowadzeniu tych danych wejściowych skrypt zostanie uruchomiony i utworzy nowe zasady WAF
+4. Skojarz nowe zasady WAF z bramą aplikacji. Przejdź do zasad WAF w portalu i wybierz kartę **skojarzone bramy aplikacji** . Wybierz opcję **Skojarz Application Gateway** a następnie wybierz Application Gateway, do których mają zostać skojarzone zasady WAF.
 
 > [!NOTE]
 > Skrypt nie kończy migracji, jeśli istnieją następujące warunki:
-> - Cała reguła jest wyłączona. Aby ukończyć migrację, upewnij się, że cała grupa reguł nie jest wyłączona.
-> - Wpis(-y) wykluczenia z *operatorem Equals.* Aby zakończyć migrację, upewnij się, że wpisy wykluczeń z *operatorem Equals Any* nie są obecne.
+> - Cała reguła jest wyłączona. Aby ukończyć migrację, upewnij się, że cała reguła nie jest wyłączana.
+> - Wpisy wykluczenia z operatorem *Equals* . Aby ukończyć migrację, upewnij się, że nie ma żadnych wpisów wykluczenia z operatorem *Equals* .
 >
-> Aby uzyskać więcej informacji, zobacz *ValidateInput* funkcji w skrypcie.
+> Aby uzyskać więcej informacji, zobacz funkcję *metodzie ValidateInput* w skrypcie.
 
 ```azurepowershell-interactive
 <#PSScriptInfo
@@ -219,4 +219,4 @@ Main
 ```
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [grupach i regułach crs zapory aplikacji sieci Web](application-gateway-crs-rulegroups-rules.md).
+Dowiedz się więcej o [grupach i regułach reguł KSR aplikacji sieci Web](application-gateway-crs-rulegroups-rules.md).

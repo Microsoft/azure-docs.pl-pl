@@ -15,19 +15,19 @@ ms.workload: na
 ms.date: 08/20/2019
 ms.author: juliako
 ms.openlocfilehash: 63f2abe7a3890efbaf4c79186467a3eb20d8afda
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80382991"
 ---
-# <a name="azure-cli-example-reset-the-account-credentials"></a>Przykład interfejsu wiersza polecenia platformy Azure: resetowanie poświadczeń konta
+# <a name="azure-cli-example-reset-the-account-credentials"></a>Przykład interfejsu wiersza polecenia platformy Azure: Resetowanie poświadczeń konta
 
 Skrypt interfejsu wiersza polecenia platformy Azure pokazuje sposób resetowania poświadczeń konta i przywracania ustawień pliku app.config.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[Utwórz konto usługi Media Services](create-account-cli-how-to.md).
+[Utwórz konto Media Services](create-account-cli-how-to.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
@@ -45,5 +45,5 @@ az ams account sp reset-credentials \
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [az ams](/cli/azure/ams)
+* [AZ AMS](/cli/azure/ams)
 * [Resetowanie poświadczeń](/cli/azure/ams/account/sp#az-ams-account-sp-reset-credentials)

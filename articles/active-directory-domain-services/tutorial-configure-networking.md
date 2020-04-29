@@ -1,6 +1,6 @@
 ---
-title: Samouczek — konfigurowanie sieci wirtualnej dla usług domenowych usługi Azure AD | Dokumenty firmy Microsoft
-description: W tym samouczku dowiesz się, jak utworzyć i skonfigurować podsieć sieci wirtualnej platformy Azure lub komunikacji równorzędnej sieci dla wystąpienia usług domenowych usługi active directory platformy Azure przy użyciu witryny Azure portal.
+title: Samouczek — Konfigurowanie sieci wirtualnych dla Azure AD Domain Services | Microsoft Docs
+description: W tym samouczku dowiesz się, jak utworzyć i skonfigurować podsieć lub komunikację równorzędną sieci wirtualnej platformy Azure dla wystąpienia Azure Active Directory Domain Services przy użyciu Azure Portal.
 author: iainfoulds
 manager: daveba
 ms.service: active-directory
@@ -10,148 +10,148 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: iainfou
 ms.openlocfilehash: af284e4c10487123c8c2a2105a25a2285ae0aa99
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80474360"
 ---
-# <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-instance"></a>Samouczek: Konfigurowanie sieci wirtualnej dla wystąpienia usług domenowych usługi domenowej Active Directory platformy Azure
+# <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-instance"></a>Samouczek: Konfigurowanie sieci wirtualnej dla wystąpienia Azure Active Directory Domain Services
 
-Aby zapewnić łączność użytkownikom i aplikacjom, domena zarządzana usługami domenowymi usługi Azure AD (Azure AD DS) jest wdrażana w podsieci sieci wirtualnej platformy Azure. Ta podsieć sieci wirtualnej powinna być używana tylko dla zasobów domeny zarządzanej dostarczanych przez platformę Azure. Podczas tworzenia własnych maszyn wirtualnych i aplikacji nie powinny być wdrażane w tej samej podsieci sieci wirtualnej. Zamiast tego należy utworzyć i wdrożyć aplikacje w oddzielnej podsieci sieci wirtualnej lub w oddzielnej sieci wirtualnej, która jest równorzędna z siecią wirtualną usługi Azure AD DS.
+W celu zapewnienia łączności z użytkownikami i aplikacjami aplikacja zarządzana Azure Active Directory Domain Services (Azure AD DS) jest wdrażana w podsieci sieci wirtualnej platformy Azure. Ta podsieć sieci wirtualnej powinna być używana tylko dla zasobów domeny zarządzanej udostępnianych przez platformę Azure. Podczas tworzenia własnych maszyn wirtualnych i aplikacji nie należy ich wdrażać w tej samej podsieci sieci wirtualnej. Zamiast tego należy tworzyć i wdrażać aplikacje w oddzielnej podsieci sieci wirtualnej lub w oddzielnej sieci wirtualnej, która jest połączona z siecią wirtualną platformy Azure AD DS.
 
-W tym samouczku pokazano, jak utworzyć i skonfigurować dedykowaną podsieć sieci wirtualnej lub jak utworzyć inną sieć z siecią wirtualną domeny zarządzanej usługą Azure AD DS.
+W tym samouczku pokazano, jak utworzyć i skonfigurować dedykowaną podsieć sieci wirtualnej lub sposób komunikacji równorzędnej innej sieci z siecią wirtualną domeny zarządzanej platformy Azure AD DS.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Poznaj opcje łączności sieci wirtualnej dla zasobów przyłączonych do domeny w usługach Ad DS
-> * Tworzenie zakresu adresów IP i dodatkowej podsieci w sieci wirtualnej usług Azure AD DS
-> * Konfigurowanie komunikacji równorzędnej sieci wirtualnej w sieci oddzielonej od usług Azure AD DS
+> * Informacje o opcjach łączności sieci wirtualnej dla zasobów przyłączonych do domeny na platformie Azure AD DS
+> * Utwórz zakres adresów IP i dodatkową podsieć w sieci wirtualnej usługi Azure AD DS
+> * Konfigurowanie komunikacji równorzędnej sieci wirtualnej z siecią oddzielną od platformy Azure AD DS
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten samouczek, potrzebne są następujące zasoby i uprawnienia:
+Do ukończenia tego samouczka potrzebne są następujące zasoby i uprawnienia:
 
 * Aktywna subskrypcja platformy Azure.
-    * Jeśli nie masz subskrypcji platformy Azure, [utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem tylko w chmurze.
-    * W razie potrzeby [utwórz dzierżawę usługi Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z kontem.][associate-azure-ad-tenant]
-* Aby włączyć usługi Azure AD DS, potrzebujesz uprawnień *administratora globalnego* w dzierżawie usługi Azure AD.
-* Aby utworzyć wymagane zasoby usług Azure AD DS, potrzebujesz uprawnień *współautora* w ramach subskrypcji platformy Azure.
-* Domena zarządzana usługami domenowymi Usługi Active Directory platformy Azure włączona i skonfigurowana w dzierżawie usługi Azure AD.
-    * W razie potrzeby pierwszy samouczek [tworzy i konfiguruje wystąpienie usług domenowych Usługi domenowe Active Directory][create-azure-ad-ds-instance]platformy Azure .
+    * Jeśli nie masz subskrypcji platformy Azure, [Utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem w chmurze.
+    * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
+* Aby włączyć usługę Azure AD DS, musisz mieć uprawnienia *administratora globalnego* w dzierżawie usługi Azure AD.
+* Aby utworzyć wymagane zasoby usługi Azure AD DS, musisz mieć uprawnienia *współautora* w ramach subskrypcji platformy Azure.
+* Azure Active Directory Domain Services zarządzana domena włączona i skonfigurowana w dzierżawie usługi Azure AD.
+    * W razie konieczności pierwszy samouczek [tworzy i konfiguruje wystąpienie Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-W tym samouczku należy utworzyć i skonfigurować wystąpienie usług Azure AD DS przy użyciu witryny Azure portal. Aby rozpocząć, najpierw zaloguj się do [witryny Azure portal](https://portal.azure.com).
+W tym samouczku utworzysz i skonfigurujesz wystąpienie usługi Azure AD DS przy użyciu Azure Portal. Aby rozpocząć, najpierw Zaloguj się do [Azure Portal](https://portal.azure.com).
 
-## <a name="application-workload-connectivity-options"></a>Opcje łączności obciążenia aplikacji
+## <a name="application-workload-connectivity-options"></a>Opcje łączności z obciążeniem aplikacji
 
-W poprzednim samouczku utworzono domenę zarządzaną usługą Azure AD DS, która używała niektórych domyślnych opcji konfiguracji dla sieci wirtualnej. Te opcje domyślne utworzyły sieć wirtualną platformy Azure i podsieć sieci wirtualnej. Kontrolery domeny usług Ad DS platformy Azure, które zapewniają usługi domeny zarządzanej są połączone z tej podsieci sieci wirtualnej.
+W poprzednim samouczku utworzono domenę zarządzaną platformy Azure AD DS, która używała niektórych domyślnych opcji konfiguracji dla sieci wirtualnej. Te domyślne opcje zostały utworzone przy użyciu sieci wirtualnej platformy Azure i podsieci sieci wirtualnej. Kontrolery domeny AD DS platformy Azure, które zapewniają zarządzane usługi domenowe, są połączone z tą podsiecią sieci wirtualnej.
 
-Podczas tworzenia i uruchamiania maszyn wirtualnych, które muszą korzystać z domeny zarządzanej usług Azure AD DS, łączność sieciowa musi być podana. Ta łączność sieciowa może być zapewniona w jeden z następujących sposobów:
+Podczas tworzenia i uruchamiania maszyn wirtualnych, które muszą korzystać z domeny zarządzanej AD DS platformy Azure, należy podać łączność sieciową. Tę łączność sieciową można zapewnić w jeden z następujących sposobów:
 
-* Utwórz dodatkową podsieć sieci wirtualnej w domyślnej sieci wirtualnej domeny zarządzanej usługą Azure AD DS. Ta dodatkowa podsieć jest, gdzie można utworzyć i połączyć maszyn wirtualnych.
-    * Ponieważ maszyny wirtualne są częścią tej samej sieci wirtualnej, mogą automatycznie wykonywać rozpoznawanie nazw i komunikować się z kontrolerami domeny usług Azure AD DS.
-* Skonfiguruj komunikację równorzędnych sieci wirtualnej platformy Azure z sieci wirtualnej domeny zarządzanej usługą Azure AD DS na jedną lub więcej oddzielnych sieci wirtualnych. Te oddzielne sieci wirtualne są miejscem tworzenia i łączenia maszyn wirtualnych.
-    * Podczas konfigurowania komunikacji równorzędnej sieci wirtualnej należy również skonfigurować ustawienia DNS, aby używać rozpoznawania nazw z powrotem do kontrolerów domeny usług Azure AD DS.
+* Utwórz dodatkową podsieć sieci wirtualnej w domyślnej sieci wirtualnej domeny zarządzanej platformy Azure AD DS. Ta dodatkowa podsieć służy do tworzenia i łączenia maszyn wirtualnych.
+    * Ponieważ maszyny wirtualne są częścią tej samej sieci wirtualnej, mogą automatycznie przeprowadzać rozpoznawanie nazw i komunikować się z kontrolerami domeny AD DS platformy Azure.
+* Skonfiguruj komunikację równorzędną sieci wirtualnej platformy Azure z sieci wirtualnej domeny zarządzanej platformy Azure AD DS do co najmniej jednej oddzielnej sieci wirtualnej. Te oddzielne sieci wirtualne umożliwiają tworzenie i łączenie maszyn wirtualnych.
+    * Podczas konfigurowania komunikacji równorzędnej sieci wirtualnej należy również skonfigurować ustawienia DNS, aby używać rozpoznawania nazw z powrotem do kontrolerów domeny AD DS platformy Azure.
 
-Zwykle używasz tylko jednej z tych opcji łączności sieciowej. Wybór często zależy od tego, jak chcesz zarządzać oddzielnymi zasobami platformy Azure. Jeśli chcesz zarządzać usługami Azure AD DS i połączonymi maszynami wirtualnymi jako jedną grupą zasobów, możesz utworzyć dodatkową podsieć sieci wirtualnej dla maszyn wirtualnych. Jeśli chcesz oddzielić zarządzanie usługą Azure AD DS, a następnie wszystkie podłączone maszyny wirtualne, możesz użyć komunikacji równorzędnej w sieci wirtualnej. Można również użyć komunikacji równorzędnej sieci wirtualnej, aby zapewnić łączność z istniejącymi maszynami wirtualnymi w środowisku platformy Azure, które są połączone z istniejącą siecią wirtualną.
+Zwykle używane są tylko jedną z tych opcji łączności sieciowej. Wybór jest często w dół, aby zarządzać rozdzielonymi zasobami platformy Azure. Jeśli chcesz zarządzać usługą Azure AD DS i połączonymi maszynami wirtualnymi jako jedną grupą zasobów, możesz utworzyć dodatkową podsieć sieci wirtualnej dla maszyn wirtualnych. Jeśli chcesz rozdzielić zarządzanie AD DS platformy Azure, a następnie wszystkie połączone maszyny wirtualne, możesz użyć komunikacji równorzędnej sieci wirtualnej. Możesz również użyć komunikacji równorzędnej sieci wirtualnej, aby zapewnić łączność z istniejącymi maszynami wirtualnymi w środowisku platformy Azure, które są podłączone do istniejącej sieci wirtualnej.
 
-W tym samouczku wystarczy skonfigurować jedną z tych opcji łączności sieci wirtualnej.
+W tym samouczku wystarczy skonfigurować tylko jedną z tych opcji łączności sieci wirtualnej.
 
-Aby uzyskać więcej informacji na temat planowania i konfigurowania sieci wirtualnej, zobacz [zagadnienia dotyczące sieci dla usług domenowych Active Directory platformy Azure][zagadnienia dotyczące sieci].
+Aby uzyskać więcej informacji na temat planowania i konfigurowania sieci wirtualnej, zobacz [zagadnienia dotyczące sieci dla Azure Active Directory Domain Services] [uwagi dotyczące sieci].
 
-## <a name="create-a-virtual-network-subnet"></a>Tworzenie podsieci sieci wirtualnej
+## <a name="create-a-virtual-network-subnet"></a>Utwórz podsieć sieci wirtualnej
 
-Domyślnie sieć wirtualna platformy Azure utworzona za pomocą domeny zarządzanej usługi Azure AD DS zawiera pojedynczą podsieć sieci wirtualnej. Ta podsieć sieci wirtualnej powinna być używana tylko przez platformę Azure w celu świadczenia usług domeny zarządzanej. Aby utworzyć i używać własnych maszyn wirtualnych w tej sieci wirtualnej platformy Azure, należy utworzyć dodatkową podsieć.
+Domyślnie Sieć wirtualna platformy Azure utworzona przy użyciu domeny zarządzanej platformy Azure AD DS zawiera jedną podsieć sieci wirtualnej. Ta podsieć sieci wirtualnej powinna być używana tylko przez platformę Azure w celu zapewnienia usług domenowych zarządzanej. Aby tworzyć własne maszyny wirtualne i korzystać z nich w tej sieci wirtualnej platformy Azure, Utwórz dodatkową podsieć.
 
-Aby utworzyć podsieć sieci wirtualnej dla maszyn wirtualnych i obciążeń aplikacji, wykonaj następujące kroki:
+Aby utworzyć podsieć sieci wirtualnej dla obciążeń maszyn wirtualnych i aplikacji, wykonaj następujące czynności:
 
-1. W witrynie Azure portal wybierz grupę zasobów domeny zarządzanej usług Azure AD DS, takiej jak *myResourceGroup*. Z listy zasobów wybierz domyślną sieć wirtualną, taką jak *aadds-vnet*.
-1. W menu po lewej stronie okna sieci wirtualnej wybierz pozycję **Przestrzeń adresowa**. Sieć wirtualna jest tworzona z pojedynczą przestrzenią adresową *10.0.2.0/24*, która jest używana przez domyślną podsieć.
+1. W Azure Portal wybierz grupę zasobów domeny zarządzanej AD DS platformy Azure, taką jak grupa *zasobów*. Z listy zasobów wybierz domyślną sieć wirtualną, na przykład *aadds-VNET*.
+1. W menu po lewej stronie okna Sieć wirtualna wybierz pozycję **przestrzeń adresowa**. Sieć wirtualna jest tworzona z użyciem pojedynczej przestrzeni adresowej *10.0.2.0/24*, która jest używana przez domyślną podsieć.
 
-    Dodaj dodatkowy zakres adresów IP do sieci wirtualnej. Rozmiar tego zakresu adresów i rzeczywistego zakresu adresów IP, którego należy użyć, zależy od innych już wdrożonych zasobów sieciowych. Zakres adresów IP nie powinien pokrywać się z istniejącymi zakresami adresów w środowisku platformy Azure lub lokalnym. Upewnij się, że rozmiar zakresu adresów IP wystarczająco duży dla liczby maszyn wirtualnych, które mają być wdrażane w podsieci.
+    Dodaj dodatkowy zakres adresów IP do sieci wirtualnej. Rozmiar tego zakresu adresów oraz rzeczywisty zakres adresów IP, który ma być używany, zależy od innych już wdrożonych zasobów sieciowych. Zakres adresów IP nie powinien nakładać się na wszystkie istniejące zakresy adresów w środowisku platformy Azure lub lokalnym. Upewnij się, że rozmiar zakresu adresów IP jest wystarczająco duży, aby liczba maszyn wirtualnych, które mają zostać wdrożone w podsieci.
 
-    W poniższym przykładzie dodano dodatkowy zakres adresów IP *10.0.3.0/24.* Gdy będzie gotowy, wybierz pozycję **Zapisz**.
+    W poniższym przykładzie dodano dodatkowy zakres adresów IP *10.0.3.0/24* . Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**.
 
-    ![Dodawanie dodatkowego zakresu adresów IP sieci wirtualnej w witrynie Azure portal](./media/tutorial-configure-networking/add-vnet-address-range.png)
+    ![Dodaj dodatkowy zakres adresów IP sieci wirtualnej w Azure Portal](./media/tutorial-configure-networking/add-vnet-address-range.png)
 
-1. Następnie w menu po lewej stronie okna sieci wirtualnej wybierz pozycję **Podsieci**, a następnie wybierz + **Podsieć,** aby dodać podsieć.
-1. Wprowadź nazwę podsieci, taką jak *obciążenia*. W razie potrzeby **zaktualizuj zakres adresów,** jeśli chcesz użyć podzbioru zakresu adresów IP skonfigurowanego dla sieci wirtualnej w poprzednich krokach. Na razie pozostaw domyślne opcje, takie jak grupa zabezpieczeń sieci, tabela tras, punkty końcowe usługi.
+1. Następnie w menu po lewej stronie okna Sieć wirtualna wybierz pozycję **podsieci**, a następnie wybierz pozycję **+ podsieć** , aby dodać podsieć.
+1. Wprowadź nazwę podsieci, na przykład *obciążenia*. W razie potrzeby zaktualizuj **zakres adresów** , jeśli chcesz użyć podzbioru zakresu adresów IP skonfigurowanego dla sieci wirtualnej w poprzednich krokach. Na razie pozostaw wartości domyślne dla opcji takich jak sieciowa Grupa zabezpieczeń, tabela tras, punkty końcowe usługi.
 
-    W poniższym przykładzie tworzony jest *podsieć* o nazwie obciążeń, który używa zakresu adresów IP *10.0.3.0/24:*
+    W poniższym przykładzie utworzono podsieć o nazwie *obciążenia* , która używa zakresu adresów IP *10.0.3.0/24* :
 
-    ![Dodawanie dodatkowej podsieci sieci wirtualnej w witrynie Azure portal](./media/tutorial-configure-networking/add-vnet-subnet.png)
+    ![Dodaj dodatkową podsieć sieci wirtualnej w Azure Portal](./media/tutorial-configure-networking/add-vnet-subnet.png)
 
-1. Gdy będzie gotowy, wybierz przycisk **OK**. Utworzenie podsieci sieci wirtualnej zajmuje kilka chwil.
+1. Gdy wszystko będzie gotowe, wybierz **przycisk OK**. Utworzenie podsieci sieci wirtualnej może chwilę potrwać.
 
-Podczas tworzenia maszyny Wirtualnej, która musi używać domeny zarządzanej usług Azure AD DS, upewnij się, że wybierz tę podsieć sieci wirtualnej. Nie należy tworzyć maszyn wirtualnych w *domyślnej podsieci aadds*. Jeśli wybierzesz inną sieć wirtualną, nie ma łączności sieciowej i rozpoznawania DNS, aby dotrzeć do domeny zarządzanej usług Azure AD DS, chyba że skonfigurujesz komunikację równorzędną sieci wirtualnej.
+Podczas tworzenia maszyny wirtualnej, która musi korzystać z domeny zarządzanej AD DS platformy Azure, upewnij się, że wybrano tę podsieć sieci wirtualnej. Nie twórz maszyn wirtualnych w domyślnej *podsieci aadds*. W przypadku wybrania innej sieci wirtualnej nie ma łączności sieciowej i rozpoznawania nazw DNS, aby dotrzeć do domeny zarządzanej platformy Azure AD DS, chyba że zostanie skonfigurowana Komunikacja równorzędna sieci wirtualnej.
 
-## <a name="configure-virtual-network-peering"></a>Konfigurowanie komunikacji równorzędnej w sieci wirtualnej
+## <a name="configure-virtual-network-peering"></a>Konfigurowanie komunikacji równorzędnej sieci wirtualnej
 
-Być może masz istniejącą sieć wirtualną platformy Azure dla maszyn wirtualnych lub chcesz zachować sieć wirtualną domeny zarządzanej usługą Azure AD DS oddzielnie. Aby korzystać z domeny zarządzanej, maszyny wirtualne w innych sieciach wirtualnych potrzebują sposobu komunikowania się z kontrolerami domeny usług Azure AD DS. Ta łączność może być podana przy użyciu komunikacji równorzędnej sieci wirtualnej platformy Azure.
+Może istnieć istniejąca sieć wirtualna platformy Azure dla maszyn wirtualnych lub chcemy oddzielić sieć wirtualną domeny zarządzanej przez usługę Azure AD DS. Aby można było używać domeny zarządzanej, maszyny wirtualne w innych sieciach wirtualnych muszą mieć możliwość komunikowania się z kontrolerami domeny AD DS platformy Azure. Tę łączność można zapewnić przy użyciu komunikacji równorzędnej sieci wirtualnej platformy Azure.
 
-Dzięki komunikacji równorzędnej sieci wirtualnej platformy Azure dwie sieci wirtualne są ze sobą połączone, bez konieczności korzystania z urządzenia wirtualnej sieci prywatnej (VPN). Komunikacja równorzędna sieci umożliwia szybkie łączenie sieci wirtualnych i definiowanie przepływów ruchu w środowisku platformy Azure. Aby uzyskać więcej informacji na temat komunikacji równorzędnej, zobacz [omówienie komunikacji równorzędnej sieci wirtualnej platformy Azure][peering-overview].
+Za pomocą komunikacji równorzędnej sieci wirtualnych platformy Azure dwie sieci wirtualne są połączone ze sobą bez konieczności używania urządzenia wirtualnej sieci prywatnej (VPN). Komunikacja równorzędna sieci umożliwia szybkie łączenie sieci wirtualnych i Definiowanie przepływów ruchu w środowisku platformy Azure. Aby uzyskać więcej informacji na temat komunikacji równorzędnej, zobacz [Omówienie komunikacji równorzędnej usługi Azure Virtual Network][peering-overview].
 
-Aby równorzędować sieć wirtualną z siecią wirtualną domeny zarządzanej usługą Azure AD DS, wykonaj następujące czynności:
+Aby połączyć sieć wirtualną z siecią wirtualną sieci wirtualnej platformy Azure AD DS, wykonaj następujące kroki:
 
-1. Wybierz domyślną sieć wirtualną utworzoną dla wystąpienia usług Azure AD DS o nazwie *aadds-vnet*.
-1. W menu po lewej stronie okna sieci wirtualnej wybierz pozycję **Peerings**.
-1. Aby utworzyć komunikację równorzędną, wybierz pozycję **+ Dodaj**. W poniższym przykładzie *domyślna sieć aadds-vnet* jest równorzędna z siecią wirtualną o nazwie *myVnet*. Skonfiguruj następujące ustawienia z własnymi wartościami:
+1. Wybierz domyślną sieć wirtualną utworzoną dla wystąpienia AD DS platformy Azure o nazwie *aadds-VNET*.
+1. W menu po lewej stronie okna Sieć wirtualna wybierz pozycję **Komunikacja równorzędna**.
+1. Aby utworzyć komunikację równorzędną, wybierz pozycję **+ Dodaj**. W poniższym przykładzie domyślną *aadds-VNET* jest Komunikacja równorzędna z siecią wirtualną o nazwie *myVnet*. Skonfiguruj następujące ustawienia przy użyciu własnych wartości:
 
-    * **Nazwa komunikacji równorzędnej z sieci aadds-vnet do zdalnej sieci wirtualnej:** opisowy identyfikator dwóch sieci, takich jak *aadds-vnet-to-myvnet*
+    * **Nazwa komunikacji równorzędnej z aadds-VNET do zdalnej sieci wirtualnej**: opisowego identyfikatora dwóch sieci, takich jak *aadds-VNET-to-myvnet*
     * **Typ wdrożenia sieci wirtualnej**: *Menedżer zasobów*
-    * **Subskrypcja:** subskrypcja sieci wirtualnej, z którą chcesz się równorzędnie, na przykład *platformy Azure*
-    * **Sieć wirtualna**: sieć wirtualna, z którą chcesz się równorzędnie, na przykład *myVnet*
-    * **Nazwa komunikacji równorzędnej z myVnet do aadds-vnet:** opisowy identyfikator dwóch sieci, takich jak *myvnet-to-aadds-vnet*
+    * **Subskrypcja**: subskrypcja sieci wirtualnej, z którą chcesz nawiązać komunikację równorzędną, na przykład *Azure*
+    * **Sieć wirtualna**: Sieć wirtualna, z którą chcesz nawiązać komunikację równorzędną, taką jak *myVnet*
+    * **Nazwa komunikacji równorzędnej z myVnet do aadds-VNET**: opisowy identyfikator dwóch sieci, na przykład *myVnet-to-aadds-VNET*
 
-    ![Konfigurowanie komunikacji równorzędnej sieci wirtualnej w witrynie Azure portal](./media/tutorial-configure-networking/create-peering.png)
+    ![Konfigurowanie komunikacji równorzędnej sieci wirtualnej w Azure Portal](./media/tutorial-configure-networking/create-peering.png)
 
-    Pozostaw wszystkie inne ustawienia domyślne dostępu do sieci wirtualnej lub ruchu przesyłanym dalej, chyba że masz określone wymagania dla danego środowiska, a następnie wybierz **przycisk OK**.
+    Pozostaw inne wartości domyślne dla dostępu do sieci wirtualnej lub ruchu przesyłanego dalej, chyba że masz określone wymagania dla danego środowiska, a następnie wybierz przycisk **OK**.
 
-1. Utworzenie komunikacji równorzędnej zarówno w sieci wirtualnej usługi Azure AD DS, jak i w wybranej sieci wirtualnej zajmuje kilka chwil. Gdy jest to gotowe, **raporty stanu komunikacji równorzędnej** *Połączone*, jak pokazano w poniższym przykładzie:
+1. Utworzenie komunikacji równorzędnej w sieci wirtualnej platformy Azure AD DS i wybranej sieci wirtualnej trwa kilka chwil. Gdy jest gotowy, raporty o **stanie komunikacji równorzędnej** są *połączone*, jak pokazano w następującym przykładzie:
 
-    ![Pomyślnie połączone sieci równorzędne w witrynie Azure portal](./media/tutorial-configure-networking/connected-peering.png)
+    ![Sieci równorzędne zostały pomyślnie połączone w Azure Portal](./media/tutorial-configure-networking/connected-peering.png)
 
-Zanim maszyny wirtualne w sieci wirtualnej równorzędnej będą mogły korzystać z domeny zarządzanej usługi Azure AD DS, skonfiguruj serwery DNS tak, aby zezwalały na prawidłowe rozpoznawanie nazw.
+Zanim maszyny wirtualne w sieci wirtualnej w komunikacji równorzędnej będą mogły korzystać z domeny zarządzanej AD DS platformy Azure, skonfiguruj serwery DNS tak, aby zezwalały na poprawne rozpoznawanie nazw.
 
-### <a name="configure-dns-servers-in-the-peered-virtual-network"></a>Konfigurowanie serwerów DNS w sieci wirtualnej równorzędnej
+### <a name="configure-dns-servers-in-the-peered-virtual-network"></a>Konfigurowanie serwerów DNS w równorzędnej sieci wirtualnej
 
-Aby maszyny wirtualne i aplikacje w sieci wirtualnej w elementach równorzędnych pomyślnie rozmawiały z domeną zarządzana usługą Azure AD DS, ustawienia DNS muszą zostać zaktualizowane. Adresy IP kontrolerów domeny usług Azure AD DS muszą być skonfigurowane jako serwery DNS w sieci wirtualnej równorzędnej. Kontrolery domeny można skonfigurować jako serwery DNS dla sieci wirtualnej równorzędnej:
+W przypadku maszyn wirtualnych i aplikacji w równorzędnej sieci wirtualnej do pomyślnej komunikacji z domeną zarządzaną platformy Azure AD DS należy zaktualizować ustawienia DNS. Adresy IP kontrolerów domeny AD DS platformy Azure muszą być skonfigurowane jako serwery DNS w równorzędnej sieci wirtualnej. Istnieją dwa sposoby skonfigurowania kontrolerów domeny jako serwery DNS dla równorzędnej sieci wirtualnej:
 
-* Skonfiguruj serwery DNS sieci wirtualnej platformy Azure do używania kontrolerów domeny usług Azure AD DS.
-* Skonfiguruj istniejący serwer DNS używany w sieci wirtualnej równorzędnej, aby używał warunkowego przekazywania dns do kierowania zapytań do domeny zarządzanej usług Azure AD DS. Te kroki różnią się w zależności od istniejącego używanego serwera DNS.
+* Skonfiguruj serwery DNS w sieci wirtualnej platformy Azure, aby używały kontrolerów domeny AD DS platformy Azure.
+* Skonfiguruj istniejący serwer DNS używany przez równorzędną sieć wirtualną do korzystania z warunkowego przekazywania DNS, aby kierować zapytania do domeny zarządzanej AD DS platformy Azure. Kroki te różnią się w zależności od istniejącego serwera DNS w użyciu.
 
-W tym samouczku skonfigurujmy serwery DNS sieci wirtualnej platformy Azure, aby kierować wszystkie zapytania do kontrolerów domeny usług Azure AD DS.
+W tym samouczku skonfigurujemy serwery DNS sieci wirtualnej platformy Azure, aby kierować wszystkie zapytania do kontrolerów domeny AD DS platformy Azure.
 
-1. W witrynie Azure portal wybierz grupę zasobów sieci wirtualnej równorzędnej, taką jak *myResourceGroup*. Z listy zasobów wybierz sieć wirtualną równorzędnej, taką jak *myVnet*.
-1. W menu po lewej stronie okna sieci wirtualnej wybierz pozycję **Serwery DNS**.
-1. Domyślnie sieć wirtualna używa wbudowanych serwerów DNS dostarczonych przez platformę Azure. Wybierz opcję **używania niestandardowych** serwerów DNS. Wprowadź adresy IP kontrolerów domeny usług Azure AD DS, które zwykle są *10.0.2.4* i *10.0.2.5*. Potwierdź te adresy IP w oknie **Przegląd** domeny zarządzanej usług Azure AD DS w portalu.
+1. W Azure Portal wybierz grupę zasobów równorzędnej sieci wirtualnej, na przykład grupa *zasobów*. Z listy zasobów wybierz sieć wirtualną równorzędną, taką jak *myVnet*.
+1. W menu po lewej stronie okna Sieć wirtualna wybierz pozycję **serwery DNS**.
+1. Domyślnie Sieć wirtualna używa wbudowanych serwerów DNS udostępnianych przez platformę Azure. Wybierz użycie **niestandardowych** serwerów DNS. Wprowadź adresy IP dla kontrolerów domeny AD DS platformy Azure, które są zwykle *10.0.2.4* i *10.0.2.5*. Potwierdź te adresy IP w oknie **Przegląd** domeny zarządzanej platformy Azure AD DS w portalu.
 
-    ![Konfigurowanie serwerów DNS w sieci wirtualnej do używania kontrolerów domeny usług Azure AD DS](./media/tutorial-configure-networking/custom-dns.png)
+    ![Skonfiguruj serwery DNS sieci wirtualnej, aby używały kontrolerów domeny AD DS platformy Azure](./media/tutorial-configure-networking/custom-dns.png)
 
-1. Gdy będzie gotowy, wybierz pozycję **Zapisz**. Aktualizacja serwerów DNS dla sieci wirtualnej zajmuje kilka chwil.
-1. Aby zastosować zaktualizowane ustawienia DNS do maszyn wirtualnych, uruchom ponownie maszyny wirtualne połączone z siecią wirtualną równorzędnej.
+1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**. Aktualizacja serwerów DNS dla sieci wirtualnej trwa kilka chwil.
+1. Aby zastosować zaktualizowane ustawienia DNS do maszyn wirtualnych, należy ponownie uruchomić maszyny wirtualne połączone z równorzędną siecią wirtualną.
 
-Podczas tworzenia maszyny Wirtualnej, która musi używać domeny zarządzanej usług Azure AD DS, upewnij się, że wybierz tę sieć wirtualną równorzędną. Jeśli wybierzesz inną sieć wirtualną, nie ma łączności sieciowej i rozpoznawania DNS, aby dotrzeć do domeny zarządzanej usług Azure AD DS.
+Podczas tworzenia maszyny wirtualnej, która musi korzystać z domeny zarządzanej AD DS platformy Azure, upewnij się, że wybrano tę sieć wirtualną równorzędną. W przypadku wybrania innej sieci wirtualnej nie ma łączności sieciowej i rozpoznawania nazw DNS, aby uzyskać dostęp do domeny zarządzanej AD DS platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Poznaj opcje łączności sieci wirtualnej dla zasobów przyłączonych do domeny w usługach Ad DS
-> * Tworzenie zakresu adresów IP i dodatkowej podsieci w sieci wirtualnej usług Azure AD DS
-> * Konfigurowanie komunikacji równorzędnej sieci wirtualnej w sieci oddzielonej od usług Azure AD DS
+> * Informacje o opcjach łączności sieci wirtualnej dla zasobów przyłączonych do domeny na platformie Azure AD DS
+> * Utwórz zakres adresów IP i dodatkową podsieć w sieci wirtualnej usługi Azure AD DS
+> * Konfigurowanie komunikacji równorzędnej sieci wirtualnej z siecią oddzielną od platformy Azure AD DS
 
-Aby wyświetlić tę domenę zarządzaną w akcji, utwórz i dołącz maszynę wirtualną do domeny.
+Aby wyświetlić tę domenę zarządzaną w działaniu, należy utworzyć maszynę wirtualną i przyłączyć ją do domeny.
 
 > [!div class="nextstepaction"]
-> [Dołączanie maszyny wirtualnej systemu Windows Server do domeny zarządzanej](join-windows-vm.md)
+> [Przyłączanie maszyny wirtualnej z systemem Windows Server do domeny zarządzanej](join-windows-vm.md)
 
 <!-- INTERNAL LINKS --> 
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

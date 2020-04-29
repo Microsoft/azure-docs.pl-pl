@@ -9,57 +9,57 @@ ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: include file
 ms.openlocfilehash: df577ab2b5e9658fd55324c8fd6fd008621b4d46
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80545903"
 ---
-Ten artykuł zawiera zalecenia dotyczące zabezpieczeń dla maszyn wirtualnych platformy Azure. Postępuj zgodnie z tymi zaleceniami, aby pomóc w wypełnieniu zobowiązań w zakresie bezpieczeństwa opisanych w naszym modelu dla wspólnej odpowiedzialności. Zalecenia pomogą również poprawić ogólne bezpieczeństwo rozwiązań aplikacji sieci web. Aby uzyskać więcej informacji na temat tego, co firma Microsoft robi, aby wypełniać obowiązki dostawcy usług, zobacz [Współużytkowane obowiązki związane z przetwarzaniem w chmurze](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
+Ten artykuł zawiera zalecenia dotyczące zabezpieczeń dla usługi Azure Virtual Machines. Postępuj zgodnie z tymi zaleceniami, aby pomóc w spełnieniu obowiązków związanych z zabezpieczeniami opisanymi w naszym modelu dla współdzielonej odpowiedzialności. Zalecenia ułatwią również poprawę ogólnego bezpieczeństwa rozwiązań aplikacji sieci Web. Aby uzyskać więcej informacji na temat tego, co firma Microsoft może spełnić obowiązki dostawcy usług, zobacz [udostępnianie obowiązków w chmurze obliczeniowej](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 
-Niektóre z zaleceń tego artykułu mogą być automatycznie adresowane przez usługę Azure Security Center. Usługa Azure Security Center to pierwsza linia zabezpieczeń dla zasobów na platformie Azure. Okresowo analizuje stan zabezpieczeń zasobów platformy Azure w celu zidentyfikowania potencjalnych luk w zabezpieczeniach. Następnie zaleca się, jak rozwiązać luki w zabezpieczeniach. Aby uzyskać więcej informacji, zobacz [Zalecenia dotyczące zabezpieczeń w usłudze Azure Security Center](../articles/security-center/security-center-recommendations.md).
+Niektóre z tych zaleceń w tym artykule mogą być automatycznie rozwiązywane przez Azure Security Center. Azure Security Center to pierwszy wiersz obrony dla zasobów na platformie Azure. Okresowo analizuje stan zabezpieczeń zasobów platformy Azure w celu identyfikowania potencjalnych luk w zabezpieczeniach. Następnie zaleca się rozwiązanie tych luk w zabezpieczeniach. Aby uzyskać więcej informacji, zobacz [zalecenia dotyczące zabezpieczeń w Azure Security Center](../articles/security-center/security-center-recommendations.md).
 
-Aby uzyskać ogólne informacje o usłudze Azure Security Center, zobacz [Co to jest Usługa Azure Security Center?](../articles/security-center/security-center-intro.md).
+Aby uzyskać ogólne informacje na temat Azure Security Center, zobacz [co to jest Azure Security Center?](../articles/security-center/security-center-intro.md).
 
 ## <a name="general"></a>Ogólne
 
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|
-| Podczas tworzenia niestandardowych obrazów maszyn wirtualnych, zastosuj najnowsze aktualizacje. | Przed utworzeniem obrazów należy zainstalować najnowsze aktualizacje dla systemu operacyjnego i wszystkich aplikacji, które będą częścią obrazu.  | - |
-| Utrzymuj aktualną maszynę wirtualną. | Za pomocą rozwiązania [Zarządzanie aktualizacjami](../articles/automation/automation-update-management.md) w usłudze Azure Automation można zarządzać aktualizacjami systemu operacyjnego dla komputerów z systemem Windows i Linux na platformie Azure. | [Tak](../articles/security-center/security-center-apply-system-updates.md) |
-| 19.000. | [Usługa Azure Backup](../articles/backup/backup-overview.md) pomaga chronić dane aplikacji i ma minimalne koszty operacyjne. Błędy aplikacji mogą uszkodzić dane, a błędy ludzkie mogą powodować błędy w aplikacjach. Usługa Azure Backup chroni maszyny wirtualne z systemem Windows i Linux. | - |
-| Użyj wielu maszyn wirtualnych, aby zwiększyć odporność i dostępność. | Jeśli maszyna wirtualna uruchamia aplikacje, które muszą być wysoce dostępne, należy użyć wielu maszyn wirtualnych lub [zestawów dostępności](../articles/virtual-machines/windows/manage-availability.md). | - |
-| Przyjęcie strategii ciągłości działania i odzyskiwania po awarii (BCDR). | Usługa Azure Site Recovery umożliwia wybór spośród różnych opcji zaprojektowanych w celu obsługi ciągłości biznesowej. Obsługuje różne scenariusze replikacji i pracy awaryjnej. Aby uzyskać więcej informacji, zobacz [Temat odzyskiwania witryny](../articles/site-recovery/site-recovery-overview.md). | - |
+| Podczas tworzenia niestandardowych obrazów maszyn wirtualnych należy zastosować najnowsze aktualizacje. | Przed utworzeniem obrazów Zainstaluj najnowsze aktualizacje systemu operacyjnego i dla wszystkich aplikacji, które będą częścią obrazu.  | - |
+| Utrzymuj aktualność maszyn wirtualnych. | [Update Management](../articles/automation/automation-update-management.md) rozwiązanie w Azure Automation służy do zarządzania aktualizacjami systemu operacyjnego na komputerach z systemem Windows i Linux na platformie Azure. | [Tak](../articles/security-center/security-center-apply-system-updates.md) |
+| Utwórz kopię zapasową maszyn wirtualnych. | [Azure Backup](../articles/backup/backup-overview.md) pomaga chronić dane aplikacji i ma minimalne koszty operacyjne. Błędy aplikacji mogą uszkodzić dane, a błędy ludzkie mogą wprowadzać usterki do aplikacji. Azure Backup chroni maszyny wirtualne z systemem Windows i Linux. | - |
+| Używaj wielu maszyn wirtualnych w celu uzyskania większej odporności i dostępności. | Jeśli na maszynie wirtualnej są uruchomione aplikacje, które muszą mieć wysoką dostępność, Użyj wielu maszyn wirtualnych lub [zestawów dostępności](../articles/virtual-machines/windows/manage-availability.md). | - |
+| Zastosuj strategię ciągłości działania i odzyskiwania po awarii (BCDR). | Azure Site Recovery umożliwia wybór spośród różnych opcji, które są przeznaczone do obsługi ciągłości biznesowej. Obsługuje inne scenariusze replikacji i trybu failover. Aby uzyskać więcej informacji, zobacz [Informacje o Site Recovery](../articles/site-recovery/site-recovery-overview.md). | - |
 
 ## <a name="data-security"></a>Bezpieczeństwo danych
 
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|
-| Szyfruj dyski systemu operacyjnego. | [Szyfrowanie dysków platformy Azure](../articles/security/azure-security-disk-encryption-overview.md) pomaga szyfrować dyski maszyn wirtualnych systemu Windows i Linux IaaS. Bez niezbędnych kluczy zawartość zaszyfrowanych dysków jest nieczytelna. Szyfrowanie dysku chroni przechowywane dane przed nieautoryzowanym dostępem, który w przeciwnym razie byłby możliwy, gdyby dysk został skopiowany.| [Tak](../articles/security-center/security-center-apply-disk-encryption.md) |
-| Szyfrowanie dysków danych. | [Szyfrowanie dysków platformy Azure](../articles/security/azure-security-disk-encryption-overview.md) pomaga szyfrować dyski maszyn wirtualnych systemu Windows i Linux IaaS. Bez niezbędnych kluczy zawartość zaszyfrowanych dysków jest nieczytelna. Szyfrowanie dysku chroni przechowywane dane przed nieautoryzowanym dostępem, który w przeciwnym razie byłby możliwy, gdyby dysk został skopiowany.| -  |
-| Ogranicz zainstalowane oprogramowanie. | Ogranicz zainstalowane oprogramowanie do tego, co jest wymagane do pomyślnego zastosowania rozwiązania. Ta wytyczna pomaga zmniejszyć powierzchnię ataku rozwiązania. | - |
-| Użyj oprogramowania antywirusowego lub ochrony przed złośliwym oprogramowaniem. | Na platformie Azure można używać oprogramowania ochrony przed złośliwym oprogramowaniem od dostawców zabezpieczeń, takich jak Microsoft, Symantec, Trend Micro i Kaspersky. To oprogramowanie pomaga chronić maszyny wirtualne przed złośliwymi plikami, adware i innymi zagrożeniami. Można wdrożyć oprogramowanie antywirusowe w oparciu o obciążenia aplikacji. Użyj podstawowej bezpiecznej domyślnie lub zaawansowanej konfiguracji niestandardowej. Aby uzyskać więcej informacji, zobacz [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../articles/security/azure-security-antimalware.md). | - |
-| Bezpiecznie przechowuj klucze i wpisy tajne. | Uprość zarządzanie wpisami tajnymi i kluczami, zapewniając właścicielom aplikacji bezpieczną, centralnie zarządzaną opcję. To zarządzanie zmniejsza ryzyko przypadkowego naruszenia lub wycieku. Usługa Azure Key Vault może bezpiecznie przechowywać klucze w sprzętowych modułach zabezpieczeń (HSM), które są certyfikowane zgodnie z poziomem 2 FIPS 140-2. Jeśli do przechowywania kluczy i wpisów tajnych należy używać fips 140.2 Poziomu 3, można użyć [dedykowanego modułu HSM platformy Azure.](../articles/dedicated-hsm/overview.md) | - |
+| Szyfruj dyski systemu operacyjnego. | [Azure Disk Encryption](../articles/security/azure-security-disk-encryption-overview.md) ułatwia szyfrowanie dysków maszyn wirtualnych z systemami Windows i Linux IaaS. Bez wymaganych kluczy zawartość szyfrowanych dysków nie jest czytelna. Szyfrowanie dysków chroni przechowywane dane przed nieautoryzowanym dostępem, które w przeciwnym razie byłyby możliwe w przypadku skopiowania dysku.| [Tak](../articles/security-center/security-center-apply-disk-encryption.md) |
+| Szyfruj dyski danych. | [Azure Disk Encryption](../articles/security/azure-security-disk-encryption-overview.md) ułatwia szyfrowanie dysków maszyn wirtualnych z systemami Windows i Linux IaaS. Bez wymaganych kluczy zawartość szyfrowanych dysków nie jest czytelna. Szyfrowanie dysków chroni przechowywane dane przed nieautoryzowanym dostępem, które w przeciwnym razie byłyby możliwe w przypadku skopiowania dysku.| -  |
+| Ogranicz zainstalowane oprogramowanie. | Ogranicz zainstalowane oprogramowanie do tego, co jest wymagane, aby pomyślnie zastosować rozwiązanie. Te wskazówki ułatwiają zmniejszenie podatności na ataki. | - |
+| Używaj oprogramowania antywirusowego lub chroniącego przed złośliwym kodem. | Na platformie Azure można korzystać z oprogramowania chroniącego przed złośliwym kodem od dostawców zabezpieczeń, takich jak Microsoft, Symantec, Trend Micro i Kaspersky pomogą. To oprogramowanie pomaga chronić maszyny wirtualne przed złośliwymi plikami, programami reklamujące i innymi zagrożeniami. Program Microsoft chroniący przed złośliwym kodem można wdrożyć na podstawie obciążeń aplikacji. Użyj podstawowej bezpiecznej lub zaawansowanej konfiguracji niestandardowej. Aby uzyskać więcej informacji, zobacz artykuł [Microsoft chroniący przed złośliwym kodem dla platformy Azure Cloud Services i Virtual Machines](../articles/security/azure-security-antimalware.md). | - |
+| Bezpieczne przechowywanie kluczy i wpisów tajnych. | Uprość zarządzanie wpisami tajnymi i kluczami, dostarczając swoim właścicielom aplikacji bezpieczną, centralnie zarządzaną opcję. To zarządzanie zmniejsza ryzyko przypadkowego naruszenia lub wycieku. Azure Key Vault mogą bezpiecznie przechowywać klucze w sprzętowych modułach zabezpieczeń (sprzętowych modułów zabezpieczeń), które są certyfikowane do poziomu 2 trybu FIPS 140-2. Jeśli musisz użyć poziomu 3 trybu FIPs 140,2 do przechowywania kluczy i wpisów tajnych, możesz użyć [dedykowanego modułu HSM platformy Azure](../articles/dedicated-hsm/overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Zarządzanie tożsamościami i dostępem 
 
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|
-| Scentralizuj uwierzytelnianie maszyn wirtualnych. | Uwierzytelnianie maszyn wirtualnych z systemem Windows i Linux można scentralizować przy użyciu [uwierzytelniania usługi Azure Active Directory](../articles/active-directory/develop/authentication-scenarios.md). | - |
+| Scentralizowane uwierzytelnianie maszyn wirtualnych. | Uwierzytelnianie maszyn wirtualnych z systemami Windows i Linux można scentralizować przy użyciu [uwierzytelniania Azure Active Directory](../articles/active-directory/develop/authentication-scenarios.md). | - |
 
 ## <a name="monitoring"></a>Monitorowanie
 
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|
-| Monitoruj maszyny wirtualne. | Usługi [Azure Monitor dla maszyn wirtualnych](../articles/azure-monitor/insights/vminsights-overview.md) można używać do monitorowania stanu maszyn wirtualnych platformy Azure i zestawów skalowania maszyn wirtualnych. Problemy z wydajnością maszyny Wirtualnej może prowadzić do zakłóceń w usłudze, co narusza zasadę zabezpieczeń dostępności. | - |
+| Monitoruj maszyny wirtualne. | Za pomocą [Azure monitor dla maszyn wirtualnych](../articles/azure-monitor/insights/vminsights-overview.md) można monitorować stan maszyn wirtualnych platformy Azure i zestawów skalowania maszyn wirtualnych. Problemy z wydajnością maszyny wirtualnej mogą prowadzić do przerw w działaniu usługi, co narusza zasadę zabezpieczeń. | - |
 
 ## <a name="networking"></a>Networking
 
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|
-| Ograniczanie dostępu do portów zarządzania. | Osoby atakujące skanują zakresy adresów IP w chmurze publicznej w poszukiwaniu otwartych portów zarządzania i próbują "łatwych" ataków, takich jak typowe hasła i znane niezałatane luki w zabezpieczeniach. Możesz użyć [dostępu do maszyny Wirtualnej just-in-time (JIT),](../articles/security-center/security-center-just-in-time.md) aby zablokować ruch przychodzący do maszyn wirtualnych platformy Azure, zmniejszając narażenie na ataki, zapewniając jednocześnie łatwe połączenia z maszynami wirtualnymi, gdy są potrzebne. | - |
-| Ogranicz dostęp do sieci. | Sieciowe grupy zabezpieczeń umożliwiają ograniczenie dostępu do sieci i kontrolowanie liczby ujawnionych punktów końcowych. Aby uzyskać więcej informacji, zobacz [Tworzenie, zmienianie lub usuwanie sieciowej grupy zabezpieczeń](../articles/virtual-network/manage-network-security-group.md). | - |
+| Ogranicz dostęp do portów zarządzania. | Osoby atakujące skanują zakresy adresów IP chmury publicznej pod kątem otwartych portów zarządzania i podejmują próby ataków typu "łatwe", takie jak typowe hasła i znane luki w zabezpieczeniach. Można użyć [dostępu do maszyny wirtualnej just-in-Time (JIT)](../articles/security-center/security-center-just-in-time.md) do blokowania ruchu przychodzącego na maszynach wirtualnych platformy Azure, co zmniejsza narażenie na ataki, zapewniając łatwe połączenia z maszynami wirtualnymi w razie potrzeby. | - |
+| Ogranicz dostęp do sieci. | Sieciowe grupy zabezpieczeń pozwalają ograniczyć dostęp do sieci i kontrolować liczbę narażonych punktów końcowych. Aby uzyskać więcej informacji, zobacz [Tworzenie, zmienianie lub usuwanie sieciowej grupy zabezpieczeń](../articles/virtual-network/manage-network-security-group.md). | - |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Skontaktuj się z dostawcą aplikacji, aby dowiedzieć się więcej o dodatkowych wymaganiach dotyczących zabezpieczeń. Aby uzyskać więcej informacji na temat tworzenia bezpiecznych aplikacji, zobacz [dokumentacja bezpiecznego gospodarowania](../articles/security/fundamentals/abstract-develop-secure-apps.md).
+Skontaktuj się z dostawcą aplikacji, aby dowiedzieć się więcej o dodatkowych wymaganiach dotyczących zabezpieczeń. Aby uzyskać więcej informacji na temat tworzenia bezpiecznych aplikacji, zobacz [dokumentację dotyczącą bezpiecznego programowania](../articles/security/fundamentals/abstract-develop-secure-apps.md).

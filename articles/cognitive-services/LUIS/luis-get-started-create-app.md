@@ -1,13 +1,13 @@
 ---
-title: 'Szybki start: tworzenie aplikacji — USŁUGA LUIS'
-description: Ten przewodnik Szybki start pokazuje, jak utworzyć aplikację `HomeAutomation` usługi LUIS, która używa wstępnie utworzonej domeny do włączania i wyłączania świateł i urządzeń. Ta wstępnie utworzona domena zapewnia intencje, jednostki i przykładowe wypowiedzi. Po zakończeniu samouczka punkt końcowy usługi LUIS będzie działał w chmurze.
+title: 'Szybki Start: Tworzenie aplikacji — LUIS'
+description: W tym przewodniku szybki start pokazano, jak utworzyć aplikację LUIS, która używa `HomeAutomation` wbudowanej domeny do włączania i wyłączania świateł i urządzeń. Ta wstępnie utworzona domena zapewnia intencje, jednostki i przykładowe wypowiedzi. Po zakończeniu samouczka punkt końcowy usługi LUIS będzie działał w chmurze.
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.openlocfilehash: de6cf5e95ee63fc9500cf1b5edab78597bdb18af
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80287802"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Szybki start: używanie wstępnie utworzonej aplikacji Home Automation
@@ -23,28 +23,28 @@ Tworzenie aplikacji i zarządzanie nimi jest możliwe w obszarze **My Apps** (Mo
 
 1. Na liście Moje aplikacje wybierz pozycję **+ Nowa aplikacja do konwersacji**.
 
-1. W oknie dialogowym nazwij aplikację `Home Automation`. Wybierz **język angielski** jako kulturę. Opis jest opcjonalny i nie jest używany do tworzenia lub przewidywania. Zasób przewidywania jest również opcjonalne podczas tworzenia aplikacji usługi LUIS. Wybierz pozycję **Done** (Gotowe).
+1. W oknie dialogowym Nadaj nazwę aplikacji `Home Automation`. Wybierz **angielską** jako kulturę. Opis jest opcjonalny i nie jest używany do tworzenia ani przewidywania. Zasób predykcyjny jest również opcjonalny podczas tworzenia aplikacji LUIS. Wybierz pozycję **Gotowe**.
 
-    Usługa LUIS tworzy aplikację. Podczas publikowania aplikacji w procesach produkcyjnych należy przypisać zasób przewidywania, aby aplikacja mogła obsługiwać wiele żądań.
+    LUIS tworzy aplikację. Po opublikowaniu aplikacji w środowisku produkcyjnym należy przypisać zasób predykcyjny, aby aplikacja mogła obsługiwać wiele żądań.
 
-    ![W oknie dialogowym nazwij aplikację "Automatyka domowa"](./media/create-new-app-details.png)
+    ![W oknie dialogowym Nazwij aplikację "Automatyzacja domu"](./media/create-new-app-details.png)
 
     >[!NOTE]
     >Kultury nie można zmienić po utworzeniu aplikacji.
 
 ## <a name="add-prebuilt-domain"></a>Dodawanie wstępnie utworzonej domeny
 
-Wybierz **wstępnie utworzone domeny,** a następnie wyszukaj **pozycję HomeAutomation**. Wybierz **pozycję Dodaj domenę** na karcie HomeAutomation.
+Wybierz opcję **prekompilowane domeny** , a następnie wyszukaj ciąg **HomeAutomation**. Wybierz pozycję **Dodaj domenę** na karcie HomeAutomation.
 
-![Wybierz "Wstępnie utworzone domeny", a następnie wyszukaj hasło "HomeAutomation". Wybierz opcję "Dodaj domenę" na karcie HomeAutomation.](media/luis-quickstart-new-app/home-automation.png)
+![Wybierz pozycję "prekompilowane domeny", a następnie wyszukaj ciąg "HomeAutomation". Wybierz pozycję "Dodaj domenę" na karcie HomeAutomation.](media/luis-quickstart-new-app/home-automation.png)
 
 Po pomyślnym dodaniu domeny pole wstępnie utworzonej domeny wyświetla przycisk **Remove domain** (Usuń domenę).
 
 ## <a name="intents-and-entities"></a>Intencje i jednostki
 
-Wybierz **opcję Intencje,** aby przejrzeć intencje domeny HomeAutomation. Wstępnie utworzone intencje domeny mają wypowiedzi próbki.
+Wybierz **intencje** , aby przejrzeć intencje domeny HomeAutomation. Prebudowane intencje domeny mają przykładowe wyrażenia długości.
 
-![Zrzut ekranu przedstawiający listę intencji homeautomation](media/luis-quickstart-new-app/home-automation-intents.png "Zrzut ekranu przedstawiający listę intencji homeautomation")
+![Zrzut ekranu listy intencji HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Zrzut ekranu listy intencji HomeAutomation")
 
 > [!NOTE]
 > **None** (Brak) to intencja zapewniana przez wszystkie aplikacje usługi LUIS. Używa się jej do obsługi wypowiedzi, które nie odnoszą się do funkcji zapewnianej przez aplikację.
@@ -60,7 +60,7 @@ Wybierz intencję **HomeAutomation.TurnOff**. Możesz zobaczyć, że intencja za
 ## <a name="test-your-app"></a>Testowanie aplikacji
 Po przeprowadzeniu uczenia aplikacji możesz ją przetestować.
 
-1. Wybierz **opcję Testuj** z nawigacji w prawym górnym rogu. 1. Wpisz wypowiedź `Turn off the lights` testu, jak w interaktywnym okienku testu, a następnie naciśnij klawisz Enter.
+1. Wybierz pozycję **Testuj** w prawym górnym rogu. 1. Wpisz wypowiedź testu podobne `Turn off the lights` do interaktywnego okienka testów, a następnie naciśnij klawisz ENTER.
 
     ```
     Turn off the lights
@@ -68,15 +68,15 @@ Po przeprowadzeniu uczenia aplikacji możesz ją przetestować.
 
     Sprawdź, czy intencja o najwyższym wyniku odpowiada oczekiwanej intencji dla każdej wypowiedzi testowej.
 
-    W tym `Turn off the lights` przykładzie jest poprawnie identyfikowany jako najwyższej intencji punktacji **HomeAutomation.TurnOff**.
+    W tym przykładzie `Turn off the lights` jest poprawnie zidentyfikowany jako najpopularniejszy cel oceniania **HomeAutomation.**.
 
     ![Zrzut ekranu przedstawiający panel testowania z wyróżnioną wypowiedzią](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
-1. Wybierz **sprawdź,** aby przejrzeć więcej informacji na temat prognozowania.
+1. Wybierz pozycję **Sprawdź** , aby przejrzeć więcej informacji na temat przewidywania.
 
-    ![Zrzut ekranu przedstawiający panel testowy z informacjami o inspekcji](media/luis-quickstart-new-app/test.png)
+    ![Zrzut ekranu przedstawiający Panel testowy z informacjami o inspekcji](media/luis-quickstart-new-app/test.png)
 
-1. Zamknij okienko testowe.
+1. Zamknij okienko testowania.
 
 <a name="publish-your-app"></a>
 
@@ -86,18 +86,18 @@ Po przeprowadzeniu uczenia aplikacji możesz ją przetestować.
 
 <a name="query-the-v2-api-prediction-endpoint"></a>
 
-## <a name="query-the-v3-api-prediction-endpoint"></a>Zapytanie o punkt końcowy przewidywania interfejsu API systemu V3
+## <a name="query-the-v3-api-prediction-endpoint"></a>Zbadaj punkt końcowy przewidywania interfejsu API v3
 
 [!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)]
 
-2. Na pasku adresu przeglądarki dla ciągu zapytania upewnij się, że w adresie URL znajdują się następujące paski nazw i wartości. Jeśli nie znajdują się one w ciągu zapytania, dodaj je:
+2. Na pasku adresu przeglądarki dla ciągu zapytania upewnij się, że w adresie URL znajdują się następujące nazwy i słupki wartości. Jeśli nie znajdują się w ciągu zapytania, Dodaj je:
 
     |Para nazwa/wartość|
     |--|
     |`verbose=true`|
     |`show-all-intents=true`|
 
-3. Na pasku adresu przeglądarki przejdź na koniec `turn off the living room light` adresu URL i wprowadź wartość _kwerendy,_ a następnie naciśnij klawisz Enter.
+3. Na pasku adresu przeglądarki przejdź na koniec adresu URL i wprowadź `turn off the living room light` wartość _zapytania_ , a następnie naciśnij klawisz ENTER.
 
     ```json
     {
@@ -188,7 +188,7 @@ Po przeprowadzeniu uczenia aplikacji możesz ją przetestować.
     }
     ```
 
-    Dowiedz się więcej o [punkcie końcowym przewidywania V3](luis-migration-api-v3.md).
+    Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v3.md).
 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów

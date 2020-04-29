@@ -1,7 +1,7 @@
 ---
-title: Jak pracować z wynikami wyszukiwania
+title: Jak korzystać z wyników wyszukiwania
 titleSuffix: Azure Cognitive Search
-description: Strukturyzuj i sortuj wyniki wyszukiwania, uzyskaj liczbę dokumentów i dodaj nawigację zawartości do wyników wyszukiwania w usłudze Azure Cognitive Search.
+description: Tworzenie struktury i sortowanie wyników wyszukiwania, pobieranie liczby dokumentów i Dodawanie nawigacji zawartości do wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,23 +9,23 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 0f815003449f0600bce1cb8927b92b85b51b09a1
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81641618"
 ---
-# <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Jak pracować z wynikami wyszukiwania w usłudze Azure Cognitive Search
+# <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Jak korzystać z wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze
 
-W tym artykule wyjaśniono, jak uzyskać odpowiedź na zapytanie, która powraca z całkowitą liczbą pasujących dokumentów, na strony wyniki, posortowane wyniki i terminy wyróżnione trafienia.
+W tym artykule wyjaśniono, jak uzyskać odpowiedź na zapytanie, która powraca do łącznej liczby pasujących dokumentów, wyników z podziałem na strony, posortowanych wyników oraz warunków wyróżnionych trafień.
 
-Struktura odpowiedzi jest określana przez parametry w kwerendzie: [Szukaj dokumentu](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) w interfejsie API REST lub [DocumentSearchResult Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) w pliku .NET SDK.
+Struktura odpowiedzi jest określana przez parametry w pliku Query: [Search](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) w interfejsie API REST lub w [klasie DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) w zestawie .NET SDK.
 
-## <a name="result-composition"></a>Skład wyników
+## <a name="result-composition"></a>Kompozycja wyniku
 
-Podczas gdy dokument wyszukiwania może składać się z dużej liczby pól, zazwyczaj tylko kilka z nich jest potrzebnych do reprezentowania każdego dokumentu w zestawie wyników. W żądaniu kwerendy `$select=<field list>` dołącz, aby określić, które pola są wyświetlane w odpowiedzi. Pole musi być przypisane jako możliwe do **pobrania** w indeksie, aby uwzględnić je w wyniku. 
+Chociaż dokument wyszukiwania może składać się z dużej liczby pól, zazwyczaj jest konieczne, aby reprezentować każdy dokument w zestawie wyników. W żądaniu zapytania Dołącz `$select=<field list>` , aby określić, które pola są wyświetlane w odpowiedzi. Pole musi być przypisywane jako możliwe do **pobierania** w indeksie, który ma zostać uwzględniony w wyniku. 
 
-Pola, które działają najlepiej obejmują te, które kontrastują i rozróżniają między dokumentami, zapewniając wystarczające informacje, aby zaprosić odpowiedź klikalności ze strony użytkownika. W witrynie e-commerce może to być nazwa produktu, opis, marka, kolor, rozmiar, cena i ocena. W przypadku wbudowanej próbki indeksu hoteli mogą to być pola w poniższym przykładzie:
+Pola, które najlepiej sprawdzają się, obejmują te, które różnią się od dokumentów, i zawierają wystarczające informacje, aby zaprosić odpowiedź na kliknięcie w części użytkownika. W witrynie handlu elektronicznego może to być nazwa produktu, opis, marka, kolor, rozmiar, Cena i klasyfikacja. W przypadku przykładu hoteli-Sample-index wbudowane może być polami w następującym przykładzie:
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
@@ -37,64 +37,64 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
 ```
 
 > [!NOTE]
-> Jeśli chcesz dołączyć pliki obrazów w wyniku, takie jak zdjęcie produktu lub logo, należy przechowywać je poza usługą Azure Cognitive Search, ale dołącz pole w indeksie, aby odwołać się do adresu URL obrazu w dokumencie wyszukiwania. Przykładowe indeksy, które obsługują obrazy w wynikach obejmują **demo realestate-sample-us,** prezentowane w tym [przewodniku Szybki start,](search-create-app-portal.md)oraz [aplikację demonstracyjną New York City Jobs.](https://aka.ms/azjobsdemo)
+> Jeśli chcesz dołączyć pliki obrazów w wyniku, takie jak zdjęcie lub logo produktu, przechowuj je poza usługą Azure Wyszukiwanie poznawcze, ale Dołącz pole w indeksie, aby odwołać się do adresu URL obrazu w dokumencie wyszukiwania. Przykładowe indeksy obsługujące obrazy w wynikach obejmują demonstrację **realestate-Sample-US** , proponowaną w tym [przewodniku szybki start](search-create-app-portal.md)i [aplikację demonstracyjną w Nowym Jorku](https://aka.ms/azjobsdemo).
 
 ## <a name="paging-results"></a>Stronicowanie wyników
 
-Domyślnie wyszukiwarka zwraca do pierwszych 50 dopasowań, zgodnie z wynikiem wyszukiwania, jeśli kwerenda jest wyszukiwanie pełnotekstowe lub w dowolnej kolejności dla zapytań dopasowania ścisłego.
+Domyślnie aparat wyszukiwania zwraca do pierwszych 50 dopasowań, zgodnie z ustaleniami wynik wyszukiwania, jeśli zapytanie jest wyszukiwaniem pełnotekstowym lub w dowolnej kolejności w celu dokładnego dopasowania zapytań.
 
-Aby zwrócić inną liczbę pasujących `$top` `$skip` dokumentów, dodaj i parametry do żądania kwerendy. Na poniższej liście wyjaśniono logikę.
+Aby zwrócić inną liczbę pasujących dokumentów, Dodaj `$top` parametry i `$skip` do żądania zapytania. Poniższa lista zawiera opis logiki.
 
-+ Dodaj, `$count=true` aby uzyskać liczbę całkowita liczba pasujących dokumentów w indeksie.
++ Dodaj `$count=true` , aby uzyskać licznik łącznej liczby pasujących dokumentów w indeksie.
 
-+ Zwraca pierwszy zestaw 15 pasujących dokumentów plus liczbę dopasowań:`GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
++ Zwróć pierwszy zestaw 15 pasujących dokumentów oraz liczbę wszystkich dopasowań:`GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
-+ Powrót drugiego seta, pomijając pierwsze 15, aby `$top=15&$skip=15`uzyskać następne 15: . Zrób to samo dla trzeciego zestawu 15:`$top=15&$skip=30`
++ Zwróć drugi zestaw, pomijając pierwsze 15, aby uzyskać następny 15: `$top=15&$skip=15`. Wykonaj te same czynności dla trzeciego zestawu 15:`$top=15&$skip=30`
 
-Wyniki nagiezonowych zapytań nie są gwarantowane być stabilne, jeśli indeks bazowy zmienia. Stronicowanie zmienia `$skip` wartość dla każdej strony, ale każda kwerenda jest niezależna i działa w bieżącym widoku danych, ponieważ istnieje w indeksie w czasie kwerendy (innymi słowy, nie ma buforowania lub migawki wyników, takich jak te znalezione w bazie danych ogólnego przeznaczenia).
+Wyniki zapytań z podziałem na strony nie są gwarantowane w przypadku zmiany podstawowego indeksu. Stronicowanie zmienia wartość `$skip` dla każdej strony, ale każde zapytanie jest niezależne i działa w bieżącym widoku danych, tak jak istnieje w indeksie w czasie zapytania (innymi słowy, nie istnieje buforowanie ani migawka wyników, na przykład te znajdujące się w bazie danych ogólnego przeznaczenia).
  
-Oto przykład tego, jak możesz uzyskać duplikaty. Załóżmy indeks z czterema dokumentami:
+Poniżej znajduje się przykład, w jaki sposób można uzyskać duplikaty. Załóżmy, że indeks ma cztery dokumenty:
 
     { "id": "1", "rating": 5 }
     { "id": "2", "rating": 3 }
     { "id": "3", "rating": 2 }
     { "id": "4", "rating": 1 }
  
-Teraz załóżmy, że chcesz wyniki zwracane dwa na raz, uporządkowane według klasyfikacji. Należy wykonać tę kwerendę, aby uzyskać `$top=2&$skip=0&$orderby=rating desc`pierwszą stronę wyników: , uzyskując następujące wyniki:
+Teraz Załóżmy, że wyniki zwracane są dwa naraz, uporządkowane według klasyfikacji. Wykonanie tego zapytania spowoduje uzyskanie pierwszej strony z wynikami: `$top=2&$skip=0&$orderby=rating desc`, generując następujące wyniki:
 
     { "id": "1", "rating": 5 }
     { "id": "2", "rating": 3 }
  
-W usłudze załóżmy, że piąty dokument jest `{ "id": "5", "rating": 4 }`dodawany do indeksu między wywołaniami zapytaniami: .  Wkrótce potem należy wykonać kwerendę, aby `$top=2&$skip=2&$orderby=rating desc`pobrać drugą stronę: , i uzyskać następujące wyniki:
+Załóżmy, że w usłudze zostanie dodany piąty dokument do indeksu między wywołaniami zapytań: `{ "id": "5", "rating": 4 }`.  Wkrótce należy wykonać zapytanie w celu pobrania drugiej strony: `$top=2&$skip=2&$orderby=rating desc`i uzyskać następujące wyniki:
 
     { "id": "2", "rating": 3 }
     { "id": "3", "rating": 2 }
  
-Należy zauważyć, że dokument 2 jest pobierany dwa razy. Dzieje się tak dlatego, że nowy dokument 5 ma większą wartość oceny, więc sortuje przed dokumentem 2 i ląduje na pierwszej stronie. Chociaż to zachowanie może być nieoczekiwane, jest typowe dla zachowania wyszukiwarki.
+Zauważ, że dokument 2 jest pobierany dwa razy. Wynika to z faktu, że nowy dokument 5 ma większą wartość dla klasyfikacji, więc sortuje przed dokument 2 i grunty na pierwszej stronie. Chociaż takie zachowanie może być nieoczekiwane, typowe jest zachowanie aparatu wyszukiwania.
 
 ## <a name="ordering-results"></a>Porządkowanie wyników
 
-W przypadku zapytań tekstowych wyniki są automatycznie klasyfikowane według wyniku wyszukiwania, obliczanego na podstawie częstotliwości terminów i bliskości w dokumencie, przy czym wyższe wyniki są kierowane do dokumentów mających więcej lub silniejsze dopasowania w wyszukiwanym terminie. 
+W przypadku kwerend wyszukiwania pełnotekstowego wyniki są automatycznie klasyfikowane według wyniku wyszukiwania, obliczone na podstawie częstotliwości i bliskości dokumentu, z wyższymi wynikami do dokumentów mających większe lub silniejsze dopasowania w wyszukiwanym terminie. 
 
-Wyniki wyszukiwania dają ogólne poczucie trafności, odzwierciedlając siłę dopasowania w porównaniu z innymi dokumentami w tym samym zestawie wyników. Wyniki nie zawsze są spójne z jednego zapytania do następnego, więc podczas pracy z kwerendami można zauważyć niewielkie rozbieżności w sposobie zamawiania dokumentów wyszukiwania. Istnieje kilka wyjaśnień, dlaczego może to nastąpić.
+Wyniki wyszukiwania dają ogólne znaczenie, odzwierciedlając siłę dopasowania w porównaniu do innych dokumentów w tym samym zestawie wyników. Wyniki nie zawsze są spójne z jednego zapytania do następnego, dlatego podczas pracy z zapytaniami można zauważyć niewielkie rozbieżność w zakresie uporządkowania dokumentów wyszukiwania. Istnieje kilka wyjaśnień, dlaczego taka sytuacja może wystąpić.
 
 | Przyczyna | Opis |
 |-----------|-------------|
-| Zmienność danych | Zawartość indeksu różni się w miarę dodawania, modyfikowania lub usuwania dokumentów. Częstotliwości terminów będą się zmieniać w miarę przetwarzania aktualizacji indeksu w czasie, co wpływa na wyniki wyszukiwania pasujących dokumentów. |
-| Wiele replik | W przypadku usług korzystających z wielu replik zapytania są wystawiane równolegle dla każdej repliki. Statystyki indeksu używane do obliczania wyniku wyszukiwania są obliczane na podstawie repliki, a wyniki są scalane i uporządkowane w odpowiedzi na zapytanie. Repliki są głównie lustrami siebie nawzajem, ale statystyki mogą się różnić ze względu na niewielkie różnice w stanie. Na przykład jedna replika mogła usunąć dokumenty przyczyniające się do ich statystyk, które zostały scalone z innych replik. Zazwyczaj różnice w statystykach dla repliki są bardziej zauważalne w mniejszych indeksach. |
-| Identyczne wyniki | Jeśli wiele dokumentów ma ten sam wynik, każdy z nich może pojawić się jako pierwszy.  |
+| Lotność danych | Zawartość indeksu jest różna w miarę dodawania, modyfikowania lub usuwania dokumentów. Okresowe częstotliwości będą zmieniane, ponieważ aktualizacje indeksów są przetwarzane w czasie, wpływając na wyniki wyszukiwania pasujących dokumentów. |
+| Wiele replik | W przypadku usług korzystających z wielu replik zapytania są wysyłane równolegle do każdej repliki. Statystyki indeksu używane do obliczania wyniku wyszukiwania są obliczane na podstawie repliki, a wyniki są scalane i uporządkowane w odpowiedzi na zapytanie. Repliki są w większości lustrzane duplikaty, ale statystyki mogą się różnić z powodu małych różnic w stanie. Na przykład jedna replika może mieć usunięte dokumenty wpływające na statystyki, które zostały scalone z innych replik. Zwykle różnice w statystyce dla każdej repliki są bardziej zauważalne w mniejszych indeksach. |
+| Identyczne wyniki | Jeśli wiele dokumentów ma ten sam wynik, każdy z nich może być wyświetlany jako pierwszy.  |
 
-### <a name="consistent-ordering"></a>Spójne porządkowanie
+### <a name="consistent-ordering"></a>Spójna kolejność
 
-Biorąc pod uwagę flex w kolejności wyników, można zbadać inne opcje, jeśli spójność jest wymaganiem aplikacji. Najprostszym rozwiązaniem jest sortowanie według wartości pola, takiej jak ocena lub data. W przypadku scenariuszy, w których chcesz sortować według określonego pola, takiego jak klasyfikacja lub data, można jawnie zdefiniować [ `$orderby` wyrażenie](query-odata-filter-orderby-syntax.md), które można zastosować do dowolnego pola, które jest indeksowane jako **sortowalne**.
+W celu określania kolejności wyników w programie można poznać inne opcje, jeśli jest to wymagane przez aplikację. Najprostszym podejściem jest sortowanie według wartości pola, takich jak Klasyfikacja lub Data. W przypadku scenariuszy, w których chcesz sortować według określonego pola, takich jak Klasyfikacja lub data, można jawnie zdefiniować [ `$orderby` wyrażenie](query-odata-filter-orderby-syntax.md), które można zastosować do dowolnego pola, które jest indeksowane jako kryterium **sortowania**.
 
-Inną opcją jest użycie [niestandardowego profilu oceniania](index-add-scoring-profiles.md). Profile punktacji dają większą kontrolę nad rankingiem elementów w wynikach wyszukiwania, z możliwością promowania dopasowań znalezionych w określonych polach. Dodatkowa logika oceniania może pomóc zastąpić drobne różnice między replikami, ponieważ wyniki wyszukiwania dla każdego dokumentu są dalej od siebie. Zalecamy [algorytm rankingu](index-ranking-similarity.md) dla tego podejścia.
+Inną opcją jest użycie [niestandardowego profilu oceniania](index-add-scoring-profiles.md). Profile oceniania zapewniają większą kontrolę nad klasyfikacją elementów w wynikach wyszukiwania, dzięki czemu można poprawić dopasowania znalezione w określonych polach. Dodatkowa logika oceniania może pomóc w zastępowaniu drobnych różnic między replikami, ponieważ wyniki wyszukiwania dla każdego dokumentu są od siebie oddzielone. Zalecamy stosowanie [algorytmu klasyfikacji](index-ranking-similarity.md) dla tego podejścia.
 
 ## <a name="hit-highlighting"></a>Wyróżnianie trafień
 
-Podświetlanie trafień odnosi się do formatowania tekstu (takiego jak pogrubienie lub żółte podświetlenia) zastosowanego do pasującego terminu w wyniku, co ułatwia wykrycie dopasowania. Instrukcje wyróżniania trafienia znajdują się w [żądaniu kwerendy](https://docs.microsoft.com/rest/api/searchservice/search-documents). Wyszukiwarka zawiera pasujący termin w `highlightPreTag` `highlightPostTag`tagach i , a kod obsługuje odpowiedź (na przykład stosowanie czcionki pogrubionej).
+Wyróżnianie trafień odnosi się do formatowania tekstu (takiego jak pogrubienie lub żółtego wyróżnienia) do dopasowywania terminu w wyniku, co ułatwia dopasowanie. Instrukcje wyróżniania trafień są dostępne w [żądaniu zapytania](https://docs.microsoft.com/rest/api/searchservice/search-documents). Aparat wyszukiwania obejmuje termin zgodny ze znacznikami `highlightPreTag` i `highlightPostTag`, a kod obsługuje odpowiedź (na przykład zastosowanie pogrubionej czcionki).
 
-Formatowanie jest stosowane do kwerend cały termin. W poniższym przykładzie terminy "piaszczysty", "piasek", "plaże", "plaża" znajdujące się w polu Opis są oznaczone do podświetlania. Kwerendy, które wyzwalają rozszerzenie kwerendy w silniku, takie jak wyszukiwanie rozmyte i wieloznaczne, mają ograniczoną obsługę wyróżniania trafień.
+Formatowanie jest stosowane do zapytań w całym okresie. W poniższym przykładzie warunki "piaskowobrązowy", "piasek", "plażach", "sekwencje" Znalezione w polu opisu są oznaczone do wyróżniania. Zapytania wyzwalające rozszerzanie zapytania w aparacie, takie jak rozmyte i wieloznaczne wyszukiwanie, mają ograniczoną obsługę wyróżniania trafień.
 
 ```http
 GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 
@@ -110,26 +110,26 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
 
 ### <a name="new-behavior-starting-july-15"></a>Nowe zachowanie (od 15 lipca)
 
-Usługi utworzone po 15 lipca 2020 r. zapewnią inne wrażenia z wyróżniania. Usługi utworzone przed tą datą nie zmienią się w ich zachowaniu wyróżniania. 
+Usługi utworzone po 15 lipca 2020 będą zapewniały inne środowisko wyróżniania. Usługi utworzone przed tą datą nie zmienią się w sposób ich wyróżniania. 
 
 Z nowym zachowaniem:
 
-* Zwracane będą tylko frazy pasujące do kwerendy pełnej frazy. Zapytanie "super bowl" zwróci podkreśla tak:
+* Zostaną zwrócone tylko frazy pasujące do zapytania o pełną frazę. Zapytanie "Super" zwróci następujące informacje:
 
     ```html
     '<em>super bowl</em> is super awesome with a bowl of chips'
     ```
-  Należy pamiętać, że termin *miska żetonów* nie ma żadnych podświetlenia, ponieważ nie pasuje do pełnej frazy.
+  Należy zauważyć, że termin " *pucharowe wióry* " nie ma żadnego wyróżnienia, ponieważ nie pasuje do pełnej frazy.
   
-* Będzie można określić rozmiar fragmentu zwrócony dla podświetlenia. Rozmiar fragmentu jest określony jako liczba znaków (maksymalna wynosi 1000 znaków).
+* Możliwe jest określenie rozmiaru fragmentu zwracanego dla wyróżnienia. Rozmiar fragmentu jest określony jako liczba znaków (maksymalna długość to 1000 znaków).
 
-Podczas pisania kodu klienta, który implementuje naciśnięcie wyróżniania, należy pamiętać o tej zmianie. Należy zauważyć, że nie będzie to miało wpływu na ciebie, chyba że utworzysz zupełnie nową usługę wyszukiwania.
+Podczas pisania kodu klienta, który implementuje podświetlanie trafień, należy pamiętać o tej zmianie. Należy zauważyć, że nie będzie to miało wpływu na to, chyba że zostanie utworzona zupełnie nowa usługa wyszukiwania.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby szybko wygenerować stronę wyszukiwania dla klienta, należy wziąć pod uwagę następujące opcje:
 
 + [Generator aplikacji](search-create-app-portal.md)w portalu tworzy stronę HTML z paskiem wyszukiwania, nawigacją aspektową i obszarem wyników zawierającym obrazy.
-+ [Tworzenie pierwszej aplikacji w języku C#](tutorial-csharp-create-first-app.md) jest samouczek, który tworzy klienta funkcjonalnego. Przykładowy kod pokazuje nagie kwerendy, wyróżnianie trafień i sortowanie.
++ [Tworzenie pierwszej aplikacji w języku C#](tutorial-csharp-create-first-app.md) to samouczek, który kompiluje klienta funkcjonalnego. Przykładowy kod ilustruje zapytania z podziałem na strony, wyróżnianie trafień i sortowanie.
 
-Kilka przykładów kodu zawiera interfejs frontonu sieci Web, który można znaleźć tutaj: [Aplikacja demonstracyjna New York City Jobs,](https://aka.ms/azjobsdemo) [przykładowy kod JavaScript z witryną demonstracyjnej na żywo](https://github.com/liamca/azure-search-javascript-samples)i [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Kilka przykładów kodu obejmuje interfejs frontonu sieci Web, który można znaleźć tutaj: [aplikacja demonstracyjna zadań w Nowym Jorku](https://aka.ms/azjobsdemo), [przykładowy kod JavaScript z aktywną witryną demonstracyjną](https://github.com/liamca/azure-search-javascript-samples)i [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).

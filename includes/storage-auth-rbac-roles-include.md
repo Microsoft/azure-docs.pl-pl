@@ -9,27 +9,27 @@ ms.date: 01/17/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: d73bab76860abf3e9fa442dad44e1ddb66d147a3
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80519576"
 ---
-Platforma Azure udostępnia następujące wbudowane role RBAC do autoryzowania dostępu do danych obiektów blob i kolejek przy użyciu usługi Azure AD i OAuth:
+Platforma Azure udostępnia następujące wbudowane role RBAC do autoryzowania dostępu do danych obiektów blob i kolejek przy użyciu usługi Azure AD i uwierzytelniania OAuth:
 
-- [Właściciel danych obiektów blob magazynu:](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-owner)służy do ustawiania własności i zarządzania kontrolą dostępu POSIX dla usługi Azure Data Lake Storage Gen2. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu w usłudze Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-access-control.md).
-- [Współautor danych obiektów blob magazynu:](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-contributor)służy do udzielania uprawnień do odczytu/zapisu/usuwania zasobów magazynu obiektów Blob.
-- [Czytnik danych obiektów blob magazynu:](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-reader)Służy do udzielania uprawnień tylko do odczytu do zasobów magazynu obiektów Blob.
-- [Współautor danych kolejki magazynu:](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor)służy do udzielania uprawnień do odczytu/zapisu/usuwania do kolejek platformy Azure.
-- [Czytnik danych kolejki magazynu:](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader)Służy do udzielania uprawnień tylko do odczytu do kolejek platformy Azure.
-- [Procesor komunikatów o danych kolejki magazynu:](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor)służy do udzielania zaglądanie, pobieranie i usuwanie uprawnień do wiadomości w kolejkach usługi Azure Storage.
-- [Nadawca wiadomości z danymi kolejki magazynu:](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender)służy do udzielania uprawnień do dodawania wiadomości w kolejkach usługi Azure Storage.
+- [Właściciel danych obiektów blob magazynu](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-owner): służy do ustawiania własności i zarządzania kontrolą dostępu POSIX dla Azure Data Lake Storage Gen2. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-access-control.md).
+- [Współautor danych obiektu blob magazynu](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Użyj, aby przyznać uprawnienia do odczytu/zapisu/usuwania dla zasobów magazynu obiektów BLOB.
+- [Czytnik danych obiektów blob magazynu](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-reader): służy do przyznawania uprawnień tylko do odczytu zasobom magazynu obiektów BLOB.
+- [Współautor danych kolejki magazynu](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Użyj, aby przyznać uprawnienia do odczytu/zapisu/usuwania do kolejek platformy Azure.
+- [Czytnik danych kolejki magazynu](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader): służy do przyznawania uprawnień tylko do odczytu dla kolejek platformy Azure.
+- [Procesor komunikatów danych kolejki magazynu](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): służy do przyznawania uprawnień wglądu, pobierania i usuwania do komunikatów w kolejkach usługi Azure Storage.
+- [Nadawca komunikatu o danych kolejki magazynu](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): służy do przyznawania uprawnień do dodawania do komunikatów w kolejkach usługi Azure Storage.
 
-Aby uzyskać szczegółowe informacje na temat wbudowanych ról RBAC dla usługi Azure Storage dla usług azure i usługi zarządzania, zobacz sekcję **Magazyn** [w wbudowanych ról platformy Azure dla usługi Azure RBAC.](../articles/role-based-access-control/built-in-roles.md#storage) Ponadto aby uzyskać informacje na temat różnych typów ról, które zapewniają uprawnienia na platformie Azure, zobacz [klasyczne role administratora subskrypcji, role usługi Azure RBAC i role usługi Azure AD.](../articles/role-based-access-control/rbac-and-directory-admin-roles.md)
+Aby uzyskać szczegółowe informacje na temat wbudowanych ról RBAC dla usługi Azure Storage dla usług danych i usługi zarządzania, zobacz sekcję dotyczącą **magazynu** w [rolach wbudowanych platformy Azure dla funkcji RBAC systemu](../articles/role-based-access-control/built-in-roles.md#storage)Azure. Ponadto, aby uzyskać informacje o różnych typach ról, które udostępniają uprawnienia na platformie Azure, zobacz [role administratora subskrypcji klasycznej, role RBAC i role usługi Azure AD](../articles/role-based-access-control/rbac-and-directory-admin-roles.md).
 
 > [!NOTE]
-> Propagowanie przydziałów ról RBAC może potrwać do pięciu minut.
+> Propagowanie przypisań ról RBAC może potrwać do 5 minut.
 >
-> Tylko role jawnie zdefiniowane dla dostępu do danych umożliwiają podmiotowi zabezpieczeń dostęp do danych obiektów blob lub kolejek. Role, takie jak **Właściciel,** **Współautor**i **Współautor konta magazynu,** umożliwiają podmiotowi zabezpieczeń zarządzanie kontem magazynu, ale nie zapewniają dostępu do danych obiektu blob lub kolejki w ramach tego konta.
+> Tylko role jawnie zdefiniowane na potrzeby dostępu do danych zezwalają podmiotowi zabezpieczeń na dostęp do danych obiektu BLOB lub kolejki. Role, takie jak **właściciel**, **współautor**i **współautor konta magazynu** , umożliwiają podmiotowi zabezpieczeń Zarządzanie kontem magazynu, ale nie zapewniają dostępu do danych obiektu BLOB lub kolejki w ramach tego konta.
 >
-> Dostęp do danych obiektów blob lub kolejek w witrynie Azure portal może być autoryzowany przy użyciu konta usługi Azure AD lub klucza dostępu do konta magazynu. Aby uzyskać więcej informacji, zobacz [Dostęp do danych obiektów blob lub kolejek za pomocą witryny Azure Portal.](../articles/storage/common/storage-access-blobs-queues-portal.md)
+> Dostęp do danych obiektu BLOB lub kolejki w Azure Portal można autoryzować przy użyciu konta usługi Azure AD lub klucza dostępu do konta magazynu. Aby uzyskać więcej informacji, zobacz [używanie Azure Portal do uzyskiwania dostępu do danych obiektu BLOB lub kolejki](../articles/storage/common/storage-access-blobs-queues-portal.md).

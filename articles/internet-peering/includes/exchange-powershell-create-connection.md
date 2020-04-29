@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: f8e93cf34ac56344ff7e3d145ce8c7c3529767b7
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678621"
 ---
-W poniższym przykładzie pokazano, jak utworzyć połączenie programu Exchange w equinix Internet Exchange w Seattle. Jeśli używasz innego dostawcy i różnych ustawień, zastąp te informacje podczas składania wniosku.
+Poniższy przykład pokazuje, jak utworzyć połączenie z programem Exchange w usłudze Equinix Internet Exchange w Seattle. Jeśli używasz innego dostawcy i innych ustawień, podstaw te informacje podczas żądania.
 
-Użyj polecenia cmdlet programu PowerShell **New-AzPeeringExchangeConnectionObject** do utworzenia obiektów połączenia programu PowerShell, które będą używane do generowania nowego żądania komunikacji równorzędnej.
+Użyj polecenia cmdlet **New-AzPeeringExchangeConnectionObject** programu PowerShell, aby utworzyć obiekty połączenia programu PowerShell, które będą używane do generowania nowego żądania komunikacji równorzędnej.
 
-W tym przykładzie pokazano, jak utworzyć połączenie programu Exchange.
+Ten przykład pokazuje, jak utworzyć połączenie z programem Exchange.
 
 ```powershell
 $connection1 = New-AzPeeringExchangeConnectionObject `
@@ -30,7 +30,7 @@ $connection1 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-Utwórz inne połączenie w przypadku, gdy potrzebujesz nadmiarowości w danej lokalizacji komunikacji równorzędnej.
+Utwórz kolejne połączenie na wypadek potrzeby nadmiarowości w danej lokalizacji komunikacji równorzędnej.
 
 ```powershell
 $connection2 = New-AzPeeringExchangeConnectionObject `
@@ -41,7 +41,7 @@ $connection2 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-Polecenie cmdlet programu PowerShell **New-AzPeering** może służyć do tworzenia nowego programu Exchange komunikacji równorzędnej.
+Polecenia cmdlet programu PowerShell **New-AzPeering** można użyć do utworzenia nowej komunikacji równorzędnej programu Exchange.
 
 ```powershell
 $asn = Get-AzPeerAsn
@@ -54,7 +54,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-W tym przykładzie odpowiedzi pokazano, kiedy żądanie zostało wykonane przy użyciu jednego połączenia.
+Ta przykładowa odpowiedź pokazuje, kiedy żądanie zostało wykonane przy użyciu jednego połączenia.
 
 ```powershell
 
@@ -73,8 +73,8 @@ Tags              : {}
 ```
 
 > [!IMPORTANT]
-> Firma Microsoft rozpoczyna inicjowanie obsługi `ConnectionState` administracyjnej żądanej komunikacji równorzędnej i odzwierciedla postęp.
-> Aby uzyskać więcej informacji na temat kroków związanych z inicjowania obsługi administracyjnej, zobacz przewodnik [komunikacji równorzędnej programu Exchange](../walkthrough-exchange-all.md).
+> Firma Microsoft zaczyna aprowizacji żądanych komunikacji równorzędnych i `ConnectionState` odzwierciedla postęp.
+> Aby uzyskać więcej informacji na temat czynności związanych z obsługą administracyjną, zobacz [Przewodnik po komunikacji równorzędnej programu Exchange](../walkthrough-exchange-all.md).
 
 Możesz sprawdzić stan połączenia, jak pokazano poniżej.
 

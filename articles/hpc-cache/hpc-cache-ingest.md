@@ -1,88 +1,88 @@
 ---
-title: Przenoszenie danych do kontenera chmury pamięci podręcznej HPC usługi Azure
-description: Jak wypełnić magazyn obiektów blob platformy Azure do użytku z pamięcią podręczną HPC usługi Azure
+title: Przenoszenie danych do kontenera w chmurze pamięci podręcznej platformy Azure HPC
+description: Jak wypełnić usługę Azure Blob Storage do użycia z pamięcią podręczną platformy Azure HPC
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: fd21a78d0271f91d334bba5aba748f3770ad38cf
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537937"
 ---
-# <a name="move-data-to-azure-blob-storage"></a>Przenoszenie danych do magazynu obiektów blob platformy Azure
+# <a name="move-data-to-azure-blob-storage"></a>Przenoszenie danych do usługi Azure Blob Storage
 
-Jeśli przepływ pracy obejmuje przenoszenie danych do magazynu obiektów Blob platformy Azure, upewnij się, że używasz wydajnej strategii. Można wstępnie załadować dane w nowym kontenerze obiektów blob przed zdefiniowaniem go jako miejsce docelowe magazynu lub dodać kontener, a następnie skopiować dane przy użyciu pamięci podręcznej HPC usługi Azure.
+Jeśli przepływ pracy zawiera przeniesienie danych do usługi Azure Blob Storage, upewnij się, że korzystasz z wydajnej strategii. Można wstępnie załadować dane w nowym kontenerze obiektów BLOB przed zdefiniowaniem go jako obiekt docelowy magazynu lub dodać kontener, a następnie skopiować dane za pomocą usługi Azure HPC cache.
 
-W tym artykule opisano najlepsze sposoby przenoszenia danych do magazynu obiektów Blob do użytku z pamięcią podręczną HPC usługi Azure.
+W tym artykule opisano najlepsze sposoby przenoszenia danych do magazynu obiektów BLOB w celu użycia z pamięcią podręczną platformy Azure HPC.
 
-Należy pamiętać o tych faktach:
+Należy pamiętać o następujących faktach:
 
-* Pamięć podręczna HPC usługi Azure używa specjalistycznego formatu magazynu do organizowania danych w magazynie obiektów Blob. Dlatego miejsce docelowe magazynu obiektów Blob musi być nowym, pustym kontenerem lub kontenerem obiektów Blob, który był wcześniej używany dla danych usługi Azure HPC Cache.
+* Pamięć podręczna Azure HPC używa wyspecjalizowanego formatu magazynu do organizowania danych w usłudze BLOB Storage. Dlatego obiekt docelowy magazynu obiektów BLOB musi być nowym, pustym kontenerem lub kontenerem obiektów BLOB poprzednio używanym do przechowywania danych w pamięci podręcznej platformy Azure HPC.
 
-* Kopiowanie danych za pośrednictwem pamięci podręcznej HPC platformy Azure do miejsca docelowego magazynu zaplecza jest bardziej wydajne, gdy używasz wielu klientów i operacji równoległych. Proste polecenie kopiowania z jednego klienta będzie powoli przenosić dane.
+* Kopiowanie danych za pomocą pamięci podręcznej platformy Azure HPC do miejsca docelowego magazynu zaplecza jest wydajniejsze w przypadku korzystania z wielu klientów i operacji równoległych. Proste polecenie copy z jednego klienta spowoduje spowolnienie przenoszenia danych.
 
-Narzędzie oparte na języku Python jest dostępne do ładowania zawartości do kontenera magazynu obiektów Blob. Przeczytaj [wstępne ładowanie danych w magazynie obiektów Blob,](#pre-load-data-in-blob-storage-with-clfsload) aby dowiedzieć się więcej.
+Narzędzie oparte na języku Python jest dostępne do załadowania zawartości do kontenera magazynu obiektów BLOB. Zapoznaj się ze [wstępnie załadowanymi danymi w magazynie obiektów BLOB](#pre-load-data-in-blob-storage-with-clfsload) , aby dowiedzieć się więcej.
 
-Jeśli nie chcesz korzystać z narzędzia ładowania lub jeśli chcesz dodać zawartość do istniejącego miejsca docelowego magazynu, postępuj zgodnie z równoległymi wskazówkami dotyczącymi pozyskiwania danych w [obszarze Kopiowanie danych za pośrednictwem pamięci podręcznej HPC usługi Azure.](#copy-data-through-the-azure-hpc-cache)
+Jeśli nie chcesz używać narzędzia ładowania lub chcesz dodać zawartość do istniejącego miejsca docelowego magazynu, postępuj zgodnie ze wskazówkami pozyskiwania danych równoległych w temacie [Kopiowanie danych za pomocą pamięci podręcznej platformy Azure HPC](#copy-data-through-the-azure-hpc-cache).
 
-## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>Wstępne ładowanie danych w magazynie obiektów Blob za pomocą programu CLFSLoad
+## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>Wstępne ładowanie danych w magazynie obiektów BLOB za pomocą CLFSLoad
 
-Narzędzie Avere CLFSLoad służy do kopiowania danych do nowego kontenera magazynu obiektów Blob przed dodaniem go jako miejsca docelowego magazynu. To narzędzie działa na jednym systemie Linux i zapisuje dane w zastrzeżonym formacie potrzebnym do pracy w pamięci podręcznej HPC platformy Azure. CLFSLoad jest najbardziej efektywnym sposobem wypełniania kontenera magazynu obiektów Blob do użycia z pamięcią podręczną.
+Za pomocą narzędzia avere CLFSLoad można skopiować dane do nowego kontenera magazynu obiektów BLOB przed dodaniem go jako miejsca docelowego magazynu. To narzędzie działa w ramach jednego systemu Linux i zapisuje dane w formacie zastrzeżonym wymaganym przez pamięć podręczną platformy Azure HPC. CLFSLoad to najbardziej wydajny sposób wypełniania kontenera magazynu obiektów BLOB do użycia z pamięcią podręczną.
 
-Narzędzie Avere CLFSLoad jest dostępne na żądanie zespołu pamięci podręcznej HPC platformy Azure. Poproś o kontakt z zespołem lub otwórz [bilet pomocy technicznej,](hpc-cache-support-ticket.md) aby poprosić o pomoc.
+Narzędzie avere CLFSLoad jest dostępne przez żądanie od zespołu pamięci podręcznej platformy Azure HPC. Poproś o kontakt z zespołem lub Otwórz [bilet pomocy technicznej](hpc-cache-support-ticket.md) , aby uzyskać pomoc.
 
-Ta opcja działa tylko z nowymi, pustymi kontenerami. Utwórz kontener przed użyciem Avere CLFSLoad.
+Ta opcja działa tylko z nowymi pustymi kontenerami. Utwórz kontener przed użyciem avere CLFSLoad.
 
-Szczegółowe informacje znajdują się w dystrybucji Avere CLFSLoad, która jest dostępna na żądanie zespołu pamięci podręcznej HPC platformy Azure.
+Szczegółowe informacje znajdują się w dystrybucji CLFSLoad avere, która jest dostępna na żądanie od zespołu pamięci podręcznej platformy Azure HPC.
 
 Ogólny przegląd procesu:
 
-1. Przygotuj system Linux (VM lub fizyczny) w wersji Python 3.6 lub nowszej. Python 3.7 jest zalecany dla lepszej wydajności.
-1. Zainstaluj oprogramowanie Avere-CLFSLoad w systemie Linux.
-1. Wykonaj transfer z wiersza polecenia Linuksa.
+1. Przygotuj system Linux (maszyna wirtualna lub fizyczna) przy użyciu języka Python w wersji 3,6 lub nowszej. Środowisko Python 3,7 jest zalecane w celu zapewnienia lepszej wydajności.
+1. Zainstaluj oprogramowanie avere-CLFSLoad w systemie Linux.
+1. Wykonaj transfer z wiersza polecenia systemu Linux.
 
-Narzędzie Avere CLFSLoad wymaga następujących informacji:
+Narzędzie avere CLFSLoad potrzebuje następujących informacji:
 
-* Identyfikator konta magazynu zawierający kontener magazynu obiektów Blob
-* Nazwa pustego kontenera magazynu obiektów Blob
-* Token sygnatury dostępu współdzielonego (SAS), który umożliwia narzędziu zapisywanie w kontenerze
-* Ścieżka lokalna do źródła danych — katalog lokalny zawierający dane do skopiowania lub ścieżka lokalna do zamontowanego systemu zdalnego z danymi
+* Identyfikator konta magazynu, który zawiera kontener magazynu obiektów BLOB
+* Nazwa pustego kontenera magazynu obiektów BLOB
+* Token sygnatury dostępu współdzielonego (SAS), który umożliwia narzędziu zapis do kontenera
+* Ścieżka lokalna do źródła danych — katalog lokalny zawierający dane do skopiowania lub ścieżka lokalna do zainstalowanego systemu zdalnego z danymi
 
-## <a name="copy-data-through-the-azure-hpc-cache"></a>Kopiowanie danych za pośrednictwem pamięci podręcznej HPC platformy Azure
+## <a name="copy-data-through-the-azure-hpc-cache"></a>Kopiowanie danych za pomocą pamięci podręcznej platformy Azure HPC
 
-Jeśli nie chcesz używać narzędzia Avere CLFSLoad lub jeśli chcesz dodać dużą ilość danych do istniejącego miejsca docelowego magazynu obiektów Blob, możesz skopiować go za pośrednictwem pamięci podręcznej. Usługa Azure HPC Cache jest przeznaczony do obsługi wielu klientów jednocześnie, więc do kopiowania danych za pośrednictwem pamięci podręcznej, należy użyć zapisów równoległych z wielu klientów.
+Jeśli nie chcesz używać narzędzia avere CLFSLoad, lub jeśli chcesz dodać dużą ilość danych do istniejącego obiektu docelowego magazynu obiektów blob, możesz skopiować go za pomocą pamięci podręcznej. Pamięć podręczna Azure HPC została zaprojektowana w celu jednoczesnego obsłużenia wielu klientów, dlatego w celu skopiowania danych za pośrednictwem pamięci podręcznej należy używać zapisu równoległego z wielu klientów.
 
-![Diagram przedstawiający wielonakładnikowy, wielowątkowy ruch danych: W lewym górnym rogu ikona lokalnego magazynu sprzętu ma wiele strzałek pochodzących z niego. Strzałki wskazują na cztery maszyny klienckie. Z każdego komputera klienckiego trzy strzałki wskazują w kierunku pamięci podręcznej HPC platformy Azure. Z pamięci podręcznej HPC platformy Azure wiele strzałek wskazuje magazyn obiektów Blob.](media/hpc-cache-parallel-ingest.png)
+![Diagram przedstawiający wiele klientów, przenoszenie danych wielowątkowych: w lewym górnym rogu ikona lokalnego magazynu sprzętu ma wiele strzałek. Strzałki wskazują cztery komputery klienckie. Z każdego komputera klienckiego trzy strzałki wskazują na pamięć podręczną platformy Azure HPC. W pamięci podręcznej platformy Azure HPC wiele strzałek wskazuje na usługę BLOB Storage.](media/hpc-cache-parallel-ingest.png)
 
-Polecenia ``cp`` ``copy`` lub polecenia, które są zwykle używane do przesyłania danych z jednego systemu magazynu do innego są procesami jednowątkowymi, które kopiują tylko jeden plik naraz. Oznacza to, że serwer plików jest pozyskiwania tylko jeden plik na raz - co jest stratą zasobów pamięci podręcznej.
+Polecenia ``cp`` lub ``copy`` , które są zwykle używane do transferowania danych z jednego systemu magazynu do innego, to procesy jednowątkowe, które kopiującą tylko jeden plik jednocześnie. Oznacza to, że serwer plików pobiera tylko jeden plik w czasie, który jest odpadami zasobów pamięci podręcznej.
 
-W tej sekcji opisano strategie tworzenia wielowątkowy, wielowątkowy system kopiowania plików, aby przenieść dane do magazynu obiektów Blob z pamięcią podręczną HPC Azure. Wyjaśniono pojęcia transferu plików i punkty decyzyjne, które mogą być używane do wydajnego kopiowania danych przy użyciu wielu klientów i prostych poleceń kopiowania.
+W tej sekcji opisano strategie tworzenia wieloskładnikowego systemu kopiowania plików wielowątkowych do przenoszenia danych do usługi BLOB Storage za pomocą pamięci podręcznej Azure HPC. Objaśniono w nim koncepcje transferu plików i punkty decyzyjne, które mogą być używane do wydajnego kopiowania danych przy użyciu wielu klientów i prostych poleceń kopiowania.
 
-Wyjaśnia również niektóre narzędzia, które mogą pomóc. Narzędzie ``msrsync`` może być używane do częściowego zautomatyzowania procesu dzielenia zestawu danych na zasobniki i używania poleceń rsync. Skrypt ``parallelcp`` jest innym narzędziem, które odczytuje katalog źródłowy i automatycznie wydaje polecenia kopiowania.
+Wyjaśniono również niektóre narzędzia, które mogą pomóc. ``msrsync`` Narzędzie może służyć do częściowo automatyzowania procesu dzielenia zestawu danych na przedziały i używania poleceń rsync. ``parallelcp`` Skrypt jest innym narzędziem, które odczytuje Katalog źródłowy i automatycznie wystawia polecenia kopiowania.
 
 ### <a name="strategic-planning"></a>Planowanie strategiczne
 
-Podczas tworzenia strategii kopiowania danych równolegle, należy zrozumieć kompromisy w rozmiarze pliku, liczby plików i głębokości katalogu.
+Podczas kompilowania strategii w celu równoległego kopiowania danych należy zrozumieć wady dotyczące wielkości plików, liczby plików i głębokości katalogów.
 
-* Gdy pliki są małe, metryką zainteresowania są pliki na sekundę.
-* Gdy pliki są duże (10MiBi lub większa), metryka zainteresowania jest bajtów na sekundę.
+* Gdy pliki są małe, Metryka jest równa plików na sekundę.
+* Gdy pliki są duże (10MiBi lub większe), Metryka jest równa bajty na sekundę.
 
-Każdy proces kopiowania ma szybkość przepływności i szybkość przesyłania plików, które mogą być mierzone przez czas długości polecenia kopiowania i faktoringu rozmiaru pliku i liczby plików. Wyjaśnienie, jak mierzyć stawki, wykracza poza zakres tego dokumentu, ale konieczne jest zrozumienie, czy będziesz mieć do czynienia z małymi czy dużymi plikami.
+Każdy proces kopiowania ma stawkę przepływności i szybkość transferu plików, która może być mierzona przez chronometraż czasu polecenia kopiowania i współczynnik rozmiaru pliku i liczby plików. Wyjaśnienie, jak zmierzyć stawki, wykracza poza zakres tego dokumentu, ale jest to konieczne, aby zrozumieć, czy będziesz mieć do czynienia z małymi lub dużymi plikami.
 
-Strategie równoległego pozyskiwania danych za pomocą usługi Azure HPC Cache obejmują:
+Strategie dotyczące równoległego pozyskiwania danych z użyciem pamięci podręcznej platformy Azure HPC obejmują:
 
-* Kopiowanie ręczne — można ręcznie utworzyć kopię wielowątkową na kliencie, uruchamiając więcej niż jedno polecenie kopiowania jednocześnie w tle względem wstępnie zdefiniowanych zestawów plików lub ścieżek. Przeczytaj [źródło danych usługi Azure HPC Cache — metoda ręcznej kopiowania, aby](hpc-cache-ingest-manual.md) uzyskać szczegółowe informacje.
+* Kopiowanie ręczne — można ręcznie utworzyć kopię wielowątkową na kliencie, uruchamiając więcej niż jedno polecenie kopiowania w tle względem wstępnie zdefiniowanych zestawów plików lub ścieżek. Aby uzyskać szczegółowe informacje, przeczytaj metodę pozyskiwania [danych w pamięci podręcznej Azure HPC — ręczna kopia](hpc-cache-ingest-manual.md) .
 
-* Częściowo automatyczne kopiowanie ``msrsync``  -  ``msrsync`` za pomocą jest narzędziem ``rsync`` otoki, które uruchamia wiele procesów równoległych. Aby uzyskać szczegółowe informacje, przeczytaj [artykuł Pozyskiwania danych usługi Azure HPC Cache — metoda msrsync](hpc-cache-ingest-msrsync.md).
+* Częściowe automatyczne kopiowanie za ``msrsync``  -  ``msrsync`` pomocą to narzędzie otoki, które uruchamia ``rsync`` wiele procesów równoległych. Aby uzyskać szczegółowe informacje, Przeczytaj [metodę Azure HPC cache Data pozyskiwania — msrsync](hpc-cache-ingest-msrsync.md).
 
-* Kopiowanie skryptów ``parallelcp`` za pomocą — dowiedz się, jak utworzyć i uruchomić skrypt kopiowania równoległego w [ujmowaniu danych usługi Azure HPC Cache — metoda skryptu kopiowania równoległego](hpc-cache-ingest-parallelcp.md).
+* Kopiowanie za pomocą ``parallelcp`` skryptu — informacje na temat tworzenia i uruchamiania skryptu kopiowania równoległego w ramach [metody skryptu pozyskiwania danych w pamięci podręcznej Azure HPC](hpc-cache-ingest-parallelcp.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu magazynu dowiedz się, jak klienci mogą zainstalować pamięć podręczną.
+Po skonfigurowaniu magazynu należy dowiedzieć się, jak klienci mogą instalować pamięć podręczną.
 
-* [Dostęp do systemu pamięci podręcznej HPC azure](hpc-cache-mount.md)
+* [Dostęp do systemu pamięci podręcznej platformy Azure HPC](hpc-cache-mount.md)

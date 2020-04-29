@@ -1,6 +1,6 @@
 ---
-title: Możliwości polowania w usłudze Azure Sentinel| Dokumenty firmy Microsoft
-description: W tym artykule opisano sposób korzystania z możliwości polowania usługi Azure Sentinel.
+title: Możliwości polowania na platformie Azure — wskaźnikowa | Microsoft Docs
+description: W tym artykule opisano sposób korzystania z możliwości łowiectwa wskaźnikowego platformy Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -17,130 +17,130 @@ ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
 ms.openlocfilehash: 52af688917aa531d125f83844df29a988ed7cb7e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686628"
 ---
-# <a name="hunt-for-threats-with-azure-sentinel"></a>Polowanie na zagrożenia za pomocą usługi Azure Sentinel
+# <a name="hunt-for-threats-with-azure-sentinel"></a>W przypadku zagrożeń związanych z platformą Azure — wskaźnikiem
 
-Jeśli jesteś badaczem, który chce aktywnie wyszukiwać zagrożenia bezpieczeństwa, narzędzia wyszukiwania i wyszukiwania za pomocą zaawansowanego narzędzia do wyszukiwania i wyszukiwania aplikacji Azure Sentinel umożliwiają poszukiwanie zagrożeń bezpieczeństwa w źródłach danych organizacji. Jednak systemy i urządzenia zabezpieczające generują góry danych, które mogą być trudne do przeanalizowania i przefiltrowania na znaczące zdarzenia. Aby pomóc analitykom zabezpieczeń aktywnie szukać nowych anomalii, które nie zostały wykryte przez aplikacje zabezpieczeń, wbudowane zapytania myśliwskie usługi Azure Sentinel prowadzą użytkownika do zadawania właściwych pytań w celu znalezienia problemów w danych, które zostały już zainstalowane w sieci. 
+Jeśli jesteś analitykiem, który chce być aktywny w sprawie wyszukania zagrożeń bezpieczeństwa, platforma Azure bada zaawansowane narzędzia wyszukiwania i zapytań w poszukiwaniu zagrożeń związanych z bezpieczeństwem w źródłach danych organizacji. Jednak systemy i urządzenia zabezpieczeń generują górach danych, które mogą być trudne do analizy i filtrowania do znaczących zdarzeń. Aby ułatwić analitykom zabezpieczeń odszukanie nowych anomalii, które nie zostały wykryte przez aplikacje zabezpieczające, wbudowane zapytania polowające dotyczące platformy Azure wskazują, że zażądają odpowiednich pytań, aby znaleźć problemy w danych, które już znajdują się w sieci. 
 
-Na przykład jedna wbudowana kwerenda zawiera dane o najbardziej nietypowych procesach uruchomionych w infrastrukturze — nie chcesz, aby alert za każdym razem, gdy są uruchamiane, może być całkowicie niewinny, ale możesz przyjrzeć się zapytaniu przy okazji, aby sprawdzić, czy jest coś niezwykłego. 
+Na przykład jedno wbudowane zapytanie udostępnia dane dotyczące najbardziej nietypowych procesów uruchomionych w infrastrukturze — nie można utworzyć alertu dotyczącego każdego uruchomienia, ale mogą one zostać całkowicie nieszkodliwene, ale warto zajrzeć do zapytania, aby sprawdzić, czy występują jakieś sytuacje. 
 
 
 
-Za pomocą funkcji Azure Sentinel hunting można korzystać z następujących możliwości:
+Korzystając z łowiectwa wskaźnikowego platformy Azure, możesz korzystać z następujących możliwości:
 
-- Wbudowane zapytania: Aby rozpocząć, strona początkowa zawiera wstępnie załadowane przykłady zapytań zaprojektowanych w celu rozpoczęcia pracy i zapoznania się z tabelami i językiem zapytań. Te wbudowane zapytania myśliwskie są opracowywane przez badaczy zabezpieczeń firmy Microsoft w sposób ciągły, dodawanie nowych zapytań i dostosowywanie istniejących zapytań, aby zapewnić punkt wejścia, aby wyszukać nowe wykrycia i dowiedzieć się, gdzie rozpocząć polowanie na początki nowych ataków. 
+- Wbudowane zapytania: Aby rozpocząć, Strona początkowa zawiera przykłady wstępnie załadowanych zapytań, które umożliwiają rozpoczęcie pracy i zapoznanie się z tabelami oraz językiem zapytań. Te wbudowane zapytania polowania są opracowywane przez badaczy zabezpieczeń firmy Microsoft w sposób ciągły, dodawanie nowych zapytań i dostosowywanie istniejących zapytań w celu udostępnienia punktu wejścia do wyszukiwania nowych wykryć i ustalenia miejsca, w którym należy zacząć polowanie na początku nowych ataków. 
 
-- Zaawansowany język zapytań z IntelliSense: Zbudowany na górze języka zapytań, który zapewnia elastyczność, której potrzebujesz, aby przejść polowanie na wyższy poziom.
+- Zaawansowany język zapytań z technologią IntelliSense: wbudowaną na podstawie języka zapytań, który zapewnia elastyczność potrzebną do skorzystania z kolejnego poziomu.
 
-- Twórz własne zakładki: Podczas polowania możesz natknąć się na dopasowania lub wyniki, pulpity nawigacyjne lub działania, które wyglądają nietypowo lub podejrzanie. Aby oznaczyć te elementy, aby można było do nich wrócić w przyszłości, użyj funkcji zakładki. Zakładki umożliwiają zapisanie elementów na później, które mają być używane do tworzenia incydentu do zbadania. Aby uzyskać więcej informacji na temat zakładek, zobacz [Używanie zakładek podczas polowania](hunting.md).
-- Użyj notesów, aby zautomatyzować badanie: notesy są jak podręczniki krok po kroku, które można tworzyć, aby przejść przez etapy dochodzenia i polowania.  Notesy hermetyzują wszystkie kroki polowania w podręczniku wielokrotnegoużytnika, który można udostępniać innym osobom w organizacji. 
-- Zapytanie o przechowywane dane: dane są dostępne w tabelach, które można zbadać. Na przykład można wysyłać zapytania o tworzenie procesów, zdarzenia DNS i wiele innych typów zdarzeń.
+- Tworzenie własnych zakładek: w trakcie procesu polowania mogą trafiać dopasowania lub wyniki, pulpity nawigacyjne lub działania, które wyglądają nierzadko lub podejrzane. Aby oznaczyć te elementy tak, aby można było je w przyszłości wrócić do nich, użyj funkcji Zakładka. Zakładki umożliwiają zapisywanie elementów w celu ich późniejszego użycia w celu utworzenia incydentu do badania. Aby uzyskać więcej informacji na temat zakładek, zobacz [Używanie zakładek w łowiectwie](hunting.md).
+- Korzystaj z notesów do automatyzowania badań: Notesy przypominają elementy PlayBook krok po kroku, które można skompilować, aby zapoznać się z krokami badania i wyszukiwania.  Notesy hermetyzują wszystkie kroki polowania w element PlayBook wielokrotnego użytku, które mogą być współużytkowane z innymi osobami w organizacji. 
+- Zbadaj przechowywane dane: dane są dostępne w tabelach, aby można było wykonywać zapytania. Można na przykład wykonywać zapytania dotyczące tworzenia procesów, zdarzeń DNS i wielu innych typów zdarzeń.
 
-- Linki do społeczności: wykorzystaj możliwości większej społeczności, aby znaleźć dodatkowe zapytania i źródła danych.
+- Linki do społeczności: wykorzystanie mocy większej społeczności do znajdowania dodatkowych zapytań i źródeł danych.
  
-## <a name="get-started-hunting"></a>Rozpocznij polowanie
+## <a name="get-started-hunting"></a>Wprowadzenie do łowiectwa
 
-1. W portalu Azure Sentinel kliknij pozycję **Polowanie**.
-  ![Azure Sentinel rozpoczyna polowanie](media/tutorial-hunting/hunting-start.png)
+1. W portalu wskaźnikowym platformy Azure kliknij pozycję **łowiectwo**.
+  ![Azure — wskaźnik startowy](media/tutorial-hunting/hunting-start.png)
 
-2. Po otwarciu strony **polowanie** wszystkie zapytania myśliwskie są wyświetlane w jednej tabeli. W tabeli wymieniono wszystkie zapytania napisane przez zespół analityków zabezpieczeń firmy Microsoft, a także wszelkie dodatkowe kwerendy utworzone lub zmodyfikowane. Każda kwerenda zawiera opis tego, na co poluje i na jakiego rodzaju dane są uruchamiane. Szablony te są pogrupowane według ich różnych taktyk - ikony po prawej kategoryzują typ zagrożenia, takie jak początkowy dostęp, trwałość i eksfiltracja. Można filtrować te szablony zapytań myśliwskich przy użyciu dowolnego z pól. Możesz zapisać dowolne zapytanie do ulubionych. Zapisując kwerendę do ulubionych, kwerenda jest automatycznie uruchamiana za każdym razem, gdy strona **polowanie** jest dostępna. Można utworzyć własne zapytanie łowieckie lub sklonować i dostosować istniejący szablon kwerendy myśliwskiej. 
+2. Po otwarciu strony **polowania** wszystkie zapytania polowania są wyświetlane w pojedynczej tabeli. W tabeli wymieniono wszystkie zapytania, które zostały utworzone przez zespół analityków zabezpieczeń firmy Microsoft, a także wszelkie dodatkowe lub zmodyfikowane zapytania. Każde zapytanie zawiera opis tego, czego szuka i jakiego rodzaju dane są uruchamiane. Te szablony są pogrupowane według różnych taktykę — ikony po prawej stronie są typu zagrożenia, takie jak początkowy dostęp, trwałość i eksfiltracji. Te szablony zapytań polowania można filtrować przy użyciu dowolnych pól. Możesz zapisać dowolne zapytanie do ulubionych. Zapisanie zapytania do ulubionych spowoduje automatyczne uruchomienie zapytania przy każdej próbie uzyskania dostępu do strony **polowania** . Możesz utworzyć własne zapytanie polowania lub klonować i dostosowywać istniejący szablon zapytania polowania. 
  
-2. Kliknij **przycisk Uruchom kwerendę** na stronie szczegółów kwerendy łowieckiej, aby uruchomić dowolną kwerendę bez opuszczania strony polowania.  Liczba dopasowań jest wyświetlana w tabeli. Przejrzyj listę zapytań myśliwskich i ich dopasowań. Sprawdź, z którym etapem w łańcuchu zabójstw jest skojarzony mecz.
+2. Kliknij przycisk **Uruchom zapytanie** na stronie szczegółów zapytania polowania, aby uruchomić dowolne zapytanie bez opuszczania strony polowania.  W tabeli zostanie wyświetlona liczba dopasowań. Przejrzyj listę zapytań polowania i ich dopasowania. Sprawdź, który etap łańcucha kasowania jest skojarzony z.
 
-3. Wykonaj szybki przegląd kwerendy podstawowej w okienku szczegółów kwerendy lub kliknij pozycję **Wyświetl wynik kwerendy,** aby otworzyć kwerendę w usłudze Log Analytics. U dołu przejrzyj dopasowania do kwerendy.
+3. Wykonaj szybkie przegląd bazowego zapytania w okienku szczegółów zapytania lub kliknij pozycję **Wyświetl wynik zapytania** , aby otworzyć zapytanie w log Analytics. W dolnej części zapoznaj się z dopasowaniem do zapytania.
 
-4.    Kliknij wiersz i wybierz **dodaj zakładkę,** aby dodać wiersze do zbadania - możesz to zrobić dla wszystkiego, co wygląda podejrzanie. 
+4.    Kliknij wiersz i wybierz pozycję **Dodaj zakładkę** , aby dodać wiersze do zbadania — można to zrobić dla wszystkich elementów, które wyglądają podejrzanie. 
 
-5. Następnie wróć do głównej strony **polowania** i kliknij kartę **Zakładki,** aby wyświetlić wszystkie podejrzane działania. 
+5. Następnie wróć do strony głównej **łowiectwa** i kliknij kartę **zakładki** , aby wyświetlić wszystkie podejrzane działania. 
 
-6. Wybierz zakładkę, a następnie kliknij przycisk **Zbadaj,** aby otworzyć środowisko dochodzenia. Zakładki można filtrować. Jeśli na przykład badasz kampanię, możesz utworzyć tag kampanii, a następnie przefiltrować wszystkie zakładki na podstawie kampanii.
+6. Wybierz zakładkę, a następnie kliknij przycisk **Zbadaj** , aby otworzyć środowisko badania. Można filtrować zakładki. Na przykład, jeśli badasz kampanię, możesz utworzyć tag dla kampanii, a następnie filtrować wszystkie zakładki na podstawie kampanii.
 
-1. Po wykryciu, które zapytanie myśliwskie zapewnia wysokiej wartości wgląd w możliwych ataków, można również utworzyć niestandardowe reguły wykrywania na podstawie zapytania i powierzchni tych spostrzeżeń jako alerty do odpowiedzi na zdarzenia zabezpieczeń.
+1. Po wykryciu, które zapytanie polowające zapewnia wysoką wartość wglądu w możliwe ataki, można także utworzyć niestandardowe reguły wykrywania na podstawie zapytania i przedstawić te informacje jako alerty w odniesieniu do odpowiedzi na zdarzenia zabezpieczeń.
 
  
 
 ## <a name="query-language"></a>Język zapytań 
 
-Polowanie w usłudze Azure Sentinel opiera się na języku zapytań Kusto. Aby uzyskać więcej informacji na temat języka kwerendy i obsługiwanych operatorów, zobacz [Odwołanie do języka kwerendy](/azure/azure-monitor/log-query/get-started-queries).
+Łowiectwo na platformie Azure — na podstawie języka zapytań Kusto. Aby uzyskać więcej informacji na temat języka zapytań i obsługiwanych operatorów, zobacz [Dokumentacja języka zapytań](/azure/azure-monitor/log-query/get-started-queries).
 
-## <a name="public-hunting-query-github-repository"></a>Publiczne zapytanie łowieckie Repozytorium GitHub
+## <a name="public-hunting-query-github-repository"></a>Zapytanie dotyczące publicznego polowania w repozytorium GitHub
 
-Zapoznaj się z [repozytorium zapytań myśliwskich](https://github.com/Azure/Orion). Współtworzenie przykładowych zapytań udostępnionych przez naszych klientów i używanie przykładów.
+Zapoznaj się z [repozytorium zapytań polowania](https://github.com/Azure/Orion). Współtworzenie i używanie przykładowych zapytań udostępnionych przez naszych klientów.
 
  
 
 ## <a name="sample-query"></a>Przykładowe zapytanie
 
-Typowa kwerenda rozpoczyna się od nazwy tabeli, \|po której następuje seria operatorów oddzielonych .
+Typowa kwerenda rozpoczyna się od nazwy tabeli, po której następuje seria operatorów rozdzielonych \|przez.
 
-W powyższym przykładzie należy rozpocząć od nazwy tabeli SecurityEvent i dodać elementy potokowe w razie potrzeby.
+W powyższym przykładzie Zacznij od nazwy tabeli SecurityEvent i Dodaj elementy potokowe zgodnie z wymaganiami.
 
-1. Zdefiniuj filtr czasu, aby przeglądać tylko rekordy z poprzednich siedmiu dni.
+1. Zdefiniuj filtr czasu, aby przeglądać tylko rekordy z ostatnich siedmiu dni.
 
-2. Dodaj filtr w kwerendzie, aby wyświetlić tylko identyfikator zdarzenia 4688.
+2. Dodaj filtr w zapytaniu, aby wyświetlić tylko zdarzenie o IDENTYFIKATORze 4688.
 
-3. Dodaj filtr w kwerendzie w wierszu polecenia, aby zawierał tylko wystąpienia cscript.exe.
+3. Dodaj filtr do zapytania w wierszu polecenia, aby zawierał tylko wystąpienia programu CScript. exe.
 
-4. Projektuj tylko kolumny, które chcesz eksplorować, i ogranicz wyniki do 1000, a następnie kliknij przycisk **Uruchom kwerendę**.
-5. Kliknij zielony trójkąt i uruchom kwerendę. Można przetestować kwerendę i uruchomić go w celu wyszukynia nietypowego zachowania.
+4. Projektuj tylko te kolumny, które interesują Cię, i Ogranicz wyniki do 1000, a następnie kliknij przycisk **Uruchom zapytanie**.
+5. Kliknij zielony trójkąt i uruchom zapytanie. Możesz przetestować zapytanie i uruchomić je w celu wyszukania nietypowego zachowania.
 
 ## <a name="useful-operators"></a>Przydatne operatory
 
-Język zapytań jest potężny i ma wiele dostępnych operatorów, niektóre przydatne operatory są wymienione tutaj:
+Język zapytań jest zaawansowany i ma wiele dostępnych operatorów, niektóre przydatne operatory są wymienione tutaj:
 
-**gdzie** — filtrowanie tabeli do podzbioru wierszy, które spełniają predykatu.
+**WHERE** -filteruje tabelę do podzestawu wierszy, które spełniają predykat.
 
-**podsumuj** — twórz tabelę, która agreguje zawartość tabeli wprowadzania.
+**Podsumowując** — tworzy tabelę, która agreguje zawartość tabeli wejściowej.
 
-**sprzężenie** — scalanie wierszy dwóch tabel w celu utworzenia nowej tabeli przez dopasowanie wartości określonych kolumn z każdej tabeli.
+**Dołącz** — Scala wiersze dwóch tabel, aby utworzyć nową tabelę przez dopasowanie wartości określonych kolumn z każdej tabeli.
 
-**count** - Zwraca liczbę rekordów w zestawie rekordów wejściowych.
+**Count** — zwraca liczbę rekordów w zestawie rekordów wejściowych.
 
-**top** - Zwraca pierwsze rekordy N posortowane według określonych kolumn.
+**Top** — zwraca pierwsze N rekordów posortowane według określonych kolumn.
 
-**limit** - Powrót do określonej liczby wierszy.
+**Limit** — zwraca do określonej liczby wierszy.
 
-**projekt** — wybierz kolumny, które mają być uwzględniane, zmieniane lub upuszczane, oraz wstawianie nowych kolumn obliczeniowych.
+**projekt** — wybierz kolumny do dołączenia, zmiany nazwy lub usunięcia oraz Wstaw nowe kolumny obliczane.
 
-**extend** - Utwórz kolumny obliczeniowe i dołącz je do zestawu wyników.
+**Rozwiń** — Utwórz kolumny obliczeniowe i Dołącz je do zestawu wyników.
 
-**makeset** - Zwracanie dynamicznej tablicy zestawu odrębnych wartości, które expr przyjmuje w grupie
+**MakeSet** — zwraca tablicę dynamiczną (JSON) zestawu unikatowych wartości, które wyrażenie ma w grupie
 
-**find** - Znajdź wiersze pasujące do predykatu w zestawie tabel.
+**Znajdź** — umożliwia znalezienie wierszy pasujących do predykatu w zestawie tabel.
 
-## <a name="save-a-query"></a>Zapisywanie kwerendy
+## <a name="save-a-query"></a>Zapisz zapytanie
 
-Można utworzyć lub zmodyfikować kwerendę i zapisać ją jako własne zapytanie lub udostępnić ją użytkownikom, którzy znajdują się w tej samej dzierżawie.
+Możesz utworzyć lub zmodyfikować zapytanie i zapisać je jako własne zapytanie lub udostępnić je użytkownikom, którzy znajdują się w tej samej dzierżawie.
 
-   ![Zapisz kwerendę](./media/tutorial-hunting/save-query.png)
+   ![Zapisz zapytanie](./media/tutorial-hunting/save-query.png)
 
-Utwórz nową kwerendę myśliwską:
+Utwórz nowe zapytanie polowania:
 
-1. Kliknij **pozycję Nowa kwerenda** i wybierz pozycję **Zapisz**.
+1. Kliknij pozycję **nowe zapytanie** i wybierz pozycję **Zapisz**.
 2. Wypełnij wszystkie puste pola i wybierz pozycję **Zapisz**.
 
    ![Nowe zapytanie](./media/tutorial-hunting/new-query.png)
 
-Klonuj i modyfikuj istniejącą kwerendę myśliwską:
+Klonuj i Modyfikuj istniejące zapytanie polowania:
 
-1. Zaznacz kwerendę polującą w tabeli, którą chcesz zmodyfikować.
-2. Zaznacz wielokropek (...) w wierszu kwerendy, którą chcesz zmodyfikować, a następnie wybierz opcję **Klonuj kwerendę**.
+1. Wybierz zapytanie polowania w tabeli, którą chcesz zmodyfikować.
+2. Wybierz wielokropek (...) w wierszu zapytania, które chcesz zmodyfikować, a następnie wybierz pozycję **Klonuj zapytanie**.
 
-   ![kwerenda klonowania](./media/tutorial-hunting/clone-query.png)
+   ![Klonuj zapytanie](./media/tutorial-hunting/clone-query.png)
  
 
-3. Zmodyfikuj kwerendę i wybierz pozycję **Utwórz**.
+3. Zmodyfikuj zapytanie i wybierz pozycję **Utwórz**.
 
-   ![kwerenda niestandardowa](./media/tutorial-hunting/custom-query.png)
+   ![zapytanie niestandardowe](./media/tutorial-hunting/custom-query.png)
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule dowiesz się, jak uruchomić badanie polowania za pomocą usługi Azure Sentinel. Aby dowiedzieć się więcej o usłudze Azure Sentinel, zobacz następujące artykuły:
+W tym artykule wyjaśniono, jak uruchomić badanie polowania za pomocą oceny platformy Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
 
 
-- [Uruchamianie automatycznych kampanii łowieckich za pomocą notesów](notebooks.md)
-- [Użyj zakładek, aby zapisać interesujące informacje podczas polowania](bookmarks.md)
+- [Korzystanie z notesów do uruchamiania zautomatyzowanych kampanii łowieckich](notebooks.md)
+- [Korzystanie z zakładek do zapisywania interesujących informacji podczas polowania](bookmarks.md)

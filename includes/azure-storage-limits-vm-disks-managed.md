@@ -9,24 +9,24 @@ ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 2766ea87544f2a21fb654f687eb62dee3c0714ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334620"
 ---
-**Standardowe dyski zarządzane hdd**  
+**HDD w warstwie Standardowa Managed disks**  
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
 
-**Standardowe dyski zarządzane SSD**  
+**SSD w warstwie Standardowa Managed disks**  
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
-**Dyski zarządzane dyski SSD w wersji Premium: limity na dysk**  
+**SSD w warstwie Premium dyski zarządzane: limity dla dysku**  
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-**Dyski zarządzane dyski SSD w wersji Premium: limity dla maszyn wirtualnych**
+**SSD w warstwie Premium Managed disks: limity dla maszyn wirtualnych**
 
 | Zasób | Limit |
 | --- | --- |
-| Maksymalna liczba we/wy na maszynę wirtualną |80 000 IOPS z maszyną wirtualną GS5 |
-| Maksymalna przepustowość na maszynę wirtualną |2000 MB/s z GS5 VM |
+| Maksymalna liczba operacji we/wy na maszynę wirtualną |80 000 operacji we/wy z maszyną wirtualną GS5 |
+| Maksymalna przepływność na maszynę wirtualną |2 000 MB/s z maszyną wirtualną GS5 |

@@ -1,122 +1,122 @@
 ---
-title: Znajdowanie problemów z aplikacjami sieci Web za pomocą analizy zmian aplikacji w usłudze Azure Monitor | Dokumenty firmy Microsoft
-description: Analiza zmian aplikacji w usłudze Azure Monitor umożliwia rozwiązywanie problemów z aplikacjami w witrynach na żywo w usłudze Azure App Service.
+title: Użyj analizy zmian aplikacji w Azure Monitor, aby znaleźć problemy z aplikacją sieci Web | Microsoft Docs
+description: Korzystając z analizy zmian aplikacji w Azure Monitor, można rozwiązywać problemy z aplikacjami w witrynach na żywo w programie Azure App Service.
 ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
 ms.openlocfilehash: 036b8c084bdfdc11c02274758c550c76bdc7b1e7
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80348727"
 ---
-# <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Korzystanie z analizy zmian aplikacji (wersja zapoznawcza) w usłudze Azure Monitor
+# <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Korzystanie z analizy zmian aplikacji (wersja zapoznawcza) w Azure Monitor
 
-W przypadku wystąpienia problemu lub awarii lokacji na żywo, szybkie określenie głównej przyczyny ma kluczowe znaczenie. Standardowe rozwiązania monitorowania mogą ostrzegać o problemie. Mogą nawet wskazywać, który składnik nie działa. Ale ten alert nie zawsze będzie natychmiast wyjaśnić przyczynę awarii. Wiesz, że Twoja strona działała pięć minut temu, a teraz jest zepsuta. Co zmieniło się w ciągu ostatnich pięciu minut? Jest to pytanie, na które aplikacja Change Analysis ma odpowiadać w usłudze Azure Monitor.
+Gdy wystąpi problem lub awaria witryny na żywo, szybkie określenie głównej przyczyny ma krytyczne znaczenie. Standardowe rozwiązania do monitorowania mogą powiadamiać o problemie. Mogą nawet wskazywać, który składnik kończy się niepowodzeniem. Jednak ten alert nie zawsze natychmiast wyjaśni przyczynę niepowodzenia. Wiadomo, że witryna działała pięć minut temu, a teraz jest ona uszkodzona. Co zmieniło się w ciągu ostatnich pięciu minut? Jest to pytanie, że analiza zmian aplikacji została zaprojektowana pod kątem odpowiedzi w Azure Monitor.
 
-Opierając się na możliwości [azure resource graph,](https://docs.microsoft.com/azure/governance/resource-graph/overview)analiza zmian zapewnia wgląd w zmiany aplikacji platformy Azure, aby zwiększyć zauważalność i zmniejszyć MTTR (średni czas naprawy).
+W oparciu o możliwości [grafu zasobów platformy Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview)Analiza zmian zapewnia wgląd w zmiany aplikacji platformy Azure w celu zwiększenia zauważalności i zmniejszenia MTTR (średni czas naprawy).
 
 > [!IMPORTANT]
-> Analiza zmian jest obecnie w wersji zapoznawczej. Ta wersja zapoznawcza jest dostarczana bez umowy dotyczącej poziomu usług. Ta wersja nie jest zalecane dla obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane lub mogą mieć ograniczone możliwości. Aby uzyskać więcej informacji, zobacz [Dodatkowe warunki użytkowania wersji zapoznawczej platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Analiza zmian jest obecnie w wersji zapoznawczej. Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług. Ta wersja nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane lub mogą mieć ograniczone możliwości. Aby uzyskać więcej informacji, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 ## <a name="overview"></a>Omówienie
 
-Analiza zmian wykrywa różne typy zmian, od warstwy infrastruktury aż po wdrożenie aplikacji. Jest dostawcą zasobów platformy Azure na poziomie subskrypcji, który sprawdza zmiany zasobów w subskrypcji. Analiza zmian zawiera dane dla różnych narzędzi diagnostycznych, aby pomóc użytkownikom zrozumieć, jakie zmiany mogły spowodować problemy.
+Analiza zmian wykrywa różne typy zmian z warstwy infrastruktury we wszystkich sposobach wdrażania aplikacji. Jest to dostawca zasobów platformy Azure na poziomie subskrypcji, który sprawdza zmiany zasobów w subskrypcji. Analiza zmian udostępnia dane dla różnych narzędzi diagnostycznych, które pomagają użytkownikom zrozumieć, jakie zmiany mogą powodować problemy.
 
 Na poniższym diagramie przedstawiono architekturę analizy zmian:
 
-![Diagram architektury przedstawiający sposób, w jaki analiza zmian pobiera dane zmian i udostępnia go narzędziom klienckim](./media/change-analysis/overview.png)
+![Diagram architektury sposobu, w jaki Analiza zmian pobiera zmiany danych i udostępnia je narzędziom klienckim](./media/change-analysis/overview.png)
 
-Obecnie analiza zmian jest zintegrowana z **diagnozowania i rozwiązywania problemów** środowiska w aplikacji sieci web usługi App Service, a także dostępne jako autonomiczna karta w witrynie Azure portal.
-Zobacz *wyświetlanie zmian dla wszystkich zasobów w usłudze Azure* sekcji, aby uzyskać dostęp do analizy zmian bloku i *analizy zmian dla aplikacji sieci Web sekcji funkcji* do korzystania z niego w portalu aplikacji sieci Web w dalszej części tego artykułu.
+Obecnie Analiza zmian jest zintegrowana z interfejsem **diagnozowanie i rozwiązywanie problemów** w aplikacji internetowej App Service, a także dostępne jako karta autonomiczna w Azure Portal.
+Zapoznaj się z sekcją *Wyświetlanie zmian dla wszystkich zasobów w systemie Azure* , aby uzyskać dostęp do bloku zmiana analizy oraz *analizę zmian dla Web Apps funkcji* w celu użycia jej w portalu aplikacji sieci Web w dalszej części tego artykułu.
 
-### <a name="azure-resource-manager-tracked-properties-changes"></a>Zmiany właściwości śledzone przez usługę Azure Resource Manager
+### <a name="azure-resource-manager-tracked-properties-changes"></a>Azure Resource Manager zmian właściwości śledzonych
 
-Za pomocą [usługi Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), Analiza zmian zapewnia historyczny rekord tego, jak zasoby platformy Azure, które hostują aplikację, uległy zmianie w czasie. Można wykryć śledzone ustawienia, takie jak tożsamości zarządzane, uaktualnianie systemu operacyjnego platformy i nazwy hostów.
+Przy użyciu [grafu zasobów platformy Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview)Analiza zmian zawiera historyczny rekord, w jaki sposób zasoby platformy Azure obsługujące aplikację zostały zmienione w miarę upływu czasu. Można wykryć śledzone ustawienia, takie jak tożsamości zarządzane, uaktualnienie systemu operacyjnego platformy i nazwy hostów.
 
-### <a name="azure-resource-manager-proxied-setting-changes"></a>Zmiany ustawień usługi Azure Resource Manager
-Ustawienia, takie jak reguła konfiguracji IP, ustawienia TLS i wersje rozszerzenia nie są jeszcze dostępne w arg, więc zmień kwerendy analizy i oblicza te zmiany bezpiecznie, aby zapewnić więcej szczegółów na temat tego, co zmieniło się w aplikacji. Te informacje nie są jeszcze dostępne w usłudze Azure Resource Graph, ale będą dostępne wkrótce.
+### <a name="azure-resource-manager-proxied-setting-changes"></a>Azure Resource Manager zmiany ustawień serwera proxy
+Ustawienia, takie jak reguła konfiguracji protokołu IP, ustawienia protokołu TLS i wersje rozszerzeń, nie są jeszcze dostępne w ARG, dlatego należy zmienić zapytania analizy i ponownie obliczyć te zmiany, aby zapewnić więcej szczegółów dotyczących zmian w aplikacji. Te informacje nie są jeszcze dostępne w usłudze Azure Resource Graph, ale będą dostępne wkrótce.
 
-### <a name="changes-in-web-app-deployment-and-configuration-in-guest-changes"></a>Zmiany we wdrażaniu i konfiguracji aplikacji sieci Web (zmiany w gościu)
+### <a name="changes-in-web-app-deployment-and-configuration-in-guest-changes"></a>Zmiany w wdrażaniu i konfigurowaniu aplikacji sieci Web (zmiany w gościu)
 
-Analiza zmian przechwytuje stan wdrożenia i konfiguracji aplikacji co 4 godziny. Może wykryć, na przykład, zmiany w zmiennych środowiska aplikacji. Narzędzie oblicza różnice i przedstawia to, co się zmieniło. W przeciwieństwie do zmian w Menedżerze zasobów informacje o zmianie kodu mogą nie być natychmiast dostępne w narzędziu. Aby wyświetlić najnowsze zmiany w analizie zmian, wybierz opcję **Skanuj zmiany teraz**.
+Analiza zmian przechwytuje stan wdrożenia i konfiguracji aplikacji co 4 godziny. Może wykrywać na przykład zmiany w zmiennych środowiskowych aplikacji. Narzędzie oblicza różnice i prezentuje, co się zmieniło. W przeciwieństwie do Menedżer zasobów zmian, informacje o zmianie wdrożenia kodu mogą nie być dostępne natychmiast w narzędziu. Aby wyświetlić najnowsze zmiany w analizie zmiany, wybierz pozycję **Skanuj zmiany teraz**.
 
 ![Zrzut ekranu przedstawiający przycisk "Skanuj zmiany teraz"](./media/change-analysis/scan-changes.png)
 
 ### <a name="dependency-changes"></a>Zmiany zależności
 
-Zmiany zależności zasobów mogą również powodować problemy w aplikacji sieci web. Na przykład jeśli aplikacja sieci web wywołuje w pamięci podręcznej Redis, SKU pamięci podręcznej Redis może mieć wpływ na wydajność aplikacji sieci web. Aby wykryć zmiany zależności, analiza zmian sprawdza rekord DNS aplikacji sieci web. W ten sposób identyfikuje zmiany we wszystkich składnikach aplikacji, które mogą powodować problemy.
+Zmiany zależności zasobów mogą również powodować problemy w aplikacji sieci Web. Na przykład jeśli aplikacja sieci Web wywołuje w pamięci podręcznej Redis, jednostka SKU pamięci podręcznej Redis może mieć wpływ na wydajność aplikacji sieci Web. Aby wykryć zmiany w zależnościach, Analiza zmian sprawdza rekord DNS aplikacji sieci Web. W ten sposób identyfikuje zmiany we wszystkich składnikach aplikacji, które mogą powodować problemy.
 Obecnie obsługiwane są następujące zależności:
 - Web Apps
 - Azure Storage
 - Azure SQL
 
 ### <a name="enablement"></a>Włączanie
-Dostawca zasobów "Microsoft.ChangeAnalysis" musi być zarejestrowany w ramach subskrypcji dla właściwości śledzonego usługi Azure Resource Manager i danych zmiany ustawień proxied, które mają być dostępne. Po wejściu do narzędzia diagnozowania i rozwiązywania problemów w aplikacji Web App lub wyświetliniu autonomicznej karty Analiza zmian ten dostawca zasobów jest automatycznie rejestrowany. Nie ma żadnych implementacji wydajności i kosztów dla subskrypcji. Po włączeniu analizy zmian dla aplikacji sieci web (lub włączenie w narzędziu Diagnozowanie i rozwiązywanie problemów) będzie to miało nieznaczny wpływ na wydajność aplikacji sieci web i bez kosztów rozliczeń.
-W przypadku zmian w aplikacji sieci Web w gościu wymagane jest oddzielne włączenie do skanowania plików kodu w aplikacji sieci web. Aby uzyskać więcej informacji, zobacz Włączanie analizy zmian w sekcji [Narzędzia Diagnozowanie i rozwiązywanie problemów](https://docs.microsoft.com/azure/azure-monitor/app/change-analysis#enable-change-analysis-in-the-diagnose-and-solve-problems-tool) w dalszej części tego artykułu, aby uzyskać więcej informacji.
+Dostawca zasobów "Microsoft. ChangeAnalysis" musi być zarejestrowany w ramach subskrypcji dla Azure Resource Manager śledzonych właściwości i ustawień serwera proxy Zmień dane na dostępne. Po wprowadzeniu narzędzia do diagnozowania i rozwiązywania problemów aplikacji sieci Web ten dostawca zasobów jest automatycznie rejestrowany. Nie ma żadnych implementacji wydajności i kosztów dla Twojej subskrypcji. Po włączeniu zmiany analizy dla aplikacji sieci Web (lub włączenia w narzędziu diagnozowanie i rozwiązywanie problemów) będzie to miało niewielki wpływ na wydajność aplikacji sieci Web i nie ma kosztu rozliczania.
+W przypadku zmian w aplikacji sieci Web w gościu do skanowania plików kodu w ramach aplikacji sieci Web jest wymagane oddzielne Włączanie. Aby uzyskać więcej informacji, zobacz sekcję [Włączanie analizy zmian w sekcji diagnozowanie i rozwiązywanie problemów](https://docs.microsoft.com/azure/azure-monitor/app/change-analysis#enable-change-analysis-in-the-diagnose-and-solve-problems-tool) w dalszej części tego artykułu, aby uzyskać więcej informacji.
 
 
 ## <a name="viewing-changes-for-all-resources-in-azure"></a>Wyświetlanie zmian dla wszystkich zasobów na platformie Azure
-W usłudze Azure Monitor istnieje autonomiczny blok dla analizy zmian, aby wyświetlić wszystkie zmiany za pomocą zasobów szczegółowych informacji i zależności aplikacji.
+W Azure Monitor istnieje autonomiczny blok służący do analizy zmian, który umożliwia wyświetlanie wszystkich zmian za pomocą szczegółowych informacji i zasobów zależności aplikacji.
 
-Wyszukaj analizę zmian na pasku wyszukiwania w witrynie Azure portal, aby uruchomić blok.
+Wyszukaj wartość Analiza zmian na pasku wyszukiwania na Azure Portal, aby uruchomić blok.
 
-![Zrzut ekranu przedstawiający wyszukiwanie analizy zmian w witrynie Azure portal](./media/change-analysis/search-change-analysis.png)
+![Zrzut ekranu przeszukiwania analizy zmian w Azure Portal](./media/change-analysis/search-change-analysis.png)
 
-Wybierz grupę zasobów i zasoby, aby rozpocząć wyświetlanie zmian.
+Wybierz pozycję Grupa zasobów i zasoby, aby rozpocząć wyświetlanie zmian.
 
-![Zrzut ekranu przedstawiający blok Analizy zmian w witrynie Azure portal](./media/change-analysis/change-analysis-standalone-blade.png)
+![Zrzut ekranu przedstawiający blok analizy zmian w Azure Portal](./media/change-analysis/change-analysis-standalone-blade.png)
 
-Można zobaczyć statystyki i powiązanych zasobów zależności, które hostuje aplikację. Ten widok jest przeznaczony do aplikacji zorientowanych dla deweloperów do rozwiązywania problemów.
+Możesz wyświetlić informacje o zasobach i powiązanych zależnościach, które obsługują aplikację. Ten widok został zaprojektowany z założeniami, aby deweloperzy mogli rozwiązywać problemy.
 
 Obecnie obsługiwane zasoby obejmują:
 - Maszyny wirtualne
-- Zestaw skalowania maszyny wirtualnej
+- Zestaw skalowania maszyn wirtualnych
 - Zasoby sieci platformy Azure
-- Aplikacja internetowa ze śledzeniem plików gościa i zmianami zmiennych środowiskowych
+- Aplikacja internetowa z funkcją śledzenia plików gościa i zmienne środowiskowe
 
-Aby uzyskać opinię, użyj przycisku wyślij changeanalysisteam@microsoft.comopinię w bloku lub wiadomości e-mail .
+Aby dowolna opinia, użyj przycisku Wyślij opinię w bloku lub wiadomości e-mail changeanalysisteam@microsoft.com.
 
-![Zrzut ekranu przedstawiający przycisk opinii w bloku Analiza zmian](./media/change-analysis/change-analysis-feedback.png)
+![Zrzut ekranu przycisku opinii w bloku Analiza zmian](./media/change-analysis/change-analysis-feedback.png)
 
-## <a name="change-analysis-for-the-web-apps-feature"></a>Analiza zmian dla funkcji Aplikacji sieci Web
+## <a name="change-analysis-for-the-web-apps-feature"></a>Zmień analizę dla funkcji Web Apps
 
-W usłudze Azure Monitor analiza zmian jest również wbudowana w środowisko samoobsługowe **Diagnozowanie i rozwiązywanie problemów.** Dostęp do tego środowiska ze strony **Przegląd** aplikacji usługi App Service.
+W Azure Monitor analizy zmian są również wbudowane w funkcję **diagnozowania i rozwiązywania problemów** . Uzyskaj dostęp do tego środowiska na stronie **Przegląd** aplikacji App Service.
 
-![Zrzut ekranu przedstawiający przycisk "Przegląd" i przycisk "Diagnozuj i rozwiązuj problemy"](./media/change-analysis/change-analysis.png)
+![Zrzut ekranu przedstawiający przycisk "przegląd" i przycisk "diagnozowanie i rozwiązywanie problemów"](./media/change-analysis/change-analysis.png)
 
-### <a name="enable-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>Włącz analizę zmian w narzędziu Diagnozowanie i rozwiązywanie problemów
+### <a name="enable-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>Włącz analizę zmian w narzędziu diagnozowanie i rozwiązywanie problemów
 
-1. Wybierz **pozycję Dostępność i wydajność**.
+1. Wybierz pozycję **dostępność i wydajność**.
 
-    ![Zrzut ekranu przedstawiający opcje rozwiązywania problemów z dostępnością i wydajnością](./media/change-analysis/availability-and-performance.png)
+    ![Zrzut ekranu przedstawiający opcje rozwiązywania problemów z "dostępnością i wydajnością"](./media/change-analysis/availability-and-performance.png)
 
-1. Wybierz **pozycję Zmiany w aplikacji**. Nie, że funkcja jest również dostępna w **awarii aplikacji**.
+1. Wybierz pozycję **zmiany aplikacji**. Nie jest również dostępna w przypadku **awarii aplikacji**.
 
-   ![Zrzut ekranu przedstawiający przycisk "Awarie aplikacji"](./media/change-analysis/application-changes.png)
+   ![Zrzut ekranu przedstawiający przycisk "awarie aplikacji"](./media/change-analysis/application-changes.png)
 
 1. Aby włączyć analizę zmian, wybierz pozycję **Włącz teraz**.
 
-   ![Zrzut ekranu przedstawiający opcje "Awarie aplikacji"](./media/change-analysis/enable-changeanalysis.png)
+   ![Zrzut ekranu opcji "awarie aplikacji"](./media/change-analysis/enable-changeanalysis.png)
 
-1. Włącz **analizę zmian** i wybierz pozycję **Zapisz**. Narzędzie wyświetla wszystkie aplikacje internetowe w ramach planu usługi app service. Przełącznik poziomu planu umożliwia włączenie analizy zmian dla wszystkich aplikacji sieci Web w ramach planu.
+1. Włącz **analizę zmian** i wybierz pozycję **Zapisz**. Narzędzie wyświetla wszystkie aplikacje sieci Web w ramach planu App Service. Możesz użyć przełącznika poziomu planu, aby włączyć analizę zmian dla wszystkich aplikacji sieci Web w ramach planu.
 
     ![Zrzut ekranu przedstawiający interfejs użytkownika "Włącz analizę zmian"](./media/change-analysis/change-analysis-on.png)
 
 
-1. Aby uzyskać dostęp do analizy zmian, wybierz **opcję Diagnozuj i rozwiązuj problemy** > **Dostępność i wydajność** > **awarii aplikacji**. Zobaczysz wykres, który podsumowuje typ zmian w czasie wraz ze szczegółami dotyczącymi tych zmian. Domyślnie zmiany w ciągu ostatnich 24 godzin są wyświetlane w celu pomocy w rozwiązywaniu natychmiastowych problemów.
+1. Aby uzyskać dostęp do analizy zmian, wybierz opcję **diagnozowanie i rozwiązywanie problemów dotyczących** > **dostępności i wydajności** > **aplikacji**. Zobaczysz Wykres podsumowujący typ zmian w czasie wraz ze szczegółami dotyczącymi tych zmian. Domyślnie zmiany w ciągu ostatnich 24 godzin są wyświetlane, aby ułatwić natychmiastowe Rozwiązywanie problemów.
 
-     ![Zrzut ekranu przedstawiający widok różnic zmiany](./media/change-analysis/change-view.png)
+     ![Zrzut ekranu przedstawiający widok różnic między zmianami](./media/change-analysis/change-view.png)
 
 
 ### <a name="enable-change-analysis-at-scale"></a>Włącz analizę zmian na dużą skalę
 
-Jeśli subskrypcja zawiera wiele aplikacji sieci web, włączenie usługi na poziomie aplikacji sieci web byłoby nieefektywne. Uruchom następujący skrypt, aby włączyć wszystkie aplikacje sieci web w ramach subskrypcji.
+Jeśli Twoja subskrypcja obejmuje wiele aplikacji sieci Web, włączenie usługi na poziomie aplikacji sieci Web byłoby niewydajne. Uruchom następujący skrypt, aby włączyć wszystkie aplikacje sieci Web w ramach subskrypcji.
 
 Wymagania wstępne:
-* Moduł Az programu PowerShell. Postępuj zgodnie z instrukcjami dotyczącymi [instalowania modułu programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.6.0)
+* PowerShell AZ module. Postępuj zgodnie z instrukcjami w [instalacji modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.6.0)
 
 Uruchom następujący skrypt:
 
@@ -149,6 +149,6 @@ foreach ($webapp in $webapp_list)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Włącz usługę Application Insights dla [aplikacji usługi Azure App Services](azure-web-apps.md).
-- Włącz usługę Application Insights dla [maszyn wirtualnych platformy Azure i aplikacji współzawiększych platformy Azure.](azure-vm-vmss-apps.md)
-- Dowiedz się więcej o [programie Azure Resource Graph,](https://docs.microsoft.com/azure/governance/resource-graph/overview)który pomaga w zasilaniu analizy zmian.
+- Włącz Application Insights dla [aplikacji App Services platformy Azure](azure-web-apps.md).
+- Włącz Application Insights dla [maszyny wirtualnej platformy Azure i zestawu skalowania maszyn wirtualnych platformy Azure dla aplikacji hostowanych przez usługi IIS](azure-vm-vmss-apps.md).
+- Dowiedz się więcej o [usłudze Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), która ułatwia analizę zmian.

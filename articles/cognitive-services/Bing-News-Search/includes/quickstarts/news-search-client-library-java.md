@@ -1,5 +1,5 @@
 ---
-title: Szybki start biblioteki klienta Java wyszukiwania wiadomości Bing
+title: wyszukiwanie wiadomości Bing Java Client Library — Szybki Start
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.openlocfilehash: 76a752bc108158c998d13a548da535d5fb1d5ee2
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79503874"
 ---
-Użyj tego przewodnika Szybki start, aby rozpocząć wyszukiwanie wiadomości w bibliotece klienta wyszukiwania wiadomości Bing dla języka Java. Usługa Bing News Search ma interfejs API REST zgodny z większością języków programowania, ale biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch).
+Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć wyszukiwanie wiadomości za pomocą biblioteki klienta wyszukiwanie wiadomości Bing dla środowiska Java. Chociaż wyszukiwanie wiadomości Bing ma interfejs API REST zgodny z większością języków programowania, Biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zainstaluj zależności biblioteki klienta wyszukiwania wiadomości Bing przy użyciu maven, Gradle lub innego systemu zarządzania zależnościami. Plik POM systemu Maven wymaga następującej deklaracji:
+Zainstaluj zależności biblioteki klienta wyszukiwanie wiadomości Bing przy użyciu programu Maven, Gradle lub innego systemu zarządzania zależnościami. Plik POM systemu Maven wymaga następującej deklaracji:
 
 ```xml
     <dependencies>
@@ -62,7 +62,7 @@ import java.io.IOException;
     }
     ```
 
-2. Aby utworzyć obiekt `ServiceClientCredentials`, zastąp funkcję `applyCredentialsFilter()`. Przekaż `OkHttpClient.Builder` a do metody i użyj metody `addNetworkInterceptor()` konstruktora, aby utworzyć poświadczenia dla wywołania biblioteki klienta.
+2. Aby utworzyć obiekt `ServiceClientCredentials`, zastąp funkcję `applyCredentialsFilter()`. Przekaż `OkHttpClient.Builder` do metody i Użyj `addNetworkInterceptor()` metody konstruktora, aby utworzyć swoje poświadczenia dla wywołania biblioteki klienta.
 
     ```java
     new ServiceClientCredentials() {
@@ -133,4 +133,4 @@ import java.io.IOException;
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Tworzenie jednostronicowej aplikacji sieci Web](../../tutorial-bing-news-search-single-page-app.md)
+> [Tworzenie jednostronicowej aplikacji internetowej](../../tutorial-bing-news-search-single-page-app.md)

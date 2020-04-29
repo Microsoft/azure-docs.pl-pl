@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie sieciowych punktów końcowych usługi Azure Files | Dokumenty firmy Microsoft
-description: Omówienie opcji sieciowych dla usług Azure Files.
+title: Konfigurowanie punktów końcowych sieci Azure Files | Microsoft Docs
+description: Omówienie opcji sieciowych dla Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: overview
@@ -8,65 +8,65 @@ ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: cc487e8def180735606aa010651dde40ef93908e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80082507"
 ---
-# <a name="configuring-azure-files-network-endpoints"></a>Konfigurowanie sieciowych punktów końcowych usługi Azure Files
-Usługa Azure Files udostępnia dwa główne typy punktów końcowych dostępu do udziałów plików platformy Azure: 
+# <a name="configuring-azure-files-network-endpoints"></a>Konfigurowanie punktów końcowych sieci Azure Files
+Azure Files udostępnia dwa główne typy punktów końcowych do uzyskiwania dostępu do udziałów plików platformy Azure: 
 - Publiczne punkty końcowe, które mają publiczny adres IP i są dostępne z dowolnego miejsca na świecie.
-- Prywatne punkty końcowe, które istnieją w sieci wirtualnej i mają prywatny adres IP z przestrzeni adresowej tej sieci wirtualnej.
+- Prywatne punkty końcowe, które istnieją w ramach sieci wirtualnej i mają prywatny adres IP w przestrzeni adresowej tej sieci wirtualnej.
 
-Publiczne i prywatne punkty końcowe istnieją na koncie magazynu platformy Azure. Konto magazynu jest konstrukcją zarządzania, która reprezentuje udostępnioną pulę magazynu, w której można wdrożyć wiele udziałów plików, a także inne zasoby magazynu, takie jak kontenery obiektów blob lub kolejki.
+Publiczne i prywatne punkty końcowe istnieją na koncie usługi Azure Storage. Konto magazynu to konstrukcja zarządzania, która reprezentuje udostępnioną pulę magazynu, w którym można wdrożyć wiele udziałów plików, a także inne zasoby magazynu, takie jak kontenery obiektów blob lub kolejki.
 
-W tym artykule skupiono się na tym, jak skonfigurować punkty końcowe konta magazynu do bezpośredniego uzyskiwania dostępu do udziału plików platformy Azure. Większość szczegółów podanych w tym dokumencie dotyczy również sposobu współpracy usługi Azure File Sync z publicznymi i prywatnymi punktami końcowymi dla konta magazynu, jednak aby uzyskać więcej informacji na temat zagadnień dotyczących sieci wdrożenia usługi Azure File Sync, zobacz [konfigurowanie ustawień serwera proxy i zapory usługi Azure File Sync](storage-sync-files-firewall-and-proxy.md).
+W tym artykule omówiono sposób konfigurowania punktów końcowych konta magazynu do bezpośredniego dostępu do udziału plików platformy Azure. Większość szczegółów podanych w tym dokumencie dotyczy również sposobu, w jaki Azure File Sync współdziałają z publicznymi i prywatnymi punktami końcowymi dla konta magazynu, jednak aby uzyskać więcej informacji dotyczących zagadnień sieciowych dotyczących wdrożenia Azure File Sync, zobacz [konfigurowanie Azure File Sync proxy i ustawień zapory](storage-sync-files-firewall-and-proxy.md).
 
-Przed przeczytaniem tego przewodnika [zalecamy przeczytanie zagadnień dotyczących sieci usługi Azure Files.](storage-files-networking-overview.md)
+Zalecamy zapoznanie się z [zagadnieniami dotyczącymi sieci Azure Files](storage-files-networking-overview.md) przed przeczytaniem tego przewodnika.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- W tym artykule przyjęto założenie, że subskrypcja platformy Azure została już utworzona. Jeśli nie masz jeszcze subskrypcji, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- W tym artykule przyjęto założenie, że utworzono już udział plików platformy Azure na koncie magazynu, z którym chcesz się połączyć z lokalnymi. Aby dowiedzieć się, jak utworzyć udział plików platformy Azure, zobacz [Tworzenie udziału plików platformy Azure](storage-how-to-create-file-share.md).
-- Jeśli zamierzasz korzystać z programu Azure PowerShell, [zainstaluj najnowszą wersję](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Jeśli zamierzasz korzystać z interfejsu wiersza polecenia platformy Azure, [zainstaluj najnowszą wersję](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- W tym artykule przyjęto założenie, że utworzono już subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- W tym artykule przyjęto założenie, że masz już utworzony udział plików platformy Azure na koncie magazynu, z którym chcesz nawiązać połączenie ze środowiska lokalnego. Aby dowiedzieć się, jak utworzyć udział plików platformy Azure, zobacz [Tworzenie udziału plików platformy Azure](storage-how-to-create-file-share.md).
+- Jeśli zamierzasz używać Azure PowerShell, [Zainstaluj najnowszą wersję](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Jeśli zamierzasz korzystać z interfejsu wiersza polecenia platformy Azure, [Zainstaluj najnowszą wersję](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-a-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
 Utworzenie prywatnego punktu końcowego dla konta magazynu spowoduje wdrożenie następujących zasobów platformy Azure:
 
-- **Prywatny punkt końcowy:** zasób platformy Azure reprezentujący prywatny punkt końcowy konta magazynu. Można to potraktować jako zasób łączący konto magazynu i interfejs sieciowy.
-- **Interfejs sieciowy (NIC)**: Interfejs sieciowy, który utrzymuje prywatny adres IP w określonej sieci wirtualnej/podsieci. Jest to dokładnie ten sam zasób, który zostanie wdrożony podczas wdrażania maszyny wirtualnej, jednak zamiast być przypisany do maszyny wirtualnej, jest własnością prywatnego punktu końcowego.
-- **Prywatna strefa DNS:** Jeśli nigdy wcześniej nie wdrożono prywatnego punktu końcowego dla tej sieci wirtualnej, zostanie wdrożona nowa prywatna strefa DNS dla sieci wirtualnej. Zostanie również utworzony rekord DNS A dla konta magazynu w tej strefie DNS. Jeśli już wdrożono prywatny punkt końcowy w tej sieci wirtualnej, do istniejącej strefy DNS zostanie dodany nowy rekord A dla konta magazynu. Wdrażanie strefy DNS jest opcjonalne, jednak wysoce zalecane i wymagane, jeśli montujesz udziały plików platformy Azure z jednostką usługi AD lub przy użyciu interfejsu API FileREST.
+- **Prywatny punkt końcowy**: zasób platformy Azure reprezentujący prywatny punkt końcowy konta magazynu. Można to traktować jako zasób, który nawiązuje połączenie z kontem magazynu i interfejsem sieciowym.
+- **Interfejs sieciowy (nic)**: interfejs sieciowy, który utrzymuje prywatny adres IP w określonej podsieci/sieci wirtualnej. Jest to dokładnie ten sam zasób, który jest wdrażany podczas wdrażania maszyny wirtualnej, ale nie jest przypisywany do maszyny wirtualnej, jest własnością prywatnego punktu końcowego.
+- **Prywatna strefa DNS**: Jeśli nigdy nie wdrożono prywatnego punktu końcowego dla tej sieci wirtualnej, zostanie wdrożona nowa prywatna strefa DNS dla sieci wirtualnej. Zostanie również utworzony rekord DNS A dla konta magazynu w tej strefie DNS. Jeśli w tej sieci wirtualnej wdrożono już prywatny punkt końcowy, nowy rekord konta magazynu zostanie dodany do istniejącej strefy DNS. Wdrażanie strefy DNS jest opcjonalne, ale zdecydowanie zalecane i wymagane, Jeśli instalujesz udziały plików platformy Azure za pomocą jednostki usługi AD lub przy użyciu interfejsu API FileREST.
 
 > [!Note]  
-> W tym artykule użyto sufiksu DNS `core.windows.net`konta magazynu dla regionów publicznych platformy Azure . Ten komentarz dotyczy również chmur suwerennych platformy Azure, takich jak chmura azure dla instytucji rządowych i chmura Azure China — po prostu zastąp odpowiednie sufiksy dla danego środowiska. 
+> W tym artykule jest stosowany sufiks DNS konta magazynu dla publicznych regionów platformy Azure `core.windows.net`. Ten komentarz dotyczy również suwerennych chmur platformy Azure, takich jak chmura dla instytucji rządowych w Stanach Zjednoczonych i Azure (Chiny) — po prostu zastępuje odpowiednie sufiksy dla danego środowiska. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Przejdź do konta magazynu, dla którego chcesz utworzyć prywatny punkt końcowy. W spisie treści dla konta magazynu wybierz **opcję Prywatne połączenia punktów końcowych**, a następnie + Prywatny punkt **końcowy,** aby utworzyć nowy prywatny punkt końcowy. 
+Przejdź do konta magazynu, dla którego chcesz utworzyć prywatny punkt końcowy. W spisie treści konta magazynu wybierz pozycję **połączenia prywatne punktu końcowego**, a następnie **+ prywatny punkt końcowy** , aby utworzyć nowy prywatny punkt końcowy. 
 
-![Zrzut ekranu przedstawiający element połączeń prywatnych punktów końcowych w spisie zawartości konta magazynu](media/storage-files-networking-endpoints/create-private-endpoint-0.png)
+![Zrzut ekranu przedstawiający element połączenia prywatnego punktu końcowego w spisie treści konta magazynu](media/storage-files-networking-endpoints/create-private-endpoint-0.png)
 
-Wynikowo-kreator ma wiele stron do ukończenia.
+Wynikiem pracy kreatora jest wiele stron.
 
-W **obszarze Podstawowe strony** bloku wybierz żądaną grupę zasobów, nazwę i region dla prywatnego punktu końcowego. Mogą to być cokolwiek chcesz, nie muszą odpowiadać konta magazynu w każdym razie, chociaż należy utworzyć prywatny punkt końcowy w tym samym regionie, w którym chcesz utworzyć prywatny punkt końcowy.
+W bloku **podstawowe** wybierz żądaną grupę zasobów, nazwę i region dla prywatnego punktu końcowego. Mogą one być odpowiednie, ale nie muszą być zgodne z kontem magazynu w tym przypadku, chociaż należy utworzyć prywatny punkt końcowy w tym samym regionie, w którym znajduje się sieć wirtualna, w której ma zostać utworzony prywatny punkt końcowy.
 
-![Zrzut ekranu przedstawiający sekcję Podstawy sekcji tworzenie prywatnego punktu końcowego](media/storage-files-networking-endpoints/create-private-endpoint-1.png)
+![Zrzut ekranu przedstawiający sekcję podstawowe sekcji Tworzenie prywatnego punktu końcowego](media/storage-files-networking-endpoints/create-private-endpoint-1.png)
 
-W **bloku Zasób** wybierz przycisk opcji **Połącz z zasobem platformy Azure w moim katalogu**. W obszarze **Typ zasobu**wybierz pozycję **Microsoft.Storage/storageAccounts** dla typu zasobu. Pole **Zasób** to konto magazynu z udziałem plików platformy Azure, z którym chcesz się połączyć. Docelowy podsób jest **plik,** ponieważ jest to dla usługi Azure Files.
+W bloku **zasób** wybierz przycisk radiowy, aby **nawiązać połączenie z zasobem platformy Azure w moim katalogu**. W obszarze **Typ zasobu**wybierz pozycję **Microsoft. Storage/storageAccounts** dla typu zasobu. Pole **zasobu** to konto magazynu z udziałem plików platformy Azure, z którym chcesz nawiązać połączenie. Docelowy zasób podrzędny to **plik**, ponieważ jest on przeznaczony dla Azure Files.
 
-**Blok Konfiguracji** umożliwia wybranie określonej sieci wirtualnej i podsieci, do której chcesz dodać prywatny punkt końcowy. Wybierz utworzoną sieć wirtualną powyżej. Należy wybrać odrębną podsieć z podsieci, do której dodano punkt końcowy usługi powyżej. Blok Konfiguracji zawiera również informacje dotyczące tworzenia/aktualizowania prywatnej strefy DNS. Zalecamy użycie `privatelink.file.core.windows.net` strefy domyślnej.
+Blok **Konfiguracja** umożliwia wybranie określonej sieci wirtualnej i podsieci, do której chcesz dodać prywatny punkt końcowy. Wybierz utworzoną powyżej sieć wirtualną. Należy wybrać odrębną podsieć z podsieci, do której dodano punkt końcowy usługi. Blok konfiguracja zawiera również informacje dotyczące tworzenia/aktualizowania prywatnej strefy DNS. Zalecamy korzystanie z strefy domyślnej `privatelink.file.core.windows.net` .
 
-![Zrzut ekranu przedstawiający sekcję Konfiguracja](media/storage-files-networking-endpoints/create-private-endpoint-2.png)
+![Zrzut ekranu przedstawiający sekcję konfiguracyjną](media/storage-files-networking-endpoints/create-private-endpoint-2.png)
 
-Kliknij **przycisk Przejrzyj + utwórz,** aby utworzyć prywatny punkt końcowy. 
+Kliknij przycisk **Przegląd + Utwórz** , aby utworzyć prywatny punkt końcowy. 
 
-Jeśli w sieci wirtualnej znajduje się maszyna wirtualna lub skonfigurowano przekazywanie dalej DNS zgodnie z opisem [w tym miejscu,](storage-files-networking-dns.md)możesz sprawdzić, czy prywatny punkt końcowy został poprawnie skonfigurowany, uruchamiając następujące polecenia z programu PowerShell, wiersza polecenia lub terminala (działa dla systemu Windows, Linux lub macOS). Należy zastąpić `<storage-account-name>` odpowiednią nazwą konta magazynu:
+Jeśli masz maszynę wirtualną w sieci wirtualnej lub przekazanie usługi DNS zostało skonfigurowane zgodnie z opisem w [tym miejscu](storage-files-networking-dns.md), możesz sprawdzić, czy prywatny punkt końcowy został prawidłowo skonfigurowany, uruchamiając następujące polecenia z programu PowerShell, wiersza polecenia lub terminalu (działa dla systemu Windows, Linux lub macOS). Należy zamienić `<storage-account-name>` na odpowiednią nazwę konta magazynu:
 
 ```
 nslookup <storage-account-name>.file.core.windows.net
 ```
 
-Jeśli wszystko działało pomyślnie, powinieneś zobaczyć `192.168.0.5` następujące dane wyjściowe, gdzie jest prywatny adres IP prywatnego punktu końcowego w sieci wirtualnej (dane wyjściowe wyświetlane dla systemu Windows):
+Jeśli wszystko działało prawidłowo, powinny zostać wyświetlone następujące dane wyjściowe, gdzie `192.168.0.5` jest prywatnym adresem IP prywatnego punktu końcowego w sieci wirtualnej (dane wyjściowe wyświetlane dla systemu Windows):
 
 ```Output
 Server:  UnKnown
@@ -78,8 +78,8 @@ Address:  192.168.0.5
 Aliases:  storageaccount.file.core.windows.net
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
-Aby utworzyć prywatny punkt końcowy dla konta magazynu, należy najpierw uzyskać odwołanie do konta magazynu i podsieci sieci wirtualnej, do której chcesz dodać prywatny punkt końcowy. `<storage-account-resource-group-name>`Zastąp `<vnet-name>`, `<vnet-subnet-name>` `<storage-account-name>`, `<vnet-resource-group-name>`, i poniżej:
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Aby utworzyć prywatny punkt końcowy dla konta magazynu, najpierw musisz uzyskać odwołanie do konta magazynu i podsieci sieci wirtualnej, do której chcesz dodać prywatny punkt końcowy. Zamień `<storage-account-resource-group-name>`, `<storage-account-name>`, `<vnet-resource-group-name>` `<vnet-name>`, i `<vnet-subnet-name>` poniżej:
 
 ```PowerShell
 $storageAccountResourceGroupName = "<storage-account-resource-group-name>"
@@ -124,7 +124,7 @@ if ($null -eq $subnet) {
 }
 ```
 
-Aby utworzyć prywatny punkt końcowy, należy utworzyć połączenie usługi łącza prywatnego z kontem magazynu. Połączenie usługi łącza prywatnego jest dane wejściowe do tworzenia prywatnego punktu końcowego. 
+Aby utworzyć prywatny punkt końcowy, należy utworzyć połączenie usługi link prywatny z kontem magazynu. Połączenie usługi link prywatny to dane wejściowe do tworzenia prywatnego punktu końcowego. 
 
 ```PowerShell
 # Disable private endpoint network policies
@@ -147,7 +147,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
         -ErrorAction Stop
 ```
 
-Utworzenie prywatnej strefy DNS platformy Azure umożliwia oryginalną `storageaccount.file.core.windows.net` nazwę konta magazynu, na przykład do rozpoznawania prywatnego adresu IP wewnątrz sieci wirtualnej. Chociaż opcjonalne z punktu widzenia tworzenia prywatnego punktu końcowego, jest jawnie wymagane do instalowania udziału plików platformy Azure przy użyciu jednostki użytkownika usługi AD lub uzyskiwania dostępu za pośrednictwem interfejsu API REST.  
+Utworzenie prywatnej strefy DNS platformy Azure umożliwia pierwotną nazwę konta magazynu, na przykład w `storageaccount.file.core.windows.net` celu rozpoznania prywatnego adresu IP w sieci wirtualnej. Chociaż jest to opcjonalne z punktu widzenia tworzenia prywatnego punktu końcowego, jest on jawnie wymagany do zainstalowania udziału plików platformy Azure przy użyciu podmiotu zabezpieczeń usługi AD lub dostępu za pośrednictwem interfejsu API REST.  
 
 ```PowerShell
 # Get the desired storage account suffix (core.windows.net for public cloud).
@@ -215,7 +215,7 @@ New-AzPrivateDnsRecordSet `
     Out-Null
 ```
 
-Jeśli w sieci wirtualnej znajduje się maszyna wirtualna lub skonfigurowano przekazywanie dns zgodnie z opisem [w tym miejscu,](storage-files-networking-dns.md)możesz sprawdzić, czy prywatny punkt końcowy został poprawnie skonfigurowany za pomocą następujących poleceń:
+Jeśli masz maszynę wirtualną w sieci wirtualnej lub przekazanie usługi DNS zostało skonfigurowane zgodnie z opisem w [tym miejscu](storage-files-networking-dns.md), możesz sprawdzić, czy prywatny punkt końcowy został poprawnie skonfigurowany przy użyciu następujących poleceń:
 
 ```PowerShell
 $storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.File) | `
@@ -224,7 +224,7 @@ $storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.Fil
 Resolve-DnsName -Name $storageAccountHostName
 ```
 
-Jeśli wszystko działało pomyślnie, należy zobaczyć następujące `192.168.0.5` dane wyjściowe, gdzie jest prywatny adres IP prywatnego punktu końcowego w sieci wirtualnej:
+Jeśli wszystko działało prawidłowo, należy zobaczyć następujące dane wyjściowe, gdzie `192.168.0.5` jest prywatnym adresem IP prywatnego punktu końcowego w sieci wirtualnej:
 
 ```Output
 Name                             Type   TTL   Section    NameHost
@@ -240,7 +240,7 @@ IP4Address : 192.168.0.5
 ```
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-Aby utworzyć prywatny punkt końcowy dla konta magazynu, należy najpierw uzyskać odwołanie do konta magazynu i podsieci sieci wirtualnej, do której chcesz dodać prywatny punkt końcowy. `<storage-account-resource-group-name>`Zastąp `<vnet-name>`, `<vnet-subnet-name>` `<storage-account-name>`, `<vnet-resource-group-name>`, i poniżej:
+Aby utworzyć prywatny punkt końcowy dla konta magazynu, najpierw musisz uzyskać odwołanie do konta magazynu i podsieci sieci wirtualnej, do której chcesz dodać prywatny punkt końcowy. Zamień `<storage-account-resource-group-name>`, `<storage-account-name>`, `<vnet-resource-group-name>` `<vnet-name>`, i `<vnet-subnet-name>` poniżej:
 
 ```bash
 storageAccountResourceGroupName="<storage-account-resource-group-name>"
@@ -272,7 +272,7 @@ subnet=$(az network vnet subnet show \
     tr -d '"')
 ```
 
-Aby utworzyć prywatny punkt końcowy, należy najpierw upewnić się, że zasady sieci prywatnego punktu końcowego podsieci są wyłączone. Następnie można utworzyć prywatny punkt `az network private-endpoint create` końcowy za pomocą polecenia
+Aby utworzyć prywatny punkt końcowy, należy najpierw upewnić się, że zasady sieci prywatnego punktu końcowego podsieci są ustawione na wartość wyłączone. Następnie można utworzyć prywatny punkt końcowy przy użyciu `az network private-endpoint create` polecenia
 
 ```bash
 # Disable private endpoint network policies
@@ -300,7 +300,7 @@ privateEndpoint=$(az network private-endpoint create \
     tr -d '"')
 ```
 
-Utworzenie prywatnej strefy DNS platformy Azure umożliwia oryginalną `storageaccount.file.core.windows.net` nazwę konta magazynu, na przykład do rozpoznawania prywatnego adresu IP wewnątrz sieci wirtualnej. Chociaż opcjonalne z punktu widzenia tworzenia prywatnego punktu końcowego, jest jawnie wymagane do instalowania udziału plików platformy Azure przy użyciu jednostki użytkownika usługi AD lub uzyskiwania dostępu za pośrednictwem interfejsu API REST.  
+Utworzenie prywatnej strefy DNS platformy Azure umożliwia pierwotną nazwę konta magazynu, na przykład w `storageaccount.file.core.windows.net` celu rozpoznania prywatnego adresu IP w sieci wirtualnej. Chociaż jest to opcjonalne z punktu widzenia tworzenia prywatnego punktu końcowego, jest on jawnie wymagany do zainstalowania udziału plików platformy Azure przy użyciu podmiotu zabezpieczeń usługi AD lub dostępu za pośrednictwem interfejsu API REST.  
 
 ```bash
 # Get the desired storage account suffix (core.windows.net for public cloud).
@@ -387,7 +387,7 @@ az network private-dns record-set a add-record \
         --output none
 ```
 
-Jeśli w sieci wirtualnej znajduje się maszyna wirtualna lub skonfigurowano przekazywanie dns zgodnie z opisem [w tym miejscu,](storage-files-networking-dns.md)możesz sprawdzić, czy prywatny punkt końcowy został poprawnie skonfigurowany za pomocą następujących poleceń:
+Jeśli masz maszynę wirtualną w sieci wirtualnej lub przekazanie usługi DNS zostało skonfigurowane zgodnie z opisem w [tym miejscu](storage-files-networking-dns.md), możesz sprawdzić, czy prywatny punkt końcowy został poprawnie skonfigurowany przy użyciu następujących poleceń:
 
 ```bash
 httpEndpoint=$(az storage account show \
@@ -400,7 +400,7 @@ hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/"
 nslookup $hostName
 ```
 
-Jeśli wszystko działało pomyślnie, należy zobaczyć następujące `192.168.0.5` dane wyjściowe, gdzie jest prywatny adres IP prywatnego punktu końcowego w sieci wirtualnej:
+Jeśli wszystko działało prawidłowo, należy zobaczyć następujące dane wyjściowe, gdzie `192.168.0.5` jest prywatnym adresem IP prywatnego punktu końcowego w sieci wirtualnej:
 
 ```Output
 Server:         127.0.0.53
@@ -415,23 +415,23 @@ Address: 192.168.0.5
 ---
 
 ## <a name="restrict-access-to-the-public-endpoint"></a>Ograniczanie dostępu do publicznego punktu końcowego
-Można ograniczyć dostęp do publicznego punktu końcowego przy użyciu ustawień zapory konta magazynu. Ogólnie rzecz biorąc większość zasad zapory dla konta magazynu ograniczy dostęp do sieci do jednej lub więcej sieci wirtualnych. Istnieją dwa podejścia do ograniczania dostępu do konta magazynu do sieci wirtualnej:
+Dostęp do publicznego punktu końcowego można ograniczyć przy użyciu ustawień zapory konta magazynu. Ogólnie rzecz biorąc, większość zasad zapory dla konta magazynu ogranicza dostęp sieciowy do co najmniej jednej sieci wirtualnej. Istnieją dwa podejścia do ograniczania dostępu do konta magazynu w sieci wirtualnej:
 
-- [Utwórz jeden lub więcej prywatnych punktów końcowych dla konta magazynu](#create-a-private-endpoint) i ogranicz cały dostęp do publicznego punktu końcowego. Gwarantuje to, że tylko ruch pochodzący z żądanych sieci wirtualnych można uzyskać dostęp do udziałów plików platformy Azure w ramach konta magazynu.
-- Ogranicz publiczny punkt końcowy do jednej lub więcej sieci wirtualnych. Działa to przy użyciu możliwości sieci wirtualnej o nazwie *punkty końcowe usługi*. Po ograniczeniu ruchu do konta magazynu za pośrednictwem punktu końcowego usługi, nadal uzyskujesz dostęp do konta magazynu za pośrednictwem publicznego adresu IP.
+- [Utwórz co najmniej jeden prywatny punkt końcowy dla konta magazynu](#create-a-private-endpoint) i Ogranicz dostęp do publicznego punktu końcowego. Dzięki temu tylko ruch pochodzący z żądanych sieci wirtualnych może uzyskiwać dostęp do udziałów plików platformy Azure w ramach konta magazynu.
+- Ogranicz publiczny punkt końcowy do co najmniej jednej sieci wirtualnej. Działa to przy użyciu możliwości sieci wirtualnej o nazwie *punkty końcowe usługi*. W przypadku ograniczenia ruchu do konta magazynu za pośrednictwem punktu końcowego usługi nadal uzyskuje się dostęp do konta magazynu za pośrednictwem publicznego adresu IP.
 
-### <a name="restrict-all-access-to-the-public-endpoint"></a>Ograniczanie dostępu do publicznego punktu końcowego
-Gdy cały dostęp do publicznego punktu końcowego jest ograniczony, konto magazynu nadal można uzyskać dostęp za pośrednictwem jego prywatnych punktów końcowych. W przeciwnym razie prawidłowe żądania do publicznego punktu końcowego konta magazynu zostaną odrzucone. 
+### <a name="restrict-all-access-to-the-public-endpoint"></a>Ogranicz dostęp do publicznego punktu końcowego
+Gdy wszystkie prawa dostępu do publicznego punktu końcowego są ograniczone, do konta magazynu nadal można uzyskać dostęp za pomocą prywatnych punktów końcowych. W przeciwnym razie prawidłowe żądania dotyczące publicznego punktu końcowego konta magazynu zostaną odrzucone. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Przejdź do konta magazynu, dla którego chcesz ograniczyć dostęp do publicznego punktu końcowego. W spisie treści dla konta magazynu wybierz pozycję **Zapory i sieci wirtualne**.
+Przejdź do konta magazynu, dla którego chcesz ograniczyć dostęp do publicznego punktu końcowego. W spisie treści dla konta magazynu wybierz pozycję **zapory i sieci wirtualne**.
 
-U góry strony wybierz przycisk opcji **Wybrane sieci.** Spowoduje to odsunienie szeregu ustawień do kontrolowania ograniczenia publicznego punktu końcowego. Zaznacz **pole wyboru Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta usługi,** aby umożliwić zaufanym usługom firmy Microsoft, takim jak Azure File Sync, dostęp do konta magazynu.
+W górnej części strony wybierz przycisk radiowy **wybrane sieci** . Spowoduje to ukrycie szeregu ustawień służących do kontrolowania ograniczenia publicznego punktu końcowego. Zaznacz pole wyboru **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta usługi** , aby umożliwić zaufanym usługom firmy Microsoft, takim jak Azure File Sync, uzyskanie dostępu do konta magazynu.
 
-![Zrzut ekranu przedstawiający przyłącza Zapory sieciowe i sieci wirtualne z odpowiednimi ograniczeniami](media/storage-files-networking-endpoints/restrict-public-endpoint-0.png)
+![Zrzut ekranu przedstawiający blok zapory i sieci wirtualne z odpowiednimi ograniczeniami](media/storage-files-networking-endpoints/restrict-public-endpoint-0.png)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
-Następujące polecenie programu PowerShell odmówi całego ruchu do publicznego punktu końcowego konta magazynu. Należy zauważyć, że `-Bypass` to `AzureServices`polecenie ma parametr ustawiony na . Umożliwi to zaufane usługi pierwszej firmy, takie jak Azure File Sync, aby uzyskać dostęp do konta magazynu za pośrednictwem publicznego punktu końcowego.
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Następujące polecenie programu PowerShell będzie odrzucać cały ruch do publicznego punktu końcowego konta magazynu. Należy pamiętać, że to polecenie `-Bypass` ma parametr ustawiony `AzureServices`na. Pozwoli to na dostęp do konta magazynu przez publiczny punkt końcowy, takich jak Azure File Sync.
 
 ```PowerShell
 # This assumes $storageAccount is still defined from the beginning of this of this guide.
@@ -444,7 +444,7 @@ $storageAccount | Update-AzStorageAccountNetworkRuleSet `
 ```
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-Następujące polecenie interfejsu wiersza polecenia spowoduje odmowę całego ruchu do publicznego punktu końcowego konta magazynu. Należy zauważyć, że `-bypass` to `AzureServices`polecenie ma parametr ustawiony na . Umożliwi to zaufane usługi pierwszej firmy, takie jak Azure File Sync, aby uzyskać dostęp do konta magazynu za pośrednictwem publicznego punktu końcowego.
+Następujące polecenie interfejsu wiersza polecenia będzie odrzucać cały ruch do publicznego punktu końcowego konta magazynu. Należy pamiętać, że to polecenie `-bypass` ma parametr ustawiony `AzureServices`na. Pozwoli to na dostęp do konta magazynu przez publiczny punkt końcowy, takich jak Azure File Sync.
 
 ```bash
 # This assumes $storageAccountResourceGroupName and $storageAccountName 
@@ -459,19 +459,19 @@ az storage account update \
 ---
 
 ### <a name="restrict-access-to-the-public-endpoint-to-specific-virtual-networks"></a>Ograniczanie dostępu do publicznego punktu końcowego do określonych sieci wirtualnych
-Po ograniczeniu konta magazynu do określonych sieci wirtualnych zezwalasz na żądania do publicznego punktu końcowego z określonych sieci wirtualnych. Działa to przy użyciu możliwości sieci wirtualnej o nazwie *punkty końcowe usługi*. Może to być używane z lub bez prywatnych punktów końcowych.
+W przypadku ograniczenia konta magazynu do określonych sieci wirtualnych można zezwalać na żądania kierowane do publicznego punktu końcowego z określonych sieci wirtualnych. Działa to przy użyciu możliwości sieci wirtualnej o nazwie *punkty końcowe usługi*. Można go używać z prywatnymi punktami końcowymi lub bez nich.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Przejdź do konta magazynu, dla którego chcesz ograniczyć publiczny punkt końcowy do określonych sieci wirtualnych. W spisie treści dla konta magazynu wybierz pozycję **Zapory i sieci wirtualne**. 
+Przejdź do konta magazynu, dla którego chcesz ograniczyć publiczny punkt końcowy do określonych sieci wirtualnych. W spisie treści dla konta magazynu wybierz pozycję **zapory i sieci wirtualne**. 
 
-U góry strony wybierz przycisk opcji **Wybrane sieci.** Spowoduje to odsunienie szeregu ustawień do kontrolowania ograniczenia publicznego punktu końcowego. Kliknij **+Dodaj istniejącą sieć wirtualną,** aby wybrać określoną sieć wirtualną, która powinna mieć możliwość uzyskania dostępu do konta magazynu za pośrednictwem publicznego punktu końcowego. Będzie to wymagało wybrania sieci wirtualnej i podsieci dla tej sieci wirtualnej. 
+W górnej części strony wybierz przycisk radiowy **wybrane sieci** . Spowoduje to ukrycie szeregu ustawień służących do kontrolowania ograniczenia publicznego punktu końcowego. Kliknij pozycję **+ Dodaj istniejącą sieć wirtualną** , aby wybrać konkretną sieć wirtualną, która powinna mieć zezwolenie na dostęp do konta magazynu za pośrednictwem publicznego punktu końcowego. Będzie to wymagało wybrania sieci wirtualnej i podsieci dla tej sieci wirtualnej. 
 
-Zaznacz **pole wyboru Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta usługi,** aby umożliwić zaufanym usługom firmy Microsoft, takim jak Azure File Sync, dostęp do konta magazynu.
+Zaznacz pole wyboru **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta usługi** , aby umożliwić zaufanym usługom firmy Microsoft, takim jak Azure File Sync, uzyskanie dostępu do konta magazynu.
 
-![Zrzut ekranu przedstawiający blok Zapory i sieci wirtualne z określoną siecią wirtualną, która może uzyskać dostęp do konta magazynu za pośrednictwem publicznego punktu końcowego](media/storage-files-networking-endpoints/restrict-public-endpoint-1.png)
+![Zrzut ekranu przedstawiający blok zapory i sieci wirtualne z określoną siecią wirtualną, która może uzyskiwać dostęp do konta magazynu za pośrednictwem publicznego punktu końcowego](media/storage-files-networking-endpoints/restrict-public-endpoint-1.png)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
-Aby ograniczyć dostęp do publicznego punktu końcowego konta magazynu do określonych sieci wirtualnych przy użyciu punktów końcowych usługi, najpierw musimy zebrać informacje o koncie magazynu i sieci wirtualnej. Wypełnij `<storage-account-resource-group>` `<storage-account-name>`, `<vnet-resource-group-name>` `<vnet-name>`, `<subnet-name>` , i zebrać te informacje.
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Aby ograniczyć dostęp do publicznego punktu końcowego konta magazynu do określonych sieci wirtualnych za pomocą punktów końcowych usługi, najpierw musimy zebrać informacje o koncie magazynu i sieci wirtualnej. Wypełnij pola `<storage-account-resource-group>`, `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>`i `<subnet-name>` , aby zebrać te informacje.
 
 ```PowerShell
 $storageAccountResourceGroupName = "<storage-account-resource-group>"
@@ -501,7 +501,7 @@ if ($null -eq $subnet) {
 }
 ```
 
-Aby ruch z sieci wirtualnej był dozwolony przez sieć szkieletową platformy Azure, aby uzyskać dostęp do publicznego punktu końcowego konta magazynu, podsieć sieci wirtualnej `Microsoft.Storage` musi mieć punkt końcowy usługi narażony. Następujące polecenia programu PowerShell doda `Microsoft.Storage` punktu końcowego usługi do podsieci, jeśli jeszcze go tam nie ma.
+Aby ruch z sieci wirtualnej był dozwolony przez sieć szkieletową platformy Azure, aby uzyskać dostęp do publicznego punktu końcowego konta magazynu, podsieć sieci wirtualnej musi mieć uwidoczniony punkt `Microsoft.Storage` końcowy usługi. Następujące polecenia programu PowerShell spowodują dodanie punktu końcowego `Microsoft.Storage` usługi do podsieci, jeśli jeszcze jej nie ma.
 
 ```PowerShell
 $serviceEndpoints = $subnet | `
@@ -528,7 +528,7 @@ if ($serviceEndpoints -notcontains "Microsoft.Storage") {
 }
 ```
 
-Ostatnim krokiem w ograniczaniu ruchu do konta magazynu jest utworzenie reguły sieciowej i dodanie do zestawu reguł sieciowych konta magazynu.
+Ostatnim krokiem ograniczającym ruch do konta magazynu jest utworzenie reguły sieci i dodanie jej do zestawu reguł sieci konta magazynu.
 
 ```PowerShell
 $networkRule = $storageAccount | Add-AzStorageAccountNetworkRule `
@@ -545,7 +545,7 @@ $storageAccount | Update-AzStorageAccountNetworkRuleSet `
 ```
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-Aby ograniczyć dostęp do publicznego punktu końcowego konta magazynu do określonych sieci wirtualnych przy użyciu punktów końcowych usługi, najpierw musimy zebrać informacje o koncie magazynu i sieci wirtualnej. Wypełnij `<storage-account-resource-group>` `<storage-account-name>`, `<vnet-resource-group-name>` `<vnet-name>`, `<subnet-name>` , i zebrać te informacje.
+Aby ograniczyć dostęp do publicznego punktu końcowego konta magazynu do określonych sieci wirtualnych za pomocą punktów końcowych usługi, najpierw musimy zebrać informacje o koncie magazynu i sieci wirtualnej. Wypełnij pola `<storage-account-resource-group>`, `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>`i `<subnet-name>` , aby zebrać te informacje.
 
 ```bash
 storageAccountResourceGroupName="<storage-account-resource-group>"
@@ -574,7 +574,7 @@ subnet=$(az network vnet subnet show \
     tr -d '"')
 ```
 
-Aby ruch z sieci wirtualnej był dozwolony przez sieć szkieletową platformy Azure, aby uzyskać dostęp do publicznego punktu końcowego konta magazynu, podsieć sieci wirtualnej `Microsoft.Storage` musi mieć punkt końcowy usługi narażony. Następujące polecenia interfejsu wiersza `Microsoft.Storage` polecenia doda punktu końcowego usługi do podsieci, jeśli jeszcze go tam nie ma.
+Aby ruch z sieci wirtualnej był dozwolony przez sieć szkieletową platformy Azure, aby uzyskać dostęp do publicznego punktu końcowego konta magazynu, podsieć sieci wirtualnej musi mieć uwidoczniony punkt `Microsoft.Storage` końcowy usługi. Następujące polecenie interfejsu wiersza polecenia spowoduje dodanie punktu `Microsoft.Storage` końcowego usługi do podsieci, jeśli jeszcze nie istnieje.
 
 ```bash
 serviceEndpoints=$(az network vnet subnet show \
@@ -612,7 +612,7 @@ then
 fi
 ```
 
-Ostatnim krokiem w ograniczaniu ruchu do konta magazynu jest utworzenie reguły sieciowej i dodanie do zestawu reguł sieciowych konta magazynu.
+Ostatnim krokiem ograniczającym ruch do konta magazynu jest utworzenie reguły sieci i dodanie jej do zestawu reguł sieci konta magazynu.
 
 ```bash
 az storage account network-rule add \
@@ -631,7 +631,7 @@ az storage account update \
 
 ---
 
-## <a name="see-also"></a>Zobacz też
-- [Zagadnienia dotyczące sieci usług Azure Files](storage-files-networking-overview.md)
-- [Konfigurowanie przekazywania usług DNS dla plików platformy Azure](storage-files-networking-dns.md)
-- [Konfigurowanie sieci VPN S2S dla plików platformy Azure](storage-files-configure-s2s-vpn.md)
+## <a name="see-also"></a>Zobacz także
+- [Zagadnienia dotyczące sieci Azure Files](storage-files-networking-overview.md)
+- [Konfigurowanie przekazywania DNS dla usługi Azure Files](storage-files-networking-dns.md)
+- [Konfigurowanie sieci VPN S2S dla Azure Files](storage-files-configure-s2s-vpn.md)

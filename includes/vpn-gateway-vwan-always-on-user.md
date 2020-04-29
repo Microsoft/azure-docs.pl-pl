@@ -9,21 +9,21 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79500186"
 ---
-1. Zainstaluj certyfikaty klienta na kliencie systemu Windows 10, jak pokazano w tym artykule [klienta sieci VPN typu punkt-lokacja.](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) Certyfikat musi znajdować się w bieżącym magazynie użytkowników.
+1. Zainstaluj certyfikaty klienta na kliencie systemu Windows 10, jak pokazano w tym artykule dotyczącym [klienta sieci VPN typu punkt-lokacja](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) . Certyfikat musi znajdować się w magazynie bieżący użytkownik.
 
-1. Skonfiguruj klienta zawsze włączonej sieci VPN za pośrednictwem programu PowerShell, programu Configuration Manager lub intune, postępując zgodnie z instrukcjami w [temacie Konfigurowanie połączeń sieci VPN klienta systemu Windows 10 Always On](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
+1. Skonfiguruj opcję zawsze włączone klienta VPN za pomocą programu PowerShell, Configuration Manager lub Intune, postępując zgodnie z instrukcjami w temacie [Konfigurowanie klienta systemu Windows 10 zawsze włączone połączenia sieci VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 
-### <a name="example-configuration-for-the-user-tunnel"></a>Przykładowa konfiguracja tunelu użytkownika
+### <a name="example-configuration-for-the-user-tunnel"></a>Przykładowa konfiguracja dla tunelu użytkownika
 
-Po skonfigurowaniu bramy sieci wirtualnej i zainstalowaniu certyfikatu klienta w magazynie komputera lokalnego na kliencie systemu Windows 10 skonfiguruj tunel urządzenia klienckiego, korzystając z następujących przykładów:
+Po skonfigurowaniu bramy sieci wirtualnej i zainstalowaniu certyfikatu klienta w magazynie komputera lokalnego na kliencie z systemem Windows 10 należy skonfigurować tunel urządzenia klienckiego przy użyciu następujących przykładów:
 
-1. Skopiuj następujący tekst i zapisz go jako *usercert.ps1*:
+1. Skopiuj poniższy tekst i Zapisz go jako *Usercert. ps1*:
 
    ```
    Param(
@@ -75,7 +75,7 @@ Po skonfigurowaniu bramy sieci wirtualnej i zainstalowaniu certyfikatu klienta w
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Skopiuj następujący tekst i zapisz go jako *VPNProfile.xml* w tym samym folderze co *usercert.ps1*. Edytuj następujący tekst, aby dopasować go do środowiska:
+1. Skopiuj poniższy tekst i Zapisz go jako *VPNProfile. XML* w tym samym folderze, co *Usercert. ps1*. Edytuj następujący tekst, aby dopasować go do środowiska:
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>  <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address>  <= IP of resource in the vnet or the vnet address space`
@@ -121,13 +121,13 @@ Po skonfigurowaniu bramy sieci wirtualnej i zainstalowaniu certyfikatu klienta w
    ```
 1. Uruchom program PowerShell jako administrator.
 
-1. W programie PowerShell przełącz się do folderu, w którym znajdują się *pliki usercert.ps1* i *VPNProfile.xml,* i uruchom następujące polecenie:
+1. W programie PowerShell przejdź do folderu, w którym znajdują się *Usercert. ps1* i *VPNProfile. XML* , a następnie uruchom następujące polecenie:
 
    ```powershell
    C:\> .\usercert.ps1 .\VPNProfile.xml UserTest
    ```
    
-   ![Test machinecert](./media/vpn-gateway-vwan-always-on-user/p2s2.jpg)
-1. W obszarze **Ustawienia sieci VPN**poszukaj wpisu **UserTest,** a następnie wybierz pozycję **Połącz**.
+   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-user/p2s2.jpg)
+1. W obszarze **Ustawienia sieci VPN**Znajdź wpis **UserTest** , a następnie wybierz pozycję **Połącz**.
 
-1. Jeśli połączenie zakończy się pomyślnie, pomyślnie skonfigurowano tunel zawsze na użytkownika.
+1. W przypadku pomyślnego nawiązania połączenia pomyślnie skonfigurowano tunel zawsze włączony.

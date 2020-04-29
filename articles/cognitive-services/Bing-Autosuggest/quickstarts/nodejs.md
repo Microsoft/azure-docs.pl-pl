@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: sugerowanie zapytań wyszukiwania za pomocą interfejsu API REST autosuggest Bing i pliku Node.js'
+title: 'Szybki Start: Sugeruj zapytania wyszukiwania za pomocą interfejsu API REST automatyczne sugerowanie Bing i środowiska Node. js'
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak szybko rozpocząć sugerowanie wyszukiwanych haseł w czasie rzeczywistym za pomocą interfejsu API autosugerowania Bing.
+description: Dowiedz się, jak szybko rozpocząć sugerowanie wyszukiwanych terminów w czasie rzeczywistym za pomocą interfejs API automatycznego sugerowania Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aahi
 ms.openlocfilehash: 11dc0d4f80e14c293fde4e84b5e97d39fe594629
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80238955"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Szybki start: sugerowanie zapytań wyszukiwania za pomocą interfejsu API REST autosuggest Bing i pliku Node.js
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Szybki Start: Sugeruj zapytania wyszukiwania za pomocą interfejsu API REST automatyczne sugerowanie Bing i środowiska Node. js
 
-Użyj tego przewodnika Szybki start, aby rozpocząć nawiązywanie połączeń z interfejsem API autosuggest usługi Bing i uzyskiwanie odpowiedzi JSON. Ta prosta aplikacja Node.js wysyła częściowe zapytanie wyszukiwania do interfejsu API i zwraca sugestie dotyczące wyszukiwania. Aplikacja jest napisana w języku JavaScript, natomiast interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania. Kod źródłowy dla tego przykładu jest dostępny w [usłudze GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
+Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć wykonywanie wywołań do interfejs API automatycznego sugerowania Bing i uzyskać odpowiedź JSON. Prosta aplikacja Node. js wysyła zapytanie wyszukiwania częściowego do interfejsu API i zwraca sugestie dotyczące wyszukiwania. Aplikacja jest napisana w języku JavaScript, natomiast interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania. Kod źródłowy dla tego przykładu jest dostępny w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Node.js 6](https://nodejs.org/en/download/) lub nowsze
+* [Node. js 6](https://nodejs.org/en/download/) lub nowszy
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
@@ -37,7 +37,7 @@ Użyj tego przewodnika Szybki start, aby rozpocząć nawiązywanie połączeń z
     let https = require ('https');
     ```
 
-2. Utwórz zmienne dla hosta i ścieżki punktu końcowego interfejsu API, klucza subskrypcji, [kodu rynkowego](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)i wyszukiwanego hasła. Można użyć globalnego punktu końcowego poniżej lub niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlanego w witrynie Azure portal dla zasobu.
+2. Utwórz zmienne dla hosta i ścieżki punktu końcowego interfejsu API, klucza subskrypcji, [kodu rynku](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)i wyszukiwanego terminu. Możesz użyć poniższego globalnego punktu końcowego lub niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
 
     ```javascript
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -52,7 +52,7 @@ Użyj tego przewodnika Szybki start, aby rozpocząć nawiązywanie połączeń z
 
 ## <a name="construct-the-search-request-and-query"></a>Konstruowanie żądania wyszukiwania i zapytania
 
-1. Utwórz ciąg parametrów dla kwerendy, dołączając `mkt=` kod rynku do `q=` parametru i kwerendę do parametru.
+1. Utwórz ciąg parametrów dla zapytania, dołączając kod rynkowy do `mkt=` parametru oraz zapytanie do `q=` parametru.
 
     ```javascript 
     let params = '?mkt=' + mkt + '&q=' + query;
@@ -74,7 +74,7 @@ Użyj tego przewodnika Szybki start, aby rozpocząć nawiązywanie połączeń z
     }
     ```
 
-    1. W tej samej funkcji użyj biblioteki żądań, aby wysłać zapytanie do interfejsu API. Funkcja `response_handler` zostanie zdefiniowana w następnej sekcji.
+    1. W tej samej funkcji Użyj biblioteki żądań, aby wysłać zapytanie do interfejsu API. Funkcja `response_handler` zostanie zdefiniowana w następnej sekcji.
     
         ```javascript
         //...
@@ -82,7 +82,7 @@ Użyj tego przewodnika Szybki start, aby rozpocząć nawiązywanie połączeń z
         req.end();
         ```
 
-## <a name="create-a-search-handler"></a>Tworzenie programu obsługi wyszukiwania
+## <a name="create-a-search-handler"></a>Tworzenie procedury obsługi wyszukiwania
 
 1. Zdefiniuj funkcję o nazwie `response_handler`, która przyjmuje wywołanie HTTP `response`, jako parametr. Wykonaj następujące czynności w ramach tej funkcji:
     
@@ -102,7 +102,7 @@ Użyj tego przewodnika Szybki start, aby rozpocząć nawiązywanie połączeń z
         });
         ```
 
-    3. Gdy flaga **końcowa** jest `JSON.parse()` `JSON.stringify()` sygnalizowana, użytkownik i wydrukować odpowiedź.
+    3. Gdy flaga **końcowa** jest zasygnalizowania, `JSON.parse()` użytkownik `JSON.stringify()` i wydruk odpowiedzi.
     
         ```javascript
         response.on ('end', function () {
@@ -115,7 +115,7 @@ Użyj tego przewodnika Szybki start, aby rozpocząć nawiązywanie połączeń z
         });
         ```
 
-2. Wywołanie, `get_suggestions()` aby wysłać żądanie do interfejsu API autosuggest usługi Bing.
+2. Wywołaj `get_suggestions()` , aby wysłać żądanie do interfejs API automatycznego sugerowania Bing.
 
 ## <a name="example-json-response"></a>Przykładowa odpowiedź JSON
 
@@ -188,7 +188,7 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Tworzenie jednostronicowej aplikacji sieci Web](../tutorials/autosuggest.md)
+> [Tworzenie jednostronicowej aplikacji internetowej](../tutorials/autosuggest.md)
 
 - [Czym jest funkcja automatycznego sugerowania Bing?](../get-suggested-search-terms.md)
 - [Bing Autosuggest API v7 reference (Dokumentacja dotycząca automatycznego sugerowania Bing w wersji 7)](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

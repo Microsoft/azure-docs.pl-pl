@@ -9,12 +9,12 @@ ms.date: 03/27/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: e96d205ef1a8f94baa3a0cfe6c5127b6cf570e5a
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80420956"
 ---
-W tym artykule wyjaśniono, jak przekazać dysk VHD z komputera lokalnego na dysk zarządzany platformy Azure lub skopiować dysk zarządzany do innego regionu przy użyciu programu AzCopy. Ten proces, bezpośrednie przesyłanie, umożliwia również przesłanie dysku VHD o rozmiarze do 32 TiB bezpośrednio na dysk zarządzany. Obecnie przesyłanie bezpośrednie jest obsługiwane dla standardowych dysków twardych, standardowych dysków SSD i dysków zarządzanych w wersji premium. Nie jest jeszcze obsługiwany dla dysków ultra.
+W tym artykule opisano sposób przekazywania dysku VHD z komputera lokalnego do dysku zarządzanego platformy Azure lub kopiowania dysku zarządzanego do innego regionu przy użyciu AzCopy. Ten proces, przekazywanie bezpośrednie, umożliwia również przekazywanie wirtualnego dysku twardego do 32 TiB w rozmiarze bezpośrednio do dysku zarządzanego. Obecnie bezpośrednie przekazywanie jest obsługiwane dla standardowego dysku twardego, standardowego SSD i dysków zarządzanych w warstwie Premium SSD. Nie jest to jeszcze obsługiwane w przypadku dysków Ultra Disks.
 
-Jeśli udostępniasz rozwiązanie do tworzenia kopii zapasowych dla maszyn wirtualnych IaaS na platformie Azure, zalecamy użycie bezpośredniego przekazywania w celu przywrócenia kopii zapasowych klientów na dyskach zarządzanych. Podczas przekazywania dysku twardego z zewnętrznego źródła na platformę Azure szybkość zależy od przepustowości lokalnej. Podczas przekazywania lub kopiowania z maszyny Wirtualnej platformy Azure przepustowość będzie taka sama jak standardowe dyski twarde.
+Jeśli tworzysz rozwiązanie do tworzenia kopii zapasowych dla maszyn wirtualnych IaaS na platformie Azure, zalecamy używanie bezpośredniego przekazywania do przywracania kopii zapasowych klientów na dyskach zarządzanych. W przypadku przekazywania wirtualnego dysku twardego ze źródła zewnętrznego na platformę Azure szybkości będą zależne od przepustowości lokalnej. W przypadku przekazywania lub kopiowania z maszyny wirtualnej platformy Azure przepustowość będzie taka sama jak standardowa HDD.

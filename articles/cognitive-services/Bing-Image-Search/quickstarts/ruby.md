@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: wyszukiwanie obrazów za pomocą interfejsu API REST wyszukiwania obrazów Bing i ruby'
+title: 'Szybki Start: Wyszukiwanie obrazów przy użyciu interfejsu API REST wyszukiwanie obrazów Bing i języka Ruby'
 titleSuffix: Azure Cognitive Services
 description: Skorzystaj z tego przewodnika Szybki Start, aby wysyłać żądania wyszukiwania obrazów do interfejsu API wyszukiwania obrazów Bing przy użyciu języka Ruby i otrzymywać odpowiedzi w formacie JSON.
 services: cognitive-services
@@ -13,19 +13,19 @@ ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 238f390ac998a05f0c726dd9ed024550b9a5ba3d
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478528"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-ruby"></a>Szybki start: wyszukiwanie obrazów za pomocą interfejsu API REST wyszukiwania obrazów Bing i ruby
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-ruby"></a>Szybki Start: Wyszukiwanie obrazów przy użyciu interfejsu API REST wyszukiwanie obrazów Bing i języka Ruby
 
 Ten przewodnik Szybki start umożliwia utworzenie pierwszego wywołania do interfejsu API wyszukiwania obrazów Bing i odbieranie odpowiedzi w formacie JSON. Ta prosta aplikacja w języku Ruby wysyła zapytanie wyszukiwania do interfejsu API i wyświetla nieprzetworzone wyniki.
 
 Chociaż ta aplikacja jest napisana w języku Ruby, interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania.
 
-Kod źródłowy dla tego przykładu jest dostępny w [usłudze GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingImageSearchv7.rb).
+Kod źródłowy dla tego przykładu jest dostępny w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingImageSearchv7.rb).
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Najnowsza wersja środowiska Ruby](https://www.ruby-lang.org/en/downloads/).
@@ -44,7 +44,7 @@ Zobacz też [Cennik usług Cognitive Services — interfejs API wyszukiwania Bin
     require 'json'
     ```
 
-2. Utwórz zmienne dla punktu końcowego interfejsu API, ścieżki wyszukiwania interfejsu API obrazów, klucza subskrypcji i wyszukiwanego terminu. `uri`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlany w witrynie Azure portal dla zasobu.
+2. Utwórz zmienne dla punktu końcowego interfejsu API, ścieżki wyszukiwania interfejsu API obrazów, klucza subskrypcji i wyszukiwanego terminu. `uri`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlany w Azure Portal dla zasobu.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -142,10 +142,10 @@ Odpowiedzi z interfejsu API wyszukiwania obrazów Bing są zwracane w formacie J
 > [!div class="nextstepaction"]
 > [Samouczek dotyczący jednostronicowej aplikacji wyszukiwania obrazów Bing](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Czym jest funkcja wyszukiwania obrazów Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Wypróbuj interaktywny pokaz online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 * [Pobieranie bezpłatnego klucza dostępu usług Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Dokumentacja usług Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
+* [Dokumentacja usługi Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
 * [Dokumentacja interfejsu API wyszukiwania obrazów Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

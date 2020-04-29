@@ -9,30 +9,30 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 2ebf5d574b4d185953ab0f7984648c440d6f107e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678637"
 ---
-Polecenie cmdlet programu PowerShell **Get-AzPeeringLocation** zwraca listę lokalizacji `Kind`komunikacji równorzędnej z parametrem obowiązkowym, który będzie używany w późniejszych krokach.
+Polecenie cmdlet **Get-AzPeeringLocation** programu PowerShell zwraca listę lokalizacji komunikacji równorzędnej z obowiązkowym parametrem `Kind`, który będzie używany w dalszych krokach.
 
 ```powershell
 Get-AzPeeringLocation -Kind "Exchange"
 ```
 
 Lokalizacje komunikacji równorzędnej programu Exchange zawierają następujące pola:
-* Nazwa wymiany
-* Lokalizacja komunikacji równorzędnej
+* Program exchangename
+* PeeringLocation
 * Kraj
-* Element PeeringDBFacilityId
+* PeeringDBFacilityId
 * PeeringDBFacilityLink
 * MicrosoftIPv4Address
 * MicrosoftIPv6Address
 
-Sprawdź, czy jesteś obecny w żądanej funkcji komunikacji równorzędnej, odwołując się do [peeringdb](https://wwww.peeringdb.com).
+Sprawdź, czy istnieje w wymaganej funkcji komunikacji równorzędnej, odwołując się do [PeeringDB](https://wwww.peeringdb.com).
 
-W tym przykładzie pokazano, jak używać Seattle jako lokalizacji komunikacji równorzędnej do tworzenia komunikacji równorzędnej.
+Ten przykład pokazuje, jak używać Seattle jako lokalizacji komunikacji równorzędnej do tworzenia komunikacji równorzędnej.
 
 ```powershell
 $exchangeLocations = Get-AzPeeringLocation -Kind Exchange

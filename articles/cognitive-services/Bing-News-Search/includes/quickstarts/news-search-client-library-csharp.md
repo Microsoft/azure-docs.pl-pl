@@ -1,5 +1,5 @@
 ---
-title: Szybki start biblioteki klienta wyszukiwania wiadomości Bing w sieci C#
+title: Wyszukiwanie wiadomości Bing przewodniku szybki start dotyczącej biblioteki klienta C#
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.openlocfilehash: fd43fcb1b5fb70862ed1c1fa5111f0893495b437
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79503888"
 ---
-Użyj tego przewodnika Szybki start, aby rozpocząć wyszukiwanie wiadomości w bibliotece klienta wyszukiwania wiadomości Bing dla języka C#. Usługa Bing News Search ma interfejs API REST zgodny z większością języków programowania, ale biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch).
+Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć wyszukiwanie wiadomości za pomocą biblioteki klienta wyszukiwanie wiadomości Bing dla języka C#. Chociaż wyszukiwanie wiadomości Bing ma interfejs API REST zgodny z większością języków programowania, Biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Dowolna wersja [programu Visual Studio 2017 lub nowszej](https://www.visualstudio.com/downloads/).
+* Dowolna wersja programu [Visual Studio 2017 lub nowszego](https://www.visualstudio.com/downloads/).
 * Struktura [Json.NET](https://www.newtonsoft.com/json) dostępna jako pakiet NuGet.
 * Jeśli używasz systemu Linux/MacOS, możesz uruchomić tę aplikację przy użyciu środowiska [Mono](https://www.mono-project.com/).
 
@@ -28,7 +28,7 @@ Użyj tego przewodnika Szybki start, aby rozpocząć wyszukiwanie wiadomości w 
     * Microsoft.Rest.ClientRuntime.Azure
     * Newtonsoft.Json
 
-Aby skonfigurować aplikację konsoli przy użyciu biblioteki klienta wyszukiwania `Manage NuGet Packages` wiadomości Bing, przejdź do opcji z Eksploratora rozwiązań w programie Visual Studio.  Dodaj pakiet `Microsoft.Azure.CognitiveServices.Search.NewsSearch`.
+Aby skonfigurować aplikację konsolową przy użyciu biblioteki klienta wyszukiwanie wiadomości Bing, przejdź do `Manage NuGet Packages` opcji w Eksplorator rozwiązań w programie Visual Studio.  Dodaj pakiet `Microsoft.Azure.CognitiveServices.Search.NewsSearch`.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
@@ -84,4 +84,4 @@ Aby skonfigurować aplikację konsoli przy użyciu biblioteki klienta wyszukiwan
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Tworzenie jednostronicowej aplikacji sieci Web](../../tutorial-bing-news-search-single-page-app.md)
+> [Tworzenie jednostronicowej aplikacji internetowej](../../tutorial-bing-news-search-single-page-app.md)

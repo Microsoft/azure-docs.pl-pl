@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: tworzenie niestandardowego asystenta głosowego, C# — usługa mowy'
+title: 'Szybki Start: Tworzenie niestandardowego asystenta głosowego, C#-Speech Service'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: trrwilson
@@ -10,11 +10,11 @@ ms.topic: include
 ms.date: 03/20/2020
 ms.author: travisw
 ms.openlocfilehash: 85c4d5b57c8f249213a044d7231f313f6882f231
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241150"
 ---
 > [!div class="nextstepaction"]
-> [Eksploruj przykłady języka C# w usłudze GitHub](https://aka.ms/speech/github-csharp)
+> [Poznaj przykłady w języku C# w witrynie GitHub](https://aka.ms/speech/github-csharp)

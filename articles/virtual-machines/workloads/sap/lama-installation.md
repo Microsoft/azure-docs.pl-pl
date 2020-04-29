@@ -1,6 +1,6 @@
 ---
-title: Łącznik SAP LaMa dla platformy Azure | Dokumenty firmy Microsoft
-description: Zarządzanie systemami SAP na platformie Azure przy użyciu SAP LaMa
+title: Łącznik SAP LaMa dla platformy Azure | Microsoft Docs
+description: Zarządzanie systemami SAP na platformie Azure przy użyciu rozwiązania SAP LaMa
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
 ms.openlocfilehash: fda62ff0af29c7cf681d9438b02420d299535701
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80293943"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Łącznik SAP LaMa dla platformy Azure
@@ -38,227 +38,227 @@ ms.locfileid: "80293943"
 [hana-ops-guide]:hana-vm-operations.md
 
 > [!NOTE]
-> Ogólne oświadczenie pomocy technicznej: Zawsze otwórz zdarzenie z SAP na składnik BC-VCM-LVM-HYPERV, jeśli potrzebujesz pomocy technicznej dla SAP LaMa lub łącznika platformy Azure.
+> Ogólne zestawienie pomocy technicznej: zawsze otwieraj zdarzenie przy użyciu SAP na składniku BC-VCM-LVM-HYPERV, jeśli potrzebujesz wsparcia SAP LaMa lub Azure Connector.
 
-SAP LaMa jest używany przez wielu klientów do obsługi i monitorowania ich krajobrazu SAP. Od SAP LaMa 3.0 SP05, domyślnie jest dostarczany z łącznikiem do platformy Azure. Za pomocą tego łącznika można przydzielać alokacje i uruchamianie maszyn wirtualnych, kopiować i przenosić dyski zarządzane oraz usuwać dyski zarządzane. Dzięki tym podstawowym operacjom można przenosić, kopiować, klonować i odświeżać systemy SAP przy użyciu sap lama.
+System SAP LaMa jest używany przez wielu klientów do obsługi i monitorowania ich krajobrazu. Ponieważ SAP LaMa 3,0 SP05, jest domyślnie dostarczany z łącznikiem do platformy Azure. Za pomocą tego łącznika można cofnąć alokację i uruchomienie maszyn wirtualnych, skopiować i zmienić lokalizację dysków zarządzanych oraz usunąć dyski zarządzane. Za pomocą tych podstawowych operacji można przenosić, kopiować, klonować i odświeżać systemy SAP przy użyciu rozwiązania SAP LaMa.
 
-W tym przewodniku opisano sposób konfigurowania łącznika platformy Azure dla systemu SAP LaMa, tworzenia maszyn wirtualnych, które mogą być używane do instalowania adaptacyjnych systemów SAP i konfigurowania ich.
+W tym przewodniku opisano sposób konfigurowania łącznika platformy Azure dla oprogramowania SAP LaMa, tworzenia maszyn wirtualnych, których można użyć do instalacji adaptacyjnych systemów SAP i sposobu ich konfigurowania.
 
 > [!NOTE]
-> Łącznik jest dostępny tylko w sap LaMa Enterprise Edition
+> Łącznik jest dostępny tylko w oprogramowaniu SAP LaMa Enterprise Edition
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
-Następujące uwagi SAP są związane z tematem SAP LaMa na platformie Azure:
+Poniższe uwagi dotyczące oprogramowania SAP dotyczą tematu SAP LaMa na platformie Azure:
 
 | Numer notatki | Tytuł |
 | --- | --- |
-| [2343511] |Łącznik platformy Microsoft Azure do zarządzania krajobrazem SAP (LaMa) |
-| [2350235] |SAP Landscape Management 3.0 - Edycja enterprise |
+| [2343511] |Łącznik Microsoft Azure dla zarządzania w środowisku SAP (LaMa) |
+| [2350235] |Zarządzanie środowiskiem SAP 3,0 — Enterprise Edition |
 
-Przeczytaj także [portal pomocy SAP dla SAP LaMa](https://help.sap.com/viewer/p/SAP_LANDSCAPE_MANAGEMENT_ENTERPRISE).
+Przeczytaj także [Portal pomocy SAP dla oprogramowania SAP Lama](https://help.sap.com/viewer/p/SAP_LANDSCAPE_MANAGEMENT_ENTERPRISE).
 
 ## <a name="general-remarks"></a>Uwagi ogólne
 
-* Upewnij się, że *włączysz automatyczne tworzenie punktów instalacji* w instalatorze -> Ustawienia -> Engine  
-  Jeśli SAP LaMa instaluje woluminy przy użyciu rozszerzeń SAP Adaptive na maszynie wirtualnej, musi istnieć punkt instalacji, jeśli to ustawienie nie jest włączone.
+* Upewnij się, że włączono *Automatyczne tworzenie mountpoint* w instalatorze-> ustawienia — aparat >  
+  Jeśli rozwiązanie SAP LaMa zainstaluje woluminy przy użyciu rozszerzeń SAP adaptacyjnych na maszynie wirtualnej, punkt instalacji musi istnieć, jeśli to ustawienie nie jest włączone.
 
-* Użyj osobnej podsieci i nie używaj dynamicznych adresów IP, aby zapobiec "kradzieży" adresu IP podczas wdrażania nowych maszyn wirtualnych i wystąpień SAP są nieprzygotowane  
-  Jeśli używasz dynamicznej alokacji adresów IP w podsieci, która jest również używana przez SAP LaMa, przygotowanie systemu SAP z SAP LaMa może zakończyć się niepowodzeniem. Jeśli system SAP jest nieprzygotowany, adresy IP nie są zarezerwowane i mogą zostać przydzielone do innych maszyn wirtualnych.
+* Użyj oddzielnej podsieci i nie używaj dynamicznych adresów IP, aby zapobiec kradzieży adresu IP "podczas wdrażania nowych maszyn wirtualnych i wystąpień oprogramowania SAP  
+  W przypadku używania dynamicznego przydzielania adresów IP w podsieci, który jest również używany przez oprogramowanie SAP LaMa, przygotowywanie systemu SAP za pomocą oprogramowania SAP LaMa może zakończyć się niepowodzeniem. Jeśli system SAP jest nieprzygotowany, adresy IP nie są zarezerwowane i mogą zostać przydzielone do innych maszyn wirtualnych.
 
-* Jeśli zalogujesz się do zarządzanych hostów, upewnij się, że nie blokujesz odinstalowywania systemów plików  
-  Jeśli zalogujesz się do maszyn wirtualnych systemu Linux i zmienisz katalog roboczy na katalog w punkcie instalacji, na przykład /usr/sap/AH1/ASCS00/exe, wolumin nie może zostać odinstalowany, a przeniesienie lub nieprzygotowanie nie powiedzie się.
+* Jeśli zalogujesz się do hostów zarządzanych, pamiętaj, aby nie blokować odinstalowywania systemów plików  
+  Jeśli zalogujesz się do maszyn wirtualnych z systemem Linux i zmienisz katalog roboczy na katalog w punkcie instalacji, na przykład/usr/sap/AH1/ASCS00/exe, nie można odinstalować woluminu, a zmiana położenia lub nieprzygotowywania zakończy się niepowodzeniem.
 
-* Pamiętaj, aby wyłączyć CLOUD_NETCONFIG_MANAGE na maszynach wirtualnych SUSE SLES Linux. Aby uzyskać więcej informacji, zobacz [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
+* Upewnij się, że CLOUD_NETCONFIG_MANAGE na maszynach wirtualnych SUSE SLES Linux. Aby uzyskać więcej informacji, zobacz [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
 
-## <a name="set-up-azure-connector-for-sap-lama"></a>Konfigurowanie łącznika platformy Azure dla sap lama
+## <a name="set-up-azure-connector-for-sap-lama"></a>Konfigurowanie łącznika platformy Azure dla oprogramowania SAP LaMa
 
-Łącznik platformy Azure jest dostarczany zgodnie z dodatkem SP05 sap LaMa 3.0. Zalecamy zawsze instalowanie najnowszego pakietu pomocy technicznej i poprawki dla SAP LaMa 3.0.
+Łącznik platformy Azure jest dostarczany jako system SAP LaMa 3,0 SP05. Zalecamy zawsze zainstalowanie najnowszego pakietu i poprawki dla oprogramowania SAP LaMa 3,0.
 
-Łącznik platformy Azure używa interfejsu API usługi Azure Resource Manager do zarządzania zasobami platformy Azure. Sap LaMa można użyć jednostki usługi lub tożsamości zarządzanej do uwierzytelniania w tym interfejsie API. Jeśli twój SAP LaMa jest uruchomiony na maszynie Wirtualnej platformy Azure, zalecamy użycie tożsamości zarządzanej zgodnie z opisem w rozdziale [Użyj tożsamości zarządzanej, aby uzyskać dostęp do interfejsu API platformy Azure.](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d) Jeśli chcesz użyć jednostki usługi, wykonaj kroki opisane w rozdziale [Użyj jednostki usługi, aby uzyskać dostęp do interfejsu API platformy Azure.](lama-installation.md#913c222a-3754-487f-9c89-983c82da641e)
+Łącznik platformy Azure używa interfejsu API Azure Resource Manager do zarządzania zasobami platformy Azure. Rozwiązanie SAP LaMa może używać jednostki usługi lub tożsamości zarządzanej do uwierzytelniania względem tego interfejsu API. Jeśli na maszynie wirtualnej platformy Azure jest uruchomione oprogramowanie SAP LaMa, zalecamy użycie tożsamości zarządzanej zgodnie z opisem w rozdziale [Korzystanie z tożsamości zarządzanej w celu uzyskania dostępu do interfejsu API platformy Azure](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d). Jeśli chcesz użyć nazwy głównej usługi, postępuj zgodnie z instrukcjami w rozdziale [Używanie nazwy głównej usługi do uzyskiwania dostępu do interfejsu API platformy Azure](lama-installation.md#913c222a-3754-487f-9c89-983c82da641e).
 
-### <a name="use-a-service-principal-to-get-access-to-the-azure-api"></a><a name="913c222a-3754-487f-9c89-983c82da641e"></a>Uzyskiwanie dostępu do interfejsu API platformy Azure za pomocą jednostki usługi
+### <a name="use-a-service-principal-to-get-access-to-the-azure-api"></a><a name="913c222a-3754-487f-9c89-983c82da641e"></a>Uzyskiwanie dostępu do interfejsu API platformy Azure przy użyciu nazwy głównej usługi
 
-Łącznik platformy Azure może używać jednostki usługi do autoryzacji na platformie Microsoft Azure. Wykonaj następujące kroki, aby utworzyć jednostkę usługi dla zarządzania krajobrazem SAP (LaMa).
-
-1. Przejdź do strony https://portal.azure.com
-1. Otwieranie bloku usługi Azure Active Directory
-1. Kliknij rejestracje aplikacji
-1. Kliknij na Nowa rejestracja
-1. Wprowadź nazwę i kliknij Zarejestruj się
-1. Wybierz nową aplikację i kliknij certyfikaty & wpisy tajne na karcie Ustawienia
-1. Utwórz nowy klucz tajny klienta, wprowadź opis nowego klucza, wybierz, kiedy klucz tajny powinien wygasnąć i kliknij Zapisz
-1. Zapisz wartość. Jest on używany jako hasło dla jednostki usługi
-1. Zapisz identyfikator aplikacji. Jest on używany jako nazwa użytkownika jednostki usługi
-
-Podmiot zabezpieczeń usługi nie ma uprawnień do uzyskiwania dostępu do zasobów platformy Azure domyślnie. Należy nadać service principal uprawnienia dostępu do nich.
+Łącznik platformy Azure może użyć jednostki usługi do autoryzacji przed Microsoft Azure. Wykonaj następujące kroki, aby utworzyć jednostkę usługi dla zarządzania SAP krajobrazem (LaMa).
 
 1. Przejdź do strony https://portal.azure.com
-1. Otwieranie bloku Grupy zasobów
+1. Otwórz blok Azure Active Directory
+1. Kliknij Rejestracje aplikacji
+1. Kliknij pozycję Nowa rejestracja
+1. Wprowadź nazwę i kliknij pozycję Zarejestruj.
+1. Wybierz nową aplikację i kliknij pozycję Certyfikaty & wpisy tajne na karcie Ustawienia.
+1. Utwórz nowy klucz tajny klienta, wprowadź opis nowego klucza, wybierz, kiedy wpis tajny powinien wygasnąć, i kliknij przycisk Zapisz.
+1. Zapisz wartość. Służy jako hasło dla nazwy głównej usługi
+1. Zapisz identyfikator aplikacji. Jest ona używana jako nazwa główna usługi
+
+Jednostka usługi nie ma uprawnień dostępu do zasobów platformy Azure domyślnie. Aby uzyskać dostęp do nich, należy nadać uprawnienia nazwy głównej usługi.
+
+1. Przejdź do strony https://portal.azure.com
+1. Otwórz blok grupy zasobów
 1. Wybierz grupę zasobów, której chcesz użyć
 1. Kliknij pozycję Kontrola dostępu (IAM)
-1. Kliknij dodaj przypisanie roli
-1. Wybierz rolę Współautora
-1. Wprowadź nazwę aplikacji utworzonej powyżej
+1. Kliknij pozycję Dodaj przypisanie roli
+1. Wybierz współautor roli
+1. Wprowadź nazwę utworzonej aplikacji
 1. Klikanie pozycji Zapisz.
-1. Powtórz krok od 3 do 8 dla wszystkich grup zasobów, których chcesz użyć w SAP LaMa
+1. Powtórz kroki od 3 do 8 dla wszystkich grup zasobów, które mają być używane w oprogramowaniu SAP LaMa
 
-### <a name="use-a-managed-identity-to-get-access-to-the-azure-api"></a><a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Uzyskiwanie dostępu do interfejsu API platformy Azure za pomocą tożsamości zarządzanej
+### <a name="use-a-managed-identity-to-get-access-to-the-azure-api"></a><a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Korzystanie z tożsamości zarządzanej w celu uzyskania dostępu do interfejsu API platformy Azure
 
-Aby móc używać tożsamości zarządzanej, wystąpienie sap LaMa musi być uruchamiane na maszynie Wirtualnej platformy Azure, która ma tożsamość przypisaną przez system lub użytkownika. Aby uzyskać więcej informacji na temat tożsamości zarządzanych, przeczytaj [Configure managed identities for Azure resources on a VM using the Azure portal](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) [artykuł Co to są tożsamości zarządzane dla zasobów platformy Azure?](../../../active-directory/managed-identities-azure-resources/overview.md)
+Aby można było korzystać z tożsamości zarządzanej, wystąpienie SAP LaMa musi działać na maszynie wirtualnej platformy Azure, która ma tożsamość przypisaną do systemu lub użytkownika. Aby uzyskać więcej informacji o tożsamościach zarządzanych, przeczytaj artykuł [co to są tożsamości zarządzane dla zasobów platformy Azure?](../../../active-directory/managed-identities-azure-resources/overview.md) i [Skonfiguruj zarządzane tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
 
-Tożsamość zarządzana domyślnie nie ma uprawnień dostępu do zasobów platformy Azure. Musisz nadać mu uprawnienia dostępu do nich.
+Zarządzana tożsamość nie ma uprawnień dostępu do zasobów platformy Azure domyślnie. Musisz nadać mu uprawnienia dostępu do nich.
 
 1. Przejdź do strony https://portal.azure.com
-1. Otwieranie bloku Grupy zasobów
+1. Otwórz blok grupy zasobów
 1. Wybierz grupę zasobów, której chcesz użyć
 1. Kliknij pozycję Kontrola dostępu (IAM)
-1. Kliknij dodaj -> Dodaj przypisanie roli
-1. Wybierz rolę Współautora
-1. Wybierz "Maszyna wirtualna" dla "Przypisz dostęp do"
-1. Wybierz maszynę wirtualną, na której działa wystąpienie SAP LaMa
+1. Kliknij pozycję Dodaj > Dodaj przypisanie roli
+1. Wybierz współautor roli
+1. Wybierz opcję "maszyna wirtualna" dla opcji "Przypisz dostęp do"
+1. Wybierz maszynę wirtualną, na której działa wystąpienie oprogramowania SAP LaMa
 1. Klikanie pozycji Zapisz.
-1. Powtórz kroki dla wszystkich grup zasobów, których chcesz użyć w SAP LaMa
+1. Powtórz kroki dla wszystkich grup zasobów, które mają być używane w oprogramowaniu SAP LaMa
 
-W konfiguracji łącznika SAP LaMa Azure wybierz opcję "Użyj tożsamości zarządzanej", aby włączyć użycie tożsamości zarządzanej. Jeśli chcesz użyć tożsamości przypisanej do systemu, pamiętaj, aby pozostawić pole Nazwa użytkownika puste. Jeśli chcesz użyć przypisanej tożsamości użytkownikowi, wprowadź przypisany do niego identyfikator tożsamości w polu Nazwa użytkownika.
+W konfiguracji łącznika SAP LaMa Azure wybierz opcję "Użyj tożsamości zarządzanej", aby włączyć użycie zarządzanej tożsamości. Jeśli chcesz użyć tożsamości przypisanej do systemu, upewnij się, że pole Nazwa użytkownika pozostaw puste. Jeśli chcesz użyć tożsamości przypisanej do użytkownika, wprowadź identyfikator tożsamości przypisanej do użytkownika w polu Nazwa użytkownika.
 
-### <a name="create-a-new-connector-in-sap-lama"></a>Tworzenie nowego łącznika w SAP LaMa
+### <a name="create-a-new-connector-in-sap-lama"></a>Tworzenie nowego łącznika w programie SAP LaMa
 
-Otwórz witrynę SAP LaMa i przejdź do usługi Infrastruktura. Przejdź do zakładki Menedżerowie chmury i kliknij dodaj. Wybierz kartę Microsoft Azure Cloud Adapter i kliknij przycisk Dalej. Wprowadź następujące informacje:
+Otwórz witrynę sieci Web SAP LaMa i przejdź do infrastruktury. Przejdź do karty menedżerowie chmury i kliknij przycisk Dodaj. Wybierz Adapter chmury Microsoft Azure i kliknij przycisk Dalej. Wprowadź następujące informacje.
 
 * Etykieta: wybierz nazwę wystąpienia łącznika
-* Nazwa użytkownika: Identyfikator aplikacji głównej usługi lub identyfikator użytkownika przypisanego tożsamości maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości przypisanej przez system lub użytkownika]
-* Hasło: Klucz/hasło jednostki usługi. To pole można pozostawić puste, jeśli używasz tożsamości przypisanej przez system lub użytkownika.
-* ADRES URL: zachowaj wartość domyślną`https://management.azure.com/`
-* Interwał monitorowania (sekundy): Powinien wynosić co najmniej 300
-* Użyj tożsamości zarządzanej: SAP LaMa może używać tożsamości przypisanej do systemu lub użytkownika do uwierzytelniania za pomocą interfejsu API platformy Azure. Zobacz rozdział Uzyskiwanie dostępu do interfejsu API platformy Azure w tym [przewodniku umożliwia korzystanie z tożsamości zarządzanej.](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d)
-* Identyfikator subskrypcji: identyfikator subskrypcji platformy Azure
-* Identyfikator dzierżawy usługi Azure Active Directory: identyfikator dzierżawy usługi Active Directory
-* Host proxy: Nazwa hosta serwera proxy, jeśli SAP LaMa potrzebuje serwera proxy, aby połączyć się z Internetem
+* Nazwa użytkownika: Identyfikator aplikacji głównej usługi lub identyfikator przypisanej do użytkownika tożsamości maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [używanie tożsamości przypisanej do systemu lub użytkownika
+* Hasło: klucz główny usługi/hasło. To pole można pozostawić puste, jeśli używasz tożsamości przypisanej do systemu lub użytkownika.
+* Adres URL: Zachowaj wartość domyślną`https://management.azure.com/`
+* Interwał monitorowania (w sekundach): powinien wynosić co najmniej 300
+* Użyj tożsamości zarządzanej: rozwiązanie SAP LaMa może używać tożsamości przypisanej do systemu lub użytkownika do uwierzytelniania w interfejsie API platformy Azure. [Aby uzyskać dostęp do interfejsu API platformy Azure](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d) w tym przewodniku, zobacz rozdział korzystanie z tożsamości zarządzanej.
+* Identyfikator subskrypcji: Identyfikator subskrypcji platformy Azure
+* Azure Active Directory identyfikator dzierżawy: Identyfikator dzierżawcy Active Directory
+* Host serwera proxy: Nazwa hosta serwera proxy, jeśli rozwiązanie SAP LaMa wymaga serwera proxy do łączenia się z Internetem
 * Port serwera proxy: port TCP serwera proxy
-* Zmień typ magazynu, aby zaoszczędzić koszty: Włącz to ustawienie, jeśli karta Azure powinna zmienić typ magazynu dysków zarządzanych, aby zaoszczędzić koszty, gdy dyski nie są używane. W przypadku dysków danych, do których odwołuje się konfiguracja wystąpienia SAP, karta zmieni typ dysku na Magazyn standardowy podczas wystąpienia nieprzygotowany i z powrotem do oryginalnego typu magazynu podczas przygotowywania wystąpienia. Jeśli zatrzymasz maszynę wirtualną w SAP LaMa, karta zmieni typ magazynu wszystkich podłączonych dysków, w tym dysku systemu operacyjnego na magazyn standardowy. Po uruchomieniu maszyny wirtualnej w SAP LaMa, karta zmieni typ magazynu z powrotem do oryginalnego typu magazynu.
+* Zmień typ magazynu, aby zaoszczędzić koszty: Włącz to ustawienie, jeśli karta platformy Azure powinna zmienić typ magazynu Managed Disks, aby zmniejszyć koszty, gdy dyski nie są używane. W przypadku dysków z danymi, do których odwołuje się konfiguracja wystąpienia SAP, karta zmieni typ dysku na standardowy magazyn podczas cofania przygotowania wystąpienia i powrót do oryginalnego typu magazynu podczas przygotowywania wystąpienia. Zatrzymanie maszyny wirtualnej w programie SAP LaMa spowoduje zmianę typu magazynu wszystkich dołączonych dysków, w tym dysku systemu operacyjnego do magazynu w warstwie Standardowa. Jeśli uruchomisz maszynę wirtualną w oprogramowaniu SAP LaMa, karta zmieni typ magazynu z powrotem na oryginalny typ magazynu.
 
-Kliknij na Test konfiguracji, aby sprawdzić poprawność danych wejściowych. Powinieneś zobaczyć
+Kliknij pozycję Konfiguracja testu, aby sprawdzić poprawność danych wejściowych. Powinna zostać wyświetlona
 
-Połączenie zakończyło się pomyślnie: połączenie z chmurą firmy Microsoft zakończyło się pomyślnie. Znaleziono 7 grup zasobów (tylko 10 żądanych grup)
+Pomyślnie nawiązano połączenie: połączenie z chmurą Microsoft Cloud zakończyło się pomyślnie. Znaleziono 7 grup zasobów (zażądano tylko 10 grup)
 
-w dolnej części strony internetowej.
+w dolnej części witryny sieci Web.
 
-## <a name="provision-a-new-adaptive-sap-system"></a>Udostępnienie nowego adaptacyjnego systemu SAP
+## <a name="provision-a-new-adaptive-sap-system"></a>Zapewnianie nowego systemu adaptacyjnego SAP
 
-Można ręcznie wdrożyć nową maszynę wirtualną lub użyć jednego z szablonów platformy Azure w [repozytorium szybkiego startu](https://github.com/Azure/azure-quickstart-templates). Zawiera szablony dla [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), [SAP NetWeaver serwerów aplikacji](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps)i bazy [danych](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-database). Można również użyć tych szablonów do aprowizowania nowych hostów jako część kopii systemu / klon itp.
+Możesz ręcznie wdrożyć nową maszynę wirtualną lub użyć jednego z szablonów platformy Azure w [repozytorium szybkiego startu](https://github.com/Azure/azure-quickstart-templates). Zawiera szablony dla serwerów [SAP NETWEAVER ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), [SAP NetWeaver Application Servers](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps)i [Database](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-database). Za pomocą tych szablonów można także inicjować obsługę nowych hostów w ramach kopiowania/klonu systemu itp.
 
-Zaleca się używanie oddzielnej podsieci dla wszystkich maszyn wirtualnych, którymi chcesz zarządzać za pomocą sap LaMa i nie używaj dynamicznych adresów IP, aby zapobiec "kradzieży" adresu IP podczas wdrażania nowych maszyn wirtualnych i wystąpień SAP są nieprzygotowane.
+Zalecamy używanie oddzielnej podsieci dla wszystkich maszyn wirtualnych, które mają być zarządzane za pomocą oprogramowania SAP LaMa i nie należy używać dynamicznych adresów IP w celu uniemożliwienia adresowania IP "kradzieży" podczas wdrażania nowych maszyn wirtualnych i wystąpień oprogramowania SAP.
 
 > [!NOTE]
-> Jeśli to możliwe, usuń wszystkie rozszerzenia maszyny wirtualnej, ponieważ mogą one powodować długie czasy wykonywania dla odłączania dysków z maszyny wirtualnej.
+> Jeśli to możliwe, Usuń wszystkie rozszerzenia maszyn wirtualnych, ponieważ mogą one powodować długotrwałe środowiska uruchomieniowe na potrzeby odłączania dysków od maszyny wirtualnej.
 
-Upewnij się, \<że użytkownik hanasid>\<adm, sapsid>adm i sapsys grupy istnieją na komputerze docelowym o tym samym identyfikatorze i roztrzepany lub użyj LDAP. Włącz i uruchom serwer NFS na maszynach wirtualnych, które powinny być używane do uruchamiania sap NetWeaver (A)SCS.
+Upewnij się, że \<użytkownik hanasid>adm \<, sapsid>adm i Group sapsys istnieje na maszynie docelowej z tym samym identyfikatorem i GID lub Użyj protokołu LDAP. Włącz i uruchom serwer NFS na maszynach wirtualnych, które powinny być używane do uruchamiania SCS SAP NetWeaver (A).
 
 ### <a name="manual-deployment"></a>Wdrażanie ręczne
 
-SAP LaMa komunikuje się z maszyną wirtualną za pomocą agenta hosta SAP. Jeśli maszyny wirtualne są wdrażane ręcznie lub nie przy użyciu szablonu usługi Azure Resource Manager z repozytorium szybkiego startu, należy zainstalować najnowszy agent hosta SAP i rozszerzenia adaptacyjne SAP. Aby uzyskać więcej informacji na temat wymaganych poziomów poprawek dla platformy Azure, zobacz UWAGA SAP [2343511].
+Program SAP LaMa komunikuje się z maszyną wirtualną przy użyciu agenta hosta SAP. Jeśli maszyny wirtualne są wdrażane ręcznie lub nie przy użyciu szablonu Azure Resource Manager z repozytorium szybkiego startu, należy zainstalować najnowszego agenta hosta SAP i rozszerzeń SAP adaptacyjnych. Aby uzyskać więcej informacji na temat wymaganych poziomów poprawek dla platformy Azure, zobacz temat SAP Note [2343511].
 
-#### <a name="manual-deployment-of-a-linux-virtual-machine"></a>Ręczne wdrażanie maszyny wirtualnej systemu Linux
+#### <a name="manual-deployment-of-a-linux-virtual-machine"></a>Ręczne wdrażanie maszyny wirtualnej z systemem Linux
 
-Utwórz nową maszynę wirtualną z jednym z obsługiwanych systemów operacyjnych wymienionych w sap note [2343511]. Dodaj dodatkowe konfiguracje adresów IP dla wystąpień SAP. Każde wystąpienie wymaga co najmniej adresu IP i musi być zainstalowane przy użyciu wirtualnej nazwy hosta.
+Utwórz nową maszynę wirtualną przy użyciu jednego z obsługiwanych systemów operacyjnych wymienionych w temacie SAP Note [2343511]. Dodaj dodatkowe konfiguracje protokołu IP dla wystąpień SAP. Każde wystąpienie wymaga co najmniej adresu IP i musi być zainstalowane przy użyciu wirtualnej nazwy hosta.
 
-Wystąpienie SAP NetWeaver ASCS wymaga dysków\<dla /sapmnt/ SAPSID>,\</usr/sap/ SAPSID>, /usr/sap/trans\<i /usr/sap/ sapsid>adm. Serwery aplikacji SAP NetWeaver nie potrzebują dodatkowych dysków. Wszystko związane z wystąpieniem SAP musi być przechowywane w ascs i eksportowane za pośrednictwem systemu plików NFS. W przeciwnym razie obecnie nie jest możliwe dodanie dodatkowych serwerów aplikacji przy użyciu SAP LaMa.
+Wystąpienie SAP NetWeaver ASCS wymaga dysków dla/sapmnt/\<SAPSID>,/usr/sap/\<SAPSID>,/usr/sap/trans i/usr/SAP/\<SAPSID>adm. Serwery aplikacji SAP NetWeaver nie potrzebują dodatkowych dysków. Wszystkie elementy związane z wystąpieniem SAP muszą być przechowywane w ASCS i eksportowane za pośrednictwem systemu plików NFS. W przeciwnym razie nie jest możliwe dodawanie dodatkowych serwerów aplikacji przy użyciu rozwiązania SAP LaMa.
 
-![SAP NetWeaver ASCS na Linuksie](media/lama/sap-lama-ascs-app-linux.png)
+![SAP NetWeaver ASCS w systemie Linux](media/lama/sap-lama-ascs-app-linux.png)
 
-#### <a name="manual-deployment-for-sap-hana"></a>Ręczne wdrażanie dla sap HANA
+#### <a name="manual-deployment-for-sap-hana"></a>Ręczne wdrożenie dla SAP HANA
 
-Utwórz nową maszynę wirtualną z jednym z obsługiwanych systemów operacyjnych dla SAP HANA, jak wymieniono w SAP Note [2343511]. Dodaj jedną dodatkową konfigurację IP dla SAP HANA i jedną na dzierżawę HANA.
+Utwórz nową maszynę wirtualną z jednym z obsługiwanych systemów operacyjnych dla SAP HANA, jak wymieniono w oprogramowaniu SAP Note [2343511]. Dodaj jedną dodatkową konfigurację adresu IP dla SAP HANA i jeden dla dzierżawy platformy HANA.
 
-SAP HANA potrzebuje dysków dla /hana/shared, /hana/backup, /hana/data i /hana/log
+SAP HANA potrzebuje dysków dla/Hana/Shared,/Hana/Backup,/Hana/Data i/Hana/log
 
-![SAP HANA na Linuksie](media/lama/sap-lama-db-hana.png)
+![SAP HANA w systemie Linux](media/lama/sap-lama-db-hana.png)
 
-#### <a name="manual-deployment-for-oracle-database-on-linux"></a>Ręczne wdrażanie bazy danych Oracle Database w systemie Linux
+#### <a name="manual-deployment-for-oracle-database-on-linux"></a>Ręczne wdrożenie dla Oracle Database w systemie Linux
 
-Utwórz nową maszynę wirtualną z jednym z obsługiwanych systemów operacyjnych dla baz danych Oracle, wymienionych w sap note [2343511]. Dodaj jedną dodatkową konfigurację IP dla bazy danych Oracle.
+Utwórz nową maszynę wirtualną z jednym z obsługiwanych systemów operacyjnych dla baz danych Oracle, jak wymieniono w programie SAP Note [2343511]. Dodaj jedną dodatkową konfigurację adresu IP dla bazy danych Oracle.
 
-Baza danych Oracle potrzebuje dysków dla /oracle, /home/oraod1 i /home/oracle
+Baza danych Oracle wymaga dysków dla/Oracle,/Home/oraod1 i/Home/Oracle
 
-![Baza danych Oracle na Linuksie](media/lama/sap-lama-db-ora-lnx.png)
+![Baza danych Oracle w systemie Linux](media/lama/sap-lama-db-ora-lnx.png)
 
-#### <a name="manual-deployment-for-microsoft-sql-server"></a>Ręczne wdrażanie programu Microsoft SQL Server
+#### <a name="manual-deployment-for-microsoft-sql-server"></a>Ręczne wdrożenie dla Microsoft SQL Server
 
-Utwórz nową maszynę wirtualną z jednym z obsługiwanych systemów operacyjnych dla programu Microsoft SQL Server wymienionym w sap note [2343511]. Dodaj jedną dodatkową konfigurację ip dla wystąpienia programu SQL Server.
+Utwórz nową maszynę wirtualną z jednym z obsługiwanych systemów operacyjnych dla Microsoft SQL Server, jak wymieniono w oprogramowaniu SAP Note [2343511]. Dodaj jedną dodatkową konfigurację adresu IP dla wystąpienia SQL Server.
 
-Serwer bazy danych PROGRAMU SQL Server potrzebuje dysków do plików danych i dzienników bazy danych dla c:\usr\sap.
+Serwer bazy danych SQL Server wymaga dysków dla danych bazy danych i plików dziennika oraz dysków dla c:\usr\sap.
 
-![Baza danych Oracle na Linuksie](media/lama/sap-lama-db-sql.png)
+![Baza danych Oracle w systemie Linux](media/lama/sap-lama-db-sql.png)
 
-Upewnij się, że zainstalowany obsługiwany sterownik Microsoft ODBC dla programu SQL Server na maszynie wirtualnej, której chcesz użyć do przeniesienia serwera aplikacji SAP NetWeaver do lub jako miejsce docelowe kopiowania/klonowania systemu.
+Upewnij się, że na komputerze wirtualnym, który ma zostać użyty do przeniesienia serwera aplikacji SAP NetWeaver na system lub jako element docelowy kopiowania/klonowania, zainstaluj obsługiwany sterownik Microsoft ODBC dla SQL Server.
 
-Sap LaMa nie może przenieść samego programu SQL Server, więc maszyna wirtualna, której chcesz użyć do przeniesienia wystąpienia bazy danych do lub jako cel kopiowania/klonowania systemu, wymaga preinstalowanego programu SQL Server.
+Rozwiązanie SAP LaMa nie może zmienić położenia SQL Server, więc maszyna wirtualna, która ma zostać użyta do przeniesienia wystąpienia bazy danych do lub jako miejsce docelowe kopii/klonu systemu, jest wymagana SQL Server preinstalacji.
 
-### <a name="deploy-virtual-machine-using-an-azure-template"></a>Wdrażanie maszyny wirtualnej przy użyciu szablonu platformy Azure
+### <a name="deploy-virtual-machine-using-an-azure-template"></a>Wdróż maszynę wirtualną przy użyciu szablonu platformy Azure
 
-Pobierz następujące najnowsze dostępne archiwa z [sap software marketplace](https://support.sap.com/swdc) dla systemu operacyjnego maszyn wirtualnych:
+Pobierz następujące najnowsze dostępne archiwa z [portalu oprogramowania SAP](https://support.sap.com/swdc) dla systemu operacyjnego maszyn wirtualnych:
 
-1. SAPCAR 7.21
-1. SAP AGENT HOSTA 7.21
-1. ROZSZERZENIE ADAPTACYJNE SAP 1.0 EXT
+1. SAPCAR 7,21
+1. AGENT HOSTA SAP 7,21
+1. ROZSZERZENIE SAP ADAPTACYJNE EXTENSION 1,0
 
 Pobierz również następujące składniki z [Centrum pobierania Microsoft](https://www.microsoft.com/download)
 
-1. Pakiet redystrybucyjny programu Microsoft Visual C++ 2010 (x64) (tylko dla systemu Windows)
-1. Sterownik odbc firmy Microsoft dla programu SQL Server (tylko program SQL Server)
+1. Pakiet redystrybucyjny Microsoft Visual C++ 2010 (x64) (tylko system Windows)
+1. Microsoft ODBC Driver for SQL Server (tylko SQL Server)
 
-Składniki są wymagane do wdrożenia szablonu. Najprostszym sposobem udostępnienia ich szablonowi jest przekazanie ich na konto magazynu platformy Azure i utworzenie sygnatury dostępu współdzielonego (SAS).
+Składniki są wymagane do wdrożenia szablonu. Najprostszym sposobem udostępniania ich dla szablonu jest przekazanie ich do konta usługi Azure Storage i utworzenie sygnatury dostępu współdzielonego (SAS).
 
 Szablony mają następujące parametry:
 
-* sapSystemId: Identyfikator systemu SAP. Służy do tworzenia układu dysku (na przykład /usr/sap/\<sapsid>).
+* sapSystemId: identyfikator systemu SAP. Służy do tworzenia układu dysku (na przykład/usr/SAP/\<sapsid>).
 
-* nazwa komputera: nazwa komputera nowej maszyny wirtualnej. Ten parametr jest również używany przez SAP LaMa. Korzystając z tego szablonu do aprowizowania nowej maszyny wirtualnej jako części kopii systemu, SAP LaMa czeka, aż zostanie osiągnięty host o tej nazwie komputera.
+* nazwa_komputera: Nazwa komputera nowej maszyny wirtualnej. Ten parametr jest również używany przez oprogramowanie SAP LaMa. W przypadku użycia tego szablonu do aprowizacji nowej maszyny wirtualnej w ramach kopii systemu system SAP LaMa oczekuje na osiągnięcie hosta z tą nazwą komputera.
 
 * osType: typ systemu operacyjnego, który chcesz wdrożyć.
 
-* dbtype: Typ bazy danych. Ten parametr jest używany do określenia, ile dodatkowych konfiguracji adresów IP należy dodać i jak powinien wyglądać układ dysku.
+* DbType: typ bazy danych. Ten parametr służy do określenia, ile dodatkowych konfiguracji protokołu IP należy dodać, oraz jak powinien wyglądać układ dysku.
 
-* sapSystemSize: rozmiar systemu SAP, który chcesz wdrożyć. Służy do określania typu i rozmiaru wystąpienia maszyny wirtualnej.
+* sapSystemSize: rozmiar systemu SAP, który ma zostać wdrożony. Służy do określania typu i rozmiaru wystąpienia maszyny wirtualnej.
 
-* adminUsername: Nazwa użytkownika maszyny wirtualnej.
+* adminUsername: Nazwa użytkownika dla maszyny wirtualnej.
 
-* adminPassword: Hasło do maszyny wirtualnej. Można również podać klucz publiczny dla SSH.
+* adminPassword: hasło dla maszyny wirtualnej. Możesz również podać klucz publiczny dla protokołu SSH.
 
-* sshKeyData: Publiczny klucz SSH dla maszyn wirtualnych. Obsługiwane tylko dla systemów operacyjnych Linux.
+* sshKeyData: publiczny klucz SSH dla maszyn wirtualnych. Obsługiwane tylko w systemach operacyjnych Linux.
 
-* podsieciId: Identyfikator podsieci, której chcesz użyć.
+* subnetId: identyfikator podsieci, której chcesz użyć.
 
-* deployEmptyTarget: Można wdrożyć pusty obiekt docelowy, jeśli chcesz użyć maszyny wirtualnej jako miejsce docelowe dla przeniesienia wystąpienia lub podobne. W takim przypadku nie są dołączone żadne dodatkowe dyski ani konfiguracje IP.
+* deployEmptyTarget: można wdrożyć pusty cel, jeśli chcesz użyć maszyny wirtualnej jako docelowej dla wystąpienia przeznaczenie lub podobne. W takim przypadku nie są dołączone żadne dodatkowe dyski ani konfiguracje adresów IP.
 
-* sapcarLocation: Lokalizacja aplikacji sapcar, która pasuje do wdrażany system operacyjny. sapcar służy do wyodrębniania archiwów, które udostępniasz w innych parametrach.
+* sapcarLocation: Lokalizacja aplikacji SAPCAR, która odpowiada wdrażanym systemowi operacyjnemu. SAPCAR służy do wyodrębniania archiwów udostępnianych w innych parametrach.
 
-* sapHostAgentArchiveLocation: Lokalizacja archiwum agenta hosta SAP. Agent hosta SAP jest wdrażany w ramach tego wdrożenia szablonu.
+* sapHostAgentArchiveLocation: Lokalizacja archiwum agenta hosta SAP. Agent hosta SAP jest wdrażany w ramach wdrożenia tego szablonu.
 
-* sapacExtLocation: Lokalizacja rozszerzenia sap adaptacyjne. Uwaga SAP [2343511] zawiera listę minimalnego poziomu poprawki wymaganego dla platformy Azure.
+* sapacExtLocation: Lokalizacja rozszerzeń SAP adaptacyjnych. W przypadku oprogramowania SAP Uwaga [2343511] przedstawiono minimalny poziom poprawek wymagany dla platformy Azure.
 
-* vcRedistLocation: Lokalizacja środowiska wykonawczego VC, który jest wymagany do zainstalowania rozszerzenia SAP Adaptive Extensions. Ten parametr jest wymagany tylko dla systemu Windows.
+* vcRedistLocation: Lokalizacja środowiska uruchomieniowego VC, które jest wymagane do zainstalowania rozszerzeń SAP adaptacyjnych. Ten parametr jest wymagany tylko w przypadku systemu Windows.
 
-* odbcDriverLocation: Lokalizacja sterownika ODBC, który chcesz zainstalować. Obsługiwany jest tylko sterownik OdBC firmy Microsoft dla programu SQL Server.
+* odbcDriverLocation: Lokalizacja sterownika ODBC, który chcesz zainstalować. Obsługiwane są tylko sterowniki ODBC firmy Microsoft dla SQL Server.
 
-* sapadmPassword: Hasło użytkownika sapadm.
+* sapadmPassword: hasło użytkownika sapadm.
 
-* sapadmId: Linux Identyfikator użytkownika sapadm użytkownika. Nie jest wymagane dla systemu Windows.
+* sapadmId: identyfikator użytkownika systemu Linux użytkownika sapadm. Niewymagane dla systemu Windows.
 
-* sapsysGid: Identyfikator grupy Linux grupy sapsys. Nie jest wymagane dla systemu Windows.
+* sapsysGid: Identyfikator grupy systemu Linux grupy sapsys. Niewymagane dla systemu Windows.
 
-* _artifactsLocation: podstawowy identyfikator URI, w którym znajdują się artefakty wymagane przez ten szablon. Gdy szablon zostanie wdrożony przy użyciu towarzyszących skryptów, zostanie użyta prywatna lokalizacja w subskrypcji i ta wartość zostanie wygenerowana automatycznie. Potrzebne tylko wtedy, gdy nie wdrożysz szablonu z gitHub.
+* _artifactsLocation: podstawowy identyfikator URI, w którym znajdują się artefakty wymagane przez ten szablon. Gdy szablon zostanie wdrożony za pomocą towarzyszących skryptów, zostanie użyta prywatna lokalizacja w subskrypcji, która zostanie wygenerowana automatycznie. Tylko wtedy, gdy szablon nie zostanie wdrożony z usługi GitHub.
 
-* _artifactsLocationSasToken: SasToken wymagane do uzyskania dostępu do _artifactsLocation. Gdy szablon jest wdrażany przy użyciu towarzyszących skryptów, sasToken zostanie wygenerowany automatycznie. Potrzebne tylko wtedy, gdy nie wdrożysz szablonu z gitHub.
+* _artifactsLocationSasToken: sasToken wymagany do uzyskania dostępu do _artifactsLocation. Gdy szablon zostanie wdrożony za pomocą towarzyszących skryptów, zostanie automatycznie wygenerowany sasToken. Tylko wtedy, gdy szablon nie zostanie wdrożony z usługi GitHub.
 
 ### <a name="sap-hana"></a>SAP HANA
 
-W poniższych przykładach zakładamy, że instalujesz SAP HANA z identyfikatorem systemu HN1 i systemem SAP NetWeaver o identyfikatorze systemu AH1. Wirtualne nazwy hostów to hn1-db dla wystąpienia HANA, ah1-db dla dzierżawy HANA używane przez system SAP NetWeaver, ah1-ascs dla SAP NetWeaver ASCS i ah1-di-0 dla pierwszego serwera aplikacji SAP NetWeaver.
+W poniższych przykładach przyjęto założenie, że instalujesz SAP HANA z IDENTYFIKATORem systemowym HN1 i systemem SAP NetWeaver z IDENTYFIKATORem systemowym AH1. Wirtualne nazwy hostów to hn1-DB dla wystąpienia HANA, AH1-DB dla dzierżawy HANA używanej przez system SAP NetWeaver, AH1-ASCS dla SAP NetWeaver ASCS i AH1-di-0 dla pierwszego serwera aplikacji SAP NetWeaver.
 
-#### <a name="install-sap-netweaver-ascs-for-sap-hana-using-azure-managed-disks"></a>Instalowanie sap NetWeaver ASCS dla SAP HANA przy użyciu dysków zarządzanych platformy Azure
+#### <a name="install-sap-netweaver-ascs-for-sap-hana-using-azure-managed-disks"></a>Instalowanie oprogramowania SAP NetWeaver ASCS dla SAP HANA przy użyciu usługi Azure Managed Disks
 
-Przed uruchomieniem menedżera aprowizacji oprogramowania SAP (SWPM) należy zainstalować adres IP wirtualnej nazwy hosta systemu ASCS. Zalecanym sposobem jest użycie sapacext. Jeśli adres IP jest montowyny przy użyciu sapacext, upewnij się, że ponownie zainstaluj adres IP po ponownym uruchomieniu komputera.
+Przed uruchomieniem Menedżera aprowizacji oprogramowania SAP (SWPM) należy zainstalować adres IP wirtualnej nazwy hosta ASCS. Zalecanym sposobem jest użycie sapacext. Jeśli adres IP jest instalowany przy użyciu sapacext, należy ponownie zainstalować adres IP po ponownym uruchomieniu.
 
 ![Linux][Logo_Linux] Linux
 
@@ -274,69 +274,69 @@ Przed uruchomieniem menedżera aprowizacji oprogramowania SAP (SWPM) należy zai
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-ascs -n 255.255.255.128
 ```
 
-Uruchom swpm i użyj *ah1-ascs* dla *nazwy hosta wystąpienia ASCS*.
+Uruchom SWPM i Użyj *AH1-ASCS* dla *nazwy hosta wystąpienia ASCS*.
 
 ![Linux][Logo_Linux] Linux  
-Dodaj następujący parametr profilu do profilu agenta hosta SAP, który znajduje się w /usr/sap/hostctrl/exe/host_profile. Aby uzyskać więcej informacji, zobacz UWAGA SAP [2628497].
+Dodaj następujący parametr profilu do profilu agenta hosta SAP, który znajduje się w/usr/SAP/hostctrl/exe/host_profile. Aby uzyskać więcej informacji, zobacz temat SAP Note [2628497].
 ```
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 ```
 
-#### <a name="install-sap-netweaver-ascs-for-sap-hana-on-azure-netappfiles-anf-beta"></a>Zainstaluj SAP NetWeaver ASCS dla SAP HANA na platformie Azure NetAppFiles (ANF) BETA
+#### <a name="install-sap-netweaver-ascs-for-sap-hana-on-azure-netappfiles-anf-beta"></a>Zainstaluj oprogramowanie SAP NetWeaver ASCS dla SAP HANA na platformie Azure NetAppFiles (ANF) BETA
 
 > [!NOTE]
-> Ta funkcja jest jeszcze ani GA. Aby uzyskać więcej informacji, zapoznaj się z notatką SAP [2815988] (widoczną tylko dla klientów w wersji zapoznawczej).
-Otwórz zdarzenie SAP na składniku BC-VCM-LVM-HYPERV i poproś o dołączenie karty pamięci masowej LaMa do wersji zapoznawczej usługi Azure NetApp Files
+> Ta funkcja jest jeszcze niedostępna. Aby uzyskać więcej informacji, zobacz temat SAP Note [2815988] (widoczne tylko dla klientów wersji zapoznawczej).
+Otwórz zdarzenie SAP na składniku BC-VCM-LVM-HYPERV i zażądaj dołączenia do karty magazynu LaMa dla Azure NetApp Files wersji zapoznawczej
 
-Anf zapewnia nfs dla platformy Azure. W kontekście SAP LaMa upraszcza to tworzenie wystąpień ABAP Central Services (ASCS) i późniejszą instalację serwerów aplikacji. Wcześniej wystąpienie ASCS musiało działać również jako serwer NFS, a parametr acosprep/nfs_paths musiał zostać dodany do host_profile SAP Hostagent.
+ANF udostępnia system plików NFS dla systemu Azure. W kontekście SAP LaMa upraszcza to Tworzenie wystąpień usług ABAP Central Services (ASCS) i kolejnej instalacji serwerów aplikacji. Wcześniej wystąpienie ASCS musiało działać jako serwer NFS oraz parametr acosprep/nfs_paths musiał zostać dodany do host_profile SAP Hostagent.
 
-#### <a name="anf-is-currently-available-in-these-regions"></a>ANF jest obecnie dostępny w następujących regionach:
+#### <a name="anf-is-currently-available-in-these-regions"></a>ANF jest obecnie dostępna w następujących regionach:
 
-Australia Wschodnia, Środkowe Stany Usa, Wschodnie stany USA, Wschodnie Stany Usa 2, Europa Północna, Południowo-Środkowe STANY USA, Europa Zachodnia i Zachodnie Stany Usa 2.
+Australia Wschodnia, środkowe stany USA, Wschodnie stany USA, Wschodnie stany USA 2, Europa Północna, Południowo-środkowe stany USA, Europa Zachodnia i zachodnie stany USA 2.
 
-#### <a name="network-requirements"></a>Wymagania sieciowe
+#### <a name="network-requirements"></a>Wymagania dotyczące sieci
 
-Anf wymaga delegowanej podsieci, która musi być częścią tej samej sieci wirtualnej co serwery SAP. Oto przykład takiej konfiguracji.
-Na tym ekranie pokazano utworzenie sieci wirtualnej i pierwszej podsieci:
+ANF wymaga delegowanej podsieci, która musi być częścią tej samej sieci wirtualnej, co serwery SAP. Oto przykład dla takiej konfiguracji.
+Ten ekran pokazuje, jak utworzyć sieć wirtualną i pierwszą podsieć:
 
-![SAP LaMa tworzy sieć wirtualną dla platformy Azure ANF ](media/lama/sap-lama-createvn-50.png)
+![Środowisko SAP LaMa tworzenie sieci wirtualnej dla usługi Azure ANF ](media/lama/sap-lama-createvn-50.png)
 
-W następnym kroku utworzy się podsieć delegowane dla microsoft.NetApp/volumes.
+W następnym kroku zostanie utworzona delegowana podsieć dla Microsoft. NetApp/Volumes.
 
-![SAP LaMa dodać delegowaną podsieć ](media/lama/sap-lama-addsubnet-50.png)
+![Dodawanie delegowanej podsieci SAP LaMa ](media/lama/sap-lama-addsubnet-50.png)
 
-![Sap LaMa lista podsieci ](media/lama/sap-lama-subnets.png)
+![Lista LaMa protokołu SAP podsieci ](media/lama/sap-lama-subnets.png)
 
-Teraz konto NetApp musi zostać utworzone w witrynie Azure portal:
+Teraz należy utworzyć konto NetApp w ramach Azure Portal:
 
-![SAP LaMa utworzyć konto NetApp ](media/lama/sap-lama-create-netappaccount-50.png)
+![LaMa systemu SAP — Utwórz konto NetApp ](media/lama/sap-lama-create-netappaccount-50.png)
 
-![Utworzone konto SAP LaMa NetApp ](media/lama/sap-lama-netappaccount.png)
+![Utworzono konto SAP LaMa NetApp ](media/lama/sap-lama-netappaccount.png)
 
-W ramach konta NetApp pula pojemności określa rozmiar i typ dysków dla każdej puli:
+W ramach konta NetApp Pula pojemności określa rozmiar i typ dysków dla każdej puli:
 
-![SAP LaMa tworzy pulę pojemności NetApp ](media/lama/sap-lama-capacitypool-50.png)
+![LaMa systemu SAP — Tworzenie puli pojemności NetApp ](media/lama/sap-lama-capacitypool-50.png)
 
-![Utworzona pula pojemności SAP LaMa NetApp ](media/lama/sap-lama-capacitypool-list.png)
+![Utworzono pulę pojemności SAP LaMa NetApp ](media/lama/sap-lama-capacitypool-list.png)
 
-Woluminy NFS można teraz zdefiniować. Ponieważ w jednej puli będą dostępne woluminy dla wielu systemów, należy wybrać samodyreżujący schemat nazewnictwa. Dodanie identyfikatora SID pomaga grupować powiązane woluminy razem. W przypadku ASCS i asa potrzebne są następujące wierzchowce: */sapmnt/\<SID\>*, */usr/sap/\<SID\>*, i */home/\<sid\>adm*. Opcjonalnie */usr/sap/trans* jest potrzebny dla centralnego katalogu transportu, który jest przynajmniej używany przez wszystkie systemy jednego krajobrazu.
+Można teraz definiować woluminy NFS. Ponieważ w jednej puli będą woluminy z wieloma systemami, należy wybrać schemat nazewnictwa samodzielnego. Dodanie identyfikatora SID pomaga zgrupować powiązane woluminy. W przypadku ASCS i wystąpienia as są wymagany następujące instalacje: */sapmnt/\<\>SID*, */usr/SAP/\<SID\>* i */Home/\<SID\>ADM*. Opcjonalnie */usr/SAP/Trans* jest wymagany dla centralnego katalogu transportowego, który jest co najmniej używany przez wszystkie systemy o jednej poziomej.
 
 > [!NOTE]
-> Podczas fazy BETA nazwa woluminów musi być unikatowa w ramach subskrypcji.
+> W fazie BETA nazwa woluminów musi być unikatowa w ramach subskrypcji.
 
-![SAP LaMa utworzyć wolumin 1 ](media/lama/sap-lama-createvolume-80.png)
+![System SAP LaMa — Tworzenie woluminu 1 ](media/lama/sap-lama-createvolume-80.png)
 
-![SAP LaMa utworzyć wolumin 2 ](media/lama/sap-lama-createvolume2-80.png)
+![System SAP LaMa — Tworzenie woluminu 2 ](media/lama/sap-lama-createvolume2-80.png)
 
-![SAP LaMa utworzyć tom 3 ](media/lama/sap-lama-createvolume3-80.png)
+![System SAP LaMa — Tworzenie woluminu 3 ](media/lama/sap-lama-createvolume3-80.png)
 
 Te kroki należy powtórzyć również dla innych woluminów.
 
-![Sap LaMa lista utworzonych woluminów ](media/lama/sap-lama-volumes.png)
+![Lista utworzonych woluminów SAP LaMa ](media/lama/sap-lama-volumes.png)
 
-Teraz te woluminy muszą być zamontowane w systemach, w których zostanie przeprowadzona początkowa instalacja z SAP SWPM.
+Teraz te woluminy należy zainstalować w systemach, w których zostanie przeprowadzona początkowa instalacja z programem SAP SWPM.
 
-Najpierw należy utworzyć punkty instalacji. W takim przypadku identyfikator SID jest AN1, więc należy wykonać następujące polecenia:
+Najpierw należy utworzyć punkty instalacji. W tym przypadku identyfikator SID to AN1, więc należy wykonać następujące polecenia:
 
 ```bash
 mkdir -p /home/an1adm
@@ -344,7 +344,7 @@ mkdir -p /sapmnt/AN1
 mkdir -p /usr/sap/AN1
 mkdir -p /usr/sap/trans
 ```
-Następnie woluminy ANF zostaną zamontowane za pomocą następujących poleceń:
+Kolejne woluminy ANF zostaną zainstalowane przy użyciu następujących poleceń:
 
 ```bash
 # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-home-sidadm /home/an1adm
@@ -352,28 +352,28 @@ Następnie woluminy ANF zostaną zamontowane za pomocą następujących poleceń
 # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-usr-sap-sid /usr/sap/AN1
 # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/global-usr-sap-trans /usr/sap/trans
 ```
-Polecenia mount mogą być również pochodne z portalu. Lokalne punkty montażu muszą być dostosowane.
+Polecenia instalacji mogą być również wyprowadzane z portalu. Lokalne punkty instalacji muszą zostać dopasowane.
 
-Użyj polecenia df -h, aby zweryfikować.
+Aby sprawdzić, użyj polecenia DF-h.
 
-![SAP LaMa punkty systemu operacyjnego poziom ](media/lama/sap-lama-mounts.png)
+![Poziom systemu operacyjnego punktów instalacji SAP LaMa ](media/lama/sap-lama-mounts.png)
 
-Teraz instalacja z SWPM musi być wykonana.
+Teraz należy przeprowadzić instalację z SWPM.
 
-Te same kroki muszą być wykonywane dla co najmniej jednego wystąpienia AS.
+Te same kroki należy wykonać dla co najmniej jednego wystąpienia.
 
-Po pomyślnej instalacji system musi zostać wykryty w sap LaMa.
+Po pomyślnej instalacji systemu należy odnaleźć system w oprogramowaniu SAP LaMa.
 
-Punkty instalacji powinny wyglądać następująco dla ASCS i as wystąpienia:
+Punkty instalacji powinny wyglądać następująco dla ASCS i wystąpienia AS:
 
-![SAP LaMa mount points ](media/lama/sap-lama-ascs.png) in LaMa (Jest to przykład. Adresy IP i ścieżka eksportu różnią się od tych, które były używane wcześniej)
+![Punkty instalacji SAP LaMa w LaMa ](media/lama/sap-lama-ascs.png) (jest to przykład. Adresy IP i ścieżki eksportu różnią się od tych, które zostały użyte przed
 
 
 #### <a name="install-sap-hana"></a>Instalowanie platformy SAP HANA
 
-Jeśli system SAP HANA zostanie zainstalowany przy użyciu narzędzia polecenia hdblcm, użyj parametru --hostname, aby podać wirtualną nazwa hosta. Należy dodać adres IP wirtualnej nazwy hosta bazy danych do interfejsu sieciowego. Zalecanym sposobem jest użycie sapacext. Jeśli adres IP jest montowyny przy użyciu sapacext, upewnij się, że ponownie zainstaluj adres IP po ponownym uruchomieniu komputera.
+Jeśli instalujesz SAP HANA przy użyciu narzędzia wiersza polecenia hdblcm, użyj parametru--hostname, aby podać wirtualną nazwę hosta. Należy dodać adres IP wirtualnej nazwy hosta bazy danych do interfejsu sieciowego. Zalecanym sposobem jest użycie sapacext. Jeśli adres IP jest instalowany przy użyciu sapacext, należy ponownie zainstalować adres IP po ponownym uruchomieniu.
 
-Dodaj inną wirtualną nazwę hosta i adres IP dla nazwy używanej przez serwery aplikacji do łączenia się z dzierżawą HANA.
+Dodaj kolejną wirtualną nazwę hosta i adres IP dla nazwy, która jest używana przez serwery aplikacji do łączenia się z dzierżawcą platformy HANA.
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -381,11 +381,11 @@ Dodaj inną wirtualną nazwę hosta i adres IP dla nazwy używanej przez serwery
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-db -n 255.255.255.128
 ```
 
-Uruchom instalację wystąpienia bazy danych swpm na maszynie wirtualnej serwera aplikacji, a nie na maszynie wirtualnej HANA. Użyj *ah1-db* dla *hosta bazy danych* w oknie dialogowym Baza danych dla systemu *SAP*.
+Uruchom instalację wystąpienia bazy danych SWPM na maszynie wirtualnej serwera aplikacji, a nie na maszynie wirtualnej HANA. Użyj *AH1-DB* dla *hosta bazy danych* w *bazie danych okna dialogowego dla systemu SAP*.
 
-#### <a name="install-sap-netweaver-application-server-for-sap-hana"></a>Instalowanie serwera aplikacji SAP NetWeaver dla sap hana
+#### <a name="install-sap-netweaver-application-server-for-sap-hana"></a>Zainstaluj serwer aplikacji SAP NetWeaver dla SAP HANA
 
-Przed uruchomieniem menedżera aprowizacji oprogramowania SAP (SWPM) należy zainstalować adres IP wirtualnej nazwy hosta serwera aplikacji. Zalecanym sposobem jest użycie sapacext. Jeśli adres IP jest montowyny przy użyciu sapacext, upewnij się, że ponownie zainstaluj adres IP po ponownym uruchomieniu komputera.
+Przed uruchomieniem Menedżera aprowizacji oprogramowania SAP (SWPM) należy zainstalować adres IP wirtualnej nazwy hosta serwera aplikacji. Zalecanym sposobem jest użycie sapacext. Jeśli adres IP jest instalowany przy użyciu sapacext, należy ponownie zainstalować adres IP po ponownym uruchomieniu.
 
 ![Linux][Logo_Linux] Linux
 
@@ -401,14 +401,14 @@ Przed uruchomieniem menedżera aprowizacji oprogramowania SAP (SWPM) należy zai
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-di-0 -n 255.255.255.128
 ```
 
-Zaleca się użycie parametru profilu SAP NetWeaver dbs/hdb/hdb_use_ident, aby ustawić tożsamość używaną do znajdowania klucza w magazynie użytkowników HDB. Ten parametr można dodać ręcznie po zainstalowaniu wystąpienia bazy danych za pomocą programu SWPM lub uruchomić
+Zaleca się użycie parametru profilu NetWeaver protokołu SAP baz danych/HDB/hdb_use_ident, aby ustawić tożsamość, która jest używana do znajdowania klucza w HDB userstore. Ten parametr można dodać ręcznie po zakończeniu instalacji wystąpienia bazy danych za pomocą SWPM lub SWPM z
 
 ```bash
 # from https://blogs.sap.com/2015/04/14/sap-hana-client-software-different-ways-to-set-the-connectivity-data/
 /sapdb/DVDs/IM_LINUX_X86_64/sapinst HDB_USE_IDENT=SYSTEM_COO
 ```
 
-Jeśli ustawisz go ręcznie, należy również utworzyć nowe wpisy magazynu użytkowników HDB.
+W przypadku ustawienia ręcznie należy również utworzyć nowe wpisy HDB userstore.
 
 ```bash
 # run as <sapsid>adm
@@ -417,182 +417,182 @@ Jeśli ustawisz go ręcznie, należy również utworzyć nowe wpisy magazynu uż
 /usr/sap/AH1/hdbclient/hdbuserstore SET DEFAULT ah1-db:35041@AH1 SAPABAP1 <password>
 ```
 
-Użyj *ah1-di-0* dla *nazwy hosta wystąpienia PAS* w oknie dialogowym *Wystąpienie serwera aplikacji podstawowych*.
+W *wystąpieniu podstawowego serwera aplikacji*okna dialogowego Użyj *AH1-di-0* dla *nazwy hosta wystąpienia pas* .
 
-#### <a name="post-installation-steps-for-sap-hana"></a>Kroki poinstalacyjne dla sap HANA
+#### <a name="post-installation-steps-for-sap-hana"></a>Kroki po instalacji dla SAP HANA
 
-Przed podjęciem próby wykonania kopii zapasowej dzierżawcy, przeniesieniem dzierżawy lub utworzeniem replikacji systemu należy wykonać kopię zapasową bazy danych systemowej i wszystkich baz danych dzierżawy.
+Upewnij się, że utworzono kopię zapasową SYSTEMDB i wszystkich baz danych dzierżaw przed podjęciem próby wykonania kopii dzierżawy, przeniesieniu dzierżawy lub utworzenia replikacji systemu.
 
 ### <a name="microsoft-sql-server"></a>Microsoft SQL Server
 
-W poniższych przykładach zakładamy, że system SAP NetWeaver jest instalowy z identyfikatorem systemu AS1. Wirtualne nazwy hostów są as1-db dla wystąpienia programu SQL Server używanego przez system SAP NetWeaver, as1-ascs dla SAP NetWeaver ASCS i as1-di-0 dla pierwszego serwera aplikacji SAP NetWeaver.
+W poniższych przykładach przyjęto założenie, że instalujesz system SAP NetWeaver z IDENTYFIKATORem systemowym AS1. Wirtualne nazwy hostów to AS1-DB dla wystąpienia SQL Server używanego przez system SAP NetWeaver, AS1-ASCS dla oprogramowania SAP NetWeaver ASCS i AS1-di-0 dla pierwszego serwera aplikacji SAP NetWeaver.
 
-#### <a name="install-sap-netweaver-ascs-for-sql-server"></a>Instalowanie sap NetWeaver ASCS dla programu SQL Server
+#### <a name="install-sap-netweaver-ascs-for-sql-server"></a>Zainstaluj oprogramowanie SAP NetWeaver ASCS dla SQL Server
 
-Przed uruchomieniem menedżera aprowizacji oprogramowania SAP (SWPM) należy zainstalować adres IP wirtualnej nazwy hosta systemu ASCS. Zalecanym sposobem jest użycie sapacext. Jeśli adres IP jest montowyny przy użyciu sapacext, upewnij się, że ponownie zainstaluj adres IP po ponownym uruchomieniu komputera.
+Przed uruchomieniem Menedżera aprowizacji oprogramowania SAP (SWPM) należy zainstalować adres IP wirtualnej nazwy hosta ASCS. Zalecanym sposobem jest użycie sapacext. Jeśli adres IP jest instalowany przy użyciu sapacext, należy ponownie zainstalować adres IP po ponownym uruchomieniu.
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-ascs -n 255.255.255.128
 ```
 
-Uruchom swpm i użyj *as1-ascs* dla *nazwy hosta wystąpienia ASCS*.
+Uruchom SWPM i Użyj *AS1-ASCS* dla *nazwy hosta wystąpienia ASCS*.
 
 #### <a name="install-sql-server"></a>Instalacja programu SQL Server
 
-Należy dodać adres IP wirtualnej nazwy hosta bazy danych do interfejsu sieciowego. Zalecanym sposobem jest użycie sapacext. Jeśli adres IP jest montowyny przy użyciu sapacext, upewnij się, że ponownie zainstaluj adres IP po ponownym uruchomieniu komputera.
+Należy dodać adres IP wirtualnej nazwy hosta bazy danych do interfejsu sieciowego. Zalecanym sposobem jest użycie sapacext. Jeśli adres IP jest instalowany przy użyciu sapacext, należy ponownie zainstalować adres IP po ponownym uruchomieniu.
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-db -n 255.255.255.128
 ```
 
-Uruchom instalację wystąpienia bazy danych usługi SWPM na maszynie wirtualnej serwera SQL. Użyj SAPINST_USE_HOSTNAME=*as1-db,* aby zastąpić nazwa hosta używaną do łączenia się z programem SQL Server. Jeśli maszyna wirtualna została wdrożona przy użyciu szablonu Usługi Azure Resource Manager, upewnij się, że katalog używany dla plików danych bazy danych został ustawiony na *C:\sql\data* and database log file to *C:\sql\log*.
+Uruchom instalację wystąpienia bazy danych SWPM na maszynie wirtualnej programu SQL Server. Użyj SAPINST_USE_HOSTNAME =*AS1-DB* , aby zastąpić nazwę hosta używaną do nawiązywania połączenia z SQL Server. Jeśli maszyna wirtualna została wdrożona przy użyciu szablonu Azure Resource Manager, upewnij się, że ustawisz katalog używany dla plików danych bazy danych do *C:\sql\data* i pliku dziennika bazy danych na *C:\sql\log*.
 
-Upewnij się, że użytkownik *NT AUTHORITY\SYSTEM* ma dostęp do programu SQL Server i ma rolę serwera *sysadmin*. Aby uzyskać więcej informacji, zobacz UWAGA SAP [1877727] i [2562184].
+Upewnij się, że użytkownik *NT NT\SYSTEM* ma dostęp do SQL Server i ma rolę serwera *sysadmin*. Aby uzyskać więcej informacji, zobacz uwagi dotyczące oprogramowania SAP [1877727] i [2562184].
 
-#### <a name="install-sap-netweaver-application-server"></a>Instalowanie serwera aplikacji SAP NetWeaver
+#### <a name="install-sap-netweaver-application-server"></a>Zainstaluj serwer aplikacji SAP NetWeaver
 
-Przed uruchomieniem menedżera aprowizacji oprogramowania SAP (SWPM) należy zainstalować adres IP wirtualnej nazwy hosta serwera aplikacji. Zalecanym sposobem jest użycie sapacext. Jeśli adres IP jest montowyny przy użyciu sapacext, upewnij się, że ponownie zainstaluj adres IP po ponownym uruchomieniu komputera.
+Przed uruchomieniem Menedżera aprowizacji oprogramowania SAP (SWPM) należy zainstalować adres IP wirtualnej nazwy hosta serwera aplikacji. Zalecanym sposobem jest użycie sapacext. Jeśli adres IP jest instalowany przy użyciu sapacext, należy ponownie zainstalować adres IP po ponownym uruchomieniu.
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di-0 -n 255.255.255.128
 ```
 
-Użyj *as1-di-0* dla *nazwy hosta wystąpienia PAS* w oknie dialogowym *Wystąpienie serwera aplikacji podstawowych*.
+W *wystąpieniu podstawowego serwera aplikacji*okna dialogowego Użyj *AS1-di-0* dla *nazwy hosta wystąpienia pas* .
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-### <a name="errors-and-warnings-during-discover"></a>Błędy i ostrzeżenia podczas odnajdywanie
+### <a name="errors-and-warnings-during-discover"></a>Błędy i ostrzeżenia podczas odnajdywania
 
-* Odmówiono uprawnienia SELECT
-  * [Microsoft] [Sterownik programu ODBC SQL Server] [SQL Server] Odmówiono uprawnienia SELECT dla obiektu "log_shipping_primary_databases", bazy danych "msdb", schematu "dbo". [SOAPFaultException]  
-  Odmówiono uprawnienia SELECT dla obiektu "log_shipping_primary_databases", bazy danych "msdb", schematu "dbo".
+* Odmowa uprawnienia SELECT
+  * Programu [Sterownik ODBC SQL Server] [SQL Server] Odmowa uprawnienia SELECT w obiekcie "log_shipping_primary_databases", bazie danych "msdb", schemacie "dbo". [SOAPFaultException]  
+  Odmowa uprawnienia SELECT w obiekcie "log_shipping_primary_databases", bazie danych "msdb", schemacie "dbo".
   * Rozwiązanie  
-    Upewnij się, że *program NT AUTHORITY\SYSTEM* ma dostęp do programu SQL Server. Patrz uwaga SAP [2562184]
+    Upewnij się, że *NT NT\SYSTEM* ma dostęp do SQL Server. Zobacz uwagi dotyczące oprogramowania SAP [2562184]
 
 
-### <a name="errors-and-warnings-for-instance-validation"></a>Błędy i ostrzeżenia dotyczące sprawdzania poprawności wystąpienia
+### <a name="errors-and-warnings-for-instance-validation"></a>Błędy i ostrzeżenia dotyczące walidacji wystąpienia
 
-* Wyjątek został zgłoszony podczas sprawdzania poprawności magazynu użytkowników HDB  
-  * zobacz Przeglądarka dzienników  
-    com.sap.nw.lm.aci.api.validation.RuntimeValidationException: Wyjątek w walidatorze o identyfikatorze "RuntimeHDBConnectionValidator" (Sprawdzanie poprawności: "VALIDATION_HDB_USERSTORE"): nie można pobrać magazynu hdbuserstore  
-    Magazyn użytkowników HANA nie znajduje się we właściwej lokalizacji
+* Wystąpił wyjątek podczas sprawdzania poprawności HDB userstore  
+  * Zobacz Podgląd dzienników  
+    com. SAP. NW. lm. ACI. Monitor. API. Validation. RuntimeValidationException: wyjątek w module walidacji o IDENTYFIKATORze "RuntimeHDBConnectionValidator" (Walidacja: "VALIDATION_HDB_USERSTORE"): nie można pobrać hdbuserstore  
+    Userstore HANA nie znajduje się w poprawnej lokalizacji
   * Rozwiązanie  
-    Upewnij się, że /usr/sap/AH1/hdbclient/install/installation.ini jest poprawny
+    Upewnij się, że/usr/sap/AH1/hdbclient/install/installation.ini jest prawidłowy
 
 ### <a name="errors-and-warnings-during-a-system-copy"></a>Błędy i ostrzeżenia podczas kopiowania systemu
 
-* Wystąpił błąd podczas sprawdzania poprawności kroku inicjowania obsługi administracyjnej systemu
-  * Spowodowane przez: com.sap.nw.lm.aci.engine.base.api.util.exception.HAOperationException Calling '/usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 150 -h\;hn1-db -o level=0 status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hak -r' | /usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hak -r
+* Wystąpił błąd podczas sprawdzania poprawności kroku aprowizacji systemu
+  * Spowodowane przez: com. SAP. NW. lm. ACI. Engine. Base. API. util. Exception. HAOperationException wywołanie "/usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0\;status = 5\;port = 35013 PF =/usr/SAP/hostctrl/exe/Host_profile-r-T dev_lvminfo-u system-p Hook-r" | /usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0\;status = 5\;port = 35013 PF =/usr/SAP/hostctrl/exe/Host_profile-R-T dev_lvminfo-u system-p Hook-r
   * Rozwiązanie  
-    Wykonywanie kopii zapasowych wszystkich baz danych w źródłowym systemie HANA
+    Utwórz kopię zapasową wszystkich baz danych w źródłowym systemie HANA
 
-* Rozpoczęcie *kroku* kopiowania systemu wystąpienia bazy danych
-  * Operacja agenta hosta '000D3A282BC91EE8A1D76CF1F92E2944' nie powiodła się (OperationException). FaultCode: '127', Komunikat: 'Wykonanie polecenia nie powiodło się. : [Microsoft][ODBC SQL Server Driver][SQL Server]Użytkownik nie ma uprawnień do zmiany bazy danych 'AS2', baza danych nie istnieje lub baza danych nie jest w stanie, który umożliwia sprawdzanie dostępu.')
+* *Początek* wystąpienia bazy danych na etapie kopiowania systemu
+  * Operacja agenta hosta "000D3A282BC91EE8A1D76CF1F92E2944" nie powiodła się (OperationException. FaultCode: ' 127 ', komunikat: ' wykonywanie polecenia nie powiodło się. : [Microsoft] [ODBC SQL Server Driver] [SQL Server] użytkownik nie ma uprawnienia do zmiany bazy danych "AS2", baza danych nie istnieje lub baza danych nie znajduje się w stanie umożliwiającym sprawdzanie dostępu ").
   * Rozwiązanie  
-    Upewnij się, że *program NT AUTHORITY\SYSTEM* ma dostęp do programu SQL Server. Patrz uwaga SAP [2562184]
+    Upewnij się, że *NT NT\SYSTEM* ma dostęp do SQL Server. Zobacz uwagi dotyczące oprogramowania SAP [2562184]
 
 ### <a name="errors-and-warnings-during-a-system-clone"></a>Błędy i ostrzeżenia podczas klonowania systemu
 
-* Wystąpił błąd podczas próby zarejestrowania agenta wystąpienia w kroku *Wymuszony rejestr i Uruchom agenta wystąpienia* serwera aplikacji lub ASCS
-  * Wystąpił błąd podczas próby zarejestrowania agenta wystąpienia. (RemoteException: 'Nie można załadować danych\\wystąpienia z profilu ' as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0': Nie można uzyskać dostępu do profilu '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0': Brak takiego pliku lub katalogu.')
+* Wystąpił błąd podczas próby zarejestrowania agenta wystąpienia w kroku *wymuszono rejestrowanie i uruchamianie agenta wystąpienia* serwera aplikacji lub ASCS
+  * Wystąpił błąd podczas próby zarejestrowania agenta wystąpienia. (RemoteException: "nie można załadować danych wystąpienia z profilu"\\AS1-ascs\sapmnt\as1\sys\profile\ AS1_D00_as1-di-0 ": nie można uzyskać dostępu\\do profilu" AS1-ascs\sapmnt\as1\sys\profile\ AS1_D00_as1-di-0 ": brak takiego pliku lub katalogu").
   * Rozwiązanie  
-   Upewnij się, że udział sapmnt w ASCS/SCS ma pełny dostęp dla SAP_AS1_GlobalAdmin
+   Upewnij się, że udział sapmnt na ASCS/SCS ma pełny dostęp do SAP_AS1_GlobalAdmin
 
-* Błąd w kroku *Włącz ochronę przed uruchamianiem klonowania*
-  * Nie można otworzyć\\pliku ' as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' Przyczyna: Brak takiego pliku lub katalogu
+* Błąd w kroku *włączania ochrony uruchamiania dla klonu*
+  * Nie można otworzyć pliku "\\AS1-ascs\sapmnt\as1\sys\profile\ AS1_D00_as1-di-0" nmożliwa Przyczyna: Brak pliku lub katalogu
   * Rozwiązanie  
-    Konto komputera serwera aplikacji wymaga dostępu do zapisu do profilu
+    Konto komputera serwera aplikacji musi mieć dostęp do zapisu w profilu
 
 ### <a name="errors-and-warnings-during-create-system-replication"></a>Błędy i ostrzeżenia podczas tworzenia replikacji systemu
 
-* Wyjątek podczas klikania przycisku Utwórz replikację systemu
-  * Spowodowane przez: com.sap.nw.lm.aci.engine.base.api.util.exception.HAOperationException Calling '/usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 150 -h\;hn1-db -o level=0 status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hak -r' | /usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hak -r
+* Wyjątek podczas klikania opcji Utwórz replikację systemu
+  * Spowodowane przez: com. SAP. NW. lm. ACI. Engine. Base. API. util. Exception. HAOperationException wywołanie "/usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0\;status = 5\;port = 35013 PF =/usr/SAP/hostctrl/exe/Host_profile-r-T dev_lvminfo-u system-p Hook-r" | /usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0\;status = 5\;port = 35013 PF =/usr/SAP/hostctrl/exe/Host_profile-R-T dev_lvminfo-u system-p Hook-r
   * Rozwiązanie  
-    Sprawdź, czy sapacext `<hanasid` może być wykonany jako>adm
+    Testuj, czy sapacext można wykonać jako `<hanasid`>adm
 
 * Błąd, gdy pełna kopia nie jest włączona w kroku magazynu
-  * Wystąpił błąd podczas raportowania komunikatu atrybutu kontekstu dla ścieżki IStorageCopyData.storageVolumeCopyList:1 i pole targetStorageSystemId
+  * Wystąpił błąd podczas raportowania komunikatu atrybutu kontekstu dla ścieżki IStorageCopyData. storageVolumeCopyList: 1 i pola targetStorageSystemId
   * Rozwiązanie  
-    Ignoruj ostrzeżenia w kroku i spróbuj ponownie. Ten problem zostanie rozwiązany w nowym pakiecie pomocy technicznej/patchu SAP LaMa.
+    Ignoruj ostrzeżenia w kroku i spróbuj ponownie. Ten problem zostanie rozwiązany w nowym pakiecie obsługi/poprawek oprogramowania SAP LaMa.
 
-### <a name="errors-and-warnings-during-relocate"></a>Błędy i ostrzeżenia podczas przenoszenia
+### <a name="errors-and-warnings-during-relocate"></a>Błędy i ostrzeżenia podczas Przemieść
 
-* Ścieżka "/usr/sap/AH1" nie jest dozwolona dla nfs reexports.
-  * Szczegółowe informacje można znaleźć w obiekcie SAP Note [2628497.]
+* Ścieżka "/usr/sap/AH1" nie jest dozwolona w przypadku reeksportów NFS.
+  * Aby uzyskać szczegółowe informacje, zobacz temat SAP Note [2628497] .
   * Rozwiązanie  
-    Dodaj eksport ASCS do profilu ascs hostagenta. Patrz uwaga SAP [2628497]
+    Dodaj eksporty ASCS do profilu ASCS HostAgent. Zobacz uwagi dotyczące oprogramowania SAP [2628497]
 
-* Funkcja nie została zaimplementowana podczas przenoszenia ASCS
-  * Polecenie wyjście: exportfs: host:/usr/sap/AX1: Funkcja nie została zaimplementowana
+* Funkcja nie została zaimplementowana podczas relokalizacji ASCS
+  * Dane wyjściowe polecenia: exportfs: Host:/usr/SAP/AX1: funkcja nie została zaimplementowana
   * Rozwiązanie  
-    Upewnij się, że usługa serwera NFS jest włączona na docelowej maszynie wirtualnej przenoszenia
+    Upewnij się, że usługa serwera NFS jest włączona na docelowej maszynie wirtualnej.
 
 ### <a name="errors-and-warnings-during-application-server-installation"></a>Błędy i ostrzeżenia podczas instalacji serwera aplikacji
 
-* Błąd podczas wykonywania kroku SAPinst: getProfileDir
-  * BŁĄD: (Ostatni błąd zgłoszony przez krok: Caught ESAPinstException w wywołaniu modułu: Walidator kroku '| NW_DI|ind|ind|ind|ind|0|0| NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0| NW_readProfileDir|ind|ind|ind|readProfile|0|getProfileDir' zgłosił błąd: Węzeł \\\as1-ascs\sapmnt\AS1\SYS\profile nie istnieje. Uruchom SAPinst w trybie interaktywnym, aby rozwiązać ten problem)
+* Wystąpił błąd podczas wykonywania kroku SAPinst: getProfileDir
+  * Błąd: (ostatni błąd zgłoszony przez krok: przechwycono ESAPinstException w wywołaniu modułu: walidator kroku "| NW_DI | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | getSid | 0 | NW_readProfileDir | IND | IND | IND | readProfile | 0 | getProfileDir ' zgłosił błąd: węzeł \\\as1-ascs\sapmnt\AS1\SYS\profile nie istnieje. Uruchom SAPinst w trybie interaktywnym, aby rozwiązać ten problem)
   * Rozwiązanie  
-    Upewnij się, że swpm jest uruchomiony z użytkownikiem, który ma dostęp do profilu. Tego użytkownika można skonfigurować w Kreatorze instalacji serwera aplikacji
+    Upewnij się, że SWPM jest uruchomiony z użytkownikiem, który ma dostęp do profilu. Ten użytkownik można skonfigurować w Kreatorze instalacji serwera aplikacji
 
-* Błąd podczas wykonywania kroku SAPinst: askUnicode
-  * BŁĄD: (Ostatni błąd zgłoszony przez krok: Caught ESAPinstException w wywołaniu modułu: Walidator kroku '| NW_DI|ind|ind|ind|ind|0|0| NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0| NW_getUnicode|ind|ind|ind|unicode|0|askUnicode' zgłosił błąd: Uruchom SAPinst w trybie interaktywnym, aby rozwiązać ten problem)
+* Wystąpił błąd podczas wykonywania kroku SAPinst: askUnicode
+  * Błąd: (ostatni błąd zgłoszony przez krok: przechwycono ESAPinstException w wywołaniu modułu: walidator kroku "| NW_DI | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | getSid | 0 | NW_getUnicode | IND | IND | IND | "Unicode | 0 | askUnicode" zgłosił błąd: Uruchom SAPinst w trybie interaktywnym, aby rozwiązać ten problem.
   * Rozwiązanie  
-    Jeśli używasz najnowszego jądra SAP, SWPM nie może określić, czy system jest już systemem unicode przy użyciu serwera komunikatów ASCS. Więcej informacji można znaleźć w notatce SAP [2445033.]  
-    Ten problem zostanie rozwiązany w nowym pakiecie pomocy technicznej/patchu SAP LaMa.  
-    Ustaw parametr profilu OS_UNICODE=uc w domyślnym profilu systemu SAP, aby obejść ten problem.
+    W przypadku korzystania z najnowszego jądra SAP SWPM nie może określić, czy system jest już systemem Unicode przy użyciu serwera komunikatów ASCS. Aby uzyskać więcej informacji, zobacz temat SAP Note [2445033] .  
+    Ten problem zostanie rozwiązany w nowym pakiecie obsługi/poprawek oprogramowania SAP LaMa.  
+    Aby obejść ten problem, ustaw parametr profilu OS_UNICODE = UC w profilu domyślnym systemu SAP.
 
-* Błąd podczas wykonywania kroku SAPinst: dCheckGivenServer
-  * Błąd podczas wykonywania kroku SAPinst: dCheckGivenServer" version="1.0" ERROR: \<(Ostatni błąd zgłoszony przez krok: p> Instalacja została anulowana przez użytkownika. \</p>
+* Wystąpił błąd podczas wykonywania kroku SAPinst: dCheckGivenServer
+  * Wystąpił błąd podczas wykonywania kroku SAPinst: dCheckGivenServer "Version =" 1.0 "ERROR: (ostatni błąd zgłoszony przez \<krok: p> instalacja została anulowana przez użytkownika. \</p>
   * Rozwiązanie  
-    Upewnij się, że swpm jest uruchomiony z użytkownikiem, który ma dostęp do profilu. Tego użytkownika można skonfigurować w Kreatorze instalacji serwera aplikacji
+    Upewnij się, że SWPM jest uruchomiony z użytkownikiem, który ma dostęp do profilu. Ten użytkownik można skonfigurować w Kreatorze instalacji serwera aplikacji
 
-* Błąd podczas wykonywania kroku SAPinst: checkClient
-  * Błąd podczas wykonywania kroku SAPinst: checkClient" version="1.0" ERROR: \<(Ostatni błąd zgłoszony przez krok: p> Instalacja została anulowana przez użytkownika. \</p>)
+* Wystąpił błąd podczas wykonywania kroku SAPinst: checkClient
+  * Wystąpił błąd podczas wykonywania kroku SAPinst: checkClient "Version =" 1.0 "ERROR: (ostatni błąd zgłoszony przez \<krok: p> instalacja została anulowana przez użytkownika. \</p>)
   * Rozwiązanie  
-    Upewnij się, że sterownik Microsoft ODBC dla programu SQL Server jest zainstalowany na maszynie wirtualnej, na której chcesz zainstalować serwer aplikacji
+    Upewnij się, że sterownik Microsoft ODBC dla SQL Server jest zainstalowany na maszynie wirtualnej, na której chcesz zainstalować serwer aplikacji
 
-* Błąd podczas wykonywania kroku SAPinst: copyScripts
-  * Ostatni błąd zgłoszony przez krok: wywołanie systemowe nie powiodło się. SZCZEGÓŁY: Błąd 13 (0x0000000d) (Odmowa uprawnień) podczas wykonywania wywołania systemowego "fopenU" z parametrem (\\\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), linia (494) w pliku (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), ślad stosu:  
-  CThrThread.cpp: 85: CThrThread::threadFunction()  
-  CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
-  CSiStepExecute.cpp: 913: CSiStepExecute::execute()  
-  EJSController.cpp: 179: EJSControllerImpl::executeScript()  
-  JSExtension.hpp: 1136: CallFunctionBase::call()  
-  iaxxcfile.cpp: 183: iastring CIaOsFileConnect::callMemberFunction(iastring const& name, args_t const& args)  
-  iaxxcfile.cpp: 1849: iastring CIaOsFileConnect::newFileStream(args_t const& _args)  
-  iaxxbfile.cpp: 773: CIaOsFile::newFileStream_impl(4)  
-  syxxcfile.cpp: 233: CSyFileImpl::openStream(ISyFile::eFileOpenMode)  
-  syxxcfstrm.cpp: 29: CSyFileStreamImpl::CSyFileStreamImpl(CSyFileStream*,iastring,ISyFile::eFileOpenMode)  
-  syxxcfstrm.cpp: 265: CSyFileStreamImpl::open()  
-  syxxcfstrm2.cpp: 58: CSyFileStream2Impl::CSyFileStream2Impl(const CSyPath \\& \aw1-ascs/sapmnt/AW1/SYS/exe/uc/NTAMD64/strdbs.cmd, 0x4)  
-  syxxcfstrm2.cpp: 456: CSyFileStream2Impl::open()
+* Wystąpił błąd podczas wykonywania kroku SAPinst: copyScripts
+  * Ostatni błąd zgłoszony przez krok: wywołanie systemowe nie powiodło się. Szczegóły: błąd 13 (0x0000000d) (odmowa uprawnień) podczas wykonywania wywołania systemowego "fopenU" z parametrem (\\\ AS1-ASCS/SAPMNT/AS1/sys/exe/UC/NTAMD64/strdbs. cmd, w), wiersz (494) w pliku (\ bas/bas/749_REL/bc_749_REL/src/ins/sapinst/Impl/src/syslib/FileSystem/syxxcfstrm2.cpp), ślad stosu:  
+  CThrThread. cpp: 85: CThrThread:: threadFunction ()  
+  CSiServiceSet. cpp: 63: CSiServiceSet:: executeService ()  
+  CSiStepExecute. cpp: 913: CSiStepExecute:: Execute ()  
+  EJSController. cpp: 179: EJSControllerImpl:: metodę executescript ()  
+  JSExtension. HPP: 1136: CallFunctionBase:: call ()  
+  iaxxcfile. cpp: 183: iastring CIaOsFileConnect:: callMemberFunction (iastring const& Name, args_t const& args)  
+  iaxxcfile. cpp: 1849: iastring CIaOsFileConnect:: newFileStream (args_t const& _args)  
+  iaxxbfile. cpp: 773: CIaOsFile:: newFileStream_impl (4)  
+  syxxcfile. cpp: 233: CSyFileImpl:: openStream (ISyFile:: eFileOpenMode)  
+  syxxcfstrm. cpp: 29: CSyFileStreamImpl:: CSyFileStreamImpl (CSyFileStream *, iastring, ISyFile:: eFileOpenMode)  
+  syxxcfstrm. cpp: 265: CSyFileStreamImpl:: Open ()  
+  syxxcfstrm2. cpp: 58: CSyFileStream2Impl:: CSyFileStream2Impl (const CSyPath & \\\ AW1-ASCS/SAPMNT/AW1/sys/exe/UC/NTAMD64/strdbs. cmd, 0x4)  
+  syxxcfstrm2. cpp: 456: CSyFileStream2Impl:: Open ()
   * Rozwiązanie  
-    Upewnij się, że swpm jest uruchomiony z użytkownikiem, który ma dostęp do profilu. Tego użytkownika można skonfigurować w Kreatorze instalacji serwera aplikacji
+    Upewnij się, że SWPM jest uruchomiony z użytkownikiem, który ma dostęp do profilu. Ten użytkownik można skonfigurować w Kreatorze instalacji serwera aplikacji
 
-* Błąd podczas wykonywania kroku SAPinst: askPasswords
-  * Ostatni błąd zgłoszony przez krok: wywołanie systemowe nie powiodło się. SZCZEGÓŁY: Błąd 5 (0x00000005) (Odmowa dostępu.) w wykonaniu wywołania systemowego "NetValidatePasswordPolicy" z parametrem (...), linia (359) w pliku (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), ślad stosu:  
-  CThrThread.cpp: 85: CThrThread::threadFunction()  
-  CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
-  CSiStepExecute.cpp: 913: CSiStepExecute::execute()  
-  EJSController.cpp: 179: EJSControllerImpl::executeScript()  
-  JSExtension.hpp: 1136: CallFunctionBase::call()  
-  CSiStepExecute.cpp: 764: CSiStepExecute::invokeDialog()  
-  DarkModeGuiEngine.cpp: 56: DarkModeGuiEngine::showDialogCalledByJs()  
-  DarkModeDialog.cpp: 85: DarkModeDialog::submit()  
-  EJSController.cpp: 179: EJSControllerImpl::executeScript()  
-  JSExtension.hpp: 1136: CallFunctionBase::call()  
-  iaxxcaccount.cpp: 107: iastring CIaOsAccountConnect::callMemberFunction(iastring const& name, args_t const& args)  
-  iaxxcaccount.cpp: 1186: iastring CIaOsAccountConnect::validatePasswordPolicy(args_t const& _args)  
-  iaxxbaccount.cpp: 430: CIaOsAccount::validatePasswordPolicy_impl()  
-  synxcaccmg.cpp: 297: ISyAccountMgt::PasswordValidationMessage CSyAccountMgtImpl::validatePasswordPolicy(saponazure,*****) const )
+* Wystąpił błąd podczas wykonywania kroku SAPinst: askPasswords
+  * Ostatni błąd zgłoszony przez krok: wywołanie systemowe nie powiodło się. Szczegóły: błąd 5 (0x00000005) (odmowa dostępu). w trakcie wykonywania wywołania systemowego "NetValidatePasswordPolicy" z parametrem (...), wierszem (359) w pliku (\ bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), ślad stosu:  
+  CThrThread. cpp: 85: CThrThread:: threadFunction ()  
+  CSiServiceSet. cpp: 63: CSiServiceSet:: executeService ()  
+  CSiStepExecute. cpp: 913: CSiStepExecute:: Execute ()  
+  EJSController. cpp: 179: EJSControllerImpl:: metodę executescript ()  
+  JSExtension. HPP: 1136: CallFunctionBase:: call ()  
+  CSiStepExecute. cpp: 764: CSiStepExecute:: invokeDialog ()  
+  DarkModeGuiEngine. cpp: 56: DarkModeGuiEngine:: showDialogCalledByJs ()  
+  DarkModeDialog. cpp: 85: DarkModeDialog:: Submit ()  
+  EJSController. cpp: 179: EJSControllerImpl:: metodę executescript ()  
+  JSExtension. HPP: 1136: CallFunctionBase:: call ()  
+  iaxxcaccount. cpp: 107: iastring CIaOsAccountConnect:: callMemberFunction (iastring const& Name, args_t const& args)  
+  iaxxcaccount. cpp: 1186: iastring CIaOsAccountConnect:: validatePasswordPolicy (args_t const& _args)  
+  iaxxbaccount. cpp: 430: CIaOsAccount:: validatePasswordPolicy_impl ()  
+  synxcaccmg. cpp: 297: ISyAccountMgt::P asswordValidationMessage CSyAccountMgtImpl:: validatePasswordPolicy (saponazure, * * * * *) const)
   * Rozwiązanie  
-    Upewnij się, że dodano regułę hosta w *kroku Izolacja,* aby umożliwić komunikację z maszyny Wirtualnej do kontrolera domeny
+    Upewnij się, że dodano regułę hosta z *izolacją* krokową, aby umożliwić komunikację z maszyną wirtualną z kontrolerem domeny
 
 ## <a name="next-steps"></a>Następne kroki
 * [Przewodnik obsługi oprogramowania SAP HANA na platformie Azure][hana-ops-guide]
-* [Planowanie i implementacja maszyn wirtualnych platformy Azure dla systemu SAP][planning-guide]
-* [Wdrożenie maszyn wirtualnych platformy Azure dla systemu SAP][deployment-guide]
-* [Wdrożenie usługi DBMS maszyn wirtualnych platformy Azure dla systemu SAP][dbms-guide]
+* [Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP][planning-guide]
+* [Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP][deployment-guide]
+* [Wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP][dbms-guide]

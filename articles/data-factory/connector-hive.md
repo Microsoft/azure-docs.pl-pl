@@ -1,6 +1,6 @@
 ---
-title: Kopiowanie danych z gałęzi przy użyciu usługi Azure Data Factory
-description: Dowiedz się, jak skopiować dane z gałęzi do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku usługi Azure Data Factory.
+title: Kopiowanie danych z usługi Hive przy użyciu Azure Data Factory
+description: Informacje o kopiowaniu danych z programu Hive do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,27 +12,27 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: 3720d917d71fa4e8c5a14bb60fdc7c405be4bfdb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81410452"
 ---
-# <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopiowanie danych z gałęzi przy użyciu usługi Azure Data Factory 
+# <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopiowanie danych z usługi Hive przy użyciu Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W tym artykule opisano, jak używać działania kopiowania w usłudze Azure Data Factory do kopiowania danych z gałęzi. Opiera się na [omówienie działania kopiowania](copy-activity-overview.md) artykuł, który przedstawia ogólny przegląd działania kopiowania.
+W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z programu Hive. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
-Ten łącznik gałęzi jest obsługiwany dla następujących działań:
+Ten łącznik programu Hive jest obsługiwany dla następujących działań:
 
-- [Kopiowanie aktywności](copy-activity-overview.md) z [obsługiwaną macierzą źródło/ujście](copy-activity-overview.md)
-- [Działanie odnośnika](control-flow-lookup-activity.md)
+- [Działanie kopiowania](copy-activity-overview.md) z [obsługiwaną macierzą źródłową/ujścia](copy-activity-overview.md)
+- [Działanie Lookup](control-flow-lookup-activity.md)
 
-Można skopiować dane z gałęzi do dowolnego obsługiwanego magazynu danych ujścia. Aby uzyskać listę magazynów danych, które są obsługiwane jako źródła/pochłaniacze przez działanie kopiowania, zobacz tabelę [Obsługiwane magazyny danych.](copy-activity-overview.md#supported-data-stores-and-formats)
+Dane z usługi Hive można kopiować do dowolnego obsługiwanego magazynu danych ujścia. Listę magazynów danych obsługiwanych jako źródła/ujścia przez działanie kopiowania można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Usługa Azure Data Factory udostępnia wbudowany sterownik, aby włączyć łączność, w związku z tym nie trzeba ręcznie zainstalować żadnego sterownika przy użyciu tego łącznika.
+Azure Data Factory udostępnia wbudowany sterownik umożliwiający połączenie, dlatego nie trzeba ręcznie instalować żadnego sterownika przy użyciu tego łącznika.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -42,32 +42,32 @@ Usługa Azure Data Factory udostępnia wbudowany sterownik, aby włączyć łąc
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-W poniższych sekcjach znajdują się szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych specyficznych dla łącznika hive.
+Poniższe sekcje zawierają szczegółowe informacje dotyczące właściwości, które są używane do definiowania jednostek Data Factory specyficznych dla łącznika programu Hive.
 
-## <a name="linked-service-properties"></a>Połączone właściwości usługi
+## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 
-Następujące właściwości są obsługiwane dla usługi połączonej hive:
+Następujące właściwości są obsługiwane dla połączonej usługi Hive:
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość typu musi być ustawiona na: **Hive** | Tak |
-| host | Adres IP lub nazwa hosta serwera hive, oddzielone ";" dla wielu hostów (tylko wtedy, gdy serviceDiscoveryMode jest włączona).  | Tak |
-| port | Port TCP używany przez serwer hive do nasłuchiwać połączeń klientów. Jeśli łączysz się z usługą Azure HDInsights, określ port jako 443. | Tak |
-| Servertype | Typ serwera hive. <br/>Dozwolone wartości to: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Nie |
-| oszczędnośćTransportProtocol | Protokół transportu do użycia w warstwie Thrift. <br/>Dozwolone wartości to: **Binary**, **SASL**, **HTTP** | Nie |
-| authenticationType | Metoda uwierzytelniania używana do uzyskiwania dostępu do serwera hive. <br/>Dozwolone wartości to: **Anonimowy**, **Nazwa użytkownika**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Tak |
-| serviceSkrąt z nadajami | true, aby wskazać przy użyciu usługi ZooKeeper, false nie.  | Nie |
-| zooKeeperNameSpace | Obszar nazw na ZooKeeper, w którym hive server 2 węzły są dodawane.  | Nie |
-| useNatywnykerek | Określa, czy sterownik używa natywnych zapytań HiveQL lub konwertuje je na równoważną formę w HiveQL.  | Nie |
-| nazwa użytkownika | Nazwa użytkownika używana do uzyskiwania dostępu do serwera hive.  | Nie |
-| hasło | Hasło odpowiadające użytkownikowi. Oznacz to pole jako SecureString, aby bezpiecznie przechowywać go w fabryce danych lub [odwołaj się do klucza tajnego przechowywanego w usłudze Azure Key Vault.](store-credentials-in-key-vault.md) | Nie |
-| httpPath (Ścieżka) | Częściowy adres URL odpowiadający serwerowi hive.  | Nie |
-| Enablessl | Określa, czy połączenia z serwerem są szyfrowane przy użyciu protokołu TLS. Wartość domyślna to false.  | Nie |
-| trustedCertPath | Pełna ścieżka pliku pem zawierającego zaufane certyfikaty urzędu certyfikacji do sprawdzania serwera podczas łączenia się za ok. Tę właściwość można ustawić tylko podczas korzystania z protokołu TLS na samodzielnym podczerwaniu. Wartością domyślną jest plik cacerts.pem zainstalowany z podczerwień.  | Nie |
-| useSystemTrustStore | Określa, czy certyfikat urzędu certyfikacji ma być używany z magazynu zaufania systemu, czy z określonego pliku PEM. Wartość domyślna to false.  | Nie |
-| allowHostNameCNMismatch | Określa, czy nazwa certyfikatu TLS/SSL wystawiona przez urząd certyfikacji ma być zgodna z nazwą hosta serwera podczas łączenia się za korzystając z protokołu TLS. Wartość domyślna to false.  | Nie |
-| allowSelfSignedServerCert | Określa, czy zezwolić na certyfikaty z podpisem własnym z serwera. Wartość domyślna to false.  | Nie |
-| connectVia | [Środowisko wykonawcze integracji,](concepts-integration-runtime.md) które mają być używane do łączenia się z magazynem danych. Dowiedz się więcej z sekcji [Wymagania wstępne.](#prerequisites) Jeśli nie zostanie określony, używa domyślnego środowiska wykonawczego integracji platformy Azure. |Nie |
+| type | Właściwość Type musi być ustawiona na wartość: **Hive** | Tak |
+| host | Adres IP lub nazwa hosta serwera Hive, oddzielona znakiem ";" dla wielu hostów (tylko po włączeniu funkcji ServiceDiscoveryMode).  | Tak |
+| port | Port TCP, którego serwer Hive używa do nasłuchiwania połączeń klientów. W przypadku nawiązywania połączenia z usługą Azure HDInsight określ port jako 443. | Tak |
+| serverType | Typ serwera Hive. <br/>Dozwolone wartości to: **HiveServer1**, **serwera hiveserver2**, **HiveThriftServer** | Nie |
+| thriftTransportProtocol | Protokół transportowy do użycia w warstwie Thrift. <br/>Dozwolone wartości to: **Binary**, **SASL**, **http** | Nie |
+| authenticationType | Metoda uwierzytelniania używana do uzyskiwania dostępu do serwera Hive. <br/>Dozwolone wartości to: **Anonymous**, **username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Tak |
+| ServiceDiscoveryMode | wartość true oznacza użycie usługi dozorcy.  | Nie |
+| zooKeeperNameSpace | Przestrzeń nazw na dozorcy, w której dodawane są węzły serwera Hive 2.  | Nie |
+| useNativeQuery | Określa, czy sterownik używa natywnych zapytań HiveQL, czy konwertuje je do równoważnej formy w HiveQL.  | Nie |
+| nazwa użytkownika | Nazwa użytkownika służąca do uzyskiwania dostępu do serwera Hive.  | Nie |
+| hasło | Hasło odpowiednie dla użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
+| httpPath | Częściowy adres URL odpowiadający serwerowi Hive.  | Nie |
+| enableSsl | Określa, czy połączenia z serwerem są szyfrowane przy użyciu protokołu TLS. Wartość domyślna to false.  | Nie |
+| trustedCertPath | Pełna ścieżka pliku PEM zawierającego certyfikaty zaufanych urzędów certyfikacji w celu zweryfikowania serwera podczas łączenia za pośrednictwem protokołu TLS. Tę właściwość można ustawić tylko w przypadku korzystania z protokołu TLS na samoobsługowym środowisku IR. Wartość domyślna to plik cacerts. pem instalowany z programem IR.  | Nie |
+| useSystemTrustStore | Określa, czy certyfikat urzędu certyfikacji ma być używany z magazynu zaufania systemu czy z określonego pliku PEM. Wartość domyślna to false.  | Nie |
+| allowHostNameCNMismatch | Określa, czy ma być wymagana nazwa certyfikatu TLS/SSL wystawionego przez urząd certyfikacji w celu dopasowania do nazwy hosta serwera podczas łączenia za pośrednictwem protokołu TLS. Wartość domyślna to false.  | Nie |
+| allowSelfSignedServerCert | Określa, czy zezwalać na certyfikaty z podpisem własnym z serwera. Wartość domyślna to false.  | Nie |
+| Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Dowiedz się więcej z sekcji [wymagania wstępne](#prerequisites) . Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
 **Przykład:**
 
@@ -92,18 +92,18 @@ Następujące właściwości są obsługiwane dla usługi połączonej hive:
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 
-Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania zestawów danych, zobacz artykuł [o zestawach danych.](concepts-datasets-linked-services.md) Ta sekcja zawiera listę właściwości obsługiwanych przez zestaw danych Hive.
+Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania zestawów danych, zobacz artykuł [zestawy danych](concepts-datasets-linked-services.md) . Ta sekcja zawiera listę właściwości obsługiwanych przez zestaw danych programu Hive.
 
-Aby skopiować dane z gałęzi, ustaw właściwość typu zestawu danych na **HiveObject**. Obsługiwane są następujące właściwości:
+Aby skopiować dane z Hive, ustaw właściwość Type zestawu danych na **hiveobject**. Obsługiwane są następujące właściwości:
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość typu zestawu danych musi być ustawiona na: **HiveObject** | Tak |
-| Schematu | Nazwa schematu. |Nie (jeśli określono "zapytanie" w źródle działania)  |
-| tabela | Nazwa tabeli. |Nie (jeśli określono "zapytanie" w źródle działania)  |
-| tableName | Nazwa tabeli wraz z częścią schematu. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z powrotem. W przypadku nowego `schema` `table`obciążenia, użycia i programu . | Nie (jeśli określono "zapytanie" w źródle działania) |
+| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **hiveobject** | Tak |
+| schematy | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
+| tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
+| tableName | Nazwa tabeli, w tym część schematu. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. W przypadku nowych obciążeń Użyj `schema` i `table`. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przykład**
+**Przyklad**
 
 ```json
 {
@@ -122,16 +122,16 @@ Aby skopiować dane z gałęzi, ustaw właściwość typu zestawu danych na **Hi
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
 
-Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania działań, zobacz [Pipelines](concepts-pipelines-activities.md) artykułu. Ta sekcja zawiera listę właściwości obsługiwanych przez źródło hive.
+Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania działań, zobacz artykuł [potoki](concepts-pipelines-activities.md) . Ta sekcja zawiera listę właściwości obsługiwanych przez źródło Hive.
 
-### <a name="hivesource-as-source"></a>Źródło hivesource jako źródło
+### <a name="hivesource-as-source"></a>HiveSource jako źródło
 
-Aby skopiować dane z gałęzi, ustaw typ źródła w działaniu kopiowania na **HiveSource**. Następujące właściwości są obsługiwane w sekcji **źródła** działania kopiowania:
+Aby skopiować dane z programu Hive, ustaw typ źródła w działaniu Copy na **HiveSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość typu źródła działania kopiowania musi być ustawiona na: **HiveSource** | Tak |
-| query | Użyj niestandardowej kwerendy SQL, aby odczytać dane. Na przykład: `"SELECT * FROM MyTable"`. | Nie (jeśli określono "nazwa tabela" w zestawie danych) |
+| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **HiveSource** | Tak |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
 
@@ -165,10 +165,10 @@ Aby skopiować dane z gałęzi, ustaw typ źródła w działaniu kopiowania na *
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Właściwości działania odnośnika
+## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 
-Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie odnośnika](control-flow-lookup-activity.md).
+Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie Lookup (wyszukiwanie](control-flow-lookup-activity.md)).
 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać listę magazynów danych obsługiwanych jako źródła i pochłaniacze przez działanie kopiowania w usłudze Azure Data Factory, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).
+Listę magazynów danych obsługiwanych jako źródła i ujścia przez działanie kopiowania w Azure Data Factory można znaleźć w temacie [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

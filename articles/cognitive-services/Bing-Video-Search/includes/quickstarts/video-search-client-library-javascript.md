@@ -1,5 +1,5 @@
 ---
-title: Wideo Bing Szukaj w javascript biblioteki klienta Szybki start
+title: wyszukiwanie wideo Bing przewodniku szybki start dla biblioteki klienta JavaScript
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,19 +9,19 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: aahi
 ms.openlocfilehash: b642d981b79d13857881ec8cc5796e6365003ace
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80289763"
 ---
-Użyj tego przewodnika Szybki start, aby rozpocząć wyszukiwanie wiadomości za pomocą biblioteki klienta wyszukiwania wideo Bing dla języka JavaScript. Usługa Bing Video Search ma interfejs API REST zgodny z większością języków programowania, ale biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js). Zawiera on więcej adnotacji i funkcji.
+Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć wyszukiwanie wiadomości za pomocą biblioteki klienta wyszukiwanie wideo Bing dla języka JavaScript. Chociaż wyszukiwanie wideo Bing ma interfejs API REST zgodny z większością języków programowania, Biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js). Zawiera on więcej adnotacji i funkcji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Node.js](https://www.nodejs.org/)
 
-Aby skonfigurować aplikację konsoli przy użyciu biblioteki klienta wyszukiwania wideo Bing:
+Aby skonfigurować aplikację konsolową przy użyciu biblioteki klienta wyszukiwanie wideo Bing:
 * Uruchom polecenie `npm install ms-rest-azure` w środowisku programistycznym.
 * Uruchom polecenie `npm install azure-cognitiveservices-videosearch` w środowisku programistycznym.
 
@@ -29,7 +29,7 @@ Aby skonfigurować aplikację konsoli przy użyciu biblioteki klienta wyszukiwan
 
 ## <a name="create-and-initialize-the-application"></a>Tworzenie i inicjowanie aplikacji
 
-1. Utwórz nowy plik JavaScript w ulubionym identyfikatorze `require()` IDE lub edytorze i dodaj `CognitiveServicesCredentials` instrukcję dla biblioteki klienta wyszukiwania wideo Bing i modułu. Utwórz zmienną dla klucza subskrypcji. 
+1. Utwórz nowy plik JavaScript w ulubionym środowisku IDE lub edytorze i Dodaj `require()` instrukcję do wyszukiwanie wideo Bingej biblioteki klienta oraz `CognitiveServicesCredentials` modułu. Utwórz zmienną dla klucza subskrypcji. 
     
     ```javascript
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
@@ -60,7 +60,7 @@ Aby skonfigurować aplikację konsoli przy użyciu biblioteki klienta wyszukiwan
 > [!div class="nextstepaction"]
 > [Tworzenie internetowej aplikacji jednostronicowej](../../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Zobacz też 
+## <a name="see-also"></a>Zobacz także 
 
 * [Co to jest interfejs API wyszukiwania wideo Bing?](../../overview.md)
-* [Przykłady zestawów SDK usług cognitive.NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+* [Przykłady zestawu SDK programu .NET dla usług poznawczych](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

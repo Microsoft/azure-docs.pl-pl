@@ -11,37 +11,37 @@ ms.topic: overview
 ms.date: 03/24/2020
 ms.author: aahi
 ms.openlocfilehash: 0006761126eb1d561da7eeff97e8a9928d62ddb0
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478936"
 ---
-# <a name="what-is-bing-local-business-search"></a>Co to jest wyszukiwanie lokalne firmy Bing?
-Interfejs API wyszukiwania lokalnego firmy Bing to usługa RESTful, która umożliwia aplikacjom znajdowanie informacji o lokalnych firmach na podstawie zapytań wyszukiwania. Na przykład `q=<business-name> in Redmond, Washington`, `q=Italian restaurants near me`lub . 
+# <a name="what-is-bing-local-business-search"></a>Co to jest lokalne wyszukiwanie w biznesie Bing?
+Lokalny interfejs API wyszukiwania biznesowego Bing to usługa RESTful, która umożliwia aplikacjom Znajdowanie informacji o lokalnych firmach na podstawie zapytań wyszukiwania. Na przykład `q=<business-name> in Redmond, Washington`, lub `q=Italian restaurants near me`. 
 
 ## <a name="features"></a>Funkcje
 | Funkcja | Opis |  
 | -- | -- | 
-| [Znajdź lokalne firmy i lokalizacje](quickstarts/local-quickstart.md) | Interfejs API wyszukiwania lokalnego firmy Bing pobiera zlokalizowane wyniki z kwerendy. Wyniki obejmują adres URL witryny firmy oraz tekst, numer telefonu i lokalizację geograficzną, w tym: współrzędne GPS, miasto, adres ulicy |  
-| [Filtrowanie wyników lokalnych z obwiedniami geograficznymi](specify-geographic-search.md) | Dodaj współrzędne jako parametry wyszukiwania, aby ograniczyć wyniki do określonego obszaru geograficznego, określonego przez okrągły obszar lub kwadratowe obwiedni. | 
-| [Filtrowanie wyników lokalnej firmy według kategorii](local-categories.md) | Wyszukaj wyniki lokalnej firmy według kategorii. Ta opcja używa odwrotnej lokalizacji IP lub współrzędnych GPS rozmówcy, aby zwrócić zlokalizowane wyniki w różnych kategoriach biznesowych.|
+| [Znajdowanie lokalnych firm i lokalizacji](quickstarts/local-quickstart.md) | Interfejs API wyszukiwania lokalnego firmy Bing umożliwia zlokalizowanie wyników zapytania. Wyniki obejmują adres URL witryny internetowej firmy oraz wyświetla tekst, numer telefonu i lokalizację geograficzną, w tym: współrzędne GPS, miasto, ulica adresu |  
+| [Filtrowanie wyników lokalnych ze granicami geograficznymi](specify-geographic-search.md) | Dodaj współrzędne jako parametry wyszukiwania, aby ograniczyć wyniki do określonego obszaru geograficznego, określonego przez okrągły obszar lub kwadratowe pole ograniczające. | 
+| [Filtrowanie lokalnych wyników firmy według kategorii](local-categories.md) | Wyszukaj lokalne wyniki biznesowe według kategorii. Ta opcja używa odwrotnej lokalizacji IP lub współrzędnej GPS obiektu wywołującego, aby zwracać zlokalizowane wyniki w różnych kategoriach firmy.|
 
 ## <a name="workflow"></a>Przepływ pracy
-Wywołanie interfejsu API wyszukiwania lokalnego firmy Bing z dowolnego języka programowania, który może tworzyć żądania HTTP i analizować odpowiedzi JSON. Ta usługa jest dostępna przy użyciu interfejsu API REST.
+Wywołaj interfejs API wyszukiwania w usłudze Bing Local Business Search z dowolnego języka programowania, który może wykonywać żądania HTTP i analizować odpowiedzi JSON. Ta usługa jest dostępna przy użyciu interfejsu API REST.
  
-1. Utwórz [konto interfejsu API usług Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z dostępem do interfejsów API wyszukiwania Bing. Jeśli nie masz subskrypcji platformy Azure, możesz [utworzyć bezpłatne konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).   
-2. Adres URL koduje wyszukiwane terminy dla parametru `q=""` zapytania. Na przykład: `q=nearby+restaurant` lub `q=nearby%20restaurant`. W razie potrzeby ustaw również podział na strony. 
-3. Wysyłanie [żądania do interfejsu API wyszukiwania lokalnego firmy Bing](quickstarts/local-quickstart.md) 
+1. Utwórz [konto interfejsu API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z dostępem do interfejsy API wyszukiwania Bing. Jeśli nie masz subskrypcji platformy Azure, możesz [utworzyć bezpłatne konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).   
+2. Kodowanie w adresie URL wyszukiwanych terminów dla parametru `q=""` zapytania. Na przykład: `q=nearby+restaurant` lub `q=nearby%20restaurant`. W razie konieczności Ustaw również stronicowanie. 
+3. Wyślij [żądanie do interfejsu API wyszukiwania lokalnego usługi Bing](quickstarts/local-quickstart.md) 
 4. Analizowanie odpowiedzi w formacie JSON 
 
 > [!NOTE]
-> Obecnie wyszukiwarka lokalna firmy: 
+> Obecnie lokalne wyszukiwanie biznesowe: 
 > * Obsługuje tylko `en-US` rynek. 
-> * Nie obsługuje automatycznego przełączania Bing. 
+> * Program nie obsługuje automatyczne sugerowanie Bing. 
 
 ## <a name="next-steps"></a>Następne kroki
 - [Zapytanie i odpowiedź](local-search-query-response.md)
-- [Szybki start wyszukiwania lokalnych firm](quickstarts/local-quickstart.md)
+- [Lokalne wyszukiwanie biznesowe — Szybki Start](quickstarts/local-quickstart.md)
 - [Dokumentacja interfejsu API wyszukiwania lokalnych firm Bing](local-search-reference.md)
 - [Wymagania dotyczące użycia i wyświetlania](use-display-requirements.md)

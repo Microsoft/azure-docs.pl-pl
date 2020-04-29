@@ -9,10 +9,10 @@ ms.date: 04/02/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: de0cf260207747f4acb02a377819a13de8b8ba22
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80628415"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
@@ -27,20 +27,20 @@ ms.locfileid: "80628415"
 ## <a name="portal"></a>Portal
 
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com/) i przejdź do dysku, który chcesz migać.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) i przejdź do dysku, który ma być migawką.
 1. Na dysku wybierz pozycję **Utwórz migawkę**
 
-    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-snapshot-button-incremental.png" alt-text="Zrzut ekranu. Blok dysku z podświetleną **+Create snapshot** , ponieważ należy to wybrać.":::
+    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-snapshot-button-incremental.png" alt-text="Zrzut ekranu. Blok dysku z programem * * + Tworzenie migawki * * wyróżniony, co to jest co należy wybrać.":::
 
-1. Wybierz grupę zasobów, której chcesz użyć, i wprowadź nazwę.
-1. Wybierz **przyrostowe** i wybierz **pozycję Recenzja + Utwórz**
+1. Wybierz grupę zasobów, której chcesz użyć, a następnie wprowadź nazwę.
+1. Wybierz pozycję **przyrostowe** i wybierz pozycję **Przegląd + Utwórz**
 
-    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/incremental-snapshot-create-snapshot-blade.png" alt-text="Zrzut ekranu. Utwórz blok migawki, wypełnij nazwę i wybierz przyrostowe, a następnie utwórz migawkę.":::
+    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/incremental-snapshot-create-snapshot-blade.png" alt-text="Zrzut ekranu. Utwórz blok migawki, wypełnij pola Nazwa i wybierz pozycję przyrostowe, a następnie utwórz migawkę.":::
 
-1. Wybierz **pozycję Utwórz**
+1. Wybierz pozycję **Utwórz**
 
-    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text="Zrzut ekranu. Strona sprawdzania poprawności migawki, potwierdź swoje wybory, a następnie utwórz migawkę.":::
+    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text="Zrzut ekranu. Strona walidacji dla migawki, Potwierdź wybrane opcje, a następnie utwórz migawkę.":::
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli chcesz zobaczyć przykładowy kod demonstrujący różnicowe możliwości migawek przyrostowych, za pomocą platformy .NET, zobacz [Kopiowanie kopii zapasowych dysków zarządzanych platformy Azure do innego regionu z możliwością różnicowania migawek przyrostowych](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).
+Jeśli chcesz zobaczyć przykładowy kod pokazujący różnicowe możliwości migawek przyrostowych, korzystając z platformy .NET, zobacz [Kopiuj kopie zapasowe platformy Azure Managed disks do innego regionu z różnicową możliwością migawek przyrostowych](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

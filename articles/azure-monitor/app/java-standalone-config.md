@@ -1,20 +1,20 @@
 ---
-title: Monitorowanie aplikacji Java w dowolnym miejscu — usługa Azure Monitor Application Insights
-description: Bezkodowe monitorowanie wydajności aplikacji dla aplikacji Java działających w dowolnym środowisku bez instrumentacji aplikacji. Znajdź główną przyczynę problemów d przy użyciu rozproszonego śledzenia i mapy aplikacji.
+title: Monitoruj aplikacje Java w dowolnym miejscu — Azure Monitor Application Insights
+description: Monitorowanie wydajności aplikacji bezkodowej dla aplikacji Java działających w dowolnym środowisku bez Instrumentacji aplikacji. Znajdź główną przyczynę problemów d przy użyciu śledzenia rozproszonego i mapy aplikacji.
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.openlocfilehash: 5d930d349a2ab1efbd7a61904874bf6bdb411889
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81641890"
 ---
-# <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opcje konfiguracji — agent autonomiczny Java dla usługi Azure Monitor Application Insights
+# <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opcje konfiguracji — autonomiczny Agent Java dla Azure Monitor Application Insights
 
 
 
-## <a name="connection-string-and-role-name"></a>Ciąg połączenia i nazwa roli
+## <a name="connection-string-and-role-name"></a>Parametry połączenia i nazwa roli
 
 ```json
 {
@@ -27,32 +27,32 @@ ms.locfileid: "81641890"
 }
 ```
 
-Wymagany jest ciąg połączenia, a nazwa roli jest ważna za każdym razem, gdy wysyłasz dane z różnych aplikacji do tego samego zasobu usługi Application Insights.
+Parametry połączenia są wymagane, a nazwa roli jest ważna za każdym razem, gdy wysyłasz dane z różnych aplikacji do tego samego Application Insightsgo zasobu.
 
-Więcej informacji i dodatkowe opcje konfiguracji znajdziesz poniżej, aby uzyskać więcej informacji.
+Aby uzyskać więcej informacji, Zobacz więcej szczegółów i dodatkowe opcje konfiguracji.
 
 ## <a name="configuration-file-path"></a>Ścieżka pliku konfiguracji
 
-Domyślnie usługa Application Insights Java 3.0 Preview oczekuje, że plik konfiguracyjny zostanie nazwany `ApplicationInsights.json`i będzie znajdować się w tym samym katalogu co `applicationinsights-agent-3.0.0-PREVIEW.jar`.
+Domyślnie program Application Insights Java 3,0 Preview oczekuje, że plik konfiguracji jest nazwany `ApplicationInsights.json`i znajduje się w tym samym katalogu, co. `applicationinsights-agent-3.0.0-PREVIEW.jar`
 
-Można określić własną ścieżkę pliku konfiguracyjnego za pomocą
+Ścieżkę do pliku konfiguracji można określić przy użyciu opcji
 
-* `APPLICATIONINSIGHTS_CONFIGURATION_FILE`zmienną środowiskową, lub
+* `APPLICATIONINSIGHTS_CONFIGURATION_FILE`Zmienna środowiskowa lub
 * `applicationinsights.configurationFile`Właściwość systemu Java
 
-Jeśli określisz ścieżkę względną, zostanie ona rozwiązana `applicationinsights-agent-3.0.0-PREVIEW.jar` względem katalogu, w którym się znajduje.
+W przypadku określenia ścieżki względnej zostanie ona rozwiązany względem katalogu, w którym `applicationinsights-agent-3.0.0-PREVIEW.jar` znajduje się lokalizacja.
 
 ## <a name="connection-string"></a>Parametry połączenia
 
-Jest to wymagane. Parametry połączenia można znaleźć w zasobie usługi Application Insights:
+Jest to wymagane. Parametry połączenia można znaleźć w zasobie Application Insights:
 
-:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Ciąg połączenia usługi Application Insights":::
+:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights parametry połączenia":::
 
-Ciąg połączenia można również ustawić przy `APPLICATIONINSIGHTS_CONNECTION_STRING`użyciu zmiennej środowiskowej .
+Parametry połączenia można również ustawić przy użyciu zmiennej `APPLICATIONINSIGHTS_CONNECTION_STRING`środowiskowej.
 
 ## <a name="cloud-role-name"></a>Nazwa roli w chmurze
 
-Nazwa roli w chmurze jest używana do etykietowania składnika na mapie aplikacji.
+Nazwa roli w chmurze służy do etykietowania składnika na mapie aplikacji.
 
 Jeśli chcesz ustawić nazwę roli w chmurze:
 
@@ -66,15 +66,15 @@ Jeśli chcesz ustawić nazwę roli w chmurze:
 }
 ```
 
-Jeśli nazwa roli w chmurze nie jest ustawiona, nazwa zasobu usługi Application Insights będzie używana do etykietowania składnika na mapie aplikacji.
+Jeśli nazwa roli chmury nie jest ustawiona, nazwa zasobu Application Insights zostanie użyta do etykietowania składnika na mapie aplikacji.
 
-Nazwę roli w chmurze można również `APPLICATIONINSIGHTS_ROLE_NAME`ustawić przy użyciu zmiennej środowiskowej .
+Możesz również ustawić nazwę roli w chmurze przy użyciu zmiennej `APPLICATIONINSIGHTS_ROLE_NAME`środowiskowej.
 
 ## <a name="cloud-role-instance"></a>Wystąpienie roli w chmurze
 
-Wystąpienie roli w chmurze domyślnie ma nazwę komputera.
+Nazwa maszyny jest wartością domyślną wystąpienia roli chmury.
 
-Jeśli chcesz ustawić wystąpienie roli w chmurze na coś innego, a nie nazwę komputera:
+Jeśli chcesz ustawić inną rolę w chmurze, a nie nazwę komputera:
 
 ```json
 {
@@ -86,13 +86,13 @@ Jeśli chcesz ustawić wystąpienie roli w chmurze na coś innego, a nie nazwę 
 }
 ```
 
-Można również ustawić wystąpienie roli w `APPLICATIONINSIGHTS_ROLE_INSTANCE`chmurze przy użyciu zmiennej środowiskowej .
+Możesz również ustawić wystąpienie roli w chmurze przy użyciu zmiennej `APPLICATIONINSIGHTS_ROLE_INSTANCE`środowiskowej.
 
 ## <a name="application-log-capture"></a>Przechwytywanie dziennika aplikacji
 
-Aplikacja Insights Java 3.0 Preview automatycznie przechwytuje rejestrowanie aplikacji za pośrednictwem Log4j, Logback i java.util.logging.
+Application Insights Java 3,0 Preview automatycznie przechwytuje rejestrowanie aplikacji za pośrednictwem Log4J, Logback i Java. util. Logging.
 
-Domyślnie przechwytuje wszystkie rejestrowania `WARN` wykonywane na poziomie lub powyżej.
+Domyślnie zostanie przechwycone rejestrowanie wykonane na `WARN` poziomie lub wyższym.
 
 Jeśli chcesz zmienić ten próg:
 
@@ -110,24 +110,24 @@ Jeśli chcesz zmienić ten próg:
 }
 ```
 
-Są to `threshold` prawidłowe wartości, które `ApplicationInsights.json` można określić w pliku i jak odpowiadają one poziomowi rejestrowania w różnych strukturach rejestrowania:
+Są to prawidłowe `threshold` wartości, które można określić w `ApplicationInsights.json` pliku i jak są one odnoszące się do poziomów rejestrowania w różnych strukturach rejestrowania:
 
-| `threshold`  | Log4j  | Logowanie | LIP     |
+| `threshold`  | Log4J  | Logback | LIP     |
 |--------------|--------|---------|---------|
 | WYŁ.          | WYŁ.    | WYŁ.     | WYŁ.     |
-| Śmiertelne        | Śmiertelne  | BŁĄD   | Ciężkie  |
-| BŁĄD/POWAŻNY | BŁĄD  | BŁĄD   | Ciężkie  |
-| OSTRZEGAJ/OSTRZEGAJ | Ostrzec   | Ostrzec    | OSTRZEŻENIE |
-| Informacji         | Informacji   | Informacji    | Informacji    |
-| Config       | DEBUGUJ  | DEBUGUJ   | Config  |
-| DEBUGOWANIE/GRZYWNA   | DEBUGUJ  | DEBUGUJ   | Dobrze    |
-| Drobniejsze        | DEBUGUJ  | DEBUGUJ   | Drobniejsze   |
-| ŚLEDZENIE/NAJLEPSZE | TRACE  | TRACE   | Najlepszych  |
+| KRYTYCZN        | KRYTYCZN  | BŁĄD   | WAŻNY  |
+| BŁĄD/POWAŻNY | BŁĄD  | BŁĄD   | WAŻNY  |
+| OSTRZEGAJ/OSTRZEGAJ | WYOWIETLON   | WYOWIETLON    | OSTRZEŻENIE |
+| INFORMACJE         | INFORMACJE   | INFORMACJE    | INFORMACJE    |
+| SYGNATUR       | DEBUGUJ  | DEBUGUJ   | SYGNATUR  |
+| DEBUGOWANIE/DOPASOWANIE   | DEBUGUJ  | DEBUGUJ   | ZAKTUALIZOWA    |
+| DOKŁADNIEJSZ        | DEBUGUJ  | DEBUGUJ   | DOKŁADNIEJSZ   |
+| TRACE/FINEST | TRACE  | TRACE   | FINEST  |
 | ALL          | ALL    | ALL     | ALL     |
 
 ## <a name="jmx-metrics"></a>Metryki JMX
 
-Jeśli masz jakieś metryki JMX, które cię interesują w przechwytywaniu:
+Jeśli masz pewne JMX metryki, które chcesz przechwytywać:
 
 ```json
 {
@@ -152,7 +152,7 @@ Jeśli masz jakieś metryki JMX, które cię interesują w przechwytywaniu:
 
 ## <a name="micrometer"></a>Mikrometr
 
-Domyślnie, jeśli aplikacja używa [Micrometer,](https://micrometer.io)Application Insights 3.0 (począwszy od Preview.2) teraz dodaje się do globalnego rejestru Micrometer i przechwytuje metryki micrometer.
+Domyślnie, jeśli aplikacja używa [Micrometer](https://micrometer.io), Application Insights 3,0 (począwszy od wersji zapoznawczej. 2) teraz dodaje sam do rejestru globalnego Micrometer i przechwytuje metryki Micrometer.
 
 Jeśli chcesz wyłączyć tę funkcję:
 
@@ -172,7 +172,7 @@ Jeśli chcesz wyłączyć tę funkcję:
 
 ## <a name="heartbeat"></a>Puls
 
-Domyślnie usługa Application Insights Java 3.0 Preview wysyła metrykę pulsu raz na 15 minut. Jeśli używasz metryki pulsu do wyzwalania alertów, możesz zwiększyć częstotliwość tego bicia serca:
+Domyślnie program Application Insights Java 3,0 Preview wysyła metrykę pulsu co 15 minut. Jeśli używasz metryki pulsu do wyzwalania alertów, możesz zwiększyć częstotliwość tego pulsu:
 
 ```json
 {
@@ -187,16 +187,16 @@ Domyślnie usługa Application Insights Java 3.0 Preview wysyła metrykę pulsu 
 ```
 
 > [!NOTE]
-> Nie można zmniejszyć częstotliwości tego pulsu, ponieważ dane pulsu są również używane do śledzenia użycia usługi Application Insights.
+> Nie można zmniejszyć częstotliwości tego pulsu, ponieważ dane pulsu są również używane do śledzenia użycia Application Insights.
 
 ## <a name="sampling"></a>Próbkowanie
 
-Próbkowanie jest przydatne, jeśli trzeba zmniejszyć koszty.
-Próbkowanie jest wykonywane jako funkcja identyfikatora operacji (znanego również jako identyfikator śledzenia), tak aby ten sam identyfikator operacji zawsze skutkował tą samą decyzją o pobieraniu próbek. Gwarantuje to, że nie będzie pobierać części transakcji rozproszonej próbkowane, podczas gdy inne części są próbkowane.
+Próbkowanie jest przydatne, jeśli zachodzi potrzeba obniżenia kosztów.
+Próbkowanie jest wykonywane jako funkcja w IDENTYFIKATORze operacji (znanym także jako identyfikator śledzenia), dzięki czemu ten sam Identyfikator operacji będzie zawsze powodował tę samą decyzję o próbkowaniu. Dzięki temu nie będzie można pobrać części transakcji rozproszonej próbkowanej w czasie, gdy inne części tego elementu są próbkowane.
 
-Na przykład jeśli ustawisz próbkowanie na 10%, zobaczysz tylko 10% transakcji, ale każdy z tych 10% będzie miał pełne szczegóły transakcji end-to-end.
+Jeśli na przykład ustawisz próbkowanie do 10%, zobaczysz tylko 10% transakcji, ale każdy z nich będzie miał pełne szczegółowe informacje o transakcjach.
 
-Oto przykład, jak ustawić próbkowanie na **10% wszystkich transakcji** — upewnij się, że ustawiono częstotliwość próbkowania, która jest poprawna dla przypadku użycia:
+Oto przykład sposobu ustawiania próbkowania do **10% wszystkich transakcji** — upewnij się, że ustawiono częstotliwość próbkowania poprawną dla przypadku użycia:
 
 ```json
 {
@@ -212,9 +212,9 @@ Oto przykład, jak ustawić próbkowanie na **10% wszystkich transakcji** — up
 }
 ```
 
-## <a name="http-proxy"></a>HTTP Proxy
+## <a name="http-proxy"></a>Serwer proxy HTTP
 
-Jeśli aplikacja znajduje się za zaporą i nie może połączyć się bezpośrednio z usługą Application Insights (zobacz [adresy IP używane przez aplikację Application Insights),](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)można skonfigurować aplikację Application Insights Java 3.0 Preview do używania serwera proxy HTTP:
+Jeśli aplikacja znajduje się za zaporą i nie może połączyć się bezpośrednio z Application Insights (zobacz [adresy IP używane przez Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)), można skonfigurować Application Insights Java 3,0 Preview do korzystania z serwera proxy http:
 
 ```json
 {
@@ -229,13 +229,13 @@ Jeśli aplikacja znajduje się za zaporą i nie może połączyć się bezpośre
 }
 ```
 
-## <a name="self-diagnostics"></a>Autodiagnostyka
+## <a name="self-diagnostics"></a>Samodiagnostyka
 
-"Autodiagnostyka" odnosi się do wewnętrznego rejestrowania z aplikacji Application Insights Java 3.0 Preview.
+"Samodiagnostyka" odnosi się do rejestrowania wewnętrznego z Application Insights Java 3,0 Preview.
 
-Może to być przydatne w przypadku wykrywania i diagnozowania problemów z samym usługą Application Insights.
+Może to być przydatne w przypadku wykrywania trendów i diagnozowania problemów Application Insights samego siebie.
 
-Domyślnie loguje się do `warn`konsoli z poziomem, odpowiadającym tej konfiguracji:
+Domyślnie program loguje się do konsoli o poziomie `warn`odpowiadającym tej konfiguracji:
 
 ```json
 {
@@ -250,9 +250,9 @@ Domyślnie loguje się do `warn`konsoli z poziomem, odpowiadającym tej konfigur
 }
 ```
 
-Prawidłowe `OFF`poziomy `ERROR` `WARN`to `INFO` `DEBUG`, `TRACE`, , , i .
+Prawidłowymi `OFF`poziomami `ERROR`są `WARN`, `INFO`, `DEBUG`,, `TRACE`i.
 
-Jeśli chcesz zalogować się do pliku zamiast rejestrowania do konsoli:
+Jeśli chcesz zalogować się do pliku zamiast rejestrowania w konsoli programu:
 
 ```json
 {
@@ -269,4 +269,4 @@ Jeśli chcesz zalogować się do pliku zamiast rejestrowania do konsoli:
 }
 ```
 
-Podczas korzystania z rejestrowania plików, po trafieniu `maxSizeMB`pliku, będzie on akcesji, zachowując tylko ostatnio ukończony plik dziennika oprócz bieżącego pliku dziennika.
+W przypadku korzystania z funkcji rejestrowania plików, gdy `maxSizeMB`trafią pliki, nastąpi Przerzucanie, a oprócz bieżącego pliku dziennika zostanie zachowany tylko ostatnio ukończony plik dziennika.

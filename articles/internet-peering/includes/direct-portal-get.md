@@ -9,18 +9,18 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: e50f53c65c330265d3d9ec1b1804a7910b632b1d
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678852"
 ---
-1. Przejdź do **grupy zasobów**i wybierz grupę zasobów wybraną podczas tworzenia zasobu **komunikacji równorzędnej.** Użyj pola **Filtr,** jeśli masz zbyt wiele grup zasobów.
+1. Przejdź do pozycji **grupy zasobów**i wybierz grupę zasobów wybraną podczas tworzenia zasobu **komunikacji równorzędnej** . Użyj pola **Filtr** , jeśli masz zbyt wiele grup zasobów.
 
     > [!div class="mx-imgBorder"]
     > ![Grupy zasobów](../media/setup-direct-get-resourcegroup.png)
 
-1. Wybierz utworzony zasób **komunikacji równorzędnej.**
+1. Wybierz utworzony zasób **komunikacji równorzędnej** .
 
     > [!div class="mx-imgBorder"]
     > ![Widok zasobów komunikacji równorzędnej](../media/setup-direct-get-open.png)
@@ -28,18 +28,18 @@ ms.locfileid: "81678852"
 1. Na stronie **Przegląd** są wyświetlane informacje wysokiego poziomu, jak pokazano poniżej.
 
     > [!div class="mx-imgBorder"]
-    > ![Okienko Przegląd zasobów komunikacji równorzędnej](../media/setup-direct-get-overview.png)
+    > ![Okienko przegląd zasobów komunikacji równorzędnej](../media/setup-direct-get-overview.png)
 
-1. Po lewej stronie wybierz **pozycję Asn information** to view the information submitted when you created PeerAsn.
+1. Po lewej stronie wybierz pozycję **informacje ASN** , aby wyświetlić informacje przesłane podczas tworzenia PeerAsn.
 
     > [!div class="mx-imgBorder"]
-    > ![Informacje o asn zasobu komunikacji równorzędnej](../media/setup-direct-get-asninfo.png)
+    > ![Informacje o WYSYŁCE zasobu komunikacji równorzędnej](../media/setup-direct-get-asninfo.png)
 
-1. Po lewej stronie wybierz pozycję **Połączenia**. W górnej części ekranu zobaczysz podsumowanie połączeń komunikacji równorzędnej między siecią ASN i Microsoft w różnych obiektach w metrze. Podsumowanie połączeń można również uzyskać na stronie **Przegląd,** wybierając pozycję **Połączenia** na środku okienka, jak pokazano na rysunku.
+1. Po lewej stronie wybierz pozycję **połączenia**. W górnej części ekranu zobaczysz podsumowanie połączeń komunikacji równorzędnej między numerem ASN i firmą Microsoft w różnych obiektach w linii metra. Możesz również uzyskać dostęp do podsumowania połączeń na stronie **Przegląd** , wybierając pozycję **połączenia** w środkowym okienku, jak pokazano.
 
     > [!div class="mx-imgBorder"]
     > ![Połączenia zasobów komunikacji równorzędnej](../media/setup-direct-get-connectionssummary.png)
 
-    * **Stan połączenia** odpowiada stanowi konfiguracji połączenia równorzędnego. Stany wyświetlane w tym polu są zgodne z diagramem stanu pokazanym w [instruktażu Direct peering](../walkthrough-direct-all.md).
-    * **Stan sesji IPv4** i **stan sesji IPv6** odpowiadają odpowiednio stanom sesji Protokołu IPv4 i IPv6. 
-    * Po wybraniu wiersza u góry ekranu w sekcji **Połączenie** na dole są wyświetlane szczegóły dla każdego połączenia. Wybierz strzałki, aby rozwinąć **konfigurację,** **adres IPv4**i **adres IPv6**.
+    * **Stan połączenia** odpowiada stanowi konfiguracji połączenia komunikacji równorzędnej. Stany wyświetlane w tym polu są zgodne ze schematem stanu pokazanym w [przewodniku bezpośredniego komunikacji równorzędnej](../walkthrough-direct-all.md).
+    * Stan **sesji IPv4** i **stan sesji IPv6** odpowiadają odpowiednio stanom sesji IPv4 i IPv6. 
+    * Po zaznaczeniu wiersza w górnej części ekranu sekcja **połączenie** na dole pokazuje szczegóły dla każdego połączenia. Wybierz strzałki, aby rozwinąć **konfigurację**, **adres IPv4**i **adres IPv6**.

@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: douglasl
 ms.openlocfilehash: bf8d0992cd25b52955ac90cecc00750d93343da6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335074"
 ---
-Usługa migracji bazy danych Azure to w pełni zarządzana usługa zaprojektowana w celu umożliwienia bezproblemowej migracji z wielu źródeł bazy danych na platformy danych platformy Azure przy minimalnym przestoju.
+Azure Database Migration Service to w pełni zarządzana usługa, która umożliwia bezproblemowe Migrowanie z wielu źródeł baz danych do platform danych platformy Azure z minimalnym czasem przestoju.
 
-| **Zasobów** | **Limit** | **Komentarze** |
+| **Zasób** | **Limit** | **Komentarze** |
 | --- | --- | --- |
-| Maksymalna liczba usług na subskrypcję w powiecie |2 | Aby poprosić o zwiększenie tego limitu, skontaktuj się z pomocą techniczną. |
+| Maksymalna liczba usług na subskrypcję na region |2 | Aby zażądać zwiększenia dla tego limitu, skontaktuj się z pomocą techniczną. |

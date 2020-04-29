@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (Logowanie jednokrotne) z usługą ServiceNow | Dokumenty firmy Microsoft'
+title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą usługi ServiceNow | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i usługą ServiceNow.
 services: active-directory
 documentationCenter: na
@@ -16,90 +16,90 @@ ms.date: 03/25/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8fe6c857e5b0c2f48f27c167c177dbf1f4651986
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80384113"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (Logowanie jednokrotne) z usługą ServiceNow
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą usługi ServiceNow
 
-W tym samouczku dowiesz się, jak zintegrować servicenow z usługą Azure Active Directory (Azure AD). Podczas integrowania usługi ServiceNow z usługą Azure AD można:
+W tym samouczku dowiesz się, jak zintegrować usługę usługi ServiceNow z usługą Azure Active Directory (Azure AD). Po zintegrowaniu usługi usługi ServiceNow z usługą Azure AD można:
 
-* Kontrola w usłudze Azure AD, który ma dostęp do ServiceNow.
-* Włącz użytkownikom automatyczne logowanie do usługi ServiceNow za pomocą ich kont usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji: w witrynie Azure Portal.
+* Kontrolka w usłudze Azure AD, która ma dostęp do usługi ServiceNow.
+* Zezwól użytkownikom na automatyczne logowanie się do usługi usługi ServiceNow przy użyciu kont w usłudze Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji: Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji z usługą Azure AD z aplikacją —SaaS( SaaS), zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji oprogramowania jako usługi (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć, potrzebujesz następujących elementów:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto.](https://azure.microsoft.com/free/)
-* Subskrypcja z włączoną funkcją logowania jednokrotnego ServiceNow.
-* Dla ServiceNow wystąpienia lub dzierżawy ServiceNow, wersja Calgary lub nowsza.
-* Dla ServiceNow Express wystąpienie ServiceNow Express, helsinki wersji lub nowszej.
-* W dzierżawie usługi ServiceNow musi być włączona wtyczka [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) (wtyczka logowania jednokrotnego u wielu dostawców). Można to zrobić, [przesyłając żądanie usługi](https://hi.service-now.com).
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) usługi usługi ServiceNow.
+* Dla usługi ServiceNow, wystąpienia lub dzierżawy usługi ServiceNow, Calgary w wersji lub nowszej.
+* W przypadku programu usługi ServiceNow Express wystąpienie klasy usługi ServiceNow Express, w wersji Helsinki lub nowszej.
+* W dzierżawie usługi ServiceNow musi być włączona wtyczka [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) (wtyczka logowania jednokrotnego u wielu dostawców). W tym celu można [przesłać żądanie obsługi](https://hi.service-now.com).
 * W przypadku konfiguracji automatycznej włącz wtyczkę wielu dostawców dla usługi ServiceNow.
-* Aby zainstalować aplikację ServiceNow Classic (Mobile), przejdź do odpowiedniego magazynu i wyszukaj aplikację ServiceNow Classic. Następnie pobierz go.
+* Aby zainstalować klasyczną aplikację usługi ServiceNow (Mobile), przejdź do odpowiedniego magazynu i Wyszukaj aplikację klasyczną usługi ServiceNow. Następnie pobierz go.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku można skonfigurować i przetestować samouszeńców usługi Azure AD w środowisku testowym. 
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym. 
 
-* ServiceNow obsługuje syto inicjowane przez usługę **SP.**
+* Usługa usługi ServiceNow obsługuje usługę **SP** zainicjowaną przez usługę SSO.
 
-* ServiceNow obsługuje [automatyczne inicjowanie obsługi administracyjnej użytkowników](servicenow-provisioning-tutorial.md).
+* Usługi ServiceNow obsługuje [Automatyczne Inicjowanie obsługi użytkowników](servicenow-provisioning-tutorial.md).
 
-* Po skonfigurowaniu ServiceNow można wymusić formanty sesji, które chronią eksfiltracji i infiltracji poufnych danych organizacji w czasie rzeczywistym. Formanty sesji rozciągają się od dostępu warunkowego. [Dowiedz się, jak wymusić kontrolę nad sesją za pomocą programu Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Po skonfigurowaniu usługi ServiceNow można wymusić kontrolki sesji, które chronią eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolki sesji wykraczają poza dostęp warunkowy. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
-* Aplikację ServiceNow Classic (Mobile) można skonfigurować za pomocą usługi Azure AD w celu włączenia usługi SSO. Obsługuje zarówno użytkowników Androida, jak i iOS. W tym samouczku można skonfigurować i przetestować samouszeńców usługi Azure AD w środowisku testowym.
+* Aby włączyć logowanie jednokrotne, można skonfigurować aplikację klasyczną usługi ServiceNow (Mobile) w usłudze Azure AD. Obsługuje zarówno użytkowników systemu Android, jak i iOS. W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-## <a name="add-servicenow-from-the-gallery"></a>Dodawanie servicenow z galerii
+## <a name="add-servicenow-from-the-gallery"></a>Dodaj usługi ServiceNow z galerii
 
 Aby skonfigurować integrację usługi ServiceNow z usługą Azure AD, musisz dodać usługę ServiceNow z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy użyciu konta służbowego lub szkolnego lub przy użyciu osobistego konta Microsoft.
-1. W lewym okienku wybierz usługę **Azure Active Directory.**
-1. Przejdź do aplikacji **dla przedsiębiorstw**i wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub za pomocą konto Microsoft osobistych.
+1. W okienku po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do pozycji **aplikacje dla przedsiębiorstw**i wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wprowadź **servicenow** w polu wyszukiwania.
-1. Wybierz **serviceNow** z panelu wyników, a następnie dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** wprowadź **usługi ServiceNow** w polu wyszukiwania.
+1. Wybierz pozycję **usługi ServiceNow** z panelu wyniki, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-servicenow"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla usługi ServiceNow
+## <a name="configure-and-test-azure-ad-single-sign-on-for-servicenow"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla usługi ServiceNow
 
-Konfigurowanie i testowanie usługi Azure AD SSO za pomocą serviceNow przy użyciu użytkownika testowego o nazwie **B.Simon**. Aby użytkownik syt/r działał, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w usłudze ServiceNow.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą usługi ServiceNow przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usługi ServiceNow.
 
-Aby skonfigurować i przetestować usługę Azure AD SSO za pomocą servicenow, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą usługi ServiceNow, wykonaj następujące bloki konstrukcyjne:
 
-1. [Skonfiguruj sytuasz usługi Azure AD,](#configure-azure-ad-sso) aby umożliwić użytkownikom korzystanie z tej funkcji.
-    1. [Utwórz użytkownika testowego usługi Azure AD,](#create-an-azure-ad-test-user) aby przetestować logowanie jednokrotne usługi Azure AD za pomocą usługi B.Simon.
-    1. [Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user) aby włączyć B.Simon do korzystania z usługi Azure AD logowania jednokrotnego.
-    1. [Skonfiguruj usługę Azure AD SSO dla usługi ServiceNow Express,](#configure-azure-ad-sso-for-servicenow-express) aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. [Skonfiguruj servicenow,](#configure-servicenow) aby skonfigurować ustawienia logowania przysłłowiowego po stronie aplikacji.
-    1. [Utwórz użytkownika testowego ServiceNow,](#create-servicenow-test-user) aby mieć odpowiednik B.Simon w ServiceNow, połączone z reprezentacji usługi Azure AD użytkownika.
-    1. [Skonfiguruj logowanie jednokrotne servicenow express,](#configure-servicenow-express-sso) aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.  
-3. [Przetestuj sytą próbę sycącą,](#test-sso) aby sprawdzić, czy konfiguracja działa.
-4. [Przetestuj syg jako pierwszy dla servicenow classic (mobile),](#test-sso-for-servicenow-classic-mobile) aby sprawdzić, czy konfiguracja działa.
+1. [Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso) , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. [Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user) , aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    1. [Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user) aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego usługi Azure AD.
+    1. [Skonfiguruj Logowanie jednokrotne usługi Azure AD dla programu usługi ServiceNow Express](#configure-azure-ad-sso-for-servicenow-express) , aby umożliwić użytkownikom korzystanie z tej funkcji.
+2. [Skonfiguruj usługi ServiceNow](#configure-servicenow) , aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+    1. [Utwórz użytkownika testowego usługi ServiceNow](#create-servicenow-test-user) , aby miał odpowiednik B. Simon w usługi ServiceNow, połączony z reprezentacją użytkownika usługi Azure AD.
+    1. [Skonfiguruj Logowanie jednokrotne w usłudze usługi ServiceNow Express](#configure-servicenow-express-sso) , aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.  
+3. [Przetestuj Logowanie jednokrotne](#test-sso) , aby sprawdzić, czy konfiguracja działa.
+4. [Przetestuj Logowanie jednokrotne dla usługi ServiceNow klasyczny (Mobile)](#test-sso-for-servicenow-classic-mobile) , aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azure portal.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [witrynie Azure portal](https://portal.azure.com/), na stronie integracji aplikacji **ServiceNow** znajdź sekcję **Zarządzaj.** Wybierz **opcję logowania jednokrotnego**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **usługi ServiceNow** Znajdź sekcję **Zarządzanie** . Wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** wybierz ikonę pióra dla **podstawowej konfiguracji SAML,** aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę pióra dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
-   ![Zrzut ekranu przedstawiający konfigurowanie logowania jednokrotnego ze stroną SAML z wyróżnioną ikoną pióra](common/edit-urls.png)
+   ![Zrzut ekranu przedstawiający Konfigurowanie logowania jednokrotnego przy użyciu strony SAML z wyróżnioną ikoną pióra](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
+1. W sekcji **Podstawowa konfiguracja języka SAML** wykonaj następujące czynności:
 
-    a. W **polu Zaloguj się na adres URL**wprowadź adres URL, który używa następującego wzorca:`https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
+    a. W polu **adres URL logowania**wprowadź adres URL, który używa następującego wzorca:`https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
 
-    b. W **identyfikatorze (identyfikatorze jednostki)** wprowadź adres URL, który używa następującego wzorca:`https://<instance-name>.service-now.com`
+    b. W **identyfikatorze (identyfikator jednostki)** wprowadź adres URL, który używa następującego wzorca:`https://<instance-name>.service-now.com`
 
-    d. W przypadku **adresu URL odpowiedzi**wprowadź jeden z następujących adresów URL:
+    c. W polu **adres URL odpowiedzi**wprowadź jeden z następujących adresów URL:
 
     |||
     |-|-|
@@ -107,71 +107,71 @@ Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azu
     | `https://instancename.service-now.com/customer.do` | 
 
     > [!NOTE]
-    > To nie są rzeczywiste wartości. Należy zaktualizować te wartości za pomocą rzeczywistego adresu URL logowania i identyfikatora, który jest wyjaśniony w dalszej części samouczka. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > To nie są rzeczywiste wartości. Należy zaktualizować te wartości przy użyciu rzeczywistego adresu URL logowania i identyfikatora, który jest wyjaśniony w dalszej części tego samouczka. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą SAML** w sekcji Saml Signing Certificate (Certyfikat **podpisywania SAML)** znajdź **pozycję Certyfikat (Base64).** 
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź pozycję **certyfikat (base64)**. 
 
-   ![Zrzut ekranu przedstawiający sekcję Certyfikat podpisywania SAML z wyróżnioną pokaźą Pobierania](common/certificatebase64.png)
+   ![Zrzut ekranu przedstawiający sekcję certyfikat podpisywania SAML z wyróżnioną pozycją Pobierz](common/certificatebase64.png)
 
-   a. Wybierz przycisk kopiowania, aby skopiować **adres URL metadanych federacji aplikacji,** i wklej go do Notatnika. Ten adres URL będzie używany w dalszej części samouczka.
+   a. Wybierz przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji**i wkleić go do Notatnika. Ten adres URL zostanie użyty w dalszej części tego samouczka.
 
-    b. Wybierz **pozycję Pobierz,** aby pobrać **certyfikat (Base64),** a następnie zapisz plik certyfikatu na komputerze.
+    b. Wybierz pozycję **Pobierz** , aby pobrać **certyfikat (base64)**, a następnie Zapisz plik certyfikatu na komputerze.
 
-1. W sekcji **Konfigurowanie ServiceNow** skopiuj odpowiednie adresy URL na podstawie wymagań użytkownika.
+1. W sekcji **Konfiguracja usługi ServiceNow** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
-   ![Zrzut ekranu przedstawiający sekcję Konfigurowanie servicenow z wyróżnionymi adresami URL](common/copy-configuration-urls.png)
+   ![Zrzut ekranu przedstawiający sekcję Set up usługi ServiceNow z wyróżnionymi adresami URL](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego o nazwie B.Simon w witrynie Azure portal.
+W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
 
-1. Z lewego okienka w witrynie Azure portal wybierz pozycję**Użytkownicy** >  **usługi Azure Active Directory** > **Wszyscy użytkownicy**.
-1. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
-1. We właściwościach **Użytkownika** wykonaj następujące kroki:
-   1. W **yjmij nazwę**, wprowadź `B.Simon`.  
-   1. W przypadku **nazwy** username@companydomain.extensionużytkownika wprowadź plik . Na przykład `B.Simon@contoso.com`.
-   1. Wybierz **pozycję Pokaż hasło**, a następnie zapisz wartość wyświetlaną w polu **Hasło.**
-   1. Wybierz **pozycję Utwórz**.
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory** > **Użytkownicy** > **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
+   1. W obszarze **Nazwa**wprowadź `B.Simon`.  
+   1. W polu username@companydomain.extension **Nazwa użytkownika**wprowadź. Na przykład `B.Simon@contoso.com`.
+   1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do ServiceNow.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi usługi ServiceNow.
 
-1. W portalu Azure wybierz pozycję **Aplikacje** > dla**przedsiębiorstw Wszystkie aplikacje**.
+1. W Azure Portal wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**.
 1. Na liście aplikacji wybierz pozycję **ServiceNow**.
-1. Na stronie przegląd aplikacji znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
-   ![Zrzut ekranu przedstawiający sekcję Zarządzanie z wyróżnionymi wyróżnionymi wyróżnionymi użytkownikami i grupami](common/users-groups-blade.png)
+   ![Zrzut ekranu przedstawiający sekcję Zarządzanie z wyróżnionymi użytkownikami i grupami](common/users-groups-blade.png)
 
-1. Wybierz przycisk **Dodaj użytkownika**. W oknie dialogowym **Dodawanie przydziału** wybierz pozycję **Użytkownicy i grupy**.
+1. Wybierz przycisk **Dodaj użytkownika**. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
 
-    ![Zrzut ekranu przedstawiający użytkowników i grupy z wyróżnioną podaniem dodaj użytkownika](common/add-assign-user.png)
+    ![Zrzut ekranu użytkowników i grup z wyróżnioną pozycją Dodaj użytkownika](common/add-assign-user.png)
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B.Simon** z listy użytkowników, a następnie wybierz pozycję **Wybierz**.
-1. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy. Następnie wybierz pozycję **Wybierz**.
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie wybierz **pozycję Wybierz**.
+1. Jeśli oczekujesz, że jakakolwiek wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz z listy odpowiednią rolę dla użytkownika. Następnie wybierz opcję **Wybierz**.
 1. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Przypisz**.
 
-### <a name="configure-azure-ad-sso-for-servicenow-express"></a>Konfigurowanie usługi Azure AD SSO dla usługi ServiceNow Express
+### <a name="configure-azure-ad-sso-for-servicenow-express"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD dla usługi ServiceNow Express
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie Integracja aplikacji **ServiceNow** wybierz opcję **logowania jednokrotnego**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **usługi ServiceNow** wybierz pozycję **Logowanie jednokrotne**.
 
-    ![Zrzut ekranu przedstawiający stronę integracji aplikacji ServiceNow z wyróżnioną wykąpienia jednokrotnym](common/select-sso.png)
+    ![Zrzut ekranu strony integracji aplikacji usługi ServiceNow z wyróżnionym logowaniem jednokrotnym](common/select-sso.png)
 
-2. W oknie **dialogowym Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed,** aby włączyć logowanie jednokrotne.
+2. W oknie dialogowym **Wybierz metodę logowania** jednokrotnego wybierz tryb **SAML/WS-karmione** , aby włączyć logowanie jednokrotne.
 
-    ![Zrzut ekranu przedstawiający opcję Wybierz metodę logowania jednokrotnego z wyróżnioną wyróżnioną funkcją SAML](common/select-saml-option.png)
+    ![Zrzut ekranu przedstawiający wybór metody logowania jednokrotnego z wyróżnioną pozycją SAML](common/select-saml-option.png)
 
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** wybierz ikonę pióra, aby otworzyć okno dialogowe **Podstawowa konfiguracja SAML.**
+3. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę pióra, aby otworzyć okno dialogowe **podstawowe ustawienia SAML** .
 
-    ![Zrzut ekranu przedstawiający konfigurowanie logowania jednokrotnego na stronie SAML z wyróżnioną ikoną pióra](common/edit-urls.png)
+    ![Zrzut ekranu przedstawiający Konfigurowanie logowania jednokrotnego przy użyciu strony SAML z wyróżnioną ikoną pióra](common/edit-urls.png)
 
-4. W sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
+4. W sekcji **Podstawowa konfiguracja języka SAML** wykonaj następujące czynności:
 
-    a. W polu **Wpisz adres URL**logowania wprowadź adres URL, który używa następującego wzorca:`https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
+    a. W polu **adres URL logowania**wprowadź adres URL, który używa następującego wzorca:`https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
 
     b. W polu **Identyfikator (identyfikator jednostki)** wprowadź adres URL, który używa następującego wzorca:`https://<instance-name>.service-now.com`
 
-    d. W przypadku **adresu URL odpowiedzi**wprowadź jeden z następujących adresów URL:
+    c. W polu **adres URL odpowiedzi**wprowadź jeden z następujących adresów URL:
 
     |||
     |-|-|
@@ -179,318 +179,318 @@ W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platfor
     | `https://instancename.service-now.com/customer.do` |
 
     > [!NOTE]
-    > To nie są rzeczywiste wartości. Należy zaktualizować te wartości za pomocą rzeczywistego adresu URL logowania i identyfikatora, który jest wyjaśniony w dalszej części samouczka. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > To nie są rzeczywiste wartości. Należy zaktualizować te wartości przy użyciu rzeczywistego adresu URL logowania i identyfikatora, który jest wyjaśniony w dalszej części tego samouczka. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** w sekcji **Saml Podpisywanie certyfikatów** wybierz pozycję **Pobierz,** aby pobrać **certyfikat (Base64)** z określonych opcji, zgodnie z wymaganiami. Zapisz go na komputerze.
+5. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **certyfikat (base64)** z określonych opcji zgodnie z wymaganiami. Zapisz go na komputerze.
 
-    ![Zrzut ekranu przedstawiający sekcję Certyfikat podpisywania SAML z wyróżnioną pokaźą Pobierania](common/certificatebase64.png)
+    ![Zrzut ekranu przedstawiający sekcję certyfikat podpisywania SAML z wyróżnioną pozycją Pobierz](common/certificatebase64.png)
 
-6. Usługa Azure AD może automatycznie konfigurować usługę ServiceNow dla uwierzytelniania opartego na saml. Aby włączyć tę usługę, przejdź do sekcji **Konfigurowanie servicenow** i wybierz pozycję **Wyświetl instrukcje krok po kroku,** aby otworzyć okno **Konfigurowanie logowania.**
+6. Usługa Azure AD może automatycznie konfigurować usługi ServiceNow na potrzeby uwierzytelniania opartego na protokole SAML. Aby włączyć tę usługę, przejdź do sekcji **Konfigurowanie usługi ServiceNow** i wybierz pozycję **Wyświetl instrukcje krok po kroku** , aby otworzyć okno **Konfigurowanie logowania** .
 
-    ![Zrzut ekranu przedstawiający sekcję Konfigurowanie usługiUnow z wyróżnionymi instrukcjami krok po kroku](./media/servicenow-tutorial/tutorial_servicenow_configure.png)
+    ![Zrzut ekranu przedstawiający sekcję Set up usługi ServiceNow z wyróżnioną instrukcją krok po kroku](./media/servicenow-tutorial/tutorial_servicenow_configure.png)
 
-7. W formularzu **Konfigurowanie logowania** wprowadź nazwę wystąpienia ServiceNow, nazwę użytkownika administratora i hasło administratora. Wybierz **pozycję Konfiguruj teraz**. Podana nazwa użytkownika administratora musi mieć przypisaną rolę **security_admin** w usłudze ServiceNow, aby to działało. W przeciwnym razie, aby ręcznie skonfigurować usługę ServiceNow do używania usługi Azure AD jako dostawcy tożsamości SAML, wybierz opcję **Ręcznie konfiguruj logowanie jednokrotne**. Skopiuj **adres URL wylogowania, identyfikator usługi Azure AD i adres URL logowania** z sekcji Podręczne dane referencyjne.
+7. W formularzu **Konfigurowanie logowania** wprowadź nazwę wystąpienia usługi ServiceNow, nazwa użytkownika administratora i hasło administratora. Wybierz pozycję **Konfiguruj teraz**. Podana nazwa użytkownika administratora musi mieć przypisaną rolę **security_admin** w usługi ServiceNow do działania. W przeciwnym razie aby ręcznie skonfigurować usługi ServiceNow do korzystania z usługi Azure AD jako dostawcy tożsamości SAML, wybierz pozycję **ręcznie skonfiguruj Logowanie jednokrotne**. Skopiuj **adres URL wylogowania, identyfikator usługi Azure AD i adres URL logowania** z sekcji Szybkie informacje.
 
-    ![Zrzut ekranu przedstawiający formularz logowania konfigurowania z wyróżnioną wyróżnioną pozycją Konfiguruj teraz](./media/servicenow-tutorial/configure.png "Konfigurowanie adresu URL aplikacji")
+    ![Zrzut ekranu przedstawiający formularz konfigurowania logowania z wyróżnioną pozycją Skonfiguruj teraz](./media/servicenow-tutorial/configure.png "Konfiguruj adres URL aplikacji")
 
-## <a name="configure-servicenow"></a>Konfigurowanie usługi Teraz
+## <a name="configure-servicenow"></a>Konfigurowanie usługi ServiceNow
 
 1. Zaloguj się do swojej aplikacji ServiceNow jako administrator.
 
-1. Aktywuj wtyczkę **Integration - Multiple Provider, logowanie jednokrotne,** wykonując następujące kroki:
+1. Aktywuj **integrację — wtyczka Instalatora logowania** jednokrotnego z wieloma dostawcami, wykonując następujące czynności:
 
-    a. W lewym okienku wyszukaj sekcję **Definicja systemu** w polu wyszukiwania, a następnie wybierz pozycję **Wtyczki**.
+    a. W okienku po lewej stronie Wyszukaj sekcję **Definicja systemu** w polu wyszukiwania, a następnie wybierz pozycję **wtyczki**.
 
-    ![Zrzut ekranu przedstawiający sekcję Definicji systemu z wyróżnioną definicją systemu i wtyczkami](./media/servicenow-tutorial/tutorial_servicenow_03.png "Aktywuj wtyczkę")
+    ![Zrzut ekranu sekcji definicji systemu z wyróżnioną definicją systemu i wtyczkami](./media/servicenow-tutorial/tutorial_servicenow_03.png "Aktywuj wtyczkę")
 
-    b. Wyszukaj **integrację — Instalator logowania jednokrotnego wielu dostawców**.
+    b. Wyszukaj **integrację — Instalator logowania**jednokrotnego dla wielu dostawców.
 
-     ![Zrzut ekranu przedstawiający stronę Wtyczki systemowe z wyróżnioną integracją — instalator logowania jednokrotnego wielu dostawców](./media/servicenow-tutorial/tutorial_servicenow_04.png "Aktywuj wtyczkę")
+     ![Zrzut ekranu strony Dodatki systemowe z integracją — wyróżniono Instalatora Logowanie jednokrotne z wieloma dostawcami](./media/servicenow-tutorial/tutorial_servicenow_04.png "Aktywuj wtyczkę")
 
-    d. Wybierz wtyczkę. Kliknij prawym przyciskiem myszy, a następnie wybierz pozycję **Aktywuj/Uaktualnij**.
+    c. Wybierz wtyczkę. Kliknij prawym przyciskiem myszy, a następnie wybierz pozycję **Aktywuj/Uaktualnij**.
 
-     ![Zrzut ekranu przedstawiający menu typu plug-in z wyróżnionym poleceniem Aktywuj/Uaktualnij](./media/servicenow-tutorial/tutorial_activate.png "Aktywuj wtyczkę")
+     ![Zrzut ekranu przedstawiający menu po kliknięciu prawym przyciskiem myszy z wyróżnioną pozycją Aktywuj/Uaktualnij](./media/servicenow-tutorial/tutorial_activate.png "Aktywuj wtyczkę")
 
-    d. Wybierz **pozycję Aktywuj**.
+    d. Wybierz pozycję **Aktywuj**.
 
-     ![Zrzut ekranu przedstawiający okno dialogowe Aktywowanie wtyczki z wyróżnioną wyróżnioną funkcją Aktywuj](./media/servicenow-tutorial/tutorial_activate1.png "Aktywuj wtyczkę")
+     ![Zrzut ekranu okna dialogowego aktywowanie wtyczki z wyróżnioną pozycją Aktywuj](./media/servicenow-tutorial/tutorial_activate1.png "Aktywuj wtyczkę")
 
-1. W lewym okienku wyszukaj sekcję **Samosojom samoso** dla wielu dostawców na pasku wyszukiwania, a następnie wybierz pozycję **Właściwości**.
+1. W okienku po lewej stronie Wyszukaj sekcję **Logowanie jednokrotne dla rejestracji jednoportowej** na pasku wyszukiwania, a następnie wybierz pozycję **Właściwości**.
 
-    ![Zrzut ekranu przedstawiający sekcję SSO dla wielu dostawców z wyróżnionym łączem samosoi dla wielu dostawców i właściwości](./media/servicenow-tutorial/tutorial_servicenow_06.png "Konfigurowanie adresu URL aplikacji")
+    ![Zrzut ekranu wieloskładnikowego logowania jednokrotnego, z wyróżnionym LOGOWANIEm jednoportowym i właściwościami](./media/servicenow-tutorial/tutorial_servicenow_06.png "Konfiguruj adres URL aplikacji")
 
-1. W oknie dialogowym **Właściwości jednokrotne wielu dostawców** wykonaj następujące czynności:
+1. W oknie dialogowym **wiele właściwości logowania jednokrotnego dla dostawcy** wykonaj następujące czynności:
 
-    ![Zrzut ekranu przedstawiający okno dialogowe Właściwości jednokrotnego wielu dostawców](./media/servicenow-tutorial/ic7694981.png "Konfigurowanie adresu URL aplikacji")
+    ![Zrzut ekranu przedstawiający okno dialogowe Właściwości logowania jednokrotnego dla wielu dostawców](./media/servicenow-tutorial/ic7694981.png "Konfiguruj adres URL aplikacji")
 
-    * Aby **włączyć funkcję SSO dla wielu dostawców,** wybierz opcję **Tak**.
+    * Aby **włączyć logowanie jednokrotne dla wielu dostawców**, wybierz pozycję **tak**.
   
-    * Aby **włączyć automatyczne importowanie użytkowników ze wszystkich dostawców tożsamości do tabeli użytkowników,** wybierz opcję **Tak**.
+    * Dla opcji **Włącz autoimportowanie użytkowników ze wszystkich dostawców tożsamości do tabeli użytkownik**wybierz pozycję **tak**.
 
-    * Dla **włącz rejestrowanie debugowania dla integracji logowania jednokrotnego wielu dostawców,** wybierz **tak**.
+    * Aby **włączyć rejestrowanie debugowania dla integracji z logowaniem JEDNOkrotnym dla wielu dostawców**, wybierz pozycję **tak**.
 
-    * W polu **w tabeli użytkownika, które...**, wprowadź **adres e-mail**.
+    * Dla **pola w tabeli User...** wprowadź **adres e-mail**.
   
-    * Wybierz **pozycję Zapisz**.
+    * Wybierz pozycję **Zapisz**.
 
-1. Usługę ServiceNow można skonfigurować automatycznie lub ręcznie. Aby skonfigurować usługę ServiceNow automatycznie, wykonaj następujące czynności:
+1. Usługi ServiceNow można skonfigurować automatycznie lub ręcznie. Aby skonfigurować usługi ServiceNow automatycznie, wykonaj następujące kroki:
 
-    1. Wróć do strony logowania jednokrotnego **ServiceNow** w witrynie Azure portal.
+    1. Wróć do strony logowania jednokrotnego **usługi ServiceNow** w Azure Portal.
 
-    1. Usługa konfiguracji jednym kliknięciem jest dostępna dla ServiceNow. Aby włączyć tę usługę, przejdź do sekcji **Konfiguracja ServiceNow** i wybierz pozycję **Konfiguruj usługę Teraz,** aby otworzyć okno **Konfigurowanie logowania.**
+    1. Dla usługi usługi ServiceNow jest dostępna jedna usługa konfiguracji. Aby włączyć tę usługę, przejdź do sekcji **Konfiguracja usługi ServiceNow** i wybierz pozycję **Konfiguruj usługi ServiceNow** , aby otworzyć okno **Konfigurowanie logowania** .
 
-        ![Zrzut ekranu przedstawiający pozycję Konfigurowanie usługi ServiceNow z wyróżnioną wyróżnioną instrukcją krok po kroku](./media/servicenow-tutorial/tutorial_servicenow_configure.png)
+        ![Zrzut ekranu przedstawiający konfigurację usługi ServiceNow z wyróżnionymi instrukcjami krok po kroku](./media/servicenow-tutorial/tutorial_servicenow_configure.png)
 
-    1. W formularzu **Konfigurowanie logowania** wprowadź nazwę wystąpienia ServiceNow, nazwę użytkownika administratora i hasło administratora. Wybierz **pozycję Konfiguruj teraz**. Podana nazwa użytkownika administratora musi mieć przypisaną rolę **security_admin** w usłudze ServiceNow, aby to działało. W przeciwnym razie, aby ręcznie skonfigurować usługę ServiceNow do używania usługi Azure AD jako dostawcy tożsamości SAML, wybierz opcję **Ręcznie konfiguruj logowanie jednokrotne**. Skopiuj **adres URL wylogowania, identyfikator jednostki SAML i adres URL usługi logowania jednokrotnego SAML** z sekcji Podręczna dokumentacja.
+    1. W formularzu **Konfigurowanie logowania** wprowadź nazwę wystąpienia usługi ServiceNow, nazwa użytkownika administratora i hasło administratora. Wybierz pozycję **Konfiguruj teraz**. Podana nazwa użytkownika administratora musi mieć przypisaną rolę **security_admin** w usługi ServiceNow do działania. W przeciwnym razie aby ręcznie skonfigurować usługi ServiceNow do korzystania z usługi Azure AD jako dostawcy tożsamości SAML, wybierz pozycję **ręcznie skonfiguruj Logowanie jednokrotne**. Skopiuj adres **URL wylogowania, identyfikator jednostki SAML i adres URL usługi logowania** jednokrotnego SAML z sekcji Szybkie informacje.
 
-        ![Zrzut ekranu przedstawiający formularz logowania konfigurowania z wyróżnioną wyróżnioną pozycją Konfiguruj teraz](./media/servicenow-tutorial/configure.png "Konfigurowanie adresu URL aplikacji")
+        ![Zrzut ekranu przedstawiający formularz konfigurowania logowania z wyróżnioną pozycją Skonfiguruj teraz](./media/servicenow-tutorial/configure.png "Konfiguruj adres URL aplikacji")
 
     1. Zaloguj się do swojej aplikacji ServiceNow jako administrator.
 
-       * W konfiguracji automatycznej wszystkie niezbędne ustawienia są konfigurowane po stronie **ServiceNow,** ale **certyfikat X.509** nie jest domyślnie włączony. Musisz zamapować go ręcznie do dostawcy tożsamości w ServiceNow. Wykonaj następujące kroki:
+       * W konfiguracji automatycznej wszystkie wymagane ustawienia są konfigurowane po stronie **usługi ServiceNow** , ale **certyfikat X. 509** nie jest domyślnie włączony. Musisz ręcznie zmapować dostawcę tożsamości na usługi ServiceNow. Wykonaj następujące kroki:
 
-         1. W lewym okienku wyszukaj sekcję **samosojesznik typumika** dla wielu dostawców w polu wyszukiwania i wybierz pozycję **Dostawcy tożsamości**.
+         1. W okienku po lewej stronie Wyszukaj sekcję **Logowanie jednokrotne SSO** w polu wyszukiwania, a następnie wybierz pozycję **dostawcy tożsamości**.
 
-            ![Zrzut ekranu przedstawiający sekcję samosojone dla wielu dostawców z wyróżnioną pozycją dostawców tożsamości](./media/servicenow-tutorial/tutorial_servicenow_07.png "Konfigurowanie logowania jednokrotnego")
+            ![Zrzut ekranu wieloskładnikowego logowania jednokrotnego z wyróżnionymi dostawcami tożsamości](./media/servicenow-tutorial/tutorial_servicenow_07.png "Konfigurowanie logowania jednokrotnego")
 
-         1. Wybierz automatycznie wygenerowanego dostawcę tożsamości.
+         1. Wybierz automatycznie generowanego dostawcę tożsamości.
 
-            ![Zrzut ekranu przedstawiający dostawców tożsamości z wyróżnionym automatycznie wygenerowanym dostawcą tożsamości](./media/servicenow-tutorial/tutorial_servicenow_08.png "Konfigurowanie logowania jednokrotnego")
+            ![Zrzut ekranu dostawców tożsamości z wyróżnionym automatycznie wygenerowanym dostawcą tożsamości](./media/servicenow-tutorial/tutorial_servicenow_08.png "Konfigurowanie logowania jednokrotnego")
 
          1.  W sekcji **Identity Provider** (Dostawca tożsamości) wykonaj następujące kroki:
 
-             ![Zrzut ekranu przedstawiający sekcję Dostawca tożsamości](./media/servicenow-tutorial/automatic_config.png "Konfigurowanie logowania jednokrotnego")
+             ![Zrzut ekranu przedstawiający sekcję dostawca tożsamości](./media/servicenow-tutorial/automatic_config.png "Konfigurowanie logowania jednokrotnego")
 
-               * W obszarze **Nazwa**wprowadź nazwę konfiguracji (na przykład **microsoft azure federacyjne logowanie jednokrotne).**
+               * W obszarze **Nazwa**wprowadź nazwę konfiguracji (na przykład **Microsoft Azure federacyjne Logowanie jednokrotne**).
 
-               * Usuń wartość **SingleLogoutRequest** dostawcy tożsamości z pola tekstowego.
+               * Usuń wypełnioną wartość **SingleLogoutRequest dostawcy tożsamości** z pola tekstowego.
 
-               * Skopiuj wartość **strony głównej ServiceNow** i wklej ją w **adresie URL logowania** w sekcji **ServiceNow Basic SAML Configuration** w witrynie Azure portal.
+               * Skopiuj wartość **strony głównej usługi ServiceNow** i wklej ją w **adresie URL logowania** w sekcji **Podstawowa konfiguracja SAML usługi ServiceNow** Azure Portal.
 
                   > [!NOTE]
                   > Strona główna wystąpienia usługi ServiceNow składa się z **adresu URL Twojej dzierżawy ServiceNow** i ciągu **/navpage.do** (na przykład:`https://fabrikam.service-now.com/navpage.do`).
 
-              * Skopiuj wartość **identyfikatora jednostki / wystawcy** i wklej ją w **identyfikatorze** w sekcji **ServiceNow Basic SAML Configuration** w witrynie Azure portal.
+              * Skopiuj wartość **Identyfikator jednostki/wystawcy** i wklej ją w **identyfikatorze** w sekcji **usługi servicenow Podstawowa konfiguracja SAML** w Azure Portal.
 
-              * Upewnij się, że zasada `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` **NameID** jest ustawiona na wartość. 
+              * Upewnij się, że **zasady NameID** są `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` ustawione na wartość. 
 
-         1. Przewiń w dół do sekcji **Certyfikat X.509** i wybierz pozycję **Edytuj**.
+         1. Przewiń w dół do sekcji **certyfikat X. 509** , a następnie wybierz pozycję **Edytuj**.
 
-             ![Zrzut ekranu przedstawiający sekcję Certyfikat X.509 z wyróżnioną pokażeniem Edytuj](./media/servicenow-tutorial/tutorial_servicenow_09.png "Konfigurowanie logowania jednokrotnego")
+             ![Zrzut ekranu przedstawiający sekcję certyfikatu X. 509 z wyróżnioną pozycją Edycja](./media/servicenow-tutorial/tutorial_servicenow_09.png "Konfigurowanie logowania jednokrotnego")
 
-         1. Wybierz certyfikat i wybierz ikonę strzałki w prawo, aby dodać certyfikat
+         1. Wybierz certyfikat, a następnie wybierz ikonę strzałki w prawo, aby dodać certyfikat
 
-            ![Zrzut ekranu przedstawiający kolekcję z wyróżnioną ikoną certyfikatu i strzałki w prawo](./media/servicenow-tutorial/tutorial_servicenow_11.png "Konfigurowanie logowania jednokrotnego")
+            ![Zrzut ekranu kolekcji z wyróżnioną ikoną certyfikat i Strzałka w prawo](./media/servicenow-tutorial/tutorial_servicenow_11.png "Konfigurowanie logowania jednokrotnego")
 
-          1. Wybierz **pozycję Zapisz**.
+          1. Wybierz pozycję **Zapisz**.
 
           1. W prawym górnym rogu strony wybierz pozycję **Testuj połączenie**.
 
-             ![Zrzut ekranu przedstawiający stronę z wyróżnioną pozycją Test Connection](./media/servicenow-tutorial/tutorial_activate2.png "Aktywuj wtyczkę")
+             ![Zrzut ekranu strony z wyróżnionym połączeniem testowym](./media/servicenow-tutorial/tutorial_activate2.png "Aktywuj wtyczkę")
 
              > [!NOTE]
-             > Jeśli połączenie testowe nie powiódł się i nie można aktywować tego połączenia, usługa ServiceNow oferuje przełącznik zastępowania. Musisz wprowadzić **Sys_properties. LISTA** w **nawigacji wyszukiwania** i otworzy nową stronę Właściwości systemu. W tym miejscu należy utworzyć nową właściwość o nazwie **glide.authenticate.multisso.test.mandatory** z **typem danych** jako **Prawda/Fałsz,** a następnie ustawić **wartość** jako **False**.
+             > Jeśli połączenie testowe kończy się niepowodzeniem i nie można aktywować tego połączenia, usługi ServiceNow oferuje przełącznik przesłonięcia. Musisz wprowadzić **Sys_properties. Lista** w obszarze **nawigacji wyszukiwania** i zostanie otwarta nowa strona właściwości systemu. W tym miejscu trzeba utworzyć nową właściwość o nazwie **Glide. Authenticate. multisso. test. Connection. obowiązkowy** z **typem danych** jako **true/false** , a następnie ustawić **wartość** **false**.
 
              > ![Zrzut ekranu przedstawiający stronę Wyniki testów](./media/servicenow-tutorial/testconnection-fail.png "Konfigurowanie logowania jednokrotnego")
         
-          1. Gdy zostaniesz poproszony o podanie danych uwierzytelniających, wprowadź je. Zobaczysz następną stronę. Oczekiwany jest błąd **wyników testu logowania** logowania logowania. Zignoruj błąd i wybierz pozycję **Aktywuj**.
+          1. Po wyświetleniu monitu o podanie poświadczeń wprowadź je. Zostanie wyświetlona następująca strona. Jest oczekiwany błąd **wyniki testów wylogowywania z logowaniem jednokrotnym** . Zignoruj błąd i wybierz pozycję **Aktywuj**.
 
              ![Zrzut ekranu przedstawiający stronę Wyniki testów](./media/servicenow-tutorial/servicenowactivate.png "Konfigurowanie logowania jednokrotnego")
   
-1. Aby skonfigurować **usługę ServiceNow** ręcznie, wykonaj następujące czynności:
+1. Aby ręcznie skonfigurować **usługi ServiceNow** , wykonaj następujące kroki:
 
     1. Zaloguj się do swojej aplikacji ServiceNow jako administrator.
 
-    1. W lewym okienku wybierz pozycję **Dostawcy tożsamości**.
+    1. W lewym okienku wybierz pozycję **dostawcy tożsamości**.
 
-        ![Zrzut ekranu przedstawiający wielodostawowy dokument SSO z wyróżnionymi dostawcami tożsamości](./media/servicenow-tutorial/tutorial_servicenow_07.png "Konfigurowanie logowania jednokrotnego")
+        ![Zrzut ekranu wielowymiarowego logowania jednokrotnego z wyróżnionymi dostawcami tożsamości](./media/servicenow-tutorial/tutorial_servicenow_07.png "Konfigurowanie logowania jednokrotnego")
 
-    1. W oknie dialogowym **Dostawcy tożsamości** wybierz pozycję **Nowy**.
+    1. W oknie dialogowym **dostawcy tożsamości** wybierz pozycję **Nowy**.
 
-        ![Zrzut ekranu przedstawiający okno dialogowe Dostawcy tożsamości z wyróżnioną pojednawką Nową](./media/servicenow-tutorial/ic7694977.png "Konfigurowanie logowania jednokrotnego")
+        ![Zrzut ekranu przedstawiający okno dialogowe dostawcy tożsamości z wyróżnioną pozycją nowe](./media/servicenow-tutorial/ic7694977.png "Konfigurowanie logowania jednokrotnego")
 
-    1. W oknie dialogowym **Dostawcy tożsamości** wybierz pozycję **SAML**.
+    1. W oknie dialogowym **dostawcy tożsamości** wybierz pozycję **SAML**.
 
-        ![Zrzut ekranu przedstawiający okno dialogowe Dostawcy tożsamości z wyróżnioną wyróżnioną wyróżnioną funkcją SAML](./media/servicenow-tutorial/ic7694978.png "Konfigurowanie logowania jednokrotnego")
+        ![Zrzut ekranu przedstawiający okno dialogowe dostawcy tożsamości z wyróżnionym elementem SAML](./media/servicenow-tutorial/ic7694978.png "Konfigurowanie logowania jednokrotnego")
 
-    1. W **zaimportuj metadane dostawcy tożsamości**wykonaj następujące czynności:
+    1. W obszarze **Importuj metadane dostawcy tożsamości**wykonaj następujące czynności:
 
-        ![Zrzut ekranu przedstawiający metadane dostawcy tożsamości importu z wyróżnionym adresem URL i importem](./media/servicenow-tutorial/idp.png "Konfigurowanie logowania jednokrotnego")
+        ![Zrzut ekranu przedstawiający Importowanie metadanych dostawcy tożsamości z wyróżnionymi adresami URL i importowanymi](./media/servicenow-tutorial/idp.png "Konfigurowanie logowania jednokrotnego")
 
-        1. Wprowadź **adres URL metadanych federacji aplikacji** skopiowany z witryny Azure Portal.
+        1. Wprowadź **adres URL metadanych federacji aplikacji** , który został skopiowany z Azure Portal.
 
         1. Wybierz pozycję **Import**.
 
-    1. Odczytuje adres URL metadanych IdP i wypełnia wszystkie informacje o polach.
+    1. Odczytuje adres URL metadanych dostawcy tożsamości i wypełnia wszystkie informacje o polach.
 
-        ![Zrzut ekranu przedstawiający dostawcę tożsamości](./media/servicenow-tutorial/ic7694982.png "Konfigurowanie logowania jednokrotnego")
+        ![Zrzut ekranu dostawcy tożsamości](./media/servicenow-tutorial/ic7694982.png "Konfigurowanie logowania jednokrotnego")
 
-        * W obszarze **Nazwa**wprowadź nazwę konfiguracji (na przykład **microsoft azure federacyjne logowanie jednokrotne).**
+        * W obszarze **Nazwa**wprowadź nazwę konfiguracji (na przykład **Microsoft Azure federacyjne Logowanie jednokrotne**).
 
-        * Usuń wartość **SingleLogoutRequest** dostawcy tożsamości z pola tekstowego.
+        * Usuń wypełnioną wartość **SingleLogoutRequest dostawcy tożsamości** z pola tekstowego.
 
-        * Skopiuj wartość **strony głównej ServiceNow.** Wklej go w **adresie URL logowania** w sekcji **Konfiguracja saml podstawowy servicenow** w witrynie Azure portal.
+        * Skopiuj wartość **strony głównej usługi ServiceNow** . Wklej go w **adresie URL logowania** w sekcji **Podstawowa konfiguracja SAML usługi ServiceNow** Azure Portal.
 
             > [!NOTE]
             > Strona główna wystąpienia usługi ServiceNow składa się z **adresu URL Twojej dzierżawy ServiceNow** i ciągu **/navpage.do** (na przykład:`https://fabrikam.service-now.com/navpage.do`).
 
-        * Skopiuj wartość **identyfikatora jednostki / wystawcy.** Wklej go w **identyfikatorze** w sekcji **Konfiguracja saml podstawowy servicenow** w witrynie Azure portal.
+        * Skopiuj wartość **Identyfikator jednostki/wystawcy** . Wklej ją w polu **Identyfikator** w sekcji **usługi SERVICENOW podstawowe konfigurowanie SAML** w Azure Portal.
 
-        * Upewnij się, że zasada `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` **NameID** jest ustawiona na wartość.
+        * Upewnij się, że **zasady NameID** są `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` ustawione na wartość.
 
-        * Wybierz **pozycję Zaawansowane**. W **polu użytkownika**wprowadź adres **e-mail**.
+        * Wybierz pozycję **Zaawansowane**. W **polu Użytkownik**wprowadź **adres e-mail**.
 
             > [!NOTE]
-            > Można skonfigurować usługę Azure AD do emitowania identyfikatora użytkownika usługi Azure AD (nazwa główna użytkownika) lub adresu e-mail jako unikatowego identyfikatora w tokenie SAML. W tym celu przechodząc do **servicenow** > **atrybuty** > **logowania jednokrotnego** sekcji witryny Azure portal i mapowanie żądanego pola do **atrybutu nameidentifier.** Wartość przechowywana dla wybranego atrybutu w usłudze Azure AD (na przykład nazwa główna użytkownika) musi być zgodna z wartością przechowywaną w servicenow dla wprowadzonego pola (na przykład user_name).
+            > Usługę Azure AD można skonfigurować do emisji identyfikatora użytkownika usługi Azure AD (głównej nazwy użytkownika) lub adresu e-mail jako unikatowego identyfikatora w tokenie SAML. W tym celu należy przejść do sekcji **usługi ServiceNow** > **atrybutów** > **logowania** jednokrotnego w Azure Portal i mapowania żądanego pola na atrybut **NameIdentifier** . Wartość przechowywana dla wybranego atrybutu w usłudze Azure AD (na przykład główna nazwa użytkownika) musi być zgodna z wartością przechowywaną w usługi ServiceNow dla wprowadzonego pola (na przykład user_name).
 
-        * Wybierz **opcję Testuj połączenie** w prawym górnym rogu strony.
+        * Wybierz pozycję **Testuj połączenie** w prawym górnym rogu strony.
 
           > [!NOTE]
-          > Jeśli połączenie testowe nie powiódł się i nie można aktywować tego połączenia, usługa ServiceNow oferuje przełącznik zastępowania. Musisz wprowadzić **Sys_properties. LISTA** w **nawigacji wyszukiwania** i otworzy nową stronę Właściwości systemu. W tym miejscu należy utworzyć nową właściwość o nazwie **glide.authenticate.multisso.test.mandatory** z **typem danych** jako **Prawda/Fałsz,** a następnie ustawić **wartość** jako **False**.
+          > Jeśli połączenie testowe kończy się niepowodzeniem i nie można aktywować tego połączenia, usługi ServiceNow oferuje przełącznik przesłonięcia. Musisz wprowadzić **Sys_properties. Lista** w obszarze **nawigacji wyszukiwania** i zostanie otwarta nowa strona właściwości systemu. W tym miejscu trzeba utworzyć nową właściwość o nazwie **Glide. Authenticate. multisso. test. Connection. obowiązkowy** z **typem danych** jako **true/false** , a następnie ustawić **wartość** **false**.
 
           > ![Zrzut ekranu przedstawiający stronę Wyniki testów](./media/servicenow-tutorial/testconnection-fail.png "Konfigurowanie logowania jednokrotnego")
 
-        * Gdy zostaniesz poproszony o podanie danych uwierzytelniających, wprowadź je. Zobaczysz następną stronę. Oczekiwany jest błąd **wyników testu logowania** logowania logowania. Zignoruj błąd i wybierz pozycję **Aktywuj**.
+        * Po wyświetleniu monitu o podanie poświadczeń wprowadź je. Zostanie wyświetlona następująca strona. Jest oczekiwany błąd **wyniki testów wylogowywania z logowaniem jednokrotnym** . Zignoruj błąd i wybierz pozycję **Aktywuj**.
 
           ![Zrzut ekranu przedstawiający stronę Wyniki testów](./media/servicenow-tutorial/servicenowactivate.png "Konfigurowanie logowania jednokrotnego")
 
 ### <a name="create-servicenow-test-user"></a>Tworzenie użytkownika testowego usługi ServiceNow
 
-Celem tej sekcji jest utworzenie użytkownika o nazwie B.Simon w ServiceNow. ServiceNow obsługuje automatyczne inicjowanie obsługi administracyjnej użytkowników, która jest domyślnie włączona.
+Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w usługi ServiceNow. Usługi ServiceNow obsługuje automatyczne Inicjowanie obsługi użytkowników, która jest domyślnie włączona.
 
 > [!NOTE]
-> Jeśli chcesz ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej klienta ServiceNow](https://www.servicenow.com/support/contact-support.html).
+> Jeśli musisz ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej usługi ServiceNow](https://www.servicenow.com/support/contact-support.html).
 
-### <a name="configure-servicenow-express-sso"></a>Konfigurowanie usługi ServiceNow Express — sygatora SYC
+### <a name="configure-servicenow-express-sso"></a>Konfigurowanie logowania jednokrotnego usługi ServiceNow Express
 
 1. Zaloguj się do swojej aplikacji ServiceNow Express jako administrator.
 
 2. W lewym okienku wybierz pozycję **Logowanie jednokrotne**.
 
-    ![Zrzut ekranu przedstawiający aplikację ServiceNow Express z wyróżnioną wykąpią się z logiem jednokrotnym](./media/servicenow-tutorial/ic7694980ex.png "Konfigurowanie adresu URL aplikacji")
+    ![Zrzut ekranu aplikacji usługi ServiceNow Express z wyróżnionym logowaniem jednokrotnym](./media/servicenow-tutorial/ic7694980ex.png "Konfiguruj adres URL aplikacji")
 
-3. W oknie dialogowym **Logowanie jednokrotne** wybierz ikonę konfiguracji w prawym górnym rogu i ustaw następujące właściwości:
+3. W oknie dialogowym **Logowanie** jednokrotne wybierz ikonę konfiguracji w prawym górnym rogu, a następnie ustaw następujące właściwości:
 
-    ![Zrzut ekranu przedstawiający okno dialogowe Logowanie jednokrotne](./media/servicenow-tutorial/ic7694981ex.png "Konfigurowanie adresu URL aplikacji")
+    ![Zrzut ekranu okna dialogowego Logowanie jednokrotne](./media/servicenow-tutorial/ic7694981ex.png "Konfiguruj adres URL aplikacji")
 
     a. Przestaw przełącznik **Enable multiple provider SSO** (Włącz logowanie jednokrotne u wielu dostawców) w prawo.
 
     b. Przestaw przełącznik **Enable debug logging for the multiple provider SSO integration** (Włącz rejestrowanie debugowania dla integracji logowania jednokrotnego u wielu dostawców) w prawo.
 
-    d. W **polu w tabeli użytkownika, które...**, wprowadź **user_name**.
+    c. W **polu tabeli User (użytkownik**) wpisz **user_name**.
 
-4. W oknie dialogowym **Logowanie jednokrotne** wybierz pozycję **Dodaj nowy certyfikat**.
+4. W oknie dialogowym **Logowanie** jednokrotne wybierz pozycję **Dodaj nowy certyfikat**.
 
-    ![Zrzut ekranu przedstawiający okno dialogowe Logowanie jednokrotne z wyróżnioną podaniem nowego certyfikatu](./media/servicenow-tutorial/ic7694973ex.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu okna dialogowego Logowanie jednokrotne z wyróżnionym przyciskiem Dodaj nowy certyfikat](./media/servicenow-tutorial/ic7694973ex.png "Konfigurowanie logowania jednokrotnego")
 
-5. W oknie dialogowym **Certyfikaty X.509** wykonaj następujące czynności:
+5. W oknie dialogowym **certyfikaty X. 509** wykonaj następujące czynności:
 
-    ![Zrzut ekranu przedstawiający okno dialogowe Certyfikaty X.509](./media/servicenow-tutorial/ic7694975.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu przedstawiający okno dialogowe certyfikaty X. 509](./media/servicenow-tutorial/ic7694975.png "Konfigurowanie logowania jednokrotnego")
 
-    a. W przeglądarce **Nazwa**wprowadź nazwę konfiguracji (na przykład: **TestSAML2.0**).
+    a. W obszarze **Nazwa**wprowadź nazwę konfiguracji (na przykład: **testsaml 2.0**).
 
     b. Wybierz pozycję **Active** (Aktywne).
 
-    d. W przypadku **opcji Format**wybierz polecenie **PEM**.
+    c. W obszarze **Format**wybierz opcję **PEM**.
 
-    d. W obszarze **Typ**wybierz pozycję **Cert magazynu zaufania**.
+    d. W obszarze **Typ**wybierz pozycję **certyfikat magazynu zaufania**.
 
-    e. Otwórz certyfikat zakodowany w standardzie Base64 pobrany z witryny Azure portal w Notatniku. Skopiuj jego zawartość do schowka, a następnie wklej ją do pola tekstowego **Certyfikat PEM.**
+    e. Otwórz certyfikat szyfrowanego algorytmem Base64 pobrany z Azure Portal w Notatniku. Skopiuj zawartość IT do schowka, a następnie wklej ją do pola tekstowego **certyfikat PEM** .
 
-    f. Wybierz **pozycję Aktualizuj**
+    f. Wybierz **aktualizację**
 
-6. W oknie dialogowym **Logowanie jednokrotne** wybierz pozycję **Dodaj nowy idP**.
+6. W oknie dialogowym **Logowanie** jednokrotne wybierz pozycję **Dodaj nowy dostawcy tożsamości**.
 
-    ![Zrzut ekranu przedstawiający okno dialogowe Logowanie jednokrotne z wyróżnionym znakiem Add New IdP](./media/servicenow-tutorial/ic7694976ex.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu okna dialogowego logowania jednokrotnego z wyróżnioną pozycją Dodaj nowe dostawcy tożsamości](./media/servicenow-tutorial/ic7694976ex.png "Konfigurowanie logowania jednokrotnego")
 
 7. W oknie dialogowym **Dodawanie nowego dostawcy tożsamości** w obszarze **Konfigurowanie dostawcy tożsamości**wykonaj następujące czynności:
 
     ![Zrzut ekranu przedstawiający okno dialogowe Dodawanie nowego dostawcy tożsamości](./media/servicenow-tutorial/ic7694982ex.png "Konfigurowanie logowania jednokrotnego")
 
-    a. W **yjmij nazwę**, wprowadź nazwę konfiguracji (na przykład: **SAML 2.0**).
+    a. W obszarze **Nazwa**wprowadź nazwę konfiguracji (na przykład: **SAML 2,0**).
 
-    b. W przypadku **adresu URL dostawcy tożsamości**wklej wartość identyfikatora dostawcy tożsamości skopiowanego z witryny Azure portal.
+    b. W polu **adres URL dostawcy tożsamości**wklej wartość identyfikatora dostawcy tożsamości skopiowanego z Azure Portal.
 
-    d. W przypadku **AuthnRequest dostawcy tożsamości**wklej wartość adresu URL żądania uwierzytelniania skopiowanego z witryny Azure portal.
+    c. W przypadku **AuthnRequest dostawcy tożsamości**wklej wartość adresu URL żądania uwierzytelniania skopiowanego z Azure Portal.
 
-    d. W przypadku **wyjątku SingleLogoutRequest dostawcy tożsamości**wklej wartość adresu URL wylogowania skopiowanego z witryny Azure portal.
+    d. W przypadku **SingleLogoutRequest dostawcy tożsamości**wklej wartość adresu URL wylogowywania skopiowanego z Azure Portal.
 
     e. W przypadku **certyfikatu dostawcy tożsamości**wybierz certyfikat utworzony w poprzednim kroku.
 
-8. Wybierz pozycję **Ustawienia zaawansowane**. W obszarze **Właściwości dodatkowego dostawcy tożsamości**wykonaj następujące czynności:
+8. Wybierz pozycję **Ustawienia zaawansowane**. W obszarze **dodatkowe właściwości dostawcy tożsamości**wykonaj następujące czynności:
 
-    ![Zrzut ekranu przedstawiający okno dialogowe Dodawanie nowego dostawcy tożsamości z wyróżnioną pojednawcze ustawieniami zaawansowanymi](./media/servicenow-tutorial/ic7694983ex.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu przedstawiający okno dialogowe Dodawanie nowego dostawcy tożsamości z wyróżnionymi ustawieniami zaawansowanymi](./media/servicenow-tutorial/ic7694983ex.png "Konfigurowanie logowania jednokrotnego")
 
-    a. W przypadku **powiązania protokołu dla pojedynczego zapisu IDP**wprowadź **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
+    a. Dla **powiązania protokołu dla SINGLELOGOUTREQUEST dostawcy tożsamości**, wprowadź **nazwę urn: języka Oasis: names: TC: SAML: 2.0: bindings: http-redirect**.
 
-    b. Dla **NameID Policy**, wprowadź **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**.
+    b. W przypadku **zasad NameID**wprowadź **nazwę urn: języka Oasis: names: TC: SAML: 1.1: NameID-format: nieokreślone**.
 
-    d. W przypadku **metody AuthnContextClassRef**wprowadź . `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`
+    c. W przypadku **metody AuthnContextClassRef**wprowadź `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`.
 
-    d. W przypadku **opcji Utwórz AuthnContextClass**przełącz ją na wyłączona (niezaznaczona).
+    d. W przypadku **tworzenia elementu AuthnContextClass**Przełącz go na wyłączony (niezaznaczony).
 
 9. W obszarze **Additional Service Provider Properties** (Dodatkowe właściwości dostawcy usług) wykonaj następujące kroki:
 
     ![Zrzut ekranu przedstawiający okno dialogowe Dodawanie nowego dostawcy tożsamości z wyróżnionymi różnymi właściwościami](./media/servicenow-tutorial/ic7694984ex.png "Konfigurowanie logowania jednokrotnego")
 
-    a. W przypadku **strony głównej ServiceNow**wprowadź adres URL strony głównej wystąpienia ServiceNow.
+    a. Dla **strony głównej usługi ServiceNow**wprowadź adres URL strony głównej wystąpienia usługi usługi ServiceNow.
 
     > [!NOTE]
     > Strona główna wystąpienia usługi ServiceNow składa się z **adresu URL Twojej dzierżawy ServiceNow** i ciągu **/navpage.do** (na przykład: `https://fabrikam.service-now.com/navpage.do`).
 
-    b. W przypadku **identyfikatora jednostki / wystawcy**wprowadź adres URL dzierżawy ServiceNow.
+    b. Dla **identyfikatora jednostki/wystawcy**wprowadź adres URL dzierżawy usługi usługi ServiceNow.
 
-    d. W przypadku **identyfikatora URI odbiorców**wprowadź adres URL dzierżawy ServiceNow.
+    c. W polu **Identyfikator URI odbiorców**wprowadź adres URL dzierżawy usługi usługi ServiceNow.
 
-    d. Dla **Clock Skew**, wprowadź **60**.
+    d. W przypadku **przesunięcia zegara**wprowadź **60**.
 
-    e. W polu **Użytkownik**wprowadź adres **e-mail**.
+    e. W **polu Użytkownik**wprowadź **adres e-mail**.
 
     > [!NOTE]
-    > Można skonfigurować usługę Azure AD do emitowania identyfikatora użytkownika usługi Azure AD (nazwa główna użytkownika) lub adresu e-mail jako unikatowego identyfikatora w tokenie SAML. W tym celu przechodząc do **servicenow** > **atrybuty** > **logowania jednokrotnego** sekcji witryny Azure portal i mapowanie żądanego pola do **atrybutu nameidentifier.** Wartość przechowywana dla wybranego atrybutu w usłudze Azure AD (na przykład nazwa główna użytkownika) musi być zgodna z wartością przechowywaną w servicenow dla wprowadzonego pola (na przykład user_name).
+    > Usługę Azure AD można skonfigurować do emisji identyfikatora użytkownika usługi Azure AD (głównej nazwy użytkownika) lub adresu e-mail jako unikatowego identyfikatora w tokenie SAML. W tym celu należy przejść do sekcji **usługi ServiceNow** > **atrybutów** > **logowania** jednokrotnego w Azure Portal i mapowania żądanego pola na atrybut **NameIdentifier** . Wartość przechowywana dla wybranego atrybutu w usłudze Azure AD (na przykład główna nazwa użytkownika) musi być zgodna z wartością przechowywaną w usługi ServiceNow dla wprowadzonego pola (na przykład user_name).
 
-    f. Wybierz **pozycję Zapisz**.
+    f. Wybierz pozycję **Zapisz**.
 
-## <a name="test-sso"></a>Test SSO
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-Po wybraniu kafelka ServiceNow w Panelu dostępu należy automatycznie zalogować się do ServiceNow, dla którego skonfigurowano logującą się logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu kafelka usługi ServiceNow w panelu dostępu należy automatycznie zalogować się do usługi ServiceNow, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="test-sso-for-servicenow-classic-mobile"></a>Test SSO dla ServiceNow Classic (Mobile)
+## <a name="test-sso-for-servicenow-classic-mobile"></a>Testowanie logowania jednokrotnego dla usługi ServiceNow klasyczny (Mobile)
 
-1. Otwórz aplikację **ServiceNow Classic (Mobile)** i wykonaj następujące czynności:
+1. Otwórz aplikację **klasyczną usługi ServiceNow (Mobile)** i wykonaj następujące czynności:
 
     a. Wybierz znak plus w prawym dolnym rogu.
 
-    ![Zrzut ekranu przedstawiający aplikację ServiceNow Classic z podświetlenym znakiem plus](./media/servicenow-tutorial/test03.png)
+    ![Zrzut ekranu aplikacji klasycznej usługi ServiceNow z wyróżnionym znakiem plus](./media/servicenow-tutorial/test03.png)
 
-    b. Wprowadź nazwę wystąpienia ServiceNow i wybierz pozycję **Kontynuuj**.
+    b. Wprowadź nazwę wystąpienia usługi ServiceNow, a następnie wybierz pozycję **Kontynuuj**.
 
-    ![Zrzut ekranu przedstawiający stronę Dodaj wystąpienie z wyróżnioną wyróżnioną pozycją Kontynuuj](./media/servicenow-tutorial/test04.png)
+    ![Zrzut ekranu przedstawiający stronę Dodawanie wystąpienia z wyróżnioną pozycją Kontynuuj](./media/servicenow-tutorial/test04.png)
 
-    d. Na stronie **Logowanie** wykonaj następujące czynności:
+    c. Na stronie **Logowanie** wykonaj następujące czynności:
 
-    ![Zrzut ekranu przedstawiający stronę Logowania z wyróżnionym funkcją Użyj logowania zewnętrznego](./media/servicenow-tutorial/test01.png)
+    ![Zrzut ekranu strony logowania z wyróżnionym użyciem logowania zewnętrznego](./media/servicenow-tutorial/test01.png)
 
-    *  Wprowadź **nazwę** B.simon@contoso.comużytkownika , jak .
+    *  Wprowadź **nazwę użytkownika**, B.simon@contoso.comna przykład.
 
-    *  Wybierz **OPCJĘ UŻYJ LOGOWANIA ZEWNĘTRZNEGO**. Zostaniesz przekierowany do strony usługi Azure AD w celu zalogowania się.
+    *  Wybierz pozycję **Użyj logowania zewnętrznego**. Nastąpi przekierowanie do strony usługi Azure AD w celu zalogowania się.
 
-    *  Wprowadź poświadczenia. Jeśli istnieje uwierzytelnianie innych firm lub włączono jakąkolwiek inną funkcję zabezpieczeń, użytkownik musi odpowiednio odpowiedzieć. Zostanie wyświetlona **strona główna** aplikacji.
+    *  Wprowadź poświadczenia. Jeśli istnieje jakiekolwiek uwierzytelnianie innej firmy lub jakakolwiek inna funkcja zabezpieczeń włączona, użytkownik musi odpowiednio odpowiedzieć. Zostanie wyświetlona **Strona główna** aplikacji.
 
         ![Zrzut ekranu przedstawiający stronę główną aplikacji](./media/servicenow-tutorial/test02.png)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Konfigurowanie aprowizacji użytkowników](servicenow-provisioning-tutorial.md)
 
-- [Wypróbuj usługę ServiceNow z usługą Azure AD](https://aad.portal.azure.com)
+- [Wypróbuj usługi ServiceNow z usługą Azure AD](https://aad.portal.azure.com)
 
-- [Co to jest kontrola sesji w usłudze Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
 
-- [Jak chronić ServiceNow dzięki zaawansowanej widoczności i kontrolom](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Jak chronić usługi ServiceNow z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

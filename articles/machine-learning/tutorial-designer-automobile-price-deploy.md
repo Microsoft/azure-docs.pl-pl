@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek: Wdrażanie modelu uczenia maszynowego z projektantem'
+title: 'Samouczek: Wdrażanie modelu uczenia maszynowego za pomocą narzędzia Projektant'
 titleSuffix: Azure Machine Learning
-description: W tym samouczku pokazano, jak utworzyć rozwiązanie analizy predykcyjnej w projektancie usługi Azure Machine Learning (wersja zapoznawcza). Trenuj, oceniaj i wdrażaj model uczenia maszynowego przy użyciu modułów przeciągania i upuszczania.
+description: W tym samouczku przedstawiono sposób tworzenia rozwiązania do analizy predykcyjnej w programie Azure Machine Learning Designer (wersja zapoznawcza). Uczenie, ocenę i wdrożenie modelu uczenia maszynowego przy użyciu modułów przeciągania i upuszczania.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -10,87 +10,87 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.openlocfilehash: c3ca37fd47b6551a95f9a491053ec7863acd1eeb
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80389396"
 ---
-# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Samouczek: Wdrażanie modelu uczenia maszynowego z projektantem (wersja zapoznawcza)
+# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Samouczek: Wdrażanie modelu uczenia maszynowego za pomocą narzędzia Projektant (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Można wdrożyć model predykcyjny opracowany w [części pierwsza samouczka,](tutorial-designer-automobile-price-train-score.md) aby dać innym szansę na jego użycie. W części pierwsze, trenowałeś swój model. Teraz nadszedł czas, aby wygenerować nowe prognozy na podstawie danych wejściowych użytkownika. W tej części samouczka zostaną wykonane następujące czynności:
+Można wdrożyć model predykcyjny opracowany w pierwszej części [samouczka](tutorial-designer-automobile-price-train-score.md) , aby dać innym osobom szansę korzystania z niego. W części pierwszej został przeszkolony model. Teraz można generować nowe prognozy na podstawie danych wejściowych użytkownika. W tej części samouczka zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
-> * Tworzenie potoku wnioskowania w czasie rzeczywistym.
-> * Tworzenie klastra wnioskowania.
-> * Wdrażanie punktu końcowego w czasie rzeczywistym.
+> * Utwórz potok wnioskowania w czasie rzeczywistym.
+> * Utwórz klaster inferencing.
+> * Wdróż punkt końcowy w czasie rzeczywistym.
 > * Przetestuj punkt końcowy w czasie rzeczywistym.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ukończ [część pierwsza samouczka,](tutorial-designer-automobile-price-train-score.md) aby dowiedzieć się, jak trenować i oceniać model uczenia maszynowego w projektancie.
+Wykonaj [jedną z części samouczka](tutorial-designer-automobile-price-train-score.md) , aby dowiedzieć się, jak szkolić i oceny model uczenia maszynowego w projektancie.
 
-## <a name="create-a-real-time-inference-pipeline"></a>Tworzenie potoku wnioskowania w czasie rzeczywistym
+## <a name="create-a-real-time-inference-pipeline"></a>Tworzenie potoku w czasie rzeczywistym
 
-Aby wdrożyć potok, należy najpierw przekonwertować potok szkolenia w potoku wnioskowania w czasie rzeczywistym. Ten proces usuwa moduły szkoleniowe i dodaje dane wejściowe i wyjściowe usługi sieci web do obsługi żądań.
+Aby wdrożyć potok, należy najpierw skonwertować potok szkoleniowy do potoku w czasie rzeczywistym. Ten proces powoduje usunięcie modułów szkoleniowych i dodanie danych wejściowych i wyjściowych usługi sieci Web do obsługi żądań.
 
-### <a name="create-a-real-time-inference-pipeline"></a>Tworzenie potoku wnioskowania w czasie rzeczywistym
+### <a name="create-a-real-time-inference-pipeline"></a>Tworzenie potoku w czasie rzeczywistym
 
-1. Nad kanwą potoku wybierz pozycję **Utwórz potok** > wnioskowania w**czasie rzeczywistym.**
+1. Nad kanwą potoku wybierz pozycję **Utwórz** > **potok wnioskowania w czasie rzeczywistym**.
 
-    ![Zrzut ekranu przedstawiający, gdzie można znaleźć przycisk utwórz potok](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
+    ![Zrzut ekranu przedstawiający miejsce znalezienia przycisku Utwórz potok](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
 
     Potok powinien teraz wyglądać następująco: 
 
    ![Zrzut ekranu przedstawiający oczekiwaną konfigurację potoku po przygotowaniu go do wdrożenia](./media/tutorial-designer-automobile-price-deploy/real-time-inference-pipeline.png)
 
-    Po wybraniu opcji **Utwórz potok wnioskowania**dzieje się kilka rzeczy:
+    Po wybraniu opcji **Utwórz potok wnioskowania**kilka rzeczy zostanie wykonanych:
     
-    * Przeszkolony model jest przechowywany jako moduł **zestawu danych** w palecie modułów. Można go znaleźć w obszarze **Moje zestawy danych**.
-    * Moduły szkoleniowe, takie jak **model pociągu** i **dane podzielone,** są usuwane.
-    * Zapisany model przeszkolony jest dodawany z powrotem do potoku.
-    * **Dodano moduły wprowadzania i** **wyjścia usługi sieci Web.** Te moduły pokazują, gdzie dane użytkownika wprowadza potok i gdzie dane są zwracane.
+    * Szkolony model jest przechowywany jako moduł **DataSet** w palecie modułów. Można go znaleźć w obszarze **Moje zestawy danych**.
+    * Moduły szkoleniowe, takie jak **model uczenia** i **dane podzielone** , są usuwane.
+    * Zapisany model przeszkolony zostanie dodany z powrotem do potoku.
+    * Dodawane są moduły danych **wejściowych** i **usług** sieci Web. Te moduły pokazują, gdzie dane użytkownika są wprowadzane do potoku i gdzie są zwracane dane.
 
     > [!NOTE]
-    > Domyślnie **dane wejściowe usługi sieci Web** będą oczekiwać tego samego schematu danych, co dane szkoleniowe używane do tworzenia potoku predykcyjnego. W tym scenariuszu cena jest uwzględniona w schemacie. Jednak cena nie jest używany jako czynnik podczas przewidywania.
+    > Domyślnie dane **wejściowe usługi sieci Web** będą oczekiwać tego samego schematu danych co dane szkoleniowe, które są używane do tworzenia potoku predykcyjnego. W tym scenariuszu cena jest uwzględniona w schemacie. Cena nie jest jednak używana jako współczynnik podczas przewidywania.
     >
 
-1. Wybierz **opcję Prześlij**i użyj tego samego celu obliczeniowego i eksperymentu, który został użyty w części 1.
+1. Wybierz pozycję **Prześlij**, a następnie użyj tego samego elementu docelowego obliczeń i eksperymentu, który został użyty w części pierwszej.
 
-    Jeśli jest to pierwsze uruchomienie, może upłynąć do 20 minut, aby zakończyć uruchamianie potoku. Domyślne ustawienia obliczeniowe mają minimalny rozmiar węzła 0, co oznacza, że projektant musi przydzielić zasoby po bezczynności. Powtarzające się przebiegi potoku zajmie mniej czasu, ponieważ zasoby obliczeniowe są już przydzielone. Ponadto projektant używa buforowanych wyników dla każdego modułu, aby jeszcze bardziej zwiększyć wydajność.
+    Jeśli jest to pierwsze uruchomienie, ukończenie potoku może potrwać do 20 minut. Domyślne ustawienia obliczeń mają minimalny rozmiar węzła równy 0, co oznacza, że projektant musi przydzielić zasoby po stanie bezczynności. Powtarzające się uruchomienia potoku będą trwać krócej od czasu przydziału zasobów obliczeniowych. Ponadto projektant używa buforowanych wyników dla każdego modułu, aby zwiększyć wydajność.
 
 1. Wybierz pozycję **Wdróż**.
 
-## <a name="create-an-inferencing-cluster"></a>Tworzenie klastra wnioskowania
+## <a name="create-an-inferencing-cluster"></a>Tworzenie klastra inferencing
 
-W wyświetlonym oknie dialogowym można wybrać z dowolnego istniejącego klastra usługi Azure Kubernetes Service (AKS), aby wdrożyć model. Jeśli nie masz klastra AKS, użyj następujących kroków, aby go utworzyć.
+W wyświetlonym oknie dialogowym możesz wybrać dowolny z istniejących klastrów usługi Azure Kubernetes Service (AKS), aby wdrożyć model. Jeśli nie masz klastra AKS, wykonaj następujące kroki, aby go utworzyć.
 
-1. Wybierz **pozycję Oblicz** w oknie dialogowym, które wydaje się przechodzić do strony **Obliczenia.**
+1. Wybierz pozycję **obliczenia** w wyświetlonym oknie dialogowym, aby przejść do strony **obliczenia** .
 
-1. Na wstążce nawigacji wybierz pozycję **Klastry wnioskowania** > **+ Nowy**.
+1. Na Wstążce Nawigacja wybierz pozycję >  **klastry wnioskowania****+ Nowy**.
 
-    ![Zrzut ekranu przedstawiający sposób dostania się do nowego okienka klastra wnioskowania](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
+    ![Zrzut ekranu przedstawiający sposób uzyskiwania do okienka nowy klaster wnioskowania](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
 
-1. W okienku klastra wnioskowania skonfiguruj nową usługę Kubernetes.
+1. W okienku klaster wnioskowania Skonfiguruj nową usługę Kubernetes.
 
-1. Wprowadź *aks-compute* dla **nazwy Obliczeń**.
+1. Wprowadź *AKS-COMPUTE* dla **nazwy obliczeniowej**.
     
-1. Wybierz pobliski region, który jest dostępny dla **regionu**.
+1. Wybierz region znajdujący się w pobliżu, który jest dostępny dla **regionu**.
 
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
     > [!NOTE]
-    > Utworzenie nowej usługi AKS zajmuje około 15 minut. Stan inicjowania obsługi administracyjnej można sprawdzić na stronie **Klastry wnioskowania.**
+    > Utworzenie nowej usługi AKS trwa około 15 minut. Stan aprowizacji można sprawdzić na stronie **klastry wnioskowania** .
     >
 
 ## <a name="deploy-the-real-time-endpoint"></a>Wdrażanie punktu końcowego w czasie rzeczywistym
 
-Po zakończeniu inicjowania obsługi administracyjnej usługi AKS wróć do potoku wnioskowania w czasie rzeczywistym, aby zakończyć wdrażanie.
+Po zakończeniu aprowizacji usługi AKS Wróć do potoku inferencing w czasie rzeczywistym, aby zakończyć wdrażanie.
 
-1. Wybierz **pozycję Wdrażanie** nad kanwą.
+1. Wybierz pozycję **Wdróż** powyżej kanwy.
 
-1. Wybierz **pozycję Wdrażanie nowego punktu końcowego w czasie rzeczywistym**. 
+1. Wybierz pozycję **wdróż nowy punkt końcowy**w czasie rzeczywistym. 
 
 1. Wybierz utworzony klaster AKS.
 
@@ -98,23 +98,23 @@ Po zakończeniu inicjowania obsługi administracyjnej usługi AKS wróć do poto
 
     ![Zrzut ekranu przedstawiający sposób konfigurowania nowego punktu końcowego w czasie rzeczywistym](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
 
-    Powiadomienie o powodzenie nad kanwą pojawia się po zakończeniu wdrażania. Może to potrwać kilka minut.
+    Powiadomienie o powodzeniu powyżej kanwy pojawia się po zakończeniu wdrażania. Może to potrwać kilka minut.
 
 ## <a name="test-the-real-time-endpoint"></a>Testowanie punktu końcowego w czasie rzeczywistym
 
-Po zakończeniu wdrażania można przetestować punkt końcowy w czasie rzeczywistym, przechodząc do punktu **końcowego** strony.
+Po zakończeniu wdrażania można testować punkt końcowy w czasie rzeczywistym, przechodząc do strony **punkty końcowe** .
 
-1. Na stronie **Punkty końcowe** wybierz wdrożony punkt końcowy.
+1. Na stronie **punkty końcowe** Wybierz wdrożony punkt końcowy.
 
-    ![Zrzut ekranu przedstawiający kartę punktów końcowych w czasie rzeczywistym z wyróżnionym ostatnio utworzonym punktem końcowym](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
+    ![Zrzut ekranu przedstawiający kartę punkty końcowe czasu rzeczywistego z wyróżnionym ostatnio utworzonym punktem końcowym](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
 
 1. Kliknij przycisk **Testuj**.
 
-1. Można ręcznie wprowadzić dane testowe lub użyć automatycznie wypełnionych przykładowych danych i wybrać **opcję Testuj**.
+1. Możesz ręcznie wprowadzić dane testowe lub użyć autowypełnianych danych przykładowych, a następnie wybrać opcję **Testuj**.
 
-    Portal przesyła żądanie testu do punktu końcowego i pokazuje wyniki. Mimo że wartość ceny jest generowana dla danych wejściowych, nie jest używana do generowania wartości przewidywania.
+    Portal przesyła żądanie testowe do punktu końcowego i wyświetla wyniki. Mimo że dla danych wejściowych jest generowana wartość ceny, nie jest ona używana do generowania wartości przewidywania.
 
-    ![Zrzut ekranu przedstawiający sposób testowania punktu końcowego w czasie rzeczywistym z wyróżnioną etykietą punktową pod kątem ceny](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
+    ![Zrzut ekranu przedstawiający sposób testowania punktu końcowego w czasie rzeczywistym z etykietą z oceną dla wyróżnionej ceny](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -122,7 +122,7 @@ Po zakończeniu wdrażania można przetestować punkt końcowy w czasie rzeczywi
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku poznaliście kluczowe kroki dotyczące tworzenia, wdrażania i korzystania z modelu uczenia maszynowego w projektancie. Aby dowiedzieć się więcej o tym, jak można użyć projektanta do rozwiązywania innych typów problemów, zobacz nasze inne przykładowe potoki.
+W tym samouczku przedstawiono najważniejsze kroki w temacie Tworzenie, wdrażanie i Używanie modelu uczenia maszynowego w projektancie. Aby dowiedzieć się więcej o sposobach rozwiązywania innych rodzajów problemów za pomocą projektanta, zobacz nasze inne przykładowe potoki.
 
 > [!div class="nextstepaction"]
 > [Przykłady projektanta](samples-designer.md)

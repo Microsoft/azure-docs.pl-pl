@@ -1,18 +1,18 @@
 ---
-title: 'Samouczek: Przewidywanie intencji — usługa LUIS'
+title: 'Samouczek: przewidywanie zamiarów — LUIS'
 description: W tym samouczku utworzysz niestandardową aplikację, która będzie przewidywać intencje użytkownika. Ta aplikacja to najprostszy rodzaj aplikacji usługi LUIS, ponieważ nie wyodrębnia ona z tekstu wypowiedzi różnych elementów danych, takich jak adresy e-mail czy daty.
 ms.topic: tutorial
 ms.date: 03/24/2020
 ms.openlocfilehash: c58c96f717de77c065d7f844928714eb4fb3e4db
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80286748"
 ---
-# <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Samouczek: Tworzenie aplikacji usługi LUIS w celu określenia intencji użytkownika
+# <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Samouczek: Tworzenie aplikacji LUIS w celu określenia zamiarów użytkownika
 
-W tym samouczku utworzysz niestandardową aplikację, która przewiduje zamiar użytkownika na podstawie wypowiedź (tekst).
+W tym samouczku utworzysz aplikację niestandardową, która przewiduje zamiar użytkownika w oparciu o wypowiedź (tekst).
 
 **Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
 
@@ -22,7 +22,7 @@ W tym samouczku utworzysz niestandardową aplikację, która przewiduje zamiar u
 > * Dodawanie przykładowych wypowiedzi
 > * Szkolenie aplikacji
 > * Publikowanie aplikacji
-> * Pobierz przewidywanie intencji z punktu końcowego
+> * Pobierz prognozowanie intencji z punktu końcowego
 
 ## <a name="user-intentions-as-intents"></a>Zamiary użytkownika jako intencje
 
@@ -34,10 +34,10 @@ Intencje są podzielone na kategorie **intencji**.
 
 |Intencja|Przeznaczenie|
 |--|--|
-|`ModifyOrder`|Określ zamówienie pizzy użytkownika.|
-|`Greeting`|Rozpocznij konwersację bota.|
-|`ConfirmOrder`|Potwierdź zamówienie pizzy.|
-|`None`|Sprawdź, czy użytkownik pyta o coś, na co aplikacja nie powinna odpowiadać. Ta intencja jest dostarczana jako część procesu tworzenia aplikacji i nie można jej usunąć. |
+|`ModifyOrder`|Określ kolejność Pizza użytkownika.|
+|`Greeting`|Rozpocznij KONWERSACJĘ bot.|
+|`ConfirmOrder`|Potwierdź zamówienie Pizza.|
+|`None`|Ustal, czy użytkownik jest proszony o to, że aplikacja nie powinna odpowiedzieć. Ta intencja jest dostarczana jako część procesu tworzenia aplikacji i nie można jej usunąć. |
 
 ## <a name="create-a-new-app"></a>Tworzenie nowej aplikacji
 
@@ -45,17 +45,17 @@ Intencje są podzielone na kategorie **intencji**.
 
 ## <a name="create-a-new-intent"></a>Tworzenie nowej intencji
 
-Intencja jest używana do klasyfikowania wypowiedzi użytkownika na podstawie intencji użytkownika, określone na podstawie tekstu języka naturalnego.
+Zamiar służy do klasyfikowania wyrażenia długości użytkowników na podstawie zamiaru użytkownika, określonego na podstawie tekstu w języku naturalnym.
 
-Aby sklasyfikować wypowiedź, intencji potrzebuje przykładów wypowiedzi użytkownika, które powinny być klasyfikowane z tej intencji.
+W celu klasyfikowania wypowiedź wymaga przykładów użytkownika wyrażenia długości, które powinny być klasyfikowane przy użyciu tego zamiaru.
 
-1. W sekcji **Kompilacja** na stronie **Intencje** wybierz pozycję **+ Utwórz,** aby utworzyć nową intencję. Wprowadź nową nazwę `OrderPizza`intencji, a następnie wybierz pozycję **Gotowe**.
+1. W sekcji **kompilacja** na stronie **intencje** wybierz pozycję **+ Utwórz** , aby utworzyć nowy cel. Wprowadź nazwę nowego celu, `OrderPizza`a następnie wybierz pozycję **gotowe**.
 
-    Intencja `OrderPizza` jest przewidywana, gdy użytkownik chce zamówić pizzę.
+    Zamiar jest przewidywany, `OrderPizza` gdy użytkownik chce zamówić Pizza.
 
 1. Dodaj kilka przykładowych wypowiedzi do tej intencji — takich, których spodziewasz się ze strony użytkownika:
 
-    |`OrderPizza`przykładowe wypowiedzi|
+    |`OrderPizza`przykład wyrażenia długości|
     |--|
     |`can i get a pepperoni pizza and a can of coke please`|
     |`can i get a small pizza with onions peppers and olives`|
@@ -66,15 +66,15 @@ Aby sklasyfikować wypowiedź, intencji potrzebuje przykładów wypowiedzi użyt
 
     ![Dodawanie przykładowych wypowiedzi](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    Podając _wypowiedzi przykład ,_ uczysz usługi LUIS o jakie rodzaje wypowiedzi powinny być przewidywane dla tej intencji.
+    Dostarczając _przykład wyrażenia długości_, wypowiadasz Luis na temat tego, jakie rodzaje wyrażenia długości powinny być przewidywane dla tego celu.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 
-## <a name="create-remaining-intents"></a>Tworzenie pozostałych intencji
+## <a name="create-remaining-intents"></a>Utwórz pozostałe intencje
 
-1. Utwórz `Greeting` intencji i dodać następujące wypowiedzi przykład. Jest to zamiar, aby ustalić, czy użytkownik rozpoczyna nową konwersację zamówienia pizzy.
+1. Utwórz `Greeting` cel i Dodaj następujący przykład wyrażenia długości. Jest to cel, aby określić, czy użytkownik rozpoczyna nową konwersację z kolejnością Pizza.
 
-    |`Greeting`przykładowe wypowiedzi|
+    |`Greeting`przykład wyrażenia długości|
     |--|
     |`Hi`|
     |`Hello`|
@@ -82,9 +82,9 @@ Aby sklasyfikować wypowiedź, intencji potrzebuje przykładów wypowiedzi użyt
     |`Start`|
     |`Begin`|
 
-1. Utwórz `Confirm` intencji i dodać następujące wypowiedzi przykład. Jest to zamiar, aby ustalić, czy użytkownik jest gotowy zamawiania i akceptuje szczegóły zamówienia.
+1. Utwórz `Confirm` cel i Dodaj następujący przykład wyrażenia długości. Jest to cel, aby określić, czy użytkownik ukończy porządkowanie i akceptuje szczegóły zamówienia.
 
-    |`Confirm`przykładowe wypowiedzi|
+    |`Confirm`przykład wyrażenia długości|
     |--|
     |`Go ahead`|
     |`ok`|
@@ -92,7 +92,7 @@ Aby sklasyfikować wypowiedź, intencji potrzebuje przykładów wypowiedzi użyt
     |`Sure`|
 
 
-## <a name="none-intent-example-utterances"></a>Brak intencji przykład wypowiedzi
+## <a name="none-intent-example-utterances"></a>Brak przykładu zamiaru wyrażenia długości
 
 [!INCLUDE [Follow these steps to add the None intent to the app](includes/add-example-utterances-none-intent.md)]
 
@@ -104,7 +104,7 @@ Aby sklasyfikować wypowiedź, intencji potrzebuje przykładów wypowiedzi użyt
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
-## <a name="get-intent-prediction"></a>Pobierz przewidywanie intencji
+## <a name="get-intent-prediction"></a>Pobierz prognozowanie intencji
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
@@ -112,7 +112,7 @@ Aby sklasyfikować wypowiedź, intencji potrzebuje przykładów wypowiedzi użyt
 
     `get a medium vegetarian pizza for delivery`
 
-    Nie jest to dokładnie takie samo jak wypowiedź przykład, więc jest to dobry test, aby sprawdzić, czy usługa LUIS może dowiedzieć się, co należy przewidzieć z tym zamiarem.
+    Nie jest to dokładnie takie samo, jak przykład wypowiedź, dlatego jest dobrym testem, aby sprawdzić, czy LUIS może dowiedzieć się, co należy przewidzieć w tym zamierzeniu.
 
     Ostatni parametr ciągu zapytania to `query`, czyli **query** (zapytanie) wypowiedzi. Ta wypowiedź nie przypomina żadnej z przykładowych wypowiedzi. Jest to dobry test, który powinien zwrócić intencję `OrderPizza` jako najwyżej ocenioną.
 
@@ -140,15 +140,15 @@ Aby sklasyfikować wypowiedź, intencji potrzebuje przykładów wypowiedzi użyt
     }
     ```
 
-    Tablica jednostek jest pusta, ponieważ ta aplikacja obecnie nie ma żadnych jednostek (jednostka danych wewnątrz wypowiedź do wyodrębnienia).
+    Tablica jednostek jest pusta, ponieważ ta aplikacja nie ma obecnie żadnych jednostek (jednostka danych wewnątrz wypowiedź do wyodrębnienia).
 
-    Wynik JSON identyfikuje najwyższej intencji punktacji jako **`prediction.topIntent`** właściwość. Wszystkie wyniki są od 1 do 0, z lepszym wynikiem jest bliżej 1.
+    Wynik JSON identyfikuje najważniejsze intencje oceniania jako **`prediction.topIntent`** właściwość. Wszystkie wyniki są z zakresu od 1 do 0, a lepszy wynik jest zbliżony do 1.
 
-1. Zmień parametr **zapytania** url, aby kierować na intencję **powitania:**
+1. Zmień parametr **zapytania** adresu URL, aby określić cel **powitania** :
 
     `Howdy`
 
-    Nie jest to dokładnie takie samo jak wypowiedź przykład, więc jest to dobry test, aby sprawdzić, czy usługa LUIS może dowiedzieć się, co należy przewidzieć z tym zamiarem.
+    Nie jest to dokładnie takie samo, jak przykład wypowiedź, dlatego jest dobrym testem, aby sprawdzić, czy LUIS może dowiedzieć się, co należy przewidzieć w tym zamierzeniu.
 
     ```json
     {
@@ -174,7 +174,7 @@ Aby sklasyfikować wypowiedź, intencji potrzebuje przykładów wypowiedzi użyt
     }
     ```
 
-    Ta prognoza ma 44% wskaźnik zaufania. Aby zwiększyć wynik zaufania, dodaj między 15 i 30 wypowiedzi przykład.
+    To prognozowanie ma 44% wyniku ufności. Aby zwiększyć wynik pewności, Dodaj od 15 do 30 przykład wyrażenia długości.
 
 ## <a name="client-application-next-steps"></a>Następne czynności dotyczące aplikacji klienckiej
 
@@ -194,7 +194,7 @@ Gdy usługa LUIS zwróci odpowiedź w formacie JSON, żądanie zostanie wykonane
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzono aplikację usługi LUIS, utworzono intencje, dodano przykładowe wypowiedzi do każdego zamiaru, dodano przykładowe wypowiedzi do intencji Brak, przeszkolonych, opublikowanych i przetestowanych w punkcie końcowym. Są to podstawowe kroki tworzenia modelu usługi LUIS.
+W tym samouczku utworzono aplikację LUIS, utworzono intencje, dodano przykład wyrażenia długości do każdego zamiaru, dodaliśmy przykład wyrażenia długości do zamiaru brak, przeszkolony, opublikowany i przetestowany w punkcie końcowym. Są to podstawowe kroki tworzenia modelu usługi LUIS.
 
 > [!div class="nextstepaction"]
-> [Dodawanie do tej aplikacji jednostki rozkładającej się](tutorial-machine-learned-entity.md)
+> [Dodaj jednostkę, do której ma zostać utworzona aplikacja](tutorial-machine-learned-entity.md)

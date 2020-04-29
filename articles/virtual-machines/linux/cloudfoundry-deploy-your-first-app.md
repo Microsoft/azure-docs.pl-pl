@@ -1,6 +1,6 @@
 ---
 title: Wdrażanie pierwszej aplikacji w rozwiązaniu Cloud Foundry na platformie Microsoft Azure
-description: Wdrażanie aplikacji w odnaleźnie w chmurze na platformie Azure
+description: Wdrażanie aplikacji do Cloud Foundry na platformie Azure
 author: seanmck
 ms.service: virtual-machines-linux
 ms.subservice: workloads
@@ -8,71 +8,71 @@ ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
 ms.openlocfilehash: 793a8f291be4fcca6fad19d486849253dddc089f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294793"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Wdrażanie pierwszej aplikacji w rozwiązaniu Cloud Foundry na platformie Microsoft Azure
 
-[Cloud Foundry](https://cloudfoundry.org) to popularna platforma aplikacji typu open source dostępna na platformie Microsoft Azure. W tym artykule pokazujemy, jak wdrożyć aplikację w odnaleźniu w chmurze i zarządzać nią w środowisku platformy Azure.
+[Cloud Foundry](https://cloudfoundry.org) to popularna platforma aplikacji typu "open source" dostępna w Microsoft Azure. W tym artykule pokazano, jak wdrożyć aplikację i zarządzać nią na Cloud Foundry w środowisku platformy Azure.
 
-## <a name="create-a-cloud-foundry-environment"></a>Tworzenie środowiska odlewniczego chmury
+## <a name="create-a-cloud-foundry-environment"></a>Utwórz środowisko Cloud Foundry
 
-Istnieje kilka opcji tworzenia środowiska odlewniczego chmury na platformie Azure:
+Istnieje kilka opcji tworzenia środowiska Cloud Foundry na platformie Azure:
 
-- Skorzystaj z [oferty Pivotal Cloud Foundry][pcf-azuremarketplace] w portalu Azure Marketplace, aby utworzyć standardowe środowisko obejmujące menedżera operacji PCF i brokera usług Azure. [Pełne instrukcje dotyczące][pcf-azuremarketplace-pivotaldocs] wdrażania oferty portalu Marketplace można znaleźć w dokumentacji pivotal.
-- Utwórz dostosowane środowisko, [ręcznie wdrażając pivotal cloud foundry][pcf-custom].
-- [Wdrażaj pakiety cloud foundry typu open source bezpośrednio,][oss-cf-bosh] konfigurując dyrektora [BOSH,](https://bosh.io) maszynę wirtualną, która koordynuje wdrażanie środowiska odlewniczego chmury.
+- Skorzystaj z [oferty Cloud Foundry Pivot][pcf-azuremarketplace] w witrynie Azure Marketplace, aby utworzyć standardowe środowisko obejmujące program PCF Ops Manager i Service Broker platformy Azure. Możesz znaleźć [kompletne instrukcje][pcf-azuremarketplace-pivotaldocs] dotyczące wdrażania oferty portalu Marketplace w dokumentacji przestawnej.
+- Utwórz dostosowane środowisko przez [Ręczne wdrożenie Cloud Foundry Pivot][pcf-custom].
+- [Wdróż pakiety Cloud Foundry typu "open source" bezpośrednio][oss-cf-bosh] przez skonfigurowanie programu [Bosh](https://bosh.io) Director, który koordynuje wdrożenie środowiska Cloud Foundry.
 
 > [!IMPORTANT] 
-> Jeśli wdrażasz PCF z portalu Azure Marketplace, zanotuj poświadczenia SYSTEMDOMAINURL i poświadczenia administratora wymagane do uzyskania dostępu do Menedżera aplikacji kluczykowych, które są opisane w przewodniku wdrażania portalu Marketplace. Są one potrzebne do ukończenia tego samouczka. W przypadku wdrożeń w portalu Marketplace `https://system.*ip-address*.cf.pcfazure.com`systemdomainurl jest w formularzu .
+> Jeśli wdrażasz PCF z poziomu portalu Azure Marketplace, zanotuj SYSTEMDOMAINURL i poświadczenia administratora wymagane do uzyskania dostępu do Menedżera aplikacji pivots, które zostały opisane w przewodniku wdrażania w portalu Marketplace. Są one konieczne do wykonania tego samouczka. W przypadku wdrożeń w witrynie Marketplace SYSTEMDOMAINURL jest w postaci `https://system.*ip-address*.cf.pcfazure.com`.
 
-## <a name="connect-to-the-cloud-controller"></a>Łączenie się z kontrolerem chmury
+## <a name="connect-to-the-cloud-controller"></a>Nawiązywanie połączenia z kontrolerem chmury
 
-Kontroler chmury jest podstawowym punktem wejścia do środowiska odlewniczego chmury do wdrażania aplikacji i zarządzania nimi. Podstawowy interfejs API kontrolera chmury (CCAPI) jest interfejsem API REST, ale jest dostępny za pomocą różnych narzędzi. W tym przypadku wchodzimy w interakcję z nim za pośrednictwem [Cloud Foundry CLI][cf-cli]. Cli można zainstalować na Linuksie, macOS lub Windows, ale jeśli wolisz nie instalować go w ogóle, jest on dostępny fabrycznie zainstalowany w [usłudze Azure Cloud Shell][cloudshell-docs].
+Kontroler chmury jest głównym punktem wejścia do środowiska Cloud Foundryego do wdrażania aplikacji i zarządzania nimi. Podstawowy interfejs API kontrolera chmury (CCAPI) jest interfejsem API REST, ale jest dostępny za pomocą różnych narzędzi. W takim przypadku współdziała z nim za pomocą [interfejsu wiersza polecenia Cloud Foundry][cf-cli]. Możesz zainstalować interfejs wiersza polecenia w systemie Linux, macOS lub Windows, ale jeśli wolisz nie instalować go w ogóle, jest on dostępny wstępnie na [Azure Cloud Shell][cloudshell-docs].
 
-Aby się zalogować, należy dołączyć `api` do narzędzia SYSTEMDOMAINURL uzyskanego z wdrożenia w portalu marketplace. Ponieważ wdrożenie domyślne używa certyfikatu z podpisem `skip-ssl-validation` własnym, należy również dołączyć przełącznik.
+Aby się zalogować, `api` POPRZEDŹ do SYSTEMDOMAINURL uzyskanego w ramach wdrożenia w portalu Marketplace. Ponieważ domyślne wdrożenie używa certyfikatu z podpisem własnym, należy również uwzględnić `skip-ssl-validation` przełącznik.
 
 ```bash
 cf login -a https://api.SYSTEMDOMAINURL --skip-ssl-validation
 ```
 
-Zostanie wyświetlony monit o zalogowanie się do kontrolera w chmurze. Użyj poświadczeń konta administratora nabytych w krokach wdrażania portalu Marketplace.
+Zostanie wyświetlony monit o zalogowanie się do kontrolera chmury. Użyj poświadczeń konta administratora pozyskanych w ramach kroków wdrożenia w portalu Marketplace.
 
-Cloud Foundry udostępnia *orgs* i *przestrzenie* jako przestrzenie nazw do izolowania zespołów i środowisk w ramach udostępnionego wdrożenia. Wdrożenie w portalu PCF marketplace zawiera domyślną warstwę *systemu* i zestaw spacji utworzonych w celu zawierające składniki podstawowe, takie jak usługa skalowania automatycznego i broker usług platformy Azure. Na razie wybierz przestrzeń *systemową.*
+Cloud Foundry udostępnia *organizacje* i *spacje* jako przestrzenie nazw do izolowania zespołów i środowisk w ramach wdrożenia udostępnionego. Wdrożenie w witrynie PCF Marketplace obejmuje domyślny *system* organizacji i zestaw spacji utworzonych w celu zawierania składników podstawowych, takich jak usługa skalowania automatycznego i Broker usług platformy Azure. Na razie wybierz miejsce *systemowe* .
 
 
 ## <a name="create-an-org-and-space"></a>Tworzenie organizacji i przestrzeni
 
-W przypadku `cf apps`wpisywał , zostanie wyświetlony zestaw aplikacji systemowych, które zostały wdrożone w przestrzeni systemowej w organizacji systemu. 
+Jeśli wpiszesz `cf apps`, zobaczysz zestaw aplikacji systemowych, które zostały wdrożone w przestrzeni systemowej w organizacji systemowej. 
 
-Należy zachować *system* org zarezerwowane dla aplikacji systemowych, więc utworzyć org i miejsca do przechowywania naszej przykładowej aplikacji.
+Należy zachować zastrzeżoną organizacji *systemową* dla aplikacji systemowych, dlatego należy utworzyć organizacji i miejsce na potrzeby aplikacji przykładowej.
 
 ```bash
 cf create-org myorg
 cf create-space dev -o myorg
 ```
 
-Użyj polecenia docelowego, aby przełączyć się na nową organizacji i spacji:
+Użyj polecenia Target, aby przełączyć się do nowej organizacji i przestrzeni:
 
 ```bash
 cf target -o testorg -s dev
 ```
 
-Teraz po wdrożeniu aplikacji jest ona automatycznie tworzona w nowej organizacji i przestrzeni. Aby potwierdzić, że obecnie w nowej organizacji/spacji nie ma żadnych aplikacji, wpisz ponownie. `cf apps`
+Teraz, podczas wdrażania aplikacji, zostanie ona automatycznie utworzona w nowej organizacji i przestrzeni. Aby potwierdzić, że w nowej organizacji/przestrzeni nie ma obecnie żadnych aplikacji, wpisz `cf apps` ponownie.
 
 > [!NOTE] 
-> Aby uzyskać więcej informacji na temat organizacji i spacji oraz sposobu ich wykorzystania do kontroli dostępu opartej na rolach (RBAC), zobacz [dokumentację Cloud Foundry][cf-orgs-spaces-docs].
+> Aby uzyskać więcej informacji na temat organizacje i miejsc oraz sposobów ich używania na potrzeby kontroli dostępu opartej na rolach (RBAC), zobacz [dokumentację Cloud Foundry][cf-orgs-spaces-docs].
 
 ## <a name="deploy-an-application"></a>Wdrażanie aplikacji
 
-Użyjmy przykładowej aplikacji Cloud Foundry o nazwie Hello Spring Cloud, która jest napisana w javie i oparta na [Spring Framework](https://spring.io) i [Spring Boot](https://projects.spring.io/spring-boot/).
+Użyjmy przykładowej aplikacji Cloud Foundry o nazwie Cloud wiosennej chmury, która jest zapisywana w języku Java i oparta na [strukturze sprężyny](https://spring.io) oraz [rozruchu sprężynowego](https://projects.spring.io/spring-boot/).
 
-### <a name="clone-the-hello-spring-cloud-repository"></a>Klonowanie repozytorium Hello Spring Cloud
+### <a name="clone-the-hello-spring-cloud-repository"></a>Klonowanie repozytorium w chmurze usługi Hello wiosną
 
-Przykładowa aplikacja Hello Spring Cloud jest dostępna w usłudze GitHub. Sklonuj go do swojego środowiska i zmień do nowego katalogu:
+Przykładowa aplikacja usługi Hello wiosną w chmurze jest dostępna w serwisie GitHub. Sklonuj go w środowisku i przejdź do nowego katalogu:
 
 ```bash
 git clone https://github.com/cloudfoundry-samples/hello-spring-cloud
@@ -81,63 +81,63 @@ cd hello-spring-cloud
 
 ### <a name="build-the-application"></a>Kompilowanie aplikacji
 
-Tworzenie aplikacji za pomocą [Apache Maven](https://maven.apache.org).
+Kompiluj aplikację przy użyciu usługi [Apache Maven](https://maven.apache.org).
 
 ```bash
 mvn clean package
 ```
 
-### <a name="deploy-the-application-with-cf-push"></a>Wdrażanie aplikacji za pomocą przycisku cf push
+### <a name="deploy-the-application-with-cf-push"></a>Wdrażanie aplikacji za pomocą polecenia CF push
 
-Większość aplikacji można wdrożyć w `push` odnaleźniu w chmurze za pomocą polecenia:
+Większość aplikacji można wdrożyć do Cloud Foundry przy użyciu `push` polecenia:
 
 ```bash
 cf push
 ```
 
-Podczas *wypychania* aplikacji Cloud Foundry wykrywa typ aplikacji (w tym przypadku aplikacji Java) i identyfikuje jej zależności (w tym przypadku platformę Wiosna). Następnie pakuje wszystko, co jest wymagane do uruchomienia kodu, w samodzielny obraz kontenera, znany jako *kropla.* Na koniec Cloud Foundry planuje aplikację na jednym z dostępnych komputerów w środowisku i tworzy adres URL, do którego można do niego dotrzeć, który jest dostępny w danych wyjściowych polecenia.
+Podczas *wypychania* aplikacji Cloud Foundry wykrywa typ aplikacji (w tym przypadku aplikację Java) i identyfikuje jej zależności (w tym przypadku struktury sprężynowe). Następnie wszystkie elementy wymagane do uruchomienia kodu w autonomicznym obrazie kontenera, znane jako *droplet*. Na koniec Cloud Foundry planuje aplikację na jednej z dostępnych maszyn w środowisku i tworzy adres URL, w którym można się z nim skontaktować, który jest dostępny w danych wyjściowych polecenia.
 
-![Wyjście z polecenia cf push][cf-push-output]
+![Dane wyjściowe polecenia CF push][cf-push-output]
 
-Aby wyświetlić aplikację hello-spring-cloud, otwórz podany adres URL w przeglądarce:
+Aby wyświetlić aplikację Hello-wiosenną w chmurze, Otwórz podany adres URL w przeglądarce:
 
-![Domyślny interfejs użytkownika hello spring cloud][hello-spring-cloud-basic]
+![Domyślny interfejs użytkownika chmury wiosennej][hello-spring-cloud-basic]
 
 > [!NOTE] 
-> Aby dowiedzieć się `cf push`więcej o tym, co dzieje się podczas , zobacz [Jak aplikacje są przemieszczane][cf-push-docs] w dokumentacji Cloud Foundry.
+> Aby dowiedzieć się więcej na temat `cf push`tego, co się dzieje, zobacz [temat jak aplikacje są przemieszczane][cf-push-docs] w dokumentacji Cloud Foundry.
 
 ## <a name="view-application-logs"></a>Wyświetlanie dzienników aplikacji
 
-Za pomocą interfejsu wiersza polecenia odnaleznia w chmurze można wyświetlać dzienniki aplikacji o jej nazwie:
+Możesz użyć interfejsu wiersza polecenia Cloud Foundry, aby wyświetlić dzienniki dla aplikacji według nazwy:
 
 ```bash
 cf logs hello-spring-cloud
 ```
 
-Domyślnie polecenie dzienniki używa *tail*, który pokazuje nowe dzienniki, jak są one zapisywane. Aby wyświetlić nowe dzienniki, odśwież aplikację hello-spring-cloud w przeglądarce.
+Domyślnie polecenie Logs używa *ogona*, który wyświetla nowe dzienniki podczas pisania. Aby wyświetlić nowe dzienniki, Odśwież aplikację Hello-wiosny w chmurze w przeglądarce.
 
-Aby wyświetlić dzienniki, które zostały `recent` już zapisane, dodaj przełącznik:
+Aby wyświetlić dzienniki, które zostały już zapisane, Dodaj `recent` przełącznik:
 
 ```bash
 cf logs --recent hello-spring-cloud
 ```
 
-## <a name="scale-the-application"></a>Skaluj aplikację
+## <a name="scale-the-application"></a>Skalowanie aplikacji
 
-Domyślnie `cf push` tworzy tylko jedno wystąpienie aplikacji. Aby zapewnić wysoką dostępność i włączyć skalowanie w poziomie dla wyższej przepływności, zazwyczaj chcesz uruchomić więcej niż jedno wystąpienie aplikacji. Za pomocą `scale` polecenia można łatwo skalować w poziomie już wdrożone aplikacje:
+Domyślnie `cf push` tylko tworzy pojedyncze wystąpienie aplikacji. Aby zapewnić wysoką dostępność i włączyć skalowanie w poziomie w celu uzyskania większej przepływności, zazwyczaj chcesz uruchomić więcej niż jedno wystąpienie aplikacji. Można łatwo skalować już wdrożone aplikacje za pomocą `scale` polecenia:
 
 ```bash
 cf scale -i 2 hello-spring-cloud
 ```
 
-Uruchomienie `cf app` polecenia w aplikacji pokazuje, że Odnajdowanie w chmurze tworzy inne wystąpienie aplikacji. Po uruchomieniu aplikacji Cloud Foundry automatycznie uruchamia ruch równoważenia obciążenia.
+Uruchomienie `cf app` polecenia w aplikacji pokazuje, że Cloud Foundry tworzy inne wystąpienie aplikacji. Po uruchomieniu aplikacji Cloud Foundry automatycznie uruchamia Równoważenie obciążenia ruchem.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przeczytaj dokumentację Cloud Foundry][cloudfoundry-docs]
-- [Konfigurowanie wtyczki usługi Azure DevOps dla odlewnictwa w chmurze][vsts-plugin]
-- [Konfigurowanie dyszy usługi Microsoft Log Analytics dla odlewnictwa w chmurze][loganalytics-nozzle]
+- [Przeczytaj dokumentację dotyczącą Cloud Foundry][cloudfoundry-docs]
+- [Skonfiguruj wtyczkę Azure DevOps Services dla Cloud Foundry][vsts-plugin]
+- [Skonfiguruj dyszę Microsoft Log Analytics dla Cloud Foundry][loganalytics-nozzle]
 
 <!-- LINKS -->
 

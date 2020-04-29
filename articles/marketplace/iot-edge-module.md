@@ -1,6 +1,6 @@
 ---
-title: Moduły usługi Azure Marketplace ioT Edge
-description: Oferta modułu usługi IoT Edge w portalu Azure Marketplace dla wydawców aplikacji i usług.
+title: Moduły IoT Edge portalu Azure Marketplace
+description: Oferta modułu IoT Edge w portalu Azure Marketplace dla wydawców aplikacji i usług.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,82 +8,82 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
 ms.openlocfilehash: 762d9947046f159e992f09211bfcd76ff8d6712e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81684338"
 ---
 # <a name="iot-edge-modules"></a>Moduły usługi IoT Edge
 
-Platforma [Usługi Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) jest wspierana przez usługę Azure Cloud.  Ta platforma umożliwia użytkownikom wdrażanie obciążeń w chmurze do uruchamiania bezpośrednio na urządzeniach IoT.  Moduł usługi IoT Edge może uruchamiać obciążenia w trybie offline i wykonywać analizy danych lokalnie. Ten typ oferty pomaga zaoszczędzić przepustowość, chronić dane lokalne i poufne oraz oferuje czas reakcji o małych opóźnieniach.  Teraz masz opcje, aby skorzystać z tych wstępnie utworzonych obciążeń. Do tej pory dostępnych było tylko kilka rozwiązań firmy Microsoft.  Trzeba było zainwestować czas i zasoby w tworzenie własnych niestandardowych rozwiązań IoT.
+Platforma [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) jest obsługiwana przez chmurę platformy Azure.  Ta platforma umożliwia użytkownikom wdrażanie obciążeń w chmurze do uruchomienia bezpośrednio na urządzeniach IoT.  Moduł IoT Edge może uruchamiać obciążenia w trybie offline i analizować dane lokalnie. Ten typ oferty pomaga zaoszczędzić przepustowość, chronić lokalne i poufne dane oraz zapewnia czas odpowiedzi o małym opóźnieniu.  Masz teraz możliwość skorzystania z tych wstępnie skompilowanych obciążeń. Do tej pory dostępne są tylko kilku rozwiązań pierwszej firmy od firmy Microsoft.  Musisz zainwestować czas i zasoby na tworzenie własnych niestandardowych rozwiązań IoT.
 
-Wprowadzając [moduły usługi IoT Edge w portalu Azure Marketplace,](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1)mamy teraz jedno miejsce docelowe dla wydawców, aby udostępnić i sprzedać swoje rozwiązania odbiorcom IoT. Deweloperzy IoT mogą ostatecznie znaleźć i kupić możliwości, aby przyspieszyć ich rozwój rozwiązań.  
+Wprowadzając [moduły IoT Edge w portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1), mamy teraz jedną lokalizację docelową umożliwiającą wydawcom udostępnianie i sprzedawanie rozwiązań dla odbiorców IoT. Deweloperzy IoT mogą ostatecznie znajdować i kupować funkcje przyspieszające tworzenie rozwiązań.  
 
-## <a name="key-benefits-of-iot-edge-modules-in-azure-marketplace"></a>Najważniejsze zalety modułów usługi IoT Edge w portalu Azure Marketplace:
+## <a name="key-benefits-of-iot-edge-modules-in-azure-marketplace"></a>Najważniejsze zalety modułów IoT Edge w portalu Azure Marketplace:
 
 | **Dla wydawców**    | **Dla klientów (deweloperzy IoT)**  |
 | :------------------- | :-------------------|
-| Docieraj do milionów programistów, którzy chcą tworzyć i wdrażać rozwiązania IoT Edge.  | Skomponuj rozwiązanie Usługi IoT Edge z ufnością przy użyciu bezpiecznych i przetestowanych komponentów. |
-| Publikuj raz i uruchom dowolny sprzęt IoT Edge, który obsługuje kontenery. | Skróć czas na rynek, znajdując i wdrażając moduły IoT Edge 1 i 3rd party dla konkretnych potrzeb. |
-| Zarabianie dzięki elastycznym opcjom rozliczeń <ul> <li> Bezpłatna i przynieś własną licencję (BYOL). </li> </ul> | Rościj zakupy, dokonując wyboru modeli rozliczeniowych. <ul> <li> Bezpłatna i przynieś własną licencję (BYOL). </li> </ul> |
+| Dotrzej do milionów deweloperów, którzy chcą kompilować i wdrażać rozwiązania IoT Edge.  | Twórz IoT Edge rozwiązanie z zachowaniem bezpiecznych i przetestowanych składników. |
+| Publikuj raz i uruchamiaj na dowolnym IoT Edge sprzęt obsługujący kontenery. | Skracaj czas wprowadzenia na rynek, wyszukując i wdrażając moduły IoT Edge 1 i innych firm dla konkretnych potrzeb. |
+| Zarabiaj z elastycznymi opcjami rozliczania <ul> <li> Bezpłatna i korzystaj z własnej licencji (BYOL). </li> </ul> | Twórz zakupy przy użyciu wybranych modeli rozliczeń. <ul> <li> Bezpłatna i korzystaj z własnej licencji (BYOL). </li> </ul> |
 
 ## <a name="what-is-an-iot-edge-module"></a>Co to jest moduł IoT Edge?
 
-Usługa Azure IoT Edge umożliwia wdrażanie logiki biznesowej i zarządzanie nią na krawędzi w postaci modułów. Moduły usługi Azure IoT Edge są najmniejszymi jednostkami obliczeniowymi zarządzanymi przez usługę IoT Edge i mogą zawierać usługi firmy Microsoft (takie jak usługa Azure Stream Analytics), usługi innych firm lub własny kod specyficzny dla rozwiązania. Aby dowiedzieć się więcej o modułach usługi IoT Edge, zobacz [Opis modułów usługi Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules).
+Azure IoT Edge pozwala wdrożyć logikę biznesową i zarządzać nią na krawędzi w formie modułów. Moduły Azure IoT Edge są najmniejszymi jednostkami obliczeniowymi zarządzanymi przez IoT Edge i mogą zawierać usługi firmy Microsoft (takie jak Azure Stream Analytics), usługi innych firm lub własny kod specyficzny dla rozwiązania. Aby dowiedzieć się więcej na temat modułów IoT Edge, zobacz [Opis modułów Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules).
 
-**Jaka jest różnica między typem oferty kontenera a typem oferty modułu Usługi IoT Edge?**
+**Jaka jest różnica między typem oferty kontenera a typem oferty modułu IoT Edge module?**
 
-Typ oferty modułu usługi IoT Edge jest określonym typem kontenera działającego na urządzeniu usługi IoT Edge. Jest wyposażony w domyślne ustawienia konfiguracji do uruchomienia w kontekście usługi IoT Edge i opcjonalnie używa SDK modułu usługi IoT Edge do zintegrowanego ze środowiskiem uruchomieniowym usługi IoT Edge.
+Typ oferty modułu IoT Edge jest określonym typem kontenera uruchomionym na urządzeniu IoT Edge. Dostępne są domyślne ustawienia konfiguracji, które mogą być uruchamiane w kontekście IoT Edge i IoT Edge opcjonalnie są zintegrowane z IoT Edge środowiska uruchomieniowego.
 
 ## <a name="publishing-your-iot-edge-module"></a>Publikowanie modułu IoT Edge
 
-**Wybór odpowiedniego sklepu**
+**Wybieranie odpowiedniego sklepu**
 
-Moduły usługi IoT Edge są publikowane tylko w portalu Azure Marketplace, usługa AppSource nie ma zastosowania.  Aby uzyskać więcej informacji na temat różnic i odbiorców docelowych w witrynach sklepowych, zobacz [określanie opcji publikowania rozwiązania](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
+Moduły IoT Edge są publikowane tylko w portalu Azure Marketplace, AppSource nie ma zastosowania.  Aby uzyskać więcej informacji na temat różnic i docelowych odbiorców w sklepie, zobacz [Określanie opcji publikowania dla rozwiązania](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
  
 **Opcje rozliczeń**
 
-Marketplace obsługuje obecnie opcje rozliczeń **bezpłatnej** i **własnej licencji (BYOL)** dla modułów IoT Edge.
+Portal Marketplace obsługuje obecnie **bezpłatne** opcje rozliczania **licencji (BYOL)** dla modułów IoT Edge.
  
 **Opcje publikowania**
 
-We wszystkich przypadkach moduły IoT Edge powinny wybrać opcję publikowania **transakcji.**  Aby uzyskać więcej informacji na temat opcji publikowania, zobacz [wybieranie opcji publikowania.](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)  
+We wszystkich przypadkach moduł IoT Edge powinien wybrać opcję publikowania **Transact** .  Aby uzyskać więcej informacji na temat opcji publikowania, zobacz [Wybieranie opcji publikowania](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) .  
 
-## <a name="eligibility-criteria"></a>Kryteria kwalifikowalności
+## <a name="eligibility-criteria"></a>Kryteria kwalifikujące
 
-Wszystkie warunki umów i zasad w portalu Microsoft Azure Marketplace mają zastosowanie do ofert modułów usługi IoT Edge.  Ponadto istnieją wymagania wstępne i wymagania techniczne dotyczące modułów usługi IoT Edge.  
+Wszystkie postanowienia Microsoft Azure Marketplace umów i zasad mają zastosowanie do ofert IoT Edge module.  Ponadto istnieją wymagania wstępne i techniczne dla modułów IoT Edge.  
 
 **Wymagania wstępne**
 
-Aby opublikować moduł usługi IoT Edge w portalu Azure Marketplace, musisz spełnić następujące wymagania wstępne:
+Aby opublikować moduł IoT Edge w portalu Azure Marketplace, należy spełnić następujące wymagania wstępne:
 
-- Dostęp do Centrum partnerskiego. Aby uzyskać więcej informacji, zobacz [Przewodnik po publikacjach w portalu Azure Marketplace i AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
-- Hostuj moduł usługi IoT Edge w rejestrze kontenerów platformy Azure. 
-- Przygotuj metadane modułu Usługi IoT Edge, takie jak (niewyczerpywna lista): 
+- Dostęp do Centrum partnerskiego. Aby uzyskać więcej informacji, zobacz artykuł [Azure Marketplace i Podręcznik publikowania AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+- Hostowanie modułu IoT Edge w Azure Container Registry. 
+- Zastąp metadane modułu IoT Edge, takie jak (lista niepełna): 
     - Tytuł
     - Opis (w formacie HTML)
-    - Obraz logo (format PNG i stałe rozmiary obrazów, w tym 40x40px, 90x90px, 115x115px, 255x115px)
-    - Termin użytkowania i polityka prywatności
-    - Domyślna konfiguracja modułu (trasa, dwie wartości żądane, createOptions, zmienne środowiskowe)
+    - Obraz logo (format PNG i stałe rozmiary obrazu, w tym 40x40px, 90x90px, 115x115px, 255x115px)
+    - Warunki użytkowania i zasady zachowania poufności informacji
+    - Domyślna konfiguracja modułu (trasa, wymagane właściwości przędzy, opcje i zmienne środowiskowe)
     - Dokumentacja
     - Kontakt z pomocą techniczną
 
 **Wymagania techniczne**
 
-Podstawowe wymagania techniczne dotyczące modułu usługi IoT Edge, aby uzyskać certyfikat i opublikowanie w portalu Azure Marketplace, są szczegółowo opisane w [module IoT Edge zasobów technicznych.](./partner-center-portal/create-iot-edge-module-asset.md)
+Podstawowe wymagania techniczne dotyczące modułu IoT Edge, aby można było uzyskać certyfikat i opublikować go w witrynie Azure Marketplace, opisano szczegółowo w temacie [przygotowanie zasobów technicznych modułu IoT Edge](./partner-center-portal/create-iot-edge-module-asset.md).
 
 ## <a name="documentation-and-resources"></a>Dokumentacja i zasoby
 
-[Utwórz ofertę modułów usługi IoT Edge](./partner-center-portal/azure-iot-edge-module-creation.md) — kroki publikowania nowej oferty modułów usługi IoT Edge w Centrum partnerów.
+[Tworzenie oferty modułu IoT Edge](./partner-center-portal/azure-iot-edge-module-creation.md) — kroki publikowania nowej oferty modułu IoT Edge w centrum partnerskim.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli jeszcze tego nie zrobiłeś,
+Jeśli jeszcze tego nie zrobiono,
 
-- [Dowiedz się więcej](https://azuremarketplace.microsoft.com/sell) o rynku.
+- [Dowiedz się więcej](https://azuremarketplace.microsoft.com/sell) o portalu Marketplace.
 
-Aby zarejestrować się w Centrum partnerów i rozpocząć tworzenie nowej oferty lub pracę nad istniejącą,
+Aby zarejestrować się w centrum partnerskim i zacząć tworzyć nową ofertę lub pracować na istniejącym,
 
-- Zaloguj się do [Centrum partnerów,](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) aby utworzyć lub uzupełnić ofertę.
-- Zobacz [tworzenie oferty modułu usługi IoT Edge,](./partner-center-portal/azure-iot-edge-module-creation.md) aby uzyskać informacje na temat publikowania oferty modułów usługi IoT Edge.
+- Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) , aby utworzyć lub zakończyć swoją ofertę.
+- Aby uzyskać informacje na temat publikowania oferty modułu IoT Edge, zobacz temat [Tworzenie oferty modułu IoT Edge](./partner-center-portal/azure-iot-edge-module-creation.md) .

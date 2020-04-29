@@ -1,6 +1,6 @@
 ---
 title: Skalowanie obliczeń dla puli SQL Synapse (Azure PowerShell)
-description: Można skalować obliczenia dla puli sql synapse (magazyn danych) przy użyciu programu Azure PowerShell.
+description: Obliczenia można skalować dla puli SQL Synapse (magazyn danych) przy użyciu Azure PowerShell.
 services: synapse-analytics
 author: Antvgski
 manager: craigg
@@ -12,39 +12,39 @@ ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: e3038617c6270acf9af295c910e9fd5c7dae2043
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80633777"
 ---
-# <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Szybki start: skalowanie obliczeń dla puli SQL Synapse za pomocą programu Azure PowerShell
+# <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Szybki Start: skalowanie zasobów obliczeniowych dla puli SQL Synapse za pomocą Azure PowerShell
 
-Można skalować obliczenia dla puli sql synapse (magazyn danych) przy użyciu programu Azure PowerShell. [Skalowanie zasobów obliczeniowych w poziomie](sql-data-warehouse-manage-compute-overview.md) zapewnia lepszą wydajność, a zmniejszenie ich skali pozwala ograniczyć koszty.
+Obliczenia można skalować dla puli SQL Synapse (magazyn danych) przy użyciu Azure PowerShell. [Skalowanie zasobów obliczeniowych w poziomie](sql-data-warehouse-manage-compute-overview.md) zapewnia lepszą wydajność, a zmniejszenie ich skali pozwala ograniczyć koszty.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.microsoft.com/free/) konto przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Ten przewodnik Szybki start zakłada, że masz już pulę SQL, którą można skalować. Jeśli chcesz go utworzyć, użyj [create and connect - portal,](create-data-warehouse-portal.md) aby utworzyć pulę SQL o nazwie **mySampleDataWarehouse**.
+W tym przewodniku szybki start założono, że masz już pulę SQL, którą można skalować. Jeśli trzeba ją utworzyć, użyj instrukcji [Create i Connect-Portal](create-data-warehouse-portal.md) , aby utworzyć pulę SQL o nazwie **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
-Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) i postępuj zgodnie ze wskazówkami wyświetlanymi na ekranie.
+Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
 ```powershell
 Connect-AzAccount
 ```
 
-Aby zobaczyć, której subskrypcji używasz, uruchom [get-azsubscription](/powershell/module/az.accounts/get-azsubscription?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Aby sprawdzić, której subskrypcji używasz, uruchom polecenie [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Get-AzSubscription
 ```
 
-Jeśli chcesz użyć innej subskrypcji niż domyślna, uruchom [program Set-AzContext](/powershell/module/az.accounts/set-azcontext?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Jeśli musisz użyć innej subskrypcji niż domyślna, uruchom polecenie [Set-AzContext](/powershell/module/az.accounts/set-azcontext?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
@@ -56,20 +56,20 @@ Znajdź nazwę bazy danych, nazwę serwera oraz grupę zasobów magazynu danych,
 
 Wykonaj następujące kroki, aby znaleźć informacje o lokalizacji dla magazynu danych.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
-2. Kliknij **pozycję Usługa Azure Synapse Analytics (dawniej SQL DW)** na lewej stronie nawigacji w witrynie Azure portal.
-3. Wybierz **mySampleDataWarehouse** ze strony **usługi Azure Synapse Analytics (dawniej SQL DW),** aby otworzyć magazyn danych.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Kliknij pozycję **Azure Synapse Analytics (wcześniej SQL DW)** na lewej stronie nawigacyjnej Azure Portal.
+3. Wybierz pozycję **mySampleDataWarehouse** na stronie **usługi Azure Synapse Analytics (dawniej SQL DW)** , aby otworzyć magazyn danych.
 
     ![Nazwa serwera i grupa zasobów](./media/quickstart-scale-compute-powershell/locate-data-warehouse-information.png)
 
-4. Zanotuj nazwę magazynu danych, która będzie używana jako nazwa bazy danych. Pamiętaj, że magazyn danych jest jednym z typów bazy danych. Ponadto zanotuj nazwę serwera i grupy zasobów. W poleceniach pauzy i wznowienia użyjesz nazwy serwera i grupy zasobów.
-5. Użyj tylko pierwszej części nazwy serwera w poleceniach cmdlet programu PowerShell. Na poprzednim obrazie pełna nazwa serwera jest sqlpoolservername.database.windows.net. Używamy **sqlpoolservername** jako nazwy serwera w pochocimiu programu PowerShell.
+4. Zanotuj nazwę magazynu danych, która będzie używana jako nazwa bazy danych. Pamiętaj, że magazyn danych jest jednym z typów bazy danych. Ponadto zanotuj nazwę serwera i grupy zasobów. W poleceniach Wstrzymaj i Wznów zostanie użyta nazwa serwera i nazwa grupy zasobów.
+5. Użyj tylko pierwszej części nazwy serwera w poleceniach cmdlet programu PowerShell. Na powyższym obrazie pełna nazwa serwera to sqlpoolservername.database.windows.net. Używamy **sqlpoolservername** jako nazwy serwera w poleceniu cmdlet programu PowerShell.
 
 ## <a name="scale-compute"></a>Skalowanie zasobów obliczeniowych
 
-W puli SQL można zwiększyć lub zmniejszyć zasoby obliczeniowe, dostosowując jednostki magazynu danych. Postępując według czynności opisanych w artykule [Tworzenie i łączenie — portal](create-data-warehouse-portal.md) utworzono bazę danych **mySampleDataWarehouse** z 400 jednostkami DWU. Poniższe kroki umożliwiają dostosowanie liczby jednostek DWU dla bazy danych **mySampleDataWarehouse**.
+W puli SQL można zwiększyć lub zmniejszyć zasoby obliczeniowe przez dostosowanie jednostek magazynu danych. Postępując według czynności opisanych w artykule [Tworzenie i łączenie — portal](create-data-warehouse-portal.md) utworzono bazę danych **mySampleDataWarehouse** z 400 jednostkami DWU. Poniższe kroki umożliwiają dostosowanie liczby jednostek DWU dla bazy danych **mySampleDataWarehouse**.
 
-Aby zmienić jednostki magazynu danych, należy użyć polecenia cmdlet Programu PowerShell [Set-AzSqlDatabase.](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) W poniższym przykładzie ustawia jednostki magazynu danych na DW300c dla bazy danych **mySampleDataWarehouse**, która jest hostowana w grupie **zasobów resourcegroupname** na serwerze **sqlpoolservername**.
+Aby zmienić jednostki magazynu danych, użyj polecenia cmdlet [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) programu PowerShell. Poniższy przykład ustawia jednostki magazynu danych DW300c dla bazy danych **mySampleDataWarehouse**, która jest hostowana w grupie zasobów **ResourceGroupName** na serwerze **sqlpoolservername**.
 
 ```Powershell
 Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySampleDataWarehouse" -ServerName "sqlpoolservername" -RequestedServiceObjectiveName "DW300c"
@@ -77,7 +77,7 @@ Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySample
 
 ## <a name="check-data-warehouse-state"></a>Sprawdzanie stanu magazynu danych
 
-Aby wyświetlić bieżący stan magazynu danych, należy użyć polecenia cmdlet [programu PowerShell get-AzSqlDatabase.](/powershell/module/az.sql/get-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) To polecenie cmdlet pokazuje stan bazy danych **mySampleDataWarehouse** w **resourcegroupgroupname** ResourceGroup i **sqlpoolservername.database.windows.net**serwera .
+Aby wyświetlić bieżący stan magazynu danych, użyj polecenia cmdlet [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) programu PowerShell. To polecenie cmdlet wyświetla stan bazy danych **mySampleDataWarehouse** w obszarze Resources **resourcegroupname** i Server **sqlpoolservername.Database.Windows.NET**.
 
 ```powershell
 $database = Get-AzSqlDatabase -ResourceGroupName resourcegroupname -ServerName sqlpoolservername -DatabaseName mySampleDataWarehouse
@@ -121,7 +121,7 @@ $database | Select-Object DatabaseName,Status
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz dowiesz się, jak skalować obliczenia dla puli SQL. Aby dowiedzieć się więcej o puli SQL, przejdź do samouczka ładowania danych.
+Teraz wiesz już, jak skalować obliczenia dla puli SQL. Aby dowiedzieć się więcej o puli SQL, przejdź do samouczka dotyczącego ładowania danych.
 
 > [!div class="nextstepaction"]
 >[Ładowanie danych do puli SQL](load-data-from-azure-blob-storage-using-polybase.md)

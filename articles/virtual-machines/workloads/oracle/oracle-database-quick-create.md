@@ -1,6 +1,6 @@
 ---
-title: Tworzenie bazy danych Oracle na maszynie Wirtualnej platformy Azure | Dokumenty firmy Microsoft
-description: Szybko uruchamiaj bazę danych Oracle Database 12c w środowisku platformy Azure.
+title: Tworzenie bazy danych Oracle na maszynie wirtualnej platformy Azure | Microsoft Docs
+description: Szybko zapoznaj się z Oracle Database bazą danych 12c w środowisku platformy Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: BorisB2015
@@ -15,17 +15,17 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: 77a374a83c178639052e8db6fc85c31e366ac0e6
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683637"
 ---
-# <a name="create-an-oracle-database-in-an-azure-vm"></a>Tworzenie bazy danych Oracle na maszynie Wirtualnej platformy Azure
+# <a name="create-an-oracle-database-in-an-azure-vm"></a>Tworzenie Oracle Database na maszynie wirtualnej platformy Azure
 
-This guide details using the Azure CLI to deploy an Azure virtual machine from the [Oracle marketplace gallery image](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) in order to create an Oracle 12c database. Po wdrożeniu serwera można połączyć się za pośrednictwem protokołu SSH w celu skonfigurowania bazy danych Oracle. 
+W tym przewodniku szczegółowo przedstawiono użycie interfejsu wiersza polecenia platformy Azure w celu wdrożenia maszyny wirtualnej platformy Azure z [obrazu galerii Marketplace firmy Oracle](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) w celu utworzenia bazy danych Oracle 12c. Po wdrożeniu serwera nastąpi połączenie za pośrednictwem protokołu SSH w celu skonfigurowania bazy danych Oracle. 
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik szybkiego startu będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
@@ -41,9 +41,9 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Aby utworzyć maszynę wirtualną (VM), należy użyć polecenia [az vm create.](/cli/azure/vm) 
+Aby utworzyć maszynę wirtualną, użyj polecenia [AZ VM Create](/cli/azure/vm) . 
 
-W poniższym przykładzie utworzono maszynę wirtualną o nazwie `myVM`. Tworzy również klucze SSH, jeśli jeszcze nie istnieją w domyślnej lokalizacji klucza. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.  
+W poniższym przykładzie utworzono maszynę wirtualną o nazwie `myVM`. Program tworzy również klucze SSH, jeśli jeszcze nie istnieją w domyślnej lokalizacji klucza. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.  
 
 ```azurecli-interactive 
 az vm create \
@@ -55,7 +55,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Po utworzeniu maszyny Wirtualnej platformy Azure CLI wyświetla informacje podobne do poniższego przykładu. Zanotuj `publicIpAddress`wartość dla . Ten adres służy do uzyskiwania dostępu do maszyny Wirtualnej.
+Po utworzeniu maszyny wirtualnej w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do poniższego przykładu. Zwróć uwagę na wartość `publicIpAddress`parametru. Ten adres jest używany do uzyskiwania dostępu do maszyny wirtualnej.
 
 ```output
 {
@@ -72,7 +72,7 @@ Po utworzeniu maszyny Wirtualnej platformy Azure CLI wyświetla informacje podob
 
 ## <a name="connect-to-the-vm"></a>Łączenie z maszyną wirtualną
 
-Aby utworzyć sesję SSH z maszyną wirtualną, użyj następującego polecenia. Zastąp adres `publicIpAddress` IP wartością maszyny Wirtualnej.
+Aby utworzyć sesję SSH z maszyną wirtualną, użyj następującego polecenia. Zastąp adres IP `publicIpAddress` wartością dla maszyny wirtualnej.
 
 ```bash
 ssh azureuser@<publicIpAddress>
@@ -80,9 +80,9 @@ ssh azureuser@<publicIpAddress>
 
 ## <a name="create-the-database"></a>Tworzenie bazy danych
 
-Oprogramowanie Oracle jest już zainstalowane na obrazie Marketplace. Utwórz przykładową bazę danych w następujący sposób. 
+Oprogramowanie Oracle jest już zainstalowane w obrazie portalu Marketplace. Utwórz przykładową bazę danych w następujący sposób. 
 
-1.  Przełącz się do superużytka *oracle,* a następnie zainicjuj odbiornik do rejestrowania:
+1.  Przejdź do administratora firmy *Oracle* , a następnie zainicjuj odbiornik do rejestrowania:
 
     ```bash
     $ sudo su - oracle
@@ -117,7 +117,7 @@ Oprogramowanie Oracle jest już zainstalowane na obrazie Marketplace. Utwórz pr
     The command completed successfully
     ```
 
-2.  Tworzenie bazy danych:
+2.  Utwórz bazę danych:
 
     ```bash
     dbca -silent \
@@ -139,9 +139,9 @@ Oprogramowanie Oracle jest już zainstalowane na obrazie Marketplace. Utwórz pr
            -ignorePreReqs
     ```
 
-    Utworzenie bazy danych zajmuje kilka minut.
+    Utworzenie bazy danych może potrwać kilka minut.
 
-3. Ustawianie zmiennych Oracle
+3. Ustaw zmienne Oracle
 
 Przed nawiązaniem połączenia należy ustawić dwie zmienne środowiskowe: *ORACLE_HOME* i *ORACLE_SID*.
 
@@ -150,7 +150,7 @@ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
 
-Do pliku bashrc można również dodawać zmienne ORACLE_HOME i ORACLE_SID. Pozwoliłoby to zapisać zmienne środowiskowe dla przyszłych logowania. `~/.bashrc`
+Można również dodać zmienne ORACLE_HOME i ORACLE_SID do pliku bashrc. Spowoduje to zapisanie zmiennych środowiskowych dla przyszłych logowań. Upewnij się, że dodano następujące instrukcje do `~/.bashrc` pliku za pomocą edytora.
 
 ```bash
 # Add ORACLE_HOME. 
@@ -159,17 +159,17 @@ export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
 export ORACLE_SID=cdb1 
 ```
 
-## <a name="oracle-em-express-connectivity"></a>Łączność Oracle EM Express
+## <a name="oracle-em-express-connectivity"></a>Łączność z firmą Oracle EM Express
 
-Aby uzyskać narzędzie do zarządzania interfejsem użytkownika, którego można użyć do eksplorowania bazy danych, skonfiguruj program Oracle EM Express. Aby połączyć się z oracle EM Express, należy najpierw skonfigurować port w Oracle. 
+Aby skorzystać z narzędzia do zarządzania graficznym interfejsem użytkownika, którego możesz użyć do eksplorowania bazy danych, skonfiguruj Oracle EM Express. Aby nawiązać połączenie z serwerem Oracle EM Express, należy najpierw skonfigurować port w programie Oracle. 
 
-1. Połącz się z bazą danych za pomocą sqlplus:
+1. Nawiąż połączenie z bazą danych przy użyciu polecenia sqlplus:
 
     ```bash
     sqlplus / as sysdba
     ```
 
-2. Po podłączeniu ustaw port 5502 dla EM Express
+2. Po nawiązaniu połączenia Ustaw port 5502 dla EM Express.
 
     ```bash
     exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
@@ -190,32 +190,32 @@ Aby uzyskać narzędzie do zarządzania interfejsem użytkownika, którego możn
       3           PDB1                      MOUNT
     ```
 
-4. Jeśli OPEN_MODE for `PDB1` nie jest odczytu zapisu, uruchom następujące polecenia, aby otworzyć PDB1:
+4. Jeśli OPEN_MODE dla `PDB1` nie odczytuje zapisu, uruchom następujące polecenia, aby otworzyć PDB1:
 
    ```bash
     alter session set container=pdb1;
     alter database open;
    ```
 
-Należy wpisać, `quit` aby zakończyć `exit` sesję sqlplus i wpisać, aby wylogować użytkownika oracle.
+Musisz wpisać `quit` , aby zakończyć sesję sqlplus i wpisz `exit` , aby wylogować użytkownika Oracle.
 
-## <a name="automate-database-startup-and-shutdown"></a>Automatyzacja uruchamiania i zamykania bazy danych
+## <a name="automate-database-startup-and-shutdown"></a>Automatyzowanie uruchamiania i zamykania bazy danych
 
-Baza danych Oracle domyślnie nie uruchamia się automatycznie po ponownym uruchomieniu maszyny Wirtualnej. Aby skonfigurować bazę danych Oracle, aby uruchomić automatycznie, najpierw zaloguj się jako root. Następnie utwórz i zaktualizuj niektóre pliki systemowe.
+Domyślnie baza danych Oracle nie jest uruchamiana automatycznie po ponownym uruchomieniu maszyny wirtualnej. Aby skonfigurować bazę danych Oracle do automatycznego uruchamiania, najpierw Zaloguj się jako element główny. Następnie utwórz i zaktualizuj niektóre pliki systemowe.
 
-1. Zaloguj się jako root
+1. Zaloguj się jako główny
 
     ```bash
     sudo su -
     ```
 
-2.  Korzystając z ulubionego edytora, edytuj plik `/etc/oratab` i zmień domyślny `N` na: `Y`
+2.  Za pomocą ulubionego edytora Edytuj plik `/etc/oratab` i zmień wartość domyślną `N` na: `Y`
 
     ```bash
     cdb1:/u01/app/oracle/product/12.1.0/dbhome_1:Y
     ```
 
-3.  Utwórz plik `/etc/init.d/dbora` o nazwie i wklej następującą zawartość:
+3.  Utwórz plik o nazwie `/etc/init.d/dbora` i wklej następującą zawartość:
 
     ```bash
     #!/bin/sh
@@ -246,14 +246,14 @@ Baza danych Oracle domyślnie nie uruchamia się automatycznie po ponownym uruch
     esac
     ```
 
-4.  Zmień uprawnienia do plików za pomocą *chmod w* następujący sposób:
+4.  Zmień uprawnienia do plików z *chmod* w następujący sposób:
 
     ```bash
     chgrp dba /etc/init.d/dbora
     chmod 750 /etc/init.d/dbora
     ```
 
-5.  Tworzenie dowiązań symbolicznych dla uruchamiania i zamykania w następujący sposób:
+5.  Utwórz linki symboliczne do uruchamiania i zamykania w następujący sposób:
 
     ```bash
     ln -s /etc/init.d/dbora /etc/rc.d/rc0.d/K01dbora
@@ -267,11 +267,11 @@ Baza danych Oracle domyślnie nie uruchamia się automatycznie po ponownym uruch
     reboot
     ```
 
-## <a name="open-ports-for-connectivity"></a>Otwarte porty dla łączności
+## <a name="open-ports-for-connectivity"></a>Otwórz porty na potrzeby łączności
 
-Ostatnim zadaniem jest skonfigurowanie niektórych zewnętrznych punktów końcowych. Aby skonfigurować grupę zabezpieczeń sieciowej platformy Azure, która chroni maszynę wirtualną, najpierw zamknij sesję SSH na maszynie Wirtualnej (powinien zostać wyrzucony z SSH podczas ponownego uruchamiania w poprzednim kroku). 
+Ostatnim zadaniem jest skonfigurowanie niektórych zewnętrznych punktów końcowych. Aby skonfigurować grupę zabezpieczeń sieci platformy Azure chroniącą maszynę wirtualną, najpierw Wyjdź z sesji SSH na maszynie wirtualnej (powinna zostać wykorzystana z protokołu SSH podczas ponownego uruchamiania w poprzednim kroku). 
 
-1.  Aby otworzyć punkt końcowy używany do zdalnego uzyskiwania dostępu do bazy danych Oracle, utwórz regułę sieciowej grupy zabezpieczeń z [regułą nsg sieci az, należy utworzyć](/cli/azure/network/nsg/rule) w następujący sposób: 
+1.  Aby otworzyć punkt końcowy, który służy do zdalnego uzyskiwania dostępu do bazy danych Oracle, Utwórz regułę sieciowej grupy zabezpieczeń przy użyciu [AZ Network sieciowej grupy zabezpieczeń Rule Create](/cli/azure/network/nsg/rule) w następujący sposób: 
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -283,7 +283,7 @@ Ostatnim zadaniem jest skonfigurowanie niektórych zewnętrznych punktów końco
         --destination-port-range 1521
     ```
 
-2.  Aby otworzyć punkt końcowy używany do zdalnego uzyskiwania dostępu do oracle em express, utwórz regułę sieciowej grupy zabezpieczeń z [regułą nsg sieci az, należy utworzyć](/cli/azure/network/nsg/rule) w następujący sposób:
+2.  Aby otworzyć punkt końcowy, który służy do zdalnego uzyskiwania dostępu do programu Oracle EM Express, Utwórz regułę sieciowej grupy zabezpieczeń przy użyciu [AZ Network sieciowej grupy zabezpieczeń Rule Create](/cli/azure/network/nsg/rule) w następujący sposób:
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -295,7 +295,7 @@ Ostatnim zadaniem jest skonfigurowanie niektórych zewnętrznych punktów końco
         --destination-port-range 5502
     ```
 
-3. W razie potrzeby ponownie uzyskaj publiczny adres IP maszyny Wirtualnej, aby [wyświetlić program az network public-ip](/cli/azure/network/public-ip) w następujący sposób:
+3. W razie konieczności Uzyskaj ponownie publiczny adres IP maszyny wirtualnej za pomocą [AZ Network Public-IP show](/cli/azure/network/public-ip) w następujący sposób:
 
     ```azurecli-interactive
     az network public-ip show \
@@ -305,19 +305,19 @@ Ostatnim zadaniem jest skonfigurowanie niektórych zewnętrznych punktów końco
         --output tsv
     ```
 
-4.  Połącz EM Express z przeglądarki. Upewnij się, że twoja przeglądarka jest zgodna z EM Express (wymagana jest instalacja Flash): 
+4.  Połącz z przeglądarką EM Express. Upewnij się, że przeglądarka jest zgodna z programem EM Express (wymagana jest instalacja programu Flash): 
 
     ```https
     https://<VM ip address or hostname>:5502/em
     ```
 
-Możesz zalogować się za pomocą konta **SYS** i zaznacz pole wyboru **jako sysdba.** Użyj hasła **OraPasswd1** ustawionego podczas instalacji. 
+Możesz zalogować się przy użyciu konta **sys** i zaznaczyć pole wyboru **jako SYSDBA** . Użyj **OraPasswd1** hasła ustawianego podczas instalacji. 
 
-![Zrzut ekranu przedstawiający stronę logowania oracle OEM Express](./media/oracle-quick-start/oracle_oem_express_login.png)
+![Zrzut ekranu strony logowania do programu Oracle OEM Express](./media/oracle-quick-start/oracle_oem_express_login.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Po zakończeniu eksplorowania pierwszej bazy danych Oracle na platformie Azure i maszyny Wirtualnej nie jest już potrzebne, można użyć polecenia [az grupy delete,](/cli/azure/group) aby usunąć grupę zasobów, maszynę wirtualną i wszystkie powiązane zasoby.
+Po zakończeniu eksplorowania pierwszej bazy danych Oracle na platformie Azure nie jest już potrzebne, możesz użyć polecenia [AZ Group Delete](/cli/azure/group) , aby usunąć grupę zasobów, maszynę wirtualną i wszystkie powiązane zasoby.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -325,6 +325,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o innych [rozwiązaniach Oracle na platformie Azure](oracle-considerations.md). 
+Poznaj inne [rozwiązania firmy Oracle na platformie Azure](oracle-considerations.md). 
 
-Wypróbuj [samouczek Instalowanie i konfigurowanie automatycznego zarządzania pamięcią masową Oracle.](configure-oracle-asm.md)
+Spróbuj [zainstalować i skonfigurować samouczek zautomatyzowanego zarządzania magazynem firmy Oracle](configure-oracle-asm.md) .

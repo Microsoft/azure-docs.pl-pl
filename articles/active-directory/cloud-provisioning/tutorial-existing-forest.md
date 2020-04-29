@@ -1,6 +1,6 @@
 ---
-title: Samouczek — integracja istniejącego lasu i nowego lasu z pojedynczą dzierżawą usługi Azure AD przy użyciu inicjowania obsługi administracyjnej w chmurze usługi Azure AD Connect.
-description: Samouczek.
+title: Samouczek — integruje istniejący Las i nowy las z jedną dzierżawą usługi Azure AD przy użyciu Azure AD Connect aprowizacji w chmurze.
+description: Ręczny.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,109 +12,109 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa612ad30ae0faa42071613be15c1d91fb96b8f6
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80332264"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrowanie istniejącego i nowego lasu z jedną dzierżawą usługi Azure AD
 
-W tym samouczku można zainicjować dodawanie inicjowania obsługi administracyjnej w chmurze do istniejącego środowiska tożsamości hybrydowej. 
+Ten samouczek przeprowadzi Cię przez proces dodawania aprowizacji w chmurze do istniejącego hybrydowego środowiska tożsamości. 
 
 ![Utwórz](media/tutorial-existing-forest/existing-forest-new-forest.png)
 
-Można użyć środowiska utworzonego w tym samouczku do testowania lub do zapoznania się z jak działa tożsamości hybrydowej. 
+Możesz użyć środowiska utworzonego w tym samouczku do testowania lub w celu uzyskania bardziej znajomości sposobu działania tożsamości hybrydowej. 
 
-W tym scenariuszu istnieje istniejący las zsynchronizowany przy użyciu synchronizacji usługi Azure AD Connect z dzierżawą usługi Azure AD. I masz nowy las, który chcesz zsynchronizować z tej samej dzierżawy usługi Azure AD. Zostanie skonfigurowana inicjowanie obsługi administracyjnej w chmurze dla nowego lasu. 
+W tym scenariuszu istnieje synchronizowanie istniejącego lasu przy użyciu Azure AD Connect synchronizacji z dzierżawą usługi Azure AD. I masz nowy las, który chcesz zsynchronizować z tą samą dzierżawą usługi Azure AD. Skonfigurujesz obsługę chmury dla nowego lasu. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-### <a name="in-the-azure-active-directory-admin-center"></a>W centrum administracyjnym usługi Azure Active Directory
+### <a name="in-the-azure-active-directory-admin-center"></a>W centrum administracyjnym Azure Active Directory
 
-1. Utwórz konto administratora globalnego tylko w chmurze w dzierżawie usługi Azure AD. W ten sposób można zarządzać konfiguracją dzierżawy, jeśli usługi lokalne nie powiodą się lub staną się niedostępne. Dowiedz się więcej o [dodawaniu globalnego konta administratora tylko w chmurze](../active-directory-users-create-azure-portal.md). Wykonanie tego kroku ma kluczowe znaczenie dla zapewnienia, że nie zostaniesz zablokowany z dzierżawy.
-2. Dodaj co najmniej jedną [niestandardową nazwę domeny](../active-directory-domains-add-azure-portal.md) do dzierżawy usługi Azure AD. Użytkownicy mogą logować się przy jednej z tych nazw domen.
+1. Utwórz konto administratora globalnego tylko w chmurze w dzierżawie usługi Azure AD. W ten sposób możesz zarządzać konfiguracją dzierżawy, jeśli usługi lokalne zakończą się niepowodzeniem lub staną się niedostępne. Dowiedz się więcej [na temat dodawania konta administratora globalnego tylko w chmurze](../active-directory-users-create-azure-portal.md). Wykonanie tego kroku jest niezwykle ważne, aby upewnić się, że dzierżawa nie została zablokowana.
+2. Dodaj co najmniej jedną [niestandardową nazwę domeny](../active-directory-domains-add-azure-portal.md) do dzierżawy usługi Azure AD. Użytkownicy mogą logować się przy użyciu jednej z tych nazw domen.
 
 ### <a name="in-your-on-premises-environment"></a>W środowisku lokalnym
 
-1. Tożsamość serwera hosta przyłączonego do domeny z systemem Windows Server 2012 R2 lub nowszym z minimalną pamięcią RAM 4 GB i środowiskiem uruchomieniowym .NET 4.7.1+ 
+1. Tożsamość serwera hosta przyłączonego do domeny z systemem Windows Server 2012 R2 lub nowszym z co najmniej 4 GB pamięci RAM i .NET 4.7.1 + środowisko uruchomieniowe 
 
-2. Jeśli między serwerami a usługą Azure AD znajduje się zapora, skonfiguruj następujące elementy:
-   - Upewnij się, że agenci mogą składać żądania *wychodzące* do usługi Azure AD za pomocą następujących portów:
+2. Jeśli między serwerami i usługą Azure AD istnieje Zapora, skonfiguruj następujące elementy:
+   - Upewnij się, że agenci mogą wykonywać żądania *wychodzące* do usługi Azure AD za pośrednictwem następujących portów:
 
      | Numer portu | Zastosowanie |
      | --- | --- |
-     | **80** | Pobiera listy odwołania certyfikatów (CRL) podczas sprawdzania poprawności certyfikatu TLS/SSL |
+     | **80** | Pobiera listy odwołania certyfikatów (CRL) podczas weryfikacji certyfikatu TLS/SSL |
      | **443** | Obsługuje całą komunikację wychodzącą z usługą |
-     | **8080** (opcjonalnie) | Agenci zgłaszają swój stan co 10 minut za portem 8080, jeśli port 443 jest niedostępny. Ten stan jest wyświetlany w portalu usługi Azure AD. |
+     | **8080** (opcjonalnie) | Agenci raportują swój stan co 10 minut przez port 8080, jeśli port 443 jest niedostępny. Ten stan jest wyświetlany w portalu usługi Azure AD. |
      
-     Jeśli zapora wymusza reguły zgodnie z użytkownikami źródłowymi, otwórz te porty dla ruchu z usług systemu Windows, które działają jako usługa sieciowa.
-   - Jeśli zapora lub serwer proxy umożliwia określenie bezpiecznych sufiksów, należy dodać połączenia do ** \*msappproxy.net** i ** \*.servicebus.windows.net**. Jeśli nie, zezwalaj na dostęp do [zakresów adresów IP centrum danych platformy Azure,](https://www.microsoft.com/download/details.aspx?id=41653)które są aktualizowane co tydzień.
-   - Twoi agenci potrzebują dostępu do **login.windows.net** i **login.microsoftonline.com** do wstępnej rejestracji. Otwórz również zaporę dla tych adresów URL.
-   - Aby potwierdzić certyfikat, odblokuj następujące adresy URL: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**i **www\.microsoft.com:80**. Ponieważ te adresy URL są używane do sprawdzania poprawności certyfikatów w innych produktach firmy Microsoft, te adresy URL mogą być już odblokowane.
+     Jeśli Zapora wymusza reguły zależne od użytkowników inicjujących, należy otworzyć te porty dla ruchu z usług systemu Windows, które działają jako usługa sieciowa.
+   - Jeśli zapora lub serwer proxy umożliwia określenie bezpiecznych sufiksów, Dodaj połączenia do ** \*. msappproxy.NET** i ** \*. ServiceBus.Windows.NET**. W przeciwnym razie Zezwól na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653), które są aktualizowane co tydzień.
+   - Twoje Agenci muszą mieć dostęp do **login.Windows.NET** i **login.microsoftonline.com** na potrzeby rejestracji wstępnej. Należy również otworzyć Zaporę dla tych adresów URL.
+   - Aby sprawdzić poprawność certyfikatu, Odblokuj następujące adresy URL: **mscrl.Microsoft.com:80**, **CRL.Microsoft.com:80**, **OCSP.msocsp.com:80**i **www\.Microsoft.com:80**. Ponieważ te adresy URL są używane do sprawdzania poprawności certyfikatu z innymi produktami firmy Microsoft, te adresy URL mogą już być odblokowane.
 
-## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Instalowanie agenta inicjowania obsługi administracyjnej usługi Azure AD Connect
-1. Zaloguj się do serwera przyłączone do domeny.  Jeśli używasz [samouczka środowiska podstawowej usługi AD i platformy Azure,](tutorial-basic-ad-azure.md) będzie to DC1.
-2. Zaloguj się do witryny Azure portal przy użyciu poświadczeń administratora globalnego tylko w chmurze.
-3. Po lewej stronie wybierz pozycję **Azure Active Directory**, kliknij pozycję **Azure AD Connect** i w centrum wybierz pozycję **Zarządzaj inicjowania obsługi administracyjnej (wersja zapoznawcza)**.</br>
+## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Zainstaluj agenta aprowizacji Azure AD Connect
+1. Zaloguj się na serwerze przyłączonym do domeny.  Jeśli używasz podstawowego samouczka [usługi AD i środowiska Azure](tutorial-basic-ad-azure.md) , będzie to DC1.
+2. Zaloguj się do Azure Portal przy użyciu poświadczeń administratora globalnego tylko w chmurze.
+3. Po lewej stronie wybierz pozycję **Azure Active Directory**, kliknij pozycję **Azure AD Connect** i w centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.</br>
 ![Azure Portal](media/how-to-install/install6.png)</br>
-4. Kliknij na "Agent pobierania"
-5. Uruchamianie agenta inicjowania obsługi administracyjnej usługi Azure AD Connect
-6. Na ekranie powityla **zaakceptuj** postanowienia licencyjne i kliknij przycisk **Zainstaluj**.</br>
+4. Kliknij pozycję "Pobierz agenta"
+5. Uruchom agenta aprowizacji Azure AD Connect
+6. Na ekranie powitalnym **Zaakceptuj** postanowienia licencyjne, a następnie kliknij przycisk **Instaluj**.</br>
 ![Ekran powitalny](media/how-to-install/install1.png)</br>
 
-7. Po zakończeniu tej operacji zostanie uruchomiony kreator konfiguracji.  Zaloguj się za pomocą konta administratora globalnego usługi Azure AD.  Należy pamiętać, że jeśli masz włączone rozszerzone zabezpieczenia IE, spowoduje to zablokowanie logowania.  W takim przypadku zamknij instalację, wyłącz rozszerzone zabezpieczenia IE w Menedżerze serwera i kliknij **Kreatora aprowizowania połączenia AAD,** aby ponownie uruchomić instalację.
-8. Na ekranie **Połącz usługa Active Directory** kliknij pozycję **Dodaj katalog,** a następnie zaloguj się za pomocą konta administratora domeny usługi Active Directory.  UWAGA: Konto administratora domeny nie powinno mieć wymagań dotyczących zmiany hasła. W przypadku wygaśnięcia lub zmiany hasła należy ponownie skonfigurować agenta przy użyciu nowych poświadczeń. Ta operacja spowoduje dodanie katalogu lokalnego.  Kliknij przycisk **alej**.</br>
+7. Po zakończeniu tej operacji zostanie uruchomiony Kreator konfiguracji.  Zaloguj się przy użyciu konta administratora globalnego usługi Azure AD.  Należy pamiętać, że jeśli masz włączone rozszerzone zabezpieczenia programu IE, spowoduje to zablokowanie logowania.  W takim przypadku Zamknij instalację, wyłącz zaawansowane zabezpieczenia programu IE w Menedżer serwera, a następnie kliknij **Kreatora agenta aprowizacji usługi AAD Connect** , aby ponownie uruchomić instalację.
+8. Na ekranie **połącz Active Directory** kliknij pozycję **Dodaj katalog** , a następnie zaloguj się przy użyciu konta administratora domeny Active Directory.  Uwaga: konto administratora domeny nie powinno mieć wymagań dotyczących zmiany hasła. W przypadku wygaśnięcia lub zmiany hasła należy ponownie skonfigurować agenta przy użyciu nowych poświadczeń. Ta operacja spowoduje dodanie katalogu lokalnego.  Kliknij przycisk **Dalej**.</br>
 ![Ekran powitalny](media/how-to-install/install3.png)</br>
 
-9. Na ekranie **Konfiguracja pełna** kliknij przycisk **Potwierdź**.  Ta operacja zarejestruje i uruchomi ponownie agenta.</br>
+9. Na ekranie **Konfiguracja ukończona** kliknij przycisk **Potwierdź**.  Ta operacja spowoduje zarejestrowanie i ponowne uruchomienie agenta.</br>
 ![Ekran powitalny](media/how-to-install/install4.png)</br>
 
-10. Po zakończeniu tej operacji powinien zostać wyświetlony komunikat: **Konfiguracja agenta została pomyślnie zweryfikowana.**  Możesz kliknąć przycisk **Zakończ**.</br>
+10. Po zakończeniu tej operacji powinna zostać wyświetlona informacja: **Konfiguracja agenta została pomyślnie zweryfikowana.**  Możesz kliknąć przycisk **Zakończ**.</br>
 ![Ekran powitalny](media/how-to-install/install5.png)</br>
 11. Jeśli nadal widzisz początkowy ekran powitalny, kliknij przycisk **Zamknij**.
 
 
-## <a name="verify-agent-installation"></a>Weryfikowanie instalacji agenta
-Weryfikacja agenta odbywa się w witrynie Azure portal i na serwerze lokalnym, który jest uruchomiony agenta.
+## <a name="verify-agent-installation"></a>Weryfikuj instalację agenta
+Weryfikacja agenta odbywa się w Azure Portal i na serwerze lokalnym, na którym jest uruchomiony Agent programu.
 
-### <a name="azure-portal-agent-verification"></a>Weryfikacja agenta usługi Azure portal
-Aby sprawdzić, czy agent jest postrzegany przez platformę Azure, wykonaj następujące kroki:
+### <a name="azure-portal-agent-verification"></a>Weryfikacja agenta Azure Portal
+Aby sprawdzić, czy Agent jest widziany przez platformę Azure, wykonaj następujące kroki:
 
-1. Zaloguj się do Portalu Azure.
-2. Po lewej stronie wybierz pozycję **Azure Active Directory**, kliknij pozycję **Azure AD Connect** i w centrum wybierz pozycję **Zarządzaj inicjowania obsługi administracyjnej (wersja zapoznawcza)**.</br>
+1. Zaloguj się do witryny Azure Portal.
+2. Po lewej stronie wybierz pozycję **Azure Active Directory**, kliknij pozycję **Azure AD Connect** i w centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.</br>
 ![Azure Portal](media/how-to-install/install6.png)</br>
 
-3.  Na ekranie **inicjowania obsługi administracyjnej usługi Azure AD (wersja zapoznawcza)** kliknij pozycję **Przejrzyj wszystkich agentów**.
-![Inicjowanie obsługi administracyjnej usługi Azure AD](media/how-to-install/install7.png)</br>
+3.  Na ekranie **Azure AD Provisioning (wersja zapoznawcza)** kliknij pozycję **Przejrzyj wszystkich agentów**.
+![Inicjowanie obsługi usługi Azure AD](media/how-to-install/install7.png)</br>
  
-4. Na **ekranie lokalnych agentów inicjowania obsługi administracyjnej** zobaczysz zainstalowane agentów.  Sprawdź, czy dany agent istnieje i jest oznaczony **jako aktywny**.
-![Agenci inicjowania obsługi administracyjnej](media/how-to-install/verify1.png)</br>
+4. Na **ekranie agenci aprowizacji lokalnego** zostaną zainstalowani agenci.  Sprawdź, czy dany Agent jest tam i jest oznaczony jako **aktywny**.
+![Agenci aprowizacji](media/how-to-install/verify1.png)</br>
 
 ### <a name="on-the-local-server"></a>Na serwerze lokalnym
-Aby sprawdzić, czy agent jest uruchomiony, wykonaj następujące kroki:
+Aby sprawdzić, czy agent działa, wykonaj następujące kroki:
 
-1.  Zaloguj się do serwera przy użyciu konta administratora
-2.  Otwórz **usługi,** przechodząc do niego lub przechodząc do strony Start/Run/Services.msc.
-3.  W obszarze **Usługi**upewnij się, że program **Microsoft Azure AD Connect Agent Updater** i agent **aprowizowania usługi Microsoft Azure AD Connect** są obecne, a stan jest **uruchomiony**.
+1.  Zaloguj się na serwerze przy użyciu konta administratora
+2.  Otwórz **usługi** , przechodząc do niej lub uruchamiając/Uruchom/Services. msc.
+3.  W obszarze **usługi**upewnij się, że są obecne **Microsoft Azure AD Connect agent Aktualizator** i **Microsoft Azure AD Connecting Agent** , a stan jest **uruchomiony**.
 ![Usługi](media/how-to-troubleshoot/troubleshoot1.png)
 
-## <a name="configure-azure-ad-connect-cloud-provisioning"></a>Konfigurowanie inicjowania obsługi administracyjnej usługi Azure AD Connect
- Konfigurowanie inicjowania obsługi administracyjnej za pomocą następujących czynności:
+## <a name="configure-azure-ad-connect-cloud-provisioning"></a>Konfigurowanie aprowizacji Azure AD Connect chmury
+ Wykonaj następujące kroki, aby skonfigurować aprowizacji
 
 1.  Zaloguj się do portalu usługi Azure AD.
-2.  Kliknij pozycję **Usługa Azure Active Directory**
-3.  Kliknij pozycję **Usługa Azure AD Connect**
-4.  Wybierz **pozycję Zarządzaj inicjowania obsługi administracyjnej (wersja zapoznawcza)**
+2.  Kliknij **Azure Active Directory**
+3.  Kliknij **Azure AD Connect**
+4.  Wybierz pozycję **Zarządzaj aprowizacjim (wersja zapoznawcza)**
 ![](media/how-to-configure/manage1.png)
-5.  Kliknij **pozycję Nowa konfiguracja**
+5.  Kliknij pozycję **Nowa konfiguracja** .
 ![](media/tutorial-single-forest/configure1.png)
-7.  Na ekranie konfiguracji wprowadź **wiadomość e-mail z powiadomieniem**, przesuń selektor do **opcji Włącz** i kliknij przycisk **Zapisz**.
+7.  Na ekranie Konfiguracja wprowadź **wiadomość e-mail z powiadomieniem**, Przenieś selektor, aby go **włączyć** , a następnie kliknij przycisk **Zapisz**.
 ![](media/tutorial-single-forest/configure2.png)
-1.  Stan konfiguracji powinien być teraz **zdrowy**.
+1.  Stan konfiguracji powinien być teraz w **dobrej kondycji**.
 ![](media/how-to-configure/manage4.png)
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>Weryfikowanie utworzenia użytkowników i przeprowadzania synchronizacji
-Teraz sprawdzisz, czy użytkownicy, którzy mieli w naszym katalogu lokalnym zostały zsynchronizowane i teraz istnieją w naszej dzierżawy usługi Azure AD.  Ukończenie tego procesu może potrwać kilka godzin.  Aby potwierdzić, że użytkownicy zostali zsynchronizowani, wykonaj następujące czynności.
+Teraz sprawdź, czy użytkownicy, którzy mieli dostęp do naszego katalogu lokalnego, zostali zsynchronizowani i teraz istnieją w naszej dzierżawie usługi Azure AD.  Ukończenie tego procesu może potrwać kilka godzin.  Aby potwierdzić, że użytkownicy zostali zsynchronizowani, wykonaj następujące czynności.
 
 
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta z subskrypcją platformy Azure.
@@ -129,7 +129,7 @@ Teraz sprawdzisz, czy użytkownicy, którzy mieli w naszym katalogu lokalnym zos
 2. Zaloguj się przy użyciu konta użytkownika utworzonego w nowej dzierżawie.  Należy zalogować się przy użyciu następującego formatu: (user@domain.onmicrosoft.com). Użyj tego samego hasła, za pomocą którego użytkownik loguje się lokalnie.</br>
    ![Weryfikacja](media/tutorial-single-forest/verify1.png)</br>
 
-Teraz pomyślnie skonfigurować środowisko tożsamości hybrydowej, które można użyć do testowania i zapoznania się z tym, co ma do zaoferowania platforma Azure.
+Pomyślnie skonfigurowano hybrydowe środowisko tożsamości, za pomocą którego można testować i zapoznać się z możliwościami oferowanymi przez platformę Azure.
 
 ## <a name="next-steps"></a>Następne kroki 
 

@@ -1,6 +1,6 @@
 ---
-title: Zaloguj się do maszyny Wirtualnej systemu Linux przy użyciu poświadczeń usługi Azure Active Directory
-description: Dowiedz się, jak utworzyć i skonfigurować maszynę wirtualną z systemem Linux do logowania się przy użyciu uwierzytelniania usługi Azure Active Directory.
+title: Logowanie do maszyny wirtualnej z systemem Linux przy użyciu poświadczeń Azure Active Directory
+description: Dowiedz się, jak utworzyć i skonfigurować maszynę wirtualną z systemem Linux, aby zalogować się przy użyciu uwierzytelniania Azure Active Directory.
 author: iainfoulds
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -8,78 +8,78 @@ ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
 ms.openlocfilehash: 2731693667d2129a72da72455c6bbdd74c277697
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80366484"
 ---
-# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Wersja zapoznawcza: logowanie się do maszyny wirtualnej systemu Linux na platformie Azure przy użyciu uwierzytelniania usługi Azure Active Directory
+# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Wersja zapoznawcza: Logowanie do maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu uwierzytelniania Azure Active Directory
 
-Aby zwiększyć bezpieczeństwo maszyn wirtualnych systemu Linux (VM) na platformie Azure, można zintegrować z uwierzytelnianiem usługi Azure Active Directory (AD). Korzystając z uwierzytelniania usługi Azure AD dla maszyn wirtualnych z systemem Linux, można centralnie kontrolować i wymuszać zasady, które zezwalają lub odmawiają dostępu do maszyn wirtualnych. W tym artykule pokazano, jak utworzyć i skonfigurować maszynę wirtualną z systemem Linux do używania uwierzytelniania usługi Azure AD.
+Aby zwiększyć bezpieczeństwo maszyn wirtualnych z systemem Linux na platformie Azure, można zintegrować z usługą Azure Active Directory (AD) Authentication. Korzystając z uwierzytelniania usługi Azure AD dla maszyn wirtualnych z systemem Linux, można centralnie kontrolować i wymuszać zasady zezwalające na dostęp do maszyn wirtualnych lub odmawiające tego dostępu. W tym artykule pokazano, jak utworzyć i skonfigurować maszynę wirtualną z systemem Linux do korzystania z uwierzytelniania usługi Azure AD.
 
 
 > [!IMPORTANT]
-> Uwierzytelnianie usługi Azure Active Directory jest obecnie w publicznej wersji zapoznawczej.
+> Uwierzytelnianie Azure Active Directory jest obecnie w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Użyj tej funkcji na testowej maszynie wirtualnej, która ma być odrzucona po przetestowaniu.
+> Użyj tej funkcji na testowej maszynie wirtualnej, która powinna zostać odrzucona po przetestowaniu.
 >
 
 
-Istnieje wiele korzyści z używania uwierzytelniania usługi Azure AD do logowania się do maszyn wirtualnych z systemem Linux na platformie Azure, w tym:
+Istnieje wiele zalet używania uwierzytelniania usługi Azure AD do logowania się do maszyn wirtualnych z systemem Linux na platformie Azure, w tym:
 
-- **Większe bezpieczeństwo:**
-  - Za pomocą firmowych poświadczeń usługi AD można zalogować się do maszyn wirtualnych systemu Azure z systemem Linux. Nie ma potrzeby tworzenia kont administratora lokalnego i zarządzania okresem istnienia poświadczeń.
-  - Zmniejszając zależność od kont administratora lokalnego, nie musisz się martwić o utratę poświadczeń / kradzieży, użytkowników konfigurujących słabe poświadczenia itp.
-  - Złożoność haseł i zasady okresu istnienia hasła skonfigurowane dla katalogu usługi Azure AD pomagają również zabezpieczyć maszyny wirtualne z systemem Linux.
-  - Aby dodatkowo zabezpieczyć logowanie do maszyn wirtualnych platformy Azure, można skonfigurować uwierzytelnianie wieloskładnikowe.
-  - Możliwość logowania się do maszyn wirtualnych z systemem Linux za pomocą usługi Azure Active Directory działa również dla klientów korzystających z [usług federacyjnych.](../../active-directory/hybrid/how-to-connect-fed-whatis.md)
+- **Ulepszone zabezpieczenia:**
+  - Aby zalogować się do maszyn wirtualnych z systemem Linux na platformie Azure, możesz użyć firmowych poświadczeń usługi AD. Nie ma potrzeby tworzenia kont administratorów lokalnych i zarządzania okresem istnienia poświadczeń.
+  - Zmniejszając swój zależność od lokalnych kont administratorów, nie musisz martwić się o utratę poświadczeń/kradzież, użytkownicy konfigurujący słabe poświadczenia itp.
+  - Zasady dotyczące złożoności haseł i haseł skonfigurowane dla katalogu usługi Azure AD również pomagają w zabezpieczaniu maszyn wirtualnych z systemem Linux.
+  - Aby dodatkowo zabezpieczyć logowanie do usługi Azure Virtual Machines, można skonfigurować uwierzytelnianie wieloskładnikowe.
+  - Możliwość zalogowania się do maszyn wirtualnych systemu Linux przy użyciu Azure Active Directory również działa dla klientów korzystających z [usług federacyjnych](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
-- **Bezproblemowa współpraca:** Za pomocą kontroli dostępu opartej na rolach (RBAC) można określić, kto może logować się do danej maszyny Wirtualnej jako zwykły użytkownik lub z uprawnieniami administratora. Gdy użytkownicy dołączyć lub opuścić zespół, można zaktualizować zasady RBAC dla maszyny Wirtualnej, aby udzielić dostępu w razie potrzeby. To środowisko jest znacznie prostsze niż konieczności szorowania maszyn wirtualnych, aby usunąć niepotrzebne klucze publiczne SSH. Gdy pracownicy opuszczają organizację, a ich konto użytkownika jest wyłączone lub usunięte z usługi Azure AD, nie mają już dostępu do zasobów.
+- **Bezproblemowa współpraca:** Za pomocą Access Control opartej na rolach (RBAC) można określić, kto może logować się do danej maszyny wirtualnej jako zwykły użytkownik lub z uprawnieniami administratora. Gdy użytkownicy dołączają lub opuszczają Twój zespół, można zaktualizować zasady RBAC dla maszyny wirtualnej, aby udzielić dostępu zgodnie z potrzebami. To środowisko jest znacznie prostsze niż trzeba do szybkiej kontroli maszyn wirtualnych, aby usunąć zbędne klucze publiczne SSH. Gdy pracownicy opuszczają organizację, a ich konto użytkownika jest wyłączone lub usunięte z usługi Azure AD, nie mają już dostępu do zasobów.
 
-## <a name="supported-azure-regions-and-linux-distributions"></a>Obsługiwane regiony platformy Azure i dystrybucje systemu Linux
+## <a name="supported-azure-regions-and-linux-distributions"></a>Obsługiwane dystrybucje regionów platformy Azure i systemu Linux
 
-Następujące dystrybucje Linuksa są obecnie obsługiwane podczas podglądu tej funkcji:
+Następujące dystrybucje systemu Linux są obecnie obsługiwane w ramach wersji zapoznawczej tej funkcji:
 
 | Dystrybucja | Wersja |
 | --- | --- |
 | CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
-| openSUSE | openSUSE Leap 42.3 |
+| openSUSE | openSUSE przestępnie 42,3 |
 | RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
 | SUSE Linux Enterprise Server | SLES 12 |
-| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 i Ubuntu Server 18.04 |
+| Ubuntu Server | Ubuntu 14,04 LTS, Ubuntu Server 16,04 i Ubuntu Server 18,04 |
 
 
-Następujące regiony platformy Azure są obecnie obsługiwane podczas podglądu tej funkcji:
+Poniższe regiony platformy Azure są obecnie obsługiwane w ramach wersji zapoznawczej tej funkcji:
 
-- Wszystkie globalne regiony platformy Azure
+- Wszystkie regiony globalne platformy Azure
 
 >[!IMPORTANT]
-> Aby korzystać z tej funkcji w wersji zapoznawczej, należy wdrożyć tylko obsługiwaną dystrybucję systemu Linux i w obsługiwanym regionie platformy Azure. Ta funkcja nie jest obsługiwana w usłudze Azure Government ani w chmurach suwerennych.
+> Aby korzystać z tej funkcji w wersji zapoznawczej, należy wdrożyć tylko obsługiwaną dystrybucji systemu Linux i w obsługiwanym regionie platformy Azure. Ta funkcja nie jest obsługiwana w Azure Government lub suwerennych chmurach.
 >
-> Nie jest obsługiwana do korzystania z tego rozszerzenia w klastrach usługi Azure Kubernetes Service (AKS). Aby uzyskać więcej informacji, zobacz [Zasady pomocy technicznej dla usługi AKS](../../aks/support-policies.md).
+> Korzystanie z tego rozszerzenia w klastrach usługi Azure Kubernetes Service (AKS) nie jest obsługiwane. Aby uzyskać więcej informacji, zobacz [zasady pomocy technicznej dla AKS](../../aks/support-policies.md).
 
 
-Jeśli zdecydujesz się zainstalować i używać interfejsu wiersza polecenia lokalnie, ten samouczek wymaga, aby uruchomić interfejsu wiersza polecenia platformy Azure w wersji 2.0.31 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.31 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="network-requirements"></a>Wymagania dotyczące sieci
 
-Aby włączyć uwierzytelnianie usługi Azure AD dla maszyn wirtualnych z systemem Linux na platformie Azure, musisz upewnić się, że konfiguracja sieci maszyn wirtualnych zezwala na dostęp wychodzący do następujących punktów końcowych za pośrednictwem portu TCP 443:
+Aby włączyć uwierzytelnianie usługi Azure AD dla maszyn wirtualnych z systemem Linux na platformie Azure, musisz upewnić się, że konfiguracja sieci maszyn wirtualnych zezwala na dostęp wychodzący do następujących punktów końcowych przez port TCP 443:
 
 * https:\//login.microsoftonline.com
 * https:\//login.windows.net
-* https:\//device.login.microsoftonline.com
-* https:\//pas.windows.net
+* https:\//Device.Login.microsoftonline.com
+* https:\//pas.Windows.NET
 * https:\//management.azure.com
-* https:\//packages.microsoft.com
+* https:\//Packages.Microsoft.com
 
 > [!NOTE]
-> Obecnie nie można skonfigurować grup zabezpieczeń sieci platformy Azure dla maszyn wirtualnych włączonych za pomocą uwierzytelniania usługi Azure AD.
+> Obecnie nie można skonfigurować grup zabezpieczeń sieci platformy Azure dla maszyn wirtualnych z włączoną funkcją uwierzytelniania usługi Azure AD.
 
 ## <a name="create-a-linux-virtual-machine"></a>Tworzenie maszyny wirtualnej z systemem Linux
 
-Utwórz grupę zasobów z [tworzeniem grupy az,](/cli/azure/group#az-group-create)a następnie utwórz maszynę wirtualną z [az vm create](/cli/azure/vm#az-vm-create) przy użyciu obsługiwanej dystrybucji i w obsługiwanym regionie. Poniższy przykład wdraża maszynę wirtualną o nazwie *myVM,* która używa *Ubuntu 16.04 LTS* do grupy zasobów o nazwie *myResourceGroup* w regionie *southcentralus.* W poniższych przykładach można podać własną grupę zasobów i nazwy maszyn wirtualnych w razie potrzeby.
+Utwórz grupę zasobów za pomocą polecenia [AZ Group Create](/cli/azure/group#az-group-create), a następnie utwórz maszynę wirtualną z funkcją [AZ VM Create](/cli/azure/vm#az-vm-create) przy użyciu obsługiwanego dystrybucji i w obsługiwanym regionie. W poniższym przykładzie wdrożono maszynę wirtualną o nazwie *myVM* , która używa *Ubuntu 16,04 LTS* do grupy zasobów o nazwie Moja *resourceName* w regionie *southcentralus* . W poniższych przykładach można podać własną grupę zasobów i nazwy maszyn wirtualnych zgodnie z potrzebami.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location southcentralus
@@ -94,12 +94,12 @@ az vm create \
 
 Utworzenie maszyny wirtualnej i zasobów pomocniczych potrwa kilka minut.
 
-## <a name="install-the-azure-ad-login-vm-extension"></a>Instalowanie rozszerzenia maszyny Wirtualnej logowania usługi Azure AD
+## <a name="install-the-azure-ad-login-vm-extension"></a>Zainstaluj rozszerzenie maszyny wirtualnej do logowania do usługi Azure AD
 
 > [!NOTE]
-> Jeśli wdrożenie tego rozszerzenia na wcześniej utworzonej maszynie wirtualnej upewnij się, że komputer ma co najmniej 1 GB pamięci przydzielonej w przeciwnym razie rozszerzenie nie zostanie zainstalowane
+> W przypadku wdrażania tego rozszerzenia na wcześniej utworzonej maszynie wirtualnej upewnij się, że maszyna ma co najmniej 1 GB przydzieloną pamięć, w przeciwnym razie rozszerzenie nie zostanie zainstalowane
 
-Aby zalogować się do maszyny Wirtualnej systemu Linux przy użyciu poświadczeń usługi Azure AD, zainstaluj rozszerzenie logowania do logowania usługi Azure Active Directory. Rozszerzenia maszyn wirtualnych to małe aplikacje, które zapewniają konfigurację po wdrożeniu i zadania automatyzacji na maszynach wirtualnych platformy Azure. Użyj [zestawu rozszerzeń az vm,](/cli/azure/vm/extension#az-vm-extension-set) aby zainstalować rozszerzenie *AADLoginForLinux* na maszynie wirtualnej o nazwie *myVM* w grupie zasobów *myResourceGroup:*
+Aby zalogować się do maszyny wirtualnej z systemem Linux przy użyciu poświadczeń usługi Azure AD, zainstaluj rozszerzenie maszyny wirtualnej logowania Azure Active Directory. Rozszerzenia maszyn wirtualnych to małe aplikacje, które zapewniają konfigurację po wdrożeniu i zadania automatyzacji na maszynach wirtualnych platformy Azure. Użyj opcji [AZ VM Extension Set](/cli/azure/vm/extension#az-vm-extension-set) , aby zainstalować rozszerzenie *AADLoginForLinux* na maszynie wirtualnej o nazwie *myVM* w *grupie zasobów* :
 
 ```azurecli-interactive
 az vm extension set \
@@ -109,19 +109,19 @@ az vm extension set \
     --vm-name myVM
 ```
 
-*Inicjowanie obsługi administracyjnejState* *pomyślnie* jest wyświetlany po pomyślnym zainstalowaniu rozszerzenia na maszynie Wirtualnej. Maszyna wirtualna potrzebuje uruchomionego agenta maszyny Wirtualnej, aby zainstalować rozszerzenie. Aby uzyskać więcej informacji, zobacz [Omówienie agenta maszyn wirtualnych](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
+*ProvisioningState* *powiodło* się, gdy rozszerzenie zostanie pomyślnie zainstalowane na maszynie wirtualnej. Aby można było zainstalować rozszerzenie, maszyna wirtualna musi być uruchomionym agentem maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie agenta maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
 
-## <a name="configure-role-assignments-for-the-vm"></a>Konfigurowanie przypisań ról dla maszyny Wirtualnej
+## <a name="configure-role-assignments-for-the-vm"></a>Konfigurowanie przypisań ról dla maszyny wirtualnej
 
-Zasady kontroli dostępu opartej na rolach platformy Azure (RBAC) określają, kto może zalogować się do maszyny Wirtualnej. Dwie role RBAC są używane do autoryzowania logowania maszyn wirtualnych:
+Zasady Access Control oparte na rolach (RBAC) na platformie Azure określają, kto może logować się do maszyny wirtualnej. Do autoryzacji logowania maszyn wirtualnych służą dwie role RBAC:
 
-- **Logowanie administratora maszyny wirtualnej:** Użytkownicy z przypisaną tą rolą mogą logować się do maszyny wirtualnej platformy Azure za pomocą uprawnień administratora systemu Windows lub użytkownika głównego systemu Linux.
-- **Login użytkownika maszyny wirtualnej:** użytkownicy z przypisaną tą rolą mogą logować się do maszyny wirtualnej platformy Azure z uprawnieniami zwykłych użytkowników.
+- **Logowanie administratora maszyny wirtualnej**: Użytkownicy z przypisaną tą rolą mogą logować się do maszyny wirtualnej platformy Azure z uprawnieniami administratora systemu Windows lub użytkownika root w systemie Linux.
+- **Logowanie użytkownika maszyny wirtualnej**: Użytkownicy z przypisaną rolą mogą logować się do maszyny wirtualnej platformy Azure przy użyciu zwykłych uprawnień użytkownika.
 
 > [!NOTE]
-> Aby umożliwić użytkownikowi zalogowanie się do maszyny Wirtualnej za pomocą funkcji SSH, należy przypisać rolę *logowania administratora maszyny wirtualnej* lub *logowania użytkownika maszyny wirtualnej.* Użytkownik platformy Azure z *ról właściciela* lub *współautora* przypisane do maszyny Wirtualnej nie mają automatycznie uprawnień do logowania się do maszyny Wirtualnej za pomocą SSH.
+> Aby umożliwić użytkownikowi logowanie się do maszyny wirtualnej za pośrednictwem protokołu SSH, należy przypisać rolę logowania *administratora maszyny wirtualnej* lub *użytkownika maszyny wirtualnej* . Użytkownik platformy Azure z rolami *właściciela* lub *współautora* przypisany do maszyny wirtualnej nie ma automatycznie uprawnień do logowania się do maszyny wirtualnej za pośrednictwem protokołu SSH.
 
-W poniższym przykładzie użyto [az przypisanie roli utworzyć](/cli/azure/role/assignment#az-role-assignment-create) przypisać rolę *logowania administratora maszyny wirtualnej* do maszyny wirtualnej dla bieżącego użytkownika platformy Azure. Nazwa użytkownika aktywnego konta platformy Azure jest uzyskiwana za pomocą [programu AZ Account Show,](/cli/azure/account#az-account-show)a *zakres* jest ustawiony na maszynę wirtualną utworzoną w poprzednim kroku z [programem AZ VM Show](/cli/azure/vm#az-vm-show). Zakres można również przypisać na poziomie grupy zasobów lub subskrypcji i stosuje się normalne uprawnienia dziedziczenia RBAC. Aby uzyskać więcej informacji, zobacz [Formanty dostępu oparte na rolach](../../role-based-access-control/overview.md)
+Poniższy przykład używa [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create) , aby przypisać rolę *logowania administratora maszyny wirtualnej* do maszyny wirtualnej dla bieżącego użytkownika platformy Azure. Nazwa użytkownika aktywnego konta platformy Azure zostanie uzyskana za pomocą [AZ Account show](/cli/azure/account#az-account-show), a *zakres* jest ustawiany na maszynę wirtualną utworzoną w poprzednim kroku przy użyciu [AZ VM show](/cli/azure/vm#az-vm-show). Zakres może być również przypisany do grupy zasobów lub poziomu subskrypcji i obowiązują normalne uprawnienia dziedziczenia RBAC. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -134,45 +134,45 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Jeśli domena AAD i domena nazwy użytkownika logowania nie są zgodne, należy określić identyfikator obiektu konta użytkownika za pomocą *identyfikatora --assignee-object-id,* a nie tylko nazwy użytkownika *dla --assignee*. Identyfikator obiektu dla konta użytkownika można uzyskać za pomocą [listy użytkowników reklam az](/cli/azure/ad/user#az-ad-user-list).
+> Jeśli domena i nazwa użytkownika logowania w usłudze AAD nie są zgodne, należy określić identyfikator obiektu konta użytkownika z parametrem *--cesjonariusz-Object-ID*, a nie tylko nazwą użytkownika dla *--* przyłączania. Identyfikator obiektu dla konta użytkownika można uzyskać za pomocą elementu [AZ AD User list](/cli/azure/ad/user#az-ad-user-list).
 
-Aby uzyskać więcej informacji na temat używania funkcji RBAC do zarządzania dostępem do zasobów subskrypcji platformy Azure, zobacz korzystanie z [interfejsu wiersza polecenia platformy Azure,](../../role-based-access-control/role-assignments-cli.md) [portalu Azure](../../role-based-access-control/role-assignments-portal.md)lub programu [Azure PowerShell.](../../role-based-access-control/role-assignments-powershell.md)
+Aby uzyskać więcej informacji na temat korzystania z funkcji RBAC do zarządzania dostępem do zasobów subskrypcji platformy Azure, zobacz Korzystanie z [interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md), [Azure Portal](../../role-based-access-control/role-assignments-portal.md)lub [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-Można również skonfigurować usługę Azure AD, aby wymagać uwierzytelniania wieloskładnikowego dla określonego użytkownika, aby zalogować się do maszyny wirtualnej systemu Linux. Aby uzyskać więcej informacji, zobacz [Wprowadzenie do uwierzytelniania wieloskładnikowego platformy Azure w chmurze](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+Możesz również skonfigurować usługę Azure AD, aby wymagać uwierzytelniania wieloskładnikowego dla określonego użytkownika do logowania się do maszyny wirtualnej systemu Linux. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z usługą Azure Multi-Factor Authentication w chmurze](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
-## <a name="log-in-to-the-linux-virtual-machine"></a>Zaloguj się do maszyny wirtualnej Systemu Linux
+## <a name="log-in-to-the-linux-virtual-machine"></a>Logowanie do maszyny wirtualnej z systemem Linux
 
-Najpierw wyświetl publiczny adres IP maszyny Wirtualnej z [az vm show:](/cli/azure/vm#az-vm-show)
+Najpierw Wyświetl publiczny adres IP maszyny wirtualnej za pomocą [AZ VM show](/cli/azure/vm#az-vm-show):
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Zaloguj się do maszyny wirtualnej systemu Azure Linux przy użyciu poświadczeń usługi Azure AD. Parametr `-l` umożliwia określenie własnego adresu konta usługi Azure AD. Zastąp przykładowe konto własnym. Adresy kont należy wprowadzić we wszystkich małych literach. Zastąp przykładowy adres IP publicznym adresem IP maszyny Wirtualnej z poprzedniego polecenia.
+Zaloguj się do maszyny wirtualnej platformy Azure z systemem Linux przy użyciu poświadczeń usługi Azure AD. `-l` Parametr umożliwia określenie własnego adresu konta usługi Azure AD. Zastąp przykładowe konto własnym. Adresy kont należy wprowadzać w postaci tylko małych liter. Zastąp przykładowy adres IP publicznym adresem IP maszyny wirtualnej z poprzedniego polecenia.
 
 ```console
 ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 ```
 
-Zostanie wyświetlony monit o zalogowanie się do usługi Azure [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)AD przy użyciu kodu jednorazowego użycia w pliku . Skopiuj i wklej jednorazowy kod do strony logowania urządzenia.
+Zostanie wyświetlony monit o zalogowanie się do usługi Azure AD za pomocą jednorazowego kodu w [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)usłudze. Skopiuj i wklej kod jednorazowego użycia na stronie logowania do urządzenia.
 
 Po wyświetleniu monitu wprowadź poświadczenia logowania usługi Azure AD na stronie logowania. 
 
-Po pomyślnym uwierzytelnieniu w przeglądarce sieci Web zostanie wyświetlony następujący komunikat:`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+Po pomyślnym uwierzytelnieniu w przeglądarce internetowej zostanie wyświetlony następujący komunikat:`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
-Zamknij okno przeglądarki, wróć do monitu SSH i naciśnij klawisz **Enter.** 
+Zamknij okno przeglądarki, Wróć do wiersza polecenia SSH, a następnie naciśnij klawisz **Enter** . 
 
-Jesteś teraz zalogowany do maszyny wirtualnej systemu Azure Linux z uprawnieniami roli przypisanymi, takimi jak *użytkownik maszyny wirtualnej* lub *administrator maszyny wirtualnej.* Jeśli do konta użytkownika przypisano rolę *Logowania administratora maszyny wirtualnej,* można użyć `sudo` do uruchamiania poleceń, które wymagają uprawnień głównych.
+Użytkownik jest zalogowany do maszyny wirtualnej platformy Azure z systemem Linux z uprawnieniami roli przypisanymi, takimi jak *użytkownik maszyny wirtualnej* lub *administrator maszyny wirtualnej*. Jeśli Twoje konto użytkownika ma przypisaną rolę *logowania administratora maszyny wirtualnej* , można użyć `sudo` programu do uruchamiania poleceń, które wymagają uprawnień głównych.
 
-## <a name="sudo-and-aad-login"></a>Logowanie do Sudo i AAD
+## <a name="sudo-and-aad-login"></a>Sudo i logowanie do usługi AAD
 
-Przy pierwszym uruchomieniu sudo zostaniesz poproszony o uwierzytelnienie po raz drugi. Jeśli nie chcesz ponownie uwierzytelniać się, aby uruchomić sudo, możesz `/etc/sudoers.d/aad_admins` edytować plik sudoers i zastąpić ten wiersz:
+Przy pierwszym uruchomieniu sudo zostanie wyświetlony monit o uwierzytelnienie w drugim czasie. Jeśli nie chcesz ponownie uwierzytelniać się w celu uruchomienia programu sudo, możesz edytować plik `/etc/sudoers.d/aad_admins` sudo i zastąpić ten wiersz:
 
 ```bash
 %aad_admins ALL=(ALL) ALL
 ```
 
-Z tą linią:
+Z tym wierszem:
 
 ```bash
 %aad_admins ALL=(ALL) NOPASSWD:ALL
@@ -181,11 +181,11 @@ Z tą linią:
 
 ## <a name="troubleshoot-sign-in-issues"></a>Rozwiązywanie problemów z logowaniem
 
-Niektóre typowe błędy podczas próby SSH z poświadczeniami usługi Azure AD obejmują brak przypisanych ról RBAC i powtarzające się monity o zalogowanie się. Aby rozwiązać te problemy, należy użyć poniższych sekcji.
+Niektóre typowe błędy podczas próby połączenia SSH z poświadczeniami usługi Azure AD nie obejmują żadnych przypisanych ról RBAC i powtarzające się polecenia logowania. Skorzystaj z poniższych sekcji, aby rozwiązać te problemy.
 
 ### <a name="access-denied-rbac-role-not-assigned"></a>Odmowa dostępu: rola RBAC nie została przypisana
 
-Jeśli w wierszu monitu SSH zostanie wyświetlony następujący błąd, sprawdź, czy skonfigurowano zasady RBAC dla maszyny wirtualnej, która przyznaje użytkownikowi rolę *Logowania administratora maszyny wirtualnej* lub *logowania użytkownika maszyny wirtualnej:*
+Jeśli w monicie SSH zostanie wyświetlony następujący błąd, sprawdź, czy skonfigurowano zasady RBAC dla maszyny wirtualnej, która przyznaje użytkownikowi uprawnienia do *logowania administratora maszyny wirtualnej* lub *użytkownika maszyny wirtualnej* :
 
 ```output
 login as: azureuser@contoso.onmicrosoft.com
@@ -196,22 +196,22 @@ Access denied:  to sign-in you be assigned a role with action 'Microsoft.Compute
 Access denied
 ```
 
-### <a name="continued-ssh-sign-in-prompts"></a>Ciąg dalszy monitów logowania SSH
+### <a name="continued-ssh-sign-in-prompts"></a>Dalsze komunikaty logowania SSH
 
-Jeśli pomyślnie zakończysz krok uwierzytelniania w przeglądarce sieci Web, może zostać natychmiast wyświetlony monit o ponowne zalogowanie się za pomocą nowego kodu. Ten błąd jest zazwyczaj spowodowane przez niezgodność między nazwą logowania określonym w wierszu SSH i konto, które zalogowano się do usługi Azure AD. Aby rozwiązać ten problem:
+Jeśli krok uwierzytelniania został pomyślnie ukończony w przeglądarce sieci Web, może zostać wyświetlony monit o ponowne zalogowanie się przy użyciu nowego kodu. Ten błąd jest zwykle spowodowany niezgodnością między nazwą logowania określoną w monicie SSH i kontem, z którego zalogowano się w usłudze Azure AD. Aby rozwiązać ten problem:
 
-- Sprawdź, czy nazwa logowania określona w wierszu SSH jest poprawna. Literówka w nazwie logowania może spowodować niezgodność między nazwą logowania określoną w wierszu polecenia SSH a kontem, za pomocą którego zalogowano się do usługi Azure AD. Na przykład wpisano *\@azuresuer contoso.onmicrosoft.com* zamiast *azureuser\@contoso.onmicrosoft.com*.
-- Jeśli masz wiele kont użytkowników, upewnij się, że nie podasz innego konta użytkownika w oknie przeglądarki podczas logowania się do usługi Azure AD.
-- Linux to system operacyjny uwzględniający wielkość liter. Istnieje różnica międzyAzureuser@contoso.onmicrosoft.com' 'azureuser@contoso.onmicrosoft.comi ' ', co może spowodować niezgodność. Upewnij się, że w wierszu SSH określono nazwę UPN z poprawną czułością wielkości liter.
+- Sprawdź, czy nazwa logowania określona w monicie SSH jest poprawna. Literówka w nazwie logowania może spowodować niezgodność między nazwą logowania określoną w monicie SSH i kontem, które zostało zalogowane do usługi Azure AD. Na przykład wpisano *azuresuer\@contoso.onmicrosoft.com* zamiast *azureuser\@contoso.onmicrosoft.com*.
+- Jeśli masz wiele kont użytkowników, upewnij się, że w oknie przeglądarki nie jest dostępne inne konto użytkownika podczas logowania się do usługi Azure AD.
+- Linux to system operacyjny z uwzględnieniem wielkości liter. Istnieje różnica między elementami "Azureuser@contoso.onmicrosoft.com" i "azureuser@contoso.onmicrosoft.com", co może spowodować niezgodność. Upewnij się, że nazwa UPN ma poprawną wielkość liter w wierszu polecenia SSH.
 
 ### <a name="other-limitations"></a>Inne ograniczenia
 
-Użytkownicy, którzy dziedziczą prawa dostępu za pośrednictwem grup zagnieżdżonych lub przypisań ról, nie są obecnie obsługiwani. Użytkownikowi lub grupie należy bezpośrednio przypisać [wymagane przypisania ról](#configure-role-assignments-for-the-vm). Na przykład użycie grup zarządzania lub zagnieżdżonych przypisań ról grup nie zapewni prawidłowych uprawnień umożliwiających użytkownikowi zalogowanie się.
+Użytkownicy, którzy dziedziczą prawa dostępu za poorednictwem zagnieżdżonych grup lub przypisań ról nie są obecnie obsługiwani. Użytkownik lub grupa musi mieć bezpośrednio przypisane [wymagane przypisania ról](#configure-role-assignments-for-the-vm). Na przykład użycie grup zarządzania lub przypisań ról grup zagnieżdżonych nie przyznaje odpowiednich uprawnień, aby umożliwić użytkownikowi logowanie się.
 
 ## <a name="preview-feedback"></a>Opinie dotyczące wersji zapoznawczej
 
-Podziel się swoją opinią na temat tej funkcji w wersji zapoznawczej lub zgłoś problemy z używaniem jej na [forum opinii usługi Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
+Podziel się swoją opinią na temat tej funkcji w wersji zapoznawczej lub zgłoś problemy przy użyciu jej na [forum opinii usługi Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat usługi Azure Active Directory, zobacz [Co to jest usługa Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
+Aby uzyskać więcej informacji na temat Azure Active Directory, zobacz [co to jest Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)

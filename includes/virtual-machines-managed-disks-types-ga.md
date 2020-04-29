@@ -9,60 +9,60 @@ ms.date: 03/28/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 6740ea320f2d950386da12eb44726e2c826b60a4
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80386093"
 ---
 ## <a name="premium-ssd"></a>Dysk SSD w warstwie Premium
 
-Dyski SSD w wersji Premium platformy Azure zapewniają obsługę dysku o wysokiej wydajności i małych opóźnieniach dla maszyn wirtualnych (VM) z obciążeniami intensywnie korzystającymi z nakładów/wyjść (IO). Aby korzystać z szybkości i wydajności dysków magazynu w wersji premium, można migrować istniejące dyski maszyn wirtualnych do dysków SSD w wersji Premium. Najwyższej jakości ssd nadają się do zastosowań produkcyjnych o znaczeniu krytycznym. Dyski SSD premium mogą być używane tylko z serią maszyn wirtualnych, które są zgodne z pamięcią masową w jakości Premium.
+Usługa Azure Premium dysków SSD zapewnia obsługę dysków o wysokiej wydajności i małych opóźnieniach dla maszyn wirtualnych z intensywnymi obciążeniami we/wy (IO). Aby skorzystać z szybkości i wydajności dysków magazynu w warstwie Premium, można migrować istniejące dyski maszyn wirtualnych do dysków SSD Premium. Dysków SSD Premium są odpowiednie dla aplikacji produkcyjnych o kluczowym znaczeniu. Dysków SSD Premium można używać tylko z seriami maszyn wirtualnych, które są zgodne z magazynem w warstwie Premium.
 
-Aby dowiedzieć się więcej o poszczególnych typach i rozmiarach maszyn wirtualnych na platformie Azure dla systemu Windows, w tym o rozmiarach zgodnych z magazynu w wersji Premium, zobacz [Rozmiary maszyn wirtualnych systemu Windows](../articles/virtual-machines/windows/sizes.md). Aby dowiedzieć się więcej o poszczególnych typach i rozmiarach maszyn wirtualnych na platformie Azure dla systemu Linux, w tym o rozmiarach zgodnych z pamięcią masową w jakości Premium, zobacz [Rozmiary maszyn wirtualnych z systemem Linux](../articles/virtual-machines/linux/sizes.md). Z jednego z tych artykułów, należy sprawdzić każdy artykuł o rozmiarze poszczególnych maszyn wirtualnych, aby ustalić, czy jest zgodny z magazynu w wersji premium.
+Aby dowiedzieć się więcej o poszczególnych typach maszyn wirtualnych i rozmiarach na platformie Azure dla systemu Windows, w tym o rozmiarach, które są zgodne z magazynem Premium, zobacz [rozmiary maszyn wirtualnych z systemem Windows](../articles/virtual-machines/windows/sizes.md). Aby dowiedzieć się więcej o poszczególnych typach maszyn wirtualnych i rozmiarach na platformie Azure dla systemu Linux, w tym o rozmiarach, które są zgodne z magazynem Premium, zobacz [rozmiary maszyn wirtualnych z systemem Linux](../articles/virtual-machines/linux/sizes.md). Z dowolnego z tych artykułów należy sprawdzić każdy artykuł o rozmiarze poszczególnych maszyn wirtualnych, aby określić, czy jest on zgodny z magazynem w warstwie Premium.
 
 ### <a name="disk-size"></a>Rozmiar dysku
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-Podczas aprowizowania dysku magazynu w wersji premium, w przeciwieństwie do magazynu standardowego, masz gwarancję pojemności, usługi We/Wy i przepływności tego dysku. Na przykład jeśli utworzysz dysk P50, platforma Azure udostępnia 4095 GB pojemności magazynu, 7500 operacji We/Wy i przepływności 250 MB/s dla tego dysku. Aplikacja może korzystać z całości lub części pojemności i wydajności. Dyski SSD w wersji Premium są przeznaczone do zapewnienia niskich jednocyfrowych opóźnień milisekund oraz docelowych we/wy oraz przepływności opisanych w powyższej tabeli 99,9% czasu.
+Po udostępnieniu dysku magazynu w warstwie Premium, w przeciwieństwie do magazynu w warstwie Standardowa, gwarantujesz pojemność, liczbę operacji we/wy na sekundę oraz przepływność tego dysku. Na przykład, jeśli utworzysz dysk P50, platforma Azure ma 4 095 GB pamięci 7 500 masowej, szybkość operacji we/wy na sekundę i 250 MB/s dla tego dysku. Aplikacja może używać całości lub części pojemności i wydajności. SSD w warstwie Premium dyski zostały zaprojektowane w celu zapewnienia niskich opóźnień w milisekundach i docelowej liczby operacji we/wy i przepływności opisanej w poprzedniej tabeli o 99,9% czasu.
 
-## <a name="bursting"></a>Pęknięcie
+## <a name="bursting"></a>Rozszerzanie możliwości
 
-Rozmiary dysków SSD premium mniejsze niż P30 oferują teraz rozerwanie dysku i mogą pęknąć ich IOPS na dysk do 3500, a ich przepustowość do 170 Mb/s. Bursting jest zautomatyzowany i działa w oparciu o system kredytowy. Kredyty są automatycznie gromadzone w zasobniku seryjnym, gdy ruch dysku jest niższy od aprowizowanego celu wydajności, a kredyty są automatycznie zużywane, gdy ruch zostanie osiągnięty poza celem, do maksymalnego limitu serii. Maksymalny limit serii definiuje pułap we/wy dysków & przepustowość, nawet jeśli masz kredyty serii do wykorzystania. Bursting dysku zapewnia lepszą tolerancję na nieprzewidywalne zmiany wzorców we/wy. Możesz najlepiej wykorzystać go do rozruchu dysku operacyjnego i aplikacji z kolczastym ruchem.    
+SSD w warstwie Premium rozmiary mniejsze niż P30 teraz oferują możliwość naliczania dysków na dyskach, a ich liczba operacji we/wy na sekundę wynosi do 3 500 i przepustowość do 170 MB/s. Rozliczanie jest zautomatyzowane i działa na podstawie systemu kredytowego. Kredyty są automatycznie sumowane w zasobniku szeregowym, gdy ruch dysku jest niższy od zainicjowanej wartości docelowej wydajności, a kredyty są automatycznie zużywane, gdy ruch przekracza miejsce docelowe, do maksymalnego limitu. Maksymalny limit serii określa limit liczby operacji we/wy dysku & przepustowości, nawet jeśli masz kredyty na korzystanie z serii. Szeregowanie dysków zapewnia lepszą tolerancję w nieprzewidywalnych zmianach wzorców we/wy. Można go najlepiej wykorzystać do rozruchu z dysku systemu operacyjnego i aplikacji z ruchem pochodzącym.    
 
-Obsługa dysków bursting zostanie włączona w nowych wdrożeń odpowiednich rozmiarów dysków domyślnie, bez działania użytkownika wymagane. W przypadku istniejących dysków o odpowiednich rozmiarach można włączyć rozerwanie za pomocą jednej z dwóch opcji: odłączyć i ponownie dołączyć dysk lub zatrzymać i ponownie uruchomić dołączoną maszynę wirtualną. Wszystkie rozmiary dysków serii odpowiednie rozpocznie się w pełnej wersji wybuchu zasobnika, gdy dysk jest dołączony do maszyny wirtualnej, która obsługuje maksymalny czas trwania w szczytowym limitu serii 30 minut. Aby dowiedzieć się więcej o tym, jak działa rozerwanie na dyskach platformy Azure, zobacz [Rozerwanie dysków SSD w wersji Premium](../articles/virtual-machines/linux/disk-bursting.md). 
+Obsługa serii dysków zostanie włączona w nowych wdrożeniach odpowiednich rozmiarów dysków domyślnie, bez konieczności wykonywania jakiejkolwiek czynności przez użytkownika. W przypadku istniejących dysków o odpowiednich rozmiarach można włączyć korzystanie z jednej z dwóch opcji: Odłącz i ponownie podłącz dysk lub zatrzymywanie i ponowne uruchamianie dołączonej maszyny wirtualnej. Wszystkie odpowiednie rozmiary dysku będą rozpoczynać się od pełnego zasobnika kredytowego, gdy dysk jest podłączony do maszyny wirtualnej, która obsługuje maksymalny czas trwania w szczycie maksymalnego limitu wynoszącym 30 minut. Aby dowiedzieć się więcej o sposobach tworzenia zadań na dyskach platformy Azure, zobacz [SSD w warstwie Premiuming](../articles/virtual-machines/linux/disk-bursting.md). 
 
 ### <a name="transactions"></a>Transakcje
 
-W przypadku najwyższej jakości identyfikatorów SSD każda operacja we/wy mniejsza lub równa 256 KiB przepustowości jest uważana za pojedynczą operację we/wy. Operacje we/wy większe niż 256 KiB przepustowości są uważane za wiele operacji we/wy o rozmiarze 256 KiB.
+W przypadku usługi Premium dysków SSD każda operacja we/wy mniejsza lub równa 256 KiB przepływności jest uznawana za pojedynczą operację we/wy. Operacje we/wy o rozmiarze większym niż 256 KiB przepływności są uważane za wiele systemów I/OS o rozmiarach 256 KiB.
 
 ## <a name="standard-ssd"></a>Dysk SSD w warstwie Standardowa
 
-Standardowe dyski SSD platformy Azure to ekonomiczna opcja magazynu zoptymalizowana pod kątem obciążeń, które wymagają spójnej wydajności przy niższych poziomach we/wy. Standardowy dysk SSD oferuje dobre środowisko podstawowe dla tych, którzy chcą przejść do chmury, zwłaszcza jeśli występują problemy z odchylenia obciążeń działających na rozwiązaniach HDD w środowisku lokalnym. W porównaniu ze standardowymi dyskami twardymi standardowe dyski SSD zapewniają lepszą dostępność, spójność, niezawodność i opóźnienia. Standardowe dyski SSD są odpowiednie dla serwerów sieci Web, serwerów aplikacji o niskiej liczby we/wy, lekko używanych aplikacji korporacyjnych oraz obciążeń deweloperskich/testowych. Podobnie jak standardowe dyski twarde, standardowe dyski SSD są dostępne na wszystkich maszynach wirtualnych platformy Azure.
+Azure Standard dysków SSD to ekonomiczna opcja magazynowania zoptymalizowana pod kątem obciążeń, które wymagają spójnej wydajności na niższych poziomach IOPS. SSD w warstwie Standardowa oferuje dobry komfort na poziomie wpisu dla osób, które chcą przejść do chmury, szczególnie w przypadku wystąpienia problemów z wariancją obciążeń uruchomionych na rozwiązaniach dysków twardych. W porównaniu do standardowej HDD, standardowa dysków SSD zapewnia lepszą dostępność, spójność, niezawodność i opóźnienia. Standardowe dysków SSD są odpowiednie dla serwerów sieci Web, serwerów aplikacji o małej liczbie IOPS, nieużywanych aplikacji dla przedsiębiorstw oraz obciążeń deweloperskich i testowych. Podobnie jak w przypadku standardowych HDD, standardowe dysków SSD są dostępne na wszystkich maszynach wirtualnych platformy Azure.
 
 ### <a name="disk-size"></a>Rozmiar dysku
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
-Standardowe ssd są przeznaczone do zapewnienia jednocyfrowych opóźnień milisekund i We/Wy i przepustowość do limitów opisanych w powyższej tabeli 99% czasu. Rzeczywiste we/wy i przepływność mogą się czasami różnić w zależności od wzorców ruchu. Standardowe dyski SSD zapewniają bardziej spójną wydajność niż dyski twarde z niższym opóźnieniem.
+Standard dysków SSD został zaprojektowany w celu zapewnienia jednocyfrowych opóźnień i liczby operacji we/wy na sekundę i przepływności do limitów opisanych w powyższej tabeli 99% czasu. Rzeczywiste operacje we/wy i przepływność mogą się czasami różnić w zależności od wzorców ruchu. Standardowa dysków SSD zapewnia bardziej spójną wydajność niż dyski twarde z mniejszym opóźnieniem.
 
 ### <a name="transactions"></a>Transakcje
 
-W przypadku standardowych ssd każda operacja we/wy mniejsza lub równa 256 KiB przepływności jest uważana za pojedynczą operację we/wy. Operacje we/wy większe niż 256 KiB przepustowości są uważane za wiele operacji we/wy o rozmiarze 256 KiB. Transakcje te mają wpływ na rozliczenia.
+W przypadku standardowej dysków SSD każda operacja we/wy mniejsza lub równa 256 KiB przepływności jest uznawana za pojedynczą operację we/wy. Operacje we/wy o rozmiarze większym niż 256 KiB przepływności są uważane za wiele systemów I/OS o rozmiarach 256 KiB. Te transakcje mają wpływ na rozliczenia.
 
 ## <a name="standard-hdd"></a>Dysk HDD w warstwie Standardowa
 
-Standardowe dyski twarde platformy Azure zapewniają niezawodną, tanią obsługę dysków dla maszyn wirtualnych z obciążeniami niewrażliwymi na opóźnienia. W przypadku standardowej pamięci masowej dane są przechowywane na dyskach twardych (HDD). Opóźnienie, we/wy i przepustowość standardowych dysków twardych mogą się znacznie różnić w porównaniu z dyskami opartymi na dyskach SSD. Standardowe dyski TWARDE są przeznaczone do dostarczania opóźnień zapisu w 10ms i opóźnienia odczytu w ramach 20ms dla większości operacji we/wy, jednak rzeczywista wydajność może się różnić w zależności od rozmiaru we/wy i wzorca obciążenia. Podczas pracy z maszynami wirtualnymi można używać standardowych dysków twardych do scenariuszy deweloperskich/testowych i mniej krytycznych obciążeń. Standardowe dyski twarde są dostępne we wszystkich regionach platformy Azure i mogą być używane ze wszystkimi maszynami wirtualnymi platformy Azure.
+Usługa Azure Standard HDD zapewnia niezawodną, tańszą obsługę dysków dla maszyn wirtualnych, na których działają obciążenia bez uwzględniania opóźnień. W przypadku magazynu w warstwie Standardowa dane są przechowywane na dyskach twardych (HDD). Opóźnienia, operacje we/wy i przepływność dysków HDD w warstwie Standardowa mogą być różne w porównaniu z dyskami SSD. HDD w warstwie Standardowa dyski zostały zaprojektowane w celu zapewnienia opóźnień zapisu w obszarze 10 ms i odczyt opóźnień w obszarze 20ms dla większości operacji we/wy, jednak Rzeczywista wydajność może się różnić w zależności od rozmiaru operacji we/wy i wzorca obciążenia. Podczas pracy z maszynami wirtualnymi można używać standardowych dysków DYSKowych na potrzeby scenariuszy tworzenia i testowania oraz mniej krytycznych obciążeń. Standardowe HDD są dostępne we wszystkich regionach świadczenia usługi Azure i mogą być używane ze wszystkimi maszynami wirtualnymi platformy Azure.
 
 ### <a name="disk-size"></a>Rozmiar dysku
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
 
 ### <a name="transactions"></a>Transakcje
 
-W przypadku standardowych dysków twardych każda operacja operacji we/wy jest traktowana jako pojedyncza transakcja, niezależnie od rozmiaru we/wy. Transakcje te mają wpływ na rozliczenia.
+W przypadku standardowej HDD każda operacja we/wy jest uznawana za pojedynczą transakcję, niezależnie od rozmiaru wejścia/wyjścia. Te transakcje mają wpływ na rozliczenia.
 
 ## <a name="billing"></a>Rozliczenia
 
-Podczas korzystania z dysków zarządzanych obowiązują następujące zagadnienia dotyczące rozliczeń:
+W przypadku korzystania z usługi Managed disks obowiązują następujące zagadnienia dotyczące rozliczeń:
 
 - Typ dysku
 - Rozmiar dysku zarządzanego
@@ -70,6 +70,6 @@ Podczas korzystania z dysków zarządzanych obowiązują następujące zagadnien
 - Wychodzące transfery danych
 - Liczba transakcji
 
-**Rozmiar dysku zarządzanego:** dyski zarządzane są rozliczane od aprowizowanego rozmiaru. Platforma Azure mapuje aprowizowanym rozmiarem (zaokrąglonym w górę) do najbliższego oferowanego rozmiaru dysku. Szczegółowe informacje na temat oferowanych rozmiarów dysków można znaleźć w poprzednich tabelach. Każdy dysk jest mapowany do obsługiwanej oferty rozmiaru dysku aprowizowanego i jest odpowiednio rozliczany. Na przykład jeśli aprowizowana 200 GiB Standard SSD, mapuje do oferty rozmiaru dysku E15 (256 GiB). Rozliczenia za każdy aprowizowany dysk jest proporcjonalnie ustalana co godzinę przy użyciu miesięcznej ceny oferty magazynu w wersji Premium. Jeśli na przykład udostępniono dysk E10 i usunięto go po 20 godzinach, naliczane są naliczane płatności za ofertę E10 proporcjonalnie do 20 godzin. Jest to niezależnie od ilości rzeczywistych danych zapisanych na dysku.
+**Rozmiar dysku zarządzanego**: dyski zarządzane są rozliczane zgodnie z rozmiarem aprowizacji. Platforma Azure mapuje przydziały (zaokrąglone w górę) do najbliższego dostępnego rozmiaru dysku. Szczegółowe informacje o oferowanych rozmiarach dysków można znaleźć w poprzednich tabelach. Każdy dysk jest mapowany do obsługiwanej oferty rozmiaru dysku i jest rozliczany zgodnie z potrzebami. Na przykład, jeśli udostępnisz 200 GiB SSD w warstwie Standardowa, mapuje do oferty rozmiaru dysku E15 (256 GiB). Opłaty za dowolny dysk z zainicjowaną obsługą są naliczane proporcjonalnie do liczby godzin przy użyciu ceny miesięcznej oferty Premium Storage. Na przykład jeśli udostępnisz dysk E10 i usuniesz go po 20 godzinach, opłaty są naliczane za ofertę E10, która jest naliczana proporcjonalnie do 20 godzin. Jest to niezależne od ilości danych, które są zapisywane na dysku.
 
-**Migawki:** Migawki są rozliczane na podstawie używanego rozmiaru. Na przykład jeśli utworzysz migawkę dysku zarządzanego o aprowizowanym pojemności 64 GiB i rzeczywistym rozmiarze używanych danych 10 GiB, migawka jest rozliczana tylko dla używanego rozmiaru danych 10 GiB.
+**Migawki**: rozliczanie migawek odbywa się na podstawie używanego rozmiaru. Na przykład, jeśli utworzysz migawkę dysku zarządzanego o pojemności 64 GiB i rzeczywistej używanej wielkości danych wynoszącej 10 GiB, dla migawki zostanie naliczona tylko za użyty rozmiar danych wynoszący 10 GiB.

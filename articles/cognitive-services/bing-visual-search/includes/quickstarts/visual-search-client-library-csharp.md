@@ -1,5 +1,5 @@
 ---
-title: Szybki start biblioteki klienta wyszukiwania wizualnego języka Bing
+title: Wyszukiwanie wizualne Bing przewodniku szybki start dotyczącej biblioteki klienta C#
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,19 +9,19 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.author: aahi
 ms.openlocfilehash: b8ddd73451ff09e4db7ff529b04e7d7acfd6632a
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80550009"
 ---
-Użyj tego przewodnika Szybki start, aby rozpocząć uzyskiwanie szczegółowych informacji o obrazie z usługi wyszukiwania wizualnego Bing przy użyciu biblioteki klienta języka C#. Usługa Bing Visual Search ma interfejs API REST zgodny z większością języków programowania, ale biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVisualSearch).
+Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć pobieranie szczegółowych informacji o obrazach z usługi wyszukiwanie wizualne Bing przy użyciu biblioteki klienckiej języka C#. Chociaż wyszukiwanie wizualne Bing ma interfejs API REST zgodny z większością języków programowania, Biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVisualSearch).
 
-[Przykłady](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet) | [kodu źródłowego biblioteki](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) | referencyjnej[(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VisualSearch/) | [Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
+[Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet) | [Przykłady](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/) pakietu[kodu](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) | źródłowego w bibliotece dokumentacji referencyjnej[(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VisualSearch/) | 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
+* [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * Jeśli używasz systemu Linux/MacOS, możesz uruchomić tę aplikację przy użyciu środowiska [Mono](https://www.mono-project.com/).
 * Pakiet NuGet wyszukiwania wizualnego. 
     - W Eksploratorze rozwiązań w programie Visual Studio kliknij prawym przyciskiem myszy swój projekt i wybierz polecenie `Manage NuGet Packages` z menu. Zainstaluj pakiet `Microsoft.Azure.CognitiveServices.Search.VisualSearch`. Zainstalowanie pakietu NuGet powoduje także zainstalowanie następujących elementów:

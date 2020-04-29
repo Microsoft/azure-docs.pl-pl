@@ -1,5 +1,5 @@
 ---
-title: Szybki start biblioteki klienta wyszukiwania wideo w języku Bing
+title: Wyszukiwanie wideo Bing przewodniku szybki start dotyczącej biblioteki klienta C#
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,20 +9,20 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: aahi
 ms.openlocfilehash: d50e1acd104916d68f7fbb84ff568cf4efc0b46b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80289756"
 ---
-Użyj tego przewodnika Szybki start, aby rozpocząć wyszukiwanie wiadomości za pomocą biblioteki klienta wyszukiwania wideo Bing dla języka C#. Usługa Bing Video Search ma interfejs API REST zgodny z większością języków programowania, ale biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy dla tego przykładu można znaleźć w [usłudze GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) z dodatkowymi adnotacjami i funkcjami.
+Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć wyszukiwanie wiadomości za pomocą biblioteki klienta wyszukiwanie wideo Bing dla języka C#. Chociaż wyszukiwanie wideo Bing ma interfejs API REST zgodny z większością języków programowania, Biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy dla tego przykładu można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) z dodatkowymi adnotacjami i funkcjami.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Dowolna wersja [programu Visual Studio 2017 lub nowszej](https://visualstudio.microsoft.com/downloads/).
-* Json.NET framework, dostępny [jako pakiet NuGet](https://www.nuget.org/packages/Newtonsoft.Json/).
+* Dowolna wersja programu [Visual Studio 2017 lub nowszego](https://visualstudio.microsoft.com/downloads/).
+* Json.NET Framework, dostępny [jako pakiet NuGet](https://www.nuget.org/packages/Newtonsoft.Json/).
 
-Aby dodać bibliotekę klienta wyszukiwania wideo Bing do projektu, wybierz pozycję **Zarządzaj pakietami NuGet** z **Eksploratora rozwiązań** w programie Visual Studio. Dodaj pakiet `Microsoft.Azure.CognitiveServices.Search.VideoSearch`.
+Aby dodać wyszukiwanie wideo Bingą bibliotekę kliencką do projektu, wybierz pozycję **Zarządzaj pakietami NuGet** z **Eksplorator rozwiązań** w programie Visual Studio. Dodaj pakiet `Microsoft.Azure.CognitiveServices.Search.VideoSearch`.
 
 Zainstalowanie [[zestawu NuGet Video Search SDK]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0)spowoduje również zainstalowanie następujących zależności:
 
@@ -82,7 +82,7 @@ Zainstalowanie [[zestawu NuGet Video Search SDK]](https://www.nuget.org/packages
 > [!div class="nextstepaction"]
 > [Tworzenie internetowej aplikacji jednostronicowej](../../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Zobacz też 
+## <a name="see-also"></a>Zobacz także 
 
 * [Co to jest interfejs API wyszukiwania wideo Bing?](../../overview.md)
-* [Przykłady zestawów SDK usług cognitive.NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+* [Przykłady zestawu SDK programu .NET dla usług poznawczych](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
