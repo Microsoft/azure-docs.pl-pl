@@ -1,14 +1,14 @@
 ---
-title: Samouczek — tworzenie rejestru replikowanego geograficznie
+title: Samouczek — Tworzenie rejestru z replikacją geograficzną
 description: Tworzenie rejestru kontenerów platformy Azure, konfigurowanie replikacji geograficznej, przygotowanie obrazu platformy Docker i wdrożenie go w rejestrze. Pierwsza część trzyczęściowej serii.
 ms.topic: tutorial
 ms.date: 04/30/2017
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 70dc664d27fde3b7cf9fe4e5e3a99c041236ac16
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79238524"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Samouczek: przygotowywanie rejestru kontenerów platformy Azure z replikacją geograficzną
@@ -37,25 +37,25 @@ Usługa Azure Cloud Shell nie zawiera składników platformy Docker wymaganych d
 
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-Wybierz **pozycję Utwórz** > **kontenery** > zasobów Azure Container**Registry**.
+Wybierz **pozycję Utwórz** > **kontenery** > zasobów**Azure Container Registry**.
 
 ![Tworzenie rejestru kontenerów w witrynie Azure Portal][tut-portal-01]
 
 Skonfiguruj nowy rejestr za pomocą następujących ustawień:
 
 * **Nazwa rejestru**: utwórz nazwę rejestru, która jest globalnie unikatowa w obrębie platformy Azure i składa się z od 5 do 50 znaków alfanumerycznych
-* **Grupa zasobów**: **Tworzenie nowych** > `myResourceGroup`
+* **Grupa zasobów**: **Utwórz nową** > `myResourceGroup`
 * **Lokalizacja**:`West US`
-* **Administrator**użytkownika `Enable` : (wymagane dla aplikacji sieci Web dla kontenerów do ściągania obrazów)
-* **Jednostka SKU**: `Premium` (wymagana do replikacji geograficznej)
+* **Użytkownik administracyjny**: `Enable` (wymagany do Web App for Containers ściągania obrazów)
+* **Jednostka SKU**: `Premium` (wymagana na potrzeby replikacji geograficznej)
 
 Wybierz przycisk **Utwórz**, aby wdrożyć wystąpienie usługi ACR.
 
 ![Tworzenie rejestru kontenerów w witrynie Azure Portal][tut-portal-02]
 
-W pozostałej części tego samouczka używamy `<acrName>` jako symbol zastępczy dla **wybranej nazwy rejestru** kontenera.
+W pozostałej części tego samouczka użyjemy `<acrName>` jako symbolu zastępczego dla wybranej **nazwy rejestru** kontenerów.
 
 > [!TIP]
 > Ponieważ rejestry kontenerów platformy Azure to zwykle zasoby o długim czasie życia używane na wielu hostach kontenerów, zalecamy utworzenie rejestru w jego własnej grupie zasobów. Podczas konfigurowania rejestrów z replikacją geograficzną i elementów webhook te dodatkowe zasoby są umieszczane w tej samej grupie zasobów.

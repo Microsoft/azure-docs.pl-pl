@@ -1,5 +1,5 @@
 ---
-title: Przełącznie w awaryjne i skalowanie aplikacji kontenerów
+title: Przełączenie w tryb failover i skalowanie aplikacji kontenerów
 description: Korzystając z tego samouczka, dowiesz się, jak obsługiwany jest tryb failover w aplikacji kontenerów usługi Azure Service Fabric.  Dowiesz się również, jak skalować kontenery i usługi działające w klastrze.
 author: suhuruli
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: bef1c42712c881296c5ab7b8096deb50fe94ee55
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75614098"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Samouczek: omówienie trybu failover i skalowania usług kontenera za pomocą usługi Service Fabric

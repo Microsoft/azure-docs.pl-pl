@@ -1,6 +1,6 @@
 ---
-title: Przykład skryptu interfejsu wiersza polecenia platformy Azure — integruj usługę app service z bramą aplikacji | Dokumenty firmy Microsoft
-description: Przykład skryptu interfejsu wiersza polecenia platformy Azure — integruj usługę app service z bramą aplikacji
+title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — Integruj App Service z Application Gateway | Microsoft Docs
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — Integruj App Service z Application Gateway
 services: appservice
 documentationcenter: appservice
 author: madsd
@@ -17,21 +17,21 @@ ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
 ms.openlocfilehash: ee5e50bdba0a798d335641dc8a0c7ae69832d8f6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74979854"
 ---
-# <a name="integrate-app-service-with-application-gateway-using-cli"></a>Integruj usługę App Service z bramą aplikacji przy użyciu interfejsu wiersza polecenia
+# <a name="integrate-app-service-with-application-gateway-using-cli"></a>Integrowanie App Service z Application Gateway przy użyciu interfejsu wiersza polecenia
 
-Ten przykładowy skrypt tworzy aplikację internetową usługi Azure App Service, sieć wirtualną platformy Azure i bramę aplikacji. Następnie ogranicza ruch dla aplikacji sieci web, aby pochodzić tylko z podsieci bramy aplikacji.
+Ten przykładowy skrypt tworzy aplikację sieci Web Azure App Service, Virtual Network platformy Azure i Application Gateway. Następnie ogranicza ruch aplikacji sieci Web wyłącznie z podsieci Application Gateway.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować i używać interfejsu wiersza polecenia lokalnie, potrzebujesz interfejsu wiersza polecenia platformy Azure w wersji 2.0.74 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, potrzebujesz interfejsu wiersza polecenia platformy Azure w wersji 2.0.74 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -50,11 +50,11 @@ Ten skrypt używa poniższych poleceń do tworzenia grupy zasobów, aplikacji us
 | [`az network public-ip create`](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) | Tworzy publiczny adres IP. |
 | [`az network public-ip show`](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show) | Pokaż szczegóły publicznego adresu IP. |
 | [`az appservice plan create`](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Tworzy plan usługi App Service. |
-| [`az webapp create`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Tworzy aplikację internetową usługi app service. |
-| [`az webapp show`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-show) | Pokaż szczegóły aplikacji sieci web usługi App Service. |
-| [`az webapp config access-restriction add`](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest#az-webapp-config-access-restriction-add) | Dodaje ograniczenie dostępu do aplikacji sieci web usługi App Service. |
-| [`az network application-gateway create`](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-create) | Tworzy bramę aplikacji. |
-| [`az network application-gateway http-settings update`](https://docs.microsoft.com/cli/azure/network/application-gateway/http-settings?view=azure-cli-latest#az-network-application-gateway-http-settings-update) | Aktualizuje ustawienia HTTP bramy aplikacji. |
+| [`az webapp create`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Tworzy aplikację sieci Web App Service. |
+| [`az webapp show`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-show) | Pokaż szczegóły aplikacji sieci Web App Service. |
+| [`az webapp config access-restriction add`](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest#az-webapp-config-access-restriction-add) | Dodaje ograniczenie dostępu do aplikacji sieci Web App Service. |
+| [`az network application-gateway create`](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-create) | Tworzy Application Gateway. |
+| [`az network application-gateway http-settings update`](https://docs.microsoft.com/cli/azure/network/application-gateway/http-settings?view=azure-cli-latest#az-network-application-gateway-http-settings-update) | Aktualizuje Application Gateway ustawienia protokołu HTTP. |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,67 +1,67 @@
 ---
-title: Zastępowanie punktu wejścia w wystąpieniu kontenera
-description: Ustawianie wiersza polecenia w celu zastąpienia punktu wejścia w obrazie kontenera podczas wdrażania wystąpienia kontenera platformy Azure
+title: Przesłoń punkt wejścia w wystąpieniu kontenera
+description: Ustaw wiersz polecenia, aby przesłonić punkt wejścia w obrazie kontenera podczas wdrażania wystąpienia kontenera platformy Azure
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247126"
 ---
-# <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Ustawianie wiersza polecenia w wystąpieniu kontenera w celu zastąpienia domyślnej operacji wiersza polecenia
+# <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Ustaw wiersz polecenia w wystąpieniu kontenera w celu zastąpienia domyślnej operacji wiersza polecenia
 
-Podczas tworzenia wystąpienia kontenera opcjonalnie należy określić polecenie zastępowania domyślnej instrukcji wiersza polecenia zapłodnieną w obrazie kontenera. To zachowanie jest `--entrypoint` podobne do argumentu wiersza polecenia do `docker run`.
+Podczas tworzenia wystąpienia kontenera opcjonalnie należy określić polecenie, aby zastąpić domyślną instrukcję wiersza polecenia rozszerzania do obrazu kontenera. To zachowanie jest podobne do argumentu `--entrypoint` wiersza polecenia do `docker run`.
 
-Podobnie jak [ustawianie zmiennych środowiskowych](container-instances-environment-variables.md) dla wystąpień kontenera, określenie początkowego wiersza polecenia jest przydatne w przypadku zadań wsadowych, w których należy dynamicznie przygotować każdy kontener za pomocą konfiguracji specyficznej dla zadania.
+Podobnie jak w przypadku ustawiania [zmiennych środowiskowych](container-instances-environment-variables.md) dla wystąpień kontenerów, określenie uruchamiania wiersza polecenia jest przydatne w przypadku zadań wsadowych, w których konieczne jest przygotowanie każdego kontenera dynamicznie z konfiguracją specyficzną dla zadania.
 
 ## <a name="command-line-guidelines"></a>Wskazówki dotyczące wiersza polecenia
 
-* Domyślnie wiersz polecenia określa *pojedynczy proces, który rozpoczyna się bez powłoki* w kontenerze. Na przykład wiersz polecenia może uruchomić skrypt języka Python lub plik wykonywalny. Proces można określić dodatkowe parametry lub argumenty.
+* Domyślnie wiersz polecenia określa *pojedynczy proces, który jest uruchamiany bez powłoki* w kontenerze. Na przykład wiersz polecenia może uruchomić skrypt w języku Python lub plik wykonywalny. Proces może określać dodatkowe parametry lub argumenty.
 
-* Aby wykonać wiele poleceń, należy rozpocząć wiersz polecenia, ustawiając środowisko powłoki, które jest obsługiwane w systemie operacyjnym kontenera. Przykłady:
+* Aby wykonać wiele poleceń, należy rozpocząć pracę z wierszem polecenia przez ustawienie środowiska powłoki obsługiwanego w systemie operacyjnym kontenera. Przykłady:
 
-  |System operacyjny  |Domyślna powłoka  |
+  |System operacyjny  |Powłoka domyślna  |
   |---------|---------|
   |Ubuntu     |   `/bin/bash`      |
-  |Alpejskie     |   `/bin/sh`      |
+  |Alp     |   `/bin/sh`      |
   |Windows     |    `cmd`     |
 
   Postępuj zgodnie z konwencjami powłoki, aby połączyć wiele poleceń do uruchomienia w sekwencji.
 
-* W zależności od konfiguracji kontenera może być konieczne ustawienie pełnej ścieżki do pliku wykonywalnego wiersza polecenia lub argumentów.
+* W zależności od konfiguracji kontenera może być konieczne ustawienie pełnej ścieżki do pliku wykonywalnego lub argumentów wiersza polecenia.
 
-* Ustaw odpowiednie [zasady ponownego uruchamiania](container-instances-restart-policy.md) dla wystąpienia kontenera, w zależności od tego, czy wiersz polecenia określa długotrwałe zadanie, czy zadanie jednorazowe. Na przykład zasady ponownego `Never` `OnFailure` uruchamiania lub jest zalecane dla zadania jednorazowego uruchomienia. 
+* Ustaw odpowiednie [zasady ponownego uruchamiania](container-instances-restart-policy.md) dla wystąpienia kontenera, w zależności od tego, czy wiersz polecenia określa długotrwałe zadanie czy zadanie uruchamiania jednokrotnego. Na przykład zasady ponownego uruchamiania `Never` lub `OnFailure` są zalecane dla zadania uruchamiania jednokrotnego. 
 
-* Jeśli potrzebujesz informacji o domyślnym punkcie wejścia ustawionym w obrazie kontenera, użyj polecenia [inspekcji obrazu docker.](https://docs.docker.com/engine/reference/commandline/image_inspect/)
+* Jeśli potrzebujesz informacji o domyślnym zestawie EntryPoint w obrazie kontenera, użyj polecenia [Docker Image inspekcji](https://docs.docker.com/engine/reference/commandline/image_inspect/) .
 
 ## <a name="command-line-syntax"></a>Składnia wiersza polecenia
 
-Składnia wiersza polecenia różni się w zależności od interfejsu API platformy Azure lub narzędzia używanego do tworzenia wystąpień. Jeśli określisz środowisko powłoki, należy również przestrzegać konwencji składni polecenia powłoki.
+Składnia wiersza polecenia różni się w zależności od interfejsu API platformy Azure lub narzędzia używanego do tworzenia wystąpień. W przypadku określenia środowiska powłoki należy również przestrzegać Konwencji składni polecenia powłoki.
 
-* [polecenie tworzenia kontenera az:][az-container-create] `--command-line` Przekaż ciąg z parametrem. Przykład: `--command-line "python myscript.py arg1 arg2"`).
+* [AZ Container Create][az-container-create] — polecenie: Przekaż ciąg z `--command-line` parametrem. Przykład: `--command-line "python myscript.py arg1 arg2"`).
 
-* [Nowa grupa AzureRmContainer][new-azurermcontainergroup] Polecenie cmdlet programu Azure PowerShell: Przekaż ciąg z parametrem. `-Command` Przykład: `-Command "echo hello"`.
+* [New-AzureRmContainerGroup][new-azurermcontainergroup] Azure PowerShell polecenie cmdlet: Przekaż ciąg z `-Command` parametrem. Przykład: `-Command "echo hello"`.
 
-* Azure portal: W **command zastąpić** właściwość konfiguracji kontenera, podaj listę ciągów oddzielone przecinkami, bez cudzysłowów. Przykład: `python, myscript.py, arg1, arg2`). 
+* Azure Portal: w właściwości **zastąpienie polecenia** konfiguracji kontenera Podaj rozdzieloną przecinkami listę ciągów bez cudzysłowów. Przykład: `python, myscript.py, arg1, arg2`). 
 
-* Szablon Menedżera zasobów lub plik YAML lub jeden z zestawów SDK platformy Azure: Określ właściwość wiersza polecenia jako tablicę ciągów. Przykład: tablica `["python", "myscript.py", "arg1", "arg2"]` JSON w szablonie Menedżera zasobów. 
+* Menedżer zasobów szablonu lub pliku YAML lub jednego z zestawów SDK platformy Azure: Określ właściwość wiersza polecenia jako tablicę ciągów. Przykład: tablica `["python", "myscript.py", "arg1", "arg2"]` JSON w szablonie Menedżer zasobów. 
 
-  Jeśli znasz składnię [Dockerfile,](https://docs.docker.com/engine/reference/builder/) ten format jest podobny do *exec* formularza instrukcji CMD.
+  Jeśli znasz składnię [pliku dockerfile](https://docs.docker.com/engine/reference/builder/) , ten format jest podobny do formularza *exec* instrukcji cmd.
 
 ### <a name="examples"></a>Przykłady
 
 |    |  Interfejs wiersza polecenia platformy Azure   | Portal | Szablon | 
 | ---- | ---- | --- | --- |
-| Pojedyncze polecenie | `--command-line "python myscript.py arg1 arg2"` | **Zastępowanie polecenia:**`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
-| Wiele poleceń | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Zastępowanie polecenia:**`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
+| Single — polecenie | `--command-line "python myscript.py arg1 arg2"` | **Zastąpienie polecenia**:`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
+| Wiele poleceń | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Zastąpienie polecenia**:`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
 ## <a name="azure-cli-example"></a>Przykład interfejsu wiersza polecenia platformy Azure
 
-Na przykład zmodyfikuj zachowanie obrazu kontenera [microsoft/aci-wordcount,][aci-wordcount] który analizuje tekst w *Hamlecie* Szekspira, aby znaleźć najczęściej występujące słowa. Zamiast analizować *Hamleta,* można ustawić wiersz polecenia wskazujący inne źródło tekstu.
+Na przykład zmodyfikuj zachowanie obrazu kontenera [Microsoft/ACI-WORDCOUNT][aci-wordcount] , który analizuje tekst w *Hamlet* Szekspira w celu znalezienia najczęściej występujących wyrazów. Zamiast analizować *Hamlet*, można ustawić wiersz polecenia, który wskazuje na inne źródło tekstu.
 
-Aby wyświetlić dane wyjściowe kontenera [microsoft/aci-wordcount][aci-wordcount] podczas analizowania tekstu domyślnego, uruchom go za pomocą następującego polecenia [az container create.][az-container-create] Nie określono wiersza polecenia start, więc uruchamia się domyślne polecenie kontenera. Na potrzeby ilustracji w tym przykładzie ustawia [zmienne środowiskowe,](container-instances-environment-variables.md) aby znaleźć 3 najlepsze wyrazy o długości co najmniej pięciu liter:
+Aby wyświetlić dane wyjściowe kontenera [Microsoft/ACI-WORDCOUNT][aci-wordcount] podczas analizowania domyślnego tekstu, uruchom je za pomocą następującego polecenia [AZ Container Create][az-container-create] . Nie określono wiersza polecenia Start, więc zostanie uruchomione domyślne polecenie kontenera. W celach ilustracyjnych ten przykład ustawia [zmienne środowiskowe](container-instances-environment-variables.md) , aby znaleźć 3 pierwsze wyrazy o długości co najmniej pięciu znaków:
 
 ```azurecli-interactive
 az container create \
@@ -72,7 +72,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Gdy stan kontenera pokazuje jako *Zakończone* (użyj [az container show,][az-container-show] aby sprawdzić stan), wyświetlić dziennik z [dzienników kontenera az,][az-container-logs] aby zobaczyć dane wyjściowe.
+Gdy stan kontenera jest pokazywany jako *zakończony* (Użyj polecenia [AZ Container show][az-container-show] by Check State), Wyświetl dziennik przy użyciu polecenia [AZ Container Logs][az-container-logs] , aby wyświetlić dane wyjściowe.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
@@ -84,9 +84,9 @@ Dane wyjściowe:
 [('HAMLET', 386), ('HORATIO', 127), ('CLAUDIUS', 120)]
 ```
 
-Teraz skonfiguruj drugi przykładowy kontener do analizowania innego tekstu, określając inny wiersz polecenia. Skrypt języka Python wykonywany przez *kontener, wordcount.py*, akceptuje adres URL jako argument i przetwarza zawartość tej strony zamiast domyślnej.
+Teraz można skonfigurować drugi przykład kontenera do analizowania różnych tekstów, określając inny wiersz polecenia. Skrypt języka Python wykonywany przez kontener, *WORDCOUNT.py*, akceptuje adres URL jako argument i przetwarza zawartość tej strony zamiast wartości domyślnej.
 
-Na przykład, aby określić 3 najlepsze słowa, które są co najmniej pięć liter długości w *Romeo i Julia:*
+Na przykład, aby określić 3 pierwsze wyrazy, które są co najmniej pięć liter w *Romeo i Juliet*:
 
 ```azurecli-interactive
 az container create \
@@ -98,7 +98,7 @@ az container create \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
 ```
 
-Ponownie, gdy kontener zostanie *zakończony,* wyświetl dane wyjściowe, pokazując dzienniki kontenera:
+Po *zakończeniu kontenera*Wyświetl dane wyjściowe, wyświetlając dzienniki kontenera:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer2
@@ -112,7 +112,7 @@ Dane wyjściowe:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Scenariusze oparte na zadaniach, takie jak przetwarzanie wsadowe dużego zestawu danych z kilkoma kontenerami, mogą korzystać z niestandardowych wierszy poleceń w czasie wykonywania. Aby uzyskać więcej informacji na temat uruchamiania kontenerów opartych na zadaniach, zobacz [Uruchamianie zadań konteneryzowanych z zasadami ponownego uruchamiania](container-instances-restart-policy.md).
+Scenariusze oparte na zadaniach, takie jak przetwarzanie wsadowe dużego zestawu danych z kilkoma kontenerami, mogą korzystać z niestandardowych wierszy poleceń w czasie wykonywania. Aby uzyskać więcej informacji na temat uruchamiania kontenerów opartych na zadaniach, zobacz [Uruchamianie zadań kontenera z zasadami ponownego uruchamiania](container-instances-restart-policy.md).
 
 <!-- LINKS - External -->
 [aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount

@@ -1,5 +1,5 @@
 ---
-title: Tworzenie testu analizatora internetowego przy użyciu interfejsu wiersza polecenia | Dokumenty firmy Microsoft
+title: Tworzenie testu analizatora internetowego przy użyciu interfejsu wiersza polecenia | Microsoft Docs
 description: W tym artykule dowiesz się, jak utworzyć pierwszy test analizatora internetowego.
 services: internet-analyzer
 author: diego-perez-botero
@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: d474442086e2a114f26df279ab2682cd7628a5f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74184280"
 ---
-# <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Tworzenie testu analizatora internetowego przy użyciu interfejsu wiersza polecenia (wersja zapoznawcza)
+# <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Utwórz test analizatora internetowego przy użyciu interfejsu wiersza polecenia (wersja zapoznawcza)
 
-Istnieją dwa sposoby tworzenia zasobu analizatora internetowego — przy użyciu [witryny Azure portal](internet-analyzer-create-test-portal.md) lub przy użyciu interfejsu wiersza polecenia. Ta sekcja ułatwia tworzenie nowego zasobu analizatora internetu platformy Azure przy użyciu naszego środowiska interfejsu wiersza polecenia. 
+Istnieją dwa sposoby tworzenia zasobów analizatora internetowego — przy użyciu [Azure Portal](internet-analyzer-create-test-portal.md) lub interfejsu wiersza polecenia. Ta sekcja ułatwia tworzenie nowego zasobu usługi Azure Internet Analyzer przy użyciu interfejsu wiersza polecenia. 
 
 
 > [!IMPORTANT]
@@ -25,41 +25,41 @@ Istnieją dwa sposoby tworzenia zasobu analizatora internetowego — przy użyci
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Publiczna wersja zapoznawcza jest dostępna do użycia globalnie; jednak przechowywanie danych jest ograniczona do *us West 2* podczas podglądu.
+Publiczna wersja zapoznawcza jest dostępna do użycia globalnie; jednak magazyn danych jest ograniczony do *zachodnich Stanów Zjednoczonych 2* w trakcie okresu zapoznawczego.
 
-## <a name="object-model"></a>Model obiektu
-Interfejsu wiersza polecenia analizatora internetowego udostępnia następujące typy zasobów:
-* **Testy** — test porównuje wydajność użytkownika końcowego dwóch punktów końcowych internetu (A i B) w czasie.
-* **Profile** — testy są tworzone w ramach profilu analizatora internetowego. Profile umożliwiają grupowanie powiązanych testów; jeden profil może zawierać jeden lub więcej testów.
-* **Wstępnie skonfigurowane punkty końcowe** — skonfigurowaliśmy punkty końcowe z różnymi konfiguracjami (regiony, technologie przyspieszania itp.). Można użyć dowolnego z tych wstępnie skonfigurowanych punktów końcowych w testach.
-* **Karty wyników** — karta wyników zawiera szybkie i miarodajne podsumowania wyników pomiarów. Zapoznaj się [z tłumaczeniem karty wyników](internet-analyzer-scorecard.md).
-* **Szeregi czasowe** — szereg czasu pokazuje, jak metryka zmienia się wraz z czasem.
+## <a name="object-model"></a>Model obiektów
+Interfejs wiersza polecenia programu Internet Analyzer udostępnia następujące typy zasobów:
+* **Testy** — test porównuje wydajność użytkowników końcowych z dwoma punktami końcowymi internetowymi (a i B) w czasie.
+* **Profile** — testy są tworzone w ramach profilu analizatora internetowego. Profile umożliwiają grupowanie powiązanych testów; pojedynczy profil może zawierać jeden lub więcej testów.
+* Wstępnie **skonfigurowane punkty końcowe** — skonfigurowano punkty końcowe z różnymi konfiguracjami (regionami, technologiami przyspieszenia itp.). W testach można użyć dowolnego ze wstępnie skonfigurowanych punktów końcowych.
+* **Karty wyników** — Karta wyników zapewnia szybkie i zrozumiałe podsumowania wyników pomiarów. Zapoznaj się z [interpretacją karty wyników](internet-analyzer-scorecard.md).
+* **Szeregi czasowe** — seria czasowa pokazuje, jak zmienia się Metryka w czasie.
 
 ## <a name="profile-and-test-creation"></a>Tworzenie profilu i testu
-1. Uzyskaj dostęp w wersji zapoznawczej analizatora internetowego, [Azure Internet Analyzer FAQ](internet-analyzer-faq.md)wykonując instrukcje **dotyczące uczestniczenia w wersji zapoznawczej?**
-2. [Zainstaluj narzędzie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-3. Uruchom `login` polecenie, aby rozpocząć sesję interfejsu wiersza polecenia:
+1. Uzyskaj dostęp do usługi Internet Analyzer w wersji zapoznawczej, wykonując **Jak mogę uczestnictwo w wersji zapoznawczej** [usługi Azure Internet Analyzer — często zadawane pytania](internet-analyzer-faq.md).
+2. [Zainstaluj interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+3. Uruchom `login` polecenie, aby uruchomić sesję interfejsu wiersza polecenia:
     ```azurecli-interactive
     az login
     ```
 
-    Jeśli interfejs wiersza polecenia można otworzyć domyślną przeglądarkę, zrobi to i załadować stronę logowania platformy Azure.
-    W przeciwnym razie otwórz https://aka.ms/devicelogin stronę przeglądarki i wprowadź kod autoryzacji wyświetlany w terminalu.
+    Jeśli interfejs wiersza polecenia może otworzyć domyślną przeglądarkę, spowoduje to załadowanie strony logowania platformy Azure.
+    W przeciwnym razie Otwórz stronę przeglądarki pod https://aka.ms/devicelogin adresem i wprowadź kod autoryzacji wyświetlany w terminalu.
 
 4. Zaloguj się w przeglądarce przy użyciu poświadczeń swojego konta.
 
-5. Wybierz identyfikator subskrypcji, któremu udzielono dostępu do publicznej wersji zapoznawczej analizatora internetowego.
+5. Wybierz identyfikator subskrypcji, którym udzielono dostępu do publicznej wersji zapoznawczej analizatora internetowego.
 
-    Po zalogowaniu się zobaczysz listę subskrypcji skojarzonych z twoim kontem platformy Azure. Informacje o `isDefault: true` subskrypcji to aktualnie aktywowana subskrypcja po zalogowaniu. Aby wybrać inną [subskrypcję,](https://docs.microsoft.com/cli/azure/account#az-account-set) użyj polecenia az account set z identyfikatorem subskrypcji, aby przełączyć się na. Aby uzyskać więcej informacji na temat wyboru subskrypcji, zobacz [Używanie wielu subskrypcji platformy Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Po zalogowaniu zostanie wyświetlona lista subskrypcji skojarzonych z Twoim kontem platformy Azure. Informacje o subskrypcji `isDefault: true` są obecnie aktywowaną subskrypcją po zalogowaniu się. Aby wybrać inną subskrypcję, użyj polecenia [AZ Account Set](https://docs.microsoft.com/cli/azure/account#az-account-set) z identyfikatorem subskrypcji, aby przełączyć się do. Aby uzyskać więcej informacji na temat wyboru subskrypcji, zobacz [Korzystanie z wielu subskrypcji platformy Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 
     Istnieją sposoby logowania nieinterakcyjnego, które opisano szczegółowo w artykule [Logowanie się za pomocą interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
-6. **[Opcjonalnie]** Utwórz nową grupę zasobów platformy Azure:
+6. **[Opcjonalne]** Utwórz nową grupę zasobów platformy Azure:
     ```azurecli-interactive
     az group create --location eastus --name "MyInternetAnalyzerResourceGroup"
     ```
 
-7. Zainstaluj rozszerzenie analizatora internetowego interfejsu wiersza polecenia platformy Azure:
+7. Zainstaluj rozszerzenie Analizator internetowy interfejsu wiersza polecenia platformy Azure:
      ```azurecli-interactive
     az extension add --name internet-analyzer
     ```
@@ -74,14 +74,14 @@ Interfejsu wiersza polecenia analizatora internetowego udostępnia następujące
     az internet-analyzer preconfigured-endpoint list --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile"
     ```
 
-10. Utwórz nowy test w nowo utworzonym profilu InternetAnalyzer:
+10. Utwórz nowy test w ramach nowo utworzonego profilu InternetAnalyzer:
     ```azurecli-interactive
     az internet-analyzer test create --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --endpoint-a-name "contoso" --endpoint-a-endpoint "www.contoso.com/some/path/to/trans.gif" --endpoint-b-name "microsoft" --endpoint-b-endpoint "www.microsoft.com/another/path/to/trans.gif" --name "MyFirstInternetAnalyzerTest" --enabled-state Enabled
     ```
 
-    Powyższe polecenie zakłada, `www.contoso.com` `www.microsoft.com` że oba i są hostowanie obrazu jednego piksela[(trans.gif](https://fpc.msedge.net/apc/trans.gif)) w ścieżkach niestandardowych. Jeśli ścieżka obiektu nie jest wyraźnie określony, Analizator internetowy będzie domyślnie używany `/apc/trans.gif` jako ścieżka obiektu, czyli gdzie wstępnie skonfigurowane punkty końcowe są hostowane obrazu jednego piksela. Należy również zauważyć, że schemat (https/http) nie musi być określony; Analizator internetowy obsługuje tylko punkty końcowe HTTPS, więc zakłada się, że protokół HTTPS.
+    W powyższym poleceniu `www.contoso.com` założono, że obie i `www.microsoft.com` obsługują obraz z pikselami ([Trans. gif](https://fpc.msedge.net/apc/trans.gif)) w obszarze ścieżki niestandardowe. Jeśli ścieżka obiektu nie została określona jawnie, Analizator Internetu będzie używać `/apc/trans.gif` jako ścieżki obiektu domyślnie, czyli gdy wstępnie skonfigurowane punkty końcowe obsługują obraz z pikselami. Należy również zauważyć, że nie trzeba określać schematu (https/http); Analizator Internetu obsługuje tylko punkty końcowe HTTPS, więc założono, że jest to protokół HTTPS.
 
-11. Nowy test powinien pojawić się pod profilem analizatora internetowego:
+11. Nowy test powinien pojawić się w profilu analizatora internetowego:
     ```azurecli-interactive
     az internet-analyzer test list --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile"
     ```
@@ -113,14 +113,14 @@ Interfejsu wiersza polecenia analizatora internetowego udostępnia następujące
     ]
     ````
 
-12. Aby rozpocząć generowanie pomiarów, plik JavaScript wskazany przez **skrypt testowyFileUri** musi być osadzony w aplikacji sieci Web. Szczegółowe instrukcje można znaleźć na stronie [Osażony klient analizatora internetowego.](internet-analyzer-embed-client.md)
+12. Aby rozpocząć generowanie pomiarów, plik JavaScript wskazany przez **scriptFileUri** testu musi być osadzony w aplikacji sieci Web. Szczegółowe instrukcje można znaleźć na stronie [klienta Osadź Internet Analyzer Client](internet-analyzer-embed-client.md) .
 
-13. Postęp testu można monitorować, śledząc jego wartość "statusu":
+13. Postęp testu można monitorować, śledząc jego wartość "status":
     ```azurecli-interactive
     az internet-analyzer test show --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --name "MyFirstInternetAnalyzerTest"
     ```
 
-14. Wyniki testu można sprawdzić, generując dla niego terminy lub karty wyników:
+14. Wyniki testów można sprawdzić, generując dla nich szeregów czasowych lub karty wyników:
     ```azurecli-interactive
     az internet-analyzer show-scorecard --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --name "MyFirstInternetAnalyzerTest" --aggregation-interval "Daily" --end-date-time-utc "2019-10-24T00:00:00"
     ```
@@ -132,6 +132,6 @@ Interfejsu wiersza polecenia analizatora internetowego udostępnia następujące
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Przejrzyj [odwołanie do interfejsu wiersza polecenia analizatora internetowego, aby](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) uzyskać pełną listę obsługiwanych poleceń i przykładów użycia.
-* Przeczytaj często zadawane pytania [dotyczące analizatora internetowego](internet-analyzer-faq.md).
-* Dowiedz się więcej o osadzaniu [klienta analizatora internetowego](internet-analyzer-embed-client.md) i tworzeniu [niestandardowego punktu końcowego](internet-analyzer-custom-endpoint.md). 
+* Przejrzyj [Informacje o interfejsie wiersza polecenia analizatora Internetu](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) , aby zapoznać się z pełną listą obsługiwanych poleceń i przykładów użycia.
+* Przeczytaj [często zadawane pytania dotyczące analizatora Internetu](internet-analyzer-faq.md).
+* Dowiedz się więcej o osadzaniu [klienta analizatora Internetu](internet-analyzer-embed-client.md) i tworzeniu [niestandardowego punktu końcowego](internet-analyzer-custom-endpoint.md). 

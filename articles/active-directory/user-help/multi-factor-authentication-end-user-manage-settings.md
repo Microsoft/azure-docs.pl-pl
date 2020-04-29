@@ -1,6 +1,6 @@
 ---
-title: Zmienianie metody i ustawień weryfikacji dwuskładnikowej — usługa Azure Active Directory
-description: Dowiedz się, jak zmienić metodę weryfikacji zabezpieczeń i ustawienia konta służbowego na stronie Dodatkowa weryfikacja zabezpieczeń.
+title: Zmień metodę weryfikacji dwuskładnikowej i ustawienia — Azure Active Directory
+description: Dowiedz się, jak zmienić metodę weryfikacji zabezpieczeń i ustawienia dla konta służbowego na stronie dodatkowej weryfikacji zabezpieczeń.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,129 +13,129 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: curtand
 ms.openlocfilehash: 5949f04ecc28a88e340a9c2de530031793f193a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79253249"
 ---
-# <a name="change-your-two-factor-verification-method-and-settings"></a>Zmienianie metody i ustawień weryfikacji dwuskładnikowej
+# <a name="change-your-two-factor-verification-method-and-settings"></a>Zmiana metody i ustawień weryfikacji dwuskładnikowej
 
-Po skonfigurowaniu metod weryfikacji zabezpieczeń dla konta służbowego można zaktualizować dowolne z powiązanych informacji, w tym:
+Po skonfigurowaniu metod weryfikacji zabezpieczeń dla konta służbowego możesz zaktualizować dowolne powiązane informacje, takie jak:
 
 - Domyślna metoda weryfikacji zabezpieczeń
 
 - Szczegóły metody weryfikacji zabezpieczeń, takie jak numer telefonu
 
-- Konfiguracja aplikacji uwierzytelniająca lub usuwanie urządzenia z aplikacji uwierzytelniającej
+- Konfiguracja aplikacji uwierzytelniania lub usuwanie urządzenia z aplikacji uwierzytelniania
 
-## <a name="using-the-additional-security-verification-page"></a>Korzystanie ze strony Dodatkowa weryfikacja zabezpieczeń
+## <a name="using-the-additional-security-verification-page"></a>Korzystanie ze strony dodatkowej weryfikacji zabezpieczeń
 
-Jeśli organizacja dostarczyła ci określone kroki dotyczące włączania weryfikacji dwuskładnikowej i zarządzania nią, należy najpierw wykonać te instrukcje. W przeciwnym razie możesz przejść do ustawień metody weryfikacji zabezpieczeń na stronie [Dodatkowa weryfikacja zabezpieczeń.](https://docs.microsoft.com/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time)
-
->[!Note]
->Jeśli to, co widzisz na ekranie, nie odpowiada temu, co jest opisane w tym artykule, oznacza to, że administrator włączył **środowisko informacje o zabezpieczeniach (wersja zapoznawcza)** lub że twoja organizacja dostarczyła własny portal niestandardowy. Aby uzyskać więcej informacji na temat nowych informacji zabezpieczających, zobacz [Omówienie informacji o zabezpieczeniach (wersja zapoznawcza).](user-help-security-info-overview.md) Aby uzyskać więcej informacji o portalu niestandardowym organizacji, należy skontaktować się z działem pomocy technicznej organizacji.
-
-### <a name="to-get-to-the-additional-security-verification-page"></a>Aby przejść do strony Dodatkowa weryfikacja zabezpieczeń
-
-Możesz kierować ten link na [stronę Dodatkowa weryfikacja zabezpieczeń](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1).
-
-![Dodatkowa strona weryfikacji zabezpieczeń z dostępnymi szczegółami metody weryfikacji zabezpieczeń](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page.png)
-
-Możesz również przejść do strony **Dodatkowa weryfikacja zabezpieczeń,** wykonując następujące kroki:
-
-1. Zaloguj się [https://myapps.microsoft.com](https://myapps.microsoft.com)do .
-
-1. Wybierz nazwę konta w prawym górnym rogu, a następnie wybierz **profil**.
-
-1. Wybierz **opcję Dodatkowa weryfikacja zabezpieczeń**.  
-
-    ![Łącze Moje aplikacje do strony Dodatkowej weryfikacji zabezpieczeń](./media/multi-factor-authentication-end-user-manage-settings/mfa-myapps-link.png)
+Jeśli Twoja organizacja dostarczyła konkretne kroki dotyczące włączania weryfikacji dwuskładnikowej i zarządzania nią, należy najpierw wykonać te instrukcje. W przeciwnym razie możesz przejść do ustawień metody weryfikacji zabezpieczeń na stronie [dodatkowej weryfikacji zabezpieczeń](https://docs.microsoft.com/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time) .
 
 >[!Note]
->Aby uzyskać informacje dotyczące korzystania z sekcji **Hasła aplikacji** na stronie **Dodatkowa weryfikacja zabezpieczeń,** zobacz [Zarządzanie hasłami aplikacji w celu weryfikacji dwuskładnikowej](multi-factor-authentication-end-user-app-passwords.md). Hasła aplikacji powinny być używane tylko w przypadku aplikacji, które nie obsługują weryfikacji dwuskładnikowej.
+>Jeśli dane wyświetlane na ekranie nie są zgodne z tym, co zostało omówione w tym artykule, oznacza to, że administrator włączył środowisko **informacje zabezpieczające (wersja zapoznawcza)** lub że Twoja organizacja dostarczyła własny portal niestandardowy. Aby uzyskać więcej informacji na temat nowego środowiska informacji zabezpieczających, zobacz [informacje zabezpieczające (wersja zapoznawcza) — Omówienie](user-help-security-info-overview.md). Aby uzyskać więcej informacji na temat portalu niestandardowego w organizacji, należy skontaktować się z działem pomocy technicznej w organizacji.
 
-## <a name="change-your-default-security-verification-method"></a>Zmienianie domyślnej metody weryfikacji zabezpieczeń
+### <a name="to-get-to-the-additional-security-verification-page"></a>Aby przejść do strony dodatkowej weryfikacji zabezpieczeń
 
-Po zalogowaniu się na konto służbowe przy przyuśle i nazwie użytkownika zostanie automatycznie wyświetlona wybrana metoda weryfikacji zabezpieczeń. W zależności od wymagań organizacji może to być powiadomienie lub kod weryfikacyjny za pośrednictwem aplikacji uwierzytelniającego, wiadomości tekstowej lub połączenia telefonicznego.
+Możesz skorzystać z tego linku do [strony dodatkowej weryfikacji zabezpieczeń](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1).
 
-Jeśli zdecydujesz, że chcesz zmienić używana domyślna metoda weryfikacji zabezpieczeń, możesz to zrobić w tym miejscu.
+![Dodatkowa strona weryfikacji zabezpieczeń z informacjami o dostępnej metodzie weryfikacji zabezpieczeń](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page.png)
+
+Możesz również przejść do strony **dodatkowej weryfikacji zabezpieczeń** , wykonując następujące czynności:
+
+1. Zaloguj się do witryny [https://myapps.microsoft.com](https://myapps.microsoft.com).
+
+1. Wybierz nazwę swojego konta w prawym górnym rogu, a następnie wybierz pozycję **profil**.
+
+1. Wybierz opcję **dodatkowej weryfikacji zabezpieczeń**.  
+
+    ![Link Moje aplikacje do strony dodatkowej weryfikacji zabezpieczeń](./media/multi-factor-authentication-end-user-manage-settings/mfa-myapps-link.png)
+
+>[!Note]
+>Aby uzyskać informacje o korzystaniu z sekcji **hasła aplikacji** na stronie **dodatkowej weryfikacji zabezpieczeń** , zobacz [Zarządzanie hasłami aplikacji w celu weryfikacji dwuskładnikowej](multi-factor-authentication-end-user-app-passwords.md). Haseł aplikacji należy używać tylko w przypadku aplikacji, które nie obsługują weryfikacji dwuskładnikowej.
+
+## <a name="change-your-default-security-verification-method"></a>Zmień domyślną metodę weryfikacji zabezpieczeń
+
+Po zalogowaniu się do konta służbowego przy użyciu nazwy użytkownika i hasła zostanie automatycznie wyświetlona wybrana metoda weryfikacji zabezpieczeń. W zależności od wymagań organizacji może to być kod powiadomienia lub weryfikacyjne za pomocą aplikacji uwierzytelniającej, wiadomości tekstowej lub połączenia telefonicznego.
+
+Jeśli zdecydujesz się zmienić domyślną metodę weryfikacji zabezpieczeń, z której korzystasz, możesz to zrobić w tym miejscu.
 
 ### <a name="to-change-your-default-security-verification-method"></a>Aby zmienić domyślną metodę weryfikacji zabezpieczeń
 
-1. Na stronie **Dodatkowa weryfikacja zabezpieczeń** wybierz metodę, której chcesz użyć, z listy **Preferowane opcji.** Zobaczysz wszystkie opcje, ale możesz wybrać tylko te, które są udostępniane przez twoją organizację.
+1. Na stronie **dodatkowa Weryfikacja zabezpieczeń** wybierz metodę, która ma zostać użyta z listy **opcji co jest preferowane** . Zobaczysz wszystkie opcje, ale możesz wybrać tylko te, które są udostępniane przez organizację.
 
-    - **Powiadom mnie za pośrednictwem aplikacji:** Otrzymasz powiadomienie za pośrednictwem aplikacji uwierzytelniającego, że masz monit weryfikacji oczekiwania.
+    - **Powiadom mnie za pomocą aplikacji**: otrzymasz powiadomienie za pomocą aplikacji uwierzytelniającej, że masz monit o weryfikację oczekującą.
 
-    - **Zadzwoń na mój telefon uwierzytelniający:** otrzymasz telefon na urządzeniu mobilnym z prośbą o zweryfikowanie informacji.
+    - **Zadzwoń na mój telefon uwierzytelniania**: otrzymasz połączenie telefoniczne na urządzeniu przenośnym, z prośbą o zweryfikowanie informacji.
 
-    - **Kod tekstowy na mój telefon uwierzytelniający:** otrzymasz kod weryfikacyjny w ramach wiadomości tekstowej na urządzeniu mobilnym. Musisz wprowadzić ten kod w wierszu weryfikacji konta służbowego.
+    - **Kod tekstowy na mój numer telefonu uwierzytelniania**: otrzymasz kod weryfikacyjny jako część wiadomości tekstowej na urządzeniu przenośnym. Musisz wprowadzić ten kod do monitu weryfikacji dla konta służbowego.
 
-    - **Zadzwoń do mojego telefonu biurowego:** otrzymasz telefon na telefon biurowy z prośbą o zweryfikowanie informacji.
+    - **Zadzwoń na mój telefon służbowy**: nastąpi połączenie telefoniczne na telefonie służbowym, z prośbą o zweryfikowanie informacji.
 
-    - **Użyj kodu weryfikacyjnego z aplikacji:** użyjesz aplikacji uwierzytelniającego, aby uzyskać kod weryfikacyjny, który wpiszesz w wierszu z konta służbowego.
+    - **Użyj kodu weryfikacyjnego z aplikacji**: użyjesz aplikacji uwierzytelniania do uzyskania kodu weryfikacyjnego, który zostanie wpisany do monitu z konta służbowego.
 
-2. Wybierz **pozycję Zapisz**.
+2. Wybierz pozycję **Zapisz**.
 
-## <a name="add-or-change-your-phone-number"></a>Dodawanie lub zmienianie numeru telefonu
+## <a name="add-or-change-your-phone-number"></a>Dodawanie lub zmiana numeru telefonu
 
-Możesz dodać nowe numery telefonów lub zaktualizować istniejące numery na stronie **Dodatkowa weryfikacja zabezpieczeń.**
+Możesz dodać nowe numery telefonów lub zaktualizować istniejące numery na stronie **dodatkowej weryfikacji zabezpieczeń** .
 
 >[!Important]
->Zdecydowanie zalecamy dodanie dodatkowego numeru telefonu, aby zapobiec zablokowaniu konta w przypadku zgubienia lub kradzieży telefonu podstawowego lub jeśli masz nowy telefon i nie masz już oryginalnego, podstawowego numeru telefonu.
+>Zdecydowanie zalecamy dodanie dodatkowego numeru telefonu, aby zapobiec zablokowaniu konta w przypadku jego zgubienia lub kradzieży, lub jeśli otrzymasz nowy numer telefonu i nie będziesz już mieć oryginalnego, podstawowego numeru telefonu.
 
 ### <a name="to-change-your-phone-numbers"></a>Aby zmienić numery telefonów
 
-1. W sekcji **Jak chcesz zareagować?** na stronie **Dodatkowa weryfikacja zabezpieczeń** zaktualizuj informacje o numerze telefonu **uwierzytelniania** (podstawowym urządzeniu przenośnym) i **telefonie pakietu Office**.
+1. Na stronie **jak chcesz odpowiedzieć?** w sekcji **dodatkowa Weryfikacja zabezpieczeń** Zaktualizuj informacje o numerze telefonu dla **telefonu uwierzytelniania** (podstawowego urządzenia przenośnego) i **telefonu biurowego**.
 
-1. Zaznacz pole obok opcji **Telefon uwierzytelniania alternatywnego,** a następnie wpisz dodatkowy numer telefonu, pod którym możesz odbierać wiadomości tekstowe lub połączenia telefoniczne, jeśli nie możesz uzyskać dostępu do urządzenia podstawowego.
+1. Zaznacz pole wyboru obok opcji **alternatywny numer telefonu uwierzytelniania** , a następnie wpisz dodatkową liczbę telefonów, w której można odbierać wiadomości tekstowe lub połączenia telefoniczne, jeśli nie możesz uzyskać dostępu do urządzenia podstawowego.
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
-## <a name="add-a-new-account-to-the-microsoft-authenticator-app"></a>Dodawanie nowego konta do aplikacji uwierzytelniającego microsoft
+## <a name="add-a-new-account-to-the-microsoft-authenticator-app"></a>Dodawanie nowego konta do aplikacji Microsoft Authenticator
 
-Konto służbowe można skonfigurować w aplikacji Microsoft Authenticator na [androida](https://play.google.com/store/apps/details?id=com.azure.authenticator) lub [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).
+Konto służbowe można skonfigurować w aplikacji Microsoft Authenticator dla [systemu Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) lub [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).
 
-Jeśli konto służbowe jest już skonfigurowane w aplikacji Microsoft Authenticator, nie musisz tego robić ponownie.
+Jeśli konto służbowe zostało już skonfigurowane w aplikacji Microsoft Authenticator, nie musisz tego robić ponownie.
 
-1. W sekcji **Jak chcesz zareagować?** na stronie **Dodatkowa weryfikacja zabezpieczeń** wybierz pozycję **Konfigurowanie aplikacji Authenticator**.
+1. Na stronie w **jaki sposób chcesz odpowiedzieć?** w obszarze **dodatkowa Weryfikacja zabezpieczeń** wybierz pozycję **Skonfiguruj aplikację uwierzytelniania**.
 
     ![Konfigurowanie konta służbowego w aplikacji Microsoft Authenticator](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page-auth-app.png)
 
-1. Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie, w tym za pomocą urządzenia przenośnego do skanowania kodu QR, a następnie wybierz przycisk **Dalej**.
+1. Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie, w tym za pomocą urządzenia przenośnego, aby skanować kod QR, a następnie wybierz przycisk **dalej**.
 
-    Zostaniesz poproszony o zatwierdzenie powiadomienia za pośrednictwem aplikacji Microsoft Authenticator, aby zweryfikować informacje.
+    Użytkownik zostanie poproszony o zatwierdzenie powiadomienia za pomocą aplikacji Microsoft Authenticator w celu zweryfikowania informacji.
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 ## <a name="delete-your-account-or-device-from-the-microsoft-authenticator-app"></a>Usuwanie konta lub urządzenia z aplikacji Microsoft Authenticator
 
-Możesz usunąć swoje konto z aplikacji Microsoft Authenticator i usunąć urządzenie z konta służbowego. Zazwyczaj usuwasz urządzenie, aby trwale usunąć utracone, skradzione lub stare urządzenie z konta, a następnie usuwasz konto, aby spróbować rozwiązać niektóre problemy z połączeniem lub rozwiązać zmianę konta, na przykład nową nazwę użytkownika.
+Konto można usunąć z aplikacji Microsoft Authenticator i usunąć je z konta służbowego. Zwykle usuniesz urządzenie, aby trwale usunąć zgubione lub skradzione urządzenie z Twojego konta, a następnie usuń swoje konto, aby spróbować naprawić niektóre problemy z połączeniem lub rozwiązać zmianę konta, na przykład nową nazwę użytkownika.
 
 ### <a name="to-delete-your-device-from-your-work-or-school-account"></a>Aby usunąć urządzenie z konta służbowego
 
-1. W sekcji **Jak chcesz zareagować?** na stronie **Dodatkowa weryfikacja zabezpieczeń** wybierz przycisk **Konfigurowanie aplikacji Authenticator.**
+1. Na stronie w **jaki sposób chcesz odpowiedzieć?** w obszarze **dodatkowej weryfikacji zabezpieczeń** wybierz przycisk **Skonfiguruj aplikację uwierzytelniania** .
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 ### <a name="to-delete-your-account-from-the-microsoft-authenticator-app"></a>Aby usunąć konto z aplikacji Microsoft Authenticator
 
 W aplikacji Microsoft Authenticator wybierz przycisk **Usuń** obok urządzenia, które chcesz usunąć.
 
-## <a name="turn-on-two-factor-verification-prompts-on-a-trusted-device"></a>Włączanie dwuskładnikowych monitów weryfikacyjnych na zaufanym urządzeniu
+## <a name="turn-on-two-factor-verification-prompts-on-a-trusted-device"></a>Włączanie dwuskładnikowych wierszy weryfikacji na zaufanym urządzeniu
 
-W zależności od ustawień organizacji może zostać wyświetlone pole wyboru z napisem **Nie pytaj ponownie przez X dni** podczas weryfikacji dwuskładnikowej w przeglądarce. Jeśli ta opcja jest zaznaczona jako zatrzymanie monitów weryfikacji dwuskładnikowej, a następnie utracisz urządzenie lub urządzenie zostanie potencjalnie naruszone, włącz monity weryfikacji dwuskładnikowej, aby chronić swoje konto. Należy włączyć monity dla wszystkich urządzeń w tym samym czasie. Niestety, nie można włączyć monitów tylko dla określonego urządzenia.
+W zależności od ustawień organizacji może pojawić się pole wyboru, które **nie zadawaj ponownie przez X dni** w przypadku przeprowadzania weryfikacji dwuskładnikowej w przeglądarce. Jeśli wybrano tę opcję, aby zatrzymać wyświetlanie dwuskładnikowych wierszy weryfikacyjnych, a następnie utracisz urządzenie lub może dojść do naruszenia zabezpieczeń urządzenia, należy włączyć opcję weryfikacji dwuskładnikowej w celu zapewnienia ochrony Twojego konta. Wszystkie urządzenia muszą być włączone w tym samym czasie. Niestety, nie można ponownie włączyć wyświetlania z powrotem dla konkretnego urządzenia.
 
-### <a name="to-turn-two-factor-verification-prompts-back-on-for-your-devices"></a>Aby włączyć ponowne włączenie monitów weryfikacji dwuskładnikowej dla urządzeń
+### <a name="to-turn-two-factor-verification-prompts-back-on-for-your-devices"></a>Aby włączyć weryfikację dwuskładnikową z powrotem na urządzeniach
 
-Na [stronie **Dodatkowa weryfikacja zabezpieczeń** ](#to-get-to-the-additional-security-verification-page)wybierz pozycję **Przywróć uwierzytelnianie wieloskładnikowe na wcześniej zaufanych urządzeniach**. Przy następnym logowanie na dowolnym urządzeniu zostanie wyświetlony monit o przeprowadzenie weryfikacji dwuskładnikowej.
+Na stronie [ **dodatkowa Weryfikacja zabezpieczeń** ](#to-get-to-the-additional-security-verification-page)wybierz pozycję **Przywróć uwierzytelnianie wieloskładnikowe na wcześniej zaufanych urządzeniach**. Przy następnym logowaniu na dowolnym urządzeniu zostanie wyświetlony monit o przeprowadzenie weryfikacji dwuskładnikowej.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po dodaniu lub zaktualizowaniu ustawień weryfikacji dwuskładnikowej możesz zarządzać hasłami aplikacji, zalogować się lub uzyskać pomoc dotyczącą typowych problemów związanych z weryfikacją dwuskładnikową.
+Po dodaniu lub zaktualizowaniu ustawień weryfikacji dwuskładnikowej możesz zarządzać hasłami aplikacji, zalogować się lub uzyskać pomoc dotyczącą niektórych typowych problemów związanych z weryfikacją dwuskładnikowym.
 
 - [Zarządzaj hasłami aplikacji w celu weryfikacji dwuskładnikowej](multi-factor-authentication-end-user-app-passwords.md) dla wszystkich aplikacji, które nie obsługują weryfikacji dwuskładnikowej.
 
 - [Jak zalogować się przy użyciu weryfikacji dwuskładnikowej](multi-factor-authentication-end-user-signin.md)
 
-- [Rozwiązywanie typowych problemów za pomocą weryfikacji dwuskładnikowej](multi-factor-authentication-end-user-troubleshoot.md)
+- [Rozwiązywanie typowych problemów dotyczących weryfikacji dwuskładnikowej](multi-factor-authentication-end-user-troubleshoot.md)

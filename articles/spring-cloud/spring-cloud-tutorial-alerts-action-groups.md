@@ -1,46 +1,46 @@
 ---
-title: 'Samouczek: Monitorowanie zasobów usługi Azure Spring Cloud przy użyciu alertów i grup akcji | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak korzystać z alertów Spring Cloud.
+title: 'Samouczek: monitorowanie zasobów chmurowych platformy Azure przy użyciu alertów i grup akcji | Microsoft Docs'
+description: Dowiedz się, jak korzystać z alertów w chmurze wiosennej.
 author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.openlocfilehash: cf7e075244a83190b83e629ef300a4903b114a6d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77920080"
 ---
-# <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Samouczek: Monitorowanie zasobów wiosennej chmury przy użyciu alertów i grup akcji
+# <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Samouczek: monitorowanie źródeł wiosennych w chmurze przy użyciu alertów i grup akcji
 
-Alerty usługi Azure Spring Cloud obsługują zasoby monitorowania na podstawie warunków, takich jak dostępny magazyn, szybkość żądań lub użycie danych. Alert wysyła powiadomienie, gdy stawki lub warunki spełniają określone specyfikacje.
+Alerty chmurowe platformy Azure obsługują monitorowanie zasobów na podstawie takich warunków, jak dostępne magazyny, częstotliwość żądań lub użycie danych. Alert wysyła powiadomienie, gdy stawki lub warunki spełniają zdefiniowane specyfikacje.
 
-Istnieją dwa kroki, aby skonfigurować potok alertów: 
-1. Skonfiguruj grupę akcji z działaniami, które należy podjąć po wyzwoleniu alertu, takimi jak poczta e-mail, SMS, Element runbook lub element webhook. Grupy akcji mogą być ponownie używane między różnymi alertami.
-2. Konfigurowanie reguł alertów. Reguły wiążą wzorce metryk z grupami akcji na podstawie zasobu docelowego, metryki, warunku, agregacji czasu itp.
+Aby skonfigurować potok alertów, należy wykonać dwie czynności: 
+1. Skonfiguruj grupę akcji z akcjami, które mają być podejmowane po wyzwoleniu alertu, na przykład wiadomości e-mail, wiadomości SMS, elementu Runbook lub elementu webhook. Grupy akcji mogą być ponownie używane między różnymi alertami.
+2. Skonfiguruj reguły alertów. Reguły wiążą wzorce metryk z grupami akcji w oparciu o zasób docelowy, metrykę, warunek, agregację czasu itp.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Oprócz wymagań platformy Azure Spring ten samouczek zależy od następujących zasobów.
+Oprócz wymagań wiosennych platformy Azure ten samouczek zależy od następujących zasobów.
 
-* Wdrożone wystąpienie usługi Azure Spring Cloud.  Postępuj zgodnie z naszym [przewodnikiem Szybki start,](spring-cloud-quickstart-launch-app-cli.md) aby rozpocząć.
+* Wdrożone wystąpienie chmury Azure wiosennej.  Skorzystaj z naszego [przewodnika Szybki Start](spring-cloud-quickstart-launch-app-cli.md) , aby rozpocząć pracę.
 
-* Zasób platformy Azure do monitorowania. W tym przykładzie monitoruje wystąpienie Spring Cloud.
+* Zasób platformy Azure do monitorowania. Ten przykład służy do monitorowania wystąpienia chmury Wiosnowej.
  
-Poniższe procedury inicjują zarówno **grupę akcji,** jak i **alert,** zaczynając od opcji **Alerty** w lewym okienku nawigacji wystąpienia Spring Cloud. (Procedura może również rozpocząć się od **monitora przeglądu** strony witryny Azure portal.) 
+Poniższe procedury inicjują **grupę akcji** i **alert** , rozpoczynając od opcji **alertów** w okienku nawigacji po lewej stronie wystąpienia chmury wiosnowej. (Procedurę można również uruchomić na stronie **Przegląd monitora** w Azure Portal). 
 
-Przejdź z grupy zasobów do wystąpienia usługi Spring Cloud. Wybierz **pozycję Alerty** w lewym okienku, a następnie wybierz pozycję **Zarządzaj akcjami:**
+Przejdź do grupy zasobów do wystąpienia chmury wiosennej. W lewym okienku wybierz pozycję **alerty** , a następnie wybierz pozycję **Zarządzaj akcjami**:
 
 ![Strona grupy zasobów portalu zrzutu ekranu](media/alerts-action-groups/action-1-a.png)
 
 ## <a name="set-up-action-group"></a>Konfigurowanie grupy akcji
 
-Aby rozpocząć procedurę inicjowania nowej **grupy akcji,** wybierz **pozycję + Dodaj grupę akcji**.
+Aby rozpocząć procedurę inicjowania nowej **grupy akcji**, wybierz pozycję **+ Dodaj grupę akcji**.
 
-![Zrzut ekranu portalu Dodaj grupę akcji](media/alerts-action-groups/action-1.png)
+![Dodaj grupę akcji do portalu zrzutu ekranu](media/alerts-action-groups/action-1.png)
 
-Na stronie **Dodaj grupę akcji:**
+Na stronie **Dodaj grupę akcji** :
 
  1. Określ **nazwę grupy akcji** i **krótką nazwę**.
 
@@ -48,68 +48,68 @@ Na stronie **Dodaj grupę akcji:**
 
  1. Określ **nazwę akcji**.
 
- 1. Wybierz **typ akcji**.  Spowoduje to otwarcie innego okienka po prawej stronie, aby zdefiniować akcję, która zostanie podjęta przy aktywacji.
+ 1. Wybierz **Typ akcji**.  Spowoduje to otwarcie kolejnego okienka po prawej stronie, aby zdefiniować akcję, która zostanie podjęta po aktywacji.
 
- 1. Zdefiniuj akcję za pomocą opcji w prawym okienku.  W tym przypadku użyto powiadomienia e-mail.
+ 1. Zdefiniuj akcję przy użyciu opcji w okienku po prawej stronie.  W tym przypadku jest stosowane powiadomienie e-mail.
 
- 1. Kliknij **przycisk OK** w prawym okienku akcji.
+ 1. Kliknij przycisk **OK** w prawym okienku akcji.
 
- 1. Kliknij **przycisk OK** w oknie dialogowym Dodawanie grupy **akcji.** 
+ 1. Kliknij przycisk **OK** w oknie dialogowym **Dodaj grupę akcji** . 
 
-  ![Zrzut ekranu Portal zdefiniować akcję](media/alerts-action-groups/action-2.png)
+  ![Akcja definiowania portalu zrzutu ekranu](media/alerts-action-groups/action-2.png)
 
 ## <a name="set-up-alert"></a>Konfigurowanie alertu 
 
-W poprzednich krokach utworzono **grupę akcji,** która używa poczty e-mail. Można również użyć powiadomienia telefonicznego, zestawów webhook, funkcji platformy Azure itp.  
+W poprzednich krokach utworzono **grupę akcji** , która używa poczty e-mail. Możesz również użyć powiadomień na telefon, elementów webhook, usługi Azure Functions itd.  
 
-Aby skonfigurować **alert,** przejdź wstecz do strony Alerty i kliknij pozycję **Zarządzaj regułami** **alertów** .
+Aby skonfigurować **alert**, przejdź z powrotem do strony **alerty** , a następnie kliknij pozycję **Zarządzaj regułami alertów**.
 
-  ![Alert definiowania alertu przez portal zrzutów ekranu](media/alerts-action-groups/alerts-2.png)
+  ![Portal zrzutu ekranu — Definiowanie alertu](media/alerts-action-groups/alerts-2.png)
 
 1. Wybierz **zasób** dla alertu.
 
-1. Kliknij **przycisk + Nowa reguła alertu**.
+1. Kliknij pozycję **+ Nowa reguła alertu**.
 
-   ![Zrzut ekranu Portal nowa reguła alertów](media/alerts-action-groups/alerts-3.png)
+   ![Nowa reguła alertu portalu zrzutu ekranu](media/alerts-action-groups/alerts-3.png)
 
-1. Na stronie **Reguła Tworzenia** określ **zasób**.
+1. Na stronie **Tworzenie reguły** Określ **zasób**.
 
-1. Ustawienie **WARUNEK** udostępnia wiele opcji monitorowania zasobów **spring cloud.**  Kliknij **przycisk Dodaj,** aby otworzyć **okienko logiki konfiguruj sygnał.**
+1. Ustawienie **warunek** zapewnia wiele opcji monitorowania zasobów **chmury wiosnowej** .  Kliknij przycisk **Dodaj** , aby otworzyć okienko **Konfiguruj logikę sygnału** .
 
-1. Wybierz warunek. W tym przykładzie użyto **procentu użycia procesora cpu systemu**.
+1. Wybierz warunek. W tym przykładzie wykorzystuje **procent użycia procesora CPU**.
 
-   ![Zrzut ekranu Portal nowa reguła alertów](media/alerts-action-groups/alerts-3-1.png)
+   ![Nowa reguła alertu portalu zrzutu ekranu](media/alerts-action-groups/alerts-3-1.png)
 
-1. Przewiń w dół **okienko logiki skonfiguruj sygnał,** aby ustawić **wartość próg** do monitorowania.
+1. Przewiń w dół okienko **Konfigurowanie logiki sygnału** , aby ustawić **wartość progową** do monitorowania.
 
-   ![Zrzut ekranu Portal nowa reguła alertów](media/alerts-action-groups/alerts-3-2.png)
+   ![Nowa reguła alertu portalu zrzutu ekranu](media/alerts-action-groups/alerts-3-2.png)
 
-1. Kliknij przycisk **Gotowe**.
+1. Kliknij pozycję **Gotowe**.
 
-Aby uzyskać szczegółowe informacje na temat warunków dostępnych do monitorowania, zobacz [Opcje metryk portalu użytkownika](spring-cloud-concept-metrics.md#user-metrics-options).
+Aby uzyskać szczegółowe informacje na temat warunków dostępnych do monitorowania, zobacz [Opcje metryk portalu użytkowników](spring-cloud-concept-metrics.md#user-metrics-options).
 
- W obszarze **AKCJE**kliknij pozycję **Wybierz grupę akcji**. Z okienka **AKCJE** wybierz wcześniej zdefiniowaną **grupę akcji**.
+ W obszarze **Akcje**kliknij pozycję **Wybierz grupę akcji**. W okienku **Akcje** wybierz wcześniej zdefiniowaną **grupę akcji**.
 
-   ![Zrzut ekranu Portal nowa reguła alertów](media/alerts-action-groups/alerts-3-3.png) 
+   ![Nowa reguła alertu portalu zrzutu ekranu](media/alerts-action-groups/alerts-3-3.png) 
 
-1. Przewiń w dół i w obszarze **SZCZEGÓŁY ALERTu**nazwij regułę alertu.
+1. Przewiń w dół i w obszarze **szczegóły alertu**Nadaj nazwę regule alertu.
 
 1. Ustaw **ważność**.
 
-1. Kliknij **pozycję Utwórz regułę alertu**.
+1. Kliknij przycisk **Utwórz regułę alertu**.
 
-   ![Zrzut ekranu Portal nowa reguła alertów](media/alerts-action-groups/alerts-3-4.png)
+   ![Nowa reguła alertu portalu zrzutu ekranu](media/alerts-action-groups/alerts-3-4.png)
 
-Sprawdź, czy nowa reguła alertu jest włączona.
+Sprawdź, czy Nowa reguła alertu jest włączona.
 
-   ![Zrzut ekranu Portal nowa reguła alertów](media/alerts-action-groups/alerts-4.png)
+   ![Nowa reguła alertu portalu zrzutu ekranu](media/alerts-action-groups/alerts-4.png)
 
-Regułę można również utworzyć na stronie **Metryki:**
+Regułę można również utworzyć za pomocą strony **metryki** :
 
-   ![Zrzut ekranu Portal nowa reguła alertów](media/alerts-action-groups/alerts-5.png)
+   ![Nowa reguła alertu portalu zrzutu ekranu](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* [Opcje metryk portalu użytkownika](spring-cloud-concept-metrics.md#user-metrics-options)
-* [Tworzenie grup akcji i zarządzanie nimi w witrynie Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
-* [Zachowanie alertu programu SMS w grupach akcji](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
-* [Samouczek: Korzystanie z śledzenia rozproszonego w chmurze Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+* [Opcje metryk portalu użytkowników](spring-cloud-concept-metrics.md#user-metrics-options)
+* [Tworzenie grup akcji i zarządzanie nimi w Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+* [Zachowanie alertów SMS w grupach akcji](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
+* [Samouczek: używanie rozproszonego śledzenia w chmurze Azure wiosennej](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)

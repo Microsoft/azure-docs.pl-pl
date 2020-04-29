@@ -1,28 +1,28 @@
 ---
-title: 'Samouczek: Zarządzanie zapytaniami w witrynie Azure portal'
-description: W tym samouczku utworzysz zapytanie wykresu zasobów i udostępnisz nowe zapytanie innym osobom w witrynie Azure portal.
+title: 'Samouczek: zarządzanie zapytaniami w Azure Portal'
+description: W tym samouczku utworzysz zapytanie grafu zasobów i udostępnisz nowe zapytanie innym osobom w Azure Portal.
 ms.date: 11/21/2019
 ms.topic: tutorial
 ms.openlocfilehash: 00cb3f95112804c81beb6bce6fc35891e6197e60
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74303947"
 ---
-# <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Samouczek: Tworzenie i udostępnianie kwerendy programu Azure Resource Graph w witrynie Azure portal
+# <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Samouczek: Tworzenie i udostępnianie kwerendy wykresu zasobów platformy Azure w Azure Portal
 
-Usługa Azure Resource Graph Explorer umożliwia zapisywanie zapytań wykresu zasobów bezpośrednio w witrynie Azure portal. Istnieją dwa typy zapytań: _prywatne_ i _udostępnione_. Zapytanie prywatne jest zapisywane w ustawieniach witryny Azure portal. Natomiast kwerenda udostępniona jest zasobem Menedżera zasobów, którym można zarządzać za pomocą kontroli dostępu opartego na rolach (RBAC) i chronić je za pomocą blokad zasobów. Oba typy zapytań są szyfrowane w spoczynku.
+Eksplorator usługi Azure Resource Graph umożliwia zapisywanie zapytań grafu zasobów bezpośrednio w Azure Portal. Istnieją dwa typy zapytań: _Private_ i _Shared_. Zapytanie prywatne zostanie zapisane w ustawieniach Azure Portal. Zapytanie udostępnione jest zasobem Menedżer zasobów, którym można zarządzać za pomocą kontroli dostępu opartej na rolach (RBAC) i chronionych przy użyciu blokad zasobów. Oba typy zapytań są szyfrowane w stanie spoczynku.
 
-Zapisując zapytania w witrynie Azure portal, można zaoszczędzić czas, który w przeciwnym razie można spędzić szukając ulubionych lub często używanych zapytań. Podczas udostępniania zapytań, pomagasz zespołowi realizować cele spójności i wydajności poprzez powtórzenie.
+Zapisując zapytania w Azure Portal, można zaoszczędzić czas, w którym można szukać ulubionych lub często używanych zapytań. Po udostępnieniu zapytań można ułatwić zespołowi zrealizowanie celów spójności i wydajności poprzez powtarzanie.
 
 W tym samouczku wykonasz następujące zadania:
 
 > [!div class="checklist"]
 > - Tworzenie i usuwanie zapytania prywatnego
-> - Tworzenie kwerendy udostępnionej
-> - Odnajduj zapytania udostępnione
-> - Usuwanie kwerendy udostępnionej
+> - Utwórz zapytanie udostępnione
+> - Odnajdź udostępnione zapytania
+> - Usuń udostępnione zapytanie
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -30,11 +30,11 @@ Do wykonania kroków tego samouczka potrzebna jest subskrypcja platformy Azure. 
 
 ## <a name="create-and-delete-a-private-query"></a>Tworzenie i usuwanie zapytania prywatnego
 
-Zapytania prywatne są dostępne i widoczne tylko dla konta, które je tworzy. Ponieważ są one zapisywane w ustawieniach witryny Azure portal konta, mogą być tworzone, używane i usuwane tylko z wewnątrz witryny Azure portal. Kwerenda prywatna nie jest zasobem Menedżera zasobów. Aby utworzyć nową kwerendę prywatną, wykonaj następujące czynności:
+Zapytania prywatne są dostępne i widoczne tylko dla konta, które je tworzy. Ponieważ są one zapisywane w ustawieniach Azure Portal konta, mogą być tworzone, używane i usuwane tylko z wewnątrz Azure Portal. Zapytanie prywatne nie jest zasobem Menedżer zasobów. Aby utworzyć nowe zapytanie prywatne, wykonaj następujące kroki:
 
-1. Z menu portalu wybierz **pozycję Wszystkie usługi** lub użyj pola wyszukiwania platformy Azure u góry wszystkich stron. Wyszukaj, a następnie wybierz pozycję **Eksplorator wykresów zasobów**.
+1. W menu portalu wybierz pozycję **wszystkie usługi** lub użyj pola wyszukiwania Azure w górnej części wszystkich stron. Wyszukaj, a następnie wybierz pozycję **Eksplorator grafów zasobów**.
 
-1. Na karcie **Kwerenda 1** na stronie Eksplorator wykresu zasobów platformy Azure wprowadź następującą kwerendę:
+1. Na karcie **zapytanie 1** na stronie Eksplorator zasobów platformy Azure wprowadź następujące zapytanie:
 
    ```kusto
    Resources
@@ -42,31 +42,31 @@ Zapytania prywatne są dostępne i widoczne tylko dla konta, które je tworzy. P
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
 
-   Wybierz **pozycję Uruchom kwerendę,** aby wyświetlić wyniki kwerendy w dolnym okienku.
+   Wybierz pozycję **Uruchom zapytanie** , aby wyświetlić wyniki zapytania w dolnym okienku.
 
-   Aby uzyskać więcej informacji na temat tej [kwerendy, zobacz Przykłady — zliczanie maszyn wirtualnych według typu systemu operacyjnego](../samples/starter.md#count-virtual-machines-by-os-type).
+   Aby uzyskać więcej informacji na temat tego zapytania, zobacz [przykłady — liczba maszyn wirtualnych według typu systemu operacyjnego](../samples/starter.md#count-virtual-machines-by-os-type).
 
 
-1. Wybierz **pozycję Zapisz** lub Zapisz **jako**, wprowadź **nazwę Zliczanie maszyn wirtualnych według systemu operacyjnego,** pozostaw ten typ jako **kwerendę prywatną,** a następnie wybierz pozycję **Zapisz** u dołu okienka **Zapisz kwerendę.** Tytuł karty zmienia się z **kwerendy 1** na **Zliczanie maszyn wirtualnych przez system operacyjny**.
+1. Wybierz **pozycję Zapisz** lub **Zapisz jako**, **Wprowadź liczbę maszyn wirtualnych według systemu operacyjnego** jako nazwę, pozostaw jako **kwerendę prywatną**, a następnie wybierz pozycję **Zapisz** w dolnej części okienka **Zapisz zapytanie** . Tytuł karty zostanie zmieniony z **zapytania 1** na **liczbę maszyn wirtualnych według systemu operacyjnego**.
 
-1. Odejdź od Eksploratora wykresów zasobów platformy Azure w witrynie Azure portal, a następnie wróć do niego. Należy zauważyć, że zapisana kwerenda nie jest już wyświetlana i zwrócono kartę **Kwerenda 1.**
+1. Przejdź do Eksploratora grafów zasobów platformy Azure w Azure Portal, a następnie wróć do niego. Zwróć uwagę, że zapisane zapytanie nie jest już wyświetlane, a karta **zapytanie 1** zwróci wartość.
 
-1. Wybierz **pozycję Otwórz kwerendę**. Upewnij się, że typem jest **kwerenda prywatna**. Zapisane nazwy **Zliczanie** maszyn wirtualnych przez system operacyjny są teraz wyświetlane na liście Nazwa **kwerendy.** Po wybraniu łącza do tytułu zapisanej kwerendy jest ono ładowane do nowej karty o nazwie tej kwerendy.
+1. Wybierz pozycję **Otwórz zapytanie**. Upewnij się, że typ jest **kwerendą prywatną**. Zapisane nazwy **maszyn wirtualnych według systemu operacyjnego** zostaną wyświetlone na liście **Nazwa zapytania** . Po wybraniu linku tytułu zapisanego zapytania zostanie ono załadowane do nowej karty zawierającej nazwę tego zapytania.
 
    > [!NOTE] 
-   > Gdy zapisane zapytanie jest otwarte, a karta wyświetla jej nazwę, wybranie przycisku **Zapisz** aktualizuje ją z wszelkimi wprowadzonymi zmianami. Aby utworzyć nową zapisaną kwerendę z tej otwartej kwerendy, wybierz pozycję **Zapisz jako** i kontynuuj tak, jakby zapisywano zupełnie nową kwerendę.
+   > Gdy zapisane zapytanie jest otwarte, a na karcie zostanie wyświetlona jego nazwa, wybranie przycisku **Zapisz** aktualizuje go o wszelkie wprowadzone zmiany. Aby utworzyć nowe zapisane zapytanie z tego otwartego zapytania, wybierz pozycję **Zapisz jako** i postępuj zgodnie z tym, jeśli zapisano zupełnie nowe zapytanie.
 
-1. Aby usunąć **zapisaną kwerendę,** wybierz ponownie pozycję Otwórz kwerendę i sprawdź, czy pole **Typ** jest ustawione na **Kwerenda prywatna**. W wierszu zapisanej `Count VMs by OS` kwerendy wybierz pozycję **Usuń** (ikona Kosza). W oknie dialogowym potwierdzenia wybierz pozycję **Tak,** aby zakończyć usuwanie kwerendy.
-   Następnie zamknij **okienko Otwórz kwerendę.**
+1. Aby usunąć zapisane zapytanie, wybierz pozycję **Otwórz zapytanie** ponownie i sprawdź, czy pole **Typ** jest ustawione na **zapytanie prywatne**. W wierszu zapisanego `Count VMs by OS` zapytania wybierz pozycję **Usuń** (ikona kosza). W oknie dialogowym potwierdzenia wybierz pozycję **tak** , aby zakończyć usuwanie zapytania.
+   Następnie zamknij okienko **Otwórz zapytanie** .
 
-## <a name="create-a-shared-query"></a>Tworzenie kwerendy udostępnionej
+## <a name="create-a-shared-query"></a>Utwórz zapytanie udostępnione
 
-W przeciwieństwie do zapytania prywatnego kwerenda udostępniona jest zasobem Menedżera zasobów. Fakt ten oznacza, że kwerenda zostanie zapisana w grupie zasobów, może być zarządzana i kontrolowana za pomocą RBAC, a nawet może być chroniona za pomocą blokad zasobów. Jako zasób każdy, kto ma odpowiednie uprawnienia, może go zobaczyć i używać.
-Aby utworzyć nową kwerendę udostępnioną, wykonaj następujące czynności:
+W przeciwieństwie do zapytania prywatnego, udostępnione zapytanie jest zasobem Menedżer zasobów. Oznacza to, że zapytanie jest zapisywane w grupie zasobów, może być zarządzane i kontrolowane za pomocą RBAC, a nawet może być chronione przy użyciu blokad zasobów. Jako zasób, każdy, kto ma odpowiednie uprawnienia, może go zobaczyć i używać.
+Aby utworzyć nowe zapytanie udostępnione, wykonaj następujące kroki:
 
-1. Z menu portalu wybierz pozycję **Wszystkie usługi**lub użyj pola wyszukiwania platformy Azure u góry wszystkich stron, aby wyszukać i wybrać **Eksplorator wykresu zasobów**.
+1. W menu portalu wybierz pozycję **wszystkie usługi**lub użyj pola wyszukiwania Azure w górnej części wszystkich stron, aby wyszukać i wybrać pozycję **Eksplorator grafów zasobów**.
 
-1. Na karcie **Kwerenda 1** na stronie Eksplorator wykresu zasobów platformy Azure wprowadź następującą kwerendę:
+1. Na karcie **zapytanie 1** na stronie Eksplorator zasobów platformy Azure wprowadź następujące zapytanie:
 
    ```kusto
    Resources
@@ -74,62 +74,62 @@ Aby utworzyć nową kwerendę udostępnioną, wykonaj następujące czynności:
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
     
-   Wybierz **pozycję Uruchom kwerendę,** aby wyświetlić wyniki kwerendy w dolnym okienku.
+   Wybierz pozycję **Uruchom zapytanie** , aby wyświetlić wyniki zapytania w dolnym okienku.
 
-   Aby uzyskać więcej informacji na temat tej [kwerendy, zobacz Przykłady — zliczanie maszyn wirtualnych według typu systemu operacyjnego](../samples/starter.md#count-virtual-machines-by-os-type).
+   Aby uzyskać więcej informacji na temat tego zapytania, zobacz [przykłady — liczba maszyn wirtualnych według typu systemu operacyjnego](../samples/starter.md#count-virtual-machines-by-os-type).
 
-1. Wybierz **pozycję Zapisz** lub Zapisz **jako**.
+1. Wybierz pozycję **Zapisz** lub **Zapisz jako**.
 
    
-   ![Zapisywanie nowej kwerendy za pomocą przycisku zapisz](../media/create-share-query/save-shared-query-buttons.png)
+   ![Zapisz nowe zapytanie przy użyciu przycisku Zapisz](../media/create-share-query/save-shared-query-buttons.png)
 
-1. W okienku **Zapisz kwerendę** wprowadź dla nazwy liczbę **maszyn wirtualnych według systemu operacyjnego.**
+1. W okienku **Zapisz zapytanie** wprowadź wartość w polu **Liczba maszyn wirtualnych według systemu operacyjnego** .
 
-1. Zmień typ **na Kwerenda udostępniona,** ustaw opis **na Liczba maszyn wirtualnych według typu systemu operacyjnego**i ustaw **subskrypcję,** aby określić, gdzie tworzony jest zasób kwerendy.
+1. Zmień typ na **zapytanie udostępnione**, Ustaw opis na **Liczba maszyn wirtualnych według typu systemu operacyjnego**i ustaw **subskrypcję** , aby określić miejsce utworzenia zasobu zapytania.
 
-1. Pozostaw pole wyboru **Publikuj do grupy zasobów-rograf-kwerendy zasobów zaznaczone** pole wyboru, a **lokalizacja grupy zasobów ustawiona** na **(USA) West Central US**.
+1. Pozostaw zaznaczone pole wyboru **Publikuj do zasobów-Graph-zapytania** , a w **pozycji Grupa zasobów** ustaw wartość **(Stany Zjednoczone) zachodnie stany USA**.
 
-1. Wybierz **pozycję Zapisz** u dołu okienka Zapisz **kwerendę.** Tytuł karty zmienia się z **kwerendy 1** na **Zliczanie maszyn wirtualnych przez system operacyjny**. Przy pierwszym użyciu grupy **zasobów-wykres-kwerendy,** zapisz trwa dłużej niż oczekiwano, jak grupa zasobów zostanie utworzona.
+1. Wybierz pozycję **Zapisz** w dolnej części okienka **Zapisz zapytanie** . Tytuł karty zostanie zmieniony z **zapytania 1** na **liczbę maszyn wirtualnych według systemu operacyjnego**. Przy pierwszym użyciu grupy zasobów **zapytania z wykresem zasobów** czas zapisywania trwa dłużej niż oczekiwano, gdy grupa zasobów zostanie utworzona.
    
-   ![Zapisywanie nowej kwerendy jako kwerendy udostępnionej](../media/create-share-query/save-shared-query-window.png)
+   ![Zapisz nowe zapytanie jako zapytanie udostępnione](../media/create-share-query/save-shared-query-window.png)
 
    > [!NOTE] 
-   > Jeśli chcesz podać nazwę istniejącej grupy zasobów, aby zapisać kwerendę udostępnioną, można wyczyścić pole wyboru Grupa zasobów Publikowania **do kwerendy wykresu zasobów.** Użycie domyślnej nazwanej grupy zasobów dla kwerend ułatwia odnajdowanie zapytań udostępnionych. To również sprawia, że cel tej grupy zasobów bardziej widoczne. Można jednak wybrać istniejącą grupę zasobów ze względów bezpieczeństwa na podstawie istniejących uprawnień.
+   > Możesz wyczyścić pole wyboru **Publikuj do zasobów-Graph-** querys, jeśli chcesz podać nazwę istniejącej grupy zasobów, w której ma zostać zapisane zapytanie udostępnione. Użycie domyślnej nazwy grupy zasobów dla zapytań sprawia, że zapytania udostępnione są łatwiejsze do odnajdywania. Umożliwia również dokładniejsze przeznaczenie tej grupy zasobów. Można jednak wybrać istniejącą grupę zasobów ze względów bezpieczeństwa na podstawie istniejących uprawnień.
 
-1. Odejdź od Eksploratora wykresów zasobów platformy Azure w witrynie Azure portal, a następnie wróć do niego. Należy zauważyć, że zapisana kwerenda nie jest już wyświetlana i zwrócono kartę **Kwerenda 1.**
+1. Przejdź do Eksploratora grafów zasobów platformy Azure w Azure Portal, a następnie wróć do niego. Zwróć uwagę, że zapisane zapytanie nie jest już wyświetlane, a karta **zapytanie 1** zwróci wartość.
 
-1. Wybierz **pozycję Otwórz kwerendę**. Sprawdź, czy typ jest ustawiony na **Kwerenda udostępniona** i kombinacja **dopasowania grupy subskrypcja** i **zasoby,** w której kwerenda została zapisana. Zapisany element **Zliczanie maszyn wirtualnych według systemu operacyjnego** jest teraz wyświetlany na liście **Nazwa kwerendy.** Wybierz łącze do tytułu zapisanej kwerendy, aby załadować je do nowej karty o nazwie tej kwerendy. Jako zapytanie udostępnione wyświetla ikonę na karcie obok tytułu, oznaczającą ją jako udostępnioną.
+1. Wybierz pozycję **Otwórz zapytanie**. Sprawdź, czy typ jest ustawiony na **zapytanie udostępnione** i czy kombinacja **subskrypcji** i **grupy zasobów** jest zgodna z miejscem, w którym zapisano zapytanie. Liczba zapisanych **maszyn wirtualnych według elementu systemu operacyjnego** zostanie teraz wyświetlona na liście **Nazwa zapytania** . Wybierz łącze tytuł zapisanego zapytania, aby załadować je do nowej karty zawierającej nazwę tego zapytania. Jako zapytanie udostępnione wyświetla ikonę na karcie obok tytułu, oznaczając ją jako udostępnioną.
 
-   ![Pokaż kwerendę udostępnioną z ikoną](../media/create-share-query/show-saved-shared-query.png)
+   ![Pokaż udostępnione zapytanie z ikoną](../media/create-share-query/show-saved-shared-query.png)
 
    > [!NOTE] 
-   > Gdy zapisane zapytanie jest otwarte, a karta wyświetla jej nazwę, przycisk **Zapisz** aktualizuje ją o wszelkie wprowadzone zmiany. Aby utworzyć nową zapisaną kwerendę, wybierz pozycję **Zapisz jako** i kontynuuj tak, jakby zapisywano zupełnie nową kwerendę.
+   > Gdy zapisane zapytanie jest otwarte, a karta wyświetla jego nazwę, przycisk **Zapisz** aktualizuje go przy użyciu wszelkich wprowadzonych zmian. Aby utworzyć nowe zapisane zapytanie, wybierz pozycję **Zapisz jako** i postępuj zgodnie z tym, jeśli zapisano zupełnie nowe zapytanie.
 
-## <a name="discover-shared-queries"></a>Odnajduj zapytania udostępnione
+## <a name="discover-shared-queries"></a>Odnajdź udostępnione zapytania
 
-Ponieważ kwerenda udostępniona jest zasobem Menedżera zasobów, istnieje kilka sposobów, aby go znaleźć:
+Ponieważ udostępnione zapytanie jest zasobem Menedżer zasobów, można je znaleźć na kilka sposobów:
 
-- W Eksploratorze wykresów zasobów wybierz pozycję **Otwórz kwerendę** i ustaw typ **zapytania udostępnionego**.
-- Na stronie Portalu zapytań wykresu zasobów.
-- Z grupy zasobów, w którym została zapisana kwerenda udostępniona.
-- Za pośrednictwem kwerendy do wykresu zasobów.
+- W Eksploratorze grafu zasobów wybierz pozycję **Otwórz zapytanie** i ustaw typ **zapytania udostępnione**.
+- Na stronie portalu kwerendy grafu zasobów.
+- Z grupy zasobów, w której zapisano udostępnione zapytanie.
+- Za pomocą zapytania do grafu zasobów.
 
-### <a name="view-resource-graph-queries"></a>Wyświetlanie zapytań wykresu zasobów
+### <a name="view-resource-graph-queries"></a>Wyświetl zapytania grafu zasobów
 
-W witrynie Azure portal na stronie kwerend wykresu zasobów są wyświetlane zapytania udostępnione, do których ma dostęp zalogowane konto. Ta strona umożliwia filtrowanie według nazwy, subskrypcji, grupy zasobów i innych właściwości kwerendy Wykres zasobów. Za pomocą tego interfejsu można również oznaczać, eksportować i usuwać kwerendy wykresu zasobów.
+W Azure Portal na stronie kwerendy grafu zasobów są wyświetlane udostępnione zapytania, do których mają dostęp zalogowane konto. Ta strona umożliwia filtrowanie według nazwy, subskrypcji, grupy zasobów i innych właściwości zapytania grafu zasobów. Za pomocą tego interfejsu można także Tagi, eksportować i usuwać zapytania dotyczące wykresów zasobów.
 
-Wybranie jednego z kwerend powoduje otwarcie strony kwerendy Wykres zasobów. Podobnie jak inne zasoby Menedżera zasobów, ta strona oferuje interaktywne omówienie wraz z dziennikiem aktywności, kontrolą dostępu i tagami. Blokadę zasobów można również zastosować bezpośrednio z tej strony.
+Wybranie jednego z zapytań spowoduje otwarcie strony zapytania wykresu zasobów. Podobnie jak w przypadku innych zasobów Menedżer zasobów, ta strona oferuje Interaktywny przegląd wraz z dziennikiem aktywności, kontrolą dostępu i tagami. Możesz również zastosować blokadę zasobu bezpośrednio z tej strony.
 
-Uzyskaj stronę Kwerend wykresu zasobów z menu portalu, wybierając **pozycję Wszystkie usługi** lub korzystając z pola wyszukiwania platformy Azure u góry wszystkich stron. Wyszukaj i wybierz **Eksploratora wykresów zasobów**.
+Uzyskaj dostęp do strony zapytania grafu zasobów z menu Portal, wybierając pozycję **wszystkie usługi** lub korzystając z pola wyszukiwania platformy Azure w górnej części wszystkich stron. Wyszukaj i wybierz pozycję **Eksplorator grafów zasobów**.
 
-### <a name="list-resource-groups-resources"></a>Lista zasobów grup zasobów zasobów
+### <a name="list-resource-groups-resources"></a>Wyświetlanie listy zasobów grup zasobów
 
-Kwerenda Wykres zasobów jest wyświetlana obok innych zasobów, które są częścią grupy zasobów.
-Wybranie kwerendy Wykres zasobów powoduje otwarcie strony dla tej kwerendy. Opcje menu wielokropek i skrótów (wyzwalane przez kliknięcie prawym przyciskiem myszy) działają tak samo, jak na stronie kwerendy Wykres zasobów.
+Zapytanie grafu zasobów jest wyświetlane wraz z innymi zasobami, które są częścią grupy zasobów.
+Wybranie zapytania grafu zasobów spowoduje otwarcie strony dla tego zapytania. Opcje menu wielokropka i skrótu (wyzwalane przez kliknięcie prawym przyciskiem myszy) działają tak samo jak na stronie kwerendy grafu zasobów.
 
-### <a name="query-resource-graph"></a>Wykres zasobu kwerendy
+### <a name="query-resource-graph"></a>Zapytanie grafu zasobów
 
-Kwerendy wykresu zasobów można znaleźć za pomocą kwerendy do wykresu zasobów. Następujące zapytania Wykres zasobów ogranicza `Microsoft.ResourceGraph/queries`według typu `project` , a następnie używa do listy tylko nazwę, czas zmodyfikowany i sama kwerenda:
+Zapytania dotyczące wykresów zasobów można znaleźć za pomocą zapytania do grafu zasobów. Poniższe kwerendy wykresu zasobów są ograniczone przez typ `Microsoft.ResourceGraph/queries`, a następnie używa `project` do wyświetlania tylko nazwy, godziny modyfikacji i samego zapytania:
 
 ```kusto
 Resources
@@ -137,23 +137,23 @@ Resources
 | project name, properties.timeModified, properties.query
 ```
 
-## <a name="delete-a-shared-query"></a>Usuwanie kwerendy udostępnionej
+## <a name="delete-a-shared-query"></a>Usuń udostępnione zapytanie
 
-Jeśli zapytanie udostępnione nie jest już potrzebne, usuń ją. Usuwając kwerendę udostępnioną, należy usunąć odpowiedni zasób Menedżera zasobów. Wszystkie pulpity nawigacyjne, do których przypięto wykres wyników, są teraz wyświetlane komunikat o błędzie. Po wyświetleniu tego komunikatu o błędzie użyj przycisku **Usuń z pulpitu nawigacyjnego,** aby wyczyścić pulpit nawigacyjny.
+Jeśli zapytanie udostępnione nie jest już potrzebne, usuń je. Usuwając zapytanie udostępnione, można usunąć odpowiedni zasób Menedżer zasobów. Wszystkie pulpity nawigacyjne, do których wykres wyników został przypięty, teraz wyświetlają komunikat o błędzie. Gdy zostanie wyświetlony komunikat o błędzie, użyj przycisku **Usuń z pulpitu nawigacyjnego** , aby wyczyścić pulpit nawigacyjny.
 
-Kwerendę udostępnioną można usunąć za pomocą następujących interfejsów:
-- Strona kwerend wykresu zasobów
-- Strona kwerendy Wykres zasobów
-- Strona **Otwórz zapytanie** w Eksploratorze wykresów zasobów
-- Strona Grupy zasobów
+Zapytanie udostępnione można usunąć za pomocą następujących interfejsów:
+- Strona zapytania grafu zasobów
+- Strona kwerendy wykresu zasobów
+- Strona **otwieranie zapytania** w Eksploratorze grafu zasobów
+- Strona grupy zasobów
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Po zakończeniu tego samouczka usuń utworzone zapytania prywatne i udostępnione, jeśli nie chcesz ich.
+Po zakończeniu pracy z tym samouczkiem Usuń utworzone zapytania prywatne i udostępnione, jeśli nie będą już potrzebne.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzono zapytania prywatne i udostępnione. Aby dowiedzieć się więcej o języku wykresu zasobów, przejdź do strony szczegółów języka kwerendy.
+W tym samouczku utworzono zapytania prywatne i udostępnione. Aby dowiedzieć się więcej na temat języka grafu zasobów, przejdź do strony szczegółów języka zapytań.
 
 > [!div class="nextstepaction"]
-> [Uzyskaj więcej informacji o języku kwerendy](../concepts/query-language.md)
+> [Uzyskaj więcej informacji na temat języka zapytań](../concepts/query-language.md)

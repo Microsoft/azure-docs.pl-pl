@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: 0dab71b6d169e26a3d7dc208dd09efe1143fbe13
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67182920"
 ---
-### <a name="open-the-publish-wizard"></a>Otwieranie kreatora publikowania
+### <a name="open-the-publish-wizard"></a>Otwieranie Kreatora publikacji
 
-W **Eksploratorze rozwiązań**kliknij prawym przyciskiem myszy projekt **Usługi Udostępniania** i wybierz polecenie **Publikuj**.
+W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **SharingService** i wybierz polecenie **Publikuj**.
 
-Zostanie uruchomiony Kreator publikowania. Wybierz**pozycję Publikuj** **usługę app service,** > aby otworzyć okno dialogowe Tworzenie usługi **aplikacji.**
+Zostanie uruchomiony Kreator publikowania. Wybierz pozycję **App Service** > **Opublikuj** , aby otworzyć okno dialogowe **Tworzenie App Service** .
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-W oknie dialogowym **Tworzenie usługi app service** wybierz pozycję Dodaj **konto** i zaloguj się do subskrypcji platformy Azure. Jeśli jesteś już zalogowany, wybierz konto, które chcesz z listy rozwijanej.
+W oknie dialogowym **tworzenie App Service** wybierz pozycję **Dodaj konto** i zaloguj się do subskrypcji platformy Azure. Jeśli użytkownik jest już zalogowany, wybierz żądane konto z listy rozwijanej.
 
 > [!NOTE]
 > Jeśli przeprowadzono już logowanie, nie wybieraj jeszcze pozycji **Utwórz**.
@@ -39,24 +39,24 @@ Nadaj grupie zasobów nazwę **myResourceGroup**, a następnie kliknij przycisk 
 
 Obok pozycji **Plan hostingu** wybierz pozycję **Nowy**.
 
-W oknie dialogowym **Konfigurowanie planu hostingu** użyj następujących ustawień:
+W oknie dialogowym **Konfiguruj plan hostingu** Użyj następujących ustawień:
 
 | Ustawienie | Sugerowana wartość | Opis |
 |-|-|-|
 |Plan usługi App Service| MySharingServicePlan | Nazwa planu usługi App Service. |
 | Lokalizacja | Zachodnie stany USA | Centrum danych, w którym hostowana jest aplikacja internetowa. |
-| Rozmiar | Bezpłatna | [Warstwa cenowa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) określająca funkcje hostingu. |
+| Rozmiar | Bezpłatna | [Warstwa cenowa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) , która określa funkcje hostingu. |
 
-Kliknij przycisk **OK**.
+Wybierz przycisk **OK**.
 
 ### <a name="create-and-publish-the-web-app"></a>Tworzenie i publikowanie aplikacji internetowej
 
-W **aplikacji Nazwa aplikacji**wprowadź unikatową `a-z`nazwę `0-9`aplikacji `-`(prawidłowe znaki to , i ) lub zaakceptuj automatycznie wygenerowaną unikatową nazwę. Adres URL aplikacji internetowej to `https://<app_name>.azurewebsites.net`, gdzie `<app_name>` to nazwa aplikacji.
+W polu **Nazwa aplikacji**wprowadź unikatową nazwę aplikacji (prawidłowe znaki to `a-z`, `0-9`i `-`) lub zaakceptuj automatycznie wygenerowaną unikatową nazwę. Adres URL aplikacji internetowej to `https://<app_name>.azurewebsites.net`, gdzie `<app_name>` to nazwa aplikacji.
 
 Wybierz pozycję **Utwórz**, aby rozpocząć tworzenie zasobów platformy Azure.
 
-Po zakończeniu pracy kreatora publikuje ASP.NET podstawową aplikację sieci web na platformie Azure, a następnie otwiera aplikację w domyślnej przeglądarce.
+Po zakończeniu pracy Kreatora publikuje ASP.NET Core aplikację sieci Web na platformie Azure, a następnie otwiera aplikację w domyślnej przeglądarce.
 
 ![Opublikowana aplikacja internetowa platformy ASP.NET na platformie Azure](./media/spatial-anchors-azure/web-app-running-live.png)
 
-Nazwa aplikacji użyta w tej sekcji jest używana jako `https://<app_name>.azurewebsites.net`prefiks adresu URL w formacie . Zanotuj ten adres URL, ponieważ jest potrzebny.
+Nazwa aplikacji użyta w tej sekcji jest używana jako prefiks adresu URL w formacie `https://<app_name>.azurewebsites.net`. Zanotuj ten adres URL, ponieważ będzie on potrzebny.

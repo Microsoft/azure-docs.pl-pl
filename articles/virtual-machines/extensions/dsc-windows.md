@@ -1,6 +1,6 @@
 ---
-title: Program obsługi rozszerzenia konfiguracji żądanego stanu platformy Azure
-description: Przekazywanie i stosowanie konfiguracji dsc programu PowerShell na maszynie wirtualnej platformy Azure przy użyciu rozszerzenia DSC
+title: Procedura obsługi rozszerzenia konfiguracji żądanego stanu platformy Azure
+description: Przekazywanie i stosowanie konfiguracji DSC programu PowerShell na maszynie wirtualnej platformy Azure przy użyciu rozszerzenia DSC
 services: virtual-machines-windows
 documentationcenter: ''
 author: bobbytreed
@@ -14,33 +14,33 @@ ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
 ms.openlocfilehash: 592c731d1851ac36cf9b57864750df0603b6c3fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79253964"
 ---
 # <a name="powershell-dsc-extension"></a>Rozszerzenie DSC programu PowerShell
 
 ## <a name="overview"></a>Omówienie
 
-Rozszerzenie DSC programu PowerShell dla systemu Windows jest publikowane i obsługiwane przez firmę Microsoft. Rozszerzenie przekazuje i stosuje konfigurację DSC programu PowerShell na maszynie wirtualnej platformy Azure. Rozszerzenie DSC wywołuje w programie PowerShell DSC, aby uchwalić odebraną konfigurację DSC na maszynie wirtualnej. Ten dokument zawiera szczegółowe informacje na temat obsługiwanych platform, konfiguracji i opcji wdrażania rozszerzenia maszyny wirtualnej DSC dla systemu Windows.
+Rozszerzenie DSC programu PowerShell dla systemu Windows jest publikowane i obsługiwane przez firmę Microsoft. Rozszerzenie przekazuje i stosuje konfigurację DSC programu PowerShell na maszynie wirtualnej platformy Azure. Rozszerzenie DSC wywołuje program PowerShell DSC w celu przeprowadzenia odebranej konfiguracji DSC na maszynie wirtualnej. Ten dokument zawiera szczegółowe informacje o obsługiwanych platformach, konfiguracjach i opcjach wdrażania dla rozszerzenia maszyny wirtualnej DSC dla systemu Windows.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 ### <a name="operating-system"></a>System operacyjny
 
-Rozszerzenie DSC obsługuje następujące
+Rozszerzenie DSC obsługuje następujące elementy systemu operacyjnego:
 
-Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 zw.
+Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 z dodatkiem SP1, klient z systemem Windows 7/8.1/10
 
 ### <a name="internet-connectivity"></a>Łączność z Internetem
 
-Rozszerzenie DSC dla systemu Windows wymaga, aby docelowa maszyna wirtualna mogła komunikować się z platformą Azure i lokalizacją pakietu konfiguracji (plik zip), jeśli jest przechowywany w lokalizacji poza platformą Azure. 
+Rozszerzenie DSC dla systemu Windows wymaga, aby docelowa maszyna wirtualna mogła komunikować się z platformą Azure i lokalizacją pakietu konfiguracji (plik zip), jeśli jest przechowywana w lokalizacji poza platformą Azure. 
 
 ## <a name="extension-schema"></a>Schemat rozszerzenia
 
-Poniżej przedstawiono schemat dla części ustawień rozszerzenia DSC w szablonie usługi Azure Resource Manager. 
+Poniższy kod JSON przedstawia schemat części ustawień rozszerzenia DSC w szablonie Azure Resource Manager. 
 
 ```json
 {
@@ -97,79 +97,79 @@ Poniżej przedstawiono schemat dla części ustawień rozszerzenia DSC w szablon
 
 ### <a name="property-values"></a>Wartości właściwości
 
-| Nazwa | Wartość / Przykład | Typ danych |
+| Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
 | apiVersion | 2018-10-01 | date |
-| wydawca | Microsoft.Powershell.DSC | ciąg |
+| publisher | Microsoft. PowerShell. DSC | ciąg |
 | type | DSC | ciąg |
-| typHandlerVersion | 2.77 | int |
+| typeHandlerVersion | 2,77 | int |
 
-### <a name="settings-property-values"></a>Ustawienia Wartości właściwości
-
-| Nazwa | Typ danych | Opis
-| ---- | ---- | ---- |
-| settings.wmfVersion (wmfVersion) | ciąg | Określa wersję programu Windows Management Framework, która powinna być zainstalowana na maszynie wirtualnej. Ustawienie tej właściwości na "najnowsze" spowoduje zainstalowanie najbardziej zaktualizowanej wersji WMF. Jedynymi możliwymi wartościami dla tej właściwości są "4.0", "5.0" i "latest". Te możliwe wartości podlegają aktualizacjom. Wartość domyślna to "najnowsze". |
-| settings.configuration.url | ciąg | Określa lokalizację adresu URL, z której ma być pobierany plik zip konfiguracji DSC. Jeśli podany adres URL wymaga tokenu sygnatury dostępu współdzielonego dla dostępu, należy ustawić protectedSettings.configurations.configurationUrlSasToken właściwość do wartości tokenu sygnatury dostępu współdzielonego. Ta właściwość jest wymagana, jeśli są zdefiniowane ustawienia.configuration.script i/lub settings.configuration.function.
-| settings.configuration.script | ciąg | Określa nazwę pliku skryptu zawierającego definicję konfiguracji DSC. Ten skrypt musi znajdować się w folderze głównym pliku zip pobranego z adresu URL określonego przez właściwość configuration.url. Ta właściwość jest wymagana, jeśli są zdefiniowane ustawienia.configuration.url i/lub settings.configuration.script.
-| settings.configuration.function | ciąg | Określa nazwę konfiguracji DSC. Nazwana konfiguracja musi znajdować się w skrypcie zdefiniowanym przez configuration.script. Ta właściwość jest wymagana, jeśli są zdefiniowane ustawienia.configuration.url i/lub settings.configuration.function.
-| settings.configurationArguments | Collection | Definiuje wszystkie parametry, które mają być przedyszewać do konfiguracji DSC. Ta właściwość nie będzie szyfrowana.
-| settings.configurationData.url | ciąg | Określa adres URL, z którego ma być pobierany plik danych konfiguracyjnych (.pds1), który ma być używany jako dane wejściowe dla konfiguracji DSC. Jeśli podany adres URL wymaga tokenu sygnatury dostępu sygnatury dostępu, należy ustawić protectedSettings.configurationDataUrlSasToken właściwość do wartości tokenu sygnatury dostępu współdzielonego.
-| settings.privacy.dataWnieszciel | ciąg | Włącza lub wyłącza zbieranie danych telemetrycznych. Jedynymi możliwymi wartościami dla tej właściwości są "Włącz", "Wyłącz" lub $null. Pozostawienie tej właściwości pustej lub null spowoduje włączenie telemetrii
-| settings.advancedOptions.forcePullAndApply | Wartość logiczna | To ustawienie ma na celu zwiększenie doświadczenia pracy z rozszerzeniem do rejestrowania węzłów za pomocą usługi Azure Automation DSC.  Jeśli wartość `$true`jest , rozszerzenie będzie czekać na pierwsze uruchomienie konfiguracji pobrane z usługi przed zwróceniem sukcesu/niepowodzenia.  Jeśli wartość jest ustawiona na $false, stan zwrócony przez rozszerzenie będzie odnosić się tylko do tego, czy węzeł został pomyślnie zarejestrowany w usłudze Azure Automation State Configuration i konfiguracja węzła nie zostanie uruchomiony podczas rejestracji.
-| settings.advancedOptions.downloadMapy | Collection | Definiuje alternatywne lokalizacje do pobierania zależności, takie jak WMF i .NET
-
-### <a name="protected-settings-property-values"></a>Wartości właściwości ustawienia chronione
+### <a name="settings-property-values"></a>Wartości właściwości ustawień
 
 | Nazwa | Typ danych | Opis
 | ---- | ---- | ---- |
-| protectedSettings.configurationArgument | ciąg | Definiuje wszystkie parametry, które mają być przedyszewać do konfiguracji DSC. Ta właściwość będzie szyfrowana. |
-| protectedSettings.configurationUrlSasToken | ciąg | Określa token sygnatury dostępu współdzielonego, aby uzyskać dostęp do adresu URL zdefiniowanego przez configuration.url. Ta właściwość będzie szyfrowana. |
-| protectedSettings.configurationDataUrlSasToken | ciąg | Określa token sygnatury dostępu współdzielonego, aby uzyskać dostęp do adresu URL zdefiniowanego przez configurationData.url. Ta właściwość będzie szyfrowana. |
+| Settings. wmfVersion | ciąg | Określa wersję platformy zarządzania systemem Windows, która ma zostać zainstalowana na maszynie wirtualnej. Ustawienie dla tej właściwości wartości "Najnowsza" spowoduje zainstalowanie najbardziej zaktualizowanej wersji programu WMF. Jedyne bieżące możliwe wartości tej właściwości to "4,0", "5,0" i "Najnowsza". Te możliwe wartości podlegają aktualizacjom. Wartość domyślna to "Najnowsza". |
+| Settings. Configuration. URL | ciąg | Określa lokalizację adresu URL, z którego ma zostać pobrany plik zip konfiguracji DSC. Jeśli podany adres URL wymaga tokenu sygnatury dostępu współdzielonego, należy ustawić właściwość protectedSettings. configurationUrlSasToken na wartość tokenu SAS. Ta właściwość jest wymagana, jeśli są zdefiniowane parametry Settings. Configuration. Script i/lub Settings. Configuration. Function.
+| Settings. Configuration. Script | ciąg | Określa nazwę pliku skryptu, który zawiera definicję konfiguracji DSC. Ten skrypt musi znajdować się w folderze głównym pliku zip pobranego z adresu URL określonego przez właściwość Configuration. URL. Ta właściwość jest wymagana, jeśli są zdefiniowane ustawienia. Configuration. URL i/lub Settings. Configuration. Script.
+| Settings. Configuration. Function | ciąg | Określa nazwę konfiguracji DSC. Konfiguracja musi być zawarta w skrypcie zdefiniowanym przez Configuration. Script. Ta właściwość jest wymagana, jeśli są zdefiniowane ustawienia. Configuration. URL i/lub Settings. Configuration. Function.
+| Settings. configurationArguments | Collection | Definiuje wszystkie parametry, które chcesz przekazać do konfiguracji DSC. Ta właściwość nie zostanie zaszyfrowana.
+| Settings. configurationData. URL | ciąg | Określa adres URL, z którego należy pobrać plik danych konfiguracji (pds1), który ma być używany jako dane wejściowe dla konfiguracji DSC. Jeśli podany adres URL wymaga tokenu sygnatury dostępu współdzielonego, należy ustawić właściwość protectedSettings. configurationDataUrlSasToken na wartość tokenu SAS.
+| Settings. privacy. dataenabledd | ciąg | Włącza lub wyłącza zbieranie danych telemetrycznych. Jedyne możliwe wartości tej właściwości to "Enable", "Disable", "lub $null. Pozostawienie tej właściwości pustej lub wartości null spowoduje włączenie telemetrii
+| Settings. advancedOptions. forcePullAndApply | Wartość logiczna | To ustawienie ma na celu zwiększenie komfortu pracy z rozszerzeniem w celu rejestrowania węzłów za pomocą Azure Automation DSC.  Jeśli wartość to `$true`, rozszerzenie będzie oczekiwać na pierwsze uruchomienie konfiguracji pobranej z usługi przed zwróceniem powodzenia/niepowodzenia.  Jeśli wartość jest ustawiona na $false, stan zwrócony przez rozszerzenie będzie odnosić się tylko do tego, czy węzeł został zarejestrowany z konfiguracją stanu Azure Automation pomyślnie, a konfiguracja węzła nie zostanie uruchomiona podczas rejestracji.
+| Settings. advancedOptions. downloadMappings | Collection | Definiuje alternatywne lokalizacje do pobierania zależności, takich jak WMF i .NET.
+
+### <a name="protected-settings-property-values"></a>Wartości właściwości ustawień chronionych
+
+| Nazwa | Typ danych | Opis
+| ---- | ---- | ---- |
+| protectedSettings.configurationArguments | ciąg | Definiuje wszystkie parametry, które chcesz przekazać do konfiguracji DSC. Ta właściwość zostanie zaszyfrowana. |
+| protectedSettings.configurationUrlSasToken | ciąg | Określa token sygnatury dostępu współdzielonego, aby uzyskać dostęp do adresu URL zdefiniowanego przez wartość Configuration. URL. Ta właściwość zostanie zaszyfrowana. |
+| protectedSettings.configurationDataUrlSasToken | ciąg | Określa token sygnatury dostępu współdzielonego, aby uzyskać dostęp do adresu URL zdefiniowanego przez configurationData. URL. Ta właściwość zostanie zaszyfrowana. |
 
 
 ## <a name="template-deployment"></a>Wdrażanie na podstawie szablonu
 
-Rozszerzenia maszyn wirtualnych platformy Azure można wdrożyć za pomocą szablonów usługi Azure Resource Manager.
-Szablony są idealne podczas wdrażania co najmniej jednej maszyny wirtualnej, które wymagają konfiguracji po wdrożeniu.
-Przykładowy szablon Menedżera zasobów zawierający rozszerzenie DSC dla systemu Windows można znaleźć w [Galerii Szybki start platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
+Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szablonów Azure Resource Manager.
+Szablony są idealne do wdrożenia co najmniej jednej maszyny wirtualnej, która wymaga konfiguracji po wdrożeniu.
+Przykładowy szablon Menedżer zasobów, który zawiera rozszerzenie DSC dla systemu Windows, można znaleźć w [galerii szybki start platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i pomoc techniczna
 
 ### <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z witryny Azure portal i przy użyciu interfejsu wiersza polecenia platformy Azure. Aby wyświetlić stan wdrożenia rozszerzeń dla danej maszyny Wirtualnej, uruchom następujące polecenie przy użyciu interfejsu wiersza polecenia platformy Azure.
+Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z Azure Portal i przy użyciu interfejsu wiersza polecenia platformy Azure. Aby wyświetlić stan wdrożenia dla danej maszyny wirtualnej, uruchom następujące polecenie przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-Pakiet rozszerzenia jest pobierany i wdrażany w tej lokalizacji na maszynie Wirtualnej platformy Azure
+Pakiet rozszerzenia zostanie pobrany i wdrożony w tej lokalizacji na maszynie wirtualnej platformy Azure
 ```
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}
 ```
 
-Plik stanu rozszerzenia zawiera kody stanu podsyłacza i stanu sukcesu/błędu wraz ze szczegółowym błędem i opisem dla każdego uruchomienia rozszerzenia.
+Plik stanu rozszerzenia zawiera stan podrzędny i kody błędów stanu, a także szczegółowy błąd i opis każdego uruchomienia rozszerzenia.
 ```
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}\Status\{0}.Status  -> {0} being the sequence number
 ```
 
-Dzienniki danych wyjściowych rozszerzenia są rejestrowane w następującym katalogu:
+Dzienniki wyjściowe rozszerzenia są rejestrowane w następującym katalogu:
 
 ```
 C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 ```
 
-### <a name="error-codes-and-their-meanings"></a>Kody błędów i ich znaczenia
+### <a name="error-codes-and-their-meanings"></a>Kody błędów i ich znaczenie
 
-| Kod błędu | Znaczenie | Możliwe działanie |
+| Kod błędu | Znaczenie | Możliwa akcja |
 | :---: | --- | --- |
-| 1000 | Błąd ogólny | Komunikat dotyczący tego błędu jest dostarczany przez określony wyjątek w dziennikach rozszerzeń |
-| 52 | Błąd instalacji rozszerzenia | Komunikat dotyczący tego błędu jest dostarczany przez określony wyjątek |
-| 1002 | Błąd instalacji WMF | Błąd podczas instalowania WMF. |
-| 1004 | Nieprawidłowy pakiet zip | Nieprawidłowy zamek błyskawiczny ; Błąd rozpakowywania suwaka |
-| 1100 | Błąd argumentu | Wskazuje problem w danych wejściowych dostarczonych przez użytkownika. Komunikat o błędzie jest dostarczany przez określony wyjątek|
+| 1000 | Błąd rodzajowy | Komunikat dla tego błędu jest dostarczany przez konkretny wyjątek w dziennikach rozszerzeń |
+| 52 | Błąd instalacji rozszerzenia | Komunikat dla tego błędu jest dostarczany przez konkretny wyjątek |
+| 1002 | Błąd instalacji WMF | Wystąpił błąd podczas instalowania pakietu WMF. |
+| 1004 | Nieprawidłowy pakiet ZIP | Nieprawidłowy plik zip; Błąd podczas rozpakowywania pliku zip |
+| 1100 | Błąd argumentu | Wskazuje problem w danych wejściowych dostarczonych przez użytkownika. Komunikat o błędzie jest dostarczany przez konkretny wyjątek|
 
 
 ### <a name="support"></a>Pomoc techniczna
 
-Jeśli potrzebujesz więcej pomocy w dowolnym momencie tego artykułu, możesz skontaktować się z ekspertami platformy Azure na [forach MSDN Azure i Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie można zgłosić zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję Uzyskaj pomoc techniczną. Aby uzyskać informacje na temat korzystania z pomocy technicznej platformy Azure, przeczytaj często zadawane [pytania dotyczące pomocy technicznej platformy Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Jeśli potrzebujesz więcej pomocy w dowolnym punkcie tego artykułu, możesz skontaktować się z ekspertami platformy Azure na [forach MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie możesz zaplikować zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję Uzyskaj pomoc techniczną. Aby uzyskać informacje o korzystaniu z pomocy technicznej platformy Azure, przeczytaj temat [Microsoft Azure support — często zadawane pytania](https://azure.microsoft.com/support/faq/).

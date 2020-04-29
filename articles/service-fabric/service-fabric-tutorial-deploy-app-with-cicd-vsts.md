@@ -1,14 +1,14 @@
 ---
-title: Wdrażanie aplikacji za pomocą ci i potoków platformy Azure
+title: Wdróż aplikację za pomocą elementu CI i Azure Pipelines
 description: Z tego samouczka dowiesz się, jak skonfigurować ciągłą integrację i wdrażanie dla aplikacji usługi Service Fabric przy użyciu usługi Azure Pipelines.
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 11485d22abcf0b8e1eb13d8123ff21c7fe0079f8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75614149"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Samouczek: wdrażanie aplikacji przy użyciu ciągłej integracji/ciągłego wdrażania w klastrze usługi Service Fabric
@@ -35,15 +35,15 @@ Ta seria samouczków zawiera informacje na temat wykonywania następujących czy
 
 Przed rozpoczęciem tego samouczka:
 
-* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Zainstaluj program Visual Studio 2019](https://www.visualstudio.com/) i zainstaluj obciążenia deweloperskie i **ASP.NET i tworzenia sieci Web** platformy **Azure.**
+* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Zainstaluj program Visual Studio 2019](https://www.visualstudio.com/) i zainstaluj obciążenia związane z programowaniem i **programowaniem** na **platformie Azure** .
 * [Instalowanie zestawu SDK usługi Service Fabric](service-fabric-get-started.md)
 * Utwórz klaster usługi Service Fabric z systemem Windows na platformie Azure, na przykład [postępując zgodnie z tym samouczkiem](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 * Utwórz [organizację usługi Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student). Umożliwia to utworzenie projektu w usłudze Azure DevOps i korzystanie z usługi Azure Pipelines.
 
 ## <a name="download-the-voting-sample-application"></a>Pobieranie przykładowej aplikacji do głosowania
 
-Jeśli nie zbudowano aplikacji przykładowe głosowanie w [pierwszej części tej serii samouczków,](service-fabric-tutorial-create-dotnet-app.md)można go pobrać. W oknie polecenia uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na komputer lokalny.
+Jeśli nie skompilowano przykładowej aplikacji do głosowania w [pierwszej części tej serii samouczków](service-fabric-tutorial-create-dotnet-app.md), można ją pobrać. W oknie polecenia uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na komputer lokalny.
 
 ```git
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
@@ -61,7 +61,7 @@ Wybierz profil docelowy w ramach projektu aplikacji na potrzeby przepływu pracy
 
 Udostępnij pliki źródłowe aplikacji w projekcie zespołowym usługi Azure DevOps, aby umożliwić generowanie kompilacji.
 
-Utwórz nowe lokalne repozytorium Git dla swojego projektu, wybierając **dodaj do kontroli** -> źródła**Git** na pasku stanu w prawym dolnym rogu programu Visual Studio.
+Utwórz nowe lokalne repozytorium git dla projektu, wybierając pozycję **Dodaj do kontroli** -> źródła**git** na pasku stanu w prawym dolnym rogu programu Visual Studio.
 
 W widoku **Wypychanie** w programie **Team Explorer** wybierz przycisk **Opublikuj repozytorium Git** w obszarze **Wypychanie do usługi Azure DevOps**.
 
@@ -75,9 +75,9 @@ Opublikowanie repozytorium powoduje utworzenie nowego projektu na Twoim koncie o
 
 ## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Konfigurowanie ciągłego dostarczania za pomocą usługi Azure Pipelines
 
-Potok kompilacji usługi Azure Pipelines opisuje przepływ pracy, który składa się z zestawu kroków kompilacji, które są wykonywane sekwencyjnie. Utwórz potok kompilacji, który spowoduje wygenerowanie pakietu aplikacji usługi Service Fabric i innych artefaktów, na potrzeby wdrożenia w klastrze usługi Service Fabric. Dowiedz się więcej o [potokach kompilacji usługi Azure Pipelines](https://www.visualstudio.com/docs/build/define/create). 
+Potok kompilacji Azure Pipelines opisuje przepływ pracy, który składa się z zestawu kroków kompilacji, które są wykonywane sekwencyjnie. Utwórz potok kompilacji, który spowoduje wygenerowanie pakietu aplikacji usługi Service Fabric i innych artefaktów, na potrzeby wdrożenia w klastrze usługi Service Fabric. Dowiedz się więcej o [potokach kompilacji usługi Azure Pipelines](https://www.visualstudio.com/docs/build/define/create). 
 
-Potok wydania usługi Azure Pipelines opisuje przepływ pracy, który wdraża pakiet aplikacji w klastrze. Jednoczesne użycie potoku kompilacji i potoku wydania powoduje wykonanie całego przepływu pracy, zaczynając od plików źródłowych, a kończąc na aplikacji uruchomionej w klastrze. Dowiedz się więcej o [potokach wydania usługi Azure Pipelines](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
+Potok wydania usługi Azure Pipelines opisuje przepływ pracy, który wdraża pakiet aplikacji w klastrze. Jednoczesne użycie potoku kompilacji i potoku wydania powoduje wykonanie całego przepływu pracy, zaczynając od plików źródłowych, a kończąc na aplikacji uruchomionej w klastrze. Dowiedz się więcej na temat [potoków wydań Azure Pipelines](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
 ### <a name="create-a-build-pipeline"></a>Tworzenie potoku kompilacji
 
@@ -91,7 +91,7 @@ Wybierz pozycję **Azure Repos Git** jako źródło, projekt zespołowy **Voting
 
 ![Wybieranie repozytorium][select-repo]
 
-W **obszarze Wybierz szablon**wybierz szablon aplikacji sieci **szkieletowej usługi Azure** i kliknij przycisk **Zastosuj**.
+W obszarze **Wybierz szablon**wybierz szablon **aplikacja Azure Service Fabric** i kliknij przycisk **Zastosuj**.
 
 ![Wybieranie szablonu kompilacji][select-build-template]
 
@@ -103,7 +103,7 @@ W obszarze **Wyzwalacze** włącz ciągłą integrację, zaznaczając pozycję *
 
 ![Wybieranie wyzwalaczy][save-and-queue2]
 
-Kompilacje można również wyzwalać w ramach procesu wypychania lub ewidencjonowania. Aby sprawdzić postęp kompilacji, przejdź do karty **Kompilacje.**  Po sprawdzeniu, czy kompilacja jest wykonywana pomyślnie, zdefiniuj potok wydania, który wdraża aplikację do klastra.
+Kompilacje można również wyzwalać w ramach procesu wypychania lub ewidencjonowania. Aby sprawdzić postęp kompilacji, przejdź do karty **kompilacje** .  Po sprawdzeniu, czy kompilacja została wykonana pomyślnie, zdefiniuj potok wydania, który wdraża aplikację w klastrze.
 
 ### <a name="create-a-release-pipeline"></a>Tworzenie potoku wydania
 
@@ -111,13 +111,13 @@ Wybierz kartę **Potoki**, wybierz pozycję **Wydania**, a następnie wybierz po
 
 ![Wybieranie szablonu wydania][select-release-template]
 
-Wybierz pozycję **Środowisko zadań**->**1,** a następnie **+Nowy,** aby dodać nowe połączenie klastra.
+Wybierz pozycję **zadania**->**środowisko 1** i pozycję **+ Nowy** , aby dodać nowe połączenie klastra.
 
 ![Dodawanie połączenia klastra][add-cluster-connection]
 
 W widoku **Dodawanie nowego połączenia z usługą Service Fabric** wybierz uwierzytelnianie **Na podstawie certyfikatu** lub **Azure Active Directory**.  Określ nazwę połączenia dla klastra „mysftestcluster” i następujący punkt końcowy klastra „tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000” (lub punkt końcowy klastra, w którym przeprowadzane jest wdrożenie).
 
-W przypadku uwierzytelniania opartego na certyfikatach dodaj **odcisk palca certyfikatu serwera** certyfikatu serwera użyty do utworzenia klastra.  W obszarze **Certyfikat klienta** dodaj plik certyfikatu klienta zakodowany przy użyciu kodowania base-64. Zobacz pomoc podręczną dla tego pola, aby uzyskać informacje dotyczące sposobu uzyskania reprezentacji certyfikatu w kodowaniu base-64. Dodaj również **Hasło** certyfikatu.  Jeśli nie masz osobnego certyfikatu klienta, możesz użyć certyfikatu klastra lub serwera.
+W przypadku uwierzytelniania opartego na certyfikatach Dodaj **odcisk palca certyfikatu serwera** , który został użyty do utworzenia klastra.  W obszarze **Certyfikat klienta** dodaj plik certyfikatu klienta zakodowany przy użyciu kodowania base-64. Zobacz pomoc podręczną dla tego pola, aby uzyskać informacje dotyczące sposobu uzyskania reprezentacji certyfikatu w kodowaniu base-64. Dodaj również **Hasło** certyfikatu.  Jeśli nie masz osobnego certyfikatu klienta, możesz użyć certyfikatu klastra lub serwera.
 
 W przypadku poświadczeń usługi Azure Active Directory dodaj **Odcisk palca certyfikatu serwera** dla certyfikatu serwera użytego do utworzenia klastra oraz poświadczenia w polach **Nazwa użytkownika** i **Hasło**, których chcesz użyć w celu nawiązania połączenia z klastrem.
 
@@ -131,7 +131,7 @@ Włącz wyzwalacz ciągłego wdrażania, aby umożliwić automatyczne tworzenie 
 
 ![Włączanie wyzwalacza][enable-trigger]
 
-Wybierz **+ Zwolnij** -> **Utwórz wydanie** -> **Utwórz,** aby ręcznie utworzyć wydanie. Postęp wydawania możesz monitorować na karcie **Wydania**.
+Wybierz pozycję **+ wydanie** -> **Utwórz wersję** -> **Utwórz** , aby ręcznie utworzyć wydanie. Postęp wydawania możesz monitorować na karcie **Wydania**.
 
 Sprawdź, czy wdrożenie zakończyło się pomyślnie, a aplikacja została uruchomiona w klastrze.  Otwórz przeglądarkę internetową i przejdź pod adres `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Zwróć uwagę na wersję aplikacji. W tym przykładzie jest to „1.0.0.20170616.3”.
 
@@ -139,7 +139,7 @@ Sprawdź, czy wdrożenie zakończyło się pomyślnie, a aplikacja została uruc
 
 Aby upewnić się, że potok ciągłej integracji działa prawidłowo, zaewidencjonuj zmiany kodu w usłudze Azure DevOps.
 
-Podczas pisania kodu zmiany są automatycznie śledzone przez program Visual Studio. Zatwierdź zmiany w lokalnym repozytorium Git, wybierając ikonę oczekujących zmian (![Oczekujące][pending]) na pasku stanu w prawym dolnym rogu.
+Podczas pisania kodu zmiany są automatycznie śledzone przez program Visual Studio. Zatwierdź zmiany w lokalnym repozytorium Git, wybierając ikonę oczekujących zmian (![Oczekiwanie][pending]) na pasku stanu w prawym dolnym rogu.
 
 W widoku **Zmiany** programu Team Explorer dodaj komunikat opisujący aktualizację i zatwierdź wprowadzone zmiany.
 

@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
 ms.openlocfilehash: 3b614fcb6692f35884af2fc4e19210267ab8ab04
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77593278"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Samouczek: uruchamianie aplikacji w usłudze Azure Kubernetes Service (AKS)
@@ -17,7 +17,7 @@ ms.locfileid: "77593278"
 Usługa Kubernetes zapewnia rozproszoną platformę dla konteneryzowanych aplikacji. Możesz kompilować i wdrażać własne aplikacje oraz usługi w klastrze Kubernetes, który zarządza dostępnością i łącznością. W tym samouczku (część czwarta z siedmiu) przykładowa aplikacja jest wdrażana w klastrze Kubernetes. Omawiane kwestie:
 
 > [!div class="checklist"]
-> * Aktualizowanie pliku manifestu usługi Kubernetes
+> * Aktualizowanie pliku manifestu Kubernetes
 > * Uruchamianie aplikacji w usłudze Kubernetes
 > * Testowanie aplikacji
 
@@ -96,7 +96,7 @@ Aby monitorować postęp, użyj polecenia [kubectl get-service][kubectl-get] z a
 kubectl get service azure-vote-front --watch
 ```
 
-Początkowo *EXTERNAL-IP* dla usługi *azure-vote-front* jest wyświetlany jako *oczekujący:*
+Początkowo *zewnętrzny adres IP* dla usługi *Azure-poświęconej głosowaniu* jest pokazywany jako *oczekujący*:
 
 ```
 azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
@@ -112,7 +112,7 @@ Aby wyświetlić działającą aplikację, otwórz zewnętrzny adres IP usługi 
 
 ![Obraz przedstawiający klaster Kubernetes na platformie Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-Jeśli aplikacja nie została załadowana, może być to spowodowane problemem z autoryzacją rejestru obrazów. Aby wyświetlić stan kontenerów, użyj polecenia `kubectl get pods`. Jeśli nie można wyciągnąć obrazów kontenerów, zobacz [Uwierzytelnij przy użyciu usługi Azure Container Registry z usługi Azure Kubernetes.](cluster-container-registry-integration.md)
+Jeśli aplikacja nie została załadowana, może być to spowodowane problemem z autoryzacją rejestru obrazów. Aby wyświetlić stan kontenerów, użyj polecenia `kubectl get pods`. Jeśli nie można ściągnąć obrazów kontenerów, zobacz [uwierzytelnianie za pomocą Azure Container Registry z usługi Azure Kubernetes](cluster-container-registry-integration.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

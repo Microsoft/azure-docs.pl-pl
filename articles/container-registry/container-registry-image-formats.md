@@ -1,49 +1,49 @@
 ---
 title: Obsługiwane formaty zawartości
-description: Dowiedz się więcej o formatach zawartości obsługiwanych przez usługę Azure Container Registry, w tym obrazach kontenerów zgodnych ze standardami Platformy Docker, wykresach helm, obrazach OCI i artefaktach OCI.
+description: Dowiedz się więcej na temat formatów zawartości obsługiwanych przez Azure Container Registry, w tym obrazów kontenerów zgodnych z platformą Docker, wykresów Helm, obrazów OCI i artefaktów OCI.
 ms.topic: article
 ms.date: 08/30/2019
 ms.openlocfilehash: ab915385f46f83c7b655acd1a48d66df84b50653
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247009"
 ---
-# <a name="content-formats-supported-in-azure-container-registry"></a>Formaty zawartości obsługiwane w rejestrze kontenerów platformy Azure
+# <a name="content-formats-supported-in-azure-container-registry"></a>Formaty zawartości obsługiwane w Azure Container Registry
 
-Użyj prywatnego repozytorium w rejestrze kontenerów platformy Azure, aby zarządzać jednym z następujących formatów zawartości. 
+Aby zarządzać jednym z następujących formatów zawartości, należy użyć prywatnego repozytorium w Azure Container Registry. 
 
-## <a name="docker-compatible-container-images"></a>Obrazy kontenerów zgodne z programem Docker
+## <a name="docker-compatible-container-images"></a>Obrazy kontenerów zgodnych z platformą Docker
 
-Obsługiwane są następujące formaty obrazów kontenera platformy Docker:
+Obsługiwane są następujące formaty obrazów kontenerów platformy Docker:
 
-* [Manifest obrazu platformy Docker V2, schemat 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
+* [Manifest obrazu platformy Docker v2, schemat 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
 
-* [Manifest obrazu platformy Docker V2, Schemat 2](https://docs.docker.com/registry/spec/manifest-v2-2/) — zawiera listy manifestów, które umożliwiają rejestrom przechowywanie obrazów wieloplatformowych w jednym odwołaniu "image:tag"
+* [Manifest obrazu platformy Docker v2, schemat 2](https://docs.docker.com/registry/spec/manifest-v2-2/) — zawiera listę manifestów umożliwiającą rejestrom przechowywanie obrazów wieloplatformowych w ramach jednego odwołania "Image: tag"
 
 ## <a name="oci-images"></a>Obrazy OCI
 
-Usługa Azure Container Registry obsługuje obrazy spełniające [specyfikację formatu obrazu Open Container Initiative (OCI).](https://github.com/opencontainers/image-spec/blob/master/spec.md) Formaty opakowań obejmują [format obrazu osobliwości (SIF).](https://github.com/sylabs/sif)
+Azure Container Registry obsługuje obrazy zgodne ze [specyfikacją formatu obrazu Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md). Formaty pakietów obejmują [Format obrazu Singularity (sif)](https://github.com/sylabs/sif).
 
 ## <a name="oci-artifacts"></a>Artefakty OCI
 
-Usługa Azure Container Registry obsługuje [specyfikację dystrybucji OCI](https://github.com/opencontainers/distribution-spec), specyfikację neutralną dla dostawców, niezależną od chmury do przechowywania, udostępniania, zabezpieczania i wdrażania obrazów kontenerów i innych typów zawartości (artefaktów). Specyfikacja umożliwia rejestru do przechowywania szerokiej gamy artefaktów oprócz obrazów kontenerów. Narzędzia odpowiednie dla artefaktu są używane do wypychania i ściągania artefaktów. Na przykład zobacz [Wypychanie i ściąganie artefaktu OCI przy użyciu rejestru kontenerów platformy Azure.](container-registry-oci-artifacts.md)
+Azure Container Registry obsługuje [specyfikację dystrybucji OCI](https://github.com/opencontainers/distribution-spec), neutralną dla dostawcy specyfikację Cloud-niezależny od do przechowywania, udostępniania, zabezpieczania i wdrażania obrazów kontenerów i innych typów zawartości (artefaktów). Specyfikacja umożliwia rejestrowi przechowywanie szerokiego zakresu artefaktów oprócz obrazów kontenerów. Do wypychania i ściągania artefaktów służy narzędzie odpowiednie dla artefaktu. Aby zapoznać się z przykładem, zobacz [wypychanie i ściąganie artefaktu OCI przy użyciu usługi Azure Container Registry](container-registry-oci-artifacts.md).
 
-Aby dowiedzieć się więcej o artefaktach OCI, zobacz [rejestr OCI jako repozytorium magazynu (ORAS)](https://github.com/deislabs/oras) i repozytorium [artefaktów OCI](https://github.com/opencontainers/artifacts) w usłudze GitHub.
+Aby dowiedzieć się więcej o artefaktach OCI, zobacz repozytorium [OCI rejestru as Storage (ORAS)](https://github.com/deislabs/oras) i repozytorium [OCI artefaktów](https://github.com/opencontainers/artifacts) w witrynie GitHub.
 
-## <a name="helm-charts"></a>Wykresy helmowe
+## <a name="helm-charts"></a>Wykresy Helm
 
-Usługa Azure Container Registry może hostować repozytoria [wykresów helm,](https://helm.sh/)format pakowania używany do szybkiego zarządzania aplikacjami i wdrażania aplikacji dla aplikacji Kubernetes. [Obsługiwany](https://docs.helm.sh/using_helm/#installing-helm) jest klient helm w wersji 2 (2.11.0 lub nowszej).
+Azure Container Registry mogą hostować repozytoria dla [wykresów Helm](https://helm.sh/), format pakietu służący do szybkiego zarządzania aplikacjami i wdrażania ich w programie Kubernetes. [Helm Client](https://docs.helm.sh/using_helm/#installing-helm) w wersji 2 (2.11.0 lub nowsza) jest obsługiwana.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zobacz, jak [wypychać i pobierać](container-registry-get-started-docker-cli.md) obrazy za pomocą usługi Azure Container Registry.
+* Zobacz, jak [wypychanie i ściąganie](container-registry-get-started-docker-cli.md) obrazów za pomocą Azure Container Registry.
 
-* Zadania [usługi ACR](container-registry-tasks-overview.md) służy do tworzenia i testowania obrazów kontenerów. 
+* Za pomocą [zadań ACR](container-registry-tasks-overview.md) można tworzyć i testować obrazy kontenerów. 
 
-* Użyj [Moby BuildKit](https://github.com/moby/buildkit) do tworzenia i pakowania kontenerów w formacie OCI.
+* Użyj [Moby BuildKit](https://github.com/moby/buildkit) do kompilowania kontenerów i pakietów w formacie OCI.
 
-* Konfigurowanie [repozytorium Helm](container-registry-helm-repos.md) hostowanego w rejestrze kontenerów platformy Azure. 
+* Skonfiguruj [repozytorium Helm](container-registry-helm-repos.md) hostowane w Azure Container Registry. 
 
 

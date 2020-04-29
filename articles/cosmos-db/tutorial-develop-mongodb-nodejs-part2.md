@@ -1,5 +1,5 @@
 ---
-title: Tworzenie aplikacji Node.js Express za pomocą interfejsu API usługi Azure Cosmos DB dla usługi MongoDB (część 2)
+title: Tworzenie aplikacji node. js Express za pomocą interfejsu API Azure Cosmos DB dla MongoDB (part2)
 description: Część 2 z serii samouczków o tworzeniu aplikacji bazy danych MongoDB przy użyciu usługi Angular i języka Node dla usługi Azure Cosmos DB przy użyciu dokładnie tych samych interfejsów API, które były używane dla bazy danych MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 ms.openlocfilehash: 693222f4c1abd9bda128d18dc4dd67703a245bc8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75441132"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Tworzenie aplikacji Angular przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB — tworzenie aplikacji Node.js Express
@@ -102,7 +102,7 @@ Dla tego samouczka wymagane są również następujące elementy:
     * Obsługuje wszystkie zasoby znajdujące się w folderze dist, które będą zawartością statyczną
     * Obsługuje aplikację i plik index.html dla żądań GET nieznalezionych na serwerze (dla linków bezpośrednich)
     * Uruchamia serwer przy użyciu elementu app.listen
-    * Używa funkcji strzałki do rejestrowania, że port jest żywy
+    * Używa funkcji Strzałka do rejestrowania, że port jest aktywny
     
    ```node
    const express = require('express');

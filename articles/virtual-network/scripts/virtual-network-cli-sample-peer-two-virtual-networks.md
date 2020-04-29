@@ -1,5 +1,5 @@
 ---
-title: Równorzędne dwie sieci wirtualne — przykład skryptu interfejsu wiersza polecenia platformy Azure
+title: Komunikacja równorzędna dwóch sieci wirtualnych — przykład skryptu interfejsu wiersza polecenia platformy Azure
 description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — komunikacja równorzędna dwóch sieci wirtualnych.
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
 ms.openlocfilehash: 2dd5336d66872cc8c56fd372e89b67ce9c892f3a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74083837"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>Przykładowy skrypt tworzący komunikację równorzędną dwóch sieci wirtualnych

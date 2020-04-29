@@ -1,6 +1,6 @@
 ---
-title: StorSimple Virtual Array web administracji interfejsu użytkownika | Dokumenty firmy Microsoft
-description: W tym artykule opisano sposób wykonywania podstawowych zadań administracyjnych urządzeń za pośrednictwem interfejsu użytkownika sieci Web StorSimple Virtual Array.
+title: Administracja interfejsu użytkownika sieci Web StorSimple Virtual Array | Microsoft Docs
+description: Opisuje sposób wykonywania podstawowych zadań administracyjnych urządzenia za pomocą interfejsu użytkownika sieci Web macierzy wirtualnej StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,100 +15,100 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 92671206a4171ca838423f55b526191ef30e5c35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254731"
 ---
-# <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Administrowanie tablicą wirtualną StorSimple za pomocą interfejsu użytkownika sieci Web
+# <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Korzystanie z internetowego interfejsu użytkownika do administrowania wirtualną macierzą StorSimple
 ![przepływ procesu instalacji](./media/storsimple-ova-web-ui-admin/manage4.png)
 
 ## <a name="overview"></a>Omówienie
-Samouczki w tym artykule dotyczą tablicy wirtualnej Microsoft Azure StorSimple (znanej również jako lokalne urządzenie wirtualne StorSimple) z uruchomioną wersją ogólnej dostępności (GA) z marca 2016 r. W tym artykule opisano niektóre złożone przepływy pracy i zadania zarządzania, które można wykonać w tablicy wirtualnej StorSimple. Można zarządzać StorSimple Virtual Array przy użyciu interfejsu użytkownika usługi StorSimple Manager (dalej interfejsu użytkownika portalu) i lokalnego interfejsu użytkownika sieci web dla urządzenia. W tym artykule skupiono się na zadaniach, które można wykonywać przy użyciu interfejsu użytkownika sieci Web.
+Samouczki w tym artykule dotyczą Microsoft Azure StorSimple macierzy wirtualnej (nazywanej również lokalnym urządzeniem wirtualnym StorSimple) z marca 2016 (wersja ogólna dostępności). W tym artykule opisano niektóre złożone przepływy pracy i zadania zarządzania, które można wykonać w macierzy wirtualnej StorSimple. Wirtualną macierzą StorSimple można zarządzać za pomocą interfejsu użytkownika usługi StorSimple Manager (nazywanego interfejsem użytkownika portalu) oraz lokalnego interfejsu użytkownika sieci Web urządzenia. Ten artykuł koncentruje się na zadaniach, które można wykonać za pomocą interfejsu użytkownika sieci Web.
 
 W tym artykule zawarto następujące samouczki:
 
 * Pobierz klucz szyfrowania danych usługi
 * Rozwiązywanie problemów z błędami konfiguracji interfejsu użytkownika sieci Web
-* Generowanie pakietu dziennika
+* Generuj pakiet dziennika
 * Zamykanie lub ponowne uruchamianie urządzenia
 
 ## <a name="get-the-service-data-encryption-key"></a>Pobierz klucz szyfrowania danych usługi
-Klucz szyfrowania danych usługi jest generowany podczas rejestrowania pierwszego urządzenia w usłudze StorSimple Manager. Ten klucz jest następnie wymagany przy przy tym z kluczem rejestracji usługi, aby zarejestrować dodatkowe urządzenia w usłudze StorSimple Manager.
+Klucz szyfrowania danych usługi jest generowany po zarejestrowaniu pierwszego urządzenia w usłudze StorSimple Manager. Ten klucz jest następnie wymagany z kluczem rejestracji usługi w celu zarejestrowania dodatkowych urządzeń w usłudze StorSimple Manager.
 
-Jeśli zgubiłeś klucz szyfrowania danych usługi i musisz go pobrać, wykonaj następujące kroki w lokalnym interfejsie użytkownika sieci Web urządzenia zarejestrowanego w usłudze.
+Jeśli klucz szyfrowania danych usługi został zagubiony i trzeba go pobrać, wykonaj następujące kroki w lokalnym interfejsie użytkownika sieci Web urządzenia zarejestrowanego w usłudze.
 
 #### <a name="to-get-the-service-data-encryption-key"></a>Aby uzyskać klucz szyfrowania danych usługi
-1. Połącz się z lokalnym interfejsem użytkownika sieci Web. Przejdź do **ustawień chmury konfiguracji** > **Cloud Settings**.
-2. U dołu strony kliknij pozycję **Pobierz klucz szyfrowania danych usługi**. Pojawi się klucz. Skopiuj i zapisz ten klucz.
+1. Nawiąż połączenie z lokalnym interfejsem użytkownika sieci Web. Przejdź do pozycji **Konfiguracja** > **chmury ustawienia**.
+2. W dolnej części strony kliknij pozycję **Pobierz klucz szyfrowania danych usługi**. Zostanie wyświetlony klucz. Skopiuj i Zapisz ten klucz.
    
-    ![pobierz klucz szyfrowania danych usługi 1](./media/storsimple-ova-web-ui-admin/image27.png)
+    ![Pobierz klucz szyfrowania danych usługi 1](./media/storsimple-ova-web-ui-admin/image27.png)
 
 ## <a name="troubleshoot-web-ui-setup-errors"></a>Rozwiązywanie problemów z błędami konfiguracji interfejsu użytkownika sieci Web
-W niektórych przypadkach podczas konfigurowania urządzenia za pośrednictwem lokalnego interfejsu użytkownika sieci web mogą wystąpić błędy. Aby zdiagnozować i rozwiązać takie błędy, można uruchomić testy diagnostyczne.
+W niektórych przypadkach podczas konfigurowania urządzenia za pomocą lokalnego interfejsu użytkownika sieci Web może wystąpić błąd. Aby zdiagnozować i rozwiązać te błędy, można uruchomić testy diagnostyczne.
 
 #### <a name="to-run-the-diagnostic-tests"></a>Aby uruchomić testy diagnostyczne
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do strony **Rozwiązywanie problemów** > **z testami diagnostycznymi**.
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do **rozwiązywania problemów z** > **testami diagnostycznymi**.
    
-    ![uruchamianie diagnostyki 1](./media/storsimple-ova-web-ui-admin/image29.png)
-2. U dołu strony kliknij pozycję **Uruchom testy diagnostyczne**. Spowoduje to zainicjowanie testów w celu zdiagnozowania ewentualnych problemów z ustawieniami sieci, urządzenia, serwera proxy, czasu lub chmury. Zostaniesz powiadomiony, że urządzenie jest uruchomione testy.
-3. Po zakończeniu testów zostaną wyświetlone wyniki. W poniższym przykładzie przedstawiono wyniki testów diagnostycznych. Należy zauważyć, że ustawienia serwera proxy sieci web nie zostały skonfigurowane na tym urządzeniu i dlatego test serwera proxy sieci web nie został uruchomiony. Wszystkie inne testy ustawień sieciowych, serwera DNS i ustawień czasu zostały pomyślnie przeprowadzone.
+    ![Uruchom diagnostykę 1](./media/storsimple-ova-web-ui-admin/image29.png)
+2. W dolnej części strony kliknij pozycję **Uruchom testy diagnostyczne**. Spowoduje to zainicjowanie testów w celu zdiagnozowania ewentualnych problemów z ustawieniami sieci, urządzeń, serwera proxy sieci Web, czasu lub chmury. Zostanie wyświetlone powiadomienie, że na urządzeniu są uruchomione testy.
+3. Po zakończeniu testów zostaną wyświetlone wyniki. Poniższy przykład pokazuje wyniki testów diagnostycznych. Należy zauważyć, że ustawienia serwera proxy sieci Web nie zostały skonfigurowane na tym urządzeniu i w związku z tym test serwera proxy sieci Web nie został uruchomiony. Wszystkie pozostałe testy ustawień sieci, serwera DNS i czasu zostały wykonane pomyślnie.
    
-    ![uruchamianie diagnostyki 2](./media/storsimple-ova-web-ui-admin/image30.png)
+    ![Uruchom diagnostykę 2](./media/storsimple-ova-web-ui-admin/image30.png)
 
-## <a name="generate-a-log-package"></a>Generowanie pakietu dziennika
-Pakiet dziennika składa się ze wszystkich odpowiednich dzienników, które mogą pomóc pomocy technicznej firmy Microsoft w rozwiązywaniu problemów z urządzeniem. W tej wersji pakiet dziennika mogą być generowane za pośrednictwem lokalnego interfejsu użytkownika sieci web.
+## <a name="generate-a-log-package"></a>Generuj pakiet dziennika
+Pakiet dziennika składa się ze wszystkich odpowiednich dzienników, które mogą pomóc pomoc techniczna firmy Microsoft rozwiązywaniu problemów z urządzeniami. W tej wersji można generować pakiet dzienników za pośrednictwem lokalnego interfejsu użytkownika sieci Web.
 
-#### <a name="to-generate-the-log-package"></a>Aby wygenerować pakiet dziennika
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do witryny **Rozwiązywanie problemów** > **z dziennikami systemu**.
+#### <a name="to-generate-the-log-package"></a>Aby wygenerować pakiet dzienników
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do obszaru **Rozwiązywanie problemów** > z**dziennikami systemowymi**.
    
-    ![generowanie pakietu dziennika 1](./media/storsimple-ova-web-ui-admin/image31.png)
-2. U dołu strony kliknij pozycję **Utwórz pakiet dziennika**. Zostanie utworzony pakiet dzienników systemowych. Zajmie to kilka minut.
+    ![Generuj pakiet dziennika 1](./media/storsimple-ova-web-ui-admin/image31.png)
+2. W dolnej części strony kliknij pozycję **Utwórz pakiet dzienników**. Zostanie utworzony pakiet dzienników systemu. Zajmie to kilka minut.
    
-    ![generowanie pakietu dziennika 2](./media/storsimple-ova-web-ui-admin/image32.png)
+    ![Generuj pakiet dziennika 2](./media/storsimple-ova-web-ui-admin/image32.png)
    
-    Zostaniesz powiadomiony po pomyślnym utworzeniu pakietu, a strona zostanie zaktualizowana, aby wskazać godzinę i datę utworzenia pakietu.
+    Po pomyślnym utworzeniu pakietu otrzymasz powiadomienie, a strona zostanie zaktualizowana, aby wskazać godzinę i datę utworzenia pakietu.
    
-    ![generowanie pakietu dziennika 3](./media/storsimple-ova-web-ui-admin/image33.png)
-3. Kliknij **pozycję Pobierz pakiet dziennika**. Spakowany pakiet zostanie pobrany z twojego systemu.
+    ![Generuj pakiet dziennika 3](./media/storsimple-ova-web-ui-admin/image33.png)
+3. Kliknij pozycję **Pobierz pakiet dzienników**. Pakiet spakowany zostanie pobrany w systemie.
    
-    ![generowanie pakietu dziennika 4](./media/storsimple-ova-web-ui-admin/image34.png)
-4. Możesz rozpakować pobrany pakiet dziennika i wyświetlić pliki dziennika systemowego.
+    ![Generuj pakiet dzienników 4](./media/storsimple-ova-web-ui-admin/image34.png)
+4. Można rozpakować pobrany pakiet dzienników i wyświetlić systemowe pliki dziennika.
 
-## <a name="shut-down-and-restart-your-device"></a>Wyłącz i uruchom ponownie urządzenie
-Można wyłączyć lub ponownie uruchomić urządzenie wirtualne przy użyciu lokalnego interfejsu użytkownika sieci Web. Zaleca się, aby przed ponownym uruchomieniem, należy wziąć woluminy lub udziały w trybie offline na hoście, a następnie urządzenia. Zminimalizuje to możliwość uszkodzenia danych. 
+## <a name="shut-down-and-restart-your-device"></a>Zamykanie i ponowne uruchamianie urządzenia
+Możesz zamknąć lub ponownie uruchomić urządzenie wirtualne przy użyciu lokalnego interfejsu użytkownika sieci Web. Zaleca się, aby przed ponownym uruchomieniem przełączyć woluminy lub udziały w tryb offline na hoście, a następnie na urządzeniu. Spowoduje to zminimalizowanie wszelkich możliwości uszkodzenia danych. 
 
-#### <a name="to-shut-down-your-virtual-device"></a>Aby wyłączyć urządzenie wirtualne
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do**ustawień zasilania** **konserwacji** > .
-2. U dołu strony kliknij przycisk **Zamknij**.
+#### <a name="to-shut-down-your-virtual-device"></a>Aby zamknąć urządzenie wirtualne
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji**Ustawienia** **trybu konserwacji** > .
+2. W dolnej części strony kliknij przycisk **Zamknij**.
    
-    ![wyłączenie urządzenia 1](./media/storsimple-ova-web-ui-admin/image36.png)
-3. Pojawi się ostrzeżenie informujące, że wyłączenie urządzenia spowoduje przerwanie wszystkich we/wy, które były w toku, co spowoduje przestój. Kliknij ikonę znacznika wyboru, ![ikona znacznika wyboru](./media/storsimple-ova-web-ui-admin/image3.png).
+    ![Zamykanie urządzenia 1](./media/storsimple-ova-web-ui-admin/image36.png)
+3. Zostanie wyświetlone ostrzeżenie informujące o tym, że zamknięcie urządzenia przerwie wszystkie operacje we/wy, które były w toku, co spowodowało przestoje. Kliknij ikonę znacznika wyboru, ![ikona znacznika wyboru](./media/storsimple-ova-web-ui-admin/image3.png).
    
-    ![ostrzeżenie o wyłączeniu urządzenia](./media/storsimple-ova-web-ui-admin/image37.png)
+    ![Ostrzeżenie o zamknięciu urządzenia](./media/storsimple-ova-web-ui-admin/image37.png)
    
-    Zostaniesz powiadomiony, że zamknięcie zostało zainicjowane.
+    Zostanie wyświetlone powiadomienie o zainicjowaniu zamknięcia.
    
     ![rozpoczęto zamykanie urządzenia](./media/storsimple-ova-web-ui-admin/image38.png)
    
-    Urządzenie zostanie teraz wyłączone. Jeśli chcesz uruchomić urządzenie, musisz to zrobić za pośrednictwem Menedżera funkcji Hyper-V.
+    Urządzenie zostanie teraz zamknięte. Jeśli chcesz uruchomić urządzenie, musisz wykonać te czynności za pomocą Menedżera funkcji Hyper-V.
 
 #### <a name="to-restart-your-virtual-device"></a>Aby ponownie uruchomić urządzenie wirtualne
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do**ustawień zasilania** **konserwacji** > .
-2. U dołu strony kliknij pozycję **Uruchom ponownie**.
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji**Ustawienia** **trybu konserwacji** > .
+2. W dolnej części strony kliknij pozycję **Uruchom ponownie**.
    
     ![ponowne uruchomienie urządzenia](./media/storsimple-ova-web-ui-admin/image36.png)
-3. Pojawi się ostrzeżenie informujące, że ponowne uruchomienie urządzenia spowoduje przerwanie wszystkich uruchomionych we/wy, co spowoduje przestój. Kliknij ikonę znacznika wyboru, ![ikona znacznika wyboru](./media/storsimple-ova-web-ui-admin/image3.png).
+3. Zostanie wyświetlone ostrzeżenie z informacją, że ponowne uruchomienie urządzenia spowoduje przerwanie wszystkich systemów IOs, które były w toku, co spowodowało przestoje. Kliknij ikonę znacznika wyboru, ![ikona znacznika wyboru](./media/storsimple-ova-web-ui-admin/image3.png).
    
-    ![ostrzeżenie o ponownym uruchomieniu](./media/storsimple-ova-web-ui-admin/image37.png)
+    ![Ostrzeżenie o ponownym uruchomieniu](./media/storsimple-ova-web-ui-admin/image37.png)
    
-    Zostaniesz powiadomiony, że uruchomiono ponowne uruchomienie.
+    Zostanie wyświetlone powiadomienie o zainicjowaniu ponownego uruchomienia.
    
-    ![zainicjowane ponowne uruchomienie](./media/storsimple-ova-web-ui-admin/image39.png)
+    ![zainicjowano ponowne uruchomienie](./media/storsimple-ova-web-ui-admin/image39.png)
    
-    Podczas ponownego uruchamiania jest w toku, utracisz połączenie z interfejsem użytkownika. Można monitorować ponowne uruchomienie, okresowo odświeżając interfejs użytkownika. Alternatywnie można monitorować stan ponownego uruchomienia urządzenia za pośrednictwem Menedżera funkcji Hyper-V.
+    Gdy ponowne uruchomienie jest w toku, nastąpi utrata połączenia z interfejsem użytkownika. Ponowne uruchomienie można monitorować, odświeżając okresowo interfejs użytkownika. Alternatywnie można monitorować stan ponownego uruchomienia urządzenia za pomocą Menedżera funkcji Hyper-V.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się, jak [zarządzać urządzeniem za pomocą usługi StorSimple Manager.](storsimple-virtual-array-manager-service-administration.md)
+Dowiedz się [, jak zarządzać urządzeniem za pomocą usługi StorSimple Manager](storsimple-virtual-array-manager-service-administration.md).
 

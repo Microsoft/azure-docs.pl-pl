@@ -1,6 +1,6 @@
 ---
-title: Przykład skryptu interfejsu wiersza polecenia platformy Azure — pula systemu Linux w partii
-description: Ten skrypt demonstruje niektóre polecenia dostępne w interfejsie wiersza polecenia platformy Azure do tworzenia i zarządzania pulą węzłów obliczeniowych systemu Linux w usłudze Azure Batch.
+title: Przykład skryptu interfejsu wiersza polecenia platformy Azure — Pula systemu Linux w usłudze Batch
+description: Ten skrypt demonstruje niektóre polecenia dostępne w interfejsie wiersza polecenia platformy Azure w celu utworzenia puli węzłów obliczeniowych systemu Linux w Azure Batch i zarządzania nią.
 services: batch
 documentationcenter: ''
 author: LauraBrenner
@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: labrenne
 ms.openlocfilehash: 7f896f7f6493cff8c25d4ccfd5a15f5edb11258f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77024487"
 ---
 # <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>Przykład interfejsu wiersza polecenia: tworzenie puli systemu Linux w usłudze Azure Batch i zarządzanie nią
 
-Ten skrypt demonstruje niektóre polecenia dostępne w interfejsie wiersza polecenia platformy Azure do tworzenia i zarządzania pulą węzłów obliczeniowych systemu Linux w usłudze Azure Batch.
+Ten skrypt demonstruje niektóre polecenia dostępne w interfejsie wiersza polecenia platformy Azure w celu utworzenia puli węzłów obliczeniowych systemu Linux w Azure Batch i zarządzania nią.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

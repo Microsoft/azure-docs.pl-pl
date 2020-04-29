@@ -1,6 +1,6 @@
 ---
-title: Odzyskiwanie po awarii dla tematów niestandardowych w usłudze Azure Event Grid
-description: W tym samouczku przejdziesz przez sposób konfigurowania architektury zdarzeń, aby odzyskać, jeśli usługa event grid stanie się w złej kondycji w regionie.
+title: Odzyskiwanie po awarii dla tematów niestandardowych w Azure Event Grid
+description: Ten samouczek przeprowadzi Cię przez proces konfigurowania architektury zdarzeń do odzyskania, jeśli usługa Event Grid stanie się zła w danym regionie.
 services: event-grid
 author: banisadr
 ms.service: event-grid
@@ -8,19 +8,19 @@ ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: babanisa
 ms.openlocfilehash: 87f8f79e2cf125fa5735653153d8fcaa781f5200
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76511522"
 ---
-# <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Tworzenie własnego odzyskiwania po awarii dla tematów niestandardowych w uszkcie zdarzeń
+# <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Tworzenie własnego odzyskiwania po awarii dla tematów niestandardowych w programie Event Grid
 Odzyskiwanie po awarii powinno być skoncentrowane na odzyskiwaniu po poważnej utracie funkcjonalności aplikacji. Ten samouczek przeprowadzi Cię przez konfigurowanie architektury obsługi zdarzeń pod kątem odzyskiwania w przypadku pogorszenia kondycji usługi Event Grid w konkretnym regionie.
 
 Z tego samouczka dowiesz się, jak utworzyć aktywną/pasywną architekturę trybu failover dla tematów niestandardowych w usłudze Event Grid. Przygotujesz tryb failover przez dublowanie tematów i subskrypcji w dwóch regionach, a następnie zarządzanie tym trybem w przypadku pogorszenia się kondycji tematu. Architektura przedstawiona w tym samouczku realizuje tryb failover dla całego nowego ruchu. Należy pamiętać, że w przypadku tej konfiguracji nie można odzyskać zdarzeń już przetwarzanych do czasu przywrócenia dobrej kondycji problemowego regionu.
 
 > [!NOTE]
-> Usługa Event Grid obsługuje teraz automatyczne odzyskiwanie po awarii geograficznej (GeoDR) po stronie serwera. Nadal można zaimplementować logikę odzyskiwania po awarii po stronie klienta, jeśli chcesz większą kontrolę nad procesem pracy awaryjnej. Aby uzyskać szczegółowe informacje na temat automatycznego programu GeoDR, zobacz [Odzyskiwanie po awarii geograficznej po stronie serwera w usłudze Azure Event Grid](geo-disaster-recovery.md).
+> Event Grid teraz obsługuje automatyczne odzyskiwanie geograficznego odzyskiwania po awarii (GeoDR) po stronie serwera. Można nadal implementować logikę odzyskiwania po awarii po stronie klienta, jeśli chcesz mieć większą kontrolę nad procesem trybu failover. Aby uzyskać szczegółowe informacje o automatycznym GeoDR, zobacz temat replikacja [awaryjna po stronie serwera w Azure Event Grid](geo-disaster-recovery.md).
 
 ## <a name="create-a-message-endpoint"></a>Tworzenie punktu końcowego komunikatów
 
@@ -46,7 +46,7 @@ Zapisz ten adres URL, ponieważ będzie on potrzebny później.
 
 Najpierw utwórz dwa tematy usługi Event Grid. Będą one pełnić role tematów podstawowego i pomocniczego. Domyślnie zdarzenia będą przepływać przez temat podstawowy. Jeśli występuje przerwa w działaniu usługi w regionie podstawowym, obsługę przejmie rozwiązanie pomocnicze.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). 
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 
 1. W lewym górnym rogu głównego menu platformy Azure wybierz pozycję **Wszystkie usługi** > wyszukaj pozycję **Event Grid** > wybierz pozycję **Tematy usługi Event Grid**.
 
@@ -93,7 +93,7 @@ Są już gotowe regionalnie nadmiarowe para tematów i konfiguracja subskrypcji.
 
 ### <a name="basic-client-side-implementation"></a>Podstawowa implementacja po stronie klienta
 
-Poniższy przykładowy kod jest prosty wydawca platformy .NET, który zawsze będzie próbował opublikować w głównym temacie pierwszy. Jeśli to się nie powiedzie, w ramach trybu failover przejdzie do tematu pomocniczego. W obu przypadkach sprawdza również interfejs API kondycji drugiego tematu, wykonując żądanie GET dla `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Temat w dobrej kondycji na żądanie GET w punkcie końcowym **/api/health** powinien zawsze odpowiedzieć **200 OK**.
+Następujący przykładowy kod jest prostym wydawcą programu .NET, który będzie zawsze próbował najpierw opublikować w podstawowym temacie. Jeśli to się nie powiedzie, w ramach trybu failover przejdzie do tematu pomocniczego. W obu przypadkach sprawdza również interfejs API kondycji drugiego tematu, wykonując żądanie GET dla `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Temat w dobrej kondycji na żądanie GET w punkcie końcowym **/api/health** powinien zawsze odpowiedzieć **200 OK**.
 
 ```csharp
 using System;
@@ -186,7 +186,7 @@ namespace EventGridFailoverPublisher
 }
 ```
 
-### <a name="try-it-out"></a>Testowanie
+### <a name="try-it-out"></a>Wypróbowywanie działania
 
 Wszystkie składniki są już gotowe, możesz więc przetestować tę implementację trybu failover. Uruchom powyższy przykład w programie Visual Studio Code lub w swoim ulubionym środowisku. Zamień następujące cztery wartości na punkty końcowe i klucze z używanych tematów:
 

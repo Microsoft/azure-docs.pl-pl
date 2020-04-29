@@ -1,5 +1,5 @@
 ---
-title: Równoważenie obciążenia wielu witryn sieci Web — Azure PowerShell — Azure Load Balancer
+title: Równoważenie obciążenia wielu witryn sieci Web — Azure PowerShell Azure Load Balancer
 description: Ten przykładowy skrypt programu PowerShell przedstawia sposób równoważenia obciążenia wielu witryn internetowych do tej samej maszyny wirtualnej
 documentationcenter: load-balancer
 author: asudbring
@@ -10,17 +10,17 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
 ms.openlocfilehash: b7beb5186bd039d7098883915663e8a3286fb99d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76274598"
 ---
 # <a name="azure-powershell-script-example-load-balance-multiple-websites"></a>Przykładowy skrypt programu PowerShell: równoważenie obciążenia wielu witryn internetowych
 
 Ten przykładowy skrypt programu PowerShell tworzy sieć wirtualną z 2 maszynami wirtualnymi, które są elementami członkowskimi zestawu dostępności. Moduł równoważenia obciążenia kieruje ruch dla 2 osobnych adresów IP do 2 maszyn wirtualnych. Po uruchomieniu skryptu możesz wdrożyć oprogramowanie serwera internetowego na maszynach wirtualnych i hostować wiele witryn internetowych, z których każda będzie miała własny adres IP.
 
-W razie potrzeby zainstaluj program Azure PowerShell przy użyciu instrukcji znalezionych `Connect-AzAccount` w [przewodniku programu Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), a następnie uruchom w celu utworzenia połączenia z platformą Azure.
+W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdującej się w [przewodniku Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), a następnie `Connect-AzAccount` Uruchom polecenie, aby utworzyć połączenie z platformą Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

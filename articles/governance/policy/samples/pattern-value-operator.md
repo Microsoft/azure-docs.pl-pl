@@ -1,25 +1,25 @@
 ---
-title: 'Wzorzec: Operator wartości w definicji zasad'
-description: Ten wzorzec zasad platformy Azure zawiera przykład użycia operatora wartości w definicji zasad.
+title: 'Wzorzec: operator wartości w definicji zasad'
+description: Ten Azure Policy wzorzec zawiera przykład użycia operatora Value w definicji zasad.
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: ace7b7cd4a765cdb8c7aa764b52b180c60508ab2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77172786"
 ---
-# <a name="azure-policy-pattern-the-value-operator"></a>Wzorzec zasad platformy Azure: operator wartości
+# <a name="azure-policy-pattern-the-value-operator"></a>Wzorzec Azure Policy: wartość operator wartości
 
-Operator [wartości](../concepts/definition-structure.md#value) ocenia [parametry,](../concepts/definition-structure.md#parameters) [obsługiwane funkcje szablonu](../concepts/definition-structure.md#policy-functions)lub literały do podanej wartości dla danego [warunku.](../concepts/definition-structure.md#conditions)
+Operator [Value](../concepts/definition-structure.md#value) oblicza [Parametry](../concepts/definition-structure.md#parameters), [obsługiwane funkcje szablonu](../concepts/definition-structure.md#policy-functions)lub literały do podanej wartości dla danego [warunku](../concepts/definition-structure.md#conditions).
 
 > [!WARNING]
-> Jeśli wynikiem _funkcji szablonu_ jest błąd, ocena zasad kończy się niepowodzeniem. Nieudana ocena jest niejawną **odmową.** Aby uzyskać więcej informacji, zobacz [unikanie błędów szablonu](../concepts/definition-structure.md#avoiding-template-failures).
+> Jeśli wynik _funkcji szablonu_ jest błąd, Ocena zasad kończy się niepowodzeniem. Niepowodzenie oceny to niejawne **odmowa**. Aby uzyskać więcej informacji, zobacz [unikanie niepowodzeń związanych z szablonami](../concepts/definition-structure.md#avoiding-template-failures).
 
 ## <a name="sample-policy-definition"></a>Przykładowa definicja zasad
 
-Ta definicja zasad dodaje lub zastępuje znacznik określony w **parametrze tagName** _(string)_ na zasobach i dziedziczy wartość **tagName** z grupy zasobów, wcenie zasobu. Ta ocena ma miejsce, gdy zasób jest tworzony lub aktualizowany. Jako efekt [modyfikacji](../concepts/effects.md#modify) korygowanie może być uruchamiane na istniejących zasobach za pomocą [zadania korygowania](../how-to/remediate-resources.md).
+Ta definicja zasad dodaje lub zastępuje tag określony w parametrze **TagName** (_String_) w obszarze zasoby i dziedziczy wartość **TagName** z grupy zasobów, w której znajduje się zasób. Ta ocena występuje, gdy zasób zostanie utworzony lub zaktualizowany. W efekcie [zmiany](../concepts/effects.md#modify) mogą zostać uruchomione w istniejących zasobach za pośrednictwem [zadania korygowania](../how-to/remediate-resources.md).
 
 :::code language="json" source="~/policy-templates/patterns/pattern-value-operator.json":::
 
@@ -27,9 +27,9 @@ Ta definicja zasad dodaje lub zastępuje znacznik określony w **parametrze tagN
 
 :::code language="json" source="~/policy-templates/patterns/pattern-value-operator.json" range="20-30" highlight="7,8":::
 
-Operator **wartości** jest używany w **ramach bloku policyRule.if** we **właściwościach**. W tym przykładzie [operator logiczny](../concepts/definition-structure.md#logical-operators) **allOf** jest używany do stwierdzenia, że obie instrukcje warunkowe muszą być prawdziwe dla efektu, **zmodyfikować**, aby mieć miejsce.
+Operator **wartości** jest używany w obrębie **Klasa policyrule. if** bloku **Właściwości**. W tym przykładzie [operator logiczny](../concepts/definition-structure.md#logical-operators) **allOf** jest używany w celu stwierdzenia, że oba instrukcje warunkowe muszą mieć wartość true dla efektu, należy **zmodyfikować**, aby wykonać.
 
-**wartość** oblicza wynik elementu [resourcegroup()](../../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) funkcji szablonu do warunku **notEquals** wartości pustej. Jeśli nazwa tagu podana w **tagName** w nadrzędnej grupie zasobów istnieje, warunek ma wartość true.
+**wartość** zwraca wynik funkcji szablonu [resourceing ()](../../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) do **notEquals** warunku wartości pustej. Jeśli istnieje nazwa tagu podana w nazwie **TagName** w nadrzędnej grupie zasobów, warunek warunkowy ma wartość true.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,6 +1,6 @@
 ---
-title: Formaty i kodeki typu Media Encoder Standard — Azure
-description: Ten artykuł zawiera omówienie formatów i kodeków typu Media Encoder Standard.
+title: Formaty Media Encoder Standard i kodeki — Azure
+description: Ten artykuł zawiera omówienie formatów Media Encoder Standard i koderów-dekoder.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,21 +15,21 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: e2ccce13e4ef09426d0f3a02dcbce2f330b0ead8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79251026"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formaty i kodeki narzędzia Media Encoder Standard
 
-> [!div class="op_single_selector" title1="Wybierz używana wersja usługi Media Services:"]
+> [!div class="op_single_selector" title1="Wybierz używaną wersję Media Services:"]
 > * [Wersja 2](media-services-media-encoder-standard-formats.md)
 > * [Wersja 3](../latest/media-encoder-standard-formats.md)
 
-Ten dokument zawiera listę najpopularniejszych formatów plików importu i eksportu, których można używać w programie Media Encoder Standard.
+Ten dokument zawiera listę najpopularniejszych formatów importu i eksportu plików, których można używać z Media Encoder Standard.
 
-## <a name="input-containerfile-formats"></a>Formaty kontenera/pliku wejściowego
+## <a name="input-containerfile-formats"></a>Dane wejściowe w formacie kontenera/pliku
 | Formaty plików (rozszerzenia nazw plików) | Obsługiwane |
 | --- | --- |
 | FLV (z koderami-dekoderami H.264 i AAC) (flv) |Tak |
@@ -45,21 +45,21 @@ Ten dokument zawiera listę najpopularniejszych formatów plików importu i eksp
 | QuickTime (mov) |Tak |
 
 > [!NOTE]
-> Powyżej znajduje się lista najczęściej spotykanych rozszerzeń nazw plików. Media Encoder Standard obsługuje wiele innych (na przykład: .m2ts, .mpeg2video, .qt). Jeśli spróbujesz zakodować plik i pojawi się komunikat o błędzie dotyczący formatu, który nie jest obsługiwany, prześlij swoją opinię [tutaj](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
+> Powyżej znajduje się lista najczęściej spotykanych rozszerzeń nazw plików. Media Encoder Standard obsługuje wiele innych (na przykład:. M2TS,. mpeg2video,. QT). Jeśli próbujesz zakodować plik i otrzymasz komunikat o błędzie o nieobsługiwanym formacie, podaj swoją opinię [tutaj](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
 > 
 > 
 
 ### <a name="audio-formats-in-input-containers"></a>Formaty audio w kontenerach wejściowych
-Media Encoder Standard obsługuje przenoszenie następujących formatów audio w kontenerach wejściowych:
+Media Encoder Standard obsługuje przeprowadzenie następujących formatów audio w kontenerach wejściowych:
 
-* Pliki MXF, GXF i QuickTime, które mają ścieżki audio z przeplatane próbki stereo lub 5.1 próbek
+* Pliki MXF, GXF i QuickTime, które mają ścieżki audio z przeplotem stereo lub 5,1 próbek
 
 lub
 
 * Pliki MXF, GXF i QuickTime, w których dane audio są przenoszone jako osobne ścieżki PCM, ale mapowanie kanałów (na stereo lub 5.1) może zostać ustalone na podstawie metadanych pliku
 
-## <a name="input-video-codecs"></a>Wejściowe kodeki wideo
-| Wejściowe kodeki wideo | Obsługiwane |
+## <a name="input-video-codecs"></a>Kodery-dekoder wideo
+| Kodery-dekoder wideo | Obsługiwane |
 | --- | --- |
 | AVC 8-bitowy/10-bitowy, do 4:2:2, wraz z AVCIntra |8-bitowy 4:2:0 oraz 4:2:2 |
 | Avid DNxHD (w pliku MXF) |Tak |
@@ -79,9 +79,9 @@ lub
 | Apple ProRes Proxy |Tak |
 | Apple ProRes 4444 |Tak |
 | Apple ProRes 4444 XQ |Tak |
-| HEVC/H.265| Profile główne i główne 10 (&#42;)<br/>Główna obsługa profilu 10 jest przeznaczona dla zawartości 8bit 4:2:0. |
+| HEVC/H. 265| Główne i główne 10 (&#42;) profile<br/>Główna obsługa 10 profilów jest przeznaczona dla zawartości 8bit 4:2:0. |
 
-## <a name="input-audio-codecs"></a>Wejściowe kodeki audio
+## <a name="input-audio-codecs"></a>Kodery-dekoder Audio Input
 | Kodery-dekodery wejściowych danych audio | Obsługiwane |
 | --- | --- |
 | AAC (AAC-LC, AAC-HE oraz AAC-HEv2; maksymalnie 5.1) |Tak |
@@ -89,7 +89,7 @@ lub
 | MP3 (MPEG-1 Audio Layer 3) |Tak |
 | Windows Media Audio |Tak |
 | WAV/PCM |Tak |
-| [Flac](https://en.wikipedia.org/wiki/FLAC)</a> |Tak |
+| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Tak |
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Tak |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Tak |
 | AMR (Adaptive Multi-Rate) |Tak |
@@ -98,13 +98,13 @@ lub
 | Dolby® Digital (AC3) |Nie |
 | Dolby® Digital Plus (E-AC3) |Nie |
 
-## <a name="output-formats-and-codecs"></a>Formaty wyjściowe i kodeki
-W poniższej tabeli wymieniono kodeki i formaty plików, które są obsługiwane do eksportu.
+## <a name="output-formats-and-codecs"></a>Formaty i kodeki wyjściowe
+W poniższej tabeli wymieniono kodery-dekoder i formaty plików, które są obsługiwane do eksportowania.
 
-| Format pliku | Kodek wideo | Kodek audio |
+| Format pliku | Koder-dekoder wideo | Koder-dekoder audio |
 | --- | --- | --- |
-| MP4 <br/><br/>(w tym wielodyskowych kontenerów MP4) |H.264 (profile wysokie, główne i wyjściowe) |AAC-LC, HE-AAC v1, HE-AAC v2 |
-| MPEG2-TS |H.264 (profile wysokie, główne i wyjściowe) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MP4 <br/><br/>(w tym kontenery MP4 o wieloszybkości transmisji bitów) |H. 264 (profile o wysokim, głównym i bazowym) |AAC-LC, IT-AAC V1, IT-AAC v2 |
+| MPEG2 — TS |H. 264 (profile o wysokim, głównym i bazowym) |AAC-LC, IT-AAC V1, IT-AAC v2 |
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -112,8 +112,8 @@ W poniższej tabeli wymieniono kodeki i formaty plików, które są obsługiwane
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Zobacz też
-[Kodowanie zawartości na żądanie za pomocą usługi Azure Media Services](media-services-encode-asset.md)
+## <a name="see-also"></a>Zobacz także
+[Kodowanie zawartości na żądanie za pomocą Azure Media Services](media-services-encode-asset.md)
 
-[Jak zakodować za pomocą media encoder standard](media-services-dotnet-encode-with-media-encoder-standard.md)
+[Jak kodować przy użyciu Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Tworzenie aplikacji kątowej za pomocą interfejsu API usługi Azure Cosmos DB dla mongodb (część 1)
+title: Tworzenie aplikacji kątowej z interfejsem API Azure Cosmos DB dla MongoDB (part1)
 description: Część 4 z serii samouczków o tworzeniu aplikacji bazy danych MongoDB przy użyciu usługi Angular i języka Node dla usługi Azure Cosmos DB przy użyciu dokładnie tych samych interfejsów API, które były używane dla bazy danych MongoDB
 author: johnpapa
 ms.service: cosmos-db
@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 ms.openlocfilehash: d5ed706a0577423f0a95b8eb5f7a563da74a0e7f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75441170"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Tworzenie aplikacji Angular przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB — tworzenie konta usługi Cosmos
@@ -48,7 +48,7 @@ W tej sekcji samouczka możesz użyć usługi Azure Cloud Shell (w przeglądarce
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Tworzenie konta usługi Azure Cosmos DB
 
-Utwórz konto usługi Azure Cosmos DB za [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create) pomocą polecenia.
+Utwórz konto Azure Cosmos DB za pomocą [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create) polecenia.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB

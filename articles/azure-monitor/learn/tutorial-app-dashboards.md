@@ -8,10 +8,10 @@ ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
 ms.openlocfilehash: caf8b1899cad95ade6297e78e8f2cf35939ef189
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77661638"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Tworzenie niestandardowych pulpitów nawigacyjnych wskaźników KPI przy użyciu usługi Azure Application Insights
@@ -23,7 +23,7 @@ W witrynie Azure Portal można utworzyć wiele pulpitów nawigacyjnych. Każdy z
 > * Dodawanie kafelka z galerii kafelków
 > * Dodawanie standardowych metryk usługi Application Insights do pulpitu nawigacyjnego
 > * Dodawanie niestandardowego wykresu metryk usługi Application Insights do pulpitu nawigacyjnego
-> * Dodawanie wyników kwerendy dzienników (Analytics) do pulpitu nawigacyjnego
+> * Dodawanie wyników zapytania dzienników (analizy) do pulpitu nawigacyjnego
 
 
 
@@ -34,7 +34,7 @@ W celu ukończenia tego samouczka:
 - Wdróż aplikację .NET na platformie Azure i [włącz zestaw Application Insights SDK](../../azure-monitor/app/asp-net.md).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
-Zaloguj się do witryny Azure portal w [https://portal.azure.com](https://portal.azure.com).
+Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-new-dashboard"></a>Tworzenie nowego pulpitu nawigacyjnego
 Pojedynczy pulpit nawigacyjny może zawierać zasoby z wielu aplikacji, subskrypcji i grup zasobów.  Aby rozpocząć wykonywanie kroków tego samouczka, utwórz nowy pulpit nawigacyjny aplikacji.  
@@ -44,8 +44,8 @@ Pojedynczy pulpit nawigacyjny może zawierać zasoby z wielu aplikacji, subskryp
    ![Nowy pulpit nawigacyjny](media/tutorial-app-dashboards/1newdashboard.png)
 
 1. Wpisz nazwę pulpitu nawigacyjnego.
-1. Otwórz **galerię kafelków**, aby zobaczyć, jak wiele różnych kafelków możesz dodać do pulpitu nawigacyjnego.  Oprócz dodawania kafelków z galerii można przypinać wykresy i inne widoki bezpośrednio z usługi Application Insights do pulpitu nawigacyjnego.
-1. Znajdź kafelek **Markdown** i przeciągnij go na pulpit nawigacyjny.  Ten kafelek umożliwia dodawanie tekstu sformatowanego w znacznikach, co jest idealne do dodawania tekstu opisowego do pulpitu nawigacyjnego.
+1. Otwórz **galerię kafelków**, aby zobaczyć, jak wiele różnych kafelków możesz dodać do pulpitu nawigacyjnego.  Oprócz dodawania kafelków z galerii można przypinać wykresy i inne widoki bezpośrednio z Application Insights do pulpitu nawigacyjnego.
+1. Znajdź kafelek **Markdown** i przeciągnij go na pulpit nawigacyjny.  Ten kafelek umożliwia dodanie tekstu sformatowanego w promocji, który jest idealnym rozwiązaniem do dodawania tekstu opisowego do pulpitu nawigacyjnego.
 1. Dodaj tekst we właściwościach kafelka i zmień jego rozmiar na kanwie pulpitu nawigacyjnego.
     
     ![Edytowanie kafelka Markdown](media/tutorial-app-dashboards/2dashboard-text.png)
@@ -53,13 +53,13 @@ Pojedynczy pulpit nawigacyjny może zawierać zasoby z wielu aplikacji, subskryp
 1. Kliknij pozycję **Zakończono dostosowywanie** w górnej części ekranu, aby wyjść z trybu dostosowywania kafelka.
 
 ## <a name="add-health-overview"></a>Dodawanie ogólnych informacji o kondycji
-Pulpit nawigacyjny z tekstem statycznym nie jest bardzo interesujący, więc teraz dodaj kafelek z usługi Application Insights, aby wyświetlić informacje o aplikacji.  Kafelki usługi Application Insights można dodawać z galerii kafelków lub przypinać je bezpośrednio z ekranów usługi Application Insights.  Pozwala to konfigurować znane wykresy i widoki przed przypięciem ich do pulpitu nawigacyjnego.  Na początku dodamy przegląd standardowych informacji o kondycji aplikacji.  Nie wymaga on konfiguracji i udostępnia minimalne możliwości dostosowania na pulpicie nawigacyjnym.
+Pulpit nawigacyjny z tekstem statycznym nie jest bardzo interesujący, więc teraz Dodaj kafelek z Application Insights, aby wyświetlić informacje o aplikacji.  Kafelki usługi Application Insights można dodawać z galerii kafelków lub przypinać je bezpośrednio z ekranów usługi Application Insights.  Pozwala to konfigurować znane wykresy i widoki przed przypięciem ich do pulpitu nawigacyjnego.  Na początku dodamy przegląd standardowych informacji o kondycji aplikacji.  Nie wymaga on konfiguracji i udostępnia minimalne możliwości dostosowania na pulpicie nawigacyjnym.
 
 
 1. Wybierz zasób usługi **Application Insights** na ekranie głównym.
-2. W okienku **Przegląd** kliknij ikonę ![](media/tutorial-app-dashboards/pushpin.png) pinezki, aby dodać kafelek do ostatniego przeglądany pulpit nawigacyjny.  
+2. W okienku **Przegląd** kliknij ikonę ![](media/tutorial-app-dashboards/pushpin.png) Przypnij ikonę pinezki, aby dodać kafelek do ostatniego oglądanego pulpitu nawigacyjnego.  
  
-3. W prawym górnym rogu pojawi się powiadomienie, że kafelek został przypięty do pulpitu nawigacyjnego. Kliknij pozycję **Przypięto do pulpitu nawigacyjnego** w powiadomieniu, aby wrócić do pulpitu nawigacyjnego lub użyć okienka pulpitów nawigacyjnych.
+3. W prawym górnym rogu zostanie wyświetlone powiadomienie, że kafelek został przypięty do pulpitu nawigacyjnego. Kliknij pozycję **Przypięto do pulpitu nawigacyjnego** w powiadomieniu, aby wrócić do pulpitu nawigacyjnego lub użyć okienka pulpitów nawigacyjnych.
 4. Kafelek jest teraz dodany do pulpitu nawigacyjnego. Wybierz pozycję **Edytuj**, aby zmienić położenie kafelka. Kliknij go i przeciągnij w odpowiednie miejsce, a następnie kliknij pozycję **Zakończono dostosowywanie**. Teraz pulpit nawigacyjny zawiera kafelek z przydatnymi informacjami.
 
     ![Pulpit nawigacyjny z osią czasu przeglądu](media/tutorial-app-dashboards/4dashboard-edit.png)
@@ -75,14 +75,14 @@ Panel **Metryki** umożliwia graficzne przedstawienie metryki zebranej przez us�
 
 4. Wybierz pozycję **Przypnij do pulpitu nawigacyjnego** po prawej stronie. Spowoduje to dodanie widoku do ostatnio wyświetlanego pulpitu nawigacyjnego.
 
-3.  W prawym górnym rogu pojawi się powiadomienie, że kafelek został przypięty do pulpitu nawigacyjnego. Kliknij pozycję **Przypięto do pulpitu nawigacyjnego** w powiadomieniu, aby wrócić do pulpitu nawigacyjnego lub użyć bloku pulpitów nawigacyjnych.
+3.  W prawym górnym rogu zostanie wyświetlone powiadomienie, że kafelek został przypięty do pulpitu nawigacyjnego. Kliknij pozycję **Przypięto do pulpitu nawigacyjnego** w powiadomieniu, aby wrócić do pulpitu nawigacyjnego lub użyć bloku pulpitów nawigacyjnych.
 
 4. Kafelek jest teraz dodany do pulpitu nawigacyjnego. Wybierz pozycję **Edytuj**, aby zmienić położenie kafelka. Kliknij go i przeciągnij w odpowiednie miejsce, a następnie kliknij pozycję **Zakończono dostosowywanie**.
 
-## <a name="add-logs-analytics-query"></a>Dodawanie kwerendy dzienników (Analytics)
-Dzienniki usługi Azure Application Insights (Analytics) udostępnia bogaty język zapytań, który umożliwia analizowanie wszystkich danych zebranych w usłudze Application Insights. Podobnie jak wykresy i inne widoki, można dodać dane wyjściowe kwerendy dzienników do pulpitu nawigacyjnego.
+## <a name="add-logs-analytics-query"></a>Dodaj zapytania dzienników (Analytics)
+Usługa Azure Application Insights Logs (analiza) oferuje bogaty język zapytań, który pozwala analizować wszystkie zebrane Application Insights dane. Podobnie jak wykresy i inne widoki, można dodać dane wyjściowe zapytania dzienników do pulpitu nawigacyjnego.
 
-Ponieważ dzienniki usługi Azure Applications Insights (Analytics) to oddzielna usługa, należy udostępnić pulpit nawigacyjny, aby zawierał kwerendę dziennika. Podczas udostępniania pulpitu nawigacyjnego platformy Azure, można opublikować go jako zasób platformy Azure, który może udostępnić go innym użytkownikom i zasobów.  
+Ponieważ dzienniki usługi Azure Application Insights (analiza) to osobna usługa, należy udostępnić pulpit nawigacyjny, aby zawierał zapytanie dzienników. Po udostępnieniu pulpitu nawigacyjnego platformy Azure jest on publikowany jako zasób platformy Azure, który może być dostępny dla innych użytkowników i zasobów.  
 
 1. W górnej części ekranu pulpitu nawigacyjnego kliknij pozycję **Udostępnij**.
 
@@ -90,7 +90,7 @@ Ponieważ dzienniki usługi Azure Applications Insights (Analytics) to oddzielna
 
 2. Nie zmieniaj zawartości pola **Nazwa pulpitu nawigacyjnego**. Wybierz pozycję **Nazwa subskrypcji**, aby udostępnić pulpit nawigacyjny.  Kliknij przycisk **Opublikuj**.  Od tej chwili pulpit nawigacyjny jest dostępny dla innych usług i subskrypcji.  Opcjonalnie możesz zdefiniować listę użytkowników, którzy powinni mieć dostęp do pulpitu nawigacyjnego.
 1. Wybierz zasób usługi **Application Insights** na ekranie głównym.
-2. Kliknij **pozycję Dzienniki (Analytics)** po lewej stronie w obszarze monitorowania, aby otworzyć portal Dzienniki (Analytics).
+2. Kliknij pozycję **dzienniki (analiza)** po lewej stronie w obszarze monitorowanie, aby otworzyć Portal dzienniki (analiza).
 3. Wpisz następujące zapytanie, które zwraca 10 najczęściej wyświetlanych stron oraz liczbę żądań dostępu do nich:
 
     ``` Kusto
@@ -101,9 +101,9 @@ Ponieważ dzienniki usługi Azure Applications Insights (Analytics) to oddzielna
     ```
 
 4. Kliknij pozycję **Uruchom**, aby zweryfikować wyniki zapytania.
-5. Kliknij ikonę pinezki ![Ikona przypinania](media/tutorial-app-dashboards/pushpin.png) i wybierz nazwę pulpitu nawigacyjnego. Powodem, dla którego ta opcja powoduje wybranie pulpitu nawigacyjnego w przeciwieństwie do poprzednich kroków, w których użyto ostatniego pulpitu nawigacyjnego, jest to, że konsola Dzienniki (Analytics) jest oddzielną usługą i musi wybrać spośród wszystkich dostępnych udostępnionych pulpitów nawigacyjnych.
+5. Kliknij ikonę pinezki ![Ikona przypinania](media/tutorial-app-dashboards/pushpin.png) i wybierz nazwę pulpitu nawigacyjnego. Ta opcja umożliwia wybranie pulpitu nawigacyjnego w przeciwieństwie do poprzednich kroków, w których był używany ostatni pulpit nawigacyjny, ponieważ konsola dzienniki (analiza) jest oddzielną usługą i musi wybrać wszystkie dostępne udostępnione pulpity nawigacyjne.
 
-5. Przed powrotem do pulpitu nawigacyjnego należy dodać kolejną kwerendę, ale tym razem renderuj ją jako wykres, aby zobaczyć różne sposoby wizualizacji kwerendy dzienników na pulpicie nawigacyjnym. Rozpocznij od następującego zapytania, które podsumowuje 10 operacji z największą liczbą wyjątków.
+5. Zanim wrócisz do pulpitu nawigacyjnego, Dodaj kolejne zapytanie, ale ten czas będzie renderowany jako wykres, aby zobaczyć różne sposoby wizualizacji zapytania dzienników na pulpicie nawigacyjnym. Rozpocznij od następującego zapytania, które podsumowuje 10 operacji z największą liczbą wyjątków.
 
     ``` Kusto
     exceptions
@@ -114,11 +114,11 @@ Ponieważ dzienniki usługi Azure Applications Insights (Analytics) to oddzielna
 
 6. Wybierz pozycję **Wykres**, a następnie wybierz opcję **Pierścieniowy**, aby zwizualizować wyniki.
 
-    ![Wykres dzienników (Analytics)](media/tutorial-app-dashboards/11querychart.png)
+    ![Wykres dzienników (analiza)](media/tutorial-app-dashboards/11querychart.png)
 
-6. Kliknij ikonę pinezki ![Ikona przypinania](media/tutorial-app-dashboards/pushpin.png) w prawym górnym rogu, aby przypiąć wykres do pulpitu nawigacyjnego i tym razem wybrać link, aby powrócić do pulpitu nawigacyjnego.
+6. Kliknij ikonę pinezki ![Ikona przypinania](media/tutorial-app-dashboards/pushpin.png) w prawym górnym rogu, aby przypiąć wykres do pulpitu nawigacyjnego, a następnie wybierz link, aby powrócić do pulpitu nawigacyjnego.
 4. Wyniki zapytań w wybranym formacie zostały dodane do pulpitu nawigacyjnego.  Przeciągnij poszczególne wykresy we właściwe miejsce, a następnie kliknij pozycję **Zakończono dostosowywanie**.
-5. Wybierz ikonę ołówka ![Ikona ołówka](media/tutorial-app-dashboards/pencil.png) na każdym tytule, aby nadać im tytuł opisowy.
+5. Wybierz ikonę ołówka ![Ikona ołówka](media/tutorial-app-dashboards/pencil.png) w każdym tytule, aby nadać im opisowy tytuł.
 
 5. Wybierz pozycję **Udostępnij**, aby opublikować ponownie zmiany na pulpicie nawigacyjnym, który teraz zawiera różne wykresy i wizualizacje z usługi Application Insights.
 

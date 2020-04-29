@@ -1,26 +1,26 @@
 ---
 title: skalowanie klastra usługi Service Fabric na platformie Azure
-description: W tym samouczku dowiesz się, jak skalować klaster sieci szkieletowej usług na platformie Azure w trybie out and in oraz jak oczyścić resztki zasobów.
+description: W tym samouczku dowiesz się, jak skalować klaster Service Fabric na platformie Azure i w systemie oraz jak czyścić pozostałe zasoby.
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: f1b813576a94541cdc2ab0a67fea71b6f49696c5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78251795"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Samouczek: skalowanie klastra usługi Service Fabric na platformie Azure
 
-Ten samouczek jest częścią trzecią serii i pokazuje, jak skalować istniejący klaster w poziomie i w. Ukończenie tego samouczka pozwoli Ci uzyskać wiedzę na temat skalowania klastra i czyszczenia pozostałych zasobów.  Aby uzyskać więcej informacji na temat skalowania klastra działającego na platformie Azure, przeczytaj artykuł [Skalowanie klastrów sieci szkieletowej usług](service-fabric-cluster-scaling.md).
+Ten samouczek jest trzecią częścią serii i pokazuje, jak skalować istniejący klaster poza i w programie. Ukończenie tego samouczka pozwoli Ci uzyskać wiedzę na temat skalowania klastra i czyszczenia pozostałych zasobów.  Aby uzyskać więcej informacji na temat skalowania klastra działającego na platformie Azure, Przeczytaj [Service Fabric skalowanie klastrów](service-fabric-cluster-scaling.md).
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Dodawanie i usuwanie węzłów (skalowanie w poziomie i skalowanie)
-> * Dodawanie i usuwanie typów węzłów (skalowanie w poziomie i skalowanie)
-> * Zwiększanie zasobów węzłów (skalowanie w górę)
+> * Dodawanie i usuwanie węzłów (skalowanie w poziomie i skalowanie w górę)
+> * Dodawanie i usuwanie typów węzłów (skalowanie w poziomie i skalowanie w górę)
+> * Zwiększ zasoby węzła (Skaluj w górę)
 
 Ta seria samouczków zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
@@ -37,57 +37,57 @@ Ta seria samouczków zawiera informacje na temat wykonywania następujących czy
 
 Przed rozpoczęciem tego samouczka:
 
-* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Zainstaluj [platformę Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) lub [platformę Azure CLI](/cli/azure/install-azure-cli).
+* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Zainstaluj [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) lub [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * Tworzenie bezpiecznego [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) na platformie Azure
 
 ## <a name="important-considerations-and-guidelines"></a>Ważne zagadnienia i wytyczne
 
-Obciążenia aplikacji zmieniają się wraz z czasem, czy istniejące usługi potrzebują więcej (lub mniej) zasobów?  [Dodawanie lub usuwanie węzłów](#add-nodes-to-or-remove-nodes-from-a-node-type) z typu węzła w celu zwiększenia lub zmniejszenia zasobów klastra.
+Obciążenia aplikacji zmieniają się z upływem czasu, czy istniejące usługi potrzebują więcej zasobów (lub mniej)?  [Dodaj lub Usuń węzły](#add-nodes-to-or-remove-nodes-from-a-node-type) z typu węzła, aby zwiększyć lub zmniejszyć zasoby klastra.
 
-Czy musisz dodać więcej niż 100 węzłów do klastra?  Pojedynczy typ/skalowanie węzła sieci szkieletowej usługi nie może zawierać więcej niż 100 węzłów/maszyn wirtualnych.  Aby skalować klaster poza 100 węzłów, [dodaj dodatkowe typy węzłów](#add-nodes-to-or-remove-nodes-from-a-node-type).
+Czy musisz dodać więcej niż 100 węzłów do klastra?  Jeden Service Fabric typu węzła/zestawu skalowania nie może zawierać więcej niż 100 węzłów/maszyn wirtualnych.  Aby skalować klaster poza 100 węzłów, [Dodaj dodatkowe typy węzłów](#add-nodes-to-or-remove-nodes-from-a-node-type).
 
-Czy aplikacja ma wiele usług i czy którykolwiek z nich musi być publiczny lub internetowy?  Typowe aplikacje zawierają usługę bramy frontonu, która odbiera dane wejściowe od klienta i co najmniej jedną usługę zaplecza, które komunikują się z usługami frontonu. W takim przypadku zaleca się [dodanie co najmniej dwóch typów węzłów](#add-nodes-to-or-remove-nodes-from-a-node-type) do klastra.  
+Czy Twoja aplikacja ma wiele usług i czy wszystkie z nich muszą być dostępne publicznie czy z Internetu?  Typowe aplikacje zawierają usługę bramy frontonu, która odbiera dane wejściowe od klienta i co najmniej jednej usługi zaplecza, która komunikuje się z usługami frontonu. W takim przypadku zalecamy dodanie do klastra [co najmniej dwóch typów węzłów](#add-nodes-to-or-remove-nodes-from-a-node-type) .  
 
-Czy twoje usługi mają różne potrzeby infrastrukturalne, takie jak większa pamięć RAM lub wyższe cykle procesora? Na przykład aplikacja zawiera usługę front-end i usługę zaplecza. Usługa front-end może działać na mniejszych maszynach wirtualnych (rozmiarach maszyn wirtualnych, takich jak D2), które mają porty otwarte dla Internetu. Usługa zaplecza jest jednak intensywnie obliczeniowa i musi działać na większych maszynach wirtualnych (o rozmiarach maszyn wirtualnych, takich jak D4, D6, D15), które nie są skierowane do Internetu. W takim przypadku zaleca się [dodanie dwóch lub więcej typów węzłów](#add-nodes-to-or-remove-nodes-from-a-node-type) do klastra. Dzięki temu każdy typ węzła mają różne właściwości, takie jak łączność z Internetem lub rozmiar maszyny Wirtualnej. Liczba maszyn wirtualnych może być skalowana niezależnie, jak również.
+Czy usługi mają różne potrzeby związane z infrastrukturą, takie jak większa ilość pamięci RAM czy więcej cykli procesora CPU? Na przykład aplikacja zawiera usługę frontonu i usługę zaplecza. Usługa frontonu może być uruchamiana na mniejszych maszynach wirtualnych (takich jak D2), które mają otwarte porty w Internecie. Usługa zaplecza, jednak jest intensywnie obliczeniowa i musi działać na większych maszynach wirtualnych (z rozmiarami maszyn wirtualnych takimi jak D4, D6, D15), które nie są połączone z Internetem. W tym przypadku zalecamy [dodanie dwóch lub więcej typów węzłów](#add-nodes-to-or-remove-nodes-from-a-node-type) do klastra. Dzięki temu każdy typ węzła może mieć odrębne właściwości, takie jak łączność z Internetem lub rozmiar maszyny wirtualnej. Liczba maszyn wirtualnych może być również skalowana niezależnie.
 
-Podczas skalowania klastra platformy Azure należy pamiętać o następujących wskazówkach:
+Podczas skalowania klastra platformy Azure należy pamiętać o następujących kwestiach:
 
-* Pojedynczy typ/skalowanie węzła sieci szkieletowej usługi nie może zawierać więcej niż 100 węzłów/maszyn wirtualnych.  Aby skalować klaster poza 100 węzłów, dodaj dodatkowe typy węzłów.
-* Typy węzłów podstawowych z uruchomionymi obciążeniami produkcyjnymi powinny mieć [poziom trwałości][durability] gold lub silver i zawsze mają pięć lub więcej węzłów.
-* Typy węzłów innych niż podstawowe z uruchomionymi stanowymi obciążeniami produkcyjnymi powinny zawsze mieć co najmniej pięć węzłów.
-* Typy węzłów innych niż podstawowe z uruchomionymi obciążeniami produkcyjnymi bezstanowymi powinny zawsze mieć dwa lub więcej węzłów.
-* Każdy typ węzła [poziomu trwałości][durability] Złota lub Srebra powinien zawsze mieć pięć lub więcej węzłów.
-* Jeśli skalowanie w (usuwanie węzłów z) typ węzła podstawowego, nigdy nie należy zmniejszać liczbę wystąpień do mniej niż wymaga [tego poziom niezawodności.][reliability]
+* Jeden Service Fabric typu węzła/zestawu skalowania nie może zawierać więcej niż 100 węzłów/maszyn wirtualnych.  Aby skalować klaster poza 100 węzłów, Dodaj dodatkowe typy węzłów.
+* Typy węzła podstawowego z uruchomionymi obciążeniami produkcyjnymi powinny mieć [poziom trwałości][durability] Gold lub Silver i zawsze mieć pięć lub więcej węzłów.
+* Typy węzłów innych niż podstawowe działające stanowe obciążenia produkcyjne powinny mieć zawsze pięć lub więcej węzłów.
+* Typy węzłów innych niż podstawowe, które działają bezstanowe obciążenia produkcyjne, powinny zawsze mieć co najmniej dwa węzły.
+* Każdy typ węzła [poziomu trwałości][durability] Gold lub Silver powinien mieć zawsze pięć lub więcej węzłów.
+* Jeśli skalowanie w (usuwanie węzłów z) typu węzła podstawowego, nigdy nie należy zmniejszać liczby wystąpień do wartości mniejszej niż wymagana przez [poziom niezawodności][reliability] .
 
-Aby uzyskać więcej informacji, zapoznaj się [ze wskazówkami dotyczącymi pojemności klastra](service-fabric-cluster-capacity.md).
+Aby uzyskać więcej informacji, zapoznaj się z tematem [wskazówki dotyczące pojemności klastra](service-fabric-cluster-capacity.md).
 
 ## <a name="export-the-template-for-the-resource-group"></a>Eksportowanie szablonu dla grupy zasobów
 
-Po utworzeniu bezpiecznego [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i pomyślnym skonfigurowaniu grupy zasobów wyeksportuj szablon Menedżera zasobów dla grupy zasobów. Eksportowanie szablonu umożliwia automatyzację przyszłych wdrożeń klastra i jego zasobów, ponieważ szablon zawiera całą kompletną infrastrukturę.  Aby uzyskać więcej informacji na temat eksportowania szablonów, zobacz [Zarządzanie grupami zasobów usługi Azure Resource Manager przy użyciu witryny Azure portal](/azure/azure-resource-manager/manage-resource-groups-portal).
+Po pomyślnym utworzeniu bezpiecznego [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i skonfigurowaniu grupy zasobów wyeksportuj szablon Menedżer zasobów dla grupy zasobów. Eksportowanie szablonu pozwala zautomatyzować przyszłe wdrożenia klastra i jego zasobów, ponieważ szablon zawiera całą kompletną infrastrukturę.  Aby uzyskać więcej informacji na temat eksportowania szablonów, zobacz [Zarządzanie grupami zasobów Azure Resource Manager przy użyciu Azure Portal](/azure/azure-resource-manager/manage-resource-groups-portal).
 
-1. W [witrynie Azure portal](https://portal.azure.com)przejdź do grupy zasobów zawierającej klaster (**sfclustertutorialgroup**, jeśli poniżej tego samouczka). 
+1. W [Azure Portal](https://portal.azure.com)przejdź do grupy zasobów zawierającej klaster (**sfclustertutorialgroup**, jeśli korzystasz z tego samouczka). 
 
-2. W lewym okienku wybierz pozycję **Wdrożenia**lub wybierz łącze w obszarze **Wdrożenia**. 
+2. W lewym okienku wybierz pozycję **wdrożenia**lub wybierz link w obszarze **wdrożenia**. 
 
-3. Wybierz z listy najnowsze pomyślne wdrożenie.
+3. Z listy wybierz najnowsze pomyślne wdrożenie.
 
-4. W lewym okienku wybierz **pozycję Szablon,** a następnie wybierz pozycję **Pobierz,** aby wyeksportować szablon jako plik ZIP.  Zapisz szablon i parametry na komputerze lokalnym.
+4. W lewym okienku wybierz pozycję **szablon** , a następnie wybierz pozycję **Pobierz** , aby wyeksportować szablon jako plik zip.  Zapisz szablon i parametry na komputerze lokalnym.
 
 ## <a name="add-nodes-to-or-remove-nodes-from-a-node-type"></a>Dodawanie węzłów do lub usuwanie węzłów z typu węzła
 
-Skalowanie i wysuw lub skalowanie w poziomie zmienia liczbę węzłów w klastrze. Podczas skalowania w lub w poziomie, należy dodać więcej wystąpień maszyny wirtualnej do zestawu skalowania. Wystąpienia te stają się węzłami używanymi przez usługę Service Fabric. Usługa Service Fabric wykrywa zwiększenie liczby wystąpień (efekt skalowania w poziomie) i reaguje automatycznie. Klaster można skalować w dowolnym momencie, nawet gdy obciążenia są uruchomione w klastrze.
+Skalowanie do wewnątrz i na zewnątrz lub skalowanie w poziomie powoduje zmianę liczby węzłów w klastrze. Skalowanie w poziomie lub na zewnątrz polega na dodaniu większej liczby wystąpień maszyn wirtualnych do zestawu skalowania. Wystąpienia te stają się węzłami używanymi przez usługę Service Fabric. Usługa Service Fabric wykrywa zwiększenie liczby wystąpień (efekt skalowania w poziomie) i reaguje automatycznie. Klaster można skalować w dowolnym momencie, nawet w przypadku uruchamiania obciążeń w klastrze.
 
 ### <a name="update-the-template"></a>Aktualizowanie szablonu
 
-[Eksportuj plik szablonu i parametrów](#export-the-template-for-the-resource-group) z grupy zasobów dla najnowszego wdrożenia.  Otwórz plik *parameters.json.*  Jeśli klaster został wdrożony przy użyciu [przykładowego szablonu][template] w tym samouczku, istnieją trzy typy węzłów w klastrze i trzy parametry, które ustawiają liczbę węzłów dla każdego typu węzła: *nt0InstanceCount*, *nt1InstanceCount*i *nt2InstanceCount*.  *Nt1InstanceCount* parametr, na przykład ustawia liczbę wystąpień dla drugiego typu węzła i ustawia liczbę maszyn wirtualnych w zestawie skali skojarzonej maszyny wirtualnej.
+[Wyeksportuj plik szablonu i parametrów](#export-the-template-for-the-resource-group) z grupy zasobów dla najnowszego wdrożenia.  Otwórz plik *Parameters. JSON* .  Jeśli klaster został wdrożony przy użyciu [przykładowego szablonu][template] w tym samouczku, istnieją trzy typy węzłów w klastrze i trzy parametry ustawiające liczbę węzłów dla każdego typu węzła: *nt0InstanceCount*, *nt1InstanceCount*i *nt2InstanceCount*.  Parametr *nt1InstanceCount* , na przykład, ustawia liczbę wystąpień dla drugiego typu węzła, a następnie ustawia liczba maszyn wirtualnych w skojarzonym zestawie skalowania maszyn wirtualnych.
 
-Tak więc, aktualizując wartość *nt1InstanceCount* można zmienić liczbę węzłów w drugim typie węzła.  Należy pamiętać, że nie można skalować typ węzła do więcej niż 100 węzłów.  Typy węzłów innych niż podstawowe z uruchomionymi stanowymi obciążeniami produkcyjnymi powinny zawsze mieć co najmniej pięć węzłów. Typy węzłów innych niż podstawowe z uruchomionymi obciążeniami produkcyjnymi bezstanowymi powinny zawsze mieć dwa lub więcej węzłów.
+Aby więc zaktualizować wartość *nt1InstanceCount* , należy zmienić liczbę węzłów w drugim typie węzła.  Należy pamiętać, że nie można skalować typu węzła do więcej niż 100 węzłów.  Typy węzłów innych niż podstawowe działające stanowe obciążenia produkcyjne powinny mieć zawsze pięć lub więcej węzłów. Typy węzłów innych niż podstawowe, które działają bezstanowe obciążenia produkcyjne, powinny zawsze mieć co najmniej dwa węzły.
 
-W przypadku skalowania, usuwania węzłów z, typ węzła [poziom trwałości][durability] brązu należy [ręcznie usunąć stan tych węzłów](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  W przypadku warstwy trwałości Silver i Gold te kroki są wykonywane automatycznie przez platformę.
+W przypadku skalowania w programie usuwanie węzłów z, typ węzła na [poziomie trwałości][durability] brony, należy [ręcznie usunąć stan tych węzłów](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  W przypadku warstwy trwałości Silver i Gold te kroki są wykonywane automatycznie przez platformę.
 
-### <a name="deploy-the-updated-template"></a>Wdrażanie zaktualizowanego szablonu
-Zapisz wszelkie zmiany w plikach *template.json* i *parameters.json.*  Aby wdrożyć zaktualizowany szablon, uruchom następujące polecenie:
+### <a name="deploy-the-updated-template"></a>Wdróż zaktualizowany szablon
+Zapisz wszelkie zmiany w plikach *Template. JSON* i *Parameters. JSON* .  Aby wdrożyć zaktualizowany szablon, uruchom następujące polecenie:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
@@ -99,15 +99,15 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 
 ## <a name="add-a-node-type-to-the-cluster"></a>Dodawanie typu węzła do klastra
 
-Każdy typ węzła zdefiniowany w klastrze sieci szkieletowej usług uruchomionym na platformie Azure jest skonfigurowany jako [oddzielny zestaw skalowania maszyny wirtualnej.](service-fabric-cluster-nodetypes.md) Każdy typ węzła można następnie zarządzać oddzielnie. Można niezależnie skalować każdy typ węzła w górę lub w dół, mają otwarte różne zestawy portów i używać różnych metryk pojemności. Można również niezależnie zmienić jednostkę SKU systemu operacyjnego działającą w każdym węźle klastra, ale należy pamiętać, że nie można mieć kombinacji systemu Windows i Linuksa uruchomionego w przykładowym klastrze. Zestaw typu/skalowania pojedynczego węzła nie może zawierać więcej niż 100 węzłów.  Klaster można skalować poziomo do ponad 100 węzłów, dodając dodatkowe typy węzłów/zestawy skalowania. Klaster można skalować w dowolnym momencie, nawet gdy obciążenia są uruchomione w klastrze.
+Każdy typ węzła zdefiniowany w klastrze Service Fabric uruchomionym na platformie Azure jest ustawiany jako [oddzielny zestaw skalowania maszyn wirtualnych](service-fabric-cluster-nodetypes.md). Każdy typ węzła może być następnie zarządzany osobno. Można niezależnie skalować każdy typ węzła w górę lub w dół, mieć otwarte różne zestawy portów i korzystać z różnych metryk pojemności. Można również niezależnie zmienić jednostkę SKU systemu operacyjnego działającą w każdym węźle klastra, ale należy pamiętać, że w przykładowym klastrze nie można używać kombinacji systemów Windows i Linux. Typ pojedynczego węzła/zestaw skalowania nie może zawierać więcej niż 100 węzłów.  Klaster można skalować w poziomie do więcej niż 100 węzłów przez dodanie dodatkowych typów węzłów/zestawów skalowania. Klaster można skalować w dowolnym momencie, nawet w przypadku uruchamiania obciążeń w klastrze.
 
 ### <a name="update-the-template"></a>Aktualizowanie szablonu
 
-[Eksportuj plik szablonu i parametrów](#export-the-template-for-the-resource-group) z grupy zasobów dla najnowszego wdrożenia.  Otwórz plik *parameters.json.*  Jeśli klastra wdrożono przy użyciu [przykładowego szablonu][template] w tym samouczku, istnieją trzy typy węzłów w klastrze.  W tej sekcji można dodać czwarty typ węzła, aktualizując i wdrażając szablon Menedżera zasobów. 
+[Wyeksportuj plik szablonu i parametrów](#export-the-template-for-the-resource-group) z grupy zasobów dla najnowszego wdrożenia.  Otwórz plik *Parameters. JSON* .  Jeśli klaster został wdrożony przy użyciu [przykładowego szablonu][template] w tym samouczku, w klastrze istnieją trzy typy węzłów.  W tej sekcji należy dodać czwarty typ węzła przez zaktualizowanie i wdrożenie szablonu Menedżer zasobów. 
 
-Oprócz nowego typu węzła można również dodać skojarzony zestaw skalowania maszyny wirtualnej (który działa w osobnej podsieci sieci wirtualnej) i grupę zabezpieczeń sieci.  Można dodać nowy lub istniejący publiczny adres IP i zasoby modułu równoważenia obciążenia platformy Azure dla nowego zestawu skalowania.  Nowy typ węzła ma [poziom trwałości][durability] srebra i rozmiar "Standard_D2_V2".
+Oprócz nowego typu węzła, należy również dodać skojarzony zestaw skalowania maszyn wirtualnych (który jest uruchamiany w oddzielnej podsieci sieci wirtualnej) i sieciowej grupy zabezpieczeń.  Możesz dodać nowy lub istniejący publiczny adres IP i zasoby modułu równoważenia obciążenia platformy Azure dla nowego zestawu skalowania.  Nowy typ węzła ma [poziom trwałości][durability] o wartości Silver i size "Standard_D2_V2".
 
-W pliku *template.json* dodaj następujące nowe parametry:
+W pliku *Template. JSON* Dodaj następujące nowe parametry:
 ```json
 "nt3InstanceCount": {
     "defaultValue": 5,
@@ -122,7 +122,7 @@ W pliku *template.json* dodaj następujące nowe parametry:
 },
 ```
 
-W pliku *template.json* dodaj następujące nowe zmienne:
+W pliku *Template. JSON* Dodaj następujące nowe zmienne:
 ```json
 "lbID3": "[resourceId('Microsoft.Network/loadBalancers',concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType3Name')))]",
 "lbIPConfig3": "[concat(variables('lbID3'),'/frontendIPConfigurations/LoadBalancerIPConfig')]",
@@ -144,7 +144,7 @@ W pliku *template.json* dodaj następujące nowe zmienne:
 "subnet3Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet3Name'))]",
 ```
 
-W pliku *template.json* dodaj nową podsieć do zasobu sieci wirtualnej:
+W pliku *Template. JSON* Dodaj nową podsieć do zasobu sieci wirtualnej:
 ```json
 {
     "type": "Microsoft.Network/virtualNetworks",
@@ -181,7 +181,7 @@ W pliku *template.json* dodaj nową podsieć do zasobu sieci wirtualnej:
 },
 ```
 
-W pliku *template.json* dodaj nowy publiczny adres IP i zasoby modułu równoważenia obciążenia:
+W pliku *Template. JSON* Dodaj nowy publiczny adres IP i zasoby modułu równoważenia obciążenia:
 ```json
 {
     "type": "Microsoft.Network/publicIPAddresses",
@@ -362,7 +362,7 @@ W pliku *template.json* dodaj nowy publiczny adres IP i zasoby modułu równowa�
 },
 ```
 
-W pliku *template.json* dodaj nowe zasoby sieciowej grupy zabezpieczeń i zestawu skalowania maszyny wirtualnej.  Właściwość NodeTypeRef we właściwościach rozszerzenia sieci szkieletowej usług zestawu skalowania maszyny wirtualnej mapuje określony typ węzła na zestaw skalowania.
+W pliku *Template. JSON* Dodaj nową sieciową grupę zabezpieczeń i zasoby zestawu skalowania maszyn wirtualnych.  Właściwość NodeTypeRef we właściwościach rozszerzenia Service Fabric zestawu skalowania maszyn wirtualnych mapuje określony typ węzła do zestawu skalowania.
 
 ```json
 {
@@ -746,7 +746,7 @@ W pliku *template.json* dodaj nowe zasoby sieciowej grupy zabezpieczeń i zestaw
 },
 ```
 
-W pliku *template.json* zaktualizuj zasób klastra i dodaj nowy typ węzła:
+W pliku *Template. JSON* zaktualizuj zasób klastra i Dodaj nowy typ węzła:
 ```json
 {
     "type": "Microsoft.ServiceFabric/clusters",
@@ -782,7 +782,7 @@ W pliku *template.json* zaktualizuj zasób klastra i dodaj nowy typ węzła:
 }                
 ```
 
-W pliku *parameters.json* dodaj następujące nowe parametry i wartości:
+W pliku *Parameters. JSON* Dodaj następujące nowe parametry i wartości:
 ```json
 "nt3InstanceCount": {
     "Value": 5    
@@ -792,8 +792,8 @@ W pliku *parameters.json* dodaj następujące nowe parametry i wartości:
 },
 ```
 
-### <a name="deploy-the-updated-template"></a>Wdrażanie zaktualizowanego szablonu
-Zapisz wszelkie zmiany w plikach *template.json* i *parameters.json.*  Aby wdrożyć zaktualizowany szablon, uruchom następujące polecenie:
+### <a name="deploy-the-updated-template"></a>Wdróż zaktualizowany szablon
+Zapisz wszelkie zmiany w plikach *Template. JSON* i *Parameters. JSON* .  Aby wdrożyć zaktualizowany szablon, uruchom następujące polecenie:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
@@ -803,13 +803,13 @@ Lub następujące polecenie interfejsu wiersza polecenia platformy Azure:
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
-## <a name="remove-a-node-type-from-the-cluster"></a>Usuwanie typu węzła z klastra
-Po utworzeniu klastra sieci szkieletowej usług można skalować klaster w poziomie, usuwając typ węzła (zestaw skalowania maszyny wirtualnej) i wszystkie jego węzły. Klaster można skalować w dowolnym momencie, nawet gdy obciążenia są uruchomione w klastrze. W miarę skalowania klastra aplikacje są również skalowane automatycznie.
+## <a name="remove-a-node-type-from-the-cluster"></a>Usuń typ węzła z klastra
+Po utworzeniu klastra Service Fabric można skalować klaster w poziomie, usuwając typ węzła (zestaw skalowania maszyn wirtualnych) i wszystkie jego węzły. Klaster można skalować w dowolnym momencie, nawet w przypadku uruchamiania obciążeń w klastrze. W miarę skalowania klastra aplikacje są automatycznie skalowane.
 
 > [!WARNING]
-> Za pomocą Remove-AzServiceFabricNodeType, aby usunąć typ węzła z klastra produkcyjnego nie jest zalecane do częstego używania. Jest to niebezpieczne polecenie, ponieważ usuwa zasób zestawu skalowania maszyny wirtualnej za typem węzła. 
+> Nie zaleca się używania polecenia Remove-AzServiceFabricNodeType w celu usunięcia typu węzła z klastra produkcyjnego. Jest to niebezpieczne polecenie, ponieważ usuwa zasób zestawu skalowania maszyn wirtualnych za typem węzła. 
 
-Aby usunąć typ węzła, uruchom polecenie cmdlet [Remove-AzServiceFabricNodeType.](/powershell/module/az.servicefabric/remove-azservicefabricnodetype)  Typ węzła musi być [poziom trwałości][durability] Silver lub Gold Polecenie cmdlet usuwa zestaw skalowania skojarzony z typem węzła i zajmuje trochę czasu.  Następnie uruchom polecenie cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) na każdym z węzłów do usunięcia, co powoduje usunięcie stanu węzła i usunięcie węzłów z klastra. Jeśli istnieją usługi w węzłach, usługi są najpierw przenoszone do innego węzła. Jeśli menedżer klastra nie może znaleźć węzła repliki/usługi, operacja jest opóźniona/zablokowana.
+Aby usunąć typ węzła, uruchom polecenie cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) .  Typ węzła musi być [poziomem trwałości][durability] Silver lub Gold polecenie cmdlet usuwa zestaw skalowania skojarzony z typem węzła i trwa jakiś czas.  Następnie uruchom polecenie cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) w każdym z węzłów do usunięcia, co spowoduje usunięcie stanu węzła i usunięcie węzłów z klastra. Jeśli w węzłach znajdują się usługi, usługi są najpierw przenoszone do innego węzła. Jeśli Menedżer klastra nie może znaleźć węzła dla repliki/usługi, operacja zostanie opóźniona/zablokowana.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
@@ -832,25 +832,25 @@ Foreach($node in $nodes)
 }
 ```
 
-## <a name="increase-node-resources"></a>Zwiększanie zasobów węzłów 
-Po utworzeniu klastra sieci szkieletowej usług można skalować typ węzła klastra w pionie (zmieniać zasoby węzłów) lub uaktualnić system operacyjny maszyn wirtualnych typu węzła.  
+## <a name="increase-node-resources"></a>Zwiększ zasoby węzła 
+Po utworzeniu klastra Service Fabric można skalować typ węzła klastra w pionie (zmienić zasoby węzłów) lub uaktualnić system operacyjny maszyn wirtualnych typu węzła.  
 
 > [!WARNING]
-> Zaleca się, aby nie zmieniać jednostki SKU maszyny Wirtualnej typu zestawu skalowania/węzła, chyba że jest uruchomiona przy trwałości Silver lub większej. Zmiana rozmiaru jednostki SKU maszyny Wirtualnej jest operacją infrastruktury w miejscu destrukcyjną dla danych. Bez pewnej możliwości opóźnienia lub monitorowania tej zmiany, jest możliwe, że operacja może spowodować utratę danych dla usług stanowych lub spowodować inne nieprzewidziane problemy operacyjne, nawet dla obciążeń bezstanowych.
+> Zalecamy, aby nie zmieniać jednostki SKU maszyny wirtualnej zestawu skalowania/typu węzła, chyba że jest on uruchomiony w wersji Silver lub nowszej. Zmiana rozmiaru jednostki SKU maszyny wirtualnej jest operacją infrastruktury służącej do wypróbowania danych. Bez możliwości opóźniania lub monitorowania tej zmiany możliwe jest, że operacja może spowodować utratę danych dla usług stanowych lub spowodować inne nieprzewidziane problemy z działaniem, nawet w przypadku obciążeń bezstanowych.
 
 > [!WARNING]
-> Zaleca się, aby nie zmieniać jednostki SKU maszyny Wirtualnej typu węzła podstawowego, który jest niebezpieczną operacją i nieobsługiwał.  Jeśli potrzebujesz więcej pojemności klastra, można dodać więcej wystąpień maszyn wirtualnych lub dodatkowych typów węzłów.  Jeśli nie jest to możliwe, można utworzyć nowy klaster i [przywrócić stan aplikacji](service-fabric-reliable-services-backup-restore.md) (jeśli dotyczy) ze starego klastra.  Jeśli nie jest to możliwe, można [zmienić jednostkę SKU maszyny Wirtualnej typu węzła podstawowego](service-fabric-scale-up-node-type.md).
+> Zalecamy, aby nie zmieniać jednostki SKU maszyny wirtualnej typu węzła podstawowego, która jest niebezpieczną operacją i nie jest obsługiwana.  Jeśli potrzebujesz większej pojemności klastra, możesz dodać więcej wystąpień maszyn wirtualnych lub dodatkowych typów węzłów.  Jeśli to nie jest możliwe, można utworzyć nowy klaster i [przywrócić stan aplikacji](service-fabric-reliable-services-backup-restore.md) (jeśli dotyczy) ze starego klastra.  Jeśli to nie jest możliwe, można [zmienić jednostkę SKU maszyny wirtualnej typu węzła podstawowego](service-fabric-scale-up-node-type.md).
 
 ### <a name="update-the-template"></a>Aktualizowanie szablonu
 
-[Eksportuj plik szablonu i parametrów](#export-the-template-for-the-resource-group) z grupy zasobów dla najnowszego wdrożenia.  Otwórz plik *parameters.json.*  Jeśli klastra wdrożono przy użyciu [przykładowego szablonu][template] w tym samouczku, istnieją trzy typy węzłów w klastrze.  
+[Wyeksportuj plik szablonu i parametrów](#export-the-template-for-the-resource-group) z grupy zasobów dla najnowszego wdrożenia.  Otwórz plik *Parameters. JSON* .  Jeśli klaster został wdrożony przy użyciu [przykładowego szablonu][template] w tym samouczku, w klastrze istnieją trzy typy węzłów.  
 
-Rozmiar maszyn wirtualnych w drugim typie węzła jest ustawiany w parametrze *vmNodeType1Size.*  Zmień wartość parametru *vmNodeType1Size* z Standard_D2_V2 na [Standard_D3_V2](../virtual-machines/dv2-dsv2-series.md), która podwaja zasoby każdego wystąpienia maszyny Wirtualnej.
+Rozmiar maszyn wirtualnych w drugim typie węzła jest ustawiany w parametrze *vmNodeType1Size* .  Zmień wartość parametru *vmNodeType1Size* z Standard_D2_V2 na [Standard_D3_V2](../virtual-machines/dv2-dsv2-series.md), co podwaja zasoby poszczególnych wystąpień maszyn wirtualnych.
 
-Jednostka SKU maszyny Wirtualnej dla wszystkich typów trzech węzłów jest ustawiona w parametrze *vmImageSku.*  Ponownie, zmiana jednostki SKU maszyny Wirtualnej typu węzła należy podchodzić z ostrożnością i nie jest zalecane dla typu węzła podstawowego.
+Jednostka SKU maszyny wirtualnej dla wszystkich trzech typów węzłów jest ustawiana za pomocą parametru *vmImageSku* .  W przypadku zmiany jednostki SKU maszyny wirtualnej typu węzła należy zachować ostrożność i nie jest to zalecane w przypadku podstawowego typu węzła.
 
-### <a name="deploy-the-updated-template"></a>Wdrażanie zaktualizowanego szablonu
-Zapisz wszelkie zmiany w plikach *template.json* i *parameters.json.*  Aby wdrożyć zaktualizowany szablon, uruchom następujące polecenie:
+### <a name="deploy-the-updated-template"></a>Wdróż zaktualizowany szablon
+Zapisz wszelkie zmiany w plikach *Template. JSON* i *Parameters. JSON* .  Aby wdrożyć zaktualizowany szablon, uruchom następujące polecenie:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
@@ -865,9 +865,9 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Dodawanie i usuwanie węzłów (skalowanie w poziomie i skalowanie)
-> * Dodawanie i usuwanie typów węzłów (skalowanie w poziomie i skalowanie)
-> * Zwiększanie zasobów węzłów (skalowanie w górę)
+> * Dodawanie i usuwanie węzłów (skalowanie w poziomie i skalowanie w górę)
+> * Dodawanie i usuwanie typów węzłów (skalowanie w poziomie i skalowanie w górę)
+> * Zwiększ zasoby węzła (Skaluj w górę)
 
 Przejdź do kolejnego samouczka, aby dowiedzieć się, jak uaktualnić środowisko uruchomieniowe klastra.
 > [!div class="nextstepaction"]
@@ -878,8 +878,8 @@ Przejdź do kolejnego samouczka, aby dowiedzieć się, jak uaktualnić środowis
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
 
-> * Dodawanie i usuwanie typów węzłów (skalowanie w poziomie i skalowanie)
-> * Zwiększanie zasobów węzłów (skalowanie w górę)
+> * Dodawanie i usuwanie typów węzłów (skalowanie w poziomie i skalowanie w górę)
+> * Zwiększ zasoby węzła (Skaluj w górę)
 
 Przejdź do kolejnego samouczka, aby dowiedzieć się, jak uaktualnić środowisko uruchomieniowe klastra.
 > [!div class="nextstepaction"]

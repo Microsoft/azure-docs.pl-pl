@@ -1,93 +1,93 @@
 ---
-title: Tworzenie kopii zapasowej bazy danych SAP HANA na platformie Azure za pomocą usługi Azure Backup
-description: W tym artykule dowiesz się, jak wykonać kopię zapasową bazy danych SAP HANA na maszynach wirtualnych platformy Azure za pomocą usługi Azure Backup.
+title: Tworzenie kopii zapasowej bazy danych SAP HANA na platformie Azure przy użyciu Azure Backup
+description: W tym artykule dowiesz się, jak utworzyć kopię zapasową bazy danych SAP HANA na maszynach wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: deedd4d2553b3b06f76f698fdb2425a8d3878d23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79248062"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Tworzenie kopii zapasowych baz danych platformy SAP HANA na maszynach wirtualnych platformy Azure
 
-Bazy danych SAP HANA są krytycznymi obciążeniami, które wymagają celu niskiego punktu odzyskiwania (RPO) i długoterminowego przechowywania. Można wykonać kopię zapasową baz danych SAP HANA uruchomionych na maszynach wirtualnych platformy Azure przy użyciu [usługi Azure Backup.](backup-overview.md)
+Bazy danych SAP HANA są obciążeniami krytycznymi, które wymagają niewielkiego celu punktu odzyskiwania (RPO) i długoterminowego przechowywania. Można utworzyć kopię zapasową SAP HANA baz danych uruchomionych na maszynach wirtualnych platformy Azure, korzystając z [Azure Backup](backup-overview.md).
 
-W tym artykule pokazano, jak wykonać kopię zapasową baz danych SAP HANA, które są uruchomione na maszynach wirtualnych platformy Azure do magazynu usług Azure Backup Recovery Services.
+W tym artykule pokazano, jak utworzyć kopię zapasową SAP HANA baz danych, które są uruchomione na maszynach wirtualnych platformy Azure, do magazynu Recovery Services Azure Backup.
 
 W tym artykule dowiesz się, jak:
 > [!div class="checklist"]
 >
-> * Tworzenie i konfigurowanie przechowalni
-> * Odnajduj bazy danych
-> * Konfigurowanie kopii zapasowych
+> * Tworzenie i Konfigurowanie magazynu
+> * Odnajdywanie baz danych
+> * Skonfiguruj kopie zapasowe
 > * Uruchamianie zadania tworzenia kopii zapasowej na żądanie
 
 >[!NOTE]
->**Usuwanie trędowak dla serwera SQL w usłudze Azure VM i usuwanie nietrwałe dla sap HANA w obciążeniach maszyn wirtualnych platformy Azure** jest teraz dostępne w wersji zapoznawczej.<br>
->Aby zapisać się do podglądu, napisz do nas naAskAzureBackupTeam@microsoft.com
+>**Nietrwałe usuwanie programu SQL Server na maszynie wirtualnej platformy Azure oraz usuwanie nietrwałe dla SAP HANA w obciążeniach maszyn wirtualnych platformy Azure** jest teraz dostępne w wersji zapoznawczej.<br>
+>Aby utworzyć konto w wersji zapoznawczej, Zapisz się do nas naAskAzureBackupTeam@microsoft.com
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zapoznaj się z [wymaganiami wstępnymi](tutorial-backup-sap-hana-db.md#prerequisites) i [sekcjami Co skrypt rejestracji wstępnej,](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) aby skonfigurować bazę danych do tworzenia kopii zapasowych.
+Zapoznaj się z [wymaganiami wstępnymi](tutorial-backup-sap-hana-db.md#prerequisites) i informacjami o [skrypcie przed rejestracją](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) , aby skonfigurować bazę danych do tworzenia kopii zapasowych.
 
 ### <a name="set-up-network-connectivity"></a>Konfigurowanie łączności sieciowej
 
-Dla wszystkich operacji SAP HANA VM wymaga łączności z publicznych adresów IP platformy Azure. Operacje maszyn wirtualnych (odnajdowanie bazy danych, konfigurowanie kopii zapasowych, planowanie tworzenia kopii zapasowych, przywracanie punktów odzyskiwania itd.) kończą się niepowodzeniem bez łączności z publicznymi adresami IP platformy Azure.
+Dla wszystkich operacji maszyna wirtualna SAP HANA wymaga łączności z publicznymi adresami IP platformy Azure. Operacje maszyny wirtualnej (Odnajdywanie bazy danych, konfigurowanie kopii zapasowych, Planowanie kopii zapasowych, przywracanie punktów odzyskiwania itd.) kończą się niepowodzeniem bez łączności z publicznymi adresami IP platformy Azure.
 
-Nawiązuj łączność przy użyciu jednej z następujących opcji:
+Ustanów łączność przy użyciu jednej z następujących opcji:
 
 #### <a name="allow-the-azure-datacenter-ip-ranges"></a>Zezwalaj na zakresy adresów IP centrum danych platformy Azure
 
-Ta opcja umożliwia [zakresy adresów IP](https://www.microsoft.com/download/details.aspx?id=41653) w pobranym pliku. Aby uzyskać dostęp do sieciowej grupy zabezpieczeń (NSG), należy użyć polecenia cmdlet Set-AzureNetworkSecurityRule. Jeśli lista bezpiecznych adresatów zawiera tylko adresy IP specyficzne dla regionu, należy również zaktualizować listę bezpiecznych adresatów tagu usługi Azure Active Directory (Azure AD), aby włączyć uwierzytelnianie.
+Ta opcja zezwala na [zakresy adresów IP](https://www.microsoft.com/download/details.aspx?id=41653) w pobranym pliku. Aby uzyskać dostęp do sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń), użyj polecenia cmdlet Set-AzureNetworkSecurityRule. Jeśli lista bezpiecznych adresatów zawiera tylko adresy IP specyficzne dla regionu, należy również zaktualizować Azure Active Directory listę bezpiecznych adresatów, aby włączyć uwierzytelnianie.
 
-#### <a name="allow-access-using-nsg-tags"></a>Zezwalaj na dostęp przy użyciu znaczników NSG
+#### <a name="allow-access-using-nsg-tags"></a>Zezwalaj na dostęp za pomocą tagów sieciowej grupy zabezpieczeń
 
-Jeśli używasz sieciowej sieciowej sieciowej do ograniczania łączności, należy użyć tagu usługi AzureBackup, aby zezwalać na dostęp wychodzący do usługi Azure Backup. Ponadto należy również zezwolić na łączność dla uwierzytelniania i transferu danych przy użyciu [reguł](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) dla usługi Azure AD i usługi Azure Storage. Można to zrobić za pośrednictwem witryny Azure portal lub za pośrednictwem programu PowerShell.
+Jeśli używasz sieciowej grupy zabezpieczeń do ograniczenia łączności, należy użyć znacznika usługi AzureBackup w celu zezwalania na dostęp wychodzący do Azure Backup. Ponadto należy również zezwolić na łączność z uwierzytelnianiem i transferem danych przy użyciu [reguł](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) dla usług Azure AD i Azure Storage. Można to zrobić w Azure Portal lub za pomocą programu PowerShell.
 
-Aby utworzyć regułę za pomocą portalu:
+Aby utworzyć regułę przy użyciu portalu:
 
-  1. W **obszarze Wszystkie usługi**przejdź do grup zabezpieczeń **Sieć** i wybierz grupę zabezpieczeń sieci.
-  2. Wybierz **pozycję Reguły zabezpieczeń wychodzących** w obszarze **Ustawienia**.
-  3. Wybierz pozycję **Dodaj**. Wprowadź wszystkie szczegóły wymagane do utworzenia nowej reguły zgodnie z opisem w [ustawieniach reguły zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Upewnij się, że opcja **Miejsce docelowe** jest **ustawiona** na Tag usługi i **Tag usługi docelowej** jest ustawiony na **AzureBackup**.
-  4. Kliknij **przycisk Dodaj**, aby zapisać nowo utworzoną regułę zabezpieczeń wychodzących.
+  1. W obszarze **wszystkie usługi**przejdź do pozycji **sieciowe grupy zabezpieczeń** i wybierz grupę zabezpieczeń sieci.
+  2. W obszarze **Ustawienia**wybierz pozycję **reguły zabezpieczeń dla ruchu wychodzącego** .
+  3. Wybierz pozycję **Dodaj**. Wprowadź wszystkie wymagane szczegóły dotyczące tworzenia nowej reguły zgodnie z opisem w [ustawieniach reguły zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Upewnij się, że opcja **miejsce docelowe** jest ustawiona na **tag usługi** i **znacznik usługi docelowej** jest ustawiony na **AzureBackup**.
+  4. Kliknij przycisk **Dodaj**, aby zapisać nowo utworzoną regułę zabezpieczeń dla ruchu wychodzącego.
 
 Aby utworzyć regułę przy użyciu programu PowerShell:
 
- 1. Dodawanie poświadczeń konta platformy Azure i aktualizowanie chmur krajowych<br/>
+ 1. Dodawanie poświadczeń konta platformy Azure i aktualizowanie chmur narodowych<br/>
       `Add-AzureRmAccount`<br/>
 
- 2. Wybierz subskrypcję nsg<br/>
+ 2. Wybierz subskrypcję usługi sieciowej grupy zabezpieczeń<br/>
       `Select-AzureRmSubscription "<Subscription Id>"`
 
- 3. Wybierz nsg<br/>
+ 3. Wybierz sieciowej grupy zabezpieczeń<br/>
     `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
 
- 4. Dodaj regułę zezwalania na ruch wychodzący dla tagu usługi Azure Backup<br/>
+ 4. Dodaj regułę zezwalającą na ruch wychodzący dla tagu usługi Azure Backup<br/>
     `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
 
- 5. Dodaj regułę zezwalania na ruch wychodzący dla tagu usługi Magazyn<br/>
+ 5. Dodaj regułę zezwalającą na ruch wychodzący dla tagu usługi magazynu<br/>
     `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
 
- 6. Dodaj regułę zezwalania na ruch wychodzący dla tagu usługi AzureActiveDirectory<br/>
+ 6. Dodaj regułę zezwalającą na ruch wychodzący dla tagu usługi usługi azureactivedirectory<br/>
     `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"`
 
- 7. Zapisz nsg<br/>
+ 7. Zapisz sieciowej grupy zabezpieczeń<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
 
-**Zezwól na dostęp przy użyciu tagów Zapory platformy Azure**. Jeśli używasz Zapory platformy Azure, utwórz regułę aplikacji przy użyciu [tagu FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags)usługi AzureBackup . Dzięki temu dostęp wychodzący do usługi Azure Backup.
+**Zezwalaj na dostęp za pomocą tagów zapory platformy Azure**. Jeśli używasz zapory platformy Azure, Utwórz regułę aplikacji przy użyciu [znacznika FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags)AzureBackup. Umożliwia to wychodzący dostęp do Azure Backup.
 
-**Wdrażanie serwera proxy HTTP w celu kierowania ruchu**. Podczas tworzenia kopii zapasowej bazy danych SAP HANA na maszynie Wirtualnej platformy Azure rozszerzenie kopii zapasowej na maszynie Wirtualnej używa interfejsów API HTTPS do wysyłania poleceń zarządzania do usługi Azure Backup i danych do usługi Azure Storage. Rozszerzenie kopii zapasowej używa również usługi Azure AD do uwierzytelniania. Ruch rozszerzenia kopii zapasowej dla tych trzech usług należy kierować za pośrednictwem serwera proxy HTTP. Rozszerzenia są jedynym składnikiem skonfigurowanym do uzyskiwania dostępu do publicznego internetu.
+**Wdróż serwer proxy HTTP, aby kierować ruchem**. Podczas tworzenia kopii zapasowej bazy danych SAP HANA na maszynie wirtualnej platformy Azure rozszerzenie kopii zapasowej na maszynie wirtualnej używa interfejsów API HTTPS do wysyłania poleceń zarządzania do Azure Backup i danych do usługi Azure Storage. Rozszerzenie kopii zapasowej używa także usługi Azure AD do uwierzytelniania. Ruch rozszerzenia kopii zapasowej dla tych trzech usług należy kierować za pośrednictwem serwera proxy HTTP. Rozszerzenia są jedynym składnikiem skonfigurowanym do uzyskiwania dostępu do publicznego Internetu.
 
 Opcje łączności obejmują następujące zalety i wady:
 
-**Opcja** | **Zalety** | **Wady**
+**Zaznaczyć** | **Zalety** | **Wady**
 --- | --- | ---
-Zezwolenie na zakresy adresów IP | Brak dodatkowych kosztów | Skomplikowane zarządzanie, ponieważ zakresy adresów IP zmieniają się w czasie <br/><br/> Zapewnia dostęp do całej platformy Azure, nie tylko usługi Azure Storage
-Używanie tagów usług NSG | Łatwiejsze zarządzanie, ponieważ zmiany zakresu są automatycznie scalane <br/><br/> Brak dodatkowych kosztów <br/><br/> | Może być używany tylko z nsgs <br/><br/> Zapewnia dostęp do całej usługi
-Używanie tagów FQDN zapory platformy Azure | Łatwiejsze zarządzanie, ponieważ wymagane nazwy FQDN są automatycznie zarządzane | Może być używany tylko z Zaporą platformy Azure
-Używanie serwera proxy HTTP | Szczegółowa kontrola serwera proxy nad adresami URL magazynu jest dozwolona <br/><br/> Pojedynczy punkt dostępu do Internetu dla maszyn wirtualnych <br/><br/> Nie podlega zmianom adresu IP platformy Azure | Dodatkowe koszty uruchomienia maszyny wirtualnej z oprogramowaniem proxy
+Zezwolenie na zakresy adresów IP | Brak dodatkowych kosztów | Skomplikowane do zarządzania, ponieważ zakresy adresów IP zmieniają się w czasie <br/><br/> Zapewnia dostęp do całości platformy Azure, a nie tylko usługi Azure Storage
+Użyj tagów usługi sieciowej grupy zabezpieczeń | Łatwiejsze zarządzanie, ponieważ zmiany zakresu są automatycznie scalane <br/><br/> Brak dodatkowych kosztów <br/><br/> | Może być używany tylko z sieciowych grup zabezpieczeń <br/><br/> Zapewnia dostęp do całej usługi
+Używanie tagów nazwy FQDN zapory platformy Azure | Łatwiejsze zarządzanie, ponieważ wymagane są automatycznie zarządzane nazwy FQDN | Może być używany tylko z zaporą platformy Azure
+Używanie serwera proxy HTTP | Szczegółowa kontrola w serwerze proxy za pośrednictwem adresów URL magazynu jest dozwolona <br/><br/> Dostęp do maszyn wirtualnych w jednym punkcie dostępu do Internetu <br/><br/> Nie podlegają zmianom adresów IP platformy Azure | Dodatkowe koszty związane z uruchamianiem maszyny wirtualnej za pomocą oprogramowania serwera proxy
 
 #### <a name="private-endpoints"></a>Prywatne punkty końcowe
 
@@ -95,118 +95,118 @@ Używanie serwera proxy HTTP | Szczegółowa kontrola serwera proxy nad adresami
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-## <a name="discover-the-databases"></a>Odnajduj bazy danych
+## <a name="discover-the-databases"></a>Odnajdywanie baz danych
 
-1. W przechowalni w obszarze **Wprowadzenie**kliknij pozycję **Kopia zapasowa**. W **gdzie jest uruchomione obciążenie?**, wybierz SAP **HANA w usłudze Azure VM**.
-2. Kliknij **pozycję Rozpocznij odnajdowanie**. Inicjuje to odnajdowanie niechronionych maszyn wirtualnych z systemem Linux w regionie przechowalni.
+1. W magazynie w **wprowadzenie**kliknij pozycję **kopia zapasowa**. W **miejscu, w którym jest uruchomione Twoje obciążenie?** wybierz pozycję **SAP HANA na maszynie wirtualnej platformy Azure**.
+2. Kliknij przycisk **Rozpocznij odnajdywanie**. Spowoduje to zainicjowanie odnajdywania niechronionych maszyn wirtualnych z systemem Linux w regionie magazynu.
 
-   * Po odnajdowaniu niechronione maszyny wirtualne są wyświetlane w portalu, wymienione według nazwy i grupy zasobów.
-   * Jeśli maszyna wirtualna nie jest wymieniona zgodnie z oczekiwaniami, sprawdź, czy jest już utworzona kopia zapasowa w magazynie.
+   * Po odnajdywaniu w portalu są wyświetlane niechronione maszyny wirtualne wymienione według nazwy i grupy zasobów.
+   * Jeśli maszyna wirtualna nie znajduje się w oczekiwany sposób, sprawdź, czy kopia zapasowa została już utworzona w magazynie.
    * Wiele maszyn wirtualnych może mieć taką samą nazwę, ale należą do różnych grup zasobów.
 
-3. W **wybierz maszyny wirtualne**kliknij łącze, aby pobrać skrypt, który zapewnia uprawnienia do usługi Azure Backup, aby uzyskać dostęp do maszyn wirtualnych SAP HANA do odnajdowania bazy danych.
-4. Uruchom skrypt na każdej maszynie wirtualnej obsługującej bazy danych SAP HANA, których chcesz poprzeć.
-5. Po uruchomieniu skryptu na maszynach wirtualnych w **obszarze Wybierz maszyny wirtualne**wybierz maszyny wirtualne. Następnie kliknij przycisk **Odkryj kule.**
-6. Usługa Azure Backup odnajduje wszystkie bazy danych SAP HANA na maszynie Wirtualnej. Podczas odnajdywania usługa Azure Backup rejestruje maszynę wirtualną z magazynem i instaluje rozszerzenie na maszynie Wirtualnej. Żaden agent nie jest zainstalowany w bazie danych.
+3. W obszarze **wybierz Virtual Machines**kliknij link, aby pobrać skrypt, który zapewnia uprawnienia do usługi Azure Backup do uzyskiwania dostępu do maszyn wirtualnych SAP HANA na potrzeby odnajdywania bazy danych.
+4. Uruchom skrypt na każdej maszynie wirtualnej, w której znajdują się SAP HANA bazy danych, których kopię zapasową chcesz utworzyć.
+5. Po uruchomieniu skryptu na maszynach wirtualnych w obszarze **wybierz Virtual Machines**Wybierz Maszyny wirtualne. Następnie kliknij pozycję **odkryj baz danych**.
+6. Azure Backup odnajduje wszystkie SAP HANA bazy danych na maszynie wirtualnej. Podczas odnajdywania Azure Backup rejestruje maszynę wirtualną w magazynie i instaluje rozszerzenie na maszynie wirtualnej. Żaden Agent nie jest zainstalowany w bazie danych.
 
-    ![Odnajduj bazy danych SAP HANA](./media/backup-azure-sap-hana-database/hana-discover.png)
+    ![Odnajdź SAP HANA bazy danych](./media/backup-azure-sap-hana-database/hana-discover.png)
 
 ## <a name="configure-backup"></a>Konfigurowanie kopii zapasowych  
 
-Teraz włącz tworzenie kopii zapasowych.
+Teraz Włącz tworzenie kopii zapasowej.
 
 1. W kroku 2 kliknij pozycję **Konfiguruj kopię zapasową**.
 
     ![Skonfiguruj kopię zapasową](./media/backup-azure-sap-hana-database/configure-backup.png)
-2. W **obszarze Wybierz elementy do utworzenia kopii zapasowej**wybierz wszystkie bazy danych, które chcesz chronić > **OK**.
+2. W obszarze **Wybierz elementy do utworzenia kopii zapasowej**wybierz wszystkie bazy danych, które mają być chronione > **OK**.
 
-    ![Wybieranie elementów do utworzenia kopii zapasowej](./media/backup-azure-sap-hana-database/select-items.png)
-3. W **obszarze Zasady** > tworzenia kopii**zapasowych Wybierz zasady tworzenia kopii zapasowych**, utwórz nową zasadę tworzenia kopii zapasowych dla baz danych, zgodnie z poniższymi instrukcjami.
+    ![Wybierz elementy do utworzenia kopii zapasowej](./media/backup-azure-sap-hana-database/select-items.png)
+3. W obszarze >  **zasady tworzenia kopii**zapasowych**Wybierz pozycję Zasady tworzenia kopii**zapasowych, Utwórz nowe zasady tworzenia kopii zapasowych baz danych, zgodnie z poniższymi instrukcjami.
 
-    ![Wybieranie zasad tworzenia kopii zapasowych](./media/backup-azure-sap-hana-database/backup-policy.png)
-4. Po utworzeniu zasad w menu **Kopia zapasowa** kliknij polecenie **Włącz tworzenie kopii zapasowej**.
+    ![Wybieranie zasad kopii zapasowych](./media/backup-azure-sap-hana-database/backup-policy.png)
+4. Po utworzeniu zasad w menu **kopia zapasowa** kliknij pozycję **Włącz kopię zapasową**.
 
-    ![Włączanie tworzenia kopii zapasowych](./media/backup-azure-sap-hana-database/enable-backup.png)
-5. Śledzenie postępu konfiguracji kopii zapasowej w obszarze **Powiadomienia** portalu.
+    ![Włącz tworzenie kopii zapasowej](./media/backup-azure-sap-hana-database/enable-backup.png)
+5. Śledź postęp konfiguracji kopii zapasowej w obszarze **powiadomienia** portalu.
 
 ### <a name="create-a-backup-policy"></a>Tworzenie zasad kopii zapasowych
 
-Zasady tworzenia kopii zapasowych określają, kiedy kopie zapasowe są pobierane i jak długo są zachowywane.
+Zasady tworzenia kopii zapasowych definiują, kiedy są tworzone kopie zapasowe, oraz czas ich przechowywania.
 
 * Zasady są tworzone na poziomie magazynu.
 * Wiele magazynów może korzystać z tych samych zasad kopii zapasowych, ale do każdego magazynu należy zastosować zasady kopii zapasowych.
 
-Określ następujące ustawienia zasad:
+Określ ustawienia zasad w następujący sposób:
 
 1. W polu **Nazwa zasad** wprowadź nazwę nowych zasad.
 
    ![Wprowadź nazwę zasad](./media/backup-azure-sap-hana-database/policy-name.png)
 2. W obszarze **Zasady pełnej kopii zapasowej** wybierz opcję **Częstotliwość tworzenia kopii zapasowej** (**Codziennie** lub **Co tydzień**).
-   * **Codziennie:** Wybierz godzinę i strefę czasową, w której rozpoczyna się zadanie tworzenia kopii zapasowej.
+   * **Codziennie**: Wybierz godzinę i strefę czasową, w której rozpoczyna się zadanie tworzenia kopii zapasowej.
        * Należy uruchomić pełną kopię zapasową. Nie można wyłączyć tej opcji.
        * Kliknij pozycję **Pełna kopia zapasowa**, aby wyświetlić zasady.
        * Nie można tworzyć różnicowych kopii zapasowych w przypadku codziennego tworzenia pełnych kopii zapasowych.
-   * **Co tydzień:** wybierz dzień tygodnia, godzinę i strefę czasową, w której jest uruchamiane zadanie tworzenia kopii zapasowej.
+   * **Co tydzień**: Wybierz dzień tygodnia, godzinę i strefę czasową, w której jest uruchamiane zadanie tworzenia kopii zapasowej.
 
-   ![Wybieranie częstotliwości tworzenia kopii zapasowych](./media/backup-azure-sap-hana-database/backup-frequency.png)
+   ![Wybierz częstotliwość tworzenia kopii zapasowych](./media/backup-azure-sap-hana-database/backup-frequency.png)
 
-3. W **obszarze Zakres przechowywania**skonfiguruj ustawienia przechowywania dla pełnej kopii zapasowej.
-    * Domyślnie wszystkie opcje są zaznaczone. Wyczyść wszystkie limity zakresu przechowywania, których nie chcesz używać, i ustaw te, które chcesz wykonać.
-    * Minimalny okres przechowywania dla każdego typu kopii zapasowej (pełna/różnicowa/dziennik) wynosi siedem dni.
+3. W obszarze **Zakres przechowywania**Skonfiguruj ustawienia przechowywania dla pełnej kopii zapasowej.
+    * Domyślnie wszystkie opcje są zaznaczone. Wyczyść limity zakresu przechowywania, których nie chcesz używać, i ustaw te, które chcesz wykonać.
+    * Minimalny okres przechowywania dla dowolnego typu kopii zapasowej (pełny/różnicowa/log) wynosi siedem dni.
     * Punkty odzyskiwania są oznaczone do przechowywania na podstawie ich zakresu przechowywania. Jeśli na przykład wybierzesz codzienne tworzenie pełnej kopii zapasowej, każdego dnia będzie wyzwalana tylko jedna pełna kopia zapasowa.
-    * Kopia zapasowa dla określonego dnia jest oznaczana i zachowywana na podstawie tygodniowego zakresu przechowywania i ustawienia.
+    * Kopia zapasowa dla określonego dnia jest otagowana i zachowywana na podstawie tygodniowego zakresu przechowywania i ustawienia.
     * Miesięczne i roczne zakresy przechowywania zachowują się w podobny sposób.
 
-4. W menu **Zasady pełnej kopii zapasowej** kliknij przycisk **OK,** aby zaakceptować ustawienia.
-5. Wybierz **opcję Kopia zapasowa różnicowa,** aby dodać zasady różnicowe.
+4. W menu **pełne zasady tworzenia kopii zapasowej** kliknij przycisk **OK** , aby zaakceptować ustawienia.
+5. Wybierz pozycję **różnicowa kopia zapasowa** , aby dodać zasady różnicowe.
 6. W obszarze **Zasady różnicowej kopii zapasowej** wybierz pozycję **Włącz**, aby otworzyć kontrolki częstotliwości i przechowywania.
     * Można wyzwalać maksymalnie jedną różnicową kopię zapasową dziennie.
     * Różnicowe kopie zapasowe mogą być przechowywane przez maksymalnie 180 dni. Jeśli potrzebujesz dłuższego okresu przechowywania, musisz użyć pełnych kopii zapasowych.
 
-    ![Zasady różnicowego tworzenia kopii zapasowych](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
+    ![Zasady różnicowych kopii zapasowych](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
     > Przyrostowe kopie zapasowe nie są obecnie obsługiwane.
 
-7. Kliknij **przycisk OK,** aby zapisać zasady i powrócić do głównego menu **zasad kopii zapasowej.**
-8. Wybierz **log backup,** aby dodać zasady tworzenia kopii zapasowych dziennika transakcyjnego,
-    * W **obszarze Kopia zapasowa**dziennika wybierz pozycję **Włącz**.  Nie można tego wyłączyć, ponieważ sap HANA zarządza wszystkimi kopiami zapasowymi dziennika.
-    * Ustaw kontrolki częstotliwości i przechowywania.
+7. Kliknij przycisk **OK** , aby zapisać zasady i wrócić do głównego menu **zasad kopii zapasowych** .
+8. Wybierz pozycję **kopia zapasowa dziennika** , aby dodać zasady kopii zapasowej dziennika transakcyjnego,
+    * W obszarze **kopia zapasowa dziennika**wybierz pozycję **Włącz**.  Nie można go wyłączyć, ponieważ SAP HANA zarządza wszystkimi kopiami zapasowymi dzienników.
+    * Ustaw kontrolkę częstotliwość i przechowywanie.
 
     > [!NOTE]
-    > Kopie zapasowe dziennika zaczynają przepływać dopiero po pomyślnym zakończeniu pełnej kopii zapasowej.
+    > Kopie zapasowe dzienników zaczynają przepływać dopiero po pomyślnym wykonaniu pełnej kopii zapasowej.
 
-9. Kliknij **przycisk OK,** aby zapisać zasady i powrócić do głównego menu **zasad kopii zapasowej.**
-10. Po zakończeniu definiowania zasad tworzenia kopii zapasowych kliknij przycisk **OK**.
+9. Kliknij przycisk **OK** , aby zapisać zasady i wrócić do głównego menu **zasad kopii zapasowych** .
+10. Po zdefiniowaniu zasad tworzenia kopii zapasowej kliknij przycisk **OK**.
 
 > [!NOTE]
-> Każda kopia zapasowa dziennika jest przywiązywalem do poprzedniej pełnej kopii zapasowej w celu utworzenia łańcucha odzyskiwania. Ta pełna kopia zapasowa zostanie zachowana do czasu wygaśnięcia przechowywania ostatniej kopii zapasowej dziennika. Może to oznaczać, że pełna kopia zapasowa jest przechowywana przez dodatkowy okres, aby upewnić się, że wszystkie dzienniki można odzyskać. Załóżmy, że użytkownik ma cotygodniową pełną kopię zapasową, dzienną różnicę i 2-godzinne dzienniki. Wszystkie z nich są przechowywane przez 30 dni. Ale, tygodniowy pełny może być naprawdę oczyszczone / usunięte tylko po następnej pełnej kopii zapasowej jest dostępna, czyli po 30 + 7 dni. Powiedzmy, że cotygodniowa pełna kopia zapasowa ma miejsce 16 listopada. Zgodnie z zasadami przechowywania, należy zachować do 16 grudnia. Ostatnia kopia zapasowa dziennika dla tej pełnej dzieje się przed następnym zaplanowane pełne, na 22 listopada. Dopóki ten dziennik nie będzie dostępny do 22 grudnia, 16 listopada nie można usunąć pełnej. Tak, 16 listopada pełne jest zachowane do 22 grudnia.
+> Każda kopia zapasowa dziennika jest łańcuchem do poprzedniej pełnej kopii zapasowej w celu utworzenia łańcucha odzyskiwania. Ta pełna kopia zapasowa zostanie zachowana do momentu wygaśnięcia ostatniej kopii zapasowej dziennika. Może to oznaczać, że pełna kopia zapasowa jest przechowywana przez dodatkowy okres, aby upewnić się, że wszystkie dzienniki mogą zostać odzyskane. Załóżmy, że użytkownik dysponuje tygodniową pełną kopią zapasową, różnicą dzienną i 2-godzinnymi dziennikami. Wszystkie z nich są przechowywane przez 30 dni. Jednak tydzień pełny może być naprawdę oczyszczony/usunięty tylko po udostępnieniu kolejnej pełnej kopii zapasowej, tj. po upływie 30 dni. Załóżmy, że cotygodniowe pełne kopie zapasowe odbywają się na LIS 16. Zgodnie z zasadami przechowywania należy je zachować do 16 grudnia. Ostatnia kopia zapasowa dziennika dla tego stanu jest wykonywana przed następnym zaplanowanym zaplanowaną godziną. Do momentu udostępnienia tego dziennika do grudnia 22 nie można usunąć. W związku z tym do gru.
 
 ## <a name="run-an-on-demand-backup"></a>Uruchamianie kopii zapasowej na żądanie
 
 Kopie zapasowe są uruchamiane zgodnie z harmonogramem zasad. Kopię zapasową można uruchomić na żądanie w następujący sposób:
 
-1. W menu przechowalni kliknij polecenie **Zapasy elementów**.
-2. W **obszarze Elementy kopii zapasowej**wybierz maszynę wirtualną z uruchomieniem bazy danych SAP HANA, a następnie kliknij przycisk Kopia **zapasowa teraz**.
-3. W **obszarze Kopia zapasowa teraz**użyj formantu kalendarza, aby wybrać ostatni dzień, w którym punkt odzyskiwania powinien zostać zachowany. Następnie kliknij przycisk **OK**.
-4. Monitorowanie powiadomień portalu. Postęp zadania na pulpicie nawigacyjnym magazynu można monitorować > **Zadania** > kopii zapasowej**w toku**. W zależności od rozmiaru bazy danych utworzenie początkowej kopii zapasowej może chwilę potrwać.
+1. W menu magazyn kliknij pozycję **elementy kopii zapasowej**.
+2. W obszarze **elementy kopii zapasowej**wybierz maszynę wirtualną z uruchomioną SAP HANA bazą danych, a następnie kliknij pozycję **Utwórz kopię zapasową teraz**.
+3. W obszarze **kopia zapasowa**Użyj formantu kalendarza, aby wybrać ostatni dzień przechowywania punktu odzyskiwania. Następnie kliknij przycisk **OK**.
+4. Monitoruj powiadomienia portalu. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu > >  **zadania tworzenia kopii zapasowej****w toku**. W zależności od rozmiaru bazy danych Tworzenie początkowej kopii zapasowej może chwilę potrwać.
 
-## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Uruchamianie kopii zapasowej SAP HANA Studio w bazie danych z włączoną obsługą usługi Azure Backup
+## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Uruchamianie kopii zapasowej SAP HANA Studio w bazie danych z włączoną funkcją Azure Backup
 
-Jeśli chcesz wykonać lokalną kopię zapasową (przy użyciu HANA Studio) bazy danych, której kopię zapasową jest kopia zapasowa za pomocą usługi Azure Backup, wykonaj następujące czynności:
+Jeśli chcesz utworzyć lokalną kopię zapasową bazy danych, której kopia zapasowa jest tworzona przy użyciu Azure Backup, wykonaj następujące czynności:
 
-1. Poczekaj na pełne lub dziennikowe kopie zapasowe dla bazy danych, aby zakończyć. Sprawdź stan w SAP HANA Studio / Cockpit.
-2. Wyłącz kopie zapasowe dziennika i ustaw katalog kopii zapasowych w systemie plików dla odpowiedniej bazy danych.
-3. Aby to zrobić, kliknij dwukrotnie opcję **Systemdb** > **Configuration** > **Select Database** > **Filter (Log)**.
-4. Ustaw **enable_auto_log_backup** na **Nie**.
-5. Ustaw **log_backup_using_backint** na **False**.
-6. Wykonaj pełną kopię zapasową bazy danych na żądanie.
-7. Poczekaj na zakończenie pełnej kopii zapasowej i katalogu.
-8. Przywróć poprzednie ustawienia do tych dla platformy Azure:
-    * Ustaw **enable_auto_log_backup** **tak**.
-    * Ustaw **log_backup_using_backint** **true**.
+1. Poczekaj na zakończenie wszystkich pełnych lub dzienników kopii zapasowych bazy danych. Sprawdź stan w SAP HANA Studio/Panel sterowania.
+2. Wyłącz kopie zapasowe dzienników i ustaw wykaz kopii zapasowych w systemie plików dla odpowiedniej bazy danych.
+3. Aby to zrobić, kliknij dwukrotnie pozycję **systemdb** > **Konfiguracja** > systemdb**Wybierz pozycję Filtr bazy danych** > **(log)**.
+4. Ustaw **enable_auto_log_backup** na wartość **nie**.
+5. Ustaw **log_backup_using_backint** na **wartość false**.
+6. Wykonaj pełną kopię zapasową bazy danych.
+7. Poczekaj na zakończenie pełnej kopii zapasowej i kopii zapasowej wykazu.
+8. Przywróć poprzednie ustawienia z powrotem do tych dla platformy Azure:
+    * Ustaw wartość **enable_auto_log_backup** na **tak**.
+    * Ustaw **log_backup_using_backint** na **wartość true**.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się, jak [przywrócić bazy danych SAP HANA uruchomione na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
-* Dowiedz się, jak [zarządzać bazami danych SAP HANA, których kopia zapasowa jest archiwizna przy użyciu usługi Azure Backup](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)
+* Dowiedz się [, jak zarządzać bazami danych SAP HANA, których kopia zapasowa została utworzona przy użyciu Azure Backup](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)

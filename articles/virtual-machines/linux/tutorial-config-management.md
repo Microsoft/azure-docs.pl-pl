@@ -1,6 +1,6 @@
 ---
-title: Samouczek — zarządzanie konfiguracją maszyny wirtualnej systemu Linux na platformie Azure
-description: W tym samouczku dowiesz się, jak zidentyfikować zmiany i zarządzać aktualizacjami pakietów na maszynie wirtualnej systemu Linux
+title: Samouczek — zarządzanie konfiguracją maszyny wirtualnej z systemem Linux na platformie Azure
+description: W tym samouczku dowiesz się, jak identyfikować zmiany i zarządzać aktualizacjami pakietów na maszynie wirtualnej z systemem Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: mgoedtel
@@ -16,17 +16,17 @@ ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 5dd35ed2f4533d19cc3a59788d6422416dce13f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79239294"
 ---
-# <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Samouczek: Monitorowanie zmian i aktualizowanie maszyny wirtualnej systemu Linux na platformie Azure
+# <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Samouczek: monitorowanie zmian i aktualizowanie maszyny wirtualnej z systemem Linux na platformie Azure
 
-Usługa Azure [Change Tracking](../../automation/change-tracking.md) umożliwia łatwe identyfikowanie zmian, a [zarządzanie aktualizacjami](../../automation/automation-update-management.md) umożliwia zarządzanie aktualizacjami systemu operacyjnego dla maszyn wirtualnych systemu Azure z systemem Linux.
+Usługa Azure [Change Tracking](../../automation/change-tracking.md) pozwala łatwo identyfikować zmiany, a [Update Management](../../automation/automation-update-management.md) umożliwia zarządzanie aktualizacjami systemu operacyjnego dla maszyn wirtualnych z systemem Linux systemu Azure.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Zarządzanie aktualizacjami systemu Windows
@@ -64,7 +64,7 @@ az vm create \
 Rozwiązanie Update Management pozwala zarządzać aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure z systemem Linux.
 Bezpośrednio z poziomu maszyny wirtualnej możesz szybko ocenić stan dostępnych aktualizacji, zaplanować instalację wymaganych aktualizacji i przejrzeć wyniki wdrażania, aby sprawdzić, czy aktualizacje zostały zastosowane pomyślnie do maszyny wirtualnej.
 
-Aby uzyskać informacje o cenach, zobacz [Ceny automatyzacji dla zarządzania aktualizacjami](https://azure.microsoft.com/pricing/details/automation/)
+Aby uzyskać informacje o cenach, zobacz [Cennik usługi Automation dla zarządzania aktualizacjami](https://azure.microsoft.com/pricing/details/automation/)
 
 ### <a name="enable-update-management"></a>Włączanie rozwiązania Update Management
 
@@ -83,15 +83,15 @@ Aby wykonać dodatkowe akcje na maszynach wirtualnych, które wymagają aktualiz
 
 Proces walidacji sprawdza również, czy maszyna wirtualna jest aprowizowana za pomocą agenta usługi Log Analytics i hybrydowego procesu roboczego runbook usługi Automation. Ten agent jest używany do komunikacji z maszyną wirtualną i uzyskiwania informacji dotyczących stanu aktualizacji.
 
-Wybierz obszar roboczy usługi Log Analytics i konto automatyzacji i wybierz pozycję **Włącz,** aby włączyć rozwiązanie. Włączanie rozwiązania może trwać do 15 minut.
+Wybierz obszar roboczy Log Analytics i konto usługi Automation, a następnie wybierz pozycję **Włącz** , aby włączyć rozwiązanie. Włączanie rozwiązania może trwać do 15 minut.
 
 Jeśli którekolwiek z następujących wymagań wstępnych nie będzie występować podczas dołączania, zostanie ono automatycznie dołączone:
 
-* Obszar roboczy [usługi Log Analytics](../../log-analytics/log-analytics-overview.md)
-* [Konto automatyzacji](../../automation/automation-offering-get-started.md)
+* [Log Analytics](../../log-analytics/log-analytics-overview.md) obszar roboczy
+* [Konto usługi Automation](../../automation/automation-offering-get-started.md)
 * [Hybrydowy proces roboczy elementu Runbook](../../automation/automation-hybrid-runbook-worker.md) jest włączony na maszynie wirtualnej
 
-Zostanie otwarty ekran **Rozwiązanie Update Management**. Skonfiguruj lokalizację, obszar roboczy usługi Log Analytics i konto automatyzacji, aby używać i wybierz **pozycję Włącz**. Jeśli pola są wygaszone, oznacza to, że inne rozwiązanie automatyzacji jest włączone dla maszyny wirtualnej, a tym samym należy użyć tego samego obszaru roboczego i konta automatyzacji.
+Zostanie otwarty ekran **Rozwiązanie Update Management**. Skonfiguruj lokalizację, Log Analytics obszar roboczy i konto usługi Automation, a następnie wybierz pozycję **Włącz**. Jeśli pola są wygaszone, oznacza to, że inne rozwiązanie automatyzacji jest włączone dla maszyny wirtualnej, a tym samym należy użyć tego samego obszaru roboczego i konta automatyzacji.
 
 ![Włączanie rozwiązania Update Management](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
@@ -109,22 +109,22 @@ Aby zainstalować aktualizacje, zaplanuj wdrożenie zgodnie z harmonogramem wyda
 
 Zaplanuj nowe wdrożenie aktualizacji dla maszyny wirtualnej, klikając pozycję **Zaplanuj wdrażanie aktualizacji** w górnej części ekranu **Update Management**. Na ekranie **Nowe wdrożenie aktualizacji** podaj następujące informacje:
 
-Aby utworzyć nowe wdrożenie aktualizacji, wybierz pozycję **Zaplanuj wdrożenie aktualizacji**. Zostanie otwarta strona **wdrożenia nowej aktualizacji.** Wprowadź wartości właściwości opisanych w poniższej tabeli, a następnie kliknij przycisk **Utwórz**:
+Aby utworzyć nowe wdrożenie aktualizacji, wybierz pozycję **Zaplanuj wdrożenie aktualizacji**. Zostanie otwarta strona **nowe wdrożenie aktualizacji** . Wprowadź wartości dla właściwości opisanych w poniższej tabeli, a następnie kliknij pozycję **Utwórz**:
 
 | Właściwość | Opis |
 | --- | --- |
 | Nazwa |Unikatowa nazwa identyfikującą wdrożenie aktualizacji. |
-|System operacyjny| Linux lub Windows|
-| Grupy do aktualizacji |W przypadku komputerów platformy Azure należy zdefiniować kwerendę opartą na kombinacji subskrypcji, grup zasobów, lokalizacji i tagów, aby utworzyć dynamiczną grupę maszyn wirtualnych platformy Azure do uwzględnienia we wdrożeniu. </br></br>W przypadku komputerów innych niż platformy Azure wybierz istniejące zapisane wyszukiwanie, aby wybrać grupę maszyn innych niż platformy Azure do uwzględnienia we wdrożeniu. </br></br>Aby dowiedzieć się więcej, zobacz [Grupy dynamiczne](../../automation/automation-update-management-groups.md)|
-| Maszyny do aktualizacji |Wybierz zapisane wyszukiwanie bądź zaimportowaną grupę lub wybierz maszynę z listy rozwijanej, a następnie wybierz poszczególne maszyny. Jeśli wybierzesz pozycję **Maszyny**, gotowość maszyny będzie wyświetlana w kolumnie **AKTUALIZUJ GOTOWOŚĆ AGENTA**.</br> Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach usługi Azure Monitor, zobacz [Computer groups in Azure Monitor logs (Grupy komputerów w dziennikach usługi Azure Monitor)](../../azure-monitor/platform/computer-groups.md) |
-|Klasyfikacje aktualizacji|Wybierz wszystkie potrzebne klasyfikacje aktualizacji|
-|Dołączanie/wykluczanie aktualizacji|Spowoduje to otwarcie strony **Dołącz/Wyklucz.** Aktualizacje, które mają zostać uwzględnione lub wykluczone, znajdują się na osobnych kartach. Aby uzyskać więcej informacji na temat obsługi [dołączania,](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment) zobacz Planowanie wdrożenia aktualizacji |
-|Ustawienia harmonogramu|Wybierz godzinę rozpoczęcia i wybierz raz lub cyklicznie dla cyklu|
-| Skrypty wstępne + post-skrypty|Wybierz skrypty do uruchomienia przed wdrożeniem i po jego zakończeniu|
-| Okno konserwacji |Liczba minut ustawionych dla aktualizacji. Wartość nie może być mniejsza niż 30 minut i nie więcej niż 6 godzin |
-| Kontrola ponownego uruchomienia| Określa, jak należy obsługiwać ponowne uruchomienie. Dostępne opcje:</br>Ponowne uruchomienie, jeśli jest to wymagane (ustawienie domyślne)</br>Zawsze uruchamiaj ponownie</br>Nigdy nie uruchamiaj ponownie</br>Tylko ponowne uruchomienie — aktualizacje nie zostaną zainstalowane|
+|System operacyjny| System Linux lub Windows|
+| Grupy do zaktualizowania |W przypadku maszyn platformy Azure Zdefiniuj zapytanie w oparciu o kombinację subskrypcji, grup zasobów, lokalizacji i tagów, aby utworzyć dynamiczną grupę maszyn wirtualnych platformy Azure, które mają zostać uwzględnione we wdrożeniu. </br></br>W przypadku maszyn spoza platformy Azure Wybierz istniejące zapisane wyszukiwanie, aby wybrać grupę maszyn nienależących do platformy Azure, które mają zostać uwzględnione we wdrożeniu. </br></br>Aby dowiedzieć się więcej, zobacz [Grupy dynamiczne](../../automation/automation-update-management-groups.md)|
+| Maszyny do zaktualizowania |Wybierz zapisane wyszukiwanie bądź zaimportowaną grupę lub wybierz maszynę z listy rozwijanej, a następnie wybierz poszczególne maszyny. Jeśli wybierzesz pozycję **Maszyny**, gotowość maszyny będzie wyświetlana w kolumnie **AKTUALIZUJ GOTOWOŚĆ AGENTA**.</br> Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach usługi Azure Monitor, zobacz [Computer groups in Azure Monitor logs (Grupy komputerów w dziennikach usługi Azure Monitor)](../../azure-monitor/platform/computer-groups.md) |
+|Klasyfikacje aktualizacji|Wybierz wszystkie wymagane klasyfikacje aktualizacji|
+|Uwzględnij/Wyklucz aktualizacje|Spowoduje to otwarcie strony **dołączania/wykluczania** . Aktualizacje, które mają zostać uwzględnione lub wykluczone, znajdują się na osobnych kartach. Aby uzyskać więcej informacji na temat obsługi dołączania, zobacz [Planowanie wdrożenia aktualizacji](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment) . |
+|Ustawienia harmonogramu|Wybierz godzinę do uruchomienia, a następnie wybierz jedno lub cykliczne dla cyklu|
+| Skrypty przed skryptami + po skrypcie|Wybierz skrypty do uruchomienia przed i po wdrożeniu|
+| Okno obsługi |Liczba minut ustawiona dla aktualizacji. Wartość nie może być mniejsza niż 30 minut i nie więcej niż 6 godzin |
+| Kontrola ponownego uruchamiania| Określa, jak należy obsługiwać ponowny rozruch. Dostępne opcje:</br>Ponowne uruchomienie, jeśli jest to wymagane (ustawienie domyślne)</br>Zawsze uruchamiaj ponownie</br>Nigdy nie uruchamiaj ponownie</br>Tylko ponowne uruchomienie — aktualizacje nie zostaną zainstalowane|
 
-Można również tworzyć wdrożenia aktualizacji programowo. Aby dowiedzieć się, jak utworzyć wdrożenie aktualizacji za pomocą interfejsu API REST, zobacz [Konfiguracje aktualizacji oprogramowania — tworzenie](/rest/api/automation/softwareupdateconfigurations/create). Istnieje również przykładowy system runbook, który może służyć do tworzenia cotygodniowego wdrożenia aktualizacji. Aby dowiedzieć się więcej o tym zestawieniu, zobacz [Tworzenie cotygodniowego wdrożenia aktualizacji dla co najmniej jednej maszyny wirtualnej w grupie zasobów](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+Wdrożenia aktualizacji można także tworzyć programowo. Aby dowiedzieć się, jak utworzyć wdrożenie aktualizacji za pomocą interfejsu API REST, zobacz [konfiguracje aktualizacji oprogramowania — tworzenie](/rest/api/automation/softwareupdateconfigurations/create). Istnieje również przykładowy element Runbook, który może służyć do tworzenia tygodniowego wdrożenia aktualizacji. Aby dowiedzieć się więcej na temat tego elementu Runbook, zobacz [Tworzenie tygodniowego wdrożenia aktualizacji dla co najmniej jednej maszyny wirtualnej w grupie zasobów](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 Po ukończeniu konfigurowania harmonogramu kliknij przycisk **Utwórz**, aby wrócić do pulpitu nawigacyjnego stanu.
 Tabela **Zaplanowane** zawiera utworzony harmonogram wdrożenia.
@@ -141,9 +141,9 @@ Kliknij ukończone wdrożenie aktualizacji, aby wyświetlić pulpit nawigacyjny 
 Kafelek **Wyniki aktualizacji** zawiera podsumowanie z łączną liczbą aktualizacji i wynikami wdrożenia na maszynie wirtualnej.
 Tabela po prawej stronie zawiera szczegółowy podział każdej aktualizacji i wyniki instalacji, które mogą mieć jedną z następujących wartości:
 
-* **Nie podjęto próby** — aktualizacja nie została zainstalowana, ponieważ nie było wystarczającego czasu na podstawie zdefiniowanego czasu trwania okna konserwacji.
-* **Powiodło się** - aktualizacja powiodła się
-* **Nie powiodło się** — aktualizacja nie powiodła się
+* **Nie podjęto próby** — nie zainstalowano aktualizacji z powodu niewystarczającego czasu na podstawie zdefiniowanego czasu trwania okna obsługi.
+* **Powodzenie** — aktualizacja powiodła się
+* **Niepowodzenie** — aktualizacja nie powiodła się
 
 Aby wyświetlić wszystkie wpisy dziennika utworzone przez wdrożenie, wybierz opcję **Wszystkie dzienniki**.
 
@@ -163,7 +163,7 @@ Aby włączyć zarządzanie zmianami i spisem na maszynie wirtualnej:
 2. Z listy wybierz maszynę wirtualną.
 3. Na ekranie maszyny wirtualnej w sekcji **Operacje** wybierz pozycję **Spis** lub **Śledzenie zmian**. Zostanie otwarty ekran **Włączanie śledzenia zmian i spisu**.
 
-Skonfiguruj lokalizację, obszar roboczy usługi Log Analytics i konto automatyzacji, aby używać i wybierz **pozycję Włącz**. Jeśli pola są wygaszone, oznacza to, że inne rozwiązanie automatyzacji jest włączone dla maszyny wirtualnej, a tym samym należy użyć tego samego obszaru roboczego i konta automatyzacji. Nawet jeśli te rozwiązania są oddzielone w menu, jest to jedno rozwiązanie. Włączenie jednego z nich oznacza włączenie obydwu na maszynie wirtualnej.
+Skonfiguruj lokalizację, Log Analytics obszar roboczy i konto usługi Automation, a następnie wybierz pozycję **Włącz**. Jeśli pola są wygaszone, oznacza to, że inne rozwiązanie automatyzacji jest włączone dla maszyny wirtualnej, a tym samym należy użyć tego samego obszaru roboczego i konta automatyzacji. Nawet jeśli te rozwiązania są oddzielone w menu, jest to jedno rozwiązanie. Włączenie jednego z nich oznacza włączenie obydwu na maszynie wirtualnej.
 
 ![Włączanie śledzenia zmian i spisu](./media/tutorial-monitoring/manage-inventory-enable.png)
 
@@ -195,7 +195,7 @@ Wykres pokazuje zmiany, które wystąpiły w czasie. Po dodaniu połączenia dzi
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku skonfigurowano i przejrzano śledzenie zmian i zarządzanie aktualizacjami dla maszyny Wirtualnej. W tym samouczku omówiono:
+W tym samouczku skonfigurowano i sprawdzono Change Tracking i Update Management dla maszyny wirtualnej. W tym samouczku omówiono:
 
 > [!div class="checklist"]
 > * Tworzenie grupy zasobów i maszyny wirtualnej

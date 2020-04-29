@@ -1,6 +1,6 @@
 ---
 title: Migrowanie użytkowników i grup programu SQL ServerWindows do wystąpienia zarządzanego przy użyciu języka T-SQL
-description: Dowiedz się, jak migrować lokalnych użytkowników i grupy systemu Windows z programem SQL Server do wystąpienia zarządzanego
+description: Informacje na temat migrowania SQL Server lokalnych użytkowników i grup systemu Windows do wystąpienia zarządzanego
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,47 +11,47 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/30/2019
 ms.openlocfilehash: 2c8d7252b4e4ca8caa465727c0d2328c4aafaefb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74227921"
 ---
-# <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-database-managed-instance-using-t-sql-ddl-syntax"></a>Samouczek: Migrowanie lokalnych użytkowników i grup systemu Windows z programem SQL Server do wystąpienia zarządzanego usługi Azure SQL Database przy użyciu składni DDL T-SQL
+# <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-database-managed-instance-using-t-sql-ddl-syntax"></a>Samouczek: Migrowanie SQL Server lokalnych użytkowników i grup systemu Windows do Azure SQL Database wystąpienia zarządzanego przy użyciu składni języka T-SQL
 
 > [!NOTE]
-> Składnia używana do migracji użytkowników i grup do wystąpienia zarządzanego w tym artykule znajduje się w **publicznej wersji zapoznawczej**.
+> Składnia służąca do migrowania użytkowników i grup do wystąpienia zarządzanego w tym artykule jest w **publicznej wersji zapoznawczej**.
 
-W tym artykule przejdziesz przez proces migracji lokalnych użytkowników i grup systemu Windows w programie SQL Server do istniejącego wystąpienia zarządzanego usługi Azure SQL Database przy użyciu składni T-SQL.
+Ten artykuł przeprowadzi Cię przez proces migrowania lokalnych użytkowników i grup systemu Windows w SQL Server do istniejącego wystąpienia zarządzanego Azure SQL Database przy użyciu składni języka T-SQL.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> - Tworzenie loginów dla programu SQL Server
-> - Tworzenie testowej bazy danych do migracji
-> - Tworzenie loginów, użytkowników i ról
-> - Tworzenie kopii zapasowych i przywracanie bazy danych do wystąpienia zarządzanego (MI)
-> - Ręczna migracja użytkowników do mi przy użyciu składni ALTER USER
-> - Testowanie uwierzytelniania z nowymi zamapowanymi użytkownikami
+> - Utwórz identyfikatory logowania dla SQL Server
+> - Tworzenie testowej bazy danych na potrzeby migracji
+> - Tworzenie nazw logowania, użytkowników i ról
+> - Tworzenie kopii zapasowej i przywracanie bazy danych do wystąpienia zarządzanego (MI)
+> - Ręczne Migrowanie użytkowników do mnie przy użyciu instrukcji ALTER USER Syntax
+> - Testowanie uwierzytelniania przy użyciu nowych zamapowanych użytkowników
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć ten samouczek, obowiązują następujące wymagania wstępne:
 
-- Domena systemu Windows jest sfederowana z usługą Azure Active Directory (Azure AD).
-- Dostęp do usługi Active Directory w celu tworzenia użytkowników/grup.
-- Istniejący program SQL Server w środowisku lokalnym.
-- Istniejące wystąpienie zarządzane. Zobacz [Szybki start: Tworzenie wystąpienia zarządzanego usługi Azure SQL Database](sql-database-managed-instance-get-started.md).
-  - A `sysadmin` w wystąpieniu zarządzanym musi służyć do tworzenia logowania usługi Azure AD.
+- Domena systemu Windows jest federacyjny z Azure Active Directory (Azure AD).
+- Dostęp do Active Directory w celu tworzenia użytkowników/grup.
+- Istniejące SQL Server w środowisku lokalnym.
+- Istniejące wystąpienie zarządzane. Zobacz [Szybki Start: tworzenie Azure SQL Database wystąpienia zarządzanego](sql-database-managed-instance-get-started.md).
+  - `sysadmin` W wystąpieniu zarządzanym należy używać do tworzenia nazw logowania usługi Azure AD.
 - [Utwórz administratora usługi Azure AD dla wystąpienia zarządzanego](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 - Możesz połączyć się z wystąpieniem zarządzanym w sieci. Dodatkowe informacje można znaleźć w następujących artykułach: 
     - [Łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL Database](sql-database-managed-instance-connect-app.md)
-    - [Szybki start: konfigurowanie połączenia typu "punkt-lokacja" z wystąpieniem zarządzanym bazy danych SQL platformy Azure z lokalnego](sql-database-managed-instance-configure-p2s.md)
+    - [Szybki Start: Konfigurowanie połączenia typu punkt-lokacja z wystąpieniem zarządzanym Azure SQL Database z lokalnego](sql-database-managed-instance-configure-p2s.md)
     - [Konfigurowanie publicznego punktu końcowego w wystąpieniu zarządzanym usługi Azure SQL Database](sql-database-managed-instance-public-endpoint-configure.md)
 
-## <a name="t-sql-ddl-syntax"></a>Składnia DDL T-SQL
+## <a name="t-sql-ddl-syntax"></a>Składnia DDL języka T-SQL
 
-Poniżej znajduje się składnia DDL T-SQL używana do obsługi lokalnych użytkowników i grup sql servera migracji do wystąpienia zarządzanego za pomocą uwierzytelniania usługi Azure AD.
+Poniżej przedstawiono składnię DDL języka T-SQL służącą do obsługi SQL Server migracji lokalnych użytkowników i grup systemu Windows do wystąpienia zarządzanego przy użyciu uwierzytelniania usługi Azure AD.
 
 ```sql
 -- For individual Windows users with logins 
@@ -63,26 +63,26 @@ ALTER USER [domainName\groupName] WITH LOGIN=[groupName]
 
 ## <a name="arguments"></a>Argumenty
 
-_Nazwa_domeny_</br>
+_domainName_</br>
 Określa nazwę domeny użytkownika.
 
-_Nazwę użytkownika_</br>
-Określa nazwę użytkownika zidentyfikowanego wewnątrz bazy danych.
+_Uż_</br>
+Określa nazwę użytkownika zidentyfikowaną w bazie danych.
 
-_= domainName.com\@loginName_</br>
-Ponowne mapowanie użytkownika do logowania usługi Azure AD
+_= loginName\@domainName.com_</br>
+Ponownie mapuje użytkownika na nazwę logowania usługi Azure AD
 
-_Groupname_</br>
-Określa nazwę grupy zidentyfikowanej wewnątrz bazy danych.
+_groupName_</br>
+Określa nazwę grupy identyfikowanej w bazie danych.
 
-## <a name="part-1-create-logins-for-sql-server-on-premises-users-and-groups"></a>Część 1: Tworzenie loginów dla lokalnych użytkowników i grup programu SQL Server
+## <a name="part-1-create-logins-for-sql-server-on-premises-users-and-groups"></a>Część 1: Tworzenie nazw logowania dla SQL Server lokalnych użytkowników i grup
 
 > [!IMPORTANT]
-> Poniższa składnia tworzy logowania użytkownika i grupy w programie SQL Server. Przed wykonaniem poniższej składni należy upewnić się, że użytkownik i grupa istnieją w usłudze Active Directory (AD). </br> </br>
+> Następująca składnia tworzy użytkownika i logowanie do grupy w SQL Server. Przed wykonaniem poniższej składni należy upewnić się, że użytkownik i Grupa znajdują się wewnątrz Active Directory (AD). </br> </br>
 > Użytkownicy: testUser1, testGroupUser </br>
-> Grupa: migracja — testGroupUser musi należeć do grupy migracji w u.
+> Grupa: migracja-testGroupUser musi należeć do grupy migracji w usłudze AD
 
-Poniższy przykład tworzy login w programie SQL Server dla konta o nazwie _testUser1_ w domenie _aadsqlmi_. 
+Poniższy przykład tworzy logowanie w SQL Server dla konta o nazwie _testUser1_ w domenie _aadsqlmi_. 
 
 ```sql
 -- Sign into SQL Server as a sysadmin or a user that can create logins and databases
@@ -114,9 +114,9 @@ create database migration
 go
 ```
 
-## <a name="part-2-create-windows-users-and-groups-then-add-roles-and-permissions"></a>Część 2: Tworzenie użytkowników i grup systemu Windows, a następnie dodawanie ról i uprawnień
+## <a name="part-2-create-windows-users-and-groups-then-add-roles-and-permissions"></a>Część 2. tworzenie użytkowników i grup systemu Windows, a następnie Dodawanie ról i uprawnień
 
-Aby utworzyć użytkownika testowego, użyj następującej składni.
+Aby utworzyć użytkownika testowego, należy użyć następującej składni.
 
 ```sql
 use migration;  
@@ -139,7 +139,7 @@ select user_name(grantee_principal_id), * from sys.database_permissions;
 go
 ```
 
-Utwórz rolę i przypisz testowego użytkownika do tej roli:
+Utwórz rolę i przypisz do niej użytkownika testowego:
 
 ```sql 
 -- Create a role with some permissions and assign the user to the role
@@ -153,7 +153,7 @@ alter role UserMigrationRole add member [aadsqlmi\testUser1];
 go 
 ``` 
 
-Użyj następującej kwerendy, aby wyświetlić nazwy użytkowników przypisane do określonej roli:
+Użyj następującego zapytania, aby wyświetlić nazwy użytkowników przypisane do określonej roli:
 
 ```sql
 -- Display user name assigned to a specific role 
@@ -168,7 +168,7 @@ WHERE DP1.type = 'R'
 ORDER BY DP1.name; 
 ```
 
-Aby utworzyć grupę, użyj następującej składni. Następnie dodaj grupę `db_owner`do roli .
+Aby utworzyć grupę, należy użyć następującej składni. Następnie Dodaj grupę do roli `db_owner`.
 
 ```sql
 -- Create Windows group
@@ -185,7 +185,7 @@ go
 -- Output  ( 1 means YES) 
 ```
 
-Utwórz tabelę testową i dodaj kilka danych przy użyciu następującej składni:
+Utwórz tabelę testową i Dodaj dane przy użyciu następującej składni:
 
 ```sql
 -- Create a table and add data 
@@ -200,9 +200,9 @@ select * from test;
 go
 ```
 
-## <a name="part-3-backup-and-restore-the-individual-user-database-to-managed-instance"></a>Część 3: Tworzenie kopii zapasowych i przywracanie bazy danych poszczególnych użytkowników do wystąpienia zarządzanego
+## <a name="part-3-backup-and-restore-the-individual-user-database-to-managed-instance"></a>Część 3: wykonywanie kopii zapasowej i przywracanie bazy danych poszczególnych użytkowników do wystąpienia zarządzanego
 
-Utwórz kopię zapasową bazy danych migracji przy użyciu artykułu [Kopiuj bazy danych za pomocą kopii zapasowej i przywracania](/sql/relational-databases/databases/copy-databases-with-backup-and-restore)lub użyj następującej składni:
+Utwórz kopię zapasową bazy danych migracji przy użyciu artykułu [Kopiowanie baz danych z kopii zapasowej i przywracania](/sql/relational-databases/databases/copy-databases-with-backup-and-restore)albo użyj następującej składni:
 
 ```sql
 use master; 
@@ -211,16 +211,16 @@ backup database migration to disk = 'C:\Migration\migration.bak';
 go
 ```
 
-Postępuj zgodnie z naszym [przewodnikiem Szybki start: Przywracanie bazy danych do wystąpienia zarządzanego.](sql-database-managed-instance-get-started-restore.md)
+Skorzystaj z naszego [przewodnika Szybki Start: Przywracanie bazy danych do wystąpienia zarządzanego](sql-database-managed-instance-get-started-restore.md).
 
 ## <a name="part-4-migrate-users-to-managed-instance"></a>Część 4: Migrowanie użytkowników do wystąpienia zarządzanego
 
 > [!NOTE]
-> Administrator usługi Azure AD dla funkcji wystąpienia zarządzanego po zmianie utworzenia. Aby uzyskać więcej informacji, zobacz [Nowa funkcja administratora usługi Azure AD dla MI](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi).
+> Usługa Azure AD administrator dla funkcji wystąpienia zarządzanego została zmieniona po jej utworzeniu. Aby uzyskać więcej informacji, zobacz [nowe funkcje administratora usługi Azure AD dla programu mi](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi).
 
-Wykonaj polecenie ALTER USER, aby zakończyć proces migracji w wystąpieniu zarządzanym.
+Wykonaj polecenie ALTER USER, aby zakończyć proces migracji na wystąpieniu zarządzanym.
 
-1. Zaloguj się do wystąpienia zarządzanego przy użyciu konta administratora usługi Azure AD dla wystąpienia zarządzanego. Następnie utwórz swój login usługi Azure AD w wystąpieniu zarządzanym przy użyciu następującej składni. Aby uzyskać więcej informacji, zobacz [Samouczek: Zabezpieczenia wystąpienia zarządzanego w bazie danych SQL usługi Azure przy użyciu podmiotów serwera usługi Azure AD (logowania)](sql-database-managed-instance-aad-security-tutorial.md).
+1. Zaloguj się do wystąpienia zarządzanego przy użyciu konta administratora usługi Azure AD dla wystąpienia zarządzanego. Następnie utwórz dane logowania usługi Azure AD w zarządzanym wystąpieniu przy użyciu następującej składni. Aby uzyskać więcej informacji, zobacz [Samouczek: zabezpieczenia wystąpienia zarządzanego w Azure SQL Database przy użyciu podmiotów zabezpieczeń serwera usługi Azure AD (Logins)](sql-database-managed-instance-aad-security-tutorial.md).
 
     ```sql
     use master 
@@ -239,7 +239,7 @@ Wykonaj polecenie ALTER USER, aby zakończyć proces migracji w wystąpieniu zar
     go
     ```
 
-1. Sprawdź migrację pod kątem poprawnej bazy danych, tabeli i podmiotów.
+1. Sprawdź, czy migracja dotyczy poprawnej bazy danych, tabeli i podmiotów zabezpieczeń.
 
     ```sql
     -- Switch to the database migration that is already restored for MI 
@@ -257,7 +257,7 @@ Wykonaj polecenie ALTER USER, aby zakończyć proces migracji w wystąpieniu zar
     -- the old group aadsqlmi\migration should be there
     ```
 
-1. Użyj składni ALTER USER, aby zamapować użytkownika lokalnego na identyfikator logowania usługi Azure AD.
+1. Użyj składni ALTER USER, aby zamapować użytkownika lokalnego na nazwę logowania usługi Azure AD.
 
     ```sql
     /** Execute the ALTER USER command to alter the Windows user [aadsqlmi\testUser1]
@@ -288,7 +288,7 @@ Wykonaj polecenie ALTER USER, aby zakończyć proces migracji w wystąpieniu zar
     ORDER BY DP1.name;
     ```
 
-1. Użyj składni ALTER USER, aby zamapować lokalną grupę na identyfikator logowania usługi Azure AD.
+1. Za pomocą polecenia ALTER USER Syntax Mapuj grupę lokalną na nazwę logowania usługi Azure AD.
 
     ```sql
     /** Execute ALTER USER command to alter the Windows group [aadsqlmi\migration]
@@ -312,25 +312,25 @@ Wykonaj polecenie ALTER USER, aby zakończyć proces migracji w wystąpieniu zar
     -- Output 1 means 'YES'
     ```
 
-## <a name="part-5-testing-azure-ad-user-or-group-authentication"></a>Część 5: Testowanie uwierzytelniania użytkowników lub grup usługi Azure AD
+## <a name="part-5-testing-azure-ad-user-or-group-authentication"></a>Część 5: testowanie uwierzytelniania użytkowników lub grup usługi Azure AD
 
-Przetestuj uwierzytelnianie do wystąpienia zarządzanego przy użyciu użytkownika wcześniej mapowane do logowania usługi Azure AD przy użyciu składni ALTER USER.
+Przetestuj uwierzytelnianie do wystąpienia zarządzanego przy użyciu użytkownika zamapowanego wcześniej do logowania do usługi Azure AD za pomocą polecenia ALTER USER Syntax.
  
-1. Zaloguj się do sfederowanej maszyny Wirtualnej przy użyciu subskrypcji MI jako`aadsqlmi\testUser1`
-1. Korzystając z programu SQL Server Management Studio (SSMS), zaloguj się do `migration`wystąpienia zarządzanego przy użyciu zintegrowanego uwierzytelniania usługi Active **Directory,** łącząc się z bazą danych .
-    1. Można również zalogować testUser1@aadsqlmi.net się przy użyciu poświadczeń za pomocą opcji SSMS **Active Directory – Universal z obsługą usługi MFA.** Jednak w takim przypadku nie można użyć mechanizmu logowania jednokrotnego i należy wpisać hasło. Nie trzeba używać sfederowanej maszyny Wirtualnej, aby zalogować się do wystąpienia zarządzanego.
-1. Jako część elementu członkowskiego roli **SELECT**można `test` wybrać z tabeli
+1. Zaloguj się do federacyjnej maszyny wirtualnej przy użyciu subskrypcji MI jako`aadsqlmi\testUser1`
+1. Korzystając z SQL Server Management Studio (SSMS), zaloguj się do wystąpienia zarządzanego przy użyciu uwierzytelniania **zintegrowanego Active Directory** , łącząc `migration`się z bazą danych.
+    1. Możesz również zalogować się przy użyciu testUser1@aadsqlmi.net poświadczeń z opcją SSMS **Active Directory — uniwersalna z obsługą usługi MFA**. Jednak w tym przypadku nie można używać mechanizmu logowania jednokrotnego i należy wpisać hasło. Nie trzeba używać federacyjnej maszyny wirtualnej do logowania się do wystąpienia zarządzanego.
+1. W ramach **wyboru**elementu członkowskiego roli można wybrać jedną z `test` tabeli.
 
     ```sql
     Select * from test  --  and see one row (1,10)
     ```
 
 
-Przetestuj uwierzytelnianie w wystąpieniu zarządzanym przy użyciu członka grupy `migration`systemu Windows . Użytkownik `aadsqlmi\testGroupUser` powinien zostać dodany do `migration` grupy przed migracją.
+Testowanie uwierzytelniania w wystąpieniu zarządzanym przy użyciu elementu członkowskiego grupy `migration`systemu Windows. Użytkownik `aadsqlmi\testGroupUser` powinien zostać dodany do grupy `migration` przed migracją.
 
-1. Zaloguj się do sfederowanej maszyny Wirtualnej przy użyciu subskrypcji MI jako`aadsqlmi\testGroupUser` 
-1. Korzystanie z usługi SSMS ze zintegrowanym uwierzytelnianiem **usługi Active Directory** umożliwia łączenie się z serwerem MI i bazą danych`migration`
-    1. Można również zalogować testGroupUser@aadsqlmi.net się przy użyciu poświadczeń za pomocą opcji SSMS **Active Directory – Universal z obsługą usługi MFA.** Jednak w takim przypadku nie można użyć mechanizmu logowania jednokrotnego i należy wpisać hasło. Nie trzeba używać sfederowanej maszyny Wirtualnej, aby zalogować się do wystąpienia zarządzanego. 
+1. Zaloguj się do federacyjnej maszyny wirtualnej przy użyciu subskrypcji MI jako`aadsqlmi\testGroupUser` 
+1. Korzystanie z programu SSMS z **Active Directory zintegrowanego** uwierzytelniania, nawiązywanie połączenia z serwerem mi i bazą danych`migration`
+    1. Możesz również zalogować się przy użyciu testGroupUser@aadsqlmi.net poświadczeń z opcją SSMS **Active Directory — uniwersalna z obsługą usługi MFA**. Jednak w tym przypadku nie można używać mechanizmu logowania jednokrotnego i należy wpisać hasło. Nie musisz używać federacyjnej maszyny wirtualnej, aby zalogować się do wystąpienia zarządzanego. 
 1. W ramach `db_owner` roli można utworzyć nową tabelę.
 
     ```sql
@@ -339,11 +339,11 @@ Przetestuj uwierzytelnianie w wystąpieniu zarządzanym przy użyciu członka gr
     ```
                              
 > [!NOTE] 
-> Ze względu na znany problem z projektem dla usługi Azure SQL DB instrukcja tworzenia tabeli wykonywane jako członek grupy zakończy się niepowodzeniem z następującym błędem: </br> </br>
+> Ze względu na znany problem projektowy w usłudze Azure SQL DB, instrukcja CREATE TABLE, wykonywana jako członek grupy, zakończy się niepowodzeniem z powodu następującego błędu: </br> </br>
 > `Msg 2760, Level 16, State 1, Line 4 
 The specified schema name "testGroupUser@aadsqlmi.net" either does not exist or you do not have permission to use it.` </br> </br>
-> Bieżące obejście jest utworzenie tabeli z istniejącym schematem w przypadku powyżej <dbo.new>
+> Bieżące obejście polega na utworzeniu tabeli z istniejącym schematem w przypadku powyżej <dbo. New>
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Samouczek: Migrowanie programu SQL Server do wystąpienia zarządzanego usługi Azure SQL Database w trybie offline przy użyciu usługi DMS](../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json)
+- [Samouczek: Migrowanie SQL Server do wystąpienia zarządzanego Azure SQL Database w trybie offline za pomocą usługi DMS](../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json)

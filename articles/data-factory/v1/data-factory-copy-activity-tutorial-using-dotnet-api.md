@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b907663971e7a8a7c3b2c6cac95c38131e1ccb26
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74931733"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu interfejsu API .NET
@@ -24,9 +24,9 @@ ms.locfileid: "74931733"
 > * [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-> * [Powershell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [INTERFEJS API ODPOCZYNKU](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+> * [Szablon Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
@@ -34,7 +34,7 @@ ms.locfileid: "74931733"
 
 W tym artykule wyjaśniono, jak używać interfejsu [API .NET](https://portal.azure.com) do tworzenia fabryki danych obejmującej potok, który kopiuje dane z usługi Azure Blob Storage do bazy danych Azure SQL Database. Jeśli jesteś nowym użytkownikiem usługi Azure Data Factory, przed wykonaniem instrukcji z tego samouczka zapoznaj się z artykułem [Wprowadzenie do usługi Azure Data Factory](data-factory-introduction.md).   
 
-W tym samouczku opisano tworzenie potoku z jednym działaniem (Działanie kopiowania). Działanie kopiowania kopiuje dane z obsługiwanego magazynu danych do obsługiwanego magazynu danych ujścia. Aby zapoznać się z listą magazynów danych obsługiwanych jako źródła i ujścia, zobacz [obsługiwane magazyny danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Działanie jest obsługiwane przez globalnie dostępną usługę, która może kopiować dane między różnymi magazynami danych w sposób bezpieczny, niezawodny i skalowalny. Aby uzyskać więcej informacji na temat działania kopiowania, zobacz [Działania przenoszenia danych](data-factory-data-movement-activities.md).
+W tym samouczku opisano tworzenie potoku z jednym działaniem (Działanie kopiowania). Działanie kopiowania kopiuje dane z obsługiwanego magazynu danych do obsługiwanego magazynu danych ujścia. Aby zapoznać się z listą magazynów danych obsługiwanych jako źródła i ujścia, zobacz [obsługiwane magazyny danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Działanie jest obsługiwane przez globalnie dostępną usługę, która może kopiować dane między różnymi magazynami danych w sposób bezpieczny, niezawodny i skalowalny. Więcej informacji o działaniu kopiowania znajduje się w temacie [działania dotyczące przenoszenia danych](data-factory-data-movement-activities.md).
 
 Potok może obejmować więcej niż jedno działanie. Dwa działania można połączyć w łańcuch (uruchomić jedno działanie po drugim), ustawiając wyjściowy zestaw danych jednego działania jako zestaw wejściowy drugiego. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą [wielu działań w potoku](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
@@ -49,7 +49,7 @@ Potok może obejmować więcej niż jedno działanie. Dwa działania można poł
 
 * Przejrzyj [omówienie samouczka i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), aby uzyskać omówienie samouczka i pełne kroki **wymagań wstępnych**.
 * Program Visual Studio w wersji 2012, 2013 lub 2015.
-* Pobieranie i instalowanie [pakietu Azure .NET SDK](https://azure.microsoft.com/downloads/)
+* Pobierz i zainstaluj [zestaw Azure .NET SDK](https://azure.microsoft.com/downloads/)
 * Azure PowerShell. Postępuj zgodnie z instrukcjami w artykule [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps) (Instalowanie i konfigurowanie programu Azure PowerShell), aby zainstalować program Azure PowerShell na komputerze. Program Azure PowerShell służy do tworzenia aplikacji Azure Active Directory.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Tworzenie aplikacji w usłudze Azure Active Directory
@@ -66,7 +66,7 @@ Utwórz aplikację usługi Azure Active Directory, utwórz nazwę główną usł
     ```powershell
     Get-AzSubscription
     ```
-4. Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp ** &lt;NameOfAzureSubscription** &gt; nazwą subskrypcji platformy Azure.
+4. Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp ** &lt;ciąg nameofazuresubscription nazwą** &gt; nazwą swojej subskrypcji platformy Azure.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -134,7 +134,7 @@ Po wykonaniu tych kroków powinny być dostępne cztery następujące wartości:
    2. Uruchom następujące polecenie, aby zainstalować pakiet Azure Active Directory (użyjesz interfejsu API usługi Active Directory w kodzie): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Dodaj następującą sekcję **appSetttings** do pliku **App.config**. Te ustawienia są używane przez metodę pomocy **GetAuthorizationHeader**.
 
-    Zastąp wartości ** &lt;&gt;identyfikatora aplikacji,** ** &lt;hasła,&gt;** ** &lt;identyfikatora&gt;subskrypcji**i ** &lt;identyfikatora&gt; dzierżawy** własnymi wartościami.
+    Zastąp wartości dla ** &lt;identyfikatora&gt;aplikacji**, ** &lt;hasła&gt;**, ** &lt;identyfikatora&gt;subskrypcji**i ** &lt;identyfikatora&gt; dzierżawy** własnymi wartościami.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -511,12 +511,12 @@ Po wykonaniu tych kroków powinny być dostępne cztery następujące wartości:
     John, Doe
     Jane, Doe
     ```
-18. Uruchom próbkę, klikając **debugowanie** -> **start debugowania** w menu. Po wyświetleniu komunikatu **Pobieranie szczegółów uruchomienia wycinka danych** zaczekaj kilka minut, a następnie naciśnij klawisz **ENTER**.
+18. Uruchom przykład, klikając polecenie **Debuguj** -> **Rozpocznij debugowanie** w menu. Po wyświetleniu komunikatu **Pobieranie szczegółów uruchomienia wycinka danych** zaczekaj kilka minut, a następnie naciśnij klawisz **ENTER**.
 19. Użyj witryny Azure Portal, aby upewnić się, że fabryka danych **APITutorialFactory** została utworzona z następującymi artefaktami:
     * Połączona usługa: **LinkedService_AzureStorage**
     * Zestaw danych: **InputDataset** i **OutputDataset**.
     * Potok: **PipelineBlobSample**
-20. Sprawdź, czy dwa rekordy pracowników są tworzone w tabeli **emp** w określonej bazie danych SQL platformy Azure.
+20. Sprawdź, czy w tabeli **EMP** w określonej bazie danych SQL Azure zostały utworzone dwa rekordy pracowników.
 
 ## <a name="next-steps"></a>Następne kroki
 Aby zapoznać się z pełną dokumentacją dotyczącą interfejsu API .NET usługi Data Factory, zobacz [dokumentację interfejsu API .NET usługi Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).

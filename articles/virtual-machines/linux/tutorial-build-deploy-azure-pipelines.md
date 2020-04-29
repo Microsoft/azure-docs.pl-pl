@@ -1,6 +1,6 @@
 ---
-title: Samouczek — maszyny wirtualne ciągłej integracji/ciągłego wdrażania do platformy Azure przy użyciu potoków platformy Azure
-description: W tym samouczku dowiesz się, jak skonfigurować ciągłą integrację (CI) i ciągłe wdrażanie (CD) aplikacji Node.js na maszynach wirtualnych platformy Azure przy użyciu potoku platformy Azure opartego na yaml.
+title: Samouczek — CI/CD do maszyn wirtualnych platformy Azure przy użyciu Azure Pipelines
+description: W tym samouczku dowiesz się, jak skonfigurować ciągłą integrację (CI) i ciągłe wdrażanie aplikacji node. js na maszynach wirtualnych platformy Azure przy użyciu potoku platformy Azure opartej na YAML.
 author: ushan
 tags: azure-devops-pipelines
 ms.assetid: ''
@@ -12,32 +12,32 @@ ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
 ms.openlocfilehash: bb7c773d02c5da5c115af79cd9e90c78e71eb6bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76988332"
 ---
-# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Samouczek: Wdrażanie aplikacji na maszynach wirtualnych systemu Linux na platformie Azure przy użyciu usług Azure DevOps i potoków platformy Azure
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Samouczek: wdrażanie aplikacji na maszynach wirtualnych z systemem Linux na platformie Azure przy użyciu Azure DevOps Services i Azure Pipelines
 
-Ciągła integracja (CI) i ciągłe wdrażanie (CD) tworzą potok, za pomocą którego można tworzyć, zwalniać i wdrażać kod po każdym zatwierdzeniu kodu. Ten dokument zawiera kroki związane z konfigurowaniem potoku ciągłej integracji/ciągłego wdrażania dla wykonywania wdrożeń wielu komputerów przy użyciu usługi Azure Pipelines.
+Ciągłej integracji (CI) i ciągłego wdrażania (CD) tworzą potok, za pomocą którego można kompilować, wydawania i wdrażać kod po każdym zatwierdzeniu kodu. Ten dokument zawiera kroki związane z konfigurowaniem potoku ciągłej integracji/ciągłego wdrażania na potrzeby wdrożeń obejmujących wiele maszyn przy użyciu Azure Pipelines.
 
-Usługa Azure Pipelines udostępnia kompletny, w pełni funkcjonalny zestaw narzędzi automatyzacji ciągłej integracji/ciągłego wdrażania na maszynach wirtualnych, zarówno w przedm, jak i w dowolnej chmurze.
+Azure Pipelines zawiera kompletny, w pełni funkcjonalny zestaw narzędzi do automatyzacji ciągłej integracji i ciągłego wdrażania na maszynach wirtualnych, zarówno w Premium, jak i w dowolnej chmurze.
 
-W tym samouczku skonfigurujesz potok ciągłej integracji/dysku CD oparty na YAML, aby wdrożyć aplikację w [środowisku](https://docs.microsoft.com/azure/devops/pipelines/process/environments?view=azure-devops) potoków platformy Azure z maszynami wirtualnymi systemu Linux jako zasobami, z których każdy służy jako serwery sieci web do uruchamiania aplikacji.
+W tym samouczku zostanie skonfigurowany potok ciągłej integracji/ciągłego wdrażania (YAML) umożliwiający wdrażanie aplikacji w [środowisku](https://docs.microsoft.com/azure/devops/pipelines/process/environments?view=azure-devops) Azure Pipelinesym z maszynami wirtualnymi z systemem Linux jako zasobami, z których każdy służy jako serwery sieci Web do uruchamiania aplikacji.
 
 Omawiane kwestie:
 
 > [!div class="checklist"]
 > * Pobierz przykładową aplikację.
-> * Utwórz potok ci oparty na usłudze Azure Pipelines oparty na YAML do tworzenia przykładowej aplikacji.
-> * Tworzenie środowiska potoków platformy Azure dla maszyn wirtualnych platformy Azure
-> * Utwórz potok dysku CD potoku potoku potoku usługi Azure Pipelines.
+> * Utwórz potok YAML na podstawie Azure Pipelines na potrzeby tworzenia przykładowej aplikacji.
+> * Tworzenie środowiska Azure Pipelines dla maszyn wirtualnych platformy Azure
+> * Utwórz potok Azure Pipelines CD.
 > * Przeprowadzanie wdrożeń wyzwalanych ręcznie i za pomocą CI.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-* Zaloguj się do organizacji usługi Azure**https://dev.azure.com/** DevOps ( ). 
+* Zaloguj się do swojej organizacji Azure DevOps Services (**https://dev.azure.com/**). 
   Możesz uzyskać [bezpłatną organizację Azure DevOps Services](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
@@ -47,11 +47,11 @@ Omawiane kwestie:
 
 *  Otwórz port wejściowy 80 dla maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Create network security groups using the Azure portal (Tworzenie sieciowych grup zabezpieczeń przy użyciu witryny Azure Portal)](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic).
 
-## <a name="get-your-sample-app-code"></a>Pobierz przykładowy kod aplikacji
+## <a name="get-your-sample-app-code"></a>Pobieranie kodu przykładowej aplikacji
 
 Jeśli masz już aplikację w usłudze GitHub, którą chcesz wdrożyć, możesz spróbować utworzyć potok dla tego kodu.
 
-Jeśli jednak jesteś nowym użytkownikiem, możesz lepiej zacząć, korzystając z naszego przykładowego kodu. W takim przypadku rozwidlić to repozytorium w usłudze GitHub:
+Jeśli jednak jesteś nowym użytkownikiem, możesz lepiej zacząć korzystać z naszego przykładowego kodu. W takim przypadku rozwidlenie tego repozytorium w serwisie GitHub:
 
 #### <a name="java"></a>[Java](#tab/java)
 
@@ -60,16 +60,16 @@ https://github.com/spring-projects/spring-petclinic
 ```
 
 > [!NOTE]
-> Petclinic to aplikacja [Java Spring Boot](https://spring.io/guides/gs/spring-boot) zbudowana przy użyciu [Maven.](https://spring.io/guides/gs/maven/)
+> Petclinic to aplikacja [rozruchu ze sprężyną języka Java](https://spring.io/guides/gs/spring-boot) skompilowana przy użyciu [Maven](https://spring.io/guides/gs/maven/).
 
-#### <a name="javascript"></a>[Javascript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 ```
 https://github.com/azure-devops/fabrikam-node
 ```
 
 > [!NOTE]
-> Ta aplikacja Node.js została zbudowana przez [Yeoman](https://yeoman.io/learning/index.html). Używa ona narzędzi Express, Bower i Grunt. I ma niektóre pakiety npm jako zależności.
+> Ta aplikacja Node. js została skompilowana za poorednictwem [Narzędzia Yeoman](https://yeoman.io/learning/index.html). Używa ona narzędzi Express, Bower i Grunt. I ma niektóre pakiety npm jako zależności.
 > Przykład zawiera także skrypt, który konfiguruje serwer Nginx, a następnie wdraża aplikację. Jest on wykonywany na maszynach wirtualnych. W szczególności skrypt:
 > 1. Instaluje rozwiązania Node, Nginx i PM2.
 > 2. Konfiguruje rozwiązania Nginx i PM2.
@@ -77,73 +77,73 @@ https://github.com/azure-devops/fabrikam-node
 
 * * * 
 
-## <a name="prerequisites-for-the-linux-vm"></a>Wymagania wstępne dla maszyny Wirtualnej z systemem Linux
+## <a name="prerequisites-for-the-linux-vm"></a>Wymagania wstępne dla maszyny wirtualnej z systemem Linux
 
-Przykładowe aplikacje wymienione powyżej zostały przetestowane na Ubuntu 16.04 i zalecamy użycie tej samej wersji maszyny Wirtualnej z systemem Linux dla tego szybkiego startu.
-Wykonaj dodatkowe kroki opisane poniżej na podstawie stosu środowiska wykonawczego używanego dla aplikacji.
+Przykładowe aplikacje wymienione powyżej zostały przetestowane w witrynie Ubuntu 16,04 i zalecamy użycie tej samej wersji maszyny wirtualnej systemu Linux na potrzeby tego przewodnika Szybki Start.
+Postępuj zgodnie z dodatkowymi krokami opisanymi poniżej w zależności od stosu środowiska uruchomieniowego używanego dla aplikacji.
 
 #### <a name="java"></a>[Java](#tab/java)
 
-- Aby wdrożyć aplikacje java spring boot i spring cloud, utwórz maszynę wirtualną z systemem Linux na platformie Azure przy użyciu [tego](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) szablonu, który zapewnia w pełni obsługiwany środowisko uruchomieniowe oparte na openjdk.
-- Aby wdrożyć serwery Java na serwerze Tomcat, utwórz maszynę wirtualną z systemem Linux z oprogramowaniem Java 8 przy użyciu [tego](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) szablonu platformy Azure i [skonfiguruj tomcat 9.x jako usługę.](https://tomcat.apache.org/tomcat-9.0-doc/setup.html)
-- Do wdrażania aplikacji opartej na języku Java EE użyj szablonu platformy Azure, aby utworzyć [maszynę wirtualną z systemem Linux + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) lub [maszynę wirtualną z systemem Linux + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) lub [maszynę wirtualną z systemem Linux +Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14 
+- Aby wdrażać aplikacje oparte na chmurze pod kątem rozruchowego i sprężyny chmurowej, należy utworzyć maszynę wirtualną z systemem Linux na platformie Azure przy użyciu [tego](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) szablonu, który zapewnia w pełni obsługiwaną obsługę środowiska uruchomieniowego
+- Aby wdrożyć środowisko Java serwletów na serwerze Tomcat, należy utworzyć maszynę wirtualną z systemem Linux za pomocą języka Java 8 przy użyciu [tego](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) szablonu platformy Azure i [skonfigurować Tomcat 9. x jako usługę](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
+- Aby wdrożyć aplikację opartą na języku Java EE, użyj szablonu platformy Azure, aby utworzyć [maszynę wirtualną z systemem Linux + Java + WebSphere 9. x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) lub [maszynę wirtualną z systemem Linux + Java + WebLogic 12. x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) lub [maszynę wirtualną z systemem Linux + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14 
 
-#### <a name="javascript"></a>[Javascript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
-Aby zainstalować aplikację javascript lub aplikację Node.js, do wdrożenia aplikacji potrzebna jest maszyna wirtualna z systemem Linux z serwerem sieci Web Nginx.
-Jeśli nie masz jeszcze maszyny Wirtualnej z systemem Linux z Nginx, utwórz go teraz na platformie Azure, wykonując kroki opisane w [tym przykładzie.](/azure/virtual-machines/linux/quick-create-cli)
+Aby zainstalować aplikację JavaScript lub aplikację Node. js, do wdrożenia aplikacji potrzebna jest maszyna wirtualna z systemem Linux z serwerem sieci Web Nginx.
+Jeśli nie masz jeszcze maszyny wirtualnej z systemem Linux z usługą Nginx, utwórz ją teraz na platformie Azure, korzystając z kroków przedstawionych w [tym przykładzie](/azure/virtual-machines/linux/quick-create-cli).
 
 * * * 
 
-## <a name="create-an-azure-pipelines-environment-with-azure-virtual-machines"></a>Tworzenie środowiska potoków platformy Azure za pomocą maszyn wirtualnych platformy Azure
+## <a name="create-an-azure-pipelines-environment-with-azure-virtual-machines"></a>Tworzenie środowiska Azure Pipelines za pomocą usługi Azure Virtual Machines
 
-Maszyny wirtualne mogą być dodawane jako zasoby w [środowiskach](https://docs.microsoft.com/azure/devops/pipelines/process/environments) i mogą być przeznaczone dla wdrożeń wielu komputerów. Widoki historii wdrażania w środowisku zapewniają identyfikowalność od maszyny Wirtualnej do potoku, a następnie do zatwierdzenia.
+Maszyny wirtualne można dodawać jako zasoby w [środowiskach](https://docs.microsoft.com/azure/devops/pipelines/process/environments) i mogą być przeznaczone do wdrożeń wielu maszyn. Widoki historii wdrożenia w środowisku zapewniają możliwość śledzenia z maszyny wirtualnej do potoku, a następnie do zatwierdzenia.
 
-Środowisko można utworzyć w centrum "**Środowiska**" w sekcji "**Potoki**".
-1.  Zaloguj się do organizacji Azure DevOps i przejdź do projektu.
-2.  W projekcie przejdź do strony **Potoki.** Następnie wybierz pozycję **Środowiska** i kliknij pozycję **Utwórz środowisko**. Określ **nazwę** (wymaganą) dla środowiska i **opis**.
-3.  Wybierz pozycję **Maszyny wirtualne** jako **zasób,** który ma zostać dodany do środowiska, a następnie kliknij przycisk **Dalej**.
-4.  Wybierz system operacyjny (Windows/Linux) i **skopiuj skrypt rejestracji PS**. 
-5.  Teraz uruchom skopiowany skrypt z wiersza polecenia programu PowerShell administratora na każdej z docelowych maszyn wirtualnych, które mają być zarejestrowane w tym środowisku.
+Środowisko można utworzyć w centrum "**środowiska**" w sekcji "**potoki**".
+1.  Zaloguj się do organizacji usługi Azure DevOps i przejdź do projektu.
+2.  W projekcie przejdź do strony **potoki** . Następnie wybierz opcję **środowiska** , a następnie kliknij pozycję **Utwórz środowisko**. Określ **nazwę** (wymaganą) dla środowiska i **Opis**.
+3.  Wybierz **Virtual Machines** jako **zasób** do dodania do środowiska, a następnie kliknij przycisk **dalej**.
+4.  Wybierz system operacyjny (Windows/Linux) i **Skopiuj skrypt rejestracji PS**. 
+5.  Teraz można uruchomić skopiowany skrypt z poziomu wiersza polecenia programu PowerShell administratora na wszystkich docelowych maszynach wirtualnych, które mają być zarejestrowane w tym środowisku.
     > [!NOTE]
-    > - Osobisty token dostępu zalogowanego użytkownika jest wstępnie wstawiany do skryptu, który wygasa tego samego dnia, co sprawia, że skopiowany skrypt nie nadaje się do jego użytecznego.
-    > - Jeśli maszyna wirtualna ma już żadnego agenta działającego na nim, podaj unikatową nazwę dla "agenta", aby zarejestrować się w środowisku.
-6.  Po zarejestrowaniu maszyny Wirtualnej rozpocznie się pojawianie się jako zasób środowiska w zakładce "zasoby" środowiska.
+    > - Osobisty token dostępu zalogowanego użytkownika został wstępnie wstawiony do skryptu, który wygasa w tym samym dniu, w którym skopiowany skrypt będzie bezużyteczny.
+    > - Jeśli na maszynie wirtualnej jest już uruchomiony agent, podaj unikatową nazwę "Agent", aby zarejestrować się w środowisku.
+6.  Po zarejestrowaniu maszyny wirtualnej zostanie ona uruchomiona jako zasób środowiska na karcie "zasoby" w środowisku.
 
-    ![VMcreation (Tworzenia maszyn wirtualnych)](media/tutorial-deploy-vms-azure-pipelines/vm-creation.png)
+    ![VMcreation](media/tutorial-deploy-vms-azure-pipelines/vm-creation.png)
 
-7.  Aby dodać więcej maszyn wirtualnych, można ponownie wyświetlić i skopiować skrypt, klikając na "Dodaj zasób" i wybierając "Maszyny wirtualne" jako zasób. Ten skrypt pozostanie taki sam dla wszystkich maszyn wirtualnych, które mają zostać dodane do tego środowiska. 
-8.  Każda maszyna współdziała z usługi Azure Pipelines w celu koordynowania wdrażania aplikacji.
+7.  Aby dodać więcej maszyn wirtualnych, można wyświetlić i skopiować skrypt ponownie, klikając pozycję "Dodaj zasób" i wybierając pozycję "Virtual Machines" jako zasób. Ten skrypt pozostanie taki sam dla wszystkich maszyn wirtualnych, które mają zostać dodane do tego środowiska. 
+8.  Każdy komputer współdziała z Azure Pipelines, aby koordynować wdrażanie aplikacji.
 
     ![VMresource_view](media/tutorial-deploy-vms-azure-pipelines/vm-resourceview.png)
 
-9. Tagi można dodać do maszyny Wirtualnej jako część interaktywnego skryptu rejestracji PS (lub) można również dodać/usunąć to samo z widoku zasobów, klikając potrójne kropki na końcu każdego zasobu maszyny Wirtualnej w widoku zasobów.
+9. Możesz dodać tagi do maszyny wirtualnej w ramach interakcyjnego skryptu rejestracji PS (lub) można również dodać/usunąć ten sam z widoku zasobów, klikając trzykrotne kropki na końcu każdego zasobu maszyny wirtualnej w widoku zasoby.
 
-   Przypisane tagi umożliwiają ograniczenie wdrażania do określonych maszyn wirtualnych, gdy środowisko jest używane w zadaniu wdrażania. Tagi są ograniczone do 256 znaków, ale nie ma limitu liczby tagów, których można użyć.
+   Przypisane znaczniki umożliwiają ograniczenie wdrożenia do określonych maszyn wirtualnych, gdy środowisko jest używane w zadaniu wdrażania. Tagi są ograniczone do 256 znaków, ale nie ma żadnego limitu liczby tagów, których można użyć.
 
-   ![Tagi wirtualne](media/tutorial-deploy-vms-azure-pipelines/vm-tags.png)
+   ![VMtags](media/tutorial-deploy-vms-azure-pipelines/vm-tags.png)
 
 * * * 
 
-## <a name="define-your-ci-build-pipeline"></a>Definiowanie potoku kompilacji ciągłej integracji
+## <a name="define-your-ci-build-pipeline"></a>Zdefiniuj potok kompilacji CI
 
-Potrzebny jest potok kompilacji ciągłej integracji (CI), który publikuje aplikację sieci web, a także skrypt wdrażania, który można uruchomić lokalnie na serwerze Ubuntu. Skonfiguruj potok kompilacji ciągłej integracji na podstawie środowiska wykonawczego, którego chcesz użyć. 
+Będziesz potrzebować potoku kompilacji ciągłej integracji (CI), który publikuje aplikację sieci Web, a także skrypt wdrażania, który można uruchomić lokalnie na serwerze Ubuntu. Skonfiguruj potok kompilacji elementu konfiguracji w oparciu o środowisko uruchomieniowe, którego chcesz użyć. 
 
-1. Zaloguj się do organizacji Azure DevOps i przejdź do projektu.
+1. Zaloguj się do organizacji usługi Azure DevOps i przejdź do projektu.
 
-1. W projekcie przejdź do strony **Potoki.** Następnie wybierz akcję, aby utworzyć nowy potok.
+1. W projekcie przejdź do strony **potoki** . Następnie wybierz akcję, aby utworzyć nowy potok.
 
-1. Przejdź przez kroki kreatora, najpierw wybierając **GitHub** jako lokalizację kodu źródłowego.
+1. Wykonaj kroki kreatora, wybierając najpierw witrynę **GitHub** jako lokalizację kodu źródłowego.
 
-1. Możesz zostać przekierowany do gitHub, aby się zalogować. Jeśli tak, wprowadź swoje poświadczenia GitHub.
+1. Być może nastąpi przekierowanie do usługi GitHub w celu zalogowania się. W takim przypadku wprowadź swoje poświadczenia usługi GitHub.
 
-1. Po wyświetleniu listy repozytoriów wybierz żądane przykładowe repozytorium aplikacji.
+1. Po wyświetleniu listy repozytoriów wybierz odpowiednie przykładowe repozytorium aplikacji.
 
-1. Usługa Azure Pipelines przeanalizuje repozytorium i zaleci odpowiedni szablon potoku.
+1. Azure Pipelines przeanalizować repozytorium i zalecamy odpowiedni szablon potoku.
 
 #### <a name="java"></a>[Java](#tab/java)
 
-Wybierz szablon **startowy** i skopiuj poniższy fragment kodu YAML, który tworzy projekt Java i uruchamia testy z Apache Maven:
+Wybierz szablon **startowy** i Skopiuj poniższy fragment kodu YAML, który kompiluje projekt Java i uruchamia testy za pomocą platformy Apache Maven:
 
 ```YAML
 - job: Build
@@ -163,11 +163,11 @@ Wybierz szablon **startowy** i skopiuj poniższy fragment kodu YAML, który twor
     artifact: drop
 ```
 
-Aby uzyskać więcej wskazówek, wykonaj kroki wymienione w [Tworzenie aplikacji Java z Maven](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java).
+Aby uzyskać więcej wskazówek, wykonaj kroki opisane w sekcji [Kompilowanie aplikacji Java za pomocą Maven](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java).
 
-#### <a name="javascript"></a>[Javascript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
-Wybierz szablon **startowy** i skopiuj poniższy fragment kodu YAML, który tworzy ogólny projekt Node.js z npm.
+Wybierz **początkowy** szablon i Skopiuj poniższy fragment kodu YAML, który kompiluje ogólny projekt node. js z npm.
 
 ```YAML
 - stage: Build
@@ -196,19 +196,19 @@ Wybierz szablon **startowy** i skopiuj poniższy fragment kodu YAML, który twor
       artifact: drop
 ```
 
-Aby uzyskać więcej wskazówek, wykonaj kroki opisane w [tworzenie aplikacji Node.js za pomocą łyka.](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/javascript)
+Aby uzyskać więcej wskazówek, postępuj zgodnie z instrukcjami w sekcji [Kompilowanie aplikacji node. js za pomocą Gulp](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/javascript).
 
-- Spójrz na potoku, aby zobaczyć, co robi. Upewnij się, że wszystkie domyślne dane wejściowe są odpowiednie dla kodu.
+- Obejrzyj potok, aby zobaczyć, co robi. Upewnij się, że wszystkie domyślne dane wejściowe są odpowiednie dla kodu.
 
-- Wybierz **pozycję Zapisz i uruchom**, a następnie wybierz pozycję **Zatwierdź bezpośrednio do gałęzi wzorcowej**, a następnie wybierz pozycję **Zapisz i uruchom** ponownie.
+- Wybierz pozycję **Zapisz i uruchom**, a następnie wybierz pozycję **Zatwierdź bezpośrednio w gałęzi głównej**, a następnie wybierz pozycję **Zapisz i uruchom** ponownie.
 
-- Rozpoczyna się nowy bieg. Poczekaj na zakończenie biegu.
+- Uruchomiono nowe uruchomienie. Poczekaj na zakończenie przebiegu.
 
 * * * 
 
-## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Definiowanie kroków cd do wdrożenia na maszynie Wirtualnej z systemem Linux
+## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Definiowanie kroków z dysku CD do wdrożenia na maszynie wirtualnej z systemem Linux
 
-1. Edytuj powyższy potok i dołącz [zadanie wdrożenia,](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs) odwołując się do środowiska i zasobów maszyny Wirtualnej, które zostały wcześniej przy użyciu składni YAML poniżej:
+1. Edytuj powyższy potok i Dołącz [zadanie wdrażania](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs) , odwołując się do środowiska i zasobów maszyny wirtualnej, które zostały wcześniej przy użyciu składni YAML poniżej:
 
    ```YAML
    jobs:  
@@ -220,14 +220,14 @@ Aby uzyskać więcej wskazówek, wykonaj kroki opisane w [tworzenie aplikacji No
        tags: web1
      strategy:
    ```
-2. Można wybrać określone zestawy maszyn wirtualnych ze środowiska, aby otrzymać wdrożenie, określając **znaczniki zdefiniowane** dla każdej maszyny wirtualnej w środowisku.
-[Oto](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) kompletny schemat YAML dla zadania wdrożenia.
+2. Można wybrać określone zestawy maszyn wirtualnych ze środowiska w celu uzyskania wdrożenia, określając **Tagi** zdefiniowane dla każdej maszyny wirtualnej w środowisku.
+[Oto](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) kompletny schemat YAML dla zadania wdrażania.
 
-3. Można określić eithor `runOnce` lub `rolling` jako strategii wdrażania. 
+3. Możesz określić eithor `runOnce` lub `rolling` strategię wdrażania. 
 
-   `runOnce`jest najprostszą strategią wdrażania, w której wszystkie `preDeploy` `deploy`haki cyklu życia, a mianowicie , `routeTraffic`i `postRouteTraffic`, są wykonywane raz. Następnie `on:` `success` albo `on:` `failure` jest wykonywany.
+   `runOnce`jest najprostszą strategią wdrażania, która powoduje, że wszystkie punkty zaczepienia `routeTraffic`cyklu życia `postRouteTraffic`, mianowicie `preDeploy` `deploy`, i, są wykonywane raz. `on:` `success` Następnie albo lub `on:` `failure` jest wykonywane.
 
-   Poniżej znajduje się przykładowy fragment `runOnce` kodu YAML dla:
+   Poniżej znajduje się przykładowy fragment kodu YAML `runOnce` dla:
    ```YAML
    jobs:
    - deployment: VMDeploy
@@ -244,7 +244,7 @@ Aby uzyskać więcej wskazówek, wykonaj kroki opisane w [tworzenie aplikacji No
              - script: echo my first deployment
    ```
 
-4. Poniżej znajduje się przykład fragmentu kodu YAML, który służy do definiowania strategii stopniowej dla maszyn wirtualnych aktualizuje do 5 obiektów docelowych w każdej iteracji. `maxParallel`określi liczbę celów, które można wdrożyć równolegle. Wybór uwzględnia bezwzględną liczbę lub procent celów, które muszą pozostać dostępne w dowolnym momencie, z wyłączeniem celów, które są wdrażane. Jest również używany do określenia warunków sukcesu i awarii podczas wdrażania.
+4. Poniżej znajduje się przykład fragmentu kodu YAML, którego można użyć do zdefiniowania strategii stopniowej aktualizacji maszyn wirtualnych do 5 elementów docelowych w każdej iteracji. `maxParallel`określi liczbę elementów docelowych, do których można wdrożyć równolegle. Wybór konta dla liczby bezwzględnej lub procentowej wartości docelowych, które muszą pozostać dostępne w dowolnym momencie, z wyjątkiem obiektów docelowych, które są wdrażane w. Jest on również używany do określania warunków sukcesu i niepowodzenia podczas wdrażania.
 
    ```YAML
    jobs: 
@@ -285,18 +285,18 @@ Aby uzyskać więcej wskazówek, wykonaj kroki opisane w [tworzenie aplikacji No
                - script: echo Notify! This is on success
    ```
 
-   Przy każdym uruchomieniu tego zadania historia wdrażania `<environment name>` jest rejestrowana w środowisku, które zostało utworzone i zarejestrowane maszyny wirtualne.
+   W każdym uruchomieniu tego zadania historia wdrożenia jest rejestrowana w środowisku, w `<environment name>` którym utworzono i zarejestrowano maszyny wirtualne.
 
-## <a name="run-your-pipeline-and-get-traceability-views-in-environment"></a>Uruchamianie potoku i uzyskanie widoków identyfikowalności w środowisku
-Widok wdrożeń środowiska zapewnia pełną identyfikowalność zatwierdzeń i elementów roboczych oraz historię wdrażania między potokami na środowisko/zasób.
+## <a name="run-your-pipeline-and-get-traceability-views-in-environment"></a>Uruchamianie potoku i pobieranie widoków śledzenia w środowisku
+Widok wdrożenia środowiska zapewnia pełną możliwość śledzenia zatwierdzeń i elementów roboczych oraz historię wdrożenia między potokami dla środowiska/zasobu.
 
 ![VMDeployments_view](media/tutorial-deploy-vms-azure-pipelines/vm-deployments.png)
   
 ![VMjobs_view](media/tutorial-deploy-vms-azure-pipelines/vm-jobsview.png)
 
 ## <a name="next-steps"></a>Następne kroki
-- Można przystąpić do [dostosowywania potoku,](https://docs.microsoft.com/azure/devops/pipelines/customize-pipeline) który właśnie utworzono.
-- Aby dowiedzieć się, co jeszcze można zrobić w potokach YAML, zobacz [odwołanie do schematu YAML](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema).
+- Możesz przystępować do [dostosowywania utworzonego przez siebie potoku](https://docs.microsoft.com/azure/devops/pipelines/customize-pipeline) .
+- Aby dowiedzieć się, co jeszcze można zrobić w potokach YAML, zobacz [YAML Schema Reference](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema).
 - Aby dowiedzieć się więcej o sposobie wdrażania stosu LAMP (Linux, Apache MySQL i PHP), przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]

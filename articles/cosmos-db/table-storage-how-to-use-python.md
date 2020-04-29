@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z interfejsu API tabel usługi Azure Cosmos DB i magazynu tabel platformy Azure przy użyciu języka Python
+title: Korzystanie z Azure Cosmos DB interfejs API tabel i usługi Azure Table Storage przy użyciu języka Python
 description: Przechowywanie danych strukturalnych w chmurze za pomocą usługi Azure Table Storage lub interfejsu Table API usługi Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.openlocfilehash: b3a6f4397ca1b8c56f06f6d967804c94096ee308
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76770988"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Rozpoczynanie pracy z usługą Azure Table Storage oraz interfejsem API tabel usługi Azure Cosmos DB przy użyciu języka Python
@@ -38,7 +38,7 @@ Podczas pracy ze scenariuszami w tym przykładzie może być przydatna [dokument
 Do pomyślnego ukończenia pracy z przykładem wymagane są następujące elementy:
 
 - Środowisko [Python](https://www.python.org/downloads/) w wersji 2.7, 3.3, 3.4, 3.5 lub 3.6
-- [Zestaw SDK tabeli usługi Azure Cosmos DB dla języka Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Ten zestaw SDK łączy się zarówno z usługą Azure Table Storage, jak i z interfejsem API tabel usługi Azure Cosmos DB.
+- [Azure Cosmos DB zestawu SDK tabeli dla języka Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Ten zestaw SDK łączy się zarówno z usługą Azure Table Storage, jak i z interfejsem API tabel usługi Azure Cosmos DB.
 - [Konto usługi Azure Storage](../storage/common/storage-account-create.md) lub [Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)
 
 ## <a name="create-an-azure-service-account"></a>Tworzenie konta usługi Azure

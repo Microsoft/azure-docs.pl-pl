@@ -1,63 +1,63 @@
 ---
 title: Przykłady usługi Azure Cache for Redis
-description: 'Dowiedz się, jak używać usługi Azure Cache for Redis za pomocą tych przykładów kodu: łączenia się z pamięcią podręczną, odczytywania i zapisywania danych w pamięci podręcznej ASP.NET usługi Azure Cache dla dostawców redis.'
+description: 'Dowiedz się, jak używać usługi Azure cache for Redis z następującymi przykładami kodu: łączenie z pamięcią podręczną, odczytywanie i zapisywanie danych w pamięci podręcznej, ASP.NET Azure cache for Redis Providers.'
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: sample
 ms.date: 01/23/2017
 ms.openlocfilehash: 8057a7db3d1a2db0e51ec15e4966ed0b31c84226
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75433405"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Przykłady usługi Azure Cache for Redis
-Ten temat zawiera listę przykładów usługi Azure Cache for Redis, obejmujące scenariusze, takie jak łączenie się z pamięcią podręczną, odczytywanie i zapisywanie danych do i z pamięci podręcznej oraz przy użyciu ASP.NET usługi Azure Cache dla dostawców Redis. Niektóre przykłady są projekty do pobrania, a niektóre zawierają wskazówki krok po kroku i zawierają fragmenty kodu, ale nie łączą się z projektem do pobrania.
+Ten temat zawiera listę pamięci podręcznej systemu Azure dla przykładów Redis, obejmujących scenariusze, takie jak nawiązywanie połączenia z pamięcią podręczną, odczytywanie i zapisywanie danych w pamięci podręcznej oraz korzystanie z usługi ASP.NET Azure cache for Redis Providers. Niektóre przykłady są projektami do pobrania, a niektóre zawierają wskazówki krok po kroku i zawierają fragmenty kodu, ale nie łączą się z projektem do pobrania.
 
-## <a name="hello-world-samples"></a>Witaj próbki świata
-Przykłady w tej sekcji pokazują podstawy łączenia się z pamięci podręcznej platformy Azure dla wystąpienia Redis i odczytywania i zapisywania danych w pamięci podręcznej przy użyciu różnych języków i klientów Redis.
+## <a name="hello-world-samples"></a>Przykłady dla środowiska Hello World
+W przykładach w tej sekcji przedstawiono podstawowe informacje dotyczące nawiązywania połączenia z usługą Azure cache for Redis oraz odczytywanie i zapisywanie danych w pamięci podręcznej przy użyciu różnych języków i klientów Redis.
 
-W przykładzie [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) pokazano, jak wykonywać różne operacje pamięci podręcznej przy użyciu [stackexchange.redis](https://github.com/StackExchange/StackExchange.Redis) .NET klienta.
+Przykład [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) pokazuje, jak wykonywać różne operacje pamięci podręcznej przy użyciu klienta platformy .NET [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) .
 
-W tym przykładzie pokazano, jak:
+Ten przykład pokazuje, jak:
 
-* Korzystanie z różnych opcji połączenia
-* Odczytywanie i zapisywanie obiektów do i z pamięci podręcznej przy użyciu operacji synchroniowych i asynchronicznych
-* Polecenia Redis MGET/MSET za pomocą poleceń Redis MGET/MSET zwracają wartości określonych kluczy
+* Użyj różnych opcji połączenia
+* Odczyt i zapis obiektów do i z pamięci podręcznej przy użyciu operacji synchronicznych i asynchronicznych
+* Użyj poleceń Redis MGET/MSET, aby zwrócić wartości określonych kluczy
 * Wykonywanie operacji transakcyjnych Redis
-* Praca z listami Redis i zestawami posortowanymi
+* Pracuj z listami Redis i posortowanymi zestawami
 * Przechowywanie obiektów .NET przy użyciu serializatorów JsonConvert
-* Implementowanie tagowania za pomocą zestawów Redis
-* Praca z klastrem Redis
+* Używanie zestawów Redis do zaimplementowania tagowania
+* Współpraca z klastrem Redis
 
-Aby uzyskać więcej informacji, zobacz [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) dokumentacji w usłudze GitHub i więcej scenariuszy użycia zobacz [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests) testów jednostkowych.
+Aby uzyskać więcej informacji, zobacz dokumentację [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) w witrynie GitHub, a aby uzyskać więcej scenariuszy użycia, zobacz testy jednostkowe [stackexchange. Redis. Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests) .
 
-[Jak używać usługi Azure Cache for Redis z pythonem](cache-python-get-started.md) pokazano, jak rozpocząć pracę z usługą Azure Cache for Redis przy użyciu języka Python i klienta [redis-py.](https://github.com/andymccurdy/redis-py)
+[Jak korzystać z usługi Azure cache for Redis za pomocą języka Python](cache-python-get-started.md) pokazuje, jak rozpocząć pracę z usługą Azure cache dla Redis przy użyciu języka Python i klienta [Redis-PR](https://github.com/andymccurdy/redis-py) .
 
-[Praca z obiektami .NET w pamięci podręcznej](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) pokazuje jeden ze sposobów serializacji obiektów .NET, dzięki czemu można je zapisać i odczytać je z pamięci podręcznej platformy Azure dla wystąpienia Redis. 
+[Współpraca z obiektami platformy .NET w pamięci podręcznej](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) pokazuje, jak serializować obiekty .NET, aby można było je napisać i odczytać z pamięci podręcznej platformy Azure dla wystąpienia Redis. 
 
-## <a name="use-azure-cache-for-redis-as-a-scale-out-backplane-for-aspnet-signalr"></a>Używanie pamięci podręcznej Azure Cache for Redis jako warstwy montażowej skalowania w poziomie dla ASP.NET SignalR
-[Użyj pamięci podręcznej azure dla redis jako skalować w poziomie backplane dla ASP.NET SignalR](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) przykład pokazuje, jak można używać usługi Azure Cache for Redis jako backplane SignalR. Aby uzyskać więcej informacji na temat zaokrążenia, zobacz [SignalR Scaleout with Redis](https://www.asp.net/signalr/overview/performance/scaleout-with-redis).
+## <a name="use-azure-cache-for-redis-as-a-scale-out-backplane-for-aspnet-signalr"></a>Korzystanie z usługi Azure cache for Redis jako skalowalnego w poziomie planu wieloskładnikowego dla sygnalizującego ASP.NET
+[Użycie pamięci podręcznej platformy Azure dla usługi Redis jako planu wielostronnego skalowania w poziomie dla](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) próbnika ASP.net pokazuje, jak można użyć usługi Azure cache dla Redis jako testowego planu. Aby uzyskać więcej informacji na temat planów wieloplanowych, zobacz [sygnalizującer skalowania with Redis](https://www.asp.net/signalr/overview/performance/scaleout-with-redis).
 
-## <a name="azure-cache-for-redis-customer-query-sample"></a>Przykład zapytania klienta usługi Azure Cache for Redis
-W tym przykładzie pokazano porównuje wydajność między uzyskiwania dostępu do danych z pamięci podręcznej i uzyskiwania dostępu do danych z magazynu trwałości. Ten przykład ma dwa projekty.
+## <a name="azure-cache-for-redis-customer-query-sample"></a>Przykład kwerendy klienta usługi Azure cache for Redis
+Ten przykład ilustruje porównanie wydajności dostępu do danych z pamięci podręcznej i uzyskiwania dostępu do danych z magazynu trwałości. Ten przykład ma dwa projekty.
 
-* [Demonstracja, w jaki sposób usługa Azure Cache for Redis może zwiększyć wydajność przez buforowanie danych](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
-* [Seed bazy danych i pamięci podręcznej dla demo](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
+* [Demonstracja, jak usługa Azure cache for Redis może zwiększyć wydajność przez buforowanie danych](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
+* [Wypełnianie bazy danych i pamięci podręcznej dla pokazu](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
 
-## <a name="aspnet-session-state-and-output-caching"></a>ASP.NET buforowanie stanu sesji i wyjścia
-[Użyj usługi Azure Cache for Redis do przechowywania ASP.NET SessionState i OutputCache](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) przykład pokazuje, jak używać pamięci podręcznej Azure cache dla redis do przechowywania ASP.NET sesji i pamięci podręcznej wyjściowej przy użyciu sessionstate i outputcache dostawców dla redis.
+## <a name="aspnet-session-state-and-output-caching"></a>Stan sesji ASP.NET i buforowanie danych wyjściowych
+[Użycie usługi Azure cache for Redis do przechowywania przykładu ASP.NET sessionState i OutputCache](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) pokazuje, jak używać usługi Azure cache for Redis do przechowywania sesji ASP.NET i wyjściowej pamięci podręcznej przy użyciu dostawców sessionState i OutputCache dla Redis.
 
-## <a name="manage-azure-cache-for-redis-with-maml"></a>Zarządzanie pamięcią podręczną platformy Azure dla redis za pomocą usługi MAML
-Przykład [zarządzania pamięcią podręczną platformy Azure dla programu Redis przy użyciu bibliotek zarządzania platformy Azure](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) pokazuje, jak można używać bibliotek zarządzania platformy Azure do zarządzania — (Tworzenie/ aktualizowanie/ usuwanie) pamięci podręcznej. 
+## <a name="manage-azure-cache-for-redis-with-maml"></a>Zarządzanie usługą Azure cache for Redis za pomocą usługi MAML
+Przykład [zarządzania pamięcią podręczną platformy Azure dla usługi Redis przy użyciu bibliotek zarządzania platformy Azure](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) pokazuje, jak można użyć bibliotek zarządzania platformy Azure do zarządzania — (Tworzenie/aktualizowanie/usuwanie) pamięci podręcznej. 
 
-## <a name="custom-monitoring-sample"></a>Próbka monitorowania niestandardowego
-Przykład [danych usługi Access Azure Cache for Redis Monitoring](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) pokazuje, jak można uzyskać dostęp do danych monitorowania pamięci podręcznej platformy Azure dla programu Redis poza witryną Azure Portal.
+## <a name="custom-monitoring-sample"></a>Niestandardowy przykład monitorowania
+Przykład [dostępu do pamięci podręcznej platformy Azure dla danych monitorowania Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) demonstruje, jak uzyskać dostęp do danych monitorowania dla swojej pamięci podręcznej platformy Azure dla Redis poza portalem Azure.
 
-## <a name="a-twitter-style-clone-written-using-php-and-redis"></a>Klon w stylu Twittera napisany za pomocą PHP i Redis
-Próbka [Retwis](https://github.com/SyntaxC4-MSFT/retwis) to Redis Hello World. Jest to minimalny klon sieci społecznościowej w stylu Twittera napisany przy użyciu Redis i PHP za pomocą klienta [Prdis.](https://github.com/nrk/predis) Kod źródłowy ma być bardzo prosty i jednocześnie wyświetlał różne struktury danych Redis.
+## <a name="a-twitter-style-clone-written-using-php-and-redis"></a>Klon w stylu Twitter zapisany przy użyciu języka PHP i Redis
+Przykładem [Retwis](https://github.com/SyntaxC4-MSFT/retwis) jest Redis Hello World. Jest to minimalny klon sieci społecznościowej w serwisie Twitter zapisany przy użyciu Redis i PHP przy użyciu klienta [Predis](https://github.com/nrk/predis) . Kod źródłowy został zaprojektowany tak, aby był bardzo prosty i w tym samym czasie, aby pokazać różne struktury danych Redis.
 
 ## <a name="bandwidth-monitor"></a>Monitor przepustowości
-Przykład [monitora przepustowości](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) umożliwia monitorowanie przepustowości używanej na kliencie. Aby zmierzyć przepustowość, uruchom próbkę na komputerze klienckim pamięci podręcznej, nawiązuj połączenia z pamięcią podręczną i obserwuj przepustowość zgłaszaną przez przykład monitora przepustowości.
+Przykład [monitora przepustowości](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) pozwala monitorować przepustowość używaną na kliencie. Aby zmierzyć przepustowość, uruchom próbkę na komputerze klienckim pamięci podręcznej, wykonaj wywołania do pamięci podręcznej i obserwuj przepustowość zgłoszoną przez próbkę monitora przepustowości.

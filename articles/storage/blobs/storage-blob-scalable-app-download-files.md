@@ -1,5 +1,5 @@
 ---
-title: Pobieranie dużych ilości losowych danych z usługi Azure Storage | Dokumenty firmy Microsoft
+title: Pobieranie dużych ilości danych losowych z usługi Azure Storage | Microsoft Docs
 description: Dowiedz się, jak przy użyciu zestawu Azure SDK pobierać duże ilości danych losowych z konta usługi Azure Storage
 author: roygara
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: b3fe9c7481e79b8eeda9f18e9a036fa8c72e658d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75372095"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Pobieranie dużych ilości danych losowych z usługi Azure Storage
@@ -101,7 +101,7 @@ W poniższej tabeli przedstawiono opcje [BlobRequestOptions](/dotnet/api/microso
 |Właściwość|Wartość|Opis|
 |---|---|---|
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Ta właściwość wyłącza sprawdzanie skrótu MD5 przekazanej zawartości. Wyłączenie sprawdzania poprawności skrótu MD5 zwiększa szybkość transferu. Jednak poprawność i integralność przekazywanych plików nie jest wtedy sprawdzana. |
-|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Ta właściwość określa, czy skrót MD5 jest obliczany i przechowywany.   |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| fałsz| Ta właściwość określa, czy skrót MD5 jest obliczany i przechowywany.   |
 
 Zadanie `DownloadFilesAsync` jest przedstawione w poniższym przykładzie:
 

@@ -1,14 +1,14 @@
 ---
-title: Wdrażanie aplikacji kontenera przy zastosowaniu ciągłej integracji/ciągłego wdrażania
+title: Wdrażanie aplikacji kontenera przy użyciu ciągłej integracji/ciągłego dostarczania
 description: W ramach tego samouczka nauczysz się konfigurować ciągłą integrację i ciągłe wdrażanie aplikacji kontenera usługi Azure Service Fabric za pomocą programu Visual Studio i usługi Azure DevOps.
 ms.topic: tutorial
 ms.date: 08/29/2018
 ms.custom: mvc
 ms.openlocfilehash: 9cf619eddd07bbe55cd7aea5f27051a7d0415c24
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75614134"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Samouczek: wdrażanie aplikacji kontenera przy użyciu ciągłej integracji/ciągłego wdrażania w klastrze usługi Service Fabric
@@ -42,7 +42,7 @@ Wybierz profil docelowy w ramach projektu aplikacji na potrzeby przepływu pracy
 
 Udostępnij pliki źródłowe swojej aplikacji w projekcie zespołowym usługi Azure DevOps, aby umożliwić generowanie kompilacji.
 
-Utwórz nowe lokalne repozytorium Git dla swojego projektu, wybierając **dodaj do kontroli** -> źródła**Git** na pasku stanu w prawym dolnym rogu programu Visual Studio.
+Utwórz nowe lokalne repozytorium git dla projektu, wybierając pozycję **Dodaj do kontroli** -> źródła**git** na pasku stanu w prawym dolnym rogu programu Visual Studio.
 
 W widoku **Wypychanie** w programie **Team Explorer** wybierz przycisk **Opublikuj repozytorium Git** w obszarze **Wypychanie do usługi Azure DevOps**.
 
@@ -99,7 +99,7 @@ W oknie dialogowym **Zapisywanie potoku i kolejki kompilacji** kliknij pozycję 
 
 ![Wybieranie wyzwalaczy][save-and-queue]
 
-Kompilacje można również wyzwalać w ramach procesu wypychania lub ewidencjonowania. Aby sprawdzić postęp kompilacji, przejdź do karty **Kompilacje.**  Po sprawdzeniu, czy kompilacja jest wykonywana pomyślnie, zdefiniuj definicję wydania, która wdraża aplikację w klastrze.
+Kompilacje można również wyzwalać w ramach procesu wypychania lub ewidencjonowania. Aby sprawdzić postęp kompilacji, przejdź do karty **kompilacje** .  Po sprawdzeniu, czy kompilacja została wykonana pomyślnie, zdefiniuj definicję wydania, która wdraża aplikację w klastrze.
 
 ### <a name="create-a-release-definition"></a>Tworzenie definicji wydania
 
@@ -134,7 +134,7 @@ Włącz wyzwalacz ciągłego wdrażania, aby umożliwić automatyczne tworzenie 
 
 ![Włączanie wyzwalacza][enable-trigger]
 
-Wybierz **+ Zwolnij** -> **Utwórz wydanie** -> **Utwórz,** aby ręcznie utworzyć wydanie. Postęp wydawania możesz monitorować na karcie **Wydania**.
+Wybierz pozycję **+ wydanie** -> **Utwórz wersję** -> **Utwórz** , aby ręcznie utworzyć wydanie. Postęp wydawania możesz monitorować na karcie **Wydania**.
 
 Sprawdź, czy wdrożenie zakończyło się pomyślnie, a aplikacja została uruchomiona w klastrze.  Otwórz przeglądarkę internetową i przejdź pod adres `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Zwróć uwagę na wersję aplikacji. W tym przykładzie jest to „1.0.0.20170616.3”.
 
@@ -142,7 +142,7 @@ Sprawdź, czy wdrożenie zakończyło się pomyślnie, a aplikacja została uruc
 
 Aby upewnić się, że potok ciągłej integracji działa prawidłowo, zaewidencjonuj zmiany kodu w usłudze Azure DevOps.
 
-Podczas pisania kodu zmiany są automatycznie śledzone przez program Visual Studio. Zatwierdź zmiany w lokalnym repozytorium Git, wybierając ikonę oczekujących zmian (![Oczekujące][pending]) na pasku stanu w prawym dolnym rogu.
+Podczas pisania kodu zmiany są automatycznie śledzone przez program Visual Studio. Zatwierdź zmiany w lokalnym repozytorium Git, wybierając ikonę oczekujących zmian (![Oczekiwanie][pending]) na pasku stanu w prawym dolnym rogu.
 
 W widoku **Zmiany** programu Team Explorer dodaj komunikat opisujący aktualizację i zatwierdź wprowadzone zmiany.
 

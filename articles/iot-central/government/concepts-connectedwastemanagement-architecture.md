@@ -1,6 +1,6 @@
 ---
-title: Architektura referencyjna dla rozwiązania do gospodarowania odpadami połączonymi z usługą Azure IoT Central| Dokumenty firmy Microsoft
-description: Poznaj pojęcia dotyczące rozwiązania do gospodarowania odpadami połączonego utworzonego za pomocą usługi Azure IoT Central.
+title: Architektura referencyjna dla rozwiązania połączonego zarządzania odpadami utworzonego przy użyciu usługi Azure IoT Central | Microsoft Docs
+description: Zapoznaj się z pojęciami dotyczącymi połączonego rozwiązania do zarządzania odpadami utworzonego przy użyciu usługi Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
 ms.date: 10/23/2019
@@ -8,48 +8,48 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 763fb82e0725e5a98112af3a79856c3703a5c2c3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77016089"
 ---
 # <a name="connected-waste-monitoring-reference-architecture"></a>Architektura referencyjna połączonego zarządzania odpadami 
 
 
 
-Połączone rozwiązanie do zarządzania odpadami można skompilować przy użyciu **szablonu aplikacji Azure IoT Central** jako aplikacji IoT startowego. Ten artykuł zawiera wskazówki dotyczące architektury referencyjnej wysokiego poziomu na temat tworzenia rozwiązania end-to-end. 
+Rozwiązanie połączonego zarządzania odpadami można skompilować przy użyciu **szablonu aplikacji IoT Central platformy Azure** jako startowej aplikacji IoT. Ten artykuł zawiera wskazówki dotyczące architektury referencyjnej wysokiego poziomu dotyczące tworzenia kompleksowych rozwiązań. 
 
-![Architektura gospodarowania odpadami połączonym](./media/concepts-connectedwastemanagement-architecture/concepts-connectedwastemanagement-architecture1.png)
+![Architektura zarządzania odpadami podłączonymi](./media/concepts-connectedwastemanagement-architecture/concepts-connectedwastemanagement-architecture1.png)
 
 
 Pojęcia:
 
 1. Urządzenia i łączność  
 1. IoT Central 
-2. Rozszerzalność i integracja
+2. Rozszerzalność i integracje
 3. Aplikacje biznesowe
 
-Przyjrzyjmy się kluczowym komponentom, które zazwyczaj odgrywają rolę w rozwiązaniu do monitorowania zużycia wody.
+Przyjrzyjmy się kluczowym składnikom, które zwykle odgrywają część w rozwiązaniu do monitorowania zużycia wody.
 
 ## <a name="devices-and-connectivity"></a>Urządzenia i łączność 
-Urządzenia używane w środowiskach otwartych, takich jak pojemniki na odpady, mogą być podłączone za pośrednictwem sieci o dużym posie: LPWAN za pośrednictwem operatora sieci innej firmy. W przypadku urządzeń tego typu można użyć [mostka urządzeń centrali Usługi Azure IoT,](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) aby wysłać dane urządzenia do aplikacji IoT w usłudze Azure IoT Central. Alternatywnie może być bram urządzeń, które są zdolne do adresów IP i można połączyć się bezpośrednio z IoT Central.
+Urządzenia używane w otwartych środowiskach, takich jak pojemniki, mogą być połączone za pomocą sieci rozległej (LPWAN) z niskim zużyciem przez operatora sieci innej firmy. W przypadku tych typów urządzeń możesz użyć [mostka urządzenia usługi Azure IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) , aby wysłać dane urządzenia do aplikacji IoT na platformie Azure IoT Central. Alternatywnie mogą istnieć bramy urządzeń z możliwością IP i mogą łączyć się bezpośrednio z IoT Central.
 
 ## <a name="iot-central"></a>IoT Central 
-Usługa Azure IoT Central to platforma aplikacji IoT, która umożliwia szybkie uruchomienie rozwiązania IoT. Możesz oznaczyć, dostosować i zintegrować swoje rozwiązanie z usługami innych firm.
-Po podłączeniu inteligentnych urządzeń wodnych do usługi IoT Central otrzymujesz polecenia i sterowanie urządzeniem, monitorowanie i ostrzeganie, interfejs użytkownika z wbudowanym funkcją RBAC, konfigurowalne pulpity nawigacyjne i opcje rozszerzalności. 
+Azure IoT Central to platforma aplikacji IoT, która umożliwia szybkie rozpoczęcie pracy z rozwiązaniem IoT. Możesz Marka, dostosowywać i zintegrować rozwiązanie z usługami innych firm.
+Po połączeniu urządzeń z urządzeniami inteligentnymi do IoT Central uzyskasz polecenie i kontrolę, monitorowanie i alerty, interfejs użytkownika z wbudowanymi RBAC, konfigurowalne pulpity nawigacyjne usługi Insights oraz opcje rozszerzalności. 
 
-## <a name="extensibility-and-integrations"></a>Rozszerzalność i integracja 
-Aplikację IoT można rozszerzyć w UIŚ Central i opcjonalnie:
-* przekształcaj i integruj dane IoT w celu zaawansowanej analizy, na przykład szkoleniowych modeli uczenia maszynowego, poprzez ciągły eksport danych z aplikacji IoT Central. 
-* automatyzowanie przepływów pracy w innych systemach, wyzwalając akcje przy użyciu usługi Microsoft Flow lub elementów webhook z aplikacji IoT Central
-* programowo uzyskać dostęp do aplikacji IoT w UIOT Central za pośrednictwem interfejsów API IoT Central.
+## <a name="extensibility-and-integrations"></a>Rozszerzalność i integracje 
+Aplikację IoT można zwiększyć w IoT Central i opcjonalnie:
+* Przekształcaj i Integruj dane IoT na potrzeby zaawansowanej analizy, na przykład szkolenia modeli uczenia maszynowego za pośrednictwem ciągłego eksportu danych z IoT Central aplikacji. 
+* Automatyzowanie przepływów pracy w innych systemach przez wyzwalanie akcji przy użyciu Microsoft Flow lub elementów webhook z aplikacji IoT Central
+* programowo dostęp do aplikacji IoT w IoT Central za poorednictwem IoT Central interfejsów API.
 
 ## <a name="business-applications"></a>Aplikacje biznesowe 
-Dane IoT mogą być używane do zasilania różnych aplikacji biznesowych w zamówiach odpadów. Aby dowiedzieć się, jak połączyć aplikację do zarządzania odpadami połączonymi z IoT Central z usługami terenowymi, wykonaj samouczek dotyczący [integracji z usługami terenowymi Dynamics 365](./how-to-configure-connected-field-services.md) 
+Dane IoT mogą służyć do zarządzania różnymi aplikacjami biznesowymi w ramach narzędzia do strat. Aby dowiedzieć się, jak połączyć IoT Central połączonej aplikacji do zarządzania odpadami z usługami pól, postępuj zgodnie z samouczkiem dotyczącym [integracji z usługami pól usługi Dynamics 365](./how-to-configure-connected-field-services.md) 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się, jak utworzyć aplikację IoT Central do [zarządzania odpadami](./tutorial-connected-waste-management.md)
-* Dowiedz się więcej o [szablonach instytucji rządowych IoT](./overview-iot-central-government.md)
-* Aby dowiedzieć się więcej o UIOT Central, zobacz [Omówienie IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
+* Informacje na temat [tworzenia połączonej aplikacji IoT Central zarządzania odpadami](./tutorial-connected-waste-management.md)
+* Dowiedz się więcej na temat [IoT Central szablonów dla instytucji rządowych](./overview-iot-central-government.md)
+* Aby dowiedzieć się więcej na temat IoT Central, zobacz [omówienie IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
 

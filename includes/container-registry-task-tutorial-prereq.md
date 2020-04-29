@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
 ms.openlocfilehash: 40cc1856a5e943ca5596e7d11712febadd30e3ec
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67132991"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -23,16 +23,16 @@ Aby ukończyć ten samouczek, w Twojej subskrypcji platformy Azure musisz posiad
 
 ## <a name="create-a-github-personal-access-token"></a>Tworzenie osobistego tokenu dostępu GitHub
 
-Aby wyzwolić zadanie w zatwierdzeniu do repozytorium Git, zadania ACR potrzebują osobistego tokenu dostępu (PAT), aby uzyskać dostęp do repozytorium. Jeśli nie masz jeszcze PAT, wykonaj następujące kroki, aby wygenerować jeden w GitHub:
+Aby wyzwolić zadanie po zatwierdzeniu do repozytorium git, do uzyskania dostępu do repozytorium zadania ACR potrzebują osobistego tokenu dostępu. Jeśli nie masz jeszcze elementu, wykonaj następujące kroki, aby wygenerować go w usłudze GitHub:
 
 1. Przejdź do strony tworzenia tokenu PAT w witrynie GitHub pod adresem https://github.com/settings/tokens/new
 1. Wprowadź krótki **opis** dla tokenu, na przykład „Przykładowe zadanie ACR Tasks”
-1. Wybierz zakresy dla usługi ACR, aby uzyskać dostęp do repozytorium. Aby uzyskać dostęp do publicznego repozytorium, jak w tym samouczku, w obszarze **repozytorium**włącz **repo:status** i **public_repo**
+1. Wybierz zakresy ACR, aby uzyskać dostęp do repozytorium. Aby uzyskać dostęp do repozytorium publicznego jak w tym samouczku, w obszarze **repozytorium**Włącz **repozytorium: stan** i **public_repo**
 
    ![Zrzut ekranu strony generowania osobistego tokenu dostępu w usłudze GitHub][build-task-01-new-token]
 
    > [!NOTE]
-   > Aby wygenerować pat, aby uzyskać dostęp do *prywatnego* repozytorium, wybierz zakres pełnej kontroli **repozytorium.**
+   > Aby wygenerować w celu uzyskania dostępu do repozytorium *prywatnego* , wybierz zakres dla formantu pełna **repozytorium** .
 
 1. Wybierz przycisk **Generate token** (Generuj token) (może zostać wyświetlony monit o potwierdzenie hasła)
 1. Skopiuj i zapisz wygenerowany token w **bezpiecznej lokalizacji** (użyjesz tego tokenu podczas definiowania zadania w następnej sekcji)

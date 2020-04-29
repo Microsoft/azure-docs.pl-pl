@@ -1,21 +1,21 @@
 ---
-title: Tworzenie aplikacji platformy .NET na sieci szkieletowej usług na platformie Azure
+title: Tworzenie aplikacji .NET na Service Fabric na platformie Azure
 description: W tym samouczku znajdziesz informacje o sposobie tworzenia aplikacji za pomocą frontonu platformy ASP.NET Core i niezawodnej stanowej usługi zaplecza, a także o sposobie wdrażania aplikacji w klastrze.
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.custom: mvc
 ms.openlocfilehash: cbfae89ffa446ca3915129fd9add2701ac21d837
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75465475"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Samouczek: tworzenie i wdrażanie aplikacji przy użyciu usługi frontonu platformy ASP.NET Core z internetowym interfejsem API oraz stanowej usługi zaplecza
 
 Niniejszy samouczek jest pierwszą częścią serii.  Zostanie tutaj przedstawiony sposób tworzenia aplikacji usługi Azure Service Fabric za pomocą frontonu internetowego interfejsu API platformy ASP.NET Core i stanowej usługi zaplecza umożliwiającej przechowywanie danych. Po zakończeniu będziesz mieć aplikację do głosowania z usługą internetową frontonu ASP.NET Core, która zapisuje wyniki głosowania w stanowej usłudze zaplecza w klastrze. Jeśli nie chcesz ręcznie tworzyć aplikacji do głosowania, możesz [pobrać kod źródłowy](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) gotowej aplikacji i przejść od razu do sekcji [Szczegółowe omówienie przykładowej aplikacji do głosowania](#walkthrough_anchor).  Jeśli wolisz, możesz też obejrzeć [przewodnik wideo](https://channel9.msdn.com/Events/Connect/2017/E100) dla tego samouczka.
 
-![AngularJS+ASP.NET API FrontOn, Łączenie się ze stanową usługą wewnętrznej bazy danych w sieci szkieletowej usług](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![AngularJS + ASP. NET API frontonu, nawiązywanie połączenia z usługą stanowej zaplecza na Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 Część pierwsza serii zawiera informacje na temat wykonywania następujących czynności:
 
@@ -35,8 +35,8 @@ Ta seria samouczków zawiera informacje na temat wykonywania następujących czy
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem tego samouczka:
-* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Zainstaluj program Visual Studio 2019](https://www.visualstudio.com/) w wersji 15.5 lub nowszej za pomocą obciążeń deweloperskich i **ASP.NET i tworzenia sieci Web** platformy **Azure.**
+* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Zainstaluj program Visual Studio 2019](https://www.visualstudio.com/) w wersji 15,5 lub nowszej przy użyciu obciążeń deweloperskich i **ASP.NET** na **platformie Azure** .
 * [Instalowanie zestawu SDK usługi Service Fabric](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Tworzenie usługi internetowego interfejsu API platformy ASP.NET jako niezawodnej usługi
@@ -45,7 +45,7 @@ Najpierw utwórz fronton internetowy aplikacji do głosowania za pomocą platfor
 
 1. Uruchom program Visual Studio jako **administrator**.
 
-2. Tworzenie projektu za pomocą **pliku**->**nowego**->**projektu**.
+2. Utwórz projekt z **plikiem**->**Nowy**->**projekt**.
 
 3. W oknie dialogowym **Nowy projekt** wybierz kolejno pozycje **Chmura > Aplikacja usługi Service Fabric**.
 
@@ -300,7 +300,7 @@ namespace VotingWeb.Controllers
 
 Po utworzeniu usługi frontonu VotingWeb program Visual Studio losowo wybiera port, na którym usługa będzie nasłuchiwała.  Usługa VotingWeb działa jako fronton dla tej aplikacji i akceptuje ruch zewnętrzny, dlatego warto powiązać ją z ustalonym i dobrze znanym portem.  [Manifest usługi](service-fabric-application-and-service-manifests.md) deklaruje punkty końcowe usługi.
 
-W Eksploratorze rozwiązań otwórz *plik VotingWeb/PackageRoot/ServiceManifest.xml*.  W sekcji **Resources** znajdź element **Endpoint** i zmień wartość elementu **Port** na **8080**. Aby wdrożyć i uruchomić aplikację lokalnie, port nasłuchujący aplikacji musi być otwarty i dostępny na komputerze.
+W Eksplorator rozwiązań Otwórz *plik VotingWeb/PackageRoot/servicemanifest. XML*.  W sekcji **Resources** znajdź element **Endpoint** i zmień wartość elementu **Port** na **8080**. Aby wdrożyć i uruchomić aplikację lokalnie, port nasłuchujący aplikacji musi być otwarty i dostępny na komputerze.
 
 ```xml
 <Resources>
@@ -349,7 +349,7 @@ W tym samouczku utworzysz usługę, która w niezawodnej kolekcji przechowuje wa
 
 ### <a name="add-the-votedatacontrollercs-file"></a>Dodawanie pliku VoteDataController.cs
 
-W projekcie **VotingData** kliknij prawym przyciskiem myszy folder **Controllers**, a następnie wybierz kolejno pozycje **Dodaj->Nowy element->Klasa**. Nazwij **plik VoteDataController.cs** i kliknij przycisk **Dodaj**. Zastąp zawartość tego pliku następującym kodem i zapisz zmiany.
+W projekcie **VotingData** kliknij prawym przyciskiem myszy folder **Controllers**, a następnie wybierz kolejno pozycje **Dodaj->Nowy element->Klasa**. Nazwij plik **VoteDataController.cs** i kliknij przycisk **Dodaj**. Zastąp zawartość tego pliku następującym kodem i zapisz zmiany.
 
 ```csharp
 namespace VotingData.Controllers
@@ -455,7 +455,7 @@ W tym samouczku użyj [internetowego interfejsu API platformy ASP.NET Core](serv
         ],
 ```
 Aby odnaleźć port zwrotnego serwera proxy użyty w lokalnym klastrze programowania, wyświetl element **HttpApplicationGatewayEndpoint** w manifeście klastra lokalnej usługi Service Fabric:
-1. Otwórz okno przeglądarki i przejdź\/do http: /localhost:19080, aby otworzyć narzędzie Eksploratora sieci szkieletowej usług.
+1. Otwórz okno przeglądarki i przejdź do protokołu http:\//localhost: 19080, aby otworzyć narzędzie Service Fabric Explorer.
 2. Wybierz kolejno pozycje **Klaster > Manifest**.
 3. Zanotuj port elementu HttpApplicationGatewayEndpoint. Domyślnie port to 19081. Jeśli port jest inny niż 19081, musisz zmienić go w metodzie GetProxyAddress następującego kodu VotesController.cs.
 
@@ -615,7 +615,7 @@ Aby zobaczyć, co się stanie w kodzie, wykonaj następujące kroki:
       ![Dodawanie usługi frontonu Vote](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
    2. Najpierw skonstruuj adres URL do elementu ReverseProxy dla usługi zaplecza **(1)**.
-   3. Następnie wyślij żądanie HTTP PUT do ReverseProxy **(2)**.
+   3. Następnie Wyślij żądanie HTTP PUT do elementu reverseproxy **(2)**.
    4. Na koniec zwróć odpowiedź z usługi zaplecza do klienta **(3)**.
 
 5. Naciśnij klawisz **F5**, aby kontynuować.

@@ -1,6 +1,6 @@
 ---
-title: Jak zresetować interfejs sieciowy dla maszyny Wirtualnej systemu Windows platformy Azure| Dokumenty firmy Microsoft
-description: Pokazuje, jak zresetować interfejs sieciowy dla maszyny Wirtualnej systemu Windows platformy Azure
+title: Jak zresetować interfejs sieciowy dla maszyny wirtualnej z systemem Windows Azure | Microsoft Docs
+description: Pokazuje, jak zresetować interfejs sieciowy dla maszyny wirtualnej platformy Azure z systemem Windows
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: genlin
@@ -13,42 +13,42 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: a8bd12d98b76d5848753987c4f7bcb76d4e2266d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250077"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Jak zresetować interfejs sieciowy dla maszyny wirtualnej z systemem Windows na platformie Azure 
 
-W tym artykule pokazano, jak zresetować interfejs sieciowy dla maszyny Wirtualnej systemu Windows platformy Azure, aby rozwiązać problemy, gdy nie można połączyć się z maszyną wirtualną systemu Microsoft Azure Windows (VM) po:
+W tym artykule opisano sposób resetowania interfejsu sieciowego dla maszyny wirtualnej platformy Azure z systemem Windows w celu rozwiązywania problemów, gdy nie można nawiązać połączenia z maszyną wirtualną z systemem Microsoft Azure Windows (VM) po:
 
-* Wyłączasz domyślny interfejs sieciowy (NIC). 
-* Ręcznie ustaw statyczny adres IP dla karty sieciowej. 
+* Należy wyłączyć domyślny interfejs sieciowy (NIC). 
+* Należy ręcznie ustawić statyczny adres IP dla karty sieciowej. 
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 
-## <a name="reset-network-interface"></a>Resetowanie interfejsu sieciowego
+## <a name="reset-network-interface"></a>Zresetuj interfejs sieciowy
 
-### <a name="for-vms-deployed-in-resource-group-model"></a>Dla maszyn wirtualnych wdrożonych w modelu grupy zasobów
+### <a name="for-vms-deployed-in-resource-group-model"></a>W przypadku maszyn wirtualnych wdrożonych w modelu grupy zasobów
 
-1.  Przejdź do [witryny Azure portal](https://ms.portal.azure.com).
-2.  Wybierz maszynę wirtualną, którego dotyczy problem.
-3.  Wybierz **pozycję Sieć,** a następnie wybierz interfejs sieciowy maszyny Wirtualnej.
+1.  Przejdź do [Azure Portal](https://ms.portal.azure.com).
+2.  Wybierz zaatakowaną maszynę wirtualną.
+3.  Wybierz pozycję **Sieć** , a następnie wybierz interfejs sieciowy maszyny wirtualnej.
 
     ![Lokalizacja interfejsu sieciowego](./media/reset-network-interface/select-network-interface-vm.png)
     
-4.  Wybierz **konfiguracje IP**.
+4.  Wybierz pozycję **konfiguracje adresów IP**.
 5.  Wybierz adres IP. 
-6.  Jeśli **przypisanie prywatnego adresu IP** nie jest **statyczne,** zmień go na **Statyczny**.
+6.  Jeśli **przypisanie prywatnego adresu IP** nie jest **statyczne**, zmień je na **static**.
 7.  Zmień **adres IP** na inny adres IP, który jest dostępny w podsieci.
-8. Maszyna wirtualna uruchomi się ponownie, aby zainicjować nową kartę sieciową w systemie.
-9.  Spróbuj RDP do komputera. Jeśli się powiedzie, możesz zmienić prywatny adres IP z powrotem na oryginalny, jeśli chcesz. W przeciwnym razie możesz go zachować. 
+8. Maszyna wirtualna zostanie ponownie uruchomiona w celu zainicjowania nowej karty sieciowej w systemie.
+9.  Spróbuj nawiązać połączenie RDP z maszyną. Jeśli chcesz, możesz zmienić prywatny adres IP z powrotem na oryginalny. W przeciwnym razie możesz ją zachować. 
 
 #### <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
 
-1. Upewnij się, że masz [zainstalowaną najnowszą usługę Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-2. Otwórz podwyższoną sesję programu Azure PowerShell (uruchom jako administrator). Uruchom następujące polecenia:
+1. Upewnij się, że masz zainstalowaną [najnowszą Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+2. Otwórz sesję Azure PowerShell z podwyższonym poziomem uprawnień (Uruchom jako administrator). Uruchom następujące polecenia:
 
     ```powershell
     #Set the variables 
@@ -68,30 +68,30 @@ W tym artykule pokazano, jak zresetować interfejs sieciowy dla maszyny Wirtualn
     #Add/Change static IP. This process will not change MAC address
     Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
     ```
-3. Spróbuj RDP do komputera.  Jeśli się powiedzie, możesz zmienić prywatny adres IP z powrotem na oryginalny, jeśli chcesz. W przeciwnym razie możesz go zachować.
+3. Spróbuj nawiązać połączenie RDP z maszyną.  Jeśli chcesz, możesz zmienić prywatny adres IP z powrotem na oryginalny. W przeciwnym razie możesz ją zachować.
 
 ### <a name="for-classic-vms"></a>Dla klasycznych maszyn wirtualnych
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
-Aby zresetować interfejs sieciowy, wykonaj następujące czynności:
+Aby zresetować interfejs sieciowy, wykonaj następujące kroki:
 
 #### <a name="use-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-1.  Przejdź do [witryny Azure portal]( https://ms.portal.azure.com).
-2.  Wybierz **maszyny wirtualne (klasyczne).**
-3.  Wybierz maszynę wirtualną, którego dotyczy problem.
-4.  Wybierz **adresy IP**.
-5.  Jeśli **przypisanie prywatnego adresu IP** nie jest **statyczne,** zmień go na **Statyczny**.
+1.  Przejdź do [Azure Portal]( https://ms.portal.azure.com).
+2.  Wybierz **Virtual Machines (klasyczny)**.
+3.  Wybierz zaatakowaną maszynę wirtualną.
+4.  Wybierz pozycję **adresy IP**.
+5.  Jeśli **przypisanie prywatnego adresu IP** nie jest **statyczne**, zmień je na **static**.
 6.  Zmień **adres IP** na inny adres IP, który jest dostępny w podsieci.
-7.  Wybierz **pozycję Zapisz**.
-8.  Maszyna wirtualna uruchomi się ponownie, aby zainicjować nową kartę sieciową w systemie.
-9.  Spróbuj RDP do komputera. Jeśli to się powiedzie, można przywrócić prywatny adres IP z powrotem do oryginału.  
+7.  Wybierz pozycję **Zapisz**.
+8.  Maszyna wirtualna zostanie ponownie uruchomiona w celu zainicjowania nowej karty sieciowej w systemie.
+9.  Spróbuj nawiązać połączenie RDP z maszyną. Jeśli to się powiedzie, możesz wybrać przywrócenie prywatnego adresu IP z powrotem do oryginalnego.  
 
 #### <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
 
-1. Upewnij się, że masz [zainstalowaną najnowszą usługę Azure PowerShell.](https://docs.microsoft.com/powershell/azure/overview)
-2. Otwórz podwyższoną sesję programu Azure PowerShell (uruchom jako administrator). Uruchom następujące polecenia:
+1. Upewnij się, że masz zainstalowaną [najnowszą Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) .
+2. Otwórz sesję Azure PowerShell z podwyższonym poziomem uprawnień (Uruchom jako administrator). Uruchom następujące polecenia:
 
     ```powershell
     #Set the variables 
@@ -111,22 +111,22 @@ Aby zresetować interfejs sieciowy, wykonaj następujące czynności:
     #Add/Change static IP. This process will not change MAC address
     Get-AzureVM -ResourceGroupName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
     ```
-3. Spróbuj RDP do komputera. Jeśli się powiedzie, możesz zmienić prywatny adres IP z powrotem na oryginalny, jeśli chcesz. W przeciwnym razie możesz go zachować. 
+3. Spróbuj nawiązać połączenie RDP z maszyną. Jeśli chcesz, możesz zmienić prywatny adres IP z powrotem na oryginalny. W przeciwnym razie możesz ją zachować. 
 
-## <a name="delete-the-unavailable-nics"></a>Usuwanie niedostępnych kart sieciowych
-Po zdalnym pulpicie na komputerze należy usunąć stare karty sieciowe, aby uniknąć potencjalnego problemu:
+## <a name="delete-the-unavailable-nics"></a>Usuń niedostępne karty sieciowe
+Po dodaniu pulpitu zdalnego do komputera należy usunąć stare karty sieciowe, aby uniknąć potencjalnego problemu:
 
 1.  Otwórz Menedżera urządzeń.
-2.  Wybierz **pozycję Wyświetl** > **wyświetlanie ukrytych urządzeń**.
-3.  Wybierz **pozycję Karty sieciowe**. 
-4.  Sprawdź, czy karty są nazywane "kartą sieciową Microsoft Hyper-V".
-5.  Może zostać wyświetlona niedostępna karta, która jest wyszarzona. Kliknij prawym przyciskiem myszy kartę, a następnie wybierz polecenie Odinstaluj.
+2.  Wybierz pozycję **Wyświetl** > **Pokaż ukryte urządzenia**.
+3.  Wybierz pozycję **karty sieciowe**. 
+4.  Sprawdź karty o nazwie "Microsoft Hyper-V karcie sieciowej".
+5.  Może zostać wyświetlona niedostępna karta, która jest wyszarzona. Kliknij prawym przyciskiem myszy kartę, a następnie wybierz pozycję Odinstaluj.
 
     ![obraz karty sieciowej](media/reset-network-interface/nicpage.png)
 
     > [!NOTE]
-    > Odinstaluj tylko niedostępne karty o nazwie "Karta sieciowa Microsoft Hyper-V". Odinstalowanie któregokolwiek z innych ukrytych kart może spowodować dodatkowe problemy.
+    > Odinstaluj tylko niedostępne karty o nazwie "Microsoft Hyper-V karcie sieciowej". W przypadku odinstalowania dowolnej z pozostałych kart ukrytych może dojść do dodatkowych problemów.
     >
     >
 
-6.  Teraz wszystkie niedostępne karty powinny zostać wyczyszczone z systemu.
+6.  Teraz wszystkie niedostępne karty powinny zostać wyczyszczone w systemie.

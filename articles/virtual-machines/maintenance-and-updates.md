@@ -1,6 +1,6 @@
 ---
 title: Konserwacja i aktualizacje
-description: Omówienie konserwacji i aktualizacji maszyn wirtualnych działających na platformie Azure.
+description: Przegląd konserwacji i aktualizacji maszyn wirtualnych działających na platformie Azure.
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,95 +8,95 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: shants
 ms.openlocfilehash: eaf7616b3bd69828829342b4dca9247c009d3475
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250233"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Konserwacja maszyn wirtualnych na platformie Azure
 
-Platforma Azure okresowo aktualizuje swoją platformę, aby zwiększyć niezawodność, wydajność i bezpieczeństwo infrastruktury hosta maszyn wirtualnych. Zakres aktualizacji obejmuje tematykę od poprawek składników oprogramowania w środowisku hostingu do uaktualniania składników sieci lub likwidowania sprzętu. 
+Platforma Azure okresowo aktualizuje swoją platformę, aby zwiększyć niezawodność, wydajność i bezpieczeństwo infrastruktury hosta dla maszyn wirtualnych. Zakres aktualizacji obejmuje tematykę od poprawek składników oprogramowania w środowisku hostingu do uaktualniania składników sieci lub likwidowania sprzętu. 
 
-Aktualizacje rzadko wpływają na hostowane maszyny wirtualne. Gdy aktualizacje mają wpływ, platforma Azure wybiera najmniej skuteczną metodę aktualizacji:
+Aktualizacje rzadko wpływają na hostowane maszyny wirtualne. Gdy aktualizacje mają wpływ, na platformie Azure wybierana jest najmniejsza dostosowana Metoda aktualizacji:
 
-- Jeśli aktualizacja nie wymaga ponownego uruchomienia, maszyna wirtualna jest wstrzymana podczas aktualizacji hosta lub maszyna wirtualna jest migrowana na żywo do już zaktualizowanego hosta. 
-- Jeśli konserwacja wymaga ponownego uruchomienia, zostaniesz powiadomiony o planowanej konserwacji. Platforma Azure udostępnia również przedział czasu, w którym można samodzielnie rozpocząć konserwację, w czasie, który działa dla Ciebie. Okno samoobsługi jest zazwyczaj 30 dni, chyba że konserwacja jest pilna. Platforma Azure inwestuje w technologie, aby zmniejszyć liczbę przypadków, w których planowana konserwacja platformy wymaga ponownego uruchomienia maszyn wirtualnych. Aby uzyskać instrukcje dotyczące zarządzania planowaną konserwacją, zobacz Obsługa powiadomień o planowanej konserwacji przy użyciu interfejsu [wiersza polecenia](maintenance-notifications-cli.md)platformy Azure, [programu PowerShell](maintenance-notifications-powershell.md) lub [portalu](maintenance-notifications-portal.md).
+- Jeśli aktualizacja nie wymaga ponownego uruchomienia komputera, maszyna wirtualna jest wstrzymana podczas aktualizowania hosta lub maszyna wirtualna jest migrowana na żywo do już zaktualizowanego hosta. 
+- Jeśli konserwacja wymaga ponownego uruchomienia, zostanie powiadomiona o planowanej konserwacji. Platforma Azure udostępnia również przedział czasu, w którym można samodzielnie uruchomić konserwację, w odpowiednim czasie. Okno samoobsługowe jest zwykle 30 dni, chyba że jest to pilne. Platforma Azure jest inwestować w technologie, aby ograniczyć liczbę przypadków, w których konserwacja planowanej platformy wymaga ponownego uruchomienia maszyn wirtualnych. Aby uzyskać instrukcje dotyczące zarządzania zaplanowaną konserwacją, zobacz Obsługa planowanych powiadomień konserwacyjnych za pomocą [interfejsu wiersza polecenia](maintenance-notifications-cli.md)platformy Azure, [programu PowerShell](maintenance-notifications-powershell.md) lub [portalu](maintenance-notifications-portal.md).
 
-Na tej stronie opisano, jak platforma Azure wykonuje oba typy konserwacji. Aby uzyskać więcej informacji o nieplanowanych zdarzeniach (awariach), zobacz [Zarządzanie dostępnością maszyn wirtualnych dla systemu Windows](./windows/manage-availability.md) lub odpowiedni artykuł dla systemu [Linux](./linux/manage-availability.md).
+Na tej stronie opisano, jak platforma Azure wykonuje oba typy konserwacji. Aby uzyskać więcej informacji o nieplanowanych zdarzeniach (przestoju), zobacz [Zarządzanie dostępnością maszyn wirtualnych w systemie Windows](./windows/manage-availability.md) lub odpowiednim artykule dla systemu [Linux](./linux/manage-availability.md).
 
-W ramach maszyny Wirtualnej można otrzymywać powiadomienia o nadchodzącej konserwacji [przy użyciu zaplanowanych zdarzeń dla systemu Windows](./windows/scheduled-events.md) lub systemu [Linux](./linux/scheduled-events.md).
+W ramach maszyny wirtualnej można otrzymywać powiadomienia o nadchodzącej konserwacji przy [użyciu Scheduled Events dla systemu Windows](./windows/scheduled-events.md) lub [Linux](./linux/scheduled-events.md).
 
 
 
 ## <a name="maintenance-that-doesnt-require-a-reboot"></a>Konserwacja, która nie wymaga ponownego uruchomienia
 
-Większość aktualizacji platformy nie wpływa na maszyny wirtualne klientów. Gdy aktualizacja bez wpływu nie jest możliwe, platforma Azure wybiera mechanizm aktualizacji, który ma najmniejszy wpływ na maszyny wirtualne klientów. 
+Większość aktualizacji platformy nie ma wpływu na maszyny wirtualne klientów. Jeśli aktualizacja nie jest możliwa, platforma Azure wybiera mechanizm aktualizacji, który jest najmniej wpływem na maszyny wirtualne klientów. 
 
-Większość nonzero-impact konserwacji wstrzymuje maszynę wirtualną na mniej niż 10 sekund. W niektórych przypadkach platforma Azure używa mechanizmów konserwacji zachowania pamięci. Mechanizmy te wstrzymują maszynę wirtualną na maksymalnie 30 sekund i zachowują pamięć w pamięci RAM. Maszyna wirtualna jest następnie wznawiana, a jej zegar jest automatycznie synchronizowany. 
+Większość konserwacji niezerowego wpływu wstrzymuje maszynę wirtualną przez mniej niż 10 sekund. W niektórych przypadkach platforma Azure używa mechanizmów konserwacji z zachowaniem pamięci. Te mechanizmy wstrzymują maszynę wirtualną przez maksymalnie 30 sekund i zachowują pamięć w pamięci RAM. Następnie maszyna wirtualna jest wznowiona i zegar jest automatycznie synchronizowany. 
 
-Konserwacja zachowania pamięci działa dla ponad 90 procent maszyn wirtualnych platformy Azure. To nie działa dla serii G, M, N i H. Platforma Azure coraz częściej korzysta z technologii migracji na żywo i ulepsza mechanizmy konserwacji zachowania pamięci, aby skrócić czas trwania pauzy.  
+Konserwacja pamięci jest zachowywana przez ponad 90 procent maszyn wirtualnych platformy Azure. Nie działa dla serii G, M, N i H. Platforma Azure w coraz większym stopniu używa technologii migracji na żywo i zwiększa możliwości konserwacji pamięci, aby skrócić czas trwania przerwy.  
 
-Te operacje konserwacji, które nie wymagają ponownego uruchomienia, są stosowane w jednej domenie błędów naraz. Zatrzymują się, jeśli otrzymają jakiekolwiek sygnały ostrzegawcze. 
+Te operacje konserwacji, które nie wymagają ponownego uruchomienia, są stosowane w jednej domenie błędów jednocześnie. Są one przerywane, jeśli otrzymają ostrzeżenia o kondycji ostrzegawcze. 
 
-Tego typu aktualizacje mogą mieć wpływ na niektóre aplikacje. Gdy maszyna wirtualna jest migrowana na żywo do innego hosta, niektóre poufne obciążenia mogą wykazywać niewielki spadek wydajności w ciągu kilku minut prowadzących do wstrzymania maszyny Wirtualnej. Aby przygotować się do konserwacji maszyn wirtualnych i zmniejszyć wpływ podczas konserwacji platformy Azure, spróbuj [użyć zaplanowanych zdarzeń dla systemu Windows](./windows/scheduled-events.md) lub [Linux](./linux/scheduled-events.md) dla takich aplikacji. 
+Te typy aktualizacji mogą mieć wpływ na niektóre aplikacje. Gdy maszyna wirtualna jest migrowana na żywo na inny host, niektóre wrażliwe obciążenia mogą pokazać niewielki spadek wydajności w ciągu kilku minut, co prowadzi do wstrzymania maszyny wirtualnej. Aby przygotować się do obsługi maszyny wirtualnej i ograniczyć wpływ na konserwację platformy Azure, spróbuj [użyć Scheduled Events dla systemu Windows](./windows/scheduled-events.md) lub [Linux](./linux/scheduled-events.md) dla takich aplikacji. 
 
-Istnieje również funkcja, kontrola konserwacji, w publicznej wersji zapoznawczej, które mogą pomóc w zarządzaniu konserwacji, która nie wymaga ponownego uruchomienia komputera. Musisz używać [hostów dedykowanych platformy Azure](./linux/dedicated-hosts.md) lub [izolowanej maszyny Wirtualnej.](../security/fundamentals/isolation-choices.md) Kontrola konserwacji umożliwia pomijanie aktualizacji platformy i stosowanie aktualizacji w wybranym czasie w 35-dniowym oknie kroczącym. Aby uzyskać więcej informacji, zobacz [Aktualizacje sterowania za pomocą kontroli konserwacji i interfejsu wiersza polecenia platformy Azure](maintenance-control-cli.md).
+W publicznej wersji zapoznawczej znajduje się również funkcja kontroli konserwacji, która może ułatwić zarządzanie konserwacją, która nie wymaga ponownego uruchomienia. Musisz korzystać z [dedykowanych hostów platformy Azure](./linux/dedicated-hosts.md) lub [izolowanej maszyny wirtualnej](../security/fundamentals/isolation-choices.md). Sterowanie konserwacją udostępnia opcję pomijania aktualizacji platformy i stosowania aktualizacji w wybranym momencie w ciągu 35 dni. Aby uzyskać więcej informacji, zobacz [Kontrolowanie aktualizacji przy użyciu sterowania konserwacją i interfejsu wiersza polecenia platformy Azure](maintenance-control-cli.md).
 
 
 ### <a name="live-migration"></a>Migracja na żywo
 
-Migracja na żywo to operacja, która nie wymaga ponownego uruchomienia i która zachowuje pamięć dla maszyny Wirtualnej. Powoduje to pauzę lub zamrożenie, zwykle trwające nie dłużej niż 5 sekund. Z wyjątkiem serii G, M, N i H wszystkie maszyny wirtualne infrastruktury jako usługi (IaaS) kwalifikują się do migracji na żywo. Kwalifikujące się maszyny wirtualne stanowią ponad 90 procent maszyn wirtualnych IaaS, które są wdrażane w usłudze Azure floty. 
+Migracja na żywo to operacja, która nie wymaga ponownego uruchomienia i zachowuje pamięć dla maszyny wirtualnej. Powoduje to wstrzymanie lub zablokowanie, zazwyczaj trwające nie więcej niż 5 sekund. Z wyjątkiem serii G, M, N i H, wszystkie maszyny wirtualne IaaS (Infrastructure as a Service) są uprawnione do migracji na żywo. Kwalifikujące się maszyny wirtualne reprezentują ponad 90 procent maszyn wirtualnych IaaS wdrożonych w ramach floty platformy Azure. 
 
-Platforma Azure rozpoczyna migrację na żywo w następujących scenariuszach:
+Platforma Azure uruchamia migrację na żywo w następujących scenariuszach:
 - Planowana konserwacja
 - Awaria sprzętu
 - Optymalizacje alokacji
 
-Niektóre scenariusze planowanej konserwacji używają migracji na żywo i można użyć zaplanowanych zdarzeń, aby wiedzieć z wyprzedzeniem, kiedy rozpocznie się operacje migracji na żywo.
+Niektóre scenariusze planowanej konserwacji korzystają z migracji na żywo, a w przypadku uruchamiania operacji migracji na żywo można użyć Scheduled Events.
 
-Migracja na żywo może również służyć do przenoszenia maszyn wirtualnych, gdy algorytmy usługi Azure Machine Learning przewidują zbliżającą się awarię sprzętu lub jeśli chcesz zoptymalizować alokacje maszyn wirtualnych. Aby uzyskać więcej informacji na temat modelowania predykcyjnego, które wykrywa wystąpienia zdegradowanego sprzętu, zobacz [Zwiększanie odporności maszyny Wirtualnej platformy Azure za pomocą predykcyjnego uczenia maszynowego i migracji na żywo.](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure) Powiadomienia o migracji na żywo są wyświetlane w witrynie Azure portal w dziennikach monitora i kondycji usługi, a także w zaplanowanych zdarzeniach, jeśli korzystasz z tych usług.
+Migracja na żywo może być również używana do przenoszenia maszyn wirtualnych, gdy algorytmy Azure Machine Learning oczekują nieoczekiwanego błędu sprzętowego lub gdy chcesz zoptymalizować alokacje maszyn wirtualnych. Aby uzyskać więcej informacji na temat modelowania predykcyjnego, które wykrywa wystąpienia sprzętu o obniżonej wydajności, zobacz [ulepszanie odporności maszyny wirtualnej platformy Azure dzięki predykcyjnemu uczenia maszynowego i migracji na żywo](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure). W przypadku korzystania z tych usług powiadomienia o migracji na żywo są wyświetlane w Azure Portal na monitorze i w Service Health dziennikach, a także w Scheduled Events.
 
-## <a name="maintenance-that-requires-a-reboot"></a>Konserwacja, która wymaga ponownego uruchomienia
+## <a name="maintenance-that-requires-a-reboot"></a>Konserwacja wymagająca ponownego uruchomienia
 
-W rzadkich przypadkach, gdy maszyny wirtualne muszą zostać ponownie uruchomione w celu planowanej konserwacji, zostaniesz powiadomiony z wyprzedzeniem. Planowana konserwacja ma dwa etapy: fazę samoobsługową i fazę zaplanowanej konserwacji.
+W rzadkich przypadkach, gdy maszyny wirtualne wymagają ponownego uruchomienia na potrzeby planowanej konserwacji, zostanie wyświetlone powiadomienie z wyprzedzeniem. Planowana konserwacja ma dwie fazy: fazę samoobsługowa i planowana faza konserwacji.
 
-Podczas *fazy samoobsługowej*, która zazwyczaj trwa cztery tygodnie, należy rozpocząć konserwację maszyn wirtualnych. W ramach samoobsługi można zbadać każdą maszynę wirtualną, aby zobaczyć jej stan i wynik ostatniego żądania konserwacji.
+W *fazie samoobsługowej*, która zazwyczaj trwa cztery tygodnie, rozpoczynasz konserwację na maszynach wirtualnych. W ramach samoobsługowego wysyłania zapytań do każdej maszyny wirtualnej w celu wyświetlenia jej stanu i wyniku ostatniego żądania konserwacji.
 
-Po uruchomieniu samoobsługowej konserwacji maszyna wirtualna jest ponownie wcielona do już zaktualizowanego węzła. Ponieważ maszyna wirtualna zostanie ponownie uruchomiona, dysk tymczasowy zostanie utracony, a dynamiczne adresy IP skojarzone z interfejsem sieci wirtualnej są aktualizowane.
+Po uruchomieniu konserwacji samoobsługowej maszyna wirtualna zostanie ponownie wdrożona w węźle, który został już zaktualizowany. Ponieważ maszyna wirtualna jest ponownie uruchamiana, dysk tymczasowy zostaje utracony, a dynamiczne adresy IP skojarzone z interfejsem sieci wirtualnej są aktualizowane.
 
-Jeśli podczas konserwacji samoobsługowej wystąpi błąd, operacja zostanie zatrzymana, maszyna wirtualna nie zostanie zaktualizowana i pojawi się opcja ponowienia próby samoobsługowej konserwacji. 
+Jeśli wystąpi błąd podczas konserwacji samoobsługowej, operacja zostanie zatrzymana, maszyna wirtualna nie zostanie zaktualizowana i zostanie pobrana opcja ponowienia konserwacji samoobsługowej. 
 
-Po zakończeniu fazy samoobsługowej rozpoczyna *się faza zaplanowanej konserwacji.* Podczas tej fazy nadal można zbadać fazę konserwacji, ale nie można samodzielnie rozpocząć konserwacji.
+Po zakończeniu fazy samoobsługowej rozpocznie się *faza zaplanowanej konserwacji* . W tej fazie można nadal wykonywać zapytania dotyczące fazy konserwacji, ale nie można samodzielnie uruchomić konserwacji.
 
-Aby uzyskać więcej informacji na temat zarządzania konserwacją, która wymaga ponownego uruchomienia, zobacz **Obsługa powiadomień o planowanej konserwacji** przy użyciu interfejsu [wiersza polecenia](maintenance-notifications-cli.md)platformy Azure, programu [PowerShell](maintenance-notifications-powershell.md) lub [portalu](maintenance-notifications-portal.md). 
+Aby uzyskać więcej informacji na temat zarządzania konserwacją, która wymaga ponownego uruchomienia, zobacz **Obsługa planowanych powiadomień konserwacyjnych** za pomocą [interfejsu wiersza polecenia](maintenance-notifications-cli.md)platformy Azure, [programu PowerShell](maintenance-notifications-powershell.md) lub [portalu](maintenance-notifications-portal.md). 
 
 ### <a name="availability-considerations-during-scheduled-maintenance"></a>Zagadnienia dotyczące dostępności podczas zaplanowanej konserwacji 
 
-Jeśli zdecydujesz się poczekać do fazy zaplanowanej konserwacji, istnieje kilka rzeczy, które należy wziąć pod uwagę, aby zachować najwyższą dostępność maszyn wirtualnych. 
+Jeśli zdecydujesz się na zakończenie fazy zaplanowanej konserwacji, musisz wziąć pod uwagę kilka rzeczy, aby zachować najwyższą dostępność maszyn wirtualnych. 
 
 #### <a name="paired-regions"></a>Sparowane regiony
 
-Każdy region platformy Azure jest sparowany z innym regionem w tym samym sąsiedztwie geograficznym. Razem tworzą parę regionu. Podczas fazy zaplanowanej konserwacji platforma Azure aktualizuje tylko maszyny wirtualne w jednym regionie pary regionów. Na przykład podczas aktualizowania maszyny Wirtualnej w północno-środkowej części stanów USA platforma Azure nie aktualizuje żadnej maszyny Wirtualnej w południowo-środkowej części USA w tym samym czasie. Inne regiony, takie jak Europa Północna, mogą być jednak w trakcie konserwacji w tym samym czasie, co region Wschodnie stany USA. Zrozumienie, jak działają pary regionów, może pomóc w lepszej dystrybucji maszyn wirtualnych w różnych regionach. Aby uzyskać więcej informacji, zobacz [pary regionów platformy Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Każdy region platformy Azure jest sparowany z innym regionem w obrębie tego samego sąsiedztwa geograficznego. Razem tworzą one parę regionów. W fazie zaplanowanej konserwacji platforma Azure aktualizuje tylko maszyny wirtualne w jednym regionie pary regionów. Na przykład podczas aktualizacji maszyny wirtualnej w Północno-środkowe stany USA platforma Azure nie aktualizuje żadnej maszyny wirtualnej w regionie Południowo-środkowe stany USA w tym samym czasie. Inne regiony, takie jak Europa Północna, mogą być jednak w trakcie konserwacji w tym samym czasie, co region Wschodnie stany USA. Zrozumienie, jak działa para regionów, może pomóc w lepszym rozproszeniu maszyn wirtualnych między regionami. Aby uzyskać więcej informacji, zobacz [pary regionów platformy Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 #### <a name="availability-sets-and-scale-sets"></a>Zestawy dostępności i zestawy skalowania
 
-Podczas wdrażania obciążenia na maszynach wirtualnych platformy Azure, można utworzyć maszyny wirtualne w ramach *zestawu dostępności,* aby zapewnić wysoką dostępność do aplikacji. Za pomocą zestawów dostępności, można upewnić się, że podczas awarii lub konserwacji zdarzenia, które wymagają ponownego uruchomienia, co najmniej jedna maszyna wirtualna jest dostępna.
+Podczas wdrażania obciążenia na maszynach wirtualnych platformy Azure można utworzyć maszyny wirtualne w ramach *zestawu dostępności* , aby zapewnić wysoką dostępność aplikacji. Korzystając z zestawów dostępności, można upewnić się, że podczas zdarzenia przestoju lub konserwacji, które wymagają ponownego uruchomienia, dostępna jest co najmniej jedna maszyna wirtualna.
 
-W ramach zestawu dostępności poszczególne maszyny wirtualne są rozłożone na maksymalnie 20 domen aktualizacji. Podczas zaplanowanej konserwacji tylko jedna domena aktualizacji jest aktualizowana w danym momencie. Domeny aktualizacji nie muszą być aktualizowane sekwencyjnie. 
+W ramach zestawu dostępności poszczególne maszyny wirtualne są rozłożone w maksymalnie 20 domenach aktualizacji. Podczas zaplanowanej konserwacji w danym momencie aktualizowana jest tylko jedna domena aktualizacji. Domeny aktualizacji nie są zawsze aktualizowane sekwencyjnie. 
 
-Zestawy *skalowania* maszyny wirtualnej to zasób obliczeniowy platformy Azure, którego można używać do wdrażania zestawu identycznych maszyn wirtualnych jako pojedynczego zasobu i zarządzania nimi. Zestaw skalowania jest automatycznie wdrażany w uds, takich jak maszyny wirtualne w zestawie dostępności. Podobnie jak w przypadku zestawów dostępności, podczas korzystania z zestawów skalowania tylko jeden UD jest aktualizowany w danym momencie podczas zaplanowanej konserwacji.
+*Zestawy skalowania* maszyn wirtualnych to zasób obliczeniowy platformy Azure służący do wdrażania zestawu identycznych maszyn wirtualnych jako jednego zasobu i zarządzania nimi. Zestaw skalowania jest automatycznie wdrażany w ramach tej funkcji, np. maszyn wirtualnych w zestawie dostępności. Podobnie jak w przypadku zestawów dostępności, w przypadku korzystania z zestawów skalowania w danym momencie w trakcie zaplanowanej konserwacji jest aktualizowana tylko jedna UD.
 
-Aby uzyskać więcej informacji na temat konfigurowania maszyn wirtualnych w celu zapewnienia wysokiej dostępności, zobacz [Zarządzanie dostępnością maszyn wirtualnych dla systemu Windows](./windows/manage-availability.md) lub odpowiedni artykuł dla systemu [Linux](./linux/manage-availability.md).
+Aby uzyskać więcej informacji o konfigurowaniu maszyn wirtualnych pod kątem wysokiej dostępności, zobacz [Zarządzanie dostępnością maszyn wirtualnych w systemie Windows](./windows/manage-availability.md) lub odpowiednim artykule dla systemu [Linux](./linux/manage-availability.md).
 
 #### <a name="availability-zones"></a>Strefy dostępności
 
-Strefy dostępności są unikatowymi lokalizacjami fizycznymi w regionie platformy Azure. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. W celu zapewnienia odporności istnieją co najmniej trzy osobne strefy we wszystkich włączonych regionach. 
+Strefy dostępności są unikatowymi lokalizacjami fizycznymi w regionie świadczenia usługi Azure. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. W celu zapewnienia odporności istnieją co najmniej trzy osobne strefy we wszystkich włączonych regionach. 
 
-Strefa dostępności to połączenie domeny błędów i domeny aktualizacji. Jeśli utworzysz trzy lub więcej maszyn wirtualnych w trzech strefach w regionie platformy Azure, maszyny wirtualne są skutecznie dystrybuowane między trzema domenami błędów i trzema domenami aktualizacji. Platforma Azure rozpoznaje to rozproszenie w domenach aktualizacji, aby upewnić się, że maszyny wirtualne w różnych strefach nie są aktualizowane w tym samym czasie.
+Strefa dostępności jest kombinacją domeny błędów i domeny aktualizacji. Jeśli tworzysz trzy lub więcej maszyn wirtualnych w ramach trzech stref w regionie świadczenia usługi Azure, Twoje maszyny wirtualne są efektywnie dystrybuowane w trzech domenach błędów i trzech domenach aktualizacji. Platforma Azure rozpoznaje to rozproszenie w domenach aktualizacji, aby upewnić się, że maszyny wirtualne w różnych strefach nie są aktualizowane w tym samym czasie.
 
-Każda aktualizacja infrastruktury wprowadza strefę po strefie w obrębie jednego regionu. Ale można mieć wdrożenia dzieje się w strefie 1 i różnych wdrożeń będzie w strefie 2, w tym samym czasie. Wdrożenia nie są wszystkie serializowane. Jednak jedno wdrożenie wprowadza tylko jedną strefę naraz, aby zmniejszyć ryzyko.
+Każda aktualizacja infrastruktury powoduje przeprowadzenie strefy stref w jednym regionie. Można jednak wdrożyć wdrożenie w Strefa 1 i różne wdrożenie, które odbywa się w Strefa 2 w tym samym czasie. Wdrożenia nie są wszystkie serializowane. Jednak pojedyncze wdrożenie powoduje tylko jedną strefę w tym samym czasie w celu zmniejszenia ryzyka.
 
 ## <a name="next-steps"></a>Następne kroki 
 
-Można użyć [interfejsu wiersza polecenia platformy Azure,](maintenance-notifications-cli.md) [programu Azure PowerShell](maintenance-notifications-powershell.md) lub [portalu](maintenance-notifications-portal.md) do zarządzania planowaną konserwacją. 
+Możesz użyć [interfejsu wiersza polecenia platformy Azure](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) lub [portalu](maintenance-notifications-portal.md) , aby zarządzać planowaną konserwacją. 

@@ -1,19 +1,19 @@
 ---
-title: Tworzenie aplikacji funkcji z wdrożeniem usługi GitHub — narzędzie interfejsu wiersza polecenia platformy Azure
+title: Tworzenie aplikacji funkcji przy użyciu wdrożenia GitHub — interfejs wiersza polecenia platformy Azure
 description: Tworzenie aplikacji funkcji i wdrażanie kodu funkcji z repozytorium GitHub przy użyciu usługi Azure Functions.
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
 ms.openlocfilehash: e424737b67be58ac0c3880ad2454c87fab803a15
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75922731"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Tworzenie aplikacji funkcji wdrażanej z repozytorium GitHub na platformie Azure
 
-Ten przykładowy skrypt usługi Azure Functions tworzy aplikację funkcji przy użyciu [planu zużycia,](../functions-scale.md#consumption-plan)wraz z powiązanymi zasobami. Konfiguruje również kod funkcji na potrzeby ciągłego wdrażania z repozytorium GitHub. 
+Ten Azure Functions przykładowy skrypt tworzy aplikację funkcji przy użyciu [planu zużycia](../functions-scale.md#consumption-plan)wraz z powiązanymi zasobami. Konfiguruje również kod funkcji na potrzeby ciągłego wdrażania z repozytorium GitHub. 
 
 Do pracy z tym przykładem potrzebne są:
 
@@ -42,7 +42,7 @@ Każde polecenie w tabeli stanowi link do dokumentacji polecenia. W tym skrypcie
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Tworzy konto magazynu wymagane przez aplikację funkcji. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Tworzy aplikację funkcji w [planie zużycia](../functions-scale.md#consumption-plan) bez użycia serwera i kojarzy ją z repozytorium Git lub Mercurial. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Tworzy aplikację funkcji w [planie zużycia](../functions-scale.md#consumption-plan) bezserwerowego i kojarzy ją z repozytorium Git lub Mercurial. |
 
 ## <a name="next-steps"></a>Następne kroki
 

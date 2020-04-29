@@ -1,20 +1,20 @@
 ---
-title: Wdrażanie szablonów za pomocą usługi Azure Deployment Manager
-description: Dowiedz się, jak wdrażać zasoby usługi Azure Deployment Manager za pomocą szablonów usługi Resource Manager w usłudze Azure Deployment Manager.
+title: Wdrażanie szablonów za pomocą usługi Azure Menedżer wdrażania
+description: Dowiedz się, jak wdrażać zasoby platformy Azure za pomocą szablonów Menedżer zasobów za pomocą usługi Azure Menedżer wdrażania.
 author: mumian
 ms.date: 12/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: ad79721b88f886426d658ed6ee89c4969e1f1baa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75471988"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Samouczek: używanie usługi Azure Deployment Manager z szablonami usługi Resource Manager (publiczna wersja zapoznawcza)
 
-Dowiedz się, jak używać usługi [Azure Deployment Manager](./deployment-manager-overview.md), aby wdrażać aplikacje w wielu regionach. Jeśli wolisz szybsze podejście, [szybki start usługi Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart) tworzy wymagane konfiguracje w ramach subskrypcji i dostosowuje artefakty do wdrażania aplikacji w wielu regionach. Przewodnik Szybki start wykonuje te same zadania, co w tym samouczku.
+Dowiedz się, jak używać usługi [Azure Deployment Manager](./deployment-manager-overview.md), aby wdrażać aplikacje w wielu regionach. Jeśli wolisz szybszym podejściem, [usługa Azure Menedżer wdrażania szybki start](https://github.com/Azure-Samples/adm-quickstart) tworzy wymagane konfiguracje w ramach subskrypcji i dostosowuje artefakty do wdrożenia aplikacji w wielu regionach. Przewodnik Szybki Start wykonuje te same zadania, co w tym samouczku.
 
 Aby użyć usługi Deployment Manager, musisz utworzyć dwa szablony:
 
@@ -22,7 +22,7 @@ Aby użyć usługi Deployment Manager, musisz utworzyć dwa szablony:
 * **Szablon wprowadzania**: opisuje kroki do wykonania podczas wdrażania aplikacji.
 
 > [!IMPORTANT]
-> Jeśli twoja subskrypcja jest oznaczona dla Canary, aby przetestować nowe funkcje platformy Azure, można użyć tylko usługi Azure Deployment Manager do wdrożenia w regionach Kanary. 
+> Jeśli Twoja subskrypcja jest oznaczona jako przeznaczona do testowania nowych funkcji platformy Azure, możesz użyć usługi Azure Menedżer wdrażania tylko do wdrożenia w regionach Kanaryjskich. 
 
 Ten samouczek obejmuje następujące zadania:
 
@@ -40,10 +40,10 @@ Ten samouczek obejmuje następujące zadania:
 
 Dodatkowe zasoby:
 
-* [Odwołanie do interfejsu API REST programu Azure Deployment Manager](https://docs.microsoft.com/rest/api/deploymentmanager/).
-* [Samouczek: Użyj sprawdzania kondycji w usłudze Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+* [Dokumentacja interfejsu API REST usługi Azure Menedżer wdrażania](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Samouczek: korzystanie z kontroli kondycji w usłudze Azure Menedżer wdrażania](./deployment-manager-tutorial-health-check.md).
 
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -105,7 +105,7 @@ Dwie wersje (1.0.0.0 i 1.0.0.1) dotyczą [wdrażania poprawek](#deploy-the-revis
 
     ![Szablon tworzenia aplikacji internetowej w samouczku dotyczącym usługi Azure Deployment Manager](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
-    Szablon wywołuje pakiet wdrożeniowy, który zawiera pliki aplikacji internetowej. W tym samouczku skompresowany pakiet zawiera tylko plik index.html.
+    Szablon wywołuje pakiet wdrożeniowy, który zawiera pliki aplikacji internetowej. W tym samouczku skompresowany pakiet zawiera tylko plik index. html.
 3. Otwórz plik **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**.
 
     ![Szablon tworzenia aplikacji internetowej w samouczku dotyczącym usługi Azure Deployment Manager — parametry containerRoot](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
@@ -130,11 +130,11 @@ Dwie wersje (1.0.0.0 i 1.0.0.1) dotyczą [wdrażania poprawek](#deploy-the-revis
 
 Artefakty szablonu są używane przez szablon topologii usługi, a artefakty binarne są używane przez szablon wprowadzania. Szablony topologii i wprowadzania definiują zasób źródła artefaktu na platformie Azure, który jest zasobem używanym do kierowania usługi Resource Manager do szablonu i artefaktów binarnych używanych we wdrożeniu. Aby uprościć samouczek, jedno konto magazynu jest używane do przechowywania artefaktów szablonu i artefaktów binarnych. Oba źródła artefaktów wskazują na to samo konto magazynu.
 
-Uruchom następujący skrypt programu PowerShell, aby utworzyć grupę zasobów, utworzyć kontener magazynu, utworzyć kontener obiektów blob, przekazać pobrane pliki, a następnie utworzyć token sygnatury dostępu Współdzielonego.
+Uruchom następujący skrypt programu PowerShell, aby utworzyć grupę zasobów, utworzyć kontener magazynu, utworzyć kontener obiektów blob, przekazać pobrane pliki, a następnie utworzyć token sygnatury dostępu współdzielonego.
 
 > [!IMPORTANT]
-> **projectName** w skrypcie programu PowerShell jest używany do generowania nazw dla usług platformy Azure, które są wdrażane w tym samouczku. Różne usługi platformy Azure mają różne wymagania dotyczące nazw. Aby upewnić się, że wdrożenie zakończy się pomyślnie, wybierz nazwę z mniej niż 12 znaków tylko małe litery i cyfry.
-> Zapisz kopię nazwy projektu. Używasz tego samego projectName za pośrednictwem samouczka.
+> **projectName** w skrypcie programu PowerShell służy do generowania nazw usług platformy Azure, które są wdrożone w tym samouczku. Różne usługi platformy Azure mają różne wymagania dotyczące nazw. Aby upewnić się, że wdrożenie zakończyło się pomyślnie, wybierz nazwę o długości mniejszej niż 12 znaków i cyfr.
+> Zapisz kopię nazwy projektu. Ten sam projectName jest używany w samouczku.
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -176,9 +176,9 @@ $url = $storageAccount.PrimaryEndpoints.Blob + $containerName + $token
 Write-Host $url
 ```
 
-Zrób kopię adresu URL za pomocą tokenu sygnatury dostępu Współdzielonego. Ten adres URL jest potrzebny do wypełnienia pola w dwóch plikach parametrów, pliku parametrów topologii oraz pliku parametrów wprowadzania.
+Utwórz kopię adresu URL za pomocą tokenu sygnatury dostępu współdzielonego. Ten adres URL jest potrzebny do wypełnienia pola w dwóch plikach parametrów, pliku parametrów topologii oraz pliku parametrów wprowadzania.
 
-Otwórz kontener z witryny Azure portal i sprawdź, czy zostaną przekazane pliki **binarne** i **foldery szablonów** oraz pliki.
+Otwórz kontener z Azure Portal i sprawdź, czy zostały przekazane zarówno pliki **binarne** , jak i foldery **szablonów** oraz pliki.
 
 ## <a name="create-the-user-assigned-managed-identity"></a>Tworzenie tożsamości zarządzanej przypisanej przez użytkownika
 
@@ -186,8 +186,8 @@ W dalszej części samouczka wdrożysz wprowadzenie. Tożsamość zarządzana pr
 
 Musisz utworzyć tożsamość zarządzaną przypisaną przez użytkownika i skonfigurować kontrolę dostępu dla subskrypcji.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
-2. Utwórz [tożsamość zarządzaną przypisaną przez użytkownika](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Tworzenie [tożsamości zarządzanej przypisanej przez użytkownika](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. W portalu wybierz opcję **Subskrypcje** z menu po lewej stronie, a następnie wybierz swoją subskrypcję.
 4. Wybierz opcję **Kontrola dostępu (IAM)**, a następnie wybierz opcję **Dodaj przypisanie roli**.
 5. Wprowadź lub wybierz poniższe wartości:
@@ -197,7 +197,7 @@ Musisz utworzyć tożsamość zarządzaną przypisaną przez użytkownika i skon
     * **Rola**: udziel wystarczających uprawnień, aby ukończyć wdrażanie artefaktu (aplikacje internetowe i konta magazynu). Wybierz opcję **Współautor** w tym samouczku. W praktyce chcesz ograniczyć uprawnienia do minimum.
     * **Przypisany dostęp do**: wybierz opcję **Tożsamość zarządzana przypisana przez użytkownika**.
     * Wybierz tożsamość zarządzaną przypisaną przez użytkownika, która została utworzona wcześniej w tym samouczku.
-6. Wybierz **pozycję Zapisz**.
+6. Wybierz pozycję **Zapisz**.
 
 ## <a name="create-the-service-topology-template"></a>Tworzenie szablonu topologii usługi
 
@@ -207,7 +207,7 @@ Otwórz plik **\ADMTemplates\CreateADMServiceTopology.json**.
 
 Szablon zawiera następujące parametry:
 
-* **nazwa projektu:** Ta nazwa służy do tworzenia nazw zasobów Menedżera wdrażania. Na przykład za pomocą "jdoe", nazwa topologii usługi jest **jdoe**ServiceTopology.  Nazwy zasobów są definiowane w sekcji zmiennych tego szablonu.
+* **projectName**: Ta nazwa jest używana do tworzenia nazw dla zasobów Menedżer wdrażania. Na przykład przy użyciu "JKowalski" Nazwa topologii usługi jest **JKowalski**servicetopology.  Nazwy zasobów są definiowane w sekcji zmiennych tego szablonu.
 * **azureResourcelocation**: aby uprościć ten samouczek, wszystkie zasoby współdzielą tę lokalizację, chyba że określono inaczej.
 * **artifactSourceSASLocation**: identyfikator URI sygnatury dostępu współdzielonego do kontenera obiektów blob, w którym przechowuje się pliki szablonu i parametrów jednostki usługi na potrzeby wdrożenia.  Zobacz [Przygotowywanie artefaktów](#prepare-the-artifacts).
 * **templateArtifactRoot**: ścieżka przesunięcia z kontenera obiektów blob, w których przechowywane są szablony i parametry. Wartość domyślna to **templates/1.0.0.0**. Nie zmieniaj tej wartości, chyba że chcesz zmienić strukturę folderów wyjaśnioną w sekcji [Przygotowywanie artefaktów](#prepare-the-artifacts). W tym samouczku używa się ścieżek względnych.  Pełna ścieżka jest tworzona przez połączenie elementów **artifactSourceSASLocation**, **templateArtifactRoot** oraz **templateArtifactSourceRelativePath** (lub **parametersArtifactSourceRelativePath**).
@@ -244,13 +244,13 @@ Możesz utworzyć plik parametrów używany z szablonem topologii.
 1. Otwórz plik **\ADMTemplates\CreateADMServiceTopology.Parameters** w programie Visual Studio Code lub dowolnym edytorze tekstów.
 2. Wprowadź wartości parametrów:
 
-    * **projectName**: Wprowadź ciąg z 4-5 znakami. Ta nazwa jest używana do tworzenia unikatowych nazw zasobów platformy Azure.
+    * **projectName**: wprowadź ciąg z 4-5 znaków. Ta nazwa jest używana do tworzenia unikatowych nazw zasobów platformy Azure.
     * **azureResourceLocation**: jeśli nie znasz się na lokalizacjach platformy Azure, użyj lokalizacji **centralus** w tym samouczku.
     * **artifactSourceSASLocation**: wprowadź identyfikator URI sygnatury dostępu współdzielonego do folderu głównego (kontenera obiektów blob), w którym przechowuje się pliki szablonu i parametrów jednostki usługi na potrzeby wdrożenia.  Zobacz [Przygotowywanie artefaktów](#prepare-the-artifacts).
     * **templateArtifactRoot**: użyj wartości **templates/1.0.0.0** w tym samouczku, chyba że chcesz zmienić strukturę folderu artefaktów.
 
 > [!IMPORTANT]
-> Szablon topologii oraz szablon wprowadzania współdzielą niektóre parametry. Te parametry muszą mieć takie same wartości. Te parametry to: **projectName**, **azureResourceLocation**i **artifactSourceSASLocation** (oba źródła artefaktów współużytkują to samo konto magazynu w tym samouczku).
+> Szablon topologii oraz szablon wprowadzania współdzielą niektóre parametry. Te parametry muszą mieć takie same wartości. Parametry te to: **projectName**, **azureResourceLocation**i **artifactSourceSASLocation** (oba źródła artefaktów współużytkują to samo konto magazynu w tym samouczku).
 
 ## <a name="create-the-rollout-template"></a>Tworzenie szablonu wprowadzania
 
@@ -262,7 +262,7 @@ Szablon zawiera następujące parametry:
 
 ![Samouczek dotyczący usługi Azure Deployment Manager — parametry szablonu wprowadzania](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
-* **nazwa projektu:** Ta nazwa służy do tworzenia nazw zasobów Menedżera wdrażania. Na przykład za pomocą "jdoe", nazwa wdrożenia jest **jdoe**Rollout.  Nazwy są definiowane w sekcji zmiennych szablonu.
+* **projectName**: Ta nazwa jest używana do tworzenia nazw dla zasobów Menedżer wdrażania. Na przykład przy użyciu "JKowalski" nazwa wdrożenia to **JKowalski**wdrożenia.  Nazwy są definiowane w sekcji zmiennych szablonu.
 * **azureResourcelocation**: aby uprościć ten samouczek, wszystkie zasoby usługi Deployment Manager współdzielą tę lokalizację, chyba że określono inaczej.
 * **artifactSourceSASLocation**: identyfikator URI sygnatury dostępu współdzielonego do folderu głównego (kontenera obiektów blob), w którym przechowuje się pliki szablonu i parametrów jednostki usługi na potrzeby wdrożenia.  Zobacz [Przygotowywanie artefaktów](#prepare-the-artifacts).
 * **binaryArtifactRoot**: wartość domyślna to **binaries/1.0.0.0**. Nie zmieniaj tej wartości, chyba że chcesz zmienić strukturę folderów wyjaśnioną w sekcji [Przygotowywanie artefaktów](#prepare-the-artifacts). W tym samouczku używa się ścieżek względnych.  Pełna ścieżka jest tworzona przez połączenie elementów **artifactSourceSASLocation**, **binaryArtifactRoot** oraz **deployPackageUri** określonych w pliku CreateWebApplicationParameters.json.  Zobacz [Przygotowywanie artefaktów](#prepare-the-artifacts).
@@ -304,7 +304,7 @@ Możesz utworzyć plik parametrów używany z szablonem wprowadzania.
 1. Otwórz plik **\ADMTemplates\CreateADMRollout.Parameters** w programie Visual Studio Code lub dowolnym edytorze tekstów.
 2. Wprowadź wartości parametrów:
 
-    * **projectName**: Wprowadź ciąg z 4-5 znakami. Ta nazwa jest używana do tworzenia unikatowych nazw zasobów platformy Azure.
+    * **projectName**: wprowadź ciąg z 4-5 znaków. Ta nazwa jest używana do tworzenia unikatowych nazw zasobów platformy Azure.
     * **azureResourceLocation**: Określ lokalizację platformy Azure.
     * **artifactSourceSASLocation**: wprowadź identyfikator URI sygnatury dostępu współdzielonego do folderu głównego (kontenera obiektów blob), w którym przechowuje się pliki szablonu i parametrów jednostki usługi na potrzeby wdrożenia.  Zobacz [Przygotowywanie artefaktów](#prepare-the-artifacts).
     * **binaryArtifactRoot**: użyj wartości **binaries/1.0.0.0** w tym samouczku, chyba że chcesz zmienić strukturę folderu artefaktów.
@@ -315,7 +315,7 @@ Możesz utworzyć plik parametrów używany z szablonem wprowadzania.
         ```
 
 > [!IMPORTANT]
-> Szablon topologii oraz szablon wprowadzania współdzielą niektóre parametry. Te parametry muszą mieć takie same wartości. Te parametry to: **projectName**, **azureResourceLocation**i **artifactSourceSASLocation** (oba źródła artefaktów współużytkują to samo konto magazynu w tym samouczku).
+> Szablon topologii oraz szablon wprowadzania współdzielą niektóre parametry. Te parametry muszą mieć takie same wartości. Parametry te to: **projectName**, **azureResourceLocation**i **artifactSourceSASLocation** (oba źródła artefaktów współużytkują to samo konto magazynu w tym samouczku).
 
 ## <a name="deploy-the-templates"></a>Wdrażanie szablonów
 
@@ -331,10 +331,10 @@ Programu Azure PowerShell można użyć do wdrażania szablonów.
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
     ```
 
-    Jeśli ten skrypt zostanie uruchomiony z innej sesji programu PowerShell od tej uruchomionej skryptu [Przygotuj artefakty,](#prepare-the-artifacts) należy najpierw ponownie wypełnić zmienne, które obejmują **$resourceGroupName** i **$filePath**.
+    Jeśli skrypt zostanie uruchomiony z innej sesji programu PowerShell z poziomu tej, w której uruchomiono skrypt [przygotowania artefaktów](#prepare-the-artifacts) , należy najpierw ponownie wypełnić zmienne, które zawierają **$resourceGroupName** i **$FilePath**.
 
     > [!NOTE]
-    > `New-AzResourceGroupDeployment`jest wywołaniem asynchroniza. Komunikat o powodzenie oznacza tylko, że wdrożenie zostało pomyślnie rozpoczęte. Aby zweryfikować wdrożenie, zobacz krok 2 i krok 4 tej procedury.
+    > `New-AzResourceGroupDeployment`jest wywołaniem asynchronicznym. Komunikat o powodzeniu oznacza, że wdrożenie zostało pomyślnie rozpoczęte. Aby sprawdzić wdrożenie, zobacz krok 2 i krok 4 tej procedury.
 
 2. Sprawdź, czy topologia usługi oraz podstawowe zasoby zostały utworzone pomyślnie, korzystając z witryny Azure Portal:
 
@@ -363,7 +363,7 @@ Programu Azure PowerShell można użyć do wdrażania szablonów.
         -Verbose
     ```
 
-    Należy zainstalować polecenia cmdlet programu PowerShell usługi Deployment Manager przed uruchomieniem tego polecenia cmdlet. Zobacz Wymagania wstępne. Przełącznik -Verbose może służyć do zobaczenia całego wyjścia.
+    Należy zainstalować polecenia cmdlet programu PowerShell usługi Deployment Manager przed uruchomieniem tego polecenia cmdlet. Zobacz Wymagania wstępne. Przełącznik-verbose może służyć do wyświetlania całego danych wyjściowych.
 
     Następujący przykład przedstawia stan działania:
 
@@ -427,7 +427,7 @@ Programu Azure PowerShell można użyć do wdrażania szablonów.
 
 ## <a name="verify-the-deployment"></a>Weryfikowanie wdrożenia
 
-1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
+1. Otwórz [witrynę Azure Portal](https://portal.azure.com).
 2. Przejdź do nowo utworzonych aplikacji internetowych w obrębie nowych grup zasobów utworzonych przez wdrożenie wprowadzania.
 3. Otwórz aplikację internetową w przeglądarce internetowej. Sprawdź lokalizację i wersję w pliku index.html.
 
@@ -444,17 +444,17 @@ Jeśli masz nową wersję (1.0.0.1) aplikacji internetowej. Możesz użyć poni�
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 
-1. W witrynie Azure portal wybierz **grupę zasobów** z lewego menu.
+1. Z Azure Portal z menu po lewej stronie wybierz pozycję **Grupa zasobów** .
 2. Użyj pola **Filtruj według nazwy**, aby zawęzić listę grup zasobów utworzonych w tym samouczku. Powinny istnieć 3–4 grupy:
 
-    * projectName>rg : zawiera zasoby Menedżera wdrażania. ** &lt;**
-    * projectName>ServiceWUSrg : zawiera zasoby zdefiniowane przez ServiceWUS. ** &lt;**
-    * projectName>ServiceEUSrg : zawiera zasoby zdefiniowane przez ServiceEUS. ** &lt;**
+    * projectName>RG: zawiera zasoby Menedżer wdrażania. ** &lt;**
+    * projectName>ServiceWUSrg: zawiera zasoby zdefiniowane przez ServiceWUS. ** &lt;**
+    * projectName>ServiceEUSrg: zawiera zasoby zdefiniowane przez ServiceEUS. ** &lt;**
     * Grupa zasobów dla tożsamości zarządzanej zdefiniowanej przez użytkownika.
 3. Wybierz nazwę grupy zasobów.
-4. Wybierz **pozycję Usuń grupę zasobów** z górnego menu.
+4. W górnym menu wybierz pozycję **Usuń grupę zasobów** .
 5. Powtórz dwa ostatnie kroki, aby usunąć inne grupy zasobów utworzone w ramach tego samouczka.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób użycia usługi Azure Deployment Manager. Aby zintegrować monitorowanie kondycji w Usłudze Azure Deployment Manager, zobacz [Samouczek: Używanie sprawdzania kondycji w usłudze Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+W tym samouczku przedstawiono sposób użycia usługi Azure Deployment Manager. Aby zintegrować monitorowanie kondycji w usłudze Azure Menedżer wdrażania, zobacz [Samouczek: używanie sprawdzania kondycji w usłudze azure Menedżer wdrażania](./deployment-manager-tutorial-health-check.md).

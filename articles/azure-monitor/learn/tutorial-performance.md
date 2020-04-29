@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 08/13/2019
 ms.custom: mvc
 ms.openlocfilehash: 98d7c1552a7b1f2b02ae4df1cad24e20f7ac76e1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79239595"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Znajdowanie i diagnozowanie problemów z wydajnością za pomocą usługi Azure Application Insights
@@ -36,7 +36,7 @@ W celu ukończenia tego samouczka:
 - [Włącz profiler usługi Application Insights](../../azure-monitor/app/profiler.md#installation) dla swojej aplikacji.
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
-Zaloguj się do portalu [https://portal.azure.com](https://portal.azure.com)Azure w .
+Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="identify-slow-server-operations"></a>Identyfikowanie wolnych operacji serwera
 Usługa Application Insights zbiera informacje o wydajności różnych operacji w aplikacji. Identyfikując operacje o najdłuższym czasie trwania, możesz zdiagnozować potencjalne problemy albo najlepiej ukierunkować trwające prace programistyczne w celu podniesienia ogólnej wydajności aplikacji.
@@ -58,12 +58,12 @@ Usługa Application Insights zbiera informacje o wydajności różnych operacji 
 
 5.  Na pierwszy rzut oka zobaczysz, że wywołanie tabeli Fabrikamaccount Azure Table najbardziej wpływa na całkowity czas trwania transakcji. Zobaczysz też, że wyjątek spowodował jego niepowodzenia. Możesz kliknąć dowolną pozycję na liście, aby wyświetlić jej szczegóły po prawej stronie. [Dowiedz się więcej o środowisku diagnostyki transakcji](../../azure-monitor/app/transaction-diagnostics.md)
 
-    ![Szczegóły kompleksowej operacji](media/tutorial-performance/4-end-to-end.png)
+    ![Szczegóły operacji na końcu](media/tutorial-performance/4-end-to-end.png)
     
 
 6.  Narzędzie **Profiler** pomaga zagłębić się w diagnostykę na poziomie kodu, wyświetlając rzeczywisty kod uruchamiany dla operacji i czas wymagany przez każdy z kroków. Niektóre operacje mogą nie mieć śladu, ponieważ profiler jest uruchamiany okresowo.  Z upływem czasu coraz więcej operacji powinno mieć ślady.  Aby uruchomić profiler dla operacji, kliknij pozycję **Ślady narzędzia Profiler**.
 5.  Ślad pokazuje indywidualne zdarzenia dla każdej operacji, więc można zdiagnozować główną przyczynę obecnego czasu trwania całej operacji.  Kliknij jeden z przykładów u góry, które mają najdłuższy czas trwania.
-6.  Kliknij **gorącą ścieżkę,** aby wyróżnić określoną ścieżkę zdarzeń, które najbardziej przyczyniają się do całkowitego czasu trwania operacji.  W tym przykładzie widać, że najwolniejsze wywołanie pochodzi z metody *FabrikamFiberAzureStorage.GetStorageTableData*. Częścią zabierającą najwięcej czasu jest metoda *CloudTable.CreateIfNotExist*. Jeśli ten wiersz kodu jest wywoływany po każdym wywołaniu funkcji, niepotrzebnie używane będą wywołanie sieciowe i zasób procesora CPU. Najlepszym sposobem poprawienia kodu jest umieszczenie tego wiersza w jakiejś metodzie startowej, która jest wykonywana tylko raz.
+6.  Kliknij pozycję **ścieżka gorąca** , aby wyróżnić konkretną ścieżkę zdarzeń, które najbardziej przyczyniają się do łącznego czasu trwania operacji.  W tym przykładzie widać, że najwolniejsze wywołanie pochodzi z metody *FabrikamFiberAzureStorage.GetStorageTableData*. Częścią zabierającą najwięcej czasu jest metoda *CloudTable.CreateIfNotExist*. Jeśli ten wiersz kodu jest wywoływany po każdym wywołaniu funkcji, niepotrzebnie używane będą wywołanie sieciowe i zasób procesora CPU. Najlepszym sposobem poprawienia kodu jest umieszczenie tego wiersza w jakiejś metodzie startowej, która jest wykonywana tylko raz.
 
     ![Szczegóły profilera](media/tutorial-performance/5-hot-path.png)
 
@@ -71,39 +71,39 @@ Usługa Application Insights zbiera informacje o wydajności różnych operacji 
 
     ![Porada dotycząca wydajności](media/tutorial-performance/6-perf-tip.png)
 
-8.   Aby uzyskać dalszą analizę, można kliknąć **pobierz śledzenie,** aby pobrać śledzenie. Można wyświetlić te dane za pomocą [PerfView](https://github.com/Microsoft/perfview#perfview-overview).
+8.   W celu dalszej analizy można kliknąć pozycję **Pobierz ślad** , aby pobrać śledzenie. Te dane można wyświetlić przy użyciu [Narzędzia PerfView](https://github.com/Microsoft/perfview#perfview-overview).
 
-## <a name="use-logs-data-for-server"></a>Używanie danych dzienników dla serwera
- Dzienniki zawiera bogaty język zapytań, który umożliwia analizowanie wszystkich danych zebranych przez usługa Application Insights. Możesz jej używać do wykonywania głębokiej analizy danych żądań i wydajności.
+## <a name="use-logs-data-for-server"></a>Użyj danych dzienników dla serwera
+ Dzienniki udostępniają bogaty język zapytań, który pozwala analizować wszystkie dane zbierane przez Application Insights. Możesz jej używać do wykonywania głębokiej analizy danych żądań i wydajności.
 
-1. Powrót do panelu szczegółów ![operacji i kliknij pozycję Widok ikony dzienników](media/tutorial-performance/app-viewinlogs-icon.png)**w dziennikach (Analytics)**
+1. Wróć do panelu Szczegóły operacji, a następnie ![kliknij pozycję Dzienniki](media/tutorial-performance/app-viewinlogs-icon.png)**Widok ikon w dziennikach (analiza)**
 
-2. Dzienniki są otwierane z zapytaniem dla każdego z widoków w panelu.  Zapytania te można uruchomić w proponowanej formie lub dostosować do własnych wymagań.  Pierwsze zapytanie pokazuje czas trwania operacji w miarę upływu czasu.
+2. Dzienniki są otwierane za pomocą zapytania dla każdego z widoków w panelu.  Zapytania te można uruchomić w proponowanej formie lub dostosować do własnych wymagań.  Pierwsze zapytanie pokazuje czas trwania operacji w miarę upływu czasu.
 
-    ![loguje kwerendę](media/tutorial-performance/7-request-time-logs.png)
+    ![zapytanie dzienników](media/tutorial-performance/7-request-time-logs.png)
 
 
 ## <a name="identify-slow-client-operations"></a>Identyfikowanie wolnych operacji klienta
 Oprócz identyfikowania procesów serwera do zoptymalizowania, usługa Application Insights może analizować perspektywę przeglądarek klienta.  To może pomóc zidentyfikować potencjalne ulepszenia do składników klienta, a nawet zidentyfikować problemy z różnymi przeglądarkami i lokalizacjami.
 
-1. Wybierz **pozycję Przeglądarka** w obszarze **Zbadaj,** a następnie kliknij pozycję **Wydajność przeglądarki** lub wybierz pozycję **Wydajność** w obszarze **Zbadaj** i przełącz się na kartę **Przeglądarka,** klikając przycisk przełączania serwer/przeglądarka w prawym górnym rogu, aby otworzyć podsumowanie wydajności przeglądarki. Ma ono postać wizualnego podsumowania różnych danych telemetrycznych dla Twojej aplikacji z perspektywy przeglądarki.
+1. Wybierz pozycję **przeglądarka** w obszarze **Zbadaj** , a następnie kliknij pozycję **wydajność przeglądarki** lub wybierz pozycję **wydajność** w obszarze **Zbadaj** , a następnie przejdź do karty **przeglądarki** , klikając przycisk przełączania serwer/przeglądarka w prawym górnym rogu, aby otworzyć podsumowanie wydajności przeglądarki. Ma ono postać wizualnego podsumowania różnych danych telemetrycznych dla Twojej aplikacji z perspektywy przeglądarki.
 
     ![Podsumowanie informacji o przeglądarce](media/tutorial-performance/8-browser.png)
 
-2. Wybierz jedną z nazw operacji, a następnie kliknij niebieski przycisk próbek w prawym dolnym rogu i wybierz operację. Spowoduje to wyświetlenie szczegółów transakcji end-to-end, a po prawej stronie można wyświetlić **właściwości widoku strony**. Dzięki temu można wyświetlić szczegóły klienta żądającego strony, w tym typ przeglądarki i jej lokalizację. Te informacje mogą pomóc w określeniu, czy występują problemy z wydajnością powiązane z konkretnymi typami klientów.
+2. Wybierz jedną z nazw operacji, a następnie kliknij przycisk niebieskich przykładów w prawym dolnym rogu i wybierz operację. Spowoduje to wyświetlenie szczegółowych informacji o transakcjach i po prawej stronie można wyświetlić **Właściwości widoku strony**. Pozwala to wyświetlić szczegóły klienta żądającego strony, w tym typ przeglądarki i jej lokalizacji. Te informacje mogą pomóc w określeniu, czy występują problemy z wydajnością powiązane z konkretnymi typami klientów.
 
     ![Wyświetlenie strony](media/tutorial-performance/9-page-view-properties.png)
 
-## <a name="use-logs-data-for-client"></a>Używanie danych dzienników dla klienta
-Podobnie jak dane zebrane pod kątem wydajności serwera, usługa Application Insights udostępnia wszystkie dane klienta do głębokiej analizy przy użyciu dzienników.
+## <a name="use-logs-data-for-client"></a>Użyj danych dzienników dla klienta
+Podobnie jak w przypadku danych zbieranych pod kątem wydajności serwera, Application Insights wszystkie dane klienta są dostępne do głębokiej analizy przy użyciu dzienników.
 
-1. Powrót do podsumowania ![przeglądarki i](media/tutorial-performance/app-viewinlogs-icon.png) kliknij pozycję Widok ikony dzienników **w dziennikach (Analytics)**
+1. Wróć do podsumowania przeglądarki i kliknij ![kolejno](media/tutorial-performance/app-viewinlogs-icon.png) pozycje dzienniki **Widok ikon w dziennikach (analiza)**
 
-2. Dzienniki są otwierane z zapytaniem dla każdego z widoków w panelu. Pierwsze zapytanie pokazuje czas trwania dla różnych wyświetleń stron w miarę upływu czasu.
+2. Dzienniki są otwierane za pomocą zapytania dla każdego z widoków w panelu. Pierwsze zapytanie pokazuje czas trwania dla różnych wyświetleń stron w miarę upływu czasu.
 
-    ![Kwerenda dzienników](media/tutorial-performance/10-page-view-logs.png)
+    ![Zapytanie dzienników](media/tutorial-performance/10-page-view-logs.png)
 
-3.  Inteligentna diagnostyka jest funkcją Dzienniki identyfikuje unikatowe wzorce w danych. Po kliknięciu na wykresie liniowym kropki funkcji Inteligentna diagnostyka uruchamiane jest to samo zapytanie, ale bez rekordów będących przyczyną anomalii. Szczegółowe informacje o tych rekordach są pokazywane w sekcji komentarza zapytania, więc można zidentyfikować właściwości tych wyświetleń strony, które powodują za długie czasy trwania.
+3.  Inteligentna diagnostyka to funkcja dzienników identyfikująca unikatowe wzorce w danych. Po kliknięciu na wykresie liniowym kropki funkcji Inteligentna diagnostyka uruchamiane jest to samo zapytanie, ale bez rekordów będących przyczyną anomalii. Szczegółowe informacje o tych rekordach są pokazywane w sekcji komentarza zapytania, więc można zidentyfikować właściwości tych wyświetleń strony, które powodują za długie czasy trwania.
 
     ![Dzienniki z inteligentną diagnostyką](media/tutorial-performance/11-page-view-logs-dsmart.png)
 

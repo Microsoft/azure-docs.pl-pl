@@ -1,7 +1,7 @@
 ---
-title: Samouczek — diagnozowanie problemu z komunikacją między sieciami przy użyciu portalu Azure
+title: Samouczek — diagnozowanie problemów z komunikacją między sieciami przy użyciu Azure Portal
 titleSuffix: Azure Network Watcher
-description: W tym samouczku dowiesz się, jak zdiagnozować problem z komunikacją między siecią wirtualną platformy Azure połączoną z lokalną lub inną siecią wirtualną za pośrednictwem bramy sieci wirtualnej platformy Azure przy użyciu funkcji diagnostyki sieci VPN obserwatora sieci.
+description: W tym samouczku dowiesz się, jak zdiagnozować problem z komunikacją między siecią wirtualną platformy Azure połączoną z lokalną lub inną siecią wirtualną za pośrednictwem bramy sieci wirtualnej platformy Azure, korzystając z funkcji diagnostyki Network Watcher sieci VPN.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -15,22 +15,22 @@ ms.date: 04/27/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76834691"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Samouczek: diagnozowanie problemu z komunikacją między sieciami przy użyciu witryny Azure Portal
 
-Brama sieci wirtualnej łączy sieć wirtualną platformy Azure z lokalną lub inną siecią wirtualną. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Brama sieci wirtualnej łączy sieć wirtualną platformy Azure z lokalną lub inną siecią wirtualną. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Diagnozowanie problemu z bramą sieci wirtualnej za pomocą diagnostyki sieci VPN usługi Network Watcher
 > * Diagnozowanie problemu z połączeniem bramy
 > * Rozwiązywanie problemu z bramą
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -38,14 +38,14 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby móc używać diagnostyki sieci VPN, musisz mieć istniejącą i działającą bramę sieci VPN. Jeśli nie masz istniejącej bramy sieci VPN do diagnozowania, możesz ją wdrożyć przy użyciu [skryptu programu PowerShell](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Skrypt programu PowerShell możesz uruchomić z następujących lokalizacji:
-- **Lokalna instalacja programu PowerShell:** Skrypt `Az` wymaga modułu programu Azure PowerShell. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie programu Azure PowerShell](/powershell/azure/install-Az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
+- **Lokalna instalacja programu PowerShell**: skrypt wymaga modułu Azure PowerShell `Az` . Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie programu Azure PowerShell](/powershell/azure/install-Az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
 - **Usługa Azure Cloud Shell**: usługa [Azure Cloud Shell](https://shell.azure.com/powershell) ma zainstalowaną i skonfigurowaną najnowszą wersję programu PowerShell i powoduje zalogowanie na platformie Azure.
 
 Utworzenie bramy sieci VPN za pomocą tego skryptu trwa około godziny. W pozostałych krokach przyjęto założenie, że diagnozowana brama została wdrożona przy użyciu tego skryptu. Jeśli zamiast tego diagnozujesz własną istniejącą bramę, wyniki będą się różnić.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="enable-network-watcher"></a>Włączanie usługi Network Watcher
 

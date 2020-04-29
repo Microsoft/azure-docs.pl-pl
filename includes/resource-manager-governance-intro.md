@@ -9,15 +9,15 @@ ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: d1e7fa1ed1649508f0d4923db8817d17ad556ca1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67183161"
 ---
 Wdrażanie zasobów na platformie Azure jest procesem niezwykle elastycznym. Można zdecydować, jakiego rodzaju zasoby będą wdrażane, gdzie się one znajdują oraz jak należy je skonfigurować. Ta elastyczność może jednak spowodować, że dostępnych będzie więcej opcji, niż powinno być dozwolonych w organizacji. Podczas planowania wdrażania zasobów na platformie Azure mogą wyniknąć następujące kwestie:
 
-* Jak spełnić wymogi prawne dotyczące suwerenności danych w niektórych krajach/regionach?
+* Jak mogę spełniają wymagania prawne dotyczące suwerenności danych w niektórych krajach/regionach?
 * Jak mogę kontrolować koszty?
 * Jak mogę zagwarantować, że nikt nieodwracalnie nie zmodyfikuje krytycznego systemu?
 * Jak mogę śledzić koszty zasobów i odpowiednio je rozliczać?

@@ -1,50 +1,50 @@
 ---
-title: 'Wzorzec: Wdrażanie zasobów z definicją zasad'
-description: Ten wzorzec zasad platformy Azure zawiera przykład sposobu wdrażania zasobów z definicją zasad.
+title: 'Wzorzec: wdrażanie zasobów przy użyciu definicji zasad'
+description: Ten Azure Policy wzorzec zawiera przykład sposobu wdrażania zasobów przy użyciu definicji zasad.
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: a8b6528afbd21c7c667e48965574c9b48c403654
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77172674"
 ---
-# <a name="azure-policy-pattern-deploy-resources"></a>Wzorzec zasad platformy Azure: wdrażanie zasobów
+# <a name="azure-policy-pattern-deploy-resources"></a>Wzorzec Azure Policy: wdrażanie zasobów
 
-Efekt [deployIfNotExists](../concepts/effects.md#deployifnotexists) umożliwia wdrożenie [szablonu usługi Azure Resource Manager](../../../azure-resource-manager/templates/overview.md) podczas tworzenia lub aktualizowania zasobu, który nie jest zgodny. Takie podejście może być preferowane przy użyciu [efektu odmowy,](../concepts/effects.md#deny) ponieważ umożliwia tworzenie zasobów, ale zapewnia, że zmiany są wprowadzane w celu ich zgodności.
+Efekt [deployIfNotExists](../concepts/effects.md#deployifnotexists) umożliwia wdrożenie [szablonu Azure Resource Manager](../../../azure-resource-manager/templates/overview.md) podczas tworzenia lub aktualizowania zasobu, który nie jest zgodny. Takie podejście może być preferowane przy użyciu efektu [Odmów](../concepts/effects.md#deny) , ponieważ pozwala na dalsze tworzenie zasobów, ale gwarantuje, że zmiany są zgodne.
 
 ## <a name="sample-policy-definition"></a>Przykładowa definicja zasad
 
-Ta definicja zasad **field** używa operatora `type` pola do oceny zasobu utworzonego lub zaktualizowanego. Gdy ten zasób jest _Microsoft.Network/virtualNetworks_, zasady wyszukuje obserwatora sieci w lokalizacji nowego lub zaktualizowanego zasobu. Jeśli pasujący obserwator sieci nie znajduje się, szablon Menedżera zasobów jest wdrażany w celu utworzenia brakującego zasobu.
+Ta definicja zasad używa operatora **pola** do oszacowania `type` utworzonego lub zaktualizowanego zasobu. Gdy ten zasób jest obiektem _Microsoft. Network/virtualNetworks_, zasady szuka obserwatora sieci w lokalizacji nowego lub zaktualizowanego zasobu. Jeśli nie zlokalizowano zgodnego obserwatora sieciowego, szablon Menedżer zasobów zostanie wdrożony w celu utworzenia brakującego zasobu.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json":::
 
 ### <a name="explanation"></a>Wyjaśnienie
 
-#### <a name="existencecondition"></a>istnienieWarzycie
+#### <a name="existencecondition"></a>existenceCondition
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="18-23":::
 
-Ten **properties.policyRule.then.details** blok informuje Azure Zasady co szukać pod kątem pokrewny wobec ten wierzyciel albo zaktualizować narada w ten **properties.policyRule.if** kloc. W tym przykładzie obserwator sieci w sieci grupy **zasobówWatcherRG** musi istnieć z **polem** `location` równym lokalizacji nowego lub zaktualizowanego zasobu. Za `field()` pomocą funkcji umożliwia **istnienieWarszyk dostępu** do właściwości na nowy `location` lub zaktualizowany zasób, w szczególności właściwości.
+Blok **właściwości. Klasa policyrule. then. Details** informuje Azure Policy, co należy szukać względem utworzonego lub zaktualizowanego zasobu w bloku **właściwości. Klasa policyrule. if** . W tym przykładzie obserwator sieciowy w grupie zasobów **networkWatcherRG** musi istnieć z **polem** `location` równym lokalizacji nowego lub zaktualizowanego zasobu. Użycie `field()` funkcji umożliwia **existenceCondition** dostęp do właściwości nowego lub zaktualizowanego zasobu, w zależności od `location` właściwości.
 
-#### <a name="roledefinitionids"></a>.
+#### <a name="roledefinitionids"></a>roleDefinitionIds
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="24-26":::
 
-Właściwość _tablicy_ **roleDefinitionIds** w bloku **properties.policyRule.then.details** informuje o definicji zasad, które prawa musi mieć tożsamość zarządzana do wdrożenia dołączonego szablonu Menedżera zasobów. Ta właściwość musi być ustawiona na role, które mają uprawnienia wymagane przez wdrożenie szablonu, ale należy użyć pojęcia "zasada najmniejszych uprawnień" i mają tylko potrzebne operacje i nic więcej.
+Właściwość **roleDefinitionIds** _Array_ roleDefinitionIds w bloku **Properties. Klasa policyrule. then. Details** informuje definicję zasad o tym, które prawa tożsamości zarządzanej muszą wdrożyć dołączony szablon Menedżer zasobów. Ta właściwość musi być ustawiona tak, aby obejmowała role, które mają uprawnienia wymagane przez wdrożenie szablonu, ale powinny używać koncepcji "zasada najniższych uprawnień" i mieć tylko wymagane operacje i nic więcej.
 
 #### <a name="deployment-template"></a>Szablon wdrożenia
 
-Część **wdrożenia** definicji zasad ma blok **właściwości,** który definiuje trzy podstawowe składniki:
+Część **wdrożenia** definicji zasad ma blok **Właściwości** , który definiuje trzy podstawowe składniki:
 
-- **mode** - Ta właściwość ustawia [tryb wdrażania](../../../azure-resource-manager/templates/deployment-modes.md) szablonu.
+- **mode** — ta właściwość ustawia [tryb wdrażania](../../../azure-resource-manager/templates/deployment-modes.md) szablonu.
 
 - **szablon** — ta właściwość zawiera sam szablon. W tym przykładzie parametr szablonu **lokalizacji** ustawia lokalizację nowego zasobu obserwatora sieci.
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="30-44":::
   
-- **parametry** — ta właściwość definiuje parametry, które są dostarczane do **szablonu**. Nazwy parametrów muszą być zgodne z tym, co jest zdefiniowane w **szablonie**. W tym przykładzie parametr jest nazwany **lokalizacja** do dopasowania. Wartość **lokalizacji** używa `field()` funkcji ponownie, aby uzyskać wartość ocenianego zasobu, który jest siecią wirtualną w **policyRule.if** bloku.
+- **Parametry** — ta właściwość definiuje parametry, które są dostarczane do **szablonu**. Nazwy parametrów muszą być zgodne z definicjami w **szablonie**. W tym przykładzie parametr ma nazwę **Lokalizacja** do dopasowania. Wartość **lokalizacji** ponownie używa `field()` funkcji, aby uzyskać wartość ocenianego zasobu, który jest siecią wirtualną w bloku **Klasa policyrule. if** .
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="45-49":::
 

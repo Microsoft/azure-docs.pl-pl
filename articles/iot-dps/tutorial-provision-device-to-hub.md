@@ -1,6 +1,6 @@
 ---
-title: Samouczek — aprowizowanie urządzenia przy użyciu usługi inicjowania obsługi administracyjnej urządzeń usługi Azure IoT Hub
-description: W tym samouczku pokazano, jak aprowizować urządzenie do jednego centrum IoT przy użyciu usługi inicjowania obsługi administracyjnej (DPS) usługi obsługi urządzeń usługi usługi Azure IoT Hub(DPS)
+title: Samouczek — udostępnianie urządzenia przy użyciu usługi Azure IoT Hub Device Provisioning Service
+description: W tym samouczku pokazano, jak można zainicjować obsługę administracyjną urządzenia w jednym centrum IoT przy użyciu usługi Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -9,13 +9,13 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 3fe2fa8b094830e2d15c1cebce782381b4ca7bc7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74975044"
 ---
-# <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Samouczek: Aprowizuj urządzenie do centrum IoT przy użyciu usługi inicjowania obsługi administracyjnej urządzeń usługi Azure IoT Hub
+# <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Samouczek: Inicjowanie obsługi urządzenia w usłudze IoT Hub przy użyciu usługi Azure IoT Hub Device Provisioning Service
 
 W poprzednim samouczku omówiono sposób konfigurowania urządzenia do nawiązywania połączenia z usługą Device Provisioning. Z tego samouczka dowiesz się, jak używać tej usługi do aprowizacji urządzenia w jednym centrum IoT za pomocą automatycznej aprowizacji i **_list rejestracji_**. Ten samouczek przedstawia sposób wykonania następujących czynności:
 
@@ -39,18 +39,18 @@ Ten krok obejmuje dodawanie unikatowych artefaktów zabezpieczeń urządzenia do
     - *Klucz poręczenia* unikatowy dla każdego modułu TPM lub symulacji uzyskany od producenta modułu TPM.  Aby uzyskać więcej informacji, zobacz [Understand TPM Endorsement Key](https://technet.microsoft.com/library/cc770443.aspx) (Informacje o kluczu poręczenia modułu TPM).
     - *Identyfikator rejestracji* używany do jednoznacznego identyfikowania urządzenia w zakresie/przestrzeni nazw. Ten identyfikator może, ale nie musi być taki sam jak identyfikator urządzenia. Identyfikator jest wymagany dla każdego urządzenia. W przypadku urządzeń opartych na modułach TPM identyfikator rejestracji może pochodzić od samego modułu TPM, na przykład może to być skrót SHA-256 klucza poręczenia modułu TPM.
 
-      [![Informacje o rejestracji modułu TPM w portalu](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
+      [![Informacje o rejestracji dla modułu TPM w portalu](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - W przypadku urządzeń opartych na standardzie X.509 wymagane są następujące elementy:
-    - [Certyfikat wystawiony dla modułu lub symulacji X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) w postaci pliku *PEM* lub *CER*. W przypadku rejestracji indywidualnej należy użyć *certyfikatu podpisanego* na urządzenie dla systemu X.509, natomiast w przypadku grup rejestracji należy użyć *certyfikatu głównego*. 
+    - [Certyfikat wystawiony dla modułu lub symulacji X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) w postaci pliku *PEM* lub *CER*. W przypadku rejestracji indywidualnej należy użyć certyfikatu z *podpisem* urządzenia dla systemu X. 509, natomiast w przypadku grup rejestracji należy użyć *certyfikatu głównego*. 
 
-      [![Dodawanie indywidualnej rejestracji dla zaświadczenia X.509 w portalu](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
+      [![Dodawanie rejestracji indywidualnej dla zaświadczania X. 509 w portalu](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
 Istnieją dwa sposoby rejestrowania urządzenia w usłudze Device Provisioning:
 
 - **Grupy rejestracji** — jest to reprezentacja grupy urządzeń, które współużytkują specyficzny mechanizm zaświadczania. Firma Microsoft zaleca używanie grupy rejestracji w przypadku dużej liczby urządzeń, które współużytkują pożądaną konfigurację początkową, lub urządzeń przeznaczonych dla tej samej dzierżawy. Aby uzyskać więcej informacji na temat poświadczania tożsamości w przypadku grup rejestracji, zobacz [Zabezpieczenia](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
-    [![Dodawanie rejestracji grupy dla zaświadczenia X.509 w portalu](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
+    [![Dodawanie rejestracji grupowej dla zaświadczania X. 509 w portalu](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 
 - **Rejestracje indywidualne** — jest to reprezentacja wpisu dla pojedynczego urządzenia, które może zostać zarejestrowane w usłudze Device Provisioning. Rejestracje indywidualne mogą używać certyfikatów x509 lub tokenów SAS (w rzeczywistym lub wirtualnym module TPM) jako mechanizmów zaświadczania. Firma Microsoft zaleca używanie rejestracji indywidualnych w przypadku urządzeń, które wymagają unikatowej konfiguracji początkowej, i urządzeń, które jako mechanizmu zaświadczania mogą używać tylko tokenów SAS za pośrednictwem modułu TPM lub wirtualnego modułu TPM. W przypadku rejestracji indywidualnych można określić identyfikatory urządzeń wymaganego centrum IoT.
 

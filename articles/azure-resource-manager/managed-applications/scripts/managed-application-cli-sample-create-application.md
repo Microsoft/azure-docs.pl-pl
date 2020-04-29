@@ -1,5 +1,5 @@
 ---
-title: Przykład skryptu interfejsu wiersza polecenia platformy Azure — wdrażanie aplikacji zarządzanej
+title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — wdrażanie aplikacji zarządzanej
 description: Zawiera przykładowy skrypt interfejsu wiersza polecenia platformy Azure, który wdraża definicję aplikacji zarządzanej platformy Azure w ramach subskrypcji.
 author: tfitzmac
 ms.devlang: azurecli
@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ms.openlocfilehash: 346ea59209bc2f74970e708c947f5caa158a0338
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75650065"
 ---
 # <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Wdrażanie aplikacji zarządzanej do obsługi katalogu usług za pomocą interfejsu wiersza polecenia platformy Azure

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Wysyłanie danych centrów zdarzeń do magazynu danych — siatka zdarzeń'
-description: 'Samouczek: W tym artykule opisano sposób migracji danych do magazynu danych SQL za pomocą usługi Azure Event Grid i Event Hubs. Do pobierania pliku przechwytywania służy funkcja platformy Azure.'
+title: 'Samouczek: wysyłanie danych Event Hubs do magazynu danych — Event Grid'
+description: 'Samouczek: zawiera opis sposobu używania Azure Event Grid i Event Hubs do migrowania danych do SQL Data Warehouse. Do pobierania pliku przechwytywania służy funkcja platformy Azure.'
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
 ms.openlocfilehash: 6f5bd129b175210cd5b9415a65b8db06d904e24d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73718181"
 ---
-# <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Samouczek: Przesyłanie strumieniowe dużych zbiorów danych do magazynu danych
+# <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Samouczek: przesyłanie strumieniowe danych Big Data do magazynu danych
 Usługa Azure [Event Grid](overview.md) jest inteligentną usługą routingu zdarzeń, która umożliwia reagowanie na powiadomienia (zdarzenia) z aplikacji i usług. Może na przykład spowodować, że funkcja platformy Azure będzie przetwarzać dane centrum zdarzeń, które zostały przechwycone przez usługę Azure Blob Storage lub usługę Azure Data Lake Storage, a także przeprowadzać migrację danych do innych repozytoriów danych. W tym [przykładzie integracji usług Event Hubs i Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) pokazano, jak bezproblemowo przeprowadzić migrację przechwyconych danych usługi Event Hubs z magazynu obiektów blob do usługi SQL Data Warehouse przy użyciu usług Event Hubs i Event Grid.
 
 ![Omówienie aplikacji](media/event-grid-event-hubs-integration/overview.png)
@@ -44,8 +44,8 @@ W tym artykule wykonasz następujące kroki:
 
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
-* [Visual Studio 2019](https://www.visualstudio.com/vs/) z obciążeniami dla: .NET desktop development, Azure development, ASP.NET and web development, Node.js development, and Python development.
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+* [Program Visual studio 2019](https://www.visualstudio.com/vs/) z obciążeniami dla: Programowanie aplikacji klasycznych platformy .NET, programowanie platformy Azure, programowanie ASP.NET i sieci Web, programowanie w języku Node. js i programowanie w języku Python.
 * Pobierz na komputer [przykładowy projekt EventHubsCaptureEventGridDemo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo).
 
 ## <a name="deploy-the-infrastructure"></a>Wdrażanie infrastruktury
@@ -60,10 +60,10 @@ W tym kroku wdrożysz wymaganą infrastrukturę za pomocą [szablonu usługi Res
 
 ### <a name="launch-azure-cloud-shell-in-azure-portal"></a>Uruchamianie usługi Azure Cloud Shell w witrynie Azure Portal
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). 
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 2. Wybierz przycisk **Cloud Shell** u góry.
 
-    ![Portal Azure](media/event-grid-event-hubs-integration/azure-portal.png)
+    ![Azure Portal](media/event-grid-event-hubs-integration/azure-portal.png)
 3. W dolnej części przeglądarki zostanie otwarta usługa Cloud Shell.
 
     ![Cloud Shell](media/event-grid-event-hubs-integration/launch-cloud-shell.png) 
@@ -85,7 +85,7 @@ W tym kroku wdrożysz wymaganą infrastrukturę za pomocą [szablonu usługi Res
         az group create -l eastus -n <Name for the resource group>
         ```
     1. Określ nazwę **grupy zasobów**.
-    2. Naciśnij **klawisz ENTER**. 
+    2. Naciśnij klawisz **Enter**. 
 
         Oto przykład:
     
@@ -260,7 +260,7 @@ Konfiguracja centrum zdarzeń, magazynu danych SQL, aplikacji funkcji platformy 
    private const string EventHubName = "hubdatamigration";
    ```
 
-6. Skompiluj rozwiązanie. Uruchom aplikację **WindTurbineGenerator.exe.** 
+6. Skompiluj rozwiązanie. Uruchom aplikację **WindTurbineGenerator. exe** . 
 7. Po kilku minutach wyślij zapytanie do tabeli w magazynie danych dla migrowanych danych.
 
     ![Wyniki zapytania](media/event-grid-event-hubs-integration/query-results.png)

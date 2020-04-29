@@ -1,17 +1,17 @@
 ---
 title: Używanie aplikacji w usłudze Azure Blockchain Workbench
-description: Samouczek dotyczący używania kontraktów aplikacji w usłudze Azure Blockchain Workbench Preview.
+description: Samouczek dotyczący sposobu korzystania z kontraktów aplikacji w usłudze Azure łańcucha bloków Workbench w wersji zapoznawczej.
 ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
 ms.openlocfilehash: 5761bf1294691c2d50e0e389fe69ec286df4a06c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74324039"
 ---
-# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Samouczek: Korzystanie z aplikacji w usłudze Azure Blockchain Workbench
+# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Samouczek: korzystanie z aplikacji w usłudze Azure łańcucha bloków Workbench
 
 Usługa Blockchain Workbench umożliwia tworzenie kontraktów i podejmowanie związanych z nimi akcji. Można również wyświetlać szczegóły kontraktu, takie jak stan i historia transakcji.
 
@@ -25,7 +25,7 @@ Omawiane tematy:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Wdrożenie usługi Blockchain Workbench. Aby uzyskać więcej informacji, zobacz [Wdrażanie programu Azure Blockchain Workbench,](deploy.md) aby uzyskać szczegółowe informacje na temat wdrażania
+* Wdrożenie usługi Blockchain Workbench. Aby uzyskać więcej informacji, zobacz [wdrażanie usługi Azure łańcucha bloków Workbench](deploy.md) w celu uzyskania szczegółowych informacji o wdrożeniu
 * Wdrożona aplikacja łańcucha bloków w usłudze Blockchain Workbench. Zobacz [Tworzenie aplikacji łańcucha bloków w usłudze Azure Blockchain Workbench](create-app.md)
 
 [Otwórz usługę Blockchain Workbench](deploy.md#blockchain-workbench-web-url) w przeglądarce.
@@ -36,7 +36,7 @@ Musisz zalogować się jako członek usługi Blockchain Workbench. Jeśli na li�
 
 ## <a name="create-new-contract"></a>Tworzenie nowego kontraktu
 
-Aby utworzyć nową umowę, musisz być członkiem określonym jako **inicjator**kontraktu . Aby uzyskać informacje na temat definiowania ról aplikacji i inicjatorów dla kontraktu, zobacz sekcję dotyczącą [przepływów pracy w artykule z omówieniem konfiguracji](configuration.md#workflows). Aby uzyskać informacje na temat przypisywania członków do ról aplikacji, zobacz sekcję dotyczącą [dodawania członka do aplikacji](manage-users.md#add-member-to-application).
+Aby utworzyć nowy kontrakt, musisz być członkiem określonym jako **inicjator**kontraktu. Aby uzyskać informacje na temat definiowania ról aplikacji i inicjatorów dla kontraktu, zobacz sekcję dotyczącą [przepływów pracy w artykule z omówieniem konfiguracji](configuration.md#workflows). Aby uzyskać informacje na temat przypisywania członków do ról aplikacji, zobacz sekcję dotyczącą [dodawania członka do aplikacji](manage-users.md#add-member-to-application).
 
 1. W sekcji aplikacji Blockchain Workbench wybierz kafelek aplikacji zawierający kontrakt, który chcesz utworzyć. Zostanie wyświetlona lista aktywnych kontraktów.
 
@@ -44,7 +44,7 @@ Aby utworzyć nową umowę, musisz być członkiem określonym jako **inicjator*
 
     ![Przycisk Nowy kontrakt](./media/use/contract-list.png)
 
-3. Zostanie wyświetlone okienko **Nowy kontrakt**. Określ początkowe wartości parametrów. Wybierz **pozycję Utwórz**.
+3. Zostanie wyświetlone okienko **Nowy kontrakt**. Określ początkowe wartości parametrów. Wybierz przycisk **Utwórz**.
 
     ![Okienko Nowy kontrakt](./media/use/new-contract.png)
 

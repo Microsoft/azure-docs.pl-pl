@@ -1,16 +1,16 @@
 ---
 title: Tworzenie definicji aplikacji zarządzanej — interfejs wiersza polecenia platformy Azure
-description: Udostępnia przykład skryptu interfejsu wiersza polecenia platformy Azure, który tworzy definicję aplikacji zarządzanej w ramach subskrypcji.
+description: Dostarcza przykład skryptu interfejsu wiersza polecenia platformy Azure, który tworzy definicję aplikacji zarządzanej w ramach subskrypcji.
 author: tfitzmac
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ms.openlocfilehash: f4d5a0036ba44f7e0054db7ce820b91b0de629b8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75650191"
 ---
 # <a name="create-a-managed-application-definition-with-azure-cli"></a>Tworzenie definicji aplikacji zarządzanej za pomocą interfejsu wiersza polecenia platformy Azure

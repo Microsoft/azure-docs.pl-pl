@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
 ms.openlocfilehash: 6b8d520a539f69889b1e1bd23d255f3fe19b8717
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79238790"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Samouczek: wdrażanie usługi Azure Container Registry i korzystanie z niej
@@ -54,7 +54,7 @@ Aby użyć wystąpienia usługi ACR, należy się najpierw zalogować. Użyj pol
 az acr login --name <acrName>
 ```
 
-Polecenie zwraca komunikat *Pomyślnie logowania* po zakończeniu.
+Polecenie zwraca komunikat o *pomyślnym zalogowaniu* po zakończeniu.
 
 ## <a name="tag-a-container-image"></a>Tagowanie obrazu kontenera
 
@@ -77,7 +77,7 @@ Aby uzyskać adres serwera logowania, użyj polecenia [az acr list][az-acr-list]
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Teraz otaguj lokalny obraz *z przodu azure-vote* za pomocą adresu *acrLoginServer* rejestru kontenerów. Aby wskazać wersję obrazu, dodaj wartość *:v1* na końcu nazwy obrazu:
+Teraz Oznacz lokalny obraz z systemem *Azure — do głosowania —* z adresem *acrLoginServer* rejestru kontenerów. Aby wskazać wersję obrazu, dodaj wartość *:v1* na końcu nazwy obrazu:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1

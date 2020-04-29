@@ -1,14 +1,14 @@
 ---
-title: Tworzenie aplikacji funkcji za pomocą usługi Azure Cosmos DB — interfejs wiersza polecenia platformy Azure
+title: Tworzenie aplikacji funkcji przy użyciu interfejsu wiersza polecenia platformy Azure Azure Cosmos DB
 description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — tworzenie funkcji platformy Azure łączącej się z usługą Azure Cosmos DB
 ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc
 ms.openlocfilehash: 5ee80283ed39789eabb702a48aa97f678a6409f9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75922710"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Tworzenie funkcji platformy Azure łączącej się z usługą Azure Cosmos DB
@@ -37,11 +37,11 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów w lokalizacji. |
 | [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Tworzenie konta magazynu |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Tworzy aplikację funkcji w [planie zużycia](../functions-scale.md#consumption-plan)bez użycia serwera . |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Tworzy aplikację funkcji w [planie zużycia](../functions-scale.md#consumption-plan)bezserwerowego. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Tworzy bazę danych usługi Azure Cosmos DB. |
-| [az cosmosdb pokaż](/cli/azure/cosmosdb#az-cosmosdb-show)| Pobiera połączenie konta bazy danych. |
+| [AZ cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show)| Pobiera połączenie z kontem bazy danych. |
 | [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys)| Pobiera klucze dla bazy danych. |
-| [az functionapp config appsettings set az functionapp config appsettings set az functionapp config appsettings set az](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Ustawia ciąg połączenia jako ustawienie aplikacji w aplikacji funkcji. |
+| [AZ functionapp config AppSettings Set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Ustawia parametry połączenia jako ustawienia aplikacji w aplikacji funkcji. |
 
 ## <a name="next-steps"></a>Następne kroki
 

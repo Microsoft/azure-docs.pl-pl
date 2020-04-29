@@ -1,5 +1,5 @@
 ---
-title: Debugowanie aplikacji Java w lokalnym klastrze sieci szkieletowej usług
+title: Debugowanie aplikacji Java w lokalnym klastrze Service Fabric
 description: W tym samouczku przedstawiono sposób debugowania i pobierania dzienników z aplikacji Java usługi Service Fabric działającej w klastrze lokalnym.
 author: suhuruli
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: c664b586260957138249028e4d521c29b411d56d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75465385"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Samouczek: debugowanie aplikacji Java wdrożonej w lokalnym klasterze usługi Service Fabric
@@ -40,13 +40,13 @@ Przed rozpoczęciem tego samouczka:
 
 ## <a name="download-the-voting-sample-application"></a>Pobieranie przykładowej aplikacji do głosowania
 
-Jeśli nie zbudowano aplikacji przykładowe głosowanie w [pierwszej części tej serii samouczków,](service-fabric-tutorial-create-java-app.md)można go pobrać. W oknie polecenia uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na komputer lokalny.
+Jeśli nie skompilowano przykładowej aplikacji do głosowania w [pierwszej części tej serii samouczków](service-fabric-tutorial-create-java-app.md), można ją pobrać. W oknie polecenia uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na komputer lokalny.
 
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 ```
 
-[Skompiluj i wdrażaj](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) aplikację w lokalnym klastrze deweloperów.
+[Kompilowanie i wdrażanie](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) aplikacji w lokalnym klastrze projektowym.
 
 ## <a name="debug-java-application-using-eclipse"></a>Debugowanie aplikacji Java przy użyciu programu Eclipse
 
@@ -56,7 +56,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 3. W oknie Importowanie projektów wybierz pozycję **Wybierz katalog główny**, a następnie wybierz katalog **Voting**. Jeśli kroki z pierwszego samouczka zostały wykonane, katalog **Voting** znajduje się w katalogu **Eclipse-workspace**.
 
-4. Zaktualizuj plik entryPoint.sh usługi do debugowania, tak aby uruchamiał proces języka Java z parametrami debugowania zdalnego. W tym samouczku używany jest fronton bezstanowy: *Głosowanie/GłosowanieAplikacja/VotingWebPkg/Code/entryPoint.sh*. Port 8001 jest ustawiony do debugowania w tym przykładzie.
+4. Zaktualizuj plik entryPoint.sh usługi do debugowania, tak aby uruchamiał proces języka Java z parametrami debugowania zdalnego. W tym samouczku jest używany fronton bezstanowy: *głosujący/VotingApplication/VotingWebPkg/Code/EntryPoint. sh*. Port 8001 jest ustawiany na potrzeby debugowania w tym przykładzie.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
@@ -82,15 +82,15 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 10. W środowisku IDE programu Eclipse wybierz pozycje **Uruchom -> Debuguj konfiguracje -> Zdalna aplikacja Java**, kliknij utworzoną konfigurację **Voting** i kliknij pozycję **Debuguj**.
 
-11. Przejdź do przeglądarki internetowej i uzyskaj dostęp do **localhost:8080**. Spowoduje to automatyczne trafienie w punkt przerwania, a eclipse wejdzie w **perspektywę debugowania**.
+11. Przejdź do przeglądarki sieci Web i uzyskaj dostęp do **hosta localhost: 8080**. Spowoduje to automatyczne trafienie punktu przerwania, a przekroczenie spowoduje wprowadzenie **perspektywy debugowania**.
 
-Teraz można zastosować te same kroki do debugowania dowolnej aplikacji sieci szkieletowej usług w programie Eclipse.
+Teraz możesz zastosować te same kroki, aby debugować dowolne aplikacje Service Fabric w programie zaćmienie.
 
 ## <a name="redirect-application-logs-to-custom-location"></a>Przekierowywanie dzienników aplikacji do lokalizacji niestandardowej
 
 Poniższe kroki przedstawiają sposób przekierowywania dzienników aplikacji z domyślnej lokalizacji */var/log/syslog* do lokalizacji niestandardowej.
 
-1. Obecnie aplikacje działające w klastrach sieci szkieletowej systemu Linux obsługują tylko pobieranie pojedynczego pliku dziennika. Aby skonfigurować aplikację tak, aby dzienniki zawsze przechodziły do */tmp/mysfapp0.0.log,* utwórz plik o nazwie logging.properties w następującej lokalizacji *Głosowanie/GłosowanieApplication/VotingWebPkg/Code/logging.properties* i dodaj następującą zawartość.
+1. Obecnie aplikacje działające w klastrach Service Fabric Linux obsługują tylko pobieranie jednego pliku dziennika. Aby skonfigurować aplikację w taki sposób, aby dzienniki były zawsze przechodzą do */tmp/mysfapp0.0.log*, Utwórz plik o nazwie Logging. Properties w następującej lokalizacji: *głosu/VotingApplication/VotingWebPkg/Code/Logging. Properties* i Dodaj poniższą zawartość.
 
     ```
     handlers = java.util.logging.FileHandler
@@ -109,7 +109,7 @@ Poniższe kroki przedstawiają sposób przekierowywania dzienników aplikacji z 
     -Djava.util.logging.config.file=logging.properties
     ```
 
-    Poniższy przykład pokazuje wykonanie próbki z dołączonym debugerem, podobnie jak wykonanie w poprzedniej sekcji.
+    W poniższym przykładzie pokazano przykładowe wykonywanie z dołączonym debugerem, podobnie jak w poprzedniej sekcji.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar

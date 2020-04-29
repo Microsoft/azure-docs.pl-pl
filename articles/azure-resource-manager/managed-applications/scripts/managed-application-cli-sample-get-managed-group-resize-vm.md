@@ -1,16 +1,16 @@
 ---
-title: Uzyskaj zarządzaną grupę zasobów & zmienić rozmiar maszyn wirtualnych — narzędzie interfejsu wiersza polecenia platformy Azure
-description: Udostępnia przykładowy skrypt interfejsu wiersza polecenia platformy Azure, który pobiera zarządzaną grupę zasobów w aplikacji zarządzanej platformy Azure. Skrypt ma rozmiar maszyn wirtualnych.
+title: Pobierz zarządzaną grupę zasobów & Zmienianie rozmiaru maszyn wirtualnych — interfejs wiersza polecenia platformy Azure
+description: Zawiera przykładowy skrypt interfejsu wiersza polecenia platformy Azure, który pobiera zarządzaną grupę zasobów w aplikacji zarządzanej platformy Azure. Skrypt zmienia rozmiar maszyn wirtualnych.
 author: tfitzmac
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ms.openlocfilehash: 878a8d660495c932cc8fa44bb1ed06e79576729b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75650058"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Pobieranie zasobów z zarządzanej grupy zasobów i zmienianie rozmiaru maszyn wirtualnych za pomocą interfejsu wiersza polecenia platformy Azure

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Hostuj swoją domenę i subdomenę — Usługa Azure DNS'
-description: W tym artykule dowiesz się, jak skonfigurować usługę Azure DNS do obsługi stref DNS.
+title: 'Samouczek: Hostowanie domeny i poddomeny — Azure DNS'
+description: W tym artykule dowiesz się, jak skonfigurować Azure DNS do hostowania stref DNS.
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: 8f29a2bbe0eb392927dd111b13e2260111ddd18e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79238972"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Samouczek: hostowanie własnej domeny w usłudze Azure DNS
@@ -21,7 +21,7 @@ Za pomocą usługi Azure DNS można hostować swoją domenę DNS i zarządzać r
 Załóżmy, że masz zakupioną domenę „contoso.net” od rejestratora nazw domen i tworzysz strefę o nazwie „contoso.net” w usłudze Azure DNS. Ponieważ jesteś właścicielem domeny, rejestrator oferuje Ci opcję skonfigurowania rekordów serwerów nazw (NS) dla domeny. Rejestrator przechowuje rekordy NS w strefie nadrzędnej „.net”. Użytkownicy Internetu na całym świecie są kierowani do Twojej domeny w strefie usługi Azure DNS podczas próby rozpoznania rekordów DNS w strefie contoso.net.
 
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie strefy DNS.
@@ -30,21 +30,21 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 > * Sprawdzanie, czy delegowanie działa.
 
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Musisz mieć dostępną nazwę domeny, aby przetestować z nią, którą można hostować w usłudze Azure DNS . Musisz mieć pełną kontrolę nad tą domeną. Pełna kontrola obejmuje możliwość ustawiania dla domeny rekordów serwera nazw (NS).
+Musisz mieć nazwę domeny dostępną do przetestowania, aby można było hostować w Azure DNS. Musisz mieć pełną kontrolę nad tą domeną. Pełna kontrola obejmuje możliwość ustawiania dla domeny rekordów serwera nazw (NS).
 
-Przykładowa domena używana w tym samouczku jest contoso.net, ale używa własnej nazwy domeny.
+Przykładową domeną używaną dla tego samouczka jest contoso.net, ale należy użyć własnej nazwy domeny.
 
 ## <a name="create-a-dns-zone"></a>Tworzenie strefy DNS
 
-1. Przejdź do [witryny Azure portal,](https://portal.azure.com/) aby utworzyć strefę DNS. Wyszukaj i wybierz **strefy DNS**.
+1. Przejdź do [Azure Portal](https://portal.azure.com/) , aby utworzyć strefę DNS. Wyszukaj i wybierz **strefy DNS**.
 
    ![Strefa DNS](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
-1. Wybierz **pozycję Utwórz strefę DNS**.
+1. Wybierz pozycję **Utwórz strefę DNS**.
 1. Na stronie **Tworzenie strefy DNS** wprowadź następujące wartości, a następnie wybierz pozycję **Utwórz**:
 
    | **Ustawienie** | **Wartość** | **Szczegóły** |
@@ -60,7 +60,7 @@ Aby móc delegować swoją strefę DNS do usługi Azure DNS, musisz znać serwer
 
 1. Gdy utworzysz strefę DNS, w okienku **Ulubione** witryny Azure Portal wybierz pozycję **Wszystkie zasoby**. Na stronie **Wszystkie zasoby** wybierz swoją strefę DNS. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wprowadzić nazwę Twojej domeny w polu **Filtruj według nazwy**, aby łatwo uzyskać dostęp do bramy aplikacji. 
 
-1. Na stronie Strefa DNS pobierz serwery nazw. W tym przykładzie contoso.net strefy przypisano serwery nazw *ns1-01.azure-dns.com,* *ns2-01.azure-dns.net,* *ns3-01.azure-dns.org*i *ns4-01.azure-dns.info:*
+1. Na stronie Strefa DNS pobierz serwery nazw. W tym przykładzie do contoso.net strefy zostały przypisane serwery nazw *ns1-01.Azure-DNS.com*, *NS2-01.Azure-DNS.NET*, *NS3-01.Azure-DNS.org*i *NS4-01.Azure-DNS.info*:
 
    ![Lista serwerów nazw](./media/dns-delegate-domain-azure-dns/viewzonens500.png)
 

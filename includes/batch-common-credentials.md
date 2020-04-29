@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: lahugh
 ms.openlocfilehash: 0ca6e38a9c9b5b92041e7f5b0fe964de58ef8f55
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "70128062"
 ---
 ## <a name="get-account-credentials"></a>Uzyskiwanie poświadczeń konta
 
 W tym przykładzie należy podać poświadczenia dla kont usług Batch i Storage. Najprościej jest uzyskać wymagane poświadczenia w witrynie Azure Portal. (Te poświadczenia możesz również uzyskać za pomocą interfejsów API platformy Azure lub narzędzi wiersza polecenia).
 
-1. Wybierz **pozycję Wszystkie konta** > **usługi Usługi wsadowe**, a następnie wybierz nazwę konta usługi Batch.
+1. Wybierz kolejno pozycje **wszystkie usługi Usługa** > **Batch konta**, a następnie wybierz nazwę swojego konta w usłudze Batch.
 
-2. Aby wyświetlić poświadczenia partii, wybierz pozycję **Klucze**. Skopiuj wartości z pól **Konto usługi Batch**, **Adres URL** i **Podstawowy klucz dostępu** do edytora tekstów.
+2. Aby wyświetlić poświadczenia w usłudze Batch, wybierz pozycję **klucze**. Skopiuj wartości z pól **Konto usługi Batch**, **Adres URL** i **Podstawowy klucz dostępu** do edytora tekstów.
 
-3. Aby wyświetlić nazwę konta magazynu i klucze, wybierz pozycję **Konto magazynu**. Skopiuj wartości z pól **Nazwa konta usługi Storage** i **Klucz1** do edytora tekstów.
+3. Aby wyświetlić nazwę i klucze konta magazynu, wybierz pozycję **konto magazynu**. Skopiuj wartości z pól **Nazwa konta usługi Storage** i **Klucz1** do edytora tekstów.

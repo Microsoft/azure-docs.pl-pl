@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: c871c09e29b64c4f0dcd107361154efdce306481
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79240254"
 ---
 # <a name="what-is-azure-container-instances"></a>Co to jest usługa Azure Container Instances?
@@ -23,12 +23,12 @@ Kontenery oferują znaczące korzyści związane z uruchamianiem w porównaniu d
 
 ## <a name="container-access"></a>Dostęp do kontenera
 
-Wystąpienia kontenera platformy Azure umożliwia udostępnianie grup kontenerów bezpośrednio do Internetu z adresem IP i w pełni kwalifikowaną nazwą domeny (FQDN). Podczas tworzenia wystąpienia kontenera możesz określić niestandardową etykietę nazwy DNS, dzięki czemu aplikacja będzie dostępna pod adresem *etykieta_niestandardowa*.*region_świadczenia_usługi_Azure*.azurecontainer.io.
+Azure Container Instances umożliwia Uwidacznianie grup kontenerów bezpośrednio w Internecie przy użyciu adresu IP i w pełni kwalifikowanej nazwy domeny (FQDN). Podczas tworzenia wystąpienia kontenera możesz określić niestandardową etykietę nazwy DNS, dzięki czemu aplikacja będzie dostępna pod adresem *etykieta_niestandardowa*.*region_świadczenia_usługi_Azure*.azurecontainer.io.
 
-Wystąpienia kontenera platformy Azure obsługuje również wykonywanie polecenia w uruchomionym kontenerze, zapewniając interaktywną powłokę, aby ułatwić tworzenie aplikacji i rozwiązywanie problemów. Program Access odbywa się za pośrednictwem protokołu HTTPS, przy użyciu protokołu TLS do zabezpieczania połączeń klientów.
+Azure Container Instances obsługuje również wykonywanie polecenia w działającym kontenerze, zapewniając interaktywną powłokę ułatwiającą Tworzenie aplikacji i rozwiązywanie problemów. Dostęp odbywa się za pośrednictwem protokołu HTTPS przy użyciu protokołu TLS do zabezpieczania połączeń klientów.
 
 > [!IMPORTANT]
-> Od 13 stycznia 2020 r. wystąpienia kontenerów platformy Azure będą wymagać wszystkich bezpiecznych połączeń z serwerów i aplikacji do korzystania z protokołu TLS 1.2. Obsługa protokołu TLS 1.0 i 1.1 zostanie wycofana.
+> Od 13 stycznia 2020, Azure Container Instances będą wymagały wszystkich bezpiecznych połączeń z serwerów i aplikacji do korzystania z protokołu TLS 1,2. Obsługa protokołu TLS 1,0 i 1,1 zostanie wycofana.
 
 ## <a name="hypervisor-level-security"></a>Zabezpieczenia na poziomie funkcji hypervisor
 
@@ -43,7 +43,7 @@ W przypadku zadań wykorzystujących znaczną moc obliczeniową, takich jak ucze
 
 ## <a name="persistent-storage"></a>Magazyn trwały
 
-Aby pobrać i utrwalić stan za pomocą wystąpień kontenera platformy Azure, oferujemy bezpośrednie [instalowanie udziałów usługi Azure Files wspieranych](container-instances-mounting-azure-files-volume.md) przez usługę Azure Storage.
+Aby można było pobrać i zachować stan z Azure Container Instances, oferujemy bezpośrednie [Instalowanie udziałów Azure Files udostępnionych](container-instances-mounting-azure-files-volume.md) przez usługę Azure Storage.
 
 ## <a name="linux-and-windows-containers"></a>Kontenery systemów Linux i Windows
 
@@ -52,15 +52,15 @@ Usługa Azure Container Instances umożliwia planowanie kontenerów systemów Wi
 Niektóre funkcje są obecnie ograniczone do kontenerów systemu Linux:
 
 * Wiele kontenerów na grupę kontenerów
-* Montaż woluminów[(Pliki Azure](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [tajne](container-instances-volume-secret.md))
-* [Metryki użycia zasobów](container-instances-monitor.md) za pomocą usługi Azure Monitor
+* Instalowanie woluminu ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [Secret](container-instances-volume-secret.md))
+* [Metryki użycia zasobów](container-instances-monitor.md) z Azure monitor
 * [Wdrażanie sieci wirtualnej](container-instances-vnet.md)
-* [Zasoby GPU](container-instances-gpu.md) (wersja zapoznawcza)
+* [Zasoby procesora GPU](container-instances-gpu.md) (wersja zapoznawcza)
 
 W przypadku wdrożeń kontenerów systemu Windows należy używać obrazów opartych na typowych [obrazach podstawowych systemu Windows](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 > [!NOTE]
-> Użycie obrazów opartych na systemie Windows Server 2019 w wystąpieniach kontenerów platformy Azure jest w wersji zapoznawczej.
+> Korzystanie z obrazów opartych na systemie Windows Server 2019 w Azure Container Instances jest w wersji zapoznawczej.
 
 ## <a name="co-scheduled-groups"></a>Grupy planowane wspólnie
 
@@ -68,7 +68,7 @@ Usługa Azure Container Instances obsługuje planowanie [grup wielu kontenerów]
 
 ## <a name="virtual-network-deployment"></a>Wdrażanie sieci wirtualnej
 
-Obecnie dostępne dla obciążeń produkcyjnych w podzbiorze regionów platformy Azure, ta funkcja wystąpienia kontenera platformy Azure umożliwia [wdrażanie wystąpień kontenerów w sieci wirtualnej platformy Azure.](container-instances-vnet.md) Wdrożenie wystąpień kontenerów w podsieci w sieci wirtualnej umożliwia bezpieczną komunikację z innymi zasobami w sieci wirtualnej, w tym z zasobami lokalnymi (przy użyciu [bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [usługi ExpressRoute](../expressroute/expressroute-introduction.md)).
+Obecnie dostępne dla obciążeń produkcyjnych w podzbiorze regionów świadczenia usługi Azure, ta funkcja Azure Container Instances umożliwia [wdrażanie wystąpień kontenerów w sieci wirtualnej platformy Azure](container-instances-vnet.md). Wdrożenie wystąpień kontenerów w podsieci w sieci wirtualnej umożliwia bezpieczną komunikację z innymi zasobami w sieci wirtualnej, w tym z zasobami lokalnymi (przy użyciu [bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [usługi ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek: Indeks danych o częściowo ustrukturyzowanych w obiektach blob JSON'
+title: 'Samouczek: indeksowanie danych z częściową strukturą w obiektach Blob JSON'
 titleSuffix: Azure Cognitive Search
-description: Dowiedz się, jak indeksować i przeszukiwać półstrukturajne obiekty blob platformy Azure JSON przy użyciu interfejsów API rest usługi Azure Cognitive Search i listonosza.
+description: Dowiedz się, jak indeksować i przeszukiwać rozbudowane obiekty blob w formacie JSON platformy Azure przy użyciu usługi Azure Wyszukiwanie poznawcze API REST i programu Poster.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,76 +9,76 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.openlocfilehash: ce3b3839319de38020b968ff8db1ee6713b29c47
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78269973"
 ---
-# <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Samouczek: Indeksowanie obiektów blob JSON z usługi Azure Storage przy użyciu funkcji REST
+# <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Samouczek: indeksowanie obiektów BLOB JSON z usługi Azure Storage przy użyciu interfejsu REST
 
-Usługa Azure Cognitive Search może indeksować dokumenty json i tablice w magazynie obiektów blob platformy Azure przy użyciu [indeksatora,](search-indexer-overview.md) który wie, jak odczytywać dane o częściowo ustrukturyzowanej strukturze. Częściowo ustrukturyzowane dane zawierają tagi lub oznaczenia, które dzielą zawartość w ramach danych. Dzieli różnicę między niestrukturalnych danych, które muszą być w pełni indeksowane i formalnie strukturalnych danych, które przylega do modelu danych, takich jak schemat relacyjnej bazy danych, które mogą być indeksowane na podstawie pola.
+Usługa Azure Wyszukiwanie poznawcze umożliwia indeksowanie dokumentów i tablic w formacie JSON w usłudze Azure Blob Storage za pomocą [indeksatora](search-indexer-overview.md) , który wie, jak odczytywać dane z częściową strukturą. Częściowo ustrukturyzowane dane zawierają tagi lub oznaczenia, które dzielą zawartość w ramach danych. Dzieli różnicę między danymi niestrukturalnymi, które muszą być w pełni indeksowane i formalnie uporządkowane dane, które są zgodne z modelem danych, takim jak schemat relacyjnej bazy danych, który można indeksować według poszczególnych pól.
 
-W tym samouczku użyto interfejsów API postmana i [rest wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/) do wykonywania następujących zadań:
+W tym samouczku jest używany program Poster i [interfejsy API REST wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/) do wykonywania następujących zadań:
 
 > [!div class="checklist"]
-> * Konfigurowanie źródła danych usługi Azure Cognitive Search dla kontenera obiektów blob platformy Azure
-> * Tworzenie indeksu usługi Azure Cognitive Search w celu umieszczenia zawartości z wyszukuj
-> * Konfigurowanie i uruchamianie indeksatora w celu odczytywania kontenera i wyodrębniania zawartości z przeszukiwalnej platformy Azure z magazynu obiektów blob platformy Azure
+> * Konfigurowanie źródła danych Wyszukiwanie poznawcze platformy Azure dla kontenera obiektów blob platformy Azure
+> * Utwórz indeks Wyszukiwanie poznawcze platformy Azure, aby zawierał zawartość z możliwością przeszukiwania
+> * Konfigurowanie i uruchamianie indeksatora w celu odczytu kontenera i wyodrębnienia zawartości możliwej do przeszukania z usługi Azure Blob Storage
 > * Przeszukać utworzony indeks
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-+ [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Usługa Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 + [Aplikacja klasyczna narzędzia Postman](https://www.getpostman.com/)
-+ [Tworzenie](search-create-service-portal.md) lub [znajdowanie istniejącej usługi wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
++ [Utwórz](search-create-service-portal.md) lub [Znajdź istniejącą usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
-> Możesz skorzystać z bezpłatnej usługi dla tego samouczka. Bezpłatna usługa wyszukiwania ogranicza do trzech indeksów, trzech indeksatorów i trzech źródeł danych. W ramach tego samouczka tworzony jest jeden element każdego z tych typów. Przed rozpoczęciem upewnij się, że masz miejsce w usłudze, aby zaakceptować nowe zasoby.
+> Możesz skorzystać z bezpłatnej usługi dla tego samouczka. Bezpłatna usługa wyszukiwania ogranicza do trzech indeksów, trzech indeksatorów i trzech źródeł danych. W ramach tego samouczka tworzony jest jeden element każdego z tych typów. Przed rozpoczęciem upewnij się, że masz miejsce w usłudze, aby akceptować nowe zasoby.
 
 ## <a name="download-files"></a>Pobieranie plików
 
-[Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) zawiera dane użyte w tym samouczku. Pobierz i rozpaj ten plik do własnego folderu. Dane pochodzą z [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), przekonwertowane na JSON dla tego samouczka.
+Plik [Clinical-Trials-JSON. zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) zawiera dane używane w tym samouczku. Pobierz i rozpakuj ten plik do własnego folderu. Dane pochodzą z [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), konwertowane na format JSON dla tego samouczka.
 
-## <a name="1---create-services"></a>1 - Tworzenie usług
+## <a name="1---create-services"></a>1 — Tworzenie usług
 
-Ten samouczek używa usługi Azure Cognitive Search do indeksowania i zapytań oraz magazynu obiektów Blob platformy Azure w celu dostarczenia danych. 
+Ten samouczek używa platformy Azure Wyszukiwanie poznawcze do indeksowania i zapytań oraz do dostarczania danych przez usługę Azure Blob Storage. 
 
-Jeśli to możliwe, utwórz zarówno w tym samym regionie, jak i w grupie zasobów, aby uzyskać bliskość i łatwość zarządzania. W praktyce twoje konto usługi Azure Storage może znajdować się w dowolnym regionie.
+Jeśli to możliwe, Utwórz zarówno w tym samym regionie, jak i w grupie zasobów, co umożliwia bliskość i łatwość zarządzania. W tym przypadku konto usługi Azure Storage może znajdować się w dowolnym regionie.
 
-### <a name="start-with-azure-storage"></a>Zacznij od usługi Azure Storage
+### <a name="start-with-azure-storage"></a>Rozpoczynanie pracy z usługą Azure Storage
 
-1. [Zaloguj się do witryny Azure portal](https://portal.azure.com/) i kliknij przycisk **+ Utwórz zasób**.
+1. [Zaloguj się do Azure Portal](https://portal.azure.com/) i kliknij pozycję **+ Utwórz zasób**.
 
 1. Wyszukaj *konto magazynu* i wybierz ofertę konta magazynu firmy Microsoft.
 
    ![Utwórz konto magazynu](media/cognitive-search-tutorial-blob/storage-account.png "Utwórz konto magazynu")
 
-1. Na karcie Podstawy wymagane są następujące elementy. Zaakceptuj ustawienia domyślne dla wszystkich innych.
+1. Na karcie podstawowe wymagane są następujące elementy. Zaakceptuj wartości domyślne dla wszystkich innych elementów.
 
-   + **Grupa zasobów**. Wybierz istniejącą lub utwórz nową, ale użyj tej samej grupy dla wszystkich usług, aby można było zarządzać nimi zbiorowo.
+   + **Grupa zasobów**. Wybierz istniejący lub Utwórz nowy, ale Użyj tej samej grupy dla wszystkich usług, aby można było zarządzać nimi zbiorczo.
 
-   + **Nazwa konta magazynu**. Jeśli uważasz, że możesz mieć wiele zasobów tego samego typu, użyj nazwy, aby odróżnić według typu i regionu, na przykład *blobstoragewestus*. 
+   + **Nazwa konta magazynu**. Jeśli uważasz, że może istnieć wiele zasobów tego samego typu, użyj nazwy, aby odróżnić według typu i regionu, na przykład *blobstoragewestus*. 
 
-   + **Lokalizacja**. Jeśli to możliwe, wybierz tę samą lokalizację, która jest używana dla usługi Azure Cognitive Search i Usług Cognitive Services. Pojedyncza lokalizacja powoduje unieważnienie opłat za przepustowość.
+   + **Lokalizacja**. Jeśli to możliwe, wybierz tę samą lokalizację, która jest używana dla usługi Azure Wyszukiwanie poznawcze i Cognitive Services. Pojedyncza lokalizacja unieważnia opłaty za przepustowość.
 
-   + **Rodzaj konta**. Wybierz *domyślny, StorageV2 (ogólnego przeznaczenia v2)*.
+   + **Rodzaj konta**. Wybierz wartość domyślną *StorageV2 (ogólnego przeznaczenia w wersji 2)*.
 
-1. Kliknij **przycisk Recenzja + Utwórz,** aby utworzyć usługę.
+1. Kliknij przycisk **Przegląd + Utwórz** , aby utworzyć usługę.
 
-1. Po utworzeniu kliknij pozycję **Przejdź do zasobu,** aby otworzyć stronę Przegląd.
+1. Po jego utworzeniu kliknij pozycję **Przejdź do zasobu** , aby otworzyć stronę przegląd.
 
-1. Kliknij pozycję Usługa **obiektów Blobs.**
+1. Kliknij pozycję **obiekty blob** usługa.
 
-1. [Utwórz kontener obiektów blob,](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) aby zawierał przykładowe dane. Można ustawić publiczny poziom dostępu na dowolną z jego prawidłowych wartości.
+1. [Utwórz kontener obiektów BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) , aby zawierał przykładowe dane. Można ustawić poziom dostępu publicznego na dowolną z jego prawidłowych wartości.
 
-1. Po utworzeniu kontenera otwórz go i wybierz **pozycję Przekaż** na pasku poleceń.
+1. Po utworzeniu kontenera Otwórz go i wybierz pozycję **Przekaż** na pasku poleceń.
 
-   ![Przekazywanie na pasku poleceń](media/search-semi-structured-data/upload-command-bar.png "Przekazywanie na pasku poleceń")
+   ![Przekaż na pasku poleceń](media/search-semi-structured-data/upload-command-bar.png "Przekaż na pasku poleceń")
 
-1. Przejdź do folderu zawierającego przykładowe pliki. Zaznacz wszystkie z nich, a następnie kliknij przycisk **Przekaż**.
+1. Przejdź do folderu zawierającego pliki przykładowe. Zaznacz wszystkie z nich, a następnie kliknij przycisk **Przekaż**.
 
    ![Przekazywanie plików](media/search-semi-structured-data/clinicalupload.png "Przekazywanie plików")
 
@@ -86,41 +86,41 @@ Po zakończeniu przekazywania pliki powinny pojawić się w podfolderze wewnątr
 
 ### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
-Następnym zasobem jest usługa Azure Cognitive Search, którą można [utworzyć w portalu](search-create-service-portal.md). Aby ukończyć ten instruktaż, można użyć warstwy Bezpłatna. 
+Następnym zasobem jest usługa Azure Wyszukiwanie poznawcze, którą można [utworzyć w portalu](search-create-service-portal.md). Aby ukończyć ten przewodnik, możesz skorzystać z warstwy Bezpłatna. 
 
-Podobnie jak w tym magazynie obiektów Blob platformy Azure, poświęć chwilę, aby zebrać klucz dostępu. Dalej po rozpoczęciu tworzenia żądań strukturyzowania należy podać punkt końcowy i klucz interfejsu api administratora używany do uwierzytelniania każdego żądania.
+Tak jak w przypadku usługi Azure Blob Storage, poświęć chwilę na zebranie klucza dostępu. Ponadto po rozpoczęciu tworzenia struktury żądań należy podać punkt końcowy i klucz interfejsu API administratora używany do uwierzytelniania każdego żądania.
 
-### <a name="get-a-key-and-url"></a>Uzyskaj klucz i adres URL
+### <a name="get-a-key-and-url"></a>Pobierz klucz i adres URL
 
-Wywołania interfejsu REST wymagają adresu URL usługi i klucza dostępu dla każdego żądania. Usługa wyszukiwania jest tworzona z obu, więc jeśli dodano usługę Azure Cognitive Search do subskrypcji, wykonaj następujące kroki, aby uzyskać niezbędne informacje:
+Wywołania interfejsu REST wymagają adresu URL usługi i klucza dostępu dla każdego żądania. Usługa wyszukiwania jest tworzona razem z usługą, więc jeśli do subskrypcji dodano Wyszukiwanie poznawcze platformy Azure, wykonaj następujące kroki, aby uzyskać niezbędne informacje:
 
-1. [Zaloguj się do witryny Azure portal](https://portal.azure.com/), a na stronie **przegląd** usługi wyszukiwania pobierz adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
+1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Uzyskaj adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
 
-1. W **ustawieniach** > **klawiszy**pobierz klucz administratora, aby uzyskać pełne prawa do usługi. Istnieją dwa wymienne klucze administracyjne, przewidziane dla ciągłości biznesowej w przypadku, gdy trzeba przewrócić jeden. Klucz podstawowy lub pomocniczy można używać w żądaniach dodawania, modyfikowania i usuwania obiektów.
+1. W obszarze **Ustawienia** > **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
-![Uzyskiwanie punktu końcowego HTTP i klucza dostępu](media/search-get-started-postman/get-url-key.png "Uzyskiwanie punktu końcowego HTTP i klucza dostępu")
+![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-postman/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
 
-Wszystkie żądania wymagają klucza api przy każdym żądaniu wysłanym do usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
+Wszystkie żądania wymagają klucza API dla każdego żądania wysyłanego do usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
-## <a name="2---set-up-postman"></a>2 - Konfigurowanie listonosza
+## <a name="2---set-up-postman"></a>2 — Konfigurowanie wpisu
 
-Uruchom narzędzie Postman i skonfiguruj żądanie HTTP. Jeśli nie znasz tego narzędzia, zobacz [Eksplorowanie interfejsów API rest usługi Azure Cognitive Search przy użyciu usługi Postman](search-get-started-postman.md).
+Uruchom narzędzie Postman i skonfiguruj żądanie HTTP. Jeśli nie znasz tego narzędzia, zobacz [Eksplorowanie interfejsów API REST platformy Azure wyszukiwanie poznawcze przy użyciu programu Poster](search-get-started-postman.md).
 
-Metody żądania dla każdego wywołania w tym samouczku są **POST** i **GET**. Wywrzesz trzy wywołania interfejsu API do usługi wyszukiwania, aby utworzyć źródło danych, indeks i indeksator. Źródło danych zawiera wskaźnik do konta magazynu i danych JSON. Usługa wyszukiwania nawiązuje połączenie podczas ładowania danych.
+Metody żądań dla każdego wywołania w tym samouczku są **ogłaszane** i **odbierane**. Aby utworzyć źródło danych, indeks i indeksator, należy wykonać trzy wywołania interfejsu API do usługi wyszukiwania. Źródło danych zawiera wskaźnik do konta magazynu i danych JSON. Usługa wyszukiwania nawiązuje połączenie podczas ładowania danych.
 
-W nagłówkach ustaw "Typ zawartości" `application/json` `api-key` i ustaw klucz interfejsu api administratora usługi Azure Cognitive Search. Po ustawieniu nagłówków można ich używać do każdego żądania w tym ćwiczeniu.
+W obszarze nagłówki ustaw wartość "Content-Type" `application/json` na wartość `api-key` i ustaw na klucz Admin API-Key usługi Azure wyszukiwanie poznawcze. Po ustawieniu nagłówków można używać ich dla każdego żądania w tym ćwiczeniu.
 
-  ![Adres URL i nagłówek żądania listonosza](media/search-get-started-postman/postman-url.png "Adres URL i nagłówek żądania listonosza")
+  ![Adres URL i nagłówek żądania post](media/search-get-started-postman/postman-url.png "Adres URL i nagłówek żądania post")
 
-Identyfikatory URI muszą określać wersję interfejsu API, a każde wywołanie powinno zwracać **201 Utworzony**. Ogólnie dostępna wersja interfejsu api do korzystania `2019-05-06`z tablic JSON to .
+Identyfikatory URI muszą określać wersję interfejsu API i każde wywołanie powinno zwrócić **201**. Ogólnie dostępna wersja interfejsu API do korzystania z tablic JSON to `2019-05-06`.
 
-## <a name="3---create-a-data-source"></a>3 - Tworzenie źródła danych
+## <a name="3---create-a-data-source"></a>3 — Tworzenie źródła danych
 
-Interfejs [API źródła danych tworzenia](https://docs.microsoft.com/rest/api/searchservice/create-data-source) platformy Azure Cognitive Search, który określa, jakie dane mają być indeksowane.
+[Interfejs API tworzenia źródła danych](https://docs.microsoft.com/rest/api/searchservice/create-data-source) tworzy obiekt wyszukiwanie poznawcze platformy Azure, który określa, jakie dane mają być indeksowane.
 
-1. Ustaw punkt końcowy tego `https://[service name].search.windows.net/datasources?api-version=2019-05-06`wywołania na . Zastąp element `[service name]` nazwą usługi wyszukiwania. 
+1. Ustaw punkt końcowy tego wywołania `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Zastąp element `[service name]` nazwą usługi wyszukiwania. 
 
-1. Skopiuj następujący JSON do treści żądania.
+1. Skopiuj poniższy kod JSON do treści żądania.
 
     ```json
     {
@@ -131,9 +131,9 @@ Interfejs [API źródła danych tworzenia](https://docs.microsoft.com/rest/api/s
     }
     ```
 
-1. Zastąp parametry połączenia prawidłowym ciągiem dla swojego konta.
+1. Zastąp ciąg połączenia prawidłowym ciągiem dla Twojego konta.
 
-1. Zamień "[nazwa kontenera obiektów blob]" na kontener utworzony dla przykładowych danych. 
+1. Zastąp ciąg "[nazwa kontenera obiektów BLOB]" kontenerem utworzonym dla przykładowych danych. 
 
 1. Wyślij żądanie. Odpowiedź powinna wyglądać następująco:
 
@@ -157,13 +157,13 @@ Interfejs [API źródła danych tworzenia](https://docs.microsoft.com/rest/api/s
     }
     ```
 
-## <a name="4---create-an-index"></a>4 - Tworzenie indeksu
+## <a name="4---create-an-index"></a>4 — Tworzenie indeksu
     
-Drugie wywołanie to [Tworzenie interfejsu API indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index), tworząc indeks usługi Azure Cognitive Search, który przechowuje wszystkie dane z wyszukuj. Indeks określa wszystkie parametry i ich atrybuty.
+Drugie wywołanie to [Tworzenie interfejsu API indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index), tworzenie indeksu wyszukiwanie poznawcze platformy Azure, w którym są przechowywane wszystkie dane z możliwością wyszukiwania. Indeks określa wszystkie parametry i ich atrybuty.
 
-1. Ustaw punkt końcowy tego `https://[service name].search.windows.net/indexes?api-version=2019-05-06`wywołania na . Zastąp element `[service name]` nazwą usługi wyszukiwania.
+1. Ustaw punkt końcowy tego wywołania `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Zastąp element `[service name]` nazwą usługi wyszukiwania.
 
-1. Skopiuj następujący JSON do treści żądania.
+1. Skopiuj poniższy kod JSON do treści żądania.
 
     ```json
     {
@@ -232,13 +232,13 @@ Drugie wywołanie to [Tworzenie interfejsu API indeksu](https://docs.microsoft.c
           }
     ```
 
-## <a name="5---create-and-run-an-indexer"></a>5 - Tworzenie i uruchamianie indeksatora
+## <a name="5---create-and-run-an-indexer"></a>5 — Tworzenie i uruchamianie indeksatora
 
-Indeksator łączy się ze źródłem danych, importuje dane do docelowego indeksu wyszukiwania i opcjonalnie udostępnia harmonogram automatyzacji odświeżania danych. Interfejs API REST to [Tworzenie indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Indeksator nawiązuje połączenie ze źródłem danych, importuje dane do docelowego indeksu wyszukiwania i opcjonalnie udostępnia harmonogram do automatyzowania odświeżania danych. Interfejs API REST służy do [tworzenia indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-1. Ustaw identyfikator URI dla `https://[service name].search.windows.net/indexers?api-version=2019-05-06`tego wywołania na . Zastąp element `[service name]` nazwą usługi wyszukiwania.
+1. Ustaw identyfikator URI dla tego wywołania `https://[service name].search.windows.net/indexers?api-version=2019-05-06`. Zastąp element `[service name]` nazwą usługi wyszukiwania.
 
-1. Skopiuj następujący JSON do treści żądania.
+1. Skopiuj poniższy kod JSON do treści żądania.
 
     ```json
     {
@@ -249,7 +249,7 @@ Indeksator łączy się ze źródłem danych, importuje dane do docelowego indek
     }
     ```
 
-1. Wyślij żądanie. Żądanie jest przetwarzane natychmiast. Po powrocie odpowiedzi, będziesz miał indeks, który jest pełnotekstowy przeszukiwania. Odpowiedź powinna wyglądać następująco:
+1. Wyślij żądanie. Żądanie jest przetwarzane od razu. Po powrocie odpowiedzi odpowiedź będzie miała indeks, który jest przeszukiwany w trybie pełnotekstowym. Odpowiedź powinna wyglądać następująco:
 
     ```json
     {
@@ -275,15 +275,15 @@ Indeksator łączy się ze źródłem danych, importuje dane do docelowego indek
     }
     ```
 
-## <a name="6---search-your-json-files"></a>6 - Wyszukiwanie plików JSON
+## <a name="6---search-your-json-files"></a>6 — wyszukiwanie plików JSON
 
-Wyszukiwanie można rozpocząć natychmiast po załadowaniu pierwszego dokumentu.
+Możesz rozpocząć wyszukiwanie zaraz po załadowaniu pierwszego dokumentu.
 
-1. Zmień czasownik na **GET**.
+1. Zmień zlecenie, aby **uzyskać**.
 
-1. Ustaw identyfikator URI dla `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2019-05-06&$count=true`tego wywołania na . Zastąp element `[service name]` nazwą usługi wyszukiwania.
+1. Ustaw identyfikator URI dla tego wywołania `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2019-05-06&$count=true`. Zastąp element `[service name]` nazwą usługi wyszukiwania.
 
-1. Wyślij żądanie. Jest to nieokreślona kwerenda wyszukiwania pełnotekstowego, która zwraca wszystkie pola oznaczone jako możliwe do pobrania w indeksie, wraz z liczbą dokumentów. Odpowiedź powinna wyglądać następująco:
+1. Wyślij żądanie. Jest to nieokreślone zapytanie wyszukiwania pełnotekstowego, które zwraca wszystkie pola oznaczone jako możliwy do pobierania w indeksie oraz liczbę dokumentów. Odpowiedź powinna wyglądać następująco:
 
     ```json
     {
@@ -313,24 +313,24 @@ Wyszukiwanie można rozpocząć natychmiast po załadowaniu pierwszego dokumentu
             . . . 
     ```
 
-1. Dodaj `$select` parametr kwerendy, aby ograniczyć `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2019-05-06&$count=true`wyniki do mniejszej liczby pól: .  W przypadku tej kwerendy 100 dokumentów jest zgodnych, ale domyślnie usługa Azure Cognitive Search zwraca tylko 50 w wynikach.
+1. Dodaj parametr `$select` zapytania, aby ograniczyć wyniki do mniejszej liczby pól `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2019-05-06&$count=true`:.  W przypadku tego zapytania 100 dokumenty są zgodne, ale domyślnie usługa Azure Wyszukiwanie poznawcze zwraca wartość 50 w wynikach.
 
-   ![Zapytanie sparametryzowane](media/search-semi-structured-data/lastquery.png "Paramterized kwerendy")
+   ![Zapytanie sparametryzowane](media/search-semi-structured-data/lastquery.png "Paramterized zapytanie")
 
-1. Przykład kwerendy bardziej złożone `$filter=MinimumAge ge 30 and MaximumAge lt 75`może zawierać , który zwraca tylko wyniki, gdy parametry MinimumAge jest większa lub równa 30 i MaximumAge jest mniejsza niż 75. Zastąp `$select` `$filter` wyrażenie wyrażenie wyrażeniem.
+1. Przykładem bardziej złożonej kwerendy może być `$filter=MinimumAge ge 30 and MaximumAge lt 75`funkcja, która zwraca tylko wyniki, w przypadku których minimalny stopień ważności parametrów jest większy lub równy 30, a wartość maksymalna jest mniejsza niż 75. Zamień `$select` wyrażenie na `$filter` wyrażenie.
 
    ![Wyszukiwanie częściowo ustrukturyzowane](media/search-semi-structured-data/metadatashort.png)
 
-Można również użyć operatorów logicznych (i, lub, nie) i operatorów porównania (eq, ne, gt, lt, ge, le). W porównaniach ciągów jest rozróżniana wielkość liter. Aby uzyskać więcej informacji i przykładów, zobacz [Tworzenie prostej kwerendy](search-query-simple-examples.md).
+Można również użyć operatorów logicznych (i, not) i operatorów porównania (EQ, ne, gt, lt, GE, Le). W porównaniach ciągów jest rozróżniana wielkość liter. Aby uzyskać więcej informacji i przykładów, zobacz [Tworzenie prostego zapytania](search-query-simple-examples.md).
 
 > [!NOTE]
 > Parametr `$filter` działa wyłącznie z metadanymi, które podczas tworzenia indeksu zostały oznaczone jako możliwe do filtrowania.
 
 ## <a name="reset-and-rerun"></a>Resetowanie i ponowne uruchamianie
 
-We wczesnych etapach eksperymentalnych rozwoju najbardziej praktyczne podejście do iteracji projektowania jest usunięcie obiektów z usługi Azure Cognitive Search i umożliwić kod, aby je odbudować. Nazwy zasobów są unikatowe. Usunięcie obiektu umożliwia jego ponowne utworzenie przy użyciu tej samej nazwy.
+W przypadku wczesnych eksperymentalnych etapów tworzenia najlepszym podejściem do iteracji projektu jest usunięcie obiektów z platformy Azure Wyszukiwanie poznawcze i umożliwienie kodowi odbudowania. Nazwy zasobów są unikatowe. Usunięcie obiektu umożliwia jego ponowne utworzenie przy użyciu tej samej nazwy.
 
-Za pomocą portalu można usuwać indeksy, indeksatory i źródła danych. Możesz też użyć **funkcji DELETE** i udostępnić adresy URL każdemu obiektowi. Następujące polecenie usuwa indeksatora.
+Możesz użyć portalu, aby usunąć indeksy, indeksatory i źródła danych. Lub Użyj **Usuń** i podaj adresy URL do każdego obiektu. Następujące polecenie usuwa indeksator.
 
 ```http
 DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2019-05-06
@@ -340,13 +340,13 @@ W przypadku pomyślnego usunięcia jest zwracany kod stanu 204.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Podczas pracy we własnej subskrypcji, na końcu projektu, to dobry pomysł, aby usunąć zasoby, które nie są już potrzebne. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
-Zasoby można znaleźć i zarządzać nimi w portalu, korzystając z łącza Wszystkie zasoby lub Grupy zasobów w lewym okienku nawigacji.
+Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie zasoby lub grupy zasobów w okienku nawigacji po lewej stronie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy znasz podstawy indeksowania obiektów blob platformy Azure, przyjrzyjmy się bliżej konfiguracji indeksatora dla obiektów blob JSON w usłudze Azure Storage.
+Teraz, gdy znasz już podstawy indeksowania obiektów blob platformy Azure, przyjrzyjmy się bliżej konfiguracji indeksatora dla obiektów BLOB JSON w usłudze Azure Storage.
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie indeksowania obiektów blob JSON](search-howto-index-json-blobs.md)
+> [Konfigurowanie indeksowania obiektów BLOB JSON](search-howto-index-json-blobs.md)

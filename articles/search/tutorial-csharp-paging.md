@@ -1,7 +1,7 @@
 ---
-title: C# samouczek na stronie podział wyników wyszukiwania
+title: Samouczek języka C# dotyczący dzielenia na strony wyników wyszukiwania
 titleSuffix: Azure Cognitive Search
-description: W tym samouczku pokazano stronicowanie wyników wyszukiwania. Opiera się na istniejącym projekcie hoteli, z stronicowania przez pierwszy, następny, poprzedni, ostatni i numerowane przyciski. Drugi system stronicowania używa nieskończonego przewijania, wyzwalanego przez przesunięcie pionowego paska przewijania do dolnej granicy.
+description: W tym samouczku przedstawiono stronicowanie wyników wyszukiwania. Jest ona oparta na istniejącym projekcie hoteli, ze stronicowaniem według przycisków pierwszy, następny, poprzedni, ostatni i numerowany. Drugi system stronicowania używa Nieskończonego przewijania wyzwalanego przez przeniesienie pionowego paska przewijania do jego dolnego limitu.
 manager: nitinme
 author: tchristiani
 ms.author: terrychr
@@ -9,44 +9,44 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.openlocfilehash: 9abfeb54be6e22885b8e973034a6d89df8272146
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77121525"
 ---
-# <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>Samouczek C#: Podział na strony wyników wyszukiwania — usługa Azure Cognitive Search
+# <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>Samouczek języka C#: wyszukiwanie wyników wyszukiwania na platformie Azure Wyszukiwanie poznawcze
 
-Dowiedz się, jak zaimplementować dwa różne systemy stronicowania, pierwszy oparty na numerach stron, a drugi na nieskończonym przewijaniu. Oba systemy stronicowania są szeroko stosowane, a wybór odpowiedniego zależy od doświadczenia użytkownika, które chcesz z wynikami. Ten samouczek tworzy systemy stronicowania w projekcie utworzonym w [samouczku języka C#: Utwórz pierwszą aplikację — samouczek Azure Cognitive Search.](tutorial-csharp-create-first-app.md)
+Dowiedz się, jak zaimplementować dwa różne systemy stronicowania, pierwsze na podstawie numerów stron i drugi przy nieskończonym przewijaniu. Oba systemy stronicowania są szeroko używane i wybór jednego z nich zależy od środowiska użytkownika, które chcesz uzyskać w wyniku. W tym samouczku przedstawiono systemy stronicowania w projekcie utworzonym w [samouczku języka C#: Tworzenie pierwszej aplikacji — samouczek wyszukiwanie poznawcze platformy Azure](tutorial-csharp-create-first-app.md) .
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
-> * Rozszerzanie aplikacji za pomocą ponumerowanego stronicowania
-> * Rozszerzanie aplikacji dzięki nieskończonym przewijaniu
+> * Poszerzanie aplikacji za pomocą numerowanego stronicowania
+> * Zwiększanie możliwości aplikacji dzięki nieskończonemu przewijaniu
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
-Mieć [c# Samouczek: Tworzenie pierwszej aplikacji — Azure Cognitive Search](tutorial-csharp-create-first-app.md) projektu i uruchomione. Ten projekt może być własną wersją lub zainstalować ją z GitHub: [Utwórz pierwszą aplikację.](https://github.com/Azure-Samples/azure-search-dotnet-samples)
+[Samouczek języka C#: Tworzenie pierwszej aplikacji — Azure wyszukiwanie poznawcze](tutorial-csharp-create-first-app.md) Project w górę i uruchomiona. Ten projekt może być własną wersją lub być instalowany z serwisu GitHub: [Utwórz pierwszą aplikację](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
-## <a name="extend-your-app-with-numbered-paging"></a>Rozszerzanie aplikacji za pomocą ponumerowanego stronicowania
+## <a name="extend-your-app-with-numbered-paging"></a>Poszerzanie aplikacji za pomocą numerowanego stronicowania
 
-Ponumerowane stronicowanie to system stronicowania z wyboru głównych wyszukiwarek internetowych i większości innych witryn wyszukiwania. Ponumerowane stronicowanie zazwyczaj zawiera opcję "następny" i "poprzedni" oprócz zakresu rzeczywistych numerów stron. Dostępna może być również opcja "pierwsza strona" i "ostatnia strona". Te opcje z pewnością dają użytkownikowi kontrolę nad poruszaniem się po wynikach opartych na stronie.
+Numerowane stronicowanie to system stronicowania wyboru głównych aparatów wyszukiwania internetowego i większość innych witryn sieci Web wyszukiwania. Stronicowanie numerowane zwykle zawiera opcję "Next" i "Previous" oprócz zakresu rzeczywistych numerów stron. Dostępna jest również opcja "Pierwsza Strona" i "Ostatnia strona". Te opcje dają kontrolę nad przechodzeniem między wynikami opartymi na stronach.
 
-Dodamy system, który zawiera pierwszą, poprzednią, następną i ostatnią opcje, wraz z numerami stron, które nie zaczynają się od 1, ale zamiast tego otaczają bieżącą stronę, na której znajduje się użytkownik (więc, na przykład, jeśli użytkownik patrzy na stronę 10, wyświetlane są numery stron 8, 9, 10, 11 i 12).
+Dodamy system zawierający pierwszy, poprzedni, następny i ostatni z nich, a także numery stron, które nie zaczynają się od 1, ale zamiast tego otaczają bieżącą stronę (na przykład, jeśli użytkownik przegląda stronę 10, prawdopodobnie numery stron 8, 9, 10, 11 i 12).
 
-System będzie wystarczająco elastyczny, aby umożliwić ustawienie liczby widocznych numerów stron w zmiennej globalnej.
+System będzie wystarczająco elastyczny, aby można było ustawić liczbę widocznych numerów stron w zmiennej globalnej.
 
-System potraktuje przyciski numerów stron najbardziej po lewej i prawej stronie jako specjalne, co oznacza, że wyzwolą zmianę zakresu wyświetlanych numerów stron. Jeśli na przykład zostaną wyświetlone numery stron 8, 9, 10, 11 i 12, a użytkownik kliknie 8, zakres wyświetlanych numerów stron zmieni się na 6, 7, 8, 9 i 10. I jest podobne przesunięcie w prawo, jeśli wybrali 12.
+System będzie traktować przyciski o największej i największej liczbie stron jako specjalne, co oznacza, że będą wyzwalać zmianę zakresu wyświetlanych numerów stron. Na przykład jeśli są wyświetlane numery stron 8, 9, 10, 11 i 12, a użytkownik kliknie 8, zakres numerów stron zostanie zmieniony na 6, 7, 8, 9 i 10. Podobnie jak w przypadku wybrania 12.
 
 ### <a name="add-paging-fields-to-the-model"></a>Dodawanie pól stronicowania do modelu
 
-Otwórz podstawowe rozwiązanie strony wyszukiwania.
+Ma otwarte rozwiązanie podstawowego strony wyszukiwania.
 
-1. Otwórz plik SearchData.cs modelu.
+1. Otwórz plik modelu SearchData.cs.
 
-2. Najpierw dodaj kilka zmiennych globalnych. W MVC zmienne globalne są deklarowane we własnej klasie statycznej. **ResultsPerPage** ustawia liczbę wyników na stronę. **MaxPageRange** określa liczbę widocznych numerów stron w widoku. **PageRangeDelta** określa, ile stron w lewo lub w prawo zakres stron powinien zostać przesunięty, gdy zaznaczony jest numer strony najbardziej lewej lub prawej. Zazwyczaj ta ostatnia liczba wynosi około połowy **MaxPageRange**. Dodaj następujący kod do obszaru nazw.
+2. Najpierw Dodaj pewne zmienne globalne. W MVC zmienne globalne są deklarowane we własnej klasie statycznej. **ResultsPerPage** ustawia liczbę wyników na stronę. **MaxPageRange** określa liczbę widocznych numerów stron w widoku. **PageRangeDelta** określa, ile stron z lewej lub prawej strony ma być przenoszonych, gdy zaznaczony jest numer strony od lewej lub do prawej. Zwykle ta druga liczba jest około połowy **MaxPageRange**. Dodaj następujący kod do przestrzeni nazw.
 
     ```cs
     public static class GlobalVariables
@@ -77,9 +77,9 @@ Otwórz podstawowe rozwiązanie strony wyszukiwania.
     ```
 
     >[!Tip]
-    >Jeśli ten projekt jest uruchomiony na urządzeniu z mniejszym ekranem, takim jak laptop, rozważ zmianę **programu ResultsPerPage** na 2.
+    >Jeśli ten projekt jest uruchamiany na urządzeniu o mniejszym ekranie, na przykład na laptopie, Rozważ zmianę **ResultsPerPage** na 2.
 
-3. Dodaj właściwości stronicowania do **SearchData** klasy, powiedzmy, po **searchText** właściwości.
+3. Dodaj właściwości stronicowania do klasy **SearchData** , powiedzmy po właściwości **tekstprzeszukiwany** .
 
     ```cs
         // The current page being displayed.
@@ -100,7 +100,7 @@ Otwórz podstawowe rozwiązanie strony wyszukiwania.
 
 ### <a name="add-a-table-of-paging-options-to-the-view"></a>Dodawanie tabeli opcji stronicowania do widoku
 
-1. Otwórz plik index.cshtml i dodaj następujący kod &lt;tuż&gt; przed tagiem zamknięcia /body. Ten nowy kod przedstawia tabelę opcji stronicowania: pierwszy, poprzedni, 1, 2, 3, 4, 5, następny, ostatni.
+1. Otwórz plik index. cshtml i Dodaj poniższy kod bezpośrednio przed tagiem zamykającym &lt;/Body.&gt; Ten nowy kod przedstawia tabelę opcji stronicowania: pierwszy, poprzedni, 1, 2, 3, 4, 5, następny, ostatni.
 
     ```cs
     @if (Model != null && Model.pageCount > 1)
@@ -181,11 +181,11 @@ Otwórz podstawowe rozwiązanie strony wyszukiwania.
     }
     ```
 
-    Używamy tabeli HTML, aby starannie wyrównać rzeczy. Jednak wszystkie akcje pochodzą @Html.ActionLink z instrukcji, każdy wywołując kontroler z **nowym** modelem utworzonym z różnymi wpisami do właściwości **stronicowania** dodaliśmy wcześniej.
+    Używamy tabeli HTML do ujednolicenia elementów. Jednak wszystkie akcje pochodzą z @Html.ActionLink instrukcji, z których każdy wywołuje kontroler z **nowym** modelem utworzonym z różnymi wpisami do właściwości **stronicowania** , która została dodana wcześniej.
 
-    Opcje pierwszej i ostatniej strony nie wysyłają ciągów, takich jak "pierwszy" i "ostatni", ale zamiast tego wysyłają poprawne numery stron.
+    Opcje pierwszej i ostatniej strony nie wysyłają ciągów, takich jak "First" i "Last", ale zamiast tego wysyłają poprawne numery stron.
 
-2. Dodaj kilka klas stronicowania do listy stylów HTML w pliku hotels.css. **PageSelected** klasa służy do identyfikowania strony, na która użytkownik aktualnie wyświetla (przez pogrubienie liczby) na liście numerów stron.
+2. Dodaj klasy stronicowania do listy stylów HTML w pliku hoteli. css. Klasa **pageSelected** umożliwia zidentyfikowanie strony, która jest aktualnie oglądana przez użytkownika (przez włączenie pogrubienia liczby) na liście numerów stron.
 
     ```html
         .pageButton {
@@ -212,7 +212,7 @@ Otwórz podstawowe rozwiązanie strony wyszukiwania.
 
 ### <a name="add-a-page-action-to-the-controller"></a>Dodawanie akcji strony do kontrolera
 
-1. Otwórz plik HomeController.cs i dodaj akcję **Strona.** Ta akcja jest odpowiedzią na dowolną z wybranych opcji strony.
+1. Otwórz plik HomeController.cs i Dodaj akcję **strony** . Ta akcja odpowiada dowolnej wybranej opcji strony.
 
     ```cs
         public async Task<ActionResult> Page(SearchData model)
@@ -258,12 +258,12 @@ Otwórz podstawowe rozwiązanie strony wyszukiwania.
         }
     ```
 
-    **RunQueryAsync** Metoda będzie teraz pokazać błąd składni, ze względu na trzeci parametr, który przyjdzie do nieco.
+    Metoda **RunQueryAsync** będzie teraz zawierać błąd składniowy, z powodu trzeciego parametru, który zostanie w bitach.
 
     > [!Note]
-    > **Wywołania TempData** przechowywać wartość **(obiekt)** w magazynie tymczasowym, chociaż ten magazyn będzie się powtarzał _tylko_ dla jednego wywołania. Jeśli zapiszemy coś w tymczasowych danych, będzie on dostępny dla następnego wywołania działania kontrolera, ale na pewno zniknie przez połączenie po tym! Ze względu na tę krótką żywotność, przechowujemy tekst wyszukiwania i właściwości stronicowania z powrotem w tymczasowym magazynie każdego połączenia do **strony**.
+    > Wywołania **TempData** przechowują wartość ( **obiekt**) w magazynie tymczasowym, chociaż ten magazyn utrzymuje _tylko_ jedno wywołanie. Jeśli przechowujemy coś w danych tymczasowych, będzie on dostępny dla następnego wywołania do akcji kontrolera, ale w przypadku, gdy zostanie ono utracone przez wywołanie po tym! Ze względu na ten krótki cykl życia przechowujemy w tymczasowym magazynie wszystkie właściwości tekstu i stronicowania, a każde wywołanie **strony**.
 
-2. Akcja **Index(model)** musi być zaktualizowana w celu przechowywania zmiennych tymczasowych i dodania parametru strony po lewej stronie do wywołania **RunQueryAsync.**
+2. Akcja **indeks (model)** musi zostać zaktualizowana w celu przechowywania zmiennych tymczasowych i dodać do wywołania **RunQueryAsync** wartość z lewej strony.
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -293,7 +293,7 @@ Otwórz podstawowe rozwiązanie strony wyszukiwania.
         }
     ```
 
-3. **RunQueryAsync** metoda wymaga znacznie zaktualizowane. Pola **Skip**, **Top**i **IncludeTotalResultCount** klasy **SearchParameters** umożliwia żądanie wyników o wartości tylko jednej strony, zaczynając od ustawienia **Pomiń.** Musimy również obliczyć zmienne stronicowania dla naszego widoku. Zastąp całą metodę następującym kodem.
+3. Metoda **RunQueryAsync** wymaga znaczącej aktualizacji. Używamy pól **Skip**, **Top**i **IncludeTotalResultCount** klasy **SearchParameters** , aby żądać tylko jednej strony wyników, zaczynając od ustawienia **pomijania** . Musimy również obliczyć zmienne stronicowania dla tego widoku. Zastąp całą metodę poniższym kodem.
 
     ```cs
         private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage)
@@ -352,7 +352,7 @@ Otwórz podstawowe rozwiązanie strony wyszukiwania.
         }
     ```
 
-4. Wreszcie, musimy wprowadzić niewielką zmianę w widoku. **Zmienna resultsList.Results.Count** będzie teraz zawierać liczbę wyników zwróconych na jednej stronie (3 w naszym przykładzie), a nie całkowitą liczbę. Ponieważ ustawiliśmy **IncludeTotalResultCount** na true, **variable resultsList.Count** zawiera teraz całkowitą liczbę wyników. Więc zlokalizuj, gdzie liczba wyników jest wyświetlany w widoku i zmienić go na następujący kod.
+4. Na koniec musimy wprowadzić małą zmianę w widoku. Zmienna **resultsList. results. Count** będzie teraz zawierać liczbę wyników zwróconych w jednej stronie (3 w naszym przykładzie), a nie łączną liczbę. Ze względu na to, że ustawimy **IncludeTotalResultCount** na true, zmienna **resultsList. Count** zawiera teraz łączną liczbę wyników. W tym celu zlokalizuj miejsce, w którym jest wyświetlana liczba wyników, a następnie zmień go na następujący kod.
 
     ```cs
             // Show the result count.
@@ -362,50 +362,50 @@ Otwórz podstawowe rozwiązanie strony wyszukiwania.
     ```
 
     > [!Note]
-    > Występuje trafienie wydajności, choć zwykle nie wiele z jednego, przez ustawienie **IncludeTotalResultCount** true, jak ta suma musi być obliczana przez usługę Azure Cognitive Search. W złożonych zestawach danych pojawia się ostrzeżenie, że zwracana wartość jest _przybliżeniem_. Dla naszych danych hotelowych, będzie to dokładne.
+    > Wystąpił problem z wydajnością, ale nie jest to zwykle wiele z nich, ustawiając **IncludeTotalResultCount** na true, ponieważ suma ta musi być obliczana przez wyszukiwanie poznawcze platformy Azure. W przypadku złożonych zestawów danych występuje ostrzeżenie, że zwracana wartość jest _przybliżeniem_. W przypadku naszych danych hotelowych będzie to dokładne.
 
 ### <a name="compile-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
 
-Teraz wybierz **start bez debugowania** (lub naciśnij klawisz F5).
+Teraz wybierz pozycję **Uruchom bez debugowania** (lub naciśnij klawisz F5).
 
-1. Wyszukaj tekst, który da mnóstwo wyników (np. Można strony starannie przez wyniki?
+1. Wyszukaj tekst, który będzie zawierać wiele wyników (na przykład "Wi-Fi"). Czy można w sposób starannie wykonać wyniki?
 
-    ![Ponumerowane stronicowanie za pomocą wyników "puli"](./media/tutorial-csharp-create-first-app/azure-search-numbered-paging.png)
+    ![Numerowane stronicowanie za poorednictwem wyników "Pool"](./media/tutorial-csharp-create-first-app/azure-search-numbered-paging.png)
 
-2. Spróbuj kliknąć na najczęściej po prawej stronie i nowsze numery stron po lewej stronie. Czy numery stron są odpowiednio dostosowywane do wyśrodkować stronę, na której się znajdujesz?
+2. Spróbuj kliknąć prawym przyciskiem myszy, a później pozycję numery stron z lewej strony. Czy numery stron są odpowiednio dostosowywane w celu wyśrodkowania strony?
 
-3. Czy przydatne są opcje "pierwszy" i "ostatni"? Niektóre popularne wyszukiwania w internecie korzystają z tych opcji, a inne nie.
+3. Czy opcje "First" i "Last" są przydatne? Niektóre popularne wyszukiwania w sieci Web używają tych opcji, a inne nie.
 
-4. Przejdź do ostatniej strony wyników. Ostatnia strona jest jedyną stroną, która może zawierać mniej niż **wyniki ResultsPerPage.**
+4. Przejdź do ostatniej strony wyników. Ostatnia strona jest jedyną stroną, która może zawierać mniej niż **ResultsPerPage** wyników.
 
-    ![Badanie ostatniej strony "wifi"](./media/tutorial-csharp-create-first-app/azure-search-pool-last-page.png)
+    ![Badanie ostatniej strony "Wi-Fi"](./media/tutorial-csharp-create-first-app/azure-search-pool-last-page.png)
 
-5. Wpisz "miasto" i kliknij szukaj. Nie są wyświetlane żadne opcje stronicowania, jeśli wyniki są mniej niż jedna strona.
+5. Wpisz "miasto", a następnie kliknij przycisk Wyszukaj. Nie są wyświetlane żadne opcje stronicowania, jeśli istnieje mniej niż jedna strona wyników.
 
-    ![Wyszukiwanie "miasta"](./media/tutorial-csharp-create-first-app/azure-search-town.png)
+    ![Wyszukiwanie "miejscowości"](./media/tutorial-csharp-create-first-app/azure-search-town.png)
 
-Teraz zapisz ten projekt i spróbujmy alternatywy dla tej formy stronicowania.
+Teraz Zapisz ten projekt i Wypróbujmy alternatywę dla tej formy stronicowania.
 
-## <a name="extend-your-app-with-infinite-scrolling"></a>Rozszerzanie aplikacji dzięki nieskończonym przewijaniu
+## <a name="extend-your-app-with-infinite-scrolling"></a>Zwiększanie możliwości aplikacji dzięki nieskończonemu przewijaniu
 
-Nieskończone przewijanie jest wyzwalane, gdy użytkownik przewija pionowy pasek przewijania do ostatniego wyświetlanego wyniku. W takim przypadku wywołanie serwera jest dokonywane dla następnej strony wyników. Jeśli nie ma więcej wyników, nic nie jest zwracany i pionowy pasek przewijania nie zmienia. Jeśli jest więcej wyników, są one dołączane do bieżącej strony, a pasek przewijania zmienia się, aby pokazać, że dostępnych jest więcej wyników.
+Nieskończone przewijanie jest wyzwalane, gdy użytkownik przewija pionowy pasek przewijania do ostatniego wyświetlanego wyniku. W tym zdarzeniu wywołanie do serwera zostanie wykonane na następnej stronie wyników. Jeśli nie ma więcej wyników, nic nie zostanie zwrócone i pionowy pasek przewijania nie zmieni się. Jeśli jest więcej wyników, są one dołączane do bieżącej strony, a pasek przewijania zmieni się, aby pokazać, że więcej wyników jest dostępnych.
 
-Ważne jest to, że wyświetlana strona nie jest zastępowana, ale dołączana do nowych wyników. Użytkownik zawsze może przewinąć z powrotem do pierwszych wyników wyszukiwania.
+Ważnym punktem jest to, że wyświetlana strona nie jest zastępowana, ale dołączona do nowych wyników. Użytkownik może zawsze przewijać kopię zapasową do pierwszych wyników wyszukiwania.
 
-Aby zaimplementować nieskończone przewijanie, zacznijmy od projektu przed dodaniem dowolnych elementów przewijania numeru strony. Tak więc, jeśli chcesz, zrób kolejną kopię podstawowej strony wyszukiwania z GitHub: [Utwórz pierwszą aplikację](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Aby zaimplementować nieskończoność przewijania, Zacznijmy od projektu przed dodaniem elementów przewijania numeru strony. W razie potrzeby wykonaj kolejną kopię strony wyszukiwania podstawowego z witryny GitHub: [Utwórz pierwszą aplikację](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ### <a name="add-paging-fields-to-the-model"></a>Dodawanie pól stronicowania do modelu
 
-1. Najpierw dodaj właściwość **stronicowania** do klasy **SearchData** (w pliku modelu SearchData.cs).
+1. Najpierw Dodaj właściwość **stronicowania** do klasy **SearchData** (w pliku modelu SearchData.cs).
 
     ```cs
         // Record if the next page is requested.
         public string paging { get; set; }
     ```
 
-    Ta zmienna jest ciągiem, który zawiera "następny", jeśli następna strona wyników powinna zostać wysłana lub wartość null dla pierwszej strony wyszukiwania.
+    Ta zmienna jest ciągiem zawierającym wartość "Next", jeśli Następna strona wyników powinna zostać wysłana lub ma wartość null dla pierwszej strony wyszukiwania.
 
-2. W tym samym pliku i w obszarze nazw dodaj globalną klasę zmiennych z jedną właściwością. W MVC zmienne globalne są deklarowane we własnej klasie statycznej. **ResultsPerPage** ustawia liczbę wyników na stronę. 
+2. W tym samym pliku i w przestrzeni nazw Dodaj globalną klasę zmiennej z jedną właściwością. W MVC zmienne globalne są deklarowane we własnej klasie statycznej. **ResultsPerPage** ustawia liczbę wyników na stronę. 
 
     ```cs
     public static class GlobalVariables
@@ -420,11 +420,11 @@ Aby zaimplementować nieskończone przewijanie, zacznijmy od projektu przed doda
     }
     ```
 
-### <a name="add-a-vertical-scroll-bar-to-the-view"></a>Dodawanie pionowego paska przewijania do widoku
+### <a name="add-a-vertical-scroll-bar-to-the-view"></a>Dodaj pionowy pasek przewijania do widoku
 
-1. Znajdź sekcję pliku index.cshtml, w których są wyświetlane wyniki (zaczyna się od ** @if (Model != null)**).
+1. Zlokalizuj sekcję pliku index. cshtml, który wyświetla wyniki (zaczyna się od ** @if (model! = null)**).
 
-2. Zastąp sekcję poniższym kodem. Nowa ** &lt;sekcja&gt; div** znajduje się wokół obszaru, który powinien być przewijany, i dodaje zarówno atrybut **przepełnienia** i wywołanie funkcji **onscroll** o nazwie "scrolled()", podobnie jak tak.
+2. Zastąp sekcję poniższym kodem. Nowa ** &lt;sekcja DIV&gt; ** znajduje się wokół obszaru, który powinien być przewijalny i dodaje zarówno atrybut **overflow-y** , jak i wywołanie funkcji **OnScroll** o nazwie "scrolled ()", tak jak to zrobić.
 
     ```cs
         @if (Model != null)
@@ -447,7 +447,7 @@ Aby zaimplementować nieskończone przewijanie, zacznijmy od projektu przed doda
         }
     ```
 
-3. Bezpośrednio pod pętlą, po &lt;tagu&gt; /div, dodaj **przewijaną** funkcję.
+3. Bezpośrednio pod pętlą po tagu &lt;/DIV&gt; Dodaj funkcję **przewijania** .
 
     ```javascript
         <script>
@@ -467,15 +467,15 @@ Aby zaimplementować nieskończone przewijanie, zacznijmy od projektu przed doda
         </script>
     ```
 
-    Instrukcja **if** w powyższym skrypcie sprawdza, czy użytkownik przewinął się do dołu pionowego paska przewijania. Jeśli tak, wywołanie kontrolera **macierzystego** jest wywoływane do akcji o nazwie **Dalej**. Administrator nie potrzebuje żadnych innych informacji, a następnie zwróci następną stronę danych. Te dane są następnie formatowane przy użyciu identycznych stylów HTML jak oryginalna strona. Jeśli żadne wyniki nie zostaną zwrócone, nic nie zostanie dołączone, a rzeczy pozostaną takie, jak są.
+    Instrukcja **if** w skrypcie powyżej testuje, aby zobaczyć, czy użytkownik przewinie się w dolnej części pionowego paska przewijania. Jeśli ma, wywołanie do kontrolera **głównego** jest wykonywane w ramach akcji o nazwie Next ( **dalej**). Kontroler nie potrzebuje innych informacji, zwróci następną stronę danych. Te dane są następnie formatowane przy użyciu identycznych stylów HTML jako oryginalnej strony. Jeśli żadne wyniki nie zostaną zwrócone, nic nie jest dołączane i pozostaną niezmienione.
 
-### <a name="handle-the-next-action"></a>Obsługa akcji Dalej
+### <a name="handle-the-next-action"></a>Obsługuj następną akcję
 
-Istnieją tylko trzy akcje, które muszą być wysyłane do kontrolera: pierwsze uruchomienie aplikacji, która wywołuje **Index()**, pierwsze wyszukiwanie przez użytkownika, który wywołuje **Index (model),** a następnie kolejne wywołania więcej wyników za pośrednictwem **Next(model)**.
+Istnieją tylko trzy akcje, które muszą zostać wysłane do kontrolera: pierwsze uruchomienie aplikacji, która wywołuje **indeks ()**, pierwsze wyszukiwanie przez użytkownika, które wywołuje **indeks (model)**, a następnie kolejne wywołania w celu uzyskania większej liczby wyników za pośrednictwem usługi **Next (model)**.
 
-1. Otwórz plik kontrolera macierzystego i usuń **metodę RunQueryAsync** z oryginalnego samouczka.
+1. Otwórz plik kontrolera głównego i Usuń metodę **RunQueryAsync** z oryginalnego samouczka.
 
-2. Zastąp akcję **Index(model)** następującym kodem. Teraz obsługuje pole **stronicowania,** gdy jest null lub ustawiona na "dalej" i obsługuje wywołanie usługi Azure Cognitive Search.
+2. Zamień akcję **index (model)** na następujący kod. Teraz obsługuje pole **stronicowania** , gdy ma wartość null, lub ma wartość "Next" i obsługuje wywołanie do wyszukiwanie poznawcze platformy Azure.
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -537,9 +537,9 @@ Istnieją tylko trzy akcje, które muszą być wysyłane do kontrolera: pierwsze
         }
     ```
 
-    Podobnie jak w przypadku metody stronicowania numerowane, używamy **pomiń** i **Góry** ustawienia wyszukiwania, aby zażądać tylko danych, których potrzebujemy, jest zwracany.
+    Podobnie jak w przypadku ponumerowanej metody stronicowania, użyjemy parametrów **Pomiń** i **najpopularniejsze** wyszukiwanie, aby zażądać tylko danych, które są potrzebne.
 
-3. Dodaj akcję **Dalej** do kontrolera macierzystego. Zwróć uwagę na to, jak zwraca listę, a każdy hotel dodaje do listy dwa elementy: nazwę hotelu i opis hotelu. Ten format jest ustawiony tak, aby **dopasować przewijane** funkcji korzystania z zwróconych danych w widoku.
+3. Dodaj **następną** akcję do kontrolera macierzystego. Zwróć uwagę, jak zwraca listę, każdy Hotel dodaje dwa elementy do listy: nazwę hotelu i opis hotelu. Ten format jest ustawiony tak, aby odpowiadał użyciu **przewijanej** funkcji w widoku.
 
     ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -563,7 +563,7 @@ Istnieją tylko trzy akcje, które muszą być wysyłane do kontrolera: pierwsze
         }
     ```
 
-4. Jeśli pojawia się błąd składni na **&lt;&gt;ciąg listy,** następnie dodać następujące **za pomocą** dyrektywy do głowy pliku kontrolera.
+4. Jeśli otrzymujesz błąd składniowy w **&lt;&gt;ciągu listy**, Dodaj następującą dyrektywę **using** do nagłówka pliku kontrolera.
 
     ```cs
     using System.Collections.Generic;
@@ -571,34 +571,34 @@ Istnieją tylko trzy akcje, które muszą być wysyłane do kontrolera: pierwsze
 
 ### <a name="compile-and-run-your-project"></a>Kompilowanie i uruchamianie projektu
 
-Teraz wybierz **start bez debugowania** (lub naciśnij klawisz F5).
+Teraz wybierz pozycję **Uruchom bez debugowania** (lub naciśnij klawisz F5).
 
-1. Wprowadź termin, który da wiele wyników (takich jak "pool"), a następnie przetestować pionowy pasek przewijania. Czy wyzwala nową stronę wyników?
+1. Wprowadź termin, który będzie zawierać wiele wyników (takich jak "Pula"), a następnie przetestuj pionowy pasek przewijania. Czy wyzwala nową stronę wyników?
 
-    ![Nieskończone przewijanie wyników "puli"](./media/tutorial-csharp-create-first-app/azure-search-infinite-scroll.png)
+    ![Nieskończone przewijanie w wyniku "puli"](./media/tutorial-csharp-create-first-app/azure-search-infinite-scroll.png)
 
     > [!Tip]
-    > Aby upewnić się, że pasek przewijania pojawia się na pierwszej stronie, pierwsza strona wyników musi nieznacznie przekraczać wysokość obszaru, w którym są wyświetlane. W naszym przykładzie **.box1** ma wysokość 30 pikseli, **.box2** ma wysokość 100 pikseli _i_ dolny margines 24 pikseli. Więc każdy wpis używa 154 pikseli. Trzy wpisy zajmą 3 x 154 = 462 piksele. Aby upewnić się, że wyświetlany jest pionowy pasek przewijania, należy ustawić wysokość obszaru wyświetlania, który jest mniejszy niż 462 piksele, a nawet 461 działa. Ten problem występuje tylko na pierwszej stronie, po tym pasek przewijania na pewno pojawi się. Linia do aktualizacji to: ** &lt;div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;"&gt;onscroll="scrolled()"**.
+    > Aby mieć pewność, że na pierwszej stronie pojawi się pasek przewijania, pierwsza strona wyników musi nieco przekroczyć wysokość obszaru, w którym są wyświetlane. W naszym przykładzie **. BOX1** ma wysokość 30 pikseli, **. box2** ma wysokość 100 pikseli _i_ dolny margines 24 pikseli. Dlatego każdy wpis używa 154 pikseli. Trzy wpisy zajmieją 3 x 154 = 462 pikseli. Aby mieć pewność, że zostanie wyświetlony pionowy pasek przewijania, Wysokość do obszaru wyświetlania musi być mniejsza niż 462 pikseli, nawet 461. Ten problem występuje tylko na pierwszej stronie, gdy pasek przewijania jest widoczny. Wierszem do zaktualizowania jest: ** &lt;DIV ID = "myDiv" Style = "width: 800px; Height: 450px; overflow-y: Scroll;" OnScroll = "scrolled ()&gt;"**.
 
-2. Przewiń w dół do dołu wyników. Zwróć uwagę, jak wszystkie informacje znajdują się teraz na stronie jednego widoku. Możesz przewijać całą drogę z powrotem na górę bez wyzwalania żadnych wywołań serwera.
+2. Przewiń w dół do końca wyników. Zwróć uwagę na to, jak wszystkie informacje są teraz na stronie jednego widoku. Można przewijać wszystko z powrotem do góry bez wyzwalania wywołań serwera.
 
-Bardziej zaawansowane systemy nieskończonego przewijania mogą używać kółka myszy lub podobnego innego mechanizmu, aby wyzwolić ładowanie nowej strony wyników. Nie będziemy przy nieskończone przewijanie dalej w tych tutoriali, ale ma pewien urok do niego, ponieważ unika dodatkowych kliknięć myszką, i może chcesz zbadać inne opcje dalej!
+Bardziej zaawansowane, nieskończone systemy przewijania mogą korzystać z kółka myszy lub podobnego innego mechanizmu, aby wyzwolić ładowanie nowej strony wyników. Nie zajmiemy jeszcze Nieskończonego przewijania w tych samouczkach, ale ma on pewien panel, ponieważ pozwala to uniknąć dodatkowych kliknięć myszą i warto dokładniej zbadać inne opcje.
 
 ## <a name="takeaways"></a>Wnioski
 
-Rozważmy następujące dania na wynos z tego projektu:
+Rozważmy następujący wnioski z tego projektu:
 
-* Ponumerowane stronicowanie jest dobre dla wyszukiwań, w których kolejność wyników jest nieco dowolna, co oznacza, że użytkownicy mogą być zainteresowani na późniejszych stronach.
-* Nieskończone przewijanie jest dobre, gdy kolejność wyników jest szczególnie ważna. Na przykład, jeśli wyniki są uporządkowane na odległość od centrum miasta docelowego.
-* Ponumerowane stronicowanie pozwala na lepszą nawigację. Na przykład użytkownik może pamiętać, że ciekawy wynik był na stronie 6, podczas gdy nie ma takiego łatwego odwołania istnieje w nieskończonym przewijaniu.
-* Nieskończone przewijanie ma łatwy urok, przewijanie w górę iw dół bez wybrednych numerów stron do kliknięcia.
-* Kluczową cechą nieskończonego przewijania jest to, że wyniki są dołączane do istniejącej strony, nie zastępując tej strony, co jest skuteczne.
-* Magazyn tymczasowy utrzymuje się tylko dla jednego wywołania i musi zostać zresetowany, aby przetrwać dodatkowe wywołania.
+* Numerowane stronicowanie jest dobrym sposobem wyszukiwania, w którym kolejność wyników jest nieco arbitralna, co oznacza, że może to być przydatne dla użytkowników na dalszych stronach.
+* Nieskończone przewijanie jest dobre, gdy kolejność wyników jest szczególnie ważna. Na przykład jeśli wyniki są uporządkowane na odległość od środka docelowego miasta.
+* Numerowane stronicowanie pozwala uzyskać lepszą nawigację. Na przykład użytkownik może pamiętać, że interesujący wynik znajdował się na stronie 6, podczas gdy nie ma takiego prostego odwołania.
+* Nieskończone przewijanie ma łatwy odatrakcyjność, przewijanie w górę i w dół bez Fussy numerów stron do kliknięcia.
+* Kluczową funkcją Nieskończonego przewijania jest to, że wyniki są dołączane do istniejącej strony, a nie do zastępowania tej strony, co jest wydajne.
+* Magazyn tymczasowy utrzymuje tylko jedno wywołanie i musi zostać zresetowany w celu przechowania dodatkowych wywołań.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Stronicowanie ma fundamentalne znaczenie dla wyszukiwania w Internecie. Z stronicowania dobrze omówione, następnym krokiem jest poprawa doświadczenia użytkownika dalej, dodając wyszukiwania typu z wyprzedzeniem.
+Stronicowanie jest podstawą wyszukiwania w Internecie. Przy użyciu dobrze stronicowania, następnym krokiem jest dalsze ulepszanie środowiska użytkownika przez dodanie wyszukiwania typu z wyprzedzeniem.
 
 > [!div class="nextstepaction"]
-> [Samouczek C#: Dodawanie autouzupełniania i sugestii — Azure Cognitive Search](tutorial-csharp-type-ahead-and-suggestions.md)
+> [Samouczek języka C#: Dodawanie autouzupełniania i sugestii — Azure Wyszukiwanie poznawcze](tutorial-csharp-type-ahead-and-suggestions.md)

@@ -1,6 +1,6 @@
 ---
-title: Skrypt INTERFEJSU WIERSZA POLECENIA — pobieranie wolnych dzienników zapytań — usługa Azure Database for MariaDB
-description: Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure pokazuje, jak włączyć i pobrać powolne dzienniki zapytań usługi Azure Database dla serwera MariaDB.
+title: Skrypt interfejsu wiersza polecenia — pobieranie wolnych dzienników zapytań — Azure Database for MariaDB
+description: Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure pokazuje, jak włączyć i pobrać dzienniki wolnych zapytań serwera Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 12/02/2019
 ms.openlocfilehash: a6d4ed70418f39b24a68362d5006f3f374693cb6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74777365"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Włączanie i pobieranie dzienników wolnych zapytań serwera usługi Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -44,5 +44,5 @@ Ten skrypt używa poleceń opisanych w poniższej tabeli:
 | [az group delete](/cli/azure/group#az-group-delete) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 
 ## <a name="next-steps"></a>Następne kroki
-- Przeczytaj więcej informacji na temat dokumentacji interfejsu wiersza [polecenia platformy Azure: interfejsu wiersza polecenia platformy Azure](/cli/azure).
+- Przeczytaj więcej informacji na temat interfejsu wiersza polecenia platformy Azure: [Dokumentacja interfejsu wiersza polecenia platformy Azure](/cli/azure).
 - Wypróbuj dodatkowe skrypty: [Przykłady interfejsu wiersza polecenia platformy Azure dla usługi Azure Database for MariaDB](../sample-scripts-azure-cli.md)

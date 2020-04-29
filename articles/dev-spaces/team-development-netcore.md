@@ -1,18 +1,18 @@
 ---
-title: Tworzenie zespołu przy użyciu programu .NET Core i Visual Studio Code
+title: Programowanie zespołowe za pomocą platformy .NET Core i Visual Studio Code
 services: azure-dev-spaces
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: W tym samouczku pokazano, jak używać usługi Azure Dev Spaces i Visual Studio Code do tworzenia zespołu w aplikacji .NET Core w usłudze Azure Kubernetes
-keywords: 'Docker, Kubernetes, Azure, AKS, Usługa Azure Kubernetes, kontenery, Helm, siatka usług, routing siatki usług, kubectl, k8s '
+description: W tym samouczku pokazano, jak używać Azure Dev Spaces i Visual Studio Code do tworzenia zespołu w aplikacji platformy .NET Core w usłudze Azure Kubernetes Service
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
 ms.openlocfilehash: 69434c6168bfadbf3291c6efe85fb2f1934c8d11
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78251961"
 ---
-# <a name="team-development-using-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Tworzenie zespołu przy użyciu programu .NET Core i visual studio code z usługą Azure Dev Spaces
+# <a name="team-development-using-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Programowanie zespołowe przy użyciu platformy .NET Core i Visual Studio Code z Azure Dev Spaces
 
 Z tego samouczka dowiesz się, jak zespół deweloperów może równocześnie współpracować w tym samym klastrze Kubernetes przy użyciu usługi Dev Spaces.
 
@@ -40,7 +40,7 @@ W usłudze Azure Dev Spaces możesz skonfigurować *udostępnione* przestrzenie 
 Kiedy tworzysz kod dla swojej usługi i nie jest on jeszcze gotowy do zaewidencjonowania, często znajduje się on w niezbyt dobrym stanie. Wciąż w sposób iteracyjny go kształtujesz, testujesz i eksperymentujesz z rozwiązaniami. Usługa Azure Dev Spaces wprowadza pojęcie **miejsca**, które umożliwia pracę w izolacji i bez obaw o przeszkadzanie członkom zespołu.
 
 ## <a name="use-dev-spaces-for-team-development"></a>Programowanie zespołowe za pomocą usługi Dev Spaces
-Zademonstrujmy te pomysły konkretnym przykładem za pomocą *naszej* -> przykładowej aplikacji*mywebapi.* Wyobraźmy sobie scenariusz, w którym programista Scott musi wprowadzić zmianę w usłudze *mywebapi* — i *tylko* w tej usłudze. Usługa *webfrontend* nie musi być zmieniana w ramach aktualizacji Scotta.
+Przedstawimy te pomysły w konkretnym przykładzie przy użyciu naszej aplikacji przykładowej *webfrontonu* -> *mywebapi* . Wyobraźmy sobie scenariusz, w którym programista Scott musi wprowadzić zmianę w usłudze *mywebapi* — i *tylko* w tej usłudze. Usługa *webfrontend* nie musi być zmieniana w ramach aktualizacji Scotta.
 
 _Bez_ używania usługi Dev Spaces Scott miałby kilka sposobów na opracowanie i przetestowanie swojej aktualizacji, jednak żaden z nich nie jest idealny:
 * Uruchomienie WSZYSTKICH składników w środowisku lokalnym. Wymaga to bardziej zaawansowanej maszyny deweloperskiej z zainstalowaną platformą Docker i potencjalnie z rozwiązaniem MiniKube.
@@ -51,9 +51,9 @@ _Bez_ używania usługi Dev Spaces Scott miałby kilka sposobów na opracowanie 
 ### <a name="set-up-your-baseline"></a>Konfigurowanie punktu odniesienia
 Najpierw musimy wdrożyć punkt odniesienia naszych usług. To wdrożenie będzie reprezentować „ostatni znany dobry” punkt, aby można było łatwo porównać zachowanie kodu lokalnego z wersją zaewidencjonowaną. Następnie, na podstawie tego punktu odniesienia, utworzymy przestrzeń podrzędną, aby umożliwić testowanie zmian w usłudze *mywebapi* w kontekście większej aplikacji.
 
-1. Klonowanie [przykładowej aplikacji Dev Spaces:](https://github.com/Azure/dev-spaces)`git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
-1. Wyewidencjonuj zdalną gałąź *azds_updates:*`git checkout -b azds_updates origin/azds_updates`
-1. Wybierz przestrzeń _dev_: `azds space select --name dev`. Po wyświetleniu monitu o wybranie nadrzędnego obszaru dewelopera wybierz _ \<brak\>_.
+1. Klonuj [przykładową aplikację do tworzenia miejsc dev](https://github.com/Azure/dev-spaces):`git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
+1. Wyewidencjonuj gałąź zdalną *azds_updates*:`git checkout -b azds_updates origin/azds_updates`
+1. Wybierz przestrzeń _dev_: `azds space select --name dev`. Po wyświetleniu monitu o wybranie nadrzędnego obszaru deweloperskiego wybierz opcję _ \<brak\>_.
 1. Przejdź do katalogu _mywebapi_, a następnie wykonaj: `azds up -d`
 1. Przejdź do katalogu _webfrontend_, a następnie wykonaj: `azds up -d`
 1. Wykonaj `azds list-uris`, aby wyświetlić publiczny punkt końcowy usługi _webfrontend_
@@ -98,7 +98,7 @@ Uruchom polecenie `azds space list`, aby wyświetlić listę wszystkich przestrz
 Zobaczmy, jak to działa.
 
 ### <a name="make-a-code-change"></a>Wprowadzanie zmiany w kodzie
-Przejdź do okna kod `mywebapi` VS dla i `string Get(int id)` dokonać `Controllers/ValuesController.cs`edycji kodu do metody w , na przykład:
+Przejdź do okna VS Code `mywebapi` i Zmień kod na `string Get(int id)` metodę w `Controllers/ValuesController.cs`, na przykład:
 
 ```csharp
 [HttpGet("{id}")]
@@ -110,7 +110,7 @@ public string Get(int id)
 
 ### <a name="run-the-service"></a>Uruchamianie usługi
 
-Aby uruchomić usługę, naciśnij klawisz `azds up` F5 (lub wpisz okno terminala), aby uruchomić usługę. Usługa jest uruchamiana automatycznie w nowo wybranej przestrzeni _dev/scott_. Upewnij się, że usługa działa we `azds list-up`własnym miejscu, uruchamiając:
+Aby uruchomić usługę, naciśnij klawisz F5 (lub wpisz `azds up` w oknie terminalu), aby uruchomić usługę. Usługa jest uruchamiana automatycznie w nowo wybranej przestrzeni _dev/scott_. Upewnij się, że usługa jest uruchomiona we własnym obszarze, uruchamiając następujące działania `azds list-up`:
 
 ```cmd
 $ azds list-up
@@ -120,9 +120,9 @@ mywebapi                  scott     Service  3m ago   Running
 webfrontend               dev       Service  26m ago  Running
 ```
 
-Zwróć uwagę, że *wystąpienie mywebapi* jest teraz uruchomione w przestrzeni _dev/scott._ Wersja uruchomiona w _programach deweloperskich_ jest nadal uruchomiona, ale nie jest wymieniona.
+Zauważ, że wystąpienie elementu *mywebapi* jest teraz uruchomione w miejscu _dev/Scott_ . Wersja uruchomiona w środowisku _deweloperskim_ nadal działa, ale nie znajduje się na liście.
 
-Wyświetl listę adresów URL bieżącego miejsca, uruchamiając plik `azds list-uris`.
+Utwórz listę adresów URL dla bieżącego obszaru przez uruchomienie `azds list-uris`.
 
 ```cmd
 $ azds list-uris
@@ -133,9 +133,9 @@ http://localhost:53831 => mywebapi.scott:80                                Tunne
 http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
 ```
 
-Zwróć uwagę, że adres URL publicznego punktu dostępu dla *webfrontendu* jest poprzedzony *scott.s*. Ten adres URL jest unikatowy w przestrzeni _dev/scott_. Ten prefiks adresu URL informuje kontrolera transferu danych przychodzących do kierowania żądań do wersji _dev/scott_ usługi. Gdy żądanie z tym adresem URL jest obsługiwane przez dev spaces, kontroler transferu danych przychodzących najpierw próbuje przekierować żądanie do usługi *webfrontend* w przestrzeni _dev/scott._ Jeśli to się nie powiedzie, żądanie zostanie przekierowane do usługi *webfrontend* w przestrzeni _deweloperów_ jako rezerwowy. Należy również zauważyć, że istnieje localhost URL, aby uzyskać dostęp do usługi za pośrednictwem localhost przy użyciu funkcji kubernetes *port-forward.* Aby uzyskać więcej informacji na temat adresów URL i routingu w usłudze Azure Dev Spaces, zobacz [Jak działa usługa Azure Dev Spaces i jest skonfigurowana.](how-dev-spaces-works.md)
+Zwróć uwagę, że adres URL punktu dostępu publicznego dla *frontonu* jest poprzedzony *Scott. s*. Ten adres URL jest unikatowy w przestrzeni _dev/scott_. Ten prefiks adresu URL nakazuje kontrolerowi transferu danych przychodzących na kierowanie żądań do wersji _dev/Scott_ usługi. Gdy żądanie o tym adresie URL jest obsługiwane przez funkcję miejsca deweloperskiego, kontroler transferu danych przychodzących najpierw próbuje skierować żądanie do usługi *webfrontonu* w miejscu _dev/Scott_ . Jeśli to się nie powiedzie, żądanie zostanie skierowane do usługi *webfrontonu* w obszarze _dev_ jako rezerwa. Zwróć również uwagę na adres URL hosta lokalnego, aby uzyskać dostęp do usługi za pośrednictwem hosta localhost przy użyciu funkcji *przekazywania portów* Kubernetes. Aby uzyskać więcej informacji na temat adresów URL i routingu w Azure Dev Spaces, zobacz [How to Azure dev Spaces działa i jest skonfigurowana](how-dev-spaces-works.md).
 
-![Routing przestrzeni](media/common/Space-Routing.png)
+![Routing miejsca](media/common/Space-Routing.png)
 
 Ta wbudowana funkcja usługi Azure Dev Spaces umożliwia testowanie kodu w udostępnionej przestrzeni bez konieczności ponownego tworzenia pełnych stosów usług przez wszystkich deweloperów w ich przestrzeniach. Taki routing wymaga, aby kod aplikacji przekazywał nagłówki propagowania, jak pokazano w poprzednim kroku tego przewodnika.
 
@@ -156,7 +156,7 @@ Przewodnik Wprowadzenie został ukończony! W tym samouczku omówiono:
 > * Efektywne tworzenie i testowanie kodu w środowisku zespołu.
 > * Ustalanie punktu odniesienia funkcjonalności za pomocą usługi Dev Spaces w celu łatwego testowania izolowanych zmian w kontekście większej aplikacji mikrousług.
 
-Teraz, gdy zostały zbadane usługi Azure Dev Spaces, [udostępnij swoje miejsce deweloperów członkowi zespołu](how-to/share-dev-spaces.md) i rozpocznij współpracę.
+Teraz, gdy znasz już Azure Dev Spaces, [Udostępnij miejsce deweloperskie członkowi zespołu](how-to/share-dev-spaces.md) i Rozpocznij współpracę.
 
 ## <a name="clean-up"></a>Czyszczenie
 Aby całkowicie usunąć z klastra wystąpienie usługi Azure Dev Spaces, w tym wszystkie przestrzenie deweloperów i usługi działające w ich obrębie, należy użyć polecenia `az aks remove-dev-spaces`. Pamiętaj, że ta akcja jest nieodwracalna. Możesz ponownie dodać obsługę usługi Azure Dev Spaces w klastrze, ale wszystko trzeba będzie zacząć od początku. Stare usługi i przestrzenie nie zostaną przywrócone.

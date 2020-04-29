@@ -1,6 +1,6 @@
 ---
 title: Zabezpieczanie pojedynczej bazy danych lub bazy danych w puli
-description: Samouczek, który uczy o technikach i funkcjach w celu zabezpieczenia pojedynczej lub puli bazy danych w usłudze Azure SQL Database.
+description: Samouczek, który uczy się o technikach i funkcjach w celu zabezpieczania pojedynczej lub puli baz danych w Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,13 +11,13 @@ ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 9e3c5c12157a007bcad59a78b4623ff4d5a0041f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79238832"
 ---
-# <a name="tutorial-secure-a-single-or-pooled-database"></a>Samouczek: Zabezpieczanie pojedynczej lub puli bazy danych
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>Samouczek: Zabezpieczanie jednej lub puli baz danych
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -40,7 +40,7 @@ Usługa Azure SQL Database zabezpiecza dane w pojedynczej bazie danych lub w baz
 Aby dowiedzieć się więcej, zobacz artykuły [Azure SQL Database security overview (Omówienie zabezpieczeń usługi Azure SQL Database)](/azure/sql-database/sql-database-security-index) i [Capabilities (Funkcje)](sql-database-security-overview.md).
 
 > [!TIP]
-> Poniższy moduł Microsoft Learn pomaga bezpłatnie dowiedzieć się, jak [zabezpieczyć bazę danych SQL Azure](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
+> Poniższy moduł Microsoft Learn umożliwia bezpłatne zapoznanie się ze sposobem [zabezpieczania Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -50,7 +50,7 @@ Aby ukończyć ten samouczek, upewnij się, że dysponujesz następującymi elem
 - Serwer i baza danych SQL na platformie Azure
   - Utwórz je za pomocą [witryny Azure Portal](sql-database-single-database-get-started.md), [interfejsu wiersza polecenia](sql-database-cli-samples.md) lub [programu PowerShell](sql-database-powershell-samples.md).
 
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -80,7 +80,7 @@ Aby skonfigurować regułę zapory na poziomie serwera:
 
 1. Na stronie **Przegląd** wybierz opcję **Ustaw zaporę serwera**. Zostanie otwarta strona **Ustawienia zapory** dla serwera bazy danych.
 
-   1. Wybierz pozycję **Dodaj adres IP klienta** na pasku narzędzi, aby dodać bieżący adres IP do nowej reguły zapory. Reguła może otworzyć port 1433 dla pojedynczego adresu IP lub zakresu adresów IP. Wybierz **pozycję Zapisz**.
+   1. Wybierz pozycję **Dodaj adres IP klienta** na pasku narzędzi, aby dodać bieżący adres IP do nowej reguły zapory. Reguła może otworzyć port 1433 dla pojedynczego adresu IP lub zakresu adresów IP. Wybierz pozycję **Zapisz**.
 
       ![ustawianie reguły zapory serwera](./media/sql-database-security-tutorial/server-firewall-rule2.png)
 
@@ -90,7 +90,7 @@ Teraz możesz nawiązać połączenie z dowolną bazą danych na serwerze przy u
 
 ### <a name="setup-database-firewall-rules"></a>Konfigurowanie reguł zapory bazy danych
 
-Reguły zapory na poziomie bazy danych dotyczą tylko pojedynczych baz danych. Baza danych zachowa te reguły podczas pracy awaryjnej serwera. Reguły zapory na poziomie bazy danych można skonfigurować wyłącznie za pomocą instrukcji języka Transact-SQL (T-SQL) oraz wyłącznie po skonfigurowaniu reguły zapory na poziomie serwera.
+Reguły zapory na poziomie bazy danych dotyczą tylko pojedynczych baz danych. Te reguły będą przechowywane w bazie danych w trybie failover serwera. Reguły zapory na poziomie bazy danych można skonfigurować wyłącznie za pomocą instrukcji języka Transact-SQL (T-SQL) oraz wyłącznie po skonfigurowaniu reguły zapory na poziomie serwera.
 
 Aby skonfigurować regułę zapory na poziomie bazy danych:
 
@@ -117,7 +117,7 @@ Upewnij się, że używasz odpowiedniej domeny zarządzanej usługi Azure Active
 
 Aby ustawić administratora usługi Azure AD:
 
-1. W witrynie Azure portal na stronie **serwera SQL** wybierz pozycję Administrator usługi **Active Directory**. Następnie wybierz **pozycję Ustaw administratora**.
+1. W Azure Portal na stronie **SQL Server** wybierz pozycję **administrator Active Directory**. Następnie wybierz pozycję **Ustaw administratora**.
 
     ![wybierz usługę active directory](./media/sql-database-security-tutorial/admin-settings.png)  
 
@@ -131,7 +131,7 @@ Aby ustawić administratora usługi Azure AD:
     > [!IMPORTANT]
     > Kontrola dostępu oparta na rolach (RBAC) ma zastosowanie tylko do portalu i nie jest stosowana na serwerze SQL.
 
-1. U góry strony **administratora usługi Active Directory** wybierz pozycję **Zapisz**.
+1. W górnej części strony **administrator Active Directory** wybierz pozycję **Zapisz**.
 
     Proces zmiany administratora może potrwać kilka minut. Nowy administrator pojawi się w polu **Administrator usługi Active Directory**.
 
@@ -145,11 +145,11 @@ Aby uzyskać informacje na temat konfigurowania usługi Azure AD, zobacz:
 - [Microsoft Azure now supports federation with Windows Server AD (Platforma Microsoft Azure obsługuje teraz federację z usługą AD systemu Windows Server)](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administrowanie katalogiem usługi Azure AD](../active-directory/fundamentals/active-directory-administer.md)
 - [Zarządzanie usługą Azure AD przy użyciu programu PowerShell](/powershell/azure/overview?view=azureadps-2.0)
-- [Porty i protokoły wymagane tożsamością hybrydową](../active-directory/hybrid/reference-connect-ports.md)
+- [Porty i protokoły wymagane przez tożsamość hybrydową](../active-directory/hybrid/reference-connect-ports.md)
 
 ## <a name="manage-database-access"></a>Zarządzanie dostępem do bazy danych
 
-Możesz zarządzać dostępem do bazy danych, dodając do niej użytkowników lub zezwalając na dostęp użytkowników za pomocą bezpiecznych parametrów połączenia. Parametry połączenia są przydatne w przypadku aplikacji zewnętrznych. Aby dowiedzieć się więcej, zobacz [Zarządzanie loginami i kontami użytkowników](sql-database-manage-logins.md) oraz [uwierzytelnianiem usługi AD](sql-database-aad-authentication.md).
+Możesz zarządzać dostępem do bazy danych, dodając do niej użytkowników lub zezwalając na dostęp użytkowników za pomocą bezpiecznych parametrów połączenia. Parametry połączenia są przydatne w przypadku aplikacji zewnętrznych. Aby dowiedzieć się więcej, zobacz Zarządzanie nazwami [logowania i kontami użytkowników](sql-database-manage-logins.md) i [uwierzytelnianiem usługi AD](sql-database-aad-authentication.md).
 
 Aby dodać użytkowników, wybierz typ uwierzytelniania bazy danych:
 
@@ -264,7 +264,7 @@ W przypadku wykrycia nietypowych działań otrzymasz wiadomość e-mail z inform
 
 ### <a name="auditing"></a>Inspekcja
 
-Funkcja inspekcji śledzi zdarzenia bazy danych i zapisuje zdarzenia w dzienniku inspekcji w usłudze Azure Storage, dziennikach usługi Azure Monitor lub w centrum zdarzeń. Inspekcja pomaga zachować zgodność z przepisami, analizować aktywność bazy danych oraz uzyskać wgląd w odchylenia i anomalie, które mogą oznaczać potencjalne naruszenia zabezpieczeń.
+Funkcja inspekcji śledzi zdarzenia bazy danych i zapisuje zdarzenia w dzienniku inspekcji w usłudze Azure Storage, w dzienniku Azure Monitor lub w centrum zdarzeń. Inspekcja pomaga zachować zgodność z przepisami, analizować aktywność bazy danych oraz uzyskać wgląd w odchylenia i anomalie, które mogą oznaczać potencjalne naruszenia zabezpieczeń.
 
 Aby włączyć inspekcję:
 
@@ -286,11 +286,11 @@ Aby włączyć inspekcję:
        - **Log Analytics** — automatyczne zapisywanie zdarzeń do celów zapytań lub dalszej analizy.
 
            > [!NOTE]
-           > **Obszar roboczy usługi Log Analytics** jest wymagany do obsługi zaawansowanych funkcji, takich jak analizy, niestandardowe reguły alertów oraz eksportowanie programu Excel lub Power BI. Bez obszaru roboczego dostępny jest tylko edytor zapytań.
+           > **Log Analytics obszar roboczy** jest wymagany do obsługi zaawansowanych funkcji, takich jak analiza, niestandardowe reguły alertów oraz eksporty programu Excel lub Power BI. Bez obszaru roboczego dostępny jest tylko edytor zapytań.
 
        - **Centrum zdarzeń** — umożliwia kierowanie zdarzeń do użytku w innych aplikacjach
 
-   1. Wybierz **pozycję Zapisz**.
+   1. Wybierz pozycję **Zapisz**.
 
       ![Ustawienia inspekcji](./media/sql-database-security-tutorial/audit-settings.png)
 
@@ -315,7 +315,7 @@ Aby włączyć maskowanie danych:
 
     ![Ustawienia maskowania](./media/sql-database-security-tutorial/mask-settings.png)
 
-1. Wybierz **pozycję Zapisz**. Wybrane informacje będą teraz maskowane w celu ochrony ich poufności.
+1. Wybierz pozycję **Zapisz**. Wybrane informacje będą teraz maskowane w celu ochrony ich poufności.
 
     ![Przykład maskowania](./media/sql-database-security-tutorial/mask-query.png)
 
@@ -329,7 +329,7 @@ Aby włączyć lub sprawdzić szyfrowanie:
 
 1. W sekcji **Zabezpieczenia** wybierz pozycję **Transparent Data Encryption**.
 
-1. Jeśli jest to konieczne, ustaw opcję **Szyfrowanie danych** w pozycji **WŁ**. Wybierz **pozycję Zapisz**.
+1. Jeśli jest to konieczne, ustaw opcję **Szyfrowanie danych** w pozycji **WŁ**. Wybierz pozycję **Zapisz**.
 
     ![Niewidoczne szyfrowanie danych](./media/sql-database-security-tutorial/encryption-settings.png)
 

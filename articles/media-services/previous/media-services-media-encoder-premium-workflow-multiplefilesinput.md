@@ -1,6 +1,6 @@
 ---
-title: Wiele plików wejściowych i właściwości składników z koderem Premium — Azure | Dokumenty firmy Microsoft
-description: W tym temacie wyjaśniono, jak używać właściwości setRuntimeProperties do używania wielu plików wejściowych i przekazywania danych niestandardowych do procesora nośników Media Encoder Premium Workflow.
+title: Wiele plików wejściowych i właściwości składników z koderem Premium Encoder — Azure | Microsoft Docs
+description: W tym temacie wyjaśniono, jak używać setRuntimeProperties do używania wielu plików wejściowych i przekazywania danych niestandardowych do procesora multimediów Media Encoder Premium Workflow.
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -16,25 +16,25 @@ ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
 ms.openlocfilehash: 27bdf82d4515678e28eadf07fe325860fe5df063
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79251000"
 ---
-# <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Używanie wielu plików wejściowych i właściwości składników za pomocą kodera Premium
+# <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Korzystanie z wielu plików wejściowych i właściwości składników przy użyciu kodera Premium
 ## <a name="overview"></a>Omówienie
-Istnieją scenariusze, w których może być konieczne dostosowanie właściwości składnika, określenie zawartości XML listy klipów lub wysłanie wielu plików wejściowych podczas przesyłania zadania za pomocą procesora **nośników Media Encoder Premium Workflow.** Przykłady to:
+Istnieją scenariusze, w których może być konieczne dostosowanie właściwości składnika, określenie zawartości XML listy klipów lub wysłanie wielu plików wejściowych podczas przesyłania zadania z procesorem multimediów **Media Encoder Premium Workflow** . Przykłady to:
 
-* Nakładanie tekstu na wideo i ustawianie wartości tekstowej (na przykład bieżącej daty) w czasie wykonywania dla każdego wejściowego wideo.
-* Dostosowywanie pliku XML listy klipów (w celu określenia jednego lub kilku plików źródłowych, z przycinaniem lub bez niego itp.).
-* Nakładanie obrazu logo na wejściowy film wideo podczas kodowania wideo.
-* Wiele kodowania języka audio.
+* Nałóż tekst wideo i ustawiając wartość tekstową (na przykład bieżącą datę) w czasie wykonywania dla każdego wejściowego wideo.
+* Dostosowywanie pliku XML listy klipów (w celu określenia jednego lub kilku plików źródłowych, z lub bez przycinania itp.).
+* Nałożenie obrazu logo na wejściowym wideo podczas kodowania wideo.
+* Kodowanie wielu języków audio.
 
-Aby poinformować **przepływ pracy media encoder Premium,** że podczas tworzenia zadania lub wysyłania wielu plików wejściowych zmieniane są niektóre właściwości w przepływie pracy, należy użyć ciągu konfiguracji zawierającego **zestawRuntimeProperties** i/lub **transcodeSource**. W tym temacie wyjaśniono, jak z nich korzystać.
+Aby **Media Encoder Premium Workflow** wiedzieć, że zmieniasz niektóre właściwości w przepływie pracy podczas tworzenia zadania lub wysyłania wielu plików wejściowych, musisz użyć ciągu konfiguracji, który zawiera **setRuntimeProperties** i/lub **transcodeSource**. W tym temacie wyjaśniono, jak z nich korzystać.
 
 ## <a name="configuration-string-syntax"></a>Składnia ciągu konfiguracji
-Ciąg konfiguracji ustawiony w zadaniu kodowania używa dokumentu XML, który wygląda następująco:
+Ciąg konfiguracji do ustawienia w zadaniu kodowania używa dokumentu XML, który wygląda następująco:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -47,7 +47,7 @@ Ciąg konfiguracji ustawiony w zadaniu kodowania używa dokumentu XML, który wy
 </transcodeRequest>
 ```
 
-Poniżej znajduje się kod Języka C#, który odczytuje konfigurację XML z pliku, aktualizuj go za pomocą odpowiedniej nazwy pliku wideo i przekazuje go do zadania w zadaniu:
+Poniżej znajduje się kod C#, który odczytuje konfigurację XML z pliku, aktualizuje ją przy użyciu właściwej nazwy pliku wideo i przekazuje ją do zadania w zadaniu:
 
 ```csharp
 string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
@@ -75,13 +75,13 @@ task.InputAssets.Add(video); // video asset with multiple files
 task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 ```
 
-## <a name="customizing-component-properties"></a>Dostosowywanie właściwości komponentu
+## <a name="customizing-component-properties"></a>Dostosowywanie właściwości składnika
 ### <a name="property-with-a-simple-value"></a>Właściwość o prostej wartości
-W niektórych przypadkach warto dostosować właściwość składnika wraz z plikiem przepływu pracy, który ma być wykonywany przez przepływ pracy usługi Media Encoder Premium.
+W niektórych przypadkach warto dostosować Właściwość składnika wraz z plikiem przepływu pracy, który ma być wykonywany przez Media Encoder Premium Workflow.
 
-Załóżmy, że zaprojektowałeś przepływ pracy, który nakłada tekst na filmy, a tekst (na przykład bieżąca data) ma być ustawiony w czasie wykonywania. Można to zrobić, wysyłając tekst, który ma być ustawiony jako nowa wartość właściwości tekstowej składnika nakładki z zadania kodowania. Za pomocą tego mechanizmu można zmienić inne właściwości składnika w przepływie pracy (takie jak położenie lub kolor nakładki, szybkość transmisji bitów kodera AVC itp.).
+Załóżmy, że zaprojektowano przepływ pracy, który nakłada tekst na wideo, a tekst (na przykład bieżącą datę) ma być ustawiony w czasie wykonywania. Można to zrobić, wysyłając tekst do ustawienia jako nową wartość właściwości text składnika nakładki z zadania kodowania. Za pomocą tego mechanizmu można zmienić inne właściwości składnika w przepływie pracy (na przykład położenie lub kolor nakładki, szybkość transmisji bitów AVC itp.).
 
-**setRuntimeProperties** służy do zastępowania właściwości w składnikach przepływu pracy.
+**setRuntimeProperties** służy do przesłonięcia właściwości w składnikach przepływu pracy.
 
 Przykład:
 
@@ -97,7 +97,7 @@ Przykład:
 ```
 
 ### <a name="property-with-an-xml-value"></a>Właściwość z wartością XML
-Aby ustawić właściwość, która oczekuje wartości XML, hermetyzuj za pomocą programu `<![CDATA[ and ]]>`.
+Aby ustawić właściwość, która oczekuje wartości XML, Hermetyzuj przy użyciu `<![CDATA[ and ]]>`.
 
 Przykład:
 
@@ -131,47 +131,47 @@ Przykład:
 ```
 
 > [!NOTE]
-> Upewnij się, że nie należy `<![CDATA[`umieszczać powrotu karetki tuż po .
+> Upewnij się, że nie należy umieszczać powrotu karetki `<![CDATA[`tuż po.
 
-### <a name="propertypath-value"></a>wartość propertyPath
-W poprzednich przykładach propertyPath był "/Media File Input/filename" lub "/inactiveTimeout" lub "clipListXml".
-Jest to, ogólnie rzecz biorąc, nazwa składnika, a następnie nazwa właściwości. Ścieżka może mieć więcej lub mniej poziomów, takich jak "/primarySourceFile" (ponieważ właściwość znajduje się w katalogu głównym przepływu pracy) lub "/Video Processing/Graphic Overlay/Opacity" (ponieważ nakładka znajduje się w grupie).    
+### <a name="propertypath-value"></a>propertyPath wartość
+W poprzednich przykładach propertyPath była "/Media pliku Input/filename" lub "/inactiveTimeout" lub "clipListXml".
+Jest to, ogólnie rzecz biorąc, nazwa składnika, a następnie nazwa właściwości. Ścieżka może zawierać więcej lub mniej poziomów, takich jak "/primarySourceFile" (ponieważ właściwość znajduje się w katalogu głównym przepływu pracy) lub "/video processing/grafika/krycie" (ponieważ nakładka znajduje się w grupie).    
 
-Aby sprawdzić nazwę ścieżki i właściwości, użyj przycisku akcji, który znajduje się bezpośrednio obok każdej właściwości. Możesz kliknąć ten przycisk akcji i wybrać pozycję **Edytuj**. Spowoduje to wyświetlenie rzeczywistej nazwy właściwości i bezpośrednio nad nią obszaru nazw.
+Aby sprawdzić ścieżkę i nazwę właściwości, użyj przycisku akcji, który znajduje się bezpośrednio obok każdej właściwości. Możesz kliknąć przycisk akcji i wybrać pozycję **Edytuj**. Spowoduje to wyświetlenie rzeczywistej nazwy właściwości i bezpośrednio nad nią, przestrzeni nazw.
 
-![Akcja/edycja](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture6_actionedit.png)
+![Akcja/Edycja](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture6_actionedit.png)
 
 ![Właściwość](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
 
 ## <a name="multiple-input-files"></a>Wiele plików wejściowych
-Każde zadanie przesłane do **przepływu pracy usługi Media Encoder Premium** wymaga dwóch zasobów:
+Każde zadanie przesyłane do **Media Encoder Premium Workflow** wymaga dwóch zasobów:
 
-* Pierwszym z nich jest *zasób przepływu pracy,* który zawiera plik przepływu pracy. Pliki przepływu pracy można projektować za pomocą [projektanta przepływu pracy](media-services-workflow-designer.md).
-* Drugi to *zasób multimedialny* zawierający pliki multimedialne, które chcesz zakodować.
+* Pierwszy z nich jest *zasobem przepływu pracy* , który zawiera plik przepływu pracy. Pliki przepływu pracy można zaprojektować za pomocą [Projektant przepływu pracy](media-services-workflow-designer.md).
+* Drugi z nich jest *zasobem multimedialnym* zawierającym pliki multimedialne, które mają zostać zakodowane.
 
-Podczas wysyłania wielu plików multimedialnych do kodera **przepływu pracy usługi Media Encoder Premium** obowiązują następujące ograniczenia:
+W przypadku wysyłania wielu plików multimedialnych do kodera **Media Encoder Premium Workflow** są stosowane następujące ograniczenia:
 
-* Wszystkie pliki multimedialne muszą znajdować się w tym samym *zasobie multimedialnym*. Korzystanie z wielu zasobów multimedialnych nie jest obsługiwane.
-* W tym zasób multimedialny należy ustawić plik podstawowy (najlepiej jest to główny plik wideo, który koder jest proszony o przetworzenie).
-* Konieczne jest przekazanie danych konfiguracyjnych, które zawierają **setRuntimeProperties** i/lub **transcodeSource** element do procesora.
-  * **setRuntimeProperties** służy do zastępowania właściwości filename lub innej właściwości w składnikach przepływu pracy.
+* Wszystkie pliki multimedialne muszą znajdować się w tym samym elemencie zawartości *multimedialnej*. Używanie wielu zasobów multimedialnych nie jest obsługiwane.
+* Należy ustawić plik podstawowy w tym nośniku zawartości (najlepiej jest to główny plik wideo, do którego koder ma być przetwarzany).
+* Konieczne jest przekazanie danych konfiguracyjnych obejmujących element **setRuntimeProperties** i/lub **transcodeSource** do procesora.
+  * **setRuntimeProperties** służy do przesłonięcia właściwości filename lub innej właściwości w składnikach przepływu pracy.
   * **transcodeSource** służy do określania zawartości XML listy klipów.
 
 Połączenia w przepływie pracy:
 
-* Jeśli używasz jednego lub kilku składników wprowadzania plików multimedialnych i planujesz użyć **setRuntimeProperties** do określenia nazwy pliku, nie należy łączyć z nimi numeru pin składnika pliku podstawowego. Upewnij się, że nie ma połączenia między obiektem pliku podstawowego a wejściami pliku multimedialnego.
-* Jeśli wolisz używać pliku XML z listą klipów i jednego składnika Źródło multimediów, możesz połączyć oba elementy ze sobą.
+* Jeśli używasz jednego lub kilku składników danych wejściowych plików multimedialnych i planujesz użyć **setRuntimeProperties** , aby określić nazwę pliku, nie łącz do nich numeru PIN podstawowego składnika pliku. Upewnij się, że nie ma połączenia między obiektem pliku podstawowego i danymi wejściowymi pliku multimedialnego.
+* Jeśli wolisz używać XML listy klipów i jednego składnika źródłowego nośnika, możesz połączyć oba jednocześnie.
 
-![Brak połączenia z pliku źródłowego podstawowego z wejściem pliku multimedialnego](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture0_nopin.png)
+![Brak połączenia z podstawowego pliku źródłowego do wejścia pliku multimedialnego](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture0_nopin.png)
 
-*Nie ma połączenia z pliku podstawowego ze składnikami wprowadzania plików multimedialnych, jeśli do ustawienia właściwości nazwy pliku używasz właściwości setRuntimeProperties.*
+*Nie ma połączenia z pliku podstawowego do składników wejściowych plików multimedialnych, jeśli używasz setRuntimeProperties do ustawiania właściwości filename.*
 
-![Połączenie ze źródła XML listy klipów do listy klipów](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture1_pincliplist.png)
+![Połączenie z listy klipów XML do źródła listy klipów](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture1_pincliplist.png)
 
-*Można podłączyć kod XML listy klipów do źródła multimediów i użyć usługi transcodeSource.*
+*Możesz połączyć plik XML z listą klipów ze źródłem multimediów i użyć transcodeSource.*
 
-### <a name="clip-list-xml-customization"></a>Dostosowywanie XML listy klipów
-Można określić kod XML listy klipów w przepływie pracy w czasie wykonywania przy użyciu **transcodeSource** w ciągu konfiguracji XML. Wymaga to połączenia kodu XML listy klipów ze składnikiem Źródło multimediów w przepływie pracy.
+### <a name="clip-list-xml-customization"></a>Dostosowanie XML listy klipów
+Możesz określić plik XML listy klipów w przepływie pracy w czasie wykonywania przy użyciu **transcodeSource** w formacie XML ciągu konfiguracji. Wymaga to połączenia kodu XML z listą wycinków ze składnikiem źródłowym nośnika w przepływie pracy.
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>
@@ -199,7 +199,7 @@ Można określić kod XML listy klipów w przepływie pracy w czasie wykonywania
   </transcodeRequest>
 ```
 
-Jeśli chcesz określić /primarySourceFile użyć tej właściwości do nazwy plików wyjściowych przy użyciu "Wyrażenia", a następnie zaleca się przekazywanie Clip List XML jako właściwość *po* /primarySourceFile właściwości, aby uniknąć konieczności Clip List zostać zastąpione przez /primarySourceFile ustawienie.
+Jeśli chcesz określić/primarySourceFile do używania tej właściwości do nazywania plików wyjściowych za pomocą wyrażenia "Expressions", zalecamy przekazanie pliku XML listy klipów jako właściwości *po* właściwości/primarySourceFile, aby uniknąć konieczności przesłania listy klipów przez ustawienie/primarySourceFile.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -230,7 +230,7 @@ Jeśli chcesz określić /primarySourceFile użyć tej właściwości do nazwy p
   </transcodeRequest>
 ```
 
-Z dodatkowym przycinaniem z dokładnością do ramki:
+Z dodatkowym przycinaniem dokładnej ramki:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -269,14 +269,14 @@ Z dodatkowym przycinaniem z dokładnością do ramki:
   </transcodeRequest>
 ```
 
-## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Przykład 1: Nałóż obraz na wierzch filmu
+## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Przykład 1: nakładanie obrazu na obraz wideo
 
 ### <a name="presentation"></a>Prezentacja
-Rozważmy przykład, w którym chcesz nałożyć obraz logo na wejściowy film wideo podczas kodowania wideo. W tym przykładzie wejściowy film o nazwie "Microsoft_HoloLens_Possibilities_816p24.mp4", a logo nosi nazwę "logo.png". Należy wykonać następujące kroki:
+Rozważmy przykład, w którym chcesz nałożyć obraz logo na wejściowy film wideo podczas kodowania wideo. W tym przykładzie wejściowy film wideo ma nazwę "Microsoft_HoloLens_Possibilities_816p24. mp4", a logo nosi nazwę "logo. png". Należy wykonać następujące czynności:
 
-* Utwórz zasób przepływu pracy za pomocą pliku przepływu pracy (zobacz poniższy przykład).
-* Utwórz zasób multimedialny, który zawiera dwa pliki: MyInputVideo.mp4 jako plik podstawowy i MyLogo.png.
-* Wyślij zadanie do procesora nośników Media Encoder Premium Workflow z powyższymi zasobami wejściowymi i określ następujący ciąg konfiguracji.
+* Utwórz zasób przepływu pracy przy użyciu pliku przepływu pracy (zobacz Poniższy przykład).
+* Utwórz zasób multimedialny, który zawiera dwa pliki: MyInputVideo. mp4 jako plik podstawowy i weblogo. png.
+* Wyślij zadanie do Media Encoder Premium Workflow procesora multimediów z powyższymi zasobami wejściowymi i określ następujący ciąg konfiguracyjny.
 
 Konfiguracja:
 
@@ -291,80 +291,80 @@ Konfiguracja:
   </transcodeRequest>
 ```
 
-W powyższym przykładzie nazwa pliku wideo jest wysyłana do składnika Wprowadzanie pliku multimedialnego i właściwości primarySourceFile. Nazwa pliku logo jest wysyłana do innego wejścia pliku multimedialnego, który jest połączony ze składnikiem nakładki graficznej.
+W powyższym przykładzie nazwa pliku wideo jest wysyłana do składnika danych wejściowych plików multimedialnych i właściwości primarySourceFile. Nazwa pliku logo jest wysyłana do innego danych wejściowych pliku multimedialnego, który jest połączony z składnikiem nakładki grafiki.
 
 > [!NOTE]
-> Nazwa pliku wideo jest wysyłana do właściwości primarySourceFile. Powodem tego jest użycie tej właściwości w przepływie pracy do tworzenia poprawnej nazwy pliku wyjściowego przy użyciu wyrażeń, na przykład.
+> Nazwa pliku wideo jest wysyłana do właściwości primarySourceFile. Przyczyną tego problemu jest użycie tej właściwości w przepływie pracy w celu utworzenia prawidłowej nazwy pliku wyjściowego przy użyciu wyrażeń, na przykład.
 
 ### <a name="step-by-step-workflow-creation"></a>Tworzenie przepływu pracy krok po kroku
-Poniżej przedstawiono kroki tworzenia przepływu pracy, który przyjmuje dwa pliki jako dane wejściowe: wideo i obraz. Nałoży obraz na górę filmu.
+Poniżej przedstawiono procedurę tworzenia przepływu pracy, który pobiera dwa pliki jako dane wejściowe: wideo i obraz. Obraz zostanie nałożony na wierzchu wideo.
 
-Otwórz **Projektanta przepływu pracy** i wybierz pozycję Plan**transkodowania****nowego obszaru roboczego** >  **.** > 
+Otwórz **Projektant przepływu pracy** i wybierz pozycję **plik** > **Nowy obszar roboczy** > **transkodowanie plan**.
 
-Nowy przepływ pracy zawiera trzy elementy:
+Nowy przepływ pracy pokazuje trzy elementy:
 
 * Podstawowy plik źródłowy
-* Kod XML listy klipów
+* Lista klipów XML
 * Plik wyjściowy/zasób  
 
 ![Nowy przepływ pracy kodowania](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture9_empty.png)
 
 *Nowy przepływ pracy kodowania*
 
-Aby zaakceptować wejściowy plik multimedialny, zacznij od dodania składnika Wprowadzanie pliku multimedialnego. Aby dodać składnik do przepływu pracy, poszukaj go w polu wyszukiwania Repozytorium i przeciągnij żądany wpis do okienka projektanta.
+Aby zaakceptować plik nośnika wejściowego, Zacznij od dodania składnika danych wejściowych pliku multimedialnego. Aby dodać składnik do przepływu pracy, poszukaj go w polu wyszukiwania repozytorium i przeciągnij żądany wpis do okienka projektanta.
 
-Następnie dodaj plik wideo, który ma być używany do projektowania przepływu pracy. Aby to zrobić, kliknij okienko tła w Projektancie przepływu pracy i poszukaj właściwości Podstawowy plik źródłowy w okienku właściwości po prawej stronie. Kliknij ikonę folderu i wybierz odpowiedni plik wideo.
+Następnie Dodaj plik wideo, który będzie używany do projektowania przepływu pracy. Aby to zrobić, kliknij okienko tło w Projektant przepływu pracy i Wyszukaj podstawową właściwość pliku źródłowego w okienku właściwości po prawej stronie. Kliknij ikonę folderu i wybierz odpowiedni plik wideo.
 
-![Podstawowe źródło pliku](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture10_primaryfile.png)
+![Podstawowe źródło plików](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture10_primaryfile.png)
 
-*Podstawowe źródło pliku*
+*Podstawowe źródło plików*
 
-Następnie określ plik wideo w składniku Wprowadzanie pliku multimedialnego.   
+Następnie określ plik wideo w składniku wejściowym pliku multimedialnego.   
 
-![Źródło wprowadzania pliku multimedialnego](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture11_mediafileinput.png)
+![Źródło danych wejściowych pliku multimedialnego](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture11_mediafileinput.png)
 
-*Źródło wprowadzania pliku multimedialnego*
+*Źródło danych wejściowych pliku multimedialnego*
 
-Jak to nastąpi, składnik Wprowadzanie pliku multimedialnego sprawdzi plik i wypełni jego piny wyjściowe, aby odzwierciedlić plik, który został sprawdzony.
+Gdy tylko zostanie to zrobione, składnik wejściowy plików multimedialnych sprawdzi plik i zapełni jego numery PIN, aby odzwierciedlić plik, który sprawdził.
 
-Następnym krokiem jest dodanie "Video Data Type Updater", aby określić przestrzeń kolorów do Rec.709. Dodaj "Konwerter formatów wideo", który jest ustawiony na Układ danych / typ układu = Konfigurowalny planar. Spowoduje to konwersję strumienia wideo na format, który może być traktowany jako źródło składnika nakładki.
+Następnym krokiem jest dodanie "Aktualizator danych typu wideo", aby określić przestrzeń kolorów do Rec. 709. Dodaj "konwerter formatu wideo", który jest ustawiony na układ danych/Typ układu = planarny element. Spowoduje to przekonwertowanie strumienia wideo do formatu, który może być traktowany jako źródło składnika nakładki.
 
-![Video Data Type Updater i Format Converter](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter.png)
+![Aktualizator i konwerter formatów typu danych wideo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter.png)
 
-*Konwerter typów danych wideo*
+*Aktualizator i konwerter formatów typu danych wideo*
 
-![Typ układu = Konfigurowalna planar](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter2.png)
+![Typ układu = planarna konfigurowalna](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter2.png)
 
-*Typ układu to Konfigurowalna planar*
+*Typ układu jest konfigurowalny planarny*
 
-Następnie dodaj komponent Nakładka wideo i podłącz (nieskompresowany) pin wideo do (nieskompresowanego) pinu wideo wejściowego pliku multimedialnego.
+Następnie Dodaj składnik nakładki wideo i podłącz (nieskompresowany) numer PIN wideo do (nieskompresowanego) numeru PIN wideo pliku multimedialnego.
 
-Dodaj kolejne wejście pliku multimedialnego (aby załadować plik logo), kliknij ten składnik i zmień jego nazwę na "Media File Input Logo" i wybierz obraz (na przykład plik png) we właściwości pliku. Podłącz sworzeń obrazu Uncompressed do nieskompresowanego sworznia obrazu nakładki.
+Dodaj kolejne dane wejściowe pliku multimedialnego (aby załadować plik logo), kliknij ten składnik i zmień jego nazwę na "logo wejściowe plików multimedialnych" i wybierz obraz (na przykład plik. png) we właściwości pliku. Podłącz kod PIN nieskompresowanego obrazu do nieskompresowanego numeru PIN obrazu nakładki.
 
-![Nakładki składnik i źródło pliku obrazu](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture13_overlay.png)
+![Składnik nakładki i źródło pliku obrazu](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture13_overlay.png)
 
-*Nakładki składnik i źródło pliku obrazu*
+*Składnik nakładki i źródło pliku obrazu*
 
-Jeśli chcesz zmodyfikować położenie logo na filmie (na przykład możesz ustawić je w 10 procentach od lewego górnego rogu filmu), wyczyść pole wyboru "Wejście ręczne". Można to zrobić, ponieważ używasz wprowadzania pliku multimedialnego, aby dostarczyć plik logo do składnika nakładki.
+Jeśli chcesz zmodyfikować pozycję logo w wideo (na przykład możesz chcieć umieścić ją na 10% w lewym górnym rogu filmu wideo), wyczyść pole wyboru "ręczne wprowadzanie". Można to zrobić, ponieważ do udostępnienia pliku logo do składnika nakładki jest używane dane wejściowe pliku multimedialnego.
 
-![Położenie nakładki](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture14_overlay_position.png)
+![Pozycja nakładki](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture14_overlay_position.png)
 
-*Położenie nakładki*
+*Pozycja nakładki*
 
-Aby zakodować strumień wideo do formatu H.264, dodaj do powierzchni projektanta składniki kodera wideo AVC i kodera AAC. Podłącz szpilki.
-Skonfiguruj koder AAC i wybierz opcję Konwersja/Ustawienie predefiniowane formatu audio: 2.0 (L, R).
+Aby zakodować strumień wideo do H. 264, Dodaj koder wideo AVC i składniki AAC Encoder do powierzchni projektanta. Połącz numery PIN.
+Skonfiguruj koder AAC i wybierz opcję Konwersja formatu dźwięku/ustawienie wstępne: 2,0 (L, R).
 
 ![Kodery audio i wideo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 
 *Kodery audio i wideo*
 
-Teraz dodaj komponenty **multipleksera ISO Mpeg-4** i **wyjścia plików** i podłącz piny, jak pokazano na rysunku.
+Teraz Dodaj elementy **multipleksera ISO MPEG-4** i **pliki wyjściowe** , a następnie połącz numery PIN, jak pokazano.
 
-![Multiplekser MP4 i wyjście plików](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture16_mp4output.png)
+![Multiplekser i wyjście pliku MP4](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture16_mp4output.png)
 
-*Multiplekser MP4 i wyjście plików*
+*Multiplekser i wyjście pliku MP4*
 
-Należy ustawić nazwę pliku wyjściowego. Kliknij składnik **Dane wyjściowe pliku** i edytuj wyrażenie dla pliku:
+Należy ustawić nazwę pliku wyjściowego. Kliknij składnik **dane wyjściowe pliku** i Edytuj wyrażenie dla tego pliku:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4
 
@@ -374,31 +374,31 @@ Należy ustawić nazwę pliku wyjściowego. Kliknij składnik **Dane wyjściowe 
 
 Przepływ pracy można uruchomić lokalnie, aby sprawdzić, czy działa poprawnie.
 
-Po zakończeniu można go uruchomić w usłudze Azure Media Services.
+Po zakończeniu można uruchomić ją w Azure Media Services.
 
-Najpierw przygotuj zasób w usłudze Azure Media Services z dwoma plikami: plikiem wideo i logo. Można to zrobić za pomocą interfejsu API .NET lub REST. Można to również zrobić przy użyciu witryny Azure portal lub [Usługi Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE).
+Najpierw Przygotuj zasób w Azure Media Services z dwoma plikami w nim: plik wideo i logo. Można to zrobić za pomocą platformy .NET lub interfejsu API REST. Można to zrobić również przy użyciu Azure Portal lub [Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE).
 
-W tym samouczku pokazano, jak zarządzać zasobami za pomocą usługi AMSE. Istnieją dwa sposoby dodawania plików do zasobu:
+W tym samouczku pokazano, jak zarządzać zasobami za pomocą AMSE. Istnieją dwa sposoby dodawania plików do elementu zawartości:
 
-* Utwórz folder lokalny, skopiuj dwa w nim pliki oraz przeciągnij i upuść folder na kartę **Zasób.**
-* Przekaż plik wideo jako zasób, wyświetl informacje o zasobie, przejdź do karty pliki i przekaż dodatkowy plik (logo).
+* Utwórz folder lokalny, skopiuj do niego dwa pliki, a następnie przeciągnij i upuść folder na karcie element **zawartości** .
+* Przekaż plik wideo jako element zawartości, Wyświetl informacje o zasobach, przejdź do karty pliki i przekaż dodatkowy plik (logo).
 
 > [!NOTE]
-> Upewnij się, że w zasobie (głównym pliku wideo) ustawisz plik podstawowy.
+> Upewnij się, że ustawiono plik podstawowy w elemencie zawartości (główny plik wideo).
 
-![Pliki zasobów w amse](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture18_assetinamse.png)
+![Pliki zasobów w AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture18_assetinamse.png)
 
-*Pliki zasobów w amse*
+*Pliki zasobów w AMSE*
 
-Wybierz zasób i wybierz kodowanie go koderem Premium. Przekaż przepływ pracy i wybierz go.
+Wybierz element zawartości i wybierz opcję kodowania go za pomocą kodera Premium. Przekaż przepływ pracy i wybierz go.
 
-Kliknij przycisk, aby przekazać dane do procesora, a następnie dodaj następujący kod XML, aby ustawić właściwości środowiska wykonawczego:
+Kliknij przycisk, aby przekazać dane do procesora, a następnie Dodaj następujący kod XML, aby ustawić właściwości środowiska uruchomieniowego:
 
-![Koder Premium w AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture19_amsepremium.png)
+![Koder w warstwie Premium w AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture19_amsepremium.png)
 
-*Koder Premium w AMSE*
+*Koder w warstwie Premium w AMSE*
 
-Następnie wklej następujące dane XML. Należy określić nazwę pliku wideo zarówno dla wejścia pliku multimedialnego, jak i pliku primarySourceFile. Określ również nazwę nazwy pliku dla logo.
+Następnie wklej poniższe dane XML. Należy określić nazwę pliku wideo dla danych wejściowych i primarySourceFile plików multimedialnych. Należy również określić nazwę pliku logo.
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>
@@ -411,40 +411,40 @@ Następnie wklej następujące dane XML. Należy określić nazwę pliku wideo z
   </transcodeRequest>
 ```
 
-![setRuntimeWłaściwości](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture20_amsexmldata.png)
+![setRuntimeProperties](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture20_amsexmldata.png)
 
-*setRuntimeWłaściwości*
+*setRuntimeProperties*
 
-Jeśli używasz .NET SDK do tworzenia i uruchamiania zadania, te dane XML muszą być przekazywane jako ciąg konfiguracji.
+W przypadku tworzenia i uruchamiania zadania przy użyciu zestawu .NET SDK te dane XML należy przesłać jako ciąg konfiguracji.
 
 ```csharp
 public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
 ```
 
-Po zakończeniu zadania plik MP4 w zasób wyjściowy wyświetla nakładkę!
+Po zakończeniu zadania plik MP4 w wyjściowym elemencie zawartości wyświetla nakładkę!
 
-![Nakładka na film](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture21_resultoverlay.png)
+![Nałóż na wideo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture21_resultoverlay.png)
 
-*Nakładka na film*
+*Nałóż na wideo*
 
-Przykładowy przepływ pracy można pobrać z [usługi GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
+Przykładowy przepływ pracy można pobrać z witryny [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
 
-## <a name="example-2--multiple-audio-language-encoding"></a>Przykład 2 : Wielokrotne kodowanie języka audio
+## <a name="example-2--multiple-audio-language-encoding"></a>Przykład 2: kodowanie wielu języków dźwięku
 
-Przykład wielu przepływów pracy kodowania języka audio jest dostępny w [usłudze GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
+Przykład wielu przepływów pracy kodowania języka audio jest dostępny w serwisie [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
 
-Ten folder zawiera przykładowy przepływ pracy, który może służyć do kodowania pliku MXF do zasobu wielu plików MP4 z wieloma ścieżkami audio.
+Ten folder zawiera przykładowy przepływ pracy, którego można użyć do zakodowania pliku MXF do zasobu z wieloma plikami MP4 z wieloma ścieżkami audio.
 
-Ten przepływ pracy zakłada, że plik MXF zawiera jedną ścieżkę audio; dodatkowe ścieżki audio powinny być przekazywane jako oddzielne pliki audio (WAV lub MP4...).
+W tym przepływie pracy założono, że plik MXF zawiera jedną ścieżkę audio. dodatkowe ścieżki audio należy przesłać jako oddzielne pliki audio (WAV lub MP4...).
 
-Aby zakodować, wykonaj następujące czynności:
+Aby zakodować, wykonaj następujące kroki:
 
-* Utwórz zasób usługi Media Services za pomocą pliku MXF i plików Audio (od 0 do 18 plików audio).
+* Utwórz element zawartości Media Services przy użyciu pliku MXF i plików audio (od 0 do 18 plików audio).
 * Upewnij się, że plik MXF jest ustawiony jako plik podstawowy.
-* Utwórz zadanie i zadanie przy użyciu procesora Kodera przepływu pracy premium. Użyj dostarczonego przepływu pracy (Przepływ pracy MultiMP4-1080p-19audio-v1.work).
-* Przekaż dane setruntime.xml do zadania (jeśli używasz Usługi Azure Media Services Explorer, użyj przycisku "przekaż dane xml do przepływu pracy").
-  * Zaktualizuj dane XML, aby określić poprawne nazwy plików i tagi języków.
-  * Przepływ pracy ma składniki audio o nazwie Audio 1 do Audio 18.
+* Tworzenie zadania i zadania przy użyciu procesora kodera przepływu pracy w warstwie Premium. Użyj dostarczonego przepływu pracy (MultiMP4-1080p-19audio-v1. Workflow).
+* Przekaż dane setruntime. XML do zadania (Jeśli używasz Eksploratora Azure Media Services, użyj przycisku "Przekaż dane XML do przepływu pracy").
+  * Zaktualizuj dane XML, aby określić prawidłowe nazwy plików i Tagi języka.
+  * Przepływ pracy zawiera składniki audio o nazwie audio 1 do audio 18.
   * RFC5646 jest obsługiwany dla tagu języka.
 
 ```xml
@@ -464,13 +464,13 @@ Aby zakodować, wykonaj następujące czynności:
 </transcodeRequest>
 ```
 
-* Zakodowany zasób będzie zawierał wiele ścieżek audio w wielu językach, a te ścieżki powinny być wybierane w usłudze Azure Media Player.
+* Zakodowany element zawartości będzie zawierać ścieżki audio w wielu językach, a ścieżki powinny być wybierane w Azure Media Player.
 
-## <a name="see-also"></a>Zobacz też
-* [Wprowadzenie do kodowania premium w usłudze Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-* [Jak korzystać z kodowania premium w usłudze Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-* [Kodowanie zawartości na żądanie za pomocą usługi Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)
-* [Formaty i kodeki usługi Media Encoder Premium](media-services-premium-workflow-encoder-formats.md)
+## <a name="see-also"></a>Zobacz także
+* [Wprowadzenie kodowania Premium w Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+* [Jak używać kodowania Premium w Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+* [Kodowanie zawartości na żądanie za pomocą Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)
+* [Formaty Media Encoder Premium Workflow i kodeki](media-services-premium-workflow-encoder-formats.md)
 * [Przykładowe pliki przepływu pracy](https://github.com/Azure/azure-media-services-samples)
 * [Narzędzie Azure Media Services Explorer](https://aka.ms/amse)
 

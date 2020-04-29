@@ -1,5 +1,5 @@
 ---
-title: Użyj usługi Azure Table Storage lub interfejsu API tabeli usługi Azure Cosmos DB z pliku Node.js
+title: Korzystanie z usługi Azure Table Storage lub Azure Cosmos DB interfejs API tabel z poziomu środowiska Node. js
 description: Przechowywanie danych strukturalnych w chmurze za pomocą usługi Azure Table Storage lub interfejsu Table API usługi Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -9,10 +9,10 @@ ms.date: 04/05/2018
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: d04cf082f5dc7ca3ae07b60dc193c66613fa5c4f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76771074"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Jak korzystać z usługi Azure Table Storage lub interfejsu API tabel usługi Azure Cosmos DB przy użyciu platformy Node.js
@@ -68,7 +68,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Dodawanie połączenia z usługą Azure Cosmos DB
-Aby dodać połączenie z usługą Azure Cosmos DB, utwórz obiekt **TableService** i określ nazwę konta, klucz podstawowy oraz punkt końcowy. Te wartości można skopiować z parametry**połączenia** **ustawienia** > w witrynie Azure portal dla konta usługi Cosmos DB. Przykład:
+Aby dodać połączenie z usługą Azure Cosmos DB, utwórz obiekt **TableService** i określ nazwę konta, klucz podstawowy oraz punkt końcowy. Można skopiować te wartości z**parametrów połączenia** **Ustawienia** > w Azure Portal dla konta Cosmos DB. Przykład:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -94,7 +94,7 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 Element `result.created` ma wartość `true` w przypadku tworzenia nowej tabeli lub wartość `false`, jeśli tabela już istnieje. Element `response` zawiera informacje dotyczące żądania.
 
 ### <a name="filters"></a>Filtry
-Do operacji wykonywanych przy użyciu obiektu **TableService** można zastosować filtrowanie opcjonalne. Operacje filtrowania mogą obejmować rejestrowanie, automatyczne ponownych prób itp. Filtry są obiektami, które implementują metodę z podpisem:
+Do operacji wykonywanych przy użyciu obiektu **TableService** można zastosować filtrowanie opcjonalne. Operacje filtrowania mogą obejmować rejestrowanie, automatyczne ponawianie prób itd. Filtry są obiektami implementującymi metodę z podpisem:
 
 ```javascript
 function handle (requestOptions, next)
@@ -365,7 +365,7 @@ dc.table.queryEntities(tableName,
 
 Jeśli sprawdzasz obiekt `continuationToken`, znajdziesz właściwości, takie jak `nextPartitionKey`, `nextRowKey` i `targetLocation`, które mogą służyć do iterowania w obrębie wszystkich wyników.
 
-Można również `top` użyć `continuationToken` wraz z ustawić rozmiar strony. 
+Można również użyć `top` programu razem z `continuationToken` programem, aby ustawić rozmiar strony. 
 
 ## <a name="work-with-shared-access-signatures"></a>Praca z sygnaturami dostępu współdzielonego
 Sygnatury dostępu współdzielonego (SAS) to bezpieczny sposób zapewnienia szczegółowego dostępu do tabel bez podawania kluczy ani nazwy konta usługi Storage. Sygnatury dostępu współdzielonego są często używane do udzielania ograniczonych praw dostępu do danych, takich jak zezwalanie aplikacji mobilnej na wykonywanie zapytań dotyczących rekordów.
@@ -394,7 +394,7 @@ var host = tableSvc.host;
 
 Należy również pamiętać o podaniu informacji o hoście, ponieważ są one wymagane, gdy właściciel sygnatury dostępu współdzielonego próbuje uzyskać dostęp do tabeli.
 
-Następnie aplikacja kliencka używa sygnatury dostępu współdzielonego z elementem **TableServiceWithSAS** w celu wykonywania operacji względem tabeli. W poniższym przykładzie następuje połączenie z tabelą i wykonanie zapytania. Zobacz [Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage przy użyciu sygnatur dostępu współdzielonego (SAS)](../storage/common/storage-sas-overview.md) artykuł formatu tabeliSAS. 
+Następnie aplikacja kliencka używa sygnatury dostępu współdzielonego z elementem **TableServiceWithSAS** w celu wykonywania operacji względem tabeli. W poniższym przykładzie następuje połączenie z tabelą i wykonanie zapytania. Zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatury dostępu współdzielonego (SAS)](../storage/common/storage-sas-overview.md) w formacie tableSAS. 
 
 ```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;

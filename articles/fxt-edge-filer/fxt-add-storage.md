@@ -1,164 +1,164 @@
 ---
-title: 'Samouczek: Dodawanie magazynu do klastra plików usługi Azure FXT Edge'
-description: Jak skonfigurować magazyn zaplecza i obszar pseudonamezowania skierowanego do klienta dla usługi Azure FXT Edge Filer
+title: 'Samouczek: Dodawanie magazynu do klastra usługi Azure FXT Edge'
+description: Jak skonfigurować magazyn zaplecza i pseudonamespace na klientach dla usługi Azure FXT Edge
 author: ekpgh
 ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 3f736942627d088e3a639f89bef5438714c2608b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79239217"
 ---
 # <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Samouczek: Dodawanie magazynu zaplecza i konfigurowanie wirtualnej przestrzeni nazw 
 
-W tym samouczku wyjaśniono, jak dodać magazyn zaplecza dla pamięci podręcznej i jak skonfigurować wirtualny system plików skierowanych do klienta. 
+W tym samouczku wyjaśniono, jak dodać magazyn zaplecza do pamięci podręcznej oraz jak skonfigurować wirtualny system plików dla klienta. 
 
-Klaster łączy się z zaplecza systemów magazynowania, aby uzyskać dostęp do danych klientów żądania i do przechowywania zmian trwale niż w pamięci podręcznej. 
+Klaster nawiązuje połączenie z systemami magazynu zaplecza, aby uzyskać dostęp do żądania klientów danych i przechowywać zmiany w sposób trwały niż w pamięci podręcznej. 
 
-Obszar nazw jest pseudosystemem plików skierowanym do klienta, który umożliwia wymianę magazynu zaplecza bez zmiany przepływów pracy po stronie klienta. 
+Przestrzeń nazw to kompletny system plików klienta, który umożliwia wymianę magazynu zaplecza bez zmieniania przepływów pracy po stronie klienta. 
 
 Ten samouczek zawiera następujące informacje: 
 
 > [!div class="checklist"]
-> * Jak dodać magazyn zaplecza do klastra plików usługi Azure FXT Edge 
-> * Jak zdefiniować ścieżkę skierowaną do klienta do magazynu
+> * Jak dodać magazyn zaplecza do klastra usługi Azure FXT Edge 
+> * Jak zdefiniować ścieżkę dostępną dla klienta dla magazynu
 
-## <a name="about-back-end-storage"></a>Przechowywanie zaplecza — informacje
+## <a name="about-back-end-storage"></a>Informacje o magazynie zaplecza
 
-Klaster usługi Azure FXT Edge Filer używa podstawowej definicji *filera* do połączenia systemu magazynu zaplecza z klastrem FXT.
+Klaster usługi Microsoft Azure FXT Edge używa podstawowej definicji *pliku* do łączenia systemu magazynu zaplecza z klastrem FXT.
 
-Usługa Azure FXT Edge Filer jest zgodna z kilkoma popularnymi systemami sprzętowymi NAS i może używać pustych kontenerów z obiektów Blob platformy Azure lub innego magazynu w chmurze. 
+Usługa Azure FXT Edge jest zgodna z kilkoma popularnymi systemami sprzętowymi NAS i może używać pustych kontenerów z poziomu obiektów blob platformy Azure lub innych magazynów w chmurze. 
 
-Kontenery magazynu w chmurze muszą być puste po dodaniu, aby system operacyjny FXT mógł całkowicie zarządzać wszystkimi danymi na woluminie magazynu w chmurze. Istniejące dane można przenieść do kontenera w chmurze po dodaniu kontenera do klastra jako podstawowy filer.
+Kontenery magazynu w chmurze muszą być puste po dodaniu, aby system operacyjny FXT mógł całkowicie zarządzać wszystkimi danymi w woluminie magazynu w chmurze. Istniejące dane można przenieść do kontenera chmury po dodaniu kontenera do klastra jako podstawowy plik.
 
-Użyj Panelu sterowania, aby dodać do systemu podstawowy filer.
+Za pomocą panelu sterowania Dodaj podstawowy plik do systemu.
 
 > [!NOTE]
 > 
-> Jeśli chcesz korzystać z amazon AWS lub Google Cloud storage, musisz zainstalować licencję funkcji FlashCloud<sup>TM.</sup> Skontaktuj się z przedstawicielem firmy Microsoft, aby uzyskać klucz licencyjny, a następnie postępuj zgodnie z instrukcjami zawartymi w starszej konfiguracji [przewodnika po dodawaniu lub usuwaniu licencji funkcji](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/install_licenses.html#install-licenses).
+> Jeśli chcesz korzystać z usługi Amazon AWS lub magazynu Google Cloud, musisz zainstalować licencję funkcji FlashCloud<sup>TM</sup> . Skontaktuj się z przedstawicielem firmy Microsoft, aby uzyskać klucz licencji, a następnie postępuj zgodnie z instrukcjami w starszej wersji przewodnika konfiguracji, aby [dodać lub usunąć licencje funkcji](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/install_licenses.html#install-licenses).
 > 
-> Obsługa usługi Azure Blob storage jest uwzględniona w licencji oprogramowania Azure FXT Edge Filer. 
+> Obsługa magazynu obiektów blob platformy Azure jest uwzględniona w licencji na oprogramowanie usługi Azure FXT Edge. 
 
-Aby uzyskać bardziej szczegółowe informacje na temat dodawania podstawowych filerów, zapoznaj się z tymi sekcjami przewodnika konfiguracji klastra:
+Aby uzyskać szczegółowe informacje na temat dodawania plików podstawowych, zapoznaj się z tymi sekcjami przewodnika po konfiguracji klastra:
 
-* Aby uzyskać więcej informacji na temat wyboru i przygotowania do dodania głównego filera, przeczytaj [artykuł Praca z podstawowymi filerami](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/core_filer_overview.html#core-filer-overview).
+* Aby uzyskać więcej informacji na temat wyboru i przygotowania do dodania podstawowego pliku, przeczytaj artykuł [Praca z plikami podstawowymi](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/core_filer_overview.html#core-filer-overview).
 * Aby uzyskać szczegółowe wymagania wstępne i instrukcje krok po kroku, przeczytaj następujące artykuły:
 
-  * [Dodawanie nowego pliku serwera NAS Core](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html#create-core-filer-nas)
-  * [Dodawanie nowego filera o rdzeniu chmury](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#create-core-filer-cloud)
+  * [Dodawanie nowego pliku podstawowego serwera NAS](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html#create-core-filer-nas)
+  * [Dodawanie nowego pliku podstawowego w chmurze](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#create-core-filer-cloud)
 
-Po dodaniu głównego filera można zaktualizować jego ustawienia na stronie Ustawienia szczegółów pliku podstawowego.
+Po dodaniu podstawowego pliku programu można zaktualizować jego ustawienia na stronie ustawień szczegółów podstawowych plików.
 
-## <a name="add-a-core-filer"></a>Dodawanie głównego filera
+## <a name="add-a-core-filer"></a>Dodawanie podstawowego pliku
 
-Zdefiniuj podstawowy filer, klikając przycisk **Utwórz** na stronie Ustawienia core **filer** > **podstawowych filerów.**
+Zdefiniuj podstawowy plik programu, klikając przycisk **Utwórz** na stronie podstawowe ustawienia**zarządzania plikami podstawowymi** **plików** > .
 
-![Kliknięcie przycisku Utwórz nad listą głównych filerów na stronie Manage Core Filers](media/fxt-cluster-config/create-core-filer-button.png)
+![Kliknięcie przycisku Utwórz powyżej listy plików podstawowych na stronie Zarządzanie podstawowymi plikami plików](media/fxt-cluster-config/create-core-filer-button.png)
 
-Kreator **Add New Core Filer** przeprowadzi Cię przez proces tworzenia głównego filera, który łączy się z magazynem zaplecza. Przewodnik konfiguracji klastra zawiera opisy krok po kroku procesu, który różni się w przypadku pamięci masowej NFS/NAS i pamięci masowej w chmurze (łącza są powyżej). 
+Kreator **dodawania nowego pliku podstawowego** zawiera szczegółowe omówienie procesu tworzenia podstawowego pliku, który łączy się z magazynem zaplecza. Przewodnik konfiguracji klastra zawiera opisy krok po kroku procesu, które różnią się w przypadku magazynu NFS/NAS i magazynu w chmurze (linki znajdują się powyżej). 
 
-Podzadęcie obejmują:
+Podzadania obejmują:
 
-* Określ typ głównego filera (NAS lub chmury)
+* Określ typ pliku podstawowego (NAS lub Cloud)
 
-  ![Pierwsza strona sprzętowego kreatora plików nas. Opcja "cloud core filer" jest wyłączona i wyświetla komunikat o błędzie dotyczący brakującej licencji.](media/fxt-cluster-config/new-nas-1.png)
+  ![Pierwsza strona Kreatora nowego podstawowego pliku sprzętowego serwera NAS. Opcja "podstawowa usługa plików w chmurze" jest wyłączona i zawiera komunikat o błędzie dotyczący brakującej licencji.](media/fxt-cluster-config/new-nas-1.png)
 
-* Ustaw nazwę głównego filera. Wybierz nazwę, która pomaga administratorom klastrów zrozumieć, który system magazynowania reprezentuje.
+* Ustaw nazwę podstawowego pliku. Wybierz nazwę, która pomaga administratorom klastra zrozumieć, który system pamięci masowej reprezentuje.
 
-* W przypadku podstawowych filerów NAS podaj w pełni kwalifikowaną nazwę domeny (FQDN) lub adres IP. Nazwa FQDN jest zalecana dla wszystkich głównych filerów i wymagana do uzyskiwania dostępu do SMB.
+* W przypadku podstawowych plików usługi NAS podaj w pełni kwalifikowaną nazwę domeny (FQDN) lub adres IP. Nazwa FQDN jest zalecana dla wszystkich plików podstawowych i jest wymagana w przypadku dostępu do protokołu SMB.
 
-* Wybierz zasadę pamięci podręcznej — druga strona kreatora zawiera listę dostępnych zasad pamięci podręcznej dla nowego głównego filera. Aby uzyskać szczegółowe informacje, przeczytaj [sekcję Zasad pamięci podręcznej przewodnika konfiguracji klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_manage_cache_policies.html). 
+* Wybierz zasady pamięci podręcznej — druga strona kreatora zawiera listę dostępnych zasad pamięci podręcznej dla nowego pliku podstawowego. Aby uzyskać szczegółowe informacje, Przeczytaj [sekcję zasady pamięci podręcznej w podręczniku konfigurowania klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_manage_cache_policies.html). 
 
-  ![Druga strona sprzętowego kreatora plików serwerów PLIKÓW SERWERA NAS; Menu rozwijane Zasady pamięci podręcznej jest otwarte, z kilkoma wyłączonymi opcjami i trzema prawidłowymi opcjami zasad pamięci podręcznej (obejście, buforowanie odczytu i buforowanie odczytu/zapisu).](media/fxt-cluster-config/new-nas-choose-cache-policy.png)
+  ![Druga strona Kreatora nowego podstawowego pliku sprzętowego serwera NAS; menu rozwijane zasady pamięci podręcznej jest otwarte, pokazując kilka wyłączonych opcji i trzy prawidłowe opcje zasad pamięci podręcznej (obejście, buforowanie odczytu i buforowanie odczytu/zapisu).](media/fxt-cluster-config/new-nas-choose-cache-policy.png)
 
-* W przypadku magazynu w chmurze należy określić usługi w chmurze i poświadczenia dostępu, wśród innych parametrów. Aby uzyskać szczegółowe informacje, przeczytaj usługę i protokół w [chmurze](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#cloud-service-and-protocol) w Przewodniku konfiguracji klastra.
+* W przypadku magazynu w chmurze należy określić usługę w chmurze i poświadczenia dostępu między innymi parametrami. Aby uzyskać szczegółowe informacje, zapoznaj się z tematem [Usługa w chmurze i protokół](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#cloud-service-and-protocol) w podręczniku konfiguracji klastra.
 
-  ![Informacje o rdzeniu filera w chmurze w kreatorze nowego rdzenia filera](media/fxt-cluster-config/new-core-filer-cloud3.png) 
+  ![Informacje o podstawowym pliku w chmurze w nowym Kreatorze podstawowego pliku](media/fxt-cluster-config/new-core-filer-cloud3.png) 
   
-  Jeśli dodano już poświadczenia dostępu do chmury dla tego klastra, są one wyświetlane na liście. Aktualizowanie i dodawanie poświadczeń na stronie Ustawienia**poświadczeń chmury klastra.** **Cluster** >  
+  Jeśli dodano już poświadczenia dostępu do chmury dla tego klastra, zostaną one wyświetlone na liście. Zaktualizuj i Dodaj poświadczenia na stronie ustawień**poświadczeń chmury** **klastra** > . 
 
-Po wypełnieniu wszystkich wymaganych ustawień w kreatorze kliknij przycisk **Dodaj filera,** aby przesłać zmianę.
+Po wypełnieniu wszystkich wymaganych ustawień w Kreatorze kliknij przycisk **Dodaj plik** , aby przesłać zmianę.
 
-Po kilku chwilach system przechowywania pojawia się na liście filerów **rdzenia pulpitu nawigacyjnego** i jest dostępny za pośrednictwem podstawowych stron ustawień filera.
+Po kilku chwilach system magazynu pojawia się na liście podstawowych plików programu **Dashboard** i można uzyskać do nich dostęp za pomocą stron ustawień podstawowych plików.
 
-![core filer "Flurry-NAS" na stronie Zarządzanie ustawieniami core filers, z rozszerzonym widokiem szczegółów filera](media/fxt-cluster-config/core-filer-in-manage-page.png)
+![podstawowy plik fileing "Flurry-NAS" na stronie Zarządzanie ustawieniami plików podstawowych przy użyciu widoku Szczegóły pliku rozwiniętego](media/fxt-cluster-config/core-filer-in-manage-page.png)
 
-W głównym pliku na tym zrzucie ekranu brakuje serwera vserver. Należy połączyć core filer do serwera vserver i utworzyć skrzyżowanie, aby klienci mogli uzyskać dostęp do magazynu. Te kroki są opisane poniżej w [konfigurowanie obszaru nazw](#configure-the-namespace).
+W podstawowym pliku na tym zrzucie ekranu brakuje vserver. Należy połączyć podstawowy plik z vserver i utworzyć połączenie, aby klienci mogli uzyskać dostęp do magazynu. Poniższe kroki opisano w temacie [Konfigurowanie przestrzeni nazw](#configure-the-namespace).
 
-## <a name="configure-the-namespace"></a>Konfigurowanie obszaru nazw
+## <a name="configure-the-namespace"></a>Skonfiguruj przestrzeń nazw
 
-Klaster usługi Azure FXT Edge Filer tworzy wirtualny system plików o nazwie *obszar nazw klastra,* który upraszcza dostęp klienta do danych przechowywanych w różnych systemach zaplecza. Ponieważ klienci żądają plików przy użyciu ścieżki wirtualnej, systemy magazynowania można dodawać lub zastępować bez konieczności zmiany przepływu pracy klienta. 
+Klaster usługi Azure FXT Edge tworzy wirtualny system plików o nazwie *przestrzeń nazw klastra* , który upraszcza dostęp klienta do danych przechowywanych w różnych systemach zaplecza. Ponieważ klienci żądają plików przy użyciu ścieżki wirtualnej, systemy magazynu mogą być dodawane lub zastępowane bez konieczności zmiany przepływu pracy klienta. 
 
-Obszar nazw klastra umożliwia również prezentowanie systemów pamięci masowej w chmurze i serwera NAS w podobnej strukturze plików. 
+Przestrzeń nazw klastra umożliwia również prezentowanie systemów magazynu w chmurze i NAS w podobnej strukturze plików. 
 
-Serwery vservers klastra utrzymują obszar nazw i obsługują klientów zawartość. Istnieją dwa kroki, aby utworzyć obszar nazw klastra: 
+Vservers klastra utrzymuje przestrzeń nazw i zapewnia obsługę zawartości klientom. Aby utworzyć przestrzeń nazw klastra, należy wykonać dwie czynności: 
 
-1. Tworzenie serwera vserver 
-1. Konfigurowanie połączeń między systemami pamięci masowej zaplecza a ścieżkami systemu plików skierowanych do klienta 
+1. Utwórz vserver 
+1. Konfigurowanie połączeń między systemami magazynu zaplecza a ścieżkami systemu plików dostępnymi dla klienta 
 
-### <a name="create-a-vserver"></a>Tworzenie serwera vserver
+### <a name="create-a-vserver"></a>Utwórz vserver
 
-Serwery VServers to wirtualne serwery plików, które kontrolują przepływ danych między klientem a głównymi filerami klastra:
+VServers są wirtualnymi serwerami plików, które kontrolują sposób przepływu danych między klientem a podstawowymi obiektami do tworzenia klastra:
 
-* VServers hostuje adresy IP skierowane do klienta
-* Serwery VServers tworzą obszar nazw i definiują połączenia, które mapują strukturę katalogów wirtualnych skierowaną do klienta na eksport w magazynie zaplecza
-* VServers wymuszają kontrolę dostępu do plików, w tym podstawowe zasady eksportu filer i systemy uwierzytelniania użytkowników
-* VServers zapewniają infrastrukturę SMB
+* Adresy IP klientów hosta VServers
+* VServers tworzenie przestrzeni nazw i Definiowanie połączeń, które mapują strukturę katalogów wirtualnych dla klienta na Eksporty w magazynie zaplecza
+* VServers wymuszanie kontroli dostępu do plików, w tym podstawowych zasad eksportu plików i systemów uwierzytelniania użytkowników
+* VServers udostępniaj infrastrukturę protokołu SMB
 
-Przed rozpoczęciem konfigurowania serwera vserver klastra przeczytaj połączaną dokumentację i skonsultuj się z przedstawicielem firmy Microsoft, aby uzyskać pomoc w zrozumieniu obszaru nazw i serwerów vserver. Jeśli używasz sieci VLAN, [utwórz je](fxt-configure-network.md#adjust-network-settings) przed utworzeniem serwera vserver. 
+Przed rozpoczęciem konfigurowania vserver klastra zapoznaj się z połączoną dokumentacją i skontaktuj się z przedstawicielem firmy Microsoft w celu uzyskania pomocy dotyczącej przestrzeni nazw i vservers. Jeśli używasz sieci VLAN, [Utwórz je](fxt-configure-network.md#adjust-network-settings) przed utworzeniem vserver. 
 
-Te sekcje Przewodnika konfiguracji klastra pomogą Ci zapoznać się z funkcjami serwera vserver FXT i globalnej przestrzeni nazw:
+Te sekcje przewodnika po konfiguracji klastra pomogą Ci zaznajomić się z funkcjami FXT vserver i globalną przestrzenią nazw:
 
 * [Tworzenie i praca z VServers](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#creating-and-working-with-vservers)
-* [Korzystanie z globalnego obszaru nazw](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html)
-* [Tworzenie serwera VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver)
+* [Korzystanie z globalnej przestrzeni nazw](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html)
+* [Tworzenie VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver)
 
-Potrzebujesz co najmniej jednego serwera vserver dla klastra. 
+Wymagany jest co najmniej jeden vserver klastra. 
 
-Aby utworzyć nowy serwer vserver, potrzebne są następujące informacje:
+Aby utworzyć nowy vserver, potrzebne są następujące informacje:
 
-* Nazwa ustawiona dla serwera vserver
+* Nazwa do ustawienia dla vserver
 
-* Zakres adresów IP skierowanych do klienta, które serwer vserver będzie obsługiwał
+* Zakres adresów IP dostępnych dla klientów, które będą obsługiwane przez vserver
 
-  Podczas tworzenia serwera vserver należy podać jeden zakres ciągłych adresów IP. Więcej adresów można dodać później, korzystając ze strony Ustawienia sieci z widokiem na **klienta.**
+  Podczas tworzenia vserver należy podać pojedynczy zakres ciągłych adresów IP. Więcej adresów można dodać później, korzystając ze strony ustawień sieci nakierowanych na **klienta** .
 
-* Jeśli w sieci są sieci VLAN, które sieci VLAN będą używane w tym serwerze vserver
+* Jeśli sieć ma sieci VLAN, których sieci VLAN użyć dla tego vserver
 
-Użyj strony ustawień **VServer** > **Manage VServers,** aby utworzyć nowy serwer vserver. Aby uzyskać szczegółowe informacje, przeczytaj artykuł [Tworzenie serwera VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) w przewodniku konfiguracji klastra. 
+Korzystając ze strony **vserver** > **Zarządzaj ustawieniami VServers** , można utworzyć nową vserver. Aby uzyskać szczegółowe informacje [, zobacz Tworzenie vserver](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) w podręczniku konfiguracji klastra. 
 
-![wyskakujące okno do tworzenia nowego serwera vserver](media/fxt-cluster-config/new-vserver.png)
+![okno podręczne tworzenia nowego vserver](media/fxt-cluster-config/new-vserver.png)
 
-### <a name="create-a-junction"></a>Tworzenie skrzyżowania
+### <a name="create-a-junction"></a>Tworzenie połączenia
 
-*Skrzyżowanie* mapuje ścieżkę magazynu zaplecza do obszaru nazw widocznego dla klienta.
+*Połączenie* mapuje ścieżkę magazynu zaplecza na przestrzeń nazw widoczną dla klienta.
 
-Za pomocą tego systemu można uprościć ścieżkę używaną w punktach instalacji klienta i bezproblemowo skalować pojemność, ponieważ jedna ścieżka wirtualna może pomieścić magazyn z wielu głównych filerów.
+Tego systemu można użyć do uproszczenia ścieżki używanej w punktach instalacji klienta oraz bezproblemowego skalowania pojemności, ponieważ jedna ścieżka wirtualna może obsługiwać magazyn z wielu podstawowych plików.
 
-![Dodawanie strony Kreatora nowego skrzyżowania z ustawieniami wypełnionymi](media/fxt-cluster-config/add-junction-full.png)
+![Strona Kreatora dodawania nowej gałęzi z ustawieniami wypełnionymi](media/fxt-cluster-config/add-junction-full.png)
 
-Szczegółowe informacje na temat tworzenia węzła obszar nazw programu [ **VServer** > ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html) można znaleźć w przewodniku konfiguracji klastra.
+Zapoznaj się z [przestrzenią nazw **vserver** > ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html) w podręczniku konfigurowania klastra, aby uzyskać szczegółowe informacje na temat tworzenia rozgałęzienia przestrzeni nazw.
 
-![Strona ustawień obszaru nazw VServer > ze szczegółami połączenia](media/fxt-cluster-config/namespace-populated.png)
+![Strona ustawienia przestrzeni nazw VServer > przedstawiające szczegóły rozgałęzienia](media/fxt-cluster-config/namespace-populated.png)
 
 ## <a name="configure-export-rules"></a>Konfigurowanie reguł eksportu
 
-Po tym, jak masz zarówno serwer vserver, jak i podstawowy filer, należy dostosować reguły eksportu i zasady eksportu, które kontrolują sposób, w jaki klienci mogą uzyskiwać dostęp do plików w eksporcie podstawowego filera.
+Po utworzeniu zarówno vserver, jak i podstawowego pliku, należy dostosować reguły eksportu i wyeksportować zasady kontrolujące sposób, w jaki klienci mogą uzyskiwać dostęp do plików w ramach eksportu plików podstawowych.
 
-Najpierw użyj strony**Reguły eksportu** **serwera VServer,** > aby dodać nowe reguły, zmodyfikować zasady domyślne lub utworzyć własne niestandardowe zasady eksportu.
+Najpierw użyj strony **vserver** > **Export Rules** , aby dodać nowe reguły, zmodyfikować zasady domyślne lub utworzyć własne niestandardowe zasady eksportowania.
 
-Po drugie, użyj strony**Zasady eksportu** **serwera VServer,** > aby zastosować dostosowane zasady do eksportu głównego filera, gdy jest dostępny za pośrednictwem tego serwera vserver.
+Po drugie Użyj strony **vserver** > **Export** Policy, aby zastosować dostosowane zasady do eksportu podstawowego pliku w przypadku dostępu za pośrednictwem tego vserver.
 
-Przeczytaj artykuł Przewodnik konfiguracji klastra [Kontrolowanie dostępu do eksportu podstawowych filer, aby](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/export_rules_overview.html) uzyskać szczegółowe informacje.
+Przeczytaj artykuł Przewodnik po konfiguracji klastra [kontrolujący dostęp do podstawowych eksportu plików,](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/export_rules_overview.html) Aby uzyskać szczegółowe informacje.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po dodaniu magazynu i skonfigurowaniu obszaru nazw skierowanego do klienta należy ukończyć początkową konfigurację klastra: 
+Po dodaniu magazynu i skonfigurowaniu przestrzeni nazw dla klienta Ukończ początkową konfigurację klastra: 
 
 > [!div class="nextstepaction"]
 > [Konfigurowanie ustawień sieci klastrów](fxt-configure-network.md)

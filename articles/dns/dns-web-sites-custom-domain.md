@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: 8722a52a097f7f830287d125a4e56e9bbcb9f932
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76939102"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Samouczek: tworzenie rekordów DNS w domenie niestandardowej dla aplikacji internetowej 
 
-Możesz skonfigurować usługę Azure DNS, aby hostować domenę niestandardową dla aplikacji internetowych. Na przykład można utworzyć aplikację sieci Web platformy Azure i\.poprosić użytkowników o dostęp do niej przy użyciu contoso.com www lub contoso.com jako w pełni kwalifikowana nazwa domeny (FQDN).
+Możesz skonfigurować usługę Azure DNS, aby hostować domenę niestandardową dla aplikacji internetowych. Można na przykład utworzyć aplikację internetową platformy Azure i uzyskać do niej dostęp przy użyciu przeglądarki www\.contoso.com lub contoso.com jako w pełni kwalifikowanej nazwy domeny (FQDN).
 
 > [!NOTE]
 > W tym samouczku jako przykład używana jest domena contoso.com. Zastąp contoso.com swoją nazwą domeny.
@@ -29,7 +29,7 @@ Aby to zrobić, musisz utworzyć trzy rekordy:
 
 Należy pamiętać, że w przypadku utworzenia rekordu A dla aplikacji internetowej na platformie Azure rekord A musi być ręcznie zaktualizowany, jeżeli zmieni się podstawowy adres IP aplikacji internetowej.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie rekordu A i TXT dla domeny niestandardowej
@@ -39,7 +39,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 > * Testowanie niestandardowych nazw hostów
 
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -47,7 +47,7 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Musisz mieć dostępną nazwę domeny, aby przetestować z nią, którą można hostować w usłudze Azure DNS . Musisz mieć pełną kontrolę nad tą domeną. Pełna kontrola obejmuje możliwość ustawiania dla domeny rekordów serwera nazw (NS).
+* Musisz mieć nazwę domeny dostępną do przetestowania, aby można było hostować w Azure DNS. Musisz mieć pełną kontrolę nad tą domeną. Pełna kontrola obejmuje możliwość ustawiania dla domeny rekordów serwera nazw (NS).
 * [Utwórz aplikację usługi App Service](../app-service/app-service-web-get-started-html.md) lub użyj aplikacji utworzonej w innym samouczku.
 
 * Utwórz strefę DNS w usłudze Azure DNS i deleguj strefę u rejestratora do usługi Azure DNS.
@@ -84,7 +84,7 @@ New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
 Usługa App Services używa tego rekordu tylko podczas konfiguracji, aby sprawdzić, czy jesteś właścicielem domeny niestandardowej. Po zweryfikowaniu i skonfigurowaniu domeny niestandardowej w usłudze App Service możesz usunąć ten rekord TXT.
 
 > [!NOTE]
-> Jeśli chcesz zweryfikować nazwę domeny, ale nie kierować ruchu produkcyjnego do aplikacji sieci web, wystarczy określić rekord TXT dla kroku weryfikacji.  Weryfikacja nie wymaga rekordu A lub CNAME oprócz rekordu TXT.
+> Jeśli chcesz zweryfikować nazwę domeny, ale nie kierować ruchu produkcyjnego do aplikacji sieci Web, wystarczy określić rekord TXT dla kroku weryfikacji.  Weryfikacja nie wymaga rekordu A ani CNAME oprócz rekordu TXT.
 
 ```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
@@ -173,7 +173,7 @@ set-AzWebApp `
 Otwórz przeglądarkę i przejdź do `http://www.<your domainname>` oraz `http://<you domain name>`.
 
 > [!NOTE]
-> Upewnij się, `http://` że zawierasz prefiks, w przeciwnym razie twoja przeglądarka może próbować przewidzieć adres URL dla Ciebie!
+> Upewnij się, że dołączysz `http://` prefiks, w przeciwnym razie przeglądarka może próbować przewidzieć adres URL.
 
 Dla obu adresów URL powinna zostać wyświetlona ta sama strona. Przykład:
 

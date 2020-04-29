@@ -1,6 +1,6 @@
 ---
-title: Zakończenie powiadamiania o wystąpieniach zestawu skalowania maszyny wirtualnej platformy Azure
-description: Dowiedz się, jak włączyć powiadomienia o zakończeniu dla wystąpień zestawu skalowania maszyny wirtualnej platformy Azure
+title: Zakończenie powiadomienia o wystąpieniach zestawu skalowania maszyn wirtualnych platformy Azure
+description: Dowiedz się, jak włączyć powiadomienia o zakończeniu dla wystąpień zestawu skalowania maszyn wirtualnych platformy Azure
 author: avirishuv
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
@@ -8,38 +8,38 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: avverma
 ms.openlocfilehash: 6023e9bf7539b79446d0135ba731b61be166dd6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250753"
 ---
-# <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Zakończenie powiadamiania o wystąpieniach zestawu skalowania maszyny wirtualnej platformy Azure
-Wystąpienia zestawu skalowania mogą wyrazić zgodę na otrzymywanie powiadomień o zakończeniu wystąpienia i ustawić wstępnie zdefiniowany limit czasu opóźnienia na operację zakończenia. Powiadomienie o zakończeniu jest wysyłane za pośrednictwem usługi Azure Metadata Service — [zaplanowane zdarzenia](../virtual-machines/windows/scheduled-events.md), która zapewnia powiadomienia i opóźnianie operacji o skutkach, takich jak ponowne uruchomienie i ponowne wdrożenie. Rozwiązanie dodaje inne zdarzenie — Zakończ — do listy zaplanowanych zdarzeń, a skojarzone opóźnienie zdarzenia zakończenia będzie zależeć od limitu opóźnienia określonego przez użytkowników w ich konfiguracjach modelu zestawu skalowania.
+# <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Zakończenie powiadomienia o wystąpieniach zestawu skalowania maszyn wirtualnych platformy Azure
+Wystąpienia zestawu skalowania mogą zrezygnować z otrzymywania powiadomień o zakończeniu wystąpienia i ustawiać wstępnie zdefiniowany limit czasu opóźnienia dla operacji przerywania. Powiadomienie o wygaśnięciu jest wysyłane za pomocą usługi Azure Metadata Service — [Scheduled Events](../virtual-machines/windows/scheduled-events.md), która zapewnia powiadomienia i opóźniać wpływ na operacje, takie jak ponowny rozruch i ponowne wdrażanie. Rozwiązanie dodaje kolejne zdarzenie — Zakończ — do listy Scheduled Events, a skojarzone opóźnienie zdarzenia zakończenia będzie zależeć od limitu opóźnienia określonego przez użytkowników w konfiguracjach modelu zestawu skalowania.
 
-Po zarejestrowaniu się w funkcji wystąpienia zestawu skalowania nie muszą czekać na wygaśnięcie określonego limitu czasu przed usunięciem wystąpienia. Po otrzymaniu powiadomienia o zakończeniu wystąpienia można wybrać do usunięcia w dowolnym momencie przed wygaśnięciem limitu czasu zakończenia.
+Po zarejestrowaniu w funkcji wystąpienia zestawu skalowania nie muszą czekać, aż określony limit czasu wygaśnie, zanim wystąpienie zostanie usunięte. Po otrzymaniu powiadomienia o przerwaniu wystąpienie może zostać usunięte w dowolnym momencie przed upływem limitu czasu zakończenia.
 
-## <a name="enable-terminate-notifications"></a>Włączanie powiadomień o zakończeniu
-Istnieje wiele sposobów włączania powiadomień o zakończeniu w wystąpieniach zestawu skalowania, jak opisano w poniższych przykładach.
+## <a name="enable-terminate-notifications"></a>Włącz powiadomienia o zakończeniu
+Istnieje wiele sposobów włączania powiadomień o zakończeniu dla wystąpień zestawu skalowania, jak opisano w poniższych przykładach.
 
-### <a name="azure-portal"></a>Portal Azure
+### <a name="azure-portal"></a>Azure Portal
 
-Poniższe kroki umożliwiają zakończenie powiadamiania podczas tworzenia nowego zestawu skalowania. 
+Poniższe kroki umożliwiają powiadomienie o przerwaniu podczas tworzenia nowego zestawu skalowania. 
 
-1. Przejdź do **zestawów skalowania maszyny wirtualnej**.
-1. Wybierz **+ Dodaj,** aby utworzyć nowy zestaw skalowania.
-1. Przejdź do karty **Zarządzanie.** 
-1. Znajdź sekcję **Zakończenia wystąpienia.**
-1. Dla **powiadomienia o rozwiązaniu wystąpienia**wybierz włącz . **On**
-1. W polu **Opóźnienie zakończenia (minuty)** ustaw żądany domyślny limit czasu.
-1. Po zakończeniu tworzenia nowego zestawu skalowania wybierz przycisk **Przejrzyj + utwórz.** 
+1. Przejdź do **zestawu skalowania maszyn wirtualnych**.
+1. Wybierz pozycję **+ Dodaj** , aby utworzyć nowy zestaw skalowania.
+1. Przejdź do karty **Zarządzanie** . 
+1. Znajdź sekcję **zakończenie wystąpienia** .
+1. W przypadku **powiadomienia o zakończeniu wystąpienia**wybierz pozycję **włączone**.
+1. W przypadku **opóźnienia zakończenia (w minutach)** Ustaw żądany domyślny limit czasu.
+1. Po zakończeniu tworzenia nowego zestawu skalowania wybierz pozycję **Recenzja + Utwórz** . 
 
 > [!NOTE]
-> Nie można ustawić powiadomień o zakończeniu istniejących zestawów skalowania w witrynie Azure Portal
+> Nie można ustawić powiadomień o przerwaniu dla istniejących zestawów skalowania w Azure Portal
 
 ### <a name="rest-api"></a>Interfejs API REST
 
-Poniższy przykład umożliwia zakończenie powiadamiania w modelu zestawu skalowania.
+Poniższy przykład umożliwia powiadomienie o przerwaniu dla modelu zestawu skalowania.
 
 ```
 PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}?api-version=2019-03-01`
@@ -61,17 +61,17 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 
 ```
 
-Powyższy blok określa opóźnienie limitu czasu 5 minut (jak wskazuje *PT5M)* dla każdej operacji zakończenia dla wszystkich wystąpień w zestawie skalowania. Pole *notBeforeTimeout* może trwać dowolną wartość od 5 do 15 minut w formacie ISO 8601. Domyślny limit czasu dla operacji zakończenia można zmienić, modyfikując właściwość *notBeforeTimeout* w obszarze *terminateNotificationProfile opisanego* powyżej.
+Powyższy blok Określa opóźnienie limitu czasu wynoszący 5 minut (wskazywane przez *PT5M*) dla każdej operacji przerywania dla wszystkich wystąpień w zestawie skalowania. Pole *notBeforeTimeout* może przyjmować dowolną wartość z przedziału od 5 do 15 minut w formacie ISO 8601. Można zmienić domyślny limit czasu dla operacji przerwania, modyfikując właściwość *notBeforeTimeout* w obszarze *terminateNotificationProfile* opisany powyżej.
 
-Po włączeniu *scheduledEventsProfile* w modelu zestawu skalowania i ustawieniu *nieBeforeTimeout,* zaktualizuj poszczególne wystąpienia do [najnowszego modelu,](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) aby odzwierciedlić zmiany.
+Po włączeniu *scheduledEventsProfile* na modelu zestawu skalowania i ustawieniu *notBeforeTimeout*należy zaktualizować poszczególne wystąpienia do [najnowszego modelu](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) , aby odzwierciedlić zmiany.
 
 > [!NOTE]
->Powiadomienia o zakończeniu w wystąpieniach zestawu skalowania można włączyć tylko w wersji interfejsu API 2019-03-01 i wyższej
+>Powiadomienia o przerwaniu dla wystąpień zestawu skalowania można włączyć tylko przy użyciu interfejsu API w wersji 2019-03-01 lub nowszej.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Podczas tworzenia nowego zestawu skalowania można włączyć powiadomienia o zakończeniu na zestawie skalowania przy użyciu polecenia cmdlet [New-AzVmssConfig.](/powershell/module/az.compute/new-azvmssconfig)
+Podczas tworzenia nowego zestawu skalowania można włączyć powiadomienia o zakończeniu dla zestawu skalowania za pomocą polecenia cmdlet [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) .
 
-Ten przykładowy skrypt przechodzi przez tworzenie zestawu skalowania i skojarzonych zasobów przy użyciu pliku konfiguracji: [Utwórz kompletny zestaw skalowania maszyny wirtualnej](./scripts/powershell-sample-create-complete-scale-set.md). Można podać skonfigurować zakończyć powiadomienie przez dodanie parametrów *TerminateScheduledEvents* i *TerminateScheduledEventNotBeforeTimeoutInMinutes* do obiektu konfiguracji do tworzenia zestawu skalowania. Poniższy przykład włącza funkcję z limitem czasu opóźnienia 10 minut.
+Ten przykładowy skrypt przeprowadzi Cię przez proces tworzenia zestawu skalowania i skojarzonych zasobów przy użyciu pliku konfiguracji: [Utwórz kompletny zestaw skalowania maszyn wirtualnych](./scripts/powershell-sample-create-complete-scale-set.md). Możesz podać powiadomienie o zakończeniu konfigurowania, dodając parametry *TerminateScheduledEvents* i *TerminateScheduledEventNotBeforeTimeoutInMinutes* do obiektu konfiguracji w celu utworzenia zestawu skalowania. Poniższy przykład włącza funkcję z limitem czasu opóźnienia wynoszącym 10 minut.
 
 ```azurepowershell-interactive
 New-AzVmssConfig `
@@ -83,7 +83,7 @@ New-AzVmssConfig `
   -TerminateScheduledEventNotBeforeTimeoutInMinutes 10
 ```
 
-Użyj polecenia cmdlet [Update-AzVmss,](/powershell/module/az.compute/update-azvmss) aby włączyć powiadomienia o zakończeniu w istniejącym zestawie skalowania.
+Użyj polecenia cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) , aby włączyć powiadomienia o zakończeniu dla istniejącego zestawu skalowania.
 
 ```azurepowershell-interactive
 Update-AzVmss `
@@ -92,13 +92,13 @@ Update-AzVmss `
   -TerminateScheduledEvents $true
   -TerminateScheduledEventNotBeforeTimeoutInMinutes 15
 ```
-Powyższy przykład umożliwia zakończenie powiadomień na istniejącym zestawie skalowania i ustawia 15-minutowy limit czasu dla zdarzenia zakończenia.
+Powyższy przykład włącza powiadomienia o przerwaniu w istniejącym zestawie skalowania i ustawia dla zdarzenia przerwania 15-minutowy limit czasu.
 
-Po włączeniu zaplanowanych zdarzeń w modelu zestawu skalowania i ustawieniu limitu czasu zaktualizuj poszczególne wystąpienia do [najnowszego modelu,](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) aby odzwierciedlić zmiany.
+Po włączeniu zaplanowanych zdarzeń w modelu zestawu skalowania i ustawieniu limitu czasu należy zaktualizować poszczególne wystąpienia do [najnowszego modelu](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) , aby odzwierciedlić zmiany.
 
 ### <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
 
-Poniższy przykład służy do włączania powiadomienia o zakończeniu podczas tworzenia nowego zestawu skalowania.
+Poniższy przykład dotyczy włączania powiadomień o zakończeniu tworzenia nowego zestawu skalowania.
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -111,9 +111,9 @@ az vmss create \
   --terminate-notification-time 10
 ```
 
-Powyższy przykład najpierw tworzy grupę zasobów, a następnie tworzy nowy zestaw skalowania z powiadomieniami zakończenia włączone dla 10-minutowego domyślnego limitu czasu.
+W przykładzie powyżej zostanie utworzona grupa zasobów, a następnie zostanie utworzony nowy zestaw skalowania z włączonymi powiadomieniami o przerwaniu dla 10-minutowego limitu czasu.
 
-Poniższy przykład służy do włączania powiadomienia o zakończeniu w istniejącym zestawie skalowania.
+Poniższy przykład dotyczy włączania powiadomienia o zakończeniu w istniejącym zestawie skalowania.
 
 ```azurecli-interactive
 az vmss update \  
@@ -123,24 +123,24 @@ az vmss update \
   --terminate-notification-time 10
 ```
 
-## <a name="get-terminate-notifications"></a>Otrzymywanie powiadomień o zakończeniu
+## <a name="get-terminate-notifications"></a>Otrzymuj powiadomienia o zakończeniu
 
-Powiadomienia o zakończeniu są dostarczane za pośrednictwem [zaplanowanych zdarzeń,](../virtual-machines/windows/scheduled-events.md)która jest usługą Azure Metadata Service. Usługa metadanych platformy Azure udostępnia informacje o uruchamianiu maszyn wirtualnych przy użyciu punktu końcowego REST dostępne z poziomu maszyny wirtualnej. Informacje są dostępne za pośrednictwem nie rutable IP, dzięki czemu nie jest narażony poza maszyną wirtualną.
+Powiadomienia o zakończeniu są dostarczane za pomocą [Scheduled Events](../virtual-machines/windows/scheduled-events.md), który jest Metadata Service platformy Azure. Usługa Azure Metadata umożliwia ujawnianie informacji na temat uruchamiania Virtual Machines przy użyciu punktu końcowego REST dostępnego z poziomu maszyny wirtualnej. Informacje są dostępne za pośrednictwem adresu IP bez obsługi routingu, aby nie były widoczne poza maszyną wirtualną.
 
-Zaplanowane zdarzenia są włączone dla zestawu skalowania przy pierwszym żądaniu zdarzeń. Możesz spodziewać się opóźnionej odpowiedzi w pierwszym wywołaniu do dwóch minut. Okresowo wysyłaj zapytania do punktu końcowego, aby wykryć nadchodzące zdarzenia konserwacji i stan bieżących działań konserwacyjnych.
+Scheduled Events jest włączone dla zestawu skalowania przy pierwszym żądaniu dla zdarzeń. Możesz oczekiwać opóźnienia odpowiedzi podczas pierwszego wywołania przez maksymalnie dwie minuty. Należy okresowo wysyłać zapytania do punktu końcowego w celu wykrycia przyszłych zdarzeń konserwacji oraz stanu bieżących działań konserwacyjnych.
 
-Zaplanowane zdarzenia są wyłączone dla zestawu skalowania, jeśli wystąpienia zestawu skalowania nie składają żądania przez 24 godziny.
+Scheduled Events jest wyłączone dla zestawu skalowania, jeśli wystąpienia zestawu skalowania nie zgłaszają żądania przez 24 godziny.
 
-### <a name="endpoint-discovery"></a>Odnajdowanie punktu końcowego
-W przypadku maszyn wirtualnych usługa metadanych jest dostępna ze statycznego nierutowalnej usługi IP 169.254.169.254.
+### <a name="endpoint-discovery"></a>Odnajdywanie punktów końcowych
+W przypadku maszyn wirtualnych z obsługą sieci wirtualnej Metadata Service jest dostępna ze statycznego adresu IP bez obsługi routingu, 169.254.169.254.
 
-Pełny punkt końcowy dla najnowszej wersji zaplanowanych zdarzeń jest:
+Pełny punkt końcowy dla najnowszej wersji Scheduled Events to:
 > 'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### <a name="query-response"></a>Odpowiedź na zapytanie
-Odpowiedź zawiera tablicę zaplanowanych zdarzeń. Pusta tablica oznacza, że obecnie nie są zaplanowane żadne zdarzenia.
+Odpowiedź zawiera tablicę zaplanowanych zdarzeń. Pusta tablica oznacza, że aktualnie nie ma żadnych zaplanowanych zdarzeń.
 
-W przypadku, gdy istnieją zaplanowane zdarzenia, odpowiedź zawiera tablicę zdarzeń. W przypadku zdarzenia "Zakończ" odpowiedź będzie wyglądać następująco:
+W przypadku zaplanowanych zdarzeń odpowiedź zawiera tablicę zdarzeń. W przypadku zdarzenia "Przerwij" odpowiedź będzie wyglądać następująco:
 ```
 {
     "DocumentIncarnation": {IncarnationID},
@@ -156,14 +156,14 @@ W przypadku, gdy istnieją zaplanowane zdarzenia, odpowiedź zawiera tablicę zd
     ]
 }
 ```
-*DocumentIncarnation* jest ETag i zapewnia łatwy sposób, aby sprawdzić, czy ładunek zdarzenia uległ zmianie od ostatniego zapytania.
+*DocumentIncarnation* jest elementem ETag i zapewnia łatwy sposób sprawdzenia, czy ładunek zdarzeń został zmieniony od czasu ostatniego zapytania.
 
-Aby uzyskać więcej informacji na temat każdego z powyższych pól, zobacz dokumentację zaplanowane zdarzenia dla [systemów Windows](../virtual-machines/windows/scheduled-events.md#event-properties) i [Linux](../virtual-machines/linux/scheduled-events.md#event-properties).
+Aby uzyskać więcej informacji na temat każdego z powyższych pól, zobacz dokumentację Scheduled Events dla [systemów Windows](../virtual-machines/windows/scheduled-events.md#event-properties) i [Linux](../virtual-machines/linux/scheduled-events.md#event-properties).
 
 ### <a name="respond-to-events"></a>Reagowanie na zdarzenia
-Po zapoznaniu się z nadchodzącym wydarzeniem i zakończeniu logiki dla wdzięku zamknięcia, można zatwierdzić zdarzenie zaległe, wykonując wywołanie POST do usługi metadanych z EventId. Wywołanie POST wskazuje platformie Azure, że może kontynuować usuwanie maszyny Wirtualnej.
+Po uzyskaniu nadchodzącego zdarzenia i zakończeniu logiki w celu bezpiecznego zamknięcia możesz zatwierdzić zaległe zdarzenie, wykonując wywołanie do usługi metadanych przy użyciu EventId. Wywołanie POST wskazuje na platformę Azure, że może kontynuować usuwanie maszyny wirtualnej.
 
-Poniżej znajduje się json oczekiwany w treści żądania POST. Żądanie powinno zawierać listę żądań StartRequests. Każdy StartRequest zawiera EventId dla zdarzenia, które chcesz przyspieszyć:
+Poniżej znajduje się kod JSON oczekiwany w treści żądania POST. Żądanie powinno zawierać listę StartRequests. Każdy StartRequest zawiera EventId dla zdarzenia, które chcesz przyspieszyć:
 ```
 {
     "StartRequests" : [
@@ -174,28 +174,28 @@ Poniżej znajduje się json oczekiwany w treści żądania POST. Żądanie powin
 }
 ```
 
-Upewnij się, że każda maszyna wirtualna w zestawie skalowania zatwierdza tylko identyfikator zdarzenia odpowiedni tylko dla tej maszyny Wirtualnej. Maszyna wirtualna może uzyskać własną nazwę maszyny Wirtualnej [za pośrednictwem metadanych wystąpienia](virtual-machine-scale-sets-instance-ids.md#instance-metadata-vm-name). Ta nazwa ma postać "{scale-set-name}_{instance-id}" i będzie wyświetlana w sekcji "Zasoby" odpowiedzi na zapytanie opisanej powyżej.
+Upewnij się, że każda maszyna wirtualna w zestawie skalowania zatwierdza tylko EventID odpowiednie dla tej maszyny wirtualnej. Maszyna wirtualna może uzyskać własną nazwę maszyny wirtualnej [za pomocą metadanych wystąpienia](virtual-machine-scale-sets-instance-ids.md#instance-metadata-vm-name). Ta nazwa przyjmuje postać "{Scale-Set-Name} _ {instance-ID}" i zostanie wyświetlona w sekcji "Resources" odpowiedzi zapytania opisanej powyżej.
 
-Można również odwołać się do przykładowych skryptów do wykonywania zapytań i odpowiadania na zdarzenia przy użyciu programów [PowerShell](../virtual-machines/windows/scheduled-events.md#powershell-sample) i [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
+Możesz również zapoznać się z przykładowymi skryptami służącymi do wykonywania zapytań i reagowania na zdarzenia przy użyciu [programu PowerShell](../virtual-machines/windows/scheduled-events.md#powershell-sample) i języka [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
 
 ## <a name="tips-and-best-practices"></a>Wskazówki i najlepsze rozwiązania
--   Zakończ powiadomienia tylko na "delete" operacji — wszystkie operacje usuwania (ręczne usuwanie lub skalowanie automatyczne in) wygeneruje Zakończ zdarzenia, jeśli zestaw skalowania *zaplanowałEwydaniaProfile* włączone. Inne operacje, takie jak ponowne uruchamianie, ponowne zakładanie, ponowne wdrożenie i zatrzymanie/przydzielenia nie generują zdarzeń Zakończenia. Nie można włączyć powiadomień o zakończeniu dla maszyn wirtualnych o niskim priorytecie.
--   Nie obowiązkowe oczekiwanie na limit czasu — można rozpocząć operację zakończenia w dowolnym momencie po odebraniu zdarzenia i przed wygaśnięciem czasu *nieprzeznaczenia* zdarzenia.
--   Obowiązkowe usuwanie w przesuwu — nie ma możliwości przedłużenia wartości limitu czasu po wygenerowaniu zdarzenia. Po upływie limitu czasu zdarzenie oczekujące zakończenie zostanie przetworzone, a maszyna wirtualna zostanie usunięta.
--   Wartość limitu czasu modyfikowalne — można zmodyfikować wartość limitu czasu w dowolnym momencie przed usunięciem wystąpienia, modyfikując *właściwość notBeforeTimeout* w modelu zestawu skalowania i aktualizując wystąpienia maszyny Wirtualnej do najnowszego modelu.
--   Zatwierdź wszystkie oczekujące usunięcia — jeśli na VM_1 nie zostanie zatwierdzony, a w VM_2 zatwierdzono inne zdarzenie zakończenia, VM_2 nie zostanie usunięte, dopóki zdarzenie zakończenia dla VM_1 nie zostanie zatwierdzone lub upłynie limit czasu. Po zatwierdzeniu zdarzenia zakończenia dla VM_1, usuwane są zarówno VM_1, jak i VM_2.
--   Zatwierdź wszystkie jednoczesne usunięcia — rozszerzenie powyższego przykładu, jeśli VM_1 i VM_2 mają ten sam *NotBefore* czas, a następnie oba zakończenia zdarzenia muszą zostać zatwierdzone lub żadna maszyna wirtualna nie jest usuwana przed upływem limitu czasu.
+-   Przerywaj powiadomienia tylko w operacjach "Delete" — wszystkie operacje usuwania (skalowanie ręczne lub automatyczne skalowanie zainicjowane) będą generować zdarzenia przerwania, jeśli zestaw skalowania ma włączone *scheduledEventsProfile* . Inne operacje, takie jak ponowne uruchamianie, odtwarzanie obrazu, ponowne wdrażanie i zatrzymywanie/cofanie alokacji nie generują zdarzeń zakończenia. Nie można włączyć powiadomień o przerwaniu dla maszyn wirtualnych o niskim priorytecie.
+-   Brak obowiązkowego oczekiwania na przekroczenie limitu czasu — można uruchomić operację przerwania w dowolnym momencie po odebraniu zdarzenia i upływie czasu *NotBefore* zdarzenia.
+-   Obowiązkowe usuwanie po upłynięciu limitu czasu — nie ma możliwości rozszerzenia wartości limitu czasu po wygenerowaniu zdarzenia. Po upływie limitu czasu zdarzenie oczekujące zakończenie zostanie przetworzone, a maszyna wirtualna zostanie usunięta.
+-   Modyfikowalna wartość limitu czasu — można w dowolnym momencie zmodyfikować wartość limitu czasu przed usunięciem wystąpienia, modyfikując właściwość *notBeforeTimeout* w modelu zestawu skalowania i aktualizując wystąpienia maszyn wirtualnych do najnowszego modelu.
+-   Zatwierdź wszystkie oczekujące usunięcia — Jeśli istnieje oczekujące usunięcie VM_1, które nie zostało zatwierdzone, i zatwierdzono inne zdarzenie przerwania w VM_2, VM_2 nie zostanie usunięte, dopóki nie zostanie zatwierdzone zdarzenie zakończenia dla VM_1 lub upłynął limit czasu. Po zatwierdzeniu zdarzenia zakończenia dla VM_1 zostaną usunięte zarówno VM_1, jak i VM_2.
+-   Zatwierdź wszystkie jednoczesne operacje usuwania — rozszerzenie powyższego przykładu, jeśli VM_1 i VM_2 mają taki sam czas *NotBefore* , oba zdarzenia zakończenia muszą być zatwierdzone lub żadna maszyna wirtualna nie zostanie usunięta przed upływem limitu czasu.
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
-### <a name="failure-to-enable-scheduledeventsprofile"></a>Niepowodzenie włączeniu zaplanowanego profilu Wwentylcje
-Jeśli pojawi się błąd "BadRequest" z komunikatem o błędzie z napisem "Nie można znaleźć elementu członkowskiego 'scheduledEventsProfile' na obiekcie typu "VirtualMachineProfile", sprawdź wersję interfejsu API używaną dla operacji zestawu skalowania. Wymagany jest interfejs API obliczeń w wersji **2019-03-01** lub nowszej. 
+### <a name="failure-to-enable-scheduledeventsprofile"></a>Nie można włączyć scheduledEventsProfile
+Jeśli zostanie wyświetlony błąd "nieprawidłowego żądania" z komunikatem o błędzie z informacją o tym, że nie można odnaleźć elementu członkowskiego "scheduledEventsProfile" w obiekcie typu "VirtualMachineProfile" ", sprawdź wersję interfejsu API używaną dla operacji zestawu skalowania. Wymagany jest interfejs API obliczeń w wersji **2019-03-01** lub nowszej. 
 
-### <a name="failure-to-get-terminate-events"></a>Nieustanne uzyskanie zdarzeń Zakończenia
-Jeśli nie otrzymujesz żadnych zdarzeń **Zakończenia** za pośrednictwem zaplanowanych zdarzeń, sprawdź wersję interfejsu API używaną do uzyskiwania zdarzeń. Interfejs API usługi metadanych w wersji **2019-01-01** lub nowszej jest wymagany dla zdarzeń Zakończenia.
+### <a name="failure-to-get-terminate-events"></a>Nie można pobrać zdarzeń zakończenia
+Jeśli nie otrzymujesz żadnych zdarzeń **przerwania** za pomocą Scheduled Events, sprawdź wersję interfejsu API używaną do pobierania zdarzeń. Do zakończenia zdarzeń jest wymagany interfejs API Metadata Service w wersji **2019-01-01** lub nowszej.
 >'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
-### <a name="getting-terminate-event-with-incorrect-notbefore-time"></a>Pierwsze zdarzenie Zakończ z niepoprawnym czasem NotBefore  
-Po włączeniu *scheduledEventsProfile* w modelu zestawu skalowania i ustawieniu *nieBeforeTimeout,* zaktualizuj poszczególne wystąpienia do [najnowszego modelu,](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) aby odzwierciedlić zmiany.
+### <a name="getting-terminate-event-with-incorrect-notbefore-time"></a>Trwa pobieranie zdarzenia przerwania z nieprawidłowym czasem NotBefore  
+Po włączeniu *scheduledEventsProfile* na modelu zestawu skalowania i ustawieniu *notBeforeTimeout*należy zaktualizować poszczególne wystąpienia do [najnowszego modelu](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) , aby odzwierciedlić zmiany.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się, jak [wdrożyć aplikację](virtual-machine-scale-sets-deploy-app.md) w zestawach skalowania maszyny wirtualnej.
+Dowiedz się, jak [wdrożyć aplikację](virtual-machine-scale-sets-deploy-app.md) w zestawach skalowania maszyn wirtualnych.
