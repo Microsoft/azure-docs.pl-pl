@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z velpic SAML | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a velpic SAML.
+title: 'Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Velpic SAML | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Velpic SAML.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,197 +17,197 @@ ms.date: 10/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f699e2244cde53200a9885602bd20c899c0ce4cd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72241563"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-velpic-saml"></a>Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z velpic SAML
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-velpic-saml"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Velpic SAML
 
-W tym samouczku dowiesz się, jak zintegrować velpic SAML z usługą Azure Active Directory (Azure AD). Po zintegrowaniu Velpic SAML z usługą Azure AD można:
+W tym samouczku dowiesz się, jak zintegrować Velpic SAML z Azure Active Directory (Azure AD). Gdy integrujesz Velpic SAML z usługą Azure AD, możesz:
 
-* Kontrola w usłudze Azure AD, który ma dostęp do Velpic SAML.
-* Włącz użytkownikom automatyczne logowanie do velpic SAML za pomocą ich kont usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
+* Kontrolka w usłudze Azure AD, która ma dostęp do Velpic SAML.
+* Zezwól użytkownikom na automatyczne logowanie do Velpic SAML przy użyciu kont usługi Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć, potrzebujesz następujących elementów:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto.](https://azure.microsoft.com/free/)
-* Velpic SAML jednokrotnego logowania (SSO) włączone subskrypcji.
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* Subskrypcja z włączonym logowaniem jednokrotnym w usłudze SAML Velpic.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku można skonfigurować i przetestować samouszeńców usługi Azure AD w środowisku testowym.
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Velpic SAML **obsługuje** sp zainicjowane SSO
+* Velpic **SAML obsługuje logowanie** jednokrotne z użyciem protokołu SSO
 
 ## <a name="adding-velpic-saml-from-the-gallery"></a>Dodawanie Velpic SAML z galerii
 
 Aby skonfigurować integrację Velpic SAML z usługą Azure AD, należy dodać Velpic SAML z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy użyciu konta służbowego lub konta firmy Microsoft.
-1. W lewym okienku nawigacji wybierz usługę **Azure Active Directory.**
-1. Przejdź do **aplikacji korporacyjnych,** a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **Velpic SAML** w polu wyszukiwania.
-1. Wybierz **Velpic SAML** z panelu wyników, a następnie dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.    
+1. Wybierz pozycję **VELPIC SAML** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.    
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-velpic-saml"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla velpic SAML
+## <a name="configure-and-test-azure-ad-single-sign-on-for-velpic-saml"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla Velpic SAML
 
-Konfigurowanie i testowanie usługi Azure AD SSO za pomocą velpic SAML przy użyciu użytkownika testowego o nazwie **B.Simon**. Aby użytkownik łączony sytuować działał, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w velpic SAML.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą Velpic SAML przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Velpic SAML.
 
-Aby skonfigurować i przetestować sytuasz usługi Azure AD z velpic SAML, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą Velpic SAML, wykonaj następujące bloki konstrukcyjne:
 
-1. **[Skonfiguruj samouszeńcę usługi Azure AD](#configure-azure-ad-sso)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD za pomocą usługi B.Simon.
-    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić B.Simon używać logowania jednokrotnego usługi Azure AD.
-1. **[Skonfiguruj velpic SAML SSO](#configure-velpic-saml-sso)** - aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
-    1. **[Utwórz użytkownika testowego Velpic SAML](#create-velpic-saml-test-user)** — aby mieć odpowiednik B.Simon w Velpic SAML, który jest połączony z reprezentacją użytkownika usługi Azure AD.
-1. **[Test SSO](#test-sso)** - aby sprawdzić, czy konfiguracja działa.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
+1. **[Skonfiguruj usługę VELPIC SAML SSO](#configure-velpic-saml-sso)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz użytkownika testowego SAML Velpic](#create-velpic-saml-test-user)** , aby miał odpowiednik B. Simon w Velpic SAML, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azure portal.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **VELPIC SAML** znajdź sekcję **Zarządzaj** i wybierz **opcję logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **SAML Velpic** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** kliknij ikonę edycji/pióra dla **podstawowej konfiguracji SAML,** aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
+1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<sub-domain>.velpicsaml.net`
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://auth.velpic.com/saml/v2/<entity-id>/login`
 
     > [!NOTE]
-    > Należy pamiętać, że adres URL logowania zostanie podany przez zespół Velpic SAML, a wartość identyfikatora będzie dostępna po skonfigurowaniu wtyczki SSO po stronie Velpic SAML. Musisz skopiować tę wartość ze strony aplikacji Velpic SAML i wkleić ją tutaj.
+    > Należy pamiętać, że adres URL logowania będzie dostarczany przez zespół SAML Velpic, a wartość identyfikatora będzie dostępna podczas konfigurowania wtyczki logowania jednokrotnego na Velpic SAML. Należy skopiować tę wartość ze strony aplikacji SAML Velpic i wkleić ją tutaj.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** w sekcji **Certyfikat podpisywania SAML** znajdź kod **XML metadanych federacji** i wybierz pozycję **Pobierz,** aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
-1. W sekcji **Konfigurowanie velpic SAML** skopiuj odpowiednie adresy URL na podstawie wymagań.
+1. W sekcji **Konfigurowanie protokołu SAML Velpic** skopiuj odpowiednie adresy URL na podstawie wymagań.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego w witrynie Azure portal o nazwie B.Simon.
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. Z lewego okienka w witrynie Azure portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-1. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
-1. We właściwościach **Użytkownika** wykonaj następujące kroki:
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** username@companydomain.extensionwprowadź pole . Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do Velpic SAML.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do Velpic SAML.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **Wszystkie aplikacje**.
-1. Na liście aplikacji wybierz **velpic SAML**.
-1. Na stronie przegląd aplikacji znajdź sekcję **Zarządzaj** i wybierz pozycję **Użytkownicy i grupy**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **VELPIC SAML**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-1. Wybierz **pozycję Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym Dodawanie **przydziału.**
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 
-    ![Łącze Dodaj użytkownika](common/add-assign-user.png)
+    ![Link Dodaj użytkownika](common/add-assign-user.png)
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B.Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. W oknie dialogowym **Dodawanie przydziału** kliknij przycisk **Przypisz.**
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-## <a name="configure-velpic-saml-sso"></a>Konfigurowanie velpic SAML SSO
+## <a name="configure-velpic-saml-sso"></a>Konfigurowanie rejestracji jednokrotnej Velpic SAML
 
-1. Aby zautomatyzować konfigurację w velpic SAML, musisz zainstalować **rozszerzenie przeglądarki My Apps Secure Sign-in,** klikając pozycję Zainstaluj **rozszerzenie**.
+1. Aby zautomatyzować konfigurację w ramach Velpic SAML, należy zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
 
-    ![Rozszerzenie Moje aplikacje](common/install-myappssecure-extension.png)
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
 
-2. Po dodaniu rozszerzenia do przeglądarki, kliknij Przycisk **Ustaw Velpic SAML** przekieruje Cię do aplikacji Velpic SAML. Stamtąd podaj poświadczenia administratora, aby zalogować się do Velpic SAML. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację dla Ciebie i zautomatyzuje kroki 3-8.
+2. Po dodaniu rozszerzenia do przeglądarki kliknij pozycję **Skonfiguruj VELPIC SAML** przekierowuje do aplikacji Velpic SAML. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do Velpic SAML. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-8.
 
-    ![Konfiguracja instalacji](common/setup-sso.png)
+    ![Konfiguracja konfiguracji](common/setup-sso.png)
 
-3. Jeśli chcesz ręcznie skonfigurować velpic SAML, otwórz nowe okno przeglądarki internetowej i zaloguj się do witryny firmy Velpic SAML jako administrator i wykonaj następujące czynności:
+3. Jeśli chcesz ręcznie skonfigurować Velpic SAML, Otwórz nowe okno przeglądarki sieci Web i zaloguj się do witryny firmy Velpic SAML jako administrator i wykonaj następujące czynności:
 
-4. Kliknij na **zakasanie,** przejdź do sekcji **Integracja,** w której musisz kliknąć przycisk **Wtyczki,** aby utworzyć nową wtyczkę do logowania.
+4. Kliknij przycisk **Zarządzaj** kartami, a następnie przejdź do sekcji **integracja** , w której trzeba kliknąć pozycję **wtyczki** , aby utworzyć nową wtyczkę logowania.
 
     ![Wtyczka](./media/velpicsaml-tutorial/velpic_1.png)
 
-5. Kliknij przycisk **"Dodaj wtyczkę".**
+5. Kliknij przycisk **"Dodaj plugin" "** .
     
     ![Wtyczka](./media/velpicsaml-tutorial/velpic_2.png)
 
-6. Kliknij kafelek **SAML** na stronie Dodaj wtyczkę.
+6. Kliknij kafelek **SAML** na stronie Dodawanie wtyczki.
     
     ![Wtyczka](./media/velpicsaml-tutorial/velpic_3.png)
 
-7. Wpisz nazwę nowej wtyczki SAML i kliknij przycisk **"Dodaj".**
+7. Wprowadź nazwę nowej wtyczki SAML i kliknij przycisk **"Dodaj"** .
 
     ![Wtyczka](./media/velpicsaml-tutorial/velpic_4.png)
 
-8. Wprowadź szczegóły w następujący sposób:
+8. Wprowadź następujące szczegóły:
 
     ![Wtyczka](./media/velpicsaml-tutorial/velpic_5.png)
 
-    a. W polach tekstowych **Nazwa** wpisz nazwę wtyczki SAML.
+    a. W polu tekstowym **Nazwa** wpisz nazwę wtyczki SAML.
 
-    b. W pola tekstowym **adresu URL wystawcy** wklej **identyfikator usługi Azure AD** skopiowany z okna **konfigurowania logowania w witrynie** Azure portal.
+    b. W polu tekstowym **adres URL wystawcy** wklej **Identyfikator usługi Azure AD** skopiowany z okna **Konfigurowanie logowania w** Azure Portal.
 
-    d. W **konfiguracji metadanych dostawcy** przekaż plik XML metadanych, który został pobrany z witryny Azure portal.
+    c. W obszarze **Konfiguracja metadanych dostawcy** Przekaż plik XML metadanych pobrany z Azure Portal.
 
-    d. Możesz również włączyć SAML tylko w czasie inicjowania obsługi administracyjnej, włączając pole wyboru **"Automatyczne tworzenie nowych użytkowników".** Jeśli użytkownik nie istnieje w Velpic i ta flaga nie jest włączona, logowania z platformy Azure zakończy się niepowodzeniem. Jeśli flaga jest włączona, użytkownik zostanie automatycznie aprowizowana do Velpic w momencie logowania. 
+    d. Możesz również włączyć obsługę języka SAML w czasie, włączając opcję **"Utwórz nowego użytkownika** ". Jeśli użytkownik nie istnieje w usłudze Velpic, a ta flaga nie jest włączona, logowanie z platformy Azure zakończy się niepowodzeniem. Jeśli flaga jest włączona, użytkownik zostanie automatycznie zainicjowany do Velpic w czasie logowania. 
 
-    e. Skopiuj **pojedynczy znak na adresie URL** z pola tekstowego i wklej go w witrynie Azure portal.
+    e. Skopiuj **adres URL logowania** jednokrotnego z pola tekstowego i wklej go w Azure Portal.
     
     f. Kliknij przycisk **Zapisz**.
 
-### <a name="create-velpic-saml-test-user"></a>Utwórz użytkownika testowego Velpic SAML
+### <a name="create-velpic-saml-test-user"></a>Utwórz użytkownika testowego SAML Velpic
 
-Ten krok zwykle nie jest wymagane, ponieważ aplikacja obsługuje tylko w czasie inicjowania obsługi administracyjnej użytkownika. Jeśli automatyczne inicjowanie obsługi administracyjnej użytkownika nie jest włączone, można wykonać ręczne tworzenie przez użytkownika w sposób opisany poniżej.
+Ten krok zazwyczaj nie jest wymagany, ponieważ aplikacja obsługuje funkcję udostępniania just in Time użytkownika. Jeśli automatyczne Inicjowanie obsługi użytkowników nie jest włączone, ręczne tworzenie użytkowników można wykonać zgodnie z poniższym opisem.
 
-Zaloguj się do witryny firmy Velpic SAML jako administrator i wykonaj następujące czynności:
+Zaloguj się do witryny firmy SAML Velpic jako administrator i wykonaj następujące czynności:
     
-1. Kliknij kartę Zarządzaj i przejdź do sekcji Użytkownicy, a następnie kliknij przycisk Nowy, aby dodać użytkowników.
+1. Kliknij przycisk Zarządzaj kartami i przejdź do sekcji Użytkownicy, a następnie kliknij przycisk Nowy przycisk, aby dodać użytkowników.
 
-    ![dodawanie użytkownika](./media/velpicsaml-tutorial/velpic_7.png)
+    ![Dodaj użytkownika](./media/velpicsaml-tutorial/velpic_7.png)
 
-2. Na stronie okna dialogowego **"Utwórz nowego użytkownika"** wykonaj następujące czynności.
+2. Na stronie **"Tworzenie nowego użytkownika"** wykonaj następujące czynności.
 
     ![użytkownik](./media/velpicsaml-tutorial/velpic_8.png)
     
-    a. W polach tekstowych **Imię** wpisz imię B.
+    a. W polu tekstowym **imię i nazwisko** wpisz imię B.
 
-    b. W polach tekstowych **Nazwisko** wpisz nazwisko Szymona.
+    b. W polu **tekstowym nazwisko wpisz nazwisko Simon** .
 
-    d. W polach tekstowych **Nazwa użytkownika** wpisz nazwę użytkownika B.Simon.
+    c. W polu tekstowym **Nazwa użytkownika** wpisz nazwę użytkownika B. Simon.
 
-    d. W **polach tekstowych Poczta e-mail** wpisz adres e-mail B.Simon@contoso.com konta.
+    d. W polu tekstowym adres **e-mail** wpisz adres e-mail B.Simon@contoso.com konta.
 
-    e. Reszta informacji jest opcjonalna, w razie potrzeby można je wypełnić.
+    e. Pozostałe informacje są opcjonalne, ale w razie konieczności można je wypełnić.
     
-    f. Kliknij **przycisk ZAPISZ**.
+    f. Kliknij przycisk **Zapisz**.
 
-## <a name="test-sso"></a>Test SSO 
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-1. Po kliknięciu kafelka Velpic SAML w panelu dostępu należy uzyskać stronę logowania aplikacji Velpic SAML. Powinien zostać wyświetlony przycisk **"Zaloguj się za pomocą usługi Azure AD"** na stronie logowania.
+1. Po kliknięciu kafelka SAML Velpic w panelu dostępu należy uzyskać stronę logowania aplikacji Velpic SAML. Na stronie logowania powinien zostać wyświetlony przycisk **"Zaloguj się za pomocą usługi Azure AD"** .
 
     ![Wtyczka](./media/velpicsaml-tutorial/velpic_6.png)
 
-1. Kliknij przycisk **"Zaloguj się za pomocą usługi Azure AD",** aby zalogować się do Velpic przy użyciu konta usługi Azure AD.
+1. Kliknij przycisk **Zaloguj się przy użyciu usługi Azure AD** , aby zalogować się do usługi Velpic przy użyciu konta usługi Azure AD.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
@@ -215,5 +215,5 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Wypróbuj velpic SAML z usługą Azure AD](https://aad.portal.azure.com/)
+- [Wypróbuj Velpic SAML z usługą Azure AD](https://aad.portal.azure.com/)
 

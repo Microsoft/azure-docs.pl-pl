@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z programem Veracode | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a veracode.
+title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Veracode | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Veracode.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,174 +17,174 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bcec326ddab1e74f43e1bb7ef446998a40799fd0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73043556"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-veracode"></a>Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z programem Veracode
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-veracode"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Veracode
 
-W tym samouczku dowiesz się, jak zintegrować veracode z usługą Azure Active Directory (Azure AD). Po zintegrowaniu veracode z usługą Azure AD można:
+W tym samouczku dowiesz się, jak zintegrować usługę Veracode z usługą Azure Active Directory (Azure AD). Po zintegrowaniu usługi Veracode z usługą Azure AD można:
 
-* Kontrola w usłudze Azure AD, który ma dostęp do Veracode.
-* Włącz użytkownikom automatyczne logowanie do veracode za pomocą ich kont usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji: w witrynie Azure Portal.
+* Kontrolka w usłudze Azure AD, która ma dostęp do Veracode.
+* Zezwól użytkownikom na automatyczne logowanie się do usługi Veracode przy użyciu kont w usłudze Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji: Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji z usługą Azure AD z aplikacją —SaaS( SaaS), zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji oprogramowania jako usługi (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć, potrzebujesz następujących elementów:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto.](https://azure.microsoft.com/free/)
-* Subskrypcja obsługujący jednokrotne logowanie veracode.
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* Subskrypcja obsługująca Logowanie jednokrotne (SSO) Veracode.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku można skonfigurować i przetestować samouszeńców usługi Azure AD w środowisku testowym. Veracode obsługuje dostawcy tożsamości zainicjowane SSO i just-in-time użytkownika inicjowania obsługi administracyjnej.
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym. Usługa Veracode obsługuje zainicjowane przez dostawcę tożsamości Logowanie jednokrotne i Inicjowanie obsługi użytkowników just in Time.
 
 ## <a name="add-veracode-from-the-gallery"></a>Dodaj Veracode z galerii
 
-Aby skonfigurować integrację veracode z usługą Azure AD, dodaj Veracode z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu Veracode z usługą Azure AD, Dodaj Veracode z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy użyciu konta służbowego lub konta firmy Microsoft.
-1. W lewym okienku nawigacji wybierz usługę **Azure Active Directory.**
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do pozycji **Aplikacje dla przedsiębiorstw** i wybierz pozycję **Wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz "Veracode" w polu wyszukiwania.
-1. Wybierz **pozycję Veracode** z panelu wyników, a następnie dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** w polu wyszukiwania wpisz ciąg "Veracode".
+1. Na panelu Wyniki wybierz pozycję **Veracode** , a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-veracode"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla veracode
+## <a name="configure-and-test-azure-ad-single-sign-on-for-veracode"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla Veracode
 
-Konfigurowanie i testowanie usługi Azure AD SSO za pomocą veracode przy użyciu użytkownika testowego o nazwie **B.Simon**. Aby użytkownik łączony sytuowanych działał, należy ustanowić łącze między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w veracode.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą Veracode przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy nawiązać połączenie między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Veracode.
 
-Aby skonfigurować i przetestować usługę Azure AD SSO przy za pomocą veracode, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą Veracode, wykonaj następujące bloki konstrukcyjne:
 
-1. **[Skonfiguruj sytuasz usługi Azure AD,](#configure-azure-ad-sso)** aby umożliwić użytkownikom korzystanie z tej funkcji.
-    * **[Utwórz użytkownika testowego usługi Azure AD,](#create-an-azure-ad-test-user)** aby przetestować logowanie jednokrotne usługi Azure AD za pomocą usługi B.Simon.
-    * **[Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user)** aby włączyć B.Simon do korzystania z usługi Azure AD logowania jednokrotnego.
-1. **[Skonfiguruj logowanie logowania veracode,](#configure-veracode-sso)** aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
-    * **[Utwórz użytkownika testowego Veracode,](#create-veracode-test-user)** aby mieć odpowiednik B.Simon w Veracode połączone z reprezentacji usługi Azure AD użytkownika.
-1. **[Przetestuj sytą próbę sycącą,](#test-sso)** aby sprawdzić, czy konfiguracja działa.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** , aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    * **[Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user)** aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego usługi Azure AD.
+1. **[Skonfiguruj Logowanie jednokrotne](#configure-veracode-sso)** w usłudze Veracode, aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+    * **[Utwórz użytkownika testowego Veracode](#create-veracode-test-user)** , aby miał odpowiednik B. Simon w Veracode połączony z reprezentacją usługi Azure AD użytkownika.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** , aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azure portal.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [witrynie Azure portal](https://portal.azure.com/), na stronie integracji aplikacji **Veracode** znajdź sekcję **Zarządzaj.** Wybierz **opcję logowania jednokrotnego**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Veracode** Znajdź sekcję **Zarządzanie** . Wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** wybierz ikonę ołówka dla **podstawowej konfiguracji SAML,** aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
-   ![Zrzut ekranu przedstawiający konfigurowanie logowania jednokrotnego z wyróżnioną ikoną ołówka](common/edit-urls.png)
+   ![Zrzut ekranu przedstawiający Konfigurowanie logowania jednokrotnego przy użyciu języka SAML z wyróżnioną ikoną ołówka](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja SAML** aplikacja jest wstępnie skonfigurowana, a niezbędne adresy URL są już wstępnie wypełnione platformą Azure. Wybierz **pozycję Zapisz**.
+1. W sekcji **Podstawowa konfiguracja języka SAML** aplikacja została wstępnie skonfigurowana i wymagane adresy URL są już wstępnie wypełnione na platformie Azure. Wybierz pozycję **Zapisz**.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą SAML** w sekcji Saml Signing Certificate (Certyfikat **podpisywania SAML)** znajdź **pozycję Certyfikat (Base64).** Wybierz **pozycję Pobierz,** aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź pozycję **certyfikat (base64)**. Wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
-    ![Zrzut ekranu przedstawiający sekcję Certyfikat podpisywania SAML z wyróżnionym łączem Pobierania](common/certificatebase64.png)
+    ![Zrzut ekranu przedstawiający sekcję certyfikat podpisywania SAML z wyróżnionym linkiem pobierania](common/certificatebase64.png)
 
-1. Veracode oczekuje potwierdzeń SAML w określonym formacie, który wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
+1. Veracode oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
-    ![Zrzut ekranu przedstawiający sekcję Oświadczenia & atrybutów użytkowników](common/default-attributes.png)
+    ![Zrzut ekranu przedstawiający sekcje User Attributes & oświadczenia](common/default-attributes.png)
 
-1. Veracode oczekuje również kilka atrybutów, które mają być przekazywane z powrotem w odpowiedzi SAML. Te atrybuty są również wstępnie wypełnione, ale można je przejrzeć zgodnie z wymaganiami.
+1. Veracode oczekuje także kilku atrybutów do przekazania z powrotem do odpowiedzi SAML. Te atrybuty są również wstępnie wypełnione, ale można je przejrzeć zgodnie z wymaganiami.
 
     | Nazwa | Atrybut źródłowy|
     | ---------------| --------------- |
-    | firstname |Nazwa użytkownika.givenname |
-    | lastname |User.nazwisko |
+    | firstname |Użytkownik. podanąname |
+    | lastname |User. nazwisko |
     | email |User.mail |
 
-1. W sekcji **Konfigurowanie veracode** skopiuj odpowiednie adresy URL na podstawie wymagań.
+1. W sekcji **Konfigurowanie Veracode** skopiuj odpowiednie adresy URL na podstawie wymagania.
 
-    ![Zrzut ekranu przedstawiający sekcję Konfigurowanie veracode z wyróżnionymi adresami URL konfiguracji](common/copy-configuration-urls.png)
+    ![Zrzut ekranu przedstawiający sekcję Set up Veracode z wyróżnionymi adresami URL konfiguracji](common/copy-configuration-urls.png)
 
-## <a name="configure-veracode-sso"></a>Konfigurowanie przyswajaszu dostępu do kodu automatycznego veracode
+## <a name="configure-veracode-sso"></a>Konfigurowanie logowania jednokrotnego Veracode
 
-1. W innym oknie przeglądarki internetowej zaloguj się do witryny firmy Veracode jako administrator.
+1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny Veracode jako administrator.
 
-1. Z menu u góry wybierz pozycję **Ustawienia** > **Administrator**.
+1. W menu u góry wybierz pozycję **Ustawienia** > **administrator**.
    
-    ![Zrzut ekranu przedstawiający administrację veracode z wyróżnioną ikoną Ustawienia i wyróżnioną ikoną Admin](./media/veracode-tutorial/ic802911.png "Administracja")
+    ![Zrzut ekranu przedstawiający administrowanie Veracode z ikonami ustawień i administratorami wyróżnionymi](./media/veracode-tutorial/ic802911.png "Administracja")
 
-1. Wybierz kartę **SAML.**
+1. Wybierz kartę **SAML** .
 
-1. W sekcji **Ustawienia SAML organizacji** wykonaj następujące czynności:
+1. W sekcji **Ustawienia protokołu SAML organizacji** wykonaj następujące czynności:
 
-    ![Zrzut ekranu przedstawiający sekcję Ustawienia SAML organizacji](./media/veracode-tutorial/ic802912.png "Administracja")
+    ![Zrzut ekranu przedstawiający sekcję ustawień SAML organizacji](./media/veracode-tutorial/ic802912.png "Administracja")
 
-    a.  W przypadku **wystawcy**wklej wartość **identyfikatora usługi Azure AD** skopiowaną z witryny Azure portal.
+    a.  W przypadku **wystawcy**należy wkleić wartość **identyfikatora usługi Azure AD** skopiowaną z Azure Portal.
 
-    b. W przypadku **certyfikatu podpisywania oświadczeń**wybierz **pozycję Wybierz plik,** aby przekazać pobrany certyfikat z witryny Azure portal.
+    b. W polu **certyfikat podpisywania potwierdzenia**wybierz pozycję **Wybierz plik** , aby przekazać pobrany certyfikat z Azure Portal.
 
-    d. W obszarze **Rejestracja własna**wybierz pozycję **Włącz rejestrację samoojezdą**.
+    c. W celu **samorejestracji**wybierz pozycję **Włącz rejestrację samoczynną**.
 
-1. W sekcji **Ustawienia samodzielnej rejestracji** wykonaj następujące czynności, a następnie wybierz pozycję **Zapisz:**
+1. W sekcji **Ustawienia rejestracji automatycznej** wykonaj następujące kroki, a następnie wybierz pozycję **Zapisz**:
 
-    ![Zrzut ekranu przedstawiający sekcję Ustawienia samodzielnej rejestracji z wyróżnionymi różnymi opcjami](./media/veracode-tutorial/ic802913.png "Administracja")
+    ![Zrzut ekranu przedstawiający sekcję Ustawienia rejestracji automatycznej z różnymi opcjami wyróżnionymi](./media/veracode-tutorial/ic802913.png "Administracja")
 
-    a. W przypadku **aktywacji nowego użytkownika**wybierz **opcję Nie wymaga aktywacji**.
+    a. W przypadku **aktywacji nowego użytkownika**wybierz opcję **Brak wymagania aktywacji**.
 
-    b. W przypadku **aktualizacji danych użytkownika**wybierz pozycję **Preferencje Veracode Dane użytkownika**.
+    b. W przypadku **aktualizacji danych użytkownika**wybierz pozycję **preferencja Veracode dane użytkownika**.
 
-    d. W przypadku **szczegółów atrybutu SAML**wybierz następujące elementy:
+    c. W polu **szczegóły atrybutu SAML**wybierz następujące opcje:
       * **Role użytkowników**
       * **Administrator zasad**
       * **Recenzent**
-      * **Potencjalny klient zabezpieczeń**
-      * **Wykonawczy**
-      * **Nadesłał**
+      * **Klient zabezpieczeń**
+      * **Zarządza**
+      * **Osoba przesyłająca**
       * **Kreator**
-      * **Wszystkie typy skanowania**
-      * **Członkostwo w zespole**
-      * **Domyślny zespół**
+      * **Wszystkie typy skanów**
+      * **Członkostwa w zespole**
+      * **Zespół domyślny**
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego w witrynie Azure portal o nazwie B.Simon.
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. Z lewego okienka w witrynie Azure portal wybierz pozycję**Użytkownicy** >  **usługi Azure Active Directory** >**Wszyscy użytkownicy**.
-1. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
-1. We właściwościach **Użytkownika** wykonaj następujące kroki:
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory** >**Użytkownicy** > **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
 
-   1. W **yjmij nazwę**, wprowadź `B.Simon`.  
-   1. W przypadku **nazwy** username@companydomain.extensionużytkownika wprowadź plik . Na przykład `B.Simon@contoso.com`.
-   1. Wybierz **pozycję Pokaż hasło**, a następnie zapisz wyświetlaną wartość.
-   1. Wybierz **pozycję Utwórz**.
+   1. W obszarze **Nazwa**wprowadź `B.Simon`.  
+   1. W polu username@companydomain.extension **Nazwa użytkownika**wprowadź. Na przykład `B.Simon@contoso.com`.
+   1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość wyświetlaną.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włącz B.Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do Veracode.
+W tej sekcji należy włączyć usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Veracode.
 
-1. W portalu Azure wybierz pozycję **Aplikacje** > dla**przedsiębiorstw Wszystkie aplikacje**.
-1. Na liście aplikacji wybierz pozycję **Veracode**.
-1. Na stronie przegląd aplikacji znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. W Azure Portal wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **Veracode**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
-   ![Zrzut ekranu przedstawiający sekcję Zarządzanie z wyróżnionymi wyróżnionymi wyróżnionymi użytkownikami i grupami](common/users-groups-blade.png)
+   ![Zrzut ekranu przedstawiający sekcję Zarządzanie z wyróżnionymi użytkownikami i grupami](common/users-groups-blade.png)
 
-1. Wybierz przycisk **Dodaj użytkownika**. W oknie dialogowym **Dodawanie przydziału** wybierz pozycję **Użytkownicy i grupy**.
+1. Wybierz przycisk **Dodaj użytkownika**. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
 
-    ![Zrzut ekranu przedstawiający stronę Użytkownicy i grupy z wyróżnioną pozycją Dodaj użytkownika](common/add-assign-user.png)
+    ![Zrzut ekranu strony użytkownicy i grupy z wyróżnioną pozycją Dodaj użytkownika](common/add-assign-user.png)
 
-1. W oknie dialogowym **Użytkownicy i grupy** w oknie **użytkownicy**wybierz pozycję **B.Simon**. Następnie wybierz pozycję **Wybierz** u dołu ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy. Następnie wybierz pozycję **Wybierz** u dołu ekranu.
+1. W oknie dialogowym **Użytkownicy i grupy** **Wybierz pozycję** **B. Simon**. Następnie wybierz **pozycję zaznacz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że jakakolwiek wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz z listy odpowiednią rolę dla użytkownika. Następnie wybierz **pozycję zaznacz** w dolnej części ekranu.
 1. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Przypisz**.
 
-### <a name="create-veracode-test-user"></a>Tworzenie użytkownika testowego Veracode
+### <a name="create-veracode-test-user"></a>Utwórz użytkownika testowego Veracode
 
-Aby zalogować się do Veracode, użytkownicy usługi Azure AD muszą być aprowizowani do Veracode. To zadanie jest zautomatyzowane i nie trzeba nic robić ręcznie. Użytkownicy są automatycznie tworzone w razie potrzeby podczas pierwszej próby logowania jednokrotnego.
+Aby zalogować się do usługi Veracode, użytkownicy usługi Azure AD muszą być obsługiwani do usługi Veracode. To zadanie jest zautomatyzowane i nie trzeba wykonywać żadnych czynności ręcznie. Użytkownicy są automatycznie tworzeniu w razie potrzeby podczas pierwszej próby logowania jednokrotnego.
 
 > [!NOTE]
-> Do aprowizowania kont użytkowników usługi Azure AD można użyć innych narzędzi do tworzenia konta użytkownika Veracode lub interfejsów API udostępnianych przez veracode.
+> Do aprowizacji kont użytkowników usługi Azure AD można używać innych narzędzi do tworzenia kont użytkowników Veracode i interfejsów API udostępnionych przez usługę Veracode.
 
-## <a name="test-sso"></a>Test SSO
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po **wybraniu opcji Veracode** w Panelu dostępu należy automatycznie zalogować się do veracode, dla którego skonfigurowano logowanie logowanie. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu opcji **Veracode** w panelu dostępu należy automatycznie zalogować się do Veracode, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
@@ -192,4 +192,4 @@ Po **wybraniu opcji Veracode** w Panelu dostępu należy automatycznie zalogowa�
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Wypróbuj veracode z usługą Azure AD](https://aad.portal.azure.com/)
+- [Wypróbuj Veracode z usługą Azure AD](https://aad.portal.azure.com/)
