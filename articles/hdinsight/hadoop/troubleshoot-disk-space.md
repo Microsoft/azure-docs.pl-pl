@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie miejscem na dysku w usłudze Azure HDInsight
-description: Rozwiązywanie problemów z instrukcjami i możliwymi rozwiązaniami problemów podczas interakcji z klastrami usługi Azure HDInsight.
+description: Kroki rozwiązywania problemów i możliwe rozwiązania problemów podczas pracy z klastrami usługi Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,48 +8,48 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/17/2020
 ms.openlocfilehash: 577bed7ce342be14a50077a3ffd841cd901b5b31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77473014"
 ---
 # <a name="manage-disk-space-in-azure-hdinsight"></a>Zarządzanie miejscem na dysku w usłudze Azure HDInsight
 
-W tym artykule opisano kroki rozwiązywania problemów i możliwe rozwiązania problemów podczas interakcji z klastrami usługi Azure HDInsight.
+W tym artykule opisano kroki rozwiązywania problemów oraz możliwe rozwiązania problemów występujących w przypadku współpracy z klastrami usługi Azure HDInsight.
 
-## <a name="hive-log-configurations"></a>Konfiguracje dziennika gałęzi
+## <a name="hive-log-configurations"></a>Konfiguracje dzienników Hive
 
-1. W przeglądarce internetowej `https://CLUSTERNAME.azurehdinsight.net`przejdź `CLUSTERNAME` do miejsca , gdzie jest nazwa klastra.
+1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net`lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
-1. Przejdź do **sekcji Hive** > **Configs** > **Advanced** > Advanced**hive-log4j**. Przejrzyj następujące ustawienia:
+1. Przejdź do **Hive** > **Configs** > **Advanced**konfiguracji > Hive Advanced**Advanced Hive-Log4J**. Zapoznaj się z następującymi ustawieniami:
 
-    * `hive.root.logger=DEBUG,RFA`. Jest to wartość domyślna, zmodyfikuj [poziom dziennika,](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/Level.html) aby `INFO` wydrukować mniej wpisów dzienników.
+    * `hive.root.logger=DEBUG,RFA`. Jest to wartość domyślna, modyfikując [poziom dziennika](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/Level.html) w `INFO` celu drukowania mniejszych wpisów dzienników.
 
-    * `log4jhive.log.maxfilesize=1024MB`. Jest to wartość domyślna, zmodyfikować zgodnie z potrzebami.
+    * `log4jhive.log.maxfilesize=1024MB`. Jest to wartość domyślna, a w razie potrzeby zmodyfikuj ją.
 
-    * `log4jhive.log.maxbackupindex=10`. Jest to wartość domyślna, zmodyfikować zgodnie z potrzebami. Jeśli parametr został pominięty, wygenerowane pliki dziennika będą nieskończone.
+    * `log4jhive.log.maxbackupindex=10`. Jest to wartość domyślna, a w razie potrzeby zmodyfikuj ją. Jeśli parametr został pominięty, wygenerowane pliki dziennika będą nieograniczone.
 
-## <a name="yarn-log-configurations"></a>Konfiguracje dziennika przędzy
+## <a name="yarn-log-configurations"></a>Konfiguracje dzienników przędzy
 
 Przejrzyj następujące konfiguracje:
 
 * Apache Ambari
 
-    1. W przeglądarce internetowej `https://CLUSTERNAME.azurehdinsight.net`przejdź `CLUSTERNAME` do miejsca , gdzie jest nazwa klastra.
+    1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net`lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
-    1. Przejdź do Menedżera**zaawansowanych** > **zasobów** **Hive** > **Configs** > . Upewnij się, że **opcja Włącz agregację dzienników** jest zaznaczona. Jeśli opcja jest wyłączona, węzły nazw będą przechowywać dzienniki lokalnie i nie agregują ich w magazynie zdalnym po zakończeniu lub zakończeniu aplikacji.
+    1. Przejdź do **Hive** > **konfiguracji** > programu Hive —**Zaawansowane** > **Menedżer zasobów**. Upewnij się, że jest zaznaczone pole wyboru **Włącz agregację dzienników** . Jeśli ta funkcja jest wyłączona, węzły nazw przechowują dzienniki lokalnie i nie agregują ich w magazynie zdalnym po ukończeniu lub zakończeniu działania aplikacji.
 
-* Upewnij się, że rozmiar klastra jest odpowiedni dla obciążenia. Obciążenie mogło ulec zmianie niedawno lub może być zmieniony format klastra. [Skalowanie](../hdinsight-scaling-best-practices.md) w górę klastra, aby dopasować się do wyższego obciążenia.
+* Upewnij się, że rozmiar klastra jest odpowiedni dla obciążenia. Obciążenie mogło być niedawno zmienione lub zmieniono rozmiar klastra. [Skaluj](../hdinsight-scaling-best-practices.md) klaster w górę w celu dopasowania go do większego obciążenia.
 
-* `/mnt/resource`mogą być wypełnione osieroconymi plikami (tak jak w przypadku ponownego uruchomienia Menedżera zasobów). W razie potrzeby `/mnt/resource/hadoop/yarn/log` należy `/mnt/resource/hadoop/yarn/local`ręcznie wyczyścić i .
+* `/mnt/resource`mogą być wypełnione oddzielone pliki (tak jak w przypadku ponownego uruchomienia Menedżera zasobów). W razie potrzeby ręczne czyszczenie `/mnt/resource/hadoop/yarn/log` i `/mnt/resource/hadoop/yarn/local`.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nie widzisz problemu lub nie możesz rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy technicznej:
+Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
 
-* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej platformy Azure Community.](https://azure.microsoft.com/support/community/)
+* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz [@AzureSupport](https://twitter.com/azuresupport) się z — oficjalnym kontem platformy Microsoft Azure w celu poprawy jakości obsługi klienta. Łączenie społeczności platformy Azure z odpowiednimi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+* Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
-* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy z [witryny Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wybierz **pozycję Obsługa z** paska menu lub otwórz centrum pomocy + pomocy **technicznej.** Aby uzyskać bardziej szczegółowe informacje, zapoznaj [się z instrukcjami tworzenia żądania pomocy technicznej platformy Azure.](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) Dostęp do obsługi zarządzania subskrypcjami i rozliczeń jest dołączony do subskrypcji platformy Microsoft Azure, a pomoc techniczna jest świadczona za pośrednictwem jednego z [planów pomocy technicznej platformy Azure.](https://azure.microsoft.com/support/plans/)
+* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

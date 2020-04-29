@@ -1,60 +1,60 @@
 ---
-title: Synchronizowanie zawartości z folderu w chmurze
-description: Dowiedz się, jak wdrożyć aplikację w usłudze Azure App Service za pomocą synchronizacji zawartości z folderu w chmurze, w tym usługi OneDrive lub Dropbox.
+title: Synchronizuj zawartość z folderu w chmurze
+description: Dowiedz się, jak wdrożyć aplikację do Azure App Service za pośrednictwem synchronizacji zawartości z folderu w chmurze, w tym OneDrive lub Dropbox.
 ms.assetid: 88d3a670-303a-4fa2-9de9-715cc904acec
 ms.topic: article
 ms.date: 12/03/2018
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 9f18eef607a5f655aecc0b6ebe1c85a239b34192
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77482976"
 ---
-# <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Synchronizowanie zawartości z folderu w chmurze z usługą Azure App Service
-W tym artykule pokazano, jak synchronizować zawartość z [usługą Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) z Dropbox i OneDrive. 
+# <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Synchronizuj zawartość z folderu w chmurze w celu Azure App Service
+W tym artykule pokazano, jak zsynchronizować zawartość do [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) z usługi Dropbox i OneDrive. 
 
-Wdrożenie synchronizacji zawartości na żądanie jest obsługiwane przez aparat wdrażania usługi App Service [Kudu](https://github.com/projectkudu/kudu/wiki). Możesz pracować z kodem aplikacji i zawartością w wyznaczonym folderze w chmurze, a następnie synchronizować z usługą App Service za pomocą kliknięcia przycisku. Synchronizacja zawartości używa serwera kompilacji Kudu. 
+Wdrożenie synchronizacji zawartości na żądanie jest obsługiwane przez [Aparat wdrażania App Service kudu](https://github.com/projectkudu/kudu/wiki). Możesz korzystać z kodu aplikacji i zawartości w wyznaczeniym folderze w chmurze, a następnie synchronizować się z App Service przy użyciu przycisku. Synchronizacja zawartości używa serwera kompilacji kudu. 
 
-## <a name="enable-content-sync-deployment"></a>Włączanie wdrażania synchronizacji zawartości
+## <a name="enable-content-sync-deployment"></a>Włącz wdrożenie synchronizacji zawartości
 
-Aby włączyć synchronizację zawartości, przejdź do strony aplikacji usługi App Service w [witrynie Azure Portal](https://portal.azure.com).
+Aby włączyć synchronizację zawartości, przejdź do strony aplikacji App Service w [Azure Portal](https://portal.azure.com).
 
-W menu po lewej stronie kliknij pozycję **Centrum** > wdrażania**OneDrive** lub **Dropbox** > **Authorize**. Postępuj zgodnie z instrukcjami autoryzacji. 
+W menu po lewej stronie kliknij pozycję **Deployment Center** > **OneDrive** lub **Dropbox** > **Autoryzuj**. Postępuj zgodnie z monitami o autoryzację. 
 
 ![](media/app-service-deploy-content-sync/choose-source.png)
 
-Wystarczy autoryzować je za pomocą usługi OneDrive lub Dropbox tylko raz. Jeśli masz już autoryzację, po prostu kliknij przycisk **Kontynuuj**. Możesz zmienić autoryzowane konto Usługi OneDrive lub Dropbox, klikając **pozycję Zmień konto**.
+Wystarczy tylko autoryzować usługę OneDrive lub Dropbox. Jeśli masz już autoryzację, po prostu kliknij pozycję **Kontynuuj**. Możesz zmienić autoryzowane konto usługi OneDrive lub Dropbox, klikając pozycję **Zmień konto**.
 
 ![](media/app-service-deploy-content-sync/continue.png)
 
-Na stronie **Konfigurowanie** wybierz folder, który chcesz zsynchronizować. Ten folder jest tworzony w poniższej wyznaczonej ścieżce zawartości w usłudze OneDrive lub Dropbox. 
+Na stronie **Konfigurowanie** wybierz folder, który chcesz synchronizować. Ten folder zostanie utworzony w usłudze OneDrive lub Dropbox za pomocą następującej wskazanej ścieżki zawartości. 
    
 * **Usługa OneDrive**:`Apps\Azure Web Apps`
-* **Dropbox**:`Apps\Azure`
+* Usługa **Dropbox**:`Apps\Azure`
 
 Po zakończeniu kliknij przycisk **Kontynuuj**.
 
-Na stronie **Podsumowanie** sprawdź swoje opcje i kliknij przycisk **Zakończ**.
+Na stronie **Podsumowanie** Sprawdź opcje i kliknij przycisk **Zakończ**.
 
-## <a name="synchronize-content"></a>Synchronizowanie zawartości
+## <a name="synchronize-content"></a>Synchronizuj zawartość
 
-Aby zsynchronizować zawartość w folderze w chmurze z usługą App Service, wróć do strony **Centrum wdrażania** i kliknij pozycję **Synchronizuj**.
+Jeśli chcesz synchronizować zawartość w folderze w chmurze za pomocą App Service, Wróć do strony **centrum wdrażania** i kliknij pozycję **Synchronizuj**.
 
 ![](media/app-service-deploy-content-sync/synchronize.png)
    
    > [!NOTE]
-   > Ze względu na podstawowe różnice w interfejsach API **usługa OneDrive dla Firm** nie jest obecnie obsługiwana. 
+   > Ze względu na różnice podstawowe w interfejsach API **Usługa OneDrive dla firm** nie jest w tej chwili obsługiwana. 
    > 
    > 
 
-## <a name="disable-content-sync-deployment"></a>Wyłączanie wdrażania synchronizacji zawartości
+## <a name="disable-content-sync-deployment"></a>Wyłącz wdrożenie synchronizacji zawartości
 
-Aby wyłączyć synchronizację zawartości, przejdź do strony aplikacji usługi App Service w [witrynie Azure Portal](https://portal.azure.com).
+Aby wyłączyć synchronizację zawartości, przejdź do strony aplikacji App Service w [Azure Portal](https://portal.azure.com).
 
-W menu po lewej stronie kliknij pozycję **Centrum** > wdrażania**Rozłącz**.
+W menu po lewej stronie kliknij pozycję **centrum** > wdrażania**Odłącz**.
 
 ![](media/app-service-deploy-content-sync/disable.png)
 
@@ -63,4 +63,4 @@ W menu po lewej stronie kliknij pozycję **Centrum** > wdrażania**Rozłącz**.
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Wdrażanie z lokalnego repozytorium Git](deploy-local-git.md)
+> [Wdróż z lokalnego repozytorium git](deploy-local-git.md)

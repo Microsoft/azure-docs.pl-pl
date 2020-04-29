@@ -11,13 +11,13 @@ ms.topic: include
 ms.custom: include file
 ms.author: diberry
 ms.openlocfilehash: e879afdbd4c34e9d74405644de86421fb2cbab46
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77279537"
 ---
-Wypowiedzi przykład po określonym formacie.
+Przykład wyrażenia długości jest zgodny z określonym formatem.
 
 Pole `text` zawiera tekst przykładowej wypowiedzi. Pole `intentName` musi odpowiadać nazwie istniejącej wypowiedzi w aplikacji LUIS. Pole `entityLabels` jest wymagane. Jeśli nie chcesz dodawać etykiet do żadnych jednostek, podaj pustą tablicę.
 

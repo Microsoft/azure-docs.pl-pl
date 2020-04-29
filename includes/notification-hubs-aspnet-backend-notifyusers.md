@@ -9,10 +9,10 @@ ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77192738"
 ---
 ## <a name="create-the-webapi-project"></a>Tworzenie projektu interfejsu WebAPI
@@ -28,12 +28,12 @@ Utwórz nowe zaplecze interfejsu WebAPI na platformie ASP.NET, wykonując nastę
 > [!IMPORTANT]
 > Jeśli używasz programu Visual Studio 2015 lub starszego, przed rozpoczęciem tego samouczka upewnij się, że masz zainstalowaną najnowszą wersję Menedżera pakietów NuGet dla programu Visual Studio.
 >
->Aby to sprawdzić, uruchom program Visual Studio. W menu **Narzędzia** wybierz polecenie **Rozszerzenia i aktualizacje**. Wyszukaj pozycję **Menedżer pakietów NuGet** w swojej wersji programu Visual Studio i sprawdź, czy masz najnowszą wersję. Jeśli nie używasz najnowszej wersji, odinstaluj ją i ponownie zainstaluj Menedżera pakietów NuGet.
+>Aby to sprawdzić, uruchom program Visual Studio. W menu **Narzędzia** wybierz pozycję **rozszerzenia i aktualizacje**. Wyszukaj pozycję **Menedżer pakietów NuGet** w swojej wersji programu Visual Studio i sprawdź, czy masz najnowszą wersję. Jeśli nie używasz najnowszej wersji, odinstaluj ją i ponownie zainstaluj Menedżera pakietów NuGet.
 
 ![][B4]
 
 > [!NOTE]
-> Upewnij się, że zainstalowano [zestaw SDK platformy Azure](https://azure.microsoft.com/downloads/) programu Visual Studio do wdrożenia witryny sieci Web.
+> Upewnij się, że zainstalowano wdrożenie [zestawu Azure SDK](https://azure.microsoft.com/downloads/) dla programu Visual Studio dla witryny sieci Web.
 
 1. Uruchom program Visual Studio lub Visual Studio Express.
 
@@ -59,7 +59,7 @@ Utwórz nowe zaplecze interfejsu WebAPI na platformie ASP.NET, wykonując nastę
 
     ![Okno Konfigurowanie aplikacji internetowej platformy Microsoft Azure][B5]
 
-    Jeśli nie widzisz tej strony do konfigurowania planu usługi aplikacji, przejdź do samouczka. Można go skonfigurować podczas publikowania aplikacji później. 
+    Jeśli nie widzisz tej strony na potrzeby konfigurowania planu usługi App Service, przejdź do samouczka. Można go skonfigurować podczas późniejszego publikowania aplikacji. 
 
 ## <a name="authenticate-clients-to-the-webapi-backend"></a>Uwierzytelnianie klientów w zapleczu interfejsu WebAPI
 
@@ -186,7 +186,7 @@ W tej sekcji dodajesz nowy kontroler do zaplecza interfejsu WebAPI w celu obsłu
     }
     ```
     > [!IMPORTANT]
-    > Wprowadź **nazwę** i **defaultfullsharedaccesssignature** centrum przed kontynuowaniem dalszych. 
+    > Aby kontynuować, wprowadź **nazwę** i **DefaultFullSharedAccessSignature** centrum. 
     
 7. Następnie utwórz nowy kontroler o nazwie **RegisterController**. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folder **Kontrolery**, wybierz polecenie **Dodaj**, a następnie kliknij pozycję **Kontroler**.
 
@@ -390,9 +390,9 @@ Następnie wdrożysz tę aplikację w witrynie internetowej platformy Azure, aby
 
     ![Kafelek usługi Microsoft Azure App Service][B15]
 
-3. W oknie **Tworzenie usługi App Service** wybierz swoje konto platformy Azure. Wybierz **pozycję Zmień typ** > **aplikacji sieci Web**. Zachowaj wartość domyślną w polu **Nazwa aplikacji internetowej** i wybierz wartości w polach **Subskrypcja**, **Grupa zasobów** i **Plan usługi App Service**.
+3. W oknie **Tworzenie usługi App Service** wybierz swoje konto platformy Azure. Wybierz pozycję **Zmień typ** > **aplikacji sieci Web**. Zachowaj wartość domyślną w polu **Nazwa aplikacji internetowej** i wybierz wartości w polach **Subskrypcja**, **Grupa zasobów** i **Plan usługi App Service**.
 
-4. Wybierz **pozycję Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
 5. Zanotuj wartość właściwości **Adres URL witryny** w sekcji **Podsumowanie**. Ten adres URL jest Twoim *punktem końcowym zaplecza* w dalszej części samouczka.
 

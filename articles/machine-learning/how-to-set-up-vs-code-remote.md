@@ -1,7 +1,7 @@
 ---
-title: 'Interaktywne debugowanie: vs kod & wystąpienia obliczeniowe ML'
+title: 'Interaktywny debugowanie: VS Code & wystąpienia obliczeniowe ML'
 titleSuffix: Azure Machine Learning
-description: Skonfiguruj zdalny program VS, aby interaktywnie debugować kod za pomocą usługi Azure Machine Learning.
+description: Skonfiguruj VS Code zdalnie, aby interaktywnie debugować kod przy użyciu Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,49 +10,49 @@ ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
 ms.openlocfilehash: 1999d29db21f820fbcdbca08f2258b657673be3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77169759"
 ---
-# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Debugowanie interaktywnie na wystąpieniu obliczeniowym usługi Azure Machine Learning za pomocą zdalnego kodu vs
+# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Interaktywna debugowanie w wystąpieniu obliczeniowym Azure Machine Learning przy użyciu VS Code zdalnego
 
-W tym artykule dowiesz się, jak skonfigurować program Visual Studio Code Remote na wystąpieniu obliczeniowym usługi Azure Machine Learning, dzięki czemu można **interaktywnie debugować kod** z programu VS Code. 
+W tym artykule dowiesz się, jak skonfigurować Visual Studio Code zdalne dla wystąpienia obliczeniowego Azure Machine Learning, dzięki czemu możesz **interaktywnie debugować kod** z vs Code. 
 
-+ [Wystąpienie obliczeniowe usługi Azure Machine Learning](concept-compute-instance.md) to w pełni zarządzana chmurowa stacja robocza dla analityków danych i zapewnia administratorom IT funkcje zarządzania i gotowości w przedsiębiorstwie. 
++ [Wystąpienie obliczeniowe Azure Machine Learning](concept-compute-instance.md) jest w pełni zarządzaną stacją roboczą opartą na chmurze dla analityków danych i udostępniają funkcje zarządzania i gotowości przedsiębiorstwa dla administratorów IT. 
 
 
-+ [Pilot kodu programu Visual Studio](https://code.visualstudio.com/docs/remote/remote-overview) Program rozwoju umożliwia użycie kontenera, komputera zdalnego lub podsystemu Windows dla systemu Linux (WSL) jako w pełni funkcjonalne środowisko programistyczne. 
++ [Visual Studio Code zdalny](https://code.visualstudio.com/docs/remote/remote-overview) Programowanie umożliwia korzystanie z kontenera, maszyny zdalnej lub podsystemu Windows dla systemu Linux (WSL) jako w pełni funkcjonalnego środowiska deweloperskiego. 
 
 ## <a name="prerequisite"></a>Wymagania wstępne  
 
-Na platformach Windows należy [zainstalować klienta SSH zgodnego z OpenSSH,](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) jeśli go jeszcze nie ma. 
+Na platformach Windows należy [zainstalować klienta SSH zgodnego z OpenSSH](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) , jeśli jeszcze go nie ma. 
 
 > [!Note]
-> PuTTY nie jest obsługiwany w systemie Windows, ponieważ polecenie ssh musi znajdować się w ścieżce. 
+> Instrukcje nie są obsługiwane w systemie Windows, ponieważ polecenie SSH musi znajdować się w ścieżce. 
 
-## <a name="get-ip-and-ssh-port"></a>Pobierz port IP i SSH 
+## <a name="get-ip-and-ssh-port"></a>Pobieranie portu IP i protokołu SSH 
 
-1. Przejdź do studia usługi https://ml.azure.com/Azure Machine Learning pod adresem .
+1. Przejdź do Azure Machine Learning Studio na stronie https://ml.azure.com/.
 
 2. Wybierz [obszar roboczy](concept-workspace.md).
-1. Kliknij kartę **Wystąpienia obliczeniowe.**
-1. W kolumnie **Identyfikator URI aplikacji** kliknij łącze **SSH** wystąpienia obliczeniowego, którego chcesz użyć jako obliczenia zdalnego. 
-1. W oknie dialogowym zanotuj adres IP i port SSH. 
-1. Zapisz klucz prywatny w katalogu ~/.ssh/ na komputerze lokalnym; na przykład otwórz edytor dla nowego pliku i wklej klucz w: 
+1. Kliknij kartę **wystąpienia obliczeniowe** .
+1. W kolumnie **Identyfikator URI aplikacji** kliknij link **SSH** wystąpienia obliczeniowego, którego chcesz użyć jako zdalnego obliczania. 
+1. W oknie dialogowym Zwróć uwagę na adres IP i port SSH. 
+1. Zapisz swój klucz prywatny w katalogu ~/.SSH/na komputerze lokalnym; na przykład Otwórz edytor dla nowego pliku i Wklej klucz w: 
 
-   **Linux**: 
+   System **Linux**: 
    ```sh
    vi ~/.ssh/id_azmlcitest_rsa  
    ```
 
-   **Okna**: 
+   **System Windows**: 
    ```
    notepad C:\Users\<username>\.ssh\id_azmlcitest_rsa 
    ```
 
-   Klucz prywatny będzie wyglądać nieco tak:
+   Klucz prywatny będzie wyglądać następująco:
    ```
    -----BEGIN RSA PRIVATE KEY----- 
 
@@ -63,14 +63,14 @@ Na platformach Windows należy [zainstalować klienta SSH zgodnego z OpenSSH,](h
    -----END RSA PRIVATE KEY----- 
    ```
 
-1. Zmień uprawnienia do pliku, aby upewnić się, że tylko ty możesz odczytać plik.  
+1. Zmień uprawnienia do pliku, aby upewnić się, że tylko można odczytać plik.  
    ```sh
    chmod 600 ~/.ssh/id_azmlcitest_rsa   
    ```
 
-## <a name="add-instance-as-a-host"></a>Dodawanie wystąpienia jako hosta 
+## <a name="add-instance-as-a-host"></a>Dodaj wystąpienie jako hosta 
 
-Otwórz plik `~/.ssh/config` (Linux) `C:\Users<username>.ssh\config` lub (Windows) w edytorze i dodaj nowy wpis podobny do tego:
+Otwórz plik `~/.ssh/config` (Linux) lub `C:\Users<username>.ssh\config` (Windows) w edytorze i Dodaj nowy wpis podobny do tego:
 
 ```
 Host azmlci1 
@@ -84,34 +84,34 @@ Host azmlci1
     IdentityFile ~/.ssh/id_azmlcitest_rsa   
 ```
 
-Oto kilka szczegółów na temat pól: 
+Poniżej przedstawiono niektóre szczegóły dotyczące pól: 
 
 |Pole|Opis|
 |----|---------|
-|Host|Użyj skrótu, który ci się podoba dla instancji obliczeniowej |
-|HostName|Jest to adres IP instancji obliczeniowej |
-|Port|Jest to port pokazany w oknie dialogowym SSH powyżej |
-|Użytkownik|Należy to `azureuser` |
-|Plik tożsamości|Należy wskazać plik, w którym został zapisany klucz prywatny |
+|Host|Używaj dowolnych skrótów dla wystąpienia obliczeniowego |
+|HostName|Jest to adres IP wystąpienia obliczeniowego |
+|Port|Jest to port wyświetlany w oknie dialogowym SSH powyżej |
+|Użytkownik|Musi to być `azureuser` |
+|IdentityFile|Powinien wskazywać plik, w którym zapisano klucz prywatny |
 
-Teraz powinieneś być w stanie ssh do wystąpienia obliczeniowego przy `ssh azmlci1`użyciu skrótu, który użyłeś powyżej, . 
+Teraz powinno być możliwe użycie protokołu SSH w wystąpieniu obliczeniowym przy użyciu składni użytej powyżej `ssh azmlci1`. 
 
-## <a name="connect-vs-code-to-the-instance"></a>Łączenie kodu VS z wystąpieniem 
+## <a name="connect-vs-code-to-the-instance"></a>Połącz VS Code z wystąpieniem 
 
-1. [Zainstaluj kod programu Visual Studio](https://code.visualstudio.com/).
+1. [Zainstaluj Visual Studio Code](https://code.visualstudio.com/).
 
-1. [Zainstaluj zdalne rozszerzenie SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh). 
+1. [Zainstaluj rozszerzenie Remote SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh). 
 
-1. Kliknij ikonę Remote-SSH po lewej stronie, aby wyświetlić konfiguracje SSH.
+1. Kliknij ikonę Remote-SSH po lewej stronie, aby wyświetlić konfiguracje protokołu SSH.
 
 1. Kliknij prawym przyciskiem myszy właśnie utworzoną konfigurację hosta SSH.
 
-1. Wybierz **pozycję Połącz z hostem w bieżącym oknie**. 
+1. **W bieżącym oknie wybierz pozycję Połącz z hostem**. 
 
-Od tego miejsca pracujesz całkowicie nad wystąpieniem obliczeniowym i możesz teraz edytować, debugować, używać git, używać rozszerzeń itp. 
+W tym miejscu Pracujesz w całości na wystąpieniu obliczeniowym. Możesz teraz edytować, debugować, korzystać z usługi git, używać rozszerzeń itp. — podobnie jak w przypadku lokalnego Visual Studio Code. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy masz skonfigurowany visual studio code remote, można użyć wystąpienia obliczeniowego jako zdalnego obliczeń z programu Visual Studio Code do interaktywnego debugowania kodu. 
+Teraz, po skonfigurowaniu Visual Studio Code zdalnej, można użyć wystąpienia obliczeniowego jako zdalnego obliczenia z Visual Studio Code do interaktywnego debugowania kodu. 
 
-[Samouczek: Trenuj swój pierwszy model uczenia maszynowego](tutorial-1st-experiment-sdk-train.md) pokazuje, jak używać wystąpienia obliczeniowego ze zintegrowanym notesem.
+[Samouczek: uczenie swojego pierwszego modelu ml](tutorial-1st-experiment-sdk-train.md) pokazuje, jak używać wystąpienia obliczeniowego z zintegrowanym notesem.

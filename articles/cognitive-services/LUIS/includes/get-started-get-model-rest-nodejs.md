@@ -1,5 +1,5 @@
 ---
-title: 'Pobierz model z wywołaniem REST w C #'
+title: 'Pobierz model z wywołaniem REST w języku C #'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -9,27 +9,27 @@ ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
 ms.openlocfilehash: bbb2ae0b10af795d71f0a78c045bec0c216ee378
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77368419"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Zrozumienie języka platformy Azure — tworzenie zasobu 32 klucz znaków i tworzenie adresu URL punktu końcowego. Utwórz za pomocą [witryny Azure portal](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) lub [interfejsu wiersza polecenia platformy Azure](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
-* Zaimportuj aplikację [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) z repozytorium GitHub ze zrozumieniem funkcji cognitive-services-language.
+* Azure Language Understanding — tworzenie zasobu 32 klucz znaku i adres URL punktu końcowego tworzenia. Utwórz za pomocą [Azure Portal](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) lub [interfejsu wiersza polecenia platformy Azure](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
+* Zaimportuj aplikację [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) z repozytorium GitHub-Services-Language-zrozumieć.
 * Identyfikator aplikacji usługi LUIS dla zaimportowanej aplikacji TravelAgent. Identyfikator aplikacji jest wyświetlany na pulpicie nawigacyjnym aplikacji.
 * Identyfikator wersji w aplikacji, w której odbierane są wypowiedzi. Domyślny identyfikator to „0.1”.
 * Język programowania [Node.js](https://nodejs.org/)
-* [Kod programu Visual Studio](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>Plik JSON z przykładowymi wypowiedziami
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
 
-## <a name="change-model-programmatically"></a>Programowo zmienianie modelu
+## <a name="change-model-programmatically"></a>Programowo Zmień model
 
 1. Utwórz nowy plik o nazwie `model.js`. Dodaj następujący kod:
 
@@ -109,17 +109,17 @@ ms.locfileid: "77368419"
     main().then(() => console.log("done")).catch((err)=> console.log(err returned));
     ```
 
-1. Zastąp `YOUR-` wartości zaczynające się od własnych wartości.
+1. Zastąp wartości zaczynające `YOUR-` się od własnymi wartościami.
 
     |Informacje|Przeznaczenie|
     |--|--|
-    |`YOUR-KEY`|Twój 32-znakowy klucz do tworzenia znaków.|
-    |`YOUR-ENDPOINT`| Punkt końcowy adresu URL tworzenia. Na przykład `replace-with-your-resource-name.api.cognitive.microsoft.com`. Podczas tworzenia zasobu można ustawić nazwę zasobu.|
-    |`YOUR-APP-ID`| Identyfikator aplikacji usługi LUIS. |
+    |`YOUR-KEY`|Klucz tworzenia znaków 32.|
+    |`YOUR-ENDPOINT`| Twój punkt końcowy adresu URL tworzenia. Na przykład `replace-with-your-resource-name.api.cognitive.microsoft.com`. Nazwa zasobu jest ustawiana podczas tworzenia zasobu.|
+    |`YOUR-APP-ID`| Identyfikator aplikacji LUIS. |
 
-    Przypisane klucze i zasoby są widoczne w portalu usługi LUIS w sekcji Zarządzanie na stronie **Zasoby platformy Azure.** Identyfikator aplikacji jest dostępny w tej samej sekcji Zarządzanie na stronie **Ustawienia aplikacji.**
+    Przypisane klucze i zasoby są widoczne w portalu LUIS w sekcji Zarządzanie na stronie **zasoby platformy Azure** . Identyfikator aplikacji jest dostępny w tej samej sekcji zarządzania na stronie **Ustawienia aplikacji** .
 
-1. W wierszu polecenia w tym samym katalogu, w którym utworzono plik, wprowadź następujące polecenie, aby uruchomić plik:
+1. Za pomocą wiersza polecenia w tym samym katalogu, w którym został utworzony plik, wprowadź następujące polecenie, aby uruchomić plik:
 
     ```console
     node model.js
@@ -127,9 +127,9 @@ ms.locfileid: "77368419"
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Po zakończeniu tego przewodnika Szybki start usuń plik z systemu plików.
+Po zakończeniu pracy z tym przewodnikiem Szybki Start Usuń plik z systemu plików.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Najważniejsze wskazówki dotyczące aplikacji](../luis-concept-best-practices.md)
+> [Najlepsze rozwiązania dla aplikacji](../luis-concept-best-practices.md)

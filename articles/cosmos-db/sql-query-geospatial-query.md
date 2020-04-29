@@ -1,37 +1,37 @@
 ---
-title: Wykonywanie zapytań o dane geoprzestrzenne za pomocą usługi Azure Cosmos DB
-description: Wykonywanie zapytań o dane przestrzenne za pomocą usługi Azure Cosmos DB
+title: Wykonywanie zapytania o dane geograficzne za pomocą Azure Cosmos DB
+description: Wykonywanie zapytania o dane przestrzenne za pomocą Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: 08b12bd9d35aaa61c79d35a55068983cdc0f1b83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77566324"
 ---
-# <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Wykonywanie zapytań o dane geoprzestrzenne za pomocą usługi Azure Cosmos DB
+# <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Wykonywanie zapytania o dane geograficzne za pomocą Azure Cosmos DB
 
-W tym artykule opisano, jak kwerendy danych geoprzestrzennych w usłudze Azure Cosmos DB przy użyciu języka SQL i LINQ. Obecnie przechowywanie danych geoprzestrzennych i uzyskiwanie do nich dostępu jest obsługiwane tylko przez konta interfejsu API usługi Azure Cosmos DB SQL. Usługa Azure Cosmos DB obsługuje następujące funkcje wbudowanego konsorcjum Open Geospatial Consortium (OGC) do wykonywania zapytań geoprzestrzennych. Aby uzyskać więcej informacji na temat pełnego zestawu wbudowanych funkcji w języku SQL, zobacz [Funkcje systemu zapytań w usłudze Azure Cosmos DB](sql-query-system-functions.md).
+W tym artykule opisano sposób wykonywania zapytań dotyczących danych geoprzestrzennych w Azure Cosmos DB przy użyciu języka SQL i LINQ. Obecnie przechowywanie i dostęp do danych geoprzestrzennych jest obsługiwane tylko przez Azure Cosmos DB kont interfejsu API SQL. Azure Cosmos DB obsługuje następujące funkcje wbudowane Open Geospatial Consortium (OGC) na potrzeby zapytań geograficznych. Aby uzyskać więcej informacji na temat pełnego zestawu wbudowanych funkcji w języku SQL, zobacz temat [funkcje systemowe zapytań w Azure Cosmos DB](sql-query-system-functions.md).
 
-## <a name="spatial-sql-built-in-functions"></a>Funkcje wbudowane SQL przestrzenne
+## <a name="spatial-sql-built-in-functions"></a>Funkcje wbudowane w przestrzennym języku SQL
 
-Oto lista funkcji systemu geoprzestrzennego przydatnych do wykonywania zapytań w usłudze Azure Cosmos DB:
+Poniżej znajduje się lista funkcji systemu geoprzestrzennych, które są przydatne do wykonywania zapytań w Azure Cosmos DB:
 
-|**Użycia**|**Opis**|
+|**Wykorzystywani**|**Opis**|
 |---|---|
 | ST_DISTANCE (spatial_expr, spatial_expr) | Zwraca odległość między dwoma wyrażeniami GeoJSON typu Point, Polygon lub LineString.|
 |ST_WITHIN (spatial_expr, spatial_expr) | Zwraca wyrażenie warunkowe wskazujące, czy pierwszy obiekt GeoJSON (Point, Polygon lub LineString) znajduje się w drugim obiekcie GeoJSON (Point, Polygon lub LineString).|
 |ST_INTERSECTS (wyrażenie_przestrzenne, wyrażenie_przestrzenne)| Zwraca wyrażenie warunkowe wskazujące, czy dwa określone obiekty GeoJSON (Point, Polygon lub LineString) przecinają się.|
 |ST_ISVALID| Zwraca wartość logiczną wskazującą, czy określone wyrażenie GeoJSON typu Point, Polygon lub LineString jest nieprawidłowe.|
-| ST_ISVALIDDETAILED| Zwraca wartość JSON zawierającą wartość logiczną, jeśli określone wyrażenie Punkt, Wielokąt lub Sznurek jest prawidłowy. Jeśli jest nieprawidłowy, zwraca przyczynę jako wartość ciągu.|
+| ST_ISVALIDDETAILED| Zwraca wartość JSON, która zawiera wartość logiczną, jeśli określone wyrażenie GEOJSON, wielokąt lub LineString jest prawidłowe. Jeśli jest nieprawidłowa, zwraca przyczynę jako wartość ciągu.|
 
-Funkcje przestrzenne mogą być używane do wykonywania zapytań dotyczących odległości względem danych przestrzennych. Na przykład oto kwerenda, która zwraca wszystkie dokumenty rodzinne, które znajdują się `ST_DISTANCE` w odległości 30 km od określonej lokalizacji przy użyciu wbudowanej funkcji.
+Funkcje przestrzenne mogą być używane do wykonywania zapytań dotyczących odległości względem danych przestrzennych. Na przykład Oto zapytanie, które zwraca wszystkie dokumenty rodziny, które znajdują się w zakresie 30 km od określonej lokalizacji za `ST_DISTANCE` pomocą wbudowanej funkcji.
 
-**Kwerendy**
+**Zapytanie**
 
 ```sql
     SELECT f.id
@@ -39,7 +39,7 @@ Funkcje przestrzenne mogą być używane do wykonywania zapytań dotyczących od
     WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
 ```
 
-**Results**
+**Wyniki**
 
 ```json
     [{
@@ -47,13 +47,13 @@ Funkcje przestrzenne mogą być używane do wykonywania zapytań dotyczących od
     }]
 ```
 
-Jeśli uwzględnisz indeksowanie przestrzenne w zasadach indeksowania, "zapytania dotyczące odległości" będą obsługiwane skutecznie za pośrednictwem indeksu. Aby uzyskać więcej informacji na temat indeksowania przestrzennego, zobacz [indeksowanie geoprzestrzenne](sql-query-geospatial-index.md). Jeśli nie masz indeksu przestrzennego dla określonych ścieżek, kwerenda wykona skanowanie kontenera.
+Jeśli w zasadach indeksowania dołączysz indeksowanie przestrzenne, "zapytania o odległości" będą efektywnie obsługiwane przez indeks. Aby uzyskać więcej informacji na temat indeksowania przestrzennego, zobacz [indeksowanie geoprzestrzenne](sql-query-geospatial-index.md). Jeśli nie masz indeksu przestrzennego dla określonych ścieżek, zapytanie przeprowadzi skanowanie kontenera.
 
-`ST_WITHIN`można użyć do sprawdzenia, czy punkt znajduje się w polygonie. Często wielokąty są używane do reprezentowania granic, takich jak kody pocztowe, granice stanu lub formacje naturalne. Ponownie, jeśli uwzględnisz indeksowanie przestrzenne w zasadach indeksowania, kwerendy "w obrębie" będą obsługiwane skutecznie za pośrednictwem indeksu.
+`ST_WITHIN`może służyć do sprawdzenia, czy punkt leży w obrębie wielokąta. Często wielokąty są używane do reprezentowania granic, takich jak kody pocztowe, granice stanu lub naturalne format. W przypadku dołączenia indeksowania przestrzennego do zasad indeksowania, zapytania "w ramach" będą efektywnie obsługiwane przez indeks.
 
-Wielokąt argumenty `ST_WITHIN` w może zawierać tylko jeden pierścień, to znaczy, Wielokąty nie może zawierać otworów w nich.
+Argumenty wielokąta `ST_WITHIN` w elemencie mogą zawierać tylko jeden pierścień, czyli, wielokąty nie mogą zawierać otworów.
 
-**Kwerendy**
+**Zapytanie**
 
 ```sql
     SELECT *
@@ -64,7 +64,7 @@ Wielokąt argumenty `ST_WITHIN` w może zawierać tylko jeden pierścień, to zn
     })
 ```
 
-**Results**
+**Wyniki**
 
 ```json
     [{
@@ -73,13 +73,13 @@ Wielokąt argumenty `ST_WITHIN` w może zawierać tylko jeden pierścień, to zn
 ```
 
 > [!NOTE]
-> Podobnie jak niezgodne typy działają w zapytaniu usługi Azure Cosmos DB, jeśli wartość lokalizacji określona w którymkolwiek z argumentów jest nieprawidłowo sformułowana lub nieprawidłowa, następnie ocenia się **na niezdefiniowany** i oceniony dokument, który ma zostać pominięty z wyników kwerendy. Jeśli kwerenda zwraca żadnych `ST_ISVALIDDETAILED` wyników, uruchom do debugowania, dlaczego typ przestrzenny jest nieprawidłowy.
+> Podobnie jak niezgodne typy działają w kwerendzie Azure Cosmos DB, jeśli wartość lokalizacji określona w obu argumentach jest źle sformułowana lub nieprawidłowa, zostanie ona oceniona jako **niezdefiniowana** i oceniony dokument, który ma zostać pominięty z wyników zapytania. Jeśli zapytanie nie zwraca wyników, uruchom `ST_ISVALIDDETAILED` polecenie, aby debugować dlaczego typ przestrzenny jest nieprawidłowy.
 >
 >
 
-Usługa Azure Cosmos DB obsługuje również wykonywanie zapytań odwrotnych, czyli można indeksować wielokąty lub wiersze w usłudze Azure Cosmos DB, a następnie wysyłać zapytania do obszarów zawierających określony punkt. Wzorzec ten jest powszechnie stosowany w logistyce do identyfikacji, na przykład, gdy ciężarówka wjeżdża lub opuszcza wyznaczony obszar.
+Azure Cosmos DB obsługuje również wykonywanie zapytań odwrotnych, oznacza to, że można indeksować wielokąty lub linie w Azure Cosmos DB, a następnie wykonywać zapytania dotyczące obszarów zawierających określony punkt. Ten wzorzec jest często używany w logistyki do identyfikowania, na przykład, gdy wózek przechodzi lub opuszcza wybrany obszar.
 
-**Kwerendy**
+**Zapytanie**
 
 ```sql
     SELECT *
@@ -87,7 +87,7 @@ Usługa Azure Cosmos DB obsługuje również wykonywanie zapytań odwrotnych, cz
     WHERE ST_WITHIN({'type': 'Point', 'coordinates':[31.9, -4.8]}, a.location)
 ```
 
-**Results**
+**Wyniki**
 
 ```json
     [{
@@ -99,15 +99,15 @@ Usługa Azure Cosmos DB obsługuje również wykonywanie zapytań odwrotnych, cz
     }]
 ```
 
-`ST_ISVALID`i `ST_ISVALIDDETAILED` może służyć do sprawdzania, czy obiekt przestrzenny jest prawidłowy. Na przykład następująca kwerenda sprawdza ważność punktu z wartością szerokości geograficznej poza zakresem (-132.8). `ST_ISVALID`zwraca tylko wartość logiczną `ST_ISVALIDDETAILED` i zwraca wartość logiczną i ciąg zawierający przyczynę, dla którego jest uważany za nieprawidłowy.
+`ST_ISVALID`i `ST_ISVALIDDETAILED` można go użyć do sprawdzenia, czy obiekt przestrzenny jest prawidłowy. Na przykład następujące zapytanie sprawdza poprawność punktu z wartością szerokości geograficznej, która jest poza zakresem (-132,8). `ST_ISVALID`zwraca tylko wartość logiczną, a `ST_ISVALIDDETAILED` zwraca wartość logiczną i ciąg zawierający powód, dla którego jest uznawany za nieprawidłowy.
 
-**Kwerendy**
+**Zapytanie**
 
 ```sql
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 ```
 
-**Results**
+**Wyniki**
 
 ```json
     [{
@@ -115,9 +115,9 @@ Usługa Azure Cosmos DB obsługuje również wykonywanie zapytań odwrotnych, cz
     }]
 ```
 
-Funkcje te mogą być również używane do sprawdzania poprawności wielokątów. Na przykład w `ST_ISVALIDDETAILED` tym miejscu używamy do sprawdzania poprawności wielokąta, który nie jest zamknięty.
+Te funkcje mogą być również używane do walidacji wielokątów. Przykładowo używamy `ST_ISVALIDDETAILED` do sprawdzania poprawności wielokąta, który nie jest zamknięty.
 
-**Kwerendy**
+**Zapytanie**
 
 ```sql
     SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 
@@ -125,7 +125,7 @@ Funkcje te mogą być również używane do sprawdzania poprawności wielokątó
         ]]})
 ```
 
-**Results**
+**Wyniki**
 
 ```json
     [{
@@ -136,13 +136,13 @@ Funkcje te mogą być również używane do sprawdzania poprawności wielokątó
     }]
 ```
 
-## <a name="linq-querying-in-the-net-sdk"></a>Linq kwerendy w pliku .NET SDK
+## <a name="linq-querying-in-the-net-sdk"></a>Zapytania LINQ w zestawie SDK platformy .NET
 
-SQL .NET SDK również `Distance()` dostawców `Within()` metod skrótowych i do użytku w wyrażeniach LINQ. Dostawca LINQ SQL tłumaczy tę metodę wywołania równoważne wywołania funkcji wbudowanych SQL (odpowiednio ST_DISTANCE i ST_WITHIN).
+Zestaw SDK programu SQL .NET jest również dostawcą `Distance()` metod `Within()` zastępczych i do użycia w wyrażeniach LINQ. Dostawca programu SQL LINQ tłumaczy to wywołanie metody na równoważne wywołania funkcji wbudowanych języka SQL (odpowiednio ST_DISTANCE i ST_WITHIN).
 
-Oto przykład zapytania LINQ, który znajduje wszystkie dokumenty w kontenerze usługi Azure Cosmos, którego `location` wartość znajduje się w promieniu 30 km od określonego punktu przy użyciu LINQ.
+Oto przykład zapytania LINQ, które znajduje wszystkie dokumenty w kontenerze usługi Azure Cosmos, którego `location` wartość znajduje się w promieniu 30 km od określonego punktu przy użyciu LINQ.
 
-**Linq kwerendy dla odległość**
+**Zapytanie LINQ dla odległości**
 
 ```csharp
     foreach (UserProfile user in container.GetItemLinqQueryable<UserProfile>(allowSynchronousQueryExecution: true)
@@ -152,9 +152,9 @@ Oto przykład zapytania LINQ, który znajduje wszystkie dokumenty w kontenerze u
     }
 ```
 
-Podobnie oto zapytanie o znalezienie wszystkich dokumentów, których `location` znajduje się w określonym polu/wielokąta.
+Podobnie, Oto zapytanie do znajdowania wszystkich dokumentów, które `location` znajdują się w określonym polu/wielokąta.
 
-**Linq kwerendy dla w obrębie**
+**Zapytanie LINQ dla w ramach**
 
 ```csharp
     Polygon rectangularArea = new Polygon(
@@ -178,8 +178,8 @@ Podobnie oto zapytanie o znalezienie wszystkich dokumentów, których `location`
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy dowiesz się, jak rozpocząć korzystanie z pomocy technicznej geoprzestrzennej w usłudze Azure Cosmos DB, możesz następnie:
+Teraz, gdy wiesz już, jak zacząć korzystać z obsługi geograficznej w Azure Cosmos DB, możesz dalej:
 
-* Dowiedz się więcej o [zapytaniu usługi Azure Cosmos DB](sql-query-getting-started.md)
-* Dowiedz się więcej o [danych lokalizacji Geospatial i GeoJSON w usłudze Azure Cosmos DB](sql-query-geospatial-intro.md)
-* Dowiedz się więcej o [indeksowaniu danych przestrzennych za pomocą usługi Azure Cosmos DB](sql-query-geospatial-index.md)
+* Dowiedz się więcej o [Azure Cosmos DB Query](sql-query-getting-started.md)
+* Dowiedz się więcej o [danych lokalizacji geograficznej i GEOJSON w Azure Cosmos DB](sql-query-geospatial-intro.md)
+* Dowiedz się więcej o [indeksowaniu danych przestrzennych za pomocą Azure Cosmos DB](sql-query-geospatial-index.md)

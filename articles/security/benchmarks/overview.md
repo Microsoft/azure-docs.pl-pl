@@ -1,5 +1,5 @@
 ---
-title: Omówienie analizy testów porównawczych zabezpieczeń platformy Azure
+title: Omówienie testu porównawczego zabezpieczeń platformy Azure
 description: Omówienie testu porównawczego zabezpieczeń
 author: msmbaldwin
 manager: rkarlin
@@ -9,21 +9,21 @@ ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
 ms.openlocfilehash: 2f4b034948605b0a53a0320863608d284719a96d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77587536"
 ---
-# <a name="overview-of-the-azure-security-benchmark"></a>Omówienie wzoru zabezpieczeń platformy Azure
+# <a name="overview-of-the-azure-security-benchmark"></a>Omówienie testu porównawczego zabezpieczeń platformy Azure
 
-Usługa Azure Security Benchmark zawiera zalecenia, które ułatwiają zwiększenie bezpieczeństwa aplikacji i danych na platformie Azure.
+Test porównawczy zabezpieczeń platformy Azure zawiera zalecenia, które pomagają ulepszyć zabezpieczenia aplikacji i danych na platformie Azure.
 
-Ten benchmark koncentruje się na obszarach kontroli zorientowanych na chmurę. Te formanty są zgodne ze znanymi wskaźnikami zabezpieczeń, takimi jak te opisane przez formanty Center for Internet Security (CIS) w wersji 7.1.
+Ten test porównawczy koncentruje się na obszarach formantów skoncentrowanych na chmurze. Te kontrolki są spójne z dobrze znanymi testami zabezpieczeń, takimi jak opisane przez formanty Centrum zabezpieczeń internetowych (CIS) w wersji 7,1.
 
-Następujące kontrolki są używane w usłudze Azure Security Benchmark: 
+W teście zabezpieczeń Azure są używane następujące kontrolki: 
 
-- [Bezpieczeństwo sieci](security-control-network-security.md)
+- [Zabezpieczenia sieci](security-control-network-security.md)
 - [Rejestrowanie i monitorowanie](security-control-logging-monitoring.md)
 - [Tożsamość i kontrola dostępu](security-control-identity-access-control.md)
 - [Ochrona danych](security-control-data-protection.md)
@@ -32,24 +32,24 @@ Następujące kontrolki są używane w usłudze Azure Security Benchmark:
 - [Bezpieczna konfiguracja](security-control-secure-configuration.md)
 - [Ochrona przed złośliwym oprogramowaniem](security-control-malware-defense.md)
 - [Odzyskiwanie danych](security-control-data-recovery.md)
-- [Reagowanie na incydenty](security-control-incident-response.md)
+- [Reagowanie na zdarzenia](security-control-incident-response.md)
 - [Testy penetracyjne i ćwiczenia typu „red team”](security-control-penetration-tests-red-team-exercises.md)
 
-Można również pobrać [arkusz kalkulacyjny programu Azure Security Benchmark w wersji 1 excel](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets).
+Możesz również pobrać [Arkusz kalkulacyjny programu Excel z usługi Azure Security Tests w wersji 1](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets).
 
-## <a name="azure-security-benchmark-recommendations"></a>Zalecenia dotyczące testów porównawczych zabezpieczeń platformy Azure 
+## <a name="azure-security-benchmark-recommendations"></a>Zalecenia dotyczące usługi Azure Security test 
 
 Każde zalecenie zawiera następujące informacje: 
 
-- **Identyfikator platformy Azure:** identyfikator wzorca zabezpieczeń platformy Azure, który odpowiada zaleceniu. 
-- **Identyfikatory CIS : Zalecenia(-a)** dotyczące wskaźników CIS, które odpowiadają niniejszemu zaleceniu.  
-- **Odpowiedzialność:** Czy klient lub usługodawca (lub oba) jest (są) odpowiedzialne za wdrożenie tego zalecenia. Obowiązki związane z bezpieczeństwem są współużytkowane w chmurze publicznej. Niektóre środki kontroli zabezpieczeń są dostępne tylko dla dostawcy usług w chmurze i dlatego dostawca jest odpowiedzialny za adresowanie tych. Są to ogólne obserwacje — w przypadku niektórych usług odpowiedzialność będzie inna niż wymieniona w usłudze Azure Security Benchmark. Różnice te są opisane w zaleceniach bazowych dla poszczególnych usług. 
-- **Szczegóły**: Uzasadnienie zalecenia i linki do wskazówek dotyczących sposobu jego wdrożenia. Jeśli zalecenie jest obsługiwane przez usługę Azure Security Center, te informacje również zostaną wyświetlone.
+- **Identyfikator platformy Azure**: Identyfikator testu porównawczego zabezpieczeń platformy Azure, który odpowiada zalecenia. 
+- **Identyfikatory CIS**: zalecenia dotyczące testów porównawczych CIS, które odpowiadają temu rekomendacji.  
+- **Odpowiedzialność**: niezależnie od tego, czy klient lub dostawca usług (lub obie) są odpowiedzialni za wdrożenie tego zalecenia. Obowiązki związane z zabezpieczeniami są udostępniane w chmurze publicznej. Niektóre funkcje kontroli zabezpieczeń są dostępne tylko dla dostawcy usług w chmurze, dlatego dostawca jest odpowiedzialny za adresowanie. Są to ogólne obserwacje — w przypadku niektórych poszczególnych usług odpowiedzialność będzie różna od tego, co jest wymienione w teście zabezpieczeń platformy Azure. Te różnice opisano w podstawowych zaleceniach dotyczących poszczególnych usług. 
+- **Szczegóły**: uzasadnienie zalecenia i linki do wskazówek dotyczących sposobu jego wdrożenia. Jeśli zalecenie jest obsługiwane przez Azure Security Center, te informacje będą również wyświetlane.
 
-Z zadowoleniem przyjmujemy szczegółowe opinie i aktywny udział w wysiłkach testów porównawczych zabezpieczeń platformy Azure. Jeśli chcesz przekazać bezpośredni wkład zespołowi Benchmark, wypełnij [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark)formularz na .
+Poznamy Twoją szczegółową opinię i aktywne uczestnictwo w pracy z usługą Azure Security test. Jeśli chcesz podać dane wejściowe bezpośredniego zespołu testowego, Wypełnij formularz pod adresem [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz pierwszą kontrolę zabezpieczeń: [Zabezpieczenia sieciowe](security-control-network-security.md)
-- Przeczytaj wprowadzenie do [testów porównawczych zabezpieczeń platformy Azure](introduction.md)
-- Pobieranie [arkusza kalkulacyjnego programu Azure Security Benchmark w wersji 1 excel](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets)
+- Zobacz pierwszą kontrolę zabezpieczeń: [zabezpieczenia sieci](security-control-network-security.md)
+- Przeczytaj [wprowadzenie do usługi Azure Security test](introduction.md)
+- Pobieranie [arkusza programu Excel dotyczącego usługi Azure Security test w wersji 1](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets)

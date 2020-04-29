@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie & konfigurowanie Zapory platformy Azure w sieci hybrydowej przy użyciu programu PowerShell
-description: W tym artykule dowiesz się, jak wdrożyć i skonfigurować Zaporę platformy Azure przy użyciu programu Azure PowerShell.
+title: Wdrażanie & konfigurowania zapory platformy Azure w sieci hybrydowej przy użyciu programu PowerShell
+description: W tym artykule dowiesz się, jak wdrożyć i skonfigurować zaporę platformy Azure przy użyciu Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -9,10 +9,10 @@ ms.date: 01/08/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ms.openlocfilehash: 37bb28419f23fee2c179171a2e5c0e4e851ac9a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77471758"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Wdrażanie i konfigurowanie usługi Azure Firewall w sieci hybrydowej za pomocą programu Azure PowerShell
@@ -21,11 +21,11 @@ W przypadku łączenia sieci lokalnej z siecią wirtualną platformy Azure w cel
 
 Aby kontrolować dostęp do sieci hybrydowej korzystającej z reguł, które definiują dozwolony i zabroniony ruch sieciowy, możesz użyć usługi Azure Firewall.
 
-W tym artykule utworzysz trzy sieci wirtualne:
+W tym artykule opisano tworzenie trzech sieci wirtualnych:
 
 - **VNet-Hub** — w tej sieci wirtualnej znajduje się zapora.
 - **VNet-Spoke** — sieć wirtualna będąca szprychą reprezentuje pakiet roboczy na platformie Azure.
-- **VNet-Onprem** — lokalna sieć wirtualna reprezentuje sieć lokalną. W rzeczywistym wdrożeniu może być połączony przez sieć VPN lub połączenie usługi ExpressRoute. Dla uproszczenia w tym artykule użyto połączenia bramy sieci VPN, a sieć wirtualna znajdująca się na platformie Azure jest używana do reprezentowania sieci lokalnej.
+- **VNet-Onprem** — lokalna sieć wirtualna reprezentuje sieć lokalną. W rzeczywistym wdrożeniu może ono być połączone przez połączenie sieci VPN lub ExpressRoute. Dla uproszczenia w tym artykule jest używane połączenie z bramą sieci VPN, a sieć wirtualna z systemem Azure jest używana do reprezentowania sieci lokalnej.
 
 ![Zapora w sieci hybrydowej](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -43,39 +43,39 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > * Tworzenie maszyn wirtualnych
 > * Testowanie zapory
 
-Jeśli chcesz zamiast tego użyć witryny Azure Portal, aby ukończyć ten samouczek, zobacz [Samouczek: Wdrażanie i konfigurowanie zapory platformy Azure w sieci hybrydowej przy użyciu witryny Azure portal](tutorial-hybrid-portal.md).
+Jeśli chcesz użyć Azure Portal zamiast tego samouczka, zobacz [Samouczek: wdrażanie i Konfigurowanie zapory platformy Azure w sieci hybrydowej przy użyciu Azure Portal](tutorial-hybrid-portal.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ten artykuł wymaga lokalnego uruchomienia programu PowerShell. Musisz mieć zainstalowany moduł programu Azure PowerShell. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Po zweryfikowaniu wersji programu PowerShell uruchom polecenie `Login-AzAccount`, aby utworzyć połączenie z platformą Azure.
+Ten artykuł wymaga lokalnego uruchomienia programu PowerShell. Musisz mieć zainstalowany moduł Azure PowerShell. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Po zweryfikowaniu wersji programu PowerShell uruchom polecenie `Login-AzAccount`, aby utworzyć połączenie z platformą Azure.
 
 Aby ten scenariusz przebiegał prawidłowo, muszą zostać spełnione trzy podstawowe wymagania:
 
-- Trasa zdefiniowana przez użytkownika w podsieci będącej szprychą, która wskazuje adres IP usługi Azure Firewall jako bramę domyślną. Propagacja trasy bramy sieci wirtualnej musi być **wyłączona** w tej tabeli trasy.
+- Trasa zdefiniowana przez użytkownika w podsieci będącej szprychą, która wskazuje adres IP usługi Azure Firewall jako bramę domyślną. Propagacja trasy bramy sieci wirtualnej musi być **wyłączona** w tej tabeli tras.
 - Trasa zdefiniowana przez użytkownika w podsieci bramy koncentratora musi wskazywać adres IP zapory jako następny przeskok do sieci będącej szprychą.
 
    W podsieci usługi Azure Firewall nie jest wymagana trasa zdefiniowana przez użytkownika, ponieważ uzyskuje ona informacje o trasach na podstawie protokołu BGP.
 - Ustaw wartość **AllowGatewayTransit** na potrzeby komunikacji równorzędnej między sieciami VNet-Hub i VNet-Spoke oraz **UseRemoteGateways** na potrzeby komunikacji równorzędnej VNet-Spoke i VNet-Hub.
 
-Zobacz sekcję [Tworzenie tras](#create-the-routes) w tym artykule, aby zobaczyć, jak tworzone są te trasy.
+Zapoznaj się z sekcją [Tworzenie tras](#create-the-routes) w tym artykule, aby zobaczyć, jak te trasy zostały utworzone.
 
 >[!NOTE]
->Zapora platformy Azure musi mieć bezpośrednią łączność z Internetem. Jeśli azurefirewallsubnet uczy się domyślnej trasy do sieci lokalnej za pośrednictwem protokołu BGP, należy zastąpić to z 0.0.0.0/0 UDR z **NextHopType** wartość ustawiona jako **Internet,** aby utrzymać bezpośrednią łączność z Internetem.
+>Zapora platformy Azure musi mieć bezpośrednią łączność z Internetem. Jeśli AzureFirewallSubnet nauczy trasy domyślnej do sieci lokalnej za pośrednictwem protokołu BGP, należy przesłonić ten element przy użyciu wartości 0.0.0.0/0 UDR z wartością **NextHopType** ustawioną jako **Internet** w celu utrzymania bezpośredniej łączności z Internetem.
 >
->Zaporę platformy Azure można skonfigurować do obsługi wymuszonego tunelowania. Aby uzyskać więcej informacji, zobacz [Azure Firewall wymuszone tunelowanie](forced-tunneling.md).
+>Zaporę platformy Azure można skonfigurować do obsługi wymuszonego tunelowania. Aby uzyskać więcej informacji, zobacz [tunelowanie wymuszone przez zaporę platformy Azure](forced-tunneling.md).
 
 >[!NOTE]
 >Ruch między wirtualnymi sieciami równorzędnymi połączonymi bezpośrednio jest kierowany bezpośrednio nawet wtedy, gdy trasa zdefiniowana przez użytkownika wskazuje usługę Azure Firewall jako bramę domyślną. Aby w tym scenariuszu wysyłać ruch między podsieciami do zapory, trasa zdefiniowana przez użytkownika musi jawnie zawierać prefiks podsieci docelowej w obu podsieciach.
 
 Aby zapoznać się z powiązaną dokumentacją programu Azure PowerShell, zobacz [dokumentacja programu Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="declare-the-variables"></a>Deklarowanie zmiennych
 
-Poniższy przykład deklaruje zmienne przy użyciu wartości dla tego artykułu. W pewnych przypadkach może być konieczne zastąpienie niektórych wartości Twoimi własnymi wartościami umożliwiającymi pracę w ramach subskrypcji. Jeśli jest taka konieczność, zmodyfikuj zmienne, a następnie skopiuj je i wklej do konsoli programu PowerShell.
+Poniższy przykład deklaruje zmienne przy użyciu wartości w tym artykule. W pewnych przypadkach może być konieczne zastąpienie niektórych wartości Twoimi własnymi wartościami umożliwiającymi pracę w ramach subskrypcji. Jeśli jest taka konieczność, zmodyfikuj zmienne, a następnie skopiuj je i wklej do konsoli programu PowerShell.
 
 ```azurepowershell
 $RG1 = "FW-Hybrid-Test"
@@ -119,7 +119,7 @@ $SNnameGW = "GatewaySubnet"
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>Tworzenie sieci wirtualnej koncentratora zapory
 
-Najpierw utwórz grupę zasobów, aby zawierała zasoby dla tego artykułu:
+Najpierw utwórz grupę zasobów zawierającą zasoby z tego artykułu:
 
 ```azurepowershell
   New-AzResourceGroup -Name $RG1 -Location $Location1
@@ -139,7 +139,7 @@ $VNetHub = New-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
 
-Poproś o przydzielenie publicznego adresu IP do bramy sieci VPN, którą utworzysz dla sieci wirtualnej. Należy zauważyć, że metoda *AllocationMethod* jest **dynamiczna**. Nie można określić adresu IP, którego chcesz użyć. Jest on przydzielany dynamicznie do bramy sieci VPN.
+Zażądaj przydzielenia publicznego adresu IP do bramy sieci VPN, którą utworzysz dla sieci wirtualnej. Należy zauważyć, że metoda *AllocationMethod* jest **dynamiczna**. Nie można określić adresu IP, którego chcesz użyć. Jest on przydzielany dynamicznie do bramy sieci VPN.
 
   ```azurepowershell
   $gwpip1 = New-AzPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
@@ -178,7 +178,7 @@ $VNetOnprem = New-AzVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
 
-Zażądaj publicznego adresu IP, który ma zostać przydzielony do bramy utworzonej dla sieci wirtualnej. Należy zauważyć, że metoda *AllocationMethod* jest **dynamiczna**. Nie można określić adresu IP, którego chcesz użyć. Jest on przydzielany dynamicznie do bramy.
+Zażądaj przydzielenia publicznego adresu IP do bramy, która zostanie utworzona dla sieci wirtualnej. Należy zauważyć, że metoda *AllocationMethod* jest **dynamiczna**. Nie można określić adresu IP, którego chcesz użyć. Jest on przydzielany dynamicznie do bramy.
 
   ```azurepowershell
   $gwOnprempip = New-AzPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
@@ -293,7 +293,7 @@ Utwórz połączenie z lokalnej sieci wirtualnej do sieci wirtualnej koncentrato
 
 #### <a name="verify-the-connection"></a>Weryfikowanie połączenia
 
-Pomyślne połączenie można zweryfikować za pomocą polecenia cmdlet *Get-AzVirtualNetworkGatewayConnection* z *poleceniem Debug*lub bez . Można skorzystać z następującego przykładu użycia polecenia cmdlet, dopasowując wartości do własnych potrzeb. Jeśli pojawi się monit, wybierz **A**, aby uruchomić **Wszystko**. W przykładzie *-Name* odwołuje się do nazwy połączenia, które chcesz przetestować.
+Pomyślne połączenie można sprawdzić za pomocą polecenia cmdlet *Get-AzVirtualNetworkGatewayConnection* z opcją *Debug*lub bez niego. Można skorzystać z następującego przykładu użycia polecenia cmdlet, dopasowując wartości do własnych potrzeb. Jeśli pojawi się monit, wybierz **A**, aby uruchomić **Wszystko**. W podanym przykładzie *-name* odnosi się do nazwy połączenia, które ma zostać przetestowane.
 
 ```azurepowershell
 Get-AzVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupName $RG1
@@ -472,7 +472,7 @@ Z poziomu maszyny **VM-Onprem**, otwórz pulpit zdalny na maszynie **VM-spoke-01
 
 Połączenie powinno zostać nawiązane pomyślnie, a użytkownik powinien móc zalogować się za pomocą wybranej nazwy użytkownika i hasła.
 
-Więc teraz masz zweryfikowane, że reguły zapory działają:
+Teraz sprawdzono, że reguły zapory działają:
 
 <!---- You can ping the server on the spoke VNet.--->
 - Możesz przeglądać serwer internetowy w sieci wirtualnej będącej szprychą.

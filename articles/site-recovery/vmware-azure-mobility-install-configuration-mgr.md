@@ -1,74 +1,74 @@
 ---
-title: Automatyzacja usługi mobilności w celu odzyskiwania po awarii instalacji w usłudze Azure Site Recovery
-description: Jak automatycznie zainstalować usługę mobilności dla odzyskiwania po awarii VMware /physical server za pomocą usługi Azure Site Recovery.
+title: Automatyzacja usługi mobilności na potrzeby odzyskiwania po awarii instalacji w Azure Site Recovery
+description: Sposób automatycznej instalacji usługi mobilności na potrzeby odzyskiwania po awarii serwera VMware/Physical Server z Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
 ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77252231"
 ---
-# <a name="automate-mobility-service-installation"></a>Automatyzacja instalacji usługi mobilności
+# <a name="automate-mobility-service-installation"></a>Automatyzowanie instalacji usługi mobilności
 
-W tym artykule opisano sposób automatyzacji instalacji i aktualizacji dla agenta usługi mobilności w [usłudze Azure Site Recovery](site-recovery-overview.md).
+W tym artykule opisano sposób automatyzowania instalacji i aktualizacji agenta usługi mobilności w programie [Azure Site Recovery](site-recovery-overview.md).
 
-Podczas wdrażania odzyskiwania lokacji w celu odzyskiwania po awarii lokalnych maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure, należy zainstalować agenta usługi mobilności na każdym komputerze, który chcesz replikować. Usługa mobilności przechwytuje zapisy danych na komputerze i przekazuje je do serwera przetwarzania odzyskiwania lokacji w celu replikacji. Usługę mobilności można wdrożyć na kilka sposobów:
+Podczas wdrażania Site Recovery na potrzeby odzyskiwania po awarii lokalnych maszyn wirtualnych VMware i serwerów fizycznych do platformy Azure należy zainstalować agenta usługi mobilności na każdej maszynie, która ma być replikowana. Usługa mobilności przechwytuje operacje zapisu danych na komputerze i przekazuje je do serwera przetwarzania Site Recovery na potrzeby replikacji. Usługę mobilności można wdrożyć na kilka sposobów:
 
-- **Instalacja wypychania:** Pozwól odzyskiwaniu witryny zainstalować agenta usługi mobilności po włączeniu replikacji komputera w witrynie Azure portal.
-- **Instalacja ręczna**: Zainstaluj usługę mobilności ręcznie na każdym komputerze. [Dowiedz się więcej](vmware-physical-mobility-service-overview.md) o wypychania i ręcznej instalacji.
-- **Automatyczne wdrażanie:** Automatyzacja instalacji za pomocą narzędzi do wdrażania oprogramowania, takich jak program Microsoft Endpoint Configuration Manager, lub narzędzi innych firm, takich jak JetPatch.
+- **Instalacja wypychana**: Pozwól Site Recovery zainstalować agenta usługi mobilności po włączeniu replikacji dla maszyny w Azure Portal.
+- **Instalacja ręczna**: należy ręcznie zainstalować usługę mobilności na poszczególnych komputerach. [Dowiedz się więcej](vmware-physical-mobility-service-overview.md) o instalacji wypychanej i ręcznej.
+- **Zautomatyzowane wdrażanie**: Automatyzowanie instalacji przy użyciu narzędzi do wdrażania oprogramowania, takich jak Microsoft Endpoint Configuration Manager, lub narzędzi innych firm, takich jak JetPatch.
 
-Zautomatyzowana instalacja i aktualizacja stanowi rozwiązanie, jeśli:
+Automatyczne instalowanie i aktualizowanie zapewnia rozwiązanie, jeśli:
 
-- Organizacja nie zezwala na instalację wypychaną na chronionych serwerach.
-- Zasady firmy wymagają okresowej zmiany haseł. Musisz określić hasło do instalacji wypychanej.
-- Zasady zabezpieczeń nie zezwalają na dodawanie wyjątków zapory dla określonych komputerów.
-- Działasz jako dostawca usług hostingowych i nie chcesz pokazywać poświadczeń komputera klienta, które są potrzebne do instalacji wypychanej za pomocą funkcji Site Recovery.
-- Należy skalować instalacje agenta do wielu serwerów jednocześnie.
-- Chcesz zaplanować instalacje i uaktualnienia podczas planowanych okien konserwacji.
+- Twoja organizacja nie zezwala na instalację wypychaną na serwerach chronionych.
+- Zasady firmy wymagają okresowego zmieniania haseł. Musisz określić hasło instalacji wypychanej.
+- Zasady zabezpieczeń nie zezwalają na dodawanie wyjątków zapory dla określonych maszyn.
+- Działa jako dostawca usług hostingowych i nie chce podawać poświadczeń komputera klienta, które są potrzebne do instalacji wypychanej za pomocą Site Recovery.
+- Konieczne jest skalowanie instalacji agentów na wielu serwerach jednocześnie.
+- Chcesz zaplanować instalacje i uaktualnienia podczas planowanych okien obsługi.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do automatyzacji instalacji potrzebne są następujące elementy:
+Aby zautomatyzować instalację, potrzebne są następujące elementy:
 
-- Wdrożone rozwiązanie instalacyjne oprogramowania, takie jak [Menedżer konfiguracji](/configmgr/) lub [JetPatch](https://jetpatch.com/microsoft-azure-site-recovery/).
-- Wymagania wstępne dotyczące wdrażania na [platformie Azure](tutorial-prepare-azure.md) i [lokalnie](vmware-azure-tutorial-prepare-on-premises.md) w przypadku odzyskiwania po awarii vmware lub odzyskiwania po awarii [serwera fizycznego.](physical-azure-disaster-recovery.md) Przejrzyj [wymagania dotyczące pomocy technicznej dotyczące](vmware-physical-azure-support-matrix.md) odzyskiwania po awarii.
+- Wdrożone rozwiązanie do instalacji oprogramowania, takie jak [Configuration Manager](/configmgr/) lub [JetPatch](https://jetpatch.com/microsoft-azure-site-recovery/).
+- Wymagania wstępne dotyczące wdrażania na [platformie Azure](tutorial-prepare-azure.md) i [lokalnie](vmware-azure-tutorial-prepare-on-premises.md) w przypadku odzyskiwania po awarii oprogramowania VMware lub na potrzeby odzyskiwania po awarii [serwera fizycznego](physical-azure-disaster-recovery.md) . Zapoznaj się z wymaganiami dotyczącymi [obsługi](vmware-physical-azure-support-matrix.md) odzyskiwania po awarii.
 
-## <a name="prepare-for-automated-deployment"></a>Przygotowanie do zautomatyzowanego wdrożenia
+## <a name="prepare-for-automated-deployment"></a>Przygotowanie do automatycznego wdrażania
 
-W poniższej tabeli podsumowano narzędzia i procesy automatyzacji wdrażania usługi mobilności.
+W poniższej tabeli zestawiono narzędzia i procesy służące do automatyzowania wdrażania usługi mobilności.
 
 **Narzędzie** | **Szczegóły** | **Instrukcje**
 --- | --- | ---
-**Configuration Manager** | 1. Sprawdź, czy masz [wymagania wstępne](#prerequisites) wymienione powyżej w miejscu. <br/><br/> 2. Wdrażanie odzyskiwania po awarii przez skonfigurowanie środowiska źródłowego, w tym pobieranie pliku OVA w celu wdrożenia serwera konfiguracji odzyskiwania lokacji jako maszyny wirtualnej VMware przy użyciu szablonu OVF.<br/><br/> 3. Zarejestruj serwer konfiguracji w usłudze Site Recovery, skonfigurujesz docelowe środowisko platformy Azure i skonfigurujesz zasady replikacji.<br/><br/> 4. W przypadku automatycznego wdrażania usługi mobilności należy utworzyć udział sieciowy zawierający hasło serwera konfiguracji i pliki instalacyjne usługi mobilności.<br/><br/> 5. Tworzenie pakietu programu Configuration Manager zawierającego instalację lub aktualizacje i przygotowanie do wdrożenia usługi mobilności.<br/><br/> 6. Następnie można włączyć replikację na platformę Azure dla komputerów, które mają zainstalowaną usługę mobilności. | [Automatyzacja za pomocą programu Configuration Manager](#automate-with-configuration-manager)
-**JetPatch ( JetPatch )** | 1. Sprawdź, czy masz [wymagania wstępne](#prerequisites) wymienione powyżej w miejscu. <br/><br/> 2. Wdrażanie odzyskiwania po awarii przez skonfigurowanie środowiska źródłowego, w tym pobieranie i wdrażanie JetPatch Agent Manager dla usługi Azure Site Recovery w środowisku odzyskiwania witryny przy użyciu szablonu OVF.<br/><br/> 3. Zarejestruj serwer konfiguracji w usłudze Site Recovery, skonfigurujesz docelowe środowisko platformy Azure i skonfigurujesz zasady replikacji.<br/><br/> 4. W przypadku automatycznego wdrażania zaawaruj i ukończ konfigurację JetPatch Agent Manager.<br/><br/> 5. W JetPatch można utworzyć zasady odzyskiwania witryny w celu automatyzacji wdrażania i uaktualniania agenta usługi mobilności. <br/><br/> 6. Następnie można włączyć replikację na platformę Azure dla komputerów, które mają zainstalowaną usługę mobilności. | [Automatyzacja za pomocą Menedżera agenta JetPatch](https://jetpatch.com/microsoft-azure-site-recovery-deployment-guide/)<br/><br/> [Rozwiązywanie problemów z instalacją agenta w JetPatch](https://kc.jetpatch.com/hc/articles/360035981812)
+**Menedżer konfiguracji** | 1. Sprawdź, czy masz wymienione powyżej [wymagania wstępne](#prerequisites) . <br/><br/> 2. Wdróż odzyskiwanie po awarii przez skonfigurowanie środowiska źródłowego, w tym pobranie pliku komórki jajowe do wdrożenia serwera konfiguracji Site Recovery jako maszyny wirtualnej VMware przy użyciu szablonu OVF.<br/><br/> 3. Zarejestruj serwer konfiguracji w usłudze Site Recovery, skonfiguruj docelowe środowisko platformy Azure i skonfiguruj zasady replikacji.<br/><br/> 4. Aby wdrożyć Automatyczne wdrażanie usługi mobilności, należy utworzyć udział sieciowy zawierający hasło serwera konfiguracji i pliki instalacyjne usługi mobilności.<br/><br/> 5. utworzysz pakiet Configuration Manager zawierający instalację lub aktualizacje i przygotowuje się do wdrożenia usługi mobilności.<br/><br/> 6. następnie można włączyć replikację na platformie Azure dla maszyn, na których zainstalowano usługę mobilności. | [Automatyzacja za pomocą Configuration Manager](#automate-with-configuration-manager)
+**JetPatch** | 1. Sprawdź, czy masz wymienione powyżej [wymagania wstępne](#prerequisites) . <br/><br/> 2. Wdróż odzyskiwanie po awarii przez skonfigurowanie środowiska źródłowego, w tym pobieranie i wdrażanie Menedżera agentów JetPatch na potrzeby Azure Site Recovery w środowisku Site Recovery przy użyciu szablonu OVF.<br/><br/> 3. Zarejestruj serwer konfiguracji przy użyciu Site Recovery, skonfiguruj docelowe środowisko platformy Azure i skonfiguruj zasady replikacji.<br/><br/> 4. w przypadku automatycznego wdrażania zainicjuj i Ukończ konfigurację Menedżera agentów JetPatch.<br/><br/> 5. w programie JetPatch można utworzyć zasady Site Recovery, aby zautomatyzować wdrażanie i uaktualnianie agenta usługi mobilności. <br/><br/> 6. następnie można włączyć replikację na platformie Azure dla maszyn, na których zainstalowano usługę mobilności. | [Automatyzowanie przy użyciu Menedżera agentów JetPatch](https://jetpatch.com/microsoft-azure-site-recovery-deployment-guide/)<br/><br/> [Rozwiązywanie problemów z instalacją agenta w programie JetPatch](https://kc.jetpatch.com/hc/articles/360035981812)
 
-## <a name="automate-with-configuration-manager"></a>Automatyzacja za pomocą programu Configuration Manager
+## <a name="automate-with-configuration-manager"></a>Automatyzacja za pomocą Configuration Manager
 
 ### <a name="prepare-the-installation-files"></a>Przygotowywanie plików instalacyjnych
 
-1. Upewnij się, że masz wymagania wstępne w miejscu.
-1. Utwórz bezpieczny udział plików sieciowych (SMB), do który dostęp ma komputer z serwerem konfiguracji.
-1. W programie Menedżer konfiguracji [kategoryzuj serwery,](/sccm/core/clients/manage/collections/automatically-categorize-devices-into-collections) na których chcesz zainstalować lub zaktualizować usługę mobilności. Jedna kolekcja powinna zawierać wszystkie serwery systemu Windows, a druga wszystkie serwery Linuksa.
+1. Upewnij się, że zostały spełnione wymagania wstępne.
+1. Utwórz bezpieczny sieciowy udział plików (udział SMB), do którego można uzyskać dostęp na komputerze z uruchomionym serwerem konfiguracji.
+1. W Configuration Manager wybierz [kategoryzację serwerów](/sccm/core/clients/manage/collections/automatically-categorize-devices-into-collections) , na których chcesz zainstalować lub zaktualizować usługę mobilności. Jedna kolekcja powinna zawierać wszystkie serwery z systemem Windows, inne serwery z systemem Linux.
 1. W udziale sieciowym utwórz folder:
 
-   - Aby uzyskać instalację na komputerach z systemem Windows, utwórz folder o nazwie _MobSvcWindows_.
-   - Aby instalacja na komputerach z systemem Linux, utworzyć folder o nazwie _MobSvcLinux_.
+   - Aby zainstalować na maszynach z systemem Windows, należy utworzyć folder o nazwie _MobSvcWindows_.
+   - W przypadku instalacji na komputerach z systemem Linux Utwórz folder o nazwie _MobSvcLinux_.
 
-1. Zaloguj się do komputera serwera konfiguracji.
-1. Na komputerze serwera konfiguracji otwórz wiersz polecenia administracyjnego.
-1. Aby wygenerować plik hasła, uruchom to polecenie:
+1. Zaloguj się na komputerze serwera konfiguracji.
+1. Na komputerze serwera konfiguracji Otwórz wiersz polecenia z uprawnieniami administracyjnymi.
+1. Aby wygenerować plik hasła, uruchom następujące polecenie:
 
     ```Console
     cd %ProgramData%\ASR\home\svsystems\bin
     genpassphrase.exe -v > MobSvc.passphrase
     ```
 
-1. Skopiuj plik _MobSvc.passphrase_ do folderu Windows i folderu Linux.
+1. Skopiuj plik _MobSvc. hasło_ do folderu systemu Windows i folderu Linux.
 1. Aby przejść do folderu zawierającego pliki instalacyjne, uruchom następujące polecenie:
 
     ```Console
@@ -77,27 +77,27 @@ W poniższej tabeli podsumowano narzędzia i procesy automatyzacji wdrażania us
 
 1. Skopiuj te pliki instalacyjne do udziału sieciowego:
 
-   - W systemie Windows skopiuj _program Microsoft-ASR_UA_version_Windows_GA_date_Release.exe_ do _programu MobSvcWindows_.
-   - W przypadku systemu Linux skopiuj następujące pliki do _MobSvcLinux:_
-     - _Microsoft-ASR_UARHEL6-64release.tar.gz_
-     - _Microsoft-ASR_UARHEL7-64release.tar.gz_
-     - _Microsoft-ASR_UASLES11-SP3-64release.tar.gz_
-     - _Microsoft-ASR_UASLES11-SP4-64release.tar.gz_
-     - _Microsoft-ASR_UAOL6-64release.tar.gz_
-     - _Microsoft-ASR_UAUBUNTU-14.04-64release.tar.gz_
+   - Dla systemu Windows skopiuj _program Microsoft-ASR_UA_version_Windows_GA_date_Release. exe_ do _MobSvcWindows_.
+   - W przypadku systemu Linux Skopiuj następujące pliki do _MobSvcLinux_:
+     - _Microsoft-ASR_UARHEL6 -64release. tar. gz_
+     - _Microsoft-ASR_UARHEL7 -64release. tar. gz_
+     - _Microsoft-ASR_UASLES11-SP3-64release. tar. gz_
+     - _Microsoft-ASR_UASLES11-SP4-64release. tar. gz_
+     - _Microsoft-ASR_UAOL6 -64release. tar. gz_
+     - _Microsoft-ASR_UAUBUNTU-14.04 -64release. tar. gz_
 
-1. Jak opisano w poniższych procedurach, skopiuj kod do folderów systemu Windows lub Linux. Zakładamy, że:
+1. Zgodnie z opisem w poniższych procedurach Skopiuj kod do folderów systemu Windows lub Linux. Przyjęto założenie, że:
 
-   - Adres IP serwera konfiguracji `192.168.3.121`to .
-   - Bezpieczny udział plików `\\ContosoSecureFS\MobilityServiceInstallers`sieciowych to .
+   - Adres IP serwera konfiguracji to `192.168.3.121`.
+   - Bezpieczny sieciowy udział plików to `\\ContosoSecureFS\MobilityServiceInstallers`.
 
-### <a name="copy-code-to-the-windows-folder"></a>Kopiowanie kodu do folderu systemu Windows
+### <a name="copy-code-to-the-windows-folder"></a>Kopiuj kod do folderu systemu Windows
 
 Skopiuj następujący kod:
 
-- Zapisz kod w folderze _MobSvcWindows_ jako _install.bat_.
-- Zastąp `[CSIP]` symbole zastępcze w tym skrypcie rzeczywistymi wartościami adresu IP serwera konfiguracji.
-- Skrypt obsługuje nowe instalacje agenta usługi mobilności i aktualizacje agentów, które są już zainstalowane.
+- Zapisz kod w folderze _MobSvcWindows_ jako _install. bat_.
+- Zastąp `[CSIP]` symbole zastępcze w tym skrypcie wartościami rzeczywistymi adresu IP serwera konfiguracji.
+- Skrypt obsługuje nowe instalacje agenta usługi mobilności i aktualizacje agentów, którzy są już zainstalowani.
 
 ```DOS
 Time /t >> C:\Temp\logfile.log
@@ -194,13 +194,13 @@ IF NOT %ERRORLEVEL% EQU 0 (
     echo "End of script." >> C:\Temp\logfile.log
 ```
 
-### <a name="copy-code-to-the-linux-folder"></a>Kopiowanie kodu do folderu Linux
+### <a name="copy-code-to-the-linux-folder"></a>Kopiuj kod do folderu systemu Linux
 
 Skopiuj następujący kod:
 
-- Zapisz kod w folderze _MobSvcLinux_ jako _install_linux.sh_.
-- Zastąp `[CSIP]` symbole zastępcze w tym skrypcie rzeczywistymi wartościami adresu IP serwera konfiguracji.
-- Skrypt obsługuje nowe instalacje agenta usługi mobilności i aktualizacje agentów, które są już zainstalowane.
+- Zapisz kod w folderze _MobSvcLinux_ jako _install_linux. sh_.
+- Zastąp `[CSIP]` symbole zastępcze w tym skrypcie wartościami rzeczywistymi adresu IP serwera konfiguracji.
+- Skrypt obsługuje nowe instalacje agenta usługi mobilności i aktualizacje agentów, którzy są już zainstalowani.
 
 ```Bash
 #!/usr/bin/env bash
@@ -338,65 +338,65 @@ cd /tmp
 
 ### <a name="create-a-package"></a>Tworzenie pakietu
 
-1. Zaloguj się do konsoli programu Menedżer konfiguracji i przejdź do pakietów > **zarządzania aplikacjami** >  **biblioteki****oprogramowania**.
-1. Kliknij prawym przyciskiem myszy **pozycję Tworzenie pakietów** > **Create Package**.
-1. Podaj szczegóły pakietu, w tym nazwę, opis, producenta, język i wersję.
-1. Wybierz **pozycję Ten pakiet zawiera pliki źródłowe**.
-1. Kliknij **przycisk Przeglądaj**i wybierz udział sieciowy i folder zawierający odpowiedni instalator (_MobSvcWindows_ lub _MobSvcLinux_). Następnie wybierz przycisk **Dalej**.
+1. Zaloguj się do konsoli Configuration Manager i przejdź do pozycji **Biblioteka** > oprogramowania > **pakiety****zarządzania aplikacjami**.
+1. Kliknij prawym przyciskiem myszy pozycję **pakiety** > **Utwórz pakiet**.
+1. Podaj szczegóły pakietu, takie jak nazwa, opis, producent, język i wersja.
+1. Wybierz opcję **ten pakiet zawiera pliki źródłowe**.
+1. Kliknij przycisk **Przeglądaj**, a następnie wybierz udział sieciowy i folder zawierający odpowiedni Instalator (_MobSvcWindows_ lub _MobSvcLinux_). Następnie wybierz przycisk **dalej**.
 
    ![Zrzut ekranu przedstawiający Kreatora tworzenia pakietu i programu](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
-1. W **obszarze Wybierz typ programu, który chcesz utworzyć,** wybierz pozycję Następny program **standardowy** > **.**
+1. Na stronie **Wybierz typ programu, który chcesz utworzyć** wybierz pozycję **program** > standardowy**dalej**.
 
    ![Zrzut ekranu przedstawiający Kreatora tworzenia pakietu i programu](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
-1. W **obszarze Określanie informacji o tej standardowej** stronie programu określ następujące wartości:
+1. Na stronie **Określanie informacji o tym programie standardowym** określ następujące wartości:
 
-    **Parametr** | **Wartość systemu Windows** | **Wartość linuksa**
+    **Konstruktora** | **Wartość systemu Windows** | **Wartość systemu Linux**
     --- | --- | ---
-    **Nazwa** | Instalowanie usługi mobilności platformy Microsoft Azure (Windows) | Zainstaluj usługę Microsoft Azure Mobility Service (Linux).
-    **Wiersz polecenia** | Install.bat | ./install_linux.sh
-    **Program można uruchomić** | Czy użytkownik jest zalogowany | Czy użytkownik jest zalogowany
+    **Nazwa** | Instalowanie usługi mobilności Microsoft Azure (Windows) | Zainstaluj usługę mobilności Microsoft Azure (Linux).
+    **Wiersz polecenia** | Install. bat | ./install_linux. sh
+    **Program może zostać uruchomiony** | Bez względu na to, czy użytkownik jest zalogowany | Bez względu na to, czy użytkownik jest zalogowany
     **Inne parametry** | Użyj ustawienia domyślnego | Użyj ustawienia domyślnego
 
    ![Zrzut ekranu przedstawiający Kreatora tworzenia pakietu i programu](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
 
-1. W **obszarze Określ wymagania dla tego standardowego programu**wykonaj następujące czynności:
+1. W obszarze **Określ wymagania dla tego programu standardowego**wykonaj następujące zadania:
 
-   - W przypadku komputerów z systemem Windows wybierz pozycję **Ten program może działać tylko na określonych platformach**. Następnie wybierz [obsługiwane systemy operacyjne Windows](vmware-physical-azure-support-matrix.md#replicated-machines) i wybierz przycisk **Dalej**.
-   - W przypadku maszyn z systemem Linux wybierz **ten program może działać na dowolnej platformie.** Następnie wybierz **przycisk Dalej**.
+   - W przypadku maszyn z systemem Windows wybierz opcję **ten program można uruchomić tylko na określonych platformach**. Następnie wybierz [obsługiwane systemy operacyjne Windows](vmware-physical-azure-support-matrix.md#replicated-machines) i kliknij przycisk **dalej**.
+   - W przypadku maszyn z systemem Linux wybierz opcję **ten program można uruchomić na dowolnej platformie**. Następnie wybierz pozycję **Dalej**.
 
 1. Zakończ pracę kreatora.
 
 ### <a name="deploy-the-package"></a>Wdrażanie pakietu
 
-1. W konsoli programu Menedżer konfiguracji kliknij prawym przyciskiem myszy pakiet i wybierz polecenie **Dystrybucja zawartości**.
+1. W konsoli Configuration Manager kliknij prawym przyciskiem myszy pakiet i wybierz polecenie **Dystrybuuj zawartość**.
 
-   ![Zrzut ekranu przedstawiający konsolę programu Configuration Manager](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
+   ![Zrzut ekranu przedstawiający konsolę Configuration Manager](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
 
-1. Wybierz punkty dystrybucji, do których pakiety mają być kopiowane. [Dowiedz się więcej](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points).
-1. Wykonaj kroki kreatora. Następnie pakiet rozpoczyna replikowanie do określonych punktów dystrybucji.
-1. Po zakończeniu dystrybucji pakietu kliknij prawym przyciskiem myszy pakiet > **Deploy**.
+1. Wybierz punkty dystrybucji, do których mają zostać skopiowane pakiety. [Dowiedz się więcej](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points).
+1. Wykonaj kroki kreatora. Pakiet rozpocznie replikację do określonych punktów dystrybucji.
+1. Po zakończeniu dystrybucji pakietu kliknij prawym przyciskiem myszy pakiet > **Wdróż**.
 
-   ![Zrzut ekranu przedstawiający konsolę programu Configuration Manager](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
+   ![Zrzut ekranu przedstawiający konsolę Configuration Manager](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
 
 1. Wybierz utworzoną wcześniej kolekcję urządzeń z systemem Windows lub Linux.
-1. Na stronie **Określanie miejsca docelowego zawartości** wybierz pozycję **Punkty dystrybucji**.
-1. W **obszarze Określanie ustawień, aby kontrolować sposób wdrażania tego oprogramowania,** ustaw **opcję Cel** na **Wymagany**.
+1. Na stronie **Określanie miejsca docelowego zawartości** wybierz pozycję **punkty dystrybucji**.
+1. Na stronie **Określanie ustawień w celu kontrolowania sposobu wdrażania tego oprogramowania** ustaw opcję **cel** na wartość **wymagane**.
 
-   ![Zrzut ekranu przedstawiający kreatora wdrażania oprogramowania](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
+   ![Zrzut ekranu przedstawiający Kreatora wdrażania oprogramowania](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
-1. W **obszarze Określ harmonogram dla tego wdrożenia,** skonfiguruj harmonogram. [Dowiedz się więcej](/sccm/apps/deploy-use/deploy-applications#bkmk_deploy-sched).
+1. W obszarze **Określ harmonogram tego wdrożenia**Skonfiguruj harmonogram. [Dowiedz się więcej](/sccm/apps/deploy-use/deploy-applications#bkmk_deploy-sched).
 
    - Usługa mobilności jest instalowana zgodnie z określonym harmonogramem.
-   - Aby uniknąć niepotrzebnego ponownego uruchamiania, zaplanuj instalację pakietu podczas miesięcznego okna konserwacji lub okna aktualizacji oprogramowania.
+   - Aby uniknąć niepotrzebnych ponownych uruchomień, zaplanuj instalację pakietu w trakcie miesięcznego okna obsługi lub aktualizacji oprogramowania.
 
-1. Na stronie **Punkty dystrybucji** skonfiguruj ustawienia i zakończ kreatora.
-1. Monitorowanie postępu wdrażania w konsoli programu Menedżer konfiguracji. Przejdź do **monitorowania** > **wdrożeń** > _\<\>nazwę pakietu_.
+1. Na stronie **punkty dystrybucji** Skonfiguruj ustawienia i Zakończ pracę kreatora.
+1. Monitoruj postęp wdrażania w konsoli Configuration Manager. Przejdź do pozycji **monitorowanie** > **wdrożenia** > _\<nazwa\>pakietu_.
 
-### <a name="uninstall-the-mobility-service"></a>Odinstaluj usługę mobilności
+### <a name="uninstall-the-mobility-service"></a>Odinstalowywanie usługi mobilności
 
-Można utworzyć pakiety programu Configuration Manager, aby odinstalować usługę mobilności. Na przykład następujący skrypt odinstalowuje usługę mobilności:
+Aby odinstalować usługę mobilności, można utworzyć pakiety Configuration Manager. Na przykład następujący skrypt Odinstalowuje usługę mobilności:
 
 ```DOS
 Time /t >> C:\logfile.log
@@ -420,4 +420,4 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Włącz replikację](vmware-azure-enable-replication.md) maszyn wirtualnych.
+[Włącz replikację](vmware-azure-enable-replication.md) dla maszyn wirtualnych.

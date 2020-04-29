@@ -1,6 +1,6 @@
 ---
-title: Tworzenie zadania usługi Azure Media Services z wieloma wyjściami transformacji
-description: W tym temacie pokazano, jak utworzyć zadanie usługi Azure Media Services z wieloma wyjściami transformacji.
+title: Tworzenie zadania Azure Media Services z wieloma wyjściami transformacji
+description: W tym temacie pokazano, jak utworzyć zadanie Azure Media Services z wieloma wyjściami transformacji.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,23 +12,23 @@ ms.topic: article
 ms.date: 02/17/2020
 ms.author: juliako
 ms.openlocfilehash: dbbeeb33ee46b37ec920fe598483c332d3439689
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77563143"
 ---
 # <a name="create-a-job-with-multiple-transform-outputs"></a>Tworzenie zadania z wieloma wyjściami transformacji
 
-W tym temacie pokazano, jak utworzyć transformować z dwóch wyjść transformacji. Pierwszy z nich wymaga, aby dane wejściowe były kodowane do adaptacyjnego przesyłania strumieniowego bitrate z wbudowanym ustawieniem [adaptiveStreaming.](encoding-concept.md#builtinstandardencoderpreset) Drugi wymaga, aby sygnał audio w wejściowym wideo był przetwarzany za pomocą [audioanalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). Po utworzeniu transformacji można przesłać zadanie, które odpowiednio przetworzy Twój film. Ponieważ w tym przykładzie określamy dwa wyjścia przekształcania, musimy określić dwa wyjścia zadania. Można skierować oba wyjścia zadań do tego samego zasobu (jak pokazano poniżej) lub mieć wyniki zapisywane w oddzielnych zasobach.
+W tym temacie pokazano, jak utworzyć transformację z dwoma wyjściami transformacji. Pierwsze wywołanie dla danych wejściowych jest kodowane na potrzeby przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów przy użyciu wbudowanego ustawienia wstępnego [AdaptiveStreaming](encoding-concept.md#builtinstandardencoderpreset) . Druga z nich wywołuje sygnał audio w wejściowym wideo do przetworzenia przy użyciu [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). Po utworzeniu przekształcenia można przesłać zadanie, które będzie odpowiednio przetwarzać wideo. Ponieważ w tym przykładzie określono dwa wyjścia transformacji, należy określić dwa dane wyjściowe zadania. Można zdecydować się na kierowanie obu zadań do tego samego zasobu (jak pokazano poniżej) lub zapisanie wyników w osobnych zasobach.
  
 
 > [!TIP]
-> Przed rozpoczęciem tworzenia, przegląd [tworzenie za pomocą interfejsów API usługi Media Services w wersji 3](media-services-apis-overview.md) (zawiera informacje na temat uzyskiwania dostępu do interfejsów API, konwencje nazewnictwa, itp.)
+> Przed rozpoczęciem opracowywania, zobacz [Tworzenie aplikacji przy użyciu interfejsów api Media Services v3](media-services-apis-overview.md) (w tym informacje na temat uzyskiwania dostępu do interfejsów API, konwencji nazewnictwa itp.).
 
 ## <a name="create-a-transform"></a>Tworzenie przekształcenia
 
-Poniższy kod pokazuje, jak utworzyć transformację, która produkuje dwa wyjścia.
+Poniższy kod pokazuje, jak utworzyć transformację, która produkuje dwa dane wyjściowe.
 
 ```csharp
 private static async Task<Transform> GetOrCreateTransformAsync(
@@ -67,7 +67,7 @@ private static async Task<Transform> GetOrCreateTransformAsync(
 ```
 ## <a name="submit-a-job"></a>Przesyłanie zadania
 
-Utwórz zadanie z wejściem adresu URL HTTPS i dwoma wyjściami zadań.
+Utwórz zadanie z danymi wejściowymi protokołu HTTPS i dwoma wynikami zadania.
 
 ```csharp
 private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
@@ -135,4 +135,4 @@ Zobacz [Kody błędów](https://docs.microsoft.com/rest/api/media/jobs/get#jober
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Przykłady usługi Azure Media Services w wersji 3 przy użyciu platformy .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/) 
+[Przykłady Azure Media Services v3 przy użyciu platformy .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/) 

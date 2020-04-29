@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie dostępem SSH dla kont domeny w usłudze Azure HDInsight
-description: Kroki zarządzania dostępem SSH dla kont usługi Azure AD w programie HDInsight.
+description: Kroki umożliwiające zarządzanie dostępem protokołu SSH dla kont usługi Azure AD w usłudze HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,33 +8,33 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 5529989384df75b592afa8f5e4960eb9817fb2d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77472520"
 ---
 # <a name="manage-ssh-access-for-domain-accounts-in-azure-hdinsight"></a>Zarządzanie dostępem SSH dla kont domeny w usłudze Azure HDInsight
 
-W bezpiecznych klastrach domyślnie wszyscy użytkownicy domeny w [usługach Azure AD DS](../../active-directory-domain-services/overview.md) mogą [ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) do węzłów head i edge. Ci użytkownicy nie są częścią grupy sudoers i nie otrzymują dostępu do roota. Użytkownik SSH utworzony podczas tworzenia klastra będzie miał dostęp do roota.
+W bezpiecznych klastrach domyślnie wszyscy użytkownicy domeny w [usłudze Azure AD DS](../../active-directory-domain-services/overview.md) mogą używać protokołu [SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) w węzłach głównych i brzegowych. Ci użytkownicy nie są częścią grupy sudo i nie uzyskują dostępu do katalogu głównego. Użytkownik SSH utworzony podczas tworzenia klastra będzie miał dostęp do katalogu głównego.
 
 ## <a name="manage-access"></a>Zarządzanie dostępem
 
-Aby zmodyfikować dostęp SSH do `/etc/ssh/sshd_config` określonych użytkowników lub grup, zaktualizuj każdy z węzłów.
+Aby zmodyfikować dostęp SSH do określonych użytkowników lub grup, należy `/etc/ssh/sshd_config` zaktualizować wszystkie węzły.
 
-1. Użyj [polecenia ssh,](../hdinsight-hadoop-linux-use-ssh-unix.md) aby połączyć się z klastrem. Edytuj poniższe polecenie, zastępując clustername nazwą klastra, a następnie wprowadź polecenie:
+1. Użyj [polecenia SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) do nawiązania połączenia z klastrem. Edytuj poniższe polecenie, zastępując wartość CLUSTERname nazwą klastra, a następnie wprowadź polecenie:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Otwórz `ssh_confi`plik g.
+1. Otwórz plik `ssh_confi`g.
 
     ```bash
     sudo nano /etc/ssh/sshd_config
     ```
 
-1. Zmodyfikuj plik zgodnie z `sshd_config` potrzebami. Jeśli ograniczysz użytkowników do niektórych grup, konta lokalne nie mogą ssh do tego węzła. Oto tylko przykład składni:
+1. Zmodyfikuj plik `sshd_config` zgodnie z potrzebami. W przypadku ograniczenia użytkowników do określonych grup konta lokalne nie mogą SSH do tego węzła. Poniżej przedstawiono tylko przykład składni:
 
     ```bash
     AllowUsers useralias1 useralias2
@@ -42,9 +42,9 @@ Aby zmodyfikować dostęp SSH do `/etc/ssh/sshd_config` określonych użytkownik
     AllowGroups groupname1 groupname2
     ```
 
-    Następnie zapisz zmiany: **Ctrl + X**, **Y**, **Enter**.
+    Następnie Zapisz zmiany: **Ctrl + X**, **Y**, **Enter**.
 
-1. Uruchom ponownie sshd.
+1. Uruchom ponownie SSHD.
 
     ```bash
     sudo systemctl restart sshd
@@ -54,13 +54,13 @@ Aby zmodyfikować dostęp SSH do `/etc/ssh/sshd_config` określonych użytkownik
 
 ## <a name="ssh-authentication-log"></a>Dziennik uwierzytelniania SSH
 
-Dziennik uwierzytelniania SSH `/var/log/auth.log`jest zapisywany w pliku . Jeśli widzisz żadnych błędów logowania za pośrednictwem SSH dla kont lokalnych lub domeny, należy przejść przez dziennik do debugowania błędów. Często problem może być związany z określonymi kontami użytkowników i zazwyczaj dobrą praktyką jest wypróbowanie innych kont użytkowników lub SSH przy użyciu domyślnego użytkownika SSH (konta lokalnego), a następnie próba kinit.
+Dziennik uwierzytelniania SSH jest zapisywana `/var/log/auth.log`w. Jeśli widzisz błędy logowania za pośrednictwem protokołu SSH dla kont lokalnych lub domenowych, musisz przejść przez dziennik, aby debugować błędy. Często problem może być związany z określonymi kontami użytkowników i zazwyczaj dobrym rozwiązaniem jest wypróbowanie innych kont użytkowników lub protokołów SSH przy użyciu domyślnego użytkownika SSH (konta lokalnego), a następnie próba narzędzie kinit.
 
 ## <a name="ssh-debug-log"></a>Dziennik debugowania SSH
 
-Aby włączyć pełne rejestrowanie, należy ponownie `sshd` uruchomić `-d` z opcją. Podobnie `/usr/sbin/sshd -d` jak Ty `sshd` można również uruchomić w porcie niestandardowym (jak 2222), dzięki czemu nie trzeba zatrzymać głównego demona SSH. Można również `-v` użyć opcji z klientem SSH, aby uzyskać więcej dzienników (widok po stronie klienta błędów).
+Aby włączyć pełne rejestrowanie, należy ponownie uruchomić `sshd` polecenie przy użyciu `-d` opcji. Podobnie `/usr/sbin/sshd -d` jak `sshd` w przypadku portu niestandardowego (na przykład 2222), aby nie trzeba było zatrzymać głównego demona SSH. Można również użyć `-v` opcji z klientem SSH, aby uzyskać więcej dzienników (widok po stronie klienta dla błędów).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie klastrami HDInsight za pomocą pakietu zabezpieczeń przedsiębiorstwa](./apache-domain-joined-manage.md)
-* [Połącz się z HDInsight (Apache Hadoop) za pomocą SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* [Zarządzanie klastrami usługi HDInsight przy użyciu pakiet Enterprise Security](./apache-domain-joined-manage.md)
+* [Łączenie z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).

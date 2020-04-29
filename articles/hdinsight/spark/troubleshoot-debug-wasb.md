@@ -1,6 +1,6 @@
 ---
-title: Debugowanie operacji plików WASB w usłudze Azure HDInsight
-description: W tym artykule opisano kroki rozwiązywania problemów i możliwe rozwiązania problemów podczas interakcji z klastrami usługi Azure HDInsight.
+title: Debugowanie operacji na plikach WASB w usłudze Azure HDInsight
+description: Opisuje kroki rozwiązywania problemów i możliwe rozwiązania problemów występujących podczas pracy z klastrami usługi Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,33 +8,33 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/18/2020
 ms.openlocfilehash: f1707c7f8d6324678c8bf5a470bbded1e58c719e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77470721"
 ---
-# <a name="debug-wasb-file-operations-in-azure-hdinsight"></a>Debugowanie operacji plików WASB w usłudze Azure HDInsight
+# <a name="debug-wasb-file-operations-in-azure-hdinsight"></a>Debugowanie operacji na plikach WASB w usłudze Azure HDInsight
 
-Istnieją chwile, kiedy można zrozumieć, jakie operacje sterownik WASB rozpoczął z usługą Azure Storage. Po stronie klienta sterownik WASB tworzy dzienniki dla każdej operacji systemu plików na poziomie **DEBUG.** Sterownik WASB używa log4j do kontrolowania poziomu rejestrowania, a domyślnym poziomem info jest poziom **INFO.** W przypadku dzienników analizy po stronie serwera usługi Azure Storage zobacz [Rejestrowanie analizy usługi Azure Storage](../../storage/common/storage-analytics-logging.md).
+Istnieją przypadki, w których można zrozumieć, jakie operacje został uruchomiony przez sterownik WASB w usłudze Azure Storage. Po stronie klienta sterownik WASB tworzy dzienniki dla każdej operacji systemu plików na poziomie **debugowania** . Sterownik WASB używa Log4J do kontrolowania poziomu rejestrowania i domyślnego poziomu **informacji** . W przypadku dzienników analitycznych po stronie serwera usługi Azure Storage zobacz [Rejestrowanie analizy usługi Azure Storage](../../storage/common/storage-analytics-logging.md).
 
-Wyprodukowany dziennik będzie wyglądał podobnie do:
+Wygenerowany dziennik będzie wyglądać podobnie do:
 
 ```log
 18/05/13 04:15:55 DEBUG NativeAzureFileSystem: Moving wasb://xxx@yyy.blob.core.windows.net/user/livy/ulysses.txt/_temporary/0/_temporary/attempt_20180513041552_0000_m_000000_0/part-00000 to wasb://xxx@yyy.blob.core.windows.net/user/livy/ulysses.txt/part-00000
 ```
 
-## <a name="turn-on-wasb-debug-log-for-file-operations"></a>Włączanie dziennika debugowania WASB dla operacji na plikach
+## <a name="turn-on-wasb-debug-log-for-file-operations"></a>Włącz Dziennik debugowania WASB dla operacji na plikach
 
-1. W przeglądarce internetowej `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs`przejdź `CLUSTERNAME` do miejsca , gdzie jest nazwa klastra Platformy Spark.
+1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs`lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra Spark.
 
-1. Przejdź do **zaawansowanych właściwości spark2-log4j.**
+1. Przejdź do **zaawansowanej spark2-Log4J-Properties**.
 
-    1. Zmodyfikuj `log4j.appender.console.Threshold=INFO` do `log4j.appender.console.Threshold=DEBUG`.
+    1. Modyfikuj `log4j.appender.console.Threshold=INFO` na `log4j.appender.console.Threshold=DEBUG`.
 
     1. Dodaj `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`.
 
-1. Przejdź do **zaawansowanego livy2-log4j-properties**.
+1. Przejdź do **zaawansowanej livy2-Log4J-Properties**.
 
     Dodaj `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`.
 
@@ -42,9 +42,9 @@ Wyprodukowany dziennik będzie wyglądał podobnie do:
 
 ## <a name="additional-logging"></a>Dodatkowe rejestrowanie
 
-Powyższe dzienniki powinny zapewniać wysoki poziom zrozumienia operacji systemu plików. Jeśli powyższe dzienniki nadal nie dostarczają przydatnych informacji lub jeśli chcesz `fs.azure.storage.client.logging=true` zbadać `core-site`wywołania interfejsu api magazynu obiektów blob, dodaj do pliku . To ustawienie włączy dzienniki java sdk dla sterownika magazynu wasb i wydrukuje każde wywołanie serwera magazynu obiektów blob. Usuń ustawienie po przeprowadzeniu badań, ponieważ może to szybko zapełnić dysk i spowolnić proces.
+Powyższe dzienniki powinny zapewnić ogólne zrozumienie operacji systemu plików. Jeśli powyższe dzienniki nadal nie udostępniają użytecznych informacji lub jeśli chcesz zbadać wywołania interfejsu API usługi BLOB Storage, Dodaj `fs.azure.storage.client.logging=true` je do programu `core-site`. To ustawienie spowoduje włączenie dzienników zestawu SDK języka Java dla sterownika magazynu wasb i wydrukowanie każdego wywołania do serwera usługi BLOB Storage. Usuń ustawienie po zbadaniu, ponieważ może ono szybko zapełniać dysk i może spowolnić proces.
 
-Jeśli zaplecze jest oparte na usłudze Azure Data Lake, użyj następującego ustawienia log4j dla składnika(na przykład spark/tez/hdfs):
+Jeśli zaplecze jest oparty Azure Data Lake, użyj następującego ustawienia Log4J dla składnika (na przykład Spark/tez/HDFS):
 
 ```
 log4j.logger.com.microsoft.azure.datalake.store=ALL,adlsFile
@@ -55,14 +55,14 @@ log4j.appender.adlsFile.layout=org.apache.log4j.PatternLayout
 log4j.appender.adlsFile.layout.ConversionPattern=%p\t%d{ISO8601}\t%r\t%c\t[%t]\t%m%n
 ```
 
-Poszukaj dzienników. `/var/log/adl/adl.log`
+Zapoznaj się z dziennikami `/var/log/adl/adl.log` dzienników.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nie widzisz problemu lub nie możesz rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy technicznej:
+Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
 
-* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej platformy Azure Community.](https://azure.microsoft.com/support/community/)
+* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz [@AzureSupport](https://twitter.com/azuresupport) się z — oficjalnym kontem platformy Microsoft Azure w celu poprawy jakości obsługi klienta. Łączenie społeczności platformy Azure z odpowiednimi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+* Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
-* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy z [witryny Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wybierz **pozycję Obsługa z** paska menu lub otwórz centrum pomocy + pomocy **technicznej.** Aby uzyskać bardziej szczegółowe informacje, zapoznaj [się z instrukcjami tworzenia żądania pomocy technicznej platformy Azure.](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) Dostęp do obsługi zarządzania subskrypcjami i rozliczeń jest dołączony do subskrypcji platformy Microsoft Azure, a pomoc techniczna jest świadczona za pośrednictwem jednego z [planów pomocy technicznej platformy Azure.](https://azure.microsoft.com/support/plans/)
+* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

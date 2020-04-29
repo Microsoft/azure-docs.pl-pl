@@ -1,6 +1,6 @@
 ---
-title: Usługa Azure Service Bus — odroczenie komunikatu
-description: W tym artykule wyjaśniono, jak odroczyć dostarczanie komunikatów usługi Azure Service Bus. Komunikat pozostanie w kolejce lub subskrypcji, ale zostanie odłożony.
+title: Azure Service Bus — odroczenie komunikatu
+description: W tym artykule wyjaśniono, jak odroczyć dostarczanie komunikatów Azure Service Bus. Komunikat pozostanie w kolejce lub subskrypcji, ale zostanie odłożony.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,36 +14,36 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 5e32c461902c1e340c6cece22669a59847e660cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77538400"
 ---
 # <a name="message-deferral"></a>Odraczanie komunikatów
 
-Gdy klient kolejki lub subskrypcji odbiera komunikat, który jest chętny do przetworzenia, ale dla których przetwarzanie nie jest obecnie możliwe ze względu na szczególne okoliczności wewnątrz aplikacji, ma możliwość "odroczenie" pobierania wiadomości do późniejszego punktu. Komunikat pozostanie w kolejce lub subskrypcji, ale zostanie odłożony.
+Gdy klient z kolejką lub subskrypcją otrzymuje komunikat, który chce przetworzyć, ale w przypadku którego przetwarzanie nie jest obecnie możliwe z powodu specjalnych okoliczności w aplikacji, ma możliwość "odroczone" Pobieranie komunikatu do późniejszego punktu. Komunikat pozostanie w kolejce lub subskrypcji, ale zostanie odłożony.
 
-Odroczenie jest funkcją specjalnie utworzoną dla scenariuszy przetwarzania przepływu pracy. Struktury przepływu pracy może wymagać niektórych operacji do przetworzenia w określonej kolejności i może być konieczne odroczenie przetwarzania niektórych odebranych wiadomości, dopóki nie zostanie zakończona określona wcześniejsza praca, która jest informowana przez inne wiadomości.
+Odroczenie to funkcja, która została utworzona w scenariuszach przetwarzania przepływu pracy. Struktury przepływu pracy mogą wymagać przetworzenia niektórych operacji w określonej kolejności i może być konieczne odłożenie przetwarzania niektórych odebranych komunikatów do momentu, w którym zostanie wykonane wcześniejsze prace, które zostały poinformowane przez inne komunikaty.
 
-Prostym przykładem jest sekwencja przetwarzania zamówień, w której powiadomienie o płatności od zewnętrznego dostawcy płatności pojawia się w systemie przed propagacją pasującego zamówienia zakupu z przodu sklepu do systemu realizacji. W takim przypadku system realizacji może odroczyć przetwarzanie powiadomienia o płatności, dopóki nie zostanie zrealizowane zlecenie, z którym można je skojarzyć. W scenariuszach spotkania, gdzie wiadomości z różnych źródeł dysk przepływu pracy do przodu, kolejność wykonywania w czasie rzeczywistym może rzeczywiście być poprawne, ale komunikaty odzwierciedlające wyniki mogą pojawić się poza kolejnością.
+Prosty przykład ilustruje sekwencję przetwarzania zamówień, w której powiadomienie o płatności od zewnętrznego dostawcy płatności pojawia się w systemie, zanim zgodne zamówienie zakupu zostało rozpropagowane ze sklepu od przodu do systemu realizacji. W takim przypadku system realizacji może odroczyć przetwarzanie powiadomienia o płatności do momentu, w którym ma zostać skojarzona kolejność. W przypadku scenariuszy, w których komunikaty z różnych źródeł kierują przepływ pracy do przodu, kolejność wykonywania w czasie rzeczywistym może być poprawna, ale komunikaty odzwierciedlające wyniki mogą być nieuporządkowane.
 
-Ostatecznie pomoce odroczenia w ponownym uskoleniu wiadomości z kolejności przybycia do kolejności, w której mogą być przetwarzane, pozostawiając te wiadomości bezpiecznie w magazynie wiadomości, dla których przetwarzanie musi zostać odroczone.
+Ostatecznie w przypadku zmiany kolejności komunikatów z zamówienia przyjęcia do kolejności, w której można je przetworzyć, pozostawiając te komunikaty bezpiecznie w magazynie komunikatów, dla którego przetwarzanie musi zostać odroczone.
 
-## <a name="message-deferral-apis"></a>Interfejsy API odroczenia wiadomości
+## <a name="message-deferral-apis"></a>Interfejsy API odroczeń komunikatów
 
-Interfejs API to [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.defer?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_Defer) lub [BrokeredMessage.DeferAsync](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deferasync?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeferAsync) w kliencie .NET Framework, [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) w kliencie .NET Standard oraz [IMessageReceiver.defer](/java/api/com.microsoft.azure.servicebus.imessagereceiver.defer?view=azure-java-stable) lub [IMessageReceiver.deferAsync](/java/api/com.microsoft.azure.servicebus.imessagereceiver.deferasync?view=azure-java-stable) w kliencie Java. 
+Interfejs API to [BrokeredMessage. Ustąp](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.defer?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_Defer) lub [BrokeredMessage. DeferAsync](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deferasync?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeferAsync) w kliencie .NET Framework, [MessageReceiver. DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) w kliencie .NET Standard, a [IMessageReceiver. Ustąp](/java/api/com.microsoft.azure.servicebus.imessagereceiver.defer?view=azure-java-stable) lub [IMessageReceiver. DeferAsync](/java/api/com.microsoft.azure.servicebus.imessagereceiver.deferasync?view=azure-java-stable) w kliencie Java. 
 
-Odroczone wiadomości pozostają w kolejce głównej wraz ze wszystkimi innymi aktywnymi wiadomościami (w przeciwieństwie do wiadomości utraconych, które żyją w podo kolejce), ale nie mogą być odbierane przy użyciu regularnych funkcji Receive/ReceiveAsync. Odroczone wiadomości można odnajdować za pomocą [przeglądania wiadomości,](message-browsing.md) jeśli aplikacja traci ich ślad.
+Komunikaty odroczone pozostają w kolejce głównej wraz ze wszystkimi innymi aktywnymi komunikatami (w przeciwieństwie do wiadomości utraconych w kolejce), ale nie mogą być już odbierane przy użyciu zwykłych funkcji Receive/ReceiveAsync. Komunikaty odroczone mogą zostać odnalezione za pośrednictwem [przeglądania komunikatów](message-browsing.md) , jeśli aplikacja utraci ich śledzenie.
 
-Aby pobrać odroczoną wiadomość, jej właściciel jest odpowiedzialny za zapamiętywanie [SequenceNumber,](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) ponieważ go odpiera. Każdy odbiorca, który zna numer sekwencyjny odroczonej `Receive(sequenceNumber)`wiadomości, może później otrzymać wiadomość jawnie za pomocą pliku .
+Aby pobrać odroczony komunikat, jego właściciel jest odpowiedzialny za zapamiętanie [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) . Każdy odbiornik, który zna numer sekwencyjny komunikatu, może później odebrać komunikat jawnie za pomocą `Receive(sequenceNumber)`.
 
-Jeśli wiadomość nie może być przetworzona, ponieważ określony zasób do obsługi tej wiadomości jest tymczasowo niedostępny, ale przetwarzanie wiadomości nie powinno być liczone, sposobem na umieszczenie tej wiadomości na boku przez kilka minut jest zapamiętanie **sequenceNumber** w [zaplanowanej wiadomości,](message-sequencing.md) która ma zostać opublikowana w ciągu kilku minut, i ponowne pobranie odroczonej wiadomości po odebraniu zaplanowanej wiadomości. Jeśli program obsługi wiadomości zależy od bazy danych dla wszystkich operacji i że baza danych jest tymczasowo niedostępny, nie należy używać odroczenia, ale raczej zawiesić odbieranie wiadomości całkowicie, dopóki baza danych jest ponownie dostępna.
+Jeśli nie można przetworzyć komunikatu, ponieważ określony zasób obsługujący ten komunikat jest tymczasowo niedostępny, ale przetwarzanie komunikatów nie powinno być podsumowujące w sposób skrócony, sposób umieszczania tego komunikatu po stronie przez kilka minut to zapamiętanie **SequenceNumber** w [zaplanowanym komunikacie](message-sequencing.md) do opublikowania w ciągu kilku minut i ponowne pobranie odroczonego komunikatu po nadejściu zaplanowanego komunikatu. Jeśli program obsługi komunikatów zależy od bazy danych dla wszystkich operacji, a ta baza danych jest tymczasowo niedostępna, nie powinna używać odroczenia, ale raczej wstrzymuje wysyłanie komunikatów do momentu, gdy baza danych będzie ponownie dostępna.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o wiadomościach usługi Service Bus, zobacz następujące tematy:
+Aby dowiedzieć się więcej na temat Service Bus Messaging, zobacz następujące tematy:
 
 * [Kolejki, tematy i subskrypcje usługi Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Wprowadzenie do kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)

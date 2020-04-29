@@ -1,6 +1,6 @@
 ---
-title: Przydatne zasoby podczas pracy z usługą Azure Sentinel| Dokumenty firmy Microsoft
-description: Ten dokument zawiera listę przydatnych zasobów podczas pracy z usługą Azure Sentinel.
+title: Przydatne zasoby podczas pracy z platformą Azure — wskaźnikiem Microsoft Docs
+description: Ten dokument zawiera listę przydatnych zasobów podczas pracy z platformą Azure — wskaźnikiem.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,70 +16,70 @@ ms.workload: na
 ms.date: 12/02/2019
 ms.author: yelevin
 ms.openlocfilehash: 2110d3319cebf693ef06deec26a29fa655e35035
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77585275"
 ---
-# <a name="useful-resources-for-working-with-azure-sentinel"></a>Przydatne zasoby do pracy z usługą Azure Sentinel
+# <a name="useful-resources-for-working-with-azure-sentinel"></a>Przydatne zasoby do pracy z platformą Azure — wskaźnikiem
 
 
 
-W tym artykule wymieniono zasoby, które mogą pomóc uzyskać więcej informacji na temat pracy z usługą Azure Sentinel.
+W tym artykule wymieniono zasoby, które mogą pomóc uzyskać więcej informacji na temat pracy z platformą Azure — wskaźnikiem.
 
-Łączniki usługi Azure Logic Apps:<https://docs.microsoft.com/connectors/>
+Łączniki Azure Logic Apps:<https://docs.microsoft.com/connectors/>
 
 
-## <a name="auditing-and-reporting"></a>Inspekcja i sprawozdawczość
-Dzienniki inspekcji usługi Azure Sentinel są przechowywane w [dziennikach aktywności platformy Azure.](../azure-monitor/platform/platform-logs-overview.md)
+## <a name="auditing-and-reporting"></a>Inspekcja i raportowanie
+Dzienniki inspekcji platformy Azure są przechowywane w [dziennikach aktywności platformy Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-Następujące obsługiwane operacje mogą być poddane inspekcji.
+Możliwe jest przeprowadzenie inspekcji następujących obsługiwanych operacji.
 
 |Nazwa operacji|    Typ zasobu|
 |----|----|
-|Tworzenie lub aktualizowanie skoroszytu  |Microsoft.Insights/skoroszyty|
-|Usuwanie skoroszytu    |Microsoft.Insights/skoroszyty|
-|Ustawianie przepływu pracy   |Microsoft.Logic/przepływy pracy|
-|Usuwanie przepływu pracy    |Microsoft.Logic/przepływy pracy|
-|Utwórz zapisane wyszukiwanie    |Microsoft.OperationalInsights/workspaces/savedSearches|
-|Usuń zapisane wyszukiwanie    |Microsoft.OperationalInsights/workspaces/savedSearches|
-|Aktualizuj reguły alertów |Microsoft.SecurityInsights/alertRules|
-|Usuń reguły alertów |Microsoft.SecurityInsights/alertRules|
-|Akcje odpowiedzi reguły alertu aktualizacji |Microsoft.SecurityInsights/alertRules/actions|
-|Usuwanie akcji odpowiedzi reguły alertów |Microsoft.SecurityInsights/alertRules/actions|
-|Aktualizowanie zakładek   |Microsoft.SecurityInsights/bookmarks|
-|Usuwanie zakładek   |Microsoft.SecurityInsights/bookmarks|
-|Aktualizuj sprawy   |Microsoft.SecurityInsights/Cases|
-|Aktualizacja dochodzenia w sprawie  |Microsoft.SecurityInsights/Cases/investigations|
-|Utwórz komentarze do sprawy   |Microsoft.SecurityInsights/Cases/comments|
-|Aktualizowanie łączników danych |Microsoft.SecurityInsights/dataConnectors Microsoft.SecurityInsights/dataConnectors Microsoft.SecurityInsights/dataConnectors Microsoft.|
-|Usuwanie łączników danych |Microsoft.SecurityInsights/dataConnectors Microsoft.SecurityInsights/dataConnectors Microsoft.SecurityInsights/dataConnectors Microsoft.|
-|Aktualizuj ustawienia    |Microsoft.SecurityInsights/settings|
+|Utwórz lub zaktualizuj skoroszyt  |Microsoft. Insights/skoroszyty|
+|Usuń skoroszyt    |Microsoft. Insights/skoroszyty|
+|Ustaw przepływ pracy   |Microsoft. Logic/przepływy pracy|
+|Usuń przepływ pracy    |Microsoft. Logic/przepływy pracy|
+|Utwórz zapisane wyszukiwanie    |Microsoft. OperationalInsights/Workspaces/savedSearches|
+|Usuń zapisane wyszukiwanie    |Microsoft. OperationalInsights/Workspaces/savedSearches|
+|Aktualizowanie reguł alertów |Microsoft. SecurityInsights/alertRules|
+|Usuń reguły alertów |Microsoft. SecurityInsights/alertRules|
+|Aktualizuj akcje odpowiedzi reguły alertu |Microsoft. SecurityInsights/alertRules/Actions|
+|Usuń akcje odpowiedzi reguły alertu |Microsoft. SecurityInsights/alertRules/Actions|
+|Aktualizuj zakładki   |Microsoft. SecurityInsights/zakładki|
+|Usuń zakładki   |Microsoft. SecurityInsights/zakładki|
+|Przypadki aktualizacji   |Microsoft. SecurityInsights/sprawy|
+|Aktualizacja badania przypadku  |Microsoft. SecurityInsights/sprawy/badania|
+|Utwórz Komentarze do wielkości liter   |Microsoft. SecurityInsights/sprawy/Komentarze|
+|Aktualizuj łączniki danych |Microsoft. SecurityInsights/dataconnecters|
+|Usuń łączniki danych |Microsoft. SecurityInsights/dataconnecters|
+|Aktualizuj ustawienia    |Microsoft. SecurityInsights/ustawienia|
 
-### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>Wyświetlanie danych inspekcji i raportowania w usłudze Azure Sentinel
+### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>Wyświetlanie danych inspekcji i raportowania na platformie Azure — wskaźnik
 
-Możesz wyświetlić te dane, przesyłając je strumieniowo z dziennika aktywności platformy Azure do usługi Azure Sentinel, gdzie można następnie przeprowadzić badania i analizy na nim.
+Te dane można wyświetlić, przesyłając je strumieniowo z dziennika aktywności platformy Azure do platformy Azure
 
-1. Połącz źródło danych [działania platformy Azure.](connect-azure-activity.md) Po wykonaniu tej tej pracy zdarzenia inspekcji są przesyłane strumieniowo do nowej tabeli na ekranie **dzienniki** o nazwie AzureActivity.
-2. Następnie kwerendy danych przy użyciu KQL, jak każda inna tabela.
+1. Połącz źródło danych [aktywności platformy Azure](connect-azure-activity.md) . Po wykonaniu tej czynności zdarzenia inspekcji są przesyłane strumieniowo do nowej tabeli na ekranie **dzienników** o nazwie Azure.
+2. Następnie wykonaj zapytanie o dane przy użyciu KQL, tak jak w przypadku każdej innej tabeli.
 
 
 
 ## <a name="vendor-documentation"></a>Dokumentacja dostawcy
 
-| **Dostawca**  | **Używanie incydentu w usłudze Azure Sentinel** | **Link**|
+| **Dostawca**  | **Korzystanie z zdarzeń na platformie Azure — wskaźnik** | **Łącze**|
 |----|----|----|
 | GitHub| Służy do uzyskiwania dostępu do strony społeczności| <https://github.com/Azure/Azure-Sentinel> |
-| PaloAlto ( PaloAlto )| Konfigurowanie instrumentu CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
-| Pluralsight | Kurs języka Kusto Query Language| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
+| PaloAlto| Konfigurowanie CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
+| PluralSight | Kurs języka Kusto Query Language| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
 
 ## <a name="blogs-and-forums"></a>Blogi i fora
 
-Opublikuj swoje pytania w [obszarze TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) dla usługi Azure Sentinel.
+Opublikuj swoje pytania w [obszarze TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) na potrzeby platformy Azure.
 
-Wyświetlanie wpisów w blogu usługi Azure Sentinel z [witryn TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) i [Platformy Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/).
+Wyświetl wpisy w blogu dotyczące platformy Azure wskaźnikowego z [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) i [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/).
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym dokumencie masz listę zasobów, które są przydatne podczas pracy z usługą Azure Sentinel. Dodatkowe informacje na temat zabezpieczeń i zgodności platformy Azure znajdziesz w [blogu Microsoft Azure Security and Compliance](https://blogs.msdn.com/b/azuresecurity/).
+W tym dokumencie przedstawiono listę zasobów, które są przydatne podczas pracy z platformą Azure — wskaźnikiem. Dodatkowe informacje na temat zabezpieczeń i zgodności platformy Azure można znaleźć na [blogu Microsoft Azure zabezpieczenia i zgodność](https://blogs.msdn.com/b/azuresecurity/).

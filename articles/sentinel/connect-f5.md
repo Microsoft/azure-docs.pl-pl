@@ -1,6 +1,6 @@
 ---
-title: Łączenie danych F5 z usługą Azure Sentinel| Dokumenty firmy Microsoft
-description: Dowiedz się, jak połączyć dane F5 z usługą Azure Sentinel.
+title: Łączenie danych F5 z platformą Azure — wskaźnikiem Microsoft Docs
+description: Dowiedz się, jak połączyć dane F5 z platformą Azure wskaźnikiem.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,33 +16,33 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 6f33cecca1c67f91d0f2be64ab156f45ee500521
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77588267"
 ---
-# <a name="connect-f5-to-azure-sentinel"></a>Łączenie F5 z usługą Azure Sentinel
+# <a name="connect-f5-to-azure-sentinel"></a>Połącz F5 z platformą Azure wskaźnikowego
 
-W tym artykule wyjaśniono, jak połączyć urządzenie F5 z usługą Azure Sentinel. Łącznik danych F5 umożliwia łatwe łączenie dzienników F5 z usługą Azure Sentinel, wyświetlanie pulpitów nawigacyjnych, tworzenie niestandardowych alertów i usprawnianie badań. Korzystanie z F5 na platformie Azure Sentinel zapewni Ci więcej informacji na temat korzystania z Internetu w organizacji i zwiększy jej możliwości obsługi zabezpieczeń. 
+W tym artykule wyjaśniono, jak podłączyć urządzenie F5 do usługi Azure wskaźnikowej. Łącznik danych F5 umożliwia łatwe łączenie dzienników F5 z danymi wskaźnikowymi platformy Azure, Wyświetlanie pulpitów nawigacyjnych, tworzenie alertów niestandardowych i ulepszanie badania. Użycie klawisza F5 na platformie Azure wskaźnikowej zapewnia więcej szczegółowych informacji na temat użycia Internetu w organizacji i poprawi możliwości operacji zabezpieczeń. 
 
-## <a name="configure-your-f5-to-send-cef-messages"></a>Konfigurowanie urządzenia F5 do wysyłania wiadomości cef
+## <a name="configure-your-f5-to-send-cef-messages"></a>Konfigurowanie klawisza F5 w celu wysyłania komunikatów CEF
 
-1. Przejdź do [strony F5 Konfigurowanie rejestrowania zdarzeń zabezpieczeń aplikacji](https://techdocs.f5.com/kb/en-us/products/big-ip_asm/manuals/product/asm-implementations-11-5-0/12.html)i postępuj zgodnie z instrukcjami, aby skonfigurować zdalne rejestrowanie, korzystając z następujących wskazówek:
-   - Ustaw **typ magazynu zdalnego** na **CEF**.
-   - Ustaw **protokół** na **TCP**.
-   - Ustaw **adres IP** na adres IP serwera Syslog.
+1. Przejdź do pozycji [F5 Konfigurowanie rejestrowania zdarzeń zabezpieczeń aplikacji](https://techdocs.f5.com/kb/en-us/products/big-ip_asm/manuals/product/asm-implementations-11-5-0/12.html)i postępuj zgodnie z instrukcjami, aby skonfigurować rejestrowanie zdalne, korzystając z następujących wskazówek:
+   - Ustaw **Typ magazynu zdalnego** na **CEF**.
+   - Ustaw **Protokół** na **TCP**.
+   - Ustaw **adres IP** na adres IP serwera dziennika systemowego.
    - Ustaw **numer portu** na **514**lub port, który ma być używany przez agenta.
-   - Maksymalny **rozmiar ciągu zapytania** można ustawić na rozmiar ustawiony w agencie.
+   - **Maksymalny rozmiar ciągu zapytania** można ustawić na rozmiar ustawiony w agencie.
 
-1. Aby użyć odpowiedniego schematu w usłudze Log Analytics `CommonSecurityLog`dla zdarzeń cef, wyszukaj .
+1. Aby użyć odpowiedniego schematu w Log Analytics dla zdarzeń CEF, wyszukaj ciąg `CommonSecurityLog`.
 
-1. Przejdź do [kroku 3: Sprawdź poprawność łączności](connect-cef-verify.md).
+1. Przejdź do [kroku 3: weryfikowanie łączności](connect-cef-verify.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym dokumencie dowiesz się, jak połączyć F5 z usługą Azure Sentinel. Aby dowiedzieć się więcej o usłudze Azure Sentinel, zobacz następujące artykuły:
-- Dowiedz się, jak [uzyskać wgląd w dane i potencjalne zagrożenia.](quickstart-get-visibility.md)
-- Rozpocznij [wykrywanie zagrożeń za pomocą usługi Azure Sentinel](tutorial-detect-threats.md).
-- Monitorowanie danych [za pomocą skoroszytów.](tutorial-monitor-your-data.md)
+W tym dokumencie przedstawiono sposób nawiązywania połączenia z klawiszem F5 z platformą Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
+- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
+- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats.md).
+- [Używaj skoroszytów](tutorial-monitor-your-data.md) do monitorowania danych.
 

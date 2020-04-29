@@ -1,6 +1,6 @@
 ---
-title: Przypisywanie roli niestandardowej usługi Azure AD — zarządzanie tożsamościami uprzywilejowanymi (PIM)
-description: Jak przypisać rolę niestandardową usługi Azure AD do zarządzania tożsamościami uprzywilejowanymi (PRZYDZIAŁ)
+title: Przypisywanie roli niestandardowej usługi Azure AD — Privileged Identity Management (PIM)
+description: Jak przypisać rolę niestandardową usługi Azure AD na potrzeby Privileged Identity Management przypisywania (PIM)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -17,70 +17,70 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0303d37ef5bbbf266feb5456b0bc224ce272ee13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77499246"
 ---
-# <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Przypisywanie roli niestandardowej usługi Azure AD w zarządzania tożsamościami uprzywilejowanymi
+# <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Przypisywanie roli niestandardowej usługi Azure AD w Privileged Identity Management
 
-W tym artykule opisano, jak używać zarządzania tożsamościami uprzywilejowanymi (PIM) do tworzenia przypisania tylko w czasie i czasie do ról niestandardowych utworzonych do zarządzania aplikacjami w usłudze Azure Active Directory (Azure AD) środowiska administracyjnego.
+W tym artykule przedstawiono sposób użycia Privileged Identity Management (PIM) do tworzenia przypisywania just-in-Time i Time do ról niestandardowych utworzonych na potrzeby zarządzania aplikacjami w środowisku administracyjnym usługi Azure Active Directory (Azure AD).
 
-- Aby uzyskać więcej informacji na temat tworzenia ról niestandardowych do delegowania zarządzania aplikacjami w usłudze Azure AD, zobacz [Role administratora niestandardowego w usłudze Azure Active Directory (wersja zapoznawcza)](../users-groups-roles/roles-custom-overview.md).
-- Jeśli nie używano jeszcze zarządzania tożsamościami uprzywilejowanymi, uzyskaj więcej informacji na [temat Rozpocznij korzystanie z zarządzania tożsamościami uprzywilejowanymi](pim-getting-started.md).
-- Aby uzyskać informacje dotyczące udzielania innym administratorom dostępu do zarządzania zarządzaniem uprzywilejowanym zarządzaniem tożsamościami, zobacz [Udzielanie dostępu innym administratorom w celu zarządzania zarządzaniem uprzywilejowanym zarządzaniem tożsamościami](pim-how-to-give-access-to-pim.md).
+- Aby uzyskać więcej informacji na temat tworzenia ról niestandardowych w celu delegowania zarządzania aplikacjami w usłudze Azure AD, zobacz [Niestandardowe role administratorów w Azure Active Directory (wersja zapoznawcza)](../users-groups-roles/roles-custom-overview.md).
+- Jeśli jeszcze nie korzystasz Privileged Identity Management, uzyskaj więcej informacji na temat [rozpoczynania pracy przy użyciu Privileged Identity Management](pim-getting-started.md).
+- Aby uzyskać informacje na temat udzielania innym administratorom dostępu do zarządzania Privileged Identity Management, zobacz [udzielanie dostępu innym administratorom w celu zarządzania Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
 > [!NOTE]
-> Role niestandardowe usługi Azure AD nie są zintegrowane z wbudowanymi rolami katalogów podczas podglądu. Gdy możliwości są ogólnie dostępne, zarządzanie rolami odbędzie się w doświadczeniu wbudowanych ról. Jeśli widzisz następujący baner, te role powinny być zarządzane [w doświadczeniu wbudowanych ról](pim-how-to-activate-role.md) i ten artykuł nie ma zastosowania:
+> Role niestandardowe usługi Azure AD nie są zintegrowane z wbudowanymi rolami katalogu w wersji zapoznawczej. Gdy funkcja jest ogólnie dostępna, zarządzanie rolami będzie odbywać się w interfejsie wbudowanym. Jeśli zobaczysz poniższy transparent, te role powinny być zarządzane [przy użyciu wbudowanej roli środowisko](pim-how-to-activate-role.md) i ten artykuł nie ma zastosowania:
 >
 > [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## <a name="assign-a-role"></a>Przypisywanie roli
 
-Zarządzanie tożsamościami uprzywilejowanymi może zarządzać rolami niestandardowymi, które można utworzyć w zarządzaniu aplikacjami usługi Azure Active Directory (Azure AD).  Poniższe kroki sprawiają, że kwalifikujące się przypisanie do niestandardowej roli katalogu.
+Privileged Identity Management może zarządzać rolami niestandardowymi, które można tworzyć w usłudze Azure Active Directory (Azure AD) Zarządzanie aplikacjami.  Poniższe kroki umożliwiają odpowiednie przypisanie do niestandardowej roli katalogu.
 
-1. Zaloguj się do [zarządzania tożsamościami uprzywilejowanymi](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) w witrynie Azure portal przy za pomocą konta użytkownika przypisanego do roli administratora ról uprzywilejowanych.
-1. Wybierz **role niestandardowe usługi Azure AD (Wersja zapoznawcza)**.
+1. Zaloguj się do [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) w Azure Portal przy użyciu konta użytkownika przypisanego do roli administrator ról uprzywilejowanych.
+1. Wybierz **role niestandardowe usługi Azure AD (wersja zapoznawcza)**.
 
-    ![Wybieranie w wersji zapoznawczej ról niestandardowych usługi Azure AD, aby wyświetlić kwalifikujące się przydziały ról](./media/azure-ad-custom-roles-assign/view-custom.png)
+    ![Wybieranie ról niestandardowych usługi Azure AD w wersji zapoznawczej, aby zobaczyć kwalifikujące się przypisania ról](./media/azure-ad-custom-roles-assign/view-custom.png)
 
-1. Wybierz **pozycję Role,** aby wyświetlić listę ról niestandardowych dla aplikacji usługi Azure AD.
+1. Wybierz pozycję **role** , aby wyświetlić listę ról niestandardowych dla aplikacji usługi Azure AD.
 
-    ![Wybierz role zobacz listę kwalifikujących się przypisań ról](./media/azure-ad-custom-roles-assign/view-roles.png)
+    ![Wybierz role Zobacz listę kwalifikujących się przypisań ról](./media/azure-ad-custom-roles-assign/view-roles.png)
 
-1. Wybierz **pozycję Dodaj członka,** aby otworzyć stronę przydziału.
-1. Aby ograniczyć zakres przypisania roli do pojedynczej aplikacji, wybierz **zakres,** aby określić zakres aplikacji.
+1. Wybierz pozycję **Dodaj członka** , aby otworzyć stronę przypisanie.
+1. Aby ograniczyć zakres przypisania roli do pojedynczej aplikacji, wybierz pozycję **zakres** , aby określić zakres aplikacji.
 
-    ![ograniczanie zakresu kwalifikujących się przypisań ról w usłudze Azure AD](./media/azure-ad-custom-roles-assign/set-scope.png)
+    ![Ograniczanie zakresu kwalifikujących się przypisań ról w usłudze Azure AD](./media/azure-ad-custom-roles-assign/set-scope.png)
 
-1. Wybierz **pozycję Wybierz rolę,** aby otworzyć listę **Wybierz rolę.**
+1. Wybierz pozycję **Wybierz rolę** , aby otworzyć listę **Wybierz rolę** .
 
-    ![wybierz kwalifikującą się rolę do przypisania użytkownikowi](./media/azure-ad-custom-roles-assign/select-role.png)
+    ![Wybierz kwalifikującą się rolę do przypisania do użytkownika](./media/azure-ad-custom-roles-assign/select-role.png)
 
-1. Wybierz rolę, którą chcesz przypisać, a następnie kliknij przycisk **Wybierz**. Zostanie otwarta lista **Wybierz członka.**
+1. Wybierz rolę, którą chcesz przypisać, a następnie kliknij przycisk **Wybierz**. Zostanie otwarta lista **Wybierz element członkowski** .
 
-    ![wybierz użytkownika, któremu przypisujesz rolę](./media/azure-ad-custom-roles-assign/select-member.png)
+    ![Wybierz użytkownika, do którego przypiszesz rolę](./media/azure-ad-custom-roles-assign/select-member.png)
 
-1. Wybierz użytkownika, którego chcesz przypisać do roli, a następnie kliknij przycisk **Wybierz**. Zostanie otwarta lista **Ustawień członkostwa.**
+1. Wybierz użytkownika, który chcesz przypisać do roli, a następnie kliknij przycisk **Wybierz**. Zostanie otwarta lista **ustawień członkostwa** .
 
-    ![Ustawianie typu przypisania roli na kwalifikujący się lub aktywny](./media/azure-ad-custom-roles-assign/membership-settings.png)
+    ![Ustaw typ przypisania roli na kwalifikujące się lub aktywne](./media/azure-ad-custom-roles-assign/membership-settings.png)
 
-1. Na stronie **Ustawienia członkostwa** wybierz pozycję **Kwalifikujące się** lub **Aktywne:**
+1. Na stronie **Ustawienia członkostwa** wybierz pozycję **kwalifikujące się** lub **aktywne**:
 
-    - **Kwalifikujące się** przypisania wymagają od użytkownika przypisanego do roli wykonania akcji, zanim będzie mógł użyć tej roli. Akcje mogą obejmować przekazywanie sprawdzania uwierzytelniania wieloskładnikowego, dostarczanie uzasadnienia biznesowego lub żądanie zatwierdzenia od wyznaczonych osób zatwierdzających.
-    - **Aktywne** przypisania nie wymagają od przypisanego użytkownika wykonywania żadnej akcji w celu użycia tej roli. Aktywni użytkownicy mają uprawnienia przypisane do roli przez cały czas.
+    - **Kwalifikujące się** przypisania wymagają, aby użytkownik przypisany do roli przeprowadził akcję, zanim będzie mógł korzystać z roli. Akcje mogą obejmować przekazanie kontroli uwierzytelniania wieloskładnikowego, zapewnienie uzasadnienia biznesowego lub zażądanie zatwierdzenia od wyznaczenia osób zatwierdzających.
+    - **Aktywne** przypisania nie wymagają przypisania użytkownikowi przypisanego do roli. Aktywni użytkownicy mają uprawnienia przypisane do roli przez cały czas.
 
-1. Jeśli pole wyboru **Stałe** jest obecne i dostępne (w zależności od ustawień roli), można określić, czy przypisanie jest trwałe. Zaznacz to pole wyboru, aby przydział był trwale kwalifikowalne lub trwale przypisane. Wyczyść to pole wyboru, aby określić czas trwania przydziału.
-1. Aby utworzyć nowe przypisanie roli, kliknij przycisk **Zapisz,** a następnie **dodaj**. Zostanie wyświetlone powiadomienie o stanie procesu przypisania.
+1. Jeśli **trwałe** pole wyboru jest obecne i dostępne (w zależności od ustawień roli), można określić, czy przydział jest trwały. Zaznacz pole wyboru, aby przydzielić trwale kwalifikujące się lub trwale przypisane. Usuń zaznaczenie tego pola wyboru, aby określić czas trwania przypisywania.
+1. Aby utworzyć nowe przypisanie roli, kliknij przycisk **Zapisz** , a następnie **Dodaj**. Zostanie wyświetlony komunikat z informacją o stanie procesu przypisywania.
 
-Aby zweryfikować przypisanie roli, w otwartej roli wybierz pozycję **Przydział przypisz** > **Assign** i sprawdź, czy przypisanie roli jest poprawnie zidentyfikowane jako kwalifikujące się lub aktywne.
+Aby sprawdzić przypisanie roli, w otwartej roli wybierz pozycję **przypisania** > **Przypisz** i sprawdź, czy przypisanie roli jest prawidłowo zidentyfikowane jako kwalifikujące się lub aktywne.
 
  ![Sprawdź, czy przypisanie roli jest widoczne jako kwalifikujące się lub aktywne](./media/azure-ad-custom-roles-assign/verify-assignments.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Aktywowanie roli niestandardowej usługi Azure AD](azure-ad-custom-roles-assign.md)
-- [Usuwanie lub aktualizowanie przypisania niestandardowego zadania usługi Azure AD](azure-ad-custom-roles-update-remove.md)
-- [Konfigurowanie przypisania niestandardowego zadania usługi Azure AD](azure-ad-custom-roles-configure.md)
+- [Aktywuj rolę niestandardową usługi Azure AD](azure-ad-custom-roles-assign.md)
+- [Usuń lub zaktualizuj niestandardowe przypisanie roli usługi Azure AD](azure-ad-custom-roles-update-remove.md)
+- [Skonfiguruj niestandardowe przypisanie roli usługi Azure AD](azure-ad-custom-roles-configure.md)
 - [Definicje ról w usłudze Azure AD](../users-groups-roles/directory-assign-admin-roles.md)

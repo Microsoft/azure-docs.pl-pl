@@ -1,19 +1,19 @@
 ---
-title: 'Szybki start: tworzenie biblioteki klienta (LANGUAGE Understanding) (LUIS)'
-description: Wprowadzenie do biblioteki klienta usługi LUIS z tym przewodnikiem Szybki start. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
+title: 'Szybki Start: Language Understanding (LUIS) Tworzenie biblioteki klienta'
+description: Rozpocznij pracę z biblioteką klienta LUIS za pomocą tego przewodnika Szybki Start. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
 ms.topic: quickstart
 ms.date: 01/14/2020
 zone_pivot_groups: programming-languages-set-diberry-3core
 ms.openlocfilehash: 614d40bb3e5bc8b83a2307b89cd517fdf7913dbe
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77524448"
 ---
-# <a name="quickstart-language-understanding-luis-authoring-client-library"></a>Szybki start: tworzenie biblioteki klienta (LANGUAGE Understanding) (LUIS)
+# <a name="quickstart-language-understanding-luis-authoring-client-library"></a>Szybki Start: Language Understanding (LUIS) Tworzenie biblioteki klienta
 
-Wprowadzenie do biblioteki klienta rozumienia języka (LUIS). Wykonaj następujące kroki, aby zainstalować sdk i wypróbować przykładowy kod dla podstawowych zadań.  Rozumienie języka (LUIS) umożliwia zastosowanie niestandardowej analizy uczenia maszynowego do konwersacyjnego tekstu w języku naturalnym użytkownika w celu przewidywania ogólnego znaczenia i wyciągania odpowiednich, szczegółowych informacji.
+Rozpocznij pracę z biblioteką klienta Language Understanding (LUIS). Wykonaj następujące kroki, aby zainstalować zestaw SDK i wypróbować przykładowy kod dla podstawowych zadań.  Language Understanding (LUIS) umożliwia stosowanie niestandardowych analiz uczenia maszynowego do konwersacji użytkownika, tekstu języka naturalnego w celu przewidywania ogólnego znaczenia i ściągania odpowiednich szczegółowych informacji.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# SDK](./includes/sdk-csharp-authoring.md)]
@@ -30,9 +30,9 @@ Wprowadzenie do biblioteki klienta rozumienia języka (LUIS). Wykonaj następuj�
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
->[Użyj SDK do wykonywania kwerend w punkcie końcowym przewidywania](sdk-query-prediction-endpoint.md)
+>[Używanie zestawu SDK do wysyłania zapytań do punktu końcowego przewidywania](sdk-query-prediction-endpoint.md)
 
-* [Co to jest interfejs API rozumienia języka (LUIS)?](what-is-luis.md)
+* [Co to jest interfejs API Language Understanding (LUIS)?](what-is-luis.md)
 * [Co nowego?](whats-new.md)
-* [Intencje,](luis-concept-intent.md) [jednostki](luis-concept-entity-types.md)i [wypowiedzi przykładowe](luis-concept-utterance.md)i [wstępnie utworzone jednostki](luis-reference-prebuilt-entities.md)
+* [Zamiary](luis-concept-intent.md), [jednostki](luis-concept-entity-types.md)i [przykład wyrażenia długości](luis-concept-utterance.md)oraz [wstępnie zbudowane jednostki](luis-reference-prebuilt-entities.md)
 * Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs).

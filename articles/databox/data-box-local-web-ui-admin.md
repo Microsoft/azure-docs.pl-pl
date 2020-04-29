@@ -1,6 +1,6 @@
 ---
-title: Administrowanie usługą Azure Data Box/Azure Data Box Heavy przy użyciu lokalnego interfejsu użytkownika sieci Web
-description: W tym artykule opisano, jak używać lokalnego interfejsu użytkownika sieci Web do administrowania urządzeniami Data Box i Data Box Heavy
+title: Administrowanie Azure Data Box/Azure Data Box Heavy przy użyciu lokalnego interfejsu użytkownika sieci Web
+description: Opisuje sposób używania lokalnego interfejsu użytkownika sieci Web do administrowania urządzenie Data Box i Data Box Heavy urządzeń
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
 ms.openlocfilehash: cf7cf0a7aa2812d7a93c282cbda5f82dd83aac29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77560188"
 ---
-# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Użyj lokalnego interfejsu użytkownika sieci Web do administrowania skrzynką danych i dużą rzeszą danych
+# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Użyj lokalnego interfejsu użytkownika sieci Web do administrowania urządzenie Data Box i Data Box Heavy
 
-W tym artykule opisano niektóre zadania konfiguracji i zarządzania, które można wykonać na urządzeniach Data Box i Data Box Heavy. Można zarządzać urządzeniami data box i Data Box Heavy za pośrednictwem interfejsu użytkownika portalu Azure i lokalnego interfejsu użytkownika sieci web dla urządzenia. Ten artykuł dotyczy zadań, które można wykonywać za pomocą lokalnego internetowego interfejsu użytkownika.
+W tym artykule opisano niektóre zadania związane z konfiguracją i zarządzaniem, które można wykonywać na urządzeniach urządzenie Data Box i Data Box Heavy. Urządzeniami urządzenie Data Box i Data Box Heavy można zarządzać za pomocą interfejsu użytkownika Azure Portal oraz lokalnego interfejsu użytkownika sieci Web dla urządzenia. Ten artykuł dotyczy zadań, które można wykonywać za pomocą lokalnego internetowego interfejsu użytkownika.
 
-Lokalny interfejs użytkownika sieci Web dla pola danych i danych Box Grube jest używany do początkowej konfiguracji urządzenia. Można również użyć lokalnego interfejsu użytkownika sieci Web, aby zamknąć lub ponownie uruchomić urządzenie, uruchomić testy diagnostyczne, zaktualizować oprogramowanie, wyświetlić dzienniki kopiowania i wygenerować pakiet dziennika dla pomocy technicznej firmy Microsoft. Na urządzeniu dużej liczby danych z dwoma niezależnymi węzłami można uzyskać dostęp do dwóch oddzielnych lokalnych interfejsów użytkownika sieci web odpowiadających każdemu węzłowi urządzenia.
+Lokalny interfejs użytkownika sieci Web dla urządzenie Data Box i Data Box Heavy służy do wstępnej konfiguracji urządzenia. Możesz również użyć lokalnego interfejsu użytkownika sieci Web, aby zamknąć lub ponownie uruchomić urządzenie, uruchomić testy diagnostyczne, zaktualizować oprogramowanie, wyświetlić kopie dzienników i wygenerować pakiet dzienników dla pomoc techniczna firmy Microsoft. Na urządzeniu Data Box Heavy z dwoma niezależnymi węzłami możesz uzyskać dostęp do dwóch oddzielnych lokalnych interfejsów użytkownika sieci Web odpowiadających poszczególnym węzłom urządzenia.
 
 W tym artykule zawarto następujące samouczki:
 
@@ -31,7 +31,7 @@ W tym artykule zawarto następujące samouczki:
 
 ## <a name="generate-support-package"></a>Generowanie pakietu dla pomocy technicznej
 
-Jeśli napotkasz jakiekolwiek problemy z urządzeniem, możesz utworzyć pakiet dla pomocy technicznej z dzienników systemu. Pomoc techniczna firmy Microsoft korzysta z tego pakietu podczas rozwiązywania problemów. Aby wygenerować pakiet pomocy technicznej, należy wykonać następujące kroki:
+Jeśli napotkasz jakiekolwiek problemy z urządzeniem, możesz utworzyć pakiet dla pomocy technicznej z dzienników systemu. Pomoc techniczna firmy Microsoft korzysta z tego pakietu podczas rozwiązywania problemów. Aby wygenerować pakiet pomocy technicznej, wykonaj następujące czynności:
 
 1. W lokalnym internetowym interfejsie użytkownika przejdź do pozycji **Kontakt z pomocą techniczną** i kliknij przycisk **Tworzenie pakietu pomocy technicznej**.
 
@@ -52,9 +52,9 @@ Jeśli napotkasz jakiekolwiek problemy z urządzeniem, możesz utworzyć pakiet 
 
 ## <a name="shut-down-or-restart-your-device"></a>Zamykanie lub ponowne uruchamianie urządzenia
 
-Można wyłączyć lub ponownie uruchomić urządzenie przy użyciu lokalnego interfejsu użytkownika sieci Web. Zaleca się, aby przed ponownym uruchomieniem przełączyć udziały w tryb offline na hoście, a następnie na urządzeniu. Minimalizuje to ryzyko uszkodzenia danych. Upewnij się, że kopiowanie danych nie jest w toku podczas wyłączania urządzenia.
+Możesz zamknąć lub ponownie uruchomić urządzenie przy użyciu lokalnego interfejsu użytkownika sieci Web. Zaleca się, aby przed ponownym uruchomieniem przełączyć udziały w tryb offline na hoście, a następnie na urządzeniu. Minimalizuje to ryzyko uszkodzenia danych. Upewnij się, że kopiowanie danych nie jest w toku podczas wyłączania urządzenia.
 
-Aby wyłączyć urządzenie, należy wykonać następujące czynności.
+Aby zamknąć urządzenie, wykonaj następujące czynności.
 
 1. W lokalnym internetowym interfejsie użytkownika przejdź do pozycji **Zamknij lub uruchom ponownie**.
 2. Kliknij przycisk **Zamknij**.
@@ -80,11 +80,11 @@ Aby ponownie uruchomić urządzenie Data Box, wykonaj następujące czynności.
 
 ## <a name="download-bom-or-manifest-files"></a>Pobieranie zestawienia komponentów lub plików manifestu
 
-Bom (BOM) lub pliki manifestu zawierają listę plików skopiowanych do pola danych lub pola danych grube. Pliki te są generowane podczas przygotowywania urządzenia do wysyłki.
+BOM lub pliki manifestu zawierają listę plików, które są kopiowane do urządzenie Data Box lub Data Box Heavy. Te pliki są generowane podczas przygotowywania urządzenia do wysłania.
 
-Przed rozpoczęciem upewnij się, że urządzenie zostało ukończone **Przygotowanie do wysłania** kroku. Wykonaj następujące kroki, aby pobrać zestawienie komponentów lub pliki manifestu:
+Przed rozpoczęciem upewnij się, że urządzenie zostało wykonane **przygotowanie do wysłania** kroku. Wykonaj następujące kroki, aby pobrać zestawienie komponentów lub pliki manifestu:
 
-1. Przejdź do lokalnego interfejsu użytkownika sieci Web dla swojego urządzenia. Zobaczysz, że urządzenie zakończyło przygotowania do wysyłki. Po zakończeniu przygotowywania urządzenia stan urządzenia ma wartość **Gotowe do wysyłki**.
+1. Przejdź do lokalnego interfejsu użytkownika sieci Web dla Twojego urządzenia. Zobaczysz, że urządzenie zakończyło przygotowywanie do wysłania. Po zakończeniu przygotowywania urządzenia stan urządzenia ma wartość **Gotowe do wysyłki**.
 
     ![Urządzenie gotowe do wysyłki](media/data-box-portal-admin/ready-to-ship.png)
 
@@ -105,13 +105,13 @@ Przed rozpoczęciem upewnij się, że urządzenie zostało ukończone **Przygoto
     |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
     |databoxe2etest_PageBlock_Rest-BOM.txt     |Stronicowe obiekty blob         |REST        |
     |databoxe2etest_BlockBlock_Rest-BOM.txt    |Blokowe obiekty blob         |REST         |
-    |mydbmdrg1_MDisk-BOM.txt    |Dysk zarządzany         |SMB/NFS         |
-    |mydbmdrg2_MDisk-BOM.txt     |Dysk zarządzany         |SMB/NFS         |
+    |mydbmdrg1_MDisk-BOM. txt    |Dysk zarządzany         |SMB/NFS         |
+    |mydbmdrg2_MDisk-BOM. txt     |Dysk zarządzany         |SMB/NFS         |
 
 Ta lista umożliwia weryfikację plików przekazanych do konta usługi Azure Storage po powrocie urządzenia Data Box do centrum danych platformy Azure. Poniżej przedstawiono przykładowy plik manifestu.
 
 > [!NOTE]
-> W polu danych Gruby, dwa zestawy listy plików (pliki BOM) są obecne odpowiadające dwa węzły na urządzeniu.
+> Na Data Box Heavy są obecne dwa zestawy list plików (pliki BOM) odpowiadające dwóm węzłom na urządzeniu.
 
 ```xml
 <file size="52689" crc64="0x95a62e3f2095181e">\databox\media\data-box-deploy-copy-data\prepare-to-ship2.png</file>
@@ -153,7 +153,7 @@ Ta lista umożliwia weryfikację plików przekazanych do konta usługi Azure Sto
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-Ten plik zawiera listę wszystkich plików, które zostały skopiowane na polu danych lub Data Box Heavy. W tym pliku wartość *crc64* odnosi się do sumy kontrolnej wygenerowanej dla odpowiadającego jej pliku.
+Ten plik zawiera listę wszystkich plików, które zostały skopiowane na urządzenie Data Box lub Data Box Heavy. W tym pliku wartość *crc64* odnosi się do sumy kontrolnej wygenerowanej dla odpowiadającego jej pliku.
 
 ## <a name="view-available-capacity-of-the-device"></a>Wyświetlanie dostępnej pojemności urządzenia
 
@@ -170,7 +170,7 @@ Suma kontrolna jest generowana domyślnie dla danych podczas przygotowywania do 
 
 Zdecydowanie zaleca się, aby nie wyłączać sumy kontrolnej, chyba że jej generowanie ma znaczny wpływ na wydajność.
 
-1. W prawym górnym rogu lokalnego interfejsu użytkownika urządzenia przejdź do **pozycji Ustawienia**.
+1. W prawym górnym rogu lokalnego interfejsu użytkownika sieci Web urządzenia przejdź do pozycji **Ustawienia**.
 
     ![Wyłączanie sumy kontrolnej](media/data-box-local-web-ui-admin/disable-checksum.png)
 
@@ -179,5 +179,5 @@ Zdecydowanie zaleca się, aby nie wyłączać sumy kontrolnej, chyba że jej gen
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak [zarządzać skrzynką danych i dużą wysoką ć pola danych za pośrednictwem witryny Azure portal](data-box-portal-admin.md).
+- Dowiedz się, jak [zarządzać urządzenie Data Box i Data Box Heavy za pośrednictwem Azure Portal](data-box-portal-admin.md).
 

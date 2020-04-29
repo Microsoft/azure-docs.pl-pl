@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: pobierz długości zdań — interfejs API tekstu tłumacza'
+title: 'Szybki Start: pobieranie długości zdań — interfejs API tłumaczenia tekstu w usłudze Translator'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku Szybki start dowiesz się, jak określić długość zdania przy użyciu interfejsu API tekstu tłumacza.
+description: W tym przewodniku szybki start dowiesz się, jak określić długość zdania przy użyciu interfejs API tłumaczenia tekstu w usłudze Translator.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
 ms.openlocfilehash: b2569859a039739f2804a180be44e621421f0cd2
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77525119"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length"></a>Szybki start: określanie długości zdania za pomocą interfejsu API tekstu tłumacza
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length"></a>Szybki Start: Użyj interfejs API tłumaczenia tekstu w usłudze Translator, aby określić długość zdania
 
-W tym przewodniku Szybki start dowiesz się, jak określić długość zdań za pomocą interfejsu API tekstu tłumacza.
+W tym przewodniku szybki start dowiesz się, jak określić długość zdań przy użyciu interfejs API tłumaczenia tekstu w usłudze Translator.
 
 Ten przewodnik Szybki start wymaga [konta usługi Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z zasobem tłumaczenia tekstu w usłudze Translator. Jeśli nie masz konta, możesz użyć [bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/), aby uzyskać klucz subskrypcji.
 
@@ -44,7 +44,7 @@ Ten przewodnik Szybki start wymaga [konta usługi Azure Cognitive Services](http
 [!INCLUDE [Python quickstart](includes/sentences-python.md)]
 ::: zone-end
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Tłumaczenie tekstu](quickstart-translate.md)
 * [Transliteracja tekstu](quickstart-transliterate.md)

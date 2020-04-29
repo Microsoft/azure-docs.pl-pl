@@ -1,5 +1,5 @@
 ---
-title: Kod współpracy B2B i przykłady programu PowerShell — usługa Azure AD
+title: Kod współpracy B2B i przykłady programu PowerShell — Azure AD
 description: Przykłady kodu i programu PowerShell na potrzeby współpracy B2B w usłudze Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: elisolMS
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 03a7a9c0c9ed308944b57e7659fefa81178af78b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77368129"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Przykłady kodu i programu PowerShell na potrzeby współpracy B2B w usłudze Azure Active Directory
@@ -56,7 +56,7 @@ To polecenie cmdlet wysyła zaproszenie na adresy e-mail podane w pliku invitati
 - Wysyłanie wiadomości na adresy DW lub całkowite pominięcie wiadomości e-mail
 
 ## <a name="code-sample"></a>Przykład kodu
-Poniżej pokazano, jak wywoływać interfejs API zaproszenia w trybie „tylko dotyczący aplikacji”, aby pobrać adres URL realizacji dla zasobu, do którego zapraszasz użytkownika B2B. Celem jest wysłanie niestandardowej wiadomości e-mail z zaproszeniem. Wiadomość e-mail może składać się z klientem HTTP, dzięki czemu można dostosować wygląd i wysłać ją za pośrednictwem interfejsu API programu Microsoft Graph.
+Poniżej pokazano, jak wywoływać interfejs API zaproszenia w trybie „tylko dotyczący aplikacji”, aby pobrać adres URL realizacji dla zasobu, do którego zapraszasz użytkownika B2B. Celem jest wysłanie niestandardowej wiadomości e-mail z zaproszeniem. Wiadomość e-mail może składać się z klienta HTTP, dzięki czemu można dostosowywać wygląd i wysyłać go za pośrednictwem interfejsu API Microsoft Graph.
 
 ```csharp
 namespace SampleInviteApp

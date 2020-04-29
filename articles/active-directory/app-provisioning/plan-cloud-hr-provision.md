@@ -1,6 +1,6 @@
 ---
-title: Planowanie aprowizacji użytkowników usługi Azure Active Directory do obsługi administracyjnej w chmurze
-description: W tym artykule opisano proces wdrażania integracji systemów hr w chmurze, takich jak Workday i SuccessFactors, z usługą Azure Active Directory. Integracja usługi Azure AD z systemem hr w chmurze powoduje pełny system zarządzania cyklem życia tożsamości.
+title: Planowanie aplikacji w chmurze w celu Azure Active Directory aprowizacji użytkowników
+description: W tym artykule opisano proces wdrażania integracji systemów kadr w chmurze, takich jak Workday i SuccessFactors, z Azure Active Directory. Integracja usługi Azure AD z systemem zarządzania KADRą w chmurze skutkuje ukończeniem całego cyklu życia tożsamości.
 services: active-directory
 author: martincoetzer
 manager: CelesteDG
@@ -13,408 +13,408 @@ ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.openlocfilehash: 28abe2dfa5a1a13ba09e20202180cb5e47d94072
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77522436"
 ---
-# <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planowanie aprowizacji użytkowników usługi Azure Active Directory do obsługi administracyjnej w chmurze
+# <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planowanie aplikacji w chmurze w celu Azure Active Directory aprowizacji użytkowników
 
-W przeszłości pracownicy działu IT polegali na ręcznych metodach tworzenia, aktualizowania i usuwania pracowników. Używali metod, takich jak przekazywanie plików CSV lub skryptów niestandardowych do synchronizacji danych pracowników. Te procesy inicjowania obsługi administracyjnej są podatne na błędy, niezabezpieczone i trudne do zarządzania.
+W przeszłości pracownicy IT korzystali z ręcznych metod tworzenia, aktualizowania i usuwania pracowników. Używają metod, takich jak przekazywanie plików CSV lub skryptów niestandardowych do synchronizowania danych pracownika. Te procesy aprowizacji są podatne na błędy, niezabezpieczone i trudne do zarządzania.
 
-Aby zarządzać cyklami życia tożsamości pracowników, dostawców lub pracowników warunkowych, [usługa inicjowania obsługi administracyjnej użytkowników usługi Azure Active Directory (Azure AD)](../app-provisioning/user-provisioning.md) oferuje integrację z aplikacjami opartymi na chmurze zasobami ludzkimi (HR). Przykłady aplikacji obejmują Workday lub SuccessFactors.
+Aby zarządzać cyklem życia tożsamości pracowników, dostawców lub procesów roboczych, [Azure Active Directory (Azure AD) usługa aprowizacji użytkowników](../app-provisioning/user-provisioning.md) oferuje integrację z aplikacjami ludzkimi opartymi na chmurze (HR). Przykładami aplikacji są: Workday lub SuccessFactors.
 
-Usługa Azure AD używa tej integracji, aby włączyć następujące przepływy pracy aplikacji usługi cloud HR (aplikacji):
+Usługa Azure AD używa tej integracji w celu włączenia następujących przepływów pracy aplikacji w chmurze (aplikacji):
 
-- **Aprowizuj użytkowników do usługi Active Directory:** Aprowizuj wybrane zestawy użytkowników z aplikacji cloud HR na co najmniej jedną domenę usługi Active Directory.
-- **Aprowizuj użytkowników tylko w chmurze do usługi Azure AD:** W scenariuszach, w których usługa Active Directory nie jest używana, aprowizuj użytkowników bezpośrednio z aplikacji usługi Cloud HR do usługi Azure AD.
-- **Write back to the cloud HR app:** Zapisz adresy e-mail i atrybuty nazwy użytkownika z usługi Azure AD z powrotem do aplikacji cloud HR.
+- **Udostępnianie użytkownikom Active Directory:** Zainicjuj obsługę wybranych zestawów użytkowników z poziomu aplikacji w chmurze w jednej lub kilku domenach Active Directory.
+- **Udostępnianie użytkownikom tylko w chmurze usługi Azure AD:** W scenariuszach, w których Active Directory nie są używane, należy udostępnić użytkownikom bezpośrednio z aplikacji KADRowej w chmurze do usługi Azure AD.
+- **Zapisuj z powrotem do aplikacji kadrowej w chmurze:** Napisz adresy e-mail i atrybuty nazwy użytkownika z usługi Azure AD z powrotem do aplikacji w chmurze.
 
 > [!NOTE]
-> Ten plan wdrażania pokazuje, jak wdrożyć przepływy pracy aplikacji hr w chmurze za pomocą inicjowania obsługi administracyjnej użytkowników usługi Azure AD. Aby uzyskać informacje na temat wdrażania automatycznej inicjowania obsługi administracyjnej aplikacji dla użytkowników jako usługi (SaaS), zobacz [Planowanie automatycznego wdrażania inicjowania obsługi administracyjnej użytkowników](https://aka.ms/deploymentplans/provisioning).
+> Ten plan wdrożenia pokazuje, jak wdrożyć przepływy pracy aplikacji kadr w chmurze przy użyciu aprowizacji użytkowników usługi Azure AD. Aby uzyskać informacje na temat sposobu wdrażania automatycznego aprowizacji użytkowników w aplikacjach typu oprogramowanie jako usługa (SaaS), zobacz [Planowanie automatycznego wdrażania aprowizacji użytkowników](https://aka.ms/deploymentplans/provisioning).
 
-## <a name="enabled-hr-scenarios"></a>Włączone scenariusze hr
+## <a name="enabled-hr-scenarios"></a>Włączone scenariusze kadr
 
-Usługa inicjowania obsługi administracyjnej użytkowników usługi Azure AD umożliwia automatyzację następujących scenariuszy zarządzania cyklem życia tożsamości opartych na usłudze HR:
+Usługa aprowizacji użytkowników w usłudze Azure AD umożliwia automatyzację następujących scenariuszy zarządzania cyklem życia tożsamości opartych na usłudze HR:
 
-- **Zatrudnianie nowych pracowników:** Po dodaniu nowego pracownika do aplikacji cloud HR konto użytkownika jest automatycznie tworzone w usłudze Active Directory i usłudze Azure AD z opcją odpisania atrybutów adresu e-mail i nazwy użytkownika w aplikacji cloud HR.
-- **Aktualizacje atrybutów i profilu pracownika:** Po zaktualizowaniu rekordu pracownika, takiego jak nazwa, tytuł lub menedżer w aplikacji cloud HR, ich konto użytkownika jest automatycznie aktualizowane w usłudze Active Directory i usłudze Azure AD.
-- **Wypowiedzenia pracowników:** Po zakończeniu pracy pracownika w aplikacji cloud HR jego konto użytkownika jest automatycznie wyłączane w usłudze Active Directory i usłudze Azure AD.
-- **Pracownik ponownie zatrudnia:** Gdy pracownik jest ponownie zatrudniony w aplikacji cloud HR, jego stare konto może być automatycznie ponownie aktywowane lub ponownie aprowiowane w usłudze Active Directory i usłudze Azure AD.
+- **Nowe zatrudnienie pracownika:** Po dodaniu nowego pracownika do aplikacji w chmurze, konto użytkownika zostanie automatycznie utworzone w Active Directory i w usłudze Azure AD z opcją zapisania z powrotem adresu e-mail i atrybutów username do aplikacji w chmurze.
+- **Aktualizacje atrybutu pracownika i profilu:** Gdy rekord pracownika, taki jak nazwa, tytuł lub Menedżer, zostanie zaktualizowany w aplikacji w chmurze, konto użytkownika zostanie automatycznie zaktualizowane w Active Directory i Azure AD.
+- **Zakończenia pracowników:** Gdy pracownik zostanie zakończony w aplikacji KADRowej w chmurze, jego konto użytkownika zostanie automatycznie wyłączone w Active Directory i w usłudze Azure AD.
+- **Pracownicy przezatrudnieni:** Gdy pracownik jest ponownie zatrudniany w aplikacji KADRowej w chmurze, jego stare konto może zostać automatycznie ponownie uaktywnione lub zainicjowane w celu Active Directory i usługi Azure AD.
 
-## <a name="who-is-this-integration-best-suited-for"></a>Do kogo najlepiej nadaje się ta integracja?
+## <a name="who-is-this-integration-best-suited-for"></a>Dla kogo jest to integracja najlepiej dopasowanej?
 
-Integracja aplikacji hr w chmurze z inicjowania obsługi administracyjnej użytkowników usługi Azure AD jest idealnie nadaje się dla organizacji, które:
+Integracja aplikacji w chmurze z obsługą administracyjną użytkowników w usłudze Azure AD doskonale nadaje się dla organizacji, które:
 
-- Potrzebujesz wstępnie utworzonego, opartego na chmurze rozwiązania do inicjowania obsługi administracyjnej użytkowników usług w chmurze.
-- Wymagaj bezpośredniego inicjowania obsługi administracyjnej przez użytkowników z aplikacji usługi cloud HR do usługi Active Directory lub usługi Azure AD.
-- Wymagaj, aby użytkownicy były aprowiowane przy użyciu danych uzyskanych z aplikacji cloud HR.
-- Wymagaj dołączania, przenoszenia i pozostawiania użytkowników do synchronizacji z co najmniej jednym lasem, domenami i procesorami operacyjnymi usługi Active Directory na podstawie informacji o zmianach wykrytych w aplikacji cloud HR.
-- Używanie usługi Office 365 do obsługi poczty e-mail.
+- Potrzebujesz wstępnie skompilowanego rozwiązania opartego na chmurze do aprowizacji użytkowników w chmurze.
+- Wymagaj bezpośredniej aprowizacji użytkowników z aplikacji w chmurze w celu Active Directory lub Azure AD.
+- Wymaganie, aby użytkownicy mieli możliwość aprowizacji przy użyciu danych uzyskanych z aplikacji KADRowej w chmurze.
+- Wymagaj synchronizacji, przeniesienia i opuszczenia użytkowników do co najmniej jednego Active Directory lasów, domen i jednostek organizacyjnych na podstawie informacji o zmianach wykrytych w aplikacji w chmurze.
+- Użyj pakietu Office 365 do obsługi poczty e-mail.
 
 ## <a name="learn"></a>Informacje
 
-Inicjowanie obsługi administracyjnej użytkowników tworzy podstawę dla bieżącego zarządzania tożsamościami. Poprawia jakość procesów biznesowych, które opierają się na autorytatywnych danych tożsamości.
+Inicjowanie obsługi użytkowników tworzy podstawę do ciągłego zarządzania tożsamościami. Zwiększa ono jakość procesów biznesowych, które opierają się na autorytatywnych danych tożsamości.
 
 ### <a name="terms"></a>Warunki
 
-W tym artykule użyto następujących terminów:
+W tym artykule są stosowane następujące warunki:
 
-- **System źródłowy:** repozytorium użytkowników, od których można za pomocą przepisów usługi Azure AD. Przykładem jest aplikacja hr w chmurze, takich jak Workday lub SuccessFactors.
-- **System docelowy:** repozytorium użytkowników, które zapozytorzyją usługi Azure AD. Przykładami są usługa Active Directory, usługa Azure AD, Office 365 lub inne aplikacje SaaS.
-- **Proces Joiners-Movers-Leavers:** Termin używany dla nowych pracowników, transferów i zakończenia pracy przy użyciu aplikacji cloud HR jako systemu rekordów. Proces kończy się, gdy usługa pomyślnie apowiizuje niezbędne atrybuty do systemu docelowego.
+- **System źródłowy**: repozytorium użytkowników, z których pochodzą postanowienia usługi Azure AD. Przykładem jest aplikacja usługi Cloud kadr, taka jak Workday lub SuccessFactors.
+- **System docelowy**: repozytorium użytkowników, do których mają prawa usługi Azure AD. Przykłady to Active Directory, Azure AD, Office 365 i inne aplikacje SaaS.
+- **Przyłączanie — proces opuszczania firmy przeprowadzki**: termin używany do nowych zatrudniania, transferów i kończenia pracy przy użyciu aplikacji kadrowej w chmurze jako systemu rekordów. Proces kończy się po pomyślnym zainicjowaniu przez usługę niezbędnych atrybutów do systemu docelowego.
 
 ### <a name="key-benefits"></a>Najważniejsze korzyści
 
-Ta możliwość obsługi administracyjnej działu IT opartej na zasobach ludzkich oferuje następujące znaczące korzyści biznesowe:
+Ta funkcja aprowizacji IT oparta na usłudze kadr oferuje następujące korzyści biznesowe:
 
-- **Zwiększ produktywność:** Teraz możesz zautomatyzować przypisywanie kont użytkowników i licencji usługi Office 365 oraz zapewnić dostęp do kluczowych grup. Automatyzacja zadań zapewnia nowym pracownikom natychmiastowy dostęp do narzędzi pracy i zwiększa produktywność.
-- **Zarządzanie ryzykiem:** Możesz zwiększyć bezpieczeństwo, automatyzując zmiany na podstawie stanu pracownika lub członkostwa w grupach z danymi płynącymi z aplikacji hr w chmurze. Automatyzacja zmian gwarantuje, że tożsamości użytkowników i dostęp do kluczowych aplikacji są aktualizowane automatycznie, gdy użytkownicy przechodzą lub opuszczają organizację.
-- **Zgodność z przepisami i zarządzanie:** Usługa Azure AD obsługuje natywne dzienniki inspekcji dla żądań inicjowania obsługi administracyjnej użytkowników wykonywanych przez aplikacje systemów źródłowych i docelowych. Dzięki inspekcji możesz śledzić, kto ma dostęp do aplikacji na jednym ekranie.
-- **Zarządzanie kosztami:** Automatyczne inicjowanie obsługi administracyjnej zmniejsza koszty, unikając nieefektywności i błędów ludzkich związanych z ręczną inicjowania obsługi administracyjnej. Zmniejsza to potrzebę niestandardowych rozwiązań inicjowania obsługi administracyjnej użytkowników utworzonych w czasie przy użyciu starszych i przestarzałych platform.
+- **Zwiększ produktywność:** Teraz można zautomatyzować przypisanie kont użytkowników i licencji pakietu Office 365 i zapewnić dostęp do grup kluczy. Automatyzacja przypisań pozwala nowym zatrudniać natychmiastowy dostęp do swoich narzędzi do zadań i zwiększa produktywność.
+- **Zarządzanie ryzykiem:** Aby zwiększyć bezpieczeństwo, można zautomatyzować zmiany w zależności od stanu pracownika lub członkostwa w grupach przy użyciu danych przepływających z aplikacji w chmurze. Automatyzacja zmian gwarantuje, że tożsamości użytkowników i dostęp do najważniejszych aplikacji są aktualizowane automatycznie, gdy użytkownicy przechodzą lub opuściją organizację.
+- **Zgodność i zarządzanie adresami:** Usługa Azure AD obsługuje natywne dzienniki inspekcji dla żądań aprowizacji użytkowników wykonywanych przez aplikacje obu systemów źródłowych i docelowych. Za pomocą inspekcji można śledzić, kto ma dostęp do aplikacji z jednego ekranu.
+- **Zarządzaj kosztami:** Automatyczne Inicjowanie obsługi zmniejsza koszty, unikając nieefektywności i błędu ludzkiego związanego z obsługą ręczną. Pozwala to ograniczyć potrzebę tworzenia niestandardowo rozbudowanych rozwiązań użytkowników w czasie z użyciem starszych i nieaktualnych platform.
 
 ### <a name="licensing"></a>Licencjonowanie
 
-Aby skonfigurować aplikację cloud HR do integracji inicjowania obsługi administracyjnej użytkowników usługi Azure AD, potrzebujesz ważnej [licencji usługi Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) i licencji dla aplikacji hr w chmurze, takiej jak Workday lub SuccessFactors.
+Aby skonfigurować aplikację kadr w chmurze do integracji aprowizacji użytkowników usługi Azure AD, musisz mieć ważną [licencję Azure AD — wersja Premium](https://azure.microsoft.com/pricing/details/active-directory/) i licencję dla aplikacji kadrowej w chmurze, taką jak Workday lub SuccessFactors.
 
-Potrzebujesz również ważnej licencji usługi Azure AD Premium P1 lub wyższej subskrypcji dla każdego użytkownika, który będzie pozyskiwany z aplikacji cloud HR i aprowizować do usługi Active Directory lub usługi Azure AD. Każda niewłaściwa liczba licencji posiadanych w aplikacji cloud HR może prowadzić do błędów podczas inicjowania obsługi administracyjnej użytkownika.
+Potrzebna jest również ważna licencja subskrypcyjna na Azure AD — wersja Premium P1 lub nowsza dla każdego użytkownika, który zostanie pożądany przez aplikację kadr w chmurze i zostanie zainicjowany do Active Directory lub Azure AD. Niewłaściwa liczba licencji należących do aplikacji w chmurze w usłudze Cloud kadr może prowadzić do błędów podczas aprowizacji użytkownika.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-- Dostęp administratora globalnego usługi Azure AD do konfigurowania agenta inicjowania obsługi administracyjnej usługi Azure AD Connect.
-- Wystąpienie testowe i produkcyjne aplikacji cloud HR.
-- Uprawnienia administratora w aplikacji cloud HR do tworzenia użytkownika integracji systemu i wprowadzania zmian w celu testowania danych pracowników do celów testowych.
-- W przypadku inicjowania obsługi administracyjnej usługi Active Directory serwer z systemem Windows Server 2012 lub nowszym ze środowiskiem uruchomieniowym .NET 4.7.1+ jest wymagany do [hostowania agenta inicjowania obsługi administracyjnej usługi Azure AD Connect.](https://go.microsoft.com/fwlink/?linkid=847801)
-- [Usługa Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) do synchronizowania użytkowników między usługą Active Directory a usługą Azure AD.
+- Dostęp administratora globalnego usługi Azure AD w celu skonfigurowania agenta aprowizacji Azure AD Connect.
+- Wystąpienie testowe i produkcyjne aplikacji w chmurze.
+- Uprawnienia administratora w aplikacji KADRowej w chmurze umożliwiającej tworzenie użytkownika integracji systemu i wprowadzanie zmian w celu przetestowania danych pracownika na potrzeby testowania.
+- W celu aprowizacji użytkowników do Active Directory, serwer z systemem Windows Server 2012 lub nowszym z programem .NET 4.7.1 + Runtime jest wymagany do hostowania [agenta aprowizacji Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=847801).
+- [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) synchronizowania użytkowników między Active Directory i Azure AD.
 
 ### <a name="training-resources"></a>Zasoby szkoleniowe
 
 | **Zasoby** | **Link i opis** |
 |:-|:-|
-| Filmy wideo | [Co to jest inicjowanie obsługi administracyjnej użytkowników w usłudze Active Azure Directory?](https://youtu.be/_ZjARPpI6NI) |
-| | [Jak wdrożyć aprowizacji użytkowników w usłudze Active Azure Directory](https://youtu.be/pKzyts6kfrw) |
+| Filmy wideo | [Co to jest inicjowanie obsługi użytkowników w usłudze Active Directory systemu Azure?](https://youtu.be/_ZjARPpI6NI) |
+| | [Jak wdrożyć Inicjowanie obsługi użytkowników w usłudze Active Directory systemu Azure](https://youtu.be/pKzyts6kfrw) |
 | Samouczki | [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure AD](../saas-apps/tutorial-list.md) |
-| | [Samouczek: Konfigurowanie workday do automatycznego inicjowania obsługi administracyjnej przez użytkowników](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
-| Najczęściej zadawane pytania | [Automatyczne inicjowanie obsługi administracyjnej użytkowników](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
-| | [Inicjowanie obsługi administracyjnej z dnia roboczego na usługę Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
+| | [Samouczek: Konfigurowanie produktu Workday do automatycznego aprowizacji użytkowników](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
+| Często zadawane pytania | [Automatyczne Inicjowanie obsługi użytkowników](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
+| | [Inicjowanie obsługi z poziomu produktu Workday do usługi Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
 ### <a name="solution-architecture"></a>Architektura rozwiązania
 
-W poniższym przykładzie opisano architekturę rozwiązania inicjowania obsługi administracyjnej użytkownika końcowego dla typowych środowisk hybrydowych i obejmuje:
+Poniższy przykład opisuje kompleksową architekturę rozwiązania obsługi użytkowników dla typowych środowisk hybrydowych i obejmuje:
 
-- **Autorytatywne przepływ danych HR z aplikacji cloud HR do usługi Active Directory.** W tym przepływie zdarzenie HR (proces Joiners-Movers-Leavers) jest inicjowane w dzierżawie aplikacji hr w chmurze. Usługa inicjowania obsługi administracyjnej usługi Azure AD i agent aprowizujący usługi Azure AD Connect aprowizują dane użytkownika z dzierżawy aplikacji hr w chmurze do usługi Active Directory. W zależności od zdarzenia może to prowadzić do tworzenia, aktualizowania, włączania i wyłączania operacji w usłudze Active Directory.
-- **Synchronizuj z usługą Azure AD i odpisuj wiadomości e-mail i nazwę użytkownika z lokalnej usługi Active Directory do aplikacji cloud HR.** Po zaktualizowaniu kont w usłudze Active Directory jest synchronizowana z usługą Azure AD za pośrednictwem usługi Azure AD Connect. Adresy e-mail i atrybuty nazwy użytkownika można zapisać z powrotem do dzierżawy aplikacji usługi hr w chmurze.
+- **Autorytatywny przepływ danych HR z aplikacji usługi Cloud kadr do Active Directory.** W tym przepływie jest inicjowane zdarzenie HR (dla sprzężeń — proces opuszczania i opuszczanie) w dzierżawie aplikacji w chmurze. Usługa Azure AD Provisioning i Agent aprowizacji Azure AD Connect udostępniają dane użytkownika z dzierżawy aplikacji kadr w chmurze do usługi Active Directory. W zależności od zdarzenia może to prowadzić do tworzenia, aktualizowania, włączania i wyłączania operacji w Active Directory.
+- **Synchronizuj z usługą Azure AD i zapisuj pocztę e-mail i nazwę użytkownika z lokalnego Active Directory do aplikacji w chmurze.** Po zaktualizowaniu kont w Active Directory są one synchronizowane z usługą Azure AD za pomocą usługi Azure AD Connect. Adresy e-mail i atrybuty nazwy użytkownika można zapisać z powrotem do dzierżawy aplikacji KADRowej w chmurze.
 
 ![Diagram przepływu pracy](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img1.png)
 
 #### <a name="description-of-workflow"></a>Opis przepływu pracy
 
-Na diagramie przedstawiono następujące kluczowe kroki:  
+Na diagramie przedstawiono następujące podstawowe kroki:  
 
-1. **Zespół HR** wykonuje transakcje w dzierżawie aplikacji hr w chmurze.
-2. **Usługa inicjowania obsługi administracyjnej usługi Azure AD** uruchamia zaplanowane cykle z dzierżawy aplikacji hr w chmurze i identyfikuje zmiany, które muszą zostać przetworzone w celu synchronizacji z usługą Active Directory.
-3. **Usługa inicjowania obsługi administracyjnej usługi** Azure AD wywołuje agenta inicjowania obsługi administracyjnej usługi Azure AD Connect z ładunkiem żądań zawierającym konto usługi Active Directory— umożliwia tworzenie, aktualizowanie, włączanie i wyłączanie operacji.
-4. **Agent inicjowania obsługi administracyjnej usługi Azure AD Connect** używa konta usługi do zarządzania danymi konta usługi Active Directory.
-5. **Usługa Azure AD Connect** uruchamia [synchronizację różnicową](../hybrid/how-to-connect-sync-whatis.md) w celu ściągania aktualizacji w usłudze Active Directory.
-6. Aktualizacje **usługi Active Directory** są synchronizowane z usługą Azure AD.
-7. **Usługa inicjowania obsługi administracyjnej usługi Azure AD** odpisuje atrybut e-mail i nazwę użytkownika z usługi Azure AD do dzierżawy aplikacji hr w chmurze.
+1. **Zespół kadr** wykonuje transakcje w dzierżawie aplikacji kadrowej w chmurze.
+2. **Usługa Azure AD Provisioning** uruchamia zaplanowane cykle z dzierżawy aplikacji kadr w chmurze i identyfikuje zmiany, które muszą zostać przetworzone w celu synchronizacji z Active Directory.
+3. **Usługa Azure AD Provisioning** wywołuje Azure AD Connect agenta aprowizacji z ładunkiem żądania, który zawiera Active Directory konta tworzenia, aktualizowania, włączania i wyłączania.
+4. **Azure AD Connect Agent aprowizacji** używa konta usługi do zarządzania danymi konta Active Directory.
+5. **Azure AD Connect** uruchamia [synchronizację](../hybrid/how-to-connect-sync-whatis.md) Delta w celu ściągnięcia aktualizacji w Active Directory.
+6. Aktualizacje **Active Directory** są synchronizowane z usługą Azure AD.
+7. **Usługa Azure AD Provisioning** zapisuje z powrotem atrybut poczty e-mail i nazwę użytkownika z usługi Azure AD do dzierżawy aplikacji kadrowej w chmurze.
 
-## <a name="plan-the-deployment-project"></a>Planowanie projektu wdrożeniowego
+## <a name="plan-the-deployment-project"></a>Planowanie projektu wdrożenia
 
-Należy wziąć pod uwagę potrzeby organizacyjne podczas określania strategii dla tego wdrożenia w twoim środowisku.
+Podczas określania strategii tego wdrożenia w danym środowisku należy wziąć pod uwagę potrzeby organizacyjne.
 
-### <a name="engage-the-right-stakeholders"></a>Zaangażuj odpowiednich interesariuszy
+### <a name="engage-the-right-stakeholders"></a>Zaangażuj odpowiednich uczestników projektu
 
-Gdy projekty technologiczne nie powiodą się, zazwyczaj robią to ze względu na niedopasowane oczekiwania dotyczące wpływu, wyników i odpowiedzialności. Aby uniknąć tych pułapek, [upewnij się, że angażujesz odpowiednie zainteresowane strony.](https://aka.ms/deploymentplans) Upewnij się również, że role interesariuszy w projekcie są dobrze poznane. Dokumentowanie zainteresowanych stron oraz ich wkładu i odpowiedzialności w ramach projektu.
+W przypadku niepowodzenia projektów technologicznych zazwyczaj są one spowodowane niezgodnymi oczekiwaniami na wpływ, wyniki i obowiązki. Aby uniknąć tych pułapek, [upewnij się, że interesują](https://aka.ms/deploymentplans)Cię odpowiednie osoby zainteresowane. Upewnij się również, że role udziałowców w projekcie są dobrze zrozumiałe. Udokumentowanie uczestników projektu i ich danych wejściowych i accountabilities.
 
-Dołącz przedstawiciela organizacji HR, który może dostarczyć danych wejściowych na temat istniejących procesów biznesowych HR i tożsamości pracownika oraz wymagań dotyczących przetwarzania danych zadań.
+Dołącz przedstawiciela z organizacji KADRy, który może zapewnić dane wejściowe dla istniejących procesów biznesowych usługi kadr i tożsamości procesu roboczego oraz wymagania dotyczące przetwarzania danych zadania.
 
 ### <a name="plan-communications"></a>Planowanie komunikacji
 
-Komunikacja ma kluczowe znaczenie dla powodzenia każdej nowej usługi. Proaktywnie komunikuj się z użytkownikami o tym, kiedy i jak zmieni się ich środowisko. Poinformuj ich, jak zdobyć wsparcie, jeśli wystąpią problemy.
+Komunikacja jest niezwykle ważna dla sukcesu każdej nowej usługi. Aktywnie Komunikuj się z użytkownikami, aby dowiedzieć się, kiedy i w jaki sposób ich środowisko zostanie zmienione. Daj im znać, jak uzyskać pomoc techniczną, jeśli wystąpią problemy.
 
 ### <a name="plan-a-pilot"></a>Planowanie pilotażu
 
-Integracja procesów biznesowych hr i przepływów pracy tożsamości z aplikacji cloud HR do systemów docelowych wymaga znacznej ilości sprawdzania poprawności danych, przekształcania danych, oczyszczania danych i kompleksowych testów, zanim będzie można wdrożyć rozwiązanie w proces produkcyjny.
+Integrowanie procesów biznesowych i przepływów pracy tożsamości z aplikacji w chmurze w usłudze Cloud prod z systemami docelowymi wymaga dużej ilości walidacji danych, transformacji danych, czyszczenia danych i kompleksowego testowania przed wdrożeniem rozwiązania w środowisku produkcyjnym.
 
-Uruchom konfigurację początkową w [środowisku pilotażowym](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) przed skalowaniem do wszystkich użytkowników w środowisku produkcyjnym.
+Uruchom konfigurację początkową w [środowisku pilotażowym](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) przed przeskalowaniem jej do wszystkich użytkowników w produkcji.
 
-## <a name="select-cloud-hr-provisioning-connector-apps"></a>Wybieranie aplikacji łącznika aprowizacji zasobów ludzkich w chmurze
+## <a name="select-cloud-hr-provisioning-connector-apps"></a>Wybierz aplikacje łącznika usługi Cloud Personal
 
-Aby ułatwić przepływy pracy inicjowania obsługi administracyjnej usługi Azure AD między aplikacją cloud HR i usługą Active Directory, można dodać wiele aplikacji łącznika inicjowania obsługi administracyjnej z galerii aplikacji usługi Azure AD:
+Aby ułatwić przepływy pracy aprowizacji usługi Azure AD między aplikacją i Active Directory w chmurze, można dodać wiele aplikacji łącznika aprowizacji z galerii aplikacji usługi Azure AD:
 
-- **Aplikacja Cloud HR do inicjowania obsługi administracyjnej użytkowników usługi Active Directory:** Ta aplikacja łącznika inicjowania obsługi administracyjnej ułatwia inicjowanie obsługi administracyjnej konta użytkownika z aplikacji cloud HR do jednej domeny usługi Active Directory. Jeśli masz wiele domen, możesz dodać jedno wystąpienie tej aplikacji z galerii aplikacji usługi Azure AD dla każdej domeny usługi Active Directory, którą musisz udostępnić.
-- **Aplikacja Cloud HR do inicjowania obsługi administracyjnej użytkowników usługi Azure AD:** Podczas gdy usługa Azure AD Connect jest narzędziem, które powinno być używane do synchronizowania użytkowników usługi Active Directory z usługą Azure AD, ta aplikacja łącznika inicjowania obsługi administracyjnej może służyć do ułatwiania inicjowania obsługi administracyjnej użytkowników tylko w chmurze z aplikacji cloud HR do jednej dzierżawy usługi Azure AD.
-- **Odpisy z aplikacji Cloud HR:** Ta aplikacja łącznika inicjowania obsługi administracyjnej ułatwia odpis adresów e-mail użytkownika z usługi Azure AD do aplikacji cloud HR.
+- **Aplikacja w chmurze do Active Directory aprowizacji użytkowników**: Ta aplikacja łącznika aprowizacji ułatwia Inicjowanie obsługi konta użytkownika z poziomu aplikacji kadr w chmurze w jednej domenie Active Directory. Jeśli masz wiele domen, możesz dodać jedno wystąpienie tej aplikacji z galerii aplikacji usługi Azure AD dla każdej domeny Active Directory, do której należy przeprowadzić obsługę administracyjną.
+- **Obsługa administracyjna aplikacji w chmurze w usłudze Azure AD**: podczas Azure AD Connect jest to narzędzie, które ma być używane do synchronizowania Active Directory użytkowników z usługą Azure AD. Ta aplikacja łącznika aprowizacji może służyć do ułatwienia aprowizacji użytkowników korzystających tylko z chmury z aplikacji w chmurze w ramach jednej dzierżawy usługi Azure AD.
+- **Zapisywanie zwrotne aplikacji w chmurze**: Ta aplikacja łącznika aprowizacji ułatwia zapisywanie adresów e-mail użytkowników z usługi Azure AD do aplikacji w chmurze.
 
-Na przykład na poniższej ilustracji wymieniono aplikacje łącznika Workday, które są dostępne w galerii aplikacji usługi Azure AD.
+Na przykład na poniższej ilustracji przedstawiono aplikacje łącznika produktu Workday dostępne w galerii aplikacji usługi Azure AD.
 
-![Galeria aplikacji portalu usługi Azure Active Directory](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img2.png)
+![Galeria aplikacji portalu Azure Active Directory](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img2.png)
 
-### <a name="decision-flow-chart"></a>Schemat blokowy decyzji
+### <a name="decision-flow-chart"></a>Wykres przepływu decyzji
 
-Użyj następującego schematu blokowego decyzji, aby określić, które aplikacje do inicjowania obsługi zasobów ludzkich w chmurze są odpowiednie dla danego scenariusza.
+Użyj poniższego wykresu przepływu decyzji, aby określić, które aplikacje do obsługi kadr w chmurze są odpowiednie dla Twojego scenariusza.
 
-![Schemat blokowy decyzji](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img3.png)
+![Wykres przepływu decyzji](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img3.png)
 
-## <a name="design-the-azure-ad-connect-provisioning-agent-deployment-topology"></a>Projektowanie topologii wdrażania agenta inicjowania obsługi administracyjnej usługi Azure AD Connect
+## <a name="design-the-azure-ad-connect-provisioning-agent-deployment-topology"></a>Zaprojektowanie topologii wdrażania agenta aprowizacji Azure AD Connect
 
-Integracja inicjowania obsługi administracyjnej między aplikacją cloud HR a usługą Active Directory wymaga czterech składników:
+Integracja aprowizacji między aplikacją i Active Directory w chmurze wymaga czterech składników:
 
-- Dzierżawa aplikacji Cloud HR
-- Aplikacja łącznika inicjowania obsługi administracyjnej
-- Agent inicjowania obsługi administracyjnej usługi Azure AD Connect
+- Dzierżawa aplikacji KADRowej w chmurze
+- Aplikacja łącznika aprowizacji
+- Azure AD Connect agenta aprowizacji
 - Domena Active Directory
 
-Topologia wdrażania agenta inicjowania obsługi administracyjnej usługi Azure AD Connect zależy od liczby dzierżaw aplikacji hr w chmurze i domen podrzędnych usługi Active Directory, które mają być integrujące. Jeśli masz wiele domen usługi Active Directory, zależy to od tego, czy domeny usługi Active Directory są ciągłe, czy [rozłączne.](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/disjoint-namespace)
+Azure AD Connect topologia wdrażania agenta aprowizacji jest zależna od liczby dzierżawców aplikacji w chmurze i Active Directory domen podrzędnych, które mają zostać zintegrowane. Jeśli masz wiele domen Active Directory, zależy od tego, czy domeny Active Directory są ciągłe, czy [rozłączane](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/disjoint-namespace).
 
-Na podstawie decyzji wybierz jeden ze scenariuszy wdrażania:
+Na podstawie decyzji wybierz jeden z scenariuszy wdrażania:
 
-- Dzierżawa aplikacji hr w jednej chmurze — > docelowa pojedynczych lub wielu domen podrzędnych usługi Active Directory w zaufanym lesie
-- Dzierżawa aplikacji hr w jednej chmurze — > kierowana na wiele domen podrzędnych w rozłącznym lesie usługi Active Directory
+- Dzierżawa pojedynczej aplikacji w chmurze — > docelowej jednej lub wielu Active Directory domen podrzędnych w lesie zaufanym
+- Dzierżawa pojedynczej aplikacji w chmurze — > celu wielu domen podrzędnych w oddzielnym lesie Active Directory
 
-### <a name="single-cloud-hr-app-tenant---target-single-or-multiple-active-directory-child-domains-in-a-trusted-forest"></a>Dzierżawa aplikacji hr w jednej chmurze — > docelowa pojedynczych lub wielu domen podrzędnych usługi Active Directory w zaufanym lesie
+### <a name="single-cloud-hr-app-tenant---target-single-or-multiple-active-directory-child-domains-in-a-trusted-forest"></a>Dzierżawa pojedynczej aplikacji w chmurze — > docelowej jednej lub wielu Active Directory domen podrzędnych w lesie zaufanym
 
-Zaleca się następującą konfigurację produkcji:
+Zalecamy zastosowanie następującej konfiguracji produkcyjnej:
 
 |Wymaganie|Zalecenie|
 |:-|:-|
-|Liczba agentów inicjowania obsługi administracyjnej usługi Azure AD Connect do wdrożenia|Dwa (dla wysokiej dostępności i pracy awaryjnej)
-|Liczba aplikacji łącznika inicjowania obsługi administracyjnej do skonfigurowania|Jedna aplikacja na domenę podrzędną|
-|Host serwera dla agenta inicjowania obsługi administracyjnej usługi Azure AD Connect|Windows 2012 R2+ z linią wzroku do kontrolerów domeny usługi Active Directory z geograficznie</br>Możliwość współistnienia z usługą Azure AD Connect|
+|Liczba Azure AD Connect agentów aprowizacji do wdrożenia|Dwa (w przypadku wysokiej dostępności i trybu failover)
+|Liczba aplikacji łącznika aprowizacji do skonfigurowania|Jedna aplikacja na domenę podrzędną|
+|Host serwera dla Azure AD Connect agenta aprowizacji|Windows 2012 R2 + z wierszem wglądu do geozlokalizowane Active Directory kontrolery domeny</br>Może współistnieć z usługą Azure AD Connect|
 
 ![Przepływ do agentów lokalnych](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img4.png)
 
-### <a name="single-cloud-hr-app-tenant---target-multiple-child-domains-in-a-disjoint-active-directory-forest"></a>Dzierżawa aplikacji hr w jednej chmurze — > kierowana na wiele domen podrzędnych w rozłącznym lesie usługi Active Directory
+### <a name="single-cloud-hr-app-tenant---target-multiple-child-domains-in-a-disjoint-active-directory-forest"></a>Dzierżawa pojedynczej aplikacji w chmurze — > celu wielu domen podrzędnych w oddzielnym lesie Active Directory
 
-W tym scenariuszu obejmuje inicjowanie obsługi administracyjnej użytkowników z aplikacji cloud HR do domen w różnych lasach usługi Active Directory.
+Ten scenariusz obejmuje Inicjowanie obsługi użytkowników z aplikacji w chmurze w przypadku domen rozłączonych Active Directory lasów.
 
-Zaleca się następującą konfigurację produkcji:
+Zalecamy zastosowanie następującej konfiguracji produkcyjnej:
 
 |Wymaganie|Zalecenie|
 |:-|:-|
-|Liczba agentów inicjowania obsługi administracyjnej usługi Azure AD Connect do wdrożenia lokalnego|Dwa na rozłączny las usługi Active Directory|
-|Liczba aplikacji łącznika inicjowania obsługi administracyjnej do skonfigurowania|Jedna aplikacja na domenę podrzędną|
-|Host serwera dla agenta inicjowania obsługi administracyjnej usługi Azure AD Connect|Windows 2012 R2+ z linią wzroku do kontrolerów domeny usługi Active Directory z geograficznie</br>Możliwość współistnienia z usługą Azure AD Connect|
+|Liczba Azure AD Connect agentów aprowizacji do wdrożenia w środowisku lokalnym|Dwa na odłączony Las Active Directory|
+|Liczba aplikacji łącznika aprowizacji do skonfigurowania|Jedna aplikacja na domenę podrzędną|
+|Host serwera dla Azure AD Connect agenta aprowizacji|Windows 2012 R2 + z wierszem wglądu do geozlokalizowane Active Directory kontrolery domeny</br>Może współistnieć z usługą Azure AD Connect|
 
-![Dzierżawa aplikacji hr w jednej chmurze rozłączny las usługi Active Directory](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img5.png)
+![Dzierżawa usługi Single App Active Directory w chmurze](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img5.png)
 
-### <a name="azure-ad-connect-provisioning-agent-requirements"></a>Wymagania agenta inicjowania obsługi administracyjnej usługi Azure AD Connect
+### <a name="azure-ad-connect-provisioning-agent-requirements"></a>Azure AD Connect wymagania dotyczące agenta aprowizacji
 
-Aplikacja chmury HR do rozwiązania inicjowania obsługi administracyjnej użytkowników usługi Active Directory wymaga wdrożenia co najmniej jednego agenta inicjowania obsługi administracyjnej usługi Azure AD Connect na serwerach z systemem Windows 2012 R2 lub większym. Serwery muszą mieć co najmniej 4 GB pamięci RAM i środowiska uruchomieniowego .NET 4.7.1+. Upewnij się, że serwer hosta ma dostęp sieciowy do docelowej domeny usługi Active Directory.
+Aplikacja Cloud kadr dla Active Directory rozwiązanie do aprowizacji użytkowników wymaga wdrożenia co najmniej jednego Azure AD Connect agentów aprowizacji na serwerach z systemem Windows 2012 R2 lub nowszym. Serwery muszą mieć co najmniej 4 GB pamięci RAM i .NET 4.7.1 + Runtime. Upewnij się, że serwer hosta ma dostęp sieciowy do domeny docelowej Active Directory.
 
-Aby przygotować środowisko lokalne, kreator konfiguracji agenta inicjowania obsługi administracyjnej usługi Azure AD Connect rejestruje agenta w dzierżawie usługi Azure AD, [otwiera porty,](../manage-apps/application-proxy-add-on-premises-application.md#open-ports) [umożliwia dostęp do adresów URL](../manage-apps/application-proxy-add-on-premises-application.md#allow-access-to-urls)i obsługuje [wychodzącą konfigurację serwera proxy HTTPS.](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication)
+Aby przygotować środowisko lokalne, Kreator konfiguracji agenta aprowizacji Azure AD Connect zarejestruje agenta za pomocą dzierżawy usługi Azure AD, [otwiera porty](../manage-apps/application-proxy-add-on-premises-application.md#open-ports), [zezwala na dostęp do adresów URL](../manage-apps/application-proxy-add-on-premises-application.md#allow-access-to-urls)i obsługuje [konfigurację wychodzącego serwera proxy HTTPS](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
 
-Agent inicjowania obsługi administracyjnej używa konta usługi do komunikowania się z domenami usługi Active Directory. Przed zainstalowaniem agenta utwórz konto usługi w usłudze Użytkownicy i komputery usługi Active Directory, które spełnia następujące wymagania:
+Agent aprowizacji używa konta usługi do komunikacji z domenami Active Directory. Przed zainstalowaniem agenta należy utworzyć konto usługi w Active Directory Użytkownicy i komputery, które spełniają następujące wymagania:
 
 - Hasło, które nie wygasa
 - Delegowane uprawnienia kontroli do odczytu, tworzenia, usuwania i zarządzania kontami użytkowników
 
-Można wybrać kontrolery domeny, które powinny obsługiwać żądania inicjowania obsługi administracyjnej. Jeśli masz geograficznie rozproszone kontrolery domeny, zainstaluj agenta inicjowania obsługi administracyjnej w tej samej lokacji co preferowane kontrolery domeny. To pozycjonowanie zwiększa niezawodność i wydajność kompleksowego rozwiązania.
+Można wybrać kontrolery domeny, które powinny obsługiwać żądania aprowizacji. Jeśli masz kilka rozproszonych geograficznie kontrolerów domeny, Zainstaluj agenta aprowizacji w tej samej lokacji, w której znajdują się preferowane kontrolery domeny. To pozycjonowanie zwiększa niezawodność i wydajność kompleksowego rozwiązania.
 
-Aby uzyskać wysoką dostępność, można wdrożyć więcej niż jednego agenta inicjowania obsługi administracyjnej usługi Azure AD Connect. Zarejestruj agenta, aby obsłużyć ten sam zestaw lokalnych domen usługi Active Directory.
+Aby zapewnić wysoką dostępność, można wdrożyć więcej niż jednego Azure AD Connect agenta aprowizacji. Zarejestruj agenta, aby obsłużyć ten sam zestaw lokalnych domen Active Directory.
 
 ## <a name="plan-scoping-filters-and-attribute-mapping"></a>Planowanie filtrów zakresu i mapowania atrybutów
 
-Po włączeniu inicjowania obsługi administracyjnej z aplikacji usługi cloud HR do usługi Active Directory lub usługi Azure AD, portal Azure kontroluje wartości atrybutów za pomocą mapowania atrybutów.
+Po włączeniu obsługi administracyjnej aplikacji w chmurze w celu Active Directory lub usługi Azure AD Azure Portal kontroluje wartości atrybutów za pośrednictwem mapowania atrybutu.
 
-### <a name="define-scoping-filters"></a>Definiowanie filtrów zakresu
+### <a name="define-scoping-filters"></a>Definiowanie filtrów określania zakresu
 
-Użyj [filtrów zakresu,](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) aby zdefiniować reguły oparte na atrybutach, które określają, którzy użytkownicy powinni być aprowicyjni z aplikacji cloud HR do usługi Active Directory lub usługi Azure AD.
+[Filtry zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) umożliwiają definiowanie reguł opartych na atrybutach, które określają, którzy użytkownicy powinni być obsługiwani z aplikacji kadrowej w chmurze do Active Directory lub Azure AD.
 
-Podczas inicjowania procesu Dołączanie, zebrać następujące wymagania:
+Po zainicjowaniu procesu przyłączania należy zebrać następujące wymagania:
 
-- Czy aplikacja cloud HR służy do wprowadzania na pokład zarówno pracowników, jak i pracowników warunkowych?
-- Czy zamierzasz używać aplikacji cloud HR do inicjowania obsługi administracyjnej użytkowników usługi Azure AD do zarządzania zarówno pracownikami, jak i pracownikami warunkowymi?
-- Czy planujesz wdrożyć aplikację cloud HR do inicjowania obsługi administracyjnej użytkowników usługi Azure AD tylko dla podzbioru użytkowników aplikacji hr w chmurze? Przykładem mogą być tylko pracownicy.
+- Czy aplikacja usługi Cloud kadr służy do przeprowadzenia na pokładzie pracowników i pracowników warunkowych?
+- Czy planujesz używać aplikacji w chmurze do aprowizacji użytkowników usługi Azure AD do zarządzania pracownikami i pracownikami warunkowymi?
+- Czy planujesz wdrożyć aplikację kadr w chmurze na potrzeby aprowizacji użytkowników usługi Azure AD tylko dla podzbioru użytkowników aplikacji w chmurze? Przykładem mogą być tylko pracownicy.
 
-W zależności od wymagań podczas konfigurowania mapowań atrybutów można ustawić pole **Zakres obiektu źródłowego,** aby wybrać zestawy użytkowników w aplikacji hr w chmurze powinny być w zakresie inicjowania obsługi administracyjnej usługi Active Directory. Aby uzyskać więcej informacji, zobacz samouczek aplikacji cloud HR dla często używanych filtrów zakresu.
+W zależności od wymagań podczas konfigurowania mapowań atrybutów można ustawić pole **Zakres obiektu źródłowego** , aby wybrać, które zestawy użytkowników w aplikacji kadrowej w chmurze powinny znajdować się w zakresie dla aprowizacji Active Directory. Aby uzyskać więcej informacji, zobacz Samouczek dotyczący aplikacji Cloud kadr w przypadku najczęściej używanych filtrów określania zakresu.
 
 ### <a name="determine-matching-attributes"></a>Określanie pasujących atrybutów
 
-Za pomocą inicjowania obsługi administracyjnej można dopasować istniejące konta między systemem źródłowym i docelowym. Po zintegrowaniu aplikacji cloud HR z usługą inicjowania obsługi administracyjnej usługi Azure AD można [skonfigurować mapowanie atrybutów,](../app-provisioning/configure-automatic-user-provisioning-portal.md#mappings) aby określić, jakie dane użytkownika powinny przepływać z aplikacji cloud HR do usługi Active Directory lub usługi Azure AD.
+Dzięki aprowizacji można dopasować istniejące konta między systemem źródłowym a docelowym. Po zintegrowaniu aplikacji usługi Cloud kadr z usługą Azure AD Provisioning można [skonfigurować Mapowanie atrybutów](../app-provisioning/configure-automatic-user-provisioning-portal.md#mappings) , aby określić, jakie dane użytkownika powinny być przepływać z aplikacji w chmurze do Active Directory lub Azure AD.
 
-Podczas inicjowania procesu Dołączanie, zebrać następujące wymagania:
+Po zainicjowaniu procesu przyłączania należy zebrać następujące wymagania:
 
-- Jaki jest unikatowy identyfikator w tej aplikacji cloud HR, która służy do identyfikacji każdego użytkownika?
-- Z punktu widzenia cyklu życia tożsamości, jak obsługiwać rehires? Czy rehires zachować swoje stare identyfikatory pracowników?
-- Czy przetwarzasz przyszłe kontrakty na wynajem i tworzysz dla nich konta usługi Active Directory z wyprzedzeniem?
-- Z punktu widzenia cyklu życia tożsamości, jak radzić sobie z konwersją pracownika warunkowego lub w inny sposób?
-- Czy przekonwertowani użytkownicy zachowują swoje stare konta usługi Active Directory, czy też otrzymują nowe?
+- Jaki jest unikatowy identyfikator w tej aplikacji usługi Cloud kadr, który służy do identyfikowania poszczególnych użytkowników?
+- Jak można obsłużyć się w perspektywie cyklu życia tożsamości? Czy pracownicy przezatrudniają stare identyfikatory pracowników?
+- Czy możesz przetwarzać zatrudnienie w przyszłości i tworzyć konta Active Directory z nich z góry?
+- W ramach perspektywy cyklu życia tożsamości, w jaki sposób można obsłużyć proces konwersji pracownika na warunkowe lub w inny sposób?
+- Czy przekonwertowani użytkownicy zachowują swoje stare konta Active Directory lub otrzymują nowe?
 
-W zależności od wymagań usługa Azure AD obsługuje bezpośrednie mapowanie atrybutów do atrybutów, zapewniając stałe wartości lub [zapisując wyrażenia dla mapowań atrybutów.](../app-provisioning/functions-for-customizing-application-data.md) Ta elastyczność zapewnia najwyższą kontrolę nad tym, co jest wypełniane w docelowym atrybucie aplikacji. Za pomocą [interfejsu API programu Microsoft Graph](../app-provisioning/export-import-provisioning-configuration.md) i Eksploratora wykresów można wyeksportować mapowania atrybutów i schematu inicjowania obsługi administracyjnej użytkownika do pliku JSON i zaimportować go z powrotem do usługi Azure AD.
+W zależności od wymagań usługa Azure AD obsługuje bezpośrednie Mapowanie atrybutów między atrybutami, dostarczając wartości stałe lub [pisząc wyrażenia dla mapowań atrybutów](../app-provisioning/functions-for-customizing-application-data.md). Ta elastyczność zapewnia ostateczną kontrolę nad tym, co jest zapełnione w atrybucie aplikacji Target. Korzystając z [Microsoft Graph API](../app-provisioning/export-import-provisioning-configuration.md) i Eksploratora grafów, można wyeksportować mapowania atrybutów aprowizacji użytkowników i schemat do pliku JSON, a następnie zaimportować je z powrotem do usługi Azure AD.
 
-Domyślnie atrybut w aplikacji cloud HR reprezentujący unikatowy identyfikator pracownika jest używany jako pasujący atrybut *mapowany na unikatowy atrybut w usłudze Active Directory.* Na przykład w scenariuszu aplikacji Workday atrybut **Workday** **WorkerID** jest mapowany do atrybutu **EmployeeID usługi** Active Directory.
+Domyślnie atrybut w aplikacji KADRowej w chmurze reprezentujący unikatowy identyfikator pracownika jest używany jako pasujący atrybut *mapowany na unikatowy atrybut w Active Directory.* Na przykład w scenariuszu aplikacji Workday atrybut **Workday** **WorkerID** jest mapowany na atrybut Active Directory **IDPracownika** .
 
-Można ustawić wiele pasujących atrybutów i przypisać pasowanie pierwszeństwo. Są one oceniane na pasujące pierwszeństwo. Jak tylko zostanie znaleziony dopasowania, nie dalsze pasujące atrybuty są oceniane.
+Można ustawić wiele pasujących atrybutów i przypisać priorytet pasujący. Są one oceniane w oparciu o pasujące pierwszeństwo. Po znalezieniu dopasowania nie są oceniane żadne dalsze pasujące atrybuty.
 
-Można również [dostosować domyślne mapowania atrybutów,](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-types)takie jak zmienianie lub usuwanie istniejących mapowań atrybutów. Można również tworzyć nowe mapowania atrybutów zgodnie z potrzebami biznesowymi. Aby uzyskać więcej informacji, zobacz samouczek aplikacji hr w chmurze (na przykład [Workday),](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)aby uzyskać listę atrybutów niestandardowych do mapowania.
+Można również [dostosować domyślne mapowania atrybutów](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-types), takie jak zmiana lub usuwanie istniejących mapowań atrybutów. Można również tworzyć nowe mapowania atrybutów zgodnie z potrzebami biznesowymi. Aby uzyskać więcej informacji, zobacz Samouczek dotyczący aplikacji Cloud Kadr (na przykład [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)), aby zapoznać się z listą atrybutów niestandardowych, które mają być mapowane.
 
 ### <a name="determine-user-account-status"></a>Określanie stanu konta użytkownika
 
-Domyślnie aplikacja łącznika inicjowania obsługi administracyjnej mapuje stan profilu użytkownika DZIAŁU KADR na stan konta użytkownika w usłudze Active Directory lub usłudze Azure AD w celu określenia, czy włączyć lub wyłączyć konto użytkownika.
+Domyślnie aplikacja łącznika aprowizacji mapuje stan profilu użytkownika usługi HR na stan konta użytkownika w Active Directory lub Azure AD w celu ustalenia, czy należy włączyć lub wyłączyć konto użytkownika.
 
-Podczas inicjowania procesu Joiners-Leavers, zebrać następujące wymagania.
-
-| Proces | Wymagania |
-| - | - |
-| **Stolarzy** | Z punktu widzenia cyklu życia tożsamości, jak obsługiwać rehires? Czy rehires zachować swoje stare identyfikatory pracowników? |
-| | Czy przetwarzasz przyszłe kontrakty na wynajem i tworzysz dla nich konta usługi Active Directory z wyprzedzeniem? Czy te konta są tworzone w stanie włączonym lub wyłączonym? |
-| | Z punktu widzenia cyklu życia tożsamości, jak radzić sobie z konwersją pracownika warunkowego lub w inny sposób? |
-| | Czy przekonwertowani użytkownicy zachowują swoje stare konta usługi Active Directory, czy też otrzymują nowe? |
-| **Urlopy** | Czy rozwiązania są traktowane inaczej dla pracowników i pracowników warunkowych w usłudze Active Directory? |
-| | Jakie daty wejścia w życie są brane pod uwagę w przypadku przetwarzania rozwiązania umowy przez użytkownika? |
-| | Jak konwersje pracowników i pracowników warunkowych wpływają na istniejące konta usługi Active Directory? |
-| | Jak przetworzyć operację odstąpienia od ceń w usłudze Active Directory? Operacje odstąpienia muszą być obsługiwane, jeśli przyszłe przestarzałe hires są tworzone w usłudze Active Directory w ramach procesu skomola. |
-
-W zależności od wymagań można dostosować logikę mapowania przy użyciu [wyrażeń usługi Azure AD,](../app-provisioning/functions-for-customizing-application-data.md) tak aby konto usługi Active Directory było włączone lub wyłączone na podstawie kombinacji punktów danych.
-
-### <a name="map-cloud-hr-app-to-active-directory-user-attributes"></a>Mapowanie aplikacji cloud HR do atrybutów użytkowników usługi Active Directory
-
-Każda aplikacja cloud HR jest dostarczana z domyślną aplikacją cloud HR do mapowań usługi Active Directory.
-
-Podczas inicjowania procesu Joiners-Movers-Leavers, zebrać następujące wymagania.
+Po zainicjowaniu procesu przyłączania — wypełniania należy zebrać poniższe wymagania.
 
 | Proces | Wymagania |
 | - | - |
-| **Stolarzy** | Czy proces tworzenia konta usługi Active Directory jest ręczny, zautomatyzowany lub częściowo zautomatyzowany? |
-| | Czy planujesz propagować atrybuty niestandardowe z aplikacji cloud HR do usługi Active Directory? |
-| **Przeprowadzki międzynarodowe** | Jakie atrybuty chcesz przetwarzać za każdym razem, gdy operacja Movers odbywa się w aplikacji cloud HR? |
-| | Czy w czasie aktualizacji użytkownika przeprowadzasz określone weryfikacje atrybutów? Jeśli tak, podaj szczegóły. |
-| **Urlopy** | Czy rozwiązania są traktowane inaczej dla pracowników i pracowników warunkowych w usłudze Active Directory? |
-| | Jakie daty wejścia w życie są brane pod uwagę w przypadku przetwarzania rozwiązania umowy przez użytkownika? |
-| | Jak konwersje pracowników i pracowników warunkowych wpływają na istniejące konta usługi Active Directory? |
+| **Sprzężenia** | Jak można obsłużyć się w perspektywie cyklu życia tożsamości? Czy pracownicy przezatrudniają stare identyfikatory pracowników? |
+| | Czy możesz przetwarzać zatrudnienie w przyszłości i tworzyć konta Active Directory z nich z góry? Czy te konta są tworzone w stanie włączony lub wyłączony? |
+| | W ramach perspektywy cyklu życia tożsamości, w jaki sposób można obsłużyć proces konwersji pracownika na warunkowe lub w inny sposób? |
+| | Czy przekonwertowani użytkownicy zachowują swoje stare konta Active Directory lub otrzymują nowe? |
+| **Wyjściu** | Czy zakończenia są obsługiwane inaczej w przypadku pracowników i pracowników warunkowych w Active Directory? |
+| | Jakie daty efektywne są brane pod uwagę w przypadku przetwarzania zakończenia użytkownika? |
+| | W jaki sposób pracownicy i warunkowe konwersje procesów roboczych wpływają na istniejące Active Directory konta? |
+| | Jak przetworzyć operację odwołaj w Active Directory? Operacje odwołaj należy obsługiwać, jeśli w ramach procesu łącznika zostaną utworzone przyszłe zatrudnienie w Active Directory. |
 
-W zależności od wymagań można zmodyfikować mapowania, aby osiągnąć swoje cele integracji. Aby uzyskać więcej informacji, zobacz przykład samouczka aplikacji hr w chmurze (na przykład [Workday),](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)aby uzyskać listę atrybutów niestandardowych do mapowania.
+W zależności od wymagań można dostosować logikę mapowania przy użyciu [wyrażeń usługi Azure AD](../app-provisioning/functions-for-customizing-application-data.md) , aby konto Active Directory zostało włączone lub wyłączone na podstawie kombinacji punktów danych.
 
-### <a name="generate-a-unique-attribute-value"></a>Generowanie unikatowej wartości atrybutu
+### <a name="map-cloud-hr-app-to-active-directory-user-attributes"></a>Mapowanie aplikacji KADRowej w chmurze na Active Directory atrybuty użytkownika
 
-Podczas inicjowania procesu Dołączanie, może być konieczne wygenerowanie unikatowych wartości atrybutów podczas ustawiania atrybutów, takich jak CN, samAccountName i UPN, który ma unikatowe ograniczenia.
+Każda aplikacja KADRa w chmurze jest dostarczana z domyślną aplikacją usługi Cloud kadr do Active Directory mapowań.
 
-Funkcja usługi Azure AD [SelectUniqueValues](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue) ocenia każdą regułę, a następnie sprawdza wartość wygenerowaną pod kątem unikatowości w systemie docelowym. Na przykład zobacz [Generowanie unikatowej wartości atrybutu userPrincipalName (UPN).](../app-provisioning/functions-for-customizing-application-data.md#generate-unique-value-for-userprincipalname-upn-attribute)
+Po zainicjowaniu procesu joins-Interleavers należy zebrać poniższe wymagania.
+
+| Proces | Wymagania |
+| - | - |
+| **Sprzężenia** | Czy Active Directory proces tworzenia konta jest ręczny, zautomatyzowany lub częściowo zautomatyzowany? |
+| | Czy planujesz propagowanie atrybutów niestandardowych z aplikacji w chmurze do Active Directory? |
+| **DM** | Jakie atrybuty chcesz przetworzyć za każdym razem, gdy w aplikacji w chmurze jest wykonywana operacja firmy przeprowadzki? |
+| | Czy wykonujesz wszystkie określone walidacje atrybutów w momencie aktualizacji użytkownika? Jeśli tak, podaj szczegóły. |
+| **Wyjściu** | Czy zakończenia są obsługiwane inaczej w przypadku pracowników i pracowników warunkowych w Active Directory? |
+| | Jakie daty efektywne są brane pod uwagę w przypadku przetwarzania zakończenia użytkownika? |
+| | Jak pracownicy i warunkowe konwersje procesów roboczych wpływają na istniejące Active Directory konta? |
+
+W zależności od wymagań można zmodyfikować mapowania, aby spełniały cele integracji. Aby uzyskać więcej informacji, zobacz Samouczek dotyczący konkretnej aplikacji w chmurze (na przykład [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)), aby zapoznać się z listą atrybutów niestandardowych, które mają być mapowane.
+
+### <a name="generate-a-unique-attribute-value"></a>Generuj unikatową wartość atrybutu
+
+Po zainicjowaniu procesu przyłączania może być konieczne wygenerowanie unikatowych wartości atrybutów podczas ustawiania atrybutów, takich jak CN, samAccountName i UPN, z unikatowymi ograniczeniami.
+
+Funkcja Azure AD [SelectUniqueValues](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue) oblicza każdą regułę, a następnie sprawdza wartość wygenerowaną w celu zapewnienia unikatowości w systemie docelowym. Aby zapoznać się z przykładem, zobacz [generowanie unikatowej wartości atrybutu userPrincipalName (UPN)](../app-provisioning/functions-for-customizing-application-data.md#generate-unique-value-for-userprincipalname-upn-attribute).
 
 > [!NOTE]
-> Ta funkcja jest obecnie obsługiwana tylko w przypadku inicjowania obsługi administracyjnej użytkowników usługi Workday to Active Directory. Nie można go używać z innymi aplikacjami do inicjowania obsługi administracyjnej.
+> Ta funkcja jest obecnie obsługiwana tylko w celu Active Directory aprowizacji użytkowników w programie Workday. Nie można jej używać z innymi aplikacjami aprowizacji.
 
-### <a name="configure-active-directory-ou-container-assignment"></a>Konfigurowanie przypisania kontenera jednostki organizacyjnej usługi Active Directory
+### <a name="configure-active-directory-ou-container-assignment"></a>Konfigurowanie przypisania kontenera jednostki organizacyjnej Active Directory
 
-Częstym wymaganiem jest umieszczanie kont użytkowników usługi Active Directory w kontenerach na podstawie jednostek biznesowych, lokalizacji i działów. Podczas inicjowania procesu przeprowadzki i zmiany organizacji nadzorczej może być konieczne przeniesienie użytkownika z jednej organizacji organizacyjnej do innej w usłudze Active Directory.
+Jest to typowy wymóg umieszczania Active Directory kont użytkowników w kontenerach w oparciu o jednostki biznesowe, lokalizacje i działy. Po zainicjowaniu procesu firmy przeprowadzkowej, jeśli istnieje zmiana organizacji nadzorczej, może być konieczne przeniesienie użytkownika z jednej jednostki organizacyjnej do innej w Active Directory.
 
-Funkcja [Switch()](../app-provisioning/functions-for-customizing-application-data.md#switch) służy do konfigurowania logiki biznesowej przypisania jednostki organizacyjnej i mapowania jej na **atrybut ParentDistinguishedName**.
+Użyj funkcji [Switch ()](../app-provisioning/functions-for-customizing-application-data.md#switch) , aby skonfigurować logikę biznesową dla przypisania jednostki organizacyjnej i zamapować ją na Active Directory atrybutu **parentDistinguishedName**.
 
-Na przykład, jeśli chcesz utworzyć użytkowników w urzędzie organizacyjnym na podstawie atrybutu HR **Gmina,** można użyć następującego wyrażenia:
+Na przykład jeśli chcesz utworzyć użytkowników w jednostce organizacyjnej na **podstawie atrybutu HR**, można użyć następującego wyrażenia:
 
 `
 Switch([Municipality], "OU=Default,OU=Users,DC=contoso,DC=com", "Dallas", "OU=Dallas,OU=Users,DC=contoso,DC=com", "Austin", "OU=Austin,OU=Users,DC=contoso,DC=com", "Seattle", "OU=Seattle,OU=Users,DC=contoso,DC=com", "London", "OU=London,OU=Users,DC=contoso,DC=com")
 `
 
-W tym wyrażeniu wartość gminy jest Dallas, Austin, Seattle lub Londyn, konto użytkownika zostanie utworzony w odpowiedniej ou. Jeśli nie ma dopasowania, konto jest tworzone w domyślnej oi.
+W tym wyrażeniu, jeśli wartość gminy to Dallas, Austin, Seattle lub Londyn, konto użytkownika zostanie utworzone w odpowiedniej jednostce organizacyjnej. Jeśli nie ma dopasowania, konto zostanie utworzone w domyślnej jednostce organizacyjnej.
 
 ## <a name="plan-for-password-delivery-of-new-user-accounts"></a>Planowanie dostarczania haseł dla nowych kont użytkowników
 
-Podczas inicjowania procesu Dołączanie, należy ustawić i dostarczyć tymczasowe hasło nowych kont użytkowników. Dzięki inicjowaniu obsługi administracyjnej użytkowników usługi Azure AD w chmurze można wdrożyć funkcję [samoobsługowego resetowania haseł](../authentication/quickstart-sspr.md) usługi Azure AD (SSPR) dla użytkownika pierwszego dnia.
+Po zainicjowaniu procesu przyłączania należy ustawić i dostarczyć tymczasowe hasło nowych kont użytkowników. Za pomocą usługi Cloud HR dla użytkowników usługi Azure AD można wdrożyć funkcję samoobsługowego [resetowania hasła](../authentication/quickstart-sspr.md) (SSPR) usługi Azure AD dla użytkownika na dzień.
 
-SSPR jest prostym środkiem dla administratorów IT, aby umożliwić użytkownikom zresetowanie haseł lub odblokowanie ich kont. Możesz aprowizować atrybut **Numer telefonu komórkowego** z aplikacji usługi cloud HR do usługi Active Directory i zsynchronizować go z usługą Azure AD. Po tym, jak atrybut **Numer telefonu komórkowego** znajduje się w usłudze Azure AD, można włączyć wiele samoużycie dla konta użytkownika. Pierwszego dnia nowy użytkownik może użyć zarejestrowanego i zweryfikowanego numeru telefonu komórkowego do uwierzytelniania.
+SSPR to prosty środek dla administratorów IT umożliwiający użytkownikom Resetowanie swoich haseł lub odblokowywanie ich kont. Możesz udostępnić atrybut **numeru telefonu komórkowego** z poziomu aplikacji usługi Cloud kadr w celu Active Directory i zsynchronizowania go z usługą Azure AD. Gdy atrybut **numeru komórkowego** jest w usłudze Azure AD, możesz włączyć SSPR dla konta użytkownika. Następnie nowy użytkownik może użyć zarejestrowanego i zweryfikowanego numeru komórkowego na potrzeby uwierzytelniania.
 
-## <a name="plan-for-initial-cycle"></a>Zaplanuj cykl początkowy
+## <a name="plan-for-initial-cycle"></a>Planowanie cyklu początkowego
 
-Gdy usługa inicjowania obsługi administracyjnej usługi Azure AD jest uruchamiana po raz pierwszy, wykonuje [początkowy cykl](../app-provisioning/how-provisioning-works.md#initial-cycle) względem aplikacji cloud HR, aby utworzyć migawkę wszystkich obiektów użytkownika w aplikacji cloud HR. Czas przeznaczony dla początkowych cykli zależy bezpośrednio od liczby użytkowników obecnych w systemie źródłowym. Początkowy cykl dla niektórych dzierżaw aplikacji hr w chmurze z ponad 100 000 użytkowników może zająć dużo czasu.
+Gdy usługa Azure AD Provisioning jest uruchamiana po raz pierwszy, wykonuje [początkowy cykl](../app-provisioning/how-provisioning-works.md#initial-cycle) względem aplikacji kadrowej w chmurze, aby utworzyć migawkę wszystkich obiektów użytkownika w aplikacji w chmurze. Czas trwania cykli początkowej zależy od liczby użytkowników w systemie źródłowym. Cykl początkowy dla niektórych dzierżawców aplikacji usługi Cloud kadr z ponad 100 000 użytkownikami może zająć dużo czasu.
 
-**W przypadku dzierżawców aplikacji hr w dużych chmurze (>30 000 użytkowników)** uruchom początkowy cykl w etapach progresywnych. Uruchom aktualizacje przyrostowe dopiero po sprawdzeniu, czy w usłudze Active Directory są ustawione poprawne atrybuty dla różnych scenariuszy inicjowania obsługi administracyjnej użytkowników. Postępuj zgodnie z kolejnością tutaj.
+W **przypadku dużych dzierżawców aplikacji kadrowych w chmurze (>30 000 użytkowników)** Uruchom cykl początkowy w etapach progresywnych. Aktualizacje przyrostowe należy uruchamiać dopiero po sprawdzeniu, czy poprawne atrybuty są ustawione w Active Directory dla różnych scenariuszy aprowizacji użytkowników. Postępuj zgodnie z poniższą kolejnością.
 
-1. Uruchom cykl początkowy tylko dla ograniczonego zestawu użytkowników, ustawiając [filtr zakresu](#plan-scoping-filters-and-attribute-mapping).
-2. Sprawdź inicjowanie obsługi administracyjnej kont usługi Active Directory i wartości atrybutów ustawionych dla użytkowników wybranych dla pierwszego uruchomienia. Jeśli wynik spełnia Twoje oczekiwania, rozwiń filtr zakresu, aby stopniowo uwzględniać więcej użytkowników i weryfikuj wyniki drugiego uruchomienia.
+1. Uruchom cykl początkowy tylko dla ograniczonego zestawu użytkowników, ustawiając [Filtr określania zakresu](#plan-scoping-filters-and-attribute-mapping).
+2. Sprawdź, Active Directory aprowizacji konta i wartości atrybutów ustawione dla użytkowników wybranych do pierwszego uruchomienia. Jeśli wynik spełnia Twoje oczekiwania, rozwiń filtr określania zakresu, aby stopniowo obejmować więcej użytkowników i zweryfikować wyniki drugiego przebiegu.
 
-Po spełnieniu wyników początkowego cyklu dla użytkowników testowych uruchom [aktualizacje przyrostowe](../app-provisioning/how-provisioning-works.md#incremental-cycles).
+Po spełnieniu wyników cyklu początkowego dla użytkowników testowych Uruchom [Aktualizacje przyrostowe](../app-provisioning/how-provisioning-works.md#incremental-cycles).
 
-## <a name="plan-testing-and-security"></a>Planowanie testowania i bezpieczeństwa
+## <a name="plan-testing-and-security"></a>Planowanie testowania i zabezpieczeń
 
-Na każdym etapie wdrażania od początkowego pilotażu do włączania inicjowania obsługi administracyjnej użytkownika, upewnij się, że testujesz, że wyniki są zgodnie z oczekiwaniami i inspekcji cykli inicjowania obsługi administracyjnej.
+Na każdym etapie wdrożenia od początkowej wersji pilotażowej przez włączenie aprowizacji użytkowników upewnij się, że testy są odpowiednie, a następnie Przeprowadź inspekcję cykli aprowizacji.
 
-### <a name="plan-testing"></a>Planowanie testowania
+### <a name="plan-testing"></a>Testowanie planu
 
-Po skonfigurowaniu aplikacji cloud HR do inicjowania obsługi administracyjnej użytkowników usługi Azure AD uruchom przypadki testowe, aby sprawdzić, czy to rozwiązanie spełnia wymagania organizacji.
+Po skonfigurowaniu aplikacji do obsługi administracyjnej w chmurze w usłudze Azure AD należy uruchomić przypadki testowe, aby sprawdzić, czy to rozwiązanie spełnia wymagania organizacji.
 
 |Scenariusze|Oczekiwane wyniki|
 |:-|:-|
-|Nowy pracownik jest zatrudniony w aplikacji hr w chmurze.| - Konto użytkownika jest aprowidywne w usłudze Active Directory.</br>- Użytkownik może zalogować się do aplikacji domeny Usługi Active Directory i wykonać żądane akcje.</br>— Jeśli skonfigurowano synchronizację usługi Azure AD Connect, konto użytkownika zostanie również utworzone w usłudze Azure AD.
-|Użytkownik jest kończony w aplikacji cloud HR.|- Konto użytkownika jest wyłączone w usłudze Active Directory.</br>- Użytkownik nie może zalogować się do żadnych aplikacji korporacyjnych chronionych przez usługą Active Directory.
-|Organizacja nadzoru nad użytkownikami jest aktualizowana w aplikacji cloud HR.|Na podstawie mapowania atrybutów konto użytkownika przechodzi z jednej grupy organizacyjnej do drugiej w usłudze Active Directory.|
-|Hr aktualizuje menedżera użytkownika w aplikacji hr w chmurze.|Pole menedżera w usłudze Active Directory zostanie zaktualizowane w celu odzwierciedlenia nazwy nowego menedżera.|
-|HR ponownie zatrudnia pracownika na nową rolę.|Zachowanie zależy od konfiguracji aplikacji cloud HR do generowania identyfikatorów pracowników:</br>- Jeśli stary identyfikator pracownika jest ponownie odtwarzany dla ponownego zatrudnienia, łącznik włącza istniejące konto usługi Active Directory dla użytkownika.</br>- Jeśli ponowne użycie zostanie aktywowane, łącznik utworzy nowe konto usługi Active Directory dla użytkownika.|
-|Hr konwertuje pracownika na pracownika kontraktowego lub odwrotnie.|Dla nowej persony zostanie utworzone nowe konto usługi Active Directory, a stare konto zostanie wyłączone w dniu wejścia w życie konwersji.|
+|Nowy pracownik jest zatrudniany w aplikacji KADRowej w chmurze.| — Konto użytkownika jest obsługiwane w Active Directory.</br>— Użytkownik może zalogować się do aplikacji Active Directory-Domain i wykonać odpowiednie działania.</br>— Jeśli Azure AD Connect synchronizacji jest skonfigurowany, konto użytkownika zostanie również utworzone w usłudze Azure AD.
+|Użytkownik jest zakończony w aplikacji w chmurze.|— Konto użytkownika jest wyłączone w Active Directory.</br>— Użytkownik nie może zalogować się do żadnych aplikacji dla przedsiębiorstw chronionych przez Active Directory.
+|Organizacja nadzorcza użytkownika jest aktualizowana w aplikacji w chmurze.|Na podstawie mapowania atrybutów konto użytkownika jest przenoszone z jednej jednostki organizacyjnej do innej w Active Directory.|
+|HR aktualizuje Menedżera użytkownika w aplikacji KADRowej w chmurze.|Pole Menedżera w Active Directory zostało zaktualizowane w celu odzwierciedlenia nazwy nowego menedżera.|
+|HR zatrudnia pracownika w nowej roli.|Zachowanie zależy od konfiguracji aplikacji KADRowej w chmurze w celu generowania identyfikatorów pracowników:</br>— Jeśli identyfikator starego pracownika jest ponownie używany w przypadku ponownego wynajmu, łącznik włącza istniejące konto Active Directory dla użytkownika.</br>— Jeśli ponowne zatrudnienie spowoduje pobranie nowego identyfikatora pracownika, łącznik tworzy nowe konto Active Directory dla użytkownika.|
+|HR konwertuje pracownika na pracownika kontraktu lub na odwrót.|Nowe konto Active Directory zostanie utworzone dla nowej osoby, a stare konto zostanie wyłączone przy dacie wejścia w życie konwersji.|
 
-Użyj poprzednich wyników, aby określić, jak przejść implementację automatycznego inicjowania obsługi administracyjnej użytkownika do środowiska produkcyjnego na podstawie ustalonych terminów.
+Skorzystaj z poprzednich wyników, aby określić sposób przejścia implementacji automatycznej aprowizacji użytkowników do środowiska produkcyjnego na podstawie ustalonych osi czasu.
 
 > [!TIP]
-> Podczas odświeżania środowiska testowego danymi produkcyjnymi należy używać technik, takich jak ograniczanie danych i czyszczenie danych, w celu usunięcia lub zamaskowania poufnych danych osobowych w celu zapewnienia zgodności ze standardami prywatności i zabezpieczeń. 
+> Używaj technik, takich jak zmniejszenie ilości danych i szybka Kontrola danych podczas odświeżania środowiska testowego z danymi produkcyjnymi, aby usunąć lub zamaskować poufne dane osobowe w celu zapewnienia zgodności ze standardami ochrony prywatności i zabezpieczeń. 
 
-### <a name="plan-security"></a>Zaplanuj bezpieczeństwo
+### <a name="plan-security"></a>Planowanie zabezpieczeń
 
-Często jest to wymagane przegląd zabezpieczeń w ramach wdrażania nowej usługi. Jeśli przegląd zabezpieczeń jest wymagane lub nie zostały przeprowadzone, zobacz wiele [oficjalnych dokumentów](https://www.microsoft.com/download/details.aspx?id=36391) usługi Azure AD, które zapewniają omówienie tożsamości jako usługi.
+W ramach wdrażania nowej usługi często wymagane jest sprawdzenie zabezpieczeń. Jeśli Przegląd zabezpieczeń jest wymagany lub nie został przeprowadzony, zapoznaj się z artykułem wiele [oficjalnych dokumentów](https://www.microsoft.com/download/details.aspx?id=36391) usługi Azure AD, które zawierają omówienie tożsamości jako usługi.
 
 ### <a name="plan-rollback"></a>Planowanie wycofywania
 
-Implementacja inicjowania obsługi administracyjnej użytkowników zasobów w chmurze może zakończyć się niepowodzeniem w razie potrzeby w środowisku produkcyjnym. Jeśli tak, następujące kroki wycofywania może pomóc w wróceniu do poprzedniego znanego dobrego stanu.
+Implementacja inicjowania obsługi administracyjnej użytkowników w chmurze może nie działać zgodnie z oczekiwaniami w środowisku produkcyjnym. W takim przypadku następujące kroki wycofywania mogą pomóc w powracaniu do poprzedniego znanego dobrego stanu.
 
-1. Przejrzyj [raport podsumowujący inicjowanie obsługi administracyjnej](../app-provisioning/check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal) i [dzienniki inicjowania obsługi administracyjnej,](../app-provisioning/check-status-user-account-provisioning.md#provisioning-logs-preview) aby określić, jakie niepoprawne operacje zostały wykonane na użytkowników lub grupach, których dotyczy problem. Aby uzyskać więcej informacji na temat raportu podsumowania inicjowania obsługi administracyjnej i dzienników, zobacz [Zarządzanie inicjowania obsługi administracyjnej użytkowników aplikacji w chmurze.](#manage-your-configuration)
-2. Ostatni znany dobry stan użytkowników lub grup, których dotyczy problem, można określić za pomocą dzienników inspekcji inicjowania obsługi administracyjnej lub przeglądając systemy docelowe (usługa Azure AD lub usługa Active Directory).
-3. Współpracuj z właścicielem aplikacji, aby zaktualizować użytkowników lub grupy, których dotyczy problem bezpośrednio w aplikacji, przy użyciu ostatnich znanych wartości stanu.
+1. Przejrzyj [Raport z podsumowaniem aprowizacji](../app-provisioning/check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal) i [Inicjowanie obsługi administracyjnej](../app-provisioning/check-status-user-account-provisioning.md#provisioning-logs-preview) , aby określić, jakie nieprawidłowe operacje zostały wykonane na odpowiednich użytkownikach lub grupach. Aby uzyskać więcej informacji na temat podsumowania raportów i dzienników udostępniania, zobacz [Zarządzanie obsługą użytkowników aplikacji w chmurze](#manage-your-configuration).
+2. Ostatni znany dobry stan użytkowników lub grup można określić za pomocą dzienników inspekcji aprowizacji lub przeglądając systemy docelowe (Azure AD lub Active Directory).
+3. Współpracuj z właścicielem aplikacji, aby zaktualizować użytkowników lub grupy objęte bezpośrednio w aplikacji przy użyciu ostatnich znanych wartości stanu.
 
-## <a name="deploy-the-cloud-hr-app"></a>Wdrażanie aplikacji cloud HR
+## <a name="deploy-the-cloud-hr-app"></a>Wdróż aplikację usługi Cloud kadr
 
-Wybierz aplikację cloud HR, która jest zgodna z wymaganiami rozwiązania.
+Wybierz aplikację kadr w chmurze, która jest wyrównana do wymagań dotyczących rozwiązania.
 
-**Dzień roboczy:** Aby zaimportować profile procesów roboczych z dnia roboczego do usługi Active Directory i usługi Azure AD, zobacz [Samouczek: Konfigurowanie dnia roboczego do automatycznego inicjowania obsługi administracyjnej przez użytkowników](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Opcjonalnie można odpisać adres e-mail i nazwę użytkownika do Workday.
+**Workday**: Aby zaimportować profile procesów roboczych z produktu Workday do Active Directory i usługi Azure AD, zobacz [Samouczek: Konfigurowanie produktu Workday do automatycznego aprowizacji użytkowników](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Opcjonalnie możesz napisać adres e-mail i nazwę użytkownika w usłudze Workday.
 
 ## <a name="manage-your-configuration"></a>Zarządzanie konfiguracją
 
-Usługa Azure AD może zapewnić dodatkowe informacje na temat użycia obsługi administracyjnej użytkowników w organizacji i kondycji operacyjnej za pośrednictwem dzienników inspekcji i raportów.
+Usługa Azure AD może zapewnić dodatkowe informacje dotyczące użycia i kondycji operacyjnej w organizacji za pomocą dzienników inspekcji i raportów.
 
 ### <a name="gain-insights-from-reports-and-logs"></a>Uzyskiwanie szczegółowych informacji z raportów i dzienników
 
-Po pomyślnym [cyklu początkowym](../app-provisioning/how-provisioning-works.md#initial-cycle)usługa inicjowania obsługi administracyjnej usługi Azure AD nadal uruchamia aktualizacje przyrostowe z powrotem w nieskończoność, w odstępach czasu zdefiniowanych w samouczkach specyficznych dla każdej aplikacji, dopóki nie wystąpi jedno z następujących zdarzeń:
+Po pomyślnym [cyklu początkowym](../app-provisioning/how-provisioning-works.md#initial-cycle)usługa Azure AD Provisioning będzie nadal uruchamiać aktualizacje przyrostowe z powrotem do tyłu, w odstępach czasu zdefiniowanych w samouczkach dotyczących poszczególnych aplikacji, dopóki nie wystąpi jedno z następujących zdarzeń:
 
-- Usługa zostanie zatrzymana ręcznie. Nowy cykl początkowy jest wyzwalany przy użyciu [portalu Azure](https://portal.azure.com/) lub odpowiedniego polecenia interfejsu API programu [Microsoft Graph.](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
-- Nowy cykl początkowy jest wyzwalany z powodu zmiany mapowań atrybutów lub filtrów zakresu.
-- Proces inicjowania obsługi administracyjnej przechodzi do kwarantanny z powodu wysokiego poziomu błędu. Pozostaje w kwarantannie przez ponad cztery tygodnie, w tym czasie jest automatycznie wyłączona.
+- Usługa została zatrzymana ręcznie. Nowy cykl początkowy jest wyzwalany przy użyciu [Azure Portal](https://portal.azure.com/) lub odpowiedniego polecenia [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) .
+- Nowy cykl początkowy jest wyzwalany ze względu na zmianę mapowań atrybutów lub filtrów określania zakresu.
+- Proces aprowizacji jest kierowany do kwarantanny z powodu wysokiego współczynnika błędów. Pozostaje w kwarantannie przez ponad cztery tygodnie, w których czas jest automatycznie wyłączany.
 
-Aby przejrzeć te zdarzenia i wszystkie inne działania wykonywane przez usługę inicjowania obsługi administracyjnej, [dowiedz się, jak przeglądać dzienniki i otrzymywać raporty dotyczące działań inicjowania obsługi administracyjnej](../app-provisioning/check-status-user-account-provisioning.md).
+Aby przejrzeć te zdarzenia i wszystkie inne działania wykonywane przez usługę aprowizacji, [Dowiedz się, jak przejrzeć dzienniki i uzyskać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md).
 
 #### <a name="azure-monitor-logs"></a>Dzienniki usługi Azure Monitor
 
-Wszystkie działania wykonywane przez usługę inicjowania obsługi administracyjnej są rejestrowane w dziennikach inspekcji usługi Azure AD. Dzienniki inspekcji usługi Azure AD można rozsyłać do dzienników usługi Azure Monitor w celu dalszej analizy. Za pomocą dzienników usługi Azure Monitor (znany również jako obszar roboczy usługi Log Analytics), można wyszukiwać dane, aby znaleźć zdarzenia, analizować trendy i wykonywać korelację w różnych źródłach danych. Obejrzyj ten [klip wideo,](https://youtu.be/MP5IaCTwkQg) aby dowiedzieć się, jakie korzyści płynące z używania dzienników usługi Azure Monitor dla dzienników usługi Azure AD są w praktycznych scenariuszach użytkownika.
+Wszystkie działania wykonywane przez usługę aprowizacji są rejestrowane w dziennikach inspekcji usługi Azure AD. Dzienniki inspekcji usługi Azure AD można kierować do Azure Monitor dzienników w celu dalszej analizy. Za pomocą dzienników Azure Monitor (znanych także jako Log Analytics obszaru roboczego) można wykonywać zapytania dotyczące danych, aby znaleźć zdarzenia, analizować trendy i wykonywać korelacje w różnych źródłach danych. Obejrzyj ten [film wideo](https://youtu.be/MP5IaCTwkQg) , aby poznać zalety korzystania z dzienników Azure monitor na potrzeby dzienników usługi Azure AD w praktycznych scenariuszach użytkownika.
 
-Zainstaluj [widoki analizy dziennika dla dzienników aktywności usługi Azure AD,](../reports-monitoring/howto-install-use-log-analytics-views.md) aby uzyskać dostęp do [wstępnie utworzonych raportów](https://github.com/AzureAD/Deployment-Plans/tree/master/Log%20Analytics%20Views) dotyczących inicjowania obsługi administracyjnej zdarzeń w twoim środowisku.
+Zainstaluj [widoki usługi log Analytics dla dzienników aktywności w usłudze Azure AD](../reports-monitoring/howto-install-use-log-analytics-views.md) , aby uzyskać dostęp do [wstępnie skompilowanych raportów](https://github.com/AzureAD/Deployment-Plans/tree/master/Log%20Analytics%20Views) dotyczących zdarzeń aprowizacji w Twoim środowisku.
 
-Aby uzyskać więcej informacji, zobacz jak [analizować dzienniki aktywności usługi Azure AD za pomocą dzienników usługi Azure Monitor.](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md)
+Aby uzyskać więcej informacji, zobacz jak [analizować dzienniki aktywności usługi Azure AD za pomocą dzienników Azure monitor](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md).
 
 ### <a name="manage-personal-data"></a>Zarządzanie danymi osobowymi
 
-Agent inicjowania obsługi administracyjnej usługi Azure AD Connect zainstalowany na serwerze Windows tworzy dzienniki w dzienniku zdarzeń systemu Windows, które mogą zawierać dane osobowe w zależności od aplikacji usługi HR w chmurze do mapowań atrybutów usługi Active Directory. Aby spełnić obowiązki użytkowników dotyczące prywatności, należy skonfigurować zaplanowane zadanie systemu Windows, aby wyczyścić dziennik zdarzeń i upewnić się, że żadne dane nie są przechowywane dłużej niż 48 godzin.
+Agent aprowizacji Azure AD Connect zainstalowany w systemie Windows Server tworzy dzienniki w dzienniku zdarzeń systemu Windows, które mogą zawierać dane osobowe w zależności od aplikacji w chmurze do Active Directory mapowań atrybutów. Aby zachować zgodność z wymaganiami dotyczącymi prywatności użytkowników, należy skonfigurować zaplanowane zadanie systemu Windows, aby wyczyścić dziennik zdarzeń i upewnić się, że żadne dane nie są przechowywane dłużej niż 48 godzin.
 
-Usługa inicjowania obsługi administracyjnej usługi Azure AD nie generuje raportów, nie przeprowadza analiz ani nie dostarcza szczegółowych informacji po upływie 30 dni, ponieważ usługa nie przechowuje, nie przetwarza ani nie przechowuje żadnych danych dłużej niż 30 dni.
+Usługa Azure AD Provisioning nie generuje raportów, nie przeprowadza analizy ani nie udostępnia szczegółowych informacji poza 30 dni, ponieważ usługa nie przechowuje, nie przetwarza ani nie przechowuje żadnych danych dłużej niż 30 dni.
 
 ### <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Aby rozwiązać wszelkie problemy, które mogą pojawić się podczas inicjowania obsługi administracyjnej, zobacz następujące artykuły:
+Aby rozwiązać problemy, które mogą zostać przełączane podczas aprowizacji, zobacz następujące artykuły:
 
-- [Problem z konfigurowaniem inicjowania obsługi administracyjnej przez użytkownika aplikacji usługi Azure AD Gallery](application-provisioning-config-problem.md)
-- [Synchronizowanie atrybutu z lokalnej usługi Active Directory z usługą Azure AD w celu inicjowania obsługi administracyjnej aplikacji](user-provisioning-sync-attributes-for-mapping.md)
-- [Inicjowanie obsługi administracyjnej aplikacji usługi Azure AD Gallery trwa wiele godzin lub więcej](application-provisioning-when-will-provisioning-finish.md)
-- [Problem z zapisywaniem poświadczeń administratora podczas konfigurowania inicjowania obsługi administracyjnej aplikacji usługi Azure Active Directory Gallery](application-provisioning-config-problem-storage-limit.md)
-- [Żaden użytkownik nie jest aprowiany do aplikacji usługi Azure AD Gallery](application-provisioning-config-problem-no-users-provisioned.md)
-- [Niewłaściwy zestaw użytkowników jest aprowiany do aplikacji usługi Azure AD Gallery](application-provisioning-config-problem-wrong-users-provisioned.md)
-- [Konfigurowanie Podglądu zdarzeń systemu Windows do rozwiązywania problemów z agentami](../saas-apps/workday-inbound-tutorial.md#setting-up-windows-event-viewer-for-agent-troubleshooting)
-- [Konfigurowanie dzienników inspekcji portalu Azure do rozwiązywania problemów z usługami](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
-- [Opis dzienników dla operacji tworzenia konta użytkownika usługi AD](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-ad-user-account-create-operations)
-- [Opis dzienników operacji aktualizacji programu Manager](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-manager-update-operations)
-- [Rozwiązywanie często napotkanych błędów](../saas-apps/workday-inbound-tutorial.md#resolving-commonly-encountered-errors)
+- [Wystąpił problem podczas konfigurowania aprowizacji użytkowników w aplikacji z galerii usługi Azure AD](application-provisioning-config-problem.md)
+- [Synchronizowanie atrybutu z Active Directory lokalnego z usługą Azure AD w celu aprowizacji aplikacji](user-provisioning-sync-attributes-for-mapping.md)
+- [Inicjowanie obsługi administracyjnej użytkowników w aplikacji z galerii usługi Azure AD trwa kilka godzin](application-provisioning-when-will-provisioning-finish.md)
+- [Wystąpił problem podczas zapisywania poświadczeń administratora podczas konfigurowania aprowizacji użytkowników w aplikacji Galerii Azure Active Directory](application-provisioning-config-problem-storage-limit.md)
+- [Nie zainicjowano obsługi użytkowników w aplikacji z galerii usługi Azure AD](application-provisioning-config-problem-no-users-provisioned.md)
+- [W aplikacji z galerii usługi Azure AD jest inicjowany niewłaściwy zestaw użytkowników](application-provisioning-config-problem-wrong-users-provisioned.md)
+- [Konfigurowanie Podgląd zdarzeń systemu Windows na potrzeby rozwiązywania problemów z agentem](../saas-apps/workday-inbound-tutorial.md#setting-up-windows-event-viewer-for-agent-troubleshooting)
+- [Konfigurowanie dzienników inspekcji Azure Portal na potrzeby rozwiązywania problemów z usługą](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
+- [Omówienie dzienników dla operacji tworzenia konta użytkownika usługi AD](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-ad-user-account-create-operations)
+- [Omówienie dzienników dla operacji aktualizacji Menedżera](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-manager-update-operations)
+- [Rozwiązywanie najczęściej występujących błędów](../saas-apps/workday-inbound-tutorial.md#resolving-commonly-encountered-errors)
 
 ### <a name="next-steps"></a>Następne kroki
 
-- [Pisanie wyrażeń dla mapowań atrybutów](functions-for-customizing-application-data.md)
-- [Interfejs API synchronizacji usługi Azure AD — omówienie](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Pisanie wyrażeń do mapowania atrybutów](functions-for-customizing-application-data.md)
+- [Omówienie interfejsu API synchronizacji usługi Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 - [Pomiń usuwanie kont użytkowników, które wykraczają poza zakres](skip-out-of-scope-deletions.md)
-- [Agent inicjowania obsługi administracyjnej usługi Azure AD Connect: historia wydania wersji wersji](provisioning-agent-release-version-history.md)
+- [Azure AD Connect agenta aprowizacji: historia wersji](provisioning-agent-release-version-history.md)

@@ -1,55 +1,55 @@
 ---
-title: Wyzwalacz rozgrzewania usług Azure Functions
-description: Dowiedz się, jak używać wyzwalacza rozgrzewki w usłudze Azure Functions.
+title: Azure Functions wyzwalacz rozgrzewania
+description: Dowiedz się, jak używać wyzwalacza rozgrzewania w Azure Functions.
 documentationcenter: na
 author: alexkarcher-msft
 manager: gwallace
-keywords: funkcje azure, funkcje, przetwarzanie zdarzeń, rozgrzewka, zimny start, premium, dynamiczne obliczeń, architektura bezserwerowa
+keywords: Azure Functions, Functions, przetwarzanie zdarzeń, rozgrzewania, zimny start, Premium, Dynamic COMPUTE, architektura bezserwerowa
 ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
 ms.openlocfilehash: c3ed780bc50b690b2f5c3285024695ec6426b9b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77167328"
 ---
-# <a name="azure-functions-warm-up-trigger"></a>Wyzwalacz rozgrzewania usług Azure Functions
+# <a name="azure-functions-warm-up-trigger"></a>Wyzwalacz rozgrzewania Azure Functions
 
-W tym artykule wyjaśniono, jak pracować z wyzwalaczem rozgrzewki w usłudze Azure Functions. Wyzwalacz rozgrzewki jest obsługiwany tylko dla aplikacji funkcyjnych działających w [planie Premium.](functions-premium-plan.md) Wyzwalacz rozgrzewania jest wywoływany, gdy wystąpienie jest dodawane do skalowania uruchomionej aplikacji funkcji. Wyzwalacza rozgrzewki można użyć do wstępnego ładowania zależności niestandardowych podczas [procesu wstępnego ocieplenia,](./functions-premium-plan.md#pre-warmed-instances) dzięki czemu funkcje są gotowe do natychmiastowego rozpoczęcia przetwarzania żądań. 
+W tym artykule opisano sposób pracy z wyzwalaczem rozgrzewania w Azure Functions. Wyzwalacz rozgrzewania jest obsługiwany tylko w przypadku aplikacji funkcji działających w ramach [planu Premium](functions-premium-plan.md). Wyzwalacz rozgrzewania jest wywoływany po dodaniu wystąpienia w celu skalowania uruchomionej aplikacji funkcji. Wyzwalacza rozgrzewania można użyć do wstępnego ładowania zależności niestandardowych podczas [procesu wstępnego rozgrzewania](./functions-premium-plan.md#pre-warmed-instances) , dzięki czemu funkcje są gotowe do natychmiastowego uruchamiania przetwarzania żądań. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-2x-and-higher"></a>Pakiety — funkcje 2.x lub nowsze
+## <a name="packages---functions-2x-and-higher"></a>Pakiety — funkcje 2. x i nowsze
 
-[Pakiet Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet, wersja **3.0.5 lub nowsza** jest wymagana. Kod źródłowy pakietu znajduje się w repozytorium GitHub w [zakresie azure-webjobs-sdk-extensions.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) 
+Wymagany jest pakiet NuGet [Microsoft. Azure. WebJobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) w wersji **3.0.5 lub nowszej** . Kod źródłowy pakietu znajduje się w repozytorium [Azure-WebJobs-SDK-Extensions — rozszerzenia](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub. 
 
 [!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>Wyzwalacz
 
-Wyzwalacz rozgrzewki umożliwia zdefiniowanie funkcji, która będzie uruchamiana w nowym wystąpieniu po dodaniu go do uruchomionej aplikacji. Za pomocą funkcji rozgrzewania można otwierać połączenia, ładować zależności lub uruchamiać dowolną inną niestandardową logikę, zanim aplikacja zacznie odbierać ruch. 
+Wyzwalacz rozgrzewania umożliwia zdefiniowanie funkcji, która będzie uruchamiana w nowym wystąpieniu, gdy zostanie dodana do uruchomionej aplikacji. Możesz użyć funkcji rozgrzewania, aby otworzyć połączenia, Załaduj zależności lub uruchomić dowolną inną logikę niestandardową, zanim aplikacja zacznie odbierać ruch. 
 
-Wyzwalacz rozgrzewania jest przeznaczony do tworzenia współużytków udostępnionych, które będą używane przez inne funkcje w aplikacji. [Zobacz przykłady współdzielonych zależności tutaj](./manage-connections.md#client-code-examples).
+Wyzwalacz rozgrzewania jest przeznaczony do tworzenia współużytkowanych zależności, które będą używane przez inne funkcje w aplikacji. [Zobacz przykłady zależności udostępnionych tutaj](./manage-connections.md#client-code-examples).
 
-Należy zauważyć, że wyzwalacz rozgrzewki jest wywoływany tylko podczas operacji skalowania w poziomie, a nie podczas ponownego uruchamiania lub innych startupów nieskażających. Należy upewnić się, że logika może załadować wszystkie niezbędne zależności bez użycia wyzwalacza rozgrzewki. Leniwe ładowanie jest dobrym wzorcem, aby to osiągnąć.
+Należy zauważyć, że wyzwalacz rozgrzewania jest wywoływany tylko podczas operacji skalowania w poziomie, a nie w trakcie ponownego uruchamiania lub w innych uruchomieniach bez skalowania. Musisz się upewnić, że logika może ładować wszystkie wymagane zależności bez użycia wyzwalacza rozgrzewania. Ładowanie z opóźnieniem jest dobrym wzorcem do osiągnięcia tego celu.
 
 ## <a name="trigger---example"></a>Wyzwalacz — przykład
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
-W poniższym przykładzie pokazano [funkcję Języka C#,](functions-dotnet-class-library.md) która będzie uruchamiana w każdym nowym wystąpieniu po dodaniu go do aplikacji. Atrybut wartości zwracanej nie jest wymagany.
+Poniższy przykład pokazuje [funkcję języka C#](functions-dotnet-class-library.md) , która będzie uruchamiana na każdym nowym wystąpieniu po dodaniu go do aplikacji. Atrybut wartości zwracanej nie jest wymagany.
 
 
-* Funkcja musi mieć ```warmup``` nazwę (bez uwzględniania wielkości liter) i może istnieć tylko jedna funkcja rozgrzewania na aplikację.
-* Aby użyć rozgrzewki jako funkcji biblioteki klas .NET, upewnij się, że masz odwołanie do pakietu **Microsoft.Azure.WebJobs.Extensions >= 3.0.5**
+* Funkcja musi mieć nazwę ```warmup``` (bez uwzględniania wielkości liter) i może istnieć tylko jedna funkcja rozgrzewania na aplikację.
+* Aby użyć rozgrzewania jako funkcji biblioteki klas .NET, upewnij się, że masz odwołanie do pakietu **Microsoft. Azure. WebJobs. Extensions >= 3.0.5**
     * ```<PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="3.0.5" />```
 
 
-Komentarze zastępcze pokazują, gdzie w aplikacji do deklarowania i inicjowania współużytkowania współużytkowania. 
-[Dowiedz się więcej o współdzielonych zależnościach tutaj](./manage-connections.md#client-code-examples).
+Komentarze symboli zastępczych pokazują, gdzie w aplikacji należy zadeklarować i zainicjować współdzielone zależności. 
+[Więcej informacji na temat udostępnionych zależności znajdziesz tutaj](./manage-connections.md#client-code-examples).
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -73,14 +73,14 @@ namespace WarmupSample
     }
 }
 ```
-# <a name="c-script"></a>[Skrypt języka C#](#tab/csharp-script)
+# <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
 
-W poniższym przykładzie pokazano wyzwalacz rozgrzewki w pliku *function.json* i [funkcję skryptu Języka C#,](functions-reference-csharp.md) która będzie uruchamiana w każdym nowym wystąpieniu po dodaniu go do aplikacji.
+Poniższy przykład przedstawia wyzwalacz rozgrzewania w pliku *Function. JSON* oraz [funkcję skryptu języka C#](functions-reference-csharp.md) , która będzie uruchamiana na każdym nowym wystąpieniu po dodaniu go do aplikacji.
 
-Funkcja musi mieć ```warmup``` nazwę (bez uwzględniania wielkości liter) i może istnieć tylko jedna funkcja rozgrzewania na aplikację.
+Funkcja musi mieć nazwę ```warmup``` (bez uwzględniania wielkości liter) i może mieć tylko jedną funkcję rozgrzewania na aplikację.
 
-Oto plik *function.json:*
+Oto plik *Function. JSON* :
 
 ```json
 {
@@ -94,9 +94,9 @@ Oto plik *function.json:*
 }
 ```
 
-W sekcji [konfiguracji](#trigger---configuration) opisano te właściwości.
+W sekcji [Konfiguracja](#trigger---configuration) objaśniono te właściwości.
 
-Oto kod skryptu C#, `HttpRequest`który wiąże się z:
+Oto kod skryptu w języku C#, który jest `HttpRequest`powiązany z:
 
 ```cs
 public static void Run(ILogger log)
@@ -105,13 +105,13 @@ public static void Run(ILogger log)
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-W poniższym przykładzie pokazano wyzwalacz rozgrzewki w pliku *function.json* i [funkcję JavaScript,](functions-reference-node.md) która będzie uruchamiana w każdym nowym wystąpieniu po dodaniu go do aplikacji.
+Poniższy przykład przedstawia wyzwalacz rozgrzewania w pliku *Function. JSON* oraz [funkcję języka JavaScript](functions-reference-node.md) , która będzie uruchamiana w każdym nowym wystąpieniu, gdy zostanie dodana do aplikacji.
 
-Funkcja musi mieć ```warmup``` nazwę (bez uwzględniania wielkości liter) i może istnieć tylko jedna funkcja rozgrzewania na aplikację.
+Funkcja musi mieć nazwę ```warmup``` (bez uwzględniania wielkości liter) i może istnieć tylko jedna funkcja rozgrzewania na aplikację.
 
-Oto plik *function.json:*
+Oto plik *Function. JSON* :
 
 ```json
 {
@@ -125,7 +125,7 @@ Oto plik *function.json:*
 }
 ```
 
-W sekcji [konfiguracji](#trigger---configuration) opisano te właściwości.
+W sekcji [Konfiguracja](#trigger---configuration) objaśniono te właściwości.
 
 Oto kod JavaScript:
 
@@ -138,11 +138,11 @@ module.exports = async function (context, warmupContext) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-W poniższym przykładzie pokazano wyzwalacz rozgrzewki w pliku *function.json* i [funkcję Języka Python,](functions-reference-python.md) która będzie uruchamiana w każdym nowym wystąpieniu po dodaniu go do aplikacji.
+Poniższy przykład przedstawia wyzwalacz rozgrzewania w pliku *Function. JSON* i [funkcję języka Python](functions-reference-python.md) , która będzie uruchamiana w każdym nowym wystąpieniu, gdy zostanie dodana do aplikacji.
 
-Funkcja musi mieć ```warmup``` nazwę (bez uwzględniania wielkości liter) i może istnieć tylko jedna funkcja rozgrzewania na aplikację.
+Funkcja musi mieć nazwę ```warmup``` (bez uwzględniania wielkości liter) i może istnieć tylko jedna funkcja rozgrzewania na aplikację.
 
-Oto plik *function.json:*
+Oto plik *Function. JSON* :
 
 ```json
 {
@@ -156,9 +156,9 @@ Oto plik *function.json:*
 }
 ```
 
-W sekcji [konfiguracji](#trigger---configuration) opisano te właściwości.
+W sekcji [Konfiguracja](#trigger---configuration) objaśniono te właściwości.
 
-Oto kod Pythona:
+Oto kod języka Python:
 
 ```python
 import logging
@@ -171,9 +171,9 @@ def main(warmupContext: func.Context) -> None:
 
 # <a name="java"></a>[Java](#tab/java)
 
-W poniższym przykładzie pokazano wyzwalacz rozgrzewki, który jest uruchamiany po dodaniu każdego nowego wystąpienia do aplikacji.
+Poniższy przykład przedstawia wyzwalacz rozgrzewania, który jest uruchamiany, gdy każde nowe wystąpienie zostanie dodane do aplikacji.
 
-Funkcja musi mieć `warmup` nazwę (bez uwzględniania wielkości liter) i może istnieć tylko jedna funkcja rozgrzewania na aplikację.
+Funkcja musi mieć nazwę `warmup` (bez uwzględniania wielkości liter) i może istnieć tylko jedna funkcja rozgrzewania na aplikację.
 
 ```java
 @FunctionName("Warmup")
@@ -184,15 +184,15 @@ public void run( ExecutionContext context) {
 
 ---
 
-## <a name="trigger---attributes"></a>Trigger - atrybuty
+## <a name="trigger---attributes"></a>Wyzwalacz — atrybuty
 
-W [bibliotekach klas języka C#](functions-dotnet-class-library.md) `WarmupTrigger` atrybut jest dostępny do skonfigurowania funkcji.
+W [bibliotekach klas języka C#](functions-dotnet-class-library.md) `WarmupTrigger` atrybut jest dostępny w celu skonfigurowania funkcji.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
-W tym przykładzie pokazano, jak używać atrybutu [rozgrzewki.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs)
+W tym przykładzie pokazano, jak używać atrybutu [rozgrzewania](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs) .
 
-Należy pamiętać, że ```Warmup``` funkcja musi być wywoływana i może istnieć tylko jedna funkcja rozgrzewania na aplikację.
+Należy pamiętać, że funkcja musi być ```Warmup``` wywoływana i może istnieć tylko jedna funkcja rozgrzewania dla aplikacji.
 
 ```csharp
  [FunctionName("Warmup")]
@@ -203,47 +203,47 @@ Należy pamiętać, że ```Warmup``` funkcja musi być wywoływana i może istni
         }
 ```
 
-Pełny przykład można znaleźć w [przykładzie wyzwalacza](#trigger---example).
+Aby uzyskać pełny przykład, zobacz [przykład wyzwalacza](#trigger---example).
 
-# <a name="c-script"></a>[Skrypt języka C#](#tab/csharp-script)
+# <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
 Atrybuty nie są obsługiwane przez skrypt języka C#.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Atrybuty nie są obsługiwane przez javascript.
+Atrybuty nie są obsługiwane przez język JavaScript.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Atrybuty nie są obsługiwane przez Pythona.
+Atrybuty nie są obsługiwane przez język Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Wyzwalacz rozgrzewki nie jest obsługiwany w języku Java jako atrybut.
+Wyzwalacz rozgrzewania nie jest obsługiwany w języku Java jako atrybut.
 
 ---
 
-## <a name="trigger---configuration"></a>Trigger - konfiguracja
+## <a name="trigger---configuration"></a>Wyzwalacz — konfiguracja
 
-W poniższej tabeli opisano właściwości konfiguracji powiązania, które można `WarmupTrigger` ustawić w pliku *function.json* i atrybut.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `WarmupTrigger` atrybucie.
 
-|właściwość function.json | Właściwość atrybutu |Opis|
+|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-| **Typu** | Nie dotyczy| Wymagane - musi być `warmupTrigger`ustawiona na . |
-| **Kierunku** | Nie dotyczy| Wymagane - musi być `in`ustawiona na . |
-| **Nazwa** | Nie dotyczy| Wymagane — nazwa zmiennej używana w kodzie funkcji.|
+| **Wprowadź** | n/d| Wymagane — musi być ustawiony na `warmupTrigger`wartość. |
+| **wskazywa** | n/d| Wymagane — musi być ustawiony na `in`wartość. |
+| **Nazwij** | n/d| Wymagane — nazwa zmiennej używana w kodzie funkcji.|
 
-## <a name="trigger---usage"></a>Trigger - użycie
+## <a name="trigger---usage"></a>Wyzwalacz-użycie
 
-Żadne dodatkowe informacje nie są dostarczane do funkcji wyzwalane rozgrzewką, gdy jest wywoływana.
+Żadne dodatkowe informacje nie są dostarczane do funkcji wyzwalanej przez funkcję rozgrzewania, gdy jest wywoływana.
 
-## <a name="trigger---limits"></a>Wyzwalacz - limity
+## <a name="trigger---limits"></a>Wyzwalacze — limity
 
-* Wyzwalacz rozgrzewki jest dostępny tylko dla aplikacji działających w [planie Premium.](./functions-premium-plan.md)
-* Wyzwalacz rozgrzewania jest wywoływany tylko podczas skalowania w górę operacji, a nie podczas ponownego uruchamiania lub innych startupów nieskażania. Należy upewnić się, że logika może załadować wszystkie niezbędne zależności bez użycia wyzwalacza rozgrzewki. Leniwe ładowanie jest dobrym wzorcem, aby to osiągnąć.
+* Wyzwalacz rozgrzewania jest dostępny tylko dla aplikacji uruchomionych w ramach [planu Premium](./functions-premium-plan.md).
+* Wyzwalacz rozgrzewania jest wywoływany tylko podczas operacji skalowania w górę, a nie w trakcie ponownego uruchamiania lub w innych uruchomieniach bez skalowania. Musisz się upewnić, że logika może ładować wszystkie wymagane zależności bez użycia wyzwalacza rozgrzewania. Ładowanie z opóźnieniem jest dobrym wzorcem do osiągnięcia tego celu.
 * Nie można wywołać wyzwalacza rozgrzewania, gdy wystąpienie jest już uruchomione.
-* Może istnieć tylko jedna funkcja wyzwalania rozgrzewania na aplikację funkcji.
+* Dla każdej aplikacji funkcji może istnieć tylko jedna funkcja wyzwalacza rozgrzewania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dowiedz się więcej o wyzwalaczach i powiązaniach funkcji platformy Azure](functions-triggers-bindings.md)
+[Dowiedz się więcej o wyzwalaczach i powiązaniach usługi Azure Functions](functions-triggers-bindings.md)

@@ -1,45 +1,45 @@
 ---
-title: Reguły dostępu do zapory
-description: Skonfiguruj reguły, aby uzyskać dostęp do rejestru kontenerów platformy Azure zza zapory, umożliwiając dostęp do interfejsu API REST ("białej listy") i nazw domen punktów końcowych magazynu lub zakresów adresów IP specyficznych dla usługi.
+title: Reguły dostępu zapory
+description: Skonfiguruj reguły dostępu do usługi Azure Container Registry za zaporą, zezwalając na dostęp do ("listy dozwolonych") i nazw domen punktu końcowego usługi Storage oraz adresów IP specyficznych dla usług.
 ms.topic: article
 ms.date: 02/11/2020
 ms.openlocfilehash: 06fedea2adf5e73929f5752279f2bd7e7227e570
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77168020"
 ---
-# <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Konfigurowanie reguł w celu uzyskiwania dostępu do rejestru kontenerów platformy Azure za zaporą
+# <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Konfigurowanie reguł dostępu do usługi Azure Container Registry za zaporą
 
-W tym artykule wyjaśniono, jak skonfigurować reguły na zaporze, aby umożliwić dostęp do rejestru kontenerów platformy Azure. Na przykład urządzenie usługi Azure IoT Edge za zaporą lub serwerem proxy może być konieczne uzyskiwać dostęp do rejestru kontenerów w celu wyciągnięcia obrazu kontenera. Lub zablokowany serwer w sieci lokalnej może wymagać dostępu do wypychania obrazu.
+W tym artykule wyjaśniono, jak skonfigurować reguły zapory, aby umożliwić dostęp do usługi Azure Container Registry. Na przykład urządzenie Azure IoT Edge za zaporą lub serwerem proxy może potrzebować dostępu do rejestru kontenerów w celu ściągnięcia obrazu kontenera. Serwer zablokowany w sieci lokalnej może być niezbędny do wypchnięcia obrazu.
 
-Jeśli zamiast tego chcesz skonfigurować reguły dostępu do sieci przychodzącej w rejestrze kontenerów tylko w ramach sieci wirtualnej platformy Azure lub z publicznego zakresu adresów IP, zobacz [Ograniczanie dostępu do rejestru kontenerów platformy Azure z sieci wirtualnej](container-registry-vnet.md).
+Jeśli zamiast tego chcesz skonfigurować reguły dostępu do sieci dla ruchu przychodzącego w rejestrze kontenerów tylko w ramach sieci wirtualnej platformy Azure lub z zakresu publicznego adresu IP, zobacz [ograniczanie dostępu do usługi Azure Container Registry z sieci wirtualnej](container-registry-vnet.md).
 
 ## <a name="about-registry-endpoints"></a>Informacje o punktach końcowych rejestru
 
-Aby pobierać lub wypychać obrazy lub inne artefakty do rejestru kontenerów platformy Azure, klient, taki jak demon platformy Docker, musi wchodzić w interakcje za pośrednictwem protokołu HTTPS z dwoma różnymi punktami końcowymi.
+Do ściągania lub wypychania obrazów lub innych artefaktów do usługi Azure Container Registry klient, taki jak demon Docker, musi korzystać z dwóch różnych punktów końcowych przy użyciu protokołu HTTPS.
 
-* **Punkt końcowy interfejsu API interfejsu API rest rejestru** — operacje uwierzytelniania i zarządzania rejestrami są obsługiwane za pośrednictwem publicznego punktu końcowego interfejsu API REST rejestru. Ten punkt końcowy jest nazwą serwera logowania rejestru lub skojarzonym zakresem adresów IP. 
+* **Punkt końcowy interfejsu API REST usługi Registry** — operacje zarządzania uwierzytelnianiem i rejestrem są obsługiwane przez publiczny punkt końcowy interfejsu API REST rejestru. Ten punkt końcowy to nazwa serwera logowania rejestru lub skojarzony zakres adresów IP. 
 
-* **Punkt końcowy magazynu** — platforma Azure [przydziela magazyn obiektów blob](container-registry-storage.md) w kontach usługi Azure Storage w imieniu każdego rejestru, aby zarządzać danymi dla obrazów kontenerów i innych artefaktów. Gdy klient uzyskuje dostęp do warstw obrazu w rejestrze kontenerów platformy Azure, żądaje przy użyciu punktu końcowego konta magazynu dostarczonego przez rejestr.
+* **Punkt końcowy magazynu** — platforma Azure [przypisuje magazyn obiektów BLOB](container-registry-storage.md) na kontach usługi Azure Storage w imieniu każdego rejestru w celu zarządzania danymi dla obrazów kontenerów i innych artefaktów. Gdy klient uzyskuje dostęp do warstw obrazu w usłudze Azure Container Registry, wysyła żądania przy użyciu punktu końcowego konta magazynu dostarczonego przez rejestr.
 
-Jeśli rejestr jest [replikowany geograficznie,](container-registry-geo-replication.md)klient może być konieczne do interakcji z REST i punktów końcowych magazynu w określonym regionie lub w wielu regionach replikowanych.
+Jeśli rejestr jest [replikowany geograficznie](container-registry-geo-replication.md), klient może potrzebować współdziałania z punktami końcowymi REST i magazynem w określonym regionie lub w wielu replikowanych regionach.
 
-## <a name="allow-access-to-rest-and-storage-domain-names"></a>Zezwalaj na dostęp do rest i nazw domen magazynu
+## <a name="allow-access-to-rest-and-storage-domain-names"></a>Zezwalaj na dostęp do nazw domen REST i Storage
 
-* **PUNKT KOŃCOWY REST** — zezwalaj na dostęp do w pełni kwalifikowanej nazwy serwera logowania rejestru, takiej jak`myregistry.azurecr.io`
-* **Magazyn (dane) punkt końcowy** — zezwalaj na dostęp do wszystkich kont magazynu obiektów blob platformy Azure przy użyciu symbolu wieloznacznego`*.blob.core.windows.net`
+* **Punkt końcowy REST** — Zezwalanie na dostęp do w pełni kwalifikowanej nazwy serwera logowania rejestru, takiej jak`myregistry.azurecr.io`
+* **Punkt końcowy magazynu (dane)** — Zezwalanie na dostęp do wszystkich kont usługi Azure Blob Storage za pomocą symbolu wieloznacznego`*.blob.core.windows.net`
 
 
 ## <a name="allow-access-by-ip-address-range"></a>Zezwalaj na dostęp według zakresu adresów IP
 
-Jeśli twoja organizacja ma zasady zezwalane tylko na dostęp do określonych adresów IP lub zakresów adresów, pobierz [zakresy adresów IP platformy Azure i tagi usług — chmura publiczna](https://www.microsoft.com/download/details.aspx?id=56519).
+Jeśli organizacja ma zasady zezwalające na dostęp tylko do określonych adresów IP lub zakresów adresów, Pobierz [zakresy adresów IP i Tagi usług platformy Azure — chmura publiczna](https://www.microsoft.com/download/details.aspx?id=56519).
 
-Aby znaleźć zakresy adresów IP punktu końcowego ACR REST, dla których musisz zezwolić na dostęp, wyszukaj **azurecontainerRegistry** w pliku JSON.
+Aby znaleźć zakresy adresów IP punktów końcowych usługi ACR REST, dla których należy zezwolić na dostęp, Wyszukaj **AzureContainerRegistry** w pliku JSON.
 
 > [!IMPORTANT]
-> Zakresy adresów IP dla usług platformy Azure mogą ulec zmianie, a aktualizacje są publikowane co tydzień. Pobierz plik JSON regularnie i dokonać niezbędnych aktualizacji w regułach dostępu. Jeśli scenariusz obejmuje konfigurowanie reguł grupy zabezpieczeń sieci w sieci wirtualnej platformy Azure, aby uzyskać dostęp do rejestru kontenerów platformy Azure, użyj [tagu usługi](#allow-access-by-service-tag) **AzureContainerRegistry.**
+> Zakresy adresów IP dla usług platformy Azure mogą ulec zmianie, a aktualizacje są publikowane co tydzień. Regularnie Pobieraj plik JSON i wprowadź niezbędne aktualizacje w regułach dostępu. Jeśli scenariusz obejmuje skonfigurowanie reguł sieciowej grupy zabezpieczeń w sieci wirtualnej platformy Azure w celu uzyskania dostępu Azure Container Registry, należy zamiast tego użyć [znacznika usługi](#allow-access-by-service-tag) **AzureContainerRegistry** .
 >
 
 ### <a name="rest-ip-addresses-for-all-regions"></a>Adresy IP REST dla wszystkich regionów
@@ -60,7 +60,7 @@ Aby znaleźć zakresy adresów IP punktu końcowego ACR REST, dla których musis
 
 ### <a name="rest-ip-addresses-for-a-specific-region"></a>Adresy IP REST dla określonego regionu
 
-Wyszukaj określony region, taki jak **AzureContainerRegistry.AustraliaEast**.
+Wyszukaj konkretny region, taki jak **AzureContainerRegistry. AustraliaEast**.
 
 ```json
 {
@@ -76,7 +76,7 @@ Wyszukaj określony region, taki jak **AzureContainerRegistry.AustraliaEast**.
     [...]
 ```
 
-### <a name="storage-ip-addresses-for-all-regions"></a>Przechowywanie adresów IP dla wszystkich regionów
+### <a name="storage-ip-addresses-for-all-regions"></a>Adresy IP magazynu dla wszystkich regionów
 
 ```json
 {
@@ -92,9 +92,9 @@ Wyszukaj określony region, taki jak **AzureContainerRegistry.AustraliaEast**.
     [...]
 ```
 
-### <a name="storage-ip-addresses-for-specific-regions"></a>Przechowywanie adresów IP dla określonych regionów
+### <a name="storage-ip-addresses-for-specific-regions"></a>Adresy IP magazynu dla określonych regionów
 
-Wyszukaj określony region, taki jak **Storage.AustraliaCentral**.
+Wyszukaj konkretny region, taki jak **Storage. AustraliaCentral**.
 
 ```json
 {
@@ -112,17 +112,17 @@ Wyszukaj określony region, taki jak **Storage.AustraliaCentral**.
 
 ## <a name="allow-access-by-service-tag"></a>Zezwalaj na dostęp według tagu usługi
 
-W sieci wirtualnej platformy Azure użyj reguł zabezpieczeń sieci do filtrowania ruchu z zasobu, takiego jak maszyna wirtualna do rejestru kontenerów. Aby uprościć tworzenie reguł sieci platformy Azure, użyj [tagu usługi](../virtual-network/security-overview.md#service-tags) **AzureContainerRegistry** . Tag usługi reprezentuje grupę prefiksów adresów IP, aby uzyskać dostęp do usługi platformy Azure globalnie lub na region platformy Azure. Tag jest automatycznie aktualizowany po zmianie adresów. 
+W sieci wirtualnej platformy Azure Użyj reguł zabezpieczeń sieci do filtrowania ruchu z zasobów, takich jak maszyna wirtualna, do rejestru kontenerów. Aby uprościć tworzenie reguł sieci platformy Azure, użyj [znacznika usługi](../virtual-network/security-overview.md#service-tags) **AzureContainerRegistry** . Tag usługi reprezentuje grupę prefiksów adresów IP, aby uzyskać dostęp do usługi platformy Azure globalnie lub dla regionu platformy Azure. Tag jest automatycznie aktualizowany, gdy adresy zmienią się. 
 
-Na przykład utwórz regułę wychodzącej grupy zabezpieczeń sieciowej z docelowym dziennikiem **AzureContainerRegistry,** aby zezwolić na ruch do rejestru kontenerów platformy Azure. Aby zezwolić na dostęp do tagu usługi tylko w określonym regionie, określ region w następującym formacie: **AzureContainerRegistry**. [*nazwa regionu*].
+Można na przykład utworzyć regułę sieciowej grupy zabezpieczeń dla ruchu wychodzącego z **AzureContainerRegistryą** docelową, aby zezwolić na ruch do usługi Azure Container Registry. Aby zezwolić na dostęp do tagu usługi tylko w określonym regionie, Określ region w następującym formacie: **AzureContainerRegistry**. [*Nazwa regionu*].
 
-## <a name="configure-client-firewall-rules-for-mcr"></a>Konfigurowanie reguł zapory klienta dla mcr
+## <a name="configure-client-firewall-rules-for-mcr"></a>Konfigurowanie reguł zapory klienta dla MCR
 
-Jeśli chcesz uzyskać dostęp do rejestru kontenerów firmy Microsoft (MCR) zza zapory, zapoznaj się ze wskazówkami dotyczącymi konfigurowania [reguł zapory klienta MCR](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md). MCR jest podstawowym rejestrem dla wszystkich obrazów dokowanych opublikowanych przez firmę Microsoft, takich jak obrazy systemu Windows Server.
+Jeśli musisz uzyskać dostęp do programu Microsoft Container Registry (MCR) z poziomu zapory, zapoznaj się ze wskazówkami dotyczącymi konfigurowania [reguł zapory klienta MCR](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md). MCR to podstawowy rejestr wszystkich obrazów platformy Docker opublikowanych przez firmę Microsoft, takich jak obrazy systemu Windows Server.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [najlepszych rozwiązaniach dotyczących zabezpieczeń sieci w zakresie platformy Azure](../security/fundamentals/network-best-practices.md)
+* Poznaj [najlepsze rozwiązania dotyczące platformy Azure dotyczące zabezpieczeń sieci](../security/fundamentals/network-best-practices.md)
 
 * Dowiedz się więcej o [grupach zabezpieczeń](/azure/virtual-network/security-overview) w sieci wirtualnej platformy Azure
 

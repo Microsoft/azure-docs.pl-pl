@@ -1,6 +1,6 @@
 ---
-title: Połącz Zimperium Mobile Threat Defense z usługą Azure Sentinel| Dokumenty firmy Microsoft
-description: Dowiedz się, jak połączyć usługę Zimperium Mobile Threat Defense z usługą Azure Sentinel.
+title: Łączenie Zimperium z usługą Azure — wskaźnik ochrony przed zagrożeniami Microsoft Docs
+description: Dowiedz się, jak nawiązać połączenie z usługą Azure wskaźnikowej ochrony przed zagrożeniami Zimperium.
 services: sentinel
 author: yelevin
 editor: ''
@@ -13,68 +13,68 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: 86854fa22a49f09e5d3d2fc5fdb53c245850fbac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77587944"
 ---
-# <a name="connect-your-zimperium-mobile-threat-defense-to-azure-sentinel"></a>Połącz swoją mobilną obronę przed zagrożeniami Zimperium z usługą Azure Sentinel
+# <a name="connect-your-zimperium-mobile-threat-defense-to-azure-sentinel"></a>Łączenie ochrony przed zagrożeniami programu Zimperium Mobile z platformą Azure — wskaźnikiem
 
 
 > [!IMPORTANT]
-> Zimperium Mobile Threat Defense łącznika danych w usłudze Azure Sentinel jest obecnie w publicznej wersji zapoznawczej.
-> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana dla obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Łącznik danych Zimperium Mobile Threat obrony w usłudze Azure wskaźnikowej jest obecnie w publicznej wersji zapoznawczej.
+> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 
-Zimperium Mobile Threat Defense connector daje możliwość połączenia dziennika zagrożeń Zimperium z usługi Azure Sentinel, aby wyświetlić pulpity nawigacyjne, tworzyć niestandardowe alerty i usprawnić badania. Zapewnia to lepszy wgląd w krajobraz zagrożeń mobilnych w organizacji i zwiększa możliwości operacji zabezpieczeń.
+Łącznik Zimperium Mobile Threat obrony umożliwia łączenie dziennika zagrożeń Zimperium z platformą Azure wskaźnikowego, aby wyświetlać pulpity nawigacyjne, tworzyć niestandardowe alerty i ulepszać badanie. Dzięki temu możesz uzyskać więcej informacji na temat środowiska mobilnego zagrożenia w organizacji i zwiększyć możliwości operacji zabezpieczeń.
 
 > [!NOTE]
-> Dane będą przechowywane w lokalizacji geograficznej obszaru roboczego, w którym jest uruchomiona usługa Azure Sentinel.
+> Dane będą przechowywane w lokalizacji geograficznej obszaru roboczego, w którym jest uruchamiany wskaźnik platformy Azure.
 
-## <a name="configure-and-connect-zimperium-mobile-threat-defense"></a>Konfigurowanie i podłączanie Zimperium Mobile Threat Defense
+## <a name="configure-and-connect-zimperium-mobile-threat-defense"></a>Konfigurowanie i łączenie Zimperium ochrony przed zagrożeniami mobilnymi
 
-Zimperium Mobile Threat Defense może integrować i eksportować dzienniki bezpośrednio do **usługi Azure Sentinel.**
+Ochrona przed zagrożeniami w usłudze Zimperium Mobile umożliwia integrację i eksportowanie dzienników bezpośrednio do **usługi Azure wskaźnikowej**.
 
-1. W portalu Azure Sentinel kliknij pozycję Łączniki danych i wybierz pozycję **Zimperium Mobile Threat Defense**.
-2. Wybierz **pozycję Otwórz stronę łącznika**.
-3. Postępuj zgodnie z instrukcjami na stronie **złącza Zimperium Mobile Threat Defense,** podsumowane w następujący sposób.
- 1. W aplikacji zConsole kliknij pozycję **Zarządzaj** na pasku nawigacyjnym.
+1. W portalu wskaźnikowym platformy Azure kliknij pozycję łączniki danych i wybierz pozycję **Zimperium Mobile Threat obrony**.
+2. Wybierz pozycję **Otwórz stronę łącznika**.
+3. Postępuj zgodnie z instrukcjami na stronie łącznika **Zimperium Mobile Threat obrony** , podsumowanie w następujący sposób.
+ 1. W zConsole kliknij pozycję **Zarządzaj** na pasku nawigacyjnym.
  2. Kliknij kartę **Integrations** (Integracje).
- 3. Kliknij przycisk **Raportowanie zagrożeń,** a następnie przycisk **Dodaj integracje.**
- 4. Utwórz integrację, wybierając **usługę Microsoft Azure Sentinel** z dostępnych integracji i wprowadź identyfikator obszaru roboczego i klucz podstawowy, aby połączyć się z usługą Azure Sentinel.
- 5. Dostępna jest również opcja wyboru poziomu filtru dla danych o zagrożeniach do wypychania do usługi Azure Sentinel. 
+ 3. Kliknij przycisk **raportowanie zagrożeń** , a następnie przycisk **Dodaj integracje** .
+ 4. Utwórz integrację, wybierając pozycję **Microsoft Azure wskaźnikiem** z dostępnych integracji i wprowadź identyfikator obszaru roboczego i klucz podstawowy, aby nawiązać połączenie z platformą Azure.
+ 5. Dostępna jest również opcja wyboru poziomu filtru dla danych zagrożeń do wypchnięcia do usługi Azure wskaźnikowej. 
 
-4. Dodatkowe informacje można znaleźć w [portalu obsługi klienta Zimperium.](https://support.zimperium.com)
+4. Aby uzyskać dodatkowe informacje, zapoznaj się z [portalem obsługi klienta Zimperium](https://support.zimperium.com).
 
 
 ## <a name="find-your-data"></a>Znajdowanie danych
 
-Po nawiązaniu pomyślnego połączenia dane są wyświetlane w usłudze Log Analytics w obszarze Dzienniki niestandardowe ZimperiumThreatLog_CL i ZimperiumMitigationLog_CL.
+Po pomyślnym nawiązaniu połączenia dane są wyświetlane w Log Analytics w obszarze CustomLogs ZimperiumThreatLog_CL i ZimperiumMitigationLog_CL.
 
-Aby użyć odpowiedniego schematu w usłudze Log Analytics dla Zimperium Mobile Threat Defense, wyszukaj ZimperiumThreatLog_CL i ZimperiumMitigationLog_CL.
+Aby użyć odpowiedniego schematu w Log Analytics na potrzeby obrony Zimperium Mobile Threat, Wyszukaj ZimperiumThreatLog_CL i ZimperiumMitigationLog_CL.
 
 
-## <a name="validate-connectivity"></a>Sprawdzanie poprawności łączności
+## <a name="validate-connectivity"></a>Sprawdź poprawność łączności
 
-Może upłynąć ponad 20 minut, aż dzienniki zaczną pojawiać się w usłudze Log Analytics.
+Rozpoczęcie wyświetlania dzienników w Log Analytics może zająć więcej niż 20 minut.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym dokumencie dowiesz się, jak połączyć Zimperium Mobile Threat Defense z usługą Azure Sentinel. Aby dowiedzieć się więcej o usłudze Azure Sentinel, zobacz następujące artykuły:
+W tym dokumencie przedstawiono sposób nawiązywania połączenia z witryną Zimperium Mobile Threat obrony z platformą Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
 
-- Dowiedz się, jak [uzyskać wgląd w dane i potencjalne zagrożenia.](quickstart-get-visibility.md)
+- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
 
-- Rozpocznij [wykrywanie zagrożeń za pomocą usługi Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).
 
-- Monitorowanie danych [za pomocą skoroszytów.](tutorial-monitor-your-data.md)
+- [Używaj skoroszytów](tutorial-monitor-your-data.md) do monitorowania danych.
 
-Aby dowiedzieć się więcej o Zimperium, zobacz następujące elementy:
+Aby dowiedzieć się więcej na temat Zimperium, zobacz następujące tematy:
 
 - [Zimperium](https://zimperium.com)
 
-- [Zimperium Mobile Bezpieczeństwa Blog](https://blog.zimperium.com)
+- [Blog dotyczący zabezpieczeń mobilnych Zimperium](https://blog.zimperium.com)
 
 - [Portal obsługi klienta Zimperium](https://support.zimperium.com)
 

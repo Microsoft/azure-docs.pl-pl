@@ -1,6 +1,6 @@
 ---
-title: Łączenie programu Forcepoint DLP z usługą Azure Sentinel| Dokumenty firmy Microsoft
-description: Dowiedz się, jak połączyć program Forcepoint DLP z usługą Azure Sentinel.
+title: Łączenie funkcji DLP Forcepoint z platformą Azure Microsoft Docs
+description: Dowiedz się, jak połączyć funkcję DLP Forcepoint z platformą Azure.
 services: sentinel
 author: yelevin
 editor: ''
@@ -13,45 +13,45 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: 3bdb9d2b23ce05929ba5612e0c6a03fe1aab05de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77588250"
 ---
-# <a name="connect-your-forcepoint-dlp-to-azure-sentinel"></a>Łączenie programu Forcepoint DLP z usługą Azure Sentinel
+# <a name="connect-your-forcepoint-dlp-to-azure-sentinel"></a>Łączenie funkcji DLP Forcepoint z platformą Azure — wskaźnikiem
 
 > [!IMPORTANT]
-> Łącznik danych Forcepoint Data Loss Prevention (DLP) w usłudze Azure Sentinel jest obecnie w publicznej wersji zapoznawczej. Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana dla obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Łącznik danych Forcepoint ochrony przed utratą danych (DLP) na platformie Azure jest obecnie w publicznej wersji zapoznawczej. Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 
-Łącznik Forcepoint DLP umożliwia automatyczne eksportowanie danych zdarzeń DLP do usługi Azure Sentinel. Można go użyć, aby uzyskać wgląd w działania użytkownika i zdarzenia utraty danych. Umożliwia również korelacje z danymi z obciążeń platformy Azure i innych źródeł danych oraz zwiększa możliwości monitorowania za pomocą skoroszytów w usłudze Azure Sentinel.
+Łącznik DLP Forcepoint umożliwia automatyczne wyeksportowanie danych zdarzenia DLP do platformy Azure. Można jej użyć do uzyskania wglądu w działania użytkownika i zdarzenia utraty danych. Umożliwia również korelację z danymi z obciążeń platformy Azure i innymi źródłami danych oraz zwiększa możliwości monitorowania ze skoroszytami w ramach platformy Azure.
 
 > [!NOTE]
-> Dane będą przechowywane w lokalizacji geograficznej obszaru roboczego, w którym jest uruchomiona usługa Azure Sentinel.
+> Dane będą przechowywane w lokalizacji geograficznej obszaru roboczego, w którym jest uruchamiany wskaźnik platformy Azure.
 
-## <a name="configure-and-connect-forcepoint-dlp"></a>Konfigurowanie i łączenie programu Forcepoint DLP
+## <a name="configure-and-connect-forcepoint-dlp"></a>Konfigurowanie i łączenie funkcji DLP Forcepoint
 
-Skonfiguruj program Forcepoint DLP do przekazywania danych zdarzeń w formacie JSON do obszaru roboczego platformy Azure za pośrednictwem interfejsu API REST, jak wyjaśniono w [Przewodniku integracji programu Forcepoint DLP.](https://frcpnt.com/dlp-sentinel)
+Skonfiguruj funkcję DLP Forcepoint, aby przesłać dane zdarzenia w formacie JSON do obszaru roboczego platformy Azure za pośrednictwem interfejsu API REST, jak wyjaśniono w [przewodniku integracji FORCEPOINT DLP](https://frcpnt.com/dlp-sentinel).
 
 
 ## <a name="find-your-data"></a>Znajdowanie danych
 
-Po skonfigurowaniu łącznika DLP programu Forcepoint dane pojawią się w usłudze Log Analytics w obszarze **ForcepointDLPEvents_CL**Dzienniki niestandardowe .
+Po skonfigurowaniu łącznika DLP Forcepoint dane są wyświetlane w Log Analytics w obszarze CustomLogs **ForcepointDLPEvents_CL**.
 
 
-Aby użyć odpowiedniego schematu w usłudze Log Analytics for Forcepoint DLP, wyszukaj **ForcepointDLPEvents_CL**.
+Aby użyć odpowiedniego schematu w Log Analytics Forcepoint DLP, wyszukaj ciąg **ForcepointDLPEvents_CL**.
 
 
-## <a name="validate-connectivity"></a>Sprawdzanie poprawności łączności
+## <a name="validate-connectivity"></a>Sprawdź poprawność łączności
 
-Może upłynąć ponad 20 minut, aż dzienniki zaczną pojawiać się w usłudze Log Analytics.
+Rozpoczęcie wyświetlania dzienników w Log Analytics może zająć więcej niż 20 minut.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym dokumencie dowiesz się, jak połączyć forcepoint DLP z usługą Azure Sentinel. Aby dowiedzieć się więcej o usłudze Azure Sentinel, zobacz następujące artykuły:
+W tym dokumencie przedstawiono sposób łączenia funkcji DLP Forcepoint z platformą Azure — wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
 
-- Dowiedz się, jak [uzyskać wgląd w dane i potencjalne zagrożenia.](quickstart-get-visibility.md)
-- Rozpocznij [wykrywanie zagrożeń za pomocą usługi Azure Sentinel](tutorial-detect-threats-built-in.md).
-- Monitorowanie danych [za pomocą skoroszytów.](tutorial-monitor-your-data.md)
+- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
+- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).
+- [Używaj skoroszytów](tutorial-monitor-your-data.md) do monitorowania danych.

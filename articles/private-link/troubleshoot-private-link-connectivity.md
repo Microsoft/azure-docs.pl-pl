@@ -1,6 +1,6 @@
 ---
 title: Rozwiązywanie problemów z łącznością usługi Azure Private Link
-description: Wskazówki krok po kroku dotyczące diagnozowania łączności z łączami prywatnymi
+description: Wskazówki krok po kroku dotyczące diagnozowania łączności z prywatnym linkiem
 services: private-link
 documentationcenter: na
 author: rdhillon
@@ -14,102 +14,102 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
 ms.openlocfilehash: 1e5253d617c87d5869cebc817da6d265ebfdfa7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77539471"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Rozwiązywanie problemów z łącznością usługi Azure Private Link
 
-Ten artykuł zawiera wskazówki krok po kroku, aby sprawdzić poprawność i zdiagnozować łączność dla konfiguracji łącza prywatnego platformy Azure.
+Ten artykuł zawiera wskazówki krok po kroku umożliwiające sprawdzenie i zdiagnozowanie łączności z konfiguracją prywatnego połączenia platformy Azure.
 
-Za pomocą usługi Azure Private Link można uzyskać dostęp do platformy Azure jako usługi (PaaS), takich jak Usługa Azure Storage, usługa Azure Cosmos DB i usługa Azure SQL Database oraz usługi hostowane przez klientów lub partnerów platformy Azure za pośrednictwem prywatnego punktu końcowego w sieci wirtualnej. Ruch między siecią wirtualną a usługą przechodzi przez sieć szkieletową firmy Microsoft, co eliminuje narażenie z publicznego Internetu. Można również utworzyć własną usługę linków prywatnych w sieci wirtualnej i dostarczyć ją prywatnie do klientów.
+Za pomocą linku prywatnego platformy Azure możesz uzyskiwać dostęp do usług platformy Azure jako usługi (PaaS), takich jak Azure Storage, Azure Cosmos DB i Azure SQL Database, oraz hostowanych klientów platformy Azure lub usług partnerskich za pośrednictwem prywatnego punktu końcowego w sieci wirtualnej. Ruch między siecią wirtualną a usługą odbywa się za pośrednictwem sieci szkieletowej firmy Microsoft, która eliminuje ekspozycję z publicznego Internetu. Możesz również utworzyć własną prywatną usługę linku w sieci wirtualnej i dostarczyć ją prywatnie do klientów.
 
-Można włączyć usługę, która działa za standardową warstwą Azure Load Balancer dla dostępu do łączy prywatnych. Konsumenci usługi można utworzyć prywatny punkt końcowy wewnątrz ich sieci wirtualnej i mapować go do tej usługi, aby uzyskać do niego dostęp prywatnie.
+Możesz włączyć usługę działającą za warstwą standardowa Azure Load Balancer, aby uzyskać dostęp do linków prywatnych. Konsumenci usługi mogą utworzyć prywatny punkt końcowy wewnątrz sieci wirtualnej i zmapować ją na tę usługę, aby uzyskać do niej dostęp prywatnie.
 
-Oto scenariusze łączności, które są dostępne w łączu prywatnym:
+Oto scenariusze łączności, które są dostępne za pomocą linku prywatnego:
 
 - Sieć wirtualna z tego samego regionu
-- Regionalne sieci wirtualne
+- Regionalne sieci wirtualne równorzędne
 - Globalnie równorzędne sieci wirtualne
-- Lokalnie klient za pośrednictwem sieci VPN lub obwodów usługi Azure ExpressRoute
+- Klient lokalny przez sieć VPN lub obwody usługi Azure ExpressRoute
 
 ## <a name="deployment-troubleshooting"></a>Rozwiązywanie problemów z wdrażaniem
 
-Przejrzyj informacje na temat [Wyłączanie zasad sieciowych w usłudze łączy prywatnych](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) w celu rozwiązywania problemów z przypadkami, w których nie można wybrać źródłowego adresu IP z wybranej podsieci dla usługi łączy prywatnych.
+Zapoznaj się z informacjami na temat [wyłączania zasad sieciowych w usłudze linku prywatnego](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) w celu rozwiązywania problemów, gdy nie możesz wybrać źródłowego adresu IP z wybranej podsieci do usługi link prywatny.
 
-Upewnij się, że ustawienie **privateLinkServiceNetworkPolicies** jest wyłączone dla podsieci, z której wybierasz źródłowy adres IP.
+Upewnij się, że ustawienie **privateLinkServiceNetworkPolicies** jest wyłączone dla podsieci, z której jest wybierany źródłowy adres IP.
 
-## <a name="diagnose-connectivity-problems"></a>Diagnozowanie problemów z łącznością
+## <a name="diagnose-connectivity-problems"></a>Diagnozuj problemy z łącznością
 
-Jeśli występują problemy z łącznością z konfiguracją łączy prywatnych, zapoznaj się z tymi krokami, aby upewnić się, że wszystkie zwykłe konfiguracje są zgodnie z oczekiwaniami.
+Jeśli występują problemy z łącznością z konfiguracją linku prywatnego, zapoznaj się z tymi krokami, aby upewnić się, że wszystkie typowe konfiguracje są zgodnie z oczekiwaniami.
 
-1. Przejrzyj konfigurację łącza prywatnego, przeglądając zasób.
+1. Przejrzyj konfigurację linku prywatnego, przeglądając zasób.
 
-    a. Przejdź do **centrum łączy prywatnych**.
+    a. Przejdź do **prywatnego centrum linków**.
 
-      ![Prywatne centrum łączy](./media/private-link-tsg/private-link-center.png)
+      ![Prywatne centrum linków](./media/private-link-tsg/private-link-center.png)
 
-    b. W lewym okienku wybierz pozycję **Prywatne usługi łączy**.
+    b. W okienku po lewej stronie wybierz pozycję **usługi połączeń prywatnych**.
 
-      ![Prywatne usługi linkowe](./media/private-link-tsg/private-link-service.png)
+      ![Usługi linków prywatnych](./media/private-link-tsg/private-link-service.png)
 
-    d. Filtruj i wybierz prywatną usługę łącza, którą chcesz zdiagnozować.
+    c. Odfiltruj i wybierz usługę łącza prywatnego, którą chcesz zdiagnozować.
 
-    d. Przejrzyj połączenia prywatnego punktu końcowego.
-     - Upewnij się, że prywatny punkt końcowy, z którego szukasz łączności, jest wyświetlany ze stanem **zatwierdzonego** połączenia.
-     - Jeśli stan jest **oczekujące,** wybierz go i zatwierdzić.
+    d. Przejrzyj połączenia prywatnych punktów końcowych.
+     - Upewnij się, że prywatny punkt końcowy, z którego próbujesz nawiązać połączenie, jest wymieniony w **zatwierdzonym** stanie połączenia.
+     - Jeśli stan jest **oczekujący**, wybierz go i zatwierdź.
 
-       ![Prywatne połączenia z punktami końcowymi](./media/private-link-tsg/pls-private-endpoint-connections.png)
+       ![Połączenia prywatnego punktu końcowego](./media/private-link-tsg/pls-private-endpoint-connections.png)
 
-     - Przejdź do prywatnego punktu końcowego, z którego nawiązujesz połączenie, wybierając nazwę. Upewnij się, że stan połączenia jest wyświetlany jako **Zatwierdzony**.
+     - Przejdź do prywatnego punktu końcowego, z którego nawiązujesz połączenie, wybierając nazwę. Upewnij się, że stan połączenia jest wyświetlany jako **zatwierdzone**.
 
-       ![Omówienie połączenia prywatnego punktu końcowego](./media/private-link-tsg/pls-private-endpoint-overview.png)
+       ![Omówienie połączenia z prywatnym punktem końcowym](./media/private-link-tsg/pls-private-endpoint-overview.png)
 
-     - Po zatwierdzeniu obu stron spróbuj ponownie nałączyć łączność.
+     - Po zatwierdzeniu obu stron spróbuj ponownie nawiązać połączenie.
 
-    e. Przejrzyj **alias** na karcie **Przegląd** i **Identyfikator zasobu** na karcie **Właściwości.**
-     - Upewnij się, że informacje o **identyfikatorze aliasu** i **identyfikatorze zasobu** są zgodne z **identyfikatorem aliasu** i **zasobu** używanym do utworzenia prywatnego punktu końcowego tej usługi.
+    e. Zapoznaj się z **aliasem** na karcie **Przegląd** i **Identyfikator zasobu** na karcie **Właściwości** .
+     - Upewnij się, że informacje o **aliasie** i **identyfikatorze zasobu** są zgodne z **aliasem** i **identyfikatorem zasobu** używanym do tworzenia prywatnego punktu końcowego dla tej usługi.
 
-       ![Weryfikowanie informacji o aliasach](./media/private-link-tsg/pls-overview-pane-alias.png)
+       ![Weryfikuj informacje o aliasie](./media/private-link-tsg/pls-overview-pane-alias.png)
 
-       ![Weryfikowanie informacji o identyfikatorze zasobu](./media/private-link-tsg/pls-properties-pane-resourceid.png)
+       ![Sprawdź informacje o IDENTYFIKATORze zasobu](./media/private-link-tsg/pls-properties-pane-resourceid.png)
 
-    f. Przejrzyj informacje o **widoczności** na karcie **Przegląd.**
-     - Upewnij się, że subskrypcja mieści się w zakresie **widoczności.**
+    f. Przejrzyj informacje o **widoczności** na karcie **Przegląd** .
+     - Upewnij się, że Twoja subskrypcja mieści się w zakresie **widoczności** .
 
-       ![Weryfikowanie informacji o widoczności](./media/private-link-tsg/pls-overview-pane-visibility.png)
+       ![Weryfikuj informacje o widoczności](./media/private-link-tsg/pls-overview-pane-visibility.png)
 
-    g. Przejrzyj informacje o **równoważce obciążenia** na karcie **Przegląd.**
-     - Można przejść do modułu równoważenia obciążenia, wybierając łącze modułu równoważenia obciążenia.
+    g. Przejrzyj informacje dotyczące usługi **równoważenia obciążenia** na karcie **Przegląd** .
+     - Możesz przejść do modułu równoważenia obciążenia, wybierając link modułu równoważenia obciążenia.
 
-       ![Weryfikowanie informacji o równoważce obciążenia](./media/private-link-tsg/pls-overview-pane-ilb.png)
+       ![Weryfikuj informacje modułu równoważenia obciążenia](./media/private-link-tsg/pls-overview-pane-ilb.png)
 
-     - Upewnij się, że ustawienia modułu równoważenia obciążenia są skonfigurowane zgodnie z oczekiwaniami.
-       - Przejrzyj **konfigurację ip frontu**.
-       - Przegląd **pul zaplecza**.
+     - Upewnij się, że ustawienia usługi równoważenia obciążenia zostały skonfigurowane zgodnie z oczekiwaniami.
+       - Przejrzyj **konfigurację adresu IP frontonu**.
+       - Przejrzyj **Pule zaplecza**.
        - Przejrzyj **reguły równoważenia obciążenia**.
 
-       ![Weryfikowanie właściwości modułu równoważenia obciążenia](./media/private-link-tsg/pls-ilb-properties.png)
+       ![Weryfikuj właściwości usługi równoważenia obciążenia](./media/private-link-tsg/pls-ilb-properties.png)
 
      - Upewnij się, że moduł równoważenia obciążenia działa zgodnie z poprzednimi ustawieniami.
-       - Wybierz maszynę wirtualną w dowolnej podsieci innej niż podsieć, w której dostępna jest pula zaplecza modułu równoważenia obciążenia.
-       - Spróbuj uzyskać dostęp do frontołowa końcówka modułu równoważenia obciążenia z poprzedniej maszyny Wirtualnej.
-       - Jeśli połączenie zostanie uruchomione z puli zaplecza zgodnie z regułami równoważenia obciążenia, moduł równoważenia obciążenia działa.
-       - Można również przejrzeć metryki modułu równoważenia obciążenia za pośrednictwem usługi Azure Monitor, aby sprawdzić, czy dane przepływają przez moduł równoważenia obciążenia.
+       - Wybierz maszynę wirtualną w dowolnej podsieci innej niż podsieć, w której jest dostępna Pula zaplecza modułu równoważenia obciążenia.
+       - Spróbuj uzyskać dostęp do frontonu modułu równoważenia obciążenia z poprzedniej maszyny wirtualnej.
+       - Jeśli połączenie przyniesie je do puli zaplecza zgodnie z regułami równoważenia obciążenia, moduł równoważenia obciążenia działa.
+       - Możesz również sprawdzić metrykę modułu równoważenia obciążenia za pomocą Azure Monitor, aby sprawdzić, czy dane przepływają przez moduł równoważenia obciążenia.
 
-1. Użyj [usługi Azure Monitor,](https://docs.microsoft.com/azure/azure-monitor/overview) aby sprawdzić, czy dane są przepływające.
+1. Użyj [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) , aby sprawdzić, czy dane przepływają.
 
-    a. W zasobie usługi łączy prywatnych wybierz pozycję **Metryki**.
-     - Wybierz **opcję Bajty w** lub **Bajty .**
-     - Sprawdź, czy dane są przepływające podczas próby nawiązania połączenia z usługą łącza prywatnego. Spodziewaj się opóźnienia wynoszącego około 10 minut.
+    a. W obszarze zasób usługi link prywatny wybierz pozycję **metryki**.
+     - Wybierz **bajty z lub w** **bajtach**.
+     - Sprawdź, czy dane przepływają podczas próby nawiązania połączenia z usługą łącza prywatnego. Oczekiwano opóźnienia około 10 minut.
 
-       ![Weryfikowanie danych usługi łączy prywatnych](./media/private-link-tsg/pls-metrics.png)
+       ![Weryfikowanie metryk usługi linku prywatnego](./media/private-link-tsg/pls-metrics.png)
 
-1. Skontaktuj się z zespołem [pomocy technicznej platformy Azure,](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) jeśli problem jest nadal nierozwiązany i nadal występuje problem z łącznością.
+1. Skontaktuj się z zespołem [pomocy technicznej systemu Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) , jeśli problem nadal nie zostanie rozwiązany i nadal istnieje problem z łącznością.
 
 ## <a name="next-steps"></a>Następne kroki
 
- * [Tworzenie prywatnej usługi łącza (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
- * [Przewodnik dotyczący rozwiązywania problemów z prywatnym punktem końcowym platformy Azure](troubleshoot-private-endpoint-connectivity.md)
+ * [Tworzenie usługi linku prywatnego (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
+ * [Przewodnik rozwiązywania problemów z prywatnym punktem końcowym platformy Azure](troubleshoot-private-endpoint-connectivity.md)

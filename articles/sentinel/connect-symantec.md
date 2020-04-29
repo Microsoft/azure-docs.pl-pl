@@ -1,6 +1,6 @@
 ---
-title: Łączenie danych Symantec ICDx z usługą Azure Sentinel| Dokumenty firmy Microsoft
-description: Dowiedz się, jak połączyć dane usługi Symantec ICDx z usługą Azure Sentinel.
+title: Łączenie danych Symantec ICDx z platformą Azure — wskaźnikiem Microsoft Docs
+description: Dowiedz się, jak nawiązać połączenie z danymi firmy Symantec ICDx z platformą Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,68 +16,68 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: cac63aee5f9ebf3859b138e6444e40b1e2dd30f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77588097"
 ---
-# <a name="connect-your-symantec-icdx-appliance"></a>Podłączanie urządzenia Symantec ICDx 
+# <a name="connect-your-symantec-icdx-appliance"></a>Łączenie urządzenia z firmą Symantec ICDx 
 
 
 
-Łącznik Symantec ICDx umożliwia łatwe łączenie wszystkich dzienników rozwiązań zabezpieczających firmy Symantec z usługą Azure Sentinel, wyświetlanie pulpitów nawigacyjnych, tworzenie niestandardowych alertów i usprawnianie badań. Zapewnia to lepszy wgląd w sieć organizacji i zwiększa możliwości operacji zabezpieczeń. Integracja między usługą Symantec ICDx i azure sentinel korzysta z interfejsu API REST.
+Łącznik Symantec ICDx umożliwia łatwe łączenie dzienników rozwiązań zabezpieczeń firmy Symantec z badaniem wskaźnikowym platformy Azure, przeglądanie pulpitów nawigacyjnych, tworzenie niestandardowych alertów i ulepszanie badania. Zapewnia to dokładniejszy wgląd w sieć organizacji i zwiększa możliwości operacji zabezpieczeń. Integracja między firmą Symantec ICDx i platformą Azure wskaźnikiem wykorzystuje interfejs API REST.
 
 
 > [!NOTE]
-> Dane będą przechowywane w lokalizacji geograficznej obszaru roboczego, w którym jest uruchomiona usługa Azure Sentinel.
+> Dane będą przechowywane w lokalizacji geograficznej obszaru roboczego, w którym jest uruchamiany wskaźnik platformy Azure.
 
-## <a name="configure-and-connect-symantec-icdx"></a>Konfigurowanie i podłączanie programu Symantec ICDx 
+## <a name="configure-and-connect-symantec-icdx"></a>Konfigurowanie i łączenie z firmą Symantec ICDx 
 
-Firma Symantec ICDx może integrować i eksportować dzienniki bezpośrednio do usługi Azure Sentinel.
+Firma Symantec ICDx może zintegrować i eksportować dzienniki bezpośrednio do platformy Azure.
 
-1. Otwórz konsolę zarządzania ICDx, aby dodać usługi przesyłania dalej usługi Microsoft Azure Sentinel (Log Analytics).
+1. Otwórz konsolę zarządzania ICDx, aby dodać usługi przesyłania dalej Microsoft Azure wskaźnikiem próbnym (Log Analytics).
 2. Na pasku nawigacyjnym ICDx kliknij pozycję **Konfiguracja**. 
-3. U góry ekranu **Konfiguracja** kliknij pozycję **Przesyłanie dalej**.
-4. W obszarze **Usługi przesyłania dalej**obok usługi Microsoft Azure Sentinel (Log Analytics) kliknij pozycję **Dodaj**. 
-4. W oknie **Microsoft Azure Sentinel (Log Analytics)** kliknij pozycję **Pokaż zaawansowane**. 
-5. W górnej części okna rozszerzonego do usługi Microsoft Azure Sentinel (Log Analytics) wykonaj następujące czynności:
-    -   **Nazwa**: Wpisz nazwę usługi przesyłania dalej, która ma nie więcej niż 30 znaków. Wybierz unikatową, znaczącą nazwę. Ta nazwa pojawia się na liście usług przesyłania dalej na ekranie **Konfiguracja** i na pulpitach nawigacyjnych na ekranie **pulpitu nawigacyjnego.** Na przykład: Microsoft Azure Log Analytics Wschód. To pole jest wymagane.
-    -   **Opis**: Wpisz opis usługi przesyłania dalej. Ten opis pojawia się również na liście usług przesyłania dalej na ekranie **Konfiguracja.** Dołącz szczegóły, takie jak typ zdarzenia jest przekazywany i grupa, która musi sprawdzić dane.
-    -   **Typ uruchomienia:** Wybierz metodę uruchamiania dla konfiguracji usługi przesyłania dalej. Opcje są ręczne i automatyczne.<br>Wartość domyślna to Automatyczne. 
-6. W obszarze **Zdarzenia**wykonaj następujące czynności: 
-    - **Źródło**: Wybierz jedno lub więcej archiwów, z których chcesz przesyłać dalej zdarzenia. Można wybrać aktywne archiwa kolekcjonerskie (w tym archiwum wspólne), oddzielone archiwa kolekcjonerskie (czyli archiwa dla usuniętych kolekcjonerów), archiwa odbiorników ICDx lub archiwum systemowe. <br>Wartość domyślna to Wspólne archiwum.
+3. W górnej części ekranu **konfiguracji** kliknij pozycję **usługi przesyłania dalej**.
+4. W obszarze **usługi przesyłania**dalej obok pozycji Microsoft Azure wskaźnikiem (log Analytics) kliknij pozycję **Dodaj**. 
+4. W oknie **Microsoft Azure wskaźnikiem kontrolnym (log Analytics)** kliknij pozycję **Pokaż zaawansowane**. 
+5. W górnej części okna do Microsoft Azure wskaźnikiem kontrolnym (Log Analytics) wykonaj następujące czynności:
+    -   **Nazwa**: wpisz nazwę usługi przesyłania dalej, która ma nie więcej niż 30 znaków. Wybierz unikatową, zrozumiałą nazwę. Ta nazwa jest wyświetlana na liście usług przesyłania dalej na ekranie **Konfiguracja** i na pulpitach nawigacyjnych na ekranie **pulpitu nawigacyjnego** . Na przykład: Microsoft Azure Log Analytics wschód. To pole jest wymagane.
+    -   **Opis**: wpisz opis dla usługi przesyłania dalej. Ten opis jest również wyświetlany na liście usług przesyłania dalej na ekranie **Konfiguracja** . Dołącz szczegóły, takie jak typ zdarzenia, który jest przekazywany i Grupa, która wymaga inspekcji danych.
+    -   **Typ uruchamiania**: Wybierz metodę uruchamiania konfiguracji usługi przesyłania dalej. Dostępne są opcje ręczne i automatyczne.<br>Wartość domyślna to automatyczne. 
+6. W obszarze **zdarzenia**wykonaj następujące czynności: 
+    - **Źródło**: Wybierz co najmniej jedno archiwum, z którego mają być przekazywane zdarzenia. Można wybrać aktywne archiwa modułu zbierającego (w tym typowe archiwum), oddzielone archiwa modułu zbierającego (czyli archiwa dla usuniętych modułów zbierających), archiwa odbiorników ICDx lub archiwum systemowe. <br>Wartość domyślna to częste archiwum.
       > [!NOTE]
-      > Archiwa odbiorników ICDx są wymienione oddzielnie, według nazwy. 
+      > Archiwa odbiorników ICDx są wymieniane osobno według nazwy. 
  
-    - **Filtr**: Dodaj filtr określający podzbiór zdarzeń do przekazania. Wykonaj jedną z następujących czynności:
-        - Aby wybrać warunek filtru, kliknij pozycję Typ, Atrybut, Operator i Wartość. 
-        - W polu Filtr przejrzyj stan filtru. Można go edytować bezpośrednio w polu lub usunąć w razie potrzeby.
-        - Kliknij przycisk I lub LUB, aby dodać go do stanu filtru.
-        - Można również kliknąć przycisk Zapisane kwerendy, aby zastosować zapisaną kwerendę.
-    - **Uwzględnione atrybuty:** Wpisz listę atrybutów rozdzielanych przecinkami, które mają być uwzględnione w danych przesyłanych dalej. Uwzględnione atrybuty mają pierwszeństwo przed wykluczonymi atrybutami.
-    - **Wykluczone atrybuty:** Wpisz listę atrybutów rozdzielanych przecinkami, które mają zostać wykluczone z przesyłanych dalej danych.
-    - **Rozmiar partii:** Wybierz liczbę zdarzeń do wysłania na partię. Opcje to 10, 50, 100, 500 i 1000.<br>Wartość domyślna to 100. 
-    - **Limit szybkości:** Wybierz szybkość, z jaką zdarzenia są przekazywane, wyrażone jako zdarzenia na sekundę. Twoje opcje to Unlimited, 500, 1000, 5000, 10000. <br> Wartość domyślna to 5000. 
-7. W obszarze **Usługa Azure Destination**wykonaj następujące czynności: 
-    - **Identyfikator obszaru roboczego:** Wklej identyfikator obszaru roboczego od dołu. To pole jest wymagane.
-    - **Klucz podstawowy:** Wklej klucz podstawowy od dołu. To pole jest wymagane.
-    - **Nazwa dziennika niestandardowego:** Wpisz nazwę dziennika niestandardowego w obszarze roboczym usługi Microsoft Azure portal Log Analytics, do którego zamierzasz przesyłać dalej zdarzenia. Wartość domyślna to SymantecICDx. To pole jest wymagane.
-8. Kliknij *przycisk Zapisz,* aby zakończyć konfigurację usługi przesyłania dalej. 
-9. Aby uruchomić przesyłanie dalej, w obszarze **Opcje**kliknij pozycję **Więcej,** a następnie **przycisk Uruchom**.
-10. Aby użyć odpowiedniego schematu w usłudze Log Analytics dla zdarzeń ICDx firmy Symantec, wyszukaj **SymantecICDx_CL**.
+    - **Filtr**: Dodaj filtr określający podzestaw zdarzeń do przekierowania. Wykonaj jedną z następujących czynności:
+        - Aby wybrać warunek filtru, kliknij typ, atrybut, operator i wartość. 
+        - Sprawdź warunek filtru w polu Filtr. Można edytować go bezpośrednio w polu lub usunąć, w razie potrzeby.
+        - Kliknij i lub lub, aby dodać do warunku filtru.
+        - Możesz również kliknąć pozycję zapisane zapytania, aby zastosować zapisane zapytanie.
+    - **Uwzględnione atrybuty**: Wpisz rozdzielaną przecinkami listę atrybutów do uwzględnienia w przekazywanych danych. Uwzględnione atrybuty mają pierwszeństwo przed atrybutami wykluczonymi.
+    - **Wykluczone atrybuty**: Wpisz listę atrybutów rozdzielanych przecinkami, które mają zostać wykluczone z danych przekazywanych dalej.
+    - **Rozmiar wsadu**: Wybierz liczbę zdarzeń do wysłania na partię. Dostępne opcje to 10, 50, 100, 500 i 1000.<br>Wartość domyślna to 100. 
+    - **Limit szybkości**: Wybierz częstotliwość przekazywania zdarzeń, wyrażony jako zdarzenia na sekundę. Dostępne opcje to nieograniczone, 500, 1000, 5000, 10000. <br> Wartość domyślna to 5000. 
+7. W obszarze **Lokalizacja docelowa platformy Azure**wykonaj następujące czynności: 
+    - **Identyfikator obszaru roboczego**: wklej identyfikator obszaru roboczego poniżej. To pole jest wymagane.
+    - **Klucz podstawowy**: Wklej klucz podstawowy poniżej. To pole jest wymagane.
+    - **Nazwa dziennika niestandardowego**: wpisz nazwę dziennika niestandardowego w obszarze roboczym Microsoft Azure Portal log Analytics, do którego chcesz przekazywać zdarzenia. Wartość domyślna to SymantecICDx. To pole jest wymagane.
+8. Kliknij przycisk *Zapisz* , aby zakończyć konfigurację usługi przesyłania dalej. 
+9. Aby uruchomić usługę przesyłania dalej, w obszarze **Opcje**kliknij pozycję **więcej** , a następnie **Zacznij**.
+10. Aby użyć odpowiedniego schematu w Log Analytics dla zdarzeń firmy Symantec ICDx, wyszukaj ciąg **SymantecICDx_CL**.
 
 
-## <a name="validate-connectivity"></a>Sprawdzanie poprawności łączności
+## <a name="validate-connectivity"></a>Sprawdź poprawność łączności
 
-Może upłynąć ponad 20 minut, aż dzienniki zaczną pojawiać się w usłudze Log Analytics. 
+Rozpoczęcie wyświetlania dzienników w Log Analytics może zająć więcej niż 20 minut. 
 
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym dokumencie dowiesz się, jak połączyć usługę Symantec ICDx z usługą Azure Sentinel. Aby dowiedzieć się więcej o usłudze Azure Sentinel, zobacz następujące artykuły:
-- Dowiedz się, jak [uzyskać wgląd w dane i potencjalne zagrożenia.](quickstart-get-visibility.md)
-- Rozpocznij [wykrywanie zagrożeń za pomocą usługi Azure Sentinel](tutorial-detect-threats-built-in.md).
-- Monitorowanie danych [za pomocą skoroszytów.](tutorial-monitor-your-data.md)
+W tym dokumencie przedstawiono sposób nawiązywania połączenia z firmą Symantec ICDx z platformą Azure — wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
+- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
+- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).
+- [Używaj skoroszytów](tutorial-monitor-your-data.md) do monitorowania danych.
 
 

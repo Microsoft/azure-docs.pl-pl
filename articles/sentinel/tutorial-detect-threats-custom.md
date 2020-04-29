@@ -1,6 +1,6 @@
 ---
-title: Tworzenie niestandardowych reguł analitycznych w celu wykrywania podejrzanych zagrożeń za pomocą usługi Azure Sentinel| Dokumenty firmy Microsoft
-description: Ten samouczek służy do tworzenia niestandardowych reguł analitycznych w celu wykrywania podejrzanych zagrożeń za pomocą usługi Azure Sentinel.
+title: Tworzenie niestandardowych reguł analitycznych w celu wykrywania podejrzanych zagrożeń za pomocą platformy Azure. Microsoft Docs
+description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak tworzyć niestandardowe reguły analityczne w celu wykrywania podejrzanych zagrożeń przy użyciu platformy Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,43 +15,43 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: cea7429ecea105355b0afe306bfa334e55d5d9c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77585111"
 ---
 # <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>Samouczek: Tworzenie niestandardowych reguł analitycznych w celu wykrywania podejrzanych zagrożeń
 
-Po [połączeniu źródeł danych z usługą](quickstart-onboard.md) Azure Sentinel można utworzyć reguły niestandardowe, które mogą wyszukiwać określone kryteria w danym środowisku i generować zdarzenia, gdy kryteria są zgodne, aby można je zbadać. Ten samouczek ułatwia tworzenie reguł niestandardowych do wykrywania zagrożeń za pomocą usługi Azure Sentinel.
+Po [podłączeniu źródeł](quickstart-onboard.md) danych do usługi Azure wskaźnikowej można utworzyć niestandardowe reguły, które mogą wyszukiwać określone kryteria w środowisku i generować zdarzenia, gdy kryteria są dopasowane, aby można było je zbadać. Ten samouczek ułatwia tworzenie reguł niestandardowych w celu wykrywania zagrożeń przy użyciu platformy Azure.
 
-Ten samouczek ułatwia wykrywanie zagrożeń za pomocą usługi Azure Sentinel.
+Ten samouczek pomaga wykrywać zagrożenia przy użyciu platformy Azure.
 > [!div class="checklist"]
 > * Tworzenie reguł analitycznych
-> * Automatyzacja reakcji na zagrożenia
+> * Automatyzowanie odpowiedzi na zagrożenia
 
 ## <a name="create-custom-analytic-rules"></a>Tworzenie niestandardowych reguł analitycznych
 
-Można utworzyć niestandardowe reguły analityczne, aby ułatwić wyszukiwanie typów zagrożeń i anomalii, które są podejrzane w twoim środowisku. Reguła zapewnia, że są powiadamiane od razu, dzięki czemu można klasyfikować, badać i korygować zagrożenia.
+Można utworzyć niestandardowe reguły analityczne ułatwiające wyszukiwanie typów zagrożeń i anomalii podejrzanych w danym środowisku. Reguła gwarantuje, że od razu otrzymasz powiadomienie, dzięki czemu można klasyfikacja, zbadać i skorygować zagrożenia.
 
-1. W witrynie Azure portal w obszarze Azure Sentinel wybierz pozycję **Analytics**.
+1. W Azure Portal w obszarze wskaźnik platformy Azure wybierz pozycję **Analiza**.
 
-1. Na górnym pasku menu wybierz pozycję **+Utwórz** i wybierz **regułę zaplanowane zapytanie**. Spowoduje to otwarcie **kreatora reguł Analytics**.
+1. Na górnym pasku menu wybierz pozycję **+ Utwórz** i wybierz pozycję **zaplanowana reguła zapytania**. Spowoduje to otwarcie **kreatora reguły analizy**.
 
-    ![Tworzenie zaplanowanej kwerendy](media/tutorial-detect-threats-custom/create-scheduled-query.png)
+    ![Utwórz zaplanowane zapytanie](media/tutorial-detect-threats-custom/create-scheduled-query.png)
 
-1. Na karcie **Ogólne** podaj unikatową **nazwę**i **opis**. W polu **Taktyka** możesz wybierać spośród kategorii ataków, za pomocą których można sklasyfikować regułę. Ustaw **ważność** alertu w razie potrzeby. Podczas tworzenia reguły jej **stan** jest domyślnie **włączony,** co oznacza, że zostanie uruchomiony natychmiast po zakończeniu tworzenia. Jeśli nie chcesz, aby działała natychmiast, wybierz **pozycję Wyłączone**, a reguła zostanie dodana do karty **Aktywne reguły** i możesz ją włączyć w tym miejscu, gdy jest potrzebna.
+1. Na karcie **Ogólne** Podaj unikatową **nazwę**i **Opis**. W polu **taktykę** można wybierać spośród kategorii ataków, według których ma zostać sklasyfikowana reguła. W razie potrzeby ustaw **ważność** alertu. Po utworzeniu reguły jego **stan** jest domyślnie **włączony** , co oznacza, że zostanie uruchomiony natychmiast po zakończeniu tworzenia. Jeśli nie chcesz, aby był uruchamiany natychmiast, wybierz pozycję **wyłączone**, a reguła zostanie dodana do karty **aktywne reguły** i możesz ją włączyć z niej, gdy będzie potrzebna.
 
-    ![Rozpoczynanie tworzenia niestandardowej reguły analitycznej](media/tutorial-detect-threats-custom/general-tab.png)
+    ![Rozpocznij tworzenie niestandardowej reguły analitycznej](media/tutorial-detect-threats-custom/general-tab.png)
 
-1. Na karcie **Logika reguły ustawiania** można napisać kwerendę bezpośrednio w polu **Kwerenda reguły** lub utworzyć kwerendę w usłudze Log Analytics, a następnie skopiować ją i wkleić.
+1. Na karcie **Ustawianie logiki reguły** można napisać zapytanie bezpośrednio w polu **zapytania reguły** lub utworzyć zapytanie w log Analytics, a następnie skopiować i wkleić je w tym miejscu.
  
-   ![Tworzenie kwerendy w usłudze Azure Sentinel](media/tutorial-detect-threats-custom/settings-tab.png)
+   ![Utwórz zapytanie na platformie Azure — wskaźnik](media/tutorial-detect-threats-custom/settings-tab.png)
 
-   - Zobacz obszar **podglądu wyników** po prawej stronie, gdzie usługa Azure Sentinel pokazuje liczbę wyników (zdarzeń dziennika), które kwerenda wygeneruje, zmieniając w locie podczas pisania i konfigurowania zapytania. Wykres pokazuje liczbę wyników w określonym okresie czasu, który jest określany przez ustawienia w sekcji **Planowanie kwerend.**
-    - Jeśli widzisz, że kwerenda wyzwoli zbyt wiele lub zbyt częste alerty, można ustawić linię bazową w sekcji **Próg alertu.**
+   - Zobacz **Podgląd wyników** w prawo, gdzie wskaźnik na platformie Azure pokazuje liczbę wyników (zdarzenia dziennika), a zapytanie zostanie wygenerowane i zmienione na bieżąco podczas pisania i konfigurowania zapytania. Wykres pokazuje liczbę wyników w określonym przedziale czasu, która jest określana przez ustawienia w sekcji **planowanie zapytań** .
+    - Jeśli zobaczysz, że zapytanie wyzwoli zbyt wiele lub zbyt częste alerty, możesz ustawić linię bazową w sekcji **próg alertu** .
 
-      Oto przykładowa kwerenda, która ostrzega, gdy zostanie utworzona nietypowa liczba zasobów w usłudze Azure Activity.
+      Oto przykładowe zapytanie, które może wysyłać alerty po utworzeniu nietypowej liczby zasobów w działaniu platformy Azure.
 
       `AzureActivity
      \| where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
@@ -59,55 +59,55 @@ Można utworzyć niestandardowe reguły analityczne, aby ułatwić wyszukiwanie 
      \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
 
       > [!NOTE]
-      > Długość zapytania powinna wynosić od 1 do 10 000 znaków i nie może zawierać "wyszukiwania" \*lub "unii". \*
+      > Długość zapytania powinna wynosić od 1 do 10 000 znaków i nie może zawierać znaku \*"Search" ani \*"Union".
 
-    1. Użyj **sekcji Mapowanie jednostek,** aby połączyć parametry z wyników kwerendy z encjami rozpoznawanymi przez wartownika platformy Azure. Te jednostki stanowią podstawę do dalszej analizy, w tym grupowania alertów w zdarzenia na karcie **Ustawienia incydentów.**
-    1. W sekcji **Planowanie kwerend** ustaw następujące parametry:
+    1. Sekcja **Mapuj jednostki** służy do łączenia parametrów z wyników zapytania do jednostek rozpoznanych przez wskaźnik na platformie Azure. Te jednostki stanowią podstawę do dalszej analizy, w tym grupowanie alertów na zdarzenia na karcie **Ustawienia zdarzenia** .
+    1. W sekcji **planowanie zapytań** ustaw następujące parametry:
 
-       1. Ustaw **uruchom kwerendę,** aby kontrolować częstotliwość uruchamiania kwerendy — tak często, jak co 5 minut lub tak rzadko, jak raz dziennie.
+       1. Ustaw **Uruchom zapytanie co** , aby kontrolować częstotliwość uruchamiania zapytania — tak często, jak co 5 minut, lub tak rzadko, jak raz dziennie.
 
-       1. Ustaw **dane odnośne z ostatniego,** aby określić okres czasu danych objętych kwerendą — na przykład może wysyłać zapytania do ostatnich 10 minut danych lub ostatnich 6 godzin danych.
+       1. Ustaw **dane wyszukiwania od czasu ostatniego** , aby określić okres danych uwzględnionych w zapytaniu — na przykład może wysyłać zapytania do ostatnich 10 minut danych lub ostatnich 6 godzin.
 
        > [!NOTE]
-       > Te dwa ustawienia są niezależne od siebie, do punktu. Kwerendę można uruchomić w krótkim odstępie czasu obejmującym okres dłuższy niż interwał (w efekcie z nakładającymi się kwerendami), ale nie można uruchomić kwerendy w przedziale przekraczającym okres zapotrzebowania, w przeciwnym razie będą miały luki w ogólnym zakresie zapytań.
+       > Te dwa ustawienia są niezależne od siebie, aż do momentu. Zapytanie można uruchomić w krótkim odstępie czasu, przez okres dłuższy niż interwał (w efekcie mającym nakładające się zapytania), ale nie można uruchomić zapytania w przedziale czasowym, który przekracza okres pokrycia, w przeciwnym razie w ogólnym zapotrzebowaniu na zapytania będą występować przerwy.
 
-    1. Użyj sekcji **Próg alertu,** aby zdefiniować linię bazową. Na przykład ustaw **Generuj alert, gdy liczba wyników kwerendy** **jest większa niż** i wprowadź liczbę 1000, jeśli chcesz, aby reguła wygenerowała alert tylko wtedy, gdy kwerenda generuje więcej niż 1000 wyników za każdym razem, gdy jest uruchamiana. Ponieważ jest to wymagane pole, jeśli nie chcesz ustawiać planu bazowego , czyli jeśli chcesz, aby alert rejestrował każde zdarzenie , wprowadź 0 w polu liczbowym.
+    1. Użyj sekcji **próg alertu** , aby zdefiniować linię bazową. Na przykład ustaw **Wygeneruj alert, gdy liczba wyników zapytania** **jest większa niż** i wprowadź liczbę 1000, jeśli chcesz, aby reguła wygenerowała alert tylko wtedy, gdy kwerenda generuje więcej niż 1000 wyników przy każdym uruchomieniu. Ponieważ to pole jest wymagane, jeśli nie chcesz ustawiać planu bazowego — czyli jeśli chcesz, aby alert rejestrował każde zdarzenie — wprowadź wartość 0 w polu Liczba.
 
-    1. W sekcji **Tłumienie** można włączyć **opcję Zatrzymaj uruchamianie kwerendy po wygenerowaniu alertu,** jeśli po otrzymaniu alertu chcesz zawiesić działanie tej reguły na okres przekraczający interwał kwerendy. **On** Jeśli włączysz tę funkcję, należy ustawić **funkcję Zatrzymaj uruchomione zapytanie na** czas, przez który kwerenda powinna przestać działać, do 24 godzin.
+    1. W sekcji **pomijania** można włączyć opcję **Zatrzymaj uruchomienie zapytania po wygenerowaniu alertu** **w** przypadku, gdy otrzymasz alert, chcesz wstrzymać operację tej reguły przez okres czasu przekraczający Interwał zapytania. W przypadku włączenia tej opcji należy ustawić polecenie **Zatrzymaj wykonywanie zapytania przez** czas, w którym zapytanie powinno zostać zatrzymane, do 24 godzin.
 
-1. Na karcie **Ustawienia zdarzeń** możesz wybrać, czy i jak usługa Azure Sentinel zamienia alerty w zdarzenia, które można zasłaniać. Jeśli ta karta pozostanie sama, usługa Azure Sentinel utworzy pojedynczy, oddzielny incydent od każdego alertu. Możesz wybrać opcję nietworzonych zdarzeń lub pogrupować kilka alertów w jeden incydent, zmieniając ustawienia na tej karcie.
+1. Na karcie **Ustawienia zdarzenia** możesz określić, czy i w jaki sposób wskaźnik platformy Azure ma przełączać alerty do zdarzeń z możliwością działania. Jeśli ta karta jest poprzednia, wskaźnik myszy platformy Azure utworzy pojedyncze, oddzielne zdarzenie z każdego i każdego alertu. Można zrezygnować z tworzenia zdarzeń lub zgrupować kilka alertów w jednym zdarzeniu, zmieniając ustawienia na tej karcie.
 
-    1. W sekcji **Ustawienia zdarzeń** **Utwórz zdarzenia z alertów wyzwalanych przez tę regułę analizy** jest domyślnie **ustawiona na Włączone,** co oznacza, że usługa Azure Sentinel utworzy pojedynczy, oddzielny incydent od każdego alertu wyzwalanego przez regułę.<br></br>Jeśli nie chcesz, aby ta reguła powodowała tworzenie jakichkolwiek incydentów (na przykład, jeśli ta reguła służy tylko do zbierania informacji do późniejszej analizy), ustaw tę pozycję **Na Wyłączone**.
+    1. W sekcji **Ustawienia zdarzenia** **Tworzenie zdarzeń z alertów wyzwalanych przez tę regułę analizy** jest domyślnie ustawione na wartość **włączone**, co oznacza, że punkt kontrolny platformy Azure utworzy pojedyncze, oddzielne zdarzenie z każdego i każdego alertu wyzwalanego przez regułę.<br></br>Jeśli nie chcesz, aby ta reguła nie powodowała tworzenia żadnych zdarzeń (na przykład jeśli ta reguła jest tylko do zbierania informacji do dalszej analizy), ustaw dla tej opcji wartość **wyłączone**.
 
-    1. Jeśli w sekcji **Grupowanie alertów** chcesz, aby pojedyncze zdarzenie zostało wygenerowane z grupy podobnych lub cyklicznych alertów, ustaw **alerty związane z grupą, wyzwalane przez tę regułę analizy, na zdarzenia na** **Włączone**i ustaw następujące parametry.
+    1. Jeśli w sekcji **grupowanie alertów** ma być generowane pojedyncze zdarzenie z grupy podobnych lub cyklicznych alertów, należy ustawić **alerty powiązane z grupą, wyzwalane przez tę regułę analizy, w zdarzeniach** do **włączenia**i ustawić następujące parametry.
 
-    1. **Ogranicz grupę do alertów utworzonych w wybranym przedziale czasowym:**<br></br> Określ przedział czasu, w którym podobne lub cykliczne alerty będą zgrupowane. Wszystkie odpowiednie alerty w tym przedziale czasowym będą zbiorczo generować zdarzenie lub zestaw zdarzeń (w zależności od poniższych ustawień grupowania). Alerty poza tym przedziałem czasowym wygenerują osobny incydent lub zestaw zdarzeń.
+    1. **Ogranicz grupę do alertów utworzonych w ramach wybranego przedziału czasu**:<br></br> Określ przedział czasu, w którym będą grupowane podobne lub cykliczne alerty. Wszystkie odpowiednie alerty w tym przedziale czasu spowodują zbiorcze wygenerowanie incydentu lub zestawu incydentów (w zależności od ustawień grupowania poniżej). Alerty poza tym przedziałem czasu generują oddzielne zdarzenie lub zestaw zdarzeń.
 
-    2. **Alerty grupowe wyzwalane przez tę regułę analizy w jednym incydencie:** Wybierz podstawę, na której alerty będą grupowane razem:
+    2. **Grupuj alerty wyzwalane przez tę regułę analizy w ramach pojedynczego zdarzenia przez**: Wybierz podstawę, z której będą grupowane alerty:
 
-        - **Grupuj alerty w pojedynczym incydencie, jeśli wszystkie jednostki są zgodne:** <br></br>Alerty są zgrupowane razem, jeśli mają identyczne wartości dla każdego z mapowanych jednostek (zdefiniowane na karcie Logika reguły ustawiania powyżej). Jest to zalecane ustawienie.
+        - **Grupuj alerty w pojedynczym zdarzeniu, jeśli wszystkie jednostki pasują do siebie**: <br></br>Alerty są pogrupowane w przypadku, gdy współużytkują identyczne wartości dla każdej z mapowanych jednostek (zdefiniowane na karcie zasady definiowania logiki powyżej). Jest to zalecane ustawienie.
 
-        - **Pogrupuj wszystkie alerty wyzwalane przez tę regułę w jeden incydent:** <br></br>Wszystkie alerty generowane przez tę regułę są zgrupowane razem, nawet jeśli nie mają identycznych wartości.
+        - **Grupuj wszystkie alerty wyzwalane przez tę regułę w pojedynczym zdarzeniu**: <br></br>Wszystkie alerty wygenerowane przez tę regułę są grupowane razem, nawet jeśli nie mają identycznych wartości.
 
-        - **Grupuj alerty w pojedynczym incydencie, jeśli wybrane encje są zgodne:** <br></br>Alerty są zgrupowane razem, jeśli mają identyczne wartości dla niektórych mapowanych encji (które można wybrać z listy rozwijanej). Tego ustawienia można użyć, jeśli na przykład chcesz utworzyć oddzielne zdarzenia na podstawie źródłowych lub docelowych adresów IP.
+        - **Grupuj alerty w pojedynczym zdarzeniu, jeśli wybrane jednostki są zgodne**: <br></br>Alerty są pogrupowane w przypadku udostępniania identycznych wartości dla niektórych mapowanych jednostek (które można wybrać z listy rozwijanej). Możesz chcieć użyć tego ustawienia, jeśli na przykład chcesz utworzyć oddzielne zdarzenia na podstawie źródłowego lub docelowego adresu IP.
 
-    3. **Ponownie otwórz zamknięte pasujące zdarzenia:** Jeśli zdarzenie zostało zamknięte (co oznacza, że podstawowy problem został rozwiązany), a następnie generowany jest inny alert, który zostałby zgrupowany w tym incydencie, ustaw to ustawienie na **Włączone,** jeśli chcesz ponownie otworzyć zamknięty incydent, i pozostaw jako **Wyłączony,** jeśli chcesz, aby alert utworzył nowy incydent.
+    3. **Ponownie otwórz zamknięte zdarzenia dopasowane**: Jeśli zdarzenie zostało zamknięte (oznacza to, że problem został rozwiązany), a następnie zostanie wygenerowany inny alert, który został pogrupowany w tym zdarzeniu, ustaw to ustawienie na **włączone** , jeśli chcesz ponownie otworzyć zamknięte zdarzenie i pozostaw je **wyłączone** , jeśli chcesz, aby alert utworzył nowe zdarzenie.
 
-1. Na karcie **Automatyczne odpowiedzi** wybierz wszystkie podręczniki, które chcesz uruchomić automatycznie, gdy alert jest generowany przez regułę niestandardową. Aby uzyskać więcej informacji na temat tworzenia i automatyzacji podręczników, zobacz [Reagowanie na zagrożenia](tutorial-respond-threats-playbook.md).
+1. Na karcie **odpowiedzi automatyczne** zaznacz wszystkie elementy PlayBook, które mają być uruchamiane automatycznie po wygenerowaniu alertu przez regułę niestandardową. Aby uzyskać więcej informacji na temat tworzenia i automatyzowania elementy PlayBook, zobacz [reagowanie na zagrożenia](tutorial-respond-threats-playbook.md).
 
-1. Wybierz **pozycję Przejrzyj i utwórz,** aby przejrzeć wszystkie ustawienia nowej reguły alertów, a następnie wybierz pozycję **Utwórz, aby zainicjować regułę alertu**.
+1. Wybierz pozycję **Przejrzyj i Utwórz,** aby przejrzeć wszystkie ustawienia nowej reguły alertu, a następnie wybierz pozycję **Utwórz, aby zainicjować regułę alertu**.
   
-1. Po utworzeniu alertu do tabeli w obszarze **Aktywne reguły**dodawana jest reguła niestandardowa . Z tej listy można włączyć, wyłączyć lub usunąć każdą regułę.
+1. Po utworzeniu alertu reguła niestandardowa zostanie dodana do tabeli w obszarze **aktywne reguły**. Z tej listy można włączać, wyłączać lub usuwać każdą regułę.
 
-1. Aby wyświetlić wyniki utworzonych reguł **alertów,** przejdź do strony Zdarzenia, na której możesz klasyfikować, [badać zdarzenia](tutorial-investigate-cases.md)i korygować zagrożenia.
+1. Aby wyświetlić wyniki utworzonych reguł alertów, przejdź do strony **incydenty** , na której można klasyfikacja, [zbadać zdarzenia](tutorial-investigate-cases.md)i skorygować zagrożenia.
 
 
 > [!NOTE]
-> Alerty generowane w usłudze Azure Sentinel są dostępne za pośrednictwem [programu Microsoft Graph Security](https://aka.ms/securitygraphdocs). Aby uzyskać więcej informacji, zobacz [dokumentację alertów zabezpieczeń programu Microsoft Graph](https://aka.ms/graphsecurityreferencebetadocs).
+> Alerty generowane na platformie Azure — wskaźnikiem dostępności są dostępne za pomocą [Microsoft Graph zabezpieczenia](https://aka.ms/securitygraphdocs). Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją dotyczącą alertów zabezpieczeń Microsoft Graph](https://aka.ms/graphsecurityreferencebetadocs).
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku dowiesz się, jak rozpocząć wykrywanie zagrożeń przy użyciu usługi Azure Sentinel.
+W tym samouczku przedstawiono sposób rozpoczynania wykrywania zagrożeń przy użyciu platformy Azure.
 
-Aby dowiedzieć się, jak zautomatyzować reagowanie na zagrożenia, [skonfiguruj automatyczne odpowiedzi na zagrożenia w usłudze Azure Sentinel.](tutorial-respond-threats-playbook.md)
+Aby dowiedzieć się, jak zautomatyzować odpowiedzi na zagrożenia, [Skonfiguruj automatyczne reagowanie na zagrożenia na platformie Azure](tutorial-respond-threats-playbook.md).
 

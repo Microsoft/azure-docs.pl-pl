@@ -1,6 +1,6 @@
 ---
-title: Użyj polowania Livestream w usłudze Azure Sentinel do wykrywania zagrożeń| Dokumenty firmy Microsoft
-description: W tym artykule opisano, jak używać polowania livestream w usłudze Azure Sentinel do śledzenia danych.
+title: Korzystanie z łowiectwa transmisję strumieniową na platformie Azure wskaźnikowej do wykrywania zagrożeń | Microsoft Docs
+description: W tym artykule opisano, jak używać transmisję strumieniową łowiectwa na platformie Azure, aby śledzić dane.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,100 +16,100 @@ ms.workload: na
 ms.date: 12/06/2019
 ms.author: yelevin
 ms.openlocfilehash: b392644e504fa8187e637278bef8718c9c2caa3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77582130"
 ---
-# <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Używanie polowania na żywo w usłudze Azure Sentinel do wykrywania zagrożeń
+# <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Wykrywanie zagrożeń przy użyciu transmisję strumieniową łowiectwa w wskaźniku platformy Azure
 
 > [!IMPORTANT]
-> Polowanie na żywo w usłudze Azure Sentinel jest obecnie w publicznej wersji zapoznawczej i stopniowo wdrażane dla dzierżawców.
-> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana dla obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Łowiectwo transmisję strumieniową na platformie Azure — obecnie znajduje się w publicznej wersji zapoznawczej i stopniowo wprowadza do dzierżawców.
+> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-Polowanie livestream do tworzenia interaktywnych sesji, które umożliwiają testowanie nowo utworzonych zapytań w miarę występowania zdarzeń, otrzymywać powiadomienia z sesji po znalezieniu dopasowania i w razie potrzeby rozpocząć badania. Można szybko utworzyć sesję transmisji na żywo przy użyciu dowolnej kwerendy usługi Log Analytics.
+Za pomocą transmisję strumieniową łowiectwa można tworzyć interakcyjne sesje umożliwiające testowanie nowo utworzonych zapytań w miarę wystąpienia zdarzeń, otrzymywanie powiadomień z sesji po znalezieniu dopasowania i w razie potrzeby dochodzeń. Sesję transmisję strumieniową można szybko utworzyć przy użyciu dowolnego zapytania Log Analytics.
 
-- **Testowanie nowo utworzonych zapytań w miarę występowania zdarzeń**
+- **Testuj nowo utworzone zapytania jako wystąpienia zdarzeń**
     
-    Można testować i dostosowywać zapytania bez żadnych konfliktów do bieżących reguł, które są aktywnie stosowane do zdarzeń. Po potwierdzeniu tych nowych kwerend działa zgodnie z oczekiwaniami, łatwo jest promować je do niestandardowych reguł alertów, wybierając opcję, która podnosi sesję do alertu.
+    Zapytania można testować i dostosowywać bez żadnych konfliktów z bieżącymi regułami, które są aktywnie stosowane do zdarzeń. Po potwierdzeniu, że nowe zapytania działają zgodnie z oczekiwaniami, można je łatwo podwyższyć do niestandardowych reguł alertów, wybierając opcję podniesienia poziomu sesji do alertu.
 
-- **Otrzymywali powiadomienia o wystąpieniu zagrożeń**
+- **Otrzymuj powiadomienia o wystąpieniu zagrożeń**
     
-    Można porównać źródła danych o zagrożeniach z zagregowanymi danymi dziennika i otrzymywać powiadomienia o wystąpieniu dopasowania. Źródła danych o zagrożeniach są ciągłymi strumieniami danych związanych z potencjalnymi lub bieżącymi zagrożeniami, więc powiadomienie może wskazywać potencjalne zagrożenie dla twojej organizacji. Utwórz sesję transmisji na żywo zamiast niestandardowej reguły alertu, jeśli chcesz otrzymywać powiadomienia o potencjalnym problemie bez kosztów ogólnych związanych z utrzymaniem niestandardowej reguły alertu.
+    Źródła danych zagrożeń można porównać z zagregowanymi danymi dzienników i otrzymywać powiadomienia o wystąpieniu dopasowania. Źródła danych zagrożeń to ciągłe strumienie danych, które są związane z potencjalnymi lub obecnymi zagrożeniami, więc powiadomienie może wskazywać na potencjalne zagrożenie dla organizacji. Utwórz sesję transmisję strumieniową zamiast niestandardowej reguły alertu, jeśli chcesz otrzymywać powiadomienia o potencjalnym problemie bez nadmiaru utrzymania niestandardowej reguły alertu.
 
-- **Wszczęcie dochodzeń**
+- **Badania uruchamiania**
     
-    Jeśli istnieje aktywne dochodzenie, które obejmuje zasób, takich jak host lub użytkownik, można wyświetlić określone (lub dowolne) działanie w danych dziennika, jak występuje na tym zasobie. Możesz otrzymywać powiadomienia, gdy wystąpi to działanie.
+    Jeśli istnieje aktywne badanie, które obejmuje zasób, taki jak Host lub użytkownik, można wyświetlić określone (lub dowolne) działanie w danych dziennika, które występuje w tym elemencie zawartości. Możesz otrzymywać powiadomienia o wystąpieniu tego działania.
 
 
-## <a name="create-a-livestream-session"></a>Tworzenie sesji transmisji na żywo
+## <a name="create-a-livestream-session"></a>Tworzenie sesji transmisję strumieniową
 
-Można utworzyć sesję strumienia na żywo z istniejącej kwerendy myśliwskiej lub utworzyć sesję od podstaw.
+Sesję transmisję strumieniową można utworzyć na podstawie istniejącego zapytania polowania lub utworzyć sesję od podstaw.
 
-1. W witrynie Azure portal przejdź do pozycji Polowanie na**zarządzanie zagrożeniami** >  **wartownika** > .**Hunting**
+1. W Azure Portal przejdź do**polowania**dotyczącego > **zarządzania zagrożeniami** **wskaźnikiem** > .
 
-2. Aby utworzyć sesję transmisji na żywo z kwerendy myśliwskiej:
+2. Aby utworzyć sesję transmisję strumieniową na podstawie zapytania polowania:
     
-    1. Na karcie **Kwerendy** znajdź kwerendę polującą do użycia.
-    2. Kliknij prawym przyciskiem myszy kwerendę i wybierz polecenie **Dodaj do transmisji na żywo**. Przykład:
-    
-    > [!div class="mx-imgBorder"]
-    > ![tworzenie sesji Livestream z kwerendy polowania usługi Azure Sentinel](./media/livestream/livestream-from-query.png)
-
-3. Aby utworzyć sesję transmisji na żywo od podstaw: 
-    
-    1. Wybierz kartę **Strumień na żywo**
-    2. Wybierz **pozycję Przejdź do transmisji na żywo**.
-    
-4. W okienku **Strumień na żywo:**
-    
-    - Jeśli rozpoczęto transmisję na żywo z kwerendy, przejrzyj kwerendę i wykonuj zmiany, które chcesz wprowadzić.
-    - Jeśli rozpoczęto transmisję na żywo od podstaw, utwórz zapytanie. 
-
-5. Z paska poleceń wybierz **polecenie Odtwórz.**
-    
-    Pasek stanu pod pasem poleceń wskazuje, czy sesja transmisji na żywo jest uruchomiona, czy wstrzymana. W poniższym przykładzie sesja jest uruchomiona:
+    1. Na karcie **zapytania** Znajdź zapytanie polowające do użycia.
+    2. Kliknij prawym przyciskiem myszy zapytanie i wybierz polecenie **Dodaj do transmisję strumieniową**. Przykład:
     
     > [!div class="mx-imgBorder"]
-    > ![tworzenie sesji transmisji na żywo z polowania usługi Azure Sentinel](./media/livestream/livestream-session.png)
+    > ![Utwórz sesję transmisję strumieniową na podstawie zapytania polowania wskaźnikowego platformy Azure](./media/livestream/livestream-from-query.png)
 
-6. Wybierz **pozycję Zapisz** z paska poleceń.
+3. Aby utworzyć sesję transmisję strumieniową od podstaw: 
     
-    Jeśli nie **wybierzesz wstrzymaj,** sesja będzie nadal działać do momentu wylogowywania się z witryny Azure portal.
+    1. Wybierz kartę **transmisję strumieniową**
+    2. Wybierz pozycję **Przejdź do transmisję strumieniową**.
+    
+4. W okienku **transmisję strumieniową** :
+    
+    - Jeśli rozpoczęto transmisję strumieniową z zapytania, przejrzyj zapytanie i wprowadź wszelkie zmiany, które chcesz wprowadzić.
+    - Jeśli rozpoczęto transmisję strumieniową od podstaw, Utwórz zapytanie. 
 
-## <a name="view-your-livestream-sessions"></a>Wyświetlanie sesji transmisji na żywo
-
-1. W witrynie Azure portal przejdź do karty Polowanie**na transmisję na żywo** z**zarządzania zagrożeniami** >  **wartownika.** > **Hunting** > 
-
-2. Wybierz sesję transmisji na żywo, którą chcesz wyświetlić lub edytować. Przykład:
+5. Wybierz opcję **Odtwórz** na pasku poleceń.
+    
+    Pasek stanu na pasku poleceń wskazuje, czy sesja transmisję strumieniową jest uruchomiona, czy wstrzymana. W poniższym przykładzie jest uruchomiona sesja:
     
     > [!div class="mx-imgBorder"]
-    > ![tworzenie sesji livestream z kwerendy polowania usługi Azure Sentinel](./media/livestream/livestream-tab.png)
+    > ![Utwórz sesję transmisję strumieniową z poziomu polowania wskaźnikowego platformy Azure](./media/livestream/livestream-session.png)
+
+6. Wybierz pozycję **Zapisz** na pasku poleceń.
     
-    Wybrana sesja transmisji na żywo zostanie otwarta do odtwarzania, wstrzymywania, edytowania itd.
+    Dopóki nie wybierzesz opcji **Wstrzymaj**, sesja będzie nadal działać do momentu wylogowania się z Azure Portal.
 
-## <a name="receive-notifications-when-new-events-occur"></a>Otrzymywanie powiadomień o wystąpieniu nowych zdarzeń
+## <a name="view-your-livestream-sessions"></a>Wyświetlanie sesji transmisję strumieniową
 
-Ponieważ powiadomienia na żywo dla nowych zdarzeń używają powiadomień portalu Azure, te powiadomienia są wyświetlane przy każdym użyciu witryny Azure portal. Przykład:
+1. W Azure Portal przejdź do karty **wskaźnik** > **zagrożeń zarządzania** > **Hunting** > Threat**transmisję strumieniową** .
 
-![Powiadomienie portalu platformy Azure dla transmisji na żywo](./media/livestream/notification.png)
+2. Wybierz sesję transmisję strumieniową, którą chcesz wyświetlić lub edytować. Przykład:
+    
+    > [!div class="mx-imgBorder"]
+    > ![Utwórz sesję transmisję strumieniową na podstawie zapytania polowania wskaźnikowego platformy Azure](./media/livestream/livestream-tab.png)
+    
+    Wybrana sesja transmisję strumieniową zostanie otwarta, aby można było odtwarzać, wstrzymywać, edytować i tak dalej.
 
-Wybierz powiadomienie, aby otworzyć okienko **Strumień na żywo.**
+## <a name="receive-notifications-when-new-events-occur"></a>Odbieraj powiadomienia, gdy wystąpią nowe zdarzenia
+
+Ponieważ powiadomienia transmisję strumieniową o nowych zdarzeniach używają powiadomień Azure Portal, te powiadomienia są wyświetlane po każdym użyciu Azure Portal. Przykład:
+
+![Powiadomienie Azure Portal dla transmisję strumieniową](./media/livestream/notification.png)
+
+Wybierz powiadomienie, aby otworzyć okienko **transmisję strumieniową** .
  
-## <a name="elevate-a-livestream-session-to-an-alert"></a>Podniesienie poziomu sesji transmisji na żywo do alertu
+## <a name="elevate-a-livestream-session-to-an-alert"></a>Podnieś poziom sesji transmisję strumieniową do alertu
 
-Można podwyższyć poziom sesji transmisji na żywo do nowego **alertu, wybierając pozycję Podnieś, aby alertować** z paska poleceń w odpowiedniej sesji transmisji na żywo:
+Można podwyższyć poziom sesji transmisję strumieniową do nowego alertu, wybierając **Podnieś poziom do alertu** na pasku poleceń na odpowiedniej sesji transmisję strumieniową:
 
 > [!div class="mx-imgBorder"]
-> ![Podniesienie poziomu sesji transmisji na żywo do alertu](./media/livestream/elevate-to-alert.png)
+> ![Podnieś poziom sesji transmisję strumieniową do alertu](./media/livestream/elevate-to-alert.png)
 
-Ta akcja otwiera kreatora tworzenia reguł, który jest wstępnie wypełniony kwerendą skojarzoną z sesją strumienia na żywo.
+Ta akcja powoduje otwarcie Kreatora tworzenia reguły, który jest wstępnie wypełniony kwerendą skojarzoną z sesją transmisję strumieniową.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule dowiesz się, jak używać polowania na żywo w usłudze Azure Sentinel. Aby dowiedzieć się więcej o usłudze Azure Sentinel, zobacz następujące artykuły:
+W tym artykule przedstawiono sposób korzystania z łowiectwa transmisję strumieniową na platformie Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
 
-- [Proaktywne polowanie na zagrożenia](hunting.md)
-- [Uruchamianie automatycznych kampanii łowieckich za pomocą notesów](notebooks.md)
+- [Proaktywne wyszukiwanie zagrożeń](hunting.md)
+- [Korzystanie z notesów do uruchamiania zautomatyzowanych kampanii łowieckich](notebooks.md)

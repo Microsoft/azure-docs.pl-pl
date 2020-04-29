@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: Uzyskaj intencję za pomocą interfejsów API REST — USŁUGA LUIS'
+title: 'Szybki Start: pobieranie zamierzeń przy użyciu interfejsów API REST — LUIS'
 titleSuffix: Azure Cognitive Services
-description: W tym interfejsie Szybki start interfejsu API REST użyj dostępnej publicznej aplikacji usługi LUIS, aby określić intencję użytkownika na podstawie tekstu konwersacyjnego.
+description: W tym przewodniku szybki start interfejsu API REST Użyj dostępnej publicznej aplikacji LUIS, aby określić zamiar użytkownika z tekstu konwersacji.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -13,13 +13,13 @@ ms.date: 02/14/2020
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
 ms.openlocfilehash: 58f164f1522975faa2e7a7e7d7ed08145a6c5889
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77524652"
 ---
-# <a name="quickstart-change-model-with-rest-apis"></a>Szybki start: zmienianie modelu za pomocą interfejsów API REST
+# <a name="quickstart-change-model-with-rest-apis"></a>Szybki Start: zmiana modelu przy użyciu interfejsów API REST
 
 W tym przewodniku Szybki start dodasz przykładowe wypowiedzi do aplikacji Travel Agent i przeprowadzisz szkolenie aplikacji. Przykładowe wypowiedzi to tekst z rozmowami użytkownika mapowany na intencje. Poprzez zapewnienie przykładowych wypowiedzi dla intencji możesz nauczyć aplikację LUIS, jakim intencjom odpowiada rodzaj tekstu podanego przez użytkownika.
 

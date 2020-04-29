@@ -1,33 +1,33 @@
 ---
-title: Powiązanie danych wyjściowych usługi SignalR usługi azure functions
-description: Dowiedz się, aby wysyłać komunikaty usługi SignalR z usługi Azure Functions.
+title: Powiązanie danych wyjściowych usługi sygnałów Azure Functions
+description: Dowiedz się, jak wysyłać komunikaty usługi sygnalizujące z Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: d3ba9183cdea752c3e69a41770b6a5319a4a601d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77530252"
 ---
-# <a name="signalr-service-output-binding-for-azure-functions"></a>Powiązanie danych wyjściowych usługi SignalR dla funkcji platformy Azure
+# <a name="signalr-service-output-binding-for-azure-functions"></a>Powiązanie danych wyjściowych usługi sygnalizującego dla Azure Functions
 
-Użyj powiązania danych wyjściowych *SignalR* do wysyłania co najmniej jednej wiadomości przy użyciu usługi Azure SignalR. Wiadomość można emitować na adres:
+Użyj powiązania danych wyjściowych *sygnalizującego* , aby wysłać co najmniej jeden komunikat przy użyciu usługi Azure Signal Service. Można emitować komunikat do:
 
 - Wszyscy połączeni klienci
-- Połączeni klienci uwierzytelnieni określonej użytkownikowi
+- Połączeni klienci uwierzytelnieni do określonego użytkownika
 
 Powiązanie danych wyjściowych umożliwia również zarządzanie grupami.
 
-Aby uzyskać informacje na temat szczegółów konfiguracji i konfiguracji, zobacz [omówienie](functions-bindings-signalr-service.md).
+Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zobacz [Omówienie](functions-bindings-signalr-service.md).
 
-## <a name="broadcast-to-all-clients"></a>Emisja do wszystkich klientów
+## <a name="broadcast-to-all-clients"></a>Emituj do wszystkich klientów
 
-W poniższym przykładzie pokazano funkcję, która wysyła komunikat przy użyciu powiązania danych wyjściowych do wszystkich połączonych klientów. Obiekt *docelowy* jest nazwą metody, która ma być wywoływana na każdym kliencie. *Właściwość Arguments* jest tablicą zero lub więcej obiektów, które mają być przekazywane do metody klienta.
+Poniższy przykład pokazuje funkcję, która wysyła komunikat przy użyciu powiązania danych wyjściowych do wszystkich połączonych klientów. *Obiekt docelowy* jest nazwą metody, która ma być wywoływana na każdym kliencie. Właściwość *arguments* jest tablicą zero lub więcej obiektów do przesłania do metody klienta.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -44,11 +44,11 @@ public static Task SendMessage(
 }
 ```
 
-# <a name="c-script"></a>[Skrypt języka C#](#tab/csharp-script)
+# <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Oto dane powiązania w pliku *function.json:*
+Tutaj podano dane powiązań w pliku *Function. JSON* :
 
-Przykładowa funkcja.json:
+Przykład Function. JSON:
 
 ```json
 {
@@ -60,7 +60,7 @@ Przykładowa funkcja.json:
 }
 ```
 
-Oto kod skryptu języka C#:
+Oto kod skryptu w języku C#:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -79,11 +79,11 @@ public static Task Run(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Oto dane powiązania w pliku *function.json:*
+Tutaj podano dane powiązań w pliku *Function. JSON* :
 
-Przykładowa funkcja.json:
+Przykład Function. JSON:
 
 ```json
 {
@@ -108,9 +108,9 @@ module.exports = async function (context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Oto dane powiązania w pliku *function.json:*
+Tutaj podano dane powiązań w pliku *Function. JSON* :
 
-Przykładowa funkcja.json:
+Przykład Function. JSON:
 
 ```json
 {
@@ -122,7 +122,7 @@ Przykładowa funkcja.json:
 }
 ```
 
-Oto kod Pythona:
+Oto kod języka Python:
 
 ```python
 def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
@@ -155,9 +155,9 @@ public SignalRMessage sendMessage(
 
 ## <a name="send-to-a-user"></a>Wyślij do użytkownika
 
-Można wysłać wiadomość tylko do połączeń, które zostały uwierzytelnione do użytkownika, ustawiając *identyfikator użytkownika* w komunikacie SignalR.
+Komunikat można wysłać tylko do połączeń, które zostały uwierzytelnione do użytkownika przez ustawienie *identyfikatora użytkownika* w komunikacie sygnalizującym.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -176,9 +176,9 @@ public static Task SendMessage(
 }
 ```
 
-# <a name="c-script"></a>[Skrypt języka C#](#tab/csharp-script)
+# <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Przykładowa funkcja.json:
+Przykład Function. JSON:
 
 ```json
 {
@@ -190,7 +190,7 @@ Przykładowa funkcja.json:
 }
 ```
 
-Oto kod skryptu języka C#:
+Oto kod skryptu w języku C#:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -211,9 +211,9 @@ public static Task Run(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Przykładowa funkcja.json:
+Przykład Function. JSON:
 
 ```json
 {
@@ -240,9 +240,9 @@ module.exports = async function (context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Oto dane powiązania w pliku *function.json:*
+Tutaj podano dane powiązań w pliku *Function. JSON* :
 
-Przykładowa funkcja.json:
+Przykład Function. JSON:
 
 ```json
 {
@@ -254,7 +254,7 @@ Przykładowa funkcja.json:
 }
 ```
 
-Oto kod Pythona:
+Oto kod języka Python:
 
 ```python
 def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
@@ -288,11 +288,11 @@ public SignalRMessage sendMessage(
 
 ---
 
-## <a name="send-to-a-group"></a>Wysyłanie do grupy
+## <a name="send-to-a-group"></a>Wyślij do grupy
 
-Można wysłać wiadomość tylko do połączeń, które zostały dodane do grupy, ustawiając *nazwę grupy* w komunikacie SignalR.
+Komunikat można wysłać tylko do połączeń, które zostały dodane do grupy przez ustawienie *nazwy grupy* w komunikacie sygnalizującym.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -311,9 +311,9 @@ public static Task SendMessage(
 }
 ```
 
-# <a name="c-script"></a>[Skrypt języka C#](#tab/csharp-script)
+# <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Przykładowa funkcja.json:
+Przykład Function. JSON:
 
 ```json
 {
@@ -325,7 +325,7 @@ Przykładowa funkcja.json:
 }
 ```
 
-Oto kod skryptu języka C#:
+Oto kod skryptu w języku C#:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -346,9 +346,9 @@ public static Task Run(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Przykładowa funkcja.json:
+Przykład Function. JSON:
 
 ```json
 {
@@ -375,9 +375,9 @@ module.exports = async function (context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Oto dane powiązania w pliku *function.json:*
+Tutaj podano dane powiązań w pliku *Function. JSON* :
 
-Przykładowa funkcja.json:
+Przykład Function. JSON:
 
 ```json
 {
@@ -389,7 +389,7 @@ Przykładowa funkcja.json:
 }
 ```
 
-Oto kod Pythona:
+Oto kod języka Python:
 
 ```python
 def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
@@ -425,9 +425,9 @@ public SignalRMessage sendMessage(
 
 ## <a name="group-management"></a>Zarządzanie grupami
 
-SignalR Service umożliwia użytkownikom dodawanie do grup. Wiadomości mogą być następnie wysyłane do grupy. Powiązanie `SignalR` danych wyjściowych służy do zarządzania członkostwem w grupie użytkownika.
+Usługa sygnalizująca pozwala dodawać użytkowników do grup. Komunikaty można następnie wysyłać do grupy. Możesz użyć powiązania `SignalR` danych wyjściowych do zarządzania członkostwem w grupie użytkownika.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ### <a name="add-user-to-a-group"></a>Dodawanie użytkownika do grupy
 
@@ -476,15 +476,15 @@ public static Task RemoveFromGroup(
 ```
 
 > [!NOTE]
-> Aby uzyskać `ClaimsPrincipal` poprawnie powiązane, musisz skonfigurować ustawienia uwierzytelniania w usłudze Azure Functions.
+> Aby można było `ClaimsPrincipal` poprawnie uzyskać powiązane powiązania, należy skonfigurować ustawienia uwierzytelniania w Azure Functions.
 
-# <a name="c-script"></a>[Skrypt języka C#](#tab/csharp-script)
+# <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
 ### <a name="add-user-to-a-group"></a>Dodawanie użytkownika do grupy
 
 Poniższy przykład dodaje użytkownika do grupy.
 
-Przykładowa *funkcja.json*
+Przykład *Function. JSON*
 
 ```json
 {
@@ -496,7 +496,7 @@ Przykładowa *funkcja.json*
 }
 ```
 
-*Uruchom.csx*
+*Uruchom. CSX*
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -522,7 +522,7 @@ public static Task Run(
 
 Poniższy przykład usuwa użytkownika z grupy.
 
-Przykładowa *funkcja.json*
+Przykład *Function. JSON*
 
 ```json
 {
@@ -534,7 +534,7 @@ Przykładowa *funkcja.json*
 }
 ```
 
-*Uruchom.csx*
+*Uruchom. CSX*
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -557,15 +557,15 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Aby uzyskać `ClaimsPrincipal` poprawnie powiązane, musisz skonfigurować ustawienia uwierzytelniania w usłudze Azure Functions.
+> Aby można było `ClaimsPrincipal` poprawnie uzyskać powiązane powiązania, należy skonfigurować ustawienia uwierzytelniania w Azure Functions.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ### <a name="add-user-to-a-group"></a>Dodawanie użytkownika do grupy
 
 Poniższy przykład dodaje użytkownika do grupy.
 
-Przykładowa *funkcja.json*
+Przykład *Function. JSON*
 
 ```json
 {
@@ -577,7 +577,7 @@ Przykładowa *funkcja.json*
 }
 ```
 
-*indeks.js*
+*index. js*
 
 ```javascript
 module.exports = async function (context, req) {
@@ -593,7 +593,7 @@ module.exports = async function (context, req) {
 
 Poniższy przykład usuwa użytkownika z grupy.
 
-Przykładowa *funkcja.json*
+Przykład *Function. JSON*
 
 ```json
 {
@@ -605,7 +605,7 @@ Przykładowa *funkcja.json*
 }
 ```
 
-*indeks.js*
+*index. js*
 
 ```javascript
 module.exports = async function (context, req) {
@@ -623,7 +623,7 @@ module.exports = async function (context, req) {
 
 Poniższy przykład dodaje użytkownika do grupy.
 
-Przykładowa *funkcja.json*
+Przykład *Function. JSON*
 
 ```json
 {
@@ -635,7 +635,7 @@ Przykładowa *funkcja.json*
 }
 ```
 
-*\_\_init.py__*
+*\_\_init. py__*
 
 ```python
 def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
@@ -650,7 +650,7 @@ def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
 
 Poniższy przykład usuwa użytkownika z grupy.
 
-Przykładowa *funkcja.json*
+Przykład *Function. JSON*
 
 ```json
 {
@@ -662,7 +662,7 @@ Przykładowa *funkcja.json*
 }
 ```
 
-*\_\_init.py__*
+*\_\_init. py__*
 
 ```python
 def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
@@ -721,35 +721,35 @@ public SignalRGroupAction removeFromGroup(
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="signalrconnectioninfo"></a>SignalRConnectionInfo
 
-W poniższej tabeli opisano właściwości konfiguracji powiązania, które można `SignalRConnectionInfo` ustawić w pliku *function.json* i atrybut.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `SignalRConnectionInfo` atrybucie.
 
-|właściwość function.json | Właściwość atrybutu |Opis|
+|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Typu**| Nie dotyczy | Musi być `signalRConnectionInfo`ustawiona na .|
-|**Kierunku**| Nie dotyczy | Musi być `in`ustawiona na .|
-|**Nazwa**| Nie dotyczy | Nazwa zmiennej używana w kodzie funkcji dla obiektu informacji o połączeniu. |
-|**nazwa centrum**|**Nazwa centrum**| Ta wartość musi być ustawiona na nazwę koncentratora SignalR, dla którego są generowane informacje o połączeniu.|
-|**Userid**|**Userid**| Opcjonalnie: wartość oświadczenia identyfikatora użytkownika, które ma być ustawione w tokenie klucza dostępu. |
-|**connectionStringSetting**|**ConnectionStringSetting (Ustawienia połączeń)**| Nazwa ustawienia aplikacji zawierającego parametry połączenia usługi SignalR (domyślnie "AzureSignalRConnectionString") |
+|**Wprowadź**| n/d | Musi być ustawiony na `signalRConnectionInfo`.|
+|**wskazywa**| n/d | Musi być ustawiony na `in`.|
+|**Nazwij**| n/d | Nazwa zmiennej używana w kodzie funkcji dla obiektu informacji o połączeniu. |
+|**hubName**|**HubName**| Ta wartość musi być ustawiona na nazwę centrum sygnałów, dla którego są generowane informacje o połączeniu.|
+|**Nazwa**|**UserId**| Opcjonalnie: wartość żądania identyfikatora użytkownika do ustawienia w tokenie klucza dostępu. |
+|**connectionStringSetting**|**ConnectionStringSetting**| Nazwa ustawienia aplikacji zawierającego parametry połączenia usługi sygnalizującego (wartość domyślna to "AzureSignalRConnectionString"). |
 
 ### <a name="signalr"></a>SignalR
 
-W poniższej tabeli opisano właściwości konfiguracji powiązania, które można `SignalR` ustawić w pliku *function.json* i atrybut.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `SignalR` atrybucie.
 
-|właściwość function.json | Właściwość atrybutu |Opis|
+|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Typu**| Nie dotyczy | Musi być `signalR`ustawiona na .|
-|**Kierunku**| Nie dotyczy | Musi być `out`ustawiona na .|
-|**Nazwa**| Nie dotyczy | Nazwa zmiennej używana w kodzie funkcji dla obiektu informacji o połączeniu. |
-|**nazwa centrum**|**Nazwa centrum**| Ta wartość musi być ustawiona na nazwę koncentratora SignalR, dla którego są generowane informacje o połączeniu.|
-|**connectionStringSetting**|**ConnectionStringSetting (Ustawienia połączeń)**| Nazwa ustawienia aplikacji zawierającego parametry połączenia usługi SignalR (domyślnie "AzureSignalRConnectionString") |
+|**Wprowadź**| n/d | Musi być ustawiony na `signalR`.|
+|**wskazywa**| n/d | Musi być ustawiony na `out`.|
+|**Nazwij**| n/d | Nazwa zmiennej używana w kodzie funkcji dla obiektu informacji o połączeniu. |
+|**hubName**|**HubName**| Ta wartość musi być ustawiona na nazwę centrum sygnałów, dla którego są generowane informacje o połączeniu.|
+|**connectionStringSetting**|**ConnectionStringSetting**| Nazwa ustawienia aplikacji zawierającego parametry połączenia usługi sygnalizującego (wartość domyślna to "AzureSignalRConnectionString"). |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zwraca adres URL punktu końcowego usługi i token dostępu (powiązanie wejściowe)](./functions-bindings-signalr-service-input.md)
+- [Zwróć adres URL punktu końcowego usługi i token dostępu (powiązanie wejściowe)](./functions-bindings-signalr-service-input.md)

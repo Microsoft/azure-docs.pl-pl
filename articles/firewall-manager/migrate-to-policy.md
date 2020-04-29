@@ -1,6 +1,6 @@
 ---
-title: Migrowanie konfiguracji zapory platformy Azure do zasad Zapory platformy Azure (wersja zapoznawcza) przy użyciu programu PowerShell
-description: Dowiedz się, jak migrować konfiguracje Zapory platformy Azure do zasad Zapory platformy Azure (wersja zapoznawcza)
+title: Migrowanie konfiguracji zapory platformy Azure do zasad zapory platformy Azure (wersja zapoznawcza) przy użyciu programu PowerShell
+description: Dowiedz się, jak migrować konfiguracje zapory platformy Azure do zasad zapory platformy Azure (wersja zapoznawcza)
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: 498863c98f308a9fd9b47f80328d572187475901
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77443112"
 ---
-# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-preview-using-powershell"></a>Migrowanie konfiguracji zapory platformy Azure do zasad Zapory platformy Azure (wersja zapoznawcza) przy użyciu programu Powershell
+# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-preview-using-powershell"></a>Migrowanie konfiguracji zapory platformy Azure do zasad zapory platformy Azure (wersja zapoznawcza) przy użyciu programu PowerShell
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Skrypt programu Azure PowerShell służy do migracji istniejących konfiguracji Zapory platformy Azure do zasobu zasad Zapory platformy Azure. Następnie można użyć usługi Azure Firewall Manager, aby wdrożyć zasady.
+Za pomocą skryptu Azure PowerShell można migrować istniejące konfiguracje zapory platformy Azure do zasobu zasad zapory platformy Azure. Do wdrożenia zasad można użyć Menedżera zapory platformy Azure.
 
-Skrypt `AZFWMigrationScript.ps1` tworzy FirewallPolicy z trzech RuleCollectionGroup obiektów applicationrulecollections, NetworkRuleCollections i NatRuleCollections odpowiednio. 
+`AZFWMigrationScript.ps1` Skrypt tworzy firewallpolicy z trzema obiektami RuleCollectionGroup odpowiednio dla ApplicationRuleCollections, NetworkRuleCollections i NatRuleCollections. 
 
-RuleCollectionGroup to nowe grupowanie najwyższego poziomu dla kolekcji reguł dla przyszłej rozszerzalności. Użycie powyższych ustawień domyślnych jest zalecane i odbywa się automatycznie z portalu.
+RuleCollectionGroup to nowe grupowanie najwyższego poziomu dla kolekcji reguł na potrzeby przyszłej rozszerzalności. Używanie powyższych wartości domyślnych jest zalecane i jest wykonywane automatycznie z poziomu portalu.
 
-Początek skryptu definiuje nazwę zapory źródłowej i grupę zasobów oraz nazwę i lokalizację zasad docelowych. Zmień te wartości odpowiednio dla twojej organizacji.
+Początek skryptu definiuje nazwę zapory źródłowej i grupę zasobów oraz nazwę i lokalizację zasad docelowych. Zmień te wartości zgodnie z potrzebami organizacji.
 
 ## <a name="migration-script"></a>Skrypt migracji
 
-Zmodyfikuj następujący skrypt, aby przeprowadzić migrację konfiguracji zapory.
+Zmodyfikuj Poniższy skrypt, aby przeprowadzić migrację konfiguracji zapory.
 
 ```azurepowershell
 #Input params to be modified as needed
@@ -161,4 +161,4 @@ If ($azfw.NatRuleCollections.Count -gt 0) {
 ```
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o wdrażaniu usługi Azure Firewall Manager: [omówienie wdrażania usługi Azure Firewall Manager Preview](deployment-overview.md).
+Dowiedz się więcej o wdrożeniu Menedżera zapory platformy Azure: [Omówienie wdrożenia programu Azure firewall Manager w wersji zapoznawczej](deployment-overview.md).

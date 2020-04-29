@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: wyodrębnianie informacji tekstowych i o układzie za pomocą języka Python — aparat rozpoznawania formularzy'
+title: 'Szybki Start: wyodrębnianie informacji o tekście i układzie przy użyciu języka Python — formularz rozpoznawania'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku Szybki start użyjesz interfejsu API REST układu rozpoznawania formularzy z pythonem do odczytywania danych tekstowych i tabel z formularzy.
+description: W tym przewodniku szybki start użyjesz interfejsu API REST układu aparatu rozpoznawania w języku Python w celu odczytywania danych tekstowych i tabel z formularzy.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -10,35 +10,35 @@ ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
 ms.openlocfilehash: 342ae7e42c85ad661c04ba4ebb6629673f4af4dc
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77482280"
 ---
-# <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Szybki start: wyodrębnianie informacji tekstowych i układu przy użyciu interfejsu API REST rozpoznawania formularzy w języku Python
+# <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Szybki Start: wyodrębnianie informacji o tekście i układzie przy użyciu interfejsu API REST aparatu rozpoznawania formularzy w języku Python
 
-W tym przewodniku Szybki start użyjesz interfejsu API REST rozpoznawania formularzy platformy Azure z językiem Python, aby wyodrębnić informacje o układzie tekstu i dane tabeli z dokumentów formularza.
+W tym przewodniku szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy platformy Azure w języku Python, aby wyodrębnić informacje o układzie tekstu oraz dane tabeli z dokumentów formularzy.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten szybki start, musisz mieć:
-- [Python](https://www.python.org/downloads/) zainstalowany (jeśli chcesz uruchomić przykład lokalny).
-- Dokument formularza. Możesz pobrać obraz z [przykładowego zestawu danych](https://go.microsoft.com/fwlink/?linkid=2090451) dla tego przewodnika Szybki start.
+Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
+- Zainstalowana w języku [Python](https://www.python.org/downloads/) (Jeśli chcesz uruchomić przykład lokalnie).
+- Dokument formularza. Możesz pobrać obraz z [przykładowego zestawu danych](https://go.microsoft.com/fwlink/?linkid=2090451) dla tego przewodnika Szybki Start.
 
-## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularzy
+## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularza
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## <a name="analyze-the-form-layout"></a>Analizowanie układu formularza
 
-Aby rozpocząć analizowanie układu, należy **[wywołać interfejs](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** API układu analizy przy użyciu skryptu Języka Python poniżej. Przed uruchomieniem skryptu należy wprowadzić następujące zmiany:
+Aby rozpocząć analizowanie układu, należy wywołać interfejs API **[Analizowanie układu](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** przy użyciu poniższego skryptu języka Python. Przed uruchomieniem skryptu wprowadź następujące zmiany:
 
-1. Zamień `<Endpoint>` punkt końcowy, który został uzyskany za pomocą subskrypcji aparatu rozpoznawania formularzy.
-1. Zastąp `<path to your form>` ścieżką do lokalnego dokumentu formularza.
-1. Zamień `<subscription key>` klucz subskrypcji skopiowany z poprzedniego kroku.
+1. Zamień `<Endpoint>` na punkt końcowy uzyskany w ramach subskrypcji aparatu rozpoznawania formularza.
+1. Zamień `<path to your form>` na ścieżkę do dokumentu formularza lokalnego.
+1. Zamień `<subscription key>` na klucz subskrypcji skopiowany z poprzedniego kroku.
 
     ```python
     ########### Python Form Recognizer Async Layout #############
@@ -73,19 +73,19 @@ Aby rozpocząć analizowanie układu, należy **[wywołać interfejs](https://we
         quit()
     ```
 
-1. Zapisz kod w pliku z rozszerzeniem .py. Na przykład *form-recognizer-layout.py*.
+1. Zapisz kod w pliku z rozszerzeniem. pr. Na przykład *form-Recognizer-Layout.py*.
 1. Otwórz okno wiersza polecenia.
 1. W wierszu polecenia użyj polecenia `python`, aby uruchomić próbkę. Na przykład `python form-recognizer-layout.py`.
 
-Otrzymasz odpowiedź `202 (Success)` zawierającą nagłówek **Lokalizacja operacji,** który skrypt zostanie wydrukowany na konsoli. Ten nagłówek zawiera identyfikator operacji, którego można użyć do wykonywania zapytań o stan operacji asynchronicznej i uzyskania wyników. W poniższej wartości przykładowej `operations/` ciąg po jest identyfikatorem operacji.
+Otrzymasz `202 (Success)` odpowiedź, która zawiera nagłówek **operacji-Location** , który skrypt będzie drukowany w konsoli programu. Ten nagłówek zawiera identyfikator operacji, którego można użyć do zbadania stanu operacji asynchronicznej i uzyskania wyników. W poniższym przykładzie wartość ciąg po `operations/` to identyfikator operacji.
 
 ```console
 https://cognitiveservice/formrecognizer/v2.0-preview/layout/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
-## <a name="get-the-layout-results"></a>Uzyskaj wyniki układu
+## <a name="get-the-layout-results"></a>Pobierz wyniki układu
 
-Po **wywołaniu interfejsu** API układu analizy, należy **[wywołać Get Analizowanie wynik układu](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** API, aby uzyskać stan operacji i wyodrębnione dane. Dodaj następujący kod na dole skryptu Pythona. Ten kod używa wartości identyfikatora operacji w nowym wywołaniu interfejsu API. Ten skrypt wywołuje interfejs API w regularnych odstępach czasu, dopóki wyniki nie są dostępne. Zalecamy interwał jednej sekundy lub więcej.
+Po wywołaniu interfejsu API **Analizowanie układu** należy wywołać interfejs API **[wyników Get Analizuj](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** w celu uzyskania stanu operacji i wyodrębnionych danych. Dodaj następujący kod w dolnej części skryptu języka Python. Ten kod używa wartości identyfikatora operacji w nowym wywołaniu interfejsu API. Ten skrypt wywołuje interfejs API w regularnych odstępach czasu, dopóki wyniki nie będą dostępne. Zalecamy interwał co najmniej jednej sekundy.
 
 ```python
 n_tries = 10
@@ -115,16 +115,16 @@ while n_try < n_tries:
 ```
 
 1. Zapisz skrypt.
-1. Ponownie użyj `python` polecenia, aby uruchomić próbkę. Na przykład `python form-recognizer-layout.py`.
+1. Ponownie Użyj `python` polecenia, aby uruchomić przykład. Na przykład `python form-recognizer-layout.py`.
 
 ### <a name="examine-the-response"></a>Sprawdzanie odpowiedzi
 
-Skrypt będzie drukować odpowiedzi do konsoli, dopóki operacja **Analizuj układ** zostanie zakończona. Następnie wydrukuje wyodrębnione dane w formacie JSON. Węzeł `"readResults"` zawiera każdy wiersz tekstu z odpowiednim położeniem pola ograniczającego na stronie. Pole `"pageResults"` zawiera każdy element tekstu w tabelach, z których każdy ma współrzędną wiersza-kolumnę.
+Skrypt będzie drukował odpowiedzi do konsoli do momentu zakończenia operacji **analizy układu** . Następnie drukuje wyodrębnione dane w formacie JSON. `"readResults"` Węzeł zawiera każdy wiersz tekstu z odpowiednim umieszczaniem pola ograniczenia na stronie. W `"pageResults"` polu są wyświetlane wszystkie fragmenty tekstu w tabelach, z których każda jest Współrzędna kolumny wiersza.
 
-Zobacz poniższy obraz faktury i odpowiadające mu dane wyjściowe JSON. Dane wyjściowe zostały skrócone dla uproszczenia.
+Zapoznaj się z poniższym obrazem faktury i odpowiednimi danymi wyjściowymi JSON. Wynik został skrócony do uproszczenia.
 
 > [!div class="mx-imgBorder"]
-> ![Dokument faktury Contoso z tabelą](../media/contoso-invoice.png)
+> ![Dokument faktury contoso z tabelą](../media/contoso-invoice.png)
 
 ```json
 { 
@@ -275,7 +275,7 @@ Zobacz poniższy obraz faktury i odpowiadające mu dane wyjściowe JSON. Dane wy
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start użyto interfejsu API REST rozpoznawania formularzy z programem Python, aby wyodrębnić układ tekstowy faktury. Następnie zapoznaj się z dokumentacją odwołania, aby zbadać interfejs API rozpoznawania formularzy bardziej szczegółowo.
+W tym przewodniku szybki start użyto interfejsu API REST aparatu rozpoznawania formularzy w języku Python w celu wyodrębnienia układu tekstu faktury. Następnie zapoznaj się z dokumentacją referencyjną w celu eksplorowania interfejsu API rozpoznawania formularzy.
 
 > [!div class="nextstepaction"]
-> [Dokumentacja referencyjna interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)
+> [Dokumentacja interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)

@@ -1,6 +1,6 @@
 ---
-title: Laboratoria w klasie w usługach Azure Lab — często zadawane pytania | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące laboratoriów w klasie w usługach Azure Lab Services.
+title: Pracowni Labs w Azure Lab Services — często zadawane pytania | Microsoft Docs
+description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące laboratoriów stacjonarnych w Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,66 +14,66 @@ ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
 ms.openlocfilehash: 8d1ed128181d036af0026ae273c2c5bf1d3a066e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77443503"
 ---
-# <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratoria w classroom w usługach Azure Lab — często zadawane pytania (CZĘSTO ZADAWANE PYTANIA)
-Uzyskaj odpowiedzi na niektóre z najczęstszych pytań dotyczących laboratoriów w laboratoriach w usłudze Azure Lab Services. 
+# <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Pracowni Labs w Azure Lab Services — często zadawane pytania
+Uzyskaj odpowiedzi na kilka typowych pytań dotyczących laboratoriów stacjonarnych w Azure Lab Services. 
 
 ## <a name="quotas"></a>Przydziały
 
-### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>Czy przydział przypada na użytkownika, tydzień lub cały czas trwania laboratorium? 
-Przydział ustawiony dla laboratorium jest dla każdego ucznia przez cały czas trwania laboratorium. I [zaplanowany czas pracy maszyn wirtualnych](how-to-create-schedules.md) nie jest wliczany do przydziału przydzielonego użytkownikowi. Przydział jest dla czasu poza godzinami harmonogramu, które student spędza na maszynach wirtualnych.  Aby uzyskać więcej informacji na temat przydziałów, zobacz [Ustawianie przydziałów dla użytkowników](how-to-configure-student-usage.md#set-quotas-for-users).
+### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>Czy przydziały na użytkownika, czy na tydzień czy na cały czas trwania laboratorium? 
+Przydział ustawiony dla laboratorium jest przeznaczony dla każdego ucznia na cały czas trwania laboratorium. [Zaplanowana godzina działania maszyn wirtualnych](how-to-create-schedules.md) nie jest uwzględniana w stosunku do przydziału przydzielonego dla użytkownika. Limit przydziału jest przeznaczony dla czasu poza godzinami harmonogramu, które student spędza na maszynach wirtualnych.  Aby uzyskać więcej informacji na temat przydziałów, zobacz [Ustawianie przydziałów dla użytkowników](how-to-configure-student-usage.md#set-quotas-for-users).
 
-### <a name="if-professor-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Jeśli profesor włącza maszynę wirtualną dla studentów, czy ma to wpływ na przydział studentów? 
-Nie. Nie. Gdy profesor włącza maszynę wirtualną studenta, nie ma to wpływu na przydział przydzielony studentowi. 
+### <a name="if-professor-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Jeśli profesor włącza na maszynie wirtualnej ucznia, czy ma to wpływ na limit przydziału ucznia? 
+Nie. Nie. Gdy profesor włącza na maszynie wirtualnej ucznia, nie ma to wpływu na przydział przydzielony studentowi. 
 
 ## <a name="schedules"></a>Harmonogramy
 
-### <a name="do-all-vms-in-the-lab-start-automatically-when-a-schedule-is-set"></a>Czy wszystkie maszyny wirtualne w laboratorium uruchamiają się automatycznie po ustawieniu harmonogramu? 
-Nie. Nie wszystkie maszyny wirtualne. Tylko maszyny wirtualne, które są przypisane do użytkowników zgodnie z harmonogramem. Maszyny wirtualne, które nie są przypisane do użytkownika nie są uruchamiane automatycznie. To jest zgodnie z projektem. 
+### <a name="do-all-vms-in-the-lab-start-automatically-when-a-schedule-is-set"></a>Czy wszystkie maszyny wirtualne w laboratorium są uruchamiane automatycznie po ustawieniu harmonogramu? 
+Nie. Nie wszystkie maszyny wirtualne. Tylko maszyny wirtualne, które są przypisane do użytkowników zgodnie z harmonogramem. Maszyny wirtualne, które nie są przypisane do użytkownika, nie są automatycznie uruchamiane. Jest to zaprojektowane. 
 
 ## <a name="lab-accounts"></a>Konta laboratorium
 
 ### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>Dlaczego nie mogę utworzyć laboratorium z powodu niedostępności zakresu adresów? 
-Laboratoria classroom można tworzyć maszyny wirtualne laboratorium w zakresie adresów IP określone podczas tworzenia konta laboratorium w witrynie Azure portal. Po podaniu zakresu adresów każde laboratorium utworzone po przydzieleniu 512 adresów IP dla maszyn wirtualnych w laboratorium. Zakres adresów dla konta laboratorium musi być wystarczająco duży, aby pomieścić wszystkie laboratoria, które zamierzasz utworzyć w ramach konta laboratorium. 
+Pracownice klasy mogą tworzyć maszyny wirtualne laboratorium w zakresie adresów IP określonym podczas tworzenia konta laboratorium w Azure Portal. Po podaniu zakresu adresów każde laboratorium, które jest tworzone po przypisaniu 512 adresów IP dla maszyn wirtualnych laboratorium. Zakres adresów dla konta laboratorium musi być wystarczająco duży, aby pomieścić wszystkie laboratoria, które mają zostać utworzone w ramach konta laboratorium. 
 
-Na przykład jeśli masz blok /19 - 10.0.0.0/19, ten zakres adresów obsługuje 8192 adresy IP i 16 laboratoriów(8192/512 = 16 laboratoriów). W takim przypadku tworzenie laboratorium kończy się niepowodzeniem przy tworzeniu 17 laboratorium.
+Na przykład jeśli masz blok/19-10.0.0.0/19, ten zakres adresów uwzględnia 8192 adresy IP i 16 laboratoriów (8192/512 = 16 laboratoriów). W takim przypadku tworzenie laboratorium kończy się niepowodzeniem na siedemnastu tworzenia laboratorium.
 
-### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Jakie zakresy portów należy otworzyć w ustawieniach zapory mojej organizacji, aby połączyć się z maszynami wirtualnymi laboratorium za pośrednictwem protokołu RDP/SSH?
+### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Jakie zakresy portów należy otworzyć w ustawieniach zapory organizacji, aby połączyć się z maszynami wirtualnymi laboratorium za pośrednictwem protokołu RDP/SSH?
 
-Porty to: 49152–65535. Laboratoria szkolne siedzą za modułem równoważenia obciążenia. Każde laboratorium ma jeden publiczny adres IP, a każda maszyna wirtualna w laboratorium ma unikatowy port. 
+Porty to: 49152 – 65535. Laboratorium klasowe znajduje się za modułem równoważenia obciążenia. Każde laboratorium ma jeden publiczny adres IP, a każda maszyna wirtualna w laboratorium ma unikatowy port. 
 
-Można również zobaczyć prywatny adres IP każdej maszyny wirtualnej na karcie **Puli maszyny wirtualnej** na stronie głównej dla laboratorium w witrynie Azure portal. Jeśli ponownie opublikujesz laboratorium, publiczny adres IP laboratorium nie ulegnie zmianie, ale prywatny adres IP i numer portu każdej maszyny wirtualnej w laboratorium mogą ulec zmianie. Więcej informacji można dowiedzieć się w artykule: [Ustawienia zapory dla usług Azure Lab Services](how-to-configure-firewall-settings.md).
+Możesz również zobaczyć prywatny adres IP każdej maszyny wirtualnej na karcie **Pula maszyn wirtualnych** na stronie głównej dla laboratorium w Azure Portal. W przypadku ponownego opublikowania laboratorium, publiczny adres IP laboratorium nie ulegnie zmianie, ale prywatny IP i numer portu każdej maszyny wirtualnej w laboratorium można zmienić. Więcej informacji można znaleźć w artykule: [Ustawienia zapory dla Azure Lab Services](how-to-configure-firewall-settings.md).
 
-### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Jaki publiczny zakres adresów IP powinien być otwarty w ustawieniach zapory mojej organizacji, aby połączyć się z maszynami wirtualnymi laboratorium za pośrednictwem protokołu RDP/SSH?
-Zobacz [Zakresy adresów IP platformy Azure i tagi usług — chmura publiczna](https://www.microsoft.com/download/details.aspx?id=56519)— która zapewnia publiczny zakres adresów IP dla centrów danych na platformie Azure. Można otworzyć adresy IP dla regionów, w których znajdują się konta laboratoryjne.
+### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Jaki zakres publicznych adresów IP należy otworzyć w ustawieniach zapory organizacji w celu połączenia z maszynami wirtualnymi laboratorium za pośrednictwem protokołu RDP/SSH?
+Zobacz [zakresy adresów IP i Tagi usług platformy Azure — chmura publiczna](https://www.microsoft.com/download/details.aspx?id=56519), która udostępnia publiczny zakres adresów IP dla centrów danych na platformie Azure. Możesz otworzyć adresy IP dla regionów, w których znajdują się konta w laboratorium.
 
 ## <a name="virtual-machine-images"></a>Obrazy maszyn wirtualnych
 
-### <a name="as-a-lab-creator-why-cant-i-enable-additional-image-options-in-the-virtual-machine-images-dropdown-when-creating-a-new-lab"></a>Dlaczego, jako twórca laboratorium, nie mogę włączyć dodatkowych opcji obrazu w menu rozwijanym obrazów maszyn wirtualnych podczas tworzenia nowego laboratorium?
+### <a name="as-a-lab-creator-why-cant-i-enable-additional-image-options-in-the-virtual-machine-images-dropdown-when-creating-a-new-lab"></a>Dlaczego jako twórca laboratorium nie można włączyć dodatkowych opcji obrazu na liście rozwijanej obrazy maszyn wirtualnych podczas tworzenia nowego laboratorium?
 
-Gdy administrator doda Cię jako twórcę laboratorium do konta laboratorium, masz uprawnienia do tworzenia laboratoriów. Nie masz jednak uprawnień do edytowania żadnych ustawień wewnątrz konta laboratorium, w tym listy włączonych obrazów maszyn wirtualnych. Aby włączyć dodatkowe obrazy, skontaktuj się z administratorem konta laboratorium, aby to zrobić za Ciebie, lub poproś administratora, aby dodał Cię jako rolę współautora do konta laboratorium. Rola współautora daje uprawnienia do edytowania listy obrazów maszyny wirtualnej na koncie laboratorium.
+Gdy administrator doda Cię jako twórcę laboratorium do konta laboratorium, otrzymujesz uprawnienia do tworzenia laboratoriów. Ale nie masz uprawnień do edytowania żadnych ustawień w ramach konta laboratorium, w tym listy włączonych obrazów maszyn wirtualnych. Aby włączyć dodatkowe obrazy, skontaktuj się z administratorem konta laboratorium, aby to zrobić, lub poproś administratora o dodanie Cię jako roli współautor do konta laboratorium. Rola współautor udzieli uprawnień do edytowania listy obrazów maszyn wirtualnych na koncie laboratorium.
 
 ## <a name="users"></a>Użytkownicy
 
-### <a name="how-many-users-can-be-in-a-classroom-lab"></a>Ilu użytkowników może być w laboratorium w klasie?
-Do laboratorium w klasie można dodać do 400 użytkowników. 
+### <a name="how-many-users-can-be-in-a-classroom-lab"></a>Ilu użytkowników może być w laboratorium zajęć?
+Do laboratorium zajęć można dodać maksymalnie 400 użytkowników. 
 
-## <a name="blog-post"></a>Blogu
-Subskrybuj [blog usługi Azure Lab Services](https://azure.microsoft.com/blog/tag/azure-lab-services/).
+## <a name="blog-post"></a>Wpis w blogu
+Zasubskrybuj [blog Azure Lab Services](https://azure.microsoft.com/blog/tag/azure-lab-services/).
 
-## <a name="update-notifications"></a>Aktualizowanie powiadomień
-Subskrybuj [aktualizacje usług laboratoryjnych,](https://azure.microsoft.com/updates/?product=lab-services) aby być na bieżąco z nowymi funkcjami w usługach laboratoryjnych.
+## <a name="update-notifications"></a>Powiadomienia o aktualizacjach
+Zasubskrybuj [Aktualizacje usług Lab Services](https://azure.microsoft.com/updates/?product=lab-services) , aby otrzymywać informacje o nowych funkcjach usługi Lab Services.
 
 ## <a name="general"></a>Ogólne
-### <a name="what-if-my-question-isnt-answered-here"></a>Co zrobić, jeśli nie ma tutaj odpowiedzi na moje pytanie?
-Jeśli twojego pytania nie ma na liście, poinformuj nas o tym, abyśmy mogli pomóc Ci znaleźć odpowiedź.
+### <a name="what-if-my-question-isnt-answered-here"></a>Co zrobić, jeśli w tym miejscu nie udzielono odpowiedzi na moje pytanie?
+Jeśli pytania nie ma na liście, daj nam znać, aby pomóc Ci znaleźć odpowiedź.
 
-- Zadaj pytanie na końcu tego faq. 
-- Aby dotrzeć do szerszego grona odbiorców, opublikuj pytanie na [forum Usługi Azure Lab — Stack Overflow](https://stackoverflow.com/questions/tagged/azure-lab-services). 
-- W przypadku żądań funkcji należy przesyłać żądania i pomysły do [usługi Azure Lab Services — User Voice](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
+- Opublikuj pytanie na końcu tego często zadawanych pytań. 
+- Aby dotrzeć do szerszego grona użytkowników, Opublikuj pytanie na [Azure Lab Services — Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-lab-services). 
+- W przypadku żądań funkcji Prześlij swoje żądania i pomysły dotyczące [Azure Lab Services — User Voice](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
 

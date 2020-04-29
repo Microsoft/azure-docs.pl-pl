@@ -1,6 +1,6 @@
 ---
-title: Samouczek dotyczący zbiorczego zapraszania użytkowników do współpracy B2B — usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: W tym samouczku dowiesz się, jak używać programu PowerShell i pliku CSV do wysyłania zbiorczych zaproszeń do zewnętrznych użytkowników-gości współpracujących z usługą Azure AD B2B.
+title: Samouczek zbiorczy zapraszania użytkowników współpracy B2B — Azure Active Directory | Microsoft Docs
+description: W ramach tego samouczka nauczysz się używać programu PowerShell i pliku CSV do wysyłania zaproszeń zbiorczych do użytkowników-Gości współpracy B2B usługi Azure AD.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,13 +12,13 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89e24d9ff76184c36aee5c14f15f9713b30f6f1d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77172660"
 ---
-# <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>Samouczek: Zbiorcze zapraszanie użytkowników do współpracy usługi Azure AD B2B za pomocą programu PowerShell
+# <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>Samouczek: używanie programu PowerShell do zbiorczego zapraszania użytkowników współpracy B2B usługi Azure AD
 
 Jeśli używasz funkcji współpracy B2B w usłudze Azure Active Directory (Azure AD) do pracy z partnerami zewnętrznymi, możesz równocześnie zapraszać wielu użytkowników-gości do swojej organizacji. Z tego samouczka dowiesz się, jak wysyłać zaproszenia zbiorcze do użytkowników zewnętrznych za pomocą programu PowerShell. W szczególności należy wykonać następujące czynności:
 
@@ -27,7 +27,7 @@ Jeśli używasz funkcji współpracy B2B w usłudze Azure Active Directory (Azur
 > * Uruchomienie skryptu programu PowerShell w celu wysłania zaproszeń
 > * Sprawdzenie, czy użytkownicy zostali dodani do katalogu
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem. 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -126,7 +126,7 @@ Aby sprawdzić, czy zaproszeni użytkownicy zostali dodani do usługi Azure AD, 
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-Użytkownicy, których zaproszono, powinni być wymienieni z główną nazwą użytkownika (UPN) w formacie *adresu e-mail*\@*#EXT# domeny*. Na przykład *\@lstokes_fabrikam.com#EXT# contoso.onmicrosoft.com*, gdzie contoso.onmicrosoft.com jest organizacja, z której wysłano zaproszenia.
+Zobaczysz użytkowników, którzy zaprosił, z główną nazwą użytkownika (UPN) w formacie *EmailAddress*#EXT #\@*Domain*. Na przykład *lstokes_fabrikam. com # EXT #\@contoso.onmicrosoft.com*, gdzie contoso.onmicrosoft.com jest organizacją, z której wysłano zaproszenia.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

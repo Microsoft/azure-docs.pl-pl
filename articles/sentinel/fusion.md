@@ -1,6 +1,6 @@
 ---
-title: Zaawansowane wieloetapowe wykrywanie ataków w usłudze Azure Sentinel
-description: Technologia Fusion w usłudze Azure Sentinel zmniejsza zmęczenie alertów i tworzy zdarzenia, które można zasuwać w trybie działania, które są oparte na zaawansowanym wieloetapowym wykrywaniu ataków.
+title: Zaawansowane wykrywanie ataków potokach wieloetapowych na platformie Azure — wskaźnik
+description: Skorzystaj z technologii Fusion na platformie Azure wskaźnikowej, aby zmniejszyć zmęczenie alertu i utworzyć zdarzenia umożliwiające podejmowanie działań, które opierają się na zaawansowaniu wykrywania ataków potokach wieloetapowych.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -13,328 +13,328 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: yelevin
 ms.openlocfilehash: 87ca322cbdfdd8a53a3ecefcb120a961ea1bb936
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77587927"
 ---
-# <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Zaawansowane wieloetapowe wykrywanie ataków w usłudze Azure Sentinel
+# <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Zaawansowane wykrywanie ataków potokach wieloetapowych na platformie Azure — wskaźnik
 
 
 > [!IMPORTANT]
-> Niektóre funkcje fuzji w usłudze Azure Sentinel są obecnie w publicznej wersji zapoznawczej.
-> Te funkcje są dostarczane bez umowy dotyczącej poziomu usług i nie jest zalecane dla obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Niektóre funkcje Fusion na platformie Azure wskaźnikowej są obecnie dostępne w publicznej wersji zapoznawczej.
+> Te funkcje są udostępniane bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 
-Korzystając z technologii Fusion, która jest oparta na uczeniu maszynowym, usługa Azure Sentinel może automatycznie wykrywać ataki wieloetapowe, łącząc nietypowe zachowania i podejrzane działania obserwowane na różnych etapach łańcucha zabijania. Usługa Azure Sentinel następnie generuje zdarzenia, które w przeciwnym razie byłyby bardzo trudne do wyłowienia. Te zdarzenia obejmują dwa lub więcej alertów lub działań. Zgodnie z projektem te zdarzenia są niskiej głośności, wysokiej wierności i wysokiej ważności.
+Korzystając z technologii Fusion, która jest oparta na uczeniu maszynowym, wskaźnik platformy Azure może automatycznie wykrywać ataki potokach wieloetapowych przez połączenie anomalii zachowań i podejrzanych działań, które są obserwowane na różnych etapach łańcucha kasowania. Na platformie Azure wskaźnik wygeneruje zdarzenia, które w przeciwnym razie byłyby trudne do przechwycenia. Zdarzenia te obejmowaćą co najmniej dwa alerty lub działania. Zgodnie z projektem te zdarzenia to małe ilości, wysoka wierność i wysoka ważność.
 
-Dostosowane do środowiska wykrywanie to nie tylko zmniejsza wskaźniki fałszywie dodatnie, ale może również wykrywać ataki z ograniczonymi lub brakującymi informacjami.
+Takie rozwiązanie jest dostosowane do danego środowiska, ale nie tylko skraca fałszywe dodatnie stawki, ale mogą również wykrywać ataki z ograniczoną lub brakującymi informacjami.
 
 ## <a name="configuration-for-advanced-multistage-attack-detection"></a>Konfiguracja zaawansowanego wieloetapowego wykrywania ataków
 
-To wykrywanie jest domyślnie włączone w usłudze Azure Sentinel. Aby sprawdzić stan lub wyłączyć go być może dlatego, że używasz alternatywnego rozwiązania do tworzenia zdarzeń na podstawie wielu alertów, należy użyć następujących instrukcji:
+To wykrywanie jest domyślnie włączone w wskaźniku na platformie Azure. Aby sprawdzić stan lub wyłączyć go prawdopodobnie z powodu użycia alternatywnego rozwiązania do tworzenia zdarzeń na podstawie wielu alertów, wykonaj następujące instrukcje:
 
 1. Jeśli jeszcze tego nie zrobiono, zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Przejdź do **usługi Azure Sentinel** > **Configuration** > **Analytics**
+2. Przejdź do **usługi Azure wskaźnik** > **konfiguracji** > **analizy**
 
-3. Wybierz **aktywne reguły** i znajdź **zaawansowane wieloetapowe wykrywanie ataków** w kolumnie **NAZWA.** Sprawdź kolumnę **STAN,** aby sprawdzić, czy to wykrywanie jest włączone, czy wyłączone.
+3. Wybierz pozycję **aktywne reguły** i Znajdź **Zaawansowane wykrywanie ataków potokach wieloetapowych** w kolumnie **Nazwa** . Sprawdź kolumnę **stan** , aby sprawdzić, czy to wykrywanie jest włączone czy wyłączone.
 
-4. Aby zmienić stan, wybierz ten wpis i na bloku **Zaawansowane wieloetapowe wykrywanie ataków** wybierz pozycję **Edytuj**.
+4. Aby zmienić stan, wybierz ten wpis i w bloku **Zaawansowane wykrywanie ataków potokach wieloetapowych** wybierz pozycję **Edytuj**.
 
-5. W bloku **Kreatora tworzenia reguł** zmiana stanu jest automatycznie wybierana, więc wybierz **pozycję Dalej: Przejrzyj**, a następnie **zapisz**. 
+5. W bloku **Kreator tworzenia reguł** zmiana stanu jest automatycznie wybierana, więc wybierz kolejno pozycje **Dalej: przegląd**i **Zapisz**. 
 
-Szablony reguł nie mają zastosowania do zaawansowanego wykrywania ataków wieloetapowych.
+Szablony reguł nie mają zastosowania w przypadku zaawansowanego wykrywania ataków potokach wieloetapowych.
 
 > [!NOTE]
-> Usługa Azure Sentinel używa obecnie 30 dni danych historycznych do szkolenia systemów uczenia maszynowego. Te dane są zawsze szyfrowane przy użyciu kluczy firmy Microsoft, gdy przechodzi przez potok uczenia maszynowego. Jednak dane szkoleniowe nie są szyfrowane przy użyciu [kluczy zarządzanych klienta (CMK),](customer-managed-keys.md) jeśli włączono cmk w obszarze roboczym usługi Azure Sentinel. Aby zrezygnować z fusion, przejdź do **reguły Azure Sentinel** \> **Configuration** \> **Analytics \> Active \> Zaawansowane wieloetapowe wykrywanie ataków** i w kolumnie **Stan** wybierz **pozycję Wyłącz.**
+> Dane historyczne platformy Azure są obecnie wykorzystywane do uczenia systemów uczenia maszynowego w ciągu 30 dni od danych historycznych. Te dane są zawsze szyfrowane przy użyciu kluczy firmy Microsoft, które są przekazywane przez potok uczenia maszynowego. Jednak dane szkoleniowe nie są szyfrowane przy użyciu [kluczy zarządzanych przez klienta (CMK)](customer-managed-keys.md) , jeśli włączono CMK w obszarze roboczym wskaźnikowego platformy Azure. Aby zrezygnować z fuzji, przejdź do obszaru **Azure wskaźnik** \> **konfiguracji** \> ** \> analizy \> ** , a następnie w kolumnie **stan** kliknij pozycję **Wyłącz.**
 
-## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-atp"></a>Fuzja za pomocą Palo Alto Networks i Microsoft Defender ATP
+## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-atp"></a>Łączenie przy użyciu sieci Palo Alto i usługi Microsoft Defender ATP
 
-Te scenariusze łączą dwa podstawowe dzienniki używane przez analityków zabezpieczeń: dzienniki zapory z sieci Palo Alto Networks i dzienniki wykrywania punktów końcowych z usługi Microsoft Defender ATP. We wszystkich scenariuszach wymienionych poniżej podejrzana aktywność jest wykrywana w punkcie końcowym, który obejmuje zewnętrzny adres IP, a następnie następuje nietypowy ruch z zewnętrznego adresu IP z powrotem do zapory. W dziennikach Palo Alto usługa Azure Sentinel koncentruje się na [dziennikach zagrożeń,](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)a ruch jest uważany za podejrzany, gdy dozwolone są zagrożenia (podejrzane dane, pliki, powodzie, pakiety, skany, programy szpiegujące, adresy URL, wirusy, luki w zabezpieczeniach, wirusy pożarów, pożary).
+Te scenariusze łączą dwa podstawowe dzienniki używane przez analityków zabezpieczeń: Dzienniki zapory z sieci Palo Alto i dzienników wykrywania punktów końcowych z usługi Microsoft Defender ATP. We wszystkich scenariuszach wymienionych poniżej zostanie wykryte podejrzane działanie w punkcie końcowym, które obejmuje zewnętrzny adres IP, po którym następuje nietypowy ruch z zewnętrznego adresu IP z powrotem do zapory. W Palo Alto dzienników wskaźnik platformy Azure koncentruje się na [dziennikach zagrożeń](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), a ruch jest uznawany za podejrzany, gdy zagrożenia są dozwolone (podejrzane dane, pliki, zalewania, pakiety, skanowania, programy szpiegujące, adresy URL, wirusy, luki, pożarem-wirusy, Wildfires).
 
-### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Żądanie sieciowe do usługi anonimizacji TOR, a następnie nietypowy ruch oznaczony przez zaporę Palo Alto Networks.
+### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Żądanie sieciowe do sieci TOR zachowywanie anonimowości, po którym następuje anomalia ruch oflagowany przez zaporę Palo Alto Networks.
 
-W tym scenariuszu usługa Azure Sentinel najpierw wykrywa alert, że usługa Microsoft Defender Advanced Threat Protection wykryła żądanie sieciowe do usługi anonimizacji TOR, która prowadzi do nietypowej aktywności. Zostało to zainicjowane przy podstawie konta {nazwa konta} o identyfikatorze SID {sid} w {time}. Wychodzący adres IP do połączenia to {IndividualIp}.
-Następnie nietypowa aktywność została wykryta przez Zaporę sieci Palo Alto w {TimeGenerated}. Oznacza to, że złośliwy ruch wszedł do sieci Docelowy adres IP dla ruchu sieciowego to {DestinationIP}.
-
-Ten scenariusz jest obecnie w publicznej wersji zapoznawczej.
-
-
-### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Program PowerShell nawiązał podejrzane połączenie sieciowe, a następnie nietypowy ruch oznaczony przez zaporę Palo Alto Networks.
-
-W tym scenariuszu usługa Azure Sentinel najpierw wykrywa alert, że usługa Microsoft Defender Advanced Threat Protection wykryła, że program PowerShell nawiązał podejrzane połączenie sieciowe, co doprowadziło do nietypowej aktywności wykrytej przez zaporę sieciową Palo Alto. Zostało to zainicjowane przez konto {nazwa konta} o identyfikatorze SID {sid} w {time}. Wychodzący adres IP do połączenia to {IndividualIp}. Następnie nietypowa aktywność została wykryta przez Zaporę sieci Palo Alto w {TimeGenerated}. Oznacza to, że złośliwy ruch trafił do sieci. Docelowy adres IP dla ruchu sieciowego to {DestinationIP}.
-
-Ten scenariusz jest obecnie w publicznej wersji zapoznawczej.
-
-### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Połączenie wychodzące z adresem IP z historią prób nieautoryzowanego dostępu, po których następuje nietypowy ruch oznaczony przez zaporę Palo Alto Networks
-
-W tym scenariuszu usługa Azure Sentinel wykrywa alert, że usługa Microsoft Defender Advanced Threat Protection wykryła połączenie wychodzące z adresem IP z historią prób nieautoryzowanego dostępu, które prowadzą do wykrycia nietypowej aktywności przez Palo Alto Zapora sieciowa. Zostało to zainicjowane przez konto {nazwa konta} o identyfikatorze SID {sid} w {time}. Wychodzący adres IP do połączenia to {IndividualIp}. Następnie nietypowa aktywność została wykryta przez Zaporę sieci Palo Alto w {TimeGenerated}. Oznacza to, że złośliwy ruch trafił do sieci. Docelowy adres IP dla ruchu sieciowego to {DestinationIP}.
+W tym scenariuszu wskaźnik na platformie Azure najpierw wykrywa alert informujący o tym, że usługa Microsoft Defender Advanced Threat Protection wykryła żądanie sieciowe do usługi TOR zachowywanie anonimowości, która prowadzi do nietypowej aktywności. Ta Inicjalizacja została zainicjowana w ramach konta {account name} z IDENTYFIKATORem SID {SID} o godzinie {Time}. Wychodzący adres IP do połączenia: {IndividualIp}.
+Następnie nietypowe działanie zostało wykryte przez zaporę Palo Alto Networks pod adresem {TimeGenerated}. Wskazuje to na złośliwy ruch wprowadzony w sieci, docelowy adres IP dla ruchu sieciowego to {DestinationIP}.
 
 Ten scenariusz jest obecnie w publicznej wersji zapoznawczej.
 
 
+### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Program PowerShell wykonał podejrzane połączenie sieciowe, a następnie nietypowy ruch oflagowany przez zaporę Palo Alto Networks.
 
-## <a name="fusion-using-identity-protection-and-microsoft-cloud-app-security"></a>Fuzja za pomocą ochrony tożsamości i zabezpieczeń aplikacji Microsoft Cloud App
+W tym scenariuszu wskaźnik na platformie Azure najpierw wykrywa alert informujący o tym, że usługa Microsoft Defender Advanced Threat Protection wykryła podejrzane połączenie sieciowe prowadzące do nietypowego działania wykrytego przez zaporę sieci Palo Alto. Ta nazwa została zainicjowana przez konto {Account Name} z IDENTYFIKATORem SID {SID} o godzinie {Time}. Wychodzący adres IP do połączenia: {IndividualIp}. Następnie nietypowe działanie zostało wykryte przez zaporę Palo Alto Networks pod adresem {TimeGenerated}. Oznacza to, że złośliwy ruch został wprowadzony w sieci. Docelowy adres IP dla ruchu sieciowego to {DestinationIP}.
 
-Korzystając z zaawansowanego wykrywania ataków wieloetapowych, usługa Azure Sentinel obsługuje następujące scenariusze, które łączą zdarzenia anomalii z usługi Azure Active Directory Identity Protection i Microsoft Cloud App Security:
+Ten scenariusz jest obecnie w publicznej wersji zapoznawczej.
 
-- [Niemożliwe podróżowanie do nietypowej lokalizacji, a następnie nietypowa aktywność usługi Office 365](#impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity)
-- [Działanie logowania w nieznanej lokalizacji, po której następuje nietypowa aktywność usługi Office 365](#sign-in-activity-for-unfamiliar-location-followed-by-anomalous-office-365-activity)
-- [Aktywność logowania z zainfekowanego urządzenia, po której następuje nietypowa aktywność usługi Office 365](#sign-in-activity-from-infected-device-followed-by-anomalous-office-365-activity)
-- [Aktywność logowania z anonimowego adresu IP, po której następuje nietypowa aktywność usługi Office 365](#sign-in-activity-from-anonymous-ip-address-followed-by-anomalous-office-365-activity)
-- [Działanie logowania użytkownika z wyciekiem poświadczeń, po którym następuje nietypowe działanie usługi Office 365](#sign-in-activity-from-user-with-leaked-credentials-followed-by-anomalous-office-365-activity)
+### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Połączenie wychodzące z adresem IP z historią prób nieautoryzowanego dostępu, po których następuje nietypowy ruch oflagowany przez zaporę Palo Alto Networks
 
-Musisz mieć skonfigurowany [łącznik danych usługi Azure AD Identity Protection](connect-azure-ad-identity-protection.md) i łączniki usługi Cloud App [Security.](connect-cloud-app-security.md)
+W tym scenariuszu badanie wskaźnikowe platformy Azure wykrywa alert informujący o tym, że usługa Microsoft Defender Advanced Threat Protection wykryła połączenie wychodzące z adresem IP ze historięm nieautoryzowanych prób dostępu, które prowadzą do wykrycia nietypowego działania przez zaporę Palo Alto Networks. Ta nazwa została zainicjowana przez konto {Account Name} z IDENTYFIKATORem SID {SID} o godzinie {Time}. Wychodzący adres IP do połączenia: {IndividualIp}. Po wykonaniu tej czynności nietypowe działanie zostało wykryte przez zaporę Palo Alto Networks pod adresem {TimeGenerated}. Oznacza to, że złośliwy ruch został wprowadzony w sieci. Docelowy adres IP dla ruchu sieciowego to {DestinationIP}.
 
-W kolejnych opisach usługa Azure Sentinel wyświetli rzeczywistą wartość z danych, która jest reprezentowana na tej stronie jako zmienne w nawiasach. Na przykład rzeczywista nazwa wyświetlana \<konta, a nie *nazwa konta*>, a rzeczywista liczba, \<a nie *liczba*>.
-
-### <a name="impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity"></a>Niemożliwe podróżowanie do nietypowej lokalizacji, a następnie nietypowa aktywność usługi Office 365
-
-Istnieje siedem możliwych zdarzeń usługi Azure Sentinel, które łączą niemożliwe podróże do nietypowych alertów lokalizacji z usługi Azure AD Identity Protection i nietypowych alertów usługi Office 365 generowanych przez usługę Microsoft Cloud App Security:
-
-- **Niemożliwe podróż do nietypowych miejsc prowadzących do eksfiltracji skrzynek pocztowych usługi Office 365**
-    
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta,*> z \<niemożliwej podróży do *lokalizacji*>, nietypowej lokalizacji, po której na skrzynce odbiorczej użytkownika ustawiono podejrzaną regułę przekazywania skrzynki odbiorczej.
-    
-    Może to oznaczać, że konto zostało przejęte i że skrzynka pocztowa jest używana do eksfiltracji informacji z organizacji. Nazwa \< *konta* użytkownika> utworzona lub zaktualizowana reguła przekazywania w skrzynce \<odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na *adres e-mail* zewnętrznego>.
-
-- **Niemożliwe podróżowanie do nietypowych miejsc prowadzących do podejrzanej aktywności administracyjnej aplikacji w chmurze**
-    
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta*> z \<niemożliwej podróży do *lokalizacji*>, nietypowej lokalizacji.
-    
-    Następnie nazwa \< *konta*> wykonywane przez \< *liczbę*> działania administracyjne w jednej sesji.
-
-- **Niemożliwe podróż do nietypowych miejsc prowadzących do masowego usuwania plików**
-    
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta* \<> do *lokalizacji*>, nietypowej lokalizacji. 
-    
-    Następnie nazwa \< *konta*> \< *usunięto liczbę*> unikatowych plików w jednej sesji.
-
-- **Niemożliwe podróż do nietypowych miejsc prowadzących do masowego pobierania plików**
-    
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta*> z \<niemożliwej podróży do *lokalizacji*>, nietypowej lokalizacji. 
-    
-    Następnie nazwa \< *konta*> pobrana z \< *liczby*> unikatowych plików w jednej sesji.
-
-- **Niemożliwe podróżowanie do nietypowych lokalizacji prowadzących do podszywania się pod office 365**
-    
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta*> z \<niemożliwej podróży do *lokalizacji*>, nietypowej lokalizacji. 
-    
-    Następnie nazwa \< *konta*> wykonała nietypową\<kwotę *(liczbę działań*>) działań związanych z personifikacją w jednej sesji.
-
-- **Niemożliwe podróż do nietypowych miejsc prowadzących do masowego udostępniania plików**
-    
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta*> z \<niemożliwej podróży do *lokalizacji*>, nietypowej lokalizacji. 
-    
-    Następnie nazwa \< *konta*> udostępniana przez \< *liczbę*> unikatowych plików w jednej sesji.
-
-- **Niemożliwe podróż do nietypowych miejsc prowadzących do ransomware w aplikacji w chmurze**
-    
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta*> z \<niemożliwej podróży do *lokalizacji*>, nietypowej lokalizacji. 
-    
-    Następnie nazwa \< *konta*> przesłana \< *liczba*> plików i usunięto \<łączną *liczbę* plików>. 
-    
-    Ten wzorzec aktywności wskazuje na potencjalny atak ransomware.
+Ten scenariusz jest obecnie w publicznej wersji zapoznawczej.
 
 
-### <a name="sign-in-activity-for-unfamiliar-location-followed-by-anomalous-office-365-activity"></a>Działanie logowania w nieznanej lokalizacji, po której następuje nietypowa aktywność usługi Office 365
 
-Istnieje siedem możliwych zdarzeń usługi Azure Sentinel, które łączą aktywność logowania dla nieznanych alertów lokalizacji z usługi Azure AD Identity Protection i nietypowych alertów usługi Office 365 generowanych przez usługę Microsoft Cloud App Security.
+## <a name="fusion-using-identity-protection-and-microsoft-cloud-app-security"></a>Łączenie przy użyciu usługi Identity Protection i Microsoft Cloud App Security
 
-- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do eksfiltracji skrzynki pocztowej usługi Exchange Online**
-    
-    Ten \<alert wskazuje zdarzenie logowania według nazwy *konta,*> \<z *lokalizacji*> nieznanej lokalizacji, po której w skrzynce odbiorczej użytkownika ustawiono podejrzaną regułę przekazywania skrzynki odbiorczej.
-    
-    Może to oznaczać, że konto zostało przejęte i że skrzynka pocztowa jest używana do eksfiltracji informacji z organizacji. Nazwa \< *konta* użytkownika> utworzona lub zaktualizowana reguła przekazywania w skrzynce \<odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na *adres e-mail* zewnętrznego>. 
+Przy użyciu zaawansowanego wykrywania ataków potokach wieloetapowych usługa Azure — Wskaźnikowanie obsługuje następujące scenariusze, które łączą zdarzenia anomalii z Azure Active Directory Identity Protection i Microsoft Cloud App Security:
 
-- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do podejrzanej aktywności administracyjnej aplikacji w chmurze**
-    
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta* \<> od *lokalizacji*>, nieznanej lokalizacji. 
-    
-    Następnie nazwa \< *konta*> wykonywane w \< *ciągu kilku*> działań administracyjnych w jednej sesji.
+- [Niemożliwa podróż do nietypowej lokalizacji, po której następuje nietypowe działanie związane z pakietem Office 365](#impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity)
+- [Działania związane z logowaniem dla nieznanej lokalizacji, po której występuje nietypowe działanie pakietu Office 365](#sign-in-activity-for-unfamiliar-location-followed-by-anomalous-office-365-activity)
+- [Aktywność logowania z zainfekowanego urządzenia, po którym następuje nietypowe działanie związane z pakietem Office 365](#sign-in-activity-from-infected-device-followed-by-anomalous-office-365-activity)
+- [Aktywność logowania z anonimowego adresu IP, po którym następuje nietypowe działanie pakietu Office 365](#sign-in-activity-from-anonymous-ip-address-followed-by-anomalous-office-365-activity)
+- [Działania związane z logowaniem z użytkownika z nieujawnionymi poświadczeniami, po których następuje nietypowe działanie związane z pakietem Office 365](#sign-in-activity-from-user-with-leaked-credentials-followed-by-anomalous-office-365-activity)
 
-- **Zdarzenie logowania z nieznanej lokalizacji prowadzące do masowego usunięcia pliku**
-    
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta* \<> od *lokalizacji*>, nieznanej lokalizacji. 
-    
-    Następnie nazwa \< *konta*> \< *usunięto liczbę*> unikatowych plików w jednej sesji.
+Konieczne jest posiadanie [łącznika danych Azure AD Identity Protection](connect-azure-ad-identity-protection.md) i skonfigurowanych łączników [Cloud App Security](connect-cloud-app-security.md) .
 
-- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do masowego pobierania plików**
-    
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta* \<> od *lokalizacji*>, nieznanej lokalizacji. 
-    
-    Następnie nazwa \< *konta*> pobrana z \< *liczby*> unikatowych plików w jednej sesji.
+W opisach, które obserwują, wskaźnik na platformie Azure będzie wyświetlał rzeczywistą wartość z danych przedstawionych na tej stronie jako zmienne w nawiasach. Na przykład rzeczywista nazwa wyświetlana konta, a nie \< *nazwa konta*> i rzeczywista liczba, a nie \< *Liczba*>.
 
-- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do podszywania się pod urząd usługi Office 365**
+### <a name="impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity"></a>Niemożliwa podróż do nietypowej lokalizacji, po której następuje nietypowe działanie związane z pakietem Office 365
+
+Istnieje siedem możliwych zdarzeń na platformie Azure, które łączą niemożliwa podróż do nietypowych alertów dotyczących lokalizacji z Azure AD Identity Protection i nietypowych alertów pakietu Office 365 generowanych przez Microsoft Cloud App Security:
+
+- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do eksfiltracji skrzynek pocztowych pakietu Office 365**
     
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta* \<> od *lokalizacji*>, nieznanej lokalizacji.
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> od niemożliwego przejazdu do \< *lokalizacji*>, nietypowej lokalizacji, po której nastąpi podejrzana reguła przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika.
     
-    Następnie nazwa \< *konta*> podszywana nad \< *liczbą*> różnych kont w jednej sesji.
+    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. \< *Nazwa konta* użytkownika> utworzyć lub zaktualizować regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na \< *adres e-mail* adresu zewnętrznego>.
+
+- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do podejrzanych działań administracyjnych aplikacji w chmurze**
+    
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> od niemożliwego przejazdu do \< *lokalizacji*>, nietypowej lokalizacji.
+    
+    Następnie \< *nazwa konta* konta> przeprowadzona przez \< *liczbę*> działania administracyjne w ramach jednej sesji.
+
+- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do usunięcia pliku masowego**
+    
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> do \< *lokalizacji*>, nietypowej lokalizacji. 
+    
+    Następnie \< *nazwa konta* konta> usunięta \< *Liczba*> unikatowych plików w ramach jednej sesji.
+
+- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do pobrania pliku masowego**
+    
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> od niemożliwego przejazdu do \< *lokalizacji*>, nietypowej lokalizacji. 
+    
+    Następnie \< *nazwa konta* konta> pobrana przez \< *liczbę*> unikatowych plików w ramach jednej sesji.
+
+- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do personifikacji pakietu Office 365**
+    
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> od niemożliwego przejazdu do \< *lokalizacji*>, nietypowej lokalizacji. 
+    
+    Następnie \< *nazwa konta* konta> wykonywania nietypowej\<*ilości działań personifikacji (>* ) w ramach jednej sesji.
+
+- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do masowego udostępniania plików**
+    
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> od niemożliwego przejazdu do \< *lokalizacji*>, nietypowej lokalizacji. 
+    
+    Następnie \< *nazwa konta* konta> współużytkowana przez \< *wiele*> unikatowych plików w ramach jednej sesji.
+
+- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do oprogramowania wymuszającego okup w aplikacji w chmurze**
+    
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> od niemożliwego przejazdu do \< *lokalizacji*>, nietypowej lokalizacji. 
+    
+    Następnie \< *nazwa konta* konta> przekazana \< *Liczba* plików> i usunięto łączną \< *liczbę* plików>. 
+    
+    Ten wzorzec aktywności jest wskaźnikiem potencjalnego ataku z wykorzystaniem oprogramowania wymuszającego okup.
+
+
+### <a name="sign-in-activity-for-unfamiliar-location-followed-by-anomalous-office-365-activity"></a>Działania związane z logowaniem dla nieznanej lokalizacji, po której występuje nietypowe działanie pakietu Office 365
+
+Istnieje siedem możliwych zdarzeń związanych z platformą Azure, które łączą działania związane z logowaniem w przypadku nieznanych alertów dotyczących lokalizacji z Azure AD Identity Protection i nietypowych alertów pakietu Office 365 generowanych przez Microsoft Cloud App Security.
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do usługi Exchange Online Skrzynka pocztowa eksfiltracji**
+    
+    Ten alert to wskazanie zdarzenia logowania według \< *nazwy konta*> z \< *lokalizacji*>, nieznanej lokalizacji, a po niej została ustawiona podejrzana reguła przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika.
+    
+    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. \< *Nazwa konta* użytkownika> utworzyć lub zaktualizować regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na \< *adres e-mail* adresu zewnętrznego>. 
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do podejrzanych działań administracyjnych aplikacji w chmurze**
+    
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *lokalizacji*>, nieznanej lokalizacji. 
+    
+    Następnie \< *nazwa konta* konta> wykonana \< *na> działania administracyjne w ramach jednej* sesji.
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do usunięcia pliku masowego**
+    
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *lokalizacji*>, nieznanej lokalizacji. 
+    
+    Następnie \< *nazwa konta* konta> usunięta \< *Liczba*> unikatowych plików w ramach jednej sesji.
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do pobrania pliku masowego**
+    
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *lokalizacji*>, nieznanej lokalizacji. 
+    
+    Następnie \< *nazwa konta* konta> pobrana przez \< *liczbę*> unikatowych plików w ramach jednej sesji.
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do personifikacji pakietu Office 365**
+    
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *lokalizacji*>, nieznanej lokalizacji.
+    
+    Następnie \< *nazwa konta* konta> personifikowana przez \< *liczbę*> różnych kont w ramach jednej sesji.
 
 - **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do masowego udostępniania plików**
     
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta* \<> od *lokalizacji*>, nieznanej lokalizacji. 
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *lokalizacji*>, nieznanej lokalizacji. 
     
-    Następnie nazwa \< *konta*> udostępniana przez \< *liczbę*> unikatowych plików w jednej sesji.
+    Następnie \< *nazwa konta* konta> współużytkowana przez \< *wiele*> unikatowych plików w ramach jednej sesji.
 
-- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do ransomware w aplikacji w chmurze**
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do oprogramowania wymuszającego okup w aplikacji w chmurze**
     
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta* \<> od *lokalizacji*>, nieznanej lokalizacji. 
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *lokalizacji*>, nieznanej lokalizacji. 
     
-    Następnie nazwa \< *konta*> przesłana \< *liczba*> plików i usunięto \<łączną *liczbę* plików>. 
+    Następnie \< *nazwa konta* konta> przekazana \< *Liczba* plików> i usunięto łączną \< *liczbę* plików>. 
     
-    Ten wzorzec aktywności wskazuje na potencjalny atak ransomware.
+    Ten wzorzec aktywności jest wskaźnikiem potencjalnego ataku z wykorzystaniem oprogramowania wymuszającego okup.
 
-### <a name="sign-in-activity-from-infected-device-followed-by-anomalous-office-365-activity"></a>Aktywność logowania z zainfekowanego urządzenia, po której następuje nietypowa aktywność usługi Office 365
+### <a name="sign-in-activity-from-infected-device-followed-by-anomalous-office-365-activity"></a>Aktywność logowania z zainfekowanego urządzenia, po którym następuje nietypowe działanie związane z pakietem Office 365
 
-Istnieje siedem możliwych zdarzeń usługi Azure Sentinel, które łączą aktywność logowania z zainfekowanych alertów urządzeń z usługi Azure AD Identity Protection i nietypowych alertów usługi Office 365 generowanych przez usługę Microsoft Cloud App Security:
+Istnieje siedem możliwych zdarzeń związanych z systemem Azure, które łączą aktywność logowania z poziomu alertów z zainfekowanych urządzeń z Azure AD Identity Protection i nietypowych alertów Office 365 generowanych przez Microsoft Cloud App Security:
 
-- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do eksfiltracji skrzynek pocztowych usługi Office 365**
+- **Zdarzenie logowania z zainfekowanego urządzenia wiodącego w skrzynce pocztowej usługi Office 365 eksfiltracji**
     
-    Ten alert wskazuje zdarzenie logowania według \<nazwy *konta,*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem, po którym w skrzynce odbiorczej użytkownika ustawiono podejrzaną regułę przekazywania skrzynek odbiorczych.
+    Ten alert to wskazanie zdarzenia logowania według \< *nazwy konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem, po czym została ustawiona podejrzana reguła przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika.
     
-    Może to oznaczać, że konto zostało przejęte i że skrzynka pocztowa jest używana do eksfiltracji informacji z organizacji. Nazwa \< *konta* użytkownika> utworzona lub zaktualizowana reguła przekazywania w skrzynce \<odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na *adres e-mail* zewnętrznego>. 
+    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. \< *Nazwa konta* użytkownika> utworzyć lub zaktualizować regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na \< *adres e-mail* adresu zewnętrznego>. 
 
-- **Zdarzenie logowania z zainfekowanego urządzenia prowadzące do podejrzanej aktywności administracyjnej aplikacji w chmurze**
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do podejrzanych działań administracyjnych aplikacji w chmurze**
     
-    Ten alert wskazuje zdarzenie logowania według \<nazwy *konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem.
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem.
     
-    Następnie nazwa \< *konta*> wykonywane w \< *ciągu kilku*> działań administracyjnych w jednej sesji.
+    Następnie \< *nazwa konta* konta> wykonana \< *na> działania administracyjne w ramach jednej* sesji.
 
-- **Zdarzenie logowania z zainfekowanego urządzenia prowadzące do masowego usunięcia pliku**
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do usunięcia pliku masowego**
     
-    Ten alert wskazuje zdarzenie logowania według \<nazwy *konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem. 
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem. 
     
-    Następnie nazwa \< *konta*> \< *usunięto liczbę*> unikatowych plików w jednej sesji.
+    Następnie \< *nazwa konta* konta> usunięta \< *Liczba*> unikatowych plików w ramach jednej sesji.
 
-- **Zdarzenie logowania z zainfekowanego urządzenia prowadzące do masowego pobierania plików**
+- **Zdarzenie logowania z zainfekowanego urządzenia, które prowadzi do pobrania pliku masowego**
     
-    Ten alert wskazuje zdarzenie logowania według \<nazwy *konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem. 
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem. 
     
-    Następnie nazwa \< *konta*> pobrana z \< *liczby*> unikatowych plików w jednej sesji.
+    Następnie \< *nazwa konta* konta> pobrana przez \< *liczbę*> unikatowych plików w ramach jednej sesji.
 
-- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do personifikacji usługi Office 365**
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do personifikacji pakietu Office 365**
     
-    Ten alert wskazuje zdarzenie logowania według \<nazwy *konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem. 
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem. 
     
-    Następnie nazwa \< *konta*> podszywana nad \< *liczbą*> różnych kont w jednej sesji.
+    Następnie \< *nazwa konta* konta> personifikowana przez \< *liczbę*> różnych kont w ramach jednej sesji.
 
-- **Zdarzenie logowania z zainfekowanego urządzenia prowadzące do masowego udostępniania plików**
+- **Zdarzenie logowania z zainfekowanego urządzenia, które prowadzi do masowego udostępniania plików**
     
-    Ten alert wskazuje zdarzenie logowania według \<nazwy *konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem. 
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem. 
     
-    Następnie nazwa \< *konta*> udostępniana przez \< *liczbę*> unikatowych plików w jednej sesji.
+    Następnie \< *nazwa konta* konta> współużytkowana przez \< *wiele*> unikatowych plików w ramach jednej sesji.
 
-- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do ransomware w aplikacji w chmurze**
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do oprogramowania wymuszającego okup w aplikacji w chmurze**
     
-    Ten alert wskazuje zdarzenie logowania według \<nazwy *konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem. 
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem. 
     
-    Następnie nazwa \< *konta*> przesłana \< *liczba*> plików i usunięto \<łączną *liczbę* plików>. 
+    Następnie \< *nazwa konta* konta> przekazana \< *Liczba* plików> i usunięto łączną \< *liczbę* plików>. 
     
-    Ten wzorzec aktywności wskazuje na potencjalny atak ransomware.
+    Ten wzorzec aktywności jest wskaźnikiem potencjalnego ataku z wykorzystaniem oprogramowania wymuszającego okup.
 
-### <a name="sign-in-activity-from-anonymous-ip-address-followed-by-anomalous-office-365-activity"></a>Aktywność logowania z anonimowego adresu IP, po której następuje nietypowa aktywność usługi Office 365
+### <a name="sign-in-activity-from-anonymous-ip-address-followed-by-anomalous-office-365-activity"></a>Aktywność logowania z anonimowego adresu IP, po którym następuje nietypowe działanie pakietu Office 365
 
-Istnieje siedem możliwych zdarzeń usługi Azure Sentinel, które łączą aktywność logowania z anonimowych alertów adresów IP z usługi Azure AD Identity Protection i nietypowych alertów usługi Office 365 generowanych przez usługę Microsoft Cloud App Security:
+Istnieje siedem możliwych zdarzeń związanych z systemem Azure, które łączą aktywność logowania z alertów anonimowych adresów IP z Azure AD Identity Protection i anomalii alertów pakietu Office 365 generowanych przez Microsoft Cloud App Security:
 
-- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do eksfiltracji skrzynek pocztowych usługi Office 365**
+- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do skrzynki pocztowej pakietu Office 365 eksfiltracji**
     
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta,*> z \<adresu *IP* anonimowego serwera proxy>, po którym w skrzynce odbiorczej użytkownika ustawiono podejrzaną regułę przekazywania skrzynek odbiorczych.
+    Ten alert to wskazanie zdarzenia logowania według \< *nazwy konta*> z \< *adresu IP* anonimowego adresu IP serwera proxy>, po którym ustawiono podejrzaną regułę przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika.
     
-    Może to oznaczać, że konto zostało przejęte i że skrzynka pocztowa jest używana do eksfiltracji informacji z organizacji. Nazwa \< *konta* użytkownika> utworzona lub zaktualizowana reguła przekazywania w skrzynce \<odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na *adres e-mail* zewnętrznego>. 
+    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. \< *Nazwa konta* użytkownika> utworzyć lub zaktualizować regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na \< *adres e-mail* adresu zewnętrznego>. 
 
-- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do podejrzanej aktywności administracyjnej aplikacji w chmurze**
+- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do podejrzanych działań administracyjnych aplikacji w chmurze**
     
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta*> z adresu \< *IP* anonimowego serwera proxy>. 
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *adresu IP* anonimowego adresu IP serwera proxy>. 
     
-    Następnie nazwa \< *konta*> wykonywane w \< *ciągu kilku*> działań administracyjnych w jednej sesji.
+    Następnie \< *nazwa konta* konta> wykonana \< *na> działania administracyjne w ramach jednej* sesji.
 
-- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do masowego usunięcia pliku**
+- **Zdarzenie logowania z anonimowego adresu IP prowadzące do usunięcia pliku masowego**
     
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta*> z adresu \< *IP* anonimowego serwera proxy>. 
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *adresu IP* anonimowego adresu IP serwera proxy>. 
     
-    Następnie nazwa \< *konta*> \< *usunięto liczbę*> unikatowych plików w jednej sesji.
+    Następnie \< *nazwa konta* konta> usunięta \< *Liczba*> unikatowych plików w ramach jednej sesji.
 
-- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do masowego pobierania plików**
+- **Zdarzenie logowania z anonimowego adresu IP prowadzące do pobierania pliku masowego**
     
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta*> z adresu \< *IP* anonimowego serwera proxy>. 
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *adresu IP* anonimowego adresu IP serwera proxy>. 
     
-    Następnie nazwa \< *konta*> pobrana z \< *liczby*> unikatowych plików w jednej sesji.
+    Następnie \< *nazwa konta* konta> pobrana przez \< *liczbę*> unikatowych plików w ramach jednej sesji.
 
-- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do personifikacji usługi Office 365**
+- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do personifikacji pakietu Office 365**
     
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta*> z adresu \< *IP* anonimowego serwera proxy>. 
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *adresu IP* anonimowego adresu IP serwera proxy>. 
     
-    Następnie nazwa \< *konta*> podszywana nad \< *liczbą*> różnych kont w jednej sesji.
+    Następnie \< *nazwa konta* konta> personifikowana przez \< *liczbę*> różnych kont w ramach jednej sesji.
 
-- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do masowego udostępniania plików**
+- **Zdarzenie logowania z anonimowego adresu IP, które prowadzi do masowego udostępniania plików**
     
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta*> z adresu \< *IP* anonimowego serwera proxy>. 
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *adresu IP* anonimowego adresu IP serwera proxy>. 
     
-    Następnie nazwa \< *konta*> udostępniana przez \< *liczbę*> unikatowych plików w jednej sesji.
+    Następnie \< *nazwa konta* konta> współużytkowana przez \< *wiele*> unikatowych plików w ramach jednej sesji.
 
-- **Zdarzenie logowania z anonimowego adresu IP do oprogramowania ransomware w aplikacji w chmurze**
+- **Zdarzenie logowania z anonimowego adresu IP do oprogramowania wymuszającego okup w aplikacji w chmurze**
     
-    Ten alert jest wskazaniem zdarzenia logowania \<według *nazwy konta*> z adresu \< *IP* anonimowego serwera proxy>. 
+    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *adresu IP* anonimowego adresu IP serwera proxy>. 
     
-    Następnie nazwa \< *konta*> przesłana \< *liczba*> plików i usunięto \<łączną *liczbę* plików>. 
+    Następnie \< *nazwa konta* konta> przekazana \< *Liczba* plików> i usunięto łączną \< *liczbę* plików>. 
     
-    Ten wzorzec aktywności wskazuje na potencjalny atak ransomware.
+    Ten wzorzec aktywności jest wskaźnikiem potencjalnego ataku z wykorzystaniem oprogramowania wymuszającego okup.
 
-### <a name="sign-in-activity-from-user-with-leaked-credentials-followed-by-anomalous-office-365-activity"></a>Działanie logowania użytkownika z wyciekiem poświadczeń, po którym następuje nietypowe działanie usługi Office 365
+### <a name="sign-in-activity-from-user-with-leaked-credentials-followed-by-anomalous-office-365-activity"></a>Działania związane z logowaniem z użytkownika z nieujawnionymi poświadczeniami, po których następuje nietypowe działanie związane z pakietem Office 365
 
-Istnieje siedem możliwych zdarzeń usługi Azure Sentinel, które łączą działanie logowania od użytkownika z alertami o wyciekach poświadczeń z usługi Azure AD Identity Protection i nietypowymi alertami usługi Office 365 generowanymi przez usługę Microsoft Cloud App Security:
+Dostępne są siedem zdarzeń wskaźnikowych platformy Azure, które łączą działania związane z logowaniem z użytkownika z alertami dotyczącymi nieujawnionych poświadczeń z Azure AD Identity Protection i anomalii alertów Office 365 generowanych przez Microsoft Cloud App Security:
 
-- **Zdarzenie logowania od użytkownika z wyciekiem poświadczeń prowadzących do eksfiltracji skrzynek pocztowych usługi Office 365**
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do eksfiltracji skrzynek pocztowych pakietu Office 365**
     
-    Ten alert wskazuje, że zdarzenie logowania \<według *nazwy konta*> używane wyciekły poświadczenia, a następnie podejrzana reguła przekazywania skrzynki odbiorczej została ustawiona w skrzynce odbiorczej użytkownika. 
+    Ten alert wskazuje na to, że zdarzenie logowania według \< *nazwy konta*> używało przecieków poświadczeń, a następnie ustawiono podejrzaną regułę przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika. 
     
-    Może to oznaczać, że konto zostało przejęte i że skrzynka pocztowa jest używana do eksfiltracji informacji z organizacji. Nazwa \< *konta* użytkownika> utworzona lub zaktualizowana reguła przekazywania w skrzynce \<odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na *adres e-mail* zewnętrznego>. 
+    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. \< *Nazwa konta* użytkownika> utworzyć lub zaktualizować regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na \< *adres e-mail* adresu zewnętrznego>. 
 
-- **Zdarzenie logowania od użytkownika z wyciekiem poświadczeń prowadzących do podejrzanej aktywności administracyjnej aplikacji w chmurze**
+- **Zdarzenie logowania od użytkownika z nieujawnionymi poświadczeniami prowadzącymi do podejrzanych działań administracyjnych aplikacji w chmurze**
     
-    Ten alert jest wskazanie, że \<zdarzenie logowania według *nazwy konta*> używane wyciekły poświadczenia.
+    Ten alert wskazuje na to, że zdarzenie logowania według \< *nazwy konta*> używało przecieków poświadczeń.
     
-    Następnie nazwa \< *konta*> wykonywane w \< *ciągu kilku*> działań administracyjnych w jednej sesji.
+    Następnie \< *nazwa konta* konta> wykonana \< *na> działania administracyjne w ramach jednej* sesji.
 
-- **Zdarzenie logowania od użytkownika z wyciekiem poświadczeń prowadzących do masowego usunięcia pliku**
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do usunięcia pliku masowego**
     
-    Ten alert jest wskazanie, że \<zdarzenie logowania według *nazwy konta*> używane wyciekły poświadczenia.
+    Ten alert wskazuje na to, że zdarzenie logowania według \< *nazwy konta*> używało przecieków poświadczeń.
     
-    Następnie nazwa \< *konta*> \< *usunięto liczbę*> unikatowych plików w jednej sesji.
+    Następnie \< *nazwa konta* konta> usunięta \< *Liczba*> unikatowych plików w ramach jednej sesji.
 
-- **Zdarzenie logowania od użytkownika z wyciekiem poświadczeń prowadzących do masowego pobierania plików**
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do pobierania pliku masowego**
     
-    Ten alert jest wskazanie, że \<zdarzenie logowania według *nazwy konta*> używane wyciekły poświadczenia.
+    Ten alert wskazuje na to, że zdarzenie logowania według \< *nazwy konta*> używało przecieków poświadczeń.
     
-    Następnie nazwa \< *konta*> pobrana z \< *liczby*> unikatowych plików w jednej sesji.
+    Następnie \< *nazwa konta* konta> pobrana przez \< *liczbę*> unikatowych plików w ramach jednej sesji.
 
-- **Zdarzenie logowania od użytkownika z wyciekiem poświadczeń prowadzących do personifikacji usługi Office 365**
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do personifikacji pakietu Office 365**
     
-    Ten alert jest wskazanie, że \<zdarzenie logowania według *nazwy konta*> używane wyciekły poświadczenia. 
+    Ten alert wskazuje na to, że zdarzenie logowania według \< *nazwy konta*> używało przecieków poświadczeń. 
     
-    Następnie nazwa \< *konta*> podszywana nad \< *liczbą*> różnych kont w jednej sesji.
+    Następnie \< *nazwa konta* konta> personifikowana przez \< *liczbę*> różnych kont w ramach jednej sesji.
 
-- **Zdarzenie logowania od użytkownika z wyciekiem poświadczeń prowadzących do masowego udostępniania plików**
+- **Zdarzenie logowania od użytkownika z nieujawnionymi poświadczeniami prowadzącymi do masowego udostępniania plików**
     
-    Ten alert jest wskazanie, że \<zdarzenie logowania według *nazwy konta*> używane wyciekły poświadczenia.
+    Ten alert wskazuje na to, że zdarzenie logowania według \< *nazwy konta*> używało przecieków poświadczeń.
     
-    Następnie nazwa \< *konta*> udostępniana przez \< *liczbę*> unikatowych plików w jednej sesji.
+    Następnie \< *nazwa konta* konta> współużytkowana przez \< *wiele*> unikatowych plików w ramach jednej sesji.
 
-- **Zdarzenie logowania od użytkownika z wyciekiem poświadczeń do oprogramowania wymuszającego okup w aplikacji w chmurze**
+- **Zdarzenie logowania użytkownika z nieujawnionymi poświadczeniami do oprogramowania wymuszającego okup w aplikacji w chmurze**
     
-    Ten alert jest wskazanie, że \<zdarzenie logowania według *nazwy konta*> używane wyciekły poświadczenia. 
+    Ten alert wskazuje na to, że zdarzenie logowania według \< *nazwy konta*> używało przecieków poświadczeń. 
     
-    Następnie nazwa \< *konta*> przesłana \< *liczba*> plików i usunięto \<łączną *liczbę* plików>. 
+    Następnie \< *nazwa konta* konta> przekazana \< *Liczba* plików> i usunięto łączną \< *liczbę* plików>. 
     
-    Ten wzorzec aktywności wskazuje na potencjalny atak ransomware.
+    Ten wzorzec aktywności jest wskaźnikiem potencjalnego ataku z wykorzystaniem oprogramowania wymuszającego okup.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz dowiesz się więcej o zaawansowanym wieloetapowym wykrywaniu ataków, możesz zainteresować się następującym przewodnikiem Szybki start, aby dowiedzieć się, jak uzyskać wgląd w dane i potencjalne zagrożenia: [Wprowadzenie do usługi Azure Sentinel.](quickstart-get-visibility.md)
+Teraz dowiesz się więcej na temat zaawansowanego wykrywania ataków potokach wieloetapowych. możesz zainteresować się następującymi przewodnikami Szybki Start, aby dowiedzieć się, jak uzyskać wgląd w dane i potencjalne zagrożenia: Rozpoczynanie [pracy z platformą Azure](quickstart-get-visibility.md).
 
-Jeśli chcesz zbadać zdarzenia, które są tworzone dla Ciebie, zobacz następujący samouczek: [Badanie zdarzeń za pomocą usługi Azure Sentinel](tutorial-investigate-cases.md).
+Jeśli wszystko jest gotowe do zbadania zdarzeń utworzonych dla Ciebie, zobacz następujący samouczek: [Zbadaj zdarzenia za pomocą platformy Azure](tutorial-investigate-cases.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Program Spark Connector z bazą danych SQL i programem SQL Server
-description: Dowiedz się, jak używać łącznika Platformy Spark dla bazy danych SQL Azure i programu SQL Server
+title: Łącznik platformy Spark z Azure SQL Database i SQL Server
+description: Dowiedz się, jak używać łącznika Spark dla Azure SQL Database i SQL Server
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,51 +12,51 @@ ms.author: denzilr
 ms.reviewer: carlrab
 ms.date: 09/25/2018
 ms.openlocfilehash: b22ec475c0281a54d65921bc450b35723aa23219
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77471656"
 ---
-# <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Przyspiesz analizę dużych zbiorów danych w czasie rzeczywistym dzięki łącznikowi Spark dla usługi Azure SQL Database i SQL Server
+# <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Przyspieszenie analizy danych Big Data w czasie rzeczywistym za pomocą łącznika Spark dla Azure SQL Database i SQL Server
 
-Łącznik Platformy Spark dla usługi Azure SQL Database i SQL Server umożliwia bazom danych SQL, w tym bazy danych SQL Azure i SQL Server, działanie jako źródło danych wejściowych lub ujście danych wyjściowych dla zadań platformy Spark. Umożliwia wykorzystanie danych transakcyjnych w czasie rzeczywistym w analizie dużych zbiorów danych i utrwalanie wyników dla zapytań lub raportowania adokoc. W porównaniu do wbudowanego łącznika JDBC ten łącznik zapewnia możliwość zbiorczego wstawiania danych do baz danych SQL. Może przewyższać wstawianie wiersza po wierszu z 10x do 20x większą wydajnością. Łącznik Platformy Spark dla usługi Azure SQL Database i SQL Server obsługuje również uwierzytelnianie usługi AAD. Umożliwia bezpieczne łączenie się z bazą danych SQL platformy Azure z usługi Azure Databricks przy użyciu konta usługi AAD. Zapewnia podobne interfejsy z wbudowanym złączem JDBC. Łatwo jest przeprowadzić migrację istniejących zadań platformy Spark, aby użyć tego nowego łącznika.
+Łącznik platformy Spark dla Azure SQL Database i SQL Server umożliwia korzystanie z baz danych SQL, w tym Azure SQL Database i SQL Server, do działania jako dane wejściowe źródła danych lub ujścia danych wyjściowych dla zadań platformy Spark. Umożliwia ona korzystanie z danych transakcyjnych w czasie rzeczywistym w analizie danych Big Data i utrwalanie wyników dla zapytań ad hoc lub raportów. W porównaniu do wbudowanego łącznika JDBC ten łącznik umożliwia zbiorcze Wstawianie danych do baz danych SQL. Może outperform wiersz po wstawieniu wierszy z 10X, aby 20x wyższą wydajność. Łącznik platformy Spark dla Azure SQL Database i SQL Server obsługuje również uwierzytelnianie w usłudze AAD. Umożliwia ona bezpieczne nawiązywanie połączenia z usługą Azure SQL Database z Azure Databricks przy użyciu konta usługi AAD. Zapewnia podobne interfejsy za pomocą wbudowanego łącznika JDBC. Migracja istniejących zadań platformy Spark w celu korzystania z tego nowego łącznika jest łatwa.
 
-## <a name="download"></a>Pobierz
-Aby rozpocząć, pobierz łącznik spark do bazy danych SQL z [repozytorium azure-sqldb-spark](https://github.com/Azure/azure-sqldb-spark) w usłudze GitHub.
+## <a name="download"></a>Pliki do pobrania
+Aby rozpocząć, Pobierz łącznik Spark do bazy danych SQL z [repozytorium Azure-SQLDB-Spark](https://github.com/Azure/azure-sqldb-spark) w witrynie GitHub.
 
 ## <a name="official-supported-versions"></a>Oficjalne obsługiwane wersje
 
 | Składnik                            | Wersja                  |
 | :----------------------------------- | :----------------------- |
-| Apache Spark                         | 2.0.2 lub nowsze           |
-| Scala                                | 2.10 lub nowsze            |
-| Sterownik JDBC firmy Microsoft dla programu SQL Server | 6.2 lub nowsze             |
+| Apache Spark                         | 2.0.2 lub nowszy           |
+| Scala                                | 2,10 lub nowszy            |
+| Sterownik JDBC firmy Microsoft dla SQL Server | 6,2 lub nowszy             |
 | Microsoft SQL Server                 | SQL Server 2008 lub nowsza wersja |
 | Azure SQL Database                   | Obsługiwane                |
 
-Łącznik Platformy Spark dla usługi Azure SQL Database i SQL Server wykorzystuje sterownik JDBC firmy Microsoft dla programu SQL Server do przenoszenia danych między węzłami procesu roboczego platformy Spark a bazami danych SQL:
+Łącznik platformy Spark dla Azure SQL Database i SQL Server wykorzystuje sterownik JDBC firmy Microsoft na potrzeby SQL Server przenoszenia danych między węzłami procesów roboczych Spark i bazami danych SQL:
  
-Przepływ danych jest następujący:
-1. Węzeł główny platformy Spark łączy się z usługą SQL Server lub Azure SQL Database i ładuje dane z określonej tabeli lub przy użyciu określonej kwerendy SQL
-2. Węzeł główny platformy Spark dystrybuuje dane do węzłów procesu roboczego w celu przekształcenia. 
-3. Węzeł Proces roboczy łączy się z programem SQL Server lub bazą danych SQL i zapisuje dane w bazie danych. Użytkownik może wybrać opcję wstawiania wiersza po wierszu lub wstawiania zbiorczego.
+Przepływu danych jest następujący:
+1. Węzeł główny platformy Spark łączy się z SQL Server lub Azure SQL Database i ładuje dane z określonej tabeli lub przy użyciu określonego zapytania SQL
+2. Węzeł główny platformy Spark dystrybuuje dane do węzłów procesu roboczego na potrzeby transformacji. 
+3. Węzeł procesu roboczego łączy się z SQL Server lub Azure SQL Database i zapisuje dane w bazie danych. Użytkownik może wybrać użycie wstawiania wiersz po wierszu lub wstawianie zbiorcze.
 
 Na poniższym diagramie przedstawiono przepływ danych.
 
    ![architektura](./media/sql-database-spark-connector/architecture.png)
 
-### <a name="build-the-spark-to-sql-db-connector"></a>Tworzenie łącznika spark do bazy danych SQL
-Obecnie projekt łącznika używa maven. Aby utworzyć łącznik bez zależności, można uruchomić:
+### <a name="build-the-spark-to-sql-db-connector"></a>Tworzenie łącznika platformy Spark do bazy danych SQL
+Obecnie projekt łącznika używa Maven. Aby skompilować łącznik bez zależności, można uruchomić:
 
-- mvn czysty pakiet
-- Pobierz najnowsze wersje JAR z folderu release
-- Dołącz SQL DB Spark JAR
+- MVN czysty pakiet
+- Pobierz najnowsze wersje JAR z folderu wersja
+- Uwzględnij plik JAR programu SQL DB Spark
 
-## <a name="connect-spark-to-sql-db-using-the-connector"></a>Łączenie platformy Spark z bazą danych SQL za pomocą łącznika
-Można połączyć się z usługą Azure SQL Database lub SQL Server z zadań Spark, odczytu lub zapisu danych. Można również uruchomić kwerendę DML lub DDL w bazie danych SQL azure lub bazy danych programu SQL Server.
+## <a name="connect-spark-to-sql-db-using-the-connector"></a>Łączenie platformy Spark z bazą danych SQL przy użyciu łącznika
+Można nawiązać połączenie z usługą Azure SQL Database lub SQL Server z zadań platformy Spark, odczytywać lub zapisywać dane. Można również uruchomić zapytanie DML lub DDL w bazie danych SQL Azure lub w bazie danych SQL Server.
 
-### <a name="read-data-from-azure-sql-database-or-sql-server"></a>Odczytywanie danych z bazy danych SQL Azure lub programu SQL Server
+### <a name="read-data-from-azure-sql-database-or-sql-server"></a>Odczytaj dane z Azure SQL Database lub SQL Server
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
@@ -75,7 +75,7 @@ val config = Config(Map(
 val collection = sqlContext.read.sqlDB(config)
 collection.show()
 ```
-### <a name="reading-data-from-azure-sql-database-or-sql-server-with-specified-sql-query"></a>Odczytywanie danych z bazy danych SQL azure lub programu SQL Server z określoną kwerendą SQL
+### <a name="reading-data-from-azure-sql-database-or-sql-server-with-specified-sql-query"></a>Odczytywanie danych z Azure SQL Database lub SQL Server z określonym zapytaniem SQL
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
 import com.microsoft.azure.sqldb.spark.connect._
@@ -93,7 +93,7 @@ val collection = sqlContext.read.sqlDB(config)
 collection.show()
 ```
 
-### <a name="write-data-to-azure-sql-database-or-sql-server"></a>Zapisywanie danych w bazie danych SQL Database lub programie SQL Server
+### <a name="write-data-to-azure-sql-database-or-sql-server"></a>Zapisz dane do Azure SQL Database lub SQL Server
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
 import com.microsoft.azure.sqldb.spark.connect._
@@ -112,7 +112,7 @@ import org.apache.spark.sql.SaveMode
 collection.write.mode(SaveMode.Append).sqlDB(config)
 ```
 
-### <a name="run-dml-or-ddl-query-in-azure-sql-database-or-sql-server"></a>Uruchamianie kwerendy DML lub DDL w bazie danych SQL Azure lub programie SQL Server
+### <a name="run-dml-or-ddl-query-in-azure-sql-database-or-sql-server"></a>Uruchamianie zapytania DML lub DDL w Azure SQL Database lub SQL Server
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
 import com.microsoft.azure.sqldb.spark.query._
@@ -133,11 +133,11 @@ val config = Config(Map(
 sqlContext.sqlDBQuery(config)
 ```
 
-## <a name="connect-spark-to-azure-sql-database-using-aad-authentication"></a>Łączenie programu Spark z usługą Azure SQL Database przy użyciu uwierzytelniania usługi AAD
-Możesz połączyć się z usługą Azure SQL Database przy użyciu uwierzytelniania usługi Azure Active Directory (AAD). Uwierzytelnianie AAD służy do centralnego zarządzania tożsamościami użytkowników bazy danych i jako alternatywa dla uwierzytelniania programu SQL Server.
-### <a name="connecting-using-activedirectorypassword-authentication-mode"></a>Łączenie przy użyciu trybu uwierzytelniania ActiveDirectoryPassword
+## <a name="connect-spark-to-azure-sql-database-using-aad-authentication"></a>Łączenie platformy Spark z Azure SQL Database przy użyciu uwierzytelniania usługi AAD
+Można nawiązać połączenie z usługą Azure SQL Database przy użyciu uwierzytelniania Azure Active Directory (AAD). Uwierzytelnianie przy użyciu usługi AAD umożliwia centralne zarządzanie tożsamościami użytkowników baz danych i alternatywą dla SQL Server uwierzytelniania.
+### <a name="connecting-using-activedirectorypassword-authentication-mode"></a>Nawiązywanie połączenia przy użyciu trybu uwierzytelniania ActiveDirectoryPassword
 #### <a name="setup-requirement"></a>Wymagania dotyczące konfiguracji
-Jeśli używasz trybu uwierzytelniania ActiveDirectoryPassword, musisz pobrać [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) i jego zależności i uwzględnić je w ścieżce kompilacji Java.
+W przypadku korzystania z trybu uwierzytelniania ActiveDirectoryPassword należy pobrać pozycję [Azure-ActiveDirectory-Library-for-Java](https://github.com/AzureAD/azure-activedirectory-library-for-java) i jej zależności oraz uwzględnić je w ścieżce kompilacji Java.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
@@ -158,9 +158,9 @@ collection.show()
 
 ### <a name="connecting-using-access-token"></a>Łączenie przy użyciu tokenu dostępu
 #### <a name="setup-requirement"></a>Wymagania dotyczące konfiguracji
-Jeśli używasz trybu uwierzytelniania opartego na tokenie dostępu, musisz pobrać [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) i jej zależności i uwzględnić je w ścieżce kompilacji Java.
+Jeśli używasz trybu uwierzytelniania opartego na tokenach dostępu, musisz pobrać pozycję [Azure-ActiveDirectory-Library-for-Java](https://github.com/AzureAD/azure-activedirectory-library-for-java) i jej zależności oraz uwzględnić je w ścieżce kompilacji Java.
 
-Zobacz [Korzystanie z uwierzytelniania usługi Azure Active Directory do uwierzytelniania za pomocą bazy danych SQL,](sql-database-aad-authentication.md) aby dowiedzieć się, jak uzyskać token dostępu do bazy danych SQL platformy Azure.
+Aby dowiedzieć się, jak uzyskać token dostępu do bazy danych Azure SQL, zobacz temat [używanie uwierzytelniania Azure Active Directory na potrzeby uwierzytelniania w programie SQL Database](sql-database-aad-authentication.md) .
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
@@ -178,8 +178,8 @@ val collection = sqlContext.read.sqlDB(config)
 collection.show()
 ```
 
-## <a name="write-data-to-azure-sql-database-or-sql-server-using-bulk-insert"></a>Zapisywanie danych w bazie danych SQL platformy Azure lub programie SQL Server przy użyciu wstawiania zbiorczego
-Tradycyjny łącznik jdbc zapisuje dane w bazie danych SQL platformy Azure lub programie SQL Server przy użyciu wstawiania wiersza po wierszu. Łącznik bazy danych Platformy Spark do bazy danych SQL służy do zapisywania danych w bazie danych SQL przy użyciu wstawiania zbiorczego. Znacznie poprawia wydajność zapisu podczas ładowania dużych zestawów danych lub ładowania danych do tabel, w których jest używany indeks magazynu kolumn.
+## <a name="write-data-to-azure-sql-database-or-sql-server-using-bulk-insert"></a>Zapisywanie danych w usłudze Azure SQL Database lub SQL Server przy użyciu wstawiania zbiorczego
+Tradycyjny łącznik JDBC zapisuje dane w usłudze Azure SQL Database lub SQL Server przy użyciu wstawiania wiersz po wierszu. Łącznika Spark do usługi SQL DB służy do zapisywania danych w bazie danych SQL przy użyciu instrukcji BULK INSERT. Znacznie poprawia wydajność zapisu podczas ładowania dużych zestawów danych lub ładowania danych do tabel, w których jest używany indeks magazynu kolumn.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.bulkcopy.BulkCopyMetadata
@@ -212,10 +212,10 @@ df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Jeśli jeszcze tego nie zrobiłeś, pobierz łącznik platformy Spark dla usługi Azure SQL Database i SQL Server z [repozytorium GitHub azure-sqldb-spark](https://github.com/Azure/azure-sqldb-spark) i eksploruj dodatkowe zasoby w repozytorium:
+Jeśli jeszcze tego nie zrobiono, Pobierz łącznik Spark dla Azure SQL Database i SQL Server z [repozytorium Azure-SQLDB-Spark GitHub](https://github.com/Azure/azure-sqldb-spark) i przejrzyj dodatkowe zasoby w repozytorium:
 
-- [Przykładowe notesy usługi Azure Databricks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
+- [Przykładowe notesy Azure Databricks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Przykładowe skrypty (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-Można również przejrzeć [Apache Spark SQL, DataFrames i Datasets Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html) i [dokumentacji usługi Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
+Warto również zapoznać się z [podręcznikiem Apache Spark SQL, Dataframes i zestawami danych](https://spark.apache.org/docs/latest/sql-programming-guide.html) oraz [dokumentacją Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
 

@@ -1,7 +1,7 @@
 ---
-title: Dołączanie usług Cognitive Services do zestawu umiejętności
+title: Dołącz Cognitive Services do zestawu umiejętności
 titleSuffix: Azure Cognitive Search
-description: Instrukcje dołączania subskrypcji all-in-one usług Cognitive Services do potoku wzbogacania sztucznej inteligencji w usłudze Azure Cognitive Search.
+description: Instrukcje dotyczące dołączania Cognitive Services całościowej subskrypcji do potoku wzbogacenia AI na platformie Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: LuisCabrer
 ms.author: luisca
@@ -9,108 +9,108 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 254c912114e3f1c7a495f389bc6a6416cbde7e11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77472455"
 ---
-# <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Dołączanie zasobu usług Cognitive Services do zestawu umiejętności w usłudze Azure Cognitive Search 
+# <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Dołącz zasób Cognitive Services do zestawu umiejętności na platformie Azure Wyszukiwanie poznawcze 
 
-Podczas konfigurowania potoku wzbogacania w usłudze Azure Cognitive Search można bezpłatnie wzbogacić ograniczoną liczbę dokumentów. W przypadku większych i częstszych obciążeń należy dołączyć zasób usług Cognitive Services podlegania rozliczanemu.
+Podczas konfigurowania potoku wzbogacania w usłudze Azure Wyszukiwanie poznawcze można wzbogacić ograniczoną liczbę dokumentów bezpłatnie. W przypadku większych i bardziej częstych obciążeń należy dołączyć zasób Cognitive Services rozliczany.
 
 W tym artykule dowiesz się, jak dołączyć zasób, przypisując klucz do zestawu umiejętności, który definiuje potok wzbogacania.
 
 ## <a name="resources-used-during-enrichment"></a>Zasoby używane podczas wzbogacania
 
-Usługa Azure Cognitive Search jest zależna od usług Cognitive Services, w tym [przetwarzania obrazów](https://azure.microsoft.com/services/cognitive-services/computer-vision/) i optycznego rozpoznawania znaków (OCR), [analizy tekstu](https://azure.microsoft.com/services/cognitive-services/text-analytics/) do przetwarzania języka naturalnego i innych wzbogaceń, takich jak [tłumaczenie tekstu.](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) W kontekście wzbogacenia w usłudze Azure Cognitive Search te algorytmy sztucznej inteligencji są zawijane wewnątrz *umiejętności,* umieszczone w *zestawie umiejętności*i odwołuje się *indeksator* podczas indeksowania.
+Usługa Azure Wyszukiwanie poznawcze ma zależność od Cognitive Services, w tym [Przetwarzanie obrazów](https://azure.microsoft.com/services/cognitive-services/computer-vision/) do analizy obrazów i optycznego rozpoznawania znaków (OCR), [Analiza tekstu](https://azure.microsoft.com/services/cognitive-services/text-analytics/) do przetwarzania w języku naturalnym oraz inne wzbogacania, takie jak [tłumaczenie tekstu](https://azure.microsoft.com/services/cognitive-services/translator-text-api/). W kontekście wzbogacania na platformie Azure Wyszukiwanie poznawcze te algorytmy AI są opakowane w ramach *umiejętności*, umieszczane w *zestawu umiejętności*i odwołujące się do *indeksatora* podczas indeksowania.
 
 ## <a name="how-billing-works"></a>Sposób działania rozliczeń
 
-+ Usługa Azure Cognitive Search używa klucza zasobów usług Cognitive Services, który udostępniasz na zestawie umiejętności, aby rozliczać wzbogacenie obrazu i tekstu. Wykonanie umiejętności rozliczanych jest w [cenie płatności zgodnie z rzeczywistymi oczekiwaniami.](https://azure.microsoft.com/pricing/details/cognitive-services/)
++ Usługa Azure Wyszukiwanie poznawcze korzysta z klucza zasobu Cognitive Services podanym w zestawu umiejętności do rozliczania obrazów i wzbogacania tekstu. Do realizacji umiejętności rozliczanych jest [Cognitive Services cena płatności zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/details/cognitive-services/)użyciem.
 
-+ Wyodrębnianie obrazu jest operacją usługi Azure Cognitive Search, która występuje, gdy dokumenty są pęknięte przed wzbogacenia. Wyodrębnianie obrazu jest rozliczane. Aby uzyskać informacje o cenach wyodrębniania obrazów, zobacz [stronę cennika usługi Azure Cognitive Search](https://go.microsoft.com/fwlink/?linkid=2042400).
++ Wyodrębnianie obrazów to operacja Wyszukiwanie poznawcze platformy Azure, która występuje, gdy dokumenty są pęknięte przed wzbogacaniem. Wyodrębnianie obrazów jest rozliczane. Aby zapoznać się z cennikiem wyodrębniania obrazów, zobacz [stronę z cennikiem usługi Azure wyszukiwanie poznawcze](https://go.microsoft.com/fwlink/?linkid=2042400).
 
-+ Wyodrębnianie tekstu odbywa się również podczas pękania frazy dokumentu. To nie jest rozliczane.
++ Wyodrębnianie tekstu występuje również podczas frazy do łamania dokumentu. Nie jest rozliczany.
 
-+ Umiejętności, które nie wywołują usług Cognitive Services, w tym umiejętności warunkowe, shaper, scalanie tekstu i dzielenie tekstu, nie podlegają rozliczaniu.
++ Nie są naliczane opłaty za umiejętności, które nie wywołują Cognitive Services, w tym warunkowego, kształtowania, scalania tekstu ani umiejętności dzielenia tekstu.
 
-## <a name="same-region-requirement"></a>Wymóg dotyczący tego samego regionu
+## <a name="same-region-requirement"></a>Wymóg tego samego regionu
 
-Wymagamy, aby usługi Azure Cognitive Search i Usługi Azure Cognitive Services istniały w tym samym regionie. W przeciwnym razie zostanie wyświetlony ten komunikat w czasie wykonywania:`"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+Firma Microsoft wymaga, aby usługa Azure Wyszukiwanie poznawcze i usługa Azure Cognitive Services istniały w tym samym regionie. W przeciwnym razie zostanie wyświetlony komunikat w czasie wykonywania:`"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
 
-Nie ma możliwości przenoszenia usługi między regionami. Jeśli pojawi się ten błąd, należy utworzyć nowy zasób usług Cognitive Services w tym samym regionie co usługa Azure Cognitive Search.
+Nie ma możliwości przenoszenia usługi między regionami. Jeśli zostanie wyświetlony ten błąd, należy utworzyć nowy zasób Cognitive Services w tym samym regionie co usługa Azure Wyszukiwanie poznawcze.
 
 > [!NOTE]
-> Niektóre wbudowane umiejętności są oparte na nieregionalnych usługach kognitywnych (na przykład [umiejętności tłumaczenia tekstu).](cognitive-search-skill-text-translation.md) Przy użyciu umiejętności nieregionalnych oznacza, że żądanie może być obsługiwane w regionie innym niż region usługi Azure Cognitive Search. Aby uzyskać więcej informacji na temat usług nieregionalnych, zobacz [stronę produktu usług Cognitive Services według regionów.](https://aka.ms/allinoneregioninfo)
+> Niektóre wbudowane umiejętności są oparte na Cognitive Services nieregionalnych (na przykład [umiejętność tłumaczenia tekstu](cognitive-search-skill-text-translation.md)). Użycie umiejętności nieregionalnej oznacza, że Twoje żądanie może być serwisowane w regionie innym niż region Wyszukiwanie poznawcze platformy Azure. Aby uzyskać więcej informacji na temat usług nieregionalnych, zobacz stronę [Cognitive Services produkt według regionów](https://aka.ms/allinoneregioninfo) .
 
 ## <a name="use-free-resources"></a>Korzystanie z bezpłatnych zasobów
 
-Możesz użyć ograniczonej, bezpłatnej opcji przetwarzania, aby ukończyć samouczek wzbogacania SI i ćwiczenia szybki start.
+Możesz użyć ograniczonej, bezpłatnej opcji przetwarzania, aby ukończyć samouczek wzbogacania AI i ćwiczenia szybkiego startu.
 
-Bezpłatne (ograniczone wzbogacenia) zasoby są ograniczone do 20 dokumentów dziennie, na indeksator. Można usunąć i ponownie utworzyć indeksator, aby zresetować licznik.
+Bezpłatny (ograniczone wzbogacanie) zasoby są ograniczone do 20 dokumentów dziennie, na indeksator. Aby zresetować licznik, można usunąć i utworzyć ponownie indeksator.
 
-1. Otwórz Kreatora importu danych:
+1. Otwórz Kreatora importowania danych:
 
-   ![Otwieranie Kreatora importowania danych](media/search-get-started-portal/import-data-cmd.png "Otwieranie Kreatora importowania danych")
+   ![Otwórz Kreatora importowania danych](media/search-get-started-portal/import-data-cmd.png "Otwórz Kreatora importowania danych")
 
-1. Wybierz źródło danych i kontynuuj dodawanie **wzbogacania AI (opcjonalnie).** Aby zapoznać się z instrukcją krok po kroku tego kreatora, zobacz [Tworzenie indeksu w witrynie Azure portal](search-get-started-portal.md).
+1. Wybierz źródło danych i Kontynuuj **Dodawanie wzbogacenia AI (opcjonalne)**. Aby zapoznać się z przewodnikiem krok po kroku tego kreatora, zobacz [Tworzenie indeksu w Azure Portal](search-get-started-portal.md).
 
-1. Rozwiń **Dołącz usługi Cognitive Services,** a następnie wybierz **bezpłatne (ograniczone wzbogacenia)**:
+1. Rozwiń węzeł **dołącz Cognitive Services** a następnie wybierz pozycję **wolne (ograniczone wzbogacania)**:
 
-   ![Rozwinięta sekcja Dołącz usługi Cognitive Services](./media/cognitive-search-attach-cognitive-services/attach1.png "Rozwinięta sekcja Dołącz usługi Cognitive Services")
+   ![Rozwinięta sekcja Cognitive Services Attach](./media/cognitive-search-attach-cognitive-services/attach1.png "Rozwinięta sekcja Cognitive Services Attach")
 
-1. Teraz możesz przejść do kolejnych kroków, w tym **dodaj umiejętności poznawcze**.
+1. Teraz możesz przejść do następnych kroków, takich jak **Dodawanie umiejętności poznawczych**.
 
 ## <a name="use-billable-resources"></a>Korzystanie z zasobów rozliczanych
 
-W przypadku obciążeń, które tworzą więcej niż 20 wzbogacenia dziennie, upewnij się, że dołączyć do rozliczeń zasobów usług Cognitive Services. Zaleca się, aby zawsze dołączyć rozliczane zasobów usług Cognitive Services, nawet jeśli nigdy nie zamierzasz wywoływać interfejsów API usług Cognitive Services. Dołączanie zasobu zastępuje dzienny limit.
+W przypadku obciążeń, które tworzą więcej niż 20 wzbogacań dziennie, pamiętaj, aby dołączyć do rozliczanego zasobu Cognitive Services. Zalecamy, aby zawsze dołączać Cognitive Services do rozliczeń, nawet jeśli nie ma potrzeby wywoływania interfejsy API usług Cognitive Services. Dołączanie zasobu przesłania dzienny limit.
 
-Opłata jest pobierana tylko za umiejętności, które wywołują interfejsy API usług Cognitive Services. Nie są rozliczane za [umiejętności niestandardowe](cognitive-search-create-custom-skill-example.md)lub umiejętności, takie jak [połączenie tekstu,](cognitive-search-skill-textmerger.md) [rozdzielacz tekstu](cognitive-search-skill-textsplit.md)i [shaper](cognitive-search-skill-shaper.md), które nie są oparte na interfejsie API.
+Opłata jest naliczana tylko za umiejętności, które wywołują interfejsy API usług Cognitive Services. Nie są naliczane opłaty za [niestandardowe umiejętności](cognitive-search-create-custom-skill-example.md)ani umiejętności takie jak [łączenie tekstu](cognitive-search-skill-textmerger.md), [rozdzielacz tekstu](cognitive-search-skill-textsplit.md)i [kształtowanie](cognitive-search-skill-shaper.md), które nie są oparte na interfejsie API.
 
-1. Otwórz Kreatora importu danych, wybierz źródło danych i kontynuuj dodawanie **wzbogacania SI (opcjonalnie).**
+1. Otwórz Kreatora importowania danych, wybierz źródło danych i Kontynuuj **Dodawanie wzbogacenia AI (opcjonalnie)**.
 
-1. Rozwiń **pozycję Dołącz usługi Cognitive Services,** a następnie wybierz pozycję **Utwórz nowy zasób usług Cognitive Services**. Zostanie otwarta nowa karta, aby można było utworzyć zasób:
+1. Rozwiń węzeł **dołącz Cognitive Services** a następnie wybierz pozycję **utwórz nowy zasób Cognitive Services**. Zostanie otwarta nowa karta, aby można było utworzyć zasób:
 
    ![Tworzenie zasobu usług Cognitive Services](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Tworzenie zasobu usług Cognitive Services")
 
-1. Na liście **Lokalizacja** wybierz region, w którym znajduje się usługa Azure Cognitive Search. Upewnij się, że używasz tego regionu ze względu na wydajność. Za pomocą tego regionu również unieważnia wychodzących opłat przepustowości w różnych regionach.
+1. Z listy **Lokalizacja** wybierz region, w którym znajduje się usługa Azure wyszukiwanie poznawcze. Upewnij się, że ten region jest używany ze względu na wydajność. Użycie tego regionu również unieważnia opłaty za przepustowość wychodzącą w różnych regionach.
 
-1. Na liście **warstwy cenowej** wybierz **S0,** aby uzyskać kolekcję funkcji usługi Cognitive Services, w tym funkcje wizji i języka, które popierają wbudowane umiejętności dostarczane przez usługę Azure Cognitive Search.
+1. Na liście **warstwa cenowa** wybierz pozycję **S0** , aby uzyskać kolekcję "All-in-in-one" funkcji Cognitive Services, w tym funkcje wizji i języka, które z powrotem zapewniały wbudowane umiejętności udostępniane przez usługę Azure wyszukiwanie poznawcze.
 
-   W przypadku warstwy S0 stawki dla określonych obciążeń można znaleźć na [stronie cennik usług Cognitive Services.](https://azure.microsoft.com/pricing/details/cognitive-services/)
+   W przypadku warstwy S0 można znaleźć stawki dla konkretnych obciążeń na [stronie cennika Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/).
   
-   + Na liście **Wybierz ofertę** upewnij się, że wybrano usługi **Cognitive Services.**
-   + W obszarze Funkcje **językowe** stawki za **standard analizy tekstu** mają zastosowanie do indeksowania sztucznej inteligencji.
-   + W obszarze **Funkcji Wizji** obowiązują stawki za system Przetwarzania **Obrazów S1.**
+   + Na liście **Wybierz ofertę** upewnij się, że **Cognitive Services** jest zaznaczone.
+   + W obszarze Funkcje **językowe** stawki dla **Analiza tekstu Standard** dotyczą indeksowania AI.
+   + W obszarze Funkcje **wizji** obowiązują stawki za **Przetwarzanie obrazów S1** .
 
-1. Wybierz **pozycję Utwórz,** aby aprowizować nowy zasób usług Cognitive Services.
+1. Wybierz pozycję **Utwórz** , aby udostępnić nowy zasób Cognitive Services.
 
-1. Powrót do poprzedniej karty zawierającej Kreatora importu danych. Wybierz **pozycję Odśwież,** aby wyświetlić zasób usług Cognitive Services, a następnie wybierz zasób:
+1. Wróć do poprzedniej karty, która zawiera Kreatora importu danych. Wybierz pozycję **Odśwież** , aby wyświetlić zasób Cognitive Services, a następnie wybierz zasób:
 
-   ![Wybieranie zasobu usług Cognitive Services](./media/cognitive-search-attach-cognitive-services/attach2.png "Wybieranie zasobu usług Cognitive Services")
+   ![Wybierz zasób Cognitive Services](./media/cognitive-search-attach-cognitive-services/attach2.png "Wybierz zasób Cognitive Services")
 
-1. Rozwiń sekcję **Dodaj umiejętności poznawcze,** aby wybrać określone umiejętności poznawcze, które chcesz uruchomić na danych. Ukończ resztę kreatora.
+1. Rozwiń sekcję **Dodawanie umiejętności poznawczych** , aby wybrać konkretne umiejętności poznawcze, które mają być uruchamiane na danych. Ukończ resztę kreatora.
 
-## <a name="attach-an-existing-skillset-to-a-cognitive-services-resource"></a>Dołączanie istniejącego zestawu umiejętności do zasobu usług Cognitive Services
+## <a name="attach-an-existing-skillset-to-a-cognitive-services-resource"></a>Dołącz istniejący zestawu umiejętności do zasobu Cognitive Services
 
-Jeśli masz istniejący zestaw umiejętności, możesz dołączyć go do nowego lub innego zasobu usług Cognitive Services.
+Jeśli masz istniejący zestawu umiejętności, możesz dołączyć go do nowego lub innego zasobu Cognitive Services.
 
-1. Na stronie **Przegląd usługi** wybierz pozycję **Skillsets**:
+1. Na stronie **Przegląd usługi** wybierz pozycję **umiejętności**:
 
-   ![Karta Skillsets](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "Karta Skillsets")
+   ![Karta umiejętności](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "Karta umiejętności")
 
-1. Wybierz nazwę zestawu umiejętności, a następnie wybierz istniejący zasób lub utwórz nowy. Wybierz **przycisk OK,** aby potwierdzić zmiany.
+1. Wybierz nazwę zestawu umiejętności, a następnie wybierz istniejący zasób lub Utwórz nowy. Wybierz **przycisk OK** , aby potwierdzić zmiany.
 
-   ![Lista zasobów zestawów umiejętności](./media/cognitive-search-attach-cognitive-services/attach-existing2.png "Lista zasobów zestawów umiejętności")
+   ![Lista zasobów zestawu umiejętności](./media/cognitive-search-attach-cognitive-services/attach-existing2.png "Lista zasobów zestawu umiejętności")
 
-   Należy pamiętać, że **opcja Bezpłatne (ograniczone wzbogacenia)** ogranicza do 20 dokumentów dziennie i że można użyć **utwórz nowy zasób usług Cognitive Services** w celu aprowizowania nowego zasobu podlegających rozliczaniu. Jeśli utworzysz nowy zasób, wybierz **pozycję Odśwież,** aby odświeżyć listę zasobów usług Cognitive Services, a następnie wybierz zasób.
+   Należy pamiętać, że opcja **bezpłatne (ograniczone wzbogacanie)** pozwala na codzienne 20 dokumentów i umożliwia **utworzenie Cognitive Services nowego** zasobu do rozliczania. W przypadku utworzenia nowego zasobu wybierz pozycję **Odśwież** , aby odświeżyć listę zasobów Cognitive Services, a następnie wybierz zasób.
 
-## <a name="attach-cognitive-services-programmatically"></a>Dołączanie usług Cognitive Services programowo
+## <a name="attach-cognitive-services-programmatically"></a>Dołącz Cognitive Services programowo
 
-Podczas definiowania umiejętności programowo, dodaj sekcję `cognitiveServices` do zestawu umiejętności. W tej sekcji dołącz klucz zasobu usług Cognitive Services, który chcesz skojarzyć z zestawem umiejętności. Należy pamiętać, że zasób musi znajdować się w tym samym regionie co zasób usługi Azure Cognitive Search. Uwzględnij `@odata.type`również i `#Microsoft.Azure.Search.CognitiveServicesByKey`ustaw go na .
+Gdy tworzysz zestawu umiejętności programowo, Dodaj `cognitiveServices` sekcję do zestawu umiejętności. W tej sekcji należy uwzględnić klucz zasobu Cognitive Services, który ma zostać skojarzony z zestawu umiejętności. Należy pamiętać, że zasób musi znajdować się w tym samym regionie co zasób Wyszukiwanie poznawcze platformy Azure. Należy również `@odata.type`uwzględnić i ustawić wartość `#Microsoft.Azure.Search.CognitiveServicesByKey`.
 
-W poniższym przykładzie przedstawiono ten wzorzec. Zwróć `cognitiveServices` uwagę na sekcję na końcu definicji.
+Poniższy przykład pokazuje ten wzorzec. Zwróć uwagę `cognitiveServices` na sekcję na końcu definicji.
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
@@ -146,29 +146,29 @@ Content-Type: application/json
 }
 ```
 
-## <a name="example-estimate-costs"></a>Przykład: Szacowanie kosztów
+## <a name="example-estimate-costs"></a>Przykład: oszacowanie kosztów
 
-Aby oszacować koszty związane z indeksowania wyszukiwania poznawczego, należy rozpocząć od pojęcia, jak przeciętny dokument wygląda, dzięki czemu można uruchomić kilka liczb. Na przykład można przybliżyć:
+Aby oszacować koszty związane z indeksowaniem wyszukiwania poznawczego, Zacznij od pomysłu dotyczącego wyglądu średniej dokumentu, aby można było uruchamiać pewne liczby. Na przykład może to być przybliżone:
 
-+ 1000 plików PDF.
-+ Po sześć stron.
-+ Jeden obraz na stronę (6000 obrazów).
-+ 3000 znaków na stronę.
++ 1 000 plików PDF.
++ Każda z sześciu stron.
++ Jeden obraz na stronę (obrazy 6 000).
++ 3 000 znaków na stronę.
 
-Załóżmy, że potok, który składa się z pękanie każdego pliku PDF, wyodrębnianie obrazu i tekstu, optyczne rozpoznawanie znaków (OCR) obrazów i rozpoznawanie jednostek organizacji.
+Założenie potoku, który składa się z łamania dokumentu dla każdego pliku PDF, wyodrębniania obrazów i tekstu, optycznego rozpoznawania znaków (OCR) obrazów oraz rozpoznawania jednostek w organizacji.
 
-Ceny podane w tym artykule są hipotetyczne. Są one używane do zilustrowania procesu szacowania. Koszty mogą być niższe. Aby zapoznać się z rzeczywistymi cenami transakcji, zobacz [Ceny usług Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services).
+Ceny przedstawione w tym artykule są hipotetyczne. Są one używane do zilustrowania procesu szacowania. Twoje koszty mogą być niższe. W przypadku rzeczywistych cen transakcji zobacz temat [Cognitive Services Cennik](https://azure.microsoft.com/pricing/details/cognitive-services).
 
-1. W przypadku pękania dokumentów z zawartością tekstu i obrazu wyodrębnianie tekstu jest obecnie bezpłatne. W przypadku 6000 obrazów załóżmy, że $1 za każde 1000 wyodrębnionych obrazów. To koszt $6.00 dla tego kroku.
+1. W przypadku dokumentu z zawartością tekstową i obrazem Wyodrębnianie tekstu jest obecnie bezpłatne. W przypadku obrazów 6 000 przyjmuje się, że $1 dla 1 000 każdego obrazu, który został wyodrębniony. Jest to koszt $6,00 dla tego kroku.
 
-2. W przypadku OCR 6000 obrazów w języku angielskim umiejętności poznawcze OCR używają najlepszego algorytmu (DescribeText). Zakładając koszt $2.50 za 1000 obrazów do analizy, trzeba zapłacić $15.00 za ten krok.
+2. W przypadku OCR obrazów 6 000 w języku angielskim, umiejętność optycznego rozpoznawania znaków używa najlepszego algorytmu (DescribeText). Przy założeniu, że koszt $2,50 na 1 000 obrazów do przeanalizowania, należy uregulować $15,00 w tym kroku.
 
-3. W przypadku wyodrębniania encji na stronie mają łącznie trzy rekordy tekstowe. Każdy rekord składa się z 1000 znaków. Trzy rekordy tekstowe na stronę pomnożone przez 6000 stron są równe 18 000 rekordów tekstowych. Zakładając, że $2.00 za 1000 rekordów tekstowych, ten krok będzie kosztować $36.00.
+3. W przypadku wyodrębniania jednostek masz łączną liczbę trzech rekordów tekstowych na stronę. Każdy rekord ma 1 000 znaków. Trzy rekordy tekstowe na stronę pomnożone przez 6 000 stron równą 18 000 rekordów tekstowych. Przy założeniu, że $2,00 na 1 000 rekordów tekstowych, ten krok będzie kosztować $36,00.
 
-Łącząc to wszystko razem, trzeba by zapłacić około 57,00 dolarów do spożycia 1000 dokumentów PDF tego typu z opisanego skillset.
+Wszystkie te informacje są umieszczane w artykule o $57,00 do pobierania 1 000 dokumentów PDF tego typu przy użyciu opisanego zestawu umiejętności.
 
 ## <a name="next-steps"></a>Następne kroki
-+ [Strona z cennikiem usługi Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/)
-+ [Jak zdefiniować zestaw umiejętności](cognitive-search-defining-skillset.md)
-+ [Tworzenie skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Jak mapować wzbogacone pola](cognitive-search-output-field-mapping.md)
++ [Strona cennika usługi Azure Wyszukiwanie poznawcze](https://azure.microsoft.com/pricing/details/search/)
++ [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
++ [Utwórz zestawu umiejętności (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Jak zmapować wzbogacone pola](cognitive-search-output-field-mapping.md)

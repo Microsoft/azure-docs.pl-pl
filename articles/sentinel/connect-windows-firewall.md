@@ -1,6 +1,6 @@
 ---
-title: Łączenie danych zapory systemu Windows z usługą Azure Sentinel| Dokumenty firmy Microsoft
-description: Dowiedz się, jak połączyć dane zapory systemu Windows z usługą Azure Sentinel.
+title: Łączenie danych zapory systemu Windows z usługą Azure wskaźnikowego | Microsoft Docs
+description: Dowiedz się, jak połączyć dane zapory systemu Windows z wskaźnikiem kontrolnym platformy Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,49 +16,49 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: 5d2f68261143c3fc5bbcda0b739af17251eeee63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77588063"
 ---
 # <a name="connect-windows-firewall"></a>Łączenie z zaporą systemu Windows
 
 
 
-Łącznik zapory systemu Windows umożliwia łatwe łączenie dzienników zapór systemu Windows, jeśli są one połączone z obszarem roboczym usługi Azure Sentinel. To połączenie umożliwia wyświetlanie pulpitów nawigacyjnych, tworzenie niestandardowych alertów i usprawnianie badania. Zapewnia to lepszy wgląd w sieć organizacji i zwiększa możliwości operacji zabezpieczeń. Rozwiązanie zbiera zdarzenia zapory systemu Windows z komputerów z systemem Windows, na których jest zainstalowany agent usługi Log Analytics. 
+Łącznik zapory systemu Windows umożliwia łatwe łączenie dzienników zapór systemu Windows, jeśli są one połączone z obszarem roboczym wskaźnikowego platformy Azure. To połączenie umożliwia wyświetlanie pulpitów nawigacyjnych, tworzenie alertów niestandardowych i ulepszanie badania. Zapewnia to dokładniejszy wgląd w sieć organizacji i zwiększa możliwości operacji zabezpieczeń. Rozwiązanie zbiera zdarzenia Zapory systemu Windows z maszyn z systemem Windows, na których zainstalowano agenta Log Analytics. 
 
 
 > [!NOTE]
-> - Dane będą przechowywane w lokalizacji geograficznej obszaru roboczego, w którym jest uruchomiona usługa Azure Sentinel.
-> - Jeśli usługa Azure Sentinel i Usługa Azure Security Center są zbierane w tym samym obszarze roboczym, nie ma potrzeby włączania rozwiązania Zapory systemu Windows za pośrednictwem tego łącznika. Jeśli mimo to została włączona, nie spowoduje to zduplikowanych danych. 
+> - Dane będą przechowywane w lokalizacji geograficznej obszaru roboczego, w którym jest uruchamiany wskaźnik platformy Azure.
+> - Jeśli dane dotyczące platformy Azure i Azure Security Center są zbierane w tym samym obszarze roboczym, nie ma potrzeby włączania rozwiązania Zapora systemu Windows za pomocą tego łącznika. Jeśli ta funkcja została włączona, nie spowoduje to zduplikowanych danych. 
 
-## <a name="enable-the-connector"></a>Włączanie złącza 
+## <a name="enable-the-connector"></a>Włącz łącznik 
 
-1. W portalu Azure Sentinel wybierz **pozycję Łączniki danych,** a następnie kliknij kafelek **zapory systemu Windows.** 
-1.  Jeśli komputery z systemem Windows znajdują się na platformie Azure:
-    1. Kliknij **pozycję Zainstaluj agenta na maszynie wirtualnej systemu Azure Windows**.
-    1. Na liście **Maszyny wirtualne** wybierz komputer z systemem Windows, który chcesz przesyłać strumieniowo do usługi Azure Sentinel. Upewnij się, że jest to maszyna wirtualna systemu Windows.
-    1. W oknie, które otwiera się dla tej maszyny Wirtualnej, kliknij przycisk **Połącz**.  
-    1. Kliknij **pozycję Włącz** w oknie **łącznika zapory systemu Windows.** 
+1. W portalu wskaźnikowym platformy Azure wybierz pozycję **Łączniki danych** , a następnie kliknij kafelek **Zapora systemu Windows** . 
+1.  Jeśli maszyny z systemem Windows znajdują się na platformie Azure:
+    1. Kliknij przycisk **Zainstaluj agenta na maszynie wirtualnej platformy Azure systemu Windows**.
+    1. Na liście **maszyny wirtualne** wybierz maszynę z systemem Windows, która ma zostać przesłana do usługi Azure wskaźnikowej. Upewnij się, że jest to maszyna wirtualna z systemem Windows.
+    1. W oknie otwartym dla tej maszyny wirtualnej kliknij pozycję **Połącz**.  
+    1. W oknie **łącznika zapory systemu Windows** kliknij pozycję **Włącz** . 
 
-2. Jeśli komputer z systemem Windows nie jest maszyną wirtualną platformy Azure:
-    1. Kliknij **pozycję Zainstaluj agenta na komputerach innych niż Azure**.
-    1. W oknie **Agent bezpośredni** wybierz opcję **Pobierz agenta systemu Windows (64 bit)** lub **Pobierz agenta systemu Windows (32 bity).**
-    1. Zainstaluj agenta na komputerze z systemem Windows. Skopiuj **identyfikator obszaru roboczego,** **klucz podstawowy**i **klucz pomocniczy** i użyj ich po wyświetleniu monitu podczas instalacji.
+2. Jeśli maszyna z systemem Windows nie jest maszyną wirtualną platformy Azure:
+    1. Kliknij przycisk **Zainstaluj agenta na maszynach spoza platformy Azure**.
+    1. W oknie **agenta bezpośredniego** wybierz pozycję **Pobierz agenta systemu Windows (64 bit)** lub **pobierz agenta systemu Windows (32 bit)**.
+    1. Zainstaluj agenta na komputerze z systemem Windows. Skopiuj **Identyfikator obszaru roboczego**, **klucz podstawowy**i **klucz pomocniczy** , a następnie użyj ich po wyświetleniu monitu podczas instalacji.
 
-4. Wybierz typy danych, które mają być przesyłane strumieniowo.
-5. Kliknij **pozycję Zainstaluj rozwiązanie**.
-6. Aby użyć odpowiedniego schematu w usłudze Log Analytics dla zapory systemu Windows, wyszukaj hasło **SecurityEvent**.
+4. Wybierz typy danych, które chcesz przesłać strumieniowo.
+5. Kliknij przycisk **Zainstaluj rozwiązanie**.
+6. Aby użyć odpowiedniego schematu w Log Analytics dla zapory systemu Windows, wyszukaj ciąg " **SecurityEvent**".
 
-## <a name="validate-connectivity"></a>Sprawdzanie poprawności łączności
+## <a name="validate-connectivity"></a>Sprawdź poprawność łączności
 
-Może upłynąć ponad 20 minut, aż dzienniki zaczną pojawiać się w usłudze Log Analytics. 
+Rozpoczęcie wyświetlania dzienników w Log Analytics może zająć więcej niż 20 minut. 
 
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym dokumencie dowiesz się, jak połączyć zaporę systemu Windows z usługą Azure Sentinel. Aby dowiedzieć się więcej o usłudze Azure Sentinel, zobacz następujące artykuły:
-- Dowiedz się, jak [uzyskać wgląd w dane i potencjalne zagrożenia.](quickstart-get-visibility.md)
-- Rozpocznij [wykrywanie zagrożeń za pomocą usługi Azure Sentinel](tutorial-detect-threats-built-in.md).
+W tym dokumencie przedstawiono sposób łączenia zapory systemu Windows z wskaźnikiem kontrolnym platformy Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
+- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
+- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).
 

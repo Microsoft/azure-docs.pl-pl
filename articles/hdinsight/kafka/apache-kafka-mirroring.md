@@ -1,6 +1,6 @@
 ---
 title: Lustrzane tematy Apache Kafka — Azure HDInsight
-description: Dowiedz się, jak używać funkcji dublowania platformy Apache Kafka do obsługi repliki platformy Kafka w klastrze USŁUGI HDInsight przez dublowanie tematów w klastrze pomocniczym.
+description: Dowiedz się, jak używać funkcji dublowania Apache Kafka, aby zachować replikę Kafka w klastrze usługi HDInsight przez tematy dotyczące dublowania w klastrze pomocniczym.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,55 +9,55 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 45977f52226fac0a3e23455ce9457a721947a8cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77425888"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Replikowanie tematów platformy Apache Kafka przy użyciu platformy Kafka w usłudze HDInsight za pomocą narzędzia MirrorMaker
 
-Dowiedz się, jak używać funkcji dublowania apache Kafka do replikowania tematów do klastra pomocniczego. Dublowanie można przeprowadzić jako proces ciągły lub być używane sporadycznie jako metoda migracji danych z jednego klastra do drugiego.
+Dowiedz się, jak za pomocą funkcji dublowania Apache Kafka replikować tematy do klastra pomocniczego. Dublowanie może być uruchamiane jako ciągły proces lub używany sporadycznie jako metoda migrowania danych z jednego klastra do drugiego.
 
-W tym przykładzie dublowanie jest używane do replikowania tematów między dwoma klastrami HDInsight. Oba klastry znajdują się w różnych sieciach wirtualnych w różnych centrach danych.
+W tym przykładzie dublowanie jest używane do replikowania tematów między dwoma klastrami usługi HDInsight. Oba klastry znajdują się w różnych sieciach wirtualnych w różnych centrach danych.
 
 > [!WARNING]  
-> Dublowanie nie powinno być traktowane jako środek do osiągnięcia odporności na uszkodzenia. Przesunięcie do elementów w temacie różnią się między klastrów podstawowych i pomocniczych, więc klienci nie mogą używać dwóch zamiennie.
+> Funkcja dublowania nie powinna być traktowana jako środek w celu uzyskania odporności na uszkodzenia. Przesunięcie do elementów w temacie różni się między klastrem podstawowym i pomocniczym, dzięki czemu klienci nie mogą korzystać z dwóch zamiennie.
 >
-> Jeśli obawiasz się odporności na uszkodzenia, należy ustawić replikację dla tematów w klastrze. Aby uzyskać więcej informacji, zobacz [Wprowadzenie do apache kafka w programie HDInsight](apache-kafka-get-started.md).
+> Jeśli chodzi o odporność na uszkodzenia, należy ustawić replikację tematów w ramach klastra. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z usługą Apache Kafka w usłudze HDInsight](apache-kafka-get-started.md).
 
-## <a name="how-apache-kafka-mirroring-works"></a>Jak działa mirroring Apache Kafka
+## <a name="how-apache-kafka-mirroring-works"></a>Jak działa dublowanie Apache Kafka
 
-Dublowanie działa przy użyciu narzędzia [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) (część Apache Kafka) do korzystania z rekordów z tematów w klastrze podstawowym, a następnie utworzyć kopię lokalną w klastrze pomocniczym. MirrorMaker używa jednego (lub więcej) *konsumentów,* którzy czytają z klastra podstawowego i *producenta,* który zapisuje do lokalnego (pomocniczego) klastra.
+Dublowanie działa przy użyciu narzędzia [Narzędzia MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) (część Apache Kafka) do korzystania z rekordów z tematów w klastrze podstawowym, a następnie tworzenia kopii lokalnej w klastrze pomocniczym. Narzędzia MirrorMaker używa jednego (lub więcej) *konsumentów* odczytanych z klastra podstawowego i *producenta* , który zapisuje w lokalnym (pomocniczym) klastrze.
 
-Najbardziej przydatne dublowanie konfiguracji odzyskiwania po awarii wykorzystuje klastry platformy Kafka w różnych regionach platformy Azure. Aby to osiągnąć, sieci wirtualne, w których znajdują się klastry są równorzędne.
+Najbardziej przydatna konfiguracja dublowania odzyskiwania po awarii korzysta z klastrów Kafka w różnych regionach świadczenia usługi Azure. Aby to osiągnąć, sieci wirtualne, w których znajdują się klastry, są połączone za pomocą komunikacji równorzędnej.
 
-Na poniższym diagramie przedstawiono proces dublowania i sposób przepływu komunikacji między klastrami:
+Na poniższym diagramie przedstawiono proces dublowania oraz sposób przepływu komunikacji między klastrami:
 
 ![Diagram procesu dublowania](./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png)
 
-Klastry podstawowe i pomocnicze mogą być różne pod względem liczby węzłów i partycji, a przesunięcia w obrębie tematów są również różne. Dublowanie zachowuje wartość klucza, który jest używany do partycjonowania, więc kolejność rekordów jest zachowywany na podstawie na klucz.
+Klaster podstawowy i pomocniczy mogą być różne w zależności od liczby węzłów i partycji, a przesunięcia w tematach są również inne. Funkcja dublowania utrzymuje wartość klucza, która jest używana do partycjonowania, więc kolejność rekordów jest zachowywana na podstawie klucza.
 
 ### <a name="mirroring-across-network-boundaries"></a>Dublowanie między granicami sieci
 
-Jeśli konieczne jest tworzenie kopii lustrzanych między klastrami platformy Kafka w różnych sieciach, istnieją następujące dodatkowe zagadnienia:
+Jeśli potrzebujesz dublowania między klastrami Kafka w różnych sieciach, istnieją następujące kwestie dodatkowe:
 
-* **Bramy:** Sieci muszą być w stanie komunikować się na poziomie TCP/IP.
+* **Bramy**: sieci muszą mieć możliwość komunikowania się na poziomie protokołu TCP/IP.
 
-* **Adresowanie serwera:** Można zaa addressować węzły klastra przy użyciu ich adresów IP lub w pełni kwalifikowanych nazw domen.
+* **Adresowanie serwera**: możesz wybrać adresowanie węzłów klastra przy użyciu adresów IP lub w pełni kwalifikowanych nazw domen.
 
-    * **Adresy IP:** Jeśli klastry platformy Kafka skonfigurują do używania reklam adresów IP, możesz kontynuować konfigurację dublowania przy użyciu adresów IP węzłów brokera i węzłów zookeeper.
+    * **Adresy IP**: w przypadku skonfigurowania klastrów Kafka do korzystania z reklamy adresów IP można kontynuować konfigurację dublowania przy użyciu adresów IP węzłów brokera i węzłów dozorcy.
     
-    * **Nazwy domen:** Jeśli klastry platformy Kafka nie są skonfigurowane pod kątem reklam adresów IP, klastry muszą mieć możliwość łączenia się ze sobą przy użyciu w pełni kwalifikowanych nazw domen (FQDN). Wymaga to serwera DNS (Domain Name System) w każdej sieci skonfigurowanego do przesyłania dalej żądań do innych sieci. Podczas tworzenia sieci wirtualnej platformy Azure, zamiast automatycznego dns dostarczanego z siecią, należy określić niestandardowy serwer DNS i adres IP serwera. Po utworzeniu sieci wirtualnej należy utworzyć maszynę wirtualną platformy Azure, która używa tego adresu IP, a następnie zainstalować i skonfigurować oprogramowanie DNS na nim.
+    * **Nazwy domen**: Jeśli nie skonfigurujesz klastrów Kafka na potrzeby reklamy adresów IP, klastry muszą mieć możliwość nawiązania połączenia ze sobą przy użyciu w pełni kwalifikowanych nazw domen (FQDN). Wymaga to serwera systemu nazw domen (DNS) w każdej sieci skonfigurowanej do przesyłania dalej żądań do innych sieci. Podczas tworzenia Virtual Network platformy Azure zamiast korzystania z automatycznego systemu DNS dostarczonego z siecią należy określić niestandardowy serwer DNS i adres IP dla serwera. Po utworzeniu Virtual Network należy utworzyć maszynę wirtualną platformy Azure, która używa tego adresu IP, a następnie zainstalować i skonfigurować na nim oprogramowanie DNS.
 
     > [!WARNING]  
-    > Utwórz i skonfiguruj niestandardowy serwer DNS przed zainstalowaniem usługi HDInsight w sieci wirtualnej. Nie ma potrzeby korzystania z serwera DNS skonfigurowanym dla sieci wirtualnej.
+    > Utwórz i skonfiguruj niestandardowy serwer DNS przed zainstalowaniem usługi HDInsight w Virtual Network. Nie jest wymagana dodatkowa konfiguracja usługi HDInsight do korzystania z serwera DNS skonfigurowanego dla Virtual Network.
 
-Aby uzyskać więcej informacji na temat łączenia dwóch sieci wirtualnych platformy Azure, zobacz [Konfigurowanie połączenia sieci wirtualnej z siecią wirtualną](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
+Aby uzyskać więcej informacji na temat łączenia dwóch sieci wirtualnych platformy Azure, zobacz [Konfigurowanie połączenia Sieć wirtualna-sieć](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)wirtualna.
 
-## <a name="mirroring-architecture"></a>Architektura lustrzana
+## <a name="mirroring-architecture"></a>Architektura dublowania
 
-Ta architektura zawiera dwa klastry w różnych grupach zasobów i sieci wirtualne: **podstawowy** i **pomocniczy**.
+Ta architektura zawiera dwa klastry w różnych grupach zasobów i sieci wirtualnych: **podstawowe** i **pomocnicze**.
 
 ### <a name="creation-steps"></a>Kroki tworzenia
 
@@ -65,34 +65,34 @@ Ta architektura zawiera dwa klastry w różnych grupach zasobów i sieci wirtual
 
     |Grupa zasobów | Lokalizacja |
     |---|---|
-    | kafka-primary-rg | Środkowe stany USA |
-    | kafka-secondary-rg | Północno-środkowe stany USA |
+    | Kafka — podstawowy — RG | Środkowe stany USA |
+    | Kafka-pomocniczy — RG | Północno-środkowe stany USA |
 
-1. Utwórz nową sieć wirtualną **kafka-primary-vnet** w **kafka-primary-rg**. Pozostaw ustawienia domyślne.
-1. Utwórz nową sieć wirtualną **kafka-secondary-vnet** w **kafka-secondary-rg**, również z ustawieniami domyślnymi.
+1. Utwórz nową sieć wirtualną **Kafka-Primary-VNET** w **Kafka-Primary-RG**. Pozostaw ustawienia domyślne.
+1. Utwórz nową sieć wirtualną **Kafka-dodatkową-VNET** w **Kafka-pomocnicz-RG**, również z ustawieniami domyślnymi.
 
-1. Utwórz dwa nowe klastry platformy Kafka:
+1. Utwórz dwa nowe klastry Kafka:
 
     | Nazwa klastra | Grupa zasobów | Virtual Network | Konto magazynu |
     |---|---|---|---|
-    | kafka-podstawowy klaster | kafka-primary-rg | kafka-primary-vnet | kafkaprimarystorage |
-    | kafka-pomocniczy-klaster | kafka-secondary-rg | kafka-secondary-vnet | kafkasecondarystorage |
+    | Kafka — klaster podstawowy | Kafka — podstawowy — RG | Kafka — Sieć wirtualna | kafkaprimarystorage |
+    | Kafka — klaster pomocniczy | Kafka-pomocniczy — RG | Kafka — pomocnicza Sieć wirtualna | kafkasecondarystorage |
 
-1. Tworzenie komunikacji równorzędnej sieci wirtualnej. W tym kroku utworzy się dwie komunikacji równorzędnej: jedną z **kafka-primary-vnet** do **kafka-secondary-vnet** i jedną z powrotem z **kafka-secondary-vnet** do **kafka-primary-vnet**.
-    1. Wybierz sieć wirtualną **kafka-primary-vnet.**
-    1. Wybierz **pozycję Komunikacja równorzędna** w **obszarze Ustawienia**.
+1. Utwórz wirtualne sieci równorzędne. Ten krok spowoduje utworzenie dwóch komunikacji równorzędnych: jeden z **Kafka-Primary-VNET** - **Kafka-------** ------ **kafka-primary-vnet**------------------- **--**
+    1. Wybierz sieć wirtualną **Kafka-Primary-VNET** .
+    1. Wybierz pozycję **Komunikacja równorzędna** w obszarze **Ustawienia**.
     1. Wybierz pozycję **Dodaj**.
-    1. Na ekranie **Dodaj komunikację równorzędną** wprowadź szczegóły, jak pokazano na poniższym zrzucie ekranu.
+    1. Na ekranie **Dodawanie komunikacji równorzędnej** wprowadź szczegóły, jak pokazano na poniższym zrzucie ekranu.
 
-        ![HdInsight Kafka dodać komunikację równorzędnych sieci wirtualnych](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
+        ![Usługa HDInsight Kafka Dodawanie komunikacji równorzędnej sieci wirtualnej](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
 
-### <a name="configure-ip-advertising"></a>Konfigurowanie reklam IP
+### <a name="configure-ip-advertising"></a>Konfigurowanie reklamy adresów IP
 
-Skonfiguruj reklamy IP, aby umożliwić klientowi łączenie się przy użyciu adresów IP brokera zamiast nazw domen.
+Skonfiguruj anonsowanie adresów IP, aby umożliwić klientowi łączenie się przy użyciu adresów IP brokera zamiast nazw domen.
 
-1. Przejdź do pulpitu nawigacyjnego `https://PRIMARYCLUSTERNAME.azurehdinsight.net`Ambari dla klastra podstawowego: .
-1. Wybierz **pozycję Usługi** > **Kafka**. CliSelectck kartę **Configs.**
-1. Dodaj następujące wiersze konfiguracji do dolnej sekcji **szablonu kafka-env.** Wybierz **pozycję Zapisz**.
+1. Przejdź do pulpitu nawigacyjnego Ambari dla klastra podstawowego: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
+1. Wybierz pozycję **usługi** > **Kafka**. CliSelectck kartę **konfiguracje** .
+1. Dodaj następujące wiersze konfiguracji do dolnej sekcji **szablonu Kafka-ENV** . Wybierz pozycję **Zapisz**.
 
     ```
     # Configure Kafka to advertise IP addresses instead of FQDN
@@ -102,54 +102,54 @@ Skonfiguruj reklamy IP, aby umożliwić klientowi łączenie się przy użyciu a
     echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
-1. Wprowadź notatkę na ekranie **Zapisz konfigurację** i kliknij przycisk **Zapisz**.
-1. Jeśli zostanie wyświetlony monit z ostrzeżeniem o konfiguracji, kliknij przycisk **Kontynuuj mimo wszystko**.
-1. Wybierz **pozycję Ok** w obszarze Zapisz zmiany **konfiguracji**.
-1. Wybierz **pozycję Uruchom ponownie** > **wszystkie, których dotyczy problem,** w powiadomieniu **Wymagane ponowne uruchomienie.** Wybierz **pozycję Potwierdź ponownie wszystkie**.
+1. Wprowadź uwagę na ekranie **Zapisywanie konfiguracji** i kliknij przycisk **Zapisz**.
+1. Jeśli zostanie wyświetlony monit z ostrzeżeniem o konfiguracji, kliknij przycisk **Kontynuuj mimo to**.
+1. W obszarze **Zapisz zmiany konfiguracji**wybierz pozycję **OK** .
+1. Wybierz pozycję **Uruchom ponownie** > **Uruchom ponownie wszystkie zmiany, których dotyczy** powiadomienie **wymagane do ponownego uruchomienia** . Wybierz pozycję **Potwierdź ponowne uruchomienie wszystkich**.
 
-    ![Apache Ambari ponownie uruchomić wszystkie dotknięte](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+    ![System Apache Ambari](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
-### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>Skonfiguruj platformę Kafka do nasłuchiwać na wszystkich interfejsach sieciowych.
+### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>Skonfiguruj Kafka do nasłuchiwania na wszystkich interfejsach sieciowych.
     
-1. Pozostań na karcie **Configs** w obszarze **Usługi** > **Kafka**. W sekcji **Kafka Broker** ustaw właściwość **słuchaczy** na `PLAINTEXT://0.0.0.0:9092`.
-1. Wybierz **pozycję Zapisz**.
-1. Wybierz pozycję **Uruchom ponownie**i **potwierdź ponowne uruchomienie wszystkich**.
+1. Pozostań na **karcie konfiguracje w** obszarze **usługi** > **Kafka**. W sekcji **brokera Kafka** ustaw właściwość **detektory** na `PLAINTEXT://0.0.0.0:9092`.
+1. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Uruchom ponownie**i **Potwierdź wszystkie ponowne uruchomienie**.
 
-### <a name="record-broker-ip-addresses-and-zookeeper-addresses-for-primary-cluster"></a>Adresy IP brokera rekordów i adresy Zookeeper dla klastra podstawowego.
+### <a name="record-broker-ip-addresses-and-zookeeper-addresses-for-primary-cluster"></a>Rejestruj adresy IP brokera i adresy dozorcy dla klastra podstawowego.
 
-1. Wybierz **pozycję Hosty** na pulpicie nawigacyjnym Ambari.
-1. Zanotuj adresy IP dla brokerów i zookeeperów. Węzły brokera mają **wn** jako pierwsze dwie litery nazwy hosta, a węzły zookeeper mają **zk** jako pierwsze dwie litery nazwy hosta.
+1. Wybierz pozycję **hosty** na pulpicie nawigacyjnym Ambari.
+1. Zanotuj adresy IP dla brokerów i Dozorcami. Węzły brokera mają wartość **WN** jako pierwsze dwie litery nazwy hosta, a węzły dozorcy mają **ZK** jako pierwsze dwie litery nazwy hosta.
 
-    ![Adresy IP węzła widoku Apache Ambari](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+    ![Adresy IP węzłów widoku Apache Ambari](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
-1. Powtórz poprzednie trzy kroki dla drugiego **klastra kafka-secondary-cluster:** skonfiguruj reklamy IP, ustaw detektory i zanotuj adresy IP brokera i zookeepera.
+1. Powtórz poprzednie trzy kroki dla drugiego klastra **Kafka-dodatkowy**klaster: Skonfiguruj anonsowanie adresów IP, ustaw odbiorniki i zanotuj adresy IP brokera i dozorcy.
 
 ## <a name="create-topics"></a>Tworzenie tematów
 
-1. Połącz się z klasterem **podstawowym** przy użyciu funkcji SSH:
+1. Nawiązywanie połączenia z klastrem **podstawowym** przy użyciu protokołu SSH:
 
     ```bash
     ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net
     ```
 
-    Zastąp **sshuser** nazwą użytkownika SSH używaną podczas tworzenia klastra. Zastąp **PRIMARYCLUSTER** nazwą podstawową używaną podczas tworzenia klastra.
+    Zastąp **sshuser** nazwą użytkownika ssh używaną podczas tworzenia klastra. Zastąp **PRIMARYCLUSTER** nazwą podstawową używaną podczas tworzenia klastra.
 
     Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Użyj następującego polecenia, aby utworzyć zmienną z hostami Apache Zookeeper dla klastra podstawowego. Ciągi takie `ZOOKEEPER_IP_ADDRESS1` jak muszą być zastąpione rzeczywistymi `10.23.0.11` adresami IP zarejestrowanymi wcześniej, takimi jak i `10.23.0.7`. Jeśli używasz rozpoznawania FQDN z niestandardowym serwerem DNS, wykonaj [następujące kroki,](apache-kafka-get-started.md#getkafkainfo) aby uzyskać nazwy brokera i zookeepera.:
+1. Użyj następującego polecenia, aby utworzyć zmienną z hostami Apache dozorcy dla klastra podstawowego. Ciągi takie jak `ZOOKEEPER_IP_ADDRESS1` muszą zostać zastąpione rzeczywistymi zarejestrowanymi adresami IP, `10.23.0.11` takimi `10.23.0.7`jak i. Jeśli używasz rozpoznawania nazwy FQDN z niestandardowym serwerem DNS, wykonaj [następujące kroki](apache-kafka-get-started.md#getkafkainfo) , aby uzyskać nazwy brokera i dozorcy.:
 
     ```bash
     # get the zookeeper hosts for the primary cluster
     export PRIMARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181, ZOOKEEPER_IP_ADDRESS2:2181, ZOOKEEPER_IP_ADDRESS3:2181'
     ```
 
-1. Aby utworzyć temat `testtopic`o nazwie , użyj następującego polecenia:
+1. Aby utworzyć temat o nazwie `testtopic`, użyj następującego polecenia:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $PRIMARY_ZKHOSTS
     ```
 
-1. Aby sprawdzić, czy temat został utworzony, użyj następującego polecenia:
+1. Użyj następującego polecenia, aby sprawdzić, czy temat został utworzony:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $PRIMARY_ZKHOSTS
@@ -157,13 +157,13 @@ Skonfiguruj reklamy IP, aby umożliwić klientowi łączenie się przy użyciu a
 
     Odpowiedź zawiera `testtopic`.
 
-1. Aby wyświetlić informacje o hoście Zookeeper, służy do wyświetlania następujących informacji o tym **(podstawowym)** klastrze:
+1. Aby wyświetlić informacje o hoście dozorcy dla tego ( **podstawowego**) klastra, wykonaj następujące czynności:
 
     ```bash
     echo $PRIMARY_ZKHOSTS
     ```
 
-    To zwraca informacje podobne do następującego tekstu:
+    Zwraca informacje podobne do następującego tekstu:
 
     `10.23.0.11:2181,10.23.0.7:2181,10.23.0.9:2181`
 
@@ -171,36 +171,36 @@ Skonfiguruj reklamy IP, aby umożliwić klientowi łączenie się przy użyciu a
 
 ## <a name="configure-mirroring"></a>Konfigurowanie dublowania
 
-1. Połącz się z klasterem **pomocniczym** przy użyciu innej sesji SSH:
+1. Połącz się z klastrem **pomocniczym** przy użyciu innej sesji SSH:
 
     ```bash
     ssh sshuser@SECONDARYCLUSTER-ssh.azurehdinsight.net
     ```
 
-    Zastąp **sshuser** nazwą użytkownika SSH używaną podczas tworzenia klastra. Zamień **SECONDARYCLUSTER** na nazwę używaną podczas tworzenia klastra.
+    Zastąp **sshuser** nazwą użytkownika ssh używaną podczas tworzenia klastra. Zastąp **SECONDARYCLUSTER** nazwą użytą podczas tworzenia klastra.
 
     Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Plik `consumer.properties` służy do konfigurowania komunikacji z klastrem **podstawowym.** Aby utworzyć plik, użyj następującego polecenia:
+1. `consumer.properties` Plik jest używany do konfigurowania komunikacji z klastrem **podstawowym** . Aby utworzyć plik, użyj następującego polecenia:
 
     ```bash
     nano consumer.properties
     ```
 
-    Użyj następującego tekstu jako `consumer.properties` zawartości pliku:
+    Użyj następującego tekstu jako zawartości `consumer.properties` pliku:
 
     ```yaml
     zookeeper.connect=PRIMARY_ZKHOSTS
     group.id=mirrorgroup
     ```
 
-    Zastąp **PRIMARY_ZKHOSTS** adresami IP zookeeper z klastra **podstawowego.**
+    Zastąp **PRIMARY_ZKHOSTS** adresami IP dozorcy z klastra **podstawowego** .
 
-    Ten plik opisuje informacje o konsumentach, których należy użyć podczas odczytywania z podstawowego klastra platformy Kafka. Aby uzyskać więcej informacji konfiguracji konsumenta, zobacz [Konfiguracje konsumentów](https://kafka.apache.org/documentation#consumerconfigs) w kafka.apache.org.
+    Ten plik opisuje informacje o konsumentach, które mają być używane podczas odczytywania z podstawowego klastra Kafka. Aby uzyskać więcej informacji, zobacz Konfiguracje [odbiorców](https://kafka.apache.org/documentation#consumerconfigs) w witrynie Kafka.Apache.org.
 
-    Aby zapisać plik, użyj **klawiszy Ctrl + X**, **Y**, a następnie **wprowadź**.
+    Aby zapisać plik, użyj **kombinacji klawiszy Ctrl + X**, **Y**, a następnie klawisz **Enter**.
 
-1. Przed skonfigurowaniem producenta, który komunikuje się z klastrem pomocniczym, należy skonfigurować zmienną dla adresów IP brokera klastra **pomocniczego.** Aby utworzyć tę zmienną, użyj następujących poleceń:
+1. Przed skonfigurowaniem producenta, który komunikuje się z klastrem pomocniczym, należy skonfigurować zmienną dla adresów IP brokera klastra **pomocniczego** . Użyj następujących poleceń, aby utworzyć tę zmienną:
 
     ```bash
     export SECONDARY_BROKERHOSTS='BROKER_IP_ADDRESS1:9092,BROKER_IP_ADDRESS2:9092,BROKER_IP_ADDRESS2:9092'
@@ -210,13 +210,13 @@ Skonfiguruj reklamy IP, aby umożliwić klientowi łączenie się przy użyciu a
 
     `10.23.0.14:9092,10.23.0.4:9092,10.23.0.12:9092`
 
-1. Plik `producer.properties` jest używany do komunikowania klastra **pomocniczego.** Aby utworzyć plik, użyj następującego polecenia:
+1. `producer.properties` Plik jest używany do komunikacji z klastrem **pomocniczym** . Aby utworzyć plik, użyj następującego polecenia:
 
     ```bash
     nano producer.properties
     ```
 
-    Użyj następującego tekstu jako `producer.properties` zawartości pliku:
+    Użyj następującego tekstu jako zawartości `producer.properties` pliku:
 
     ```yaml
     bootstrap.servers=SECONDARY_BROKERHOSTS
@@ -225,87 +225,87 @@ Skonfiguruj reklamy IP, aby umożliwić klientowi łączenie się przy użyciu a
 
     Zastąp **SECONDARY_BROKERHOSTS** adresami IP brokera używanymi w poprzednim kroku.
 
-    Aby uzyskać więcej informacji o konfiguracji producenta, zobacz [Konfiguracje producentów](https://kafka.apache.org/documentation#producerconfigs) w kafka.apache.org.
+    Aby uzyskać więcej informacji, zobacz Konfiguracje [producentów](https://kafka.apache.org/documentation#producerconfigs) w witrynie Kafka.Apache.org.
 
-1. Użyj następujących poleceń, aby utworzyć zmienną środowiskową z adresami IP hostów Zookeeper dla klastra pomocniczego:
+1. Użyj następujących poleceń, aby utworzyć zmienną środowiskową z adresami IP hostów dozorcy dla klastra pomocniczego:
 
     ```bash
     # get the zookeeper hosts for the secondary cluster
     export SECONDARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181,ZOOKEEPER_IP_ADDRESS2:2181,ZOOKEEPER_IP_ADDRESS3:2181'
     ```
 
-1. Domyślna konfiguracja platformy Kafka w programie HDInsight nie zezwala na automatyczne tworzenie tematów. Przed rozpoczęciem procesu dublowania należy użyć jednej z następujących opcji:
+1. Domyślna konfiguracja Kafka w usłudze HDInsight nie zezwala na automatyczne tworzenie tematów. Przed rozpoczęciem procesu dublowania należy użyć jednej z następujących opcji:
 
-    * **Tworzenie tematów w klastrze pomocniczym:** Ta opcja umożliwia również ustawienie liczby partycji i współczynnika replikacji.
+    * **Tworzenie tematów w klastrze pomocniczym**: Ta opcja umożliwia również ustawienie liczby partycji i współczynnika replikacji.
 
-        Tematy można tworzyć z wyprzedzeniem za pomocą następującego polecenia:
+        Możesz tworzyć tematy wcześniej za pomocą następującego polecenia:
 
         ```bash
         /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SECONDARY_ZKHOSTS
         ```
 
-        Zamień `testtopic` nazwę tematu do utworzenia.
+        Zamień `testtopic` na nazwę tematu, który ma zostać utworzony.
 
-    * **Skonfiguruj klaster do automatycznego tworzenia tematów:** Ta opcja umożliwia programowi MirrorMaker automatyczne tworzenie tematów, jednak może tworzyć je z inną liczbą partycji lub współczynnikiem replikacji niż temat podstawowy.
+    * **Skonfiguruj klaster na potrzeby automatycznego tworzenia tematu**: Ta opcja umożliwia narzędzia mirrormakerom automatyczne tworzenie tematów, ale może je utworzyć przy użyciu innej liczby partycji lub współczynnika replikacji niż w temacie podstawowym.
 
-        Aby skonfigurować klaster pomocniczy do automatycznego tworzenia tematów, wykonaj następujące czynności:
+        Aby skonfigurować klaster pomocniczy do automatycznego tworzenia tematów, wykonaj następujące kroki:
 
-        1. Przejdź do pulpitu nawigacyjnego `https://SECONDARYCLUSTERNAME.azurehdinsight.net`Ambari dla klastra pomocniczego: .
-        1. Kliknij **pozycję Usługi** > **Kafka**. Kliknij kartę **Konfiguracje.**
-        1. W polu __Filtr__ wprowadź wartość `auto.create`. Spowoduje to filtrowanie listy właściwości `auto.create.topics.enable` i wyświetlenie tego ustawienia.
-        1. Zmień wartość `auto.create.topics.enable` true, a następnie wybierz pozycję __Zapisz__. Dodaj notatkę, a następnie wybierz pozycję __Zapisz__ ponownie.
-        1. Wybierz usługę __Kafka,__ wybierz pozycję __Uruchom ponownie__, a następnie wybierz pozycję __Uruchom ponownie wszystkie, których dotyczy problem.__ Po wyświetleniu monitu wybierz pozycję __Potwierdź ponownie wszystkie__.
+        1. Przejdź do pulpitu nawigacyjnego Ambari dla klastra pomocniczego `https://SECONDARYCLUSTERNAME.azurehdinsight.net`:.
+        1. Kliknij pozycję **usługi** > **Kafka**. Kliknij kartę **konfiguracje** .
+        1. W polu __Filtr__ wprowadź wartość `auto.create`. Spowoduje to przefiltrowanie listy właściwości i wyświetlenie `auto.create.topics.enable` ustawienia.
+        1. Zmień wartość `auto.create.topics.enable` na true, a następnie wybierz pozycję __Zapisz__. Dodaj notatkę, a następnie wybierz pozycję __Zapisz__ ponownie.
+        1. Wybierz usługę __Kafka__ , wybierz pozycję __Uruchom ponownie__, a następnie wybierz pozycję __Uruchom ponownie wszystkie uwzględnione__. Po wyświetleniu monitu wybierz pozycję __Potwierdź ponowne uruchomienie wszystkich__.
 
-        ![kafka włączyć automatyczne tworzenie tematów](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+        ![Kafka Włącz tematy AutoCreate](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
 
-## <a name="start-mirrormaker"></a>Uruchamianie mirrormaker
+## <a name="start-mirrormaker"></a>Uruchom narzędzia MirrorMaker
 
-1. Z połączenia SSH do klastra **pomocniczego** użyj następującego polecenia, aby rozpocząć proces MirrorMaker:
+1. Z poziomu połączenia SSH z klastrem **pomocniczym** Użyj następującego polecenia, aby uruchomić proces narzędzia MirrorMaker:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.tools.MirrorMaker --consumer.config consumer.properties --producer.config producer.properties --whitelist testtopic --num.streams 4
     ```
 
-    Parametry użyte w tym przykładzie to:
+    Parametry używane w tym przykładzie są następujące:
 
     |Parametr |Opis |
     |---|---|
-    |--consumer.config|Określa plik zawierający właściwości konsumenta. Te właściwości są używane do tworzenia konsumenta, który odczytuje z *podstawowego* klastra platformy Kafka.|
-    |--producer.config|Określa plik zawierający właściwości producenta. Te właściwości są używane do tworzenia producenta, który zapisuje do *pomocniczego* klastra platformy Kafka.|
-    |--biała lista|Lista tematów, które MirrorMaker replikuje z klastra podstawowego do pomocniczego.|
-    |--num.streams|Liczba wątków konsumenta do utworzenia.|
+    |--Consumer. config|Określa plik, który zawiera właściwości konsumenta. Te właściwości są używane do tworzenia konsumenta, który odczytuje z *podstawowego* klastra Kafka.|
+    |--Producer. config|Określa plik, który zawiera właściwości producenta. Te właściwości są używane do tworzenia producenta, który zapisuje dane do *pomocniczego* klastra Kafka.|
+    |--dozwolonych|Lista tematów, które narzędzia MirrorMaker replikuje z klastra podstawowego do pomocniczego.|
+    |--NUM. strumieni|Liczba wątków klienta do utworzenia.|
 
-    Konsument w węźle pomocniczym oczekuje teraz na odebranie wiadomości.
+    Odbiorca w węźle pomocniczym teraz czeka na odbieranie komunikatów.
 
-2. Z połączenia SSH do klastra **podstawowego** użyj następującego polecenia, aby uruchomić producenta i wysłać wiadomości do tematu:
+2. Z poziomu połączenia SSH z klastrem **podstawowym** Użyj następującego polecenia, aby uruchomić producenta i wysłać komunikaty do tematu:
 
     ```bash
     export PRIMARY_BROKERHOSTS=BROKER_IP_ADDRESS1:9092,BROKER_IP_ADDRESS2:9092,BROKER_IP_ADDRESS2:9092
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
-     Po dotarciu do pustego wiersza z kursorem wpisz kilka wiadomości tekstowych. Wiadomości są wysyłane do tematu w klastrze **podstawowym.** Po zakończeniu użyj **klawiszy Ctrl + C,** aby zakończyć proces produkcji.
+     Po dodaniu do pustego wiersza z kursorem wpisz kilka wiadomości tekstowych. Komunikaty są wysyłane do tematu w klastrze **podstawowym** . Po zakończeniu Użyj **klawiszy CTRL + C** , aby zakończyć proces produkcji.
 
-3. Z połączenia SSH do klastra **pomocniczego** użyj **ctrl + C,** aby zakończyć proces MirrorMaker. Może upłynąć kilka sekund, aby zakończyć proces. Aby sprawdzić, czy wiadomości zostały zreplikowane do pomocniczego, użyj następującego polecenia:
+3. Z poziomu połączenia SSH z klastrem **pomocniczym** Użyj **kombinacji klawiszy CTRL + C** , aby zakończyć proces narzędzia MirrorMaker. Zakończenie procesu może potrwać kilka sekund. Aby sprawdzić, czy komunikaty zostały zreplikowane do pomocniczego, użyj następującego polecenia:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    Lista tematów zawiera `testtopic`teraz , który jest tworzony, gdy MirrorMaster dubluje temat z klastra podstawowego do pomocniczego. Wiadomości pobrane z tematu są takie same, jak te wprowadzone w klastrze podstawowym.
+    Lista tematów zawiera `testtopic`teraz, które są tworzone, gdy MirrorMaster odzwierciedla temat z podstawowego klastra do pomocniczego. Komunikaty pobrane z tematu są takie same jak te wprowadzone w klastrze podstawowym.
 
 ## <a name="delete-the-cluster"></a>Usuwanie klastra
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-Kroki w tym dokumencie utworzone klastry w różnych grupach zasobów platformy Azure. Aby usunąć wszystkie utworzone zasoby, można usunąć dwie utworzone grupy zasobów: **kafka-primary-rg** i **kafka-secondary_rg**. Usunięcie grup zasobów powoduje usunięcie wszystkich zasobów utworzonych przez obserwowanie tego dokumentu, w tym klastrów, sieci wirtualnych i kont magazynu.
+Kroki przedstawione w tym dokumencie tworzą klastry w różnych grupach zasobów platformy Azure. Aby usunąć wszystkie utworzone zasoby, można usunąć dwie utworzone grupy zasobów: **Kafka-Primary-RG** i **Kafka-secondary_rg**. Usunięcie grup zasobów powoduje usunięcie wszystkich zasobów utworzonych przez następujące dokumenty, w tym klastrów, sieci wirtualnych i kont magazynu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym dokumencie opisano, jak używać [mirrormaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) do tworzenia repliki klastra [Apache Kafka.](https://kafka.apache.org/) Skorzystaj z następujących linków, aby poznać inne sposoby pracy z platformą Kafka:
+W tym dokumencie przedstawiono sposób użycia programu [Narzędzia MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) do utworzenia repliki klastra [Apache Kafka](https://kafka.apache.org/) . Skorzystaj z poniższych linków, aby poznać inne sposoby pracy z usługą Kafka:
 
-* [Apache Kafka MirrorMaker dokumentacji](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) w cwiki.apache.org.
-* [Kafka Mirror Maker – najważniejsze wskazówki](https://community.cloudera.com/t5/Community-Articles/Kafka-Mirror-Maker-Best-Practices/ta-p/249269)
-* [Wprowadzenie do apache Kafka w programie HDInsight](apache-kafka-get-started.md)
-* [Użyj Apache Spark z Apache Kafka na HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Łączenie się z platformą Apache Kafka za pośrednictwem sieci wirtualnej platformy Azure](apache-kafka-connect-vpn-gateway.md)
+* [Apache Kafka Dokumentacja narzędzia MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) na cwiki.Apache.org.
+* [Najlepsze rozwiązania w zakresie tworzenia duplikatów Kafka](https://community.cloudera.com/t5/Community-Articles/Kafka-Mirror-Maker-Best-Practices/ta-p/249269)
+* [Wprowadzenie do Apache Kafka w usłudze HDInsight](apache-kafka-get-started.md)
+* [Używanie Apache Spark z Apache Kafka w usłudze HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Nawiązywanie połączenia z usługą Apache Kafka za pomocą usługi Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)

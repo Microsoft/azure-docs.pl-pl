@@ -1,7 +1,7 @@
 ---
 title: Monitorowanie operacji i aktywności
 titleSuffix: Azure Cognitive Search
-description: Włącz rejestrowanie, pobierz metryki działania kwerendy, użycie zasobów i inne dane systemowe z usługi Azure Cognitive Search.
+description: Włącz rejestrowanie, Pobierz metryki działania zapytania, użycie zasobów i inne dane systemu z usługi Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,92 +9,92 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.openlocfilehash: 353e00f902a7314e5e5b7c8ee03e8b925a510b26
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77462330"
 ---
-# <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitorowanie operacji i aktywności usługi Azure Cognitive Search
+# <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitoruj operacje i działania Wyszukiwanie poznawcze platformy Azure
 
-W tym artykule przedstawiono monitorowanie na poziomie usługi (zasobu), na poziomie obciążenia (zapytania i indeksowanie) i sugeruje platformę do monitorowania dostępu użytkowników.
+W tym artykule wprowadzono monitorowanie na poziomie usługi (zasobów) na poziomie obciążenia (zapytania i indeksowanie) i sugeruje strukturę monitorowania dostępu użytkowników.
 
-W całym spektrum użyjesz kombinacji wbudowanej infrastruktury i usług podstawowych, takich jak usługa Azure Monitor, a także interfejsów API usług, które zwracają statystyki, liczby i stan. Zrozumienie zakresu możliwości może pomóc w skonstruowaniu pętli sprzężenia zwrotnego, dzięki czemu można rozwiązać problemy w miarę ich pojawiania się.
+W całym spektrum będziesz używać kombinacji wbudowanych usług, takich jak Azure Monitor, a także interfejsów API usługi, które zwracają statystyki, liczniki i stan. Zrozumienie zakresu możliwości może pomóc utworzyć pętlę do przesyłania opinii, aby można było rozwiązać problemy w miarę ich występowania.
 
 ## <a name="use-azure-monitor"></a>Korzystanie z usługi Azure Monitor
 
-Wiele usług, w tym usługa Azure Cognitive Search, korzysta z [usługi Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) w zakresie alertów, metryk i rejestrowania danych diagnostycznych. W przypadku usługi Azure Cognitive Search wbudowana infrastruktura monitorowania jest używana głównie do monitorowania na poziomie zasobów (kondycja usługi) i [monitorowania zapytań.](search-monitor-queries.md)
+Wiele usług, w tym Azure Wyszukiwanie poznawcze, wykorzystują [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/) do alertów, metryk i danych diagnostycznych rejestrowania. W przypadku usługi Azure Wyszukiwanie poznawcze wbudowana infrastruktura monitorowania jest używana głównie do monitorowania na poziomie zasobów (kondycji usługi) i [monitorowania zapytań](search-monitor-queries.md).
 
-Poniższy zrzut ekranu ułatwia lokalizowanie funkcji usługi Azure Monitor w portalu.
+Poniższy zrzut ekranu ułatwia zlokalizowanie funkcji Azure Monitor w portalu.
 
-+ Karta **Monitorowanie,** znajdująca się na głównej stronie przeglądu, pokazuje kluczowe metryki na pierwszy rzut oka.
-+ **Dziennik aktywności**, tuż poniżej Przegląd, raporty dotyczące akcji na poziomie zasobów: kondycji usługi i powiadomień o kluczu interfejsu API.
-+ **Monitorowanie**, w dalszej poniżej listy, zapewnia konfigurowalne alerty, metryki i dzienniki diagnostyczne. Utwórz je, gdy ich potrzebujesz. Po zebraniu i przechowywaniu danych można wysyłać zapytania lub wizualizować informacje w celu uzyskania szczegółowych informacji.
++ Karta **monitorowanie** znajdująca się na stronie głównej omówienia pokazuje kluczowe metryki w skrócie.
++ **Dziennik aktywności**, poniżej przeglądu, raporty dotyczące akcji na poziomie zasobów: kondycja usługi i powiadomienia o żądaniu klucza interfejsu API.
++ **Monitorowanie**, dalsze Wyświetlanie listy, umożliwia Konfigurowanie alertów, metryk i dzienników diagnostycznych. Utwórz je, gdy będą potrzebne. Po zebraniu i zapisaniu danych można wykonywać zapytania lub wizualizować informacje w celu uzyskania szczegółowych informacji.
 
-![Integracja z usługą Azure Monitor w usłudze wyszukiwania](./media/search-monitor-usage/azure-monitor-search.png
- "Integracja z usługą Azure Monitor w usłudze wyszukiwania")
+![Azure Monitor integrację w usłudze wyszukiwania](./media/search-monitor-usage/azure-monitor-search.png
+ "Azure Monitor integrację w usłudze wyszukiwania")
 
-### <a name="precision-of-reported-numbers"></a>Dokładność zgłoszonych liczb
+### <a name="precision-of-reported-numbers"></a>Precyzja zgłoszonych liczb
 
-Strony portalu są odświeżane co kilka minut. W związku z tym liczby zgłaszane w portalu są przybliżone, co ma na celu ogólne poczucie, jak dobrze system obsługuje żądania. Rzeczywiste metryki, takie jak zapytania na sekundę (QPS) mogą być wyższe lub niższe niż liczba wyświetlana na stronie.
+Strony portalu są odświeżane co kilka minut. W związku z tym liczby raportowane w portalu są przybliżone i mają na celu zapewnienie ogólnego znaczenia, jak dobrze system obsługuje żądania. Rzeczywiste metryki, takie jak zapytania na sekundę (zapytań), mogą być większe lub mniejsze niż liczba wyświetlana na stronie.
 
 ## <a name="activity-logs-and-service-health"></a>Dzienniki aktywności i kondycja usługi
 
-[**Dziennik aktywności**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) zbiera informacje z usługi Azure Resource Manager i raportuje zmiany kondycji usługi. Można monitorować dziennik aktywności pod kątem krytycznych, błędów i warunków ostrzegawczych związanych ze zdrowiem usługi.
+[**Dziennik aktywności**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) zbiera informacje z Azure Resource Manager i raportów o zmianach w kondycji usługi. Dziennik aktywności można monitorować pod kątem krytycznych, błędów i ostrzeżeń związanych z kondycją usługi.
 
-W przypadku zadań w usłudze , takich jak kwerendy, indeksowanie lub tworzenie obiektów , zobaczysz ogólne powiadomienia informacyjne, takie jak *Pobierz klucz administratora* i *Pobierz klucze zapytania* dla każdego żądania, ale nie sama określona akcja. Aby uzyskać informacje o tym ziarnu, należy skonfigurować rejestrowanie diagnostyczne.
+W przypadku zadań w ramach usługi — takich jak zapytania, indeksowanie lub tworzenie obiektów, zobaczysz ogólne powiadomienia informacyjne, takie jak *Pobieranie klucza administratora* i *Uzyskiwanie kluczy zapytań* dla każdego żądania, ale nie konkretnej akcji. Aby uzyskać informacje dotyczące tego ziarna, należy skonfigurować rejestrowanie diagnostyczne.
 
-Dostęp do **dziennika aktywności** można uzyskać z lewego okienka nawigacji lub z obszaru powiadomień na pasku poleceń górnego okna lub ze strony **Diagnozowanie i rozwiązywanie problemów.**
+Możesz uzyskać dostęp do **dziennika aktywności** z okienka nawigacji po lewej stronie lub z powiadomień w górnym pasku poleceń okna lub na stronie **diagnozowanie i rozwiązywanie problemów** .
 
-## <a name="monitor-storage"></a>Monitorowanie pamięci masowej
+## <a name="monitor-storage"></a>Monitorowanie magazynu
 
-Strony z kartami wbudowane w raport strony Przegląd na temat użycia zasobów. Te informacje stają się dostępne natychmiast po rozpoczęciu korzystania z usługi, bez konieczności konfiguracji, a strona jest odświeżana co kilka minut. 
+Strony z kartami wbudowane na stronie Przegląd raportują na temat użycia zasobów. Te informacje stają się dostępne zaraz po rozpoczęciu korzystania z usługi, bez konieczności konfigurowania, a strona jest odświeżana co kilka minut. 
 
-Jeśli kończysz decyzje dotyczące [warstwy używanej dla obciążeń produkcyjnych](search-sku-tier.md)lub czy dostosować liczbę [aktywnych replik i partycji,](search-capacity-planning.md)te metryki mogą pomóc w podejmowaniu tych decyzji, pokazując, jak szybko zasoby są zużywane i jak dobrze bieżąca konfiguracja obsługuje istniejące obciążenie.
+Jeśli podejmujesz decyzje dotyczące warstwy, [która ma być używana na potrzeby obciążeń produkcyjnych](search-sku-tier.md), lub czy należy [dostosować liczbę aktywnych replik i partycji](search-capacity-planning.md), te metryki mogą pomóc w podejmowaniu tych decyzji, pokazując, jak szybko zużywane są zasoby i jak również Bieżąca konfiguracja obsługuje istniejące obciążenie.
 
-Alerty związane z magazynem nie są obecnie dostępne; zużycie magazynu nie jest agregowane ani rejestrowane w tabeli **AzureMetrics** w usłudze Azure Monitor. Należy utworzyć [niestandardowe rozwiązanie,](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-creating) które emituje powiadomienia związane z zasobami, gdzie kod sprawdza rozmiar magazynu i obsługuje odpowiedzi. Aby uzyskać więcej informacji na temat metryk magazynu, zobacz [Get Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
+Alerty powiązane z magazynem nie są obecnie dostępne; Użycie magazynu nie jest agregowane lub zarejestrowane w tabeli **AzureMetrics** w Azure monitor. Należy [utworzyć rozwiązanie niestandardowe](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-creating) , które emituje powiadomienia związane z zasobami, gdzie kod sprawdza rozmiar magazynu i obsługuje odpowiedź. Aby uzyskać więcej informacji o metrykach magazynu, zobacz [Pobieranie statystyk usług](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
 
-W przypadku monitorowania wizualnego w portalu na karcie **Użycie** jest wyświetlana dostępność zasobów w stosunku do [bieżących limitów](search-limits-quotas-capacity.md) narzuconych przez warstwę usług. 
+W przypadku monitorowania wizualnego w portalu karta **użycie** pokazuje dostępność zasobów względem bieżących [limitów](search-limits-quotas-capacity.md) narzuconych przez warstwę usług. 
 
-Poniższa ilustracja dotyczy bezpłatnej usługi, która jest ograniczona do 3 obiektów każdego typu i 50 MB pamięci masowej. Usługa Podstawowa lub Standardowa ma wyższe limity, a jeśli zwiększysz liczbę partycji, maksymalna liczba magazynowa wzrośnie proporcjonalnie.
+Poniższa ilustracja dotyczy bezpłatnej usługi, która jest ograniczona do 3 obiektów każdego typu i 50 MB miejsca w magazynie. Usługa podstawowa lub standardowa ma wyższe limity i w przypadku zwiększenia liczby partycji Maksymalna ilość miejsca w magazynie jest proporcjonalna.
 
-![Stan użycia względem limitów warstw](./media/search-monitor-usage/usage-tab.png
- "Stan użycia względem limitów warstw")
+![Stan użycia względem limitów warstwy](./media/search-monitor-usage/usage-tab.png
+ "Stan użycia względem limitów warstwy")
 
-## <a name="monitor-workloads"></a>Monitorowanie obciążeń
+## <a name="monitor-workloads"></a>Monitoruj obciążenia
 
-Zarejestrowane zdarzenia obejmują te związane z indeksowania i kwerend. **Tabela AzureDiagnostics** w usłudze Log Analytics zbiera dane operacyjne związane z zapytaniami i indeksowaniem.
+Zarejestrowane zdarzenia obejmują te powiązane z indeksowaniem i zapytaniami. Tabela **AzureDiagnostics** w log Analytics zbiera dane operacyjne powiązane z zapytaniami i indeksowanie.
 
-Większość zarejestrowanych danych jest przeznaczonych dla operacji tylko do odczytu. W przypadku innych operacji create-update-delete, które nie zostały przechwycone w dzienniku, można zbadać usługę wyszukiwania w poszukiwaniu informacji o systemie.
+Większość zarejestrowanych danych jest przeznaczonych dla operacji tylko do odczytu. W przypadku innych operacji Create-Update-Delete, które nie są przechwytywane w dzienniku, można wysłać zapytanie do usługi wyszukiwania w celu uzyskania informacji o systemie.
 
 | OperationName | Opis |
 |---------------|-------------|
-| ServiceStats (ServiceStats) | Ta operacja jest rutynowe wywołanie [Get Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), wywoływane bezpośrednio lub niejawnie do wypełniania strony przeglądu portalu, gdy jest ładowany lub odświeżany. |
-| Query.Search (Wyszukiwanie). |  Żądania kwerend względem indeksu Zobacz [Zapytania monitoruj,](search-monitor-queries.md) aby uzyskać informacje o zarejestrowanych kwerendach.|
-| Indeksowanie.Indeks  | Ta operacja jest wywołaniem [dodawania, aktualizowania lub usuwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
-| Indeksy. Prototyp | Jest to indeks utworzony przez Kreatora importu danych. |
-| Indeksatory.Tworzenie | Utwórz indeksator jawnie lub niejawnie za pomocą Kreatora importu danych. |
-| Indeksatory.Pobierz | Zwraca nazwę indeksatora za każdym razem, gdy jest uruchamiany indeksator. |
-| Indeksatory.Status | Zwraca stan indeksatora za każdym razem, gdy indeksator jest uruchamiany. |
-| DataSources.Get | Zwraca nazwę źródła danych za każdym razem, gdy jest uruchamiany indeksator.|
-| Indexes.Get | Zwraca nazwę indeksu za każdym razem, gdy jest uruchamiany indeksator. |
+| Servicestatystyka | Ta operacja to rutynowe wywołanie [pobierania statystyk usługi](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), wywoływane bezpośrednio lub niejawnie, aby wypełnić stronę omówienia portalu po jej załadowaniu lub odświeżeniu. |
+| Zapytanie. Search |  Zażądaj zapytań względem indeksu, aby uzyskać informacje na temat zarejestrowanych zapytań, zobacz temat [monitorowanie zapytań](search-monitor-queries.md) .|
+| Indeksowanie. index  | Ta operacja jest wywołaniem do [dodawania, aktualizowania lub usuwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
+| zwiększa. Prototyp | Jest to indeks utworzony przez Kreatora importu danych. |
+| Indeksatory. Utwórz | Utwórz indeksator jawnie lub niejawnie za pomocą Kreatora importu danych. |
+| Indeksatory. Get | Zwraca nazwę indeksatora za każdym razem, gdy indeksator jest uruchomiony. |
+| Indeksatory. stan | Zwraca stan indeksatora za każdym razem, gdy indeksator jest uruchomiony. |
+| Źródła danych. Pobierz | Zwraca nazwę źródła danych przy każdym uruchomieniu indeksatora.|
+| Indeksy. Get | Zwraca nazwę indeksu za każdym razem, gdy indeksator jest uruchamiany. |
 
-### <a name="kusto-queries-about-workloads"></a>Zapytania Kusto dotyczące obciążeń
+### <a name="kusto-queries-about-workloads"></a>Kusto zapytania dotyczące obciążeń
 
-Jeśli włączono rejestrowanie, można zapytanie **AzureDiagnostics** dla listy operacji, które uruchomiono w usłudze i kiedy. Można również skorelować działania w celu zbadania zmian w wydajności.
+Jeśli włączono rejestrowanie, możesz wysyłać zapytania do **AzureDiagnostics** , aby uzyskać listę operacji uruchomionych w usłudze i kiedy. Możesz również skorelować działanie, aby zbadać zmiany wydajności.
 
-#### <a name="example-list-operations"></a>Przykład: Operacje listy 
+#### <a name="example-list-operations"></a>Przykład: operacje na liście 
 
-Zwraca listę operacji i liczbę każdego z nich.
+Zwróć listę operacji i liczbę każdej z nich.
 
 ```
 AzureDiagnostics
 | summarize count() by OperationName
 ```
 
-#### <a name="example-correlate-operations"></a>Przykład: Skorelowanie operacji
+#### <a name="example-correlate-operations"></a>Przykład: skorelowanie operacji
 
-Skoreluj żądanie kwerendy z operacjami indeksowania i renderuj punkty danych na wykresie czasu, aby zobaczyć operacje zbieżne.
+Skorelować żądanie zapytania z operacjami indeksowania i Renderuj punkty danych na wykresie czasu, aby zobaczyć operacje, które się pokrywają.
 
 ```
 AzureDiagnostics
@@ -106,26 +106,26 @@ AzureDiagnostics
 
 ### <a name="use-search-apis"></a>Korzystanie z interfejsów API wyszukiwania
 
-Interfejs API REST usługi Azure Cognitive Search i zestaw SDK platformy .NET zapewniają programowy dostęp do metryk usługi, informacji o indeksach i indeksatorach oraz liczby dokumentów.
+Zarówno interfejs API REST platformy Azure Wyszukiwanie poznawcze, jak i zestaw .NET SDK zapewniają programistyczny dostęp do metryk usług, informacji o indeksie i indeksatorze oraz liczby dokumentów.
 
-+ [Statystyki usługi GET](/rest/api/searchservice/get-service-statistics)
-+ [GET Index Statystyki](/rest/api/searchservice/get-index-statistics)
-+ [POBIERZ liczniki dokumentów](/rest/api/searchservice/count-documents)
-+ [GET Indexer Status](/rest/api/searchservice/get-indexer-status)
++ [Pobierz statystyki usługi](/rest/api/searchservice/get-service-statistics)
++ [Pobierz statystyki indeksu](/rest/api/searchservice/get-index-statistics)
++ [Pobierz liczby dokumentów](/rest/api/searchservice/count-documents)
++ [Pobierz stan indeksatora](/rest/api/searchservice/get-indexer-status)
 
 ## <a name="monitor-user-access"></a>Monitorowanie dostępu użytkowników
 
-Ponieważ indeksy wyszukiwania są składnikiem większej aplikacji klienckiej, nie istnieje wbudowana metodologia kontrolowania lub monitorowania dostępu na użytkownika do indeksu. Zakłada się, że żądania pochodzą z aplikacji klienckiej dla żądań administratora lub kwerendy. Operacje odczytu i zapisu administratora obejmują tworzenie, aktualizowanie, usuwanie obiektów w całej usłudze. Operacje tylko do odczytu są zapytania względem kolekcji dokumentów, o zasięgu do jednego indeksu. 
+Ponieważ indeksy wyszukiwania są składnikiem większej aplikacji klienckiej, nie ma żadnej wbudowanej metodologii do kontrolowania i monitorowania dostępu dla poszczególnych użytkowników do indeksu. Założono, że żądania pochodzą z aplikacji klienckiej dla żądań administratora lub zapytania. Operacje odczytu i zapisu administratora obejmują tworzenie, aktualizowanie i usuwanie obiektów w całej usłudze. Operacje tylko do odczytu są zapytania względem kolekcji dokumentów, w zakresie do pojedynczego indeksu. 
 
-W związku z tym, co zobaczysz w dziennikach aktywności są odwołania do wywołań przy użyciu kluczy administracyjnych lub kluczy kwerendy. Odpowiedni klucz jest uwzględniony w żądaniach pochodzących z kodu klienta. Usługa nie jest przystosowana do obsługi tokenów tożsamości lub personifikacji.
+W związku z tym informacje widoczne w dziennikach aktywności są odwołaniami do wywołań przy użyciu kluczy administracyjnych lub kluczy zapytań. Odpowiedni klucz jest uwzględniany w żądaniach pochodzących z kodu klienta. Usługa nie jest wyposażona w obsługę tokenów tożsamości ani personifikacji.
 
-Jeśli istnieją wymagania biznesowe dla autoryzacji dla użytkownika, zalecenie jest integracja z usługi Azure Active Directory. $filter i tożsamości użytkowników można używać do [przycinania wyników wyszukiwania](search-security-trimming-for-azure-search-with-aad.md) dokumentów, których użytkownik nie powinien widzieć. 
+Jeśli istnieją wymagania biznesowe dotyczące autoryzacji dla poszczególnych użytkowników, zalecenie jest integrowane z Azure Active Directory. Możesz użyć $filter i tożsamości użytkowników, aby [przyciąć wyniki wyszukiwania](search-security-trimming-for-azure-search-with-aad.md) dokumentów, których użytkownik nie powinien zobaczyć. 
 
-Nie ma możliwości rejestrowania tych informacji oddzielnie od ciągu zapytania, który zawiera parametr $filter. Zobacz [Monitorowanie kwerend, aby](search-monitor-queries.md) uzyskać szczegółowe informacje na temat raportowania ciągów zapytań.
+Nie ma możliwości rejestrowania tych informacji niezależnie od ciągu zapytania zawierającego parametr $filter. Aby uzyskać szczegółowe informacje o raportowaniu ciągów zapytań, zobacz temat [monitorowanie zapytań](search-monitor-queries.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-Płynność usługi Azure Monitor jest niezbędna do nadzorowania dowolnej usługi platformy Azure, w tym zasobów, takich jak usługa Azure Cognitive Search. Jeśli nie jesteś zaznajomiony z usługi Azure Monitor, poświęć trochę czasu na przejrzenie artykułów związanych z zasobami. Oprócz samouczków, poniższy artykuł jest dobrym miejscem do rozpoczęcia.
+Fluency z Azure Monitor jest niezbędne do nadzoru dowolnej usługi platformy Azure, w tym takich zasobów jak Azure Wyszukiwanie poznawcze. Jeśli nie znasz Azure Monitor, poświęć trochę czasu na zapoznanie się z artykułami dotyczącymi zasobów. Oprócz samouczków, w tym miejscu warto zacząć od artykułu.
 
 > [!div class="nextstepaction"]
-> [Monitorowanie zasobów platformy Azure za pomocą usługi Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)
+> [Monitorowanie zasobów platformy Azure za pomocą Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)

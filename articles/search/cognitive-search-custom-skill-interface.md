@@ -1,7 +1,7 @@
 ---
 title: Definicja interfejsu dla umiejętności niestandardowych
 titleSuffix: Azure Cognitive Search
-description: Niestandardowy interfejs wyodrębniania danych dla umiejętności niestandardowych interfejsu api w potoku wzbogacania sztucznej inteligencji w usłudze Azure Cognitive Search.
+description: Niestandardowy interfejs wyodrębniania danych dla niestandardowej umiejętności interfejsu API sieci Web w potoku wzbogacenia AI na platformie Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,23 +9,23 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 78f5f6eda28bed164668445b5671dad92f8dedd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77500266"
 ---
-# <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Jak dodać niestandardową umiejętność do potoku wzbogacania usługi Azure Cognitive Search
+# <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Jak dodać niestandardową umiejętność do potoku wzbogacenia Wyszukiwanie poznawcze platformy Azure
 
-[Potok wzbogacania](cognitive-search-concept-intro.md) w usłudze Azure Cognitive Search można zmontować na podstawie [wbudowanych umiejętności poznawczych,](cognitive-search-predefined-skills.md) a także [umiejętności niestandardowych,](cognitive-search-custom-skill-web-api.md) które osobiście tworzysz i dodajesz do potoku. W tym artykule dowiesz się, jak utworzyć niestandardową umiejętność, która udostępnia interfejs umożliwiający uwzględnienie go w potoku wzbogacania interfejsu SI. 
+[Potok wzbogacania](cognitive-search-concept-intro.md) w usłudze Azure wyszukiwanie poznawcze może być montowany z [wbudowanych umiejętności poznawczych](cognitive-search-predefined-skills.md) , a także [niestandardowych umiejętności](cognitive-search-custom-skill-web-api.md) , które tworzysz i dodajesz do potoku. W tym artykule dowiesz się, jak utworzyć niestandardową umiejętność, która uwidacznia interfejs umożliwiający dołączenie go do potoku wzbogacania AI. 
 
-Tworzenie umiejętności niestandardowych umożliwia wstawienie przekształceń unikatowych dla zawartości. Niestandardowa umiejętność jest wykonywana niezależnie, stosując dowolny krok wzbogacenia, którego potrzebujesz. Na przykład można zdefiniować encje niestandardowe specyficzne dla pola, utworzyć niestandardowe modele klasyfikacji w celu rozróżnienia kontraktów i dokumentów biznesowych i finansowych lub dodać umiejętność rozpoznawania mowy, aby dotrzeć głębiej do plików audio dla odpowiedniej zawartości. Aby zapoznać się z przykładem krok po kroku, zobacz [Przykład: Tworzenie umiejętności niestandardowych do wzbogacania si.](cognitive-search-create-custom-skill-example.md)
+Tworzenie niestandardowych umiejętności umożliwia wstawianie przekształceń unikatowych dla zawartości. Niestandardowa umiejętnie wykonuje się niezależnie od zastosowania dowolnych wymaganych czynności wzbogacania. Można na przykład zdefiniować jednostki niestandardowe specyficzne dla pola, utworzyć niestandardowe modele klasyfikacji, aby rozróżnić kontrakty biznesowe i finansowe oraz dokumenty, lub dodać umiejętność rozpoznawania mowy, aby lepiej uzyskać dostęp do plików audio w celu uzyskania odpowiedniej zawartości. Aby zapoznać się z przykładem krok po kroku, zobacz [przykład: Tworzenie niestandardowej umiejętności dla wzbogacania AI](cognitive-search-create-custom-skill-example.md).
 
- Niezależnie od możliwości niestandardowych, które są wymagane, istnieje prosty i przejrzysty interfejs do łączenia umiejętności niestandardowych do reszty potoku wzbogacania. Jedynym wymogiem włączenia do [skillset](cognitive-search-defining-skillset.md) jest możliwość akceptowania danych wejściowych i emitować dane wyjściowe w sposób, który jest zużywalny w ramach skillset jako całości. W tym artykule koncentruje się na formatach danych wejściowych i wyjściowych, które wymaga potoku wzbogacania.
+ Niezależnie od tego, jakie możliwości niestandardowe są wymagane, istnieje prosty i przejrzysty interfejs do łączenia niestandardowych umiejętności z resztą potoku wzbogacania. Jedynym wymaganiem do włączenia w [zestawu umiejętności](cognitive-search-defining-skillset.md) jest możliwość przyjmowania danych wejściowych i emisji w sposób, który jest zużywany w ramach zestawu umiejętności jako całości. Fokus tego artykułu znajduje się w formatach wejściowych i wyjściowych wymaganych przez potok wzbogacania.
 
-## <a name="web-api-custom-skill-interface"></a>Niestandardowy interfejs umiejętności interfejsu API sieci Web
+## <a name="web-api-custom-skill-interface"></a>Niestandardowy interfejs niestandardowych interfejsów API sieci Web
 
-Niestandardowe punkty końcowe umiejętności WebAPI domyślnie limit czasu, jeśli nie zwracają odpowiedzi w oknie 30 sekund. Potok indeksowania jest synchroniczne i indeksowania spowoduje błąd limitu czasu, jeśli odpowiedź nie zostanie odebrana w tym oknie.  Istnieje możliwość skonfigurowania limitu czasu do 230 sekund, ustawiając parametr limitu czasu:
+Niestandardowe punkty końcowe umiejętności WebAPI według domyślnego limitu czasu, jeśli nie zwracają odpowiedzi w ramach 30-sekundowego okna. Potok indeksowania jest synchroniczny, a indeksowanie spowoduje wygenerowanie błędu limitu czasu, jeśli w tym oknie nie zostanie odebrana odpowiedź.  Limit czasu można skonfigurować do 230 sekund, ustawiając parametr timeout:
 
 ```json
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
@@ -36,21 +36,21 @@ Niestandardowe punkty końcowe umiejętności WebAPI domyślnie limit czasu, je�
 
 Upewnij się, że identyfikator URI jest bezpieczny (HTTPS).
 
-Obecnie jedynym mechanizmem interakcji z umiejętnością niestandardową jest interfejs interfejsu interfejsu API sieci Web. Potrzeby interfejsu API sieci Web muszą spełniać wymagania opisane w tej sekcji.
+Obecnie jedynym mechanizmem do współdziałania z niestandardowymi umiejętnościami jest interfejs API sieci Web. Potrzeby interfejsu API sieci Web muszą spełniać wymagania opisane w tej sekcji.
 
-### <a name="1--web-api-input-format"></a>1. Format wprowadzania interfejsu API sieci Web
+### <a name="1--web-api-input-format"></a>1. format danych wejściowych interfejsu API sieci Web
 
-Interfejs API sieci Web musi akceptować tablicę rekordów do przetworzenia. Każdy rekord musi zawierać "worek właściwości", który jest dane wejściowe dostarczone do interfejsu API sieci Web. 
+Internetowy interfejs API musi akceptować tablicę rekordów do przetworzenia. Każdy rekord musi zawierać "zbiór właściwości", który jest danymi wejściowymi do internetowego interfejsu API. 
 
-Załóżmy, że chcesz utworzyć prosty wzbogacacz, który identyfikuje pierwszą datę wymienioną w tekście umowy. W tym przykładzie umiejętność akceptuje pojedynczy plik wejściowy *contractText* jako tekst umowy. Umiejętność ma również jedną wydajność, która jest datą kontraktu. Aby wzbogacić bardziej interesujące, zwrócić ten *kontraktDausz* w kształcie wieloczęściowego typu złożonego.
+Załóżmy, że chcesz utworzyć prosty wzbogacający, który identyfikuje pierwszy dzień wymieniony w tekście kontraktu. W tym przykładzie umiejętność akceptuje pojedyncze dane wejściowe *contractText* jako tekst kontraktu. Kwalifikacja ma także pojedyncze dane wyjściowe, czyli datę kontraktu. Aby ułatwić wzbogacanie, zwróć ten *contractDate* do kształtu złożonego typu wieloczęściowego.
 
-Interfejs API sieci Web powinien być gotowy do odbierania partii rekordów wejściowych. Każdy element członkowski tablicy *wartości* reprezentuje dane wejściowe dla określonego rekordu. Każdy rekord musi mieć następujące elementy:
+Internetowy interfejs API powinien być gotowy do otrzymywania partii rekordów wejściowych. Każdy element członkowski tablicy *wartości* reprezentuje dane wejściowe dla określonego rekordu. Każdy rekord musi mieć następujące elementy:
 
-+ Element członkowski *recordId,* który jest unikatowym identyfikatorem określonego rekordu. Gdy wzbogacacz zwraca wyniki, musi podać ten *identyfikator rekordu,* aby umożliwić wywołującemu dopasować wyniki rekordu do ich danych wejściowych.
++ Element członkowski *recordId* , który jest unikatowym identyfikatorem dla określonego rekordu. Gdy Program wzbogacający zwraca wyniki, musi podać ten identyfikator *recordId* , aby umożliwić wywołującemu dopasowanie wyników rekordu do ich danych wejściowych.
 
-+ Element członkowski *danych,* który jest zasadniczo workiem pól wejściowych dla każdego rekordu.
++ Element członkowski *danych* , który zasadniczo jest zbiorem pól wejściowych dla każdego rekordu.
 
-Aby być bardziej konkretne, w powyższym przykładzie interfejs API sieci Web należy oczekiwać żądań, które wyglądają następująco:
+Aby być bardziej konkretny, na powyższym przykładzie internetowy interfejs API powinien oczekiwać żądań, które wyglądają następująco:
 
 ```json
 {
@@ -81,11 +81,11 @@ Aby być bardziej konkretne, w powyższym przykładzie interfejs API sieci Web n
     ]
 }
 ```
-W rzeczywistości usługa może zostać wywołana z setkami lub tysiącami rekordów zamiast tylko trzech pokazanych tutaj.
+W rzeczywistości usługa może zostać wywołana z setkami lub tysiącami rekordów zamiast tylko trzech przedstawionych tutaj.
 
-### <a name="2-web-api-output-format"></a>2. Format wyjściowy interfejsu API sieci Web
+### <a name="2-web-api-output-format"></a>2. format danych wyjściowych interfejsu API sieci Web
 
-Format danych wyjściowych jest zestawem rekordów zawierających *recordId*i workiem właściwości 
+Format danych wyjściowych to zestaw rekordów zawierających identyfikator *recordId*i zbiór właściwości 
 
 ```json
 {
@@ -116,15 +116,15 @@ Format danych wyjściowych jest zestawem rekordów zawierających *recordId*i wo
 }
 ```
 
-W tym konkretnym przykładzie ma tylko jedno dane wyjściowe, ale można wyprowadzić więcej niż jedną właściwość. 
+W tym konkretnym przykładzie istnieje tylko jedno wyjście, ale można wyprowadzić więcej niż jedną właściwość. 
 
 ### <a name="errors-and-warning"></a>Błędy i ostrzeżenia
 
 Jak pokazano w poprzednim przykładzie, można zwrócić komunikaty o błędach i ostrzeżeniach dla każdego rekordu.
 
-## <a name="consuming-custom-skills-from-skillset"></a>Korzystanie z umiejętności niestandardowych z skillset
+## <a name="consuming-custom-skills-from-skillset"></a>Zużywanie umiejętności niestandardowych z zestawu umiejętności
 
-Podczas tworzenia wzbogacacza interfejsu API sieci Web można opisać nagłówki i parametry HTTP jako część żądania. Poniższy fragment kodu pokazuje, jak parametry żądania i *opcjonalne* nagłówki HTTP mogą być opisane jako część definicji zestawu umiejętności. Nagłówki HTTP nie są wymagane, ale umożliwiają dodanie dodatkowych funkcji konfiguracji do umiejętności i ustawienie ich z definicji zestawu umiejętności.
+Podczas tworzenia programu wzbogacania interfejsu API sieci Web można opisać nagłówki i parametry HTTP w ramach żądania. Poniższy fragment kodu przedstawia sposób, w jaki parametry żądania i *opcjonalne* nagłówki HTTP mogą być opisane jako część definicji zestawu umiejętności. Nagłówki HTTP nie są wymagane, ale umożliwiają dodawanie dodatkowych możliwości konfiguracji do umiejętności i Ustawianie ich z definicji zestawu umiejętności.
 
 ```json
 {
@@ -156,10 +156,10 @@ Podczas tworzenia wzbogacacza interfejsu API sieci Web można opisać nagłówki
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule okryj się wymaganiami dotyczącymi interfejsu niezbędnymi do integracji umiejętności niestandardowych z zestawem umiejętności. Kliknij poniższe linki, aby dowiedzieć się więcej o umiejętnościach niestandardowych i składzie zestawu umiejętności.
+W tym artykule omówiono wymagania dotyczące interfejsu niezbędne do integracji niestandardowej umiejętności z zestawu umiejętności. Kliknij poniższe linki, aby dowiedzieć się więcej na temat umiejętności niestandardowych i kompozycji zestawu umiejętności.
 
-+ [Power Skills: repozytorium umiejętności niestandardowych](https://github.com/Azure-Samples/azure-search-power-skills)
-+ [Przykład: Tworzenie niestandardowej umiejętności wzbogacania SI](cognitive-search-create-custom-skill-example.md)
-+ [Jak zdefiniować zestaw umiejętności](cognitive-search-defining-skillset.md)
-+ [Tworzenie skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Jak mapować wzbogacone pola](cognitive-search-output-field-mapping.md)
++ [Umiejętności dotyczące oszczędzania mocy: repozytorium umiejętności niestandardowych](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Przykład: Tworzenie niestandardowej umiejętności dla wzbogacania AI](cognitive-search-create-custom-skill-example.md)
++ [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
++ [Utwórz zestawu umiejętności (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Jak zmapować wzbogacone pola](cognitive-search-output-field-mapping.md)

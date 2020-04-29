@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 7dd49df782115c8c328eed819395209ee7217fd3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77566067"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu zestawu .NET SDK  
@@ -70,7 +70,7 @@ Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scen
 
 Aby uruchomić punkt końcowy przesyłania strumieniowego, wykonaj następujące czynności:
 
-1. Zaloguj się w [witrynie Azure portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 2. W oknie Ustawienia kliknij pozycję Punkty końcowe przesyłania strumieniowego.
 3. Kliknij domyślny punkt końcowy przesyłania strumieniowego.
 
@@ -152,7 +152,7 @@ Funkcja **Main** wywołuje metody, które będą zdefiniowane w dalszej części
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Tworzenie nowego elementu zawartości i przekazywanie pliku wideo
 
-Za pomocą usługi Media Services można przekazać (lub pozyskać) pliki cyfrowe do elementu zawartości. Encja **Zasobów** może zawierać pliki wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki podpisów kodowanych (oraz metadane dotyczące tych plików).  Po przesłaniu plików zawartość jest bezpiecznie przechowywana w chmurze w celu dalszego przetwarzania i przesyłania strumieniowego. Pliki w elementach zawartości są nazywane **plikami elementów zawartości**.
+Za pomocą usługi Media Services można przekazać (lub pozyskać) pliki cyfrowe do elementu zawartości. Jednostka **zasobu** może zawierać wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki napisów (oraz metadane dotyczące tych plików).  Po przekazaniu plików zawartość jest bezpiecznie przechowywana w chmurze w celu dalszej przetwarzania i przesyłania strumieniowego. Pliki w elementach zawartości są nazywane **plikami elementów zawartości**.
 
 Zdefiniowana poniżej metoda **UploadFile** wywołuje metodę **CreateFromFile** (zdefiniowaną w rozszerzeniach zestawu SDK programu .NET). Metoda **CreateFromFile** tworzy nowy element zawartości, do którego jest przekazywany określony plik źródłowy.
 

@@ -1,7 +1,7 @@
 ---
-title: Umiejętności poznawcze scalania tekstu
+title: Umiejętność scalania tekstu
 titleSuffix: Azure Cognitive Search
-description: Scalanie tekstu z kolekcji pól w jedno pole skonsolidowane. Użyj tej umiejętności poznawczej w potoku wzbogacania sztucznej inteligencji w usłudze Azure Cognitive Search.
+description: Scalanie tekstu z kolekcji pól w jedno skonsolidowane pole. Korzystaj z tej umiejętności poznawczej w potoku wzbogacenia AI na platformie Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,21 +9,21 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 98ea416305f080850d85498f74693eb2d45b0944
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77162348"
 ---
-#   <a name="text-merge-cognitive-skill"></a>Umiejętności poznawcze scalania tekstu
+#   <a name="text-merge-cognitive-skill"></a>Umiejętność scalania tekstu
 
-Umiejętność **Scalanie tekstu** konsoliduje tekst z kolekcji pól w jedno pole. 
+Umiejętność **scalania tekstu** konsoliduje tekst z kolekcji pól w jedno pole. 
 
 > [!NOTE]
-> Ta umiejętność nie jest powiązana z interfejsem API usług Cognitive Services i nie są naliczane opłaty za korzystanie z niej. Należy jednak [dołączyć zasób usług Cognitive Services,](cognitive-search-attach-cognitive-services.md)aby zastąpić opcję **Wolny** zasób, która ogranicza liczbę wzbogacenia dziennie.
+> Ta umiejętność nie jest powiązana z interfejsem API Cognitive Services i nie jest naliczana opłata za korzystanie z niego. Mimo to należy [dołączyć zasób Cognitive Services](cognitive-search-attach-cognitive-services.md), aby zastąpić opcję **bezpłatnych** zasobów, która ogranicza liczbę codziennych wzbogacań dziennie.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.MergeSkill
+Microsoft. umiejętności. Text. MergeSkill
 
 ## <a name="skill-parameters"></a>Parametry umiejętności
 
@@ -31,12 +31,12 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 | Nazwa parametru     | Opis |
 |--------------------|-------------|
-| insertPreTag  | Ciąg do dołączona przed każdym wstawieniem. Wartością domyślną jest `" "`. Aby pominąć spację, ustaw `""`wartość na .  |
-| InsertPostTag (Wstawianie PostTag) | Ciąg do dołączona po każdym włożeniu. Wartością domyślną jest `" "`. Aby pominąć spację, ustaw `""`wartość na .  |
+| insertPreTag  | Ciąg do uwzględnienia przed każdym wstawieniem. Wartością domyślną jest `" "`. Aby pominąć miejsce, ustaw wartość na `""`.  |
+| insertPostTag | Ciąg do uwzględnienia po każdym wstawieniu. Wartością domyślną jest `" "`. Aby pominąć miejsce, ustaw wartość na `""`.  |
 
 
 ##  <a name="sample-input"></a>Przykładowe dane wejściowe
-Dokument JSON zapewniający użyteczne dane wejściowe dla tej umiejętności może być:
+Dokument JSON, który zapewnia użyteczne dane wejściowe dla tego umiejętności, może być następujący:
 
 ```json
 {
@@ -55,7 +55,7 @@ Dokument JSON zapewniający użyteczne dane wejściowe dla tej umiejętności mo
 ```
 
 ##  <a name="sample-output"></a>Przykładowe dane wyjściowe
-W tym przykładzie pokazano dane wyjściowe poprzedniego wejścia, `" "`przy założeniu, że *insertPreTag* jest ustawiona na , a *insertPostTag* jest ustawiona na `""`. 
+Ten przykład pokazuje dane wyjściowe poprzedniej wartości wejściowej, przy założeniu, że *insertPreTag* jest `" "`ustawiona na, a *insertPostTag* jest `""`ustawiona na. 
 
 ```json
 {
@@ -71,11 +71,11 @@ W tym przykładzie pokazano dane wyjściowe poprzedniego wejścia, `" "`przy za�
 }
 ```
 
-## <a name="extended-sample-skillset-definition"></a>Rozszerzona definicja narzędzia umiejętności próbkowania
+## <a name="extended-sample-skillset-definition"></a>Rozszerzona definicja zestawu umiejętności
 
-Typowym scenariuszem użycia scalania tekstu jest scalanie tekstowej reprezentacji obrazów (tekstu z umiejętności OCR lub podpisu obrazu) z polem zawartości dokumentu. 
+Typowym scenariuszem korzystania z scalania tekstu jest scalanie tekstowej reprezentacji obrazów (tekst z umiejętności OCR lub podpisanie obrazu) do pola zawartość dokumentu. 
 
-Poniższy przykładowy zestaw umiejętności używa umiejętności OCR do wyodrębniania tekstu z obrazów osadzonych w dokumencie. Następnie tworzy *pole merged_text,* które zawiera zarówno oryginalny, jak i tekstowy OCRed z każdego obrazu. Możesz dowiedzieć się więcej o umiejętności OCR [tutaj](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
+Poniższy przykład zestawu umiejętności używa umiejętności OCR do wyodrębniania tekstu z obrazów osadzonych w dokumencie. Następnie tworzy pole *merged_text* , aby zawierało oryginalny i OCRed tekst z każdego obrazu. Więcej informacji o umiejętnościach OCR można znaleźć [tutaj](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
 
 ```json
 {
@@ -126,7 +126,7 @@ Poniższy przykładowy zestaw umiejętności używa umiejętności OCR do wyodr�
   ]
 }
 ```
-Powyższy przykład zakłada, że istnieje pole znormalizowane obrazy. Aby uzyskać pole znormalizowane obrazy, ustaw konfigurację *imageAction* w definicji indeksatora, aby *generateNormalizedImages,* jak pokazano poniżej:
+W powyższym przykładzie przyjęto założenie, że istnieje znormalizowane pole obrazu. Aby uzyskać standardowe pole obrazu, Ustaw konfigurację *imageAction* w definicji indeksatora na *generateNormalizedImages* , jak pokazano poniżej:
 
 ```json
 {
@@ -140,8 +140,8 @@ Powyższy przykład zakłada, że istnieje pole znormalizowane obrazy. Aby uzysk
 }
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
-+ [Jak zdefiniować zestaw umiejętności](cognitive-search-defining-skillset.md)
++ [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
 + [Tworzenie indeksatora (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

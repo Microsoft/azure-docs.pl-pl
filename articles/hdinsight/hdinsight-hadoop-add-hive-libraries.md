@@ -1,6 +1,6 @@
 ---
-title: Biblioteki hive Apache podczas tworzenia klastra — Usługa Azure HDInsight
-description: Dowiedz się, jak dodać biblioteki (pliki jar) programu Apache hive do klastra HDInsight podczas tworzenia klastra.
+title: Apache Hive bibliotek podczas tworzenia klastra — Azure HDInsight
+description: Dowiedz się, jak dodać biblioteki Apache Hive (pliki jar) do klastra usługi HDInsight podczas tworzenia klastra.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 02/14/2020
 ms.openlocfilehash: 0b746963cea5a950ba47d8b4dfeb074cb0910436
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77471027"
 ---
-# <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Dodawanie niestandardowych bibliotek gałęzi Apache podczas tworzenia klastra usługi HDInsight
+# <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Dodawanie niestandardowych bibliotek Apache Hive podczas tworzenia klastra usługi HDInsight
 
-Dowiedz się, jak wstępnie załadować [biblioteki gałęzi Apache](https://hive.apache.org/) w programie HDInsight. Ten dokument zawiera informacje dotyczące używania akcji skryptu do wstępnego ładowania bibliotek podczas tworzenia klastra. Biblioteki dodane przy użyciu kroków w tym dokumencie są globalnie dostępne w gałęzi — nie ma potrzeby używania [ADD JAR,](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) aby je załadować.
+Dowiedz się, jak wstępnie ładować biblioteki [Apache Hive](https://hive.apache.org/) w usłudze HDInsight. Ten dokument zawiera informacje na temat używania akcji skryptu do wstępnego ładowania bibliotek podczas tworzenia klastra. Biblioteki dodane przy użyciu kroków opisanych w tym dokumencie są globalnie dostępne w programie Hive — nie ma potrzeby [dodawania pliku JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) w celu ich załadowania.
 
 ## <a name="how-it-works"></a>Jak to działa
 
-Podczas tworzenia klastra można użyć akcji skryptu, aby zmodyfikować węzły klastra podczas ich tworzenia. Skrypt w tym dokumencie akceptuje pojedynczy parametr, który jest lokalizacją bibliotek. Ta lokalizacja musi znajdować się na koncie usługi Azure Storage, a biblioteki muszą być przechowywane jako pliki jar.
+Podczas tworzenia klastra można użyć akcji skryptu, aby zmodyfikować węzły klastra w miarę ich tworzenia. Skrypt w tym dokumencie przyjmuje jeden parametr, który jest lokalizacją bibliotek. Ta lokalizacja musi znajdować się na koncie usługi Azure Storage, a biblioteki muszą być przechowywane jako pliki jar.
 
-Podczas tworzenia klastra skrypt wylicza pliki, kopiuje je do `/usr/lib/customhivelibs/` katalogu na węzłach `hive.aux.jars.path` head i `core-site.xml` worker, a następnie dodaje je do właściwości w pliku. W klastrach opartych na systemie `hive-env.sh` Linux aktualizuje również plik z lokalizacją plików.
+Podczas tworzenia klastra skrypt wylicza pliki, kopiuje je do `/usr/lib/customhivelibs/` katalogu w węzłach głównych i procesów roboczych, a następnie dodaje je do `hive.aux.jars.path` właściwości w `core-site.xml` pliku. W klastrach opartych na systemie Linux `hive-env.sh` plik zostanie również zaktualizowany przy użyciu lokalizacji plików.
 
-Użycie akcji skryptu w tym artykule powoduje udostępnieniu bibliotek podczas korzystania z klienta hive dla **programów WebHCat**i **HiveServer2**.
+Użycie akcji skryptu w tym artykule sprawia, że biblioteki są dostępne w przypadku korzystania z klienta programu Hive dla **WebHCat**i **serwera hiveserver2**.
 
 ## <a name="the-script"></a>Skrypt
 
@@ -35,42 +35,42 @@ Użycie akcji skryptu w tym artykule powoduje udostępnieniu bibliotek podczas k
 
 ### <a name="requirements"></a>Wymagania
 
-* Skrypty muszą być stosowane zarówno do **węzłów głównego,** jak i **węzłów worker**.
+* Skrypty muszą być stosowane zarówno do **węzłów głównych** , jak i **węzłów procesu roboczego**.
 
-* Słoiki, które chcesz zainstalować, muszą być przechowywane w usłudze Azure Blob Storage w **jednym kontenerze.**
+* Jars, które chcesz zainstalować, muszą być przechowywane w usłudze Azure Blob Storage w **jednym kontenerze**.
 
-* Konto magazynu zawierające bibliotekę plików jar **musi** być połączone z klastrem HDInsight podczas tworzenia. Musi to być domyślne konto magazynu lub konto dodane za pośrednictwem __ustawień konta magazynu__.
+* Podczas tworzenia konta magazynu zawierającego bibliotekę plików jar **należy** połączyć z klastrem usługi HDInsight. Musi to być domyślne konto magazynu lub konto dodane za pomocą __ustawień konta magazynu__.
 
-* Ścieżka WASB do kontenera musi być określona jako parametr akcji skryptu. Na przykład, jeśli słoiki są przechowywane w kontenerze o nazwie libs na **koncie** magazynu o nazwie **mystorage,** parametrem będzie `wasbs://libs@mystorage.blob.core.windows.net/`.
+* Ścieżka WASB do kontenera musi być określona jako parametr akcji skryptu. Na przykład, jeśli Jars są przechowywane w kontenerze o nazwie **libs** na koncie magazynu o nazwie Moja **Magazyn**, parametr będzie `wasbs://libs@mystorage.blob.core.windows.net/`.
 
   > [!NOTE]  
-  > W tym dokumencie założono, że utworzono już konto magazynu, kontener obiektów blob i przekażesz do niego pliki.
+  > W tym dokumencie przyjęto założenie, że utworzono już konto magazynu, kontener obiektów blob i przekazano do niego pliki.
   >
-  > Jeśli konto magazynu nie zostało utworzone, można to zrobić za pośrednictwem [witryny Azure portal](https://portal.azure.com). Następnie można użyć narzędzia, takiego jak [Eksplorator usługi Azure Storage,](https://storageexplorer.com/) aby utworzyć kontener na koncie i przekazać do niego pliki.
+  > Jeśli nie utworzono konta magazynu, możesz to zrobić za pomocą [Azure Portal](https://portal.azure.com). Następnie można użyć narzędzia, takiego jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/) , aby utworzyć kontener na koncie i przekazać do niego pliki.
 
 ## <a name="create-a-cluster-using-the-script"></a>Tworzenie klastra przy użyciu skryptu
 
-1. Rozpocznij inicjowanie obsługi administracyjnej klastra przy użyciu kroków w [programie Provision HDInsight klastrów w systemie Linux](hdinsight-hadoop-provision-linux-clusters.md), ale nie zakończyć inicjowania obsługi administracyjnej. Można również użyć programu Azure PowerShell lub HDInsight .NET SDK do utworzenia klastra przy użyciu tego skryptu. Aby uzyskać więcej informacji na temat korzystania z tych metod, zobacz [Dostosowywanie klastrów HDInsight za pomocą akcji skryptów](hdinsight-hadoop-customize-cluster-linux.md). W przypadku witryny Azure portal na karcie **Konfiguracja + cennik** wybierz **akcję + Dodaj skrypt**.
+1. Rozpocznij Inicjowanie obsługi klastra, wykonując czynności opisane w temacie [Inicjowanie obsługi klastrów usługi HDInsight w systemie Linux](hdinsight-hadoop-provision-linux-clusters.md), ale nie Ukończ aprowizacji. Do utworzenia klastra korzystającego z tego skryptu można również użyć Azure PowerShell lub zestawu .NET SDK usługi HDInsight. Aby uzyskać więcej informacji na temat korzystania z tych metod, zobacz [Dostosowywanie klastrów usługi HDInsight za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md). W przypadku Azure Portal na karcie **Konfiguracja i Cennik** wybierz **akcję + Dodaj skrypt**.
 
-1. W przypadku **magazynu**, jeśli konto magazynu zawierające bibliotekę plików jar będzie inne niż konto używane dla klastra, wykonaj **dodatkowe konta magazynu**.
+1. W przypadku **magazynu**, jeśli konto magazynu zawierające bibliotekę plików jar będzie inne niż konto używane przez klaster, uzupełnij **dodatkowe konta magazynu**.
 
 1. W przypadku **akcji skryptu**podaj następujące informacje:
 
     |Właściwość |Wartość |
     |---|---|
-    |Typ skryptu|- Niestandardowe|
+    |Typ skryptu|-Niestandardowe|
     |Nazwa|Biblioteki |
     |Identyfikator URI skryptu bash|`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`|
-    |Typy węzłów|Głowa, Pracownik|
-    |Parametry|Wprowadź adres WASB do konta kontenera i magazynu, który zawiera słoiki. Na przykład `wasbs://libs@mystorage.blob.core.windows.net/`.|
+    |Typy węzłów|Kierownik, proces roboczy|
+    |Parametry|Wprowadź adres WASB do kontenera i konta magazynu, które zawiera Jars. Na przykład `wasbs://libs@mystorage.blob.core.windows.net/`.|
 
     > [!NOTE]
-    > W przypadku programu Apache Spark 2.1 `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh`użyj tego skryptu URI skryptu bash: .
+    > W przypadku Apache Spark 2,1 Użyj tego identyfikatora URI skryptu bash `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh`:.
 
-1. Kontynuuj inicjowanie obsługi administracyjnej klastra zgodnie z opisem w [programie Provision HDInsight clusters w systemie Linux](hdinsight-hadoop-provision-linux-clusters.md).
+1. Kontynuuj Inicjowanie obsługi klastra zgodnie z opisem w temacie [Inicjowanie obsługi klastrów usługi HDInsight w systemie Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
-Po zakończeniu tworzenia klastra można używać słoików dodanych za pośrednictwem tego skryptu `ADD JAR` z hive bez konieczności używania instrukcji.
+Po zakończeniu tworzenia klastra możesz użyć Jars dodanego za pośrednictwem tego skryptu z Hive, bez konieczności używania `ADD JAR` instrukcji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat pracy z gałęzią, zobacz [Używanie gałęzi Apache z hdinsight](hadoop/hdinsight-use-hive.md)
+Aby uzyskać więcej informacji na temat pracy z usługą Hive, zobacz [Korzystanie z Apache Hive z usługą HDInsight](hadoop/hdinsight-use-hive.md)

@@ -1,6 +1,6 @@
 ---
-title: Koncepcje Classroom Labs - Usługi Azure Lab | Dokumenty firmy Microsoft
-description: Poznaj podstawowe pojęcia dotyczące usług laboratoryjnych i jak można je łatwo tworzyć laboratoria i zarządzać nimi.
+title: Koncepcje dotyczące zajęć w laboratoriach — Azure Lab Services | Microsoft Docs
+description: Zapoznaj się z podstawowymi pojęciami dotyczącymi usług Lab Services oraz możliwością tworzenia laboratoriów oraz zarządzania nimi.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,35 +14,35 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
 ms.openlocfilehash: 15fd3c18d059466c2b2bd5e2431013f393092b4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77526233"
 ---
 # <a name="classroom-labs-concepts"></a>Pojęcia związane z laboratoriami na potrzeby zajęć
 
-Poniższa lista zawiera kluczowe pojęcia i definicje usług lab:
+Poniższa lista zawiera pojęcia i definicje dotyczące najważniejszych usług laboratoryjnych:
 
 ## <a name="quota"></a>Limit przydziału
 
-Przydział to limit czasu (w godzinach), który nauczyciel może ustawić dla ucznia, aby użyć maszyny Wirtualnej laboratorium. Można go ustawić na 0 lub określoną liczbę godzin. Jeśli przydział jest ustawiony na 0, uczeń może używać maszyny wirtualnej tylko wtedy, gdy harmonogram jest uruchomiony lub gdy nauczyciel ręcznie włącza maszynę wirtualną dla ucznia.  
+Przydział to limit czasu (w godzinach), który nauczyciel może ustawić dla ucznia, aby mógł korzystać z maszyny wirtualnej laboratorium. Można ustawić wartość 0 lub określoną liczbę godzin. Jeśli limit przydziału jest ustawiony na 0, student może używać maszyny wirtualnej tylko wtedy, gdy harmonogram jest uruchomiony lub gdy nauczyciel ręcznie włączy maszynę wirtualną dla ucznia.  
 
-Godziny przydziału są liczone, gdy uczeń sam uruchamia maszynę wirtualną laboratorium.  Jeśli nauczyciel ręcznie uruchamia maszynę wirtualną laboratorium dla ucznia, godziny przydziału nie są używane dla tego ucznia.
+Godziny przydziału są zliczane, gdy student uruchamia maszynę wirtualną laboratorium.  Jeśli nauczyciel ręcznie uruchomi maszynę wirtualną laboratorium dla ucznia, godziny przydziału nie będą używane dla tego ucznia.
 
 ## <a name="schedules"></a>Harmonogramy
 
-Harmonogramy to przedziały czasowe, które nauczyciel może utworzyć dla klasy, dzięki czemu maszyny wirtualne uczniów są dostępne dla czasu zajęć.  Harmonogramy mogą być jednorazowe lub cykliczne.  Godziny przydziału nie są używane, gdy harmonogram jest uruchomiony.
+Harmonogramy to przedziały czasu, które nauczyciel może utworzyć dla klasy, dzięki czemu maszyny wirtualne uczniów są dostępne dla czasu klasy.  Harmonogramy mogą być jednorazowe lub cykliczne.  Godziny przydziału nie są używane, gdy harmonogram jest uruchomiony.
 
-Istnieją trzy typy harmonogramów: Standardowy, Tylko start i Stop tylko.
+Istnieją trzy typy harmonogramów: standardowe, tylko do uruchomienia i tylko Zatrzymaj.
 
-- **Standard**.  Ten harmonogram rozpocznie wszystkie maszyny wirtualne dla uczniów o określonej godzinie rozpoczęcia i zamknie wszystkie maszyny wirtualne uczniów o określonej godzinie zatrzymania.
-- **Tylko start**.   Ten harmonogram rozpocznie wszystkie maszyny wirtualne dla uczniów o określonej godzinie.  Maszyny wirtualne uczniów nie zostanie zatrzymana, dopóki student nie zatrzyma ich maszyny wirtualnej za pośrednictwem portalu usług Azure Lab Services lub harmonogram tylko zatrzymania.
-- **Zatrzymaj się tylko**.  Ten harmonogram zatrzyma wszystkie maszyny wirtualne uczniów w określonym czasie.  
+- **Standard**.  Ten harmonogram umożliwia uruchomienie wszystkich maszyn wirtualnych uczniów o określonym czasie rozpoczęcia i zamknięcie wszystkich maszyn wirtualnych uczniów o określonym czasie zatrzymania.
+- **Tylko początek**.   Ten harmonogram umożliwia uruchomienie wszystkich maszyn wirtualnych uczniów o określonej godzinie.  Maszyny wirtualne uczniów nie będą zatrzymywane do momentu zatrzymania przez studenta maszyny wirtualnej za pośrednictwem portalu Azure Lab Services lub zatrzymywania tylko harmonogramu.
+- **Tylko Zatrzymaj**.  Ten harmonogram spowoduje zatrzymanie wszystkich maszyn wirtualnych uczniów w określonym czasie.  
 
-## <a name="template-virtual-machine"></a>Maszyna wirtualna szablonu
+## <a name="template-virtual-machine"></a>Szablonowa maszyna wirtualna
 
-Maszyna wirtualna szablonu w laboratorium to podstawowy obraz maszyny wirtualnej, z którego tworzone są maszyny wirtualne wszystkich użytkowników. Trenerzy/twórcy laboratorium skonfigurować szablon maszyny wirtualnej i skonfigurować go z oprogramowaniem, które chcą zapewnić do szkolenia uczestników do laboratoriów. Podczas publikowania szablonu maszyny Wirtualnej usługi Azure Lab Services tworzy lub aktualizuje maszyny wirtualne laboratorium na podstawie szablonu maszyny Wirtualnej.
+Szablon maszyny wirtualnej w laboratorium to podstawowy obraz maszyny wirtualnej, z którego są tworzone wszystkie maszyny wirtualne wszystkich użytkowników. Instruktorzy/twórcy mogą skonfigurować maszynę wirtualną szablonu i skonfigurować ją z oprogramowaniem, które chcą udostępnić uczestnikom szkoleń do laboratoriów. Podczas publikowania szablonu maszyny wirtualnej Azure Lab Services tworzy lub aktualizuje maszyny wirtualne laboratorium na podstawie maszyny wirtualnej szablonu.
 
 ## <a name="user-profiles"></a>Profile użytkowników
 

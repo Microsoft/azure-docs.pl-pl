@@ -1,21 +1,21 @@
 ---
-title: Klauzula SELECT w usłudze Azure Cosmos DB
-description: Dowiedz się więcej o klauzuli SQL SELECT dla usługi Azure Cosmos DB. Użyj języka SQL jako języka zapytań JSON usługi Azure Cosmos DB.
+title: Klauzula SELECT w Azure Cosmos DB
+description: Dowiedz się więcej na temat klauzuli SELECT języka SQL dla Azure Cosmos DB. Użyj programu SQL jako Azure Cosmos DB języka zapytań JSON.
 author: ginarobinson
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
 ms.openlocfilehash: 013ebdcdbac41825c10a1362f73ab4c94052400d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77469939"
 ---
-# <a name="select-clause-in-azure-cosmos-db"></a>Klauzula SELECT w usłudze Azure Cosmos DB
+# <a name="select-clause-in-azure-cosmos-db"></a>Klauzula SELECT w Azure Cosmos DB
 
-Każda kwerenda składa się z klauzul select i opcjonalnych klauzul [FROM](sql-query-from.md) i [WHERE,](sql-query-where.md) zgodnie ze standardami SQL ANSI. Zazwyczaj źródło w klauzuli FROM jest wyliczona, a klauzula WHERE stosuje filtr w źródle, aby pobrać podzbiór elementów JSON. Select Klauzula następnie projekty żądane wartości JSON na liście select.
+Każde zapytanie składa się z klauzuli SELECT i opcjonalnych klauzul from i [WHERE](sql-query-where.md) , zgodnie [ze](sql-query-from.md) standardami ANSI języka SQL. Typowo, źródło w klauzuli FROM jest wyliczane i klauzula WHERE stosuje filtr dla źródła, aby pobrać podzestaw elementów JSON. Klauzula SELECT następnie projektuje żądane wartości JSON na liście wyboru.
 
 ## <a name="syntax"></a>Składnia
 
@@ -36,49 +36,49 @@ SELECT <select_specification>
   
 - `<select_specification>`  
 
-  Właściwości lub wartość, która ma być wybrana dla zestawu wyników.  
+  Właściwości lub wartości, które mają zostać wybrane dla zestawu wyników.  
   
 - `'*'`  
 
-  Określa, że wartość powinna być pobierana bez wprowadzania jakichkolwiek zmian. W szczególności, jeśli przetworzona wartość jest obiektem, zostaną pobrane wszystkie właściwości.  
+  Określa, że wartość powinna być pobierana bez wprowadzania żadnych zmian. W przypadku, gdy przetworzona wartość jest obiektem, zostaną pobrane wszystkie właściwości.  
   
 - `<object_property_list>`  
   
-  Określa listę właściwości, które mają zostać pobrane. Każda zwrócona wartość będzie obiektem z określonymi właściwościami.  
+  Określa listę właściwości, które mają zostać pobrane. Każda zwrócona wartość będzie obiektem ze wskazanymi właściwościami.  
   
 - `VALUE`  
 
-  Określa, że wartość JSON powinna być pobierana zamiast pełnego obiektu JSON. To, `<property_list>` w przeciwieństwie do nie zawija prognozowaną wartość w obiekcie.  
+  Określa, że wartość JSON ma być pobierana zamiast pełnego obiektu JSON. W przeciwieństwie `<property_list>` do nie powoduje zawijania przewidywanej wartości w obiekcie.  
  
 - `DISTINCT`
   
-  Określa, że duplikaty wyświetlanych właściwości powinny zostać usunięte.  
+  Określa, że duplikaty właściwości rzutowane powinny zostać usunięte.  
 
 - `<scalar_expression>`  
 
-  Wyrażenie reprezentujące wartość, która ma być obliczona. Zobacz [sekcję wyrażeń skalarnych,](sql-query-scalar-expressions.md) aby uzyskać szczegółowe informacje.  
+  Wyrażenie reprezentujące wartość, która ma zostać obliczona. Szczegóły można znaleźć w sekcji [wyrażenia skalarne](sql-query-scalar-expressions.md) .  
 
 ## <a name="remarks"></a>Uwagi
 
-Składnia jest prawidłowa `SELECT *` tylko wtedy, gdy klauzula FROM zadeklarowała dokładnie jeden alias. `SELECT *`zapewnia projekcję tożsamości, która może być przydatna, jeśli nie jest potrzebna projekcja. SELECT * jest prawidłowy tylko wtedy, gdy klauzula FROM jest określona i wprowadzona tylko jedno źródło wejściowe.  
+Składnia `SELECT *` jest prawidłowa tylko wtedy, gdy klauzula FROM deklaruje dokładnie jeden alias. `SELECT *`dostarcza projekcję tożsamości, która może być przydatna, jeśli nie jest wymagana projekcja. SELECT * jest prawidłowy tylko wtedy, gdy klauzula FROM jest określona i wprowadza tylko pojedyncze źródło danych wejściowych.  
   
-Oba `SELECT <select_list>` `SELECT *` i są "cukrem składniowym" i mogą być alternatywnie wyrażone za pomocą prostych instrukcji SELECT, jak pokazano poniżej.  
+Zarówno `SELECT <select_list>` , `SELECT *` jak i są "cukrem" i mogą być również wyrażone przy użyciu prostych instrukcji SELECT, jak pokazano poniżej.  
   
 1. `SELECT * FROM ... AS from_alias ...`  
   
-   odpowiada:  
+   jest równoważne:  
   
    `SELECT from_alias FROM ... AS from_alias ...`  
   
 2. `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
   
-   odpowiada:  
+   jest równoważne:  
   
    `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
 ## <a name="examples"></a>Przykłady
 
-Następujący przykład kwerendy `address` `Families` SELECT `id` `AndersenFamily`zwraca, z którego dopasowań:
+Poniższy przykład `address` zapytania SELECT zwraca, z `Families` którego `id` pasuje `AndersenFamily`:
 
 ```sql
     SELECT f.address
@@ -99,7 +99,7 @@ Wyniki są następujące:
 ```
 
 ### <a name="quoted-property-accessor"></a>Metoda dostępu do właściwości cytowanej
-Dostęp do właściwości można uzyskać za pomocą operatora właściwości cudzysłowu []. Na przykład elementy `SELECT c.grade` i `SELECT c["grade"]` są równoważne. Ta składnia jest przydatna do ucieczki z właściwości, która zawiera spacje, znaki specjalne lub ma taką samą nazwę jak słowo kluczowe SQL lub słowo zastrzeżone.
+Można uzyskać dostęp do właściwości przy użyciu operatora właściwości cytowane []. Na przykład elementy `SELECT c.grade` i `SELECT c["grade"]` są równoważne. Ta składnia jest przydatna do ucieczki właściwości, która zawiera spacje, znaki specjalne lub ma taką samą nazwę jak słowo kluczowe SQL lub słowo zastrzeżone.
 
 ```sql
     SELECT f["lastName"]
@@ -109,7 +109,7 @@ Dostęp do właściwości można uzyskać za pomocą operatora właściwości cu
 
 ### <a name="nested-properties"></a>Właściwości zagnieżdżone
 
-W poniższym przykładzie przedstawiono `f.address.state` `f.address.city`dwie właściwości zagnieżdżone i .
+W poniższym przykładzie przedstawiono projekty dwóch zagnieżdżonych `f.address.state` właściwości `f.address.city`i.
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -127,7 +127,7 @@ Wyniki są następujące:
 ```
 ### <a name="json-expressions"></a>Wyrażenia JSON
 
-Projekcja obsługuje również wyrażenia JSON, jak pokazano w poniższym przykładzie:
+Projekcja obsługuje również wyrażenia JSON, jak pokazano w następującym przykładzie:
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
@@ -147,7 +147,7 @@ Wyniki są następujące:
     }]
 ```
 
-W poprzednim przykładzie select klauzuli musi utworzyć obiekt JSON, a ponieważ próbka nie zawiera klucza, klauzula używa nazwy `$1`zmiennej argumentu niejawnego . Następująca kwerenda zwraca dwie `$1` niejawne zmienne argumentów: i `$2`.
+W poprzednim przykładzie klauzula SELECT musi utworzyć obiekt JSON, a ponieważ przykład nie zawiera klucza, klauzula używa nazwy `$1`zmiennej argumentu niejawnego. Następujące zapytanie zwraca dwie niejawne zmienne argumentów `$1` : `$2`i.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -171,9 +171,9 @@ Wyniki są następujące:
 ```
 ## <a name="reserved-keywords-and-special-characters"></a>Zastrzeżone słowa kluczowe i znaki specjalne
 
-Jeśli dane zawierają właściwości o takich samych nazwach jak zastrzeżone słowa kluczowe, takie jak "order" lub "Group", zapytania dotyczące tych dokumentów spowoduje błędy składni. Należy jawnie dołączyć właściwość w `[]` znaku, aby pomyślnie uruchomić kwerendę.
+Jeśli dane zawierają właściwości o takich samych nazwach jak zastrzeżone słowa kluczowe, takie jak "Order" lub "Group", kwerendy dotyczące tych dokumentów będą powodowały błędy składniowe. Należy jawnie uwzględnić właściwość w `[]` znaku, aby pomyślnie uruchomić zapytanie.
 
-Oto na przykład dokument z właściwością `order` o `price($)` nazwie i właściwością zawierającą znaki specjalne:
+Załóżmy na przykład, że dokument ma właściwość o nazwie `order` i Właściwość `price($)` , która zawiera znaki specjalne:
 
 ```json
 {
@@ -190,7 +190,7 @@ Oto na przykład dokument z właściwością `order` o `price($)` nazwie i wła�
 }
 ```
 
-Po uruchomieniu kwerendy, która `order` zawiera `price($)` właściwość lub właściwość, pojawi się błąd składni.
+W przypadku uruchomienia zapytania zawierającego `order` właściwość lub `price($)` właściwość zostanie wyświetlony komunikat o błędzie składni.
 
 ```sql
 SELECT * FROM c where c.order.orderid = "12345"
@@ -198,13 +198,13 @@ SELECT * FROM c where c.order.orderid = "12345"
 ```sql
 SELECT * FROM c where c.order.price($) > 50
 ```
-Rezultatem jest:
+Wynik:
 
 `
 Syntax error, incorrect syntax near 'order'
 `
 
-Należy przepisać te same zapytania, jak poniżej:
+Należy ponownie napisać te same zapytania jak poniżej:
 
 ```sql
 SELECT * FROM c WHERE c["order"].orderId = "12345"

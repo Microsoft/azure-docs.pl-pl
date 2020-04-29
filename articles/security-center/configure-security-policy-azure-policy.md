@@ -1,6 +1,6 @@
 ---
-title: Tworzenie i edytowanie zasad zabezpieczeń usługi Azure Policy przy użyciu interfejsu API REST
-description: Dowiedz się więcej o zarządzaniu zasadami usługi Azure za pośrednictwem interfejsu API REST.
+title: Tworzenie i edytowanie zasad zabezpieczeń Azure Policy przy użyciu interfejsu API REST
+description: Więcej informacji na temat Azure Policy zarządzania zasadami za pośrednictwem interfejsu API REST.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -9,37 +9,37 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77430945"
 ---
-# <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Konfigurowanie zasad zabezpieczeń w usłudze Azure Policy przy użyciu interfejsu API REST
+# <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Konfigurowanie zasad zabezpieczeń w Azure Policy przy użyciu interfejsu API REST
 
-W ramach natywnej integracji z usługą Azure Policy usługa Azure Security Center umożliwia korzystanie z interfejsu API REST usługi Azure Policy w celu tworzenia przypisań zasad. Poniższe instrukcje umożliwiają tworzenie przypisań zasad, a także dostosowywanie istniejących przydziałów. 
+W ramach integracji natywnej z Azure Policy Azure Security Center umożliwia korzystanie z interfejsu API REST Azure Policy do tworzenia przypisań zasad. Poniższe instrukcje przeprowadzą Cię przez proces tworzenia przypisań zasad, a także dostosowywania istniejących przypisań. 
 
-Ważne pojęcia w zasadach platformy Azure: 
+Ważne pojęcia dotyczące Azure Policy: 
 
 - **Definicja zasad** jest regułą 
 
-- **Inicjatywa** jest zbiorem definicji zasad (reguł) 
+- **Inicjatywa** jest kolekcją definicji zasad (reguł) 
 
-- **Przypisanie** jest zastosowaniem inicjatywy lub zasady do określonego zakresu (grupa zarządzania, subskrypcja itp.) 
+- **Przypisanie** jest aplikacją inicjatywy lub zasadami do określonego zakresu (grupy zarządzania, subskrypcji itp.) 
 
-Usługa Security Center ma wbudowaną inicjatywę, która obejmuje wszystkie jego zasady zabezpieczeń. Aby ocenić zasady usługi Security Center w zasobach platformy Azure, należy utworzyć przypisanie w grupie zarządzania lub subskrypcji, którą chcesz ocenić.
+Security Center ma wbudowaną inicjatywę obejmującą wszystkie jej zasady zabezpieczeń. Aby ocenić zasady Security Center dla zasobów platformy Azure, należy utworzyć przypisanie do grupy zarządzania lub subskrypcję, którą chcesz ocenić.
 
-Wbudowana inicjatywa ma domyślnie włączone wszystkie zasady usługi Security Center. Można wyłączyć niektóre zasady z wbudowanej inicjatywy. Na przykład, aby zastosować wszystkie zasady usługi Security Center z wyjątkiem **zapory aplikacji sieci web,** zmień wartość parametru efektu zasad na **Wyłączone**. 
+Z wbudowaną inicjatywą są domyślnie włączone wszystkie zasady Security Center. Niektóre zasady można wyłączyć z poziomu wbudowanej inicjatywy. Na przykład, aby zastosować wszystkie zasady Security Center z wyjątkiem **zapory aplikacji sieci Web**, należy zmienić wartość parametru efektu zasad na **wyłączone**. 
 
 ## <a name="api-examples"></a>Przykłady dotyczące interfejsu API
 
-W poniższych przykładach zastąp te zmienne:
+W poniższych przykładach Zamień te zmienne:
 
-- **{scope}** wprowadź nazwę grupy zarządzania lub subskrypcji, do której stosujesz zasady.
+- **{SCOPE}** wprowadź nazwę grupy zarządzania lub subskrypcji, do której są stosowane zasady.
 - **{policyAssignmentName}** wprowadź [nazwę odpowiedniego przypisania zasad](#policy-names).
-- **{name}** wprowadź swoje imię i nazwisko lub nazwę administratora, który zatwierdził zmianę zasad.
+- **{name}** wprowadź swoją nazwę lub nazwę administratora, który zatwierdził zmianę zasad.
 
-W tym przykładzie pokazano, jak przypisać wbudowaną inicjatywę usługi Security Center w ramach subskrypcji lub grupy zarządzania
+W tym przykładzie przedstawiono sposób przypisywania wbudowanej inicjatywy Security Center w ramach subskrypcji lub grupy zarządzania
  
  ```
     PUT  
@@ -68,13 +68,13 @@ W tym przykładzie pokazano, jak przypisać wbudowaną inicjatywę usługi Secur
     } 
  ```
 
-W tym przykładzie pokazano, jak przypisać wbudowaną inicjatywę Centrum zabezpieczeń w ramach subskrypcji, z wyłączonymi następującymi zasadami: 
+W tym przykładzie przedstawiono sposób przypisywania wbudowanej inicjatywy Security Center w ramach subskrypcji, z wyłączeniem następujących zasad: 
 
 - Aktualizacje systemu ("systemUpdatesMonitoringEffect") 
 
 - Konfiguracje zabezpieczeń ("systemConfigurationsMonitoringEffect") 
 
-- Ochrona punktów końcowych ("endpointProtectionMonitoringEffect") 
+- Endpoint Protection ("endpointProtectionMonitoringEffect") 
 
  ```
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
@@ -109,34 +109,34 @@ W tym przykładzie pokazano, jak przypisać wbudowaną inicjatywę Centrum zabez
     
     } 
  ```
-W tym przykładzie pokazano, jak usunąć przypisanie:
+Ten przykład pokazuje, jak usunąć przypisanie:
  ```
     DELETE   
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
  ```
 
-## <a name="policy-names-reference"></a>Odwołanie do nazw zasad<a name="policy-names"></a>
+## <a name="policy-names-reference"></a>Odwołania do nazw zasad<a name="policy-names"></a>
 
-|Nazwa zasad w Centrum zabezpieczeń|Nazwa zasad wyświetlana w usłudze Azure Policy |Nazwa parametru efektu zasad|
+|Nazwa zasad w Security Center|Nazwa zasad wyświetlana w Azure Policy |Nazwa parametru efektu zasad|
 |----|----|----|
-|Szyfrowanie SQL |Monitorowanie niezaszyfrowanej bazy danych SQL w usłudze Azure Security Center |sqlEncryptionMonitoringEffect| 
-|Inspekcja SQL |Monitorowanie niezbadanych baz danych SQL w usłudze Azure Security Center |sqlAuditingMonitoringEffect|
-|Aktualizacje systemu |Monitorowanie brakujących aktualizacji systemu w usłudze Azure Security Center |systemUpdatesMonitoringEffect|
+|Szyfrowanie SQL |Monitorowanie nieszyfrowanej bazy danych SQL w Azure Security Center |sqlEncryptionMonitoringEffect| 
+|Inspekcja SQL |Monitoruj niepoddaną inspekcję bazy danych SQL w Azure Security Center |sqlAuditingMonitoringEffect|
+|Aktualizacje systemu |Monitoruj brakujące aktualizacje systemu w Azure Security Center |systemUpdatesMonitoringEffect|
 |Szyfrowanie w usłudze Storage |Należy wykonać inspekcję pod kątem braku szyfrowania obiektów blob dla kont magazynu |storageEncryptionMonitoringEffect|
-|Dostęp do sieci JIT |Monitorowanie możliwego dostępu do sieci just-in-time (JIT) w usłudze Azure Security Center |jitNetworkAccessMonitoringEfekt |
-|Funkcje adaptacyjnego sterowania aplikacjami |Monitorowanie białej listy aplikacji w usłudze Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
-|Grupy zabezpieczeń sieci |Monitorowanie dopuszczalnego dostępu do sieci w usłudze Azure Security Center |networkSecurityGroupsMonitoringEfekt| 
-|Konfiguracje zabezpieczeń |Monitorowanie luk w zabezpieczeniach systemu operacyjnego w usłudze Azure Security Center |systemConfigurationsMonitoringEffect| 
-|Ochrona punktów końcowych |Monitorowanie braku ochrony punktów końcowych w usłudze Azure Security Center |endpointProtectionMonitoringEffect |
-|Szyfrowanie dysków |Monitorowanie niezaszyfrowanych dysków maszyn wirtualnych w usłudze Azure Security Center |diskEncryptionMonitoringEffect|
-|Ocena luk w zabezpieczeniach |Monitorowanie luk w zabezpieczeniach maszyny Wirtualnej w usłudze Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
-|Zapora aplikacji internetowej |Monitorowanie niechronionej aplikacji sieci Web w usłudze Azure Security Center |webApplicationFirewallMonitoringEffect |
-|Zapora nowej generacji |Monitorowanie niechronionych punktów końcowych sieci w usłudze Azure Security Center| |
+|Dostęp do sieci JIT |Monitoruj możliwy dostęp do sieci just-in-Time (JIT) w Azure Security Center |jitNetworkAccessMonitoringEffect |
+|Funkcje adaptacyjnego sterowania aplikacjami |Monitoruj możliwe listy dozwolonych aplikacji w Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
+|Grupy zabezpieczeń sieci |Monitoruj dostęp do sieci w Azure Security Center |networkSecurityGroupsMonitoringEffect| 
+|Konfiguracje zabezpieczeń |Monitoruj luki w zabezpieczeniach systemu operacyjnego w Azure Security Center |systemConfigurationsMonitoringEffect| 
+|Program Endpoint Protection |Monitoruj brakujące Endpoint Protection w Azure Security Center |endpointProtectionMonitoringEffect |
+|Szyfrowanie dysków |Monitoruj nieszyfrowane dyski maszyn wirtualnych w Azure Security Center |diskEncryptionMonitoringEffect|
+|Ocena luk w zabezpieczeniach |Monitoruj luki w zabezpieczeniach maszyn wirtualnych w Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
+|Zapora aplikacji internetowej |Monitoruj niechronione aplikacje sieci Web w Azure Security Center |webApplicationFirewallMonitoringEffect |
+|Zapora nowej generacji |Monitoruj niechronione punkty końcowe sieci w Azure Security Center| |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W przypadku innych powiązanych materiałów zobacz następujące artykuły: 
+Inne powiązane materiały można znaleźć w następujących artykułach: 
 
 - [Niestandardowe zasady zabezpieczeń](custom-security-policies.md)
-- [Omówienie zasad zabezpieczeń](tutorial-security-policy.md)
+- [Przegląd zasad zabezpieczeń](tutorial-security-policy.md)

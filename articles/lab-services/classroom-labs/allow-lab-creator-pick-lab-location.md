@@ -1,6 +1,6 @@
 ---
-title: Zezwalaj twórcy laboratorium na wybieranie lokalizacji w usługach Azure Lab Services
-description: W tym artykule opisano, jak administrator konta laboratorium może zezwolić twórcom laboratoriów na wybieranie lokalizacji dla swoich laboratoriów.
+title: Zezwól twórcy laboratorium na wybranie lokalizacji w Azure Lab Services
+description: W tym artykule opisano, jak administrator konta laboratorium może umożliwić twórcom laboratorium Wybieranie lokalizacji dla ich laboratoriów.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,67 +14,67 @@ ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
 ms.openlocfilehash: 52d5628698d1f945a7f672595ee7ce4739b6d13c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77444370"
 ---
-# <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Zezwalaj twórcy laboratorium na wybieranie lokalizacji laboratorium w usłudze Azure Lab Services
-W usłudze Azure Lab Services właściciel konta laboratorium może zezwolić twórcom laboratoriów (nauczycielom) na wybranie lokalizacji dla laboratorium, które tworzą. Ta lokalizacja może się różnić od lokalizacji konta laboratorium. Lokalizacja to grupa regionów platformy Azure. Na przykład lokalizacja w Stanach Zjednoczonych to grupa regionów, takich jak wschodnie stany USA, zachodnie stany USA i tak dalej. 
+# <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Zezwól twórcy laboratorium na wybranie lokalizacji dla laboratorium w Azure Lab Services
+W Azure Lab Services właściciel konta laboratorium może zezwolić twórcom laboratorium (wykładowcom) na wybranie lokalizacji dla tworzonych przez siebie laboratorium. Ta lokalizacja może różnić się od lokalizacji konta laboratorium. Lokalizacja jest grupą regionów świadczenia usługi Azure. Na przykład lokalizacja Stany Zjednoczone jest grupą regionów, takich jak Wschodnie stany USA, zachodnie stany USA itd. 
 
-Ty, jako właściciel konta laboratorium, możesz wybrać opcję **Zezwalaj twórcy laboratorium na wybranie lokalizacji laboratorium** podczas tworzenia konta laboratorium i po utworzeniu konta laboratorium (lub istniejącego konta laboratorium). 
+Jako właściciel konta laboratorium można wybrać opcję **Zezwalaj na twórcę laboratorium do wybierania lokalizacji laboratorium** podczas tworzenia konta laboratorium i po utworzeniu konta laboratorium (lub istniejącego konta laboratorium). 
 
-## <a name="at-the-time-of-lab-account-creation"></a>W momencie tworzenia konta laboratoryjnego
-Podczas tworzenia konta laboratorium, zobaczysz tę opcję na pierwszym ekranie **(Karta Podstawy).** 
+## <a name="at-the-time-of-lab-account-creation"></a>W momencie tworzenia konta laboratorium
+Podczas tworzenia konta laboratorium ta opcja jest wyświetlana na pierwszym ekranie (na karcie**podstawowe** ). 
 
-![Włącz opcję w momencie tworzenia laboratorium](../media/allow-lab-creator-pick-lab-location/create-lab-account.png)
+![Włącz opcję podczas tworzenia laboratorium](../media/allow-lab-creator-pick-lab-location/create-lab-account.png)
 
-Ta opcja jest wyłączona, jeśli wybierzesz sieć wirtualną równorzędną dla konta laboratorium na karcie **Zaawansowane.**  
+Ta opcja jest wyłączona, jeśli wybierzesz równorzędną sieć wirtualną dla konta laboratorium na karcie **Zaawansowane** .  
 
-![Gdy sieć wirtualna elementu równorzędnego jest włączona](../media/allow-lab-creator-pick-lab-location/peer-virtual-network.png)
+![Gdy równorzędna Sieć wirtualna jest włączona](../media/allow-lab-creator-pick-lab-location/peer-virtual-network.png)
 
 
 ## <a name="after-the-lab-account-is-created"></a>Po utworzeniu konta laboratorium
-Po utworzeniu konta laboratorium można włączyć lub wyłączyć tę opcję, wykonując następujące kroki: 
+Po utworzeniu konta laboratorium można włączyć lub wyłączyć tę opcję, wykonując następujące czynności: 
 
-1. Na stronie **Konto laboratorium** wybierz pozycję **Ustawienia laboratorium** w menu po lewej stronie.
-2. Wybierz opcję **Zezwalaj twórcy laboratorium na wybranie lokalizacji laboratorium,** jeśli chcesz zezwolić twórcy laboratorium na wybranie lokalizacji laboratorium. Jeśli jest wyłączona, laboratoria są automatycznie tworzone w tej samej lokalizacji, w której istnieje konto laboratorium. 
+1. Na stronie **konto laboratorium** wybierz pozycję **Ustawienia laboratorium** w menu po lewej stronie.
+2. Wybierz opcję **Zezwalaj na twórcę laboratorium do wybrania lokalizacji laboratorium** , jeśli chcesz zezwolić na wybór lokalizacji laboratorium przez twórcę laboratorium. W przypadku wyłączenia tej funkcji laboratoria są tworzone automatycznie w tej samej lokalizacji, w której znajduje się konto laboratorium. 
     
-    To pole jest wyłączone po wybraniu sieci wirtualnej dla pola **Sieć wirtualna równorzędna.** To dlatego, że laboratoria na koncie laboratorium musi znajdować się w tym samym regionie co konto laboratorium dla nich, aby uzyskać dostęp do zasobów w sieci wirtualnej równorzędnej. 
+    To pole jest wyłączone w przypadku wybrania sieci wirtualnej dla pola **równorzędnej sieci wirtualnej** . Jest to spowodowane tym, że laboratorium na koncie laboratorium musi znajdować się w tym samym regionie co konto laboratorium, aby uzyskać dostęp do zasobów w równorzędnej sieci wirtualnej. 
 1. Wybierz pozycję **Zapisz** na pasku narzędzi. 
 
     ![Ustawienia laboratorium](../media/allow-lab-creator-pick-lab-location/lab-settings.png)
 
-## <a name="no-virtual-network-and-location-selection-isnt-allowed"></a>Wybór sieci wirtualnej i lokalizacji nie jest dozwolony
-W tym scenariuszu nie włączono **zezwalaj twórcy laboratorium na wybranie** opcji lokalizacji laboratorium. 
+## <a name="no-virtual-network-and-location-selection-isnt-allowed"></a>Żadna Sieć wirtualna i wybór lokalizacji nie są dozwolone
+W tym scenariuszu nie włączono opcji **Zezwalaj na wybór lokalizacji laboratorium przez twórcę programu Lab** . 
 
 ![Brak lokalizacji laboratorium](../media/allow-lab-creator-pick-lab-location/lab-no-location.png)
 
-Następnie twórcy laboratorium (edukatorzy) nie widzą opcji wyboru lokalizacji dla laboratorium. Zobaczą cenę za godzinę za każdą dostępną dla nich opcję rozmiaru. Podczas tworzenia laboratorium zostanie on utworzony w regionie platformy Azure, który znajduje się w tej samej lokalizacji co region platformy Azure, w którym znajduje się ich konto w laboratorium. Na przykład, jeśli konto laboratorium znajduje się w **zachodnie stany USA,** laboratorium może zostać utworzone w **południowo-środkowych stanach USA,** ale nie zostanie utworzone w **Kanadzie Wschodniej.** Nie gwarantujemy niczego o regionie, który wybieramy poza tym, że jest w lokalizacji. Jeśli rozmiar jest obecnie ograniczony, twórca laboratorium zobaczy pole wyboru, w którym będzie mógł zobaczyć rozmiary, które zwykle obsługujemy, ale są obecnie niedostępne. 
+Następnie twórcy laboratorium (wykładowcy) nie widzą opcji wyboru lokalizacji dla laboratorium. Zostanie wyświetlona cena za godzinę dla każdej dostępnej opcji rozmiaru. Po utworzeniu laboratorium zostanie ono utworzone w regionie świadczenia usługi Azure, który znajduje się w tej samej lokalizacji co region platformy Azure, w którym znajduje się konto laboratorium. Na przykład jeśli konto laboratorium znajduje się w regionie **zachodnie stany USA**, laboratorium może zostać utworzone w **Południowo-środkowe stany USA** , ale nie zostanie utworzone w **Kanadzie wschodniej**. Nie gwarantujemy żadnych informacji na temat regionu, który wybieramy z tej lokalizacji. Jeśli rozmiar jest obecnie ograniczony, twórca laboratorium zobaczy pole wyboru, gdzie będzie widzieć rozmiary, które zwykle obsługuje, ale są obecnie niedostępne. 
 
-## <a name="in-virtual-network-and-location-selection-isnt-allowed"></a>W sieci wirtualnej i wybór lokalizacji jest niedozwolony
-W tym scenariuszu **zezwalaj twórcy laboratorium na wybranie lokalizacji laboratorium** jest wyłączona, ponieważ wybrano równorzędną sieć wirtualną dla konta laboratorium. Następnie twórcy laboratorium zobaczą ten sam ekran, co w poprzedniej opcji. Ponieważ wszystkie maszyny wirtualne muszą znajdować się w tym samym regionie platformy Azure co sieć wirtualna, laboratorium zostanie utworzone w tym samym regionie platformy Azure, w jakim znajduje się sieć wirtualna. Jeśli ten region jest ograniczony dla rozmiaru, rozmiar będzie wyświetlany jako niedostępny. 
+## <a name="in-virtual-network-and-location-selection-isnt-allowed"></a>W obszarze Sieć wirtualna i wybór lokalizacji nie są dozwolone
+W tym scenariuszu opcja **Zezwól na wybór laboratorium do wybrania lokalizacji laboratorium** jest wyłączona, ponieważ wybrano równorzędną sieć wirtualną dla konta laboratorium. Następnie twórcy laboratorium zobaczą ten sam ekran, jak z poprzednią opcją. Ponieważ wszystkie maszyny wirtualne muszą znajdować się w tym samym regionie świadczenia usługi Azure co sieć wirtualna, laboratorium zostanie utworzone w tym samym regionie świadczenia usługi Azure, w którym znajduje się sieć wirtualna. Jeśli określony region jest ograniczony do rozmiaru, rozmiar będzie wyświetlany jako niedostępny. 
 
-## <a name="location-selection-is-enabled"></a>Wybór lokalizacji jest włączony
-Po wybraniu opcji **Zezwalaj twórcy laboratorium na wybranie lokalizacji laboratorium,** twórcy laboratorium (edukatorzy) zobaczą opcję wyboru lokalizacji podczas tworzenia laboratorium. 
+## <a name="location-selection-is-enabled"></a>Wybrana lokalizacja jest włączona
+Po wybraniu opcji **Zezwól twórcy laboratorium na wybranie lokalizacji laboratorium**, twórcy laboratorium (wykładowcy) widzą opcję wybrania lokalizacji podczas tworzenia laboratorium. 
 
-![Wybieranie lokalizacji laboratorium](../media/allow-lab-creator-pick-lab-location/location-selection.png)
+![Wybierz lokalizację laboratorium](../media/allow-lab-creator-pick-lab-location/location-selection.png)
 
-Twórcy laboratorium widzą zakres cen dla wszystkich lokalizacji, w których występuje rozmiar, i mogą wybrać lokalizację. Laboratorium zostanie utworzone w dowolnym regionie platformy Azure, który mapuje do tej lokalizacji.
+Twórcy laboratorium widzą zakres cen dla wszystkich lokalizacji, które mają rozmiar, i można wybrać lokalizację. Laboratorium zostanie utworzone w dowolnym regionie świadczenia usługi Azure, który jest mapowany na tę lokalizację.
 
 Jeśli lokalizacja jest ograniczona, domyślnie nie jest wyświetlana na liście. Rozwiń listę rozwijaną i wybierz pozycję **Pokaż niedostępne lokalizacje dla tego rozmiaru**. 
 
 ![Pokaż niedostępne lokalizacje](../media/allow-lab-creator-pick-lab-location/show-unavailable-locations.png)
 
 ## <a name="cost"></a>Koszty
-Wcześniej cennik był oparty na rozmiarze maszyny Wirtualnej, który można wybrać dla laboratorium. Teraz cena jest oparta na kombinacji systemu operacyjnego (OS), rozmiar i lokalizacja. 
+Wcześniej cena była oparta na wybranym przez Ciebie rozmiarze maszyny wirtualnej w laboratorium. Cena jest teraz oparta na kombinacji systemu operacyjnego, rozmiaru i lokalizacji. 
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły:
 
-- [Łączenie sieci laboratorium za pomocą sieci wirtualnej równorzędnej](how-to-connect-peer-virtual-network.md)
-- [Dołączanie udostępnionej galerii obrazów do laboratorium](how-to-attach-detach-shared-image-gallery.md)
+- [Łączenie sieci laboratorium z równorzędną siecią wirtualną](how-to-connect-peer-virtual-network.md)
+- [Dołączanie galerii obrazów udostępnionych do laboratorium](how-to-attach-detach-shared-image-gallery.md)
 - [Dodawanie użytkownika jako właściciela laboratorium](how-to-add-user-lab-owner.md)
 - [Wyświetlanie ustawień zapory dla laboratorium](how-to-configure-firewall-settings.md)
-- [Konfigurowanie innych ustawień dla laboratorium](how-to-configure-lab-accounts.md)
+- [Skonfiguruj inne ustawienia laboratorium](how-to-configure-lab-accounts.md)
