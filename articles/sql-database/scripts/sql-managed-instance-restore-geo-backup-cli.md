@@ -1,6 +1,6 @@
 ---
-title: Przykład interfejsu wiersza polecenia Przywróć kopię zapasową geograficzną — bazę danych SQL platformy Azure
-description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure w celu przywrócenia bazy danych wystąpienia zarządzanego sql platformy Azure z kopii zapasowej geograficznie nadmiarowej.
+title: Przykład operacji przywracania geograficznego interfejsu wiersza polecenia Azure SQL Database
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure służący do przywracania bazy danych wystąpienia zarządzanego Azure SQL z geograficznie nadmiarowej kopii zapasowej.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -12,15 +12,15 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
 ms.openlocfilehash: 1bd0322aee83fb980c60382a2ff3eaab1cd1313c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80061745"
 ---
-# <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>Przywracanie bazy danych wystąpienia zarządzanego do innego regionu geograficznego za pomocą interfejsu wiersza polecenia
+# <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>Używanie interfejsu wiersza polecenia do przywracania bazy danych wystąpienia zarządzanego w innym regionie geograficznym
 
-Ten przykład skryptu interfejsu wiersza polecenia platformy Azure przywraca bazę danych wystąpienia zarządzanego sql platformy Azure ze zdalnego regionu geograficznego (przywracania geograficznego).  
+Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure przywraca bazę danych wystąpienia zarządzanego Azure SQL z zdalnego regionu geograficznego (Przywracanie geograficzne).  
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
@@ -28,7 +28,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Istniejąca para wystąpień zarządzanych, zobacz [Tworzenie wystąpienia zarządzanego usługi Azure SQL Database za pomocą interfejsu wiersza polecenia platformy Azure.](sql-database-create-configure-managed-instance-cli.md)
+Istniejąca para wystąpień zarządzanych, zobacz [Używanie interfejsu wiersza polecenia platformy Azure do tworzenia Azure SQL Database wystąpienia zarządzanego](sql-database-create-configure-managed-instance-cli.md).
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -52,13 +52,13 @@ echo "Restoring $($managedDatabase) to $($targetInstance)..."
 az sql midb restore -g $resource --mi $instance -n $managedDatabase --dest-name $targetInstance --time "2018-05-20T05:34:22"
 ```
 
-## <a name="sample-reference"></a>Przykładowy numer referencyjny
+## <a name="sample-reference"></a>Przykładowe odwołanie
 
 W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | | |
 |---|---|
-| [az sql midb](/cli/azure/sql/midb) | Polecenia bazy danych wystąpień zarządzanych. |
+| [AZ SQL MidB](/cli/azure/sql/midb) | Zarządzane polecenia bazy danych wystąpienia. |
 
 ## <a name="next-steps"></a>Następne kroki
 

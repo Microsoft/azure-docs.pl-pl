@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Tworzenie notesu w usłudze Azure Cosmos DB w celu analizowania i wizualizowania danych'
-description: 'Samouczek: Dowiedz się, jak używać wbudowanych notesów Jupyter do importowania danych do usługi Azure Cosmos DB, analizowania danych i wizualizacji danych wyjściowych.'
+title: 'Samouczek: Tworzenie notesu w Azure Cosmos DB, aby analizować i wizualizować dane'
+description: 'Samouczek: informacje na temat używania wbudowanych notesów Jupyter do importowania danych do Azure Cosmos DB, analizowania danych i wizualizacji wyników.'
 author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
@@ -8,33 +8,33 @@ ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
 ms.openlocfilehash: 45dd4e8dcfd74cdb5d96b935e239b9f4b5094a7c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73720928"
 ---
-# <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Samouczek: Tworzenie notesu w usłudze Azure Cosmos DB w celu analizowania i wizualizowania danych
+# <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Samouczek: Tworzenie notesu w Azure Cosmos DB, aby analizować i wizualizować dane
 
-W tym artykule opisano sposób używania wbudowanych notesów Jupyter do importowania przykładowych danych detalicznych do usługi Azure Cosmos DB. Zobaczysz, jak używać magicznych poleceń SQL i Usługi Azure Cosmos DB do uruchamiania zapytań, analizowania danych i wizualizacji wyników.
+W tym artykule opisano, jak używać wbudowanych notesów Jupyter do importowania przykładowych danych detalicznych do Azure Cosmos DB. Zobaczysz, jak używać poleceń SQL i Azure Cosmos DB Magic do uruchamiania zapytań, analizowania danych i wizualizacji wyników.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Włączanie obsługi notesów podczas tworzenia konta usługi Azure Cosmos](enable-notebooks.md)
+* [Włącz obsługę notesów podczas tworzenia konta usługi Azure Cosmos](enable-notebooks.md)
 
 ## <a name="create-the-resources-and-import-data"></a>Tworzenie zasobów i importowanie danych
  
-W tej sekcji utworzysz bazę danych usługi Azure Cosmos, kontener i zaimportujesz dane sieci sprzedaży do kontenera.
+W tej sekcji utworzysz bazę danych i kontener usługi Azure Cosmos, a następnie zaimportujesz dane detaliczne do kontenera.
 
-1. Przejdź do swojego konta usługi Azure Cosmos i otwórz **Eksploratora danych.**
+1. Przejdź do konta usługi Azure Cosmos i Otwórz **Eksplorator danych.**
 
-1. Przejdź do karty **Notesy,** wybierz obok `…` pozycji Moje **notesy** i utwórz nowy **notes**. Wybierz **Python 3** jako domyślne jądro.
+1. Przejdź do karty **notesy** , wybierz `…` pozycję Dalej w obszarze **Moje notesy** i Utwórz **Nowy Notes**. Wybierz język **Python 3** jako domyślne jądro.
 
    ![Tworzenie nowego notesu](./media/create-notebook-visualize-data/create-new-notebook.png)
 
-1. Po utworzeniu nowego notesu można zmienić jego nazwę na coś takiego jak **VisualizeRetailData.ipynb.**
+1. Po utworzeniu nowego notesu można zmienić jego nazwę na podobną do **VisualizeRetailData. ipynb.**
 
-1. Następnie utworzysz bazę danych o nazwie "RetailDemo" i kontener o nazwie "WebsiteData" do przechowywania danych detalicznych. Jako klucz partycji można użyć /CardID. Skopiuj i wklej następujący kod do nowej komórki notesu i uruchom go:
+1. Następnie utworzysz bazę danych o nazwie "RetailDemo" i kontener o nazwie "WebsiteData" w celu przechowywania danych detalicznych. Możesz użyć/CardID jako klucza partycji. Skopiuj i wklej następujący kod do nowej komórki w notesie i uruchom go:
 
    ```python
    import azure.cosmos
@@ -47,22 +47,22 @@ W tej sekcji utworzysz bazę danych usługi Azure Cosmos, kontener i zaimportuje
    print('Container WebsiteData created')
    ```
 
-   Aby uruchomić komórkę, zaznacz lub `Shift + Enter` zaznacz komórkę i wybierz opcję Uruchom **aktywną komórkę** na pasku nawigacyjnym eksploratora danych.
+   Aby uruchomić komórkę, zaznacz `Shift + Enter` lub zaznacz komórkę i wybierz opcję **Uruchom aktywną komórkę** na pasku nawigacyjnym Eksploratora danych.
 
    ![Uruchamianie aktywnej komórki](./media/create-notebook-visualize-data/run-active-cell.png)
 
-   Baza danych i kontener są tworzone na bieżącym koncie usługi Azure Cosmos. Kontener jest aprowizowany z 400 RU/s. Po utworzeniu bazy danych i kontenera zostaną wyświetleniu następujące dane wyjściowe. 
+   Baza danych i kontener są tworzone na bieżącym koncie usługi Azure Cosmos. Obsługa kontenera ma 400 RU/s. Po utworzeniu bazy danych i kontenera zostaną wyświetlone następujące dane wyjściowe. 
 
    ```console
     Database RetailDemo created
     Container WebsiteData created
    ```
 
-   Można również odświeżyć kartę **Dane** i wyświetlić nowo utworzone zasoby:
+   Możesz również odświeżyć kartę **dane** i wyświetlić nowo utworzone zasoby:
 
-   ![Odśwież kartę danych, aby wyświetlić nowy kontener](media/create-notebook-visualize-data/refresh-data-tab.png)
+   ![Odśwież kartę dane, aby zobaczyć nowy kontener](media/create-notebook-visualize-data/refresh-data-tab.png)
 
-1. Następnie zaimportujesz przykładowe dane sieci sprzedaży do kontenera usługi Azure Cosmos. Oto format elementu z danych detalicznych:
+1. Następnie zaimportujesz przykładowe dane sprzedaży detalicznej do kontenera usługi Azure Cosmos. Oto format elementu z danych detalicznych:
 
    ```json
     {
@@ -80,7 +80,7 @@ W tej sekcji utworzysz bazę danych usługi Azure Cosmos, kontener i zaimportuje
     }
    ```
 
-   W celu samouczka przykładowe dane sieci sprzedaży są przechowywane w magazynie obiektów blob platformy Azure. Można zaimportować go do kontenera usługi Azure Cosmos, wklejając następujący kod do nowej komórki. Można potwierdzić, że dane zostały pomyślnie zaimportowane, uruchamiając kwerendę, aby wybrać liczbę elementów.
+   Na potrzeby samouczka przykładowe dane sprzedaży detalicznej są przechowywane w usłudze Azure Blob Storage. Możesz zaimportować go do kontenera usługi Azure Cosmos, wklejając Poniższy kod w nowej komórce. Można potwierdzić, że dane zostały pomyślnie zaimportowane przez uruchomienie zapytania, aby wybrać liczbę elementów.
 
    ```python
     # Read data from storage
@@ -104,7 +104,7 @@ W tej sekcji utworzysz bazę danych usługi Azure Cosmos, kontener i zaimportuje
     print('Container with id \'{0}\' contains \'{1}\' items'.format(container.id, result[0]))
    ```
 
-   Po uruchomieniu poprzedniej kwerendy zwraca następujące dane wyjściowe:
+   Po uruchomieniu poprzedniego zapytania zwraca następujące dane wyjściowe:
 
    ```console
    Importing data. This will take a few minutes...
@@ -112,16 +112,16 @@ W tej sekcji utworzysz bazę danych usługi Azure Cosmos, kontener i zaimportuje
    Container with id 'WebsiteData' contains '2654' items
    ```
 
-## <a name="get-your-data-into-a-dataframe"></a>Pobierz swoje dane do dataframe
+## <a name="get-your-data-into-a-dataframe"></a>Pobieranie danych do ramki Dataframe
 
-Przed uruchomieniem kwerend do analizy danych, można odczytać dane z kontenera do [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) do analizy. Użyj następującego polecenia sql magic, aby odczytać dane w ramce DataFrame:
+Przed uruchomieniem zapytań w celu przeanalizowania danych, można odczytać dane z kontenera do [Pandas Dataframe](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) na potrzeby analizy. Aby odczytać dane w ramce Dataframe, użyj następującego polecenia SQL Magic:
 
 ```bash
 %%sql --database {database_id} --container {container_id} --output outputDataframeVar 
 {Query text}
 ```
 
-Aby dowiedzieć się więcej, zobacz [wbudowane polecenia notesu i funkcje w artykule usługi Azure Cosmos DB.](use-notebook-features-and-commands.md) Uruchomisz zapytanie- `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. Wyniki zostaną zapisane w Pandas DataFrame o nazwie df_cosmos. Wklej następujące polecenie w nowej komórce notesu i uruchom ją:
+Aby dowiedzieć się więcej, zobacz [wbudowane polecenia i funkcje notesu w artykule Azure Cosmos DB](use-notebook-features-and-commands.md) . Zapytanie zostanie uruchomione `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. Wyniki zostaną zapisane w Pandas Dataframe o nazwie df_cosmos. Wklej następujące polecenie w nowej komórce notesu i uruchom je:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -135,22 +135,22 @@ W nowej komórce notesu uruchom następujący kod, aby odczytać pierwsze 10 ele
 df_cosmos.head(10)
 ```
 
-![Uruchom kwerendę, aby uzyskać 10 najważniejszych elementów](./media/create-notebook-visualize-data/run-query-get-top10-items.png)
+![Uruchom zapytanie, aby uzyskać 10 pierwszych elementów](./media/create-notebook-visualize-data/run-query-get-top10-items.png)
 
 ## <a name="run-queries-and-analyze-your-data"></a>Uruchamianie zapytań i analizowanie danych
 
-W tej sekcji zostanie uruchomione niektóre kwerendy dotyczące pobranych danych.
+W tej sekcji zostaną uruchomione pewne zapytania dotyczące pobranych danych.
 
-* **Zapytanie1:** Uruchom grupę według kwerendy na DataFrame, aby uzyskać sumę całkowitych przychodów ze sprzedaży dla każdego kraju i wyświetlić 5 elementów z wyników. W nowej komórce notesu uruchom następujący kod:
+* **Zapytanie1:** Uruchom zapytanie Grupuj według w ramce Dataframe, aby uzyskać sumę łącznego przychodu sprzedaży dla każdego kraju i wyświetlić 5 elementów z wyników. W nowej komórce notesu uruchom następujący kod:
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()
    display(df_revenue.head(5))
    ```
 
-   ![Łączna produkcja przychodów ze sprzedaży](./media/create-notebook-visualize-data/total-sales-revenue-output.png)
+   ![Łączny wynik przychodu sprzedaży](./media/create-notebook-visualize-data/total-sales-revenue-output.png)
 
-* **Zapytanie2:** Aby uzyskać listę pięciu pierwszych zakupionych elementów, otwórz nową komórkę notesu i uruchom następujący kod:
+* **Query2:** Aby uzyskać listę pięciu pierwszych zakupionych elementów, Otwórz nową komórkę notesu i uruchom następujący kod:
 
    ```python
    import pandas as pd
@@ -159,18 +159,18 @@ W tej sekcji zostanie uruchomione niektóre kwerendy dotyczące pobranych danych
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   ![Pięć najlepszych zakupionych przedmiotów](./media/create-notebook-visualize-data/top5-purchased-items.png)
+   ![Pięć najważniejszych zakupionych elementów](./media/create-notebook-visualize-data/top5-purchased-items.png)
 
 ## <a name="visualize-your-data"></a>Wizualizacja danych  
 
-1. Teraz, gdy mamy nasze dane dotyczące przychodów z kontenera usługi Azure Cosmos, możesz wizualizować dane za pomocą wybranej biblioteki wizualizacji. W tym samouczku użyjemy biblioteki Bokeh. Otwórz nową komórkę notesu i uruchom następujący kod, aby zainstalować bibliotekę Bokeh. Po spełnieniu wszystkich wymagań biblioteka zostanie zainstalowana.
+1. Teraz, gdy mamy nasze dane dotyczące przychodów z kontenera usługi Azure Cosmos, możesz wizualizować dane za pomocą wybranej biblioteki wizualizacji. W tym samouczku zostanie użyta Biblioteka bokeh. Otwórz nową komórkę notesu i uruchom następujący kod, aby zainstalować bibliotekę bokeh. Po spełnieniu wszystkich wymagań biblioteka zostanie zainstalowana.
 
    ```python
    import sys
    !{sys.executable} -m pip install bokeh --user
    ```
 
-1. Następnie przygotuj się do wykreślenia danych na mapie. Dołącz do danych w usłudze Azure Cosmos DB z informacjami o kraju znajdującymi się w magazynie obiektów Blob platformy Azure i przekonwertuj wynik na format GeoJSON. Skopiuj następujący kod do nowej komórki notesu i uruchom go.
+1. Następnie przygotuj się, aby wykreślić dane na mapie. Dołącz dane w Azure Cosmos DB z informacjami o kraju znajdującymi się w usłudze Azure Blob Storage i Konwertuj wynik na format GEOJSON. Skopiuj następujący kod do nowej komórki notesu i uruchom go.
 
    ```python
    import urllib.request, json
@@ -187,7 +187,7 @@ W tej sekcji zostanie uruchomione niektóre kwerendy dotyczące pobranych danych
    json_data = json.dumps(merged_json)
    ```
 
-1. Wizualizuj przychody ze sprzedaży różnych krajów na mapie świata, uruchamiając następujący kod w nowej komórce notesu:
+1. Wizualizowanie przychodów sprzedaży różnych krajów na mapie światowej przez uruchomienie następującego kodu w nowej komórce notesu:
 
    ```python
    from bokeh.io import output_notebook, show
@@ -233,11 +233,11 @@ W tej sekcji zostanie uruchomione niektóre kwerendy dotyczące pobranych danych
    show(p)
    ```
 
-   Dane wyjściowe wyświetla mapę świata w różnych kolorach. Kolory ciemniejsze do jaśniejszych reprezentują kraje o najwyższych dochodach do najniższych dochodów.
+   Dane wyjściowe wyświetlają mapę świata z różnymi kolorami. Kolor ciemniejszy jaśniejszy reprezentuje kraje z najwyższym przychodem do najniższego przychodu.
 
-   ![Wizualizacja mapy przychodów krajów](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   ![Wizualizacja mapy przychodu krajów](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
 
-1. Zobaczmy inny przypadek wizualizacji danych. Kontener WebsiteData zawiera rekord użytkowników, którzy wyświetlili element, dodali go do koszyka i zakupili. Wykreślijmy współczynnik konwersji zakupionych przedmiotów. Uruchom następujący kod w nowej komórce, aby wizualizować współczynnik konwersji dla każdego elementu:
+1. Przyjrzyjmy się innemu przypadku wizualizacji danych. Kontener WebsiteData zawiera rekord użytkowników, którzy przeglądali element, dodani do swojego koszyka i kupili ten element. Przyjrzyjmy się współczynnikowi konwersji zakupionych elementów. Uruchom następujący kod w nowej komórce, aby wizualizować szybkość konwersji dla każdego elementu:
 
    ```python
    from bokeh.io import show, output_notebook
@@ -286,8 +286,8 @@ W tej sekcji zostanie uruchomione niektóre kwerendy dotyczące pobranych danych
    show(p)
    ```
 
-   ![Wizualizuj współczynnik konwersji zakupu](./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png)
+   ![Wizualizacja kursu konwersji](./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o poleceniach notesu, [zobacz, jak używać wbudowanych poleceń i funkcji notesu w artykule usługi Azure Cosmos DB.](use-notebook-features-and-commands.md)
+* Aby dowiedzieć się więcej na temat poleceń notesów, zobacz [jak używać wbudowanych poleceń i funkcji notesu w artykule Azure Cosmos DB](use-notebook-features-and-commands.md) .

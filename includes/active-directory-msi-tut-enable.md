@@ -9,18 +9,18 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.custom: include file
 ms.openlocfilehash: ab6e3426096f6fbaf7dfa44984a26c939f3b91fc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75971822"
 ---
-Włączenie tożsamości zarządzanej przypisanej przez system jest działaniem jednym kliknięciem. Można włączyć go podczas tworzenia maszyny Wirtualnej lub we właściwościach istniejącej maszyny Wirtualnej.
+Włączenie tożsamości zarządzanej przypisanej do systemu jest jednym kliknięciem. Można je włączyć podczas tworzenia maszyny wirtualnej lub we właściwościach istniejącej maszyny wirtualnej.
 
 ![Tworzenie nowego konta magazynu](./media/active-directory-msi-tut-enable/identity.png)
 
 
-**Aby włączyć przypisaną do systemu tożsamość zarządzaną na nowej maszynie wirtualnej:** 
+**Aby włączyć tożsamość zarządzaną przypisaną przez system na nowej maszynie wirtualnej:** 
 
 1. [Logowanie do witryny Azure Portal](https://portal.azure.com)
 

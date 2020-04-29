@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z samowolą SAML SSO dla confluence by resolution GmbH | Dokumenty firmy Microsoft'
+title: 'Samouczek: Azure Active Directory integrację z logowaniem jednokrotnym SAML dla Confluence za pomocą rozwiązania GmbH | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a aplikacją SAML SSO for Confluence by resolution GmbH.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9676a71940569b26d6b0b6bfef767108ae57d953
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73161217"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Samouczek: Integracja usługi Azure Active Directory z samol SSO dla confluence by resolution GmbH
+# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym SAML dla Confluence przez rozwiązanie GmbH
 
 Z tego samouczka dowiesz się, jak zintegrować aplikację SAML SSO for Confluence by resolution GmbH z usługą Azure Active Directory (Azure AD).
 Zintegrowanie aplikacji SAML SSO for Confluence by resolution GmbH z usługą Azure AD zapewnia następujące korzyści:
@@ -33,7 +33,7 @@ Zintegrowanie aplikacji SAML SSO for Confluence by resolution GmbH z usługą Az
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -102,15 +102,15 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją SAML SSO 
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-4. W sekcji **Podstawowa konfiguracja SAML** wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowanym **przez IDP:**
+4. Aby skonfigurować aplikację w trybie inicjowania **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
     ![Informacje o domenie i adresach URL aplikacji SAML SSO for Confluence by resolution GmbH na potrzeby logowania jednokrotnego](common/idp-intiated.png)
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL przy użyciu następującego wzorca:`https://<server-base-url>/plugins/servlet/samlsso`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<server-base-url>/plugins/servlet/samlsso`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<server-base-url>/plugins/servlet/samlsso`
 
-    d. Kliknij przycisk **Ustaw dodatkowe adresy URL** i wykonaj następujący krok, jeśli chcesz skonfigurować aplikację w trybie inicjowania przez dostawcę usług:
+    c. Kliknij przycisk **Ustaw dodatkowe adresy URL** i wykonaj następujący krok, jeśli chcesz skonfigurować aplikację w trybie inicjowania przez dostawcę usług:
 
     ![Informacje o domenie i adresach URL aplikacji SAML SSO for Confluence by resolution GmbH na potrzeby logowania jednokrotnego](common/metadata-upload-additional-signon.png)
 
@@ -173,9 +173,9 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją SAML SSO 
     
     b. W polu **Name** (Nazwa) wprowadź nazwę dostawcy tożsamości, np. Azure AD.
     
-    d. W polu **Description** (Opis) wprowadź opis dostawcy tożsamości, np. Azure AD.
+    c. W polu **Description** (Opis) wprowadź opis dostawcy tożsamości, np. Azure AD.
     
-    d. Kliknij przycisk **alej**.
+    d. Kliknij przycisk **Dalej**.
     
 12. Na stronie **Identity provider configuration** (Konfiguracja dostawcy tożsamości) kliknij przycisk **Next** (Dalej).
 
@@ -189,7 +189,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją SAML SSO 
 
     b. Kliknij przycisk **Import** (Importuj).
     
-    d. Zaczekaj chwilę na pomyślne zakończenie importowania.
+    c. Zaczekaj chwilę na pomyślne zakończenie importowania.
     
     d. Kliknij przycisk **Next** (Dalej).
     
@@ -205,7 +205,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją SAML SSO 
     
     ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon6b.png)
     
-17. W pojawiającym się oknie dialogowym odczyt **Pomijanie testu oznacza...** kliknij przycisk **OK**.
+17. W wyświetlonym oknie dialogowym odczytywanie **pominięcia testu...**, kliknij przycisk **OK**.
     
     ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon6c.png)
 
@@ -217,7 +217,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -227,10 +227,10 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **\@brittasimon yourcompanydomain.extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
     Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
@@ -256,7 +256,7 @@ W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
@@ -273,7 +273,7 @@ W przypadku aplikacji SAML SSO for Confluence by resolution GmbH aprowizację wy
 
     ![Dodawanie pracownika](./media/samlssoconfluence-tutorial/user1.png) 
 
-3. W sekcji Użytkownicy kliknij pozycję **Dodaj użytkowników.** Na stronie okna **dialogowego "Dodaj użytkownika"** wykonaj następujące czynności:
+3. W obszarze Użytkownicy kliknij przycisk **Dodaj użytkowników** kartę. Na stronie **"Dodawanie użytkownika"** wykonaj następujące czynności:
 
     ![Dodawanie pracownika](./media/samlssoconfluence-tutorial/user2.png) 
 
@@ -281,7 +281,7 @@ W przypadku aplikacji SAML SSO for Confluence by resolution GmbH aprowizację wy
 
     b. W polu tekstowym **Full Name** (Imię i nazwisko) wpisz imię i nazwisko użytkownika, np. Britta Simon.
 
-    d. W polu tekstowym **Email** (Adres e-mail) wpisz adres e-mail użytkownika, np. Brittasimon@contoso.com.
+    c. W polu tekstowym **Email** (Adres e-mail) wpisz adres e-mail użytkownika, np. Brittasimon@contoso.com.
 
     d. W polu tekstowym **Password** (Hasło) wpisz hasło użytkownika Britta Simon.
 
@@ -293,13 +293,13 @@ W przypadku aplikacji SAML SSO for Confluence by resolution GmbH aprowizację wy
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka SAML SSO for Confluence by resolution GmbH w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji SAML SSO for Confluence by resolution GmbH, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka SAML SSO for Confluence by resolution GmbH w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji SAML SSO for Confluence by resolution GmbH, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

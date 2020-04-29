@@ -1,5 +1,5 @@
 ---
-title: Samouczek do przesyłania danych do udziałów za pomocą usługi Azure Data Box Edge | Dokumenty firmy Microsoft
+title: Samouczek dotyczący transferu danych do udziałów z Azure Data Box Edge | Microsoft Docs
 description: Dowiedz się, jak dodawać udziały i łączyć się z nimi na urządzeniu Data Box Edge.
 services: databox
 author: alkohli
@@ -10,19 +10,19 @@ ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
 ms.openlocfilehash: 3b1988656e2c15515e121df3ee71e31ce7edd750
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79212960"
 ---
-# <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Samouczek: Przenoszenie danych za pomocą usługi Azure Data Box Edge
+# <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Samouczek: przesyłanie danych za pomocą Azure Data Box Edge
 
 W tym samouczku opisano sposób dodawania udziałów i łączenia się z nimi na urządzeniu Data Box Edge. Po dodaniu udziałów urządzenie Data Box Edge może przesłać dane na platformę Azure.
 
 Wykonanie tej procedury może zająć około 10 minut.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dodawanie udziału
@@ -42,48 +42,48 @@ Przed dodaniem udziałów do urządzenia Data Box Edge upewnij się, że spełni
 
 Aby utworzyć udział, wykonaj następującą procedurę:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)wybierz zasób Data Box Edge, a następnie przejdź do **przeglądu**. Urządzenie powinno być w trybie online.
+1. W [Azure Portal](https://portal.azure.com/)wybierz zasób Data Box Edge, a następnie przejdź do **omówienia**. Urządzenie powinno być w trybie online.
 
    ![Urządzenie w trybie online](./media/data-box-edge-deploy-add-shares/device-online-1.png)
 
-2. Wybierz **+ Dodaj udział** na pasku poleceń urządzenia.
+2. Wybierz pozycję **+ Dodaj udział** na pasku poleceń urządzenia.
 
    ![Dodawanie udziału](./media/data-box-edge-deploy-add-shares/select-add-share-1.png)
 
 3. W okienku **Dodawanie udziału** wykonaj następującą procedurę:
 
     a. W polu **Nazwa** podaj unikatową nazwę udziału.  
-    Nazwa udziału może zawierać tylko małe litery, cyfry i łączniki. Musi mieć od 3 do 63 znaków i zaczynać się od litery lub cyfry. Za i przed łącznikiem musi znajdować się litera lub cyfra.
+    Nazwa udziału może zawierać tylko małe litery, cyfry i łączniki. Musi mieć od 3 do 63 znaków i zaczynać się literą lub cyfrą. Za i przed łącznikiem musi znajdować się litera lub cyfra.
     
     b. Wybierz **Typ** dla udziału.  
     Dostępne są dwa typy — **SMB** i **NFS** — przy czym typ SMB jest domyślny. Typ SMB jest standardem dla klientów systemu Windows, natomiast typ NFS jest używany dla klientów systemu Linux.  
     W zależności od tego, czy wybrano udział SMB, czy NFS, pozostałe opcje nieco się różnią. 
 
-    d. Podaj konto magazynu, na którym będzie mieszkał udział.
+    c. Podaj konto magazynu, na którym będzie znajdować się udział.
 
       > [!IMPORTANT]
-      > Upewnij się, że konto usługi Azure Storage, którego używasz, nie ma zasad niezmienności ustawionych na nim, jeśli używasz go z urządzeniem usługi Azure Stack Edge lub Data Box Gateway. Aby uzyskać więcej informacji, zobacz [Ustawianie zasad niezmienności i zarządzanie nimi dla magazynu obiektów blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+      > Upewnij się, że używane konto usługi Azure Storage nie ma ustawionych zasad niezmiennościymi, jeśli są używane z urządzeniem Azure Stack Edge lub Data Box Gateway. Aby uzyskać więcej informacji, zobacz [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
     d. Na liście rozwijanej **Usługa magazynu** wybierz pozycję **Blokowy obiekt blob**, **Stronicowy obiekt blob** lub **Pliki**.  
-    Wybrany typ usługi zależy od tego, jaki format mają mieć dane do użycia na platformie Azure. W tym przykładzie, ponieważ chcemy przechowywać dane jako blokowe obiekty blob na platformie Azure, wybieramy **blokowy obiekt blob**. Jeśli wybierzesz **page blob**, upewnij się, że dane są wyrównane 512 bajtów. Na przykład dysk VHDX jest zawsze wyrównany o 512 bajtów.
+    Wybrany typ usługi zależy od tego, jaki format mają mieć dane do użycia na platformie Azure. W tym przykładzie, ponieważ chcemy przechowywać dane jako blokowe obiekty blob na platformie Azure, wybieramy **blokowy obiekt BLOB**. W przypadku wybrania opcji **stronicowego obiektu BLOB**upewnij się, że dane są wyrównane do 512 bajtów. Na przykład dysk VHDX jest zawsze wyrównany o 512 bajtów.
 
-    e. Utwórz nowy kontener obiektów blob lub użyj istniejącego z listy rozwijanej. Jeśli tworzysz kontener obiektu blob, podaj nazwę kontenera. Jeśli kontener jeszcze nie istnieje, zostanie on utworzony z nowo utworzoną nazwą udziału na koncie magazynu.
+    e. Utwórz nowy kontener obiektów blob lub Użyj istniejącego z listy rozwijanej. W przypadku tworzenia kontenera obiektów BLOB Podaj nazwę kontenera. Jeśli kontener jeszcze nie istnieje, zostanie on utworzony z nowo utworzoną nazwą udziału na koncie magazynu.
 
     f. W zależności od tego, czy utworzono udział SMB, czy udział NFS, wykonaj jeden z następujących kroków:
 
-    * **Udział SMB**: W obszarze **Wszystkie uprawnienia użytkownik lokalny**wybierz pozycję **Utwórz nowy** lub Użyj **istniejącego**. Jeśli tworzysz nowego użytkownika lokalnego, wprowadź nazwę użytkownika i hasło, a następnie potwierdź hasło. Ta akcja spowoduje przypisanie uprawnień do użytkownika lokalnego. Modyfikacja uprawnień na poziomie udziału nie jest obecnie obsługiwana.
+    * **Udział SMB**: w obszarze **wszystkie uprawnienia użytkownika lokalnego**wybierz pozycję **Utwórz nowy** lub **Użyj istniejącej**. Jeśli tworzysz nowego użytkownika lokalnego, wprowadź nazwę użytkownika i hasło, a następnie potwierdź hasło. Ta akcja spowoduje przypisanie uprawnień do użytkownika lokalnego. Modyfikowanie uprawnień na poziomie udziału nie jest obecnie obsługiwane.
 
-        Jeśli zaznaczysz pole wyboru Zezwalaj tylko na **operacje odczytu** dla tych danych udziału, możesz określić użytkowników tylko do odczytu.
+        W przypadku zaznaczenia pola wyboru **Zezwalaj tylko na operacje odczytu** dla danych tego udziału można określić użytkowników tylko do odczytu.
 
         ![Dodawanie udziału SMB](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
 
-    * **Udział NFS**: Wprowadź adresy IP dozwolonych klientów, którzy mogą uzyskać dostęp do udziału.
+    * **Udział NFS**: wprowadź adresy IP dozwolonych klientów, którzy mogą uzyskiwać dostęp do udziału.
 
         ![Dodawanie udziału NFS](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
 
 4. Wybierz pozycję **Utwórz**, aby utworzyć udział.
     
-    Zostanie wyświetlone powiadomienie, że trwa tworzenie udziału. Po utworzeniu udziału z określonymi ustawieniami kafelka **Udostępnień** jest aktualizowana w celu odzwierciedlenia nowego udziału.
+    Zostanie wyświetlone powiadomienie, że trwa tworzenie udziału. Po utworzeniu udziału przy użyciu określonych ustawień kafelek **udziały** aktualizuje się w celu odzwierciedlenia nowego udziału.
     
 
 ## <a name="connect-to-the-share"></a>Łączenie z udziałem
@@ -138,7 +138,7 @@ Na kliencie systemu Linux połączonym z urządzeniem Data Box Edge wykonaj nast
    `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     > [!IMPORTANT]
-    > Użycie `sync` opcji podczas montażu akcji zwiększa szybkość transferu dużych plików.
+    > Użycie `sync` opcji przy instalowaniu udziałów zwiększa szybkość transferu dużych plików.
     > Zanim zainstalujesz udział, upewnij się, że katalogi, które będą pełnić rolę punktów instalacji na komputerze lokalnym, zostały już utworzone. Te katalogi nie powinny zawierać żadnych plików ani podfolderów.
 
     Poniższy przykład pokazuje, jak nawiązać połączenie z udziałem na urządzeniu Data Box Edge za pośrednictwem systemu plików NFS. Adres IP urządzenia to `10.10.10.60`. Udział `mylinuxshare2` jest instalowany w systemie ubuntuVM. Punkt instalacji udziału to `/home/databoxubuntuhost/edge`.
@@ -146,7 +146,7 @@ Na kliencie systemu Linux połączonym z urządzeniem Data Box Edge wykonaj nast
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
 
 > [!NOTE] 
-> Następujące zastrzeżenia mają zastosowanie do tej wersji:
+> W tej wersji mają zastosowanie następujące zastrzeżenia:
 > - Po utworzeniu pliku w udziale zmiana nazwy pliku nie jest obsługiwana. 
 > - Usunięcie pliku z udziału nie powoduje usunięcia wpisu na koncie magazynu.
 

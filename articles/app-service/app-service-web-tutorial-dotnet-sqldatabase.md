@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: ASP.NET aplikacji z bazą danych SQL'
+title: 'Samouczek: ASP.NET aplikacji z SQL Database'
 description: Dowiedz się, jak wdrożyć aplikację C# ASP.NET z bazą danych programu SQL Server na platformie Azure.
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
@@ -7,19 +7,19 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.custom: mvc, devcenter, vs-azure, seodec18
 ms.openlocfilehash: a9acb55f0a03a6ec1ba0bb6bb38c665b059b672b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80047022"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Samouczek: tworzenie aplikacji ASP.NET na platformie Azure przy użyciu usługi SQL Database
 
-[Usługa Azure App Service](overview.md) zapewnia wysoce skalowalną, samoładującą się usługę hostingu. W tym samouczku pokazano, jak wdrożyć opartą na danych aplikację ASP.NET w usłudze App Service i połączyć ją z usługą [Azure SQL Database](../sql-database/sql-database-technical-overview.md). Po zakończeniu masz ASP.NET aplikację działającą na platformie Azure i połączoną z bazą danych SQL.
+[Azure App Service](overview.md) zapewnia wysoce skalowalną, samoobsługową usługę hostingu w sieci Web. W tym samouczku pokazano, jak wdrożyć opartą na danych aplikację ASP.NET w usłudze App Service i połączyć ją z usługą [Azure SQL Database](../sql-database/sql-database-technical-overview.md). Po zakończeniu masz aplikację ASP.NET działającą na platformie Azure i połączoną z SQL Database.
 
 ![Opublikowana aplikacja ASP.NET w aplikacji usługi App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie bazy danych SQL Database na platformie Azure
@@ -35,14 +35,14 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 
 W celu ukończenia tego samouczka:
 
-Zainstaluj <a href="https://www.visualstudio.com/downloads/" target="_blank">program Visual Studio 2019</a> z **obciążeniem ASP.NET i tworzenia sieci Web.**
+Zainstaluj <a href="https://www.visualstudio.com/downloads/" target="_blank">program Visual Studio 2019</a> przy użyciu obciążeń **ASP.NET i Web Development** .
 
-Jeśli program Visual Studio został już zainstalowany, dodaj obciążenia w programie Visual Studio, klikając **pozycję Narzędzia** > **Pobierz narzędzia i funkcje**.
+Jeśli program Visual Studio został już zainstalowany, Dodaj obciążenia w programie Visual Studio, klikając pozycję **Narzędzia** > **Pobierz narzędzia i funkcje**.
 
 ## <a name="download-the-sample"></a>Pobierz przykład
 
 - [Pobierz przykładowy projekt](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
-- Wyodrębnij (rozpakuj) plik *dotnet-sqldb-tutorial-master.zip.*
+- Wyodrębnij (Rozpakuj) plik *plik dotnet-SQLDB-tutorial-Master. zip* .
 
 Przykładowy projekt zawiera podstawową aplikację [ASP.NET MVC](https://www.asp.net/mvc) CRUD (create-read-update-delete, tworzenie-odczytywanie-aktualizowanie-usuwanie) korzystającą z modelu [Code First platformy Entity Framework](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
@@ -109,7 +109,7 @@ W oknie dialogowym **Konfiguruj plan usługi App Service** skonfiguruj nowy plan
 
 | Ustawienie  | Sugerowana wartość | Więcej informacji |
 | ----------------- | ------------ | ----|
-|**Plan usługi aplikacji**| myAppServicePlan | [Plany usługi App Service](../app-service/overview-hosting-plans.md) |
+|**Plan App Service**| myAppServicePlan | [Plany usługi App Service](../app-service/overview-hosting-plans.md) |
 |**Lokalizacja**| Europa Zachodnia | [Regiony platformy Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
 |**Rozmiar**| Bezpłatna | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
@@ -142,7 +142,7 @@ W oknie dialogowym **Konfigurowanie bazy danych SQL** wykonaj następujące czyn
 
 * Nie zmieniaj wygenerowanej domyślnej wartości pola **Nazwa bazy danych**.
 * W polu **Nazwa parametrów połączenia** wpisz *MyDbConnection*. Ta nazwa musi być zgodna z parametrami połączenia przywoływanymi w pliku *Models/MyDatabaseContext.cs*.
-* Kliknij przycisk **OK**.
+* Wybierz przycisk **OK**.
 
 ![Konfigurowanie bazy danych SQL](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
@@ -192,7 +192,7 @@ Po zakończeniu tworzenia ustawienia zapory dla wystąpienia bazy danych SQL w p
 
 W tym miejscu można wykonywać najpopularniejsze operacje, takie jak uruchamianie zapytań, tworzenie widoków oraz procedur składowanych i inne. 
 
-Rozwiń połączenie > **bazy danych** > **&lt;>**  >  **tabelami**. Kliknij prawym przyciskiem myszy tabelę `Todoes` i wybierz polecenie **Wyświetl dane**. 
+Rozwiń połączenie > **baz** > **&lt;danych bazy danych>**  >  **tabele**. Kliknij prawym przyciskiem myszy tabelę `Todoes` i wybierz polecenie **Wyświetl dane**. 
 
 ![Eksplorowanie obiektów bazy danych SQL](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
@@ -300,7 +300,7 @@ Kliknij pozycję **Konfiguruj**, aby otworzyć ustawienia publikowania.
 
 ![Otwieranie ustawień publikowania](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-settings.png)
 
-W kreatorze kliknij przycisk **Dalej**.
+W Kreatorze kliknij przycisk **dalej**.
 
 Upewnij się, że parametry połączenia z bazą danych SQL Database są wypełnione w obszarze **MyDatabaseContext (MyDbConnection)**. Może być konieczne wybranie z listy rozwijanej bazy danych **myToDoAppDb**. 
 
@@ -360,7 +360,7 @@ Z listy rozwijanej **Rejestrowanie aplikacji (System plików)** wybierz pozycję
 ![Zmienianie poziomu śledzenia na Pełne](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
 > [!TIP]
-> Możesz eksperymentować z różnymi poziomami śledzenia, aby zobaczyć, jakie rodzaje komunikatów są wyświetlane dla poszczególnych poziomów. Na przykład poziom **Informacje** obejmuje wszystkie `Trace.TraceInformation()`dzienniki `Trace.TraceError()`utworzone przez program , `Trace.WriteLine()` `Trace.TraceWarning()`i , ale nie dzienniki utworzone przez program .
+> Możesz eksperymentować z różnymi poziomami śledzenia, aby zobaczyć, jakie rodzaje komunikatów są wyświetlane dla poszczególnych poziomów. Na przykład poziom **informacji** obejmuje wszystkie dzienniki utworzone przez `Trace.TraceInformation()`,, i `Trace.TraceWarning()` `Trace.TraceError()`, ale nie dzienniki utworzone przez `Trace.WriteLine()`program.
 >
 >
 
@@ -383,9 +383,9 @@ Aby zatrzymać usługę przesyłania strumieniowego dzienników, kliknij przycis
 
 ## <a name="manage-your-azure-app"></a>Zarządzanie aplikacją platformy Azure
 
-Przejdź do witryny [Azure Portal](https://portal.azure.com), aby zarządzać aplikacją internetową. Wyszukaj i wybierz **pozycję Usługi aplikacji**. 
+Przejdź do witryny [Azure Portal](https://portal.azure.com), aby zarządzać aplikacją internetową. Wyszukaj i wybierz **App Services**. 
 
-![Wyszukiwanie usług aplikacji platformy Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-portal-navigate-app-services.png)
+![Wyszukaj w usłudze Azure App Services](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-portal-navigate-app-services.png)
 
 Wybierz nazwę aplikacji platformy Azure.
 

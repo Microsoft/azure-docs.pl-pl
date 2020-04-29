@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Skalowanie aplikacji za pomocą Menedżera ruchu'
-description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure zautomatyzować wdrażanie aplikacji usługi App Service i zarządzanie nimi. W tym przykładzie pokazano, jak skalować na całym świecie za pomocą menedżera ruchu.
+title: 'Interfejs wiersza polecenia: skalowanie aplikacji za pomocą Traffic Manager'
+description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. W tym przykładzie przedstawiono sposób skalowania na całym świecie przy użyciu Traffic Manager.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: e4033a50-0e05-4505-8ce8-c876204b2acc
@@ -10,10 +10,10 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: fcd82297ae698707503a69d9e47f6ca4241d6db9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80044865"
 ---
 # <a name="scale-an-app-service-app-worldwide-with-a-high-availability-architecture-using-azure-cli"></a>Skalowanie aplikacji usługi App Service na całym świecie przy użyciu architektury wysokiej dostępności za pomocą interfejsu wiersza polecenia platformy Azure

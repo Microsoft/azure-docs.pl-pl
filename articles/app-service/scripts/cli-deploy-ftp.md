@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Wdrażanie plików aplikacji za pomocą protokołu FTP'
-description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure zautomatyzować wdrażanie aplikacji usługi App Service i zarządzanie nimi. W tym przykładzie pokazano, jak utworzyć aplikację i wdrożyć pliki za pomocą protokołu FTP.
+title: 'Interfejs wiersza polecenia: Wdrażanie plików aplikacji przy użyciu protokołu FTP'
+description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. Ten przykład pokazuje, jak utworzyć aplikację i wdrożyć pliki przy użyciu protokołu FTP.
 author: msangapu-msft
 tags: azure-service-management
 ms.devlang: azurecli
@@ -9,10 +9,10 @@ ms.date: 12/12/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: ccef4443661f9227163b2bbe9cd8a6475f856caa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80044881"
 ---
 # <a name="create-an-app-service-app-and-deploy-files-with-ftp-using-azure-cli"></a>Tworzenie aplikacji usługi App Service i wdrażanie plików za pomocą połączenia FTP przy użyciu interfejsu wiersza polecenia platformy Azure

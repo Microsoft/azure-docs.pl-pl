@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Projektowanie bazy danych platformy Azure dla mariadb — portal Azure'
+title: 'Samouczek: projektowanie Azure Portal Azure Database for MariaDB'
 description: W tym samouczku wyjaśniono, jak utworzyć serwer oraz bazę danych usługi Azure Database for MariaDB i zarządzać nimi przy użyciu witryny Azure Portal.
 author: ajlam
 ms.author: andrela
@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
 ms.openlocfilehash: 974b6a1e980119582d4fedb5f8b4e73685290de3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80063814"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Samouczek: projektowanie bazy danych usługi Azure Database for MariaDB za pomocą witryny Azure Portal
@@ -29,7 +29,7 @@ W tym samouczku nauczysz się wykonywać następujące czynności, używając wi
 > * Aktualizowanie danych
 > * Przywracanie danych
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -41,33 +41,33 @@ Serwer usługi Azure Database for MariaDB jest tworzony za pomocą zdefiniowaneg
 
 1. Wybierz przycisk **Utwórz zasób** (+) w lewym górnym rogu portalu.
 
-2. Wybierz **bazy danych usługi** > **Azure Database dla mariadb**. Możesz również wpisać **MariaDB** w polu wyszukiwania, aby znaleźć usługę.
+2. Wybierz pozycję **bazy danych** > **Azure Database for MariaDB**. Możesz również wpisać **MariaDB** w polu wyszukiwania, aby znaleźć usługę.
 
    ![Przechodzenie do bazy danych MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-mariadb.png)
 
-3. Wybierz kafelek **bazy danych usługi Azure dla mariadb.** Wprowadź lub wybierz wymagane informacje.
+3. Wybierz kafelek **Azure Database for MariaDB** . Wprowadź lub wybierz wymagane informacje.
 
    ![Tworzenie formularza](./media/tutorial-design-database-using-portal/2-create-form.png)
 
     Ustawienie | Sugerowana wartość | Opis pola
     ---|---|---
     Nazwa serwera | *unikatowa nazwa serwera* | Wybierz unikatową nazwę, która identyfikuje serwer usługi Azure Database for MariaDB. Na przykład **mydemoserver**. Nazwa domeny *.mariadb.database.azure.com* jest dołączana do wprowadzanej nazwy serwera. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków.
-    Subskrypcja | *subskrypcji* | Wybierz subskrypcję platformy Azure, która ma być używana dla serwera. Jeśli masz wiele subskrypcji, wybierz tę, w ramach której są naliczane opłaty za ten zasób.
-    Grupa zasobów | **grupa myresource** | Wprowadź nazwę nowej grupy zasobów lub wybierz istniejącą grupę zasobów.
+    Subskrypcja | *Twoja subskrypcja* | Wybierz subskrypcję platformy Azure, która ma być używana dla serwera. Jeśli masz wiele subskrypcji, wybierz tę, w ramach której są naliczane opłaty za ten zasób.
+    Grupa zasobów | **myresourcegroup** | Wprowadź nazwę nowej grupy zasobów lub wybierz istniejącą grupę zasobów.
     Wybierz źródło | **Puste** | Wybierz pozycję **Puste**, aby utworzyć nowy serwer. W przypadku tworzenia serwera z geograficznej kopii zapasowej istniejącego serwera usługi Azure Database for MariaDB należy wybrać pozycję **Kopia zapasowa**.
     Identyfikator logowania administratora serwera | **myadmin** | Konto logowania do użycia podczas nawiązywania połączenia z serwerem. Nazwą logowania administratora nie może być **azure_superuser**, **admin**, **administrator**, **root**, **guest** ani **public**.
     Hasło | *wartość wybrana przez użytkownika* | Wprowadź nowe hasło dla konta administratora serwera. Musi zawierać od 8 do 128 znaków. Hasło musi zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry (0–9) i znaki inne niż alfanumeryczne (!, $, #, % itp.).
     Potwierdź hasło | *wartość wybrana przez użytkownika*| Potwierdź hasło do konta administratora.
     Lokalizacja | *region najbliżej Twoich użytkowników*| Wybierz lokalizację najbliżej użytkowników lub innych aplikacji platformy Azure.
     Wersja | *najnowsza wersja*| Najnowsza wersja, chyba że z konkretnych powodów wymagane jest użycie innej wersji.
-    Warstwa cenowa | Patrz opis. | Konfiguracje obliczania, magazynu i kopii zapasowej dla nowego serwera. Wybierz **pozycję Ogólne przeznaczenie warstwy** > **cenowej**. Zachowaj wartości domyślne dla następujących ustawień:<br><ul><li>**Generacja obliczeń** (5. generacja)</li><li>**VCore** (4 vCore)</li><li>**Pamięć masowa** (100 GB)</li><li>**Okres przechowywania kopii zapasowej** (7 dni)</li></ul><br>Aby włączyć kopie zapasowe serwera w magazynie geograficznie nadmiarowym, w obszarze **Opcje nadmiarowości kopii zapasowej** wybierz pozycję **Geograficznie nadmiarowy**. <br><br>Aby zapisać tę wybraną warstwę cenową, wybierz przycisk **OK**. Następny zrzut ekranu przedstawia te wybory.
+    Warstwa cenowa | Patrz opis. | Konfiguracje obliczania, magazynu i kopii zapasowej dla nowego serwera. Wybierz pozycję >  **warstwa cenowa****ogólnego przeznaczenia**. Zachowaj wartości domyślne dla następujących ustawień:<br><ul><li>**Generacja obliczeń** (5. generacja)</li><li>**rdzeń wirtualny** (4 rdzeni wirtualnych)</li><li>**Magazyn** (100 GB)</li><li>**Okres przechowywania kopii zapasowej** (7 dni)</li></ul><br>Aby włączyć kopie zapasowe serwera w magazynie geograficznie nadmiarowym, w obszarze **Opcje nadmiarowości kopii zapasowej** wybierz pozycję **Geograficznie nadmiarowy**. <br><br>Aby zapisać tę wybraną warstwę cenową, wybierz przycisk **OK**. Następny zrzut ekranu przedstawia te wybory.
     
    ![Warstwa cenowa](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
    > [!TIP]
-   > Dzięki **automatycznemu wzrostowi** serwer zwiększa ilość miejsca do magazynowania, gdy zbliżasz się do przydzielonego limitu, bez wpływu na obciążenie.
+   > Po włączeniu **automatycznego wzrostu** serwer zwiększa magazyn, gdy zbliża się limit przydziału, bez wywierania wpływu na obciążenie.
 
-4. Kliknij pozycję **Przegląd + utwórz**. Możesz kliknąć przycisk **Powiadomienia** na pasku narzędzi, aby monitorować proces wdrażania. Wdrożenie może potrwać do 20 minut.
+4. Kliknij pozycję **Przegląd + utwórz**. Możesz kliknąć przycisk **powiadomienia** na pasku narzędzi, aby monitorować proces wdrażania. Wdrożenie może potrwać do 20 minut.
 
 ## <a name="configure-the-firewall"></a>Konfigurowanie zapory
 
@@ -93,7 +93,7 @@ Uzyskaj z witryny Azure Portal wartości pól **Nazwa serwera** (w pełni kwalif
 
    ![Właściwości serwera](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-W naszym przykładzie nazwa serwera jest **mydemoserver.mariadb.database.azure.com** a nazwa logowania administratora serwera to **myadmin\@mydemoserver.**
+W naszym przykładzie nazwa serwera to **mydemoserver.MariaDB.Database.Azure.com** , a nazwa logowania administratora serwera to **\@mydemoserver**.
 
 ## <a name="connect-to-the-server-by-using-mysql"></a>Nawiązywanie połączenia z serwerem za pomocą narzędzia mysql
 
@@ -107,7 +107,7 @@ mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
 
 ## <a name="create-a-blank-database"></a>Tworzenie pustej bazy danych
 
-Po nawiązaniu połączenia z serwerem utwórz pustą bazę danych do pracy z:
+Po nawiązaniu połączenia z serwerem Utwórz pustą bazę danych do współpracy z programem:
 
 ```sql
 CREATE DATABASE mysampledb;

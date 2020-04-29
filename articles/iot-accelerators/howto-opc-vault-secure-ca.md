@@ -1,6 +1,6 @@
 ---
-title: Jak bezpiecznie uruchomić usługę zarządzania certyfikatami OPC Vault — Azure | Dokumenty firmy Microsoft
-description: W tym artykule opisano sposób bezpiecznego uruchamiania usługi zarządzania certyfikatami usługi OPC Vault na platformie Azure i przegląda inne wskazówki dotyczące zabezpieczeń, które należy wziąć pod uwagę.
+title: Jak bezpiecznie uruchomić usługę zarządzania certyfikatami magazynu OPC — platforma Azure | Microsoft Docs
+description: Opisuje sposób bezpiecznego uruchamiania usługi zarządzania certyfikatami magazynu OPC na platformie Azure oraz przegląd innych wytycznych dotyczących zabezpieczeń, które należy wziąć pod uwagę.
 author: mregen
 ms.author: mregen
 ms.date: 8/16/2019
@@ -9,237 +9,237 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 88f8188779c5fb6b3cd07c67e9f35a6b8f9ad97d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271709"
 ---
-# <a name="run-the-opc-vault-certificate-management-service-securely"></a>Bezpieczne uruchamianie usługi zarządzania certyfikatami OPC Vault
+# <a name="run-the-opc-vault-certificate-management-service-securely"></a>Bezpieczne uruchamianie usługi zarządzania certyfikatami magazynu OPC
 
-W tym artykule wyjaśniono, jak bezpiecznie uruchomić usługę zarządzania certyfikatami OPC Vault na platformie Azure, i zapoznać się z innymi wytycznymi dotyczącymi zabezpieczeń, które należy wziąć pod uwagę.
+W tym artykule opisano sposób bezpiecznego uruchamiania usługi zarządzania certyfikatami magazynu OPC na platformie Azure oraz przegląd innych wytycznych dotyczących zabezpieczeń, które należy wziąć pod uwagę.
 
 ## <a name="roles"></a>Role
 
 ### <a name="trusted-and-authorized-roles"></a>Zaufane i autoryzowane role
 
-Mikrousługa OPC Vault umożliwia różne role dostępu do różnych części usługi.
+Mikrousługa magazynu OPC umożliwia różnym rolom dostęp do różnych części usługi.
 
 > [!IMPORTANT]
-> Podczas wdrażania skrypt dodaje tylko użytkownika, który uruchamia skrypt wdrażania jako użytkownik dla wszystkich ról. W przypadku wdrożenia produkcyjnego należy przejrzeć to przypisanie roli i ponownie skonfigurować odpowiednio, postępając zgodnie z poniższymi wytycznymi. To zadanie wymaga ręcznego przypisywania ról i usług w portalu aplikacji korporacyjnych usługi Azure Active Directory (Azure AD).
+> Podczas wdrażania skrypt dodaje tylko użytkownika, który uruchamia skrypt wdrożenia jako użytkownik dla wszystkich ról. W przypadku wdrożenia produkcyjnego należy zapoznać się z tym przypisaniem roli i zmienić konfigurację odpowiednio zgodnie z poniższymi wskazówkami. To zadanie wymaga ręcznego przypisania ról i usług w portalu aplikacji Azure Active Directory (Azure AD) w przedsiębiorstwie.
 
 ### <a name="certificate-management-service-roles"></a>Role usługi zarządzania certyfikatami
 
-Mikrousługa OPC Vault definiuje następujące role:
+Mikrousługa magazynu OPC definiuje następujące role:
 
-- **Czytnik:** Domyślnie każdy uwierzytelniony użytkownik w dzierżawie ma dostęp do odczytu. 
-  - Dostęp do odczytu aplikacji i żądań certyfikatów. Może wystawiać i wyszukiwać aplikacje i żądania certyfikatów. Również informacje o odnajdowaniu urządzeń i certyfikaty publiczne są dostępne z dostępem do odczytu.
-- **Moduł zapisujący**: Rola modułu zapisu jest przypisana do użytkownika w celu dodania uprawnień do zapisu dla niektórych zadań. 
-  - Dostęp do odczytu/zapisu do aplikacji i żądań certyfikatów. Może rejestrować, aktualizować i wyrymazyować aplikacje. Może tworzyć żądania certyfikatów i uzyskiwać zatwierdzone klucze prywatne i certyfikaty. Można również usunąć klucze prywatne.
-- **Osoba zatwierdzająca:** Rola osoby zatwierdzającej jest przypisana do użytkownika w celu zatwierdzania lub odrzucania żądań certyfikatów. Rola nie zawiera żadnej innej roli.
-  - Oprócz roli osoby zatwierdzającej, aby uzyskać dostęp do interfejsu API mikrousług usługi OPC Vault, użytkownik musi mieć również uprawnienie podpisywania kluczy w usłudze Azure Key Vault, aby móc podpisywać certyfikaty.
-  - Rola modułu zapisującego i zatwierdzająca powinna być przypisana do różnych użytkowników.
-  - Główną rolą osoby zatwierdzającej jest zatwierdzanie generowania i odrzucania żądań certyfikatów.
-- **Administrator**: Rola Administrator jest przypisana do użytkownika do zarządzania grupami certyfikatów. Rola nie obsługuje roli osoby zatwierdzającej, ale zawiera rolę pisarza.
-  - Administrator może zarządzać grupami certyfikatów, zmieniać konfigurację i odwoływać certyfikaty aplikacji, wystawiając nową listę odwołania certyfikatów (CRL).
-  - W idealnym przypadku role modułu zapisującego, osoby zatwierdzającej i administratora są przypisane do różnych użytkowników. Aby uzyskać dodatkowe zabezpieczenia, użytkownik z rolą Osoba zatwierdzająca lub Administrator potrzebuje również uprawnień do podpisywania kluczy w Magazynie kluczy, wystawiania certyfikatów lub odnawiania certyfikatu urzędu certyfikacji wystawcy.
-  - Oprócz roli administrowania mikrousługami rola obejmuje, ale nie ogranicza się do:
-    - Odpowiedzialność za administrowanie wdrażaniem praktyk bezpieczeństwa urzędu certyfikacji.
-    - Zarządzanie generowaniem, odwoływaniem i zawieszaniem certyfikatów. 
-    - Zarządzanie cyklem życia klucza kryptograficznego (na przykład odnowienie kluczy urzędu certyfikacji wystawcy).
-    - Instalacja, konfiguracja i konserwacja usług obsługujących urząd certyfikacji.
-    - Codzienne działanie usług. 
-    - Ca i kopii zapasowej bazy danych i odzyskiwania.
+- **Czytelnik**: Domyślnie każdy uwierzytelniony użytkownik w dzierżawie ma dostęp do odczytu. 
+  - Dostęp do odczytu do aplikacji i żądań certyfikatów. Może wyświetlać listę aplikacji i żądań certyfikatów oraz wykonywać dla nich zapytania. Również informacje o odnajdywaniu urządzeń i certyfikaty publiczne są dostępne z dostępem do odczytu.
+- **Składnik zapisywania**: rola składnika zapisywania zostaje przypisana do użytkownika, aby dodać uprawnienia do zapisu dla określonych zadań. 
+  - Dostęp do odczytu i zapisu do aplikacji i żądań certyfikatów. Może rejestrować, aktualizować i wyrejestrować aplikacje. Może tworzyć żądania certyfikatów i uzyskiwać zatwierdzone klucze prywatne i certyfikaty. Można również usunąć klucze prywatne.
+- **Osoba zatwierdzająca**: rola osoby zatwierdzającej jest przypisana do użytkownika w celu zatwierdzenia lub odrzucenia żądań certyfikatów. Rola nie obejmuje żadnej innej roli.
+  - Oprócz roli osoby zatwierdzającej, aby uzyskać dostęp do interfejsu API mikrousług magazynu OPC, użytkownik musi mieć również uprawnienie do podpisywania klucza w Azure Key Vault, aby można było podpisać certyfikaty.
+  - Rola składnika zapisywania i osoby zatwierdzającej powinna być przypisana do różnych użytkowników.
+  - Główną rolą osoby zatwierdzającej jest zatwierdzenie generacji i odrzucenie żądań certyfikatów.
+- **Administrator**: rola administratora jest przypisana do użytkownika w celu zarządzania grupami certyfikatów. Rola nie obsługuje roli osoby zatwierdzającej, ale zawiera rolę składnika zapisywania.
+  - Administrator może zarządzać grupami certyfikatów, zmieniać konfigurację i odwołać certyfikaty aplikacji, wydając nową listę odwołania certyfikatów (CRL).
+  - W idealnym przypadku role składnika zapisywania, osoby zatwierdzającej i administratora są przypisywane do różnych użytkowników. Aby zwiększyć bezpieczeństwo, użytkownik z rolą osoby zatwierdzającej lub administratora wymaga również uprawnień do podpisywania kluczy w Key Vault, do wystawiania certyfikatów lub odnowienia certyfikatu urzędu certyfikacji wystawcy.
+  - Oprócz roli administratora mikrousług rola obejmuje, ale nie ogranicza się do:
+    - Odpowiedzialność za administrowanie wdrażaniem praktyk w zakresie zabezpieczeń urzędu certyfikacji.
+    - Zarządzanie generowaniem, odwoływaniem i zawieszeniem certyfikatów. 
+    - Zarządzanie cyklem życia kluczy kryptograficznych (na przykład odnowienie kluczy urzędu certyfikacji wystawcy).
+    - Instalacja, konfiguracja i konserwacja usług, które obsługują urząd certyfikacji.
+    - Codzienne operacje na usługach. 
+    - Kopia zapasowa i odzyskiwanie bazy danych.
 
 ### <a name="other-role-assignments"></a>Inne przypisania ról
 
-Należy również wziąć pod uwagę następujące role podczas uruchamiania usługi:
+Podczas uruchamiania usługi należy również wziąć pod uwagę następujące role:
 
-- Właściciel firmy zamówienia na zamówienie z zewnętrznym głównym urzędem certyfikacji (na przykład, gdy właściciel kupuje certyfikaty od zewnętrznego urzędu certyfikacji lub obsługuje urząd certyfikacji podrzędny, który jest podrzędny od zewnętrznego urzędu certyfikacji).
-- Opracowanie i walidacja urzędu certyfikacji.
-- Przegląd dokumentacji inspekcji.
-- Pracownicy, którzy pomagają w obsłudze urzędu certyfikacji lub zarządzają obiektami fizycznymi i chmurowymi, ale nie są bezpośrednio zaufani do wykonywania operacji urzędu certyfikacji, *pełnią rolę autoryzowaną.* Zestaw zadań, które osoby w roli autoryzowanej mogą wykonywać, musi być również udokumentowany.
+- Właściciel kontraktu zakupu certyfikatu z zewnętrznym głównym urzędem certyfikacji (na przykład gdy właściciel kupuje certyfikaty od zewnętrznego urzędu certyfikacji lub prowadzi urząd certyfikacji, który jest podrzędny wobec zewnętrznego urzędu certyfikacji).
+- Opracowywanie i sprawdzanie poprawności urzędu certyfikacji.
+- Przegląd rekordów inspekcji.
+- Pracownicy, którzy obsługują urząd certyfikacji lub zarządzają urządzeniami fizycznymi i w chmurze, ale nie są bezpośrednio Zaufani do wykonywania operacji urzędu certyfikacji, znajdują się w roli *autoryzowanej* . Aby można było wykonać zestaw zadań w autoryzowanej roli, należy również udokumentować.
 
 ### <a name="review-memberships-of-trusted-and-authorized-roles-quarterly"></a>Przeglądanie członkostw zaufanych i autoryzowanych ról kwartalnie
 
-Przeglądanie członkostwa zaufanych i autoryzowanych ról co najmniej raz na kwartał. Upewnij się, że zestaw osób (dla procesów ręcznych) lub tożsamości usługi (dla zautomatyzowanych procesów) w każdej roli jest ograniczona do minimum.
+Zapoznaj się z członkostwem zaufanych i autoryzowanych ról co najmniej kwartalnie. Upewnij się, że zbiór osób (dla procesów ręcznych) lub tożsamości usług (dla zautomatyzowanych procesów) w każdej roli jest minimalny.
 
-### <a name="role-separation-between-certificate-requester-and-approver"></a>Oddzielenie roli między żądaczem certyfikatu a osoba zatwierdzająca
+### <a name="role-separation-between-certificate-requester-and-approver"></a>Separacja ról między obiektem żądającym certyfikatu a osobą zatwierdzającą
 
-Proces wydawania certyfikatów musi wymuszać oddzielenie roli między rolą żądacza certyfikatów a rolą osoby zatwierdzającej certyfikat (osoby lub systemy zautomatyzowane). Wydawanie certyfikatów musi być autoryzowane przez rolę osoby zatwierdzającej certyfikat, która sprawdza, czy żądacz certyfikatu jest upoważniony do uzyskiwania certyfikatów. Osoby, które pełnią rolę osoby zatwierdzającej certyfikat, muszą być osobą formalnie upoważnioną.
+Proces wystawiania certyfikatów musi wymusić separację ról między rolami żądającym certyfikatu a zaakceptowaniem certyfikatu (osobami lub systemami zautomatyzowanymi). Wystawianie certyfikatów musi być autoryzowane przez rolę osoby zatwierdzającej certyfikat, która sprawdza, czy osoba żądająca certyfikatu ma autoryzację do uzyskiwania certyfikatów. Osoby, które posiadają rolę osoby zatwierdzającej certyfikat, muszą być osobą autoryzowaną w formie formalnie.
 
-### <a name="restrict-assignment-of-privileged-roles"></a>Ograniczanie przypisywania ról uprzywilejowanych
+### <a name="restrict-assignment-of-privileged-roles"></a>Ograniczanie przypisania ról uprzywilejowanych
 
-Należy ograniczyć przypisywanie ról uprzywilejowanych, takich jak autoryzowanie członkostwa w grupie Administratorzy i osoby zatwierdzające, do ograniczonego zestawu autoryzowanych pracowników. Wszelkie zmiany ról uprzywilejowanych muszą mieć dostęp odwołany w ciągu 24 godzin. Na koniec przejrzyj przypisania ról uprzywilejowanych co kwartał i usuń niepotrzebne lub wygasłe przypisania.
+Należy ograniczyć Przypisanie ról uprzywilejowanych, takich jak autoryzacja członkostwa w grupie Administratorzy i osoby zatwierdzające, do ograniczonego zestawu autoryzowanego personelu. Wszelkie zmiany ról uprzywilejowanych muszą mieć dostęp odwołany w ciągu 24 godzin. Na koniec zapoznaj się z przypisaniami ról uprzywilejowanych co kwartał i Usuń niepotrzebne lub wygasłe przydziały.
 
-### <a name="privileged-roles-should-use-two-factor-authentication"></a>Role uprzywilejowane powinny używać uwierzytelniania dwuskładnikowego
+### <a name="privileged-roles-should-use-two-factor-authentication"></a>Role uprzywilejowane powinny korzystać z uwierzytelniania dwuskładnikowego.
 
-Użyj uwierzytelniania wieloskładnikowego (nazywanego również uwierzytelnianiem dwuskładnikowym) w przypadku interaktywnych logów osób zatwierdzających i administratorów w usłudze.
+Użyj uwierzytelniania wieloskładnikowego (nazywanego również uwierzytelnianiem dwuskładnikowym) w przypadku interaktywnych logowania osób zatwierdzających i administratorów do usługi.
 
-## <a name="certificate-service-operation-guidelines"></a>Wskazówki dotyczące obsługi usług certyfikatów
+## <a name="certificate-service-operation-guidelines"></a>Wytyczne dotyczące operacji usługi certyfikatów
 
 ### <a name="operational-contacts"></a>Kontakty operacyjne
 
-Usługa certyfikatów musi mieć w pliku aktualny plan odpowiedzi na zabezpieczenia, który zawiera szczegółowe kontakty operacyjne dotyczące reagowania na incydenty.
+Usługa certyfikatów musi mieć aktualny plan odpowiedzi na zabezpieczenia w pliku, który zawiera szczegółowe kontakty dotyczące odpowiedzi na zdarzenia operacyjne.
 
 ### <a name="security-updates"></a>Aktualizacje zabezpieczeń
 
-Wszystkie systemy muszą być stale monitorowane i aktualizowane za pomocą najnowszych aktualizacji zabezpieczeń.
+Wszystkie systemy muszą być stale monitorowane i aktualizowane przy użyciu najnowszych aktualizacji zabezpieczeń.
 
 > [!IMPORTANT]
-> Repozytorium GitHub usługi OPC Vault jest stale aktualizowane za pomocą poprawek zabezpieczeń. Monitoruj te aktualizacje i stosuj je do usługi w regularnych odstępach czasu.
+> Repozytorium GitHub usługi magazynu OPC jest stale aktualizowana przy użyciu poprawek zabezpieczeń. Monitoruj te aktualizacje i stosuj je do usługi w regularnych odstępach czasu.
 
 ### <a name="security-monitoring"></a>Monitorowanie zabezpieczeń
 
-Subskrybować lub wdrożyć odpowiednie monitorowanie zabezpieczeń. Na przykład subskrybuj centralne rozwiązanie do monitorowania (takie jak Usługa Azure Security Center lub rozwiązanie do monitorowania usługi Office 365) i skonfiguruj go odpowiednio, aby upewnić się, że zdarzenia zabezpieczeń są przesyłane do rozwiązania do monitorowania.
+Zasubskrybuj lub Zaimplementuj odpowiednie monitorowanie zabezpieczeń. Na przykład Zasubskrybuj centralne rozwiązanie do monitorowania (takie jak Azure Security Center lub rozwiązanie do monitorowania pakietu Office 365) i skonfiguruj je odpowiednio w celu zapewnienia, że zdarzenia zabezpieczeń są przesyłane do rozwiązania do monitorowania.
 
 > [!IMPORTANT]
-> Domyślnie usługa OPC Vault jest wdrażana z [usługą Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) jako rozwiązanie do monitorowania. Zaleca się dodanie rozwiązania zabezpieczeń, takiego jak [Usługa Azure Security Center.](https://azure.microsoft.com/services/security-center/)
+> Domyślnie usługa magazynu OPC jest wdrażana za pomocą [platformy Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) jako rozwiązanie do monitorowania. Dodawanie rozwiązania zabezpieczeń, takiego jak [Azure Security Center](https://azure.microsoft.com/services/security-center/) , jest zdecydowanie zalecane.
 
-### <a name="assess-the-security-of-open-source-software-components"></a>Ocena bezpieczeństwa komponentów oprogramowania typu open source
+### <a name="assess-the-security-of-open-source-software-components"></a>Ocena zabezpieczeń składników oprogramowania typu open source
 
-Wszystkie składniki typu open source używane w ramach produktu lub usługi muszą być wolne od umiarkowanych lub większych luk w zabezpieczeniach.
+Wszystkie składniki typu "open source" używane w ramach produktu lub usługi muszą być wolne od średnich lub większej liczby luk w zabezpieczeniach.
 
 > [!IMPORTANT]
-> Podczas ciągłej integracji kompilacje repozytorium GitHub usługi OPC Vault skanuje wszystkie składniki w poszukiwaniu luk w zabezpieczeniach. Monitoruj te aktualizacje w usłudze GitHub i stosuj je do usługi w regularnych odstępach czasu.
+> Podczas kompilacji ciągłej integracji repozytorium GitHub usługi magazynu OPC skanuje wszystkie składniki pod kątem luk w zabezpieczeniach. Monitoruj te aktualizacje w witrynie GitHub i stosuj je do usługi w regularnych odstępach czasu.
 
-### <a name="maintain-an-inventory"></a>Obsługa zapasów
+### <a name="maintain-an-inventory"></a>Obsługa spisu
 
-Obsługa zapasów zasobów dla wszystkich hostów produkcyjnych (w tym trwałych maszyn wirtualnych), urządzeń, wszystkich wewnętrznych zakresów adresów IP, adresów VIP i nazw domen publicznej DNS. Za każdym razem, gdy dodajesz lub usuwasz system, adres IP urządzenia, adres VIP lub publiczną domenę DNS, musisz zaktualizować spis w ciągu 30 dni.
+Przechowywanie spisu zasobów dla wszystkich hostów produkcyjnych (w tym trwałych maszyn wirtualnych), urządzeń, wszystkich wewnętrznych zakresów adresów IP, adresów VIP i publicznych nazw domen DNS. Za każdym razem, gdy dodasz lub usuniesz system, adres IP urządzenia, VIP lub publiczną domenę DNS, należy zaktualizować spis w ciągu 30 dni.
 
-#### <a name="inventory-of-the-default-azure-opc-vault-microservice-production-deployment"></a>Spis domyślnego wdrożenia produkcji mikrousług usługi Azure OPC Vault 
+#### <a name="inventory-of-the-default-azure-opc-vault-microservice-production-deployment"></a>Spis domyślnego wdrażania mikrousług magazynu platformy Azure OPC 
 
 Na platformie Azure:
-- **Plan usługi aplikacji:** plan usługi aplikacji dla hostów usług. Domyślna wartość S1.
-- **Usługa aplikacji** dla mikrousług: host usługi OPC Vault.
-- **Usługa app dla** przykładowej aplikacji: przykładowy host aplikacji OPC Vault.
-- **Standard usługi Key Vault:** Do przechowywania wpisów tajnych i kluczy usługi Azure Cosmos DB dla usług sieci web.
-- **Key Vault Premium**: Do obsługi kluczy urzędu certyfikacji wystawcy, do podpisywania usługi oraz do konfiguracji magazynu i przechowywania kluczy prywatnych aplikacji.
-- **Usługa Azure Cosmos DB:** Baza danych dla żądań aplikacji i certyfikatów. 
-- **Usługa Application Insights:**(opcjonalnie) Rozwiązanie do monitorowania usługi sieci web i aplikacji.
-- **Rejestracja aplikacji usługi Azure AD:** rejestracja dla przykładowej aplikacji, usługi i modułu brzegowego.
+- **Plan App Service**: plan usługi App Service dla hostów usług. Domyślna wartość S1.
+- **App Service** mikrousługi: Host usługi magazynu OPC.
+- **App Service** dla przykładowej aplikacji: Host przykładowej aplikacji magazynu OPC.
+- **Key Vault Standard**: przechowywanie wpisów tajnych i kluczy Azure Cosmos DB dla usług sieci Web.
+- **Key Vault Premium**: do hostowania kluczy urzędu certyfikacji wystawcy, dla usługi podpisywania oraz konfiguracji magazynu i magazynu kluczy prywatnych aplikacji.
+- **Azure Cosmos DB**: baza danych dla żądań aplikacji i certyfikatów. 
+- **Application Insights**: (opcjonalnie) monitorowanie rozwiązania dla usług i aplikacji sieci Web.
+- **Rejestracja aplikacji usługi Azure AD**: Rejestracja dla przykładowej aplikacji, usługi i modułu brzegowego.
 
-W przypadku usług w chmurze wszystkie nazwy hostów, grupy zasobów, nazwy zasobów, identyfikatory subskrypcji i identyfikatory dzierżawy używane do wdrażania usługi powinny być udokumentowane. 
+W przypadku usług Cloud Services, wszystkie nazwy hostów, grupy zasobów, nazwy zasobów, identyfikatory subskrypcji i identyfikatory dzierżawy używane do wdrożenia usługi powinny być udokumentowane. 
 
-W usłudze Azure IoT Edge lub lokalnym serwerze usługi IoT Edge:
-- **Moduł OPC Vault IoT Edge**: Do obsługi sieci fabrycznej OPC UA Global Discovery Server. 
+W Azure IoT Edge lub na lokalnym serwerze IoT Edge:
+- **Moduł IoT Edge magazynu OPC**: do obsługi globalnego serwera odnajdywania OPC UA sieci fabryki. 
 
-W przypadku urządzeń usługi IoT Edge należy udokumentować nazwy hostów i adresy IP. 
+W przypadku urządzeń IoT Edge nazwy hostów i adresy IP powinny być udokumentowane. 
 
-### <a name="document-the-certification-authorities-cas"></a>Dokumentują urzędy certyfikacji
+### <a name="document-the-certification-authorities-cas"></a>Udokumentowanie urzędów certyfikacji
 
-Dokumentacja hierarchii urzędu certyfikacji musi zawierać wszystkie obsługiwane urzędy certyfikacji. Obejmuje to wszystkie powiązane podrzędne urzędy certyfikacji, nadrzędne urzędy certyfikacji i główne urzędy certyfikacji, nawet jeśli nie są zarządzane przez usługę. Zamiast formalnej dokumentacji można podać wyczerpujący zestaw wszystkich nieuczyszczonych certyfikatów urzędu certyfikacji.
-
-> [!NOTE]
-> Przykładowa aplikacja OPC Vault obsługuje pobieranie wszystkich certyfikatów używanych i produkowanych w usłudze dokumentacji.
-
-### <a name="document-the-issued-certificates-by-all-certification-authorities-cas"></a>Dokumentowanie wystawionych certyfikatów przez wszystkie urzędy certyfikacji
-
-Podaj wyczerpujący zestaw wszystkich certyfikatów wydanych w ciągu ostatnich 12 miesięcy.
+Dokumentacja hierarchii urzędu certyfikacji musi zawierać wszystkie obsługiwane urzędy certyfikacji. Obejmuje to wszystkie powiązane podrzędne urzędy certyfikacji, nadrzędne urzędy certyfikacji i główne urzędy certyfikacji, nawet jeśli nie są zarządzane przez usługę. Zamiast formalnej dokumentacji można dostarczyć wyczerpujący zestaw wszystkich certyfikatów urzędu certyfikacji, które nie wygasły.
 
 > [!NOTE]
-> Przykładowa aplikacja OPC Vault obsługuje pobieranie wszystkich certyfikatów używanych i produkowanych w usłudze dokumentacji.
+> Przykładowa aplikacja magazynu OPC obsługuje pobieranie wszystkich certyfikatów używanych i wygenerowanych w usłudze w celu uzyskania dokumentacji.
 
-### <a name="document-the-standard-operating-procedure-for-securely-deleting-cryptographic-keys"></a>Dokumentowanie standardowej procedury operacyjnej bezpiecznego usuwania kluczy kryptograficznych
+### <a name="document-the-issued-certificates-by-all-certification-authorities-cas"></a>Udokumentowanie wystawionych certyfikatów przez wszystkie urzędy certyfikacji (CA)
 
-W okresie istnienia urzędu certyfikacji usunięcie klucza może nastąpić rzadko. Dlatego żaden użytkownik nie ma przypisanego prawa usuwania certyfikatu usługi Key Vault i dlaczego nie ma żadnych interfejsów API narażonych na usunięcie certyfikatu urzędu certyfikacji wystawcy. Ręczna standardowa procedura obsługi bezpiecznego usuwania kluczy kryptograficznych urzędu certyfikacji jest dostępna tylko przez bezpośredni dostęp do usługi Key Vault w witrynie Azure portal. Można również usunąć grupę certyfikatów w magazynie kluczy. Aby zapewnić natychmiastowe usunięcie, wyłącz funkcję [usuwania nietrwałego w magazynie kluczy.](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
+Podaj wyczerpujący zestaw wszystkich certyfikatów wystawionych w ciągu ostatnich 12 miesięcy.
+
+> [!NOTE]
+> Przykładowa aplikacja magazynu OPC obsługuje pobieranie wszystkich certyfikatów używanych i wygenerowanych w usłudze w celu uzyskania dokumentacji.
+
+### <a name="document-the-standard-operating-procedure-for-securely-deleting-cryptographic-keys"></a>Udokumentowanie standardowej procedury operacyjnej w celu bezpiecznego usunięcia kluczy kryptograficznych
+
+W okresie istnienia urzędu certyfikacji usunięcie klucza może wystąpić tylko rzadko. Jest to dlatego, że żaden użytkownik nie Key Vault ma przypisanego prawa do usuwania certyfikatu i nie ma żadnych interfejsów API, aby usunąć certyfikat wystawcy urzędu certyfikacji. Ręczna standardowa procedura operacyjna służąca do bezpiecznego usuwania kluczy kryptograficznych urzędu certyfikacji jest dostępna tylko przez bezpośredni dostęp do Key Vault w Azure Portal. Możesz również usunąć grupę certyfikatów w Key Vault. Aby zapewnić natychmiastowe usunięcie, wyłącz funkcję [usuwania nietrwałego Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) .
 
 ## <a name="certificates"></a>Certyfikaty
 
 ### <a name="certificates-must-comply-with-minimum-certificate-profile"></a>Certyfikaty muszą być zgodne z minimalnym profilem certyfikatu
 
-Usługa OPC Vault to internetowy urząd certyfikacji, który wystawia certyfikaty jednostek końcowych subskrybentom. Mikrousługa OPC Vault jest zgodna z tymi wytycznymi w implementacji domyślnej.
+Usługa magazynu OPC jest urzędem certyfikacji online, który wystawia certyfikaty jednostek końcowych dla subskrybentów. Mikrousługa magazynu OPC jest zgodna z poniższymi wskazówkami w implementacji domyślnej.
 
-- Wszystkie certyfikaty muszą zawierać następujące pola X.509, jak określono poniżej:
-  - Zawartość pola wersji musi być w wersji 3. 
-  - Zawartość pola numer seryjny musi zawierać co najmniej 8 bajtów entropii uzyskanej z zatwierdzonego generatora liczb losowych FIPS (Federal Information Processing Standards) 140.<br>
+- Wszystkie certyfikaty muszą zawierać następujące pola X. 509, zgodnie z poniższym opisem:
+  - Zawartość pola wersji musi być v3. 
+  - Zawartość pola numer seryjny musi zawierać co najmniej 8 bajtów entropii uzyskanych z FIPS (Federal Information Processing Standards) 140, zatwierdzony generator liczb losowych.<br>
     > [!IMPORTANT]
-    > Numer seryjny OPC Vault jest domyślnie 20 bajtów i jest uzyskiwany z systemu operacyjnego kryptograficzne generatora liczb losowych. Generator liczb losowych jest zatwierdzony przez FIPS 140 na urządzeniach z systemem Windows, ale nie na Linuksie. Należy wziąć to pod uwagę przy wyborze wdrożenia usługi, która używa maszyn wirtualnych z systemem Linux lub kontenerów dokowane Linux, na których podstawowa technologia OpenSSL nie jest zatwierdzony FIPS 140.
-  - Nie może być obecny identyfikator wystawcyUniqueID i subjectUniqueID.
-  - Certyfikaty jednostek końcowych muszą być identyfikowane z rozszerzeniem podstawowych ograniczeń, zgodnie z RFC 5280 IETF.
-  - Pole pathLenConstraint musi być ustawione na 0 dla certyfikatu Wystawianie urzędu certyfikacji. 
-  - Rozszerzenie rozszerzonego użycia klucza musi być obecne i musi zawierać minimalny zestaw identyfikatorów obiektów rozszerzonego użycia klucza (ED). Nie można określić dowolnego identyfikatora oidextendedkeyusage (2.5.29.37.0). 
-  - Rozszerzenie punktu dystrybucji programu CRL (CDP) musi znajdować się w certyfikacie urzędu certyfikacji wystawcy.<br>
+    > Numer seryjny magazynu OPC jest domyślnie 20 bajtów i jest uzyskiwany z generatora liczb losowych kryptograficznych systemu operacyjnego. Generator liczb losowych to FIPS 140 zatwierdzony na urządzeniach z systemem Windows, ale nie w systemie Linux. Należy wziąć pod uwagę podczas wybierania wdrożenia usługi używającej maszyn wirtualnych z systemem Linux lub kontenerów platformy Docker systemu Linux, na których OpenSSL technologii nie jest zgodny ze standardem FIPS 140.
+  - Pola issuerUniqueID i subjectUniqueID nie mogą być obecne.
+  - Certyfikaty jednostki końcowej muszą być zidentyfikowane przy użyciu rozszerzenia podstawowych warunków ograniczających, zgodnie z IETF RFC 5280.
+  - Pole pathLenConstraint musi mieć wartość 0 dla certyfikatu wystawiającego urzędu certyfikacji. 
+  - Rozszerzenie rozszerzonego użycia klucza musi być obecne i musi zawierać minimalny zestaw rozszerzonych identyfikatorów obiektów użycia klucza (OID). Nie można określić identyfikatora OID anyExtendedKeyUsage (2.5.29.37.0). 
+  - Rozszerzenie punktu dystrybucji listy CRL musi być obecne w certyfikacie urzędu certyfikacji wystawcy.<br>
     > [!IMPORTANT]
-    > Rozszerzenie CDP jest obecne w certyfikatach OPC Vault CA. Niemniej jednak urządzenia OPC UA używają niestandardowych metod do dystrybucji list CRL.
-  - Rozszerzenie dostępu do informacji urzędu musi być obecne w certyfikatach subskrybenta.<br>
+    > Rozszerzenie CDP jest obecne w certyfikatach urzędu certyfikacji magazynu OPC. Niemniej jednak urządzenia OPC UA używają metod niestandardowych do dystrybucji list CRL.
+  - Rozszerzenie dostępu do informacji o urzędach musi być obecne w certyfikatach subskrybenta.<br>
     > [!IMPORTANT]
-    > Rozszerzenie dostępu do informacji urzędu jest obecne w certyfikatach subskrybentów OPC Vault. Niemniej jednak urządzenia OPC UA używają niestandardowych metod do rozpowszechniania informacji o ucho.
-- Należy użyć zatwierdzonych algorytmów asymetrycznych, długości kluczy, funkcji mieszania i trybów dopełnienia.
-  - RSA i SHA-2 są jedynymi obsługiwanymi algorytmami.
-  - RSA może być używany do szyfrowania, wymiany kluczy i podpisu.
-  - Szyfrowanie RSA musi używać tylko trybów dopełnienia OAEP, RSA-KEM lub RSA-PSS.
-  - Wymagane są długości klucza większe lub równe 2048 bitom.
-  - Użyj rodziny algorytmów mieszania SHA-2 (SHA256, SHA384 i SHA512).
-  - Klucze głównego urzędu certyfikacji RSA o typowym okresie istnienia większym lub równym 20 lat muszą mieć wartość 4096 bitów lub więcej.
-  - Klucze urzędu certyfikacji wystawcy RSA muszą mieć co najmniej 2048 bitów. Jeśli data wygaśnięcia certyfikatu urzędu certyfikacji przypada po 2030 r., klucz urzędu certyfikacji musi mieć 4096 bitów lub więcej.
+    > Rozszerzenie dostępu do informacji o urzędach jest obecne w certyfikatach subskrybenta magazynu OPC. Niemniej jednak urządzenia OPC UA używają metod niestandardowych do dystrybucji informacji o urzędzie certyfikacji wystawcy.
+- Należy używać zatwierdzonych algorytmów asymetrycznych, długości kluczy, funkcji skrótu i trybów uzupełniania.
+  - Jedynymi obsługiwanymi algorytmami są RSA i SHA-2.
+  - RSA może służyć do szyfrowania, wymiany kluczy i podpisywania.
+  - Szyfrowanie RSA musi używać tylko trybów uzupełniania OAEP, RSA-KEM lub RSA-PSS.
+  - Wymagane są długości kluczy większe niż lub równe 2048 bitów.
+  - Użyj rodziny SHA-2 algorytmów wyznaczania wartości skrótu (SHA256, SHA384 i SHA512).
+  - Klucze głównego urzędu certyfikacji RSA o typowym okresie istnienia większym lub równym 20 lat muszą mieć wartość 4096 bitów lub większą.
+  - Klucze urzędu certyfikacji wystawcy RSA muszą mieć co najmniej 2048 bitów. Jeśli data wygaśnięcia certyfikatu urzędu certyfikacji przypada po 2030, klucz urzędu certyfikacji musi mieć wartość 4096 bitów lub większą.
 - Okres istnienia certyfikatu
-  - Certyfikaty głównego urzędu certyfikacji: Maksymalny okres ważności certyfikatu dla głównych urzędów certyfikacji nie może przekraczać 25 lat.
-  - Sub CA lub online certyfikaty urzędu certyfikacji wystawcy: Maksymalny okres ważności certyfikatu dla urzędów certyfikacji, które są w trybie online i wystawiają tylko certyfikaty subskrybentów, nie może przekraczać 6 lat. W przypadku tych certyfikatów nie można używać powiązanego klucza podpisu prywatnego dłużej niż 3 lata do wystawiania nowych certyfikatów.<br>
+  - Certyfikaty głównego urzędu certyfikacji: maksymalny okres ważności certyfikatu dla głównych urzędów certyfikacji nie może przekroczyć 25 lat.
+  - Podrzędny urząd certyfikacji lub certyfikaty wystawcy urzędu certyfikacji w trybie online: maksymalny okres ważności certyfikatu dla urzędów certyfikacji w trybie online i tylko problem z certyfikatami subskrybenta nie może przekroczyć 6 lat. Dla tych urzędów certyfikacji pokrewny klucz podpisu prywatnego nie może być używany dłużej niż 3 lata w celu wystawiania nowych certyfikatów.<br>
     > [!IMPORTANT]
-    > Certyfikat wystawcy, wygenerowany w domyślnej mikrousługi OPC Vault bez zewnętrznego głównego urzędu certyfikacji, jest traktowany jak subuczłony urząd certyfikacji online, z odpowiednimi wymaganiami i okresami istnienia. Domyślny okres istnienia jest ustawiony na 5 lat, przy długości klucza większej lub równej 2048.
-  - Wszystkie klucze asymetryczne muszą mieć maksymalnie 5-letni okres istnienia i zalecany okres istnienia 1 roku.<br>
+    > Certyfikat wystawcy, który jest generowany w domyślnej mikrousługi magazynu OPC bez zewnętrznego głównego urzędu certyfikacji, jest traktowany jak podrzędny urząd certyfikacji online z odpowiednimi wymaganiami i okresami istnienia. Domyślny okres istnienia to 5 lat, z długością klucza większą lub równą 2048.
+  - Wszystkie klucze asymetryczne muszą mieć maksymalny okres 5 lat, a zalecany okres ważności wynosi 1 rok.<br>
     > [!IMPORTANT]
-    > Domyślnie okresy istnienia certyfikatów aplikacji wystawionych w OPC Vault mają okres istnienia 2 lat i powinny być wymieniane co roku. 
-  - Za każdym razem, gdy certyfikat jest odnawiany, jest odnawiany za pomocą nowego klucza.
-- Rozszerzenia specyficzne dla OPC UA w certyfikatach wystąpień aplikacji
-  - Rozszerzenie subjectAltName zawiera aplikację Uri i nazwy hostów. Mogą one również obejmować adresy FQDN, IPv4 i IPv6.
-  - KeyUsage obejmuje digitalSignature, nonRepudiation, keyEncipherment i dataEncipherment.
-  - ExtendedKeyUsage zawiera serverAuth i clientAuth.
-  - Identyfikator certyfikatu authorityKeyIdentifier jest określony w podpisanych certyfikatach.
+    > Domyślnie okresy istnienia certyfikatów aplikacji wystawionych w magazynie OPC mają okres istnienia wynoszący 2 lata i powinny być zastępowane co roku. 
+  - Za każdym razem, gdy certyfikat zostanie odnowiony, jest odnawiany przy użyciu nowego klucza.
+- OPC rozszerzenia specyficzne dla UA w certyfikatach wystąpień aplikacji
+  - Rozszerzenie subjectAltName zawiera identyfikator URI i nazwy hostów aplikacji. Mogą to być również adresy FQDN, IPv4 i IPv6.
+  - Użycie tego przykładu obejmuje bity digitalSignature, inkeyEncipherment i dataEncipherment.
+  - ExtendedKeyUsage zawiera obiektu ServerAuth i clientAuth.
+  - AuthorityKeyIdentifier jest określony w podpisanych certyfikatach.
 
-### <a name="ca-keys-and-certificates-must-meet-minimum-requirements"></a>Klucze urzędu certyfikacji i certyfikaty muszą spełniać minimalne wymagania
+### <a name="ca-keys-and-certificates-must-meet-minimum-requirements"></a>Klucze i certyfikaty urzędu certyfikacji muszą spełniać minimalne wymagania
 
-- **Klucze prywatne:** klucze RSA muszą mieć co najmniej 2048 bitów. Jeśli data wygaśnięcia certyfikatu urzędu certyfikacji przypada po 2030 r., klucz urzędu certyfikacji musi mieć 4096 bitów lub więcej.
-- **Okres istnienia:** Maksymalny okres ważności certyfikatu dla urzędów certyfikacji, które są w trybie online i wystawiają tylko certyfikaty subskrybenta, nie może przekraczać 6 lat. W przypadku tych certyfikatów nie można używać powiązanego klucza podpisu prywatnego dłużej niż 3 lata do wystawiania nowych certyfikatów.
+- **Klucze prywatne**: klucze RSA muszą mieć co najmniej 2048 bitów. Jeśli data wygaśnięcia certyfikatu urzędu certyfikacji przypada po 2030, klucz urzędu certyfikacji musi mieć wartość 4096 bitów lub większą.
+- **Okres istnienia**: maksymalny okres ważności certyfikatu dla urzędów certyfikacji w trybie online i tylko problem z certyfikatami subskrybenta nie może przekroczyć 6 lat. Dla tych urzędów certyfikacji pokrewny klucz podpisu prywatnego nie może być używany dłużej niż 3 lata w celu wystawiania nowych certyfikatów.
 
 ### <a name="ca-keys-are-protected-using-hardware-security-modules"></a>Klucze urzędu certyfikacji są chronione za pomocą sprzętowych modułów zabezpieczeń
 
-OpcVault używa usługi Azure Key Vault Premium, a klucze są chronione przez sprzętowe moduły zabezpieczeń (HSM) fips 140-2 poziomu 2. 
+OpcVault używa Azure Key Vault Premium, a klucze są chronione przez moduły zabezpieczeń (HSM) poziomu 2 standardu FIPS 140-2. 
 
-Moduły kryptograficzne używane przez program Key Vault, niezależnie od tego, czy jest modułem HSM, czy oprogramowaniem, są sprawdzane fips. Klucze utworzone lub zaimportowane jako chronione przez moduł HSM są przetwarzane wewnątrz modułu HSM, sprawdzane zgodnie z fips 140-2 Poziom 2. Klucze utworzone lub zaimportowane jako chronione programem są przetwarzane wewnątrz modułów kryptograficznych zweryfikowanych zgodnie z fips 140-2 Poziom 1.
+Moduły kryptograficzne, które Key Vault używają, czy moduł HSM lub oprogramowanie są sprawdzone pod kątem FIPS. Klucze utworzone lub zaimportowane jako chronione przez moduł HSM są przetwarzane w module HSM, zweryfikowane pod kątem standardu FIPS 140-2 Level 2. Klucze utworzone lub zaimportowane jako chronione przez oprogramowanie są przetwarzane w ramach modułów kryptograficznych zweryfikowanych pod kątem standardu FIPS 140-2 Level 1.
 
 ## <a name="operational-practices"></a>Praktyki operacyjne
 
-### <a name="document-and-maintain-standard-operational-pki-practices-for-certificate-enrollment"></a>Dokumentowanie i obsługa standardowych praktyk operacyjnych infrastruktury kluczy publicznych podczas rejestrowania certyfikatów
+### <a name="document-and-maintain-standard-operational-pki-practices-for-certificate-enrollment"></a>Udokumentowanie i Obsługa standardowych praktyk infrastruktury PKI na potrzeby rejestracji certyfikatów
 
-Dokumentowanie i obsługa standardowych procedur operacyjnych (SO) dotyczących sposobu wystawiania certyfikatów przez służby certyfikacji, w tym: 
-- Sposób identyfikacji i uwierzytelnionego subskrybenta. 
-- Sposób przetwarzania i sprawdzania poprawności żądania certyfikatu (w stosownych przypadkach obejmują również sposób przetwarzania żądań odnowienia certyfikatu i ponownego klucza). 
-- Sposób dystrybucji wystawionych certyfikatów do subskrybentów. 
+Udokumentowanie i Obsługa standardowych procedur operacyjnych (SPD) dotyczących sposobu wystawiania certyfikatów przez urzędy certyfikacji, w tym: 
+- Sposób identyfikowania i uwierzytelniania subskrybenta. 
+- Jak żądanie certyfikatu jest przetwarzane i sprawdzane (jeśli ma to zastosowanie), należy również uwzględnić sposób przetwarzania żądań odnowienia i ponownego generowania certyfikatu. 
+- Jak wystawione certyfikaty są dystrybuowane do subskrybentów. 
 
-SOP mikrousługi OPC Vault jest opisany w [architekturze OPC Vault](overview-opc-vault-architecture.md) i [zarządzaj usługą certyfikatów OPC Vault](howto-opc-vault-manage.md). Praktyki są zgodne z "OPC Unified Architecture Specification Part 12: Discovery and Global Services".
+SOP magazynu OPC jest opisany w [architekturze magazynu OPC](overview-opc-vault-architecture.md) i [zarządzać usługą certyfikatów magazynu OPC](howto-opc-vault-manage.md). Poniżej zastosowana jest procedura "OPC Unified Architecture Specification część 12: odnajdywanie i usługi globalne".
 
 
-### <a name="document-and-maintain-standard-operational-pki-practices-for-certificate-revocation"></a>Dokumentowanie i obsługa standardowych praktyk operacyjnych infrastruktury kluczy publicznych w celu odwołania certyfikatów
+### <a name="document-and-maintain-standard-operational-pki-practices-for-certificate-revocation"></a>Udokumentowanie i Obsługa standardowych praktyk infrastruktury PKI na potrzeby odwoływania certyfikatów
 
-Proces odwoływania certyfikatów jest opisany w [architekturze OPC Vault](overview-opc-vault-architecture.md) i [zarządzaj usługą certyfikatów OPC Vault](howto-opc-vault-manage.md).
+Proces odwoływania certyfikatu został opisany w [architekturze magazynu OPC](overview-opc-vault-architecture.md) i [Zarządzanie usługą certyfikatów magazynu OPC](howto-opc-vault-manage.md).
     
-### <a name="document-ca-key-generation-ceremony"></a>Ceremonia generowania klucza urzędu certyfikacji dokumentu 
+### <a name="document-ca-key-generation-ceremony"></a>Procedury generowania klucza urzędu certyfikacji 
 
-Generowanie klucza urzędu certyfikacji wystawcy w mikrousługach OPC Vault jest uproszczone ze względu na bezpieczną pamięć masową w usłudze Azure Key Vault. Aby uzyskać więcej informacji, zobacz [Zarządzanie usługą certyfikatów OPC Vault](howto-opc-vault-manage.md).
+Generowanie klucza urzędu certyfikacji wystawcy w mikrousłudze magazynu OPC jest uproszczone ze względu na bezpieczny magazyn w Azure Key Vault. Aby uzyskać więcej informacji, zobacz [Zarządzanie usługą certyfikatów magazynu OPC](howto-opc-vault-manage.md).
 
-Jednak podczas korzystania z zewnętrznego głównego urzędu certyfikacji ceremonia generowania klucza urzędu certyfikacji musi spełniać następujące wymagania.
+Jednak w przypadku korzystania z zewnętrznego głównego urzędu certyfikacji generacja klucza urzędu certyfikacji procedury musi spełniać poniższe wymagania.
 
-Ceremonia generowania klucza urzędu certyfikacji musi być wykonana względem udokumentowanego skryptu, który zawiera co najmniej następujące elementy: 
+Procedury generowania klucza urzędu certyfikacji należy wykonać w odniesieniu do opisanego skryptu, który zawiera co najmniej następujące elementy: 
 - Definicja ról i obowiązków uczestników.
-- Zatwierdzenie do przeprowadzenia ceremonii generowania klucza urzędu certyfikacji.
-- Sprzęt kryptograficzny i materiały aktywacyjne wymagane do ceremonii.
-- Przygotowanie sprzętu (w tym aktualizacja informacji o zasobie/konfiguracji i wylogowanie).
+- Zatwierdzenie do przeprowadzenia generowania klucza urzędu certyfikacji procedury.
+- Sprzęt kryptograficzny i materiały aktywacji wymagane przez procedury.
+- Przygotowanie sprzętu (w tym aktualizowanie i wylogowywanie informacji o zasobach i konfiguracji).
 - Instalacja systemu operacyjnego.
-- Określone kroki wykonywane podczas ceremonii generowania klucza urzędu certyfikacji, takie jak: 
+- Określone kroki wykonywane podczas generowania klucza urzędu certyfikacji procedury, takie jak: 
   - Instalacja i konfiguracja aplikacji urzędu certyfikacji.
   - Generowanie klucza urzędu certyfikacji.
   - Kopia zapasowa klucza urzędu certyfikacji.
-  - Podpisywanie certyfikatów urzędu certyfikacji.
-  - Importowanie podpisanych kluczy w chronionym modułie HSM usługi.
-  - Zamknięcie systemu urzędu certyfikacji.
-  - Przygotowanie materiałów do przechowywania.
+  - Podpisywanie certyfikatu urzędu certyfikacji.
+  - Importuj klucze podpisane w chronionym module HSM usługi.
+  - Zamykanie systemu urzędu certyfikacji.
+  - Przygotowanie materiałów do magazynowania.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy już wiesz, jak bezpiecznie zarządzać OPC Vault, możesz:
+Teraz, gdy wiesz już, jak bezpiecznie zarządzać magazynem OPC, możesz:
 
 > [!div class="nextstepaction"]
-> [Bezpieczne urządzenia OPC UA z OPC Vault](howto-opc-vault-secure.md)
+> [Bezpieczne urządzenia OPC UA z magazynem OPC](howto-opc-vault-secure.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Udzielanie użytkownikom dostępu do zasobów platformy Azure za pomocą programów RBAC i azure powershell'
-description: Dowiedz się, jak udzielić użytkownikowi dostępu do zasobów platformy Azure przy użyciu kontroli dostępu opartej na rolach (RBAC) i programu Azure PowerShell w tym samouczku.
+title: 'Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure za pomocą RBAC i Azure PowerShell'
+description: Dowiedz się, jak przyznać użytkownikom dostęp do zasobów platformy Azure przy użyciu kontroli dostępu opartej na rolach (RBAC) i Azure PowerShell w tym samouczku.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -14,24 +14,24 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.openlocfilehash: f4ba56bf79d707200bf361ab4c717bb63d081953
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77138225"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Samouczek: Udzielanie użytkownikowi dostępu do zasobów platformy Azure przy użyciu funkcji RBAC i programu Azure PowerShell
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu RBAC i Azure PowerShell
 
 [Kontrola dostępu oparta na rolach (RBAC, Role Based Access Control)](overview.md) to sposób zarządzania dostępem do zasobów platformy Azure. W tym samouczku przyznasz użytkownikowi dostęp z możliwością wyświetlania wszystkiego w ramach subskrypcji i zarządzania wszystkim w grupie zasobów przy użyciu programu Azure PowerShell.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Udzielanie dostępu użytkownikowi w innych zakresach
 > * Tworzenie listy dostępu
 > * Usuwanie dostępu
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -268,7 +268,7 @@ Aby wyczyścić zasoby utworzone w tym samouczku, usuń grupę zasobów i użytk
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
     ```
     
-1. Po proszeniu o potwierdzenie wpisz **Y**. Usunięcie zajmie kilka sekund.
+1. Gdy zostanie wyświetlony monit o potwierdzenie, wpisz **Y**. Usunięcie może potrwać kilka sekund.
 
 1. Usuń użytkownika za pomocą polecenia [Remove-AzureADUser](/powershell/module/azuread/remove-azureaduser).
 

@@ -5,36 +5,36 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
 ms.openlocfilehash: 62c317843c275531286eeb2ae616d79ad76c6f99
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80671800"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zanim zaczniesz, upewnij się, że:
+Przed rozpoczęciem upewnij się, że:
 
 > [!div class="checklist"]
-> * [Tworzenie zasobu mowy platformy Azure](~/articles/cognitive-services/speech-service/get-started.md)
-> * [Konfigurowanie środowiska programistycznego i tworzenie pustego projektu](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
-> * Tworzenie bota połączonego z [kanałem Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-> * Upewnij się, że masz dostęp do mikrofonu do przechwytywania dźwięku
+> * [Tworzenie zasobu usługi Azure Speech](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Konfigurowanie środowiska deweloperskiego i Tworzenie pustego projektu](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
+> * Utwórz element bot połączony z [kanałem mowy linii bezpośredniej](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Upewnij się, że masz dostęp do mikrofonu do przechwytywania audio
 > 
   > [!NOTE]
-  > Zapoznaj się [z listą obsługiwanych regionów dla asystentów głosowych](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) i upewnij się, że zasoby są wdrażane w jednym z tych regionów.
+  > Zapoznaj się z [listą obsługiwanych regionów dla asystentów głosowych](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) i upewnij się, że zasoby zostały wdrożone w jednym z tych regionów.
 
 ## <a name="open-your-project-in-visual-studio"></a>Otwieranie projektu w programie Visual Studio
 
-Pierwszym krokiem jest, aby upewnić się, że projekt jest otwarty w programie Visual Studio.
+Pierwszym krokiem jest upewnienie się, że projekt jest otwarty w programie Visual Studio.
 
-## <a name="start-with-some-boilerplate-code"></a>Zacznij od kodu standardowego
+## <a name="start-with-some-boilerplate-code"></a>Zacznij od pewnego kodu standardowego
 
-Dodajmy kod, który działa jako szkielet dla naszego projektu.
+Dodajmy kod, który działa jako szkielet dla projektu.
 
-1. W **Eksploratorze rozwiązań**otwórz `MainPage.xaml`.
+1. W **Eksplorator rozwiązań**Otwórz `MainPage.xaml`program.
 
-1. W widoku XAML projektanta zastąp całą zawartość następującym fragmentem kodu definiujymy podstawowy interfejs użytkownika:
+1. W widoku XAML projektanta Zastąp całą zawartość następującym fragmentem kodu, który definiuje interfejs użytkownika podstawowe:
 
     ```xml
     <Page
@@ -81,16 +81,16 @@ Dodajmy kod, który działa jako szkielet dla naszego projektu.
     </Page>
     ```
 
-Widok Projekt jest aktualizowany w celu wyświetlenia interfejsu użytkownika aplikacji.
+Widok Projekt został zaktualizowany, aby pokazać interfejs użytkownika aplikacji.
 
-1. W **Eksploratorze rozwiązań**otwórz `MainPage.xaml.cs`plik źródłowy związany z kodem . (Jest zgrupowany `MainPage.xaml`w obszarze .) Zastąp zawartość tego pliku poniższą, która obejmuje:
+1. W **Eksplorator rozwiązań**Otwórz plik `MainPage.xaml.cs`źródłowy związany z kodem. (Jest ono pogrupowane `MainPage.xaml`w.) Zastąp zawartość tego pliku następującym poniżej, co obejmuje następujące elementy:
 
-- `using`instrukcje `Speech` dla `Speech.Dialog` i przestrzeni nazw
-- Prosta implementacja zapewniająca dostęp do mikrofonu, przewodowa do obsługi przycisków
+- `using`instrukcje dla `Speech` i `Speech.Dialog` przestrzeni nazw
+- Prosta implementacja zapewniająca dostęp do mikrofonu przy użyciu sieci przewodowej do procedury obsługi przycisku
 - Podstawowe pomocnicy interfejsu użytkownika do prezentowania komunikatów i błędów w aplikacji
-- Punkt docelowy ścieżki kodu inicjowania, który zostanie wypełniony później
-- Pomocnik do odtwarzania tekstu na mowę (bez obsługi przesyłania strumieniowego)
-- Obsługa pustych przycisków, aby rozpocząć nasłuchiwanie, które zostanie wypełnione później
+- Punkt wyładunkowy dla ścieżki kodu inicjującego, który zostanie zapełniony później
+- Pomocnik odtwarzania zamiany tekstu na mowę (bez obsługi przesyłania strumieniowego)
+- Pusta procedura obsługi przycisku do rozpoczęcia nasłuchiwania, która zostanie wypełniona później
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
@@ -259,7 +259,7 @@ Widok Projekt jest aktualizowany w celu wyświetlenia interfejsu użytkownika ap
         }
     }
     ```
-1. Dodaj poniższy fragment kodu do treści `InitializeDialogServiceConnector`metody . Ten kod `DialogServiceConnector` tworzy informacje o subskrypcji.
+1. Dodaj następujący fragment kodu do treści metody `InitializeDialogServiceConnector`. Ten kod tworzy `DialogServiceConnector` informacje o subskrypcji.
 
     ```csharp
     // Create a BotFrameworkConfig by providing a Speech service subscription key
@@ -273,14 +273,14 @@ Widok Projekt jest aktualizowany w celu wyświetlenia interfejsu użytkownika ap
     ```
 
    > [!NOTE]
-   > Zapoznaj się [z listą obsługiwanych regionów dla asystentów głosowych](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) i upewnij się, że zasoby są wdrażane w jednym z tych regionów.
+   > Zapoznaj się z [listą obsługiwanych regionów dla asystentów głosowych](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) i upewnij się, że zasoby zostały wdrożone w jednym z tych regionów.
 
    > [!NOTE]
-   > Aby uzyskać informacje na temat konfigurowania bota, zobacz dokumentację programu Bot Framework dla [kanału Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > Aby uzyskać informacje na temat konfigurowania bot, zobacz dokumentację platformy bot dla [kanału Direct line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
-1. Zastąp `YourSpeechSubscriptionKey` `YourServiceRegion` ciągi i własne wartości subskrypcji mowy i [regionu](~/articles/cognitive-services/speech-service/regions.md).
+1. Zastąp ciągi `YourSpeechSubscriptionKey` i `YourServiceRegion` własnymi wartościami dla Twojej subskrypcji mowy i [regionu](~/articles/cognitive-services/speech-service/regions.md).
 
-1. Dołącz poniższy fragment kodu na końcu treści metody `InitializeDialogServiceConnector`. Ten kod konfiguruje programy obsługi `DialogServiceConnector` dla zdarzeń, na których się opiera, aby przekazać swoje działania bota, wyniki rozpoznawania mowy i inne informacje.
+1. Dołącz Poniższy fragment kodu do końca treści metody `InitializeDialogServiceConnector`. Ten kod konfiguruje programy obsługi zdarzeń, `DialogServiceConnector` które opierają się na tym, aby komunikować działania bot, wyniki rozpoznawania mowy i inne informacje.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client 
@@ -335,7 +335,7 @@ Widok Projekt jest aktualizowany w celu wyświetlenia interfejsu użytkownika ap
     };
     ```
 
-1. Dodaj następujący fragment kodu do treści `ListenButton_ButtonClicked` metody w `MainPage` klasie. Ten kod `DialogServiceConnector` konfiguruje nasłuchiwać, ponieważ już ustalono konfigurację i zarejestrowano programy obsługi zdarzeń.
+1. Dodaj następujący fragment kodu do treści `ListenButton_ButtonClicked` metody w `MainPage` klasie. Ten kod konfiguruje `DialogServiceConnector` się do nasłuchiwania, ponieważ konfiguracja została już zarejestrowana i zarejestrowano procedury obsługi zdarzeń.
 
     ```csharp
     if (connector == null)
@@ -364,21 +364,21 @@ Widok Projekt jest aktualizowany w celu wyświetlenia interfejsu użytkownika ap
     }
     ```
     
-## <a name="build-and-run-your-app"></a>Tworzenie i uruchamianie aplikacji
+## <a name="build-and-run-your-app"></a>Kompilowanie i uruchamianie aplikacji
 
-Teraz możesz przystąpić do tworzenia aplikacji i testowania niestandardowego asystenta głosowego za pomocą usługi Mowy.
+Teraz wszystko jest gotowe do skompilowania aplikacji i przetestowania niestandardowego asystenta głosowego przy użyciu usługi mowy.
 
-1. Na pasku menu wybierz pozycję **Build** > **Build Solution** to build the application. Kod powinien teraz zostać skompilowany bez błędów.
+1. Na pasku menu wybierz polecenie **Kompiluj** > **kompilację rozwiązania** , aby skompilować aplikację. Kod powinien teraz zostać skompilowany bez błędów.
 
-1. Aby uruchomić aplikację, wybierz **opcję Debugowanie** > **rozpocznij debugowanie** (lub naciśnij **klawisz F5).** Zostanie **wyświetlene okno helloworld.**
+1. Wybierz **Debuguj** > **Rozpocznij debugowanie** (lub naciśnij klawisz **F5**), aby uruchomić aplikację. Zostanie wyświetlone okno **HelloWorld** .
 
-   ![Przykładowa aplikacja asystenta głosowego platformy uniwersalnej systemu w języku C# — szybki start](~/articles/cognitive-services/Speech-Service/media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
+   ![Przykładowa aplikacja asystenta głosowego platformy UWP w języku C# — Szybki Start](~/articles/cognitive-services/Speech-Service/media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
-1. Wybierz **włącz mikrofon**, a gdy pojawi się żądanie uprawnień dostępu, wybierz pozycję **Tak**.
+1. Wybierz pozycję **Włącz mikrofon**i po włączeniu żądania uprawnienia dostępu wybierz pozycję **tak**.
 
-   ![Żądanie uprawnień dostępu do mikrofonu](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
+   ![Żądanie uprawnienia dostępu do mikrofonu](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. Wybierz **pozycję Porozmawiaj z botem**i mów w języku angielskim do mikrofonu urządzenia. Mowa jest przesyłana do kanału Direct Line Speech i transkrybowana na tekst, który pojawia się w oknie.
+1. Wybierz opcję **Rozmawiaj z Twoim botem**i zacznij mówić do angielskiej frazy lub zdania do mikrofonu Twojego urządzenia. Twoja Zamiana jest przesyłana do kanału mowy Direct line i uzyskanego do tekstu, który pojawia się w oknie.
 
 ## <a name="next-steps"></a>Następne kroki
 

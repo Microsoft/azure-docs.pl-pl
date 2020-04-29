@@ -1,43 +1,43 @@
 ---
-title: Jak zatrzymać monitorowanie klastra usługi Azure Kubernetes | Dokumenty firmy Microsoft
-description: W tym artykule opisano, jak można przerwać monitorowanie klastra usługi Azure AKS za pomocą usługi Azure Monitor dla kontenerów.
+title: Jak zatrzymać monitorowanie klastra usługi Azure Kubernetes Service | Microsoft Docs
+description: W tym artykule opisano, jak można przestać kontynuować monitorowanie klastra usługi Azure AKS za pomocą Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.openlocfilehash: 618a4d7e10212dd2b042724b1ea11c97920dad57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79275258"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Jak zatrzymać monitorowanie usługi Azure Kubernetes Service z usługą Azure Monitor dla kontenerów
 
-Po włączeniu monitorowania klastra AKS można zatrzymać monitorowanie klastra, jeśli zdecydujesz, że nie chcesz go już monitorować. W tym artykule pokazano, jak to zrobić przy użyciu interfejsu wiersza polecenia platformy Azure lub za pomocą szablonów usługi Azure Resource Manager.  
+Po włączeniu monitorowania klastra AKS można zatrzymać monitorowanie klastra, jeśli zdecydujesz, że nie chcesz już go monitorować. W tym artykule pokazano, jak to zrobić za pomocą interfejsu wiersza polecenia platformy Azure lub z podanymi szablonami Azure Resource Manager.  
 
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Użyj polecenia [az aks disable-addons,](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) aby wyłączyć usługę Azure Monitor dla kontenerów. Polecenie usuwa agenta z węzłów klastra, nie usuwa rozwiązania lub danych już zebranych i przechowywanych w zasobie usługi Azure Monitor.  
+Użyj polecenia [AZ AKS Disable-dodatkis](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) , aby wyłączyć Azure monitor dla kontenerów. Polecenie usuwa agenta z węzłów klastra, nie usuwa rozwiązania lub dane są już zbierane i przechowywane w zasobie Azure Monitor.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
-Aby ponownie włączyć monitorowanie klastra, zobacz [Włączanie monitorowania przy użyciu interfejsu wiersza polecenia platformy Azure](container-insights-enable-new-cluster.md#enable-using-azure-cli).
+Aby ponownie włączyć monitorowanie klastra, zobacz [Włączanie monitorowania za pomocą interfejsu wiersza polecenia platformy Azure](container-insights-enable-new-cluster.md#enable-using-azure-cli).
 
 ## <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
 
-Pod warunkiem, że są dwa szablony usługi Azure Resource Manager do obsługi usuwania zasobów rozwiązania konsekwentnie i wielokrotnie w grupie zasobów. Jednym z nich jest szablon JSON określający konfigurację zatrzymania monitorowania, a drugi zawiera wartości parametrów skonfigurowane w celu określenia identyfikatora zasobu klastra AKS i grupy zasobów, w której jest wdrażany klaster.
+Udostępniane są dwa Azure Resource Manager szablonu do obsługi usuwania zasobów rozwiązania spójnie i wielokrotnie w grupie zasobów. Jeden to szablon JSON określający konfigurację, aby zatrzymać monitorowanie, a drugi zawiera wartości parametrów, które można skonfigurować, aby określić identyfikator zasobu klastra AKS i grupę zasobów, w której jest wdrażany klaster.
 
-Jeśli nie znasz pojęcia wdrażania zasobów przy użyciu szablonu, zobacz:
+Jeśli nie znasz koncepcji wdrażania zasobów przy użyciu szablonu, zobacz:
 * [Deploy resources with Resource Manager templates and Azure PowerShell (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i programu Azure PowerShell)](../../azure-resource-manager/templates/deploy-powershell.md)
-* [Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i interfejsu wiersza polecenia platformy Azure](../../azure-resource-manager/templates/deploy-cli.md)
+* [Wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejsu wiersza polecenia platformy Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
 >[!NOTE]
->Szablon musi zostać wdrożony w tej samej grupie zasobów klastra. Jeśli podczas korzystania z tego szablonu pominięto inne właściwości lub dodatki, może to spowodować ich usunięcie z klastra. Na przykład *enableRBAC* dla zasad RBAC zaimplementowanych w klastrze lub *aksResourceTagValues,* jeśli tagi są określone dla klastra AKS.  
+>Szablon musi zostać wdrożony w tej samej grupie zasobów klastra. Jeśli pominięto wszystkie inne właściwości lub dodatki podczas korzystania z tego szablonu, może to spowodować usunięcie z klastra. Na przykład *enableRBAC* dla zasad RBAC wdrożonych w klastrze lub *aksResourceTagValues* , jeśli Tagi są określone dla klastra AKS.  
 >
 
-Jeśli zdecydujesz się korzystać z interfejsu wiersza polecenia platformy Azure, najpierw należy zainstalować i używać interfejsu wiersza polecenia lokalnie. Musi być uruchomiony interfejsu wiersza polecenia platformy Azure w wersji 2.0.27 lub nowszej. Aby zidentyfikować swoją `az --version`wersję, uruchom polecenie . Jeśli chcesz zainstalować lub uaktualnić platformę Azure CLI, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy Azure, musisz najpierw zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.27 lub nowszej. Aby zidentyfikować swoją wersję, uruchom `az --version`polecenie. Jeśli konieczne jest zainstalowanie lub uaktualnienie interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-template"></a>Tworzenie szablonu
 
@@ -89,9 +89,9 @@ Jeśli zdecydujesz się korzystać z interfejsu wiersza polecenia platformy Azur
     }
     ```
 
-2. Zapisz ten plik jako **OptOutTemplate.json** w folderze lokalnym.
+2. Zapisz ten plik jako **OptOutTemplate. JSON** w folderze lokalnym.
 
-3. Wklej do pliku następującą składnię JSON:
+3. Wklej następującą składnię JSON do pliku:
 
     ```json
     {
@@ -115,21 +115,21 @@ Jeśli zdecydujesz się korzystać z interfejsu wiersza polecenia platformy Azur
     }
     ```
 
-4. Edytuj wartości **aksResourceId** i **aksResourceLocation** przy użyciu wartości klastra AKS, które można znaleźć na stronie **Właściwości** dla wybranego klastra.
+4. Edytuj wartości dla **aksResourceId** i **aksResourceLocation** przy użyciu wartości klastra AKS, który można znaleźć na stronie **Właściwości** wybranego klastra.
 
     ![Strona właściwości kontenera](media/container-insights-optout/container-properties-page.png)
 
-    Gdy znajdujesz się na stronie **Właściwości,** skopiuj również **identyfikator zasobu obszaru roboczego**. Ta wartość jest wymagana, jeśli zdecydujesz, że chcesz usunąć obszar roboczy usługi Log Analytics później. Usuwanie obszaru roboczego usługi Log Analytics nie jest wykonywane w ramach tego procesu.
+    Gdy jesteś na stronie **Właściwości** , skopiuj również **Identyfikator zasobu obszaru roboczego**. Ta wartość jest wymagana, jeśli zdecydujesz, że chcesz usunąć obszar roboczy Log Analytics później. Usuwanie obszaru roboczego Log Analytics nie jest wykonywane w ramach tego procesu.
 
-    Edytuj wartości **wartości aksResourceTagValues,** aby dopasować je do istniejących wartości tagów określonych dla klastra AKS.
+    Edytuj wartości dla **aksResourceTagValues** , aby pasowały do istniejących wartości tagów określonych dla klastra AKS.
 
-5. Zapisz ten plik jako **OptOutParam.json** w folderze lokalnym.
+5. Zapisz ten plik jako **OptOutParam. JSON** w folderze lokalnym.
 
 6. Wszystko jest teraz gotowe do wdrożenia tego szablonu.
 
-### <a name="remove-the-solution-using-azure-cli"></a>Usuń rozwiązanie przy użyciu interfejsu wiersza polecenia platformy Azure
+### <a name="remove-the-solution-using-azure-cli"></a>Usuwanie rozwiązania przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Wykonaj następujące polecenie za pomocą narzędzia Azure CLI w systemie Linux, aby usunąć rozwiązanie i wyczyścić konfigurację w klastrze AKS.
+Wykonaj następujące polecenie w interfejsie wiersza polecenia platformy Azure w systemie Linux, aby usunąć rozwiązanie i wyczyścić konfigurację w klastrze AKS.
 
 ```azurecli
 az login   
@@ -137,13 +137,13 @@ az account set --subscription "Subscription Name"
 az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
 ```
 
-Zmiana konfiguracji może potrwać kilka minut. Po jego zakończeniu zwracany jest komunikat podobny do następującego, który zawiera wynik:
+Zmiana konfiguracji może potrwać kilka minut. Po zakończeniu zostanie zwrócony komunikat podobny do następującego zawierającego wynik:
 
 ```output
 ProvisioningState       : Succeeded
 ```
 
-### <a name="remove-the-solution-using-powershell"></a>Usuwanie rozwiązania za pomocą programu PowerShell
+### <a name="remove-the-solution-using-powershell"></a>Usuwanie rozwiązania przy użyciu programu PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -155,7 +155,7 @@ Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
 ```
 
-Zmiana konfiguracji może potrwać kilka minut. Po jego zakończeniu zwracany jest komunikat podobny do następującego, który zawiera wynik:
+Zmiana konfiguracji może potrwać kilka minut. Po zakończeniu zostanie zwrócony komunikat podobny do następującego zawierającego wynik:
 
 ```output
 ProvisioningState       : Succeeded
@@ -164,4 +164,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli obszar roboczy został utworzony tylko do obsługi monitorowania klastra i nie jest już potrzebny, należy ręcznie go usunąć. Jeśli nie znasz sposobu usuwania obszaru roboczego, zobacz [Usuwanie obszaru roboczego usługi Azure Log Analytics za pomocą portalu Azure.](../../log-analytics/log-analytics-manage-del-workspace.md) Nie zapomnij o **identyfikatorze zasobu obszaru roboczego** skopiowanym wcześniej w kroku 4, będziesz tego potrzebować.
+Jeśli obszar roboczy został utworzony tylko w celu obsługi monitorowania klastra i nie jest już wymagany, trzeba go ręcznie usunąć. Jeśli nie wiesz, jak usunąć obszar roboczy, zobacz sekcję [Usuwanie obszaru roboczego usługi Azure log Analytics przy użyciu Azure Portal](../../log-analytics/log-analytics-manage-del-workspace.md). Nie zapomnij o **identyfikatorze zasobu obszaru roboczego** skopiowanym wcześniej w kroku 4, który będzie potrzebny.

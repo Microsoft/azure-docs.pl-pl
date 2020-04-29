@@ -17,10 +17,10 @@ ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f8a2c962c69ead28c4e79b663010eab77a499f5c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80048414"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Konfigurowanie aplikacji uwierzytelniania OpenID/OAuth z galerii aplikacji usługi Azure AD
@@ -31,7 +31,7 @@ ms.locfileid: "80048414"
 
     ![Przycisk Azure Active Directory](common/select-azuread.png))
 
-2. Przejdź do **aplikacji** > Enterprise**Wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -69,11 +69,11 @@ Aplikację wielodostępną należy aprowizować w każdym katalogu, w którym b�
 Użytkownik lub administrator może wtedy wyrazić zgodę na aplikację. Zgoda umożliwia aplikacji dostęp do określonych danych oraz ostatecznie rejestruje aplikację w katalogu.
 
 > [!NOTE]
-> Jeśli udostępniasz aplikację użytkownikom w wielu katalogach, potrzebujesz mechanizmu, aby określić, w której dzierżawie się znajdujesz. Aplikacja jednodostępna musi szukać użytkownika tylko w swoim własnym katalogu. Aplikacja wielodostępna musi zidentyfikować określonego użytkownika na podstawie wszystkich katalogów w usłudze Azure AD.
+> Jeśli udostępnisz aplikację użytkownikom w wielu katalogach, potrzebujesz mechanizmu, aby określić dzierżawcę, w którym się znajdują. Aplikacja jednodostępna musi szukać użytkownika tylko w swoim własnym katalogu. Aplikacja wielodostępna musi zidentyfikować określonego użytkownika na podstawie wszystkich katalogów w usłudze Azure AD.
 > 
 > Aby to umożliwić, usługa Azure AD udostępnia wspólny punkt końcowy uwierzytelniania (zamiast punktów końcowych specyficznych dla dzierżawy), gdzie dowolna aplikacja wielodostępna może kierować żądania logowania. Ten punkt końcowy to `https://login.microsoftonline.com/common` dla wszystkich katalogów w usłudze Azure AD. Punkt końcowy specyficzny dla dzierżawy to na przykład `https://login.microsoftonline.com/contoso.onmicrosoft.com`. 
 >
-> Wspólny punkt końcowy to ważne zagadnienie do uwzględnienia podczas opracowywania aplikacji. Musisz logiki niezbędne do obsługi wielu dzierżaw podczas logowania, wylogowywania się i sprawdzania poprawności tokenu.
+> Wspólny punkt końcowy to ważne zagadnienie do uwzględnienia podczas opracowywania aplikacji. Potrzebna jest logika niezbędna do obsługi wielu dzierżawców podczas logowania, wylogowywania i weryfikacji tokenu.
 
 Domyślnie usługa Azure AD promuje aplikacje wielodostępne. Łatwo jest uzyskać do nich dostęp z wielu organizacji i używać po zaakceptowaniu zgody.
 
@@ -99,25 +99,25 @@ Interfejs API programu Graph umożliwia również dostęp do użytkowników i gr
 
 Poniższe kroki pokazują, jak środowisko wyrażania zgody działa dla deweloperów aplikacji i użytkownika:
 
-1. Załóżmy, że masz internetową aplikację kliencką, który wymaga zażądania konkretnego uprawnienia na potrzeby dostępu do zasobu lub interfejsu API. Witryna Azure Portal jest używana do deklarowania żądań dotyczących uprawnień podczas konfigurowania. Podobnie jak inne ustawienia konfiguracji, stają się one częścią rejestracji usługi Azure AD aplikacji. Dla ścieżki żądania uprawnień należy wykonać następujące kroki:
+1. Załóżmy, że masz internetową aplikację kliencką, który wymaga zażądania konkretnego uprawnienia na potrzeby dostępu do zasobu lub interfejsu API. Witryna Azure Portal jest używana do deklarowania żądań dotyczących uprawnień podczas konfigurowania. Podobnie jak w przypadku innych ustawień konfiguracji, stają się one częścią rejestracji usługi Azure AD aplikacji. W celu uzyskania ścieżki żądania uprawnień należy wykonać poniższe czynności:
 
-    a. Kliknij **rejestracje aplikacji** z lewej strony menu i otwórz aplikację, wpisując nazwę aplikacji w polu wyszukiwania.
+    a. Kliknij **rejestracje aplikacji** z lewej strony menu i Otwórz aplikację, wpisując nazwę aplikacji w polu wyszukiwania.
 
     ![Interfejs API programu Graph](./media/openidoauth-tutorial/application.png)
 
-    b. Kliknij **pozycję Wyświetl uprawnienia interfejsu API**.
+    b. Kliknij pozycję **Wyświetl uprawnienia interfejsu API**.
 
     ![Interfejs API programu Graph](./media/openidoauth-tutorial/api-permission.png)
 
-    d. Kliknij **przycisk Dodaj uprawnienie**.
+    c. Kliknij pozycję **Dodaj uprawnienie**.
 
     ![Interfejs API programu Graph](./media/openidoauth-tutorial/add-permission.png)
 
-    d. Kliknij pozycję **Microsoft Graph**.
+    d. Kliknij **Microsoft Graph**.
 
     ![Interfejs API programu Graph](./media/openidoauth-tutorial/microsoft-graph.png)
 
-    e. Wybierz wymagane opcje z **pozycji Uprawnienia delegowane** i **Uprawnienia aplikacji**.
+    e. Wybierz wymagane opcje z uprawnień **delegowanych** i **uprawnień aplikacji**.
 
     ![Interfejs API programu Graph](./media/openidoauth-tutorial/graphapi.png)
 
@@ -125,9 +125,9 @@ Poniższe kroki pokazują, jak środowisko wyrażania zgody działa dla dewelope
 
 3. Jeśli użytkownik nie jest jeszcze uwierzytelniony, punkt końcowy autoryzacji / usługa Azure AD wyświetli monit logowania.
 
-    ![Uwierzytelnianie](./media/openidoauth-tutorial/authentication.png)
+    ![Authentication](./media/openidoauth-tutorial/authentication.png)
 
-4. Gdy użytkownik jest już zalogowany, usługa Azure AD określa, czy należy mu pokazać stronę wyrażenia zgody. To określenie opiera się na tym, czy użytkownik (lub administrator jego organizacji) udzielił już zgody aplikacji.
+4. Gdy użytkownik jest już zalogowany, usługa Azure AD określa, czy należy mu pokazać stronę wyrażenia zgody. To ustalenie zależy od tego, czy użytkownik (lub administrator organizacji) już udzielił zgody aplikacji.
 
    Jeśli nie wyrażono zgody, usługa Azure AD monituje o nią użytkownika i wyświetla uprawnienia wymagane przez aplikację do działania. Uprawnienia wyświetlane w oknie dialogowym zgody odpowiadają uprawnieniom wybranym w ramach delegowanych uprawnień w witrynie Azure Portal.
 
@@ -137,21 +137,21 @@ Zwykły użytkownik może wyrazić zgodę na niektóre uprawnienia. Inne uprawni
 
 ## <a name="difference-between-admin-consent-and-user-consent"></a>Różnica między zgodą administratora i zgodą użytkownika
 
-Jako administrator możesz także wyrazić zgodę na uprawnienia delegowane aplikacji w imieniu wszystkich użytkowników w dzierżawie. Zgoda administratora zapobiega wyświetlaniu okna dialogowego zgody dla każdego użytkownika w dzierżawie. Użytkownicy z rolą administratora mogą wyrazić zgodę w witrynie Azure Portal. Na stronie **Ustawienia** aplikacji wybierz pozycję **Wymagane uprawnienia** > **Udzielaj zgody administratora**.
+Jako administrator możesz także wyrazić zgodę na uprawnienia delegowane aplikacji w imieniu wszystkich użytkowników w dzierżawie. Zgoda administratora zapobiega wyświetlaniu okna dialogowego zgody dla każdego użytkownika w dzierżawie. Użytkownicy z rolą administratora mogą wyrazić zgodę w witrynie Azure Portal. Na stronie **Ustawienia** aplikacji wybierz pozycję **wymagane uprawnienia** > **Udziel zgody administratora**.
 
 ![Przycisk Udziel uprawnień](./media/openidoauth-tutorial/grantpermission.png)
 
 > [!NOTE]
-> Udzielanie wyraźnej zgody przy użyciu przycisku **Zgoda administratora grantu** jest teraz wymagane dla aplikacji jednostronicowych (SPA), które używają ADAL.js. W przeciwnym przypadku wystąpi błąd aplikacji przy żądaniu tokenu dostępu.
+> Udzielanie wyraźnej zgody przy użyciu przycisku **Udziel zgody administratora** jest teraz wymagane dla aplikacji jednostronicowych (aplikacji jednostronicowych) korzystających z biblioteki ADAL. js. W przeciwnym przypadku wystąpi błąd aplikacji przy żądaniu tokenu dostępu.
 
-Uprawnienia tylko do aplikacji zawsze wymagają zgody administratora dzierżawy. Jeśli aplikacja żąda uprawnienia dotyczącego tylko aplikacji, a użytkownik spróbuje zalogować się do aplikacji, zostanie wyświetlony komunikat o błędzie. Komunikat mówi, że użytkownik nie może wyrazić zgody.
+Uprawnienia tylko do aplikacji zawsze wymagają zgody administratora dzierżawy. Jeśli aplikacja żąda uprawnienia dotyczącego tylko aplikacji, a użytkownik spróbuje zalogować się do aplikacji, zostanie wyświetlony komunikat o błędzie. Komunikat informujący o tym, że użytkownik nie jest w stanie wyrazić zgody.
 
 Jeśli aplikacja używa uprawnień wymagających zgody administratora, potrzebujesz elementu takiego jak przycisk lub link, za pomocą którego administrator może uruchomić akcję. Żądanie wysyłane przez aplikację na potrzeby tej akcji to zwykłe żądanie autoryzacji OAuth2/OpenID Connect. To żądanie zawiera parametr ciągu zapytania *prompt=admin_consent*. 
 
-Po zgody administratora i jednostki usługi jest tworzony w dzierżawie klienta, później żądania logowania nie potrzebują *prompt = admin_consent* parametr. Ponieważ administrator zdecydował, że żądane uprawnienia są akceptowalne, od tego momentu żadni inni użytkownicy w dzierżawie nie będą monitowani o zgodę.
+Po tym, jak administrator wyraził zgodę, a jednostka usługi jest tworzona w dzierżawie klienta, późniejsze żądania logowania nie potrzebują parametru *Prompt = admin_consent* . Ponieważ administrator zdecydował, że żądane uprawnienia są akceptowalne, od tego momentu żadni inni użytkownicy w dzierżawie nie będą monitowani o zgodę.
 
 Administrator dzierżawy może wyłączyć możliwość wyrażania zgody na aplikacje przez zwykłych użytkowników. Jeśli ta funkcja jest wyłączona, zgoda administratora jest zawsze wymagana do używania aplikacji w dzierżawie. Jeśli chcesz przetestować aplikację z wyłączoną zgodą użytkownika końcowego, możesz znaleźć odpowiedni przełącznik konfiguracji w [witrynie Azure Portal](https://portal.azure.com/). Znajduje się on w sekcji [Ustawienia użytkownika](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) w obszarze **Aplikacje dla przedsiębiorstw**.
 
-Parametru *prompt=admin_consent* mogą też używać aplikacje wymagające uprawnień, dla których zgoda administratora nie jest konieczna. Przykładem jest aplikacja, która wymaga środowiska, w którym administrator dzierżawy "rejestruje się" jeden raz, a żaden inny użytkownik nie jest monitowany o zgodę od tego momentu.
+Parametru *prompt=admin_consent* mogą też używać aplikacje wymagające uprawnień, dla których zgoda administratora nie jest konieczna. Przykładem jest aplikacja, która wymaga środowiska, w którym Administrator dzierżawy "rejestruje się" jeden raz, a inni użytkownicy nie otrzymują monitu o zgodę od tego momentu.
 
 Wyobraź sobie sytuację, w której aplikacja wymaga zgody administratora i administrator loguje się bez wysyłania parametru *prompt=admin_consent*. Gdy administrator pomyślnie wyrazi zgodę na aplikację, będzie ona mieć zastosowanie tylko dla jego konta użytkownika. Zwykli użytkownicy nadal nie będą mogli zalogować się ani wyrazić zgody na aplikację. Ta funkcja jest przydatna, jeśli chcesz dać administratorowi dzierżawy możliwość przeanalizowania aplikacji przed zezwoleniem na dostęp innych użytkowników.

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Szkolenie i wdrażanie modelu — uczenie maszynowe w usłudze Azure IoT Edge'
-description: W tym samouczku będzie szkolić model uczenia maszynowego przy użyciu usługi Azure Machine Learning, a następnie pakiet modelu jako obraz kontenera, który można wdrożyć jako moduł usługi Azure IoT Edge.
+title: 'Samouczek: uczenie i wdrażanie modelu — Machine Learning na Azure IoT Edge'
+description: W ramach tego samouczka nauczysz model uczenia maszynowego przy użyciu Azure Machine Learning a następnie Spakuj model jako obraz kontenera, który można wdrożyć jako moduł Azure IoT Edge.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,179 +9,179 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 57630b789233dd23e61398f445b434e4ba08b48e
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80236020"
 ---
-# <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Samouczek: Szkolenie i wdrażanie modelu usługi Azure Machine Learning
+# <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Samouczek: uczenie i wdrażanie modelu Azure Machine Learning
 
 > [!NOTE]
-> Ten artykuł jest częścią serii samouczka na temat korzystania z usługi Azure Machine Learning w usłudze IoT Edge. Jeśli dotarłeś do tego artykułu bezpośrednio, zachęcamy do rozpoczęcia [pierwszego artykułu](tutorial-machine-learning-edge-01-intro.md) z serii, aby uzyskać najlepsze wyniki.
+> Ten artykuł jest częścią serii samouczka dotyczącego używania Azure Machine Learning w IoT Edge. Jeśli ten artykuł został osiągnięty bezpośrednio, zachęcamy do rozpoczęcia od [pierwszego artykułu](tutorial-machine-learning-edge-01-intro.md) z serii w celu uzyskania najlepszych wyników.
 
-W tym artykule wykonujemy następujące zadania:
+W tym artykule wykonamy następujące zadania:
 
-* Użyj notesów platformy Azure, aby trenować model uczenia maszynowego.
-* Pakiet przeszkolony model jako obraz kontenera.
-* Wdrażanie obrazu kontenera jako modułu usługi Azure IoT Edge.
+* Użyj Azure Notebooks do uczenia modelu uczenia maszynowego.
+* Pakuj model szkolony jako obraz kontenera.
+* Wdróż obraz kontenera jako moduł Azure IoT Edge.
 
-Notesy platformy Azure korzystają z obszaru roboczego usługi Azure Machine Learning, podstawowych bloków używanych do eksperymentowania, uczenia i wdrażania modeli uczenia maszynowego.
+Azure Notebooks korzystać z obszaru roboczego Azure Machine Learning, czyli podstawy do eksperymentowania, uczenia i wdrażania modeli uczenia maszynowego.
 
-Kroki opisane w tym artykule mogą być zazwyczaj wykonywane przez analityków danych.
+Kroki opisane w tym artykule mogą być zwykle wykonywane przez analityków danych.
 
-## <a name="set-up-azure-notebooks"></a>Konfigurowanie notesów platformy Azure
+## <a name="set-up-azure-notebooks"></a>Skonfiguruj Azure Notebooks
 
-Używamy notesów platformy Azure do obsługi dwóch notesów Jupyter i plików pomocniczych. W tym miejscu tworzymy i konfigurujemy projekt notesów platformy Azure. Jeśli nie używano usługi Jupyter i/lub notesów platformy Azure, oto kilka dokumentów wprowadzających:
+Używamy Azure Notebooks do hostowania dwóch notesów Jupyter i plików pomocniczych. W tym miejscu utworzymy i skonfigurujemy projekt Azure Notebooks. Jeśli nie korzystasz z Jupyter i/lub Azure Notebooks, poniżej przedstawiono kilka dokumentów wprowadzających:
 
-* **Szybki start:** [tworzenie notesu i udostępnianie go](../notebooks/quickstart-create-share-jupyter-notebook.md)
-* **Samouczek:** [Tworzenie i uruchamianie notesu Jupytera za pomocą języka Python](../notebooks/tutorial-create-run-jupyter-notebook.md)
+* **Szybki Start:** [Tworzenie i udostępnianie notesu](../notebooks/quickstart-create-share-jupyter-notebook.md)
+* **Samouczek:** [Tworzenie i uruchamianie notesu Jupyter przy użyciu języka Python](../notebooks/tutorial-create-run-jupyter-notebook.md)
 
-Korzystanie z notesów platformy Azure zapewnia spójne środowisko dla wykonywania.
+Korzystanie z notesów platformy Azure zapewnia spójne środowisko dla tego ćwiczenia.
 
 > [!NOTE]
-> Po skonfigurowaniu usługi Azure Notebooks można uzyskać dostęp z dowolnego komputera. Podczas instalacji należy użyć maszyny Wirtualnej rozwoju, która ma wszystkie pliki, które będą potrzebne.
+> Po skonfigurowaniu usługi Azure Notebooks można uzyskać dostęp z dowolnej maszyny. Podczas instalacji należy użyć maszyny wirtualnej tworzenia, która ma wszystkie pliki, które będą potrzebne.
 
-### <a name="create-an-azure-notebooks-account"></a>Tworzenie konta notesów platformy Azure
+### <a name="create-an-azure-notebooks-account"></a>Utwórz konto Azure Notebooks
 
-Aby korzystać z notesów platformy Azure, należy utworzyć konto. Konta usługi Azure Notebook są niezależne od subskrypcji platformy Azure.
+Aby użyć Azure Notebooks, musisz utworzyć konto. Konta notesu platformy Azure są niezależne od subskrypcji platformy Azure.
 
 1. Przejdź do [notesów platformy Azure](https://notebooks.azure.com).
 
-1. Kliknij **pozycję Zaloguj** się w prawym górnym rogu strony.
+1. Kliknij przycisk **Zaloguj** w prawym górnym rogu strony.
 
-1. Zaloguj się za pomocą konta służbowego (usługi Azure Active Directory) lub konta osobistego (konto Microsoft).
+1. Zaloguj się przy użyciu konta służbowego (Azure Active Directory) lub konta osobistego (konto Microsoft).
 
-1. Jeśli nie używano wcześniej notesów platformy Azure, zostanie wyświetlony monit o udzielenie dostępu dla aplikacji Notesy platformy Azure.
+1. Jeśli wcześniej nie korzystasz z Azure Notebooks, zostanie wyświetlony monit o przyznanie dostępu do aplikacji Azure Notebooks.
 
-1. Utwórz identyfikator użytkownika dla notesów platformy Azure.
+1. Utwórz identyfikator użytkownika dla Azure Notebooks.
 
-### <a name="upload-jupyter-notebook-files"></a>Prześlij pliki notesu Jupyter
+### <a name="upload-jupyter-notebook-files"></a>Przekaż pliki notesu Jupyter
 
-Będziemy przekazywać przykładowe pliki notesu do nowego projektu notesów platformy Azure.
+Będziemy przekazywać przykładowe pliki notesu do nowego projektu Azure Notebooks.
 
 1. Na stronie użytkownika nowego konta wybierz pozycję **Moje projekty** z górnego paska menu.
 
 1. Dodaj nowy projekt, wybierając **+** przycisk.
 
-1. W oknie dialogowym **Tworzenie nowego projektu** podaj nazwę **projektu**. 
+1. W oknie dialogowym **Utwórz nowy projekt** Podaj **nazwę projektu**. 
 
-1. Pozostaw **publiczne** i **README** niezaznaczone, ponieważ nie ma potrzeby, aby projekt był publiczny lub miał readme.
+1. Pozostaw opcję **publiczny** i **plik Readme** niezaznaczone, ponieważ nie ma potrzeby, aby projekt był publiczny lub miał plik Readme.
 
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
-1. Wybierz **pozycję Przekaż** (ikona strzałki w górę) i wybierz pozycję Z **komputera**.
+1. Wybierz pozycję **Przekaż** (ikona strzałki w górę) i wybierz pozycję **z komputera**.
 
-1. Wybierz **pozycję Wybierz pliki**.
+1. Wybierz pozycję **Wybierz pliki**.
 
-1. Przejdź do **pozycji C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Zaznacz wszystkie pliki na liście i kliknij przycisk **Otwórz**.
+1. Przejdź do **C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Zaznacz wszystkie pliki na liście, a następnie kliknij przycisk **Otwórz**.
 
-1. Zaznacz pole **Ufam zawartości tych plików.**
+1. Zaznacz pole wyboru **zaufania zawartości tych plików** .
 
-1. Wybierz **pozycję Przekaż,** aby rozpocząć przesyłanie, a następnie wybierz pozycję **Gotowe** po zakończeniu procesu.
+1. Wybierz pozycję **Przekaż** , aby rozpocząć przekazywanie, a następnie wybierz pozycję **gotowe** po zakończeniu procesu.
 
 ### <a name="azure-notebook-files"></a>Pliki notesu platformy Azure
 
-Przejrzyj pliki przekazane do projektu notesów platformy Azure. Działania w tej części samouczka obejmują dwa pliki notesu, które używają kilku plików pomocniczych.
+Przejrzyjmy pliki przekazane do projektu Azure Notebooks. Działania w tej części samouczka obejmują między innymi pliki notesów, które korzystają z kilku plików pomocniczych.
 
-* **01-turbowentylator\_regresja.ipynb:** Ten notes używa obszaru roboczego usługi uczenia maszynowego do tworzenia i uruchamiania eksperymentu uczenia maszynowego. Ogólnie rzecz biorąc, notes wykonuje następujące czynności:
+* **01 — TurboFan\_regresja. ipynb:** Ten Notes używa obszaru roboczego usługi Machine Learning, aby utworzyć i uruchomić eksperyment uczenia maszynowego. W szerokim zakresie Notes wykonuje następujące czynności:
 
-  1. Pobiera dane z konta usługi Azure Storage, który został wygenerowany przez wiązki przewodów wiązki urządzeń.
-  1. Eksploruje i przygotowuje dane, a następnie używa danych do szkolenia modelu klasyfikatora.
-  1. Oceń model z eksperymentu przy użyciu\_testowego zestawu danych (Test FD003.txt).
-  1. Publikuje najlepszy model klasyfikatora w obszarze roboczym usługi uczenie maszynowe.
+  1. Pobiera dane z konta usługi Azure Storage, które zostało wygenerowane przez zespół.
+  1. Eksploruje i przygotowuje dane, a następnie używa danych do uczenia modelu klasyfikatora.
+  1. Oceń model z eksperymentu przy użyciu zestawu danych testowych (test\_FD003. txt).
+  1. Publikuje najlepszy model klasyfikatora w obszarze roboczym usługi Machine Learning.
 
-* **02-turbowentylator\_wdrożyć\_model.ipynb:** Ten notes przyjmuje model utworzony w poprzednim notesie i używa go do utworzenia obrazu kontenera gotowego do wdrożenia na urządzeniu usługi Azure IoT Edge. Notes wykonuje następujące czynności:
+* **02 — TurboFan\_Deploy\_model. ipynb:** Ten Notes przyjmuje model utworzony w poprzednim notesie i używa go do utworzenia obrazu kontenera gotowego do wdrożenia na urządzeniu Azure IoT Edge. Notes wykonuje następujące czynności:
 
   1. Tworzy skrypt oceniania dla modelu.
-  1. Tworzy obraz kontenera przy użyciu modelu klasyfikatora, który został zapisany w obszarze roboczym usługi uczenie maszynowe.
-  1. Wdraża obraz jako usługę sieci web w wystąpieniu kontenera platformy Azure.
-  1. Używa usługi sieci web do sprawdzania poprawności modelu i obrazu pracy zgodnie z oczekiwaniami. Zweryfikowany obraz zostanie wdrożony na naszym urządzeniu usługi IoT Edge w części [tworzenia i wdrażania niestandardowych modułów usługi IoT Edge](tutorial-machine-learning-edge-06-custom-modules.md) w tym samouczku.
+  1. Tworzy obraz kontenera przy użyciu modelu klasyfikatora, który został zapisany w obszarze roboczym usługi Machine Learning.
+  1. Wdraża obraz jako usługę sieci Web w wystąpieniu kontenera platformy Azure.
+  1. Używa usługi sieci Web do walidacji modelu i obrazu działa zgodnie z oczekiwaniami. Sprawdzony obraz zostanie wdrożony na naszym urządzeniu IoT Edge w części [Tworzenie i wdrażanie niestandardowych modułów IoT Edge](tutorial-machine-learning-edge-06-custom-modules.md) w tym samouczku.
 
-* **Test\_FD003.txt:** Ten plik zawiera dane, których użyjemy jako nasz zestaw testów podczas sprawdzania poprawności naszego przeszkolonego klasyfikatora. Postanowiliśmy wykorzystać dane testowe, zgodnie z pierwotnym konkursem, jako nasz zestaw testowy dla jego prostoty.
+* **Test\_FD003. txt:** Ten plik zawiera dane, które będą używane jako nasz zestaw testów podczas weryfikacji przeszkolonego klasyfikatora. Wybrano użycie danych testowych, zgodnie z opisem dla oryginalnego konkursu, jako nasz zestaw testów dla uproszczenia.
 
-* **RUL\_FD003.txt:** Ten plik zawiera pozostały okres użytkowania (RUL) dla\_ostatniego cyklu każdego urządzenia w pliku Test FD003.txt. Szczegółowe wyjaśnienie danych można znaleźć w plikach readme.txt i\\\\Damage Propagation Modeling.pdf\\\\w plikach C: source IoTEdgeAndMlSample.
+* **POZOSTAŁEGO czasu eksploatacji\_FD003. txt:** ten plik zawiera pozostałe użyteczny okres istnienia (pozostałego czasu eksploatacji) dla ostatniego cyklu każdego urządzenia w pliku test\_FD003. txt. Aby uzyskać szczegółowy opis danych, zobacz plik Readme.\\txt i pliki\\\\\\PDF z modelem propagacji.
 
-* **Utils.py:** Zawiera zestaw funkcji narzędzia Języka Python do pracy z danymi. Pierwszy notes zawiera szczegółowe wyjaśnienie funkcji.
+* **Utils.py:** Zawiera zestaw funkcji narzędzia Python do pracy z danymi. Pierwszy Notes zawiera szczegółowy opis funkcji.
 
-* **README.md:** Readme opisujące korzystanie z notesów.  
+* **README.MD:** Plik Readme opisujący korzystanie z notesów.  
 
-## <a name="run-azure-notebooks"></a>Uruchamianie notesów platformy Azure
+## <a name="run-azure-notebooks"></a>Uruchom Azure Notebooks
 
-Teraz, gdy projekt jest tworzony, można uruchomić notesy. 
+Po utworzeniu projektu można uruchomić notesy. 
 
-1. Na stronie projektu wybierz **01-turbofan\_regression.ipynb**.
+1. Na stronie projektu wybierz pozycję **01-TurboFan\_regresja. ipynb**.
 
-    ![Wybierz pierwszy notes do uruchomienia](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
+    ![Wybierz pierwszy Notes do uruchomienia](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
 
-1. Jeśli notes jest wymieniony jako **Nieu zaufany,** kliknij widżet **Nie zaufane** w prawym górnym rogu notesu. Po utworzeniu okna dialogowego wybierz pozycję **Zaufaj**.
+1. Jeśli Notes jest wymieniony jako **niezaufany**, kliknij widżet **niezaufany** w prawym górnym rogu notesu. Po wyświetleniu okna dialogowego wybierz pozycję **Ufaj**.
 
-1. Aby uzyskać najlepsze wyniki, przeczytaj dokumentację dla każdej komórki i uruchom ją indywidualnie. Wybierz **pozycję Uruchom** na pasku narzędzi. Później, znajdziesz to wskazane, aby uruchomić wiele komórek. Można pominąć ostrzeżenia dotyczące uaktualniania i wycofania.
+1. Aby uzyskać najlepsze wyniki, zapoznaj się z dokumentacją dla każdej komórki i uruchom ją pojedynczo. Wybierz pozycję **Uruchom** na pasku narzędzi. Później będzie można uruchomić wiele komórek. Można zignorować ostrzeżenia o uaktualnieniu i wycofaniu.
 
-    Gdy komórka jest uruchomiona, wyświetla gwiazdkę między nawiasami\*kwadratowymi ([ ]). Po zakończeniu operacji komórki gwiazdka jest zastępowana liczbą i mogą pojawić się odpowiednie dane wyjściowe. Komórki w notesie budują się sekwencyjnie i tylko jedna może być uruchomiona jednocześnie.
+    Gdy komórka jest uruchomiona, wyświetla gwiazdkę między nawiasami kwadratowymi ([\*]). Po zakończeniu operacji komórki gwiazdka jest zastępowana liczbą, a odpowiednie dane wyjściowe mogą pojawić się. Komórki w notesie kompilują się sekwencyjnie i tylko jeden może być uruchomiony w danym momencie.
 
-    Można również użyć opcji uruchamiania `Ctrl`  +  `Enter` z menu `Shift`  +  `Enter` **Komórka,** aby uruchomić komórkę i uruchomić komórkę i przejść do następnej komórki.
+    Możesz również użyć opcji Run z menu **komórka** , `Ctrl`  +  `Enter` aby uruchomić komórkę `Shift`  +  `Enter` i uruchomić komórkę i przejść do następnej komórki.
 
     > [!TIP]
-    > W przypadku spójnych operacji na komórkach należy unikać uruchamiania tego samego notesu z wielu kart w przeglądarce.
+    > Aby zapewnić spójne operacje na komórkach, należy unikać uruchamiania tego samego notesu z wielu kart w przeglądarce.
 
-1. W komórce, która jest zgodna z **instrukcjami Ustaw właściwości globalne,** zapisuj w wartościach subskrypcji platformy Azure, ustawień i zasobów. Następnie uruchom komórkę.
+1. W komórce, która jest zgodna z instrukcjami dotyczącymi **właściwości globalnych** , wpisz wartości w polu subskrypcja, ustawienia i zasoby platformy Azure. Następnie uruchom komórkę.
 
     ![Ustawianie właściwości globalnych w notesie](media/tutorial-machine-learning-edge-04-train-model/set-global-properties.png)
 
-1. W komórce, która została przesuń do **szczegółów obszaru roboczego,** poszukaj łącza, które nakazuje zalogowanie się w celu uwierzytelnienia:
+1. Po uruchomieniu, w komórce poprzedniej do **szczegółów obszaru roboczego**, poszukaj linku, który nakazuje zalogowanie się w celu uwierzytelnienia:
 
-    ![Monit logowania o uwierzytelnieniu urządzenia](media/tutorial-machine-learning-edge-04-train-model/sign-in-prompt.png)
+    ![Monit logowania w celu uwierzytelnienia urządzenia](media/tutorial-machine-learning-edge-04-train-model/sign-in-prompt.png)
 
-    Otwórz łącze i wprowadź określony kod. Ta procedura logowania uwierzytelnia notes Jupyter, aby uzyskać dostęp do zasobów platformy Azure przy użyciu interfejsu wiersza polecenia platformy Microsoft Azure.  
+    Otwórz link i wprowadź określony kod. Ta procedura logowania służy do uwierzytelniania notesu Jupyter w celu uzyskania dostępu do zasobów platformy Azure przy użyciu międzyplatformowego interfejsu wiersza polecenia Microsoft Azure.  
 
-    ![Uwierzytelnij aplikację na potwierdzeniu urządzenia](media/tutorial-machine-learning-edge-04-train-model/cross-platform-cli.png)
+    ![Potwierdzenie uwierzytelniania aplikacji na urządzeniu](media/tutorial-machine-learning-edge-04-train-model/cross-platform-cli.png)
 
-1. W komórce **poprzedzającej Eksplorowanie wyników,** skopiuj wartość z identyfikatora uruchomienia i wklej ją dla identyfikatora uruchomienia w komórce, która następuje **Reconstitute run**.
+1. W komórce, która poprzedza **wyniki**, skopiuj wartość z identyfikatora uruchomienia i wklej ją dla identyfikatora uruchomienia w komórce, która następuje po odniesieniu **przebiegu**.
 
-   ![Kopiowanie identyfikatora uruchomienia między komórkami](media/tutorial-machine-learning-edge-04-train-model/automl-id.png)
+   ![Kopiuj identyfikator przebiegu między komórkami](media/tutorial-machine-learning-edge-04-train-model/automl-id.png)
 
 1. Uruchom pozostałe komórki w notesie.
 
-1. Zapisz notes i wróć do strony projektu.
+1. Zapisz Notes i wróć do strony projektu.
 
-1. Otwórz **\_02-turbofan\_wdrożyć model.ipynb** i uruchomić każdą komórkę. Aby uwierzytelnić się w komórce następującej po **konfigurowaniu obszaru roboczego,** należy się zalogować.
+1. Otwórz **przystawkę\_TurboFan\_Deploy model. ipynb** i uruchom każdą komórkę. Musisz zalogować się w celu uwierzytelnienia w komórce, która następuje po **skonfigurowaniu obszaru roboczego**.
 
-1. Zapisz notes i wróć do strony projektu.
+1. Zapisz Notes i wróć do strony projektu.
 
 ### <a name="verify-success"></a>Weryfikowanie sukcesu
 
-Aby sprawdzić, czy notesy zostały pomyślnie ukończone, sprawdź, czy utworzono kilka elementów.
+Aby sprawdzić, czy notesy zostały ukończone pomyślnie, sprawdź, czy utworzono kilka elementów.
 
-1. Na stronie projektu notesów platformy Azure wybierz pozycję **Pokaż ukryte elementy,** aby wyświetlić nazwy elementów, które rozpoczynają się od kropki.
+1. Na stronie projekt Azure Notebooks wybierz pozycję **Pokaż ukryte elementy** , aby nazwy elementów zaczynające się od okresu pojawiły się.
 
-1. Sprawdź, czy utworzono następujące pliki:
+1. Sprawdź, czy zostały utworzone następujące pliki:
 
     | Plik | Opis |
     | --- | --- |
-    | ./aml_config/.azureml/config.json | Plik konfiguracji używany do tworzenia obszaru roboczego usługi Azure Machine Learning. |
-    | ./aml_config/model_config.json | Plik konfiguracyjny, który będzie nam potrzebny do wdrożenia modelu w obszarze roboczym **turbofanDemo** Machine Learning na platformie Azure. |
-    | myenv.yml| Zawiera informacje o zależnościach dla wdrożonego modelu usługi Machine Learning.|
+    | /.azureml/config.JSON./aml_config | Plik konfiguracji służący do tworzenia Obszar roboczy usługi Azure Machine Learning. |
+    | ./aml_config/model_config. JSON | Plik konfiguracji, który będzie musiał wdrożyć model w obszarze roboczym **turbofanDemo** Machine Learning na platformie Azure. |
+    | MyENV. yml| Zawiera informacje o zależnościach wdrożonego modelu Machine Learning.|
 
-1. Sprawdź, czy utworzono następujące zasoby platformy Azure. Niektóre nazwy zasobów są dołączane z losowymi znakami.
+1. Sprawdź, czy zostały utworzone następujące zasoby platformy Azure. Nazwy niektórych zasobów są dodawane losowo.
 
     | Zasób platformy Azure | Nazwa |
     | --- | --- |
-    | Obszar roboczy uczenia maszynowego | turborfanDemo |
+    | Machine Learning obszar roboczy | turborfanDemo |
     | Container Registry | turbofandemoxxxxxxxx |
-    | Aplikacje Insights | turbofaninsightxxxxxxxx |
+    | Usługi Application Insights | turbofaninsightxxxxxxxx |
     | Usługa Key Vault | turbofankeyvaultbxxxxxxxx |
     | Magazyn | turbofanstoragexxxxxxxxx |
 
 ### <a name="debugging"></a>Debugowanie
 
-Instrukcje języka Python można wstawić do notesu `print()` do debugowania, takie jak polecenie, aby wyświetlić wartości. Jeśli widzisz zmienne lub obiekty, które nie są zdefiniowane, uruchom komórki, w których są one najpierw zadeklarowane lub skomunikowane.
+Możesz wstawić instrukcje języka Python do notesu do debugowania, takie jak `print()` polecenie do wyświetlania wartości. Jeśli widzisz zmienne lub obiekty, które nie są zdefiniowane, uruchom komórki, w których są one po raz pierwszy zadeklarowane lub utworzone.
 
-Może być konieczne usunięcie wcześniej utworzonych plików i zasobów platformy Azure, jeśli trzeba ponownie ponawiać notesy.
+Jeśli chcesz ponownie wykonać te notesy, może być konieczne usunięcie wcześniej utworzonych plików i zasobów platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule użyliśmy dwóch notesów Jupyter działających w notesach platformy Azure do używania danych z urządzeń turbowentylatorowych do szkolenia klasyfikatora pozostałego okresu użytkowania (RUL), zapisywania klasyfikatora jako modelu, tworzenia obrazu kontenera oraz wdrażania i testowania obrazu jako sieci Web Usługi.
+W tym artykule użyto dwóch Jupyterych notesów uruchomionych w Azure Notebooks, aby użyć danych z urządzeń TurboFan do uczenia pozostałej klasyfikatora okresu użytkowania (pozostałego czasu eksploatacji), w celu zapisania klasyfikatora jako modelu, utworzenia obrazu kontenera oraz wdrożenia i przetestowania obrazu jako usługi sieci Web.
 
 Przejdź do następnego artykułu, aby utworzyć urządzenie IoT Edge.
 

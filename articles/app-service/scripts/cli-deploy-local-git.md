@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Wdrażanie z lokalnego repozytorium Git'
-description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure zautomatyzować wdrażanie aplikacji usługi App Service i zarządzanie nimi. W tym przykładzie pokazano, jak wdrożyć kod z lokalnego repozytorium Git.
+title: 'Interfejs wiersza polecenia: wdrażanie z lokalnego repozytorium git'
+description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. Ten przykład pokazuje, jak wdrożyć kod z lokalnego repozytorium git.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 048f98aa-f708-44cb-9b9e-953f67dc6da8
@@ -10,15 +10,15 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 11cb8bd25f82e480ddbb23151d8a7622fedc828a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80044818"
 ---
 # <a name="create-an-app-service-app-and-deploy-code-from-a-local-git-repository-using-azure-cli"></a>Tworzenie aplikacji usługi App Service i wdrażanie kodu z lokalnego repozytorium Git przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Ten przykładowy skrypt tworzy aplikację w usłudze App Service z powiązanymi zasobami, a następnie wdraża kod aplikacji w lokalnym repozytorium Git.
+Ten przykładowy skrypt tworzy aplikację w App Service z jej powiązanymi zasobami, a następnie wdraża kod aplikacji w lokalnym repozytorium git.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

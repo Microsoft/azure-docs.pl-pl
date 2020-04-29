@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z obszarami wiki | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a obszarami wiki.
+title: 'Samouczek: integracja Azure Active Directory z usługą Wikispaces | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Wikispaces.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 7a683923ba48b1f354f90ac94d746cb92f359e7a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74233321"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Samouczek: Integracja usługi Azure Active Directory z obszarami wikiprzestrzeni
+# <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Samouczek: integracja Azure Active Directory z usługą Wikispaces
 
-W tym samouczku dowiesz się, jak zintegrować przestrzenie wiki z usługą Azure Active Directory (Azure AD).
-Integracja obszarów wiki z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować usługę Wikispaces z usługą Azure Active Directory (Azure AD).
+Integracja Wikispaces z usługą Azure AD zapewnia następujące korzyści:
 
-* Możesz kontrolować w usłudze Azure AD, kto ma dostęp do obszarów wiki.
-* Możesz włączyć automatyczne logowanie użytkowników do obszarów wikiprzestrzeni (logowanie jednokrotne) za pomocą ich kont usługi Azure AD.
+* Możesz kontrolować usługę Azure AD, która ma dostęp do usługi Wikispaces.
+* Możesz pozwolić użytkownikom na automatyczne logowanie do Wikispaces (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z obszarami wikiprzestrzeni, potrzebne są następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z usługą Wikispaces, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/)
-* Subskrypcja z obsługą logowania jednokrotnego Wikispaces
+* Subskrypcja z włączonym logowaniem jednokrotnym w Wikispaces
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Wikispaces obsługuje sso inicjowane przez **sp**
+* Wikispaces obsługuje logowanie jednokrotne w usłudze **SP**
 
-## <a name="adding-wikispaces-from-the-gallery"></a>Dodawanie przestrzeni wiki z galerii
+## <a name="adding-wikispaces-from-the-gallery"></a>Dodawanie Wikispaces z galerii
 
-Aby skonfigurować integrację obszarów wiki w usłudze Azure AD, musisz dodać przestrzenie wiki z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu Wikispaces z usługą Azure AD, musisz dodać Wikispaces z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać przestrzenie wiki z galerii, wykonaj następujące czynności:**
+**Aby dodać Wikispaces z galerii, wykonaj następujące czynności:**
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
@@ -65,31 +65,31 @@ Aby skonfigurować integrację obszarów wiki w usłudze Azure AD, musisz dodać
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Wikispaces**, wybierz **Wikispace z** panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Wikispaces**, wybierz pozycję **Wikispaces** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-     ![Wikispace na liście wyników](common/search-new-app.png)
+     ![Wikispaces na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowanie jednokrotne z Wikispaces na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w przestrzeniach wiki.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Wikispaces na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Wikispaces.
 
-Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD za pomocą obszarów wikiloksowych, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Wikispaces, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie jednokrotne w przestrzeniach Wikispaces](#configure-wikispaces-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-wikispaces-single-sign-on)** jednokrotne w usłudze Wikispaces, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego Wikispaces](#create-wikispaces-test-user)** - aby mieć odpowiednik Britta Simon w Wikispaces, który jest połączony z reprezentacją użytkownika usługi Azure AD.
+5. **[Utwórz użytkownika testowego Wikispaces](#create-wikispaces-test-user)** , aby uzyskać odpowiednik Britta Simon w Wikispaces, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą obszarów wikiloksów, wykonaj następujące kroki:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Wikispaces, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **Wikispaces** wybierz pozycję **Logowanie jednokrotne.**
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Wikispaces** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -103,20 +103,20 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą obszarów 
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie i adresach URL Wikispaces](common/sp-identifier.png)
+    ![Wikispaces domenę i adresy URL Logowanie jednokrotne](common/sp-identifier.png)
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<companyname>.wikispaces.net`
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://session.wikispaces.net/<instancename>`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta Wikispaces,](https://www.wikispaces.com/site/help) aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta Wikispaces](https://www.wikispaces.com/site/help) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
-6. W sekcji **Konfigurowanie obszarów wikikonserwuj** odpowiednie adresy URL zgodnie z wymaganiami.
+6. W sekcji **Konfigurowanie Wikispaces** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -124,11 +124,11 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą obszarów 
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
-### <a name="configure-wikispaces-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w przestrzeniach wikikonserwujących
+### <a name="configure-wikispaces-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Wikispaces
 
-Aby skonfigurować logowanie jednokrotne po stronie **Wikispaces,** musisz wysłać pobrany **kod XML metadanych federacji** i odpowiednie skopiowane adresy URL z witryny Azure portal do [zespołu pomocy technicznej Wikispaces.](https://www.wikispaces.com/site/help) Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie **Wikispaces** , musisz wysłać pobrany **XML metadanych Federacji** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej Wikispaces](https://www.wikispaces.com/site/help). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -138,7 +138,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -148,23 +148,23 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa** brittasimon@yourcompanydomain.extensionużytkownika wpisz . Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension. Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć Britta Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do wikiprzestrzeni.
+W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Wikispaces.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, wybierz **pozycję Wszystkie aplikacje,** a następnie wybierz **pozycję Obszary wiki.**
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Wikispaces**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz **wikispaces**.
+2. Na liście Aplikacje wybierz pozycję **Wikispaces**.
 
-    ![Łącze Wikispace na liście Aplikacje](common/all-applications.png)
+    ![Link Wikispaces na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -176,51 +176,51 @@ W tej sekcji możesz włączyć Britta Simon do korzystania z logowania jednokro
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-wikispaces-test-user"></a>Tworzenie użytkownika testowego Wikispaces
+### <a name="create-wikispaces-test-user"></a>Utwórz użytkownika testowego Wikispaces
 
-Aby umożliwić użytkownikom usługi Azure AD logowanie się do wikiprzestrzeni, muszą one być aprowizowane w przestrzeniach wiki. W przypadku Wikispaces inicjowanie obsługi administracyjnej jest zadaniem ręcznym.
+Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Wikispaces, muszą one być obsługiwane w Wikispaces. W przypadku Wikispaces, Inicjowanie obsługi administracyjnej jest zadaniem ręcznym.
 
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Aby aprowizować konta użytkowników, wykonaj następujące czynności:
 
-1. Zaloguj się do witryny firmy **Wikispaces** jako administrator.
+1. Zaloguj się do firmowej witryny **Wikispaces** jako administrator.
 
-2. Przejdź do **: Członkowie**.
+2. Przejdź do **elementów członkowskich**.
    
     ![Elementy członkowskie](./media/wikispaces-tutorial/ic787193.png "Elementy członkowskie")
 
-3. Kliknij **przycisk Zaproś osoby**.
+3. Kliknij pozycję **Zaproś osoby**.
    
     ![Zapraszanie osób](./media/wikispaces-tutorial/ic787194.png "Zapraszanie osób")
 
-4. W sekcji **Zaproś osoby** wykonaj następujące czynności:
+4. W sekcji **Zapraszanie osób** wykonaj następujące czynności:
    
     ![Zapraszanie osób](./media/wikispaces-tutorial/ic787208.png "Zapraszanie osób")
    
-    a. Wpisz **nazwy użytkownika lub adres e-mail** prawidłowego konta usługi Azure AD, które chcesz udostępnić w powiązanych polach tekstowych.
+    a. Wpisz **nazwy użytkowników lub adresy e-mail** prawidłowego konta usługi Azure AD, które chcesz udostępnić do powiązanych pól tekstowych.
    
     b. Kliknij pozycję **Wyślij**.  
       
     > [!NOTE]
-    > Posiadacz konta usługi Azure Active Directory otrzymuje wiadomość e-mail z łączem potwierdzającym konto, zanim stanie się aktywne.
+    > Właściciel konta Azure Active Directory otrzymuje wiadomość e-mail z linkiem umożliwiającym potwierdzenie konta, zanim staną się aktywne.
     
 > [!NOTE]
-> Możesz użyć innych narzędzi do tworzenia kont użytkowników Wikispaces lub interfejsów API udostępnianych przez wikispace do aprowizowania kont użytkowników usługi Azure AD.
+> Do aprowizacji kont użytkowników usługi Azure AD można używać innych narzędzi do tworzenia kont użytkowników Wikispaces i interfejsów API udostępnionych przez usługę Wikispaces.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Wikispaces w Panelu dostępu powinieneś zostać automatycznie zalogowany do Wikispaces, dla których skonfigurujesz logującą się do systemu. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Wikispaces w panelu dostępu należy automatycznie zalogować się do Wikispaces, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

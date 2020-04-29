@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Projektowanie bazy danych platformy Azure dla mariadb — narzędzie interfejsu wiersza polecenia platformy Azure'
+title: 'Samouczek: Projektowanie interfejsu wiersza polecenia platformy Azure Azure Database for MariaDB'
 description: W tym samouczku wyjaśniono, jak utworzyć serwer oraz bazę danych usługi Azure Database for MariaDB i zarządzać nimi przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: ajlam
 ms.author: andrela
@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
 ms.openlocfilehash: 455d7a0c1b3826060ade1083ec6eea99e397574b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79534851"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Samouczek: projektowanie usługi Azure Database for MariaDB za pomocą interfejsu wiersza polecenia platformy Azure
@@ -22,15 +22,15 @@ Usługa Azure Database for MariaDB jest usługą relacyjnej bazy danych w chmurz
 > [!div class="checklist"]
 > * Tworzenie usługi Azure Database for MariaDB
 > * Konfigurowanie zapory serwera
-> * Tworzenie bazy danych za pomocą [narzędzia wiersza polecenia mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)
+> * Tworzenie bazy danych za pomocą [narzędzia wiersza polecenia MySQL](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)
 > * Ładowanie przykładowych danych
 > * Zapytania o dane
 > * Aktualizowanie danych
 > * Przywracanie danych
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
 
-Możesz użyć usługi Azure Cloud Shell w przeglądarce lub [zainstalować interfejs wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli) na własnym komputerze, aby uruchomić bloki kodu w tym samouczku.
+Możesz użyć Azure Cloud Shell w przeglądarce lub [zainstalować interfejs wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli) na własnym komputerze, aby uruchomić bloki kodu w tym samouczku.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -122,7 +122,7 @@ mysql -h mydemoserver.database.windows.net -u myadmin@mydemoserver -p
 ```
 
 ## <a name="create-a-blank-database"></a>Tworzenie pustej bazy danych
-Po nawiązaniu połączenia z serwerem utwórz pustą bazę danych.
+Po nawiązaniu połączenia z serwerem Utwórz pustą bazę danych.
 ```sql
 mysql> CREATE DATABASE mysampledb;
 ```
@@ -201,7 +201,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > [!div class="checklist"]
 > * Tworzenie serwera usługi Azure Database for MariaDB
 > * Konfigurowanie zapory serwera
-> * Tworzenie bazy danych za pomocą [narzędzia wiersza polecenia mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)
+> * Tworzenie bazy danych za pomocą [narzędzia wiersza polecenia MySQL](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)
 > * Ładowanie przykładowych danych
 > * Zapytania o dane
 > * Aktualizowanie danych

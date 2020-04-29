@@ -1,6 +1,6 @@
 ---
-title: Tworzenie klastra sieci szkieletowej usług w programie Powershell
-description: Przykład skryptu programu Azure PowerShell — tworzenie klastra sieci szkieletowej usług zabezpieczone certyfikatem X.509.
+title: Tworzenie klastra Service Fabric w programie PowerShell
+description: Przykładowy skrypt Azure PowerShell — utwórz klaster Service Fabric zabezpieczony za pomocą certyfikatu X. 509.
 services: service-fabric
 documentationcenter: ''
 author: athinanthny
@@ -15,15 +15,15 @@ ms.date: 01/19/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: f8e1a0ca86f9346cf07c87a738d48cb56f6d7d57
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75614778"
 ---
 # <a name="create-a-service-fabric-cluster"></a>Tworzenie klastra usługi Service Fabric
 
-Ten przykładowy skrypt tworzy klaster usługi Service Fabric z pięcioma węzłami zabezpieczony za pomocą certyfikatu X.509.  Polecenie tworzy certyfikat z podpisem własnym i przekazuje go do nowego magazynu kluczy. Certyfikat jest też kopiowany do katalogu lokalnego.  Ustaw parametr *-OS,* aby wybrać wersję systemu Windows lub Linux, która działa w węzłach klastra.  Dostosuj parametry zgodnie z potrzebami.
+Ten przykładowy skrypt tworzy klaster usługi Service Fabric z pięcioma węzłami zabezpieczony za pomocą certyfikatu X.509.  Polecenie tworzy certyfikat z podpisem własnym i przekazuje go do nowego magazynu kluczy. Certyfikat jest też kopiowany do katalogu lokalnego.  Ustaw parametr *-OS* , aby wybrać wersję systemu Windows lub Linux uruchamianą w węzłach klastra.  Dostosuj parametry zgodnie z potrzebami.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -48,7 +48,7 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 | Polecenie | Uwagi |
 |---|---|
-| [Nowy-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) | Tworzy nowy klaster usługi Service Fabric. |
+| [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) | Tworzy nowy klaster usługi Service Fabric. |
 
 ## <a name="next-steps"></a>Następne kroki
 

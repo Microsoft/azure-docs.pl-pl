@@ -1,5 +1,5 @@
 ---
-title: Co to jest współpraca B2B w usłudze Azure Active Directory?
+title: Co to jest współpraca B2B w Azure Active Directory?
 description: Model współpracy w usłudze Azure Active Directory B2B przyznaje prawa dostępu użytkownika-gościa, aby móc bezpiecznie udostępniać zasoby i współpracować z partnerami zewnętrznymi.
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 167c7f7aa3dbf967575c0ee8905821fb9d3f77ce
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80050736"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Co to jest dostęp użytkowników-gości w usłudze Azure Active Directory B2B?
@@ -30,7 +30,7 @@ Poniższy film oferuje przydatne omówienie tej możliwości.
 >[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
    > [!IMPORTANT]
-   > **Począwszy od 31 marca 2021**r. firma Microsoft nie będzie już obsługiwać realizacji zaproszeń, tworząc niezarządzane konta usługi Azure AD i dzierżawy scenariuszy współpracy B2B. W ramach przygotowań zachęcamy klientów do wyrażenia zgody na [jednorazowe uwierzytelnianie kodem dostępu pocztą e-mail.](one-time-passcode.md) Cieszymy się z waszych opinii na temat tej publicznej funkcji podglądu i cieszymy się, że możemy stworzyć jeszcze więcej sposobów współpracy.
+   > **Od 31 marca 2021**firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
 
 ## <a name="collaborate-with-any-partner-using-their-identities"></a>Współpraca z dowolnym partnerem z użyciem jego tożsamości
 
@@ -40,7 +40,7 @@ Dzięki usłudze Azure AD B2B partner używa własnego rozwiązania do zarządza
 - Nie trzeba zarządzać zewnętrznymi kontami lub hasłami.
 - Nie trzeba zsynchronizować konta ani zarządzać cyklami życia kont.  
 
-![Zrzut ekranu przedstawiający stronę Dodaj członków](media/what-is-b2b/add-member.png)
+![Zrzut ekranu przedstawiający stronę Dodawanie elementów członkowskich](media/what-is-b2b/add-member.png)
 
 ## <a name="invite-guest-users-with-a-simple-invitation-and-redemption-process"></a>Zapraszanie użytkowników-gości za pomocą prostego procesu zapraszania i realizacji
 
@@ -50,17 +50,17 @@ Użytkownicy-goście logują się do aplikacji i usług za pomocą własnych to�
 - Wyślij bezpośredni link do aplikacji lub wyślij zaproszenie do własnego portalu dostępu użytkownika-gościa.
 - Użytkownicy-goście wykonują kilka prostych kroków w celu realizacji.
 
-![Zrzut ekranu przedstawiający stronę Uprawnienia recenzji](media/what-is-b2b/consentscreen.png)
+![Zrzut ekranu przedstawiający stronę przegląd uprawnień](media/what-is-b2b/consentscreen.png)
 
 ## <a name="use-policies-to-securely-share-your-apps-and-services"></a>Bezpieczne udostępnianie aplikacji i usług przy użyciu zasad
 
-Zasady autoryzacji można używać do ochrony zawartości firmowej. Zasady dostępu warunkowego, takie jak uwierzytelnianie wieloskładnikowe, mogą być wymuszane:
+Możesz użyć zasad autoryzacji do ochrony zawartości firmowej. Zasady dostępu warunkowego, takie jak uwierzytelnianie wieloskładnikowe, można wymusić:
 
 - Na poziomie dzierżawy.
 - Na poziomie aplikacji.
 - W przypadku określonych gości w celu ochrony aplikacji i danych firmowych.
 
-![Zrzut ekranu przedstawiający opcję Dostęp warunkowy](media/what-is-b2b/tutorial-mfa-policy-2.png)
+![Zrzut ekranu przedstawiający opcję dostępu warunkowego](media/what-is-b2b/tutorial-mfa-policy-2.png)
 
 
 ## <a name="easily-add-guest-users-in-the-azure-ad-portal"></a>Łatwe dodawanie użytkowników-gości w portalu usługi Azure AD
@@ -71,7 +71,7 @@ Jako administrator możesz łatwo dodawać użytkowników-gości do organizacji 
 - Użytkownik-gość natychmiast otrzymuje możliwe do dostosowania zaproszenie, które pozwala mu na zalogowanie się do panelu dostępu.
 - Użytkowników-gości w katalogu można przypisywać do aplikacji lub grup.  
 
-![Zrzut ekranu przedstawiający stronę wpisu z zaproszeniem nowego użytkownika gościa](media/what-is-b2b/add-a-b2b-user-to-azure-portal.png)
+![Zrzut ekranu przedstawiający nową stronę wpisu zaproszenia użytkownika-gościa](media/what-is-b2b/add-a-b2b-user-to-azure-portal.png)
 
 ## <a name="let-application-and-group-owners-manage-their-own-guest-users"></a>Zezwalanie właścicielom aplikacji i grup na zarządzanie własnymi użytkownikami-gośćmi
 
@@ -80,14 +80,14 @@ Zarządzanie użytkownikami-gośćmi można delegować do właścicieli aplikacj
 - Administratorzy konfigurują samoobsługowe zarządzanie aplikacjami i grupami.
 - Użytkownicy inni niż administratorzy używają własnego [panelu dostępu](https://myapps.microsoft.com) w celu dodania użytkowników-gości do aplikacji lub grup.
 
-![Zrzut ekranu przedstawiający panel Dostęp dla użytkownika-gościa](media/what-is-b2b/access-panel-manage-app.png)
+![Zrzut ekranu przedstawiający panel dostępu dla użytkownika-gościa](media/what-is-b2b/access-panel-manage-app.png)
 
-## <a name="customize-the-onboarding-experience-for-b2b-guest-users"></a>Dostosowywanie środowiska dołączania dla użytkowników-gości B2B
+## <a name="customize-the-onboarding-experience-for-b2b-guest-users"></a>Dostosowywanie środowiska dołączania dla użytkowników gościa B2B
 
 Zaproś partnerów zewnętrznych do współpracy w sposób dostosowany do potrzeb swojej organizacji.
 
-- [Zarządzanie uprawnieniami usługi Azure AD](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) służy do konfigurowania zasad [zarządzania dostępem dla użytkowników zewnętrznych](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
-- Użyj [interfejsów API zaproszenia do współpracy B2B,](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) aby dostosować środowisko dołączania.
+- [Zarządzanie prawami](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) dostępu w usłudze Azure AD umożliwia konfigurowanie zasad służących do [zarządzania dostępem użytkowników zewnętrznych](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
+- Użyj [interfejsów API zaproszenia współpracy B2B](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) , aby dostosować środowiska dołączania.
 
 ## <a name="next-steps"></a>Następne kroki
 

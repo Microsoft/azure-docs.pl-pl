@@ -1,5 +1,5 @@
 ---
-title: Użyj rozwiązania zdalnego monitorowania do wykrywania problemów z urządzeniami — Azure | Dokumenty firmy Microsoft
+title: Korzystanie z rozwiązania do zdalnego monitorowania w celu wykrywania problemów z urządzeniami — platforma Azure | Microsoft Docs
 description: W tym samouczku pokazano, w jaki sposób korzystać z reguł i akcji do automatycznego wykrywania problemów z urządzeniami dotyczących wartości progowych w rozwiązaniu do monitorowania zdalnego.
 author: dominicbetts
 manager: timlt
@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79239518"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Samouczek: wykrywanie problemów z urządzeniami połączonymi z rozwiązaniem do monitorowania
@@ -33,7 +33,7 @@ W tym samouczku zostały wykonane następujące czynności:
 > * Edytowanie istniejącej reguły
 > * Włączanie i wyłącznie reguł
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -45,7 +45,7 @@ Na stronie **Reguły** akceleratora rozwiązań wyświetlana jest lista wszystki
 
 Aby wyświetlić tylko te reguły, które dotyczą chłodni, zastosuj filtr. Aby wyświetlić więcej informacji na temat reguły i edytować ją, wybierz ją na liście:
 
-[![Wyświetlanie szczegółów reguły](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-expanded.png#lightbox)
+[![Wyświetl szczegóły reguły](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-expanded.png#lightbox)
 
 ## <a name="create-a-rule"></a>Tworzenie reguły
 
@@ -62,13 +62,13 @@ Aby utworzyć regułę, która wygeneruje ostrzeżenie, gdy ciśnienie w chłodn
 | Warunek 1 — wartość    | 150                               |
 | Poziom ważności  | Ostrzeżenie                               |
 
-[![Tworzenie reguły ostrzeżenia](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2-expanded.png#lightbox)
+[![Utwórz regułę ostrzeżenia](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2-expanded.png#lightbox)
 
 Aby zapisać nową regułę, kliknij przycisk **Zastosuj**.
 
 Gdy reguła zostanie wyzwolona, zobaczysz to na stronie **Reguły** lub na stronie **Pulpit nawigacyjny**:
 
-[![Wyzwolona reguła ostrzegania](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
+[![Wyzwolono regułę ostrzeżenia](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
 
 ## <a name="create-an-advanced-rule"></a>Tworzenie zaawansowanej reguły
 
@@ -86,7 +86,7 @@ Aby utworzyć regułę z wieloma warunkami, która wygeneruje alert krytyczny, g
 | Warunek 1 — wartość    | 80                                |
 | Poziom ważności  | Krytyczny                              |
 
-[![Tworzenie wielu reguły warunku część pierwsza](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-expanded.png#lightbox)
+[![Utwórz jedną część reguły z wieloma warunkami](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-expanded.png#lightbox)
 
 Aby dodać drugi warunek, kliknij pozycję „+ Dodaj warunek”. Użyj następujących wartości dla nowego warunku:
 
@@ -96,13 +96,13 @@ Aby dodać drugi warunek, kliknij pozycję „+ Dodaj warunek”. Użyj następu
 | Warunek 2 — operator | Większe niż                      |
 | Warunek 2 — wartość    | 75                                |
 
-[![Tworzenie wielu reguły warunku część druga](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-expanded.png#lightbox)
+[![Utwórz dwie części reguły z wieloma warunkami](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-expanded.png#lightbox)
 
 Aby zapisać nową regułę, kliknij przycisk **Zastosuj**.
 
 Gdy reguła zostanie wyzwolona, zobaczysz to na stronie **Reguły** lub na stronie **Pulpit nawigacyjny**:
 
-[![Wyzwolona reguła wielu warunków](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-expanded.png#lightbox)
+[![Wyzwolono wiele reguł warunków](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-expanded.png#lightbox)
 
 ## <a name="edit-an-existing-rule"></a>Edytowanie istniejącej reguły
 

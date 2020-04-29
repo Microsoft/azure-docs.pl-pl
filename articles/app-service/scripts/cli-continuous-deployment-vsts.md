@@ -1,6 +1,6 @@
 ---
-title: Ciągłe wdrażanie z witryny Reppos platformy Azure
-description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure zautomatyzować wdrażanie aplikacji usługi App Service i zarządzanie nimi. W tym przykładzie pokazano, jak skonfigurować ciągłą integrację/dysk CD z usługi Azure Repos.
+title: Ciągłe wdrażanie z Azure Repos
+description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. Ten przykład pokazuje sposób konfigurowania ciągłej integracji/ciągłego wdrażania Azure Repos.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 389d3bd3-cd8e-4715-a3a1-031ec061d385
@@ -10,17 +10,17 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: c0e9db3825de9c8c1429bec1edcc6bbb65588fcd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80058038"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>Tworzenie aplikacji usługi App Service z ciągłym wdrażaniem przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Ten przykładowy skrypt tworzy aplikację w usłudze App Service z powiązanymi zasobami, a następnie konfiguruje ciągłe wdrażanie z repozytorium DevOps platformy Azure. Do pracy z tym przykładem potrzebne są:
+Ten przykładowy skrypt tworzy aplikację w App Service z jej powiązanymi zasobami, a następnie konfiguruje ciągłe wdrażanie z repozytorium usługi Azure DevOps. Do pracy z tym przykładem potrzebne są:
 
-* Repozytorium DevOps platformy Azure z kodem aplikacji, do którego masz uprawnienia administracyjne.
+* Repozytorium Azure DevOps z kodem aplikacji, dla którego masz uprawnienia administracyjne.
 * [Osobisty token dostępu](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) organizacji pakietu Azure DevOps.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

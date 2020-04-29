@@ -1,140 +1,140 @@
 ---
-title: 'Samouczek: Wprowadzenie do zapytań usługi Log Analytics'
-description: Dowiedz się z tego samouczka, jak pisać zapytania dziennika usługi Azure Monitor i zarządzać nimi przy użyciu usługi Log Analytics w witrynie Azure portal.
+title: 'Samouczek: Rozpoczynanie pracy z zapytaniami Log Analytics'
+description: Zapoznaj się z tym samouczkiem, jak pisać i zarządzać Azure Monitor zapytań dzienników przy użyciu Log Analytics w Azure Portal.
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
 ms.openlocfilehash: 29e24166218a6757cded9d1b002321800ab0c073
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80055472"
 ---
-# <a name="tutorial-get-started-with-log-analytics-queries"></a>Samouczek: Wprowadzenie do zapytań usługi Log Analytics
+# <a name="tutorial-get-started-with-log-analytics-queries"></a>Samouczek: Rozpoczynanie pracy z zapytaniami Log Analytics
 
-W tym samouczku pokazano, jak używać usługi Log Analytics do pisania, wykonywania i zarządzania zapytaniami dziennika usługi Azure Monitor w witrynie Azure portal. Za pomocą zapytań usługi Log Analytics można wyszukiwać terminy, identyfikować trendy, analizować wzorce i dostarczać wiele innych szczegółowych informacji z danych. 
+W tym samouczku pokazano, jak używać Log Analytics do pisania i wykonywania zapytań dzienników Azure Monitor i zarządzania nimi w Azure Portal. Za pomocą zapytań Log Analytics można wyszukiwać warunki, identyfikować trendy i analizować wzorce oraz dostarczać wiele innych szczegółowych informacji z danych. 
 
-W tym samouczku dowiesz się, jak używać usługi Log Analytics do:
+W ramach tego samouczka nauczysz się używać Log Analytics do:
 
 > [!div class="checklist"]
-> * Opis schematu danych dziennika
-> * Pisanie i uruchamianie prostych zapytań oraz modyfikowanie zakresu czasu dla kwerend
-> * Filtrowanie, sortowanie i grupowanie wyników kwerendy
-> * Wyświetlanie, modyfikowanie i udostępnianie wizualizacji wyników kwerendy
-> * Zapisywanie, ładowanie, eksportowanie i kopiowanie zapytań i wyników
+> * Informacje o schemacie danych dziennika
+> * Zapisuj i uruchamiaj proste zapytania oraz Modyfikuj zakres czasu dla zapytań
+> * Filtrowanie, sortowanie i grupowanie wyników zapytania
+> * Wyświetlanie, modyfikowanie i udostępnianie wizualizacji wyników zapytania
+> * Zapisz, Załaduj, Eksportuj i Kopiuj zapytania i wyniki
 
-Aby uzyskać więcej informacji na temat zapytań dziennika, zobacz [Omówienie zapytań dziennika w usłudze Azure Monitor](log-query-overview.md).<br/>
-Aby uzyskać szczegółowy samouczek dotyczący pisania zapytań dziennika, zobacz [Wprowadzenie do zapytań dziennika w usłudze Azure Monitor](get-started-queries.md).
+Aby uzyskać więcej informacji o zapytaniach dziennika, zobacz [Omówienie zapytań dzienników w Azure monitor](log-query-overview.md).<br/>
+Szczegółowy samouczek dotyczący pisania zapytań dzienników znajduje się [w temacie Rozpoczynanie pracy z dziennikami zapytań w Azure monitor](get-started-queries.md).
 
-## <a name="open-log-analytics"></a>Otwórz analizę dzienników
-Aby korzystać z usługi Log Analytics, musisz zalogować się do konta platformy Azure. Jeśli nie masz konta platformy Azure, [utwórz je bezpłatnie.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+## <a name="open-log-analytics"></a>Otwórz Log Analytics
+Aby korzystać z Log Analytics, musisz zalogować się do konta platformy Azure. Jeśli nie masz konta platformy Azure, [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Aby wykonać większość kroków w tym samouczku, można użyć [tego środowiska demo,](https://portal.loganalytics.io/demo)który zawiera wiele przykładowych danych. W środowisku demonstracyjnym nie będzie można zapisywać zapytań ani przypinać wyników do pulpitu nawigacyjnego.
+Aby wykonać większość kroków z tego samouczka, możesz użyć [tego środowiska demonstracyjnego](https://portal.loganalytics.io/demo), obejmującego wiele przykładowych danych. W środowisku demonstracyjnym nie będzie można zapisywać zapytań ani przypinać wyników do pulpitu nawigacyjnego.
 
-Możesz również użyć własnego środowiska, jeśli używasz usługi Azure Monitor do zbierania danych dziennika na co najmniej jednym zasobie platformy Azure. Aby otworzyć obszar roboczy usługi Log Analytics, w lewej nawigacji usługi Azure Monitor wybierz pozycję **Dzienniki**. 
+Możesz również użyć własnego środowiska, jeśli używasz Azure Monitor do zbierania danych dziennika na co najmniej jednym zasobie platformy Azure. Aby otworzyć obszar roboczy Log Analytics, w obszarze Azure Monitor nawigacji po lewej stronie wybierz pozycję **dzienniki**. 
 
 ## <a name="understand-the-schema"></a>Informacje o schemacie
-*Schemat* jest zbiorem tabel zgrupowanych w kategoriach logicznych. Schemat demo ma kilka kategorii z rozwiązań monitorowania. Na przykład **LogManagement** kategoria zawiera zdarzenia systemu Windows i Syslog, dane dotyczące wydajności i pulsu agenta.
+*Schemat* to zbiór tabel pogrupowanych pod kątem kategorii logicznych. Schemat demonstracyjny zawiera kilka kategorii z rozwiązań do monitorowania. Na przykład kategoria **LogManagement** zawiera zdarzenia systemu Windows i dziennika systemowego, dane wydajności i pulsy agentów.
 
-Tabele schematów są wyświetlane na karcie **Tabele** w obszarze roboczym usługi Log Analytics. Tabele zawierają kolumny, z których każda ma typ danych wyświetlany przez ikonę obok nazwy kolumny. Na przykład tabela **Zdarzenie** zawiera kolumny tekstowe, takie jak **Komputer** i kolumny numeryczne, takie jak **Kategoria zdarzeń**.
+Tabele schematów są wyświetlane na karcie **tabele** w obszarze roboczym log Analytics. Tabele zawierają kolumny, z których każdy ma typ danych wyświetlany przez ikonę obok nazwy kolumny. Na przykład tabela **zdarzeń** zawiera kolumny tekstowe, takie jak **komputer** i kolumny liczbowe, takie jak **EventCategory**.
 
 ![Schemat](media/get-started-portal/schema.png)
 
-## <a name="write-and-run-basic-queries"></a>Pisanie i uruchamianie podstawowych zapytań
+## <a name="write-and-run-basic-queries"></a>Zapisz i uruchom podstawowe zapytania
 
-Usługa Log Analytics zostanie otwarta z nową pustą kwerendą w **edytorze zapytań**.
+Log Analytics otwiera z nowym pustym zapytaniem w **Edytorze zapytań**.
 
 ![Log Analytics](media/get-started-portal/homepage.png)
 
-### <a name="write-a-query"></a>Pisanie kwerendy
-Kwerendy dziennika usługi Azure Monitor używają wersji języka zapytań Kusto. Kwerendy można rozpocząć od nazwy tabeli lub polecenia [wyszukiwania.](/azure/kusto/query/searchoperator) 
+### <a name="write-a-query"></a>Napisz zapytanie
+Zapytania dziennika Azure Monitor korzystają z wersji języka zapytań Kusto. Zapytania mogą rozpoczynać się od nazwy tabeli lub polecenia [wyszukiwania](/azure/kusto/query/searchoperator) . 
 
-Następująca kwerenda pobiera wszystkie rekordy z tabeli **Zdarzenia:**
+Następujące zapytanie pobiera wszystkie rekordy z tabeli **zdarzeń** :
 
 ```Kusto
 Event
 ```
 
-Znak potoku (|) oddziela polecenia, więc dane wyjściowe pierwszego polecenia są wejściem następnego polecenia. Do pojedynczej kwerendy można dodać dowolną liczbę poleceń. Następująca kwerenda pobiera rekordy z tabeli **Zdarzenia,** a następnie wyszukuje je pod kątem **błędu** terminu w dowolnej właściwości:
+Znak potoku (|) oddziela polecenia, więc dane wyjściowe pierwszego polecenia są danymi wejściowymi następnego polecenia. Do pojedynczego zapytania można dodać dowolną liczbę poleceń. Poniższe zapytanie pobiera rekordy z tabeli **zdarzeń** , a następnie przeszukuje je pod kątem **błędu** terminu w dowolnej właściwości:
 
 ```Kusto
 Event 
 | search "error"
 ```
 
-Podział pojedynczego wiersza ułatwia odczytanie zapytań. Więcej niż jeden podział wiersza dzieli kwerendę na oddzielne kwerendy.
+Pojedynczy podział wiersza sprawia, że zapytania są łatwiejsze do odczytu. Kilka podziałów wierszy dzieli zapytanie na osobne zapytania.
 
-Innym sposobem na napisanie tej samej kwerendy jest:
+Innym sposobem zapisu tego samego zapytania jest:
 
 ```Kusto
 search in (Event) "error"
 ```
 
-W drugim przykładzie polecenie **wyszukiwania** wyszukuje tylko rekordy w tabeli **Zdarzenia** pod kątem **błędu**terminu .
+W drugim przykładzie polecenie **wyszukiwania** przeszukuje tylko rekordy w tabeli **Events** dla **błędu**terminu.
 
-Domyślnie usługa Log Analytics ogranicza zapytania do zakresu czasu z ostatnich 24 godzin. Aby ustawić inny zakres czasu, można dodać jawny filtr **TimeGenerated** do kwerendy lub użyć formantu **Zakres czasu.**
+Domyślnie Log Analytics ogranicza zapytania do zakresu czasu z ostatnich 24 godzin. Aby ustawić inny zakres czasu, można dodać jawny filtr **TimeGenerated** do zapytania lub użyć kontroli **zakresu czasu** .
 
-### <a name="use-the-time-range-control"></a>Użyj kontroli zakresu czasu
-Aby użyć formantu **Zakres czasu,** zaznacz ją na górnym pasku, a następnie wybierz wartość z listy rozwijanej lub wybierz **pozycję Niestandardowe,** aby utworzyć niestandardowy zakres czasu.
+### <a name="use-the-time-range-control"></a>Użyj kontrolki przedział czasu
+Aby użyć kontrolki **zakres czasu** , zaznacz ją na górnym pasku, a następnie wybierz wartość z listy rozwijanej lub wybierz opcję **niestandardowa** , aby utworzyć niestandardowy zakres czasu.
 
-![Selektor czasu](media/get-started-portal/time-picker.png)
+![Wybór godziny](media/get-started-portal/time-picker.png)
 
-- Wartości zakresu czasu są w czasie UTC, który może być inny niż lokalna strefa czasowa.
-- Jeśli kwerenda jawnie ustawia filtr dla **TimeGenerated**, formant selektora czasu pokazuje **Ustaw w kwerendzie**i jest wyłączony, aby zapobiec konfliktowi.
+- Wartości zakresu czasu są w formacie UTC, który może być inny niż lokalna strefa czasowa.
+- Jeśli zapytanie jawnie ustawi filtr dla elementu **TimeGenerated**, kontrolka selektora czas pokazuje **ustawioną wartość w kwerendzie**i jest wyłączona, aby zapobiec konfliktowi.
 
-### <a name="run-a-query"></a>Uruchamianie kwerendy
-Aby uruchomić kwerendę, umieść kursor w miejscu kwerendy, a następnie wybierz pozycję **Uruchom** na górnym pasku lub naciśnij klawisz **Shift**+**Enter**. Kwerenda jest uruchamiana, dopóki nie znajdzie pustego wiersza.
+### <a name="run-a-query"></a>Uruchamianie zapytania
+Aby uruchomić zapytanie, umieść kursor w miejscu wewnątrz zapytania, a następnie wybierz pozycję **Uruchom** na górnym pasku lub naciśnij klawisz **SHIFT**+**Enter**. Zapytanie jest uruchamiane do momentu znalezienia pustego wiersza.
 
 ## <a name="filter-results"></a>Filtrowanie wyników
-Usługa Log Analytics ogranicza wyniki do maksymalnie 10 000 rekordów. Ogólne zapytanie, takie jak `Event` zwraca zbyt wiele wyników, aby były przydatne. Można filtrować wyniki kwerendy poprzez ograniczenie elementów tabeli w kwerendzie lub jawnie dodając filtr do wyników. Filtrowanie elementów tabeli zwraca nowy zestaw wyników, podczas gdy filtr jawny ma zastosowanie do istniejącego zestawu wyników.
+Log Analytics ogranicza wyniki do maksymalnie 10 000 rekordów. Zapytanie ogólne, takie `Event` jak zwraca zbyt wiele wyników, aby być przydatne. Wyniki zapytania można filtrować w sposób ograniczający elementy tabeli w zapytaniu lub przez jawne dodanie filtru do wyników. Filtrowanie przez elementy tabeli zwraca nowy zestaw wyników, podczas gdy jawny filtr ma zastosowanie do istniejącego zestawu wyników.
 
-### <a name="filter-by-restricting-table-elements"></a>Filtrowanie przez ograniczenie elementów tabeli
-Aby `Event` filtrować wyniki kwerendy do zdarzeń **błędu,** ograniczając elementy tabeli w kwerendzie:
+### <a name="filter-by-restricting-table-elements"></a>Filtruj, ograniczając elementy tabeli
+Aby filtrować `Event` wyniki zapytania do zdarzeń **błędów** przez ograniczenie elementów tabeli w zapytaniu:
 
-1. W wynikach kwerendy wybierz strzałkę listy rozwijanej obok dowolnego rekordu, który zawiera **błąd** w kolumnie **EventLevelName.** 
+1. W wynikach zapytania wybierz strzałkę listy rozwijanej obok dowolnego rekordu, który zawiera **błąd** w kolumnie **EventLevelName** . 
    
-1. W rozwiniętych szczegółach umieść wskaźnik myszy na ... **obok** **pozycji EventLevelName**, a następnie wybierz pozycję **Dołącz "Błąd".** 
+1. W rozwiniętych szczegółach Umieść wskaźnik myszy i wybierz pozycję **...** obok pozycji **EventLevelName**, a następnie wybierz pozycję **Uwzględnij "błąd"**. 
    
-   ![Dodawanie filtru do kwerendy](media/get-started-portal/add-filter.png)
+   ![Dodaj filtr do zapytania](media/get-started-portal/add-filter.png)
    
-1. Należy zauważyć, że kwerenda w **edytorze kwerend** została zmieniona na:
+1. Zwróć uwagę, że zapytanie w **Edytorze zapytań** zostało teraz zmienione na:
    
    ```Kusto
    Event
    | where EventLevelName == "Error"
    ```
    
-1. Wybierz **pozycję Uruchom,** aby uruchomić nową kwerendę.
+1. Wybierz pozycję **Uruchom** , aby uruchomić nowe zapytanie.
 
-### <a name="filter-by-explicitly-filtering-results"></a>Filtrowanie przez jawne filtrowanie wyników
-Aby filtrować `Event` wyniki kwerendy do **zdarzeń błędu,** filtrując wyniki kwerendy:
+### <a name="filter-by-explicitly-filtering-results"></a>Filtruj według jawnego filtrowania wyników
+Aby filtrować wyniki `Event` zapytania do zdarzeń **błędów** przez filtrowanie wyników zapytania:
 
-1. W wynikach kwerendy wybierz ikonę **Filtr obok** nagłówka kolumny **EventLevelName**. 
+1. W wynikach zapytania wybierz ikonę **filtru** obok nagłówka kolumny **EventLevelName**. 
    
-1. W pierwszym polu okna podręcznego wybierz pozycję **Jest równa**, a w następnym polu wprowadź *błąd*. 
+1. W pierwszym polu okna podręcznego wybierz opcję **równa**się, a w następnym polu wpisz *błąd*. 
    
-1. Wybierz **filtr**.
+1. Wybierz pozycję **Filtr**.
    
    ![Filtr](media/get-started-portal/filter.png)
 
-## <a name="sort-group-and-select-columns"></a>Sortowanie, grupowanie i zaznaczanie kolumn
-Aby posortować wyniki kwerendy według określonej kolumny, takiej jak **TimeGenerated [UTC],** wybierz nagłówek kolumny. Ponownie wybierz nagłówek, aby przełączać się między kolejnością rosnącą a malejącą.
+## <a name="sort-group-and-select-columns"></a>Sortuj, Grupuj i zaznaczaj kolumny
+Aby posortować wyniki zapytania według określonej kolumny, takiej jak **TimeGenerated [UTC]**, wybierz nagłówek kolumny. Ponownie wybierz nagłówek, aby przełączać się między rosnącą a malejącą kolejnością.
 
-![Kolumna Sortowanie](media/get-started-portal/sort-column.png)
+![Sortuj kolumnę](media/get-started-portal/sort-column.png)
 
-Innym sposobem organizowania wyników jest grupa. Aby zgrupować wyniki według określonej kolumny, przeciągnij nagłówek kolumny na pasek nad tabelą wyników z **etykietą Przeciągnij nagłówek kolumny i upuść go tutaj, aby pogrupować według tej kolumny**. Aby utworzyć podgrupy, przeciągnij inne kolumny na górny pasek. Można zmienić kolejność hierarchii i sortowanie grup i podgrup na pasku.
+Inny sposób organizowania wyników odbywa się według grup. Aby pogrupować wyniki według określonej kolumny, przeciągnij nagłówek kolumny na pasek powyżej tabeli wyników z etykietą **przeciągnij nagłówek kolumny i upuść go tutaj, aby grupować według tej kolumny**. Aby utworzyć podgrupy, przeciągnij inne kolumny na górny pasek. Można zmienić kolejność hierarchii i sortowanie grup i podgrup na pasku.
 
 ![Grupy](media/get-started-portal/groups.png)
 
-Aby ukryć lub wyświetlić kolumny w **wynikach,** wybierz pozycję Kolumny nad tabelą, a następnie zaznacz lub usuń zaznaczenie kolumn z listy rozwijanej.
+Aby ukryć lub pokazać kolumny w wynikach, zaznacz **kolumny** powyżej tabeli, a następnie zaznacz lub usuń zaznaczenie żądanych kolumn z listy rozwijanej.
 
 ![Wybieranie kolumn](media/get-started-portal/select-columns.png)
 
 ## <a name="view-and-modify-charts"></a>Wyświetlanie i modyfikowanie wykresów
-Wyniki kwerend można również wyświetlać w formatach wizualnych. Wprowadź na przykład następującą kwerendę:
+Wyniki zapytania można również wyświetlać w formatach wizualnych. Wprowadź następujący przykład zapytania:
 
 ```Kusto
 Event 
@@ -143,65 +143,65 @@ Event
 | summarize count() by Source 
 ```
 
-Domyślnie wyniki są wyświetlane w tabeli. Wybierz **wykres** nad tabelą, aby zobaczyć wyniki w widoku graficznym.
+Domyślnie wyniki są wyświetlane w tabeli. Wybierz pozycję **Wykres** powyżej tabeli, aby wyświetlić wyniki w widoku graficznym.
 
 ![Wykres słupkowy](media/get-started-portal/bar-chart.png)
 
-Wyniki są wyświetlane na skumulowanym wykresie słupkowym. Wybierz inne opcje, takie jak **Skumulowana kolumna** lub **Ciasto,** aby wyświetlić inne widoki wyników.
+Wyniki pojawiają się na skumulowanym wykresie słupkowym. Wybierz inne opcje, takie jak **skumulowany kolumnowy** lub **kołowy** , aby pokazać inne widoki wyników.
 
 ![Wykres kołowy](media/get-started-portal/pie-chart.png)
 
-Można ręcznie zmienić właściwości widoku, takie jak osie x i y, lub grupowanie i dzielenie preferencji, ręcznie z paska sterowania.
+Można zmienić właściwości widoku, takie jak osie x i y, lub grupować i dzielić preferencje ręcznie z paska sterowania.
 
-Można również ustawić widok preferowany w samej kwerendzie, używając operatora [renderowania.](/azure/kusto/query/renderoperator)
+Możesz również ustawić preferowany widok w samej kwerendzie przy użyciu operatora [renderowania](/azure/kusto/query/renderoperator) .
 
-## <a name="pin-results-to-a-dashboard"></a>Przypinanie wyników do pulpitu nawigacyjnego
-Aby przypiąć tabelę wyników lub wykres z usługi Log Analytics do udostępnionego pulpitu nawigacyjnego platformy Azure, wybierz **pozycję Przypnij do pulpitu nawigacyjnego** na górnym pasku. 
+## <a name="pin-results-to-a-dashboard"></a>Przypnij wyniki do pulpitu nawigacyjnego
+Aby przypiąć tabelę wyników lub wykres z Log Analytics do udostępnionego pulpitu nawigacyjnego platformy Azure, wybierz pozycję **Przypnij do pulpitu nawigacyjnego** na górnym pasku. 
 
 ![Przypnij do pulpitu nawigacyjnego](media/get-started-portal/pin-dashboard.png)
 
-W okienku **Przypnij do innego pulpitu nawigacyjnego** zaznacz lub utwórz udostępniony pulpit nawigacyjny, do którym chcesz przypiąć, a następnie wybierz pozycję **Zastosuj**. Tabela lub wykres są wyświetlane na wybranym pulpicie nawigacyjnym platformy Azure.
+W **innym okienku pulpitu nawigacyjnego** , wybierz lub Utwórz udostępniony pulpit nawigacyjny, aby przypiąć do i wybierz pozycję **Zastosuj**. Tabela lub wykres pojawia się na wybranym pulpicie nawigacyjnym platformy Azure.
 
 ![Wykres przypięty do pulpitu nawigacyjnego](media/get-started-portal/pin-dashboard2.png)
 
-Tabela lub wykres przypinany do udostępnionego pulpitu nawigacyjnego ma następujące uproszczenia: 
+Tabela lub wykres przypięcia do udostępnionego pulpitu nawigacyjnego ma następujące uproszczenia: 
 
 - Dane są ograniczone do ostatnich 14 dni.
-- Tabela zawiera tylko maksymalnie cztery kolumny i siedem pierwszych wierszy.
-- Wykresy z wieloma osobnymi kategoriami automatycznie grupują mniej zaludnione kategorie w jeden **pojemnik.**
+- Tabela zawiera tylko do czterech kolumn i pierwszych siedem wierszy.
+- Wykresy z wieloma dyskretnymi kategoriami automatycznie grupują mniej wypełnione kategorie w **jeden zasobnik.**
 
-## <a name="save-load-or-export-queries"></a>Zapisywanie, ładowanie lub eksportowanie kwerend
-Po utworzeniu kwerendy można zapisać lub udostępnić kwerendę lub wyniki innym osobom. 
+## <a name="save-load-or-export-queries"></a>Zapisz, Załaduj lub Eksportuj zapytania
+Po utworzeniu zapytania można zapisać lub udostępnić zapytanie lub wyniki z innymi osobami. 
 
 ### <a name="save-queries"></a>Zapisywanie zapytań
-Aby zapisać kwerendę:
+Aby zapisać zapytanie:
 
-1. Wybierz **pozycję Zapisz** na górnym pasku.
+1. Wybierz pozycję **Zapisz** na górnym pasku.
    
-1. W oknie dialogowym **Zapisz** nadaj kwerendzie **nazwę**, używając znaków a–z, A–Z, 0-9, spacji, łącznika, podkreślenia, kropki, nawiasu lub potoku. 
+1. W oknie dialogowym **zapisywania** nadaj kwerendzie **nazwę**, używając znaków A – Z, a – z, 0-9, spacji, łączników, podkreślenia, kropki, nawiasów lub potoku. 
    
-1. Wybierz, czy kwerenda ma być zapisywana jako **kwerenda,** czy **funkcja**. Funkcje są kwerendy, które inne kwerendy mogą odwoływać. 
+1. Wybierz, czy kwerenda ma zostać zapisana jako **zapytanie** czy **Funkcja**. Funkcje są zapytania, do których mogą się odwoływać inne zapytania. 
    
-   Aby zapisać kwerendę jako funkcję, podaj **alias funkcji**, który jest krótką nazwą dla innych kwerend do wywołania tej kwerendy.
+   Aby zapisać zapytanie jako funkcję, podaj **alias funkcji**, który jest krótką nazwą innych zapytań, które mają być używane do wywołania tego zapytania.
    
-1. Podaj **kategorię** dla **Eksploratora kwerendy** do użycia dla kwerendy.
+1. Podaj **kategorię** **Eksploratora zapytań** do użycia w zapytaniu.
    
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
    
-   ![Zapisz, funkcja](media/get-started-portal/save-function.png)
+   ![Funkcja Save](media/get-started-portal/save-function.png)
 
-### <a name="load-queries"></a>Ładowanie kwerend
-Aby załadować zapisaną kwerendę, wybierz **Eksplorator kwerend** w prawym górnym rogu. Zostanie otwarte okienko **Eksploratora kwerend** z listą wszystkich zapytań według kategorii. Rozwiń kategorie lub wprowadź nazwę kwerendy na pasku wyszukiwania, a następnie wybierz kwerendę, aby załadować ją do **edytora zapytań**. Kwerendę można oznaczyć jako **ulubioną,** wybierając gwiazdkę obok nazwy kwerendy.
+### <a name="load-queries"></a>Załaduj zapytania
+Aby załadować zapisane zapytanie, wybierz pozycję **Eksplorator zapytań** w prawym górnym rogu. Zostanie otwarte okienko **Eksplorator zapytań** zawierające listę wszystkich zapytań według kategorii. Rozwiń kategorie lub wprowadź nazwę zapytania na pasku wyszukiwania, a następnie wybierz zapytanie, aby załadować je do **edytora zapytań**. Zapytanie można oznaczyć jako **Ulubione** , wybierając gwiazdkę obok nazwy zapytania.
 
 ![Eksplorator zapytań](media/get-started-portal/query-explorer.png)
 
 ### <a name="export-and-share-queries"></a>Eksportowanie i udostępnianie zapytań
-Aby wyeksportować kwerendę, wybierz pozycję **Eksportuj** na górnym pasku, a następnie wybierz pozycję **Eksportuj do PLIKU CSV — wszystkie kolumny**, **Eksportuj do PLIKU CSV — wyświetlane kolumny**lub **Eksportuj do usługi Power BI (kwerenda M)** z listy rozwijanej.
+Aby wyeksportować zapytanie, wybierz pozycję **Eksportuj** na górnym pasku, a następnie wybierz pozycję **Eksportuj do pliku CSV — wszystkie kolumny**, **Eksportuj do pliku CSV — wyświetlane kolumny**lub **Eksportuj do Power BI (M Query)** z listy rozwijanej.
 
-Aby udostępnić łącze do kwerendy, wybierz pozycję **Kopiuj łącze** na górnym pasku, a następnie wybierz pozycję **Kopiuj łącze do kwerendy,** **kopiuj tekst kwerendy**lub **Kopiuj wyniki kwerendy,** aby skopiować je do schowka. Łącze zapytania można wysłać do innych osób, które mają dostęp do tego samego obszaru roboczego.
+Aby udostępnić link do zapytania, wybierz pozycję **Kopiuj link** na górnym pasku, a następnie wybierz pozycję **Kopiuj link do zapytania**, **skopiuj tekst zapytania**lub **Skopiuj wyniki zapytania** , aby skopiować je do Schowka. Można wysłać link zapytania do innych osób, które mają dostęp do tego samego obszaru roboczego.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do następnego samouczka, aby dowiedzieć się więcej o pisaniu zapytań dziennika usługi Azure Monitor.
+Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat pisania zapytań dziennika Azure Monitor.
 > [!div class="nextstepaction"]
-> [Pisanie zapytań dziennika usługi Azure Monitor](get-started-queries.md)
+> [Zapisz zapytania dziennika Azure Monitor](get-started-queries.md)

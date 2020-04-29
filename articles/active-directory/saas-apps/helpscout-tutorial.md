@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z programem Help Scout | Dokumenty firmy Microsoft'
+title: 'Samouczek: integracja Azure Active Directory z usługą Help Scout | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Help Scout.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b71ccbc6cfdb9d3d37fc46b0e932fa98eee2fb43
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73159093"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Samouczek: Integracja usługi Azure Active Directory z poradnikiem Pomocy
+# <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Samouczek: integracja Azure Active Directory z Help Scout
 
 Z tego samouczka dowiesz się, jak zintegrować aplikację Help Scout z usługą Azure Active Directory (Azure AD).
 Integracja aplikacji Help Scout z usługą Azure AD zapewnia następujące korzyści:
@@ -33,13 +33,13 @@ Integracja aplikacji Help Scout z usługą Azure AD zapewnia następujące korzy
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do skonfigurowania integracji usługi Azure AD z aplikacją Help Scout potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto.](https://azure.microsoft.com/free/)
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 * Subskrypcja aplikacji Help Scout z obsługą logowania jednokrotnego
 
 ## <a name="scenario-description"></a>Opis scenariusza
@@ -53,26 +53,26 @@ W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azu
 
 Aby skonfigurować integrację aplikacji Help Scout w usłudze Azure AD, należy dodać aplikację Help Scout z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy użyciu konta służbowego lub konta firmy Microsoft.
-1. W lewym okienku nawigacji wybierz usługę **Azure Active Directory.**
-1. Przejdź do **aplikacji korporacyjnych,** a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz **Pomoc Scout** w polu wyszukiwania.
-1. Wybierz **pozycję Skaut pomocy** z panelu wyników, a następnie dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** wpisz **Help Scout** w polu wyszukiwania.
+1. Wybierz pozycję **Help Scout** z panelu wyniki, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego za pomocą Pomocy Scout na podstawie użytkownika testowego o nazwie **B.Simon**.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego w usłudze Azure AD za pomocą pomocy Scout na podstawie użytkownika testowego o nazwie **B. Simon**.
 Aby logowanie jednokrotne działało, należy ustanowić relację połączenia między użytkownikiem usługi Azure AD i powiązanym użytkownikiem aplikacji Help Scout.
 
 Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD w aplikacji Help Scout, należy wykonać kroki opisane w poniższych blokach konstrukcyjnych:
 
-1. **[Skonfiguruj samouszeńcę usługi Azure AD](#configure-azure-ad-sso)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-    * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD za pomocą usługi B.Simon.
-    * **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić B.Simon używać logowania jednokrotnego usługi Azure AD.
-1. **[Skonfiguruj logowanie jednokrotne programu Help Scout](#configure-help-scout-sso)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
-    * **[Utwórz użytkownika testowego Pomocy Scout](#create-help-scout-test-user)** - mieć odpowiednik B.Simon w Pomocy Scout, który jest połączony z reprezentacji usługi Azure AD użytkownika.
-1. **[Test SSO](#test-sso)** - aby sprawdzić, czy konfiguracja działa.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    * **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
+1. **[Skonfiguruj pomoc dla logowania jednokrotnego](#configure-help-scout-sso)** w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+    * **[Utwórz użytkownika Help Scout test](#create-help-scout-test-user)** , aby uzyskać odpowiednika B. Simon w pomocy Scout, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
@@ -92,7 +92,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Help Scout
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja SAML,** Jeśli chcesz skonfigurować aplikację w trybie inicjowanym **przez IDP,** wykonaj następujące czynności:
+1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
     ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji Help Scout](common/idp-intiated.png)
 
@@ -103,7 +103,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Help Scout
     > [!NOTE]
     > Wartości tych adresów URL są tylko na potrzeby demonstracyjne. Musisz zaktualizować te wartości na podstawie rzeczywistych wartości adresu URL odpowiedzi i identyfikatora. Wartości te uzyskasz z karty **Single Sign-On** (Logowanie jednokrotne) w sekcji Authentication (Uwierzytelnianie), co zostało wyjaśnione w dalszej części tego samouczka.
 
-1. Kliknij **pozycję Ustaw dodatkowe adresy URL** i wykonaj następujący krok, jeśli chcesz skonfigurować aplikację w trybie inicjowanym w sp: **SP**
+1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
     ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji Help Scout](common/metadata-upload-additional-signon.png)
 
@@ -121,17 +121,17 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Help Scout
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-Celem tej sekcji jest utworzenie użytkownika testowego w witrynie Azure portal o nazwie B.Simon.
+Celem tej sekcji jest utworzenie użytkownika testowego w Azure Portal o nazwie B. Simon.
 
 1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -139,18 +139,18 @@ Celem tej sekcji jest utworzenie użytkownika testowego w witrynie Azure portal 
 
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
-    a. W polu **Nazwa** wprowadź **b.simon**.
+    a. W polu **Nazwa** wpisz **B. Simon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **\@B.Simon yourcompanydomain.extension**  
+    b. W polu **Nazwa użytkownika** wpisz **B. Simon\@yourcompanydomain. Extension**  
     Na przykład: B.Simon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć B.Simon do korzystania z usługi Azure logowania jednokrotnego, przyznając dostęp do Pomocy Scout.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure, przyznając dostęp do programu Help Scout.
 
 1. W witrynie Azure Portal wybierz pozycję **Aplikacje dla przedsiębiorstw**, pozycję **Wszystkie aplikacje**, a następnie pozycję **Help Scout**.
 
@@ -168,23 +168,23 @@ W tej sekcji można włączyć B.Simon do korzystania z usługi Azure logowania 
 
     ![Okienko Dodawanie przypisania](common/add-assign-user.png)
 
-5. W oknie dialogowym **Użytkownicy i grupy** wybierz **pozycję B.Simon** na liście Użytkownicy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+5. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** na liście Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-## <a name="configure-help-scout-sso"></a>Konfigurowanie programu pomocy scouta jako sytego
+## <a name="configure-help-scout-sso"></a>Konfigurowanie pomocy dla logowania jednokrotnego
 
-1. Aby zautomatyzować konfigurację w programie Help Scout, należy zainstalować **rozszerzenie przeglądarki My Apps Secure Sign-in,** klikając pozycję Zainstaluj **rozszerzenie**.
+1. Aby zautomatyzować konfigurację w ramach pomocy systemu Scout, należy zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
 
-    ![Rozszerzenie Moje aplikacje](common/install-myappssecure-extension.png)
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
 
-1. Po dodaniu rozszerzenia do przeglądarki, kliknij **Przycisk Skonfiguruj Pomoc Scouta,** przekieruje Cię do aplikacji Help Scout. W tym miejscu podaj poświadczenia administratora, aby zalogować się do programu Help Scout. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i zautomatyzuje kroki 3–7.
+1. Po dodaniu rozszerzenia do przeglądarki, kliknij pozycję **Konfiguracja Help Scout** przekieruje Cię do aplikacji Help Scout. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do pomocy usługi Scout. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i zautomatyzuje kroki 3–7.
 
-    ![Konfiguracja instalacji](common/setup-sso.png)
+    ![Konfiguracja konfiguracji](common/setup-sso.png)
 
-1. Jeśli chcesz ręcznie skonfigurować Pomoc Programu Help Scout, otwórz nowe okno przeglądarki internetowej i zaloguj się do witryny firmy Help Scout jako administrator i wykonaj następujące czynności:
+1. Jeśli chcesz ręcznie skonfigurować pomoc w usłudze Scout, Otwórz nowe okno przeglądarki sieci Web i zaloguj się w witrynie pomocy Help Scout jako administrator i wykonaj następujące czynności:
 
 1. Kliknij pozycję **Manage** (Zarządzaj) w górnym menu, a następnie wybierz pozycję **Company** (Firma) z menu rozwijanego.
 
@@ -206,11 +206,11 @@ W tej sekcji można włączyć B.Simon do korzystania z usługi Azure logowania 
 
     ![Konfigurowanie logowania jednokrotnego](./media/helpscout-tutorial/settings4.png)
 
-    a. W polu tekstowym **adresu URL logowania jednokrotnego** wklej wartość **adresu URL logowania,** który został skopiowany z witryny Azure portal.
+    a. W polu tekstowym **adres URL** logowania jednokrotnego wklej wartość **adresu URL logowania**, która została skopiowana z Azure Portal.
 
     b. Kliknij przycisk **Upload Certificate** (Przekaż certyfikat), aby przekazać **certyfikat (Base64)** pobrany z witryny Azure Portal.
 
-    d. Wprowadź domeny poczty e-mail organizacji, na przykład `contoso.com`, w polu tekstowym **Email Domains** (Domeny poczty e-mail). Wiele domen można oddzielić przecinkami. Za każdym razem, gdy użytkownik lub administrator aplikacji Help Scout wprowadzi tę konkretną domenę na [stronie logowania aplikacji Help Scout](https://secure.helpscout.net/members/login/), zostanie przekierowany do dostawcy tożsamości w celu uwierzytelnienia przy użyciu podanych poświadczeń.
+    c. Wprowadź domeny poczty e-mail organizacji, na przykład `contoso.com`, w polu tekstowym **Email Domains** (Domeny poczty e-mail). Wiele domen można oddzielić przecinkami. Za każdym razem, gdy użytkownik lub administrator aplikacji Help Scout wprowadzi tę konkretną domenę na [stronie logowania aplikacji Help Scout](https://secure.helpscout.net/members/login/), zostanie przekierowany do dostawcy tożsamości w celu uwierzytelnienia przy użyciu podanych poświadczeń.
 
     d. Ponadto możesz włączyć ustawienie **Force SAML Sign-on** (Wymuszaj logowanie SAML), jeśli użytkownicy mają logować się w aplikacji Help Scout tylko za pośrednictwem tej metody. Jeśli chcesz pozostawić im opcję logowania się przy użyciu poświadczeń aplikacji Help Scout, możesz pozostawić to ustawienie wyłączone. Nawet jeśli to ustawienie jest włączone, właściciel konta zawsze będzie mógł zalogować się w aplikacji Help Scout za pomocą hasła do swojego konta.
 
@@ -218,20 +218,20 @@ W tej sekcji można włączyć B.Simon do korzystania z usługi Azure logowania 
 
 ### <a name="create-help-scout-test-user"></a>Tworzenie użytkownika testowego aplikacji Help Scout
 
-W tej sekcji użytkownik o nazwie B.Simon jest tworzony w Pomocy Scout. Aplikacja Help Scout obsługuje aprowizację użytkowników typu just-in-time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje w aplikacji Help Scout, zostanie utworzony po uwierzytelnieniu.
+W tej sekcji użytkownik o nazwie B. Simon został utworzony w pomocy Scout. Aplikacja Help Scout obsługuje aprowizację użytkowników typu just-in-time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje w aplikacji Help Scout, zostanie utworzony po uwierzytelnieniu.
 
-### <a name="test-sso"></a>Test SSO
+### <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Help Scout w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Help Scout, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Help Scout w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Help Scout, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Wypróbuj pomoc Scout z usługą Azure AD](https://aad.portal.azure.com/)
+- [Wypróbuj program Scout z usługą Azure AD](https://aad.portal.azure.com/)

@@ -14,10 +14,10 @@ ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 9bdcf9ea247adb8d5941c75f90f7db3915af20bc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75940941"
 ---
 # <a name="api-management-policy-samples"></a>Przykłady zasad usługi API Management
@@ -33,7 +33,7 @@ ms.locfileid: "75940941"
 | [Autoryzacja dostępu na podstawie oświadczeń JWT](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json)                                              | Pokazuje sposób autoryzowania dostępu do konkretnych metod HTTP w interfejsie API opartym na oświadczeniach JWT.                                                                                                                                       |
 | [Autoryzacja żądań za pomocą zewnętrznego obiektu autoryzującego](./policies/authorize-request-using-external-authorizer.md)                                                   | Pokazuje sposób zabezpieczania dostępu do interfejsu API za pomocą zewnętrznego obiektu autoryzującego.                                                                                                                                                               |
 | [Autoryzacja dostępu za pomocą tokenu OAuth usługi Google](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json)                                            | Pokazuje sposób autoryzowania dostępu do punktów końcowych przy użyciu usługi Google jako dostawcy tokenów OAuth.                                                                                                                                    |
-| [Filtrowanie adresów IP podczas korzystania z bramy aplikacji](./policies/filter-ip-addresses-when-using-appgw.md) | Pokazuje, jak filtrować adres IP w zasadach, gdy wystąpienie usługi API Management jest dostępne za pośrednictwem bramy aplikacji
+| [Filtruj adresy IP przy użyciu Application Gateway](./policies/filter-ip-addresses-when-using-appgw.md) | Pokazuje sposób filtrowania protokołu IP w zasadach, gdy dostęp do wystąpienia API Management jest uzyskiwany za pośrednictwem Application Gateway
 | [Generowanie sygnatury dostępu współdzielonego i przekazywanie żądania do usługi Azure Storage](./policies/generate-shared-access-signature.md?toc=api-management/toc.json)                  | Pokazuje sposób generowania [sygnatury dostępu współdzielonego](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) przy użyciu wyrażeń i przekazywania żądania do usługi Azure Storage za pomocą zasad ponownego zapisywania identyfikatorów URI. |
 | [Uzyskiwanie tokenu dostępu OAuth2 z usługi AAD i przekazywanie go do zaplecza](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json)                             | Udostępnia przykład użycia protokołu OAuth2 do autoryzacji między bramą i zapleczem. Pokazuje sposób uzyskiwania tokenu dostępu z usługi AAD i przekazywania go do zaplecza.                                                    |
 | [Uzyskiwanie tokenu X-CSRF z bramy SAP przy użyciu zasad żądania wysłania](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json)                           | Pokazuje sposób implementowania wzorca X-CSRF używanego przez wiele interfejsów API. Ten przykład jest specyficzny dla bramy SAP.                                                                                                                           |

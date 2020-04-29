@@ -1,6 +1,6 @@
 ---
-title: Skrypt programu PowerShell do tworzenia tabeli w interfejsie API tabeli usługi Azure Cosmos DB
-description: Dowiedz się, jak zaktualizować przepływność bazy danych lub kontenera w interfejsie API tabeli usługi Azure Cosmos DB
+title: Skrypt programu PowerShell służący do tworzenia tabeli w Azure Cosmos DB interfejs API tabel
+description: Dowiedz się, jak za pomocą skryptu programu PowerShell zaktualizować przepływność dla bazy danych lub kontenera w Azure Cosmos DB interfejs API tabel
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: 9ea03996c793c3d53e4a3657c537f9354892c647
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80365597"
 ---
-# <a name="create-a-table-for-azure-cosmos-db---table-api"></a>Tworzenie tabeli dla usługi Azure Cosmos DB — interfejs API tabeli
+# <a name="create-a-table-for-azure-cosmos-db---table-api"></a>Tworzenie tabeli dla Azure Cosmos DB-interfejs API tabel
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -39,9 +39,9 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | Polecenie | Uwagi |
 |---|---|
 |**Zasoby platformy Azure**| |
-| [Nowe źródło AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Tworzy zasób. |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Tworzy zasób. |
 |**Azure Cosmos DB**| |
-| [Tabela Set-AzCosmosDBTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbtable) | Tworzy lub aktualizuje tabelę interfejsu API tabeli usługi Cosmos DB. |
+| [Set-AzCosmosDBTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbtable) | Tworzy lub aktualizuje tabelę interfejs API tabel Cosmos DB. |
 |**Grupy zasobów platformy Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||

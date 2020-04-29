@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z N2F — raporty z wydatków | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a raportami wydatków N2F.
+title: 'Samouczek: integracja Azure Active Directory z raportami wydatków N2F | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i raportami wydatków N2F.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 11f5e2f7763008c3af09c5367d90265af6a9653a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73161289"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Samouczek: Integracja usługi Azure Active Directory z N2F — raporty z wydatków
+# <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Samouczek: integracja Azure Active Directory z raportami wydatków N2F
 
-W tym samouczku dowiesz się, jak zintegrować N2F — raporty wydatków z usługą Azure Active Directory (Azure AD).
-Integracja N2F — raporty wydatków z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować raporty wydatków N2F z usługą Azure Active Directory (Azure AD).
+Integracja raportów wydatków N2F z usługą Azure AD zapewnia następujące korzyści:
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do N2F — raporty wydatków.
-* Można włączyć użytkowników, aby automatycznie zalogować się do N2F — raporty wydatków (logowanie jednokrotne) z ich kont usługi Azure AD.
+* Możesz kontrolować usługę Azure AD, która ma dostęp do raportów wydatków N2F.
+* Możesz umożliwić użytkownikom automatyczne logowanie do raportów wydatków N2F (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z raportami wydatków N2F — potrzebne są następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z raportami wydatków N2F, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* N2F — raporty wydatków z włączoną subskrypcją logowania jednokrotnego
+* N2F — subskrypcja z włączoną obsługą logowania jednokrotnego
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* N2F - Raporty wydatków obsługuje **SP** i **IDP** zainicjowane SSO
+* N2F — raporty wydatków obsługują Logowanie jednokrotne z użyciem **SP** i **dostawcy tożsamości**
 
-## <a name="adding-n2f---expense-reports-from-the-gallery"></a>Dodawanie N2F - Raporty z wydatków z galerii
+## <a name="adding-n2f---expense-reports-from-the-gallery"></a>Dodawanie raportów wydatków N2F z galerii
 
-Aby skonfigurować integrację N2F — Raporty wydatków do usługi Azure AD, należy dodać N2F — raporty wydatków z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację raportów wydatków N2F z usługą Azure AD, należy dodać raporty wydatków N2F z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać N2F - Raporty z wydatków z galerii, wykonaj następujące kroki:**
+**Aby dodać raporty wydatków N2F z galerii, wykonaj następujące czynności:**
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
@@ -65,31 +65,31 @@ Aby skonfigurować integrację N2F — Raporty wydatków do usługi Azure AD, na
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **N2F - Raporty wydatków**, wybierz **N2F - Raporty wydatków** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **N2F-Reports**, wybierz pozycję **raporty wydatków N2F** z panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-     ![N2F - Raporty z wydatków na liście wyników](common/search-new-app.png)
+     ![Raporty wydatków N2F na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego za pomocą N2F — raporty wydatków na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w U2F — raporty wydatków.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą raportów wydatków N2F w oparciu o użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w raportach wydatków N2F.
 
-Aby skonfigurować i przetestować usługę Azure AD logowania jednokrotnego za pomocą N2F — raporty wydatków, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą raportów wydatków N2F, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Konfigurowanie N2F — raporty wydatków Logowania jednokrotnego](#configure-n2f---expense-reports-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. Konfigurowanie rejestracji jednokrotnej w **[raportach wydatków N2F](#configure-n2f---expense-reports-single-sign-on)** — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Tworzenie N2F — raporty wydatków użytkownika testowego](#create-n2f---expense-reports-test-user)** — mieć odpowiednik Britta Simon w N2F — raporty wydatków, który jest połączony z reprezentacji usługi Azure AD użytkownika.
+5. **[Tworzenie raportów wydatków N2F użytkownika testowego](#create-n2f---expense-reports-test-user)** — Aby uzyskać odpowiednik Britta Simon w raportach wydatków N2F, które są połączone z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą raportów n2f — raporty z wydatków, wykonaj następujące kroki:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą raportów wydatków N2F, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **N2F — Raporty wydatków** wybierz opcję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **N2Fe raporty dotyczące wydatków** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -101,21 +101,21 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą raportów n
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-4. W sekcji **Podstawowa konfiguracja SAML,** jeśli chcesz skonfigurować aplikację w trybie inicjowanym **przez usługę IDP,** użytkownik nie musi wykonywać żadnych kroków, ponieważ aplikacja jest już wstępnie zintegrowana z platformą Azure.
+4. Jeśli chcesz skonfigurować aplikację w trybie zainicjowanym przy użyciu usługi **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja języka SAML** użytkownik nie musi wykonywać żadnych czynności, ponieważ aplikacja jest już wstępnie zintegrowana z platformą Azure.
 
-    ![N2F — raporty o wydatkach Informacje o logowanie do domeny i adresów URL](common/preintegrated.png)
+    ![N2F — informacje dotyczące logowania jednokrotnego w domenach i adresach URL](common/preintegrated.png)
 
-5. Kliknij **pozycję Ustaw dodatkowe adresy URL** i wykonaj następujący krok, jeśli chcesz skonfigurować aplikację w trybie inicjowanym w sp: **SP**
+5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![N2F — raporty o wydatkach Informacje o logowanie do domeny i adresów URL](common/metadata-upload-additional-signon.png)
+    ![N2F — informacje dotyczące logowania jednokrotnego w domenach i adresach URL](common/metadata-upload-additional-signon.png)
 
-    W polu **tekstowym "Podpisywanie adresu URL"** wpisz adres URL:`https://www.n2f.com/app/`
+    W polu tekstowym **adres URL logowania** wpisz adres URL:`https://www.n2f.com/app/`
 
 6. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij przycisk kopiowania, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
-7. W sekcji **Konfigurowanie myPolicies** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+7. W sekcji **Konfigurowanie zasad moje zasady** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -123,37 +123,37 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą raportów n
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
-### <a name="configure-n2f---expense-reports-single-sign-on"></a>Konfigurowanie N2F — raporty wydatków Logowanie jednokrotne
+### <a name="configure-n2f---expense-reports-single-sign-on"></a>Konfigurowanie rejestracji jednokrotnej w raportach wydatków N2F
 
-1. W innym oknie przeglądarki internetowej zaloguj się do witryny N2F — raporty wydatków firmy jako administrator.
+1. W innym oknie przeglądarki sieci Web Zaloguj się do witryny firmy raporty wydatków N2F jako administrator.
 
-2. Kliknij **ustawienia,** a następnie wybierz pozycję **Ustawienia zaliczki** z listy rozwijanej.
+2. Kliknij pozycję **Ustawienia** , a następnie wybierz pozycję **Ustawienia zaawansowane** z listy rozwijanej.
 
-    ![N2F - Konfiguracja raportów z wydatków](./media/n2f-expensereports-tutorial/configure1.png)
+    ![N2F — konfiguracja raportów wydatków](./media/n2f-expensereports-tutorial/configure1.png)
 
-3. Wybierz kartę **Ustawienia konta.**
+3. Wybierz kartę **Ustawienia konta** .
 
-    ![N2F - Konfiguracja raportów z wydatków](./media/n2f-expensereports-tutorial/configure2.png)
+    ![N2F — konfiguracja raportów wydatków](./media/n2f-expensereports-tutorial/configure2.png)
 
-4. Wybierz **pozycję Uwierzytelnianie,** a następnie wybierz pozycję + Dodaj kartę **metody uwierzytelniania.**
+4. Wybierz pozycję **uwierzytelnianie** , a następnie wybierz pozycję **+ Dodaj kartę Metoda uwierzytelniania** .
 
-    ![N2F - Konfiguracja raportów z wydatków](./media/n2f-expensereports-tutorial/configure3.png)
+    ![N2F — konfiguracja raportów wydatków](./media/n2f-expensereports-tutorial/configure3.png)
 
-5. Wybierz **SAML Microsoft Office 365** jako metodę uwierzytelniania.
+5. Wybierz pozycję **SAML Microsoft Office 365** jako metodę uwierzytelniania.
 
-    ![N2F - Konfiguracja raportów z wydatków](./media/n2f-expensereports-tutorial/configure4.png)
+    ![N2F — konfiguracja raportów wydatków](./media/n2f-expensereports-tutorial/configure4.png)
 
 6. W sekcji **Metoda uwierzytelniania** wykonaj następujące czynności:
 
-    ![N2F - Konfiguracja raportów z wydatków](./media/n2f-expensereports-tutorial/configure5.png)
+    ![N2F — konfiguracja raportów wydatków](./media/n2f-expensereports-tutorial/configure5.png)
 
-    a. W polu tekstowym **identyfikator jednostki** wklej wartość **identyfikatora usługi Azure AD,** która została skopiowana z witryny Azure portal.
+    a. W polu tekstowym **Identyfikator jednostki** wklej wartość **identyfikatora usługi Azure AD** , która została skopiowana z Azure Portal.
 
-    b. W polu tekstowym **adres URL metadanych** wklej wartość **adresu URL metadanych federacji aplikacji,** która została skopiowana z witryny Azure portal.
+    b. W polu tekstowym **adres URL metadanych** wklej wartość **adresu URL metadanych federacji aplikacji** , która została skopiowana z Azure Portal.
 
-    d. Kliknij przycisk **Zapisz**.
+    c. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -163,7 +163,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -173,24 +173,24 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **\@brittasimon yourcompanydomain.extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
     Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jednokrotnego, przyznając dostęp do N2F — raporty wydatków.
+Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do raportów wydatków N2F.
 
-1. W portalu Azure wybierz pozycję **Aplikacje przedsiębiorstwa**, wybierz **pozycję Wszystkie aplikacje**, a następnie wybierz **pozycję N2F - Raporty wydatków**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **raporty z wydatków N2F**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz **pozycję N2F - Raporty wydatków**.
+2. Na liście Aplikacje wybierz pozycję **raporty dotyczące wydatków N2F**.
 
-    ![N2F — łącze Raporty wydatków na liście Aplikacje](common/all-applications.png)
+    ![Łącze raporty wydatków N2F na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -202,58 +202,58 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-n2f---expense-reports-test-user"></a>Tworzenie N2F — raporty wydatków użytkownika testowego
+### <a name="create-n2f---expense-reports-test-user"></a>Utwórz użytkownika testowego raportów wydatków N2F
 
-Aby umożliwić użytkownikom usługi Azure AD zalogować się do N2F — raporty z wydatków, muszą być aprowizowane do N2F — raporty wydatków. W przypadku N2F — raporty wydatków inicjowania obsługi administracyjnej jest zadanie ręczne.
+Aby umożliwić użytkownikom usługi Azure AD logowanie się do raportów wydatków N2F, muszą one być obsługiwane w raportach dotyczących wydatków N2F. W przypadku raportów wydatków na N2F, Inicjowanie obsługi jest zadaniem ręcznym.
 
 **Aby aprowizować konto użytkownika, wykonaj następujące czynności:**
 
-1. Zaloguj się do witryny N2F - Raporty wydatków firmy jako administrator.
+1. Zaloguj się do witryny firmy raporty dotyczącej wydatków N2F jako administrator.
 
-2. Kliknij **ustawienia,** a następnie wybierz pozycję **Ustawienia zaliczki** z listy rozwijanej.
+2. Kliknij pozycję **Ustawienia** , a następnie wybierz pozycję **Ustawienia zaawansowane** z listy rozwijanej.
 
-    ![N2F - Użytkownik dodawania wydatków](./media/n2f-expensereports-tutorial/configure1.png)
+    ![N2F — Dodaj użytkownika](./media/n2f-expensereports-tutorial/configure1.png)
 
-3. Karta **Użytkownicy** z lewego panelu nawigacyjnego.
+3. Wybierz kartę **Użytkownicy** w lewym panelu nawigacyjnym.
 
-    ![N2F - Konfiguracja raportów z wydatków](./media/n2f-expensereports-tutorial/user1.png)
+    ![N2F — konfiguracja raportów wydatków](./media/n2f-expensereports-tutorial/user1.png)
 
-4. Wybierz + Nowa karta **użytkownika.**
+4. Wybierz pozycję **+ nowy użytkownik** karta.
 
-    ![N2F - Konfiguracja raportów z wydatków](./media/n2f-expensereports-tutorial/user2.png)
+    ![N2F — konfiguracja raportów wydatków](./media/n2f-expensereports-tutorial/user2.png)
 
-5. W sekcji **Użytkownik** wykonaj następujące czynności:
+5. W sekcji **użytkownik** wykonaj następujące czynności:
 
-    ![N2F - Konfiguracja raportów z wydatków](./media/n2f-expensereports-tutorial/user3.png)
+    ![N2F — konfiguracja raportów wydatków](./media/n2f-expensereports-tutorial/user3.png)
 
-    a. W polu **tekstowym Adres e-mail** wprowadź adres e-mail użytkownika, takiego jak **brittasimon\@contoso.com**.
+    a. W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, np. **brittasimon\@contoso.com**.
 
-    b. W polu tekstowym **Imię** wprowadź imię użytkownika, takiego jak **Britta**.
+    b. W polu tekstowym **imię i nazwisko** Wprowadź imię użytkownika, np. **Britta**.
 
-    d. W polu tekstowym **Name** (Nazwa) wprowadź nazwę użytkownika, na przykład **BrittaSimon**.
+    c. W polu tekstowym **Name** (Nazwa) wprowadź nazwę użytkownika, na przykład **BrittaSimon**.
 
-    d. Wybierz **pozycję Rola, Menedżer bezpośredni (N+1)** i **Podział** zgodnie z wymaganiami organizacji.
+    d. Wybierz **rolę, Menedżera bezpośredniego (N + 1)** i **podzielenie** zgodnie z wymaganiami organizacji.
 
-    e. Kliknij **przycisk Sprawdź poprawność i wyślij zaproszenie**.
+    e. Kliknij przycisk **Weryfikuj i Wyślij zaproszenie**.
 
     > [!NOTE]
-    > Jeśli masz jakiekolwiek problemy podczas dodawania użytkownika, skontaktuj się z [zespołem pomocy technicznej N2F - Raporty wydatków](mailto:support@n2f.com)
+    > Jeśli podczas dodawania użytkownika występują jakieś problemy, skontaktuj się z [zespołem pomocy technicznej N2F — raporty wydatków](mailto:support@n2f.com)
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka N2F - Raporty wydatków w Panelu dostępu należy automatycznie zalogować się do N2F - Raporty wydatków, dla których skonfigurowano logującą się logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka raporty z wydatków N2F w panelu dostępu należy automatycznie zalogować się do raportów wydatków N2F, dla których skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

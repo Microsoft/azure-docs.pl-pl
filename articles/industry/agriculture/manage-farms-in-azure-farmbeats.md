@@ -1,82 +1,82 @@
 ---
 title: Zarządzanie farmami
-description: W tym artykule opisano sposób zarządzania farmami
+description: Opisuje sposób zarządzania farmami
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271722"
 ---
 # <a name="manage-farms"></a>Zarządzanie farmami
 
-Możesz zarządzać swoimi farmami w usłudze Azure FarmBeats. Ten artykuł zawiera informacje o tym, jak tworzyć farmy, instalować urządzenia, czujniki i drony, które pomagają zarządzać farmami.
+Farmami można zarządzać w usłudze Azure FarmBeats. Ten artykuł zawiera informacje dotyczące sposobu tworzenia Farm, instalowania urządzeń, czujników i dronom, które ułatwiają zarządzanie farmami.
 
-## <a name="create-farms"></a>Tworzenie gospodarstw rolnych
+## <a name="create-farms"></a>Tworzenie Farm
 
 Wykonaj następujące czynności:
 
-1. Zaloguj się do akceleratora farm, zostanie wyświetlona strona **Farmy.**
-    Na stronie **Farmy** jest wyświetlana lista farm w przypadku, gdy zostały one już utworzone w ramach subskrypcji.
+1. Zaloguj się do akceleratora farmy. zostanie wyświetlona strona **farmy** .
+    Na stronie **farmy** zostanie wyświetlona lista Farm na wypadek, gdyby zostały już utworzone w ramach subskrypcji.
 
-    Oto przykładowy obraz:
+    Oto przykład obrazu:
 
-    ![Projekt Farm Beats](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
+    ![Farmy projektów](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
 
 
-2. Wybierz **pozycję Utwórz farmę** i podaj **nazwę**, **Uprawy** i **Adres**.
-3. W polu **Definiuj granicę farmy**(pole obowiązkowe) wybierz opcję **Oznacz na mapie** lub **Wklej kod GeoJSON**.
+2. Wybierz pozycję **Utwórz farmę** i podaj **nazwę**, **uprawy** i **adres**.
+3. W obszarze **Zdefiniuj granicę farmy**(pole obowiązkowe) wybierz opcję **Oznacz na mapie** lub **Wklej kod GEOJSON**.
 
-Oto dwa sposoby definiowania granicy farmy:
+Poniżej przedstawiono dwa sposoby definiowania granic farmy:
 
-1. **Oznacz na mapie:** Użyj narzędzia sterowania mapą, aby narysować i oznaczyć granicę farmy. Aby oznaczyć ![granice, Project](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) Farm Beats i zaznacz dokładne granice.
+1. **Oznacz na mapie**: Użyj narzędzia mapowania mapy, aby narysować i oznaczyć granicę farmy. Aby oznaczyć granice, ![farmy projektu/](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) i oznaczyć dokładne granice.
 
-    ![Projekt Farm Beats](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
+    ![Farmy projektów](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 
-2. **Wklej Kod GeoJson:** GeoJSON jest formatem kodowania struktur danych geograficznych, przy użyciu notacji obiektu JavaScript (JSON). Ta opcja wyświetla pole tekstowe, w którym można wprowadzić ciąg GeoJSON w celu oznaczenia granic farmy. Można również utworzyć kod GeoJSON z GeoJSON.io.
-Użyj etykietek narzędzi, aby wypełnić informacje.
+2. **Wklej kod GEOJSON**: GEOJSON to format kodowania geograficznych struktur danych przy użyciu JavaScript Object Notation (JSON). Ta opcja powoduje wyświetlenie pola tekstowego, w którym można wprowadzić ciąg GEOJSON w celu oznaczenia granic farmy. Możesz również utworzyć kod GEOJSON z GeoJSON.io.
+Użyj etykietek narzędzi, aby ułatwić wprowadzanie informacji.
 
-    ![Projekt Farm Beats](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
+    ![Farmy projektów](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
 
-3.  Wybierz **opcję Prześlij,** aby utworzyć farmę. Nowa farma jest tworzona i wyświetlana na stronie **Farmy.**
+3.  Wybierz pozycję **Prześlij** , aby utworzyć farmę. Nowa Farma zostanie utworzona i wyświetlona na stronie **farmy** .
 
-## <a name="view-farm"></a>Zobacz farmę
+## <a name="view-farm"></a>Wyświetl farmę
 
-Na stronie Lista Farm jest wyświetlana lista utworzonych farm. Wybierz farmę, aby wyświetlić listę:
+Na stronie Lista farmy zostanie wyświetlona lista utworzonych Farm. Wybierz farmę, aby wyświetlić listę:
 
  - **Liczba urządzeń** — wyświetla liczbę i stan urządzeń wdrożonych w farmie.
- - **Mapa** — mapa gospodarstwa z urządzeniami wdrożonymi w gospodarstwie.
- - **Dane telemetryczne** — wyświetla dane telemetryczne z czujników wdrożonych w farmie.
- - **Najnowsze mapy precyzyjne** — wyświetla najnowszą mapę wskaźników satelitarnych (EVI, NDWI), mapę ciepła wilgotności gleby i mapę rozmieszczenia czujników.
+ - **Map** — Mapa farmy z urządzeniami wdrożonymi w farmie.
+ - **Telemetrię** — wyświetla dane telemetryczne z czujników wdrożonych w farmie.
+ - **Najnowsze mapy dokładności** — wyświetla najnowszą mapę indeksów satelitarnych (Evi, NDWI), mapę cieplną wilgotności gleby i mapę położenia czujnika.
 
-## <a name="edit-farm"></a>Edytuj farmę
+## <a name="edit-farm"></a>Edytowanie farmy
 
-Na stronie **Farmy** jest wyświetlana lista utworzonych farm.
+Na stronie **farmy** zostanie wyświetlona lista utworzonych Farm.
 
 1.  Wybierz farmę, aby wyświetlić i edytować farmę.
-2.  Wybierz **pozycję Edytuj farmę,** aby edytować informacje o farmie. W oknie **Szczegóły farmy** można edytować **nazwy**, **Uprawy**, **Adres**i zdefiniować pola **Granice gospodarstwa.**
+2.  Wybierz pozycję **Edytuj farmę** , aby edytować informacje o farmie. W oknie **szczegóły farmy** można edytować **nazwy**, **uprawy**, **adresy**i definiować pola **granic farmy** .
 
-    ![Projekt Farm Beats](./media/create-farms-in-azure-farmbeats/edit-farm-1.png)
+    ![Farmy projektów](./media/create-farms-in-azure-farmbeats/edit-farm-1.png)
 
-3. Wybierz **pozycję Prześlij,** aby zapisać edytowane szczegóły.
+3. Wybierz pozycję **Prześlij** , aby zapisać edytowane dane.
 
 ## <a name="delete-farm"></a>Usuwanie farmy
 
-Na stronie **Farmy** jest wyświetlana lista utworzonych farm. Aby usunąć farmę, należy wykonać następujące czynności:
+Na stronie **farmy** zostanie wyświetlona lista utworzonych Farm. Aby usunąć farmę, wykonaj następujące czynności:
 
 1.  Wybierz farmę z listy, aby usunąć szczegóły farmy.
-2.  Wybierz **pozycję Usuń farmę,** aby usunąć farmę.
+2.  Wybierz pozycję **Usuń farmę** , aby usunąć farmę.
 
-    ![Projekt Farm Beats](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
+    ![Farmy projektów](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
 
     > [!NOTE]
-    > Po usunięciu farmy urządzenia i mapy skojarzone z farmą nie są usuwane. Wszelkie informacje o farmie skojarzone z urządzeniem i mapami nie będą istotne. Możesz nadal wyświetlać urządzenia, dane telemetryczne i mapy z usługi FarmBeats.
+    > Po usunięciu farmy urządzenia i mapy skojarzone z farmą nie są usuwane. Wszystkie informacje farmy skojarzone z urządzeniem i mapami nie będą miały znaczenia. Możesz nadal wyświetlać urządzenia, dane telemetryczne i mapy z usługi FarmBeats.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy utworzyłeś swoją farmę, dowiedz się, jak [uzyskać dane z czujników](get-sensor-data-from-sensor-partner.md) płynące do twojej farmy.
+Teraz, po utworzeniu farmy, Dowiedz się, jak [uzyskać dane czujników](get-sensor-data-from-sensor-partner.md) przepływające do farmy.
