@@ -1,7 +1,7 @@
 ---
 title: 'Szybki start: wywoływanie interfejsu API analizy tekstu przy użyciu języka Go'
 titleSuffix: Azure Cognitive Services
-description: Uzyskaj informacje i przykłady kodu, aby szybko rozpocząć korzystanie z interfejsu API analizy tekstu w usługach Azure Cognitive Services.
+description: Uzyskaj informacje i przykłady kodu, aby szybko rozpocząć korzystanie z interfejs API analizy tekstu na platformie Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: 03311cb873420f741ca0150dde59fb27eaa5d76f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75378770"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Szybki start: wywoływanie analizy tekstu usługi Cognitive Service przy użyciu języka Go 
@@ -39,9 +39,9 @@ Interfejs API wykrywania języka wykrywa język dokumentu tekstowego przy użyci
 
 1. Utwórz nowy projekt w języku Go w ulubionym edytorze kodu.
 1. Dodaj kod przedstawiony poniżej.
-1. Skopiuj klucz interfejsu API analizy tekstu i punkt końcowy do kodu.
+1. Skopiuj klucz interfejs API analizy tekstu i punkt końcowy do kodu.
 1. Zapisz plik z rozszerzeniem „go”.
-1. Otwórz wiersz polecenia na komputerze z zainstalowanym programem Go z folderu głównego.
+1. Otwórz wiersz polecenia na komputerze z zainstalowanym programem go w folderze głównym.
 1. Skompiluj plik, na przykład za pomocą polecenia: `go build detect.go`.
 1. Uruchom plik, na przykład: `go run detect.go`.
 
@@ -172,9 +172,9 @@ Interfejs API analizy tonacji wykrywa tonację zestawu rekordów tekstowych przy
 
 1. Utwórz nowy projekt w języku Go w ulubionym edytorze kodu.
 1. Dodaj kod przedstawiony poniżej.
-1. Skopiuj klucz analizy tekstu i punkt końcowy do kodu.
+1. Skopiuj klucz analiza tekstu i punkt końcowy do kodu.
 1. Zapisz plik z rozszerzeniem „go”.
-1. Otwórz wiersz polecenia na komputerze z zainstalowanym programem Go z folderu głównego.
+1. Otwórz wiersz polecenia na komputerze z zainstalowanym programem go w folderze głównym.
 1. Skompiluj plik, na przykład za pomocą polecenia: `go build sentiment.go`.
 1. Uruchom plik, na przykład: `go run sentiment.go`.
 
@@ -253,7 +253,7 @@ func main() {
 
 ## <a name="analyze-sentiment-response"></a>Odpowiedź na żądanie Analyze sentiment
 
-Wynik jest mierzony jako pozytywny, jeśli jest punktowany bliżej 1,0 i ujemny, jeśli zostanie oceniony bliżej 0,0.
+Wynik jest mierzony jako dodatni, jeśli ocenia się bliżej 1,0 i wartość ujemna, jeśli jest to wynik zbliżony do 0,0.
 Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie JSON, jak pokazano w następującym przykładzie:
 
 ```json
@@ -280,7 +280,7 @@ Interfejs API wyodrębniania kluczowych fraz wyodrębnia kluczowe frazy w dokume
 
 1. Utwórz nowy projekt w języku Go w ulubionym edytorze kodu.
 1. Dodaj kod przedstawiony poniżej.
-1. Skopiuj klucz analizy tekstu i punkt końcowy do kodu.
+1. Skopiuj klucz analiza tekstu i punkt końcowy do kodu.
 1. Zapisz plik z rozszerzeniem „go”.
 1. Otwórz wiersz polecenia na komputerze, na którym zainstalowano środowisko języka Go.
 1. Skompiluj plik, na przykład za pomocą polecenia: `go build key-phrases.go`.
@@ -404,7 +404,7 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 
 ## <a name="identify-entities"></a>Identyfikowanie jednostek
 
-Interfejs API jednostek identyfikuje dobrze znane jednostki w dokumencie tekstowym przy użyciu [metody Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Jednostki](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) wyodrębniają słowa z tekstu, takie jak "Stany Zjednoczone", a następnie dają typ i/lub link do Wikipedii dla tego słowa(-ów). Typ "Stany Zjednoczone" `location`jest , podczas gdy `https://en.wikipedia.org/wiki/United_States`link do Wikipedii jest .  W poniższym przykładzie zidentyfikowano jednostki dla dokumentów w języku angielskim.
+Interfejs API jednostek identyfikuje dobrze znane jednostki w dokumencie tekstowym przy użyciu [metody Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Jednostki](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) wyodrębniają wyrazy z tekstu, takie jak "Stany Zjednoczone", a następnie zawierają link do typu i/lub Wikipedia dla tych wyrazów. Typ dla "Stany Zjednoczone" to `location`, podczas gdy link do witryny Wikipedia ma `https://en.wikipedia.org/wiki/United_States`wartość.  W poniższym przykładzie zidentyfikowano jednostki dla dokumentów w języku angielskim.
 
 1. Utwórz nowy projekt w języku Go w ulubionym edytorze kodu.
 1. Dodaj kod przedstawiony poniżej.
@@ -538,9 +538,9 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Analiza tekstu za pomocą usługi Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
+> [analiza tekstu z Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
- [Analiza tekstu — omówienie](../overview.md)  
- [Często zadawane pytania (FAQ)](../text-analytics-resource-faq.md)
+ [Przegląd analiza tekstu](../overview.md)  
+ [Często zadawane pytania](../text-analytics-resource-faq.md)

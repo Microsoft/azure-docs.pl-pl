@@ -1,5 +1,5 @@
 ---
-title: Samouczek — skalowanie aplikacji uruchomionej w usłudze Azure Service Fabric Mesh
+title: Samouczek — skalowanie aplikacji działającej na platformie Azure Service Fabric siatką
 description: W tym samouczku dowiesz się, jak skalować usługi w aplikacji uruchomionej w usłudze Service Fabric Mesh.
 author: dkkapur
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 1b9070e826c30bbeafdee4185ea45cfb53d9efd2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75351822"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Samouczek: skalowanie aplikacji uruchomionej w usłudze Service Fabric Mesh
@@ -42,7 +42,7 @@ Przed rozpoczęciem tego samouczka:
 
 ## <a name="manually-scale-your-services-in-or-out"></a>Ręczne skalowanie usług w pionie lub poziomie
 
-Jedną z głównych zalet wdrażania aplikacji w sieci szkieletowej usługi Mesh jest możliwość łatwego skalowania usług w lub obecnie. Powinno to być używane do obsługi różnych ilości obciążenia usług lub poprawy dostępności.
+Jedną z głównych zalet wdrażania aplikacji do Service Fabric siatki jest możliwość łatwego skalowania usług do lub wyprowadzenia. Ta usługa powinna być używana do obsługi różnych ilości obciążeń w usługach lub do zwiększenia dostępności.
 
 W tym samouczku jako przykładu użyto listy zadań do wykonania, którą [wcześniej wdrożono](service-fabric-mesh-tutorial-template-deploy-app.md) i która powinna być teraz uruchomiona. Aplikacja ma dwie usługi: WebFrontEnd i ToDoService. Każdą z usług pierwotnie wdrożono z liczbą replik wynoszącą 1.  Aby wyświetlić liczbę uruchomionych replik usługi WebFrontEnd, uruchom następujące polecenie:
 

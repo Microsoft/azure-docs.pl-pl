@@ -1,6 +1,6 @@
 ---
-title: Dostęp warunkowy wymaga warunków użytkowania — usługa Azure Active Directory
-description: W tym przewodniku Szybki start dowiesz się, jak wymagać, aby warunki użytkowania były akceptowane, zanim dostęp do wybranych aplikacji w chmurze zostanie przyznany przez dostęp warunkowy usługi Azure Active Directory.
+title: Dostęp warunkowy wymaga warunków użytkowania — Azure Active Directory
+description: W tym przewodniku szybki start dowiesz się, jak można wymagać, aby warunki użytkowania zostały zaakceptowane, zanim dostęp do wybranych aplikacji w chmurze zostanie udzielony przez Azure Active Directory dostęp warunkowy.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,165 +12,165 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3dd1b4cf554e773f49a15ac5cedcbcc5b3e710b9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74380100"
 ---
-# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Szybki start: wymagaj akceptowania warunków użytkowania przed uzyskiwaniem dostępu do aplikacji w chmurze
+# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Szybki Start: Wymagaj akceptacji warunków użytkowania przed uzyskaniem dostępu do aplikacji w chmurze
 
-Przed uzyskaniem dostępu do niektórych aplikacji w chmurze w danym środowisku możesz chcieć uzyskać zgodę od użytkowników w formie akceptowania warunków użytkowania (ToU). Dostęp warunkowy usługi Azure Active Directory (Azure AD) zapewnia:
+Przed uzyskaniem dostępu do niektórych aplikacji w chmurze w Twoim środowisku warto uzyskać zgodę od użytkowników w formie zaakceptowania warunków użytkowania (warunków użytkowania). Dostęp warunkowy Azure Active Directory (Azure AD) zapewnia następujące informacje:
 
-- Prosta metoda konfigurowania ToU
-- Opcja wymagania zaakceptowania warunków użytkowania za pośrednictwem zasad dostępu warunkowego  
+- Prosta metoda konfigurowania warunków użytkowania
+- Opcja wymaga zaakceptowania warunków użytkowania za pomocą zasad dostępu warunkowego  
 
-Ten przewodnik Szybki start pokazuje, jak skonfigurować [zasady dostępu warunkowego usługi Azure AD,](../active-directory-conditional-access-azure-portal.md) która wymaga zaakceptowania wyliczenie witryn w chmurze dla wybranej aplikacji w chmurze w twoim środowisku.
+Ten przewodnik Szybki Start przedstawia sposób konfigurowania [zasad dostępu warunkowego usługi Azure AD](../active-directory-conditional-access-azure-portal.md) , które wymagają zaakceptowania warunków użytkowania dla wybranej aplikacji w chmurze w danym środowisku.
 
 ![Tworzenie zasad](./media/require-tou/5555.png)
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć scenariusz w tym przewodniku Szybki start, potrzebujesz:
+Aby ukończyć ten scenariusz w tym przewodniku Szybki Start, musisz wykonać następujące czynności:
 
-- **Dostęp do usługi Azure AD Premium —** usługa Azure AD Conditional Access to usługa Azure AD Premium.
-- **Konto testowe o nazwie Isabella Simonsen** - Jeśli nie wiesz, jak utworzyć konto testowe, zobacz [Dodawanie użytkowników w chmurze](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+- **Dostęp do Azure AD — wersja Premium Edition** — dostęp warunkowy usługi Azure AD jest funkcją Azure AD — wersja Premium.
+- **Konto testowe o nazwie Isabella Simonsen** — Jeśli nie wiesz, jak utworzyć konto testowe, zobacz [Dodawanie użytkowników opartych na chmurze](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Testowanie logowania
 
-Celem tego kroku jest uzyskanie wrażenia logowania bez zasad dostępu warunkowego.
+Celem tego kroku jest wyświetlenie doświadczenia związanego z logowaniem bez zasad dostępu warunkowego.
 
-**Aby przetestować logowanie:**
+**Aby przetestować Logowanie:**
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com/) jako Isabella Simonsen.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako Isabella Simonsen.
 1. Wyloguj się.
 
 ## <a name="create-your-terms-of-use"></a>Tworzenie warunków użytkowania
 
-W tej sekcji przedstawiono kroki tworzenia przykładowego ToU. Podczas tworzenia wyliczenie zasad wybrano wartość **wymuszania za pomocą szablonów zasad dostępu warunkowego**. Wybranie **opcji Zasady niestandardowe** powoduje otwarcie okna dialogowego w celu utworzenia nowej zasady dostępu warunkowego zaraz po utworzeniu WY.
+Ta sekcja zawiera instrukcje dotyczące tworzenia przykładowej warunków użytkowania. Podczas tworzenia warunków użytkowania należy wybrać wartość **Wymuszaj przy użyciu szablonów zasad dostępu warunkowego**. Wybranie **zasad niestandardowych** spowoduje otwarcie okna dialogowego, w którym można utworzyć nowe zasady dostępu warunkowego zaraz po utworzeniu warunków użytkowania.
 
 **Aby utworzyć warunki użytkowania:**
 
-1. W programie Microsoft Word utwórz nowy dokument.
-1. Wpisz **Moje warunki użytkowania**, a następnie zapisz dokument na komputerze jako **mytou.pdf**.
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) jako administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
-1. W witrynie Azure portal na lewym pasku nawigacyjnym kliknij pozycję **Usługa Azure Active Directory**.
+1. W programie Microsoft Word Utwórz nowy dokument.
+1. Wpisz **Moje warunki użytkowania**, a następnie Zapisz dokument na komputerze jako **mytou. PDF**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
+1. W Azure Portal na lewym pasku nawigacyjnym kliknij pozycję **Azure Active Directory**.
 
-   ![Usługa Azure Active Directory](./media/require-tou/02.png)
+   ![Azure Active Directory](./media/require-tou/02.png)
 
-1. Na stronie **Usługi Azure Active Directory** w sekcji **Zabezpieczenia** kliknij pozycję **Dostęp warunkowy**.
+1. Na stronie **Azure Active Directory** w sekcji **zabezpieczenia** kliknij pozycję **dostęp warunkowy**.
 
    ![Dostęp warunkowy](./media/require-tou/03.png)
 
-1. W sekcji **Zarządzanie** kliknij pozycję **Warunki użytkowania**.
+1. W sekcji **Zarządzanie** kliknij pozycję **warunki użytkowania**.
 
    ![Warunki użytkowania](./media/require-tou/04.png)
 
-1. W menu u góry kliknij pozycję **Nowe terminy**.
+1. W menu u góry kliknij pozycję **nowe warunki**.
 
    ![Warunki użytkowania](./media/require-tou/05.png)
 
-1. Na stronie **Nowe warunki użytkowania:**
+1. Na stronie **nowe warunki użytkowania** :
 
    ![Warunki użytkowania](./media/require-tou/112.png)
 
-   1. W polach tekstowych **Nazwa** wpisz **moje wyplomicie**.
-   1. W polach tekstowych **Nazwa wyświetlana** wpisz **moje wylinie .**
-   1. Prześlij swoje warunki użytkowania pliku PDF.
-   1. Jako **język**, wybierz **angielski**.
-   1. Ponieważ **wymagasz od użytkowników, aby rozwinąć warunki użytkowania**, wybierz **wł**.
-   1. Jako **Wymuszaj za pomocą szablonów zasad dostępu warunkowego**wybierz pozycję **Zasady niestandardowe**.
+   1. W polu tekstowym **Nazwa** wpisz **My warunków użytkowania**.
+   1. W polu tekstowym **Nazwa wyświetlana** wpisz **My warunków użytkowania**.
+   1. Przekaż swoje warunki użytkowania pliku PDF.
+   1. Jako **Język**wybierz pozycję **angielski**.
+   1. **Aby użytkownicy mogli rozwijać warunki użytkowania**, wybierz pozycję **włączone**.
+   1. Jako **wymuszanie przy użyciu szablonów zasad dostępu warunkowego**, wybierz pozycję **zasady niestandardowe**.
    1. Kliknij przycisk **Utwórz**.
 
 ## <a name="create-your-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
-W tej sekcji pokazano, jak utworzyć wymagane zasady dostępu warunkowego. Scenariusz w tym przewodniku Szybki start używa:
+W tej sekcji przedstawiono sposób tworzenia wymaganych zasad dostępu warunkowego. Scenariusz w tym przewodniku szybki start używa:
 
-- Witryna Azure portal jako symbol zastępczy dla aplikacji w chmurze, która wymaga zaakceptowania wyliczonej przez użytkownika. 
+- Azure Portal jako symbol zastępczy dla aplikacji w chmurze, która wymaga zaakceptowania warunków użytkowania. 
 - Przykładowy użytkownik do testowania zasad dostępu warunkowego.  
 
-W zasadach ustaw:
+W zasadach ustaw następujące ustawienia:
 
 | Ustawienie | Wartość |
 | --- | --- |
-| Użytkownicy i grupy | Izabela Simonsen |
-| Aplikacje w chmurze | Microsoft Azure Management |
-| Udzielanie dostępu | Mój TOU |
+| Użytkownicy i grupy | Isabella Simonsen |
+| Aplikacje w chmurze | Zarządzanie Microsoft Azure |
+| Udzielanie dostępu | Moje warunków użytkowania |
 
 ![Tworzenie zasad](./media/require-tou/1234.png)
 
 **Aby skonfigurować zasady dostępu warunkowego:**
 
-1. Na stronie **Nowy** w polu tekstowym **Nazwa** wpisz **Polecenie Wymagaj wylicznika dla Izabeli**.
+1. Na **nowej** stronie w polu tekstowym **Nazwa** wpisz **Wymagaj warunków użytkowania dla Isabella**.
 
    ![Nazwa](./media/require-tou/71.png)
 
-1. W sekcji **Przydział kliknij** pozycję **Użytkownicy i grupy**.
+1. W sekcji **przypisanie** kliknij pozycję **Użytkownicy i grupy**.
 
    ![Użytkownicy i grupy](./media/require-tou/06.png)
 
-1. Na stronie **Użytkownicy i grupy:**
+1. Na stronie **Użytkownicy i grupy** :
 
    ![Użytkownicy i grupy](./media/require-tou/24.png)
 
-   1. Kliknij **pozycję Wybierz użytkowników i grupy**, a następnie wybierz pozycję **Użytkownicy i grupy**.
-   1. Kliknij **pozycję Wybierz**.
-   1. Na stronie **Wybierz** wybierz pozycję **Isabella Simonsen**, a następnie kliknij przycisk **Zaznacz**.
-   1. Na stronie **Użytkownicy i grupy** kliknij pozycję **Gotowe**.
-1. Kliknij pozycję **Aplikacje w chmurze**.
+   1. Kliknij pozycję **Wybierz użytkowników i grupy**, a następnie wybierz pozycję **Użytkownicy i grupy**.
+   1. Kliknij pozycję **Wybierz**.
+   1. Na stronie **Wybierz** wybierz pozycję **Isabella Simonsen**, a następnie kliknij pozycję **Wybierz**.
+   1. Na stronie **Użytkownicy i grupy** kliknij przycisk **gotowe**.
+1. Kliknij pozycję **aplikacje w chmurze**.
 
    ![Aplikacje w chmurze](./media/require-tou/08.png)
 
-1. Na stronie **Aplikacje w chmurze:**
+1. Na stronie **aplikacje w chmurze** :
 
-   ![Wybieranie aplikacji w chmurze](./media/require-tou/26.png)
+   ![Wybierz aplikacje w chmurze](./media/require-tou/26.png)
 
-   1. Kliknij **pozycję Wybierz aplikacje**.
-   1. Kliknij **pozycję Wybierz**.
-   1. Na stronie **Wybierz** wybierz pozycję **Microsoft Azure Management**, a następnie kliknij przycisk **Wybierz**.
-   1. Na stronie **Aplikacje w chmurze** kliknij pozycję **Gotowe**.
-1. W sekcji **Formanty dostępu** kliknij pozycję **Przyznaj**.
+   1. Kliknij pozycję **Wybierz aplikacje**.
+   1. Kliknij pozycję **Wybierz**.
+   1. Na stronie **Wybierz** wybierz pozycję **Zarządzanie Microsoft Azure**, a następnie kliknij przycisk **Wybierz**.
+   1. Na stronie **aplikacje w chmurze** kliknij pozycję **gotowe**.
+1. W sekcji **kontrole dostępu** kliknij pozycję **Udziel**.
 
    ![Kontrole dostępu](./media/require-tou/10.png)
 
-1. Na stronie **Grant:**
+1. Na stronie **Grant** :
 
    ![Uprawnienie](./media/require-tou/111.png)
 
-   1. Wybierz **pozycję Przyznaj dostęp**.
-   1. Wybierz **pozycję Mój TOU**.
-   1. Kliknij **pozycję Wybierz**.
-1. W sekcji **Włącz zasady** kliknij pozycję **Włączone**.
+   1. Wybierz pozycję **Udziel dostępu**.
+   1. Wybierz pozycję **Moje warunków użytkowania**.
+   1. Kliknij pozycję **Wybierz**.
+1. W sekcji **Włączanie zasad** **kliknij pozycję włączone.**
 
-   ![Włączanie zasad](./media/require-tou/18.png)
+   ![Włącz zasady](./media/require-tou/18.png)
 
 1. Kliknij przycisk **Utwórz**.
 
-## <a name="evaluate-a-simulated-sign-in"></a>Ocena symulowanego logowania
+## <a name="evaluate-a-simulated-sign-in"></a>Oceń symulowane logowanie
 
-Teraz, gdy skonfigurowano zasady dostępu warunkowego, prawdopodobnie chcesz wiedzieć, czy działa zgodnie z oczekiwaniami. W pierwszym kroku użyj narzędzia Dostępu warunkowego, jeśli narzędzie zasad do symulowania logowania użytkownika testowego. Symulacja szacuje wpływ tego logowania na zasady i generuje raport symulacji.  
+Teraz, po skonfigurowaniu zasad dostępu warunkowego, prawdopodobnie chcesz wiedzieć, czy działa zgodnie z oczekiwaniami. Pierwszym krokiem jest użycie narzędzia do działania warunkowego, co pozwala na symulowanie logowania użytkownika testowego. Symulacja szacuje wpływ tego logowania na zasady i generuje raport symulacji.  
 
-Aby zainicjować narzędzie do oceny zasad **Co jeśli,** ustaw:
+Aby zainicjować narzędzie do oceny zasad **What If** , ustaw następujące polecenie:
 
 - **Isabella Simonsen** jako użytkownik
-- **Usługa Microsoft Azure Management** jako aplikacja w chmurze
+- **Zarządzanie Microsoft Azure** jako aplikacja w chmurze
 
-Kliknięcie przycisku **Co jeśli** powoduje utworzenie raportu symulacji, który pokazuje:
+Kliknięcie przycisku **What If** powoduje utworzenie raportu symulacji, który pokazuje:
 
-- **Wymagaj WU dla Izabeli** w obszarze **Zasady, które będą miały zastosowanie**
-- **Moje WU** jako **Grant Controls**.
+- **Wymagaj warunków użytkowania dla Isabella** w ramach **zasad, które będą stosowane**
+- **Moje warunków użytkowania** jako **Grant Controls**.
 
-![Co zrobić, jeśli narzędzie zasad](./media/require-tou/79.png)
+![Co to jest narzędzie zasad](./media/require-tou/79.png)
 
-**Aby ocenić zasady dostępu warunkowego:**
+**Aby oszacować zasady dostępu warunkowego:**
 
-1. Na stronie [Dostęp warunkowy — Zasady](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) w menu u góry kliknij pozycję Co **jeśli**.  
+1. Na stronie [zasady dostępu warunkowego](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) w menu u góry kliknij pozycję **What If**.  
 
    ![What If](./media/require-tou/14.png)
 
-1. Kliknij **pozycję Użytkownicy**, wybierz pozycję **Isabella Simonsen**, a następnie kliknij przycisk **Wybierz**.
+1. Kliknij pozycję **Użytkownicy**, wybierz pozycję **Isabella Simonsen**, a następnie kliknij pozycję **Wybierz**.
 
    ![Użytkownik](./media/require-tou/15.png)
 
@@ -178,31 +178,31 @@ Kliknięcie przycisku **Co jeśli** powoduje utworzenie raportu symulacji, któr
 
    ![Aplikacje w chmurze](./media/require-tou/16.png)
 
-   1. Kliknij pozycję **Aplikacje w chmurze**.
-   1. Na **stronie Aplikacje**w chmurze kliknij pozycję **Wybierz aplikacje**.
-   1. Kliknij **pozycję Wybierz**.
-   1. Na stronie **Wybierz** wybierz pozycję **Microsoft Azure Management**, a następnie kliknij przycisk **Wybierz**.
-   1. Na stronie aplikacje w chmurze kliknij pozycję **Gotowe**.
-1. Kliknij **przycisk Co jeśli**.
+   1. Kliknij pozycję **aplikacje w chmurze**.
+   1. Na **stronie aplikacje w chmurze**kliknij pozycję **Wybierz aplikacje**.
+   1. Kliknij pozycję **Wybierz**.
+   1. Na stronie **Wybierz** wybierz pozycję **Zarządzanie Microsoft Azure**, a następnie kliknij przycisk **Wybierz**.
+   1. Na stronie aplikacje w chmurze kliknij pozycję **gotowe**.
+1. Kliknij **What If**.
 
 ## <a name="test-your-conditional-access-policy"></a>Testowanie zasad dostępu warunkowego
 
-W poprzedniej sekcji dowiesz się, jak ocenić symulowane logowanie. Oprócz symulacji należy również przetestować zasady dostępu warunkowego, aby upewnić się, że działa zgodnie z oczekiwaniami.
+W poprzedniej sekcji wiesz już, jak oszacować symulowaną logowanie. Oprócz symulacji należy również przetestować zasady dostępu warunkowego, aby upewnić się, że działa zgodnie z oczekiwaniami.
 
-Aby przetestować zasady, spróbuj zalogować się do [witryny Azure portal](https://portal.azure.com) przy użyciu konta testowego **Isabella Simonsen.** Powinno zostać wyświetlone okno dialogowe, które wymaga zaakceptowania warunków użytkowania.
+Aby przetestować zasady, spróbuj zalogować się do [Azure Portal](https://portal.azure.com) przy użyciu konta testowego **Isabella Simonsen** . Powinno zostać wyświetlone okno dialogowe, które wymaga zaakceptowania warunków użytkowania.
 
 ![Warunki użytkowania](./media/require-tou/57.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie jest już potrzebny, usuń użytkownika testowego i zasady dostępu warunkowego:
+Gdy nie jest już potrzebne, Usuń użytkownika testowego i zasady dostępu warunkowego:
 
-- Jeśli nie wiesz, jak usunąć użytkownika usługi Azure AD, zobacz [Usuwanie użytkowników z usługi Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
-- Aby usunąć zasady, wybierz zasady, a następnie kliknij przycisk **Usuń** na pasku narzędzi szybki dostęp.
+- Jeśli nie wiesz, jak usunąć użytkownika usługi Azure AD, zobacz [usuwanie użytkowników z usługi Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
+- Aby usunąć zasady, wybierz zasady, a następnie kliknij przycisk **Usuń** na pasku narzędzi Szybki dostęp.
 
     ![Uwierzytelnianie wieloskładnikowe](./media/require-tou/33.png)
 
-- Aby usunąć warunki użytkowania, zaznacz je, a następnie kliknij pozycję **Usuń terminy** na pasku narzędzi u góry.
+- Aby usunąć warunki użytkowania, zaznacz je, a następnie kliknij pozycję **Usuń warunki** na pasku narzędzi u góry.
 
     ![Uwierzytelnianie wieloskładnikowe](./media/require-tou/29.png)
 
@@ -210,4 +210,4 @@ Gdy nie jest już potrzebny, usuń użytkownika testowego i zasady dostępu waru
 
 > [!div class="nextstepaction"]
 > [Wymagaj usługi MFA dla określonych aplikacji](app-based-mfa.md)
-> [Blokuj dostęp po wykryciu ryzyka sesji](app-sign-in-risk.md)
+> [Blokuj dostęp w przypadku wykrycia ryzyka sesji](app-sign-in-risk.md)

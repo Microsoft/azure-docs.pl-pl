@@ -1,6 +1,6 @@
 ---
-title: Przykłady interfejsu wiersza polecenia platformy Azure — usługa Azure Database for PostgreSQL — pojedynczy serwer
-description: W tym artykule wymieniono kilka przykładów kodu interfejsu wiersza polecenia platformy Azure dostępnych do interakcji z usługą Azure Database for PostgreSQL — Single Server.
+title: Przykłady interfejsu wiersza polecenia platformy Azure — Azure Database for PostgreSQL — pojedynczy serwer
+description: W tym artykule przedstawiono kilka przykładów kodu interfejsu wiersza polecenia platformy Azure dostępnych do współpracy z serwerem Azure Database for PostgreSQL-pojedynczym.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -9,13 +9,13 @@ ms.topic: sample
 ms.custom: sample, mvc
 ms.date: 5/6/2019
 ms.openlocfilehash: 154dc8b8569162992f4fc231caee2a43682db456
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74774724"
 ---
-# <a name="azure-cli-samples-for-azure-database-for-postgresql---single-server"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla bazy danych platformy Azure dla postgreSQL — pojedynczy serwer
+# <a name="azure-cli-samples-for-azure-database-for-postgresql---single-server"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla Azure Database for PostgreSQL — pojedynczy serwer
 Poniższa tabela zawiera linki do przykładowych skryptów interfejsu wiersza polecenia platformy Azure dla usługi Azure Database for PostgreSQL.
 
 | |  |

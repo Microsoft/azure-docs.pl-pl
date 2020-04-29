@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: Tłumaczenie mowy na mowę, Java - Usługa mowy'
+title: 'Szybki Start: Tłumaczenie mowy na mowę, Java-Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
 ms.openlocfilehash: 3cd0e3b6209a92315ea371dab3d64422bf5eea8f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74981140"
 ---
 [!INCLUDE [jre](./jre.md)]

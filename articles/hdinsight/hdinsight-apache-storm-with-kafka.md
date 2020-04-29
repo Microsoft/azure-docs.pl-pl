@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Apache Storm z Apache Kafka - Azure HDInsight'
+title: 'Samouczek: Apache Storm w usłudze Apache Kafka — Azure HDInsight'
 description: Dowiedz się, jak utworzyć potok przesyłania strumieniowego przy użyciu systemu Apache Storm i platformy Apache Kafka w usłudze HDInsight. W tym samouczku składniki KafkaBolt i KafkaSpout są używane do przesyłania strumieniowego z platformy Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: eac9bee6992520492b846e3b579d8a05c327e749
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73494353"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Samouczek: korzystanie z systemu Apache Storm z platformą Apache Kafka w usłudze HDInsight
 
 W tym samouczku przedstawiono sposób użycia topologii systemu [Apache Storm](https://storm.apache.org/) do odczytywania i zapisywania danych przy użyciu platformy [Apache Kafka](https://kafka.apache.org/) w usłudze HDInsight. W tym samouczku pokazano także sposób utrwalania danych w magazynie zgodnym z systemem plików [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) w klastrze Storm.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * System Storm i platforma Kafka
@@ -58,7 +58,7 @@ Po zainstalowaniu środowiska Java i zestawu JDK na deweloperskiej stacji robocz
 > 
 > Dla Twojej wygody w tym dokumencie umieszczono link do szablonu, który umożliwia utworzenie wszystkich wymaganych zasobów platformy Azure. 
 >
-> Aby uzyskać więcej informacji na temat korzystania z usługi HDInsight w sieci wirtualnej, zobacz Planowanie sieci wirtualnej dla dokumentu [HDInsight.](hdinsight-plan-virtual-network-deployment.md)
+> Aby uzyskać więcej informacji na temat korzystania z usługi HDInsight w sieci wirtualnej, zapoznaj się z dokumentem [Planowanie sieci wirtualnej dla usługi HDInsight](hdinsight-plan-virtual-network-deployment.md) .
 
 ## <a name="storm-and-kafka"></a>System Storm i platforma Kafka
 
@@ -79,7 +79,7 @@ System Apache Storm udostępnia kilka składników do pracy z platformą Apache 
     * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: mapuje strukturę danych krotki używaną w topologii systemu Storm na pola przechowywane na platformie Kafka.
 
 Te składniki są dostępne w pakiecie `org.apache.storm : storm-kafka`. Użyj wersji pakietu zgodnej z wersją systemu Storm. W przypadku usługi HDInsight 3.6 właściwa wersja systemu Storm to 1.1.0.
-Potrzebny jest także pakiet `org.apache.kafka : kafka_2.10`, który zawiera dodatkowe składniki platformy Kafka. Użyj wersji pakietu zgodnej z wersją platformy Kafka. W przypadku hdinsight 3.6 wersja platformy Kafka to 1.1.1.
+Potrzebny jest także pakiet `org.apache.kafka : kafka_2.10`, który zawiera dodatkowe składniki platformy Kafka. Użyj wersji pakietu zgodnej z wersją platformy Kafka. W przypadku usługi HDInsight 3,6 wersja Kafka to 1.1.1.
 
 Następujący kod XML to deklaracja zależności w pliku `pom.xml` projektu narzędzia [Apache Maven](https://maven.apache.org/):
 
@@ -115,7 +115,7 @@ Następujący kod XML to deklaracja zależności w pliku `pom.xml` projektu narz
 
 ## <a name="understanding-the-code"></a>Omówienie kodu
 
-Kod użyty w tym [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka)dokumencie jest dostępny pod adresem .
+Kod używany w tym dokumencie jest dostępny pod adresem [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
 
 Ten samouczek obejmuje dwie topologie:
 
@@ -128,7 +128,7 @@ Ten samouczek obejmuje dwie topologie:
     >
     > Jeśli nie używasz szablonu dostępnego w tym dokumencie do utworzenia klastra Storm, musisz ręcznie zastosować akcję skryptu dla klastra.
     >
-    > Akcja skryptu znajduje [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh) się w i jest stosowana do węzłów nadzorcy i nimbusa klastra Storm. Aby uzyskać więcej informacji dotyczących akcji skryptu, zobacz dokument [Dostosowywanie usługi HDInsight za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md).
+    > Akcja skryptu znajduje się w lokalizacji [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh) i jest stosowana do węzłów nadzorcy i Nimbus klastra burzy. Aby uzyskać więcej informacji dotyczących akcji skryptu, zobacz dokument [Dostosowywanie usługi HDInsight za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md).
 
 Topologie definiuje się przy użyciu struktury [Flux](https://storm.apache.org/releases/current/flux.html). Struktura Flux została wprowadzona w systemie Storm 0.10.x i umożliwia rozdzielenie konfiguracji topologii i kodu. Topologie wykorzystujące strukturę Flux są definiowane w pliku YAML. Plik YAML może sam być częścią topologii. Istnieje także możliwość użycia go jako pliku autonomicznego podczas przesyłania topologii. Struktura Flux obsługuje również podstawianie wartości zmiennych w czasie wykonywania, które jest używane w tym przykładzie.
 
@@ -144,7 +144,7 @@ Następujące parametry są ustawiane w czasie wykonywania dla tych topologii:
 
 * `${hdfs.write.dir}`: katalog, w którym są zapisywane dane.
 
-Aby uzyskać więcej informacji na temat [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html)topologii flux, zobacz .
+Aby uzyskać więcej informacji na temat topologii [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html)strumienia, zobacz.
 
 ### <a name="kafka-writer"></a>Moduł zapisujący platformy Kafka
 
@@ -391,7 +391,7 @@ Aby utworzyć usługę Azure Virtual Network, a następnie utworzyć w niej klas
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-    Szablon usługi Azure Resource **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**Manager znajduje się pod adresem . Umożliwia on utworzenie następujących zasobów:
+    Szablon Azure Resource Manager znajduje się w lokalizacji **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**. Umożliwia on utworzenie następujących zasobów:
 
     * Grupa zasobów platformy Azure
     * Azure Virtual Network
@@ -429,7 +429,7 @@ Aby utworzyć usługę Azure Virtual Network, a następnie utworzyć w niej klas
 
 ## <a name="build-the-topology"></a>Tworzenie topologii
 
-1. W środowisku programistycznym [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka)pobierz projekt z programu , otwórz wiersz polecenia i zmień katalogi na lokalizację pobraną w projekcie.
+1. W środowisku programistycznym Pobierz projekt z [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka), Otwórz wiersz polecenia i zmień katalogi na lokalizację, w której pobrano projekt.
 
 2. W katalogu **hdinsight-storm-java-kafka** wykonaj następujące polecenie, aby skompilować projekt i utworzyć pakiet na potrzeby wdrażania:
 

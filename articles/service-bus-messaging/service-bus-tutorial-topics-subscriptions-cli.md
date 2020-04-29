@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Aktualizowanie asortymentu zapasów detalicznych przy użyciu kanałów publikowania/subskrybowania i filtrów tematów za pomocą interfejsu wiersza polecenia platformy Azure'
-description: 'Samouczek: W tym samouczku dowiesz się, jak wysyłać i odbierać wiadomości z tematu i subskrypcji oraz jak dodawać i używać reguł filtrowania przy użyciu interfejsu wiersza polecenia platformy Azure'
+title: 'Samouczek: aktualizowanie asortymentu zapasów detalicznych za pomocą kanałów publikowania/subskrybowania i filtrów tematów za pomocą interfejsu wiersza polecenia platformy Azure'
+description: 'Samouczek: w tym samouczku dowiesz się, jak wysyłać i odbierać komunikaty z tematu i subskrypcji oraz jak dodawać reguły filtrów i używać ich przy użyciu interfejsu wiersza polecenia platformy Azure'
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 0bd0d8eb8abe6f320f73e35b1e3b08e1d8dc1de3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73718913"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Samouczek: aktualizowanie magazynu przy użyciu interfejsu wiersza polecenia oraz tematów/subskrypcji
 
 Usługa Microsoft Azure Service Bus to wielodostępna usługa przesyłania komunikatów w chmurze, która przesyła informacje między aplikacjami i usługami. Operacje asynchroniczne umożliwiają elastyczne przesyłanie komunikatów obsługiwanych przez brokera oraz ustrukturyzowane przesyłanie komunikatów typu „pierwszy na wejściu — pierwszy na wyjściu” (FIFO, first-in, first-out) i zapewniają możliwości publikowania/subskrybowania. W tym samouczku przedstawiono, jak używać tematów i subskrypcji usługi Service Bus w scenariuszu obejmującym magazyn sklepu sieciowego, gdy kanały publikowania/subskrypcji korzystają z interfejsu wiersza polecenia Azure i języka Java.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Tworzenie tematu usługi Service Bus i co najmniej jednej subskrypcji do tego tematu przy użyciu interfejsu wiersza polecenia Azure
 > * Dodawanie filtrów tematu przy użyciu interfejsu wiersza polecenia Azure
@@ -40,7 +40,7 @@ Aby utworzyć aplikację usługi Service Bus w języku Java, trzeba mieć zainst
 
 - [Zestaw Java Development Kit](https://aka.ms/azure-jdks), najnowsza wersja.
 - [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure)
-- [Apache Maven](https://maven.apache.org), wersja 3.0 lub wyższa.
+- [Apache Maven](https://maven.apache.org), wersja 3,0 lub nowsza.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -326,7 +326,7 @@ public CompletableFuture<Void> receiveAllMessageFromSubscription(String subscrip
 ```
 
 > [!NOTE]
-> Zasoby usługi Service Bus można zarządzać za pomocą [Eksploratora magistrali usług](https://github.com/paolosalvatori/ServiceBusExplorer/). Eksplorator usługi Service Bus umożliwia użytkownikom łączenie się z obszarem nazw usługi Service Bus i administrowanie jednostkami obsługi wiadomości w łatwy sposób. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcje importu/eksportu lub możliwość testowania tematu, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 
+> Za pomocą [eksploratora Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/)można zarządzać zasobami Service Bus. Eksplorator Service Bus umożliwia użytkownikom łączenie się z przestrzenią nazw Service Bus i administrowanie jednostkami obsługi komunikatów w prosty sposób. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcja importowania/eksportowania lub możliwość testowania tematów, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -346,7 +346,7 @@ Przejdź do następnego samouczka, aby dowiedzieć się więcej o korzystaniu z 
 > [!div class="nextstepaction"]
 > [aktualizowanie magazynu przy użyciu programu PowerShell oraz tematów/subskrypcji](service-bus-tutorial-topics-subscriptions-portal.md)
 
-[darmowe konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[bezpłatne konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

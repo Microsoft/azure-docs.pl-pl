@@ -1,5 +1,5 @@
 ---
-title: Migrowanie serwerów systemu Windows Server 2008 na platformę Azure za pomocą usługi Azure Site Recovery
+title: Migrowanie serwerów z systemem Windows Server 2008 do platformy Azure za pomocą Azure Site Recovery
 description: W tym artykule opisano sposób migrowania maszyn lokalnych z systemem Windows Server 2008 na platformę Azure przy użyciu usługi Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -9,15 +9,15 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 20fe29a6588891c35520db01ac0403fb5b3a85d7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73936137"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrowanie serwerów z systemem Windows Server 2008 na platformę Azure
 
-W tym samouczku pokazano, jak przeprowadzić migrację lokalnych serwerów z systemem Windows Server 2008 lub 2008 R2 na platformę Azure przy użyciu usługi Azure Site Recovery. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym samouczku pokazano, jak przeprowadzić migrację lokalnych serwerów z systemem Windows Server 2008 lub 2008 R2 na platformę Azure przy użyciu usługi Azure Site Recovery. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Przygotowanie środowiska lokalnego do migracji
@@ -30,7 +30,7 @@ W tym samouczku pokazano, jak przeprowadzić migrację lokalnych serwerów z sys
 Sekcja Ograniczenia i znane problemy zawiera niektóre ograniczenia i obejścia znanych problemów, które można napotkać podczas migracji maszyn z systemem Windows Server 2008 na platformę Azure. 
 
 > [!NOTE]
-> Teraz można przeprowadzić migrację z lokalnego na platformę Azure przy użyciu usługi Azure Migrate. [Dowiedz się więcej](../migrate/migrate-services-overview.md).
+> Teraz można migrować z lokalizacji lokalnej na platformę Azure przy użyciu usługi Azure Migrate. [Dowiedz się więcej](../migrate/migrate-services-overview.md).
 
 
 ## <a name="supported-operating-systems-and-environments"></a>Obsługiwane systemy operacyjne i środowiska
@@ -87,13 +87,13 @@ Pozostała część tego samouczka pokazuje, jak możesz migrować lokalne maszy
 Wykonaj następujące zadania w celu przygotowania subskrypcji platformy Azure i lokalnego środowiska programu VMware/fizycznego:
 
 1. [Przygotowywanie platformy Azure](tutorial-prepare-azure.md)
-2. Przygotowywanie lokalnego [oprogramowania VMware](vmware-azure-tutorial-prepare-on-premises.md)
+2. Przygotowywanie lokalnego programu [VMware](vmware-azure-tutorial-prepare-on-premises.md)
 
 
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 
-1. Zaloguj się do**usługi odzyskiwania** [portalu](https://portal.azure.com) > Azure .
-2. Kliknij **pozycję Utwórz kopię zapasową** > narzędzi do > **zarządzania zasobami****i odzyskiwanie witryny**.
+1. Zaloguj się do Recovery Services [Azure Portal](https://portal.azure.com) > **Recovery Services**.
+2. Kliknij pozycję **Utwórz zasoby** > **Narzędzia** > do zarządzania zasobami**i Site Recovery**.
 3. W polu **Nazwa** podaj przyjazną nazwę **W2K8-migration**. Jeśli masz więcej niż jedną subskrypcję, wybierz jedną z nich.
 4. Utwórz grupę zasobów **w2k8migrate**.
 5. Określ region platformy Azure. Aby sprawdzić obsługiwane regiony, zobacz sekcję dotyczącą dostępności geograficznej w temacie [Szczegóły cennika usługi Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -113,14 +113,14 @@ Nowy magazyn zostanie dodany do sekcji **Pulpit nawigacyjny** w obszarze **Wszys
 
 Wybierz i zweryfikuj zasoby docelowe.
 
-1. Kliknij **pozycję Przygotuj** > **obiekt docelowy**infrastruktury i wybierz subskrypcję platformy Azure, której chcesz użyć.
+1. Kliknij pozycję **Przygotuj** > **miejsce docelowe**infrastruktury i wybierz subskrypcję platformy Azure, której chcesz użyć.
 2. Określ model wdrażania usługi Resource Manager.
 3. Usługa Site Recovery sprawdza, czy masz co najmniej jedno zgodne konto magazynu Azure i co najmniej jedną sieć platformy Azure.
 
 
 ## <a name="set-up-a-replication-policy"></a>Konfigurowanie zasad replikacji
 
-1. Aby utworzyć nową zasadę replikacji, kliknij pozycję > Zasady replikacji **infrastruktury** > odzyskiwania**witryny****+Zasady replikacji**.
+1. Aby utworzyć nowe zasady replikacji, kliknij kolejno pozycje **Site Recovery infrastruktura** > **zasady** > replikacji **+ zasady replikacji**.
 2. W obszarze **Tworzenie zasad replikacji** określ nazwę zasad.
 3. W obszarze **Wartość progowa celu punktu odzyskiwania** określ limit celu punktu odzyskiwania. Przekroczenie tego limitu przez cel punktu odzyskiwania replikacji powoduje wygenerowanie alertu.
 4. W obszarze **Przechowywanie punktu odzyskiwania** określ (w godzinach), jak długie jest okno przechowywania dla każdego punktu odzyskiwania. Replikowane serwery można odzyskać do dowolnego punktu w tym oknie. Przechowywanie do 24 godzin jest obsługiwane dla maszyn replikowanych do magazynu w warstwie Premium, zaś do 72 godzin dla magazynu w warstwie Standardowa.
@@ -154,9 +154,9 @@ Uruchom [testowanie trybu failover](tutorial-dr-drill-azure.md), aby upewnić si
 
 Uruchom tryb failover dla maszyn, które chcesz migrować.
 
-1. W **ustawieniach** > **replikowane elementy** kliknij komputer > pracy **awaryjnej**.
-2. W **obszarze Przewijanie awaryjne** wybierz **punkt odzyskiwania,** do który chcesz awaryjnie. Wybierz najnowszy punkt odzyskiwania.
-3. Wybierz pozycję **Zamknij maszynę przed rozpoczęciem pracy w trybie failover**. Usługa Site Recovery spróbuje wyłączyć serwer przed wyzwoleniem trybu failover. Przełączanie do trybu failover będzie kontynuowane, nawet jeśli zamknięcie nie powiedzie się. Postęp pracy awaryjnej można śledzić na stronie **Zadania.**
+1. W obszarze **Ustawienia** > **zreplikowane elementy** kliknij maszynę > **tryb failover**.
+2. W obszarze **tryb failover** wybierz **punkt odzyskiwania** , do którego ma zostać przełączona praca awaryjna. Wybierz najnowszy punkt odzyskiwania.
+3. Wybierz pozycję **Zamknij maszynę przed rozpoczęciem pracy w trybie failover**. Usługa Site Recovery spróbuje wyłączyć serwer przed wyzwoleniem trybu failover. Przełączanie do trybu failover będzie kontynuowane, nawet jeśli zamknięcie nie powiedzie się. Postęp pracy w trybie failover można wykonać na stronie **zadań** .
 4. Sprawdź, czy maszyna wirtualna Azure jest wyświetlana na platformie Azure zgodnie z oczekiwaniami.
 5. W obszarze **Replikowane elementy** kliknij prawym przyciskiem myszy serwer > **Zakończ migrację**. Spowoduje to wykonanie następujących czynności:
 
@@ -167,4 +167,4 @@ Uruchom tryb failover dla maszyn, które chcesz migrować.
 
 
 > [!WARNING]
-> **Nie anuluj pracy awaryjnej w toku:** Replikacja serwera jest zatrzymywany przed rozpoczęciem pracy awaryjnej. Jeśli anulujesz tryb failover po rozpoczęciu przełączania, zostanie ono zatrzymane, ale replikowanie serwera nie będzie kontynuowane.
+> **Nie Anuluj trybu failover w toku**: replikacja serwera została zatrzymana przed rozpoczęciem pracy w trybie failover. Jeśli anulujesz tryb failover po rozpoczęciu przełączania, zostanie ono zatrzymane, ale replikowanie serwera nie będzie kontynuowane.

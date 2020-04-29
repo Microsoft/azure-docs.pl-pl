@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: Integracja usługi Power BI z usługą Cognitive Service analizy tekstu'
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak wyodrębnić kluczowe frazy z tekstu przechowywanego w usłudze Power BI za pomocą interfejsu API analizy tekstu.
+description: Dowiedz się, jak używać interfejs API analizy tekstu, aby wyodrębnić kluczowe frazy z tekstu przechowywanego w Power BI.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: aahi
 ms.openlocfilehash: 2398bfa2ce828e716831cc7ce438bd1c241ca5f8
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75378538"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Samouczek: Integracja usługi Power BI z usługą Cognitive Service analizy tekstu
 
 Microsoft Power BI Desktop to bezpłatna aplikacja umożliwiająca nawiązywanie połączeń z danymi oraz ich przekształcanie i wizualizowanie. Usługa analizy tekstu, składnik usług Microsoft Azure Cognitive Services, umożliwia przetwarzanie języka naturalnego. Dysponując nieprzetworzonym tekstem bez struktury, potrafi wyodrębnić najważniejsze frazy, przeanalizować tonację i zidentyfikować dobrze znane jednostki, takie jak marki. Używając tych narzędzi razem, można szybko zorientować się, o czym mówią klienci i jakie są ich opinie.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Importowanie i przekształcanie danych przy użyciu aplikacji Power BI Desktop
@@ -114,7 +114,7 @@ Na liście Zapytania zostanie wyświetlone nowe zapytanie, początkowo noszące 
 Teraz na wstążce **Narzędzia główne** w grupie **Zapytanie** kliknij pozycję **Edytor zaawansowany**, aby otworzyć okno Edytora zaawansowanego. Usuń kod, który znajduje się już w tym oknie, a następnie wklej poniższy kod. 
 
 > [!NOTE]
-> Zastąp przykładowy punkt `<your-custom-subdomain>`końcowy poniżej (zawierający) punktem końcowym wygenerowanym dla zasobu analizy tekstu. Ten punkt końcowy można znaleźć, logując się do [portalu Azure,](https://azure.microsoft.com/features/azure-portal/)wybierając `Quick start`subskrypcję analizy tekstu i wybierając opcję .
+> Zastąp przykładowy punkt końcowy poniżej ( `<your-custom-subdomain>`zawierający) punkt końcowy wygenerowany dla zasobu analiza tekstu. Ten punkt końcowy można znaleźć, logując się do [Azure Portal](https://azure.microsoft.com/features/azure-portal/), wybierając subskrypcję analiza tekstu i wybierając `Quick start`opcję.
 
 
 ```fsharp
@@ -145,7 +145,7 @@ W oknie Edytora zapytań aplikacji Power BI Desktop przejdź z powrotem do zapyt
 
 Zostanie wyświetlone okno dialogowe Wywołaj funkcję niestandardową. W polu **Nazwa nowej kolumny** wprowadź `keyphrases`. W polu **Zapytanie funkcji** wybierz utworzoną funkcję niestandardową `KeyPhrases`.
 
-W oknie dialogowym zostanie wyświetlone nowe pole **tekst (opcjonalnie)**. To pole jest pytaniem, której kolumny chcemy użyć, aby dostarczyć wartości dla parametru `text` interfejsu API fraz kluczowych. (Należy pamiętać, że już zakodowane `language` `id` wartości dla i parametrów.) Zaznacz `Merged` (kolumnę [utworzoną wcześniej](#PreparingData) przez scalanie pól tematu i wiadomości) z menu rozwijanego.
+W oknie dialogowym zostanie wyświetlone nowe pole **tekst (opcjonalnie)**. To pole jest pytaniem, której kolumny chcemy użyć, aby dostarczyć wartości dla parametru `text` interfejsu API fraz kluczowych. (Należy pamiętać, że zostały już zakodowane wartości parametrów `language` i `id` .) Wybierz `Merged` (kolumnę utworzoną [wcześniej](#PreparingData) przez scalenie pól temat i wiadomość) z menu rozwijanego.
 
 ![[Wywoływanie funkcji niestandardowej]](../media/tutorials/power-bi/invoke-custom-function.png)
 
@@ -174,7 +174,7 @@ Następnie może zostać wyświetlony transparent z prośbą o podanie informacj
 
 ![[transparent ochrony prywatności]](../media/tutorials/power-bi/privacy-banner.png)
 
-Kliknij przycisk **Kontynuuj** i dla każdego źródła danych w oknie dialogowym wybierz pozycję `Public`. Następnie kliknij pozycję **Zapisz.**
+Kliknij przycisk **Kontynuuj** i dla każdego źródła danych w oknie dialogowym wybierz pozycję `Public`. Następnie kliknij przycisk **Zapisz.**
 
 ![[ustawianie prywatności źródła danych]](../media/tutorials/power-bi/privacy-dialog.png)
 
@@ -217,7 +217,7 @@ Kliknij narzędzie trybu koncentracji uwagi w raporcie, aby uzyskać lepszy wido
 
 Usługa analizy tekstu, jedna z usług Cognitive Services oferowanych na platformie Microsoft Azure, umożliwia również analizę opinii i wykrywanie języka. Wykrywanie języka jest szczególnie przydatne, gdy opinia klienta nie jest w języku angielskim.
 
-Oba te interfejsy API są podobne do interfejsu API fraz kluczowych. Oznacza to, że możesz zintegrować je z aplikacją Power BI Desktop, używając funkcji niestandardowych, które są prawie identyczne z utworzonymi w ramach tego samouczka. Wystarczy jak poprzednio utworzyć puste zapytanie i wkleić do Edytora zaawansowanego odpowiedni kod podany poniżej. (Nie zapomnij o kluczu dostępu!) Następnie, tak jak poprzednio, użyj funkcji, aby dodać nową kolumnę do tabeli.
+Oba te interfejsy API są podobne do interfejsu API fraz kluczowych. Oznacza to, że możesz zintegrować je z aplikacją Power BI Desktop, używając funkcji niestandardowych, które są prawie identyczne z utworzonymi w ramach tego samouczka. Wystarczy jak poprzednio utworzyć puste zapytanie i wkleić do Edytora zaawansowanego odpowiedni kod podany poniżej. (Nie zapomnij klucza dostępu!) Następnie należy użyć funkcji, aby dodać nową kolumnę do tabeli.
 
 Poniższa funkcja analizy opinii zwraca wynik informujący o tym, na ile pozytywna jest opinia wyrażona w tekście.
 
@@ -296,7 +296,7 @@ Dowiedz się więcej na temat usługi analizy tekstu, języka formuł Power Quer
 > [Dokumentacja interfejsu API analizy tekstu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
 
 > [!div class="nextstepaction"]
-> [Odwołanie do dodatku Power Query M](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
+> [Informacje dotyczące Power Query M](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Dokumentacja usługi Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

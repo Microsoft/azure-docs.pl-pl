@@ -5,11 +5,11 @@ author: ecfan
 ms.author: estfan
 ms.date: 11/09/2018
 ms.openlocfilehash: 01f9a3c74c555338e99776490ceb4828503cef23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74792070"
 ---
-**P:** Dlaczego lokalizacja mojej istniejącej bramy została zmieniona? <br/>
-**A:** Zasoby bramy utworzone przed 3 maja 2017 r. zostały przeniesione do oryginalnych lokalizacji dzierżawy usługi Azure AD dla konta służbowego, które utworzyło te bramy. Jednak te zmiany nie powinny mieć wpływu na aktualnie uruchomione aplikacje logiki, które powinny nadal działać w zwykły sposób. Dzięki ogólnej dostępności bramy w maju lokalizacje zasobów bramy mogą się różnić od lokalizacji aplikacji logiki.
+**P**: Dlaczego lokalizacja Twojej istniejącej bramy zmieniła się? <br/>
+Odp **.: zasoby**bramy utworzone przed 3 maja 2017 zostały przeniesione do lokalizacji oryginalnej dzierżawy usługi Azure AD dla konta służbowego, które utworzyło te bramy. Jednak te zmiany nie mają wpływu na aktualnie uruchomione aplikacje logiki, które powinny działać normalnie. Ogólnie dostępną bramą w programie mogą być lokalizacje zasobów bramy, które różnią się od lokalizacji aplikacji logiki.

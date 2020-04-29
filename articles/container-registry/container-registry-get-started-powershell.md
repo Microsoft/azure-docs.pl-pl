@@ -1,17 +1,17 @@
 ---
-title: Szybki start — tworzenie rejestru — powershell
-description: Szybko dowiedz się, jak utworzyć prywatny rejestr platformy Docker w rejestrze kontenerów platformy Azure za pomocą programu PowerShell
+title: Szybki Start — tworzenie rejestru — PowerShell
+description: Szybka nauka tworzenia rejestru prywatnego platformy Docker w Azure Container Registry przy użyciu programu PowerShell
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 872b2a29444e5278db34ce44741e2ca90d885702
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74456376"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Szybki start: tworzenie rejestru kontenerów prywatnych przy użyciu programu Azure PowerShell
+# <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Szybki Start: Tworzenie prywatnego rejestru kontenerów za pomocą Azure PowerShell
 
 Usługa Azure Container Registry to zarządzana, prywatna usługa rejestru kontenerów platformy Docker używana do kompilowania, przechowywania i obsługi obrazów kontenerów Docker. Z tego przewodnika Szybki start dowiesz się, jak utworzyć rejestr kontenerów platformy Azure przy użyciu programu PowerShell. Następnie za pomocą poleceń platformy Docker wypchniesz obraz kontenera do rejestru, a na koniec ściągniesz i uruchomisz obraz z rejestru.
 

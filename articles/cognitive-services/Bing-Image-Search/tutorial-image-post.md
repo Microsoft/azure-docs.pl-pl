@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek: Wyodrębnianie szczegółów obrazu za pomocą interfejsu API REST i języka C# — wyszukiwanie obrazów Bing'
+title: 'Samouczek: Wyodrębnienie szczegółów obrazu za pomocą interfejsu API REST i języka C# wyszukiwanie obrazów Bing'
 titleSuffix: Azure Cognitive Services
-description: Ten samouczek służy do tworzenia aplikacji języka C#, która wyodrębnia szczegóły obrazu przy użyciu interfejsu API wyszukiwania obrazów Bing.
+description: Skorzystaj z tego samouczka, aby utworzyć aplikację w języku C#, która wyodrębnia szczegóły obrazu przy użyciu interfejs API wyszukiwania obrazów Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
 ms.openlocfilehash: 69c5fc9805bed8fdfde3dd208e7fb66254e82c3c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75383879"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Samouczek: wyodrębnianie szczegółów obrazu przy użyciu interfejs API wyszukiwania obrazów Bing i języka C#
@@ -32,17 +32,17 @@ W tym samouczku wyjaśniono:
 > * Przekazywanie danych obrazu i wysyłanie żądania `POST`
 > * Drukowanie w konsoli wyników w formacie JSON
 
-Kod źródłowy dla tego przykładu jest dostępny w [usłudze GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingGetSimilarImages.cs).
+Kod źródłowy dla tego przykładu jest dostępny w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingGetSimilarImages.cs).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Dowolna wersja [programu Visual Studio 2017 lub nowszej](https://visualstudio.microsoft.com/downloads/).
+* Dowolna wersja programu [Visual studio 2017 lub nowszego](https://visualstudio.microsoft.com/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="construct-an-image-details-search-request"></a>Konstruowanie żądania wyszukiwania szczegółów obrazu
 
-Poniżej przedstawiono punkt końcowy `/details`, który akceptuje żądania POST z danymi obrazu w treści żądania. Można użyć globalnego punktu końcowego poniżej lub niestandardowego punktu końcowego [poddomeny](../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlanego w witrynie Azure portal dla zasobu.
+Poniżej przedstawiono punkt końcowy `/details`, który akceptuje żądania POST z danymi obrazu w treści żądania. Możesz użyć poniższego globalnego punktu końcowego lub niestandardowego punktu końcowego [poddomeny](../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
@@ -111,6 +111,6 @@ Jeśli na obrazie znajdują się osoby lub miejsca, które można zidentyfikowa�
 > [!div class="nextstepaction"]
 > [Wyświetlanie obrazów i opcji wyszukiwania w jednostronicowej aplikacji internetowej](tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Dokumentacja interfejsu API wyszukiwania obrazów Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

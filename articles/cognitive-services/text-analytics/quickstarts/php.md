@@ -1,7 +1,7 @@
 ---
 title: 'Szybki start: wywoływanie interfejsu API analizy tekstu przy użyciu języka PHP'
 titleSuffix: Azure Cognitive Services
-description: Ten przewodnik Szybki start pokazuje, jak uzyskać informacje i przykłady kodu, aby szybko rozpocząć korzystanie z interfejsu API analizy tekstu w usłudze Azure Cognitive Services.
+description: W tym przewodniku szybki start pokazano, jak uzyskać informacje i przykłady kodu, aby szybko rozpocząć korzystanie z interfejs API analizy tekstu na platformie Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: a74cdb79da668cdba44c051c7b7eada3ace8abe4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75378589"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Szybki start: wywoływanie analizy tekstu usługi Cognitive Service przy użyciu języka PHP
@@ -36,7 +36,7 @@ Interfejs API wykrywania języka wykrywa język dokumentu tekstowego przy użyci
 
 1. Utwórz nowy projekt PHP w ulubionym środowisku IDE.
 1. Dodaj kod przedstawiony poniżej.
-1. Skopiuj klucz analizy tekstu i punkt końcowy do kodu.
+1. Skopiuj klucz analiza tekstu i punkt końcowy do kodu.
 1. Uruchom program.
 
 ```php
@@ -144,7 +144,7 @@ Interfejs API analizy tonacji wykrywa tonację zestawu rekordów tekstowych przy
 
 1. Utwórz nowy projekt PHP w ulubionym środowisku IDE.
 1. Dodaj kod przedstawiony poniżej.
-1. Skopiuj klucz analizy tekstu i punkt końcowy do kodu.
+1. Skopiuj klucz analiza tekstu i punkt końcowy do kodu.
 1. Uruchom program.
 
 ```php
@@ -229,7 +229,7 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 Interfejs API wyodrębniania kluczowych fraz wyodrębnia kluczowe frazy w dokumencie tekstowym przy użyciu [metody Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). W poniższym przykładzie wyodrębniono frazy kluczowe dla dokumentów w języku angielskim i hiszpańskim.
 1. Utwórz nowy projekt PHP w ulubionym środowisku IDE.
 1. Dodaj kod przedstawiony poniżej.
-1. Skopiuj klucz analizy tekstu i punkt końcowy do kodu.
+1. Skopiuj klucz analiza tekstu i punkt końcowy do kodu.
 1. Uruchom program.
 
 ```php
@@ -329,7 +329,7 @@ Interfejs API jednostek identyfikuje dobrze znane jednostki w dokumencie tekstow
 
 1. Utwórz nowy projekt PHP w ulubionym środowisku IDE.
 1. Dodaj kod przedstawiony poniżej.
-1. Skopiuj klucz analizy tekstu i punkt końcowy do kodu. 
+1. Skopiuj klucz analiza tekstu i punkt końcowy do kodu. 
 1. Uruchom program.
 
 ```php
@@ -431,9 +431,9 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Analiza tekstu za pomocą usługi Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
+> [analiza tekstu z Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Zobacz też 
+## <a name="see-also"></a>Zobacz także 
 
- [Analiza tekstu — omówienie](../overview.md)  
- [Często zadawane pytania (FAQ)](../text-analytics-resource-faq.md)
+ [Przegląd analiza tekstu](../overview.md)  
+ [Często zadawane pytania](../text-analytics-resource-faq.md)
