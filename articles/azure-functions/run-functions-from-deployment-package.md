@@ -1,58 +1,58 @@
 ---
-title: Uruchamianie usługi Azure Functions z pakietu
-description: Niech środowisko uruchomieniowe usługi Azure Functions uruchamia funkcje, montując plik pakietu wdrażania, który zawiera pliki projektu aplikacji funkcji.
+title: Uruchamianie Azure Functions z pakietu
+description: Aby środowisko uruchomieniowe Azure Functions uruchomiło funkcje, instalując plik pakietu wdrożeniowego zawierający pliki projektu aplikacji funkcji.
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.openlocfilehash: d40896d6a4659945dbeda9ca965366f0b2ca4bd2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79365275"
 ---
-# <a name="run-your-azure-functions-from-a-package-file"></a>Uruchamianie usługi Azure Functions z pliku pakietu
+# <a name="run-your-azure-functions-from-a-package-file"></a>Uruchamianie Azure Functions z pliku pakietu
 
-Na platformie Azure można uruchamiać funkcje bezpośrednio z pliku pakietu wdrażania w aplikacji funkcji. Inną opcją jest wdrożenie plików `d:\home\site\wwwroot` w katalogu aplikacji funkcji.
+Na platformie Azure możesz uruchamiać funkcje bezpośrednio z pliku pakietu wdrożeniowego w aplikacji funkcji. Druga opcja polega na wdrożeniu plików w `d:\home\site\wwwroot` katalogu aplikacji funkcji.
 
-W tym artykule opisano korzyści wynikające z uruchamiania funkcji z pakietu. Pokazano również, jak włączyć tę funkcję w aplikacji funkcji.
+W tym artykule opisano zalety uruchamiania funkcji z pakietu. Pokazano również, jak włączyć tę funkcję w aplikacji funkcji.
 
 > [!IMPORTANT]
-> Podczas wdrażania funkcji w aplikacji z funkcją systemu Linux w [planie Premium](functions-scale.md#premium-plan)należy zawsze uruchomić z pliku pakietu i [opublikować aplikację przy użyciu narzędzia Azure Functions Core Tools.](functions-run-local.md#project-file-deployment)
+> Podczas wdrażania funkcji w aplikacji funkcji systemu Linux w [planie Premium](functions-scale.md#premium-plan)należy zawsze uruchamiać ją z pliku pakietu i [publikować aplikację przy użyciu Azure Functions Core Tools](functions-run-local.md#project-file-deployment).
 
-## <a name="benefits-of-running-from-a-package-file"></a>Korzyści z uruchamiania z pliku pakietu
+## <a name="benefits-of-running-from-a-package-file"></a>Zalety uruchamiania z pliku pakietu
   
-Istnieje kilka korzyści z uruchamiania z pliku pakietu:
+Istnieje kilka korzyści, które należy wykonać, korzystając z pliku pakietu:
 
-+ Zmniejsza ryzyko problemów z blokowaniem kopii plików.
-+ Można wdrożyć w aplikacji produkcyjnej (z ponownym uruchomieniem).
-+ Możesz mieć pewność, że pliki są uruchomione w aplikacji.
-+ Zwiększa wydajność [wdrożeń usługi Azure Resource Manager](functions-infrastructure-as-code.md).
-+ Może skrócić czas rozruchu na zimno, szczególnie w przypadku funkcji JavaScript z dużymi drzewami pakietów npm.
++ Zmniejsza ryzyko problemów z blokowaniem kopiowania plików.
++ Program można wdrożyć w aplikacji produkcyjnej (z ponownym uruchomieniem).
++ Możesz mieć pewne pliki, które są uruchomione w aplikacji.
++ Zwiększa wydajność [wdrożeń Azure Resource Manager](functions-infrastructure-as-code.md).
++ Może skrócić czas zimnego startu, szczególnie w przypadku funkcji JavaScript z dużymi drzewami pakietów npm.
 
-Aby uzyskać więcej informacji, zobacz [to ogłoszenie](https://github.com/Azure/app-service-announcements/issues/84).
+Aby uzyskać więcej informacji, zobacz [ten anons](https://github.com/Azure/app-service-announcements/issues/84).
 
-## <a name="enabling-functions-to-run-from-a-package"></a>Włączanie uruchamiania funkcji z pakietu
+## <a name="enabling-functions-to-run-from-a-package"></a>Włączanie funkcji do uruchamiania z pakietu
 
-Aby włączyć uruchamianie aplikacji funkcji z pakietu, `WEBSITE_RUN_FROM_PACKAGE` wystarczy dodać ustawienie do ustawień aplikacji funkcji. Ustawienie `WEBSITE_RUN_FROM_PACKAGE` może mieć jedną z następujących wartości:
+Aby umożliwić uruchamianie aplikacji funkcji z pakietu, wystarczy dodać `WEBSITE_RUN_FROM_PACKAGE` ustawienie do ustawień aplikacji funkcji. `WEBSITE_RUN_FROM_PACKAGE` Ustawienie może mieć jedną z następujących wartości:
 
 | Wartość  | Opis  |
 |---------|---------|
-| **`1`**  | Zalecane dla aplikacji funkcyjnych działających w systemie Windows. Uruchom z pliku pakietu `d:\home\data\SitePackages` w folderze aplikacji funkcji. Jeśli nie [jest wdrażany z wdrażaniem zip,](#integration-with-zip-deployment)ta `packagename.txt`opcja wymaga, aby folder miał również plik o nazwie . Ten plik zawiera tylko nazwę pliku pakietu w folderze, bez żadnych odstępów. |
-|**`<URL>`**  | Lokalizacja określonego pliku pakietu, który chcesz uruchomić. Podczas korzystania z magazynu obiektów Blob, należy użyć kontenera prywatnego z [podpisem dostępu współdzielonego (SAS),](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) aby włączyć środowisko uruchomieniowe funkcji dostępu do pakietu. Za pomocą [Eksploratora usługi Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) można przekazać pliki pakietów do konta magazynu obiektów Blob. Po określeniu adresu URL należy również [synchronizować wyzwalacze](functions-deployment-technologies.md#trigger-syncing) po opublikowaniu zaktualizowanego pakietu. |
+| **`1`**  | Zalecane w przypadku aplikacji funkcji działających w systemie Windows. Uruchom plik pakietu w `d:\home\data\SitePackages` folderze aplikacji funkcji. Jeśli nie jest [wdrażany przy użyciu narzędzia zip Deploy](#integration-with-zip-deployment), ta opcja wymaga, aby folder miał `packagename.txt`również plik o nazwie. Ten plik zawiera tylko nazwę pliku pakietu w folderze, bez odstępów. |
+|**`<URL>`**  | Lokalizacja określonego pliku pakietu, który ma zostać uruchomiony. Korzystając z usługi BLOB Storage, należy użyć prywatnego kontenera z [sygnaturą dostępu współdzielonego (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) , aby umożliwić środowisko uruchomieniowe funkcji dostęp do pakietu. Aby przekazać pliki pakietu do konta magazynu obiektów blob, można użyć [Eksplorator usługi Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) . Po określeniu adresu URL należy również [zsynchronizować wyzwalacze](functions-deployment-technologies.md#trigger-syncing) po opublikowaniu zaktualizowanego pakietu. |
 
 > [!CAUTION]
-> Podczas uruchamiania aplikacji funkcji w systemie Windows, zewnętrzna opcja adresu URL daje gorsze wyniki cold-start. Podczas wdrażania aplikacji funkcji w systemie `WEBSITE_RUN_FROM_PACKAGE` Windows `1` należy ustawić i publikować za pomocą wdrożenia zip.
+> W przypadku uruchamiania aplikacji funkcji w systemie Windows opcja zewnętrzny adres URL daje w wyniku gorszą wydajność zimnego startu. Podczas wdrażania aplikacji funkcji w systemie Windows należy ustawić wartość `WEBSITE_RUN_FROM_PACKAGE` i opublikować `1` ją z wdrożeniem zip.
 
-Poniżej przedstawiono aplikację funkcji skonfigurowaną do uruchamiania z pliku zip hostowanego w magazynie obiektów Blob platformy Azure:
+Poniżej przedstawiono aplikację funkcji skonfigurowaną do uruchamiania z pliku zip hostowanego w usłudze Azure Blob Storage:
 
 ![WEBSITE_RUN_FROM_ZIP ustawienie aplikacji](./media/run-functions-from-deployment-package/run-from-zip-app-setting-portal.png)
 
 > [!NOTE]
-> Obecnie obsługiwane są tylko pliki pakietu .zip.
+> Obecnie obsługiwane są tylko pliki pakietu zip.
 
-## <a name="integration-with-zip-deployment"></a>Integracja z wdrażaniem zip
+## <a name="integration-with-zip-deployment"></a>Integracja z wdrożeniem zip
 
-[Wdrożenie zip][Zip deployment for Azure Functions] jest funkcją usługi Azure App Service, która `wwwroot` umożliwia wdrożenie projektu aplikacji funkcji do katalogu. Projekt jest pakowany jako plik wdrażania zip. Te same interfejsy API mogą służyć do `d:\home\data\SitePackages` wdrażania pakietu w folderze. Z `WEBSITE_RUN_FROM_PACKAGE` wartością ustawienia `1`aplikacji interfejsy API wdrażania zip `d:\home\data\SitePackages` kopiują pakiet do folderu zamiast wyodrębniania plików do `d:\home\site\wwwroot`. Tworzy również `packagename.txt` plik. Po ponownym uruchomieniu pakiet jest `wwwroot` instalowany jako system plików tylko do odczytu. Aby uzyskać więcej informacji na temat wdrażania zip, zobacz [wdrażanie zip dla usługi Azure Functions](deployment-zip-push.md).
+[Wdrożenie zip][Zip deployment for Azure Functions] to funkcja Azure App Service, która umożliwia wdrożenie projektu aplikacji funkcji w `wwwroot` katalogu. Projekt jest spakowany jako plik wdrożenia. zip. Te same interfejsy API mogą służyć do wdrażania pakietu w `d:\home\data\SitePackages` folderze. W przypadku `WEBSITE_RUN_FROM_PACKAGE` ustawienia `1`aplikacji w interfejsie API wdrożenia zip Skopiuj pakiet do `d:\home\data\SitePackages` folderu zamiast wyodrębniania plików do `d:\home\site\wwwroot`programu. Tworzy również `packagename.txt` plik. Po ponownym uruchomieniu pakiet jest instalowany `wwwroot` jako system plików tylko do odczytu. Aby uzyskać więcej informacji o wdrażaniu zip, zobacz [zip Deployment for Azure Functions](deployment-zip-push.md).
 
 ## <a name="adding-the-website_run_from_package-setting"></a>Dodawanie ustawienia WEBSITE_RUN_FROM_PACKAGE
 
@@ -61,15 +61,15 @@ Poniżej przedstawiono aplikację funkcji skonfigurowaną do uruchamiania z plik
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-- Uruchom z `wwwroot` pakietu sprawia, że tylko do odczytu, więc pojawi się błąd podczas pisania plików do tego katalogu.
+- Polecenie Uruchom z pakietu `wwwroot` sprawia, że jest tylko do odczytu, więc podczas zapisywania plików w tym katalogu zostanie wyświetlony komunikat o błędzie.
 - Formaty tar i gzip nie są obsługiwane.
-- Ta funkcja nie jest redagowana z lokalną pamięcią podręczną.
-- Aby uzyskać lepszą wydajność na zimno,`WEBSITE_RUN_FROM_PACKAGE`użyj lokalnej opcji Zip ( =1).
-- Uruchom z pakietu jest niezgodny z`SCM_DO_BUILD_DURING_DEPLOYMENT=true`opcją dostosowywania wdrożenia ( ), krok kompilacji zostanie zignorowany podczas wdrażania.
+- Ta funkcja nie składa się z lokalnej pamięci podręcznej.
+- W celu zwiększenia wydajności zimnej lokalizacji Użyj opcji zip (`WEBSITE_RUN_FROM_PACKAGE`= 1).
+- Uruchamianie z pakietu jest niezgodne z opcją dostosowania wdrożenia`SCM_DO_BUILD_DURING_DEPLOYMENT=true`(), krok kompilacji zostanie zignorowany podczas wdrażania.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Ciągłe wdrażanie dla usług Azure Functions](functions-continuous-deployment.md)
+> [Ciągłe wdrażanie dla Azure Functions](functions-continuous-deployment.md)
 
 [Zip deployment for Azure Functions]: deployment-zip-push.md

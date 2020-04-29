@@ -1,6 +1,6 @@
 ---
-title: Seria ND — maszyny wirtualne platformy Azure
-description: Dane techniczne maszyn wirtualnych serii ND.
+title: Seria ND — Virtual Machines platformy Azure
+description: Specyfikacje dotyczące maszyn wirtualnych z serii ND.
 services: virtual-machines
 author: vikancha
 ms.service: virtual-machines
@@ -8,35 +8,35 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 163dc0d6ecd4f91273a82b04ce186f7a8df868af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79465060"
 ---
 # <a name="nd-series"></a>Seria ND
 
-Maszyny wirtualne z serii ND są nowym dodatkiem do rodziny gpu przeznaczonych dla obciążeń AI i Deep Learning. Oferują doskonałe osiągi do treningu i wnioskowania. Wystąpienia ND są obsługiwane przez procesory graficzne [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) i procesory Intel Xeon E5-2690 v4 (Broadwell). Te wystąpienia zapewniają doskonałą wydajność dla operacji zmiennoprzecinkowych z jedną precyzją dla obciążeń AI wykorzystujących microsoft cognitive toolkit, TensorFlow, Caffe i inne struktury. Seria ND oferuje również znacznie większy rozmiar pamięci GPU (24 GB), dzięki czemu można dopasować znacznie większe modele sieci neuronowych. Podobnie jak seria NC, seria ND oferuje konfigurację z drugorzędną siecią o niskim opóźnieniu, dużą przepustowością przez RDMA i łącznością InfiniBand, dzięki czemu można uruchamiać zadania szkoleniowe na dużą skalę obejmujące wiele procesorów graficznych.
+Maszyny wirtualne z serii ND to nowe dodanie do rodziny procesorów GPU zaprojektowanej dla systemu AI i obciążeń głębokiego uczenia. Oferują one doskonałą wydajność na potrzeby szkoleń i wnioskowania. Wystąpienia ND są obsługiwane przez procesory [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) i procesory Intel Xeon E5-2690 v4 (Broadwell). Te wystąpienia zapewniają doskonałą wydajność operacji zmiennoprzecinkowych o pojedynczej precyzji dla obciążeń AI wykorzystujących Microsoft Cognitive Toolkit, TensorFlow, Caffe i inne platformy. Seria ND oferuje również znacznie większy rozmiar pamięci procesora GPU (24 GB), co umożliwia dopasowanie znacznie większych modeli sieci neuronowych. Podobnie jak w przypadku serii NC, Seria ND oferuje konfigurację z dodatkową siecią o małym opóźnieniu i wysokiej przepływności za pośrednictwem funkcji RDMA oraz łączności InfiniBand, dzięki czemu można uruchamiać zadania szkoleniowe o dużej skali obejmujące wiele procesorów GPU.
 
-Pamięć masowa w wersji premium: obsługiwane
+Premium Storage: obsługiwane
 
-Buforowanie magazynu w wersji Premium: obsługiwane
+Buforowanie Premium Storage: obsługiwane
 
-Migracja na żywo: nie jest obsługiwana
+Migracja na żywo: nieobsługiwane
 
-Aktualizacje zachowywania pamięci: nie są obsługiwane
+Aktualizacje z zachowaniem pamięci: nieobsługiwane
 
 > [!IMPORTANT]
-> Dla tej serii maszyn wirtualnych przydział vCPU (core) na region w subskrypcji jest początkowo ustawiony na 0. [Zażądaj zwiększenia przydziału procesora wirtualnego](../azure-supportability/resource-manager-core-quotas-request.md) dla tej serii w [dostępnym regionie](https://azure.microsoft.com/regions/services/).
+> Dla tej serii maszyn wirtualnych limit przydziału vCPU (rdzeń) na region w ramach subskrypcji jest początkowo ustawiony na 0. [Zażądaj zwiększenia limitu przydziału vCPU](../azure-supportability/resource-manager-core-quotas-request.md) dla tej serii w [dostępnym regionie](https://azure.microsoft.com/regions/services/).
 >
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Pamięć GPU: GiB | Maks. liczba dysków danych | Maksymalna przepustowość dysku bez buforów: IOPS/MB/s | Maksymalna liczba kart sieciowych |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Pamięć procesora GPU: GiB | Maks. liczba dysków danych | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych |
 |---|---|---|---|---|---|---|---|---|
 | Standard_ND6s    | 6  | 112 | 736  | 1 | 24 | 12 | 20000/200 | 4 |
 | Standard_ND12s   | 12 | 224 | 1474 | 2 | 48 | 24 | 40000/400 | 8 |
 | Standard_ND24s   | 24 | 448 | 2948 | 4 | 96 | 32 | 80000/800 | 8 |
-| Standard_ND24rs* | 24 | 448 | 2948 | 4 | 96 | 32 | 80000/800 | 8 |
+| Standard_ND24rs * | 24 | 448 | 2948 | 4 | 96 | 32 | 80000/800 | 8 |
 
-1 GPU = jedna karta P40.
+1 procesor GPU = jedna karta P40.
 
 *Obsługa technologii RDMA
 
@@ -44,11 +44,11 @@ Aktualizacje zachowywania pamięci: nie są obsługiwane
 
 ## <a name="supported-operating-systems-and-drivers"></a>Obsługiwane systemy operacyjne i sterowniki
 
-Aby korzystać z możliwości procesorów GPU maszyn wirtualnych z serii N platformy Azure, należy zainstalować sterowniki gpu nvidia.
+Aby skorzystać z możliwości procesora GPU maszyn wirtualnych z serii N, należy zainstalować sterowniki graficznego procesora NVIDIA.
 
-[Rozszerzenie sterownika GPU NVIDIA](./extensions/hpccompute-gpu-windows.md) instaluje odpowiednie sterowniki NVIDIA CUDA lub GRID na maszynie wirtualnej z serii N. Zainstaluj rozszerzenie lub zarządzaj nim za pomocą witryny Azure portal lub narzędzi, takich jak szablony programu Azure PowerShell lub Usługi Azure Resource Manager. Zapoznaj się z [dokumentacją rozszerzenia sterowników procesora graficznego NVIDIA, aby](./extensions/hpccompute-gpu-windows.md) zapoznać się z obsługiwanymi systemami operacyjnymi i krokami wdrażania. Aby uzyskać ogólne informacje na temat rozszerzeń maszyn wirtualnych, zobacz [rozszerzenia i funkcje maszyny wirtualnej platformy Azure](./extensions/overview.md).
+[Rozszerzenie sterownika NVIDIA GPU](./extensions/hpccompute-gpu-windows.md) instaluje odpowiednie sterowniki NVIDIA CUDA lub Grid na maszynie wirtualnej z serii N. Zainstaluj rozszerzenie lub Zarządzaj nim przy użyciu Azure Portal lub narzędzi, takich jak szablony Azure PowerShell lub Azure Resource Manager. Zapoznaj się z [dokumentacją rozszerzenia sterownika graficznego procesora NVIDIA](./extensions/hpccompute-gpu-windows.md) dla obsługiwanych systemów operacyjnych i kroków wdrażania. Aby uzyskać ogólne informacje o rozszerzeniach maszyn wirtualnych, zobacz [rozszerzenia i funkcje maszyny wirtualnej platformy Azure](./extensions/overview.md).
 
-Jeśli zdecydujesz się zainstalować sterowniki GPU NVIDIA ręcznie, zobacz [Konfiguracja sterowników GPU serii N dla systemu Windows](./windows/n-series-driver-setup.md) lub N dla systemu [Linux](./linux/n-series-driver-setup.md) dla obsługiwanych systemów operacyjnych, sterowników, instrukcji instalacji i weryfikacji.
+W przypadku wybrania opcji ręcznego instalowania sterowników procesora GPU firmy NVIDIA należy zapoznać się z tematem Konfiguracja [sterownika procesora GPU dla systemu Windows](./windows/n-series-driver-setup.md) lub [n-Series](./linux/n-series-driver-setup.md) w systemie Linux dla obsługiwanych systemów operacyjnych, sterowników, instalacji i kroków weryfikacyjnych.
 
 ## <a name="other-sizes"></a>Inne rozmiary
 
@@ -61,4 +61,4 @@ Jeśli zdecydujesz się zainstalować sterowniki GPU NVIDIA ręcznie, zobacz [Ko
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tym, jak [jednostki obliczeniowe platformy Azure (ACU)](acu.md) mogą pomóc w porównywaniu wydajności obliczeniowej w jednostkach SKU platformy Azure.
+Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.

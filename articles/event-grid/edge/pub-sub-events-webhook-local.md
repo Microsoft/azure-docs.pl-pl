@@ -1,6 +1,6 @@
 ---
-title: Publikowanie, subskrybowanie zdarzeń lokalnie — usługa Azure Event Grid IoT Edge | Dokumenty firmy Microsoft
-description: Publikowanie, subskrybowanie zdarzeń lokalnie przy użyciu elementu Webhook z siatką zdarzeń w uktoreniu usługi IoT Edge
+title: Publikowanie, subskrybowanie zdarzeń lokalnie — Azure Event Grid IoT Edge | Microsoft Docs
+description: Publikuj, Subskrybuj zdarzenia lokalnie przy użyciu elementu webhook z Event Grid na IoT Edge
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,54 +10,54 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba82b1bea4753cd51e275a78b248247032d79a01
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281004"
 ---
-# <a name="tutorial-publish-subscribe-to-events-locally"></a>Samouczek: Publikowanie, subskrybowanie wydarzeń lokalnie
+# <a name="tutorial-publish-subscribe-to-events-locally"></a>Samouczek: publikowanie, subskrybowanie zdarzeń lokalnie
 
-W tym artykule otrzymasz od wszystkich kroków potrzebnych do publikowania i subskrybowania zdarzeń przy użyciu usługi Event Grid w umyw usługi IoT Edge.
+W tym artykule przeprowadzimy Cię przez wszystkie kroki wymagane do opublikowania i subskrybowania zdarzeń przy użyciu Event Grid w IoT Edge.
 
 > [!NOTE]
-> Aby dowiedzieć się więcej o tematach i subskrypcjach usługi Azure Event Grid, zobacz [Pojęcia dotyczące siatki zdarzeń](concepts.md).
+> Aby dowiedzieć się więcej na temat Azure Event Grid tematów i subskrypcji, zobacz temat [Event Grid koncepcje](concepts.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
-Aby ukończyć ten samouczek, trzeba będzie:
+Aby można było ukończyć ten samouczek, potrzebne są:
 
-* **Subskrypcja platformy Azure** — utwórz [bezpłatne konto,](https://azure.microsoft.com/free) jeśli jeszcze go nie masz. 
-* **Usługa Azure IoT Hub i urządzenie usługi IoT Edge** — postępuj zgodnie z instrukcjami w przewodniku Szybki start dla urządzeń [z systemem Linux](../../iot-edge/quickstart-linux.md) lub [Windows,](../../iot-edge/quickstart.md) jeśli jeszcze go nie masz.
+* **Subskrypcja platformy Azure** — Utwórz [bezpłatne konto](https://azure.microsoft.com/free) , jeśli jeszcze go nie masz. 
+* **Azure IoT Hub i IoT Edge Device** — wykonaj kroki opisane w przewodniku szybki start dla [urządzeń](../../iot-edge/quickstart.md) z systemem [Linux](../../iot-edge/quickstart-linux.md) lub Windows, jeśli jeszcze go nie masz.
 
-## <a name="deploy-event-grid-iot-edge-module"></a>Wdrażanie modułu IoT Edge w siatce zdarzeń
+## <a name="deploy-event-grid-iot-edge-module"></a>Wdróż moduł IoT Edge Event Grid
 
-Istnieje kilka sposobów wdrażania modułów na urządzeniu usługi IoT Edge i wszystkie z nich działają w usłudze Azure Event Grid w usłudze IoT Edge. W tym artykule opisano kroki wdrażania usługi Event Grid w usłudze IoT Edge z witryny Azure portal.
+Istnieje kilka sposobów wdrażania modułów na urządzeniu IoT Edge i wszystkie z nich pracują Azure Event Grid w IoT Edge. W tym artykule opisano kroki wdrażania Event Grid na IoT Edge z Azure Portal.
 
 >[!NOTE]
-> W tym samouczku wdrożysz moduł siatki zdarzeń bez trwałości. Oznacza to, że wszystkie tematy i subskrypcje utworzone w tym samouczku zostaną usunięte po przemieszczeniu modułu. Aby uzyskać więcej informacji na temat konfigurowania trwałości, zobacz następujące artykuły: [Utrwalić stan w systemie Linux](persist-state-linux.md) lub Persist state w systemie [Windows](persist-state-windows.md). W przypadku obciążeń produkcyjnych zaleca się zainstalowanie modułu event grid z trwałością.
+> W tym samouczku zostanie wdrożony moduł Event Grid bez trwałości. Oznacza to, że wszystkie tematy i subskrypcje utworzone w tym samouczku zostaną usunięte po ponownym wdrożeniu modułu. Aby uzyskać więcej informacji na temat sposobu konfiguracji trwałości, zobacz następujące artykuły: [utrwalanie stanu w systemie Linux](persist-state-linux.md) lub [w stanie utrwalania systemu Windows](persist-state-windows.md). W przypadku obciążeń produkcyjnych zaleca się zainstalowanie modułu Event Grid z trwałością.
 
 
-### <a name="select-your-iot-edge-device"></a>Wybieranie urządzenia IoT Edge
+### <a name="select-your-iot-edge-device"></a>Wybierz urządzenie IoT Edge
 
-1. Logowanie się do [witryny Azure portal](https://portal.azure.com)
-1. Przejdź do centrum IoT Hub.
-1. Wybierz pozycję **IoT Edge** z menu w sekcji **Automatyczne zarządzanie urządzeniami.** 
+1. Zaloguj się do [Azure Portal](https://portal.azure.com)
+1. Przejdź do IoT Hub.
+1. Wybierz pozycję **IoT Edge** z menu w sekcji **Automatyczne zarządzanie urządzeniami** . 
 1. Kliknij identyfikator urządzenia docelowego z listy urządzeń
-1. Wybierz pozycję **Ustaw moduły**. Zachowaj otwartą stronę. Będziesz kontynuować kroki w następnej sekcji.
+1. Wybierz pozycję **Ustaw moduły**. Nie otwieraj strony. Wykonaj kroki opisane w następnej sekcji.
 
-### <a name="configure-a-deployment-manifest"></a>Konfigurowanie manifestu wdrażania
+### <a name="configure-a-deployment-manifest"></a>Konfigurowanie manifestu wdrożenia
 
-Manifest wdrożenia to dokument JSON, który opisuje, które moduły do wdrożenia, jak przepływy danych między modułami i żądane właściwości bliźniaczych reprezentacji modułu. Portal Azure ma kreatora, który przeprowadzi Cię przez tworzenie manifestu wdrożenia, zamiast ręcznego tworzenia dokumentu JSON.  Ma trzy kroki: **Dodaj moduły,** **Określ trasy**i **Przejrzyj wdrożenie**.
+Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, sposób przepływu danych między modułami i żądane właściwości modułu bliźniaczych reprezentacji. Azure Portal zawiera kreatora, który przeprowadzi Cię przez proces tworzenia manifestu wdrożenia, zamiast ręcznego tworzenia dokumentu JSON.  Składa się z trzech kroków: **Dodawanie modułów**, **Określanie tras**i **przeglądanie wdrożenia**.
 
 ### <a name="add-modules"></a>Dodaj moduły
 
-1. W sekcji **Moduły wdrażania** wybierz pozycję **Dodaj**
-1. Z typów modułów z listy rozwijanej wybierz opcję **Moduł krawędzi IoT**
-1. Podaj nazwę, obraz, opcje tworzenia kontenera:
+1. W sekcji **moduły wdrażania** wybierz pozycję **Dodaj** .
+1. Z typów modułów na liście rozwijanej wybierz pozycję **IoT Edge module**
+1. Podaj nazwę, obraz i opcje tworzenia kontenera:
 
    * **Nazwa**: eventgridmodule
    * **Identyfikator URI obrazu**:`mcr.microsoft.com/azure-event-grid/iotedge:latest`
-   * **Opcje tworzenia kontenera:**
+   * **Opcje tworzenia kontenera**:
 
    [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
 
@@ -77,48 +77,48 @@ Manifest wdrożenia to dokument JSON, który opisuje, które moduły do wdrożen
           }
         }
     ```    
- 1. Kliknij **przycisk Zapisz**
- 1. Przejdź do następnej sekcji, aby dodać moduł subskrybenta usługi Azure Event Grid przed ich wdrożeniem razem.
+ 1. Kliknij przycisk **Zapisz**
+ 1. Przejdź do następnej sekcji, aby dodać moduł subskrybenta Azure Event Grid przed ich wdrożeniem.
 
     >[!IMPORTANT]
-    > W tym samouczku wdrożysz moduł siatki zdarzeń z wyłączonym uwierzytelnianiem klienta. W przypadku obciążeń produkcyjnych zaleca się włączenie uwierzytelniania klienta. Aby uzyskać więcej informacji na temat bezpiecznego konfigurowania modułu event grid, zobacz [Zabezpieczenia i uwierzytelnianie](security-authentication.md).
+    > W tym samouczku zostanie wdrożony moduł Event Grid z wyłączonym uwierzytelnianiem klienta. W przypadku obciążeń produkcyjnych zaleca się włączenie uwierzytelniania klienta. Aby uzyskać więcej informacji na temat bezpiecznego konfigurowania modułu Event Grid, zobacz [zabezpieczenia i uwierzytelnianie](security-authentication.md).
     > 
-    > Jeśli używasz maszyny Wirtualnej platformy Azure jako urządzenia brzegowego, dodaj regułę portu przychodzącego, aby zezwolić na ruch przychodzący na porcie 4438. Aby uzyskać instrukcje dotyczące dodawania reguły, zobacz [Jak otworzyć porty na maszynie Wirtualnej](../../virtual-machines/windows/nsg-quickstart-portal.md).
+    > Jeśli używasz maszyny wirtualnej platformy Azure jako urządzenia brzegowego, Dodaj regułę portu przychodzącego, aby zezwolić na ruch przychodzący na porcie 4438. Aby uzyskać instrukcje dotyczące dodawania reguły, zobacz [Jak otworzyć porty na maszynie wirtualnej](../../virtual-machines/windows/nsg-quickstart-portal.md).
     
 
-## <a name="deploy-event-grid-subscriber-iot-edge-module"></a>Wdrażanie modułu usługi IoT Edge subskrybenta usługi Event Grid
+## <a name="deploy-event-grid-subscriber-iot-edge-module"></a>Wdróż moduł IoT Edge subskrybenta Event Grid
 
-W tej sekcji pokazano, jak wdrożyć inny moduł IoT, który będzie działać jako program obsługi zdarzeń, do których zdarzenia mogą być dostarczane.
+W tej sekcji przedstawiono sposób wdrażania innego modułu IoT, który będzie działać jako procedura obsługi zdarzeń, do którego mogą być dostarczane zdarzenia.
 
 ### <a name="add-modules"></a>Dodaj moduły
 
-1. W sekcji **Moduły wdrażania** wybierz pozycję **Dodaj** ponownie. 
-1. Z typów modułów z listy rozwijanej wybierz opcję **Moduł krawędzi IoT**
-1. Podaj opcje tworzenia nazwy, obrazu i kontenera kontenera:
+1. W sekcji **modułów wdrażania** wybierz ponownie przycisk **Dodaj** . 
+1. Z typów modułów na liście rozwijanej wybierz pozycję **IoT Edge module**
+1. Podaj nazwę, obraz i opcje tworzenia kontenera:
 
    * **Nazwa**: subskrybent
    * **Identyfikator URI obrazu**:`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
-   * **Opcje tworzenia kontenera:** Brak
-1. Kliknij **przycisk Zapisz**
-1. Kliknij **przycisk Dalej,** aby przejść do sekcji Trasy
+   * **Opcje tworzenia kontenera**: brak
+1. Kliknij przycisk **Zapisz**
+1. Kliknij przycisk **dalej** , aby przejść do sekcji trasy
 
- ### <a name="setup-routes"></a>Ustawianie tras
+ ### <a name="setup-routes"></a>Skonfiguruj trasy
 
-Zachowaj trasy domyślne, a następnie wybierz pozycję **Dalej,** aby przejść do sekcji recenzji
+Zachowaj trasy domyślne, a następnie wybierz pozycję **dalej** , aby przejść do sekcji Przegląd
 
 ### <a name="submit-the-deployment-request"></a>Prześlij żądanie wdrożenia
 
-1. Sekcja przeglądu zawiera manifest wdrożenia JSON, który został utworzony na podstawie wybranych w poprzedniej sekcji. Upewnij się, że widzisz oba moduły: **eventgridmodule** i **subskrybenta** wymienione w JSON. 
-1. Przejrzyj informacje o wdrożeniu, a następnie wybierz pozycję **Prześlij**. Po przesłaniu wdrożenia powrócisz do strony **urządzenia.**
-1. W **sekcji Moduły**sprawdź, czy są wymienione zarówno moduły **eventgrid,** jak i **subskrybator.** Sprawdź, czy kolumny **Określone we wdrożeniu** i **Zgłoszone przez urządzenie** są ustawione na **Tak**.
+1. Sekcja Przegląd przedstawia manifest wdrożenia JSON, który został utworzony na podstawie wybranych opcji w poprzedniej sekcji. Upewnij się, że na liście JSON są widoczne zarówno moduły: **eventgridmodule** , jak i **subskrybent** . 
+1. Przejrzyj informacje o wdrożeniu, a następnie wybierz pozycję **Prześlij**. Po przesłaniu wdrożenia wrócisz do strony **urządzenia** .
+1. W **sekcji modułów**Sprawdź, czy na liście znajdują się zarówno **eventgrid** , jak i moduły **subskrybenta** . I sprawdź, czy w polu **Deployment (wdrożenie** i **raportowane przez urządzenia** ) ustawiono wartość **tak**.
 
-    Może upłynąć kilka chwil, aby moduł został uruchomiony na urządzeniu, a następnie zgłoszony z powrotem do usługi IoT Hub. Odśwież stronę, aby wyświetlić zaktualizowany stan.
+    Uruchomienie modułu na urządzeniu może potrwać kilka minut, a następnie zgłoszone z powrotem do IoT Hub. Odśwież stronę, aby zobaczyć zaktualizowany stan.
 
 ## <a name="create-a-topic"></a>Tworzenie tematu
 
-Jako wydawca zdarzenia musisz utworzyć temat siatki zdarzeń. W usłudze Azure Event Grid temat odnosi się do punktu końcowego, do którego wydawcy mogą wysyłać zdarzenia.
+Jako wydawca zdarzenia musisz utworzyć temat dotyczący siatki zdarzeń. W Azure Event Grid temat dotyczy punktu końcowego, w którym wydawcy mogą wysyłać zdarzenia do programu.
 
-1. Utwórz topic.json z następującą zawartością. Szczegółowe informacje na temat ładunku można znaleźć w [dokumentacji interfejsu API.](api.md)
+1. Utwórz plik temat. JSON z następującą zawartością. Aby uzyskać szczegółowe informacje o ładunku, zapoznaj się z naszą [dokumentacją interfejsu API](api.md).
 
     ```json
         {
@@ -129,13 +129,13 @@ Jako wydawca zdarzenia musisz utworzyć temat siatki zdarzeń. W usłudze Azure 
         }
     ```
 
-1. Uruchom następujące polecenie, aby utworzyć temat siatki zdarzeń. Upewnij się, że widzisz `200 OK`kod stanu HTTP jest .
+1. Uruchom następujące polecenie, aby utworzyć temat z siatką zdarzeń. Upewnij się, że został wyświetlony kod stanu HTTP `200 OK`.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
     ```
 
-1. Uruchom następujące polecenie, aby sprawdzić, czy temat został utworzony pomyślnie. Kod stanu HTTP 200 OK powinny być zwracane.
+1. Uruchom następujące polecenie, aby upewnić się, że temat został utworzony pomyślnie. Należy zwrócić kod stanu HTTP 200 OK.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
@@ -159,11 +159,11 @@ Jako wydawca zdarzenia musisz utworzyć temat siatki zdarzeń. W usłudze Azure 
 
 ## <a name="create-an-event-subscription"></a>Tworzenie subskrypcji zdarzeń
 
-Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temacie. Aby otrzymać dowolne zdarzenie, musisz utworzyć subskrypcję usługi Event Grid dla interesującego tematu.
+Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temacie. Aby odebrać każde zdarzenie, musisz utworzyć subskrypcję Event Gridową dla tematu zainteresowania.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Utwórz plik subscription.json z następującą zawartością. Szczegółowe informacje na temat ładunku można znaleźć w [dokumentacji interfejsu API](api.md)
+1. Utwórz plik Subscription. JSON z następującą zawartością. Aby uzyskać szczegółowe informacje o ładunku, zapoznaj się z naszą [dokumentacją interfejsu API](api.md)
 
     ```json
         {
@@ -179,13 +179,13 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
     ```
 
     >[!NOTE]
-    > Właściwość **endpointType** określa, że subskrybent jest elementem **Webhook**.  **EndpointUrl** określa adres URL, pod którym subskrybent nasłuchuje zdarzeń. Ten adres URL odpowiada przykładowi subskrybenta platformy Azure wdrożonym wcześniej.
-2. Uruchom następujące polecenie, aby utworzyć subskrypcję dla tematu. Upewnij się, że widzisz `200 OK`kod stanu HTTP jest .
+    > Właściwość **EndpointType** określa, że subskrybent jest elementem **webhook**.  **EndpointUrl** określa adres URL, pod którym subskrybent nasłuchuje zdarzeń. Ten adres URL odnosi się do wdrożonego wcześniej przykładu subskrybenta platformy Azure.
+2. Uruchom następujące polecenie, aby utworzyć subskrypcję tematu. Upewnij się, że został wyświetlony kod stanu HTTP `200 OK`.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
     ```
-3. Uruchom następujące polecenie, aby sprawdzić subskrypcję został utworzony pomyślnie. Kod stanu HTTP 200 OK powinny być zwracane.
+3. Uruchom następujące polecenie, aby sprawdzić, czy subskrypcja została pomyślnie utworzona. Należy zwrócić kod stanu HTTP 200 OK.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
@@ -210,9 +210,9 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
         }
     ```
 
-## <a name="publish-an-event"></a>Publikowanie wydarzenia
+## <a name="publish-an-event"></a>Publikowanie zdarzenia
 
-1. Utwórz event.json z następującą zawartością. Szczegółowe informacje na temat ładunku można znaleźć w [dokumentacji interfejsu API.](api.md)
+1. Utwórz plik Event. JSON z następującą zawartością. Aby uzyskać szczegółowe informacje o ładunku, zapoznaj się z naszą [dokumentacją interfejsu API](api.md).
 
     ```json
         [
@@ -246,7 +246,7 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
     docker -H npipe:////./pipe/iotedge_moby_engine container logs subscriber
     ```
 
-   W systemie Linux uruchom następujące polecenie:
+   W systemie Linux Uruchom następujące polecenie:
 
     ```sh
     sudo docker logs subscriber
@@ -278,17 +278,17 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
     ```sh
     curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
     ```
-* Usuń moduł subskrybenta z urządzenia Usługi IoT Edge.
+* Usuń moduł subskrybenta z urządzenia IoT Edge.
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku utworzono temat siatki zdarzeń, subskrypcję i opublikowane zdarzenia. Teraz, gdy znasz podstawowe kroki, zobacz następujące artykuły: 
+W tym samouczku opisano tworzenie tematu, subskrypcji i opublikowanych zdarzeń usługi Event Grid. Teraz, gdy znasz podstawowe kroki, zobacz następujące artykuły: 
 
-- Aby rozwiązać problemy z używaniem usługi Azure Event Grid w usłudze IoT Edge, zobacz [Przewodnik rozwiązywania problemów](troubleshoot.md).
-- Tworzenie/aktualizowanie subskrypcji za pomocą [filtrów](advanced-filtering.md).
-- Włącz trwałość modułu Siatki zdarzeń w [systemie Linux](persist-state-linux.md) lub [Windows](persist-state-windows.md)
-- Postępuj zgodnie [z dokumentacją,](configure-client-auth.md) aby skonfigurować uwierzytelnianie klienta
-- Przesyłanie dalej zdarzeń do usługi Azure Functions w chmurze, wykonując ten [samouczek](pub-sub-events-webhook-cloud.md)
-- [Reagowanie na zdarzenia magazynu obiektów blob w usłudze IoT Edge](react-blob-storage-events-locally.md)
-- [Monitorowanie tematów i subskrypcji na krawędzi](monitor-topics-subscriptions.md)
+- Aby rozwiązać problemy z używaniem Azure Event Grid na IoT Edge, zobacz [Przewodnik rozwiązywania problemów](troubleshoot.md).
+- Utwórz/zaktualizuj subskrypcję za pomocą [filtrów](advanced-filtering.md).
+- Włącz trwałość modułu Event Grid w systemie [Linux](persist-state-linux.md) lub [Windows](persist-state-windows.md)
+- Postępuj zgodnie z [dokumentacją](configure-client-auth.md) , aby skonfigurować uwierzytelnianie klienta
+- Przekazuj zdarzenia do Azure Functions w chmurze, wykonując czynności opisane w tym [samouczku](pub-sub-events-webhook-cloud.md)
+- [Reagowanie na zdarzenia Blob Storage w IoT Edge](react-blob-storage-events-locally.md)
+- [Monitorowanie tematów i subskrypcji na granicy](monitor-topics-subscriptions.md)
 

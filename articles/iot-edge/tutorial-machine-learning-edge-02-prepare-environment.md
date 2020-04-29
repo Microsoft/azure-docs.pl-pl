@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Konfigurowanie środowiska — uczenie maszynowe w usłudze Azure IoT Edge'
-description: 'Samouczek: Przygotuj swoje środowisko do tworzenia i wdrażania modułów do uczenia maszynowego na urządzeniach brzegowych.'
+title: 'Samouczek: Konfigurowanie środowiska Machine Learning na Azure IoT Edge'
+description: 'Samouczek: Przygotowanie środowiska do opracowywania i wdrażania modułów na potrzeby uczenia maszynowego na brzegu.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,64 +9,64 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 42c776d4d6c3973e7c222c9c9adf3e5105f6c84f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79296810"
 ---
-# <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Samouczek: Konfigurowanie środowiska uczenia maszynowego w umyki IoT Edge
+# <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Samouczek: Konfigurowanie środowiska do uczenia maszynowego na IoT Edge
 
 > [!NOTE]
-> Ten artykuł jest częścią serii samouczka na temat korzystania z usługi Azure Machine Learning w usłudze IoT Edge. Jeśli dotarłeś do tego artykułu bezpośrednio, zachęcamy do rozpoczęcia [pierwszego artykułu](tutorial-machine-learning-edge-01-intro.md) z serii, aby uzyskać najlepsze wyniki.
+> Ten artykuł jest częścią serii samouczka dotyczącego używania Azure Machine Learning w IoT Edge. Jeśli ten artykuł został osiągnięty bezpośrednio, zachęcamy do rozpoczęcia od [pierwszego artykułu](tutorial-machine-learning-edge-01-intro.md) z serii w celu uzyskania najlepszych wyników.
 
-Ten artykuł pomaga przygotować środowisko do programowania i wdrażania. Najpierw skonfiguruj maszynę programistykę ze wszystkimi narzędziami, których potrzebujesz. Następnie utwórz niezbędne zasoby w chmurze na platformie Azure.
+Ten artykuł ułatwia przygotowanie środowiska do projektowania i wdrażania. Najpierw skonfiguruj komputer deweloperski przy użyciu wszystkich potrzebnych narzędzi. Następnie utwórz niezbędne zasoby w chmurze na platformie Azure.
 
-## <a name="set-up-the-development-vm"></a>Konfigurowanie maszyny wirtualnej dewelopera
+## <a name="set-up-the-development-vm"></a>Konfigurowanie maszyny wirtualnej tworzenia
 
-Ten krok jest zazwyczaj wykonywane przez dewelopera chmury. Niektóre z oprogramowania mogą być również pomocne dla analityka danych.
+Ten krok jest zwykle wykonywany przez dewelopera chmury. Niektóre oprogramowanie może być również przydatne w przypadku Analityka danych.
 
-Utworzyliśmy skrypt programu PowerShell, który tworzy maszynę wirtualną platformy Azure z wieloma wymaganiami wstępnymi już skonfigurowanymi. Maszyna wirtualna, którą tworzymy, musi być w stanie obsługiwać [zagnieżdżoną wirtualizację](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), dlatego wybraliśmy [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) rozmiar maszyny.
+Utworzyliśmy skrypt programu PowerShell, który tworzy maszynę wirtualną platformy Azure z wieloma wcześniej skonfigurowanymi wymaganiami wstępnymi. Utworzona przez nas maszyna wirtualna musi być w stanie obsłużyć [wirtualizację zagnieżdżoną](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), co oznacza, że wybrano rozmiar maszyny [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) .
 
-Maszyna wirtualna rozwoju zostanie skonfigurowana z:
+Maszyna wirtualna programu Development zostanie skonfigurowana przy użyciu:
 
 * Windows 10
-* [Czekoladowy](https://chocolatey.org/)
-* [Pulpit platformy Docker dla systemu Windows](https://www.docker.com/products/docker-desktop)
+* [Narzędzia Chocolatey](https://chocolatey.org/)
+* [Pulpit Docker dla systemu Windows](https://www.docker.com/products/docker-desktop)
 * [Git dla systemu Windows](https://gitforwindows.org/)
-* [Menedżer poświadczeń Git dla systemu Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
+* [Menedżer poświadczeń git dla systemu Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
 * [Zestaw SDK dla platformy .NET Core](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
-* [Kod programu Visual Studio](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0)
-* [Rozszerzenia kodu VS](https://marketplace.visualstudio.com/search?target=VSCode)
+* [Rozszerzenia VS Code](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Narzędzia usługi Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  * [C #](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+  * [S #](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
   * [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
-  * [Powershell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
+  * [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
 
-Maszyna wirtualna dewelopera nie jest absolutnie konieczne — wszystkie narzędzia programistyczne mogą być uruchamiane na komputerze lokalnym. Jednak zdecydowanie zaleca się użycie maszyny Wirtualnej, aby zapewnić równe szanse.
+Maszyna wirtualna dla deweloperów nie jest ściśle wymagana — wszystkie narzędzia programistyczne można uruchomić na komputerze lokalnym. Jednak zdecydowanie zalecamy użycie maszyny wirtualnej w celu zagwarantowania pola poziomu odtwarzania.
 
-Utworzenie i skonfigurowanie maszyny wirtualnej zajmuje około 30 minut.
+Tworzenie i Konfigurowanie maszyny wirtualnej trwa około 30 minut.
 
-1. Klonuj lub pobieraj przykładowe repozytorium [usługi Machine Learning i IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample) na komputer lokalny.
+1. Sklonuj lub Pobierz [Machine Learning i IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample) przykładowe repozytorium na komputer lokalny.
 
-1. Otwórz program PowerShell jako administrator i przejdź do katalogu **\IoTEdgeAndMlSample\DevVM** znajdującego się pod katalogiem głównym, w którym pobrano kod. Będziemy odnosić się do katalogu głównego `srcdir`dla źródła jako .
+1. Otwórz program PowerShell jako administrator i przejdź do katalogu **\IoTEdgeAndMlSample\DevVM** znajdującego się w katalogu głównym, do którego pobrano kod. Odwołujemy się do katalogu głównego źródła jako `srcdir`.
 
     ```powershell
     cd c:\srcdir\IoTEdgeAndMlSample\DevVM
     ```
 
-   Katalog DevVM zawiera pliki potrzebne do utworzenia maszyny wirtualnej platformy Azure odpowiednie do ukończenia tego samouczka.
+   Katalog DevVM zawiera pliki potrzebne do utworzenia maszyny wirtualnej platformy Azure odpowiednie do wykonania tego samouczka.
 
-1. Uruchom następujące polecenie, aby umożliwić wykonywanie skryptów. Po wyświetleniu monitu wybierz pozycję **Tak na wszystkich.**
+1. Uruchom następujące polecenie, aby zezwolić na wykonywanie skryptów. Po wyświetleniu monitu wybierz pozycję **tak, aby wszystkie** .
 
     ```powershell
     Set-ExecutionPolicy Bypass -Scope Process
     ```
 
-1. Uruchom create-AzureDevVM.ps1.
+1. Uruchom Create-AzureDevVM. ps1.
 
     ```powershell
     .\Create-AzureDevVm.ps1
@@ -74,71 +74,71 @@ Utworzenie i skonfigurowanie maszyny wirtualnej zajmuje około 30 minut.
 
     Po wyświetleniu monitu podaj następujące informacje:
 
-    * **Identyfikator subskrypcji platformy Azure:** Twój identyfikator subskrypcji, który można znaleźć w [usłudze Subskrypcje platformy Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) w portalu.
-    * **Nazwa grupy zasobów:** Nazwa nowej lub istniejącej grupy zasobów na platformie Azure.
-    * **Lokalizacja:** Wybierz lokalizację platformy Azure, w której zostanie utworzona maszyna wirtualna. Na przykład "Zachodnie stany USA 2" lub "Europa Północna". Aby uzyskać więcej informacji, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).
-    * **Nazwa użytkownika**: Podaj zapadającą w pamięć nazwę konta administratora maszyny Wirtualnej.
-    * **Hasło:** Ustaw hasło dla konta administratora maszyny Wirtualnej.
+    * **Identyfikator subskrypcji platformy Azure**: Identyfikator subskrypcji, który można znaleźć w [subskrypcjach platformy Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) w portalu.
+    * **Nazwa grupy zasobów**: Nazwa nowej lub istniejącej grupy zasobów na platformie Azure.
+    * **Lokalizacja**: Wybierz lokalizację platformy Azure, w której zostanie utworzona maszyna wirtualna. Na przykład "zachodnie stany USA 2" lub "Europa Północna". Aby uzyskać więcej informacji, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).
+    * **Nazwa użytkownika**: Podaj nazwę zapamiętaną dla konta administratora dla maszyny wirtualnej.
+    * **Hasło**: Ustaw hasło dla konta administratora dla maszyny wirtualnej.
 
-   Skrypt jest uruchamiany przez kilka minut, ponieważ wykonuje następujące kroki:
+   Skrypt jest uruchamiany przez kilka minut, ponieważ wykonuje następujące czynności:
 
-    1. Instaluje [moduł Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
-    1. Monituje o zalogowanie się na platformie Azure.
-    1. Potwierdza informacje dotyczące tworzenia maszyny Wirtualnej. Naciśnij **klawisz y** lub **Enter,** aby kontynuować.
+    1. Instaluje [Azure PowerShell AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
+    1. Zostanie wyświetlony komunikat z prośbą o zalogowanie się do platformy Azure.
+    1. Potwierdza informacje dotyczące tworzenia maszyny wirtualnej. Naciśnij klawisz **t** lub **Enter** , aby kontynuować.
     1. Tworzy grupę zasobów, jeśli nie istnieje.
     1. Wdraża maszynę wirtualną.
-    1. Włącza funkcji Hyper-V na maszynie wirtualnej.
-    1. Instaluje oprogramowanie potrzebne do tworzenia i klonowania repozytorium próbek.
+    1. Włącza funkcję Hyper-V na maszynie wirtualnej.
+    1. Instaluje oprogramowanie potrzebne do programowania i klonowania przykładowego repozytorium.
     1. Uruchamia ponownie maszynę wirtualną.
-    1. Tworzy plik RDP na pulpicie w celu nawiązania połączenia z maszyną wirtualną.
+    1. Tworzy na pulpicie plik RDP służący do nawiązywania połączenia z maszyną wirtualną.
 
-   Jeśli zostanie wyświetlony monit o ponowne uruchomienie nazwy maszyny Wirtualnej, można skopiować jej nazwę z danych wyjściowych skryptu. Dane wyjściowe pokazuje również ścieżkę do pliku RDP do łączenia się z maszyną wirtualną.
+   Jeśli zostanie wyświetlony monit o podanie nazwy maszyny wirtualnej w celu ponownego uruchomienia, można skopiować jej nazwę z danych wyjściowych skryptu. W danych wyjściowych znajduje się również ścieżka do pliku RDP w celu nawiązania połączenia z maszyną wirtualną.
 
 ### <a name="set-auto-shutdown-schedule"></a>Ustawianie harmonogramu automatycznego zamykania
 
-Aby zmniejszyć koszty, maszyna wirtualna rozwoju została utworzona z harmonogramem automatycznego zamykania, który jest ustawiony na 1900 PST. Może być konieczne zaktualizowanie tego ustawienia w zależności od lokalizacji i harmonogramu. Aby zaktualizować harmonogram zamykania:
+Aby pomóc obniżyć koszty, maszyna wirtualna tworzenia została utworzona z harmonogramem automatycznego zamykania, ustawionym na 1900 PST. Może być konieczne zaktualizowanie tego ustawienia w zależności od lokalizacji i harmonogramu. Aby zaktualizować harmonogram zamykania:
 
-1. W witrynie Azure portal przejdź do maszyny Wirtualnej, która została utworzona przez skrypt.
+1. W Azure Portal przejdź do maszyny wirtualnej, która utworzyła skrypt.
 
-1. Z menu lewego okienka w obszarze **Operacje**wybierz pozycję **Automatyczne zamykanie**.
+1. W menu po lewej stronie w obszarze **operacje**wybierz pozycję **automatyczne zamykanie**.
 
-1. Dostosuj **zaplanowane zamknięcie i** **strefę czasową** zgodnie z potrzebami i **wybierz**zapisz .
+1. Dostosuj **zaplanowane zamknięcie** i **strefę czasową** zgodnie z potrzebami i wybierz pozycję **Zapisz**.
 
-## <a name="connect-to-the-development-vm"></a>Łączenie się z deweloperem maszyny Wirtualnej
+## <a name="connect-to-the-development-vm"></a>Nawiązywanie połączenia z maszyną wirtualną tworzenia
 
-Teraz, gdy stworzyliśmy maszynę wirtualną, musimy zakończyć instalowanie oprogramowania potrzebnego do ukończenia samouczka.
+Po utworzeniu maszyny wirtualnej musimy zainstalować oprogramowanie wymagane do ukończenia tego samouczka.
 
-1. Kliknij dwukrotnie plik RDP utworzony na pulpicie.
+1. Kliknij dwukrotnie plik RDP utworzony przez skrypt na pulpicie.
 
-1. Zostanie wyświetlone okno dialogowe z informacją, że wydawca połączenia zdalnego jest nieznany. Jest to dopuszczalne, więc wybierz **Połącz**.
+1. Zostanie wyświetlone okno dialogowe z informacją, że Wydawca połączenia zdalnego jest nieznany. Jest to akceptowalne, więc wybierz pozycję **Połącz**.
 
-1. Podaj hasło administratora podane w celu utworzenia maszyny Wirtualnej i kliknij przycisk **OK**.
+1. Podaj podane hasło administratora, aby utworzyć maszynę wirtualną, a następnie kliknij przycisk **OK**.
 
-1. Zostanie wyświetlony monit o zaakceptowanie certyfikatu dla maszyny Wirtualnej. Wybierz **pozycję Tak**.
+1. Zostanie wyświetlony monit o zaakceptowanie certyfikatu dla maszyny wirtualnej. Wybierz pozycję **tak**.
 
-## <a name="install-visual-studio-code-extensions"></a>Instalowanie rozszerzeń kodu programu Visual Studio
+## <a name="install-visual-studio-code-extensions"></a>Zainstaluj rozszerzenia Visual Studio Code
 
-Teraz, gdy masz połączenie z komputerem deweloperskim, dodaj kilka przydatnych rozszerzeń do programu Visual Studio Code, aby ułatwić środowisko programistyczne.
+Teraz, gdy masz połączenie z maszyną deweloperskią, Dodaj przydatne rozszerzenia, aby Visual Studio Code ułatwić programowanie.
 
-1. Połącz się z deweloperem, otwórz okno programu PowerShell i przejdź do katalogu **C:\source\IoTEdgeAndMlSample\DevVM.** Ten katalog został utworzony przez skrypt, który utworzył maszynę wirtualną.
+1. Połącz się z maszyną wirtualną tworzenia, Otwórz okno programu PowerShell i przejdź do katalogu **C:\source\IoTEdgeAndMlSample\DevVM** . Ten katalog został utworzony przez skrypt, który utworzył maszynę wirtualną.
 
     ```powershell
     cd C:\source\IoTEdgeAndMlSample\DevVM
     ```
 
-1. Uruchom następujące polecenie, aby umożliwić wykonywanie skryptów. Po wyświetleniu monitu wybierz pozycję **Tak na wszystkich.**
+1. Uruchom następujące polecenie, aby zezwolić na wykonywanie skryptów. Po wyświetleniu monitu wybierz pozycję **tak, aby wszystkie** .
 
     ```powershell
     Set-ExecutionPolicy Bypass -Scope Process
     ```
 
-1. Uruchom skrypt rozszerzeń kodu programu Visual Studio.
+1. Uruchom skrypt rozszerzeń Visual Studio Code.
 
     ```powershell
     .\Enable-CodeExtensions.ps1
     ```
 
-1. Skrypt będzie działać przez kilka minut, instalując rozszerzenia kodu VS:
+1. Skrypt będzie uruchamiany przez kilka minut instalacji rozszerzeń programu VS Code:
 
     * Narzędzia usługi Azure IoT
     * Python
@@ -146,78 +146,78 @@ Teraz, gdy masz połączenie z komputerem deweloperskim, dodaj kilka przydatnych
     * Docker
     * PowerShell
 
-## <a name="set-up-iot-hub-and-storage"></a>Konfigurowanie centrum IoT Hub i magazynu
+## <a name="set-up-iot-hub-and-storage"></a>Konfigurowanie IoT Hub i magazynu
 
-Te kroki są zazwyczaj wykonywane przez dewelopera chmury.
+Te kroki są zwykle wykonywane przez dewelopera chmury.
 
-Usługa Azure IoT Hub jest sercem dowolnej aplikacji IoT, ponieważ obsługuje bezpieczną komunikację między urządzeniami IoT a chmurą. Jest głównym punktem koordynacji działania rozwiązania do uczenia maszynowego IoT Edge.
+Platforma Azure IoT Hub to serce z dowolnej aplikacji IoT, ponieważ obsługuje ona bezpieczną komunikację między urządzeniami IoT i chmurą. Jest to główny punkt koordynacji dla operacji rozwiązania IoT Edge Machine Learning.
 
-* Usługa IoT Hub używa tras do kierowania danych przychodzących z urządzeń IoT do innych usług podrzędnych. Skorzystamy z tras Usługi IoT Hub, aby wysłać dane urządzenia do usługi Azure Storage. W usłudze Azure Storage dane urządzenia są używane przez usługę Azure Machine Learning w celu przeszkolenia klasyfikatora pozostałego okresu użytkowania (RUL).
+* IoT Hub używa tras do kierowania danych przychodzących z urządzeń IoT do innych usług podrzędnych. Będziemy korzystać z tras IoT Hub do wysyłania danych urządzenia do usługi Azure Storage. W usłudze Azure Storage dane urządzenia są używane przez Azure Machine Learning do uczenia pozostałego klasyfikatora okresu użytkowania (pozostałego czasu eksploatacji).
 
-* W dalszej części samouczka użyjemy usługi IoT Hub do konfigurowania i zarządzania naszym urządzeniem usługi Azure IoT Edge.
+* W dalszej części tego samouczka będziemy używać IoT Hub do konfigurowania naszego urządzenia Azure IoT Edge i zarządzania nim.
 
-W tej sekcji używasz skryptu do utworzenia centrum Usługi Azure IoT hub i konta usługi Azure Storage. Następnie w witrynie Azure portal konfigurujesz trasę, która przekazuje dane odebrane przez centrum do kontenera usługi Azure Storage. Wykonanie tych czynności trwa około 10 minut.
+W tej sekcji użyjesz skryptu do utworzenia usługi Azure IoT Hub i konta usługi Azure Storage. Następnie w Azure Portal konfigurujesz trasę, która przekazuje dane odebrane przez centrum do kontenera usługi Azure Storage. Wykonanie tych czynności zajmie około 10 minut.
 
-1. Połącz się z deweloperską maszyną wirtualną, otwórz okno programu PowerShell i przejdź do katalogu **IoTHub.**
+1. Połącz się z maszyną wirtualną tworzenia, Otwórz okno programu PowerShell i przejdź do katalogu **IoTHub** .
 
     ```powershell
     cd C:\source\IoTEdgeAndMlSample\IoTHub
     ```
 
-1. Uruchom skrypt tworzenia. Użyj tych samych wartości dla identyfikatora subskrypcji, lokalizacji i grupy zasobów, jak podczas tworzenia maszyny Wirtualnej rozwoju.
+1. Uruchom skrypt tworzenia. Użyj tych samych wartości dla identyfikatora subskrypcji, lokalizacji i grupy zasobów, jak podczas tworzenia maszyny wirtualnej deweloperskiej.
 
     ```powershell
     .\New-HubAndStorage.ps1 -SubscriptionId <subscription id> -Location <location> -ResourceGroupName <resource group>
     ```
 
     * Zostanie wyświetlony monit o zalogowanie się do platformy Azure.
-    * Skrypt potwierdza informacje dotyczące tworzenia konta Centrum i magazynu. Naciśnij **klawisz y** lub **Enter,** aby kontynuować.
+    * Skrypt potwierdza informacje dotyczące tworzenia centrum i konta magazynu. Naciśnij klawisz **t** lub **Enter** , aby kontynuować.
 
-Wykonywanie skryptu trwa około dwóch minut. Po zakończeniu skrypt wyprowadza nazwę centrum IoT hub i konto magazynu.
+Wykonywanie skryptu trwa około dwóch minut. Po zakończeniu skrypt wyświetla nazwę Centrum IoT i konto magazynu.
 
-## <a name="review-route-to-storage-in-iot-hub"></a>Przejrzyj trasę do magazynu w Centrum IoT
+## <a name="review-route-to-storage-in-iot-hub"></a>Przejrzyj trasy do magazynu w IoT Hub
 
-W ramach tworzenia centrum IoT hub, skrypt, który uruchomiliśmy w poprzedniej sekcji również utworzony niestandardowy punkt końcowy i trasy. Trasy usługi IoT Hub składają się z wyrażenia zapytania i punktu końcowego. Jeśli wiadomość pasuje do wyrażenia, dane są wysyłane wzdłuż trasy do skojarzonego punktu końcowego. Punktami końcowymi mogą być centra zdarzeń, kolejki magistrali usług i tematy. W takim przypadku punkt końcowy jest kontenerem obiektów blob na koncie magazynu. Użyjmy witryny Azure portal, aby przejrzeć trasę utworzoną przez nasz skrypt.
+W ramach tworzenia Centrum IoT, skrypt, który został uruchomiony w poprzedniej sekcji, również utworzył niestandardowy punkt końcowy i trasę. Trasy IoT Hub składają się z wyrażenia zapytania i punktu końcowego. Jeśli komunikat jest zgodny z wyrażeniem, dane są wysyłane wzdłuż trasy do skojarzonego punktu końcowego. Punkty końcowe mogą być Event Hubs, kolejki Service Bus i tematy. W takim przypadku punkt końcowy jest kontenerem obiektów BLOB na koncie magazynu. Użyjmy Azure Portal, aby przejrzeć trasę utworzoną przez nasz skrypt.
 
-1. Otwórz [witrynę Azure portal](https://portal.azure.com) i przejdź do grupy zasobów, której używasz w tym samouczku.
+1. Otwórz [Azure Portal](https://portal.azure.com) i przejdź do grupy zasobów, która jest używana w tym samouczku.
 
-1. Na liście zasobów wybierz Centrum IoT, który został utworzony przez skrypt. Będzie miał nazwę kończącą się `IotEdgeAndMlHub-jrujej6de6i7w`losowymi znakami, takimi jak .
+1. Na liście zasobów wybierz IoT Hub utworzoną przez skrypt. Nazwa będzie kończyć się znakami losowymi, takimi `IotEdgeAndMlHub-jrujej6de6i7w`jak.
 
-1. Z menu lewego okienka w obszarze **Wiadomości**wybierz pozycję **Routing wiadomości**.
+1. W menu po lewej stronie w obszarze **Obsługa wiadomości**wybierz pozycję **routing wiadomości**.
 
-1. Na stronie **Routing wiadomości** wybierz kartę **Niestandardowe punkty końcowe.**
+1. Na stronie **routing wiadomości** wybierz kartę **niestandardowe punkty końcowe** .
 
-1. Rozwiń sekcję **Magazyn:**
+1. Rozwiń sekcję **Magazyn** :
 
    ![Sprawdź, czy turbofanDeviceStorage znajduje się na liście niestandardowych punktów końcowych](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
 
-   Widzimy **turbofanDeviceStorage** znajduje się na liście niestandardowych punktów końcowych. Należy zwrócić uwagę na następujące właściwości dotyczące tego punktu końcowego:
+   Widzimy, że **turbofanDeviceStorage** znajduje się na liście niestandardowych punktów końcowych. Zwróć uwagę na następujące cechy tego punktu końcowego:
 
-   * Wskazuje utworzony kontener magazynu obiektów blob o nazwie, `devicedata` zgodnie z nazwą **kontenera**.
-   * Jego **format Filename** ma partycję jako ostatni element w nazwie. Uważamy, że ten format jest wygodniejszy dla operacji plików zrobimy z notesów platformy Azure w dalszej części samouczka.
-   * Jego **stan** powinien być zdrowy.
+   * Wskazuje on kontener magazynu obiektów blob, który został utworzony `devicedata` , zgodnie z **nazwą kontenera**.
+   * Jego **Format nazwy pliku** zawiera partycję jako ostatni element w nazwie. Ten format jest wygodniejszy dla operacji na plikach, które będziemy wykonywać, Azure Notebooks w dalszej części tego samouczka.
+   * Jego **stan** powinien być w dobrej kondycji.
 
 1. Wybierz kartę **Trasa**.
 
 1. Wybierz trasę o nazwie **turbofanDeviceDataToStorage**.
 
-1. Na **trasy szczegóły** strony należy zauważyć, że punkt końcowy trasy jest **turbofanDeviceStorage** punktu końcowego.
+1. Na stronie **szczegóły tras** Zwróć uwagę, że punkt końcowy trasy jest punktem końcowym **turbofanDeviceStorage** .
 
    ![Przejrzyj szczegóły dotyczące trasy turbofanDeviceDataToStorage](media/tutorial-machine-learning-edge-02-prepare-environment/route-details.png)
 
-1. Spójrz na **kwerendę routingu**, która jest ustawiona na **true**. To ustawienie oznacza, że wszystkie komunikaty telemetryczne urządzenia będą zgodne z tą trasą; i dlatego wszystkie wiadomości zostaną wysłane do punktu końcowego **turbofanDeviceStorage.**
+1. Zapoznaj się z **kwerendą routingu**, która jest ustawiona na **wartość true**. To ustawienie oznacza, że wszystkie komunikaty telemetryczne urządzenia będą zgodne z tą trasą; w związku z tym wszystkie komunikaty będą wysyłane do punktu końcowego **turbofanDeviceStorage** .
 
-1. Ponieważ nie wprowadzono żadnych zmian, po prostu zamknij tę stronę.
+1. Ponieważ nie wprowadzono żadnych zmian, Zamknij Tę stronę.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule utworzyliśmy Centrum IoT i skonfigurowaliśmy trasę do konta usługi Azure Storage. Następnie wyślemy dane z zestawu symulowanych urządzeń za pośrednictwem usługi IoT Hub do konta magazynu. W dalszej części samouczka po skonfigurowaniu naszego urządzenia i modułów usługi IoT Edge ponownie przejrzymy trasy i przyjrzymy się nieco więcej zapytaniu routingu.
+W tym artykule utworzyliśmy IoT Hub i skonfigurowano trasę do konta usługi Azure Storage. Następnie wyślemy dane z zestawu symulowanych urządzeń za pośrednictwem IoT Hub na konto magazynu. W dalszej części tego samouczka po skonfigurowaniu naszych IoT Edge urządzeń i modułów, będziemy ponownie odwiedzić trasy i poszukać nieco więcej w zapytaniu routingu.
 
-Aby uzyskać więcej informacji na temat kroków omówionych w tej części uczenia maszynowego w uliczce IoT Edge, zobacz:
+Aby uzyskać więcej informacji na temat kroków opisanych w tej części Machine Learning w samouczku IoT Edge, zobacz:
 
 * [Azure IoT Edge — podstawy](https://docs.microsoft.com/azure/iot-fundamentals/)
 * [Konfigurowanie routingu wiadomości przy użyciu usługi IoT Hub](../iot-hub/tutorial-routing.md)
-* [Tworzenie centrum IoT przy użyciu portalu Azure](../iot-hub/iot-hub-create-through-portal.md)
+* [Tworzenie Centrum IoT Hub przy użyciu Azure Portal](../iot-hub/iot-hub-create-through-portal.md)
 
 Przejdź do następnego artykułu, aby utworzyć symulowane urządzenie do monitorowania.
 

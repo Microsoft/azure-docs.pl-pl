@@ -1,7 +1,7 @@
 ---
-title: 'Znaczenie funkcji permutacji: odwołanie do modułu'
+title: 'Ważność funkcji permutacji: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak użyć modułu Ważność funkcji permutacji w usłudze Azure Machine Learning, aby obliczyć wyniki ważności funkcji permutacji zmiennych funkcji, biorąc pod uwagę przeszkolony model i zestaw danych testowych.
+description: Dowiedz się, w jaki sposób używać modułu ważności funkcji permutacji w Azure Machine Learning, aby obliczyć wyniki ważności funkcji permutacji zmiennych funkcji, pod kątem modelu przeszkolonego i zestawu danych testowych.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,63 +10,63 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
 ms.openlocfilehash: e4511cf4393172e7d2b1ab8a985c76d8f98d4015
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79456067"
 ---
 # <a name="permutation-feature-importance"></a>Ważność funkcji permutacji
 
-W tym artykule opisano, jak użyć modułu Ważność funkcji permutacji w projektancie usługi Azure Machine Learning (wersja zapoznawcza), aby obliczyć zestaw wyników ważności funkcji dla zestawu danych. Te wyniki są używane do określania najlepszych funkcji do użycia w modelu.
+W tym artykule opisano, jak używać modułu ważności funkcji permutacji w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu obliczenia zestawu wyników ważności funkcji dla zestawu danych. Te wyniki służą do określenia najlepszych funkcji do użycia w modelu.
 
-W tym module wartości operacji są losowo tasowane, po jednej kolumnie naraz. Wydajność modelu jest mierzona przed i po. Można wybrać jedną ze standardowych metryk do pomiaru wydajności.
+W tym module wartości funkcji są losowo przebierane w jedną kolumnę w czasie. Wydajność modelu jest mierzona przed i po. Możesz wybrać jedną ze standardowych metryk, aby zmierzyć wydajność.
 
-Wyniki, które zwraca moduł reprezentują *zmiany* w wydajności modelu przeszkolonego, po permutacji. Ważne funkcje są zwykle bardziej wrażliwe na proces tasowania, więc będą one skutkować wyższą ocenę ważności. 
+Wyniki zwracane przez moduł reprezentują *zmianę* wydajności przeszkolonego modelu, po permutacji. Ważne funkcje są zwykle bardziej wrażliwe na proces Shuffling, więc będą powodować wyższe znaczenie. 
 
-Ten artykuł zawiera omówienie funkcji permutacji, jej podstawy teoretycznej i jej aplikacji w uczeniu maszynowym: [Znaczenie funkcji permutacji](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
+Ten artykuł zawiera omówienie funkcji permutacji, jej teoretyczną podstawę i jej aplikacji w usłudze Machine Learning: [ważność funkcji permutacji](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
 
-## <a name="how-to-use-permutation-feature-importance"></a>Jak korzystać ze charakterystycznego znaczenia funkcji permutacji
+## <a name="how-to-use-permutation-feature-importance"></a>Jak używać ważności funkcji permutacji
 
-Generowanie zestawu wyników funkcji wymaga, aby mieć już przeszkolony model, a także testowy zestaw danych.  
+Generowanie zestawu wyników funkcji wymaga, aby był już szkolony model, a także zestaw danych testowych.  
 
-1.  Dodaj moduł Ważność funkcji permutacji do potoku. Ten moduł można znaleźć w kategorii **Wybór funkcji.** 
+1.  Dodaj moduł ważności funkcji permutacji do potoku. Ten moduł można znaleźć w kategorii **wybór funkcji** . 
 
-2.  Podłącz przeszkolony model do lewego wejścia. Model musi być modelem regresji lub modelem klasyfikacji.  
+2.  Połącz model szkolony z lewej strony. Model musi być modelem regresji lub modelem klasyfikacji.  
 
-3.  Po prawej stronie wejścia połącz zestaw danych. Najlepiej wybrać taki, który różni się od zestawu danych, który był używany do szkolenia modelu. Ten zestaw danych jest używany do oceniania na podstawie modelu przeszkolonego. Jest również używany do oceny modelu po zmianie wartości operacji.  
+3.  Po prawej stronie Wprowadź połączenie zestawu danych. Najlepiej wybrać taki, który jest inny niż zestaw danych, który był używany do uczenia modelu. Ten zestaw danych jest używany do oceniania na podstawie nauczonego modelu. Jest on również używany do oceny modelu po zmianie wartości funkcji.  
 
-4.  W polu **Losowy materiał siewny**wprowadź wartość używaną jako materiał siewny do randomizacji. Jeśli określisz 0 (wartość domyślna), liczba jest generowana na podstawie zegara systemowego.
+4.  W przypadku **losowego inicjatora**wprowadź wartość, która ma być używana jako inicjator losowy. Jeśli określisz wartość 0 (wartość domyślna), jest generowana liczba na podstawie zegara systemowego.
 
-     Wartość inicjatora jest opcjonalna, ale należy podać wartość, jeśli chcesz odtwarzalność w przebiegach tego samego potoku.  
+     Wartość inicjatora jest opcjonalna, ale należy podać wartość, jeśli chcesz, aby odtwarzalność w przebiegach tego samego potoku.  
 
-5.  Aby uzyskać **metrykę pomiaru wydajności,** wybierz jedną metrykę, która będzie używana podczas obliczania jakości modelu po permutacji.  
+5.  Aby uzyskać **metrykę mierzenia wydajności**, wybierz jedną metrykę, która ma być używana podczas obliczania jakości modelu po permutacji.  
 
-     Projektant usługi Azure Machine Learning obsługuje następujące metryki, w zależności od tego, czy oceniasz model klasyfikacji czy regresji:  
+     Azure Machine Learning Designer obsługuje następujące metryki, w zależności od tego, czy oceniasz model klasyfikacji czy regresji:  
 
-    -   **Classification** (Klasyfikacja)
+    -   **Klasyfikacja**
 
-        Dokładność, precyzja, przywołanie  
+        Dokładność, precyzja, odwołanie  
 
-    -   **Regresji**
+    -   **Regresja**
 
-        Precyzja, odwołanie, średni błąd bezwzględny, średni błąd kwadratu korzenia, względny błąd bezwzględny, względny błąd kwadratu, współczynnik oznaczania  
+        Precyzja, odwoływanie, średnie Błędy bezwzględne, główny, średni, błąd względny  
 
-     Aby uzyskać bardziej szczegółowy opis tych wskaźników oceny i sposobu ich obliczania, zobacz [Ocena modelu](evaluate-model.md).  
+     Bardziej szczegółowy opis tych metryk oceny i sposobu ich obliczania można znaleźć w temacie [Oceń model](evaluate-model.md).  
 
 6.  Prześlij potok.  
 
-7.  Moduł wyprowadza listę kolumn funkcji i wyniki skojarzone z nimi. Lista jest klasyfikowana w malejącej kolejności wyników.  
+7.  Moduł generuje listę kolumn funkcji i skojarzonych z nimi ocen. Lista jest uporządkowana w kolejności malejącej.  
 
 
 ##  <a name="technical-notes"></a>Uwagi techniczne
 
-Znaczenie funkcji permutacji polega na losowej zmianie wartości każdej kolumny obiektowej, po jednej kolumnie naraz. Następnie ocenia model. 
+Ważność funkcji permutacji działa przez losowe zmiany wartości każdej kolumny funkcji, jednej kolumny w danym momencie. Następnie oblicza model. 
 
-Rankingi, które zapewnia moduł, często różnią się od tych, które otrzymujesz z [wyboru funkcji opartych na filtrze.](filter-based-feature-selection.md) Wybór operacji oparty na filtrze oblicza wyniki *przed* utworzeniem modelu. 
+Klasyfikacje zapewniane przez moduł są często różne od tych, które są uzyskiwane z [wyboru funkcji opartych na filtrowaniu](filter-based-feature-selection.md). Wybór funkcji oparty na filtrze oblicza wyniki *przed* utworzeniem modelu. 
 
-Powodem różnicy jest to, że znaczenie funkcji permutacji nie mierzy skojarzenia między funkcją a wartością docelową. Zamiast tego przechwytuje, jak duży wpływ ma każda funkcja na prognozy z modelu.
+Przyczyna różnic polega na tym, że ważność funkcji permutacji nie mierzy skojarzenia między funkcją a wartością docelową. Zamiast tego przechwytuje wpływ poszczególnych funkcji na przewidywania z modelu.
   
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

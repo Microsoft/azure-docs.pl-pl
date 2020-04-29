@@ -1,119 +1,119 @@
 ---
-title: Diagnostyka stanowych niezawodnych usług usługi azure service
-description: Funkcje diagnostyczne dla niezawodnych usług stanowych w sieci szkieletowej usług Azure
+title: Diagnostyka Reliable Services Stanów Service Fabric platformy Azure
+description: Funkcje diagnostyczne dla stanowych Reliable Services na platformie Azure Service Fabric
 author: dkkapur
 ms.topic: conceptual
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282265"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funkcja diagnostyki dla stanowych usług Reliable Services
-Klasa Usługi Azure Service Stateful Reliable Services StatefulServiceBase emituje zdarzenia [EventSource,](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) które mogą służyć do debugowania usługi, zapewniają wgląd w sposób działania środowiska wykonawczego i pomoc w rozwiązywaniu problemów.
+Service Fabric stanowa platformy Azure Reliable Services Klasa StatefulServiceBase emituje zdarzenia [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) , które mogą być używane do debugowania usługi, zapewnia wgląd w sposób działania środowiska uruchomieniowego i pomaga w rozwiązywaniu problemów.
 
 ## <a name="eventsource-events"></a>Zdarzenia EventSource
-Nazwa eventsource dla stateful reliable services StatefulServiceBase klasy jest "Microsoft-ServiceFabric-Services." Zdarzenia z tego źródła zdarzeń są wyświetlane w oknie [Zdarzenia diagnostyczne,](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) gdy usługa jest [debugowana w programie Visual Studio.](service-fabric-debugging-your-application.md)
+Nazwa elementu EventSource dla klasy stanowej Reliable Services StatefulServiceBase to "Microsoft-servicefabric-Services". Zdarzenia z tego źródła zdarzeń pojawiają się w oknie [zdarzenia diagnostyczne](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) , gdy usługa jest [debugowana w programie Visual Studio](service-fabric-debugging-your-application.md).
 
-Przykładami narzędzi i technologii ułatwiających zbieranie i/lub wyświetlanie zdarzeń EventSource są [PerfView,](https://www.microsoft.com/download/details.aspx?id=28567) [Diagnostyka platformy Azure](../cloud-services/cloud-services-dotnet-diagnostics.md)i [Biblioteka zdarzeń śledzenia firmy Microsoft.](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)
+Przykłady narzędzi i technologii, które pomagają zbierać i/lub wyświetlać zdarzenia EventSource, to [Narzędzia PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Diagnostyka Azure](../cloud-services/cloud-services-dotnet-diagnostics.md)i [Biblioteka Microsoft zdarzenie śledzenia Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## <a name="events"></a>Zdarzenia
-| Nazwa wydarzenia | Identyfikator zdarzenia | Poziom | Opis zdarzenia |
+| Nazwa zdarzenia | Identyfikator zdarzenia | Poziom | Opis zdarzenia |
 | --- | --- | --- | --- |
-| StatefulRunAsyncInwovacja |1 |Informacyjne |Emitowane po uruchomieniu zadania RunAsync usługi |
-| StatefulRunAsyncCancellation (StatefulRunAsyncCancellation) |2 |Informacyjne |Emitowane, gdy usługa RunAsync zadanie jest anulowane |
-| StatefulRunAsyncUkońca |3 |Informacyjne |Emitowane po zakończeniu zadania RunAsync usługi |
-| StatefulRunAsyncSlowCancellation |4 |Ostrzeżenie |Emitowane, gdy zadanie RunAsync usługi trwa zbyt długo, aby zakończyć anulowanie |
-| StatefulRunAsyncFailure |5 |Błąd |Emitowane, gdy usługa RunAsync zadanie zgłasza wyjątek |
+| StatefulRunAsyncInvocation |1 |Informacyjne |Emitowane po rozpoczęciu zadania RunAsync usługi |
+| StatefulRunAsyncCancellation |2 |Informacyjne |Emitowane po anulowaniu zadania RunAsync usługi |
+| StatefulRunAsyncCompletion |3 |Informacyjne |Emitowane po zakończeniu zadania RunAsync usługi |
+| StatefulRunAsyncSlowCancellation |4 |Ostrzeżenie |Emitowane, gdy zadanie RunAsync usługi trwa zbyt długo, aby można było ukończyć anulowanie |
+| StatefulRunAsyncFailure |5 |Error |Emitowane, gdy zadanie RunAsync usługi zgłasza wyjątek |
 
-## <a name="interpret-events"></a>Interpretowanie zdarzeń
-StatefulRunAsyncInvocation, StatefulRunAsyncCompletion i StatefulRunAsyncCancellation zdarzenia są przydatne do modułu zapisującego usługi, aby zrozumieć cykl życia usługi, a także czas, kiedy usługa jest uruchamiana, anuluje lub kończy. Te informacje mogą być przydatne podczas debugowania problemów z usługą lub zrozumienia cyklu życia usługi.
+## <a name="interpret-events"></a>Interpretuj zdarzenia
+Zdarzenia StatefulRunAsyncInvocation, StatefulRunAsyncCompletion i StatefulRunAsyncCancellation są przydatne dla składnika zapisywania usług, aby zrozumieć cykl życia usługi, a także chronometraż czasu uruchomienia usługi, anulowania lub zakończenia. Te informacje mogą być przydatne w przypadku debugowania problemów z usługą lub zapoznania się z cyklem życia usługi.
 
-Autorzy usługi należy zwrócić szczególną uwagę na StatefulRunAsyncSlowation i StatefulRunAsyncFailure zdarzeń, ponieważ wskazują one problemy z usługą.
+Autorzy usług powinni zwrócić szczególną uwagę na zdarzenia StatefulRunAsyncSlowCancellation i StatefulRunAsyncFailure, ponieważ wskazują one problemy z usługą.
 
-StatefulRunAsyncFailure jest emitowany za każdym razem, gdy usługa RunAsync() zadanie zgłasza wyjątek. Zazwyczaj wyjątek wskazuje błąd lub błąd w usłudze. Ponadto wyjątek powoduje, że usługa nie powiedzie się, więc jest przenoszony do innego węzła. Ta operacja może być kosztowne i może opóźniać przychodzące żądania, gdy usługa jest przenoszona. Moduły odwołują usługi należy określić przyczynę wyjątku i, jeśli to możliwe, ograniczyć go.
+StatefulRunAsyncFailure jest emitowany za każdym razem, gdy zadanie usługi RunAsync () zgłasza wyjątek. Zazwyczaj zgłoszony wyjątek wskazuje błąd lub usterkę w usłudze. Ponadto wyjątek powoduje niepowodzenie usługi, dlatego jest przenoszony do innego węzła. Ta operacja może być kosztowna i może opóźniać przychodzące żądania podczas przenoszenia usługi. Autorzy usług powinni określić przyczynę wyjątku i, jeśli to możliwe, rozwiązać ten problem.
 
-StatefulRunAsyncSlowation jest emitowany, gdy żądanie anulowania dla zadania RunAsync trwa dłużej niż cztery sekundy. Gdy usługa trwa zbyt długo, aby zakończyć anulowanie, wpływa na możliwość usługi do szybkiego ponownego uruchomienia w innym węźle. Ten scenariusz może mieć wpływ na ogólną dostępność usługi.
+StatefulRunAsyncSlowCancellation jest emitowane za każdym razem, gdy żądanie anulowania dla zadania RunAsync trwa dłużej niż cztery sekundy. Zakończenie anulowania usługi trwa zbyt długo, ma wpływ na możliwość szybkiego ponownego uruchomienia usługi w innym węźle. Ten scenariusz może mieć wpływ na ogólną dostępność usługi.
 
 ## <a name="performance-counters"></a>Liczniki wydajności
-Środowisko uruchomieniowe niezawodne usługi definiuje następujące kategorie liczników wydajności:
+Środowisko uruchomieniowe Reliable Services definiuje następujące kategorie liczników wydajności:
 
 | Kategoria | Opis |
 | --- | --- |
-| Replikator transakcyjny sieci szkieletowej usług |Liczniki specyficzne dla replikatora transakcyjnego sieci szkieletowej usługi Azure |
-| Usługa Fabric TStore |Liczniki specyficzne dla usługi Azure Service Fabric TStore |
+| Service Fabric Replikator transakcyjny |Liczniki specyficzne dla replikatora transakcyjnego usługi Azure Service Fabric |
+| Service Fabric TStore |Liczniki specyficzne dla platformy Azure Service Fabric TStore |
 
-Replikator transakcyjny sieci szkieletowej usług jest używany przez [Menedżera stanu niezawodne](service-fabric-reliable-services-reliable-collections-internals.md) do replikowania transakcji w ramach danego zestawu [replik](service-fabric-concepts-replica-lifecycle.md).
+Service Fabric transakcyjny jest używany przez [Menedżera niezawodnego stanu](service-fabric-reliable-services-reliable-collections-internals.md) do replikowania transakcji w ramach danego zestawu [replik](service-fabric-concepts-replica-lifecycle.md).
 
-TStore sieci szkieletowej usług jest składnikiem używanym w [niezawodnych kolekcjach](service-fabric-reliable-services-reliable-collections-internals.md) do przechowywania i pobierania par klucz-wartość.
+Service Fabric TStore jest składnikiem używanym w [niezawodnych kolekcjach](service-fabric-reliable-services-reliable-collections-internals.md) do przechowywania i pobierania par klucz-wartość.
 
-Aplikacja [Monitor wydajności systemu Windows,](https://technet.microsoft.com/library/cc749249.aspx) która jest domyślnie dostępna w systemie operacyjnym Windows, może służyć do zbierania i wyświetlania danych licznika wydajności. [Diagnostyka platformy Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) to kolejna opcja do zbierania danych licznika wydajności i przekazywania ich do tabel platformy Azure.
+Aplikacja [Monitor wydajności systemu Windows](https://technet.microsoft.com/library/cc749249.aspx) , która jest dostępna domyślnie w systemie operacyjnym Windows, może służyć do zbierania i wyświetlania danych licznika wydajności. [Diagnostyka Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) jest kolejną opcją do zbierania danych licznika wydajności i przekazywania ich do tabel platformy Azure.
 
-### <a name="performance-counter-instance-names"></a>Nazwy wystąpień licznika wydajności
-Klaster, który ma dużą liczbę niezawodnych usług lub partycji niezawodnej usługi będzie miał dużą liczbę wystąpień licznika wydajności replikatora transakcyjnego. Dotyczy to również liczników wydajności TStore, ale jest również mnożona przez liczbę używanych słowników niezawodnych i niezawodnych kolejek. Nazwy wystąpienia licznika wydajności może pomóc w identyfikacji określonej [partycji](service-fabric-concepts-partitioning.md), repliki usługi i dostawcy stanu w przypadku TStore, że wystąpienie licznika wydajności jest skojarzony z.
+### <a name="performance-counter-instance-names"></a>Nazwy wystąpień liczników wydajności
+Klaster, który ma dużą liczbę niezawodnych usług lub niezawodnych partycji usługi, będzie miał dużą liczbę wystąpień liczników wydajności dla replikatorów transakcyjnych. Jest to również przypadek dla liczników wydajności TStore, ale jest również mnożony przez liczbę niezawodnych słowników i używanych niezawodnych kolejek. Nazwy wystąpień licznika wydajności mogą pomóc w zidentyfikowaniu konkretnej [partycji](service-fabric-concepts-partitioning.md), repliki usługi i dostawcy stanu w przypadku TStore, z którym jest skojarzone wystąpienie licznika wydajności.
 
-#### <a name="service-fabric-transactional-replicator-category"></a>Kategoria replikatora transakcyjnego sieci szkieletowej usług
-W przypadku `Service Fabric Transactional Replicator`kategorii nazwy wystąpień licznika są w następującym formacie:
+#### <a name="service-fabric-transactional-replicator-category"></a>Service Fabric kategorii replikatorów transakcyjnych
+W przypadku kategorii `Service Fabric Transactional Replicator`nazwy wystąpień liczników mają następujący format:
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId`
 
-*ServiceFabricPartitionId* jest reprezentacją ciągu identyfikatora partycji sieci szkieletowej usług, z którą jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) jego reprezentacja ciągu jest generowana za pomocą specyfikatora formatu "D".
+*ServiceFabricPartitionId* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) jest generowana za pomocą specyfikatora formatu "D".
 
-*ServiceFabricReplicaId* jest identyfikatorem skojarzonym z daną repliką niezawodnej usługi. Identyfikator repliki znajduje się w nazwie wystąpienia licznika wydajności, aby zapewnić jego unikatowość i uniknąć konfliktu z innymi wystąpieniami licznika wydajności generowanymi przez tę samą partycję. Więcej informacji na temat replik i ich roli w niezawodnych usługach można znaleźć [tutaj.](service-fabric-concepts-replica-lifecycle.md)
+*ServiceFabricReplicaId* to identyfikator skojarzony z daną repliką niezawodnej usługi. IDENTYFIKATOR repliki jest dołączany do nazwy wystąpienia licznika wydajności, aby zapewnić jego unikatowość i uniknąć konfliktu z innymi wystąpieniami liczników wydajności generowanymi przez tę samą partycję. Więcej informacji o replikach i ich roli w niezawodnych usługach można znaleźć [tutaj](service-fabric-concepts-replica-lifecycle.md).
 
-Następująca nazwa wystąpienia licznika jest `Service Fabric Transactional Replicator` typowa dla licznika w kategorii:
+Następująca nazwa wystąpienia licznika jest typowa dla licznika w `Service Fabric Transactional Replicator` kategorii:
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571`
 
-W poprzednim przykładzie `00d0126d-3e36-4d68-98da-cc4f7195d85e` jest reprezentacja ciągu identyfikatora partycji `131652217797162571` sieci szkieletowej usług i jest identyfikatorem repliki.
+W poprzednim przykładzie `00d0126d-3e36-4d68-98da-cc4f7195d85e` jest reprezentacją ciągu Service Fabric identyfikator partycji i `131652217797162571` jest identyfikatorem repliki.
 
-#### <a name="service-fabric-tstore-category"></a>Kategoria TStore usługi Fabric
-W przypadku `Service Fabric TStore`kategorii nazwy wystąpień licznika są w następującym formacie:
+#### <a name="service-fabric-tstore-category"></a>Service Fabric kategorii TStore
+W przypadku kategorii `Service Fabric TStore`nazwy wystąpień liczników mają następujący format:
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId:StateProviderId_PerformanceCounterInstanceDifferentiator_StateProviderName`
 
-*ServiceFabricPartitionId* jest reprezentacją ciągu identyfikatora partycji sieci szkieletowej usług, z którą jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) jego reprezentacja ciągu jest generowana za pomocą specyfikatora formatu "D".
+*ServiceFabricPartitionId* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) jest generowana za pomocą specyfikatora formatu "D".
 
-*ServiceFabricReplicaId* jest identyfikatorem skojarzonym z daną repliką niezawodnej usługi. Identyfikator repliki znajduje się w nazwie wystąpienia licznika wydajności, aby zapewnić jego unikatowość i uniknąć konfliktu z innymi wystąpieniami licznika wydajności generowanymi przez tę samą partycję. Więcej informacji na temat replik i ich roli w niezawodnych usługach można znaleźć [tutaj.](service-fabric-concepts-replica-lifecycle.md)
+*ServiceFabricReplicaId* to identyfikator skojarzony z daną repliką niezawodnej usługi. IDENTYFIKATOR repliki jest dołączany do nazwy wystąpienia licznika wydajności, aby zapewnić jego unikatowość i uniknąć konfliktu z innymi wystąpieniami liczników wydajności generowanymi przez tę samą partycję. Więcej informacji o replikach i ich roli w niezawodnych usługach można znaleźć [tutaj](service-fabric-concepts-replica-lifecycle.md).
 
-*StateProviderId* jest identyfikatorem skojarzonym z dostawcą stanu w ramach niezawodnej usługi. Identyfikator dostawcy stanu znajduje się w nazwie wystąpienia licznika wydajności, aby odróżnić sklep TStore od innego.
+*StateProviderId* jest identyfikatorem skojarzonym z dostawcą stanu w ramach niezawodnej usługi. Identyfikator dostawcy stanu jest dołączany do nazwy wystąpienia licznika wydajności w celu odróżnienia TStore od innego.
 
-*PerformanceCounterInstanceDifferentiator* jest identyfikatorem różnicowania skojarzonym z wystąpieniem licznika wydajności w dostawcy stanu. Ten wyróżnik znajduje się w nazwie wystąpienia licznika wydajności, aby zapewnić jego unikatowość i uniknąć konfliktu z innymi wystąpieniami licznika wydajności generowanymi przez tego samego dostawcę stanu.
+*PerformanceCounterInstanceDifferentiator* jest identyfikatorem odróżnienia skojarzonym z wystąpieniem licznika wydajności w ramach dostawcy stanu. Ten odróżniający jest uwzględniany w nazwie wystąpienia licznika wydajności w celu zapewnienia jego unikatowości i uniknięcia konfliktu z innymi wystąpieniami liczników wydajności generowanymi przez tego samego dostawcę stanu.
 
-*StateProviderName* to nazwa skojarzona z dostawcą stanu w ramach niezawodnej usługi. Nazwa dostawcy stanu znajduje się w nazwie wystąpienia licznika wydajności dla użytkowników, aby łatwo zidentyfikować, jaki stan zapewnia.
+*StateProviderName* jest nazwą skojarzoną z dostawcą stanu w ramach niezawodnej usługi. Nazwa dostawcy stanu jest dołączana do nazwy wystąpienia licznika wydajności, aby użytkownicy mogli łatwo określić, jaki stan zapewnia.
 
-Następująca nazwa wystąpienia licznika jest `Service Fabric TStore` typowa dla licznika w kategorii:
+Następująca nazwa wystąpienia licznika jest typowa dla licznika w `Service Fabric TStore` kategorii:
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337_urn:MyReliableDictionary/dataStore`
 
-W poprzednim przykładzie `00d0126d-3e36-4d68-98da-cc4f7195d85e` jest reprezentacja ciągu identyfikatora partycji sieci szkieletowej usług, `131652217797162571` jest identyfikatorem repliki, `142652217797162571` jest identyfikatorem dostawcy stanu i `1337` jest wyróżnikiem wystąpienia licznika wydajności. `urn:MyReliableDictionary/dataStore`jest nazwą dostawcy stanu, który przechowuje `urn:MyReliableDictionary`dane dla kolekcji o nazwie .
+W poprzednim przykładzie `00d0126d-3e36-4d68-98da-cc4f7195d85e` , jest reprezentacją ciągu Service Fabric identyfikator partycji, `131652217797162571` jest identyfikatorem repliki, `142652217797162571` jest identyfikatorem dostawcy stanu i `1337` jest odróżniany od wystąpienia licznika wydajności. `urn:MyReliableDictionary/dataStore`jest nazwą dostawcy stanu, który przechowuje dane dla kolekcji o nazwie `urn:MyReliableDictionary`.
 
-### <a name="transactional-replicator-performance-counters"></a>Liczniki wydajności replikatora transakcyjnego
+### <a name="transactional-replicator-performance-counters"></a>Liczniki wydajności transakcyjnych replikatorów
 
-Środowisko wykonawcze Reliable Services emituje `Service Fabric Transactional Replicator` następujące zdarzenia w kategorii
+Środowisko uruchomieniowe Reliable Services emituje następujące zdarzenia w `Service Fabric Transactional Replicator` kategorii
 
  Nazwa licznika | Opis |
 | --- | --- |
-| Rozpoczynanie operacji Txn/s | Liczba nowych transakcji zapisu utworzonych na sekundę.|
-| Operacje Txn/s | Liczba operacji dodawania/aktualizacji/usuwania wykonywanych w niezawodnych kolekcjach na sekundę.|
-| Bajty opróżnianie dziennika/s | Liczba bajtów opróżnionych na dysk przez replikatora transakcyjnego na sekundę |
-| Operacje ograniczone/s | Liczba operacji odrzuconych co sekundę przez replikatora transakcyjnego z powodu ograniczania przepustowości. |
-| Średnia transakcja ms/commit | Średnie opóźnienie zatwierdzania na transakcję w milisekundach |
-| Średni opóźnienie (ms) | Średni czas trwania operacji opróżniania dysku inicjowanych przez replikatora transakcyjnego w milisekundach |
+| Liczba operacji BEGIN transakcja/s | Liczba utworzonych nowych transakcji zapisu na sekundę.|
+| Transakcja operacji/s | Liczba operacji dodawania/aktualizowania/usuwania wykonanych dla niezawodnych kolekcji na sekundę.|
+| Bajty opróżniania dziennika/s | Liczba bajtów opróżnianych na dysk przez Replikator transakcyjny na sekundę |
+| Operacje ograniczające/s | Liczba operacji odrzuconych co sekundę przez Replikator transakcyjny ze względu na ograniczenie przepustowości. |
+| Średnia transakcja MS/Commit | Średnie opóźnienie zatwierdzania na transakcję w milisekundach |
+| Średnie opóźnienie operacji opróżniania (MS) | Średni czas trwania operacji opróżniania dysku inicjowanych przez Replikator transakcyjny w milisekundach |
 
 ### <a name="tstore-performance-counters"></a>Liczniki wydajności TStore
 
-Środowisko wykonawcze Reliable Services emituje `Service Fabric TStore` następujące zdarzenia w kategorii
+Środowisko uruchomieniowe Reliable Services emituje następujące zdarzenia w `Service Fabric TStore` kategorii
 
  Nazwa licznika | Opis |
 | --- | --- |
-| Liczba przedmiotów | Liczba towarów w sklepie.|
-| Rozmiar dysku | Całkowity rozmiar dysku w bajtach plików punktów kontrolnych dla magazynu.|
-| Bajty zapisu pliku punktu kontrolnego/s | Liczba bajtów zapisanych na sekundę dla najnowszego pliku punktu kontrolnego.|
-| Kopiowanie bajtów transferu dysku na sekundę | Liczba bajtów dysku odczytanych (w replice podstawowej) lub zapisywanych (w replice pomocniczej) na sekundę podczas kopiowania magazynu.|
+| Liczba elementów | Liczba elementów w sklepie.|
+| Rozmiar dysku | Łączny rozmiar dysku (w bajtach) plików punktów kontrolnych dla magazynu.|
+| Bajty zapisu pliku punktu kontrolnego/s | Liczba bajtów zapisanych na sekundę dla ostatniego pliku punktu kontrolnego.|
+| Bajty transferu dysku/s | Liczba bajtów dysku odczytanych (w replice podstawowej) lub zapisana (w replice pomocniczej) na sekundę podczas kopiowania magazynu.|
 
 ## <a name="next-steps"></a>Następne kroki
-[Dostawcy usługi EventSource w utrw](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+[Dostawcy EventSource w narzędzia PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

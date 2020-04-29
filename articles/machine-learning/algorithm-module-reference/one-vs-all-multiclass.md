@@ -1,7 +1,7 @@
 ---
-title: Multiklasa jeden a wszystko
+title: moduł wieloklasowy "jeden przeciw wszystkim"
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak użyć modułu one vs-all multiclass w usłudze Azure Machine Learning, aby utworzyć model klasyfikacji wieloklasowej z zestawu modeli klasyfikacji binarnej.
+description: Dowiedz się, w jaki sposób używać modułu moduł wieloklasowy "jeden przeciw wszystkim" w programie Azure Machine Learning do tworzenia wieloklasowego modelu klasyfikacji na podstawie kompletnych modeli klasyfikacji binarnych.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,55 +10,55 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
 ms.openlocfilehash: 29934758ab729e0fb888c10b7f834da3d0bf7fb0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79456084"
 ---
-# <a name="one-vs-all-multiclass"></a>Multiklasa jeden a wszystko
+# <a name="one-vs-all-multiclass"></a>moduł wieloklasowy "jeden przeciw wszystkim"
 
-W tym artykule opisano sposób korzystania z modułu one vs-all multiclass w projektancie usługi Azure Machine Learning (wersja zapoznawcza). Celem jest utworzenie modelu klasyfikacji, który można przewidzieć wiele klas, przy użyciu podejścia *jeden na wszystkie.*
+W tym artykule opisano sposób korzystania z modułu moduł wieloklasowy "jeden przeciw wszystkim" w programie Azure Machine Learning Designer (wersja zapoznawcza). Celem jest utworzenie modelu klasyfikacji, który może przewidzieć wiele klas, przy użyciu podejścia *jednokierunkowego* .
 
-Ten moduł jest przydatny do tworzenia modeli, które przewidują trzy lub więcej możliwych wyników, gdy wynik zależy od ciągłych lub kategorycznych zmiennych predykcyjnych. Ta metoda umożliwia również użycie metod klasyfikacji binarnej dla problemów, które wymagają wielu klas wyjściowych.
+Ten moduł jest przydatny do tworzenia modeli predykcyjnych trzy lub więcej wyników, gdy wynik zależy od zmiennych predykcyjnych ciągłych lub kategorii. Ta metoda umożliwia także używanie binarnych metod klasyfikacji dla problemów wymagających wielu klas wyjściowych.
 
-### <a name="more-about-one-versus-all-models"></a>Więcej o modelach typu "jeden na wszystkie"
+### <a name="more-about-one-versus-all-models"></a>Więcej informacji o modelach jeden-do-wszystkie
 
-Niektóre algorytmy klasyfikacji zezwalają na użycie więcej niż dwóch klas według projektu. Inne ograniczyć możliwe wyniki do jednej z dwóch wartości (binarny lub model dwuklasowy). Ale nawet algorytmy klasyfikacji binarnej mogą być dostosowane do zadań klasyfikacji wieloklasowej za pomocą różnych strategii. 
+Niektóre algorytmy klasyfikacji umożliwiają użycie więcej niż dwóch klas według konstrukcji. Inne ograniczają możliwe wyniki do jednej z dwóch wartości (binarny lub dwuklasowy model). Jednak nawet binarne algorytmy klasyfikacji można dostosować do wieloklasowych zadań klasyfikacji za pomocą różnych strategii. 
 
-Ten moduł implementuje metodę jeden na wszystkie, w której model binarny jest tworzony dla każdej z wielu klas wyjściowych. Moduł ocenia każdy z tych modeli binarnych dla poszczególnych klas względem jego dopełnienia (wszystkie inne klasy w modelu), tak jakby jest to problem klasyfikacji binarnej. Moduł następnie wykonuje przewidywanie, uruchamiając te klasyfikatory binarne i wybierając przewidywanie z najwyższym wynikiem zaufania.  
+Ten moduł implementuje metodę "one-a-All", w której jest tworzony model binarny dla każdej klasy danych wyjściowych. Moduł ocenia każdy z tych modeli binarnych dla poszczególnych klas przed jego uzupełnieniem (wszystkie inne klasy w modelu), tak jakby był to binarny problem z klasyfikacją. Następnie moduł wykonuje prognozowanie, uruchamiając te klasyfikatory binarne i wybierając prognozę z najwyższym wynikiem ufności.  
 
-W istocie moduł tworzy zespół poszczególnych modeli, a następnie scala wyniki, aby utworzyć pojedynczy model, który przewiduje wszystkie klasy. Każdy klasyfikator binarny może służyć jako podstawa dla modelu jeden na wszystkie.  
+W zasadzie moduł tworzy kompletność poszczególnych modeli, a następnie scala wyniki, aby utworzyć jeden model, który przewiduje wszystkie klasy. Dowolny klasyfikator binarny może być używany jako podstawa dla modelu typu jeden-do-wszystkich.  
 
-Załóżmy na przykład, że konfigurujesz model [maszyny wektorowej obsługi dwóch klas](two-class-support-vector-machine.md) i udostępniasz go jako dane wejściowe do modułu One-vs-All Multiclass. Moduł utworzy dwuklasowe modele maszyn wektorowych dla wszystkich elementów członkowskich klasy wyjściowej. Następnie należy zastosować metodę jeden na wszystkie, aby połączyć wyniki dla wszystkich klas.  
+Załóżmy na przykład, że skonfigurowano model [maszyny wektorowej obsługujący dwie klasy](two-class-support-vector-machine.md) i zapewnia to, że jako dane wejściowe do modułu moduł wieloklasowy "jeden przeciw wszystkim". Moduł utworzy modele maszyn wektorowych obsługujące dwie klasy dla wszystkich elementów członkowskich klasy wyjściowej. Następnie zastosuj metodę "jeden do wszystkiego", aby połączyć wyniki dla wszystkich klas.  
 
-## <a name="how-to-configure-the-one-vs-all-multiclass-classifier"></a>Jak skonfigurować klasyfikator multiklasy jeden vs wszystkie  
+## <a name="how-to-configure-the-one-vs-all-multiclass-classifier"></a>Jak skonfigurować klasyfikator moduł wieloklasowy "jeden przeciw wszystkim"  
 
-Ten moduł tworzy zespół modeli klasyfikacji binarnej do analizowania wielu klas. Aby użyć tego modułu, należy najpierw skonfigurować i wyszkolić model *klasyfikacji binarnej.* 
+Ten moduł tworzy kompletną liczbę binarnych modeli klasyfikacji do analizowania wielu klas. Aby użyć tego modułu, należy najpierw skonfigurować i szkolić *binarny model klasyfikacji* . 
 
-Model binarny można podłączyć do modułu one-vs-all multiclass. Następnie trenujesz zespół modeli przy użyciu [modelu pociągu](train-model.md) z oznaczonym zestawem danych szkolenia.
+Model binarny jest połączony z modułem moduł wieloklasowy "jeden przeciw wszystkim". Następnie należy wyszkolić zestaw modeli przy użyciu [modelu uczenia](train-model.md) z zestawu danych szkolenia z etykietą.
 
-Po połączeniu modeli One-vs-All Multiclass tworzy wiele modeli klasyfikacji binarnej, optymalizuje algorytm dla każdej klasy, a następnie scala modele. Moduł wykonuje te zadania, nawet jeśli zestaw danych szkolenia może mieć wiele wartości klasy.
+W przypadku łączenia modeli moduł wieloklasowy "jeden przeciw wszystkim" tworzy wiele binarnych modeli klasyfikacji, optymalizuje algorytm dla każdej klasy, a następnie scala modele. Moduł wykonuje te zadania mimo tego, że zestaw danych szkoleniowych może mieć wiele wartości klas.
 
-1. Dodaj moduł one-vs-all multiclass do potoku w projektancie. Ten moduł można znaleźć w obszarze **Uczenie maszynowe — inicjowanie**, w kategorii **Klasyfikacja.**
+1. Dodaj moduł moduł wieloklasowy "jeden przeciw wszystkim" do potoku w projektancie. Ten moduł można znaleźć w obszarze **Machine Learning-Initialize**w kategorii **Klasyfikacja** .
 
-   Klasyfikator multiklasy jeden vs wszystko nie ma własnych konfigurowalnych parametrów. Wszelkie dostosowania muszą być wykonywane w modelu klasyfikacji binarnej, który jest dostarczany jako dane wejściowe.
+   Klasyfikator moduł wieloklasowy "jeden przeciw wszystkim" nie ma samodzielnie skonfigurowanych parametrów. Wszelkie dostosowania należy wykonać w modelu klasyfikacji binarnej, który jest dostarczany jako dane wejściowe.
 
-2. Dodaj model klasyfikacji binarnej do potoku i skonfiguruj ten model. Na przykład można użyć [dwuklasowej obsługi technicznej maszyny wektorowej](two-class-support-vector-machine.md) lub [dwuklasowego drzewa decyzyjnego wzmocnionego.](two-class-boosted-decision-tree.md)
+2. Dodaj binarny model klasyfikacji do potoku i skonfiguruj ten model. Można na przykład użyć [dwuklasowej maszyny wektorowej](two-class-support-vector-machine.md) lub [dwuklasowego drzewa decyzyjnego](two-class-boosted-decision-tree.md).
 
-3. Dodaj [moduł Modelu pociągu](train-model.md) do potoku. Połącz niewprawnego klasyfikatora, który jest dane wyjściowe One-vs-All Multiclass.
+3. Dodaj moduł [uczenie modelu](train-model.md) do potoku. Połącz niepociąg klasyfikatora, który jest danymi wyjściowymi moduł wieloklasowy "jeden przeciw wszystkim".
 
-4. Na innych danych wejściowych [modelu pociągu](train-model.md), połączyć zestaw danych szkolenia oznaczone, który ma wiele wartości klasy.
+4. Na innym wejściu [modelu uczenia](train-model.md)Połącz zestaw danych szkoleń z etykietą, który ma wiele wartości klas.
 
 5. Prześlij potok.
 
 ## <a name="results"></a>Wyniki
 
-Po zakończeniu szkolenia można użyć modelu do przewidywania wielu klas.
+Po zakończeniu szkolenia możesz użyć modelu, aby utworzyć prognozy wieloklasowe.
 
-Alternatywnie można przekazać nieprzeszkolonego klasyfikatora do [modelu sprawdzania poprawności krzyżowej](cross-validate-model.md) do sprawdzania poprawności krzyżowej względem zestawu danych sprawdzania poprawności etykietą.
+Alternatywnie, można przekazać [niesprawdzony klasyfikator do modelu krzyżowego](cross-validate-model.md) walidacji w celu krzyżowego sprawdzania poprawności względem zestawu danych walidacji z etykietami.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

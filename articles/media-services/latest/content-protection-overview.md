@@ -1,7 +1,7 @@
 ---
-title: Ochrona zawartości za pomocą szyfrowania dynamicznego usługi Media Services w wersji 3
+title: Ochrona zawartości przy użyciu szyfrowania dynamicznego Media Services v3
 titleSuffix: Azure Media Services
-description: Dowiedz się więcej o ochronie zawartości za pomocą szyfrowania dynamicznego, protokołów przesyłania strumieniowego i typów szyfrowania w usłudze Azure Media Services.
+description: Informacje o ochronie zawartości przy użyciu szyfrowania dynamicznego, protokołów przesyłania strumieniowego i typów szyfrowania w Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,51 +16,51 @@ ms.date: 03/17/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: c1c9440f7ec70cea98f270f04c3030c800dd0fde
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79461116"
 ---
-# <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Ochrona zawartości za pomocą szyfrowania dynamicznego usługi Media Services
+# <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Ochrona zawartości przy użyciu szyfrowania dynamicznego Media Services
 
-Usługa Azure Media Services ułatwia zabezpieczenie multimediów od momentu opuszczenia komputera przez magazyn, przetwarzanie i dostarczanie. Usługa Media Services umożliwia dynamiczne szyfrowanie zawartości na żywo i na żądanie za pomocą standardu Advanced Encryption Standard (AES-128) lub dowolnego z trzech głównych systemów zarządzania prawami cyfrowymi (DRM): Microsoft PlayReady, Google Widevine i Apple FairPlay. Usługa Media Services zapewnia również usługę dostarczania licencji kluczy AES i DRM (PlayReady, Widevine i FairPlay) autoryzowanym klientom. Jeśli zawartość jest szyfrowana za pomocą czystego klucza AES i jest wysyłana za pośrednictwem protokołu HTTPS, nie jest w stanie wyczyścić, dopóki nie dotrze do klienta. 
+Użyj Azure Media Services, aby pomóc w zabezpieczeniu nośnika od momentu, gdy komputer przejdzie przez cały proces w ramach magazynu, przetwarzania i dostarczania. Za pomocą Media Services można dostarczyć zawartość dynamiczną i na żądanie zaszyfrowaną dynamicznie przy użyciu Advanced Encryption Standard (AES-128) lub dowolnego z trzech głównych systemów zarządzania prawami cyfrowymi (DRM): Microsoft PlayReady, Google Widevine i Apple FairPlay. Media Services udostępnia również usługi do dostarczania kluczy AES oraz licencji DRM (PlayReady, Widevine i FairPlay) do autoryzowanych klientów. Jeśli zawartość jest zaszyfrowana przy użyciu klucza Clear AES i jest wysyłana za pośrednictwem protokołu HTTPS, nie jest to jasne, dopóki nie osiągnie klienta. 
 
-W umiań Media Services w wersji 3 klucz zawartości jest skojarzony z lokalizatorem przesyłania strumieniowego (zobacz [ten przykład).](protect-with-aes128.md) Jeśli korzystasz z usługi dostarczania kluczy usługi Media Services, można umożliwić usługi Azure Media Services generowanie klucza zawartości dla Ciebie. Klucz zawartości powinien być generowany samodzielnie, jeśli korzystasz z usługi dostarczania kluczy lub jeśli musisz obsługiwać scenariusz wysokiej dostępności, w którym musisz mieć ten sam klucz zawartości w dwóch centrach danych.
+W Media Services v3 klucz zawartości jest skojarzony z lokalizatorem przesyłania strumieniowego (patrz [ten przykład](protect-with-aes128.md)). Jeśli korzystasz z usługi Media Services Key Delivery, możesz Azure Media Services wygenerować klucz zawartości. Klucz zawartości powinien zostać wygenerowany samodzielnie, jeśli używasz własnej usługi dostarczania kluczy lub jeśli musisz obsługiwać scenariusz wysokiej dostępności, w którym musisz mieć ten sam klucz zawartości w dwóch centrach danych.
 
-Gdy odtwarzacz zażąda strumienia, usługa Media Services używa określonego klucza do dynamicznego szyfrowania zawartości przy użyciu czystego klucza AES lub szyfrowania DRM. Aby odszyfrować strumień, odtwarzacz żąda klucza z usługi dostarczania kluczy usługi Media Services lub określonej usługi dostarczania kluczy. Aby zdecydować, czy użytkownik jest autoryzowany do uzyskania klucza, usługa ocenia zasady klucza zawartości określone dla klucza.
+Gdy gracz prosi o przesłanie strumienia, Media Services używa określonego klucza do dynamicznego szyfrowania zawartości przy użyciu klucza Wyczyść AES lub szyfrowania DRM. Aby odszyfrować strumień, odtwarzacz żąda klucza z usługi dostarczania kluczy Media Services lub usługi dostarczania kluczy określonej przez użytkownika. Aby zdecydować, czy użytkownik jest autoryzowany do pobrania klucza, usługa szacuje Zasady kluczy zawartości określone dla klucza.
 
-Za pomocą interfejsu API REST lub biblioteki klienta usługi Media Services można skonfigurować zasady autoryzacji i uwierzytelniania dla licencji i kluczy.
+Aby skonfigurować zasady autoryzacji i uwierzytelniania dla swoich licencji i kluczy, można użyć interfejsu API REST lub biblioteki klienta Media Services.
 
-Na poniższej ilustracji przedstawiono przepływ pracy dla ochrony zawartości usługi Media Services:
+Na poniższej ilustracji przedstawiono przepływ pracy Media Services ochrony zawartości:
 
-![Przepływ pracy dla ochrony zawartości usługi Media Services](./media/content-protection/content-protection.svg)
+![Przepływ pracy dla Media Services Content Protection](./media/content-protection/content-protection.svg)
   
-*Szyfrowanie dynamiczne &#42; obsługuje klawisze Wyczyść AES-128, CBCS i CENC. Aby uzyskać szczegółowe informacje, zobacz [macierz obsługi](#streaming-protocols-and-encryption-types).*
+&#42; *szyfrowanie dynamiczne obsługuje algorytm AES-128 Clear Key, CBCS i Cenc. Aby uzyskać szczegółowe informacje, zobacz [Macierz obsługi](#streaming-protocols-and-encryption-types).*
 
-W tym artykule opisano pojęcia i terminologię, które pomagają zrozumieć ochronę zawartości za pomocą usługi Media Services.
+W tym artykule wyjaśniono pojęcia i terminologia ułatwiająca zrozumienie ochrony zawartości za pomocą Media Services.
 
-## <a name="main-components-of-a-content-protection-system"></a>Główne elementy systemu ochrony zawartości
+## <a name="main-components-of-a-content-protection-system"></a>Główne składniki systemu ochrony zawartości
 
-Aby pomyślnie ukończyć system ochrony zawartości, należy w pełni zrozumieć zakres wysiłku. W poniższych sekcjach przedstawiono przegląd trzech części, które należy zaimplementować.
+Aby pomyślnie zakończyć system ochrony zawartości, należy w pełni zrozumieć zakres nakładu pracy. Poniższe sekcje zawierają Omówienie trzech części, które należy wdrożyć.
 
 > [!NOTE]
-> Zalecamy skupienie i pełne przetestowanie każdej części w poniższych sekcjach przed przejściem do następnej części. Aby przetestować system ochrony zawartości, użyj narzędzi określonych w sekcjach.
+> Zdecydowanie zalecamy skoncentrowanie i pełne testowanie każdej części w poniższych sekcjach przed przejściem do następnej części. Aby przetestować system ochrony zawartości, użyj narzędzi określonych w sekcjach.
 
-### <a name="media-services-code"></a>Kod usługi Media Services
+### <a name="media-services-code"></a>Kod Media Services
   
-Przykład [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) pokazuje, jak zaimplementować system multi-DRM z usługą Media Services w wersji 3 przy użyciu platformy .NET. Pokazuje również, jak korzystać z usługi dostarczania licencji/kluczy usługi Media Services.
+W [przykładzie technologii DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) przedstawiono sposób implementacji systemu wieloskładnikowego z Media Services v3 przy użyciu platformy .NET. Przedstawiono w nim również, jak korzystać z usługi Media Services License/Delivery Key.
   
-Każdy element zawartości można szyfrować przy użyciu wielu typów szyfrowania (AES-128, PlayReady, Widevine, FairPlay). Aby zobaczyć, co ma sens łączyć, zobacz [Protokoły przesyłania strumieniowego i typy szyfrowania](#streaming-protocols-and-encryption-types).
+Każdy element zawartości można szyfrować przy użyciu wielu typów szyfrowania (AES-128, PlayReady, Widevine, FairPlay). Aby zobaczyć, co ma być przydatne, zobacz [protokoły przesyłania strumieniowego i typy szyfrowania](#streaming-protocols-and-encryption-types).
 
 W przykładzie pokazano, jak:
 
-1. Tworzenie i konfigurowanie [zasad klucza zawartości](content-key-policy-concept.md).
+1. Utwórz i skonfiguruj [zasady klucza zawartości](content-key-policy-concept.md).
 
-   Tworzenie zasad klucza zawartości w celu skonfigurowania sposobu dostarczania klucza zawartości (który zapewnia bezpieczny dostęp do zasobów) klientom końcowym:  
+   Tworzenie zasad klucza zawartości w celu skonfigurowania sposobu, w jaki klucz zawartości (zapewniający bezpieczny dostęp do zasobów) jest dostarczany do klientów końcowych:  
 
-   * Zdefiniuj autoryzację dostarczania licencji. Określ logikę sprawdzania autoryzacji na podstawie oświadczeń w tokenie JSON Web Token (JWT).
-   * Skonfiguruj licencje [PlayReady,](playready-license-template-overview.md) [Widevine](widevine-license-template-overview.md)i/lub [FairPlay.](fairplay-license-overview.md) Szablony umożliwiają konfigurowanie praw i uprawnień dla każdego z drmów.
+   * Zdefiniuj autoryzację dostarczania licencji. Określ logikę sprawdzania autoryzacji na podstawie oświadczeń w tokenie sieci Web JSON (JWT).
+   * Skonfiguruj licencje [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md)i/lub [FairPlay](fairplay-license-overview.md) . Szablony umożliwiają skonfigurowanie praw i uprawnień dla każdego z protokołów DRM.
 
      ```
      ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
@@ -70,53 +70,53 @@ W przykładzie pokazano, jak:
 
 2. Utwórz [lokalizator przesyłania strumieniowego](streaming-locators-concept.md) skonfigurowany do przesyłania strumieniowego zaszyfrowanego zasobu.
   
-   Lokalizator przesyłania strumieniowego musi być skojarzony z [zasadami przesyłania strumieniowego](streaming-policy-concept.md). W tym przykładzie `StreamingLocator.StreamingPolicyName` ustawiliśmy zasady "Predefined_MultiDrmCencStreaming".
+   Lokalizator przesyłania strumieniowego musi być skojarzony z [zasadami przesyłania strumieniowego](streaming-policy-concept.md). W tym przykładzie ustawimy `StreamingLocator.StreamingPolicyName` zasady "Predefined_MultiDrmCencStreaming".
 
-   Stosowane są szyfrowania PlayReady i Widevine, a klucz jest dostarczany do klienta odtwarzania na podstawie skonfigurowanych licencji DRM. Jeśli chcesz również zaszyfrować strumień za pomocą cbcs (FairPlay), użyj zasad "Predefined_MultiDrmStreaming".
+   Są stosowane szyfrowanie PlayReady i Widevine, a klucz jest dostarczany do klienta odtwarzania na podstawie skonfigurowanych licencji DRM. Jeśli chcesz również zaszyfrować strumień przy użyciu CBCS (FairPlay), użyj zasad "Predefined_MultiDrmStreaming".
 
    Lokalizator przesyłania strumieniowego jest również skojarzony z zdefiniowanymi zasadami klucza zawartości.
 
 3. Utwórz token testowy.
 
-   Metoda `GetTokenAsync` pokazuje, jak utworzyć token testowy.
-4. Tworzenie adresu URL przesyłania strumieniowego.
+   `GetTokenAsync` Metoda pokazuje, jak utworzyć token testowy.
+4. Utwórz adres URL przesyłania strumieniowego.
 
-   Metoda `GetDASHStreamingUrlAsync` pokazuje, jak utworzyć adres URL przesyłania strumieniowego. W takim przypadku adres URL strumieniuje zawartość DASH.
+   `GetDASHStreamingUrlAsync` Metoda pokazuje, jak utworzyć adres URL przesyłania strumieniowego. W takim przypadku adres URL strumieniuje zawartość KRESKi.
 
 ### <a name="player-with-an-aes-or-drm-client"></a>Odtwarzacz z klientem AES lub DRM
 
-Aplikacja odtwarzacza wideo oparta na SDK gracza (natywnego lub przeglądarkowego) musi spełniać następujące wymagania:
+Aplikacja odtwarzacza wideo oparta na zestawie SDK odtwarzacza (natywnym lub opartym na przeglądarce) musi spełniać następujące wymagania:
 
-* Zestaw SDK odtwarzacza obsługuje potrzebnych klientów DRM.
-* Zestaw SDK odtwarzacza obsługuje wymagane protokoły przesyłania strumieniowego: Smooth, DASH i/lub HTTP Live Streaming (HLS).
-* SDK gracza może obsłużyć przekazywanie tokenu JWT w żądaniu nabycia licencji.
+* Zestaw SDK odtwarzacza obsługuje wymaganych klientów DRM.
+* Zestaw SDK odtwarzacza obsługuje wymagane protokoły przesyłania strumieniowego: gładki, łącznik i/lub HTTP Live Streaming (HLS).
+* Zestaw SDK odtwarzacza może obsłużyć przekazywanie tokenu JWT w żądaniu pozyskiwania licencji.
 
-Odtwarzacz można utworzyć za pomocą interfejsu [API programu Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/). Użyj [interfejsu API Azure Media Player ProtectionInfo,](https://amp.azure.net/libs/amp/latest/docs/) aby określić, która technologia DRM ma być używana na różnych platformach DRM.
+Odtwarzacz można utworzyć za pomocą [interfejsu API Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/). Użyj [interfejsu API Azure Media Player ProtectionInfo](https://amp.azure.net/libs/amp/latest/docs/) , aby określić technologię DRM, która ma być używana na różnych platformach DRM.
 
-Do testowania zaszyfrowanej zawartości AES lub CENC (Widevine i/lub PlayReady) można użyć [programu Azure Media Player](https://aka.ms/azuremediaplayer). Upewnij się, że wybrano **opcje zaawansowane** i sprawdź opcje szyfrowania.
+Do testowania zaszyfrowanej zawartości AES lub CENC (Widevine i/lub PlayReady) można użyć [Azure Media Player](https://aka.ms/azuremediaplayer). Upewnij się, że wybrano **Opcje zaawansowane** i Sprawdź opcje szyfrowania.
 
-Jeśli chcesz przetestować zawartość zaszyfrowaną FairPlay, użyj [tego odtwarzacza testowego.](https://aka.ms/amtest) Odtwarzacz obsługuje widevine, PlayReady i FairPlay DRM, a także AES-128 czyste szyfrowanie klucza.
+Jeśli chcesz przetestować zaszyfrowaną zawartość FairPlay, użyj [tego odtwarzacza testowego](https://aka.ms/amtest). Odtwarzacz obsługuje Widevine, PlayReady i FairPlay protokołów DRM oraz szyfrowanie za pomocą klucza AES-128.
 
-Wybierz odpowiednią przeglądarkę, aby przetestować różne drmy:
+Wybierz odpowiednią przeglądarkę, aby przetestować różne protokołów DRM:
 
 * Chrome, Opera lub Firefox dla Widevine.
-* Microsoft Edge lub Internet Explorer 11 dla PlayReady.
-* Safari na macOS dla FairPlay.
+* Microsoft Edge lub Internet Explorer 11 dla oprogramowania PlayReady.
+* Safari on macOS for FairPlay.
 
 ### <a name="security-token-service"></a>Usługa tokenu zabezpieczającego
 
-Usługa tokenu zabezpieczającego (STS) wystawia JWT jako token dostępu do dostępu do zasobów zaplecza. Usługi Azure Media Services można użyć jako zasobu zaplecza usługi Azure Media Services. STS musi zdefiniować następujące rzeczy:
+Usługa tokenu zabezpieczającego (STS) wystawia token dostępu dla dostępu do zasobów zaplecza. Jako zasobu zaplecza można użyć usługi licencjonowania Azure Media Services/klucza dostawy. Usługa STS musi definiować następujące elementy:
 
-* Wystawcy i odbiorcy (lub zakres).
-* Roszczenia, które są zależne od wymagań biznesowych w zakresie ochrony zawartości.
-* Weryfikacja symetryczna lub asymetryczna w celu weryfikacji podpisu.
-* Obsługa przerzucenia kluczy (jeśli to konieczne).
+* Wystawca i odbiorcy (lub zakres).
+* Oświadczenia, które są zależne od wymagań firmy dotyczących ochrony zawartości.
+* Symetryczne lub asymetryczne weryfikacje weryfikacji podpisu.
+* Obsługa przerzucania kluczy (w razie potrzeby).
 
-Za pomocą [tego narzędzia STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) można przetestować sts. Obsługuje wszystkie trzy typy kluczy weryfikacji: symetryczne, asymetryczne lub usługi Azure Active Directory (Azure AD) z przerzucania kluczy.
+Możesz użyć [tego narzędzia STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) do przetestowania usługi STS. Obsługuje ona wszystkie trzy typy kluczy weryfikacyjnych: symetryczne, asymetryczne lub Azure Active Directory (Azure AD) z przerzucaniem kluczy.
 
 ## <a name="streaming-protocols-and-encryption-types"></a>Protokoły przesyłania strumieniowego i typy szyfrowania
 
-Za pomocą usługi Media Services można dynamicznie dostarczać zawartość za pomocą czystego klucza AES lub szyfrowania DRM przy użyciu funkcji PlayReady, Widevine lub FairPlay. Obecnie można szyfrować formaty HLS, MPEG DASH i Smooth Streaming. Każdy protokół obsługuje następujące metody szyfrowania.
+Możesz użyć Media Services, aby zapewnić zaszyfrowaną zawartość dynamicznie przy użyciu klucza Clear AES lub szyfrowania DRM za pomocą oprogramowania PlayReady, Widevine lub FairPlay. Obecnie można szyfrować HLS, KRESKę MPEG i formaty Smooth Streaming. Każdy protokół obsługuje następujące metody szyfrowania.
 
 ### <a name="hls"></a>HLS
 
@@ -125,30 +125,30 @@ Protokół HLS obsługuje następujące formaty kontenerów i schematy szyfrowan
 |Format kontenera|Schemat szyfrowania|Przykład adresu URL|
 |---|---|---|
 |Wszystkie|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
-|MPG2-TS |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
+|MPG2 — TS |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
 |CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
-|MPG2-TS |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
+|MPG2 — TS |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
 |CMAF(fmp4) |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cenc)`|
 
-HLS/CMAF + FairPlay (w tym HEVC/H.265) jest obsługiwany na następujących urządzeniach:
+HLS/CMAF + FairPlay (w tym HEVC/H. 265) są obsługiwane na następujących urządzeniach:
 
-* systemu iOS 11 lub nowszego.
-* iPhone 8 lub nowszym.
-* MacOS High Sierra z procesorem Intel 7. generacji.
+* System iOS 11 lub nowszy.
+* iPhone 8 lub nowszy.
+* MacOS wysoka firma Sierra z procesorem Intel siódmej generacji.
 
-### <a name="mpeg-dash"></a>MPEG-DASH
+### <a name="mpeg-dash"></a>MPEG-KRESKA
 
-Protokół MPEG-DASH obsługuje następujące formaty kontenerów i schematy szyfrowania:
+Protokół PAUZy MPEG obsługuje następujące formaty kontenerów i schematy szyfrowania:
 
 |Format kontenera|Schemat szyfrowania|Przykłady adresów URL
 |---|---|---|
 |Wszystkie|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
-|CsF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
+|CSF (FMP4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
 |CMAF(fmp4)|CENC (Widevine + PlayReady)|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cenc)`|
 
 ### <a name="smooth-streaming"></a>Smooth Streaming
 
-Protokół Płynna transmisja strumieniowa obsługuje następujące formaty kontenerów i schematy szyfrowania.
+Protokół Smooth Streaming obsługuje następujące formaty kontenerów i schematy szyfrowania.
 
 |Protocol (Protokół)|Format kontenera|Schemat szyfrowania|
 |---|---|---|
@@ -157,7 +157,7 @@ Protokół Płynna transmisja strumieniowa obsługuje następujące formaty kont
 
 ### <a name="browsers"></a>Przeglądarki
 
-Typowe przeglądarki obsługują następujących klientów DRM:
+Popularne przeglądarki obsługują następujących klientów DRM:
 
 |Przeglądarka|Szyfrowanie|
 |---|---|
@@ -169,72 +169,72 @@ Typowe przeglądarki obsługują następujących klientów DRM:
 
 ## <a name="controlling-content-access"></a>Kontrolowanie dostępu do zawartości
 
-Możesz kontrolować, kto ma dostęp do zawartości, konfigurując zasady klucza zawartości. Usługa Media Services obsługuje wiele sposobów autoryzacji użytkowników, którzy tworzą żądania klucza. Klient (gracz) musi spełniać zasady, zanim klucz może zostać dostarczony do klienta. Zasady klucza zawartości mogą mieć *ograniczenia otwarcia* lub *tokenu.*
+Można kontrolować, kto ma dostęp do zawartości, konfigurując Zasady kluczy zawartości. Usługa Media Services obsługuje wiele sposobów autoryzacji użytkowników, którzy tworzą żądania klucza. Klient (odtwarzacz) musi spełnić zasady, aby można było dostarczyć klucz do klienta programu. Zasady klucza zawartości mogą mieć ograniczenia dotyczące *otwartych* lub *tokenów* .
 
-Zasady klucza zawartości z ograniczeniami dostępu mogą być używane, gdy chcesz wydać licencję każdemu bez autoryzacji. Jeśli na przykład przychody są oparte na reklamach, a nie na subskrypcji.  
+Zasady klucza zawartości z ograniczeniami (Open) mogą być używane do wystawiania licencji osobom bez autoryzacji. Na przykład, jeśli przychód jest oparty na usłudze AD, a nie na podstawie subskrypcji.  
 
-W przypadku zasad klucza zawartości z ograniczeniami tokenu klucz zawartości jest wysyłany tylko do klienta, który przedstawia prawidłowy token JWT lub prosty token internetowy (SWT) w żądaniu licencji/klucza. Ten token musi być wystawiony przez STS.
+Przy użyciu zasad klucza zawartości z ograniczeniami tokenu klucz zawartości jest wysyłany tylko do klienta, który przedstawia prawidłowy token JWT lub prosty token sieci Web (SWT) w żądaniu licencji/klucza. Ten token musi zostać wystawiony przez usługę STS.
 
-Usługi Azure AD można używać jako usługi STS lub wdrażać [niestandardowy plik STS](#using-a-custom-sts). Sts musi być skonfigurowany do tworzenia tokenu podpisanego przy określonym kluczu i oświadczeń problem, które zostały określone w konfiguracji ograniczenia tokenu. Usługa dostarczania licencji/kluczy usługi Media Services zwraca żądaną licencję lub klucz do klienta, jeśli istnieją oba te warunki:
+Możesz użyć usługi Azure AD jako usług STS lub wdrożyć [niestandardową usługę STS](#using-a-custom-sts). Usługa STS musi być skonfigurowana w taki sposób, aby utworzyć token podpisany przy użyciu określonego klucza i wystawiać oświadczenia określone w konfiguracji ograniczenia tokenu. Media Services licencji/usługi dostarczania kluczy zwraca żądaną licencję lub klucz do klienta w przypadku istnienia obu następujących warunków:
 
 * Token jest prawidłowy.
-* Oświadczenia w tokenie są zgodne z tymi skonfigurowanym dla licencji lub klucza.
+* Oświadczenia w tokenie są zgodne z tymi skonfigurowanymi dla licencji lub klucza.
 
-Podczas konfigurowania zasad z ograniczeniami tokenu należy określić podstawowy klucz weryfikacji, wystawcę i parametry odbiorców. Podstawowy klucz weryfikacji zawiera klucz, za pomocą którym token został podpisany. Wystawcą jest STS, który wystawia token. Odbiorcy, czasami nazywany zakres, opisuje intencji tokenu lub zasobu, który token autoryzuje dostęp do. Usługa dostarczania licencji/kluczy usługi Media Services sprawdza, czy te wartości w tokenie są zgodne z wartościami w szablonie.
+Podczas konfigurowania zasad z ograniczeniami tokenu należy określić podstawowy klucz weryfikacyjny, wystawcę i parametry odbiorców. Podstawowy klucz weryfikacyjny zawiera klucz, za pomocą którego token został podpisany. Wystawca to usługa STS, która wystawia token. Odbiorcy, czasami nazywane zakresem, opisują zamiar tokenu lub zasobu, do którego token autoryzuje dostęp. Usługa Media Services License/Key Delivery sprawdza, czy te wartości w tokenie pasują do wartości w szablonie.
 
-### <a name="token-replay-prevention"></a>Zapobieganie powtarzaniu żetonów
+### <a name="token-replay-prevention"></a>Zapobieganie powtarzaniu tokenu
 
-Funkcja *zapobiegania powtarzaniu powtórzów tokenu* umożliwia klientom usługi Media Services ustawienie limitu liczby razy tego samego tokenu, który może być użyty do żądania klucza lub licencji. Klient może dodać oświadczenie `urn:microsoft:azure:mediaservices:maxuses` typu w tokenie, gdzie wartość jest liczba razy token może służyć do uzyskania licencji lub klucza. Wszystkie kolejne żądania z tym samym tokenem do dostarczania kluczy zwróci nieautoryzowaną odpowiedź. Zobacz, jak dodać oświadczenie w [przykładzie DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
+Funkcja *zapobiegania powtarzaniu tokenów* umożliwia Media Services klientom Ustawianie limitu, ile razy można użyć tego samego tokenu do żądania klucza lub licencji. Klient może dodać w tokenie roszczeń typu `urn:microsoft:azure:mediaservices:maxuses` , gdzie wartość jest liczbą przypadków, w których token może być używany w celu uzyskania licencji lub klucza. Wszystkie kolejne żądania o takim samym tokenie do dostarczania kluczy zwrócą nieautoryzowaną odpowiedź. Zobacz, jak dodać to zgłoszenie w [próbce DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
  
 #### <a name="considerations"></a>Zagadnienia do rozważenia
 
-* Klienci muszą mieć kontrolę nad generowaniem tokenów. Oświadczenie musi być umieszczone w samym tokenie.
-* Korzystając z tej funkcji, żądania z tokenami, których czas wygaśnięcia jest więcej niż jedną godzinę od momentu odebranie żądania są odrzucane z nieautoryzowaną odpowiedzią.
-* Tokeny są jednoznacznie identyfikowane przez ich podpis. Wszelkie zmiany w ładunku (na przykład, aktualizacja do czasu wygaśnięcia lub oświadczenia) zmienia podpis tokenu i będzie liczony jako nowy token, że dostarczanie kluczy nie natknąć się wcześniej.
-* Odtwarzanie kończy się niepowodzeniem, `maxuses` jeśli token przekroczył wartość ustawioną przez klienta.
-* Ta funkcja może służyć do wszystkich istniejących zawartości chronionej (tylko token wystawione musi zostać zmieniony).
-* Ta funkcja działa zarówno z JWT, jak i SWT.
+* Klienci muszą mieć kontrolę nad generowaniem tokenu. Należy umieścić to zastrzeżenie w samym tokenie.
+* Korzystając z tej funkcji, żądania z tokenami, których czas wygaśnięcia wynosi więcej niż godzinę od momentu odebrania żądania, są odrzucane z nieautoryzowaną odpowiedzią.
+* Tokeny są jednoznacznie identyfikowane przez ich sygnaturę. Wszelkie zmiany w ładunku (na przykład aktualizacja czasu wygaśnięcia lub roszczeń) zmieniają sygnaturę tokenu i będą zliczane jako nowy token, który nie został wcześniej dostarczony.
+* Odtwarzanie nie powiedzie się, jeśli token `maxuses` przekroczył wartość ustawioną przez klienta.
+* Ta funkcja może być używana dla całej istniejącej zawartości chronionej (należy zmienić tylko token wystawiony).
+* Ta funkcja działa z tokenami JWT i SWT.
 
-## <a name="using-a-custom-sts"></a>Korzystanie z niestandardowego sts
+## <a name="using-a-custom-sts"></a>Korzystanie z niestandardowej usługi STS
 
-Klient może użyć niestandardowego sts do dostarczania tokenów. Powody to:
+Klient może zdecydować się na użycie niestandardowej usługi STS w celu zapewnienia tokenów. Przyczyny:
 
-* Dostawca tożsamości (IDP) używany przez klienta nie obsługuje usługi STS. W takim przypadku opcja może być niestandardowa sts.
-* Klient może potrzebować bardziej elastycznej lub ściślejszej kontroli, aby zintegrować usługę STS z systemem rozliczeniowym subskrybenta klienta.
+* Dostawca tożsamości (dostawcy tożsamości) używany przez klienta nie obsługuje usługi STS. W takim przypadku niestandardowa usługa STS może być opcją.
+* Klient może potrzebować bardziej elastycznej lub ściślejszej kontroli integracji usługi STS z systemem rozliczeń subskrybenta klienta.
 
-   Na przykład operator usługi [OTT](https://en.wikipedia.org/wiki/Over-the-top_media_services) może oferować wiele pakietów subskrybentów, takich jak premium, podstawowe i sportowe. Operator może chcieć dopasować oświadczenia w tokenie z pakietem subskrybenta, dzięki czemu tylko zawartość w określonym pakiecie są udostępniane. W takim przypadku niestandardowy STS zapewnia niezbędną elastyczność i kontrolę.
+   Na przykład operator usługi [OTT](https://en.wikipedia.org/wiki/Over-the-top_media_services) może oferować wiele pakietów subskrybentów, takich jak Premium, Basic i sport. Operator może chcieć dopasować oświadczenia w tokenie przy użyciu pakietu abonenta, aby udostępnić tylko zawartość określonego pakietu. W takim przypadku niestandardowa usługa STS zapewnia niezbędną elastyczność i kontrolę.
 
-* Aby uwzględnić oświadczenia niestandardowe w tokenie, aby wybrać między różnymi ContentKeyPolicyOptions z różnymi parametrami licencji DRM (licencja subskrypcyjna a licencja na wynajem).
-* Aby dołączyć oświadczenie reprezentujące identyfikator klucza zawartości klucza, do których token udziela dostępu.
+* Aby uwzględnić niestandardowe oświadczenia w tokenie, aby wybrać różne ContentKeyPolicyOptions z różnymi parametrami licencji DRM (Licencja subskrypcyjna w porównaniu z licencją dzierżawy).
+* Aby uwzględnić w nim zastrzeżenie reprezentujące identyfikator klucza zawartości klucza, do którego token przyznaje dostęp.
 
-Podczas korzystania z niestandardowego STS należy wyw.
+W przypadku korzystania z niestandardowej usługi STS należy wprowadzić dwie zmiany:
 
-* Podczas konfigurowania usługi dostarczania licencji dla zasobu należy określić klucz zabezpieczeń używany do weryfikacji przez niestandardowy sts zamiast bieżącego klucza z usługi Azure AD.
-* Podczas generowania tokenu JTW klucz zabezpieczeń jest określony zamiast klucza prywatnego bieżącego certyfikatu X509 w usłudze Azure AD.
+* Podczas konfigurowania usługi dostarczania licencji dla zasobu należy określić klucz zabezpieczeń używany do weryfikacji przez niestandardową usługę STS zamiast bieżącego klucza z usługi Azure AD.
+* Po wygenerowaniu tokenu JTW zostanie określony klucz zabezpieczeń zamiast klucza prywatnego bieżącego certyfikatu x509 w usłudze Azure AD.
 
 Istnieją dwa typy kluczy zabezpieczeń:
 
-* Klucz symetryczny: Ten sam klucz jest używany do generowania i weryfikacji JWT.
-* Klucz asymetryczny: Para kluczy publiczno-prywatnych w certyfikacie X509 jest używana z kluczem prywatnym do szyfrowania/generowania JWT i przy użyciu klucza publicznego w celu zweryfikowania tokenu.
+* Klucz symetryczny: ten sam klucz jest używany do generowania i weryfikowania tokenu JWT.
+* Klucz asymetryczny: para publiczny-prywatny klucza w certyfikacie x509 jest używana z kluczem prywatnym do szyfrowania/generowania tokenu JWT oraz klucza publicznego w celu weryfikacji tokena.
 
-Jeśli używasz .NET Framework/C# jako platformy programistycznej, certyfikat X509 używany dla asymetrycznego klucza zabezpieczeń musi mieć długość klucza co najmniej 2048. Ta długość klucza jest wymaganiem klasy System.IdentityModel.Tokens.X509AsymmetricSecurityKey w .NET Framework. W przeciwnym razie zostanie zgłoszony następujący wyjątek: IDX10630: "System.IdentityModel.Tokens.X509AsymmetricSecurityKey" dla podpisywania nie może być mniejszy niż bity "2048".
+Jeśli używasz .NET Framework/C# jako platformy deweloperskiej, certyfikat x509 użyty dla asymetrycznego klucza zabezpieczeń musi mieć długość klucza wynoszącą co najmniej 2048. Ta długość klucza jest wymaganiem klasy System. IdentityModel. Tokens. X509AsymmetricSecurityKey w .NET Framework. W przeciwnym razie zgłaszany jest następujący wyjątek: IDX10630: element "System. IdentityModel. Tokens. X509AsymmetricSecurityKey" dla podpisywania nie może być mniejszy niż "2048" bitów.
 
-## <a name="custom-key-and-license-acquisition-url"></a>Niestandardowy klucz i adres URL pozyskiwania licencji
+## <a name="custom-key-and-license-acquisition-url"></a>Adres URL pozyskiwania klucza niestandardowego i licencji
 
-Użyj następujących szablonów, jeśli chcesz określić inną usługę dostarczania licencji/klucza (nie usługi Media Services). Dwa wymienne pola w szablonach są tam, dzięki czemu można udostępniać zasady przesyłania strumieniowego w wielu zasobach zamiast tworzyć zasady przesyłania strumieniowego na zasób. 
+Użyj następujących szablonów, jeśli chcesz określić inną licencję/usługę dostarczania kluczy (nie Media Services). Dostępne są dwa pola, które można umieścić w szablonach, aby umożliwić udostępnianie zasad przesyłania strumieniowego w wielu zasobach zamiast tworzenia zasad przesyłania strumieniowego na element zawartości. 
 
-* `EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate`: Szablon adresu URL usługi niestandardowej, która dostarcza klucze do graczy użytkowników końcowych. Nie jest wymagane, gdy używasz usługi Azure Media Services do wystawiania kluczy. 
+* `EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate`: Szablon adresu URL usługi niestandardowej, która dostarcza klucze do odtwarzaczy użytkowników końcowych. Nie jest to wymagane, jeśli używasz Azure Media Services do wystawiania kluczy. 
 
-   Szablon obsługuje wymienne tokeny, które usługa będzie aktualizować w czasie wykonywania z wartością specyficzną dla żądania.  Aktualnie obsługiwane wartości tokenów to:
-   * `{AlternativeMediaId}`, który jest zastępowany wartością StreamingLocatorId.AlternativeMediaId.
-   * `{ContentKeyId}`, który jest zastępowany wartością identyfikatora żądanego klucza.
-* `StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate`: Szablon adresu URL usługi niestandardowej, która dostarcza licencje graczom końcowym. Nie jest wymagane, gdy używasz usługi Azure Media Services do wystawiania licencji.
+   Szablon obsługuje tokeny wymienne, które usługa będzie aktualizować w czasie wykonywania, przy użyciu wartości właściwej dla żądania.  Obecnie obsługiwane są następujące wartości tokenu:
+   * `{AlternativeMediaId}`, który jest zastępowany przez wartość StreamingLocatorId. AlternativeMediaId.
+   * `{ContentKeyId}`, która jest zastępowana wartością identyfikatora żądanego klucza.
+* `StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate`: Szablon adresu URL niestandardowej usługi dostarczającej licencje do graczy użytkowników końcowych. Nie jest to wymagane w przypadku korzystania z Azure Media Services w celu wystawiania licencji.
 
-   Szablon obsługuje wymienne tokeny, które usługa będzie aktualizować w czasie wykonywania z wartością specyficzną dla żądania. Aktualnie obsługiwane wartości tokenów to:  
-   * `{AlternativeMediaId}`, który jest zastępowany wartością StreamingLocatorId.AlternativeMediaId.
-   * `{ContentKeyId}`, który jest zastępowany wartością identyfikatora żądanego klucza. 
-* `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: Tak samo jak w poprzednim szablonie, tylko dla Widevine. 
-* `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: tak samo jak w poprzednim szablonie, tylko dla FairPlay.  
+   Szablon obsługuje tokeny wymienne, które usługa będzie aktualizować w czasie wykonywania, przy użyciu wartości właściwej dla żądania. Obecnie obsługiwane są następujące wartości tokenu:  
+   * `{AlternativeMediaId}`, który jest zastępowany przez wartość StreamingLocatorId. AlternativeMediaId.
+   * `{ContentKeyId}`, która jest zastępowana wartością identyfikatora żądanego klucza. 
+* `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: Taki sam jak poprzedni szablon, tylko dla Widevine. 
+* `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: Taki sam jak poprzedni szablon, tylko dla FairPlay.  
 
 Przykład:
 
@@ -242,28 +242,28 @@ Przykład:
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
 ```
 
-`ContentKeyId`ma wartość żądanego klucza. Można użyć, `AlternativeMediaId` jeśli chcesz zamapować żądanie do jednostki po twojej stronie. Na przykład `AlternativeMediaId` może służyć do wyszukiwania uprawnień.
+`ContentKeyId`ma wartość żądanego klucza. Możesz użyć `AlternativeMediaId` , jeśli chcesz zmapować żądanie do jednostki po stronie. Na przykład `AlternativeMediaId` może służyć do wyszukiwania uprawnień.
 
-W przykładach REST, które używają niestandardowych adresów URL pozyskiwania licencji/kluczy, zobacz [Zasady przesyłania strumieniowego — tworzenie](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
+Aby zapoznać się z przykładami użycia niestandardowych licencji/adresów URL pozyskiwania kluczy, zobacz [zasady przesyłania strumieniowego — tworzenie](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
 
 > [!NOTE]
-> Widevine jest usługą świadczoną przez Google Inc. i podlega warunkom korzystania z usługi oraz Polityce prywatności Firmy Google, Inc.
+> Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Jeśli `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` zostanie wyświetlony błąd, upewnij się, że określisz odpowiednie zasady przesyłania strumieniowego.
+Jeśli `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` wystąpi błąd, upewnij się, że określono odpowiednie zasady przesyłania strumieniowego.
 
-Jeśli wystąpią błędy, `_NOT_SPECIFIED_IN_URL`które kończą się na , upewnij się, że określono format szyfrowania w adresie URL. Może to być na przykład `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Zobacz [Protokoły przesyłania strumieniowego i typy szyfrowania](#streaming-protocols-and-encryption-types).
+Jeśli pojawią się błędy `_NOT_SPECIFIED_IN_URL`, upewnij się, że w adresie URL został określony format szyfrowania. Może to być na przykład `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Zobacz [protokoły przesyłania strumieniowego i typy szyfrowania](#streaming-protocols-and-encryption-types).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Zadawaj pytania, przekazuj opinie, otrzyj aktualizacje
+## <a name="ask-questions-give-feedback-get-updates"></a>Zadawaj pytania, Przekaż opinię, uzyskaj aktualizacje
 
-Zapoznaj się z artykułem [społeczności usługi Azure Media Services,](media-services-community.md) aby zobaczyć różne sposoby zadawania pytań, przekazywania opinii i otrzymywać aktualizacje dotyczące usługi Media Services.
+Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Ochrona za pomocą szyfrowania AES](protect-with-aes128.md)
+* [Ochrona przy użyciu szyfrowania AES](protect-with-aes128.md)
 * [Ochrona przy użyciu technologii DRM](protect-with-drm.md)
-* [Projektowanie systemu ochrony zawartości multi-DRM z kontrolą dostępu](design-multi-drm-system-with-access-control.md)
+* [Projektowanie systemu ochrony zawartości z obsługą technologii DRM z użyciem kontroli dostępu](design-multi-drm-system-with-access-control.md)
 * [Szyfrowanie po stronie magazynu](storage-account-concept.md#storage-side-encryption)
 * [Często zadawane pytania](frequently-asked-questions.md)
 * [Program obsługi tokenów sieci Web JSON](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)

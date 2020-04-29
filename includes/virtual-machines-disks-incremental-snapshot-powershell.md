@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 3eec6583ebdff35d7e40d2eec305a947de0cb87c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79299463"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
@@ -26,17 +26,17 @@ ms.locfileid: "79299463"
 
 ## <a name="powershell"></a>PowerShell
 
-Za pomocą programu Azure PowerShell można utworzyć migawkę przyrostową. Potrzebna będzie najnowsza wersja programu Azure PowerShell, następujące polecenie zainstaluje ją lub zaktualizuje istniejącą instalację do najnowszej:
+Za pomocą Azure PowerShell można utworzyć przyrostową migawkę. Potrzebna będzie Najnowsza wersja Azure PowerShell, następujące polecenie zainstaluje je lub zaktualizuje istniejącą instalację do najnowszej wersji:
 
 ```PowerShell
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
 ```
 
-Po zainstalowaniu zaloguj się do sesji `az login`programu PowerShell za pomocą programu .
+Po zakończeniu instalacji zaloguj się do sesji programu PowerShell przy użyciu `az login`polecenia.
 
-Aby utworzyć migawkę przyrostową za pomocą programu Azure PowerShell, ustaw konfigurację za `-Incremental` pomocą [new-AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) z parametrem, `-Snapshot` a następnie przekaż go jako zmienną do [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) za pośrednictwem parametru.
+Aby utworzyć przyrostową migawkę z Azure PowerShell, należy ustawić konfigurację przy użyciu `-Incremental` parametru [New-AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) z parametrem, a następnie przekazać ją jako zmienną do [nowego-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) za pomocą `-Snapshot` parametru.
 
-Zamień `<yourDiskNameHere>` `<yourDesiredSnapShotNameHere>` i `<yourResourceGroupNameHere>`wartości, a następnie można użyć następującego skryptu, aby utworzyć migawkę przyrostową:
+`<yourDiskNameHere>`Zastąp `<yourResourceGroupNameHere>`wartości, `<yourDesiredSnapShotNameHere>` i wartościami, aby utworzyć przyrostową migawkę, możesz użyć następującego skryptu:
 
 ```PowerShell
 # Get the disk that you need to backup by creating an incremental snapshot
@@ -47,9 +47,9 @@ $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk
 New-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere> -SnapshotName <yourDesiredSnapshotNameHere> -Snapshot $snapshotConfig 
 ```
 
-Można zidentyfikować przyrostowe migawki z tego `SourceResourceId` samego `SourceUniqueId` dysku z właściwości i migawek. `SourceResourceId`to identyfikator zasobu usługi Azure Resource Manager dysku nadrzędnego. `SourceUniqueId`jest wartością dziedziczoną `UniqueId` z właściwości dysku. Jeśli chcesz usunąć dysk, a następnie utworzyć nowy dysk o tej `UniqueId` samej nazwie, zmieni się wartość właściwości.
+Można zidentyfikować przyrostowe migawki z tego samego dysku przy użyciu `SourceResourceId` i `SourceUniqueId` właściwości migawek. `SourceResourceId`jest Azure Resource Manager IDENTYFIKATORem zasobu dysku nadrzędnego. `SourceUniqueId`jest wartością dziedziczoną z `UniqueId` właściwości dysku. Jeśli chcesz usunąć dysk, a następnie utworzyć nowy dysk o tej samej nazwie, wartość `UniqueId` właściwości zostanie zmieniona.
 
-Można użyć `SourceResourceId` `SourceUniqueId` i utworzyć listę wszystkich migawek skojarzonych z określonym dyskiem. Zamień `<yourResourceGroupNameHere>` na wartość, a następnie możesz użyć następującego przykładu, aby wyświetlić listę istniejących migawek przyrostowych:
+Za pomocą `SourceResourceId` programu i `SourceUniqueId` można utworzyć listę wszystkich migawek skojarzonych z określonym dyskiem. Zamień `<yourResourceGroupNameHere>` na wartość, a następnie użyj poniższego przykładu, aby wyświetlić listę istniejących migawek przyrostowych:
 
 ```PowerShell
 $snapshots = Get-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere>
@@ -69,7 +69,7 @@ $incrementalSnapshots
 
 ## <a name="resource-manager-template"></a>Szablon usługi Resource Manager
 
-Można również użyć szablonów usługi Azure Resource Manager, aby utworzyć migawkę przyrostową. Musisz upewnić się, że apiVersion jest ustawiona na **2019-03-01** i że właściwość przyrostowa jest również ustawiona na true. Poniższy urywek jest przykładem tworzenia migawki przyrostowej za pomocą szablonów Menedżera zasobów:
+Za pomocą szablonów Azure Resource Manager można także utworzyć przyrostową migawkę. Należy upewnić się, że apiVersion jest ustawiona na **2019-03-01** i że właściwość przyrostowa jest również ustawiona na wartość true. Poniższy fragment kodu stanowi przykład tworzenia przyrostowej migawki z szablonami Menedżer zasobów:
 
 ```json
 {
@@ -105,4 +105,4 @@ Można również użyć szablonów usługi Azure Resource Manager, aby utworzyć
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli chcesz zobaczyć przykładowy kod demonstrujący różnicowe możliwości migawek przyrostowych, za pomocą platformy .NET, zobacz [Kopiowanie kopii zapasowych dysków zarządzanych platformy Azure do innego regionu z możliwością różnicowania migawek przyrostowych](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).
+Jeśli chcesz zobaczyć przykładowy kod pokazujący różnicowe możliwości migawek przyrostowych, korzystając z platformy .NET, zobacz [Kopiuj kopie zapasowe platformy Azure Managed disks do innego regionu z różnicową możliwością migawek przyrostowych](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

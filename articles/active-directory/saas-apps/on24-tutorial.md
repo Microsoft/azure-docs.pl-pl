@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z połączeniem SAML środowiska wirtualnego ON24 | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a połączeniem SAML środowiska wirtualnego ON24.
+title: 'Samouczek: integracja Azure Active Directory ze środowiskiem wirtualnym ON24 wirtualne połączenie SAML | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i ON24 wirtualnej środowiska wirtualnego.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 801a631b56a11e68c444ede846ff82195cd7627f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67095722"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Samouczek: Integracja usługi Azure Active Directory z połączeniem SAML środowiska wirtualnego ON24
+# <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Samouczek: integracja Azure Active Directory z połączeniem SAML środowiska wirtualnego ON24
 
 W tym samouczku dowiesz się, jak zintegrować połączenie SAML środowiska wirtualnego ON24 z usługą Azure Active Directory (Azure AD).
-Integracja połączenia SAML środowiska wirtualnego ON24 z usługą Azure AD zapewnia następujące korzyści:
+Integrowanie połączenia SAML środowiska wirtualnego ON24 z usługą Azure AD zapewnia następujące korzyści:
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do on24 środowiska wirtualnego SAML Połączenia.
-* Można włączyć użytkowników, aby automatycznie zalogować się do ON24 Środowiska wirtualnego SAML Connection (Logowanie jednokrotne) z ich kont usługi Azure AD.
+* Możesz kontrolować usługę Azure AD, która ma dostęp do połączenia SAML środowiska wirtualnego ON24.
+* Możesz pozwolić użytkownikom na automatyczne logowanie się, aby ON24 wirtualne połączenie SAML środowiska (Logowanie jednokrotne) przy użyciu swoich kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z połączeniem SAML środowiska wirtualnego ON24, potrzebne są następujące elementy:
+Aby skonfigurować integrację z usługą Azure AD za pomocą połączenia SAML środowiska wirtualnego ON24, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* ON24 Środowisko wirtualne SAML Podłączenie z włączoną subskrypcją z obsługą logowania jednokrotnego
+* Subskrypcja obsługująca Logowanie jednokrotne w środowisku wirtualnym ON24
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* ON24 Virtual Environment SAML Connection obsługuje jednostkę SSO inicjowane przez **sp** i **idp**
+* Połączenie SAML środowiska wirtualnego ON24 obsługuje logowanie jednokrotne z użyciem protokołu **SP** i **dostawcy tożsamości**
 
 ## <a name="adding-on24-virtual-environment-saml-connection-from-the-gallery"></a>Dodawanie połączenia SAML środowiska wirtualnego ON24 z galerii
 
-Aby skonfigurować integrację połączenia SAML środowiska wirtualnego ON24 z usługą Azure AD, należy dodać on24 środowisko wirtualne SAML Connection z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację połączenia SAML środowiska wirtualnego ON24 z usługą Azure AD, musisz dodać połączenie SAML środowiska wirtualnego ON24 z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać on24 środowisko wirtualne SAML Connection z galerii, wykonaj następujące kroki:**
+**Aby dodać połączenie SAML środowiska wirtualnego ON24 z galerii, wykonaj następujące czynności:**
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
@@ -65,31 +65,31 @@ Aby skonfigurować integrację połączenia SAML środowiska wirtualnego ON24 z 
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **ON24 Virtual Environment SAML Connection**, wybierz **on24 środowisko wirtualne SAML Connection** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **ON24 wirtualnej środowiska wirtualnego**, wybierz pozycję **ON24 wirtualne połączenie SAML** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-     ![ON24 Środowisko wirtualne SAML Połączenie na liście wyników](common/search-new-app.png)
+     ![Połączenie SAML środowiska wirtualnego ON24 na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego za pomocą on24 środowiska wirtualnego SAML Połączenia na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w środowisku wirtualnym ON24 SAML Connection.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą połączenia SAML środowiska wirtualnego ON24 w oparciu o użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w środowisku wirtualnym ON24.
 
-Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD za pomocą połączenia SAML środowiska wirtualnego ON24, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą połączenia SAML środowiska wirtualnego ON24, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj jednokrotne logowanie do połączenia SAML środowiska wirtualnego ON24](#configure-on24-virtual-environment-saml-connection-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. Skonfiguruj Logowanie jednokrotne za pomocą **[protokołu SAML dla środowiska wirtualnego ON24](#configure-on24-virtual-environment-saml-connection-single-sign-on)** , aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz on24 środowisko wirtualne SAML connection test użytkownika](#create-on24-virtual-environment-saml-connection-test-user)** — mieć odpowiednik Britta Simon w ON24 Środowiska wirtualnego SAML Connection, który jest połączony z reprezentacji usługi Azure AD użytkownika.
+5. **[Utwórz użytkownika testowego połączenia SAML środowiska wirtualnego ON24](#create-on24-virtual-environment-saml-connection-test-user)** , aby uzyskać odpowiednik usługi Britta Simon w ON24 wirtualnej środowisku wirtualnym, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą połączenia SAML środowiska wirtualnego ON24, wykonaj następujące kroki:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą połączenia SAML środowiska wirtualnego ON24, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **SAML środowisko wirtualne ON24** wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **połączenia SAML środowiska wirtualnego ON24** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -101,9 +101,9 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą połączeni
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-4. W sekcji **Podstawowa konfiguracja SAML,** Jeśli chcesz skonfigurować aplikację w trybie inicjowanym **przez IDP,** wykonaj następujące czynności:
+4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![ON24 Środowisko wirtualne DOMENA połączenia SAML i adresy URL — informacje o logowanie jednokrotnym](common/idp-relay.png)
+    ![ON24 wirtualne połączenia SAML domeny i adresów URL Logowanie jednokrotne](common/idp-relay.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL: 
 
@@ -115,7 +115,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą połączeni
 
     `SAP PROD SAML-EliteAudience.on24.com` 
                 
-     **Adres URL środowiska qa**
+     **Adres URL środowiska pytania i odpowiedzi**
     
     `SAMLQA-VSHOW.on24.com` 
 
@@ -135,7 +135,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą połączeni
 
     `https://federation.on24.com/sp/eyJ2c2lkIjoiU0FNTC1FbGl0ZUF1ZGllbmNlLm9uMjQuY29tIn0/ACS.saml2`
 
-     **Adres URL środowiska qa**
+     **Adres URL środowiska pytania i odpowiedzi**
     
     `https://qafederation.on24.com/sp/ACS.saml2`
 
@@ -145,18 +145,18 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą połączeni
      
     `https://qafederation.on24.com/sp/eyJ2c2lkIjoiU0FNTFFBLUVsaXRlQXVkaWVuY2Uub24yNC5jb20ifQ/ACS.saml2` 
 
-    d. Kliknij pozycję **Ustaw dodatkowe adresy URL**. 
+    c. Kliknij pozycję **Ustaw dodatkowe adresy URL**. 
 
     d. W polu tekstowym **Stan przekaźnika** wpisz adres URL: `https://vshow.on24.com/vshow/ms_azure_saml_test?r=<ID>`
 
-5.  Jeśli chcesz skonfigurować aplikację w trybie inicjowanym przez **sp,** wykonaj następujący krok:
+5.  Jeśli chcesz skonfigurować aplikację w trybie zainicjowania programu **SP** , wykonaj następujące czynności:
 
-    ![ON24 Środowisko wirtualne DOMENA połączenia SAML i adresy URL — informacje o logowanie jednokrotnym](common/both-signonurl.png)
+    ![ON24 wirtualne połączenia SAML domeny i adresów URL Logowanie jednokrotne](common/both-signonurl.png)
 
-    W polu **tekstowym Podpisywania adresu URL** wpisz adres URL, używając następującego wzorca:`https://vshow.on24.com/vshow/<INSTANCENAME>`
+    W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://vshow.on24.com/vshow/<INSTANCENAME>`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości za pomocą rzeczywistego stanu przekazywania i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta połączenia SAML środowiska wirtualnego ON24,](https://www.on24.com/contact-us/) aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego stanu przekazywania i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta połączenia SAML ON24 środowiska wirtualnego](https://www.on24.com/contact-us/) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 4. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -170,11 +170,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą połączeni
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
-### <a name="configure-on24-virtual-environment-saml-connection-single-sign-on"></a>Konfigurowanie logowania jednokrotnego połączenia SAML środowiska wirtualnego ON24
+### <a name="configure-on24-virtual-environment-saml-connection-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w środowisku wirtualnym ON24
 
-Aby skonfigurować logowanie jednokrotne po stronie **POŁĄCZENIA SAML środowiska wirtualnego ON24,** należy wysłać pobrany **kod XML metadanych federacyjnego** i odpowiednie skopiowane adresy URL z portalu Azure do [zespołu pomocy technicznej ON24 Virtual Environment SAML Connection](https://www.on24.com/about-us/support/). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne w usłudze **ON24 wirtualnego protokołu SAML** , należy wysłać pobrany **kod XML metadanych Federacji** i odpowiednie skopiowane adresy URL z Azure Portal do [ON24 wirtualnego środowiska obsługi połączenia SAML w środowisku wirtualnym](https://www.on24.com/about-us/support/). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -184,7 +184,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -194,24 +194,24 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **\@brittasimon yourcompanydomain.extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
     Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jednokrotnego, udzielając dostępu do on24 środowiska wirtualnego połączenia SAML.
+Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logowania jednokrotnego platformy Azure przez przyznanie dostępu do połączenia SAML środowiska wirtualnego ON24.
 
-1. W portalu Azure wybierz pozycję **Aplikacje przedsiębiorstwa**, wybierz **pozycję Wszystkie aplikacje**, a następnie wybierz opcję **ON24 Virtual Environment SAML Connection**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz opcję **połączenie SAML środowiska wirtualnego ON24**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz pozycję **ON24 Virtual Environment SAML Connection**.
+2. Na liście Aplikacje wybierz opcję **połączenie SAML środowiska wirtualnego ON24**.
 
-    ![Łącze POŁĄCZENIA SAML środowiska wirtualnego ON24 na liście Aplikacje](common/all-applications.png)
+    ![Link połączenia SAML środowiska wirtualnego ON24 na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -223,25 +223,25 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-on24-virtual-environment-saml-connection-test-user"></a>Tworzenie użytkownika testowego POŁĄCZENIA SAML środowiska wirtualnego ON24
+### <a name="create-on24-virtual-environment-saml-connection-test-user"></a>Utwórz użytkownika testowego połączenia SAML środowiska wirtualnego ON24
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w ON24 Virtual Environment SAML Connection. Współpracuj z [zespołem pomocy technicznej ON24 Virtual Environment SAML Connection,](https://www.on24.com/about-us/support/) aby dodać użytkowników na platformie POŁĄCZENIA SAML środowiska wirtualnego ON24. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w ramach połączenia SAML środowiska wirtualnego ON24. Współpracuj z [zespołem obsługi połączeń SAML środowiska wirtualnego ON24](https://www.on24.com/about-us/support/) , aby dodać użytkowników z platformy wirtualnej usługi ON24 środowiska wirtualnego. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka POŁĄCZENIA SAML środowiska wirtualnego ON24 w Panelu dostępu należy automatycznie zalogować się do połączenia SAML środowiska wirtualnego ON24, dla którego skonfigurowano logującą się jednoślik. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka połączenie SAML środowiska wirtualnego ON24 w panelu dostępu należy automatycznie zalogować się do połączenia SAML środowiska wirtualnego ON24, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

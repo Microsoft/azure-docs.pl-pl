@@ -9,26 +9,26 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: feaf72de1d2c578d2b2d0df9e86ec0fbe0b49445
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371766"
 ---
-Aby pomyślnie ustanowić tunel urządzenia, muszą być spełnione następujące wymagania:
+Aby można było pomyślnie ustanowić tunel urządzenia, muszą zostać spełnione następujące wymagania:
 
-* Urządzenie musi być komputerem przyłączanym do domeny z systemem Windows 10 Enterprise lub Education w wersji 1809 lub nowszej.
-* Tunel jest konfigurowany tylko dla wbudowanego rozwiązania sieci VPN systemu Windows i jest ustanawiany przy użyciu protokołu IKEv2 z uwierzytelnianiem certyfikatów komputera.
-* Na jedno urządzenie można skonfigurować tylko jeden tunel urządzenia.
+* Urządzenie musi być komputerem przyłączonym do domeny z systemem Windows 10 Enterprise lub Education w wersji 1809 lub nowszej.
+* Tunel można skonfigurować tylko dla wbudowanego rozwiązania sieci VPN systemu Windows i jest ustanawiany przy użyciu protokołu IKEv2 z uwierzytelnianiem certyfikatu komputera.
+* Na urządzenie można skonfigurować tylko jeden tunel urządzenia.
 
-1. Instalowanie certyfikatów klientów na kliencie systemu Windows 10 przy użyciu artykułu [klienta sieci VPN typu punkt-lokacja.](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) Certyfikat musi znajdować się w magazynie komputera lokalnego.
-1. Utwórz profil sieci VPN i skonfiguruj tunel urządzenia w kontekście konta LOCAL SYSTEM, korzystając z [tych instrukcji](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration).
+1. Zainstaluj certyfikaty klienta na kliencie systemu Windows 10 przy użyciu artykułu [Klient sieci VPN typu punkt-lokacja](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) . Certyfikat musi znajdować się w magazynie komputera lokalnego.
+1. Utwórz profil sieci VPN i skonfiguruj tunel urządzenia w kontekście lokalnego konta SYSTEMowego, korzystając z [tych instrukcji](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration).
 
-### <a name="configuration-example-for-device-tunnel"></a>Przykład konfiguracji tunelu urządzenia
+### <a name="configuration-example-for-device-tunnel"></a>Przykład konfiguracji dla tunelu urządzenia
 
-Po skonfigurowaniu bramy sieci wirtualnej i zainstalowaniu certyfikatu klienta w magazynie komputera lokalnego na kliencie systemu Windows 10 należy użyć następujących przykładów, aby skonfigurować tunel urządzenia klienckiego:
+Po skonfigurowaniu bramy sieci wirtualnej i zainstalowaniu certyfikatu klienta w magazynie komputera lokalnego na kliencie systemu Windows 10 Użyj następujących przykładów, aby skonfigurować tunel urządzenia klienckiego:
 
-1. Skopiuj poniższy tekst i zapisz go jako ***devicecert.ps1***.
+1. Skopiuj poniższy tekst i Zapisz go jako ***devicecert. ps1***.
 
    ```
    Param(
@@ -80,7 +80,7 @@ Po skonfigurowaniu bramy sieci wirtualnej i zainstalowaniu certyfikatu klienta w
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Skopiuj następujący tekst i zapisz go jako ***VPNProfile.xml*** w tym samym folderze co **devicecert.ps1**. Edytuj następujący tekst, aby dopasować go do środowiska.
+1. Skopiuj poniższy tekst i Zapisz go jako ***VPNProfile. XML*** w tym samym folderze, co **devicecert. ps1**. Edytuj następujący tekst, aby dopasować go do środowiska.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers> <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address> <= IP of resource in the vnet or the vnet address space`
@@ -115,8 +115,8 @@ Po skonfigurowaniu bramy sieci wirtualnej i zainstalowaniu certyfikatu klienta w
    <RegisterDNS>true</RegisterDNS>
    </VPNProfile>
    ```
-1. Pobierz **PsExec** z [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec) i wyodrębnij pliki do **C:\PSTools**.
-1. Z monitu cmd administratora uruchom program PowerShell, uruchamiając:
+1. Pobierz **PsExec** z programu [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec) i Wyodrębnij pliki do **C:\PSTools**.
+1. W wierszu polecenia administratora uruchom program PowerShell, uruchamiając polecenie:
 
    ```
    PsExec.exe Powershell for 32-bit Windows
@@ -124,17 +124,17 @@ Po skonfigurowaniu bramy sieci wirtualnej i zainstalowaniu certyfikatu klienta w
    ```
 
    ![powershell](./media/vpn-gateway-vwan-always-on-device/powershell.png)
-1. W programie PowerShell przełącz się do folderu, w którym znajdują się **pliki devicecert.ps1** i **VPNProfile.xml,** i uruchom następujące polecenie:
+1. W programie PowerShell przejdź do folderu, w którym znajdują się **devicecert. ps1** i **VPNProfile. XML** , a następnie uruchom następujące polecenie:
 
    ```powershell
    .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
-   ![Test machinecert](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
-1. Uruchom **rasphone**.
+   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
+1. Uruchom **Rasphone**.
 
-   ![rasphone](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
-1. Poszukaj wpisu **MachineCertTest** i kliknij przycisk **Połącz**.
+   ![pliku](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
+1. Wyszukaj wpis **MachineCertTest** , a następnie kliknij przycisk **Połącz**.
 
    ![Połącz](./media/vpn-gateway-vwan-always-on-device/connect.png)
-1. Jeśli połączenie zakończy się pomyślnie, uruchom ponownie komputer. Tunel połączy się automatycznie.
+1. Jeśli połączenie zakończy się pomyślnie, należy ponownie uruchomić komputer. Tunel zostanie automatycznie nawiązane.

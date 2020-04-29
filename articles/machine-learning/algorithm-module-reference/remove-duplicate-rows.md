@@ -1,7 +1,7 @@
 ---
-title: 'Usuń zduplikowane wiersze: Odwołanie do modułu'
+title: 'Usuń zduplikowane wiersze: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak usunąć potencjalne duplikaty z zestawu danych za pomocą modułu Usuń zduplikowane wiersze w usłudze Azure Machine Learning.
+description: Dowiedz się, jak za pomocą modułu Usuń zduplikowane wiersze w Azure Machine Learning usunąć potencjalne duplikaty z zestawu danych.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,21 +10,21 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 490d3305abcbcd906a0f727d736db8cab7e4287e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79456025"
 ---
-# <a name="remove-duplicate-rows-module"></a>Usuń moduł Zduplikowane wiersze
+# <a name="remove-duplicate-rows-module"></a>Usuń moduł zduplikowanych wierszy
 
-W tym artykule opisano moduł w projektancie usługi Azure Machine Learning (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
 
 Ten moduł służy do usuwania potencjalnych duplikatów z zestawu danych.
 
-Załóżmy na przykład, że dane wyglądają następująco i reprezentują wiele rekordów dla pacjentów. 
+Załóżmy na przykład, że dane wyglądają jak poniżej, i reprezentują wiele rekordów dla pacjentów. 
 
-| PatientID (ida pacjentów) | Inicjały| Płeć|Wiek|Dopuszczone|
+| PatientID | Inicjały| Płeć|Wiek|Przyjęte|
 |----|----|----|----|----|
 |1|F.M.| M| 53| Sty|
 |2| F.A.M.| M| 53| Sty|
@@ -36,46 +36,46 @@ Załóżmy na przykład, że dane wyglądają następująco i reprezentują wiel
 |6| F.A.M.| M| NaN| |
 |7| F.A.M.| M| NaN| |
 
-Oczywiście w tym przykładzie zawiera wiele kolumn z potencjalnie zduplikowanych danych. To, czy są one rzeczywiście duplikatami, zależy od twojej wiedzy na temat danych. 
+Jasno ten przykład zawiera wiele kolumn, które mogą duplikować dane. Bez względu na to, czy są one w rzeczywistości duplikatami, zależy od wiedzy o danych. 
 
-+ Na przykład możesz wiedzieć, że wielu pacjentów ma taką samą nazwę. Nie można wyeliminować duplikaty przy użyciu żadnych kolumn nazwy, tylko kolumny **identyfikator.** W ten sposób tylko wiersze z zduplikowanymi wartościami identyfikatorów są odfiltrowywały, niezależnie od tego, czy pacjenci mają taką samą nazwę, czy nie.
++ Na przykład może być wiadomo, że wielu pacjentów ma taką samą nazwę. Nie można wyeliminować duplikatów przy użyciu żadnych kolumn nazw, tylko kolumny **ID** . W ten sposób tylko wiersze z zduplikowanymi wartościami identyfikatora są odfiltrowane, bez względu na to, czy pacjenci mają taką samą nazwę, czy nie.
 
-+ Alternatywnie można zezwolić na duplikaty w polu Identyfikator i użyć innej kombinacji plików, aby znaleźć unikatowe rekordy, takie jak imię, nazwisko, wiek i płeć.  
++ Alternatywnie możesz zdecydować, aby zezwolić na duplikaty w polu ID, a także użyć innej kombinacji plików do znajdowania unikatowych rekordów, takich jak imię, nazwisko, wiek i płeć.  
 
-Aby ustawić kryteria, czy wiersz jest duplikowany, czy nie, należy określić pojedynczą kolumnę lub zestaw kolumn, które mają być używane jako **klucze**. Dwa wiersze są uważane za duplikaty tylko wtedy, gdy wartości we **wszystkich** kolumnach klucza są równe. Jeśli w dowolnym wierszu brakuje wartości **kluczy,** nie będą one traktowane jako zduplikowane wiersze. Na przykład jeśli płeć i wiek są ustawione jako Klucze w powyższej tabeli, wiersze 6 i 7 nie są zduplikowane wiersze, biorąc pod uwagę, że mają brakującą wartość w Age.
+Aby ustawić kryteria dla tego, czy wiersz jest zduplikowany, należy określić pojedynczą kolumnę lub zestaw kolumn do użycia jako **klucze**. Dwa wiersze są uznawane za duplikaty tylko wtedy, gdy wartości we **wszystkich** kolumnach klucza są równe. Jeśli w dowolnym wierszu brakuje wartości **kluczy**, nie będą one uznawane za zduplikowane wiersze. Na przykład jeśli płeć i wiek są ustawione jako klucze w powyższej tabeli, wiersz 6 i 7 nie są zduplikowanymi wierszami, w których brakuje wartości w wieku.
 
-Po uruchomieniu modułu tworzy zestaw danych kandydata i zwraca zestaw wierszy, które nie mają duplikatów w zestawie kolumn, które zostały określone.
+Po uruchomieniu modułu tworzy zestaw danych kandydujących i zwraca zbiór wierszy, które nie mają duplikatów we wskazanym zestawie kolumn.
 
 > [!IMPORTANT]
-> Źródłowy zestaw danych nie jest zmieniany; ten moduł tworzy nowy zestaw danych, który jest filtrowany, aby wykluczyć duplikaty, na podstawie określonych kryteriów.
+> Źródłowy zestaw danych nie jest zmieniany; Ten moduł tworzy nowy zestaw danych, który jest filtrowany w celu wykluczania duplikatów na podstawie określonych kryteriów.
 
 ## <a name="how-to-use-remove-duplicate-rows"></a>Jak używać usuwania zduplikowanych wierszy
 
-1. Dodaj moduł do potoku. Moduł Usuń **zduplikowane wiersze** można znaleźć w obszarze **Transformacja danych**, **Manipulacja**.  
+1. Dodaj moduł do potoku. Moduł **usuwanie zduplikowanych wierszy** można znaleźć w obszarze **Przekształcanie danych**, **manipulowanie**.  
 
-2. Połącz zestaw danych, który chcesz sprawdzić pod kątem zduplikowanych wierszy.
+2. Połącz zestaw danych, który ma zostać wyszukany dla zduplikowanych wierszy.
 
-3. W okienku **Właściwości** w obszarze **Wyrażenie filtru wyboru Kolumny klucz**kliknij pozycję Uruchom selektor **kolumn**, aby wybrać kolumny do użycia w identyfikowaniu duplikatów.
+3. W okienku **Właściwości** w obszarze **wyrażenie filtru wyboru kolumny klucza**kliknij pozycję **Uruchom selektor kolumny**, aby wybrać kolumny, które mają być używane do identyfikowania duplikatów.
 
-    W tym kontekście **Key** nie oznacza unikatowy identyfikator. Wszystkie kolumny wybrane za pomocą selektora kolumn są oznaczone jako **kolumny kluczowe**. Wszystkie niezaznaczone kolumny są uważane za kolumny nieklotowe. Kombinacja kolumn wybranych jako klucze określa unikatowość rekordów. (Pomyśl o tym jako instrukcji SQL, która używa wielu równouprawnień).
+    W tym kontekście **klucz** nie oznacza unikatowego identyfikatora. Wszystkie kolumny wybrane za pomocą selektora kolumn są **wykluczane jako kolumny kluczy**. Wszystkie niewybrane kolumny są uznawane za kolumny niebędące kolumnami klucza. Kombinacja kolumn wybranych jako klucze określa unikatowość rekordów. (Należy traktować ją jako instrukcję SQL, która używa wielu dołączeń równości).
 
     Przykłady:
 
-    + "Chcę mieć pewność, że identyfikatory są unikatowe": wybierz tylko kolumnę Identyfikator.
-    + "Chcę mieć pewność, że połączenie imienia, nazwiska i identyfikatora jest unikatowe": Wybierz wszystkie trzy kolumny.
+    + "Chcę mieć pewność, że identyfikatory są unikatowe": Wybierz tylko kolumnę ID.
+    + "Chcę mieć pewność, że kombinacja imienia, nazwisko i identyfikator jest unikatowa": zaznacz wszystkie trzy kolumny.
 
-4. Użyj pola wyboru **Zachowaj pierwszy zduplikowany wiersz,** aby wskazać, który wiersz ma być zwracany po znalezieniu duplikatów:
+4. Użyj pola wyboru **Zachowaj pierwszy zduplikowany wiersz** , aby wskazać, który wiersz ma zostać zwrócony po znalezieniu duplikatów:
 
-    + Jeśli ta opcja jest zaznaczona, zwracany jest pierwszy wiersz, a inne odrzucane. 
-    + Jeśli odznaczysz tę opcję, ostatni zduplikowany wiersz zostanie zachowany w wynikach, a inne zostaną odrzucone. 
+    + W przypadku zaznaczenia pierwszy wiersz jest zwracany, a inne odrzucane. 
+    + W przypadku usunięcia zaznaczenia tej opcji ostatni zduplikowany wiersz jest przechowywany w wynikach, a pozostałe zostaną odrzucone. 
 
 5. Prześlij potok.
 
 6. Aby przejrzeć wyniki, kliknij prawym przyciskiem myszy moduł i wybierz polecenie **Wizualizuj**. 
 
 > [!TIP]
-> Jeśli wyniki są trudne do zrozumienia lub jeśli chcesz wykluczyć niektóre kolumny z rozpatrzenia, można usunąć kolumny za pomocą wybierz kolumny w module [zestawu danych.](./select-columns-in-dataset.md)
+> Jeśli wyniki są trudne do zrozumienia lub jeśli chcesz wykluczyć pewne kolumny, możesz usunąć kolumny za pomocą modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych](./select-columns-in-dataset.md) ).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

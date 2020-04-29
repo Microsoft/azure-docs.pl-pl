@@ -1,68 +1,68 @@
 ---
 title: Tworzenie kopii zapasowych baz danych programu SQL Server na platformie Azure
-description: W tym artykule wyjaśniono, jak zrobić na platformie Azure kopii zapasowej programu SQL Server. W artykule objaśniono również proces odzyskiwania programu SQL Server.
+description: W tym artykule opisano sposób tworzenia kopii zapasowych SQL Server na platformie Azure. W artykule objaśniono również proces odzyskiwania programu SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.openlocfilehash: 537257733d7693598fd8007da6ce12c28fbeb02a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79408764"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informacje o kopii zapasowej programu SQL Server na maszynach wirtualnych platformy Azure
 
-[Usługa Azure Backup](backup-overview.md) oferuje specjalistyczne rozwiązanie oparte na strumieniu do tworzenia kopii zapasowych programu SQL Server działającego na maszynach wirtualnych platformy Azure. To rozwiązanie jest zgodne z zaletami usługi Azure Backup wynikające z tworzenia kopii zapasowych bez infrastruktury, długoterminowego przechowywania i centralnego zarządzania. Dodatkowo zapewnia następujące zalety specjalnie dla programu SQL Server:
+[Azure Backup](backup-overview.md) oferuje oparty na strumieniu wyspecjalizowane rozwiązanie do tworzenia kopii zapasowych SQL Server uruchomionych na maszynach wirtualnych platformy Azure. To rozwiązanie jest dostosowane do Azure Backup korzyści z tworzenia kopii zapasowych bez infrastruktury, długoterminowego przechowywania i centralnego zarządzania. Ponadto zapewnia następujące korzyści dotyczące SQL Server:
 
-1. Kopie zapasowe obsługujące obciążenie, które obsługują wszystkie typy kopii zapasowych — pełne, różnicowe i dziennikowe
-2. 15-min RPO (cel punktu odzyskiwania) z częstymi kopiami zapasowymi dziennika
-3. Odzyskiwanie punktu w czasie do sekundy
-4. Tworzenie kopii zapasowych i przywracanie na poziomie bazy danych
+1. Kopie zapasowe oparte na obciążeniu obsługujące wszystkie typy kopii zapasowych — pełne, różnicowe i dzienników
+2. 15-minimalny cel punktu odzyskiwania z częstymi kopiami zapasowymi dzienników
+3. Odzyskiwanie do punktu w czasie do drugiego
+4. Kopia zapasowa i przywracanie na poziomie poszczególnych baz danych
 
-Aby wyświetlić scenariusze tworzenia kopii zapasowych i przywracania, które obsługujemy dzisiaj, zapoznaj się z [macierzą pomocy technicznej](sql-support-matrix.md#scenario-support).
+Aby wyświetlić scenariusze tworzenia kopii zapasowych i przywracania, które obsługuje dzisiaj, zapoznaj się z [matrycą pomocy technicznej](sql-support-matrix.md#scenario-support).
 
 ## <a name="backup-process"></a>Proces tworzenia kopii zapasowej
 
 To rozwiązanie wykorzystuje natywne interfejsy API SQL do wykonywania kopii zapasowych baz danych SQL.
 
-* Po określeniu maszyny Wirtualnej programu SQL Server, którą chcesz chronić i kwerendy dla baz danych w `AzureBackupWindowsWorkload` niej, usługa Azure Backup zainstaluje rozszerzenie kopii zapasowej obciążenia na maszynie Wirtualnej przez rozszerzenie nazwy.
-* To rozszerzenie składa się z koordynatora i wtyczki SQL. Podczas gdy koordynator jest odpowiedzialny za wyzwalanie przepływów pracy dla różnych operacji, takich jak konfigurowanie kopii zapasowej, tworzenia kopii zapasowych i przywracania, wtyczka jest odpowiedzialna za rzeczywisty przepływ danych.
-* Aby móc odnajdować bazy danych na tej `NT SERVICE\AzureWLBackupPluginSvc`maszynie wirtualnej, usługa Azure Backup tworzy konto . To konto jest używane do tworzenia kopii zapasowych i przywracania i wymaga uprawnień sysadmin SQL. Konto `NT SERVICE\AzureWLBackupPluginSvc` jest [kontem usługi wirtualnej](https://docs.microsoft.com/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)i dlatego nie wymaga zarządzania hasłami. Usługa Azure Backup `NT AUTHORITY\SYSTEM` wykorzystuje konto do odnajdowania/badania bazy danych, więc to konto musi być publicznym logowaniem w języku SQL. Jeśli nie utworzono maszyny wirtualnej programu SQL Server z witryny Azure Marketplace, może wystąpić błąd **UserErrorSQLNoSysadminMembership**. W takim przypadku [wykonaj te instrukcje](#set-vm-permissions).
-* Po wyzwoleniu skonfigurować ochronę w wybranych bazach danych, usługa tworzenia kopii zapasowych konfiguruje koordynatora z harmonogramów kopii zapasowych i innych szczegółów zasad, które rozszerzenie buforuje lokalnie na maszynie Wirtualnej.
-* W zaplanowanym czasie koordynator komunikuje się z wtyczką i rozpoczyna przesyłanie strumieniowe danych kopii zapasowej z serwera SQL przy użyciu interfejsu VDI.  
-* Wtyczka wysyła dane bezpośrednio do magazynu usług odzyskiwania, eliminując w ten sposób potrzebę lokalizacji tymczasowej. Dane są szyfrowane i przechowywane przez usługę Azure Backup na kontach magazynu.
-* Po zakończeniu transferu danych koordynator potwierdza zatwierdzenie za pomocą usługi tworzenia kopii zapasowej.
+* Po określeniu maszyny wirtualnej SQL Server, która ma być chroniona, i zapytania dotyczącej baz danych, usługa Azure Backup Service zainstaluje rozszerzenie kopii zapasowej obciążenia na maszynie wirtualnej `AzureBackupWindowsWorkload` o rozszerzeniu nazwy.
+* To rozszerzenie składa się z koordynatora i wtyczki SQL. Chociaż koordynator jest odpowiedzialny za wyzwalanie przepływów pracy dla różnych operacji, takich jak konfigurowanie kopii zapasowej, tworzenie kopii zapasowej i przywracanie, wtyczka jest odpowiedzialna za rzeczywisty przepływ danych.
+* Aby móc odnajdywać bazy danych na tej maszynie wirtualnej, Azure Backup tworzy konto `NT SERVICE\AzureWLBackupPluginSvc`. To konto jest używane na potrzeby tworzenia kopii zapasowych i przywracania oraz wymaga uprawnień administratora systemu SQL. Konto `NT SERVICE\AzureWLBackupPluginSvc` jest [kontem usługi wirtualnej](https://docs.microsoft.com/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)i w związku z tym nie wymaga zarządzania hasłami. Azure Backup korzysta z `NT AUTHORITY\SYSTEM` konta do odnajdywania i wyszukiwania bazy danych, więc to konto musi być publicznym logowaniem na serwerze SQL. Jeśli nie utworzono maszyny wirtualnej programu SQL Server z witryny Azure Marketplace, może wystąpić błąd **UserErrorSQLNoSysadminMembership**. W takim przypadku [wykonaj te instrukcje](#set-vm-permissions).
+* Po zainicjowaniu konfigurowania ochrony dla wybranych baz danych usługa tworzenia kopii zapasowych konfiguruje koordynatora przy użyciu harmonogramów tworzenia kopii zapasowych i innych szczegółów zasad, które są buforowane lokalnie na maszynie wirtualnej.
+* W zaplanowanym czasie koordynator komunikuje się z wtyczką i zaczyna przesyłać strumieniowo dane kopii zapasowej z programu SQL Server przy użyciu infrastruktury VDI.  
+* Wtyczka wysyła dane bezpośrednio do magazynu usługi Recovery Services, co eliminuje konieczność lokalizacji tymczasowej. Dane są szyfrowane i przechowywane przez usługę Azure Backup na kontach magazynu.
+* Po zakończeniu transferu danych koordynator potwierdza zatwierdzenie w usłudze kopii zapasowej.
 
-  ![Architektura kopii zapasowej SQL](./media/backup-azure-sql-database/backup-sql-overview.png)
+  ![Architektura kopii zapasowych SQL](./media/backup-azure-sql-database/backup-sql-overview.png)
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-Przed rozpoczęciem sprawdź poniżej:
+Przed rozpoczęciem Sprawdź, czy:
 
 1. Upewnij się, że masz wystąpienie programu SQL Server uruchomione na platformie Azure. Możesz [szybko utworzyć wystąpienie programu SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) w witrynie Marketplace.
-2. Przejrzyj [uwagę na funkcję](sql-support-matrix.md#feature-consideration-and-limitations) i obsługę [scenariuszy](sql-support-matrix.md#scenario-support).
+2. Zapoznaj się z [zagadnieniami](sql-support-matrix.md#feature-consideration-and-limitations) [dotyczącymi funkcji i scenariuszem](sql-support-matrix.md#scenario-support).
 3. [Przejrzyj często zadawane pytania](faq-backup-sql-server.md) dotyczące tego scenariusza.
 
 ## <a name="set-vm-permissions"></a>Ustawianie uprawnień maszyny wirtualnej
 
-  Po uruchomieniu odnajdywania na serwerze SQL Server usługa Azure Backup wykonuje następujące czynności:
+  Po uruchomieniu odnajdywania na SQL Server, Azure Backup wykonuje następujące czynności:
 
 * Dodaje rozszerzenie AzureBackupWindowsWorkload.
-* Tworzy konto NT SERVICE\AzureWLBackupPluginSvc w celu odnajdowania baz danych na maszynie wirtualnej. To konto jest używane do tworzenia kopii zapasowych i przywracania i wymaga uprawnień sysadmin SQL.
-* Odnajduje bazy danych, które są uruchomione na maszynie Wirtualnej, usługa Azure Backup używa konta NT AUTHORITY\SYSTEM. To konto musi być publiczne logowanie na SQL.
+* Tworzy konto NT SERVICE\AzureWLBackupPluginSvc do odnajdywania baz danych na maszynie wirtualnej. To konto jest używane do tworzenia kopii zapasowych i przywracania oraz wymaga uprawnień administratora systemu SQL.
+* Odnajduje bazy danych, które są uruchomione na maszynie wirtualnej, Azure Backup korzysta z konta NT NT\SYSTEM. To konto musi być publicznym logowaniem na serwerze SQL.
 
-Jeśli nie utworzysz maszyny Wirtualnej programu SQL Server w portalu Azure Marketplace lub jeśli korzystasz z programów SQL 2008 i 2008 R2, może zostać wyświetlony błąd **userErrorSQLNoSysadminMembership.**
+Jeśli maszyna wirtualna SQL Server nie została utworzona w portalu Azure Marketplace lub korzystasz z usług SQL 2008 i 2008 R2, może wystąpić błąd **UserErrorSQLNoSysadminMembership** .
 
-Aby uzyskać uprawnienia w przypadku **SQL 2008** i **2008 R2** działającego w systemie Windows 2008 R2, zapoznaj się [z tym polem .](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2)
+W przypadku nadawania uprawnień w przypadku **programów SQL 2008** i **2008 R2** uruchomionych w systemie Windows 2008 R2 zapoznaj się [tutaj](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
 
-W przypadku wszystkich innych wersji należy naprawić uprawnienia, wykonując następujące czynności:
+W przypadku wszystkich innych wersji należy rozwiązać uprawnienia, wykonując następujące czynności:
 
   1. Zaloguj się do programu SQL Server Management Studio (SSMS), używając konta z uprawnieniami administratora systemu SQL Server. Jeśli nie potrzebujesz specjalnych uprawnień, uwierzytelnianie systemu Windows powinno działać.
-  2. Na serwerze SQL Server otwórz folder **Zabezpieczenia/Logowania.**
+  2. Na SQL Server otwórz folder **Security/Logins** .
 
       ![Otwieranie folderu Security/Logins w celu wyświetlenia kont](./media/backup-azure-sql-database/security-login-list.png)
 
-  3. Kliknij prawym przyciskiem myszy folder **Logins** i wybierz polecenie **Nowy login**. W oknie **Nazwa logowania — nowa** wybierz pozycję **Wyszukaj**.
+  3. Kliknij prawym przyciskiem myszy folder **logowania** i wybierz pozycję **Nowa nazwa logowania**. W oknie **Nazwa logowania — nowa** wybierz pozycję **Wyszukaj**.
 
       ![Wybieranie pozycji Wyszukaj w oknie dialogowym Nazwa logowania — nowa](./media/backup-azure-sql-database/new-login-search.png)
 
@@ -83,37 +83,37 @@ W przypadku wszystkich innych wersji należy naprawić uprawnienia, wykonując n
       ![Komunikat o powodzeniu wdrożenia](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
 > [!NOTE]
-> Jeśli program SQL Server ma zainstalowane wiele wystąpień programu SQL Server, należy dodać uprawnienie sysadmin dla **konta USŁUGI NT\AzureWLBackPluginSvc** do wszystkich wystąpień SQL.
+> Jeśli SQL Server ma zainstalowanych wiele wystąpień SQL Server, należy dodać uprawnienia sysadmin dla konta **NT Service\AzureWLBackupPluginSvc** do wszystkich wystąpień programu SQL.
 
-### <a name="give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2"></a>Nadaj uprawnienia do sysadmin SQL dla programów SQL 2008 i SQL 2008 R2
+### <a name="give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2"></a>Nadaj uprawnienia administratora systemu SQL dla programu SQL 2008 i programu SQL 2008 R2
 
-Dodaj do wystąpienia programu SQL Server logowania **NT AUTHORITY\SYSTEM** i **NT Service\AzureWLBackupPluginSvc:**
+Dodaj logowania **NT NT\SYSTEM** i **NT Service\AzureWLBackupPluginSvc** do wystąpienia SQL Server:
 
-1. Przejdź do wystąpienia programu SQL Server w Eksploratorze obiektów.
-2. Przejdź do logowania > zabezpieczeń
-3. Kliknij prawym przyciskiem myszy na loginy i kliknij *nowy login...*
+1. Przejdź do wystąpienia SQL Server w Eksploratorze obiektów.
+2. Przejdź do > logowania do zabezpieczeń
+3. Kliknij prawym przyciskiem myszy nazwę logowania i kliknij pozycję *nowe logowanie...*
 
-    ![Nowy login za pomocą SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
+    ![Nowa nazwa logowania przy użyciu programu SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
 
-4. Przejdź do karty Ogólne i wprowadź **NT AUTHORITY\SYSTEM** jako nazwę logowania.
+4. Przejdź do karty Ogólne i wprowadź **NT NT\SYSTEM** jako nazwę logowania.
 
-    ![nazwa logowania do SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
+    ![Nazwa logowania dla programu SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
 
-5. Przejdź do *ról serwera* i wybierz role *publiczne* i *sysadmin.*
+5. Przejdź do *ról serwera* i wybierz role *publiczne* i *sysadmin* .
 
-    ![wybieranie ról w SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
+    ![Wybieranie ról w programie SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
 
-6. Przejdź do *statusu*. *Udziel* uprawnienia do łączenia się z aparatem bazy danych i logowania jako *włączone*.
+6. Przejdź do pozycji *stan*. *Przyznaj* uprawnienie do nawiązywania połączenia z aparatem bazy danych i logowanie jako *włączone*.
 
-    ![Udzielanie uprawnień w ssms](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
+    ![Przyznawanie uprawnień w programie SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
 
 7. Kliknij przycisk OK.
-8. Powtórz tę samą sekwencję kroków (1-7 powyżej), aby dodać nt service\AzureWLBackupPluginSvc logowania do wystąpienia programu SQL Server. Jeśli logowanie już istnieje, upewnij się, że ma rolę serwera sysadmin i w obszarze Stan ma udzielić uprawnienia do łączenia się z aparatem bazy danych i zaloguj się jako włączone.
-9. Po udzieleniu uprawnień ponownie **odkryj dbs** w **->** portalu: Obciążenie infrastruktury **->** kopii zapasowej w programie Azure VM:
+8. Powtórz tę samą sekwencję kroków (1-7 powyżej), aby dodać logowanie NT Service\AzureWLBackupPluginSvc do wystąpienia SQL Server. Jeśli logowanie już istnieje, upewnij się, że ma ona rolę serwera sysadmin i w obszarze stan, przyznaje uprawnienia do nawiązywania połączenia z aparatem bazy danych i logowanie jako włączone.
+9. Po udzieleniu uprawnień ponownie **odkryj baz danych** w portalu: obciążenie infrastruktury **->** **->** kopii zapasowej magazynu na maszynie wirtualnej platformy Azure:
 
-    ![Odkryj na nowo db w witrynie Azure portal](media/backup-azure-sql-database/sql-rediscover-dbs.png)
+    ![Odnajdź baz danych w Azure Portal](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 
-Alternatywnie można zautomatyzować nadanie uprawnień, uruchamiając następujące polecenia programu PowerShell w trybie administracyjnym. Nazwa wystąpienia jest domyślnie ustawiona na MSSQLSERVER. Zmień argument nazwy wystąpienia w skrypcie, jeśli zajdzie taka potrzeba:
+Alternatywnie można zautomatyzować nadawanie uprawnień, uruchamiając następujące polecenia programu PowerShell w trybie administratora. Nazwa wystąpienia jest domyślnie ustawiona na MSSQLSERVER. W razie potrzeby zmień argument Nazwa wystąpienia w skrypcie:
 
 ```powershell
 param(
@@ -150,6 +150,6 @@ catch
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się więcej o](backup-sql-server-database-azure-vms.md) tworzenie kopii zapasowych baz danych programu SQL Server.
+* [Dowiedz się więcej na temat](backup-sql-server-database-azure-vms.md) tworzenia kopii zapasowych baz danych SQL Server.
 * [Dowiedz się więcej](restore-sql-database-azure-vm.md) o przywracaniu baz danych programu SQL Server z kopii zapasowych.
 * [Dowiedz się więcej](manage-monitor-sql-database-backup.md) o zarządzaniu bazami danych programu SQL Server, dla których są tworzone kopie zapasowe.

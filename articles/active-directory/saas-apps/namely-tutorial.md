@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z mianowicie | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a nazwą.
+title: 'Samouczek: integracja Azure Active Directory z mianowicie | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory a mianowicie.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: a9ec54ce27b4d058938e688ec671709e09391cce
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73160370"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-namely"></a>Samouczek: Integracja usługi Azure Active Directory z namely
+# <a name="tutorial-azure-active-directory-integration-with-namely"></a>Samouczek: Azure Active Directory integrację z mianowicie
 
-W tym samouczku dowiesz się, jak zintegrować nazwę z usługą Azure Active Directory (Azure AD).
+W ramach tego samouczka dowiesz się, jak zintegrować program z usługą Azure Active Directory (Azure AD).
 Integracja z usługą Azure AD zapewnia następujące korzyści:
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do nazwy.
-* Można włączyć użytkowników, aby automatycznie zalogować się do nazwy (logowanie jednokrotne) z ich kont usługi Azure AD.
+* W usłudze Azure AD można kontrolować, kto ma dostęp do tego programu.
+* Możesz umożliwić użytkownikom automatyczne logowanie się do usługi (Logowanie jednokrotne) przy użyciu kont w usłudze Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z namely, potrzebujesz następujących elementów:
+Aby skonfigurować integrację z usługą Azure AD za pomocą programu, należy wykonać następujące czynności:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* A mianowicie subskrypcja z włączoną rejestracją jednokrotną
+* A mianowicie subskrypcja z włączonym logowaniem jednokrotnym
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* A mianowicie **obsługuje** sp inicjowane SSO
+* Mianowicie obsługuje logowanie jednokrotne zainicjowane przez usługę **SP**
 
 ## <a name="adding-namely-from-the-gallery"></a>Dodawanie a mianowicie z galerii
 
-Aby skonfigurować integrację namely do usługi Azure AD, należy dodać mianowicie z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu z usługą Azure AD, należy dodać go z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać mianowicie z galerii, wykonaj następujące czynności:**
+**Aby dodać a mianowicie z galerii, wykonaj następujące czynności:**
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
@@ -65,31 +65,31 @@ Aby skonfigurować integrację namely do usługi Azure AD, należy dodać mianow
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **a mianowicie**, wybierz **pozycję Mianowicie** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **mianowicie** **, wybierz pozycję** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-     ![A mianowicie na liście wyników](common/search-new-app.png)
+     ![Mianowicie na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego z mianowicie na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w aplikacji Namely.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą programu w oparciu o użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w elemencie.
 
-Aby skonfigurować i przetestować usługę Azure AD logowanie jednokrotne za pomocą nazwy, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą programu mianowicie, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Konfigurowanie mianowicie logowanie jednokrotne](#configure-namely-single-sign-on)** — do konfigurowania ustawień logowania jednokrotnego po stronie aplikacji.
+2. Skonfiguruj przystawkę **[Logowanie jednokrotne](#configure-namely-single-sign-on)** , aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz a mianowicie użytkownika testowego](#create-namely-test-user)** — aby mieć odpowiednik Britta Simon w mianowicie, który jest połączony z reprezentacji usługi Azure AD użytkownika.
+5. **[Utwórz mianowicie użytkownika testowego](#create-namely-test-user)** , aby uzyskać odpowiednik Britta Simon w programie, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą programu Namely, wykonaj następujące kroki:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu, należy wykonać następujące czynności:
 
-1. W [witrynie Azure](https://portal.azure.com/) **Namely** portal na stronie Integracja aplikacji wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja z **aplikacją wybierz** opcję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -103,20 +103,20 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą programu Na
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![A mianowicie informacje o loguchu domeny i adresach URL](common/sp-identifier.png)
+    ![A mianowicie informacje o rejestracji jednokrotnej w domenach i adresach URL](common/sp-identifier.png)
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<subdomain>.namely.com`
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://<subdomain>.namely.com/saml/metadata`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej namely klienta,](https://www.namely.com/contact/) aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. W tym celu skontaktuj się z [zespołem pomocy technicznej klienta](https://www.namely.com/contact/) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-6. W sekcji **Konfigurowanie nazwy** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+6. W sekcji **Konfiguracja a** następnie skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -124,13 +124,13 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą programu Na
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
-### <a name="configure-namely-single-sign-on"></a>Konfigurowanie mianowicie logowanie jednokrotne
+### <a name="configure-namely-single-sign-on"></a>Skonfiguruj mianowicie Logowanie jednokrotne
 
-1. W innym oknie przeglądarki zaloguj się do witryny firmy Jako administrator.
+1. W innym oknie przeglądarki Zaloguj się do witryny sieci firmowej jako administrator.
 
-2. Na pasku narzędzi u góry kliknij pozycję **Firma**.
+2. Na pasku narzędzi u góry kliknij pozycję **firma**.
    
     ![Konfigurowanie logowania jednokrotnego](./media/namely-tutorial/tutorial_namely_06.png) 
 
@@ -148,9 +148,9 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą programu Na
  
     a. Kliknij pozycję **Enable SAML** (Włącz protokół SAML). 
 
-    b. W polu tekstowym **adresu URL logowania dostawcy tożsamości** wklej wartość adresu URL **logowania,** który został skopiowany z witryny Azure portal.
+    b. W polu tekstowym **adres URL logowania JEDNOkrotnego dostawcy tożsamości** wklej wartość **adresu URL logowania**, która została skopiowana z Azure Portal.
     
-    d. Otwórz pobrany certyfikat w Notatniku, skopiuj zawartość, a następnie wklej go do pola tekstowego **certyfikatu dostawcy tożsamości.**
+    c. Otwórz pobrany certyfikat w Notatniku, skopiuj zawartość, a następnie wklej ją do pola tekstowego **certyfikat dostawcy tożsamości** .
      
     d. Kliknij przycisk **Zapisz**.
 
@@ -162,7 +162,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -172,24 +172,24 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **\@brittasimon yourcompanydomain.extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
     Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jednokrotnego, przyznając dostęp do nazwy.
+W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure, przyznając dostęp do niego.
 
-1. W portalu Azure wybierz pozycję **Aplikacje przedsiębiorstwa**, wybierz **pozycję Wszystkie aplikacje,** a następnie wybierz **pozycję A mianowicie**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **co.**
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz pozycję **A mianowicie**.
+2. Na liście Aplikacje wybierz pozycję **mianowicie**.
 
-    ![Łącze A mianowicie na liście Aplikacje](common/all-applications.png)
+    ![Łącze to znajduje się na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -201,37 +201,37 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-namely-test-user"></a>Utwórz a mianowicie użytkownika testowego
+### <a name="create-namely-test-user"></a>Utwórz mianowicie użytkownika testowego
 
-Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w Mianowicie.
+Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w temacie.
 
-**Aby utworzyć użytkownika o nazwie Britta Simon w Mianowicie, wykonaj następujące kroki:**
+**Aby utworzyć użytkownika o nazwie Britta Simon w programie, należy wykonać następujące czynności:**
 
-1. Zaloguj się do witryny firmy Jako administrator.
+1. Zaloguj się do witryny firmy jako administrator.
 
-2. Na pasku narzędzi u góry kliknij pozycję **Kontakty**.
+2. Na pasku narzędzi u góry kliknij pozycję **osoby**.
    
     ![Konfigurowanie logowania jednokrotnego](./media/namely-tutorial/tutorial_namely_10.png) 
 
-3. Kliknij kartę **Katalog.**
+3. Kliknij kartę **katalog** .
    
     ![Konfigurowanie logowania jednokrotnego](./media/namely-tutorial/tutorial_namely_11.png) 
 
-4. Kliknij **pozycję Dodaj nową osobę**.
+4. Kliknij pozycję **Dodaj nową osobę**.
 
     ![Konfigurowanie logowania jednokrotnego](./media/namely-tutorial/tutorial_namely_12.png)
 
-5. W oknie dialogowym **Dodawanie nowej osoby** wykonaj następujące czynności:
+5. W oknie dialogowym **Dodaj nową osobę** wykonaj następujące czynności:
 
-    a. W polach tekstowych **Imię** wpisz **Britta**.
+    a. W polu tekstowym **imię i nazwisko** wpisz **Britta**.
 
-    b. W polach tekstowych **Nazwisko** wpisz **Simon**.
+    b. W polu **tekstowym nazwisko** wpisz **Simon**.
 
-    d. W **polach tekstowych Poczta e-mail** wpisz **adres e-mail** brittasimon.
+    c. W polu tekstowym adres **e-mail** wpisz **adres e-mail** BrittaSimon.
 
     d. Kliknij przycisk **Zapisz**.
 
@@ -239,13 +239,13 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w Mianowicie
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Nazwa w Panelu dostępu należy automatycznie zalogować się do nazwy, dla której skonfigurowano logującą się logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu tego kafelka w panelu dostępu należy automatycznie zalogować się do tego elementu, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

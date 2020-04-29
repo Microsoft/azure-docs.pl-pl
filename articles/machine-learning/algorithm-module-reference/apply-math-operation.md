@@ -1,7 +1,7 @@
 ---
 title: Stosowanie operacji matematycznej
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak użyć modułu Zastosuj operację matematyczną w usłudze Azure Machine Learning, aby zastosować operację matematyczną do wartości kolumn w potoku.
+description: Dowiedz się, jak używać modułu operacji matematycznej w Azure Machine Learning, aby zastosować operację matematyczną do wartości kolumn w potoku.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,531 +10,531 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 2b4d6939aa1db4b8321c792898ed421c0d16cc99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79456747"
 ---
 # <a name="apply-math-operation"></a>Stosowanie operacji matematycznej
 
-W tym artykule opisano moduł projektanta usługi Azure Machine Learning (wersja zapoznawcza).
+W tym artykule opisano moduł programu Azure Machine Learning Designer (wersja zapoznawcza).
 
-Operacja Zastosuj matematycznie służy do tworzenia obliczeń, które są stosowane do kolumn liczbowych w wejściowym zestawie danych. 
+Użyj operacji stosowania matematycznego, aby utworzyć obliczenia, które są stosowane do kolumn liczbowych w wejściowym zestawie danych. 
 
-Obsługiwane operacje matematyczne obejmują typowe funkcje arytmetyczne, takie jak mnożenie i dzielenie, funkcje trygonometryczne, różne funkcje zaokrąglania i specjalne funkcje używane w naukach o danych, takie jak gamma i funkcje błędów.  
+Obsługiwane operacje matematyczne obejmują typowe funkcje arytmetyczne, takie jak mnożenie i dzielenie, funkcje trygonometryczne, różne funkcje zaokrąglania oraz specjalne funkcje używane w nauce danych, takie jak gamma i funkcje błędów.  
 
 Po zdefiniowaniu operacji i uruchomieniu potoku wartości są dodawane do zestawu danych. W zależności od sposobu konfigurowania modułu można:
 
-+ Dołącz wyniki do zestawu danych. Jest to szczególnie przydatne podczas weryfikacji wyniku operacji.
-+ Zastąp wartości kolumn nowymi, obliczonymi wartościami.
-+ Wygeneruj nową kolumnę dla wyników i nie pokazuj oryginalnych danych. 
++ Dołącz wyniki do zestawu danych. Jest to szczególnie przydatne podczas weryfikowania wyniku operacji.
++ Zamień wartości kolumn na nowe, obliczone wartości.
++ Wygeneruj nową kolumnę dla wyników i nie wyświetlaj oryginalnych danych. 
 
-Poszukaj operacji, której potrzebujesz w następujących kategoriach:  
+Poszukaj potrzebnych operacji w następujących kategoriach:  
 
-- [Podstawowa (Basic)](#basic-math-operations)  
+- [Podstawowy](#basic-math-operations)  
   
-     Funkcje w kategorii **Basic** mogą służyć do manipulowania pojedynczą wartością lub kolumną wartości. Na przykład można uzyskać wartość bezwzględną wszystkich liczb w kolumnie lub obliczyć pierwiastek kwadratowy każdej wartości w kolumnie.  
+     Funkcje w kategorii **Basic** mogą służyć do manipulowania pojedynczą wartością lub kolumną wartości. Na przykład możesz uzyskać wartość bezwzględną wszystkich liczb w kolumnie lub obliczyć pierwiastek kwadratowy dla każdej wartości w kolumnie.  
   
 -   [Porównanie](#comparison-operations)  
   
-      Funkcje w **kategorii Porównaj** są używane do porównania: można wykonać porównanie wartości w dwóch kolumnach lub porównać każdą wartość w kolumnie z określoną stałą. Na przykład można porównać kolumny, aby ustalić, czy wartości były takie same w dwóch zestawach danych. Można też użyć stałej, takiej jak maksymalna dozwolona wartość, aby znaleźć wartości odstające w kolumnie numerycznej.  
+      Funkcje w kategorii **porównywania** są używane do porównania: można wykonać porównanie par wartości w dwóch kolumnach lub porównać każdą wartość w kolumnie z określoną stałą. Na przykład można porównać kolumny, aby określić, czy wartości były takie same w dwóch zestawach danych. Lub można użyć stałej, na przykład maksymalnej dozwolonej wartości, aby znaleźć elementy odstające w kolumnie liczbowej.  
   
 -   [Operacje](#arithmetic-operations)  
   
-     **Kategoria Operacje** obejmuje podstawowe funkcje matematyczne: dodawanie, odejmowanie, mnożenie i dzielenie. Można pracować z kolumnami lub stałymi. Na przykład można dodać wartość w kolumnie A do wartości w kolumnie B. Można też odjąć stałą, taką jak wcześniej obliczona średnia, od każdej wartości w kolumnie A.  
+     Kategoria **operacje** zawiera podstawowe funkcje matematyczne: Dodawanie, odejmowanie, mnożenie i dzielenie. Można korzystać z kolumn lub stałych. Na przykład możesz dodać wartość w kolumnie A do wartości w kolumnie B. Lub można odjąć stałą, taką jak wcześniej obliczona średnia, z każdej wartości w kolumnie A.  
   
 -   [Zaokrąglanie](#rounding-operations)  
   
-     Kategoria **Zaokrąglanie** obejmuje wiele funkcji do wykonywania operacji, takich jak zaokrąglanie, sufit, podłoga i obcinanie do różnych poziomów precyzji. Można określić poziom dokładności zarówno dla liczb dziesiętnych, jak i liczb y 100.  
+     Kategoria **zaokrąglania** obejmuje wiele funkcji służących do wykonywania operacji, takich jak zaokrąglanie, sufity, piętro i obcinanie na różne poziomy dokładności. Można określić poziom dokładności dla liczby dziesiętnej i całkowitej.  
   
--   [Specjalne](#special-math-functions)  
+-   [Jako](#special-math-functions)  
   
-     **Kategoria Specjalna** zawiera funkcje matematyczne, które są szczególnie używane w naukach o danych, takie jak całki eliptyczne i funkcja błędu Gaussa.  
+     Kategoria **specjalna** obejmuje funkcje matematyczne, które są szczególnie stosowane w nauce danych, takie jak całki eliptyczna i funkcja błędów gaussowskie.  
   
--   [Trygonometryczne](#trigonometric-functions)  
+-   [Trygonometrycznych](#trigonometric-functions)  
   
-     Kategoria **trygonometryczna** obejmuje wszystkie standardowe funkcje trygonometryczne. Na przykład można konwertować radiany na stopnie lub obliczać funkcje, takie jak styczne w radianach lub stopniach.
-     Te funkcje są jednoaryczne, co oznacza, że przyjmują pojedynczą kolumnę wartości jako dane wejściowe, stosują funkcję trygonometryczną i zwracają kolumnę wartości jako wynik.  W związku z tym należy upewnić się, że kolumna wejściowa jest odpowiedni typ i zawiera odpowiedni rodzaj wartości dla określonej operacji.   
+     Kategoria **trygonometryczna** zawiera wszystkie standardowe funkcje trygonometryczne. Na przykład można skonwertować radiany na stopnie lub funkcje obliczeniowe, takie jak tangens w radianach lub stopniach.
+     Te funkcje są jednoargumentowe, co oznacza, że przyjmują jedną kolumnę wartości jako dane wejściowe, stosują funkcję trygonometryczną i zwracają kolumnę wartości jako wynik.  W związku z tym musisz upewnić się, że kolumna wejściowa jest odpowiednim typem i zawiera odpowiedni rodzaj wartości dla określonej operacji.   
 
-## <a name="how-to-configure-apply-math-operation"></a>Jak skonfigurować operację zastosuj matematykę  
+## <a name="how-to-configure-apply-math-operation"></a>Jak skonfigurować stosowanie operacji matematycznych  
 
-Moduł **Zastosuj operację matematyczną** wymaga zestawu danych zawierającego co najmniej jedną kolumnę zawierającą tylko liczby. Liczby mogą być dyskretne lub ciągłe, ale muszą mieć typ danych liczbowych, a nie ciąg.
+Moduł **operacji Zastosuj matematyczny** wymaga zestawu danych, który zawiera co najmniej jedną kolumnę zawierającą tylko liczby. Liczby mogą być dyskretne lub ciągłe, ale muszą mieć typ danych liczbowych, a nie ciąg.
 
 Tę samą operację można zastosować do wielu kolumn liczbowych, ale wszystkie kolumny muszą znajdować się w tym samym zestawie danych. 
 
-Każde wystąpienie tego modułu może wykonać tylko jeden typ operacji w czasie. Aby wykonać złożone operacje matematyczne, może być konieczne połączenie kilku wystąpień **zastosuj operację matematyczną** modułu.  
+Każde wystąpienie tego modułu może wykonywać tylko jeden typ operacji jednocześnie. Aby wykonywać złożone operacje matematyczne, może być konieczne przetworzenie łańcucha w wielu wystąpieniach modułu **zastosowania operacji matematycznych** .  
   
-1.  Dodaj zastosuj operację **matematyczną** moduł do potoku.
+1.  Dodaj moduł **operacji matematycznej** do potoku.
 
-1. Połącz zestaw danych zawierający co najmniej jedną kolumnę liczbową.  
+1. Połącz zestaw danych, który zawiera co najmniej jedną kolumnę liczbową.  
 
-1.  Wybierz jedną lub więcej kolumn źródłowych, na których mają być wykonywane obliczenia.   
+1.  Wybierz co najmniej jedną kolumnę źródłową, w której ma zostać wykonane obliczenie.   
   
     - Każda wybrana kolumna musi być typem danych liczbowych. 
-    - Zakres danych musi być prawidłowy dla wybranej operacji matematycznej. W przeciwnym razie może wystąpić błąd lub wynik NaN (nie liczba). Na przykład Ln(-1.0) jest nieprawidłową operacją `NaN`i powoduje wartość .
+    - Zakres danych musi być prawidłowy dla wybranej operacji matematycznej. W przeciwnym razie może wystąpić błąd lub NaN (nie liczba). Na przykład ln (-1,0) jest nieprawidłową operacją, a wynikiem jest wartość `NaN`.
   
-1.  Kliknij **pozycję Kategoria,** aby wybrać **typ** operacji matematycznej do wykonania.
+1.  Kliknij pozycję **Kategoria** , aby wybrać **Typ** operacji matematycznej do wykonania.
     
 1. Wybierz określoną operację z listy w tej kategorii.
   
-1.  Ustaw dodatkowe parametry wymagane przez każdy typ operacji.  
+1.  Ustaw dodatkowe parametry wymagane przez poszczególne typy operacji.  
   
-1.  Użyj opcji **Tryb wyjściowy,** aby wskazać sposób generowania operacji matematycznej: 
+1.  Użyj opcji **Tryb danych wyjściowych** , aby wskazać, w jaki sposób ma zostać wygenerowana operacja matematyczna: 
 
-    - **Dołącz**. Wszystkie kolumny używane jako dane wejściowe są zawarte w wyjściowym zestawie danych, a także jedna dodatkowa kolumna jest dołączana, która zawiera wyniki operacji matematycznej.
-    - **Inplace**. Wartości w kolumnach używanych jako dane wejściowe są zastępowane nowymi wartościami obliczeniowymi. 
-    - **WynikTylko**. Zwracana jest pojedyncza kolumna zawierająca wyniki operacji matematycznej.
+    - **Dołącz**. Wszystkie kolumny używane jako dane wejściowe są uwzględniane w wyjściowym zestawie danych, a jedna dodatkowa kolumna jest dołączana, która zawiera wyniki operacji matematycznej.
+    - W **miejscu**. Wartości w kolumnach używanych jako dane wejściowe są zamieniane na nowe obliczone wartości. 
+    - **ResultOnly**. Zwracana jest pojedyncza kolumna zawierająca wyniki operacji matematycznej.
   
 1.  Prześlij potok.  
   
 ## <a name="results"></a>Wyniki
 
-Jeśli wygenerujesz wyniki przy użyciu opcji **Dołącz** lub **ResultOnly,** nagłówki kolumn zwracanego zestawu danych wskazują operację i kolumny, które zostały użyte. Na przykład jeśli porównać dwie kolumny przy użyciu **Equals** operatora, wyniki będą wyglądać następująco:  
+W przypadku generowania wyników przy użyciu opcji **Dołącz** lub **ResultOnly** nagłówki kolumn zwracanego zestawu danych wskazują operację i używane kolumny. Na przykład w przypadku porównania dwóch kolumn za pomocą operatora **Equals** wyniki będą wyglądać następująco:  
   
--   **Równa się (Col2_Col1),** co oznacza, że testowałeś Col2 przeciwko Col1.  
--   **Równa się (Col2_$10),** wskazując, że porównano kolumnę 2 ze stałą 10.  
+-   **Równa się (Col2_Col1)**, co oznacza, że przetestowano Col2 z Kol1.  
+-   **Równa się (Col2_ $10)**, wskazujący, że kolumna 2 została porównana z stałą 10.  
 
-Nawet jeśli używasz opcji **Inplace,** dane źródłowe nie są usuwane ani zmieniane; kolumna w oryginalnym zestawie danych jest nadal dostępna w projektancie. Aby wyświetlić oryginalne dane, można podłączyć moduł [Dodaj kolumny](add-columns.md) i połączyć go z danymi wyjściowymi Zastosuj **operację matematyczną**.  
+Nawet jeśli używasz opcji **InPlace** , dane źródłowe nie zostaną usunięte ani zmienione; kolumna w oryginalnym zestawie danych jest nadal dostępna w projektancie. Aby wyświetlić oryginalne dane, można połączyć moduł [Dodaj kolumny](add-columns.md) i dołączyć go do danych wyjściowych **operacji Zastosuj matematyczne**.  
     
 ## <a name="basic-math-operations"></a>Podstawowe operacje matematyczne 
 
-Funkcje w kategorii **Basic** zwykle przyjmują pojedynczą wartość z kolumny, wykonują wstępnie zdefiniowaną operację i zwracają pojedynczą wartość. W przypadku niektórych funkcji można określić stałą lub kolumnę ustawioną jako drugi argument.  
+Funkcje w kategorii **podstawowa** zazwyczaj przyjmują jedną wartość z kolumny, wykonują wstępnie zdefiniowaną operację i zwracają pojedynczą wartość. W przypadku niektórych funkcji można określić stałą lub zestaw kolumn jako drugi argument.  
   
- Usługa Azure Machine Learning obsługuje następujące funkcje w kategorii **Podstawowa:**  
+ Azure Machine Learning obsługuje następujące funkcje w kategorii **podstawowa** :  
 
 ### <a name="abs"></a>Abs
 
-Zwraca wartość bezwzględną wybranych kolumn.  
+Zwraca wartość bezwzględną zaznaczonych kolumn.  
   
 ### <a name="atan2"></a>Atan2
 
-Zwraca styczną odwrotną czterokadłowiskową.  
+Zwraca arcus tangens z czterema ćwiartkami.  
 
-Zaznacz kolumny zawierające współrzędne punktów. Dla drugiego argumentu, który odpowiada współrzędnej x, można również określić stałą.  
+Wybierz kolumny zawierające współrzędne punktu. Dla drugiego argumentu, który odnosi się do współrzędnej x, można również określić stałą.  
 
-Odpowiada funkcji ATAN2 w Matlab.  
+Odnosi się do funkcji ATAN2 w programie Matlab.  
 
-### <a name="conj"></a>Konw.
+### <a name="conj"></a>Conj
 
-Zwraca koniugat dla wartości w wybranej kolumnie.  
+Zwraca wartość koniugat dla wartości z zaznaczonej kolumny.  
 
-### <a name="cuberoot"></a>CubeRoot (Wrót kostki)
+### <a name="cuberoot"></a>CubeRoot
 
-Oblicza katalog główny modułu dla wartości w wybranej kolumnie.  
+Oblicza pierwiastek modułu dla wartości z zaznaczonej kolumny.  
 
-### <a name="doublefactorial"></a>DoubleFactorial (DoubleFactorial)  
- Oblicza podwójną tezy dla wartości w wybranej kolumnie. Podwójna teza jest przedłużeniem normalnej funkcji faktorialnej i jest oznaczona jako x!!.  
+### <a name="doublefactorial"></a>DoubleFactorial  
+ Oblicza podwójną silnię dla wartości w zaznaczonej kolumnie. Podwójna silnia jest rozszerzeniem normalnej funkcji silnia i jest oznaczona jako x!!.  
 
-### <a name="eps"></a>Eps
+### <a name="eps"></a>Formacie
 
-Zwraca rozmiar odstępu między bieżącą wartością a następną najwyższą, podwójną precyzją. Odpowiada funkcji EPS w Matlab.  
+Zwraca rozmiar przerwy między bieżącą wartością a numerem następnego lub podwójnej precyzji. Odnosi się do funkcji EPS w programie Matlab.  
   
 ### <a name="exp"></a>Exp
 
-Zwraca e podniesiony do potęgi wartości w wybranej kolumnie. Jest to taka sama jak funkcja EXP programu Excel.  
+Zwraca liczbę e podniesioną do potęgi wartości z zaznaczonej kolumny. Jest to taka sama jak funkcja EXP programu Excel.  
 
-### <a name="exp2"></a>Exp2 (exp2)
+### <a name="exp2"></a>Exp2 —
 
-Zwraca wartość wykładniczą base-2 argumentów, rozwiązując dla y = x * 2<sup>t,</sup> gdzie t jest kolumną wartości zawierających wykładniki.  
+Zwraca wartość typu wykładniczego 2 dla argumentów, co oznacza wartość y = x * 2<sup>t</sup> , gdzie t jest kolumną wartości zawierających wykładniki.  
 
-W **polu Zestaw kolumn**wybierz kolumnę zawierającą wykładniki t.
+W obszarze **zestaw kolumn**wybierz kolumnę zawierającą wartości wykładnika t.
 
-W przypadku **Exp2** można określić drugi argument x, który może być stałą lub inną kolumną wartości. W **drugim typie argumentu**należy wskazać, czy mnożnik x zostanie podany jako stała, czy wartość w kolumnie.  
+Dla **exp2 —** można określić drugi argument x, który może być stałą lub inną kolumną wartości. W **drugim typie argumentu**wskaż, czy jako stałą ma być udostępniany współczynnik x, czy wartość w kolumnie.  
 
-Na przykład jeśli wybierzesz kolumnę z wartościami {0,1,2,3,4,5} zarówno dla mnożnika, jak i wykładnika, funkcja zwróci {0, 2, 8, 24, 64 160).  
+Na przykład w przypadku wybrania kolumny z wartościami {0,1,2,3,4,5} dla mnożnika i wykładnika funkcja zwraca {0, 2, 8, 24, 64 160).  
 
 ### <a name="expminus1"></a>ExpMinus1 
 
-Zwraca wykładnik ujemny dla wartości w wybranej kolumnie.  
+Zwraca wykładnik ujemny dla wartości w zaznaczonej kolumnie.  
 
 ### <a name="factorial"></a>Silnia
-Zwraca wartość faktorialna dla wartości w wybranej kolumnie.  
+Zwraca silnię dla wartości w zaznaczonej kolumnie.  
 
-### <a name="hypotenuse"></a>Hipotensja
-Oblicza niedociśnienie dla trójkąta, w którym długość jednej strony jest określona jako kolumna wartości, a długość drugiej strony jest określona jako stała lub jako dwie kolumny.  
+### <a name="hypotenuse"></a>Przeciwprostokątnej
+Oblicza przeciwprostokątnej dla trójkąta, w którym długość jednej strony jest określona jako kolumna wartości, a długość drugiej strony jest określana jako stała lub dwie kolumny.  
 
 ### <a name="ln"></a>Logarytm naturalny
 
-Zwraca logarytm naturalny dla wartości w wybranej kolumnie.  
+Zwraca logarytm naturalny dla wartości z zaznaczonej kolumny.  
 
-### <a name="lnplus1"></a>LnPlus1 ( LnPlus1 )
+### <a name="lnplus1"></a>LnPlus1
 
-Zwraca logarytm naturalny plus jeden dla wartości w wybranej kolumnie.  
+Zwraca logarytm naturalny plus jeden dla wartości w zaznaczonej kolumnie.  
 
 ### <a name="log"></a>Log
 
-Zwraca dziennik wartości w wybranej kolumnie, biorąc pod uwagę określoną podstawę.  
+Zwraca dziennik wartości z zaznaczonej kolumny, z uwzględnieniem określonej podstawy.  
 
-Podstawę (drugi argument) można określić jako stałą lub wybierając inną kolumnę wartości.  
+Można określić wartość bazową (drugi argument) jako stałą lub wybierając inną kolumnę wartości.  
 
 ### <a name="log10"></a>Log10
 
-Zwraca podstawowe wartości 10 logarytmu dla wybranej kolumny.  
+Zwraca wartości logarytmu podstawowego 10 dla zaznaczonej kolumny.  
 
-### <a name="log2"></a>Dziennik2
+### <a name="log2"></a>Log2 —
 
-Zwraca podstawowe wartości logarytmów 2 dla wybranej kolumny.  
+Zwraca wartości logarytmu podstawowego 2 dla zaznaczonej kolumny.  
 
-### <a name="nthroot"></a>NthRoot (NthRoot)
-Zwraca n-ty katalog główny wartości, używając n, który określisz.  
+### <a name="nthroot"></a>NthRoot
+Zwraca n-ty z wartości przy użyciu określonej n.  
 
-Zaznacz kolumny, dla których chcesz obliczyć katalog główny, używając opcji **ColumnSet.**  
+Wybierz kolumny, dla których chcesz obliczyć katalog główny przy użyciu opcji **zestawem kolumn** .  
 
-W **drugim typie argumentu**wybierz inną kolumnę zawierającą katalog główny lub określ stałę, która ma być używana jako katalog główny.  
+W **drugim typie argumentu**wybierz inną kolumnę, która zawiera element główny, lub określ stałą, która ma być używana jako element główny.  
 
-Jeśli drugi argument jest kolumną, każda wartość w kolumnie jest używana jako wartość n dla odpowiedniego wiersza. Jeśli drugi argument jest stałą, wpisz wartość n w polu tekstowym **Drugi argument.**
+Jeśli drugi argument jest kolumną, każda wartość w kolumnie jest używana jako wartość n dla odpowiadającego wiersza. Jeśli drugi argument jest stałą, wpisz wartość n w drugim polu tekstowym **argumentu** .
 ### <a name="pow"></a>Pow
 
-Oblicza X podniesiony do potęgi Y dla każdej z wartości w wybranej kolumnie.  
+Oblicza wartość X podniesioną do potęgi Y dla każdej wartości w zaznaczonej kolumnie.  
 
-Najpierw wybierz kolumny, które zawierają **podstawową**, która powinna być zmiennoprzestawna, za pomocą opcji **ColumnSet.**  
+Najpierw wybierz kolumny zawierające **bazę**, która powinna być zmiennoprzecinkowa, przy użyciu opcji **zestawem kolumn** .  
 
 W **drugim typie argumentu**wybierz kolumnę zawierającą wykładnik lub określ stałą, która ma być używana jako wykładnik.  
 
-Jeśli drugi argument jest kolumną, każda wartość w kolumnie jest używana jako wykładnik dla odpowiedniego wiersza. Jeśli drugi argument jest stałą, wpisz wartość wykładnika w polu tekstowym **Drugi argument.**  
+Jeśli drugi argument jest kolumną, każda wartość w kolumnie jest używana jako wykładnik odpowiadającego wiersza. Jeśli drugi argument jest stałą, wpisz wartość wykładnika w drugim polu tekstowym **argumentu** .  
 
 ### <a name="sqrt"></a>Sqrt
 
-Zwraca pierwiastek kwadratowy wartości w wybranej kolumnie.  
+Zwraca pierwiastek kwadratowy wartości z zaznaczonej kolumny.  
 
-### <a name="sqrtpi"></a>SqrtPi (Polski)
+### <a name="sqrtpi"></a>SqrtPi
 
-Dla każdej wartości w wybranej kolumnie mnoży wartość przez pi, a następnie zwraca pierwiastek kwadratowy wyniku.  
+Dla każdej wartości w zaznaczonej kolumnie mnoży wartość przez Pi, a następnie zwraca pierwiastek kwadratowy wyniku.  
 
 ### <a name="square"></a>Square
 
-Kwadrata wartości w zaznaczonej kolumnie.  
+Kwadratuje wartości w zaznaczonej kolumnie.  
 
-## <a name="comparison-operations"></a>Operacje porównawcze  
+## <a name="comparison-operations"></a>Operacje porównania  
 
-Użyj funkcji porównania w projektancie usługi Azure Machine Learning w dowolnym momencie, aby przetestować dwa zestawy wartości względem siebie. Na przykład w potoku może być konieczne wykonać następujące operacje porównania:  
+Użyj funkcji porównania w projektancie Azure Machine Learning w dowolnym momencie, gdy konieczne jest przetestowanie dwóch zestawów wartości względem siebie. Na przykład w potoku może być konieczne wykonanie następujących operacji porównania:  
 
 - Oceń kolumnę modelu wyników prawdopodobieństwa względem wartości progowej.
-- Określ, czy dwa zestawy wyników są takie same. Dla każdego wiersza, który jest inny, dodaj false flagi, które mogą służyć do dalszego przetwarzania lub filtrowania.  
+- Ustal, czy dwa zestawy wyników są takie same. Dla każdego wiersza, który jest inny, należy dodać flagę FALSE, która może być używana do dalszej przetwarzania lub filtrowania.  
 
-### <a name="equalto"></a>EqualTo ( EqualTo )
+### <a name="equalto"></a>EqualTo
 
-Zwraca wartość True, jeśli wartości są takie same.  
+Zwraca wartość true, jeśli wartości są takie same.  
 
 ### <a name="greaterthan"></a>GreaterThan
 
-Zwraca wartość True, jeśli wartości w **zestawie kolumn** są większe niż określona stała lub większe niż odpowiadające im wartości w kolumnie porównania.  
+Zwraca wartość true, jeśli wartości w **zestawie kolumn** są większe niż określona stała lub większa niż odpowiadające wartości w kolumnie porównania.  
 
 ### <a name="greaterthanorequalto"></a>GreaterThanOrEqualTo
 
-Zwraca wartość True, jeśli wartości w **zestawie kolumn** są większe lub równe określonej stałej lub większe lub równe odpowiednim wartościom w kolumnie porównania.  
+Zwraca wartość true, jeśli wartości w **zestawie kolumn** są większe lub równe określonej stałej lub większe lub równe odpowiadających wartościom w kolumnie porównania.  
 
 ### <a name="lessthan"></a>LessThan
 
-Zwraca wartość True, jeśli wartości w **zestawie kolumn** są mniejsze niż określona stała lub mniejsze niż odpowiadające im wartości w kolumnie porównania.  
+Zwraca wartość true, jeśli wartości w **zestawie kolumn** są mniejsze niż określona stała lub mniejsze niż odpowiednie wartości w kolumnie porównania.  
   
 ### <a name="lessthanorequalto"></a>LessThanOrEqualTo
 
-Zwraca wartość True, jeśli wartości w **zestawie kolumn** są mniejsze lub równe określonej stałej lub mniejsze lub równe odpowiadającym im wartościom w kolumnie porównania.  
+Zwraca wartość true, jeśli wartości w **zestawie kolumn** są mniejsze lub równe określonej stałej lub mniejszej lub równej odpowiadającej wartości w kolumnie porównania.  
 
-### <a name="notequalto"></a>NotEqualTo ( NotEqualTo )
+### <a name="notequalto"></a>NotEqualTo
 
-Zwraca wartość True, jeśli wartości w **zestawie kolumn** nie są równe kolumnie stałej lub porównania, i zwraca wartość False, jeśli są równe.  
+Zwraca wartość true, jeśli wartości w **zestawie kolumn** nie są równe kolumnie stałej lub porównania, i zwraca wartość false, jeśli są równe.  
 
-### <a name="pairmax"></a>PairMax (Polski)
+### <a name="pairmax"></a>PairMax
 
-Zwraca wartość, która jest większa — wartość w **zestawie kolumn** lub wartość w kolumnie stałej lub porównania.  
+Zwraca wartość, która jest większa — wartość w **zestawie kolumn** lub wartość w kolumnie stała lub porównania.  
 
-### <a name="pairmin"></a>PairMin (ParMin)
+### <a name="pairmin"></a>PairMin
 
-Zwraca mniejszą wartość — wartość w **zestawie kolumn** lub wartość w kolumnie stała lub porównanie  
+Zwraca wartość, która jest mniejsza — wartość w **zestawie kolumn** lub wartość w kolumnie stała lub kolumna porównania.  
   
 ##  <a name="arithmetic-operations"></a>Operacje arytmetyczne   
 
-Zawiera podstawowe operacje arytmetyczne: dodawanie i odejmowanie, dzielenie i mnożenie.  Ponieważ większość operacji są binarne, wymagające dwóch liczb, najpierw wybrać operację, a następnie wybrać kolumnę lub liczby do użycia w pierwszym i drugim argumentacji.
+Obejmuje podstawowe operacje arytmetyczne: Dodawanie i odejmowanie, dzielenie i mnożenie.  Ponieważ większość operacji jest binarnych, co wymaga dwóch liczb, należy najpierw wybrać operację, a następnie wybrać kolumnę lub liczby do użycia w pierwszym i drugim argumentach.
 
-Kolejność wybierania kolumn do dzielenia i odejmowania może wydawać się sprzeczna z intuicją; jednak, aby ułatwić zrozumienie wyników, nagłówek kolumny zawiera nazwę operacji i kolejność, w jakiej kolumny były używane.
+Kolejność, w której wybierasz kolumny do dzielenia i odejmowania, może wydawać się nielogiczna; Aby jednak ułatwić zrozumienie wyników, nagłówek kolumny zawiera nazwę operacji oraz kolejność, w jakiej kolumny były używane.
 
-Operacja|Liczba 1|Liczba 2|Kolumna Wynik|Wartość wyniku|
+Operacja|Num1|Num2|Kolumna wyników|Wartość wyniku|
 ----|----|----|----|----
-|Dodawanie|1|5|Dodaj(Num2_Num1)| 4|
-|Mnożenie|1|5|Wiele(Num2_Num1)|5|
-|Odejmowanie|1|5|Odejmowanie(Num2_Num1)|4|
-|Odejmowanie|0|1|Odejmowanie(Num2_Num1)|0|
-|Dzielenie|1|5|Podziel(Num2_Num1)|5|
-|Dzielenie|0|1|Podziel(Num2_Num1)|Nieskończoność|
+|Dodawanie|1|5|Dodaj (Num2_Num1)| 4|
+|Mnożenie|1|5|Wiele (Num2_Num1)|5|
+|Odejmowanie|1|5|Odejmij (Num2_Num1)|4|
+|Odejmowanie|0|1|Odejmij (Num2_Num1)|0|
+|Dzielenie|1|5|Podziel (Num2_Num1)|5|
+|Dzielenie|0|1|Podziel (Num2_Num1)|Nieskończoność|
 
 ### <a name="add"></a>Dodaj
 
-Określ kolumny źródłowe za pomocą **zestawu kolumn,** a następnie dodaj do tych wartości liczbę określoną w **drugim argumentie**.  
+Określ kolumny źródłowe za pomocą **zestawu kolumn**, a następnie Dodaj do tych wartości liczbę określoną w **drugim argumencie**.  
 
-Aby dodać wartości w dwóch kolumnach, wybierz kolumnę lub kolumny za pomocą **zestawu kolumn,** a następnie wybierz drugą kolumnę za pomocą **drugiego argumentu**.  
+Aby dodać wartości w dwóch kolumnach, wybierz kolumnę lub kolumny przy użyciu **zestawu kolumn**, a następnie wybierz drugą kolumnę przy użyciu **drugiego argumentu**.  
 
 ### <a name="divide"></a>Dzielenie
 
-Dzieli wartości w **kolumnie ustawione** przez stałą lub przez wartości kolumn zdefiniowane w **drugim argumentie**.  Innymi słowy, najpierw wybierasz dzielnik, a następnie dywidendę. Wartość wyjściowa jest ilorazem.
+Dzieli wartości w **kolumnie ustawionych** przez stałą lub przez wartości kolumn zdefiniowane w **drugim argumencie**.  Inaczej mówiąc, najpierw wybierasz dzielnik, a następnie dzielną. Wartość wyjściowa jest ilorazem.
 
 ### <a name="multiply"></a>Mnożenie
 
-Mnoży wartości w **kolumnie ustawione** przez określone wartości stałe lub kolumny.  
+Mnoży wartości w **kolumnie ustawionych** przez określone wartości stałej lub kolumny.  
 
 ### <a name="subtract"></a>Odejmowanie
 
-Określ kolumnę wartości do działania *(minuend*), wybierając inną kolumnę, używając opcji **Zestaw kolumn.** Następnie określ liczbę do odjęcie *(subtrahend)* przy użyciu listy rozwijanej **Drugi argument.** Można wybrać stałą lub kolumnę wartości.
+Określ kolumnę wartości, na które mają być wykonywane operacje ( *odjemna*), wybierając inną kolumnę przy użyciu opcji **zestawu kolumn** . Następnie określ liczbę, która ma zostać odjęta ( *odjemnik*) przy użyciu **drugiego** listy rozwijanej. Można wybrać stałą lub kolumnę wartości.
 
 ##  <a name="rounding-operations"></a>Operacje zaokrąglania 
 
-Projektant usługi Azure Machine Learning obsługuje wiele operacji zaokrąglania. W przypadku wielu operacji należy określić ilość precyzji, która ma być używana podczas zaokrąglania. Można użyć statycznego poziomu precyzji, określonego jako stała, lub można zastosować dynamiczną wartość precyzji uzyskaną z kolumny wartości.  
+Program Azure Machine Learning Designer obsługuje różne operacje zaokrąglania. W przypadku wielu operacji należy określić liczbę dokładności, która ma być używana podczas zaokrąglania. Można użyć poziomu dokładności statycznej, określonego jako stała lub można zastosować dynamiczną wartość precyzji uzyskaną z kolumny wartości.  
 
-- Jeśli używasz stałej, ustaw **typ precyzji** na **Stały,** a następnie wpisz liczbę cyfr jako liczbę całkowitą w polu **tekstowym Stała precyzja.** Jeśli wpiszesz nie-liczba całkowita, moduł nie zgłasza błąd, ale wyniki mogą być nieoczekiwane.  
+- Jeśli używasz stałej, ustaw dla opcji **Typ dokładności** wartość **stała** , a następnie wpisz liczbę cyfr jako liczbę całkowitą w polu tekstowym **dokładność stałej** . Jeśli wpiszesz wartość inną niż Integer, moduł nie zgłasza błędu, ale wyniki mogą być nieoczekiwane.  
 
-- Aby użyć innej wartości precyzji dla każdego wiersza w zestawie danych, ustaw **typ precyzji** na **ColumnSet**, a następnie wybierz kolumnę zawierającą odpowiednie wartości dokładności.  
+- Aby użyć innej wartości dokładności dla każdego wiersza w zestawie danych, ustaw dla opcji **typ precyzji** wartość **zestawem kolumn**, a następnie wybierz kolumnę zawierającą odpowiednie wartości dokładności.  
 
 ### <a name="ceiling"></a>Ceiling
 
-Zwraca pułap dla wartości w **zestawie kolumn**.  
+Zwraca górny limit wartości w **zestawie kolumn**.  
 
 ### <a name="ceilingpower2"></a>CeilingPower2
 
-Zwraca kwadratowy sufit dla wartości w **zestawie kolumn**.  
+Zwraca kwadratowy pułap dla wartości w **zestawie kolumn**.  
 
 ### <a name="floor"></a>Floor
 
-Zwraca podłogę dla wartości w **zestawie kolumn**, do określonej precyzji.  
+Zwraca piętro dla wartości w **zestawie kolumn**do określonej precyzji.  
 
 ### <a name="mod"></a>Mod
 
-Zwraca ułamkową część wartości w **zestawie kolumn**, do określonej precyzji.  
+Zwraca część ułamkową wartości w **zestawie kolumn**do określonej precyzji.  
 
 ### <a name="quotient"></a>Iloraz
 
-Zwraca ułamkową część wartości w **zestawie kolumn**, do określonej precyzji.  
+Zwraca część ułamkową wartości w **zestawie kolumn**do określonej precyzji.  
 
 ### <a name="remainder"></a>Reszta
 
-Zwraca pozostałą część wartości w **zestawie kolumn**.  
+Zwraca resztę dla wartości w **zestawie kolumn**.  
 
-### <a name="rounddigits"></a>Okrągłedigits
+### <a name="rounddigits"></a>RoundDigits
 
-Zwraca wartości w **zestawie kolumn**, zaokrąglone przez regułę 4/5 do określonej liczby cyfr.  
+Zwraca wartości w **zestawie kolumn**zaokrąglone według reguły 4/5 do określonej liczby cyfr.  
 
 ### <a name="rounddown"></a>RoundDown
 
-Zwraca wartości w **zestawie kolumn**, zaokrąglone w dół do określonej liczby cyfr.  
+Zwraca wartości w **zestawie kolumn**zaokrąglone w dół do określonej liczby cyfr.  
 
 ### <a name="roundup"></a>RoundUp
 
-Zwraca wartości w **zestawie kolumn**, zaokrąglone w górę do określonej liczby cyfr.  
+Zwraca wartości w **zestawie kolumn**zaokrąglone do określonej liczby cyfr.  
 
-### <a name="toeven"></a>Toeven (toeven)
+### <a name="toeven"></a>ToEven
 
-Zwraca wartości w **zestawie kolumn**, zaokrąglane do najbliższej całości, liczby parzyste.  
+Zwraca wartości w **zestawie kolumn**zaokrąglone do najbliższej całkowitej liczby parzystej.  
 
-### <a name="toodd"></a>ToOdd (ToOdd)
+### <a name="toodd"></a>ToOdd
 
-Zwraca wartości w **zestawie kolumn**, zaokrąglane do najbliższej liczbą liczbą nieparzystą.  
+Zwraca wartości w **zestawie kolumn**zaokrąglone do najbliższej całkowitej, nieparzystej liczby.  
 
 ### <a name="truncate"></a>Truncate
 
-Obcina wartości w **ustawieniu kolumn,** usuwając wszystkie cyfry niedozwolone przez określoną dokładność.  
+Obcina wartości w **kolumnie ustawionych** przez usunięcie wszystkich cyfr niedozwolonych przez określoną precyzję.  
   
 ## <a name="special-math-functions"></a>Specjalne funkcje matematyczne
 
-Ta kategoria obejmuje wyspecjalizowane funkcje matematyczne często używane w do nauki o danych. O ile nie zaznaczono inaczej, funkcja jest jednoarywna i zwraca określone obliczenia dla każdej wartości w wybranej kolumnie lub kolumnach.  
+Ta kategoria obejmuje wyspecjalizowane funkcje matematyczne często używane w nauce danych. O ile nie zaznaczono inaczej, funkcja jest Jednoargumentowa i zwraca określone obliczenie dla każdej wartości w zaznaczonej kolumnie lub kolumnach.  
 
 ### <a name="beta"></a>Beta
 
-Zwraca wartość funkcji beta Eulera.  
+Zwraca wartość funkcji beta Euler.  
 
-### <a name="ellipticintegrale"></a>EllipticIntegrale
-Zwraca wartość niekompletnej eliptycznej całki.  
+### <a name="ellipticintegrale"></a>EllipticIntegralE
+Zwraca wartość niekompletnej całki eliptycznej.  
   
 
 ### <a name="ellipticintegralk"></a>EllipticIntegralK
 
-Zwraca wartość kompletnej eliptycznej całki (K).  
+Zwraca wartość kompletnej całki eliptycznej (KB).  
 
-### <a name="erf"></a>Erf
+### <a name="erf"></a>Funkcja
 
 Zwraca wartość funkcji błędu.  
 
-Funkcja błędu (zwana również funkcją błędu Gaussa) jest specjalną funkcją kształtu esicy, która jest używana w prawdopodobieństwie do opisania dyfuzji.  
+Funkcja Error (nazywana również funkcją błędu Gaussa) jest specjalną funkcją kształtu sigmoid, która jest używana w prawdopodobieństwu do opisywania dyfuzji.  
 
-### <a name="erfc"></a>Erfc ( Erfc )
+### <a name="erfc"></a>ERFC —
 
-Zwraca wartość funkcji błędu uzupełniającego.  
+Zwraca wartość komplementarnej funkcji błędu.  
 
-Erfc jest zdefiniowany jako 1 – erf(x).  
+ERFC — jest definiowana jako 1 – ERF (x).  
 
-### <a name="erfscaled"></a>ErfScaled (erfscaled)
+### <a name="erfscaled"></a>ErfScaled
 
-Zwraca wartość funkcji skalowany błąd.  
+Zwraca wartość funkcji skalowanego błędu.  
 
-Skalowana wersja funkcji błędu może służyć do uniknięcia niedopełnienia arytmetycznego.  
+Przeskalowana wersja funkcji Error może służyć do uniknięcia niedopełnienia arytmetycznego.  
 
-### <a name="erfinverse"></a>ErfInverse (erfinverse)
+### <a name="erfinverse"></a>ErfInverse
 
-Zwraca wartość funkcji odwrotnego rf.  
+Zwraca wartość funkcji odwrotnej ERF.  
 
-### <a name="exponentialintegralein"></a>WykładniczaIntegraleina
+### <a name="exponentialintegralein"></a>ExponentialIntegralEin
 
-Zwraca wartość wykładniczej integralne Ei.  
+Zwraca wartość wykładniczej wartości całkowitej EI.  
 
 ### <a name="gamma"></a>Gamma
 
 Zwraca wartość funkcji gamma.  
 
-### <a name="gammaln"></a>GammaLn ( GammaLn )
+### <a name="gammaln"></a>Rozkład
 
 Zwraca logarytm naturalny funkcji gamma.  
 
 ### <a name="gammaregularizedp"></a>GammaRegularizedP
 
-Zwraca wartość wykończonej funkcji niepełnej gamma.  
+Zwraca wartość zwykłej niekompletnej funkcji gamma.  
 
-Ta funkcja przyjmuje drugi argument, który może być podany jako stała lub kolumna wartości.  
+Ta funkcja przyjmuje drugi argument, który może być dostarczony jako stała lub kolumna wartości.  
 
 ### <a name="gammaregularizedpinverse"></a>GammaRegularizedPInverse
 
-Zwraca wartość odwrotnej, zunifikowanej funkcji niepełnego gamma.  
+Zwraca wartość odwrotnej, niekompletnej funkcji gamma.  
 
-Ta funkcja przyjmuje drugi argument, który może być podany jako stała lub kolumna wartości.  
+Ta funkcja przyjmuje drugi argument, który może być dostarczony jako stała lub kolumna wartości.  
 
 ### <a name="gammaregularizedq"></a>GammaRegularizedQ  
 
-Zwraca wartość wykończonej funkcji niepełnej gamma.  
+Zwraca wartość zwykłej niekompletnej funkcji gamma.  
 
-Ta funkcja przyjmuje drugi argument, który może być podany jako stała lub kolumna wartości.  
+Ta funkcja przyjmuje drugi argument, który może być dostarczony jako stała lub kolumna wartości.  
 
 ### <a name="gammaregularizedqinverse"></a>GammaRegularizedQInverse
 
-Zwraca wartość odwrotnej uogólnionej funkcji niekompletnej gamma.
+Zwraca wartość funkcji Inverse uogólniona, niepełna funkcja gamma.
 
-Ta funkcja przyjmuje drugi argument, który może być podany jako stała lub kolumna wartości.  
+Ta funkcja przyjmuje drugi argument, który może być dostarczony jako stała lub kolumna wartości.  
 
-### <a name="polygamma"></a>PolyGamma
+### <a name="polygamma"></a>Funkcja gamma
 
-Zwraca wartość funkcji poligamimy.  
+Zwraca wartość funkcji gamma.  
 
-Ta funkcja przyjmuje drugi argument, który może być podany jako stała lub kolumna wartości.
+Ta funkcja przyjmuje drugi argument, który może być dostarczony jako stała lub kolumna wartości.
 
-##  <a name="trigonometric-functions"></a>Trygonometrycznych 
+##  <a name="trigonometric-functions"></a>Funkcje trygonometryczne 
 
-Ta kategoria iObejmuje większość ważnych funkcji trygonometrycznych i odwrotnych. Wszystkie funkcje trygonometryczne są emiaryczne i nie wymagają żadnych dodatkowych argumentów.  
+Ta kategoria iIncludes większość ważnych funkcji trygonometrycznych i odwrotnych. Wszystkie funkcje trygonometryczne są jednoargumentowe i nie wymagają dodatkowych argumentów.  
 
 ### <a name="acos"></a>Acos
 
-Oblicza arckozynę dla wartości kolumn.  
+Oblicza arcus cosinus dla wartości kolumn.  
 
-### <a name="acosdegree"></a>AcosDegree (AcosDegree)
+### <a name="acosdegree"></a>AcosDegree
 
-Oblicza arckozynę wartości kolumn w stopniach.  
+Oblicza arcus cosinus wartości kolumn (w stopniach).  
 
-### <a name="acosh"></a>Acosh ( Acosh )
+### <a name="acosh"></a>ACOSH —
 
-Oblicza łukboliczny arckozyny wartości kolumn.  
+Oblicza arcus cosinus hiperboliczny wartości kolumn.  
 
 ### <a name="acot"></a>Acot
 
-Oblicza arccotangent wartości kolumn.  
+Oblicza cotangens wartości kolumn.  
 
-### <a name="acotdegrees"></a>AcotDegrees (Stopnie)
+### <a name="acotdegrees"></a>AcotDegrees
 
-Oblicza arccotangent wartości kolumn w stopniach.  
+Oblicza cotangens wartości kolumn (w stopniach).  
 
-### <a name="acoth"></a>Pochówek
+### <a name="acoth"></a>Acoth
 
-Oblicza hiperboliczny arccotangent wartości kolumn.  
+Oblicza cotangens hiperboliczny wartości kolumn.  
 
-### <a name="acsc"></a>z o.o.
+### <a name="acsc"></a>ACSC
 
 Oblicza arccosecant wartości kolumn.  
 
-### <a name="acscdegrees"></a>AcscDegrees (woj.
+### <a name="acscdegrees"></a>AcscDegrees
 
-Oblicza arccosecant wartości kolumn w stopniach.  
+Oblicza arccosecant wartości kolumn (w stopniach).  
 ### <a name="asec"></a>Asec
 
 Oblicza arcsecant wartości kolumn.  
 
-### <a name="asecdegrees"></a>AsecDegrees (AsecDegrees)
+### <a name="asecdegrees"></a>AsecDegrees
 
-Oblicza arcsecant wartości kolumn w stopniach.  
+Oblicza arcsecant wartości kolumn (w stopniach).  
 
-### <a name="asech"></a>Asech ( asech )
+### <a name="asech"></a>Asech
 
-Oblicza hiperboliczny arcsecant wartości kolumn.  
+Oblicza arcsecant hiperboliczny wartości kolumn.  
 
 ### <a name="asin"></a>Asin
 
-Oblicza łuk wartości kolumn.  
+Oblicza arcus sinus wartości kolumn.  
 
-### <a name="asindegrees"></a>AsinDegrees (woj.
+### <a name="asindegrees"></a>AsinDegrees
 
-Oblicza łuk wartości kolumn w stopniach.  
+Oblicza arcus sinus wartości kolumn (w stopniach).  
 
-### <a name="asinh"></a>Asinh ( Asinh )
+### <a name="asinh"></a>ASINH —
 
-Oblicza hiperboliczny łuk dla wartości kolumn.  
+Oblicza arcus sinus hiperboliczny dla wartości kolumn.  
 
 ### <a name="atan"></a>Atan
 
-Oblicza arctangent wartości kolumn.  
+Oblicza arcus tangens wartości kolumn.  
 
-### <a name="atandegrees"></a>AtanDegrees (Stopnie)
+### <a name="atandegrees"></a>AtanDegrees
 
-Oblicza arctangent wartości kolumn w stopniach.  
+Oblicza arcus tangens wartości kolumn (w stopniach).  
 
-### <a name="atanh"></a>Atanh ( Atanh )
+### <a name="atanh"></a>ATANH —
 
-Oblicza hiperboliczny arctangent wartości kolumn.  
+Oblicza arcus tangens hiperboliczny wartości kolumn.  
 
 ### <a name="cos"></a>Cos
 
-Oblicza cosine wartości kolumny.  
+Oblicza cosinus wartości kolumn.  
 
-### <a name="cosdegrees"></a>CosDegrees (CosDegrees)
+### <a name="cosdegrees"></a>CosDegrees
 
-Oblicza cosine dla wartości kolumn, w stopniach.  
+Oblicza cosinus wartości kolumn (w stopniach).  
 
 ### <a name="cosh"></a>Cosh
 
-Oblicza cosine hiperboliczne dla wartości kolumn.  
+Oblicza cosinus hiperboliczny dla wartości kolumn.  
 
 ### <a name="cot"></a>Cot
 
-Oblicza cotangent dla wartości kolumny.  
+Oblicza wartość cotangens dla wartości kolumn.  
 
-### <a name="cotdegrees"></a>CotDegrees (CotDegrees)
+### <a name="cotdegrees"></a>CotDegrees
 
-Oblicza cotangent dla wartości kolumn, w stopniach.  
+Oblicza wartość cotangens dla wartości kolumn (w stopniach).  
 
-### <a name="coth"></a>Coth (coth)
-Oblicza cotangent hiperboliczny dla wartości kolumn.  
+### <a name="coth"></a>Coth
+Oblicza cotangens hiperboliczny dla wartości kolumn.  
 
-### <a name="csc"></a>Csc
+### <a name="csc"></a>Obsługi
 
-Oblicza cosecant dla wartości kolumn.  
+Oblicza wartość cosecans dla wartości kolumn.  
 
-### <a name="cscdegrees"></a>CscDegrees (Wydegrees)
+### <a name="cscdegrees"></a>CscDegrees
 
-Oblicza cosecant dla wartości kolumn, w stopniach.  
+Oblicza wartość cosecans dla wartości kolumn (w stopniach).  
 
-### <a name="csch"></a>Csch (wład)
+### <a name="csch"></a>Csch
 
-Oblicza cosecans hiperboliczny dla wartości kolumn.  
+Oblicza wartość cosecans hiperboliczny dla wartości kolumn.  
 
-### <a name="degreestoradians"></a>StopnieToRadians
+### <a name="degreestoradians"></a>DegreesToRadians
 
 Konwertuje stopnie na radiany.  
 
 ### <a name="sec"></a>S
 
-Oblicza secant wartości kolumny.  
+Oblicza secans wartości kolumn.  
 
-### <a name="asecdegrees"></a>aSecDegrees (Sekundy)
+### <a name="asecdegrees"></a>aSecDegrees
 
-Oblicza secant dla wartości kolumn w stopniach.  
+Oblicza secans dla wartości kolumn (w stopniach).  
 
 ### <a name="asech"></a>aSech
 
-Oblicza hiperboliczny secant wartości kolumn.  
+Oblicza secans hiperboliczny wartości kolumn.  
 
 ### <a name="sign"></a>Znak
 
@@ -542,15 +542,15 @@ Zwraca znak wartości kolumny.
 
 ### <a name="sin"></a>Sin
 
-Oblicza sinus wartości kolumny.  
+Oblicza sinus wartości kolumn.  
 
-### <a name="sinc"></a>Sinc ( Sinc )
+### <a name="sinc"></a>Sinc
 
-Oblicza wartość sinusoidy wartości kolumny.  
+Oblicza wartość cosinusa sinusa wartości kolumn.  
 
-### <a name="sindegrees"></a>SinDegrees (wyssa,)
+### <a name="sindegrees"></a>SinDegrees
 
-Oblicza sinus dla wartości kolumn w stopniach.  
+Oblicza sinus wartości kolumn (w stopniach).  
 
 ### <a name="sinh"></a>Sinh
 
@@ -558,31 +558,31 @@ Oblicza sinus hiperboliczny wartości kolumn.
 
 ### <a name="tan"></a>Tan
 
-Oblicza styczne wartości kolumn.  
+Oblicza tangens wartości kolumn.  
 
-### <a name="tandegrees"></a>TanDegrees (właswoi)
+### <a name="tandegrees"></a>TanDegrees
 
-Oblicza stycznej dla argumentu, w stopniach.  
+Oblicza tangens argumentu (w stopniach).  
 
 ### <a name="tanh"></a>Tanh
 
-Oblicza hiperboliczny styczny wartości kolumn.  
+Oblicza tangens hiperboliczny wartości kolumn.  
   
 ## <a name="technical-notes"></a>Uwagi techniczne
 
-Należy zachować ostrożność, gdy wybierzesz więcej niż jedną kolumnę jako drugi operator. Wyniki są łatwe do zrozumienia, jeśli operacja jest prosta, na przykład dodawanie stałej do wszystkich kolumn. 
+Należy zachować ostrożność w przypadku wybrania więcej niż jednej kolumny jako drugiego operatora. Wyniki są łatwe do zrozumienia, jeśli operacja jest prosta, na przykład dodawanie stałej do wszystkich kolumn. 
 
-Załóżmy, że zestaw danych ma wiele kolumn i dodać zestaw danych do siebie. W wynikach każda kolumna jest dodawana do siebie w następujący sposób:  
+Załóżmy, że zestaw danych ma wiele kolumn, i dodasz zestaw danych do samego siebie. W wynikach każda kolumna jest dodawana do samej siebie w następujący sposób:  
   
-|Liczba 1|Liczba 2|Liczba 3|Dodaj(Num1_Num1)|Dodaj(Num2_Num2)|Dodaj(Num3_Num3)|
+|Num1|Num2|Num3|Dodaj (Num1_Num1)|Dodaj (Num2_Num2)|Dodaj (Num3_Num3)|
 |----|----|----|----|----|----|
 |1|5|2|2|10|4|
 |2|3|-1|4|6|-2|
 |0|1|-1|0|2|-2|
 
-Jeśli konieczne jest wykonanie bardziej złożonych obliczeń, można wykonać wiele wystąpień **zastosuj operację matematyczną**. Na przykład można dodać dwie kolumny za pomocą jednego wystąpienia **Zastosuj operację matematyczną**, a następnie użyć innego wystąpienia **Zastosuj operację matematyczną,** aby podzielić sumę przez stałą, aby uzyskać średnią.  
+Jeśli trzeba wykonać bardziej skomplikowane obliczenia, można utworzyć łańcuch wielu wystąpień **operacji Apply**. Na przykład można dodać dwie kolumny przy użyciu jednego wystąpienia **operacji Zastosuj matematyczne**, a następnie użyć innego wystąpienia **operacji matematycznej** , aby podzielić sumę przez stałą w celu uzyskania średniej.  
   
-Alternatywnie, użyj jednego z następujących modułów, aby wykonać wszystkie obliczenia naraz, przy użyciu skryptu SQL, R lub Python:
+Alternatywnie możesz użyć jednego z następujących modułów, aby wykonać wszystkie obliczenia jednocześnie przy użyciu skryptu SQL, R lub Python:
  
 + [Wykonywanie skryptu języka R](execute-r-script.md)
 + [Wykonywanie skryptu w języku Python](execute-python-script.md)
@@ -590,4 +590,4 @@ Alternatywnie, użyj jednego z następujących modułów, aby wykonać wszystkie
   
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

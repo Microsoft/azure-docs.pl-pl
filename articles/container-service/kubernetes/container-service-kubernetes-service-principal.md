@@ -8,10 +8,10 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 40d4dc898efe6b719ec5e1f1ec0471a9677d3c95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371124"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(PRZESTARZAŁE) Konfigurowanie jednostki usługi Azure AD dla klastra Kubernetes w usłudze Container Service
@@ -33,9 +33,9 @@ Możesz użyć istniejącej jednostki usługi Azure AD, która spełnia następu
 
 * **Zakres**: grupa zasobów
 
-* **Rola**: Współautor
+* **Rola**: współautor
 
-* **Klucz tajny klienta**: Musi być hasłem. Obecnie nie można używać nazwy głównej usługi do uwierzytelniania certyfikatu.
+* **Wpis tajny klienta**: musi to być hasło. Obecnie nie można używać nazwy głównej usługi do uwierzytelniania certyfikatu.
 
 > [!IMPORTANT]
 > Aby utworzyć jednostkę usługi, musisz mieć uprawnienia do zarejestrowania aplikacji w swojej dzierżawie usługi Azure AD i przypisania aplikacji do roli w swojej subskrypcji. Aby sprawdzić, czy masz wymagane uprawnienia, [zajrzyj do portalu](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
@@ -61,7 +61,7 @@ Dane wyjściowe są zbliżone do następujących (pokazane tutaj zostały zredag
 
 ![Tworzenie nazwy głównej usługi](./media/container-service-kubernetes-service-principal/service-principal-creds.png)
 
-Wyróżnione są **identyfikator** klienta`appId`( ) i`password`klucz tajny **klienta** ( ), który jest używany jako parametry jednostki usługi dla wdrożenia klastra.
+Wyróżniony jest **Identyfikator klienta** (`appId`) i **klucz tajny klienta** (`password`), który jest używany jako parametry jednostki usługi do wdrożenia klastra.
 
 
 ### <a name="specify-service-principal-when-creating-the-kubernetes-cluster"></a>Określanie jednostki usługi podczas tworzenia klastra Kubernetes
@@ -78,7 +78,7 @@ Poniższy przykład przedstawia sposób przekazania parametrów poprzez interfej
 
 1. [Pobierz](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) plik parametrów szablonu `azuredeploy.parameters.json` z usługi GitHub.
 
-2. Aby określić nazwę główną usługi, wprowadź wartości dla `servicePrincipalClientId` i `servicePrincipalClientSecret` w pliku. (Należy również podać własne wartości dla `dnsNamePrefix` i `sshRSAPublicKey`. Ten ostatni jest kluczem publicznym SSH, aby uzyskać dostęp do klastra.) Zapisz plik.
+2. Aby określić nazwę główną usługi, wprowadź wartości dla `servicePrincipalClientId` i `servicePrincipalClientSecret` w pliku. (Należy również podać własne wartości dla `dnsNamePrefix` i `sshRSAPublicKey`. Ten drugi jest kluczem publicznym SSH, aby uzyskać dostęp do klastra. Zapisz plik.
 
     ![Przekazywanie parametrów nazwy głównej usługi](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
@@ -97,7 +97,7 @@ Poniższy przykład przedstawia sposób przekazania parametrów poprzez interfej
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Opcja 2. Wygenerowanie jednostki usługi podczas tworzenia klastra przy użyciu polecenia `az acs create`
 
-Po uruchomieniu [`az acs create`](/cli/azure/acs#az-acs-create) polecenia, aby utworzyć klaster Kubernetes, masz możliwość automatycznego generowania jednostki usługi.
+Jeśli uruchomisz [`az acs create`](/cli/azure/acs#az-acs-create) polecenie w celu utworzenia klastra Kubernetes, będziesz mieć możliwość automatycznego wygenerowania jednostki usługi.
 
 Tak jak w przypadku innych opcji tworzenia klastra Kubernetes, parametry istniejącej nazwy głównej usługi można określić po uruchomieniu polecenia `az acs create`. Jednak w przypadku pominięcia tych parametrów interfejs wiersza polecenia platformy Azure automatycznie tworzy jednostkę usługi do użycia z usługą Container Service. Podczas wdrażania dzieje się to w sposób niewidoczny dla użytkownika.
 

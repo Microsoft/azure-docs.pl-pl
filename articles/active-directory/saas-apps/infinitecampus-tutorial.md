@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z Infinite Campus | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a infinite campus.
+title: 'Samouczek: integracja z nieograniczoną Azure Active Directoryą | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i nieograniczone.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,43 +16,43 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: d54769c1f3265e2cee619520044313fca46855a5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67100371"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Samouczek: Integracja usługi Azure Active Directory z infinite campus
+# <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Samouczek: integracja Azure Active Directory z nieograniczonej szkoły
 
-W tym samouczku dowiesz się, jak zintegrować Infinite Campus z usługą Azure Active Directory (Azure AD).
-Integracja infinite campus z usługą Azure AD zapewnia następujące korzyści:
+W ramach tego samouczka nauczysz się, jak zintegrować nieograniczone kampus z usługą Azure Active Directory (Azure AD).
+Integracja z nieograniczonej szkoły z usługą Azure AD zapewnia następujące korzyści:
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do Nieskończonego Kampusu.
-* Można włączyć użytkowników, aby automatycznie zalogować się do Infinite Campus (Logowanie jednokrotne) z ich kont usługi Azure AD.
+* Możesz kontrolować w usłudze Azure AD, kto ma dostęp do nieograniczonej szkoły.
+* Możesz pozwolić użytkownikom na automatyczne logowanie się do nieskończonego (logowania jednokrotnego) przy użyciu swoich kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z infinite campus, potrzebujesz następujących elementów:
+Aby skonfigurować integrację usługi Azure AD z nieograniczonym zasięgiem, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/)
-* Subskrypcja z obsługą logowania jednokrotnego Infinite Campus
-* Co najmniej musisz być administratorem usługi Azure Active Directory i mieć rolę zabezpieczeń produktu kampusu "System informacji o uczniach (SIS)", aby ukończyć konfigurację.
+* Nieskończona subskrypcja z włączonym logowaniem jednokrotnym
+* Aby dokończyć konfigurację, musisz być administratorem Azure Active Directory i mieć rolę zabezpieczeń produktu kampusowego "system informacji studenta" (SIS).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Infinite Campus obsługuje sso inicjowane przez **SP**
+* Nieskończona obsługa logowania jednokrotnego przez usługę **SP**
 
-## <a name="adding-infinite-campus-from-the-gallery"></a>Dodawanie Nieskończonego Kampusu z galerii
+## <a name="adding-infinite-campus-from-the-gallery"></a>Dodawanie nieskończonej szkoły z galerii
 
-Aby skonfigurować integrację Infinite Campus z usługą Azure AD, należy dodać Infinite Campus z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację z nieograniczonej częścią usługi Azure AD, musisz dodać nieskończoność z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać Infinite Campus z galerii, wykonaj następujące czynności:**
+**Aby dodać nieskończoność z galerii, wykonaj następujące czynności:**
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
@@ -62,35 +62,35 @@ Aby skonfigurować integrację Infinite Campus z usługą Azure AD, należy doda
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-3. Aby dodać nową aplikację, kliknij przycisk **Nowa aplikacja** u góry okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **Nowa aplikacja** w górnej części okna dialogowego.
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Infinite Campus**, wybierz **Nieskończony kampus** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **nieskończoność**, wybierz pozycję **nieskończoność** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-    ![Infinite Campus na liście wyników](common/search-new-app.png)
+    ![Nieskończoność na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego z Infinite Campus na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w infinite campus.
+W tej sekcji konfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD z nieograniczonej szkoły na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w nieskończony zasięg.
 
-Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD za pomocą infinite campus, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD z nieograniczonej szkoły, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj nieskończone logowanie jednokrotne w kampusie](#configure-infinite-campus-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. **[Skonfiguruj nieograniczone logowanie](#configure-infinite-campus-single-sign-on)** jednokrotne, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego Infinite Campus](#create-infinite-campus-test-user)** — aby mieć odpowiednik Britta Simon w Infinite Campus, który jest połączony z reprezentacją użytkownika usługi Azure AD.
+5. **[Utwórz nieskończonego użytkownika testowego](#create-infinite-campus-test-user)** , aby uzyskać odpowiednik Britta Simon w nieskończonej części, która jest połączona z reprezentacją usługi Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą programu Infinite Campus, wykonaj następujące czynności:
+Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD z nieograniczonej szkoły, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **Infinite Campus** wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na **nieograniczoną** integrację aplikacji kampusowych wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -102,43 +102,43 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą programu In
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-4. W sekcji Podstawowa konfiguracja SAML wykonaj następujące kroki (pamiętaj, że domena będzie się różnić w zależności od modelu hostingu, ale wartość **w pełni kwalifikowana domena** musi być zgodna z instalacją Infinite Campus):
+4. W sekcji Podstawowa konfiguracja języka SAML wykonaj następujące czynności (należy zauważyć, że domena będzie się różnić w zależności od modelu hostingu, ale w **pełni kwalifikowana wartość domeny** musi być zgodna z nieograniczoną instalacją kampusową):
 
-    a. W polu **tekstowym Logowania adres URL** wpisz adres URL przy użyciu następującego wzorca:`https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
-    b. W polu tekstowym **Identyfikator** wpisz adres URL przy użyciu następującego wzorca:`https://<DOMAIN>.infinitecampus.com/campus/<DISTRICTNAME>`
+    b. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<DOMAIN>.infinitecampus.com/campus/<DISTRICTNAME>`
 
-    d. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>`
+    c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>`
 
-    ![Nieskończona domena kampusu i adresy URL — informacje o logach jednokrotnych](common/sp-identifier-reply.png)
+    ![Nieograniczone informacje o rejestracji jednokrotnej w domenie kampusowej i adresach URL](common/sp-identifier-reply.png)
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij przycisk kopiowania, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
-### <a name="configure-infinite-campus-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w nieskończonym kampusie
+### <a name="configure-infinite-campus-single-sign-on"></a>Skonfiguruj nieograniczone jednokrotne logowanie jednokrotne
 
-1. W innym oknie przeglądarki internetowej zaloguj się do Infinite Campus jako administrator zabezpieczeń.
+1. W innym oknie przeglądarki sieci Web Zaloguj się do nieograniczonej szkoły jako administrator zabezpieczeń.
 
-2. Po lewej stronie menu kliknij pozycję **Administracja systemem**.
+2. Po lewej stronie menu kliknij pozycję **Administracja systemu**.
 
     ![Administrator](./media/infinitecampus-tutorial/tutorial_infinitecampus_admin.png)
 
-3. Przejdź do konfiguracji**dostawcy usług SSO****zarządzania saml zarządzania** >  **użytkownikiem** > .
+3. Przejdź do**Konfiguracja dostawcy usługi SSO****zarządzania** > usługą SAML **zabezpieczeń** > użytkownika.
 
-    ![Saml](./media/infinitecampus-tutorial/tutorial_infinitecampus_saml.png)
+    ![Element SAML](./media/infinitecampus-tutorial/tutorial_infinitecampus_saml.png)
 
-4. Na stronie **Konfiguracja dostawcy usług SSO** wykonaj następujące czynności:
+4. Na stronie **Konfiguracja dostawcy usługi SSO** wykonaj następujące czynności:
 
-    ![Sso](./media/infinitecampus-tutorial/tutorial_infinitecampus_sso.png)
+    ![Logowanie jednokrotne](./media/infinitecampus-tutorial/tutorial_infinitecampus_sso.png)
 
-    a. Wybierz **włącz logowanie jednokrotne SAML**.
+    a. Wybierz opcję **Włącz logowanie jednokrotne SAML**.
 
-    b. Edytowanie **nazwy atrybutu opcjonalnego** **w** celu
+    b. Edytuj **opcjonalną nazwę atrybutu** , aby zawierała **nazwę**
 
-    d. W sekcji **Wybierz opcję pobierania danych serwera dostawcy tożsamości (IDP)** wybierz pozycję Adres URL **metadanych**, wklej wartość **adresu URL metadanych aplikacji,** która została skopiowana z portalu Azure w polu, a następnie kliknij przycisk **Synchronizuj**.
+    c. Na stronie **Wybierz opcję pobierania danych serwera dostawcy tożsamości (dostawcy tożsamości)** wybierz pozycję **adres URL metadanych**, wklej wartość **adresu URL metadanych federacji aplikacji** , która została skopiowana z Azure Portal w polu, a następnie kliknij pozycję **Synchronizuj**.
 
-    d. Po kliknięciu **przycisku Synchronizuj** wartości są automatycznie wypełniane na stronie **Konfiguracja dostawcy usług jednokrotnego.** Wartości te można zweryfikować, aby dopasować wartości widoczne w kroku 4 powyżej.
+    d. Po kliknięciu przycisku **Synchronizuj** wartości Pobierz automatycznie wypełnione na stronie **Konfiguracja dostawcy usługi SSO** . Te wartości można zweryfikować, aby odpowiadały wartościom widocznym w kroku 4 powyżej.
 
     e. Kliknij przycisk **Zapisz**.
 
@@ -150,7 +150,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -160,26 +160,26 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa** `brittasimon@yourcompanydomain.extension`użytkownika wpisz . Na przykład BrittaSimon@contoso.com.
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`. Na przykład BrittaSimon@contoso.com.
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 > [!NOTE]
-> Jeśli chcesz, aby wszyscy użytkownicy platformy Azure mieli dostęp do logowania jednokrotnego do Infinite Campus i polegali na systemie uprawnień wewnętrznych Infinite Campus, aby kontrolować dostęp, możesz ustawić właściwość wymaganą do **przypisania użytkownika** aplikacji na Nie i pominąć następujące kroki.
+> Jeśli chcesz, aby wszyscy użytkownicy platformy Azure mieli dostęp z logowaniem jednokrotnym do nieskończoności i polegają na nieograniczonym systemie uprawnień wewnętrznych do kontroli dostępu, możesz ustawić właściwość **wymagane przypisanie użytkownika** na wartość nie i pominąć następujące czynności.
 
-W tej sekcji można włączyć Britta Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do Infinite Campus.
+Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do nieskończonej szkoły.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, wybierz **pozycję Wszystkie aplikacje,** a następnie wybierz **nieskończony kampus**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **nieograniczone kampusy**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz **nieskończony kampus**.
+2. Na liście Aplikacje wybierz pozycję **nieograniczone kampus**.
 
-    ![Łącze Nieskończony kampus na liście Aplikacje](common/all-applications.png)
+    ![Nieograniczone połączenie Kampusowe na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -191,24 +191,24 @@ W tej sekcji można włączyć Britta Simon do korzystania z logowania jednokrot
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-infinite-campus-test-user"></a>Utwórz użytkownika testowego Infinite Campus
+### <a name="create-infinite-campus-test-user"></a>Utwórz nieskończonego użytkownika testowego
 
-Infinite Campus ma architekturę skoncentrowaną na demografii. Skontaktuj się z [zespołem pomocy technicznej Infinite Campus,](mailto:sales@infinitecampus.com) aby dodać użytkowników na platformie Infinite Campus.
+Nieskończone szkoły mają architekturę z centrami danych demograficznych. Skontaktuj się z [nieograniczonym zespołem pomocy technicznej](mailto:sales@infinitecampus.com) , aby dodać użytkowników w nieskończonej platformie kampusowej.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Infinite Campus w Panelu dostępu należy automatycznie zalogować się do nieskończonego kampusu, dla którego skonfigurowano logującą się logującą logującą log. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka nieskończoność w panelu dostępu należy automatycznie zalogować się do nieskończonej szkoły, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

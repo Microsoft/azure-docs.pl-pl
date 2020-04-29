@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie jednostkami usługi Media Services za pomocą REST | Dokumenty firmy Microsoft
-description: W tym artykule pokazano, jak zarządzać encjami usługi Media Services za pomocą interfejsu API REST.
+title: Zarządzanie jednostkami Media Services przy użyciu interfejsu REST | Microsoft Docs
+description: W tym artykule pokazano, jak zarządzać jednostkami Media Services za pomocą interfejsu API REST.
 author: juliako
 manager: femila
 editor: ''
@@ -15,39 +15,39 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: a03bc24b689df342be40536c26149a7611fc5176
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79283318"
 ---
-# <a name="managing-media-services-entities-with-rest"></a>Zarządzanie jednostkami usługi Media Services za pomocą REST  
+# <a name="managing-media-services-entities-with-rest"></a>Zarządzanie jednostkami Media Services przy użyciu interfejsu REST  
 
 > [!div class="op_single_selector"]
-> * [Reszta](media-services-rest-manage-entities.md)
+> * [REST](media-services-rest-manage-entities.md)
 > * [.NET](media-services-dotnet-manage-entities.md)
 > 
 > 
 
-Microsoft Azure Media Services to usługa oparta na restunie, oparta na ul. Można dodawać, kwerendy, aktualizować i usuwać jednostki w taki sam sposób, jak w każdej innej usłudze OData. Wyjątki będą wywoływane w stosownych przypadkach. Aby uzyskać więcej informacji na temat OData, zobacz [Dokumentacja protokołu Open Data Protocol](https://www.odata.org/documentation/).
+Microsoft Azure Media Services to usługa oparta na protokole REST wbudowana w Protokół OData V3. Można dodawać, wysyłać zapytania, aktualizować i usuwać jednostki w taki sam sposób jak w przypadku innych usług OData. Wyjątki zostaną wywołane w razie potrzeby. Aby uzyskać więcej informacji na temat usługi OData, zobacz artykuł [Open Data Protocol Documentation](https://www.odata.org/documentation/).
 
-W tym temacie pokazano, jak zarządzać jednostkami usługi Azure Media Services za pomocą rest.
+W tym temacie pokazano, jak zarządzać jednostkami Azure Media Services przy użyciu interfejsu REST.
 
 >[!NOTE]
-> Począwszy od 1 kwietnia 2017 roku, wszystkie rekordy zadań na Twoim koncie, które są starsze niż 90 dni, będą automatycznie usuwane wraz ze skojarzonymi rekordami zadań podrzędnych nawet wtedy, gdy całkowita liczba rekordów jest mniejsza niż maksymalny limit przydziału. Na przykład 1 kwietnia 2017 r. każdy rekord zadania na koncie starszym niż 31 grudnia 2016 r. zostanie automatycznie usunięty. Jeśli chcesz zarchiwizować informacje o zadaniu/zadaniu, możesz użyć kodu opisanego w tym temacie.
+> Począwszy od 1 kwietnia 2017 roku, wszystkie rekordy zadań na Twoim koncie, które są starsze niż 90 dni, będą automatycznie usuwane wraz ze skojarzonymi rekordami zadań podrzędnych nawet wtedy, gdy całkowita liczba rekordów jest mniejsza niż maksymalny limit przydziału. Na przykład 1 kwietnia 2017 każdy rekord zadania na koncie starszym niż 31 grudnia 2016 zostanie automatycznie usunięty. Jeśli zachodzi potrzeba archiwizowania informacji o zadaniu/zadaniu, można użyć kodu opisanego w tym temacie.
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia  
 
-Podczas uzyskiwania dostępu do encji w programie Media Services należy ustawić określone pola nagłówka i wartości w żądaniach HTTP. Aby uzyskać więcej informacji, zobacz [Konfigurowanie programu Media Services REST API Development](media-services-rest-how-to-use.md).
+Podczas uzyskiwania dostępu do jednostek w Media Services należy ustawić określone pola nagłówka i wartości w żądaniach HTTP. Aby uzyskać więcej informacji, zobacz [konfigurowanie Media Services tworzenia interfejsu API REST](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Łączenie się z usługą Media Services
 
-Aby uzyskać informacje dotyczące łączenia się z interfejsem API usługi AMS, zobacz [Dostęp do interfejsu API usługi Azure Media Services za pomocą uwierzytelniania usługi Azure AD.](media-services-use-aad-auth-to-access-ams-api.md) 
+Aby uzyskać informacje na temat nawiązywania połączenia z interfejsem API usługi AMS, zobacz [dostęp do interfejsu api Azure Media Services przy użyciu uwierzytelniania w usłudze Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-## <a name="adding-entities"></a>Dodawanie encji
-Każda encja w umiań Programu Media Services jest dodawana do zestawu jednostek, takich jak Zasoby, za pośrednictwem żądania HTTP POST.
+## <a name="adding-entities"></a>Dodawanie jednostek
+Każda jednostka w Media Services jest dodawana do zestawu jednostek, takiego jak zasoby, przez żądanie POST HTTP.
 
-W poniższym przykładzie pokazano, jak utworzyć AccessPolicy.
+Poniższy przykład pokazuje, jak utworzyć AccessPolicy.
 
     POST https://media.windows.net/API/AccessPolicies HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -62,8 +62,8 @@ W poniższym przykładzie pokazano, jak utworzyć AccessPolicy.
 
     {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
 
-## <a name="querying-entities"></a>Wykonywanie zapytań o jednostki
-Wykonywanie zapytań i wystawianie danych na listę jednostek jest proste i obejmuje tylko żądanie GET HTTP i opcjonalne operacje OData.
+## <a name="querying-entities"></a>Wykonywanie zapytań względem jednostek
+Wykonywanie zapytań i wyświetlanie listy jednostek jest proste i obejmuje tylko żądania GET HTTP i opcjonalne operacje OData.
 Poniższy przykład pobiera listę wszystkich jednostek MediaProcessor.
 
     GET https://media.windows.net/API/MediaProcessors HTTP/1.1
@@ -75,7 +75,7 @@ Poniższy przykład pobiera listę wszystkich jednostek MediaProcessor.
     Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
 
-Można również pobrać określoną encję lub wszystkie zestawy jednostek skojarzone z określoną encją, na przykład w poniższych przykładach:
+Możesz również pobrać konkretną jednostkę lub wszystkie zestawy jednostek skojarzone z konkretną jednostką, na przykład w następujących przykładach:
 
     GET https://media.windows.net/API/JobTemplates('nb:jtid:UUID:e81192f5-576f-b247-b781-70a790c20e7c') HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -95,7 +95,7 @@ Można również pobrać określoną encję lub wszystkie zestawy jednostek skoj
     Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
 
-Poniższy przykład zwraca tylko State właściwości wszystkich zadań.
+Poniższy przykład zwraca tylko Właściwość State wszystkich zadań.
 
     GET https://media.windows.net/API/Jobs?$select=State HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -106,7 +106,7 @@ Poniższy przykład zwraca tylko State właściwości wszystkich zadań.
     Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
 
-Poniższy przykład zwraca wszystkie jobtemplates o nazwie "SampleTemplate."
+Poniższy przykład zwraca wszystkie JobTemplates o nazwie "SampleTemplate".
 
     GET https://media.windows.net/API/JobTemplates?$filter=startswith(Name,%20'SampleTemplate') HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -118,14 +118,14 @@ Poniższy przykład zwraca wszystkie jobtemplates o nazwie "SampleTemplate."
     Host: media.windows.net
 
 > [!NOTE]
-> Operacja $expand nie jest obsługiwana w programie Media Services, a także nieobsługiwanych metod LINQ opisanych w linq considerations (WCF Data Services).
+> Operacja $expand nie jest obsługiwana w Media Services, a także w przypadku nieobsługiwanych metod LINQ opisanych w temacie LINQ (Usługi danych programu WCF).
 > 
 > 
 
-## <a name="enumerating-through-large-collections-of-entities"></a>Wyliczanie dużych zbiorów jednostek
-Podczas wykonywania zapytań jednostek istnieje limit 1000 jednostek zwracanych jednocześnie, ponieważ publiczna rest w wersji 2 ogranicza wyniki kwerendy do 1000 wyników. Użyj **pomiń** i **góry,** aby wyliczyć za pośrednictwem dużej kolekcji jednostek. 
+## <a name="enumerating-through-large-collections-of-entities"></a>Wyliczanie przez duże kolekcje jednostek
+Podczas wykonywania zapytania o jednostki istnieje limit 1000 jednostek, które są zwracane w tym samym czasie, ponieważ Public REST v2 ogranicza wyniki zapytania do 1000 wyników. Użyj **Skip** i **Top** do wyliczenia w dużej kolekcji jednostek. 
 
-W poniższym przykładzie pokazano, jak użyć **skip** i **top,** aby pominąć pierwsze 2000 zadań i uzyskać następne 1000 zadań.  
+Poniższy przykład pokazuje, jak używać **pominięcia** i **góry** , aby pominąć pierwsze 2000 zadań i uzyskać następne zadania 1000.  
 
     GET https://media.windows.net/api/Jobs()?$skip=2000&$top=1000 HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -136,10 +136,10 @@ W poniższym przykładzie pokazano, jak użyć **skip** i **top,** aby pominąć
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: media.windows.net
 
-## <a name="updating-entities"></a>Aktualizowanie encji
-W zależności od typu jednostki i stanu, w jakim się znajduje, można zaktualizować właściwości tej jednostki za pomocą żądań HTTP PATCH, PUT lub MERGE. Aby uzyskać więcej informacji na temat tych operacji, zobacz [PATCH/PUT/MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
+## <a name="updating-entities"></a>Aktualizowanie jednostek
+W zależności od typu jednostki i stanu, w którym się znajduje, można zaktualizować właściwości tej jednostki za pośrednictwem żądań HTTP, PUT lub MERGE. Aby uzyskać więcej informacji na temat tych operacji, zobacz [poprawka/umieszczenie/scalanie](https://msdn.microsoft.com/library/dd541276.aspx).
 
-W poniższym przykładzie kodu pokazano, jak zaktualizować Name właściwości w encji zasobów.
+Poniższy przykład kodu pokazuje, jak zaktualizować Właściwość nazwy w jednostce elementu zawartości.
 
     MERGE https://media.windows.net/API/Assets('nb:cid:UUID:80782407-3f87-4e60-a43e-5e4454232f60') HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -154,10 +154,10 @@ W poniższym przykładzie kodu pokazano, jak zaktualizować Name właściwości 
 
     {"Name" : "NewName" }
 
-## <a name="deleting-entities"></a>Usuwanie encji
-Jednostki można usunąć w programie Media Services przy użyciu żądania DELETE HTTP. W zależności od jednostki kolejność usuwania jednostek może być ważna. Na przykład jednostki, takie jak Zasoby, wymagają odwołania (lub usunięcia) wszystkich lokalizatorów, które odwołują się do określonego zasobu przed usunięciem środka trwałego.
+## <a name="deleting-entities"></a>Usuwanie jednostek
+Jednostki można usuwać w Media Services przy użyciu żądania usunięcia HTTP. W zależności od jednostki kolejność usuwania jednostek może być ważna. Na przykład jednostki takie jak zasoby wymagają odwołania (lub usunięcia) wszystkich lokalizatorów odwołujących się do danego elementu zawartości przed usunięciem elementu zawartości.
 
-W poniższym przykładzie pokazano, jak usunąć lokalizator, który został użyty do przekazania pliku do magazynu obiektów blob.
+Poniższy przykład pokazuje, jak usunąć lokalizator, który został użyty do przekazania pliku do magazynu obiektów BLOB.
 
     DELETE https://media.windows.net/API/Locators('nb:lid:UUID:76dcc8e8-4230-463d-97b0-ce25c41b5c8d') HTTP/1.1
     Content-Type: application/json;odata=verbose

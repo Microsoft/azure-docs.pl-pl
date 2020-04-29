@@ -1,166 +1,166 @@
 ---
-title: Diagnostyka i monitorowanie podmiotów
-description: W tym artykule opisano funkcje diagnostyki i monitorowania wydajności w czasie wykonywania usługi sieci szkieletowej niezawodne podmioty, w tym zdarzenia i liczniki wydajności emitowane przez niego.
+title: Diagnostyka i monitorowanie aktorów
+description: W tym artykule opisano funkcje diagnostyki i monitorowania wydajności w środowisku uruchomieniowym Reliable Actors Service Fabric, w tym zdarzenia i liczniki wydajności emitowane przez nią.
 author: abhishekram
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: e6e9fb66368461e0d3ebdd2709f4ced0e796bea5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282330"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostyka i monitorowanie wydajności struktury Reliable Actors
-Środowisko wykonawcze Reliable Actors emituje zdarzenia [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) i [liczniki wydajności.](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) Zapewniają one wgląd w sposób działania środowiska wykonawczego i pomoc w rozwiązywaniu problemów i monitorowaniu wydajności.
+Środowisko uruchomieniowe Reliable Actors emituje zdarzenia [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) i [liczniki wydajności](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Zapewniają one wgląd w działanie środowiska uruchomieniowego i ułatwiają rozwiązywanie problemów i monitorowanie wydajności.
 
 ## <a name="eventsource-events"></a>Zdarzenia EventSource
-Nazwa dostawcy EventSource środowiska wykonawczego Reliable Actors to "Microsoft-ServiceFabric-Actors". Zdarzenia z tego źródła zdarzeń pojawiają się w oknie [Zdarzenia diagnostyczne,](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) gdy aplikacja aktora jest [debugowana w programie Visual Studio.](service-fabric-debugging-your-application.md)
+Nazwa dostawcy EventSource dla środowiska uruchomieniowego Reliable Actors to "Microsoft-servicefabric-Aktors". Zdarzenia z tego źródła zdarzeń pojawiają się w oknie [zdarzenia diagnostyczne](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) , gdy aplikacja aktora jest [debugowana w programie Visual Studio](service-fabric-debugging-your-application.md).
 
-Przykładami narzędzi i technologii ułatwiających zbieranie i/lub wyświetlanie zdarzeń EventSource są [PerfView,](https://www.microsoft.com/download/details.aspx?id=28567) [Diagnostyka platformy Azure,](../cloud-services/cloud-services-dotnet-diagnostics.md) [Rejestrowanie semantyczne](https://msdn.microsoft.com/library/dn774980.aspx)i [Biblioteka śledzenia zdarzeń firmy Microsoft.](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)
+Przykłady narzędzi i technologii, które pomagają zbierać i/lub wyświetlać zdarzenia EventSource, to [Narzędzia PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Diagnostyka Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), [Rejestrowanie semantyczne](https://msdn.microsoft.com/library/dn774980.aspx)i [Biblioteka Microsoft zdarzenie śledzenia Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### <a name="keywords"></a>Słowa kluczowe
-Wszystkie zdarzenia, które należą do Reliable Actors EventSource są skojarzone z co najmniej jednym słowem kluczowym. Umożliwia to filtrowanie zdarzeń, które są zbierane. Zdefiniowane są następujące bity słów kluczowych.
+Wszystkie zdarzenia należące do Reliable Actors EventSource są skojarzone z co najmniej jednym słowami kluczowymi. Umożliwia to filtrowanie zdarzeń, które są zbierane. Zdefiniowane są następujące bity słowa kluczowego.
 
-| Bitowych | Opis |
+| Bit | Opis |
 | --- | --- |
-| 0x1 |Zestaw ważnych zdarzeń, które podsumowują działanie środowiska uruchomieniowego aktorzy sieci szkieletowej. |
-| 0x2 |Zestaw zdarzeń, które opisują wywołania metody aktora. Aby uzyskać więcej informacji, zobacz [temat wprowadzający na temat aktorów](service-fabric-reliable-actors-introduction.md). |
-| 0x4 |Zestaw zdarzeń związanych ze stanem aktora. Aby uzyskać więcej informacji, zobacz temat [zarządzania stanem aktora](service-fabric-reliable-actors-state-management.md). |
-| 0x8 |Zestaw zdarzeń związanych z koncelisja w aktora. Aby uzyskać więcej informacji, zobacz temat [współbieżności](service-fabric-reliable-actors-introduction.md#concurrency). |
+| 0x1 |Zestaw ważnych zdarzeń, które podsumowują działanie środowiska uruchomieniowego aktorów sieci szkieletowej. |
+| 0x2 |Zestaw zdarzeń opisujących wywołania metod aktora. Aby uzyskać więcej informacji, zobacz [temat wprowadzający w aktorach](service-fabric-reliable-actors-introduction.md). |
+| 0x4 |Zestaw zdarzeń związanych ze stanem aktora. Aby uzyskać więcej informacji, zobacz temat dotyczący [zarządzania stanem aktora](service-fabric-reliable-actors-state-management.md). |
+| 0x8 |Zestaw zdarzeń związanych z przekształcaniem współbieżności w aktorze. Aby uzyskać więcej informacji, zobacz temat dotyczący [współbieżności](service-fabric-reliable-actors-introduction.md#concurrency). |
 
 ## <a name="performance-counters"></a>Liczniki wydajności
 Środowisko uruchomieniowe Reliable Actors definiuje następujące kategorie liczników wydajności.
 
 | Kategoria | Opis |
 | --- | --- |
-| Aktor sieci szkieletowej usług |Liczniki specyficzne dla podmiotów sieci szkieletowej usług Azure, np. |
-| Metoda aktora sieci szkieletowej usług |Liczniki specyficzne dla metod implementowanych przez podmioty sieci szkieletowej usług, np. |
+| Aktor Service Fabric |Liczniki specyficzne dla uczestników platformy Azure Service Fabric, np. czas zapisywania stanu aktora |
+| Metoda aktora Service Fabric |Liczniki specyficzne dla metod implementowanych przez Service Fabric aktorów, np. częstotliwość wywoływania metody aktora |
 
 Każda z powyższych kategorii ma jeden lub więcej liczników.
 
-Aplikacja [Monitor wydajności systemu Windows,](https://technet.microsoft.com/library/cc749249.aspx) która jest domyślnie dostępna w systemie operacyjnym Windows, może służyć do zbierania i wyświetlania danych licznika wydajności. [Diagnostyka platformy Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) to kolejna opcja do zbierania danych licznika wydajności i przekazywania ich do tabel platformy Azure.
+Aplikacja [Monitor wydajności systemu Windows](https://technet.microsoft.com/library/cc749249.aspx) , która jest dostępna domyślnie w systemie operacyjnym Windows, może służyć do zbierania i wyświetlania danych licznika wydajności. [Diagnostyka Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) jest kolejną opcją do zbierania danych licznika wydajności i przekazywania ich do tabel platformy Azure.
 
-### <a name="performance-counter-instance-names"></a>Nazwy wystąpień licznika wydajności
-Klaster, który ma dużą liczbę usług aktora lub partycji usługi aktora będzie miał dużą liczbę wystąpień licznika wydajności aktora. Nazwy wystąpień licznika wydajności może pomóc w identyfikacji określonej [partycji](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) i metody aktora (jeśli dotyczy), że wystąpienie licznika wydajności jest skojarzony z.
+### <a name="performance-counter-instance-names"></a>Nazwy wystąpień liczników wydajności
+Klaster, który ma dużą liczbę usług aktora lub partycji usługi aktora, będzie miał dużą liczbę wystąpień liczników wydajności aktora. Nazwy wystąpień licznika wydajności mogą pomóc w zidentyfikowaniu określonej [partycji](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) i metody aktora (jeśli dotyczy), z którym jest skojarzone wystąpienie licznika wydajności.
 
-#### <a name="service-fabric-actor-category"></a>Kategoria Aktora sieci szkieletowej usług
-W przypadku `Service Fabric Actor`kategorii nazwy wystąpień licznika są w następującym formacie:
+#### <a name="service-fabric-actor-category"></a>Kategoria aktora Service Fabric
+W przypadku kategorii `Service Fabric Actor`nazwy wystąpień liczników mają następujący format:
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* jest reprezentacją ciągu identyfikatora partycji sieci szkieletowej usług, z którą jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) reprezentacja ciągu jest generowana za pomocą metody z specyfikatorem formatu "D".
+*ServiceFabricPartitionID* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) generowana za pomocą metody ze specyfikatorem formatu "D".
 
-*ActorRuntimeInternalID* jest reprezentacją ciągu 64-bitowej liczby całkowitej, która jest generowana przez środowisko uruchomieniowe aktorzy sieci szkieletowej do użytku wewnętrznego. Jest to zawarte w nazwie wystąpienia licznika wydajności, aby zapewnić jego unikatowość i uniknąć konfliktu z innymi nazwami wystąpień licznika wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
+*ActorRuntimeInternalID* to ciąg reprezentujący 64-bitową liczbę całkowitą, która jest generowana przez środowisko uruchomieniowe aktorów do użytku wewnętrznego. Ta wartość jest uwzględniona w nazwie wystąpienia licznika wydajności, aby zapewnić jej unikatowość i uniknąć konfliktu z innymi nazwami wystąpień liczników wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
 
-Poniżej przedstawiono przykład nazwy wystąpienia licznika dla licznika, który należy do `Service Fabric Actor` kategorii:
+Poniżej znajduje się przykład nazwy wystąpienia licznika dla licznika, który należy do `Service Fabric Actor` kategorii:
 
 `2740af29-78aa-44bc-a20b-7e60fb783264_635650083799324046`
 
-W powyższym `2740af29-78aa-44bc-a20b-7e60fb783264` przykładzie jest reprezentacja ciągu identyfikator partycji sieci szkieletowej usług i `635650083799324046` jest 64-bitowy identyfikator, który jest generowany do użytku wewnętrznego środowiska wykonawczego.
+W powyższym przykładzie `2740af29-78aa-44bc-a20b-7e60fb783264` jest reprezentacją ciągu Service Fabric identyfikator partycji i `635650083799324046` jest 64-bitowy identyfikator, który jest generowany dla wewnętrznego użycia środowiska uruchomieniowego.
 
-#### <a name="service-fabric-actor-method-category"></a>Kategoria Metoda aktora sieci szkieletowej usługi
-W przypadku `Service Fabric Actor Method`kategorii nazwy wystąpień licznika są w następującym formacie:
+#### <a name="service-fabric-actor-method-category"></a>Kategoria metody aktora Service Fabric
+W przypadku kategorii `Service Fabric Actor Method`nazwy wystąpień liczników mają następujący format:
 
 `MethodName_ActorsRuntimeMethodId_ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*MethodName* to nazwa metody aktora, z którą jest skojarzone wystąpienie licznika wydajności. Format nazwy metody jest określany na podstawie pewnej logiki w czasie wykonywania podmiotów sieci szkieletowej, która równoważy czytelność nazwy z ograniczeniami dotyczącymi maksymalnej długości nazw wystąpień licznika wydajności w systemie Windows.
+*MethodName* to nazwa metody aktora, z którą jest skojarzone wystąpienie licznika wydajności. Format nazwy metody jest określany na podstawie pewnej logiki w środowisku uruchomieniowym aktorów, która równoważy czytelność nazwy z ograniczeniami dotyczącymi maksymalnej długości nazw wystąpień licznika wydajności w systemie Windows.
 
-*ActorsRuntimeMethodId* jest reprezentacją ciągu 32-bitowej liczby całkowitej, która jest generowana przez środowisko uruchomieniowe aktorzy sieci szkieletowej do użytku wewnętrznego. Jest to zawarte w nazwie wystąpienia licznika wydajności, aby zapewnić jego unikatowość i uniknąć konfliktu z innymi nazwami wystąpień licznika wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
+*ActorsRuntimeMethodId* to ciąg reprezentujący 32-bitową liczbę całkowitą, która jest generowana przez środowisko uruchomieniowe aktorów do użytku wewnętrznego. Ta wartość jest uwzględniona w nazwie wystąpienia licznika wydajności, aby zapewnić jej unikatowość i uniknąć konfliktu z innymi nazwami wystąpień liczników wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
 
-*ServiceFabricPartitionID* jest reprezentacją ciągu identyfikatora partycji sieci szkieletowej usług, z którą jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) reprezentacja ciągu jest generowana za pomocą metody z specyfikatorem formatu "D".
+*ServiceFabricPartitionID* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) generowana za pomocą metody ze specyfikatorem formatu "D".
 
-*ActorRuntimeInternalID* jest reprezentacją ciągu 64-bitowej liczby całkowitej, która jest generowana przez środowisko uruchomieniowe aktorzy sieci szkieletowej do użytku wewnętrznego. Jest to zawarte w nazwie wystąpienia licznika wydajności, aby zapewnić jego unikatowość i uniknąć konfliktu z innymi nazwami wystąpień licznika wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
+*ActorRuntimeInternalID* to ciąg reprezentujący 64-bitową liczbę całkowitą, która jest generowana przez środowisko uruchomieniowe aktorów do użytku wewnętrznego. Ta wartość jest uwzględniona w nazwie wystąpienia licznika wydajności, aby zapewnić jej unikatowość i uniknąć konfliktu z innymi nazwami wystąpień liczników wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
 
-Poniżej przedstawiono przykład nazwy wystąpienia licznika dla licznika, który należy do `Service Fabric Actor Method` kategorii:
+Poniżej znajduje się przykład nazwy wystąpienia licznika dla licznika, który należy do `Service Fabric Actor Method` kategorii:
 
 `ivoicemailboxactor.leavemessageasync_2_89383d32-e57e-4a9b-a6ad-57c6792aa521_635650083804480486`
 
-W powyższym `ivoicemailboxactor.leavemessageasync` przykładzie jest `2` nazwą metody, jest 32-bitowy identyfikator generowany dla `89383d32-e57e-4a9b-a6ad-57c6792aa521` użytku wewnętrznego środowiska wykonawczego, jest `635650083804480486` reprezentacją ciągu identyfikator partycji sieci szkieletowej usług i jest 64-bitowy identyfikator generowany dla wewnętrznego użytku środowiska wykonawczego.
+W powyższym przykładzie `ivoicemailboxactor.leavemessageasync` jest nazwą metody, `2` jest 32-bitowy identyfikator wygenerowany dla wewnętrznego użycia środowiska uruchomieniowego, `89383d32-e57e-4a9b-a6ad-57c6792aa521` to ciąg reprezentujący identyfikator partycji Service Fabric i `635650083804480486` jest identyfikatorem 64-bitowym wygenerowanym do użytku wewnętrznego środowiska uruchomieniowego.
 
 ## <a name="list-of-events-and-performance-counters"></a>Lista zdarzeń i liczników wydajności
-### <a name="actor-method-events-and-performance-counters"></a>Zdarzenia metody aktora i liczniki wydajności
-Środowisko wykonawcze Reliable Actors emituje następujące zdarzenia związane z [metodami aktora.](service-fabric-reliable-actors-introduction.md)
+### <a name="actor-method-events-and-performance-counters"></a>Zdarzenia metod aktora i liczniki wydajności
+Środowisko uruchomieniowe Reliable Actors emituje następujące zdarzenia związane z [metodami aktora](service-fabric-reliable-actors-introduction.md).
 
-| Nazwa wydarzenia | Identyfikator zdarzenia | Poziom | Słowo kluczowe | Opis |
+| Nazwa zdarzenia | Identyfikator zdarzenia | Poziom | Słowo kluczowe | Opis |
 | --- | --- | --- | --- | --- |
-| ActorMethodStart (Początek metody aktorki) |7 |Pełny |0x2 |Środowisko uruchomieniowe aktorów ma zamiar wywołać metodę aktora. |
-| AktorMetodStop |8 |Pełny |0x2 |Metoda aktora została zakończona wykonywanie. Oznacza to, że wywołanie asynchroniczne środowiska wykonawczego do metody aktora zostało zwrócone, a zadanie zwrócone przez metodę aktora zostało zakończone. |
-| AktorMethodThrewException |9 |Ostrzeżenie |0x3 |Wyjątek został zgłoszony podczas wykonywania metody aktora, podczas wywołania asynchronicznego środowiska wykonawczego do metody aktora lub podczas wykonywania zadania zwróconego przez metodę aktora. To zdarzenie wskazuje pewnego rodzaju błąd w kodzie aktora, który wymaga badania. |
+| ActorMethodStart |7 |Pełny |0x2 |Środowisko uruchomieniowe aktorów ma na celu wywołanie metody aktora. |
+| ActorMethodStop |8 |Pełny |0x2 |Metoda aktora zakończyła wykonywanie. Oznacza to, że wywołanie asynchroniczne środowiska uruchomieniowego do metody aktora zostało zwrócone, a zadanie zwrócone przez metodę aktora zostało zakończone. |
+| ActorMethodThrewException |9 |Ostrzeżenie |0x3 |Zgłoszono wyjątek podczas wykonywania metody aktora, podczas wywołania asynchronicznego środowiska uruchomieniowego do metody aktora lub podczas wykonywania zadania zwróconego przez metodę aktora. To zdarzenie wskazuje niepowodzenie w kodzie aktora, który wymaga badania. |
 
-Środowisko wykonawcze Reliable Actors publikuje następujące liczniki wydajności związane z wykonywaniem metod aktora.
+Środowisko uruchomieniowe Reliable Actors publikuje następujące liczniki wydajności związane z wykonywaniem metod aktora.
 
 | Nazwa kategorii | Nazwa licznika | Opis |
 | --- | --- | --- |
-| Metoda aktora sieci szkieletowej usług |Wywołania/s |Liczba wywołań metody usługi aktora na sekundę |
-| Metoda aktora sieci szkieletowej usług |Średnia milisekundy na wywołanie |Czas wykonania metody usługi aktora w milisekundach |
-| Metoda aktora sieci szkieletowej usług |Wyjątki generowane/s |Liczba wyświetlenia wyjątku przez metodę usługi aktora na sekundę |
+| Metoda aktora Service Fabric |Wywołania/s |Liczba przypadków wywołania metody usługi aktora na sekundę |
+| Metoda aktora Service Fabric |Średni czas dla wywołania |Czas wykonania metody usługi aktora w milisekundach |
+| Metoda aktora Service Fabric |Zgłoszone wyjątki/s |Ile razy metoda usługi aktora zgłosiła wyjątek na sekundę |
 
 ### <a name="concurrency-events-and-performance-counters"></a>Zdarzenia współbieżności i liczniki wydajności
-Środowisko wykonawcze Reliable Actors emituje następujące zdarzenia związane z [współbieżnością](service-fabric-reliable-actors-introduction.md#concurrency).
+Środowisko uruchomieniowe Reliable Actors emituje następujące zdarzenia związane z [współbieżnością](service-fabric-reliable-actors-introduction.md#concurrency).
 
-| Nazwa wydarzenia | Identyfikator zdarzenia | Poziom | Słowo kluczowe | Opis |
+| Nazwa zdarzenia | Identyfikator zdarzenia | Poziom | Słowo kluczowe | Opis |
 | --- | --- | --- | --- | --- |
-| AktorMethodCallsWaitingForLock |12 |Pełny |0x8 |To zdarzenie jest napisane na początku każdej nowej tury w aktora. Zawiera liczbę oczekujących wywołań aktora, które oczekują na uzyskanie blokady na aktora, która wymusza współbieżność turową. |
+| ActorMethodCallsWaitingForLock |12 |Pełny |0x8 |To zdarzenie jest zapisywane na początku każdego nowego, Włącz aktora. Zawiera ona liczbę oczekujących wywołań aktora, które oczekują na uzyskanie blokady aktora, która wymusza współbieżność opartą na włączeniu. |
 
-Środowisko wykonawcze Reliable Actors publikuje następujące liczniki wydajności związane z współbieżnością.
+Środowisko uruchomieniowe Reliable Actors publikuje następujące liczniki wydajności dotyczące współbieżności.
 
 | Nazwa kategorii | Nazwa licznika | Opis |
 | --- | --- | --- |
-| Aktor sieci szkieletowej usług |Liczba połączeń aktora czeka na blokadę aktora |Liczba oczekujących wywołań aktora oczekujących na zdobycie blokady na aktora, która wymusza współbieżność turową |
-| Aktor sieci szkieletowej usług |Średnia milisekundy na blokadę oczekiwania |Czas (w milisekundach) na nabycie blokady na aktora, która wymusza współbieżność turową |
-| Aktor sieci szkieletowej usług |Średnia blokada aktora milisekundy trzymana |Czas (w milisekundach), dla którego blokada na aktora jest utrzymywana |
+| Aktor Service Fabric |Liczba wywołań aktora oczekujących na blokadę aktora |Liczba oczekujących wywołań aktora oczekujących na uzyskanie blokady aktora, która wymusza współbieżność opartą na włączeniu |
+| Aktor Service Fabric |Średni czas oczekiwania na blokadę |Czas trwania (w milisekundach), aby uzyskać blokadę dla aktora, która wymusza współbieżność opartą na włączeniu |
+| Aktor Service Fabric |Średnia liczba przechowywanych blokad aktora w milisekundach |Czas (w milisekundach), dla którego jest utrzymywana blokada dla aktora |
 
-### <a name="actor-state-management-events-and-performance-counters"></a>Zdarzenia zarządzania stanem aktora i liczniki wydajności
-Środowisko wykonawcze Reliable Actors emituje następujące zdarzenia związane z [zarządzaniem stanem aktora](service-fabric-reliable-actors-state-management.md).
+### <a name="actor-state-management-events-and-performance-counters"></a>Zdarzenia i liczniki wydajności zarządzania stanem aktora
+Środowisko uruchomieniowe Reliable Actors emituje następujące zdarzenia związane z [zarządzaniem stanem aktora](service-fabric-reliable-actors-state-management.md).
 
-| Nazwa wydarzenia | Identyfikator zdarzenia | Poziom | Słowo kluczowe | Opis |
+| Nazwa zdarzenia | Identyfikator zdarzenia | Poziom | Słowo kluczowe | Opis |
 | --- | --- | --- | --- | --- |
-| ActorSaveStateStart |10 |Pełny |0x4 |Środowisko uruchomieniowe aktorów ma zamiar zapisać stan aktora. |
-| ActorSaveStateStop |11 |Pełny |0x4 |Środowisko wykonawcze aktorów zakończyło zapisywanie stanu aktora. |
+| ActorSaveStateStart |10 |Pełny |0x4 |Środowisko uruchomieniowe aktorów ma na celu zapisanie stanu aktora. |
+| ActorSaveStateStop |11 |Pełny |0x4 |Środowisko uruchomieniowe aktorów zakończyło Zapisywanie stanu aktora. |
 
-Środowisko wykonawcze Reliable Actors publikuje następujące liczniki wydajności związane z zarządzaniem stanem aktora.
+Środowisko uruchomieniowe Reliable Actors publikuje następujące liczniki wydajności związane z zarządzaniem stanem aktora.
 
 | Nazwa kategorii | Nazwa licznika | Opis |
 | --- | --- | --- |
-| Aktor sieci szkieletowej usług |Średnia milisekundy na operację stanu zapisu |Czas pracy w celu zapisania stanu aktora w milisekundach |
-| Aktor sieci szkieletowej usług |Średnia milisekunda na operację stanu obciążenia |Czas ładowania stanu aktora w milisekundach |
+| Aktor Service Fabric |Średnia liczba milisekund dla operacji zapisu stanu |Czas zapisywania stanu aktora w milisekundach |
+| Aktor Service Fabric |Średni czas operacji ładowania stanu (milisekundy) |Czas ładowania stanu aktora w milisekundach |
 
 ### <a name="events-related-to-actor-replicas"></a>Zdarzenia związane z replikami aktorów
-Środowisko wykonawcze Reliable Actors emituje następujące zdarzenia związane z [replikami aktora.](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors)
+Środowisko uruchomieniowe Reliable Actors emituje następujące zdarzenia związane z [replikami aktorów](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
 
-| Nazwa wydarzenia | Identyfikator zdarzenia | Poziom | Słowo kluczowe | Opis |
+| Nazwa zdarzenia | Identyfikator zdarzenia | Poziom | Słowo kluczowe | Opis |
 | --- | --- | --- | --- | --- |
-| ReplikaRoleToPrimary |1 |Informacyjne |0x1 |Replika aktora zmieniła rolę na Podstawowa. Oznacza to, że podmioty dla tej partycji zostaną utworzone wewnątrz tej repliki. |
-| ReplicaChangeRoleFromPrimary |2 |Informacyjne |0x1 |Replika aktora zmieniła rolę na nienakazową. Oznacza to, że podmioty dla tej partycji nie będą już tworzone wewnątrz tej repliki. Żadne nowe żądania nie zostaną dostarczone do podmiotów już utworzonych w ramach tej repliki. Podmioty zostaną zniszczone po zakończeniu wszelkich wniosków w toku. |
+| ReplicaChangeRoleToPrimary |1 |Informacyjne |0x1 |Replika aktora zmieniła rolę na podstawową. Oznacza to, że aktory dla tej partycji zostaną utworzone w tej replice. |
+| ReplicaChangeRoleFromPrimary |2 |Informacyjne |0x1 |Replika aktora zmieniła rolę na niepodstawową. Oznacza to, że aktory dla tej partycji nie będą już tworzone w tej replice. Żadne nowe żądania nie zostaną dostarczone do aktorów już utworzonych w tej replice. Aktory zostaną zniszczone po zakończeniu wszelkich żądań w toku. |
 
-### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Zdarzenia aktywacji i dezaktywacji aktora oraz liczniki wydajności
-Środowisko wykonawcze Reliable Actors emituje następujące zdarzenia związane z [aktywacją i dezaktywacją aktora.](service-fabric-reliable-actors-lifecycle.md)
+### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Zdarzenia aktywacji aktora i dezaktywacji oraz liczniki wydajności
+Środowisko uruchomieniowe Reliable Actors emituje następujące zdarzenia związane z [aktywacją aktora i](service-fabric-reliable-actors-lifecycle.md)dezaktywacją.
 
-| Nazwa wydarzenia | Identyfikator zdarzenia | Poziom | Słowo kluczowe | Opis |
+| Nazwa zdarzenia | Identyfikator zdarzenia | Poziom | Słowo kluczowe | Opis |
 | --- | --- | --- | --- | --- |
-| Aktor aktywowany |5 |Informacyjne |0x1 |Aktor został aktywowany. |
-| AktorZaaktywowany |6 |Informacyjne |0x1 |Aktor został dezaktywowany. |
+| ActorActivated |5 |Informacyjne |0x1 |Aktor został aktywowany. |
+| ActorDeactivated |6 |Informacyjne |0x1 |Aktor został zdezaktywowany. |
 
-Środowisko wykonawcze Reliable Actors publikuje następujące liczniki wydajności związane z aktywacją i dezaktywacją aktora.
+Środowisko uruchomieniowe Reliable Actors publikuje następujące liczniki wydajności związane z aktywacją aktora i dezaktywacją.
 
 | Nazwa kategorii | Nazwa licznika | Opis |
 | --- | --- | --- |
-| Aktor sieci szkieletowej usług |Średnia onactivateAsync milisekundy |Czas wykonania metody OnActivateAsync w milisekundach |
+| Aktor Service Fabric |Średnia OnActivateAsync milisekund |Czas wykonania metody OnActivateAsync w milisekundach |
 
 ### <a name="actor-request-processing-performance-counters"></a>Liczniki wydajności przetwarzania żądań aktora
-Gdy klient wywołuje metodę za pośrednictwem obiektu proxy aktora, powoduje to wysłanie wiadomości żądania za pośrednictwem sieci do usługi aktora. Usługa przetwarza komunikat żądania i wysyła odpowiedź z powrotem do klienta. Środowisko wykonawcze Reliable Actors publikuje następujące liczniki wydajności związane z przetwarzaniem żądań aktora.
+Gdy klient wywołuje metodę za pośrednictwem obiektu serwera proxy aktora, powoduje wysłanie komunikatu żądania przez sieć do usługi aktora. Usługa przetwarza komunikat żądania i wysyła odpowiedź z powrotem do klienta. Środowisko uruchomieniowe Reliable Actors publikuje następujące liczniki wydajności związane z przetwarzaniem żądań aktora.
 
 | Nazwa kategorii | Nazwa licznika | Opis |
 | --- | --- | --- |
-| Aktor sieci szkieletowej usług |Liczba zaległych wniosków |Liczba żądań przetwarzanych w usłudze |
-| Aktor sieci szkieletowej usług |Średnia milisekundy na żądanie |Czas przejmujeny przez usługę (w milisekundach) na przetworzenie żądania |
-| Aktor sieci szkieletowej usług |Średnia milisekundy dla deserializacji żądania |Czas (w milisekundach) na deserializację komunikatu żądania aktora po odebraniu go w usłudze |
-| Aktor sieci szkieletowej usług |Średnia milisekundy dla serializacji odpowiedzi |Czas potrzebny (w milisekundach) do serializacji komunikatu odpowiedzi aktora w usłudze przed wysłaniem odpowiedzi do klienta |
+| Aktor Service Fabric |Liczba oczekujących żądań |Liczba żądań przetwarzanych w usłudze |
+| Aktor Service Fabric |Średni czas na żądanie |Czas trwania (w milisekundach) przez usługę w celu przetworzenia żądania |
+| Aktor Service Fabric |Średni czas deserializacji żądania (w milisekundach) |Czas (w milisekundach) deserializacji komunikatu żądania aktora po odebraniu w usłudze |
+| Aktor Service Fabric |Średni czas serializacji odpowiedzi (w milisekundach) |Czas (w milisekundach) serializacji komunikatu odpowiedzi aktora w usłudze przed wysłaniem odpowiedzi do klienta |
 
 ## <a name="next-steps"></a>Następne kroki
-* [Jak niezawodni aktorzy korzystają z platformy sieci szkieletowej usług](service-fabric-reliable-actors-platform.md)
-* [Dokumentacja referencyjna interfejsu API aktora](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Jak Reliable Actors używać platformy Service Fabric](service-fabric-reliable-actors-platform.md)
+* [Dokumentacja interfejsu API aktora](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Przykładowy kod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Dostawcy usługi EventSource w utrw](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+* [Dostawcy EventSource w narzędzia PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

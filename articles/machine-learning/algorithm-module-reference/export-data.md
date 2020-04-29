@@ -1,7 +1,7 @@
 ---
-title: 'Dane eksportu: odwołanie do modułu'
+title: 'Eksportowanie danych: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak używać modułu Eksportuj dane w usłudze Azure Machine Learning do zapisywania wyników, danych pośrednich i danych roboczych z potoków do miejsc docelowych magazynu w chmurze poza usługą Azure Machine Learning.
+description: Dowiedz się, jak używać modułu eksport danych w Azure Machine Learning, aby zapisywać wyniki, dane pośrednie i dane robocze z potoków do miejsc docelowych magazynu w chmurze poza Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 807771fd4018c9666f059c965370ebc36d0105df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79456305"
 ---
-# <a name="export-data-module"></a>Moduł Eksportuj dane
+# <a name="export-data-module"></a>Eksportuj moduł danych
 
-W tym artykule opisano moduł w projektancie usługi Azure Machine Learning (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
 
-Ten moduł służy do zapisywania wyników, danych pośrednich i danych roboczych z potoków w miejscach docelowych magazynu w chmurze. 
+Ten moduł służy do zapisywania wyników, danych pośrednich i danych roboczych z potoków do miejsc docelowych magazynu w chmurze. 
 
 Ten moduł obsługuje eksportowanie danych do następujących usług danych w chmurze:
 
@@ -29,31 +29,31 @@ Ten moduł obsługuje eksportowanie danych do następujących usług danych w ch
 - Azure Data Lake
 - Azure Data Lake Gen2
 
-Przed wyeksportowanie danych należy najpierw zarejestrować magazyn danych w obszarze roboczym usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Dostęp do danych w usługach magazynu platformy Azure](../how-to-access-data.md).
+Przed wyeksportowaniem danych musisz najpierw zarejestrować magazyn danych w obszarze roboczym Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [dostęp do danych w usługach Azure Storage](../how-to-access-data.md).
 
 ## <a name="how-to-configure-export-data"></a>Jak skonfigurować dane eksportu
 
-1. Dodaj moduł **Eksportuj dane** do potoku w projektancie. Ten moduł można znaleźć w kategorii **Wejście i wyjście.**
+1. Dodaj moduł **eksportu danych** do potoku w projektancie. Ten moduł można znaleźć w kategorii **dane wejściowe i wyjściowe** .
 
-1. Połącz **eksportuj dane** z modułem zawierającym dane, które chcesz wyeksportować.
+1. Połącz **eksport danych** z modułem zawierającym dane, które chcesz wyeksportować.
 
-1. Wybierz **pozycję Eksportuj dane,** aby otworzyć okienko **Właściwości.**
+1. Wybierz pozycję **Eksportuj dane** , aby otworzyć okienko **Właściwości** .
 
-1. W przypadku **magazynu danych**wybierz istniejący magazyn danych z listy rozwijanej. Można również utworzyć nowy magazyn danych. Sprawdź, jak odwiedzić [dane programu Access w usługach magazynu platformy Azure.](../how-to-access-data.md)
+1. W obszarze **Magazyn**danych wybierz istniejący magazyn danych z listy rozwijanej. Możesz również utworzyć nowy magazyn danych. Sprawdź, jak odwiedzać [dane dostępu w usługach Azure Storage](../how-to-access-data.md).
 
-1. Pole wyboru **Regeneruj dane wyjściowe,** decyduje, czy wykonać moduł do ponownego generowania danych wyjściowych w czasie wykonywania. 
+1. Pole wyboru, **Wygeneruj ponownie dane wyjściowe**, decyduje o tym, czy uruchomić moduł w celu ponownego wygenerowania danych wyjściowych w czasie wykonywania. 
 
-    Domyślnie jest niezaznaczony, co oznacza, że jeśli moduł został wcześniej wykonany z tymi samymi parametrami, system ponownie użyczy danych wyjściowych z ostatniego uruchomienia, aby skrócić czas wykonywania. 
+    Jest to domyślnie niezaznaczone, co oznacza, że moduł został wykonany z tymi samymi parametrami, system użyje danych wyjściowych z ostatniego uruchomienia, aby skrócić czas wykonywania. 
 
-    Jeśli jest zaznaczona, system wykona moduł ponownie, aby ponownie wygenerować dane wyjściowe.
+    W przypadku wybrania tej operacji system ponownie uruchomi moduł w celu ponownego wygenerowania danych wyjściowych.
 
-1. Zdefiniuj ścieżkę w magazynie danych, w którym znajdują się dane. Ścieżka jest ścieżką względną. Puste ścieżki lub ścieżki adresu URL nie są dozwolone.
+1. Zdefiniuj ścieżkę w magazynie danych, w której są dane. Ścieżka jest ścieżką względną. Puste ścieżki lub ścieżki URL są niedozwolone.
 
 
-1. W polu **Format pliku**wybierz format, w którym dane mają być przechowywane.
+1. W polu **Format pliku**wybierz format, w którym mają być przechowywane dane.
  
 1. Prześlij potok.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

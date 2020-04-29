@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z usługą EduBrite LMS | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a usługą EduBrite LMS.
+title: 'Samouczek: integracja Azure Active Directory z systemem LMS EduBrite | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i systemem LMS EduBrite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,44 +17,44 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d916e783554e63ca20a9c841ddd0ece84aebf33
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67103641"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-edubrite-lms"></a>Samouczek: Integracja usługi Azure Active Directory z usługą EduBrite LMS
+# <a name="tutorial-azure-active-directory-integration-with-edubrite-lms"></a>Samouczek: integracja Azure Active Directory z systemem LMS EduBrite
 
-W tym samouczku dowiesz się, jak zintegrować EduBrite LMS z usługą Azure Active Directory (Azure AD).
-Integracja EduBrite LMS z usługą Azure AD zapewnia następujące korzyści:
+W ramach tego samouczka dowiesz się, jak zintegrować system LMS EduBrite z usługą Azure Active Directory (Azure AD).
+Integracja systemu LMS EduBrite z usługą Azure AD zapewnia następujące korzyści:
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do EduBrite LMS.
-* Można włączyć użytkowników, aby automatycznie zalogować się do EduBrite LMS (Logowanie jednokrotne) z ich kont usługi Azure AD.
+* Możesz kontrolować usługę Azure AD, która ma dostęp do systemu LMS EduBrite.
+* Możesz pozwolić użytkownikom na automatyczne logowanie do systemu LMS EduBrite (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z usługą EduBrite LMS, potrzebne są następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z systemem LMS EduBrite, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/)
-* Subskrypcja EduBrite LMS z obsługą logowania jednokrotnego
+* Subskrypcja z włączonym logowaniem jednokrotnym w systemie LMS EduBrite
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* EduBrite LMS obsługuje jednostkę SSO inicjowane przez **SP i IDP**
+* System LMS EduBrite obsługuje zainicjowane przez **SP i dostawcy tożsamości** Logowanie jednokrotne
 
-* EduBrite LMS obsługuje **inicjowanie** obsługi administracyjnej użytkowników just in time
+* System LMS EduBrite obsługuje inicjowanie aprowizacji użytkowników **just in Time**
 
-## <a name="adding-edubrite-lms-from-the-gallery"></a>Dodawanie EduBrite LMS z galerii
+## <a name="adding-edubrite-lms-from-the-gallery"></a>Dodawanie systemu LMS EduBrite z galerii
 
-Aby skonfigurować integrację EduBrite LMS z usługą Azure AD, należy dodać EduBrite LMS z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację systemu LMS EduBrite w usłudze Azure AD, musisz dodać system LMS EduBrite z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać EduBrite LMS z galerii, wykonaj następujące kroki:**
+**Aby dodać system LMS EduBrite z galerii, wykonaj następujące czynności:**
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
@@ -68,31 +68,31 @@ Aby skonfigurować integrację EduBrite LMS z usługą Azure AD, należy dodać 
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **EduBrite LMS**, wybierz **pozycję EduBrite LMS** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **EDUBRITE LMS**, wybierz pozycję **EduBrite system LMS** z panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-    ![EduBrite LMS na liście wyników](common/search-new-app.png)
+    ![EduBrite system LMS na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego z EduBrite LMS na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w EduBrite LMS.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD przy użyciu systemu LMS EduBrite na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w systemie LMS EduBrite.
 
-Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD za pomocą usługi EduBrite LMS, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD przy użyciu systemu LMS EduBrite, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie jednokrotne EduBrite LMS](#configure-edubrite-lms-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. Skonfiguruj Logowanie jednokrotne w **[systemie LMS EduBrite](#configure-edubrite-lms-single-sign-on)** , aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego EduBrite LMS](#create-edubrite-lms-test-user)** — aby mieć odpowiednik Britta Simon w EduBrite LMS, który jest połączony z reprezentacją użytkownika usługi Azure AD.
+5. **[Utwórz użytkownika testowego systemu LMS EduBrite](#create-edubrite-lms-test-user)** , aby uzyskać odpowiednik Britta Simon w systemie LMS EduBrite, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą usługi EduBrite LMS, wykonaj następujące kroki:
+Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu systemu LMS EduBrite, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **EduBrite LMS** wybierz opcję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **EduBrite LMS** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -104,28 +104,28 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą usługi Edu
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-4. W sekcji **Podstawowa konfiguracja SAML,** jeśli chcesz skonfigurować aplikację w trybie inicjowanym **przez IDP,** wykonaj następujące czynności:
+4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie LMS i adresach URL EduBrite](common/idp-intiated.png)
+    ![Informacje o rejestracji jednokrotnej w systemie LMS EduBrite i adresach URL](common/idp-intiated.png)
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL przy użyciu następującego wzorca:`https://<customer-specific>.edubrite.com`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<customer-specific>.edubrite.com`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<customer-specific>.edubrite.com/oltpublish/site/samlLoginResponse.do`
 
-5. Kliknij **pozycję Ustaw dodatkowe adresy URL** i wykonaj następujący krok, jeśli chcesz skonfigurować aplikację w trybie inicjowanym w sp: **SP**
+5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Informacje o domenie LMS i adresach URL EduBrite](common/metadata-upload-additional-signon.png)
+    ![Informacje o rejestracji jednokrotnej w systemie LMS EduBrite i adresach URL](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<customer-specific>.edubrite.com/oltpublish/site/samlLoginResponse.do`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta EduBrite LMS,](mailto:support@edubrite.com) aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta systemu LMS EduBrite](mailto:support@edubrite.com) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 6. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-7. W sekcji **Konfigurowanie EduBrite LMS** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+7. W sekcji **Konfigurowanie systemu LMS systemu EduBrite** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -133,11 +133,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą usługi Edu
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
-### <a name="configure-edubrite-lms-single-sign-on"></a>Konfigurowanie logowania jednokrotnego EduBrite LMS
+### <a name="configure-edubrite-lms-single-sign-on"></a>Konfigurowanie logowania jednokrotnego EduBrite systemu LMS
 
-Aby skonfigurować logowanie jednokrotne po stronie **EduBrite LMS,** należy wysłać pobrany **certyfikat (Base64)** i odpowiednie skopiowane adresy URL z witryny Azure portal do [zespołu pomocy technicznej EduBrite LMS.](mailto:support@edubrite.com) Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie systemu **LMS systemu EduBrite** , należy wysłać pobranego **certyfikatu (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej systemu LMS EduBrite](mailto:support@edubrite.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -147,7 +147,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -157,23 +157,23 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa** `brittasimon@yourcompanydomain.extension`użytkownika wpisz . Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`. Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jednokrotnego, udzielając dostępu do EduBrite LMS.
+Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do systemu LMS EduBrite.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, wybierz **pozycję Wszystkie aplikacje,** a następnie wybierz **pozycję EduBrite LMS**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję System **LMS EduBrite**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz pozycję **EduBrite LMS**.
+2. Na liście Aplikacje wybierz pozycję **EduBrite systemu LMS**.
 
-    ![Łącze EduBrite LMS na liście Aplikacje](common/all-applications.png)
+    ![Link EduBrite systemu LMS na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -185,25 +185,25 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-edubrite-lms-test-user"></a>Tworzenie użytkownika testowego EduBrite LMS
+### <a name="create-edubrite-lms-test-user"></a>Utwórz użytkownika testowego systemu LMS EduBrite
 
-W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w EduBrite LMS. EduBrite LMS obsługuje just-in-time inicjowania obsługi administracyjnej, który jest domyślnie włączony. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje w EduBrite LMS, nowy jest tworzony po uwierzytelnieniu.
+W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w EduBrite systemu LMS. System LMS EduBrite obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik nie istnieje jeszcze w EduBrite systemu LMS, po uwierzytelnieniu zostanie utworzony nowy.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka EduBrite LMS w Panelu dostępu należy automatycznie zalogować się do EduBrite LMS, dla którego skonfigurowano logującą się logującą logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka systemu LMS EduBrite w panelu dostępu należy automatycznie zalogować się do systemu LMS systemu EduBrite, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

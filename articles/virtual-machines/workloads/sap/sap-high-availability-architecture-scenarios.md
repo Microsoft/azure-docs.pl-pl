@@ -1,6 +1,6 @@
 ---
-title: Architektura wysokiej lokalizacji maszyn wirtualnych platformy Azure i scenariusze dla sap NetWeaver | Dokumenty firmy Microsoft
-description: Architektura o wysokiej dostępności i scenariusze dla sap NetWeaver na maszynach wirtualnych platformy Azure
+title: Architektura i scenariusze dla maszyn wirtualnych platformy Azure dla oprogramowania SAP NetWeaver | Microsoft Docs
+description: Architektura i scenariusze wysokiej dostępności dla oprogramowania SAP NetWeaver na platformie Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -17,13 +17,13 @@ ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 08f770ced6cb1ec1102159788e1583d481436b08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79279912"
 ---
-# <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Architektura i scenariusze wysokiej dostępności dla SAP NetWeaver
+# <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Architektura i scenariusze wysokiej dostępności dla oprogramowania SAP NetWeaver
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -147,7 +147,7 @@ ms.locfileid: "79279912"
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Konfiguracja wysokiej dostępności sap multi-SID)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Konfiguracja wysokiej dostępności dla oprogramowania SAP)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -231,209 +231,209 @@ ms.locfileid: "79279912"
 
 ## <a name="terminology-definitions"></a>Definicje terminologii
 
-**Wysoka dostępność:** Odnosi się do zestawu technologii, które minimalizują zakłócenia w technologii IT, zapewniając ciągłość działania usług IT za pośrednictwem nadmiarowych, odpornych na uszkodzenia lub składników chronionych przez tryb failover w *tym samym* centrum danych. W naszym przypadku centrum danych znajduje się w jednym regionie platformy Azure.
+**Wysoka dostępność**: odnosi się do zestawu technologii, które minimalizują zakłócenia, zapewniając ciągłość działania usług informatycznych za pomocą nadmiarowych, odpornych na uszkodzenia lub składników chronionych w trybie failover w *tym samym* centrum danych. W naszym przypadku centrum danych znajduje się w obrębie jednego regionu świadczenia usługi Azure.
 
-**Odzyskiwanie po awarii:** odnosi się również do minimalizacji zakłóceń w usługach IT i ich odzyskiwania, ale w *różnych* centrach danych, które mogą znajdować się setki kilometrów od siebie. W naszym przypadku centra danych mogą znajdować się w różnych regionach platformy Azure w tym samym regionie geopolitycznym lub w lokalizacjach ustalonych przez Ciebie jako klienta.
+**Odzyskiwanie po awarii**: dotyczy również minimalizowania przerw w działaniu usług IT i ich odzyskiwania, ale w *różnych* centrach danych, które mogą być setkami kilometrów od siebie nawzajem. W naszym przypadku centra danych mogą znajdować się w różnych regionach świadczenia usługi Azure w tym samym regionie geopolitycznym lub w lokalizacjach ustanowionych przez użytkownika jako klienta.
 
 
 ## <a name="overview-of-high-availability"></a>Przegląd wysokiej dostępności
-Wysoka dostępność sap na platformie Azure można podzielić na trzy typy:
+Wysoką dostępność oprogramowania SAP na platformie Azure można podzielić na trzy typy:
 
-* **Wysoka dostępność infrastruktury platformy Azure:** 
+* **Wysoka dostępność infrastruktury platformy Azure**: 
 
-    Na przykład wysoka dostępność może obejmować obliczeń (maszyny wirtualne), sieci lub magazynu i jego korzyści dla zwiększenia dostępności aplikacji SAP.
+    Na przykład wysoka dostępność może obejmować obliczenia (maszyny wirtualne), sieć lub magazyn oraz jego zalety w celu zwiększenia dostępności aplikacji SAP.
 
-* **Korzystanie z ponownego uruchamiania maszyny wirtualnej infrastruktury platformy Azure w celu uzyskania *większej dostępności* aplikacji SAP:** 
+* Korzystanie **z ponownego uruchamiania maszyny wirtualnej infrastruktury platformy Azure w celu uzyskania *większej dostępności* aplikacji SAP**: 
 
-    Jeśli zdecydujesz się nie używać funkcji, takich jak klastrowanie trybu failover systemu Windows Server (WSFC) lub rozrusznik serca w systemie Linux, zostanie użyte ponowne uruchomienie maszyny Wirtualnej platformy Azure. Chroni systemy SAP przed planowanymi i nieplanowanymi przestojami infrastruktury serwera fizycznego platformy Azure i ogólnej podstawowej platformy Azure.
+    Jeśli użytkownik zdecyduje się nie używać takich funkcji jak Windows Server Failover Clustering (WSFC) lub Pacemaker w systemie Linux, zostanie wykorzystane ponowne uruchomienie maszyny wirtualnej platformy Azure. Program chroni systemy SAP przed planowanymi i nieplanowanymi przestojami infrastruktury serwera fizycznego platformy Azure i ogólną podstawową platformą platformy Azure.
 
-* **Wysoka dostępność aplikacji SAP:** 
+* **Wysoka dostępność aplikacji SAP**: 
 
-    Aby uzyskać pełną wysoką dostępność systemu SAP, należy chronić wszystkie krytyczne składniki systemu SAP. Przykład:
+    Aby zapewnić pełną dostępność systemu SAP, należy chronić wszystkie krytyczne składniki systemu SAP. Przykład:
     * Nadmiarowe serwery aplikacji SAP.
-    * Unikalne komponenty. Przykładem może być pojedynczy składnik punktu awarii (SPOF), taki jak wystąpienie SAP ASCS/SCS lub system zarządzania bazami danych (DBMS).
+    * Unikatowe składniki. Przykładem może być składnik single point of failure (SPOF), taki jak wystąpienie SAP ASCS/SCS lub system zarządzania bazami danych (DBMS).
 
-Wysoka dostępność sap na platformie Azure różni się od wysokiej dostępności SAP w lokalnym środowisku fizycznym lub wirtualnym. W poniższym dokumencie [SAP NetWeaver wysoka dostępność i ciągłość działania w środowiskach wirtualnych z VMware i Hyper-V w systemie Microsoft Windows][sap-ha-bc-virtual-env-hyperv-vmware-white-paper] opisuje standardowe konfiguracje SAP o wysokiej dostępności w środowiskach zwirtualizowanych w systemie Windows.
+Wysoka dostępność oprogramowania SAP na platformie Azure różni się od wysokiej dostępności SAP w lokalnym środowisku fizycznym lub wirtualnym. Poniższy dokument dotyczący [wysokiej dostępności i ciągłości działania firmy SAP NetWeaver w środowiskach wirtualnych z technologią VMware i funkcją Hyper-V w systemie Microsoft Windows][sap-ha-bc-virtual-env-hyperv-vmware-white-paper] opisuje standardowe konfiguracje wysokiej dostępności SAP w środowiskach zwirtualizowanych w systemie Windows.
 
-Nie ma sapinst zintegrowane SAP wysokiej dostępności konfiguracji dla Systemu Linux, jak istnieje dla systemu Windows. Aby uzyskać informacje o wysokiej dostępności sap w środowisku lokalnym dla systemu Linux, zobacz [Informacje o partnerach o wysokiej dostępności][sap-ha-partner-information].
+Dla systemu Linux nie istnieje zintegrowana z sapinst konfiguracją usługi SAP o wysokiej dostępności. Aby uzyskać informacje o wysokiej dostępności oprogramowania SAP w środowisku lokalnym dla systemu Linux, zobacz [Informacje o partnerze o wysokiej dostępności][sap-ha-partner-information].
 
 ## <a name="azure-infrastructure-high-availability"></a>Wysoka dostępność infrastruktury platformy Azure
 
-### <a name="sla-for-single-instance-virtual-machines"></a>La dla maszyn wirtualnych z jednym wystąpieniem
+### <a name="sla-for-single-instance-virtual-machines"></a>Umowa SLA dla maszyn wirtualnych z jednym wystąpieniem
 
-Obecnie istnieje pojedyncza maszyna wirtualna SLA 99,9% z pamięcią masową w jakości Premium. Aby zorientować się, jaka może być dostępność pojedynczej maszyny Wirtualnej, można utworzyć produkt różnych dostępnych [umów dotyczących poziomu usług platformy Azure.][azure-sla]
+Obecnie jest dostępna umowa SLA na jedną maszynę wirtualną wynoszącą 99,9% z magazynem w warstwie Premium. Aby zapoznać się z informacjami o dostępności pojedynczej maszyny wirtualnej, można utworzyć iloczyn różnych dostępnych [umów dotyczących poziomu usług platformy Azure][azure-sla].
 
-Podstawą obliczeń jest 30 dni w miesiącu lub 43 200 minut. Na przykład przestój 0,05% odpowiada 21,6 minut. Jak zwykle dostępność różnych usług jest obliczana w następujący sposób:
+Podstawą obliczenia jest 30 dni miesięcznie lub 43 200 minut. Na przykład czas przestoju 0,05% odpowiada 21,6 minut. Jak zwykle dostępność różnych usług jest obliczana w następujący sposób:
 
 (Usługa dostępności #1/100) * (usługa dostępności #2/100) * (usługa dostępności #3/100) \*...
 
 Przykład:
 
-(99,95/100) * (99,9/100) * (99,9/100) = 0,9975 lub ogólna dostępność 99,75%.
+(99,95/100) * (99,9/100) * (99,9/100) = 0,9975 lub Ogólna dostępność 99,75%.
 
 ### <a name="multiple-instances-of-virtual-machines-in-the-same-availability-set"></a>Wiele wystąpień maszyn wirtualnych w tym samym zestawie dostępności
-Dla wszystkich maszyn wirtualnych, które mają dwa lub więcej wystąpień wdrożonych w tym samym *zestawie dostępności,* gwarantujemy, że będziesz miał łączność z maszyną wirtualną z co najmniej jednym wystąpieniem co najmniej 99,95% czasu.
+W przypadku wszystkich maszyn wirtualnych, które mają co najmniej dwa wystąpienia wdrożone w tym samym *zestawie dostępności*, firma Microsoft gwarantuje, że będziesz mieć łączność z maszynami wirtualnymi z przynajmniej jednym wystąpieniem przez co najmniej 99,95% czasu.
 
-Gdy co najmniej dwie maszyny wirtualne są częścią tego samego zestawu dostępności, każdej maszynie wirtualnej w zestawie dostępności jest przypisywana *domena aktualizacji* i *domena błędów* przez podstawową platformę Azure.
+Gdy co najmniej dwie maszyny wirtualne są częścią tego samego zestawu dostępności, każda maszyna wirtualna w zestawie dostępności ma przypisaną *domenę aktualizacji* i *domenę błędów* przez podstawową platformę Azure.
 
-* **Domeny aktualizacji** gwarantują, że wiele maszyn wirtualnych nie są ponownie uruchamiane w tym samym czasie podczas planowanej konserwacji infrastruktury platformy Azure. Tylko jedna maszyna wirtualna jest ponownie uruchamiana w czasie.
+* **Domeny aktualizacji** gwarantują, że wiele maszyn wirtualnych nie jest ponownie uruchomionych w tym samym czasie podczas planowanej konserwacji infrastruktury platformy Azure. Tylko jedna maszyna wirtualna jest uruchamiana ponownie w danym momencie.
 
-* **Domeny błędów** gwarantują, że maszyny wirtualne są wdrażane na składnikach sprzętowych, które nie mają wspólnego źródła zasilania i przełącznika sieciowego. Gdy serwery, przełącznik sieciowy lub źródło zasilania przechodzą nieplanowany czas przestoju, dotyczy to tylko jednej maszyny Wirtualnej.
+* **Domeny błędów** gwarantują, że maszyny wirtualne są wdrażane na składnikach sprzętowych, które nie współdzielą wspólnego źródła i przełącznika sieciowego. Gdy serwery, przełącznik sieciowy lub źródło prądu są poddawane nieplanowanym przestojom, to dotyczy tylko jednej maszyny wirtualnej.
 
 Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows na platformie Azure][azure-virtual-machines-manage-availability].
 
-Zestaw dostępności służy do osiągnięcia wysokiej dostępności:
+Zestaw dostępności jest używany do osiągnięcia wysokiej dostępności:
 
 * Nadmiarowe serwery aplikacji SAP.  
-* Klastry z co najmniej dwoma węzłami (na przykład maszynami wirtualnymi), które chronią pliki SPOF, takie jak wystąpienie SAP ASCS/SCS lub system dbms.
+* Klastry z co najmniej dwoma węzłami (na przykład), które chronią wpłynęły, takie jak wystąpienie SAP ASCS/SCS lub system DBMS.
 
 
 ### <a name="azure-availability-zones"></a>Strefy dostępności platformy Azure
-Platforma Azure jest w trakcie rozwijania koncepcji [stref dostępności platformy Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) w różnych [regionach platformy Azure.](https://azure.microsoft.com/global-infrastructure/regions/) W regionach platformy Azure, w których oferowane są strefy dostępności, regiony platformy Azure mają wiele centrów danych, które są niezależne pod względem źródła zasilania, chłodzenia i sieci. Powodem oferowania różnych stref w jednym regionie platformy Azure jest umożliwienie wdrażania aplikacji w dwóch lub trzech strefach dostępności oferowanych. Zakładając, że problemy ze źródłami zasilania i/lub siecią będą miały wpływ tylko na jedną infrastrukturę strefy dostępności, wdrożenie aplikacji w regionie platformy Azure jest nadal w pełni funkcjonalne. Ostatecznie z pewną zmniejszoną pojemnością, ponieważ niektóre maszyny wirtualne w jednej strefie mogą zostać utracone. Ale maszyny wirtualne w pozostałych dwóch strefach są nadal uruchomione. Regiony platformy Azure, które oferują strefy są wymienione w [strefach dostępności platformy Azure](https://docs.microsoft.com/azure/availability-zones/az-overview).
+System Azure jest w trakcie wdrażania koncepcji [strefy dostępności platformy Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) w różnych [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/). W regionach platformy Azure, w których są oferowane Strefy dostępności, regiony platformy Azure mają wiele centrów danych, które są niezależne od dostarczania źródła, chłodzenia i sieci. Celem oferowania różnych stref w ramach jednego regionu świadczenia usługi Azure jest umożliwienie wdrażania aplikacji w dwóch lub trzech oferowanych Strefy dostępności. Przy założeniu, że problemy w źródłach i/lub sieci mają wpływ tylko na jedną infrastrukturę strefy dostępności, wdrożenie aplikacji w regionie świadczenia usługi Azure będzie nadal w pełni funkcjonalne. Ostatecznie dzięki mniejszej pojemności, ponieważ niektóre maszyny wirtualne w jednej strefie mogą zostać utracone. Jednak maszyny wirtualne w pozostałych dwóch strefach są nadal uruchomione. Regiony platformy Azure, które oferują strefy, są wymienione w [strefy dostępności platformy Azure](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-Korzystając ze stref dostępności, należy wziąć pod uwagę kilka czynników. Lista zagadnień, takich jak:
+Korzystając z Strefy dostępności, należy wziąć pod uwagę pewne zagadnienia. Lista zagadnień, takich jak:
 
-- Nie można wdrożyć zestawów dostępności platformy Azure w strefie dostępności. Należy wybrać strefę dostępności lub zestaw dostępności jako ramkę wdrażania maszyny Wirtualnej.
-- Nie można użyć [podstawowego modułu równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) do tworzenia rozwiązań klastra trybu failover opartych na usługach klastra trybu failover systemu Windows lub rozruszniku systemu Linux. Zamiast tego należy użyć jednostki [SKU równoważenia obciążenia standardowego platformy Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
-- Strefy dostępności platformy Azure nie dają żadnych gwarancji pewnej odległości między różnymi strefami w jednym regionie
-- Opóźnienie sieci między różnymi strefami dostępności platformy Azure w różnych regionach platformy Azure może się różnić w zależności od regionu platformy Azure. Będą przypadki, w których jako klient można rozsądnie uruchomić warstwę aplikacji SAP wdrożone w różnych strefach, ponieważ opóźnienie sieci z jednej strefy do aktywnej maszyny Wirtualnej DBMS jest nadal dopuszczalne z wpływu procesu biznesowego. Scenariusze klienta będą, w których opóźnienie między aktywną maszyną wirtualną DBMS w jednej strefie a wystąpieniem aplikacji SAP na maszynie Wirtualnej w innej strefie może być zbyt inwazyjne i nie do przyjęcia dla procesów biznesowych SAP. W rezultacie architektury wdrażania muszą być różne z aktywnej/aktywnej architektury dla aplikacji lub architektury aktywnej/pasywnej, jeśli opóźnienie jest zbyt wysokie.
-- Korzystanie z [dysków zarządzanych platformy Azure](https://azure.microsoft.com/services/managed-disks/) jest obowiązkowe do wdrażania w strefach dostępności platformy Azure 
+- Zestawów dostępności platformy Azure nie można wdrażać w ramach strefy dostępności. Musisz wybrać strefę dostępności lub zestaw dostępności jako ramkę wdrożenia dla maszyny wirtualnej.
+- Nie można użyć [podstawowego Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) do tworzenia rozwiązań klastra trybu failover opartych na usługach klastra trybu failover systemu Windows lub w systemie Linux Pacemaker. Zamiast tego należy użyć [jednostki SKU usługi Azure usługa Load Balancer w warstwie Standardowa](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
+- Strefy dostępności platformy Azure nie udziela żadnych gwarancji dotyczących pewnej odległości między różnymi strefami w jednym regionie
+- Opóźnienie sieci między różnymi Strefy dostępności platformy Azure w różnych regionach świadczenia usługi Azure może różnić się od regionu platformy Azure do regionu. Istnieją sytuacje, w których klient może w sposób racjonalnie uruchamiać warstwę aplikacji SAP wdrożoną w różnych strefach, ponieważ opóźnienie sieci z jednej strefy do aktywnej maszyny wirtualnej z systemem DBMS jest nadal akceptowalne na podstawie wpływu na proces biznesowy. Istnieją scenariusze klientów, w których opóźnienie między aktywną maszyną wirtualną DBMS w jednej strefie a wystąpieniem aplikacji SAP na maszynie wirtualnej w innej strefie może być zbyt inwazyjne i nieakceptowalne dla procesów firmy SAP Business. W związku z tym architektury wdrożenia muszą być różne w zależności od aktywnej/aktywnej architektury dla aplikacji lub architektury aktywny/pasywny, jeśli opóźnienie jest zbyt wysokie.
+- Korzystanie z [usługi Azure Managed disks](https://azure.microsoft.com/services/managed-disks/) jest wymagane do wdrożenia w strefy dostępności platformy Azure 
 
 
 ### <a name="planned-and-unplanned-maintenance-of-virtual-machines"></a>Planowana i nieplanowana konserwacja maszyn wirtualnych
 
-Dwa typy zdarzeń platformy Azure platformy może mieć wpływ na dostępność maszyn wirtualnych:
+Dwa typy zdarzeń platformy Azure mogą mieć wpływ na dostępność maszyn wirtualnych:
 
-* **Planowane** zdarzenia konserwacji są okresowymi aktualizacjami wprowadzonymi przez firmę Microsoft na podstawowej platformie Azure. Aktualizacje zwiększają ogólną niezawodność, wydajność i bezpieczeństwo infrastruktury platformy, na których działają maszyny wirtualne.
+* Zdarzenia **planowanej konserwacji** to okresowe aktualizacje wykonywane przez firmę Microsoft na podstawową platformę Azure. Aktualizacje zwiększają ogólną niezawodność, wydajność i bezpieczeństwo infrastruktury platformy, na której działają maszyny wirtualne.
 
-* **Nieplanowane** zdarzenia konserwacji występują, gdy sprzęt lub infrastruktura fizyczna leżąca u podstaw maszyny wirtualnej w jakiś sposób uległa awarii. Może to obejmować awarie sieci lokalnej, awarie dysków lokalnych lub inne awarie na poziomie stelaża. Po wykryciu takiego błędu platforma Azure automatycznie migruje maszynę wirtualną ze złej kondycji serwera fizycznego, na którym znajduje się maszyna wirtualna, na zdrowy serwer fizyczny. Takie zdarzenia są rzadkie, ale mogą również powodować ponowne uruchomienie maszyny wirtualnej.
+* Zdarzenia **nieplanowanej konserwacji** są wykonywane, gdy sprzęt lub fizyczna infrastruktura maszyny wirtualnej nie powiodła się w jakiś sposób. Może obejmować awarie sieci lokalnej, błędy dysku lokalnego lub inne awarie poziomu stojaka. Po wykryciu tego błędu platforma Azure automatycznie migruje maszynę wirtualną z serwera fizycznego złej kondycji, który hostuje maszynę wirtualną na serwer fizyczny zdrowe. Takie zdarzenia są rzadkie, ale mogą również spowodować ponowne uruchomienie maszyny wirtualnej.
 
 Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows na platformie Azure][azure-virtual-machines-manage-availability].
 
 ### <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
-Dane na koncie magazynu są zawsze replikowane, aby zapewnić trwałość i wysoką dostępność, spełniając umowy SLA usługi Azure Storage nawet w przypadku przejściowych awarii sprzętu.
+Dane na koncie magazynu są zawsze replikowane w celu zapewnienia trwałości i wysokiej dostępności, które spełniają warunki umowy SLA usługi Azure Storage, nawet w przypadku przejściowych awarii sprzętu.
 
-Ponieważ usługa Azure Storage domyślnie przechowuje trzy obrazy danych, użycie raidu 5 lub RAID 1 na wielu dyskach platformy Azure jest niepotrzebne.
+Ponieważ usługa Azure Storage domyślnie przechowuje trzy obrazy danych, używanie macierzy RAID 5 lub RAID 1 na wielu dyskach platformy Azure jest zbędne.
 
 Aby uzyskać więcej informacji, zobacz [Replikacja usługi Azure Storage][azure-storage-redundancy].
 
 ### <a name="azure-managed-disks"></a>Dyski zarządzane platformy Azure
-Dyski zarządzane to typ zasobu w usłudze Azure Resource Manager, który jest zalecany do użycia zamiast wirtualnych dysków twardych (VHD), które są przechowywane na kontach magazynu platformy Azure. Dyski zarządzane automatycznie wyrównują się z zestawem dostępności platformy Azure maszyny wirtualnej, do których są dołączone. Zwiększają one dostępność maszyny wirtualnej i usług, które są na niej uruchomione.
+Managed Disks jest typem zasobu w Azure Resource Manager zalecanym do użycia zamiast wirtualnych dysków twardych (VHD), które są przechowywane na kontach usługi Azure Storage. Dyski zarządzane są automatycznie wyrównane z zestawem dostępności platformy Azure, do którego są dołączone. Zwiększają one dostępność maszyny wirtualnej i usługi, które działają na niej.
 
-Aby uzyskać więcej informacji, zobacz [omówienie omówienie dysków zarządzanych platformy Azure][azure-storage-managed-disks-overview].
+Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Managed disks][azure-storage-managed-disks-overview].
 
-Zaleca się używanie dysków zarządzanych, ponieważ upraszczają one wdrażanie maszyn wirtualnych i zarządzanie nimi.
+Zalecamy używanie dysków zarządzanych, ponieważ upraszczają one wdrażanie maszyn wirtualnych i zarządzanie nimi.
 
 
 
-## <a name="utilizing-azure-infrastructure-high-availability-to-achieve-higher-availability-of-sap-applications"></a>Wykorzystanie wysokiej dostępności infrastruktury platformy Azure w celu uzyskania *większej dostępności* aplikacji SAP
+## <a name="utilizing-azure-infrastructure-high-availability-to-achieve-higher-availability-of-sap-applications"></a>Wykorzystanie infrastruktury platformy Azure o wysokiej dostępności w celu uzyskania *większej dostępności* aplikacji SAP
 
-Jeśli zdecydujesz się nie używać funkcji, takich jak WSFC lub Pacemaker w systemie Linux (obecnie obsługiwane tylko dla SUSE Linux Enterprise Server [SLES] 12 i nowsze), ponowne uruchomienie maszyny Wirtualnej platformy Azure jest wykorzystywane. Chroni systemy SAP przed planowanymi i nieplanowanymi przestojami infrastruktury serwera fizycznego platformy Azure i ogólnej podstawowej platformy Azure.
+Jeśli zdecydujesz się nie używać takich funkcji jak WSFC lub Pacemaker w systemie Linux (obecnie obsługiwane tylko w SUSE Linux Enterprise Server [SLES] 12 i nowszych), zostanie wykorzystane ponowne uruchomienie maszyny wirtualnej platformy Azure. Program chroni systemy SAP przed planowanymi i nieplanowanymi przestojami infrastruktury serwera fizycznego platformy Azure i ogólną podstawową platformą platformy Azure.
 
-Aby uzyskać więcej informacji na temat tego podejścia, zobacz [Korzystanie z ponownego uruchamiania maszyny wirtualnej infrastruktury platformy Azure w celu uzyskania większej dostępności systemu SAP.][sap-higher-availability]
+Aby uzyskać więcej informacji na temat tego podejścia, zobacz temat [Korzystanie z ponownego uruchamiania infrastruktury platformy Azure w celu uzyskania wyższej dostępności systemu SAP][sap-higher-availability].
 
 ## <a name="high-availability-of-sap-applications-on-azure-iaas"></a><a name="baed0eb3-c662-4405-b114-24c10a62954e"></a>Wysoka dostępność aplikacji SAP na platformie Azure IaaS
 
-Aby uzyskać pełną wysoką dostępność systemu SAP, należy chronić wszystkie krytyczne składniki systemu SAP. Przykład:
+Aby zapewnić pełną dostępność systemu SAP, należy chronić wszystkie krytyczne składniki systemu SAP. Przykład:
   * Nadmiarowe serwery aplikacji SAP.
-  * Unikalne komponenty. Przykładem może być pojedynczy składnik punktu awarii (SPOF), taki jak wystąpienie SAP ASCS/SCS lub system zarządzania bazami danych (DBMS).
+  * Unikatowe składniki. Przykładem może być składnik single point of failure (SPOF), taki jak wystąpienie SAP ASCS/SCS lub system zarządzania bazami danych (DBMS).
 
-W następnych sekcjach omówiono sposób osiągnięcia wysokiej dostępności dla wszystkich trzech krytycznych składników systemu SAP.
+W następnych sekcjach omówiono, jak uzyskać wysoką dostępność dla wszystkich trzech krytycznych składników systemu SAP.
 
 ### <a name="high-availability-architecture-for-sap-application-servers"></a>Architektura wysokiej dostępności dla serwerów aplikacji SAP
 
-> Niniejsza sekcja dotyczy:
+> Ta sekcja ma zastosowanie do:
 >
-> ![Windows][Logo_Windows] Okna i ![Linux][Logo_Linux] Linux
+> ![Windows][Logo_Windows] System Windows i ![Linux][Logo_Linux] Linux
 >
 
-Zazwyczaj nie potrzebujesz określonego rozwiązania o wysokiej dostępności dla serwera aplikacji SAP i wystąpień okien dialogowych. Osiągasz wysoką dostępność przez nadmiarowość i konfigurujesz wiele wystąpień okien dialogowych w różnych wystąpieniach maszyn wirtualnych platformy Azure. Powinien mieć co najmniej dwa wystąpienia aplikacji SAP zainstalowane w dwóch wystąpieniach maszyn wirtualnych platformy Azure.
+Zwykle nie jest potrzebne konkretne rozwiązanie wysokiej dostępności dla serwera aplikacji SAP i wystąpień okna dialogowego. Wysoką dostępność można osiągnąć dzięki nadmiarowości i można skonfigurować wiele wystąpień okna dialogowego w różnych wystąpieniach maszyn wirtualnych platformy Azure. W dwóch wystąpieniach maszyn wirtualnych platformy Azure należy zainstalować co najmniej dwa wystąpienia aplikacji SAP.
 
-![Rysunek 1: Serwer aplikacji SAP o wysokiej dostępności][sap-ha-guide-figure-2000]
+![Rysunek 1. serwer aplikacji SAP o wysokiej dostępności][sap-ha-guide-figure-2000]
 
-_**Rysunek 1:** Serwer aplikacji SAP o wysokiej dostępności_
+_**Rysunek 1.** Serwer aplikacji SAP o wysokiej dostępności_
 
-Należy umieścić wszystkie maszyny wirtualne, które obsługują wystąpienia serwera aplikacji SAP w tym samym zestawie dostępności platformy Azure. Zestaw dostępności platformy Azure zapewnia, że:
+Wszystkie maszyny wirtualne obsługujące wystąpienia serwera aplikacji SAP należy umieścić w tym samym zestawie dostępności platformy Azure. Zestaw dostępności platformy Azure gwarantuje, że:
 
 * Wszystkie maszyny wirtualne są częścią tej samej domeny aktualizacji.  
-    Domena aktualizacji zapewnia, że maszyny wirtualne nie są aktualizowane w tym samym czasie podczas planowanych przestojów konserwacji.
+    Domena aktualizacji gwarantuje, że maszyny wirtualne nie są aktualizowane w tym samym czasie podczas planowanego przestoju konserwacji.
 
-    Podstawowe funkcje, które opiera się na różnych domen aktualizacji i błędów w ramach jednostki skalowania platformy Azure, został już wprowadzony w sekcji [domen aktualizacji.][planning-guide-3.2.2]
+    Podstawowa funkcja, która jest oparta na różnych aktualizacjach i domenach błędów w ramach jednostki skalowania na platformie Azure, została już wprowadzona w sekcji [domeny aktualizacji][planning-guide-3.2.2] .
 
 * Wszystkie maszyny wirtualne są częścią tej samej domeny błędów.  
-    Domena błędów zapewnia, że maszyny wirtualne są wdrażane, dzięki czemu żaden pojedynczy punkt awarii nie wpływa na dostępność wszystkich maszyn wirtualnych.
+    Domena błędów gwarantuje, że maszyny wirtualne zostaną wdrożone, tak aby żadna single point of failure nie miała wpływu na dostępność wszystkich maszyn wirtualnych.
 
-Liczba domen aktualizacji i błędów, które mogą być używane przez zestaw dostępności platformy Azure w jednostce skalowania platformy Azure jest skończona. Jeśli nadal dodajesz maszyny wirtualne do jednego zestawu dostępności, co najmniej dwie maszyny wirtualne ostatecznie znajdą się w tej samej domenie błędów lub aktualizacji.
+Liczba domen aktualizacji i błędów, które mogą być używane przez zestaw dostępności platformy Azure w ramach jednostki skalowania platformy Azure, jest ograniczona. Jeśli dodasz maszyny wirtualne do jednego zestawu dostępności, co najmniej dwie maszyny wirtualne będą ostatecznie kończyć się w tej samej domenie błędów lub aktualizacji.
 
-Jeśli wdrożysz kilka wystąpień serwera aplikacji SAP w dedykowanych maszynach wirtualnych, przy założeniu, że mamy pięć domen aktualizacji, pojawi się następujący obraz. Rzeczywista maksymalna liczba domen aktualizacji i błędów w ramach zestawu dostępności może ulec zmianie w przyszłości:
+W przypadku wdrożenia kilku wystąpień serwera aplikacji SAP na swoich dedykowanych maszynach wirtualnych przy założeniu, że mamy pięć domen aktualizacji, pojawi się poniższy obraz. Rzeczywista Maksymalna liczba domen aktualizacji i błędów w ramach zestawu dostępności może ulec zmianie w przyszłości:
 
-![Rysunek 2: Wysoka dostępność serwerów aplikacji SAP][planning-guide-figure-3000]
-w zestawie dostępności platformy Azure_**Rysunek 2:** Wysoka dostępność serwerów aplikacji SAP w zestawie dostępności platformy Azure_
+![Rysunek 2: wysoka dostępność serwerów aplikacji SAP w zestawie][planning-guide-figure-3000]
+dostępności platformy Azure_**rysunek 2:** wysoka dostępność serwerów aplikacji SAP w zestawie dostępności platformy Azure_
 
 Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows na platformie Azure][azure-virtual-machines-manage-availability].
 
-Aby uzyskać więcej informacji, zobacz sekcję [Zestawy dostępności platformy Azure][planning-guide-3.2.3] w dokumencie i implementacji maszyn wirtualnych platformy Azure dla dokumentu SAP NetWeaver.
+Aby uzyskać więcej informacji, zobacz sekcję [zestawy dostępności platformy Azure][planning-guide-3.2.3] w dokumencie planowanie i wdrażanie w usłudze Azure Virtual Machines dla oprogramowania SAP NetWeaver.
 
-**Tylko dyski niezarządzane:** Ponieważ konto magazynu platformy Azure jest potencjalnym pojedynczym punktem awarii, ważne jest, aby mieć co najmniej dwa konta magazynu platformy Azure, na których są dystrybuowane co najmniej dwie maszyny wirtualne. W idealnej konfiguracji dyski każdej maszyny wirtualnej z uruchomionym wystąpieniem okna dialogowego SAP zostaną wdrożone na innym koncie magazynu.
+**Tylko dyski niezarządzane:** Ponieważ konto usługi Azure Storage jest potencjalnym single point of failure, ważne jest posiadanie co najmniej dwóch kont usługi Azure Storage, w których dystrybuowane są co najmniej dwie maszyny wirtualne. W idealnym instalacji dyski każdej maszyny wirtualnej, na której działa wystąpienie okna dialogowego SAP, zostaną wdrożone na innym koncie magazynu.
 
 > [!IMPORTANT]
-> Zdecydowanie zaleca się używanie dysków zarządzanych platformy Azure do instalacji o wysokiej dostępności sap. Ponieważ dyski zarządzane automatycznie wyrównać z zestawem dostępności maszyny wirtualnej, które są dołączone do, zwiększają dostępność maszyny wirtualnej i usług, które są na niej uruchomione.  
+> Zdecydowanie zalecamy korzystanie z usługi Azure Managed disks na potrzeby instalacji z użyciem oprogramowania SAP High-Availability. Ponieważ dyski zarządzane są automatycznie wyrównane z zestawem dostępności maszyny wirtualnej, do której są dołączone, zwiększają one dostępność maszyny wirtualnej i usługi, które są na niej uruchomione.  
 >
 
-### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Architektura wysokiej dostępności dla wystąpienia SAP ASCS/SCS w systemie Windows
+### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Architektura wysokiej dostępności dla wystąpienia oprogramowania SAP ASCS/SCS w systemie Windows
 
 > ![Windows][Logo_Windows] Windows
 >
 
-Można użyć rozwiązania WSFC do ochrony wystąpienia SAP ASCS/SCS. Rozwiązanie ma dwa warianty:
+Do ochrony wystąpienia SAP ASCS/SCS można użyć rozwiązania WSFC. Rozwiązanie ma dwa warianty:
 
-* **Grupowanie wystąpienia SAP ASCS/SCS przy użyciu klastrowanych dysków udostępnionych:** Aby uzyskać więcej informacji na temat tej architektury, zobacz [Klaster wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udostępnionego dysku klastra][sap-high-availability-guide-wsfc-shared-disk].   
+* **Klastrowanie wystąpienia SAP ASCS/SCS za pomocą klastrowanych dysków udostępnionych**: Aby uzyskać więcej informacji dotyczących tej architektury, zobacz [CLUSTERING The SAP ASCS/SCS instance in Windows failover][sap-high-availability-guide-wsfc-shared-disk]Clustering Disk.   
 
-* **Grupowanie wystąpienia SAP ASCS/SCS przy użyciu udziału plików:** Aby uzyskać więcej informacji na temat tej architektury, zobacz [Klaster wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udziału plików][sap-high-availability-guide-wsfc-file-share].
+* **Klastrowanie wystąpienia SAP ASCS/SCS za pomocą udziału plików**: Aby uzyskać więcej informacji na temat tej architektury, zobacz [CLUSTERING an SAP ASCS/SCS instance w klastrze trybu failover systemu Windows przy użyciu udziału plików][sap-high-availability-guide-wsfc-file-share].
 
-* **Grupowanie wystąpienia SAP ASCS/SCS przy użyciu udziału SMB ANF:** Aby uzyskać więcej informacji na temat tej architektury, zobacz [Klaster klastra wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udziału plików SMB ANF](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
+* **Klastrowanie wystąpienia SAP ASCS/SCS przy użyciu udziału ANF SMB**: Aby uzyskać więcej informacji na temat tej architektury, zobacz klaster klastra [wystąpienie SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udziału plików ANF SMB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
 
-### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Architektura o wysokiej dostępności dla wystąpienia SAP ASCS/SCS w systemie Linux
+### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Architektura wysokiej dostępności dla wystąpienia oprogramowania SAP ASCS/SCS w systemie Linux
 
 > ![Linux][Logo_Linux] Linux
 > 
-> Aby uzyskać więcej informacji na temat klastrowania wystąpienia SAP ASCS/SCS przy użyciu struktury klastra SLES, zobacz [Wysoka dostępność sap NetWeaver na maszynach wirtualnych platformy Azure na serwerze SUSE Linux Enterprise Server dla aplikacji SAP][sap-suse-ascs-ha]. Alternatywna architektura wysokiej dostępności w systemie SLES, która nie wymaga wysoce dostępnego systemu plików NFS, zobacz [Przewodnik o wysokiej dostępności dla SAP NetWeaver na SUSE Linux Enterprise Server z usługą Azure NetApp Files for SAP applications][sap-suse-ascs-ha-anf].
+> Aby uzyskać więcej informacji na temat klastrowania wystąpienia SAP ASCS/SCS przy użyciu platformy klastra SLES, zobacz [wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server dla aplikacji SAP][sap-suse-ascs-ha]. W przypadku alternatywnej architektury HA w systemie SLES, która nie wymaga systemu plików NFS o wysokiej dostępności, zobacz temat [High Availability w systemie SAP NetWeaver na SUSE Linux Enterprise Server z Azure NetApp Files dla aplikacji SAP][sap-suse-ascs-ha-anf].
 
-Aby uzyskać więcej informacji na temat klastrowania wystąpienia SAP ASCS/SCS przy użyciu struktury klastra Red Hat, zobacz [Wysokiej dostępności maszyn wirtualnych platformy Azure dla SAP NetWeaver w systemie Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
+Aby uzyskać więcej informacji na temat klastrowania wystąpienia SAP ASCS/SCS przy użyciu struktury klastra Red Hat, zobacz [Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver na Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
 
 
-### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>Konfiguracja wielu identyfikatorów SID SAP NetWeaver dla klastrowanego wystąpienia SAP ASCS/SCS
+### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>Konfiguracja protokołu SAP NetWeaver o wiele identyfikatorów SID dla klastrowanego wystąpienia SAP ASCS/SCS
 
 > ![Windows][Logo_Windows] Windows
 > 
-> Multi-SID jest obsługiwany przez WSFC, przy użyciu udziału plików i udostępnionego dysku.
+> Wiele identyfikatorów SID jest obsługiwanych w usłudze WSFC przy użyciu udziału plików i dysku udostępnionego.
 > 
-> Aby uzyskać więcej informacji na temat architektury o wysokiej dostępności wielu identyfikatorów SID w systemie Windows, zobacz:
+> Aby uzyskać więcej informacji na temat architektury wysokiej dostępności w systemie Windows, zobacz:
 
-* [Sap ASCS/SCS wystąpienie wielu identyfikatorów SID wysoka dostępność dla klastrów trybu failover systemu Windows Server i udziału plików][sap-ascs-ha-multi-sid-wsfc-file-share]
+* [Rozwiązanie SAP ASCS/SCS o wysokiej dostępności dla klastra trybu failover z systemem Windows Server i udziału plików][sap-ascs-ha-multi-sid-wsfc-file-share]
 
-* [Sap ASCS/SCS wystąpienie wielu identyfikatorów SID wysoka dostępność dla klastrów trybu failover systemu Windows Server i udostępnionego dysku][sap-ascs-ha-multi-sid-wsfc-shared-disk]
+* [Rozwiązanie SAP ASCS/SCS o wysokiej dostępności dla klastra trybu failover z systemem Windows Server i dysku udostępnionego][sap-ascs-ha-multi-sid-wsfc-shared-disk]
 
 > ![Linux][Logo_Linux] Linux
 > 
-> Klastrowanie wielu identyfikatorów SID jest obsługiwane w klastrach rozruszników systemu Linux dla SAP ASCS/ERS, ograniczonych do **pięciu** identyfikatorów SAP W TYM SAMYM KLASTRZE.
-> Aby uzyskać więcej informacji na temat architektury o wysokiej dostępności wielu identyfikatorów SID w systemie Linux, zobacz:
+> Klastrowanie z obsługą wiele identyfikatorów SID jest obsługiwane w klastrach Pacemaker systemu Linux dla oprogramowania SAP ASCS/wykres WYWOŁUJĄCYCH, co jest ograniczone do **pięciu** identyfikatorów SID SAP w tym samym klastrze.
+> Aby uzyskać więcej informacji na temat architektury wysokiej dostępności w systemie Linux, zobacz:
 
-* [Ha dla SAP NW na maszynach wirtualnych platformy Azure na SLES dla aplikacji SAP — przewodnik po wielu identyfikatorach SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
-* [Ha dla SAP NW na maszynach wirtualnych platformy Azure na RHEL dla aplikacji SAP — przewodnik po wielu identyfikatorach SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+* [HA for SAP NW na maszynach wirtualnych platformy Azure w systemie SLES for SAP — Przewodnik dotyczący wiele identyfikatorów SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
+* [HA for SAP NW na maszynach wirtualnych platformy Azure w systemie RHEL for SAP — Przewodnik dotyczący wiele identyfikatorów SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
 
-### <a name="high-availability-dbms-instance"></a>Wystąpienie usługi DBMS o wysokiej dostępności
+### <a name="high-availability-dbms-instance"></a>Wystąpienie systemu DBMS o wysokiej dostępności
 
-DbMS jest również pojedynczym punktem kontaktowym w systemie SAP. Należy go chronić za pomocą rozwiązania o wysokiej dostępności. Na poniższej ilustracji przedstawiono rozwiązanie SQL Server AlwaysOn o wysokiej dostępności na platformie Azure z klastrem trybu failover systemu Windows Server i wewnętrznym modułem równoważenia obciążenia platformy Azure. SQL Server AlwaysOn replikuje pliki danych i dzienników DBMS przy użyciu własnej replikacji dbms. W takim przypadku nie potrzebujesz udostępnionego dysku klastra, co upraszcza całą konfigurację.
+System DBMS również jest pojedynczym punktem kontaktu w systemie SAP. Należy chronić je za pomocą rozwiązania o wysokiej dostępności. Na poniższej ilustracji przedstawiono SQL Server AlwaysOn rozwiązanie wysokiej dostępności na platformie Azure z funkcją klaster trybu failover systemu Windows Server i wewnętrznym modułem równoważenia obciążenia platformy Azure. SQL Server AlwaysOn replikuje dane i pliki dziennika systemu DBMS przy użyciu własnej replikacji w systemie DBMS. W takim przypadku nie jest potrzebny udostępniony dysk klastra, co upraszcza całą konfigurację.
 
-![Rysunek 3: Przykład wysokiej dostępności SAP DBMS z programem SQL Server AlwaysOn][sap-ha-guide-figure-2003]
+![Rysunek 3. przykład środowiska SAP DBMS o wysokiej dostępności z funkcją SQL Server AlwaysOn][sap-ha-guide-figure-2003]
 
-_**Rysunek 3:** Przykład wysokiej dostępności sap DBMS z SQL Server AlwaysOn_
+_**Rysunek 3.** Przykład funkcji SAP DBMS o wysokiej dostępności z funkcją SQL Server AlwaysOn_
 
-Aby uzyskać więcej informacji na temat klastrowania usługi DBMS programu SQL Server na platformie Azure przy użyciu modelu wdrażania usługi Azure Resource Manager, zobacz następujące artykuły:
+Aby uzyskać więcej informacji na temat klastrowania SQL Server systemie DBMS na platformie Azure przy użyciu modelu wdrażania Azure Resource Manager, zobacz następujące artykuły:
 
-* [Ręczne konfigurowanie grupy dostępności AlwaysOn na maszynach wirtualnych platformy Azure przy użyciu Menedżera zasobów][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
+* [Ręczne konfigurowanie zawsze włączonej grupy dostępności w usłudze Azure Virtual Machines przy użyciu Menedżer zasobów][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
 
 * [Konfigurowanie wewnętrznego modułu równoważenia obciążenia platformy Azure dla grupy dostępności AlwaysOn na platformie Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
 
-Aby uzyskać więcej informacji na temat klastrowania systemu SAP HANA DBMS na platformie Azure przy użyciu modelu wdrażania usługi Azure Resource Manager, zobacz [Wysoka dostępność sap HANA na maszynach wirtualnych platformy Azure (VMs).][sap-hana-ha]
+Aby uzyskać więcej informacji na temat klastrowania SAP HANA systemie DBMS na platformie Azure przy użyciu modelu wdrażania Azure Resource Manager, zobacz [wysoka dostępność SAP HANA na maszynach wirtualnych platformy Azure][sap-hana-ha].

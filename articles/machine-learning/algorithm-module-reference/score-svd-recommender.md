@@ -1,7 +1,7 @@
 ---
-title: 'Wynik SVD Recommender: Odwołanie do modułu'
+title: 'Polecający wskaźnik SVD: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak używać modułu Score SVD Recommender w usłudze Azure Machine Learning, aby uzyskać ocenę prognoz rekomendacji dla zestawu danych.
+description: Dowiedz się, w jaki sposób używać modułu polecania "Ocena SVD" w Azure Machine Learning do oceny polecanych prognoz dla zestawu danych.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,117 +10,117 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/10/2020
 ms.openlocfilehash: 82c3454ad4c8db3a9b19084f5b6ece988cc86b9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79455982"
 ---
 # <a name="score-svd-recommender"></a>Wynik modułu poleceń SVD
 
-W tym artykule opisano, jak używać modułu Score SVD Recommender w projektancie usługi Azure Machine Learning (wersja zapoznawcza). Ten moduł służy do tworzenia prognoz przy użyciu modelu rekomendacji wyszkolonych na podstawie algorytmu rozkładu pojedynczej wartości (SVD).
+W tym artykule opisano sposób korzystania z modułu polecania "Score SVD" w programie Azure Machine Learning Designer (wersja zapoznawcza). Ten moduł służy do tworzenia prognoz przy użyciu przeszkolonego modelu rekomendacji opartego na algorytmie z rozkładem pojedynczego wartości (SVD).
 
-Rekomendator SVD może generować dwa różne rodzaje prognoz:
+Zalecenie SVD może generować dwa różne rodzaje prognoz:
 
-- [Przewidywanie ocen dla danego użytkownika i elementu](#prediction-of-ratings)
-- [Polecaj użytkownikom elementy](#recommendations-for-users)
+- [Prognozowanie klasyfikacji dla danego użytkownika i elementu](#prediction-of-ratings)
+- [Polecanie elementów użytkownikowi](#recommendations-for-users)
 
-Podczas tworzenia drugiego typu prognoz, można działać w jednym z następujących trybów:
+Podczas tworzenia drugiego typu prognoz można działać w jednym z następujących trybów:
 
-- **Tryb produkcji** uwzględnia wszystkich użytkowników lub towary. Jest to zwykle używane w usłudze sieci web.
+- **Tryb produkcyjny** traktuje wszystkich użytkowników lub elementy. Zwykle jest używana w usłudze sieci Web.
 
-  Możesz tworzyć wyniki dla nowych użytkowników, a nie tylko dla użytkowników widzianych podczas szkolenia. Aby uzyskać więcej informacji, zobacz [uwagi techniczne](#technical-notes). 
+  Możesz tworzyć wyniki dla nowych użytkowników, nie tylko dla użytkowników oglądanych podczas uczenia się. Aby uzyskać więcej informacji, zobacz [Uwagi techniczne](#technical-notes). 
 
-- **Tryb oceny** działa na zredukowanym zestawie użytkowników lub elementów, które mogą być oceniane. Jest on zazwyczaj używany podczas operacji potoku.
+- **Tryb oceny** działa na zmniejszonym zestawie użytkowników lub elementów, które można ocenić. Jest zazwyczaj używany podczas operacji potoku.
 
-Aby uzyskać więcej informacji na temat algorytmu polecania SVD, zobacz papier badawczy [Matrix technik faktoryzacji dla systemów rekomendatora](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
+Aby uzyskać więcej informacji na temat algorytmu z zaleceniem SVD, zobacz factorizationing The Research Paper [Matrix for rekomending Systems](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
 
-## <a name="how-to-configure-score-svd-recommender"></a>Jak skonfigurować score SVD Recommender
+## <a name="how-to-configure-score-svd-recommender"></a>Jak skonfigurować zalecany polecający wskaźnik SVD
 
-Ten moduł obsługuje dwa typy prognoz, każdy z różnymi wymaganiami. 
+Ten moduł obsługuje dwa typy prognoz, z których każdy ma inne wymagania. 
 
-###  <a name="prediction-of-ratings"></a>Przewidywanie ocen
+###  <a name="prediction-of-ratings"></a>Prognozowanie klasyfikacji
 
-Podczas przewidywania klasyfikacji model oblicza, jak użytkownik będzie reagować na określony element, biorąc pod uwagę dane szkoleniowe. Dane wejściowe do oceniania musi zapewnić zarówno użytkownika i elementu do stawki.
+Podczas przewidywania klasyfikacji model oblicza sposób, w jaki użytkownik reaguje na określony element, pod kątem danych szkoleniowych. Dane wejściowe dla oceny muszą zapewnić zarówno użytkownika, jak i element do oceny.
 
-1. Dodaj do potoku wyszkolony model rekomendacji i podłącz go do **zalecanego przez przeszkolony SVD**. Model należy utworzyć przy użyciu modułu [Train SVD Recommender.](train-SVD-recommender.md)
+1. Dodaj przeszkolony model rekomendacji do potoku, a następnie połącz go z **polecanym rozwiązaniem SVD**. Należy utworzyć model przy użyciu modułu [polecający SVD](train-SVD-recommender.md) .
 
-2. Dla **rodzaju przewidywania recommender**, wybierz **Przewidywanie klasyfikacji**. Nie są wymagane żadne inne parametry.
+2. W przypadku **typu przewidywania polecania**wybierz pozycję **Prognoza klasyfikacji**. Nie są wymagane żadne inne parametry.
 
-3. Dodaj dane, dla których chcesz dokonać prognoz, i połącz je z **zestawem danych, aby uzyskać punkt.**
+3. Dodaj dane, dla których chcesz dokonać prognoz, i połącz je z **zestawem danych w celu oceny**.
 
-   Aby model przewidywał oceny, wejściowy zestaw danych musi zawierać pary elementu użytkownika.
+   Aby model przewidzieć klasyfikację, wejściowy zestaw danych musi zawierać pary User-Item.
 
-   Zestaw danych może zawierać opcjonalną trzecią kolumnę ocen dla pary elementu użytkownika w pierwszej i drugiej kolumnie. Ale trzecia kolumna zostanie zignorowana podczas przewidywania.
+   Zestaw danych może zawierać opcjonalną trzecią kolumnę klasyfikacji dla pary elementu User-Item w pierwszej i drugiej kolumnie. Ale trzecia kolumna zostanie zignorowana podczas przewidywania.
 
 4. Prześlij potok.
 
-### <a name="results-for-rating-predictions"></a>Wyniki prognoz ratingowych 
+### <a name="results-for-rating-predictions"></a>Wyniki prognoz klasyfikacji 
 
-Wyjściowy zestaw danych zawiera trzy kolumny: użytkowników, elementy i przewidywaną klasyfikację dla każdego użytkownika wejściowego i elementu.
+Wyjściowy zestaw danych zawiera trzy kolumny: Użytkownicy, elementy i Klasyfikacja przewidywane dla każdego wejściowego użytkownika i elementu.
 
 ###  <a name="recommendations-for-users"></a>Zalecenia dla użytkowników 
 
-Aby polecić elementy dla użytkowników, należy podać listę użytkowników i elementów jako dane wejściowe. Na podstawie tych danych model wykorzystuje swoją wiedzę na temat istniejących elementów i użytkowników do generowania listy elementów z prawdopodobnym odwołania do każdego użytkownika. Można dostosować liczbę zwróconych zaleceń. Można też ustawić próg dla liczby poprzednich zaleceń, które są wymagane do wygenerowania rekomendacji.
+Aby zalecać elementy dla użytkowników, należy podać listę użytkowników i elementów jako dane wejściowe. Z tych danych model używa swojej wiedzy na temat istniejących elementów i użytkowników w celu wygenerowania listy elementów z prawdopodobnym odwołaniem do każdego użytkownika. Można dostosować liczbę zwracanych zaleceń. Można też ustawić próg liczby wcześniejszych zaleceń, które są wymagane do wygenerowania rekomendacji.
 
-1. Dodaj do potoku wyszkolony model rekomendacji i podłącz go do **zalecanego przez przeszkolony SVD**.  Model należy utworzyć przy użyciu modułu [Train SVD Recommender.](train-svd-recommender.md)
+1. Dodaj przeszkolony model rekomendacji do potoku, a następnie połącz go z **polecanym rozwiązaniem SVD**.  Należy utworzyć model przy użyciu modułu [polecający SVD](train-svd-recommender.md) .
 
-2. Aby polecić elementy dla listy użytkowników, ustaw **rodzaj przewidywania rekomendatora** na **Zalecenie elementu**.
+2. Aby zalecać elementy dla listy użytkowników, należy ustawić **rekomendację** **rodzajową polecania** dla elementu.
 
-3. W przypadku **wyboru zalecanego towaru**należy wskazać, czy używasz modułu oceniania w produkcji, czy do oceny modelu. Wybierz jedną z następujących wartości:
+3. W przypadku **zalecanego wyboru elementów**wskaż, czy używasz modułu oceniania w środowisku produkcyjnym, czy do oceny modelu. Wybierz jedną z następujących wartości:
 
-    - **Z pozycji Wszystkie elementy:** Wybierz tę opcję, jeśli konfigurujesz potok do użycia w usłudze sieci web lub w środowisku produkcyjnym.  Ta opcja umożliwia *tryb produkcji*. Moduł zawiera zalecenia ze wszystkich elementów widocznych podczas szkolenia.
+    - **Z wszystkich elementów**: Wybierz tę opcję, jeśli konfigurujesz potok do użycia w usłudze sieci Web lub w środowisku produkcyjnym.  Ta opcja włącza *tryb produkcyjny*. Moduł wykonuje zalecenia ze wszystkich elementów widzianych podczas szkolenia.
 
-    - **Z elementów ocenionych (do oceny modelu)**: Wybierz tę opcję, jeśli tworzysz lub testujesz model. Ta opcja umożliwia *tryb oceny*. Moduł zawiera zalecenia tylko z tych elementów w zestawie danych wejściowych, które zostały ocenione.
+    - **Z elementów ocenianych (do oceny modelu)**: Wybierz tę opcję, jeśli tworzysz lub testujesz model. Ta opcja włącza *Tryb oceny*. Moduł wykonuje zalecenia tylko z tych elementów w wejściowym zestawie danych, który został sklasyfikowany.
     
-    - **Z elementów bez oceny (aby zaproponować użytkownikom nowe elementy):** Wybierz tę opcję, jeśli chcesz, aby moduł wydawał rekomendacje tylko z tych elementów w zestawie danych szkoleniowych, które nie zostały ocenione. 
+    - **Z niesklasyfikowanych elementów (w celu zaproponowania nowych elementów użytkownikom)**: Wybierz tę opcję, jeśli chcesz, aby moduł miał zalecenia tylko z tych elementów w zestawie danych szkoleniowych, które nie zostały ocenione. 
 
-4. Dodaj zestaw danych, dla którego chcesz dokonać prognoz, i połącz go z **zestawem danych, aby uzyskać punkt.**
+4. Dodaj zestaw danych, dla którego chcesz dokonać prognoz, a następnie połącz go z **zestawem danych w celu oceny**.
 
-    - W polu **Od wszystkich elementów**wejściowy zestaw danych powinien składać się z jednej kolumny. Zawiera identyfikatory użytkowników, dla których należy sformułować zalecenia.
+    - Dla **wszystkich elementów**wejściowy zestaw danych powinien zawierać jedną kolumnę. Zawiera identyfikatory użytkowników, dla których należy wykonać zalecenia.
 
       Zestaw danych może zawierać dodatkowe dwie kolumny identyfikatorów i ocen elementów, ale te dwie kolumny są ignorowane. 
 
-    - W przypadku **elementów ocenionych (do oceny modelu)** wejściowy zestaw danych powinien składać się z par elementu użytkownika. Pierwsza kolumna powinna zawierać identyfikator użytkownika. Druga kolumna powinna zawierać odpowiednie identyfikatory elementów.
+    - W przypadku **elementów ocenianych (dla oceny modelu)** wejściowy zestaw danych powinien zawierać pary elementu User-Item. Pierwsza kolumna powinna zawierać identyfikator użytkownika. Druga kolumna powinna zawierać odpowiednie identyfikatory elementów.
 
-      Zestaw danych może zawierać trzecią kolumnę ocen elementów użytkownika, ale ta kolumna jest ignorowana.
+      Zestaw danych może zawierać trzecią kolumnę klasyfikacji elementów użytkownika, ale ta kolumna jest ignorowana.
 
-    - W przypadku **elementów nieoznaczonych (aby zaproponować użytkownikom nowe elementy),** wejściowy zestaw danych powinien składać się z par elementu użytkownika. Pierwsza kolumna powinna zawierać identyfikator użytkownika. Druga kolumna powinna zawierać odpowiednie identyfikatory elementów.
+    - Dla **elementów niesklasyfikowanych (w celu zaproponowania nowych elementów użytkownikom)** wejściowy zestaw danych powinien składać się z par elementów użytkownika. Pierwsza kolumna powinna zawierać identyfikator użytkownika. Druga kolumna powinna zawierać odpowiednie identyfikatory elementów.
 
-     Zestaw danych może zawierać trzecią kolumnę ocen elementów użytkownika, ale ta kolumna jest ignorowana.
+     Zestaw danych może zawierać trzecią kolumnę klasyfikacji elementów użytkownika, ale ta kolumna jest ignorowana.
 
-5. **Maksymalna liczba elementów zalecanych użytkownikowi:** Wprowadź liczbę elementów do zwrócenia dla każdego użytkownika. Domyślnie moduł zaleca pięć elementów.
+5. **Maksymalna liczba elementów, które mają być zalecane dla użytkownika**: wprowadź liczbę elementów do zwrócenia dla każdego użytkownika. Domyślnie moduł zaleca pięć elementów.
 
-6. **Minimalny rozmiar puli rekomendacji na użytkownika:** Wprowadź wartość, która wskazuje, ile wcześniejszych zaleceń jest wymaganych. Domyślnie ten parametr jest ustawiony na 2, co oznacza, że co najmniej dwóch innych użytkowników poleciło element.
+6. **Minimalny rozmiar puli rekomendacji na użytkownika**: wprowadź wartość wskazującą, ile wcześniejszych rekomendacji są wymagane. Domyślnie ten parametr jest ustawiony na 2, co oznacza, że element jest zalecany dla co najmniej dwóch innych użytkowników.
 
-   Tej opcji należy używać tylko w przypadku oceniania w trybie oceny. Opcja ta nie jest dostępna, jeśli wybierzesz **opcję Spośród wszystkich elementów** lub **Z elementów nieocenionych (aby zaproponować użytkownikom nowe elementy).**
+   Tej opcji należy używać tylko wtedy, gdy ocenia się tryb oceny. Opcja jest niedostępna, jeśli wybrano opcję **spośród wszystkich elementów** lub **niesklasyfikowanych elementów (w celu zaproponowania nowych elementów użytkownikom)**.
 
-7.  W przypadku **elementów nieoznaczonych (aby zaproponować użytkownikom nowe elementy),** użyj trzeciego portu wejściowego o nazwie **Dane szkoleniowe,** aby usunąć elementy, które zostały już ocenione z wyników prognozowania.
+7.  W przypadku **niesklasyfikowanych elementów (w celu zaproponowania nowych elementów użytkownikom)** Użyj trzeciego portu wejściowego o nazwie **dane szkoleniowe**, aby usunąć elementy, które zostały już ocenione z wyników przewidywania.
 
-    Aby zastosować ten filtr, podłącz oryginalny zestaw danych szkoleniowych do portu wejściowego.
+    Aby zastosować ten filtr, Połącz oryginalny zestaw danych szkoleniowych z portem wejściowym.
 
 8. Prześlij potok.
 
-### <a name="results-of-item-recommendation"></a>Wyniki rekomendacji pozycji
+### <a name="results-of-item-recommendation"></a>Wyniki zalecenia dotyczącego elementu
 
-Oceniony zestaw danych zwrócony przez Score SVD Recommender zawiera listę zalecanych elementów dla każdego użytkownika:
+Wynikowy zestaw danych zwracany przez zalecaną listę zalecanych elementów dla każdego użytkownika:
 
-- Pierwsza kolumna zawiera identyfikatory użytkownika.
-- Generowane są dodatkowe kolumny, w zależności od wartości ustawionej dla **maksymalnej liczby elementów zalecanych użytkownikowi.** Każda kolumna zawiera zalecany element (według identyfikatora). Zalecenia są uporządkowane według koligacji elementu użytkownika. Element o najwyższym koligacji jest umieszczany w kolumnie **Pozycja 1**.
+- Pierwsza kolumna zawiera identyfikatory użytkowników.
+- Jest generowanych kilka dodatkowych kolumn, w zależności od wartości ustawionej na **maksymalną liczbę elementów, które mają być zalecane dla użytkownika**. Każda kolumna zawiera zalecany element (według identyfikatora). Zalecenia są uporządkowane według koligacji elementu User-Item. Element o najwyższej koligacji jest umieszczany w **elemencie kolumny 1**.
 
 > [!WARNING]
-> Nie można ocenić tego zestawu danych według oceny przy użyciu [oceniać relecatora](evaluate-recommender.md) modułu.
+> Ten wynikowy zestaw danych nie może zostać oceniony przy użyciu modułu [oceny polecania](evaluate-recommender.md) .
 
 
 ##  <a name="technical-notes"></a>Uwagi techniczne
 
-Jeśli masz potok z polecacza SVD i przenieść model do produkcji, należy pamiętać, że istnieją kluczowe różnice między przy użyciu rekomendatora w trybie oceny i przy użyciu go w trybie produkcyjnym.
+Jeśli masz potok z zaleceniem SVD i przenosisz model do środowiska produkcyjnego, pamiętaj, że istnieją kluczowe różnice między używaniem zalecenia w trybie oceny i użyciem go w trybie produkcyjnym.
 
-Ocena z definicji wymaga prognoz, które można zweryfikować pod względem *prawdy w* zestawie testów. Podczas oceny polecający, należy przewidzieć tylko elementy, które zostały ocenione w zestawie testów. Ogranicza to możliwe wartości, które są przewidywane.
+Ocena zgodnie z definicją wymaga przewidywania, które mogą być zweryfikowane względem *prawdy* w zestawie testów. Podczas oceniania zalecenia należy przewidzieć tylko elementy, które zostały ocenione w zestawie testów. Ogranicza to możliwe wartości, które są przewidywane.
 
-Podczas operacjonalizacji modelu zazwyczaj można zmienić tryb przewidywania, aby zalecenia oparte na wszystkich możliwych elementów, aby uzyskać najlepsze prognozy. Dla wielu z tych prognoz, nie ma odpowiedniej prawdy gruntu. Tak więc dokładność zalecenia nie można zweryfikować w taki sam sposób, jak podczas operacji potoku.
+Gdy operacjonalizować model, zazwyczaj zmienia się tryb prognozowania, aby zalecenia były wykonywane na podstawie wszystkich możliwych elementów, aby uzyskać najlepsze przewidywania. W przypadku wielu z tych prognoz nie ma odpowiedniej rzeczywistości. Nie można zweryfikować dokładności zalecenia w taki sam sposób jak podczas operacji potoku.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

@@ -1,7 +1,7 @@
 ---
-title: 'Dodaj kolumny: Odwołanie do modułu'
+title: 'Dodawanie kolumn: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak użyć modułu Dodaj kolumny w usłudze Azure Machine Learning, aby połączyć dwa zestawy danych.
+description: Dowiedz się, jak połączyć dwa zestawy danych przy użyciu modułu Dodaj kolumny w Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,40 +10,40 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: f2e067f76d6ed7d89a38e9b8920c407f161969a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79456782"
 ---
-# <a name="add-columns-module"></a>Dodaj moduł Kolumny
+# <a name="add-columns-module"></a>Dodawanie modułu kolumn
 
-W tym artykule opisano moduł w projektancie usługi Azure Machine Learning (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
 
-Ten moduł służy do łączenia dwóch zestawów danych. Łączysz wszystkie kolumny z dwóch zestawów danych, które można określić jako dane wejściowe, aby utworzyć pojedynczy zestaw danych. Jeśli chcesz połączyć więcej niż dwa zestawy danych, użyj kilku wystąpień **Dodaj kolumny**.
+Ten moduł służy do łączenia dwóch zestawów danych. Wszystkie kolumny z dwóch zestawów danych, które można określić jako dane wejściowe, są łączone w celu utworzenia jednego elementu DataSet. Jeśli musisz połączyć więcej niż dwa zestawy danych, użyj kilku wystąpień **Dodaj kolumny**.
 
 
 
-## <a name="how-to-configure-add-columns"></a>Jak skonfigurować dodawanie kolumn
+## <a name="how-to-configure-add-columns"></a>Jak skonfigurować Dodawanie kolumn
 1. Dodaj moduł **Dodaj kolumny** do potoku.
 
-2. Połącz dwa zestawy danych, które chcesz połączyć. Jeśli chcesz połączyć więcej niż dwa zestawy danych, możesz połączyć ze sobą kilka kombinacji **Dodaj kolumny**.
+2. Połącz dwa zestawy danych, które chcesz połączyć. Jeśli chcesz połączyć więcej niż dwa zestawy danych, możesz utworzyć łańcuch ze sobą kilka kombinacji **dodawania kolumn**.
 
-    - Istnieje możliwość połączenia dwóch kolumn, które mają różną liczbę wierszy. Wyjściowy zestaw danych jest wypełniany brakującymi wartościami dla każdego wiersza w mniejszej kolumnie źródłowej.
+    - Istnieje możliwość połączenia dwóch kolumn, które mają różną liczbę wierszy. Wyjściowy zestaw danych jest uzupełniony o brakujące wartości dla każdego wiersza w mniejszej kolumnie źródłowej.
 
-    - Nie można wybrać poszczególnych kolumn do dodania. Wszystkie kolumny z każdego zestawu danych są łączone podczas korzystania z **funkcji Dodaj kolumny**. W związku z tym jeśli chcesz dodać tylko podzbiór kolumn, użyj wybierz kolumny w zestawie danych, aby utworzyć zestaw danych z kolumnami, które chcesz.
+    - Nie można wybrać pojedynczych kolumn do dodania. Wszystkie kolumny z każdego zestawu danych są łączone podczas korzystania z **dodawania kolumn**. W związku z tym, jeśli chcesz dodać tylko podzestaw kolumn, użyj opcji wybierz kolumny w zestawie danych, aby utworzyć zestaw danych z kolumnami, które chcesz.
 
 3. Prześlij potok.
 
 ### <a name="results"></a>Wyniki
 Po uruchomieniu potoku:
 
-- Aby wyświetlić pierwsze wiersze nowego zestawu danych, kliknij prawym przyciskiem myszy moduł **Dodaj kolumny** i wybierz polecenie Wizualizuj. Lub Wybierz moduł i przełącz się na kartę **Wyjścia** w prawym panelu, kliknij ikonę histogramu w **wyjściach portu,** aby zwizualizować wynik.
+- Aby wyświetlić pierwsze wiersze nowego zestawu danych, kliknij prawym przyciskiem myszy moduł **Dodaj kolumny** i wybierz polecenie Wizualizuj. Lub wybierz moduł i przejdź do karty dane **wyjściowe** w prawym panelu, kliknij ikonę histogramu w danych **wyjściowych portu** , aby wizualizować wynik.
 
 Liczba kolumn w nowym zestawie danych jest równa sumie kolumn obu wejściowych zestawów danych.
 
-Jeśli w wejściowych zestawach danych znajdują się dwie kolumny o tej samej nazwie, do nazwy kolumny dodawany jest sufiks numeryczny. Na przykład jeśli istnieją dwa wystąpienia kolumny o nazwie TargetOutcome, lewa kolumna zostanie zmieniona TargetOutcome_1, a prawa kolumna zostanie zmieniona TargetOutcome_2.
+Jeśli istnieją dwie kolumny o tej samej nazwie w wejściowych zestawach danych, do nazwy kolumny zostanie dodany sufiks liczbowy. Na przykład jeśli istnieją dwa wystąpienia kolumny o nazwie TargetOutcome, po lewej kolumnie zostanie zmieniona nazwa TargetOutcome_1 a prawa kolumna zostanie zmieniona TargetOutcome_2.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

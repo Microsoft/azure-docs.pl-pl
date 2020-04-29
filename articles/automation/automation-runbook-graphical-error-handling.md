@@ -6,66 +6,66 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: f1aa605b3e6f32b260ea4a9eee9c056277fcd12d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79367078"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Obsługa błędów w graficznych elementach Runbook w usłudze Azure Automation
 
-Kluczową zasadą projektowania, którą należy wziąć pod uwagę dla graficznego systemu runbook usługi Azure Automation, jest identyfikacja problemów, które może wystąpić podczas wykonywania. Przykładowe problemy to powodzenie, oczekiwane stany błędu i nieoczekiwane warunki błędu.
+Kluczową zasadą projektowania do uwzględnienia w Azure Automation graficzny element Runbook jest identyfikacja problemów, które element Runbook może napotkać podczas wykonywania. Przykładowe problemy to powodzenie, oczekiwane stany błędu i nieoczekiwane warunki błędu.
 
-Często, jeśli występuje błąd nieubiegający, który występuje z działaniem runbook, program Windows PowerShell obsługuje działanie, przetwarzając wszelkie działania, które następuje, niezależnie od błędu. Błąd prawdopodobnie wygeneruje wyjątek, ale kolejne działanie może zostać uruchomione mimo tego.
+Często Jeśli wystąpi błąd niepowodujący zakończenia, który występuje w przypadku działania elementu Runbook, program Windows PowerShell obsługuje działanie przez przetwarzanie dowolnego działania, które następuje, niezależnie od błędu. Błąd prawdopodobnie wygeneruje wyjątek, ale kolejne działanie może zostać uruchomione mimo tego.
 
-Twój graficzny element runbook powinien zawierać kod obsługi błędów, aby poradzić sobie z problemami z wykonywaniem. Aby sprawdzić poprawność danych wyjściowych działania lub obsłużyć błąd, można użyć działania kodu programu PowerShell, zdefiniować logikę warunkową na łączu wyjściowym działania lub zastosować inną metodę.
+Graficzny element Runbook powinien zawierać kod obsługi błędu, aby rozwiązać problemy z wykonywaniem. Aby sprawdzić poprawność danych wyjściowych działania lub obsłużyć błąd, można użyć działania Code programu PowerShell, zdefiniować logikę warunkową dla linku wyjściowego działania lub zastosować inną metodę.
 
-Graficzne elementy runbook usługi Azure Automation ulepszono o możliwość uwzględnienia obsługi błędów. Teraz możesz przekształcać wyjątki w błędy niepowodujące zakończenia oraz tworzyć linki błędów między działaniami. Ulepszony proces umożliwia systemowi runbook wychwytywania błędów i zarządzania zrealizowanych lub nieoczekiwanych warunków. 
+Graficzne elementy runbook usługi Azure Automation ulepszono o możliwość uwzględnienia obsługi błędów. Teraz możesz przekształcać wyjątki w błędy niepowodujące zakończenia oraz tworzyć linki błędów między działaniami. Ulepszony proces umożliwia elementowi Runbook przechwytywanie błędów i zarządzanie zrealizowanymi lub nieoczekiwanymi warunkami. 
 
 >[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Aby uzyskać instrukcje instalacji modułu Az w hybrydowym usłudze Runbook Worker, zobacz [Instalowanie modułu programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Dla konta automatyzacji można zaktualizować moduły do najnowszej wersji przy użyciu [jak zaktualizować moduły programu Azure PowerShell w usłudze Azure Automation.](automation-update-azure-modules.md)
+>Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="powershell-error-types"></a>Typy błędów programu PowerShell
 
-Typy błędów programu PowerShell, które mogą wystąpić podczas wykonywania elementów runbook są kończące błędy i błędy nie kończące.
+Typy błędów programu PowerShell, które mogą wystąpić podczas wykonywania elementu Runbook, przerywają błędy i błędy niepowodujące zakończenia.
  
-### <a name="terminating-error"></a>Błąd zakończenia
+### <a name="terminating-error"></a>Błąd powodujący zakończenie
 
-Błąd zakończenia jest poważnym błędem podczas wykonywania, który całkowicie zatrzymuje wykonanie polecenia lub skryptu. Przykłady obejmują nieistniejące polecenia cmdlet, błędy składni, które uniemożliwiają uruchomienie polecenia cmdlet i inne błędy krytyczne.
+Błąd powodujący przerwanie to poważny błąd podczas wykonywania, który całkowicie zatrzymuje polecenie lub wykonywanie skryptu. Przykłady zawierają nieistniejące polecenia cmdlet, błędy składniowe, które uniemożliwiają uruchomienie polecenia cmdlet, oraz inne błędy krytyczne.
 
-### <a name="non-terminating-error"></a>Błąd nieukający
+### <a name="non-terminating-error"></a>Błąd niepowodujący zakończenia
 
-Błąd nieukańczy to błąd niepodwążający się do poważnego błędu, który umożliwia kontynuowanie wykonywania pomimo warunku błędu. Przykłady obejmują błędy operacyjne, takie jak nie znaleziono błędów plików i problemów z uprawnieniami.
+Błąd niepowodujący zakończenia to nieważny błąd, który umożliwia kontynuowanie wykonywania pomimo błędu. Przykładami mogą być błędy operacyjne, takie jak nie znaleziono plików i problemy z uprawnieniami.
 
 ## <a name="when-to-use-error-handling"></a>Kiedy używać obsługi błędów
 
-Użyj obsługi błędów w biei uruchomieniu, gdy działanie krytyczne zgłasza błąd lub wyjątek. Ważne jest, aby zapobiec przetwarzania następnego działania w trakcie i odpowiednio obsłużyć błąd. Obsługa błędu jest szczególnie krytyczna, gdy programy runbook obsługują proces operacyjny firmy lub usługi.
+Użyj obsługi błędów w elemencie Runbook, gdy działanie krytyczne zgłasza błąd lub wyjątek. Ważne jest, aby zapobiec przetwarzaniu następnego działania w elemencie Runbook i odpowiednio obsłużyć błąd. Obsługa tego błędu jest szczególnie istotna, gdy elementy Runbook obsługują proces operacji biznesowej lub usług.
 
-Dla każdego działania, które może spowodować błąd, można dodać łącze błędu wskazujące inne działanie. Działanie docelowe może być dowolnego typu, w tym działania kodu, wywołanie polecenia cmdlet, wywołanie innego śmiętu runbook i tak dalej. Działanie docelowe może również mieć łącza wychodzące, łącza regularne lub błędy. Łącza umożliwiają runbook do zaimplementowania logiki obsługi błędów złożonych bez uciekania się do działania kodu.
+Dla każdego działania, które może powodować błąd, można dodać łącze błędu wskazujące na inne działanie. Działanie docelowe może być dowolnego typu, w tym działania związane z kodem, wywołania polecenia cmdlet, wywołania innego elementu Runbook i tak dalej. Działanie docelowe może również mieć linki wychodzące, zwykłe lub błędy. Linki umożliwiają elementowi Runbook zaimplementowanie złożonej logiki obsługi błędów bez konieczności działania kodu.
 
-Zalecaną praktyką jest utworzenie dedykowanego śmiękań wiązki błędów z typowymi funkcjami, ale ta praktyka nie jest obowiązkowa. Rozważmy na przykład element runbook, który próbuje uruchomić maszynę wirtualną i zainstalować na nim aplikację. Jeśli maszyna wirtualna nie uruchamia się poprawnie, jest ona:
+Zalecaną metodą jest utworzenie dedykowanego elementu Runbook obsługi błędów z typowymi funkcjami, ale nie jest to wymagane. Rozważmy na przykład element Runbook, który próbuje uruchomić maszynę wirtualną i zainstalować na niej aplikację. Jeśli maszyna wirtualna nie zostanie uruchomiona poprawnie,:
 
 1. Wysyła powiadomienie o tym problemie.
-2. Uruchamia kolejny projekt runbook, który automatycznie przepisuje nową maszynę wirtualną zamiast.
+2. Uruchamia inny element Runbook, który zamiast tego automatycznie inicjuje nową maszynę wirtualną.
 
-Jednym z rozwiązań jest mieć łącze błędu w trakcie runbook wskazując na działanie, które obsługuje krok pierwszy. Na przykład element runbook `Write-Warning` można połączyć polecenie cmdlet do działania dla kroku drugiego, takich jak polecenie cmdlet [Start-AzAutomationRunbook.](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0)
+Jednym z rozwiązań jest posiadanie linku błędu w elemencie Runbook wskazującego na działanie, które obsługuje krok jeden. Na przykład element Runbook może podłączyć `Write-Warning` polecenie cmdlet do działania dla kroku 2, takiego jak polecenie cmdlet [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) .
 
-Można również uogólnić to zachowanie do użycia w wielu żyłaczkach, umieszczając te dwa działania w oddzielnym uruchomieniu życie. Zanim oryginalny system runbook wywoła ten projekt runbook obsługi błędów, można utworzyć wiadomość niestandardową z jego danych, a następnie przekazać go jako parametr do uruchomieniu do dziennika runbook.
+Można również uogólnić to zachowanie w wielu elementach Runbook, umieszczając te dwa działania w oddzielnym elemencie Runbook obsługującym błędy. Zanim oryginalny element Runbook wywoła ten błąd obsługi elementu Runbook, może utworzyć niestandardowy komunikat z jego danych, a następnie przekazać go jako parametr do elementu Runbook obsługującego błędy.
 
 ## <a name="how-to-use-error-handling"></a>Jak korzystać z obsługi błędów
 
-Każde działanie w bieśdmięcieniu ma ustawienie konfiguracji, które zamienia wyjątki w błędy nieubiegające się. To ustawienie jest domyślnie wyłączone. Zalecamy włączenie tego ustawienia w każdej aktywności, w której system runbook obsługuje błędy. To ustawienie gwarantuje, że element runbook obsługuje zarówno błędy kończące, jak i nieubiegające się w działaniu jako błędy nieubiegające się, używając łącza błędu.  
+Każde działanie w elemencie Runbook ma ustawienie konfiguracji, które powoduje zamianę wyjątków na błędy niepowodujące zakończenia. To ustawienie jest domyślnie wyłączone. Zalecamy włączenie tego ustawienia dla wszystkich działań, w których element Runbook obsługuje błędy. To ustawienie zapewnia, że element Runbook obsługuje zarówno błędy kończące, jak i niepowodujące zakończenia w działaniu jako błędy niepowodujące zakończenia, przy użyciu linku błędu.  
 
-Po włączeniu ustawienia konfiguracji należy utworzyć działanie, które obsługuje błąd. Jeśli działanie generuje błąd, są przestrzegane wychodzące łącza błędów. Regularne linki nie są przestrzegane, nawet jeśli działanie produkuje regularne dane wyjściowe, jak również.<br><br> ![Przykład linka błędu elementu runbook usługi Automation](media/automation-runbook-graphical-error-handling/error-link-example.png)
+Po włączeniu ustawienia konfiguracji należy utworzyć element Runbook, który obsługuje ten błąd. Jeśli działanie powoduje jakikolwiek błąd, następuje wychodzące łącza błędów. Regularne linki nie są wykonywane nawet wtedy, gdy działanie generuje regularne dane wyjściowe.<br><br> ![Przykład linka błędu elementu runbook usługi Automation](media/automation-runbook-graphical-error-handling/error-link-example.png)
 
-W poniższym przykładzie element runbook pobiera zmienną, która zawiera nazwę komputera maszyny Wirtualnej. Następnie próbuje uruchomić maszynę wirtualną z następnego działania.<br><br> ![Przykład obsługi błędów łańszka systemu runbook automatyzacji](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
+W poniższym przykładzie element Runbook pobiera zmienną, która zawiera nazwę komputera maszyny wirtualnej. Następnie próbuje uruchomić maszynę wirtualną przy użyciu następnego działania.<br><br> ![Przykład obsługi błędu elementu Runbook usługi Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-Działanie `Get-AutomationVariable` i polecenie cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) są skonfigurowane do konwertowania wyjątków na błędy. Jeśli występują problemy z uzyskaniem zmiennej lub uruchomieniem maszyny Wirtualnej, kod generuje błędy.<br><br> ![Ustawienia](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)działań obsługi błędów systemu runbook automatyzacji .
+`Get-AutomationVariable` Działanie i polecenie cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) są skonfigurowane do konwertowania wyjątków na błędy. Jeśli wystąpią problemy z pobraniem zmiennej lub uruchomieniem maszyny wirtualnej, kod generuje błędy.<br><br> ![Ustawienia](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)działania obsługi błędów elementu Runbook usługi Automation.
 
-Łącza błędów przepływu z tych `error management` działań do pojedynczego działania kodu. To działanie jest skonfigurowane przy użyciu prostego `throw` wyrażenia programu PowerShell, które używa słowa kluczowego, aby zatrzymać przetwarzanie, wraz z `$Error.Exception.Message` komunikatem opisującym bieżący wyjątek.<br><br> ![Przykład kodu obsługi błędu egonika automatyzacji](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
+Linki błędów przepływają z tych działań do `error management` jednego działania związanego z kodem. To działanie jest skonfigurowane za pomocą prostego wyrażenia programu PowerShell, które `throw` używa słowa kluczowego, aby zatrzymać `$Error.Exception.Message` przetwarzanie, oraz uzyskać komunikat, który opisuje bieżący wyjątek.<br><br> ![Przykład kodu obsługi błędu elementu Runbook usługi Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby dowiedzieć się więcej o linkach i zrozumieć typy linków w graficznych elementach runbook, zobacz [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow) (Tworzenie graficzne w usłudze Azure Automation).
 
-* Aby dowiedzieć się więcej na temat wykonywania uruchomieniu, monitorowania zadań umnienia i innych szczegółów technicznych, zobacz [Wykonanie uruchomieniu w usłudze Azure Automation.](automation-runbook-execution.md)
+* Aby dowiedzieć się więcej o wykonywaniu elementów Runbook, monitorowaniu zadań elementów Runbook i innych szczegółach technicznych, zobacz [wykonywanie elementów Runbook w Azure Automation](automation-runbook-execution.md).

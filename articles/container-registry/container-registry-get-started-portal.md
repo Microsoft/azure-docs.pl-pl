@@ -1,19 +1,19 @@
 ---
-title: Szybki start — tworzenie rejestru w portalu
-description: Szybko dowiedz się, aby utworzyć prywatny rejestr platformy Docker w usłudze Azure Container Registry za pomocą witryny Azure portal.
+title: Szybki Start — tworzenie rejestru w portalu
+description: Szybka nauka tworzenia rejestru prywatnego platformy Docker w Azure Container Registry z Azure Portal.
 ms.topic: quickstart
 ms.date: 03/03/2020
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 6fe6358655f50ab783b4017efa8ee1db351cd018
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79409282"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Szybki start: tworzenie prywatnego rejestru kontenerów przy użyciu portalu Azure
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Szybki Start: Tworzenie prywatnego rejestru kontenerów przy użyciu Azure Portal
 
-Rejestr kontenerów platformy Azure to prywatny rejestr platformy Docker na platformie Azure, w którym można przechowywać prywatne obrazy kontenerów platformy Docker i zarządzać nimi. W tym przewodniku Szybki start utworzysz rejestr kontenerów za pomocą witryny Azure Portal. Następnie za pomocą poleceń platformy Docker wypchniesz obraz kontenera do rejestru, a na koniec ściągniesz i uruchomisz obraz z rejestru.
+Usługa Azure Container Registry jest prywatnym rejestrem platformy Docker na platformie Azure, w którym można przechowywać prywatne obrazy kontenerów platformy Docker i powiązane artefakty oraz zarządzać nimi. W tym przewodniku Szybki start utworzysz rejestr kontenerów za pomocą witryny Azure Portal. Następnie za pomocą poleceń platformy Docker wypchniesz obraz kontenera do rejestru, a na koniec ściągniesz i uruchomisz obraz z rejestru.
 
 Aby zalogować się do rejestru i pracować z obrazami kontenerów w tym przewodniku Szybki start, musisz korzystać z interfejsu wiersza polecenia platformy Azure (zalecana jest wersja 2.0.55 lub nowsza). Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli].
 
@@ -25,15 +25,15 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
 
-Wybierz pozycję Utwórz rejestr > **kontenerów kontenerów** >  **kontenerów kontenerów****kontenerów**.
+Wybierz **pozycję Utwórz** > **kontenery** > zasobów**Container Registry**.
 
 ![Tworzenie rejestru kontenerów w witrynie Azure Portal][qs-portal-01]
 
-Na karcie **Podstawy** wprowadź wartości **dla grupy zasobów** i nazwy **rejestru**. Nazwa rejestru musi być unikatowa w obrębie platformy Azure i może zawierać od 5 do 50 znaków alfanumerycznych. Na potrzeby tego przewodnika Szybki start utwórz w lokalizacji `West US` nową grupę zasobów o nazwie `myResourceGroup`, a dla opcji **SKU** wybierz wartość „Podstawowa”. 
+Na karcie **podstawy** wprowadź wartości dla **grupy zasobów** i **nazwy rejestru**. Nazwa rejestru musi być unikatowa w obrębie platformy Azure i może zawierać od 5 do 50 znaków alfanumerycznych. Na potrzeby tego przewodnika Szybki start utwórz w lokalizacji `West US` nową grupę zasobów o nazwie `myResourceGroup`, a dla opcji **SKU** wybierz wartość „Podstawowa”. 
 
 ![Tworzenie rejestru kontenerów w witrynie Azure Portal][qs-portal-03]
 
-Zaakceptuj wartości domyślne dla pozostałych ustawień. Następnie wybierz **pozycję Recenzja + utwórz**. Po zapoznaniu się z ustawieniami wybierz pozycję **Utwórz**.
+Zaakceptuj wartości domyślne pozostałych ustawień. Następnie wybierz pozycję **Przegląd + Utwórz**. Po przejrzeniu ustawień wybierz pozycję **Utwórz**.
 
 W tym przewodniku Szybki start utworzysz rejestr *Podstawowy*, który jest zoptymalizowaną pod względem kosztów opcją dla deweloperów poznających usługę Azure Container Registry. Aby uzyskać szczegółowe informacje na temat dostępnych warstw usług, zobacz [Jednostki SKU rejestru kontenerów][container-registry-skus].
 
@@ -41,7 +41,7 @@ Kiedy pojawi się komunikat **Wdrażanie zakończyło się pomyślnie**, wybierz
 
 ![Omówienie rejestru kontenerów w witrynie Azure Portal][qs-portal-05]
 
-Zanotuj wartość **Serwer logowania**. Ta wartość jest używana w poniższych krokach podczas wypychania i ściągania obrazów za pomocą platformy Docker.
+Zanotuj wartość **Serwer logowania**. Ta wartość jest używana w poniższych krokach podczas wypychania i ściągania obrazów przy użyciu platformy Docker.
 
 ## <a name="log-in-to-registry"></a>Logowanie do rejestru
 
@@ -59,7 +59,7 @@ Po ukończeniu polecenie zwraca ciąg `Login Succeeded`.
 
 Aby wyświetlić listę obrazów w rejestrze, przejdź do rejestru w portalu i wybierz pozycję **Repozytoria**, a następnie wybierz repozytorium utworzone za pomocą polecenia `docker push`.
 
-W tym przykładzie wybieramy repozytorium **hello-world** i `v1`widzimy obraz -tagged w obszarze **Tagi**.
+W tym przykładzie wybieramy repozytorium **Hello-World** i w obszarze **Tagi**będzie widoczny obraz z `v1`tagami.
 
 ![Wyświetlanie listy obrazów kontenerów w witrynie Azure Portal][qs-portal-09]
 

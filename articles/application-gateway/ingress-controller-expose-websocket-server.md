@@ -1,6 +1,6 @@
 ---
-title: Uwidacznianie serwera WebSocket na bramę aplikacji
-description: Ten artykuł zawiera informacje dotyczące sposobu udostępnienia serwera WebSocket do bramy aplikacji z kontrolerem transferu danych przychodzących dla klastrów AKS.
+title: Uwidacznianie serwera WebSocket Application Gateway
+description: Ten artykuł zawiera informacje na temat udostępniania serwerowi WebSocket Application Gateway z kontrolerem transferu danych przychodzących dla klastrów AKS.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 1f068c9d98a827afd16da01bdc40cbb6ca5dc465
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79297836"
 ---
-# <a name="expose-a-websocket-server-to-application-gateway"></a>Uwidacznianie serwera WebSocket na bramę aplikacji
+# <a name="expose-a-websocket-server-to-application-gateway"></a>Uwidacznianie serwera WebSocket Application Gateway
 
-Jak opisano w dokumentacji bramy aplikacji w wersji 2 — [zapewnia natywną obsługę protokołów WebSocket i HTTP/2.](features.md#websocket-and-http2-traffic) Należy pamiętać, że zarówno dla bramy aplikacji, jak i usługi Kubernetes Ingress — nie ma ustawienia konfigurowanego przez użytkownika, aby selektywnie włączać lub wyłączać obsługę WebSocket.
+Zgodnie z opisem w dokumentacji Application Gateway v2 — [zapewnia natywną obsługę protokołów WebSocket i http/2](features.md#websocket-and-http2-traffic). Należy pamiętać, że dla obu Application Gateway i Kubernetesal — nie istnieje konfigurowalne ustawienie użytkownika umożliwiające wybiórcze Włączanie lub wyłączanie obsługi protokołu WebSocket.
 
-Yaml wdrożenia kubernetes poniżej pokazuje minimalną konfigurację używaną do wdrażania serwera WebSocket, który jest taki sam jak wdrażanie zwykłego serwera sieci web:
+W poniższym rozmieszczeniu Kubernetes YAML przedstawiono konfigurację minimalną używaną do wdrożenia serwera WebSocket, która jest taka sama jak wdrażanie zwykłego serwera sieci Web:
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -75,9 +75,9 @@ spec:
               servicePort: 80
 ```
 
-Biorąc pod uwagę, że wszystkie wymagania wstępne są spełnione i masz bramę aplikacji kontrolowaną przez usługi Przychodzące Kubernetes w systemie AKS, powyższe wdrożenie spowodowałoby serwer WebSockets narażone na porcie 80 publicznego adresu IP bramy aplikacji i `ws.contoso.com` domeny.
+Uwzględniając, że wszystkie wymagania wstępne są spełnione i masz Application Gateway kontrolowane przez ruch przychodzący Kubernetes w AKS, wdrożenie powyżej spowoduje, że serwer WebSockets będzie narażony na port 80 Application Gateway publicznego adresu IP i `ws.contoso.com` domeny.
 
-Następujące polecenie cURL przetestuje wdrożenie serwera WebSocket:
+Następujące polecenie zwinięcie spowoduje przetestowanie wdrożenia serwera WebSocket:
 ```sh
 curl -i -N -H "Connection: Upgrade" \
         -H "Upgrade: websocket" \
@@ -88,10 +88,10 @@ curl -i -N -H "Connection: Upgrade" \
         http://1.2.3.4:80/ws
 ```
 
-## <a name="websocket-health-probes"></a>Sondy kondycji WebSocket
+## <a name="websocket-health-probes"></a>Sondy kondycji protokołu WebSocket
 
-Jeśli wdrożenie nie jawnie zdefiniować sondy kondycji, brama aplikacji podejmie próbę HTTP GET w punkcie końcowym serwera WebSocket.
-W zależności od implementacji serwera[(oto jeden kochamy)](https://github.com/gorilla/websocket/blob/master/examples/chat/main.go)WebSocket`Sec-Websocket-Version` konkretne nagłówki mogą być wymagane (na przykład).
-Ponieważ brama aplikacji nie dodaje nagłówków WebSocket, odpowiedź sondy kondycji bramy aplikacji z `400 Bad Request`serwera WebSocket będzie najprawdopodobniej .
-W rezultacie brama aplikacji oznaczy zasobników jako złej kondycji, co ostatecznie spowoduje `502 Bad Gateway` dla konsumentów serwera WebSocket.
-Aby tego uniknąć, może być konieczne dodanie do serwera programu`/health` obsługi HTTP `200 OK`GET w celu sprawdzenia kondycji ( na przykład zwraca ).
+Jeśli w danym wdrożeniu nie zdefiniowano jawnie sond kondycji, Application Gateway podejmie próbę pobrania HTTP w punkcie końcowym serwera WebSocket.
+W zależności od implementacji serwera (w[tym miejscu](https://github.com/gorilla/websocket/blob/master/examples/chat/main.go)) mogą być wymagane określone nagłówki protokołu WebSocket (`Sec-Websocket-Version` na przykład).
+Ponieważ Application Gateway nie dodaje nagłówków protokołu WebSocket, najprawdopodobniej odpowiedź sondy kondycji Application Gateway z serwera WebSocket `400 Bad Request`.
+W efekcie Application Gateway oznacza to, że Twoje wartości są oznaczone jako w złej kondycji, co w `502 Bad Gateway` efekcie będzie powodować dla odbiorców serwera WebSocket.
+Aby tego uniknąć, może być konieczne dodanie procedury obsługi HTTP GET na potrzeby kontroli kondycji na serwerze (`/health` na przykład zwracające wartość `200 OK`).

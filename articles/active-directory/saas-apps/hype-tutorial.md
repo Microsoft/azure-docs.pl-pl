@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z technologią Hype | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a hiper.
+title: 'Samouczek: integracja Azure Active Directory z usługą pogłoskami narosłymi | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i pogłoskami narosłymi.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,71 +17,71 @@ ms.date: 07/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 090e0a8488bb4f79de544774b08c847ea1524ad9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67798595"
 ---
-# <a name="tutorial-integrate-hype-with-azure-active-directory"></a>Samouczek: Integracja hype z usługą Azure Active Directory
+# <a name="tutorial-integrate-hype-with-azure-active-directory"></a>Samouczek: integracja pogłoskami narosłymi z usługą Azure Active Directory
 
-W tym samouczku dowiesz się, jak zintegrować hype z usługą Azure Active Directory (Azure AD). Po zintegrowaniu hype z usługą Azure AD można:
+W tym samouczku dowiesz się, jak zintegrować usługę pogłoskami narosłymi z usługą Azure Active Directory (Azure AD). Po zintegrowaniu usługi pogłoskami narosłymi z usługą Azure AD można:
 
-* Kontrola w usłudze Azure AD, który ma dostęp do hype.
-* Włącz użytkownikom automatyczne logowanie do hiperza pomocą swoich kont usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
+* Kontrolka w usłudze Azure AD, która ma dostęp do pogłoskami narosłymi.
+* Zezwól użytkownikom na automatyczne logowanie się do usługi pogłoskami narosłymi przy użyciu kont w usłudze Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć, potrzebujesz następujących elementów:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać miesięczny bezpłatny okres próbny [tutaj](https://azure.microsoft.com/pricing/free-trial/).
-* Hype rejestracji jednokrotnej (SSO) włączone subskrypcji.
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz skorzystać z miesięcznej [bezpłatnej wersji](https://azure.microsoft.com/pricing/free-trial/)próbnej.
+* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) pogłoskami narosłymi.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku można skonfigurować i przetestować samouszeńców usługi Azure AD w środowisku testowym.
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Hype **obsługuje** sp zainicjowane SSO
-* Hype obsługuje **inicjowanie** obsługi administracyjnej użytkowników just in time
+* Pogłoskami narosłymi obsługuje logowanie jednokrotne w usłudze **SP**
+* Pogłoskami narosłymi obsługuje Inicjowanie obsługi użytkowników **just in Time**
 
-## <a name="adding-hype-from-the-gallery"></a>Dodawanie hype z galerii
+## <a name="adding-hype-from-the-gallery"></a>Dodawanie pogłoskami narosłymi z galerii
 
-Aby skonfigurować integrację hype do usługi Azure AD, należy dodać Hype z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu pogłoskami narosłymi z usługą Azure AD, musisz dodać pogłoskami narosłymi z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy użyciu konta służbowego lub konta firmy Microsoft.
-1. W lewym okienku nawigacji wybierz usługę **Azure Active Directory.**
-1. Przejdź do **aplikacji korporacyjnych,** a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz **Hype** w polu wyszukiwania.
-1. Wybierz **opcję Hype** z panelu wyników, a następnie dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** wpisz **pogłoskami narosłymi** w polu wyszukiwania.
+1. Wybierz pozycję **pogłoskami narosłymi** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-Konfigurowanie i testowanie usługi Azure AD SSO z hype przy użyciu użytkownika testowego o nazwie **B.Simon**. Aby użytkownik łączony sytuować działał, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w hiperści.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą pogłoskami narosłymi przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w pogłoskami narosłymi.
 
-Aby skonfigurować i przetestować sytą usługę Azure AD z pomocą hiper, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą pogłoskami narosłymi, wykonaj następujące bloki konstrukcyjne:
 
-1. **[Skonfiguruj samouszeńcę usługi Azure AD](#configure-azure-ad-sso)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie jednokrotne hype](#configure-hype-sso)** - aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+2. **[Skonfiguruj Logowanie jednokrotne](#configure-hype-sso)** w usłudze pogłoskami narosłymi, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego Hype](#create-hype-test-user)** — aby mieć odpowiednik Britta Simon w hype, który jest połączony z reprezentacji usługi Azure AD użytkownika.
-6. **[Test SSO](#test-sso)** - aby sprawdzić, czy konfiguracja działa.
+5. **[Utwórz użytkownika testowego pogłoskami narosłymi](#create-hype-test-user)** , aby uzyskać odpowiednik Britta Simon w pogłoskami narosłymi, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
+6. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azure portal.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie Integracja aplikacji **Hype** znajdź sekcję **Zarządzaj** i wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **pogłoskami narosłymi** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** kliknij ikonę edycji/pióra dla **podstawowej konfiguracji SAML,** aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
+1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
     1. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: 
     
@@ -92,65 +92,65 @@ Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azu
         `https://<SUBDOMAIN>.hypeinnovation.com`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta Hype,](mailto:itsupport@hype.de) aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta pogłoskami narosłymi](mailto:itsupport@hype.de) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego z saml** w sekcji **Certyfikat podpisywania SAML** znajdź **metadane XML** i wybierz **pozycję Pobierz,** aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **metadane XML** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
-1. W sekcji **Konfigurowanie hype** skopiuj odpowiednie adresy URL na podstawie wymagań.
+1. W sekcji **Konfigurowanie pogłoskami narosłymi** skopiuj odpowiednie adresy URL na podstawie wymagania.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-### <a name="configure-hype-sso"></a>Konfigurowanie sytcha liczby SSO hype
+### <a name="configure-hype-sso"></a>Konfigurowanie logowania jednokrotnego pogłoskami narosłymi
 
-Aby skonfigurować opcję logowania jednokrotnego po stronie **Hype,** musisz wysłać pobrany **kod XML metadanych** i odpowiednie skopiowane adresy URL z witryny Azure portal do [zespołu pomocy technicznej Hype.](mailto:itsupport@hype.de) Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie **pogłoskami narosłymi** , musisz wysłać pobrany **kod XML metadanych** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej pogłoskami narosłymi](mailto:itsupport@hype.de). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego w witrynie Azure portal o nazwie B.Simon.
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. Z lewego okienka w witrynie Azure portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-1. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
-1. We właściwościach **Użytkownika** wykonaj następujące kroki:
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** username@companydomain.extensionwprowadź pole . Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do hype.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi pogłoskami narosłymi.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **Wszystkie aplikacje**.
-1. Na liście aplikacji wybierz opcję **Hype**.
-1. Na stronie przegląd aplikacji znajdź sekcję **Zarządzaj** i wybierz pozycję **Użytkownicy i grupy**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **pogłoskami narosłymi**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-1. Wybierz **pozycję Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym Dodawanie **przydziału.**
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 
-   ![Łącze Dodaj użytkownika](common/add-assign-user.png)
+   ![Link Dodaj użytkownika](common/add-assign-user.png)
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B.Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. W oknie dialogowym **Dodawanie przydziału** kliknij przycisk **Przypisz.**
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-### <a name="create-hype-test-user"></a>Utwórz użytkownika testowego Hype
+### <a name="create-hype-test-user"></a>Utwórz użytkownika testowego pogłoskami narosłymi
 
-W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w Hype. Hype obsługuje just-in-time inicjowania obsługi administracyjnej użytkowników, który jest domyślnie włączony. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje w hype, nowy jest tworzony po uwierzytelnieniu.
+W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w pogłoskami narosłymi. Pogłoskami narosłymi obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik nie istnieje jeszcze w usłudze pogłoskami narosłymi, zostanie utworzony nowy po uwierzytelnieniu.
 
-### <a name="test-sso"></a>Test SSO
+### <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Hype w Panelu dostępu należy automatycznie zalogować się do hype, dla którego skonfigurowano logującą się logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka pogłoskami narosłymi w panelu dostępu należy automatycznie zalogować się do pogłoskami narosłymi, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

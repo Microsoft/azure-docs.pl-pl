@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/12/2020
 ms.author: shvija
 ms.openlocfilehash: 0b20c73ed0590f3afc19db43b4b55dd3ff6bde8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79453874"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Tworzenie przestrzeni nazw w centrum zdarzeń i włączanie przechwytywania przy użyciu szablonu
@@ -235,7 +235,7 @@ Kontener obiektów blob, w którym będą przechwytywane dane zdarzeń.
 }
 ```
 
-Użyj następujących parametrów, jeśli wybierzesz usługę Azure Data Lake Store Gen 1 jako miejsce docelowe. Należy ustawić uprawnienia w ścieżce usługi Data Lake Store, w której ma zostać przechwycone zdarzenie. Aby ustawić uprawnienia, zobacz [Przechwytywanie danych do usługi Azure Data Lake Storage Gen 1](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1).
+Jeśli wybierzesz pozycję Azure Data Lake Store Gen 1 jako miejsce docelowe, użyj następujących parametrów. Należy ustawić uprawnienia w ścieżce usługi Data Lake Store, w której ma zostać przechwycone zdarzenie. Aby ustawić uprawnienia, zobacz [przechwytywanie danych do Azure Data Lake Storage generacji 1](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1).
 
 ### <a name="subscriptionid"></a>subscriptionId
 

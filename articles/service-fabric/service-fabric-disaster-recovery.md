@@ -1,216 +1,216 @@
 ---
-title: Odzyskiwanie po awarii sieci szkieletowej usługi Azure
-description: Usługa Azure Service Fabric oferuje możliwości radzenia sobie z awariami. W tym artykule opisano typy awarii, które mogą wystąpić i jak sobie z nimi radzić.
+title: Odzyskiwanie po awarii Service Fabric platformy Azure
+description: Usługa Azure Service Fabric oferuje funkcje do rozwiązywania awarii. W tym artykule opisano typy awarii, które mogą wystąpić, oraz sposób postępowania z nimi.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: b29985d40ae3a1bf582099e998e000fed83460f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371651"
 ---
-# <a name="disaster-recovery-in-azure-service-fabric"></a>Odzyskiwanie po awarii w sieci szkieletowej usług Azure
-Kluczową częścią dostarczania wysokiej dostępności jest zapewnienie, że usługi mogą przetrwać wszystkie rodzaje awarii. Jest to szczególnie ważne w przypadku awarii, które są nieplanowane i poza kontrolą. 
+# <a name="disaster-recovery-in-azure-service-fabric"></a>Odzyskiwanie po awarii na platformie Azure Service Fabric
+Krytyczna część dostarczania wysokiej dostępności zapewnia, że usługi mogą przetrwać wszystkie różne typy awarii. Jest to szczególnie ważne w przypadku nieplanowanych awarii i poza formantem. 
 
-W tym artykule opisano niektóre typowe tryby awarii, które mogą być awarie, jeśli nie są poprawnie modelowane i zarządzane. Omówiono również środki zaradcze i działania do podjęcia, jeśli w każdym razie dojdzie do katastrofy. Celem jest ograniczenie lub wyeliminowanie ryzyka przestojów lub utraty danych w przypadku wystąpienia awarii, planowanych lub innych.
+W tym artykule opisano niektóre typowe tryby awarii, które mogą być awarie, jeśli nie są poprawnie modelowane i zarządzane. Omówiono w nim również środki zaradcze i działania podejmowane w przypadku wystąpienia awarii. Celem jest ograniczenie lub wyeliminowanie ryzyka przestoju lub utraty danych w przypadku wystąpienia awarii, planowanego lub w inny sposób.
 
-## <a name="avoiding-disaster"></a>Unikanie katastrofy
-Głównym celem usługi Azure Service Fabric jest pomoc w modelowania środowiska i usług w taki sposób, że typowe typy awarii nie są awariami. 
+## <a name="avoiding-disaster"></a>Uniknięcie awarii
+Głównym celem usługi Azure Service Fabric jest ułatwienie modelowania środowiska i usług w taki sposób, że typowe typy awarii nie są awariami. 
 
-Ogólnie rzecz biorąc istnieją dwa typy scenariuszy awarii/awarii:
-- Usterki sprzętu i oprogramowania
-- Usterki operacyjne
+Ogólnie rzecz biorąc, istnieją dwa typy scenariuszy awarii/awarii:
+- Błędy sprzętu i oprogramowania
+- Błędy operacyjne
 
-### <a name="hardware-and-software-faults"></a>Usterki sprzętu i oprogramowania
-Usterki sprzętu i oprogramowania są nieprzewidywalne. Najprostszym sposobem na przetrwanie błędów jest uruchomienie większej liczby kopii usługi w granicach błędów sprzętu lub oprogramowania. 
+### <a name="hardware-and-software-faults"></a>Błędy sprzętu i oprogramowania
+Błędy sprzętu i oprogramowania są nieprzewidywalne. Najprostszym sposobem przeżycia błędów jest uruchomienie większej liczby kopii usługi na granicach sprzętu lub oprogramowania. 
 
-Na przykład jeśli usługa jest uruchomiona tylko na jednym komputerze, awaria tego jednego komputera jest katastrofą dla tej usługi. Prostym sposobem uniknięcia tej awarii jest zapewnienie, że usługa jest uruchomiona na wielu komputerach. Testowanie jest również konieczne, aby upewnić się, że awaria jednej maszyny nie zakłóca uruchomionej usługi. Planowanie pojemności zapewnia, że wystąpienie zastępowania można utworzyć w innym miejscu i że zmniejszenie pojemności nie przeciąża pozostałych usług. 
+Na przykład, jeśli usługa jest uruchomiona tylko na jednym komputerze, awaria tej usługi jest niezależna od tego, czy jest ona niezależna. Prostym sposobem na uniknięcie tego awarii jest upewnienie się, że usługa jest uruchomiona na wielu komputerach. Testowanie jest również konieczne, aby upewnić się, że awaria jednego komputera nie zakłóca działania uruchomionej usługi. Planowanie pojemności zapewnia, że wystąpienie zastępcze może zostać utworzone w innym miejscu i zmniejszenie wydajności nie powoduje przeciążenia pozostałych usług. 
 
-Ten sam wzorzec działa niezależnie od tego, co próbujesz uniknąć awarii. Na przykład jeśli obawiasz się awarii sieci SAN, można uruchomić przez wiele sieci SAN. Jeśli obawiasz się utraty stojaka serwerów, napotkasz wiele stojaków. Jeśli obawiasz się utraty centrów danych, usługa powinna działać w wielu regionach platformy Azure, w wielu strefach dostępności platformy Azure lub we własnych centrach danych. 
+Ten sam wzorzec działa niezależnie od tego, co próbujesz uniknąć awarii. Na przykład Jeśli obawiasz się awarii sieci SAN, możesz uruchomić wiele sieci SAN. Jeśli chodzi o utratę stojaka serwerów, możesz uruchamiać wiele stojaków. W przypadku martwisz się o utracie centrów danych usługa powinna działać w wielu regionach platformy Azure, w wielu Strefy dostępności platformy Azureach lub we własnych centrach danych. 
 
-Gdy usługa jest łączony z wieloma wystąpieniami fizycznymi (maszyny, stojaki, centra danych, regiony), nadal naliczasz pewne typy równoczesnych awarii. Ale pojedyncze, a nawet wiele awarii określonego typu (na przykład pojedyncza maszyna wirtualna lub łącze sieciowe nie działa) są automatycznie obsługiwane i dlatego nie są już "katastrofą". 
+Gdy usługa jest objęta wieloma wystąpieniami fizycznymi (maszynami, stojakami, centrami danych, regionami), nadal podlegają pewne typy jednoczesnych awarii. Jednak pojedyncza i nawet wiele błędów określonego typu (na przykład awaria pojedynczej maszyny wirtualnej lub łącza sieciowego) są automatycznie obsługiwane i nie są już "katastrofami". 
 
-Sieć szkieletowa usług udostępnia mechanizmy rozszerzania klastra i obsługuje przynosząc węzły i usługi nie powiodło się z powrotem. Usługa Service Fabric umożliwia również uruchamianie wielu wystąpień usług, aby zapobiec nieplanowanym awariom przekształcania się w rzeczywiste awarie.
+Service Fabric udostępnia mechanizmy rozszerzania klastra i obsługują przywracanie uszkodzonych węzłów i usług. Service Fabric również umożliwia uruchamianie wielu wystąpień usług, aby zapobiec występowaniu nieplanowanych awarii.
 
-Może być powody, dla których uruchamianie wdrożenia wystarczająco duże, aby obejmować błędy nie jest możliwe. Na przykład może to zająć więcej zasobów sprzętowych niż jesteś gotów zapłacić za w stosunku do szansy awarii. W przypadku aplikacji rozproszonych dodatkowe przeskoki komunikacyjne lub koszty replikacji stanu na odległość geograficzną mogą powodować niedopuszczalne opóźnienia. W przypadku rysowania tej linii różni się dla każdej aplikacji. 
+Może się zdarzyć, że wdrożenie wystarczająco duże, aby przetworzyć awarie, nie jest możliwe. Na przykład może to potrwać więcej zasobów sprzętowych, niż jest to konieczne, w odniesieniu do szansy niepowodzeń. W przypadku korzystania z aplikacji rozproszonych dodatkowe przeskoki komunikacyjne lub koszty replikacji stanu na odległość geograficzną mogą spowodować nieakceptowalne opóźnienia. Miejsce, w którym ten wiersz jest rysowany, różni się w zależności od aplikacji. 
 
-W przypadku błędów oprogramowania w szczególności błąd może znajdować się w usłudze, którą próbujesz skalować. W takim przypadku więcej kopii nie zapobiec awarii, ponieważ warunek awarii jest skorelowany we wszystkich wystąpieniach.
+W przypadku błędów oprogramowania w odniesieniu do błędu może być używana usługa, którą próbujesz skalować. W takim przypadku więcej kopii nie zapobiega awarii, ponieważ warunek błędu jest skorelowany we wszystkich wystąpieniach.
 
-### <a name="operational-faults"></a>Usterki operacyjne
-Nawet jeśli usługa jest łączony na całym świecie z wielu zwolnień, nadal może wystąpić katastrofalne zdarzenia. Na przykład ktoś może przypadkowo ponownie skonfigurować nazwę DNS usługi lub usunąć ją wprost. 
+### <a name="operational-faults"></a>Błędy operacyjne
+Nawet jeśli Twoja usługa jest położona na całym świecie z wieloma nadmiarowośćmi, nadal mogą wystąpić zdarzenia katastrofalne. Na przykład ktoś może przypadkowo zmienić nazwę DNS usługi lub usunąć ją z prawej strony. 
 
-Na przykład załóżmy, że masz stanową usługę sieci szkieletowej usług i ktoś przypadkowo usunął tę usługę. Chyba że istnieje inne środki zaradcze, że usługa i cały stan, który miał już zniknął. Tego typu awarie operacyjne ("oops") wymagają różnych środków zaradczych i kroków odzyskiwania niż zwykłe nieplanowane awarie. 
+Załóżmy na przykład, że masz usługę stanową Service Fabric, a ktoś przypadkowo usunął tę usługę. O ile nie istnieje jakieś inne środki zaradcze, ta usługa i wszystkie Stany, które zostały już usunięte. Te typy katastrof operacyjnych ("Niestety") wymagają różnych środków zaradczych i czynności związanych z odzyskiwaniem niż regularne nieplanowane błędy. 
 
-Najlepszym sposobem uniknięcia tego typu usterek operacyjnych są:
-- Ograniczanie dostępu operacyjnego do środowiska.
-- Ściśle kontroluj niebezpieczne operacje.
-- Narzuć automatyzację, zapobiegaj zmianom ręcznym lub poza pasmem i weryfikuj określone zmiany w środowisku przed ich uchwaleniem.
-- Upewnij się, że destrukcyjne operacje są "miękkie". Operacje miękkie nie są skuteczne natychmiast lub można je cofnąć w określonym przedziale czasu.
+Najlepszym sposobem na uniknięcie tego typu błędów operacyjnych jest:
+- Ogranicz dostęp operacyjny do środowiska.
+- Ścisła Inspekcja niebezpiecznych operacji.
+- Narzucaj automatyzację, Zapobiegaj ręcznym lub poza pasmem, a także Weryfikuj konkretne zmiany w środowisku przed ich przekazaniem.
+- Upewnij się, że operacje niszczące są "miękkie". Operacje nietrwałe nie zaczynają obowiązywać natychmiast lub mogą być cofnięte w przedziale czasu.
 
-Sieci szkieletowej usług udostępnia mechanizmy, aby zapobiec błędom operacyjnym, takich jak zapewnienie kontroli dostępu [na podstawie ról](service-fabric-cluster-security-roles.md) dla operacji klastra. Jednak większość z tych usterek operacyjnych wymaga wysiłków organizacyjnych i innych systemów. Usługa Fabric zapewnia mechanizmy przetrwania błędów operacyjnych, w szczególności [tworzenia kopii zapasowych i przywracania dla usług stanowych.](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
+Service Fabric udostępnia mechanizmy uniemożliwiające awarie operacyjne, takie jak zapewnienie kontroli dostępu [opartej na rolach](service-fabric-cluster-security-roles.md) dla operacji klastra. Większość z tych usterek operacyjnych wymaga jednak wysiłków organizacyjnych i innych systemów. Service Fabric udostępnia mechanizmy do pogłębienia błędów operacyjnych, [a mianowicie tworzenie kopii zapasowych i przywracanie dla usług stanowych](service-fabric-backuprestoreservice-quickstart-azurecluster.md).
 
-## <a name="managing-failures"></a>Zarządzanie awariami
-Celem sieci szkieletowej usług jest automatyczne zarządzanie błędami. Ale do obsługi niektórych typów błędów, usługi muszą mieć dodatkowy kod. Inne rodzaje awarii _nie_ powinny być automatycznie rozwiązywane ze względów bezpieczeństwa i ciągłości działania. 
+## <a name="managing-failures"></a>Zarządzanie błędami
+Celem Service Fabric jest automatyczne zarządzanie niepowodzeńmi. Jednak w celu obsługi niektórych typów błędów usługi muszą mieć dodatkowy kod. W przypadku innych typów awarii _nie_ należy automatycznie rozwiązywać problemów z bezpieczeństwem i ciągłością biznesową. 
 
-### <a name="handling-single-failures"></a>Obsługa pojedynczych awarii
-Pojedyncze maszyny mogą zakończyć się niepowodzeniem z różnych powodów. Czasami jest to przyczyna sprzętu, takich jak zasilacze i awarie sprzętu sieciowego. Inne awarie są w oprogramowaniu. Należą do nich awarie systemu operacyjnego i samej usługi. Sieć szkieletowa usług automatycznie wykrywa tego typu awarie, w tym przypadki, w których maszyna zostaje odizolowana od innych komputerów z powodu problemów z siecią.
+### <a name="handling-single-failures"></a>Obsługa pojedynczych błędów
+Pojedyncze maszyny mogą kończyć się niepowodzeniem w przypadku wszystkich różnych przyczyn. Czasami jest to przyczyną problemów sprzętowych, takich jak zasilacze i awarie sprzętu sieciowego. Inne błędy są w oprogramowaniu. Obejmują one błędy systemu operacyjnego i samej usługi. Service Fabric automatycznie wykrywa te typy błędów, w tym przypadki, w których maszyna zostanie odizolowana od innych maszyn z powodu problemów z siecią.
 
-Niezależnie od typu usługi, uruchomienie pojedynczego wystąpienia powoduje przestoje dla tej usługi, jeśli ta pojedyncza kopia kodu nie powiedzie się z jakiegokolwiek powodu. 
+Niezależnie od typu usługi uruchomienie pojedynczego wystąpienia powoduje przestoje dla tej usługi, jeśli jedna kopia kodu nie powiedzie się z jakiegokolwiek powodu. 
 
-Aby obsłużyć każdy pojedynczy błąd, najprostszą rzeczą, jaką można zrobić, to upewnić się, że usługi są domyślnie uruchamiane w więcej niż jednym węźle. W przypadku usług bezstanowych upewnij się, że `InstanceCount` jest większa niż 1. W przypadku usług stanowych minimalne `TargetReplicaSetSize` `MinReplicaSetSize` zalecenie jest to, że i są ustawione na 3. Uruchamianie większej liczby kopii kodu usługi zapewnia, że usługa może automatycznie obsługiwać pojedyncze awarie. 
+W celu obsługi dowolnego pojedynczego błędu najprostszą czynnością jest upewnienie się, że usługi działają domyślnie w więcej niż jednym węźle. W przypadku usług bezstanowych upewnij `InstanceCount` się, że jest ona większa niż 1. W przypadku usług stanowych minimalnym zaleceniem `TargetReplicaSetSize` są `MinReplicaSetSize` te, które są ustawione na 3. Uruchomienie większej liczby kopii kodu usługi zapewnia, że usługa może obsłużyć pojedynczy błąd automatycznie. 
 
-### <a name="handling-coordinated-failures"></a>Obsługa skoordynowanych awarii
-Skoordynowane awarie w klastrze mogą być spowodowane planowanymi lub nieplanowanymi awariami i zmianami w infrastrukturze lub planowanymi zmianami oprogramowania. Usługa Sieci szkieletowej modeluje strefy infrastruktury, w których występują skoordynowane awarie jako *domeny błędów.* Obszary, w których będą wprowadzane skoordynowane zmiany w oprogramowaniu, są modelowane jako *domeny uaktualnień.* Aby uzyskać więcej informacji na temat domen błędów, domen uaktualniania i topologii klastrów, zobacz [Opisywanie klastra sieci szkieletowej usług przy użyciu Menedżera zasobów klastra](service-fabric-cluster-resource-manager-cluster-description.md).
+### <a name="handling-coordinated-failures"></a>Obsługa niepowodzeń koordynowanych
+Skoordynowane awarie w klastrze mogą być spowodowane planowanymi lub nieplanowanymi awariami infrastruktury oraz zmianami lub planowanymi zmianami oprogramowania. Service Fabric modeleje strefy infrastruktury, które napotykają skoordynowane błędy jako *domeny błędów*. Obszary, które będą powodować skoordynowane zmiany oprogramowania są modelowane jako *domeny uaktualnienia*. Aby uzyskać więcej informacji na temat domen błędów, domen uaktualnienia i topologii klastra, zobacz [Opis klastra Service Fabric przy użyciu Menedżer zasobów klastrów](service-fabric-cluster-resource-manager-cluster-description.md).
 
-Domyślnie sieci szkieletowej usług uwzględnia domeny błędów i uaktualniania podczas planowania, gdzie usługi powinny działać. Domyślnie sieć szkieletowa usług próbuje upewnić się, że usługi działają w kilku domenach błędów i uaktualniania, dzięki czemu w przypadku planowanych lub nieplanowanych zmian usługi pozostaną dostępne. 
+Domyślnie Service Fabric traktuje domeny błędów i uaktualniania podczas planowania, gdzie usługi powinny działać. Domyślnie program Service Fabric podejmuje próbę upewnienia się, że usługi działają w kilku domenach błędów i uaktualnień, aby w przypadku wystąpienia planowanych lub nieplanowanych zmian Twoje usługi pozostaną dostępne. 
 
-Załóżmy na przykład, że awaria źródła zasilania powoduje, że wszystkie maszyny w stelażu zawodzą jednocześnie. Po uruchomieniu wielu kopii usługi utrata wielu maszyn w awarii domeny błędów zamienia się w kolejny przykład pojedynczej awarii usługi. Dlatego zarządzanie domenami błędów i uaktualniania ma kluczowe znaczenie dla zapewnienia wysokiej dostępności usług. 
+Załóżmy na przykład, że awaria źródła zasilacza powoduje, że wszystkie maszyny w stojaku kończą się niepowodzeniem jednocześnie. W przypadku wielu kopii usługi, utrata wielu maszyn w przypadku awarii domeny błędów przestanie działać na inny przykład pojedynczego błędu dla usługi. Dlatego Zarządzanie domenami błędów i uaktualniania ma kluczowe znaczenie dla zapewnienia wysokiej dostępności usług. 
 
-Gdy korzystasz z sieci szkieletowej usług na platformie Azure, domeny błędów i domeny uaktualnień są zarządzane automatycznie. W innych środowiskach mogą nie być. Jeśli budujesz własne klastry lokalnie, należy poprawnie mapować i planować układ domeny błędów.
+Gdy uruchamiasz Service Fabric na platformie Azure, domeny błędów i domeny uaktualnień są zarządzane automatycznie. W innych środowiskach mogą one nie być. Jeśli tworzysz własne klastry lokalnie, pamiętaj o poprawnym zamapowaniu i zaplanowaniu układu domeny błędów.
 
-Domeny uaktualnienia są przydatne w obszarach modelowania, w których oprogramowanie zostanie uaktualnione w tym samym czasie. Z tego powodu domeny uaktualnienia często definiują również granice, w których oprogramowanie jest łajdasane podczas planowanych uaktualnień. Uaktualnienia sieci szkieletowej usług i usług wykonaj ten sam model. Aby uzyskać więcej informacji na temat uaktualnień stopniowych, domen uaktualniania i modelu kondycji sieci szkieletowej usług, który pomaga zapobiegać niezamierzonym zmianom wpływającym na klaster i usługę, zobacz:
+Domeny uaktualnień są przydatne w przypadku obszarów modelowania, w których oprogramowanie zostanie uaktualnione w tym samym czasie. Z tego powodu domeny uaktualnienia często definiują granice, w których oprogramowanie jest wyłączane podczas planowanych uaktualnień. Uaktualnienia obu Service Fabric i usług są zgodne z tym samym modelem. Aby uzyskać więcej informacji na temat uaktualnień stopniowych, domen uaktualnienia i modelu kondycji Service Fabric, który pomaga zapobiegać niezamierzonym zmianom wpływającym na klaster i usługę, zobacz:
 
  - [Uaktualnienie aplikacji](service-fabric-application-upgrade.md)
- - [Samouczek uaktualniania aplikacji](service-fabric-application-upgrade-tutorial.md)
- - [Model kondycji sieci szkieletowej usługi](service-fabric-health-introduction.md)
+ - [Samouczek dotyczący uaktualniania aplikacji](service-fabric-application-upgrade-tutorial.md)
+ - [Model kondycji Service Fabric](service-fabric-health-introduction.md)
 
-Układ klastra można wizualizować za pomocą mapy klastra dostępnej w [Eksploratorze sieci szkieletowej usług:](service-fabric-visualizing-your-cluster.md)
+Możesz wizualizować układ klastra przy użyciu mapy klastra podanej w [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md):
 
 <center>
 
-![Węzły rozłożone na domeny błędów w Eksploratorze sieci szkieletowej usług][sfx-cluster-map]
+![Węzły rozłożone między domenami błędów w Service Fabric Explorer][sfx-cluster-map]
 </center>
 
 > [!NOTE]
-> Modelowanie obszarów awarii, uaktualnień stopniowych, uruchamianie wielu wystąpień kodu usługi i stanu, reguły umieszczania, aby upewnić się, że usługi działają w domenach błędów i uaktualnień oraz wbudowane monitorowanie kondycji to tylko *niektóre* z funkcji, które zapewnia sieci szkieletowej usług, aby zachować normalne problemy operacyjne i awarie przed przekształceniem się w awarie. 
+> Modelowanie obszarów awarii, uaktualnień stopniowych, uruchamianie wielu wystąpień kodu i stanu usługi, reguły umieszczania w celu upewnienia się, że usługi działają w domenach błędów i uaktualnień, a wbudowane monitorowanie kondycji to tylko *niektóre* funkcje, które Service Fabric zapewnia, aby zachować normalne problemy z działaniem i awarie przed włączeniem awarii. 
 >
 
 ### <a name="handling-simultaneous-hardware-or-software-failures"></a>Obsługa jednoczesnych awarii sprzętu lub oprogramowania
-Mówiliśmy o pojedynczych porażkach. Jak widać, są one łatwe w obsłudze dla usług bezstanowych i stanowych tylko przez zachowanie większej liczby kopii kodu (i stanu) działających w domenach błędów i uaktualnienia. 
+Otrzymaliśmy informacje o pojedynczych błędach. Jak widać, są one łatwe do obsłużenia zarówno w przypadku usług bezstanowych, jak i bezstanowych, co pozwala zachować większą liczbę kopii kodu (i stanu) uruchomionych w domenach błędów i uaktualnień. 
 
-Wiele jednoczesnych awarii losowych może również się zdarzyć. Są one bardziej prawdopodobne, aby doprowadzić do przestoju lub rzeczywistej awarii.
+Może również wystąpić wiele jednoczesnych błędów losowych. Są one bardziej potencjalne, aby prowadzić przestoje lub rzeczywista awaria.
 
 
 #### <a name="stateless-services"></a>Usługi bezstanowe
-Liczba wystąpień dla usługi bezstanowej wskazuje żądaną liczbę wystąpień, które muszą być uruchomione. Gdy dowolne (lub wszystkie) wystąpienia nie powiodą się, usługa Service Fabric odpowiada, automatycznie tworząc wystąpienia zastępcze w innych węzłach. Sieć szkieletowa usług kontynuuje tworzenie zamienników, dopóki usługa nie powróci do żądanej liczby wystąpień.
+Liczba wystąpień usługi bezstanowej wskazuje żądaną liczbę wystąpień, które muszą być uruchomione. Gdy dowolne (lub wszystkie) wystąpienia zakończą się niepowodzeniem, Service Fabric reaguje, automatycznie tworząc wystąpienia zastępcze w innych węzłach. Service Fabric kontynuuje tworzenie zamian, dopóki usługa nie zostanie przywrócona do żądanej liczby wystąpień.
 
-Załóżmy na przykład, że `InstanceCount` usługa bezstanowa ma wartość -1. Ta wartość oznacza, że jedno wystąpienie powinno być uruchomione na każdym węźle w klastrze. Jeśli niektóre z tych wystąpień nie powiedzie się, sieć szkieletowa usług wykryje, że usługa nie jest w żądanym stanie i spróbuje utworzyć wystąpienia w węzłach, w których ich brakuje.
+Załóżmy na przykład, że usługa bezstanowa ma `InstanceCount` wartość-1. Ta wartość oznacza, że jedno wystąpienie powinno być uruchomione na każdym węźle w klastrze. Jeśli niektóre z tych wystąpień zakończą się niepowodzeniem, Service Fabric wykryje, że usługa nie jest w żądanym stanie i spróbuje utworzyć wystąpienia w węzłach, w których się znajdują.
 
 #### <a name="stateful-services"></a>Usługi stanowe
 Istnieją dwa typy usług stanowych:
-- Stanowy ze stanem utrzymywanym.
-- Stanowy ze stanem nieutrzymywalnym. (Stan jest przechowywany w pamięci).
+- Stanowy z trwałym stanem.
+- Stanowy z nieutrwalonym stanem. (Stan jest przechowywany w pamięci).
 
-Odzyskiwanie po awarii usługi stanowej zależy od typu usługi stanowej, ile replik miała usługa i ile replik nie powiodło się.
+Odzyskiwanie po awarii usługi stanowej zależy od typu usługi stanowej, liczby replik usługi i liczby replik zakończonych niepowodzeniem.
 
-W usłudze stanowej przychodzące dane są replikowane między replikami (podstawowymi i dowolnymi aktywnymi pomocniczymi). Jeśli większość replik odbiera dane, dane są uznawane za zatwierdzone *kworum.* (Dla pięciu replik trzy będą kworum.) Oznacza to, że w dowolnym momencie będzie co najmniej kworum replik z najnowszymi danymi. Jeśli repliki nie powiedzmy (powiedzmy dwa na pięć), możemy użyć wartości kworum, aby obliczyć, czy możemy odzyskać. (Ponieważ pozostałe trzy z pięciu replik są nadal w górę, jest gwarantowane, że co najmniej jedna replika będzie miała pełne dane.)
+W usłudze stanowej dane przychodzące są replikowane między replikami (podstawowymi i wszystkimi aktywnymi elementami pomocniczymi). Jeśli większość replik odbierze dane, dane są uznawane za zatwierdzone *kworum* . (Dla pięciu replik, trzy będzie kworum). Oznacza to, że w dowolnym momencie będzie co najmniej kworum replik z najnowszymi danymi. Jeśli repliki zakończą się niepowodzeniem (powiedzmy dwa z pięciu), możemy użyć wartości kworum do obliczenia, czy można odzyskać. (Ponieważ pozostałe trzy repliki są nadal dostępne, gwarantujemy, że co najmniej jedna replika będzie mieć kompletne dane).
 
-Gdy kworum replik nie powiedzie się, partycja jest zadeklarowana jako w stanie *utraty kworum.* Załóżmy, że partycja ma pięć replik, co oznacza, że co najmniej trzy są gwarantowane, aby mieć pełne dane. Jeśli kworum (trzy na pięć) replik nie powiedzie się, sieci szkieletowej usług nie można określić, czy pozostałe repliki (dwa na pięć) mają wystarczającą ilość danych, aby przywrócić partycję. W przypadkach, gdy usługa Service Fabric wykrywa utratę kworum, jej domyślnym zachowaniem jest zapobieganie dodatkowym zapisom na partycji, deklarowanie utraty kworum i oczekiwanie na przywrócenie kworum replik.
+Gdy kworum replik nie powiedzie się, partycja jest zadeklarowana jako w stanie *utraty kworum* . Załóżmy, że partycja ma pięć replik, co oznacza, że co najmniej trzy są gwarantowane pełnych danych. Jeśli kworum (trzy z pięciu) replik kończy się niepowodzeniem, Service Fabric nie może określić, czy pozostałe repliki (dwa z pięciu) mają wystarczającą ilość danych do przywrócenia partycji. W przypadkach, w których Service Fabric wykrywa utratę kworum, jego zachowanie domyślne polega na uniemożliwieniu dodatkowych zapisów w partycji, zadeklarowaniu utraty kworum i poczekaniu na przywrócenie kworum replik.
 
-Określanie, czy wystąpiła awaria dla usługi stanowej, a następnie zarządzanie nią następuje po trzech etapach:
+Określenie, czy wystąpił błąd usługi stanowej, a następnie zarządzanie nią następuje po trzech etapach:
 
-1. Określanie, czy nastąpiła utrata kworum, czy nie.
+1. Określanie, czy nastąpiła utrata kworum.
    
-   Utrata kworum jest zadeklarowana, gdy większość replik usługi stanowej są w dół w tym samym czasie.
-2. Określanie, czy utrata kworum jest trwała, czy nie.
+   Utrata kworum jest zadeklarowana, gdy większość replik stanowych usług nie działa w tym samym czasie.
+2. Ustalanie, czy utrata kworum jest stała, czy nie.
    
-   W większości przypadków awarie są przejściowe. Procesy są uruchamiane ponownie, węzły są ponownie uruchamiane, maszyny wirtualne są ponownie uruchamiane, a partycje sieciowe leczą. Czasami jednak awarie są trwałe. Czy błędy są trwałe, czy nie zależy od tego, czy usługa stanowa utrzymuje swój stan lub czy przechowuje go tylko w pamięci: 
+   W większości przypadków błędy są przejściowe. Procesy są ponownie uruchamiane, węzły są ponownie uruchamiane, maszyny wirtualne zostaną uruchomione, a partycje sieciowe zostały zaleczone. Czasami niepowodzenia są trwałe. Czy niepowodzenia są trwałe, czy nie są zależne od tego, czy usługa stanowa utrzymuje swój stan, czy też w pamięci: 
    
-   - W przypadku usług bez stanu utrwalonych awaria kworum lub więcej replik _powoduje natychmiast_ trwałą utratę kworum. Gdy usługa Service Fabric wykryje utratę kworum w stanowej usłudze nietrwałej, natychmiast przechodzi do kroku 3, deklarując (potencjalną) utratę danych. Przejście do utraty danych ma sens, ponieważ sieci szkieletowej usług wie, że nie ma sensu czekać na repliki wrócić. Nawet jeśli odzyskają, dane zostaną utracone z powodu nieutrwalonych charakter usługi.
-   - W przypadku usług trwałych stanowych błąd kworum lub więcej replik powoduje, że sieci szkieletowej usług czekać na repliki wrócić i przywrócić kworum. Powoduje to awarię usługi dla wszystkich _zapisów_ do partycji, których dotyczy problem (lub "zestaw replik") usługi. Jednak odczyty mogą być nadal możliwe przy ograniczeniu gwarancji spójności. Domyślna ilość czasu oczekiwania sieci szkieletowej usług na przywrócenie kworum jest *nieskończona,* ponieważ postępowanie jest (potencjalnym) zdarzeniem utraty danych i niesie ze sobą inne ryzyko. Oznacza to, że sieci szkieletowej usług nie przejdzie do następnego kroku, chyba że administrator podejmie działania w celu zadeklarowania utraty danych.
-3. Określanie, czy dane zostały utracone, i przywracanie z kopii zapasowych.
+   - W przypadku usług bez trwałego uszkodzenia kworum lub większej liczby replik _natychmiast_ po utracie trwałych kworum. Gdy Service Fabric wykrywa utratę kworum w nietrwałej usłudze stanowej, natychmiast przechodzi do kroku 3 przez zadeklarowanie (potencjalne) utraty danych. Przechodzenie do utraty danych ma sens, ponieważ Service Fabric wie, że nie ma żadnego punktu oczekiwania na powrót replik. Nawet w przypadku ich odzyskania dane zostaną utracone z powodu nieutrwalonego charakteru usługi.
+   - W przypadku stałych usług trwałych awaria kworum lub większej liczby replik powoduje, że Service Fabric czekać, aż repliki powróciją i przywróciją kworum. Powoduje to awarię usługi dla wszelkich _zapisów_ na partycji, której to dotyczy (lub "zestawu replik") usługi. Jednak odczyty mogą być nadal możliwe z obniżonymi gwarancjami spójności. Domyślna ilość czasu, jaką Service Fabric czeka na przywrócenie kworum, jest *nieskończona*, ponieważ jest to (potencjalne) zdarzenie utraty danych i przenosi inne zagrożenia. Oznacza to, że Service Fabric nie przejdzie do następnego kroku, chyba że administrator podejmie akcję zadeklarować utratę danych.
+3. Określanie, czy dane są tracone i przywracane z kopii zapasowych.
 
-   Jeśli utrata kworum została zadeklarowana (automatycznie lub za pomocą akcji administracyjnej), sieci szkieletowej usług i usługi przejść do określenia, czy dane zostały faktycznie utracone. W tym momencie sieci szkieletowej usług wie również, że inne repliki nie wracają. Taka była decyzja podjęta, kiedy przestaliśmy czekać na utratę kworum, aby rozwiązać się sam. Najlepszym sposobem działania dla usługi jest zwykle zamrożenie i oczekiwanie na konkretną interwencję administracyjną.
+   Jeśli utrata kworum została zadeklarowana (automatycznie lub za pomocą akcji administracyjnej), Service Fabric i usługi przechodzą w celu określenia, czy dane zostały faktycznie utracone. W tym momencie Service Fabric również wie, że inne repliki nie są wycofywane. To była decyzja podjęta po zatrzymaniu oczekiwania na naprawienie przez chwilę utraty kworum. Najlepszym sposobem działania usługi jest zazwyczaj zawieszanie się i oczekiwanie na konkretną interwencję administracyjną.
    
-   Gdy usługa Service `OnDataLossAsync` Fabric wywołuje metodę, zawsze z powodu _podejrzenia_ utraty danych. Sieci szkieletowej usług zapewnia, że to wywołanie jest dostarczany do _najlepszej_ repliki pozostałych. Jest to niezależnie od tego, która replika poczyniła największe postępy. 
+   Gdy Service Fabric wywołuje `OnDataLossAsync` metodę, zawsze jest z powodu _podejrzanej_ utraty danych. Service Fabric zapewnia, że to wywołanie jest dostarczane do _najlepszej_ pozostałej repliki. Jest to niezależna replika. 
    
-   Powodem, dla którego zawsze mówimy, że _podejrzewana_ utrata danych jest to, że jest możliwe, że pozostała replika ma cały ten sam stan, co podstawowa, gdy kworum zostało utracone. Jednak bez tego stanu, aby porównać go do, nie ma dobrego sposobu dla sieci szkieletowej usług lub operatorów wiedzieć na pewno.     
+   Powód, dla którego zawsze mówimy, że _podejrzewana_ utrata danych polega na tym, że pozostała replika ma ten sam stan, co w przypadku utraty kworum. Jednak bez tego stanu, aby porównać go z, nie istnieje dobry sposób na Service Fabric lub operatorów, do których należy wiedzieć.     
    
-   Więc co robi typowa `OnDataLossAsync` implementacja metody zrobić?
-   1. Dzienniki implementacji, który `OnDataLossAsync` został wyzwolony i odpala wszelkie niezbędne alerty administracyjne.
-   1. Zazwyczaj implementacja wstrzymuje się i czeka na dalsze decyzje i ręczne działania, które należy podjąć. Dzieje się tak, ponieważ nawet jeśli kopie zapasowe są dostępne, mogą wymagać przygotowania. 
+   Co robią typową implementację `OnDataLossAsync` metody?
+   1. Dzienniki implementacji, które `OnDataLossAsync` zostały wyzwolone i uruchomiły wszelkie niezbędne Alerty administracyjne.
+   1. Zazwyczaj implementacja wstrzymuje się i czeka na dalsze decyzje i akcje wykonywane ręcznie. Jest to spowodowane tym, że nawet jeśli kopie zapasowe są dostępne, może być konieczne ich przygotowanie. 
    
-      Na przykład jeśli dwie różne usługi koordynują informacje, te kopie zapasowe mogą wymagać zmodyfikowania, aby upewnić się, że po wykonaniu przywracania informacje, na których zależy tym dwóm usługom, są spójne. 
-   1. Często istnieje kilka innych danych telemetrycznych lub wydechu z usługi. Te metadane mogą być zawarte w innych usługach lub w dziennikach. Te informacje mogą być używane w razie potrzeby, aby ustalić, czy były jakieś wywołania odebrane i przetworzone w podstawowym, które nie były obecne w kopii zapasowej lub replikowane do tej konkretnej repliki. Te wywołania mogą wymagać odtworzenia lub dodania do kopii zapasowej, zanim przywrócenie jest możliwe.  
-   1. Implementacja porównuje stan pozostałej repliki z stanem zawartym w dostępnych kopiach zapasowych. Jeśli używasz kolekcji niezawodne sieci szkieletowej usług, istnieją [narzędzia i procesy](service-fabric-reliable-services-backup-restore.md) dostępne w tym celu. Celem jest, aby sprawdzić, czy stan w replice jest wystarczająca i zobaczyć, co kopia zapasowa może brakować.
-   1. Po zakończeniu porównania i po zakończeniu przywracania (jeśli to konieczne), kod usługi powinien zwrócić **wartość true,** jeśli wprowadzono zmiany stanu. Jeśli replika ustaliła, że była najlepszą dostępną kopią stanu i nie wnieśła żadnych zmian, kod zwraca **false**. 
+      Na przykład jeśli dwie różne usługi koordynują informacje, te kopie zapasowe mogą być konieczne do zmodyfikowania, aby upewnić się, że po zakończeniu przywracania informacje o tym, że te dwie usługi są zgodne. 
+   1. Często istnieją inne dane telemetryczne lub dane wydechowe z usługi. Te metadane mogą być zawarte w innych usługach lub w dziennikach. Te informacje mogą być używane w razie potrzeby w celu ustalenia, czy zostały odebrane jakiekolwiek wywołania i przetworzone na podstawowym poziomie, które nie były obecne w kopii zapasowej lub zreplikowane do tej repliki. Te wywołania mogą wymagać odtworzenia lub dodania do kopii zapasowej, zanim będzie możliwe przywrócenie.  
+   1. Implementacja porównuje stan pozostałej repliki z zawartą w dowolnych dostępnych kopiach zapasowych. W przypadku korzystania z Service Fabric niezawodnych kolekcji dostępne są [Narzędzia i procesy](service-fabric-reliable-services-backup-restore.md) umożliwiające wykonanie tej operacji. Celem jest sprawdzenie, czy stan w replice jest wystarczający, i zobacz, w jaki sposób kopia zapasowa może być brakująca.
+   1. Po zakończeniu porównania i po zakończeniu przywracania (w razie potrzeby) kod usługi powinien zwrócić **wartość true** , jeśli wprowadzono jakiekolwiek zmiany stanu. Jeśli replika ustaliła, że była to Najlepsza dostępna kopia stanu i nie wprowadziła żadnych zmian, kod zwróci **wartość false**. 
    
-      Wartość **true** wskazuje, że wszystkie _inne_ pozostałe repliki mogą być teraz niezgodne z tym. Zostaną one usunięte i przebudowany z tej repliki. Wartość **false** wskazuje, że nie wprowadzono żadnych zmian stanu, więc inne repliki mogą zachować to, co mają. 
+      Wartość **true** wskazuje, że wszystkie _inne_ repliki pozostałe mogą teraz być niespójne z tym elementem. Zostaną one porzucone i ponownie skompilowane z tej repliki. Wartość **false** wskazuje, że nie zostały wprowadzone żadne zmiany stanu, więc inne repliki mogą zachować te informacje. 
 
-Jest niezwykle ważne, że autorzy usług praktyce potencjalnych scenariuszy utraty danych i awarii przed usługi są wdrażane w produkcji. Aby chronić przed możliwością utraty danych, należy okresowo [tworzyć kopii zapasowej stanu](service-fabric-reliable-services-backup-restore.md) dowolnej usługi stanowej do magazynu geograficznie nadmiarowego. 
+Niezwykle ważne jest, aby autorzy usług mogli wdrożyć potencjalne działania związane z utratą danych i niepowodzeniami, zanim usługi zostaną wdrożone w środowisku produkcyjnym. Aby chronić przed utratą danych, ważne jest, aby okresowo [wykonywać kopie zapasowe](service-fabric-reliable-services-backup-restore.md) wszystkich usług stanowych do magazynu geograficznie nadmiarowego. 
 
-Należy również upewnić się, że masz możliwość przywrócenia stanu. Ponieważ kopie zapasowe wielu różnych usług są podejmowane w różnym czasie, należy upewnić się, że po przywracaniu usługi mają spójny widok siebie nawzajem. 
+Należy również upewnić się, że masz możliwość przywrócenia stanu. Ponieważ kopie zapasowe wielu różnych usług są wykonywane w różnym czasie, należy upewnić się, że po przywróceniu usługi będą mieć spójny widok. 
 
-Rozważmy na przykład sytuację, w której jedna usługa generuje liczbę i przechowuje ją, a następnie wysyła ją do innej usługi, która również ją przechowuje. Po przywróceniu może się okazać, że druga usługa ma numer, ale pierwsza nie, ponieważ jego kopia zapasowa nie zawiera tej operacji.
+Rozważmy na przykład sytuację, w której jedna usługa generuje liczbę i zapisuje ją, a następnie wysyła ją do innej usługi, która również ją przechowuje. Po przywróceniu można stwierdzić, że druga usługa ma numer, ale nie jest to pierwsza, ponieważ jej kopia zapasowa nie obejmuje tej operacji.
 
-Jeśli okaże się, że pozostałe repliki są niewystarczające, aby kontynuować w scenariuszu utraty danych i nie można odtworzyć stan usługi z telemetrii lub wydechu, częstotliwość kopii zapasowych określa najlepszy możliwy cel punktu odzyskiwania (RPO). Sieci szkieletowej usług zawiera wiele narzędzi do testowania różnych scenariuszy awarii, w tym trwałe kworum i utraty danych, która wymaga przywrócenia z kopii zapasowej. Te scenariusze są uwzględniane jako część narzędzi testowalności w sieci szkieletowej usług, zarządzane przez usługę analizy błędów. Aby uzyskać więcej informacji na temat tych narzędzi i wzorców, zobacz [Wprowadzenie do usługi analizy błędów](service-fabric-testability-overview.md). 
+Jeśli okaże się, że pozostałe repliki są niewystarczające do kontynuowania w scenariuszu utraty danych i nie można odtworzyć stanu usługi z telemetrii lub wydechu, częstotliwość tworzenia kopii zapasowych określa najlepszy możliwy cel punktu odzyskiwania (RPO). Service Fabric udostępnia wiele narzędzi do testowania różnych scenariuszy awarii, w tym trwałego kworum i utraty danych, które wymagają przywrócenia z kopii zapasowej. Te scenariusze są dołączone jako część narzędzi do testowania w Service Fabric zarządzane przez usługę błędów. Aby uzyskać więcej informacji na temat tych narzędzi i wzorców, zobacz [wprowadzenie do usługi błędów analizy](service-fabric-testability-overview.md). 
 
 > [!NOTE]
-> Usługi systemowe mogą również ponieść straty kworum. Wpływ jest specyficzny dla danej usługi. Na przykład utrata kworum w usłudze nazewnictwa wpływa na rozpoznawanie nazw, podczas gdy utrata kworum w usłudze Menedżer trybu failover blokuje tworzenie nowych usług i tryb failover. 
+> Usługi systemowe mogą również mieć negatywny wpływ na kworum. Wpływ jest specyficzny dla danej usługi. Z tego względu utrata kworum w usłudze nazw ma wpływ na rozpoznawanie nazw, podczas gdy usługa Menedżer trybu failover powoduje zablokowanie nowego tworzenia usługi i przełączenia w tryb failover. 
 > 
-> Usługi systemu sieci szkieletowej usług wykonaj ten sam wzorzec co usługi zarządzania stanem, ale nie zaleca się, aby spróbować przenieść je z utraty kworum i do potencjalnej utraty danych. Zamiast tego zaleca się, aby [szukać pomocy technicznej,](service-fabric-support.md) aby znaleźć rozwiązanie, które jest ukierunkowane na sytuację. Zwykle lepiej jest po prostu poczekać, aż repliki w dół powróci.
+> Usługi systemowe Service Fabric są zgodne z tym samym wzorcem, co usługi do zarządzania stanem, ale nie zalecamy przechodzenia do nich utraty kworum i utraty danych. Zamiast tego zalecamy zapoznaj się z [pomocą techniczną](service-fabric-support.md) , aby znaleźć rozwiązanie, które jest przeznaczone do Twojej sytuacji. Zwykle zaleca się po prostu poczekanie, aż repliki w dół zostaną zwrócone.
 >
 
 #### <a name="troubleshooting-quorum-loss"></a>Rozwiązywanie problemów z utratą kworum
 
-Repliki mogą być w dół sporadycznie z powodu błędu przejściowego. Poczekaj na jakiś czas, jak sieci szkieletowej usług próbuje je przywołać. Jeśli repliki były w dół przez więcej niż oczekiwany czas trwania, wykonaj następujące akcje rozwiązywania problemów:
-- Repliki mogą ulec awarii. Sprawdź raporty kondycji na poziomie repliki i dzienniki aplikacji. Zbieraj zrzuty awaryjne i podejmij niezbędne działania, aby odzyskać.
-- Proces repliki mógł przestać odpowiadać. Sprawdź dzienniki aplikacji, aby to sprawdzić. Zbieranie zrzutów procesów, a następnie zatrzymanie procesu nieodpowiada. Sieć szkieletowa usług utworzy proces zastępowania i spróbuje przywrócić replikę.
-- Węzły obsługujące repliki mogą być w dół. Uruchom ponownie podstawową maszynę wirtualną, aby podnieść węzły.
+Repliki mogą występować sporadycznie z powodu przejściowego błędu. Poczekaj chwilę, aż Service Fabric podejmie próbę ich przełączenia. Jeśli repliki nie były dłużej niż oczekiwany czas trwania, wykonaj następujące czynności w zakresie rozwiązywania problemów:
+- Repliki mogą ulec awarii. Sprawdź raporty kondycji na poziomie repliki i dzienniki aplikacji. Zbieraj Zrzuty awaryjne i podejmuj działania niezbędne do odzyskania.
+- Proces repliki mógł przestać odpowiadać. Sprawdź dzienniki aplikacji, aby to sprawdzić. Zbierz zrzuty procesów, a następnie Zatrzymaj proces nieodpowiadający. Service Fabric utworzy proces zastępczy i spróbuje przywrócić replikę.
+- Węzły obsługujące repliki mogą być wyłączone. Uruchom ponownie podstawową maszynę wirtualną, aby przenieść węzły w górę.
 
-Czasami odzyskanie replik może nie być możliwe. Na przykład dyski nie powiodły się lub komputery fizycznie nie reagują. W takich przypadkach sieci szkieletowej usług należy poinformować, aby nie czekać na odzyskiwanie repliki.
+Czasami odzyskanie replik może być niemożliwe. Na przykład dyski zakończyły się niepowodzeniem lub komputery fizycznie nie odpowiadają. W takich przypadkach Service Fabric musi zostać pożądany, aby nie czekać na odzyskanie repliki.
 
-*Nie* należy używać tych metod, jeśli potencjalna utrata danych jest nie do przyjęcia, aby przenieść usługę do trybu online. W takim przypadku należy dołomić wszelkie wysiłki w kierunku odzyskania maszyn fizycznych.
+Nie należy używać tych metod, jeśli *nie* można zaakceptować potencjalnej utraty danych w celu przełączenia usługi do trybu online. W takim przypadku należy wykonać wszystkie działania w kierunku odzyskiwania maszyn fizycznych.
 
-Następujące akcje mogą spowodować utratę danych. Sprawdź, zanim za nimi zastosujesz.
+Następujące akcje mogą spowodować utratę danych. Sprawdź przed wykonaniem tych czynności.
    
 > [!NOTE]
-> _Nigdy nie_ jest bezpieczne, aby używać tych metod innych niż w sposób ukierunkowany względem określonych partycji. 
+> _Nie_ można bezpiecznie używać tych metod innych niż w celu dla konkretnych partycji. 
 >
 
-- Użyj `Repair-ServiceFabricPartition -PartitionId` interfejsu `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API lub. Ten interfejs API umożliwia określenie identyfikatora partycji, aby przenieść się z utraty kworum i do potencjalnej utraty danych.
-- Jeśli klaster napotka częste błędy, które powodują, że usługi, aby przejść do stanu utraty kworum i potencjalnej _utraty danych jest dopuszczalne,_ określając odpowiednią wartość [QuorumLossWaitDuration](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) może pomóc usługi automatycznie odzyskać. Sieci szkieletowej usług `QuorumLossWaitDuration` będzie czekać na pod warunkiem wartość (domyślnie jest nieskończona) przed wykonaniem odzyskiwania. *Nie* zaleca się tej metody, ponieważ może to spowodować nieoczekiwane straty danych.
+- Użyj interfejsu `Repair-ServiceFabricPartition -PartitionId` API `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` lub. Ten interfejs API umożliwia określenie identyfikatora partycji, która ma zostać przeniesiona z utraty kworum, oraz do utraty danych.
+- Jeśli klaster napotyka częste błędy, które powodują, że usługi przechodzą w stan utraty kworum, a potencjalną _utratą danych jest akceptowalna_, określenie odpowiedniej wartości [QuorumLossWaitDuration](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) może ułatwić automatyczne odzyskanie usługi. Service Fabric będzie oczekiwać na podaną `QuorumLossWaitDuration` wartość (domyślnie nieskończoną) przed wykonaniem odzyskiwania. Ta metoda *nie* jest zalecana, ponieważ może to spowodować nieoczekiwane straty danych.
 
-## <a name="availability-of-the-service-fabric-cluster"></a>Dostępność klastra sieci szkieletowej usług
-Ogólnie rzecz biorąc klaster sieci szkieletowej usług jest wysoce rozproszonym środowiskiem bez pojedynczych punktów awarii. Awaria jednego węzła nie spowoduje problemów z dostępnością lub niezawodnością klastra, głównie dlatego, że usługi systemu sieci szkieletowej usług są zgodne z tymi samymi wytycznymi podanymi wcześniej. Oznacza to, że zawsze są one domyślnie uruchamiane z co najmniej trzema replikami, a usługi systemowe, które są bezstanowe, są uruchamiane we wszystkich węzłach. 
+## <a name="availability-of-the-service-fabric-cluster"></a>Dostępność klastra Service Fabric
+Ogólnie rzecz biorąc, klaster Service Fabric jest wysoce rozproszonym środowiskiem bez pojedynczych punktów awarii. Awaria jednego z węzłów nie powoduje problemów z dostępnością lub niezawodnością klastra, głównie ponieważ usługi systemu Service Fabric są zgodne z tymi samymi wskazówkami opisanymi wcześniej. Oznacza to, że zawsze są domyślnie uruchamiane z co najmniej trzema replikami, a usługi systemowe, które są bezstanowe uruchamiane na wszystkich węzłach. 
 
-Podstawowe warstwy sieci szkieletowej usług i wykrywania awarii są w pełni rozproszone. Większość usług systemowych można przebudować z metadanych w klastrze lub wiedzieć, jak ponownie zsynchronizować ich stan z innych miejsc. Dostępność klastra może zostać naruszona, jeśli usługi systemowe dostaną się do sytuacji utraty kworum, takich jak opisane wcześniej. W takich przypadkach może nie być w stanie wykonać niektórych operacji w klastrze (takich jak rozpoczęcie uaktualnienia lub wdrażania nowych usług), ale sam klaster jest nadal w górę. 
+Podstawowe warstwy Service Fabric sieci i wykrywania błędów są w pełni rozproszone. Większość usług systemowych można odbudować z metadanych w klastrze lub wiedzieć, jak ponownie synchronizować ich stan z innych miejsc. Dostępność klastra może zostać naruszona, jeśli usługi systemowe zaczną korzystać z innych sytuacji związanych z utratą kworum, takich jak opisane wcześniej. W takich przypadkach może nie być możliwe wykonanie pewnych operacji w klastrze (na przykład od momentu uaktualnienia lub wdrożenia nowych usług), ale sam klaster jest w dalszym ciągu. 
 
-Usługi w uruchomionym klastrze będą działać w tych warunkach, chyba że wymagają zapisów w usługach systemowych, aby kontynuować działanie. Na przykład jeśli Menedżer trybu failover jest w utracie kworum, wszystkie usługi będą nadal działać. Ale wszystkie usługi, które nie powiodą się, nie będzie można automatycznie uruchomić ponownie, ponieważ wymaga to zaangażowania Menedżera trybu failover. 
+Usługi uruchomione w uruchomionym klastrze będą działać w tych warunkach, chyba że wymagają zapisu do usług systemowych, aby kontynuować działanie. Na przykład jeśli Menedżer trybu failover jest tracona kworum, wszystkie usługi będą nadal działać. Jednak wszelkie usługi, które nie powiodą się, nie będą mogły automatycznie ponownie uruchamiać, ponieważ wymaga to zaangażowania Menedżer trybu failover. 
 
-### <a name="failures-of-a-datacenter-or-an-azure-region"></a>Awarie centrum danych lub regionu platformy Azure
-W rzadkich przypadkach fizyczne centrum danych może stać się tymczasowo niedostępne z powodu utraty zasilania lub łączności sieciowej. W takich przypadkach klastry i usługi sieci szkieletowej usług w tym centrum danych lub regionie platformy Azure będą niedostępne. Jednak _dane są zachowywane_. 
+### <a name="failures-of-a-datacenter-or-an-azure-region"></a>Awarie centrum danych lub regionu świadczenia usługi Azure
+W rzadkich przypadkach fizyczne centrum danych może stać się tymczasowo niedostępne po utracie mocy lub łączności sieciowej. W takich przypadkach klastry Service Fabric i usługi w tym centrum danych lub regionie platformy Azure będą niedostępne. _Dane są jednak zachowywane_. 
 
-W przypadku klastrów uruchomionych na platformie Azure można wyświetlać aktualizacje dotyczące awarii na [stronie stanu platformy Azure][azure-status-dashboard]. W bardzo mało prawdopodobnym przypadku, gdy fizyczne centrum danych jest częściowo lub całkowicie zniszczone, wszystkie klastry sieci szkieletowej usług hostowane tam lub usługi znajdujące się w nich mogą zostać utracone. Ta strata obejmuje każdy stan, którego kopia zapasowa nie została utworzona poza tym centrum danych lub regionu.
+W przypadku klastrów działających na platformie Azure można wyświetlić aktualizacje na [stronie stanu platformy Azure][azure-status-dashboard]. W bardzo mało prawdopodobnym przypadku, gdy fizyczne centrum danych jest częściowo lub w pełni niszczone, wszystkie hostowane w niej klastry Service Fabric lub usługi w nich mogły zostać utracone. Ta utrata obejmuje wszystkie Stany, których kopie zapasowe nie są tworzone poza tym centrum danych lub regionem.
 
-Istnieją dwie różne strategie przetrwania trwałej lub trwałej awarii pojedynczego centrum danych lub regionu: 
+Istnieją dwie różne strategie, które mogą obsłużyć trwałą lub nieprzerwaną awarię jednego centrum danych lub regionu: 
 
-- Uruchom oddzielne klastry sieci szkieletowej usług w wielu takich regionach i użyj mechanizmu pracy awaryjnej i powrotu po awarii między tymi środowiskami. Ten rodzaj modelu aktywnego/aktywnego lub aktywnego/pasywnego wielu klastrów wymaga dodatkowego kodu zarządzania i operacji. Ten model wymaga również koordynacji kopii zapasowych z usług w jednym centrum danych lub regionie, dzięki czemu są one dostępne w innych centrach danych lub regionach, gdy jeden nie powiedzie się. 
-- Uruchom pojedynczy klaster sieci szkieletowej usług, który obejmuje wiele centrów danych lub regionów. Minimalna obsługiwana konfiguracja dla tej strategii to trzy centra danych lub regiony. Zalecana liczba regionów lub centrów danych wynosi pięć. 
+- Uruchamianie oddzielnych klastrów Service Fabric w wielu takich regionach i używanie pewnego mechanizmu przełączania do trybu failover i powrotu po awarii między tymi środowiskami. To sortowanie wielu klastrów aktywny/aktywny lub aktywny/pasywny wymaga dodatkowego kodu zarządzania i operacji. Ten model wymaga również koordynacji kopii zapasowych z usług w jednym centrum danych lub regionie, dzięki czemu są one dostępne w innych centrach danych lub regionach, gdy jeden z nich ulegnie awarii. 
+- Uruchom pojedynczy klaster Service Fabric, który obejmuje wiele centrów danych lub regionów. Minimalna obsługiwana konfiguracja tej strategii to trzy centra danych lub regiony. Zalecana liczba regionów lub centrów danych wynosi pięć. 
   
-  Ten model wymaga bardziej złożonej topologii klastra. Jednak zaletą jest to, że awaria jednego centrum danych lub regionu jest konwertowana z awarii na normalny błąd. Te błędy mogą być obsługiwane przez mechanizmy, które działają dla klastrów w jednym regionie. Domeny błędów, domeny uaktualnienia i reguły umieszczania sieci szkieletowej usług zapewniają, że obciążenia są dystrybuowane, dzięki czemu tolerują normalne awarie. 
+  Ten model wymaga bardziej złożonej topologii klastra. Korzyść jest jednak taka, że awaria jednego centrum danych lub regionu jest konwertowana z awarii na normalną awarię. Te błędy mogą być obsługiwane przez mechanizmy, które działają w przypadku klastrów w obrębie jednego regionu. Domeny błędów, domeny uaktualnień i Service Fabric reguły umieszczania zapewniają, że obciążenia są dystrybuowane w taki sposób, aby tolerowali normalne awarie. 
   
-  Aby uzyskać więcej informacji na temat zasad, które mogą pomóc w obsłudze usług w tego typu klastrze, zobacz [Zasady umieszczania usług sieci szkieletowej usług](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md).
+  Aby uzyskać więcej informacji na temat zasad, które mogą pomóc w obsłudze usług w tym typie klastra, zobacz [zasady umieszczania dla Service Fabric usług](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md).
 
-### <a name="random-failures-that-lead-to-cluster-failures"></a>Losowe błędy, które prowadzą do awarii klastra
-Usługa Fabric ma pojęcie *węzłów źródłowych*. Są to węzły, które utrzymują dostępność klastra źródłowego. 
+### <a name="random-failures-that-lead-to-cluster-failures"></a>Błędy losowe, które prowadzą do awarii klastra
+Service Fabric ma koncepcję *węzłów inicjatora*. Są to węzły, które utrzymują dostępność bazowego klastra. 
 
-Węzły źródłowe pomagają zapewnić, że klaster pozostaje w górę, ustanawiając dzierżawy z innymi węzłami i służąc jako tiebreakers podczas niektórych rodzajów awarii. Jeśli losowe błędy usuwają większość węzłów źródłowych w klastrze i nie są one szybko przywracane, klaster zostanie automatycznie zamknięty. Klaster kończy się niepowodzeniem. 
+Węzły inicjatora pomagają zapewnić, że klaster pozostanie przez ustanowienie dzierżaw z innymi węzłami i służy jako tiebreakers w przypadku niektórych rodzajów błędów. Jeśli błędy losowe usuwają większość węzłów inicjatora w klastrze i nie są przywracane szybko, klaster zostanie automatycznie zamknięty. Klaster kończy się niepowodzeniem. 
 
-Na platformie Azure dostawca zasobów sieci szkieletowej usług zarządza konfiguracjami klastra sieci szkieletowej usług. Domyślnie Dostawca zasobów dystrybuuje węzły źródłowe między domenami błędów i uaktualniania dla *typu węzła podstawowego*. Jeśli typ węzła podstawowego jest oznaczony jako Trwałość Silver lub Gold, po usunięciu węzła źródłowego (przez skalowanie w typie węzła podstawowego lub ręcznie usunięcie go), klaster spróbuje podwyższyć kursor innego węzła innego nieujawniającego z dostępnej pojemności węzła podstawowego. Ta próba zakończy się niepowodzeniem, jeśli masz mniej dostępnej pojemności niż wymaga tego poziom niezawodności klastra dla typu węzła podstawowego.
+Na platformie Azure dostawca zasobów Service Fabric zarządza Service Fabric konfiguracjami klastra. Domyślnie dostawca zasobów dystrybuuje węzły inicjatora w domenach błędów i uaktualnień dla *typu węzła podstawowego*. Jeśli typ węzła podstawowego jest oznaczony jako trwałość Srebrna lub złota, po usunięciu węzła inicjatora (przez przeskalowanie w podstawowym typie węzła lub przez ręczne usunięcie go) klaster podejmie próbę podwyższenia poziomu innego węzła, który nie jest inicjatorem z dostępnej pojemności typu węzła podstawowego. Ta próba zakończy się niepowodzeniem, jeśli masz mniejszą ilość dostępnej pojemności niż wymaga poziomu niezawodności klastra dla typu węzła podstawowego.
 
-W obu autonomicznych klastrów sieci szkieletowej usług i platformy Azure typ węzła podstawowego jest tym, który uruchamia nasiona. Podczas definiowania typu węzła podstawowego sieci szkieletowej usług automatycznie będzie korzystać z liczby węzłów dostarczonych przez utworzenie maksymalnie dziewięciu węzłów źródłowych i siedem replik każdej usługi systemowej. Jeśli zestaw losowych błędów wyjmuje większość tych replik jednocześnie, usługi systemowe wejdą w utratę kworum. Jeśli większość węzłów źródłowych zostaną utracone, klaster zostanie zamknięty wkrótce po.
+W przypadku autonomicznych klastrów Service Fabric i platformy Azure typ węzła podstawowego to ten, na którym są uruchamiane nasiona. Podczas definiowania typu węzła podstawowego Service Fabric automatycznie będzie korzystać z liczby udostępnionych węzłów przez utworzenie do dziewięciu węzłów inicjatora i siedmiu replik każdej usługi systemowej. Jeśli zestaw losowych błędów pobiera większość tych replik jednocześnie, usługi systemowe spowodują utratę kworum. Jeśli większość węzłów inicjatora zostanie utracona, klaster zostanie zamknięty wkrótce.
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się, jak symulować różne błędy przy użyciu [struktury testowalności.](service-fabric-testability-overview.md)
-- Przeczytaj inne zasoby odzyskiwania po awarii i wysokiej dostępności. Firma Microsoft opublikowała wiele wskazówek dotyczących tych tematów. Chociaż niektóre z tych zasobów odnoszą się do określonych technik do użycia w innych produktach, zawierają one wiele ogólnych najlepszych rozwiązań, które można zastosować w kontekście sieci szkieletowej usług:
+- Dowiedz się, jak symulować różne błędy przy użyciu [środowiska testowania](service-fabric-testability-overview.md).
+- Zapoznaj się z innymi zasobami odzyskiwania po awarii i wysokiej dostępności. Firma Microsoft opublikowała na tych tematach dużą liczbę wskazówek. Mimo że niektóre z tych zasobów odnoszą się do określonych technik korzystania z innych produktów, zawierają one wiele ogólnych najlepszych rozwiązań, które można zastosować w kontekście Service Fabric:
   - [Lista kontrolna dotycząca dostępności](/azure/architecture/checklist/resiliency-per-service)
-  - [Wykonywanie ćwiczenia odzyskiwania po awarii](../sql-database/sql-database-disaster-recovery-drills.md)
+  - [Przechodzenie do szczegółów odzyskiwania po awarii](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Odzyskiwanie aplikacji platformy Azure po awarii i ich wysoka dostępność][dr-ha-guide]
-- Dowiedz się więcej o [opcjach pomocy technicznej sieci szkieletowej](service-fabric-support.md)usług .
+- Dowiedz się więcej o [opcjach pomocy technicznej Service Fabric](service-fabric-support.md).
 
 
 <!-- External links -->

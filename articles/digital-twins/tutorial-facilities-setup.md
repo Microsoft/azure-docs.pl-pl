@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Wdrażanie środowiska podglądu i wykresu przestrzennego — Azure Digital Twins| Dokumenty firmy Microsoft'
+title: 'Samouczek: wdrażanie środowiska w wersji zapoznawczej i wykresu przestrzennego — usługa Azure Digital bliźniaczych reprezentacji | Microsoft Docs'
 description: Dowiedz się, jak wdrożyć wystąpienie usługi Azure Digital Twins i skonfigurować zasoby przestrzenne przy użyciu kroków opisanych w tym samouczku.
 services: digital-twins
 ms.author: alinast
@@ -10,17 +10,17 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 01/10/2020
 ms.openlocfilehash: 878b64fe6dd491adbb61c4c74cf4a5fc039858cd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79371413"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Samouczek: Wdrażanie usługi Azure Digital Twins Preview i konfigurowanie wykresu przestrzennego
+# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Samouczek: wdrażanie usługi Azure Digital bliźniaczych reprezentacji Preview i Konfigurowanie wykresu przestrzennego
 
 [!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
-Usługi Azure Digital Twins Preview można używać do łączenia osób, miejsc i urządzeń w spójnym systemie przestrzennym. W tej serii samouczków przedstawiono sposób wykrywania zajętości pomieszczeń z optymalnymi warunkami temperatury i jakości powietrza za pomocą usługi Azure Digital Twins. 
+Możesz użyć usługi Azure Digital bliźniaczych reprezentacji w wersji zapoznawczej, aby połączyć osoby, miejsca i urządzenia w spójny system przestrzenny. W tej serii samouczków przedstawiono sposób wykrywania zajętości pomieszczeń z optymalnymi warunkami temperatury i jakości powietrza za pomocą usługi Azure Digital Twins. 
 
 Samouczki przeprowadzą Cię przez proces tworzenia w aplikacji konsoli .NET scenariusza budynku biurowego. Budynek składa się z wielu pięter i pomieszczeń na każdym piętrze. W pomieszczeniach znajdują się urządzenia z podłączonymi czujnikami, które wykrywają ruch, temperaturę otoczenia i jakość powietrza. 
 
@@ -40,7 +40,7 @@ W tym samouczkach są używane i modyfikowane te same przykłady co w [przewodni
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure. Jeśli nie masz konta platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Subskrypcja platformy Azure. Jeśli nie masz konta platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Zestaw SDK dla platformy .NET Core. Przykładowe aplikacje usługi Azure Digital Twins używane w tych samouczkach są napisane w języku C#. Zainstaluj [zestaw SDK .NET Core w wersji 2.1.403 lub nowszej](https://www.microsoft.com/net/download) na maszynie deweloperskiej w celu skompilowania i uruchomienia przykładu. Sprawdź, czy na Twojej maszynie jest zainstalowana właściwa wersja, uruchamiając polecenie `dotnet --version` w oknie poleceń.
 
@@ -75,11 +75,11 @@ Jeśli już masz przykłady pobrane na potrzeby [przewodnika Szybki start dotycz
 
 W folderze z wyodrębnionym przykładem otwórz plik **digital-twins-samples-csharp\digital-twins-samples.code-workspace** w programie Visual Studio Code. Zawiera on dwa projekty:
 
-* Używając przykładu aprowizacji **occupancy-quickstart**, możesz skonfigurować i aprowizować [wykres analizy przestrzennej](concepts-objectmodel-spatialgraph.md#digital-twins-object-models). Ten wykres jest cyfrowym obrazem lokalizacji fizycznych i znajdujących się w nich zasobów. Używa modelu [obiektu,](concepts-objectmodel-spatialgraph.md#digital-twins-object-models)który definiuje obiekty dla inteligentnego budynku. Aby uzyskać pełną listę obiektów usługi Digital Twins i interfejsów API REST, odwiedź stronę [dokumentacji interfejsu API REST](https://docs.westcentralus.azuresmartspaces.net/management/swagger) lub skorzystaj z adresu URL interfejsu API zarządzania, który został utworzony na potrzeby [Twojego wystąpienia](#deploy-digital-twins).
+* Używając przykładu aprowizacji **occupancy-quickstart**, możesz skonfigurować i aprowizować [wykres analizy przestrzennej](concepts-objectmodel-spatialgraph.md#digital-twins-object-models). Ten wykres jest cyfrowym obrazem lokalizacji fizycznych i znajdujących się w nich zasobów. Używa [modelu obiektów](concepts-objectmodel-spatialgraph.md#digital-twins-object-models), który definiuje obiekty do inteligentnego kompilowania. Aby uzyskać pełną listę obiektów usługi Digital Twins i interfejsów API REST, odwiedź stronę [dokumentacji interfejsu API REST](https://docs.westcentralus.azuresmartspaces.net/management/swagger) lub skorzystaj z adresu URL interfejsu API zarządzania, który został utworzony na potrzeby [Twojego wystąpienia](#deploy-digital-twins).
 
-   Aby zapoznać się z przykładem, aby zrozumieć, jak komunikuje się z wystąpieniem digital twins, można rozpocząć od folderu **src\actions.** W plikach w tym folderze zaimplementowano polecenia, które będą używane w tych samouczkach:
-    - Plik **provisionSample.cs** pokazuje sposób aprowizowania wykresu przestrzennego.
-    - Plik **getSpaces.cs** pobiera informacje o aprowizowanych spacjach.
+   Aby zapoznać się z przykładem, aby zrozumieć, jak komunikuje się z wystąpieniem Digital bliźniaczych reprezentacji, możesz rozpocząć pracę z folderem **src\actions** . W plikach w tym folderze zaimplementowano polecenia, które będą używane w tych samouczkach:
+    - Plik **provisionSample.cs** pokazuje, jak zainicjować obsługę wykresu przestrzennego.
+    - Plik **getSpaces.cs** pobiera informacje o zainicjowanych miejscach.
     - Plik **getAvailableAndFreshSpaces.cs** pobiera wyniki funkcji niestandardowej nazywanej funkcją zdefiniowaną przez użytkownika.
     - Plik **createEndpoints.cs** tworzy punkty końcowe do interakcji z innymi usługami.
 
@@ -104,7 +104,7 @@ W folderze z wyodrębnionym przykładem otwórz plik **digital-twins-samples-csh
    * **Dzierżawa**: wprowadź identyfikator katalogu swojej [dzierżawy usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Ten identyfikator także został zanotowany w sekcji, w której były [określane uprawnienia aplikacji](#grant-permissions-to-your-app).
    * **BaseUrl**: wprowadź adres URL Twojego wystąpienia usługi Digital Twins. Aby uzyskać ten adres URL, zamień symbole zastępcze w tym adresie URL na wartości odpowiadające Twojemu wystąpieniu: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Możesz również uzyskać ten adres URL, modyfikując adres URL interfejsu API zarządzania z [sekcji poświęconej wdrażaniu](#deploy-digital-twins). Zamień ciąg **swagger/** na **api/v1.0/**.
 
-1. Przejrzyj listę funkcji cyfrowych bliźniąt, które można eksplorować przy użyciu przykładu. Uruchom następujące polecenie:
+1. Zapoznaj się z listą funkcji Digital bliźniaczych reprezentacji, które możesz eksplorować przy użyciu przykładu. Uruchom następujące polecenie:
 
     ```cmd/sh
     dotnet run
@@ -149,9 +149,9 @@ Plik **provisionSample.yaml** zawiera następujące węzły:
 
 - **spaces**: w modelu obiektów usługi Digital Twins węzeł `spaces` reprezentuje lokalizacje fizyczne. Każde miejsce ma typ (`Type`) &mdash; na przykład Region, Venue (Miejsce) lub Customer (Klient) &mdash; oraz przyjazną nazwę (`Name`). Miejsca mogą należeć do innych miejsc tworzących strukturę hierarchiczną. Plik provisionSample.yaml zawiera wykres przestrzenny wymyślonego budynku. Zwróć uwagę na logiczne zagnieżdżanie miejsc typu `Floor` w węźle `Venue`, typu `Area` na piętrze i węzłów `Room` w obszarze. 
 
-- **devices**: miejsca mogą zawierać urządzenia (`devices`) będące jednostkami fizycznymi lub wirtualnymi, które zarządzają pewną liczbą czujników. Na przykład urządzenie może być telefonem użytkownika, zasobnikiem czujnika Raspberry Pi lub bramą. W wymyślonym budynku z Twojego przykładu zwróć uwagę na sposób umieszczenia urządzenia **Raspberry Pi 3 A1** w pomieszczeniu **Focus Room**. Każdy węzeł urządzenia jest identyfikowany przez unikatowy identyfikator `hardwareId` trwale zakodowany w przykładzie. Aby skonfigurować ten przykład na potrzeby rzeczywistego środowiska produkcyjnego, zamień te wartości na wartości z Twojej konfiguracji.  
+- **devices**: miejsca mogą zawierać urządzenia (`devices`) będące jednostkami fizycznymi lub wirtualnymi, które zarządzają pewną liczbą czujników. Na przykład urządzenie może być telefonem użytkownika, Raspberry z czujnikiem pi lub bramą. W wymyślonym budynku z Twojego przykładu zwróć uwagę na sposób umieszczenia urządzenia **Raspberry Pi 3 A1** w pomieszczeniu **Focus Room**. Każdy węzeł urządzenia jest identyfikowany przez unikatowy identyfikator `hardwareId` trwale zakodowany w przykładzie. Aby skonfigurować ten przykład na potrzeby rzeczywistego środowiska produkcyjnego, zamień te wartości na wartości z Twojej konfiguracji.  
 
-- **sensors**: urządzenie może zawierać wiele czujników (`sensors`). Umożliwiają one wykrywanie i rejestrowanie zmian fizycznych, takich jak temperatura, ruch i poziom naładowania baterii. Każdy węzeł czujnika jest unikatowo identyfikowany za pomocą identyfikatora `hardwareId` trwale zapisanego w tym miejscu. Na potrzeby rzeczywistej aplikacji zamień te identyfikatory, używając unikatowych identyfikatorów czujników z Twojej konfiguracji. Plik provisionSample.yaml ma dwa czujniki umożliwiające rejestrowanie ruchu (*Motion*) i dwutlenku węgla (*CarbonDioxide*). Dodaj kolejny czujnik, aby rejestrować temperaturę (*Temperature*), dodając poniższe wiersze pod wierszami dotyczącymi czujnika CarbonDioxide. Są one podane w provisionSample.yaml jako skomentowane wiersze. Możesz przenieść je poza komentarze, usuwając znak `#` na początku wiersza. 
+- **sensors**: urządzenie może zawierać wiele czujników (`sensors`). Umożliwiają one wykrywanie i rejestrowanie zmian fizycznych, takich jak temperatura, ruch i poziom naładowania baterii. Każdy węzeł czujnika jest unikatowo identyfikowany za pomocą identyfikatora `hardwareId` trwale zapisanego w tym miejscu. Na potrzeby rzeczywistej aplikacji zamień te identyfikatory, używając unikatowych identyfikatorów czujników z Twojej konfiguracji. Plik provisionSample.yaml ma dwa czujniki umożliwiające rejestrowanie ruchu (*Motion*) i dwutlenku węgla (*CarbonDioxide*). Dodaj kolejny czujnik, aby rejestrować temperaturę (*Temperature*), dodając poniższe wiersze pod wierszami dotyczącymi czujnika CarbonDioxide. Są one dostępne w provisionSample. YAML jako wiersze z komentarzem. Możesz przenieść je poza komentarze, usuwając znak `#` na początku wiersza. 
 
     ```yaml
             - dataType: Temperature

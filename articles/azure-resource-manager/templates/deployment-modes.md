@@ -1,43 +1,43 @@
 ---
 title: Tryby wdrażania
-description: W tym artykule opisano, jak określić, czy w usłudze Azure Resource Manager ma być używany tryb wdrażania pełnego czy przyrostowego.
+description: Opisuje, w jaki sposób należy określić, czy ma być używany pełny czy przyrostowy tryb wdrażania z Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.openlocfilehash: 1077d92f076797fb03c4fe750b353e2306f9b6de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79460249"
 ---
-# <a name="azure-resource-manager-deployment-modes"></a>Tryby wdrażania usługi Azure Resource Manager
+# <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager tryby wdrażania
 
-Podczas wdrażania zasobów, można określić, że wdrożenie jest aktualizacja przyrostowa lub pełną aktualizację. Różnica między tymi dwoma trybami polega na tym, jak Menedżer zasobów obsługuje istniejące zasoby w grupie zasobów, których nie ma w szablonie.
+Podczas wdrażania zasobów należy określić, że wdrożenie jest aktualizacją przyrostową, albo pełną aktualizacją. Różnica między tymi dwoma trybami polega na tym, że Menedżer zasobów obsługuje istniejące zasoby w grupie zasobów, która nie znajduje się w szablonie.
 
-W przypadku obu trybów Menedżer zasobów próbuje utworzyć wszystkie zasoby określone w szablonie. Jeśli zasób już istnieje w grupie zasobów, a jego ustawienia pozostają niezmienione, nie jest podejmowana żadna operacja dla tego zasobu. Jeśli zmienisz wartości właściwości zasobu, zasób zostanie zaktualizowany o te nowe wartości. Jeśli spróbujesz zaktualizować lokalizację lub typ istniejącego zasobu, wdrożenie zakończy się niepowodzeniem z powodu błędu. Zamiast tego należy wdrożyć nowy zasób z lokalizacją lub typem, którego potrzebujesz.
+W przypadku obu trybów Menedżer zasobów próbuje utworzyć wszystkie zasoby określone w szablonie. Jeśli zasób już istnieje w grupie zasobów, a jego ustawienia nie są zmieniane, nie jest wykonywana żadna operacja dla tego zasobu. W przypadku zmiany wartości właściwości zasobu zasób zostanie zaktualizowany o te nowe wartości. Jeśli spróbujesz zaktualizować lokalizację lub typ istniejącego zasobu, wdrożenie nie powiedzie się z powodu błędu. Zamiast tego należy wdrożyć nowy zasób z wymaganą lokalizacją lub typem.
 
-Domyślny tryb jest przyrostowy.
+Domyślnym trybem jest przyrostowy.
 
 ## <a name="complete-mode"></a>Tryb kompletny
 
 W trybie kompletnym Menedżer zasobów **usuwa** zasoby, które istnieją w grupie zasobów, ale nie są określone w szablonie.
 
-Jeśli szablon zawiera zasób, który nie jest wdrażany, ponieważ [warunek](conditional-resource-deployment.md) ma wartość false, wynik zależy od wersji interfejsu API REST używane do wdrażania szablonu. Jeśli używasz wersji wcześniejszej niż 2019-05-10, zasób **nie zostanie usunięty**. W 2019-05-10 lub nowszym zasób **jest usuwany**. Najnowsze wersje programu Azure PowerShell i interfejsu wiersza polecenia platformy Azure usuwają zasób.
+Jeśli szablon zawiera zasób, który nie został wdrożony, ponieważ [warunek](conditional-resource-deployment.md) ma wartość false, wynik zależy od używanej wersji interfejsu API REST do wdrożenia szablonu. W przypadku używania wersji wcześniejszej niż 2019-05-10 zasób nie zostanie **usunięty**. W przypadku 2019-05-10 lub nowszych zasób **jest usuwany**. Najnowsze wersje Azure PowerShell i interfejsu wiersza polecenia platformy Azure usuwają zasób.
 
-Należy zachować ostrożność podczas korzystania z trybu pełnego z [pętlami kopiowania](copy-resources.md). Wszystkie zasoby, które nie są określone w szablonie po rozwiązaniu pętli kopiowania są usuwane.
+Należy zachować ostrożność przy użyciu trybu kompletnego z [pętlami kopiowania](copy-resources.md). Wszystkie zasoby, które nie są określone w szablonie po rozwiązaniu pętli kopiowania, są usuwane.
 
-W przypadku wdrażania [w więcej niż jednej grupie zasobów w szablonie](cross-resource-group-deployment.md)zasoby w grupie zasobów określone w operacji wdrażania mogą zostać usunięte. Zasoby w dodatkowych grupach zasobów nie są usuwane.
+W przypadku wdrożenia w [więcej niż jednej grupie zasobów w szablonie](cross-resource-group-deployment.md)zasoby w grupie zasobów określonej w operacji wdrażania mogą zostać usunięte. Zasoby w dodatkowych grupach zasobów nie są usuwane.
 
-Istnieją pewne różnice w sposobie, w jaki typy zasobów obsługują usunięcie trybu pełnego. Zasoby nadrzędne są automatycznie usuwane, gdy nie jest to szablon wdrożony w trybie kompletnym. Niektóre zasoby podrzędne nie są automatycznie usuwane, gdy nie ma ich w szablonie. Jednak te zasoby podrzędne są usuwane, jeśli zasób nadrzędny zostanie usunięty.
+Istnieją pewne różnice w sposobie, w jaki typy zasobów obsługują operacje usuwania w trybie pełnym. Zasoby nadrzędne są automatycznie usuwane, gdy nie znajdują się w szablonie, który został wdrożony w trybie kompletnym. Niektóre zasoby podrzędne nie są automatycznie usuwane, gdy nie znajdują się w szablonie. Jednak te zasoby podrzędne zostaną usunięte, jeśli zasób nadrzędny zostanie usunięty.
 
-Jeśli na przykład grupa zasobów zawiera strefę DNS (typ zasobu Microsoft.Network/dnsZones) i rekord CNAME (typ zasobu Microsoft.Network/dnsZones/CNAME), strefa DNS jest zasobem nadrzędnym rekordu CNAME. Jeśli wdrożysz w trybie kompletnym i nie uwzględnisz strefy DNS w szablonie, strefa DNS i rekord CNAME zostaną usunięte. Jeśli dodajesz strefę DNS do szablonu, ale nie uwzględnisz rekordu CNAME, CNAME nie zostanie usunięte.
+Na przykład, jeśli grupa zasobów zawiera strefę DNS (typ zasobu Microsoft. Network/dnsZones) i rekord CNAME (typ zasobu Microsoft. Network/dnsZones/CNAME), strefa DNS jest zasobem nadrzędnym rekordu CNAME. W przypadku wdrożenia z trybem kompletnym i nie dołączania strefy DNS do szablonu strefa DNS i rekord CNAME są usuwane. Jeśli w szablonie zostanie uwzględniona strefa DNS, ale nie zostanie uwzględniony rekord CNAME, rekord CNAME nie zostanie usunięty.
 
-Aby uzyskać listę sposobu, w jaki typy zasobów obsługują usuwanie, zobacz [Usuwanie zasobów platformy Azure w celu wdrożenia w trybie kompletnym](complete-mode-deletion.md).
+Aby uzyskać listę sposobu, w jaki typy zasobów obsługują usuwanie, zobacz [usuwanie zasobów platformy Azure na potrzeby wdrożeń w trybie pełnym](complete-mode-deletion.md).
 
-Jeśli grupa zasobów jest [zablokowana,](../management/lock-resources.md)tryb ukończenia nie powoduje usunięcia zasobów.
+Jeśli grupa zasobów jest [zablokowana](../management/lock-resources.md), tryb kompletny nie usuwa zasobów.
 
 > [!NOTE]
-> Tylko szablony na poziomie głównym obsługują tryb wdrażania całego. W przypadku [szablonów połączonych lub zagnieżdżonych](linked-templates.md)należy użyć trybu przyrostowego.
+> Tylko szablony na poziomie głównym obsługują pełny tryb wdrażania. W przypadku [szablonów połączonych lub zagnieżdżonych](linked-templates.md)należy użyć trybu przyrostowego.
 >
 > [Wdrożenia na poziomie subskrypcji](deploy-to-subscription.md) nie obsługują trybu pełnego.
 >
@@ -46,14 +46,14 @@ Jeśli grupa zasobów jest [zablokowana,](../management/lock-resources.md)tryb u
 
 ## <a name="incremental-mode"></a>Tryb przyrostowy
 
-W trybie przyrostowym Menedżer zasobów **pozostawia niezmienione** zasoby, które istnieją w grupie zasobów, ale nie są określone w szablonie. Zasoby w szablonie **są dodawane** do grupy zasobów.
+W trybie przyrostowym Menedżer zasobów **opuszcza niezmienione** zasoby, które istnieją w grupie zasobów, ale nie są określone w szablonie. Zasoby w szablonie **są dodawane** do grupy zasobów.
 
 > [!NOTE]
-> Podczas ponownego rozmieszczania istniejącego zasobu w trybie przyrostowym wszystkie właściwości są ponownie stosowane. **Właściwości nie są dodawane stopniowo**. Częstym nieporozumieniem jest myślenie, że właściwości, które nie są określone w szablonie, pozostają niezmienione. Jeśli nie określisz niektórych właściwości, Menedżer zasobów interpretuje wdrożenie jako zastąpienie tych wartości. Właściwości, które nie są uwzględnione w szablonie są resetowane do wartości domyślnych. Określ wszystkie wartości inne niż domyślne dla zasobu, a nie tylko te, które aktualizujesz. Definicja zasobu w szablonie zawsze zawiera ostateczny stan zasobu. Nie może reprezentować częściowej aktualizacji do istniejącego zasobu.
+> Po ponownym wdrożeniu istniejącego zasobu w trybie przyrostowym zostaną ponownie zastosowane wszystkie właściwości. **Właściwości nie są dodawane przyrostowo**. Typowy nieporozumienia polega na tym, że właściwości, które nie są określone w szablonie, pozostaną bez zmian. Jeśli nie określisz pewnych właściwości, Menedżer zasobów interpretuje wdrożenie, zastępując te wartości. Właściwości, które nie znajdują się w szablonie, są resetowane do wartości domyślnych. Określ wszystkie wartości inne niż domyślne dla zasobu, a nie tylko te, które są aktualizowane. Definicja zasobu w szablonie zawsze zawiera końcowy stan zasobu. Nie może reprezentować częściowej aktualizacji istniejącego zasobu.
 
 ## <a name="example-result"></a>Przykładowy wynik
 
-Aby zilustrować różnicę między trybami przyrostowymi i kompletnymi, należy wziąć pod uwagę następujący scenariusz.
+Aby zilustrować różnicę między trybami przyrostowym i kompletnym, należy wziąć pod uwagę Poniższy scenariusz.
 
 **Grupa zasobów** zawiera:
 
@@ -67,22 +67,22 @@ Aby zilustrować różnicę między trybami przyrostowymi i kompletnymi, należy
 * Zasób B
 * Zasób D
 
-Po wdrożeniu w trybie **przyrostowym** grupa zasobów ma:
+Po wdrożeniu w trybie **przyrostowym** Grupa zasobów zawiera:
 
 * Zasób A
 * Zasób B
 * Zasób C
 * Zasób D
 
-Po wdrożeniu w trybie **kompletnym** zasób C jest usuwany. Grupa zasobów ma:
+Po wdrożeniu w trybie **kompletnym** zasób C jest usuwany. Grupa zasobów zawiera:
 
 * Zasób A
 * Zasób B
 * Zasób D
 
-## <a name="set-deployment-mode"></a>Ustawianie trybu wdrażania
+## <a name="set-deployment-mode"></a>Ustawianie trybu wdrożenia
 
-Aby ustawić tryb wdrażania podczas wdrażania z programem PowerShell, należy użyć tego parametru. `Mode`
+Aby ustawić tryb wdrażania podczas wdrażania przy użyciu programu PowerShell, należy `Mode` użyć parametru.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment `
@@ -92,7 +92,7 @@ New-AzResourceGroupDeployment `
   -TemplateFile c:\MyTemplates\storage.json
 ```
 
-Aby ustawić tryb wdrażania podczas wdrażania z `mode` platformą Azure CLI, należy użyć parametru.
+Aby ustawić tryb wdrażania podczas wdrażania przy użyciu interfejsu wiersza polecenia platformy Azure `mode` , użyj parametru.
 
 ```azurecli-interactive
 az deployment group create \
@@ -103,7 +103,7 @@ az deployment group create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-W poniższym przykładzie przedstawiono połączony szablon ustawiony na tryb wdrażania przyrostowego:
+Poniższy przykład pokazuje połączony szablon z trybem wdrożenia przyrostowego:
 
 ```json
 "resources": [
@@ -121,6 +121,6 @@ W poniższym przykładzie przedstawiono połączony szablon ustawiony na tryb wd
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o tworzeniu szablonów Usługi Resource Manager, zobacz [Tworzenie szablonów usługi Azure Resource Manager](template-syntax.md).
-* Aby dowiedzieć się więcej o wdrażaniu zasobów, zobacz [Wdrażanie aplikacji za pomocą szablonu usługi Azure Resource Manager](deploy-powershell.md).
-* Aby wyświetlić operacje dla dostawcy zasobów, zobacz [Interfejs API usługi Azure REST](/rest/api/).
+* Aby dowiedzieć się więcej na temat tworzenia szablonów Menedżer zasobów, zobacz [tworzenie Azure Resource Manager szablonów](template-syntax.md).
+* Aby dowiedzieć się więcej o wdrażaniu zasobów, zobacz [wdrażanie aplikacji przy użyciu szablonu Azure Resource Manager](deploy-powershell.md).
+* Aby wyświetlić operacje dla dostawcy zasobów, zobacz [interfejs API REST platformy Azure](/rest/api/).

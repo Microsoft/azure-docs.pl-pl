@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z Work.com | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a Work.com.
+title: 'Samouczek: integracja Azure Active Directory z usługą Work.com | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Work.com.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,40 +17,40 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7a6dc16eef1bb36a5bd6cbf0502a83481230bc0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67087094"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Samouczek: Integracja usługi Azure Active Directory z Work.com
+# <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Samouczek: integracja Azure Active Directory z usługą Work.com
 
-W tym samouczku dowiesz się, jak zintegrować Work.com z usługą Azure Active Directory (Azure AD).
+W tym samouczku dowiesz się, jak zintegrować usługę Work.com z usługą Azure Active Directory (Azure AD).
 Integracja Work.com z usługą Azure AD zapewnia następujące korzyści:
 
-* W usłudze Azure AD można kontrolować, kto ma dostęp do Work.com.
-* Można włączyć użytkowników, aby automatycznie zalogować się do Work.com (logowanie jednokrotne) z ich kont usługi Azure AD.
+* Możesz kontrolować usługę Azure AD, która ma dostęp do usługi Work.com.
+* Możesz pozwolić użytkownikom na automatyczne logowanie do Work.com (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z Work.com, potrzebne są następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z usługą Work.com, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/)
-* Work.com subskrypcję z włączoną funkcją logowania jednokrotnego
+* Subskrypcja z włączonym logowaniem jednokrotnym w Work.com
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Work.com obsługuje sso inicjowane przez **SP**
+* Work.com obsługuje logowanie jednokrotne w usłudze **SP**
 
 ## <a name="adding-workcom-from-the-gallery"></a>Dodawanie Work.com z galerii
 
-Aby skonfigurować integrację Work.com z usługą Azure AD, należy dodać Work.com z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu Work.com z usługą Azure AD, musisz dodać Work.com z galerii do listy zarządzanych aplikacji SaaS.
 
 **Aby dodać Work.com z galerii, wykonaj następujące czynności:**
 
@@ -66,22 +66,22 @@ Aby skonfigurować integrację Work.com z usługą Azure AD, należy dodać Work
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Work.com**, wybierz **Work.com** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Work.com**, wybierz pozycję **Work.com** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Work.com na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego z Work.com na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w Work.com.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Work.com na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Work.com.
 
-Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD za pomocą Work.com, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Work.com, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj Work.com logowanie jednokrotne](#configure-workcom-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-workcom-single-sign-on)** jednokrotne w usłudze Work.com, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz Work.com użytkownika testowego](#create-workcom-test-user)** — aby mieć odpowiednik Britta Simon w Work.com, który jest połączony z reprezentacją użytkownika usługi Azure AD.
+5. **[Utwórz użytkownika testowego Work.com](#create-workcom-test-user)** , aby uzyskać odpowiednik Britta Simon w Work.com, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
@@ -89,11 +89,11 @@ Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD za pom
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
 >[!NOTE]
->Aby skonfigurować logowanie jednokrotne, należy jeszcze skonfigurować niestandardową nazwę domeny Work.com. Należy zdefiniować co najmniej nazwę domeny, przetestować nazwę domeny i wdrożyć ją w całej organizacji.
+>W celu skonfigurowania logowania jednokrotnego należy jeszcze skonfigurować niestandardową nazwę domeny Work.com. Należy zdefiniować co najmniej nazwę domeny, przetestować nazwę domeny i wdrożyć ją w całej organizacji.
 
-Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą Work.com, wykonaj następujące kroki:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Work.com, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **Work.com** wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Work.com** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -107,18 +107,18 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą Work.com, 
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![Work.com informacje o logowanie do domeny i adresów URL](common/sp-signonurl.png)
+    ![Work.com domenę i adresy URL Logowanie jednokrotne](common/sp-signonurl.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `http://<companyname>.my.salesforce.com`
 
     > [!NOTE]
-    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta Work.com,](https://help.salesforce.com/articleView?id=000159855&type=3) aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [zespołem obsługi klienta Work.com](https://help.salesforce.com/articleView?id=000159855&type=3) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-6. W sekcji **Konfigurowanie Work.com** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+6. W sekcji **konfigurowanie Work.com** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -126,78 +126,78 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą Work.com, 
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
-### <a name="configure-workcom-single-sign-on"></a>Konfigurowanie Work.com logowanie jednokrotne
+### <a name="configure-workcom-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Work.com
 
-1. Zaloguj się do dzierżawy Work.com jako administrator.
+1. Zaloguj się do swojej dzierżawy Work.com jako administrator.
 
-2. Przejdź do **strony Instalator**.
+2. Przejdź do pozycji **Konfiguracja**.
    
-    ![Instalacja](./media/work-com-tutorial/ic794108.png "Konfiguracja")
+    ![Konfiguracja](./media/work-com-tutorial/ic794108.png "Konfigurowanie")
 
-3. W lewym okienku nawigacji w sekcji **Administrowanie** kliknij pozycję **Zarządzanie domenami,** aby rozwinąć powiązaną sekcję, a następnie kliknij pozycję **Moja domena,** aby otworzyć stronę **Moja domena.** 
+3. W okienku nawigacji po lewej stronie w sekcji **Administruj** kliknij pozycję **Zarządzanie domeną** , aby rozwinąć sekcję pokrewne, a następnie kliknij pozycję **moja domena** , aby otworzyć stronę **Moje domeny** . 
    
     ![Moja domena](./media/work-com-tutorial/ic767825.png "Moja domena")
 
-4. Aby sprawdzić, czy twoja domena została poprawnie skonfigurowana, upewnij się, że znajduje się w "**Kroku 4 Wdrożone dla użytkowników**" i przejrzyj swoje " Moje ustawienia**domeny**".
+4. Aby sprawdzić, czy domena została prawidłowo skonfigurowana, upewnij się, że znajduje się w sekcji "**krok 4 wdrożony dla użytkowników**" i przejrzyj "**Moje ustawienia domeny**".
    
     ![Domena wdrożona dla użytkownika](./media/work-com-tutorial/ic784377.png "Domena wdrożona dla użytkownika")
 
 5. Zaloguj się do dzierżawy Work.com.
 
-6. Przejdź do **strony Instalator**.
+6. Przejdź do pozycji **Konfiguracja**.
     
-    ![Instalacja](./media/work-com-tutorial/ic794108.png "Konfiguracja")
+    ![Konfiguracja](./media/work-com-tutorial/ic794108.png "Konfigurowanie")
 
-7. Rozwiń menu **Kontrole zabezpieczeń,** a następnie kliknij polecenie **Ustawienia logowania jednokrotnego**.
+7. Rozwiń menu **kontroli zabezpieczeń** , a następnie kliknij pozycję **Ustawienia rejestracji**jednokrotnej.
     
     ![Ustawienia logowania jednokrotnego](./media/work-com-tutorial/ic794113.png "Ustawienia logowania jednokrotnego")
 
-8. Na stronie okna dialogowego **Ustawienia logowania jednokrotnego** wykonaj następujące czynności:
+8. Na stronie **Ustawienia logowania** jednokrotnego wykonaj następujące czynności:
     
-    ![Saml włączone](./media/work-com-tutorial/ic781026.png "Saml włączone")
+    ![Włączono protokół SAML](./media/work-com-tutorial/ic781026.png "Włączono protokół SAML")
     
     a. Wybierz pozycję **SAML Enabled** (SAML włączone).
     
-    b. Kliknij **pozycję Nowy**.
+    b. Kliknij pozycję **Nowy**.
 
-9. W sekcji **Ustawienia logowania jednokrotnego SAML** wykonaj następujące czynności:
+9. W sekcji **Ustawienia protokołu SAML logowania** jednokrotnego wykonaj następujące czynności:
     
-    ![Ustawienie logowania jednokrotnego SAML](./media/work-com-tutorial/ic794114.png "Ustawienie logowania jednokrotnego SAML")
+    ![Ustawienie protokołu SAML logowania jednokrotnego](./media/work-com-tutorial/ic794114.png "Ustawienie protokołu SAML logowania jednokrotnego")
     
     a. W polu tekstowym **Name** (Nazwa) wpisz nazwę konfiguracji.  
        
     > [!NOTE]
-    > Podanie wartości **name** automatycznie wypełnia pole tekstowe **Nazwa interfejsu API.**
+    > Podanie wartości dla **nazwy** powoduje automatyczne wypełnienie pola tekstowego **nazwy interfejsu API** .
     
-    b. W polu tekstowym **wystawcy** wklej wartość **identyfikatora usługi Azure AD** skopiowaną z witryny Azure portal.
+    b. W polu tekstowym **wystawca** wklej wartość **identyfikatora usługi Azure AD** , który został skopiowany z Azure Portal.
     
-    d. Aby przekazać pobrany certyfikat z witryny Azure portal, kliknij przycisk **Przeglądaj**.
+    c. Aby przekazać pobrany certyfikat z Azure Portal, kliknij przycisk **Przeglądaj**.
     
-    d. W polach tekstowych Identyfikator `https://salesforce-work.com` **jednostki** wpisz .
+    d. W polu tekstowym **Identyfikator jednostki** wpisz `https://salesforce-work.com`.
     
-    e. Jako **typ tożsamości SAML**wybierz **asercja zawiera identyfikator federacji z obiektu User**.
+    e. Jako **Typ tożsamości SAML**, wybierz pozycję **potwierdzenie zawiera identyfikator Federacji z obiektu użytkownika**.
     
-    f. Jako **lokalizacja tożsamości SAML,** wybierz **tożsamość jest w NameIdentfier element instrukcji Podmiot**.
+    f. Jako **lokalizację tożsamości SAML**, **w elemencie NameIdentfier instrukcji subject**wybierz pozycję Identity (tożsamość).
     
-    g. W polu tekstowym **adresu URL logowania dostawcy tożsamości** wklej wartość adresu URL **logowania** skopiowanego z witryny Azure portal.
+    g. W polu tekstowym **adres URL logowania dostawcy tożsamości** wklej wartość **adresu URL logowania** skopiowanego z Azure Portal.
 
-    h. W polu tekstowym **adresu URL wylogowania dostawcy tożsamości** wklej wartość adresu URL **wylogowania** skopiowanego z witryny Azure portal.
+    h. W polu tekstowym **adres URL wylogowania dostawcy tożsamości** wklej wartość **adresu URL wylogowywania** skopiowanego z Azure Portal.
     
-    i. Jako **powiązanie żądania inicjowanego dostawcy usług**wybierz pozycję HTTP **Post**.
+    i. Jako **powiązanie żądania zainicjowane przez dostawcę usług**wybierz pozycję **http post**.
     
     j. Kliknij przycisk **Zapisz**.
 
-10. W klasycznym portalu Work.com po lewej stronie kliknij pozycję **Zarządzanie domenami,** aby rozwinąć powiązaną sekcję, a następnie kliknij pozycję **Moja domena,** aby otworzyć stronę **Moja domena.** 
+10. W klasycznym portalu Work.com w okienku nawigacji po lewej stronie kliknij pozycję **Zarządzanie domeną** , aby rozwinąć sekcję pokrewne, a następnie kliknij pozycję **moja domena** , aby otworzyć stronę **Moje domeny** . 
     
     ![Moja domena](./media/work-com-tutorial/ic794115.png "Moja domena")
 
-11. Na stronie **Moja domena** w sekcji **Znakowanie strony logowania** kliknij pozycję **Edytuj**.
+11. Na stronie **moja domena** w sekcji **znakowanie strony logowania** kliknij przycisk **Edytuj**.
     
     ![Znakowanie strony logowania](./media/work-com-tutorial/ic767826.png "Znakowanie strony logowania")
 
-12. Na stronie **Znakowanie strony logowania** w sekcji **Usługa uwierzytelniania** wyświetlana jest nazwa ustawień logowania **SAML.** Zaznacz go, a następnie kliknij przycisk **Zapisz**.
+12. Na stronie **znakowanie strony logowania** w sekcji **Usługa uwierzytelniania** zostanie wyświetlona nazwa **ustawień logowania jednokrotnego protokołu SAML** . Wybierz go, a następnie kliknij przycisk **Zapisz**.
     
     ![Znakowanie strony logowania](./media/work-com-tutorial/ic784366.png "Znakowanie strony logowania")
 
@@ -209,7 +209,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -219,23 +219,23 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa** `brittasimon@yourcompanydomain.extension`użytkownika wpisz . Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`. Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jednokrotnego, udzielając dostępu do Work.com.
+W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Work.com.
 
-1. W portalu Azure wybierz pozycję **Aplikacje przedsiębiorstwa**, wybierz **pozycję Wszystkie aplikacje,** a następnie wybierz **Work.com**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Work.com**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz **Work.com**.
+2. Na liście Aplikacje wybierz pozycję **Work.com**.
 
-    ![Łącze Work.com na liście Aplikacje](common/all-applications.png)
+    ![Link Work.com na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -247,23 +247,23 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-workcom-test-user"></a>Utwórz Work.com użytkownika testowego
+### <a name="create-workcom-test-user"></a>Utwórz użytkownika testowego Work.com
 
-Aby użytkownicy usługi Azure Active Directory mogli się zalogować, muszą być aprowizowani w celu Work.com. W przypadku Work.com inicjowania obsługi administracyjnej jest zadanie ręczne.
+Aby użytkownicy Azure Active Directory mogli się zalogować, muszą zostać zaobsługiwani do Work.com. W przypadku Work.com, Inicjowanie obsługi administracyjnej jest zadaniem ręcznym.
 
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Aby skonfigurować aprowizację użytkowników, wykonaj następujące kroki:
 
-1. Zaloguj się do witryny firmy Work.com jako administrator.
+1. Zaloguj się do firmowej witryny Work.com jako administrator.
 
-2. Przejdź do **strony Instalator**.
+2. Przejdź do pozycji **Konfiguracja**.
    
-    ![Instalacja](./media/work-com-tutorial/IC794108.png "Konfiguracja")
+    ![Konfiguracja](./media/work-com-tutorial/IC794108.png "Konfigurowanie")
 
-3. Przejdź do **zarządzania użytkownikami \> **.
+3. Przejdź do pozycji **Zarządzaj \> użytkownikami**użytkownicy.
    
     ![Zarządzanie użytkownikami](./media/work-com-tutorial/IC784369.png "Zarządzanie użytkownikami")
 
@@ -271,41 +271,41 @@ Aby użytkownicy usługi Azure Active Directory mogli się zalogować, muszą by
    
     ![Wszyscy użytkownicy](./media/work-com-tutorial/IC794117.png "Wszyscy użytkownicy")
 
-5. W sekcji Edycja użytkownika wykonaj następujące kroki w atrybutach prawidłowego konta usługi Azure AD, które chcesz udostępnić powiązanym skrzynkom tekstowym:
+5. W sekcji Edycja użytkownika wykonaj następujące kroki w polu atrybuty prawidłowego konta usługi Azure AD, które chcesz udostępnić do powiązanych pól tekstowych:
    
     ![Edycja użytkownika](./media/work-com-tutorial/ic794118.png "Edycja użytkownika")
    
-    a. W polach tekstowych **Imię** wpisz **imię** użytkownika **Britta**.
+    a. W polu tekstowym **imię i nazwisko** , wpisz **imię** **Britta**użytkownika.
     
-    b. W polach tekstowych **Nazwisko** wpisz **nazwisko** użytkownika **Simon**.
+    b. W polu **tekstowym nazwisko** wpisz **nazwisko** użytkownika **Simon**.
     
-    d. W polach **tekstowych Alias** wpisz **nazwę** użytkownika **BrittaS**.
+    c. W polu tekstowym **alias** wpisz **nazwę** użytkownika **BrittaS**.
     
-    d. W **polach tekstowych Poczta e-mail** wpisz **adres e-mail** użytkownika Brittasimon@contoso.com.
+    d. W polu tekstowym adres **e-mail** wpisz **adres e-mail** użytkownika Brittasimon@contoso.com.
     
-    e. W polu tekstowym **Nazwa użytkownika** wpisz nazwę Brittasimon@contoso.comużytkownika, taką jak .
+    e. W polu tekstowym **Nazwa użytkownika** wpisz nazwę użytkownika, np Brittasimon@contoso.com.
     
-    f. W polach tekstowych **Nazwa nicku** wpisz **nazwę nicku** użytkownika **Simon**.
+    f. W polu tekstowym **Nazwa nick** wpisz **nazwę nick** użytkownika **Simon**.
     
-    g. Wybierz **pozycję Rola,** **Licencja użytkownika**i **Profil**.
+    g. Wybierz **rolę**, **licencję użytkownika**i **profil**.
     
     h. Kliknij przycisk **Zapisz**.  
       
     > [!NOTE]
-    > Posiadacz konta usługi Azure AD otrzyma wiadomość e-mail z łączem potwierdzającym konto, zanim stanie się ono aktywne.
+    > Posiadacz konta usługi Azure AD otrzyma wiadomość e-mail z linkiem umożliwiającym potwierdzenie konta, zanim staną się aktywne.
     > 
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Work.com w Panelu dostępu należy automatycznie zalogować się do Work.com dla którego skonfigurowano logującą się jednoślik. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Work.com w panelu dostępu należy automatycznie zalogować się do Work.com, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

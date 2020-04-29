@@ -1,72 +1,72 @@
 ---
-title: Zarządzanie pamięcią podręczną platformy Azure dla programu Redis za pomocą programu Azure PowerShell
-description: Dowiedz się, jak wykonywać zadania administracyjne dla usługi Azure Cache for Redis przy użyciu programu Azure PowerShell.
+title: Zarządzanie usługą Azure cache for Redis za pomocą Azure PowerShell
+description: Dowiedz się, jak wykonywać zadania administracyjne dla usługi Azure cache for Redis przy użyciu Azure PowerShell.
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: a385d3ed7ef46389f96de72c98ffc29cebf60ec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79278534"
 ---
-# <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Zarządzanie pamięcią podręczną platformy Azure dla programu Redis za pomocą programu Azure PowerShell
+# <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Zarządzanie usługą Azure cache for Redis za pomocą Azure PowerShell
 > [!div class="op_single_selector"]
-> * [Powershell](cache-how-to-manage-redis-cache-powershell.md)
+> * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
 > * [Interfejs wiersza polecenia platformy Azure](cache-manage-cli.md)
 > 
 > 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-W tym temacie pokazano, jak wykonywać typowe zadania, takie jak tworzenie, aktualizowanie i skalowanie pamięci podręcznej platformy Azure dla wystąpień Redis, jak ponownie wygenerować klucze dostępu i jak wyświetlać informacje o pamięci podręcznej. Aby uzyskać pełną listę poleceń cmdlet usługi Azure Cache for Redis PowerShell, zobacz [Polecenia cmdlet usługi Azure Cache for Redis](https://docs.microsoft.com/powershell/module/az.rediscache).
+W tym temacie pokazano, jak wykonywać typowe zadania, takie jak tworzenie, aktualizowanie i skalowanie pamięci podręcznej platformy Azure dla wystąpień Redis, jak generować ponownie klucze dostępu i jak wyświetlać informacje o pamięci podręcznej. Aby uzyskać pełną listę poleceń cmdlet programu PowerShell dla usługi Azure cache for Redis, zobacz [pamięć podręczna Azure dla poleceń cmdlet Redis](https://docs.microsoft.com/powershell/module/az.rediscache).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-Aby uzyskać więcej informacji na temat klasycznego modelu wdrażania, zobacz [Usługa Azure Resource Manager a wdrożenie klasyczne: Poznaj modele wdrażania i stan zasobów.](../azure-resource-manager/management/deployment-models.md)
+Aby uzyskać więcej informacji na temat klasycznego modelu wdrażania, zobacz [Azure Resource Manager a wdrożenie klasyczne: Omówienie modeli wdrażania i stanu zasobów](../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Jeśli program Azure PowerShell został już zainstalowany, musi mieć program Azure PowerShell w wersji 1.0.0 lub nowszej. Wersję programu Azure PowerShell zainstalowaną za pomocą tego polecenia można sprawdzić w wierszu polecenia programu Azure PowerShell.
+Jeśli zainstalowano już Azure PowerShell, musisz mieć Azure PowerShell w wersji 1.0.0 lub nowszej. W wierszu polecenia Azure PowerShell można sprawdzić wersję Azure PowerShell, która została zainstalowana za pomocą tego polecenia.
 
     Get-Module Az | format-table version
 
 
-Najpierw należy zalogować się do platformy Azure za pomocą tego polecenia.
+Najpierw musisz zalogować się do platformy Azure za pomocą tego polecenia.
 
     Connect-AzAccount
 
-Określ adres e-mail konta platformy Azure i jego hasło w oknie dialogowym logowania platformy Microsoft Azure.
+Określ adres e-mail konta platformy Azure i jego hasło w oknie dialogowym logowania Microsoft Azure.
 
-Następnie, jeśli masz wiele subskrypcji platformy Azure, musisz ustawić subskrypcję platformy Azure. Aby wyświetlić listę bieżących subskrypcji, uruchom to polecenie.
+Jeśli masz wiele subskrypcji platformy Azure, musisz ustawić subskrypcję platformy Azure. Aby wyświetlić listę bieżących subskrypcji, Uruchom to polecenie.
 
     Get-AzSubscription | sort SubscriptionName | Select SubscriptionName
 
-Aby określić subskrypcję, uruchom następujące polecenie. W poniższym przykładzie nazwa `ContosoSubscription`subskrypcji to .
+Aby określić subskrypcję, uruchom następujące polecenie. W poniższym przykładzie nazwa subskrypcji to `ContosoSubscription`.
 
     Select-AzSubscription -SubscriptionName ContosoSubscription
 
-Przed rozpoczęciem korzystania z programu Windows PowerShell z usługą Azure Resource Manager potrzebne są następujące elementy:
+Aby można było używać programu Windows PowerShell z Azure Resource Manager, potrzebne są następujące elementy:
 
-* Program Windows PowerShell, wersja 3.0 lub 4.0. Aby znaleźć wersję programu Windows PowerShell,`$PSVersionTable` wpisz: `PSVersion` i sprawdź wartość 3.0 lub 4.0. Aby zainstalować zgodną wersję, zobacz [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) lub [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855).
+* Windows PowerShell, wersja 3,0 lub 4,0. Aby znaleźć wersję programu Windows PowerShell, wpisz:`$PSVersionTable` i sprawdź, czy wartość `PSVersion` to 3,0 lub 4,0. Aby zainstalować zgodną wersję, zobacz [Windows Management framework 3,0](https://www.microsoft.com/download/details.aspx?id=34595) lub [windows Management Framework 4,0](https://www.microsoft.com/download/details.aspx?id=40855).
 
-Aby uzyskać szczegółową pomoc dotyczącą każdego polecenia cmdlet, które widzisz w tym samouczku, użyj polecenia cmdlet Get-Help.
+Aby uzyskać szczegółową pomoc dotyczącą każdego polecenia cmdlet wyświetlanego w tym samouczku, należy użyć polecenia cmdlet Get-Help.
 
     Get-Help <cmdlet-name> -Detailed
 
-Na przykład, aby uzyskać `New-AzRedisCache` pomoc dotyczącą polecenia cmdlet, wpisz:
+Na przykład aby uzyskać pomoc dotyczącą `New-AzRedisCache` polecenia cmdlet, wpisz:
 
     Get-Help New-AzRedisCache -Detailed
 
-### <a name="how-to-connect-to-other-clouds"></a>Jak połączyć się z innymi chmurami
-Domyślnie środowisko platformy `AzureCloud`Azure jest , który reprezentuje globalne wystąpienie chmury platformy Azure. Aby połączyć się z `Connect-AzAccount` innym wystąpieniem, użyj polecenia z przełącznikiem `-Environment` wiersza polecenia lub -`EnvironmentName` o żądanej nazwie środowiska lub środowiska.
+### <a name="how-to-connect-to-other-clouds"></a>Jak nawiązać połączenie z innymi chmurami
+Domyślnie środowisko platformy Azure to `AzureCloud`, które reprezentuje globalne wystąpienie chmury platformy Azure. Aby nawiązać połączenie z innym wystąpieniem, `Connect-AzAccount` Użyj polecenia z `-Environment` przełącznikiem`EnvironmentName` lub z wiersza polecenia z odpowiednią nazwą środowiska lub środowiska.
 
-Aby wyświetlić listę dostępnych środowisk, `Get-AzEnvironment` uruchom polecenie cmdlet.
+Aby wyświetlić listę dostępnych środowisk, uruchom `Get-AzEnvironment` polecenie cmdlet.
 
-### <a name="to-connect-to-the-azure-government-cloud"></a>Aby połączyć się z chmurą dla instytucji rządowych platformy Azure
-Aby połączyć się z usługą Azure Government Cloud, użyj jednego z następujących poleceń.
+### <a name="to-connect-to-the-azure-government-cloud"></a>Aby nawiązać połączenie z chmurą Azure Government
+Aby nawiązać połączenie z chmurą Azure Government, użyj jednego z następujących poleceń.
 
     Connect-AzAccount -EnvironmentName AzureUSGovernment
 
@@ -74,15 +74,15 @@ lub
 
     Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureUSGovernment)
 
-Aby utworzyć pamięć podręczną w chmurze azure dla instytucji rządowych, użyj jednej z następujących lokalizacji.
+Aby utworzyć pamięć podręczną w chmurze Azure Government, użyj jednej z następujących lokalizacji.
 
 * USGov Virginia
 * USGov Iowa
 
-Aby uzyskać więcej informacji na temat chmury Azure dla instytucji rządowych, zobacz [Microsoft Azure dla instytucji rządowych](https://azure.microsoft.com/features/gov/) i Microsoft Azure Government Developer [Guide](../azure-government-developer-guide.md).
+Aby uzyskać więcej informacji na temat chmury Azure Government, zobacz [przewodnik dewelopera](../azure-government-developer-guide.md) [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) i Microsoft Azure Government.
 
-### <a name="to-connect-to-the-azure-china-cloud"></a>Aby połączyć się z usługą Azure China Cloud
-Aby połączyć się z usługą Azure China Cloud, użyj jednego z następujących poleceń.
+### <a name="to-connect-to-the-azure-china-cloud"></a>Aby nawiązać połączenie z chmurą platformy Azure w Chinach
+Aby nawiązać połączenie z chmurą Chin platformy Azure, użyj jednego z następujących poleceń.
 
     Connect-AzAccount -EnvironmentName AzureChinaCloud
 
@@ -90,15 +90,15 @@ lub
 
     Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureChinaCloud)
 
-Aby utworzyć pamięć podręczną w usłudze Azure China Cloud, użyj jednej z następujących lokalizacji.
+Aby utworzyć pamięć podręczną w chmurze platformy Azure w Chinach, użyj jednej z następujących lokalizacji.
 
 * Chiny Wschodnie
 * Chiny Północne
 
-Aby uzyskać więcej informacji na temat usługi Azure China Cloud, zobacz [AzureChinaCloud for Azure obsługiwane przez 21Vianet w Chinach.](https://www.windowsazure.cn/)
+Aby uzyskać więcej informacji o chmurze platformy Azure w Chinach, zobacz [AzureChinaCloud for Azure obsługiwane przez firmę 21Vianet w Chinach](https://www.windowsazure.cn/).
 
-### <a name="to-connect-to-microsoft-azure-germany"></a>Aby połączyć się z platformą Microsoft Azure Germany
-Aby połączyć się z usługą Microsoft Azure Germany, użyj jednego z następujących poleceń.
+### <a name="to-connect-to-microsoft-azure-germany"></a>Aby nawiązać połączenie z Microsoft Azure (Niemcy)
+Aby nawiązać połączenie z Microsoft Azure (Niemcy), użyj jednego z następujących poleceń.
 
     Connect-AzAccount -EnvironmentName AzureGermanCloud
 
@@ -107,59 +107,59 @@ lub
 
     Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureGermanCloud)
 
-Aby utworzyć pamięć podręczną w niemczech platformy Microsoft Azure, użyj jednej z następujących lokalizacji.
+Aby utworzyć pamięć podręczną w Microsoft Azure (Niemcy), użyj jednej z następujących lokalizacji.
 
 * Niemcy Środkowe
 * Niemcy Północno-Wschodnie
 
-Aby uzyskać więcej informacji o platformie Microsoft Azure w Niemczech, zobacz [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/).
+Aby uzyskać więcej informacji na temat Microsoft Azure (Niemcy), zobacz [Microsoft Azure (Niemcy)](https://azure.microsoft.com/overview/clouds/germany/).
 
-### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>Właściwości używane w pamięci podręcznej platformy Azure dla programu Redis PowerShell
-Poniższa tabela zawiera właściwości i opisy często używanych parametrów podczas tworzenia pamięci podręcznej platformy Azure i zarządzania nimi dla wystąpień programu Redis przy użyciu programu Azure PowerShell.
+### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>Właściwości używane dla usługi Azure cache for Redis PowerShell
+Poniższa tabela zawiera właściwości i opisy często używanych parametrów podczas tworzenia i zarządzania pamięcią podręczną platformy Azure dla wystąpień Redis przy użyciu Azure PowerShell.
 
-| Parametr | Opis | Domyślne |
+| Parametr | Opis | Domyślny |
 | --- | --- | --- |
 | Nazwa |Nazwa pamięci podręcznej | |
 | Lokalizacja |Lokalizacja pamięci podręcznej | |
-| ResourceGroupName |Nazwa grupy zasobów, w której ma być utworzona pamięć podręczna | |
-| Rozmiar |Rozmiar pamięci podręcznej. Prawidłowe wartości to: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1 GB. |
-| Liczba odłamków |Liczba fragmentów do utworzenia podczas tworzenia pamięci podręcznej premium z włączonym klastrem. Prawidłowe wartości to: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU |Określa jednostkę SKU pamięci podręcznej. Prawidłowe wartości to: Podstawowe, Standardowe, Premium |Standardowa |
-| RedisConfiguration (RedisConfiguration) |Określa ustawienia konfiguracji redis. Aby uzyskać szczegółowe informacje na temat każdego ustawienia, zobacz następującą [tabelę właściwości redisconfiguration.](#redisconfiguration-properties) | |
-| EnableNonSslPort |Wskazuje, czy port nieobjęty SSL jest włączony. |False |
-| MaxMemoryPolicy (Polityka MaxMemory) |Ten parametr został przestarzały - zamiast tego należy użyć funkcji RedisConfiguration. | |
-| StatyczneIP |Podczas hostowania pamięci podręcznej w sieci wirtualnej, określa unikatowy adres IP w podsieci dla pamięci podręcznej. Jeśli nie podano, jeden jest wybrany dla Ciebie z podsieci. | |
-| Podsieć |Podczas hostowania pamięci podręcznej w sieci wirtualnej, określa nazwę podsieci, w którym można wdrożyć pamięć podręczną. | |
-| VirtualNetwork |Podczas hostowania pamięci podręcznej w sieci wirtualnej, określa identyfikator zasobu sieci wirtualnej, w którym można wdrożyć pamięć podręczną. | |
-| Keytype |Określa, który klucz dostępu ma być ponownie generowany podczas odnawiania kluczy dostępu. Prawidłowe wartości to: Podstawowy, Pomocniczy | |
+| ResourceGroupName |Nazwa grupy zasobów, w której ma zostać utworzona pamięć podręczna | |
+| Rozmiar |Rozmiar pamięci podręcznej. Prawidłowe wartości to: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2,5 GB, 6 GB, 13GB, 26GB, 53GB |PAMIĘCI |
+| ShardCount |Liczba fragmentów do utworzenia podczas tworzenia pamięci podręcznej Premium z włączoną obsługą klastrowania. Prawidłowe wartości to: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
+| SKU |Określa jednostkę SKU pamięci podręcznej. Prawidłowe wartości to: Basic, standard, Premium |Standardowa |
+| RedisConfiguration |Określa ustawienia konfiguracji Redis. Aby uzyskać szczegółowe informacje na temat każdego ustawienia, zobacz następującą tabelę [Właściwości RedisConfiguration](#redisconfiguration-properties) . | |
+| EnableNonSslPort |Wskazuje, czy port bez obsługi protokołu SSL jest włączony. |Fałsz |
+| MaxMemoryPolicy |Ten parametr jest przestarzały — zamiast tego należy użyć RedisConfiguration. | |
+| StaticIP |W przypadku hostowania pamięci podręcznej w sieci wirtualnej określa unikatowy adres IP w podsieci dla pamięci podręcznej. Jeśli nie zostanie podany, jeden z nich zostanie wybrany dla Ciebie z podsieci. | |
+| Podsieć |W przypadku hostowania pamięci podręcznej w sieci wirtualnej określa nazwę podsieci, w której ma zostać wdrożona pamięć podręczna. | |
+| VirtualNetwork |W przypadku hostowania pamięci podręcznej w sieci wirtualnej określa identyfikator zasobu sieci wirtualnej, w którym ma zostać wdrożona pamięć podręczna. | |
+| KeyType |Określa, który klucz dostępu ma zostać wygenerowany ponownie podczas odnawiania kluczy dostępu. Prawidłowe wartości to: podstawowa, pomocnicza | |
 
-### <a name="redisconfiguration-properties"></a>Właściwości redisConfiguration
+### <a name="redisconfiguration-properties"></a>Właściwości RedisConfiguration
 | Właściwość | Opis | Warstwy cenowe |
 | --- | --- | --- |
-| rdb-kopia zapasowa z włączoną obsługą |Czy [trwałość danych Redis](cache-how-to-premium-persistence.md) jest włączona |Tylko premium |
-| rdb-storage-connection-string |Parametry połączenia z kontem magazynu dla [trwałości danych Redis](cache-how-to-premium-persistence.md) |Tylko premium |
-| rdb-backup-częstotliwość |Częstotliwość tworzenia kopii zapasowych dla [trwałości danych Redis](cache-how-to-premium-persistence.md) |Tylko premium |
-| maxmemory zastrzeżone |Konfiguruje [pamięć zarezerwowaną](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) dla procesów innych niż pamięć podręczna |Standard i Premium |
-| maxmemory-polityka |Konfiguruje [zasady eksmisji](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) dla pamięci podręcznej |Wszystkie warstwy cenowe |
-| notify-keyspace-events |Konfiguruje [powiadomienia o przestrzeni kluczy](cache-configure.md#keyspace-notifications-advanced-settings) |Standard i Premium |
-| hash-max-ziplist-wpisy |Konfiguruje [optymalizację pamięci](https://redis.io/topics/memory-optimization) dla małych typów danych agregujących |Standard i Premium |
-| hash-max-ziplist-wartość |Konfiguruje [optymalizację pamięci](https://redis.io/topics/memory-optimization) dla małych typów danych agregujących |Standard i Premium |
-| set-max-intset-entries set-max-intset-entries set-max-intset-entries set- |Konfiguruje [optymalizację pamięci](https://redis.io/topics/memory-optimization) dla małych typów danych agregujących |Standard i Premium |
-| zset-max-ziplist-wpisy |Konfiguruje [optymalizację pamięci](https://redis.io/topics/memory-optimization) dla małych typów danych agregujących |Standard i Premium |
-| zset-max-ziplist-wartość |Konfiguruje [optymalizację pamięci](https://redis.io/topics/memory-optimization) dla małych typów danych agregujących |Standard i Premium |
+| RDB — włączono tworzenie kopii zapasowej |Czy jest włączona funkcja [trwałości danych Redis](cache-how-to-premium-persistence.md) |Tylko wersja Premium |
+| RDB-Storage-Connection-String |Parametry połączenia z kontem magazynu w celu zapewnienia [trwałości danych Redis](cache-how-to-premium-persistence.md) |Tylko wersja Premium |
+| RDB — częstotliwość tworzenia kopii zapasowych |Częstotliwość tworzenia kopii zapasowych dla [trwałości danych Redis](cache-how-to-premium-persistence.md) |Tylko wersja Premium |
+| maxmemory — zarezerwowane |Konfiguruje [pamięć zarezerwowaną](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) dla procesów poza pamięcią podręczną |Standard i Premium |
+| maxmemory — zasady |Konfiguruje [Zasady wykluczania](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) dla pamięci podręcznej |Wszystkie warstwy cenowe |
+| Powiadamiaj-o miejscu — zdarzenia |Konfiguruje [powiadomienia o przestrzeni](cache-configure.md#keyspace-notifications-advanced-settings) kluczy |Standard i Premium |
+| Hash-Max-ZipList-wpisów |Konfiguruje [optymalizację pamięci](https://redis.io/topics/memory-optimization) dla małych typów zagregowanych danych |Standard i Premium |
+| Hash — Max-ZipList-Value |Konfiguruje [optymalizację pamięci](https://redis.io/topics/memory-optimization) dla małych typów zagregowanych danych |Standard i Premium |
+| set-max-intset-wpisów |Konfiguruje [optymalizację pamięci](https://redis.io/topics/memory-optimization) dla małych typów zagregowanych danych |Standard i Premium |
+| zset-Max-ZipList-wpisów |Konfiguruje [optymalizację pamięci](https://redis.io/topics/memory-optimization) dla małych typów zagregowanych danych |Standard i Premium |
+| zset — Max-ZipList-Value |Konfiguruje [optymalizację pamięci](https://redis.io/topics/memory-optimization) dla małych typów zagregowanych danych |Standard i Premium |
 | bazy danych |Konfiguruje liczbę baz danych. Tę właściwość można skonfigurować tylko podczas tworzenia pamięci podręcznej. |Standard i Premium |
 
-## <a name="to-create-an-azure-cache-for-redis"></a>Aby utworzyć pamięć podręczną platformy Azure dla redis
-Nowa pamięć podręczna azure dla wystąpień Redis są tworzone przy użyciu polecenia cmdlet [New-AzRedisCache.](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache)
+## <a name="to-create-an-azure-cache-for-redis"></a>Aby utworzyć pamięć podręczną platformy Azure dla usługi Redis
+Nowe wystąpienia usługi Azure cache dla wystąpień Redis są tworzone za pomocą polecenia cmdlet [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) .
 
 > [!IMPORTANT]
-> Przy pierwszym utworzeniu usługi Azure Cache for Redis w ramach subskrypcji `Microsoft.Cache` przy użyciu portalu Azure portal rejestruje obszar nazw dla tej subskrypcji. Jeśli spróbujesz utworzyć pierwszą pamięć podręczną Azure dla redis w ramach subskrypcji przy użyciu programu PowerShell, należy najpierw zarejestrować ten obszar nazw przy użyciu następującego polecenia; w przeciwnym razie polecenia `New-AzRedisCache` `Get-AzRedisCache` cmdlet, takie jak i nie.
+> Przy pierwszym utworzeniu pamięci podręcznej platformy Azure dla usługi Redis w ramach subskrypcji przy użyciu Azure Portal Portal rejestruje `Microsoft.Cache` przestrzeń nazw dla tej subskrypcji. W przypadku próby utworzenia pierwszej pamięci podręcznej platformy Azure dla usługi Redis w ramach subskrypcji przy użyciu programu PowerShell należy najpierw zarejestrować tę przestrzeń nazw przy użyciu następującego polecenia: w przeciwnym razie polecenia cmdlet `New-AzRedisCache` , `Get-AzRedisCache` takie jak i, kończą się niepowodzeniem.
 > 
 > `Register-AzResourceProvider -ProviderNamespace "Microsoft.Cache"`
 > 
 > 
 
-Aby wyświetlić listę dostępnych parametrów `New-AzRedisCache`i ich opisy dla , uruchom następujące polecenie.
+Aby wyświetlić listę dostępnych parametrów i ich opisów dla programu `New-AzRedisCache`, uruchom następujące polecenie.
 
     PS C:\> Get-Help New-AzRedisCache -detailed
 
@@ -233,33 +233,33 @@ Aby wyświetlić listę dostępnych parametrów `New-AzRedisCache`i ich opisy dl
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-Aby utworzyć pamięć podręczną z parametrami domyślnymi, uruchom następujące polecenie.
+Aby utworzyć pamięć podręczną z domyślnymi parametrami, uruchom następujące polecenie.
 
     New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US"
 
-`ResourceGroupName`, `Name`i `Location` są wymagane parametry, ale pozostałe są opcjonalne i mają wartości domyślne. Uruchomienie poprzedniego polecenia tworzy standardową pamięć podręczną Azure Cache dla wystąpienia Redis o określonej nazwie, lokalizacji i grupie zasobów, która ma rozmiar 1 GB z wyłączonym portem bez SSL.
+`ResourceGroupName`, `Name`, i `Location` są wymaganymi parametrami, ale REST jest opcjonalne i mają wartości domyślne. Uruchomienie poprzedniego polecenia powoduje utworzenie w pamięci podręcznej standardowej jednostki SKU platformy Azure dla wystąpienia Redis o określonej nazwie, lokalizacji i grupie zasobów o rozmiarze 1 GB z wyłączonym portem innym niż SSL.
 
-Aby utworzyć pamięć podręczną premium, określ rozmiar P1 (6 GB - 60 GB), P2 (13 GB - 130 GB), P3 (26 GB - 260 GB) lub P4 (53 GB - 530 GB). Aby włączyć klastrowanie, należy określić `ShardCount` liczbę fragmentów przy użyciu parametru. Poniższy przykład tworzy pamięć podręczną premium P1 z 3 fragmentami. P1 pamięci podręcznej premium jest 6 GB w rozmiarze, a ponieważ określiliśmy trzy fragmenty całkowity rozmiar wynosi 18 GB (3 x 6 GB).
+Aby utworzyć pamięć podręczną Premium, określ rozmiar P1 (6 GB-60 GB), P2 (13 GB-130 GB), P3 (26 GB – 260 GB) lub P4 (53 GB-530 GB). Aby włączyć klastrowanie, określ liczbę fragmentu przy użyciu `ShardCount` parametru. Poniższy przykład tworzy pamięć podręczną P1 Premium z 3 fragmentów. Pamięć podręczna w warstwie Premium P1 ma rozmiar 6 GB, a ponieważ określono trzy fragmentów, całkowity rozmiar to 18 GB (3 x 6 GB).
 
     New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 
-Aby określić `RedisConfiguration` wartości dla parametru, `{}` należy ująć `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`wartości wewnątrz jako pary klucz/wartość, takie jak . Poniższy przykład tworzy standardową pamięć `allkeys-random` podręczną 1 GB z zasadami `KEA`maxmemory i powiadomieniami o przestrzeni kluczy skonfigurowane za pomocą programu . Aby uzyskać więcej informacji, zobacz [Powiadomienia dotyczące przestrzeni kluczy (ustawienia zaawansowane)](cache-configure.md#keyspace-notifications-advanced-settings) i [Zasady pamięci](cache-configure.md#memory-policies).
+Aby określić wartości `RedisConfiguration` parametru, należy ująć wartości wewnątrz `{}` par klucz/wartość, takich `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`jak. Poniższy przykład tworzy pamięć podręczną o pojemności 1 GB `allkeys-random` z zasadami maxmemory i powiadomieniami o przestrzeni `KEA`kluczy skonfigurowanymi przy użyciu. Aby uzyskać więcej informacji, zobacz [powiadomienia o przestrzeni kluczy (Ustawienia zaawansowane)](cache-configure.md#keyspace-notifications-advanced-settings) i [zasady pamięci](cache-configure.md#memory-policies).
 
     New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
 
 <a name="databases"></a>
 
-## <a name="to-configure-the-databases-setting-during-cache-creation"></a>Aby skonfigurować ustawienie baz danych podczas tworzenia pamięci podręcznej
-Ustawienie `databases` można skonfigurować tylko podczas tworzenia pamięci podręcznej. Poniższy przykład tworzy pamięć podręczną premium P3 (26 GB) z 48 bazami danych przy użyciu polecenia cmdlet [New-AzRedisCache.](https://docs.microsoft.com/powershell/module/az.rediscache/New-azRedisCache)
+## <a name="to-configure-the-databases-setting-during-cache-creation"></a>Aby skonfigurować ustawienia baz danych podczas tworzenia pamięci podręcznej
+To `databases` ustawienie można skonfigurować tylko podczas tworzenia pamięci podręcznej. Poniższy przykład tworzy pamięć podręczną P3 (26 GB) z bazami danych 48 za pomocą polecenia cmdlet [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/New-azRedisCache) .
 
     New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 
-Aby uzyskać więcej `databases` informacji na temat właściwości, zobacz [Domyślna pamięć podręczna azure dla konfiguracji serwera Redis](cache-configure.md#default-redis-server-configuration). Aby uzyskać więcej informacji na temat tworzenia pamięci podręcznej przy użyciu polecenia cmdlet [New-AzRedisCache,](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) zobacz poprzednia sekcja Aby utworzyć pamięć podręczną Azure dla redis.
+Aby uzyskać więcej informacji na `databases` temat właściwości, zobacz [domyślna pamięć podręczna platformy Azure dla konfiguracji serwera Redis](cache-configure.md#default-redis-server-configuration). Aby uzyskać więcej informacji na temat tworzenia pamięci podręcznej przy użyciu polecenia cmdlet [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) , zobacz sekcję poprzednią w celu utworzenia pamięci podręcznej platformy Azure dla Redis.
 
-## <a name="to-update-an-azure-cache-for-redis"></a>Aby zaktualizować pamięć podręczną platformy Azure dla redis
-Usługa Azure Cache dla wystąpień Redis są aktualizowane przy użyciu polecenia cmdlet [Set-AzRedisCache.](https://docs.microsoft.com/powershell/module/az.rediscache/Set-azRedisCache)
+## <a name="to-update-an-azure-cache-for-redis"></a>Aby zaktualizować pamięć podręczną platformy Azure dla usługi Redis
+Usługa Azure cache for Redis Instances jest aktualizowana przy użyciu polecenia cmdlet [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/Set-azRedisCache) .
 
-Aby wyświetlić listę dostępnych parametrów `Set-AzRedisCache`i ich opisy dla , uruchom następujące polecenie.
+Aby wyświetlić listę dostępnych parametrów i ich opisów dla programu `Set-AzRedisCache`, uruchom następujące polecenie.
 
     PS C:\> Get-Help Set-AzRedisCache -detailed
 
@@ -313,36 +313,36 @@ Aby wyświetlić listę dostępnych parametrów `Set-AzRedisCache`i ich opisy dl
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-Polecenie `Set-AzRedisCache` cmdlet może służyć do aktualizowania `Sku` `EnableNonSslPort`właściwości, `RedisConfiguration` takich jak `Size`, , i wartości. 
+`Set-AzRedisCache` Polecenie cmdlet może służyć do aktualizowania właściwości, takich jak `Size`, `Sku` `EnableNonSslPort`, i `RedisConfiguration` wartości. 
 
-Następujące polecenie aktualizuje zasady maxmemory dla pamięci podręcznej azure dla redis o nazwie myCache.
+Następujące polecenie aktualizuje zasady maxmemory dla usługi Azure cache dla Redis o nazwie moja pamięć podręczna.
 
     Set-AzRedisCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
 
 <a name="scale"></a>
 
-## <a name="to-scale-an-azure-cache-for-redis"></a>Aby skalować pamięć podręczną platformy Azure dla redis
-`Set-AzRedisCache`może służyć do skalowania pamięci podręcznej `Size`azure `Sku`dla `ShardCount` wystąpienia Redis, gdy , lub właściwości są modyfikowane. 
+## <a name="to-scale-an-azure-cache-for-redis"></a>Aby skalować pamięć podręczną platformy Azure dla usługi Redis
+`Set-AzRedisCache`może służyć do skalowania pamięci podręcznej platformy Azure dla wystąpienia `Size`Redis `Sku`, gdy `ShardCount` właściwości, lub są modyfikowane. 
 
 > [!NOTE]
-> Skalowanie pamięci podręcznej przy użyciu programu PowerShell podlega tym samym ograniczeniom i wskazówkom, co skalowanie pamięci podręcznej z witryny Azure Portal. Można skalować do innej warstwy cenowej z następującymi ograniczeniami.
+> Skalowanie pamięci podręcznej przy użyciu programu PowerShell podlega tym samym limitom i wytycznym jak skalowanie pamięci podręcznej z Azure Portal. Możesz skalować do innej warstwy cenowej, korzystając z następujących ograniczeń.
 > 
 > * Nie można skalować z wyższej warstwy cenowej do niższej warstwy cenowej.
-> * Nie można skalować z pamięci podręcznej **Premium** do **standardowej** lub **podstawowej** pamięci podręcznej.
-> * Nie można skalować z pamięci podręcznej **standardowej** w dół do **podstawowej** pamięci podręcznej.
-> * Można skalować z **podstawowej** pamięci podręcznej do **standardowej** pamięci podręcznej, ale nie można zmienić rozmiaru w tym samym czasie. Jeśli potrzebujesz innego rozmiaru, można wykonać kolejną operację skalowania do żądanego rozmiaru.
-> * Nie można skalować z **podstawowej** pamięci podręcznej bezpośrednio do pamięci podręcznej **Premium.** Należy skalować od **podstawowego** do **standardowego** w jednej operacji skalowania, a następnie od **standardowego** do **premium** w kolejnej operacji skalowania.
-> * Nie można skalować od większego rozmiaru do rozmiaru **C0 (250 MB).**
+> * Nie można skalować z pamięci podręcznej **Premium** do warstwy **standardowa** lub **podstawowa** .
+> * Nie można skalować z poziomu **standardowej** pamięci podręcznej do **podstawowej** pamięci podręcznej.
+> * Możesz skalować od **podstawowej** pamięci podręcznej do **standardowej** pamięci podręcznej, ale nie możesz zmienić rozmiaru w tym samym czasie. Jeśli potrzebujesz innego rozmiaru, możesz wykonać kolejną operację skalowania do żądanego rozmiaru.
+> * Nie można skalować z **podstawowej** pamięci podręcznej bezpośrednio do pamięci podręcznej **Premium** . Należy skalować od warstwy **podstawowa** do **standardowa** w ramach jednej operacji skalowania, a następnie z warstwy **standardowa** do **Premium** w kolejnej operacji skalowania.
+> * Nie można skalować od większego rozmiaru w dół do rozmiaru **C0 (250 MB)** .
 > 
-> Aby uzyskać więcej informacji, zobacz [Jak skalować pamięć podręczną platformy Azure dla redis](cache-how-to-scale.md).
+> Aby uzyskać więcej informacji, zobacz [Jak skalować pamięć podręczną platformy Azure dla Redis](cache-how-to-scale.md).
 > 
 > 
 
-W poniższym przykładzie pokazano, `myCache` jak skalować pamięć podręczną o nazwie do pamięci podręcznej 2,5 GB. Należy zauważyć, że to polecenie działa zarówno dla podstawowej, jak i standardowej pamięci podręcznej.
+Poniższy przykład przedstawia sposób skalowania pamięci podręcznej `myCache` o nazwie do pamięci podręcznej 2,5 GB. Należy zauważyć, że to polecenie działa w przypadku podstawowej lub standardowej pamięci podręcznej.
 
     Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
-Po wydaniu tego polecenia zwracany jest stan pamięci `Get-AzRedisCache`podręcznej (podobny do wywoływania). Należy zauważyć, że `ProvisioningState` jest `Scaling`.
+Po wydaniu tego polecenia jest zwracany stan pamięci podręcznej (podobnie jak w przypadku `Get-AzRedisCache`wywoływania). Należy pamiętać, `ProvisioningState` że `Scaling`jest to.
 
     PS C:\> Set-AzRedisCache -Name myCache -ResourceGroupName myGroup -Size 2.5GB
 
@@ -371,14 +371,14 @@ Po wydaniu tego polecenia zwracany jest stan pamięci `Get-AzRedisCache`podręcz
     TenantSettings     : {}
     ShardCount         :
 
-Po zakończeniu operacji skalowania `ProvisioningState` zmienia `Succeeded`się na . Jeśli trzeba wykonać kolejną operację skalowania, na przykład zmiana z podstawowego na standardowy, a następnie zmianę rozmiaru, należy poczekać, aż poprzednia operacja zostanie zakończona lub zostanie wyświetlony błąd podobny do następującego.
+Po zakończeniu operacji skalowania `ProvisioningState` zmiany są wprowadzane do. `Succeeded` Jeśli trzeba wykonać kolejną operację skalowania, taką jak zmiana z warstwy Podstawowa na standardowa, a następnie zmiana rozmiaru, należy poczekać na ukończenie poprzedniej operacji lub pojawić się błąd podobny do poniższego.
 
     Set-AzRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
 
-## <a name="to-get-information-about-an-azure-cache-for-redis"></a>Aby uzyskać informacje o pamięci podręcznej platformy Azure dla redis
-Informacje o pamięci podręcznej można pobrać za pomocą polecenia cmdlet [Get-AzRedisCache.](https://docs.microsoft.com/powershell/module/az.rediscache/get-azrediscache)
+## <a name="to-get-information-about-an-azure-cache-for-redis"></a>Aby uzyskać informacje na temat pamięci podręcznej platformy Azure dla usługi Redis
+Informacje o pamięci podręcznej można pobrać przy użyciu polecenia cmdlet [Get-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/get-azrediscache) .
 
-Aby wyświetlić listę dostępnych parametrów `Get-AzRedisCache`i ich opisy dla , uruchom następujące polecenie.
+Aby wyświetlić listę dostępnych parametrów i ich opisów dla programu `Get-AzRedisCache`, uruchom następujące polecenie.
 
     PS C:\> Get-Help Get-AzRedisCache -detailed
 
@@ -417,15 +417,15 @@ Aby wyświetlić listę dostępnych parametrów `Get-AzRedisCache`i ich opisy dl
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-Aby zwrócić informacje o wszystkich pamięci podręcznych w bieżącej subskrypcji, uruchom `Get-AzRedisCache` bez żadnych parametrów.
+Aby zwrócić informacje o wszystkich pamięciach podręcznych w bieżącej subskrypcji `Get-AzRedisCache` , uruchom polecenie bez żadnych parametrów.
 
     Get-AzRedisCache
 
-Aby zwrócić informacje o wszystkich pamięci podręcznych `Get-AzRedisCache` w `ResourceGroupName` określonej grupie zasobów, uruchom z parametrem.
+Aby zwrócić informacje o wszystkich pamięciach podręcznych w określonej grupie zasobów `Get-AzRedisCache` , uruchom `ResourceGroupName` polecenie z parametrem.
 
     Get-AzRedisCache -ResourceGroupName myGroup
 
-Aby zwrócić informacje o określonej pamięci podręcznej, uruchom `Get-AzRedisCache` z parametrem `Name` zawierającym nazwę pamięci podręcznej i parametrem `ResourceGroupName` z grupą zasobów zawierającą tę pamięć podręczną.
+Aby zwrócić informacje o określonej pamięci podręcznej `Get-AzRedisCache` , należy `Name` uruchomić polecenie z parametrem zawierającym nazwę pamięci podręcznej, a `ResourceGroupName` parametr z grupą zasobów zawierającą tę pamięć podręczną.
 
     PS C:\> Get-AzRedisCache -Name myCache -ResourceGroupName myGroup
 
@@ -451,10 +451,10 @@ Aby zwrócić informacje o określonej pamięci podręcznej, uruchom `Get-AzRedi
     TenantSettings     : {}
     ShardCount         :
 
-## <a name="to-retrieve-the-access-keys-for-an-azure-cache-for-redis"></a>Aby pobrać klucze dostępu do pamięci podręcznej platformy Azure dla redis
-Aby pobrać klucze dostępu do pamięci podręcznej, można użyć polecenia cmdlet [Get-AzRedisCacheKey.](https://docs.microsoft.com/powershell/module/az.rediscache/Get-azRedisCacheKey)
+## <a name="to-retrieve-the-access-keys-for-an-azure-cache-for-redis"></a>Aby pobrać klucze dostępu dla pamięci podręcznej platformy Azure dla usługi Redis
+Aby pobrać klucze dostępu do pamięci podręcznej, można użyć polecenia cmdlet [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-azRedisCacheKey) .
 
-Aby wyświetlić listę dostępnych parametrów `Get-AzRedisCacheKey`i ich opisy dla , uruchom następujące polecenie.
+Aby wyświetlić listę dostępnych parametrów i ich opisów dla programu `Get-AzRedisCacheKey`, uruchom następujące polecenie.
 
     PS C:\> Get-Help Get-AzRedisCacheKey -detailed
 
@@ -484,17 +484,17 @@ Aby wyświetlić listę dostępnych parametrów `Get-AzRedisCacheKey`i ich opisy
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-Aby pobrać klucze pamięci podręcznej, wywołaj `Get-AzRedisCacheKey` polecenie cmdlet i przekaż w nazwie pamięci podręcznej nazwę grupy zasobów zawierającej pamięć podręczną.
+Aby pobrać klucze pamięci podręcznej, wywołaj `Get-AzRedisCacheKey` polecenie cmdlet i przekaż nazwę pamięci podręcznej nazwę grupy zasobów zawierającej pamięć podręczną.
 
     PS C:\> Get-AzRedisCacheKey -Name myCache -ResourceGroupName myGroup
 
     PrimaryKey   : b2wdt43sfetlju4hfbryfnregrd9wgIcc6IA3zAO1lY=
     SecondaryKey : ABhfB757JgjIgt785JgKH9865eifmekfnn649303JKL=
 
-## <a name="to-regenerate-access-keys-for-your-azure-cache-for-redis"></a>Aby ponownie wygenerować klucze dostępu do pamięci podręcznej usługi Azure dla programu Redis
-Aby ponownie wygenerować klucze dostępu do pamięci podręcznej, można użyć polecenia cmdlet [New-AzRedisCacheKey.](https://docs.microsoft.com/powershell/module/az.rediscache/New-azRedisCacheKey)
+## <a name="to-regenerate-access-keys-for-your-azure-cache-for-redis"></a>Aby wygenerować ponownie klucze dostępu dla swojej pamięci podręcznej platformy Azure dla usługi Redis
+Aby ponownie wygenerować klucze dostępu do pamięci podręcznej, można użyć polecenia cmdlet [New-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/New-azRedisCacheKey) .
 
-Aby wyświetlić listę dostępnych parametrów `New-AzRedisCacheKey`i ich opisy dla , uruchom następujące polecenie.
+Aby wyświetlić listę dostępnych parametrów i ich opisów dla programu `New-AzRedisCacheKey`, uruchom następujące polecenie.
 
     PS C:\> Get-Help New-AzRedisCacheKey -detailed
 
@@ -529,7 +529,7 @@ Aby wyświetlić listę dostępnych parametrów `New-AzRedisCacheKey`i ich opisy
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-Aby ponownie wygenerować klucz podstawowy lub `New-AzRedisCacheKey` pomocniczy dla pamięci podręcznej, należy wywołać `Primary` `Secondary` polecenie `KeyType` cmdlet i przekazać w nazwie, grupie zasobów i określić albo lub dla parametru. W poniższym przykładzie pomocniczy klucz dostępu dla pamięci podręcznej jest generowany ponownie.
+Aby ponownie wygenerować klucz podstawowy lub pomocniczy dla pamięci podręcznej, `New-AzRedisCacheKey` Wywołaj polecenie cmdlet i przekaż nazwę, grupę zasobów, a następnie `Primary` Określ `Secondary` lub dla `KeyType` parametru. W poniższym przykładzie zostanie ponownie wygenerowany pomocniczy klucz dostępu dla pamięci podręcznej.
 
     PS C:\> New-AzRedisCacheKey -Name myCache -ResourceGroupName myGroup -KeyType Secondary
 
@@ -541,10 +541,10 @@ Aby ponownie wygenerować klucz podstawowy lub `New-AzRedisCacheKey` pomocniczy 
     PrimaryKey   : b2wdt43sfetlju4hfbryfnregrd9wgIcc6IA3zAO1lY=
     SecondaryKey : c53hj3kh4jhHjPJk8l0jji785JgKH9865eifmekfnn6=
 
-## <a name="to-delete-an-azure-cache-for-redis"></a>Aby usunąć pamięć podręczną platformy Azure dla redis
-Aby usunąć pamięć podręczną platformy Azure dla programu Redis, należy użyć polecenia cmdlet [Remove-AzRedisCache.](https://docs.microsoft.com/powershell/module/az.rediscache/remove-azrediscache)
+## <a name="to-delete-an-azure-cache-for-redis"></a>Aby usunąć pamięć podręczną platformy Azure dla usługi Redis
+Aby usunąć pamięć podręczną platformy Azure dla usługi Redis, użyj polecenia cmdlet [Remove-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/remove-azrediscache) .
 
-Aby wyświetlić listę dostępnych parametrów `Remove-AzRedisCache`i ich opisy dla , uruchom następujące polecenie.
+Aby wyświetlić listę dostępnych parametrów i ich opisów dla programu `Remove-AzRedisCache`, uruchom następujące polecenie.
 
     PS C:\> Get-Help Remove-AzRedisCache -detailed
 
@@ -580,7 +580,7 @@ Aby wyświetlić listę dostępnych parametrów `Remove-AzRedisCache`i ich opisy
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-W poniższym przykładzie `myCache` pamięć podręczna o nazwie jest usuwany.
+W poniższym przykładzie nazwa `myCache` pamięci podręcznej jest usuwana.
 
     PS C:\> Remove-AzRedisCache -Name myCache -ResourceGroupName myGroup
 
@@ -589,15 +589,15 @@ W poniższym przykładzie `myCache` pamięć podręczna o nazwie jest usuwany.
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
 
-## <a name="to-import-an-azure-cache-for-redis"></a>Aby zaimportować pamięć podręczną platformy Azure dla redis
-Dane można zaimportować do pamięci podręcznej platformy Azure dla wystąpienia Redis przy użyciu polecenia `Import-AzRedisCache` cmdlet.
+## <a name="to-import-an-azure-cache-for-redis"></a>Aby zaimportować pamięć podręczną platformy Azure dla usługi Redis
+Dane można zaimportować do wystąpienia usługi Azure cache for Redis przy użyciu `Import-AzRedisCache` polecenia cmdlet.
 
 > [!IMPORTANT]
-> Import/Eksport jest dostępny tylko dla pamięci podręcznych [warstwy premium.](cache-premium-tier-intro.md) Aby uzyskać więcej informacji na temat importu/eksportowania, zobacz [Importowanie i eksportowanie danych w pamięci podręcznej platformy Azure dla redis](cache-how-to-import-export-data.md).
+> Usługa Import/Export jest dostępna tylko w przypadku pamięci podręcznych [warstwy Premium](cache-premium-tier-intro.md) . Aby uzyskać więcej informacji na temat importowania/eksportowania, zobacz [Importowanie i eksportowanie danych w usłudze Azure cache for Redis](cache-how-to-import-export-data.md).
 > 
 > 
 
-Aby wyświetlić listę dostępnych parametrów `Import-AzRedisCache`i ich opisy dla , uruchom następujące polecenie.
+Aby wyświetlić listę dostępnych parametrów i ich opisów dla programu `Import-AzRedisCache`, uruchom następujące polecenie.
 
     PS C:\> Get-Help Import-AzRedisCache -detailed
 
@@ -645,19 +645,19 @@ Aby wyświetlić listę dostępnych parametrów `Import-AzRedisCache`i ich opisy
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
-Następujące polecenie importuje dane z obiektu blob określonego przez identyfikator sygnatury dostępu Współdzielonego do pamięci podręcznej azure dla usługi Redis.
+Następujące polecenie importuje dane z obiektu blob określonego przez identyfikator URI sygnatury dostępu współdzielonego do usługi Azure cache for Redis.
 
     PS C:\>Import-AzRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -Files @("https://mystorageaccount.blob.core.windows.net/mycontainername/blobname?sv=2015-04-05&sr=b&sig=caIwutG2uDa0NZ8mjdNJdgOY8%2F8mhwRuGNdICU%2B0pI4%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwd") -Force
 
-## <a name="to-export-an-azure-cache-for-redis"></a>Aby wyeksportować pamięć podręczną platformy Azure dla redis
-Dane można wyeksportować z usługi `Export-AzRedisCache` Azure Cache dla wystąpienia Redis przy użyciu polecenia cmdlet.
+## <a name="to-export-an-azure-cache-for-redis"></a>Aby wyeksportować pamięć podręczną platformy Azure dla usługi Redis
+Dane można eksportować z wystąpienia usługi Azure cache for Redis przy użyciu `Export-AzRedisCache` polecenia cmdlet.
 
 > [!IMPORTANT]
-> Import/Eksport jest dostępny tylko dla pamięci podręcznych [warstwy premium.](cache-premium-tier-intro.md) Aby uzyskać więcej informacji na temat importu/eksportowania, zobacz [Importowanie i eksportowanie danych w pamięci podręcznej platformy Azure dla redis](cache-how-to-import-export-data.md).
+> Usługa Import/Export jest dostępna tylko w przypadku pamięci podręcznych [warstwy Premium](cache-premium-tier-intro.md) . Aby uzyskać więcej informacji na temat importowania/eksportowania, zobacz [Importowanie i eksportowanie danych w usłudze Azure cache for Redis](cache-how-to-import-export-data.md).
 > 
 > 
 
-Aby wyświetlić listę dostępnych parametrów `Export-AzRedisCache`i ich opisy dla , uruchom następujące polecenie.
+Aby wyświetlić listę dostępnych parametrów i ich opisów dla programu `Export-AzRedisCache`, uruchom następujące polecenie.
 
     PS C:\> Get-Help Export-AzRedisCache -detailed
 
@@ -704,21 +704,21 @@ Aby wyświetlić listę dostępnych parametrów `Export-AzRedisCache`i ich opisy
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
-Następujące polecenie eksportuje dane z usługi Azure Cache for Redis wystąpienie do kontenera określonego przez identyfikator sygnatury dostępu Współdzielonego.
+Następujące polecenie eksportuje dane z wystąpienia usługi Azure cache for Redis do kontenera określonego przez identyfikator URI sygnatury dostępu współdzielonego.
 
         PS C:\>Export-AzRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -Prefix "blobprefix"
         -Container "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2015-04-05&sr=c&sig=HezZtBZ3DURmEGDduauE7
         pvETY4kqlPI8JCNa8ATmaw%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwdl"
 
-## <a name="to-reboot-an-azure-cache-for-redis"></a>Aby ponownie uruchomić pamięć podręczną platformy Azure dla redis
-Możesz ponownie uruchomić pamięć podręczną usługi `Reset-AzRedisCache` Azure cache dla wystąpienia Redis przy użyciu polecenia cmdlet.
+## <a name="to-reboot-an-azure-cache-for-redis"></a>Aby ponownie uruchomić pamięć podręczną platformy Azure dla usługi Redis
+Można uruchomić ponownie wystąpienie usługi Azure cache for Redis przy użyciu `Reset-AzRedisCache` polecenia cmdlet.
 
 > [!IMPORTANT]
-> Ponowne uruchomienie jest dostępne tylko dla pamięci podręcznych [warstwy premium.](cache-premium-tier-intro.md) Aby uzyskać więcej informacji na temat ponownego uruchamiania pamięci podręcznej, zobacz [Administracja pamięci podręcznej — ponowne uruchomienie .](cache-administration.md#reboot)
+> Ponowny rozruch jest dostępny tylko w przypadku pamięci podręcznych [warstwy Premium](cache-premium-tier-intro.md) . Aby uzyskać więcej informacji na temat ponownego uruchamiania pamięci podręcznej, zobacz temat [Administrowanie pamięcią podręczną](cache-administration.md#reboot).
 > 
 > 
 
-Aby wyświetlić listę dostępnych parametrów `Reset-AzRedisCache`i ich opisy dla , uruchom następujące polecenie.
+Aby wyświetlić listę dostępnych parametrów i ich opisów dla programu `Reset-AzRedisCache`, uruchom następujące polecenie.
 
     PS C:\> Get-Help Reset-AzRedisCache -detailed
 
@@ -765,19 +765,19 @@ Aby wyświetlić listę dostępnych parametrów `Reset-AzRedisCache`i ich opisy 
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
-Następujące polecenie uruchamia ponownie oba węzły określonej pamięci podręcznej.
+Poniższe polecenie ponownie wykonuje rozruch obu węzłów określonej pamięci podręcznej.
 
         PS C:\>Reset-AzRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -RebootType "AllNodes"
         -Force
 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej na temat korzystania z programu Windows PowerShell z platformą Azure, zobacz następujące zasoby:
+Aby dowiedzieć się więcej o korzystaniu z programu Windows PowerShell z platformą Azure, zobacz następujące zasoby:
 
-* [Dokumentacja polecenia cmdlet usługi Azure Cache for Redis w usłudze MSDN](https://docs.microsoft.com/powershell/module/az.rediscache)
-* [Polecenia cmdlet usługi Azure Resource Manager:](https://go.microsoft.com/fwlink/?LinkID=394765)Naucz się używać poleceń cmdlet w module usługi Azure Resource Manager.
-* [Używanie grup zasobów do zarządzania zasobami platformy Azure:](../azure-resource-manager/templates/deploy-portal.md)dowiedz się, jak tworzyć grupy zasobów i zarządzać nimi w witrynie Azure Portal.
-* [Blog platformy Azure](https://azure.microsoft.com/blog/): Dowiedz się więcej o nowych funkcjach na platformie Azure.
-* [Blog programu Windows PowerShell](https://blogs.msdn.com/powershell): Dowiedz się więcej o nowych funkcjach programu Windows PowerShell.
-* ["Hej, Scripting Guy!" Blog](https://blogs.technet.com/b/heyscriptingguy/): Uzyskaj porady i wskazówki dotyczące rzeczywistych światów od społeczności programu Windows PowerShell.
+* [Dokumentacja poleceń cmdlet usługi Azure cache for Redis w witrynie MSDN](https://docs.microsoft.com/powershell/module/az.rediscache)
+* [Polecenia cmdlet Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkID=394765): informacje na temat używania poleceń cmdlet w module Azure Resource Manager.
+* [Używanie grup zasobów do zarządzania zasobami platformy Azure](../azure-resource-manager/templates/deploy-portal.md): Dowiedz się, jak tworzyć grupy zasobów i zarządzać nimi w Azure Portal.
+* [Blog platformy Azure](https://azure.microsoft.com/blog/): Poznaj nowe funkcje platformy Azure.
+* [Blog programu Windows PowerShell](https://blogs.msdn.com/powershell): informacje o nowych funkcjach w programie Windows PowerShell.
+* ["Hej, obsługa skryptów Guy!" Blog](https://blogs.technet.com/b/heyscriptingguy/): Uzyskaj rzeczywiste porady i wskazówki ze społeczności programu Windows PowerShell.
 

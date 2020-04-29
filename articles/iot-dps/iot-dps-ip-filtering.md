@@ -1,6 +1,6 @@
 ---
-title: Filtry połączeń IP usługi Azure IoT DPS | Dokumenty firmy Microsoft
-description: Jak używać filtrowania adresów IP do blokowania połączeń z określonych adresów IP do wystąpienia dps usługi Azure IoT. Połączenia można blokować z poszczególnych lub zakresów adresów IP.
+title: Filtry połączeń IP usługi Azure IoT DPS | Microsoft Docs
+description: Jak używać filtrowania IP do blokowania połączeń z określonych adresów IP do wystąpienia usługi Azure IoT DPS. Można blokować połączenia z poszczególnych adresów IP lub z nich.
 author: wesmc7777
 ms.author: wesmc
 ms.service: iot-dps
@@ -8,79 +8,79 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: 0b13040b39ed491ec4fee4d6922d41f086edeeb2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79284917"
 ---
 # <a name="use-ip-filters"></a>Korzystanie z filtrów adresów IP
 
-Bezpieczeństwo jest ważnym aspektem każdego rozwiązania IoT. Czasami należy jawnie określić adresy IP, z których urządzenia mogą łączyć się w ramach konfiguracji zabezpieczeń. Funkcja *filtrowania adresów IP* usługi aprowizacji urządzeń usługi Azure IoT Hub (DPS) umożliwia skonfigurowanie reguł odrzucania lub akceptowania ruchu z określonych adresów IPv4.
+Bezpieczeństwo jest ważnym aspektem każdego rozwiązania IoT. Czasami trzeba jawnie określić adresy IP, z których urządzenia mogą łączyć się w ramach konfiguracji zabezpieczeń. Funkcja *filtru IP* dla usługi Azure IoT Hub Device PROVISIONING Service (DPS) umożliwia konfigurowanie reguł odrzucania lub akceptowania ruchu z określonych adresów IPv4.
 
 ## <a name="when-to-use"></a>Kiedy stosować
 
-Istnieją dwa konkretne przypadki użycia, w których przydatne jest blokowanie połączeń z punktem końcowym DPS z niektórych adresów IP:
+Istnieją dwa konkretne przypadki użycia, w których warto zablokować połączenia z punktem końcowym usługi DPS z określonych adresów IP:
 
-* Dps powinien odbierać ruch tylko z określonego zakresu adresów IP i odrzucać wszystko inne. Na przykład używasz dps z [usługi Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) do tworzenia połączeń prywatnych między DPS i urządzeń.
+* Usługa DPS powinna odbierać ruch tylko z określonego zakresu adresów IP i odrzucać wszystkie inne. Na przykład do tworzenia prywatnych połączeń między działem DPS a urządzeniami jest używana usługa DPS z [usługą Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) .
 
-* Należy odrzucić ruch z adresów IP, które zostały zidentyfikowane jako podejrzane przez administratora DPS.
+* Należy odrzucić ruch z adresów IP, które zostały zidentyfikowane jako podejrzane przez administratora usługi DPS.
 
-## <a name="how-filter-rules-are-applied"></a>Jak stosowane są reguły filtru
+## <a name="how-filter-rules-are-applied"></a>Jak są stosowane reguły filtrowania
 
-Reguły filtru IP są stosowane na poziomie wystąpienia DPS. W związku z tym reguły filtru IP mają zastosowanie do wszystkich połączeń z urządzeń i aplikacji zaplecza przy użyciu dowolnego obsługiwanego protokołu.
+Reguły filtrów IP są stosowane na poziomie wystąpienia DPS. W związku z tym reguły filtru IP są stosowane do wszystkich połączeń z urządzeń i aplikacji zaplecza przy użyciu dowolnego obsługiwanego protokołu.
 
-Każda próba połączenia z adresu IP zgodna z odrzucającą regułą IP w wystąpieniu DPS otrzymuje nieautoryzowany kod stanu 401 i opis. Komunikat odpowiedzi nie wspomina o regule IP.
+Wszystkie próby połączenia z adresu IP, które pasują do reguły odrzucenia adresu IP w wystąpieniu usługi DPS, otrzymują nieautoryzowany kod stanu 401 i opis. Komunikat odpowiedzi nie zawiera wzmianki o regule adresu IP.
 
 ## <a name="default-setting"></a>Ustawienie domyślne
 
-Domyślnie siatka **filtru IP** w portalu dla DPS jest pusta. To ustawienie domyślne oznacza, że dps akceptuje połączenia z dowolnego adresu IP. To ustawienie domyślne jest równoważne regule, która akceptuje zakres adresów IP 0.0.0.0/0.
+Domyślnie siatka **filtrów IP** w portalu dla usługi DPS jest pusta. To ustawienie domyślne oznacza, że usługa DPS akceptuje połączenia z dowolnego adresu IP. To ustawienie domyślne jest równoważne z regułą akceptującą zakres adresów IP 0.0.0.0/0.
 
-![Domyślne ustawienia filtra IP usługi IoT DPS](./media/iot-dps-ip-filtering/ip-filter-default.png)
+![Ustawienia domyślnego filtru IP IoT DPS](./media/iot-dps-ip-filtering/ip-filter-default.png)
 
-## <a name="add-or-edit-an-ip-filter-rule"></a>Dodawanie lub edytowanie reguły filtru IP
+## <a name="add-or-edit-an-ip-filter-rule"></a>Dodawanie lub Edytowanie reguły filtru IP
 
-Aby dodać regułę filtru IP, wybierz pozycję **+ Dodaj regułę filtru IP**.
+Aby dodać regułę filtrowania adresów IP, wybierz pozycję **+ Dodaj regułę filtrowania adresów IP**.
 
-![Dodawanie reguły filtru IP do dps IoT](./media/iot-dps-ip-filtering/ip-filter-add-rule.png)
+![Dodawanie reguły filtru IP do punktu dystrybucji IoT](./media/iot-dps-ip-filtering/ip-filter-add-rule.png)
 
-Po wybraniu opcji **Dodaj regułę filtru IP**wypełnij pola.
+Po wybraniu pozycji **Dodaj regułę filtrowania adresów IP**Wypełnij pola.
 
-![Po wybraniu opcji Dodaj regułę filtru IP](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
+![Po wybraniu opcji Dodaj regułę filtrowania adresów IP](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
 
-* Podaj **nazwę** reguły filtru IP. Musi to być unikatowy, niewrażliwy, alfanumeryczny ciąg o długości do 128 znaków. Akceptowane `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` są tylko 7-bitowe znaki alfanumeryczne ASCII plus.
+* Podaj **nazwę** dla reguły filtru IP. Musi to być unikatowy ciąg alfanumeryczny bez uwzględniania wielkości liter, do 128 znaków. Akceptowane są tylko znaki alfanumeryczne ASCII 7- `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` bitowe Plus.
 
-* Podaj pojedynczy adres IPv4 lub blok adresów IP w notacji CIDR. Na przykład w notacji CIDR 192.168.100.0/22 reprezentuje adresy IPv4 1024 od 192.168.100.0 do 192.168.103.255.
+* Podaj pojedynczy adres IPv4 lub blok adresów IP w notacji CIDR. Na przykład w notacji CIDR 192.168.100.0/22 reprezentuje adresy IPv4 1024 z 192.168.100.0 do 192.168.103.255.
 
-* Wybierz **pozycję Zezwalaj** lub **blokuj** jako **akcję** dla reguły filtru IP.
+* Wybierz pozycję **Zezwalaj** lub **Blokuj** jako **akcję** dla reguły filtru IP.
 
-Po wypełnieniu pól wybierz pozycję **Zapisz,** aby zapisać regułę. Zostanie wyświetlony alert informujący, że aktualizacja jest w toku.
+Po wypełnieniu pól wybierz pozycję **Zapisz** , aby zapisać regułę. Zostanie wyświetlony alert informujący o tym, że aktualizacja jest w toku.
 
-![Powiadomienie o zapisywaniu reguły filtru IP](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
+![Powiadomienie o zapisaniu reguły filtru IP](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
 
-Opcja **Dodaj** jest wyłączona po osiągnięciu maksymalnie 10 reguł filtru IP.
+Opcja **Dodaj** jest wyłączona, gdy zostanie osiągnięta maksymalna liczba reguł filtru IP.
 
-Aby edytować istniejącą regułę, zaznacz dane, które chcesz zmienić, wykonuj zmiany, a następnie wybierz pozycję **Zapisz,** aby zapisać edycję.
+Aby edytować istniejącą regułę, wybierz dane, które chcesz zmienić, wprowadź zmianę, a następnie wybierz pozycję **Zapisz** , aby zapisać edycję.
 
 > [!NOTE]
-> Odrzucenie adresów IP może uniemożliwić innym usługom platformy Azure interakcję z wystąpieniem DPS.
+> Odrzucenie adresów IP może uniemożliwić innym usługom platformy Azure współdziałanie z wystąpieniem usługi DPS.
 
-## <a name="delete-an-ip-filter-rule"></a>Usuwanie reguły filtru IP
+## <a name="delete-an-ip-filter-rule"></a>Usuwanie reguły filtrowania adresów IP
 
-Aby usunąć regułę filtru IP, zaznacz ikonę kosza w tym wierszu, a następnie wybierz pozycję **Zapisz**. Reguła zostanie usunięta, a zmiana zostanie zapisana.
+Aby usunąć regułę filtrowania adresów IP, wybierz ikonę kosza dla tego wiersza, a następnie wybierz pozycję **Zapisz**. Reguła zostanie usunięta, a zmiana została zapisana.
 
-![Usuwanie reguły filtru IP usługi IoT DPS](./media/iot-dps-ip-filtering/ip-filter-delete-rule.png)
+![Usuwanie reguły filtrowania adresów IP IoT DPS](./media/iot-dps-ip-filtering/ip-filter-delete-rule.png)
 
 
-## <a name="update-ip-filter-rules-in-code"></a>Aktualizowanie reguł filtru IP w kodzie
+## <a name="update-ip-filter-rules-in-code"></a>Aktualizuj reguły filtrowania adresów IP w kodzie
 
-Możesz pobrać i zmodyfikować filtr IP DPS przy użyciu punktu końcowego REST dostawcy zasobów platformy Azure. Zobacz `properties.ipFilterRules` w [createorupdate metody](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/createorupdate).
+Możesz pobrać i zmodyfikować filtr IP usługi DPS przy użyciu punktu końcowego REST dostawcy zasobów platformy Azure. Zobacz `properties.ipFilterRules` w [metodzie metodę createorupdate](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/createorupdate).
 
-Aktualizowanie reguł filtru IP DPS nie jest obecnie obsługiwane w usłudze Azure CLI lub Azure PowerShell, ale można je wykonać za pomocą szablonów usługi Azure Resource Manager. Zobacz [szablony usługi Azure Resource Manager, aby](../azure-resource-manager/templates/overview.md) uzyskać wskazówki dotyczące korzystania z szablonów Menedżera zasobów. Przykłady szablonów, które należy wykonać, pokazują, jak tworzyć, edytować i usuwać reguły filtru IP DPS.
+Aktualizowanie reguł filtrów IP usługi DPS nie jest obecnie obsługiwane w interfejsie wiersza polecenia platformy Azure ani Azure PowerShell ale można je wykonać przy użyciu szablonów Azure Resource Manager. Aby uzyskać wskazówki dotyczące używania szablonów Menedżer zasobów, zobacz [Azure Resource Manager szablonów](../azure-resource-manager/templates/overview.md) . Poniższe przykłady szablonów pokazują, jak tworzyć, edytować i usuwać reguły filtru IP DPS.
 
-### <a name="add-an-ip-filter-rule"></a>Dodawanie reguły filtru IP
+### <a name="add-an-ip-filter-rule"></a>Dodaj regułę filtrowania adresów IP
 
-Poniższy przykład szablonu tworzy nową regułę filtru IP o nazwie "AllowAll", która akceptuje cały ruch.
+Poniższy przykład szablonu tworzy nową regułę filtrowania adresów IP o nazwie "AllowAll", która akceptuje cały ruch.
 
 ```json
 {
@@ -131,18 +131,18 @@ Poniższy przykład szablonu tworzy nową regułę filtru IP o nazwie "AllowAll"
 }
 ```
 
-Zaktualizuj atrybuty reguły filtru IP szablonu na podstawie wymagań.
+Zaktualizuj atrybuty reguły filtrowania adresów IP szablonu na podstawie wymagań.
 
 | Atrybut                | Opis |
 | ------------------------ | ----------- |
-| **Filtername**           | Podaj nazwę reguły filtru IP. Musi to być unikatowy, niewrażliwy, alfanumeryczny ciąg o długości do 128 znaków. Akceptowane są tylko 7-bitowe znaki alfanumeryczne ASCII oraz {'-', ':', '/', '/',\''', '+', '%', '_', '#', '*', '?', '?', '(',',', ',', '=', '@', ';', ''''}} |
-| **Akcja**               | Zaakceptowane wartości to **Accept** lub **Reject** as the action for the IP filter rule. |
-| **maska ip**               | Podaj pojedynczy adres IPv4 lub blok adresów IP w notacji CIDR. Na przykład w notacji CIDR 192.168.100.0/22 reprezentuje adresy IPv4 1024 od 192.168.100.0 do 192.168.103.255. |
+| **FilterName**           | Podaj nazwę dla reguły filtru IP. Musi to być unikatowy ciąg alfanumeryczny bez uwzględniania wielkości liter, do 128 znaków. Tylko znaki alfanumeryczne ASCII 7-bitowe plus {"-", ":", "/", "\',". "," + ","% "," _ "," # "," * ","? ","! "akceptowane są wartości" (",") ",", "," = "," @ ","; "i" "". |
+| **Akcja**               | Akceptowane wartości są **akceptowane** lub **odrzucane** jako akcja dla reguły filtru IP. |
+| **ipMask**               | Podaj pojedynczy adres IPv4 lub blok adresów IP w notacji CIDR. Na przykład w notacji CIDR 192.168.100.0/22 reprezentuje adresy IPv4 1024 z 192.168.100.0 do 192.168.103.255. |
 
 
-### <a name="update-an-ip-filter-rule"></a>Aktualizowanie reguły filtru IP
+### <a name="update-an-ip-filter-rule"></a>Aktualizowanie reguły filtrowania adresów IP
 
-Poniższy przykład szablonu aktualizuje regułę filtru IP o nazwie "AllowAll", pokazaną wcześniej, aby odrzucić cały ruch.
+Poniższy przykład szablonu aktualizuje regułę filtru IP o nazwie "AllowAll", pokazana wcześniej, aby odrzucić cały ruch.
 
 ```json
 { 
@@ -193,9 +193,9 @@ Poniższy przykład szablonu aktualizuje regułę filtru IP o nazwie "AllowAll",
 }
 ```
 
-### <a name="delete-an-ip-filter-rule"></a>Usuwanie reguły filtru IP
+### <a name="delete-an-ip-filter-rule"></a>Usuwanie reguły filtrowania adresów IP
 
-Poniższy przykład szablonu usuwa wszystkie reguły filtru IP dla wystąpienia DPS.
+Poniższy przykład szablonu usuwa wszystkie reguły filtrów IP dla wystąpienia usługi DPS.
 
 ```json
 { 
@@ -241,22 +241,22 @@ Poniższy przykład szablonu usuwa wszystkie reguły filtru IP dla wystąpienia 
 
 
 
-## <a name="ip-filter-rule-evaluation"></a>Ocena reguł filtru IP
+## <a name="ip-filter-rule-evaluation"></a>Obliczanie reguły filtru IP
 
-Reguły filtru IP są stosowane w kolejności, a pierwsza reguła zgodna z adresem IP określa akcję akceptowania lub odrzucania.
+Reguły filtrowania adresów IP są stosowane w kolejności, a pierwsza reguła zgodna z adresem IP określa akcję Akceptuj lub Odrzuć.
 
-Jeśli na przykład chcesz zaakceptować adresy w zakresie 192.168.100.0/22 i odrzucić wszystko inne, pierwsza reguła w siatce powinna zaakceptować zakres adresów 192.168.100.0/22. Następna reguła powinna odrzucić wszystkie adresy przy użyciu zakresu 0.0.0.0/0.
+Na przykład, jeśli chcesz akceptować adresy w zakresie 192.168.100.0/22 i odrzucić wszystkie inne, pierwsza reguła w siatce powinna akceptować zakres adresów 192.168.100.0/22. Kolejna reguła powinna odrzucać wszystkie adresy przy użyciu zakresu 0.0.0.0/0.
 
-Kolejność reguł filtrowania IP w siatce można zmienić, klikając trzy pionowe kropki na początku wiersza oraz używając przeciągania i upuszczania.
+Aby zmienić kolejność reguł filtrów IP w siatce, klikaj trzy pionowe kropki na początku wiersza i przy użyciu przeciągania i upuszczania.
 
-Aby zapisać nową kolejność reguł filtru IP, kliknij przycisk **Zapisz**.
+Aby zapisać nową kolejność reguł filtrowania adresów IP, kliknij przycisk **Zapisz**.
 
-![Zmienianie kolejności reguł filtrowania adresów IP DPS](./media/iot-dps-ip-filtering/ip-filter-rule-order.png)
+![Zmiana kolejności reguł filtrowania adresów IP w usłudze DPS](./media/iot-dps-ip-filtering/ip-filter-rule-order.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dokładniej zbadać zarządzanie DPS, zobacz:
+Aby dowiedzieć się więcej na temat zarządzania usługą DPS, zobacz:
 
-* [Opis adresów IP dps IoT](iot-dps-understand-ip-address.md)
-* [Konfigurowanie dps przy użyciu interfejsu wiersza polecenia platformy Azure](how-to-manage-dps-with-cli.md)
-* [Kontrola dostępu do DPS](how-to-control-access.md)
+* [Informacje o adresach IP IoT DPS](iot-dps-understand-ip-address.md)
+* [Konfigurowanie usługi DPS przy użyciu interfejsu wiersza polecenia platformy Azure](how-to-manage-dps-with-cli.md)
+* [Kontrola dostępu do punktu dystrybucji](how-to-control-access.md)

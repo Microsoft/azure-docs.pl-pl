@@ -1,30 +1,30 @@
 ---
-title: Przywracanie błędu do pomyślnego wdrożenia
-description: Określ, że wdrożenie nie powiodło się należy przywrócić do pomyślnego wdrożenia.
+title: Wycofywanie z powodu błędu do pomyślnego wdrożenia
+description: Określ, że niepowodzenie wdrożenia powinno zostać przywrócone do pomyślnego wdrożenia.
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.openlocfilehash: 206c794996f58a4c5b6982c551ae50128ed4f5eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79460147"
 ---
-# <a name="rollback-on-error-to-successful-deployment"></a>Wycofywanie błędu do pomyślnego wdrożenia
+# <a name="rollback-on-error-to-successful-deployment"></a>Wycofywanie z powodu błędu do pomyślnego wdrożenia
 
-Gdy wdrożenie nie powiedzie się, można automatycznie wdrożyć wcześniejsze, pomyślne wdrożenie z historii wdrażania. Ta funkcja jest przydatna, jeśli masz znany dobry stan dla wdrożenia infrastruktury i chcesz powrócić do tego stanu. Istnieje wiele zastrzeżeń i ograniczeń:
+W przypadku niepowodzenia wdrożenia można automatycznie ponownie wdrożyć wcześniejsze, pomyślne wdrożenie z historii wdrożenia. Ta funkcja jest przydatna, jeśli masz znany dobry stan wdrożenia infrastruktury i chcesz przywrócić ten stan. Istnieje wiele zastrzeżeń i ograniczeń:
 
-- Ponowne wdrożenie jest uruchamiane dokładnie tak, jak zostało uruchomione wcześniej z tymi samymi parametrami. Nie można zmienić parametrów.
-- Poprzednie wdrożenie jest uruchamiane w [trybie kompletnym](./deployment-modes.md#complete-mode). Wszystkie zasoby nie uwzględnione w poprzednim wdrożeniu są usuwane, a wszystkie konfiguracje zasobów są ustawione na ich poprzedni stan. Upewnij się, że w pełni rozumiesz [tryby wdrażania](./deployment-modes.md).
-- Ponowne wdrożenie dotyczy tylko zasobów, nie ma to wpływu na wszelkie zmiany danych.
-- Tej funkcji można używać tylko w przypadku wdrożeń grup zasobów, a nie wdrożeń na poziomie subskrypcji lub grupy zarządzania. Aby uzyskać więcej informacji na temat wdrażania na poziomie subskrypcji, zobacz [Tworzenie grup zasobów i zasobów na poziomie subskrypcji](./deploy-to-subscription.md).
-- Tej opcji można używać tylko w przypadku wdrożeń na poziomie głównym. Wdrożenia z szablonu zagnieżdżonego nie są dostępne do ponownego wdrożenia.
+- Ponowne wdrożenie jest uruchamiane dokładnie tak, jak zostało wcześniej uruchomione z tymi samymi parametrami. Nie można zmienić parametrów.
+- Poprzednie wdrożenie jest uruchamiane przy użyciu [trybu kompletnego](./deployment-modes.md#complete-mode). Wszystkie zasoby, które nie są uwzględnione w poprzednim wdrożeniu, są usuwane, a wszystkie konfiguracje zasobów są ustawione na ich poprzedni stan. Upewnij się, że w pełni rozumiesz [tryby wdrażania](./deployment-modes.md).
+- Ponowne wdrożenie ma wpływ tylko na zasoby, a zmiany danych nie są modyfikowane.
+- Tej funkcji można używać tylko z wdrożeniami grup zasobów, a nie z wdrożeniami na poziomie grupy lub grup zarządzania. Aby uzyskać więcej informacji na temat wdrażania na poziomie subskrypcji, zobacz [Tworzenie grup zasobów i zasobów na poziomie subskrypcji](./deploy-to-subscription.md).
+- Tej opcji można używać tylko z wdrożeniami na poziomie głównym. Wdrożenia z zagnieżdżonego szablonu nie są dostępne do ponownego wdrożenia.
 
-Aby użyć tej opcji, wdrożenia muszą mieć unikatowe nazwy, aby można je było zidentyfikować w historii. Jeśli nie masz unikatowych nazw, bieżące wdrożenie nie powiodło się może zastąpić wcześniej pomyślne wdrożenie w historii.
+Aby użyć tej opcji, wdrożenia muszą mieć unikatowe nazwy, aby można je było zidentyfikować w historii. Jeśli nie masz unikatowych nazw, bieżące wdrożenie nie powiodło się w historii.
 
 ## <a name="powershell"></a>PowerShell
 
-Aby ponownie wdrożyć ostatnie pomyślne `-RollbackToLastDeployment` wdrożenie, dodaj parametr jako flagę.
+Aby ponownie wdrożyć ostatnie pomyślne wdrożenie, Dodaj `-RollbackToLastDeployment` parametr jako flagę.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -Name ExampleDeployment02 `
@@ -33,7 +33,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment02 `
   -RollbackToLastDeployment
 ```
 
-Aby ponownie wdrożyć określone wdrożenie, `-RollBackDeploymentName` należy użyć parametru i podać nazwę wdrożenia. Określone wdrożenie musi zakończyć się pomyślnie.
+Aby ponownie wdrożyć określone wdrożenie, użyj `-RollBackDeploymentName` parametru i podaj nazwę wdrożenia. Określone wdrożenie musi się powieść.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -Name ExampleDeployment02 `
@@ -44,7 +44,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment02 `
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby ponownie wdrożyć ostatnie pomyślne `--rollback-on-error` wdrożenie, dodaj parametr jako flagę.
+Aby ponownie wdrożyć ostatnie pomyślne wdrożenie, Dodaj `--rollback-on-error` parametr jako flagę.
 
 ```azurecli-interactive
 az deployment group create \
@@ -55,7 +55,7 @@ az deployment group create \
   --rollback-on-error
 ```
 
-Aby ponownie wdrożyć określone wdrożenie, `--rollback-on-error` należy użyć parametru i podać nazwę wdrożenia. Określone wdrożenie musi zakończyć się pomyślnie.
+Aby ponownie wdrożyć określone wdrożenie, użyj `--rollback-on-error` parametru i podaj nazwę wdrożenia. Określone wdrożenie musi się powieść.
 
 ```azurecli-interactive
 az deployment group create \
@@ -68,7 +68,7 @@ az deployment group create \
 
 ## <a name="rest-api"></a>Interfejs API REST
 
-Aby ponownie wdrożyć ostatnie pomyślne wdrożenie, jeśli bieżące wdrożenie zakończy się niepowodzeniem, należy użyć:
+Aby ponownie wdrożyć ostatnie pomyślne wdrożenie, jeśli bieżące wdrożenie zakończy się niepowodzeniem, użyj:
 
 ```json
 {
@@ -89,7 +89,7 @@ Aby ponownie wdrożyć ostatnie pomyślne wdrożenie, jeśli bieżące wdrożeni
 }
 ```
 
-Aby ponownie wdrożyć określone wdrożenie, jeśli bieżące wdrożenie nie powiedzie się, należy użyć:
+Aby ponownie wdrożyć określone wdrożenie, jeśli bieżące wdrożenie nie powiedzie się, użyj:
 
 ```json
 {
@@ -111,11 +111,11 @@ Aby ponownie wdrożyć określone wdrożenie, jeśli bieżące wdrożenie nie po
 }
 ```
 
-Określone wdrożenie musi zakończyć się pomyślnie.
+Określone wdrożenie musi się powieść.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby bezpiecznie wdrożyć usługę w więcej niż jednym regionie, zobacz [Usługa Azure Deployment Manager](deployment-manager-overview.md).
-- Aby określić sposób obsługi zasobów, które istnieją w grupie zasobów, ale nie są zdefiniowane w szablonie, zobacz [Tryby wdrażania usługi Azure Resource Manager](deployment-modes.md).
-- Aby dowiedzieć się, jak zdefiniować parametry w szablonie, zobacz [Opis struktury i składni szablonów usługi Azure Resource Manager](template-syntax.md).
-- Aby uzyskać informacje dotyczące wdrażania szablonu, który wymaga tokenu sygnatury dostępu Współdzielonego, zobacz [Wdrażanie szablonu prywatnego za pomocą tokenu sygnatury dostępu Współdzielonego](secure-template-with-sas-token.md).
+- Aby bezpiecznie wdrożyć usługę w więcej niż jednym regionie, zobacz [Azure Menedżer wdrażania](deployment-manager-overview.md).
+- Aby określić sposób obsługi zasobów, które istnieją w grupie zasobów, ale nie są zdefiniowane w szablonie, zobacz [Azure Resource Manager trybami wdrożenia](deployment-modes.md).
+- Aby zrozumieć, jak definiować parametry w szablonie, zobacz [Opis struktury i składni szablonów Azure Resource Manager](template-syntax.md).
+- Informacje o wdrażaniu szablonu wymagającego tokenu SAS można znaleźć w temacie [Deploy Private Template with SAS token](secure-template-with-sas-token.md).

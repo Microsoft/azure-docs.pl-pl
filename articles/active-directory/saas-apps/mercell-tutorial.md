@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z mercell | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a mercell.
+title: 'Samouczek: integracja Azure Active Directory z usługą Mercell | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Mercell.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.openlocfilehash: af51d76b3a500d7cc5edb0c21b893473e581acd6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73160686"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Samouczek: Integracja usługi Azure Active Directory z mercell
+# <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Samouczek: integracja Azure Active Directory z usługą Mercell
 
-W tym samouczku dowiesz się, jak zintegrować mercell z usługą Azure Active Directory (Azure AD).
-Integracja programu Mercell z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować usługę Mercell z usługą Azure Active Directory (Azure AD).
+Integracja Mercell z usługą Azure AD zapewnia następujące korzyści:
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do Mercell.
-* Można włączyć użytkowników, aby automatycznie zalogować się do Mercell (logowanie jednokrotne) z ich kont usługi Azure AD.
+* Możesz kontrolować usługę Azure AD, która ma dostęp do usługi Mercell.
+* Możesz pozwolić użytkownikom na automatyczne logowanie do Mercell (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby skonfigurować integrację usługi Azure AD z usługą Mercell, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* Subskrypcja z obsługą logowania jednokrotnego Mercell
+* Subskrypcja z włączonym logowaniem jednokrotnym w Mercell
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Mercell obsługuje zainicjowane **przez protokół** SSO inicjowane przez protokół SSO protokołu IDP
+* Usługa Mercell obsługuje **dostawcy tożsamości** zainicjowane przez logowanie jednokrotne
 
-* Mercell obsługuje **inicjowanie** obsługi administracyjnej użytkowników just in time
+* Mercell obsługuje Inicjowanie obsługi użytkowników **just in Time**
 
-## <a name="adding-mercell-from-the-gallery"></a>Dodawanie Mercella z galerii
+## <a name="adding-mercell-from-the-gallery"></a>Dodawanie Mercell z galerii
 
-Aby skonfigurować integrację programu Mercell z usługą Azure AD, należy dodać mercell z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu Mercell z usługą Azure AD, musisz dodać Mercell z galerii do listy zarządzanych aplikacji SaaS.
 
 **Aby dodać Mercell z galerii, wykonaj następujące czynności:**
 
@@ -67,31 +67,31 @@ Aby skonfigurować integrację programu Mercell z usługą Azure AD, należy dod
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Mercell**, wybierz **Mercell** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Mercell**, wybierz pozycję **Mercell** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
      ![Mercell na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego z Mercell na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w programie Mercell.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Mercell na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Mercell.
 
-Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD za pomocą programu Mercell, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Mercell, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie jednokrotne Mercell](#configure-mercell-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-mercell-single-sign-on)** jednokrotne w usłudze Mercell, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego Mercell](#create-mercell-test-user)** — aby mieć odpowiednik Britta Simon w Mercell, który jest połączony z reprezentacji usługi Azure AD użytkownika.
+5. **[Utwórz użytkownika testowego Mercell](#create-mercell-test-user)** , aby uzyskać odpowiednik Britta Simon w Mercell, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą programu Mercell, wykonaj następujące kroki:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Mercell, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **Mercell** wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Mercell** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -105,7 +105,7 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą programu M
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![Mercell Domain i adresy URL — informacje o logowaniu jednokrotnym](common/idp-identifier.png)
+    ![Mercell domenę i adresy URL Logowanie jednokrotne](common/idp-identifier.png)
 
     W polu tekstowym **Identyfikator** wpisz adres URL: `https://my.mercell.com/`
 
@@ -113,9 +113,9 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą programu M
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
-### <a name="configure-mercell-single-sign-on"></a>Konfigurowanie logowania jednokrotnego mercell
+### <a name="configure-mercell-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Mercell
 
-Aby skonfigurować logowanie jednokrotne po stronie **Mercella,** musisz wysłać **adres URL metadanych federacji aplikacji** do zespołu pomocy technicznej firmy [Mercell.](mailto:webmaster@mercell.com) Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie **Mercell** , musisz wysłać **adres URL metadanych federacji aplikacji** do [zespołu pomocy technicznej Mercell](mailto:webmaster@mercell.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -125,7 +125,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -135,24 +135,24 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **\@brittasimon yourcompanydomain.extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
     Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jednokrotnego, przyznając dostęp do Mercell.
+W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Mercell.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, wybierz **pozycję Wszystkie aplikacje,** a następnie wybierz pozycję **Mercell**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Mercell**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz **mercell**.
+2. Na liście Aplikacje wybierz pozycję **Mercell**.
 
-    ![Łącze Mercell na liście Aplikacje](common/all-applications.png)
+    ![Link Mercell na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -164,28 +164,28 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-mercell-test-user"></a>Tworzenie użytkownika testowego Mercell
+### <a name="create-mercell-test-user"></a>Utwórz użytkownika testowego Mercell
 
-W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w Mercell. Mercell obsługuje just-in-time inicjowania obsługi administracyjnej użytkowników, który jest domyślnie włączony. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje w Mercell, nowy jest tworzony po uwierzytelnieniu.
+W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w Mercell. Mercell obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik nie istnieje jeszcze w usłudze Mercell, zostanie utworzony nowy po uwierzytelnieniu.
 
 >[!Note]
->Jeśli chcesz ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej firmy Mercell.](mailto:webmaster@mercell.com)
+>Jeśli musisz ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej Mercell](mailto:webmaster@mercell.com).
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Mercell w Panelu dostępu należy automatycznie zalogować się do mercellu, dla którego skonfigurowano logowanie jednośmiękowe. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Mercell w panelu dostępu należy automatycznie zalogować się do Mercell, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

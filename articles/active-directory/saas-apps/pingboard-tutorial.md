@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z pingboardem | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a pingboardem.
+title: 'Samouczek: integracja Azure Active Directory z usługą Pingboard | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Pingboard.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,44 +16,44 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 341d8dd712b858572ec5df76b176258ca87c8857
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67094427"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Samouczek: Integracja usługi Azure Active Directory z pingboardem
+# <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Samouczek: integracja Azure Active Directory z usługą Pingboard
 
-W tym samouczku dowiesz się, jak zintegrować pingboard z usługą Azure Active Directory (Azure AD).
-Integracja pingboard z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować usługę Pingboard z usługą Azure Active Directory (Azure AD).
+Integracja Pingboard z usługą Azure AD zapewnia następujące korzyści:
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do pingboard.
-* Można włączyć użytkowników, aby automatycznie zalogować się do pingboard (logowanie jednokrotne) z ich kont usługi Azure AD.
+* Możesz kontrolować usługę Azure AD, która ma dostęp do usługi Pingboard.
+* Możesz pozwolić użytkownikom na automatyczne logowanie do Pingboard (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z pingboard, potrzebujesz następujących elementów:
+Aby skonfigurować integrację usługi Azure AD z usługą Pingboard, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* Subskrypcja z obsługą logowania jednokrotnego pingboard
+* Subskrypcja z włączonym logowaniem jednokrotnym w Pingboard
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Pingboard obsługuje **jednostki** SSO inicjowane przez **SP** i IDP
+* Pingboard obsługuje usługę **SP** i **dostawcy tożsamości** zainicjowano Logowanie jednokrotne
 
-* Pingboard obsługuje [automatyczne inicjowanie obsługi administracyjnej użytkowników](https://docs.microsoft.com/azure/active-directory/saas-apps/pingboard-provisioning-tutorial) 
+* Pingboard obsługuje [Automatyczne Inicjowanie obsługi użytkowników](https://docs.microsoft.com/azure/active-directory/saas-apps/pingboard-provisioning-tutorial) 
 
-## <a name="adding-pingboard-from-the-gallery"></a>Dodawanie pingboard z galerii
+## <a name="adding-pingboard-from-the-gallery"></a>Dodawanie Pingboard z galerii
 
-Aby skonfigurować integrację pingboard do usługi Azure AD, należy dodać pingboard z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu Pingboard z usługą Azure AD, musisz dodać Pingboard z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać pingboard z galerii, wykonaj następujące czynności:**
+**Aby dodać Pingboard z galerii, wykonaj następujące czynności:**
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
@@ -67,31 +67,31 @@ Aby skonfigurować integrację pingboard do usługi Azure AD, należy dodać pin
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Pingboard**, wybierz **pingboard** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Pingboard**, wybierz pozycję **Pingboard** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
      ![Pingboard na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego za pomocą pingboard na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w pingboardzie.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Pingboard na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Pingboard.
 
-Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD za pomocą pingboard, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Pingboard, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Konfigurowanie logowania jednokrotnego pingboard](#configure-pingboard-single-sign-on)** - aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-pingboard-single-sign-on)** jednokrotne w usłudze Pingboard, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego pingboard](#create-pingboard-test-user)** — aby mieć odpowiednik Britta Simon w pingboard, który jest połączony z reprezentacji usługi Azure AD użytkownika.
+5. **[Utwórz użytkownika testowego Pingboard](#create-pingboard-test-user)** , aby uzyskać odpowiednik Britta Simon w Pingboard, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą pingboard, wykonaj następujące kroki:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Pingboard, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **pingboard** wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Pingboard** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -103,28 +103,28 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą pingboard,
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-4. W sekcji **Podstawowa konfiguracja SAML,** jeśli chcesz skonfigurować aplikację w trybie inicjowanym **przez IDP,** wykonaj następujące czynności:
+4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie i adresach URL z listą Pingboard](common/idp-intiated.png)
+    ![Pingboard domenę i adresy URL Logowanie jednokrotne](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL:`http://app.pingboard.com/sp`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<entity-id>.pingboard.com/auth/saml/consume`
 
-5. Kliknij **pozycję Ustaw dodatkowe adresy URL** i wykonaj następujący krok, jeśli chcesz skonfigurować aplikację w trybie inicjowanym w sp: **SP**
+5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Informacje o domenie i adresach URL z listą Pingboard](common/metadata-upload-additional-signon.png)
+    ![Pingboard domenę i adresy URL Logowanie jednokrotne](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<sub-domain>.pingboard.com/sign_in`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta pingboard,](https://support.pingboard.com/) aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta Pingboard](https://support.pingboard.com/) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 6. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
-7. W sekcji **Konfigurowanie pingboardu** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+7. W sekcji **Konfigurowanie Pingboard** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -132,29 +132,29 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą pingboard,
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
-### <a name="configure-pingboard-single-sign-on"></a>Konfigurowanie logowania jednokrotnego pingboard
+### <a name="configure-pingboard-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Pingboard
 
-1. Aby skonfigurować logowanie sytą po stronie pingboard, otwórz nowe okno przeglądarki i zaloguj się na konto pingboard. Aby skonfigurować logowanie jednokrotne, musisz być administratorem pingboardu.
+1. Aby skonfigurować Logowanie jednokrotne po stronie Pingboard, Otwórz nowe okno przeglądarki i zaloguj się do konta Pingboard. Aby skonfigurować Logowanie jednokrotne, musisz być administratorem Pingboard.
 
-2. W górnym menu wybierz **pozycję Aplikacje > integracje**
+2. Z górnego menu, wybierz pozycję **aplikacje > integracje**
 
     ![Konfigurowanie logowania jednokrotnego](./media/pingboard-tutorial/Pingboard_integration.png)
 
-3. Na stronie **Integracje** znajdź kafelek **"Usługa Azure Active Directory"** i kliknij go.
+3. Na stronie **integracji** Znajdź kafelek **"Azure Active Directory"** i kliknij go.
 
-    ![Integracja logowania jednokrotnego pingboard](./media/pingboard-tutorial/Pingboard_aad.png)
+    ![Integracja z logowaniem jednokrotnym w Pingboard](./media/pingboard-tutorial/Pingboard_aad.png)
 
-4. W modalnym, który następuje kliknij **"Konfiguruj"**
+4. W obszarze modalnym kliknij przycisk **"Konfiguruj"**
 
     ![Przycisk konfiguracji Pingboard](./media/pingboard-tutorial/Pingboard_configure.png)
 
-5. Na następnej stronie można zauważyć, że "Integracja z przyułemkowym platformy Azure jest włączona". Otwórz pobrany plik XML metadanych w notatniku i wklej zawartość **metadanych IDP**.
+5. Na poniższej stronie można zauważyć, że jest włączona funkcja integracji z logowaniem jednokrotnym platformy Azure. Otwórz pobrany plik XML metadanych w Notatniku i wklej zawartość w **metadanych dostawcy tożsamości**.
 
-    ![Ekran konfiguracji SSO pingboard](./media/pingboard-tutorial/Pingboard_sso_configure.png)
+    ![Ekran konfiguracji logowania jednokrotnego w usłudze Pingboard](./media/pingboard-tutorial/Pingboard_sso_configure.png)
 
-6. Plik zostanie zweryfikowany, a jeśli wszystko jest poprawne, logowanie jednokrotne zostanie włączone.
+6. Plik zostanie sprawdzony i jeśli wszystkie elementy są poprawne, logowanie jednokrotne zostanie teraz włączone.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -164,7 +164,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -174,23 +174,23 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa** brittasimon@yourcompanydomain.extensionużytkownika wpisz . Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension. Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jednokrotnego, udzielając dostępu do pingboard.
+W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Pingboard.
 
-1. W portalu Azure wybierz pozycję **Aplikacje przedsiębiorstwa**, wybierz **pozycję Wszystkie aplikacje,** a następnie wybierz **pozycję Pingboard**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Pingboard**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz **pozycję Pingboard**.
+2. Na liście Aplikacje wybierz pozycję **Pingboard**.
 
-    ![Łącze Pingboard na liście Aplikacje](common/all-applications.png)
+    ![Link Pingboard na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -202,39 +202,39 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-pingboard-test-user"></a>Tworzenie użytkownika testowego pingboard
+### <a name="create-pingboard-test-user"></a>Utwórz użytkownika testowego Pingboard
 
-Celem tej sekcji jest stworzenie użytkownika o nazwie Britta Simon w Pingboard. Pingboard obsługuje automatyczne inicjowanie obsługi administracyjnej użytkowników, która jest domyślnie włączona. Więcej szczegółów dotyczących konfigurowania automatycznego inicjowania obsługi użytkowników można znaleźć [tutaj](pingboard-provisioning-tutorial.md).
+Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w Pingboard. Pingboard obsługuje automatyczne Inicjowanie obsługi użytkowników, która jest domyślnie włączona. Więcej szczegółów dotyczących konfigurowania automatycznego inicjowania obsługi użytkowników można znaleźć [tutaj](pingboard-provisioning-tutorial.md).
 
 **Jeśli potrzebujesz utworzyć użytkownika ręcznie, wykonaj następujące czynności:**
 
-1. Zaloguj się do witryny firmy Pingboard jako administrator.
+1. Zaloguj się do firmowej witryny Pingboard jako administrator.
 
-2. Kliknij przycisk **"Dodaj pracownika"** na stronie **Katalog.**
+2. Kliknij przycisk **"Dodaj pracownika"** na stronie **katalogu** .
 
     ![Dodawanie pracownika](./media/pingboard-tutorial/create_testuser_add.png)
 
-3. Na stronie okna dialogowego **"Dodaj pracownika"** wykonaj następujące czynności:
+3. Na stronie okna dialogowego **"Dodawanie pracownika"** wykonaj następujące czynności:
 
     ![Zapraszanie osób](./media/pingboard-tutorial/create_testuser_name.png)
 
-    a. W polu **tekstowym Imię i nazwisko** wpisz pełną nazwę użytkownika, takiego jak **Britta Simon**.
+    a. W polu tekstowym **pełna nazwa** wpisz pełną nazwę użytkownika, np. **Britta Simon**.
 
-    b. W polu tekstowym **Wiadomość e-mail** **brittasimon@contoso.com**wpisz adres e-mail użytkownika, taki jak .
+    b. W polu tekstowym **adres e-mail** wpisz adres e-mail użytkownika, np **brittasimon@contoso.com**.
 
-    d. W polu **tekstowym Tytuł zadania** wpisz stanowisko Britta Simon.
+    c. W polu tekstowym **Tytuł zadania** wpisz nazwę zadania Britta Simon.
 
-    d. Z listy rozwijanej **Lokalizacja** wybierz lokalizację Britta Simon.
+    d. Na liście rozwijanej **Lokalizacja** wybierz lokalizację Britta Simon.
 
-    e. Kliknij przycisk **Dodaj**.
+    e. Kliknij pozycję **Dodaj**.
 
-4. Pojawi się ekran potwierdzenia, aby potwierdzić dodanie użytkownika.
+4. Ekran potwierdzenia zawiera potwierdzenie dodania użytkownika.
 
-    ![Potwierdzić](./media/pingboard-tutorial/create_testuser_confirm.png)
+    ![sprawdzenia](./media/pingboard-tutorial/create_testuser_confirm.png)
 
     > [!NOTE]
     > Właściciel konta usługi Azure Active Directory otrzyma wiadomość e-mail z linkiem umożliwiającym potwierdzenie konta, zanim stanie się ono aktywne.
@@ -243,14 +243,14 @@ Celem tej sekcji jest stworzenie użytkownika o nazwie Britta Simon w Pingboard.
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Pingboard w Panelu dostępu należy automatycznie zalogować się do pingboardu, dla którego skonfigurowano logowanie jednośmiętne. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Pingboard w panelu dostępu należy automatycznie zalogować się do Pingboard, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Konfigurowanie inicjowania obsługi administracyjnej użytkowników](https://docs.microsoft.com/azure/active-directory/saas-apps/pingboard-provisioning-tutorial)
+- [Konfigurowanie aprowizacji użytkowników](https://docs.microsoft.com/azure/active-directory/saas-apps/pingboard-provisioning-tutorial)
