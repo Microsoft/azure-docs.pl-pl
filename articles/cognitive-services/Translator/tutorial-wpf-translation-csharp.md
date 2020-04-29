@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek: Tworzenie aplikacji do tłumaczenia za pomocą WPF, C# — interfejs API tłumacza tekstu'
+title: 'Samouczek: Tworzenie aplikacji do translacji przy użyciu WPF, C#-interfejs API tłumaczenia tekstu w usłudze Translator'
 titleSuffix: Azure Cognitive Services
-description: W tym samouczku utworzysz aplikację WPF do wykonywania tłumaczenia tekstu, wykrywania języka i sprawdzania pisowni za pomocą jednego klucza subskrypcji.
+description: W tym samouczku utworzysz aplikację WPF do przeprowadzenia tłumaczenia tekstu, wykrywania języka i sprawdzania pisowni przy użyciu jednego klucza subskrypcji.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: swmachan
 ms.openlocfilehash: ecb42d200eb8808f6bfa4cfb91e98909e350038b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77118610"
 ---
-# <a name="tutorial-create-a-translation-app-with-wpf"></a>Samouczek: Tworzenie aplikacji do tłumaczenia za pomocą WPF
+# <a name="tutorial-create-a-translation-app-with-wpf"></a>Samouczek: Tworzenie aplikacji do translacji przy użyciu WPF
 
 W tym samouczku utworzysz aplikację platformy [Windows Presentation Foundation (WPF)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2019), która korzysta z usług Azure Cognitive Services na potrzeby tłumaczenia tekstu, wykrywania języka i sprawdzania pisowni, przy użyciu klucza pojedynczej subskrypcji. W szczególności aplikacja będzie wywoływać interfejsy API tłumaczenia tekstu w usłudze Translator i [sprawdzania pisowni Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
 Co to jest platforma WPF? Jest struktura interfejsu użytkownika służąca do tworzenia aplikacji klienckich dla komputerów. Platforma programistyczna WPF obsługuje szeroką gamę funkcji tworzenia aplikacji, w tym model aplikacji, zasoby, kontrolki, grafiki, układ, powiązanie danych, dokumenty i zabezpieczenia. Jest podzbiorem programu .NET Framework, więc jeśli wcześniej tworzono aplikacje przy użyciu programu .NET Framework za pomocą platformy ASP.NET lub Windows Forms, środowisko programowania powinno być znajome. Platforma WPF przy użyciu języka Extensible Application Markup Language (XAML) zapewnia model deklaratywny na potrzeby programowania aplikacji, który zostanie omówiony w następnych sekcjach.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie projektu WPF w programie Visual Studio
@@ -50,7 +50,7 @@ Przed kontynuowaniem potrzebne będą następujące elementy:
 
 * Subskrypcja usług Azure Cognitive Services. [Uzyskaj klucz usług Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#create-a-new-azure-cognitive-services-resource).
 * Maszyna z systemem Windows
-* [Visual Studio 2019](https://www.visualstudio.com/downloads/) — społeczność lub przedsiębiorstwo
+* [Visual Studio 2019](https://www.visualstudio.com/downloads/) — społeczność lub Enterprise
 
 > [!NOTE]
 > Na potrzeby tego samouczka zalecamy utworzenie subskrypcji w regionie Zachodnie stany USA. W przeciwnym podczas wykonywania ćwiczenia konieczna będzie zmiana punktów końcowych i regionów w kodzie.  
@@ -59,16 +59,16 @@ Przed kontynuowaniem potrzebne będą następujące elementy:
 
 Pierwszą rzeczą, jaką należy wykonać, jest skonfigurowanie projektu w programie Visual Studio.
 
-1. Otwórz program Visual Studio. Wybierz **pozycję Utwórz nowy projekt**.
-1. W **obszarze Tworzenie nowego projektu**znajdź i wybierz aplikację **WPF (.NET Framework)**. Można wybrać C# z **języka,** aby zawęzić opcje.
-1. Wybierz **pozycję Dalej**, `MSTranslatorTextDemo`a następnie nadaj nazwę projektowi .
-1. Ustaw wersję frameworka na **.NET Framework 4.7.2** lub nowszą, a następnie wybierz pozycję **Utwórz**.
-   ![Wprowadzanie nazwy i wersji programu Framework w programie Visual Studio](media/name-wpf-project-visual-studio.png)
+1. Otwórz program Visual Studio. Wybierz pozycję **Utwórz nowy projekt**.
+1. W obszarze **Utwórz nowy projekt**Znajdź i wybierz pozycję **aplikacja WPF (.NET Framework)**. Możesz wybrać język C# z poziomu **języka** , aby zawęzić opcje.
+1. Wybierz pozycję **dalej**, a następnie nadaj nazwę `MSTranslatorTextDemo`projektowi.
+1. Ustaw wersję struktury na **.NET Framework 4.7.2** lub nowszą, a następnie wybierz pozycję **Utwórz**.
+   ![Wprowadź nazwę i wersję struktury w programie Visual Studio](media/name-wpf-project-visual-studio.png)
 
-Projekt został utworzony. Zauważysz, że otwarte są dwie karty: `MainWindow.xaml` i `MainWindow.xaml.cs`. W tym samouczku będziemy dodawać kod do tych dwóch plików. Zmodyfikujemy `MainWindow.xaml` interfejs użytkownika aplikacji. Zmodyfikujemy `MainWindow.xaml.cs` nasze połączenia z translatorem tekstowym i sprawdzaniem pisowni Bing.
+Projekt został utworzony. Zauważysz, że otwarte są dwie karty: `MainWindow.xaml` i `MainWindow.xaml.cs`. W tym samouczku będziemy dodawać kod do tych dwóch plików. Zmodyfikujemy `MainWindow.xaml` interfejs użytkownika aplikacji. Będziemy modyfikować `MainWindow.xaml.cs` dla naszych wywołań tłumaczenie tekstu w usłudze Translator i sprawdzanie pisowni Bing.
    ![Przeglądanie środowiska](media/blank-wpf-project.png)
 
-W następnej sekcji mamy zamiar dodać zestawy i pakiet NuGet do naszego projektu dla dodatkowych funkcji, takich jak analizowanie JSON.
+W następnej sekcji dodamy do naszego projektu zestawy i pakiet NuGet w celu uzyskania dodatkowych funkcji, takich jak analiza JSON.
 
 ## <a name="add-references-and-nuget-packages-to-your-project"></a>Dodawanie odwołań i pakietów NuGet do projektu
 
@@ -78,26 +78,26 @@ Nasz projekt wymaga kilku zestawów .NET Framework i pakietu NewtonSoft.Json, kt
 
 Dodajmy do naszego projektu zestawy na potrzeby serializacji i deserializacji obiektów oraz zarządzania żądaniami i odpowiedziami HTTP.
 
-1. Zlokalizuj swój projekt w Eksploratorze rozwiązań programu Visual Studio. Kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj > odwołanie**, który otworzy Menedżera **odwołań**.
-1. Karta **Zestawy** zawiera listę wszystkich zestawów .NET Framework, które są dostępne do odwołania. Użyj paska wyszukiwania w prawym górnym rogu, aby wyszukać odwołania.
+1. Znajdź projekt w Eksplorator rozwiązań programu Visual Studio. Kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj odwołanie >**, w którym zostanie otwarty **Menedżer odwołań**.
+1. Na karcie **zestawy** są wyświetlane wszystkie zestawy .NET Framework, które są dostępne do odwołania. Aby wyszukać odwołania, użyj paska wyszukiwania w prawym górnym rogu.
    ![Dodawanie odwołań do zestawów](media/add-assemblies-2019.png)
-1. Wybierz następujące odwołania do projektu:
+1. Wybierz następujące odwołania dla projektu:
    * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
    * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
    * System.Web.Extensions
-   * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
+   * [System. Windows](https://docs.microsoft.com/dotnet/api/system.windows)
 1. Po dodaniu tych odwołań do projektu możesz kliknąć przycisk **OK**, aby zamknąć **Menedżera odwołań**.
 
 > [!NOTE]
-> Jeśli chcesz dowiedzieć się więcej o odwołaniach do zestawu, zobacz [Jak: Dodawanie lub usuwanie odwołań za pomocą Menedżera odwołań](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
+> Jeśli chcesz dowiedzieć się więcej o odwołaniach do zestawów, zobacz [How to: Dodawanie lub usuwanie odwołania za pomocą Menedżera odwołań](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
 
 ### <a name="install-newtonsoftjson"></a>Instalowanie pakietu Newtonsoft.Json
 
 Nasza aplikacja zdeserializuje obiekty JSON przy użyciu pakietu NewtonSoft.Json. Wykonaj te instrukcje, aby zainstalować pakiet.
 
-1. Znajdź swój projekt w Eksploratorze rozwiązań programu Visual Studio i kliknij prawym przyciskiem myszy projekt. Wybierz pozycję **Zarządzaj pakietami NuGet**.
+1. Znajdź projekt w Eksplorator rozwiązań programu Visual Studio i kliknij prawym przyciskiem myszy projekt. Wybierz pozycję **Zarządzaj pakietami NuGet**.
 1. Znajdź i wybierz kartę **Przeglądaj**.
-1. Wprowadź [NewtonSoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) w pasku wyszukiwania.
+1. Wprowadź [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/) na pasku wyszukiwania.
 
     ![Znajdowanie i instalowanie pakietu NewtonSoft.Json](media/nuget-package-manager.png)
 
@@ -112,16 +112,16 @@ Zobaczmy, co będziemy tworzyć.
 
 ![Interfejs użytkownika WPF XAML](media/translator-text-csharp-xaml.png)
 
-Interfejs użytkownika zawiera następujące składniki:
+Interfejs użytkownika obejmuje następujące składniki:
 
 | Nazwa | Typ | Opis |
 |------|------|-------------|
 | `FromLanguageComboBox` | ComboBox | Wyświetla listę języków tłumaczenia tekstu obsługiwanych przez usługę Microsoft Translator. Użytkownik wybiera źródłowy język tłumaczenia. |
 | `ToLanguageComboBox` | ComboBox | Wyświetla tę samą listę języków co kontrolka `FromComboBox`, ale służy do wybierania docelowego języka tłumaczenia. |
 | `TextToTranslate` | TextBox | Umożliwia użytkownikowi wprowadzanie tekstu do przetłumaczenia. |
-| `TranslateButton` | Button | Użyj tego przycisku, aby przetłumaczyć tekst. |
-| `TranslatedTextLabel` | Label | Wyświetla tłumaczenie. |
-| `DetectedLanguageLabel` | Label | Wyświetla wykryty język tekstu do przetłumaczenia (`TextToTranslate`). |
+| `TranslateButton` | Przycisk | Użyj tego przycisku, aby przetłumaczyć tekst. |
+| `TranslatedTextLabel` | Etykieta | Wyświetla tłumaczenie. |
+| `DetectedLanguageLabel` | Etykieta | Wyświetla wykryty język tekstu do przetłumaczenia (`TextToTranslate`). |
 
 > [!NOTE]
 > Tworzymy ten formularz za pomocą kodu źródłowego XAML, jednak formularz możesz także utworzyć przy użyciu edytora w programie Visual Studio.
@@ -129,7 +129,7 @@ Interfejs użytkownika zawiera następujące składniki:
 Dodajmy kod do naszego projektu.
 
 1. W programie Visual Studio wybierz kartę `MainWindow.xaml`.
-1. Skopiuj ten kod do projektu, a następnie wybierz **pozycję Plik > Zapisz plik MainWindow.xaml,** aby zapisać zmiany.
+1. Skopiuj ten kod do projektu, a następnie wybierz pozycję **plik > Zapisz MainWindow. XAML** , aby zapisać zmiany.
    ```xaml
    <Window x:Class="MSTranslatorTextDemo.MainWindow"
            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -255,7 +255,7 @@ W tym bloku kodu zadeklarowaliśmy dwie zmienne składowe, które zawierają inf
 |`languageCodes` | Tablica ciągów |Buforuje kody języków. Usługa Translator identyfikuje języki za pomocą krótkich kodów, takich jak `en` dla języka angielskiego. |
 |`languageCodesAndTitles` | Posortowany słownik | Mapuje „przyjazne” nazwy w interfejsie użytkownika z powrotem na krótkie kody używane w interfejsie API. Jest posortowana alfabetycznie, bez uwzględniania wielkości liter. |
 
-Następnie, w ramach `MainWindow` konstruktora, dodaliśmy obsługę błędów przy użyciu polecenia `HandleExceptions`. Ta obsługa błędów zapewnia, że alert jest dostarczany, jeśli wyjątek nie jest obsługiwany. Następnie zostanie uruchomiony test w celu potwierdzenia, że podany klucz subskrypcji ma długość 32 znaków. Jeśli klucz jest krótszy lub dłuższy niż 32 znaki, zostanie zwrócony błąd.
+Następnie, w ramach `MainWindow` konstruktora, dodaliśmy obsługę błędów przy użyciu polecenia `HandleExceptions`. Ta obsługa błędów gwarantuje, że zostanie podany alert, jeśli wyjątek nie jest obsługiwany. Następnie zostanie uruchomiony test w celu potwierdzenia, że podany klucz subskrypcji ma długość 32 znaków. Jeśli klucz jest krótszy lub dłuższy niż 32 znaki, zostanie zwrócony błąd.
 
 Jeśli istnieją klucze o poprawnej długości, wywołanie funkcji `InitializeComponent()` uruchamia interfejs użytkownika przez zlokalizowanie, załadowanie i utworzenie wystąpienia opisu XAML dla głównego okna aplikacji.
 
@@ -289,7 +289,7 @@ Zanim przejdziemy dalej, przyjrzyjmy się przykładowym danym wyjściowym wywoł
 }
 ```
 
-Z tych danych wyjściowych możemy wyodrębnić kod języka i właściwość `name` określonego języka. Nasza aplikacja wykorzystuje NewtonSoft.Json do deserializacji[`JsonConvert.DeserializeObject`](https://www.newtonsoft.com/json/help/html/M_Newtonsoft_Json_JsonConvert_DeserializeObject__1.htm)obiektu JSON ( ).
+Z tych danych wyjściowych możemy wyodrębnić kod języka i właściwość `name` określonego języka. Nasza aplikacja używa NewtonSoft. JSON do deserializacji obiektu JSON ([`JsonConvert.DeserializeObject`](https://www.newtonsoft.com/json/help/html/M_Newtonsoft_Json_JsonConvert_DeserializeObject__1.htm)).
 
 Wróćmy teraz do miejsca, w który przerwaliśmy pracę w poprzedniej sekcji, i dodajmy metodę pobierającą obsługiwane języki do naszej aplikacji.
 
@@ -328,7 +328,7 @@ Odpowiedź w formacie JSON jest analizowana i konwertowana do słownika. Następ
 
 ## <a name="populate-language-drop-down-menus"></a>Wypełnianie menu rozwijanych języków
 
-Interfejs użytkownika jest zdefiniowany w kodzie XAML, dzięki czemu skonfigurowanie go nie wymaga wielu operacji oprócz wywołania funkcji `InitializeComponent()`. Jedyną rzeczą, którą musisz zrobić, to dodać przyjazne nazwy języków do menu **rozwijanego Przetłumacz z** i **Przetłumacz na** menu. Metoda `PopulateLanguageMenus()` dodaje nazwy.
+Interfejs użytkownika jest zdefiniowany w kodzie XAML, dzięki czemu skonfigurowanie go nie wymaga wielu operacji oprócz wywołania funkcji `InitializeComponent()`. Jedną z tych czynności należy dodać do menu rozwijanego **tłumaczenie z** i **Przetłumacz do** . `PopulateLanguageMenus()` Metoda dodaje nazwy.
 
 1. W programie Visual Studio otwórz kartę `MainWindow.xaml.cs`.
 2. Dodaj następujący kod do projektu poniżej metody `GetLanguagesForTranslate()`:
@@ -418,7 +418,7 @@ Ponadto ta metoda oblicza współczynnik ufności odpowiedzi. Jeśli wynik jest 
 
 ## <a name="spell-check-the-source-text"></a>Sprawdzanie pisowni w tekście źródłowym
 
-Teraz utworzymy metodę sprawdzającą pisownię w tekście źródłowym przy użyciu interfejsu API sprawdzania pisowni Bing. Sprawdzanie pisowni gwarantuje, że otrzymamy z powrotem dokładne tłumaczenia z translatora text API. Wszelkie poprawki w tekście źródłowym są przekazywane w żądaniu tłumaczenia po kliknięciu przycisku **Translate** (Tłumacz).
+Teraz utworzymy metodę sprawdzającą pisownię w tekście źródłowym przy użyciu interfejsu API sprawdzania pisowni Bing. Sprawdzanie pisowni zapewnia dokładne tłumaczenia z interfejs API tłumaczenia tekstu w usłudze Translator. Wszelkie poprawki w tekście źródłowym są przekazywane w żądaniu tłumaczenia po kliknięciu przycisku **Translate** (Tłumacz).
 
 1. W programie Visual Studio otwórz kartę `MainWindow.xaml.cs`.
 2. Dodaj następujący kod do projektu poniżej metody `DetectLanguage()`:
@@ -559,7 +559,7 @@ Ostatnią czynnością do wykonania jest utworzenie metody wywoływanej po klikn
    }
    ```
 
-Pierwszym krokiem jest pobranie języków źródłowego i docelowego oraz tekstu wprowadzonego przez użytkownika w formularzu. Jeśli język źródłowy **Detect**jest `DetectLanguage()` ustawiony na Detect , jest wywoływana w celu określenia języka tekstu źródłowego. Tekst może być w języku, który nie jest obsługiwany przez interfejs API usługi Translator. W takim przypadku jest wyświetlany komunikat z informacją dla użytkownika i następuje powrót bez tłumaczenia tekstu.
+Pierwszym krokiem jest pobranie języków źródłowego i docelowego oraz tekstu wprowadzonego przez użytkownika w formularzu. Jeśli język źródłowy jest ustawiony na **wykrycie**, `DetectLanguage()` jest wywoływana w celu określenia języka tekstu źródłowego. Tekst może być w języku, który nie jest obsługiwany przez interfejs API usługi Translator. W takim przypadku jest wyświetlany komunikat z informacją dla użytkownika i następuje powrót bez tłumaczenia tekstu.
 
 Jeśli językiem źródłowym jest angielski (określony lub wykryty), sprawdzana jest pisownia tekstu za pomocą funkcji `CorrectSpelling()` i stosowane są wszelkie poprawki. Poprawiony tekst jest dodawany z powrotem do obszaru tekstu, aby użytkownik widział, że wprowadzono poprawki.
 

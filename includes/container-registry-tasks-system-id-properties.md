@@ -9,13 +9,13 @@ ms.date: 07/12/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 700dbfde3be2f24eb57acbdeb9d2841ef2bdfe44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77112281"
 ---
-W danych wyjściowych `identity` polecenia sekcja pokazuje `SystemAssigned` tożsamość typu jest ustawiona w zadaniu. Jest `principalId` głównym identyfikatorem tożsamości zadania:
+W danych wyjściowych polecenia `identity` sekcja pokazuje tożsamość typu `SystemAssigned` jest ustawiana w zadaniu. `principalId` Jest identyfikatorem podmiotu zabezpieczeń dla tożsamości zadania:
 
 ```console
 [...]
@@ -28,7 +28,7 @@ W danych wyjściowych `identity` polecenia sekcja pokazuje `SystemAssigned` toż
   "location": "eastus",
 [...]
 ``` 
-Polecenie [az acr show umożliwia][az-acr-task-show] przechowywanie identyfikatora głównego w zmiennej, aby użyć go w późniejszych poleceniach. Zastąp nazwę zadania i rejestr następującym poleceniem:
+Użyj polecenia [AZ ACR Task show][az-acr-task-show] , aby zapisać principalId w zmiennej, aby użyć ich w późniejszych poleceniach. Zastąp nazwę zadania i rejestr w następującym poleceniu:
 
 ```azurecli
 principalID=$(az acr task show --name mytask --registry myregistry --query identity.principalId --output tsv)

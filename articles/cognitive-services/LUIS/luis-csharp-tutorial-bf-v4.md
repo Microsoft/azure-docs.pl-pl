@@ -1,24 +1,24 @@
 ---
-title: 'Samouczek: Rozumienie języka Bot C# v4'
-description: Przy użyciu języka C# twórz czatbot zintegrowany z usługą Language Understanding (LUIS). Bot jest zbudowany przy wsparciu platformy Bot Framework w wersji 4 i usługi bota aplikacji sieci Web platformy Azure.
+title: 'Samouczek: Language Understanding bot C# v4'
+description: Przy użyciu języka C# twórz czatbot zintegrowany z usługą Language Understanding (LUIS). Bot jest tworzona przy użyciu platformy bot Framework w wersji 4 i usługi Azure Web App bot.
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.openlocfilehash: 2381f4cba39f81ab593f3149a2708f442156f30d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76988004"
 ---
-# <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Samouczek: Korzystanie z bota aplikacji sieci Web włączone z języka rozumienia w języku C #
+# <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Samouczek: używanie bot aplikacji sieci Web z włączonym Language Understanding w języku C #
 
-Użyj języka C# do tworzenia czatu bot zintegrowany ze zrozumieniem języka (LUIS). Bot jest zbudowany z zasobów [bot aplikacji](https://docs.microsoft.com/azure/bot-service/) sieci Web azure i Bot [Framework wersji](https://github.com/Microsoft/botbuilder-dotnet) V4.
+Użyj języka C# do kompilowania programu Chat bot zintegrowanego z funkcją interpretacji języka (LUIS). Bot jest tworzona przy użyciu [aplikacji sieci Web](https://docs.microsoft.com/azure/bot-service/) platformy Azure bot Resource i [bot Framework w wersji](https://github.com/Microsoft/botbuilder-dotnet) v4.
 
 **Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
 
 > [!div class="checklist"]
 > * Tworzenie bota aplikacji internetowej. Ten proces tworzy nową aplikację usługi LUIS.
-> * Pobierz projekt bota utworzony przez usługę bota sieci Web
+> * Pobierz projekt bot utworzony przez usługę sieci Web bot
 > * Uruchamianie bota i emulatora lokalnie na komputerze
 > * Wyświetlanie wyników wypowiedzi w bocie
 
@@ -28,11 +28,11 @@ Użyj języka C# do tworzenia czatu bot zintegrowany ze zrozumieniem języka (LU
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
 
-## <a name="create-a-web-app-bot-resource"></a>Tworzenie zasobu bota aplikacji sieci Web
+## <a name="create-a-web-app-bot-resource"></a>Tworzenie zasobu bot aplikacji sieci Web
 
 1. W witrynie [Azure Portal](https://portal.azure.com) wybierz polecenie **Utwórz nowy zasób**.
 
-1. W polu wyszukiwania wyszukaj i wybierz pozycję **Web App Bot** (Bot aplikacji internetowej). Wybierz **pozycję Utwórz**.
+1. W polu wyszukiwania wyszukaj i wybierz pozycję **Web App Bot** (Bot aplikacji internetowej). Wybierz przycisk **Utwórz**.
 
 1. W polu **Bot Service** (Usługa bota) podaj wymagane informacje:
 
@@ -46,63 +46,63 @@ Użyj języka C# do tworzenia czatu bot zintegrowany ze zrozumieniem języka (LU
     |Nazwa aplikacji|Nazwa jest używana jako domena podrzędna, gdy bot jest wdrażany w chmurze (na przykład humanresourcesbot.azurewebsites.net).|`luis-csharp-bot-` + `<your-name>`, na przykład `luis-csharp-bot-johnsmith`|
     |Szablon bota|Ustawienia struktury bota — zobacz następną tabelę|
     |Lokalizacja aplikacji usługi LUIS|Musi być taka sama jak region zasobu usługi LUIS|`westus`|
-    |Plan usługi aplikacji/lokalizacja|Nie należy zmieniać wartości domyślnej podanej wartości.|
-    |Application Insights|Nie należy zmieniać wartości domyślnej podanej wartości.|
-    |Identyfikator aplikacji i hasło firmy Microsoft|Nie należy zmieniać wartości domyślnej podanej wartości.|
+    |Plan/Lokalizacja usługi App Service|Nie zmieniaj podanej wartości domyślnej.|
+    |Application Insights|Nie zmieniaj podanej wartości domyślnej.|
+    |Identyfikator i hasło aplikacji firmy Microsoft|Nie zmieniaj podanej wartości domyślnej.|
 
-1. W **szablonie Bot**wybierz następujące opcje, a następnie wybierz przycisk **Wybierz** w tych ustawieniach:
+1. W **szablonie bot**wybierz poniższe opcje, a następnie wybierz przycisk **Wybierz** w obszarze te ustawienia:
 
     |Ustawienie|Przeznaczenie|Wybór|
     |--|--|--|
     |Wersja zestawu SDK|Wersja struktury bota|**Zestaw SDK w wersji 4**|
-    |Język zestawu SDK|Język programowania bota|**C #**|
+    |Język zestawu SDK|Język programowania bota|**S #**|
     |Bot|Typ bota|**Bot podstawowy**|
 
-1. Wybierz **pozycję Utwórz**. To powoduje utworzenie i wdrożenie usługi bota na platformie Azure. W ramach tego procesu jest tworzona nowa aplikacja usługi LUIS o nazwie `luis-csharp-bot-XXXX`. Ta nazwa jest oparta na nazwie aplikacji /Azure Bot Service.
+1. Wybierz przycisk **Utwórz**. To powoduje utworzenie i wdrożenie usługi bota na platformie Azure. W ramach tego procesu jest tworzona nowa aplikacja usługi LUIS o nazwie `luis-csharp-bot-XXXX`. Ta nazwa jest oparta na nazwie aplikacji usługi/Azure bot.
 
     > [!div class="mx-imgBorder"]
-    > [![Tworzenie bota aplikacji sieci Web](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
+    > [![Tworzenie bot aplikacji sieci Web](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
 
-    Poczekaj, aż usługa bot zostanie utworzona przed kontynuowaniem.
+    Przed kontynuowaniem poczekaj na utworzenie usługi bot.
 
-## <a name="the-bot-has-a-language-understanding-model"></a>Bot ma model rozumienia języka
+## <a name="the-bot-has-a-language-understanding-model"></a>Bot ma model Language Understanding
 
-Proces tworzenia usługi bot tworzy również nową aplikację usługi LUIS z intencji i wypowiedzi przykład. Bot zapewnia mapowanie intencji do nowej aplikacji LUIS dla następujących intencji:
+Proces tworzenia usługi bot tworzy również nową aplikację LUIS z intencjami i przykładem wyrażenia długości. Bot zapewnia mapowanie intencji do nowej aplikacji LUIS dla następujących intencji:
 
 |Intencje usługi LUIS bota podstawowego|przykładowa wypowiedź|
 |--|--|
-|Zarezerwuj lot|`Travel to Paris`|
+|Lot z książki|`Travel to Paris`|
 |Cancel|`bye`|
-|GetWeather ( GetWeather )|`what's the weather like?`|
+|Getpogoda|`what's the weather like?`|
 |Brak|Cokolwiek spoza domeny aplikacji.|
 
-## <a name="test-the-bot-in-web-chat"></a>Testowanie bota w czacie internetowym
+## <a name="test-the-bot-in-web-chat"></a>Testowanie bot w rozmowie w sieci Web
 
-1. Będąc jeszcze w witrynie Azure portal dla nowego bota, wybierz pozycję **Testuj w czacie internetowym**.
-1. W polach tekstowych **Wpisz** wiadomość `Book a flight from Seattle to Berlin tomorrow`wprowadź tekst . Bot odpowiada weryfikacją, czy chcesz zarezerwować lot.
+1. Mimo że w Azure Portal dla nowego bot, wybierz pozycję **Testuj w rozmowie w sieci Web**.
+1. W polu tekstowym **wpisz wiadomość** wpisz tekst `Book a flight from Seattle to Berlin tomorrow`. Bot reaguje na weryfikację, aby zaksięgować lot.
 
-    ![Zrzut ekranu przedstawiający witrynę Azure portal, wprowadź tekst "hello".](./media/bfv4-nodejs/ask-bot-question-in-portal-test-in-web-chat.png)
+    ![Zrzut ekranu przedstawiający Azure Portal, wprowadź tekst "Hello".](./media/bfv4-nodejs/ask-bot-question-in-portal-test-in-web-chat.png)
 
-    Za pomocą funkcji testu można szybko przetestować bota. Aby uzyskać bardziej kompletne testowanie, w tym debugowanie, pobierz kod bota i użyj programu Visual Studio.
+    Możesz użyć funkcji testu, aby szybko przetestować bot. Aby uzyskać pełniejsze testowanie, w tym debugowanie, Pobierz kod bot i użyj programu Visual Studio.
 
-## <a name="download-the-web-app-bot-source-code"></a>Pobierz kod źródłowy bota aplikacji internetowej
+## <a name="download-the-web-app-bot-source-code"></a>Pobierz kod źródłowy bot aplikacji sieci Web
 Aby tworzyć kod bota aplikacji internetowej, pobierz kod i użyj go na komputerze lokalnym.
 
 1. W witrynie Azure Portal wybierz pozycję **Build** (Kompilacja) z sekcji **Bot management** (Zarządzanie botem).
 
 1. Wybierz przycisk **Download Bot source code** (Pobierz kod źródłowy bota).
 
-    [![Pobierz kod źródłowy bota aplikacji internetowej dla podstawowego bota](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
+    [![Pobierz kod źródłowy bot aplikacji sieci Web dla podstawowego bot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-1. Gdy w oknie podręcznym pojawi się pytanie **Uwzględnij ustawienia aplikacji w pobranym pliku zip?**, **wybierz**tak .
+1. Po wyświetleniu okna dialogowego z monitem o **uwzględnienie ustawień aplikacji w pobranym pliku zip**wybierz pozycję **tak**.
 
 1. Po spakowaniu kodu źródłowego w komunikacie zostanie podany hiperlink umożliwiający pobranie kodu. Wybierz hiperlink.
 
 1. Zapisz plik zip na komputerze lokalnym i wyodrębnij pliki. Otwórz projekt za pomocą programu Visual Studio.
 
-## <a name="review-code-to-send-utterance-to-luis-and-get-response"></a>Przejrzyj kod, aby wysłać wypowiedź do usługi LUIS i uzyskać odpowiedź
+## <a name="review-code-to-send-utterance-to-luis-and-get-response"></a>Przejrzyj kod, aby wysłać wypowiedź do LUIS i uzyskać odpowiedź
 
-1. Aby wysłać wypowiedź użytkownika do punktu końcowego przewidywania usługi LUIS, otwórz plik **FlightBookingRecognizer.cs.** Jest to miejsce, gdzie wypowiedź użytkownika wprowadzana do bota jest wysyłania do usługi LUIS. Odpowiedź z usługi LUIS jest zwracana z **RecognizeAsync** metody.
+1. Aby wysłać użytkownika wypowiedź do punktu końcowego przewidywania LUIS, Otwórz plik **FlightBookingRecognizer.cs** . Jest to miejsce, gdzie wypowiedź użytkownika wprowadzana do bota jest wysyłania do usługi LUIS. Odpowiedź z LUIS jest zwracana z metody **RecognizeAsync** .
 
     ```csharp
     using System.Threading;
@@ -144,7 +144,7 @@ Aby tworzyć kod bota aplikacji internetowej, pobierz kod i użyj go na komputer
     }
     ````
 
-1. Otwórz **dialogi -> MainDialog.cs** przechwytuje wypowiedź i wysyła go do executeLuisQuery w actStep metody.
+1. Otwarte **okna dialogowe — > MainDialog.cs** przechwytuje wypowiedź i wysyła je do executeLuisQuery w metodzie actStep.
 
     ```csharp
     // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -301,27 +301,27 @@ Aby tworzyć kod bota aplikacji internetowej, pobierz kod i użyj go na komputer
     }
     ```
 
-## <a name="start-the-bot-code-in-visual-studio"></a>Uruchamianie kodu bota w programie Visual Studio
+## <a name="start-the-bot-code-in-visual-studio"></a>Uruchamianie kodu bot w programie Visual Studio
 
-W programie Visual Studio 2019 uruchom bota. Zostanie otwarte okno przeglądarki z witryną sieci web bota aplikacji internetowej pod adresem `http://localhost:3978/`. Zostanie wyświetlona strona główna z informacjami o botie.
+W programie Visual Studio 2019 Uruchom bot. Zostanie otwarte okno przeglądarki z witryną sieci web bota aplikacji internetowej pod adresem `http://localhost:3978/`. Zostanie wyświetlona strona główna z informacjami o Twoim bot.
 
-![Zostanie wyświetlona strona główna z informacjami o botie.](./media/bfv4-csharp/running-bot-web-home-page-success.png)
+![Zostanie wyświetlona strona główna z informacjami o Twoim bot.](./media/bfv4-csharp/running-bot-web-home-page-success.png)
 
-## <a name="use-the-bot-emulator-to-test-the-bot"></a>Użyj emulatora bota, aby przetestować bota
+## <a name="use-the-bot-emulator-to-test-the-bot"></a>Testowanie bot przy użyciu emulatora bot
 
-1. Rozpocznij emulator botów i wybierz pozycję **Otwórz bota**.
-1. W oknie **podręcznym Otwórz bota** wprowadź adres URL `http://localhost:3978/api/messages`bota, na przykład . Trasa `/api/messages` jest adresem internetowym bota.
-1. Wprowadź identyfikator **aplikacji Firmy Microsoft** i hasło do aplikacji **Microsoft**App , znajdujące się w pliku **appsettings.json** w katalogu głównym pobranego kodu bota.
+1. Rozpocznij emulator bot i wybierz pozycję **Otwórz bot**.
+1. W wyskakującym okienku Otwórz okno dialogowe **bot** wprowadź adres URL bot, taki jak `http://localhost:3978/api/messages`. `/api/messages` Trasa jest adresem sieci Web dla bot.
+1. Wprowadź **Identyfikator aplikacji firmy Microsoft** i **hasło aplikacji firmy**Microsoft, które znajdują się w pliku **appSettings. JSON** w katalogu głównym pobranego kodu bot.
 
 
-1. W emulatorze bota wprowadź `Book a flight from Seattle to Berlin tomorrow` i uzyskaj taką samą odpowiedź dla podstawowego bota, jak w **teście w czacie internetowym** w poprzedniej sekcji.
+1. W emulatorze bot wprowadź `Book a flight from Seattle to Berlin tomorrow` i uzyskaj taką samą odpowiedź dla podstawowego bot, jak w przypadku **testu w rozmowie w sieci Web** w poprzedniej sekcji.
 
-    [![Podstawowa odpowiedź bota w emulatorze](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
+    [![Podstawowa odpowiedź bot w emulatorze](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
-1. Wybierz **pozycję Tak**. Bot odpowiada podsumowaniem swoich działań.
-1. Z dziennika emulatora bota wybierz wiersz `Luis Trace`zawierający plik . Spowoduje to wyświetlenie odpowiedzi JSON z usługi LUIS dla intencji i jednostek wypowiedź.
+1. Wybierz pozycję **tak**. Bot reaguje z podsumowaniem jego akcji.
+1. Z dziennika emulatora bot wybierz wiersz, który zawiera `Luis Trace`. Spowoduje to wyświetlenie odpowiedzi JSON z LUIS dla zamiar i jednostek wypowiedź.
 
-    [![Podstawowa odpowiedź bota w emulatorze](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
+    [![Podstawowa odpowiedź bot w emulatorze](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 
 
 [!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
@@ -332,4 +332,4 @@ W programie Visual Studio 2019 uruchom bota. Zostanie otwarte okno przeglądarki
 Zobacz więcej [przykładów](https://github.com/microsoft/botframework-solutions) z botami konwersacyjnymi.
 
 > [!div class="nextstepaction"]
-> [Tworzenie aplikacji do rozumienia języka przy niestandardowych domenach tematów](luis-quickstart-intents-only.md)
+> [Tworzenie aplikacji Language Understanding z niestandardową domeną podmiotu](luis-quickstart-intents-only.md)

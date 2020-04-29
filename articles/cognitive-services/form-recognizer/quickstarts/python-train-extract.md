@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: szkolenie modelu i wyodrębnianie danych formularza przy użyciu interfejsu API REST za pomocą języka Python — aparat rozpoznawania formularzy'
+title: 'Szybki Start: uczenie modelu i wyodrębnianie danych formularza przy użyciu interfejsu API REST z aparatem rozpoznawania języka Python'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku Szybki start użyjesz interfejsu API REST rozpoznawania formularzy w języku Python, aby trenować model i wyodrębniać dane z formularzy.
+description: W tym przewodniku szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy w języku Python, aby szkolić model i wyodrębnić dane z formularzy.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -10,41 +10,41 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: 66668f46595c22426984a02c489297e962d061d0
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77118089"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Szybki start: trenuj model aparatu rozpoznawania formularzy i wyodrębniaj dane formularza przy użyciu interfejsu API REST z programem Python
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Szybki Start: uczenie modelu aparatu rozpoznawania formularzy i wyodrębnianie danych formularza przy użyciu interfejsu API REST w języku Python
 
-W tym przewodniku Szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy platformy Azure z pythonem do szkolenia i oceniania formularzy w celu wyodrębnienia par i tabel wartości klucza.
+W tym przewodniku szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy platformy Azure w języku Python, aby przeszkolić i wypróbować formularze w celu wyodrębnienia par klucz-wartość i tabel.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten szybki start, musisz mieć:
-- [Python](https://www.python.org/downloads/) zainstalowany (jeśli chcesz uruchomić przykład lokalny).
-- Zestaw co najmniej pięciu form tego samego typu. Użyjesz tych danych do trenowania modelu. Formularze mogą mieć różne typy plików, ale muszą być tego samego typu dokumentu. Do tego szybkiego startu można użyć [przykładowego zestawu danych.](https://go.microsoft.com/fwlink/?linkid=2090451) Przekaż pliki szkoleniowe do katalogu głównego kontenera magazynu obiektów blob na koncie usługi Azure Storage.
+Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
+- Zainstalowana w języku [Python](https://www.python.org/downloads/) (Jeśli chcesz uruchomić przykład lokalnie).
+- Zestaw składający się z co najmniej pięciu form tego samego typu. Te dane będą używane do uczenia modelu. Formularze mogą mieć różne typy plików, ale muszą być tego samego typu dokumentu. Możesz użyć [przykładowego zestawu danych](https://go.microsoft.com/fwlink/?linkid=2090451) dla tego przewodnika Szybki Start. Przekaż pliki szkoleniowe do katalogu głównego kontenera magazynu obiektów BLOB na koncie usługi Azure Storage.
 
-## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularzy
+## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularza
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-## <a name="train-a-form-recognizer-model"></a>Trenuj model aparatu rozpoznawania formularzy
+## <a name="train-a-form-recognizer-model"></a>Uczenie modelu aparatu rozpoznawania formularzy
 
-Najpierw musisz zestaw danych szkoleniowych w kontenerze obiektów blob usługi Azure Storage. Powinieneś mieć co najmniej pięć wypełnionych formularzy (dokumentów PDF i/lub obrazów) tego samego typu/struktury co główne dane wejściowe. Można też użyć pojedynczego pustego formularza z dwoma wypełnionymi formularzami. Nazwa pliku pustego formularza musi zawierać słowo "pusty". Zobacz [Tworzenie zestawu danych szkoleniowych dla modelu niestandardowego,](../build-training-data-set.md) aby uzyskać porady i opcje dotyczące tworzenia danych szkoleniowych.
+Najpierw będziesz potrzebować zestawu danych szkoleniowych w kontenerze obiektów BLOB usługi Azure Storage. Należy mieć co najmniej pięć wypełnionych formularzy (dokumentów PDF i/lub obrazów) tego samego typu i struktury co główne dane wejściowe. Lub można użyć pojedynczego pustego formularza z dwoma wypełnionymi formularzami. Nazwa pliku pustego formularza musi zawierać słowo "Empty". Zapoznaj się z tematem [Tworzenie zestawu danych szkoleniowych dla modelu niestandardowego](../build-training-data-set.md) w celu uzyskania wskazówek i opcji tworzenia danych szkoleniowych.
 
 > [!NOTE]
-> Za pomocą funkcji danych oznaczonych etykietą można ręcznie oznaczyć niektóre lub wszystkie dane szkoleniowe wcześniej. Jest to bardziej złożony proces, ale wyniki w lepiej wyszkolony model. Więcej informacji można znaleźć w sekcji [Pociąg z etykietami](../overview.md#train-with-labels) w przeglądzie.
+> Możesz użyć funkcji etykiety danych, aby ręcznie oznaczyć niektóre lub wszystkie dane szkoleniowe wcześniej. Jest to bardziej skomplikowany proces, ale wynikiem jest lepszy przeszkolony model. Zapoznaj się z sekcją [uczenie z etykietami](../overview.md#train-with-labels) , aby dowiedzieć się więcej.
 
-Aby wyszkolić model rozpoznawania formularzy z dokumentami w kontenerze obiektów blob platformy Azure, należy wywołać interfejs API **[modelu niestandardowego pociągu,](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** uruchamiając następujący kod języka Python. Przed uruchomieniem kodu należy wprowadzić następujące zmiany:
+Aby przeprowadzić uczenie modelu aparatu rozpoznawania formularzy przy użyciu dokumentów w kontenerze obiektów blob platformy Azure, Wywołaj interfejs API **[niestandardowego modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** , uruchamiając następujący kod w języku Python. Przed uruchomieniem kodu wprowadź następujące zmiany:
 
-1. Zamień `<SAS URL>` adres URL sygnatury dostępu współdzielonego (SAS) kontenera magazynu obiektów Blob platformy Azure. Aby pobrać adres URL sygnatury dostępu Współdzielonego, otwórz Eksploratora magazynu Platformy Microsoft Azure, kliknij prawym przyciskiem myszy kontener i wybierz pozycję **Pobierz podpis dostępu współdzielonego**. Upewnij się, że uprawnienia **Do odczytu** i **listy** są zaznaczone, a następnie kliknij przycisk **Utwórz**. Następnie skopiuj wartość w sekcji **ADRES URL.** Powinien mieć formularz: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-1. Zamień `<subscription key>` klucz subskrypcji skopiowany z poprzedniego kroku.
-1. Zamień `<endpoint>` na adres URL punktu końcowego zasobu aparatu rozpoznawania formularzy.
-1. Zamień `<Blob folder name>` ścieżkę do folderu w magazynie obiektów blob, w którym znajdują się formularze. Jeśli formularze znajdują się w katalogu głównym kontenera, pozostaw ten ciąg pusty.
+1. Zamień `<SAS URL>` na adres URL sygnatury dostępu współdzielonego (SAS) kontenera magazynu obiektów blob platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Upewnij się, że uprawnienia do **odczytu** i **listy** są zaznaczone, a następnie kliknij przycisk **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Zamień `<subscription key>` na klucz subskrypcji skopiowany z poprzedniego kroku.
+1. Zamień `<endpoint>` na adres URL punktu końcowego dla zasobu aparatu rozpoznawania formularza.
+1. Zamień `<Blob folder name>` na ścieżkę do folderu w magazynie obiektów blob, w którym znajdują się Twoje formularze. Jeśli Twoje formularze znajdują się w katalogu głównym kontenera, pozostaw ten ciąg pusty.
 
     ```python
     ########### Python Form Recognizer Labeled Async Train #############
@@ -86,13 +86,13 @@ Aby wyszkolić model rozpoznawania formularzy z dokumentami w kontenerze obiekt�
         print("POST model failed:\n%s" % str(e))
         quit() 
     ```
-1. Zapisz kod w pliku z rozszerzeniem .py. Na przykład *form-recognizer-train.py*.
+1. Zapisz kod w pliku z rozszerzeniem. pr. Na przykład *form-Recognizer-Train.py*.
 1. Otwórz okno wiersza polecenia.
 1. W wierszu polecenia użyj polecenia `python`, aby uruchomić próbkę. Na przykład `python form-recognizer-train.py`.
 
-## <a name="get-training-results"></a>Uzyskaj wyniki treningów
+## <a name="get-training-results"></a>Pobierz wyniki szkoleń
 
-Po rozpoczęciu operacji pociągu, należy użyć zwróconego identyfikatora, aby uzyskać stan operacji. Dodaj następujący kod na dole skryptu Pythona. Używa wartości identyfikatora z wywołania szkoleniowego w nowym wywołaniu interfejsu API. Operacja szkoleniowa jest asynchronizawo, więc ten skrypt wywołuje interfejs API w regularnych odstępach czasu, aż do ukończenia stanu szkolenia. Zalecamy interwał jednej sekundy lub więcej.
+Po rozpoczęciu operacji pouczenia należy użyć zwróconego identyfikatora, aby pobrać stan operacji. Dodaj następujący kod w dolnej części skryptu języka Python. Spowoduje to użycie wartości identyfikatora z rozmowy szkoleniowej w nowym wywołaniu interfejsu API. Operacja szkoleniowa jest asynchroniczna, dlatego skrypt wywołuje interfejs API w regularnych odstępach czasu, aż do momentu ukończenia stanu szkolenia. Zalecamy interwał co najmniej jednej sekundy.
 
 ```python 
 n_tries = 15
@@ -124,7 +124,7 @@ while n_try < n_tries:
 print("Train operation did not complete within the allocated time.")
 ```
 
-Po zakończeniu procesu szkolenia otrzymasz odpowiedź `201 (Success)` z zawartością JSON, następującą:
+Po zakończeniu procesu szkolenia otrzymasz `201 (Success)` odpowiedź z zawartością JSON, podobną do następującej:
 
 ```json
 { 
@@ -196,7 +196,7 @@ Skopiuj `"modelId"` wartość do użycia w poniższych krokach.
 
 [!INCLUDE [analyze forms](../includes/python-custom-analyze.md)]
 
-Po zakończeniu procesu otrzymasz odpowiedź `200 (Success)` z zawartością JSON w następującym formacie. Odpowiedź została skrócona dla uproszczenia. Główne skojarzenia i tabele pary kluczy/wartości znajdują się w węźle. `"pageResults"` Jeśli określono również wyodrębnianie zwykłego tekstu za pomocą parametru `"readResults"` url *includeTextDetails,* węzeł wyświetli zawartość i pozycje całego tekstu w dokumencie.
+Po zakończeniu procesu otrzymasz `200 (Success)` odpowiedź z zawartością JSON w następującym formacie. Odpowiedź została skrócona dla uproszczenia. Główne skojarzenia pary klucz/wartość i tabele znajdują się w `"pageResults"` węźle. Jeśli określono również zwykłe Wyodrębnianie tekstu za pomocą parametru adresu URL *includeTextDetails* , w `"readResults"` węźle będzie wyświetlana zawartość i położenie całego tekstu w dokumencie.
 
 ```bash
 {
@@ -447,13 +447,13 @@ Po zakończeniu procesu otrzymasz odpowiedź `200 (Success)` z zawartością JSO
 }
 ```
 
-## <a name="improve-results"></a>Poprawa wyników
+## <a name="improve-results"></a>Popraw wyniki
 
 [!INCLUDE [improve results](../includes/improve-results-unlabeled.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start użyto interfejsu API REST rozpoznawania formularzy z pythonem do wytrenowania modelu i uruchamiania go w przykładowym scenariuszu. Następnie zapoznaj się z dokumentacją odwołania, aby zbadać interfejs API rozpoznawania formularzy bardziej szczegółowo.
+W tym przewodniku szybki start użyto interfejsu API REST aparatu rozpoznawania formularzy w języku Python do uczenia modelu i uruchomienia go w przykładowym scenariuszu. Następnie zapoznaj się z dokumentacją referencyjną w celu eksplorowania interfejsu API rozpoznawania formularzy.
 
 > [!div class="nextstepaction"]
-> [Dokumentacja referencyjna interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+> [Dokumentacja interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)

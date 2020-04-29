@@ -1,7 +1,7 @@
 ---
-title: Prognozowanie zapotrzebowania na udostępnianie rowerów za pomocą zautomatyzowanego eksperymentu ml
+title: Prognoza popytu na potrzeby udostępniania roweru z automatycznym eksperymentem dotyczącym ML
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak szkolić i wdrażać model prognozowania popytu za pomocą zautomatyzowanego uczenia maszynowego w studio usługi Azure Machine Learning.
+description: Dowiedz się, jak uczenie i wdrażanie modelu prognozowania popytu przy użyciu automatycznej uczenia maszynowego w programie Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,205 +11,205 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 01/27/2020
 ms.openlocfilehash: 11e0a8a0076fb2e68c379b279f471ff74846df2e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77088242"
 ---
-# <a name="tutorial-forecast-bike-sharing-demand-with-automated-machine-learning"></a>Samouczek: Prognozowanie zapotrzebowania na udostępnianie rowerów dzięki zautomatyzowanemu uczeniu maszynowemu
+# <a name="tutorial-forecast-bike-sharing-demand-with-automated-machine-learning"></a>Samouczek: Prognoza popytu na udostępnianie rowerów przy użyciu automatycznej uczenia maszynowego
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-W tym samouczku używasz automatycznego uczenia maszynowego lub zautomatyzowanego uczenia maszynowego w studio usługi Azure Machine Learning, aby utworzyć model prognozowania szeregów czasowych w celu przewidywania zapotrzebowania na wynajem usługi udostępniania rowerów.
+W tym samouczku użyjesz zautomatyzowanej uczenia maszynowego lub zautomatyzowanej sieci ML w Azure Machine Learning Studio, aby utworzyć model prognozowania szeregów czasowych, aby przewidzieć zapotrzebowanie na wypożyczenie dla usługi udostępniania roweru.
 
-W tym samouczku dowiesz się, jak wykonać następujące zadania:
+W tym samouczku dowiesz się, jak wykonywać następujące zadania:
 
 > [!div class="checklist"]
-> * Tworzenie i ładowanie zestawu danych.
-> * Skonfiguruj i uruchom zautomatyzowany eksperyment uczenia maszynowego.
-> * Zapoznaj się z wynikami eksperymentu.
-> * Wdrażanie najlepszego modelu.
+> * Utwórz i Załaduj zestaw danych.
+> * Konfigurowanie i uruchamianie zautomatyzowanego eksperymentu ML.
+> * Poznaj wyniki eksperymentu.
+> * Wdróż najlepszy model.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Obszar roboczy usługi Azure Machine Learning w wersji korporacyjnej. Jeśli nie masz obszaru roboczego, [utwórz obszar roboczy wersji Enterprise](how-to-manage-workspace.md). 
-    * Automatyczne uczenie maszynowe w studio usługi Azure Machine Learning jest dostępne tylko dla obszarów roboczych w wersji Enterprise. 
-* Pobierz plik danych [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
+* Obszar roboczy Azure Machine Learning Enterprise Edition. Jeśli nie masz obszaru roboczego, [Utwórz obszar roboczy Enterprise Edition](how-to-manage-workspace.md). 
+    * Automatyczne Uczenie maszynowe w programie Azure Machine Learning Studio jest dostępne tylko dla obszarów roboczych wersji Enterprise Edition. 
+* Pobieranie pliku danych [Bike-No. csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
 
-## <a name="get-started-in-azure-machine-learning-studio"></a>Wprowadzenie do studia usługi Azure Machine Learning
+## <a name="get-started-in-azure-machine-learning-studio"></a>Wprowadzenie do programu Azure Machine Learning Studio
 
-W tym samouczku utworzysz zautomatyzowany eksperyment uczenia maszynowego w usłudze Azure Machine Learning studio, skonsolidowany interfejs, który zawiera narzędzia uczenia maszynowego do wykonywania scenariuszy do nauki o danych dla praktyków nauki o danych na wszystkich poziomach umiejętności. Studio nie jest obsługiwane w przeglądarkach Internet Explorer.
+Na potrzeby tego samouczka utworzysz zautomatyzowany przebieg eksperymentu ML w Azure Machine Learning Studio, skonsolidowany interfejs, który obejmuje narzędzia uczenia maszynowego do wykonywania scenariuszy analizy danych dla lekarzy danych o wszystkich poziomach umiejętności. Program Studio nie jest obsługiwany w przeglądarkach programu Internet Explorer.
 
-1. Zaloguj się do [studia usługi Azure Machine Learning](https://ml.azure.com).
+1. Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com).
 
-1. Wybierz subskrypcję i utworzony obszar roboczy.
+1. Wybierz swoją subskrypcję i utworzony obszar roboczy.
 
-1. Wybierz **pozycję Wprowadzenie**.
+1. Wybierz pozycję **Rozpocznij**.
 
-1. W lewym okienku wybierz **pozycję Zautomatyzowane ml** w sekcji **Autor.**
+1. W lewym okienku wybierz pozycję **zautomatyzowany ml** w sekcji **autor** .
 
-1. Wybierz **+Nowy automatyczny przebieg ML**. 
+1. Wybierz pozycję **+ Nowy zautomatyzowany przebiegu ml**. 
 
-## <a name="create-and-load-dataset"></a>Tworzenie i ładowanie zestawu danych
+## <a name="create-and-load-dataset"></a>Utwórz i Załaduj zestaw danych
 
-Przed skonfigurowaniem eksperymentu należy przekazać plik danych do obszaru roboczego w formie zestawu danych usługi Azure Machine Learning. Dzięki temu można upewnić się, że dane są odpowiednio sformatowane dla eksperymentu.
+Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w formie zestawu danych Azure Machine Learning. Dzięki temu można upewnić się, że dane są sformatowane odpowiednio do eksperymentu.
 
-1. W formularzu **Wybierz zestaw danych** wybierz z **listy** rozwijanej **+Utwórz zestaw danych.** 
+1. W formularzu **Wybierz zestaw danych** wybierz pozycję **z plików lokalnych** z listy rozwijanej **+ Utwórz zestaw danych** . 
 
-    1. W formularzu **Informacje podstawowe** nadaj zestawowi danych nazwę i podaj opcjonalny opis. Typ zestawu danych powinien być domyślnie **tabelaryczny,** ponieważ zautomatyzowane ml w usłudze Azure Machine Learning studio obecnie obsługuje tylko tabelaryczne zestawy danych.
+    1. W **podstawowym formularzu informacji** nadaj zestawowi danych nazwę i podaj opcjonalny opis. Typ zestawu danych powinien domyślnie mieć wartość **tabelaryczną**, ponieważ automatyczna wartość ML w Azure Machine Learning Studio obsługuje obecnie tylko tabelaryczne zestawy danych.
     
-    1. Wybierz **pozycję Dalej** w lewym dolnym rogu
+    1. Wybierz pozycję **dalej** w lewym dolnym rogu
 
-    1. W **formularzu Datastore i file selection** wybierz domyślny magazyn danych, który został automatycznie skonfigurowany podczas tworzenia obszaru **roboczego, workspaceblobstore (Azure Blob Storage)**. Jest to miejsce przechowywania, w którym przekażesz plik danych. 
+    1. W formularzu **Magazyn danych i wybór plików** wybierz domyślny magazyn danych, który został automatycznie skonfigurowany podczas tworzenia obszaru roboczego, **workspaceblobstore (Azure Blob Storage)**. Jest to lokalizacja przechowywania, w której przekażesz plik danych. 
 
     1. Wybierz pozycję **Przeglądaj**. 
     
-    1. Wybierz plik **bike-no.csv** na komputerze lokalnym. Jest to plik pobrany jako [warunek wstępny](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv).
+    1. Wybierz plik **Bike-No. csv** na komputerze lokalnym. Jest to plik pobrany jako [warunek wstępny](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv).
 
-    1. Wybierz pozycję **Dalej**
+    1. Wybierz pozycję **dalej**
 
-       Po zakończeniu przekazywania formularz Ustawienia i wersja zapoznawcza są wstępnie wypełniane na podstawie typu pliku. 
+       Po zakończeniu przekazywania ustawienia i formularz podglądu są wstępnie wypełniane na podstawie typu pliku. 
        
-    1. Sprawdź, czy **formularz Ustawienia i podgląd** jest wypełniony w następujący sposób i wybierz pozycję **Dalej**.
+    1. Sprawdź, czy **Ustawienia i formularz podglądu** są wypełnione w następujący sposób, a następnie wybierz przycisk **dalej**.
         
-        Pole|Opis| Wartość samouczka
+        Pole|Opis| Wartość dla samouczka
         ---|---|---
-        Format pliku|Definiuje układ i typ danych przechowywanych w pliku.| Rozdzielany
-        Ogranicznik|Jeden lub więcej znaków do określania granicy między&nbsp; oddzielnymi, niezależnymi regionami w postaci zwykłego tekstu lub innych strumieni danych. |Przecinek
-        Kodowanie|Określa, jaki bit do tabeli schematu znaków do użycia do odczytu zestawu danych.| UTF-8
-        Nagłówki kolumn| Wskazuje, jak nagłówki zestawu danych, jeśli istnieją, będą traktowane.| Używanie nagłówków z pierwszego pliku
-        Pomiń wiersze | Wskazuje, ile wierszy jest pomijanych w zestawie danych.| Brak
+        Format pliku|Definiuje układ i typ danych przechowywanych w pliku.| Lista
+        Ogranicznik|Jeden lub więcej znaków do określenia granicy między&nbsp; oddzielnymi, niezależnymi regionami w postaci zwykłego tekstu lub innymi strumieniami danych. |Przecinek
+        Kodowanie|Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.| UTF-8
+        Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.| Użyj nagłówków z pierwszego pliku
+        Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.| Brak
 
-    1. Formularz **Schemat** umożliwia dalszą konfigurację danych dla tego eksperymentu. 
+    1. Formularz **schematu** umożliwia dalsze Konfigurowanie danych na potrzeby tego eksperymentu. 
     
-        1. W tym przykładzie należy zignorować **kolumny dorywcze** i **zarejestrowane.** Te kolumny są podziałem kolumny **cnt,** więc nie dołączamy ich.
+        1. **Na potrzeby** tego przykładu wybierz opcję ignorowania niektórych i **zarejestrowanych** kolumn. Te kolumny są podziałem kolumny **CNT** , dlatego nie zawierają ich.
 
-        1. Również w tym przykładzie pozostaw wartości domyślne dla **właściwości** i **typu**. 
+        1. Również dla tego przykładu pozostaw wartości domyślne **Właściwości** i **typu**. 
         
-        1. Wybierz **pozycję Dalej**.
+        1. Wybierz pozycję **Dalej**.
 
-    1. W formularzu **Potwierdź szczegóły** sprawdź, czy informacje są zgodne z wcześniej wypełnionymi **w formularzach Podstawowe informacje** i Ustawienia oraz w **formularzach podglądu.**
+    1. Na formularzu **Potwierdź szczegóły** Sprawdź, czy informacje są zgodne z informacjami o tym, co zostało wcześniej wypełnione w **podstawowych informacjach** i ustawieniach oraz w formularzach **wersji zapoznawczej** .
 
-    1. Wybierz **pozycję Utwórz,** aby zakończyć tworzenie zestawu danych.
+    1. Wybierz pozycję **Utwórz** , aby zakończyć tworzenie zestawu danych.
 
-    1. Wybierz zestaw danych, gdy pojawi się na liście.
+    1. Wybierz zestaw danych, który zostanie wyświetlony na liście.
 
-    1. Wybierz **pozycję Dalej**.
+    1. Wybierz pozycję **dalej**.
 
 ## <a name="configure-experiment-run"></a>Konfigurowanie przebiegu eksperymentu
 
-Po załadowaniu i skonfigurowaniu danych skonfiguruj zdalny cel obliczeniowy i wybierz kolumnę w danych, którą chcesz przewidzieć.
+Po załadowaniu i skonfigurowaniu danych skonfiguruj zdalny cel obliczeń i wybierz kolumnę, dla której chcesz przewidzieć dane.
 
-1. Wypełnij formularz **Konfigurowanie przebiegu w** następujący sposób:
+1. Wypełnij formularz **konfigurowania przebiegu** w następujący sposób:
     1. Wprowadź nazwę eksperymentu:`automl-bikeshare`
 
-    1. Wybierz **cnt** jako kolumnę docelową, co chcesz przewidzieć. Ta kolumna wskazuje liczbę wszystkich wypożyczeń udziałów rowerów.
+    1. Jako kolumnę docelową wybierz pozycję **CNT** , którą chcesz przewidzieć. Ta kolumna wskazuje liczbę wynajmu udziałów w ramach roweru.
 
-    1. Wybierz **pozycję Utwórz nowe obliczenia** i skonfiguruj cel obliczeniowy. Automatyczna liczba wirtualna obsługuje tylko obliczenia usługi Azure Machine Learning. 
+    1. Wybierz pozycję **Utwórz nowe obliczenie** i skonfiguruj obiekt docelowy obliczeń. Zautomatyzowana ML obsługuje tylko Azure Machine Learning obliczeń. 
 
-        Pole | Opis | Wartość samouczka
+        Pole | Opis | Wartość dla samouczka
         ----|---|---
-        Nazwa obliczeń |Unikatowa nazwa identyfikująca kontekst obliczeniowy.|bike-compute
-        Rozmiar&nbsp;&nbsp;maszyny wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczeń.|Standard_DS12_V2
-        Min / Max węzłów (w ustawieniach zaawansowanych)| Aby dane profilu, należy określić 1 lub więcej węzłów.|Min. węzły: 1<br>Maksymalna liczba węzłów: 6
+        Nazwa obliczeniowa |Unikatowa nazwa identyfikująca kontekst obliczeniowy.|rower — obliczenia
+        Rozmiar&nbsp;maszyny&nbsp;wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczenia.|Standard_DS12_V2
+        Minimalna/Maksymalna liczba węzłów (w ustawieniach zaawansowanych)| Aby profilować dane, musisz określić co najmniej jeden węzeł.|Minimalna liczba węzłów: 1<br>Maksymalna liczba węzłów: 6
   
-        1. Wybierz **pozycję Utwórz,** aby uzyskać cel obliczeniowy. 
+        1. Wybierz pozycję **Utwórz** , aby uzyskać obiekt docelowy obliczeń. 
 
-            **Trwa to kilka minut.** 
+            **Wykonanie tej czynności może zająć kilka minut.** 
 
-        1. Po utworzeniu wybierz nowy cel obliczeniowy z listy rozwijanej.
+        1. Po utworzeniu wybierz nowe miejsce docelowe obliczeń z listy rozwijanej.
 
-    1. Wybierz **pozycję Dalej**.
+    1. Wybierz pozycję **Dalej**.
 
-## <a name="select-task-type-and-settings"></a>Wybieranie typu i ustawień zadania
+## <a name="select-task-type-and-settings"></a>Wybierz typ i ustawienia zadania
 
-Zakończ konfigurację eksperymentu automatycznego uczenia maszynowego, określając typ zadania uczenia maszynowego i ustawienia konfiguracji.
+Ukończ instalację eksperymentu dotyczącego zautomatyzowanej sieci ML, określając typ zadania Uczenie maszynowe i ustawienia konfiguracji.
 
-1. W formularzu **Typ zadania i ustawienia** wybierz opcję **Prognozowanie szeregów czasowych** jako typ zadania uczenia maszynowego.
+1. W formularzu **Typ zadania i ustawienia** wybierz opcję **prognozowanie szeregów czasowych** jako typ zadania Uczenie maszynowe.
 
-1. Wybierz **datę** jako **kolumnę Czas** i pozostaw pole wyboru Grupa według **kolumn.** 
+1. Wybierz **datę** jako **kolumnę czasową** i pozostaw puste **kolumny Grupuj według** . 
 
-    1. Wybierz **pozycję Wyświetl dodatkowe ustawienia konfiguracji** i wypełnij pola w następujący sposób. Te ustawienia mają na celu lepszą kontrolę zadania szkoleniowego. W przeciwnym razie wartości domyślne są stosowane na podstawie wyboru eksperymentu i danych.
+    1. Wybierz pozycję **Wyświetl dodatkowe ustawienia konfiguracji** i wypełnij pola w następujący sposób. Te ustawienia służą do lepszego kontrolowania zadania szkoleniowego. W przeciwnym razie wartości domyślne są stosowane na podstawie wyboru eksperymentu i danych.
 
   
-        Dodatkowe&nbsp;konfiguracje|Opis|Wartość&nbsp;&nbsp;samouczka
+        Dodatkowe&nbsp;konfiguracje|Opis|Wartość&nbsp;dla&nbsp;samouczka
         ------|---------|---
-        Metryka podstawowa| Metryka oceny, za pomocą których będzie mierzony algorytm uczenia maszynowego.|Znormalizowany błąd kwadratu głównego
-        Automatyczne featurization| Umożliwia wstępne przetwarzanie. Obejmuje to automatyczne oczyszczanie danych, przygotowywanie i przekształcanie w celu generowania funkcji syntetycznych.| Włączanie
-        Wyjaśnij najlepszy model (wersja zapoznawcza)| Automatycznie pokazuje wytłumaczenia na najlepszy model utworzony przez zautomatyzowane ML.| Włączanie
-        Zablokowane algorytmy | Algorytmy, które chcesz wykluczyć z zadania szkoleniowego| Ekstremalne losowe drzewa
-        Dodatkowe ustawienia prognozowania| Te ustawienia pomagają poprawić dokładność modelu <br><br> _**Horyzont prognozy:**_ czas w przyszłość, którą chcesz przewidzieć <br> _**Prognoza docelowa opóźnia się:**_ jak daleko wstecz chcesz skonstruować opóźnienia zmiennej docelowej <br> _**Okno docelowe :**_ określa rozmiar okna rolowania, nad którym zostaną wygenerowane operacje, takie jak *max, min* i *suma.* |Horyzont prognozy: 14 <br> Opóźnienie&nbsp;&nbsp;docelowe prognozy: Brak <br> &nbsp;Docelowy&nbsp;&nbsp;rozmiar okna tocznego: Brak
-        Kryterium wyjścia| Jeśli spełnione jest kryterium, zadanie szkoleniowe zostanie zatrzymane. |Czas&nbsp;&nbsp;pracy szkoleniowej (w godzinach): 3 <br> Próg&nbsp;wyniku&nbsp;metryki: Brak
-        Sprawdzanie poprawności | Wybierz typ krzyżowej weryfikacji i liczbę testów.|Typ sprawdzania poprawności:<br>&nbsp;k-fold&nbsp;krzyżowa walidacja <br> <br> Liczba walidacji: 5
-        Współbieżność| Maksymalna liczba iteracji równoległych wykonywanych na iterację| Maksymalna&nbsp;liczba&nbsp;równoczesnych iteracji: 6
+        Metryka podstawowa| Metryka oceny, według której będzie mierzony algorytm uczenia maszynowego.|Znormalizowany błąd średniego poziomu głównego
+        Automatyczne cechowania| Włącza przetwarzanie wstępne. Obejmuje to automatyczne czyszczenie danych, przygotowanie i transformację do generowania funkcji syntetycznych.| Włączanie
+        Wyjaśnij najlepszy model (wersja zapoznawcza)| Automatycznie pokazuje wyjaśnienie najlepszego modelu utworzonego za pomocą zautomatyzowanej ML.| Włączanie
+        Zablokowane algorytmy | Algorytmy, które mają zostać wykluczone z zadania szkoleniowego| Skrajnie losowe drzewa
+        Dodatkowe ustawienia prognozowania| Te ustawienia pomagają poprawić dokładność modelu <br><br> _**Przewidywany horyzont**_ czasowy: długość czasu na przyszłość, którą chcesz przewidzieć <br> _**Spowolnienia celu prognozy:**_ jak daleko z powrotem chcesz skonstruować spowolnienia zmiennej docelowej <br> _**Docelowe okno kroczące**_: Określa rozmiar okna stopniowego, nad którym będą generowane funkcje, takie jak *Maksymalna, minimalna* i *sum*. |Horyzont prognoz: 14 <br> Spowolnienia&nbsp;docelowy&nbsp;prognozy: brak <br> Rozmiar&nbsp;&nbsp;stopniowego&nbsp;okna docelowego: brak
+        Kryterium zakończenia| Jeśli kryteria są spełnione, zadanie szkolenia zostanie zatrzymane. |Czas&nbsp;zadania&nbsp;szkoleniowego (godziny): 3 <br> Próg&nbsp;wyniku&nbsp;metryki: brak
+        Walidacja | Wybierz typ i liczbę testów.|Typ walidacji:<br>&nbsp;k — złożenie&nbsp;krzyżowego sprawdzania poprawności <br> <br> Liczba walidacji: 5
+        Współbieżność| Maksymalna liczba wykonanych równoległych iteracji na iterację| Maksymalna&nbsp;liczba&nbsp;współbieżnych iteracji: 6
         
-        Wybierz **pozycję Zapisz**.
+        Wybierz pozycję **Zapisz**.
 
 ## <a name="run-experiment"></a>Uruchom eksperyment
 
-Aby uruchomić eksperyment, wybierz pozycję **Zakończ**. Zostanie otwarty ekran **Uruchom szczegóły** ze **stanem Uruchom** u góry obok numeru uruchomienia. Ten stan jest aktualizowany w miarę postępu eksperymentu.
+Aby uruchomić eksperyment, wybierz pozycję **Zakończ**. Zostanie otwarty ekran **szczegóły uruchamiania** ze **stanem uruchomienia** znajdującym się u góry obok numeru uruchomienia. Ten stan jest aktualizowany w miarę postępu eksperymentu.
 
 >[!IMPORTANT]
-> Przygotowanie trwa **10-15 minut,** aby przygotować przebieg eksperymentu.
-> Po uruchomieniu, trwa **2-3 minut więcej dla każdej iteracji**.  <br> <br>
-> W produkcji, można by prawdopodobnie odejść na chwilę, jak ten proces wymaga czasu. Podczas oczekiwania, sugerujemy rozpocząć eksplorowanie przetestowanych algorytmów na **modelu** karty po ich zakończeniu. 
+> Przygotowanie eksperymentu trwa do **10-15 minut** .
+> Po uruchomieniu usługi zajmiemy **2-3 minut więcej czasu dla każdej iteracji**.  <br> <br>
+> W środowisku produkcyjnym najkorzystniej jest nieco powracać w miarę potrzeb. Gdy czekasz, zalecamy rozpoczęcie eksplorowania przetestowanych algorytmów na karcie **modele** po ich zakończeniu. 
 
-##  <a name="explore-models"></a>Poznaj modele
+##  <a name="explore-models"></a>Eksploruj modele
 
-Przejdź do **modelki,** aby wyświetlić przetestowane algorytmy (modele). Domyślnie modele są uporządkowane według wyniku metryki po ich zakończeniu. W tym samouczku model, który osiąga najwyższą ocenę na podstawie wybranej **znormalizowanej metryki błędu znormalizowanego katalogu głównego,** znajduje się na początku listy.
+Przejdź do karty **modele** , aby zobaczyć przetestowane algorytmy (modele). Domyślnie modele są uporządkowane według wyniku metryk po ich zakończeniu. Na potrzeby tego samouczka model, który ocenia najwyższy poziom w oparciu o wybraną **znormalizowaną, średnią wartość błędu kwadratowego** w górnej części listy.
 
-Podczas oczekiwania na zakończenie wszystkich modeli eksperymentu wybierz **nazwę algorytm ukończonego** modelu, aby zapoznać się z szczegółami wydajności. 
+Podczas oczekiwania na zakończenie wszystkich modeli eksperymentów wybierz **nazwę algorytmu** kompletnego modelu, aby poznać jego szczegóły wydajności. 
 
-Poniższy przykład nawiguje po **szczegóły modelu** i **wizualizacje** kart, aby wyświetlić właściwości wybranego modelu, metryki i wykresy wydajności. 
+Poniższy przykład przechodzi przez **Szczegóły modelu** i karty **wizualizacje** , aby wyświetlić właściwości wybranego modelu, metryki i wykresy wydajności. 
 
-![Uruchom szczegóły](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
+![Szczegóły uruchamiania](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
 
 ## <a name="deploy-the-model"></a>Wdrażanie modelu
 
-Zautomatyzowane uczenie maszynowe w usłudze Azure Machine Learning studio umożliwia wdrożenie najlepszego modelu jako usługi sieci web w kilku krokach. Wdrożenie jest integracją modelu, dzięki czemu można przewidzieć na nowe dane i zidentyfikować potencjalne obszary możliwości. 
+Automatyczne Uczenie maszynowe w programie Azure Machine Learning Studio umożliwia wdrożenie najlepszego modelu jako usługi sieci Web w kilku krokach. Wdrożenie to integracja modelu, dzięki czemu można przewidzieć nowe dane i identyfikować potencjalne obszary szans sprzedaży. 
 
-W tym eksperymencie wdrożenie do usługi sieci web oznacza, że firma współdzielenia rowerów ma teraz iteracyjne i skalowalne rozwiązanie sieci web do prognozowania popytu na wynajem udziałów w rowerach. 
+W przypadku tego eksperymentu wdrożenie do usługi sieci Web oznacza, że firma z udziałem roweru ma teraz iteracyjne i skalowalne rozwiązanie sieci Web do prognozowania popytu na dzierżawę. 
 
-Po zakończeniu uruchamiania przejdź z powrotem do strony **Uruchom szczegóły** i wybierz kartę **Modele.**
+Po zakończeniu przebiegu Wróć do strony **szczegóły uruchamiania** i wybierz kartę **modele** .
 
-W tym kontekście **eksperymentu StackEnsemble** jest uważany za najlepszy model, na podstawie **znormalizowanej metryki błędu głównego średniej kwadratu.**  Wdrożymy ten model, ale należy pamiętać, wdrożenie trwa około 20 minut, aby zakończyć. Proces wdrażania wymaga kilku kroków, w tym rejestrowania modelu, generowania zasobów i konfigurowania ich dla usługi sieci web.
+W tym kontekście eksperymentu **StackEnsemble** jest uznawany za najlepszy model, w oparciu o **znormalizowaną średnią metrykę błędu kwadratowego** .  Wdrażamy ten model, ale zaleca się wdrożenie trwa około 20 minut. Proces wdrażania obejmuje kilka czynności, takich jak rejestrowanie modelu, Generowanie zasobów i konfigurowanie ich dla usługi sieci Web.
 
-1. Wybierz przycisk **Wdrażanie najlepszego modelu** w lewym dolnym rogu.
+1. Wybierz przycisk **Wdróż najlepszy model** w lewym dolnym rogu.
 
-1. Wypełnij **okienko Wdrażanie modelu w** następujący sposób:
+1. Wypełnij okienko **Wdróż model** w następujący sposób:
 
     Pole| Wartość
     ----|----
-    Nazwa wdrożenia| bikeshare-deploy
-    Opis wdrożenia| wdrożenie zapotrzebowania na udział w rowerze
-    Typ obliczeń | Wybierz wystąpienie obliczeniowe platformy Azure (ACI)
+    Nazwa wdrożenia| bikeshare — Wdróż
+    Opis wdrożenia| wdrożenie popytu na zapotrzebowanie na rowery
+    Typ obliczenia | Wybierz wystąpienie obliczeniowe platformy Azure (ACI)
     Włącz uwierzytelnianie| Wyłącz. 
-    Korzystanie z niestandardowych zasobów wdrażania| Wyłącz. Wyłączenie umożliwia automatyczne wygenerowanie domyślnego pliku sterownika (skrypt oceniania) i pliku środowiska. 
+    Używanie niestandardowych zasobów wdrażania| Wyłącz. Wyłączenie zezwala na Autogenerowanie domyślnego pliku sterownika (skrypt oceniania) i pliku środowiska. 
     
-    W tym przykładzie używamy ustawień domyślnych podanych w menu *Zaawansowane.* 
+    W tym przykładzie używamy ustawień domyślnych, które są dostępne w menu *Zaawansowane* . 
 
 1. Wybierz pozycję **Wdróż**.  
 
-    Zielona wiadomość o sukcesie pojawia się w górnej części ekranu **Uruchom** stwierdził, że wdrożenie zostało pomyślnie rozpoczęte. Postęp wdrożenia można znaleźć  
-    w okienku **Zalecany model** w obszarze **Stan wdrażania**.
+    W górnej części ekranu **uruchamiania** zostanie wyświetlony zielony komunikat o powodzeniu, który stwierdził, że wdrożenie zostało uruchomione pomyślnie. Postęp wdrożenia można znaleźć  
+    w **zalecanym okienku modelu** w obszarze **Wdróż stan**.
     
-Po pomyślnym wdrożeniu masz operacyjną usługę sieci web do generowania prognoz. 
+Po pomyślnym wdrożeniu masz działającą usługę sieci Web do generowania prognoz. 
 
-Przejdź do [**następnych kroków,**](#next-steps) aby dowiedzieć się więcej o korzystaniu z nowej usługi sieci web i przetestować prognozy przy użyciu wbudowanej w usługę Azure Machine Learning pomocy technicznej.
+Przejdź do [**następnych kroków**](#next-steps) , aby dowiedzieć się więcej na temat korzystania z nowej usługi sieci Web i testowania prognoz przy użyciu Power BI wbudowanej Azure Machine Learning obsługi.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Pliki wdrażania są większe niż pliki danych i eksperymentów, więc kosztują więcej. Usuń tylko pliki wdrożeniowe, aby zminimalizować koszty na koncie lub jeśli chcesz zachować pliki obszaru roboczego i eksperymentu. W przeciwnym razie usuń całą grupę zasobów, jeśli nie zamierzasz używać żadnych plików.  
+Pliki wdrożeń są większe niż pliki danych i eksperymenty, dzięki czemu są one droższe do przechowywania. Usuń tylko pliki wdrożenia, aby zminimalizować koszty dla konta, lub jeśli chcesz zachować obszar roboczy i pliki eksperymentów. W przeciwnym razie Usuń całą grupę zasobów, jeśli nie planujesz używać żadnego z tych plików.  
 
 ### <a name="delete-the-deployment-instance"></a>Usuwanie wystąpienia wdrożenia
 
-Usuń tylko wystąpienie wdrożenia ze studia usługi Azure Machine Learning, jeśli chcesz zachować grupę zasobów i obszar roboczy dla innych samouczków i eksploracji. 
+Usuń tylko wystąpienie wdrożenia z programu Azure Machine Learning Studio, jeśli chcesz zachować grupę zasobów i obszar roboczy dla innych samouczków i eksploracji. 
 
-1. Przejdź do [studia usługi Azure Machine Learning](https://ml.azure.com/). Przejdź do obszaru roboczego i po lewej stronie w okienku **Zasoby** wybierz pozycję **Punkty końcowe**. 
+1. Przejdź do [Azure Machine Learning Studio](https://ml.azure.com/). Przejdź do obszaru roboczego i po lewej stronie okienka **elementy zawartości** wybierz pozycję **punkty końcowe**. 
 
-1. Wybierz wdrożenie, które chcesz usunąć, i wybierz pozycję **Usuń**. 
+1. Wybierz wdrożenie, które chcesz usunąć, a następnie wybierz pozycję **Usuń**. 
 
-1. Wybierz **pozycję Kontynuuj**.
+1. Wybierz pozycję **Zastosuj**.
 
 ### <a name="delete-the-resource-group"></a>Usuwanie grupy zasobów
 
@@ -217,14 +217,14 @@ Usuń tylko wystąpienie wdrożenia ze studia usługi Azure Machine Learning, je
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku użyto zautomatyzowanego uczenia maszynowego w studio usługi Azure Machine Learning do utworzenia i wdrożenia modelu prognozowania szeregów czasowych, który przewiduje zapotrzebowanie na wypożyczanie udziałów w rowerze. 
+W tym samouczku użyto zautomatyzowanej ML w Azure Machine Learning Studio, aby utworzyć i wdrożyć model prognozowania szeregów czasowych, który przewiduje przewidywanie popytu na dzierżawę. 
 
-W tym artykule opisano kroki dotyczące tworzenia schematu obsługiwanego przez usługę Power BI w celu ułatwienia użycia nowo wdrożonej usługi sieci web:
+Zapoznaj się z tym artykułem, aby zapoznać się z procedurą tworzenia Power BI obsługiwanego schematu w celu ułatwienia użycia nowo wdrożonej usługi sieci Web:
 
 > [!div class="nextstepaction"]
 > [Używanie usługi internetowej](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 
 >[!NOTE]
-> Ten zestaw danych udziału roweru został zmodyfikowany dla tego samouczka. Ten zestaw danych został udostępniony w ramach [konkursu Kaggle](https://www.kaggle.com/c/bike-sharing-demand/data) i był pierwotnie dostępny za pośrednictwem [Capital Bikeshare.](https://www.capitalbikeshare.com/system-data) Można go również znaleźć w [bazie danych UCI Machine Learning](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>
-> Źródło: Fanaee-T, Hadi i Gama, Joao, Event etykietowania łączący detektory zespołu i wiedzy tła, Postęp w sztucznej inteligencji (2013): s. 1-15, Springer Berlin Heidelberg.
+> Ten zestaw danych udostępniania roweru został zmodyfikowany dla tego samouczka. Ten zestaw danych został udostępniony w ramach [konkursu Kaggle](https://www.kaggle.com/c/bike-sharing-demand/data) i pierwotnie dostępny za pośrednictwem [Wielkiej Bikeshare](https://www.capitalbikeshare.com/system-data). Można go również znaleźć w [bazie danych UCI Machine Learning](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>
+> Źródło: Fanaee-T, Hadi i gama, Joao, Event Labeling desourceers detektorzy i wiedza w tle, postęp w sztucznej analizie (2013): PP. 1-15, Springer Berlin Heidelberg.

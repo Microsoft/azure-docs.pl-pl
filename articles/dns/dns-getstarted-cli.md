@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: tworzenie strefy DNS platformy Azure i rejestrowanie — narzędzie interfejsu wiersza polecenia platformy Azure'
+title: 'Szybki Start: Tworzenie strefy Azure DNS i rekordu — interfejs wiersza polecenia platformy Azure'
 titleSuffix: Azure DNS
 description: Szybki start — dowiedz się, jak utworzyć strefę i rekord DNS w usłudze Azure DNS. W tym szczegółowym przewodniku pokazano, jak po raz pierwszy utworzyć strefę i rekord DNS przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: dns
@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: e6904c013cf2ed897bdc7c8b32f04fe500fc31d9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76937196"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Szybki start: tworzenie strefy i rekordu usługi Azure DNS przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -21,11 +21,11 @@ W tym artykule przedstawiono procedurę tworzenia po raz pierwszy strefy i rekor
 
 Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby rozpocząć hostowanie domeny w usłudze Azure DNS, musisz utworzyć strefę DNS dla tej nazwy domeny. Każdy rekord DNS domeny zostanie utworzony w tej strefie DNS. Aby na koniec opublikować strefę DNS w Internecie, należy skonfigurować serwery nazw dla domeny. Poniżej opisano każdy z tych kroków.
 
-Usługa Azure DNS obsługuje również prywatne strefy DNS. Aby uzyskać więcej informacji na temat prywatnych stref DNS, zobacz [Using Azure DNS for private domains (Używanie usługi Azure DNS dla domen prywatnych)](private-dns-overview.md). Aby zapoznać się z przykładowym sposobem tworzenia prywatnej strefy DNS, zobacz [Rozpoczynanie pracy ze strefami prywatnymi usługi Azure DNS przy użyciu interfejsu wiersza polecenia](./private-dns-getstarted-cli.md).
+Azure DNS obsługuje również prywatne strefy DNS. Aby uzyskać więcej informacji na temat prywatnych stref DNS, zobacz [Using Azure DNS for private domains (Używanie usługi Azure DNS dla domen prywatnych)](private-dns-overview.md). Aby zapoznać się z przykładowym sposobem tworzenia prywatnej strefy DNS, zobacz [Rozpoczynanie pracy ze strefami prywatnymi usługi Azure DNS przy użyciu interfejsu wiersza polecenia](./private-dns-getstarted-cli.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="create-the-resource-group"></a>Tworzenie grupy zasobów
 
@@ -39,7 +39,7 @@ az group create --name MyResourceGroup --location "East US"
 
 Do tworzenia strefy DNS służy polecenie `az network dns zone create`. Aby wyświetlić pomoc dla tego polecenia, wpisz `az network dns zone create -h`.
 
-Poniższy przykład tworzy strefę DNS o nazwie *contoso.xyz* w grupie zasobów *MyResourceGroup*. Skorzystaj z tego przykładu, aby utworzyć strefę DNS, podstawiając własne wartości.
+Poniższy przykład tworzy strefę DNS o nazwie *contoso. xyz* *w grupie zasobów*. Skorzystaj z tego przykładu, aby utworzyć strefę DNS, podstawiając własne wartości.
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n contoso.xyz
@@ -49,7 +49,7 @@ az network dns zone create -g MyResourceGroup -n contoso.xyz
 
 Aby utworzyć rekord DNS, użyj polecenia `az network dns record-set [record type] add-record`. Aby uzyskać pomoc dotyczącą rekordów A, zobacz `azure network dns record-set A add-record -h`.
 
-Poniższy przykład tworzy rekord o względnej nazwie "www" w strefie DNS "contoso.xyz" w grupie zasobów "MyResourceGroup". W pełni kwalifikowaną nazwą zestawu rekordów jest "www.contoso.xyz". Typ rekordu to "A", z adresem IP "10.10.10.10", a domyślny czas wygaśnięcia 3600 sekund (1 godzina).
+W poniższym przykładzie jest tworzony rekord o nazwie względnej "www" w strefie DNS "contoso. xyz" w grupie zasobów "zasób". W pełni kwalifikowana nazwa zestawu rekordów to "www. contoso. xyz". Typ rekordu to "A" z adresem IP "10.10.10.10" i domyślny czas wygaśnięcia wynoszący 3600 sekund (1 godzina).
 
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.xyz -n www -a 10.10.10.10
@@ -69,7 +69,7 @@ Po utworzeniu testowej strefy DNS z rekordem „A” możesz przetestować rozpo
 
 **Aby przetestować rozpoznawanie nazw DNS:**
 
-1. Uruchom następujące polecenie cmdlet, aby uzyskać listę serwerów nazw dla swojej strefy:
+1. Uruchom następujące polecenie cmdlet, aby uzyskać listę serwerów nazw dla strefy:
 
    ```azurecli
    az network dns record-set ns show --resource-group MyResourceGroup --zone-name contoso.xyz --name @
@@ -93,7 +93,7 @@ Po utworzeniu testowej strefy DNS z rekordem „A” możesz przetestować rozpo
 
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-Nazwa hosta **www\.contoso.xyz** jest rozpoznawana jako **10.10.10.10**, tak jak została skonfigurowana. Taki wynik potwierdza, że rozpoznawanie nazw działa poprawnie.
+Nazwa hosta **www\.contoso. xyz** jest rozpoznawana jako **10.10.10.10**, tak jak została skonfigurowana. Taki wynik potwierdza, że rozpoznawanie nazw działa poprawnie.
 
 ## <a name="delete-all-resources"></a>Usuwanie wszystkich zasobów
 

@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: wyodrębnianie danych o potwierdzeniu przy użyciu języka Python — aparat rozpoznawania formularzy'
+title: 'Szybki Start: wyodrębnianie danych o odbiorze przy użyciu języka Python — formularz rozpoznawania'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku Szybki start użyjesz interfejsu API REST rozpoznawania formularzy z pythonem, aby wyodrębnić dane z obrazów paragonów ze sprzedaży w USA.
+description: W tym przewodniku szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy w języku Python, aby wyodrębnić dane z obrazów przyjęć sprzedaży w USA.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -10,35 +10,35 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: 2224ec64712ff9d1745231f39a1521ae941304ff
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77118770"
 ---
-# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Szybki start: wyodrębnianie danych o potwierdzeniu przy użyciu interfejsu API REST aparatu formularza za pomocą języka Python
+# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Szybki Start: wyodrębnianie danych przyjęcia przy użyciu interfejsu API REST aparatu rozpoznawania w języku Python
 
-W tym przewodniku Szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy platformy Azure z programem Python, aby wyodrębnić i zidentyfikować istotne informacje w paragonach sprzedaży w USA.
+W tym przewodniku szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy platformy Azure w języku Python, aby wyodrębnić i zidentyfikować odpowiednie informacje w blankietach sprzedaży w USA.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten szybki start, musisz mieć:
-- [Python](https://www.python.org/downloads/) zainstalowany (jeśli chcesz uruchomić przykład lokalny).
-- Adres URL obrazu potwierdzenia. Do tego szybkiego startu można użyć [przykładowego obrazu.](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true)
+Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
+- Zainstalowana w języku [Python](https://www.python.org/downloads/) (Jeśli chcesz uruchomić przykład lokalnie).
+- Adres URL obrazu potwierdzenia. Możesz użyć [przykładowego obrazu](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true) dla tego przewodnika Szybki Start.
 
-## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularzy
+## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularza
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-## <a name="analyze-a-receipt"></a>Analizowanie przyjęcia
+## <a name="analyze-a-receipt"></a>Analizowanie paragonu
 
-Aby rozpocząć analizowanie potwierdzenia, należy **[wywołać interfejs](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** API analizy potwierdzenia przy użyciu skryptu Języka Python poniżej. Przed uruchomieniem skryptu należy wprowadzić następujące zmiany:
+Aby rozpocząć analizowanie paragonu, należy wywołać interfejs API **[analizy paragonów](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** przy użyciu poniższego skryptu języka Python. Przed uruchomieniem skryptu wprowadź następujące zmiany:
 
-1. Zamień `<Endpoint>` punkt końcowy, który został uzyskany za pomocą subskrypcji aparatu rozpoznawania formularzy.
+1. Zamień `<Endpoint>` na punkt końcowy uzyskany w ramach subskrypcji aparatu rozpoznawania formularza.
 1. Zamień `<your receipt URL>` na adres URL obrazu paragonu.
-1. Zamień `<subscription key>` klucz subskrypcji skopiowany z poprzedniego kroku.
+1. Zamień `<subscription key>` na klucz subskrypcji skopiowany z poprzedniego kroku.
 
     ```python
     ########### Python Form Recognizer Async Layout #############
@@ -78,19 +78,19 @@ Aby rozpocząć analizowanie potwierdzenia, należy **[wywołać interfejs](http
         quit()
     ```
 
-1. Zapisz kod w pliku z rozszerzeniem .py. Na przykład *form-recognizer-receipts.py*.
+1. Zapisz kod w pliku z rozszerzeniem. pr. Na przykład *form-Recognizer-Receipts.py*.
 1. Otwórz okno wiersza polecenia.
 1. W wierszu polecenia użyj polecenia `python`, aby uruchomić próbkę. Na przykład `python form-recognizer-receipts.py`.
 
-Otrzymasz odpowiedź `202 (Success)` zawierającą nagłówek **Lokalizacja operacji,** który skrypt zostanie wydrukowany na konsoli. Ten nagłówek zawiera identyfikator operacji, którego można użyć do wykonywania zapytań o stan operacji asynchronicznej i uzyskania wyników. W poniższej wartości przykładowej `operations/` ciąg po jest identyfikatorem operacji.
+Otrzymasz `202 (Success)` odpowiedź, która zawiera nagłówek **operacji-Location** , który skrypt będzie drukowany w konsoli programu. Ten nagłówek zawiera identyfikator operacji, którego można użyć do zbadania stanu operacji asynchronicznej i uzyskania wyników. W poniższym przykładzie wartość ciąg po `operations/` to identyfikator operacji.
 
 ```console
 https://cognitiveservice/formrecognizer/v2.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
-## <a name="get-the-receipt-results"></a>Uzyskaj wyniki paragonu
+## <a name="get-the-receipt-results"></a>Pobierz wyniki odbioru
 
-Po **wywołaniu interfejsu** API potwierdzenia analizy, należy **[wywołać Get Analizy wynik odbioru](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** API, aby uzyskać stan operacji i wyodrębnione dane. Dodaj następujący kod na dole skryptu Pythona. Spowoduje to użycie wartości identyfikatora operacji w nowym wywołaniu interfejsu API. Ten skrypt wywołuje interfejs API w regularnych odstępach czasu, dopóki wyniki nie są dostępne. Zalecamy interwał jednej sekundy lub więcej.
+Po wywołaniu interfejsu API **Analizowanie paragonów** należy wywołać interfejs API **[wyników uzyskiwania analizy przychodu](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** , aby uzyskać stan operacji i wyodrębnionych danych. Dodaj następujący kod w dolnej części skryptu języka Python. Spowoduje to użycie wartości identyfikatora operacji w nowym wywołaniu interfejsu API. Ten skrypt wywołuje interfejs API w regularnych odstępach czasu, dopóki wyniki nie będą dostępne. Zalecamy interwał co najmniej jednej sekundy.
 
 ```python
 n_tries = 10
@@ -120,17 +120,17 @@ while n_try < n_tries:
 ```
 
 1. Zapisz skrypt.
-1. Ponownie użyj `python` polecenia, aby uruchomić próbkę. Na przykład `python form-recognizer-receipts.py`.
+1. Ponownie Użyj `python` polecenia, aby uruchomić przykład. Na przykład `python form-recognizer-receipts.py`.
 
 ### <a name="examine-the-response"></a>Sprawdzanie odpowiedzi
 
-Skrypt będzie drukować odpowiedzi do konsoli, dopóki operacja **Analizuj przyjęcie** zostanie zakończona. Następnie wydrukuje wyodrębnione dane tekstowe w formacie JSON. To `"recognitionResults"` pole zawiera każdy wiersz tekstu wyodrębniony z `"understandingResults"` przyjęcia, a pole zawiera informacje o kluczu/wartości dla najbardziej istotnych części przyjęcia.
+Skrypt będzie drukował odpowiedzi do konsoli do momentu zakończenia operacji **analizy paragonu** . Następnie drukuje wyodrębnione dane tekstowe w formacie JSON. `"recognitionResults"` Pole zawiera wszystkie wiersze tekstu wyodrębnione z paragonu, a `"understandingResults"` pole zawiera informacje o kluczu/wartości dla najbardziej odpowiednich części paragonu.
 
-Zobacz poniższy obraz przyjęcia i odpowiadające mu dane wyjściowe JSON. Dane wyjściowe zostały skrócone w celu uzyskania czytelności.
+Zapoznaj się z poniższym obrazem paragonu i odpowiednimi danymi wyjściowymi JSON. Dane wyjściowe zostały skrócone w celu zapewnienia czytelności.
 
-![Pokwitowanie ze sklepu Contoso](../media/contoso-allinone.jpg)
+![Potwierdzenie ze sklepu contoso](../media/contoso-allinone.jpg)
 
-Węzeł `"recognitionResults"` zawiera cały rozpoznany tekst. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie według poszczególnych słów. Węzeł `"understandingResults"` zawiera wartości specyficzne dla przyjęcia, które model odnaleziony. W tym miejscu znajdziesz przydatne pary klucza/wartości, takie jak podatek, suma, adres sprzedawcy i tak dalej.
+`"recognitionResults"` Węzeł zawiera cały rozpoznany tekst. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. `"understandingResults"` Węzeł zawiera wartości specyficzne dla paragonu wykryte przez model. Tutaj znajdziesz przydatne pary klucz/wartość, takie jak podatek, łączny, adres handlowca itd.
 
 ```json
 { 
@@ -459,7 +459,7 @@ Węzeł `"recognitionResults"` zawiera cały rozpoznany tekst. Tekst jest zorgan
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start użyto interfejsu API REST rozpoznawania formularzy z programem Python, aby wyodrębnić zawartość przyjęcia sprzedaży. Następnie zapoznaj się z dokumentacją odwołania, aby zbadać interfejs API rozpoznawania formularzy bardziej szczegółowo.
+W tym przewodniku szybki start użyto interfejsu API REST aparatu rozpoznawania formularzy w języku Python w celu wyodrębnienia zawartości paragonu sprzedaży. Następnie zapoznaj się z dokumentacją referencyjną w celu eksplorowania interfejsu API rozpoznawania formularzy.
 
 > [!div class="nextstepaction"]
-> [Dokumentacja referencyjna interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)
+> [Dokumentacja interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)

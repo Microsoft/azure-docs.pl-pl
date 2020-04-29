@@ -10,48 +10,48 @@ ms.author: dpalled
 manager: cshankar
 ms.custom: include file
 ms.openlocfilehash: 7bc6938523a6d66a2bc20b37c659568fc5ca494d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77123140"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>Ogólna dostępność i porównanie wersji zapoznawczej
 
-W poniższej tabeli podsumowano kilka kluczowych różnic między ogólną dostępnością usługi Azure Time Series Insights (GA) a wystąpieniami w wersji zapoznawczej.
+Poniższa tabela zawiera podsumowanie kilku najważniejszych różnic między ogólnie dostępnymi Azure Time Series Insights a wystąpieniami wersji zapoznawczej.
 
 | | Ogólna dostępność | Wersja zapoznawcza |
 | --- | --- | ---|
-| Obywatel pierwszej klasy | Zorientowane na zdarzenia | Czas-zorientowany na szeregi |
-| Rozumowanie semantyczne | Niski poziom (dane referencyjne) | Wysoki poziom (modele) |
-| Kontekstowanie danych | Poziom niezwiązanych z urządzeniem | Poziom urządzenia i urządzenia niezwiązanego z urządzeniem |
-| Pamięć masowa logiki obliczeniowej | Nie | Przechowywane w zmiennych typu część modelu |
-| Przechowywanie i kontrola dostępu | Nie | Włączona za pośrednictwem modelu |
-| Agregacje/pobieranie próbek | Nie | Ważony zdarzenie i ważony czas |
-| Rekonstrukcja sygnału | Nie | Interpolacji |
-| Produkcja pochodnych szeregów czasowych | Nie | Tak, łączy się i łączy |
-| Elastyczność językowa | Nieskomisowalne | Można skomponować |
-| Język wyrażeń | Ciąg predykatu | Wyrażenia szeregów czasowych (ciągi predykacji, wartości, wyrażenia i funkcje) |
+| Obywatel pierwszej klasy | Zorientowane na zdarzenia | Zorientowane na serie czasowe |
+| Powód semantyczny | Niskiego poziomu (dane referencyjne) | Wysoki poziom (modele) |
+| Contextualization danych | Na poziomie innym niż urządzenie | Urządzenie i nie na poziomie urządzenia |
+| Magazyn logiki obliczeniowej | Nie | Przechowywane w modelu typu zmienne części |
+| Magazyn i kontrola dostępu | Nie | Włączone za pośrednictwem modelu |
+| Agregacje/próbkowanie | Nie | Ważone zdarzenie i ważone czasowo |
+| Odtwarzanie sygnału | Nie | Interpolacji |
+| Produkcja pochodnych szeregów czasowych | Nie | Tak, scalenia i sprzężenia |
+| Elastyczność języka | Bez możliwości tworzenia | Składanie |
+| Język wyrażeń | Ciąg predykatu | Wyrażenia szeregów czasowych (ciągi predykatów, wartości, wyrażenia i funkcje) |
 
-### <a name="property-limits"></a>Limity nieruchomości
+### <a name="property-limits"></a>Limity właściwości
 
-Limity właściwości usługi Time Series Insights wzrosły do 1000 z maksymalnego limitu 800 w ga. Podane właściwości zdarzeń mają odpowiednie kolumny JSON, CSV i wykresu, które można wyświetlić w [eksploratorze podglądu usługi Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+Limity właściwości Time Series Insights wzrosły do 1 000 z maksymalną ilością 800 w przypadku. Podane właściwości zdarzenia mają odpowiednie kolumny JSON, CSV i wykresu, które można wyświetlić w [eksploratorze Time Series Insights w wersji zapoznawczej](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
 
-| SKU | Maksymalna liczba właściwości |
+| SKU | Właściwości maksymalne |
 | --- | --- |
-| Podgląd PAYG | 1000 właściwości (kolumny) |
-| GA S1 | 600 właściwości (kolumny) |
-| GA S2 | 800 właściwości (kolumny) |
+| Podgląd PAYG | Właściwości 1 000 (kolumny) |
+| GA S1 | Właściwości 600 (kolumny) |
+| GA S2 | Właściwości 800 (kolumny) |
 
 ### <a name="event-sources"></a>Źródła zdarzeń
 
 Obsługiwane są maksymalnie dwa źródła zdarzeń na wystąpienie. 
 
-* Dowiedz się, jak [dodać źródło centrum zdarzeń](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
-* Konfigurowanie [źródła centrum IoT](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
+* Dowiedz się, jak [dodać Źródło centrum zdarzeń](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
+* Skonfiguruj [Źródło Centrum IoT](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
 
-Domyślnie [środowiska w wersji zapoznawczej obsługują szybkość transferu ruchu przychodzącego](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#ingress-scale-and-preview-limitations) do **1 megabajta na sekundę (MB/s) na środowisko.** Klienci mogą skalować swoje środowiska w wersji zapoznawczej do **16 MB/s przepływności,** jeśli to konieczne. Istnieje również limit na partycję **0,5 MB/s.** 
+Domyślnie środowiska w [wersji zapoznawczej obsługują stawki](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#ingress-scale-and-preview-limitations) za transfer danych przychodzących do **1 MB na sekundę (MB/s) na środowisko**. W razie potrzeby klienci mogą skalować swoje środowiska w wersji zapoznawczej do **16 MB/s** . Istnieje również limit partycji wynoszący **0,5 MB/s**. 
 
-### <a name="api-limits"></a>Limity API
+### <a name="api-limits"></a>Limity interfejsu API
 
-Limity interfejsu API REST dla usługi Time Series Insights Preview są określone w [dokumentacji referencyjnej interfejsu API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#limits).
+Limity interfejsu API REST dla programu Time Series Insights Preview są określone w [dokumentacji interfejsu API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#limits).

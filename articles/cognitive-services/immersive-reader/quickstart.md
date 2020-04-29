@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: tworzenie aplikacji internetowej, która uruchamia czytnik Immersive z C #'
+title: 'Szybki Start: Tworzenie aplikacji sieci Web, która uruchamia czytnik immersyjny przy użyciu języka C #'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku Szybki start tworzysz aplikację internetową od podstaw i dodajesz funkcję interfejsu API programu Immersive Reader.
+description: W tym przewodniku szybki start utworzysz aplikację internetową od podstaw i dodasz funkcję interfejsu API czytnika immersyjny.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -11,40 +11,40 @@ ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: metan
 ms.openlocfilehash: 8dd8459922caa9f765d59bc28fbf050b86834b46
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76845250"
 ---
-# <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Szybki start: tworzenie aplikacji sieci Web, która uruchamia czytnik Immersive Reader (C#)
+# <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Szybki Start: Tworzenie aplikacji sieci Web, która uruchamia czytnik immersyjny (C#)
 
-[Immersive Reader](https://www.onenote.com/learningtools) to zaprojektowane z włącznie narzędzie, które wdraża sprawdzone techniki poprawiające rozumienie czytania.
+[Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności.
 
-W tym przewodniku Szybki start tworzysz aplikację internetową od podstaw i integrujesz program Immersive Reader przy użyciu sdk Immersive Reader. Pełna próbka pracy tego przewodnika Szybki start jest dostępna [tutaj.](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp)
+W tym przewodniku szybki start utworzysz aplikację internetową od podstaw i zintegrujesz czytnik immersyjny przy użyciu zestawu SDK czytnika immersyjny. Pełny przykład pracy tego przewodnika Szybki Start jest dostępny [tutaj](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
-* Zasób programu Immersive Reader skonfigurowany do uwierzytelniania usługi Azure Active Directory. Postępuj zgodnie [z tymi instrukcjami,](./how-to-create-immersive-reader.md) aby skonfigurować. Podczas konfigurowania przykładowych właściwości projektu potrzebne będą niektóre wartości utworzone w tym miejscu. Zapisz dane wyjściowe sesji w pliku tekstowym do wykorzystania w przyszłości.
+* Zasób czytnika immersyjny skonfigurowany do Azure Active Directory uwierzytelniania. Postępuj zgodnie z [tymi instrukcjami](./how-to-create-immersive-reader.md) , aby rozpocząć konfigurację. W przypadku konfigurowania przykładowych właściwości projektu konieczne będzie utworzenie niektórych wartości. Zapisz dane wyjściowe sesji w pliku tekstowym do użycia w przyszłości.
 
 ## <a name="create-a-web-app-project"></a>Tworzenie projektu aplikacji sieci Web
 
-Utwórz nowy projekt w programie Visual Studio, używając szablonu ASP.NET Core Web Application z wbudowanym kontrolerem widoku modelu i ASP.NET Core 2.1. Nazwij projekt "Szybki startSampleWebApp".
+Utwórz nowy projekt w programie Visual Studio przy użyciu szablonu aplikacji sieci Web ASP.NET Core z wbudowanym modelem-View-Controller i ASP.NET Core 2,1. Nadaj projektowi nazwę "QuickstartSampleWebApp".
 
 ![Nowy projekt](./media/quickstart-csharp/1-createproject.png)
 
-![Konfigurowanie nowego projektu](./media/quickstart-csharp/2-configureproject.png)
+![Konfiguruj nowy projekt](./media/quickstart-csharp/2-configureproject.png)
 
-![Nowa ASP.NET podstawowa aplikacja sieci Web](./media/quickstart-csharp/3-createmvc.png)
+![Nowa aplikacja sieci Web ASP.NET Core](./media/quickstart-csharp/3-createmvc.png)
 
 ## <a name="set-up-authentication"></a>Konfigurowanie uwierzytelniania
 
 ### <a name="configure-authentication-values"></a>Konfigurowanie wartości uwierzytelniania
 
-Kliknij prawym przyciskiem myszy projekt w _Eksploratorze rozwiązań_ i wybierz pozycję **Zarządzaj tajemnicami użytkownika**. Spowoduje to otwarcie pliku o nazwie _secrets.json_. Ten plik nie jest sprawdzany w formancie źródła. Dowiedz się więcej [tutaj](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Zastąp zawartość _pliku secrets.json_ następującym, podając wartości podane podczas tworzenia zasobu programu Immersive Reader.
+Kliknij prawym przyciskiem myszy projekt w _Eksplorator rozwiązań_ i wybierz polecenie **Zarządzaj kluczami tajnymi użytkownika**. Spowoduje to otwarcie pliku o nazwie Secret _. JSON_. Ten plik nie jest sprawdzany w kontroli źródła. Dowiedz się więcej [tutaj](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Zastąp zawartość pliku Secret _. JSON_ następującym parametrem, dostarczając wartości podanych podczas tworzenia zasobu czytnika immersyjny.
 
 ```json
 {
@@ -55,25 +55,25 @@ Kliknij prawym przyciskiem myszy projekt w _Eksploratorze rozwiązań_ i wybierz
 }
 ```
 
-### <a name="add-the-microsoftidentitymodelclientsactivedirectory-nuget-package"></a>Dodaj pakiet Microsoft.IdentityModel.Clients.ActiveDirectory NuGet
+### <a name="add-the-microsoftidentitymodelclientsactivedirectory-nuget-package"></a>Dodawanie pakietu NuGet Microsoft. IdentityModel. clients. ActiveDirectory
 
-Poniższy kod używa obiektów z pakietu **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet, więc należy dodać odwołanie do tego pakietu w projekcie.
+Poniższy kod używa obiektów z pakietu NuGet **Microsoft. IdentityModel. clients. ActiveDirectory** , dlatego należy dodać odwołanie do tego pakietu w projekcie.
 
-Otwórz konsolę Menedżera pakietów NuGet z **narzędzia -> NuGet Package Manager -> Konsoli Menedżera pakietów** i uruchom następujące polecenie:
+Otwórz konsolę Menedżera pakietów NuGet z **menu Narzędzia — > Menedżer pakietów NuGet — > konsolę Menedżera pakietów** i uruchom następujące polecenie:
 
 ```powershell
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 5.2.0
 ```
 
-### <a name="update-the-controller-to-acquire-the-token"></a>Zaktualizuj kontroler, aby uzyskać token 
+### <a name="update-the-controller-to-acquire-the-token"></a>Aktualizowanie kontrolera w celu uzyskania tokenu 
 
-Otwórz _controllers\HomeController.cs_i dodaj następujący kod po _użyciu_ instrukcji w górnej części pliku.
+Otwórz _Controllers\HomeController.cs_i Dodaj następujący kod po instrukcjach _using_ w górnej części pliku.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Teraz skonfigurujemy kontroler w celu uzyskania wartości usługi Azure AD z _pliku secrets.json._ W górnej części _HomeController_ klasy, po , ```public class HomeController : Controller {```dodać następujący kod.
+Teraz skonfigurujemy kontroler do uzyskiwania wartości usługi Azure AD z pliku Secret _. JSON_. W górnej części klasy _HomeController_ , ```public class HomeController : Controller {```Dodaj następujący kod.
 
 ```csharp
 private readonly string TenantId;     // Azure subscription TenantId
@@ -143,14 +143,14 @@ public async Task<JsonResult> GetTokenAndSubdomain()
 }
 ```
 
-## <a name="add-sample-content"></a>Dodawanie przykładowej zawartości
-Najpierw otwórz _widok\Udostępniony\Layout.cshtml_. Przed wierszem ```</head>```dodaj następujący kod:
+## <a name="add-sample-content"></a>Dodaj przykładową zawartość
+Najpierw Otwórz _Views\Shared\Layout.cshtml_. Przed wierszem ```</head>```Dodaj następujący kod:
 
 ```html
 @RenderSection("Styles", required: false)
 ```
 
-Teraz dodamy przykładową zawartość do tej aplikacji internetowej. Otwórz _Views\Home\Index.cshtml_ i zastąp wszystkie automatycznie wygenerowane kodu w tym przykładzie:
+Teraz dodamy przykładową zawartość do tej aplikacji sieci Web. Otwórz _Views\Home\Index.cshtml_ i Zastąp wszystkie automatycznie wygenerowany kod tym przykładem:
 
 ```html
 @{
@@ -216,13 +216,13 @@ Teraz dodamy przykładową zawartość do tej aplikacji internetowej. Otwórz _V
 </div>
 ```
 
-Należy zauważyć, że cały tekst ma atrybut **lang,** który opisuje języki tekstu. Ten atrybut pomaga immersive reader zapewnić odpowiednie funkcje języka i gramatyki.
+Zwróć uwagę, że cały tekst ma atrybut **lang** , który opisuje Języki tekstu. Ten atrybut pomaga czytnikom immersyjny zapewnić odpowiednie funkcje języka i gramatyki.
 
-## <a name="add-javascript-to-handle-launching-the-immersive-reader"></a>Dodaj javascript do obsługi uruchamiania immersive reader
+## <a name="add-javascript-to-handle-launching-the-immersive-reader"></a>Dodaj kod JavaScript, aby obsłużyć uruchamianie czytnika immersyjny
 
-Biblioteka Immersive Reader zapewnia funkcje, takie jak uruchamianie programu Immersive Reader i renderowanie przycisków Immersive Reader. Dowiedz się więcej [tutaj](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference).
+Biblioteka czytników immersyjny udostępnia funkcje, takie jak uruchamianie czytnika Immersyjnygo i renderowanie przycisków czytnika szczegółowego. Dowiedz się więcej [tutaj](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference).
 
-U dołu _views\Home\Index.cshtml_dodaj następujący kod:
+W dolnej części _Views\Home\Index.cshtml_Dodaj następujący kod:
 
 ```html
 @section Scripts
@@ -294,21 +294,21 @@ U dołu _views\Home\Index.cshtml_dodaj następujący kod:
 
 ## <a name="build-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
 
-Na pasku menu wybierz **debugowanie > Rozpocznij debugowanie**lub naciśnij **klawisz F5,** aby uruchomić aplikację.
+Na pasku menu wybierz kolejno opcje **debuguj > Rozpocznij debugowanie**lub naciśnij klawisz **F5** , aby uruchomić aplikację.
 
-W przeglądarce powinieneś zobaczyć:
+W przeglądarce powinny zostać wyświetlone następujące tematy:
 
 ![Przykładowa aplikacja](./media/quickstart-csharp/4-buildapp.png)
 
-## <a name="launch-the-immersive-reader"></a>Uruchom czytnik Immersive Reader
+## <a name="launch-the-immersive-reader"></a>Uruchom czytnik immersyjny
 
-Po kliknięciu przycisku "Immersive Reader" zobaczysz immersyjny czytnik uruchomiony z zawartością na stronie.
+Po kliknięciu przycisku "czytnik immersyjny" zobaczysz czytnik immersyjny uruchamiany z zawartością na stronie.
 
 ![Czytnik immersyjny](./media/quickstart-csharp/5-viewimmersivereader.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Wyświetl [przewodnik Szybki start w pliku Node.js,](./quickstart-nodejs.md) aby zobaczyć, co jeszcze można zrobić z modułem Immersive Reader SDK przy użyciu pliku Node.js
-* Zobacz [samouczek Pythona,](./tutorial-python.md) aby zobaczyć, co jeszcze możesz zrobić z zestawu Immersive Reader SDK przy użyciu języka Python
-* Zobacz [samouczek systemu iOS,](./tutorial-ios-picture-immersive-reader.md) aby zobaczyć, co jeszcze możesz zrobić z zestawu Immersive Reader SDK za pomocą programu Swift
-* Poznaj [immersyjny moduł SDK czytnika](https://github.com/microsoft/immersive-reader-sdk) i [immersyjny moduł SDK czytnika](./reference.md)
+* Zobacz [Przewodnik Szybki Start środowiska Node. js](./quickstart-nodejs.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK programu immersyjny przy użyciu środowiska Node. js.
+* Obejrzyj [samouczek języka Python](./tutorial-python.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK dla czytnika immersyjny przy użyciu języka Python
+* Wyświetl [Samouczek systemu iOS](./tutorial-ios-picture-immersive-reader.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK programu immersyjny przy użyciu SWIFT
+* Poznaj [zestaw SDK czytnika immersyjny](https://github.com/microsoft/immersive-reader-sdk) i [Kompendium zestawu SDK czytnika immersyjny](./reference.md)

@@ -15,10 +15,10 @@ ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
 ms.openlocfilehash: 27d79e28a986e929fb71dd77fc50b3c2cd32618f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77134035"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Samouczek: dostęp do laboratorium w usłudze Azure Lab Services
@@ -33,39 +33,39 @@ W tym samouczku wykonasz następujące czynności:
 
 ## <a name="register-to-the-lab"></a>Zarejestruj się w laboratorium
 
-1. Przejdź do **adresu URL rejestracji** otrzymanego od nauczyciela. Po ukończeniu rejestracji nie musisz używać adresu URL rejestracji. Zamiast tego użyj adresu [https://labs.azure.com](https://labs.azure.com)URL: . Program Internet Explorer 11 nie jest jeszcze obsługiwany. 
+1. Przejdź do **adresu URL rejestracji** otrzymanego od nauczyciela. Po ukończeniu rejestracji nie musisz używać adresu URL rejestracji. Zamiast tego użyj adresu URL: [https://labs.azure.com](https://labs.azure.com). Program Internet Explorer 11 nie jest jeszcze obsługiwany. 
 1. Zaloguj się do usługi przy użyciu konta służbowego, aby ukończyć rejestrację. 
 
     > [!NOTE]
-    > Konto Microsoft jest wymagane do korzystania z usług Azure Lab Services. Jeśli próbujesz zalogować się do portalu za pomocą konta innego niż Microsoft, takiego jak Konta Yahoo lub Google, postępuj zgodnie z instrukcjami, aby utworzyć konto Microsoft, które będzie połączone z Twoim kontem spoza firmy Microsoft. Następnie wykonaj kroki, aby zakończyć proces rejestracji. 
+    > Do korzystania z Azure Lab Services jest wymagany konto Microsoft. Jeśli próbujesz zalogować się do portalu przy użyciu innych konto Microsoft, takich jak Yahoo lub konta Google, postępuj zgodnie z instrukcjami, aby utworzyć konto Microsoft, który zostanie połączony z niekonto Microsoft. Następnie postępuj zgodnie z instrukcjami, aby ukończyć proces rejestracji. 
 1. Po zarejestrowaniu upewnij się, że widzisz maszyny wirtualne dla laboratorium, do którego masz dostęp. 
-1. Poczekaj, aż maszyna wirtualna będzie gotowa. Na kafelku maszyny Wirtualnej zwróć uwagę na następujące pola:
+1. Zaczekaj, aż maszyna wirtualna będzie gotowa. Na kafelku maszyny wirtualnej Zwróć uwagę na następujące pola:
     1. W górnej części kafelka zobaczysz **nazwę laboratorium**.
-    1. Po prawej stronie zobaczysz ikonę reprezentującą **system operacyjny maszyny** Wirtualnej. W tym przykładzie jest to system operacyjny Windows. 
-    1. Pasek postępu na kafelku pokazuje liczbę godzin używanych w stosunku do liczby [godzin przydziału](how-to-configure-student-usage.md#set-quotas-for-users) przypisanych do ciebie. Tym razem jest to dodatkowy czas przydzielony do Ciebie oprócz zaplanowanego czasu dla laboratorium. 
-    1. Ikony/przyciski u dołu kafelka można wyświetlić, aby uruchomić/zatrzymać maszynę wirtualną i połączyć się z maszyną wirtualną. 
-    1. Po prawej stronie przycisków zobaczysz stan maszyny Wirtualnej. Upewnij się, że stan maszyny Wirtualnej jest **zatrzymany**. 
+    1. Po prawej stronie zostanie wyświetlona ikona reprezentująca **system operacyjny (OS)** maszyny wirtualnej. W tym przykładzie jest to system operacyjny Windows. 
+    1. Pasek postępu na kafelku pokazuje liczbę godzin użycia w odniesieniu do liczby godzin [przypisanych](how-to-configure-student-usage.md#set-quotas-for-users) do użytkownika. Ten czas jest dodatkowym czasem przydzielonym do czasu zaplanowanym dla laboratorium. 
+    1. Zobaczysz ikonę/przyciski w dolnej części kafelka, aby uruchomić/zatrzymać maszynę wirtualną, a następnie nawiązać połączenie z maszyną wirtualną. 
+    1. Na prawo od przycisków zobaczysz stan maszyny wirtualnej. Upewnij się, że stan maszyny wirtualnej jest **zatrzymany**. 
 
         ![Maszyna wirtualna w stanie zatrzymania](../media/tutorial-connect-vm-in-classroom-lab/vm-in-stopped-state.png)
 
 ## <a name="start-the-vm"></a>Uruchamianie maszyny wirtualnej
-1. **Rozpocznij** maszynę wirtualną, wybierając pierwszy przycisk, jak pokazano na poniższej ilustracji. Ten proces zajmuje trochę czasu.  
+1. **Uruchom** maszynę wirtualną, wybierając pierwszy przycisk, jak pokazano na poniższej ilustracji. Ten proces zajmuje trochę czasu.  
 
     ![Uruchamianie maszyny wirtualnej](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
-4. Upewnij się, że stan maszyny Wirtualnej jest ustawiony na **Uruchomiony**. 
+4. Upewnij się, że stan maszyny wirtualnej to **uruchomiono**. 
 
-    ![Maszyna wirtualna w stanie uruchomionym](../media/tutorial-connect-vm-in-classroom-lab/vm-running.png)
+    ![Maszyna wirtualna w stanie uruchomienia](../media/tutorial-connect-vm-in-classroom-lab/vm-running.png)
 
-    Należy zauważyć, że ikona pierwszego przycisku zmieniono do reprezentowania operacji **zatrzymania.** Można wybrać ten przycisk, aby zatrzymać maszynę wirtualną. 
+    Zauważ, że ikona pierwszego przycisku została zmieniona, aby reprezentować operację **zatrzymania** . Możesz wybrać ten przycisk, aby zatrzymać maszynę wirtualną. 
 
 ## <a name="connect-to-the-vm"></a>Łączenie z maszyną wirtualną
 
-1. Wybierz drugi przycisk, jak pokazano na poniższej ilustracji, aby **połączyć się z** maszyną wirtualną laboratorium. 
+1. Wybierz drugi przycisk, jak pokazano na poniższej ilustracji, aby **nawiązać połączenie** z maszyną wirtualną laboratorium. 
 
     ![Łączenie z maszyną wirtualną](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
 2. Wykonaj jedną z następujących czynności: 
-    1. W przypadku maszyn wirtualnych **z systemem Windows** zapisz plik **RDP** na dysku twardym. Otwórz plik RDP, aby połączyć się z maszyną wirtualną. Użyj **nazwy użytkownika** i **hasła,** które otrzymujesz od nauczyciela/profesora, aby zalogować się do urządzenia. 
-    3. W przypadku maszyn wirtualnych **systemu Linux** można połączyć się z nimi za pomocą **protokołu SSH** lub **RDP** (jeśli jest włączony). Aby uzyskać więcej informacji, zobacz [Włączanie połączenia pulpitu zdalnego dla komputerów z systemem Linux](how-to-enable-remote-desktop-linux.md). 
+    1. W przypadku maszyn wirtualnych z **systemem Windows** Zapisz plik **RDP** na dysku twardym. Otwórz plik RDP, aby nawiązać połączenie z maszyną wirtualną. Zaloguj się na komputerze przy użyciu **nazwy użytkownika** i **hasła** uzyskanych z nauczycieli/profesor. 
+    3. W przypadku maszyn wirtualnych z **systemem Linux** można użyć protokołu **SSH** lub **RDP** (jeśli jest włączony), aby połączyć się z nimi. Aby uzyskać więcej informacji, zobacz [Włączanie usługi Podłączanie pulpitu zdalnego dla komputerów z systemem Linux](how-to-enable-remote-desktop-linux.md). 
 
 ## <a name="next-steps"></a>Następne kroki
 W tym samouczku użyto linku rejestracji otrzymanego od nauczyciela w celu uzyskania dostępu do laboratorium.

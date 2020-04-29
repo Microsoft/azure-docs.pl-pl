@@ -1,6 +1,6 @@
 ---
-title: Interakcja z urządzeniem IoT Plug and Play Preview połączonym z twoim rozwiązaniem Azure IoT | Dokumenty firmy Microsoft
-description: Użyj języka C# (.NET), aby połączyć się z urządzeniem IoT Plug and Play Preview i wchodzić w interakcje z urządzeniem IoT Preview, które jest połączone z twoim rozwiązaniem Azure IoT.
+title: Współpracuj z urządzeniem usługi IoT Plug and Play w wersji zapoznawczej podłączonym do rozwiązania Azure IoT | Microsoft Docs
+description: Użyj języka C# (.NET), aby nawiązać połączenie z urządzeniem usługi IoT Plug and Play w wersji zapoznawczej i korzystać z niego, które jest połączone z rozwiązaniem Azure IoT.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/30/2019
@@ -9,23 +9,23 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 0953f68839217c1c75eb86f8399ce023f3863ab4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76963975"
 ---
-# <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-c"></a>Szybki start: interakcja z urządzeniem IoT Plug and Play Preview podłączonym do rozwiązania (C#)
+# <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-c"></a>Szybki Start: współdziałanie z urządzeniem IoT Plug and Play w wersji zapoznawczej, które jest połączone z rozwiązaniem (C#)
 
 [!INCLUDE [iot-pnp-quickstarts-3-selector.md](../../includes/iot-pnp-quickstarts-3-selector.md)]
 
-Podgląd ioT Plug and Play upraszcza IoT, umożliwiając interakcję z możliwościami urządzenia bez znajomości implementacji urządzenia źródłowego. Ten przewodnik Szybki start pokazuje, jak używać języka C# (z .NET) do łączenia się z urządzeniem Typu Plug and Play IoT, które jest podłączone do rozwiązania, i sterować nim.
+Wersja zapoznawcza Plug and Play IoT upraszcza IoT, umożliwiając współpracę z możliwościami urządzenia bez znajomości podstawowej implementacji urządzenia. W tym przewodniku szybki start pokazano, jak używać języka C# (z platformą .NET) do łączenia się z urządzeniem IoT Plug and Play i kontrolowania go, który jest połączony z rozwiązaniem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten szybki start, musisz zainstalować program .NET Core (2.x.x lub 3.x.x.x) na komputerze deweloperskim. Możesz pobrać preferowaną wersję .NET Core SDK dla wielu platform z [download .NET Core](https://dotnet.microsoft.com/download/dotnet-core/).
+Aby ukończyć ten przewodnik Szybki Start, musisz zainstalować platformę .NET Core (2. x. x lub 3. x. x) na komputerze deweloperskim. Możesz pobrać preferowaną wersję zestaw .NET Core SDK dla wielu platform [pobieranych z platformy .NET Core](https://dotnet.microsoft.com/download/dotnet-core/).
 
-Wersję platformy .NET, która znajduje się na komputerze deweloperskim, można zweryfikować, uruchamiając następujące polecenie w oknie terminala lokalnego: 
+Możesz sprawdzić wersję programu .NET, która znajduje się na komputerze deweloperskim, uruchamiając następujące polecenie w lokalnym oknie terminalu: 
 
 ```cmd/sh
 dotnet --version
@@ -35,7 +35,7 @@ dotnet --version
 
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
-Uruchom następujące polecenie, aby uzyskać _parametry połączenia centrum IoT_ dla koncentratora (uwaga do późniejszego użycia):
+Uruchom następujące polecenie, aby uzyskać _Parametry połączenia usługi IoT Hub_ dla Twojego centrum (Uwaga do użycia później):
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
@@ -43,59 +43,59 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 ## <a name="run-the-sample-device"></a>Uruchamianie przykładowego urządzenia
 
-W tym przewodniku Szybki start należy użyć przykładowego czujnika środowiska, który jest napisany w języku C# jako urządzenie Typu Plug and Play IoT. Poniższe instrukcje pokazują, jak zainstalować i uruchomić urządzenie:
+W tym przewodniku szybki start użyto przykładowego czujnika środowiska, który jest pisany w języku C# jako urządzenie Plug and Play IoT. Poniższe instrukcje przedstawiają sposób instalowania i uruchamiania urządzenia:
 
-1. Otwórz okno terminala w wybranym katalogu. Wykonaj następujące polecenie, aby sklonować przykłady Usługi Azure IoT dla repozytorium GitHub [w języku C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) w tej lokalizacji:
+1. Otwórz okno terminalu w wybranym katalogu. Wykonaj następujące polecenie, aby sklonować z repozytorium GitHub [przykłady usługi Azure IoT dla języka C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) do tej lokalizacji:
 
     ```cmd/sh
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp
     ```
 
-1. To okno terminalu będzie teraz używane jako terminal _urządzenia._ Przejdź do folderu sklonowanego repozytorium i przejdź do folderu **/azure-iot-samples-csharp/digitaltwin/Samples/device/EnvironmentalSensorSample** folder.
+1. To okno terminalu będzie teraz używane jako terminal _urządzenia_ . Przejdź do folderu sklonowanego repozytorium i przejdź do folderu **/Azure-IoT-Samples-CSharp/digitaltwin/Samples/Device/EnvironmentalSensorSample** .
 
-1. Konfigurowanie _ciągu połączenia urządzenia:_
+1. Skonfiguruj _Parametry połączenia urządzenia_:
 
     ```cmd/sh
     set DIGITAL_TWIN_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
-1. Skompiluj niezbędne pakiety i uruchom próbkę za pomocą następującego polecenia:
+1. Utwórz wymagane pakiety i uruchom próbkę za pomocą następującego polecenia:
 
     ```cmd\sh
         dotnet run
     ```
 
-1. Są widoczne komunikaty informujące, że urządzenie zostało pomyślnie zarejestrowane i oczekuje na aktualizacje z chmury. Oznacza to, że urządzenie jest teraz gotowe do odbierania poleceń i aktualizacji właściwości i rozpoczęło wysyłanie danych telemetrycznych do koncentratora. Nie zamykaj tego terminalu, będziesz go potrzebować później, aby potwierdzić, że próbki usług również zadziałały.
+1. Zobaczysz komunikat informujący o tym, że urządzenie zostało pomyślnie zarejestrowane i oczekuje na aktualizacje z chmury. Oznacza to, że urządzenie jest teraz gotowe do odbierania poleceń i aktualizacji właściwości i rozpoczęło wysyłanie danych telemetrycznych do centrum. Nie zamykaj tego terminala. będzie on potrzebny później w celu potwierdzenia, że także zadziałały również przykłady usługi.
 
-## <a name="run-the-sample-solution"></a>Uruchamianie roztworu próbki
+## <a name="run-the-sample-solution"></a>Uruchom przykładowe rozwiązanie
 
-W tym przewodniku Szybki start można użyć przykładowego rozwiązania IoT w języku C# do interakcji z przykładowym urządzeniem.
+W tym przewodniku szybki start użyjesz przykładowego rozwiązania IoT w języku C# do współpracy z przykładowym urządzeniem.
 
-1. Otwórz kolejne okno terminala (będzie to twój terminal _serwisowy)._ Przejdź do folderu sklonowanego repozytorium i przejdź do folderu **/azure-iot-samples-csharp/digitaltwin/Samples/service** folder.
+1. Otwórz inne okno terminalu (będzie to Terminal _usługi_ ). Przejdź do folderu sklonowanego repozytorium i przejdź do folderu **/Azure-IoT-Samples-CSharp/digitaltwin/Samples/Service** .
 
-1. Skonfiguruj parametry połączenia i _identyfikator urządzenia_ _koncentratora IoT,_ aby umożliwić usłudze łączenie się z obydwoma z nich:
+1. Skonfiguruj _Parametry połączenia usługi IoT Hub_ i _Identyfikator urządzenia_ , aby umożliwić usłudze łączenie się z obydwoma:
 
     ```cmd/sh
     set IOTHUB_CONNECTION_STRING=<YourIoTHubConnectionString>
     set DEVICE_ID=<YourDeviceID>
     ```
 
-### <a name="read-a-property"></a>Odczytanie właściwości
+### <a name="read-a-property"></a>Odczytaj Właściwość
 
-1. Po podłączeniu _urządzenia_ do jego terminala został wyświetlony następujący komunikat wskazujący jego stan online:
+1. Po podłączeniu _urządzenia_ do terminalu zobaczysz następujący komunikat wskazujący jego stan online:
 
     ```cmd/sh
     Waiting to receive updates from cloud...
     ```
 
-1. Przejdź do terminalu _serwisowego_ i użyj następujących poleceń, aby uruchomić próbkę do odczytu informacji o urządzeniu:
+1. Przejdź do terminalu _usługi_ i użyj następujących poleceń, aby uruchomić przykład do odczytu informacji o urządzeniu:
 
     ```cmd/sh
     cd GetDigitalTwin
     dotnet run
     ```
 
-1. W wyjściu terminala _serwisowego_ przewiń do składnika. `environmentalSensor` Widać, że `state` właściwość, która jest używana do wskazania, czy urządzenie jest w trybie online, została zgłoszona jako _prawdziwa:_
+1. W danych wyjściowych terminalu _usług_ przewiń do `environmentalSensor` składnika. Zobaczysz, że `state` właściwość, która służy do wskazywania, czy urządzenie jest w trybie online, zostało zgłoszone jako _prawdziwe_:
 
     ```JSON
     "environmentalSensor": {
@@ -110,9 +110,9 @@ W tym przewodniku Szybki start można użyć przykładowego rozwiązania IoT w j
     }
     ```
 
-### <a name="update-a-writable-property"></a>Aktualizowanie właściwości zapisywalnej
+### <a name="update-a-writable-property"></a>Aktualizowanie właściwości z możliwością zapisu
 
-1. Przejdź do terminalu _serwisowego_ i ustaw następujące zmienne, aby zdefiniować właściwość, którą należy zaktualizować:
+1. Przejdź do terminalu _usługi_ i ustaw następujące zmienne, aby zdefiniować właściwość, która ma zostać zaktualizowana:
     ```cmd/sh
     set INTERFACE_INSTANCE_NAME=environmentalSensor
     set PROPERTY_NAME=brightness
@@ -126,7 +126,7 @@ W tym przewodniku Szybki start można użyć przykładowego rozwiązania IoT w j
     dotnet run
     ```
 
-1. Dane wyjściowe terminala _serwisowego_ pokazują zaktualizowane informacje o urządzeniu. Przewiń `environmentalSensor` do komponentu, aby zobaczyć nową wartość jasności 42.
+1. Dane wyjściowe terminalu _usługi_ przedstawiają zaktualizowane informacje o urządzeniu. Przewiń do `environmentalSensor` składnika, aby wyświetlić nową wartość jasności 42.
 
     ```json
         "environmentalSensor": {
@@ -146,7 +146,7 @@ W tym przewodniku Szybki start można użyć przykładowego rozwiązania IoT w j
     }
     ```
 
-1. Przejdź do _terminalu urządzenia,_ zobaczysz, że urządzenie otrzymało aktualizację:
+1. Przejdź do terminalu _urządzenia_ , zobaczysz, że urządzenie otrzymało aktualizację:
 
     ```cmd/sh
     Received updates for property 'brightness'
@@ -156,13 +156,13 @@ W tym przewodniku Szybki start można użyć przykładowego rozwiązania IoT w j
     Sent pending status for brightness property.
     Sent completed status for brightness property.
     ```
-2. Wróć do terminalu _serwisowego_ i uruchom poniższe polecenia, aby ponownie uzyskać informacje o urządzeniu, aby potwierdzić, że właściwość została zaktualizowana.
+2. Wróć do terminalu _usługi_ i uruchom poniższe polecenia, aby ponownie uzyskać informacje o urządzeniu, aby potwierdzić, że właściwość została zaktualizowana.
     
     ```cmd/sh
     cd ..\GetDigitalTwin
     dotnet run
     ```
-3. W wyjściu terminala `environmentalSensor` _serwisowego_ pod komponentem zostanie wyświetlona zaktualizowana wartość jasności. Uwaga: może upłynąć trochę czasu, aby urządzenie ukończyło aktualizację. Można powtórzyć ten krok, dopóki urządzenie faktycznie przetworzy aktualizację właściwości.
+3. W danych wyjściowych terminalu _usługi_ pod `environmentalSensor` składnikiem zostanie wyświetlona zaktualizowana wartość jasności. Uwaga: ukończenie aktualizacji może zająć trochę czasu. Ten krok można powtórzyć do momentu rzeczywistego przetworzenia przez urządzenie aktualizacji właściwości.
     
     ```json
     "environmentalSensor": {
@@ -190,22 +190,22 @@ W tym przewodniku Szybki start można użyć przykładowego rozwiązania IoT w j
     },
     ```
 
-### <a name="invoke-a-command"></a>Wywoływanie polecenia
+### <a name="invoke-a-command"></a>Wywołaj polecenie
 
-1. Przejdź do terminalu _serwisowego_ i ustaw następujące zmienne, aby zdefiniować, które polecenie ma wywołać:
+1. Przejdź do terminalu _usługi_ i ustaw następujące zmienne, aby zdefiniować polecenie do wywołania:
     ```cmd/sh
     set INTERFACE_INSTANCE_NAME=environmentalSensor
     set COMMAND_NAME=blink
     ```
 
-1. Użyj następujących poleceń, aby uruchomić próbkę do wywoływania polecenia:
+1. Użyj następujących poleceń, aby uruchomić przykład służący do wywoływania polecenia:
 
     ```cmd/sh
     cd ..\InvokeCommand
     dotnet run
     ```
 
-1. Wyjście w terminalu _serwisowym_ powinno być wyświetlane następujące potwierdzenie:
+1. Dane wyjściowe w terminalu _usługi_ powinny zawierać następujące potwierdzenie:
 
     ```cmd/sh
     Invoking blink on device <YourDeviceID> with interface instance name environmentalSensor
@@ -215,7 +215,7 @@ W tym przewodniku Szybki start można użyć przykładowego rozwiązania IoT w j
     Enter any key to finish
     ```
 
-1. Przejdź do terminalu _urządzenia,_ zobaczysz, że polecenie zostało potwierdzone:
+1. Przejdź do terminalu _urządzenia_ , zobaczysz, że polecenie zostało potwierdzone:
 
     ```cmd/sh
     Command - blink was invoked from the service
@@ -227,7 +227,7 @@ W tym przewodniku Szybki start można użyć przykładowego rozwiązania IoT w j
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start dowiesz się, jak podłączyć urządzenie Typu Plug and Play do rozwiązania IoT. Aby dowiedzieć się więcej o tworzeniu rozwiązania współdziałanego z urządzeniami IoT Plug and Play, zobacz:
+W tym przewodniku szybki start przedstawiono sposób nawiązywania połączenia z urządzeniem IoT Plug and Play w rozwiązaniu IoT. Aby dowiedzieć się więcej na temat tworzenia rozwiązania, które współdziała z urządzeniami Plug and Play IoT, zobacz:
 
 > [!div class="nextstepaction"]
-> [Instrukcje: łączenie się z urządzeniem i interakcję z nim](howto-develop-solution.md)
+> [Instrukcje: Nawiązywanie połączenia z urządzeniem i korzystanie z niego](howto-develop-solution.md)

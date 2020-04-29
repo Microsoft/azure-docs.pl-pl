@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: tworzenie aplikacji na iOS, która uruchamia czytnik Immersive Reader (Swift)'
+title: 'Szybki Start: Tworzenie aplikacji dla systemu iOS, która uruchamia czytnik immersyjny (SWIFT)'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku Szybki start zbudujemy aplikację dla systemu iOS od podstaw i dodasz funkcję Immersive Reader.
+description: W tym przewodniku szybki start utworzysz aplikację dla systemu iOS od podstaw i dodasz funkcję czytnika immersyjny.
 author: metanMSFT
 ms.service: cognitive-services
 ms.subservice: immersive-reader
@@ -9,46 +9,46 @@ ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: metan
 ms.openlocfilehash: 9003eb85938cc3afaad7fef341b1ed2826e8fbc9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76841613"
 ---
-# <a name="quickstart-create-an-ios-app-that-launches-the-immersive-reader-swift"></a>Szybki start: tworzenie aplikacji na iOS, która uruchamia czytnik Immersive Reader (Swift)
+# <a name="quickstart-create-an-ios-app-that-launches-the-immersive-reader-swift"></a>Szybki Start: Tworzenie aplikacji dla systemu iOS, która uruchamia czytnik immersyjny (SWIFT)
 
-[Immersive Reader](https://www.onenote.com/learningtools) to zaprojektowane z włącznie narzędzie, które wdraża sprawdzone techniki poprawiające rozumienie czytania.
+[Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności.
 
-W tym przewodniku Szybki start tworzysz aplikację na iOS od podstaw i integrujesz czytnik Immersive Reader. Pełna próbka pracy tego przewodnika Szybki start jest dostępna [tutaj.](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios)
+W tym przewodniku szybki start utworzysz aplikację dla systemu iOS od podstaw i zintegrujesz czytnik immersyjny. Pełny przykład pracy tego przewodnika Szybki Start jest dostępny [tutaj](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
-* Zasób programu Immersive Reader skonfigurowany do uwierzytelniania usługi Azure Active Directory. Postępuj zgodnie [z tymi instrukcjami,](./how-to-create-immersive-reader.md) aby skonfigurować. Podczas konfigurowania przykładowych właściwości projektu potrzebne będą niektóre wartości utworzone w tym miejscu. Zapisz dane wyjściowe sesji w pliku tekstowym do wykorzystania w przyszłości.
+* Zasób czytnika immersyjny skonfigurowany do Azure Active Directory uwierzytelniania. Postępuj zgodnie z [tymi instrukcjami](./how-to-create-immersive-reader.md) , aby rozpocząć konfigurację. W przypadku konfigurowania przykładowych właściwości projektu konieczne będzie utworzenie niektórych wartości. Zapisz dane wyjściowe sesji w pliku tekstowym do użycia w przyszłości.
 
 ## <a name="create-an-xcode-project"></a>Tworzenie projektu Xcode
 
-Utwórz nowy projekt w xcode.
+Utwórz nowy projekt w Xcode.
 
 ![Nowy projekt](./media/ios/xcode-create-project.png)
 
-Wybierz **pozycję Aplikacja do pojedynczego widoku**.
+Wybierz **aplikację z pojedynczym widokiem**.
 
-![Nowa aplikacja jednoznaka](./media/ios/xcode-single-view-app.png)
+![Nowa aplikacja z pojedynczym widokiem](./media/ios/xcode-single-view-app.png)
 
 ## <a name="set-up-authentication"></a>Konfigurowanie uwierzytelniania
 
-W górnym menu kliknij **na Schemat > produktu > Schemat edycji...**.
+W górnym menu kliknij pozycję **produkt > schemat > Edytuj schemat...**.
 
 ![Edytuj schemat](./media/ios/quickstart-ios-edit-scheme.png)
 
-W widoku **Uruchom** kliknij kartę **Argumenty.**
+W widoku **uruchamiania** kliknij kartę **argumenty** .
 
 ![Edytuj schemat](./media/ios/quickstart-ios-env-vars.png)
 
-W sekcji **Zmienne środowiskowe** dodaj następujące nazwy i wartości, podając wartości podane podczas tworzenia zasobu Czytnika immersive.
+W sekcji **zmienne środowiskowe** Dodaj następujące nazwy i wartości, podając wartości podane podczas tworzenia zasobu czytnika immersyjny.
 
 ```text
 TENANT_ID=<YOUR_TENANT_ID>
@@ -57,9 +57,9 @@ CLIENT_SECRET<YOUR_CLIENT_SECRET>
 SUBDOMAIN=<YOUR_SUBDOMAIN>
 ```
 
-## <a name="set-up-the-app-to-run-without-a-storyboard"></a>Konfigurowanie aplikacji do uruchamiania bez serii ujęć
+## <a name="set-up-the-app-to-run-without-a-storyboard"></a>Skonfiguruj aplikację do uruchamiania bez scenorysu
 
-Otwórz *appdelegate.swift* i zastąp plik następującym kodem.
+Otwórz plik *AppDelegate. Swift* i zastąp go następującym kodem.
 
 ```swift
 import UIKit
@@ -108,9 +108,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-## <a name="create-the-view-controllers-and-add-sample-content"></a>Tworzenie kontrolerów widoku i dodawanie przykładowej zawartości
+## <a name="create-the-view-controllers-and-add-sample-content"></a>Tworzenie kontrolerów widoku i Dodawanie przykładowej zawartości
 
-Zmień nazwę *ViewController.swift* na *LaunchViewController.swift* i zastąp plik następującym kodem.
+Zmień nazwę *plik viewcontroller. Swift* na *LaunchViewController. Swift* i Zastąp plik poniższym kodem.
 
 ```swift
 import UIKit
@@ -259,7 +259,7 @@ class LaunchViewController: UIViewController {
 }
 ```
 
-Dodaj nowy plik do folderu głównego projektu o nazwie *ImmersiveReaderViewController.swift* i dodaj następujący kod.
+Dodaj nowy plik do folderu głównego projektu o nazwie *ImmersiveReaderViewController. Swift* i Dodaj następujący kod.
 
 ```swift
 import UIKit
@@ -438,7 +438,7 @@ extension ImmersiveReaderViewController: WKScriptMessageHandler {
 }
 ```
 
-Dodaj kolejny nowy plik do folderu głównego projektu o nazwie *LaunchImmersiveReader.swift* i dodaj następujący kod.
+Dodaj kolejny nowy plik do folderu głównego projektu o nazwie *LaunchImmersiveReader. Swift* i Dodaj następujący kod.
 
 ```swift
 import UIKit
@@ -528,7 +528,7 @@ public func launchImmersiveReader(navController: UINavigationController, token: 
 }
 ```
 
-Dodaj plik do folderu *Zasoby* o nazwie *iFrameMessaging.js* i dodaj następujący kod.
+Dodaj plik do folderu *resources* o nazwie *iFrameMessaging. js* i Dodaj następujący kod.
 
 ```javascript
 window.addEventListener("message", function(message) {
@@ -556,22 +556,22 @@ function sendContentToReader(message) {
 
 ## <a name="build-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
 
-Ustaw schemat archiwizacji w xcode, wybierając symulator lub urządzenie docelowe.
+Ustaw schemat Archiwum w Xcode, wybierając symulator lub urządzenie docelowe.
 
-![Schemat archiwizacji](./media/ios/xcode-archive-scheme.png)
+![Schemat Archiwum](./media/ios/xcode-archive-scheme.png)
 
 ![Wybieranie obiektu docelowego](./media/ios/xcode-select-target.png)
 
-W programie Xcode naciśnij **klawisze Ctrl+R** lub kliknij przycisk odtwarzania, aby uruchomić projekt. Aplikacja powinna zostać uruchomiona na określonym symulatorze lub urządzeniu.
+W Xcode naciśnij **klawisze CTRL + R** lub kliknij przycisk Odtwórz, aby uruchomić projekt. Aplikacja powinna być uruchamiana w określonym symulatorze lub urządzeniu.
 
-W aplikacji powinieneś zobaczyć:
+W aplikacji powinny zostać wyświetlone następujące tematy:
 
 ![Przykładowa aplikacja](./media/ios/sample-app-ipad.png)
 
-Po kliknięciu przycisku **Czytnik wciągający** zobaczysz czytnik Immersive uruchomiony z zawartością w aplikacji.
+Po kliknięciu przycisku **czytnika immersyjny** zobaczysz czytnik immersyjny uruchamiany z zawartością w aplikacji.
 
 ![Czytnik immersyjny](./media/ios/immersive-reader-ipad.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Poznaj [dokumentację immersyjnego sdk czytnika](./reference.md)
+* Poznaj [Kompendium zestawu SDK czytnika immersyjny](./reference.md)

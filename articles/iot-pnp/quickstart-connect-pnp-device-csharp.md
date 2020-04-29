@@ -1,6 +1,6 @@
 ---
-title: Podłączenie przykładowego kodu urządzenia IoT Plug and Play Preview do centrum IoT Hub | Dokumenty firmy Microsoft
-description: Za pomocą języka C# (.NET), skompilować i uruchomić IoT Plug and Play Podgląd przykładowy kod urządzenia, który łączy się z centrum IoT hub. Użyj narzędzia Eksploratora IoT platformy Azure, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
+title: Łączenie przykładowego kodu urządzenia w usłudze IoT Plug and Play w wersji zapoznawczej IoT Hub | Microsoft Docs
+description: Za pomocą języka C# (.NET), kompilowania i uruchamiania usługi IoT Plug and Play Podgląd przykładowego kodu urządzenia, który łączy się z Centrum IoT. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/27/2019
@@ -9,37 +9,37 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 90d39635ac6302f816f39ca19cc00a39cfbbf850
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77121020"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-c"></a>Szybki start: łączenie przykładowej aplikacji urządzenia IoT Plug and Play Preview do centrum IoT Hub (C#)
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-c"></a>Szybki Start: łączenie przykładowej aplikacji urządzenia IoT Plug and Play w wersji zapoznawczej do IoT Hub (C#)
 
 [!INCLUDE [iot-pnp-quickstarts-2-selector.md](../../includes/iot-pnp-quickstarts-2-selector.md)]
 
-Ten przewodnik Szybki start pokazuje, jak utworzyć przykładową aplikację urządzenia IoT Plug and Play, połączyć ją z centrum IoT hub i użyć narzędzia do eksplorowania Usługi Azure IoT, aby wyświetlić informacje, które wysyła do centrum. Przykładowa aplikacja jest napisana w języku C# (z .NET) i jest dostarczana jako część kolekcji Prób IoT usługi Azure dla języka C# (.NET). Deweloper rozwiązania można użyć narzędzia eksploratora Usługi Azure IoT, aby zrozumieć możliwości urządzenia Typu IoT Plug and Play bez konieczności wyświetlania kodu urządzenia.
+W tym przewodniku szybki start przedstawiono sposób tworzenia przykładowej aplikacji urządzenia IoT Plug and Play, łączenia jej z usługą IoT Hub i używania narzędzia Azure IoT Explorer do wyświetlania informacji wysyłanych do centrum. Przykładowa aplikacja jest zapisywana w języku C# (z platformą .NET) i jest dostępna jako część kolekcji Azure IoT przykłady dla języka C# (.NET). Deweloperzy rozwiązań mogą korzystać z narzędzia Azure IoT Explorer, aby zrozumieć możliwości urządzenia Plug and Play IoT bez konieczności wyświetlania kodu urządzenia.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten szybki start, musisz zainstalować program .NET Core 3.0 na komputerze deweloperskim. Możesz pobrać tę wersję .NET Core SDK dla wielu platform z [Download .NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
+Aby ukończyć ten przewodnik Szybki Start, musisz zainstalować platformę .NET Core 3,0 na swoim komputerze deweloperskim. Tę wersję zestaw .NET Core SDK można pobrać z wielu platform [pobrać z programu .NET Core 3,0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
-Wersję platformy .NET, która znajduje się na komputerze deweloperskim, można zweryfikować, uruchamiając następujące polecenie w oknie terminala lokalnego: 
+Możesz sprawdzić wersję programu .NET, która znajduje się na komputerze deweloperskim, uruchamiając następujące polecenie w lokalnym oknie terminalu: 
 
 ```cmd/sh
 dotnet --version
 ```
 
-### <a name="install-the-azure-iot-explorer"></a>Instalowanie eksploratora IoT platformy Azure
+### <a name="install-the-azure-iot-explorer"></a>Instalowanie programu Azure IoT Explorer
 
-Pobierz i zainstaluj najnowszą wersję **eksploratora IoT platformy Azure** ze strony [repozytorium](https://github.com/Azure/azure-iot-explorer/releases) narzędzia, wybierając plik msi w obszarze "Zasoby" dla najnowszej aktualizacji.
+Pobierz i zainstaluj najnowszą wersję programu **Azure IoT Explorer** ze strony [repozytorium](https://github.com/Azure/azure-iot-explorer/releases) narzędzi, wybierając plik msi w obszarze "zasoby" dla najnowszej aktualizacji.
 
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
-Uruchom następujące polecenie, aby uzyskać _parametry połączenia centrum IoT_ dla koncentratora (uwaga do późniejszego użycia):
+Uruchom następujące polecenie, aby uzyskać _Parametry połączenia usługi IoT Hub_ dla Twojego centrum (Uwaga do użycia później):
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
@@ -47,45 +47,45 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 ## <a name="prepare-the-development-environment"></a>Przygotowywanie środowiska deweloperskiego
 
-W tym przewodniku Szybki start należy przygotować środowisko programistyczne, którego można użyć do klonowania i tworzenia przykładów usługi Azure IoT dla języka C# (.NET).
+W tym przewodniku szybki start przygotowano środowisko programistyczne, którego można użyć do klonowania i kompilowania przykładów usługi Azure IoT dla języka C# (.NET).
 
-Otwórz wiersz polecenia w wybranym katalogu. Wykonaj następujące polecenie, aby sklonować przykłady Usługi Azure IoT dla repozytorium GitHub [w języku C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) w tej lokalizacji:
+Otwórz wiersz polecenia w wybranym katalogu. Wykonaj następujące polecenie, aby sklonować z repozytorium GitHub [przykłady usługi Azure IoT dla języka C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) do tej lokalizacji:
 
 ```cmd/sh
 git clone https://github.com/Azure-Samples/azure-iot-samples-csharp
 ```
 
-Ta operacja może potrwać kilka minut.
+Wykonanie tej operacji może potrwać kilka minut.
 
-## <a name="run-the-device-sample"></a>Uruchamianie próbki urządzenia
+## <a name="run-the-device-sample"></a>Uruchamianie przykładu urządzenia
 
-Sklonowany przykładowy kod służy do tworzenia aplikacji symulującej urządzenie, które łączy się z centrum IoT hub. Aplikacja wysyła dane telemetryczne i właściwości i odbiera polecenia.
+Sklonowany przykładowy kod służy do kompilowania aplikacji symulowanej na urządzeniu, które nawiązuje połączenie z usługą IoT Hub. Aplikacja wysyła dane telemetryczne i właściwości oraz odbiera polecenia.
 
-1. W oknie terminala lokalnego przejdź do folderu sklonowanego repozytorium i przejdź do folderu **azure-iot-samples-csharp/digitaltwin/Samples/device/EnvironmentalSensorSample.** 
+1. W oknie terminalu lokalnego przejdź do folderu sklonowanego repozytorium i przejdź do folderu **Azure-IoT-Samples-CSharp/digitaltwin/Samples/Device/EnvironmentalSensorSample** . 
 
-1. Konfigurowanie _ciągu połączenia urządzenia:_
+1. Skonfiguruj _Parametry połączenia urządzenia_:
 
     ```cmd/sh
     set DIGITAL_TWIN_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
-1. Uruchom przykładową aplikację, aby symulować urządzenie Typu Plug and Play IoT, które wysyła dane telemetryczne do centrum IoT hub. W tym samym oknie terminala, aby utworzyć niezbędne pakiety i uruchomić przykładową aplikację, użyj następującego polecenia:
+1. Uruchom przykładową aplikację, aby symulować urządzenie Plug and Play IoT, które wysyła telemetrię do centrum IoT. W tym samym oknie terminalu, aby skompilować wymagane pakiety i uruchomić przykładową aplikację, użyj następującego polecenia:
 
     ```cmd\sh
     dotnet run --framework=netcoreapp3.0
     ```
 
-Są widoczne komunikaty informujące, że urządzenie zostało pomyślnie zarejestrowane i oczekuje na aktualizacje z chmury. Oznacza to, że urządzenie jest teraz gotowe do odbierania poleceń i aktualizacji właściwości i rozpoczęło wysyłanie danych telemetrycznych do koncentratora. Zachowaj uruchomienie próbki podczas wykonywania kolejnych kroków.
+Zobaczysz komunikat informujący o tym, że urządzenie zostało pomyślnie zarejestrowane i oczekuje na aktualizacje z chmury. Oznacza to, że urządzenie jest teraz gotowe do odbierania poleceń i aktualizacji właściwości i rozpoczęło wysyłanie danych telemetrycznych do centrum. Kontynuuj działanie przykładu w przypadku wykonywania następnych kroków.
 
-## <a name="use-the-azure-iot-explorer-to-validate-the-code"></a>Sprawdzanie poprawności kodu za pomocą Eksploratora IoT platformy Azure
+## <a name="use-the-azure-iot-explorer-to-validate-the-code"></a>Sprawdzanie poprawności kodu za pomocą programu Azure IoT Explorer
 
 [!INCLUDE [iot-pnp-iot-explorer-1.md](../../includes/iot-pnp-iot-explorer-1.md)]
 
-4. Aby upewnić się, że narzędzie może odczytać definicje modelu interfejsu z urządzenia, wybierz **ustawienia**. W menu Ustawienia **na podłączonym urządzeniu** może już pojawić się w konfiguracjach Plug and Play; jeśli tak nie jest, wybierz **+ Dodaj źródło definicji modułu,** a następnie **na podłączonym urządzeniu,** aby go dodać.
+4. Aby upewnić się, że narzędzie może odczytywać definicje modeli interfejsów z urządzenia, wybierz pozycję **Ustawienia**. W menu ustawienia **na połączonym urządzeniu** mogą już występować konfiguracje Plug and Play; Jeśli tak nie jest, wybierz pozycję **+ Dodaj źródło definicji modułu** , a następnie **na podłączonym urządzeniu** , aby je dodać.
 
-1. Na stronie **Przegląd urządzeń** znajdź wcześniej utworzoną tożsamość urządzenia. Gdy aplikacja urządzenia nadal działa w wierszu polecenia, sprawdź, czy **stan połączenia** urządzenia w Eksploratorze Usługi Azure IoT jest raportowanie jako _Połączone_ (jeśli nie, naciśnij **odśwież,** dopóki nie jest). Wybierz urządzenie, aby wyświetlić więcej szczegółów.
+1. Na stronie Przegląd **urządzeń** Znajdź wcześniej utworzoną tożsamość urządzenia. Gdy aplikacja urządzenia jest nadal uruchomiona w wierszu polecenia, sprawdź, czy **stan połączenia** urządzenia w programie Azure IoT Explorer jest raportowany jako _połączony_ (jeśli nie, należy **odświeżyć** do momentu). Wybierz urządzenie, aby wyświetlić więcej szczegółów.
 
-1. Rozwiń interfejs za pomocą **identyfikatora urn:csharp_sdk_sample:EnvironmentalSensor:1,** aby odsłonić interfejs i prymitywy IoT Plug and Play — właściwości, polecenia i dane telemetryczne.
+1. Rozwiń interfejs o IDENTYFIKATORze **urn: csharp_sdk_sample: EnvironmentalSensor: 1** , aby odsłonić interfejs i elementy podstawowe Plug and Play IoT — właściwości, polecenia i dane telemetryczne.
 
 [!INCLUDE [iot-pnp-iot-explorer-2.md](../../includes/iot-pnp-iot-explorer-2.md)]
 
@@ -93,7 +93,7 @@ Są widoczne komunikaty informujące, że urządzenie zostało pomyślnie zareje
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start dowiesz się, jak podłączyć urządzenie Typu Plug and Play do centrum IoT hub. Aby dowiedzieć się więcej o tworzeniu rozwiązania współdziałanego z urządzeniami IoT Plug and Play, zobacz:
+W tym przewodniku szybki start przedstawiono sposób nawiązywania połączenia z urządzeniem IoT Plug and Play w usłudze IoT Hub. Aby dowiedzieć się więcej na temat tworzenia rozwiązania, które współdziała z urządzeniami Plug and Play IoT, zobacz:
 
 > [!div class="nextstepaction"]
-> [Instrukcje: łączenie się z urządzeniem IoT Plug and Play Preview i interakcję z nim](howto-develop-solution.md)
+> [Porada: łączenie z urządzeniem IoT Plug and Play Preview i korzystanie z niego](howto-develop-solution.md)

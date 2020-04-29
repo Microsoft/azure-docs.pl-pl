@@ -9,21 +9,21 @@ ms.date: 02/10/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 50ce8530aca40eed07741f35be1a57bbd7cc1868
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77133606"
 ---
-Otwórz konsolę programu PowerShell z podwyższonymi uprawnieniami.
+Otwórz konsolę programu PowerShell z podniesionymi uprawnieniami.
 
-Jeśli korzystasz z usługi Azure PowerShell lokalnie, połącz się ze swoim kontem platformy Azure. Polecenie cmdlet *Connect-AzAccount* monituje o podanie poświadczeń. Po uwierzytelnieniu pobiera ustawienia konta, dzięki czemu są one dostępne dla programu Azure PowerShell. Jeśli używasz usługi Azure Cloud Shell zamiast tego, nie trzeba uruchamiać *Connect-AzAccount*. Usługa Azure Cloud Shell automatycznie łączy się z kontem platformy Azure.
+Jeśli używasz Azure PowerShell lokalnie, Połącz się z kontem platformy Azure. Polecenie cmdlet *Connect-AzAccount* poprosi o poświadczenia. Po uwierzytelnieniu program pobiera Twoje ustawienia konta, aby były dostępne do Azure PowerShell. Jeśli używasz Azure Cloud Shell, nie musisz uruchamiać polecenia *Connect-AzAccount*. Azure Cloud Shell automatycznie nawiązuje połączenie z kontem platformy Azure.
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-Jeśli masz więcej niż jedną subskrypcję, pobierz listę subskrypcji platformy Azure.
+Jeśli masz więcej niż jedną subskrypcję, uzyskaj listę subskrypcji platformy Azure.
 
 ```azurepowershell-interactive
 Get-AzSubscription

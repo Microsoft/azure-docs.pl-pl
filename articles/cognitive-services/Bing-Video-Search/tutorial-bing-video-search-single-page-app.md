@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: tworzenie jednostronicowej aplikacji wyszukiwania wideo Bing'
 titleSuffix: Azure Cognitive Services
-description: W tym samouczku wyjaśniono, jak używać interfejsu API wyszukiwania wideo Bing w aplikacji sieci Web jednostronicowej.
+description: W tym samouczku wyjaśniono, jak używać interfejs API wyszukiwania wideo Bing w jednostronicowej aplikacji sieci Web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.openlocfilehash: fb989825ed27cc83c14c36e6394e37ae2db2c12a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76988264"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Samouczek: jednostronicowa aplikacja wyszukiwania wideo
@@ -138,10 +138,10 @@ function bingSearchOptions(form) {
 }
 ```
 
-Na przykład `SafeSearch` parametr w rzeczywistym wywołaniu `strict`interfejsu `moderate`API `moderate` może być , lub , z ustawieniem domyślnym.
+Na przykład `SafeSearch` parametr w rzeczywistym wywołaniu interfejsu API może być `strict`lub `moderate`, z `moderate` wartością domyślną.
 
 ## <a name="performing-the-request"></a>Wykonywanie żądania
-Mając podane zapytanie, ciąg opcji i klucz interfejsu API, funkcja `BingWebSearch` używa obiektu `XMLHttpRequest`, aby wysłać żądanie do punktu końcowego wyszukiwania Bing. Można użyć globalnego punktu końcowego poniżej lub niestandardowego punktu końcowego [poddomeny](../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlanego w witrynie Azure portal dla zasobu.
+Mając podane zapytanie, ciąg opcji i klucz interfejsu API, funkcja `BingWebSearch` używa obiektu `XMLHttpRequest`, aby wysłać żądanie do punktu końcowego wyszukiwania Bing. Możesz użyć poniższego globalnego punktu końcowego lub niestandardowego punktu końcowego [poddomeny](../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
 
 ```javascript
 // Search on the query, using search options, authenticated by the key.
@@ -373,7 +373,7 @@ Funkcja renderująca:
 > * tworzy tagi `<a>` kodu HTML, które prowadzą do obrazu i do zawierającej go strony;
 > * tworzy opis, który wyświetla informacje dotyczące obrazu i witryny, w której się znajduje.
 
-Rozmiar miniatury jest używany zarówno w tagu `<img>`, jak i w polach `h` oraz `w` w adresie URL miniatury. Bing zwróci [miniaturę](../bing-web-search/resize-and-crop-thumbnails.md) dokładnie tego rozmiaru.
+Rozmiar miniatury jest używany zarówno w tagu `<img>`, jak i w polach `h` oraz `w` w adresie URL miniatury. Program Bing zwróci [miniaturę](../bing-web-search/resize-and-crop-thumbnails.md) o dokładnie takiej wielkości.
 
 ## <a name="persisting-client-id"></a>Trwały identyfikator klienta
 Odpowiedzi z interfejsów API wyszukiwania Bing mogą zawierać nagłówek `X-MSEdge-ClientID`, który powinien być wysyłany z powrotem do interfejsu API z kolejnymi żądaniami. Jeśli jest używanych wiele interfejsów API wyszukiwania Bing, dla każdego z nich powinien być stosowany ten sam identyfikator klienta, jeśli jest to możliwe.
@@ -389,7 +389,7 @@ Zasady zabezpieczeń przeglądarki (CORS) mogą powodować, że nagłówek `X-MS
 > [!NOTE]
 > W aplikacji internetowej w środowisku produkcyjnym należy wykonać to żądanie po stronie serwera. W przeciwnym razie należy dołączyć klucz interfejsu API wyszukiwania Bing do strony internetowej, aby był on dostępny dla każdego, kto wyświetli źródło. Płacisz za wszystkie użycia związane z Twoim kluczem subskrypcji interfejsu API, nawet za żądania wykonane przez osoby nieupoważnione, zatem ważne jest, aby nie ujawniać swojego klucza.
 
-W celach programistycznych możesz wykonywać żądania interfejsu API wyszukiwania w sieci Web Bing za pośrednictwem serwera proxy CORS. Odpowiedź z takiego serwera `Access-Control-Expose-Headers` proxy ma nagłówek, który umożliwia nagłówki odpowiedzi i udostępnia je do języka JavaScript.
+W celach programistycznych możesz wykonywać żądania interfejsu API wyszukiwania w sieci Web Bing za pośrednictwem serwera proxy CORS. Odpowiedź z takiego serwera proxy ma `Access-Control-Expose-Headers` nagłówek, który umożliwia nagłówki odpowiedzi i udostępnia je dla języka JavaScript.
 
 Zainstalowanie serwera proxy CORS w celu zezwolenia naszej aplikacji samouczka na dostęp do nagłówka identyfikatora klienta jest łatwe. Najpierw [zainstaluj platformę Node.js](https://nodejs.org/en/download/), jeśli jeszcze jej nie masz. Następnie wykonaj następujące polecenie w oknie polecenia:
 
