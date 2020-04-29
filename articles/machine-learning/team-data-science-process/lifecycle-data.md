@@ -1,6 +1,6 @@
 ---
-title: Pozyskiwanie i rozumienie procesu nauki o danych zespołu
-description: Cele, zadania i rezultaty na etapie pozyskiwania i zrozumienia danych w projektach analityki danych
+title: Pozyskiwanie danych i zrozumienie procesu nauki o danych zespołowych
+description: Cele, zadania i elementy dostarczane dla pozyskiwania danych i zrozumienie ich etapów dla projektów analizy danych
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,74 +12,74 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 3c299e9ec42d63812804b5ff7e50324a2de94200
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76720507"
 ---
-# <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Etap pozyskiwania i zrozumienia danych w procesie nauki o danych zespołu
+# <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Pozyskiwanie danych i zrozumienie etapu procesu nauki o danych zespołowych
 
-W tym artykule opisano cele, zadania i rezultaty skojarzone z etapem pozyskiwania i zrozumienia danych procesu nauki o danych zespołu (TDSP). Ten proces zapewnia zalecany cykl życia, którego można użyć do struktury projektów nauki o danych. Cykl życia przedstawia główne etapy, które projekty zazwyczaj wykonują, często iteracyjne:
+W tym artykule opisano cele, zadania i elementy dostarczane związane z pozyskiwaniem danych i zrozumienie etapu procesu nauki o danych zespołowych (przetwarzania TDSP). Ten proces zapewnia Zalecany cykl życia, którego można użyć do struktury projektów analizy danych. Cykl życia przedstawia główne etapy, które są zwykle wykonywane przez projekty, często iteracyjnie:
 
    1. **Poznawanie firmy**
    2. **Pozyskiwanie danych i ich analiza**
    3. **Modelowanie**
-   4. **wdrażania**
+   4. **Wdrożenie**
    5. **Akceptacja klienta**
 
-Oto wizualna reprezentacja cyklu życia TDSP: 
+Oto wizualna reprezentacja cyklu życia przetwarzania TDSP: 
 
-![Cykl życia TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
+![Cykl życia przetwarzania TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## <a name="goals"></a>Cele
-* Wyprodukuj czysty, wysokiej jakości zestaw danych, którego relacja ze zmiennymi docelowymi jest zrozumiała. Zlokalizuj zestaw danych w odpowiednim środowisku analitycznym, aby można było przystąpić do modelowania.
-* Opracowanie architektury rozwiązania potoku danych, który odświeża i regularnie ocenia dane.
+* Tworzenie czystego zestawu danych o wysokiej jakości, którego relacja ze zmiennymi docelowymi jest zrozumiała. Znajdź zestaw danych w odpowiednim środowisku analitycznym, dzięki czemu możesz przystąpić do modelowania.
+* Utwórz architekturę rozwiązania potoku danych, która odświeża i regularnie ocenia dane.
 
 ## <a name="how-to-do-it"></a>Jak to zrobić
-Na tym etapie zajęto się trzema głównymi zadaniami:
+W tym etapie istnieją trzy główne zadania:
 
-   * **Połknąć dane** do docelowego środowiska analitycznego.
-   * **Zapoznaj się z danymi,** aby ustalić, czy jakość danych jest odpowiednia, aby odpowiedzieć na pytanie. 
-   * **Skonfiguruj potok danych,** aby uzyskać nowe lub regularnie odświeżane dane.
+   * Pozyskiwanie **danych** w docelowym środowisku analitycznym.
+   * **Eksploruj dane,** aby określić, czy jakość danych jest odpowiednia do udzielenia odpowiedzi na pytanie. 
+   * **Skonfiguruj Potok danych** do oceny nowych lub regularnie odświeżanych danych.
 
-### <a name="ingest-the-data"></a>Połknienie danych
-Skonfiguruj proces, aby przenieść dane z lokalizacji źródłowych do lokalizacji docelowych, w których uruchamiasz operacje analityczne, takie jak szkolenia i prognozy. Aby uzyskać szczegółowe informacje techniczne i opcje dotyczące przenoszenia danych za pomocą różnych usług danych platformy Azure, zobacz [Ładowanie danych do środowisk magazynu w celu analizy.](ingest-data.md) 
+### <a name="ingest-the-data"></a>Pozyskiwanie danych
+Skonfiguruj proces przenoszenia danych z lokalizacji źródłowych do lokalizacji docelowych, w których są uruchamiane operacje analityczne, takie jak szkolenia i przewidywania. Aby uzyskać szczegółowe informacje techniczne i opcje przenoszenia danych przy użyciu różnych usług danych platformy Azure, zobacz artykuł [ładowanie danych do środowiska magazynu na potrzeby analizy](ingest-data.md). 
 
 ### <a name="explore-the-data"></a>Eksplorowanie danych
-Przed szkoleniem modeli należy opracować rzetelne zrozumienie danych. Rzeczywiste zestawy danych są często hałaśliwe, brakuje wartości lub mają wiele innych rozbieżności. Podsumowanie i wizualizację danych służy do inspekcji jakości danych i dostarczania informacji potrzebnych do przetworzenia danych, zanim będą gotowe do modelowania. Proces ten jest często iteracyjny.
+Przed przeprowadzeniem szkolenia modeli należy opracować solidną wiedzę na temat danych. Rzeczywiste zestawy danych to często zakłócenia, brakujące wartości lub hosty innych rozbieżności. Możesz użyć podsumowania i wizualizacji danych, aby przeprowadzić inspekcję jakości danych i podać informacje potrzebne do przetworzenia danych, zanim będą gotowe do modelowania. Ten proces jest często iteracyjny.
 
-TDSP zapewnia zautomatyzowane narzędzie o nazwie [IDEAR,](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils)aby pomóc wizualizować dane i przygotowywać raporty podsumowania danych. Zaleca się, aby rozpocząć z IDEAR pierwszy do eksplorowania danych, aby pomóc w opracowywaniu początkowych danych zrozumienia interaktywnie bez kodowania. Następnie można napisać niestandardowy kod do eksploracji i wizualizacji danych. Aby uzyskać wskazówki dotyczące czyszczenia danych, zobacz [Zadania, aby przygotować dane do rozszerzonego uczenia maszynowego](prepare-data.md).  
+PRZETWARZANIA TDSP zapewnia zautomatyzowane narzędzie, nazywane [pomysłem](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils), które ułatwia wizualizowanie danych i przygotowywanie raportów podsumowujących dane. Zalecamy najpierw zacząć od POMYSŁu, aby eksplorować dane, aby pomóc w interaktywnej analizie danych. Następnie można napisać niestandardowy kod do eksploracji i wizualizacji danych. Aby uzyskać wskazówki dotyczące czyszczenia danych, zobacz [zadania przygotowujące dane do ulepszonej uczenia maszynowego](prepare-data.md).  
 
-Po zadowoleniu z jakości oczyszczonych danych następnym krokiem jest lepsze zrozumienie wzorców, które są nieodłączne w danych. Ta analiza danych pomaga wybrać i opracować odpowiedni model predykcyjny dla obiektu docelowego. Poszukaj dowodów na to, jak dobrze połączone są dane z obiektem docelowym. Następnie należy określić, czy istnieje wystarczająca ilość danych, aby przejść do przodu z następnych kroków modelowania. Ponownie, proces ten jest często iteracyjny. Może być konieczne znalezienie nowych źródeł danych z dokładniejszymi lub bardziej odpowiednimi danymi, aby rozszerzyć zestaw danych wstępnie zidentyfikowanych w poprzednim etapie. 
+Po spełnieniu jakości oczyszczonych danych, następnym krokiem jest lepsze zrozumienie wzorców, które są związane z danymi. Ta analiza danych pomaga w wyborze i opracowaniu odpowiedniego modelu predykcyjnego dla celu. Poszukaj dowodów na to, jak dobrze połączono dane z elementem docelowym. Następnie określ, czy masz wystarczające dane, aby przejść do następnej procedury modelowania. Ten proces jest często iteracyjny. Może być konieczne znalezienie nowych źródeł danych z dokładniejszymi lub bardziej odpowiednimi danymi, aby rozszerzyć zestaw danych początkowo zidentyfikowany na poprzednim etapie. 
 
 ### <a name="set-up-a-data-pipeline"></a>Konfigurowanie potoku danych
-Oprócz początkowego pozyskiwania i czyszczenia danych, zazwyczaj należy skonfigurować proces, aby zdobyć nowe dane lub regularnie odświeżać dane w ramach trwającego procesu uczenia się. Ocenianie może zostać zakończone za pomocą potoku danych lub przepływu pracy. W [artykule Przenieś dane z lokalnego wystąpienia programu SQL Server do usługi Azure SQL Database za pomocą usługi Azure Data Factory](move-sql-azure-adf.md) artykuł podaje przykład konfigurowania potoku za pomocą usługi Azure Data [Factory.](https://azure.microsoft.com/services/data-factory/) 
+Oprócz wstępnego pozyskiwania i czyszczenia danych zazwyczaj trzeba skonfigurować proces do oceny nowych danych lub regularnie odświeżać dane w ramach trwającego procesu nauki. Ocenianie może być wykonywane przy użyciu potoku danych lub przepływu pracy. Przykład [przenoszenia danych z wystąpienia lokalnego SQL Server, aby Azure SQL Database z artykułem Azure Data Factorym](move-sql-azure-adf.md) , zawiera przykładowy sposób konfigurowania potoku za pomocą [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
 
-Na tym etapie można opracować architekturę rozwiązania potoku danych. Tworzenie potoku równolegle z następnym etapem projektu nauki o danych. W zależności od potrzeb biznesowych i ograniczeń istniejących systemów, z którymi to rozwiązanie jest zintegrowane, potok może być jedną z następujących opcji: 
+Na tym etapie opracowujesz architekturę rozwiązania potoku danych. Potok jest opracowywany równolegle z następnym etapem projektu analizy danych. W zależności od potrzeb firmy i ograniczeń istniejących systemów, do których to rozwiązanie jest zintegrowane, potok może być jedną z następujących opcji: 
 
-   * Oparte na partiach
+   * Oparte na partii
    * Przesyłanie strumieniowe lub w czasie rzeczywistym 
-   * Hybryda 
+   * Hybrydowa 
 
 ## <a name="artifacts"></a>Artefakty
-Na tym etapie są następujące elementy:
+Poniżej znajdują się elementy dostarczane na tym etapie:
 
-   * [Raport jakości danych:](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md)Ten raport zawiera podsumowania danych, relacje między każdym atrybutem a celem, ranking zmiennych i inne. Narzędzie [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) dostarczone jako część TDSP może szybko wygenerować ten raport na dowolnym zestawie danych tabelarycznym, takim jak plik CSV lub tabela relacyjna. 
-   * **Architektura rozwiązania:** Architektura rozwiązania może być diagram lub opis potoku danych, który służy do uruchamiania oceniania lub prognozowania na nowe dane po utworzeniu modelu. Zawiera również potoku do ponownego przeszkolenia modelu na podstawie nowych danych. Dokument należy przechowywać w katalogu [projektu](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) podczas korzystania z szablonu struktury katalogów TDSP.
-   * **Decyzja punktu kontrolnego:** Przed rozpoczęciem inżynierii pełnej funkcji i budowania modelu można ponownie ocenić projekt, aby ustalić, czy oczekiwana wartość jest wystarczająca do kontynuowania jego realizacji. Możesz na przykład być gotowy do kontynuowania, trzeba zebrać więcej danych lub porzucić projekt, ponieważ dane nie istnieje, aby odpowiedzieć na pytanie.
+   * [Raport dotyczący jakości danych](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): ten raport zawiera podsumowania danych, relacje między poszczególnymi atrybutami i elementem docelowym, klasyfikację zmiennych i inne. Narzędzie [pomysł](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) udostępniane jako część przetwarzania TDSP może szybko wygenerować ten raport na dowolnym zestawie danych tabelarycznych, na przykład w pliku CSV lub w tabeli relacyjnej. 
+   * **Architektura rozwiązania**: Architektura rozwiązania może być diagramem lub opisem potoku danych, który służy do uruchamiania oceniania lub prognoz dotyczących nowych danych po skompilowaniu modelu. Zawiera również potok do ponownego uczenia modelu na podstawie nowych danych. Zapisz dokument w katalogu [projektu](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) , gdy używasz szablonu struktury katalogów przetwarzania TDSP.
+   * **Decyzja dotycząca punktów kontrolnych**: przed rozpoczęciem tworzenia inżynierów i konstruowania modelu można przeprowadzić ocenę projektu, aby określić, czy oczekiwana wartość jest wystarczająca, aby kontynuować jej działanie. Być może na przykład będzie można kontynuować, musi zbierać więcej danych lub porzucić projekt, ponieważ nie istnieją dane, aby odpowiedzieć na pytanie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Oto łącza do każdego kroku w cyklu życia TDSP:
+Poniżej przedstawiono linki do poszczególnych etapów cyklu życia przetwarzania TDSP:
 
    1. [Poznawanie firmy](lifecycle-business-understanding.md)
    2. [Pozyskiwanie danych i ich analiza](lifecycle-data.md)
    3. [Modelowanie](lifecycle-modeling.md)
-   4. [wdrażania](lifecycle-deployment.md)
+   4. [Wdrożenie](lifecycle-deployment.md)
    5. [Akceptacja klienta](lifecycle-acceptance.md)
 
-Zapewniamy pełne wskazówki, które pokazują wszystkie kroki w procesie dla określonych scenariuszy. [Przykładowy](walkthroughs.md) artykuł zawiera listę scenariuszy z łączami i opisami miniatur. W instruktażu pokazano, jak połączyć chmurę, narzędzia lokalne i usługi w przepływie pracy lub potoku w celu utworzenia inteligentnej aplikacji. 
+Oferujemy pełne instruktaże, które pokazują wszystkie kroki procesu dla konkretnych scenariuszy. [Przykładowy artykuł instruktażowy](walkthroughs.md) zawiera listę scenariuszy z linkami i opisami miniatur. Instruktaże ilustrują sposób łączenia chmur, narzędzi lokalnych i usług do przepływu pracy lub potoku w celu utworzenia inteligentnej aplikacji. 
 
-Aby zapoznać się z przykładami wykonywania kroków w usługach TDSP korzystających z usługi Azure Machine Learning Studio, zobacz [Korzystanie z usługi TDSP z usługą Azure Machine Learning.](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle-data)
+Aby zapoznać się z przykładami wykonywania kroków w TDSPs, które używają Azure Machine Learning Studio, zobacz [Korzystanie z przetwarzania TDSP z Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle-data).

@@ -1,6 +1,6 @@
 ---
-title: Kondycja usługi Azure AD Connect — diagnozowanie błędów synchronizacji zduplikowanych atrybutów | Dokumenty firmy Microsoft
-description: W tym dokumencie opisano proces diagnozowania zduplikowanych błędów synchronizacji atrybutów i potencjalną poprawkę scenariuszy osieroconych obiektów bezpośrednio z witryny Azure portal.
+title: Azure AD Connect Health — Diagnozowanie błędów synchronizacji zduplikowanych atrybutów | Microsoft Docs
+description: W tym dokumencie opisano proces diagnostyki zduplikowanych błędów synchronizacji atrybutów i potencjalną poprawkę scenariuszy oddzielonych obiektów bezpośrednio z Azure Portal.
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
@@ -16,144 +16,144 @@ ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48ed9abf3e088e2581a3dd81b7c89e6b99da3ceb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897199"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnozowanie i naprawianie błędów synchronizacji zduplikowanego atrybutu
 
 ## <a name="overview"></a>Omówienie
-O krok dalej, aby wyróżnić błędy synchronizacji, usługa Azure Active Directory (Azure AD) Connect Health wprowadza samoobsługowe korygowanie. Rozwiązuje błędy synchronizacji zduplikowanych atrybutów i naprawia obiekty, które są oddzielone od usługi Azure AD.
-Funkcja diagnozy ma następujące zalety:
-- Zapewnia procedurę diagnostyczną, która zawęża błędy synchronizacji zduplikowanych atrybutów. I daje konkretne poprawki.
-- Stosuje poprawkę dla dedykowanych scenariuszy z usługi Azure AD, aby rozwiązać błąd w jednym kroku.
-- Aby włączyć tę funkcję, nie jest wymagane uaktualnienie ani konfiguracja.
-Aby uzyskać więcej informacji na temat usługi Azure AD, zobacz [Synchronizacja tożsamości i odporność atrybutów duplikatów](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
+Wykonanie jednego kroku w celu wyróżnienia błędów synchronizacji powoduje, że w programie Azure Active Directory (Azure AD) Connect Health wprowadzono korekty samoobsługowe. Rozwiązywanie problemów z duplikowaniem błędów synchronizacji atrybutów i poprawianie obiektów, które są oddzielone z usługi Azure AD.
+Funkcja diagnostyki ma następujące zalety:
+- Zawiera procedurę diagnostyczną, która zawęża zduplikowane błędy synchronizacji atrybutów. I zawiera określone poprawki.
+- Stosuje poprawkę dla dedykowanych scenariuszy z usługi Azure AD w celu rozwiązania błędu w jednym kroku.
+- Aby włączyć tę funkcję, uaktualnienie lub konfiguracja nie jest wymagana.
+Aby uzyskać więcej informacji na temat usługi Azure AD, zobacz [Synchronizacja tożsamości i zduplikowanie odporności na atrybuty](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
-## <a name="problems"></a>Problemy
+## <a name="problems"></a>Dotyczące
 ### <a name="a-common-scenario"></a>Typowy scenariusz
-Gdy **quarantinedAttributeValueMustBeUnique** i **AttributeValueMustBeUnique** błędy synchronizacji się zdarzyć, często, aby zobaczyć **UserPrincipalName** lub **adresy proxy** konflikt w usłudze Azure AD. Błędy synchronizacji można rozwiązać, aktualizując obiekt źródłowy powodujący konflikt z lokalnego boku. Błąd synchronizacji zostanie rozwiązany po następnej synchronizacji. Na przykład ten obraz wskazuje, że dwóch użytkowników ma konflikt ich **UserPrincipalName**. Oba są **Joe.J\@contoso.com**. Obiekty powodujące konflikt są poddawane kwarantannie w usłudze Azure AD.
+Gdy wystąpią błędy synchronizacji **QuarantinedAttributeValueMustBeUnique** i **AttributeValueMustBeUnique** , często są wyświetlane adresy **userPrincipalName** lub **proxy** w usłudze Azure AD. Błędy synchronizacji można rozwiązać przez zaktualizowanie obiektu źródłowego powodującego konflikt po stronie lokalnej. Błąd synchronizacji zostanie rozwiązany po następnej synchronizacji. Na przykład ten obraz wskazuje, że dwóch użytkowników ma konflikt ich **userPrincipalName**. Oba są Jan **. J\@contoso.com**. Obiekty powodujące konflikt są poddane kwarantannie w usłudze Azure AD.
 
-![Diagnozowanie typowy scenariusz błędu synchronizacji](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
+![Diagnozuj typowy scenariusz błędu synchronizacji](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
-### <a name="orphaned-object-scenario"></a>Scenariusz osieroconego obiektu
-Czasami może się okazać, że istniejący użytkownik traci **źródło kotwicy**. Usunięcie obiektu źródłowego miało miejsce w lokalnej usłudze Active Directory. Ale zmiana sygnału usuwania nigdy nie została zsynchronizowana z usługą Azure AD. Ta utrata dzieje się z powodów, takich jak problemy z aparatem synchronizacji lub migracji domeny. Gdy ten sam obiekt zostanie przywrócony lub odtworzony, logicznie, istniejący użytkownik powinien być użytkownikiem do synchronizacji z **kotwicy źródłowej**. 
+### <a name="orphaned-object-scenario"></a>Scenariusz oddzielonego obiektu
+Czasami może się okazać, że istniejący użytkownik utraci **zakotwiczenie źródła**. Usuwanie obiektu źródłowego zaszło do Active Directory lokalnego. Jednak zmiana sygnału usuwania nigdy nie została zsynchronizowana z usługą Azure AD. Ta utrata odbywa się z powodów takich jak problemy z aparatem synchronizacji lub Migracja domeny. Gdy ten sam obiekt jest przywracany lub odtwarzany logicznie, istniejący użytkownik powinien być zsynchronizowany z **kotwicą źródłową**. 
 
-Gdy istniejący użytkownik jest obiektem tylko w chmurze, można również zobaczyć użytkownika powodującego konflikt zsynchronizowany z usługą Azure AD. Nie można dopasować użytkownika w synchronizacji z istniejącym obiektem. Nie ma bezpośredniego sposobu na ponowne mapowanie **kotwicy źródłowej**. Zobacz więcej informacji o [istniejącej bazie wiedzy](https://support.microsoft.com/help/2647098). 
+Jeśli istniejący użytkownik jest obiektem opartym tylko na chmurze, można także zobaczyć, że konflikt użytkownika jest synchronizowany z usługą Azure AD. Nie można dopasować użytkownika do istniejącego obiektu. Nie ma bezpośredniego sposobu mapowania **zakotwiczenia źródła**. Zobacz więcej na temat [istniejącej bazy wiedzy](https://support.microsoft.com/help/2647098). 
 
-Na przykład istniejący obiekt w usłudze Azure AD zachowuje licencję Joe. Nowo zsynchronizowany obiekt z inną **kotwicą źródła** występuje w stanie zduplikowanego atrybutu w usłudze Azure AD. Zmiany dla Joe w lokalnej usłudze Active Directory nie zostaną zastosowane do oryginalnego użytkownika Joe (istniejący obiekt) w usłudze Azure AD.  
+Na przykład istniejący obiekt w usłudze Azure AD zachowuje licencję Jan. Nowo zsynchronizowany obiekt z inną **kotwicą źródła** występuje w zduplikowanym stanie atrybutu w usłudze Azure AD. Zmiany dla Janusza w Active Directory lokalnym nie będą stosowane do oryginalnego użytkownika (istniejącego obiektu) Janusza w usłudze Azure AD.  
 
-![Diagnozowanie scenariusza osieroconych obiektów o błędzie synchronizacji](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
+![Diagnozowanie scenariusza oddzielonych obiektów z błędami synchronizacji](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
 
-## <a name="diagnostic-and-troubleshooting-steps-in-connect-health"></a>Kroki diagnostyczne i rozwiązywanie problemów w trybie Connect Health 
-Funkcja diagnozowania obsługuje obiekty użytkownika z następującymi zduplikowanymi atrybutami:
+## <a name="diagnostic-and-troubleshooting-steps-in-connect-health"></a>Kroki diagnostyki i rozwiązywania problemów w programie Connect Health 
+Funkcja Diagnozuj obsługuje obiekty użytkownika z następującymi zduplikowanymi atrybutami:
 
 | Nazwa atrybutu | Typy błędów synchronizacji|
 | ------------------ | -----------------|
 | UserPrincipalName | QuarantinedAttributeValueMustBeUnique lub AttributeValueMustBeUnique | 
 | ProxyAddresses | QuarantinedAttributeValueMustBeUnique lub AttributeValueMustBeUnique | 
-| SipProxyAddress (SipProxyAddress) | AtrybutValueMustBeUnique | 
-| OnPremiseSecurityIdentifier |  AtrybutValueMustBeUnique |
+| SipProxyAddress | AttributeValueMustBeUnique | 
+| OnPremiseSecurityIdentifier |  AttributeValueMustBeUnique |
 
 >[!IMPORTANT]
-> Aby uzyskać dostęp do tej funkcji, wymagane jest **uprawnienie Administrator globalny** lub **Uprawnienie współautora** z ustawień RBAC.
+> Aby można było uzyskać dostęp do tej funkcji, uprawnienia **administratora globalnego** lub uprawnienia **współautora** z ustawień RBAC, jest wymagane.
 >
 
-Wykonaj kroki z witryny Azure Portal, aby zawęzić szczegóły błędu synchronizacji i zapewnić bardziej szczegółowe rozwiązania:
+Postępuj zgodnie z instrukcjami w Azure Portal, aby zawęzić szczegóły błędu synchronizacji i udostępnić bardziej szczegółowe rozwiązania:
 
-![Kroki diagnostyki błędów synchronizacji](./media/how-to-connect-health-diagnose-sync-errors/IIdFixSteps.png)
+![Kroki diagnostyki błędu synchronizacji](./media/how-to-connect-health-diagnose-sync-errors/IIdFixSteps.png)
 
-W witrynie Azure portal należy wykonać kilka kroków w celu zidentyfikowania określonych scenariuszy, które można naprawić:  
-1.  Sprawdź kolumnę **Diagnozuj stan.** Stan pokazuje, czy istnieje możliwy sposób naprawienia błędu synchronizacji bezpośrednio z usługi Azure Active Directory. Innymi słowy istnieje przepływ rozwiązywania problemów, który można zawęzić przypadek błędu i potencjalnie go naprawić.
+W Azure Portal wykonaj kilka kroków, aby zidentyfikować określone scenariusze fixable:  
+1.  Sprawdź kolumnę **stan diagnozy** . Stan wskazuje, czy istnieje możliwy sposób naprawienia błędu synchronizacji bezpośrednio z Azure Active Directory. Innymi słowy, istnieje przepływ rozwiązywania problemów, który może zawęzić przypadek błędu i potencjalnie rozwiązać ten problem.
 
 | Stan | Co to oznacza? |
 | ------------------ | -----------------|
-| Nie rozpoczęto | Nie odwiedziłeś tego procesu diagnozy. W zależności od wyniku diagnostycznego istnieje potencjalny sposób naprawienia błędu synchronizacji bezpośrednio z portalu. |
-| Wymagana poprawka ręczna | Błąd nie pasuje do kryteriów dostępnych poprawek z portalu. Typy obiektów powodujące konflikt nie są użytkownikami lub już przeszedłeś kroki diagnostyczne i nie było dostępne żadne rozwiązanie poprawki z portalu. W tym ostatnim przypadku poprawka od strony lokalnej jest nadal jednym z rozwiązań. [Dowiedz się więcej o poprawkach lokalnych](https://support.microsoft.com/help/2647098). | 
-| Oczekująca synchronizacja | Zastosowano poprawkę. Portal oczekuje na następny cykl synchronizacji, aby usunąć błąd. |
+| Nie uruchomiono | Ten proces diagnostyki nie został odwiedzony. W zależności od wyniku diagnostyki istnieje potencjalne rozwiązanie błędu synchronizacji bezpośrednio z portalu. |
+| Wymagana ręczna Naprawa | Błąd nie spełnia kryteriów dostępnych poprawek z portalu. Konfliktowe typy obiektów nie są użytkownikami lub zostały już wykonane kroki diagnostyczne, a w portalu nie jest dostępne żadne rozwiązanie. W tym drugim przypadku poprawka ze strony lokalnej jest nadal jednym z rozwiązań. [Przeczytaj więcej na temat poprawek lokalnych](https://support.microsoft.com/help/2647098). | 
+| Oczekiwanie na synchronizację | Zastosowano poprawkę. Portal czeka na następny cykl synchronizacji w celu wyczyszczenia błędu. |
 
   >[!IMPORTANT]
-  > Kolumna stanu diagnostyki zostanie zresetowana po każdym cyklu synchronizacji. 
+  > Kolumna stan diagnostyki zostanie zresetowana po każdym cyklu synchronizacji. 
   >
 
-1. Wybierz przycisk **Diagnozuj** pod szczegółami błędu. Odpowiesz na kilka pytań i zidentyfikujesz szczegóły błędu synchronizacji. Odpowiedzi na pytania pomagają zidentyfikować przypadek osieroconego obiektu.
+1. Wybierz przycisk **Diagnozuj** w obszarze Szczegóły błędu. Odpowiedzmy kilka pytań i określisz szczegóły błędu synchronizacji. Odpowiedzi na pytania ułatwiają zidentyfikowanie oddzielonego przypadku obiektu.
 
-1. Jeśli przycisk **Zamknij** pojawi się na końcu diagnostyki, nie ma szybkiej poprawki dostępnej w portalu na podstawie odpowiedzi. Zapoznaj się z rozwiązaniem pokazanym w ostatnim kroku. Poprawki z lokalnych są nadal rozwiązania. Wybierz przycisk **Zamknij.** Stan bieżącego błędu synchronizacji przełącza się na **Ręczna poprawka wymagana**. Stan pozostaje podczas bieżącego cyklu synchronizacji.
+1. Jeśli na końcu diagnostyki zostanie wyświetlony przycisk **Zamknij** , nie jest dostępna szybka poprawka z poziomu portalu w zależności od odpowiedzi. Zapoznaj się z rozwiązaniem przedstawionym w ostatnim kroku. Poprawki w środowisku lokalnym są nadal rozwiązaniami. Wybierz przycisk **Zamknij** . Stan bieżącego błędu synchronizacji jest **wymagany do ręcznego naprawienia**. Stan pozostaje w trakcie bieżącego cyklu synchronizacji.
 
-1. Po zidentyfikowaniu sprawy osieroconego obiektu można naprawić błędy synchronizacji zduplikowanych atrybutów bezpośrednio z portalu. Aby wyzwolić proces, wybierz przycisk **Zastosuj poprawkę.** Stan bieżącego błędu synchronizacji jest aktualizowany **na synchronizację oczekującą**.
+1. Po zidentyfikowaniu oddzielonego przypadku obiektu można naprawić zduplikowane atrybuty błędy synchronizacji bezpośrednio w portalu. Aby wyzwolić ten proces, wybierz przycisk **Zastosuj poprawkę** . Stan bieżących aktualizacji błędów synchronizacji na **oczekujące synchronizację**.
 
-1. Po następnym cyklu synchronizacji błąd powinien zostać usunięty z listy.
+1. Po kolejnym cyklu synchronizacji błąd powinien zostać usunięty z listy.
 
 ## <a name="how-to-answer-the-diagnosis-questions"></a>Jak odpowiedzieć na pytania diagnostyczne 
-### <a name="does-the-user-exist-in-your-on-premises-active-directory"></a>Czy użytkownik istnieje w lokalnej usłudze Active Directory?
+### <a name="does-the-user-exist-in-your-on-premises-active-directory"></a>Czy użytkownik istnieje w Active Directory lokalnym?
 
-To pytanie próbuje zidentyfikować obiekt źródłowy istniejącego użytkownika z lokalnej usługi Active Directory.  
-1. Sprawdź, czy usługa Azure Active Directory ma obiekt o podanej **aplikacji UserPrincipalName**. Jeśli nie, **odpowiedz nie**.
-2. Jeśli tak, sprawdź, czy obiekt jest nadal w zakresie synchronizacji.  
-   - Wyszukiwanie w przestrzeni łącznika usługi Azure AD przy użyciu sieci owej.
-   - Jeśli obiekt zostanie znaleziony w stanie **Oczekujące na dodanie,** **odpowiedz nie**. Usługa Azure AD Connect nie może połączyć obiektu z właściwym obiektem usługi Azure AD.
-   - Jeśli obiekt nie został znaleziony, odpowiedz **tak**.
+To pytanie próbuje zidentyfikować obiekt źródłowy istniejącego użytkownika na podstawie Active Directory lokalnego.  
+1. Sprawdź, czy Azure Active Directory ma obiekt z podanym elementem **userPrincipalName**. Jeśli nie, odpowiedź **nie**.
+2. Jeśli tak jest, sprawdź, czy obiekt nadal jest w zasięgu do synchronizowania.  
+   - Wyszukaj w obszarze łącznika usługi Azure AD przy użyciu nazwy wyróżniającej.
+   - Jeśli obiekt znajduje się w stanie **oczekiwania na dodanie** , odpowiedź **nie**. Azure AD Connect nie może połączyć obiektu z prawidłowym obiektem usługi Azure AD.
+   - Jeśli nie odnaleziono obiektu, Odpowiedz **tak**.
 
-W tych przykładach pytanie próbuje zidentyfikować, czy **Joe Jackson** nadal istnieje w lokalnej usłudze Active Directory.
-W **typowym scenariuszu**zarówno użytkownicy **Joe Johnson,** jak i **Joe Jackson** są obecni w lokalnej usłudze Active Directory. Obiekty poddane kwarantannie to dwaj różni użytkownicy.
+W tych przykładach Pytanie próbuje sprawdzić, czy w Active Directory lokalnym istnieje niezależna **metoda Jacksona** .
+W przypadku **typowego scenariusza**zarówno użytkownicy Jan **Johnsonem** , jak i Jan **jacksona** są obecni w Active Directory lokalnych. Obiekty poddane kwarantannie są dwoma różnymi użytkownikami.
 
-![Diagnozowanie typowy scenariusz błędu synchronizacji](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
+![Diagnozuj typowy scenariusz błędu synchronizacji](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
-W **przypadku scenariusza osieroconego obiektu**w lokalnej usłudze Active Directory występuje tylko jeden użytkownik **Joe Johnson:**
+W przypadku **scenariusza oddzielonego obiektu**tylko pojedynczy użytkownik Jan **Johnsonem** jest obecny w Active Directory lokalnym:
 
-![Diagnozowanie błędu synchronizacji osieroconego obiektu *czy użytkownik istnieje* scenariusz](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
+![Diagnozuj oddzielony obiekt o błędzie synchronizacji * czy użytkownik istnieje * scenariusz](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
 
 ### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>Czy oba te konta należą do tego samego użytkownika?
-To pytanie sprawdza przychodzącego użytkownika powodującego konflikt i istniejący obiekt użytkownika w usłudze Azure AD, aby sprawdzić, czy należą one do tego samego użytkownika.  
-1. Obiekt powodujący konflikt jest nowo synchronizowany z usługą Azure Active Directory. Porównaj atrybuty obiektów:  
+To pytanie sprawdza przychodzącego użytkownika wywołującego konflikt i istniejącego obiektu użytkownika w usłudze Azure AD, aby sprawdzić, czy należą do tego samego użytkownika.  
+1. Obiekt powodujący konflikt jest nowo synchronizowany do Azure Active Directory. Porównaj atrybuty obiektów:  
    - Nazwa wyświetlana
    - Nazwa główna użytkownika
    - Identyfikator obiektu
-2. Jeśli usługa Azure AD nie może ich porównać, sprawdź, czy usługa Active Directory ma obiekty o **podanych nazwach UserPrincipal.** Odpowiedź **nie,** jeśli znajdziesz oba.
+2. Jeśli nie będzie można porównać usługi Azure AD, sprawdź, czy Active Directory zawierają obiekty o podanych elementach **userPrincipalName**. Odpowiedź **nie** w przypadku znalezienia obu tych wartości.
 
-W poniższym przykładzie dwa obiekty należą do tego samego użytkownika **Joe Johnson**.
+W poniższym przykładzie dwa obiekty należą do tego samego użytkownika Jan **Johnsonem**.
 
-![Diagnozowanie błędu synchronizacji osieroconego obiektu *ten sam użytkownik* scenariusz](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
+![Diagnozuj oddzielony obiekt o błędach synchronizacji * ten sam użytkownik * scenariusz](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
 
 
-## <a name="what-happens-after-the-fix-is-applied-in-the-orphaned-object-scenario"></a>Co się stanie po zastosowaniu poprawki w scenariuszu osieroconego obiektu
-Na podstawie odpowiedzi na powyższe pytania zobaczysz przycisk **Zastosuj poprawkę,** gdy istnieje poprawka dostępna w usłudze Azure AD. W takim przypadku obiekt lokalny jest synchronizowany z nieoczekiwanym obiektem usługi Azure AD. Oba obiekty są mapowane za pomocą **zakotwiczenia źródła**. Zmiana **Zastosuj poprawkę** wykonuje następujące lub podobne kroki:
-1. Aktualizuje **kotwicę źródłową** do właściwego obiektu w usłudze Azure AD.
+## <a name="what-happens-after-the-fix-is-applied-in-the-orphaned-object-scenario"></a>Co się stanie po zastosowaniu poprawki w scenariuszu oddzielonego obiektu
+Na podstawie odpowiedzi na powyższe pytania zobaczysz przycisk **Zastosuj poprawkę** , gdy jest dostępna poprawka z usługi Azure AD. W takim przypadku obiekt lokalny jest synchronizowany z nieoczekiwanym obiektem usługi Azure AD. Dwa obiekty są mapowane przy użyciu **kotwicy źródłowej**. Zmiana **zastosowania poprawki** obejmuje następujące kroki:
+1. Aktualizuje **kotwicę źródłową** do poprawnego obiektu w usłudze Azure AD.
 2. Usuwa obiekt powodujący konflikt w usłudze Azure AD, jeśli jest obecny.
 
-![Diagnozowanie błędu synchronizacji po poprawce](./media/how-to-connect-health-diagnose-sync-errors/IIdFixAfterFix.png)
+![Diagnozuj błąd synchronizacji po naprawie](./media/how-to-connect-health-diagnose-sync-errors/IIdFixAfterFix.png)
 
 >[!IMPORTANT]
-> Zmiana **Zastosuj poprawkę** dotyczy tylko osieroconych przypadków obiektów.
+> Zmiana **poprawki** dotyczy tylko przypadków oddzielonych obiektów.
 >
 
-Po powyższych krokach użytkownik może uzyskać dostęp do oryginalnego zasobu, który jest łączem do istniejącego obiektu. Wartość **Diagnozuj stan** w widoku listy jest aktualizowana **w widoku oczekującym na synchronizację**. Błąd synchronizacji zostanie rozwiązany po następnej synchronizacji. Funkcja Connect Health nie będzie już wyświetlać błędu synchronizacji rozwiązał w widoku listy.
+Po wykonaniu powyższych kroków użytkownik może uzyskać dostęp do oryginalnego zasobu, który jest łączem do istniejącego obiektu. Wartość **stan diagnozy** w widoku listy umożliwia aktualizowanie **oczekujących synchronizacji**. Błąd synchronizacji zostanie rozwiązany po następnej synchronizacji. Program Connect Health nie będzie już pokazywał rozwiązanego błędu synchronizacji w widoku listy.
 
 ## <a name="failures-and-error-messages"></a>Błędy i komunikaty o błędach
-**Użytkownik z atrybutem powodującym konflikt jest nietrwale usunięty w usłudze Azure Active Directory. Upewnij się, że użytkownik jest mocno usunięty przed ponowieniem próby.**  
-Użytkownik z atrybutem powodującym konflikt w usłudze Azure AD powinien zostać wyczyszczony przed zastosowaniem poprawki. Sprawdź, [jak usunąć użytkownika na stałe w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) przed ponowieniem próby poprawki. Użytkownik zostanie również automatycznie usunięty na stałe po 30 dniach w stanie nieuiszczona. 
+**Użytkownik z atrybutem powodującym konflikt jest usuwany w Azure Active Directory. Upewnij się, że użytkownik jest trwale usunięty przed ponowną próbą.**  
+Użytkownik z atrybutem powodującym konflikt w usłudze Azure AD powinien zostać oczyszczony, aby można było zastosować poprawkę. Zapoznaj [się z tematem jak trwale usunąć użytkownika w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) przed ponowną próbą naprawienia. Użytkownik zostanie również automatycznie usunięty trwale po upływie 30 dni w stanie nietrwałego usunięcia. 
 
-**Aktualizowanie źródła kotwicy do użytkownika w chmurze w dzierżawie nie jest obsługiwane.**  
-Użytkownik oparty na chmurze w usłudze Azure AD nie powinien mieć kotwicy źródłowej. Aktualizacja źródła zakotwiczenia nie jest obsługiwana w tym przypadku. Ręczna poprawka jest wymagana z lokalnego. 
+**Aktualizowanie zakotwiczenia źródła do użytkownika opartego na chmurze w dzierżawie nie jest obsługiwane.**  
+Użytkownik oparty na chmurze w usłudze Azure AD nie powinien mieć kotwicy źródłowej. Aktualizacja kotwicy źródła nie jest obsługiwana w tym przypadku. Poprawka ręczna jest wymagana w środowisku lokalnym. 
 
-## <a name="faq"></a>Najczęściej zadawane pytania
-**PYTANIE** Co się stanie, jeśli wykonanie **poprawki zastosuj** nie powiedzie się?  
-**A.** Jeśli wykonanie nie powiedzie się, możliwe, że usługa Azure AD Connect jest uruchomiony błąd eksportu. Odśwież stronę portalu i ponów próbę po następnej synchronizacji. Domyślny cykl synchronizacji wynosi 30 minut. 
-
-
-**PYTANIE** Co zrobić, jeśli **istniejący obiekt** powinien być obiektem do usunięcia?  
-**A.** Jeśli **istniejący obiekt** powinien zostać usunięty, proces nie wiąże się ze zmianą **source anchor**. Zazwyczaj można go naprawić z lokalnej usługi Active Directory. 
+## <a name="faq"></a>Często zadawane pytania
+**Pytania.** Co się stanie w przypadku niepowodzenia wykonania **zastosowania poprawki** ?  
+**Z.** Jeśli wykonanie nie powiedzie się, istnieje możliwość, że Azure AD Connect jest uruchomiony błąd eksportu. Odśwież stronę portalu i ponów próbę po następnej synchronizacji. Domyślny cykl synchronizacji to 30 minut. 
 
 
-**PYTANIE** Jakie uprawnienia ma użytkownik do zastosowania poprawki?  
-**A.** **Administrator globalny**lub **współautor** z ustawień RBAC ma uprawnienia dostępu do procesu diagnostyki i rozwiązywania problemów.
+**Pytania.** Co zrobić, jeśli **istniejący obiekt** powinien być usunięty?  
+**Z.** Jeśli **istniejący obiekt** powinien zostać usunięty, proces nie obejmuje zmiany **kotwicy źródłowej**. Zazwyczaj można rozwiązać ten problem z poziomu Active Directory lokalnego. 
 
 
-**PYTANIE** Czy muszę skonfigurować usługę Azure AD Connect lub zaktualizować agenta usługi Azure AD Connect Health dla tej funkcji?  
-**A.** Nie, proces diagnozowania jest kompletną funkcją opartą na chmurze.
+**Pytania.** Jakie uprawnienie musi wykonać użytkownik, aby zastosować poprawkę?  
+**Z.** **Administrator globalny**lub **WSPÓŁAUTOR** z ustawień RBAC ma uprawnienia dostępu do procesu diagnostyki i rozwiązywania problemów.
 
 
-**PYTANIE** Jeśli istniejący obiekt zostanie usunięty nietrwale, czy proces diagnozowania spowoduje, że obiekt ponownie stanie się aktywny?  
-**A.** Nie, poprawka nie zaktualizuje atrybutów obiektów innych niż **Source Anchor**.
+**Pytania.** Czy muszę skonfigurować Azure AD Connect lub zaktualizować agenta Azure AD Connect Health dla tej funkcji?  
+**Z.** Nie, proces diagnostyki to kompletna funkcja oparta na chmurze.
+
+
+**Pytania.** Jeśli istniejący obiekt jest usunięty z nietrwałego, czy proces diagnostyki ponownie zmieni obiekt?  
+**Z.** Nie, poprawka nie aktualizuje atrybutów obiektu innych niż **kotwice źródłowe**.

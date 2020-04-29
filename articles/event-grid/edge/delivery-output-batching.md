@@ -1,6 +1,6 @@
 ---
-title: Przetwarzanie danych w usłudze Azure Event Grid IoT Edge | Dokumenty firmy Microsoft
-description: Przetwarzanie danych w sieci zdarzeń na podstawie usługi IoT Edge.
+title: Tworzenie wsadowe danych wyjściowych w Azure Event Grid IoT Edge | Microsoft Docs
+description: Tworzenie wsadowe danych wyjściowych w Event Grid na IoT Edge.
 author: HiteshMadan
 manager: rajarv
 ms.author: himad
@@ -10,50 +10,50 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: a6f033af34088081090251f2e5e7cd4a07ce43cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76841751"
 ---
 # <a name="output-batching"></a>Dzielenie na partie danych wyjściowych
 
-Usługa Event Grid ma obsługę dostarczania więcej niż jednego zdarzenia w jednym żądaniu dostarczenia. Ta funkcja umożliwia zwiększenie ogólnej przepływności dostawy bez płacenia kosztów ogólnych HTTP na żądanie. Przetwarzanie wsadowe jest domyślnie wyłączone i można je włączyć dla każdej subskrypcji.
+Event Grid obsługuje dostarczanie więcej niż jednego zdarzenia w jednym żądaniu dostarczania. Ta funkcja umożliwia zwiększenie ogólnej przepływności dostarczania bez płacenia kosztów ogólnych na żądanie HTTP. Przetwarzanie wsadowe jest domyślnie wyłączone i można je włączyć dla każdej subskrypcji.
 
 > [!WARNING]
-> Maksymalny dozwolony czas trwania do przetworzenia każdego żądania dostawy nie zmienia się, nawet jeśli kod subskrybenta potencjalnie musi wykonać więcej pracy na żądanie wsadowe. Limit czasu dostawy domyślnie 60 sekund.
+> Maksymalny dozwolony czas trwania przetwarzania każdego żądania dostarczania nie zmienia się, nawet jeśli kod subskrybenta może wykonać więcej pracy na żądanie wsadowe. Wartość domyślna limitu czasu dostarczania na 60 sekund.
 
-## <a name="batching-policy"></a>Zasady przetwarzania wsadowego
+## <a name="batching-policy"></a>Zasady wsadowe
 
-Zachowanie przetwarzania wsadowego w uścisnąć w ucho podczas zdarzeń można dostosować na subskrybenta, dostosowując następujące dwa ustawienia:
+Zachowanie wsadowe Event Grid można dostosować na subskrybencie, dostosowując następujące dwa ustawienia:
 
 * Maksymalna liczba zdarzeń na partię
 
-  To ustawienie ustawia górny limit liczby zdarzeń, które można dodać do żądania dostawy wsadowej.
+  To ustawienie ustawia górny limit liczby zdarzeń, które można dodać do żądania dostarczania wsadowego.
 
-* Preferowany rozmiar partii w kilobajtach
+* Preferowany rozmiar wsadu w kilobajtach
 
-  To pokrętło służy do dalszego kontrolowania maksymalnej liczby kilobajtów, które mogą być wysyłane na żądanie dostawy
+  To pokrętło służy do dalszej kontroli maksymalnej liczby kilobajtów, które mogą być wysyłane na żądanie dostarczania
 
-## <a name="batching-behavior"></a>Zachowanie przetwarzania wsadowego
+## <a name="batching-behavior"></a>Działanie przetwarzania wsadowego
 
-* Wszystkie lub żadne
+* Wszystkie lub brak
 
-  Usługa Event Grid działa z semantyką typu "wszystko albo brak". Nie obsługuje częściowego sukcesu dostarczania partii. Subskrybenci powinni uważać, aby poprosić tylko o tyle zdarzeń na partię, jak mogą rozsądnie obsługiwać w 60 sekund.
+  Event Grid działa z semantyką All-lub-None. Nie obsługuje częściowej sukcesu dostarczania wsadowego. Subskrybenci powinni mieć szczególną ostrożność, aby poprosił o tyle zdarzeń na partię, ile mogą one być w rozsądny sposób obsługiwane przez 60 sekund.
 
 * Optymistyczne przetwarzanie wsadowe
 
-  Ustawienia zasad przetwarzania wsadowego nie są ścisłe granice zachowania przetwarzania wsadowego i są przestrzegane na podstawie najlepszych starań. Przy niskich szybkościach zdarzeń często można zaobserwować rozmiar partii jest mniejszy niż żądana maksymalna liczba zdarzeń na partię.
+  Ustawienia wsadowe zasad nie są ścisłe względem działania przetwarzania wsadowego i są przestrzegane na podstawie najlepszego wysiłku. Przy niskich współczynnikach zdarzeń często zaobserwujesz rozmiar wsadu mniejszy niż żądane maksymalne zdarzenia na partię.
 
-* Wartość domyślna jest ustawiona na WYŁ.
+* Wartość domyślna to OFF
 
-  Domyślnie usługa Event Grid dodaje tylko jedno zdarzenie do każdego żądania dostarczenia. Sposób, aby włączyć przetwarzanie wsadowe jest ustawienie jednego z ustawień wymienionych wcześniej w artykule w subskrypcji zdarzeń JSON.
+  Domyślnie Event Grid dodaje tylko jedno zdarzenie do każdego żądania dostarczania. Aby włączyć tworzenie partii, należy ustawić jedno z ustawień wymienionych wcześniej w artykule w pliku JSON subskrypcji zdarzeń.
 
 * Wartości domyślne
 
-  Nie jest konieczne określenie zarówno ustawień (Maksymalna liczba zdarzeń na partię, jak i przybliżony rozmiar partii w kilo bajtach) podczas tworzenia subskrypcji zdarzeń. Jeśli ustawiono tylko jedno ustawienie, siatka zdarzeń używa (konfigurowalnych) wartości domyślnych. Zobacz poniższe sekcje dla wartości domyślnych i jak je zastąpić.
+  Podczas tworzenia subskrypcji zdarzeń nie jest konieczne Określanie ustawień (maksymalna liczba zdarzeń na partię i przybliżony rozmiar partii w kilobajtach). Jeśli ustawiono tylko jedno ustawienie, Event Grid używa wartości domyślnych (konfigurowalne). W poniższych sekcjach znajdują się wartości domyślne i sposoby ich przesłonięcia.
 
-## <a name="turn-on-output-batching"></a>Włączanie przetwarzania wsadowego
+## <a name="turn-on-output-batching"></a>Włącz przetwarzanie wsadowe danych wyjściowych
 
 ```json
 {
@@ -73,20 +73,20 @@ Zachowanie przetwarzania wsadowego w uścisnąć w ucho podczas zdarzeń można 
 }
 ```
 
-## <a name="configuring-maximum-allowed-values"></a>Konfigurowanie maksymalnych dozwolonych wartości
+## <a name="configuring-maximum-allowed-values"></a>Konfigurowanie maksymalnej dozwolonej wartości
 
-Następujące ustawienia czasu wdrożenia określają maksymalną wartość dozwoloną podczas tworzenia subskrypcji zdarzeń.
+Poniższe ustawienia czasu wdrożenia kontrolują maksymalną dozwoloną wartość podczas tworzenia subskrypcji zdarzeń.
 
 | Nazwa właściwości | Opis |
 | ------------- | ----------- | 
-| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Maksymalna dopuszczalna `PreferredBatchSizeInKilobytes` wartość dla pokrętła. Domyślnie `1033`.
-| `api__deliveryPolicyLimits__maxEventsPerBatch` | Maksymalna dopuszczalna `MaxEventsPerBatch` wartość dla pokrętła. Domyślnie `50`.
+| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Maksymalna dozwolona wartość dla `PreferredBatchSizeInKilobytes` pokrętła. Wartość `1033`domyślna.
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | Maksymalna dozwolona wartość dla `MaxEventsPerBatch` pokrętła. Wartość `50`domyślna.
 
 ## <a name="configuring-runtime-default-values"></a>Konfigurowanie wartości domyślnych środowiska uruchomieniowego
 
-Następujące ustawienia czasu wdrożenia sterują domyślną wartością środowiska uruchomieniowego każdego pokrętła, gdy nie jest ona określona w subskrypcji zdarzeń. Aby powtórzyć, co najmniej jedno pokrętło musi być ustawione w subskrypcji zdarzeń, aby włączyć zachowanie przetwarzania wsadowego.
+Następujące ustawienia czasu wdrożenia kontrolują wartość domyślną środowiska uruchomieniowego dla każdego pokrętła, gdy nie jest ono określone w subskrypcji zdarzeń. Aby przeprowadzić ponownie iterację, należy ustawić co najmniej jedno pokrętło w subskrypcji zdarzeń, aby włączyć przetwarzanie wsadowe.
 
 | Nazwa właściwości | Opis |
 | ------------- | ----------- |
-| `broker__defaultMaxBatchSizeInBytes` | Maksymalny rozmiar żądania `MaxEventsPerBatch` dostawy, gdy jest określony tylko. Domyślnie `1_058_576`.
-| `broker__defaultMaxEventsPerBatch` | Maksymalna liczba zdarzeń do dodania `MaxBatchSizeInBytes` do partii, gdy jest określona tylko. Domyślnie `10`.
+| `broker__defaultMaxBatchSizeInBytes` | Maksymalny rozmiar żądania dostarczania, gdy `MaxEventsPerBatch` jest określony tylko. Wartość `1_058_576`domyślna.
+| `broker__defaultMaxEventsPerBatch` | Maksymalna liczba zdarzeń do dodania do partii, gdy tylko `MaxBatchSizeInBytes` zostanie określony. Wartość `10`domyślna.

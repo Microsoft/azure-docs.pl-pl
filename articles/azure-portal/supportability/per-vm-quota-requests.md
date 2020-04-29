@@ -1,6 +1,6 @@
 ---
-title: Żądanie zwiększenia limitów przydziału procesora wirtualnego na serię maszyn wirtualnych platformy Azure
-description: Jak zażądać zwiększenia limitu przydziału procesora wirtualnego dla serii maszyn wirtualnych w witrynie Azure portal, co zwiększa całkowity regionalny limit vCPU o tę samą kwotę.
+title: Poproś o zwiększenie limitów przydziału vCPU na serię maszyn wirtualnych platformy Azure
+description: Jak zażądać zwiększenia limitu przydziału vCPU dla serii maszyn wirtualnych w Azure Portal, co zwiększa łączny limit vCPU dla tej samej kwoty.
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
@@ -8,148 +8,148 @@ ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: de06375dad5999a29691435317e62585a2ea7f64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76843749"
 ---
-# <a name="standard-quota-increase-limits-by-vm-series"></a>Przydział standardowy: zwiększanie limitów według serii maszyn wirtualnych
+# <a name="standard-quota-increase-limits-by-vm-series"></a>Przydział standardowy: Zwiększ limity według serii maszyn wirtualnych
 
-Usługa Azure Resource Manager obsługuje dwa typy przydziałów wirtualnych dla maszyn wirtualnych:
+Azure Resource Manager obsługuje dwa typy przydziałów vCPU dla maszyn wirtualnych:
 
-* *Maszyny wirtualne* zgodnie z rzeczywistym użyciem i *zarezerwowane wystąpienia maszyn wirtualnych* podlegają *standardowemu przydziałowi vCPU*.
-* *Maszyny wirtualne punktowe* podlegają *inkcjom owym przydziałowi vCPU*.
+* *Maszyny wirtualne z opcją płatność zgodnie z rzeczywistym* użyciem i *zarezerwowane wystąpienia maszyn wirtualnych* podlegają *standardowym limitowi przydziału vCPU*.
+* *Dodatkowe maszyny wirtualne* podlegają *limitowi przydziału vCPU*.
 
-Standardowy przydział vCPU dla wystąpień płatności zgodnie z rzeczywistym użyciem i zarezerwowanej maszyny wirtualnej jest wymuszany w dwóch warstwach dla każdej subskrypcji w każdym regionie:
+Standardowy przydział vCPU dla wystąpień z opcją płatność zgodnie z rzeczywistym użyciem i zarezerwowanych maszyn wirtualnych jest wymuszany w dwóch warstwach dla każdej subskrypcji w każdym regionie:
 
-* Pierwsza warstwa to *całkowity regionalny limit procesorów wirtualnych*we wszystkich seriach maszyn wirtualnych.
-* Druga warstwa to *limit procesorów wirtualnych serii na maszynę wirtualną dla maszyn wirtualnych,* taki jak procesory wirtualne z serii Dv3.
+* Pierwsza warstwa to *całkowity regionalny limit procesorów wirtualnych vCPU*na wszystkich seriach maszyn wirtualnych.
+* Druga warstwa to *Limit procesorów wirtualnych vCPU serii dla maszyn wirtualnych*, taki jak Dv3 serii procesorów wirtualnych vCPU.
 
-Za każdym razem, gdy wdrażasz nową maszynę wirtualną punktową, całkowite nowe i istniejące użycie procesora wirtualnego dla tej serii maszyn wirtualnych nie może przekraczać zatwierdzonego przydziału vCPU dla danej serii maszyn wirtualnych. Ponadto całkowita liczba nowych i istniejących procesorów wirtualnych, które są wdrażane we wszystkich seriach maszyn wirtualnych, nie powinna przekraczać całkowitego zatwierdzonego przydziału regionalnych procesorów wirtualnych dla subskrypcji. Jeśli którykolwiek z tych przydziałów zostanie przekroczony, wdrożenie maszyny Wirtualnej nie jest dozwolone.
+Za każdym razem, gdy wdrażasz nową maszynę wirtualną, całkowite i istniejące użycie vCPU dla tej serii maszyn wirtualnych nie mogą przekroczyć zatwierdzonego limitu przydziału vCPU dla danej serii maszyn wirtualnych. Ponadto całkowita liczba nowych i istniejących procesorów wirtualnych vCPU, które są wdrożone na wszystkich seriach maszyn wirtualnych, nie powinna przekraczać całkowitego zatwierdzonego przydziału regionalnego vCPU dla subskrypcji. Jeśli jeden z tych limitów przydziału zostanie przekroczony, wdrożenie maszyny wirtualnej jest niedozwolone.
 
-Można zażądać zwiększenia limitu przydziału procesora wirtualnego dla serii maszyn wirtualnych przy użyciu witryny Azure portal. Zwiększenie przydziału serii maszyn wirtualnych automatycznie zwiększa całkowity regionalny limit vCPU o tę samą kwotę.
+Można zażądać zwiększenia limitu przydziału vCPU dla serii maszyn wirtualnych przy użyciu Azure Portal. Zwiększenie limitu przydziału serii maszyn wirtualnych powoduje automatyczne zwiększenie łącznej granicy vCPU w regionie o tej samej wartości.
 
-Aby dowiedzieć się więcej o standardowych przydziałach procesora wirtualnego, zobacz [Przydziały vCPU maszyn wirtualnych](../../virtual-machines/windows/quotas.md) oraz [limity subskrypcji i usług platformy Azure](https://docs.microsoft.com/azure/azure-supportability/classic-deployment-model-quota-increase-requests).
+Aby dowiedzieć się więcej na temat standardowych przydziałów usługi vCPU, zobacz limity [przydziału vCPU maszyny wirtualnej](../../virtual-machines/windows/quotas.md) i [usługi Azure Subscription and Service limit](https://docs.microsoft.com/azure/azure-supportability/classic-deployment-model-quota-increase-requests).
 
-Aby dowiedzieć się więcej o zwiększaniu limitu vCPU według regionu dla przydziału standardowego, zobacz [Przydział standardowy: Zwiększanie limitów według regionu](regional-quota-requests.md).
+Aby dowiedzieć się więcej na temat zwiększania limitu przydziału vCPU według regionu dla standardowego limitu, zobacz [przydział standardowy: Zwiększ limity według regionów](regional-quota-requests.md).
 
-Aby dowiedzieć się więcej o zwiększaniu limitów wirtualnych maszyn wirtualnych punktowych, zobacz [Przydział punktowy: Zwiększanie limitów dla wszystkich serii maszyn wirtualnych](low-priority-quota.md).
+Aby dowiedzieć się więcej o zwiększaniu limitów vCPU maszyn wirtualnych, zobacz limit [przydziału miejsca na miejscu: zwiększenie limitów dla całej serii maszyn wirtualnych](low-priority-quota.md).
 
-Można zażądać zwiększenia standardowych limitów przydziału vCPU na serię maszyn wirtualnych na jeden z dwóch sposobów, zgodnie z opisem w poniższych sekcjach.
+Możesz poprosić o zwiększenie limitów przydziału standardowych vCPU na serię maszyn wirtualnych na jeden z dwóch sposobów, zgodnie z opisem w poniższych sekcjach.
 
-## <a name="request-a-standard-quota-increase-from-help--support"></a>Żądanie standardowego zwiększenia przydziału z pomocy + wsparcie
+## <a name="request-a-standard-quota-increase-from-help--support"></a>Zażądaj standardowego limitu przydziału od pomocy i obsługi technicznej
 
-Aby zażądać standardowego zwiększenia przydziału procesora wirtualnego na serię maszyn wirtualnych z **pomocy + pomocy technicznej:**
+Aby zażądać standardowego wzrostu przydziału vCPU na serię maszyn wirtualnych z **pomocy i obsługi technicznej**:
 
 > [!NOTE]
-> Można również zażądać zwiększenia limitu przydziału dla wielu regionów za pośrednictwem jednego przypadku pomocy technicznej. Szczegółowe informacje można znaleźć w kroku 8.
+> Możesz również zażądać zwiększenia limitu przydziału dla wielu regionów za pomocą jednego przypadku pomocy technicznej. Aby uzyskać szczegółowe informacje, zobacz krok 8.
 
-1. W menu [portalu platformy Azure](https://portal.azure.com) wybierz pozycję Pomoc + pomoc **techniczna**.
+1. W menu [Azure Portal](https://portal.azure.com) wybierz pozycję **Pomoc i obsługa techniczna**.
 
-   ![Łącze Pomoc + pomoc](./media/resource-manager-core-quotas-request/help-plus-support.png)
+   ![Łącze Pomoc i obsługa techniczna](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-1. W **pomocy + pomocy ,** wybierz nowe żądanie pomocy **.**
+1. W oknie **Pomoc i obsługa techniczna**wybierz pozycję **nowe żądanie obsługi**.
 
-    ![Tworzenie nowego żądania pomocy technicznej](./media/resource-manager-core-quotas-request/new-support-request.png)
+    ![Utwórz nowe żądanie obsługi](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. W obszarze **Typ problemu**wybierz pozycję **Limity usługi i subskrypcji (przydziały).**
+1. W obszarze **typ problemu**wybierz pozycję **usługi i limity subskrypcji (przydziały)**.
 
-   ![Wybieranie typu problemu](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
+   ![Wybierz typ problemu](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
-1. W przypadku **opcji Subskrypcja**wybierz subskrypcję, której przydział chcesz zwiększyć.
+1. W obszarze **subskrypcja**wybierz subskrypcję, której przydział chcesz zwiększyć.
 
-   ![Wybieranie subskrypcji dla zwiększonego przydziału](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
+   ![Wybierz subskrypcję dla zwiększonych limitów przydziału](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
-1. W przypadku **typu przydziału**wybierz limit **subskrypcji Compute-VM (cores-vCPU).**
+1. W obszarze **Typ limitu przydziału**wybierz pozycję **COMPUTE-VM (rdzenie-procesorów wirtualnych vCPU)**.
 
-   ![Wybieranie typu przydziału](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   ![Wybierz typ limitu przydziału](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-1. Wybierz **dalej: Rozwiązania,** aby otworzyć **SZCZEGÓŁY PROBLEMU**. Wybierz **pozycję Podaj szczegóły,** aby wprowadzić dodatkowe informacje.
+1. Wybierz pozycję **Dalej: rozwiązania** , aby otworzyć **Szczegóły problemu**. Wybierz pozycję **Podaj szczegóły** , aby wprowadzić dodatkowe informacje.
 
    ![Link "Podaj szczegóły"](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. W **szczegóły przydziału**wykonaj następujące czynności:
+1. W obszarze **Szczegóły przydziału**wykonaj następujące czynności:
 
-   ![TProvide dodatkowe szczegóły przydziału](./media/resource-manager-core-quotas-request/quota-details-deployment-rm-locations.png)
+   ![Dodatkowe szczegóły przydziału TProvide](./media/resource-manager-core-quotas-request/quota-details-deployment-rm-locations.png)
 
-   1. W przypadku **modelu wdrażania**wybierz odpowiedni model.
+   1. W obszarze **model wdrażania**wybierz odpowiedni model.
 
-   1. W obszarze **Lokalizacje**wybierz lokalizację. Dla wybranej lokalizacji w obszarze **Typy**w **obszarze Wybierz typ**wybierz pozycję **Standardowy**.
+   1. W obszarze **lokalizacje**wybierz lokalizację. Dla wybranej lokalizacji w obszarze **typy** **Wybierz typ, a**następnie wybierz pozycję **Standardowy**.
 
       ![Szczegóły przydziału — typy przydziałów](./media/resource-manager-core-quotas-request/quota-details-select-standard-type.png)
 
-      W obszarze **Typy**można zażądać zarówno standardowych, jak i punktowych typów przydziałów z pojedynczego przypadku pomocy technicznej za pośrednictwem obsługi wielu selekcji.
+      W obszarze **typy**można zażądać zarówno typów limitu przydziału standardowego, jak i dodatkowego z jednego przypadku pomocy technicznej w ramach obsługi wieloselekcji.
 
-      Aby uzyskać więcej informacji na temat zwiększania limitów przydziałów [punktowych, zobacz Maszyny wirtualne spot platformy Azure dla zestawów skalowania maszyn wirtualnych](../../virtual-machine-scale-sets/use-spot.md).
+      Aby uzyskać więcej informacji na temat zwiększania limitów przydziału punktów, zobacz [maszyny wirtualne Azure spot dla zestawów skalowania maszyn wirtualnych](../../virtual-machine-scale-sets/use-spot.md).
 
-   1. W **standardzie**wybierz serię jednostek SKU dla zwiększenia przydziałów.
+   1. W obszarze **Standard**wybierz serię SKU dla zwiększonych przydziałów.
 
       ![Szczegóły przydziału — seria SKU](./media/resource-manager-core-quotas-request/quota-details-standard-select-series.png)
 
-   1. Wprowadź nowe limity przydziałów, które chcesz dla tej subskrypcji. Aby usunąć jednostkę SKU z listy, wyczyść pole wyboru obok jednostki SKU lub wybierz ikonę odrzuć "X".
+   1. Wprowadź nowe limity przydziałów dla tej subskrypcji. Aby usunąć jednostkę SKU z listy, wyczyść pole wyboru obok jednostki SKU lub wybierz ikonę Odrzuć "X".
 
-      ![Wybieranie nowego limitu vCPU](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
+      ![Wybierz nowy limit vCPU](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
 
-1. Aby zażądać zwiększenia przydziału dla więcej niż jednej lokalizacji, wybierz dodatkową lokalizację w **obszarze Lokalizacje**, a następnie wybierz odpowiedni typ maszyny Wirtualnej. Następnie można wprowadzić limit, który ma zastosowanie do dodatkowej lokalizacji.
+1. Aby zażądać zwiększenia limitu przydziału dla więcej niż jednej lokalizacji, wybierz dodatkową lokalizację w **lokalizacjach**, a następnie wybierz odpowiedni typ maszyny wirtualnej. Następnie można wprowadzić limit dotyczący dodatkowej lokalizacji.
 
-   ![Określanie dodatkowych lokalizacji w szczegółach przydziału](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
+   ![Określ dodatkowe lokalizacje w szczegółach przydziału](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
 
-1. Wybierz **pozycję Zapisz i kontynuuj** tworzenie żądania pomocy technicznej.
+1. Wybierz pozycję **Zapisz i Kontynuuj** , aby kontynuować tworzenie żądania obsługi.
 
-## <a name="request-a-standard-quota-increase-from-subscriptions"></a>Żądanie standardowego zwiększenia przydziału z subskrypcji
+## <a name="request-a-standard-quota-increase-from-subscriptions"></a>Poproś o zwiększenie limitu przydziału w warstwie Standardowa od subskrypcji
 
-Aby zażądać standardowego zwiększenia przydziału procesora wirtualnego na serię maszyn wirtualnych z **subskrypcji:**
+Aby zażądać standardowego wzrostu przydziału vCPU na serię maszyn wirtualnych z **subskrypcji**:
 
 > [!NOTE]
-> Można również zażądać zwiększenia limitu przydziału dla wielu regionów za pośrednictwem jednego przypadku pomocy technicznej. Szczegółowe informacje można znaleźć w kroku 7.
+> Możesz również zażądać zwiększenia limitu przydziału dla wielu regionów za pomocą jednego przypadku pomocy technicznej. Aby uzyskać szczegółowe informacje, zobacz krok 7.
 
-1. W [witrynie Azure portal](https://portal.azure.com)wyszukaj i wybierz **pozycję Subskrypcje**.
+1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **subskrypcje**.
 
-   ![Subskrypcje w wyszukiwarce witryny Azure portal](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
+   ![Subskrypcje w wyszukiwaniu Azure Portal](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
 
 1. Wybierz subskrypcję, której przydział chcesz zwiększyć.
 
    ![Subskrypcje do wyboru dla zmian](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
 
-1. W lewym okienku wybierz **pozycję Użycie + przydziały**.
+1. W lewym okienku wybierz pozycję **użycie i przydziały**.
 
-   ![Łącze "Użycie + przydziały"](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
+   ![Link "użycie i przydziały"](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
 
-1. W prawym górnym rogu wybierz pozycję **Poproś o zwiększenie**.
+1. W prawym górnym rogu wybierz pozycję **Zwiększ liczbę żądań**.
 
-   ![Wybierz, aby zwiększyć przydział](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
+   ![Wybierz, aby zwiększyć limit przydziału](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
 
-1. W przypadku **typu przydziału**wybierz limit **subskrypcji Compute-VM (cores-vCPU).**
+1. W obszarze **Typ limitu przydziału**wybierz pozycję **COMPUTE-VM (rdzenie-procesorów wirtualnych vCPU)**.
 
-   ![Wybieranie typu przydziału](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   ![Wybierz typ limitu przydziału](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-1. W **szczegóły przydziału**wykonaj następujące czynności:
+1. W obszarze **Szczegóły przydziału**wykonaj następujące czynności:
 
-   1. W przypadku **modelu wdrażania**wybierz odpowiedni model, a w przypadku **lokalizacji**wybierz lokalizację.
+   1. W obszarze **model wdrażania**wybierz odpowiedni model i dla pozycji **lokalizacje**wybierz lokalizację.
 
       ![Podaj szczegóły przydziału](./media/resource-manager-core-quotas-request/quota-details-deployment-rm-locations.png)
 
-   1. Dla wybranej lokalizacji w obszarze **Typy**wybierz pozycję **Wybierz typ**, a następnie wybierz pozycję **Standardowy**.
+   1. Dla wybranej lokalizacji w obszarze **typy**wybierz pozycję **Wybierz typ**, a następnie wybierz pozycję **Standardowy**.
 
       ![Wybierz typ standardowy](./media/resource-manager-core-quotas-request/quota-details-select-standard-type.png)
 
-      W obszarze **Typy**można zażądać zarówno standardowych, jak i punktowych typów przydziałów z pojedynczego przypadku pomocy technicznej za pośrednictwem obsługi wielu selekcji.
+      W obszarze **typy**można zażądać zarówno typów limitu przydziału standardowego, jak i dodatkowego z jednego przypadku pomocy technicznej w ramach obsługi wieloselekcji.
 
-      Aby uzyskać więcej informacji na temat zwiększania limitów przydziałów [punktowych, zobacz Maszyny wirtualne spot platformy Azure dla zestawów skalowania maszyn wirtualnych](../../virtual-machine-scale-sets/use-spot.md).
+      Aby uzyskać więcej informacji na temat zwiększania limitów przydziału punktów, zobacz [maszyny wirtualne Azure spot dla zestawów skalowania maszyn wirtualnych](../../virtual-machine-scale-sets/use-spot.md).
 
-   1. W przypadku **opcji Standardowa**wybierz serię jednostek SKU, których przydziały chcesz zwiększyć.
+   1. W polu **standardowa**wybierz serię SKU, której przydziały chcesz zwiększyć.
 
       ![Szczegóły przydziału — seria SKU](./media/resource-manager-core-quotas-request/quota-details-standard-select-series.png)
 
-   1. Wprowadź nowe limity przydziałów, które chcesz dla tej subskrypcji. Aby usunąć jednostkę SKU z listy, usuń zaznaczenie pola wyboru obok jednostki SKU lub wybierz ikonę odrzuć "X".
+   1. Wprowadź nowe limity przydziałów dla tej subskrypcji. Aby usunąć jednostkę SKU z listy, usuń zaznaczenie pola wyboru obok jednostki SKU lub wybierz pozycję Odrzuć ikonę "X".
 
-      ![Wybieranie nowego limitu vCPU](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
+      ![Wybierz nowy limit vCPU](./media/resource-manager-core-quotas-request/quota-details-standard-set-vcpu-limit.png)
 
-1. Aby zażądać zwiększenia przydziału dla więcej niż jednej lokalizacji, wybierz dodatkową lokalizację w **obszarze Lokalizacje**, a następnie wybierz odpowiedni typ maszyny Wirtualnej.
+1. Aby zażądać zwiększenia limitu przydziału dla więcej niż jednej lokalizacji, wybierz dodatkową lokalizację w **lokalizacjach**, a następnie wybierz odpowiedni typ maszyny wirtualnej.
 
-   Ten krok wstępnie ładuje serię jednostek SKU, która została wybrana dla wcześniejszych lokalizacji. Wprowadź limity przydziału, które chcesz zastosować do dodatkowej serii.
+   Ten krok umożliwia wstępne załadowanie serii SKU wybranej dla wcześniejszych lokalizacji. Wprowadź limity przydziałów, które mają być stosowane do dodatkowej serii.
 
-   ![Wybieranie dodatkowych lokalizacji w szczegółach przydziału](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
+   ![Wybierz dodatkowe lokalizacje w szczegółach limitu przydziału](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
 
-1. Wybierz **pozycję Zapisz i kontynuuj** tworzenie żądania pomocy technicznej.
+1. Wybierz pozycję **Zapisz i Kontynuuj** , aby kontynuować tworzenie żądania obsługi.

@@ -1,6 +1,6 @@
 ---
-title: Przykładowe dane w programie SQL Server na platformie Azure — proces nauki o danych zespołu
-description: Przykładowe dane przechowywane w programie SQL Server na platformie Azure przy użyciu języka programowania SQL lub języka języka python, a następnie przenieść go do usługi Azure Machine Learning.
+title: Przykładowe dane w SQL Server na platformie Azure — proces nauki danych zespołu
+description: Przykładowe dane przechowywane w SQL Server na platformie Azure przy użyciu programu SQL lub języka programowania Python, a następnie przenieść je do Azure Machine Learning.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,81 +12,81 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 71a2ec9dc4d644fb8739db3817e2cd1d09913da7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76717646"
 ---
 # <a name="sample-data-in-sql-server-on-azure"></a><a name="heading"></a>Przykładowe dane w programie SQL Server na platformie Azure
 
-W tym artykule pokazano, jak przykładać danych przechowywanych w programie SQL Server na platformie Azure przy użyciu języka programowania SQL lub języka programowania Języka Python. Pokazano również, jak przenieść przykładowe dane do usługi Azure Machine Learning, zapisując je w pliku, przekazując je do obiektu blob platformy Azure, a następnie odczytując je w usłudze Azure Machine Learning Studio.
+W tym artykule przedstawiono sposób próbkowania danych przechowywanych w SQL Server na platformie Azure przy użyciu programu SQL lub języka programowania w języku Python. Przedstawiono w nim również sposób przenoszenia danych próbkowanych do Azure Machine Learning przez zapisanie ich w pliku, przekazanie go do obiektu blob platformy Azure, a następnie przeczytanie go do Azure Machine Learning Studio.
 
-Próbkowanie języka Python używa [biblioteki Pyodbc](https://code.google.com/p/pyodbc/) ODBC do łączenia się z programem SQL Server na platformie Azure i [biblioteki Pandas](https://pandas.pydata.org/) w celu pobrania próbkowania.
+Próbkowanie w języku Python używa biblioteki ODBC [moduł pyodbc](https://code.google.com/p/pyodbc/) do nawiązywania połączenia z SQL Server na platformie Azure i biblioteki [Pandas](https://pandas.pydata.org/) w celu wykonania próbkowania.
 
 > [!NOTE]
-> Przykładowy kod SQL w tym dokumencie zakłada, że dane są w programie SQL Server na platformie Azure. Jeśli tak nie jest, zapoznaj się [z artykule Przenoszenie danych do programu SQL Server na platformie Azure,](move-sql-server-virtual-machine.md) aby uzyskać instrukcje dotyczące przenoszenia danych do programu SQL Server na platformie Azure.
+> Przykładowy kod SQL w tym dokumencie zakłada, że dane są w SQL Server na platformie Azure. Jeśli tak nie jest, zapoznaj się z tematem [przenoszenie danych do SQL Server w](move-sql-server-virtual-machine.md) artykule dotyczącym platformy Azure, aby uzyskać instrukcje dotyczące przenoszenia danych do SQL Server na platformie Azure.
 > 
 > 
 
-**Dlaczego warto przykładać swoje dane?**
-Jeśli zestaw danych, który planujesz analizować, jest duży, zwykle warto pobrać próbkę w dół danych, aby zmniejszyć je do mniejszego, ale reprezentatywnego i łatwiejszego w zarządzaniu rozmiaru. Próbkowanie ułatwia zrozumienie danych, eksplorację i inżynierię funkcji. Jego rolą w [procesie nauki o danych zespołu (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) jest umożliwienie szybkiego prototypowania funkcji przetwarzania danych i modeli uczenia maszynowego.
+**Dlaczego warto Przykładowo dane?**
+Jeśli zestaw danych, który planujesz analizować jest duży, zazwyczaj dobrym pomysłem jest Przepróbkowanie danych w celu zmniejszenia ich do mniejszej, ale reprezentatywnej i większej możliwej do zarządzania wielkości. Próbkowanie ułatwia zrozumienie, eksplorację i inżynierowanie danych. Jej rolą w [procesie nauki danych zespołu (przetwarzania TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) jest umożliwienie szybkiego tworzenia prototypów funkcji przetwarzania danych i modeli uczenia maszynowego.
 
-To zadanie próbkowania jest krokiem w [procesie nauki o danych zespołu (TDSP).](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)
+To zadanie próbkowania jest krokiem w [procesie nauki o danych zespołowych (przetwarzania TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="using-sql"></a><a name="SQL"></a>Korzystanie z języka SQL
-W tej sekcji opisano kilka metod przy użyciu języka SQL do wykonywania prostego losowego próbkowania danych w bazie danych. Wybierz metodę na podstawie rozmiaru danych i ich dystrybucji.
+W tej sekcji opisano kilka metod korzystania z programu SQL do wykonywania prostych losowych próbkowania dla danych w bazie danych. Wybierz metodę na podstawie rozmiaru danych i jego rozkładu.
 
-Następujące dwa elementy pokazują, `newid` jak używać w programie SQL Server do wykonywania próbkowania. Wybrana metoda zależy od losowej, jak ma być próbka (pk_id w poniższym przykładowym kodzie jest zakładana jako automatycznie generowany klucz podstawowy).
+Poniższe dwa elementy pokazują, jak używać `newid` programu w SQL Server, aby wykonać próbkowanie. Wybór metody zależy od tego, jak losowo ma być pobierana próbka (pk_id w poniższym przykładowym kodzie jest założono, że jest automatycznie generowanym kluczem podstawowym).
 
-1. Mniej surowa próbka losowa
+1. Mniej rygorystyczne losowe próbkowanie
    
         select  * from <table_name> where <primary_key> in 
         (select top 10 percent <primary_key> from <table_name> order by newid())
-2. Bardziej losowa próbka 
+2. Bardziej losowy przykład 
    
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-Tablesample może służyć do pobierania próbek danych, jak również. Ta opcja może być lepszym rozwiązaniem, jeśli rozmiar danych jest duży (przy założeniu, że dane na różnych stronach nie są skorelowane) i aby kwerenda została ukończona w rozsądnym czasie.
+Można również użyć tej metody do próbkowania danych. Ta opcja może być lepszym rozwiązaniem, jeśli rozmiar danych jest duży (przy założeniu, że dane na różnych stronach nie są skorelowane) i aby zapytanie zostało wykonane w rozsądnym czasie.
 
     SELECT *
     FROM <table_name> 
     TABLESAMPLE (10 PERCENT)
 
 > [!NOTE]
-> Funkcje z tych próbkowania można eksplorować i generować, przechowując je w nowej tabeli
+> Możesz eksplorować i generować funkcje z tego przykładowych danych, przechowując je w nowej tabeli
 > 
 > 
 
-### <a name="connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Łączenie się z usługą Azure Machine Learning
-Możesz bezpośrednio użyć przykładowych zapytań powyżej w module [importu usługi][import-data] Azure Machine Learning, aby pobrać próbkę w dół danych w locie i przenieść je do eksperymentu usługi Azure Machine Learning. Zrzut ekranu przedstawiający użycie modułu czytnika do odczytu próbkowania danych jest pokazany tutaj:
+### <a name="connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Nawiązywanie połączenia z Azure Machine Learning
+Możesz bezpośrednio użyć przykładowych zapytań opisanych powyżej w module Azure Machine Learning [Import danych][import-data] , aby w pełni próbkować dane na bieżąco i przełączać je do eksperymentu Azure Machine Learning. Zrzut ekranu przedstawiający użycie modułu czytnika do odczytywania danych próbkowanych jest przedstawiony tutaj:
 
-![czytnik sql][1]
+![kod SQL czytnika][1]
 
-## <a name="using-the-python-programming-language"></a><a name="python"></a>Korzystanie z języka programowania Języka Python
-W tej sekcji pokazano przy użyciu [biblioteki pyodbc](https://code.google.com/p/pyodbc/) do ustanowienia ODBC połączyć się z bazy danych serwera SQL w języku Python. Parametry połączenia bazy danych są następujące: (zastąp nazwę serwera, nazwę użytkownika i hasło konfiguracją):
+## <a name="using-the-python-programming-language"></a><a name="python"></a>Korzystanie z języka programowania w języku Python
+W tej sekcji przedstawiono użycie [biblioteki moduł pyodbc](https://code.google.com/p/pyodbc/) w celu nawiązania połączenia ODBC z bazą danych programu SQL Server w języku Python. Parametry połączenia z bazą danych są następujące: (zastąp nazwę ServerName, dbname, username i Password swoją konfiguracją):
 
     #Set up the SQL Azure connection
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-Biblioteka [Pandas](https://pandas.pydata.org/) w Pythonie zawiera bogaty zestaw struktur danych i narzędzi do analizy danych do manipulowania danymi podczas programowania języka Python. Poniższy kod odczytuje próbkę 0,1% danych z tabeli w bazie danych SQL azure do danych pandas:
+Biblioteka [Pandas](https://pandas.pydata.org/) w języku Python oferuje bogaty zestaw struktur danych i narzędzi do analizy danych na potrzeby manipulowania danymi na potrzeby programowania w języku Python. Poniższy kod odczytuje przykład 0,1% danych z tabeli w Azure SQL Database do danych Pandas:
 
     import pandas as pd
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select column1, column2... from <table_name> tablesample (0.1 percent)''', conn)
 
-Teraz można pracować z próbkowania danych w ramce danych Pandas. 
+Teraz można korzystać z przykładowych danych w ramce danych Pandas. 
 
-### <a name="connecting-to-azure-machine-learning"></a><a name="python-aml"></a>Łączenie się z usługą Azure Machine Learning
-Poniższy przykładowy kod służy do zapisywania danych próbkowanych w dół do pliku i przekazywania go do obiektu blob platformy Azure. Dane w obiekcie blob można bezpośrednio odczytać w eksperymentalnym usłudze Azure Machine Learning przy użyciu modułu [Importuj dane.][import-data] Kroki tego procesu są następujące: 
+### <a name="connecting-to-azure-machine-learning"></a><a name="python-aml"></a>Nawiązywanie połączenia z Azure Machine Learning
+Możesz użyć następującego przykładowego kodu, aby zapisać dane z próbką w dół do pliku i przekazać je do obiektu blob platformy Azure. Dane w obiekcie blob mogą być bezpośrednio odczytywane w Azure Machine Learning eksperymentu przy użyciu modułu [Importuj dane][import-data] . Kroki tego procesu są następujące: 
 
-1. Zapisywanie ramki danych pand do pliku lokalnego
+1. Zapisz ramkę danych Pandas do pliku lokalnego
    
         dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
-2. Przekazywanie pliku lokalnego do obiektu blob platformy Azure
+2. Przekaż plik lokalny do obiektu blob platformy Azure
    
         from azure.storage import BlobService
         import tables
@@ -107,12 +107,12 @@ Poniższy przykładowy kod służy do zapisywania danych próbkowanych w dół d
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Odczytuj dane z obiektu blob platformy Azure przy użyciu [modułu importu usługi][import-data] Azure Machine Learning, jak pokazano na poniższym ekranie:
+3. Odczytaj dane z obiektu blob platformy Azure przy użyciu modułu Azure Machine Learning [Importuj dane][import-data] , jak pokazano na poniższym ekranie:
 
-![obiekt blob czytnika][2]
+![Obiekt BLOB czytnika][2]
 
-## <a name="the-team-data-science-process-in-action-example"></a>Przykład procesu nauki o danych zespołu w akcji
-Aby przejść przez przykład procesu nauki o danych zespołu przy użyciu publicznego zestawu danych, zobacz [Proces nauki o danych zespołu w akcji: przy użyciu programu SQL Server](sql-walkthrough.md).
+## <a name="the-team-data-science-process-in-action-example"></a>Proces nauki o danych zespołowych w przykładowym działaniu
+Aby zapoznać się z przykładem procesu nauki o danych zespołowych przy użyciu publicznego zestawu danych, zobacz [proces analizy danych zespołu w akcji: używanie SQL Server](sql-walkthrough.md).
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png

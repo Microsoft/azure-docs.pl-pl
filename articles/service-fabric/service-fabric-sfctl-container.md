@@ -1,81 +1,81 @@
 ---
-title: Kontener interfejsu WIERSZA POLECENIA usługi Azure Service
-description: Dowiedz się więcej o sfctl, interfejsie wiersza polecenia sieci szkieletowej usługi Azure. Zawiera listę poleceń dla kontenerów.
+title: Interfejs wiersza polecenia platformy Azure Service Fabric — kontener sfctl
+description: Dowiedz się więcej na temat sfctl, interfejsu wiersza polecenia platformy Azure Service Fabric. Zawiera listę poleceń kontenerów.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 07861e2b67eea67740b341cbea994de978973664
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906121"
 ---
 # <a name="sfctl-container"></a>sfctl container
-Uruchamianie poleceń związanych z kontenerem w węźle klastra.
+Uruchom polecenia związane z kontenerem w węźle klastra.
 
 ## <a name="commands"></a>Polecenia
 
 |Polecenie|Opis|
 | --- | --- |
-| invoke-api | Wywoływanie interfejsu API kontenera w kontenerze wdrożonym w węźle sieci szkieletowej usług dla danego pakietu kodu. |
-| dzienniki | Pobiera dzienniki kontenera dla kontenera wdrożony w węźle sieci szkieletowej usług. |
+| Invoke-API | Wywołaj interfejs API kontenera dla kontenera wdrożonego w węźle Service Fabric dla danego pakietu kodu. |
+| dzienniki | Pobiera dzienniki kontenerów dla kontenera wdrożonego w węźle Service Fabric. |
 
-## <a name="sfctl-container-invoke-api"></a>sfctl container invoke-api
-Wywoływanie interfejsu API kontenera w kontenerze wdrożonym w węźle sieci szkieletowej usług dla danego pakietu kodu.
-
-### <a name="arguments"></a>Argumenty
-
-|Argument|Opis|
-| --- | --- |
-| --application-id [Wymagane] | Tożsamość aplikacji. <br><br> Zazwyczaj jest to pełna nazwa aplikacji bez\:schematu URI 'fabric'. Począwszy od wersji 6.0, nazwy hierarchiczne\~są rozdzielane znakiem " ". Na przykład jeśli nazwa aplikacji\:to "fabric /myapp/app1", tożsamość\~aplikacji będzie "myapp app1" w wersji 6.0+ i "myapp/app1" w poprzednich wersjach. |
-| --code-package-instance-id [Wymagane] | Identyfikator, który jednoznacznie identyfikuje wystąpienie pakietu kodu wdrożone w węźle sieci szkieletowej usług. <br><br> Można pobrać przez "service code-package-list". |
-| --code-package-name [Wymagane] | Nazwa pakietu kodu określonego w manifeście usługi zarejestrowany jako część typu aplikacji w klastrze sieci szkieletowej usług. |
-| --container-api-uri-path [Wymagane] | Ścieżka identyfikatora URI interfejsu API interfejsu KONTENERA, użyj "{ID}" zamiast nazwy/identyfikatora kontenera. |
-| --node-name [Wymagane] | Nazwa węzła. |
-| --service-manifest-name [Wymagane] | Nazwa manifestu usługi zarejestrowanego jako część typu aplikacji w klastrze sieci szkieletowej usług. |
-| --container-api-body | Treść żądania HTTP dla interfejsu API REST kontenera. |
-| --container-api-content-type | Typ zawartości dla interfejsu API REST kontenera, domyślnie "application/json". |
-| --container-api-http-czasownik | Zlecenie HTTP dla interfejsu API REST kontenera, domyślnie get. |
-| --timeout -t | Wartość\: domyślna 60. |
-
-### <a name="global-arguments"></a>Argumenty globalne
-
-|Argument|Opis|
-| --- | --- |
-| --debug | Zwiększ szczegółowość rejestrowania, aby wyświetlić wszystkie dzienniki debugowania. |
-| --help -h | Pokaż ten komunikat pomocy i zamknij. |
-| --wyjście -o | Format wyjściowy.  Dozwolone wartości\: json, jsonc, table, tsv.  Domyślny\: json. |
-| --zapytanie | Ciąg zapytania JMESPath. Zobacz\:http //jmespath.org/ aby uzyskać więcej informacji i przykładów. |
-| --pełne | Zwiększ szczegółowość rejestrowania. Użyj --debug dla pełnych dzienników debugowania. |
-
-## <a name="sfctl-container-logs"></a>dzienniki kontenerów sfctl
-Pobiera dzienniki kontenera dla kontenera wdrożony w węźle sieci szkieletowej usług.
+## <a name="sfctl-container-invoke-api"></a>Wywołanie kontenera sfctl — interfejs API
+Wywołaj interfejs API kontenera dla kontenera wdrożonego w węźle Service Fabric dla danego pakietu kodu.
 
 ### <a name="arguments"></a>Argumenty
 
 |Argument|Opis|
 | --- | --- |
-| --application-id [Wymagane] | Tożsamość aplikacji. <br><br> Zazwyczaj jest to pełna nazwa aplikacji bez\:schematu URI 'fabric'. Począwszy od wersji 6.0, nazwy hierarchiczne\~są rozdzielane znakiem " ". Na przykład jeśli nazwa aplikacji\:to "fabric /myapp/app1", tożsamość\~aplikacji będzie "myapp app1" w wersji 6.0+ i "myapp/app1" w poprzednich wersjach. |
-| --code-package-instance-id [Wymagane] | Identyfikator wystąpienia pakietu kodu, który można pobrać przez "service code-package-list". |
-| --code-package-name [Wymagane] | Nazwa pakietu kodu określonego w manifeście usługi zarejestrowany jako część typu aplikacji w klastrze sieci szkieletowej usług. |
-| --node-name [Wymagane] | Nazwa węzła. |
-| --service-manifest-name [Wymagane] | Nazwa manifestu usługi zarejestrowanego jako część typu aplikacji w klastrze sieci szkieletowej usług. |
-| --ogon | Liczba wierszy do wyświetlenia od końca dzienników. Wartość domyślna to 100. "wszystko", aby wyświetlić pełne dzienniki. |
-| --timeout -t | Wartość\: domyślna 60. |
+| --ID aplikacji [wymagane] | Tożsamość aplikacji. <br><br> Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład jeśli nazwa aplikacji to "Fabric\:/MyApp/APP1", tożsamość aplikacji byłaby "MojaApl\~APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
+| --Code-Package-instance-ID [wymagane] | Identyfikator, który jednoznacznie identyfikuje wystąpienie pakietu kodu wdrożone w węźle usługi Service Fabric. <br><br> Może być pobrany przez "kod usługi — lista pakietów". |
+| --Code-package-name [wymagane] | Nazwa pakietu kodu określona w manifeście usługi zarejestrowana w ramach typu aplikacji w klastrze Service Fabric. |
+| --Container-API-URI-Path [wymagane] | Ścieżka identyfikatora URI interfejsu API REST kontenera, użyj "{ID}" zamiast nazwy kontenera/identyfikatora. |
+| --Node-Name [wymagane] | Nazwa węzła. |
+| --Service-manifest-Name [wymagane] | Nazwa manifestu usługi zarejestrowana w ramach typu aplikacji w klastrze Service Fabric. |
+| --kontener — treść | Treść żądania HTTP dla interfejsu API REST kontenera. |
+| --Container-API-Content-Type | Typ zawartości dla interfejsu API REST kontenera — wartość domyślna to "Application/JSON". |
+| --Container-API-http-Verb | Zlecenie HTTP dla interfejsu API REST kontenera; wartość domyślna to GET. |
+| --timeout-t | Wartość\: domyślna 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
 |Argument|Opis|
 | --- | --- |
-| --debug | Zwiększ szczegółowość rejestrowania, aby wyświetlić wszystkie dzienniki debugowania. |
-| --help -h | Pokaż ten komunikat pomocy i zamknij. |
-| --wyjście -o | Format wyjściowy.  Dozwolone wartości\: json, jsonc, table, tsv.  Domyślny\: json. |
-| --zapytanie | Ciąg zapytania JMESPath. Zobacz\:http //jmespath.org/ aby uzyskać więcej informacji i przykładów. |
-| --pełne | Zwiększ szczegółowość rejestrowania. Użyj --debug dla pełnych dzienników debugowania. |
+| --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
+| --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
+
+## <a name="sfctl-container-logs"></a>sfctl dzienników kontenerów
+Pobiera dzienniki kontenerów dla kontenera wdrożonego w węźle Service Fabric.
+
+### <a name="arguments"></a>Argumenty
+
+|Argument|Opis|
+| --- | --- |
+| --ID aplikacji [wymagane] | Tożsamość aplikacji. <br><br> Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład jeśli nazwa aplikacji to "Fabric\:/MyApp/APP1", tożsamość aplikacji byłaby "MojaApl\~APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
+| --Code-Package-instance-ID [wymagane] | Identyfikator wystąpienia pakietu kodu, który może zostać pobrany przez "kod usługi — pakiet-lista". |
+| --Code-package-name [wymagane] | Nazwa pakietu kodu określona w manifeście usługi zarejestrowana w ramach typu aplikacji w klastrze Service Fabric. |
+| --Node-Name [wymagane] | Nazwa węzła. |
+| --Service-manifest-Name [wymagane] | Nazwa manifestu usługi zarejestrowana w ramach typu aplikacji w klastrze Service Fabric. |
+| --tail | Liczba wierszy do wyświetlenia na końcu dzienników. Wartość domyślna to 100. "wszystkie", aby wyświetlić kompletne dzienniki. |
+| --timeout-t | Wartość\: domyślna 60. |
+
+### <a name="global-arguments"></a>Argumenty globalne
+
+|Argument|Opis|
+| --- | --- |
+| --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
+| --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 
 ## <a name="next-steps"></a>Następne kroki
-- [Konfigurowanie](service-fabric-cli.md) interfejsu wiersza polecenia sieci szkieletowej usług.
-- Dowiedz się, jak używać interfejsu wiersza polecenia sieci szkieletowej usług przy użyciu [przykładowych skryptów.](/azure/service-fabric/scripts/sfctl-upgrade-application)
+- [Skonfiguruj](service-fabric-cli.md) interfejs wiersza polecenia Service Fabric.
+- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](/azure/service-fabric/scripts/sfctl-upgrade-application).

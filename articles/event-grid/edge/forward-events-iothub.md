@@ -1,6 +1,6 @@
 ---
-title: Przesyłanie dalej zdarzeń siatki do usługi IoTHub — usługa Azure Event Grid IoT Edge | Dokumenty firmy Microsoft
-description: Przesyłanie dalej zdarzeń siatki zdarzeń do usługi IoTHub
+title: Prześlij dalej Event Grid zdarzenia do IoTHub-Azure Event Grid IoT Edge | Microsoft Docs
+description: Prześlij dalej Event Grid zdarzenia do IoTHub
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,37 +10,37 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76844704"
 ---
-# <a name="tutorial-forward-events-to-iothub"></a>Samouczek: Przesyłanie dalej zdarzeń do usługi IoTHub
+# <a name="tutorial-forward-events-to-iothub"></a>Samouczek: Przekazywanie zdarzeń do IoTHub
 
-W tym artykule przedstawiono wszystkie kroki potrzebne do przekazywania zdarzeń usługi Event Grid do innych modułów usługi IoT Edge, IoTHub przy użyciu tras. Można to zrobić z następujących powodów:
+W tym artykule omówiono wszystkie kroki, które należy wykonać, aby przekazywać zdarzenia Event Grid do innych modułów IoT Edge, IoTHub przy użyciu tras. Można to zrobić z następujących powodów:
 
-* Kontynuuj korzystanie z istniejących inwestycji już istniejących z routingiem edgeHub
-* Preferuj kierowanie wszystkich zdarzeń z urządzenia tylko za pośrednictwem usługi IoT Hub
+* Nadal korzystaj z istniejących już inwestycji z routingiem usługi edgeHub
+* Wolisz kierować wszystkie zdarzenia z urządzenia tylko za pośrednictwem IoT Hub
 
-Aby ukończyć ten samouczek, musisz zrozumieć następujące pojęcia:
+Aby ukończyć ten samouczek, musisz zrozumieć następujące kwestie:
 
-- [Pojęcia siatki zdarzeń](concepts.md)
-- [Koncentrator usługi IoT Edge](../../iot-edge/module-composition.md) 
+- [Koncepcje Event Grid](concepts.md)
+- [IoT Edge Hub](../../iot-edge/module-composition.md) 
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
-Aby ukończyć ten samouczek, trzeba będzie:
+Aby można było ukończyć ten samouczek, potrzebne są:
 
-* **Subskrypcja platformy Azure** — utwórz [bezpłatne konto,](https://azure.microsoft.com/free) jeśli jeszcze go nie masz. 
-* **Usługa Azure IoT Hub i urządzenie usługi IoT Edge** — postępuj zgodnie z instrukcjami w trybie szybkiego [uruchamiania](../../iot-edge/quickstart-linux.md) dla urządzeń z systemem Linux lub [Windows,](../../iot-edge/quickstart.md) jeśli jeszcze go nie masz.
+* **Subskrypcja platformy Azure** — Utwórz [bezpłatne konto](https://azure.microsoft.com/free) , jeśli jeszcze go nie masz. 
+* **Azure IoT Hub i IoT Edge Device** — wykonaj kroki opisane w przewodniku szybki start dla urządzeń z systemem [Linux](../../iot-edge/quickstart-linux.md) lub [Windows](../../iot-edge/quickstart.md) , jeśli jeszcze go nie masz.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)]
 
 ## <a name="create-topic"></a>Tworzenie tematu
 
-Jako wydawca zdarzenia musisz utworzyć temat siatki zdarzeń. Temat odnosi się do punktu końcowego, do którego wydawcy mogą następnie wysyłać zdarzenia.
+Jako wydawca zdarzenia musisz utworzyć temat dotyczący siatki zdarzeń. Temat odnosi się do punktu końcowego, w którym wydawcy mogą wysyłać zdarzenia do programu.
 
-1. Utwórz topic4.json z następującą zawartością. Szczegółowe informacje na temat ładunku można znaleźć w dokumentacji interfejsu [API.](api.md)
+1. Utwórz plik topic4. JSON z następującą zawartością. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
 
    ```json
     {
@@ -50,13 +50,13 @@ Jako wydawca zdarzenia musisz utworzyć temat siatki zdarzeń. Temat odnosi się
           }
     }
     ```
-1. Uruchom następujące polecenie, aby utworzyć temat. Kod stanu HTTP 200 OK powinny być zwracane.
+1. Uruchom następujące polecenie, aby utworzyć temat. Należy zwrócić kod stanu HTTP 200 OK.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic4.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4?api-version=2019-01-01-preview
     ```
 
-1. Uruchom następujące polecenie, aby sprawdzić, czy temat został utworzony pomyślnie. Kod stanu HTTP 200 OK powinny być zwracane.
+1. Uruchom następujące polecenie, aby upewnić się, że temat został utworzony pomyślnie. Należy zwrócić kod stanu HTTP 200 OK.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4?api-version=2019-01-01-preview
@@ -78,13 +78,13 @@ Jako wydawca zdarzenia musisz utworzyć temat siatki zdarzeń. Temat odnosi się
         ]
    ```
 
-## <a name="create-event-subscription"></a>Tworzenie subskrypcji zdarzeń
+## <a name="create-event-subscription"></a>Utwórz subskrypcję zdarzeń
 
-Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temacie. Aby otrzymać dowolne zdarzenie, należy utworzyć subskrypcję siatki zdarzeń na interesujący temat.
+Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temacie. Aby odebrać każde zdarzenie, należy utworzyć subskrypcję usługi Event Grid w temacie zainteresowania.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Utwórz subscription4.json z poniższą zawartością. Szczegółowe informacje na temat ładunku można znaleźć w dokumentacji interfejsu [API.](api.md)
+1. Utwórz plik subscription4. JSON z poniższą zawartością. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
 
    ```json
     {
@@ -100,13 +100,13 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
    ```
 
    >[!NOTE]
-   > Określa, `endpointType` że subskrybent jest `edgeHub`. Określa `outputName` dane wyjściowe, na których moduł siatki zdarzeń będzie kierować zdarzenia, które pasują do tej subskrypcji edgeHub. Na przykład zdarzenia, które pasują do powyższej subskrypcji zostaną zapisane na `/messages/modules/eventgridmodule/outputs/sampleSub4`.
-2. Uruchom następujące polecenie, aby utworzyć subskrypcję. Kod stanu HTTP 200 OK powinny być zwracane.
+   > `endpointType` Określa, że subskrybent jest `edgeHub`. `outputName` Określa dane wyjściowe, na których moduł Event Grid będzie kierować zdarzenia, które pasują do tej subskrypcji do edgeHub. Na przykład zdarzenia, które pasują do powyższej subskrypcji, `/messages/modules/eventgridmodule/outputs/sampleSub4`będą zapisywane w.
+2. Uruchom następujące polecenie, aby utworzyć subskrypcję. Należy zwrócić kod stanu HTTP 200 OK.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription4.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4/eventSubscriptions/sampleSubscription4?api-version=2019-01-01-preview
     ```
-3. Uruchom następujące polecenie, aby sprawdzić subskrypcję został utworzony pomyślnie. Kod stanu HTTP 200 OK powinny być zwracane.
+3. Uruchom następujące polecenie, aby sprawdzić, czy subskrypcja została pomyślnie utworzona. Należy zwrócić kod stanu HTTP 200 OK.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4/eventSubscriptions/sampleSubscription4?api-version=2019-01-01-preview
@@ -131,17 +131,17 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
         }
     ```
 
-## <a name="set-up-an-edge-hub-route"></a>Konfigurowanie trasy koncentratora krawędzi
+## <a name="set-up-an-edge-hub-route"></a>Konfigurowanie trasy centrum brzegowego
 
-Zaktualizuj trasę centrum brzegowego, aby przesłać dalej zdarzenia subskrypcji zdarzeń, które mają być przekazywane do usługi IoTHub w następujący sposób:
+Zaktualizuj trasę centrum brzegowego, aby przesłać dalej zdarzenia subskrypcji zdarzeń, które zostaną przekazane do IoTHub w następujący sposób:
 
-1. Logowanie się do [witryny Azure portal](https://ms.portal.azure.com)
-1. Przejdź do **centrum IoT Hub**.
+1. Zaloguj się do [Azure Portal](https://ms.portal.azure.com)
+1. Przejdź do **IoT Hub**.
 1. Wybierz **IoT Edge** z menu
-1. Wybierz identyfikator urządzenia docelowego z listy urządzeń.
+1. Wybierz z listy urządzeń identyfikator urządzenia docelowego.
 1. Wybierz pozycję **Ustaw moduły**.
-1. Wybierz **pozycję Dalej** i do sekcji trasy.
-1. Na trasach dodaj nową trasę
+1. Wybierz pozycję **dalej** i w sekcji trasy.
+1. W obszarze trasy Dodaj nową trasę
 
   ```sh
   "fromEventGridToIoTHub":"FROM /messages/modules/eventgridmodule/outputs/sampleSub4 INTO $upstream"
@@ -158,17 +158,17 @@ Zaktualizuj trasę centrum brzegowego, aby przesłać dalej zdarzenia subskrypcj
   ```
 
    >[!NOTE]
-   > Powyższa trasa będzie przesyłać dalej wszystkie zdarzenia dopasowane dla tej subskrypcji, które mają być przekazywane do centrum IoT hub. Za pomocą funkcji [routingu koncentratora krawędzi](../../iot-edge/module-composition.md) można użyć do dalszego filtrowania i kierowania zdarzeń siatki zdarzeń do innych modułów usługi IoT Edge.
+   > Powyższa trasa przekaże wszystkie zdarzenia dopasowane do tej subskrypcji, aby zostały przekazane do centrum IoT Hub. Funkcje [routingu centrum brzegowego](../../iot-edge/module-composition.md) umożliwiają dalsze filtrowanie i kierowanie zdarzeń Event Grid do innych modułów IoT Edge.
 
-## <a name="setup-iot-hub-route"></a>Konfigurowanie trasy Centrum IoT
+## <a name="setup-iot-hub-route"></a>Konfiguracja trasy IoT Hub
 
-Zobacz [samouczek routingu usługi IoT Hub,](../../iot-hub/tutorial-routing.md) aby skonfigurować trasę z centrum IoT hub, dzięki czemu można wyświetlać zdarzenia przesyłane dalej z modułu siatki zdarzeń. Użyj `true` kwerendy, aby zachować samouczek proste.  
+Zapoznaj się z [samouczkiem dotyczącym routingu IoT Hub](../../iot-hub/tutorial-routing.md) , aby skonfigurować trasę z Centrum IoT Hub, aby można było wyświetlać zdarzenia przekazane z modułu Event Grid. Użyj `true` do zapytania, aby zachować prosty samouczek.  
 
 
 
-## <a name="publish-an-event"></a>Publikowanie wydarzenia
+## <a name="publish-an-event"></a>Publikowanie zdarzenia
 
-1. Utwórz plik event4.json z następującą zawartością. Szczegółowe informacje na temat ładunku można znaleźć w dokumentacji interfejsu [API.](api.md)
+1. Utwórz plik event4. JSON z następującą zawartością. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
 
     ```json
         [
@@ -186,7 +186,7 @@ Zobacz [samouczek routingu usługi IoT Hub,](../../iot-hub/tutorial-routing.md) 
         ]
     ```
 
-1. Uruchom następujące polecenie, aby opublikować zdarzenie:
+1. Uruchom następujące polecenie, aby opublikować wydarzenie:
 
     ```sh
     curl -k -H "Content-Type: application/json" -X POST -g -d @event4.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4/events?api-version=2019-01-01-preview
@@ -194,24 +194,24 @@ Zobacz [samouczek routingu usługi IoT Hub,](../../iot-hub/tutorial-routing.md) 
 
 ## <a name="verify-event-delivery"></a>Weryfikowanie dostarczania zdarzeń
 
-Zobacz [samouczek routingu](../../iot-hub/tutorial-routing.md) usługi IoT Hub, aby uzyskać instrukcje wyświetlania zdarzeń.
+Instrukcje dotyczące wyświetlania zdarzeń można znaleźć w [samouczku IoT Hub Routing](../../iot-hub/tutorial-routing.md) .
 
 ## <a name="cleanup-resources"></a>Oczyszczanie zasobów
 
-* Uruchom następujące polecenie, aby usunąć temat i wszystkie jego subskrypcje na krawędzi:
+* Uruchom następujące polecenie, aby usunąć temat i wszystkie jego subskrypcje na brzegu:
 
     ```sh
     curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4?api-version=2019-01-01-preview
     ```
-* Usuń wszystkie zasoby utworzone podczas konfigurowania routingu Usługi IoTHub również w chmurze.
+* Usuń wszystkie zasoby utworzone podczas konfigurowania routingu IoTHub w chmurze.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzono temat siatki zdarzeń, subskrypcję centrum krawędzi i opublikowane zdarzenia. Teraz, gdy znasz podstawowe kroki, aby przejść do koncentratora krawędzi, zobacz następujące artykuły:
+W tym samouczku opisano tworzenie tematu usługi Event Grid, subskrypcji centrum usługi Edge i opublikowanych zdarzeń. Teraz, gdy znasz podstawowe kroki umożliwiające przekazanie do centrum brzegowego, zobacz następujące artykuły:
 
-* Aby rozwiązać problemy z używaniem usługi Azure Event Grid w usłudze IoT Edge, zobacz [Przewodnik rozwiązywania problemów](troubleshoot.md).
-* Używanie filtrów trasy [koncentratora krawędzi](../../iot-edge/module-composition.md) do partycjonowania zdarzeń
-* Konfigurowanie trwałości modułu Siatki zdarzeń w [systemie Linux](persist-state-linux.md) lub [Windows](persist-state-windows.md)
-* Postępuj zgodnie [z dokumentacją,](configure-client-auth.md) aby skonfigurować uwierzytelnianie klienta
-* Przesyłanie dalej zdarzeń do usługi Azure Event Grid w chmurze, wykonując ten [samouczek](forward-events-event-grid-cloud.md)
-* [Monitorowanie tematów i subskrypcji na krawędzi](monitor-topics-subscriptions.md)
+* Aby rozwiązać problemy z używaniem Azure Event Grid na IoT Edge, zobacz [Przewodnik rozwiązywania problemów](troubleshoot.md).
+* Używanie filtrów tras [centrum programu Edge](../../iot-edge/module-composition.md) do partycjonowania zdarzeń
+* Konfiguracja trwałości modułu Event Grid w systemie [Linux](persist-state-linux.md) lub [Windows](persist-state-windows.md)
+* Postępuj zgodnie z [dokumentacją](configure-client-auth.md) , aby skonfigurować uwierzytelnianie klienta
+* Przekazuj zdarzenia do Azure Event Grid w chmurze, wykonując czynności opisane w tym [samouczku](forward-events-event-grid-cloud.md)
+* [Monitorowanie tematów i subskrypcji na granicy](monitor-topics-subscriptions.md)

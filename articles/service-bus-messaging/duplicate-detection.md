@@ -1,6 +1,6 @@
 ---
-title: Wykrywanie zduplikowanych komunikatów usługi Azure Service Bus | Dokumenty firmy Microsoft
-description: W tym artykule wyjaśniono, jak można wykryć duplikaty w komunikatach usługi Azure Service Bus. Zduplikowana wiadomość może zostać zignorowana i upuszczona.
+title: Azure Service Bus wykrywania duplikatów komunikatów | Microsoft Docs
+description: W tym artykule wyjaśniono, jak można wykrywać duplikaty w komunikatach Azure Service Bus. Zduplikowany komunikat można zignorować i usunąć.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,61 +14,61 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: c109b9fd310a09e5eb4c6d18cc3536e4d8069c0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76760372"
 ---
 # <a name="duplicate-detection"></a>Wykrywanie duplikatów
 
-Jeśli aplikacja nie powiedzie się z powodu błędu krytycznego natychmiast po wysłaniu wiadomości, a ponowne wystąpienie aplikacji błędnie uważa, że wcześniejsze dostarczanie wiadomości nie wystąpiło, kolejne wysyłanie powoduje, że ten sam komunikat pojawia się w systemie dwa razy.
+Jeśli aplikacja zakończy się niepowodzeniem z powodu błędu krytycznego natychmiast po wysłaniu komunikatu, a ponownie uruchomione wystąpienie aplikacji uważa, że wcześniejsze dostarczanie komunikatów nie zostało wykonane, kolejne wysłanie powoduje, że ten sam komunikat pojawi się w systemie dwukrotnie.
 
-Jest również możliwe, że błąd na poziomie klienta lub sieci występuje chwilę wcześniej i dla wysłanej wiadomości do zatwierdzeniu w kolejce, z potwierdzeniem nie pomyślnie zwrócone do klienta. Ten scenariusz pozostawia klienta w wątpliwość co do wyniku operacji wysyłania.
+Istnieje również możliwość, że wystąpił błąd na poziomie klienta lub sieci, a w przypadku wysłania wiadomości do kolejki, a potwierdzenie nie zostało pomyślnie zwrócone do klienta. W tym scenariuszu klient ma wątpliwości dotyczące wyniku operacji wysyłania.
 
-Wykrywanie duplikatów usuwa wątpliwości z tych sytuacji, włączając nadawcę ponownie wysłać tę samą wiadomość, a kolejka lub temat odrzuca wszystkie zduplikowane kopie.
+Wykrywanie duplikatów odbierze wątpliwości z tych sytuacji przez umożliwienie nadawcy ponownego wysłania tego samego komunikatu, a kolejka lub temat odrzuca wszystkie zduplikowane kopie.
 
-Włączenie wykrywania duplikatów pomaga śledzić *messageid* kontrolowane przez aplikację wszystkich wiadomości wysłanych do kolejki lub tematu w określonym przedziale czasu. Jeśli każda nowa wiadomość jest wysyłana z *MessageId,* który został zarejestrowany w oknie czasu, wiadomość jest zgłaszana jako zaakceptowana (operacja wysyłania zakończy się pomyślnie), ale nowo wysłana wiadomość jest natychmiast ignorowana i odrzucana. Żadne inne części wiadomości inne niż *MessageId* są brane pod uwagę.
+Włączenie wykrywania duplikatów pomaga śledzić kontrolowane przez aplikację *MessageID* wszystkich komunikatów wysyłanych do kolejki lub tematu w określonym przedziale czasu. Jeśli nowa wiadomość jest wysyłana z identyfikatorem *MessageID* zarejestrowanym w przedziale czasu, komunikat jest raportowany jako zaakceptowany (operacja wysyłania powiedzie się), ale nowo wysłana wiadomość zostanie natychmiast zignorowana i porzucona. Nie *są brane* pod uwagę żadne inne części komunikatu niż komunikat.
 
-Kontrola aplikacji identyfikatora jest niezbędna, ponieważ tylko to pozwala aplikacji powiązać *MessageId* do kontekstu procesu biznesowego, z którego można przewidzieć rekonstrukcji, gdy wystąpi błąd.
+Kontrola aplikacji w identyfikatorze jest istotna, ponieważ tylko umożliwia aplikacji powiązanie wartości *MessageID* z kontekstem procesu biznesowego, z którego może być przewidywane odbudowanie w przypadku wystąpienia błędu.
 
-W przypadku procesu biznesowego, w którym wiele wiadomości są wysyłane w trakcie obsługi niektórych kontekstu aplikacji, *MessageId* może być złożony identyfikator kontekstu na poziomie aplikacji, takich jak numer zamówienia zakupu i temat wiadomości, na przykład **12345.2017/payment**.
+W przypadku procesu biznesowego, w którym wiele komunikatów jest wysyłanych w trakcie obsługi pewnego kontekstu aplikacji, identyfikator *MessageID* może być złożonym z identyfikatora kontekstu na poziomie aplikacji, takiego jak numer zamówienia zakupu, a temat wiadomości, na przykład **12345.2017/płatność**.
 
-*MessageId* zawsze może być jakiś identyfikator GUID, ale zakotwiczenie identyfikatora do procesu biznesowego daje przewidywalne powtarzalność, co jest pożądane do wykorzystania funkcji wykrywania duplikatów skutecznie.
+Wartość *MessageID* może zawsze być identyfikatorem GUID, ale zakotwiczenie identyfikatora do procesu biznesowego daje przewidywalne powtarzalność, która jest odpowiednia do efektywnego wykorzystania funkcji wykrywania duplikatów.
 
 > [!NOTE]
-> Jeśli wykrywanie duplikatów jest włączone, a identyfikator sesji lub klucz partycji nie są ustawione, identyfikator wiadomości jest używany jako klucz partycji. Jeśli identyfikator wiadomości również nie jest ustawiony, biblioteki .NET i AMQP automatycznie generują identyfikator wiadomości dla wiadomości. Aby uzyskać więcej informacji, zobacz [Używanie kluczy partycji](service-bus-partitioning.md#use-of-partition-keys).
+> Jeśli wykrywanie duplikatów jest włączone, a identyfikator sesji lub klucz partycji nie są ustawione, identyfikator wiadomości jest używany jako klucz partycji. Jeśli identyfikator wiadomości nie jest również ustawiony, biblioteki .NET i AMQP automatycznie generują Identyfikator komunikatu dla wiadomości. Aby uzyskać więcej informacji, zobacz [Korzystanie z kluczy partycji](service-bus-partitioning.md#use-of-partition-keys).
 
 ## <a name="enable-duplicate-detection"></a>Włącz wykrywanie duplikatów
 
-W portalu funkcja jest włączona podczas tworzenia encji z polem wyboru **Włącz wykrywanie duplikatów,** które jest domyślnie wyłączone. Ustawienie tworzenia nowych tematów jest równoważne.
+W portalu funkcja jest włączana podczas tworzenia jednostki przy użyciu pola wyboru **Włącz wykrywanie duplikatów** , która jest domyślnie wyłączona. Ustawienie tworzenia nowych tematów jest równoważne.
 
 ![][1]
 
 > [!IMPORTANT]
 > Nie można włączyć/wyłączyć wykrywania duplikatów po utworzeniu kolejki. Można to zrobić tylko w momencie tworzenia kolejki. 
 
-Programowo można ustawić flagę z [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) właściwości w pełnej ramach .NET API. Za pomocą interfejsu API usługi Azure Resource Manager wartość jest ustawiana za pomocą [właściwości queueProperties.requiresDuplicateDetection.](/azure/templates/microsoft.servicebus/namespaces/queues#property-values)
+Programowo ustawiasz flagę przy użyciu właściwości [QueueDescription. requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) w pełnym interfejsie API platformy .NET. W przypadku interfejsu API Azure Resource Manager wartość jest ustawiana za pomocą właściwości [queueProperties. requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) .
 
-Historia czasu wykrywania duplikatów domyślnie wynosi 30 sekund dla kolejek i tematów, przy maksymalnej wartości siedmiu dni. To ustawienie można zmienić w oknie właściwości kolejki i tematu w witrynie Azure portal.
+Wartość domyślna historii czasu wykrywania duplikatów wynosi 30 sekund dla kolejek i tematów z maksymalną wartością siedem dni. To ustawienie można zmienić w oknie właściwości kolejki i tematu w Azure Portal.
 
 ![][2]
 
-Programowo można skonfigurować rozmiar okna wykrywania duplikatów, podczas którego są zachowywane identyfikatory wiadomości, używając właściwości [QueueDescription.DuplicateDetectionHistoryTimeWindow](/dotnet/api/microsoft.servicebus.messaging.queuedescription.duplicatedetectionhistorytimewindow#Microsoft_ServiceBus_Messaging_QueueDescription_DuplicateDetectionHistoryTimeWindow) z pełnym interfejsem API programu .NET Framework. Za pomocą interfejsu API usługi Azure Resource Manager wartość jest ustawiana za pomocą [właściwości queueProperties.duplicateDetectionHistoryTimeWindow.](/azure/templates/microsoft.servicebus/namespaces/queues#property-values)
+Programowo można skonfigurować rozmiar okna wykrywania duplikatów, podczas którego identyfikatory komunikatów są zachowywane, przy użyciu właściwości [QueueDescription. DuplicateDetectionHistoryTimeWindow](/dotnet/api/microsoft.servicebus.messaging.queuedescription.duplicatedetectionhistorytimewindow#Microsoft_ServiceBus_Messaging_QueueDescription_DuplicateDetectionHistoryTimeWindow) z pełnym interfejsem API .NET Framework. W przypadku interfejsu API Azure Resource Manager wartość jest ustawiana za pomocą właściwości [queueProperties. duplicateDetectionHistoryTimeWindow](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) .
 
-Włączenie wykrywania duplikatów i rozmiar okna bezpośrednio wpływa na przepływność kolejki (i tematu), ponieważ wszystkie zarejestrowane identyfikatory wiadomości muszą być dopasowane do nowo przesłanego identyfikatora wiadomości.
+Włączenie wykrywania duplikatów i rozmiaru okna bezpośrednio wpływa na przepływność kolejki (i tematu), ponieważ wszystkie zarejestrowane identyfikatory komunikatów muszą być dopasowane do nowo przesłanego identyfikatora wiadomości.
 
-Utrzymywanie okna małe oznacza, że mniej identyfikatorów wiadomości muszą być zachowywane i dopasowane, a przepływność ma wpływ mniej. Dla jednostek o wysokiej przepływności, które wymagają wykrywania duplikatów, należy zachować okno tak małe, jak to możliwe.
+Utrzymywanie małego okna oznacza, że należy zachować i dopasować mniej identyfikatorów komunikatów, a przepustowość jest mniejsza. W przypadku jednostek o wysokiej przepływności, które wymagają wykrywania duplikatów, należy pozostawić to okno jako małe, jak to możliwe.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o wiadomościach usługi Service Bus, zobacz następujące tematy:
+Aby dowiedzieć się więcej na temat Service Bus Messaging, zobacz następujące tematy:
 
 * [Kolejki, tematy i subskrypcje usługi Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Wprowadzenie do kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Jak używać tematów i subskrypcji usługi Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-W scenariuszach, w których kod klienta nie może ponownie przesłać wiadomości o tym samym *messageid* jak poprzednio, ważne jest, aby zaprojektować wiadomości, które mogą być bezpiecznie ponownie przetwarzane. Ten [wpis na blogu o idempotęt opisuje](https://particular.net/blog/what-does-idempotent-mean) różne techniki, jak to zrobić.
+W scenariuszach, w których kod klienta nie może ponownie przesłać komunikatu o tym samym *atrybucie MessageID* co poprzednio, ważne jest, aby zaprojektować komunikaty, które można bezpiecznie ponownie przetworzyć. Ten [wpis w blogu dotyczący usługi idempotentność](https://particular.net/blog/what-does-idempotent-mean) opisuje różne techniki, w których należy to zrobić.
 
 [1]: ./media/duplicate-detection/create-queue.png
 [2]: ./media/duplicate-detection/queue-prop.png

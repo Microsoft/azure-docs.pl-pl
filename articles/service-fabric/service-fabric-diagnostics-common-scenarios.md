@@ -1,141 +1,141 @@
 ---
-title: Witryna sieci szkieletowej usług Azure— diagnozowanie typowych scenariuszy
-description: Dowiedz się więcej o rozwiązywaniu typowych scenariuszy monitorowania i diagnostyki w aplikacjach sieci szkieletowej usług Azure.
+title: Usługa Azure Service Fabric diagnozowanie typowych scenariuszy
+description: Dowiedz się więcej na temat rozwiązywania typowych scenariuszy monitorowania i diagnostyki w aplikacjach Service Fabric platformy Azure.
 ms.topic: article
 ms.date: 02/25/2019
 ms.openlocfilehash: 3c7f027bad71d48db5fba002f778f23db8225fa5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906953"
 ---
-# <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnozowanie typowych scenariuszy za pomocą sieci szkieletowej usług
+# <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnozuj typowe scenariusze za pomocą Service Fabric
 
-W tym artykule przedstawiono typowe scenariusze, które użytkownicy napotkali w obszarze monitorowania i diagnostyki za pomocą sieci szkieletowej usług. Przedstawione scenariusze obejmują wszystkie 3 warstwy sieci szkieletowej usług: application, cluster i infrastructure. Każde rozwiązanie używa usługi Application Insights i Azure Monitor dzienników, narzędzia do monitorowania platformy Azure, aby zakończyć każdy scenariusz. Kroki w każdym rozwiązaniu dać użytkownikom wprowadzenie na temat korzystania z usługi Application Insights i dzienników usługi Azure Monitor w kontekście sieci szkieletowej usług.
+W tym artykule przedstawiono typowe scenariusze napotykane przez użytkowników w obszarze monitorowania i diagnostyki przy użyciu Service Fabric. Przedstawione scenariusze obejmują wszystkie 3 warstwy usługi Service Fabric: aplikacje, klaster i infrastruktura. Każde rozwiązanie używa dzienników Application Insights i Azure Monitor, narzędzi monitorowania platformy Azure, aby wykonać każdy scenariusz. Kroki opisane w poszczególnych rozwiązaniach umożliwiają użytkownikom wprowadzenie do korzystania z dzienników Application Insights i Azure Monitor w kontekście Service Fabric.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites-and-recommendations"></a>Wymagania wstępne i zalecenia
 
-Rozwiązania w tym artykule będą korzystać z następujących narzędzi. Zalecamy skonfigurowanie i skonfigurowanie następujących konfigurowań:
+Rozwiązania w tym artykule będą korzystać z następujących narzędzi. Zalecamy skonfigurowanie i skonfigurowanie następujących opcji:
 
-* [Usługa Application Insights z siecią szkieletową usług](service-fabric-tutorial-monitoring-aspnet.md)
-* [Włącz diagnostykę platformy Azure w klastrze](service-fabric-diagnostics-event-aggregation-wad.md)
-* [Konfigurowanie obszaru roboczego usługi Log Analytics](service-fabric-diagnostics-oms-setup.md)
-* [Agent analizy dzienników do śledzenia liczników wydajności](service-fabric-diagnostics-oms-agent.md)
+* [Application Insights z Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
+* [Włączanie Diagnostyka Azure w klastrze](service-fabric-diagnostics-event-aggregation-wad.md)
+* [Konfigurowanie obszaru roboczego Log Analytics](service-fabric-diagnostics-oms-setup.md)
+* [Log Analytics agenta do śledzenia liczników wydajności](service-fabric-diagnostics-oms-agent.md)
 
-## <a name="how-can-i-see-unhandled-exceptions-in-my-application"></a>Jak mogę zobaczyć nieobsługiwalne wyjątki w mojej aplikacji?
+## <a name="how-can-i-see-unhandled-exceptions-in-my-application"></a>Jak można zobaczyć Nieobsłużone wyjątki w mojej aplikacji?
 
-1. Przejdź do zasobu usługi Application Insights, za pomocą których jest skonfigurowana aplikacja.
-2. Kliknij *wyszukiwanie* w lewym górnym rogu. Następnie kliknij filtr na następnym panelu.
+1. Przejdź do zasobu Application Insights, z którym aplikacja jest skonfigurowana.
+2. Kliknij pozycję *Wyszukaj* w lewym górnym rogu. Następnie kliknij przycisk Filtruj na następnym panelu.
 
-    ![Przegląd AI](media/service-fabric-diagnostics-common-scenarios/ai-search-filter.png)
+    ![Podgląd AI](media/service-fabric-diagnostics-common-scenarios/ai-search-filter.png)
 
-3. Zobaczysz wiele typów zdarzeń (ślady, żądania, zdarzenia niestandardowe). Wybierz "Wyjątek" jako filtr.
+3. Zobaczysz wiele typów zdarzeń (ślady, żądania, zdarzenia niestandardowe). Wybierz "wyjątek" jako filtr.
 
     ![Lista filtrów AI](media/service-fabric-diagnostics-common-scenarios/ai-filter-list.png)
 
-    Klikając wyjątek na liście, można spojrzeć na więcej szczegółów, w tym kontekstu usługi, jeśli używasz SDK usługi analizy aplikacji sieci szkieletowej.
+    Klikając wyjątek na liście, możesz zapoznać się z tematem więcej szczegółów, w tym kontekstu usługi, jeśli używasz zestawu SDK Service Fabric Application Insights.
 
-    ![Wyjątek dotyczący AI](media/service-fabric-diagnostics-common-scenarios/ai-exception.png)
+    ![Wyjątek AI](media/service-fabric-diagnostics-common-scenarios/ai-exception.png)
 
-## <a name="how-do-i-view-which-http-calls-are-used-in-my-services"></a>Jak wyświetlić, które wywołania HTTP są używane w moich usługach?
+## <a name="how-do-i-view-which-http-calls-are-used-in-my-services"></a>Jak mogę wyświetlić, które wywołania HTTP są używane w ramach usług?
 
-1. W tym samym zasobie usługi Application Insights można filtrować według "żądań" zamiast wyjątków i wyświetlać wszystkie żądania
-2. Jeśli używasz zestawu SDK usługi Sieci szkieletowej aplikacji, można zobaczyć wizualną reprezentację usług połączonych ze sobą oraz liczbę żądań, które zakończyły się powodzeniem i niepowodzeniem. Po lewej stronie kliknij "Mapa aplikacji"
+1. W tym samym zasobie Application Insights można filtrować według "żądań" zamiast wyjątków i wyświetlać wszystkie żądania
+2. W przypadku korzystania z zestawu SDK Service Fabric Application Insights można zobaczyć wizualną reprezentację Twoich usług, a także liczbę żądań zakończonych powodzeniem i niepowodzeniem. Po lewej stronie kliknij pozycję "Mapa aplikacji".
 
-    ![AI App](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![Map Blade AI App Mapa](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
+    ![Mapa aplikacji w bloku](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![mapy aplikacji AI](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
-    Aby uzyskać więcej informacji na temat mapy aplikacji, odwiedź [dokumentację mapy aplikacji](../azure-monitor/app/app-map.md)
+    Aby uzyskać więcej informacji na temat mapy aplikacji, zapoznaj się z [dokumentacją mapy aplikacji](../azure-monitor/app/app-map.md)
 
-## <a name="how-do-i-create-an-alert-when-a-node-goes-down"></a>Jak utworzyć alert, gdy węzeł ulegnie upadkowi
+## <a name="how-do-i-create-an-alert-when-a-node-goes-down"></a>Jak mogę utworzyć alert, gdy węzeł ulegnie awarii
 
-1. Zdarzenia węzłów są śledzone przez klaster sieci szkieletowej usług. Przejdź do zasobu rozwiązania usługi Analizy sieci szkieletowej o nazwie **ServiceFabric(NameofResourceGroup)**
-2. Kliknij na wykres na dole ostrza zatytułowany "Podsumowanie"
+1. Zdarzenia węzłów są śledzone przez klaster Service Fabric. Przejdź do zasobu rozwiązania Service Fabric Analytics o nazwie **servicefabric (NameofResourceGroup)**
+2. Kliknij wykres u dołu bloku zatytułowanego "Podsumowanie"
 
-    ![Rozwiązanie dziennika usługi Azure Monitor](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
+    ![Azure Monitor dzienniki](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
 
-3. Tutaj masz wiele wykresów i kafelków wyświetlających różne metryki. Kliknij na jeden z wykresów i zabierze Cię do wyszukiwania dzienników. W tym miejscu można zbadać wszelkie zdarzenia klastra lub liczniki wydajności.
-4. Wprowadź następującą kwerendę. Te identyfikatory zdarzeń znajdują się w [odwołaniu do zdarzeń węzła](service-fabric-diagnostics-event-generation-operational.md#application-events)
+3. Oto wiele wykresów i kafelków zawierających różne metryki. Kliknij jeden z wykresów i przejdziesz do przeszukiwania dzienników. W tym miejscu można wykonywać zapytania dotyczące wszelkich zdarzeń klastra lub liczników wydajności.
+4. Wprowadź następujące zapytanie. Te identyfikatory zdarzeń znajdują się w temacie [zdarzenia dotyczące węzła](service-fabric-diagnostics-event-generation-operational.md#application-events)
 
     ```kusto
     ServiceFabricOperationalEvent
     | where EventID >= 25622 and EventID <= 25626
     ```
 
-5. Kliknij "Nowa reguła alertu" u góry, a teraz w każdej chwili zdarzenie nadejdzie na podstawie tej kwerendy, otrzymasz alert w wybranej metodzie komunikacji.
+5. Kliknij pozycję "Nowa reguła alertu" u góry i teraz po nadejściu zdarzenia na podstawie tego zapytania otrzymasz alert w wybranej metodzie komunikacji.
 
-    ![Monitor Platformy Azure rejestruje nowy alert](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
+    ![Nowy alert dotyczący Azure Monitor dzienników](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
 
-## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>Jak mogę otrzymywać powiadomienia o wycofywaniu uaktualnień aplikacji?
+## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>Jak można otrzymywać alerty o wycofaniu uaktualnienia aplikacji?
 
-1. W tym samym oknie wyszukiwania dziennika, jak przed wprowadzeniem następującej kwerendy dla wycofywania uaktualnień. Te identyfikatory zdarzeń znajdują się w obszarze [Odwołanie do zdarzeń aplikacji](service-fabric-diagnostics-event-generation-operational.md#application-events)
+1. W tym samym oknie przeszukiwania dzienników co przed wprowadź następujące zapytanie dotyczące wycofywania uaktualnienia. Te identyfikatory zdarzeń znajdują się w sekcji [Informacje o zdarzeniach aplikacji](service-fabric-diagnostics-event-generation-operational.md#application-events)
 
     ```kusto
     ServiceFabricOperationalEvent
     | where EventID == 29623 or EventID == 29624
     ```
 
-2. Kliknij "Nowa reguła alertu" u góry, a teraz w każdej chwili zdarzenie nadejdzie na podstawie tej kwerendy, otrzymasz alert.
+2. Kliknij pozycję "Nowa reguła alertu" u góry i teraz po nadejściu zdarzenia na podstawie tego zapytania otrzymasz alert.
 
-## <a name="how-do-i-see-container-metrics"></a>Jak wyświetlić metryki kontenera?
+## <a name="how-do-i-see-container-metrics"></a>Jak mogę wyświetlić metryki kontenerów?
 
-W tym samym widoku ze wszystkimi wykresami zobaczysz kilka kafelków dla wydajności kontenerów. Potrzebujesz agenta analizy dzienników i [rozwiązania do monitorowania kontenerów](service-fabric-diagnostics-oms-containers.md) dla tych kafelków do wypełniania.
+W tym samym widoku, w którym znajdują się wszystkie wykresy, zobaczysz niektóre kafelki wydajności kontenerów. Aby te kafelki były wypełniane, musisz mieć Log Analytics rozwiązanie agenta i [monitorowanie kontenerów](service-fabric-diagnostics-oms-containers.md) .
 
-![Metryki kontenera analizy dzienników](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
+![Metryki kontenera Log Analytics](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
 
 >[!NOTE]
->Aby przywdyskuwać dane telemetryczne z **wnętrza** kontenera, należy dodać [pakiet nuget usługi Application Insights dla kontenerów.](https://github.com/Microsoft/ApplicationInsights-servicefabric#microsoftapplicationinsightsservicefabric--for-service-fabric-lift-and-shift-scenarios)
+>Aby instrumentować dane telemetryczne z **wewnątrz** kontenera, należy dodać [Application Insights pakiet NuGet dla kontenerów](https://github.com/Microsoft/ApplicationInsights-servicefabric#microsoftapplicationinsightsservicefabric--for-service-fabric-lift-and-shift-scenarios).
 
-## <a name="how-can-i-monitor-performance-counters"></a>Jak monitorować liczniki wydajności?
+## <a name="how-can-i-monitor-performance-counters"></a>Jak można monitorować liczniki wydajności?
 
-1. Po dodaniu agenta usługi Log Analytics do klastra należy dodać określone liczniki wydajności, które chcesz śledzić. Przejdź do strony obszaru roboczego usługi Log Analytics w portalu — na stronie rozwiązania karta obszaru roboczego znajduje się w menu po lewej stronie.
+1. Po dodaniu agenta Log Analytics do klastra należy dodać określone liczniki wydajności, które mają być śledzone. Przejdź do strony obszaru roboczego Log Analytics w portalu — na stronie rozwiązania na karcie obszar roboczy znajduje się w menu po lewej stronie.
 
-    ![Karta Obszar roboczy analizy dzienników](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
+    ![Karta Log Analytics obszaru roboczego](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
 
-2. Gdy jesteś na stronie obszaru roboczego, kliknij na "Ustawienia zaawansowane" w tym samym menu po lewej stronie.
+2. Gdy jesteś na stronie obszaru roboczego, kliknij pozycję "Ustawienia zaawansowane" w tym samym menu po lewej stronie.
 
-    ![Ustawienia zaawansowane usługi Log Analytics](media/service-fabric-diagnostics-common-scenarios/advancedsettingsoms.png)
+    ![Log Analytics ustawień zaawansowanych](media/service-fabric-diagnostics-common-scenarios/advancedsettingsoms.png)
 
-3. Kliknij liczniki wydajności danych > systemu Windows (liczniki wydajności danych > linux dla komputerów z systemem Linux), aby rozpocząć zbieranie określonych liczników z węzłów za pośrednictwem agenta usługi Log Analytics. Oto przykłady formatu liczników do dodania
+3. Kliknij pozycję dane > licznikami wydajności systemu Windows (licznikami wydajności Data > Linux dla maszyn z systemem Linux), aby rozpocząć zbieranie określonych liczników z węzłów za pośrednictwem agenta Log Analytics. Oto przykłady formatu dla liczników do dodania
 
    * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
    * `Processor(_Total)\\% Processor Time`
 
-     W przewodnikach Szybki start, VotingData i VotingWeb są używane nazwy procesów, więc śledzenie tych liczników będzie wyglądać
+     We właściwościach szybkiego startu VotingData i VotingWeb są używane nazwy procesów, dlatego śledzenie tych liczników będzie wyglądać następująco
 
    * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
    * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
 
-     ![Liczniki wydajności analizy dzienników](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
+     ![Liczniki wydajności Log Analytics](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
 
-4. Dzięki temu można zobaczyć, jak infrastruktura obsługuje obciążenia i ustawić odpowiednie alerty na podstawie wykorzystania zasobów. Na przykład — można ustawić alert, jeśli całkowite wykorzystanie procesora przekracza 90% lub poniżej 5%. Nazwa licznika, której można użyć w tym celu, to "% czasu procesora". Można to zrobić, tworząc regułę alertu dla następującej kwerendy:
+4. Pozwoli to zobaczyć, jak Twoja infrastruktura obsługuje Twoje obciążenia, i ustawić odpowiednie alerty na podstawie wykorzystania zasobów. Na przykład możesz chcieć ustawić alert, jeśli całkowite użycie procesora przekracza 90% lub poniżej 5%. Nazwa licznika, która będzie używana dla tego elementu to "czas procesora (%)". Można to zrobić, tworząc regułę alertu dla następującej kwerendy:
 
     ```kusto
     Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" | where CounterValue >= 90 or CounterValue <= 5.
     ```
 
-## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>Jak śledzić wydajność moich niezawodnych usług i aktorów?
+## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>Jak mogę śledzić wydajność moich Reliable Services i uczestników?
 
-Aby śledzić wydajność niezawodnych usług lub aktorów w aplikacjach, należy również zebrać liczniki aktora sieci szkieletowej usług, metody aktora, usługi i metody usługi. Oto przykłady niezawodnych liczników wydajności usług i aktorów do zbierania
+Aby śledzić wydajność Reliable Services lub aktorów w aplikacjach, należy również zebrać liczniki Service Fabric aktora, metody aktora, usługi i metody usługi. Oto przykłady niezawodnych liczników wydajności usługi i aktora do zebrania
 
 >[!NOTE]
->Liczniki wydajności sieci szkieletowej usług nie mogą być obecnie zbierane przez agenta usługi Log Analytics, ale mogą być zbierane przez [inne rozwiązania diagnostyczne](service-fabric-diagnostics-partners.md)
+>Service Fabric liczniki wydajności nie mogą być zbierane przez agenta Log Analytics obecnie, ale mogą być zbierane przez [inne rozwiązania diagnostyczne](service-fabric-diagnostics-partners.md)
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`
 * `Service Fabric Actor(*)\\Average milliseconds per request`
 * `Service Fabric Actor Method(*)\\Invocations/Sec`
 
-Sprawdź te linki, aby uzyskać pełną listę liczników wydajności na wiarygodne [usługi](service-fabric-reliable-serviceremoting-diagnostics.md) i [podmioty](service-fabric-reliable-actors-diagnostics.md)
+Sprawdź te linki, aby uzyskać pełną listę liczników wydajności dla niezawodnych [usług](service-fabric-reliable-serviceremoting-diagnostics.md) i [aktorów](service-fabric-reliable-actors-diagnostics.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Szukaj typowych błędów aktywacji pakietu kodu](./service-fabric-diagnostics-code-package-errors.md)
-* [Konfigurowanie alertów w si.](../azure-monitor/app/alerts.md)
-* [Inteligentne wykrywanie w usłudze Application Insights](../azure-monitor/app/proactive-diagnostics.md) przeprowadza proaktywną analizę danych telemetrycznych wysyłanych do si.
-* Dowiedz się więcej o dziennikach usługi Azure [Monitor, które pomagają](../log-analytics/log-analytics-alerts.md) w wykrywaniu i diagnostyce.
-* W przypadku klastrów lokalnych dzienniki usługi Azure Monitor oferują bramę (http forward proxy), która może służyć do wysyłania danych do dzienników usługi Azure Monitor. Dowiedz się więcej o tym w [łączeniu komputerów bez dostępu do Internetu z dziennikami usługi Azure Monitor przy użyciu bramy usługi Log Analytics](../azure-monitor/platform/gateway.md)
-* Zapoznaj się z funkcjami [wyszukiwania i wyszukiwania w dziennikach](../log-analytics/log-analytics-log-searches.md) oferowanych w ramach dzienników usługi Azure Monitor
-* Uzyskaj bardziej szczegółowe omówienie dzienników usługi Azure Monitor i jej oferty, przeczytaj Co to [są dzienniki usługi Azure Monitor?](../operations-management-suite/operations-management-suite-overview.md)
+* [Wyszukaj typowe błędy aktywacji pakietu kodu](./service-fabric-diagnostics-code-package-errors.md)
+* [Konfigurowanie alertów w programie AI](../azure-monitor/app/alerts.md) do powiadamiania o zmianach wydajności lub użycia
+* [Inteligentne wykrywanie w Application Insights](../azure-monitor/app/proactive-diagnostics.md) wykonuje aktywną analizę danych telemetrycznych wysyłanych do systemu AI w celu ostrzegania o potencjalnych problemach z wydajnością
+* Dowiedz się więcej o dziennikach Azure Monitor [alerty](../log-analytics/log-analytics-alerts.md) w celu ułatwienia wykrywania i diagnostyki.
+* W przypadku klastrów lokalnych dzienniki Azure Monitor oferują bramę (serwer proxy przesyłania dalej HTTP), za pomocą której można wysyłać dane do dzienników Azure Monitor. Dowiedz się więcej na temat [łączenia komputerów bez dostępu do Internetu do dzienników Azure monitor przy użyciu bramy log Analytics](../azure-monitor/platform/gateway.md)
+* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../log-analytics/log-analytics-log-searches.md) , które są oferowane w ramach dzienników Azure monitor
+* Zapoznaj się z bardziej szczegółowym omówieniem dzienników Azure Monitor i ofert, które oferuje, Przeczytaj [co to jest Azure monitor Logs?](../operations-management-suite/operations-management-suite-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Modelowanie danych wykresu dla interfejsu API Gremlin usługi Azure Cosmos DB
-description: Dowiedz się, jak modelować bazę danych wykresów przy użyciu interfejsu API Gremlin usługi Azure Cosmos DB. W tym artykule opisano, kiedy używać bazy danych wykresu i najlepszych rozwiązań do modelowania jednostek i relacji.
+title: Modelowanie danych programu Graph dla Azure Cosmos DB API Gremlin
+description: Dowiedz się, jak modelować bazę danych Graph przy użyciu interfejsu API Azure Cosmos DB Gremlin. W tym artykule opisano, kiedy należy używać bazy danych grafu i najlepszych rozwiązań do modelowania jednostek i relacji.
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
@@ -8,109 +8,109 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: lbosq
 ms.openlocfilehash: dc9a5616aa2bb1f7e09045b9cfe4f4d7e9c69be2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78898326"
 ---
-# <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelowanie danych wykresu dla interfejsu API Gremlin usługi Azure Cosmos DB
+# <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelowanie danych programu Graph dla Azure Cosmos DB API Gremlin
 
-Poniższy dokument ma na celu dostarczenie zaleceń dotyczących modelowania danych wykresu. Ten krok ma kluczowe znaczenie dla zapewnienia skalowalności i wydajności systemu baz danych wykresu w miarę rozwoju danych. Wydajny model danych jest szczególnie ważny w przypadku wykresów na dużą skalę.
+Poniższy dokument został zaprojektowany, aby zapewnić zalecenia dotyczące modelowania danych grafu. Ten krok jest istotny w celu zapewnienia skalowalności i wydajności systemu bazy danych programu Graph w miarę rozwoju danych. Wydajny model danych jest szczególnie ważny w przypadku wykresów o dużej skali.
 
 ## <a name="requirements"></a>Wymagania
 
-Proces opisany w niniejszym przewodniku opiera się na następujących założeniach:
- * **Jednostki** w przestrzeni problemowej są identyfikowane. Te jednostki są przeznaczone do zużywania _niepodzielnie_ dla każdego żądania. Innymi słowy system bazy danych nie jest przeznaczony do pobierania danych pojedynczej jednostki w wielu żądaniach kwerend.
- * Istnieje zrozumienie **wymagań odczytu i zapisu** dla systemu bazy danych. Te wymagania będą kierować optymalizacje potrzebne dla modelu danych wykresu.
- * Zasady [standardu wykresu właściwości Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) są dobrze rozumiane.
+Proces przedstawiony w tym przewodniku jest oparty na następujących założeniach:
+ * Zidentyfikowano **jednostki** w miejscu problemu. Te jednostki mają być używane w sposób _niepodzielny_ dla każdego żądania. Innymi słowy, system bazy danych nie jest przeznaczony do pobierania danych pojedynczej jednostki w wielu żądaniach zapytań.
+ * Istnieje zrozumienie **wymagań dotyczących odczytu i zapisu** dla systemu bazy danych. Wymagania te przeprowadzą optymalizację potrzebną dla modelu danych grafu.
+ * Zasady [standardu grafu właściwości programu Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) są dobrze zrozumiałe.
 
-## <a name="when-do-i-need-a-graph-database"></a>Kiedy potrzebuję bazy danych wykresów?
+## <a name="when-do-i-need-a-graph-database"></a>Kiedy potrzebna jest baza danych grafu?
 
-Rozwiązanie bazy danych wykresu można optymalnie zastosować, jeśli jednostki i relacje w domenie danych mają dowolną z następujących cech: 
+Rozwiązanie bazy danych grafu można optymalnie zastosować, jeśli jednostki i relacje w domenie danych mają jedną z następujących cech: 
 
-* Jednostki są **silnie połączone** za pomocą relacji opisowych. Korzyści w tym scenariuszu jest fakt, że relacje są zachowywane w magazynie.
-* Istnieją **relacje cykliczne** lub **jednostki, do których istnieją odwołania.** Ten wzorzec jest często wyzwaniem podczas korzystania z relacyjnych lub dokumentów baz danych.
-* Istnieją **dynamicznie ewoluujące relacje między jednostkami.** Ten wzorzec ma szczególne zastosowanie do danych hierarchicznych lub strukturywach drzewa o wielu poziomach.
-* Istnieją relacje wiele do wielu między **jednostkami.**
-* Istnieją **wymagania dotyczące zapisu i odczytu zarówno dla jednostek, jak i relacji**. 
+* Jednostki są **wysoce połączone** poprzez relacje opisowe. Zaletą w tym scenariuszu jest fakt, że relacje są utrwalane w magazynie.
+* Istnieją **relacje cykliczne** lub **jednostki odwołujące się do siebie**. Ten wzorzec jest często wyzwaniem podczas korzystania z baz danych relacyjnych lub dokumentów.
+* Istnieją **dynamicznie rozwijane relacje** między jednostkami. Ten wzorzec jest szczególnie stosowany do danych hierarchicznych lub uporządkowanych według drzewa z wieloma poziomami.
+* Między jednostkami istnieją **relacje wiele-do-wielu** .
+* Istnieją **zarówno wymagania dotyczące zapisu, jak i odczytu dotyczące jednostek i relacji**. 
 
-Jeśli powyższe kryteria są spełnione, jest prawdopodobne, że podejście bazy danych wykresu zapewni korzyści dla **złożoności zapytania,** **skalowalności modelu danych**i **wydajności kwerendy.**
+Jeśli powyższe kryteria są spełnione, prawdopodobnie podejście bazy danych grafu będzie zapewniało korzyści wynikające z **złożoności zapytań**, **skalowalności modelu danych**i **wydajności zapytań**.
 
-Następnym krokiem jest ustalenie, czy wykres będzie używany do celów analitycznych lub transakcyjnych. Jeśli wykres jest przeznaczony do użycia w przypadku dużych obciążeń obliczeniowych i przetwarzania danych, warto zapoznać się ze [łącznikiem Platformy Spark usługi Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/spark-connector) i wykorzystaniem [biblioteki GraphX.](https://spark.apache.org/graphx/) 
+Następnym krokiem jest określenie, czy wykres ma być używany do celów analitycznych czy transakcyjnych. Jeśli wykres jest przeznaczony do użycia w przypadku dużych obciążeń obliczeniowych i przetwarzania danych, warto zbadać [Cosmos DB łącznika Spark](https://docs.microsoft.com/azure/cosmos-db/spark-connector) i korzystać z [biblioteki GraphX](https://spark.apache.org/graphx/). 
 
-## <a name="how-to-use-graph-objects"></a>Jak używać obiektów wykresu
+## <a name="how-to-use-graph-objects"></a>Jak używać obiektów grafów
 
-[Standard wykresu właściwości Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) definiuje dwa typy obiektów **Wierzchołki** i **krawędzie**. 
+[Standardowy wykres właściwości Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) definiuje dwa typy obiektów **wierzchołków** i **krawędzi**. 
 
-Poniżej przedstawiono najlepsze rozwiązania dotyczące właściwości w obiektach wykresu:
+Poniżej przedstawiono najlepsze rozwiązania dotyczące właściwości w obiektach grafu:
 
 | Obiekt | Właściwość | Typ | Uwagi |
 | --- | --- | --- |  --- |
-| Wierzchołek | ID | Ciąg | Unikatowo wymuszane na partycji. Jeśli wartość nie zostanie podana po wstawieniu, zostanie zapisany automatycznie wygenerowany identyfikator GUID. |
-| Wierzchołek | label | Ciąg | Ta właściwość jest używana do definiowania typu jednostki, która reprezentuje wierzchołek. Jeśli wartość nie zostanie dostarczona, zostanie użyta wartość domyślna "wierzchołek". |
-| Wierzchołek | properties | Ciąg, logiczny, numeryczny | Lista oddzielnych właściwości przechowywanych jako pary klucz-wartość w każdym wierzchołku. |
-| Wierzchołek | klucz partycji | Ciąg, logiczny, numeryczny | Ta właściwość definiuje, gdzie będą przechowywane wierzchołek i jego krawędzie wychodzące. Dowiedz się więcej o [partycjonowaniu wykresów](graph-partitioning.md). |
-| Brzeg | ID | Ciąg | Unikatowo wymuszane na partycji. Domyślnie generowany automatycznie. Krawędzie zwykle nie muszą być jednoznacznie pobierane przez identyfikator. |
-| Brzeg | label | Ciąg | Ta właściwość jest używana do definiowania typu relacji, które mają dwa wierzchołki. |
-| Brzeg | properties | Ciąg, logiczny, numeryczny | Lista oddzielnych właściwości przechowywanych jako pary klucz-wartość w każdej krawędzi. |
+| Wierzchołka | ID | String | Unikatowo wymuszane na partycję. Jeśli wartość nie zostanie podana podczas wstawiania, zostanie zapisany automatycznie wygenerowany identyfikator GUID. |
+| Wierzchołka | label | String | Ta właściwość służy do definiowania typu jednostki reprezentowanej przez wierzchołek. Jeśli wartość nie zostanie podana, zostanie użyta wartość domyślna "wierzchołek". |
+| Wierzchołka | properties | Ciąg, wartość logiczna, numeryczna | Lista oddzielnych właściwości przechowywanych jako pary klucz-wartość w każdym wierzchołku. |
+| Wierzchołka | klucz partycji | Ciąg, wartość logiczna, numeryczna | Ta właściwość określa miejsce, w którym będą przechowywane wierzchołki i jej krawędzie wychodzące. Przeczytaj więcej na temat [partycjonowania grafów](graph-partitioning.md). |
+| Brzeg | ID | String | Unikatowo wymuszane na partycję. Automatycznie generowana domyślnie. Krawędzie zazwyczaj nie muszą być jednoznacznie pobierane przez identyfikator. |
+| Brzeg | label | String | Ta właściwość służy do definiowania typu relacji, które mają dwa wierzchołki. |
+| Brzeg | properties | Ciąg, wartość logiczna, numeryczna | Lista oddzielnych właściwości przechowywanych jako pary klucz-wartość w każdej krawędzi. |
 
 > [!NOTE]
-> Krawędzie nie wymagają wartości klucza partycji, ponieważ jego wartość jest automatycznie przypisywana na podstawie ich wierzchołka źródłowego. Dowiedz się więcej w artykule [partycjonowania wykresu.](graph-partitioning.md)
+> Krawędzie nie wymagają wartości klucza partycji, ponieważ jej wartość jest przypisywana automatycznie na podstawie wierzchołka źródłowego. Dowiedz się więcej z artykułu [partycjonowania grafów](graph-partitioning.md) .
 
 ## <a name="entity-and-relationship-modeling-guidelines"></a>Wytyczne dotyczące modelowania jednostek i relacji
 
-Poniżej przedstawiono zestaw wskazówek dotyczących modelowania danych dla bazy danych wykresu interfejsu API usługi Azure Cosmos DB Gremlin. Te wytyczne zakładają, że istnieje istniejąca definicja domeny danych i kwerendy dla niego.
+Poniżej przedstawiono zestaw wytycznych do podejścia do modelowania danych Azure Cosmos DB dla bazy danych Gremlin API Graph. W tych wytycznych przyjęto założenie, że istnieje istniejąca definicja domeny danych i zapytania dla niej.
 
 > [!NOTE]
-> Kroki opisane poniżej przedstawiono jako zalecenia. Ostateczny model powinien zostać oceniony i przetestowany przed jego uwzględnieniem jako gotowy do produkcji. Ponadto poniższe zalecenia są specyficzne dla implementacji interfejsu API gremlin usługi Azure Cosmos DB. 
+> Kroki opisane poniżej są przedstawione jako zalecenia. Końcowy model powinien być oceniany i testowany przed rozważeniam jako gotowym do produkcji. Ponadto poniższe zalecenia dotyczą implementacji interfejsu API Gremlin Azure Cosmos DB. 
 
-### <a name="modeling-vertices-and-properties"></a>Wierzchołki i właściwości modelowania 
+### <a name="modeling-vertices-and-properties"></a>Modelowanie wierzchołków i właściwości 
 
-Pierwszym krokiem dla modelu danych wykresu jest mapowanie każdego zidentyfikowanego elementu na **obiekt wierzchołka**. Od jednego do jednego mapowanie wszystkich jednostek do wierzchołków powinien być krokiem początkowym i może ulec zmianie.
+Pierwszym krokiem dla modelu danych wykresu jest zamapowanie każdej identyfikowanej jednostki na **obiekt wierzchołka**. Mapowanie jeden do jednego wszystkich jednostek na wierzchołki powinno być pierwszym krokiem i może ulec zmianie.
 
-Jedną z typowych pułapek jest mapowanie właściwości pojedynczej jednostki jako oddzielnych wierzchołków. Rozważmy poniższy przykład, gdzie ta sama jednostka jest reprezentowana na dwa różne sposoby:
+Jednym z typowych Pitfall jest mapowanie właściwości pojedynczej jednostki jako oddzielnych wierzchołków. Rozważmy poniższy przykład, w którym ta sama jednostka jest reprezentowana na dwa różne sposoby:
 
-* **Właściwości oparte na wierzchołku**: W tym podejściu jednostka używa trzech oddzielnych wierzchołków i dwóch krawędzi do opisania jego właściwości. Takie podejście może zmniejszyć nadmiarowość, ale zwiększa złożoność modelu. Zwiększenie złożoności modelu może spowodować dodatkowe opóźnienie, złożoność zapytania i koszt obliczeń. Ten model może również stanowić wyzwania w partycjonowaniu.
+* **Właściwości oparte na wierzchołku**: w tym podejściu jednostka używa trzech oddzielnych wierzchołków i dwóch krawędzi do opisywania właściwości. Chociaż takie podejście może zmniejszyć nadmiarowość, zwiększa złożoność modelu. Zwiększenie złożoności modelu może skutkować dodaniem opóźnienia, złożonością zapytania i kosztem obliczeniowym. Ten model może również przedstawiać wyzwania na partycjonowanie.
 
-![Model jednostki z wierzchołkami właściwości.](./media/graph-modeling/graph-modeling-1.png)
+![Model jednostki z wierzchołkami dla właściwości.](./media/graph-modeling/graph-modeling-1.png)
 
-* **Wierzchołki osadzone właściwości:** To podejście korzysta z listy pary klucz-wartość do reprezentowania wszystkich właściwości jednostki wewnątrz wierzchołka. Takie podejście zapewnia zmniejszoną złożoność modelu, co doprowadzi do prostszych zapytań i bardziej oszczędnych procesów przechodzenia.
+* **Wierzchołki osadzone właściwości**: to podejście wykorzystuje listę par klucz-wartość do reprezentowania wszystkich właściwości jednostki w wierzchołku. Ta metoda zapewnia ograniczoną złożoność modelu, która będzie prowadzić do uproszczenia zapytań i bardziej wydajnego przechodzenia.
 
-![Model jednostki z wierzchołkami właściwości.](./media/graph-modeling/graph-modeling-2.png)
-
-> [!NOTE]
-> Powyższe przykłady pokazują uproszczony model wykresu, aby pokazać tylko porównanie między dwoma sposobami podziału właściwości jednostki.
-
-Wzorzec **wierzchołków osadzonych właściwości** zazwyczaj zapewnia bardziej wydajne i skalowalne podejście. Domyślne podejście do nowego modelu danych wykresu powinny ciążą na tym wzorcu.
-
-Istnieją jednak scenariusze, w których odwoływanie się do właściwości może zapewnić korzyści. Na przykład: jeśli właściwość, do którego istnieje odwołanie, jest często aktualizowana. Za pomocą oddzielnego wierzchołka do reprezentowania właściwości, która jest stale zmieniana zminimalizuje ilość operacji zapisu, które wymagałoby aktualizacji.
-
-### <a name="relationship-modeling-with-edge-directions"></a>Modelowanie relacji z kierunkami brzegowymi
-
-Po modelowanie wierzchołków krawędzie mogą być dodawane w celu oznaczenia relacji między nimi. Pierwszym aspektem, który należy ocenić, jest **kierunek relacji.** 
-
-Obiekty krawędzi mają domyślny kierunek, po którym `out()` następuje przechodzenie podczas korzystania z funkcji lub. `outE()` Użycie tego naturalnego kierunku powoduje wydajną operację, ponieważ wszystkie wierzchołki są przechowywane z ich wychodzącymi krawędziami. 
-
-Jednak przechodzenie w przeciwnym kierunku krawędzi, `in()` przy użyciu funkcji, zawsze spowoduje kwerendy między partycjami. Dowiedz się więcej o [partycjonowaniu wykresów](graph-partitioning.md). Jeśli istnieje potrzeba ciągłego przechodzenia `in()` przez funkcję, zaleca się dodawanie krawędzi w obu kierunkach.
-
-Kierunek krawędzi można określić `.to()` za `.from()` pomocą lub `.addE()` predykatów do kroku Gremlin. Lub za pomocą [biblioteki zbiorczej executor dla Gremlin API](bulk-executor-graph-dotnet.md).
+![Model jednostki z wierzchołkami dla właściwości.](./media/graph-modeling/graph-modeling-2.png)
 
 > [!NOTE]
-> Obiekty krawędziowe mają kierunek domyślnie.
+> Powyższe przykłady przedstawiają uproszczony model grafu, aby pokazać tylko porównanie między dwoma sposobami dzielenia właściwości jednostki.
 
-### <a name="relationship-labeling"></a>Etykietowanie relacji
+Wzorzec **wierzchołków właściwości osadzonych** zazwyczaj zapewnia bardziej wydajne i skalowalne podejście. Domyślne podejście do nowego modelu danych grafu powinno gravitate do tego wzorca.
 
-Używanie opisowych etykiet relacji może poprawić wydajność operacji rozpoznawania krawędzi. Ten wzorzec można zastosować w następujący sposób:
-* Użyj terminów nierodzycznych, aby oznaczyć relację.
-* Skojarzyć etykietę wierzchołka źródłowego z etykietą wierzchołka docelowego z nazwą relacji.
+Istnieją jednak scenariusze, w których odwołanie do właściwości może mieć zalety. Na przykład: Jeśli przywoływana właściwość jest często aktualizowana. Użycie oddzielnego wierzchołka do reprezentowania właściwości, która jest stale zmieniana, spowodowałoby zminimalizowanie liczby operacji zapisu wymaganych przez aktualizację.
+
+### <a name="relationship-modeling-with-edge-directions"></a>Modelowanie relacji z kierunkami krawędzi
+
+Po modelowaniu wierzchołków można dodać krawędzie, aby zauważyć relacje między nimi. Pierwszy aspekt, który należy ocenić, to **kierunek relacji**. 
+
+Obiekty brzegowe mają domyślny kierunek przechodzenia przy użyciu funkcji `out()` or. `outE()` Użycie tego naturalnego kierunku skutkuje wydajną operacją, ponieważ wszystkie wierzchołki są przechowywane z wychodzącymi krawędziami. 
+
+Jednak przechodzenie w odwrotnym kierunku krawędzi brzegowej przy użyciu `in()` funkcji, zawsze spowoduje powstanie zapytania między partycjami. Dowiedz się więcej o [partycjonowaniu grafów](graph-partitioning.md). Jeśli istnieje potrzeba ciągłego przechodzenia przy użyciu `in()` funkcji, zaleca się dodanie krawędzi w obu kierunkach.
+
+Kierunek krawędzi można określić przy użyciu predykatów `.to()` lub `.from()` do kroku `.addE()` Gremlin. Lub przy użyciu [biblioteki wykonawczy Bulk dla interfejsu API Gremlin](bulk-executor-graph-dotnet.md).
+
+> [!NOTE]
+> Obiekty brzegowe mają domyślnie kierunek.
+
+### <a name="relationship-labeling"></a>Etykieta relacji
+
+Korzystanie z opisowych etykiet relacji może poprawić wydajność operacji rozpoznawania krawędzi. Ten wzorzec można zastosować w następujący sposób:
+* Aby oznaczyć relację, użyj nieogólnych warunków.
+* Skojarz etykietę wierzchołka źródłowego z etykietą wierzchołka docelowego z nazwą relacji.
 
 ![Przykłady etykietowania relacji.](./media/graph-modeling/graph-modeling-3.png)
 
-Im bardziej szczegółowa etykieta, że trawers będzie używany do filtrowania krawędzi, tym lepiej. Ta decyzja może mieć znaczący wpływ na koszt kwerendy, jak również. Koszt kwerendy można ocenić w dowolnym [momencie przy użyciu kroku executionProfile](graph-execution-profile.md).
+Im bardziej szczegółowa etykieta, która będzie używana przez przechodzenie do filtrowania krawędzi, tym lepiej. Ta decyzja może mieć znaczny wpływ na koszt zapytań. Koszt zapytania można oszacować w dowolnym momencie [przy użyciu kroku executionProfile](graph-execution-profile.md).
 
 
 ## <a name="next-steps"></a>Następne kroki: 
-* Sprawdź listę obsługiwanych [kroków Gremlin](gremlin-support.md).
-* Dowiedz się więcej o [partycjonowaniu bazy danych wykresów](graph-partitioning.md) w celu radzenia sobie z wykresami na dużą skalę.
-* Oceń swoje zapytania Gremlin za pomocą [kroku Profil wykonania](graph-execution-profile.md).
+* Zapoznaj się z listą obsługiwanych [kroków Gremlin](gremlin-support.md).
+* Dowiedz się więcej na temat [partycjonowania bazy danych grafu](graph-partitioning.md) do obsługi grafów o dużej skali.
+* Oceń zapytania Gremlin przy użyciu [kroku profilu wykonania](graph-execution-profile.md).

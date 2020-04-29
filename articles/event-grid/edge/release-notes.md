@@ -1,6 +1,6 @@
 ---
-title: Informacje o wersji — usługa Azure Event Grid IoT Edge | Dokumenty firmy Microsoft
-description: Usługa Azure Event Grid w informacjach o wersji usługi IoT Edge
+title: Informacje o wersji — Azure Event Grid IoT Edge | Microsoft Docs
+description: Azure Event Grid na temat IoT Edge informacji o wersji
 author: banisadr
 ms.author: babanisa
 ms.reviewer: spelluru
@@ -9,42 +9,42 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 18a4fb9a979841bbf6cd0090fc67a77327c61596
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76849710"
 ---
-# <a name="release-notes-azure-event-grid-on-iot-edge"></a>Informacje o wersji: Usługa Azure Event Grid w usłudze IoT Edge
+# <a name="release-notes-azure-event-grid-on-iot-edge"></a>Informacje o wersji: Azure Event Grid na IoT Edge
 
-## <a name="100-preview1"></a>1.0.0-podgląd1
+## <a name="100-preview1"></a>1.0.0 — zestawu
 
-Początkowa wersja usługi Azure Event Grid w usłudze IoT Edge. Zawarte funkcje:
+Początkowa wersja Azure Event Grid w IoT Edge. Uwzględnione funkcje:
 
 * Tworzenie tematu
 * Tworzenie subskrypcji zdarzeń
 * Filtry zaawansowane
 * Dzielenie na partie danych wyjściowych
-* Zasady ponawiania prób
-* Moduł do publikowania modułów
-* Publikowanie w przeglądarce WebHook jako miejsce docelowe
-* Publikowanie w U klientach Usługi IoT Edge Hub jako miejsca docelowego
-* Publikowanie w usłudze w chmurze usługi usługi Usługi Azure Event Grid jako miejsca docelowego
+* Zasady ponawiania
+* Publikowanie modułu do modułu
+* Publikuj w elemencie webhook jako miejsce docelowe
+* Publikuj w usłudze IoT Edge Hub jako miejsce docelowe
+* Publikuj w usłudze Azure Event Grid w chmurze jako miejsce docelowe
 * Utrwalony stan metadanych
-* Integracja modułu magazynu obiektów Blob
+* Integracja modułu BLOB Storage
 
-Tagi:`1.0.0-preview1`
+Tabliczk`1.0.0-preview1`
 
-## <a name="100-preview2"></a>1.0.0-podgląd2
+## <a name="100-preview2"></a>1.0.0 — preview2
 
-Dodano wersję zapoznawczą 2 usługi Azure Event Grid w usłudze IoT Edge:
+Zapoznawcza 2 Azure Event Grid na IoT Edge dodany:
 
 * Konfigurowalne zdarzenia utrwalania na dysku
 * Metryki tematu
 * Metryki subskrypcji zdarzeń
-* Publikowanie w centrach zdarzeń jako miejsce docelowe
-* Publikowanie w kolejkach usługi Service Bus jako miejsca docelowego
-* Publikowanie w usługach Service Bus Tematy jako miejsce docelowe
+* Publikuj do Event Hubs jako miejsce docelowe
+* Publikowanie w kolejkach Service Bus jako miejsce docelowe
+* Publikuj w Service Bus tematy jako miejsce docelowe
 * Publikowanie w kolejkach magazynu jako miejsce docelowe
 
-Tagi: `1.0.0-preview2` `1.0`, ,`latest`
+Tagi: `1.0.0-preview2`, `1.0`,`latest`

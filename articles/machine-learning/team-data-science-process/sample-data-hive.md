@@ -1,6 +1,6 @@
 ---
-title: Przykładowe dane w tabelach hive usługi Azure HDInsight — proces nauki o danych zespołu
-description: Dane w dół próbki przechowywane w tabelach hive usługi Azure HDInsight przy użyciu zapytań hive w celu zmniejszenia ilości danych do rozmiaru łatwiejszego w zarządzaniu do analizy.
+title: Przykładowe dane w tabelach Hive usługi Azure HDInsight — proces nauki danych zespołu
+description: W dół — przykładowe dane przechowywane w tabelach Hive usługi Azure HDInsight przy użyciu zapytań programu Hive w celu zmniejszenia ilości danych na potrzeby analizy.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,29 +12,29 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: df85edc3de00e2b0342bc3102fe9e85564a9835b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76719997"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Przykładowe dane w tabelach usługi Azure HDInsight Hive
-W tym artykule opisano sposób pobierania próbek danych przechowywanych w tabelach hive usługi Azure HDInsight przy użyciu zapytań hive, aby zmniejszyć je do rozmiaru łatwiejszego w zarządzaniu do analizy. Obejmuje trzy powszechnie stosowane metody pobierania próbek:
+W tym artykule opisano sposób podłączania przykładowych danych przechowywanych w tabelach Hive usługi Azure HDInsight przy użyciu zapytań programu Hive w celu zmniejszenia ich do rozmiaru w celu łatwiejszego zarządzania analizą. Obejmuje trzy popularne metody próbkowania:
 
-* Jednolite losowe pobieranie próbek
-* Losowe pobieranie próbek według grup
-* Próbkowanie stratified
+* Jednolite Próbkowanie losowe
+* Losowe próbkowanie według grup
+* Próbkowanie Stratified
 
-**Dlaczego warto przykładać swoje dane?**
-Jeśli zestaw danych, który planujesz analizować, jest duży, zwykle warto pobrać próbkę w dół danych, aby zmniejszyć je do mniejszego, ale reprezentatywnego i łatwiejszego w zarządzaniu rozmiaru. Pobieranie próbek w dół ułatwia zrozumienie danych, eksplorację i inżynierię funkcji. Jego rolą w procesie nauki o danych zespołu jest umożliwienie szybkiego prototypowania funkcji przetwarzania danych i modeli uczenia maszynowego.
+**Dlaczego warto Przykładowo dane?**
+Jeśli zestaw danych, który planujesz analizować jest duży, zazwyczaj dobrym pomysłem jest Przepróbkowanie danych w celu zmniejszenia ich do mniejszej, ale reprezentatywnej i większej możliwej do zarządzania wielkości. Dalsze próbkowanie ułatwia zrozumienie, eksplorację i inżynierowanie danych. Jej rolą w procesie nauki danych zespołu jest umożliwienie szybkiego tworzenia prototypów funkcji przetwarzania danych i modeli uczenia maszynowego.
 
-To zadanie próbkowania jest krokiem w [procesie nauki o danych zespołu (TDSP).](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)
+To zadanie próbkowania jest krokiem w [procesie nauki o danych zespołowych (przetwarzania TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
-## <a name="how-to-submit-hive-queries"></a>Jak przesyłać zapytania dotyczące gałęzi
-Zapytania gałęzi można przesyłać z konsoli Wiersza polecenia Hadoop w węźle głównym klastra Hadoop.  Zaloguj się do węzła głównego klastra Hadoop, otwórz konsolę Wiersz polecenia Hadoop i prześlij stamtąd zapytania hive. Aby uzyskać instrukcje dotyczące przesyłania zapytań hive w konsoli wiersza polecenia Hadoop, zobacz [Jak przesyłać zapytania gałęzi](move-hive-tables.md#submit).
+## <a name="how-to-submit-hive-queries"></a>Jak przesłać zapytania Hive
+Zapytania Hive mogą być przesyłane z konsoli wiersza polecenia usługi Hadoop w węźle głównym klastra usługi Hadoop.  Zaloguj się do węzła głównego klastra Hadoop, Otwórz konsolę wiersza polecenia usługi Hadoop i prześlij do niej zapytania programu Hive. Instrukcje dotyczące przesyłania zapytań programu Hive w konsoli wiersza polecenia usługi Hadoop znajdują się w temacie [How to przesyłania zapytań Hive](move-hive-tables.md#submit).
 
-## <a name="uniform-random-sampling"></a><a name="uniform"></a>Jednolite losowe pobieranie próbek
-Jednolite losowe pobieranie próbek oznacza, że każdy wiersz w zestawie danych ma równe szanse na pobranie próbek. Można go zaimplementować, dodając dodatkowe pole rand() do zestawu danych w wewnętrznej kwerendzie "select" i w zewnętrznej kwerendzie "select" tego warunku w tym losowym polu.
+## <a name="uniform-random-sampling"></a><a name="uniform"></a>Jednolite Próbkowanie losowe
+Jednorodne Próbkowanie losowe oznacza, że każdy wiersz w zestawie danych ma równe szanse na próbkowanie. Można ją zaimplementować przez dodanie dodatkowego pola Rand () do zestawu danych w wewnętrznej kwerendzie "Select", a w zewnętrznym elemencie "Select" zapytania, który ma ten warunek dla tego losowego pola.
 
 Oto przykładowe zapytanie:
 
@@ -49,12 +49,12 @@ Oto przykładowe zapytanie:
         )a
     where samplekey<='${hiveconf:sampleRate}'
 
-W `<sample rate, 0-1>` tym miejscu określa proporcję rekordów, które użytkownicy mają próbki.
+W tym `<sample rate, 0-1>` miejscu określa proporcje rekordów, które użytkownicy chcą próbkować.
 
-## <a name="random-sampling-by-groups"></a><a name="group"></a>Losowe pobieranie próbek według grup
-Podczas pobierania próbek danych kategorii, można dołączyć lub wykluczyć wszystkie wystąpienia dla niektórych wartości zmiennej kategorycznej. Ten rodzaj pobierania próbek jest nazywany "pobieraniem próbek według grup". Na przykład jeśli masz zmienną kategoryczną *"Stan",* która ma wartości, takie jak NY, MA, CA, NJ i PA, chcesz rekordy z każdego stanu, które mają być razem, czy są próbkowane, czy nie.
+## <a name="random-sampling-by-groups"></a><a name="group"></a>Losowe próbkowanie według grup
+Podczas próbkowania kategorii dane można uwzględnić lub wykluczyć wszystkie wystąpienia dla pewnej wartości zmiennej kategorii. Ten rodzaj próbkowania jest nazywany "próbkowanie przez grupę". Na przykład jeśli masz zmienną kategorii "*State*", która ma wartości, takich jak NY, ma, CA, NJ i PA, chcesz, aby rekordy z każdego stanu były razem, niezależnie od tego, czy są one próbkowane.
 
-Oto przykładowa kwerenda, która przykłada według grup:
+Oto przykładowe zapytanie zawierające próbki według grupy:
 
     SET sampleRate=<sample rate, 0-1>;
     select
@@ -80,8 +80,8 @@ Oto przykładowa kwerenda, która przykłada według grup:
         )c
     on b.catfield=c.catfield
 
-## <a name="stratified-sampling"></a><a name="stratified"></a>Próbkowanie stratified
-Losowe pobieranie próbek jest stratyfikowane w odniesieniu do zmiennej kategorycznej, gdy uzyskane próbki mają wartości kategoryczne, które są obecne w tym samym stosunku, jak w populacji macierzystej. Korzystając z tego samego przykładu, jak powyżej, załóżmy, że dane mają następujące obserwacje według państw: NJ ma 100 obserwacji, NY ma 60 obserwacji, a WA ma 300 obserwacji. Jeśli określisz szybkość próbkowania stratowanego na 0,5, otrzymana próbka powinna mieć odpowiednio około 50, 30 i 150 obserwacji NJ, NY i WA.
+## <a name="stratified-sampling"></a><a name="stratified"></a>Próbkowanie Stratified
+Próbkowanie losowe jest stratified w odniesieniu do zmiennej kategorii, gdy uzyskane próbki zawierają wartości kategorii, które są obecne w tym samym współczynniku, co w populacji nadrzędnej. Korzystając z tego samego przykładu, Załóżmy, że dane mają następujące obserwacje według stanów: NJ ma 100 obserwacji, NY ma 60 uwagi, a WA ma 300 obserwacje. Jeśli określisz częstotliwość próbkowania stratified do 0,5, uzyskana próbka powinna mieć około 50, 30 i 150 obserwacje odpowiednio wartości NJ, NY i WA.
 
 Oto przykładowe zapytanie:
 
@@ -99,5 +99,5 @@ Oto przykładowe zapytanie:
     where state_rank <= state_cnt*'${hiveconf:sampleRate}'
 
 
-Aby uzyskać informacje na temat bardziej zaawansowanych metod próbkowania, które są dostępne w uli, zobacz [Próbkowanie czne languagemanual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
+Aby uzyskać informacje na temat bardziej zaawansowanych metod próbkowania, które są dostępne w usłudze Hive, zobacz [LanguageManual próbkowanie](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
 

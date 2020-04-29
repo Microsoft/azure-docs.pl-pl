@@ -1,5 +1,5 @@
 ---
-title: Zwiększenie limitu sieci | Dokumenty firmy Microsoft
+title: Zwiększenie limitu sieci | Microsoft Docs
 description: Zwiększanie limitu sieci
 author: anavinahar
 ms.author: anavin
@@ -8,85 +8,85 @@ ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: 9b5c7043b06172c2d4931ca1c3fd3ac5d0e80883
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76547809"
 ---
 # <a name="networking-limit-increase"></a>Zwiększanie limitu sieci
 
-Użyj [witryny Azure portal,](https://portal.azure.com) aby zwiększyć przydział sieci.
+Użyj [Azure Portal](https://portal.azure.com) , aby zwiększyć limit przydziału sieci.
 
-Aby wyświetlić bieżące użycie i przydział sieci w witrynie Azure portal, otwórz subskrypcję, a następnie wybierz **pozycję Użyciae + przydziały**. Można również użyć następujących opcji, aby wyświetlić użycie sieci i limity.
+Aby wyświetlić bieżące użycie sieci i limit przydziału w Azure Portal, Otwórz swoją subskrypcję, a następnie wybierz pozycję **użycie + przydziały**. Możesz również użyć poniższych opcji, aby wyświetlić użycie sieci i limity.
 
-* [Użycie interfejsu WIERSZA POLECENIA](/cli/azure/network#az-network-list-usages)
-* [Powershell](/powershell/module/azurerm.network/get-azurermnetworkusage)
+* [Interfejs wiersza polecenia użycia](/cli/azure/network#az-network-list-usages)
+* [PowerShell](/powershell/module/azurerm.network/get-azurermnetworkusage)
 * [Interfejs API użycia sieci](/rest/api/virtualnetwork/virtualnetworks/listusage)
 
-Możesz poprosić o zwiększenie, korzystając z **pomocy + pomocy technicznej** lub w **użyciach + przydziałów** w portalu.
+Możesz poprosić o zwiększenie, korzystając z **pomocy i obsługi technicznej** oraz **przydziałów** w portalu.
 
 > [!Note]
-> Aby zmienić domyślny rozmiar **prefiksów publicznych adresów IP,** wybierz z listy rozwijanej opcję **Min Public IP InterNetwork Prefix Length.**
+> Aby zmienić domyślny rozmiar **publicznych prefiksów adresów IP**, wybierz **minimalną długość prefiksu sieci publicznego adresu IP** z listy rozwijanej.
 
-## <a name="request-networking-quota-increase-at-subscription-level-using-help--support"></a>Żądanie zwiększenia przydziału sieci na poziomie subskrypcji przy użyciu pomocy + pomocy technicznej
+## <a name="request-networking-quota-increase-at-subscription-level-using-help--support"></a>Żądaj zwiększenia przydziału sieci na poziomie subskrypcji przy użyciu pomocy i obsługi technicznej
 
-Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć żądanie pomocy technicznej przy użyciu **pomocy + pomocy technicznej** w witrynie Azure portal.
+Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć żądanie obsługi przy użyciu **pomocy i obsługi technicznej** w Azure Portal.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com), a następnie wybierz **pomoc + pomoc z** menu portalu Azure lub wyszukaj i wybierz pomoc + pomoc **.**
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), a następnie wybierz pozycję **Pomoc i obsługa techniczna** z menu Azure Portal lub Wyszukaj i wybierz pozycję **Pomoc i obsługa techniczna**.
 
     ![Pomoc i obsługa techniczna](./media/networking-quota-request/help-plus-support.png)
 
-1. Wybierz **pozycję Nowe żądanie pomocy technicznej**.
+1. Wybierz pozycję **nowe żądanie obsługi**.
 
     ![Nowe żądanie pomocy technicznej](./media/networking-quota-request/new-support-request.png)
 
-1. W przypadku **typu problem**wybierz pozycję **Limity usługi i subskrypcji (przydziały).**
+1. W obszarze **typ problemu**wybierz pozycję **usługi i limity subskrypcji (przydziały)**.
 
-    ![Wybieranie limitów subskrypcji z listy rozwijanej typu problemu](./media/networking-quota-request/select-quota-issue-type.png)
+    ![Lista rozwijana z typem problemu wybierz limity subskrypcji](./media/networking-quota-request/select-quota-issue-type.png)
 
 1. Wybierz subskrypcję, która wymaga zwiększenia limitu przydziału.
 
-    ![Wybierz nowy system subskrypcjiSR](./media/networking-quota-request/select-subscription-support-request.png)
+    ![Wybieranie Aktualności subskrypcji](./media/networking-quota-request/select-subscription-support-request.png)
 
-1. W obszarze **Typ przydziału**wybierz pozycję **Sieć**. Wybierz **dalej: Rozwiązania**.
+1. W obszarze **Typ limitu przydziału**wybierz pozycję **Sieć**. Wybierz pozycję **Dalej: rozwiązania**.
 
-    ![Wybierz typ przydziału](./media/networking-quota-request/select-quota-type-network.png)
+    ![Wybierz typ limitu przydziału](./media/networking-quota-request/select-quota-type-network.png)
 
-1. W **obszarze SZCZEGÓŁY PROBLEMU**wybierz pozycję **Podaj szczegóły** i wprowadź dodatkowe informacje, aby pomóc w przetworzeniu żądania.
+1. W obszarze **Szczegóły problemu**wybierz pozycję **Podaj szczegóły** i wprowadź dodatkowe informacje, aby pomóc w przetwarzaniu żądania.
 
     ![Podaj szczegóły](./media/networking-quota-request/provide-details-link.png)
 
-1. W panelu **Szczegóły przydziału** wybierz model wdrożenia, lokalizację i zasoby, które mają być uwzględnione w żądaniu.
+1. W panelu **Szczegóły przydziału** wybierz model wdrażania, lokalizację i zasoby, które mają zostać uwzględnione w żądaniu.
 
     ![Szczegóły przydziału DM](./media/networking-quota-request/quota-details-network.png)
 
-1. Wprowadź nowe limity, które chcesz w subskrypcji. Aby usunąć wiersz, usuń zaznaczenie zasobu z menu **Zasoby** lub wybierz ikonę odrzuć "x". Po wprowadzeniu przydziału dla każdego zasobu wybierz pozycję **Zapisz i kontynuuj** tworzenie żądania pomocy technicznej.
+1. Wprowadź nowe limity, które chcesz wykonać w ramach subskrypcji. Aby usunąć wiersz, usuń zaznaczenie zasobu z menu **zasoby** lub wybierz ikonę Odrzuć "x". Po wprowadzeniu przydziału dla każdego zasobu wybierz pozycję **Zapisz i Kontynuuj** , aby kontynuować tworzenie żądania obsługi.
 
     ![Nowe limity](./media/networking-quota-request/network-new-limits.png)
 
-## <a name="request-networking-quota-increase-at-subscription-level-using-usages--quotas"></a>Żądanie zwiększenia przydziału sieci na poziomie subskrypcji przy użyciu użycia + przydziałów
+## <a name="request-networking-quota-increase-at-subscription-level-using-usages--quotas"></a>Zażądaj zwiększenia przydziału sieci na poziomie subskrypcji przy użyciu zasobów użycia i przydziałów
 
-Postępuj zgodnie z tymi instrukcjami, aby utworzyć żądanie pomocy technicznej przy użyciu **przydziału Użycia +** w witrynie Azure Portal.
+Postępuj zgodnie z tymi instrukcjami, aby utworzyć żądanie pomocy technicznej przy użyciu usługi **Usage + limit przydziału** w Azure Portal.
 
-1. Z https://portal.azure.com, wyszukaj i wybierz **subskrypcje**.
+1. W https://portal.azure.comprogramie Wyszukaj i wybierz pozycję **subskrypcje**.
 
-    ![Subskrypcje](./media/networking-quota-request/search-for-suscriptions.png)
+    ![Subscriptions](./media/networking-quota-request/search-for-suscriptions.png)
 
 1. Wybierz subskrypcję, która wymaga zwiększenia limitu przydziału.
 
     ![Wybieranie subskrypcji](./media/networking-quota-request/select-subscription-change-quota.png)
 
-1. Wybierz **użycie + przydziały**
+1. Wybierz **użycie i przydziały**
 
-    ![Wybieranie użycia i przydziałów](./media/networking-quota-request/select-usage-plus-quotas.png)
+    ![Wybierz użycie i przydziały](./media/networking-quota-request/select-usage-plus-quotas.png)
 
-1. W prawym górnym rogu wybierz pozycję **Poproś o zwiększenie**.
+1. W prawym górnym rogu wybierz pozycję **Zwiększ liczbę żądań**.
 
-    ![Zwiększenie żądania](./media/networking-quota-request/request-increase-from-subscription.png)
+    ![Zwiększ liczbę żądań](./media/networking-quota-request/request-increase-from-subscription.png)
 
-1. Wykonaj kroki rozpoczynające się od kroku 3 w [zwiększeniu przydziału żądania sieci na poziomie subskrypcji](#request-networking-quota-increase-at-subscription-level-using-help--support).
+1. Wykonaj kroki zaczynające się od kroku 3 w [Zażądaj zwiększenia przydziału sieci na poziomie subskrypcji](#request-networking-quota-increase-at-subscription-level-using-help--support).
 
-## <a name="about-networking-limits"></a>Informacje o ograniczeniach sieci
+## <a name="about-networking-limits"></a>Informacje o limitach sieci
 
-Aby dowiedzieć się więcej o limitach sieci, zobacz [sekcję Sieć](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) na stronie limity lub często zadawane pytania dotyczące limitów sieciowych.
+Aby dowiedzieć się więcej na temat limitów sieci, zobacz sekcję dotyczącą [sieci](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) na stronie limity lub nasze często zadawane pytania dotyczące sieci.

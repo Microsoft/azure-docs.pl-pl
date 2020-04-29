@@ -1,7 +1,7 @@
 ---
-title: Przykład skryptu programu Azure PowerShell — konfigurowanie punktów końcowych IPv6
+title: Przykładowy skrypt Azure PowerShell — Konfigurowanie punktów końcowych protokołu IPv6
 titlesuffix: Azure Virtual Network
-description: Włączanie punktów końcowych IPv6 przy użyciu programu PowerShell w sieci wirtualnej platformy Azure
+description: Włączanie punktów końcowych protokołu IPv6 przy użyciu programu PowerShell na platformie Azure Virtual Network
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,34 +13,34 @@ ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
 ms.openlocfilehash: 5e8102cbf89d601c027e3b969c1c431da8807018
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77201373"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Konfigurowanie punktów końcowych IPv6 w przykładzie skryptu sieci wirtualnej (wersja zapoznawcza)
+# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Przykład konfiguracji punktów końcowych protokołu IPv6 w skrypcie sieci wirtualnej (wersja zapoznawcza)
 
-W tym artykule pokazano, jak wdrożyć aplikację podwójnego stosu (IPv4 + IPv6) na platformie Azure, która obejmuje sieć wirtualną z dwoma stosami z podsiecią z dwoma stosami, moduł równoważenia obciążenia z dwoma konfiguracjami frontu (IPv4 + IPv6), maszyny wirtualne z kartami sieciowymi, które mają konfigurację podwójnego adresu IP, zasady podwójnej sieciowej grupy zabezpieczeń i dwóch publicznych ip.
+W tym artykule opisano sposób wdrażania aplikacji podwójnego stosu (IPv4 + IPv6) na platformie Azure, która obejmuje sieć wirtualną o podwójnej stercie z podsiecią podwójnego stosu, moduł równoważenia obciążenia z dwoma (IPv4 + IPv6) konfiguracjami frontonu, maszyny wirtualne z kartami sieciowymi z konfiguracją podwójnego adresu IP, podwójne reguły sieciowej grupy zabezpieczeń i dwa publiczne adresy IP.
 
-Skrypt można wykonać z poziomu usługi Azure [Cloud Shell](https://shell.azure.com/powershell) lub z lokalnej instalacji programu PowerShell. Jeśli używasz programu PowerShell lokalnie, ten skrypt wymaga modułu programu Azure Az PowerShell w wersji 1.0.0 lub nowszej. Aby dowiedzieć się, jaka wersja została zainstalowana, uruchom polecenie `Get-Module -ListAvailable Az`. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
+Skrypt można wykonać z poziomu usługi Azure [Cloud Shell](https://shell.azure.com/powershell) lub z lokalnej instalacji programu PowerShell. Jeśli używasz programu PowerShell lokalnie, ten skrypt wymaga modułu Azure AZ PowerShell w wersji 1.0.0 lub nowszej. Aby dowiedzieć się, jaka wersja została zainstalowana, uruchom polecenie `Get-Module -ListAvailable Az`. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Przed wdrożeniem aplikacji podwójnego stosu na platformie Azure, należy skonfigurować subskrypcję tylko raz dla tej funkcji w wersji zapoznawczej przy użyciu następującej usługi Azure PowerShell:
+Przed wdrożeniem aplikacji dwustosowej na platformie Azure musisz skonfigurować subskrypcję tylko raz dla tej funkcji w wersji zapoznawczej, korzystając z następującej Azure PowerShell:
 
 Zarejestruj się w następujący sposób:
 ```azurepowershell
 Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
-Rejestracja funkcji trwa do 30 minut. Możesz sprawdzić stan rejestracji, uruchamiając następujące polecenie programu Azure PowerShell: Sprawdź rejestrację w następujący sposób:
+Ukończenie rejestracji funkcji może potrwać do 30 minut. Stan rejestracji można sprawdzić, uruchamiając następujące polecenie Azure PowerShell: Sprawdź rejestrację w następujący sposób:
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
-Po zakończeniu rejestracji uruchom następujące polecenie:
+Po zakończeniu rejestracji Uruchom następujące polecenie:
 
 ```azurepowershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
@@ -262,7 +262,7 @@ Ten skrypt zawiera następujące polecenia służące do tworzenia grupy zasobó
 | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | Tworzy sieciową grupę zabezpieczeń, czyli granicę zabezpieczeń między Internetem i maszyną wirtualną. |
 | [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) | Tworzy regułę sieciowej grupy zabezpieczeń zezwalającą na ruch przychodzący. W tym przykładzie port 22 jest otwierany dla ruchu protokołu SSH. |
 | [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Tworzy wirtualną kartę sieciową i dołącza ją do sieci wirtualnej, podsieci i sieciowej grupy zabezpieczeń. |
-| [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | Tworzy zestaw dostępności. Zestawy dostępności zapewniają czas pracy aplikacji przez rozłożenie maszyn wirtualnych na zasoby fizyczne, tak aby w przypadku wystąpienia awarii nie ma to wpływu na cały zestaw. |
+| [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | Tworzy zestaw dostępności. Zestawy dostępności zapewniają nieprzerwane działanie aplikacji dzięki rozproszeniu maszyn wirtualnych w obrębie zasobów fizycznych, takich jak w przypadku wystąpienia awarii, nie ma to wpływ na cały zestaw. |
 | [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Tworzy konfigurację maszyny wirtualnej. Ta konfiguracja zawiera informacje, takie jak nazwa maszyny wirtualnej, system operacyjny i poświadczenia administracyjne. Jest ona używana podczas tworzenia maszyny wirtualnej. |
 | [New-AzVM](/powershell/module/az.compute/new-azvm)  | Tworzy maszynę wirtualną i łączy ją z kartą sieciową, siecią wirtualną, podsiecią i sieciową grupą zabezpieczeń. To polecenie określa również obraz maszyny wirtualnej do użycia oraz poświadczenia administracyjne.  |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |

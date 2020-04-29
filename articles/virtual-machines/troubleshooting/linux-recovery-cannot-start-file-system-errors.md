@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z uruchamianiem maszyny wirtualnej z systemem Linux z powodu błędów systemu plików | Dokumenty firmy Microsoft
-description: Wyjaśnia, dlaczego linux VM nie można uruchomić i jak rozwiązać problem.
+title: Rozwiązywanie problemów z uruchamianiem maszyn wirtualnych z systemem Linux z powodu błędów systemu plików | Microsoft Docs
+description: Wyjaśnia, dlaczego nie można uruchomić maszyny wirtualnej systemu Linux i jak rozwiązać ten problem.
 services: virtual-machines-linux
 documentationcenter: ''
 author: v-miegge
@@ -15,15 +15,15 @@ ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
 ms.openlocfilehash: 455cb1e0067217be6edcf665e8c07e8fcd684ab5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76842405"
 ---
-# <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Rozwiązywanie problemów z uruchamianiem maszyny wirtualnej w systemie Linux z powodu błędów systemu plików
+# <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Rozwiązywanie problemów z uruchamianiem maszyn wirtualnych z systemem Linux z powodu błędów systemu plików
 
-Nie można połączyć się z maszyną wirtualną systemu Azure Linux przy użyciu bezpiecznej powłoki (SSH). Po uruchomieniu funkcji diagnostyki rozruchu w [witrynie Azure portal,](https://portal.azure.com/)zobaczysz wpisy dziennika, które przypominają następujące przykłady.
+Nie można nawiązać połączenia z maszyną wirtualną platformy Azure z systemem Linux przy użyciu Secure Shell (SSH). Po uruchomieniu funkcji diagnostyki rozruchu w [Azure Portal](https://portal.azure.com/)są wyświetlane wpisy dziennika podobne do poniższych.
 
 ## <a name="examples"></a>Przykłady
 
@@ -57,7 +57,7 @@ An error occurred while mounting /.
 
 ### <a name="example-4"></a>Przykład 4 
 
-Ten przykład jest spowodowany przez czysty fsck. W takim przypadku istnieją również dodatkowe dyski danych dołączone do maszyny Wirtualnej (/dev/sdc1 i /dev/sde1).
+Ten przykład jest spowodowany przez czystą fsck. W takim przypadku dostępne są również dodatkowe dyski danych dołączone do maszyny wirtualnej (/dev/sdc1 i/dev/SDE1).
 
 ```
 Checking all file systems. 
@@ -69,32 +69,32 @@ Checking all file systems.
 /dev/sde1 : clean, 51/67043328 files, 4259482/268173037 blocks
 ```
 
-Ten problem może wystąpić, jeśli system plików nie został zamknięty czysto lub problemy związane z magazynem. Problemy obejmują błędy sprzętowe lub programowe, problemy ze sterownikami lub programami, błędy zapisu itp. Zawsze ważne jest, aby mieć kopię zapasową krytycznych danych. Narzędzia, które opisują w tym artykule może pomóc odzyskać systemy plików, ale jest utrata danych może nadal wystąpić.
+Ten problem może wystąpić, jeśli system plików nie został poprawnie zamknięty lub problemy związane z magazynem. Problemy obejmują błędy sprzętu lub oprogramowania, problemy dotyczące sterowników lub programów, Błędy zapisu itp. Zawsze ważne jest, aby utworzyć kopię zapasową najważniejszych danych. Narzędzia, które opisano w tym artykule, mogą ułatwić odzyskanie systemów plików, ale może to spowodować utratę danych.
 
-Linux ma kilka kontrolerów systemu plików dostępnych. Najczęściej spotykane dla dystrybucji na platformie Azure to: [FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)i [Xfs_repair](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair).
+System Linux ma kilka dostępnych sprawdzań systemu plików. Najczęstsze dla dystrybucji na platformie Azure to: [FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)i [Xfs_repair](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair).
 
 ## <a name="resolution"></a>Rozwiązanie
 
-Aby rozwiązać ten problem, uruchom maszynę wirtualną w trybie awaryjnym za pomocą [konsoli szeregowej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) i użyj tego narzędzia do naprawy systemu plików. Jeśli konsola szeregowa nie jest włączona na maszynie Wirtualnej lub nie działa, zobacz [sekcję Naprawij maszynę wirtualną w trybie offline](#repair-the-vm-offline) tego artykułu.
+Aby rozwiązać ten problem, wykonaj rozruch maszyny wirtualnej w trybie awaryjnym przy użyciu [konsoli szeregowej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) i napraw system plików za pomocą tego narzędzia. Jeśli konsola szeregowa nie jest włączona na maszynie wirtualnej lub nie działa, zapoznaj się z sekcją [napraw maszynę wirtualną](#repair-the-vm-offline) w tym artykule.
 
 ## <a name="use-the-serial-console"></a>Korzystanie z konsoli szeregowej
 
-1. Połącz się z konsolą szeregową.
+1. Nawiąż połączenie z konsolą szeregową.
 
    > [!Note]
-   > Aby uzyskać więcej informacji na temat korzystania z konsoli szeregi dla systemu Linux, zobacz:
-   > * [Dostęp do trybu GRUB i trybu pojedynczego użytkownika za pomocą konsoli szeregowej](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
-   > * [Używanie konsoli szeregowej do połączeń SysRq i NMI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-nmi-sysrq)
+   > Aby uzyskać więcej informacji o korzystaniu z konsoli szeregowej dla systemu Linux, zobacz:
+   > * [Używanie konsoli szeregowej do uzyskiwania dostępu do GRUB i trybu jednego użytkownika](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
+   > * [Korzystanie z konsoli szeregowej dla wywołań SysRq i NMI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-nmi-sysrq)
 
-2. Wybierz przycisk ikony zasilania, a następnie wybierz pozycję Uruchom ponownie maszynę wirtualną. (Jeśli konsola szeregowa nie jest włączona lub nie jest połączona pomyślnie, przycisk nie zostanie wyświetlony).
+2. Wybierz przycisk ikona potęgi, a następnie wybierz pozycję Uruchom ponownie maszynę wirtualną. (Jeśli konsola szeregowa nie jest włączona lub nie jest prawidłowo połączona, nie zobaczysz przycisku).
 
    ![OBRAZ](./media/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck/restart-vm.png)
 
-3. Uruchom maszynę wirtualną w trybie awaryjnym.
+3. Wykonaj rozruch maszyny wirtualnej w trybie awaryjnym.
 
-4. Wprowadź hasło konta głównego, aby zalogować się w trybie awaryjnym.
+4. Wprowadź hasło konta głównego, aby zalogować się do trybu awaryjnego.
 
-5. Użyj xfs_repair z opcją -n, aby wykryć błędy w systemie plików. W poniższym przykładzie przyjęto założenie, że partycja systemowa to /dev/sda1. Wymień go na odpowiednią wartość dla maszyny Wirtualnej:
+5. Użyj xfs_repair z opcją-n, aby wykryć błędy w systemie plików. W poniższym przykładzie przyjęto założenie, że partycja systemowa jest/dev/sda1. Zastąp ją odpowiednią wartością dla maszyny wirtualnej:
 
    ```
    xfs_repair -n /dev/sda1
@@ -106,20 +106,20 @@ Aby rozwiązać ten problem, uruchom maszynę wirtualną w trybie awaryjnym za p
    xfs_repair /dev/sda1
    ```
 
-7. Jeśli zostanie wyświetlony komunikat o błędzie "BŁĄD: System plików zawiera cenne zmiany metadanych w dzienniku, który musi zostać odtwoczony", utwórz katalog tymczasowy i zainstaluj system plików:
+7. Jeśli zostanie wyświetlony komunikat o błędzie "błąd: system plików zawiera cenne zmiany metadanych w dzienniku, które muszą być odtwarzane", Utwórz katalog tymczasowy i zainstaluj system plików:
 
    ```
    mkdir /temp
    mount /dev/sda1 /temp
    ```
 
-8. Jeśli nie można zainstalować dysku, uruchom polecenie xfs_repair z opcją -L (wymuszanie zerowania dziennika):
+8. Jeśli instalacja dysku nie powiedzie się, uruchom polecenie xfs_repair z opcją-L (Wymuś zero):
 
    ```
    xfs_repair /dev/sda1 -L
    ```
 
-9. Następnie spróbuj zainstalować system plików. Jeśli dysk zostanie pomyślnie zamontowany, otrzymasz następujące dane wyjściowe:
+9. Następnie spróbuj zainstalować system plików. Po pomyślnym zainstalowaniu dysku zostaną wyświetlone następujące dane wyjściowe:
  
    ```
    XFS (sda1): Mounting V1 Filesystem
@@ -134,11 +134,11 @@ Aby rozwiązać ten problem, uruchom maszynę wirtualną w trybie awaryjnym za p
 
 ## <a name="repair-the-vm-offline"></a>Naprawianie maszyny wirtualnej w trybie offline
 
-1. Podłącz dysk systemowy maszyny Wirtualnej jako dysk danych do odzyskiwania maszyny Wirtualnej (dowolnej działającej maszyny wirtualnej z systemem Linux). Aby to zrobić, można użyć [poleceń interfejsu wiersza polecenia](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) lub zautomatyzować konfigurowanie odzyskiwania maszyny Wirtualnej za pomocą [poleceń naprawy maszyny Wirtualnej](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
+1. Dołącz dysk systemowy maszyny wirtualnej jako dysk danych do maszyny wirtualnej odzyskiwania (dowolna działająca maszyna wirtualna z systemem Linux). W tym celu można użyć [poleceń interfejsu wiersza polecenia](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) lub można zautomatyzować Konfigurowanie maszyny wirtualnej odzyskiwania przy użyciu [poleceń naprawy maszyny wirtualnej](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
-2. Znajdź etykietę dysku podłączonego dysku systemowego. W takim przypadku zakładamy, że etykieta dołączonego dysku systemowego to /dev/sdc1. Wymień go na odpowiednią wartość dla maszyny Wirtualnej.
+2. Znajdź etykietę stacji dysku systemowego, który został podłączony. W takim przypadku Załóżmy, że etykieta dołączonego dysku systemowego to/dev/sdc1. Zastąp go odpowiednią wartością dla maszyny wirtualnej.
 
-3. Użyj xfs_repair z opcją -n, aby wykryć błędy w systemie plików.
+3. Użyj xfs_repair z opcją-n, aby wykryć błędy w systemie plików.
 
    ```
    xfs_repair -n /dev/sdc1
@@ -150,7 +150,7 @@ Aby rozwiązać ten problem, uruchom maszynę wirtualną w trybie awaryjnym za p
    xfs_repair /dev/sdc1
    ```
 
-5. Jeśli zostanie wyświetlony komunikat o błędzie "BŁĄD: System plików zawiera cenne zmiany metadanych w dzienniku, który musi zostać odtwoczony", utwórz katalog tymczasowy i zainstaluj system plików:
+5. Jeśli zostanie wyświetlony komunikat o błędzie "błąd: system plików zawiera cenne zmiany metadanych w dzienniku, które muszą być odtwarzane", Utwórz katalog tymczasowy i zainstaluj system plików:
 
    ```
    mkdir /temp
@@ -158,13 +158,13 @@ Aby rozwiązać ten problem, uruchom maszynę wirtualną w trybie awaryjnym za p
    mount /dev/sdc1 /temp
    ```
 
-   Jeśli nie można zainstalować dysku, uruchom polecenie xfs_repair z opcją -L (wymuszanie zerowania dziennika):
+   Jeśli instalacja dysku nie powiedzie się, uruchom polecenie xfs_repair z opcją-L (Wymuś zero):
 
    ```
    xfs_repair /dev/sdc1 -L
    ```
 
-6. Następnie spróbuj zainstalować system plików. Jeśli dysk zostanie pomyślnie zamontowany, otrzymasz następujące dane wyjściowe:
+6. Następnie spróbuj zainstalować system plików. Po pomyślnym zainstalowaniu dysku zostaną wyświetlone następujące dane wyjściowe:
 
    ```
    XFS (sdc1): Mounting V1 Filesystem
@@ -172,12 +172,12 @@ Aby rozwiązać ten problem, uruchom maszynę wirtualną w trybie awaryjnym za p
    XFS (sdc1): Ending clean mount
    ```
 
-7. Odinstaluj i odłącz oryginalny wirtualny dysk twardy, a następnie utwórz maszynę wirtualną z oryginalnego dysku systemowego. Aby to zrobić, można użyć [poleceń interfejsu wiersza polecenia](troubleshoot-recovery-disks-linux.md) lub polecenia naprawy maszyny Wirtualnej, jeśli zostały [użyte](repair-linux-vm-using-azure-virtual-machine-repair-commands.md) do utworzenia odzyskiwania maszyny Wirtualnej.
+7. Odinstaluj i odłącz oryginalny wirtualny dysk twardy, a następnie utwórz maszynę wirtualną na podstawie oryginalnego dysku systemowego. W tym celu można użyć [poleceń interfejsu wiersza](troubleshoot-recovery-disks-linux.md) polecenia lub [poleceń naprawy maszyny wirtualnej](repair-linux-vm-using-azure-virtual-machine-repair-commands.md) , jeśli zostały one użyte do utworzenia maszyny wirtualnej odzyskiwania.
 
 8. Sprawdź, czy problem został rozwiązany.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Rozwiązywanie problemów z maszyną wirtualną systemu Linux, dołączając dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania za pomocą interfejsu wiersza polecenia 2.0 platformy Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
-* [Dołączanie dysku danych do maszyny Wirtualnej z systemem Linux za pomocą portalu](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal)
+* [Rozwiązywanie problemów z maszyną wirtualną z systemem Linux przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu interfejsu wiersza 2,0 polecenia platformy Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
+* [Dołączanie dysku danych do maszyny wirtualnej z systemem Linux przy użyciu portalu](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal)
 

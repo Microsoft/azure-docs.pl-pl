@@ -1,6 +1,6 @@
 ---
-title: Hierarchiczna przestrzeń nazw usługi Azure Data Lake Storage Gen2
-description: Opisuje koncepcję hierarchicznego obszaru nazw dla usługi Azure Data Lake Storage Gen2
+title: Azure Data Lake Storage Gen2 hierarchiczna przestrzeń nazw
+description: Opisuje koncepcję hierarchicznej przestrzeni nazw dla Azure Data Lake Storage Gen2
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -9,41 +9,41 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 6ce94590a1d0de6941c27d972bdd1c4194080e95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77153081"
 ---
-# <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Hierarchiczna przestrzeń nazw usługi Azure Data Lake Storage Gen2
+# <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 hierarchiczna przestrzeń nazw
 
-Kluczowym mechanizmem, który umożliwia platformie Azure Data Lake Storage Gen2 zapewnienie wydajności systemu plików w skali magazynu obiektów i cenach, jest dodanie **hierarchicznego obszaru nazw.** Dzięki temu kolekcja obiektów/plików w obrębie konta ma być zorganizowana w hierarchię katalogów i zagnieżdżonych podkatalogów w taki sam sposób, jak system plików na komputerze. Po włączeniu hierarchicznej przestrzeni nazw konto magazynu staje się w stanie zapewnić skalowalność i opłacalność magazynu obiektów, z semantyką systemu plików, które są znane z aparatów analitycznych i struktur.
+Kluczowym mechanizmem umożliwiającym Azure Data Lake Storage Gen2 zapewnianie wydajności systemu plików przy skali i cenach magazynu obiektów jest dodanie **hierarchicznej przestrzeni nazw**. Pozwala to na organizowanie kolekcji obiektów/plików w ramach konta w hierarchię katalogów i zagnieżdżonych podkatalogów w taki sam sposób, w jaki system plików na komputerze jest zorganizowany. Po włączeniu hierarchicznej przestrzeni nazw konto magazynu jest w stanie zapewnić skalowalność i efektywność kosztową magazynu obiektów przy użyciu semantyki systemu plików, które są znane do silników i struktur analizy.
 
-## <a name="the-benefits-of-a-hierarchical-namespace"></a>Korzyści z hierarchicznego obszaru nazw
+## <a name="the-benefits-of-a-hierarchical-namespace"></a>Zalety hierarchicznej przestrzeni nazw
 
-Następujące korzyści są skojarzone z systemami plików, które implementują hierarchiczny obszar nazw za pomocą danych obiektów blob:
+Następujące korzyści są skojarzone z systemami plików, które implementują hierarchiczną przestrzeń nazw za pośrednictwem danych obiektów blob:
 
-- **Manipulowanie katalogami atomowymi:** Obiekt przechowuje przybliżoną hierarchię katalogów, przyjmując konwencję osadzania ukośników (/) w nazwie obiektu w celu oznaczenia segmentów ścieżek. Podczas gdy ta konwencja działa do organizowania obiektów, konwencja nie zapewnia pomocy dla działań, takich jak przenoszenie, zmiana nazwy lub usuwanie katalogów. Bez rzeczywistych katalogów aplikacje muszą przetwarzać potencjalnie miliony pojedynczych obiektów blob, aby osiągnąć zadania na poziomie katalogu. Natomiast hierarchiczna przestrzeń nazw przetwarza te zadania, aktualizując pojedynczy wpis (katalog nadrzędny).
+- **Manipulowanie katalogami niepodzielnymi:** Obiekt przechowuje przybliżoną hierarchię katalogów, przyjmując Konwencję osadzania ukośników (/) w nazwie obiektu, aby zauważyć segmenty ścieżki. Chociaż ta konwencja działa w przypadku organizowania obiektów, Konwencja nie zapewnia pomocy dla akcji takich jak przeniesienie, zmiana nazwy lub usunięcie katalogów. W przypadku braku katalogów aplikacje muszą przetwarzać potencjalnie miliony pojedynczych obiektów blob, aby osiągnąć zadania na poziomie katalogu. Z kolei hierarchiczna przestrzeń nazw przetwarza te zadania przez aktualizację pojedynczego wpisu (katalogu nadrzędnego).
 
-    Ta dramatyczna optymalizacja jest szczególnie istotna dla wielu platform analizy dużych zbiorów danych. Narzędzia takie jak Hive, Spark itp często zapisują dane wyjściowe do lokalizacji tymczasowych, a następnie zmieniają nazwę lokalizacji po zakończeniu zadania. Bez hierarchicznego obszaru nazw ta zmiana nazwy często może trwać dłużej niż sam proces analizy. Mniejsze opóźnienie zadania oznacza niższy całkowity koszt posiadania (TCO) dla obciążeń analitycznych.
+    Ta znacząca Optymalizacja jest szczególnie istotna dla wielu struktur analizy danych Big Data. Narzędzia, takie jak Hive, Spark itp., często zapisują dane wyjściowe do lokalizacji tymczasowych, a następnie zmieniają nazwę lokalizacji na końcu zadania. Bez hierarchicznej przestrzeni nazw ta zmiana nazwy może często trwać dłużej niż proces analizy. Mniejsze opóźnienie zadania to niższy całkowity koszt posiadania (TCO) dla obciążeń analitycznych.
 
-- **Znany styl interfejsu:** Systemy plików są dobrze rozumiane zarówno przez programistów, jak i użytkowników. Nie ma potrzeby uczenia się nowego paradygmatu magazynu podczas przenoszenia do chmury, ponieważ interfejs systemu plików udostępniane przez Data Lake Storage Gen2 jest tym samym paradygmatem używanym przez komputery, duże i małe.
+- **Przyjazny styl interfejsu:** Systemy plików są dobrze zrozumiałe dla programistów i użytkowników. Nie ma potrzeby uczenia się nowego modelu magazynu podczas przechodzenia do chmury jako interfejs systemu plików uwidoczniony przez Data Lake Storage Gen2 jest to ten sam model używany przez komputery, duże i małe.
 
-Jednym z powodów, dla których magazyny obiektów nie obsługiwały w przeszłości hierarchicznego obszaru nazw, jest hierarchiczne ograniczenie skali obszaru nazw. Jednak hierarchiczna przestrzeń nazw magazynu danych Lake Gen2 skaluje się liniowo i nie obniża pojemności danych ani wydajności.
+Jednym z powodów, w których magazyny obiektów nie są w przeszłości obsługiwane w hierarchicznej przestrzeni nazw, jest skalowanie hierarchicznej przestrzeni nazw. Niemniej jednak Data Lake Storage Gen2 hierarchiczną przestrzeń nazw skaluje się liniowo i nie obniży wydajności danych.
 
 ## <a name="deciding-whether-to-enable-a-hierarchical-namespace"></a>Decydowanie o tym, czy włączyć hierarchiczną przestrzeń nazw
 
-Po włączeniu hierarchicznego obszaru nazw na koncie nie można przywrócić go do płaskiej przestrzeni nazw. W związku z tym należy rozważyć, czy ma sens, aby włączyć hierarchiczną przestrzeń nazw na podstawie charakteru obciążeń magazynu obiektów.
+Po włączeniu hierarchicznej przestrzeni nazw na Twoim koncie nie można przywrócić jej z powrotem do płaskiej przestrzeni nazw. Z tego względu należy rozważyć, czy warto włączyć hierarchiczną przestrzeń nazw na podstawie charakteru obciążeń magazynu obiektów.
 
-Niektóre obciążenia mogą nie uzyskać żadnych korzyści, włączając hierarchiczną przestrzeń nazw. Przykłady obejmują kopie zapasowe, magazyn obrazu i inne aplikacje, w których organizacja obiektów jest przechowywana oddzielnie od samych obiektów (na przykład: w oddzielnej bazie danych). 
+Niektóre obciążenia mogą nie przynieść korzyści przez włączenie hierarchicznej przestrzeni nazw. Przykładami mogą być kopie zapasowe, magazyn obrazów i inne aplikacje, w których organizacja obiektów jest przechowywana niezależnie od samych obiektów (na przykład w oddzielnej bazie danych). 
 
-Ponadto podczas gdy obsługa funkcji magazynu obiektów Blob i ekosystemu usługi platformy Azure nadal rośnie, nadal istnieją pewne funkcje i usługi platformy Azure, które nie są jeszcze obsługiwane na kontach, które mają hierarchiczny obszar nazw. Zobacz [Znane problemy](data-lake-storage-known-issues.md). 
+Mimo że obsługa funkcji magazynu obiektów blob i ekosystem usługi platformy Azure nadal rośnie, nadal istnieją pewne funkcje i usługi platformy Azure, które nie są jeszcze obsługiwane na kontach z hierarchiczną przestrzenią nazw. Zobacz [znane problemy](data-lake-storage-known-issues.md). 
 
-Ogólnie rzecz biorąc zaleca się włączenie hierarchicznego obszaru nazw dla obciążeń magazynu, które są przeznaczone dla systemów plików, które manipulują katalogami. Obejmuje to wszystkie obciążenia, które są przede wszystkim do przetwarzania analizy. Zestawy danych, które wymagają wysokiego stopnia organizacji również skorzystają, włączając hierarchiczną przestrzeń nazw.
+Ogólnie rzecz biorąc zalecamy włączenie hierarchicznej przestrzeni nazw dla obciążeń magazynu przeznaczonych dla systemów plików, które manipulują katalogami. Obejmuje to wszystkie obciążenia, które są głównie przeznaczone do przetwarzania analiz. Zestawy danych, które wymagają wysokiego stopnia organizacji, mogą również umożliwić włączenie hierarchicznej przestrzeni nazw.
 
-Przyczyny włączenia hierarchicznego obszaru nazw są określane przez analizę TK. Ogólnie rzecz biorąc, poprawa opóźnienia obciążenia z powodu przyspieszenia magazynu będzie wymagać zasobów obliczeniowych przez krótszy czas. Opóźnienie dla wielu obciążeń może zostać poprawione z powodu niepodzielnego manipulowania katalogami, która jest włączona przez hierarchiczny obszar nazw. W wielu obciążeniach zasób obliczeniowy stanowi > 85% całkowitego kosztu, a więc nawet niewielkie zmniejszenie opóźnienia obciążenia odpowiada znacznej ilości oszczędności całkowitego kosztu posiadania. Nawet w przypadkach, gdy włączenie hierarchicznego obszaru nazw zwiększa koszty magazynowania, koszt posiadania jest nadal obniżany ze względu na zmniejszone koszty obliczeniowe.
+Przyczyny włączenia hierarchicznej przestrzeni nazw są określane przez analizę całkowitego kosztu posiadania. Ogólnie mówiąc, ulepszenia opóźnienia obciążenia ze względu na przyspieszenie magazynu wymagają zasobów obliczeniowych w krótszym czasie. Opóźnienie wielu obciążeń może być ulepszone ze względu na manipulowanie katalogiem, który jest włączony przez hierarchiczną przestrzeń nazw. W wielu obciążeniach zasób obliczeniowy reprezentuje > 85% łącznego kosztu, a więc nawet nieznacznie zmniejszanie opóźnień obciążenia jest równe znacznej ilości oszczędności kosztów. Nawet w przypadkach, gdy włączenie hierarchicznej przestrzeni nazw zwiększa koszty magazynowania, całkowity koszt posiadania jest nadal obniżony ze względu na zmniejszenie kosztów obliczeniowych.
 
-Aby przeanalizować różnice w cenach magazynu danych, cenach transakcyjnych i cenach rezerwacji pojemności magazynu między kontami, które mają płaską hierarchiczną przestrzeń nazw a hierarchiczną przestrzenią nazw, zobacz [Ceny usługi Azure Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/).
+Aby analizować różnice w cenach magazynu danych, cenach transakcji i cenach rezerwacji pojemności magazynu między kontami, które mają płaską hierarchiczną przestrzeń nazw, a hierarchiczną przestrzenią nazw, zobacz [Azure Data Lake Storage Gen2 Cennik](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
 ## <a name="next-steps"></a>Następne kroki
 

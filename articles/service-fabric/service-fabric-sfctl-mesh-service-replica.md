@@ -1,28 +1,28 @@
 ---
-title: Replika usługi sieci szkieletowej usługi Azure Azure CLI- sfctl mesh
-description: Dowiedz się więcej o sfctl, interfejsie wiersza polecenia sieci szkieletowej usługi Azure. Zawiera listę poleceń uzyskiwania szczegółów repliki dla zasobów aplikacji.
+title: Interfejs wiersza polecenia platformy Azure Service Fabric — usługa siatki sfctl — replika
+description: Dowiedz się więcej na temat sfctl, interfejsu wiersza polecenia platformy Azure Service Fabric. Zawiera listę poleceń pobierania szczegółów repliki dla zasobów aplikacji.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: ac604ec0a854964746ef34627b054e853662265f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905939"
 ---
 # <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
-Pobierz szczegóły repliki i listy replik danej usługi w zasobie aplikacji.
+Pobierz szczegóły repliki i Wyświetl listę replik danej usługi w zasobie aplikacji.
 
 ## <a name="commands"></a>Polecenia
 
 |Polecenie|Opis|
 | --- | --- |
 | list | Wyświetla listę wszystkich replik usługi. |
-| pokaż | Pobiera danej repliki usługi aplikacji. |
+| pokaż | Pobiera daną replikę usługi aplikacji. |
 
-## <a name="sfctl-mesh-service-replica-list"></a>lista replik usługi-replika siatki sfctl
+## <a name="sfctl-mesh-service-replica-list"></a>Usługa siatki sfctl — lista replik
 Wyświetla listę wszystkich replik usługi.
 
 Pobiera informacje o wszystkich replikach usługi. Informacje obejmują opis i inne właściwości repliki usługi.
@@ -31,43 +31,43 @@ Pobiera informacje o wszystkich replikach usługi. Informacje obejmują opis i i
 
 |Argument|Opis|
 | --- | --- |
-| --app-name --application-name [Wymagane] | Nazwa aplikacji. |
-| --service-name [Wymagane] | Nazwa usługi. |
+| --App-Name--Application-Name [wymagane] | Nazwa aplikacji. |
+| --Service-Name [wymagane] | Nazwa usługi. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
 |Argument|Opis|
 | --- | --- |
-| --debug | Zwiększ szczegółowość rejestrowania, aby wyświetlić wszystkie dzienniki debugowania. |
-| --help -h | Pokaż ten komunikat pomocy i zamknij. |
-| --wyjście -o | Format wyjściowy.  Dozwolone wartości\: json, jsonc, table, tsv.  Domyślny\: json. |
-| --zapytanie | Ciąg zapytania JMESPath. Zobacz\:http //jmespath.org/ aby uzyskać więcej informacji i przykładów. |
-| --pełne | Zwiększ szczegółowość rejestrowania. Użyj --debug dla pełnych dzienników debugowania. |
+| --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
+| --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
-## <a name="sfctl-mesh-service-replica-show"></a>sfctl mesh service-replica show sfctl mesh service-replica show Sfctl mesh service-replica show Sfc
-Pobiera danej repliki usługi aplikacji.
+## <a name="sfctl-mesh-service-replica-show"></a>Usługa siatki sfctl — Pokaż replikę
+Pobiera daną replikę usługi aplikacji.
 
-Pobiera informacje o repliki usługi o podanej nazwie. Informacje obejmują opis i inne właściwości repliki usługi.
+Pobiera informacje o replice usługi o podanej nazwie. Informacje obejmują opis i inne właściwości repliki usługi.
 
 ### <a name="arguments"></a>Argumenty
 
 |Argument|Opis|
 | --- | --- |
-| --app-name --application-name [Wymagane] | Nazwa aplikacji. |
-| --name -n [Wymagane] | Nazwa repliki usługi. |
-| --service-name [Wymagane] | Nazwa usługi. |
+| --App-Name--Application-Name [wymagane] | Nazwa aplikacji. |
+| --Name-n [wymagane] | Nazwa repliki usługi. |
+| --Service-Name [wymagane] | Nazwa usługi. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
 |Argument|Opis|
 | --- | --- |
-| --debug | Zwiększ szczegółowość rejestrowania, aby wyświetlić wszystkie dzienniki debugowania. |
-| --help -h | Pokaż ten komunikat pomocy i zamknij. |
-| --wyjście -o | Format wyjściowy.  Dozwolone wartości\: json, jsonc, table, tsv.  Domyślny\: json. |
-| --zapytanie | Ciąg zapytania JMESPath. Zobacz\:http //jmespath.org/ aby uzyskać więcej informacji i przykładów. |
-| --pełne | Zwiększ szczegółowość rejestrowania. Użyj --debug dla pełnych dzienników debugowania. |
+| --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
+| --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 
 ## <a name="next-steps"></a>Następne kroki
-- [Konfigurowanie](service-fabric-cli.md) interfejsu wiersza polecenia sieci szkieletowej usług.
-- Dowiedz się, jak używać interfejsu wiersza polecenia sieci szkieletowej usług przy użyciu [przykładowych skryptów.](/azure/service-fabric/scripts/sfctl-upgrade-application)
+- [Skonfiguruj](service-fabric-cli.md) interfejs wiersza polecenia Service Fabric.
+- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](/azure/service-fabric/scripts/sfctl-upgrade-application).

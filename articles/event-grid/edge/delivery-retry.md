@@ -1,6 +1,6 @@
 ---
-title: Dostarczanie i ponawianie — usługa Azure Event Grid IoT Edge | Dokumenty firmy Microsoft
-description: Dostarczanie i ponawianie próby w usztywnienia zdarzeń na przeglądarce IoT Edge.
+title: Dostarczanie i ponawianie Azure Event Grid IoT Edge | Microsoft Docs
+description: Dostarczenie i ponowienie próby Event Grid na IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,63 +10,63 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 7df283b12a0d04d2b785c13a2f12b03115581e79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76841716"
 ---
 # <a name="delivery-and-retry"></a>Dostarczanie i ponawianie prób
 
-Usługa Event Grid zapewnia trwałe dostarczanie. Próbuje dostarczyć każdą wiadomość co najmniej raz dla każdej pasującej subskrypcji natychmiast. Jeśli punkt końcowy subskrybenta nie potwierdza odbioru zdarzenia lub występuje błąd, usługa Event Grid ponawia próbę dostarczenia na podstawie ustalonego **harmonogramu ponawiania i** **zasad ponawiania ponawiania próby**.  Domyślnie moduł siatki zdarzeń dostarcza jedno zdarzenie naraz do subskrybenta. Ładunek jest jednak tablicy z jednego zdarzenia. Moduł może dostarczać więcej niż jedno zdarzenie naraz, włączając funkcję przetwarzania wsadowego danych wyjściowych. Aby uzyskać szczegółowe informacje na temat tej funkcji, zobacz [przetwarzanie danych wyjściowych](delivery-output-batching.md).  
+Event Grid zapewnia trwałe dostarczanie. Próbuje dostarczyć każdy komunikat co najmniej raz dla każdej pasującej subskrypcji. Jeśli punkt końcowy subskrybenta nie potwierdzi odbioru zdarzenia lub jeśli wystąpi błąd, Event Grid ponowienia próby w oparciu o ustalony **harmonogram ponownych prób** i **zasady ponawiania**prób.  Domyślnie moduł Event Grid dostarcza jedno zdarzenie naraz do subskrybenta. Ładunek jest jednak tablicą z pojedynczym zdarzeniem. Moduł może dostarczyć więcej niż jedno zdarzenie naraz, włączając funkcję tworzenia wsadowego danych wyjściowych. Aby uzyskać szczegółowe informacje na temat tej funkcji, zobacz Tworzenie [wsadowe danych wyjściowych](delivery-output-batching.md).  
 
 > [!IMPORTANT]
->Nie ma obsługi trwałości dla danych zdarzeń. Oznacza to, że ponowne wdrożenie lub ponowne uruchomienie modułu siatki zdarzeń spowoduje utratę wszelkich zdarzeń, które nie zostały jeszcze dostarczone.
+>Brak obsługi trwałości dla danych zdarzenia. Oznacza to, że ponowne wdrożenie lub uruchomienie modułu Event Grid spowoduje utratę wszystkich zdarzeń, które nie zostały jeszcze dostarczone.
 
-## <a name="retry-schedule"></a>Harmonogram ponawiania prób
+## <a name="retry-schedule"></a>Harmonogram ponownych prób
 
-Usługa Event Grid czeka do 60 sekund na odpowiedź po dostarczeniu wiadomości. Jeśli punkt końcowy subskrybenta nie ACK odpowiedzi, a następnie wiadomość zostanie w kolejce do jednego z naszych kolejek z powrotem do kolejnych ponownych prób.
+W przypadku odpowiedzi po dostarczeniu komunikatu Event Grid czekaj do 60 sekund. Jeśli punkt końcowy subskrybenta nie potwierdzą odpowiedzi, komunikat zostanie przesunięty do kolejki w jednej z kolejek wycofania dla kolejnych ponownych prób.
 
-Istnieją dwa wstępnie skonfigurowane kolejki cofania, które określają harmonogram, w którym zostanie podjęta próba ponawiania. Oto one:
+Istnieją dwie wstępnie skonfigurowane kolejki z przywróceniem z powrotem, które określają harmonogram, w którym zostanie podjęta próba ponowienia próby. Oto one:
 
 | Harmonogram | Opis |
 | ---------| ------------ |
-| 1 min | Wiadomości, które kończą się tutaj, są podejmowane co minutę.
-| 10 minut | Wiadomości, które kończą się tutaj, są podejmowane co 10 minut.
+| 1 min | Komunikaty kończące się w tym miejscu są podejmowane co minutę.
+| 10 minut | Komunikaty kończące się w tym miejscu są podejmowane co 10 minut.
 
 ### <a name="how-it-works"></a>Jak to działa
 
-1. Komunikat dociera do modułu siatki zdarzeń. Podjęto próbę natychmiastowego dostarczenia.
-1. Jeśli dostarczenie nie powiedzie się, wiadomość jest umieszczana w kolejce 1-minutowej i ponawiana po minucie.
-1. Jeśli dostarczenie nadal zakończy się niepowodzeniem, wiadomość jest umieszczana w kolejce 10-minutowej i ponawiana co 10 minut.
-1. Dostawy są podejmowane do czasu osiągnięcia limitów zasad po pomyślnym lub ponowić próbę.
+1. Komunikat dociera do modułu Event Grid. Podjęto próbę dostarczenia go od razu.
+1. Jeśli dostarczenie nie powiedzie się, komunikat zostanie przekolejkowane do kolejki 1-minutowej i ponowiony po minucie.
+1. Jeśli dostarczenie nie powiedzie się, komunikat zostanie przetworzony do kolejki 10-minutowej i ponowiony co 10 minut.
+1. Dostawy są wypróbowywane do momentu osiągnięcia pomyślnych limitów zasad lub ponowień.
 
-## <a name="retry-policy-limits"></a>Ponowij ponawianie limitów zasad
+## <a name="retry-policy-limits"></a>Limity zasad ponawiania
 
 Istnieją dwie konfiguracje, które określają zasady ponawiania. Oto one:
 
 * Maksymalna liczba prób
-* Czas wygaśnięcia wydarzenia (TTL)
+* Czas wygaśnięcia zdarzenia (TTL)
 
-Zdarzenie zostanie przerwane, jeśli zostanie osiągnięty jeden z limitów zasad ponawiania. Sam harmonogram ponawiania prób został opisany w sekcji Harmonogram ponawiania prób. Konfiguracja tych limitów może być wykonana dla wszystkich subskrybentów lub dla podstawy subskrypcji. W poniższej sekcji opisano każdy z nich jest dalsze szczegóły.
+Zdarzenie zostanie usunięte, jeśli zostanie osiągnięty jeden z limitów zasad ponawiania prób. Sam harmonogram ponownych prób został opisany w sekcji harmonogram ponownych prób. Konfigurację tych limitów można wykonać dla wszystkich subskrybentów lub subskrypcji. Poniższa sekcja zawiera szczegółowe informacje o każdej z nich.
 
-## <a name="configuring-defaults-for-all-subscribers"></a>Konfigurowanie ustawień domyślnych dla wszystkich subskrybentów
+## <a name="configuring-defaults-for-all-subscribers"></a>Konfigurowanie wartości domyślnych dla wszystkich subskrybentów
 
-Istnieją dwie właściwości: `brokers__defaultMaxDeliveryAttempts` `broker__defaultEventTimeToLiveInSeconds` i które mogą być skonfigurowane jako część wdrożenia usługi Event Grid, która kontroluje domyślne zasady ponawiania dla wszystkich subskrybentów.
+Istnieją dwie właściwości: `brokers__defaultMaxDeliveryAttempts` i `broker__defaultEventTimeToLiveInSeconds` które można skonfigurować w ramach wdrożenia Event Grid, które sterują ponownymi próbami domyślnymi zasad dla wszystkich subskrybentów.
 
 | Nazwa właściwości | Opis |
 | ---------------- | ------------ |
 | `broker__defaultMaxDeliveryAttempts` | Maksymalna liczba prób dostarczenia zdarzenia. Wartość domyślna: 30.
-| `broker__defaultEventTimeToLiveInSeconds` | Czas wygaśnięcia zdarzenia w sekundach, po którym zdarzenie zostanie przerwane, jeśli nie zostanie dostarczone. Wartość domyślna: **7200** sekund
+| `broker__defaultEventTimeToLiveInSeconds` | Czas wygaśnięcia zdarzenia w sekundach, po upływie którego zdarzenie zostanie usunięte, jeśli nie zostanie dostarczone. Wartość domyślna: **7200** s
 
-## <a name="configuring-defaults-per-subscriber"></a>Konfigurowanie ustawień domyślnych na subskrybenta
+## <a name="configuring-defaults-per-subscriber"></a>Konfigurowanie wartości domyślnych na subskrybenta
 
-Można również określić limity zasad ponawiania próby dla na podstawie subskrypcji.
-Zapoznaj się z naszą [dokumentacją interfejsu API,](api.md) aby uzyskać informacje na temat konfigurowania ustawień domyślnych na subskrybenta. Domyślne ustawienia poziomu subskrypcji zastępują konfiguracje poziomu modułu.
+Możesz również określić limity zasad ponawiania dla każdej subskrypcji.
+Zapoznaj się z naszą [dokumentacją interfejsu API](api.md) , aby uzyskać informacje na temat konfigurowania wartości domyślnych na subskrybencie. Ustawienia domyślne poziomu subskrypcji zastępują konfiguracje poziomu modułu.
 
 ## <a name="examples"></a>Przykłady
 
-W poniższym przykładzie konfiguruje zasady ponawiania prób w module Siatka zdarzeń z maxNumberOfAttempts = 3 i 30 minut czasu wygaśnięcia zdarzeń
+Poniższy przykład konfiguruje zasady ponawiania w module Event Grid za pomocą maxNumberOfAttempts = 3 i zdarzenia TTL o wartości 30 minut
 
 ```json
 {
@@ -86,7 +86,7 @@ W poniższym przykładzie konfiguruje zasady ponawiania prób w module Siatka zd
 }
 ```
 
-W poniższym przykładzie konfiguruje subskrypcję haka sieci Web z maxNumberOfAttempts = 3 i czas wygaśnięcia zdarzenia 30 minut
+Poniższy przykład konfiguruje subskrypcję elementu webhook z maxNumberOfAttempts = 3 i czasem wygaśnięcia zdarzenia wynoszącym 30 minut
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
-title: Usługa Azure Service Bus często zadawane pytania (często zadawane pytania) | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera odpowiedzi na niektóre z często zadawanych pytań (CZĘSTO ZADAWANE PYTANIA) dotyczące usługi Azure Service Bus.
+title: Azure Service Bus często zadawanych pytań (FAQ) | Microsoft Docs
+description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące Azure Service Bus.
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -10,151 +10,151 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 3cd4e69481fb452391e6dc027cb41fd6dae71b7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76760253"
 ---
-# <a name="azure-service-bus---frequently-asked-questions-faq"></a>Usługa Azure Service Bus — często zadawane pytania (często zadawane pytania)
+# <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus — często zadawane pytania
 
-W tym artykule omówiono niektóre często zadawane pytania dotyczące usługi Microsoft Azure Service Bus. Możesz również odwiedzić często zadawane [pytania dotyczące pomocy technicznej platformy Azure,](https://azure.microsoft.com/support/faq/) aby uzyskać ogólne informacje dotyczące cen i pomocy technicznej platformy Azure.
+W tym artykule omówiono kilka często zadawanych pytań dotyczących Microsoft Azure Service Bus. Możesz również odwiedzić pytania dotyczące [pomocy technicznej platformy Azure](https://azure.microsoft.com/support/faq/) , aby uzyskać ogólne informacje o cenach i pomocy technicznej platformy Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="general-questions-about-azure-service-bus"></a>Ogólne pytania dotyczące usługi Azure Service Bus
+## <a name="general-questions-about-azure-service-bus"></a>Ogólne pytania dotyczące Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>Co to jest Azure Service Bus?
-[Usługa Azure Service Bus](service-bus-messaging-overview.md) to asynchroninowa platforma chmury obsługi wiadomości, która umożliwia wysyłanie danych między systemami oddzielonymi. Firma Microsoft oferuje tę funkcję jako usługę, co oznacza, że nie trzeba hostować własnego sprzętu, aby z niej korzystać.
+[Azure Service Bus](service-bus-messaging-overview.md) to asynchroniczna platforma do obsługi komunikatów w chmurze, która umożliwia wysyłanie danych między oddzielonymi systemami. Firma Microsoft oferuje tę funkcję jako usługę, co oznacza, że nie trzeba hostować własnego sprzętu, aby go używać.
 
-### <a name="what-is-a-service-bus-namespace"></a>Co to jest obszar nazw usługi Service Bus?
-[Obszar nazw](service-bus-create-namespace-portal.md) udostępnia kontener zakresu adresowania zasobów usługi Service Bus w aplikacji. Tworzenie obszaru nazw jest konieczne do korzystania z usługi Service Bus i jest jednym z pierwszych kroków w rozpoczęciu pracy.
+### <a name="what-is-a-service-bus-namespace"></a>Co to jest Service Bus przestrzeń nazw?
+[Przestrzeń nazw](service-bus-create-namespace-portal.md) zapewnia kontener określania zakresu do adresowania zasobów Service Bus w aplikacji. Tworzenie przestrzeni nazw jest niezbędne do użycia Service Bus i jest jednym z pierwszych kroków w temacie Wprowadzenie.
 
-### <a name="what-is-an-azure-service-bus-queue"></a>Co to jest kolejka usługi Azure Service Bus?
-[Kolejka usługi Service Bus](service-bus-queues-topics-subscriptions.md) jest jednostką, w której są przechowywane wiadomości. Kolejki są przydatne, gdy masz wiele aplikacji lub wiele części aplikacji rozproszonej, które muszą komunikować się ze sobą. Kolejka jest podobna do centrum dystrybucji, w którym odbieranych jest wiele produktów (wiadomości), a następnie wysyłanych z tej lokalizacji.
+### <a name="what-is-an-azure-service-bus-queue"></a>Co to jest kolejka Azure Service Bus?
+[Kolejka Service Bus](service-bus-queues-topics-subscriptions.md) jest jednostką, w której są przechowywane komunikaty. Kolejki są przydatne w przypadku wielu aplikacji lub wielu części aplikacji rozproszonej, która musi komunikować się ze sobą. Kolejka jest podobna do centrum dystrybucji, w którym odbierane są wiele produktów (wiadomości), a następnie wysyłane z tej lokalizacji.
 
-### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>Jakie są tematy i subskrypcje usługi Azure Service Bus?
-Temat można wizualizować jako kolejkę, a podczas korzystania z wielu subskrypcji staje się bogatszym modelem obsługi wiadomości; zasadniczo narzędzie komunikacji jeden do wielu. Ten model publikowania/subskrybowania (lub *pub/sub)* umożliwia aplikacji, która wysyła wiadomość do tematu z wieloma subskrypcjami, aby ten komunikat został odebrany przez wiele aplikacji.
+### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>Co to są tematy Azure Service Bus i subskrypcje?
+Temat może być wizualny jako kolejka i w przypadku korzystania z wielu subskrypcji stanie się bardziej zaawansowanym modelem obsługi komunikatów. zasadniczo narzędzie do komunikacji typu "jeden do wielu". Ten model publikowania/subskrybowania (lub *pub/sub*) umożliwia aplikacji, która wysyła komunikat do tematu z wieloma subskrypcjami, aby ten komunikat został odebrany przez wiele aplikacji.
 
-### <a name="what-is-a-partitioned-entity"></a>Co to jest jednostka podzielona na partycje?
-Konwencjonalna kolejka lub temat jest obsługiwana przez brokera pojedynczych wiadomości i przechowywana w jednym magazynie wiadomości. Obsługiwane tylko w warstwach wiadomości basic i standard, [kolejka partycjonowana lub temat](service-bus-partitioning.md) jest obsługiwany przez wielu brokerów wiadomości i przechowywane w wielu magazynach obsługi wiadomości. Ta funkcja oznacza, że ogólna przepływność kolejki lub tematu podzielonego na partycje nie jest już ograniczona przez wydajność jednego brokera wiadomości lub magazynu obsługi wiadomości. Ponadto tymczasowa awaria magazynu obsługi wiadomości nie powoduje, że kolejka na partycje lub temat są niedostępne.
+### <a name="what-is-a-partitioned-entity"></a>Co to jest jednostka partycjonowana?
+Konwencjonalne kolejki lub tematy są obsługiwane przez jednego brokera komunikatów i przechowywane w jednym magazynie obsługi komunikatów. Obsługiwane tylko w warstwach Podstawowa i Standardowa obsługa komunikatów, [Kolejka lub temat partycjonowany](service-bus-partitioning.md) jest obsługiwany przez wielu brokerów komunikatów i przechowywanych w wielu magazynach komunikatów. Ta funkcja oznacza, że ogólna przepływność partycjonowanej kolejki lub tematu nie jest już ograniczona przez wydajność jednego brokera komunikatów lub magazynu komunikatów. Ponadto tymczasowa awaria magazynu obsługi komunikatów nie powoduje niedostępności partycjonowanej kolejki lub tematu.
 
-Zamawianie nie jest zapewnione podczas korzystania z jednostek podzielonych na partycje. W przypadku, gdy partycja jest niedostępna, nadal można wysyłać i odbierać wiadomości z innych partycji.
+Nie jest zapewnione Określanie kolejności przy użyciu jednostek partycjonowanych. W przypadku niedostępności partycji można nadal wysyłać i odbierać komunikaty z innych partycji.
 
- Jednostki podzielone na partycje nie są już obsługiwane w [jednostce premium.](service-bus-premium-messaging.md) 
+ Partycjonowane jednostki nie są już obsługiwane w [jednostce SKU Premium](service-bus-premium-messaging.md). 
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Jakie porty są potrzebne do otwarcia na zaporze? 
-Do wysyłania i odbierania wiadomości za pomocą usługi Azure Service Bus można używać następujących protokołów:
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Jakie porty muszę otworzyć na zaporze? 
+Za pomocą następujących protokołów można Azure Service Bus wysyłać i odbierać komunikaty:
 
 - Zaawansowane usługi kolejkowania Protocol (AMQP)
-- Protokół SBMP (Service Bus Messaging Protocol)
+- Service Bus Messaging Protocol (SBMP)
 - HTTP
 
-Zobacz poniższą tabelę dla portów wychodzących, które należy otworzyć, aby używać tych protokołów do komunikowania się z usługą Azure Event Hubs. 
+Zapoznaj się z poniższą tabelą dla portów wychodzących, które należy otworzyć, aby używać tych protokołów do komunikowania się z usługą Azure Event Hubs. 
 
 | Protocol (Protokół) | Porty | Szczegóły | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 i 5672 | Zobacz [przewodnik po protokole protokołu AMQP](service-bus-amqp-protocol-guide.md) | 
-| SBMP (sbmp) | od 9350 do 9354 | Zobacz [tryb łączności](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| AMQP | 5671 i 5672 | Zobacz [Przewodnik po protokole AMQP](service-bus-amqp-protocol-guide.md) | 
+| SBMP | 9350 do 9354 | Zobacz [tryb łączności](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
 | HTTP, HTTPS | 80, 443 | 
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Jakie adresy IP są potrzebne do umieszczenia na białej liście?
-Aby znaleźć odpowiednie adresy IP do białej listy połączeń, wykonaj następujące kroki:
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Jakie adresy IP są potrzebne do dozwolonych?
+Aby znaleźć listę prawidłowych adresów IP dla połączeń, wykonaj następujące kroki:
 
-1. Uruchom następujące polecenie z wiersza polecenia: 
+1. Uruchom następujące polecenie w wierszu polecenia: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Zanotuj adres `Non-authoritative answer`IP zwrócony w pliku . Ten adres IP jest statyczny. Jedynym punktem w czasie to się zmieni, jeśli przywrócić obszar nazw do innego klastra.
+2. Zanotuj adres IP zwrócony w `Non-authoritative answer`. Ten adres IP jest statyczny. Jedyną momentem, gdy będzie ona zmieniana, jest przywrócenie przestrzeni nazw w innym klastrze.
 
-Jeśli używasz nadmiarowości strefy dla obszaru nazw, musisz wykonać kilka dodatkowych kroków: 
+Jeśli używasz nadmiarowości strefy dla przestrzeni nazw, musisz wykonać kilka dodatkowych czynności: 
 
-1. Najpierw uruchom nslookup w obszarze nazw.
+1. Najpierw uruchom polecenie nslookup w przestrzeni nazw.
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Zanotuj nazwę w sekcji **odpowiedzi nieuzyskanych,** która jest w jednym z następujących formatów: 
+2. Zanotuj nazwę w sekcji **Nieautorytatywna odpowiedź** , która znajduje się w jednym z następujących formatów: 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. Uruchom nslookup dla każdego z przyrostkami s1, s2 i s3, aby uzyskać adresy IP wszystkich trzech wystąpień uruchomionych w trzech strefach dostępności, 
+3. Uruchom polecenie nslookup dla każdego z sufiksów S1, S2 i S3, aby uzyskać adresy IP wszystkich trzech wystąpień uruchomionych w trzech strefach dostępności, 
 
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
-### <a name="what-are-some-azure-service-bus-best-practices"></a>Jakie są najlepsze rozwiązania usługi Azure Service Bus?
-Zobacz [najważniejsze wskazówki dotyczące poprawy wydajności przy użyciu usługi Service Bus][Best practices for performance improvements using Service Bus] — w tym artykule opisano sposób optymalizacji wydajności podczas wymiany wiadomości.
+### <a name="what-are-some-azure-service-bus-best-practices"></a>Jakie są niektóre Azure Service Bus najlepszych praktykach?
+Zobacz [najlepsze rozwiązania dotyczące ulepszeń wydajności przy użyciu Service Bus][Best practices for performance improvements using Service Bus] — w tym artykule opisano sposób optymalizowania wydajności podczas wymiany komunikatów.
 
-### <a name="what-should-i-know-before-creating-entities"></a>Co należy wiedzieć przed utworzeniem encji?
-Następujące właściwości kolejki i tematu są niezmienne. Należy wziąć pod uwagę to ograniczenie podczas inicjowania obsługi administracyjnej jednostek, ponieważ te właściwości nie mogą być modyfikowane bez tworzenia nowej jednostki zastępczej.
+### <a name="what-should-i-know-before-creating-entities"></a>Co muszę wiedzieć przed utworzeniem jednostek?
+Następujące właściwości kolejki i tematu są niezmienne. Te ograniczenia należy wziąć pod uwagę podczas inicjowania obsługi administracyjnej jednostek, ponieważ nie można modyfikować tych właściwości bez tworzenia nowej jednostki zastępczej.
 
 * Partycjonowanie
 * Sesje
 * Wykrywanie duplikatów
-* Jednostka ekspresowa
+* Jednostka Express
 
 ## <a name="pricing"></a>Cennik
-W tej sekcji odpowiedzieć na niektóre często zadawane pytania dotyczące struktury cen usługi Service Bus.
+Ta sekcja zawiera odpowiedzi na kilka często zadawanych pytań dotyczących struktury cenowej Service Bus.
 
-Artykuł [o cenach i rozliczeniach usługi Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) wyjaśnia liczniki rozliczeń w usłudze Service Bus. Aby uzyskać szczegółowe informacje na temat opcji cennika usługi Service [Bus,](https://azure.microsoft.com/pricing/details/service-bus/)zobacz Szczegóły cen usługi Service Bus .
+W artykule dotyczącym [cen i rozliczeń Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) opisano liczniki rozliczeń w programie Service Bus. Aby uzyskać szczegółowe informacje na temat opcji cennika Service Bus, zobacz [Service Bus szczegóły cennika](https://azure.microsoft.com/pricing/details/service-bus/).
 
-Możesz również odwiedzić często zadawane [pytania dotyczące pomocy technicznej platformy Azure,](https://azure.microsoft.com/support/faq/) aby uzyskać ogólne informacje o cenach platformy Azure. 
+Możesz również odwiedzić pytania dotyczące [pomocy technicznej platformy Azure](https://azure.microsoft.com/support/faq/) , aby uzyskać ogólne informacje o cenach platformy Azure. 
 
-### <a name="how-do-you-charge-for-service-bus"></a>Jak pobierać opłaty za usługę Service Bus?
-Aby uzyskać pełne informacje na temat cennika usługi Service [Bus,][Pricing overview]zobacz Szczegóły cen usługi Service Bus . Oprócz odnotowanych cen naliczana jest opłata za skojarzone transfery danych za wyjście poza centrum danych, w którym aplikacja jest aprowizowana.
+### <a name="how-do-you-charge-for-service-bus"></a>Jak naliczane są opłaty za Service Bus?
+Aby uzyskać pełne informacje na temat cennika Service Bus, zobacz [Service Bus szczegóły cennika][Pricing overview]. Oprócz zanotowanych cen opłaty są naliczane za powiązane transfery danych dla ruchu wychodzącego poza centrum danych, w którym Zainicjowano obsługę aplikacji.
 
-### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Jakie korzystanie z usługi Service Bus podlega transferowi danych? Co nie jest?
-Wszelkie transfery danych w danym regionie platformy Azure są udostępniane bezpłatnie, a także wszelkie przychodzące transfery danych. Przesyłanie danych poza region podlega opłatom za wyjście, które można znaleźć [tutaj](https://azure.microsoft.com/pricing/details/bandwidth/).
+### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Jakie użycie Service Bus podlega transferowi danych? Co nie jest?
+Wszystkie transfery danych w danym regionie świadczenia usługi Azure są udostępniane bezpłatnie, a także w przypadku transferu danych przychodzących. Transfer danych poza region podlega opłatom za ruch wychodzący, które można znaleźć [tutaj](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-### <a name="does-service-bus-charge-for-storage"></a>Czy usługa Service Bus pobiera opłatę za przechowywanie?
-Nie, usługa Service Bus nie pobiera opłat za przechowywanie. Istnieje jednak przydział ograniczający maksymalną ilość danych, które mogą być utrwalane na kolejkę/temat. Zobacz następne często zadawane pytania.
+### <a name="does-service-bus-charge-for-storage"></a>Czy Service Bus opłaty za magazyn?
+Nie, Service Bus nie nalicza opłat za magazyn. Jednak limit przydziału ogranicza maksymalną ilość danych, które mogą być utrwalane dla kolejki/tematu. Zobacz następne często zadawane pytania.
 
-### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Mam standardową przestrzeń nazw usługi Service Bus. Dlaczego widzę opłaty w ramach grupy zasobów "$system"?
-Usługa Azure Service Bus niedawno uaktualniła składniki rozliczeń. W związku z tym, jeśli masz standardową przestrzeń nazw usługi Service Bus, w grupie zasobów "$system/$system" mogą być widoczne elementy zamówienia dla zasobu "/subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system".
+### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Mam Service Bus przestrzeni nazw w warstwie Standardowa. Dlaczego widzę opłaty w ramach grupy zasobów "$system"?
+Azure Service Bus ostatnio uaktualnione składniki rozliczeń. Z tego względu, jeśli masz Service Bus przestrzeni nazw w warstwie Standardowa, możesz zobaczyć elementy wierszy dla zasobu "/subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system" w grupie zasobów "$system".
 
-Opłaty te reprezentują opłatę podstawową za subskrypcję platformy Azure, która aprowizować standardowy obszar nazw usługi Service Bus. 
+Opłaty te przedstawiają podstawową opłatę za subskrypcję platformy Azure, która udostępnia Service Bus standardową przestrzeń nazw. 
 
-Ważne jest, aby pamiętać, że nie są to nowe opłaty, to znaczy, że istniały one również w poprzednim modelu rozliczeniowym. Jedyną zmianą jest to, że są one obecnie wymienione w "$system". Odbywa się to z powodu contraints w nowym systemie rozliczeniowym, który grupuje opłaty na poziomie subskrypcji, nie związane z określonego zasobu, w ramach identyfikatora zasobu "$system".
+Należy pamiętać, że nie są to nowe opłaty, czyli te, które istniały w poprzednim modelu rozliczeń. Jedyną zmianą jest to, że są one teraz wymienione w obszarze "$system". Jest to realizowane z powodu unikatowego w nowym systemie rozliczeniowym, w którym grupy są naliczane opłaty za poziom subskrypcji, nie są powiązane z określonym zasobem w ramach identyfikatora zasobu "$system".
 
 ## <a name="quotas"></a>Przydziały
 
-Aby uzyskać listę limitów i przydziałów usługi Service Bus, zobacz [omówienie przydziałów usługi Service Bus][Quotas overview].
+Aby uzyskać listę limitów Service Bus i przydziałów, zobacz [Omówienie przydziałów Service Bus][Quotas overview].
 
-### <a name="does-service-bus-have-any-usage-quotas"></a>Czy usługa Service Bus ma jakieś przydziały użycia?
-Domyślnie dla dowolnej usługi w chmurze firma Microsoft ustawia łączny miesięczny przydział użycia, który jest obliczany we wszystkich subskrypcjach klienta. Jeśli potrzebujesz więcej niż te limity, możesz skontaktować się z obsługą klienta w dowolnym momencie, aby zrozumieć swoje potrzeby i odpowiednio dostosować te limity. W przypadku usługi Service Bus łączny przydział użycia wynosi 5 miliardów komunikatów miesięcznie.
+### <a name="does-service-bus-have-any-usage-quotas"></a>Czy Service Bus ma przydziały użycia?
+Domyślnie dla każdej usługi w chmurze firma Microsoft ustawia zagregowany miesięczny limit przydziału użycia, który jest obliczany przez wszystkie subskrypcje klienta. Jeśli potrzebujesz więcej niż te limity, możesz skontaktować się z działem obsługi klienta w dowolnym momencie, aby poznać potrzeby i odpowiednio dostosować te limity. W przypadku Service Bus łączny przydział użycia to 5 000 000 000 komunikatów miesięcznie.
 
-Firma Microsoft zastrzega sobie prawo do wyłączenia konta klienta, które przekroczyło przydziały użycia w danym miesiącu, wysyłane są powiadomienia e-mail i podejmowane są wielokrotne próby skontaktowania się z klientem przed podjęciem jakichkolwiek działań. Klienci przekraczający te przydziały są nadal odpowiedzialni za opłaty, które przekraczają przydziały.
+Firma Microsoft zastrzega sobie prawo do wyłączenia konta klienta, które przekroczyło przydziały użycia w danym miesiącu, powiadomienia e-mail są wysyłane i wiele prób skontaktowania się z klientem przed podjęciem jakichkolwiek działań. Klienci przekraczający te przydziały są w dalszym ciągu odpowiedzialni za opłaty, które przekraczają limity.
 
-Podobnie jak w przypadku innych usług na platformie Azure, usługa Service Bus wymusza zestaw określonych przydziałów, aby zapewnić, że istnieje uczciwe użycie zasobów. Więcej informacji na temat tych przydziałów można znaleźć w [omówienie przydziałów usługi Service Bus][Quotas overview].
+Podobnie jak w przypadku innych usług na platformie Azure, Service Bus wymusza zestaw określonych przydziałów w celu zapewnienia uczciwego użycia zasobów. Więcej informacji na temat tych przydziałów można znaleźć w temacie [Service Bus przydziałów][Quotas overview].
 
-### <a name="how-to-handle-messages-of-size--1-mb"></a>Jak obsługiwać wiadomości o rozmiarze > 1 MB?
-Usługi obsługi wiadomości usługi Service Bus (kolejki i tematy/subskrypcje) umożliwiają aplikacji wysyłanie wiadomości o rozmiarze do 256 KB (warstwa standardowa) lub 1 MB (warstwa premium). Jeśli masz do czynienia z wiadomościami o rozmiarze większym niż 1 MB, użyj wzorca sprawdzania oświadczeń opisanego w [tym wpisie](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern)w blogu .
+### <a name="how-to-handle-messages-of-size--1-mb"></a>Jak obsługiwać komunikaty o rozmiarze > 1 MB?
+Usługi Service Bus Messaging (kolejki i tematy/subskrypcje) umożliwiają aplikacji wysyłanie komunikatów o rozmiarze do 256 KB (warstwa standardowa) lub 1 MB (warstwa Premium). Jeśli pracujesz z komunikatami o rozmiarze większym niż 1 MB, użyj wzorca sprawdzania roszczeń opisanego w [tym wpisie w blogu](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
-### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Dlaczego nie mogę utworzyć obszaru nazw po usunięciu jej z innej subskrypcji? 
-Po usunięciu obszaru nazw z subskrypcji, poczekaj 4 godziny przed odtworzeniem go o tej samej nazwie w innej subskrypcji. W przeciwnym razie może zostać `Namespace already exists`wyświetlony następujący komunikat o błędzie: . 
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Dlaczego nie mogę utworzyć przestrzeni nazw po usunięciu jej z innej subskrypcji? 
+Po usunięciu przestrzeni nazw z subskrypcji poczekaj 4 godziny, a następnie utwórz ją z tą samą nazwą w innej subskrypcji. W przeciwnym razie może zostać wyświetlony następujący komunikat o błędzie `Namespace already exists`:. 
 
-### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Jakie są niektóre wyjątki generowane przez interfejsy API usługi Azure Service Bus i ich sugerowane akcje?
-Aby uzyskać listę możliwych wyjątków usługi Service Bus, zobacz [Omówienie wyjątków][Exceptions overview].
+### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Jakie są wyjątki generowane przez interfejsy API Azure Service Bus i ich sugerowane akcje?
+Listę możliwych wyjątków Service Bus można znaleźć w temacie [wyjątki — Omówienie][Exceptions overview].
 
-### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Co to jest podpis dostępu współdzielonego i które języki obsługują generowanie podpisu?
-Sygnatury dostępu współdzielonego to mechanizm uwierzytelniania oparty na bezpiecznych skrótach lub identyfikatorach URI typu SHA-256. Aby uzyskać informacje dotyczące generowania własnych podpisów w plikach Node.js, PHP, Java, Python i C#, zobacz artykuł [o podpisach dostępu współdzielonego.][Shared Access Signatures]
+### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Co to jest sygnatura dostępu współdzielonego i które Języki obsługują generowanie podpisu?
+Sygnatury dostępu współdzielonego są mechanizmem uwierzytelniania opartym na bezpiecznych skrótach i identyfikatorach URI SHA-256. Aby uzyskać informacje o sposobach generowania własnych podpisów w Node. js, PHP, Java, Python i C#, zobacz artykuł [sygnatury dostępu współdzielonego][Shared Access Signatures] .
 
-## <a name="subscription-and-namespace-management"></a>Zarządzanie subskrypcją i obszarem nazw
-### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Jak przeprowadzić migrację obszaru nazw do innej subskrypcji platformy Azure?
+## <a name="subscription-and-namespace-management"></a>Zarządzanie subskrypcjami i przestrzenią nazw
+### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Jak mogę zmigrować przestrzeni nazw do innej subskrypcji platformy Azure?
 
-Obszar nazw można przenieść z jednej subskrypcji platformy Azure do innej przy użyciu poleceń [portalu Azure](https://portal.azure.com) lub programu PowerShell. Aby wykonać operację, obszar nazw musi być już aktywny. Użytkownik wykonujący polecenia musi być administratorem zarówno w subskrypcji źródłowej, jak i docelowej.
+Możesz przenieść przestrzeń nazw z jednej subskrypcji platformy Azure do innej przy użyciu poleceń [Azure Portal](https://portal.azure.com) lub PowerShell. Aby można było wykonać operację, przestrzeń nazw musi już być aktywna. Użytkownik wykonujący polecenia musi być administratorem zarówno dla subskrypcji źródłowej, jak i docelowej.
 
 #### <a name="portal"></a>Portal
 
-Aby użyć portalu Azure do migracji obszarów nazw usługi Service Bus do innej subskrypcji, postępuj zgodnie ze wskazówkami [tutaj](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
+Aby użyć Azure Portal do migracji przestrzeni nazw Service Bus do innej subskrypcji, postępuj zgodnie z instrukcjami znajdującymi się [tutaj](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 
-Następująca sekwencja poleceń programu PowerShell przenosi obszar nazw z jednej subskrypcji platformy Azure do innej. Aby wykonać tę operację, obszar nazw musi być już aktywny, a użytkownik uruchamiany polecenia programu PowerShell musi być administratorem zarówno w subskrypcji źródłowej, jak i docelowej.
+Poniższa sekwencja poleceń programu PowerShell przenosi przestrzeń nazw z jednej subskrypcji platformy Azure do innej. Aby wykonać tę operację, przestrzeń nazw musi być już aktywna, a użytkownik uruchamiający polecenia programu PowerShell musi być administratorem zarówno dla subskrypcji źródłowej, jak i docelowej.
 
 ```powershell
 # Create a new resource group in target subscription
@@ -168,11 +168,11 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o usłudze Service Bus, zobacz następujące artykuły:
+Aby dowiedzieć się więcej na temat Service Bus, zobacz następujące artykuły:
 
-* [Wprowadzenie usługi Azure Service Bus Premium (wpis w blogu)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-* [Wprowadzenie usługi Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-* [Omówienie usługi Service Bus](service-bus-messaging-overview.md)
+* [Wprowadzenie do Azure Service Bus Premium (wpis w blogu)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Wprowadzenie do Azure Service Bus Premium (channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+* [Przegląd Service Bus](service-bus-messaging-overview.md)
 * [Wprowadzenie do kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)
 
 [Best practices for performance improvements using Service Bus]: service-bus-performance-improvements.md

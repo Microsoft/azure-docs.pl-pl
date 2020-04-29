@@ -1,6 +1,6 @@
 ---
-title: Szablony profilów użytkowników w usłudze Azure API Management | Dokumenty firmy Microsoft
-description: Dowiedz się, jak dostosować zawartość stron profilu użytkownika w portalu dla deweloperów w usłudze Azure API Management.
+title: Szablony profilów użytkowników na platformie Azure API Management | Microsoft Docs
+description: Dowiedz się, jak dostosować zawartość stron profilów użytkowników w portalu dla deweloperów w usłudze Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4e3e430874f9d5b64f717b6ebb1cacb0eae46b1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79243954"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Szablony profilów użytkowników w usłudze Azure API Management
-Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu deweloperów przy użyciu zestawu szablonów, które konfigurują ich zawartość. Za pomocą [dotLiquid](http://dotliquidmarkup.org/) składni i edytora do wyboru, takich jak [DotLiquid dla projektantów](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), i pod warunkiem, zestaw zlokalizowanych [zasobów ciąg,](api-management-template-resources.md#strings) [zasoby glifów](api-management-template-resources.md#glyphs)i [page formantów,](api-management-page-controls.md)masz dużą elastyczność, aby skonfigurować zawartość stron, jak można uznać za stosowne przy użyciu tych szablonów.  
+Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu dla deweloperów przy użyciu zestawu szablonów, które konfigurują ich zawartość. Korzystając z składni [DotLiquid](http://dotliquidmarkup.org/) i wybranego edytora, takiego jak [DotLiquid dla projektantów](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), i dostępnego zestawu zlokalizowanych [zasobów ciągów](api-management-template-resources.md#strings), [zasobów glifów](api-management-template-resources.md#glyphs)i [kontrolek stron](api-management-page-controls.md), masz doskonałą elastyczność konfigurowania zawartości stron w miarę, w jakiej są one widoczne przy użyciu tych szablonów.  
   
- Szablony w tej sekcji umożliwiają dostosowanie zawartości stron profilu użytkownika w portalu dla deweloperów.  
+ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron profilów użytkowników w portalu dla deweloperów.  
   
 -   [Profil](#Profile)  
   
@@ -34,14 +34,14 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 -   [Aktualizowanie informacji o koncie](#UpdateAccountInfo)  
   
 > [!NOTE]
->  Przykładowe szablony domyślne są zawarte w poniższej dokumentacji, ale mogą ulec zmianie z powodu ciągłych ulepszeń. Domyślne szablony na żywo można wyświetlić w portalu dla deweloperów, przechodząc do żądanych szablonów indywidualnych. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [Jak dostosować portal dewelopera zarządzania interfejsami API przy użyciu szablonów](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Przykładowe szablony domyślne są zawarte w poniższej dokumentacji, ale mogą ulec zmianie ze względu na ciągłe ulepszenia. Możesz wyświetlić szablony domyślne na żywo w portalu dla deweloperów, przechodząc do żądanych poszczególnych szablonów. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dostosowywanie portalu deweloperów API Management przy użyciu szablonów](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="profile"></a><a name="Profile"></a>Proﬁl  
- Szablon **profilu** umożliwia dostosowanie sekcji profilu użytkownika strony profilu użytkownika w portalu dla deweloperów.  
+##  <a name="profile"></a><a name="Profile"></a>Profilu  
+ Szablon **profilu** umożliwia dostosowanie sekcji profil użytkownika na stronie profil użytkownika w portalu dla deweloperów.  
   
  ![Strona profilu użytkownika](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Strona profilu użytkownika APIM")  
   
@@ -98,12 +98,12 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 ```  
   
 ### <a name="controls"></a>Formanty  
- Ten szablon nie może używać żadnych [formantów strony](api-management-page-controls.md).  
+ Ten szablon nie może używać żadnych [kontrolek strony](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Model danych  
   
 > [!NOTE]
->  Szablony [Profil,](#Profile) [Aplikacje](#Applications)i [Subskrypcje](#Subscriptions) współużytkuje ten sam model danych i otrzymują te same dane szablonu.  
+>  Szablony [Profile](#Profile), [aplikacje](#Applications)i [subskrypcje](#Subscriptions) współużytkują ten sam model danych i otrzymują te same dane szablonu.  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -111,13 +111,13 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 |`lastName`|ciąg|Nazwisko bieżącego użytkownika.|  
 |`companyName`|ciąg|Nazwa firmy bieżącego użytkownika.|  
 |`addresserEmail`|ciąg|Adres e-mail bieżącego użytkownika.|  
-|`developersUsageStatisticsLink`|ciąg|Względny adres URL do wyświetlania analiz dla bieżącego użytkownika.|  
-|`subscriptions`|Kolekcja jednostek [subskrypcji.](api-management-template-data-model-reference.md#Subscription)|Subskrypcje dla bieżącego użytkownika.|  
-|`applications`|Kolekcja jednostek [aplikacji.](api-management-template-data-model-reference.md#Application)|Aplikacje bieżącego użytkownika.|  
-|`changePasswordUrl`|ciąg|Względny adres URL, aby zmienić hasło bieżącego użytkownika.|  
-|`changeNameOrEmailUrl`|ciąg|Względny adres URL, aby zmienić nazwę i adres e-mail dla bieżącego użytkownika.|  
+|`developersUsageStatisticsLink`|ciąg|Względny adres URL służący do wyświetlania analiz dla bieżącego użytkownika.|  
+|`subscriptions`|Kolekcja jednostek [subskrypcji](api-management-template-data-model-reference.md#Subscription) .|Subskrypcje dla bieżącego użytkownika.|  
+|`applications`|Kolekcja jednostek [aplikacji](api-management-template-data-model-reference.md#Application) .|Aplikacje bieżącego użytkownika.|  
+|`changePasswordUrl`|ciąg|Względny adres URL umożliwiający zmianę hasła bieżącego użytkownika.|  
+|`changeNameOrEmailUrl`|ciąg|Względny adres URL służący do zmiany nazwy i adresu e-mail bieżącego użytkownika.|  
 |`canChangePassword`|wartość logiczna|Czy bieżący użytkownik może zmienić swoje hasło.|  
-|`isSystemUser`|wartość logiczna|Czy bieżący użytkownik jest członkiem jednej z [wbudowanych grup](api-management-key-concepts.md#groups).|  
+|`isSystemUser`|wartość logiczna|Czy bieżący użytkownik jest członkiem jednej z wbudowanych [grup](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   
@@ -185,10 +185,10 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 }  
 ```  
   
-##  <a name="subscriptions"></a><a name="Subscriptions"></a>Subskrypcji  
- **Szablon Subskrypcje** umożliwia dostosowanie sekcji subskrypcji strony profilu użytkownika w portalu dla deweloperów.  
+##  <a name="subscriptions"></a><a name="Subscriptions"></a>Opłaty  
+ Szablon **subskrypcje** umożliwia dostosowywanie sekcji subskrypcje na stronie profil użytkownika w portalu dla deweloperów.  
   
- ![Strona subskrypcji użytkownika](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Strona subskrypcji użytkownika apim")  
+ ![Strona subskrypcji użytkownika](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Strona subskrypcji użytkownika APIM")  
   
 ### <a name="default-template"></a>Szablon domyślny  
   
@@ -317,14 +317,14 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 ```  
   
 ### <a name="controls"></a>Formanty  
- Ten szablon może używać [kontrolek](api-management-page-controls.md)strony poniżej .  
+ Ten szablon może korzystać z następujących [kontrolek strony](api-management-page-controls.md).  
   
--   [subskrypcja-anulowanie](api-management-page-controls.md#subscription-cancel)  
+-   [subskrypcja — Anuluj](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>Model danych  
   
 > [!NOTE]
->  Szablony [Profil,](#Profile) [Aplikacje](#Applications)i [Subskrypcje](#Subscriptions) współużytkuje ten sam model danych i otrzymują te same dane szablonu.  
+>  Szablony [Profile](#Profile), [aplikacje](#Applications)i [subskrypcje](#Subscriptions) współużytkują ten sam model danych i otrzymują te same dane szablonu.  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -332,13 +332,13 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 |`lastName`|ciąg|Nazwisko bieżącego użytkownika.|  
 |`companyName`|ciąg|Nazwa firmy bieżącego użytkownika.|  
 |`addresserEmail`|ciąg|Adres e-mail bieżącego użytkownika.|  
-|`developersUsageStatisticsLink`|ciąg|Względny adres URL do wyświetlania analiz dla bieżącego użytkownika.|  
-|`subscriptions`|Kolekcja jednostek [subskrypcji.](api-management-template-data-model-reference.md#Subscription)|Subskrypcje dla bieżącego użytkownika.|  
-|`applications`|Kolekcja jednostek [aplikacji.](api-management-template-data-model-reference.md#Application)|Aplikacje bieżącego użytkownika.|  
-|`changePasswordUrl`|ciąg|Względny adres URL, aby zmienić hasło bieżącego użytkownika.|  
-|`changeNameOrEmailUrl`|ciąg|Względny adres URL, aby zmienić nazwę i adres e-mail dla bieżącego użytkownika.|  
+|`developersUsageStatisticsLink`|ciąg|Względny adres URL służący do wyświetlania analiz dla bieżącego użytkownika.|  
+|`subscriptions`|Kolekcja jednostek [subskrypcji](api-management-template-data-model-reference.md#Subscription) .|Subskrypcje dla bieżącego użytkownika.|  
+|`applications`|Kolekcja jednostek [aplikacji](api-management-template-data-model-reference.md#Application) .|Aplikacje bieżącego użytkownika.|  
+|`changePasswordUrl`|ciąg|Względny adres URL umożliwiający zmianę hasła bieżącego użytkownika.|  
+|`changeNameOrEmailUrl`|ciąg|Względny adres URL służący do zmiany nazwy i adresu e-mail bieżącego użytkownika.|  
 |`canChangePassword`|wartość logiczna|Czy bieżący użytkownik może zmienić swoje hasło.|  
-|`isSystemUser`|wartość logiczna|Czy bieżący użytkownik jest członkiem jednej z [wbudowanych grup](api-management-key-concepts.md#groups).|  
+|`isSystemUser`|wartość logiczna|Czy bieżący użytkownik jest członkiem jednej z wbudowanych [grup](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   
@@ -406,8 +406,8 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 }  
 ```  
   
-##  <a name="applications"></a><a name="Applications"></a>Aplikacji  
- Szablon **Aplikacje** umożliwia dostosowanie sekcji subskrypcji strony profilu użytkownika w portalu dla deweloperów.  
+##  <a name="applications"></a><a name="Applications"></a>Zastosowania  
+ Szablon **aplikacje** umożliwia dostosowywanie sekcji subskrypcje na stronie profil użytkownika w portalu dla deweloperów.  
   
  ![Strona aplikacji konta użytkownika](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Strona aplikacji konta użytkownika APIM")  
   
@@ -480,14 +480,14 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 ```  
   
 ### <a name="controls"></a>Formanty  
- Ten szablon może używać [kontrolek](api-management-page-controls.md)strony poniżej .  
+ Ten szablon może korzystać z następujących [kontrolek strony](api-management-page-controls.md).  
   
--   [działania aplikacji](api-management-page-controls.md#app-actions)  
+-   [aplikacje — akcje](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>Model danych  
   
 > [!NOTE]
->  Szablony [Profil,](#Profile) [Aplikacje](#Applications)i [Subskrypcje](#Subscriptions) współużytkuje ten sam model danych i otrzymują te same dane szablonu.  
+>  Szablony [Profile](#Profile), [aplikacje](#Applications)i [subskrypcje](#Subscriptions) współużytkują ten sam model danych i otrzymują te same dane szablonu.  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -495,13 +495,13 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 |`lastName`|ciąg|Nazwisko bieżącego użytkownika.|  
 |`companyName`|ciąg|Nazwa firmy bieżącego użytkownika.|  
 |`addresserEmail`|ciąg|Adres e-mail bieżącego użytkownika.|  
-|`developersUsageStatisticsLink`|ciąg|Względny adres URL do wyświetlania analiz dla bieżącego użytkownika.|  
-|`subscriptions`|Kolekcja jednostek [subskrypcji.](api-management-template-data-model-reference.md#Subscription)|Subskrypcje dla bieżącego użytkownika.|  
-|`applications`|Kolekcja jednostek [aplikacji.](api-management-template-data-model-reference.md#Application)|Aplikacje bieżącego użytkownika.|  
-|`changePasswordUrl`|ciąg|Względny adres URL, aby zmienić hasło bieżącego użytkownika.|  
-|`changeNameOrEmailUrl`|ciąg|Względny adres URL, aby zmienić nazwę i adres e-mail dla bieżącego użytkownika.|  
+|`developersUsageStatisticsLink`|ciąg|Względny adres URL służący do wyświetlania analiz dla bieżącego użytkownika.|  
+|`subscriptions`|Kolekcja jednostek [subskrypcji](api-management-template-data-model-reference.md#Subscription) .|Subskrypcje dla bieżącego użytkownika.|  
+|`applications`|Kolekcja jednostek [aplikacji](api-management-template-data-model-reference.md#Application) .|Aplikacje bieżącego użytkownika.|  
+|`changePasswordUrl`|ciąg|Względny adres URL umożliwiający zmianę hasła bieżącego użytkownika.|  
+|`changeNameOrEmailUrl`|ciąg|Względny adres URL służący do zmiany nazwy i adresu e-mail bieżącego użytkownika.|  
 |`canChangePassword`|wartość logiczna|Czy bieżący użytkownik może zmienić swoje hasło.|  
-|`isSystemUser`|wartość logiczna|Czy bieżący użytkownik jest członkiem jednej z [wbudowanych grup](api-management-key-concepts.md#groups).|  
+|`isSystemUser`|wartość logiczna|Czy bieżący użytkownik jest członkiem jednej z wbudowanych [grup](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   
@@ -570,9 +570,9 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 ```  
   
 ##  <a name="update-account-info"></a><a name="UpdateAccountInfo"></a>Aktualizowanie informacji o koncie  
- Szablon **Informacje o koncie aktualizacji** umożliwia dostosowanie strony Informacje o **koncie aktualizacji** w portalu dla deweloperów.  
+ Szablon **Informacje o aktualizacji konta** umożliwia dostosowanie strony **Aktualizowanie informacji o koncie** w portalu dla deweloperów.  
   
- ![Szablony portalu dewelopera strony informacji o koncie użytkownika](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Szablony portalu dewelopera informacji o koncie użytkownika interfejsu APIM")  
+ ![Strona informacji o koncie użytkownika Szablony portalu dla deweloperów](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "APIM — szablony portalu dla deweloperów strony informacji o koncie użytkownika")  
   
 ### <a name="default-template"></a>Szablon domyślny  
   
@@ -607,10 +607,10 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 ```  
   
 ### <a name="controls"></a>Formanty  
- Ten szablon nie może używać żadnych [formantów strony](api-management-page-controls.md).  
+ Ten szablon nie może używać żadnych [kontrolek strony](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Model danych  
- [Encja informacji o koncie użytkownika.](api-management-template-data-model-reference.md#UserAccountInfo)  
+ Jednostka [informacji o koncie użytkownika](api-management-template-data-model-reference.md#UserAccountInfo) .  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   
@@ -627,4 +627,4 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [Jak dostosować portal dewelopera zarządzania interfejsami API przy użyciu szablonów](api-management-developer-portal-templates.md).
+Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dostosowywanie portalu deweloperów API Management przy użyciu szablonów](api-management-developer-portal-templates.md).

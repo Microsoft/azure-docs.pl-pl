@@ -1,6 +1,6 @@
 ---
-title: Jak wysyłać zdarzenia usługi Azure SignalR do siatki zdarzeń
-description: Przewodnik, aby pokazać, jak włączyć zdarzenia usługi SignalR grid, a następnie wysłać połączenie klienta połączone/rozłączone zdarzenia do przykładowej aplikacji.
+title: Jak wysyłać zdarzenia usługi Azure sygnalizacyjne do Event Grid
+description: Przewodnik przedstawiający sposób włączania zdarzeń Event Grid dla usługi sygnalizującego, a następnie wysyłania zdarzeń podłączonych/odłączonych połączenia klienta do przykładowej aplikacji.
 services: signalr
 author: chenyl
 ms.service: signalr
@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: chenyl
 ms.openlocfilehash: a76c9aaabf984723e2b60a7cd42425c9b29c916a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76710830"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Jak wysyłać zdarzenia z usługi Azure SignalR Service do usługi Event Grid
 
-Usługa Azure Event Grid to w pełni zarządzana usługa routingu zdarzeń, która zapewnia jednolite zużycie zdarzeń przy użyciu modelu podduszu pubowego. W tym przewodniku używasz interfejsu wiersza polecenia platformy Azure do utworzenia usługi Azure SignalR, zasubskrybuj zdarzenia połączenia, a następnie wdrożyć przykładową aplikację sieci web, aby odbierać zdarzenia. Na koniec można połączyć i odłączyć i zobaczyć ładunek zdarzenia w przykładowej aplikacji.
+Azure Event Grid to w pełni zarządzana usługa routingu zdarzeń, która zapewnia jednorodne użycie zdarzeń przy użyciu modelu pub-sub. W tym przewodniku użyjesz interfejsu wiersza polecenia platformy Azure, aby utworzyć usługę Azure Signal, subskrybować zdarzenia połączeń, a następnie wdrożyć przykładową aplikację sieci Web do odbierania zdarzeń. Na koniec można nawiązać połączenie i rozłączyć i wyświetlić ładunek zdarzenia w przykładowej aplikacji.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto][azure-account] przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto][azure-account] .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Polecenia interfejsu wiersza polecenia platformy Azure w tym artykule są sformatowane dla powłoki **Bash.** Jeśli używasz innej powłoki, takiej jak Program PowerShell lub Wiersz polecenia, może być konieczne odpowiednie dostosowanie znaków kontynuacji wiersza lub wierszy przypisania zmiennych. W tym artykule użyto zmiennych, aby zminimalizować wymaganą edycję poleceń.
+Polecenie interfejsu wiersza polecenia platformy Azure w tym artykule jest sformatowane dla powłoki **bash** . Jeśli używasz innej powłoki, na przykład programu PowerShell lub wiersza polecenia, konieczne może być odpowiednio dostosowanie wierszy kontynuacji wiersza lub zmiennych przypisanie. W tym artykule zastosowano zmienne, aby zminimalizować ilość wymagane do edycji poleceń.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów platformy Azure to kontener logiczny, w którym można wdrażać zasoby platformy Azure i zarządzać nimi. Następujące polecenie [tworzenia grupy az][az-group-create] tworzy grupę zasobów o nazwie *myResourceGroup* w regionie *eastus.* Jeśli chcesz użyć innej nazwy dla grupy `RESOURCE_GROUP_NAME` zasobów, ustaw inną wartość.
+Grupa zasobów platformy Azure to logiczny kontener służący do wdrażania zasobów platformy Azure i zarządzania nimi. Następujące polecenie [AZ Group Create][az-group-create] tworzy grupę zasobów o nazwie Moja *resourceName* w regionie *wschodnim* . Jeśli chcesz użyć innej nazwy dla grupy zasobów, ustaw `RESOURCE_GROUP_NAME` inną wartość.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -36,14 +36,14 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 ## <a name="create-a-signalr-service"></a>Tworzenie usługi SignalR Service
 
-Następnie wdrożyć usługę Azure Signalr w grupie zasobów za pomocą następujących poleceń.
+Następnie wdróż usługę Azure Signal Service w grupie zasobów przy użyciu następujących poleceń.
 ```azurecli-interactive
 SIGNALR_NAME=SignalRTestSvc
 
 az signalr create --resource-group $RESOURCE_GROUP_NAME --name $SIGNALR_NAME --sku Free_F1
 ```
 
-Po utworzeniu usługi SignalR, interfejsu wiersza polecenia platformy Azure zwraca dane wyjściowe podobne do następujących:
+Po utworzeniu usługi sygnalizującej interfejs wiersza polecenia platformy Azure zwraca dane wyjściowe podobne do następujących:
 
 ```json
 {
@@ -73,9 +73,9 @@ Po utworzeniu usługi SignalR, interfejsu wiersza polecenia platformy Azure zwra
 
 ## <a name="create-an-event-endpoint"></a>Tworzenie punktu końcowego zdarzenia
 
-W tej sekcji używasz szablonu Menedżera zasobów znajdującego się w repozytorium Usługi GitHub, aby wdrożyć wstępnie skompiltową przykładową aplikację sieci web w usłudze Azure App Service. Później subskrybujesz zdarzenia w usztywnienia usługi Event Grid rejestru i określ tę aplikację jako punkt końcowy, do którego są wysyłane zdarzenia.
+W tej sekcji użyjesz szablonu Menedżer zasobów znajdującego się w repozytorium GitHub do wdrożenia wstępnie skompilowanej przykładowej aplikacji sieci Web do Azure App Service. Później można subskrybować zdarzenia Event Grid w rejestrze i określić tę aplikację jako punkt końcowy, do którego są wysyłane zdarzenia.
 
-Aby wdrożyć przykładową `SITE_NAME` aplikację, ustaw unikatową nazwę aplikacji sieci web i wykonaj następujące polecenia. Nazwa witryny musi być unikatowa na platformie Azure, ponieważ stanowi część w pełni kwalifikowanej nazwy domeny (FQDN) aplikacji sieci web. W dalszej części można przejść do sieci FQDN aplikacji w przeglądarce sieci web, aby wyświetlić zdarzenia rejestru.
+Aby wdrożyć przykładową aplikację, ustaw `SITE_NAME` jako unikatową nazwę aplikacji sieci Web i wykonaj następujące polecenia. Nazwa witryny musi być unikatowa w ramach platformy Azure, ponieważ stanowi część w pełni kwalifikowanej nazwy domeny (FQDN) aplikacji sieci Web. W dalszej części możesz przejść do nazwy FQDN aplikacji w przeglądarce sieci Web, aby wyświetlić zdarzenia rejestru.
 
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
@@ -86,7 +86,7 @@ az group deployment create \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
 ```
 
-Po pomyślnym zakończeniu wdrożenia (może to potrwać kilka minut), otwórz przeglądarkę i przejdź do aplikacji sieci web, aby upewnić się, że jest uruchomiona:
+Po pomyślnym wdrożeniu (może to potrwać kilka minut) Otwórz przeglądarkę i przejdź do aplikacji sieci Web, aby upewnić się, że jest uruchomiona:
 
 `http://<your-site-name>.azurewebsites.net`
 
@@ -94,7 +94,7 @@ Po pomyślnym zakończeniu wdrożenia (może to potrwać kilka minut), otwórz p
 
 ## <a name="subscribe-to-registry-events"></a>Subskrybowanie zdarzeń rejestru
 
-W uszami zdarzeń subskrybujesz *temat,* aby poinformować go, które zdarzenia chcesz śledzić i gdzie je wysłać. Następujące [polecenie az eventgrid eventgrid event-subscription][az-eventgrid-event-subscription-create] subskrybuje utworzoną usługę Azure SignalR i określa adres URL aplikacji sieci web jako punkt końcowy, do którego powinna wysyłać zdarzenia. Zmienne środowiskowe wypełnione we wcześniejszych sekcjach są ponownie w tym miejscu, więc nie są wymagane żadne zmiany.
+W Event Grid zasubskrybujesz *temat* , który ma poinformowanie o zdarzeniach, które chcesz śledzić, i o tym, gdzie je wysłać. Następujące polecenie [AZ eventgrid Event-Subscription Create][az-eventgrid-event-subscription-create] subskrybuje utworzoną usługę Azure Signal Service i określa adres URL aplikacji sieci Web jako punkt końcowy, do którego powinny wysyłać zdarzenia. Zmienne środowiskowe, które zostały wypełnione we wcześniejszych sekcjach, są ponownie używane w tym miejscu, dlatego nie są wymagane żadne zmiany.
 
 ```azurecli-interactive
 SIGNALR_SERVICE_ID=$(az signalr show --resource-group $RESOURCE_GROUP_NAME --name $SIGNALR_NAME --query id --output tsv)
@@ -106,7 +106,7 @@ az eventgrid event-subscription create \
     --endpoint $APP_ENDPOINT
 ```
 
-Po zakończeniu subskrypcji powinny być widoczne dane wyjściowe podobne do następujących:
+Po zakończeniu subskrypcji powinny zostać wyświetlone dane wyjściowe podobne do następujących:
 
 ```JSON
 {
@@ -139,9 +139,9 @@ Po zakończeniu subskrypcji powinny być widoczne dane wyjściowe podobne do nas
 }
 ```
 
-## <a name="trigger-registry-events"></a>Zdarzenia rejestru wyzwalacza
+## <a name="trigger-registry-events"></a>Wyzwalanie zdarzeń rejestru
 
-Przełącz się do `Serverless Mode` trybu serwisowego i konfiguruj połączenie klienta z usługą SignalR. Próbki [bezserwerowe](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) można pobrać jako punkt odniesienia.
+Przejdź do trybu usługi `Serverless Mode` i skonfiguruj połączenie z klientem do usługi sygnalizującej. Jako odwołanie można pobrać [bezserwerowy przykład](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) .
 
 ```bash
 git clone git@github.com:aspnet/AzureSignalR-samples.git
@@ -162,7 +162,7 @@ dotnet run
 
 ## <a name="view-registry-events"></a>Wyświetlanie zdarzeń rejestru
 
-Klient został połączony z usługą SignalR. Przejdź do aplikacji sieci Web Podglądu siatki `ClientConnectionConnected` zdarzeń, a zdarzenie powinno zostać wyświetle. Jeśli zakończysz klienta, zobaczysz również `ClientConnectionDisconnected` zdarzenie.
+Klient został podłączony do usługi sygnalizującej. Przejdź do aplikacji sieci Web w przeglądarce Event Grid i zobaczysz `ClientConnectionConnected` zdarzenie. Jeśli klient zostanie przerwany, zobaczysz również `ClientConnectionDisconnected` zdarzenie.
 
 <!-- LINKS - External -->
 [azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

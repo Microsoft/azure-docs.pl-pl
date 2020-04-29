@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z grawany w usłudze Azure HDInsight
+title: Korzystanie z Grafana w usłudze Azure HDInsight
 description: Dowiedz się, jak uzyskać dostęp do pulpitu nawigacyjnego Grafana za pomocą klastrów Apache Hadoop w usłudze Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,54 +8,54 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: cd515bfd1dc57e78a041ed96686e1ba692bf6d3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79082867"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Dostęp do narzędzia Grafana w usłudze Azure HDInsight
 
-[Grafana](https://grafana.com/) jest popularnym, open-source wykres i kreator deski rozdzielczej. Grafana jest bogata w funkcje; nie tylko pozwala użytkownikom tworzyć konfigurowalne i współdzielone pulpity nawigacyjne, ale także oferuje szablonowe / skryptowe pulpity nawigacyjne, integrację LDAP, wiele źródeł danych i wiele innych.
+[Grafana](https://grafana.com/) to popularny, oparty na grafie i Konstruktor pulpitu nawigacyjnego. Grafana to funkcja rozbudowana; Umożliwia to nie tylko użytkownikom tworzenie dostosowywalnych i udostępnianych pulpitów nawigacyjnych, a także udostępnia pulpity nawigacyjne z szablonami, integrację z protokołem LDAP, wiele źródeł danych i nie tylko.
 
-Obecnie w usłudze Azure HDInsight grawana jest obsługiwana za pomocą typów klastra Spark, HBase, Kafka i Interactive Query. Nie jest obsługiwany dla klastrów z włączonym pakietem enterprise security pack.
+Obecnie w usłudze Azure HDInsight Grafana jest obsługiwana w przypadku typów klastra Spark, HBase, Kafka i Interactive. Nie jest obsługiwana w przypadku klastrów z włączonym pakietem Enterprise Security Pack.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="create-an-apache-hadoop-cluster"></a>Tworzenie klastra Apache Hadoop
 
-Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu portalu Azure](../hdinsight-hadoop-create-linux-clusters-portal.md). W przypadku **typu klastra**wybierz opcję **Iskre**, **Kafka**, **HBase**lub **Zapytanie interaktywne**.
+Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md). W **obszarze Typ klastra**wybierz pozycję **Spark**, **Kafka**, **HBase**lub **zapytanie interaktywne**.
 
-## <a name="access-the-grafana-dashboard"></a>Dostęp do pulpitu nawigacyjnego grawanu
+## <a name="access-the-grafana-dashboard"></a>Dostęp do pulpitu nawigacyjnego Grafana
 
-1. Z przeglądarki internetowej przejdź `https://CLUSTERNAME.azurehdinsight.net/grafana/` do miejsca, w którym nazwa klastra jest nazwą klastra.
+1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net/grafana/` lokalizacji, gdzie ClusterName jest nazwą klastra.
 
-1. Wprowadź poświadczenia użytkownika klastra Hadoop.
+1. Wprowadź poświadczenia użytkownika klastra usługi Hadoop.
 
-1. Pulpit nawigacyjny Grafana pojawia się i wygląda jak w tym przykładzie:
+1. Zostanie wyświetlony pulpit nawigacyjny Grafana, który wygląda następująco:
 
-    ![Pulpit nawigacyjny sieci Web HDInsight Grafana](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HdInsight Grafana deski rozdzielczej")
+    ![Pulpit nawigacyjny sieci Web usługi HDInsight Grafana](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "Pulpit nawigacyjny usługi HDInsight Grafana")
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie zamierzasz nadal korzystać z tej aplikacji, usuń utworzony klaster, wykonując następujące kroki:
+Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń klaster, który został utworzony, wykonując następujące czynności:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. W polu **Wyszukaj** w górnej części wpisz **HDInsight**.
 
 1. Wybierz pozycję **Klastry usługi HDInsight** w obszarze **Usługi**.
 
-1. Na wyświetlona lista klastrów HDInsight wybierz **...** obok utworzonego klastra.
+1. Na liście wyświetlonych klastrów usługi HDInsight wybierz pozycję **...** obok utworzonego klastra.
 
-1. Wybierz pozycję **Usuń**. Wybierz **pozycję Tak**.
+1. Wybierz pozycję **Usuń**. Wybierz pozycję **tak**.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat analizowania danych za pomocą usługi HDInsight, zobacz następujące artykuły:
 
-* [Użyj Apache Hive z HDInsight](../hadoop/hdinsight-use-hive.md).
+* [Użyj Apache Hive z usługą HDInsight](../hadoop/hdinsight-use-hive.md).
 
-* [Użyj MapReduce z HDInsight](../hadoop/hdinsight-use-mapreduce.md).
+* [Korzystanie z MapReduce z usługą HDInsight](../hadoop/hdinsight-use-mapreduce.md).
 
-* [Wprowadzenie do korzystania z narzędzi programu Visual Studio Hadoop dla programu HDInsight](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+* [Zacznij korzystać z narzędzi programu Visual Studio Hadoop dla usługi HDInsight](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).

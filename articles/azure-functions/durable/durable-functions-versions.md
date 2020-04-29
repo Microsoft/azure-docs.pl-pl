@@ -1,72 +1,72 @@
 ---
-title: Omówienie wersji funkcji trwałych — usługi Azure Functions
-description: Dowiedz się więcej o wersjach funkcji trwałych.
+title: Przegląd wersji Durable Functions — Azure Functions
+description: Dowiedz się więcej o wersjach Durable Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4a117e7f69647af3ad82f9013bfa40556ccc0dbd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77152894"
 ---
-# <a name="durable-functions-versions-overview"></a>Omówienie wersji funkcji trwałych
+# <a name="durable-functions-versions-overview"></a>Omówienie wersji Durable Functions
 
-*Funkcje trwałe* to rozszerzenie [usługi Azure Functions](../functions-overview.md) i Azure [WebJobs,](../../app-service/web-sites-create-web-jobs.md) które umożliwia pisanie funkcji stanowych w środowisku bezserwerowym. Rozszerzenie zarządza stanem, punktami kontrolnymi i ponownym uruchamianiem. Jeśli nie znasz jeszcze funkcji trwałych, zapoznaj się z [dokumentacją przeglądu](durable-functions-overview.md).
+*Durable Functions* to rozszerzenie [Azure Functions](../functions-overview.md) i [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) , które pozwala pisać funkcje stanowe w środowisku bezserwerowym. Rozszerzenie zarządza stanem, punktami kontrolnymi i ponownym uruchamianiem. Jeśli nie znasz jeszcze Durable Functions, zapoznaj się z [dokumentacją dotyczącą przeglądu](durable-functions-overview.md).
 
-## <a name="new-features-in-2x"></a>Nowe funkcje w 2.x
+## <a name="new-features-in-2x"></a>Nowe funkcje w 2. x
 
-W tej sekcji opisano funkcje funkcji trwałych, które są dodawane w wersji 2.x.
+W tej sekcji opisano funkcje Durable Functions, które zostały dodane w wersji 2. x.
 
-### <a name="durable-entities"></a>Trwałe elementy
+### <a name="durable-entities"></a>Trwałe jednostki
 
-W funkcji trwałe 2.x wprowadziliśmy nową koncepcję [funkcji jednostki.](durable-functions-entities.md)
+W Durable Functions 2. x wprowadziliśmy nową koncepcję [funkcji Entity](durable-functions-entities.md) .
 
-Funkcje encji definiują operacje odczytywania i aktualizowania małych fragmentów stanu, nazywanych *trwałymi elementami*. Podobnie jak funkcje orkiestratora, funkcje encji są funkcjami o specjalnym typie wyzwalacza, *wyzwalaczu jednostki*. W przeciwieństwie do funkcji aranżatora funkcje jednostki nie mają żadnych ograniczeń określonego kodu. Funkcje jednostki również zarządzać stan jawnie, a nie niejawnie reprezentujących stan za pośrednictwem przepływu sterowania.
+Funkcje Entity definiują operacje umożliwiające odczytywanie i aktualizowanie małych fragmentów stanu, znanych jako *jednostek trwałych*. Podobnie jak funkcje programu Orchestrator, funkcje jednostki są funkcjami o specjalnym typie wyzwalacza, *wyzwalaczem jednostki*. W przeciwieństwie do funkcji programu Orchestrator, funkcje jednostek nie mają żadnych ograniczeń związanych z kodem. Funkcje jednostek również zarządzają stanem jawnie, a nie niejawnie reprezentującą stan za pośrednictwem przepływu sterowania.
 
-Aby dowiedzieć się więcej, zobacz artykuł [trwałe jednostki.](durable-functions-entities.md)
+Aby dowiedzieć się więcej, zobacz artykuł dotyczący [jednostek trwałych](durable-functions-entities.md) .
 
-### <a name="durable-http"></a>Trwały http
+### <a name="durable-http"></a>Trwałe HTTP
 
-W funkcji trwałe 2.x wprowadziliśmy nową trwałą funkcję [HTTP,](durable-functions-http-features.md#consuming-http-apis) która pozwala na:
+W Durable Functions 2. x wprowadziliśmy nową, [trwałą funkcję http](durable-functions-http-features.md#consuming-http-apis) , która umożliwia:
 
-* Wywoływanie interfejsów API HTTP bezpośrednio z funkcji aranżacji (z pewnymi udokumentowanymi ograniczeniami).
-* Zaimplementuj automatyczne sondowanie stanu HTTP 202 po stronie klienta.
-* Wbudowana obsługa [tożsamości zarządzanych platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+* Wywołaj interfejsy API protokołu HTTP bezpośrednio z funkcji aranżacji (z pewnymi opisanymi ograniczeniami).
+* Zaimplementuj automatyczne sondowanie stanu protokołu HTTP 202 po stronie klienta.
+* Wbudowana obsługa [tożsamości zarządzanych przez platformę Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Aby dowiedzieć się więcej, zobacz artykuł o [funkcjach HTTP.](durable-functions-http-features.md#consuming-http-apis)
+Aby dowiedzieć się więcej, zobacz artykuł dotyczący [funkcji protokołu HTTP](durable-functions-http-features.md#consuming-http-apis) .
 
-## <a name="migrate-from-1x-to-2x"></a>Migrowanie z 1,5 do 2,5 x
+## <a name="migrate-from-1x-to-2x"></a>Migrowanie z 1. x do 2. x
 
-W tej sekcji opisano sposób migracji istniejącej wersji 1.x Funkcje trwałe do wersji 2.x, aby skorzystać z nowych funkcji.
+W tej sekcji opisano sposób migrowania istniejącej wersji 1. x Durable Functions do wersji 2. x w celu skorzystania z nowych funkcji.
 
-### <a name="upgrade-the-extension"></a>Uaktualnienie rozszerzenia
+### <a name="upgrade-the-extension"></a>Uaktualnij rozszerzenie
 
-Zainstaluj wersję 2.x [rozszerzenia powiązań funkcji trwałych](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) w projekcie. Aby uzyskać więcej [informacji, zobacz Rejestrowanie rozszerzeń powiązania usługi Azure Functions.](../functions-bindings-register.md)
+Zainstaluj wersję 2. x [rozszerzenia powiązań Durable Functions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) w projekcie. Aby uzyskać więcej informacji, zobacz [Rejestrowanie rozszerzeń powiązań Azure Functions](../functions-bindings-register.md) .
 
 ### <a name="update-your-code"></a>Aktualizowanie kodu
 
-Funkcje trwałe 2.x wprowadza kilka przełomowych zmian. Funkcje trwałe 1.x aplikacje nie są zgodne z funkcjami trwałymi 2.x bez zmian kodu. W tej sekcji wymieniono niektóre zmiany, które należy wprowadzić podczas uaktualniania funkcji w wersji 1.x do wersji 2.x.
+Durable Functions 2. x wprowadza kilka istotnych zmian. Aplikacje Durable Functions 1. x nie są zgodne z Durable Functions 2. x bez zmian w kodzie. W tej sekcji przedstawiono niektóre zmiany, które należy wykonać podczas uaktualniania funkcji w wersji 1. x do 2. x.
 
-#### <a name="hostjson-schema"></a>Schemat hosta.json
+#### <a name="hostjson-schema"></a>Schemat pliku host. JSON
 
-Funkcje trwałe 2.x używa nowego schematu host.json. Główne zmiany od 1.x obejmują:
+Durable Functions 2. x używa nowego schematu pliku host. JSON. Główne zmiany z 1. x obejmują:
 
-* `"storageProvider"`(i `"azureStorage"` podsekcja) dla konfiguracji specyficznej dla magazynu.
-* `"tracing"`do śledzenia i rejestrowania konfiguracji.
-* `"notifications"`(i `"eventGrid"` podsekcja) dla konfiguracji powiadomień siatki zdarzeń.
+* `"storageProvider"`(i `"azureStorage"` podsekcję) dla konfiguracji specyficznej dla magazynu.
+* `"tracing"`dla konfiguracji śledzenia i rejestrowania.
+* `"notifications"`(i `"eventGrid"` podsekcję) dla konfiguracji powiadomień usługi Event Grid.
 
-Szczegółowe informacje można znaleźć w [dokumentacji dokumentacji funkcji trwałych host.json.](durable-functions-bindings.md#durable-functions-2-0-host-json)
+Aby uzyskać szczegółowe informacje, zobacz [dokumentację dotyczącą Durable Functions pliku host. JSON](durable-functions-bindings.md#durable-functions-2-0-host-json) .
 
-#### <a name="default-taskhub-name-changes"></a>Domyślne zmiany nazw w uszczowalnie
+#### <a name="default-taskhub-name-changes"></a>Domyślne zmiany nazwy taskhub
 
-W wersji 1.x, jeśli nazwa centrum zadań nie została określona w pliku host.json, została ona domyślnie domyślnie prowadzona jako "DurableFunctionsHub". W wersji 2.x domyślna nazwa centrum zadań jest teraz pochodną nazwy aplikacji funkcji. Z tego powodu, jeśli nie określono nazwy centrum zadań podczas uaktualniania do 2.x, kod będzie działać z nowym centrum zadań, a wszystkie aranżacji w locie nie będzie już ich przetwarzania aplikacji. Aby obejść ten problem, można jawnie ustawić nazwę centrum zadań na domyślną wartość v1.x "DurableFunctionsHub", lub możesz wykonać nasze [wskazówki dotyczące wdrażania zer-przestojem,](durable-functions-zero-downtime-deployment.md) aby uzyskać szczegółowe informacje na temat obsługi zmian w przerwaniu lotu.
+W wersji 1. x, jeśli nazwa centrum zadań nie została określona w pliku host. JSON, wartość domyślna to "DurableFunctionsHub". W wersji 2. x domyślna nazwa centrum zadań jest teraz pochodną nazwy aplikacji funkcji. W związku z tym, jeśli nie określisz nazwy centrum zadań podczas uaktualniania do wersji 2. x, kod będzie działać z nowym centrum zadań, a wszystkie aranżacje w locie nie będą już miały przetwarzania aplikacji. Aby obejść ten krok, można jawnie ustawić nazwę centrum zadań jako wartość domyślną v1. x "DurableFunctionsHub" lub skorzystać z naszych [wskazówek dotyczących wdrażania bez przestojów](durable-functions-zero-downtime-deployment.md) , aby uzyskać szczegółowe informacje na temat sposobu obsługi istotnych zmian dla aranżacji w locie.
 
-#### <a name="public-interface-changes-net-only"></a>Zmiany w interfejsie publicznym (tylko na platformie NET)
+#### <a name="public-interface-changes-net-only"></a>Zmiany interfejsu publicznego (tylko platforma .NET)
 
-W wersji 1.x różnych obiektów _kontekstu_ obsługiwanych przez funkcje trwałe mają abstrakcyjne klasy podstawowe przeznaczone do użycia w testowaniu jednostkowym. W ramach funkcji trwałych 2.x te abstrakcyjne klasy podstawowe są zastępowane interfejsami.
+W wersji 1. x różne obiekty _kontekstu_ obsługiwane przez Durable Functions mają abstrakcyjne klasy bazowe przeznaczone do użycia w testach jednostkowych. W ramach Durable Functions 2. x te abstrakcyjne klasy bazowe są zastępowane interfejsami.
 
 Poniższa tabela przedstawia główne zmiany:
 
@@ -77,8 +77,8 @@ Poniższa tabela przedstawia główne zmiany:
 | `DurableActivityContext` lub `DurableActivityContextBase` | `IDurableActivityContext` |
 | `OrchestrationClientAttribute` | `DurableClientAttribute` |
 
-W przypadku, gdy abstrakcyjna klasa podstawowa zawierała metody wirtualne, `DurableContextExtensions`te metody wirtualne zostały zastąpione metodami rozszerzenia zdefiniowanymi w .
+W przypadku, gdy abstrakcyjna klasa bazowa zawiera metody wirtualne, te metody wirtualne zostały zastąpione metodami rozszerzenia zdefiniowanymi `DurableContextExtensions`w.
 
-#### <a name="functionjson-changes-javascript-and-c-script"></a>zmiany w pliku function.json (JavaScript i C#Script)
+#### <a name="functionjson-changes-javascript-and-c-script"></a>Functions. JSON — zmiany (skrypt JavaScript i C#)
 
-W funkcji trwałych 1.x powiązanie klienta `type` `orchestrationClient`aranżacji używa . Zamiast tego używa wersji `durableClient` 2.x.
+W Durable Functions 1. x powiązanie klienta aranżacji używa programu `type` z. `orchestrationClient` Zamiast tego używa `durableClient` programu w wersji 2. x.

@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie profilami usługi Azure Traffic Manager | Microsoft Docs
-description: Ten artykuł ułatwia tworzenie, wyłączanie, włączanie i usuwanie profilu usługi Azure Traffic Manager.
+description: Ten artykuł ułatwia tworzenie, wyłączanie, Włączanie i usuwanie profilu Traffic Manager platformy Azure.
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: rohink
 ms.openlocfilehash: adfe7d117d2329832a5b5e9e782a9029a682ff3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938606"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Zarządzanie profilem usługi Azure Traffic Manager
@@ -30,7 +30,7 @@ Profil usługi Traffic Manager można utworzyć za pomocą witryny Azure Portal.
 ### <a name="to-create-a-traffic-manager-profile"></a>Tworzenie profilu usługi Traffic Manager
 
 1. Z poziomu przeglądarki zaloguj się do witryny [Azure Portal](https://portal.azure.com). Jeśli jeszcze nie masz konta, możesz skorzystać z [bezpłatnej miesięcznej wersji próbnej](https://azure.microsoft.com/free/). 
-2. Kliknij **pozycję Utwórz profil** > **menedżera** > ruchu**sieciowego** > **Utwórz**.
+2. Kliknij kolejno pozycje **Utwórz zasób** > **Sieć** > **Traffic Manager** > **Utwórz**profil.
 4. W obszarze **Tworzenie profilu usługi Traffic Manager** podaj następujące informacje:
     1. W polu **Nazwa** podaj nazwę profilu. Ta nazwa musi być unikatowa w obrębie strefy trafficmanager.net. Na jej podstawie zostanie utworzona nazwa DNS `<name>`, trafficmanager.net służąca do uzyskiwania dostępu do profilu usługi Traffic Manager.
     2. W obszarze **Metoda routingu** wybierz metodę routingu **Priorytet**.
@@ -50,14 +50,14 @@ Istniejący profil można wyłączyć, aby w usłudze Traffic Manager żądania 
 2. Ruch przestanie być kierowany do punktów końcowych za pomocą ustawień profilu usługi Traffic Manager.
 3. Z poziomu przeglądarki zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 2. Korzystając z paska wyszukiwania portalu, wyszukaj nazwę **profilu usługi Traffic Manager**, który chcesz zmodyfikować, a następnie kliknij profil usługi Traffic Manager w wyświetlonych wynikach wyszukiwania.
-3. Kliknij **pozycję Przegląd** > **Wyłącz**.
+3. Kliknij pozycję **Przegląd** > **Wyłącz**.
 4. Potwierdź, aby wyłączyć profil usługi Traffic Manager.
 
 ### <a name="to-enable-a-profile"></a>Aby włączyć profil
 
 1. Z poziomu przeglądarki zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 2. Korzystając z paska wyszukiwania portalu, wyszukaj nazwę **profilu usługi Traffic Manager**, który chcesz zmodyfikować, a następnie kliknij profil usługi Traffic Manager w wyświetlonych wynikach wyszukiwania.
-3. Kliknij **pozycję Przegląd** > **Włącz**.
+3. Kliknij pozycję **Przegląd** > **Włącz**.
 1. Jeśli używasz niestandardowej nazwy domeny, utwórz rekord zasobu CNAME na internetowym serwerze DNS, aby ustawić odwołanie do nazwy domeny profilu usługi Traffic Manager.
 2. Ruch zostanie ponownie skierowany do punktów końcowych.
 
@@ -65,7 +65,7 @@ Istniejący profil można wyłączyć, aby w usłudze Traffic Manager żądania 
 
 1. Upewnij się, że rekord zasobu DNS na serwerze DNS w sieci Internet nie używa już rekordu zasobu CNAME, który wskazuje nazwę domeny profilu usługi Traffic Manager.
 2. Korzystając z paska wyszukiwania portalu, wyszukaj nazwę **profilu usługi Traffic Manager**, który chcesz zmodyfikować, a następnie kliknij profil usługi Traffic Manager w wyświetlonych wynikach wyszukiwania.
-3. Kliknij **pozycję Przegląd** > **Usuń**.
+3. Kliknij pozycję **Przegląd** > **Usuń**.
 4. Potwierdź, aby usunąć profil usługi Traffic Manager.
 
 ## <a name="next-steps"></a>Następne kroki

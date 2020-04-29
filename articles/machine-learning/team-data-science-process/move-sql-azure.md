@@ -1,6 +1,6 @@
 ---
-title: Przenoszenie danych do bazy danych SQL platformy Azure — proces nauki o danych zespołu
-description: Przenoszenie danych z plików płaskich (formaty CSV lub TSV) lub z danych przechowywanych w lokalnym programie SQL Server do bazy danych SQL Azure.
+title: Przenoszenie danych do procesu nauki o danych Azure SQL Database zespołowej
+description: Przenoszenie danych z plików prostych (format CSV lub TSV) lub z danych przechowywanych w SQL Server lokalnym do Azure SQL Database.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,63 +12,63 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: f9a1424f2afe6c5153e208601b21dff9651880a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76722462"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Przenoszenie danych do usługi Azure SQL Database dla usługi Azure Machine Learning
 
-W tym artykule opisano opcje przenoszenia danych z plików płaskich (formaty CSV lub TSV) lub z danych przechowywanych w lokalnym programie SQL Server do bazy danych SQL Azure. Te zadania do przenoszenia danych do chmury są częścią procesu nauki o danych zespołu.
+W tym artykule opisano opcje przeniesienia danych z plików prostych (format CSV lub TSV) lub z danych przechowywanych w SQL Server lokalnym do Azure SQL Database. Te zadania dotyczące przeniesienia danych do chmury są częścią procesu nauki o danych zespołowych.
 
-W przypadku tematu, który przedstawia opcje przenoszenia danych do lokalnego programu SQL Server for Machine Learning, zobacz [Przenoszenie danych do programu SQL Server na maszynie wirtualnej platformy Azure.](move-sql-server-virtual-machine.md)
+Temat przedstawiający opcje przenoszenia danych do SQL Server lokalnych dla Machine Learning można znaleźć w temacie [przenoszenie danych do SQL Server na maszynie wirtualnej platformy Azure](move-sql-server-virtual-machine.md).
 
-W poniższej tabeli podsumowano opcje przenoszenia danych do bazy danych SQL Azure.
+Poniższa tabela zawiera podsumowanie opcji przeniesienia danych do Azure SQL Database.
 
-| <b>Źródła</b> | <b>MIEJSCE DOCELOWE: Baza danych SQL platformy Azure</b> |
+| <b>ZEWNĘTRZ</b> | <b>MIEJSCE docelowe: Azure SQL Database</b> |
 | --- | --- |
-| <b>Plik płaski (w formacie CSV lub TSV)</b> |[Zbiorcze wstawianie kwerendy SQL](#bulk-insert-sql-query) |
-| <b>Lokalny program SQL Server</b> |1.[Eksport do pliku płaskiego](#export-flat-file)<br> 2. [Kreator migracji bazy danych SQL](#insert-tables-bcp)<br> 3. [Tworzenie kopii zapasowych i przywracanie bazy danych](#db-migration)<br> 4. [Fabryka danych platformy Azure](#adf) |
+| <b>Plik prosty (format CSV lub TSV)</b> |[Wstaw zbiorczo zapytanie SQL](#bulk-insert-sql-query) |
+| <b>SQL Server lokalne</b> |1.[Eksportuj do pliku prostego](#export-flat-file)<br> 2. [Kreator migracji SQL Database](#insert-tables-bcp)<br> 3. [Tworzenie kopii zapasowej i przywracanie bazy danych](#db-migration)<br> 4. [Azure Data Factory](#adf) |
 
 ## <a name="prerequisites"></a><a name="prereqs"></a>Wymagania wstępne
 Procedury opisane w tym miejscu wymagają:
 
 * **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji, możesz zarejestrować się, aby uzyskać dostęp do [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
-* **Konto magazynu platformy Azure**. Do przechowywania danych w tym samouczku używasz konta magazynu platformy Azure. Jeśli nie masz konta magazynu platformy Azure, zobacz artykuł [Tworzenie konta magazynu.](../../storage/common/storage-account-create.md) Po utworzeniu konta magazynu należy uzyskać klucz konta używany do uzyskiwania dostępu do magazynu. Zobacz [Zarządzanie kluczami dostępu do konta magazynu](../../storage/common/storage-account-keys-manage.md).
-* Dostęp do **bazy danych SQL azure**. Jeśli musisz skonfigurować bazę danych SQL Azure, [wprowadzenie do bazy danych SQL platformy Microsoft Azure](../../sql-database/sql-database-get-started.md) zawiera informacje na temat sposobu aprowizowania nowego wystąpienia bazy danych SQL azure.
-* Zainstalowano i skonfigurowano **program Azure PowerShell** lokalnie. Aby uzyskać instrukcje, zobacz [Jak zainstalować i skonfigurować program Azure PowerShell](/powershell/azure/overview).
+* **Konto usługi Azure Storage**. Używasz konta usługi Azure Storage do przechowywania danych w tym samouczku. Jeśli nie masz konta usługi Azure Storage, zobacz artykuł [Tworzenie konta magazynu](../../storage/common/storage-account-create.md) . Po utworzeniu konta magazynu należy uzyskać klucz konta używany do uzyskiwania dostępu do magazynu. Zobacz [Zarządzanie kluczami dostępu do konta magazynu](../../storage/common/storage-account-keys-manage.md).
+* Dostęp do **Azure SQL Database**. Jeśli konieczne jest skonfigurowanie Azure SQL Database, [wprowadzenie z Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) zawiera informacje na temat udostępniania nowego wystąpienia Azure SQL Database.
+* Zainstalowano i skonfigurowano **Azure PowerShell** lokalnie. Aby uzyskać instrukcje, zobacz [How to Install and configure Azure PowerShell](/powershell/azure/overview).
 
-**Dane**: Procesy migracji są demonstrowane przy użyciu [zestawu danych TAKSÓWKA NYC](https://chriswhong.com/open-data/foil_nyc_taxi/). Zestaw danych taksówki NYC zawiera informacje o danych podróży i targach i jest dostępny w magazynie obiektów blob platformy Azure: [NYC Taxi Data](https://www.andresmh.com/nyctaxitrips/). Przykład i opis tych plików znajdują się w [NYC Taxi Trips Dataset Description](sql-walkthrough.md#dataset).
+**Dane**: procesy migracji są przedstawiane za pomocą [zestawu danych NYC taksówki](https://chriswhong.com/open-data/foil_nyc_taxi/). Zestaw danych NYC taksówki zawiera informacje na temat danych o podróży i ich Targi i jest dostępny w usłudze Azure Blob Storage: [NYCe dane z taksówką](https://www.andresmh.com/nyctaxitrips/). Przykład i opis tych plików znajdują się w [opisie zestawu danych NYC taksówki](sql-walkthrough.md#dataset).
 
-Można dostosować procedury opisane w tym miejscu do zestawu własnych danych lub wykonać kroki opisane przy użyciu zestawu danych taksówki NYC. Aby przekazać zestaw danych taksówki NYC do lokalnej bazy danych programu SQL Server, postępuj zgodnie z procedurą opisaną w [zbiorczej bazie danych importu do bazy danych programu SQL Server](sql-walkthrough.md#dbload). Te instrukcje są dla programu SQL Server na maszynie wirtualnej platformy Azure, ale procedura przekazywania do lokalnego programu SQL Server jest taka sama.
+Można dostosować procedury opisane w tym miejscu do zestawu własnych danych lub postępować zgodnie z instrukcjami opisanymi przy użyciu zestawu danych NYC taksówki. Aby przekazać zestaw danych NYC taksówki do lokalnej bazy danych SQL Server, postępuj zgodnie z procedurą opisaną w temacie [zbiorcze Importowanie danych do SQL Server Database](sql-walkthrough.md#dbload). Te instrukcje dotyczą SQL Server na maszynie wirtualnej platformy Azure, ale procedura przekazywania do SQL Server lokalnych jest taka sama.
 
-## <a name="moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a>Przenoszenie danych z płaskiego źródła plików do bazy danych SQL usługi Azure
-Dane w plikach płaskich (sformatowany w formacie CSV lub TSV) można przenosić do bazy danych SQL Azure przy użyciu zbiorczego wstawiania programu SQL Query.
+## <a name="moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a>Przeniesienie danych z prostego źródła pliku do Azure SQL Database
+Dane w plikach prostych (CSV lub TSV) można przenieść do Azure SQL Database przy użyciu zbiorczego zapytania SQL.
 
-### <a name="bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a>Zbiorcze wstawianie kwerendy SQL
-Kroki procedury przy użyciu zbiorczego wstawiania programu SQL Query są podobne do wskazówek dotyczących przenoszenia danych ze źródła pliku płaskiego do programu SQL Server na maszynie Wirtualnej platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Zbiorcze wstawianie programu SQL Query](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
+### <a name="bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a>Wstaw zbiorczo zapytanie SQL
+Kroki procedury korzystającej z zapytania BULK INSERT SQL są podobne do wskazówek dotyczących przeniesienia danych z prostego źródła pliku do SQL Server na maszynie wirtualnej platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Bulk Wstaw zapytanie SQL](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
-## <a name="moving-data-from-on-premises-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a>Przenoszenie danych z lokalnego programu SQL Server do bazy danych SQL usługi Azure
-Jeśli dane źródłowe są przechowywane w lokalnym programie SQL Server, istnieją różne możliwości przenoszenia danych do bazy danych SQL Azure:
+## <a name="moving-data-from-on-premises-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a>Przeniesienie danych z SQL Server lokalnego do Azure SQL Database
+Jeśli dane źródłowe są przechowywane w SQL Server lokalnym, istnieją różne możliwości przeniesienia danych do Azure SQL Database:
 
-1. [Eksportowanie do pliku płaskiego](#export-flat-file)
-2. [Kreator migracji bazy danych SQL](#insert-tables-bcp)
-3. [Tworzenie kopii zapasowych i przywracanie bazy danych](#db-migration)
-4. [Fabryka danych platformy Azure](#adf)
+1. [Eksportuj do pliku prostego](#export-flat-file)
+2. [Kreator migracji SQL Database](#insert-tables-bcp)
+3. [Tworzenie kopii zapasowej i przywracanie bazy danych](#db-migration)
+4. [Azure Data Factory](#adf)
 
-Kroki dla pierwszych trzech są podobne do tych sekcji w [Przenieś danych do programu SQL Server na maszynie wirtualnej platformy Azure,](move-sql-server-virtual-machine.md) które obejmują te same procedury. Linki do odpowiednich sekcji w tym temacie znajdują się w poniższych instrukcjach.
+Kroki dla pierwszych trzech są podobne do tych w sekcjach [Przenieś dane do SQL Server na maszynie wirtualnej platformy Azure](move-sql-server-virtual-machine.md) , która obejmuje te same procedury. Linki do odpowiednich sekcji w tym temacie znajdują się w poniższych instrukcjach.
 
-### <a name="export-to-flat-file"></a><a name="export-flat-file"></a>Eksportowanie do pliku płaskiego
-Kroki tego eksportowania do pliku płaskiego są podobne do tych wskazówek, które zostały omówione w [polu Eksportuj do pliku płaskiego](move-sql-server-virtual-machine.md#export-flat-file).
+### <a name="export-to-flat-file"></a><a name="export-flat-file"></a>Eksportuj do pliku prostego
+Kroki związane z tym eksportowaniem do pliku prostego są podobne do tych wskazówek objętych [eksportowaniem do pliku prostego](move-sql-server-virtual-machine.md#export-flat-file).
 
-### <a name="sql-database-migration-wizard"></a><a name="insert-tables-bcp"></a>Kreator migracji bazy danych SQL
-Kroki dotyczące korzystania z Kreatora migracji bazy danych SQL są podobne do tych wskazówek, które zostały omówione w [Kreatorze migracji bazy danych SQL](move-sql-server-virtual-machine.md#sql-migration).
+### <a name="sql-database-migration-wizard"></a><a name="insert-tables-bcp"></a>Kreator migracji SQL Database
+Kroki opisane w Kreatorze migracji SQL Database są podobne do tych, które opisano w [Kreatorze migracji SQL Database](move-sql-server-virtual-machine.md#sql-migration).
 
-### <a name="database-back-up-and-restore"></a><a name="db-migration"></a>Tworzenie kopii zapasowych i przywracanie bazy danych
-Kroki dotyczące korzystania z kopii zapasowej i przywracania bazy danych są podobne do tych wskazówek wymienionych w [programie Kopia zapasowa i przywracanie bazy danych](move-sql-server-virtual-machine.md#sql-backup).
+### <a name="database-back-up-and-restore"></a><a name="db-migration"></a>Tworzenie kopii zapasowej i przywracanie bazy danych
+Procedura tworzenia kopii zapasowej i przywracania bazy danych przypomina te wskazówki wymienione w temacie [Tworzenie kopii zapasowej i przywracanie bazy danych](move-sql-server-virtual-machine.md#sql-backup).
 
-### <a name="azure-data-factory"></a><a name="adf"></a>Fabryka danych platformy Azure
-Dowiedz się, jak przenieść dane do bazy danych SQL usługi Azure za pomocą usługi Azure Data Factory (ADF) w tym temacie, [Przenoszenie danych z lokalnego serwera SQL do platformy SQL Azure za pomocą usługi Azure Data Factory.](move-sql-azure-adf.md) W tym temacie pokazano, jak używać usługi ADF do przenoszenia danych z lokalnej bazy danych programu SQL Server do bazy danych SQL Azure za pośrednictwem usługi Azure Blob Storage.
+### <a name="azure-data-factory"></a><a name="adf"></a>Azure Data Factory
+Dowiedz się, jak przenieść dane do Azure SQL Database z Azure Data Factory (ADF) w tym temacie. [Przenieś dane z lokalnego programu SQL Server do usługi SQL Azure za pomocą Azure Data Factory](move-sql-azure-adf.md). W tym temacie pokazano, jak za pomocą funkcji ADF przenieść dane z lokalnej bazy danych SQL Server do Azure SQL Database za pośrednictwem usługi Azure Blob Storage.
 
-Należy rozważyć użycie usługi ADF, gdy dane muszą być stale migrowane z hybrydowych źródeł lokalnych i chmurowych.  ADF pomaga również, gdy dane wymagają przekształceń lub potrzebuje nowej logiki biznesowej podczas migracji. Usługa ADF umożliwia planowanie i monitorowanie zadań przy użyciu prostych skryptów JSON, które zarządzają przepływem danych okresowo. ADF ma również inne możliwości, takie jak obsługa złożonych operacji.
+Należy rozważyć użycie funkcji ADF, gdy dane wymagają ciągłego migrowania przy użyciu hybrydowych źródeł lokalnych i chmurowych.  Moduł ADF również pomaga, gdy dane wymagają przekształceń lub wymagają nowej logiki biznesowej podczas migracji. ADF umożliwia planowanie i monitorowanie zadań przy użyciu prostych skryptów JSON, które regularnie zarządzają przenoszeniem danych. Funkcja ADF oferuje również inne funkcje, takie jak obsługa złożonych operacji.

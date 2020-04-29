@@ -1,6 +1,6 @@
 ---
-title: Rozwiązanie Azure VMware by CloudSimple — tabele zapory
-description: Dowiedz się więcej o tabelach zapory chmury prywatnej Cloud Cloud cloud cloud i regułach zapory.
+title: Rozwiązanie VMware firmy Azure według CloudSimple — tabele zapory
+description: Dowiedz się więcej na temat tabel i reguł zapory chmury prywatnej CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -9,56 +9,56 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 89bef6cef48f2b972aa3f931008b0db84431b832
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77025048"
 ---
-# <a name="firewall-tables-overview"></a>Omówienie tabel zapory
+# <a name="firewall-tables-overview"></a>Tabele zapory — Omówienie
 
-Tabela zapory zawiera reguły filtrowania ruchu sieciowego do i z zasobów chmury prywatnej. Tabele zapory można zastosować do sieci VLAN/podsieci. Reguły kontrolują ruch sieciowy między siecią źródłową lub adresem IP a siecią docelową lub adresem IP.
+W tabeli zapory są wyświetlane reguły filtrowania ruchu sieciowego do i z zasobów w chmurze prywatnej. Tabele zapory można stosować do sieci VLAN/podsieci. Reguły kontrolują ruch sieciowy między siecią źródłową lub adresem IP a siecią docelową lub adresem IP.
 
 ## <a name="firewall-rules"></a>Reguły zapory
 
-W poniższej tabeli opisano parametry reguły zapory.
+W poniższej tabeli opisano parametry w regule zapory.
 
 | Właściwość | Szczegóły |
 | ---------| --------|
 | **Nazwa** | Nazwa, która jednoznacznie identyfikuje regułę zapory i jej przeznaczenie. |
-| **Priorytet** | Liczba między 100 a 4096, przy czym 100 jest najwyższym priorytetem. Reguły są przetwarzane w kolejności priorytetu. Gdy ruch napotka regułę, przetwarzanie reguł zostanie zatrzymane. W rezultacie reguły o niższych priorytetach, które mają takie same atrybuty jak reguły o wyższych priorytetach, nie są przetwarzane.  Należy uważać, aby uniknąć sprzecznych zasad. |
-| **Śledzenie stanu** | Śledzenie może być bezstanowe (Private Cloud, Internet lub VPN) lub stanowe (publiczny adres IP).  |
-| **Protokół** | Opcje obejmują Any, TCP lub UDP. Jeśli potrzebujesz ICMP, użyj dowolnego. |
+| **Priorytet** | Liczba z zakresu od 100 do 4096, z 100 jest najwyższy priorytet. Reguły są przetwarzane w kolejności priorytetów. Gdy ruch napotyka zgodność z regułą, przetwarzanie reguł zostanie zatrzymane. W efekcie reguły o niższych priorytetach, które mają te same atrybuty co reguły o wyższych priorytetach nie są przetwarzane.  Należy zachować ostrożność, aby uniknąć reguł powodujących konflikt. |
+| **Śledzenie stanu** | Śledzenie może być bezstanowe (Chmura prywatna, Internet lub sieć VPN) lub stanowa (Public IP).  |
+| **Protokol** | Dostępne opcje to TCP lub UDP. Jeśli jest wymagany protokół ICMP, użyj dowolnego z nich. |
 | **Kierunek** | Określa, czy ta reguła ma zastosowanie do ruchu przychodzącego, czy wychodzącego. |
-| **Akcja** | Zezwalaj lub odrzucaj dla typu ruchu zdefiniowanego w regule. |
-| **Źródła** | Adres IP, bezklasowy blok routingu między domenami (CIDR) (na przykład 10.0.0.0/24) lub Dowolny.  Określenie zakresu, tagu usługi lub grupy zabezpieczeń aplikacji umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. |
-| **Port źródłowy** | Port, z którego pochodzi ruch sieciowy.  Można określić pojedynczy port lub zakres portów, takich jak 443 lub 8000-8080. Określenie zakresów umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. |
-| **Docelowy** | Adres IP, bezklasowy blok routingu między domenami (CIDR) (na przykład 10.0.0.0/24) lub Dowolny.  Określenie zakresu, tagu usługi lub grupy zabezpieczeń aplikacji umożliwia utworzenie mniejszej liczby reguł zabezpieczeń.  |
-| **Port docelowy** | Port, do którego przepływa ruch sieciowy.  Można określić pojedynczy port lub zakres portów, takich jak 443 lub 8000-8080. Określenie zakresów umożliwia utworzenie mniejszej liczby reguł zabezpieczeń.|
+| **Akcja** | Zezwalaj lub Odmów dla typu ruchu zdefiniowanego w regule. |
+| **Element źródłowy** | Adres IP, bezklasowy blok routingu międzydomenowego (CIDR) (na przykład 10.0.0.0/24) lub dowolny.  Określenie zakresu, tagu usługi lub grupy zabezpieczeń aplikacji umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. |
+| **Port źródłowy** | Port, z którego pochodzi ruch sieciowy.  Można określić pojedynczy port lub zakres portów, taki jak 443 lub 8000-8080. Określenie zakresów umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. |
+| **Punktu** | Adres IP, bezklasowy blok routingu międzydomenowego (CIDR) (na przykład 10.0.0.0/24) lub dowolny.  Określenie zakresu, tagu usługi lub grupy zabezpieczeń aplikacji umożliwia utworzenie mniejszej liczby reguł zabezpieczeń.  |
+| **Port docelowy** | Port, do którego przepływy ruchu sieciowego.  Można określić pojedynczy port lub zakres portów, taki jak 443 lub 8000-8080. Określenie zakresów umożliwia utworzenie mniejszej liczby reguł zabezpieczeń.|
 
 ### <a name="stateless"></a>Bezstanowe
 
-Reguła bezstanowa analizuje tylko pojedyncze pakiety i filtruje je na podstawie reguły.  
-Dodatkowe reguły mogą być wymagane dla przepływu ruchu w odwrotnym kierunku.  Użyj reguł bezstanowych dla ruchu między następującymi punktami:
+Reguła bezstanowa sprawdza tylko pojedyncze pakiety i filtruje je na podstawie reguły.  
+Do przepływu ruchu w odwrotnym kierunku mogą być wymagane dodatkowe reguły.  Użyj reguł bezstanowych dla ruchu między następującymi punktami:
 
 * Podsieci chmur prywatnych
-* Podsieć lokalna i podsieć w chmurze prywatnej
-* Ruch internetowy z prywatnych chmur
+* Podsieć lokalna i podsieć chmury prywatnej
+* Ruch internetowy z chmur prywatnych
 
 ### <a name="stateful"></a>Stanowa
 
- Reguła stanowa jest świadoma połączeń, które przechodzą przez nią. Rekord przepływu tworzony jest dla istniejących połączeń. Komunikacja jest dozwolona lub zablokowana na podstawie stanu połączenia z rekordu przepływu.  Ten typ reguły służy do filtrowania ruchu z Internetu przez publiczne adresy IP.
+ Reguła stanowa ma świadomość połączeń, które przechodzą przez nią. Rekord przepływu tworzony jest dla istniejących połączeń. Komunikacja jest dozwolona lub zablokowana na podstawie stanu połączenia z rekordu przepływu.  Użyj tego typu reguły dla publicznych adresów IP, aby filtrować ruch z Internetu.
 
 ### <a name="default-rules"></a>Reguły domyślne
 
-W każdej tabeli zapory tworzone są następujące reguły domyślne.
+W każdej tabeli zapory są tworzone następujące reguły domyślne.
 
 |Priorytet|Nazwa|Śledzenie stanu|Kierunek|Typ ruchu|Protocol (Protokół)|Element źródłowy|Port źródłowy|Element docelowy|Port docelowy|Akcja|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
-|65000|allow-all-to-internet|Stanowa|Wychodzący|Publiczny ruch IP lub internetowy|Wszystkie|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
-|65001|odmówienia internetu|Stanowa|Przychodzący|Publiczny ruch IP lub internetowy|Wszystkie|Dowolne|Dowolne|Dowolne|Dowolne|Zablokuj|
-|65002|zezwalaj na wszystko do intranetu|Bezstanowe|Wychodzący|Ruch wewnętrzny w chmurze prywatnej lub VPN|Wszystkie|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
-|65003|zezwalaj na wszystko z intranetu|Bezstanowe|Przychodzący|Ruch wewnętrzny w chmurze prywatnej lub VPN|Wszystkie|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
+|65000|Zezwalaj na wszystkie-internetowe|Stanowa|Wychodzący|Publiczny adres IP lub ruch internetowy|Wszystkie|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
+|65001|Odmów — wszystko-z Internetu|Stanowa|Przychodzący|Publiczny adres IP lub ruch internetowy|Wszystkie|Dowolne|Dowolne|Dowolne|Dowolne|Zablokuj|
+|65002|Zezwól na dostęp do sieci intranet|Bezstanowe|Wychodzący|Ruch wewnętrzny lub sieci VPN w chmurze prywatnej|Wszystkie|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
+|65003|Zezwalaj — wszystko-z-intranet|Bezstanowe|Przychodzący|Ruch wewnętrzny lub sieci VPN w chmurze prywatnej|Wszystkie|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
 
 ## <a name="next-steps"></a>Następne kroki
 

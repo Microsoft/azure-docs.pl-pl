@@ -1,6 +1,6 @@
 ---
 title: Usuwanie węzłów dla rozwiązania VMware przez CloudSimple — Azure
-description: Dowiedz się, jak usunąć węzły z usługi VMWare za pomocą wdrożenia CloudSimple
+description: Dowiedz się, jak usuwać węzły z programu VMWare przy użyciu wdrożenia CloudSimple
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/05/2019
@@ -9,26 +9,26 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 122e0636f54e066ae86ed2d19cefe5863b026293
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77024742"
 ---
-# <a name="delete-nodes-from-azure-vmware-solution-by-cloudsimple"></a>Usuwanie węzłów z rozwiązania Azure VMware przez CloudSimple
+# <a name="delete-nodes-from-azure-vmware-solution-by-cloudsimple"></a>Usuwanie węzłów z rozwiązań VMware platformy Azure według CloudSimple
 
-Węzły CloudSimple są mierzone po ich utworzeniu.  Węzły muszą zostać usunięte, aby zatrzymać pomiary węzłów.  Usuń węzły, które nie są używane z witryny Azure portal.
+CloudSimple węzły są mierzone po ich utworzeniu.  Aby zatrzymać pomiar węzłów, należy usunąć węzły.  Węzły, które nie są używane w programie Azure Portal, zostaną usunięte.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Węzeł można usunąć tylko w następujących warunkach:
 
-* Chmura prywatna utworzona z węzłami zostanie usunięta.  Aby usunąć chmurę [prywatną, zobacz Usuwanie rozwiązania Azure VMware firmy CloudSimple Private Cloud](delete-private-cloud.md).
-* Węzeł został usunięty z chmury prywatnej przez zmniejszenie chmury prywatnej.  Aby zmniejszyć chmurę prywatną, zobacz [Zmniejszanie rozwiązania Azure VMware firmy CloudSimple private cloud.](shrink-private-cloud.md)
+* Chmura prywatna utworzona z węzłami zostanie usunięta.  Aby usunąć chmurę prywatną, zobacz [usuwanie rozwiązania Azure VMware według CloudSimple prywatnej chmury](delete-private-cloud.md).
+* Węzeł został usunięty z chmury prywatnej, zmniejszając chmurę prywatną.  Aby zmniejszyć chmurę prywatną, zobacz artykuł [zmniejszanie rozwiązań VMware platformy Azure według chmury prywatnej CloudSimple](shrink-private-cloud.md).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do witryny Azure portal w [https://portal.azure.com](https://portal.azure.com).
+Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="delete-cloudsimple-node"></a>Usuń węzeł CloudSimple
 
@@ -36,11 +36,11 @@ Zaloguj się do witryny Azure portal w [https://portal.azure.com](https://portal
 
 2. Wyszukaj **węzły CloudSimple**.
 
-   ![Szukaj węzłów CloudSimple](media/create-cloudsimple-node-search.png)
+   ![Wyszukaj węzły CloudSimple](media/create-cloudsimple-node-search.png)
 
-3. Wybierz **opcję Węzły CloudSimple**.
+3. Wybierz **węzły CloudSimple**.
 
-4. Wybierz węzły, które nie należą do chmury prywatnej, aby usunąć.  **Kolumna NAZWA chmury prywatnej** zawiera nazwę chmury prywatnej, do której należy węzeł.  Jeśli węzeł nie jest używany przez chmurę prywatną, wartość będzie pusta. 
+4. Wybierz węzły, które nie należą do chmury prywatnej, aby usunąć.  Kolumna **Nazwa chmury prywatnej** zawiera nazwę chmury prywatnej, do której należy węzeł.  Jeśli węzeł nie jest używany przez chmurę prywatną, wartość będzie pusta. 
 
     ![Wybierz węzły CloudSimple](media/select-delete-cloudsimple-node.png)
 
@@ -49,4 +49,4 @@ Zaloguj się do witryny Azure portal w [https://portal.azure.com](https://portal
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [private cloud](cloudsimple-private-cloud.md)
+* Informacje o [chmurze prywatnej](cloudsimple-private-cloud.md)

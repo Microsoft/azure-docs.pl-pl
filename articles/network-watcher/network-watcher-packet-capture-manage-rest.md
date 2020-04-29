@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie przechwytywaniem pakietów za pomocą usługi Azure Network Watcher — INTERFEJS API REST | Dokumenty firmy Microsoft
-description: Na tej stronie wyjaśniono, jak zarządzać funkcją przechwytywania pakietów funkcji Obserwatora sieciowego przy użyciu interfejsu API rest platformy Azure
+title: Zarządzanie przechwytywaniem pakietów przy użyciu usługi Azure Network Watcher — interfejs API REST | Microsoft Docs
+description: Na tej stronie wyjaśniono, jak zarządzać funkcją przechwytywania pakietów Network Watcher przy użyciu interfejsu API REST platformy Azure
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -12,55 +12,55 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 5199cf95452f93db2c2dd747fcabc67a6722d31e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840897"
 ---
-# <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Zarządzanie przechwytywaniami pakietów za pomocą usługi Azure Network Watcher przy użyciu interfejsu API usługi Azure REST
+# <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Zarządzanie przechwytywaniem pakietów za pomocą usługi Azure Network Watcher przy użyciu interfejsu API REST platformy Azure
 
 > [!div class="op_single_selector"]
-> - [Portal Azure](network-watcher-packet-capture-manage-portal.md)
-> - [Powershell](network-watcher-packet-capture-manage-powershell.md)
+> - [Azure Portal](network-watcher-packet-capture-manage-portal.md)
+> - [Narzędzia](network-watcher-packet-capture-manage-powershell.md)
 > - [Interfejs wiersza polecenia platformy Azure](network-watcher-packet-capture-manage-cli.md)
 > - [Interfejs API REST platformy Azure](network-watcher-packet-capture-manage-rest.md)
 
-Przechwytywanie pakietów Obserwatora sieciowego umożliwia tworzenie sesji przechwytywania w celu śledzenia ruchu do i z maszyny wirtualnej. Filtry są dostępne dla sesji przechwytywania, aby upewnić się, że przechwytujesz tylko ruch, który chcesz. Przechwytywanie pakietów pomaga diagnozować anomalie sieci zarówno reaktywnie, jak i proaktywnie. Inne zastosowania obejmują zbieranie statystyk sieciowych, uzyskiwanie informacji o włamaniach do sieci, debugowanie komunikacji klient-serwer i wiele więcej. Dzięki możliwości zdalnego wyzwalania przechwytywania pakietów, ta funkcja zmniejsza obciążenie związane z ręcznym uruchamianiem przechwytywania pakietów i na żądanym komputerze, co pozwala zaoszczędzić cenny czas.
+Przechwytywanie pakietów Network Watcher umożliwia tworzenie sesji przechwytywania w celu śledzenia ruchu do i z maszyny wirtualnej. Filtry są udostępniane dla sesji przechwytywania, aby upewnić się, że przechwytywany jest tylko żądany ruch. Przechwytywanie pakietów ułatwia diagnozowanie anomalii w sieci zarówno ponownie, jak i aktywnie. Inne zastosowania obejmują gromadzenie statystyk sieci, uzyskiwanie informacji o atakach sieci, debugowanie komunikacji klient-serwer i wiele więcej. Dzięki możliwości zdalnego wyzwalania przechwycenia pakietów ta funkcja ułatwia nawiązanie ręcznego uruchamiania przechwytywania pakietów i na odpowiedniej maszynie, co pozwala zaoszczędzić cenny czas.
 
-W tym artykule oprowadza cię przez różne zadania zarządzania, które są obecnie dostępne do przechwytywania pakietów.
+Ten artykuł przeprowadzi Cię przez różne zadania zarządzania, które są obecnie dostępne do przechwycenia pakietu.
 
-- [**Uzyskaj przechwytywanie pakietów**](#get-a-packet-capture)
-- [**Lista wszystkich przechwytuje pakietów**](#list-all-packet-captures)
-- [**Zapytanie o stan przechwytywania pakietów**](#query-packet-capture-status)
-- [**Rozpoczynanie przechwytywania pakietów**](#start-packet-capture)
-- [**Zatrzymywanie przechwytywania pakietów**](#stop-packet-capture)
-- [**Usuwanie przechwytywania pakietów**](#delete-packet-capture)
+- [**Pobierz przechwycenie pakietu**](#get-a-packet-capture)
+- [**Wyświetl listę wszystkich przechwyconych pakietów**](#list-all-packet-captures)
+- [**Zbadaj stan przechwycenia pakietu**](#query-packet-capture-status)
+- [**Rozpocznij przechwytywanie pakietu**](#start-packet-capture)
+- [**Zatrzymywanie przechwytywania pakietu**](#stop-packet-capture)
+- [**Usuwanie przechwytywania pakietu**](#delete-packet-capture)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W tym scenariuszu wywołać interfejs API odpoczynku obserwatora sieciowego do uruchomienia weryfikacji przepływu IP. ARMclient jest używany do wywoływania interfejsu API REST przy użyciu programu PowerShell. ARMClient znajduje się na chocolatey w [ARMClient na Chocolatey](https://chocolatey.org/packages/ARMClient)
+W tym scenariuszu należy wywołać interfejs API REST Network Watcher, aby uruchomić weryfikację przepływu IP. ARMclient jest używany do wywoływania interfejsu API REST przy użyciu programu PowerShell. ARMClient można znaleźć na czekolady w [ARMClient na czekoladie](https://chocolatey.org/packages/ARMClient)
 
-W tym scenariuszu przyjęto założenie, że postępuje już kroki w [Tworzenie obserwatora sieci,](network-watcher-create.md) aby utworzyć obserwatora sieci.
+W tym scenariuszu założono, że wykonano już kroki opisane w temacie [tworzenie Network Watcher](network-watcher-create.md) w celu utworzenia Network Watcher.
 
-> Przechwytywanie pakietów wymaga `AzureNetworkWatcherExtension`rozszerzenia maszyny wirtualnej . Aby zainstalować rozszerzenie na maszynie Wirtualnej systemu Windows odwiedź [rozszerzenie maszyny wirtualnej usługi Azure Network Watcher Agent dla systemu Windows](../virtual-machines/windows/extensions-nwa.md) i maszyny wirtualnej z systemem Linux, odwiedź rozszerzenie maszyny [wirtualnej usługi Azure Network Watcher Agent dla systemu Linux](../virtual-machines/linux/extensions-nwa.md).
+> Przechwytywanie pakietów wymaga rozszerzenia `AzureNetworkWatcherExtension`maszyny wirtualnej. Aby zainstalować rozszerzenie na maszynie wirtualnej z systemem Windows, odwiedź [rozszerzenie maszyny wirtualnej usługi azure Network Watcher Agent dla systemu Windows](../virtual-machines/windows/extensions-nwa.md) i dla maszyny wirtualnej z systemem Linux odwiedź [rozszerzenie maszyny wirtualnej agenta usługi Azure Network Watcher](../virtual-machines/linux/extensions-nwa.md).
 
-## <a name="log-in-with-armclient"></a>Zaloguj się za pomocą ARMClient
+## <a name="log-in-with-armclient"></a>Logowanie za pomocą ARMClient
 
 ```powershell
 armclient login
 ```
 
-## <a name="retrieve-a-virtual-machine"></a>Pobieranie maszyny wirtualnej
+## <a name="retrieve-a-virtual-machine"></a>Pobierz maszynę wirtualną
 
-Uruchom następujący skrypt, aby zwrócić maszynę wirtualną. Te informacje są potrzebne do uruchomienia przechwytywania pakietów.
+Uruchom następujący skrypt, aby zwrócić maszynę wirtualną. Te informacje są zbędne do rozpoczęcia przechwytywania pakietów.
 
 Następujący kod wymaga zmiennych:
 
-- **subscriptionId** — identyfikator subskrypcji można również pobrać za pomocą polecenia cmdlet **Get-AzSubscription.**
+- **subskrypcji** — Identyfikator subskrypcji można także pobrać przy użyciu polecenia cmdlet **Get-AzSubscription** .
 - **resourceGroupName** — nazwa grupy zasobów zawierającej maszyny wirtualne.
 
 ```powershell
@@ -70,7 +70,7 @@ $resourceGroupName = "<resource group name>"
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-Z następujących danych wyjściowych identyfikator maszyny wirtualnej jest używany w następnym przykładzie.
+Z następujących danych wyjściowych Identyfikator maszyny wirtualnej jest używany w następnym przykładzie.
 
 ```json
 ...
@@ -86,9 +86,9 @@ Z następujących danych wyjściowych identyfikator maszyny wirtualnej jest uży
 ```
 
 
-## <a name="get-a-packet-capture"></a>Uzyskaj przechwytywanie pakietów
+## <a name="get-a-packet-capture"></a>Pobierz przechwycenie pakietu
 
-Poniższy przykład pobiera stan pojedynczego przechwytywania pakietów
+Poniższy przykład pobiera stan pojedynczego przechwycenia pakietu
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -97,7 +97,7 @@ $networkWatcherName = "NetworkWatcher_westcentralus"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/querystatus?api-version=2016-12-01"
 ```
 
-Poniższe odpowiedzi są przykładami typowej odpowiedzi zwracanej podczas wykonywania zapytań o stan przechwytywania pakietów.
+Poniżej przedstawiono przykłady typowej odpowiedzi zwracanej podczas wykonywania zapytania dotyczącego stanu przechwytywania pakietów.
 
 ```json
 {
@@ -120,7 +120,7 @@ Poniższe odpowiedzi są przykładami typowej odpowiedzi zwracanej podczas wykon
 }
 ```
 
-## <a name="list-all-packet-captures"></a>Lista wszystkich przechwytuje pakietów
+## <a name="list-all-packet-captures"></a>Wyświetl listę wszystkich przechwyconych pakietów
 
 Poniższy przykład pobiera wszystkie sesje przechwytywania pakietów w regionie.
 
@@ -131,7 +131,7 @@ $networkWatcherName = "NetworkWatcher_westcentralus"
 armclient get "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures?api-version=2016-12-01"
 ```
 
-Następująca odpowiedź jest przykładem typowej odpowiedzi zwróconej podczas uzyskiwania wszystkich przechwytuje pakiet
+Poniżej przedstawiono przykład typowej odpowiedzi zwracanej podczas pobierania wszystkich przechwycenia pakietu
 
 ```json
 {
@@ -194,7 +194,7 @@ ture_17_23_15_364.cap",
 }
 ```
 
-## <a name="query-packet-capture-status"></a>Stan przechwytywania pakietów kwerend
+## <a name="query-packet-capture-status"></a>Badanie stanu przechwytywania pakietów
 
 Poniższy przykład pobiera wszystkie sesje przechwytywania pakietów w regionie.
 
@@ -206,7 +206,7 @@ $packetCaptureName = "TestPacketCapture5"
 armclient get "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/querystatus?api-version=2016-12-01"
 ```
 
-Następująca odpowiedź jest przykładem typowej odpowiedzi zwróconej podczas wykonywania zapytań o stan przechwytywania pakietów.
+Poniżej przedstawiono przykład typowej odpowiedzi zwracanej podczas wykonywania zapytania o stan przechwytywania pakietów.
 
 ```json
 {
@@ -219,9 +219,9 @@ Następująca odpowiedź jest przykładem typowej odpowiedzi zwróconej podczas 
 }
 ```
 
-## <a name="start-packet-capture"></a>Uruchamianie przechwytywania pakietów
+## <a name="start-packet-capture"></a>Rozpocznij przechwytywanie pakietów
 
-Poniższy przykład tworzy przechwytywanie pakietów na maszynie wirtualnej.  Przykład jest sparametryzowany, aby umożliwić elastyczność w tworzeniu przykładu.
+Poniższy przykład tworzy przechwytywanie pakietów na maszynie wirtualnej.  Przykład jest sparametryzowane, aby umożliwić elastyczność w tworzeniu przykładu.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -271,9 +271,9 @@ $requestBody = @"
 armclient PUT "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}?api-version=2016-07-01" $requestbody
 ```
 
-## <a name="stop-packet-capture"></a>Zatrzymaj przechwytywanie pakietów
+## <a name="stop-packet-capture"></a>Zatrzymywanie przechwytywania pakietu
 
-Poniższy przykład zatrzymuje przechwytywanie pakietów na maszynie wirtualnej.  Przykład jest sparametryzowany, aby umożliwić elastyczność w tworzeniu przykładu.
+Poniższy przykład powoduje zatrzymanie przechwytywania pakietów na maszynie wirtualnej.  Przykład jest sparametryzowane, aby umożliwić elastyczność w tworzeniu przykładu.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -283,9 +283,9 @@ $packetCaptureName = "TestPacketCapture5"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/stop?api-version=2016-12-01"
 ```
 
-## <a name="delete-packet-capture"></a>Usuwanie przechwytywania pakietów
+## <a name="delete-packet-capture"></a>Usuń przechwycenie pakietu
 
-Poniższy przykład usuwa przechwytywanie pakietów na maszynie wirtualnej.  Przykład jest sparametryzowany, aby umożliwić elastyczność w tworzeniu przykładu.
+Poniższy przykład usuwa przechwytywanie pakietów na maszynie wirtualnej.  Przykład jest sparametryzowane, aby umożliwić elastyczność w tworzeniu przykładu.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -297,13 +297,13 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 ```
 
 > [!NOTE]
-> Usunięcie przechwytywania pakietów nie powoduje usunięcia pliku z konta magazynu
+> Usuwanie przechwycenia pakietu nie powoduje usunięcia pliku na koncie magazynu
 
 ## <a name="next-steps"></a>Następne kroki
 
-Instrukcje dotyczące pobierania plików z kont usługi Azure Storage można znaleźć w [obszarze Wprowadzenie do usługi Azure Blob Storage przy użyciu programu .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Innym narzędziem, które może być używane, jest Eksplorator magazynu. Więcej informacji na temat Eksploratora magazynu można znaleźć tutaj pod następującym linkiem: [Eksplorator magazynu](https://storageexplorer.com/)
+Aby uzyskać instrukcje dotyczące pobierania plików z kont usługi Azure Storage, zobacz Rozpoczynanie [pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Inne narzędzie, które może być używane, jest Eksplorator usługi Storage. Więcej informacji na temat Eksplorator usługi Storage można znaleźć tutaj przy użyciu następującego linku: [Eksplorator usługi Storage](https://storageexplorer.com/)
 
-Dowiedz się, jak zautomatyzować przechwytywanie pakietów za pomocą alertów maszyn wirtualnych, przeglądając [Tworzenie wyzwalanego alertu przechwytywania pakietów](network-watcher-alert-triggered-packet-capture.md)
+Informacje o automatyzowaniu przechwytywania pakietów przy użyciu alertów dotyczących maszyn wirtualnych poprzez wyświetlanie [funkcji tworzenia alertu wyzwolenie pakietu](network-watcher-alert-triggered-packet-capture.md)
 
 
 

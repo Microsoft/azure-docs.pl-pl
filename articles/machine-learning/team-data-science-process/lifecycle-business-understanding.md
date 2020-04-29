@@ -1,6 +1,6 @@
 ---
-title: Zrozumienie biznesowe w procesie nauki o danych zespołowych
-description: Cele, zadania i rezultaty na etapie zrozumienia biznesowego projektów nauki o danych w procesie nauki o danych zespołu.
+title: Zrozumienie biznesowe w procesie nauki danych zespołu
+description: Cele, zadania i elementy dostarczane na potrzeby rozwoju biznesowego dla projektów analizy danych w procesie nauki o danych zespołowych.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,83 +12,83 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76710333"
 ---
-# <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Etap zrozumienia biznesowego cyklu życia procesu nauki o danych zespołu
+# <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Informacje o firmie dotyczące etapów cyklu życia zespołu ds. analizy danych
 
-W tym artykule opisano cele, zadania i rezultaty skojarzone z etapem zrozumienia biznesowego procesu nauki o danych zespołu (TDSP). Ten proces zapewnia zalecany cykl życia, którego można użyć do struktury projektów nauki o danych. Cykl życia przedstawia główne etapy, które projekty zazwyczaj wykonują, często iteracyjne:
+W tym artykule opisano cele, zadania i elementy dostarczane powiązane z etapem poświęconym zrozumieniu biznesowym procesu nauki o danych zespołowych (przetwarzania TDSP). Ten proces zapewnia Zalecany cykl życia, którego można użyć do struktury projektów analizy danych. Cykl życia przedstawia główne etapy, które są zwykle wykonywane przez projekty, często iteracyjnie:
 
    1. **Poznawanie firmy**
    2. **Pozyskiwanie danych i ich analiza**
    3. **Modelowanie**
-   4. **wdrażania**
+   4. **Wdrożenie**
    5. **Akceptacja klienta**
 
-Oto wizualna reprezentacja cyklu życia TDSP: 
+Oto wizualna reprezentacja cyklu życia przetwarzania TDSP: 
 
-![Cykl życia TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
+![Cykl życia przetwarzania TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## <a name="goals"></a>Cele
-* Określ kluczowe zmienne, które mają służyć jako cele modelu i których powiązane metryki są używane określać powodzenie projektu.
-* Zidentyfikuj odpowiednie źródła danych, do których firma ma dostęp lub które muszą uzyskać.
+* Określ zmienne kluczowe, które mają służyć jako elementy docelowe modelu i których powiązane metryki są używane, określają powodzenie projektu.
+* Zidentyfikuj odpowiednie źródła danych, do których firma ma dostęp, lub którego ma dotyczyć.
 
 ## <a name="how-to-do-it"></a>Jak to zrobić
-Na tym etapie zajęto się dwoma głównymi zadaniami: 
+W tym etapie są uwzględnione dwa podstawowe zadania: 
 
-   * **Zdefiniuj cele:** Współpracuj z klientem i innymi zainteresowanymi stronami, aby zrozumieć i zidentyfikować problemy biznesowe. Formułuj pytania, które definiują cele biznesowe, na które mogą kierować techniki nauki o danych.
-   * **Identyfikowanie źródeł danych:** Znajdź odpowiednie dane, które pomogą Ci odpowiedzieć na pytania definiujące cele projektu.
+   * **Zdefiniuj cele**: Współpracuj z klientem i innymi uczestnikami projektu, aby zrozumieć i zidentyfikować problemy biznesowe. Formułowanie pytań, które definiują cele biznesowe, które mogą być ukierunkowane przez techniki analizy danych.
+   * **Identyfikowanie źródeł danych**: Znajdź odpowiednie dane, które pomagają odpowiedzieć na pytania, które definiują cele projektu.
 
-### <a name="define-objectives"></a>Definiowanie celów
-1. Głównym celem tego kroku jest określenie kluczowych zmiennych biznesowych, które analiza musi przewidzieć. Odnosimy się do tych zmiennych jako *cele modelu*i używamy metryk skojarzonych z nimi do określenia sukcesu projektu. Dwa przykłady takich celów to prognozy sprzedaży lub prawdopodobieństwo oszustwa zamówienia.
+### <a name="define-objectives"></a>Zdefiniuj cele
+1. Centralnym celem tego kroku jest zidentyfikowanie kluczowych zmiennych firmowych, które muszą być przewidywane w analizie. Nazywamy te zmienne jako *elementy docelowe modelu*i używamy metryk skojarzonych z nimi w celu ustalenia sukcesu projektu. Dwa przykłady takich celów to prognozy sprzedaży lub prawdopodobieństwo, że porządek jest fałszywy.
 
-2. Zdefiniuj cele projektu, zadając i udoskonalając "ostre" pytania, które są istotne, specyficzne i jednoznaczne. Data science to proces, który używa nazw i numerów, aby odpowiedzieć na takie pytania. Zazwyczaj używasz nauki o danych lub uczenia maszynowego, aby odpowiedzieć na pięć typów pytań:
+2. Zdefiniuj cele projektu przez zaproszenie i uściślenie pytań "Ostre", które są istotne, specyficzne i jednoznaczne. Nauka danych to proces, który używa nazw i numerów, aby odpowiedzieć na takie pytania. Zazwyczaj używasz analizy danych lub uczenia maszynowego, aby odpowiedzieć na pięć typów pytań:
  
-   * Ile lub ile? (regresja)
-   * Która kategoria? (klasyfikacja)
-   * Która grupa? (klastrowanie)
-   * Czy to dziwne? (wykrywanie anomalii)
-   * Którą opcję należy podjąć? (zalecenie)
+   * Jak dużo lub ile? ubytk
+   * Którą kategorię? zmianę
+   * Którą grupę? usługę
+   * Czy to brzmienia? (wykrywanie anomalii)
+   * Którą opcję należy wykonać? zaleca
 
-   Określ, które z tych pytań zadajesz i jak odpowiedzi na nie osiągną Twoje cele biznesowe.
+   Ustal, które pytania są zadawane i jak odpowiadamy na to cele biznesowe.
 
-3. Zdefiniuj zespół projektu, określając role i obowiązki jego członków. Opracuj plan kamieni milowych wysokiego poziomu, który można iterować na jak odkryć więcej informacji. 
+3. Zdefiniuj zespół projektu, określając role i obowiązki jego członków. Opracowywanie planu punktów kontrolnych wysokiego poziomu, które można wykonać w trakcie odnajdywania większej ilości informacji. 
 
-4. Zdefiniuj metryki sukcesu. Na przykład można osiągnąć przewidywanie zmian klientów. Do końca tego trzymiesięcznego projektu potrzebujesz wskaźnika dokładności "x" procent. Dzięki tym danym możesz oferować promocje dla klientów w celu zmniejszenia zmian. Metryki muszą być **SMART:** 
+4. Zdefiniuj metryki sukcesu. Na przykład możesz chcieć zrealizować prognozowanie zmian klientów. Do końca tego projektu trzeciego miesiąca wymagana jest współczynnik dokładności "x". Dzięki tym danym można zaoferować promocje klientom w celu zmniejszenia liczby zmian. Metryki muszą być **inteligentne**: 
 
-   * **S**pecific 
-   * **M**easurable
+   * Pecific **S** 
+   * Easurable **M**
    * **Chievable** 
-   * **R**elevant ( elevant ) 
-   * **T**ime-bound 
+   * Elevant **R** 
+   * **T**— powiązane z edytorem IME 
 
 ### <a name="identify-data-sources"></a>Identyfikowanie źródeł danych
-Identyfikowanie źródeł danych zawierających znane przykłady odpowiedzi na ostre pytania. Poszukaj następujących danych:
+Zidentyfikuj źródła danych zawierające znane przykłady odpowiedzi na Twoje ostre pytania. Poszukaj następujących danych:
 
-* Dane, które są istotne dla pytania. Czy masz środki docelowe i funkcje, które są związane z celem?
-* Dane, które są dokładną miarą docelowego modelu i interesujących cech.
+* Dane istotne dla pytania. Czy istnieją miary elementów docelowych i funkcji, które są powiązane z elementem docelowym?
+* Dane stanowiące dokładną miarę obiektu docelowego modelu oraz interesujące Cię funkcje.
 
-Na przykład może się okazać, że istniejące systemy muszą zbierać i rejestrować dodatkowe rodzaje danych, aby rozwiązać problem i osiągnąć cele projektu. W tej sytuacji można wyszukać zewnętrzne źródła danych lub zaktualizować systemy do zbierania nowych danych.
+Na przykład może się okazać, że istniejące systemy muszą zbierać i rejestrować dodatkowe dane w celu rozwiązania problemu i osiągnięcia celów projektu. W takiej sytuacji warto szukać zewnętrznych źródeł danych lub zaktualizować systemy w celu zbierania nowych danych.
 
 ## <a name="artifacts"></a>Artefakty
-Oto rezultaty na tym etapie:
+Oto elementy dostarczane na tym etapie:
 
-   * [Dokument czarteru](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): Standardowy szablon znajduje się w definicji struktury projektu TDSP. Dokument czarterowy jest żywym dokumentem. Szablon można zaktualizować w całym projekcie, gdy dokonujesz nowych odkryć i zmieniasz wymagania biznesowe. Kluczem jest iterować w tym dokumencie, dodając więcej szczegółów, w miarę postępów w procesie odnajdywania. Utrzymuj klienta i inne zainteresowane strony zaangażowane w wprowadzanie zmian i jasno informują o przyczynach ich zmian.  
-   * [Źródła danych:](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources)Sekcja **Nieprzetworzone źródła danych** raportu **Definicje danych** znaleziona w **folderze raportu danych** projektu TDSP zawiera źródła danych. W tej sekcji określono lokalizacje oryginalne i docelowe dla nieprzetworzonych danych. W późniejszych etapach należy wypełnić dodatkowe szczegóły, takie jak skrypty, aby przenieść dane do środowiska analitycznego.  
-   * [Słowniki danych:](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries)Ten dokument zawiera opisy danych dostarczanych przez klienta. Opisy te zawierają informacje o schemacie (typy danych i informacje na temat reguł sprawdzania poprawności, jeśli istnieją) i diagramy relacji jednostki, jeśli są dostępne.
+   * [Dokument czarteru](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): w definicji struktury projektu przetwarzania TDSP jest dostępny standardowy szablon. Dokument czarteru jest dokumentem żywymi. Uaktualniasz szablon w projekcie podczas wykonywania nowych odkrycia i jako zmiany wymagań firmy. Klucz ma na celu iterację w tym dokumencie i dodanie większej liczby szczegółów w trakcie procesu odnajdywania. Utrzymuj klientowi i innym uczestnikom zaangażowanym w wprowadzanie zmian i jasno poinformuj ich o przyczynach zmian.  
+   * [Źródła danych](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): sekcja **nieprzetworzone źródła danych** w raporcie **definicje danych** , która znajduje się w folderze **raportów danych** projektu przetwarzania TDSP, zawiera źródła danych. Ta sekcja określa lokalizację początkową i docelową dla danych pierwotnych. W późniejszych etapach przedstawiono dodatkowe szczegóły, takie jak skrypty do przenoszenia danych do środowiska analitycznego.  
+   * [Słowniki danych](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): ten dokument zawiera opisy danych dostarczanych przez klienta. Opisy te zawierają informacje o schemacie (typy danych i informacje o regułach walidacji, jeśli istnieją) oraz diagramach relacji jednostki, jeśli są dostępne.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Oto łącza do każdego kroku w cyklu życia TDSP:
+Poniżej przedstawiono linki do poszczególnych etapów cyklu życia przetwarzania TDSP:
 
    1. [Poznawanie firmy](lifecycle-business-understanding.md)
    2. [Pozyskiwanie danych i ich analiza](lifecycle-data.md)
    3. [Modelowanie](lifecycle-modeling.md)
-   4. [wdrażania](lifecycle-deployment.md)
+   4. [Wdrożenie](lifecycle-deployment.md)
    5. [Akceptacja klienta](lifecycle-acceptance.md)
 
-Zapewniamy pełne wskazówki, które pokazują wszystkie kroki w procesie dla określonych scenariuszy. [Przykładowy](walkthroughs.md) artykuł zawiera listę scenariuszy z łączami i opisami miniatur. W instruktażu pokazano, jak połączyć chmurę, narzędzia lokalne i usługi w przepływie pracy lub potoku w celu utworzenia inteligentnej aplikacji. 
+Oferujemy pełne instruktaże, które pokazują wszystkie kroki procesu dla konkretnych scenariuszy. [Przykładowy artykuł instruktażowy](walkthroughs.md) zawiera listę scenariuszy z linkami i opisami miniatur. Instruktaże ilustrują sposób łączenia chmur, narzędzi lokalnych i usług do przepływu pracy lub potoku w celu utworzenia inteligentnej aplikacji. 

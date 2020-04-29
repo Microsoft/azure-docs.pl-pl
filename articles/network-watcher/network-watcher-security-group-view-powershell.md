@@ -1,7 +1,7 @@
 ---
-title: Analizowanie zabezpieczeń sieci — widok grupy zabezpieczeń — Azure PowerShell
+title: Analizowanie zabezpieczeń sieci — widok grupy zabezpieczeń-Azure PowerShell
 titleSuffix: Azure Network Watcher
-description: W tym artykule opisano sposób używania programu PowerShell do analizowania zabezpieczeń maszyn wirtualnych za pomocą widoku grupy zabezpieczeń.
+description: W tym artykule opisano, jak za pomocą programu PowerShell analizować zabezpieczenia maszyn wirtualnych za pomocą widoku grupy zabezpieczeń.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -13,51 +13,51 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 4cba2c7e25b5f76b0638da1c551514f102247ae0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840795"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analizowanie zabezpieczeń maszyny wirtualnej za pomocą widoku grupy zabezpieczeń przy użyciu programu PowerShell
 
 > [!div class="op_single_selector"]
-> - [Powershell](network-watcher-security-group-view-powershell.md)
+> - [Narzędzia](network-watcher-security-group-view-powershell.md)
 > - [Interfejs wiersza polecenia platformy Azure](network-watcher-security-group-view-cli.md)
-> - [INTERFEJS API ODPOCZYNKU](network-watcher-security-group-view-rest.md)
+> - [INTERFEJS API REST](network-watcher-security-group-view-rest.md)
 
-Widok grupy zabezpieczeń zwraca skonfigurowane i skuteczne reguły zabezpieczeń sieci, które są stosowane do maszyny wirtualnej. Ta funkcja jest przydatna do inspekcji i diagnozowania grup zabezpieczeń sieciowych i reguł skonfigurowanych na maszynie wirtualnej, aby upewnić się, że ruch jest poprawnie dozwolony lub odrzucany. W tym artykule pokażemy, jak pobrać skonfigurowane i skuteczne reguły zabezpieczeń na maszynie wirtualnej za pomocą programu PowerShell
+Widok grupy zabezpieczeń umożliwia skonfigurowanie skonfigurowanych i obowiązujących reguł zabezpieczeń sieci, które są stosowane do maszyny wirtualnej. Ta funkcja jest przydatna do inspekcji i diagnozowania sieciowych grup zabezpieczeń i reguł skonfigurowanych na maszynie wirtualnej w celu zapewnienia, że ruch jest prawidłowo dozwolony lub odrzucany. W tym artykule przedstawiono sposób pobierania skonfigurowanych i obowiązujących reguł zabezpieczeń do maszyny wirtualnej przy użyciu programu PowerShell
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W tym scenariuszu `Get-AzNetworkWatcherSecurityGroupView` należy uruchomić polecenie cmdlet, aby pobrać informacje o regułie zabezpieczeń.
+W tym scenariuszu należy uruchomić `Get-AzNetworkWatcherSecurityGroupView` polecenie cmdlet w celu pobrania informacji o regułach zabezpieczeń.
 
-W tym scenariuszu przyjęto założenie, że postępuje już kroki w [Tworzenie obserwatora sieci,](network-watcher-create.md) aby utworzyć obserwatora sieci.
+W tym scenariuszu założono, że wykonano już kroki opisane w temacie [tworzenie Network Watcher](network-watcher-create.md) w celu utworzenia Network Watcher.
 
 ## <a name="scenario"></a>Scenariusz
 
-Scenariusz omówiony w tym artykule pobiera skonfigurowane i skuteczne reguły zabezpieczeń dla danej maszyny wirtualnej.
+Scenariusz opisany w tym artykule umożliwia pobranie skonfigurowanych i obowiązujących reguł zabezpieczeń dla danej maszyny wirtualnej.
 
-## <a name="retrieve-network-watcher"></a>Pobieranie obserwatora sieci
+## <a name="retrieve-network-watcher"></a>Pobierz Network Watcher
 
-Pierwszym krokiem jest pobranie wystąpienia Obserwatora sieci. Ta zmienna jest `Get-AzNetworkWatcherSecurityGroupView` przekazywana do polecenia cmdlet.
+Pierwszym krokiem jest pobranie wystąpienia Network Watcher. Ta zmienna jest przenoszona do `Get-AzNetworkWatcherSecurityGroupView` polecenia cmdlet.
 
 ```powershell
 $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
 ```
 
-## <a name="get-a-vm"></a>Uzyskaj maszynę wirtualną
+## <a name="get-a-vm"></a>Pobierz maszynę wirtualną
 
-Maszyna wirtualna jest wymagana `Get-AzNetworkWatcherSecurityGroupView` do uruchomienia polecenia cmdlet przeciwko. Poniższy przykład pobiera obiekt maszyny Wirtualnej.
+Aby uruchomić polecenie cmdlet w programie, `Get-AzNetworkWatcherSecurityGroupView` wymagana jest maszyna wirtualna. Poniższy przykład pobiera obiekt maszyny wirtualnej.
 
 ```powershell
 $VM = Get-AzVM -ResourceGroupName testrg -Name testvm1
 ```
 
-## <a name="retrieve-security-group-view"></a>Pobieranie widoku grupy zabezpieczeń
+## <a name="retrieve-security-group-view"></a>Pobierz widok grupy zabezpieczeń
 
 Następnym krokiem jest pobranie wyniku widoku grupy zabezpieczeń.
 
@@ -67,7 +67,7 @@ $secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatche
 
 ## <a name="viewing-the-results"></a>Wyświetlanie wyników
 
-Poniższy przykład jest skrócona odpowiedź zwracanych wyników. Wyniki pokazują wszystkie skuteczne i stosowane reguły zabezpieczeń na maszynie wirtualnej w podziale na grupy **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**i **EffectiveSecurityRules**.
+Poniższy przykład to skrócona odpowiedź na zwrócone wyniki. Wyniki pokazują wszystkie obowiązujące i stosowane reguły zabezpieczeń na maszynie wirtualnej podzielone na grupy **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**i **EffectiveSecurityRules**.
 
 ```
 NetworkInterfaces : [
@@ -128,6 +128,6 @@ NetworkInterfaces : [
 
 ## <a name="next-steps"></a>Następne kroki
 
-Odwiedź [stronę Inspekcja grup zabezpieczeń sieci (NSG) z funkcją Kontrola sieci,](network-watcher-nsg-auditing-powershell.md) aby dowiedzieć się, jak zautomatyzować sprawdzanie poprawności grup zabezpieczeń sieciowych.
+Odwiedź stronę [Inspekcja sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) z Network Watcher](network-watcher-nsg-auditing-powershell.md) , aby dowiedzieć się, jak zautomatyzować sprawdzanie poprawności sieciowych grup zabezpieczeń.
 
 

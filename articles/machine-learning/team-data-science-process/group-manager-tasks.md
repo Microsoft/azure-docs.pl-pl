@@ -1,6 +1,6 @@
 ---
-title: Zadania menedżera grupy team data science process
-description: Postępuj zgodnie z tym szczegółowym instruktażem zadań, które menedżer grupy kończy w projekcie zespołu nauki o danych.
+title: Zadania kierownika ds. przetwarzania danych zespołowych
+description: Postępuj zgodnie z szczegółowym opisem zadań wykonywanych przez Menedżera grupy w projekcie zespołu analizy danych.
 author: marktab
 manager: marktab
 editor: marktab
@@ -11,186 +11,186 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4ec7f4242e5046e90fdf0eb8c6c0579f402e4f55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721357"
 ---
-# <a name="team-data-science-process-group-manager-tasks"></a>Zadania menedżera grupy team data science process
+# <a name="team-data-science-process-group-manager-tasks"></a>Zadania kierownika ds. przetwarzania danych zespołowych
 
-W tym artykule opisano zadania wykonywane przez *menedżera grupy* dla organizacji do nauki o danych. Menedżer grupy zarządza całą jednostką do nauki o danych w przedsiębiorstwie. Jednostka do nauki o danych może mieć kilka zespołów, z których każdy pracuje nad wieloma projektami nauki o danych w różnych branżach biznesowych. Celem menedżera grupy jest ustanowienie środowiska grupy współpracy, które standaryzuje [proces nauki o danych zespołu](overview.md) (TDSP). Aby uzyskać zarys wszystkich ról personelu i skojarzonych zadań obsługiwanych przez zespół analityki danych standaryzujący w programie TDSP, zobacz [Role i zadania procesu nauki o danych zespołowych](roles-tasks.md).
+W tym artykule opisano zadania, które *Menedżer grupy* ukończy dla organizacji analizy danych. Menedżer grupy zarządza całą jednostką analizy danych w przedsiębiorstwie. Jednostka do nauki o danych może mieć kilka zespołów, z których każdy pracuje w wielu projektach naukowych w różnych firmach. Celem Menedżera grupy jest ustanowienie środowiska grupy współpracy, które jest standaryzacją w [zespołowym procesie nauki o danych](overview.md) (przetwarzania TDSP). Aby zapoznać się z zarysem wszystkich ról pracowników i skojarzonych zadań obsłużonych przez zespół ds. analizy danych na przetwarzania TDSP, zobacz temat [role i zadania zespołowego procesu nauka danych zespołu](roles-tasks.md).
 
-Na poniższym diagramie przedstawiono sześć głównych zadań konfiguracji menedżera grupy. Menedżerowie grup mogą delegować swoje zadania do surogatów, ale zadania skojarzone z rolą nie zmieniają się.
+Na poniższym diagramie przedstawiono sześć głównych zadań instalacyjnych programu Group Manager. Menedżerowie grup mogą delegować swoje zadania do surogatów, ale zadania skojarzone z rolą nie zmieniają się.
 
-![Zadania menedżera grupy](./media/group-manager-tasks/tdsp-group-manager.png)
+![Zadania Menedżera grupy](./media/group-manager-tasks/tdsp-group-manager.png)
 
-1. Konfigurowanie **organizacji Azure DevOps** dla tej grupy.
-2. Utwórz domyślny **projekt GroupCommon** w organizacji Azure DevOps.
-3. Utwórz repozytorium **GroupProjectTemplate** w usłudze Azure Reppose.
-4. Utwórz repozytorium **narzędzi grupy** w repozytorium platformy Azure.
-5. Zaimportuj zawartość repozytoriów **ProjectTemplate** i **Utilities** zespołu Microsoft TDSP do wspólnych repozytoriów grupy.
+1. Skonfiguruj **organizację usługi Azure DevOps** dla grupy.
+2. Utwórz domyślny **projekt GroupCommon** w organizacji usługi Azure DevOps.
+3. Utwórz repozytorium **GroupProjectTemplate** w Azure Repos.
+4. Utwórz repozytorium **GroupUtilities** w Azure Repos.
+5. Zaimportuj zawartość repozytoriów przetwarzania TDSP i **narzędzi** **zespołu firmy Microsoft** do wspólnych repozytoriów grup.
 6. Skonfiguruj **członkostwo** i **uprawnienia** dla członków zespołu, aby uzyskać dostęp do grupy.
 
-Poniższy samouczek przechodzi przez kroki w szczegółach. 
+Poniższy samouczek zawiera szczegółowe instrukcje. 
 
 > [!NOTE] 
-> W tym artykule użyto usługi Azure DevOps do skonfigurowania środowiska grupy TDSP, ponieważ tak jest, jak zaimplementować TDSP w firmie Microsoft. Jeśli grupa korzysta z innych platform hostingowych lub programistycznych, zadania Menedżera grupy są takie same, ale sposób ich ukończenia może być inny.
+> W tym artykule za pomocą usługi Azure DevOps można skonfigurować środowisko grupy przetwarzania TDSP, ponieważ jest to sposób implementacji przetwarzania TDSP w firmie Microsoft. Jeśli Twoja Grupa korzysta z innych platform hostingowych lub deweloperskich, zadania Menedżera grupy są takie same, ale sposób ich wykonania może być różny.
 
-## <a name="create-an-organization-and-project-in-azure-devops"></a>Tworzenie organizacji i projektu w usłudze Azure DevOps
+## <a name="create-an-organization-and-project-in-azure-devops"></a>Tworzenie organizacji i projektu na platformie Azure DevOps
 
-1. Przejdź do [visualstudio.microsoft.com](https://visualstudio.microsoft.com), wybierz pozycję **Zaloguj się w** prawym górnym rogu i zaloguj się do swojego konta Microsoft. 
+1. Przejdź do [VisualStudio.Microsoft.com](https://visualstudio.microsoft.com), wybierz pozycję **Zaloguj się** w prawym górnym rogu i zaloguj się do konto Microsoft. 
    
-   ![Logowanie się do konta Microsoft](./media/group-manager-tasks/signinvs.png)
+   ![Zaloguj się do konto Microsoft](./media/group-manager-tasks/signinvs.png)
    
-   Jeśli nie masz konta Microsoft, wybierz pozycję **Zarejestruj się teraz**, utwórz konto Microsoft i zaloguj się przy użyciu tego konta. Jeśli twoja organizacja ma subskrypcję programu Visual Studio, zaloguj się przy użyciu poświadczeń dla tej subskrypcji.
+   Jeśli nie masz konto Microsoft, wybierz pozycję **zarejestruj się teraz**, Utwórz konto Microsoft i zaloguj się przy użyciu tego konta. Jeśli Twoja organizacja ma subskrypcję programu Visual Studio, zaloguj się przy użyciu poświadczeń dla tej subskrypcji.
    
-1. Po zalogowaniu się w prawym górnym rogu na stronie Azure DevOps wybierz pozycję **Utwórz nową organizację**.
+1. Po zalogowaniu się w prawym górnym rogu strony Azure DevOps wybierz pozycję **Utwórz nową organizację**.
    
-   ![Tworzenie nowej organizacji](./media/group-manager-tasks/create-organization.png)
+   ![Utwórz nową organizację](./media/group-manager-tasks/create-organization.png)
    
-1. Jeśli zostanie wyświetlony monit o wyrażenie zgody na Warunki korzystania z usługi, Zasady zachowania poufności informacji i Kodeks postępowania, wybierz opcję **Kontynuuj.**
+1. Jeśli zostanie wyświetlony monit o zgodę na warunki użytkowania usługi, zasady zachowania poufności informacji i Kodeks postępowania, wybierz pozycję **Kontynuuj**.
    
-1. W oknie dialogowym rejestracji nazwij organizację Programu Azure DevOps i zaakceptuj przypisanie regionu hosta lub rozwijano i wybierz inny region. Następnie wybierz pozycję **Kontynuuj**. 
+1. W oknie dialogowym rejestracji nazwij swoją organizację Azure DevOps, zaakceptuj przypisanie regionu hosta lub listę rozwijaną i wybierz inny region. Następnie wybierz pozycję **Kontynuuj**. 
 
-1. W obszarze **Tworzenie projektu do rozpoczęcia**wprowadź pozycję *GroupCommon*, a następnie wybierz pozycję **Utwórz projekt**. 
+1. W obszarze **Utwórz projekt, aby**rozpocząć, wprowadź *GroupCommon*, a następnie wybierz pozycję **Utwórz projekt**. 
    
    ![Tworzenie projektu](./media/group-manager-tasks/create-project.png)
 
-Zostanie otwarta strona **Podsumowanie** projektu **GroupCommon.** Adres URL strony to *https:\//\<nazwa serwera\<>/ nazwa organizacji>/GroupCommon*.
+Zostanie otwarta strona **Podsumowanie** projektu **GroupCommon** . Adres URL strony to *https:\//\<ServerName>/\<Organization-Name>/groupcommon*.
 
 ![Strona podsumowania projektu](./media/group-manager-tasks/project-summary.png)
 
 ## <a name="set-up-the-group-common-repositories"></a>Konfigurowanie wspólnych repozytoriów grupy
 
-Repozytorium platformy Azure obsługuje następujące typy repozytoriów dla twojej grupy:
+Azure Repos hostuje następujące typy repozytoriów dla grupy:
 
-- **Wspólne repozytoria**grup: Repozytoria ogólnego przeznaczenia, które wiele zespołów w jednostce do nauki o danych może przyjąć dla wielu projektów do nauki o danych. 
-- **Repozytoria zespołów:** Repozytoria dla określonych zespołów w jednostce do nauki o danych. Te repozytoria są specyficzne dla potrzeb zespołu i mogą być używane dla wielu projektów w tym zespole, ale nie są wystarczająco ogólne, aby być używane w wielu zespołach w jednostce do nauki o danych.
-- **Repozytoria projektów:** Repozytoria dla określonych projektów. Takie repozytoria mogą nie być wystarczająco ogólne dla wielu projektów w zespole lub dla innych zespołów w jednostce do nauki o danych.
+- **Najpopularniejsze**repozytoria grup: repozytoria ogólnego przeznaczenia, które wiele zespołów w jednostce analizy danych może przyjąć dla wielu projektów analizy danych. 
+- **Repozytoria zespołu**: repozytoria dla określonych zespołów w jednostce analizy danych. Te repozytoria są specyficzne dla potrzeb zespołu i mogą być używane dla wielu projektów w ramach tego zespołu, ale nie są wystarczająco ogólne, aby można było ich używać w wielu zespołach w ramach jednostki analizy danych.
+- **Repozytoria projektu**: repozytoria dla określonych projektów. Takie repozytoria mogą nie być generalnie wystarczające dla wielu projektów w zespole lub dla innych zespołów w jednostce analizy danych.
 
-Aby skonfigurować wspólne repozytoria grupy w projekcie, należy: 
-- Zmienianie nazwy domyślnego repozytorium **GroupCommon** na **Platformę GroupProjectTemplate**
-- Tworzenie nowego repozytorium **narzędzi grupy**
+W celu skonfigurowania wspólnych repozytoriów grup w projekcie: 
+- Zmień nazwę domyślnego repozytorium **GroupCommon** na **GroupProjectTemplate**
+- Utwórz nowe repozytorium **GroupUtilities**
 
-### <a name="rename-the-default-project-repository-to-groupprojecttemplate"></a>Zmienianie nazwy domyślnego repozytorium projektu na platformę GroupProjectTemplate
+### <a name="rename-the-default-project-repository-to-groupprojecttemplate"></a>Zmień nazwę domyślnego repozytorium projektu na GroupProjectTemplate
 
-Aby zmienić nazwę domyślnego repozytorium projektu **GroupCommon** na **Platformę Projektu GroupProjectTemplate:**
+Aby zmienić nazwę domyślnego repozytorium projektu **GroupCommon** na **GroupProjectTemplate**:
 
-1. Na stronie **Podsumowanie** projektu **GroupCommon** wybierz pozycję **Repozytoria**. Ta akcja prowadzi do domyślnego repozytorium **GroupCommon** projektu GroupCommon, który jest obecnie pusty.
+1. Na stronie **Podsumowanie** projektu **GroupCommon** wybierz pozycję **repozytoria**. Ta akcja spowoduje przejście do domyślnego repozytorium **GroupCommon** projektu GroupCommon, który jest obecnie pusty.
    
-1. U góry strony rozwijana jest strzałka obok **pozycji GroupCommon** i wybierz pozycję **Zarządzaj repozytoriami**.
+1. W górnej części strony rozwiń strzałkę obok pozycji **GroupCommon** i wybierz pozycję **Zarządzaj repozytoriami**.
    
    ![Zarządzanie repozytoriami](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
    
-1. Na stronie **Ustawienia projektu** wybierz **pozycję ...** obok pozycji **GroupCommon**, a następnie wybierz pozycję **Zmień nazwę repozytorium**. 
+1. Na stronie **Ustawienia projektu** wybierz pozycję **...** obok pozycji **GroupCommon**, a następnie wybierz pozycję **Zmień nazwę repozytorium**. 
    
    ![Wybierz... a następnie wybierz pozycję Zmień nazwę repozytorium](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
    
-1. W okienku **wyboru Zmień nazwę repozytorium GroupCommon** wprowadź *platformę GroupProjectTemplate*, a następnie wybierz pozycję **Zmień nazwę**. 
+1. W oknie podręcznym **Zmień nazwę repozytorium GroupCommon** wprowadź *GroupProjectTemplate*, a następnie wybierz pozycję **Zmień nazwę**. 
    
-   ![Zmienianie nazwy repozytorium](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
+   ![Zmień nazwę repozytorium](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
 
-### <a name="create-the-grouputilities-repository"></a>Tworzenie repozytorium narzędzia grupy
+### <a name="create-the-grouputilities-repository"></a>Tworzenie repozytorium GroupUtilities
 
-Aby utworzyć repozytorium **Narzędzia grupowe:**
+Aby utworzyć repozytorium **GroupUtilities** :
 
-1. Na stronie **Podsumowanie** projektu **GroupCommon** wybierz pozycję **Repozytoria**. 
+1. Na stronie **Podsumowanie** projektu **GroupCommon** wybierz pozycję **repozytoria**. 
    
-1. U góry strony w dół strzałka obok **pozycji GroupProjectTemplate** i wybierz pozycję **Nowe repozytorium**.
+1. W górnej części strony rozwiń strzałkę obok pozycji **GroupProjectTemplate** i wybierz pozycję **nowe repozytorium**.
    
    ![Wybierz nowe repozytorium](./media/group-manager-tasks/create-grouputilities-repo-1.png)
    
-1. W oknie **dialogowym Tworzenie nowego repozytorium** wybierz pozycję **Git** jako **typ**, wprowadź *narzędzia grupy* jako **nazwę repozytorium,** a następnie wybierz pozycję **Utwórz**.
+1. W oknie dialogowym **Tworzenie nowego repozytorium** wybierz pozycję **git** jako **Typ**, wprowadź *GroupUtilities* jako **nazwę repozytorium**, a następnie wybierz pozycję **Utwórz**.
    
-   ![Tworzenie repozytorium narzędzi grupy](./media/group-manager-tasks/create-grouputilities-repo-2.png)
+   ![Utwórz repozytorium GroupUtilities](./media/group-manager-tasks/create-grouputilities-repo-2.png)
    
-1. Na stronie **Ustawienia projektu** wybierz **pozycję Repozytoria** w obszarze **Repozytoria** w lewej nawigacji, aby wyświetlić dwa repozytoria grup: **GroupProjectTemplate** i **GroupUtilities**.
+1. Na stronie **Ustawienia projektu** wybierz pozycję **repozytoria** w obszarze **repozytoria** w okienku nawigacji po lewej stronie, aby wyświetlić dwie repozytoria grup: **GroupProjectTemplate** i **GroupUtilities**.
    
-   ![Dwa repozytoria grupowe](./media/group-manager-tasks/two-repositories.png)
+   ![Dwie repozytoria grup](./media/group-manager-tasks/two-repositories.png)
 
-## <a name="import-the-microsoft-tdsp-team-repositories"></a>Importowanie repozytoriów zespołu Microsoft TDSP
+## <a name="import-the-microsoft-tdsp-team-repositories"></a>Importuj repozytoria zespołu programu Microsoft przetwarzania TDSPe
 
-W tej części samouczka należy zaimportować zawartość repozytoriów **ProjectTemplate** i **Utilities** zarządzanych przez zespół Microsoft TDSP do repozytoriów **GroupProjectTemplate** i **GroupUtilities.** 
+W tej części samouczka zaimportowano zawartość repozytoriów **ProjectTemplate** i **narzędzi** zarządzanych przez zespół przetwarzania TDSP firmy Microsoft do swoich repozytoriów **GroupProjectTemplate** i **GroupUtilities** . 
 
-Aby zaimportować repozytoria zespołu TDSP:
+Aby zaimportować repozytoria zespołu przetwarzania TDSP:
 
-1. Na stronie głównej projektu **GroupCommon** wybierz **pozycję Repozytoria** w lewej nawigacji. Zostanie otwarte domyślne repozytorium **GroupProjectTemplate.** 
+1. Na stronie głównej projektu **GroupCommon** wybierz pozycję **repozytoria** w lewym okienku nawigacji. Zostanie otwarte domyślne repozytorium **GroupProjectTemplate** . 
    
-1. Na stronie **GroupProjectTemplate jest pusta** strona wybierz pozycję **Importuj**. 
+1. Na stronie **GroupProjectTemplate jest pusta** wybierz pozycję **Importuj**. 
    
    ![Wybierz pozycję Importuj](./media/group-manager-tasks/import-repo.png)
    
-1. W oknie **dialogowym Importowanie repozytorium Git** wybierz pozycję **Git** jako **typ źródła**i wprowadź *https:\//github.com/Azure/Azure-TDSP-ProjectTemplate.git* dla adresu URL **klonowania**. Następnie wybierz pozycję **Importuj**. Zawartość repozytorium ProjectTemplate zespołu Microsoft TDSP są importowane do repozytorium GroupProjectTemplate. 
+1. W oknie dialogowym **Importowanie repozytorium git** wybierz pozycję **git** jako **Typ źródła**, a następnie wprowadź wartość *https:\//GitHub.com/Azure/Azure-TDSP-ProjectTemplate.git* dla **adresu URL klonowania**. Następnie wybierz pozycję **Importuj**. Zawartość repozytorium Microsoft przetwarzania TDSP Team ProjectTemplate jest zaimportowana do repozytorium GroupProjectTemplate. 
    
-   ![Importowanie repozytorium zespołu TDSP firmy Microsoft](./media/group-manager-tasks/import-repo-2.png)
+   ![Importuj repozytorium zespołu przetwarzania TDSP firmy Microsoft](./media/group-manager-tasks/import-repo-2.png)
    
-1. U góry strony **Repozytorium** rozwijana i wybierz repozytorium **narzędzi grupy.**
+1. W górnej części strony **repozytoria** wybierz pozycję repozytorium **GroupUtilities** .
    
-1. Powtórz proces importowania, aby zaimportować zawartość repozytorium **narzędzi** zespołu Microsoft TDSP, *https:\//github.com/Azure/Azure-TDSP-Utilities.git*, do repozytorium **narzędzi grupy.** 
+1. Powtórz proces importowania, aby zaimportować zawartość repozytorium Microsoft przetwarzania TDSP Team **Utilities** , *https:\//GitHub.com/Azure/Azure-TDSP-Utilities.git*do repozytorium **GroupUtilities** . 
    
-Każde z twoich dwóch repozytoriów grup zawiera teraz wszystkie pliki, z wyjątkiem tych w katalogu *.git,* z odpowiedniego repozytorium zespołu Microsoft TDSP. 
+Każdy z dwóch repozytoriów grup zawiera teraz wszystkie pliki, z wyjątkiem tych znajdujących się w katalogu *. git* , z odpowiedniego repozytorium programu Microsoft przetwarzania tdspe. 
 
 ## <a name="customize-the-contents-of-the-group-repositories"></a>Dostosowywanie zawartości repozytoriów grup
 
-Jeśli chcesz dostosować zawartość repozytoriów grup do określonych potrzeb grupy, możesz to zrobić teraz. Można zmodyfikować pliki, zmienić strukturę katalogów lub dodać pliki opracowane przez grupę lub przydatne dla grupy.
+Jeśli chcesz dostosować zawartość repozytoriów grup, aby spełniały określone potrzeby danej grupy, możesz to zrobić teraz. Można zmodyfikować pliki, zmienić strukturę katalogów lub dodać pliki, które zostały opracowane przez grupę lub które są przydatne dla grupy.
 
-### <a name="make-changes-in-azure-repos"></a>Wprowadzanie zmian w repo platformy Azure
+### <a name="make-changes-in-azure-repos"></a>Wprowadzanie zmian w Azure Repos
 
 Aby dostosować zawartość repozytorium:
 
-1. Na stronie **Podsumowanie** projektu **GroupCommon** wybierz pozycję **Repozytoria**. 
+1. Na stronie **Podsumowanie** projektu **GroupCommon** wybierz pozycję **repozytoria**. 
    
-1. U góry strony wybierz repozytorium, które chcesz dostosować.
+1. W górnej części strony wybierz repozytorium, które chcesz dostosować.
 
-1. W strukturze katalogu repozytorium przejdź do folderu lub pliku, który chcesz zmienić. 
+1. W strukturze katalogów repozytorium przejdź do folderu lub pliku, który chcesz zmienić. 
    
-   - Aby utworzyć nowe foldery lub pliki, zaznacz strzałkę obok **pozycji Nowy**. 
+   - Aby utworzyć nowe foldery lub pliki, wybierz strzałkę obok pozycji **Nowy**. 
      
      ![Utwórz nowy plik](./media/group-manager-tasks/new-file.png)
      
-   - Aby przekazać pliki, wybierz pozycję **Przekaż pliki**. 
+   - Aby przekazać pliki, wybierz pozycję **Przekaż**pliki. 
      
      ![Przekazywanie plików](./media/group-manager-tasks/upload-files.png)
      
    - Aby edytować istniejące pliki, przejdź do pliku, a następnie wybierz pozycję **Edytuj**. 
      
-     ![Edytowanie pliku](./media/group-manager-tasks/edit-file.png)
+     ![Edytuj plik](./media/group-manager-tasks/edit-file.png)
      
-1. Po dodaniu lub edycji plików wybierz pozycję **Zatwierdź**.
+1. Po dodaniu lub edytowaniu plików wybierz pozycję **Zatwierdź**.
    
-   ![Zatwierdzanie zmian](./media/group-manager-tasks/commit.png)
+   ![Zatwierdź zmiany](./media/group-manager-tasks/commit.png)
 
-### <a name="make-changes-using-your-local-machine-or-dsvm"></a>Wprowadzanie zmian za pomocą komputera lokalnego lub dsvm
+### <a name="make-changes-using-your-local-machine-or-dsvm"></a>Wprowadzanie zmian przy użyciu komputera lokalnego lub DSVM
 
-Jeśli chcesz wprowadzić zmiany przy użyciu komputera lokalnego lub DSVM i wypchnąć zmiany do repozytoriów grup, upewnij się, że masz wymagania wstępne do pracy z git i dsvms:
+Jeśli chcesz wprowadzić zmiany przy użyciu komputera lokalnego lub DSVM i wypchnąć zmiany do repozytoriów grup, upewnij się, że spełniono wymagania wstępne dotyczące pracy z usługami git i DSVMs:
 
 - Subskrypcja platformy Azure, jeśli chcesz utworzyć DSVM.
-- Git zainstalowany na komputerze. Jeśli używasz DSVM, Git jest wstępnie zainstalowany. W przeciwnym razie zobacz [załącznik Platformy i narzędzia](platforms-and-tools.md#appendix).
-- Jeśli chcesz użyć DSVM, Windows lub Linux DSVM utworzone i skonfigurowane na platformie Azure. Aby uzyskać więcej informacji i instrukcji, zobacz [dokumentację maszyny wirtualnej do nauki o danych](/azure/machine-learning/data-science-virtual-machine/).
-- W przypadku systemu Windows DSVM, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) zainstalowany na komputerze. W pliku *README.md* przewiń w dół do sekcji **Pobierz i zainstaluj** i wybierz najnowszy **instalator**. Pobierz instalator *.exe* ze strony instalatora i uruchom go. 
-- W przypadku systemu Linux DSVM klucz publiczny SSH skonfigurowany na maszynie DSVM i dodany w usłudze Azure DevOps. Aby uzyskać więcej informacji i instrukcji, zobacz sekcję **Tworzenie klucza publicznego SSH** w [dodatku Platformy i narzędzia](platforms-and-tools.md#appendix). 
+- Na maszynie zainstalowano narzędzie git. Jeśli używasz DSVM, program git jest wstępnie zainstalowany. W przeciwnym razie zapoznaj się z [dodatkiem platformy i narzędzia](platforms-and-tools.md#appendix).
+- Jeśli chcesz użyć DSVM, system Windows lub Linux DSVM utworzony i skonfigurowany na platformie Azure. Aby uzyskać więcej informacji i instrukcje, zapoznaj się z [dokumentacją Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/).
+- W przypadku systemu Windows DSVM na komputerze zainstalowano program [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) . W pliku *README.MD* przewiń w dół do sekcji **pobieranie i instalacja** , a następnie wybierz **najnowszy Instalator**. Pobierz instalatora *exe* ze strony Instalatora i uruchom go. 
+- W przypadku systemu Linux DSVM klucz publiczny skonfigurowany na DSVM i dodany do usługi Azure DevOps. Aby uzyskać więcej informacji i instrukcje, zobacz sekcję **Tworzenie klucza publicznego SSH** w [dodatku platformy i narzędzia](platforms-and-tools.md#appendix). 
 
-Najpierw skopiuj lub *sklonuj* repozytorium na komputerze lokalnym. 
+Najpierw skopiuj lub *Sklonuj* repozytorium na komputerze lokalnym. 
    
-1. Na stronie **Podsumowanie** projektu **GroupCommon** wybierz pozycję **Repozytoria**, a u góry strony wybierz repozytorium, które chcesz sklonować.
+1. Na stronie **Podsumowanie** projektu **GroupCommon** wybierz pozycję **repozytoria**i w górnej części strony wybierz repozytorium, które chcesz sklonować.
    
 1. Na stronie repozytorium wybierz pozycję **Klonuj** w prawym górnym rogu.
    
-1. W oknie dialogowym **Klonowanie repozytorium** wybierz pozycję **HTTPS** dla połączenia HTTP lub **SSH** dla połączenia SSH i skopiuj adres URL klonu w **obszarze Wiersz polecenia** do schowka.
+1. W oknie dialogowym **klonowanie repozytorium** wybierz opcję **https** dla połączenia HTTP lub **SSH** dla połączenia SSH, a następnie skopiuj adres URL klonowania w **wierszu polecenia** do Schowka.
    
-   ![Repo klonowania](./media/group-manager-tasks/clone.png)
+   ![Klonowanie repozytorium](./media/group-manager-tasks/clone.png)
    
-1. Na komputerze lokalnym utwórz następujące katalogi:
+1. Na komputerze lokalnym Utwórz następujące katalogi:
    
    - Dla systemu Windows: **C:\GitRepos\GroupCommon**
-   - Dla Linuksa, **$/GitRepos/GroupCommon** w katalogu domowym 
+   - W przypadku systemu Linux, **$/GitRepos/GroupCommon** w katalogu macierzystym 
    
-1. Zmień katalog utworzony.
+1. Przejdź do utworzonego katalogu.
    
-1. W Git Bash uruchom polecenie`git clone <clone URL>.`
+1. W narzędziu git bash Uruchom polecenie`git clone <clone URL>.`
    
-   Na przykład, którekolwiek z następujących poleceń klonuje repozytorium **narzędzi grupy** do katalogu *GroupCommon* na komputerze lokalnym. 
+   Na przykład jedno z następujących poleceń klonuje repozytorium **GroupUtilities** do katalogu *GroupCommon* na komputerze lokalnym. 
    
    **Połączenie HTTPS:**
    
@@ -204,9 +204,9 @@ Najpierw skopiuj lub *sklonuj* repozytorium na komputerze lokalnym.
    git clone git@ssh.dev.azure.com:v3/DataScienceUnit/GroupCommon/GroupUtilities
    ```
 
-Po dokonaniu zmian, które chcesz w lokalnym klon repozytorium, można wypchnąć zmiany do wspólnej repozytoriów grupy udostępnionej. 
+Po wprowadzeniu wszelkich zmian w lokalnym klonie repozytorium można wypchnąć zmiany do wspólnych repozytoriów grupy udostępnionej. 
 
-Uruchom następujące polecenia Git Bash z lokalnego katalogu **GroupProjectTemplate** lub **GroupUtilities.**
+Uruchom następujące polecenia narzędzia Git bash z lokalnego katalogu **GroupProjectTemplate** lub **GroupUtilities** .
 
 ```bash
 git add .
@@ -215,49 +215,49 @@ git push
 ```
 
 > [!NOTE]
-> Jeśli po raz pierwszy zaobserwujesz się do repozytorium Git, może być konieczne skonfigurowanie `git commit` globalnych parametrów *user.name* i *user.email* przed uruchomieniem polecenia. Uruchom następujące dwa polecenia:
+> Jeśli po raz pierwszy zatwierdzisz repozytorium git, może być konieczne skonfigurowanie parametrów globalnych *User.Name* i *User. email* przed uruchomieniem `git commit` polecenia. Uruchom następujące dwa polecenia:
 > 
 > `git config --global user.name <your name>`
 > 
 > `git config --global user.email <your email address>`
 > 
-> Jeśli zobowiązujesz się do kilku repozytoriów Git, użyj tej samej nazwy i adresu e-mail dla wszystkich z nich. Używanie tej samej nazwy i adresu e-mail jest wygodne podczas tworzenia pulpitów nawigacyjnych usługi Power BI w celu śledzenia działań Git w wielu repozytoriach.
+> Jeśli przekazujesz do kilku repozytoriów Git, Użyj tej samej nazwy i adresu e-mail dla wszystkich z nich. Korzystanie z tej samej nazwy i adresu e-mail jest wygodne podczas kompilowania Power BI pulpitów nawigacyjnych w celu śledzenia działań Git w wielu repozytoriach.
 
-## <a name="add-group-members-and-configure-permissions"></a>Dodawanie członków grupy i konfigurowanie uprawnień
+## <a name="add-group-members-and-configure-permissions"></a>Dodaj członków grupy i Skonfiguruj uprawnienia
 
 Aby dodać członków do grupy:
 
-1. W usłudze Azure DevOps na stronie głównej projektu **GroupCommon** wybierz **ustawienia projektu** z lewej strony nawigacji. 
+1. W usłudze Azure DevOps na stronie głównej projektu **GroupCommon** wybierz pozycję **Ustawienia projektu** na lewym pasku nawigacyjnym. 
    
-1. W ustawieniach **projektu** w lewo wybierz **pozycję Zespoły**, a następnie na stronie **Zespoły** wybierz **groupcommon team**. 
+1. W lewym panelu nawigacyjnym **Ustawienia projektu** wybierz pozycję **zespoły**, a następnie na stronie **zespoły** wybierz **zespół GroupCommon**. 
    
    ![Konfigurowanie zespołów](./media/group-manager-tasks/teams.png)
    
-1. Na stronie **Profil zespołu** wybierz pozycję **Dodaj**.
+1. Na stronie **profil zespołu** wybierz pozycję **Dodaj**.
    
-   ![Dodaj do GroupCommon Team](./media/group-manager-tasks/add-to-team.png)
+   ![Dodaj do zespołu GroupCommon](./media/group-manager-tasks/add-to-team.png)
    
-1. W oknie dialogowym **Dodawanie użytkowników i grup** wyszukaj i wybierz członków, aby dodać do grupy, a następnie wybierz pozycję Zapisz **zmiany**. 
+1. W oknie dialogowym **Dodawanie użytkowników i grup** Wyszukaj i wybierz członków do dodania do grupy, a następnie wybierz pozycję **Zapisz zmiany**. 
    
    ![Dodawanie użytkowników i grup](./media/group-manager-tasks/add-users.png)
    
 
-Aby skonfigurować uprawnienia dla elementów członkowskich:
+Aby skonfigurować uprawnienia dla członków:
 
-1. W obszarze **Ustawienia projektu** w lewo wybierz pozycję **Uprawnienia**. 
+1. W lewym panelu nawigacyjnym **Ustawienia projektu** wybierz pozycję **uprawnienia**. 
    
-1. Na stronie **Uprawnienia** wybierz grupę, do której chcesz dodać członków. 
+1. Na stronie **uprawnienia** wybierz grupę, do której chcesz dodać członków. 
    
-1. Na stronie dla tej grupy wybierz pozycję **Członkowie**, a następnie wybierz pozycję **Dodaj**. 
+1. Na stronie tej grupy wybierz pozycję **elementy członkowskie**, a następnie wybierz pozycję **Dodaj**. 
    
-1. W wyskakującym okienku **Zaproś członków** wyszukaj i wybierz członków, aby dodać do grupy, a następnie wybierz pozycję **Zapisz**. 
+1. W oknie podręcznym **zapraszanie członków** Wyszukaj i wybierz członków do dodania do grupy, a następnie wybierz pozycję **Zapisz**. 
    
-   ![Udzielanie uprawnień członkom](./media/group-manager-tasks/grant-permissions.png)
+   ![Przyznawanie uprawnień członkom](./media/group-manager-tasks/grant-permissions.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Oto linki do szczegółowych opisów innych ról i zadań w procesie nauki o danych zespołu:
+Poniżej znajdują się linki do szczegółowych opisów innych ról i zadań w procesie nauki danych zespołu:
 
-- [Zadania zespołu Lead dla zespołu do nauki o danych](team-lead-tasks.md)
-- [Zadania prowadzące projekt dla zespołu do nauki o danych](project-lead-tasks.md)
-- [Zadania indywidualnego współautora projektu dla zespołu do nauki o danych](project-ic-tasks.md)
+- [Zadania lidera zespołu dla zespołu ds. analizy danych](team-lead-tasks.md)
+- [Zadania lidera projektu dla zespołu ds. analizy danych](project-lead-tasks.md)
+- [Projekt poszczególnych zadań współautora dla zespołu ds. analizy danych](project-ic-tasks.md)

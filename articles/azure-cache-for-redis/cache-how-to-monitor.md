@@ -1,120 +1,120 @@
 ---
-title: Jak monitorować pamięć podręczną platformy Azure dla redis
-description: Dowiedz się, jak monitorować kondycję i wydajność pamięci podręcznej platformy Azure dla wystąpień Redis
+title: Jak monitorować usługę Azure cache for Redis
+description: Dowiedz się, jak monitorować kondycję i wydajność swojej pamięci podręcznej platformy Azure dla wystąpień Redis
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.openlocfilehash: 86cbeddba699e89ce1127dbac72dac81dcc41449
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76547493"
 ---
-# <a name="how-to-monitor-azure-cache-for-redis"></a>Jak monitorować pamięć podręczną platformy Azure dla redis
+# <a name="how-to-monitor-azure-cache-for-redis"></a>Jak monitorować usługę Azure cache for Redis
 
-Usługa Azure Cache for Redis używa [usługi Azure Monitor,](../azure-monitor/index.yml) aby zapewnić kilka opcji monitorowania wystąpień pamięci podręcznej. Możesz wyświetlać metryki, przypinać wykresy metryk do tablicy startowej, dostosowywać zakres daty i czasu wykresów monitorowania, dodawać i usuwać dane z wykresów oraz ustawiać alerty, gdy spełnione są określone warunki. Te narzędzia umożliwiają monitorowanie kondycji pamięci podręcznej platformy Azure dla wystąpień Redis i ułatwiają zarządzanie aplikacjami buforowania.
+Usługa Azure cache for Redis używa [Azure monitor](../azure-monitor/index.yml) , aby zapewnić kilka opcji monitorowania wystąpień pamięci podręcznej. Możesz wyświetlić metryki, przypiąć wykresy metryk do tablicy startowej, dostosować zakres daty i godziny wykresów monitorowania, dodać i usunąć metryki z wykresów i ustawić alerty w przypadku spełnienia określonych warunków. Te narzędzia umożliwiają monitorowanie kondycji pamięci podręcznej platformy Azure dla wystąpień Redis i ułatwiają zarządzanie aplikacjami buforowania.
 
-Metryki dla usługi Azure Cache dla wystąpień Redis są zbierane przy użyciu polecenia Redis [INFO](https://redis.io/commands/info) około dwa razy na minutę i automatycznie przechowywane przez 30 dni (zobacz [Eksportuj metryki pamięci podręcznej,](#export-cache-metrics) aby skonfigurować różne zasady przechowywania), dzięki czemu mogą być wyświetlane na wykresach metryk i oceniane przez reguły alertów. Aby uzyskać więcej informacji na temat różnych wartości INFO używanych dla każdej metryki pamięci podręcznej, zobacz [Dostępne metryki i interwały raportowania](#available-metrics-and-reporting-intervals).
+Metryki usługi Azure cache dla wystąpień Redis są zbierane za pomocą polecenia [info](https://redis.io/commands/info) Redis około dwa razy na minutę i automatycznie przechowywane przez 30 dni (zobacz [Eksportowanie metryk pamięci podręcznej](#export-cache-metrics) w celu skonfigurowania innych zasad przechowywania), aby mogły być wyświetlane na wykresach metryk i ocenione przez reguły alertów. Aby uzyskać więcej informacji na temat różnych wartości informacji używanych dla każdej metryki pamięci podręcznej, zobacz [Dostępne metryki i interwały raportowania](#available-metrics-and-reporting-intervals).
 
 <a name="view-cache-metrics"></a>
 
-Aby wyświetlić metryki pamięci podręcznej, [przejdź](cache-configure.md#configure-azure-cache-for-redis-settings) do wystąpienia pamięci podręcznej w [witrynie Azure Portal](https://portal.azure.com).  Usługa Azure Cache for Redis udostępnia niektóre wbudowane wykresy na **bloku Przegląd** i **redis metrics** bloku. Każdy wykres można dostosować, dodając lub usuwając metryki i zmieniając interwał raportowania.
+Aby wyświetlić metryki pamięci podręcznej, [Przejdź](cache-configure.md#configure-azure-cache-for-redis-settings) do wystąpienia pamięci podręcznej w [Azure Portal](https://portal.azure.com).  Usługa Azure cache for Redis zawiera niektóre wbudowane wykresy w bloku **Przegląd** i blok **metryk Redis** . Każdy wykres można dostosować przez dodanie lub usunięcie metryk oraz zmianę interwału raportowania.
 
 ![Metryki Redis](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
 
-## <a name="view-pre-configured-metrics-charts"></a>Wyświetlanie wstępnie skonfigurowanych wykresów metryk
+## <a name="view-pre-configured-metrics-charts"></a>Wyświetl wstępnie skonfigurowane wykresy metryk
 
-**Blok Przegląd** ma następujące wstępnie skonfigurowane wykresy monitorowania.
+Blok **przeglądu** zawiera następujące wstępnie skonfigurowane wykresy monitorowania.
 
-* [Monitorowanie wykresów](#monitoring-charts)
+* [Wykresy monitorowania](#monitoring-charts)
 * [Wykresy użycia](#usage-charts)
 
-### <a name="monitoring-charts"></a>Monitorowanie wykresów
+### <a name="monitoring-charts"></a>Wykresy monitorowania
 
-Sekcja **Monitorowanie** w **bloku Przegląd** zawiera **wykresy Trafienia i chybienia**, **Liczby i zestawy,** **Połączenia**i **Polecenia razem.**
+Sekcja **monitorowanie** w bloku **Przegląd** zawiera wartości **trafień i chybień**, **pobieranie i zestawy**, **połączenia**oraz całkowite wykresy **poleceń** .
 
-![Monitorowanie wykresów](./media/cache-how-to-monitor/redis-cache-monitoring-part.png)
+![Wykresy monitorowania](./media/cache-how-to-monitor/redis-cache-monitoring-part.png)
 
 ### <a name="usage-charts"></a>Wykresy użycia
 
-Sekcja **Użycie** w bloku **Przegląd** zawiera wykresy Obciążenie **serwera Redis,** Użycie **pamięci,** **Przepustowość sieci**i Użycie **procesora CPU,** a także jest **wyświetlana warstwa cenowa** dla wystąpienia pamięci podręcznej.
+Sekcja **użycie** w bloku **Przegląd** ma **Redis obciążenia serwera**, **użycie pamięci**, **przepustowość sieci**i wykresy **użycia procesora CPU** , a także wyświetla **warstwę cenową** dla wystąpienia pamięci podręcznej.
 
 ![Wykresy użycia](./media/cache-how-to-monitor/redis-cache-usage-part.png)
 
-**Warstwa cenowa** wyświetla warstwę cenową pamięci podręcznej i może służyć do [skalowania](cache-how-to-scale.md) pamięci podręcznej do innej warstwy cenowej.
+**Warstwa cenowa** zawiera warstwę cenową pamięci podręcznej i może służyć do [skalowania](cache-how-to-scale.md) pamięci podręcznej do innej warstwy cenowej.
 
-## <a name="view-metrics-with-azure-monitor"></a>Wyświetlanie metryk za pomocą monitora platformy Azure
+## <a name="view-metrics-with-azure-monitor"></a>Wyświetlanie metryk przy użyciu usługi Azure monitor
 
-Aby wyświetlić metryki Redis i utworzyć niestandardowe wykresy za pomocą usługi Azure Monitor, kliknij **polecenie Metryki** z menu **Zasób**i dostosuj wykres przy użyciu żądanych metryk, interwału raportowania, typu wykresu i innych obrażeń.
+Aby wyświetlić metryki Redis i utworzyć wykresy niestandardowe przy użyciu Azure Monitor, kliknij pozycję **metryki** w **menu zasób**i Dostosuj wykres przy użyciu żądanych metryk, interwału raportowania, typu wykresu i innych.
 
 ![Metryki Redis](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-Aby uzyskać więcej informacji na temat pracy z metrykami przy użyciu usługi Azure Monitor, zobacz [Omówienie metryk na platformie Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Aby uzyskać więcej informacji na temat pracy z metrykami przy użyciu Azure Monitor, zobacz [Omówienie metryk w Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
-## <a name="export-cache-metrics"></a>Eksportowanie danych pamięci podręcznej
+## <a name="export-cache-metrics"></a>Eksportowanie metryk pamięci podręcznej
 
-Domyślnie metryki pamięci podręcznej w usłudze Azure Monitor są [przechowywane przez 30 dni,](../azure-monitor/platform/data-platform-metrics.md) a następnie usuwane. Aby utrwalić metryki pamięci podręcznej przez okres dłuższy niż 30 dni, można [wyznaczyć konto magazynu](../azure-monitor/platform/archive-diagnostic-logs.md) i określić zasady **przechowywania (dni)** dla metryk pamięci podręcznej. 
+Domyślnie metryki pamięci podręcznej w Azure Monitor są [przechowywane przez 30 dni](../azure-monitor/platform/data-platform-metrics.md) , a następnie usuwane. Aby zachować metryki pamięci podręcznej przez dłużej niż 30 dni, można [wyznaczyć konto magazynu](../azure-monitor/platform/archive-diagnostic-logs.md) i określić zasady **przechowywania (dni)** dla metryk pamięci podręcznej. 
 
 Aby skonfigurować konto magazynu dla metryk pamięci podręcznej:
 
-1. Na stronie **Azure Cache for Redis** w nagłówku **Monitorowanie** wybierz pozycję **Diagnostyka**.
-2. Wybierz **+ Dodaj ustawienie diagnostyczne**.
-3. Nazwij ustawienia.
-4. Zaznacz pozycję **Zarchiwizuj na koncie magazynu**. Podczas wysyłania diagnostyki na konto magazynu zostanie naliczona normalna opłata za dane.
-4. Wybierz **pozycję Konfiguruj,** aby wybrać konto magazynu, na którym mają być przechowywane metryki pamięci podręcznej.
-5. Pod **metryką**nagłówka tabeli pole wyboru obok elementów zamówienia, które chcesz przechowywać, takich jak **AllMetrics**. Określ zasady **przechowywania (dni).** Maksymalna liczba dni przechowywania, którą można określić, to **365 dni**. Jeśli jednak chcesz zachować dane metryk na zawsze, ustaw **retencję (dni)** na **0**.
+1. Na stronie **usługi Azure cache for Redis** w obszarze nagłówek **monitorowania** wybierz pozycję **Diagnostyka**.
+2. Wybierz pozycję **+ Dodaj ustawienie diagnostyczne**.
+3. Nadaj nazwę ustawieniom.
+4. Zaznacz pozycję **Zarchiwizuj na koncie magazynu**. W przypadku wysyłania danych diagnostycznych do konta magazynu będą naliczone zwykłe stawki za dane związane z magazynowaniem i transakcjami.
+4. Wybierz pozycję **Konfiguruj** , aby wybrać konto magazynu, w którym mają być przechowywane metryki pamięci podręcznej.
+5. W obszarze pole **Metryka**nagłówka tabeli obok elementów wiersza, które mają być przechowywane, takich jak **AllMetrics**. Określ zasady **przechowywania (dni)** . Maksymalne dozwolone okresy przechowywania to **365 dni**. Jeśli jednak chcesz zachować dane metryk w nieskończoność, ustaw wartość **przechowywanie (w dniach)** na **0**.
 6. Kliknij przycisk **Zapisz**.
 
 
 ![Diagnostyka Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->Oprócz archiwizowania metryk pamięci podręcznej do magazynu można również [przesyłać strumieniowo je do Centrum zdarzeń lub wysyłać je do dzienników usługi Azure Monitor.](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values)
+>Oprócz archiwizowania metryk pamięci podręcznej do magazynu można także [przesyłać strumieniowo do centrum zdarzeń lub wysyłać je do dzienników Azure monitor](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values).
 >
 
-Aby uzyskać dostęp do metryk, można wyświetlić je w witrynie Azure portal, jak opisano wcześniej w tym artykule, a także uzyskać do nich dostęp za pomocą [interfejsu API REST metryki usługi Azure Monitor.](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
+Aby uzyskać dostęp do metryk, można je wyświetlić w Azure Portal, jak opisano wcześniej w tym artykule, a także uzyskać do nich dostęp za pomocą [interfejsu API REST metryk Azure monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 > [!NOTE]
-> Jeśli zmienisz konta magazynu, dane na wcześniej skonfigurowanym koncie magazynu pozostają dostępne do pobrania, ale nie są wyświetlane w witrynie Azure portal.  
+> Jeśli zmienisz konta magazynu, dane na wcześniej skonfigurowanym koncie magazynu pozostaną dostępne do pobrania, ale nie będą wyświetlane w Azure Portal.  
 > 
 
 ## <a name="available-metrics-and-reporting-intervals"></a>Dostępne metryki i interwały raportowania
 
-Metryki pamięci podręcznej są zgłaszane przy użyciu kilku interwałów raportowania, w tym **przeszłe godziny**, **Dzisiaj,** **Ostatni tydzień**i **Niestandardowe**. **Bloku metryki** dla każdego wykresu metryki wyświetla średnie, minimalne i maksymalne wartości dla każdej metryki na wykresie, a niektóre metryki wyświetlają sumę dla interwału raportowania. 
+Metryki pamięci podręcznej są raportowane przy użyciu kilku interwałów raportowania, w tym **ostatnich godzin**, **dzisiaj**, **ostatnich tygodni**i **niestandardowych**. Blok **metryk** dla każdego wykresu metryk zawiera wartości średnie, minimum i maksimum dla każdej metryki na wykresie, a niektóre metryki zawierają sumę dla interwału raportowania. 
 
-Każda metryka zawiera dwie wersje. Jedna metryka mierzy wydajność dla całej pamięci podręcznej i dla pamięci podręcznej, `(Shard 0-9)` które używają [klastrowania](cache-how-to-premium-clustering.md), druga wersja metryki, która zawiera w nazwie mierzy wydajność dla pojedynczego fragmentu w pamięci podręcznej. Na przykład, jeśli pamięć podręczna `Cache Hits` ma cztery fragmenty, jest całkowita `Cache Hits (Shard 3)` liczba trafień dla całej pamięci podręcznej i jest tylko trafienia dla tego fragmentu pamięci podręcznej.
+Każda Metryka zawiera dwie wersje. Jedna Metryka mierzy wydajność dla całej pamięci podręcznej, a dla pamięci podręcznej korzystającej z [klastrowania](cache-how-to-premium-clustering.md)druga `(Shard 0-9)` wersja metryki, która obejmuje nazwę mierzy wydajność dla jednego fragmentu w pamięci podręcznej. Na przykład jeśli pamięć podręczna ma cztery fragmentów `Cache Hits` , to łączna liczba trafień dla całej pamięci podręcznej `Cache Hits (Shard 3)` i jest to tylko liczba trafień dla tego fragmentu pamięci podręcznej.
 
 > [!NOTE]
-> Nawet wtedy, gdy pamięć podręczna jest bezczynna bez podłączonych aktywnych aplikacji klienckich, mogą być widoczne pewne działania pamięci podręcznej, takie jak połączone klientów, użycie pamięci i operacje wykonywane. To działanie jest normalne podczas działania usługi Azure Cache dla wystąpienia Redis.
+> Nawet wtedy, gdy pamięć podręczna jest bezczynna bez podłączonych aktywnych aplikacji klienckich, może zostać wyświetlona część działania pamięci podręcznej, na przykład połączone Klienci, użycie pamięci i operacje. To działanie jest normalne w trakcie działania wystąpienia usługi Azure cache for Redis.
 > 
 > 
 
 | Metryka | Opis |
 | --- | --- |
-| Trafienia w pamięci podręcznej |Liczba pomyślnych odnośeń kluczy w określonym przedziale raportowania. Ten numer `keyspace_hits` jest mapowana z polecenia Redis [INFO.](https://redis.io/commands/info) |
-| Opóźnienie pamięci podręcznej (wersja zapoznawcza) | Opóźnienie pamięci podręcznej obliczone na podstawie opóźnienia między węzłem pamięci podręcznej. Ta metryka jest mierzona w mikrosekundach `Min`i `Max`ma trzy wymiary: `Avg`, i , które reprezentują średnie, minimalne i maksymalne opóźnienie pamięci podręcznej odpowiednio w określonym przedziale raportowania. |
-| Chybienia w pamięci podręcznej |Liczba nieudanych odnośeń kluczy w określonym przedziale raportowania. Ten numer `keyspace_misses` jest mapowana z polecenia Redis INFO. Braki w pamięci podręcznej nie muszą oznaczać, że występuje problem z pamięcią podręczną. Na przykład podczas korzystania z wzorca programowania na bok pamięci podręcznej, aplikacja wygląda najpierw w pamięci podręcznej dla elementu. Jeśli element nie istnieje (brak pamięci podręcznej), element jest pobierany z bazy danych i dodawany do pamięci podręcznej następnym razem. Chybienia w pamięci podręcznej są normalne zachowanie dla wzorca programowania na bok pamięci podręcznej. Jeśli liczba braków w pamięci podręcznej jest wyższa niż oczekiwano, sprawdź logikę aplikacji, która wypełnia i odczytuje z pamięci podręcznej. Jeśli elementy są eksmitowane z pamięci podręcznej z powodu ciśnienia pamięci, to może być kilka `Used Memory` `Evicted Keys`chybień w pamięci podręcznej, ale lepszą metryką do monitorowania ciśnienia pamięci byłoby lub . |
-| Odczyt pamięci podręcznej |Ilość danych odczytywanych z pamięci podręcznej w megabajtach na sekundę (MB/s) w określonym przedziale raportowania. Ta wartość jest pochodną kart interfejsu sieciowego, które obsługują maszynę wirtualną, która obsługuje pamięć podręczną i nie jest specyficzna dla redis. **Ta wartość odpowiada przepustowości sieci używanej przez tę pamięć podręczną. Jeśli chcesz skonfigurować alerty dla limitów przepustowości sieci po `Cache Read` stronie serwera, utwórz je za pomocą tego licznika. Zobacz [tę tabelę](cache-faq.md#cache-performance) dla obserwowanych limitów przepustowości dla różnych warstw i rozmiarów cen pamięci podręcznej.** |
-| Zapis w pamięci podręcznej |Ilość danych zapisanych w pamięci podręcznej w megabajtach na sekundę (MB/s) w określonym przedziale raportowania. Ta wartość jest pochodną kart interfejsu sieciowego, które obsługują maszynę wirtualną, która obsługuje pamięć podręczną i nie jest specyficzna dla redis. Ta wartość odpowiada przepustowości sieci danych wysyłanych do pamięci podręcznej z klienta. |
-| Podłączeni klienci |Liczba połączeń klienta z pamięcią podręczną w określonym przedziale raportowania. Ten numer `connected_clients` jest mapowana z polecenia Redis INFO. Po osiągnięciu [limitu połączenia](cache-configure.md#default-redis-server-configuration) kolejne próby połączenia z pamięcią podręczną nie powiodą się. Nawet jeśli nie ma żadnych aktywnych aplikacji klienckich, nadal może istnieć kilka wystąpień połączonych klientów z powodu wewnętrznych procesów i połączeń. |
-| Procesor CPU |Wykorzystanie procesora CPU serwera Azure Cache for Redis jako procent w określonym przedziale raportowania. Ta wartość jest mapowana na licznik wydajności systemu operacyjnego. `\Processor(_Total)\% Processor Time` |
-| Errors | Określone błędy i problemy z wydajnością, które mogą wystąpić w pamięci podręcznej podczas określonego interwału raportowania. Ta metryka ma osiem wymiarów reprezentujących różne typy błędów, ale może mieć więcej dodane w przyszłości. Typy błędów reprezentowane teraz są następujące: <br/><ul><li>**Praca awaryjna** — gdy pamięć podręczna działa awaryjnie (podrzędny promuje do wzorca)</li><li>**Dataloss** – gdy w pamięci podręcznej występuje utrata danych</li><li>**Nie odpowiadaClients** – gdy klienci nie odczytują danych z serwera wystarczająco szybko</li><li>**AOF** – gdy występuje problem związany z trwałością AOF</li><li>**RDB** – gdy występuje problem związany z trwałością RDB</li><li>**Import –** gdy występuje problem związany z importem RDB</li><li>**Eksport** — gdy występuje problem związany z eksportu RDB</li></ul> |
-| Eksmitowane klucze |Liczba elementów eksmitowanych z pamięci podręcznej `maxmemory` podczas określonego interwału raportowania z powodu limitu. Ten numer `evicted_keys` jest mapowana z polecenia Redis INFO. |
-| Wygasłe klucze |Liczba elementów wygasła z pamięci podręcznej podczas określonego interwału raportowania. Ta wartość `expired_keys` jest mapowana z polecenia Redis INFO.|
-| Pobiera |Liczba operacji get z pamięci podręcznej podczas określonego interwału raportowania. Ta wartość jest sumą następujących wartości z polecenia Redis `cmdstat_hgetall` `cmdstat_hmget`INFO `cmdstat_mget` `cmdstat_getbit`all: `cmdstat_getrange` `cmdstat_get`, `cmdstat_hget`, , , , , , i , i jest odpowiednikiem sumy trafień i chybień w pamięci podręcznej podczas interwału raportowania. |
-| Operacje na sekundę | Całkowita liczba poleceń przetwarzanych na sekundę przez serwer pamięci podręcznej w określonym przedziale raportowania.  Ta wartość jest mapowana na "instantaneous_ops_per_sec" z polecenia Redis INFO. |
-| Obciążenie serwera Redis |Procent cykli, w których serwer Redis jest zajęty przetwarzaniem i nie oczekuje bezczynności na wiadomości. Jeśli ten licznik osiągnie 100, oznacza to, że serwer Redis osiągnął pułap wydajności, a procesor nie może przetwarzać pracy szybciej. Jeśli widzisz wysokie obciążenie serwera Redis, zobaczysz wyjątki limitu czasu w kliencie. W takim przypadku należy rozważyć skalowanie w górę lub partycjonowanie danych do wielu pamięci podręcznych. |
-| Zestawy |Liczba ustawionych operacji w pamięci podręcznej podczas określonego interwału raportowania. Ta wartość jest sumą następujących wartości z polecenia `cmdstat_set`Redis `cmdstat_hmset` `cmdstat_hsetnx`INFO `cmdstat_lset` `cmdstat_mset`all: `cmdstat_setbit` `cmdstat_setex`, `cmdstat_setrange` `cmdstat_hset`, `cmdstat_setnx`, , , , `cmdstat_msetnx`, , , , , , , i . |
-| Całkowita liczba kluczy  | Maksymalna liczba kluczy w pamięci podręcznej w poprzednim okresie raportowania. Ten numer `keyspace` jest mapowana z polecenia Redis INFO. Ze względu na ograniczenie podstawowego systemu metryk dla pamięci podręcznych z włączoną klastrowania, Całkowita liczba kluczy zwraca maksymalną liczbę kluczy niezależnego fragmentu, który miał maksymalną liczbę kluczy w interwale raportowania.  |
-| Łączna liczba operacji |Całkowita liczba poleceń przetwarzanych przez serwer pamięci podręcznej w określonym przedziale raportowania. Ta wartość `total_commands_processed` jest mapowana z polecenia Redis INFO. Gdy usługa Azure Cache for Redis jest używana wyłącznie dla pub/sub, `Sets`nie będzie żadnych `Total Operations` metryk dla `Cache Hits`, `Cache Misses` `Gets`, lub , ale będą metryki, które odzwierciedlają użycie pamięci podręcznej dla operacji pub/sub. |
-| Używana pamięć |Ilość pamięci podręcznej używanej dla par klucz/wartość w pamięci podręcznej w MB podczas określonego interwału raportowania. Ta wartość `used_memory` jest mapowana z polecenia Redis INFO. Ta wartość nie obejmuje metadanych ani fragmentacji. |
-| Procent używanej pamięci | % całkowitej pamięci używanej w określonym przedziale raportowania.  Ta wartość odwołuje `used_memory` się do wartości z polecenia Redis INFO, aby obliczyć wartość procentową. |
-| Używane pamięci RSS |Ilość pamięci podręcznej używanej w MB podczas określonego interwału raportowania, w tym fragmentacji i metadanych. Ta wartość `used_memory_rss` jest mapowana z polecenia Redis INFO. |
+| Trafienia pamięci podręcznej |Liczba pomyślnych wyszukiwań kluczy w określonym interwale raportowania. Ta liczba jest mapowana `keyspace_hits` na wartość z Redis [info](https://redis.io/commands/info) . |
+| Opóźnienie pamięci podręcznej (wersja zapoznawcza) | Opóźnienie pamięci podręcznej obliczone na podstawie opóźnienia międzywęzłowego pamięci podręcznej. Ta Metryka jest mierzona w mikrosekundach i ma trzy wymiary: `Avg`, `Min`, i `Max`, które reprezentują średnią, minimalną i maksymalną liczbę opóźnień pamięci podręcznej odpowiednio do określonego interwału raportowania. |
+| Chybienia w pamięci podręcznej |Liczba nieudanych wyszukiwań kluczy w określonym interwale raportowania. Ta liczba jest mapowana `keyspace_misses` na wartość z Redis info. Chybienia w pamięci podręcznej nie muszą oznaczać, że występuje problem z pamięcią podręczną. Na przykład w przypadku korzystania ze wzorca programowania z obsługą pamięci podręcznej aplikacja najpierw szuka elementu w pamięci podręcznej. Jeśli element nie istnieje (chybień w pamięci podręcznej), element zostanie pobrany z bazy danych i dodany do pamięci podręcznej za następnym razem. Chybienia w pamięci podręcznej są normalnym zachowaniem wzorca programowania w pamięci podręcznej. Jeśli liczba chybień w pamięci podręcznej jest większa niż oczekiwana, należy zapoznać się z logiką aplikacji, która wypełnia i odczytuje dane z pamięci podręcznej. Jeśli elementy są usuwane z pamięci podręcznej ze względu na wykorzystanie pamięci, może wystąpić kilka chybień pamięci podręcznej, ale lepszym rozwiązaniem jest monitorowanie pod kątem wykorzystania `Used Memory` pamięci `Evicted Keys`lub. |
+| Odczyt pamięci podręcznej |Ilość danych odczytanych z pamięci podręcznej w megabajtach na sekundę (MB/s) podczas określonego interwału raportowania. Ta wartość pochodzi z kart interfejsu sieciowego, które obsługują maszynę wirtualną obsługującą pamięć podręczną, i nie Redis określonych. **Ta wartość odpowiada przepustowości sieci używanej przez tę pamięć podręczną. Jeśli chcesz skonfigurować alerty dla limitów przepustowości sieci po stronie serwera, utwórz je przy użyciu tego `Cache Read` licznika. [Poniższa tabela](cache-faq.md#cache-performance) zawiera szczegółowe limity przepustowości dla różnych warstw i rozmiarów cenowych pamięci podręcznej.** |
+| Zapis pamięci podręcznej |Ilość danych zapisywana w pamięci podręcznej w megabajtach na sekundę (MB/s) podczas określonego interwału raportowania. Ta wartość pochodzi z kart interfejsu sieciowego, które obsługują maszynę wirtualną obsługującą pamięć podręczną, i nie Redis określonych. Ta wartość odpowiada przepustowości sieci danych wysyłanych do pamięci podręcznej z klienta programu. |
+| Podłączeni klienci |Liczba połączeń klienta z pamięcią podręczną w określonym interwale raportowania. Ta liczba jest mapowana `connected_clients` na wartość z Redis info. Po osiągnięciu [limitu połączenia](cache-configure.md#default-redis-server-configuration) kolejne próby połączenia z pamięcią podręczną zakończą się niepowodzeniem. Nawet jeśli nie ma aktywnych aplikacji klienckich, nadal może istnieć kilka wystąpień połączonych klientów z powodu wewnętrznych procesów i połączeń. |
+| Procesor CPU |Użycie procesora CPU w pamięci podręcznej platformy Azure dla serwera Redis jako wartość procentowa w określonym interwale raportowania. Ta wartość jest mapowana na licznik wydajności `\Processor(_Total)\% Processor Time` systemu operacyjnego. |
+| Errors | Określone błędy i problemy z wydajnością, które mogą występować w pamięci podręcznej w określonym interwale raportowania. Ta Metryka ma osiem wymiarów reprezentujących różne typy błędów, ale w przyszłości może być dodanych. Reprezentowane typy błędów są następujące: <br/><ul><li>Tryb failover — gdy pamięć podręczna zostanie przełączona w tryb **pracy awaryjnej** (podrzędna prom do głównego)</li><li>**Datastrata** — w przypadku utraty danych w pamięci podręcznej</li><li>**UnresponsiveClients** — gdy klienci nie odczytują danych z serwera wystarczająco szybko</li><li>**Kopia zapasowa AOF** — w przypadku problemów związanych z TRWAŁOŚCIą kopia zapasowa AOF</li><li>**RDB** — w przypadku wystąpienia problemu związanego z TRWAŁOŚCIą RDB</li><li>**Importuj** — w przypadku problemu związanego z IMPORTem RDB</li><li>**Eksport** — w przypadku problemu związanego z EKSPORTem RDB</li></ul> |
+| Wykluczone klucze |Liczba elementów wykluczonych z pamięci podręcznej w określonym interwale raportowania ze względu na `maxmemory` limit. Ta liczba jest mapowana `evicted_keys` na wartość z Redis info. |
+| Wygasłe klucze |Liczba elementów, które wygasły z pamięci podręcznej w określonym interwale raportowania. Ta wartość jest mapowana `expired_keys` na podstawie polecenia Redis info.|
+| Kto |Liczba operacji pobierania z pamięci podręcznej w określonym interwale raportowania. Ta wartość jest sumą następujących wartości z polecenia Redis info All `cmdstat_get`:, `cmdstat_hget`, `cmdstat_hgetall` `cmdstat_hmget` `cmdstat_mget` `cmdstat_getbit`,,, i `cmdstat_getrange`, i jest równoważna z sumą trafień w pamięci podręcznej i chybień w okresie raportowania. |
+| Liczba operacji na sekundę | Całkowita liczba poleceń przetworzonych na sekundę przez serwer pamięci podręcznej w określonym interwale raportowania.  Ta wartość mapuje na "instantaneous_ops_per_sec" z Redis INFO. |
+| Ładowanie serwera Redis |Procent cykli, w których serwer Redis jest zajęty przetwarzaniem i nie oczekuje na bezczynność komunikatów. Jeśli licznik osiągnie wartość 100, oznacza to, że serwer Redis osiągnął limit wydajności, a procesor CPU nie może przetwarzać pracy szybciej. Jeśli widzisz duże obciążenie serwera Redis, zobaczysz wyjątki limitu czasu na kliencie. W takim przypadku należy rozważyć skalowanie w górę lub partycjonowanie danych w wielu pamięciach podręcznych. |
+| Zestawy |Liczba operacji ustawiania w pamięci podręcznej w określonym interwale raportowania. Ta wartość `cmdstat_set`jest sumą następujących wartości z polecenia Redis info All:, `cmdstat_hset`, `cmdstat_hmset` `cmdstat_hsetnx` `cmdstat_lset` `cmdstat_mset` `cmdstat_msetnx` `cmdstat_setbit` `cmdstat_setex` `cmdstat_setrange`,,,,,,, i. `cmdstat_setnx` |
+| Łączna liczba kluczy  | Maksymalna liczba kluczy w pamięci podręcznej w okresie ostatniej sprawozdawczej. Ta liczba jest mapowana `keyspace` na wartość z Redis info. Ze względu na ograniczenie podstawowego systemu metryk dla pamięci podręcznej z włączoną obsługą klastrowania, funkcja łączna liczba kluczy zwraca maksymalną liczbę kluczy fragmentu, która miała maksymalną liczbę kluczy w interwale raportowania.  |
+| Łączna liczba operacji |Całkowita liczba poleceń przetworzonych przez serwer pamięci podręcznej w określonym interwale raportowania. Ta wartość jest mapowana `total_commands_processed` na podstawie polecenia Redis info. Gdy pamięć podręczna Azure for Redis jest używana wyłącznie w przypadku publikowania/obsługi, nie będą dostępne `Cache Hits`żadne `Cache Misses`metryki dla, `Gets`, lub `Sets`, ale `Total Operations` będą to metryki odzwierciedlające użycie pamięci podręcznej dla operacji publikowania/podprocedur. |
+| Używana pamięć |Ilość pamięci podręcznej używana dla par klucz/wartość w pamięci podręcznej w MB w określonym interwale raportowania. Ta wartość jest mapowana `used_memory` na podstawie polecenia Redis info. Ta wartość nie obejmuje metadanych ani fragmentacji. |
+| Wartość procentowa używanej pamięci | % Całkowitej ilości pamięci używanej w określonym interwale raportowania.  Ta wartość odwołuje `used_memory` się do wartości z polecenia Redis info w celu obliczenia wartości procentowej. |
+| Używana pamięć RSS |Ilość pamięci podręcznej używana w MB podczas określonego interwału raportowania, w tym fragmentacja i metadane. Ta wartość jest mapowana `used_memory_rss` na podstawie polecenia Redis info. |
 
 <a name="operations-and-alerts"></a>
 ## <a name="alerts"></a>Alerty
@@ -125,19 +125,19 @@ Można skonfigurować odbieranie alertów w oparciu o metryki i dzienniki aktywn
 * Wywołanie elementu webhook
 * Wywołanie aplikacji logiki platformy Azure
 
-Aby skonfigurować reguły alertów dla pamięci podręcznej, kliknij polecenie **Reguły alertów** z **menu Zasób**.
+Aby skonfigurować reguły alertów dla pamięci podręcznej, kliknij pozycję **reguły alertów** w **menu zasób**.
 
 ![Monitorowanie](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-Aby uzyskać więcej informacji na temat konfigurowania alertów i używania ich, zobacz [Omówienie alertów](../monitoring-and-diagnostics/insights-alerts-portal.md).
+Aby uzyskać więcej informacji o konfigurowaniu i używaniu alertów, zobacz [Omówienie alertów](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
 ## <a name="activity-logs"></a>Dzienniki aktywności
-Dzienniki aktywności zapewniają wgląd w operacje, które zostały wykonane w pamięci podręcznej platformy Azure dla wystąpień Redis. Wcześniej był znany jako "dzienniki inspekcji" lub "dzienniki operacyjne". Za pomocą dzienników aktywności, można określić "co, kto i kiedy" dla wszelkich operacji zapisu (PUT, POST, DELETE) podjęte w pamięci podręcznej platformy Azure dla wystąpień Redis. 
+Dzienniki aktywności zapewniają wgląd w operacje wykonane w pamięci podręcznej platformy Azure dla wystąpień Redis. Wcześniej była znana jako "dzienniki inspekcji" lub "dzienniki operacyjne". Korzystając z dzienników aktywności, można określić "co, kto i kiedy" dla operacji zapisu (PUT, POST, DELETE) podejmowanych w pamięci podręcznej platformy Azure dla wystąpień Redis. 
 
 > [!NOTE]
-> Dzienniki aktywności nie zawierają operacji odczytu (GET).
+> Dzienniki aktywności nie obejmują operacji odczytu (GET).
 >
 
-Aby wyświetlić dzienniki aktywności pamięci podręcznej, kliknij polecenie **Dzienniki aktywności** z menu **Zasób**.
+Aby wyświetlić dzienniki aktywności pamięci podręcznej, kliknij pozycję **dzienniki aktywności** w **menu zasób**.
 
 Aby uzyskać więcej informacji na temat dzienników aktywności, zobacz [Omówienie dziennika aktywności platformy Azure](../azure-monitor/platform/platform-logs-overview.md).

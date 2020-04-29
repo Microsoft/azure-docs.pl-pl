@@ -17,24 +17,24 @@ ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: 1745ca176fac18b4903686cb556670531ee40a1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244760"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Tworzenie maszyny wirtualnej ze statycznym prywatnym adresem IP przy użyciu programu PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Maszynę wirtualną (VM) można utworzyć ze statycznym prywatnym adresem IP. Przypisz statyczny prywatny adres IP, a nie adres dynamiczny, jeśli chcesz wybrać adres z podsieci jest przypisany do maszyny Wirtualnej. Dowiedz się więcej o [statycznych prywatnych adresach IP](virtual-network-ip-addresses-overview-arm.md#allocation-method). Aby zmienić prywatny adres IP przypisany do istniejącej maszyny Wirtualnej z dynamicznego na statyczny lub pracować z publicznymi adresami IP, zobacz [Dodawanie, zmienianie lub usuwanie adresów IP](virtual-network-network-interface-addresses.md).
+Można utworzyć maszynę wirtualną za pomocą statycznego prywatnego adresu IP. Przypisz statyczny prywatny adres IP, a nie adres dynamiczny, jeśli chcesz wybrać adres z podsieci przypisany do maszyny wirtualnej. Dowiedz się więcej na temat [statycznych prywatnych adresów IP](virtual-network-ip-addresses-overview-arm.md#allocation-method). Aby zmienić prywatny adres IP przypisany do istniejącej maszyny wirtualnej z dynamicznego na statyczny lub do pracy z publicznymi adresami IP, zobacz [Dodawanie, zmienianie lub usuwanie adresów IP](virtual-network-network-interface-addresses.md).
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Poniższe kroki można wykonać z komputera lokalnego lub przy użyciu usługi Azure Cloud Shell. Aby korzystać z komputera lokalnego, upewnij się, że [masz zainstalowany program Azure PowerShell](/powershell/azure/install-az-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Aby użyć usługi Azure Cloud Shell, wybierz try **it** w prawym górnym rogu dowolnego następującego pola poleceń. Powłoka w chmurze podpisuje Cię na platformie Azure.
+Poniższe kroki można wykonać z komputera lokalnego lub przy użyciu Azure Cloud Shell. Aby korzystać z komputera lokalnego, upewnij się, że [zainstalowano Azure PowerShell](/powershell/azure/install-az-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Aby użyć Azure Cloud Shell, wybierz opcję **Wypróbuj** w prawym górnym rogu dowolnego poniższego pola polecenia. Cloud Shell umożliwia zalogowanie się do platformy Azure.
 
-1. Jeśli używasz powłoki chmury, przejdź do kroku 2. Otwórz sesję polecenia i zaloguj `Connect-AzAccount`się na platformie Azure za pomocą pliku .
-2. Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Poniższy przykład tworzy grupę zasobów w regionie Wschodnia platforma Azure stanów USA:
+1. Jeśli używasz Cloud Shell, przejdź do kroku 2. Otwórz sesję polecenia i zaloguj się do platformy Azure `Connect-AzAccount`za pomocą usługi.
+2. Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Poniższy przykład tworzy grupę zasobów w regionie platformy Azure Wschodnie stany USA:
 
    ```azurepowershell-interactive
    $RgName = "myResourceGroup"
@@ -42,7 +42,7 @@ Poniższe kroki można wykonać z komputera lokalnego lub przy użyciu usługi A
    New-AzResourceGroup -Name $RgName -Location $Location
    ```
 
-3. Utwórz konfigurację podsieci i sieć wirtualną za pomocą poleceń [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) i [New-AzVirtualNetwork:](/powershell/module/az.network/new-azvirtualnetwork)
+3. Utwórz konfigurację podsieci i sieć wirtualną za pomocą poleceń [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) i [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) :
 
    ```azurepowershell-interactive
    # Create a subnet configuration
@@ -62,7 +62,7 @@ Poniższe kroki można wykonać z komputera lokalnego lub przy użyciu usługi A
    $Subnet = Get-AzVirtualNetworkSubnetConfig -Name $SubnetConfig.Name -VirtualNetwork $VNet
    ```
 
-4. Utwórz interfejs sieciowy w sieci wirtualnej i przypisz prywatny adres IP z podsieci do interfejsu sieciowego za pomocą poleceń [New-AzNetworkInterfaceIpConfig](/powershell/module/Az.Network/New-AzNetworkInterfaceIpConfig) i [New-AzNetworkInterface:](/powershell/module/az.network/new-aznetworkinterface)
+4. Utwórz interfejs sieciowy w sieci wirtualnej i przypisz prywatny adres IP z podsieci do interfejsu sieciowego za pomocą poleceń [New-AzNetworkInterfaceIpConfig](/powershell/module/Az.Network/New-AzNetworkInterfaceIpConfig) i [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) :
 
    ```azurepowershell-interactive
    $IpConfigName1 = "IPConfig-1"
@@ -79,7 +79,7 @@ Poniższe kroki można wykonać z komputera lokalnego lub przy użyciu usługi A
      -IpConfiguration $IpConfig1
    ```
 
-5. Utwórz konfigurację maszyny wirtualnej za pomocą [programu New-AzVMConfig,](/powershell/module/Az.Compute/New-AzVMConfig)a następnie utwórz maszynę wirtualną za pomocą [programu New-AzVM](/powershell/module/az.Compute/New-azVM). Po wyświetleniu monitu podaj nazwę użytkownika i hasło, które mają być używane jako poświadczenia logowania dla maszyny Wirtualnej:
+5. Utwórz konfigurację maszyny wirtualnej za pomocą polecenie [New-AzVMConfig](/powershell/module/Az.Compute/New-AzVMConfig), a następnie utwórz maszynę wirtualną przy użyciu [nowej AzVM](/powershell/module/az.Compute/New-azVM). Po wyświetleniu monitu podaj nazwę użytkownika i hasło, które będą używane jako poświadczenia logowania dla maszyny wirtualnej:
 
    ```azurepowershell-interactive
    $VirtualMachine = New-AzVMConfig -VMName MyVM -VMSize "Standard_DS3"
@@ -90,17 +90,17 @@ Poniższe kroki można wykonać z komputera lokalnego lub przy użyciu usługi A
    ```
 
 > [!WARNING]
-> Chociaż można dodać ustawienia prywatnego adresu IP do systemu operacyjnego, zalecamy nie robić tego dopiero po [przeczytaniu Dodaj prywatny adres IP do systemu operacyjnego](virtual-network-network-interface-addresses.md#private).
+> Mimo że można dodać ustawienia prywatnych adresów IP do systemu operacyjnego, zalecamy wykonanie tej czynności dopiero po [dodaniu przez dodanie prywatnego adresu IP do systemu operacyjnego](virtual-network-network-interface-addresses.md#private).
 > 
 > 
 > <a name = "change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>
 > 
 > [!IMPORTANT]
-> Aby uzyskać dostęp do maszyny Wirtualnej z Internetu, należy przypisać publiczny adres IP do maszyny Wirtualnej. Można również zmienić dynamiczne przypisanie prywatnego adresu IP na przypisanie statyczne. Aby uzyskać szczegółowe informacje, zobacz [Dodawanie lub zmienianie adresów IP](virtual-network-network-interface-addresses.md). Ponadto zaleca się ograniczenie ruchu sieciowego do maszyny Wirtualnej przez skojarzenie sieciowej grupy zabezpieczeń z interfejsem sieciowym, podsiecią, w której utworzono interfejs sieciowy lub obie te elementy. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie grupami zabezpieczeń sieci .](manage-network-security-group.md)
+> Aby uzyskać dostęp do maszyny wirtualnej za pośrednictwem Internetu, należy przypisać publiczny adres IP do maszyny wirtualnej. Możesz również zmienić przypisanie dynamicznego prywatnego adresu IP do przypisania statycznego. Aby uzyskać szczegółowe informacje, zobacz [Dodawanie lub zmiana adresów IP](virtual-network-network-interface-addresses.md). Ponadto zaleca się ograniczenie ruchu sieciowego do maszyny wirtualnej przez skojarzenie sieciowej grupy zabezpieczeń z interfejsem sieciowym, podsieci, w której został utworzony interfejs sieciowy w programie lub obu tych elementów. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie grupami zabezpieczeń sieci](manage-network-security-group.md).
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie jest już potrzebne, można użyć [Remove-AzResourceGroup,](/powershell/module/az.resources/remove-azresourcegroup) aby usunąć grupę zasobów i wszystkie zasoby, które zawiera:
+Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) :
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force
@@ -108,5 +108,5 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [prywatnych adresach IP](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) i przypisywaniu [statycznego prywatnego adresu IP](virtual-network-network-interface-addresses.md#add-ip-addresses) do maszyny wirtualnej platformy Azure.
-- Dowiedz się więcej o tworzeniu maszyn wirtualnych [z systemem Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i [Windows.](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Dowiedz się więcej o prywatnych adresach [IP](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) i przypisywaniu [statycznego prywatnego adresu IP](virtual-network-network-interface-addresses.md#add-ip-addresses) do maszyny wirtualnej platformy Azure.
+- Dowiedz się więcej o tworzeniu maszyn wirtualnych z systemem [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) .

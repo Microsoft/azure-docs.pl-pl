@@ -1,6 +1,6 @@
 ---
-title: Rozwiązanie VMware platformy Azure według cloudSimple — migrowanie maszyn wirtualnych z obciążeniem do chmury prywatnej
-description: W tym artykule opisano sposób migracji maszyn wirtualnych z lokalnego centrum vCenter do centrum vCenter cloudSimple Private Cloud
+title: Rozwiązanie VMware firmy Azure przez CloudSimple — Migrowanie maszyn wirtualnych obciążeń do chmury prywatnej
+description: Opisuje sposób migrowania maszyn wirtualnych z lokalnego programu vCenter do CloudSimple prywatnej chmury vCenter
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -9,40 +9,40 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 87b8a112a319519dbde977ee30136a884137212d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77019999"
 ---
-# <a name="migrate-workload-vms-from-on-premises-vcenter-to-private-cloud-vcenter-environment"></a>Migrowanie maszyn wirtualnych obciążenia z lokalnego środowiska vCenter do prywatnego centrum wirtualnego cloud
+# <a name="migrate-workload-vms-from-on-premises-vcenter-to-private-cloud-vcenter-environment"></a>Migrowanie maszyn wirtualnych obciążeń z lokalnego środowiska vCenter do chmury prywatnej
 
-Aby przeprowadzić migrację maszyn wirtualnych z lokalnego centrum danych do usługi CloudSimple Private Cloud, dostępnych jest kilka opcji.  Private Cloud zapewnia natywny dostęp do VMware vCenter, a narzędzia obsługiwane przez VMware mogą być używane do migracji obciążenia. W tym artykule opisano niektóre opcje migracji vCenter.
+Aby migrować maszyny wirtualne z lokalnego centrum danych do prywatnej chmury CloudSimple, dostępne są różne opcje.  Chmura prywatna zapewnia natywny dostęp do programu VMware vCenter, a narzędzia obsługiwane przez program VMware mogą służyć do migracji obciążeń. W tym artykule opisano niektóre opcje migracji programu vCenter.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Migracja maszyn wirtualnych i danych z lokalnego centrum danych wymaga łączności sieciowej z centrum danych do środowiska private cloud.  Aby ustanowić łączność sieciową, użyj jednej z następujących metod:
+Migracja maszyn wirtualnych i danych ze środowiska lokalnego centrum dane wymaga połączenia z siecią z centrów prywatnych.  Aby nawiązać połączenie sieciowe, użyj jednej z następujących metod:
 
-* [Połączenie sieci VPN między lokacją](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) a środowiskiem lokalnym a chmurą prywatną.
-* Połączenie Global Reach usługi ExpressRoute między lokalnym obwodem usługi ExpressRoute a obwodem CloudSimple ExpressRoute.
+* [Połączenie sieci VPN typu lokacja-lokacja](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) między środowiskiem lokalnym i chmurą prywatną.
+* ExpressRoute Global Reach połączenie między lokalnym obwodem usługi ExpressRoute i obwodem CloudSimple ExpressRoute.
 
-Ścieżka sieciowa z lokalnego środowiska vCenter do chmury prywatnej musi być dostępna do migracji maszyn wirtualnych przy użyciu vMotion.  Sieć vMotion w lokalnym centrum vCenter musi mieć możliwości routingu.  Sprawdź, czy zapora zezwala na cały ruch vMotion między lokalnym vCenter i Private Cloud vCenter. (W chmurze prywatnej routing w sieci vMotion jest domyślnie skonfigurowany).
+Ścieżka sieciowa z lokalnego środowiska vCenter do chmury prywatnej musi być dostępna do migracji maszyn wirtualnych przy użyciu vMotion.  Sieć vMotion na lokalnym serwerze vCenter musi mieć możliwości routingu.  Sprawdź, czy zapora zezwala na cały ruch vMotion między lokalnym programem vCenter i prywatnym chmurą w chmurze. (W chmurze prywatnej Routing w sieci vMotion jest domyślnie skonfigurowany).
 
-## <a name="migrate-isos-and-templates"></a>Migrowanie iso i szablonów
+## <a name="migrate-isos-and-templates"></a>Migrowanie obrazów ISO i szablonów
 
-Aby utworzyć nowe maszyny wirtualne w chmurze prywatnej, użyj iso i szablonów maszyn wirtualnych.  Aby przekazać iso i szablony do usługi Private Cloud vCenter i udostępnić je, należy użyć następującej metody.
+Aby tworzyć nowe maszyny wirtualne w chmurze prywatnej, użyj szablonów obrazów ISO i maszyn wirtualnych.  Aby przekazać obrazów ISO i szablony do chmury prywatnej programu vCenter i udostępnić je, użyj następującej metody.
 
-1. Przekaż iso do usługi Private Cloud vCenter z interfejsu użytkownika vCenter.
-2. [Opublikuj bibliotekę zawartości](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A0F1C13-7336-45CE-B211-610D39A6E1F4.html) w centrum vCenter private cloud:
+1. Przekaż plik ISO do chmury prywatnej vCenter z interfejsu użytkownika vCenter.
+2. [Publikowanie biblioteki zawartości](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A0F1C13-7336-45CE-B211-610D39A6E1F4.html) w chmurze prywatnej vCenter:
 
-    1. Publikuj lokalną bibliotekę zawartości.
-    2. Utwórz nową bibliotekę zawartości w centrum vCenter private cloud.
-    3. Subskrybuj opublikowaną lokalną bibliotekę zawartości.
-    4. Synchronizuj bibliotekę zawartości w celu uzyskania dostępu do subskrybowanych zawartości.
+    1. Opublikuj lokalną bibliotekę zawartości.
+    2. Utwórz nową bibliotekę zawartości na serwerze vCenter w chmurze prywatnej.
+    3. Zasubskrybuj opublikowaną lokalną bibliotekę zawartości.
+    4. Zsynchronizuj bibliotekę zawartości, aby uzyskać dostęp do subskrybowanej zawartości.
 
-## <a name="migrate-vms-using-powercli"></a>Migrowanie maszyn wirtualnych przy użyciu funkcji PowerCLI
+## <a name="migrate-vms-using-powercli"></a>Migrowanie maszyn wirtualnych przy użyciu PowerCLI
 
-Aby przeprowadzić migrację maszyn wirtualnych z lokalnego centrum vCenter do centrum wirtualnego private cloud, należy użyć narzędzia VMware PowerCLI lub Cross vCenter Workload Migration Utility dostępnego w programie VMware Labs.  Poniższy przykładowy skrypt przedstawia polecenia migracji PowerCLI.
+Aby przeprowadzić migrację maszyn wirtualnych z lokalnego programu vCenter do chmury prywatnej programu vCenter, użyj programu VMware PowerCLI lub narzędzia migracji obciążenia Cross vCenter dostępnego w oprogramowaniu VMware Labs.  Poniższy przykładowy skrypt przedstawia polecenia migracji PowerCLI.
 
 ```
 $sourceVC = Connect-VIServer -Server <source-vCenter name> -User <source-vCenter user name> -Password <source-vCenter user password>
@@ -53,19 +53,19 @@ Move-VM -VM $vm -VMotionPriority High -Destination (Get-VMhost -Server $targetVC
 ```
 
 > [!NOTE]
-> Aby użyć nazw docelowego serwera vCenter i hostów ESXi, skonfiguruj przekazywanie dns z lokalnego do chmury prywatnej.
+> Aby użyć nazw docelowego hosta programu vCenter i ESXi, skonfiguruj przekazywanie DNS z poziomu lokalnego do chmury prywatnej.
 
-## <a name="migrate-vms-using-nsx-layer-2-vpn"></a>Migrowanie maszyn wirtualnych przy użyciu sieci VPN w warstwie 2 NSX
+## <a name="migrate-vms-using-nsx-layer-2-vpn"></a>Migrowanie maszyn wirtualnych przy użyciu sieci VPN NSX warstwy 2
 
-Ta opcja umożliwia migrację na żywo obciążeń z lokalnego środowiska VMware do chmury prywatnej na platformie Azure.  Dzięki tej rozciągniętej sieci warstwy 2 podsieć lokalnie będzie dostępna w chmurze prywatnej.  Po migracji przypisanie nowego adresu IP nie jest wymagane dla maszyn wirtualnych.
+Ta opcja umożliwia migrację na żywo obciążeń z lokalnego środowiska VMware do chmury prywatnej na platformie Azure.  W tej rozciągniętej sieci warstwy 2, podsieć lokalna będzie dostępna w chmurze prywatnej.  Po migracji nowe przypisanie adresu IP nie jest wymagane dla maszyn wirtualnych.
 
-[Migrowanie obciążeń przy użyciu rozciągniętych sieci warstwy 2](migration-layer-2-vpn.md) opisuje sposób wykorzystania sieci VPN warstwy 2 do rozciągnięcia sieci warstwy 2 ze środowiska lokalnego do chmury prywatnej.
+[Migrowanie obciążeń przy użyciu rozproszonych sieci warstwy 2](migration-layer-2-vpn.md) opisuje sposób użycia sieci VPN warstwy 2 do rozciągnięcia sieci warstwy 2 ze środowiska lokalnego do chmury prywatnej.
 
-## <a name="migrate-vms-using-backup-and-disaster-recovery-tools"></a>Migrowanie maszyn wirtualnych przy użyciu narzędzi do tworzenia kopii zapasowych i odzyskiwania po awarii
+## <a name="migrate-vms-using-backup-and-disaster-recovery-tools"></a>Migrowanie maszyn wirtualnych przy użyciu narzędzi kopii zapasowej i odzyskiwania po awarii
 
-Migrację maszyn wirtualnych do chmury prywatnej można przeprowadzić za pomocą narzędzi do tworzenia kopii zapasowych/przywracania oraz narzędzi do odzyskiwania po awarii.  Użyj chmury prywatnej jako obiektu docelowego do przywracania z kopii zapasowych, które są tworzone przy użyciu narzędzia innej firmy.  Private Cloud może być również używany jako obiekt docelowy odzyskiwania po awarii przy użyciu usługi VMware SRM lub narzędzia innej firmy.
+Migrację maszyn wirtualnych do chmury prywatnej można wykonać przy użyciu narzędzi do tworzenia kopii zapasowych i przywracania danych.  Użyj chmury prywatnej jako celu do przywracania z kopii zapasowych utworzonych za pomocą narzędzia innej firmy.  Chmurę prywatną można również użyć jako elementu docelowego do odzyskiwania po awarii przy użyciu oprogramowania VMware SRM lub narzędzia innej firmy.
 
-Aby uzyskać więcej informacji za pomocą tych narzędzi, zobacz następujące tematy:
+Aby uzyskać więcej informacji na temat korzystania z tych narzędzi, zobacz następujące tematy:
 
-* [Tworzenie kopii zapasowych maszyn wirtualnych obciążenia w chmurze CloudSimple Private Cloud przy użyciu rozwiązania Veeam B&R](backup-workloads-veeam.md)
-* [Konfigurowanie chmury CloudSimple Private Cloud jako lokacji odzyskiwania po awarii dla lokalnych obciążeń VMware](disaster-recovery-zerto.md)
+* [Tworzenie kopii zapasowych maszyn wirtualnych obciążeń w chmurze prywatnej CloudSimple przy użyciu Veeam B&R](backup-workloads-veeam.md)
+* [Skonfiguruj chmurę prywatną CloudSimple jako lokację odzyskiwania po awarii dla lokalnych obciążeń programu VMware](disaster-recovery-zerto.md)

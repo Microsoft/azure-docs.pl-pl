@@ -1,6 +1,6 @@
 ---
-title: Lista odmów przydziałów dla zasobów platformy Azure za pomocą witryny Azure portal
-description: Dowiedz się, jak wyświetlić listę użytkowników, grup, podmiotów usługi i tożsamości zarządzanych, którym odmówiono dostępu do określonych akcji zasobów platformy Azure w określonych zakresach przy użyciu witryny Azure portal.
+title: Wyświetl listę odrzuconych przypisań zasobów platformy Azure za pomocą Azure Portal
+description: Dowiedz się, jak wyświetlić listę użytkowników, grup, nazw podmiotów usługi i zarządzanych tożsamości, dla których odmówiono dostępu do określonych akcji zasobów platformy Azure w określonych zakresach przy użyciu Azure Portal.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,99 +15,99 @@ ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 4db76e5c6191457346ca1f95678cf73843334d3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77137419"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Lista odmów przydziałów dla zasobów platformy Azure przy użyciu witryny Azure portal
+# <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Wyświetl listę odrzuconych przypisań zasobów platformy Azure przy użyciu Azure Portal
 
-[Odmów przydziałów](deny-assignments.md) zablokować użytkownikom wykonywanie określonych akcji zasobów platformy Azure, nawet jeśli przypisanie roli udziela im dostępu. W tym artykule opisano sposób listy przypisań odmowy przy użyciu witryny Azure Portal.
+[Odmowa przypisania](deny-assignments.md) uniemożliwia użytkownikom wykonywanie określonych akcji zasobów platformy Azure nawet wtedy, gdy przypisanie roli przyznaje im dostęp. W tym artykule opisano sposób wyświetlania listy zablokowanych przypisań przy użyciu Azure Portal.
 
 > [!NOTE]
-> Nie można bezpośrednio tworzyć własnych przypisań odmowy. Aby uzyskać informacje o sposobie tworzenia przypisań odmowy, zobacz [Odrzucanie przypisań](deny-assignments.md).
+> Nie można bezpośrednio tworzyć własnych przypisań Odmów. Aby uzyskać informacje na temat sposobu tworzenia przypisań Odmów, zobacz [odmowa przypisań](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby uzyskać informacje o przypisaniu odmowy, musisz mieć:
+Aby uzyskać informacje o przypisaniu odmowy, należy dysponować:
 
-- `Microsoft.Authorization/denyAssignments/read`uprawnienia, które są zawarte w większości [wbudowanych ról zasobów platformy Azure.](built-in-roles.md)
+- `Microsoft.Authorization/denyAssignments/read`uprawnienie, które jest zawarte w większości [wbudowanych ról dla zasobów platformy Azure](built-in-roles.md).
 
 ## <a name="list-deny-assignments"></a>Lista przypisań odmowy
 
-Wykonaj następujące kroki, aby wyświetlić listę odmów przypisania w zakresie subskrypcji lub grupy zarządzania.
+Wykonaj następujące kroki, aby wyświetlić listę odrzuconych przypisań w zakresie subskrypcji lub grupy zarządzania.
 
-1. W witrynie Azure portal kliknij pozycję **Wszystkie usługi,** a następnie **pozycję Grupy zarządzania** lub **Subskrypcje**.
+1. W Azure Portal kliknij pozycję **wszystkie usługi** , a następnie **grupy** lub **subskrypcje**zarządzania.
 
 1. Kliknij grupę zarządzania lub subskrypcję, którą chcesz wyświetlić.
 
 1. Kliknij pozycję **Kontrola dostępu (IAM)**.
 
-1. Kliknij kartę **Odmów przydziałów** (lub kliknij przycisk **Wyświetl** na kafelku Wyświetl przypisania odmów).
+1. Kliknij kartę **Odmów przypisań** (lub kliknij przycisk **Wyświetl** na kafelku widok Odmów przypisań).
 
     Jeśli istnieją przypisania odmowy występujące w tym zakresie lub dziedziczone przez ten zakres, zostaną wyświetlone.
 
-    ![Kontrola dostępu — karta Odmów przydziałów](./media/deny-assignments-portal/access-control-deny-assignments.png)
+    ![Kontrola dostępu — karta Odmów przypisania](./media/deny-assignments-portal/access-control-deny-assignments.png)
 
-1. Aby wyświetlić dodatkowe kolumny, kliknij pozycję **Edytuj kolumny**.
+1. Aby wyświetlić dodatkowe kolumny, kliknij przycisk **Edytuj kolumny**.
 
-    ![Odmów przydziałów — kolumny](./media/deny-assignments-portal/deny-assignments-columns.png)
+    ![Odmów przypisań — kolumny](./media/deny-assignments-portal/deny-assignments-columns.png)
 
     |  |  |
     | --- | --- |
-    | **Nazwa** | Nazwa przypisania odmowy. |
-    | **Typ nazwy głównej** | Użytkownik, grupa, grupa zdefiniowana przez system lub podmiot usługi. |
-    | **Odmowa**  | Nazwa podmiotu zabezpieczeń, który znajduje się w przypisaniu odmowy. |
-    | **Identyfikator** | Unikatowy identyfikator przypisania odmowy. |
-    | **Wykluczone zleceniodawców** | Czy istnieją podmioty zabezpieczeń, które są wykluczone z przypisania odmowy. |
-    | **Nie dotyczy dzieci** | Czy przypisanie odmowy jest dziedziczone do podzakresów. |
-    | **Ochrona systemu** | Czy przypisanie odmowy jest zarządzane przez platformę Azure. Obecnie zawsze tak. |
-    | **Zakres** | Grupa zarządzania, subskrypcja, grupa zasobów lub zasób. |
+    | **Nazwa** | Nazwa przypisania Odmów. |
+    | **Typ nazwy głównej** | Użytkownik, Grupa, grupa zdefiniowana przez system lub nazwa główna usługi. |
+    | **Odmowa**  | Nazwa podmiotu zabezpieczeń, który jest zawarty w przypisaniu Odmów. |
+    | **#C1** | Unikatowy identyfikator przypisania odmowy. |
+    | **Wykluczone podmioty zabezpieczeń** | Czy istnieją podmioty zabezpieczeń, które są wykluczone z przypisania Odmów. |
+    | **Nie ma zastosowania do elementów podrzędnych** | Czy przypisanie Odmów jest dziedziczone do podzakresów. |
+    | **Ochrona systemu** | Czy przypisanie Odmów jest zarządzane przez platformę Azure. Obecnie zawsze tak. |
+    | **Zakres** | Grupa zarządzania, subskrypcja, Grupa zasobów lub zasób. |
 
-1. Dodaj znacznik wyboru do dowolnego z włączonych elementów, a następnie kliknij przycisk **OK,** aby wyświetlić wybrane kolumny.
+1. Dodaj znacznik wyboru do dowolnego z włączonych elementów, a następnie kliknij przycisk **OK** , aby wyświetlić wybrane kolumny.
 
-## <a name="list-details-about-a-deny-assignment"></a>Wyświetlanie szczegółów dotyczących przypisania odmowy
+## <a name="list-details-about-a-deny-assignment"></a>Wyświetl szczegóły przypisania odmowy
 
-Wykonaj następujące kroki, aby wyświetlić listę dodatkowych szczegółów dotyczących przypisania odmowy.
+Wykonaj następujące kroki, aby wyświetlić listę dodatkowych informacji o przypisaniu Odmów.
 
-1. Otwórz okienko **Odmów przypisania** zgodnie z opisem w poprzedniej sekcji.
+1. Otwórz okienko **Odmów przypisań** zgodnie z opisem w poprzedniej sekcji.
 
-1. Kliknij nazwę przypisania odmowy, aby otworzyć blok **Użytkownicy.**
+1. Kliknij nazwę przypisywania Odmów, aby otworzyć blok **Użytkownicy** .
 
     ![Odmowa przypisania — użytkownicy](./media/deny-assignments-portal/deny-assignment-users.png)
 
-    **Blok Użytkownicy** zawiera następujące dwie sekcje.
+    Blok **Użytkownicy** zawiera dwie poniższe sekcje.
 
     |  |  |
     | --- | --- |
-    | **Odmowa przypisania ma zastosowanie do**  | Podmioty zabezpieczeń, których dotyczy przypisanie odmowy. |
-    | **Odmów przypisania wyklucza** | Podmioty zabezpieczeń, które są wykluczone z przypisania odmowy. |
+    | **Przypisanie odmowy dotyczy**  | Podmioty zabezpieczeń, do których odnosi się przypisanie odmowy. |
+    | **Wykluczanie przypisania Odmów** | Podmioty zabezpieczeń, które są wykluczone z przypisania Odmów. |
 
-    **Podmiot zabezpieczeń zdefiniowany przez system** reprezentuje wszystkich użytkowników, grupy, jednostki usługi i tożsamości zarządzane w katalogu usługi Azure AD.
+    Nazwa **główna zdefiniowana przez system** reprezentuje wszystkich użytkowników, grupy, nazwy główne usługi i zarządzane tożsamości w katalogu usługi Azure AD.
 
-1. Aby wyświetlić listę uprawnień, których odmówiono, kliknij pozycję **Odmowa uprawnień**.
+1. Aby wyświetlić listę zabronionych uprawnień, kliknij przycisk **odmowa uprawnień**.
 
-    ![Odmowa przypisania — odmowa uprawnień](./media/deny-assignments-portal/deny-assignment-denied-permissions.png)
+    ![Odmów uprawnień do odmowy przypisania](./media/deny-assignments-portal/deny-assignment-denied-permissions.png)
 
     | Typ akcji | Opis |
     | --- | --- |
     | **Akcje**  | Odmowa operacji zarządzania. |
-    | **NotActions** | Operacje zarządzania wyłączone z operacji zarządzania odmową. |
-    | **DataAkcje**  | Odmowa operacji danych. |
-    | **NotDataACtions (NotDataActions)** | Operacje danych wykluczone z operacji odmowy danych. |
+    | **NotActions** | Operacje zarządzania zostały wykluczone z odmowy operacji zarządzania. |
+    | **Akcje dataactions**  | Odmowa operacji na danych. |
+    | **NotDataActions** | Operacje na danych zostały wykluczone z odmowy operacji na danych. |
 
-    W przykładzie pokazanym na poprzednim zrzucie ekranu, poniżej znajdują się skuteczne uprawnienia:
+    W przykładzie pokazanym na poprzednim zrzucie ekranu są następujące czynne uprawnienia:
 
-    - Wszystkie operacje magazynowania na płaszczyźnie danych są odrzucane z wyjątkiem operacji obliczeniowych.
+    - Wszystkie operacje magazynu na płaszczyźnie danych są odrzucane z wyjątkiem operacji obliczeniowych.
 
-1. Aby wyświetlić właściwości przypisania **odmowy,** kliknij przycisk Właściwości .
+1. Aby wyświetlić właściwości przypisania odmowy, kliknij przycisk **Właściwości**.
 
-    ![Odmowa przypisania - Właściwości](./media/deny-assignments-portal/deny-assignment-properties.png)
+    ![Odmów przypisania — właściwości](./media/deny-assignments-portal/deny-assignment-properties.png)
 
-    Na **właściwości bloku,** można zobaczyć nazwę przypisania odmowy, identyfikator, opis i zakres. Przełącznik **Nie dotyczy** dzieci wskazuje, czy przypisanie odmowy jest dziedziczone do podzakresów. Przełącznik **chroniony przez system** wskazuje, czy to przypisanie odmowy jest zarządzane przez platformę Azure. Obecnie jest to **tak** we wszystkich przypadkach.
+    W bloku **Właściwości** można zobaczyć nazwę, identyfikator, opis i zakres przypisania Odmów. Przełącznik nie ma **zastosowania do elementów podrzędnych** wskazuje, czy przypisanie Odmów jest dziedziczone do podzakresów. Przełącznik **chroniony przez system** wskazuje, czy to przypisanie odmowy jest zarządzane przez platformę Azure. Obecnie jest to **tak** we wszystkich przypadkach.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Opis przypisań odmów dla zasobów platformy Azure](deny-assignments.md)
-* [Lista odmów przydziałów dla zasobów platformy Azure przy użyciu programu Azure PowerShell](deny-assignments-powershell.md)
+* [Informacje o odmowie przypisań zasobów platformy Azure](deny-assignments.md)
+* [Wyświetl listę odrzuconych przypisań zasobów platformy Azure przy użyciu Azure PowerShell](deny-assignments-powershell.md)

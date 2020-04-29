@@ -1,6 +1,6 @@
 ---
 title: Klasyczny model wdrażania platformy Azure
-description: Model wdrażania klasycznego, teraz zastępowany przez model Menedżera zasobów, wymusza globalny limit przydziału vCPU dla maszyn wirtualnych i zestawów skalowania maszyny wirtualnej.
+description: Klasyczny model wdrażania, który został zastąpiony przez model Menedżer zasobów, wymusza globalne limity przydziału vCPU dla maszyn wirtualnych i zestawów skalowania maszyn wirtualnych.
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
@@ -8,37 +8,37 @@ ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: a3d5106cafc1d3bfe77f3e42e85cedb668fc4fa0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76835635"
 ---
 # <a name="classic-deployment-model"></a>Klasyczny model wdrażania
 
-Klasyczny model wdrażania jest starszej generacji modelu wdrażania platformy Azure. Wymusza globalny limit przydziału vCPU dla maszyn wirtualnych i zestawów skalowania maszyn wirtualnych. Model wdrażania klasycznego nie jest już zalecany i jest teraz zastępowany przez model Menedżera zasobów.
+Klasyczny model wdrażania jest starszym modelem wdrażania platformy Azure. Wymusza globalny limit przydziału vCPU dla maszyn wirtualnych i zestawów skalowania maszyn wirtualnych. Klasyczny model wdrażania nie jest już zalecany i jest teraz zastępowany przez model Menedżer zasobów.
 
-Aby dowiedzieć się więcej o tych dwóch modelach wdrażania i zaletach korzystania z Menedżera zasobów, zobacz [Menedżer zasobów i wdrażanie klasyczne](../../azure-resource-manager/management/deployment-models.md).
+Aby dowiedzieć się więcej na temat tych dwóch modeli wdrażania i korzyści płynących z używania Menedżer zasobów, zobacz [wdrażanie Menedżer zasobów i klasycznych](../../azure-resource-manager/management/deployment-models.md).
 
-Podczas tworzenia nowej subskrypcji jest do niej przypisywany domyślny przydział procesorów wirtualnych. Za każdym razem, gdy nowa maszyna wirtualna ma zostać wdrożona przy użyciu klasycznego modelu wdrażania, suma nowego i istniejącego użycia procesora wirtualnego we wszystkich regionach nie może przekraczać przydziału vCPU zatwierdzonego dla klasycznego modelu wdrażania.
+Po utworzeniu nowej subskrypcji zostanie do niej przypisany domyślny przydział procesorów wirtualnych vCPU. Gdy nowa maszyna wirtualna ma zostać wdrożona przy użyciu klasycznego modelu wdrażania, suma nowych i istniejących vCPU użycie we wszystkich regionach nie może przekraczać limitu przydziału vCPU zatwierdzonego dla klasycznego modelu wdrażania.
 
-Aby dowiedzieć się więcej o przydziałach, zobacz [Limity subskrypcji i usług platformy Azure, przydziały i ograniczenia](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+Aby dowiedzieć się więcej na temat przydziałów, zobacz [limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-Można zażądać zwiększenia limitu przydziału procesora wirtualnego dla modelu wdrażania klasycznego. Użyj **pomocy + pomocy lub** użycia + **przydziałów** w witrynie Azure portal.
+Można zażądać zwiększenia limitu przydziału vCPU dla klasycznego modelu wdrażania. Użyj opcji **Pomoc i obsługa** lub **użycie i limity przydziału** w Azure Portal.
 
-## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-help--support"></a>Żądanie zwiększenia przydziału vCPU serii maszyn wirtualnych na poziomie subskrypcji przy użyciu pomocy + pomocy technicznej
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-help--support"></a>Żądanie zwiększania limitu przydziału vCPU na poziomie subskrypcji przy użyciu pomocy i obsługi technicznej
 
-Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć żądanie pomocy technicznej przy użyciu **pomocy + pomocy technicznej** w witrynie Azure portal.
+Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć żądanie obsługi przy użyciu **pomocy i obsługi technicznej** w Azure Portal.
 
-1. Z menu [portalu platformy Azure](https://portal.azure.com) wybierz pozycję Pomoc + obsługa **.**
+1. Z menu [Azure Portal](https://portal.azure.com) wybierz pozycję **Pomoc i obsługa techniczna**.
 
-   ![Wybierz Pomoc + pomoc w witrynie Azure portal](./media/resource-manager-core-quotas-request/help-plus-support.png)
+   ![Wybierz pozycję Pomoc i obsługa techniczna w Azure Portal](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-1. Wybierz **pozycję Nowe żądanie pomocy technicznej**.
+1. Wybierz pozycję **nowe żądanie obsługi**.
 
-   ![Tworzenie nowego żądania pomocy technicznej w witrynie Azure portal](./media/resource-manager-core-quotas-request/new-support-request.png)
+   ![Utwórz nowe żądanie obsługi w Azure Portal](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. W **sekcji Typ wydania**wybierz pozycję **Limity usługi i subskrypcji (przydziały)**.
+1. W polu **typ problemu**wybierz pozycję **usługi i limity subskrypcji (przydziały)**.
 
    ![Wybierz przydziały jako typ problemu](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
@@ -46,63 +46,63 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć żądanie pomocy tec
 
    ![Wybierz subskrypcję, dla której chcesz zwiększyć przydział](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
-1. W przypadku **typu przydziału**wybierz limit **subskrypcji Compute -VM (cores-vCPU).**
+1. W obszarze **Typ limitu przydziału**wybierz pozycję **COMPUTE-VM (rdzenie-procesorów wirtualnych vCPU)**.
 
-   ![Wybierz typ przydziału, aby zwiększyć](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   ![Wybierz typ limitu przydziału do zwiększenia](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-1. Wybierz **dalej: Rozwiązania,** aby otworzyć **SZCZEGÓŁY PROBLEMU**. Wybierz **pozycję Podaj szczegóły,** aby podać dodatkowe informacje.
+1. Wybierz pozycję **Dalej: rozwiązania** , aby otworzyć **Szczegóły problemu**. Wybierz pozycję **Podaj szczegóły** , aby podać dodatkowe informacje.
 
-   ![Podaj szczegóły, aby pomóc w zgłoszeniu](./media/resource-manager-core-quotas-request/provide-details-link.png)
+   ![Podaj szczegółowe informacje ułatwiające Twoje żądanie](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. W **obszarze Szczegóły przydziału**wybierz pozycję **Klasyczny** i wybierz **pozycję Lokalizacja**.
+1. W obszarze **Szczegóły przydziału**wybierz pozycję **klasyczne** i wybierz **lokalizację**.
 
-   ![Dodawanie szczegółów, w tym modelu wdrażania i lokalizacji](./media/resource-manager-core-quotas-request/quota-details-classic.png)
+   ![Dodaj szczegóły, w tym model wdrożenia i lokalizację](./media/resource-manager-core-quotas-request/quota-details-classic.png)
 
-1. W przypadku **rodziny jednostek SKU**wybierz jedną lub więcej rodzin jednostek SKU, które mają wzrosnąć.
+1. W przypadku **rodziny SKU**wybierz co najmniej jedną rodzinę SKU do zwiększenia.
 
-   ![Określ rodzinę jednostek SKU, aby zwiększyć](./media/resource-manager-core-quotas-request/sku-family-classic.png)
+   ![Określ rodzinę SKU do zwiększenia](./media/resource-manager-core-quotas-request/sku-family-classic.png)
 
-1. Wprowadź nowe limity, które chcesz w subskrypcji. Aby usunąć wiersz, usuń zaznaczenie jednostki SKU z **rodziny jednostek SKU** lub wybierz ikonę odrzuć "X". Po wprowadzeniu przydziału dla każdej rodziny jednostek SKU wybierz pozycję **Zapisz i kontynuuj** w **szczegółach przydziału,** aby kontynuować żądanie pomocy technicznej.
+1. Wprowadź nowe limity, które chcesz wykonać w ramach subskrypcji. Aby usunąć wiersz, usuń zaznaczenie jednostki SKU z **rodziny SKU** lub wybierz pozycję Odrzuć ikonę "X". Po wprowadzeniu przydziału dla każdej rodziny SKU wybierz pozycję **Zapisz i Kontynuuj** w obszarze **szczegóły limitu przydziału** , aby kontynuować żądanie pomocy technicznej.
 
-   ![Poproś o nowe limity](./media/resource-manager-core-quotas-request/new-limits-classic.png)
+   ![Żądaj nowych limitów](./media/resource-manager-core-quotas-request/new-limits-classic.png)
 
-## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-usage--quotas"></a>Żądanie na zwiększenie przydziału vCPU serii maszyn wirtualnych na poziomie subskrypcji przy użyciu + przydziały
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-usage--quotas"></a>Żądanie zwiększania limitu przydziału vCPU na poziomie subskrypcji przy użyciu i przydziałów
 
-Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć żądanie pomocy technicznej przy użyciu **użycia + przydziałów** w witrynie Azure portal.
+Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć żądanie obsługi przy użyciu przystawki **użycie + przydziały** w Azure Portal.
 
-1. W [witrynie Azure portal](https://portal.azure.com)wyszukaj i wybierz **pozycję Subskrypcje**.
+1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **subskrypcje**.
 
-   ![Przejdź do subskrypcji w witrynie Azure portal](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
+   ![Przejdź do pozycji subskrypcje w Azure Portal](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
 
 1. Wybierz subskrypcję, której przydział chcesz zwiększyć.
 
    ![Wybierz subskrypcję do zmodyfikowania](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
 
-1. Wybierz **opcję Użycie + przydziały**.
+1. Wybierz pozycję **użycie i przydziały**.
 
-   ![Wybieranie użycia i przydziałów dla subskrypcji](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
+   ![Wybierz użycie i przydziały dla subskrypcji](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
 
-1. W prawym górnym rogu wybierz pozycję **Poproś o zwiększenie**.
+1. W prawym górnym rogu wybierz pozycję **Zwiększ liczbę żądań**.
 
-   ![Wybierz, aby zwiększyć przydział](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
+   ![Wybierz, aby zwiększyć limit przydziału](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
 
-1. Wybierz **limit subskrypcji Compute-VM (cores-vCPU) zwiększa się** wraz z **typem przydziału**.
+1. Wybierz pozycję **COMPUTE-VM (rdzenie-procesorów wirtualnych vCPU) limit subskrypcji jest zwiększany** jako **typ przydziału**.
 
-   ![Wybierz typ przydziału](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   ![Wybierz typ limitu przydziału](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-1. Wybierz **dalej: Rozwiązania,** aby otworzyć **SZCZEGÓŁY PROBLEMU**. Wybierz **pozycję Podaj szczegóły,** aby podać dodatkowe informacje.
+1. Wybierz pozycję **Dalej: rozwiązania** , aby otworzyć **Szczegóły problemu**. Wybierz pozycję **Podaj szczegóły** , aby podać dodatkowe informacje.
 
-   ![Podaj szczegóły dotyczące swojego żądania](./media/resource-manager-core-quotas-request/provide-details-link.png)
+   ![Podaj szczegóły żądania](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. W **obszarze Szczegóły przydziału**wybierz pozycję **Klasyczny** i **Lokalizacja**.
+1. W obszarze **Szczegóły przydziału**wybierz pozycję **klasyczne** i **lokalizację**.
 
-   ![Wybieranie szczegółów przydziału, w tym modelu wdrożenia i lokalizacji](./media/resource-manager-core-quotas-request/quota-details-classic.png)
+   ![Wybierz Szczegóły przydziału, w tym model wdrożenia i lokalizację](./media/resource-manager-core-quotas-request/quota-details-classic.png)
 
-1. Wybierz jedną lub więcej rodzin jednostek SKU dla zwiększenia.
+1. Wybierz co najmniej jedną rodzinę SKU, aby zwiększyć.
 
-   ![Wybierz rodzinę jednostek SKU, aby zwiększyć](./media/resource-manager-core-quotas-request/sku-family-classic.png)
+   ![Wybierz rodzinę jednostek SKU do zwiększenia](./media/resource-manager-core-quotas-request/sku-family-classic.png)
 
-1. Wprowadź nowe limity, które chcesz w subskrypcji. Aby usunąć wiersz, usuń zaznaczenie jednostki SKU z **rodziny jednostek SKU** lub wybierz ikonę odrzuć "X". Po wprowadzeniu przydziału dla każdej rodziny jednostek SKU wybierz pozycję **Zapisz i kontynuuj** w **szczegółach przydziału,** aby kontynuować żądanie pomocy technicznej.
+1. Wprowadź nowe limity, które chcesz wykonać w ramach subskrypcji. Aby usunąć wiersz, usuń zaznaczenie jednostki SKU z **rodziny SKU** lub wybierz pozycję Odrzuć ikonę "X". Po wprowadzeniu przydziału dla każdej rodziny SKU wybierz pozycję **Zapisz i Kontynuuj** w obszarze **szczegóły limitu przydziału** , aby kontynuować żądanie pomocy technicznej.
 
    ![Wprowadź nowy przydział](./media/resource-manager-core-quotas-request/new-limits-classic.png)
 

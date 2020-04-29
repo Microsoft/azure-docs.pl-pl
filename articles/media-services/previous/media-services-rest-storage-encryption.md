@@ -1,6 +1,6 @@
 ---
-title: Szyfrowanie zawartości za pomocą szyfrowania pamięci masowej przy użyciu interfejsu API AMS REST
-description: Dowiedz się, jak szyfrować zawartość za pomocą szyfrowania magazynu przy użyciu interfejsów API AMS REST.
+title: Szyfrowanie zawartości przy użyciu szyfrowania magazynu za pomocą interfejsu API REST usługi AMS
+description: Dowiedz się, jak szyfrować zawartość za pomocą szyfrowania magazynu za pomocą interfejsów API REST usługi AMS.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,71 +15,71 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 2a5ef1837375cc395a871f9a9860fa8bde572a94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773597"
 ---
-# <a name="encrypting-your-content-with-storage-encryption"></a>Szyfrowanie zawartości za pomocą szyfrowania pamięci masowej 
+# <a name="encrypting-your-content-with-storage-encryption"></a>Szyfrowanie zawartości przy użyciu szyfrowania magazynu 
 
 > [!NOTE]
-> Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).   > Do usługi Media Services w wersji 2 nie są dodawane żadne nowe funkcje ani funkcje. <br/>Sprawdź najnowszą wersję usługi [Media Services w wersji 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji z wersji 2 do v3](../latest/migrate-from-v2-to-v3.md)
+> Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).   > żadne nowe funkcje lub funkcje nie są dodawane do Media Services V2. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 >   
 
-Zdecydowanie zaleca się szyfrowanie zawartości lokalnie przy użyciu szyfrowania AES-256 bit, a następnie przekazywanie jej do usługi Azure Storage, gdzie jest przechowywane w stanie spoczynku.
+Zdecydowanie zaleca się zaszyfrowanie zawartości lokalnie przy użyciu szyfrowania AES-256 bitowego, a następnie przekazanie go do usługi Azure Storage, gdzie jest przechowywany w pamięci podręcznej.
 
-Ten artykuł zawiera omówienie szyfrowania magazynu AMS i pokazuje, jak przekazać zaszyfrowaną zawartość magazynu:
+Ten artykuł zawiera omówienie szyfrowania magazynu usługi AMS i pokazuje, jak przekazać zaszyfrowaną zawartość magazynu:
 
 * Utwórz klucz zawartości.
-* Utwórz zasób. Podczas tworzenia zasobu ustaw zawrostowość AssetCreationOption na StorageEncryption.
+* Utwórz element zawartości. Ustaw wartość AssetCreationOption na StorageEncryption podczas tworzenia elementu zawartości.
   
      Zaszyfrowane zasoby są skojarzone z kluczami zawartości.
 * Połącz klucz zawartości z zasobem.  
-* Ustaw parametry związane z szyfrowaniem na encjach AssetFile.
+* Ustaw parametry związane z szyfrowaniem w jednostkach AssetFile.
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia 
 
-Jeśli chcesz dostarczyć zaszyfrowany zasób magazynu, musisz skonfigurować zasady dostarczania zasobu. Przed przesyłaniem strumieniowego zasobu serwer przesyłania strumieniowego usuwa szyfrowanie magazynu i przesyła strumieniowo zawartość przy użyciu określonych zasad dostarczania. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad dostarczania zasobów](media-services-rest-configure-asset-delivery-policy.md).
+Jeśli chcesz dostarczyć zasób zaszyfrowanego magazynu, musisz skonfigurować zasady dostarczania zasobów. Zanim będzie można przesłać strumieniowo zasób, serwer przesyłania strumieniowego usunie szyfrowanie magazynu i strumieniuje zawartość przy użyciu określonych zasad dostarczania. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad dostarczania elementów zawartości](media-services-rest-configure-asset-delivery-policy.md).
 
-Podczas uzyskiwania dostępu do encji w programie Media Services należy ustawić określone pola nagłówka i wartości w żądaniach HTTP. Aby uzyskać więcej informacji, zobacz [Konfigurowanie programu Media Services REST API Development](media-services-rest-how-to-use.md). 
+Podczas uzyskiwania dostępu do jednostek w Media Services należy ustawić określone pola nagłówka i wartości w żądaniach HTTP. Aby uzyskać więcej informacji, zobacz [konfigurowanie Media Services tworzenia interfejsu API REST](media-services-rest-how-to-use.md). 
 
 ### <a name="storage-side-encryption"></a>Szyfrowanie po stronie magazynu
 
 |Opcja szyfrowania|Opis|Media Services v2|Media Services v3|
 |---|---|---|---|
-|Szyfrowanie magazynu usług multimedialnych|Szyfrowanie AES-256, klucz zarządzany przez media services|Obsługiwane<sup>(1)</sup>|Nie obsługiwane<sup>(2)</sup>|
-|[Szyfrowanie usługi przechowywania danych w spoczynku](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Szyfrowanie po stronie serwera oferowane przez usługę Azure Storage, klucz zarządzany przez platformę Azure lub przez klienta|Obsługiwane|Obsługiwane|
-|[Szyfrowanie po stronie klienta magazynu](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Szyfrowanie po stronie klienta oferowane przez usługę Azure Storage, klucz zarządzany przez klienta w usłudze Key Vault|Nieobsługiwane|Nieobsługiwane|
+|Media Services szyfrowanie magazynu|Szyfrowanie AES-256, klucz zarządzany przez Media Services|Obsługiwane<sup>(1)</sup>|Nieobsługiwane<sup>(2)</sup>|
+|[szyfrowanie usługi Storage danych magazynowanych](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Szyfrowanie po stronie serwera oferowane przez usługę Azure Storage, klucz zarządzany przez platformę Azure lub przez klienta|Obsługiwane|Obsługiwane|
+|[Szyfrowanie po stronie klienta magazynu](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Szyfrowanie po stronie klienta oferowane przez usługę Azure Storage, klucz zarządzany przez klienta w Key Vault|Nieobsługiwane|Nieobsługiwane|
 
-<sup>1</sup> Chociaż usługi Media Services obsługują obsługę zawartości w postaci przejrzystej/bez szyfrowania, nie jest to zalecane.
+<sup>1</sup> usługa Media Services obsługuje obsługę zawartości w trybie Wyczyść/bez żadnej formy szyfrowania, dlatego nie jest to zalecane.
 
-<sup>2</sup> W programie Media Services w wersji 3 szyfrowanie magazynu (szyfrowanie AES-256) jest obsługiwane tylko w celu zapewnienia zgodności z powrotem, gdy zasoby zostały utworzone za pomocą usługi Media Services w wersji 2. Oznacza to, że wersja 3 współpracuje z istniejącymi zaszyfrowanymi zasobami magazynu, ale nie pozwala na tworzenie nowych.
+<sup>2</sup> w Media Services v3, szyfrowanie magazynu (szyfrowanie AES-256) jest obsługiwane tylko w przypadku zgodności z poprzednimi wersjami, gdy zasoby zostały utworzone przy użyciu Media Services V2. Oznacza to, że wersja v3 współpracuje z istniejącymi zasobami zaszyfrowanymi magazynu, ale nie umożliwia tworzenia nowych.
 
 ## <a name="connect-to-media-services"></a>Łączenie się z usługą Media Services
 
-Aby uzyskać informacje dotyczące łączenia się z interfejsem API usługi AMS, zobacz [Dostęp do interfejsu API usługi Azure Media Services za pomocą uwierzytelniania usługi Azure AD.](media-services-use-aad-auth-to-access-ams-api.md) 
+Aby uzyskać informacje na temat nawiązywania połączenia z interfejsem API usługi AMS, zobacz [dostęp do interfejsu api Azure Media Services przy użyciu uwierzytelniania w usłudze Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-## <a name="storage-encryption-overview"></a>Omówienie szyfrowania magazynu
-Szyfrowanie magazynu AMS stosuje szyfrowanie w trybie **AES-CTR** do całego pliku.  Tryb AES-CTR to szyfr blokowy, który może szyfrować dane o dowolnej długości bez konieczności dopełniania. Działa poprzez szyfrowanie bloku licznika za pomocą algorytmu AES, a następnie XOR-ing danych wyjściowych AES z danymi do szyfrowania lub odszyfrowywania.  Używany blok licznika jest konstruowany przez skopiowanie wartości InitializationVector do bajtów 0 do 7 wartości licznika i bajty 8 do 15 wartości licznika są ustawione na zero. Z 16-bajtowego bloku licznika bajty od 8 do 15 (czyli najmniej znaczące bajty) są używane jako prosta 64-bitowa niepodpisana liczba całkowita, która jest zwiększana o jeden dla każdego kolejnego bloku przetwarzanych danych i jest przechowywana w kolejności bajtów sieciowych. Jeśli ta liczba całkowita osiągnie wartość maksymalną (0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF), a następnie zwiększa ją resetuje licznik bloku do zera (bajty 8 do 15) bez wpływu na pozostałe 64 bity licznika (czyli bajty od 0 do 7).   W celu utrzymania bezpieczeństwa szyfrowania w trybie AES-CTR wartość InitializationVector dla danego identyfikatora klucza dla każdego klucza zawartości jest unikatowa dla każdego pliku, a pliki mają długość mniejszą niż 2^64 bloki.  Ta unikatowa wartość ma na celu zapewnienie, że wartość licznika nigdy nie jest ponownie z danym kluczem. Aby uzyskać więcej informacji na temat trybu CTR, zobacz [tę stronę wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (artykuł wiki używa terminu "Nonce" zamiast "InitializationVector").
+## <a name="storage-encryption-overview"></a>Szyfrowanie magazynu — Omówienie
+Szyfrowanie magazynu AMS stosuje szyfrowanie trybu **AES-Rob** do całego pliku.  Tryb AES-Rob jest szyfrem blokowym, który może szyfrować dowolne dane długości bez potrzeby uzupełniania. Działa przez zaszyfrowanie bloku licznika algorytmem AES, a następnie XOR — przeprowadzenie danych wyjściowych algorytmu AES z danymi do szyfrowania lub odszyfrowywania.  Używany blok licznika jest konstruowany przez skopiowanie wartości InitializationVector do bajtów od 0 do 7 wartości licznika i bajtów 8 do 15 wartości licznika wynosi zero. W bloku licznika 16-bajtowym bajty od 8 do 15 (czyli najmniej znaczące bajty) są używane jako proste 64-bitowe liczby całkowite bez znaku, które są zwiększane o jeden dla każdego kolejnego bloku przetwarzanych danych i są przechowywane w kolejności bajtów sieciowych. Jeśli ta liczba całkowita osiągnie wartość maksymalną (0xFFFFFFFFFFFFFFFF), a następnie zwiększa szybkość, resetuje licznik bloku do wartości zero (bajty od 8 do 15) bez wpływu na pozostałe 64 bitów licznika (czyli bajty od 0 do 7).   Aby zachować bezpieczeństwo szyfrowania w trybie AES-Rob, wartość InitializationVector dla danego identyfikatora klucza dla każdego klucza zawartości jest unikatowa dla każdego pliku i plików, które mają mniej niż 2 ^ 64 bloków.  Ta unikatowa wartość polega na zapewnieniu, że wartość licznika nigdy nie jest ponownie używana z danym kluczem. Aby uzyskać więcej informacji na temat trybu Rob, zobacz [Tę stronę typu wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (w artykule wiki jest stosowany termin "Identyfikator jednorazowy" zamiast "InitializationVector").
 
-Szyfrowanie magazynu umożliwia **szyfrowanie** wyczyszczonych zawartości lokalnie przy użyciu szyfrowania AES-256 bit, a następnie przekazywanie jej do usługi Azure Storage, gdzie jest przechowywane w stanie spoczynku. Zasoby chronione szyfrowaniem magazynu są automatycznie niezaszyfrowane i umieszczane w zaszyfrowanym systemie plików przed kodowaniem i opcjonalnie ponownie szyfrowane przed przekazaniem z powrotem jako nowego zasobu wyjściowego. Podstawowym przypadkiem użycia szyfrowania magazynu jest, gdy chcesz zabezpieczyć wysokiej jakości pliki multimedialne wejściowe z silnym szyfrowaniem w spoczynku na dysku.
+Użyj **szyfrowania magazynu** , aby lokalnie zaszyfrować oczyszczoną zawartość przy użyciu szyfrowania AES-256 bitowego, a następnie przekazać ją do usługi Azure Storage, gdzie jest przechowywana w stanie zaszyfrowanej. Zasoby chronione za pomocą szyfrowania magazynu są automatycznie odszyfrowane i umieszczane w zaszyfrowanym systemie plików przed kodowaniem i opcjonalnie ponownie szyfrowane przed przekazaniem ich jako nowego wyjściowego elementu zawartości. Podstawowym przypadkiem użycia szyfrowania magazynu jest Zabezpieczanie plików multimedialnych o wysokiej jakości z użyciem silnego szyfrowania na dysku.
 
-Aby dostarczyć zaszyfrowany zasób magazynu, należy skonfigurować zasady dostarczania zasobu, aby program Media Services wiedział, jak chcesz dostarczać zawartość. Przed przesyłaniem strumieniowego zasobu serwer przesyłania strumieniowego usuwa szyfrowanie magazynu i przesyła strumieniowo zawartość przy użyciu określonych zasad dostarczania (na przykład AES, szyfrowania wspólnego lub braku szyfrowania).
+Aby można było dostarczyć zasób zaszyfrowanego magazynu, należy skonfigurować zasady dostarczania zasobów, aby Media Services wie, jak chcesz dostarczyć zawartość. Aby można było przesłać strumieniowo zasób, serwer przesyłania strumieniowego usuwa szyfrowanie magazynu i strumieniuje zawartość przy użyciu określonych zasad dostarczania (na przykład AES, Common Encryption lub bez szyfrowania).
 
-## <a name="create-contentkeys-used-for-encryption"></a>Tworzenie kluczy zawartości używanych do szyfrowania
+## <a name="create-contentkeys-used-for-encryption"></a>Utwórz ContentKeys używany do szyfrowania
 Zaszyfrowane zasoby są skojarzone z kluczami szyfrowania magazynu. Utwórz klucz zawartości, który ma być używany do szyfrowania przed utworzeniem plików zasobów. W tej sekcji opisano sposób tworzenia klucza zawartości.
 
-Poniżej przedstawiono ogólne kroki generowania kluczy zawartości skojarzonych z zasobami, które mają być szyfrowane. 
+Poniżej znajdują się ogólne czynności związane z generowaniem kluczy zawartości skojarzonych z zasobami, które mają być szyfrowane. 
 
-1. W przypadku szyfrowania magazynu losowo wygeneruj 32-bajtowy klucz AES. 
+1. W przypadku szyfrowania magazynu należy losowo wygenerować klucz 32-bajtowy AES. 
    
-    32-bajtowy klucz AES jest kluczem zawartości zasobu, co oznacza, że wszystkie pliki skojarzone z tym zasobem muszą używać tego samego klucza zawartości podczas odszyfrowywania. 
-2. Wywołanie [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) i [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) metody, aby uzyskać poprawny certyfikat X.509, który musi być używany do szyfrowania klucza zawartości.
-3. Zaszyfruj klucz zawartości za pomocą klucza publicznego certyfikatu X.509. 
+    Klucz 32-bajtowy AES jest kluczem zawartości dla zasobu, co oznacza, że wszystkie pliki skojarzone z tym zasobem muszą używać tego samego klucza zawartości podczas odszyfrowywania. 
+2. Wywołaj metody [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) i [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) w celu uzyskania poprawnego certyfikatu X. 509, który musi być używany do szyfrowania klucza zawartości.
+3. Zaszyfruj klucz zawartości przy użyciu klucza publicznego certyfikatu X. 509. 
    
-   Media Services .NET SDK używa RSA z OAEP podczas wykonywania szyfrowania.  Przykład platformy .NET można zobaczyć w [funkcji EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-4. Utwórz wartość sumy kontrolnej obliczoną przy użyciu identyfikatora klucza i klucza zawartości. Poniższy przykład .NET oblicza sumę kontrolną przy użyciu części GUID identyfikatora klucza i wyczyść klucz zawartości.
+   Media Services .NET SDK używa RSA z OAEP podczas szyfrowania.  W [funkcji EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs)można zobaczyć przykład platformy .NET.
+4. Utwórz wartość sumy kontrolnej obliczoną przy użyciu identyfikatora klucza i klucza zawartości. Poniższy przykład .NET oblicza sumę kontrolną przy użyciu części identyfikatora klucza i klucza zawartości czystego.
 
     ```csharp
             public static string CalculateChecksum(byte[] contentKey, Guid keyId)
@@ -109,22 +109,22 @@ Poniżej przedstawiono ogólne kroki generowania kluczy zawartości skojarzonych
             }
     ```
 
-5. Utwórz klucz Zawartości z wartościami **EncryptedContentKey** (przekonwertowanym na ciąg zakodowany w bazie 64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**i **Suma kontrolna** otrzymana w poprzednich krokach.
+5. Utwórz klucz zawartości z **EncryptedContentKey** (przekonwertowanym na ciąg szyfrowany algorytmem Base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**i wartościami **sum kontrolnych** , które zostały odebrane w poprzednich krokach.
 
-    W przypadku szyfrowania magazynu w treści żądania należy uwzględnić następujące właściwości.
+    W przypadku szyfrowania magazynu należy uwzględnić w treści żądania następujące właściwości.
 
     Właściwość treści żądania    | Opis
     ---|---
-    Identyfikator | Identyfikator ContentKey jest generowany przy użyciu następującego formatu "nb:kid:UUID:\<NEW GUID>".
-    Typ klucza zawartości | Typ klucza zawartości jest całkowitej liczby, która definiuje klucz. W przypadku formatu szyfrowania magazynu wartość wynosi 1.
-    EncryptedContentKey (Klucz szyfrowania) | Tworzymy nową wartość klucza zawartości, która jest wartością 256-bitową (32 bajtów). Klucz jest szyfrowany przy użyciu certyfikatu szyfrowania magazynu X.509, który pobieramy z usług Microsoft Azure Media Services, wykonując żądanie HTTP GET dla metod GetProtectionKeyId i GetProtectionKey. Na przykład zobacz następujący kod .NET: **EncryptSymmetricKeyData** metoda zdefiniowana [w tym miejscu](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-    Identyfikator klucza ochrony | Jest to identyfikator klucza ochrony dla certyfikatu X.509 szyfrowania magazynu, który został użyty do zaszyfrowania naszego klucza zawartości.
-    Typ klucza ochronnego | Jest to typ szyfrowania klucza ochrony, który został użyty do zaszyfrowania klucza zawartości. Ta wartość jest StorageEncryption(1) dla naszego przykładu.
-    Suma kontrolna |Md5 obliczona suma kontrolna dla klucza zawartości. Jest obliczany przez szyfrowanie identyfikatora zawartości za pomocą klucza zawartości. Przykładowy kod pokazuje, jak obliczyć sumę kontrolną.
+    Identyfikator | Identyfikator ContentKey jest generowany przy użyciu następującego formatu: "NB: dzieciak: UUID:\<NEW GUID>".
+    ContentKeyType | Typ klucza zawartości jest liczbą całkowitą, która definiuje klucz. W przypadku formatu szyfrowania magazynu wartość jest równa 1.
+    EncryptedContentKey | Tworzymy nową wartość klucza zawartości, która jest 256-bitową (32 bajtów). Klucz jest szyfrowany przy użyciu certyfikatu X. 509 szyfrowania magazynu pobranego z Microsoft Azure Media Services przez wykonanie żądania HTTP GET dla metod GetProtectionKeyId i GetProtectionKey. Na przykład, zobacz następujący kod platformy .NET: Metoda **EncryptSymmetricKeyData** zdefiniowana [tutaj](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    ProtectionKeyId | Jest to identyfikator klucza ochrony dla certyfikatu X. 509 szyfrowania magazynu, który został użyty do zaszyfrowania naszego klucza zawartości.
+    ProtectionKeyType | Jest to typ szyfrowania klucza ochrony, który został użyty do szyfrowania klucza zawartości. Ta wartość jest StorageEncryption (1) dla naszego przykładu.
+    Suma kontrolna |Obliczona suma kontrolna MD5 dla klucza zawartości. Jest on obliczany przez zaszyfrowanie identyfikatora zawartości kluczem zawartości. Przykładowy kod demonstruje, jak obliczyć sumę kontrolną.
 
 
-### <a name="retrieve-the-protectionkeyid"></a>Pobieranie identyfikatora ProtectionKeyId
-W poniższym przykładzie pokazano, jak pobrać ProtectionKeyId, odcisk palca certyfikatu, dla certyfikatu, który należy użyć podczas szyfrowania klucza zawartości. Wykonaj ten krok, aby upewnić się, że masz już odpowiedni certyfikat na komputerze.
+### <a name="retrieve-the-protectionkeyid"></a>Pobierz ProtectionKeyId
+Poniższy przykład pokazuje, jak pobrać ProtectionKeyId, odcisk palca certyfikatu dla certyfikatu, którego należy użyć podczas szyfrowania klucza zawartości. Wykonaj ten krok, aby upewnić się, że masz już odpowiedni certyfikat na komputerze.
 
 Żądanie:
 
@@ -154,8 +154,8 @@ Odpowiedź:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
 
-### <a name="retrieve-the-protectionkey-for-the-protectionkeyid"></a>Pobieranie klucza protectionkey dla identyfikatora ProtectionKeyId
-W poniższym przykładzie pokazano, jak pobrać certyfikat X.509 przy użyciu identyfikatora ProtectionKeyId otrzymanego w poprzednim kroku.
+### <a name="retrieve-the-protectionkey-for-the-protectionkeyid"></a>Pobierz ProtectionKey dla ProtectionKeyId
+Poniższy przykład pokazuje, jak pobrać certyfikat X. 509 przy użyciu ProtectionKeyId otrzymanego w poprzednim kroku.
 
 Żądanie:
 
@@ -188,14 +188,14 @@ Odpowiedź:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String",
     "value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
 
-### <a name="create-the-content-key"></a>Tworzenie klucza zawartości
-Po pobraniu certyfikatu X.509 i użyciu jego klucza publicznego do szyfrowania klucza zawartości, należy utworzyć encję **ContentKey** i odpowiednio ustawić jego wartości właściwości.
+### <a name="create-the-content-key"></a>Utwórz klucz zawartości
+Po pobraniu certyfikatu X. 509 i użyciu jego klucza publicznego do szyfrowania klucza zawartości Utwórz jednostkę **ContentKey** i odpowiednio ustaw jej wartości właściwości.
 
-Jedną z wartości, które należy ustawić podczas tworzenia klucza zawartości jest typ. Podczas korzystania z szyfrowania magazynu wartość powinna być ustawiona na "1". 
+Jedną z wartości, które należy ustawić podczas tworzenia klucza zawartości jest typ. W przypadku korzystania z szyfrowania magazynu wartość powinna być równa "1". 
 
-W poniższym przykładzie pokazano, jak utworzyć **ContentKey** z **contentkeytype** zestaw szyfrowania magazynu ("1") i **ProtectionKeyType** ustawiona na "0", aby wskazać, że identyfikator klucza ochrony jest odcisk palca certyfikatu X.509.  
+Poniższy przykład pokazuje, jak utworzyć **ContentKey** z zestawem **ContentKeyType** dla szyfrowania magazynu ("1") i **ProtectionKeyType** ustawioną na "0", aby wskazać, że identyfikator klucza ochrony jest odciskiem palca certyfikatu X. 509.  
 
-Żądanie
+Request
 
     POST https://media.windows.net/api/ContentKeys HTTP/1.1
     Content-Type: application/json
@@ -242,8 +242,8 @@ Odpowiedź:
     "ProtectionKeyType":0,
     "Checksum":"calculated checksum"}
 
-## <a name="create-an-asset"></a>Tworzenie zasobu
-W poniższym przykładzie pokazano, jak utworzyć zasób.
+## <a name="create-an-asset"></a>Utwórz element zawartości
+Poniższy przykład pokazuje, jak utworzyć element zawartości.
 
 **Żądanie HTTP**
 
@@ -261,7 +261,7 @@ W poniższym przykładzie pokazano, jak utworzyć zasób.
 
 **Odpowiedź HTTP**
 
-W przypadku powodzenia zwracana jest następująca odpowiedź:
+W przypadku powodzenia następuje zwrócenie następującej odpowiedzi:
 
     HTP/1.1 201 Created
     Cache-Control: no-cache
@@ -289,8 +289,8 @@ W przypadku powodzenia zwracana jest następująca odpowiedź:
        "StorageAccountName":"storagetestaccount001"
     }
 
-## <a name="associate-the-contentkey-with-an-asset"></a>Kojarzenie contentkeya z zasobem
-Po utworzeniu ContentKey skojarzyć go z zasobem przy użyciu operacji $links, jak pokazano w poniższym przykładzie:
+## <a name="associate-the-contentkey-with-an-asset"></a>Kojarzenie ContentKey z elementem zawartości
+Po utworzeniu ContentKey skojarz ją z elementem zawartości przy użyciu operacji $links, jak pokazano w następującym przykładzie:
 
 Żądanie:
 
@@ -310,12 +310,12 @@ Odpowiedź:
 
     HTTP/1.1 204 No Content 
 
-## <a name="create-an-assetfile"></a>Tworzenie pliku zasobów
-[Encja AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) reprezentuje plik wideo lub audio przechowywany w kontenerze obiektów blob. Plik zasobu jest zawsze skojarzony z zasobem, a zasób może zawierać jeden lub wiele plików zasobów. Zadanie kodera usługi Media Services kończy się niepowodzeniem, jeśli obiekt pliku zasobu nie jest skojarzony z plikiem cyfrowym w kontenerze obiektów blob.
+## <a name="create-an-assetfile"></a>Utwórz AssetFile
+Jednostka [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) reprezentuje plik wideo lub audio, który jest przechowywany w kontenerze obiektów BLOB. Plik zasobów jest zawsze skojarzony z zasobem, a zasób może zawierać jeden lub wiele plików zasobów. Zadanie kodera Media Services nie powiedzie się, jeśli obiekt pliku zasobów nie jest skojarzony z plikiem cyfrowym w kontenerze obiektów BLOB.
 
-**AssetFile wystąpienie** i rzeczywisty plik multimedialny są dwa odrębne obiekty. AssetFile wystąpienie zawiera metadane dotyczące pliku multimedialnego, podczas gdy plik multimedialny zawiera rzeczywistą zawartość multimedialną.
+Wystąpienie **AssetFile** i rzeczywisty plik multimedialny są dwa odrębne obiekty. Wystąpienie AssetFile zawiera metadane dotyczące pliku nośnika, natomiast plik multimedialny zawiera rzeczywistą zawartość multimedialną.
 
-Po przekazaniu pliku multimediów cyfrowych do kontenera obiektów blob użyjesz żądania **MERGE** HTTP, aby zaktualizować plik AssetFile z informacjami o pliku multimedialnym (nie pokazano w tym artykule). 
+Po przekazaniu pliku multimediów cyfrowych do kontenera obiektów BLOB użyjesz żądania **scalania** http, aby zaktualizować AssetFile za pomocą informacji o pliku multimedialnym (nie jest to pokazane w tym artykule). 
 
 **Żądanie HTTP**
 

@@ -1,6 +1,6 @@
 ---
-title: Kopiowanie obiektu blob za pomocą platformy .NET — usługa Azure Storage
-description: Dowiedz się, jak skopiować obiekt blob na koncie usługi Azure Storage przy użyciu biblioteki klienta platformy .NET.
+title: Kopiowanie obiektu BLOB za pomocą platformy .NET — Azure Storage
+description: Dowiedz się, jak skopiować obiekt BLOB na koncie usługi Azure Storage za pomocą biblioteki klienckiej platformy .NET.
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,46 +9,46 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 9ffa69980f020580376aea447f40ac615f26cf03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79135891"
 ---
-# <a name="copy-a-blob-with-net"></a>Kopiowanie obiektu blob za pomocą platformy .NET
+# <a name="copy-a-blob-with-net"></a>Kopiowanie obiektu BLOB za pomocą platformy .NET
 
-W tym artykule pokazano, jak skopiować obiekt blob za pomocą konta usługi Azure Storage. Pokazuje również, jak przerwać operację kopiowania asynchronii. Przykładowy kod używa [biblioteki klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+W tym artykule przedstawiono sposób kopiowania obiektu BLOB za pomocą konta usługi Azure Storage. Pokazuje również, jak przerwać asynchroniczne operacje kopiowania. Przykładowy kod używa [biblioteki klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-## <a name="about-copying-blobs"></a>Kopiowanie obiektów blob — informacje
+## <a name="about-copying-blobs"></a>Informacje o kopiowaniu obiektów BLOB
 
-Podczas kopiowania obiektu blob w ramach tego samego konta magazynu, jest to operacja synchronicznego. Podczas kopiowania między kontami jest to operacja asynchroniza. [Metody StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) i [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) zwracają wartość identyfikatora kopii, która jest używana do sprawdzania stanu lub przerwania operacji kopiowania.
+W przypadku kopiowania obiektu BLOB w ramach tego samego konta magazynu jest to operacja synchroniczna. Podczas kopiowania między kontami jest to operacja asynchroniczna. Metody [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) i [STARTCOPYASYNC](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) zwracają wartość identyfikatora kopii, która jest używana do sprawdzania stanu lub przerywania operacji kopiowania.
 
-Źródłowy obiekt blob dla operacji kopiowania może być blok obiektu blob, dołączanie obiektu blob, obiekt blob strony lub migawki. Jeśli docelowy obiekt blob już istnieje, musi mieć ten sam typ obiektu blob, co źródłowy obiekt blob. Wszystkie istniejące docelowe obiekty blob zostaną zastąpione. 
+Źródłowy obiekt BLOB operacji kopiowania może być blokowym obiektem BLOB, obiektem BLOB, obiektem BLOB lub migawką. Jeśli docelowy obiekt BLOB już istnieje, musi być tego samego typu obiektów BLOB co źródłowy obiekt BLOB. Istniejący docelowy obiekt BLOB zostanie nadpisany. 
 
-Docelowego obiektu blob nie można zmodyfikować podczas operacji kopiowania. Obiekt docelowy może mieć tylko jedną operację zaległego kopiowania obiektu blob. Innymi słowy obiektu blob nie może być miejscem docelowym dla wielu oczekujących operacji kopiowania.
+Nie można zmodyfikować docelowego obiektu BLOB, gdy operacja kopiowania jest w toku. Docelowy obiekt BLOB może mieć tylko jedną zaległą operację kopiowania obiektu BLOB. Innymi słowy, obiekt BLOB nie może być miejscem docelowym dla wielu oczekujących operacji kopiowania.
 
-Cały źródłowy obiekt blob lub plik jest zawsze kopiowany. Kopiowanie zakresu bajtów lub zestawu bloków nie jest obsługiwane.
+Cały źródłowy obiekt BLOB lub plik jest zawsze kopiowany. Kopiowanie zakresu bajtów lub zestawu bloków nie jest obsługiwane.
 
-Gdy obiekt blob jest kopiowany, jego właściwości systemowe są kopiowane do docelowego obiektu blob o tych samych wartościach.
+Po skopiowaniu obiektu BLOB właściwości systemu są kopiowane do docelowego obiektu BLOB z tymi samymi wartościami.
 
-Dla wszystkich typów obiektów blob można sprawdzić [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet) właściwość w docelowym obiekcie blob, aby uzyskać stan operacji kopiowania. Ostateczny obiekt blob zostaną zatwierdzone po zakończeniu kopiowania.
+Dla wszystkich typów obiektów BLOB można sprawdzić Właściwość [CopyState. status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet) w docelowym obiekcie blob, aby uzyskać stan operacji kopiowania. Końcowy obiekt BLOB zostanie zatwierdzony po zakończeniu kopiowania.
 
-Operacja kopiowania może przybierać dowolną z następujących form:
+Operacja kopiowania może przyjmować jedną z następujących form:
 
-  - Źródłowy obiekt blob można skopiować do docelowego obiektu blob o innej nazwie. Obiekt docelowy może być istniejącym obiektem blob tego samego typu obiektu blob (blok, dołącz lub strony) lub może być nowym obiektem blob utworzonym przez operację kopiowania.
-  - Źródłowy obiekt blob można skopiować do docelowego obiektu blob o tej samej nazwie, skutecznie zastępując docelowy obiekt blob. Taka operacja kopiowania usuwa wszystkie niezatwierdzone bloki i zastępuje metadane docelowego obiektu blob.
-  - Plik źródłowy w usłudze Azure File można skopiować do docelowego obiektu blob. Obiekt docelowy może być istniejącym obiektem blob bloku lub może być nowym blokiem blob utworzonym przez operację kopiowania. Kopiowanie z plików do stronicowych obiektów blob lub dołączanie obiektów blob nie jest obsługiwane.
-  - Migawkę można skopiować za pomocą podstawowego obiektu blob. Promując migawkę do pozycji podstawowego obiektu blob, można przywrócić wcześniejszą wersję obiektu blob.
-  - Migawkę można skopiować do docelowego obiektu blob o innej nazwie. Wynikowy obiekt blob docelowy jest zapisywalny obiekt blob, a nie migawka.
+  - Można skopiować źródłowy obiekt BLOB do docelowego obiektu BLOB z inną nazwą. Docelowy obiekt BLOB może być istniejącym obiektem BLOB tego samego typu obiektów BLOB (blok, dołączanie lub strona) lub może być nowym obiektem BLOB utworzonym przez operację kopiowania.
+  - Można skopiować źródłowy obiekt BLOB do docelowego obiektu BLOB o takiej samej nazwie, co skutecznie zastępuje docelowy obiekt BLOB. Taka operacja kopiowania usuwa wszystkie niezatwierdzone bloki i zastępuje metadane docelowego obiektu BLOB.
+  - Plik źródłowy można skopiować do docelowego obiektu BLOB za pomocą usługi plików platformy Azure. Docelowy obiekt BLOB może być istniejącym blokowym obiektem BLOB lub może być nowym blokowym obiektem BLOB utworzonym przez operację kopiowania. Kopiowanie plików do stronicowych obiektów blob lub dołączanie obiektów BLOB nie jest obsługiwane.
+  - Migawkę można skopiować za pomocą jej podstawowego obiektu BLOB. Podwyższanie poziomu migawki do pozycji podstawowego obiektu BLOB pozwala przywrócić wcześniejszą wersję obiektu BLOB.
+  - Migawkę można skopiować do docelowego obiektu BLOB z inną nazwą. Otrzymany docelowy obiekt BLOB jest zapisywalnym obiektem BLOB, a nie z migawką.
 
-## <a name="copy-a-blob"></a>Kopiowanie obiektu blob
+## <a name="copy-a-blob"></a>Kopiowanie obiektu BLOB
 
-Aby skopiować obiekt blob, wywołanie jednej z następujących metod:
+Aby skopiować obiekt BLOB, wywołaj jedną z następujących metod:
 
- - [Rozpocznijoskop](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
+ - [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
  - [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet)
 
-Poniższy przykład kodu pobiera odwołanie do obiektu blob utworzonego wcześniej i kopiuje go do nowego obiektu blob w tym samym kontenerze:
+Poniższy przykład kodu pobiera odwołanie do obiektu BLOB utworzonego wcześniej i kopiuje go do nowego obiektu BLOB w tym samym kontenerze:
 
 ```csharp
 private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
@@ -107,13 +107,13 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
 }
 ```
 
-## <a name="abort-a-blob-copy-operation"></a>Przerywanie operacji kopiowania obiektów blob
+## <a name="abort-a-blob-copy-operation"></a>Przerwij operację kopiowania obiektu BLOB
 
-Przerwanie operacji kopiowania powoduje docelowy obiekt blob o zerowej długości dla bloków obiektów blob, dołączania obiektów blob i stronicowych obiektów blob. Jednak metadane docelowego obiektu blob będą miały nowe wartości skopiowane ze źródłowego obiektu blob lub ustawione jawnie w wywołaniu [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) lub [StartCopyAsync.](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) Aby zachować oryginalne metadane przed kopią, przed `StartCopy` wywołaniem `StartCopyAsync`lub zrobić migawkę docelowego obiektu blob lub .
+Przerwanie operacji kopiowania powoduje, że docelowy obiekt BLOB o zerowej długości dla blokowych obiektów blob, Dołącz obiekty blob i stronicowe obiekty blob. Jednak metadane dla docelowego obiektu BLOB będą mieć skopiowane nowe wartości ze źródłowego obiektu BLOB lub ustawione jawnie w wywołaniu [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) lub [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) . Aby zachować oryginalne metadane przed kopią, wykonaj migawkę docelowego obiektu BLOB przed wywołaniem `StartCopy` lub. `StartCopyAsync`
 
-Po przerwaniu trwającej operacji kopiowania obiektów blob docelowy obiekt blob [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CopyState_Status) jest ustawiony na [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus?view=azure-dotnet).
+Gdy przerywasz trwającą operację kopiowania obiektów blob, [CopyState. status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CopyState_Status) docelowego obiektu BLOB jest ustawiony na [CopyStatus. przerwany](/dotnet/api/microsoft.azure.storage.blob.copystatus?view=azure-dotnet).
 
-[Metody AbortCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopy?view=azure-dotnet) i [AbortCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopyasync?view=azure-dotnet) anulują trwającą operację kopiowania obiektów blob i pozostawiają docelowy obiekt blob o zerowej długości i pełnych metadanych.
+Metody [AbortCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopy?view=azure-dotnet) i [AbortCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopyasync?view=azure-dotnet) anulują trwającą operację kopiowania obiektów blob i opuszczają docelowy obiekt BLOB o zerowej długości i pełnych metadanych.
 
 ```csharp
 // Fetch the destination blob's properties before checking the copy state.
@@ -131,7 +131,7 @@ if (destBlob.CopyState.Status == CopyStatus.Pending)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Poniższe tematy zawierają informacje dotyczące kopiowania obiektów blob i przerywania trwających operacji kopiowania przy użyciu interfejsów API rest platformy Azure.
+Poniższe tematy zawierają informacje o kopiowaniu obiektów blob i przerywaniu trwających operacji kopiowania przy użyciu interfejsów API REST platformy Azure.
 
 - [Kopiowanie obiektu blob](/rest/api/storageservices/copy-blob)
-- [Przerwanie kopiowania obiektu blob](/rest/api/storageservices/abort-copy-blob)
+- [Przerwij Kopiowanie obiektu BLOB](/rest/api/storageservices/abort-copy-blob)

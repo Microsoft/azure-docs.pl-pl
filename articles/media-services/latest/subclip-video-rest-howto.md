@@ -1,6 +1,6 @@
 ---
-title: Podkompaniuj klipsa wideo podczas kodowania za pomocą usługi Azure Media Services REST
-description: W tym temacie opisano sposób podpopinać klip wideo podczas kodowania za pomocą usługi Azure Media Services przy użyciu funkcji REST
+title: Podcinanie wideo przy kodowaniu przy użyciu Azure Media Services REST
+description: W tym temacie opisano sposób podcinania wideo przy kodowaniu przy użyciu Azure Media Services za pomocą interfejsu REST
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,40 +14,40 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: juliako
 ms.openlocfilehash: c39aded55fe36cb130459a4f6f119f872b1adbc4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76514327"
 ---
-# <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Subclip wideo podczas kodowania z media services - REST
+# <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Podcinanie wideo przy kodowaniu przy użyciu Media Services-REST
 
-Wideo można przycinać lub podklipować podczas kodowania go za pomocą [zadania](https://docs.microsoft.com/rest/api/media/jobs). Ta funkcja działa z dowolnego [przekształcenia,](https://docs.microsoft.com/rest/api/media/transforms) który jest zbudowany przy użyciu [wbudowanych wbudowanychstandardencoderpreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presetów lub [standardencoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) presetów. 
+Można przyciąć lub podciąć klip wideo przy kodowaniu przy użyciu [zadania](https://docs.microsoft.com/rest/api/media/jobs). Ta funkcja działa z dowolnym [przekształceniem](https://docs.microsoft.com/rest/api/media/transforms) utworzonym przy użyciu ustawień wstępnych [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) lub predefiniowanych ustawień [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) . 
 
-Przykład REST w tym temacie tworzy zadanie, które przycina wideo podczas przesyłania zadania kodowania. 
+W przykładzie w dalszej części tego tematu powstaje zadanie, które przycina wideo podczas przesyłania zadania kodowania. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby wykonać kroki opisane w tym temacie, należy:
 
-- [Utwórz konto usługi Azure Media Services](create-account-cli-how-to.md).
-- [Skonfiguruj listonosz dla wywołań interfejsu API REST usługi Azure Media Services](media-rest-apis-with-postman.md).
+- [Utwórz konto Azure Media Services](create-account-cli-how-to.md).
+- [Skonfiguruj funkcję publikowania dla Azure Media Services wywołań interfejsu API REST](media-rest-apis-with-postman.md).
     
-    Upewnij się, że postępuj zgodnie z ostatnim krokiem w temacie [Pobierz token usługi Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 
-- Tworzenie przekształcenia i zasobów wyjściowych. Możesz zobaczyć, jak utworzyć transformowanie i zasoby wyjściowe w [pliku Encode na podstawie adresu URL i przesyłać strumieniowo film — samouczek REST.](stream-files-tutorial-with-rest.md)
-- Przejrzyj temat [koncepcji kodowania.](encoding-concept.md)
+    Pamiętaj, aby postępować zgodnie z ostatnim krokiem w temacie [pobieranie tokenu usługi Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 
+- Utwórz transformację i wyjściowe zasoby. Możesz zobaczyć, jak utworzyć przekształcenia i zasoby wyjściowe w [kodowaniu pliku zdalnego na podstawie adresu URL i przesłać strumieniowo samouczek wideo-REST](stream-files-tutorial-with-rest.md) .
+- Zapoznaj się z tematem [pojęć dotyczących kodowania](encoding-concept.md) .
 
-## <a name="create-a-subclipping-job"></a>Tworzenie zadania podkluniania
+## <a name="create-a-subclipping-job"></a>Tworzenie zadania wycinka
 
-1. W pobranej kolekcji Postman wybierz pozycję **Przekształcenia i zadania tworzenie** -> **zadań za pomocą przycinania podrzędnego**.
+1. W pobranej kolekcji Poster wybierz pozycję **przekształcenia i zadania** -> **Utwórz zadanie z wycinkem podrzędnym**.
     
-    Żądanie **PUT** wygląda następująco:
+    Żądanie **Put** wygląda następująco:
     
     ```
     https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
     ```
-1. Zaktualizuj wartość zmiennej środowiskowej "transformName" o nazwę transformacji. 
-1. Wybierz kartę **Treść** i zaktualizuj "myOutputAsset" o nazwie zasobu wyjściowego.
+1. Zaktualizuj wartość zmiennej środowiskowej "transformname" przy użyciu nazwy przekształcenia. 
+1. Wybierz kartę **treść** i zaktualizuj element "myOutputAsset" przy użyciu nazwy wyjściowego elementu zawartości.
 
     ```
     {
@@ -82,8 +82,8 @@ Aby wykonać kroki opisane w tym temacie, należy:
     ```
 1. Kliknij pozycję **Wyślij**.
 
-    Zostanie wyświetlona **odpowiedź** z informacjami o utworzonym i przesłanym zadaniu oraz o stanie zadania. 
+    Zostanie wyświetlona **odpowiedź** wraz z informacjami o zadaniu, które zostało utworzone i przesłane oraz o stanie zadania. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Jak zakodować za pomocą transformacji niestandardowej](custom-preset-rest-howto.md) 
+[Jak kodować przy użyciu przekształcenia niestandardowego](custom-preset-rest-howto.md) 

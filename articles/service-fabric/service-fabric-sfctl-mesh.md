@@ -1,35 +1,35 @@
 ---
-title: Sieć szkieletowa usługi Azure CLI- siatka sfctl
-description: Dowiedz się więcej o sfctl, interfejsie wiersza polecenia sieci szkieletowej usługi Azure. Zawiera listę poleceń do zarządzania aplikacjami sieci szkieletowej usług.
+title: Interfejs wiersza polecenia platformy Azure Service Fabric — siatka sfctl
+description: Dowiedz się więcej na temat sfctl, interfejsu wiersza polecenia platformy Azure Service Fabric. Zawiera listę poleceń do zarządzania aplikacjami siatki Service Fabric.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 40d0f70b0dabdc02434fa662663a2fd105431f0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905895"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
-Usuwanie aplikacji sieci szkieletowej sieci szkieletowej usług i zarządzanie nimi.
+Usuwanie aplikacji siatki Service Fabric i zarządzanie nimi.
 
-## <a name="subgroups"></a>Podgrup
-|Podgrupy|Opis|
+## <a name="subgroups"></a>Podgrupy
+|Podgrupa|Opis|
 | --- | --- |
-| [App](service-fabric-sfctl-mesh-app.md) | Pobierz i usuń zasoby aplikacji. |
-| [code-package-log](service-fabric-sfctl-mesh-code-package-log.md) | Pobierz dzienniki dla kontenera określonego pakietu kodu dla danej repliki usługi. |
-| [Wdrażania](service-fabric-sfctl-mesh-deployment.md) | Tworzenie zasobów siatki sieci szkieletowej usług. |
-| [Bramy](service-fabric-sfctl-mesh-gateway.md) | Pobierz i usuń zasoby bramy siatki. |
-| [Sieci](service-fabric-sfctl-mesh-network.md) | Pobierz i usuń zasoby sieciowe siatki. |
-| [Tajne](service-fabric-sfctl-mesh-secret.md) | Pobierz i usuń tajne zasoby siatki. |
-| [wartość tajnej](service-fabric-sfctl-mesh-secretvalue.md) | Pobierz i usuń zasoby siatki secretvalue. |
-| [Usługi](service-fabric-sfctl-mesh-service.md) | Pobierz szczegóły usługi i lista usług zasobu aplikacji. |
-| [replika usługi](service-fabric-sfctl-mesh-service-replica.md) | Pobierz szczegóły repliki i listy replik danej usługi w zasobie aplikacji. |
-| [Woluminu](service-fabric-sfctl-mesh-volume.md) | Pobierz i usuń zasoby woluminu. |
+| [aplikacje](service-fabric-sfctl-mesh-app.md) | Pobieranie i usuwanie zasobów aplikacji. |
+| [kod-pakiet-log](service-fabric-sfctl-mesh-code-package-log.md) | Pobierz dzienniki dla kontenera określonego pakietu kodu dla danej repliki usługi. |
+| [mieszczeniu](service-fabric-sfctl-mesh-deployment.md) | Utwórz zasoby siatki Service Fabric. |
+| [punkt](service-fabric-sfctl-mesh-gateway.md) | Pobierz i Usuń zasoby bramy siatki. |
+| [NFS](service-fabric-sfctl-mesh-network.md) | Pobierz i Usuń zasoby sieci siatki. |
+| [wpisu](service-fabric-sfctl-mesh-secret.md) | Pobierz i Usuń zasoby z siatką kluczy tajnych. |
+| [secretvalue](service-fabric-sfctl-mesh-secretvalue.md) | Pobieranie i usuwanie zasobów secretvalue siatki. |
+| [usługi](service-fabric-sfctl-mesh-service.md) | Pobierz szczegóły usługi i Wyświetl listę usług dla zasobu aplikacji. |
+| [Usługa — replika](service-fabric-sfctl-mesh-service-replica.md) | Pobierz szczegóły repliki i Wyświetl listę replik danej usługi w zasobie aplikacji. |
+| [dysku](service-fabric-sfctl-mesh-volume.md) | Pobierz i Usuń zasoby woluminu. |
 
 
 ## <a name="next-steps"></a>Następne kroki
-- [Konfigurowanie](service-fabric-cli.md) interfejsu wiersza polecenia sieci szkieletowej usług.
-- Dowiedz się, jak używać interfejsu wiersza polecenia sieci szkieletowej usług przy użyciu [przykładowych skryptów.](/azure/service-fabric/scripts/sfctl-upgrade-application)
+- [Skonfiguruj](service-fabric-cli.md) interfejs wiersza polecenia Service Fabric.
+- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](/azure/service-fabric/scripts/sfctl-upgrade-application).

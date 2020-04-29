@@ -1,6 +1,6 @@
 ---
-title: Etap akceptacji klienta w cyklu życia procesu nauki o danych zespołu
-description: Cele, zadania i rezultaty na etapie akceptacji klientów twoich projektów data-science
+title: Etap akceptacji klienta w cyklu życia procesu nauki o danych zespołowych
+description: Cele, zadania i elementy dostarczane dla etapu akceptacji klientów w projektach analizy danych
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,52 +12,52 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 7224a7bb26ef491915df9fcb9b6b84ff171a9fc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76720524"
 ---
-# <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Etap akceptacji klienta w cyklu życia procesu nauki o danych zespołu
+# <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Etap akceptacji klienta w cyklu życia procesu nauki o danych zespołowych
 
-W tym artykule opisano cele, zadania i rezultaty skojarzone z etapem akceptacji klienta procesu nauki o danych zespołu (TDSP). Ten proces zapewnia zalecany cykl życia, którego można użyć do struktury projektów nauki o danych. Cykl życia przedstawia główne etapy, które projekty zazwyczaj wykonują, często iteracyjne:
+W tym artykule opisano cele, zadania i elementy dostarczane powiązane z etapem akceptacji klienta zespołu ds. analizy danych (przetwarzania TDSP). Ten proces zapewnia Zalecany cykl życia, którego można użyć do struktury projektów analizy danych. Cykl życia przedstawia główne etapy, które są zwykle wykonywane przez projekty, często iteracyjnie:
 
    1. **Poznawanie firmy**
    2. **Pozyskiwanie danych i ich analiza**
    3. **Modelowanie**
-   4. **wdrażania**
+   4. **Wdrożenie**
    5. **Akceptacja klienta**
 
-Oto wizualna reprezentacja cyklu życia TDSP: 
+Oto wizualna reprezentacja cyklu życia przetwarzania TDSP: 
 
-![Cykl życia TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
+![Cykl życia przetwarzania TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## <a name="goal"></a>Cel
-**Finalizuj elementy dostarczane projektu:** Upewnij się, że potok, model i ich wdrożenie w środowisku produkcyjnym spełniają cele klienta.
+**Finalizowanie elementów dostarczanych projektu**: Upewnij się, że potok, model i ich wdrożenie w środowisku produkcyjnym spełniają cele klienta.
 
 ## <a name="how-to-do-it"></a>Jak to zrobić
-Na tym etapie zajęto się dwoma głównymi zadaniami:
+W tym etapie są uwzględnione dwa podstawowe zadania:
 
-   * **Sprawdzanie poprawności systemu:** Upewnij się, że wdrożony model i potok spełniają potrzeby klienta.
-   * **Przekazanie projektu:** Przekaż projekt jednostce, która uruchomi system w produkcji.
+   * **Weryfikacja systemu**: Upewnij się, że wdrożony model i potok spełniają wymagania klienta.
+   * **Odręczny projekt**: umożliwia oddanie projektu do jednostki, która ma uruchamiać system w środowisku produkcyjnym.
 
-Klient powinien sprawdzić, czy system spełnia ich potrzeby biznesowe i że odpowiada na pytania z dopuszczalną dokładnością, aby wdrożyć system do produkcji do użytku przez aplikację klienta. Cała dokumentacja jest finalizowana i sprawdzana. Projekt jest przekazywany podmiotowi odpowiedzialnemu za operacje. Ta jednostka może być, na przykład, IT lub zespół analityki danych klienta lub agent klienta, który jest odpowiedzialny za uruchamianie systemu w produkcji. 
+Klient powinien sprawdzić, czy system spełnia Twoje wymagania biznesowe i czy ma odpowiedzi na pytania z akceptowalną dokładnością, aby wdrożyć system w środowisku produkcyjnym do użytku przez aplikację klienta. Wszystkie dokumenty są finalizowane i analizowane. Projekt jest przekazywany do jednostki odpowiedzialnej za operacje. Ta jednostka może być na przykład zespołem ds. IT lub klientem, który jest odpowiedzialny za uruchamianie systemu w środowisku produkcyjnym. 
 
 ## <a name="artifacts"></a>Artefakty
-Głównym artefaktem wyprodukowanym w tym końcowym etapie jest **raport Exit projektu dla klienta.** Ten raport techniczny zawiera wszystkie szczegóły projektu, które są przydatne do nauki o tym, jak obsługiwać system. TDSP udostępnia szablon [raportu zakończenia.](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md) Można użyć szablonu, jak jest, lub można dostosować go do określonych potrzeb klienta. 
+Głównym artefaktem utworzonym w tym ostatnim etapie jest **raport zakończenia projektu dla klienta**. Ten raport techniczny zawiera wszystkie szczegóły dotyczące projektu, które są przydatne do uczenia się, jak korzystać z systemu. PRZETWARZANIA TDSP udostępnia szablon [raportu zakończenia](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md) . Możesz użyć szablonu jako lub można go dostosować do konkretnych potrzeb klienta. 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Oto łącza do każdego kroku w cyklu życia TDSP:
+Poniżej przedstawiono linki do poszczególnych etapów cyklu życia przetwarzania TDSP:
 
    1. [Poznawanie firmy](lifecycle-business-understanding.md)
    2. [Pozyskiwanie danych i ich analiza](lifecycle-data.md)
    3. [Modelowanie](lifecycle-modeling.md)
-   4. [wdrażania](lifecycle-deployment.md)
+   4. [Wdrożenie](lifecycle-deployment.md)
    5. [Akceptacja klienta](lifecycle-acceptance.md)
 
-Zapewniamy pełne wskazówki, które pokazują wszystkie kroki w procesie dla określonych scenariuszy. [Przykładowy](walkthroughs.md) artykuł zawiera listę scenariuszy z łączami i opisami miniatur. W instruktażu pokazano, jak połączyć chmurę, narzędzia lokalne i usługi w przepływie pracy lub potoku w celu utworzenia inteligentnej aplikacji. 
+Oferujemy pełne instruktaże, które pokazują wszystkie kroki procesu dla konkretnych scenariuszy. [Przykładowy artykuł instruktażowy](walkthroughs.md) zawiera listę scenariuszy z linkami i opisami miniatur. Instruktaże ilustrują sposób łączenia chmur, narzędzi lokalnych i usług do przepływu pracy lub potoku w celu utworzenia inteligentnej aplikacji. 
 
-Aby zapoznać się z przykładami wykonywania kroków w usługach TDSP korzystających z usługi Azure Machine Learning Studio, zobacz [Korzystanie z usługi TDSP z usługą Azure Machine Learning.](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)
+Aby zapoznać się z przykładami wykonywania kroków w TDSPs, które używają Azure Machine Learning Studio, zobacz [Korzystanie z przetwarzania TDSP z Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).

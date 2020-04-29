@@ -1,6 +1,6 @@
 ---
-title: Wprowadzenie do przechwytywania pakietów w usłudze Azure Network Watcher | Dokumenty firmy Microsoft
-description: Ta strona zawiera omówienie możliwości przechwytywania pakietów Obserwatora sieci
+title: Wprowadzenie do funkcji przechwytywania pakietów na platformie Azure Network Watcher | Microsoft Docs
+description: Ta strona zawiera omówienie możliwości przechwycenia pakietu Network Watcher
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -12,46 +12,46 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 1f17463125cead64bd58a2d07e53eee4d3cfcd70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840812"
 ---
-# <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Wprowadzenie do przechwytywania pakietów zmiennych w usłudze Azure Network Watcher
+# <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Wprowadzenie do funkcji przechwytywania pakietów zmiennych w usłudze Azure Network Watcher
 
-Przechwytywanie pakietów zmiennych Obserwatora sieciowego umożliwia tworzenie sesji przechwytywania pakietów w celu śledzenia ruchu do i z maszyny wirtualnej. Przechwytywanie pakietów pomaga diagnozować anomalie sieci zarówno reaktywnie, jak i proaktywnie. Inne zastosowania obejmują zbieranie statystyk sieciowych, uzyskiwanie informacji o włamaniach do sieci, debugowanie komunikacji klient-serwer i wiele więcej.
+Network Watcher przechwytywanie pakietów zmiennych umożliwia tworzenie sesji przechwytywania pakietów do śledzenia ruchu do i z maszyny wirtualnej. Przechwytywanie pakietów ułatwia diagnozowanie anomalii w sieci zarówno ponownie, jak i aktywnie. Inne zastosowania obejmują gromadzenie statystyk sieci, uzyskiwanie informacji o atakach sieci, debugowanie komunikacji klient-serwer i wiele więcej.
 
-Przechwytywanie pakietów to rozszerzenie maszyny wirtualnej, które jest uruchamiane zdalnie za pośrednictwem funkcji Kontrola sieci. Ta funkcja zmniejsza obciążenie związane z ręcznym uruchamianiem przechwytywania pakietów na żądanej maszynie wirtualnej, co pozwala zaoszczędzić cenny czas. Przechwytywanie pakietów można wyzwolić za pośrednictwem portalu, programu PowerShell, interfejsu wiersza polecenia lub interfejsu API REST. Jednym z przykładów, jak można wyzwolić przechwytywanie pakietów, są alerty maszyny wirtualnej. Filtry są dostępne dla sesji przechwytywania, aby upewnić się, że przechwytujesz ruch, który chcesz monitorować. Filtry są oparte na 5-krotki (protokół, lokalny adres IP, zdalny adres IP, port lokalny i port zdalny) informacje. Przechwycone dane są przechowywane na dysku lokalnym lub w obiekcie blob magazynu. Istnieje limit 10 sesji przechwytywania pakietów na region na subskrypcję. Ten limit dotyczy tylko sesji i nie dotyczy zapisanych plików przechwytywania pakietów lokalnie na maszynie wirtualnej lub na koncie magazynu.
+Przechwytywanie pakietów to rozszerzenie maszyny wirtualnej, które jest zdalnie uruchamiane za pomocą Network Watcher. Ta funkcja ułatwia obciążenie przechwycenia pakietu ręcznie na wybranej maszynie wirtualnej, co pozwala zaoszczędzić cenny czas. Przechwytywanie pakietów może być wyzwalane za pomocą portalu, programu PowerShell, interfejsu wiersza polecenia lub API REST. Przykładem możliwości wyzwolenia funkcji przechwytywania pakietów są alerty maszyn wirtualnych. Filtry są udostępniane dla sesji przechwytywania, aby zapewnić przechwytywanie ruchu, który ma być monitorowany. Filtry są oparte na podanej kolekcji 5 (protokół, lokalny adres IP, zdalny adres IP, port lokalny i Port zdalny). Przechwycone dane są przechowywane na dysku lokalnym lub w magazynie obiektów BLOB. Istnieje limit 10 sesji przechwytywania pakietów na region na subskrypcję. Ten limit dotyczy tylko sesji i nie ma zastosowania do zapisanych plików przechwytywania pakietów lokalnie na maszynie wirtualnej lub na koncie magazynu.
 
 > [!IMPORTANT]
-> Przechwytywanie pakietów wymaga `AzureNetworkWatcherExtension`rozszerzenia maszyny wirtualnej . Aby zainstalować rozszerzenie na maszynie Wirtualnej systemu Windows odwiedź [rozszerzenie maszyny wirtualnej usługi Azure Network Watcher Agent dla systemu Windows](../virtual-machines/windows/extensions-nwa.md) i maszyny wirtualnej z systemem Linux, odwiedź rozszerzenie maszyny [wirtualnej usługi Azure Network Watcher Agent dla systemu Linux](../virtual-machines/linux/extensions-nwa.md).
+> Przechwytywanie pakietów wymaga rozszerzenia `AzureNetworkWatcherExtension`maszyny wirtualnej. Aby zainstalować rozszerzenie na maszynie wirtualnej z systemem Windows, odwiedź [rozszerzenie maszyny wirtualnej usługi azure Network Watcher Agent dla systemu Windows](../virtual-machines/windows/extensions-nwa.md) i dla maszyny wirtualnej z systemem Linux odwiedź [rozszerzenie maszyny wirtualnej agenta usługi Azure Network Watcher](../virtual-machines/linux/extensions-nwa.md).
 
-Aby ograniczyć przechwytywanie informacji tylko do żądanych informacji, dla sesji przechwytywania pakietów dostępne są następujące opcje:
+Aby zmniejszyć przechwytywane informacje tylko do żądanych informacji, dostępne są następujące opcje dla sesji przechwytywania pakietów:
 
 **Konfiguracja przechwytywania**
 
 |Właściwość|Opis|
 |---|---|
-|**Maksymalna liczba bajtów na pakiet (bajty)** | Liczba bajtów z każdego pakietu, które są przechwytywane, wszystkie bajty są przechwytywane, jeśli pozostanie puste. Liczba bajtów z każdego pakietu, które są przechwytywane, wszystkie bajty są przechwytywane, jeśli pozostanie puste. Jeśli potrzebujesz tylko nagłówka IPv4 – wskaż 34 tutaj |
-|**Maksymalna liczba bajtów na sesję (bajty)** | Całkowita liczba bajtów, które są przechwytywane, po osiągnięciu wartości kończy się sesja.|
-|**Limit czasu (w sekundach)** | Ustawia ograniczenie czasowe sesji przechwytywania pakietów. Wartość domyślna to 18000 sekund lub 5 godzin.|
+|**Maksymalna liczba bajtów na pakiet (w bajtach)** | Liczba bajtów z każdego przechwytywanego pakietu, jeśli pole pozostanie puste, wszystkie bajty są przechwytywane. Liczba bajtów z każdego przechwytywanego pakietu, jeśli pole pozostanie puste, wszystkie bajty są przechwytywane. Jeśli potrzebujesz tylko nagłówka IPv4 — wskaż 34 tutaj |
+|**Maksymalna liczba bajtów na sesję (w bajtach)** | Całkowita liczba przechwyconych bajtów, po osiągnięciu której wartość zostanie zakończona.|
+|**Limit czasu (w sekundach)** | Ustawia ograniczenie czasu dla sesji przechwytywania pakietów. Wartość domyślna to 18000 sekund lub 5 godzin.|
 
-**Filtrowanie (opcjonalnie)**
+**Filtrowanie (opcjonalne)**
 
 |Właściwość|Opis|
 |---|---|
-|**Protokół** | Protokół do filtrowania przechwytywania pakietów. Dostępne wartości to TCP, UDP i All.|
-|**Lokalny adres IP** | Ta wartość filtruje przechwytywanie pakietów do pakietów, w których lokalny adres IP odpowiada tej wartości filtru.|
-|**Port lokalny** | Ta wartość filtruje przechwytywanie pakietów do pakietów, w których port lokalny odpowiada tej wartości filtru.|
-|**Zdalny adres IP** | Ta wartość filtruje przechwytywanie pakietów do pakietów, w których zdalny adres IP odpowiada tej wartości filtru.|
-|**Port zdalny** | Ta wartość filtruje przechwytywanie pakietów do pakietów, w których port zdalny odpowiada tej wartości filtru.|
+|**Protokol** | Protokół do filtrowania przechwytywania pakietów. Dostępne wartości to TCP, UDP i ALL.|
+|**Lokalny adres IP** | Ta wartość filtruje przechwytywanie pakietów do pakietów, w których lokalny adres IP jest zgodny z wartością tego filtru.|
+|**Port lokalny** | Ta wartość filtruje przechwycenie pakietu do pakietów, w których port lokalny jest zgodny z wartością tego filtru.|
+|**Zdalny adres IP** | Ta wartość filtruje przechwytywanie pakietów do pakietów, w których zdalny adres IP jest zgodny z wartością tego filtru.|
+|**Port zdalny** | Ta wartość filtruje przechwytywanie pakietów do pakietów, w których Port zdalny jest zgodny z wartością tego filtru.|
 
 ### <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak zarządzać przechwytywaniem pakietów za pośrednictwem portalu, odwiedzając pozycję [Zarządzaj przechwytywaniem pakietów w portalu Azure](network-watcher-packet-capture-manage-portal.md) lub za pomocą programu PowerShell, odwiedzając [witrynę Zarządzaj przechwytywaniem pakietów za pomocą programu PowerShell](network-watcher-packet-capture-manage-powershell.md).
+Dowiedz się, jak zarządzać przechwyceniami pakietów za pomocą portalu, odwiedzając [Zarządzanie przechwytywaniem pakietów w Azure Portal](network-watcher-packet-capture-manage-portal.md) lub przy użyciu programu PowerShell, odwiedzając [Zarządzanie pakietami za pomocą programu PowerShell](network-watcher-packet-capture-manage-powershell.md).
 
-Dowiedz się, jak tworzyć proaktywne przechwytywanie pakietów na podstawie alertów maszyn wirtualnych, odwiedzając pozycję [Tworzenie wyzwalanego alertu przechwytywania pakietów](network-watcher-alert-triggered-packet-capture.md)
+Dowiedz się, jak utworzyć proaktywne przechwycenia pakietów na podstawie alertów maszyny wirtualnej przez odwiedzenie [Create an wyzwolone przechwytywanie pakietów](network-watcher-alert-triggered-packet-capture.md)
 
 <!--Image references-->
 [1]: ./media/network-watcher-packet-capture-overview/figure1.png

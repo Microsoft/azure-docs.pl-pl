@@ -1,7 +1,7 @@
 ---
-title: Rozwiązywanie problemów z połączeniami — narzędzie Azure CLI
+title: Rozwiązywanie problemów z połączeniami — interfejs wiersza polecenia Azure
 titleSuffix: Azure Network Watcher
-description: Dowiedz się, jak korzystać z możliwości rozwiązywania problemów z połączeniem usługi Azure Network Watcher przy użyciu interfejsu wiersza polecenia platformy Azure.
+description: Dowiedz się, jak korzystać z funkcji rozwiązywania problemów z usługą Azure Network Watcher przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -14,34 +14,34 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: 842e58de8dbc06d3f045b0e9d0dc6b99e6b1e2fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76842890"
 ---
-# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Rozwiązywanie problemów z połączeniami z usługą Azure Network Watcher przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Rozwiązywanie problemów z usługą Azure Network Watcher przy użyciu interfejsu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
-> - [Powershell](network-watcher-connectivity-powershell.md)
+> - [Narzędzia](network-watcher-connectivity-powershell.md)
 > - [Interfejs wiersza polecenia platformy Azure](network-watcher-connectivity-cli.md)
 > - [Interfejs API REST platformy Azure](network-watcher-connectivity-rest.md)
 
-Dowiedz się, jak użyć rozwiązywania problemów z połączeniem, aby sprawdzić, czy można ustanowić bezpośrednie połączenie TCP z maszyny wirtualnej do danego punktu końcowego.
+Dowiedz się, jak używać rozwiązywania problemów z połączeniami, aby sprawdzić, czy można nawiązać bezpośrednie połączenie TCP z maszyny wirtualnej do danego punktu końcowego.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W tym artykule założono, że masz następujące zasoby:
 
-* Wystąpienie Obserwatora sieciowego w regionie, w którego chcesz rozwiązać problem z połączeniem.
-* Maszyny wirtualne do rozwiązywania problemów z połączeniami.
+* Wystąpienie Network Watcher w regionie, w którym chcesz rozwiązać problem z połączeniem.
+* Maszyny wirtualne do rozwiązywania problemów z usługą.
 
 > [!IMPORTANT]
-> Rozwiązywanie problemów z połączeniem wymaga, `AzureNetworkWatcherExtension` aby maszyna wirtualna, z której można rozwiązać problem, ma zainstalowane rozszerzenie maszyny Wirtualnej. Aby zainstalować rozszerzenie na maszynie Wirtualnej systemu Windows odwiedź [rozszerzenie maszyny wirtualnej usługi Azure Network Watcher Agent dla systemu Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) i maszyny wirtualnej z systemem Linux, odwiedź rozszerzenie maszyny [wirtualnej usługi Azure Network Watcher Agent dla systemu Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Rozszerzenie nie jest wymagane w docelowym punkcie końcowym.
+> Rozwiązywanie problemów z połączeniem wymaga, aby maszyna wirtualna z `AzureNetworkWatcherExtension` maszyną wirtualną była zainstalowana jako rozszerzenie maszyny wirtualnej. Aby zainstalować rozszerzenie na maszynie wirtualnej z systemem Windows, odwiedź [rozszerzenie maszyny wirtualnej usługi azure Network Watcher Agent dla systemu Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) i dla maszyny wirtualnej z systemem Linux odwiedź [rozszerzenie maszyny wirtualnej agenta usługi Azure Network Watcher](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Rozszerzenie nie jest wymagane w docelowym punkcie końcowym.
 
-## <a name="check-connectivity-to-a-virtual-machine"></a>Sprawdzanie łączności z maszyną wirtualną
+## <a name="check-connectivity-to-a-virtual-machine"></a>Sprawdź łączność z maszyną wirtualną
 
-W tym przykładzie sprawdza łączność z docelową maszyną wirtualną za porcie 80.
+Ten przykład umożliwia sprawdzenie łączności z docelową maszyną wirtualną przez port 80.
 
 ### <a name="example"></a>Przykład
 
@@ -51,7 +51,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Odpowiedź
 
-Następująca odpowiedź pochodzi z poprzedniego przykładu.  W tej odpowiedzi, jest `ConnectionStatus` **nieosiągalny**. Widać, że wszystkie wysłane sondy nie powiodły się. Łączność nie powiodła się na urządzeniu wirtualnym `NetworkSecurityRule` z powodu skonfigurowanego przez użytkownika **UserRule_Port80**o nazwie , skonfigurowanego do blokowania ruchu przychodzącego na porcie 80. Te informacje mogą służyć do badania problemów z połączeniem.
+Poniższa odpowiedź pochodzi z poprzedniego przykładu.  W tej odpowiedzi `ConnectionStatus` jest **nieosiągalny**. Można zobaczyć, że wszystkie sondy zostały wysłane. Łączność z urządzeniem wirtualnym nie powiodła się ze względu na `NetworkSecurityRule` skonfigurowaną przez użytkownika nazwę **UserRule_Port80**skonfigurowaną do blokowania ruchu przychodzącego na porcie 80. Te informacje mogą służyć do badania problemów z połączeniami.
 
 ```json
 {
@@ -120,9 +120,9 @@ Nic0/ipConfigurations/ipconfig1",
 }
 ```
 
-## <a name="validate-routing-issues"></a>Sprawdzanie poprawności problemów z routingiem
+## <a name="validate-routing-issues"></a>Weryfikuj problemy z routingiem
 
-W tym przykładzie sprawdza łączność między maszyną wirtualną a zdalnym punktem końcowym.
+Ten przykład sprawdza łączność między maszyną wirtualną a zdalnym punktem końcowym.
 
 ### <a name="example"></a>Przykład
 
@@ -132,7 +132,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Odpowiedź
 
-W poniższym przykładzie jest wyświetlany jako `connectionStatus` **Nieosiągalny**. W `hops` szczegółach widać, `issues` że ruch został zablokowany z `UserDefinedRoute`powodu .
+W poniższym przykładzie `connectionStatus` jest wyświetlany jako **nieosiągalny**. W `hops` szczegółach można zobaczyć, `issues` że ruch został zablokowany z powodu. `UserDefinedRoute`
 
 ```json
 {
@@ -190,7 +190,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Odpowiedź
 
-W poniższej odpowiedzi możesz `connectionStatus` zobaczyć pokazy jako **osiągalne**. Po pomyślnym zakończeniu połączenia są podane wartości opóźnienia.
+W poniższej odpowiedzi widać, że `connectionStatus` są wyświetlane jako **dostępne**. Po pomyślnym nawiązaniu połączenia są podawane wartości opóźnienia.
 
 ```json
 {
@@ -224,9 +224,9 @@ pNic0/ipConfigurations/ipconfig1",
 }
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>Sprawdzanie łączności z punktem końcowym magazynu
+## <a name="check-connectivity-to-a-storage-endpoint"></a>Sprawdź łączność z punktem końcowym magazynu
 
-Poniższy przykład sprawdza łączność z maszyny wirtualnej do konta magazynu blogu.
+Poniższy przykład sprawdza połączenie z maszyny wirtualnej z kontem magazynu w blogu.
 
 ### <a name="example"></a>Przykład
 
@@ -236,7 +236,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Odpowiedź
 
-Poniższy json jest przykład odpowiedzi z uruchamiania poprzedniego polecenia cmdlet. Ponieważ kontrola zakończy się `connectionStatus` pomyślnie, właściwość jest wyświetlana jako **osiągalna.**  Podano szczegółowe informacje dotyczące liczby przeskoków wymaganych do osiągnięcia obiektu blob magazynu i opóźnienia.
+Poniższy kod JSON to Przykładowa odpowiedź z uruchomienia poprzedniego polecenia cmdlet. Po pomyślnym sprawdzeniu `connectionStatus` właściwość jest wyświetlana jako **osiągalna**.  Podano szczegółowe informacje dotyczące liczby przeskoków wymaganych do uzyskania dostępu do obiektu blob magazynu i opóźnienia.
 
 ```json
 {
@@ -271,6 +271,6 @@ Poniższy json jest przykład odpowiedzi z uruchamiania poprzedniego polecenia c
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak zautomatyzować przechwytywanie pakietów za pomocą alertów maszyn wirtualnych, przeglądając [Tworzenie wyzwalanego alertu przechwytywania pakietów](network-watcher-alert-triggered-packet-capture.md)
+Informacje o automatyzowaniu przechwytywania pakietów przy użyciu alertów dotyczących maszyn wirtualnych poprzez wyświetlanie [funkcji tworzenia alertu wyzwolenie pakietu](network-watcher-alert-triggered-packet-capture.md)
 
-Sprawdzanie, czy określony ruch jest dozwolony w maszynie wirtualnej lub poza niej, odwiedzając weryfikację [przepływu adresu IP](diagnose-vm-network-traffic-filtering-problem.md)
+Sprawdź, czy określony ruch jest dozwolony w lub z maszyny wirtualnej, odwiedzając [sprawdzenie przepływu IP](diagnose-vm-network-traffic-filtering-problem.md)

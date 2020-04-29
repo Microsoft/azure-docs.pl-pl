@@ -1,6 +1,6 @@
 ---
-title: Wideo dotyczące migracji usługi Azure ADAL do msal | Azure
-description: Klipy wideo ułatwiające migrację z platformy dewelopera Azure Active Directory na platformę tożsamości firmy Microsoft
+title: Biblioteki ADAL platformy Azure do MSAL migracji | Azure
+description: Filmy wideo ułatwiające Migrowanie z platformy Azure Active Directory Developer do platformy tożsamości firmy Microsoft
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,23 +14,23 @@ ms.custom: aaddev
 ms.reviewer: celested
 titleSuffix: Microsoft identity platform
 ms.openlocfilehash: e71f555f7a9cefef3aeada79031db3a07e3db49a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77202062"
 ---
-# <a name="azure-active-directory-developer-platform-videos"></a>Wideo dotyczące platformy Dewelopera usługi Azure Active Directory
+# <a name="azure-active-directory-developer-platform-videos"></a>Azure Active Directory klipy wideo dotyczące platformy deweloperskiej
 
-Dowiedz się więcej o nowej platformie tożsamości firmy Microsoft i o tym, jak przeprowadzić migrację do niej z platformy deweloperskiej usługi Azure Active Directory (Azure AD). Filmy trwają zazwyczaj od 1 do 2 minut.
+Dowiedz się więcej o nowej platformie tożsamości firmy Microsoft i sposobach migracji do niej z platformy deweloperskiej Azure Active Directory (Azure AD). Wideo są zwykle 1-2 minuty.
 
 ## <a name="migrate-from-v10-to-v20"></a>Migrowanie z wersji 1.0 do wersji 2.0
 
-**Dowiedz się więcej o migracji do najnowszej wersji platformy tożsamości firmy Microsoft**
+**Dowiedz się więcej na temat migracji do najnowszej wersji platformy tożsamości firmy Microsoft**
 
 :::row:::
     :::column:::
-        Nowe omówienie platformy tożsamości firmy Microsoft
+        Omówienie nowej platformy tożsamości firmy Microsoft
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
@@ -44,13 +44,13 @@ Dowiedz się więcej o nowej platformie tożsamości firmy Microsoft i o tym, ja
 :::row-end:::
 :::row:::
     :::column:::
-        Punkty końcowe i korzyści wynikające z przejścia do wersji 2.0
+        Punkty końcowe i zalety przejścia do wersji 2.0
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
      :::column:::
-        Migrowanie bazy kodu ADAL do usługi MSAL
+        Migrowanie bazy kodu ADAL do MSAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
@@ -58,13 +58,13 @@ Dowiedz się więcej o nowej platformie tożsamości firmy Microsoft i o tym, ja
 :::row-end:::
 :::row:::
     :::column:::
-        Dlaczego warto migrować z usługi ADAL do msal
+        Dlaczego należy przeprowadzić migrację z biblioteki ADAL do MSAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
     :::column:::
-        Zalety MSAL w stosunku do ADAL
+        Zalety MSAL za pośrednictwem biblioteki ADAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/q-TDszj2O-4]

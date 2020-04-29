@@ -1,6 +1,6 @@
 ---
-title: Żądania zwiększenia przydziału programu Azure Resource Manager w ramach programu VCPU
-description: Żądania zwiększenia przydziału programu Azure Resource Manager w ramach programu VCPU
+title: Azure Resource Manager żądania zwiększenia limitu przydziału vCPU
+description: Azure Resource Manager żądania zwiększenia limitu przydziału vCPU
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
@@ -8,20 +8,20 @@ ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: cdbf7364a275eb246615f398044456645a96d1a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76843671"
 ---
 # <a name="quota-increase-requests"></a>Żądania zwiększenia limitu przydziału
 
-Przydziały vCPU Menedżera zasobów dla maszyn wirtualnych i zestawów skalowania maszyn wirtualnych są wymuszane w dwóch warstwach dla każdej subskrypcji w każdym regionie.
+Menedżer zasobów przydziały vCPU dla maszyn wirtualnych i zestawów skalowania maszyn wirtualnych są wymuszane w dwóch warstwach dla każdej subskrypcji w każdym regionie.
 
-Pierwsza warstwa to limit całkowitych regionalnych procesorów wirtualnych we wszystkich seriach maszyn wirtualnych. Druga warstwa to limit procesorów wirtualnych serii maszyn wirtualnych na, takich jak procesory wirtualne z serii D. Za każdym razem, gdy ma zostać wdrożona nowa maszyna wirtualna, suma użycia nowych i istniejących procesorów wirtualnych dla tej serii maszyn wirtualnych nie może przekraczać przydziału wirtualnego zatwierdzonego dla danej serii maszyn wirtualnych. Ponadto całkowita liczba nowych i istniejących procesorów wirtualnych wdrożonych we wszystkich seriach maszyn wirtualnych nie powinna przekraczać przydziału całkowita regionalna procesory wirtualne zatwierdzone dla subskrypcji. Jeśli którykolwiek z tych przydziałów zostaną przekroczone, wdrożenie maszyny Wirtualnej nie będzie dozwolone.
-Można zażądać zwiększenia limitu przydziału procesorów wirtualnych dla serii maszyn wirtualnych z witryny Azure portal. Zwiększenie przydziału serii maszyn wirtualnych automatycznie zwiększa limit regionalnych procesorów wirtualnych o tę samą kwotę.
+Pierwsza warstwa to całkowity limit procesorów wirtualnych vCPU regionalnych dla wszystkich serii maszyn wirtualnych. Druga warstwa to limit procesorów wirtualnych vCPU na serię maszyn wirtualnych, taki jak procesorów wirtualnych vCPU serii D. Gdy zostanie wdrożona nowa maszyna wirtualna, suma nowych i istniejących procesorów wirtualnych vCPU użycie dla tej serii maszyn wirtualnych nie może przekroczyć limitu przydziału vCPU zatwierdzonego dla danej serii maszyn wirtualnych. Dodatkowo całkowita i istniejąca liczba vCPU wdrożona na wszystkich seriach maszyn wirtualnych nie powinna przekraczać całkowitego przydziału regionalnego procesorów wirtualnych vCPU zatwierdzonego dla subskrypcji. Jeśli jeden z tych przydziałów zostanie przekroczony, wdrożenie maszyny wirtualnej nie będzie dozwolone.
+Można zażądać zwiększenia limitu przydziału procesorów wirtualnych vCPU dla serii maszyn wirtualnych z Azure Portal. Zwiększenie limitu przydziału serii maszyn wirtualnych powoduje automatyczne zwiększenie łącznej granicy procesorów wirtualnych vCPU w regionie o tej samej wartości.
 
-Podczas tworzenia nowej subskrypcji domyślne regionalne procesory wirtualne suma nie może być równa sumie domyślnych przydziałów procesorów wirtualnych dla wszystkich poszczególnych serii maszyn wirtualnych. Ten fakt może spowodować subskrypcji z wystarczającą ilością przydziału dla każdej serii maszyn wirtualnych, które chcesz wdrożyć. Może brakować wystarczającego przydziału dla regionalnych procesorów wirtualnych totalnych dla wszystkich wdrożeń. W takim przypadku należy przesłać żądanie, aby jawnie zwiększyć limit regionalnych procesorów wirtualnych. Całkowity regionalny limit procesorów wirtualnych nie może przekroczyć sumy zatwierdzonego przydziału we wszystkich seriach maszyn wirtualnych dla regionu.
+Po utworzeniu nowej subskrypcji domyślna łączna liczba procesorów wirtualnych vCPU regionalnych może nie być równa sumie domyślnych przydziałów vCPU dla wszystkich poszczególnych serii maszyn wirtualnych. Ten fakt może skutkować subskrypcją z wystarczającym limitem przydziału dla każdej pojedynczej serii maszyn wirtualnych, która ma zostać wdrożona. Może brakować wystarczającego limitu przydziału dla procesorów wirtualnych vCPU regionalnych wszystkich wdrożeń. W takim przypadku musisz przesłać żądanie, aby w sposób jawny zwiększyć łączny limit procesorów wirtualnych vCPU regionalny. Łączny limit procesorów wirtualnych vCPU regionalnych nie może przekroczyć sumy zatwierdzonego przydziału dla całej serii maszyn wirtualnych dla regionu.
 
-Aby uzyskać więcej informacji na temat przydziałów, zobacz [Przydziały vCPU maszyn wirtualnych maszyny wirtualnej](../../virtual-machines/windows/quotas.md) oraz [limity subskrypcji i usług platformy Azure, przydziały i ograniczenia](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+Aby uzyskać więcej informacji na temat przydziałów, zobacz limity [przydziału vCPU maszyny wirtualnej](../../virtual-machines/windows/quotas.md) i [limitów subskrypcji i usług platformy Azure, przydziałów i ograniczeń](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 

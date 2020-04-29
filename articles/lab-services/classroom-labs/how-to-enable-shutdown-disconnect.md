@@ -1,6 +1,6 @@
 ---
-title: Włączanie zamykania maszyn wirtualnych podczas rozłączania usług Azure Lab | Dokumenty firmy Microsoft
-description: Dowiedz się, jak włączyć lub wyłączyć automatyczne zamykanie maszyn wirtualnych po odłączeniu połączenia pulpitu zdalnego.
+title: Włącz zamykanie maszyn wirtualnych przy rozłączaniu Azure Lab Services | Microsoft Docs
+description: Informacje na temat włączania lub wyłączania automatycznego zamykania maszyn wirtualnych po odłączeniu połączenia z pulpitem zdalnym.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,31 +14,31 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: spelluru
 ms.openlocfilehash: 68a27a325a0ef02c6eeea9867a21ba0e24ab5321
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77117136"
 ---
-# <a name="enable-automatic-shutdown-of-vms-on-disconnect"></a>Włączanie automatycznego wyłączania maszyn wirtualnych po rozłączeniu
-W tym artykule pokazano, jak można włączyć lub wyłączyć automatyczne zamykanie maszyn wirtualnych z laboratorium **systemu Windows 10** (szablon lub student) po odłączeniu połączenia pulpitu zdalnego. Można również określić, jak długo maszyny wirtualne powinny czekać na ponowne połączenie użytkownika przed automatycznym zamknięciem.
+# <a name="enable-automatic-shutdown-of-vms-on-disconnect"></a>Włącz automatyczne zamykanie maszyn wirtualnych przy rozłączaniu
+W tym artykule opisano sposób włączania lub wyłączania automatycznego zamykania maszyn wirtualnych z **systemem Windows 10** Lab (szablonu lub ucznia) po odłączeniu połączenia z pulpitem zdalnym. Możesz również określić, jak długo maszyny wirtualne powinny czekać, aby użytkownik mógł ponownie nawiązać połączenie przed automatycznym zamknięciem.
 
-Administrator konta laboratorium może skonfigurować to ustawienie dla konta laboratorium, na którym tworzysz laboratoria. Aby uzyskać więcej informacji, zobacz [Konfigurowanie automatycznego zamykania maszyn wirtualnych przy rozłączaniu dla konta laboratoryjnego](how-to-configure-lab-accounts.md#automatic-shutdown-of-vms-on-disconnect). Jako właściciel laboratorium możesz zastąpić to ustawienie podczas tworzenia laboratorium lub po utworzeniu laboratorium. 
+Administrator konta laboratorium może skonfigurować to ustawienie dla konta laboratorium, w którym tworzysz laboratoria. Aby uzyskać więcej informacji, zobacz [Konfigurowanie automatycznego zamykania maszyn wirtualnych przy rozłączaniu dla konta laboratorium](how-to-configure-lab-accounts.md#automatic-shutdown-of-vms-on-disconnect). Jako właściciel laboratorium możesz zastąpić to ustawienie podczas tworzenia laboratorium lub po utworzeniu laboratorium. 
 
-## <a name="configure-when-creating-a-lab"></a>Konfigurowanie podczas tworzenia laboratorium
-Na stronie kroku 3 kreatora tworzenia laboratorium można włączyć lub wyłączyć tę funkcję, a także określić, jak długo maszyna wirtualna powinna czekać na ponowne połączenie użytkownika przed automatycznym zamknięciem. 
+## <a name="configure-when-creating-a-lab"></a>Konfiguruj podczas tworzenia laboratorium
+Na stronie krok 3 Kreatora tworzenia laboratorium można włączyć lub wyłączyć tę funkcję, a także określić, jak długo maszyna wirtualna ma czekać na ponowne połączenie przed automatycznym zamknięciem. 
 
-![Konfigurowanie w momencie tworzenia laboratorium](../media/how-to-enable-shutdown-disconnect/configure-lab-creation.png)
+![Konfiguruj podczas tworzenia laboratorium](../media/how-to-enable-shutdown-disconnect/configure-lab-creation.png)
 
-## <a name="configure-after-the-lab-is-created"></a>Konfigurowanie po utworzeniu laboratorium
-To ustawienie można skonfigurować na stronie **Ustawienia,** jak pokazano na poniższej ilustracji: 
+## <a name="configure-after-the-lab-is-created"></a>Konfiguruj po utworzeniu laboratorium
+To ustawienie można skonfigurować na stronie **Ustawienia** , jak pokazano na poniższej ilustracji: 
 
-![Konfigurowanie po utworzeniu laboratorium](../media/how-to-enable-shutdown-disconnect/configure-lab-automatic-shutdown.png)
+![Konfiguruj po utworzeniu laboratorium](../media/how-to-enable-shutdown-disconnect/configure-lab-automatic-shutdown.png)
 
 > [!WARNING]
-> Jeśli system operacyjny Windows (OS) zostanie zamknięty na maszynie wirtualnej przed odłączeniem sesji RDP do maszyny Wirtualnej, funkcja automatycznego wyłączania nie będzie działać poprawnie.  
+> Jeśli system operacyjny Windows zostanie zamknięty na maszynie wirtualnej przed rozłączeniem sesji RDP z maszyną wirtualną, funkcja Autozamykania nie będzie działać prawidłowo.  
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły:
 
-- [Deska rozdzielcza do laboratoriów szkolnych](use-dashboard.md)
+- [Pulpit nawigacyjny dla laboratoriów zajęć](use-dashboard.md)

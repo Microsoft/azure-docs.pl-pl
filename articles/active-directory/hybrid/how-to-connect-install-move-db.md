@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 742bc307c90ad58b83b7d4c92f9546b87c163c3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77019285"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Przenoszenie bazy danych programu Azure AD Connect z serwera SQL Server Express do serwera SQL Server 
@@ -25,24 +25,24 @@ W tym dokumencie opisano sposób przenoszenia bazy danych programu Azure AD Conn
 ## <a name="about-this-scenario"></a>Informacje o tym scenariuszu
 Poniżej przedstawiono krótkie informacje na temat tego scenariusza.  W tym scenariuszu program Azure AD Connect w wersji (1.1.819.0) jest instalowany na pojedynczym kontrolerze domeny z systemem Windows Server 2016.  Do przechowywania bazy danych używa on serwera SQL Server 2012 Express Edition.  Baza danych zostanie przeniesiona na serwer SQL Server 2017.
 
-![architektura scenariuszy](media/how-to-connect-install-move-db/move1.png)
+![Architektura scenariusza](media/how-to-connect-install-move-db/move1.png)
 
 ## <a name="move-the-azure-ad-connect-database"></a>Przenoszenie bazy danych programu Azure AD Connect
 Wykonaj następujące kroki, aby przenieść bazę danych programu Azure AD Connect na zdalny serwer SQL Server.
 
 1. Na serwerze programu Azure AD Connect przejdź do pozycji **Usługi** i zatrzymaj usługę **Microsoft Azure AD Sync**.
-2. Znajdź folder **%ProgramFiles%\Microsoft Azure AD Sync\Data** i skopiuj pliki **ADSync.mdf** i **ADSync_log.ldf** do zdalnego programu SQL Server.
+2. Zlokalizuj folder **%ProgramFiles%\Microsoft Azure AD Sync\Data** i skopiuj pliki **ADSync. mdf** i **ADSync_log. ldf** do SQL Server zdalnego.
 3. Uruchom ponownie usługę **Microsoft Azure AD Sync** na serwerze programu Azure AD Connect.
 4. Odinstaluj program Azure AD Connect, przechodząc do pozycji Panel sterowania — Programy — Programy i funkcje.  Wybierz pozycję Microsoft Azure AD Connect i kliknij u góry pozycję Odinstaluj.
 5. Na zdalnym serwerze SQL Server otwórz program SQL Server Management Studio.
 6. W sekcji Bazy danych kliknij prawym przyciskiem myszy i wybierz pozycję Dołącz.
 7. Na ekranie **Dołączanie baz danych** kliknij pozycję **Dodaj** i przejdź do pliku ADSync.mdf.  Kliknij przycisk **OK**.
-   ![dołącz bazę danych](media/how-to-connect-install-move-db/move2.png)
+   ![Dołącz bazę danych](media/how-to-connect-install-move-db/move2.png)
 
 8. Po dołączeniu bazy danych wróć do serwera programu Azure AD Connect i zainstaluj program Azure AD Connect.
 9. Po zakończeniu instalacji pliku MSI kreator programu Azure AD Connect rozpocznie instalację w trybie ekspresowym. Zamknij ekran, klikając ikonę zakończenia.
    ![Powitanie](./media/how-to-connect-install-move-db/db1.png)
-10. Uruchom nowy wiersz polecenia lub sesję programu PowerShell. Przejdź do \<> dysku folderów\program files\Microsoft Azure AD Connect. Uruchom polecenie .\AzureADConnect.exe /useexistingdatabase w celu uruchomienia kreatora programu Azure AD Connect w trybie instalacji „Użyj istniejącej bazy danych”.
+10. Uruchom nowy wiersz polecenia lub sesję programu PowerShell. Przejdź do folderu \<dysk> \program files\microsoft Azure AD Connect. Uruchom polecenie .\AzureADConnect.exe /useexistingdatabase w celu uruchomienia kreatora programu Azure AD Connect w trybie instalacji „Użyj istniejącej bazy danych”.
     ![Program PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. Zobaczysz ekran powitalny programu Azure AD Connect. Gdy zaakceptujesz postanowienia licencyjne i uwagi na temat ochrony prywatności, kliknij pozycję **Kontynuuj**.
     ![Powitanie](./media/how-to-connect-install-move-db/db3.png)
@@ -60,11 +60,11 @@ Wykonaj następujące kroki, aby przenieść bazę danych programu Azure AD Conn
     ![Powitanie](./media/how-to-connect-install-move-db/db7.png)
  
  
-16. Po podaniu poświadczeń ikona czerwonego krzyżyka jest zastępowana ikoną zielonego znacznika wyboru. Kliknij przycisk **alej**.
+16. Po podaniu poświadczeń ikona czerwonego krzyżyka jest zastępowana ikoną zielonego znacznika wyboru. Kliknij przycisk **Dalej**.
     ![Powitanie](./media/how-to-connect-install-move-db/db8.png)
  
  
-17. Na ekranie **Gotowe do skonfigurowania** kliknij pozycję **Zainstaluj**.
+17. Na ekranie **gotowy do konfiguracji** kliknij przycisk **Instaluj**.
     ![Powitanie](./media/how-to-connect-install-move-db/db9.png)
  
  

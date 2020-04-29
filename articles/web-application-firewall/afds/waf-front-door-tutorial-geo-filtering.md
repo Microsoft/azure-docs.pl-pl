@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie zasad zapory aplikacji sieci Web filtrowania geograficznego dla usługi Azure Front Door
-description: W tym samouczku dowiesz się, jak utworzyć zasady filtrowania geograficznego i skojarzyć zasady z istniejącym hostem frontendu drzwi frontowych
+title: Konfigurowanie zasad zapory aplikacji sieci Web do filtrowania geograficznego dla usługi Azure front-drzwi
+description: W ramach tego samouczka nauczysz się tworzyć zasady filtrowania geograficznego i kojarzyć zasady z istniejącym hostem frontonu z przodu.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -9,27 +9,27 @@ ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
 ms.openlocfilehash: abcef61d478eccb4e979b60eb845ac8d398a49f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79135874"
 ---
-# <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Konfigurowanie zasad WAF filtrowania geograficznego dla drzwi wejściowych
+# <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Skonfiguruj zasady WAFego filtrowania geograficznego dla drzwi przednich
 
-W tym samouczku pokazano, jak utworzyć przykładowe zasady filtrowania geograficznego za pomocą programu Azure PowerShell i skojarzyć je z istniejącym hostem frontonu usługi Front Door. Ta przykładowa zasada filtrowania geograficznego będzie blokować żądania ze wszystkich innych krajów/regionów z wyjątkiem Stanów Zjednoczonych.
+W tym samouczku pokazano, jak utworzyć przykładowe zasady filtrowania geograficznego za pomocą programu Azure PowerShell i skojarzyć je z istniejącym hostem frontonu usługi Front Door. Ta przykładowa zasada filtrowania geograficznego będzie blokować żądania ze wszystkich innych krajów/regionów z wyjątkiem Stany Zjednoczone.
 
 Jeśli nie masz subskrypcji platformy Azure, utwórz teraz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem konfigurowania zasad filtrowania geograficznego należy skonfigurować środowisko programu PowerShell i utworzyć profil drzwiach frontowych.
+Przed rozpoczęciem konfigurowania zasad filtrowania geograficznego Skonfiguruj środowisko programu PowerShell i Utwórz profil dla drzwi przednich.
 ### <a name="set-up-your-powershell-environment"></a>Konfigurowanie środowiska programu PowerShell
 Program Azure PowerShell udostępnia zestaw poleceń cmdlet, które pozwalają zarządzać zasobami platformy Azure przy użyciu modelu usługi [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). 
 
-Możesz zainstalować program [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) w maszynie lokalnej i używać go w dowolnej sesji programu PowerShell. Postępuj zgodnie z instrukcjami na stronie, aby zalogować się przy użyciu poświadczeń platformy Azure i zainstalować moduł Az PowerShell.
+Możesz zainstalować program [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) w maszynie lokalnej i używać go w dowolnej sesji programu PowerShell. Postępuj zgodnie z instrukcjami na stronie, aby zalogować się przy użyciu poświadczeń platformy Azure, i zainstaluj moduł AZ PowerShell module.
 
-#### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Łączenie się z platformą Azure za pomocą interaktywnego okna dialogowego do logowania
+#### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Nawiązywanie połączenia z platformą Azure przy użyciu interaktywnego okna dialogowego logowania
 
 ```
 Install-Module -Name Az
@@ -40,19 +40,19 @@ Upewnij się, że masz zainstalowaną bieżącą wersję programu PowerShellGet.
 ```
 Install-Module PowerShellGet -Force -AllowClobber
 ``` 
-#### <a name="install-azfrontdoor-module"></a>Instalowanie modułu Az.FrontDoor 
+#### <a name="install-azfrontdoor-module"></a>Zainstaluj AZ. Usługa frontdoor module 
 
 ```
 Install-Module -Name Az.FrontDoor
 ```
 
-### <a name="create-a-front-door-profile"></a>Tworzenie profilu drzwi przednich
+### <a name="create-a-front-door-profile"></a>Tworzenie profilu frontu drzwi
 
-Utwórz profil drzwi przednich, postępując zgodnie z instrukcjami opisanymi w [przewodniku Szybki start: Utwórz profil drzwi przednich](../../frontdoor/quickstart-create-front-door.md).
+Utwórz profil z drzwiami wstępnymi, wykonując instrukcje opisane w [przewodniku szybki start: Tworzenie profilu front-drzwi](../../frontdoor/quickstart-create-front-door.md).
 
-## <a name="define-geo-filtering-match-condition"></a>Definiowanie warunku dopasowania filtrowania geograficznego
+## <a name="define-geo-filtering-match-condition"></a>Zdefiniuj warunek dopasowania do filtrowania geograficznego
 
-Utwórz warunek dopasowania przykładowego, który wybiera żądania nie pochodzące z "US" przy użyciu [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) na parametry podczas tworzenia warunku dopasowania. Dwuliterowe kody krajów do mapowania kraju znajdują się w obszarze [Co to jest filtrowanie geograficzne w domenie dla drzwi frontowych platformy Azure?](waf-front-door-geo-filtering.md).
+Utwórz przykładowy warunek dopasowania, który wybiera żądania, które nie pochodzą z elementu "US" przy użyciu polecenia [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) na parametrach podczas tworzenia warunku dopasowywania. Dwa litery kraju do mapowania kraju są dostępne w [co to jest filtrowanie geograficzne w domenie dla drzwi frontonu platformy Azure?](waf-front-door-geo-filtering.md).
 
 ```azurepowershell-interactive
 $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
@@ -64,7 +64,7 @@ $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
  
 ## <a name="add-geo-filtering-match-condition-to-a-rule-with-action-and-priority"></a>Dodawanie warunku dopasowania filtrowania geograficznego do reguły za pomocą akcji i priorytetu
 
-Utwórz obiekt `nonUSBlockRule` CustomRule na podstawie warunku dopasowania, akcji i priorytetu przy użyciu [funkcji New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject).  Element CustomRule może mieć wiele elementów MatchCondition.  W tym przykładzie ustawiono akcję blokowania i najwyższy priorytet 1.
+Utwórz obiekt `nonUSBlockRule` CustomRule w oparciu o warunek dopasowania, akcję i priorytet przy użyciu polecenia [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject).  Element CustomRule może mieć wiele elementów MatchCondition.  W tym przykładzie ustawiono akcję blokowania i najwyższy priorytet 1.
 
 ```
 $nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
@@ -77,9 +77,9 @@ $nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
 
 ## <a name="add-rules-to-a-policy"></a>Dodawanie reguł do zasad
 
-Znajdź nazwę grupy zasobów zawierającej profil Drzwiami frontowymi za pomocą programu `Get-AzResourceGroup`. Następnie utwórz `geoPolicy` obiekt zasad `nonUSBlockRule` zawierający przy użyciu [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) w określonej grupie zasobów, która zawiera profil drzwi frontowych. Należy podać unikatową nazwę zasad geograficznych. 
+Znajdź nazwę grupy zasobów, która zawiera profil przedni drzwi przy użyciu `Get-AzResourceGroup`. Następnie Utwórz obiekt `geoPolicy` zasad zawierający `nonUSBlockRule` przy użyciu polecenia [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) w określonej grupie zasobów zawierającej profil drzwi przednich. Musisz podać unikatową nazwę zasad geograficznych. 
 
-W poniższym przykładzie użyto nazwy grupy zasobów *myResourceGroupFD1* przy założeniu, że profil drzwi frontowych został utworzony przy użyciu instrukcji podanych w artykule [Szybki start: Tworzenie drzwi frontowych.](../../frontdoor/quickstart-create-front-door.md) W poniższym przykładzie zastąp nazwę zasad *geoPolicyAllowUSOnly* unikatową nazwą zasad.
+W poniższym przykładzie użyto nazwy grupy zasobów *myResourceGroupFD1* z założeniem, że profil przeddrzwi został utworzony przy użyciu instrukcji przedstawionych w [przewodniku szybki start: Tworzenie przedniego](../../frontdoor/quickstart-create-front-door.md) artykułu. W poniższym przykładzie Zastąp nazwę zasad *geoPolicyAllowUSOnly* unikatową nazwą zasad.
 
 ```
 $geoPolicy = New-AzFrontDoorWafPolicy `
@@ -90,25 +90,25 @@ $geoPolicy = New-AzFrontDoorWafPolicy `
 -EnabledState Enabled
 ```
 
-## <a name="link-waf-policy-to-a-front-door-frontend-host"></a>Łączenie zasad WAF z hostem frontendu drzwi frontowych
+## <a name="link-waf-policy-to-a-front-door-frontend-host"></a>Łączenie zasad WAF z głównym hostem frontonu
 
-Połącz obiekt zasad WAF z istniejącym hostem frontendu drzwi frontowych i zaktualizuj właściwości drzwiami frontowymi. 
+Połącz obiekt zasad WAF z istniejącym hostem frontonu w przód i zaktualizuj właściwości drzwi zewnętrznych. 
 
-Aby to zrobić, najpierw pobierz obiekt Drzwi frontowych za pomocą [get-AzFrontDoor](/powershell/module/az.frontdoor/get-azfrontdoor). 
+Aby to zrobić, najpierw Pobierz obiekt z drzwi przedniego przy użyciu polecenia [Get-AzFrontDoor](/powershell/module/az.frontdoor/get-azfrontdoor). 
 
 ```
 $geoFrontDoorObjectExample = Get-AzFrontDoor -ResourceGroupName myResourceGroupFD1
 $geoFrontDoorObjectExample[0].FrontendEndpoints[0].WebApplicationFirewallPolicyLink = $geoPolicy.Id
 ```
 
-Następnie ustaw właściwość WebApplicationFirewallPolicyLink na resourceId `geoPolicy`używającej [funkcji Set-AzFrontDoor](/powershell/module/az.frontdoor/set-azfrontdoor).
+Następnie ustaw właściwość frontonu WebApplicationFirewallPolicyLink na identyfikator resourceId `geoPolicy`polecenia using [Set-AzFrontDoor](/powershell/module/az.frontdoor/set-azfrontdoor).
 
 ```
 Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 ```
 
 > [!NOTE] 
-> Wystarczy tylko raz ustawić właściwość WebApplicationFirewallPolicyLink, aby połączyć zasady WAF z hostem frontendu drzwi frontowych. Kolejne aktualizacje zasad są automatycznie stosowane do hosta frontendu.
+> Musisz ustawić tylko raz Właściwość WebApplicationFirewallPolicyLink, aby połączyć zasady WAF z hostem frontonu w przód. Kolejne aktualizacje zasad są automatycznie stosowane do hosta frontonu.
 
 ## <a name="next-steps"></a>Następne kroki
 

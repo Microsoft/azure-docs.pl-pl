@@ -1,7 +1,7 @@
 ---
-title: Pojęcia i przepływ pracy skillset
+title: Koncepcje i przepływy pracy zestawu umiejętności
 titleSuffix: Azure Cognitive Search
-description: Skillsets to miejsce, w którym autor potoku wzbogacania sztucznej inteligencji w usłudze Azure Cognitive Search. Poznaj ważne pojęcia i szczegóły dotyczące składu zestawu umiejętności.
+description: Umiejętności to miejsce, w którym tworzysz potok wzbogacenia AI na platformie Azure Wyszukiwanie poznawcze. Poznaj ważne pojęcia i szczegółowe informacje na temat kompozycji zestawu umiejętności.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
@@ -9,127 +9,127 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 8b45840215092281c7fbc8d499e26b095b374dd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77191022"
 ---
-# <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Pojęcia i kompozycja zestawu umiejętności w usłudze Azure Cognitive Search
+# <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Zestawu umiejętności pojęć i kompozycji na platformie Azure Wyszukiwanie poznawcze
 
-Ten artykuł jest przeznaczony dla deweloperów, którzy potrzebują głębszego zrozumienia, jak działa potok wzbogacania i zakłada, że masz koncepcyjne zrozumienie procesu wzbogacania AI. Jeśli jesteś nowy, zacznij od:
-+ [Wzbogacanie sztucznej inteligencji w usłudze Azure Cognitive Search](cognitive-search-concept-intro.md)
+Ten artykuł jest przeznaczony dla deweloperów, którzy potrzebują dokładniejszego wglądu w sposób działania potoku wzbogacania i przyjęto, że masz koncepcję opisującą proces wzbogacania AI. Jeśli tworzysz nowe koncepcje, Zacznij od:
++ [Wzbogacanie AI na platformie Azure Wyszukiwanie poznawcze](cognitive-search-concept-intro.md)
 + [Magazyn wiedzy (wersja zapoznawcza)](knowledge-store-concept-intro.md)
 
-## <a name="specify-the-skillset"></a>Określ zestaw umiejętności
-Zestaw umiejętności to zasób wielokrotnego użytku w usłudze Azure Cognitive Search, który określa kolekcję umiejętności poznawczych używanych do analizowania, przekształcania i wzbogacania zawartości tekstu lub obrazu podczas indeksowania. Tworzenie zestawu umiejętności umożliwia dołączanie wzbogacenia tekstu i obrazu w fazie pozyskiwania danych, wyodrębnianie i tworzenie nowych informacji i struktur z zawartości nieprzetworzonej.
+## <a name="specify-the-skillset"></a>Określ zestawu umiejętności
+Zestawu umiejętności to zasób wielokrotnego użytku w usłudze Azure Wyszukiwanie poznawcze, który określa zbiór umiejętności poznawczych służących do analizowania, przekształcania i wzbogacania zawartości tekstu lub obrazu podczas indeksowania. Utworzenie zestawu umiejętności umożliwia dołączenie wzbogacania tekstu i obrazów w fazie pozyskiwania danych, wyodrębnianie i tworzenie nowych informacji i struktur z nieprzetworzonej zawartości.
 
-Zestaw umiejętności ma trzy właściwości:
+Zestawu umiejętności ma trzy właściwości:
 
-+   ```skills```, nieuiszczona kolekcja umiejętności, dla których platforma określa kolejność wykonywania na podstawie danych wejściowych wymaganych dla każdej umiejętności
-+   ```cognitiveServices```, klucz usług poznawczych wymagany do rozliczania umiejętności poznawczych
-+   ```knowledgeStore```, konto pamięci, na którym będą wyświetlane wzbogacone dokumenty
++   ```skills```, nieuporządkowana kolekcja umiejętności, dla których platforma Określa sekwencję wykonywania na podstawie danych wejściowych wymaganych dla każdej umiejętności
++   ```cognitiveServices```klucz usługi poznawczej wymagany do rozliczania wywołanych umiejętności poznawczych
++   ```knowledgeStore```, konto magazynu, w którym będą rzutowane wzbogacone dokumenty
 
 
 
-Skillsets są autorstwa w JSON. Można tworzyć złożone zestawy umiejętności z zapętlania i [rozgałęzienia](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional) przy użyciu [języka wyrażenia](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). Język wyrażenia używa notacji ścieżki [wskaźnika JSON](https://tools.ietf.org/html/rfc6901) z kilkoma modyfikacjami w celu zidentyfikowania węzłów w drzewie wzbogacania. A ```"/"``` przechodzi poziom niższy w ```"*"``` drzewie i działa jako for-each operatora w kontekście. Te pojęcia są najlepiej opisane na przykładzie. Aby zilustrować niektóre koncepcje i możliwości, przejdziemy przez [przykładowy zestaw umiejętności.](knowledge-store-connect-powerbi.md) Aby wyświetlić zestaw umiejętności po przejściu do przepływu pracy danych importu, musisz użyć klienta interfejsu API REST, aby [uzyskać zestaw umiejętności](https://docs.microsoft.com/rest/api/searchservice/get-skillset).
+Umiejętności są tworzone w formacie JSON. Można tworzyć złożone umiejętności z użyciem pętli i [rozgałęziania](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional) przy użyciu [języka wyrażeń](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). Język wyrażeń używa notacji ścieżki [wskaźnika JSON](https://tools.ietf.org/html/rfc6901) z kilkoma modyfikacjami do identyfikowania węzłów w drzewie wzbogacania. ```"/"``` Przechodzi poziom niżej w drzewie i ```"*"``` działa jako operator for-each w kontekście. Te koncepcje najlepiej opisać na przykład. Aby zilustrować niektóre koncepcje i możliwości, przeprowadzimy Cię przez zestawu umiejętnoście [przeglądów w hotelu](knowledge-store-connect-powerbi.md) . Aby wyświetlić zestawu umiejętności po wykonaniu przepływu pracy Importowanie danych, należy użyć klienta interfejsu API REST w celu [uzyskania zestawu umiejętności](https://docs.microsoft.com/rest/api/searchservice/get-skillset).
 
 ### <a name="enrichment-tree"></a>Drzewo wzbogacania
 
-Aby wyobrazić sobie, jak zestaw umiejętności stopniowo wzbogaca dokument, zacznijmy od tego, jak dokument wygląda przed jakimkolwiek wzbogaceniem. Dane wyjściowe pękania dokumentu zależą od źródła danych i wybranego określonego trybu analizy. Jest to również stan dokumentu, z których [mapowania pól](search-indexer-field-mappings.md) mogą pozyskiwać zawartość podczas dodawania danych do indeksu wyszukiwania.
+Aby Envision, w jaki sposób zestawu umiejętności stopniowo wzbogaca swój dokument, Zacznijmy od tego, jak wygląda dokument przed dowolnymi wzbogacaniem. Dane wyjściowe łamania dokumentu są zależne od źródła danych i wybranego trybu analizy. Jest to również stan dokumentu, z którego [mapowania pól](search-indexer-field-mappings.md) mogą źródłowe zawartość podczas dodawania danych do indeksu wyszukiwania.
 ![Magazyn wiedzy w diagramie potoku](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Magazyn wiedzy w diagramie potoku")
 
-Gdy dokument znajduje się w potoku wzbogacania, jest reprezentowany jako drzewo zawartości i skojarzonych wzbogacenia. To drzewo jest tworzone jako dane wyjściowe pękania dokumentu. Format drzewa wzbogacania umożliwia potoku wzbogacania dołączyć metadane do nawet pierwotnych typów danych, nie jest prawidłowy obiekt JSON, ale mogą być rzutowane w prawidłowym formacie JSON. W poniższej tabeli przedstawiono stan dokumentu wprowadzanego do potoku wzbogacania:
+Gdy dokument znajduje się w potoku wzbogacenia, jest reprezentowany jako drzewo zawartości i powiązane wzbogacania. To drzewo jest tworzone jako dane wyjściowe pęknięcia dokumentu. Format drzewa wzbogacania umożliwia potokowi wzbogacanie dołączenie metadanych do nawet pierwotnych typów danych, ale nie jest prawidłowym obiektem JSON, ale można go umieścić w prawidłowym formacie JSON. W poniższej tabeli przedstawiono stan dokumentu wprowadzanego do potoku wzbogacania:
 
-|Źródło danych\Tryb analizowania|Domyślne|JSON, JSON Linie & CSV|
+|Tryb Source\Parsing danych|Domyślny|JSON, wiersze JSON & CSV|
 |---|---|---|
-|Blob Storage|/dokument/treść<br>/dokument/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
+|Blob Storage|/document/content<br>/Document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
 |SQL|/document/{column1}<br>/document/{column2}<br>…|Nie dotyczy |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|Nie dotyczy|
 
- W miarę wykonywania umiejętności dodają nowe węzły do drzewa wzbogacania. Te nowe węzły mogą być następnie używane jako dane wejściowe dla dalszych umiejętności, rzutowanie do magazynu wiedzy lub mapowanie pól indeksu. Wzbogacenia nie są modyfikowalne: po utworzeniu węzłów nie można edytować. Jak skillsets stają się bardziej złożone, więc będzie drzewa wzbogacania, ale nie wszystkie węzły w drzewie wzbogacenia trzeba zrobić to do indeksu lub magazynu wiedzy. 
+ W miarę wykonywania umiejętności Dodaj nowe węzły do drzewa wzbogacania. Te nowe węzły mogą być następnie używane jako dane wejściowe dla umiejętności podrzędnych, projekcja w sklepie wiedzy lub mapowanie do pól indeksu. Wzbogacania nie są modyfikowalne: po utworzeniu węzły nie mogą być edytowane. Ponieważ umiejętności jest bardziej skomplikowany, to drzewo wzbogacania, ale nie wszystkie węzły w drzewie wzbogacania muszą wprowadzić je do indeksu lub sklepu wiedzy. 
 
-Można selektywnie utrwalić tylko podzbiór wzbogacenia do indeksu lub magazynu wiedzy.
-W pozostałej części tego dokumentu zakładamy, że pracujemy z [przykładem recenzji hoteli,](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi)ale te same koncepcje mają zastosowanie do wzbogacania dokumentów ze wszystkich innych źródeł danych.
+Można wybiórczo utrwalać tylko podzbiór wzbogaceń do indeksu lub sklepu z bazami danych.
+W pozostałej części tego dokumentu przyjęto założenie, że pracujemy z [przykładami przeglądów hotelu](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi), ale te same koncepcje dotyczą wzbogacania dokumentów ze wszystkich innych źródeł danych.
 
 ### <a name="context"></a>Kontekst
 Każda umiejętność wymaga kontekstu. Kontekst określa:
-+   Liczba wykonań umiejętności na podstawie wybranych węzłów. Dla wartości kontekstu kolekcji ```/*``` typu dodanie na końcu spowoduje, że umiejętność jest wywoływana raz dla każdego wystąpienia w kolekcji. 
-+   Gdzie w drzewie wzbogacenia są dodawane wyniki umiejętności. Dane wyjściowe są zawsze dodawane do drzewa jako elementów podrzędnych węzła kontekstu. 
-+   Kształt wejść. W przypadku kolekcji wielopoziomowych ustawienie kontekstu na kolekcję nadrzędną wpłynie na kształt danych wejściowych dla umiejętności. Na przykład jeśli masz drzewo wzbogacania z listą krajów, każdy wzbogacony o listę państw zawierających listę kodów pocztowych.
++   Liczba wykonań kwalifikacji na podstawie wybranych węzłów. W przypadku wartości kontekstu typu Collection dodanie ```/*``` na końcu spowoduje, że umiejętność zostanie wywołana raz dla każdego wystąpienia w kolekcji. 
++   Gdzie w drzewie wzbogacania są dodawane dane wyjściowe umiejętności. Dane wyjściowe są zawsze dodawane do drzewa jako elementy podrzędne węzła kontekstu. 
++   Kształt danych wejściowych. W przypadku kolekcji wielopoziomowych ustawienie kontekstu dla kolekcji nadrzędnej wpłynie na kształt danych wejściowych dla umiejętności. Na przykład jeśli masz drzewo wzbogacania z listą krajów, z których każda została ulepszona, za pomocą listy Stanów zawierających listę ZipCodes.
 
-|Kontekst|Dane wejściowe|Kształt wejścia|Wywołanie umiejętności|
+|Kontekst|Dane wejściowe|Kształt danych wejściowych|Wywołanie umiejętności|
 |---|---|---|---|
-|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |Lista wszystkich kodów pocztowych w kraju |Raz na kraj |
-|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |Lista kodów pocztowych w stanie | Raz na kombinację kraju i państwa|
+|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |Lista wszystkich ZipCodes w kraju |Raz na kraj |
+|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |Lista ZipCodes w stanie | Raz na kombinację kraju i stanu|
 
-### <a name="sourcecontext"></a>ŹródłoContext
+### <a name="sourcecontext"></a>SourceContext
 
-Jest `sourceContext` używany tylko w wejściach umiejętności i [projekcjach](knowledge-store-projection-overview.md). Służy do konstruowania wielopoziomowych, zagnieżdżonych obiektów. Może być konieczne utworzenie nowego obiektu, aby przekazać go jako dane wejściowe do umiejętności lub projektu do magazynu wiedzy. Ponieważ węzły wzbogacania mogą nie być prawidłowym obiektem JSON w drzewie wzbogacania i odwoływanie się do węzła w drzewie zwraca tylko ten stan węzła podczas jego tworzenia, przy użyciu wzbogacenia jako dane wejściowe umiejętności lub projekcje wymaga utworzenia dobrze sformułowanego obiektu JSON. Umożliwia `sourceContext` konstruowanie hierarchicznego, anonimowego obiektu typu, który wymagałby wielu umiejętności, jeśli używasz tylko kontekstu. Użycie `sourceContext` jest pokazane w następnej sekcji. Spójrz na dane wyjściowe umiejętności, które wygenerowały wzbogacenie, aby ustalić, czy jest to prawidłowy obiekt JSON, a nie typ pierwotny.
+`sourceContext` Jest używany tylko w danych wejściowych i [projekcjach](knowledge-store-projection-overview.md). Służy do konstruowania obiektów zagnieżdżonych na wiele poziomów. Może być konieczne utworzenie nowego obiektu w celu przekazania go jako dane wejściowe do umiejętności lub projektu w sklepie merytorycznym. Ponieważ węzły wzbogacania nie mogą być prawidłowym obiektem JSON w drzewie wzbogacania i odwoływania się do węzła w drzewie tylko zwraca ten stan węzła podczas jego tworzenia, przy użyciu wzbogacania jako dane wejściowe lub projekcje wymagane jest utworzenie dobrze sformułowanego obiektu JSON. `sourceContext` Umożliwia konstruowanie obiektu hierarchicznego typu anonimowego, który będzie wymagał wielu umiejętności, jeśli używany jest tylko kontekst. Użycie `sourceContext` jest pokazane w następnej sekcji. Spójrz na dane wyjściowe umiejętności, które wygenerowały wzbogacanie, aby określić, czy jest to prawidłowy obiekt JSON, a nie typ pierwotny.
 
 ### <a name="projections"></a>Projekcje
 
-Projekcja to proces wybierania węzłów z drzewa wzbogacania, które mają zostać zapisane w magazynie wiedzy. Rzuty są niestandardowymi kształtami dokumentu (zawartością i wzbogaceniami), które mogą być wyprowadzane jako rzuty tabeli lub obiektu. Aby dowiedzieć się więcej o pracy z projekcjami, zobacz [praca z projekcjami](knowledge-store-projection-overview.md).
+Projekcja to proces wyboru węzłów z drzewa wzbogacania, które ma zostać zapisane w sklepie z bazami danych. Projekcje to niestandardowe kształty dokumentu (zawartość i wzbogacanie), które mogą być wyprowadzane jako projekcje tabeli lub obiektu. Aby dowiedzieć się więcej o pracy z projekcjami, zobacz [Praca z projekcjami](knowledge-store-projection-overview.md).
 
 ![Opcje mapowania pól](./media/cognitive-search-working-with-skillsets/field-mapping-options.png "Opcje mapowania pól dla potoku wzbogacania")
 
-Na powyższym diagramie opisano selektor, z którym pracujesz, na podstawie tego, gdzie znajdujesz się w potoku wzbogacania.
+Na powyższym diagramie opisano selektor, z którym pracujesz, na podstawie tego, gdzie znajduje się w potoku wzbogacania.
 
-## <a name="generate-enriched-data"></a>Generowanie wzbogaconych danych 
+## <a name="generate-enriched-data"></a>Generuj wzbogacone dane 
 
-Przejdźmy teraz do recenzji hotelu, możesz wykonać [samouczek,](knowledge-store-connect-powerbi.md) aby utworzyć zestaw umiejętności lub [wyświetlić](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/samples/skillset.json) zestaw umiejętności. Przyjrzymy się:
+Teraz przejdźmy do zestawu umiejętności recenzji hotelu, możesz wykonać instrukcje [, aby utworzyć](knowledge-store-connect-powerbi.md) zestawu umiejętności lub [wyświetlić](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/samples/skillset.json) zestawu umiejętności. Będziemy szukać:
 
-* jak drzewo wzbogacania ewoluuje wraz z wykonywaniem każdej umiejętności 
-* jak kontekst i dane wejściowe działają w celu określenia, ile razy umiejętność jest wykonywana 
+* jak drzewo wzbogacania rozwija się z wykonywaniem każdej umiejętności 
+* jak kontekst i dane wejściowe działają, aby określić, ile razy jest wykonywane umiejętność 
 * kształt danych wejściowych jest oparty na kontekście. 
 
-Ponieważ używamy trybu analizowania tekstu rozdzielanego dla indeksatora, dokument w procesie wzbogacania reprezentuje pojedynczy wiersz w pliku CSV.
+Ponieważ korzystamy z rozdzielonego trybu analizowania tekstu dla indeksatora, dokument w ramach procesu wzbogacania reprezentuje pojedynczy wiersz w pliku CSV.
 
-### <a name="skill-1-split-skill"></a>#1 umiejętności: Umiejętność podziału 
+### <a name="skill-1-split-skill"></a>Kwalifikacja #1: podzielona umiejętność 
 
-![wzbogacenia drzewa po pękaniu dokumentu](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Drzewo wzbogacania po pękaniu dokumentu i przed wykonaniem umiejętności")
+![drzewo wzbogacania po rozpoczęciu dokumentu](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Drzewo wzbogacania po rozpoczęciu dokumentu i przed wykonaniem kwalifikacji")
 
-W kontekście ```"/document/reviews_text"```umiejętności , ta umiejętność `reviews_text`wykona się raz dla . Dane wyjściowe umiejętności to `reviews_text` lista, na której są podzielone na 5000 segmentów postaci. Dane wyjściowe z podziału `pages` umiejętności jest nazwany i dodaje do drzewa wzbogacania. Funkcja `targetName` ta umożliwia zmianę nazwy umiejętności przed dodaniem do drzewa wzbogacania.
+W kontekście umiejętności ```"/document/reviews_text"```, ta umiejętność będzie wykonywana raz dla `reviews_text`. Dane wyjściowe kwalifikacji to lista, `reviews_text` w której znajduje się w segmentach znaków 5000. Dane wyjściowe z podzielonej umiejętności są `pages` nazwane i dodawane do drzewa wzbogacania. `targetName` Funkcja umożliwia zmianę nazwy danych wyjściowych przed ich dodaniem do drzewa wzbogacania.
 
-Drzewo wzbogacania ma teraz nowy węzeł umieszczony w kontekście umiejętności. Ten węzeł jest dostępny dla dowolnej umiejętności, projekcji lub mapowania pól wyjściowych.
+Drzewo wzbogacania ma teraz nowy węzeł umieszczony w kontekście umiejętności. Ten węzeł jest dostępny dla dowolnego mapowania pól umiejętności, projekcji lub danych wyjściowych.
 
 
-Węzłem głównym dla wszystkich `"/document"`wzbogacenia jest . Podczas pracy z indeksatorami `"/document"` obiektów blob węzeł `"/document/content"` `"/document/normalized_images"`będzie miał węzły podrzędne i . Podczas pracy z danymi CSV, jak jesteśmy w tym przykładzie, `"/document"`nazwy kolumn będą mapowane na węzły poniżej . Aby uzyskać dostęp do dowolnego wzbogacenia dodane do węzła przez umiejętności, pełna ścieżka do wzbogacenia jest potrzebna. Na przykład, jeśli chcesz użyć tekstu ```pages``` z węzła jako danych wejściowych do ```"/document/reviews_text/pages/*"```innej umiejętności, musisz określić go jako .
+Węzeł główny dla wszystkich wzbogacań to `"/document"`. Podczas pracy z indeksatorami obiektów BLOB `"/document"` węzeł będzie miał węzły podrzędne `"/document/content"` i. `"/document/normalized_images"` Podczas pracy z danymi CSV, podobnie jak w tym przykładzie, nazwy kolumn są mapowane na węzły poniżej `"/document"`. Aby uzyskać dostęp do dowolnych wzbogacań dodanych do węzła przez umiejętność, wymagana jest pełna ścieżka do wzbogacania. Na przykład jeśli chcesz użyć tekstu z ```pages``` węzła jako dane wejściowe do innej umiejętności, musisz określić go jako. ```"/document/reviews_text/pages/*"```
  
- ![wzbogacenie drzewa po #1 umiejętności](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Drzewo wzbogacania po wykonaniu #1 umiejętności")
+ ![drzewo wzbogacania po #1 umiejętności](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Drzewo wzbogacania po wykonaniu #1 kwalifikacji")
 
-### <a name="skill-2-language-detection"></a>Wykrywanie języka #2 umiejętności
- Podczas gdy umiejętność wykrywania języka jest trzecią (umiejętnością #3) zdefiniowaną w wycieczce umiejętności, jest to kolejna umiejętność do wykonania. Ponieważ nie jest zablokowany przez wymaganie żadnych danych wejściowych, będzie wykonywany równolegle z poprzednią umiejętnością. Podobnie jak umiejętności podziału, który poprzedził go, umiejętności wykrywania języka jest również wywoływana raz dla każdego dokumentu. Drzewo wzbogacania ma teraz nowy węzeł dla języka.
- ![wzbogacenie drzewa po #2 umiejętności](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Drzewo wzbogacania po wykonaniu #2 umiejętności")
+### <a name="skill-2-language-detection"></a>Umiejętność #2 wykrywania języka
+ Chociaż umiejętność wykrywania języka to trzecia (umiejętności #3) umiejętność zdefiniowana w zestawu umiejętności, jest to kolejna umiejętność wykonania. Ponieważ nie jest on blokowany przez wymaganie żadnych danych wejściowych, zostanie wykonany równolegle z poprzednią umiejętnością. Podobnie jak w przypadku podzielonej umiejętności, która je poprzedza, umiejętność wykrywania języka jest również wywoływana jednokrotnie dla każdego dokumentu. Drzewo wzbogacania ma teraz nowy węzeł dla języka.
+ ![drzewo wzbogacania po #2 umiejętności](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Drzewo wzbogacania po wykonaniu #2 kwalifikacji")
  
- ### <a name="skill-3-key-phrases-skill"></a>#3 umiejętności: Umiejętność kluczowych zwrotów 
+ ### <a name="skill-3-key-phrases-skill"></a>Kwalifikacja #3: umiejętność kluczowych fraz 
 
-Biorąc pod ```/document/reviews_text/pages/*``` uwagę kontekst kluczowych fraz umiejętności będą wywoływane raz `pages` dla każdego z elementów w kolekcji. Dane wyjściowe z umiejętności będzie węzeł w ramach skojarzonego elementu strony. 
+W przypadku kontekstu ```/document/reviews_text/pages/*``` kluczowych fraz kwalifikacji zostanie wywołana jednokrotnie dla każdego elementu w `pages` kolekcji. Dane wyjściowe z umiejętności będą węzłem ze skojarzonym elementem strony. 
 
- Teraz powinieneś być w stanie spojrzeć na resztę umiejętności w skillset i wizualizować, jak drzewo wzbogacenia będzie nadal rosnąć wraz z wykonywaniem każdej umiejętności. Niektóre umiejętności, takie jak umiejętność scalania i umiejętności shaper, również tworzyć nowe węzły, ale tylko używać danych z istniejących węzłów i nie tworzyć netto nowe wzbogacenia.
+ Teraz powinno być możliwe przeszukanie pozostałej części umiejętności w zestawu umiejętności i wizualizowanie sposobu, w jaki drzewo wzbogacania będzie stale rosnąć przy wykonywaniu każdej umiejętności. Niektóre umiejętności, takie jak umiejętność scalania i umiejętność kształtowania, również tworzą nowe węzły, ale używają tylko danych z istniejących węzłów i nie tworzą nowych wzbogaceń netto.
 
-![wzbogacenia drzewa po wszystkich umiejętnościach](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Drzewo wzbogacania po wszystkich umiejętnościach")
+![drzewo wzbogacania po wszystkich umiejętnościach](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Drzewo wzbogacania po wszystkich umiejętnościach")
 
-Kolory łączników w drzewie powyżej wskazują, że wzbogacenia zostały utworzone przez różne umiejętności i węzły będą musiały być adresowane indywidualnie i nie będą częścią obiektu zwróconego podczas wybierania węzła nadrzędnego.
+Kolory łączników w powyższym drzewie wskazują, że wzbogacania zostały utworzone przez różne umiejętności, a węzły muszą być rozkierowane osobno i nie będą częścią obiektu zwracanego podczas wybierania węzła nadrzędnego.
 
-## <a name="save-enrichments-in-a-knowledge-store"></a>Zapisywanie wzbogacenia w magazynie wiedzy 
+## <a name="save-enrichments-in-a-knowledge-store"></a>Zapisz wzbogacenia w sklepie merytorycznym 
 
-Skillsets również zdefiniować magazyn wiedzy, gdzie wzbogacone dokumenty mogą być rzutowane jako tabele lub obiekty. Aby zapisać wzbogacone dane w magazynie wiedzy, należy zdefiniować zestaw projekcji wzbogaconego dokumentu. Aby dowiedzieć się więcej o magazynie wiedzy, zobacz [omówienie magazynu wiedzy](knowledge-store-concept-intro.md)
+Umiejętności również Zdefiniuj magazyn wiedzy, w którym wzbogacone dokumenty mogą być rzutowane jako tabele lub obiekty. Aby zapisać dane wzbogacone w sklepie z bazami informacji, należy zdefiniować zestaw projekcji dla wzbogaconego dokumentu. Aby dowiedzieć się więcej na temat sklepu z bazami danych, zobacz artykuł [Omówienie sklepu](knowledge-store-concept-intro.md) z informacjami
 
-### <a name="slicing-projections"></a>Projekcje krojenia
+### <a name="slicing-projections"></a>Projekcje wycinków
 
-Podczas definiowania grupy rzutowania tabeli pojedynczy węzeł w drzewie wzbogacania można podzielić na wiele powiązanych tabel. Jeśli dodasz tabelę ze ścieżką źródłową, która jest elementem podrzędnym istniejącej projekcji tabeli, wynikowy węzeł podrzędny nie będzie elementem podrzędnym istniejącej projekcji tabeli, ale zostanie rzutowany na nową, powiązaną tabelę. Ta technika krojenia umożliwia zdefiniowanie pojedynczego węzła w umiejętności shaper, która może być źródłem dla wszystkich projekcji tabeli. 
+Podczas definiowania grupy projekcji tabeli pojedynczy węzeł drzewa wzbogacania można podzielić na wiele powiązanych tabel. Jeśli dodasz tabelę ze ścieżką źródłową, która jest elementem podrzędnym istniejącej projekcji tabeli, utworzony węzeł podrzędny nie będzie elementem podrzędnym istniejącej projekcji tabeli, ale zamiast tego będzie rzutowany do nowej, powiązanej tabeli. Ta technika tworzenia wycinków pozwala zdefiniować pojedynczy węzeł w umiejętności kształtu, który może być źródłem dla wszystkich projekcji tabeli. 
 
 ### <a name="shaping-projections"></a>Kształtowanie projekcji
 
-Istnieją dwa sposoby definiowania projekcji. Można użyć shaper umiejętności, aby utworzyć nowy węzeł, który jest węzłem głównym dla wszystkich wzbogacenia są rzutowane. Następnie, w projekcjach, można odwoływać się tylko do danych wyjściowych shaper umiejętności. Można również kształtować w linii ową projekcji w samej definicji rzutowania.
+Istnieją dwa sposoby definiowania projekcji. Możesz użyć umiejętności kształtu, aby utworzyć nowy węzeł, który jest węzłem głównym dla wszystkich wzbogaceń. Następnie w projekcjach można odwoływać się tylko do danych wyjściowych umiejętności kształtu. Można również zawbudowanić kształt projekcji w samej definicji projekcji.
 
-Podejście shaper jest bardziej pełne niż kształtowanie w linii, ale zapewnia, że wszystkie mutacje drzewa wzbogacania są zawarte w umiejętności i że wyjście jest obiektem, który może być ponownie. Kształtowanie w linii umożliwia tworzenie potrzebnego kształtu, ale jest obiektem anonimowym i jest dostępne tylko dla projekcji, dla której jest zdefiniowany. Podejścia mogą być używane razem lub oddzielnie. Zestaw umiejętności utworzony dla Ciebie w przepływie pracy portalu zawiera oba te elementy. Używa shaper umiejętności dla projekcji tabeli, ale także używa kształtowania w linii do projekcji tabeli fraz kluczowych.
+Podejście kształtujące jest bardziej pełne niż kształtowanie wbudowane, ale zapewnia, że wszystkie mutacje drzewa wzbogacania są zawarte w umiejętnościach i że dane wyjściowe są obiektem, którego można użyć ponownie. Kształtowanie wbudowane umożliwia utworzenie kształtu, którego potrzebujesz, ale jest obiektem anonimowym i jest dostępny tylko dla projekcji, dla której jest zdefiniowany. Podejścia można używać razem lub oddzielnie. Zestawu umiejętności utworzone dla Ciebie w przepływie pracy portalu zawiera oba te elementy. Używa ona umiejętności kształtu dla projekcji tabeli, ale używa również kształtu wbudowanego do projekcji tabeli wyrażeń kluczowych.
 
-Aby rozszerzyć przykład, można usunąć kształtowanie w linii i użyć umiejętności shaper, aby utworzyć nowy węzeł dla fraz kluczowych. Aby utworzyć kształt rzutowany na trzy `hotelReviewsDocument`tabele, a mianowicie , `hotelReviewsPages`i `hotelReviewsKeyPhrases`, dwie opcje są opisane w poniższych sekcjach.
+Aby zwiększyć przykład, można wybrać opcję usunięcia kształtu wbudowanego i użyć umiejętności kształtu do utworzenia nowego węzła dla kluczowych fraz. Aby utworzyć kształt podzielony na trzy tabele, mianowicie `hotelReviewsDocument`,, `hotelReviewsPages`, i `hotelReviewsKeyPhrases`, dwie opcje są opisane w poniższych sekcjach.
 
 
-#### <a name="shaper-skill-and-projection"></a>Umiejętność i projekcja Shapera 
+#### <a name="shaper-skill-and-projection"></a>Umiejętność i projekcja kształtu 
 
 > [!Note]
 > Niektóre kolumny z tabeli dokumentów zostały usunięte z tego przykładu dla zwięzłości.
@@ -204,10 +204,10 @@ Aby rozszerzyć przykład, można usunąć kształtowanie w linii i użyć umiej
 }
 ```
 
-Z `tableprojection` węzłem zdefiniowanym w powyższej `outputs` sekcji, możemy teraz użyć funkcji `tableprojection` krojenia do projektu części węzła w różnych tabelach:
+W przypadku `tableprojection` węzła zdefiniowanego w `outputs` powyższej sekcji możemy teraz używać funkcji dzielenia na fragmenty projektu części `tableprojection` węzła w różnych tabelach:
 
 > [!Note]
-> Jest to tylko fragment projekcji w konfiguracji magazynu wiedzy.
+> Jest to tylko fragment kodu projekcji w ramach konfiguracji magazynu wiedzy.
 >
 ```json
 "projections": [
@@ -233,9 +233,9 @@ Z `tableprojection` węzłem zdefiniowanym w powyższej `outputs` sekcji, możem
 ]
 ```
 
-#### <a name="inline-shaping-projections"></a>Projekcje kształtujące inline
+#### <a name="inline-shaping-projections"></a>Projekcje w tekście
 
-Podejście do kształtowania w linii nie wymaga umiejętności shaper, ponieważ wszystkie kształty potrzebne do projekcji są tworzone w czasie, gdy są potrzebne. Aby rzutować te same dane, co w poprzednim przykładzie, opcja projekcji wbudowanej wyglądałaby następująco:
+Podejście kształtowania wbudowanego nie wymaga umiejętności kształtu, ponieważ wszystkie kształty potrzebne do projekcji są tworzone w czasie, gdy są potrzebne. Aby zaprojektować te same dane co w poprzednim przykładzie, opcja rzutowania wbudowanego będzie wyglądać następująco:
 
 ```json
 "projections": [
@@ -295,11 +295,11 @@ Podejście do kształtowania w linii nie wymaga umiejętności shaper, ponieważ
 ]
 ```
   
-Jedną z obserwacji z obu podejść jest sposób, w jaki wartości `"Keyphrases"` są rzutowane za pomocą . `"sourceContext"` Węzeł, `"Keyphrases"` który zawiera kolekcję ciągów, sam jest elementem podrzędnym tekstu strony. Jednak ponieważ rzuty wymagają obiektu JSON, a strona jest pierwotnym (ciągiem), `"sourceContext"` służy do zawijania frazy kluczowej do obiektu z właściwością o nazwie. Ta technika umożliwia nawet prymitywy być rzutowane niezależnie.
+Jednym ze sposobów podejścia jest to, jak wartości `"Keyphrases"` są rzutowane przy użyciu. `"sourceContext"` `"Keyphrases"` Węzeł, który zawiera kolekcję ciągów, jest samym elementem podrzędnym tekstu strony. Jednak ponieważ projekcje wymagają obiektu JSON, a strona jest pierwotna (ciąg), `"sourceContext"` jest używana do zawijania frazy klucza do obiektu z nazwaną właściwością. Ta technika umożliwia niezależne projekcję elementów podstawowych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następnym krokiem, stwórz swój pierwszy zestaw umiejętności z umiejętnościami poznawczymi.
+Następnym krokiem jest utworzenie pierwszej zestawu umiejętności z umiejętnościami poznawczymi.
 
 > [!div class="nextstepaction"]
-> [Stwórz swój pierwszy zestaw umiejętności](cognitive-search-defining-skillset.md).
+> [Utwórz swój pierwszy zestawu umiejętności](cognitive-search-defining-skillset.md).

@@ -1,7 +1,7 @@
 ---
 title: Dodawanie lub usuwanie delegowania podsieci w sieci wirtualnej platformy Azure
 titlesuffix: Azure Virtual Network
-description: Dowiedz się, jak dodać lub usunąć delegowaną podsieć usługi na platformie Azure.
+description: Dowiedz się, jak dodać lub usunąć podsieć delegowaną dla usługi na platformie Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
 ms.openlocfilehash: 6f767abdf8673e3adffc6c4e3748733054ba723d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77201870"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Dodawanie lub usuwanie delegowania podsieci
 
-Delegowanie podsieci daje jawne uprawnienia do usługi do tworzenia zasobów specyficznych dla usługi w podsieci przy użyciu unikatowego identyfikatora podczas wdrażania usługi. W tym artykule opisano sposób dodawania lub usuwania delegowanej podsieci dla usługi platformy Azure.
+Delegowanie podsieci daje jawne uprawnienia do usługi w celu tworzenia zasobów specyficznych dla usługi w podsieci przy użyciu unikatowego identyfikatora podczas wdrażania usługi. W tym artykule opisano sposób dodawania lub usuwania delegowanej podsieci usługi platformy Azure.
 
 ## <a name="portal"></a>Portal
 
@@ -31,9 +31,9 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ### <a name="create-the-virtual-network"></a>Tworzenie sieci wirtualnej
 
-W tej sekcji utworzysz sieć wirtualną i podsieć, które później będziesz delegować do usługi platformy Azure.
+W tej sekcji utworzysz sieć wirtualną i podsieć, która zostanie później delegowana do usługi platformy Azure.
 
-1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób** > **Sieć wirtualna sieci** > **Virtual network**.
+1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób** > **Networking** > Sieć**sieci wirtualnej**.
 1. W obszarze **Utwórz sieć wirtualną** wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
@@ -42,44 +42,44 @@ W tej sekcji utworzysz sieć wirtualną i podsieć, które później będziesz d
     | Przestrzeń adresowa | Wpisz *10.0.0.0/16*. |
     | Subskrypcja | Wybierz subskrypcję.|
     | Grupa zasobów | Wybierz pozycję **Utwórz nową**, wprowadź nazwę *myResourceGroup*, a następnie wybierz przycisk **OK**. |
-    | Lokalizacja | Wybierz **EastUS**.|
-    | Podsieć — nazwa | Wpisz *mySubnet*. |
+    | Lokalizacja | Wybierz pozycję **Wschodnie**.|
+    | Podsieć — nazwa | Wprowadź nazwę moja *podsieć*. |
     | Zakres adresów podsieci: 10.41.0.0/24 | Wpisz *10.0.0.0/24*. |
     |||
 1. Pozostaw resztę jako domyślną, a następnie wybierz pozycję **Utwórz**.
 
 ### <a name="permissions"></a>Uprawnienia
 
-Jeśli podsieć nie została utworzona, którą chcesz delegować do usługi `Microsoft.Network/virtualNetworks/subnets/write`platformy Azure, potrzebne jest następujące uprawnienie: .
+Jeśli nie utworzysz podsieci, którą chcesz delegować do usługi platformy Azure, musisz mieć następujące uprawnienia: `Microsoft.Network/virtualNetworks/subnets/write`.
 
-Wbudowana rola [współautora sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) zawiera również niezbędne uprawnienia.
+Wbudowana rola [współautor sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) zawiera również niezbędne uprawnienia.
 
 ### <a name="delegate-a-subnet-to-an-azure-service"></a>Delegowanie podsieci do usługi platformy Azure
 
-W tej sekcji można delegować podsieci, który został utworzony w poprzedniej sekcji do usługi platformy Azure.
+W tej sekcji utworzysz delegowaną podsieć utworzoną w poprzedniej sekcji do usługi platformy Azure.
 
 1. Na pasku wyszukiwania portalu wpisz *myVirtualNetwork*. Gdy pozycja **myVirtualNetwork** pojawi się w wynikach wyszukiwania, wybierz ją.
-2. W wynikach wyszukiwania wybierz *myVirtualNetwork*.
-3. Wybierz **podsieci**, w obszarze **USTAWIENIA**, a następnie wybierz **mySubnet**.
-4. Na stronie *mySubnet* dla listy **delegowania podsieci** wybierz z usług wymienionych w obszarze **Delegowanie podsieci do usługi** (na przykład **Microsoft.DBforPostgreSQL/serversv2**).  
+2. W wynikach wyszukiwania wybierz pozycję *myVirtualNetwork*.
+3. Wybierz pozycję **podsieci**, w obszarze **Ustawienia**, a następnie wybierz pozycję Moja **podsieć**.
+4. Na stronie Moja *podsieć* na liście **delegowanie podsieci** wybierz pozycję z usług wymienionych w obszarze **delegowanie podsieci do usługi** (na przykład **Microsoft. DBforPostgreSQL/serversv2**).  
 
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Usuwanie delegowania podsieci z usługi platformy Azure
 
 1. Na pasku wyszukiwania portalu wpisz *myVirtualNetwork*. Gdy pozycja **myVirtualNetwork** pojawi się w wynikach wyszukiwania, wybierz ją.
-2. W wynikach wyszukiwania wybierz *myVirtualNetwork*.
-3. Wybierz **podsieci**, w obszarze **USTAWIENIA**, a następnie wybierz **mySubnet**.
-4. Na stronie *mySubnet* dla listy **Delegowanie podsieci** wybierz **pozycję Brak** z usług wymienionych w obszarze **Delegowanie podsieci do usługi**. 
+2. W wynikach wyszukiwania wybierz pozycję *myVirtualNetwork*.
+3. Wybierz pozycję **podsieci**, w obszarze **Ustawienia**, a następnie wybierz pozycję Moja **podsieć**.
+4. Na stronie Moja *podsieć* na liście **delegowanie podsieci** wybierz pozycję **Brak** z usług wymienionych w obszarze **delegowanie podsieci do usługi**. 
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować i używać interfejsu wiersza polecenia platformy Azure lokalnie zamiast tego, ten artykuł wymaga użycia interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Aby dowiedzieć się, jaka wersja jest zainstalowana, uruchom polecenie `az --version`. Aby uzyskać informacje na temat instalacji i uaktualnienia, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azure i korzystać z niego lokalnie, ten artykuł wymaga użycia interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Aby dowiedzieć się, jaka wersja jest zainstalowana, uruchom polecenie `az --version`. Aby uzyskać informacje na temat instalacji i uaktualnienia, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 Utwórz grupę zasobów za pomocą polecenia [az group create](https://docs.microsoft.com/cli/azure/group). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Poniższy przykład tworzy grupę zasobów o nazwie **myResourceGroup** w lokalizacji **eastus:**
+Poniższy przykład tworzy grupę zasobów o nazwie Moja **zasobów** w lokalizacji **Wschodnie** :
 
 ```azurecli-interactive
 
@@ -103,15 +103,15 @@ Utwórz sieć wirtualną o nazwie **myVnet** z podsiecią o nazwie **mySubnet** 
 ```
 ### <a name="permissions"></a>Uprawnienia
 
-Jeśli podsieć nie została utworzona, którą chcesz delegować do usługi `Microsoft.Network/virtualNetworks/subnets/write`platformy Azure, potrzebne jest następujące uprawnienie: .
+Jeśli nie utworzysz podsieci, którą chcesz delegować do usługi platformy Azure, musisz mieć następujące uprawnienia: `Microsoft.Network/virtualNetworks/subnets/write`.
 
-Wbudowana rola [współautora sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) zawiera również niezbędne uprawnienia.
+Wbudowana rola [współautor sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) zawiera również niezbędne uprawnienia.
 
 ### <a name="delegate-a-subnet-to-an-azure-service"></a>Delegowanie podsieci do usługi platformy Azure
 
-W tej sekcji można delegować podsieci, który został utworzony w poprzedniej sekcji do usługi platformy Azure. 
+W tej sekcji utworzysz delegowaną podsieć utworzoną w poprzedniej sekcji do usługi platformy Azure. 
 
-Użyj [aktualizacji podsieci sieci AZ,](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) aby zaktualizować podsieć o nazwie **mySubnet** delegowaniem do usługi platformy Azure.  W tym przykładzie **Microsoft.DBforPostgreSQL/serversv2** jest używany dla przykładowego delegowania:
+Użyj [AZ Network VNET Subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) w celu zaktualizowania podsieci o nazwie Moja **podsieć** z delegowaniem do usługi platformy Azure.  W tym przykładzie użyto elementu **Microsoft. DBforPostgreSQL/serversv2** w przypadku delegowania przykładu:
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -121,7 +121,7 @@ Użyj [aktualizacji podsieci sieci AZ,](https://docs.microsoft.com/cli/azure/net
   --delegations Microsoft.DBforPostgreSQL/serversv2
 ```
 
-Aby sprawdzić, czy delegowanie zostało zastosowane, użyj [programu AZ Network vnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Sprawdź, czy usługa jest delegowana do podsieci w ramach **serviceName**właściwości:
+Aby sprawdzić, czy delegowanie zostało zastosowane, użyj [AZ Network VNET Subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Sprawdź, czy usługa jest delegowana do podsieci pod właściwością **ServiceName**:
 
 ```azurecli-interactive
   az network vnet subnet show \
@@ -150,7 +150,7 @@ Aby sprawdzić, czy delegowanie zostało zastosowane, użyj [programu AZ Network
 
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Usuwanie delegowania podsieci z usługi platformy Azure
 
-Użyj [aktualizacji podsieci sieci AZ,](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) aby usunąć delegowanie z podsieci o nazwie **mySubnet:**
+Użyj [AZ Network VNET Subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) , aby usunąć delegowanie z podsieci o nazwie Moja **podsieć**:
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -159,7 +159,7 @@ Użyj [aktualizacji podsieci sieci AZ,](https://docs.microsoft.com/cli/azure/net
   --vnet-name myVnet \
   --remove delegations
 ```
-Aby sprawdzić, czy delegowanie zostało usunięte, użyj [programu AZ Network vnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Sprawdź, czy usługa zostanie usunięta z podsieci pod **serviceName**właściwości:
+Aby sprawdzić, czy delegowanie zostało usunięte, użyj [AZ Network VNET Subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Sprawdź, czy usługa została usunięta z podsieci pod **nazwą ServiceName**:
 
 ```azurecli-interactive
   az network vnet subnet show \
@@ -168,7 +168,7 @@ Aby sprawdzić, czy delegowanie zostało usunięte, użyj [programu AZ Network v
   --vnet-name myVnet \
   --query delegations
 ```
-Wyjście z polecenia jest nawiasem zerowym:
+Wyjście z polecenia jest nawiasem o wartości null:
 ```json
 []
 ```
@@ -186,14 +186,14 @@ Wyjście z polecenia jest nawiasem zerowym:
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](https://docs.microsoft.com/cli/azure/group). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w lokalizacji *eastus:*
+Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
 
 ```azurepowershell-interactive
   New-AzResourceGroup -Name myResourceGroup -Location eastus
 ```
 ### <a name="create-virtual-network"></a>Tworzenie sieci wirtualnej
 
-Utwórz sieć wirtualną o nazwie **myVnet** z podsiecią o nazwie **mySubnet** przy użyciu [New-AzVirtualNetWorkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) w **myResourceGroup** przy użyciu [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest). Przestrzeń adresowa IP dla sieci wirtualnej to **10.0.0.0/16**. Podsieć w sieci wirtualnej jest **10.0.0.0/24**.  
+Utwórz sieć wirtualną o nazwie **myVnet** z podsiecią o nazwie Moja **podsieć** przy użyciu polecenia [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) **w funkcji New** - [AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest). Przestrzeń adresów IP dla sieci wirtualnej to **10.0.0.0/16**. Podsieć w sieci wirtualnej jest **10.0.0.0/24**.  
 
 ```azurepowershell-interactive
   $subnet = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix "10.0.0.0/24"
@@ -202,15 +202,15 @@ Utwórz sieć wirtualną o nazwie **myVnet** z podsiecią o nazwie **mySubnet** 
 ```
 ### <a name="permissions"></a>Uprawnienia
 
-Jeśli podsieć nie została utworzona, którą chcesz delegować do usługi `Microsoft.Network/virtualNetworks/subnets/write`platformy Azure, potrzebne jest następujące uprawnienie: .
+Jeśli nie utworzysz podsieci, którą chcesz delegować do usługi platformy Azure, musisz mieć następujące uprawnienia: `Microsoft.Network/virtualNetworks/subnets/write`.
 
-Wbudowana rola [współautora sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) zawiera również niezbędne uprawnienia.
+Wbudowana rola [współautor sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) zawiera również niezbędne uprawnienia.
 
 ### <a name="delegate-a-subnet-to-an-azure-service"></a>Delegowanie podsieci do usługi platformy Azure
 
-W tej sekcji można delegować podsieci, który został utworzony w poprzedniej sekcji do usługi platformy Azure. 
+W tej sekcji utworzysz delegowaną podsieć utworzoną w poprzedniej sekcji do usługi platformy Azure. 
 
-Użyj [Add-AzDelegation,](https://docs.microsoft.com/powershell/module/az.network/add-azdelegation?view=latest) aby zaktualizować podsieć o nazwie **mySubnet** z delegowania o nazwie **myDelegation** do usługi Platformy Azure.  W tym przykładzie **Microsoft.DBforPostgreSQL/serversv2** jest używany dla przykładowego delegowania:
+Aby zaktualizować **podsieć** o nazwie Moje **delegowanie** do usługi platformy Azure, użyj [dodatku Add-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/add-azdelegation?view=latest) .  W tym przykładzie użyto elementu **Microsoft. DBforPostgreSQL/serversv2** w przypadku delegowania przykładu:
 
 ```azurepowershell-interactive
   $vnet = Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
@@ -218,7 +218,7 @@ Użyj [Add-AzDelegation,](https://docs.microsoft.com/powershell/module/az.networ
   $subnet = Add-AzDelegation -Name "myDelegation" -ServiceName "Microsoft.DBforPostgreSQL/serversv2" -Subnet $subnet
   Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
-Użyj [Get-AzDelegation,](https://docs.microsoft.com/powershell/module/az.network/get-azdelegation?view=latest) aby zweryfikować delegowanie:
+Użyj [Get-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/get-azdelegation?view=latest) , aby zweryfikować delegowanie:
 
 ```azurepowershell-interactive
   $subnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup" | Get-AzVirtualNetworkSubnetConfig -Name "mySubnet"
@@ -234,7 +234,7 @@ Użyj [Get-AzDelegation,](https://docs.microsoft.com/powershell/module/az.networ
 ```
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Usuwanie delegowania podsieci z usługi platformy Azure
 
-[Usuń-AzDelegation,](https://docs.microsoft.com/powershell/module/az.network/remove-azdelegation?view=latest) aby usunąć delegowanie z podsieci o nazwie **mySubnet**:
+Użyj [Remove-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/remove-azdelegation?view=latest) , aby usunąć delegowanie z podsieci o nazwie Moja **podsieć**:
 
 ```azurepowershell-interactive
   $vnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup"
@@ -242,7 +242,7 @@ Użyj [Get-AzDelegation,](https://docs.microsoft.com/powershell/module/az.networ
   $subnet = Remove-AzDelegation -Name "myDelegation" -Subnet $subnet
   Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
-Użyj [Get-AzDelegation,](https://docs.microsoft.com/powershell/module/az.network/get-azdelegation?view=latest) aby sprawdzić, czy delegowanie zostało usunięte:
+Użyj [Get-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/get-azdelegation?view=latest) , aby sprawdzić, czy delegowanie zostało usunięte:
 
 ```azurepowershell-interactive
   $subnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup" | Get-AzVirtualNetworkSubnetConfig -Name "mySubnet"

@@ -1,6 +1,6 @@
 ---
-title: 'Łączenie klasycznych sieci wirtualnych z sieciami wirtualnymi usługi Azure Resource Manager: Program PowerShell'
-description: Utwórz połączenie sieci VPN między klasycznymi sieciami wirtualnymi i sieciami wirtualnymi Menedżera zasobów przy użyciu bramy sieci VPN i programu PowerShell.
+title: 'Łączenie klasycznych sieci wirtualnych do Azure Resource Manager sieci wirtualnych: PowerShell'
+description: Utwórz połączenie sieci VPN między klasycznymi sieci wirtualnych i Menedżer zasobów sieci wirtualnych przy użyciu VPN Gateway i programu PowerShell.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -9,72 +9,72 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: 1dc0eec6178420976181b05a059e9f8b4859ec2a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77152010"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Łączenie sieci wirtualnych z różnych modeli wdrażania za pomocą programu PowerShell
 
-Ten artykuł ułatwia łączenie klasycznych sieci wirtualnych z sieciami wirtualnymi Menedżera zasobów, aby umożliwić komunikację z zasobami znajdującymi się w oddzielnych modelach wdrażania. Kroki opisane w tym artykule używają programu PowerShell, ale można również utworzyć tę konfigurację przy użyciu portalu Azure, wybierając artykuł z tej listy.
+Ten artykuł pomaga połączyć klasyczne sieci wirtualnych z Menedżer zasobów sieci wirtualnych, aby umożliwić zasobom znajdującym się w osobnych modelach wdrażania komunikację ze sobą. Kroki opisane w tym artykule korzystają z programu PowerShell, ale można również utworzyć tę konfigurację przy użyciu Azure Portal, wybierając artykuł z tej listy.
 
 > [!div class="op_single_selector"]
 > * [Portal](vpn-gateway-connect-different-deployment-models-portal.md)
-> * [Powershell](vpn-gateway-connect-different-deployment-models-powershell.md)
+> * [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 > 
 > 
 
-Łączenie klasycznej sieci wirtualnej z siecią wirtualną Menedżera zasobów jest podobne do łączenia sieci wirtualnej z lokalną lokalizacją lokacji. Oba typy połączeń wykorzystują bramę sieci VPN, aby zapewnić bezpieczny tunel z użyciem protokołu IPsec/IKE. Można utworzyć połączenie między sieciami wirtualnymi, które znajdują się w różnych subskrypcji i w różnych regionach. Można również połączyć sieci wirtualne, które mają już połączenia z sieciami lokalnymi, o ile brama, z którą zostały skonfigurowane, jest dynamiczna lub oparta na trasie. Więcej informacji na temat połączeń między sieciami wirtualnymi znajduje się w sekcji [Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi](#faq) na końcu tego artykułu. 
+Połączenie klasycznej sieci wirtualnej z siecią wirtualną Menedżer zasobów jest podobne do łączenia sieci wirtualnej z lokacją lokalną. Oba typy połączeń wykorzystują bramę sieci VPN, aby zapewnić bezpieczny tunel z użyciem protokołu IPsec/IKE. Można utworzyć połączenie między sieci wirtualnychami, które znajdują się w różnych subskrypcjach i w różnych regionach. Można także połączyć sieci wirtualnych, które mają już połączenia z sieciami lokalnymi, tak długo, jak Brama, z której zostały skonfigurowane, jest dynamiczna lub oparta na trasach. Więcej informacji na temat połączeń między sieciami wirtualnymi znajduje się w sekcji [Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi](#faq) na końcu tego artykułu. 
 
-Jeśli nie masz jeszcze bramy sieci wirtualnej i nie chcesz jej tworzyć, warto zamiast tego rozważyć połączenie sieci wirtualnych przy użyciu komunikacji równorzędnej sieci wirtualnej. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci VPN. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md).
+Jeśli nie masz jeszcze bramy sieci wirtualnej i nie chcesz jej utworzyć, możesz zamiast tego rozważyć łączenie się z usługą sieci wirtualnych przy użyciu wirtualnych sieci równorzędnych. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci VPN. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
 
-Poniższe kroki przebiegają przez ustawienia niezbędne do skonfigurowania bramy dynamicznej lub opartej na trasie dla każdej sieci wirtualnej i utworzenia połączenia sieci VPN między bramami. Ta konfiguracja nie obsługuje bram statycznych ani opartych na zasadach.
+Poniższe kroki przeprowadzą Cię przez ustawienia niezbędne do skonfigurowania bramy dynamicznej lub opartej na trasach dla każdej sieci wirtualnej i utworzenia połączenia sieci VPN między bramami. Ta konfiguracja nie obsługuje bram statycznych lub opartych na zasadach.
 
 ### <a name="prerequisites"></a><a name="pre"></a>Wymagania wstępne
 
-* Obie sieci wirtualne zostały już utworzone. Jeśli chcesz utworzyć sieć wirtualną menedżera zasobów, zobacz [Tworzenie grupy zasobów i sieci wirtualnej](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Aby utworzyć klasyczną sieć [wirtualną, zobacz Tworzenie klasycznej sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
-* Zakresy adresów sieci wirtualnych nie nakładają się na siebie ani nie pokrywają się z żadnymi zakresami dla innych połączeń, z którymi mogą być połączone bramy.
-* Zainstalowano najnowsze polecenia cmdlet programu PowerShell. Aby uzyskać więcej [informacji, zobacz Jak zainstalować i skonfigurować program Azure PowerShell.](/powershell/azure/overview) Upewnij się, że zainstalowano zarówno polecenia cmdlet zarządzania usługami (SM), jak i Menedżera zasobów (RM). 
+* Oba sieci wirtualnych zostały już utworzone. Jeśli musisz utworzyć sieć wirtualną Menedżera zasobów, zobacz [Tworzenie grupy zasobów i sieci wirtualnej](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Aby utworzyć klasyczną sieć wirtualną, zobacz [Tworzenie klasycznej](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic)sieci wirtualnej.
+* Zakresy adresów dla sieci wirtualnych nie nakładają się na siebie ani nie nakładają się na żadne z zakresów dla innych połączeń, z którymi bramy mogą być połączone.
+* Zainstalowano najnowsze polecenia cmdlet programu PowerShell. Aby uzyskać więcej informacji [, zobacz Jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/overview) . Upewnij się, że zainstalowano zarówno polecenie cmdlet programu Service Management (SM), jak i Menedżer zasobów (RM). 
 
 ### <a name="example-settings"></a><a name="exampleref"></a>Przykładowe ustawienia
 
 Tych wartości możesz użyć do tworzenia środowiska testowego lub odwoływać się do nich, aby lepiej zrozumieć przykłady w niniejszym artykule.
 
-**Klasyczne ustawienia sieci wirtualnej**
+**Ustawienia klasycznej sieci wirtualnej**
 
 Nazwa sieci wirtualnej = ClassicVNet <br>
-Lokalizacja = Zachodnie stany USA <br>
-Przestrzenie adresowe sieci wirtualnej = 10.0.0.0/24 <br>
-Podsieć-1 = 10,0,0,0/27 <br>
+Lokalizacja = zachodnie stany USA <br>
+Virtual Network przestrzenie adresowe = 10.0.0.0/24 <br>
+Podsieć-1 = 10.0.0.0/27 <br>
 GatewaySubnet = 10.0.0.32/29 <br>
 Nazwa sieci lokalnej = RMVNetLocal <br>
-Typ bramy = DynamiczneRouting
+Gatewaytype = DynamicRouting
 
-**Ustawienia sieci wirtualnej Menedżera zasobów**
+**Menedżer zasobów ustawienia sieci wirtualnej**
 
 Nazwa sieci wirtualnej = RMVNet <br>
 Grupa zasobów = RG1 <br>
-Przestrzenie adresów IP sieci wirtualnej = 192.168.0.0/16 <br>
+Virtual Network przestrzeni adresów IP = 192.168.0.0/16 <br>
 Podsieć-1 = 192.168.1.0/24 <br>
 GatewaySubnet = 192.168.0.0/26 <br>
-Lokalizacja = wschodnie stany USA <br>
+Lokalizacja = Wschodnie stany USA <br>
 Publiczna nazwa IP bramy = gwpip <br>
 Brama sieci lokalnej = ClassicVNetLocal <br>
-Nazwa bramy sieci wirtualnej = RMGateway <br>
+Nazwa bramy Virtual Network = RMGateway <br>
 Konfiguracja adresowania IP bramy = gwipconfig
 
-## <a name="section-1---configure-the-classic-vnet"></a><a name="createsmgw"></a>Sekcja 1 - Konfigurowanie klasycznej sieci wirtualnej
+## <a name="section-1---configure-the-classic-vnet"></a><a name="createsmgw"></a>Sekcja 1 — Konfigurowanie klasycznej sieci wirtualnej
 ### <a name="1-download-your-network-configuration-file"></a>1. Pobierz plik konfiguracji sieci
-1. Zaloguj się do konta platformy Azure w konsoli programu PowerShell z podwyższonym poziomem uprawnień. Następujące polecenie cmdlet monituje o poświadczenia logowania dla konta platformy Azure. Po zalogowaniu pobiera ono ustawienia konta, aby były dostępne dla programu Azure PowerShell. Klasyczne polecenia cmdlet usługi Azure PowerShell usługi Azure są używane w tej sekcji.
+1. Zaloguj się do swojego konta platformy Azure w konsoli programu PowerShell z podwyższonym poziomem uprawnień. Poniższe polecenie cmdlet poprosi o poświadczenia logowania do konta platformy Azure. Po zalogowaniu pobiera ono ustawienia konta, aby były dostępne dla programu Azure PowerShell. Polecenia cmdlet programu klasycznej usługi Service Management (SM) Azure PowerShell są używane w tej sekcji.
 
    ```azurepowershell
    Add-AzureAccount
    ```
 
-   Uzyskaj subskrypcję platformy Azure.
+   Uzyskaj swoją subskrypcję platformy Azure.
 
    ```azurepowershell
    Get-AzureSubscription
@@ -85,15 +85,15 @@ Konfiguracja adresowania IP bramy = gwipconfig
    ```azurepowershell
    Select-AzureSubscription -SubscriptionName "Name of subscription"
    ```
-2. Eksportuj plik konfiguracji sieci platformy Azure, uruchamiając następujące polecenie. W razie potrzeby można zmienić lokalizację pliku, aby wyeksportować go do innej lokalizacji.
+2. Wyeksportuj plik konfiguracji sieci platformy Azure, uruchamiając następujące polecenie. W razie potrzeby można zmienić lokalizację pliku do wyeksportowania do innej lokalizacji.
 
    ```azurepowershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-3. Otwórz pobrany plik xml, aby go edytować. Na przykład pliku konfiguracji sieci zobacz [Schemat konfiguracji sieci](https://msdn.microsoft.com/library/jj157100.aspx).
+3. Otwórz pobrany plik XML, aby go edytować. Przykład pliku konfiguracji sieci można znaleźć w [schemacie konfiguracji sieci](https://msdn.microsoft.com/library/jj157100.aspx).
 
 ### <a name="2-verify-the-gateway-subnet"></a>2. Sprawdź podsieć bramy
-W **VirtualNetworkSites** element, dodaj podsieć bramy do sieci wirtualnej, jeśli nie został jeszcze utworzony. Podczas pracy z plikiem konfiguracji sieci podsieci bramy MUSI być nazwany "GatewaySubnet" lub platforma Azure nie może rozpoznać i używać go jako podsieci bramy.
+W elemencie **VirtualNetworkSites** Dodaj podsieć bramy do sieci wirtualnej, jeśli nie została jeszcze utworzona. Podczas pracy z plikiem konfiguracji sieci podsieć bramy musi mieć nazwę "GatewaySubnet" lub platforma Azure nie może rozpoznać jej jako podsieci bramy ani jej używać.
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -115,8 +115,8 @@ W **VirtualNetworkSites** element, dodaj podsieć bramy do sieci wirtualnej, je�
       </VirtualNetworkSite>
     </VirtualNetworkSites>
 
-### <a name="3-add-the-local-network-site"></a>3. Dodaj witrynę sieci lokalnej
-Dodana lokacja sieci lokalnej reprezentuje sieć wirtualną RM, z którą chcesz się połączyć. Dodaj **LocalNetworkSites** element do pliku, jeśli jeszcze nie istnieje. W tym momencie w konfiguracji VPNGatewayAddress może być dowolny prawidłowy publiczny adres IP, ponieważ nie utworzyliśmy jeszcze bramy dla sieci wirtualnej Menedżera zasobów. Po utworzeniu bramy zastępujemy ten zastępczy adres IP poprawnym publicznym adresem IP, który został przypisany do bramy RM.
+### <a name="3-add-the-local-network-site"></a>3. Dodaj lokację sieci lokalnej
+Dodana lokacja sieci lokalnej reprezentuje sieć wirtualną RM, z którą chcesz nawiązać połączenie. Dodaj element **LocalNetworkSites** do pliku, jeśli taki jeszcze nie istnieje. Na tym etapie konfiguracji VPNGatewayAddress może być dowolnym prawidłowym publicznym adresem IP, ponieważ Brama nie została jeszcze utworzona dla Menedżer zasobów sieci wirtualnej. Po utworzeniu bramy zastępujemy ten symbol zastępczy adres IP poprawnym publicznym adresem IP przypisanym do bramy RM.
 
     <LocalNetworkSites>
       <LocalNetworkSite name="RMVNetLocal">
@@ -127,8 +127,8 @@ Dodana lokacja sieci lokalnej reprezentuje sieć wirtualną RM, z którą chcesz
       </LocalNetworkSite>
     </LocalNetworkSites>
 
-### <a name="4-associate-the-vnet-with-the-local-network-site"></a>4. Skojarz sieć wirtualną z witryną sieci lokalnej
-W tej sekcji określamy lokalną lokację sieciową, z którą chcesz połączyć sieć wirtualną. W takim przypadku jest to sieci wirtualnej Menedżera zasobów, do której odwołuje się wcześniej. Upewnij się, że nazwy są zgodne. Ten krok nie tworzy bramy. Określa sieć lokalną, z którą brama będzie się łączyć.
+### <a name="4-associate-the-vnet-with-the-local-network-site"></a>4. Skojarz sieć wirtualną z lokacją sieci lokalnej
+W tej sekcji określimy lokację sieci lokalnej, z którą chcesz połączyć sieć wirtualną. W tym przypadku jest to Menedżer zasobów sieci wirtualnej, do której odwołuje się wcześniej. Upewnij się, że nazwy są zgodne. Ten krok nie powoduje utworzenia bramy. Określa sieć lokalną, z którą zostanie nawiązane połączenie z bramą.
 
         <Gateway>
           <ConnectionsToLocalNetwork>
@@ -138,14 +138,14 @@ W tej sekcji określamy lokalną lokację sieciową, z którą chcesz połączy�
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-### <a name="5-save-the-file-and-upload"></a>5. Zapisz plik i prześlij
-Zapisz plik, a następnie zaimportuj go na platformę Azure, uruchamiając następujące polecenie. Upewnij się, że ścieżka pliku jest zmieniana w razie potrzeby w twoim środowisku.
+### <a name="5-save-the-file-and-upload"></a>5. Zapisz plik i przekaż go
+Zapisz plik, a następnie zaimportuj go do platformy Azure, uruchamiając następujące polecenie. Upewnij się, że ścieżka pliku jest zmieniana w zależności od potrzeb środowiska.
 
 ```azurepowershell
 Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
 ```
 
-Zobaczysz podobny wynik pokazujący, że importowanie zakończyło się pomyślnie.
+Zobaczysz podobny wynik wskazujący, że importowanie zakończyło się pomyślnie.
 
         OperationDescription        OperationId                      OperationStatus                                                
         --------------------        -----------                      ---------------                                                
@@ -153,26 +153,26 @@ Zobaczysz podobny wynik pokazujący, że importowanie zakończyło się pomyśln
 
 ### <a name="6-create-the-gateway"></a>6. Tworzenie bramy
 
-Przed uruchomieniem tego przykładu zapoznaj się z pobranym plikiem konfiguracji sieci, aby uzyskać dokładne nazwy, których oczekuje platforma Azure. Plik konfiguracji sieci zawiera wartości dla klasycznych sieci wirtualnych. Czasami nazwy klasycznych sieci wirtualnych są zmieniane w pliku konfiguracji sieci podczas tworzenia klasycznych ustawień sieci wirtualnej w witrynie Azure portal ze względu na różnice w modelach wdrażania. Na przykład jeśli użyto witryny Azure portal do utworzenia klasycznej sieci wirtualnej o nazwie "Klasyczna sieć wirtualna" i utworzono ją w grupie zasobów o nazwie "ClassicRG", nazwa zawarta w pliku konfiguracji sieci jest konwertowana na "Group ClassicRG Classic VNet". Określając nazwę sieci wirtualnej zawierającej spacje, należy użyć cudzysłowów wokół wartości.
+Przed uruchomieniem tego przykładu zapoznaj się z plikiem konfiguracji sieci pobranym dla dokładnych nazw oczekiwanych przez platformę Azure. Plik konfiguracji sieci zawiera wartości dla klasycznych sieci wirtualnych. Czasami nazwy klasycznych sieci wirtualnych są zmieniane w pliku konfiguracji sieciowej podczas tworzenia ustawień klasycznej sieci wirtualnej w Azure Portal z powodu różnic między modelami wdrażania. Na przykład, jeśli użyto Azure Portal do utworzenia klasycznej sieci wirtualnej o nazwie "Klasyczna Sieć wirtualna" i utworzono ją w grupie zasobów o nazwie "ClassicRG", nazwa, która jest zawarta w pliku konfiguracji sieci, jest konwertowana na "Grupa ClassicRG klasycznej sieci wirtualnej". Podczas określania nazwy sieci wirtualnej zawierającej spacje, użyj znaków cudzysłowu wokół wartości.
 
 
-Aby utworzyć bramę routingu dynamicznego, użyj następującego przykładu:
+Użyj poniższego przykładu, aby utworzyć bramę dynamicznego routingu:
 
 ```azurepowershell
 New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 ```
 
-Stan bramy można sprawdzić przy użyciu polecenia cmdlet **Get-AzureVNetGateway.**
+Stan bramy można sprawdzić za pomocą polecenia cmdlet **Get-azurevnetgateway nastąpi** .
 
-## <a name="section-2---configure-the-rm-vnet-gateway"></a><a name="creatermgw"></a>Sekcja 2 — konfigurowanie bramy sieci wirtualnej RM
+## <a name="section-2---configure-the-rm-vnet-gateway"></a><a name="creatermgw"></a>Sekcja 2 — Konfigurowanie bramy sieci wirtualnej RM
 
 
 
-Wymagania wstępne zakładają, że utworzono już sieci wirtualnej RM. W tym kroku utworzysz bramę sieci VPN dla sieci wirtualnej rm. Nie uruchamiaj tych kroków, dopóki nie po pobraniu publicznego adresu IP bramy klasycznej sieci wirtualnej. 
+W wymaganiach wstępnych przyjęto, że utworzono już sieć wirtualną RM. W tym kroku utworzysz bramę VPN Gateway dla sieci wirtualnej RM. Nie uruchamiaj tych kroków do momentu pobrania publicznego adresu IP dla bramy klasycznej sieci wirtualnej. 
 
-1. Zaloguj się do konta platformy Azure w konsoli programu PowerShell. Następujące polecenie cmdlet monituje o poświadczenia logowania dla konta platformy Azure. Po zalogowaniu się ustawienia konta są pobierane, dzięki czemu są dostępne dla programu Azure PowerShell. Opcjonalnie można użyć funkcji "Wypróbuj", aby uruchomić usługę Azure Cloud Shell w przeglądarce.
+1. Zaloguj się do konta platformy Azure w konsoli programu PowerShell. Poniższe polecenie cmdlet poprosi o poświadczenia logowania do konta platformy Azure. Po zalogowaniu się zostaną pobrane ustawienia konta, aby były dostępne do Azure PowerShell. Opcjonalnie możesz użyć funkcji "Wypróbuj ją", aby uruchomić Azure Cloud Shell w przeglądarce.
 
-   Jeśli używasz usługi Azure Cloud Shell, pomiń następujące polecenie cmdlet:
+   Jeśli używasz Azure Cloud Shell, Pomiń następujące polecenie cmdlet:
 
    ```azurepowershell
    Connect-AzAccount
@@ -188,20 +188,20 @@ Wymagania wstępne zakładają, że utworzono już sieci wirtualnej RM. W tym kr
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName "Name of subscription"
    ```
-2. Utwórz bramę sieci lokalnej. W sieci wirtualnej brama sieci lokalnej zazwyczaj odwołuje się do lokalizacji lokalnej. W takim przypadku brama sieci lokalnej odwołuje się do klasycznej sieci wirtualnej. Nadaj mu nazwę, za pomocą której platforma Azure może się do niej odwoływać, a także określ prefiks przestrzeni adresowej. Platforma Azure używa prefiksu adresu IP w celu określenia, który ruch danych należy skierować do lokalizacji lokalnej. Jeśli musisz dostosować informacje w tym miejscu później, przed utworzeniem bramy, można zmodyfikować wartości i uruchomić próbkę ponownie.
+2. Utwórz bramę sieci lokalnej. W sieci wirtualnej brama sieci lokalnej zazwyczaj odwołuje się do lokalizacji lokalnej. W takim przypadku Brama sieci lokalnej odwołuje się do Twojej klasycznej lokalizacji wirtualnej. Nadaj mu nazwę, za pomocą której platforma Azure może odwoływać się do niej, a także określ prefiks przestrzeni adresowej. Platforma Azure używa prefiksu adresu IP w celu określenia, który ruch danych należy skierować do lokalizacji lokalnej. Jeśli chcesz dostosować tutaj informacje później, przed utworzeniem bramy możesz zmodyfikować wartości i ponownie uruchomić przykład.
    
-   **-Name** to nazwa, którą chcesz przypisać w odniesieniu do bramy sieci lokalnej.<br>
-   **-AddressPrefix** to przestrzeń adresowa dla klasycznej sieci wirtualnej.<br>
-   **-GatewayIpAddress** jest publicznym adresem IP bramy klasycznej sieci wirtualnej. Pamiętaj, aby zmienić poniższy przykładowy tekst "n.n.n.n", aby odzwierciedlić poprawny adres IP.<br>
+   **-Name** to nazwa, którą chcesz przypisać, aby odwołać się do bramy sieci lokalnej.<br>
+   **-AddressPrefix** jest przestrzenią adresową dla klasycznej sieci wirtualnej.<br>
+   **-GatewayIpAddress** to publiczny adres IP bramy klasycznej sieci wirtualnej. Pamiętaj, aby zmienić następujący przykładowy tekst "n. n. n. n" w celu odzwierciedlenia poprawnego adresu IP.<br>
 
    ```azurepowershell-interactive
    New-AzLocalNetworkGateway -Name ClassicVNetLocal `
    -Location "West US" -AddressPrefix "10.0.0.0/24" `
    -GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
    ```
-3. Zażądaj publicznego adresu IP, który ma zostać przydzielony do bramy sieci wirtualnej dla sieci wirtualnej Menedżera zasobów. Nie można określić adresu IP, którego chcesz użyć. Adres IP jest dynamicznie przydzielany do bramy sieci wirtualnej. Nie oznacza to jednak, że adres IP się zmienia. Zmiana adresu IP bramy sieci wirtualnej jest tylko wtedy, gdy brama jest usuwana i odtwarzana. Nie zmienia się w całej zmiany rozmiaru, resetowania lub innych wewnętrznych konserwacji / uaktualnień bramy.
+3. Zażądaj przydzielenia publicznego adresu IP do bramy sieci wirtualnej dla Menedżer zasobów wirtualnej. Nie można określić adresu IP, którego chcesz użyć. Adres IP jest przydzielany dynamicznie do bramy sieci wirtualnej. Nie oznacza to jednak, że adres IP się zmienia. Jedyna zmiana adresu IP bramy sieci wirtualnej polega na tym, że brama została usunięta i ponownie utworzona. Nie zmienia się w przypadku zmiany rozmiarów, resetowania ani innych wewnętrznych czynności konserwacyjnych/uaktualnień bramy.
 
-   W tym kroku ustawiamy również zmienną, która jest używana w późniejszym kroku.
+   W tym kroku ustawimy również zmienną używaną w późniejszym kroku.
 
    ```azurepowershell-interactive
    $ipaddress = New-AzPublicIpAddress -Name gwpip `
@@ -209,11 +209,11 @@ Wymagania wstępne zakładają, że utworzono już sieci wirtualnej RM. W tym kr
    -AllocationMethod Dynamic
    ```
 
-4. Sprawdź, czy sieć wirtualna ma podsieć bramy. Jeśli nie istnieje żadna podsieć bramy, dodaj jedną. Upewnij się, że podsieć bramy nosi nazwę *GatewaySubnet*.
-5. Pobierz podsieć używaną dla bramy, uruchamiając następujące polecenie. W tym kroku ustawiamy również zmienną, która ma być używana w następnym kroku.
+4. Sprawdź, czy sieć wirtualna ma podsieć bramy. Jeśli nie istnieje podsieć bramy, Dodaj ją. Upewnij się, że podsieć bramy ma nazwę *GatewaySubnet*.
+5. Pobierz podsieć używaną przez bramę, uruchamiając następujące polecenie. W tym kroku ustawimy również zmienną, która będzie używana w następnym kroku.
    
-   **-Nazwa** to nazwa sieci wirtualnej Menedżera zasobów.<br>
-   **-ResourceGroupName** jest grupą zasobów, z którą jest skojarzona sieci wirtualnej. Podsieć bramy musi już istnieć dla tej sieci wirtualnej i musi mieć nazwę *GatewaySubnet,* aby działała poprawnie.<br>
+   **-Name** to nazwa sieci wirtualnej Menedżer zasobów.<br>
+   **-ResourceGroupName** to grupa zasobów, z którą skojarzona jest sieć wirtualna. Podsieć bramy musi już istnieć dla tej sieci wirtualnej i musi mieć nazwę *GatewaySubnet* , aby działać prawidłowo.<br>
 
    ```azurepowershell-interactive
    $subnet = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet `
@@ -222,14 +222,14 @@ Wymagania wstępne zakładają, że utworzono już sieci wirtualnej RM. W tym kr
 
 6. Utwórz konfigurację adresowania IP bramy. W ramach konfiguracji bramy zostaje zdefiniowana podsieć i publiczny adres IP do użycia. Poniższy przykład umożliwia utworzenie konfiguracji bramy.
 
-   W tym kroku parametry **-SubnetId** i **-PublicIpAddressId** muszą być przekazywane właściwości id z podsieci i obiektów adresu IP, odpowiednio. Nie można użyć prostego ciągu. Te zmienne są ustawione w kroku, aby zażądać publicznego adresu IP i kroku, aby pobrać podsieć.
+   W tym kroku parametry **-SubnetId** i **-PublicIpAddressId** muszą zostać przesłane odpowiednio do właściwości ID z podsieci i obiektów adresów IP. Nie można użyć prostego ciągu. Te zmienne są ustawiane w kroku, aby zażądać publicznego adresu IP i kroku, aby pobrać podsieć.
 
    ```azurepowershell-interactive
    $gwipconfig = New-AzVirtualNetworkGatewayIpConfig `
    -Name gwipconfig -SubnetId $subnet.id `
    -PublicIpAddressId $ipaddress.id
    ```
-7. Utwórz bramę sieci wirtualnej Menedżera zasobów, uruchamiając następujące polecenie. Musi `-VpnType` być *RouteBased*. Utworzenie bramy może potrwać 45 minut lub więcej.
+7. Utwórz bramę sieci wirtualnej Menedżer zasobów, uruchamiając następujące polecenie. `-VpnType` Musi być *RouteBased*. Utworzenie bramy może potrwać 45 minut lub dłużej.
 
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
@@ -237,22 +237,22 @@ Wymagania wstępne zakładają, że utworzono już sieci wirtualnej RM. W tym kr
    -IpConfigurations $gwipconfig `
    -EnableBgp $false -VpnType RouteBased
    ```
-8. Skopiuj publiczny adres IP po utworzeniu bramy sieci VPN. Jest on używany podczas konfigurowania ustawień sieci lokalnej dla klasycznej sieci wirtualnej. Do pobrania publicznego adresu IP można użyć następującego polecenia cmdlet. Publiczny adres IP jest wymieniony w powrocie jako *IpAddress*.
+8. Skopiuj publiczny adres IP po utworzeniu bramy sieci VPN. Jest ona używana podczas konfigurowania ustawień sieci lokalnej dla klasycznej platformy wirtualnej. Aby pobrać publiczny adres IP, można użyć następującego polecenia cmdlet. Publiczny adres IP jest wymieniony w polu zwraca jako *adres*IP.
 
    ```azurepowershell-interactive
    Get-AzPublicIpAddress -Name gwpip -ResourceGroupName RG1
    ```
 
-## <a name="section-3---modify-the-classic-vnet-local-site-settings"></a><a name="localsite"></a>Sekcja 3 - Modyfikowanie klasycznych ustawień lokacji lokalnej sieci wirtualnej
+## <a name="section-3---modify-the-classic-vnet-local-site-settings"></a><a name="localsite"></a>Sekcja 3 — Modyfikowanie ustawień klasycznej lokacji lokalnej sieci wirtualnej
 
-W tej sekcji pracujesz z klasyczną siecią wirtualną. Zastępczy adres IP używany jest podczas określania ustawień lokacji lokalnej, które będą używane do łączenia się z bramą sieci wirtualnej Menedżera zasobów. Ponieważ pracujesz z klasycznej sieci wirtualnej, należy użyć programu PowerShell zainstalowany lokalnie na komputerze, a nie usługi Azure Cloud Shell TryIt.
+W tej sekcji można korzystać z klasycznej sieci wirtualnej. Zastępczy adres IP, który został użyty podczas określania ustawień lokacji lokalnej, który zostanie użyty do nawiązania połączenia z bramą sieci wirtualnej Menedżer zasobów. Ze względu na to, że pracujesz z klasyczną siecią wirtualną, użyj programu PowerShell lokalnie zainstalowanej na komputerze, a nie Azure Cloud Shell TryIt.
 
 1. Wyeksportuj plik konfiguracji sieci.
 
    ```azurepowershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-2. Za pomocą edytora tekstu zmodyfikuj wartość vpngatewayAddress. Zastąp zastępczy adres IP publicznym adresem IP bramy Menedżera zasobów, a następnie zapisz zmiany.
+2. Za pomocą edytora tekstów zmodyfikuj wartość dla VPNGatewayAddress. Zamień zastępczy adres IP na publiczny adres IP bramy Menedżer zasobów, a następnie Zapisz zmiany.
 
    ```
    <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
@@ -263,10 +263,10 @@ W tej sekcji pracujesz z klasyczną siecią wirtualną. Zastępczy adres IP uży
    Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
    ```
 
-## <a name="section-4---create-a-connection-between-the-gateways"></a><a name="connect"></a>Sekcja 4 - Tworzenie połączenia między bramami
-Tworzenie połączenia między bramami wymaga programu PowerShell. Może być konieczne dodanie konta platformy Azure, aby użyć klasycznej wersji poleceń cmdlet programu PowerShell. Aby to zrobić, należy użyć **add-AzureAccount**.
+## <a name="section-4---create-a-connection-between-the-gateways"></a><a name="connect"></a>Sekcja 4 — Tworzenie połączenia między bramami
+Utworzenie połączenia między bramami wymaga programu PowerShell. Może być konieczne dodanie konta platformy Azure w celu użycia klasycznej wersji poleceń cmdlet programu PowerShell. Aby to zrobić, użyj polecenie **Add-AzureAccount**.
 
-1. W konsoli programu PowerShell ustaw klucz udostępniony. Przed uruchomieniem poleceń cmdlet należy zapoznać się z pobranym plikiem konfiguracji sieci, aby uzyskać dokładne nazwy, których oczekuje platforma Azure. Określając nazwę sieci wirtualnej zawierającej spacje, należy użyć pojedynczych cudzysłowów wokół wartości.<br><br>W poniższym przykładzie **-VNetName** jest nazwą klasycznej sieci wirtualnej i **-LocalNetworkSiteName** jest nazwą określoną dla lokacji sieci lokalnej. **-SharedKey** jest wartością, którą generujesz i określasz. W przykładzie użyliśmy "abc123", ale można wygenerować i użyć czegoś bardziej złożonego. Ważne jest to, że wartość, którą określisz w tym miejscu, musi być tą samą wartością, którą określisz w następnym kroku podczas tworzenia połączenia. Zwrot powinien być pokaźny **Status: Udany**.
+1. W konsoli programu PowerShell Ustaw klucz współużytkowany. Przed uruchomieniem poleceń cmdlet programu zapoznaj się z pobranym plikiem konfiguracji sieci dla dokładnych nazw oczekiwanych przez platformę Azure. Gdy określasz nazwę sieci wirtualnej zawierającej spacje, użyj znaków pojedynczego cudzysłowu wokół wartości.<br><br>W poniższym przykładzie **-VNetName** jest nazwą klasycznej sieci wirtualnej i **-LocalNetworkSiteName** jest nazwą określoną dla lokalnej lokacji sieciowej. **-SharedKey** jest wartością wygenerowaną i określoną przez użytkownika. W przykładzie użyto elementu "abc123", ale można wygenerować i użyć bardziej złożonej. Ważną kwestią jest to, że wartość określona w tym miejscu musi być taka sama jak wartość określona w następnym kroku podczas tworzenia połączenia. Wartość zwracana powinna wskazywać **stan: powodzenie**.
 
    ```azurepowershell
    Set-AzureVNetGatewayKey -VNetName ClassicVNet `
@@ -281,7 +281,7 @@ Tworzenie połączenia między bramami wymaga programu PowerShell. Może być ko
    $vnet02gateway = Get-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
    ```
    
-   Utwórz połączenie. Należy zauważyć, że **-ConnectionType** jest IPsec, a nie Vnet2Vnet.
+   Utwórz połączenie. Należy zauważyć, że **-ConnectionType** jest IPSec, nie Vnet2Vnet.
 
    ```azurepowershell-interactive
    New-AzVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
@@ -290,26 +290,26 @@ Tworzenie połączenia między bramami wymaga programu PowerShell. Może być ko
    $vnet01gateway -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
    ```
 
-## <a name="section-5---verify-your-connections"></a><a name="verify"></a>Sekcja 5 - Sprawdź swoje połączenia
+## <a name="section-5---verify-your-connections"></a><a name="verify"></a>Sekcja 5 — Weryfikowanie połączeń
 
-### <a name="to-verify-the-connection-from-your-classic-vnet-to-your-resource-manager-vnet"></a>Aby zweryfikować połączenie z klasycznej sieci wirtualnej z siecią wirtualną Menedżera zasobów
+### <a name="to-verify-the-connection-from-your-classic-vnet-to-your-resource-manager-vnet"></a>Aby sprawdzić połączenie z klasycznej sieci wirtualnej z siecią wirtualną Menedżer zasobów
 
 #### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-classic](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
-#### <a name="azure-portal"></a>Portal Azure
+#### <a name="azure-portal"></a>Azure Portal
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
 
-### <a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Aby zweryfikować połączenie z sieci wirtualnej Menedżera zasobów z klasyczną siecią wirtualną
+### <a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Aby sprawdzić połączenie z sieci wirtualnej Menedżer zasobów do klasycznej sieci wirtualnej
 
 #### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [vpn-gateway-verify-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-#### <a name="azure-portal"></a>Portal Azure
+#### <a name="azure-portal"></a>Azure Portal
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 

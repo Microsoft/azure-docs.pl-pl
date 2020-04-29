@@ -1,35 +1,35 @@
 ---
-title: Obsługiwane źródła danych w wykazie danych platformy Azure
-description: W tym artykule wymieniono specyfikacje aktualnie obsługiwanych źródeł danych dla usługi Azure Data Catalog.
+title: Obsługiwane źródła danych w Azure Data Catalog
+description: W tym artykule przedstawiono specyfikacje obecnie obsługiwanych źródeł danych dla Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78898145"
 ---
-# <a name="supported-data-sources-in-azure-data-catalog"></a>Obsługiwane źródła danych w wykazie danych platformy Azure
+# <a name="supported-data-sources-in-azure-data-catalog"></a>Obsługiwane źródła danych w Azure Data Catalog
 
-Metadane można publikować przy użyciu publicznego interfejsu API lub narzędzia do rejestracji po kliknięciu lub ręcznie wprowadzając informacje bezpośrednio do portalu sieci Web usługi Azure Data Catalog. W poniższej tabeli podsumowano wszystkie źródła danych, które są obsługiwane przez katalog dzisiaj i możliwości publikowania dla każdego. Na liście znajdują się również narzędzia do danych zewnętrznych, które każde źródło danych może uruchomić z naszego portalu "open-in" środowiska. Druga tabela zawiera bardziej techniczną specyfikację każdej właściwości połączenia źródła danych.
+Możesz publikować metadane za pomocą publicznego interfejsu API lub narzędzia do rejestracji jednokrotnej, lub ręcznie wprowadzając informacje bezpośrednio do portalu sieci Web Azure Data Catalog. W poniższej tabeli zestawiono wszystkie źródła danych, które są obecnie obsługiwane przez wykaz, oraz możliwości publikowania dla każdego z nich. Poniżej wymieniono również zewnętrzne narzędzia do obsługi danych, które mogą być uruchamiane przy użyciu tego samego źródła danych. Druga tabela zawiera bardziej techniczne specyfikacje dla każdej właściwości połączenia ze źródłem danych.
 
 ## <a name="list-of-supported-data-sources"></a>Lista obsługiwanych źródeł danych
 
 <table>
     <tr>
        <td><b>Obiekt źródła danych</b></td>
-       <td><b>interfejs API</b></td>
-       <td><b>Wprowadzanie ręczne</b></td>
+       <td><b>Interfejs API</b></td>
+       <td><b>Wpis ręczny</b></td>
        <td><b>Narzędzie rejestracji</b></td>
-       <td><b>Narzędzia otwarte</b></td>
+       <td><b>Narzędzia Open-in</b></td>
        <td><b>Uwagi</b></td>
     </tr>
     <tr>
-      <td>Katalog usługi Azure Data Lake Store (tylko gen 1)</td>
+      <td>Katalog Azure Data Lake Store (tylko gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -37,7 +37,7 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td></td>
     </tr>
     <tr>
-      <td>Plik usługi Azure Data Lake Store (tylko gen 1)</td>
+      <td>Plik Azure Data Lake Store (tylko gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -87,7 +87,7 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td></td>
     </tr>
     <tr>
-      <td>Tabela gałęzi</td>
+      <td>Tabela programu Hive</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -95,7 +95,7 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td></td>
     </tr>
     <tr>
-      <td>Widok ul</td>
+      <td>Widok Hive</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -119,7 +119,7 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td></td>
     </tr>
     <tr>
-      <td>Tabela bazy danych Oracle</td>
+      <td>Tabela Oracle Database</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -127,7 +127,7 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td>Oracle 10 i nowsze wersje.</td>
     </tr>
     <tr>
-      <td>Widok bazy danych Oracle</td>
+      <td>Widok Oracle Database</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -135,7 +135,7 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td>Oracle 10 i nowsze wersje.</td>
     </tr>
     <tr>
-      <td>Inne (aktywa ogólne)</td>
+      <td>Inne (rodzajowe zasoby)</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
@@ -143,79 +143,79 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td></td>
     </tr>
     <tr>
-      <td>Tabela usługi Azure SQL Data Warehouse</td>
+      <td>Tabela Azure SQL Data Warehouse</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Narzędzia do danych programu Excel, Power BI Desktop i SQL Server</td>
+      <td>Excel, Power BI Desktop, SQL Server narzędzia danych</td>
       <td></td>
     </tr>
     <tr>
-      <td>Widok usługi Azure SQL Data Warehouse</td>
+      <td>Widok Azure SQL Data Warehouse</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Narzędzia do danych programu Excel, Power BI Desktop i SQL Server</td>
+      <td>Excel, Power BI Desktop, SQL Server narzędzia danych</td>
       <td></td>
     </tr>
     <tr>
-      <td>Wymiar usług SQL Server Analysis Services</td>
+      <td>SQL Server Analysis Services wymiar</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td>Programu SQL Server 2008 i nowsze wersje.</td>
+      <td>SQL Server 2008 i nowsze wersje.</td>
     </tr>
     <tr>
-      <td>Kluczowy wskaźnik wydajności usług SQL Server Analysis Services</td>
+      <td>SQL Server Analysis Services kluczowy wskaźnik wydajności</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td>Programu SQL Server 2008 i nowsze wersje.</td>
+      <td>SQL Server 2008 i nowsze wersje.</td>
     </tr>
     <tr>
-      <td>Miara usług SQL Server Analysis Services</td>
+      <td>Miara SQL Server Analysis Services</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td>Programu SQL Server 2008 i nowsze wersje.</td>
+      <td>SQL Server 2008 i nowsze wersje.</td>
     </tr>
     <tr>
-      <td>Tabela usług analizy programu SQL Server Analysis Services</td>
+      <td>Tabela SQL Server Analysis Services</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td>Programu SQL Server 2008 i nowsze wersje.</td>
+      <td>SQL Server 2008 i nowsze wersje.</td>
     </tr>
     <tr>
-      <td>Raport usług SQL Server Reporting Services</td>
+      <td>Raport SQL Server Reporting Services</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>Przeglądarka</td>
-      <td>Tylko serwery trybu macierzystego. Tryb programu SharePoint nie jest obsługiwany. Tylko wersje programu SQL Server 2008 i nowsze</td>
+      <td>Tylko serwery trybu macierzystego. Tryb programu SharePoint nie jest obsługiwany. Tylko SQL Server 2008 i nowsze wersje</td>
     </tr>
     <tr>
-      <td>Tabela programu SQL Server</td>
+      <td>Tabela SQL Server</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Narzędzia do danych programu Excel, Power BI Desktop i SQL Server</td>
-      <td>Programu SQL Server 2008 i nowsze wersje.</td>
+      <td>Excel, Power BI Desktop, SQL Server narzędzia danych</td>
+      <td>SQL Server 2008 i nowsze wersje.</td>
     </tr>
     <tr>
-      <td>Widok programu SQL Server</td>
+      <td>Widok SQL Server</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Narzędzia do danych programu Excel, Power BI Desktop i SQL Server</td>
-      <td>Programu SQL Server 2008 i nowsze wersje.</td>
+      <td>Excel, Power BI Desktop, SQL Server narzędzia danych</td>
+      <td>SQL Server 2008 i nowsze wersje.</td>
     </tr>
     <tr>
-      <td>Stół Teradata</td>
+      <td>Tabela programu Teradata</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -223,7 +223,7 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td></td>
     </tr>
     <tr>
-      <td>Widok Teradata</td>
+      <td>Widok programu Teradata</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -236,7 +236,7 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Działa tylko w języku angielskim. Środki nie są obsługiwane.</td>
+      <td>Działa tylko w języku angielskim. Miary nie są obsługiwane.</td>
     </tr>
     <tr>
       <td>Widok SAP HANA</td>
@@ -247,7 +247,7 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td></td>
     </tr>
     <tr>
-      <td>Tabela DB2</td>
+      <td>Tabela bazy danych DB2</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -255,7 +255,7 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td></td>
     </tr>
     <tr>
-      <td>Widok DB2</td>
+      <td>Widok bazy danych DB2</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -263,7 +263,7 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td></td>
     </tr>
     <tr>
-      <td>Plik systemowy</td>
+      <td>Plik systemu plików</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -311,7 +311,7 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td></td>
     </tr>
     <tr>
-      <td>Zestaw encji OData</td>
+      <td>Zestaw jednostek OData</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -319,7 +319,7 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td></td>
     </tr>
     <tr>
-      <td>OData, funkcja</td>
+      <td>Funkcja OData</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -367,12 +367,12 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td></td>
     </tr>
     <tr>
-      <td>Kolekcja usługi Azure Cosmos DB</td>
+      <td>Kolekcja Azure Cosmos DB</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Tylko starsze kolekcje z kolekcji usługi Azure DocumentDB i SQL API w usłudze Azure Cosmos DB są zgodne. Nowsze interfejsy API bazy danych usługi Cosmos nie są jeszcze obsługiwane. Wybierz pozycję Azure DocumentDB na liście Źródło danych.</td>
+      <td>Tylko starsze kolekcje z usługi Azure DocumentDB i kolekcje interfejsów API SQL w Azure Cosmos DB są zgodne. Nowsze interfejsy API Cosmos DB nie są jeszcze obsługiwane. Wybierz pozycję Azure DocumentDB na liście źródło danych.</td>
     </tr>
     <tr>
       <td>Ogólna tabela ODBC</td>
@@ -391,20 +391,20 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td></td>
     </tr>
     <tr>
-      <td>Stół Cassandra</td>
+      <td>Tabela Cassandra</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Publikowanie jako ogólnego zasobu ODBC</td>
+      <td>Publikuj jako ogólny zasób ODBC</td>
     </tr>
     <tr>
-      <td>Widok Kasandry</td>
+      <td>Widok Cassandra</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Publikowanie jako ogólnego zasobu ODBC</td>
+      <td>Publikuj jako ogólny zasób ODBC</td>
     </tr>
     <tr>
       <td>Tabela Sybase</td>
@@ -423,12 +423,12 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td></td>
     </tr>
     <tr>
-      <td>Stół MongoDB</td>
+      <td>Tabela MongoDB</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Publikowanie jako ogólnego zasobu ODBC</td>
+      <td>Publikuj jako ogólny zasób ODBC</td>
     </tr>
     <tr>
       <td>Widok MongoDB</td>
@@ -436,16 +436,16 @@ Metadane można publikować przy użyciu publicznego interfejsu API lub narzędz
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Publikowanie jako ogólnego zasobu ODBC</td>
+      <td>Publikuj jako ogólny zasób ODBC</td>
     </tr>
 </table>
 
-Jeśli chcesz zobaczyć obsługiwane źródło danych, zaproponuj to (lub użycz swoje wsparcie, jeśli zostało już zasugerowane), przechodząc do [wykazu danych na forach opinii platformy Azure](https://feedback.azure.com/forums/906052-data-catalog).
+Jeśli chcesz zobaczyć, czy określone źródło danych jest obsługiwane, Sugeruj je (lub skontaktuj się z pomocą techniczną, jeśli jest już sugerowane), przechodząc do [Data Catalog na forach opinii dotyczących platformy Azure](https://feedback.azure.com/forums/906052-data-catalog).
 
 
-## <a name="data-source-reference-specification"></a>Specyfikacja referencyjna źródła danych
+## <a name="data-source-reference-specification"></a>Specyfikacja odwołania do źródła danych
 > [!NOTE]
-> Kolumna **struktury DSL** w poniższej tabeli zawiera listę tylko właściwości połączenia dla worka właściwości "adres", które są używane przez usługę Azure Data Catalog. Oznacza to, że "adres" bag właściwości może zawierać inne właściwości połączenia źródła danych, które usługa Azure Data Catalog nadal, ale nie używa.
+> W kolumnie **Struktura DSL** w poniższej tabeli wymieniono tylko właściwości połączenia dla zbioru właściwości "Address", które są używane przez Azure Data Catalog. Oznacza to, że zbiór właściwości "Address" może zawierać inne właściwości połączenia źródła danych, które Azure Data Catalog nadal są przechowywane, ale nie używa.
 
 <table>
     <tr>

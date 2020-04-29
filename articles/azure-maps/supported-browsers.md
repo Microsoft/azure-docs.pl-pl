@@ -1,6 +1,6 @@
 ---
-title: Przeglądarki obsługiwane przez web SDK | Mapy platformy Microsoft Azure
-description: W tym artykule dowiesz się o obsługiwanych przeglądarkach dla microsoft azure maps web SDK i jak sprawdzić, czy przeglądarka jest obsługiwana przeglądarka.
+title: Obsługiwane przeglądarki sieci Web SDK | Mapy Microsoft Azure
+description: W tym artykule omówiono obsługiwane przeglądarki Microsoft Azure Maps Web SDK i sposób sprawdzania, czy przeglądarka jest obsługiwaną przeglądarką.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -9,15 +9,15 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: e81b15b974469d319384a67b08512130b7876a30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76988791"
 ---
 # <a name="web-sdk-supported-browsers"></a>Przeglądarki obsługiwane przez zestaw Web SDK
 
-Zestaw Azure Maps Web SDK udostępnia funkcję pomocniczą o nazwie [atlas.isSupported](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest#issupported-boolean-). Ta funkcja wykrywa, czy przeglądarka internetowa ma minimalny zestaw funkcji WebGL wymaganych do obsługi ładowania i renderowania formantu mapy. Oto przykład korzystania z tej funkcji:
+Zestaw SDK sieci Web Azure Maps udostępnia funkcję pomocnika o nazwie [Atlas. Issupportd](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest#issupported-boolean-). Ta funkcja wykrywa, czy przeglądarka sieci Web ma minimalny zestaw funkcji WebGL wymaganych do obsługi ładowania i renderowania formantu mapy. Oto przykład sposobu korzystania z funkcji:
 
 ```JavaScript
 if (!atlas.isSupported()) {
@@ -29,52 +29,52 @@ if (!atlas.isSupported()) {
 }
 ```
 
-## <a name="desktop"></a>Aplikacje klasyczne
+## <a name="desktop"></a>Komputery
 
-Zestaw Azure Maps Web SDK obsługuje następujące przeglądarki na komputerach:
+Azure Maps Web SDK obsługuje następujące przeglądarki pulpitu:
 
-- Microsoft Edge (bieżąca i poprzednia wersja)
-- Google Chrome (aktualna i poprzednia wersja)
-- Mozilla Firefox (aktualna i poprzednia wersja)
-- Apple Safari (Mac OS X) (wersja bieżąca i poprzednia)
+- Microsoft Edge (bieżąca i Poprzednia wersja)
+- Google Chrome (bieżąca i Poprzednia wersja)
+- Mozilla Firefox (bieżąca i Poprzednia wersja)
+- Apple Safari (Mac OS X) (bieżąca i Poprzednia wersja)
 
-Zobacz też [Docelowe starsze przeglądarki](#Target-Legacy-Browsers) w dalszej części tego artykułu.
+Zobacz też więcej niż [starsze przeglądarki](#Target-Legacy-Browsers) w dalszej części tego artykułu.
 
-## <a name="mobile"></a>Urządzenia przenośne
+## <a name="mobile"></a>Komórkowy
 
-Zestaw Azure Maps Web SDK obsługuje następujące przeglądarki mobilne:
+Zestaw SDK sieci Web Azure Maps obsługuje następujące przeglądarki dla urządzeń przenośnych:
 
 - Android
-  - Aktualna wersja Chrome na Androida 6.0 lub nowszym
-  - Chrome WebView na Androida 6.0 lub nowszym
+  - Bieżąca wersja programu Chrome w systemie Android 6,0 i nowszych
+  - Przeglądarka Chrome WebView w systemie Android 6,0 i nowszych
 - iOS
-  - Mobile Safari w bieżącej i poprzedniej głównej wersji systemu iOS
-  - UIWebView i WKWebView w bieżącej i poprzedniej głównej wersji systemu iOS
-  - Bieżąca wersja Chrome dla systemu iOS
+  - Mobilne przeglądarki Safari dotyczące bieżącej i wcześniejszej wersji głównej systemu iOS
+  - UIWebView i WKWebView na bieżącą i poprzednią wersję główną systemu iOS
+  - Bieżąca wersja programu Chrome dla systemu iOS
 
 > [!TIP]
-> Jeśli osadzasz mapę wewnątrz aplikacji mobilnej przy użyciu formantu WebView, możesz użyć [pakietu npm zestawu Azure Maps Web SDK](https://www.npmjs.com/package/azure-maps-control) zamiast odwoływać się do wersji zestawu SDK hostowanego w usłudze Azure Content Delivery Network. Takie podejście skraca czas ładowania, ponieważ zestawu SDK jest już na urządzeniu użytkownika i nie trzeba pobierać w czasie wykonywania.
+> Jeśli osadzasz mapę wewnątrz aplikacji mobilnej przy użyciu kontrolki WebView, możesz chcieć użyć [pakietu npm zestawu SDK sieci Web Azure Maps](https://www.npmjs.com/package/azure-maps-control) zamiast odwoływać się do wersji zestawu SDK hostowanego w usłudze Azure Content Delivery Network. Takie podejście skraca czas ładowania, ponieważ zestaw SDK znajduje się już na urządzeniu użytkownika i nie musi być pobierany w czasie wykonywania.
 
 ## <a name="nodejs"></a>Node.js
 
-Następujące moduły SDK sieci Web są również obsługiwane w pliku Node.js:
+W programie Node. js są również obsługiwane następujące moduły zestawu SDK sieci Web:
 
-- Moduł usług[documentation](how-to-use-services-module.md) | [(moduł dokumentacji npm)](https://www.npmjs.com/package/azure-maps-rest)
+- Module usług ([Dokumentacja](how-to-use-services-module.md) | [npm module](https://www.npmjs.com/package/azure-maps-rest))
 
-## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Kierowanie starszych przeglądarek
+## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Docelowe starsze przeglądarki
 
-Możesz chcieć kierować reklamy na starsze przeglądarki, które nie obsługują webgl lub które mają tylko ograniczoną obsługę. W takich przypadkach zaleca się korzystanie z usług Usługi Azure Maps wraz z formantem mapy typu open source, takim jak [ulotka.](https://leafletjs.com/) Oto przykład:
+Możesz chcieć użyć starszych przeglądarek, które nie obsługują WebGL lub które mają tylko ograniczoną obsługę. W takich przypadkach zalecamy używanie usług Azure Maps razem z kontrolką mapy typu "open source", taką jak [ulotka](https://leafletjs.com/). Przykład:
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Mapy Azure + ulotka" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zobacz pen <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + ulotka</a> przez Usługi Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Azure Maps + ulotka" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Zobacz pióro <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + ulotka</a> Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o sdk azure maps web:
+Dowiedz się więcej na temat Azure Maps Web SDK:
 
 > [!div class="nextstepaction"]
 > [Kontrolka mapy](how-to-use-map-control.md)

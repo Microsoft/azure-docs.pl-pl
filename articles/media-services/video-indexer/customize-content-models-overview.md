@@ -1,7 +1,7 @@
 ---
-title: Dostosowywanie modeli zawartości w indeksatorze wideo usługi Azure Media Services
+title: Dostosowywanie modeli zawartości w Azure Media Services Video Indexer
 titleSuffix: Azure Media Services
-description: Ten artykuł zawiera łącza do artykułów koncepcyjnych, które wyjaśniają korzyści z każdego typu dostosowywania. W tym artykule znajdują się również łącza do przewodników infiguracyjnych, które pokazują, jak można zaimplementować dostosowanie każdego modelu.
+description: Ten artykuł zawiera linki do artykułów koncepcyjnych, które wyjaśniają zalety poszczególnych typów dostosowań. Ten artykuł zawiera również linki do przewodników, które pokazują, jak można zaimplementować dostosowanie poszczególnych modeli.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -11,39 +11,39 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: anzaman
 ms.openlocfilehash: 09e6fd8530ddb1745a92c6f31f4d5a5843a2ac10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76513171"
 ---
-# <a name="customizing-content-models-in-video-indexer"></a>Dostosowywanie modeli zawartości w indeksatorze wideo
+# <a name="customizing-content-models-in-video-indexer"></a>Dostosowywanie modeli zawartości w Video Indexer
 
-Indeksator wideo pozwala dostosować niektóre z jego modeli, które mają być dostosowane do konkretnego przypadku użycia. Modele te obejmują [marki,](customize-brands-model-overview.md) [język](customize-language-model-overview.md)i [osobę.](customize-person-model-overview.md) Można łatwo dostosować te modele za pomocą witryny wideo indeksatora lub interfejsu API.
+Video Indexer umożliwia dostosowanie niektórych modeli w celu dostosowania ich do określonego przypadku użycia. Modele te obejmują [marki](customize-brands-model-overview.md), [Język](customize-language-model-overview.md)i [osobę](customize-person-model-overview.md). Można łatwo dostosować te modele przy użyciu witryny sieci Web Video Indexer lub interfejsu API.
 
-Ten artykuł zawiera łącza do artykułów, które wyjaśniają korzyści z każdego typu dostosowywania. W tym artykule znajdują się również łącza do przewodników infiguracyjnych, które pokazują, jak można zaimplementować dostosowanie każdego modelu.
+Ten artykuł zawiera łącza do artykułów, które wyjaśniają zalety poszczególnych typów dostosowań. Artykuł zawiera również linki do przewodników, które pokazują, jak można zaimplementować dostosowanie poszczególnych modeli.
 
 ## <a name="animated-characters"></a>Znaki animowane
 
-* [Animowane wykrywanie znaków](animated-characters-recognition.md)
+* [Wykrywanie znaków animowanych](animated-characters-recognition.md)
 
 ## <a name="brands-model"></a>Model marek
 
-* [Dostosowywanie przeglądu modeli marek](customize-brands-model-overview.md)
-* [Dostosowywanie modelu marek za pomocą witryny video indexer](customize-brands-model-with-website.md)
-* [Dostosowywanie modelu marek przy użyciu interfejsu API indeksatora wideo](customize-brands-model-with-api.md)
+* [Dostosowywanie modelu marek — Omówienie](customize-brands-model-overview.md)
+* [Dostosowywanie modelu marek przy użyciu witryny sieci Web Video Indexer](customize-brands-model-with-website.md)
+* [Dostosowywanie modelu marek przy użyciu interfejsu API Video Indexer](customize-brands-model-with-api.md)
  
 ## <a name="language-model"></a>Model językowy
 
 * [Omówienie dostosowywania modeli języków](customize-language-model-overview.md)
-* [Dostosowywanie modeli językowych za pomocą witryny video Indexer](customize-language-model-with-website.md)
-* [Dostosowywanie modeli językowych przy użyciu interfejsu API indeksatora wideo](customize-language-model-with-api.md)
+* [Dostosowywanie modeli języków za pomocą witryny sieci Web Video Indexer](customize-language-model-with-website.md)
+* [Dostosowywanie modeli języków za pomocą interfejsu API Video Indexer](customize-language-model-with-api.md)
  
 ## <a name="person-model"></a>Model osoby
 
-* [Omówienie dostosowywania modeli osób](customize-person-model-overview.md)
-* [Dostosowywanie modeli osób za pomocą witryny video Indexer](customize-person-model-with-website.md)
-* [Dostosowywanie modeli osób przy użyciu interfejsu API indeksatora wideo](customize-person-model-with-api.md)
+* [Przegląd modeli osób — Omówienie](customize-person-model-overview.md)
+* [Dostosowywanie modeli osób przy użyciu witryny sieci Web Video Indexer](customize-person-model-with-website.md)
+* [Dostosowywanie modeli osób przy użyciu interfejsu API Video Indexer](customize-person-model-with-api.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,6 +1,6 @@
 ---
-title: Tworzenie źródła danych dla mapy | Mapy platformy Microsoft Azure
-description: W tym artykule dowiesz się, jak utworzyć źródło danych i dodać je do mapy przy użyciu zestawu SDK w sieci Web microsoft azure maps.
+title: Tworzenie źródła danych dla mapy | Mapy Microsoft Azure
+description: W tym artykule dowiesz się, jak utworzyć źródło danych i dodać je do mapy za pomocą Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -10,36 +10,36 @@ services: azure-maps
 manager: cpendle
 ms.custom: codepen
 ms.openlocfilehash: 1675d63fd3a65beda46042f4a78535bb4e066e62
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77190227"
 ---
 # <a name="create-a-data-source"></a>Tworzenie źródła danych
 
-Zestaw Azure Maps Web SDK przechowuje dane w źródłach danych. Korzystanie ze źródeł danych optymalizuje operacje danych do wykonywania zapytań i renderowania. Obecnie istnieją dwa typy źródeł danych:
+Azure Maps Web SDK przechowuje dane w źródłach danych. Użycie źródeł danych optymalizuje operacje na danych na potrzeby wykonywania zapytań i renderowania. Obecnie istnieją dwa typy źródeł danych:
 
-**Źródło danych GeoJSON**
+**Źródło danych GEOJSON**
 
-A GeoJSON na źródło danych obciążenia i `DataSource` przechowywania danych lokalnie przy użyciu klasy. Dane GeoJSON można ręcznie tworzyć lub tworzyć przy użyciu klas pomocnika w obszarze nazw [atlas.data.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) Klasa `DataSource` udostępnia funkcje importowania lokalnych lub zdalnych plików GeoJSON. Zdalne pliki GeoJSON muszą być hostowane w punkcie końcowym obsługującym cors. Klasa `DataSource` zapewnia funkcjonalność dla danych punktu klastrowania. Dane można łatwo dodawać, usuwać i `DataSource` aktualizować za pomocą klasy.
+Źródło danych GEOJSON jest ładowane i przechowywane lokalnie przy użyciu `DataSource` klasy. Dane GEOJSON można utworzyć ręcznie lub utworzyć przy użyciu klas pomocnika w przestrzeni nazw [Atlas. Data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) . `DataSource` Klasa zawiera funkcje do importowania lokalnych lub zdalnych plików GeoJSON. Pliki zdalnego GEOJSON muszą być hostowane w punkcie końcowym z obsługą mechanizmu CORs. `DataSource` Klasa zawiera funkcje dla danych punktu klastrowania. I można łatwo dodawać, usuwać i aktualizować dane przy użyciu `DataSource` klasy.
 
 
 > [!TIP]
-> Załóżmy, że chcesz zastąpić wszystkie `DataSource`dane w pliku . Jeśli wywołasz `clear` ówczesne `add` funkcje, mapa może zostać ponownie renderowana dwukrotnie, co może spowodować pewne opóźnienie. Zamiast tego `setShapes` użyj funkcji, która usunie i zastąpi wszystkie dane w źródle danych i wyzwoli tylko jeden ponowny render mapy.
+> Pozwala powiedzieć, że chcesz zastąpić wszystkie dane w `DataSource`. W przypadku wykonywania wywołań do funkcji `clear` then `add` mapa może być ponownie renderowana dwa razy, co może spowodować nieco opóźnienia. Zamiast tego należy `setShapes` użyć funkcji, która spowoduje usunięcie i zamianę wszystkich danych w źródle danych i wyzwala tylko pojedyncze ponowne renderowanie mapy.
 
-**Źródło kafli wektorowych**
+**Źródło kafelków wektora**
 
-Źródło kafli wektorowych opisuje sposób uzyskiwania dostępu do warstwy kafli wektorowych. Klasa [VectorTileSource służy](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) do tworzenia wystąpienia źródła kafelków wektorowych. Warstwy kafli wektorowych są podobne do warstw kafli, ale nie są takie same. Warstwa kafli jest obrazem rastrowym. Warstwy kafli wektorowych są skompresowanym plikiem w formacie PBF. Ten skompresowany plik zawiera dane mapy wektora i jedną lub więcej warstw. Plik może być renderowany i stylizowany na kliencie, na podstawie stylu każdej warstwy. Dane na kafelku wektorowym zawierają obiekty geograficzne w postaci punktów, linii i wielokątów. Istnieje kilka zalet korzystania z warstw płytek wektorowych zamiast warstw płytek rastrowych:
+Źródło kafelka wektorowego opisuje, jak uzyskać dostęp do warstwy kafelków wektorowych. Użyj klasy [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) , aby utworzyć wystąpienie źródła kafelka Vector. Warstwy kafelków wektorowych są podobne do warstw kafelków, ale nie są one takie same. Warstwa kafelków jest obrazem rastrowym. Warstwy kafelków wektorowych są skompresowanym plikiem w formacie PBF. Ten skompresowany plik zawiera dane mapy wektorowej i co najmniej jedną warstwę. Plik może być renderowany i ustalany na podstawie stylu każdej warstwy. Dane w kafelku wektorowym zawierają funkcje geograficzne w postaci punktów, linii i wielokątów. Istnieje kilka zalet używania warstw kafelków wektorowych zamiast warstw kafelków rastrowych:
 
- - Rozmiar pliku kafelka wektorowego jest zazwyczaj znacznie mniejszy niż równoważny kafelek rastrowy. W związku z tym używana jest mniejsza przepustowość. Oznacza to mniejsze opóźnienie, szybszą mapę i lepsze środowisko użytkownika.
- - Ponieważ kafelki wektorowe są renderowane na kliencie, dostosowują się do rozdzielczości urządzenia, na którym są wyświetlane. W rezultacie renderowane mapy wydają się bardziej dobrze zdefiniowane, z krystalicznie czystymi etykietami.
- - Zmiana stylu danych na mapach wektorowych nie wymaga ponownego pobrania danych, ponieważ nowy styl można zastosować na kliencie. Natomiast zmiana stylu warstwy kafli rastrowych zwykle wymaga załadowania kafelków z serwera, a następnie zastosowania nowego stylu.
- - Ponieważ dane są dostarczane w formie wektorowej, jest mniej przetwarzania po stronie serwera wymagane do przygotowania danych. W rezultacie nowsze dane mogą być udostępniane szybciej.
+ - Rozmiar pliku kafelka wektora jest zwykle znacznie mniejszy niż odpowiednik kafelka rastrowego. W związku z tym jest używana mniejsza przepustowość. Oznacza to małe opóźnienia, szybsze mapowanie i lepszy komfort pracy użytkowników.
+ - Ponieważ kafelki wektorowe są renderowane na kliencie, dostosowują się do rozdzielczości urządzenia, na którym są one wyświetlane. W związku z tym renderowane mapy pojawiają się dokładniej i są bardziej zdefiniowane przy użyciu funkcji Crystal Clear labels.
+ - Zmiana stylu danych w mapach wektorów nie wymaga ponownego pobierania danych, ponieważ nowy styl można zastosować na kliencie. Natomiast zmiana stylu warstwy kafelków rastrowych zazwyczaj wymaga załadowania kafelków z serwera, a następnie zastosowania nowego stylu.
+ - Ponieważ dane są dostarczane w formie wektorowej, do przygotowania danych nie jest wymagane przetwarzanie po stronie serwera. W związku z tym nowsze dane można szybciej udostępnić.
 
-Wszystkie warstwy korzystające ze źródła `sourceLayer` wektorowego muszą określać wartość.
+Wszystkie warstwy używające źródła wektora muszą określać `sourceLayer` wartość.
 
-Po utworzeniu źródła danych można dodać do `map.sources` mapy za pośrednictwem właściwości, która jest [Menedżerem Źródłowym.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager) Poniższy kod pokazuje, `DataSource` jak utworzyć i dodać go do mapy.
+Po utworzeniu źródła danych można dodać do mapy za pomocą `map.sources` właściwości, która jest elementem [sourcemanager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager). Poniższy kod pokazuje `DataSource` , jak utworzyć a i dodać go do mapy.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -47,19 +47,19 @@ var dataSource = new atlas.source.DataSource();
 map.sources.add(dataSource);
 ```
 
-Usługa Azure Maps jest zgodna [ze specyfikacją kafelka wektorowego mapbox](https://github.com/mapbox/vector-tile-spec), otwartym standardem.
+Azure Maps jest zgodna ze [specyfikacją kafelka wektora MapBox](https://github.com/mapbox/vector-tile-spec), otwartym standardem.
 
 ## <a name="connecting-a-data-source-to-a-layer"></a>Łączenie źródła danych z warstwą
 
-Dane są renderowane na mapie przy użyciu warstw renderowania. Do pojedynczego źródła danych może odwoływać się jedna lub więcej warstw renderowania. Następujące warstwy renderowania wymagają źródła danych:
+Dane są renderowane na mapie przy użyciu warstw renderowania. Pojedynczemu źródle danych może być przywoływana jedna lub więcej warstw renderowania. Następujące warstwy renderowania wymagają źródła danych:
 
-- [Warstwa bąbelkowa](map-add-bubble-layer.md) - renderuje dane punktowe jako skalowane okręgi na mapie.
-- [Warstwa symboli](map-add-pin.md) - renderuje dane punktów jako ikony lub tekst.
-- [Warstwa mapy cieplnej](map-add-heat-map-layer.md) - renderuje dane punktowe jako mapę cieplną gęstości.
-- [Warstwa liniowa](map-add-shape.md) - renderuj linię lub renderuj kontur wielokątów. 
-- [Warstwa wielokąta](map-add-shape.md) - wypełnia obszar wielokąta jednolitym kolorem lub wzorem obrazu.
+- [Bąbelkowa warstwa](map-add-bubble-layer.md) renderuje dane punktowe jako skalowane kółka na mapie.
+- [Warstwa symboli](map-add-pin.md) — renderuje dane punktu jako ikony lub tekst.
+- [Warstwa mapy cieplnej](map-add-heat-map-layer.md) — renderuje dane punktu jako mapę cieplną gęstości.
+- [Warstwa linii](map-add-shape.md) — Renderuj linię i Renderuj konspekt wielokątów. 
+- [Warstwa wielokątów](map-add-shape.md) — wypełnia obszar wielokąta przy użyciu pełnego koloru lub wzorca obrazu.
 
-Poniższy kod pokazuje, jak utworzyć źródło danych, dodać je do mapy i połączyć z warstwą bąbelkową. Następnie zaimportuj dane punktowe GeoJSON z lokalizacji zdalnej do źródła danych. 
+Poniższy kod przedstawia sposób tworzenia źródła danych, dodawania go do mapy i łączenia go z warstwą bąbelkową. A następnie zaimportuj dane punktu GEOJSON z lokalizacji zdalnej do źródła danych. 
 
 ```javascript
 //Create a data source and add it to the map.
@@ -75,18 +75,18 @@ datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/
 
 Istnieją dodatkowe warstwy renderowania, które nie łączą się z tymi źródłami danych, ale bezpośrednio ładują dane do renderowania. 
 
-- [Warstwa obrazu](map-add-image-layer.md) - nakłada pojedynczy obraz na mapę i wiąże jego narożniki z zestawem określonych współrzędnych.
-- [Warstwa kafli](map-add-tile-layer.md) - nakłada warstwę płytek rastrowych na mapie.
+- [Warstwa obrazu](map-add-image-layer.md) — nakłada pojedynczy obraz na mapę i wiąże jego rogi z zestawem określonych współrzędnych.
+- [Warstwa kafelków](map-add-tile-layer.md) nakłada warstwę kafelków rastrowych na podstawie mapy.
 
 ## <a name="one-data-source-with-multiple-layers"></a>Jedno źródło danych z wieloma warstwami
 
-Wiele warstw można podłączyć do jednego źródła danych. Istnieje wiele różnych scenariuszy, w których ta opcja jest przydatna. Rozważmy na przykład scenariusz, w którym użytkownik rysuje wielokąt. Powinniśmy renderować i wypełniać obszar wielokąta, gdy użytkownik doda punkty do mapy. Dodanie stylizowanej linii w celu zarysowania wielokąta ułatwia wyświetlanie krawędzi wielokąta podczas losowania. Aby wygodnie edytować pojedynczą pozycję w wielokąta, możemy dodać uchwyt, taki jak szpilka lub znacznik, nad każdą pozycją.
+Wiele warstw można podłączyć do pojedynczego źródła danych. Istnieje wiele różnych scenariuszy, w których ta opcja jest przydatna. Rozważmy na przykład scenariusz, w którym użytkownik rysuje wielokąt. Powinienmy renderować i wypełnić obszar Wielokąt, gdy użytkownik doda punkty do mapy. Dodanie linii z stylem do konturu Wielokąt sprawia, że krawędzie wielokąta są łatwiej widoczne podczas rysowania przez użytkownika. Aby wygodnie edytować poszczególne położenia w wielokąta, możemy dodać uchwyt, taki jak numer PIN lub znacznik, nad każdą pozycją.
 
-![Mapa przedstawiająca wiele warstw renderowania danych z jednego źródła danych](media/create-data-source-web-sdk/multiple-layers-one-datasource.png)
+![Mapa pokazująca wiele warstw renderowania danych z jednego źródła danych](media/create-data-source-web-sdk/multiple-layers-one-datasource.png)
 
-W większości platform mapowania potrzebny jest obiekt wielokątny, obiekt liniowy i pinezkę dla każdej pozycji w wielokącie. Ponieważ wielokąt jest modyfikowany, należy ręcznie zaktualizować linię i piny, które mogą szybko stać się złożone.
+W większości platform mapowania potrzebny jest obiekt wielokątny, obiekt linii i numer PIN dla każdej pozycji w wielokąta. Gdy Wielokąt jest modyfikowany, trzeba ręcznie zaktualizować linię i numery PIN, co może szybko stać się skomplikowany.
 
-Dzięki usłudze Azure Maps wystarczy pojedynczy wielokąt w źródle danych, jak pokazano w poniższym kodzie.
+W przypadku Azure Maps, wystarczy, że jest to pojedynczy Wielokąt w źródle danych, jak pokazano w poniższym kodzie.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -121,21 +121,21 @@ map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o klasach i metodach użytych w tym artykule:
+Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [Datasource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-maps-typescript-latest)
+> [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-maps-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Usługi datasourceoptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions?view=azure-maps-typescript-latest)
+> [DataSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions?view=azure-maps-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [VectorTileSource (Źródło vectorTileSource)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource?view=azure-maps-typescript-latest)
+> [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource?view=azure-maps-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [VectorTileSourceOptions (VectorTileSourceOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.vectortilesourceoptions?view=azure-maps-typescript-latest)
+> [VectorTileSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.vectortilesourceoptions?view=azure-maps-typescript-latest)
 
-Aby uzyskać więcej przykładów kodu do dodania do map, zobacz następujące artykuły:
+Zapoznaj się z następującymi artykułami, aby uzyskać więcej przykładów kodu do dodania do Twoich map:
 
 > [!div class="nextstepaction"]
 > [Dodawanie menu podręcznego](map-add-popup.md)

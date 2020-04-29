@@ -17,10 +17,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 61490f75d12967f7f396d5f767f2d2e696474572
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897212"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorowanie synchronizacji usługi Azure AD Connect za pomocą programu Azure AD Connect Health
@@ -70,7 +70,7 @@ Ta funkcja dostarcza raport o błędach synchronizacji, które mogą wystąpić 
 * Raport ten dotyczy błędów zarejestrowanych przez klienta synchronizacji (program Azure AD Connect w wersji 1.1.281.0 lub nowszej)
 * Zawiera on błędy, które wystąpiły podczas ostatniej operacji synchronizacji na aparacie synchronizacji. (Pozycja „Eksportuj” w programie Azure AD Connector).
 * Aby raport zawierał najnowsze dane, agent programu Azure AD Connect Health do celów synchronizacji musi mieć połączenie wychodzące z wymaganymi punktami końcowymi.
-* Raport jest **aktualizowany po co 30 minut** przy użyciu danych przekazanych przez agenta usługi Azure AD Connect Health do synchronizacji. Zapewnia następujące kluczowe możliwości
+* Raport jest **aktualizowany co 30 minut** przy użyciu danych przekazywanych przez Azure AD Connect Health agenta do synchronizacji. Oferuje następujące kluczowe możliwości
 
   * Kategoryzacja błędów
   * Lista obiektów z błędami według kategorii
@@ -118,8 +118,8 @@ W przypadku określonego scenariusza błędu synchronizacji zduplikowanego atryb
 * [Odporność względem zduplikowanych atrybutów](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Instalowanie agenta programu Azure AD Connect Health](how-to-connect-health-agent-install.md)
-* [Operacje kondycji usługi Azure AD Connect](how-to-connect-health-operations.md)
+* [Operacje w programie Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Używanie programu Azure AD Connect Health z usługami AD FS](how-to-connect-health-adfs.md)
 * [Używanie programu Azure AD Connect Health z usługami AD DS](how-to-connect-health-adds.md)
 * [Azure AD Connect Health — często zadawane pytania](reference-connect-health-faq.md)
-* [Historia wersji usługi Azure AD Connect](reference-connect-health-version-history.md)
+* [Historia wersji Azure AD Connect Health](reference-connect-health-version-history.md)

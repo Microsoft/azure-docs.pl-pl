@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie programu OPC Publisher — Platforma Azure | Dokumenty firmy Microsoft
-description: W tym artykule opisano sposób konfigurowania programu OPC Publisher do określania zmian danych węzła OPC UA, zdarzeń OPC UA do opublikowania, a także formatu telemetrii.
+title: Konfigurowanie wydawcy OPC — Azure | Microsoft Docs
+description: W tym artykule opisano sposób konfigurowania wydawcy programu OPC w celu określenia zmian danych węzła OPC UA, zdarzeń OPC UA do opublikowania oraz formatu telemetrii.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
@@ -9,33 +9,33 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 0ebbf0d41c05f71c571d9665903ba4ba44f71bd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77198807"
 ---
 # <a name="configure-opc-publisher"></a>Konfigurowanie wydawcy OPC
 
-Program OPC Publisher można skonfigurować tak, aby określał:
+Można skonfigurować OPC wydawcę, aby określić:
 
-- Dane węzła OPC UA zmieniają się do opublikowania.
-- OPC UA wydarzenia do opublikowania.
+- Dane węzła OPC UA zmienią się na publikowanie.
+- Zdarzenia OPC UA do opublikowania.
 - Format telemetrii.
 
-Program OPC Publisher można skonfigurować przy użyciu plików konfiguracyjnych lub wywołań metod.
+Wydawcę OPC można skonfigurować przy użyciu plików konfiguracyjnych lub wywołań metod.
 
 ## <a name="use-configuration-files"></a>Korzystanie z plików konfiguracji
 
-W tej sekcji opisano opcje konfigurowania publikowania węzłów OPC UA za pomocą plików konfiguracyjnych.
+W tej sekcji opisano opcje konfigurowania publikowania węzłów OPC UA przy użyciu plików konfiguracyjnych.
 
-### <a name="use-a-configuration-file-to-configure-publishing-data-changes"></a>Konfigurowanie zmian danych publikowania za pomocą pliku konfiguracyjnego
+### <a name="use-a-configuration-file-to-configure-publishing-data-changes"></a>Użycie pliku konfiguracji w celu skonfigurowania zmian danych do opublikowania
 
-Najprostszym sposobem skonfigurowania węzłów OPC UA do opublikowania jest plik konfiguracyjny. Format pliku konfiguracyjnego jest udokumentowany w [pliku publishednodes.json](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/publishednodes.json) w repozytorium.
+Najprostszym sposobem skonfigurowania węzłów OPC UA do opublikowania jest plik konfiguracji. Format pliku konfiguracji jest udokumentowany w [publishednodes. JSON](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/publishednodes.json) w repozytorium.
 
-Składnia pliku konfiguracyjnego uległa zmianie w czasie. OPC Publisher nadal odczytuje stare formaty, ale konwertuje je na najnowszy format, gdy będzie się powtarzał konfigurację.
+Składnia pliku konfiguracji została zmieniona z upływem czasu. Program Publisher OPC nadal odczytuje stare formaty, ale konwertuje je do najnowszego formatu, gdy zachowuje konfigurację.
 
-W poniższym przykładzie przedstawiono format pliku konfiguracyjnego:
+Poniższy przykład przedstawia format pliku konfiguracji:
 
 ```json
 [
@@ -54,11 +54,11 @@ W poniższym przykładzie przedstawiono format pliku konfiguracyjnego:
 ]
 ```
 
-### <a name="use-a-configuration-file-to-configure-publishing-events"></a>Konfigurowanie zdarzeń publikowania za pomocą pliku konfiguracyjnego
+### <a name="use-a-configuration-file-to-configure-publishing-events"></a>Konfigurowanie zdarzeń publikowania przy użyciu pliku konfiguracji
 
-Aby opublikować zdarzenia OPC UA, należy użyć tego samego pliku konfiguracji, jak w przypadku zmian danych.
+Aby opublikować zdarzenia OPC UA, należy użyć tego samego pliku konfiguracji, co w przypadku zmian danych.
 
-W poniższym przykładzie pokazano, jak skonfigurować publikowanie zdarzeń generowanych przez [serwer SimpleEvents](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/SimpleEvents/Server). Serwer SimpleEvents można znaleźć w [repozytorium OPC Foundation](https://github.com/OPCFoundation/UA-.NETStandard) jest:
+Poniższy przykład pokazuje, jak skonfigurować publikowanie dla zdarzeń generowanych przez [serwer SimpleEvents](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/SimpleEvents/Server). Serwer SimpleEvents można znaleźć w [repozytorium OPC Foundation](https://github.com/OPCFoundation/UA-.NETStandard) :
 
 ```json
 [
@@ -112,41 +112,41 @@ W poniższym przykładzie pokazano, jak skonfigurować publikowanie zdarzeń gen
 
 ## <a name="use-method-calls"></a>Użyj wywołań metod
 
-W tej sekcji opisano wywołania metody, których można użyć do skonfigurowania programu OPC Publisher.
+W tej sekcji opisano wywołania metod, których można użyć w celu skonfigurowania wydawcy OPC.
 
-### <a name="configure-using-opc-ua-method-calls"></a>Konfigurowanie przy użyciu wywołań metody OPC UA
+### <a name="configure-using-opc-ua-method-calls"></a>Konfigurowanie przy użyciu wywołań metod OPC UA
 
-OPC Publisher zawiera serwer OPC UA, do którego można uzyskać dostęp na porcie 62222. Jeśli nazwa hosta jest **wydawcą,** identyfikator URI punktu końcowego to: `opc.tcp://publisher:62222/UA/Publisher`.
+Wydawca OPC zawiera serwer OPC UA, do którego można uzyskać dostęp na porcie 62222. Jeśli nazwa hosta jest **wydawcą**, identyfikator URI punktu końcowego `opc.tcp://publisher:62222/UA/Publisher`to:.
 
-Ten punkt końcowy udostępnia następujące cztery metody:
+Ten punkt końcowy udostępnia cztery następujące metody:
 
-- OpublikowanieNode
-- NiepublikowaćNode
+- PublishNode
+- UnpublishNode
 - GetPublishedNodes
-- IoT HubDirectMetoda
+- IoT HubDirectMethod
 
-### <a name="configure-using-iot-hub-direct-method-calls"></a>Konfigurowanie przy użyciu wywołań metody bezpośredniej usługi IoT Hub
+### <a name="configure-using-iot-hub-direct-method-calls"></a>Konfigurowanie przy użyciu wywołań metod bezpośrednich IoT Hub
 
-OPC Publisher implementuje następujące wywołania metody bezpośredniej usługi IoT Hub:
+Wydawca OPC implementuje następujące IoT Hub bezpośrednie wywołania metody:
 
-- PublishNodes (Nie ma publikowania)
+- PublishNodes
 - UnpublishNodes
 - UnpublishAllNodes
-- Punkty GetConfiguredEndpoints
+- GetConfiguredEndpoints
 - GetConfiguredNodesOnEndpoint
-- GetDiagnosticInfo ( GetDiagnosticInfo )
-- GetDiagnosticLog (Dziennik ochocie)
+- GetDiagnosticInfo
+- GetDiagnosticLog
 - GetDiagnosticStartupLog
-- ExitApplication (Wniosek o wyjście)
+- ExitApplication
 - GetInfo
 
-Format ładunku JSON żądania metody i odpowiedzi są zdefiniowane w [opcpublisher/HubMethodModel.cs](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/HubMethodModel.cs).
+Format ładunku JSON żądania metody i odpowiedzi są zdefiniowane w [opcpublisher/HubMethodModel. cs](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/HubMethodModel.cs).
 
-Jeśli wywołasz nieznaną metodę w module, odpowiada ciągiem, który mówi, że metoda nie jest zaimplementowana. Nieznaną metodę można wywołać jako sposób pingowania modułu.
+W przypadku wywołania nieznanej metody w module reaguje na ciąg informujący, że metoda nie jest zaimplementowana. Nieznaną metodę można wywołać w celu wysłania polecenia ping do modułu.
 
-### <a name="configure-username-and-password-for-authentication"></a>Konfigurowanie nazwy użytkownika i hasła do uwierzytelniania
+### <a name="configure-username-and-password-for-authentication"></a>Konfigurowanie nazwy użytkownika i hasła na potrzeby uwierzytelniania
 
-Tryb uwierzytelniania można ustawić za pomocą wywołań metody bezpośredniej usługi IoT Hub. Ładunek musi zawierać właściwość **OpcAuthenticationMode** oraz nazwę użytkownika i hasło:
+Tryb uwierzytelniania można ustawić za pomocą wywołań metody bezpośredniej IoT Hub. Ładunek musi zawierać właściwość **OpcAuthenticationMode** oraz nazwę użytkownika i hasło:
 
 ```csharp
 {
@@ -158,7 +158,7 @@ Tryb uwierzytelniania można ustawić za pomocą wywołań metody bezpośredniej
 }
 ```
 
-Hasło jest szyfrowane przez klienta obciążenia usługi IoT Hub i przechowywane w konfiguracji wydawcy. Aby zmienić uwierzytelnianie z powrotem na anonimowe, użyj metody z następującym ładunkiem:
+Hasło jest szyfrowane przez klienta obciążenia IoT Hub i przechowywane w konfiguracji wydawcy. Aby zmienić uwierzytelnianie z powrotem na anonimowe, użyj metody z następującym ładunkiem:
 
 ```csharp
 {
@@ -168,25 +168,25 @@ Hasło jest szyfrowane przez klienta obciążenia usługi IoT Hub i przechowywan
 }
 ```
 
-Jeśli **właściwość OpcAuthenticationMode** nie jest ustawiona w ładunku, ustawienia uwierzytelniania pozostają niezmienione w konfiguracji.
+Jeśli właściwość **OpcAuthenticationMode** nie jest ustawiona w ładunku, ustawienia uwierzytelniania pozostaną niezmienione w konfiguracji.
 
 ## <a name="configure-telemetry-publishing"></a>Konfigurowanie publikowania danych telemetrycznych
 
-Gdy program OPC Publisher otrzymuje powiadomienie o zmianie wartości w opublikowanym węźle, generuje wiadomość w formacie JSON, która jest wysyłana do usługi IoT Hub.
+Gdy Wydawca OPC odbiera powiadomienie o zmianie wartości w opublikowanym węźle, generuje komunikat w formacie JSON, który jest wysyłany do IoT Hub.
 
-Zawartość tej wiadomości w formacie JSON można skonfigurować za pomocą pliku konfiguracyjnego. Jeśli z opcją nie `--tc` określono pliku konfiguracyjnego, używana jest domyślna konfiguracja zgodna z [akceleratorem rozwiązania fabrycznego Podłączono](https://github.com/Azure/azure-iot-connected-factory).
+Zawartość tego komunikatu w formacie JSON można skonfigurować przy użyciu pliku konfiguracji. Jeśli dla `--tc` opcji nie określono pliku konfiguracji, zostanie użyta domyślna konfiguracja zgodna z [akceleratorem rozwiązania połączonej fabryki](https://github.com/Azure/azure-iot-connected-factory).
 
-Jeśli program OPC Publisher jest skonfigurowany do wysyłania wiadomości wsadowych, są one wysyłane jako prawidłowa tablica JSON.
+Jeśli OPC Wydawca jest skonfigurowany do tworzenia komunikatów wsadowych, są one wysyłane jako prawidłowa tablica JSON.
 
 Dane telemetryczne pochodzą z następujących źródeł:
 
-- Konfiguracja węzła programu OPC Publisher dla węzła
-- **Obiekt MonitoredItem** stosu OPC UA, dla którego wydawca OPC otrzymał powiadomienie.
-- Argument przekazany do tego powiadomienia, który zawiera szczegółowe informacje na temat zmiany wartości danych.
+- Konfiguracja węzła wydawcy OPC dla węzła
+- Obiekt **MonitoredItem** stosu OPC UA, dla którego Wydawca programu OPC otrzymał powiadomienie.
+- Argument przesłany do tego powiadomienia, który zawiera szczegółowe informacje dotyczące zmiany wartości danych.
 
-Dane telemetryczne, które są umieszczane w sformatowanym komunikacie JSON jest wybór ważnych właściwości tych obiektów. Jeśli potrzebujesz więcej właściwości, musisz zmienić bazę kodu programu OPC Publisher.
+Dane telemetryczne, które są umieszczane w wiadomości w formacie JSON, to wybór ważnych właściwości tych obiektów. Jeśli potrzebujesz więcej właściwości, musisz zmienić bazę kodu wydawcy OPC.
 
-Składnia pliku konfiguracyjnego jest następująca:
+Składnia pliku konfiguracji jest następująca:
 
 ```json
 // The configuration settings file consists of two objects:
@@ -380,4 +380,4 @@ Składnia pliku konfiguracyjnego jest następująca:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz dowiesz się, jak skonfigurować OPC Publisher, sugerowanym następnym krokiem jest dowiedzenie się, jak [uruchomić program OPC Publisher](howto-opc-publisher-run.md).
+Teraz wiesz już, jak skonfigurować program OPC Publisher, sugerowanym następnym krokiem jest zapoznanie się z tematem [Uruchamianie programu OPC Publisher](howto-opc-publisher-run.md).

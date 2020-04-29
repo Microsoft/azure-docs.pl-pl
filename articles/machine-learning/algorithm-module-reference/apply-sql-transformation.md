@@ -1,7 +1,7 @@
 ---
 title: Stosowanie przekształcenia SQL
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak użyć modułu Zastosuj transformację SQL w usłudze Azure Machine Learning do uruchomienia kwerendy SQLite na wejściowych zestawach danych w celu przekształcenia danych.
+description: Dowiedz się, jak używać modułu przekształcenie SQL w Azure Machine Learning, aby uruchomić zapytanie oprogramowania SQLite w wejściowych zestawach danych w celu przeprowadzenia transformacji.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,58 +10,58 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 2e44a4861e2522b766aab9c7151d76c471dd2d8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76314542"
 ---
 # <a name="apply-sql-transformation"></a>Stosowanie przekształcenia SQL
 
-W tym artykule opisano moduł projektanta usługi Azure Machine Learning (wersja zapoznawcza).
+W tym artykule opisano moduł programu Azure Machine Learning Designer (wersja zapoznawcza).
 
-Za pomocą modułu Zastosuj transformację SQL można:
+Za pomocą modułu przekształcenie języka SQL można:
   
--   Tworzenie tabel dla wyników i zapisywanie zestawów danych w przenośnej bazie danych.  
+-   Utwórz tabele dla wyników i Zapisz zestawy danych w przenośnej bazie danych.  
   
--   Wykonywanie niestandardowych przekształceń na typach danych lub tworzenie agregatów.  
+-   Wykonaj niestandardowe przekształcenia w typach danych lub Utwórz agregacje.  
   
--   Wykonywanie instrukcji zapytań SQL w celu filtrowania lub zmieniania danych i zwracania wyników kwerendy jako tabeli danych.  
+-   Wykonaj instrukcje zapytania SQL, aby filtrować lub modyfikować dane i zwracać wyniki zapytania jako tabelę danych.  
 
 > [!IMPORTANT]
-> Aparat SQL używany w tym module jest **SQLite**. Aby uzyskać więcej informacji na temat składni SQLite, zobacz [SQL jako rozumiane przez SQLite, aby](https://www.sqlite.org/index.html) uzyskać więcej informacji.  
+> Aparat SQL używany w tym module to **SQLite**. Aby uzyskać więcej informacji na temat składni oprogramowania SQLite, zobacz kod SQL, który jest [zrozumiały dla oprogramowania SQLite](https://www.sqlite.org/index.html) , aby uzyskać więcej informacji.  
 
-## <a name="how-to-configure-apply-sql-transformation"></a>Jak skonfigurować stosowanie transformacji SQL  
+## <a name="how-to-configure-apply-sql-transformation"></a>Jak skonfigurować zastosowanie transformacji SQL  
 
-Moduł może zająć do trzech zestawów danych jako dane wejściowe. W przypadku odwoływania się do zestawów danych podłączonych `t1` `t2`do `t3`każdego portu wejściowego należy użyć nazw , i . Numer tabeli wskazuje indeks portu wejściowego.  
+Moduł może przyjmować do trzech zestawów danych jako dane wejściowe. W przypadku odwoływania się do zestawów danych połączonych z każdym portem wejściowym należy użyć `t1`nazw `t2`, i `t3`. Numer tabeli wskazuje indeks portu wejściowego.  
   
-Pozostały parametr jest kwerendą SQL, która używa składni SQLite. Podczas wpisywania wielu wierszy w polu tekstowym **skryptu SQL** użyj średnika, aby zakończyć każdą instrukcję. W przeciwnym razie podziały wierszy są konwertowane na spacje.  
+Pozostała wartość parametru to zapytanie SQL, które używa składni programu SQLite. Wpisując wiele wierszy w polu tekstowym **skrypt SQL** , użyj średnika, aby zakończyć każdą instrukcję. W przeciwnym razie podziały wierszy są konwertowane na spacje.  
 
-Ten moduł obsługuje wszystkie standardowe instrukcje składni SQLite. Aby uzyskać listę nieobsługiwałych instrukcji, zobacz sekcję [Uwagi techniczne.](#technical-notes)
+Ten moduł obsługuje wszystkie standardowe instrukcje składni programu SQLite. Listę nieobsługiwanych instrukcji można znaleźć w sekcji [Uwagi techniczne](#technical-notes) .
 
 ##  <a name="technical-notes"></a>Uwagi techniczne  
 
 Ta sekcja zawiera szczegóły implementacji, porady i odpowiedzi na często zadawane pytania.
 
--   Wejście jest zawsze wymagane na porcie 1.  
+-   Dane wejściowe są zawsze wymagane na porcie 1.  
   
--   W przypadku identyfikatorów kolumn zawierających spację lub inne znaki specjalne należy zawsze ująć identyfikator kolumny w nawiasach kwadratowych lub podwójnych cudzysłowach, gdy odwołują się do kolumny w `SELECT` lub `WHERE` klauzulach.  
+-   W przypadku identyfikatorów kolumn, które zawierają spację lub inne znaki specjalne, zawsze ujmij Identyfikator kolumny w nawiasy kwadratowe lub podwójne cudzysłowy w przypadku odwoływania się `SELECT` do `WHERE` kolumny w klauzulach or.  
   
-### <a name="unsupported-statements"></a>Nieobsługiwały instrukcje  
+### <a name="unsupported-statements"></a>Nieobsługiwane instrukcje  
 
-Chociaż SQLite obsługuje wiele standardu ANSI SQL, nie zawiera wielu funkcji obsługiwanych przez komercyjne systemy relacyjnej bazy danych. Aby uzyskać więcej informacji, zobacz [SQL jako rozumiane przez SQLite](http://www.sqlite.org/lang.html). Należy również pamiętać o następujących ograniczeniach podczas tworzenia instrukcji SQL:  
+Chociaż oprogramowanie SQLite obsługuje wiele standardów ANSI SQL, nie obejmuje wielu funkcji obsługiwanych przez komercyjne systemy relacyjnych baz danych. Aby uzyskać więcej informacji, zobacz [SQL jako zrozumiały dla oprogramowania SQLite](http://www.sqlite.org/lang.html). Należy również pamiętać o następujących ograniczeniach podczas tworzenia instrukcji SQL:  
   
-- SQLite używa dynamicznego wpisywania wartości, zamiast przypisywania typu do kolumny, jak w większości relacyjnych systemów baz danych. Jest słabo wpisany i umożliwia konwersję typu niejawnego.  
+- Program SQLite używa tekstu dynamicznego w przypadku wartości zamiast przypisywania typu do kolumny jako w większości systemów relacyjnej bazy danych. Jest on słabo wpisany i umożliwia niejawną konwersję typu.  
   
-- `LEFT OUTER JOIN`jest realizowany, ale `RIGHT OUTER JOIN` `FULL OUTER JOIN`nie lub .  
+- `LEFT OUTER JOIN`jest zaimplementowany, ale nie `RIGHT OUTER JOIN` lub `FULL OUTER JOIN`.  
 
-- Można używać `RENAME TABLE` `ADD COLUMN` i instrukcji `ALTER TABLE` z polecenia, ale inne klauzule `DROP COLUMN` `ALTER COLUMN`nie `ADD CONSTRAINT`są obsługiwane, w tym , i .  
+- Instrukcji `RENAME TABLE` i `ADD COLUMN` można użyć z `ALTER TABLE` poleceniem, ale inne klauzule nie są obsługiwane, w `DROP COLUMN`tym `ALTER COLUMN`, i `ADD CONSTRAINT`.  
   
-- Można utworzyć widok w SQLite, ale następnie widoki są tylko do odczytu. Nie można `DELETE`wykonać `INSERT`, `UPDATE` lub instrukcji w widoku. Można jednak utworzyć wyzwalacz, który uruchamia `DELETE` `INSERT`się `UPDATE` przy próbie , lub w widoku i wykonać inne operacje w treści wyzwalacza.  
+- Możesz utworzyć widok w ramach oprogramowania SQLite, ale te widoki są tylko do odczytu. Nie można wykonać instrukcji `DELETE`, `INSERT`, lub `UPDATE` w widoku. Można jednak utworzyć wyzwalacz uruchamiany przy próbie `DELETE`, `INSERT`, lub `UPDATE` w widoku i wykonać inne operacje w treści wyzwalacza.  
   
 
-Oprócz listy nieobsługiwałych funkcji podanych na oficjalnej stronie SQLite, następująca wiki zawiera listę innych nieobsługiwałych funkcji: [SQLite - Nieobsługiwuchom](http://www2.sqlite.org/cvstrac/wiki?p=UnsupportedSql)  
+Oprócz listy nieobsługiwanych funkcji dostępnych w oficjalnej witrynie programu SQLite, następująca witryna wiki zawiera listę innych nieobsługiwanych funkcji: [SQLite — nieobsługiwane SQL](http://www2.sqlite.org/cvstrac/wiki?p=UnsupportedSql)  
     
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

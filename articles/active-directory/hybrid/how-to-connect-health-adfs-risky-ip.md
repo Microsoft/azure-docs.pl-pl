@@ -1,6 +1,6 @@
 ---
-title: Usługa Azure AD Connect Health z raportem o ryzykownych adresach IP usług AD FS | Dokumenty firmy Microsoft
-description: W tym artykule opisano raport ryzykowny adres IP usługi Azure AD Connect Health.
+title: Azure AD Connect Health z raportem AD FS ryzykownego adresu IP | Microsoft Docs
+description: Opisuje raport Azure AD Connect Health AD FS ryzykowny adres IP.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: zhiweiwangmsft
@@ -17,13 +17,13 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: defdf8118f1b07f8d6ddc4d232cda0fc423ef9f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897262"
 ---
-# <a name="risky-ip-report-public-preview"></a>Ryzykowny raport IP (publiczna wersja zapoznawcza)
+# <a name="risky-ip-report-public-preview"></a>Raport dotyczący ryzykownych adresów IP (publiczna wersja zapoznawcza)
 Klienci usług AD FS mogą uwidaczniać w Internecie punkty końcowe uwierzytelniania za pomocą hasła w celu udostępniania użytkownikom końcowym usług uwierzytelniania umożliwiających dostęp do aplikacji SaaS, takich jak usługa Office 365. W takim przypadku możliwe są nieuprawnione próby logowania przy użyciu systemu AD FS w celu odgadnięcia hasła użytkownika końcowego i uzyskania dostępu do zasobów aplikacji. Od wersji 2012 R2 systemu Windows Server usługi AD FS udostępniają funkcję blokady konta na ekstranecie, która uniemożliwia przeprowadzenie takich ataków. Jeśli korzystasz ze starszej wersji, zdecydowanie zalecamy uaktualnienie systemu AD FS do wersji 2016 systemu Windows Server. <br />
 
 Ponadto możliwe jest podejmowanie szeregu prób logowania z jednego adresu IP przy użyciu danych wielu użytkowników. W takich przypadkach liczba prób na użytkownika może być mniejsza od wartości progowej ochronnej blokady konta w usługach AD FS. Aktualnie program Azure AD Connect Health udostępnia raport ryzykownych adresów IP, który pozwala wykryć ten stan i powiadomić administratorów. Poniżej wymieniono najważniejsze zalety korzystania z tego raportu: 
@@ -39,7 +39,7 @@ Ponadto możliwe jest podejmowanie szeregu prób logowania z jednego adresu IP p
 > 
 
 ## <a name="what-is-in-the-report"></a>Co znajduje się w raporcie?
-Adresy IP klienta nie powiodło się logowania są agregowane za pośrednictwem serwerów proxy aplikacji sieci Web. Poszczególne elementy raportu ryzykownych adresów IP zawierają zagregowane informacje o nieudanych operacjach logowania za pomocą usług AD FS, przekraczających wyznaczoną wartość progową. Raport udostępnia następujące informacje: ![Portal programu Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
+Adresy IP klienta niepowodzenia logowania są agregowane za pomocą serwerów proxy aplikacji sieci Web. Poszczególne elementy raportu ryzykownych adresów IP zawierają zagregowane informacje o nieudanych operacjach logowania za pomocą usług AD FS, przekraczających wyznaczoną wartość progową. Raport udostępnia następujące informacje: ![Portal programu Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
 
 | Element raportu | Opis |
 | ------- | ----------- |
@@ -62,10 +62,10 @@ Na przykład zgodnie z poniższym elementem raportu w dniu 28.02.2018 w godzinac
 
 ![Portal programu Azure AD Connect Health](./media/how-to-connect-health-adfs/report4c.png)
 
-## <a name="load-balancer-ip-addresses-in-the-list"></a>Adresy IP modułu równoważenia obciążenia na liście
+## <a name="load-balancer-ip-addresses-in-the-list"></a>Adresy IP usługi równoważenia obciążenia na liście
 Moduł równoważenia obciążenia agreguje nieudane działania związane z logowaniem i osiąga próg alertu. Jeśli adresy IP modułu równoważenia obciążenia są widoczne, prawdopodobnie zewnętrzny moduł równoważenia obciążenia nie wysyła adresu IP klienta podczas przekazywania żądania do serwera proxy aplikacji internetowych. Skonfiguruj prawidłowo moduł równoważenia obciążenia, aby przekazać adres IP klienta na potrzeby przekazywania dalej. 
 
-## <a name="download-risky-ip-report"></a>Pobierz ryzykowny raport IP 
+## <a name="download-risky-ip-report"></a>Pobierz raport dotyczący ryzykownego adresu IP 
 Przy użyciu funkcji **pobierania** całą listę ryzykownych adresów IP z ostatnich 30 dni można wyeksportować z portalu programu Connect Health. Wyeksportowane dane obejmują wszystkie nieudane próby logowania przy użyciu usług AD FS w poszczególnych przedziałach czasu wykrywania. Do wyeksportowanych informacji można zastosować własne filtry. Oprócz agregacji wyróżnionych w portalu wyeksportowane dane zawierają również dodatkowe szczegóły nieudanych prób logowania związanych z konkretnym adresem IP:
 
 |  Element raportu  |  Opis  | 
@@ -78,7 +78,7 @@ Przy użyciu funkcji **pobierania** całą listę ryzykownych adresów IP z osta
 ## <a name="configure-notification-settings"></a>Konfigurowanie ustawień powiadomień
 Zawarte w raporcie dane kontaktowe administratorów można zaktualizować za pośrednictwem **ustawień powiadomień**. Domyślnie powiadomienia e-mail z alertem o ryzykownych adresach IP są wyłączone. Można je włączyć za pomocą przełącznika w obszarze „Otrzymuj powiadomienia e-mail dotyczące raportu adresów IP przekraczających próg nieudanych działań”. Podobnie jak w przypadku ogólnych ustawień powiadomień z alertami w programie Connect Health, można tu dostosować listę adresatów powiadomień o raporcie o ryzykownych adresach IP. Wprowadzając zmiany, można również powiadomić wszystkich administratorów globalnych. 
 
-## <a name="configure-threshold-settings"></a>Konfigurowanie ustawień progowych
+## <a name="configure-threshold-settings"></a>Skonfiguruj ustawienia progu
 Próg alertu można zaktualizować za pomocą ustawień progowych. W systemie jest ustawiony domyślny próg. Ustawienia progowe raportu o ryzykownych adresach IP zawierają cztery kategorie:
 
 ![Portal programu Azure AD Connect Health](./media/how-to-connect-health-adfs/report4d.png)
@@ -97,7 +97,7 @@ Próg alertu można zaktualizować za pomocą ustawień progowych. W systemie je
 >
 >
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 **Dlaczego w raporcie są widoczne zakresy prywatnych adresów IP?**  <br />
 Prywatne adresy IP (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) i adresy IP programu Exchange są odfiltrowane i oznaczone wartością True na liście dozwolonych adresów IP. Jeśli zakresy prywatnych adresów IP są widoczne, prawdopodobnie zewnętrzny moduł równoważenia obciążenia nie wysyła adresu IP klienta podczas przekazywania żądania do serwera proxy aplikacji internetowych.
 

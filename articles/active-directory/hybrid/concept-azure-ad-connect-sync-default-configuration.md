@@ -1,6 +1,6 @@
 ---
-title: 'Synchronizacja usługi Azure AD Connect: opis konfiguracji domyślnej | Dokumenty firmy Microsoft'
-description: W tym artykule opisano domyślną konfigurację w synchronizacji usługi Azure AD Connect.
+title: 'Azure AD Connect Sync: Omówienie konfiguracji domyślnej | Microsoft Docs'
+description: W tym artykule opisano konfigurację domyślną w Azure AD Connect synchronizacji.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,184 +17,184 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2886b842aab81732beec0fdd7957aab8e2b4f5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76548870"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Synchronizacja programu Azure AD Connect: opis konfiguracji domyślnej
-W tym artykule wyjaśniono reguły konfiguracji out-of-box. Dokumentuje reguły i jak te reguły wpływają na konfigurację. Przeprowadzi Cię również przez domyślną konfigurację synchronizacji usługi Azure AD Connect. Celem jest, że czytelnik rozumie, jak model konfiguracji, o nazwie deklaratywny inicjowania obsługi administracyjnej, działa w przykładzie rzeczywistych. W tym artykule przyjęto założenie, że synchronizacja usługi Azure AD Connect została już zainstalowana i skonfigurowana przy użyciu kreatora instalacji.
+W tym artykule wyjaśniono, jakie są reguły konfiguracji. Dokumentuje reguły i sposób, w jaki te reguły wpływają na konfigurację. Przedstawiono w nim również domyślną konfigurację synchronizacji Azure AD Connect. Celem jest to, że czytelnik rozumie, jak model konfiguracji o nazwie deklaracyjne Inicjowanie obsługi działa w świecie rzeczywistym. W tym artykule przyjęto założenie, że już zainstalowano i skonfigurowano synchronizację Azure AD Connect przy użyciu Kreatora instalacji.
 
-Aby zrozumieć szczegóły modelu konfiguracji, przeczytaj [opis aprowizacji deklaratywnej](concept-azure-ad-connect-sync-declarative-provisioning.md).
+Aby zapoznać się ze szczegółami dotyczącymi modelu konfiguracji, przeczytaj artykuł [Omówienie aprowizacji deklaracyjnej](concept-azure-ad-connect-sync-declarative-provisioning.md).
 
-## <a name="out-of-box-rules-from-on-premises-to-azure-ad"></a>Reguły gotowe do użycia z lokalnego do usługi Azure AD
-Następujące wyrażenia można znaleźć w konfiguracji out-of-box.
+## <a name="out-of-box-rules-from-on-premises-to-azure-ad"></a>Wbudowane reguły z lokalizacji lokalnej do usługi Azure AD
+Poniższe wyrażenia można znaleźć w konfiguracji wstępnej.
 
-### <a name="user-out-of-box-rules"></a>Reguły użytkownika gotowe do użycia
-Reguły te mają również zastosowanie do typu obiektu iNetOrgPerson.
+### <a name="user-out-of-box-rules"></a>Wstępnie zdefiniowane reguły użytkownika
+Te reguły mają zastosowanie również do typu obiektu iNetOrgPerson.
 
-Obiekt użytkownika musi spełniać następujące wymagania, aby zsynchronizować:
+Obiekt użytkownika musi spełniać następujące wymagania, aby można było synchronizować:
 
-* Musi mieć źródłoAnchor.
-* Po utworzeniu obiektu w usłudze Azure AD, sourceAnchor nie można zmienić. Jeśli wartość zostanie zmieniona lokalnie, obiekt przestaje synchronizować, dopóki sourceAnchor zostanie zmieniony z powrotem na poprzednią wartość.
-* Musi mieć atrybut accountEnabled (userAccountControl) wypełniony. W lokalnej usłudze Active Directory ten atrybut jest zawsze obecny i wypełniany.
+* Musi mieć element sourceAnchor.
+* Po utworzeniu obiektu w usłudze Azure AD nie można zmienić sourceAnchor. Jeśli wartość zostanie zmieniona lokalnie, obiekt zatrzyma synchronizację do momentu zmiany sourceAnchor z powrotem na poprzednią wartość.
+* Musi mieć atrybut accountEnabled (konta użytkownika) wypełniony. W przypadku Active Directory lokalnego ten atrybut jest zawsze obecny i wypełniany.
 
-Następujące obiekty użytkownika **nie** są synchronizowane z usługą Azure AD:
+Następujące obiekty użytkownika **nie** są zsynchronizowane z usługą Azure AD:
 
-* `IsPresent([isCriticalSystemObject])`. Upewnij się, że wiele gotowych obiektów w usłudze Active Directory, takich jak wbudowane konto administratora, nie jest synchronizowanych.
-* `IsPresent([sAMAccountName]) = False`. Upewnij się, że obiekty użytkownika bez atrybutu sAMAccountName nie są synchronizowane. Ten przypadek będzie praktycznie zdarzyć się tylko w domenie uaktualniony z NT4.
-* `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. Nie synchronizuj konta usługi używanego przez synchronizację usługi Azure AD Connect i jego wcześniejszych wersji.
-* Nie synchronizuj kont programu Exchange, które nie będą działać w usłudze Exchange Online.
+* `IsPresent([isCriticalSystemObject])`. Upewnij się, że wiele obiektów out-of-Box w Active Directory, takich jak wbudowane konto administratora, nie są zsynchronizowane.
+* `IsPresent([sAMAccountName]) = False`. Upewnij się, że obiekty użytkownika bez atrybutu sAMAccountName nie są zsynchronizowane. W takim przypadku praktycznie występuje tylko w domenie uaktualnionej z systemu NT4.
+* `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. Nie należy synchronizować konta usługi używanego przez Azure AD Connect Sync i jego wcześniejsze wersje.
+* Nie należy synchronizować kont programu Exchange, które nie działają w usłudze Exchange Online.
   * `[sAMAccountName] = "SUPPORT_388945a0"`
   * `Left([mailNickname], 14) = "SystemMailbox{"`
   * `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`
   * `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
-* Nie synchronizuj obiektów, które nie będą działać w usłudze Exchange Online.
+* Nie należy synchronizować obiektów, które nie działają w usłudze Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
   Ta maska bitowa (&H21C07000) odfiltruje następujące obiekty:
-  * Folder publiczny z włączoną obsługą poczty (w wersji zapoznawczej w wersji 1.1.524.0)
-  * Skrzynka pocztowa obsługująca system
-  * Skrzynka pocztowa bazy danych skrzynek pocztowych (systemowa skrzynka pocztowa)
-  * Universal Security Group (nie będzie ubiegać się o użytkownika, ale jest obecny ze względu na starsze)
-  * Grupa nieniwersyci (nie dotyczyłaby użytkownika, ale jest obecna ze względu na starsze wersje)
+  * Folder publiczny z włączoną obsługą poczty (w wersji zapoznawczej jako wersja 1.1.524.0)
+  * Skrzynka pocztowa System Attendant
+  * Skrzynka pocztowa skrzynek pocztowych (Skrzynka pocztowa systemu)
+  * Uniwersalna Grupa zabezpieczeń (nie dotyczy użytkownika, ale jest obecna ze względu na starsze przyczyny)
+  * Grupa nieuniwersalna (nie dotyczy użytkownika, ale występuje ze względu na starsze przyczyny)
   * Plan skrzynki pocztowej
   * Skrzynka pocztowa odnajdywania
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Nie synchronizuj żadnych obiektów ofiary replikacji.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Nie Synchronizuj żadnych obiektów ofiary replikacji.
 
-Obowiązują następujące reguły atrybutów:
+Mają zastosowanie następujące reguły atrybutów:
 
-* `sourceAnchor <- IIF([msExchRecipientTypeDetails]=2,NULL,..)`. Atrybut sourceAnchor nie jest współtworzony z połączonej skrzynki pocztowej. Zakłada się, że jeśli połączona skrzynka pocztowa została znaleziona, rzeczywiste konto zostanie połączone później.
-* Atrybuty powiązane z programem Exchange są synchronizowane tylko wtedy, gdy atrybut **mailNickName** ma wartość.
-* Gdy istnieje wiele lasów, atrybuty są używane w następującej kolejności:
-  1. Atrybuty związane z logowania (na przykład userPrincipalName) są współtworzone z lasu z włączonym kontem.
-  2. Atrybuty, które można znaleźć w exchange gal (globalna lista adresowa) są współtworzone z lasu z skrzynki pocztowej programu Exchange.
-  3. Jeśli nie można znaleźć skrzynki pocztowej, atrybuty te mogą pochodzić z dowolnego lasu.
-  4. Atrybuty związane z wymianą (atrybuty techniczne niewidoczne w GAL) są wpłacane z lasu, w którym `mailNickname ISNOTNULL`.
-  5. Jeśli istnieje wiele lasów, które spełniają jedną z tych reguł, a następnie kolejność tworzenia (data/godzina) łączników (lasy) jest używany do określenia, który las przyczynia się atrybuty. Pierwszy połączony las będzie pierwszym lasem do synchronizacji. 
+* `sourceAnchor <- IIF([msExchRecipientTypeDetails]=2,NULL,..)`. Atrybut sourceAnchor nie został wniesiony z połączonej skrzynki pocztowej. Przyjęto założenie, że jeśli zostanie znaleziona połączona Skrzynka pocztowa, rzeczywiste konto zostanie przyłączone później.
+* Atrybuty powiązane z programem Exchange są synchronizowane tylko wtedy, gdy atrybut **mailNickname** ma wartość.
+* Jeśli istnieje wiele lasów, atrybuty są używane w następującej kolejności:
+  1. Atrybuty związane z logowaniem (na przykład userPrincipalName) są współtworzone z lasu z włączonym kontem.
+  2. Atrybuty, które można znaleźć w tabeli programu Exchange (globalna lista adresów), są tworzone z lasu z skrzynek pocztowych programu Exchange.
+  3. Jeśli nie można znaleźć żadnej skrzynki pocztowej, te atrybuty mogą pochodzić z dowolnego lasu.
+  4. Atrybuty powiązane z programem Exchange (atrybuty techniczne, które nie są widoczne w tabeli "DB") `mailNickname ISNOTNULL`, są tworzone w lesie, w którym.
+  5. Jeśli istnieje wiele lasów, które będą spełniały jedną z tych reguł, kolejność tworzenia (Data/godzina) łączników (lasów) jest używana do określenia, który Las współużytkuje atrybuty. Pierwszy Las połączony będzie pierwszym lasem do synchronizacji. 
 
-### <a name="contact-out-of-box-rules"></a>Skontaktuj się z regułami gotowymi do użycia
-Obiekt kontaktowy musi spełniać następujące wymagania, aby można było zsynchronizować:
+### <a name="contact-out-of-box-rules"></a>Skontaktuj się z regułami dotyczącymi obecności
+Obiekt Contact musi spełniać następujące wymagania, aby można było synchronizować:
 
-* Kontakt musi być włączony pocztą. Jest weryfikowany za pomocą następujących zasad:
-  * `IsPresent([proxyAddresses]) = True)`. Atrybut proxyAddresses musi być wypełniony.
-  * Podstawowy adres e-mail można znaleźć w atrybucie proxyAddresses lub w atrybucie mail. Obecność an \@ służy do sprawdzenia, czy zawartość jest adresem e-mail. Jedna z tych dwóch reguł musi zostać oceniona na wartość True.
-    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Czy istnieje wpis z "SMTP:" i jeśli \@ istnieje, można znaleźć w ciągu?
-    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. Czy atrybut mail jest wypełniony i jeśli \@ tak jest, czy można go znaleźć w ciągu?
+* Kontakt musi mieć włączoną obsługę poczty. Jest on weryfikowany z następującymi regułami:
+  * `IsPresent([proxyAddresses]) = True)`. Atrybut proxyAddresses musi zostać wypełniony.
+  * Podstawowy adres e-mail można znaleźć w atrybucie proxyAddresses lub w atrybucie mail. Obecność \@ jest używana do sprawdzenia, czy zawartość jest adresem e-mail. Dla jednej z tych dwóch reguł należy oszacować wartość true.
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Czy istnieje wpis z ciągiem "SMTP:" i jeśli istnieje, można \@ go znaleźć w ciągu?
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. Czy atrybut mail jest wypełniony i jeśli jest, można \@ go znaleźć w ciągu?
 
-Następujące obiekty kontaktu **nie** są synchronizowane z usługą Azure AD:
+Następujące obiekty Contact **nie** są zsynchronizowane z usługą Azure AD:
 
-* `IsPresent([isCriticalSystemObject])`. Upewnij się, że żadne obiekty kontaktowe oznaczone jako krytyczne nie są synchronizowane. Nie powinien być dowolny z domyślną konfiguracją.
+* `IsPresent([isCriticalSystemObject])`. Upewnij się, że żadne obiekty Contact nie są oznaczone jako krytyczne są zsynchronizowane. Nie powinno być żadnej konfiguracji domyślnej.
 * `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`.
-* `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. Te obiekty nie będą działać w usłudze Exchange Online.
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Nie synchronizuj żadnych obiektów ofiary replikacji.
+* `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. Te obiekty nie działają w usłudze Exchange Online.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Nie Synchronizuj żadnych obiektów ofiary replikacji.
 
-### <a name="group-out-of-box-rules"></a>Grupowe reguły typu out-of-box
-Obiekt grupy musi spełniać następujące wymagania, aby zsynchronizować:
+### <a name="group-out-of-box-rules"></a>Grupowanie reguł wbudowanych
+Obiekt grupy musi spełniać następujące wymagania, aby można było synchronizować:
 
 * Musi mieć mniej niż 50 000 członków. Ta liczba jest liczbą członków w grupie lokalnej.
-  * Jeśli ma więcej elementów członkowskich przed rozpoczęciem synchronizacji po raz pierwszy, grupa nie jest synchronizowana.
-  * Jeśli liczba członków wzrośnie od momentu jego utworzenia, po osiągnięciu 50 000 członków przestanie się synchronizować, dopóki liczba członków nie zostanie ponownie niższa niż 50 000.
-  * Uwaga: Liczba 50 000 członków jest również wymuszana przez usługę Azure AD. Nie można synchronizować grup z większą liczrą członków, nawet jeśli ta reguła zostanie zmodyfikująca lub 7.
-* Jeśli grupa jest **grupą dystrybucyjną,** musi ona być również włączona poczta. Zobacz [Reguły kontaktu out-of-box](#contact-out-of-box-rules) dla tej reguły jest wymuszane.
+  * Jeśli ma więcej elementów członkowskich przed rozpoczęciem synchronizacji po raz pierwszy, Grupa nie zostanie zsynchronizowana.
+  * Jeśli liczba członków rośnie od momentu jego pierwszego utworzenia, wówczas gdy osiągnie 50 000 elementów członkowskich, zatrzyma synchronizację do momentu, aż liczba członkostwa będzie mniejsza od 50 000.
+  * Uwaga: liczba członkostwa 50 000 jest również wymuszana przez usługę Azure AD. Nie można synchronizować grup z większą liczbą członków nawet w przypadku zmodyfikowania lub usunięcia tej reguły.
+* Jeśli grupa jest **grupą dystrybucyjną**, musi również mieć włączoną opcję Poczta. Sprawdź [,](#contact-out-of-box-rules) czy dla tej reguły są wymuszane reguły z nieaktualnym systemem.
 
-Następujące obiekty grupy **nie** są synchronizowane z usługą Azure AD:
+Następujące obiekty grupy **nie** są zsynchronizowane z usługą Azure AD:
 
-* `IsPresent([isCriticalSystemObject])`. Upewnij się, że wiele gotowych obiektów w usłudze Active Directory, takich jak wbudowana grupa administratorów, nie jest synchronizowanych.
-* `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`. Starsza grupa używana przez program DirSync.
+* `IsPresent([isCriticalSystemObject])`. Upewnij się, że wiele obiektów out-of-Box w Active Directory, takich jak wbudowana grupa Administratorzy, nie są zsynchronizowane.
+* `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`. Starsza Grupa używana przez narzędzie DirSync.
 * `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`. Grupa ról.
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Nie synchronizuj żadnych obiektów ofiary replikacji.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Nie Synchronizuj żadnych obiektów ofiary replikacji.
 
-### <a name="foreignsecurityprincipal-out-of-box-rules"></a>ForeignSecurityPrincipal out-of-box zasady
-FsPs są połączone do "any" (\*) obiektu w metaverse. W rzeczywistości to sprzężenie odbywa się tylko dla użytkowników i grup zabezpieczeń. Ta konfiguracja zapewnia, że członkostwa między lasami są rozpoznawane i reprezentowane poprawnie w usłudze Azure AD.
+### <a name="foreignsecurityprincipal-out-of-box-rules"></a>ForeignSecurityPrincipal reguły out-of-Box
+FSPs są przyłączone do obiektu "any\*" () w obiekcie Metaverse. W rzeczywistości ten sprzężenie występuje tylko w przypadku użytkowników i grup zabezpieczeń. Ta konfiguracja zapewnia, że członkostwa między lasami są rozpoznawane i poprawnie reprezentowane w usłudze Azure AD.
 
-### <a name="computer-out-of-box-rules"></a>Reguły gotowe do użycia komputera
-Obiekt komputera musi spełniać następujące wymagania, aby można było zsynchronizować:
+### <a name="computer-out-of-box-rules"></a>Komputery z nieaktualnymi regułami
+Obiekt komputera musi spełniać następujące wymagania, aby można było synchronizować:
 
-* `userCertificate ISNOTNULL`. Tylko komputery z systemem Windows 10 wypełniają ten atrybut. Wszystkie obiekty komputera o wartości w tym atrybucie są synchronizowane.
+* `userCertificate ISNOTNULL`. Tylko komputery z systemem Windows 10 wypełniają ten atrybut. Wszystkie obiekty komputerów o wartości w tym atrybucie są synchronizowane.
 
-## <a name="understanding-the-out-of-box-rules-scenario"></a>Opis scenariusza reguł gotowych do użycia
-W tym przykładzie używamy wdrożenia z jednym lasem konta (A), jednym lasem zasobów (R) i jednym katalogiem usługi Azure AD.
+## <a name="understanding-the-out-of-box-rules-scenario"></a>Zrozumienie scenariusza reguł out-of-Box
+W tym przykładzie używamy wdrożenia z jednym lasem konta (A), jednego lasu zasobów (R) i jednego katalogu usługi Azure AD.
 
-![Obraz z opisem scenariusza](./media/concept-azure-ad-connect-sync-default-configuration/scenario.png)
+![Obraz przedstawiający opis scenariusza](./media/concept-azure-ad-connect-sync-default-configuration/scenario.png)
 
-W tej konfiguracji zakłada się, że w lesie kont znajduje się włączone konto, a w lesie zasobów z połączoną skrzynką pocztową jest wyłączone konto.
+W tej konfiguracji zakłada się, że w lesie konta jest włączone konto i wyłączone konto w lesie zasobów z połączoną skrzynką pocztową.
 
-Naszym celem w konfiguracji domyślnej jest:
+Naszym celem jest konfiguracja domyślna:
 
-* Atrybuty związane z logacją są synchronizowane z lasu z włączonym kontem.
-* Atrybuty, które można znaleźć w gal (globalna lista adresów) są synchronizowane z lasu ze skrzynką pocztową. Jeśli nie można znaleźć skrzynki pocztowej, używany jest inny las.
-* Jeśli zostanie znaleziona połączona skrzynka pocztowa, należy znaleźć połączone włączone konto, aby obiekt został wyeksportowany do usługi Azure AD.
+* Atrybuty związane z logowaniem są synchronizowane z lasu z włączonym kontem.
+* Atrybuty, które mogą znajdować się w spisie (globalna lista adresów), są synchronizowane z lasu za pomocą skrzynki pocztowej. Jeśli żadna Skrzynka pocztowa nie zostanie znaleziona, używany jest inny Las.
+* Jeśli zostanie znaleziona połączona Skrzynka pocztowa, należy odnaleźć połączone konto, które ma zostać wyeksportowane do usługi Azure AD.
 
 ### <a name="synchronization-rule-editor"></a>Edytor reguł synchronizacji
-Konfigurację można przeglądać i zmieniać za pomocą narzędzia Edytor reguł synchronizacji (SRE), a skrót do niej można znaleźć w menu Start.
+Konfigurację można przeglądać i zmieniać przy użyciu edytora reguł synchronizacji narzędzi (SRE), a skrót do niego można znaleźć w menu Start.
 
-![Ikona Edytora reguł synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/sre.png)
+![Ikona edytora reguł synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/sre.png)
 
-SRE jest narzędziem zestawu zasobów i jest zainstalowany z synchronizacją usługi Azure AD Connect. Aby móc go uruchomić, musisz być członkiem grupy ADSyncAdmins. Po uruchomieniu widać coś takiego:
+SRE jest narzędziem zestawu Resource Kit i jest instalowany z Azure AD Connect Sync. Aby móc go uruchomić, musisz być członkiem grupy ADSyncAdmins. Po rozpoczęciu zostanie wyświetlony następujący element:
 
-![Przychodzące reguły synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
+![Reguły synchronizacji przychodzące](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
 
-W tym okienku są widoczne wszystkie reguły synchronizacji utworzone dla konfiguracji. Każdy wiersz w tabeli jest jedną regułą synchronizacji. Po lewej stronie w obszarze Typy reguł są wyświetlane dwa różne typy: Przychodzące i Wychodzące. Przychodzące i wychodzące jest z widoku metaverse. W tym przeglądzie skupisz się głównie na regułach przychodzących. Rzeczywista lista reguł synchronizacji zależy od wykrytego schematu w u. Na powyższym rysunku las kont (fabrikamonline.com) nie ma żadnych usług, takich jak Exchange i Lync, i nie utworzono reguł synchronizacji dla tych usług. Jednak w lesie zasobów (res.fabrikamonline.com) można znaleźć reguły synchronizacji dla tych usług. Zawartość reguł różni się w zależności od wykrytej wersji. Na przykład we wdrożeniu z programem Exchange 2013 skonfigurowano więcej przepływów atrybutów niż w programie Exchange 2010/2007.
+W tym okienku są wyświetlane wszystkie reguły synchronizacji utworzone dla danej konfiguracji. Każdy wiersz w tabeli jest jedną regułą synchronizacji. Z lewej strony w obszarze typy zasad wyświetlane są dwa różne typy: przychodzące i wychodzące. Ruch przychodzący i wychodzący pochodzi z widoku Metaverse. Zamierzasz głównie skupić się na regułach ruchu przychodzącego w tym omówieniu. Rzeczywista lista reguł synchronizacji zależy od wykrytego schematu w usłudze AD. Na powyższym rysunku Las konta (fabrikamonline.com) nie ma żadnych usług, takich jak Exchange i Lync, i nie utworzono żadnych reguł synchronizacji dla tych usług. Jednak w lesie zasobów (res.fabrikamonline.com) znajdziesz reguły synchronizacji dla tych usług. Zawartość reguł jest różna w zależności od wykrytej wersji. Na przykład w przypadku wdrożenia z programem Exchange 2013 istnieje więcej przepływów atrybutów skonfigurowanych niż w programie Exchange 2010/2007.
 
 ### <a name="synchronization-rule"></a>Reguła synchronizacji
-Reguła synchronizacji jest obiektem konfiguracji z zestawem atrybutów płynących po spełnieniu warunku. Jest również używany do opisywania, jak obiekt w przestrzeni łącznika jest powiązany z obiektem w metaverse, znany jako **sprzężenie** lub **dopasowanie**. Reguły synchronizacji mają wartość pierwszeństwa wskazującą, w jaki sposób odnoszą się do siebie nawzajem. Reguła synchronizacji z niższą wartością liczbową ma wyższy priorytet i w konflikcie przepływu atrybutów wyższy priorytet wygrywa rozwiązywanie konfliktów.
+Reguła synchronizacji jest obiektem konfiguracji z zestawem atrybutów przepływających po spełnieniu warunku. Służy również do opisywania, jak obiekt w obszarze łącznika jest powiązany z obiektem w obiekcie Metaverse, nazywanym **sprzężeniem** lub **dopasowaniem**. Reguły synchronizacji mają wartość pierwszeństwa wskazującą, w jaki sposób są one powiązane ze sobą. Reguła synchronizacji o niższej wartości liczbowej ma wyższy priorytet i w konflikcie przepływu atrybutów ma wyższy priorytet w przypadku rozwiązywania konfliktów przez usługę WINS.
 
-Na przykład przyjrzyj się regułie synchronizacji **w u użytkownika z usługi AD — Konto użytkownika**. Oznacz ten wiersz w SRE i wybierz pozycję **Edytuj**.
+Na przykład zapoznaj się z regułą synchronizacji **w programie z usługi AD — User AccountEnabled**. Oznacz ten wiersz w SRE i wybierz pozycję **Edytuj**.
 
-Ponieważ ta reguła jest regułą nieuwzłaną, po otwarciu reguły jest to ostrzeżenie. Nie należy wprowadzać żadnych [zmian w zasadach out-of-box,](how-to-connect-sync-best-practices-changing-default-configuration.md)więc jesteś pytany, jakie są Twoje intencje. W takim przypadku chcesz tylko wyświetlić regułę. Wybierz **nr**.
+Ponieważ ta reguła jest regułą, podczas otwierania reguły zostanie wyświetlone ostrzeżenie. Nie należy wprowadzać żadnych [zmian do reguł out-of-Box](how-to-connect-sync-best-practices-changing-default-configuration.md), więc zostanie wyświetlony monit o zamiar. W tym przypadku chcesz tylko wyświetlić regułę. Wybierz **nr**.
 
 ![Ostrzeżenie o regułach synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/warningeditrule.png)
 
-Reguła synchronizacji ma cztery sekcje konfiguracji: Opis, Filtr zakresu, Reguły sprzężenia i Przekształcenia.
+Reguła synchronizacji zawiera cztery sekcje konfiguracji: Opis, filtr zakresu, reguły sprzężenia i przekształcenia.
 
 #### <a name="description"></a>Opis
 Pierwsza sekcja zawiera podstawowe informacje, takie jak nazwa i opis.
 
-![Karta Opis w edytorze reguł synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
+![Karta opis w Edytorze reguł synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
 
-Można również znaleźć informacje o tym, który połączony system ta reguła jest związana z, jaki typ obiektu w połączonym systemie stosuje się do i typ obiektu metaverse. Typ obiektu metaverse jest zawsze osoba, niezależnie od tego, kiedy typ obiektu źródłowego jest użytkownik, iNetOrgPerson lub kontakt. Typ obiektu metaverse nigdy nie powinien się zmieniać, więc jest tworzony jako typ ogólny. Typ łącza można ustawić na Join, StickyJoin lub Provision. To ustawienie współpracuje z sekcją Reguły dołączania i jest omówione później.
+Możesz również znaleźć informacje o tym, z którym połączonym systemem jest związana ta reguła, który typ obiektu w połączonym systemie ma zastosowanie i typ obiektu Metaverse. Obiekt typu Metaverse jest zawsze osobą niezależnie, gdy typem obiektu źródłowego jest użytkownik, Klasa iNetOrgPerson lub kontakt. Typ obiektu metaverse nie powinien się nigdy zmieniać, dlatego jest tworzony jako typ ogólny. Typ łącza może być ustawiony na przyłączenie, StickyJoin lub inicjowanie obsługi administracyjnej. To ustawienie działa w połączeniu z sekcją reguły sprzężenia i jest omówione później.
 
-Widać również, że ta reguła synchronizacji jest używana do synchronizacji haseł. Jeśli użytkownik jest w zakresie dla tej reguły synchronizacji, hasło jest synchronizowane z lokalnego do chmury (przy założeniu, że włączono funkcję synchronizacji hasła).
+Możesz również sprawdzić, czy ta reguła synchronizacji jest używana do synchronizacji haseł. Jeśli użytkownik znajduje się w zakresie dla tej reguły synchronizacji, hasło jest synchronizowane z lokalizacji lokalnej do chmury (przy założeniu, że funkcja synchronizacji haseł została włączona).
 
 #### <a name="scoping-filter"></a>Filtr zakresu
-Sekcja Filtr zakresu służy do konfigurowania, kiedy powinna obowiązywać reguła synchronizacji. Ponieważ nazwa reguły synchronizacji, na którą patrzysz, wskazuje, że powinna być stosowana tylko dla włączonych użytkowników, zakres jest skonfigurowany, więc atrybut AD **userAccountControl** nie może mieć zestawu bit 2. Gdy aparat synchronizacji znajdzie użytkownika w udaniu AD, stosuje tę regułę synchronizacji, gdy **userAccountControl** jest ustawiony na wartość dziesiętną 512 (włączony zwykły użytkownik). Nie stosuje reguły, gdy użytkownik ma **userAccountControl** ustawiona na 514 (wyłączony zwykły użytkownik).
+Sekcja filtr zakresu służy do konfigurowania czasu, w którym ma zostać zastosowana reguła synchronizacji. Ponieważ nazwa reguły synchronizacji, którą przeglądasz, wskazuje, że powinna być stosowana tylko dla włączonych użytkowników, zakres jest skonfigurowany, **dlatego ATRYBUT AD** kontroli konta użytkownika nie może mieć zestawu bit 2. Gdy aparat synchronizacji odnajdzie użytkownika w usłudze AD, stosuje tę regułę synchronizacji **, gdy dla** konta użytkownika jest ustawiona wartość dziesiętna 512 (włączony normalny użytkownik). Nie stosuje reguły, jeśli **użytkownik ma** ustawioną wartość 514 (wyłączony normalny użytkownik).
 
-![Karta Określanie zakresu w edytorze reguł synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![Karta Określanie zakresu w Edytorze reguł synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
-Filtr zakresu ma grupy i klauzule, które mogą być zagnieżdżone. Wszystkie klauzule wewnątrz grupy muszą być spełnione, aby reguła synchronizacji miała zastosowanie. Po zdefiniowaniu wielu grup, co najmniej jedna grupa musi być spełniona, aby reguła miała zastosowanie. Oznacza to, że logiczne OR jest oceniane między grupami i logiczne I jest oceniane wewnątrz grupy. Przykład tej konfiguracji można znaleźć w reguły synchronizacji wychodzącej **do AAD — Group Join**. Istnieje kilka grup filtrów synchronizacji, na`securityEnabled EQUAL True`przykład jedna dla grup`securityEnabled EQUAL False`zabezpieczeń ( ) i jedna dla grup dystrybucyjnych ( ).
+Filtr zakresu ma grupy i klauzule, które mogą być zagnieżdżane. Aby reguła synchronizacji została zastosowana, należy spełnić wszystkie klauzule wewnątrz grupy. Jeśli zdefiniowano wiele grup, należy spełnić co najmniej jedną grupę, aby można było zastosować regułę. Oznacza to, że logiczne lub jest oceniane między grupami, a wartość logiczna jest obliczana w grupie. Przykład tej konfiguracji można znaleźć w przystawce reguła synchronizacji ruchu wychodzącego **do usługi AAD — Grupa**. Istnieje kilka grup filtru synchronizacji, na przykład jeden dla grup zabezpieczeń (`securityEnabled EQUAL True`) i jeden dla grup dystrybucyjnych (`securityEnabled EQUAL False`).
 
-![Karta Określanie zakresu w edytorze reguł synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
+![Karta Określanie zakresu w Edytorze reguł synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
 
-Ta reguła jest używana do definiowania grup, które powinny być aprowidzone do usługi Azure AD. Grupy dystrybucyjne muszą być włączone pocztę, aby były synchronizowane z usługą Azure AD, ale dla grup zabezpieczeń nie jest wymagana wiadomość e-mail.
+Ta reguła służy do definiowania grup, które powinny być obsługiwane w usłudze Azure AD. Grupy dystrybucji muszą mieć włączoną opcję Poczta, aby można było synchronizować z usługą Azure AD, ale dla grup zabezpieczeń nie jest wymagana poczta e-mail.
 
 #### <a name="join-rules"></a>Reguły dołączania
-Trzecia sekcja służy do konfigurowania, jak obiekty w przestrzeni łącznika odnoszą się do obiektów w metaverse. Reguła, na którą patrzysz wcześniej, nie ma żadnej konfiguracji dla reguł dołączania, więc zamiast tego zamierzasz przyjrzeć się **In from AD — User Join**.
+Trzecia sekcja służy do konfigurowania sposobu, w jaki obiekty w przestrzeni łącznika odnoszą się do obiektów w obiekcie Metaverse. Zasada, którą oglądasz wcześniej, nie ma żadnych konfiguracji reguł dołączania, dlatego należy się przyjrzeć do **usługi AD — przyłączenie użytkownika**.
 
-![Karta Dołączanie do reguł w edytorze reguł synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
+![Karta reguły sprzężenia w Edytorze reguł synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 
-Zawartość reguły sprzężenia zależy od opcji dopasowania wybranej w kreatorze instalacji. Dla reguły przychodzącej ocena rozpoczyna się od obiektu w przestrzeni łącznika źródłowego, a każda grupa w regułach sprzężenia jest oceniana w sekwencji. Jeśli obiekt źródłowy jest oceniany w celu dopasowania dokładnie jeden obiekt w metaverse przy użyciu jednej z reguł sprzężenia, obiekty są łączone. Jeśli wszystkie reguły zostały ocenione i nie ma dopasowania, a następnie typ łącza na stronie opisu jest używany. Jeśli ta konfiguracja jest **ustawiona na Provision**, a następnie nowy obiekt jest tworzony w miejscu docelowym, metaverse, jeśli co najmniej jeden atrybut w kryteriach sprzężenia jest obecny (ma wartość). Aby aprowizować nowy obiekt do metaverse jest również znany jako **projekt** obiektu do metaverse.
+Zawartość reguły sprzężenia zależy od pasującej opcji wybranej w Kreatorze instalacji. Dla reguły ruchu przychodzącego Ocena zaczyna się od obiektu w przestrzeni łącznika źródłowego, a każda grupa w regułach sprzężenia jest oceniana w sekwencji. Jeśli obiekt źródłowy jest oceniany tak, aby odpowiadał dokładnie jednemu obiektowi w obiekcie Metaverse przy użyciu jednej z reguł sprzężenia, obiekty są przyłączone. Jeśli wszystkie reguły zostały ocenione i nie są zgodne, zostanie użyty typ linku na stronie opis. Jeśli ta konfiguracja jest ustawiona na wartość aprowizacji, nowy obiekt jest tworzony w obiekcie **docelowym, Metaverse**, jeśli co najmniej jeden atrybut w kryteriach sprzężenia jest obecny (ma wartość). Aby zainicjować obsługę nowego obiektu w obiekcie Metaverse, jest on również znany jako **projekt** obiektu do Metaverse.
 
-Reguły sprzężenia są oceniane tylko raz. Gdy obiekt przestrzeni łącznika i obiekt metaverse są połączone, pozostają one połączone tak długo, jak zakres reguły synchronizacji jest nadal spełniony.
+Reguły sprzężenia są oceniane tylko raz. Gdy obiekt przestrzeni łącznika i obiekt Metaverse są przyłączone, pozostaną one dołączone, dopóki zakres reguły synchronizacji jest nadal spełniony.
 
-Podczas oceny reguł synchronizacji tylko jedna reguła synchronizacji ze zdefiniowanymi regułami sprzężenia musi być w zakresie. Jeśli dla jednego obiektu zostanie znalezionych wiele reguł synchronizacji z regułami sprzężenia, zostanie wyświetlony błąd. Z tego powodu najlepszym rozwiązaniem jest mieć tylko jedną regułę synchronizacji z sprzężenia zdefiniowane, gdy wiele reguł synchronizacji są w zakresie dla obiektu. W konfiguracji out-of-box dla synchronizacji usługi Azure AD Connect, te reguły można znaleźć, patrząc na nazwę i znaleźć te z wyrazem **Dołącz** na końcu nazwy. Reguła synchronizacji bez zdefiniowanych reguł sprzężenia stosuje przepływy atrybutów, gdy inna reguła synchronizacji połączyła obiekty lub aprowizować nowy obiekt w obiekcie docelowym.
+Podczas oceniania reguł synchronizacji tylko jedna reguła synchronizacji ze zdefiniowanymi regułami sprzężenia musi znajdować się w zakresie. W przypadku znalezienia wielu reguł synchronizacji z regułami sprzężenia dla jednego obiektu zostanie zgłoszony błąd. Z tego powodu najlepszym rozwiązaniem jest posiadanie tylko jednej reguły synchronizacji z przyłączaniem zdefiniowanym, gdy wiele reguł synchronizacji znajduje się w zakresie dla obiektu. W konfiguracji wstępnej dla Azure AD Connect synchronizacji te reguły można znaleźć, sprawdzając nazwę i znajdź je za pomocą **sprzężenia** wyrazu na końcu nazwy. Reguła synchronizacji bez zdefiniowanej reguły sprzężenia stosuje przepływy atrybutu, gdy inna reguła synchronizacji została dołączona do obiektów razem lub zainicjowano nowy obiekt w miejscu docelowym.
 
-Jeśli spojrzysz na powyższy obrazek, zobaczysz, że reguła próbuje połączyć **objectSID** z **msExchMasterAccountSid** (Exchange) i **msRTCSIP-OriginatorSid** (Lync), czego oczekujemy w topologii lasu zasobów kont. Ta sama reguła znajduje się we wszystkich lasach. Założenie jest takie, że każdy las może być albo kontem, albo lasem zasobów. Ta konfiguracja działa również, jeśli masz konta, które mieszkają w jednym lesie i nie muszą być przyłączone.
+Jeśli zobaczysz zdjęcie powyżej, zobaczysz, że reguła próbuje dołączyć do **objectSID** z **msExchMasterAccountSid** (Exchange) i **msRTCSIP-OriginatorSid** (Lync), co jest oczekiwane w topologii lasu zasobów konta. Tę samą regułę znajdziesz na wszystkich lasach. Przyjęto założenie, że każdy Las może być kontem lub lasem zasobów. Ta konfiguracja działa również w przypadku kont, które znajdują się w jednym lesie i nie muszą być połączone.
 
 #### <a name="transformations"></a>Przekształcenia
-Sekcja transformacji definiuje wszystkie przepływy atrybutów, które mają zastosowanie do obiektu docelowego, gdy obiekty są połączone i filtr zakresu jest spełniony. Wracając do reguły synchronizacji **in z usługi AD — użytkownik rozliczane,** można znaleźć następujące przekształcenia:
+Sekcja przekształcenia definiuje wszystkie przepływy atrybutów, które są stosowane do obiektu docelowego, gdy obiekty są przyłączone, a filtr zakresu jest spełniony. Wróć do programu z reguły synchronizacji **usługi AD — User AccountEnabled** , aby znaleźć następujące przekształcenia:
 
-![Karta Przekształcenia w edytorze reguł synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
+![Karta przekształcenia w Edytorze reguł synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
 
-Aby umieścić tę konfigurację w kontekście, we wdrożeniu lasu zasoby konta oczekuje się znalezienia włączonego konta w lesie kont i wyłączonego konta w lesie zasobów z ustawieniami programu Exchange i Lync. Reguła synchronizacji, na której patrzysz, zawiera atrybuty wymagane do logowania, a te atrybuty powinny przepływać z lasu, w którym istnieje włączone konto. Wszystkie te przepływy atrybutów są połączone w jedną regułę synchronizacji.
+Aby wprowadzić tę konfigurację w kontekście, w ramach wdrożenia lasu zasobów konta oczekiwane jest znalezienie włączonego konta w lesie konta i wyłączone konto w lesie zasobów z ustawieniami programu Exchange i Lync. Reguła synchronizacji, która jest wyświetlana, zawiera atrybuty wymagane do logowania, a te atrybuty powinny przepływać z lasu, w którym jest włączone konto. Wszystkie te przepływy atrybutów są umieszczane w jednej regule synchronizacji.
 
-Transformacja może mieć różne typy: stała, bezpośrednia i wyrażenie.
+Transformacja może mieć różne typy: stałe, bezpośrednie i wyrażenie.
 
-* Stały przepływ zawsze przepływa wartość zakodowaną na stałe. W powyższym przypadku zawsze ustawia wartość **True** w atrybutie metaverse o nazwie **accountEnabled**.
-* Przepływ bezpośredni zawsze przepływa wartość atrybutu w źródle do atrybutu docelowego w stanie— jest.
-* Trzeci typ przepływu to Expression i pozwala na bardziej zaawansowane konfiguracje.
+* Stały przepływ zawsze przepływie wartości stałe. W powyższym przypadku zawsze ustawia wartość **true** w atrybucie Metaverse o nazwie **accountEnabled**.
+* Bezpośredni przepływ zawsze przenosi wartość atrybutu w źródle do atrybutu docelowego w postaci, w jakiej jest.
+* Typ trzeciego przepływu jest wyrażeniem, co pozwala na bardziej zaawansowane konfiguracje.
 
-Językiem wyrażenia jest VBA (Visual Basic for Applications), więc osoby z doświadczeniem pakietu Microsoft Office lub VBScript rozpoznają format. Atrybuty są ujęte w nawiasy kwadratowe[atrybuty]. W nazwach atrybutów i nazwach funkcji rozróżniana jest wielkość liter, ale edytor reguł synchronizacji ocenia wyrażenia i ostrzega, jeśli wyrażenie jest nieprawidłowe. Wszystkie wyrażenia są wyrażone w jednym wierszu z zagnieżdżonych funkcji. Aby pokazać moc języka konfiguracji, oto przepływ dla pwdLastSet, ale z dodatkowymi komentarzami wstawionymi:
+Język wyrażenia to VBA (Visual Basic for Applications), dzięki czemu użytkownicy korzystający z Microsoft Office lub VBScript będą rozpoznawali format. Atrybuty są ujęte w nawiasy kwadratowe [attributeName]. W nazwach atrybutów i nazwach funkcji jest rozróżniana wielkość liter, ale Edytor reguł synchronizacji oblicza wyrażenia i wyświetla ostrzeżenie, jeśli wyrażenie jest nieprawidłowe. Wszystkie wyrażenia są wyrażane w pojedynczym wierszu z zagnieżdżonymi funkcjami. Aby wyświetlić możliwości języka konfiguracji, Oto przepływ dla pwdLastSet, ale z dodatkowymi komentarzami:
 
 ```
 // If-then-else
@@ -208,35 +208,35 @@ NULL
 )
 ```
 
-Zobacz [Opis wyrażenia deklaratywne inicjowania obsługi administracyjnej,](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) aby uzyskać więcej informacji na temat języka wyrażeń dla przepływów atrybutów.
+Aby uzyskać więcej informacji na temat języka wyrażeń dla przepływów atrybutów, zobacz artykuł [Omówienie wyrażeń aprowizacji deklaracyjnej](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) .
 
 ### <a name="precedence"></a>Pierwszeństwo
-Teraz spojrzał na niektóre poszczególne reguły synchronizacji, ale reguły współpracują ze sobą w konfiguracji. W niektórych przypadkach wartość atrybutu jest przekazywała z wielu reguł synchronizacji do tego samego atrybutu docelowego. W takim przypadku pierwszeństwo atrybutu jest używany do określenia, który atrybut wins. Na przykład spójrz na źródło atrybutuAnchor. Ten atrybut jest ważnym atrybutem, aby móc zalogować się do usługi Azure AD. Przepływ atrybutów dla tego atrybutu można znaleźć w dwóch różnych regułach synchronizacji, **w u: AD — Konto użytkownika i** W u użytkownika z usługi AD — Wspólne dla **użytkownika**. Ze względu na pierwszeństwo reguły synchronizacji atrybut sourceAnchor jest współtworzony z lasu z włączonym kontem, gdy istnieje kilka obiektów połączonych z obiektem metaverse. Jeśli nie ma włączonych kont, aparat synchronizacji używa reguły synchronizacji catch-all **in z usługi AD — Wspólne dla użytkownika**. Ta konfiguracja zapewnia, że nawet dla kont, które są wyłączone, nadal istnieje sourceAnchor.
+Zostały już wyszukane poszczególne reguły synchronizacji, ale reguły współpracują ze sobą w konfiguracji. W niektórych przypadkach wartość atrybutu jest współtworzona z wielu reguł synchronizacji do tego samego atrybutu docelowego. W takim przypadku pierwszeństwo atrybutu służy do określenia, który atrybut WINS. Na przykład poszukaj atrybutu sourceAnchor. Ten atrybut jest ważnym atrybutem, aby można było zalogować się do usługi Azure AD. Istnieje możliwość znalezienia przepływu atrybutu dla tego atrybutu w dwóch różnych regułach synchronizacji **w programie z usługi AD — User AccountEnabled** i **from z usługi AD — wspólne dla użytkownika**. Ze względu na pierwszeństwo reguły synchronizacji atrybut sourceAnchor jest współtworzony z lasu z włączonym kontem, gdy istnieje kilka obiektów przyłączonych do obiektu Metaverse. Jeśli nie ma włączonych kont, aparat synchronizacji korzysta z reguły synchronizacji catch-all **w programie z usługi AD — wspólne przez użytkownika**. Ta konfiguracja gwarantuje, że nawet w przypadku kont, które są wyłączone, nadal istnieje sourceAnchor.
 
-![Przychodzące reguły synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
+![Reguły synchronizacji przychodzące](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
 
-Pierwszeństwo dla reguł synchronizacji jest ustawiane w grupach przez kreatora instalacji. Wszystkie reguły w grupie mają taką samą nazwę, ale są połączone z różnymi połączonymi katalogami. Kreator instalacji daje regułę **w od usługi AD — użytkownik dołącz** najwyższy priorytet i iteruje nad wszystkimi połączonymi katalogami usługi AD. Następnie kontynuuje kolejne grupy reguł w wstępnie zdefiniowanej kolejności. Wewnątrz grupy reguły są dodawane w kolejności łączniki zostały dodane w kreatorze. Jeśli inny łącznik zostanie dodany za pośrednictwem kreatora, reguły synchronizacji zostaną ponownie zamówione, a reguły nowego łącznika zostaną wstawione jako ostatnie w każdej grupie.
+Pierwszeństwo reguł synchronizacji są ustawiane w grupach przez Kreatora instalacji. Wszystkie reguły w grupie mają taką samą nazwę, ale są połączone z różnymi połączonymi katalogami. Kreator instalacji udziela reguły **z usługi AD — przyłączanie użytkownika** do najwyższego priorytetu i wykonuje iterację wszystkich podłączonych katalogów usługi AD. Następnie kontynuuje pracę z następnymi grupami reguł we wstępnie zdefiniowanej kolejności. Wewnątrz grupy są dodawane reguły w kolejności, w jakiej łączniki zostały dodane w kreatorze. Jeśli inny łącznik zostanie dodany za pomocą kreatora, reguły synchronizacji są zmieniane, a w każdej grupie są wstawiane reguły nowego łącznika.
 
 ### <a name="putting-it-all-together"></a>Zebranie wszystkich elementów
-Wiemy już wystarczająco dużo o reguły synchronizacji, aby móc zrozumieć, jak konfiguracja działa z różnych reguł synchronizacji. Jeśli spojrzysz na użytkownika i atrybuty, które są współtworzone do metaverse, reguły są stosowane w następującej kolejności:
+Teraz wiemy wystarczająco więcej o regułach synchronizacji, aby zrozumieć, jak konfiguracja działa z różnymi regułami synchronizacji. Jeśli zobaczysz użytkownika i atrybuty, które są współtworzone do Metaverse, reguły są stosowane w następującej kolejności:
 
 | Nazwa | Komentarz |
 |:--- |:--- |
-| W od ad — dołączanie do użytkownika |Reguła łączenia obiektów przestrzeni łącznika z metaverse. |
-| In from AD – UserAccount Enabled |Atrybuty wymagane do logowania się do usługi Azure AD i usługi Office 365. Chcemy, aby te atrybuty z włączonego konta. |
-| In from AD — użytkownik wspólny z programu Exchange |Atrybuty znalezione na globalnej liście adresów. Zakładamy, że jakość danych jest najlepsza w lesie, w którym znaleźliśmy skrzynkę pocztową użytkownika. |
-| W od AD – Często użytkownik |Atrybuty znalezione na globalnej liście adresów. W przypadku, gdy nie znaleźliśmy skrzynki pocztowej, każdy inny połączony obiekt może przyczynić się do wartości atrybutu. |
-| In from AD — User Exchange |Istnieje tylko wtedy, gdy program Exchange został wykryty. Przepływa wszystkie atrybuty programu Exchange infrastruktury. |
-| W usłudze AD — usługa User Lync |Istnieje tylko wtedy, gdy program Lync został wykryty. Przepływa wszystkie atrybuty programu Lync infrastruktury. |
+| W programie z usługi AD — dołączanie użytkownika |Reguła sprzęgania obiektów przestrzeni łącznika z funkcją Metaverse. |
+| W programie z usługi AD — kontoużytkownika |Atrybuty wymagane do logowania się do usługi Azure AD i pakietu Office 365. Chcemy, aby te atrybuty zostały włączone. |
+| W programie z usługi AD — wspólne dla użytkownika z programu Exchange |Atrybuty znalezione na globalnej liście adresowej. Przyjęto, że jakość danych jest Najlepsza w lesie, w którym znaleźliśmy skrzynkę pocztową użytkownika. |
+| W programie z usługi AD — wspólne dla użytkowników |Atrybuty znalezione na globalnej liście adresowej. Na wypadek, gdyby nie znaleźć skrzynki pocztowej, każdy inny połączony obiekt może współtworzyć wartość atrybutu. |
+| W programie z usługi AD — wymiana użytkownika |Istnieje tylko w przypadku wykrycia programu Exchange. Przepływa wszystkie atrybuty wymiany infrastruktury. |
+| W programie z usługi AD — Lync użytkownika |Istnieje tylko w przypadku wykrycia programu Lync. Wszystkie atrybuty programu Lync infrastruktury są przepływane. |
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o modelu konfiguracji w [opisie aprowizacji deklaratywnej](concept-azure-ad-connect-sync-declarative-provisioning.md).
-* Dowiedz się więcej o języku wyrażeń w [opisie wyrażeń deklaratywnej inicjowania obsługi administracyjnej](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
-* Kontynuuj czytanie, jak działa konfiguracja out-of-box w [opisie użytkowników i kontaktów](concept-azure-ad-connect-sync-user-and-contacts.md)
-* Zobacz, jak wprowadzić praktyczną zmianę za pomocą deklaratywnych inicjowania obsługi administracyjnej w [jak wprowadzić zmiany w konfiguracji domyślnej](how-to-connect-sync-change-the-configuration.md).
+* Więcej informacji na temat modelu konfiguracji można znaleźć w temacie [Inicjowanie obsługi administracyjnej](concept-azure-ad-connect-sync-declarative-provisioning.md).
+* Przeczytaj więcej na temat języka wyrażeń w temacie [Opis wyrażeń aprowizacji deklaracyjnej](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
+* Kontynuuj odczytywanie, jak konfiguracja out-of-Box działa w [zrozumieniu użytkowników i kontaktów](concept-azure-ad-connect-sync-user-and-contacts.md)
+* Zobacz, jak wprowadzić praktyczną zmianę przy użyciu aprowizacji deklaracyjnej, [Aby wprowadzić zmianę konfiguracji domyślnej](how-to-connect-sync-change-the-configuration.md).
 
-**Tematy omówienie**
+**Tematy dotyczące omówienia**
 
-* [Synchronizacja usługi Azure AD Connect: zrozumienie i dostosowywanie synchronizacji](how-to-connect-sync-whatis.md)
+* [Azure AD Connect Sync: omówienie i dostosowanie synchronizacji](how-to-connect-sync-whatis.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)
 

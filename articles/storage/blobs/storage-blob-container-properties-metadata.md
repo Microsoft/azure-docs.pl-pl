@@ -1,7 +1,7 @@
 ---
-title: Używanie platformy .NET do zarządzania właściwościami i metadanymi kontenera obiektów blob
+title: Korzystanie z platformy .NET do zarządzania właściwościami i metadanymi kontenera obiektów BLOB
 titleSuffix: Azure Storage
-description: Dowiedz się, jak ustawić i pobrać właściwości systemu i przechowywać niestandardowe metadane w kontenerach obiektów blob na koncie usługi Azure Storage przy użyciu biblioteki klienta platformy .NET.
+description: Informacje dotyczące ustawiania i pobierania właściwości systemu oraz przechowywania niestandardowych metadanych w kontenerach obiektów BLOB na koncie usługi Azure Storage za pomocą biblioteki klienckiej platformy .NET.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,37 +9,37 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.openlocfilehash: c66b521b5cd75825fcafe07b24d5d527c45f5153
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79135925"
 ---
-# <a name="manage-container-properties-and-metadata-with-net"></a>Zarządzanie właściwościami kontenera i metadanymi za pomocą platformy .NET
+# <a name="manage-container-properties-and-metadata-with-net"></a>Zarządzanie właściwościami kontenera i metadanymi przy użyciu platformy .NET
 
-Kontenery obiektów blob obsługują właściwości systemu i metadane zdefiniowane przez użytkownika, oprócz danych, które zawierają. W tym artykule pokazano, jak zarządzać właściwościami systemu i metadanymi zdefiniowanymi przez użytkownika za pomocą [biblioteki klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Kontenery obiektów BLOB obsługują właściwości systemu i metadane zdefiniowane przez użytkownika, a także zawarte w nich dane. W tym artykule pokazano, jak zarządzać właściwościami systemu i metadanymi zdefiniowanymi przez użytkownika za pomocą [biblioteki klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-## <a name="about-properties-and-metadata"></a>Właściwości i metadane — informacje
+## <a name="about-properties-and-metadata"></a>Informacje o właściwościach i metadanych
 
-- **Właściwości systemu:** Właściwości systemu istnieją dla każdego zasobu magazynu obiektów Blob. Niektóre z nich można odczytać lub ustawić, podczas gdy inne są tylko do odczytu. W obszarze osłon niektóre właściwości systemu odpowiadają niektórym standardowym nagłówkom HTTP. Biblioteka klienta usługi Azure Storage dla platformy .NET przechowuje te właściwości.
+- **Właściwości systemu**: właściwości systemu istnieją w każdym zasobie magazynu obiektów BLOB. Niektóre z nich mogą być odczytywane lub ustawiane, a inne są tylko do odczytu. W obszarze okładek niektóre właściwości systemu odpowiadają określonym standardowym nagłówkom HTTP. Biblioteka klienta usługi Azure Storage dla platformy .NET zachowuje te właściwości.
 
-- **Metadane zdefiniowane przez użytkownika:** Metadane zdefiniowane przez użytkownika składają się z jednej lub kilku par nazwa-wartość, które można określić dla zasobu magazynu obiektów Blob. Metadane służy do przechowywania dodatkowych wartości z zasobem. Wartości metadanych są tylko do własnych celów i nie wpływają na zachowanie zasobu.
+- **Metadane zdefiniowane przez użytkownika**: metadane zdefiniowane przez użytkownika składają się z co najmniej jednej pary nazwa-wartość określonej dla zasobu usługi BLOB Storage. Możesz użyć metadanych do przechowywania dodatkowych wartości z zasobem. Wartości metadanych są tylko do celów własnych i nie mają wpływu na sposób zachowania zasobu.
 
-Pobieranie wartości właściwości i metadanych dla zasobu magazynu obiektów Blob jest procesem dwuetapowym. Przed odczytywaniem tych wartości, należy jawnie pobrać je wywołując **FetchAttributes** lub **FetchAttributesAsync** metody. Wyjątek od tej **reguły** jest, że exists i **existsAsync** metody wywołać odpowiednie **FetchAttributes** metody w ramach obejmuje. Po wywołaniu jednej z tych metod, nie trzeba również wywoływać **FetchAttributes**.
+Pobieranie wartości właściwości i metadanych dla zasobu usługi BLOB Storage jest procesem dwuetapowym. Aby można było odczytać te wartości, należy je jawnie pobrać, wywołując metodę **FetchAttributes** lub **FetchAttributesAsync** . Wyjątkiem od tej reguły jest to, że metody **EXISTS** i **ExistsAsync** wywołują odpowiednią metodę **FetchAttributes** w ramach okładek. Po wywołaniu jednej z tych metod nie trzeba również wywoływać **FetchAttributes**.
 
 > [!IMPORTANT]
-> Jeśli okaże się, że wartości właściwości lub metadanych dla zasobu magazynu nie zostały wypełnione, sprawdź, czy kod wywołuje **FetchAttributes** lub **FetchAttributesAsync** metody.
+> Jeśli okaże się, że wartości właściwości lub metadanych dla zasobu magazynu nie zostały wypełnione, sprawdź, czy kod wywołuje metodę **FetchAttributes** lub **FetchAttributesAsync** .
 
-Pary nazw metadanych/wartości są prawidłowymi nagłówkami HTTP, dlatego powinny być zgodne ze wszystkimi ograniczeniami dotyczącymi nagłówków HTTP. Nazwy metadanych muszą być prawidłowymi nazwami nagłówków HTTP i prawidłowymi identyfikatorami języka C#, mogą zawierać tylko znaki ASCII i powinny być traktowane jako niewrażliwe na wielkości liter. Wartości metadanych zawierające znaki inne niż ASCII powinny być zakodowane w u podstaw 64 lub zakodowane w adresie URL.
+Pary nazwa/wartość metadanych są prawidłowymi nagłówkami HTTP i dlatego powinny być zgodne ze wszystkimi ograniczeniami dotyczącymi nagłówków HTTP. Nazwy metadanych muszą być Prawidłowymi nazwami nagłówków HTTP i prawidłowymi identyfikatorami języka C#, mogą zawierać tylko znaki ASCII i powinny być traktowane jako bez uwzględniania wielkości liter. Wartości metadanych zawierające znaki nienależące do zestawu znaków ASCII powinny być zakodowane w formacie base64 lub kodowane przy użyciu adresu URL.
 
-## <a name="retrieve-container-properties"></a>Pobieranie właściwości kontenera
+## <a name="retrieve-container-properties"></a>Pobierz właściwości kontenera
 
-Aby pobrać właściwości kontenera, należy wywołać jedną z następujących metod:
+Aby pobrać właściwości kontenera, wywołaj jedną z następujących metod:
 
-- [FetchAttributes (ŚciąganiePrzywijanie)](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.fetchattributes)
+- [FetchAttributes](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.fetchattributes)
 - [FetchAttributesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.fetchattributesasync)
 
-Poniższy przykład kodu pobiera właściwości systemu kontenera i zapisuje niektóre wartości właściwości w oknie konsoli:
+Poniższy przykład kodu pobiera właściwości systemu kontenera i zapisuje niektóre wartości właściwości do okna konsoli:
 
 ```csharp
 private static async Task ReadContainerPropertiesAsync(CloudBlobContainer container)
@@ -63,16 +63,16 @@ private static async Task ReadContainerPropertiesAsync(CloudBlobContainer contai
 }
 ```
 
-## <a name="set-and-retrieve-metadata"></a>Ustawianie i pobieranie metadanych
+## <a name="set-and-retrieve-metadata"></a>Ustawianie i Pobieranie metadanych
 
-Metadane można określić jako jedną lub więcej par nazwa-wartość w zasób obiektu blob lub kontenera. Aby ustawić metadane, dodaj pary nazwa-wartość do kolekcji **metadanych** w zasobie, a następnie wyzwłaj jedną z następujących metod, aby zapisać wartości:
+Można określić metadane jako jedną lub więcej par nazwa-wartość w obiekcie blob lub zasobie kontenera. Aby ustawić metadane, Dodaj pary nazwa-wartość do kolekcji **metadanych** zasobu, a następnie Wywołaj jedną z następujących metod, aby zapisać wartości:
 
-- [SetMetadata (SetMetadata)](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadata)
-- [SetMetadataSync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadataasync)
+- [Setmetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadata)
+- [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadataasync)
 
-Nazwa metadanych musi być zgodna z konwencjami nazewnictwa identyfikatorów języka C#. Nazwy metadanych zachowują sprawę, z którą zostały utworzone, ale są niewrażliwe na argumenty podczas ustawiania lub odczytywania. Jeśli dwa lub więcej nagłówków metadanych o tej samej nazwie są przesyłane do zasobu, magazyn obiektów Blob zwraca kod błędu HTTP 400 (Złe żądanie).
+Nazwa metadanych musi być zgodna z konwencjami nazewnictwa dla identyfikatorów C#. Nazwy metadanych zachowują przypadek, za pomocą którego zostały utworzone, ale bez uwzględniania wielkości liter podczas ustawiania lub odczytywania. Jeśli co najmniej dwa nagłówki metadanych o tej samej nazwie są przesyłane do zasobu, Magazyn obiektów BLOB zwraca kod błędu HTTP 400 (Nieprawidłowe żądanie).
 
-Poniższy przykład kodu ustawia metadane w kontenerze. Jedna wartość jest ustawiona przy użyciu kolekcji **Add** metody. Druga wartość jest ustawiana przy użyciu składni klucza/wartości niejawnej. Oba są prawidłowe.
+Poniższy przykład kodu ustawia metadane w kontenerze. Jedna wartość jest ustawiana za pomocą metody **Add** kolekcji. Druga wartość jest ustawiana za pomocą niejawnej składni klucz/wartość. Oba są prawidłowe.
 
 ```csharp
 public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
@@ -97,7 +97,7 @@ public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
 }
 ```
 
-Aby pobrać metadane, **wywołać FetchAttributes** lub **FetchAttributesAsync** metody na obiekt blob lub kontenera, aby wypełnić kolekcji **metadanych,** a następnie odczytać wartości, jak pokazano w poniższym przykładzie.
+Aby pobrać metadane, wywołaj metodę **FetchAttributes** lub **FetchAttributesAsync** obiektu BLOB lub kontenera w celu wypełnienia kolekcji **metadanych** , a następnie odczytaj wartości, jak pokazano w poniższym przykładzie.
 
 ```csharp
 public static async Task ReadContainerMetadataAsync(CloudBlobContainer container)
@@ -128,8 +128,8 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-- [Pobierz operację Właściwości kontenera](/rest/api/storageservices/get-container-properties)
-- [Ustawianie operacji metadanych kontenera](/rest/api/storageservices/set-container-metadata)
-- [Pobierz operację metadanych kontenera](/rest/api/storageservices/set-container-metadata)
+- [Operacja pobrania właściwości kontenera](/rest/api/storageservices/get-container-properties)
+- [Operacja ustawiania metadanych kontenera](/rest/api/storageservices/set-container-metadata)
+- [Operacja pobierania metadanych kontenera](/rest/api/storageservices/set-container-metadata)

@@ -1,6 +1,6 @@
 ---
-title: Tworzenie lub usuwanie kontenera obiektów blob za pomocą platformy .NET — usługa Azure Storage
-description: Dowiedz się, jak utworzyć lub usunąć kontener obiektów blob na koncie usługi Azure Storage przy użyciu biblioteki klienta platformy .NET.
+title: Tworzenie lub usuwanie kontenera obiektów BLOB przy użyciu platformy .NET — Azure Storage
+description: Dowiedz się, jak utworzyć lub usunąć kontener obiektów BLOB na koncie usługi Azure Storage za pomocą biblioteki klienckiej platformy .NET.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,25 +9,25 @@ ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: c95ed6dde3c00c0688ccfd58565fd112427c8899
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79135942"
 ---
-# <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Tworzenie lub usuwanie kontenera w usłudze Azure Storage za pomocą platformy .NET
+# <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Tworzenie lub usuwanie kontenera w usłudze Azure Storage przy użyciu platformy .NET
 
-Obiekty BLOB w usłudze Azure Storage są zorganizowane w kontenery. Przed przekazaniem obiektu blob należy najpierw utworzyć kontener. W tym artykule pokazano, jak tworzyć i usuwać kontenery za pomocą [biblioteki klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Obiekty blob w usłudze Azure Storage są zorganizowane w kontenery. Aby można było przekazać obiekt BLOB, należy najpierw utworzyć kontener. W tym artykule przedstawiono sposób tworzenia i usuwania kontenerów za pomocą [biblioteki klienckiej usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-## <a name="name-a-container"></a>Nadawanie nazwy kontenerowi
+## <a name="name-a-container"></a>Nazwij kontener
 
-Nazwa kontenera musi być prawidłową nazwą DNS, ponieważ stanowi część unikatowego identyfikatora URI używanego do adresu kontenera lub jego obiektów blob. Postępuj zgodnie z tymi regułami podczas nazywania kontenera:
+Nazwa kontenera musi być prawidłową nazwą DNS, ponieważ stanowi część unikatowego identyfikatora URI używanego do adresowania kontenera lub jego obiektów BLOB. Po nadaniu nazwy kontenera postępuj zgodnie z następującymi regułami:
 
 - Nazwy kontenerów mogą mieć długość od 3 do 63 znaków.
-- Nazwy kontenerów muszą zaczynać się od litery lub cyfry i mogą zawierać tylko małe litery, cyfry i znak myślnika (-).
-- Dwa lub więcej kolejnych znaków kreski nie są dozwolone w nazwach kontenerów.
+- Nazwy kontenerów muszą zaczynać się literą lub cyfrą i mogą zawierać tylko małe litery, cyfry i znak kreski (-).
+- W nazwach kontenerów nie są dozwolone dwa lub więcej następujących po sobie znaków kreski.
 
-Identyfikator URI dla kontenera jest w tym formacie:
+Identyfikator URI dla kontenera ma następujący format:
 
 `https://myaccount.blob.core.windows.net/mycontainer`
 
@@ -36,17 +36,17 @@ Identyfikator URI dla kontenera jest w tym formacie:
 Aby utworzyć kontener, należy wywołać jedną z następujących metod:
 
 - [Utwórz](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
-- [Utwórzsynk](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
-- [CreateIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
-- [UtwórjIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
+- [Metoda async](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
+- [Metodę createifnotexists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
+- [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
 
-Metody **Create** i **CreateAsync** zgłaszają wyjątek, jeśli kontener o tej samej nazwie już istnieje.
+Metody **Create** i **xmlasync** zgłaszają wyjątek, jeśli kontener o tej samej nazwie już istnieje.
 
-Metody **CreateIfNotExexists** i **CreateIfNotExistsAsync** zwracają wartość logiczną wskazującą, czy kontener został utworzony. Jeśli kontener o tej samej nazwie już istnieje, te metody zwracają **False,** aby wskazać, że nowy kontener nie został utworzony.
+Metody **metodę createifnotexists** i **CreateIfNotExistsAsync** zwracają wartość logiczną wskazującą, czy kontener został utworzony. Jeśli kontener o tej samej nazwie już istnieje, te metody zwracają **wartość false** , aby wskazać, że nowy kontener nie został utworzony.
 
-Kontenery są tworzone bezpośrednio pod kontem magazynu. Nie można zagnieżdżać jednego kontenera pod drugim.
+Kontenery są tworzone bezpośrednio pod kontem magazynu. Nie można zagnieżdżać jednego kontenera poniżej innego.
 
-Poniższy przykład tworzy kontener asynchronicznie:
+W poniższym przykładzie jest tworzony kontener asynchronicznie:
 
 ```csharp
 private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBlobClient blobClient)
@@ -81,13 +81,13 @@ private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBl
 
 ## <a name="create-the-root-container"></a>Tworzenie kontenera głównego
 
-Kontener główny służy jako domyślny kontener dla konta magazynu. Każde konto magazynu może mieć jeden kontener główny, który musi mieć nazwę *$root.*. Kontener główny należy jawnie utworzyć lub usunąć.
+Kontener główny służy jako domyślny kontener dla konta magazynu. Każde konto magazynu może mieć jeden kontener główny, który musi mieć nazwę *$root.*. Należy jawnie utworzyć lub usunąć kontener główny.
 
-Można odwoływać się do obiektu blob przechowywane w kontenerze głównym bez dołączania nazwy kontenera głównego. Kontener główny umożliwia odwoływanie się do obiektu blob na najwyższym poziomie hierarchii kont magazynu. Na przykład można odwoływać się do obiektu blob, który znajduje się w kontenerze głównym w następujący sposób:
+Można odwoływać się do obiektu BLOB przechowywanego w kontenerze głównym bez dołączania nazwy kontenera głównego. Kontener główny umożliwia odwoływanie się do obiektu BLOB na najwyższym poziomie w hierarchii kont magazynu. Na przykład można odwołać się do obiektu BLOB znajdującego się w kontenerze głównym w następujący sposób:
 
 `https://myaccount.blob.core.windows.net/default.html`
 
-Poniższy przykład tworzy kontener główny synchronicznie:
+Poniższy przykład tworzy synchronicznie kontener główny:
 
 ```csharp
 private static void CreateRootContainer(CloudBlobClient blobClient)
@@ -117,18 +117,18 @@ private static void CreateRootContainer(CloudBlobClient blobClient)
 
 ## <a name="delete-a-container"></a>Usuwanie kontenera
 
-Aby usunąć kontener w .NET, użyj jednej z następujących metod:
+Aby usunąć kontener w programie .NET, należy użyć jednej z następujących metod:
 
 - [Usuwanie](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
-- [UsuńSync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync)
-- [UsuńIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists)
-- [UsuńIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexistsasync)
+- [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync)
+- [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists)
+- [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexistsasync)
 
-Metody **Delete** i **DeleteAsync** zgłaszają wyjątek, jeśli kontener nie istnieje.
+Metody **delete** i **DeleteAsync** zgłaszają wyjątek, jeśli kontener nie istnieje.
 
-**Metody DeleteIfExexists** i **DeleteIfExistAsync** zwracają wartość logiczną wskazującą, czy kontener został usunięty. Jeśli określony kontener nie istnieje, te metody zwracają **False,** aby wskazać, że kontener nie został usunięty.
+Metody **DeleteIfExists** i **DeleteIfExistsAsync** zwracają wartość logiczną wskazującą, czy kontener został usunięty. Jeśli określony kontener nie istnieje, wówczas te metody zwracają **wartość false** , aby wskazać, że kontener nie został usunięty.
 
-Po usunięciu kontenera nie można utworzyć kontenera o tej samej nazwie przez co najmniej 30 sekund i ewentualnie dłużej. Gdy kontener jest usuwany, próba utworzenia kontenera o tej samej nazwie zakończy się niepowodzeniem przy użyciu kodu błędu HTTP 409 (Konflikt). Wszelkie inne operacje na kontenerze lub obiektów blob, które zawiera zakończy się niepowodzeniem z kodem błędu HTTP 404 (Nie znaleziono), gdy kontener jest usuwany.
+Po usunięciu kontenera nie można utworzyć kontenera o tej samej nazwie przez co najmniej 30 sekund i prawdopodobnie dłużej. Podczas usuwania kontenera próba utworzenia kontenera o takiej samej nazwie zakończy się niepowodzeniem z kodem błędu HTTP 409 (konflikt). Wszystkie inne operacje dotyczące kontenera lub obiektów blob, które zawiera, będą kończyć się niepowodzeniem z kodem błędu HTTP 404 (nie znaleziono), gdy kontener jest usuwany.
 
 Poniższy przykład usuwa określony kontener i obsługuje wyjątek, jeśli kontener nie istnieje:
 
@@ -153,7 +153,7 @@ private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient,
 }
 ```
 
-W poniższym przykładzie pokazano, jak usunąć wszystkie kontenery, które zaczynają się od określonego prefiksu. Przykład przerwy dzierżawy, jeśli istnieje istniejąca dzierżawa w kontenerze.
+Poniższy przykład pokazuje, jak usunąć wszystkie kontenery, które zaczynają się od określonego prefiksu. W przykładzie przerwano dzierżawę, jeśli istnieje dzierżawa w kontenerze.
 
 ```csharp
 private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobClient, string prefix)
@@ -185,7 +185,7 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-- [Utwórz operację kontenera](/rest/api/storageservices/create-container)
+- [Operacja tworzenia kontenera](/rest/api/storageservices/create-container)
 - [Operacja usuwania kontenera](/rest/api/storageservices/delete-container)

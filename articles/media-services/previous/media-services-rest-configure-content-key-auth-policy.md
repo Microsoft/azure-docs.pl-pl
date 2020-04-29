@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie zasad autoryzacji klucza zawartości za pomocą usługi REST — Azure | Dokumenty firmy Microsoft
-description: Dowiedz się, jak skonfigurować zasady autoryzacji dla klucza zawartości przy użyciu interfejsu API REST usługi Media Services.
+title: Konfigurowanie zasad autoryzacji klucza zawartości przy użyciu platformy REST — Azure | Microsoft Docs
+description: Informacje o konfigurowaniu zasad autoryzacji klucza zawartości przy użyciu interfejsu API REST Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,55 +15,55 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8942ad8bdc4f9fc37a88d09871c983f63cd8c1b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773695"
 ---
-# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Szyfrowanie dynamiczne: konfigurowanie zasad autoryzacji klucza zawartości  
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Szyfrowanie dynamiczne: Konfigurowanie zasad autoryzacji klucza zawartości  
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Omówienie
- Usługi Azure Media Services można używać do dostarczania zawartości zaszyfrowanej (dynamicznie) za pomocą zaawansowanego standardu szyfrowania (AES) przy użyciu 128-bitowych kluczy szyfrowania i zarządzania prawami cyfrowymi PlayReady lub Widevine (DRM). Usługa Media Services zapewnia również usługę dostarczania kluczy i licencji PlayReady/Widevine autoryzowanym klientom.
+ Za pomocą Azure Media Services można dostarczać zawartość zaszyfrowaną (dynamicznie) przy użyciu Advanced Encryption Standard (AES), używając 128-bitowych kluczy szyfrowania i oprogramowania PlayReady lub Widevine Digital Rights Management (DRM). Media Services udostępnia również usługę dostarczania kluczy i licencji PlayReady/Widevine do autoryzowanych klientów.
 
-Jeśli chcesz, aby usługa Media Services szyfrował zasób, musisz skojarzyć klucz szyfrowania (CommonEncryption lub EnvelopeEncryption) z zasobem. Aby uzyskać więcej informacji, zobacz [Tworzenie kluczy zawartości za pomocą rest](media-services-rest-create-contentkey.md). Należy również skonfigurować zasady autoryzacji dla klucza (zgodnie z opisem w tym artykule).
+Jeśli chcesz, aby Media Services zaszyfrować element zawartości, musisz skojarzyć klucz szyfrowania (CommonEncryption lub EnvelopeEncryption) z elementem zawartości. Aby uzyskać więcej informacji, zobacz [Tworzenie kluczy zawartości przy użyciu interfejsu REST](media-services-rest-create-contentkey.md). Należy również skonfigurować zasady autoryzacji dla klucza (zgodnie z opisem w tym artykule).
 
-Gdy odtwarzacz zażąda strumienia, usługa Media Services używa określonego klucza do dynamicznego szyfrowania zawartości przy użyciu szyfrowania AES lub PlayReady. Aby odszyfrować strumień, odtwarzacz żąda klucza z usługi dostarczania kluczy. Aby ustalić, czy użytkownik jest autoryzowany do uzyskania klucza, usługa ocenia zasady autoryzacji określone dla klucza.
+Gdy gracz prosi o przesłanie strumienia, Media Services używa określonego klucza do dynamicznego szyfrowania zawartości przy użyciu szyfrowania AES lub PlayReady. Aby odszyfrować strumień, odtwarzacz żąda klucza z usługi dostarczania kluczy. Aby określić, czy użytkownik ma uprawnienia do uzyskiwania klucza, usługa szacuje zasady autoryzacji określone dla klucza.
 
-Usługa Media Services obsługuje wiele sposobów uwierzytelniania użytkowników, którzy tworzą żądania klucza. Zasady autoryzacji klucza zawartości mogą mieć co najmniej jedno ograniczenie autoryzacji przy użyciu ograniczenia otwartego lub tokenu. Zasadom ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Usługi Media Services obsługują tokeny w formatach prostego tokenu sieci web[(SWT)](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)i JSON Web Token (JWT).
+Usługa Media Services obsługuje wiele sposobów uwierzytelniania użytkowników, którzy tworzą żądania klucza. Zasady autoryzacji klucza zawartości mogą mieć jedno lub więcej ograniczeń autoryzacji przy użyciu ograniczenia Open lub tokenu. Zasadom ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Media Services obsługuje tokeny w formatach prostego tokenu sieci Web ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) i tokenu sieci Web JSON (JWT).
 
-Usługi Media Services nie zapewniają usługi STS. Można utworzyć niestandardowy sts lub użyć usługi Azure Active Directory (Azure AD) do wystawiania tokenów. Sts musi być skonfigurowany do tworzenia tokenu podpisanego przyconym określonym kluczem i oświadczeń problem, które zostały określone w konfiguracji ograniczenia tokenu (zgodnie z opisem w tym artykule). Jeśli token jest prawidłowy, a oświadczenia w tokenie są zgodne z tymi skonfigurowanym dla klucza zawartości, usługa dostarczania kluczy usługi Media Services zwraca klucz szyfrowania do klienta.
+Media Services nie zapewnia usługi STS. Możesz utworzyć niestandardową usługę STS lub użyć Azure Active Directory (Azure AD) do wystawiania tokenów. Usługa STS musi być skonfigurowana w taki sposób, aby utworzyć token podpisany przy użyciu określonego klucza i wystawiać oświadczenia określone w konfiguracji ograniczeń tokenu (zgodnie z opisem w tym artykule). Jeśli token jest prawidłowy i oświadczenia w tokenie są zgodne z tymi skonfigurowanymi dla klucza zawartości, usługa dostarczania kluczy Media Services Zwraca klucz szyfrowania do klienta.
 
 Aby uzyskać więcej informacji zobacz następujące artykuły:
 - [Uwierzytelnianie tokenu JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-- [Integracja aplikacji opartej na MVC usługi Azure Media Services z usługą Azure Active Directory i ograniczanie dostarczania kluczy zawartości na podstawie oświadczeń JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
+- [Integrowanie aplikacji opartej na platformie MVC Azure Media Services OWIN z Azure Active Directory i ograniczanie dostarczania kluczy zawartości na podstawie oświadczeń JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
 
-### <a name="some-considerations-apply"></a>Niektóre kwestie mają zastosowanie
-* Aby użyć dynamicznego pakowania i szyfrowania dynamicznego, upewnij się, że punkt końcowy przesyłania strumieniowego, z którego chcesz przesyłać strumieniowo zawartość, jest w stanie "Uruchomiony".
-* Zasób musi zawierać zestaw adaptacyjnych plików MP4 o szybkości transmisji bitów lub adaptacyjnych plików płynnego przesyłania strumieniowego o szybkości transmisji bitów. Aby uzyskać więcej informacji, zobacz [Kodowanie zasobu](media-services-encode-asset.md).
-* Przekaż i zakoduj zasoby przy użyciu opcji AssetCreationOptions.StorageEncrypted.
-* Jeśli planujesz mieć wiele kluczy zawartości, które wymagają tej samej konfiguracji zasad, zaleca się utworzenie jednej zasady autoryzacji i użyć go ponownie z wieloma kluczami zawartości.
-* Usługa dostarczania kluczy buforuje ContentKeyAuthorizationPolicy i jej powiązane obiekty (opcje zasad i ograniczenia) przez 15 minut. Można utworzyć ContentKeyAuthorizationPolicy i określić, aby użyć ograniczenia tokenu, przetestować go, a następnie zaktualizować zasady do otwartego ograniczenia. Ten proces trwa około 15 minut, zanim zasady przełączy się do otwartej wersji zasad.
+### <a name="some-considerations-apply"></a>Niektóre zagadnienia mają zastosowanie
+* Aby korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, upewnij się, że punkt końcowy przesyłania strumieniowego, z którego chcesz przesyłać strumieniowo zawartość, jest w stanie "uruchomiona".
+* Element zawartości musi zawierać zestaw plików z adaptacyjną szybkością transmisji bitów pliki MP4 lub z adaptacyjną szybkością transmisji bitów Smooth Streaming. Aby uzyskać więcej informacji, zobacz [kodowanie elementu zawartości](media-services-encode-asset.md).
+* Przekazywanie i kodowanie zasobów przy użyciu opcji AssetCreationOptions. StorageEncrypted.
+* Jeśli planujesz posiadanie wielu kluczy zawartości, które wymagają tej samej konfiguracji zasad, zalecamy utworzenie jednej zasady autoryzacji i ponowne użycie jej z wieloma kluczami zawartości.
+* Usługa dostarczania kluczy buforuje ContentKeyAuthorizationPolicy i powiązane z nią obiekty (opcje i ograniczenia zasad) przez 15 minut. Można utworzyć ContentKeyAuthorizationPolicy i określić, aby użyć ograniczenia tokenu, przetestować je, a następnie zaktualizować zasady do ograniczenia Open. Ten proces trwa około 15 minut przed przełączeniem zasad do otwartej wersji zasad.
 * W przypadku dodania lub zaktualizowania zasad dostarczania elementów zawartości należy usunąć skojarzony lokalizator (jeśli istnieje) i utworzyć nowy.
 * Obecnie nie można szyfrować pobrań progresywnych.
-* Punkt końcowy przesyłania strumieniowego usług Media Services ustawia wartość nagłówka CORS Access-Control-Allow-Origin w odpowiedzi inspekcji wstępnej jako symbol wieloznaczny "\*." Ta wartość działa dobrze z większością graczy, w tym Azure Media Player, Roku i JWPlayer i innych. Jednak niektórzy gracze korzystający z dash.js nie działają, ponieważ z trybem poświadczeń ustawionym na "include", XMLHttpRequest w ich dash.js nie zezwala na symbol wieloznaczny "\*jako wartość access-control-allow-origin. Aby obejść to ograniczenie w dash.js, jeśli klient hostuje z jednej domeny, usługa Media Services może określić tę domenę w nagłówku odpowiedzi inspekcji wstępnej. Aby uzyskać pomoc, otwórz bilet pomocy technicznej za pośrednictwem witryny Azure portal.
+* Punkt końcowy Media Services Streaming ustawia wartość nagłówka "Access-Control-Allow-Origin" w odpowiedzi wstępnej jako symbol wieloznaczny\*"." Ta wartość działa dobrze w przypadku większości graczy, w tym Azure Media Player, roku i JWPlayer i innych. Jednak niektórzy gracze, którzy korzystają z łącznika. js, nie działają, ponieważ z trybem poświadczeń ustawionym na "include", XMLHttpRequest w ich łączniku. js\*nie zezwala na użycie symbolu wieloznacznego "" jako wartości parametru Access-Control-Allow-Origin. Jako obejście tego ograniczenia w programie kreskowany. js, jeśli klient jest hostem z pojedynczej domeny, Media Services może określić tę domenę w nagłówku odpowiedzi inspekcji wstępnej. Aby uzyskać pomoc, Otwórz bilet pomocy technicznej za pomocą Azure Portal.
 
 ## <a name="aes-128-dynamic-encryption"></a>Szyfrowanie dynamiczne AES-128
 > [!NOTE]
-> Podczas pracy z interfejsem API REST usługi Media Services obowiązują następujące zagadnienia.
+> Podczas pracy z interfejsem API REST Media Services są stosowane następujące zagadnienia.
 > 
-> Podczas uzyskiwania dostępu do jednostek w programie Media Services należy ustawić określone pola nagłówka i wartości w żądaniach HTTP. Aby uzyskać więcej informacji, zobacz [Konfigurowanie dla programu Media Services REST API development](media-services-rest-how-to-use.md).
+> Podczas uzyskiwania dostępu do jednostek w Media Services należy ustawić określone pola nagłówka i wartości w żądaniach HTTP. Aby uzyskać więcej informacji, zobacz [konfigurowanie Media Services tworzenia interfejsu API REST](media-services-rest-how-to-use.md).
 > 
 > 
 > 
 
 ### <a name="open-restriction"></a>Otwórz ograniczenie
-Otwarte ograniczenie oznacza, że system dostarcza klucz każdemu, kto zgłosi żądanie klucza. To ograniczenie może być przydatne do celów testowych.
+Ograniczenie Open oznacza, że system dostarcza klucz do każdego, kto wykonuje żądanie klucza. To ograniczenie może być przydatne do celów testowych.
 
-Poniższy przykład tworzy zasady otwartej autoryzacji i dodaje go do klucza zawartości.
+Poniższy przykład tworzy otwarte zasady autoryzacji i dodaje je do klucza zawartości.
 
-#### <a name="create-contentkeyauthorizationpolicies"></a><a id="ContentKeyAuthorizationPolicies"></a>Tworzenie contentkeyauthorizationPolicies
+#### <a name="create-contentkeyauthorizationpolicies"></a><a id="ContentKeyAuthorizationPolicies"></a>Utwórz ContentKeyAuthorizationPolicies
 Żądanie:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies HTTP/1.1
@@ -99,7 +99,7 @@ Odpowiedź:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicies/@Element","Id":"nb:ckpid:UUID:db4593da-f4d1-4cc5-a92a-d20eacbabee4","Name":"Open Authorization Policy"}
 
-#### <a name="create-contentkeyauthorizationpolicyoptions"></a><a id="ContentKeyAuthorizationPolicyOptions"></a>Tworzenie contentkeyauthorizationPolicyOptions
+#### <a name="create-contentkeyauthorizationpolicyoptions"></a><a id="ContentKeyAuthorizationPolicyOptions"></a>Utwórz ContentKeyAuthorizationPolicyOptions
 Żądanie:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -135,7 +135,7 @@ Odpowiedź:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:57829b17-1101-4797-919b-f816f4a007b7","Name":"policy","KeyDeliveryType":2,"KeyDeliveryConfiguration":"","Restrictions":[{"Name":"HLS Open Authorization Policy","KeyRestrictionType":0,"Requirements":null}]}
 
-#### <a name="link-contentkeyauthorizationpolicies-with-options"></a><a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Łącz contentkeyauthorizationpolicies z opcjami
+#### <a name="link-contentkeyauthorizationpolicies-with-options"></a><a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Połącz ContentKeyAuthorizationPolicies z opcjami
 Żądanie:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies('nb%3Ackpid%3AUUID%3A0baa438b-8ac2-4c40-a53c-4d4722b78715')/$links/Options HTTP/1.1
@@ -178,9 +178,9 @@ Odpowiedź:
     HTTP/1.1 204 No Content
 
 ### <a name="token-restriction"></a>Ograniczenie tokenu
-W tej sekcji opisano sposób tworzenia zasad autoryzacji klucza zawartości i skojarzenia jej z kluczem zawartości. Zasady autoryzacji opisują wymagania dotyczące autoryzacji, aby ustalić, czy użytkownik jest upoważniony do odbierania klucza. Na przykład czy lista kluczy weryfikacji zawiera klucz, z jakim token został podpisany?
+W tej sekcji opisano sposób tworzenia zasad autoryzacji klucza zawartości i kojarzenia ich z kluczem zawartości. Zasady autoryzacji opisują, jakie wymagania dotyczące autoryzacji muszą zostać spełnione, aby określić, czy użytkownik jest uprawniony do odbioru klucza. Na przykład czy lista kluczy weryfikacyjnych zawiera klucz, za pomocą którego token został podpisany?
 
-Aby skonfigurować opcję ograniczenia tokenu, należy użyć kodu XML do opisania wymagań autoryzacji tokenu. XML konfiguracji ograniczenia tokenu musi być zgodny z następującym schematem XML:
+Aby skonfigurować opcję ograniczenia tokenu, należy użyć XML, aby opisać wymagania dotyczące autoryzacji tokenu. Plik XML konfiguracji ograniczenia tokenu musi być zgodny z następującym schematem XML:
 
 
 #### <a name="token-restriction-schema"></a><a id="schema"></a>Schemat ograniczenia tokenu
@@ -231,14 +231,14 @@ Aby skonfigurować opcję ograniczenia tokenu, należy użyć kodu XML do opisan
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-Podczas konfigurowania zasad z ograniczeniami tokenu należy określić podstawowy klucz weryfikacji, wystawcę i parametry odbiorców. Podstawowy klucz weryfikacji zawiera klucz, za pomocą którym token został podpisany. Wystawcą jest STS, który wystawia token. Grupa odbiorców (czasami nazywana zakresem) opisuje intencję tokenu lub zasobu, do który token autoryzuje dostęp. Usługa dostarczania kluczy usługi Media Services sprawdza, czy te wartości w tokenie są zgodne z wartościami w szablonie.
+Podczas konfigurowania zasad z ograniczeniami tokenu należy określić podstawowy klucz weryfikacyjny, wystawcę i parametry odbiorców. Podstawowy klucz weryfikacyjny zawiera klucz, za pomocą którego token został podpisany. Wystawca to usługa STS, która wystawia token. Odbiorcy (czasami nazywane zakresem) opisują zamiar tokenu lub zasobu, do którego token autoryzuje dostęp. Usługa dostarczania kluczy Media Services sprawdza, czy te wartości w tokenie pasują do wartości w szablonie.
 
-Poniższy przykład tworzy zasady autoryzacji z ograniczeniem tokenu. W tym przykładzie klient musi przedstawić token, który zawiera klucz podpisywania (VerificationKey), wystawcy tokenu i wymagane oświadczenia.
+Poniższy przykład tworzy zasady autoryzacji z ograniczeniem tokenu. W tym przykładzie klient musi przedstawić token, który zawiera klucz podpisywania (VerificationKey), wystawcę tokenu i wymagane oświadczenia.
 
-### <a name="create-contentkeyauthorizationpolicies"></a>Tworzenie contentkeyauthorizationPolicies
-Utwórz zasadę ograniczeń tokenu, jak pokazano w sekcji["Tworzenie contentkeyauthorizationpolicies](#ContentKeyAuthorizationPolicies)."
+### <a name="create-contentkeyauthorizationpolicies"></a>Utwórz ContentKeyAuthorizationPolicies
+Utwórz zasady ograniczeń tokenu, jak pokazano w sekcji "[Tworzenie ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
 
-### <a name="create-contentkeyauthorizationpolicyoptions"></a>Tworzenie contentkeyauthorizationPolicyOptions
+### <a name="create-contentkeyauthorizationpolicyoptions"></a>Utwórz ContentKeyAuthorizationPolicyOptions
 Żądanie:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -274,23 +274,23 @@ Odpowiedź:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:e1ef6145-46e8-4ee6-9756-b1cf96328c23","Name":"Token option for HLS","KeyDeliveryType":2,"KeyDeliveryConfiguration":null,"Restrictions":[{"Name":"Token Authorization Policy","KeyRestrictionType":1,"Requirements":"<TokenRestrictionTemplate xmlns:i=\"https://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1\"><AlternateVerificationKeys><TokenVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>BklyAFiPTQsuJNKriQJBZHYaKM2CkCTDQX2bw9sMYuvEC9sjW0W7GUIBygQL/+POEeUqCYPnmEU2g0o1GW2Oqg==</KeyValue></TokenVerificationKey></AlternateVerificationKeys><Audience>urn:test</Audience><Issuer>http://testissuer.com/</Issuer><PrimaryVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>E5BUHiN4vBdzUzdP0IWaHFMMU3D1uRZgF16TOhSfwwHGSw+Kbf0XqsHzEIYk11M372viB9vbiacsdcQksA0ftw==</KeyValue></PrimaryVerificationKey><RequiredClaims><TokenClaim><ClaimType>urn:microsoft:azure:mediaservices:contentkeyidentifier</ClaimType><ClaimValue i:nil=\"true\" /></TokenClaim></RequiredClaims><TokenType>SWT</TokenType></TokenRestrictionTemplate>"}]}
 
-#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Łącz contentkeyauthorizationPolicies z opcjami
-Połącz ContentKeyAuthorizationPolicies z opcjami, jak pokazano w sekcji["Tworzenie contentkeyauthorizationpolicies](#ContentKeyAuthorizationPolicies)."
+#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Połącz ContentKeyAuthorizationPolicies z opcjami
+Połącz ContentKeyAuthorizationPolicies z opcjami, jak pokazano w sekcji "[Tworzenie ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
 
 #### <a name="add-an-authorization-policy-to-the-content-key"></a>Dodawanie zasad autoryzacji do klucza zawartości
-Dodaj autoryzację do contentkey, jak pokazano w sekcji["Dodaj zasady autoryzacji do klucza zawartości](#AddAuthorizationPolicyToKey)."
+Dodaj AuthorizationPolicy do ContentKey, jak pokazano w sekcji "[Dodawanie zasad autoryzacji do klucza zawartości](#AddAuthorizationPolicyToKey)".
 
 ## <a name="playready-dynamic-encryption"></a>Szyfrowanie dynamiczne PlayReady
-Za pomocą usługi Media Services można skonfigurować prawa i ograniczenia, które mają wymusić środowisko uruchomieniowe PlayReady DRM, gdy użytkownik próbuje odtworzyć zawartość chroniona. 
+Za pomocą Media Services można skonfigurować prawa i ograniczenia, które mają być wymuszane przez środowisko uruchomieniowe oprogramowania PlayReady DRM, gdy użytkownik próbuje odtworzyć chronioną zawartość. 
 
-Podczas ochrony zawartości za pomocą programu PlayReady jedną z rzeczy, które należy określić w zasadach autoryzacji, jest ciąg XML definiujący [szablon licencji PlayReady](media-services-playready-license-template-overview.md). 
+W przypadku ochrony zawartości za pomocą oprogramowania PlayReady jednym z rzeczy, które należy określić w zasadach autoryzacji, jest ciąg XML, który definiuje [szablon licencji PlayReady](media-services-playready-license-template-overview.md). 
 
 ### <a name="open-restriction"></a>Otwórz ograniczenie
-Otwarte ograniczenie oznacza, że system dostarcza klucz każdemu, kto zgłosi żądanie klucza. To ograniczenie może być przydatne do celów testowych.
+Ograniczenie Open oznacza, że system dostarcza klucz do każdego, kto wykonuje żądanie klucza. To ograniczenie może być przydatne do celów testowych.
 
-Poniższy przykład tworzy zasady otwartej autoryzacji i dodaje go do klucza zawartości.
+Poniższy przykład tworzy otwarte zasady autoryzacji i dodaje je do klucza zawartości.
 
-#### <a name="create-contentkeyauthorizationpolicies"></a><a id="ContentKeyAuthorizationPolicies2"></a>Tworzenie contentkeyauthorizationPolicies
+#### <a name="create-contentkeyauthorizationpolicies"></a><a id="ContentKeyAuthorizationPolicies2"></a>Utwórz ContentKeyAuthorizationPolicies
 Żądanie:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies HTTP/1.1
@@ -327,7 +327,7 @@ Odpowiedź:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicies/@Element","Id":"nb:ckpid:UUID:cc3c64a8-e2fc-4e09-bf60-ac954251a387","Name":"Deliver Common Content Key"}
 
 
-#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Tworzenie contentkeyauthorizationPolicyOptions
+#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Utwórz ContentKeyAuthorizationPolicyOptions
 Żądanie:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -363,19 +363,19 @@ Odpowiedź:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:1052308c-4df7-4fdb-8d21-4d2141fc2be0","Name":"","KeyDeliveryType":1,"KeyDeliveryConfiguration":"<PlayReadyLicenseResponseTemplate xmlns:i=\"https://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1\"><LicenseTemplates><PlayReadyLicenseTemplate><AllowTestDevices>false</AllowTestDevices><ContentKey i:type=\"ContentEncryptionKeyFromHeader\" /><LicenseType>Nonpersistent</LicenseType><PlayRight /></PlayReadyLicenseTemplate></LicenseTemplates></PlayReadyLicenseResponseTemplate>","Restrictions":[{"Name":"Open","KeyRestrictionType":0,"Requirements":null}]}
 
-#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Łącz contentkeyauthorizationPolicies z opcjami
-Połącz ContentKeyAuthorizationPolicies z opcjami, jak pokazano w sekcji["Tworzenie contentkeyauthorizationpolicies](#ContentKeyAuthorizationPolicies)."
+#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Połącz ContentKeyAuthorizationPolicies z opcjami
+Połącz ContentKeyAuthorizationPolicies z opcjami, jak pokazano w sekcji "[Tworzenie ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
 
 #### <a name="add-an-authorization-policy-to-the-content-key"></a>Dodawanie zasad autoryzacji do klucza zawartości
-Dodaj autoryzację do contentkey, jak pokazano w sekcji["Dodaj zasady autoryzacji do klucza zawartości](#AddAuthorizationPolicyToKey)."
+Dodaj AuthorizationPolicy do ContentKey, jak pokazano w sekcji "[Dodawanie zasad autoryzacji do klucza zawartości](#AddAuthorizationPolicyToKey)".
 
 ### <a name="token-restriction"></a>Ograniczenie tokenu
-Aby skonfigurować opcję ograniczenia tokenu, należy użyć kodu XML do opisania wymagań autoryzacji tokenu. Konfiguracja ograniczenia tokenu XML musi być zgodna ze schematem XML pokazanym w sekcji["Schemat ograniczenia tokenu](#schema)".
+Aby skonfigurować opcję ograniczenia tokenu, należy użyć XML, aby opisać wymagania dotyczące autoryzacji tokenu. Plik XML konfiguracji ograniczenia tokenu musi być zgodny ze schematem XML pokazanym w sekcji "[schemat ograniczenia tokenu](#schema)".
 
-#### <a name="create-contentkeyauthorizationpolicies"></a>Tworzenie contentkeyauthorizationPolicies
-Utwórz ContentKeyAuthorizationPolicies, jak pokazano w sekcji "[Tworzenie ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies2)."
+#### <a name="create-contentkeyauthorizationpolicies"></a>Utwórz ContentKeyAuthorizationPolicies
+Utwórz ContentKeyAuthorizationPolicies, jak pokazano w sekcji "[Tworzenie ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies2)".
 
-#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Tworzenie contentkeyauthorizationPolicyOptions
+#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Utwórz ContentKeyAuthorizationPolicyOptions
 Żądanie:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -411,13 +411,13 @@ Odpowiedź:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:e42bbeae-de42-4077-90e9-a844f297ef70","Name":"Token option","KeyDeliveryType":1,"KeyDeliveryConfiguration":"<PlayReadyLicenseResponseTemplate xmlns:i=\"https://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1\"><LicenseTemplates><PlayReadyLicenseTemplate><AllowTestDevices>false</AllowTestDevices><ContentKey i:type=\"ContentEncryptionKeyFromHeader\" /><LicenseType>Nonpersistent</LicenseType><PlayRight /></PlayReadyLicenseTemplate></LicenseTemplates></PlayReadyLicenseResponseTemplate>","Restrictions":[{"Name":"Token Authorization Policy","KeyRestrictionType":1,"Requirements":"<TokenRestrictionTemplate xmlns:i=\"https://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1\"><AlternateVerificationKeys><TokenVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>w52OyHVqXT8aaupGxuJ3NGt8M6opHDOtx132p4r6q4hLI6ffnLusgEGie1kedUewVoIe1tqDkVE6xsIV7O91KA==</KeyValue></TokenVerificationKey></AlternateVerificationKeys><Audience>urn:test</Audience><Issuer>http://testissuer.com/</Issuer><PrimaryVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>dYwLKIEMBljLeY9VM7vWdlhps31Fbt0XXhqP5VyjQa33bJXleBtkzQ6dF5AtwI9gDcdM2dV2TvYNhCilBKjMCg==</KeyValue></PrimaryVerificationKey><RequiredClaims><TokenClaim><ClaimType>urn:microsoft:azure:mediaservices:contentkeyidentifier</ClaimType><ClaimValue i:nil=\"true\" /></TokenClaim></RequiredClaims><TokenType>SWT</TokenType></TokenRestrictionTemplate>"}]}
 
-#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Łącz contentkeyauthorizationPolicies z opcjami
-Połącz ContentKeyAuthorizationPolicies z opcjami, jak pokazano w sekcji["Tworzenie contentkeyauthorizationpolicies](#ContentKeyAuthorizationPolicies)."
+#### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Połącz ContentKeyAuthorizationPolicies z opcjami
+Połącz ContentKeyAuthorizationPolicies z opcjami, jak pokazano w sekcji "[Tworzenie ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
 
 #### <a name="add-an-authorization-policy-to-the-content-key"></a>Dodawanie zasad autoryzacji do klucza zawartości
-Dodaj autoryzację do contentkey, jak pokazano w sekcji["Dodaj zasady autoryzacji do klucza zawartości](#AddAuthorizationPolicyToKey)."
+Dodaj AuthorizationPolicy do ContentKey, jak pokazano w sekcji "[Dodawanie zasad autoryzacji do klucza zawartości](#AddAuthorizationPolicyToKey)".
 
-## <a name="types-used-when-you-define-contentkeyauthorizationpolicy"></a><a id="types"></a>Typy używane podczas definiowania contentkeyauthorizationPolicy
+## <a name="types-used-when-you-define-contentkeyauthorizationpolicy"></a><a id="types"></a>Typy używane podczas definiowania ContentKeyAuthorizationPolicy
 ### <a name="contentkeyrestrictiontype"></a><a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
     public enum ContentKeyRestrictionType
     {
@@ -428,7 +428,7 @@ Dodaj autoryzację do contentkey, jak pokazano w sekcji["Dodaj zasady autoryzacj
 
 
 > [!NOTE]
-> Ograniczenie adresu IP zasad autoryzacji kluczy zawartości nie jest jeszcze dostępne w usłudze.
+> Ograniczenie adresów IP zasad autoryzacji klucza zawartości nie jest jeszcze dostępne w usłudze.
 
 
 ### <a name="contentkeydeliverytype"></a><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
@@ -442,7 +442,7 @@ Dodaj autoryzację do contentkey, jak pokazano w sekcji["Dodaj zasady autoryzacj
 
 ## <a name="additional-notes"></a>Uwagi dodatkowe
 
-* Widevine jest usługą świadczoną przez Google Inc. i podlega warunkom korzystania z usługi oraz Polityce prywatności Firmy Google, Inc.
+* Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -451,5 +451,5 @@ Dodaj autoryzację do contentkey, jak pokazano w sekcji["Dodaj zasady autoryzacj
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-Po skonfigurowaniu zasad autoryzacji klucza zawartości zobacz [Konfigurowanie zasad dostarczania zasobów](media-services-rest-configure-asset-delivery-policy.md).
+Teraz, po skonfigurowaniu zasad autoryzacji klucza zawartości, zobacz [Konfigurowanie zasad dostarczania zasobów](media-services-rest-configure-asset-delivery-policy.md).
 

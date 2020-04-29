@@ -1,6 +1,6 @@
 ---
-title: Dodawanie warstwy bąbelkowej do mapy | Mapy platformy Microsoft Azure
-description: W tym artykule dowiesz się, jak dodać warstwę Bąbelków do mapy przy użyciu zestawu SDK w sieci Web map platformy Microsoft Azure.
+title: Dodawanie warstwy bąbelkowej do mapy | Mapy Microsoft Azure
+description: W tym artykule dowiesz się, jak dodać warstwę bąbelkową do mapy przy użyciu zestawu Microsoft Azure Web SDK mapy.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -10,22 +10,22 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 7ae11734eb804715f3eb1b5edcb02fc328dafec8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77208560"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Dodawanie warstwy bąbelkowej do mapy
 
-W tym artykule pokazano, jak renderować dane punktowe ze źródła danych jako warstwę bąbelkową na mapie. Warstwy bąbelkowe renderują punkty jako okręgi na mapie o stałym promieniu pikseli. 
+W tym artykule przedstawiono sposób renderowania danych punktu ze źródła danych jako warstwy bąbelkowej na mapie. Warstwy bąbelków renderują punkty jako okręgi na mapie przy użyciu stałego promienia pikseli. 
 
 > [!TIP]
-> Warstwy bąbelkowe domyślnie renderują współrzędne wszystkich geometrii w źródle danych. Aby ograniczyć warstwę w taki sposób, aby `filter` renderować tylko `['==', ['geometry-type'], 'Point']` `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` obiekty geometrii punktowej, należy ustawić właściwość warstwy lub jeśli mają być również obiekty MultiPoint.
+> Domyślnie warstwy bąbelków będą renderować współrzędne wszystkich geometrie w źródle danych. Aby ograniczyć warstwę w taki sposób, że renderuje tylko funkcje geometrii punktów `filter` , ustawia właściwość warstwy na `['==', ['geometry-type'], 'Point']` lub `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` Jeśli chcesz również uwzględnić funkcje MultiPoint.
 
 ## <a name="add-a-bubble-layer"></a>Dodawanie warstwy bąbelkowej
 
-Poniższy kod ładuje tablicę punktów do źródła danych. Następnie łączy punkty danych z [warstwą bąbelkową](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). Warstwa bąbelkowa renderuje promień każdego bąbelka z pięcioma pikselami i białym kolorem wypełnienia. I kolor obrysu niebieskiego i szerokość obrysu sześciu pikseli. 
+Poniższy kod ładuje tablicę punktów do źródła danych. Następnie łączy punkty danych z [warstwą bąbelkową](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). Warstwa bąbelkowa renderuje promień każdego bąbelka z pięcioma pikselami i kolorem wypełnienia bieli. Kolor obrysu niebieskiego i szerokość obrysu wynoszącego sześć pikseli. 
 
 ```javascript
 //Add point locations.
@@ -53,42 +53,42 @@ map.layers.add(new atlas.layer.BubbleLayer(dataSource, null, {
 }));
 ```
 
-Poniżej znajduje się kompletny przykładowy kod uruchomiony powyższej funkcji.
+Poniżej znajduje się kompletny przykładowy kod wykonywany z powyższymi funkcjami.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Źródło danych warstwy bąbelkej' src='//codepen.io/azuremaps/embed/mzqaKB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz Źródło <a href='https://codepen.io/azuremaps/pen/mzqaKB/'>danych warstwy bąbelkowej pióra</a> przez usługi Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na funkcji <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='BubbleLayer DataSource' src='//codepen.io/azuremaps/embed/mzqaKB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/mzqaKB/'>Źródło danych BubbleLayer</a> dla pióra według<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="show-labels-with-a-bubble-layer"></a>Pokazywanie etykiet z warstwą bąbelkową
+## <a name="show-labels-with-a-bubble-layer"></a>Wyświetlanie etykiet z warstwą bąbelkową
 
-Ten kod pokazuje, jak używać warstwy bąbelkowej do renderowania punktu na mapie. I jak użyć warstwy symbolu do renderowania etykiety. Aby ukryć ikonę warstwy `image` symboli, ustaw `'none'`właściwość opcji ikony na .
+Ten kod pokazuje, jak używać warstwy bąbelkowej do renderowania punktu na mapie. I, jak używać warstwy symboli do renderowania etykiet. Aby ukryć ikonę warstwy symboli, ustaw `image` Właściwość opcji ikon na. `'none'`
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Źródło danych multiwarstwowych' src='//codepen.io/azuremaps/embed/rqbQXy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/rqbQXy/'>Pióro MultiLayer DataSource</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na funkcji <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='MultiLayer DataSource' src='//codepen.io/azuremaps/embed/rqbQXy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/rqbQXy/'>Źródło danych MultiLayer</a> dla pióra według<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="customize-a-bubble-layer"></a>Dostosowywanie warstwy bąbelkowej
+## <a name="customize-a-bubble-layer"></a>Dostosowywanie warstwy bąbelków
 
-Warstwa Bąbelkowa ma tylko kilka opcji stylizacji. Oto narzędzie, aby je wypróbować.
+Warstwa bąbelków zawiera tylko kilka opcji stylów. Oto narzędzie do wypróbowania.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opcje warstwy bąbelkowej' src='//codepen.io/azuremaps/embed/eQxbGm/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/eQxbGm/'>opcje warstwy bąbelkowej</a> pióra według usługi Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na funkcji <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opcje warstwy bąbelkowej' src='//codepen.io/azuremaps/embed/eQxbGm/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/eQxbGm/'>Opcje warstwy bąbelków</a> pióra według Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o klasach i metodach użytych w tym artykule:
+Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [Warstwa bąbelkowa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)
+> [BubbleLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [BubbleLayerOptions (BubbleLayerOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions?view=azure-iot-typescript-latest)
+> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions?view=azure-iot-typescript-latest)
 
-Aby uzyskać więcej przykładów kodu do dodania do map, zobacz następujące artykuły:
+Zapoznaj się z następującymi artykułami, aby uzyskać więcej przykładów kodu do dodania do Twoich map:
 
 > [!div class="nextstepaction"]
 > [Tworzenie źródła danych](create-data-source-web-sdk.md)

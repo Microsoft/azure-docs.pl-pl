@@ -1,6 +1,6 @@
 ---
-title: Strumieniowanie wysokiej dostępności usługi Azure Media Services
-description: Dowiedz się, jak przejść awaryjnie do dodatkowego konta usługi Media Services, jeśli wystąpi regionalna awaria lub awaria centrum danych.
+title: Azure Media Services przesyłania strumieniowego o wysokiej dostępności
+description: Dowiedz się, jak przełączyć się w tryb failover na pomocnicze konto Media Services, jeśli wystąpi awaria lub niepowodzenie centrum danych.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,31 +14,31 @@ ms.custom: ''
 ms.date: 02/24/2020
 ms.author: juliako
 ms.openlocfilehash: 1492dd392eabc4331f8e3d4604fb245a89dedff5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78899232"
 ---
-# <a name="media-services-high-availability-streaming"></a>Przesyłanie strumieniowe o wysokiej dostępności usługi Media Services
+# <a name="media-services-high-availability-streaming"></a>Media Services przesyłania strumieniowego o wysokiej dostępności
 
-Usługa Azure Media Services obecnie nie zapewnia natychmiastowego trybu failover usługi, jeśli występuje regionalna awaria centrum danych lub awaria podstawowych składników lub usług zależnych. W tym artykule przedstawiono wskazówki dotyczące tworzenia przesyłania strumieniowego wideo na żądanie w regionie.
+Azure Media Services obecnie nie zapewnia natychmiastowej pracy awaryjnej usługi, jeśli istnieje regionalna awaria centrum danych lub niepowodzenie podstawowego składnika lub usług zależnych. Ten artykuł zawiera wskazówki dotyczące sposobu tworzenia przesyłania strumieniowego między regionami wideo na żądanie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przegląd [Jak zbudować międzyregionajny system kodowania](media-services-high-availability-encoding.md)
+Zapoznaj [się z tematem tworzenie wieloregionalnego systemu kodowania](media-services-high-availability-encoding.md)
 
-## <a name="how-to-build-video-on-demand-cross-region-streaming"></a>Jak tworzyć przesyłanie strumieniowe wideo na żądanie między regionami 
+## <a name="how-to-build-video-on-demand-cross-region-streaming"></a>Jak kompilować strumieniowe przesyłanie wideo na żądanie 
 
-* Przesyłanie strumieniowe międzyregionami wideo na żądanie obejmuje powielanie [zasobów,](assets-concept.md)zasad [klucza zawartości](content-key-policy-concept.md) (jeśli jest używany), [zasad przesyłania strumieniowego](streaming-policy-concept.md)i [lokalizatorów przesyłania strumieniowego.](streaming-locators-concept.md) 
-* Trzeba będzie utworzyć zasady w obu regionach i aktualizować je. 
-* Podczas tworzenia lokalizatorów przesyłania strumieniowego należy użyć tej samej wartości identyfikatora lokalizatora, wartości ContentKey ID i wartości ContentKey.  
-* Jeśli kodujesz zawartość, zaleca się zakodowanie zawartości w regionie A i opublikowanie jej, a następnie skopiowanie zakodowanej zawartości do regionu B i opublikowanie jej przy użyciu tych samych wartości, co z regionu A.
-* Usługi Traffic Manager można używać w nazwach hostów dla źródła i usługi dostarczania kluczy (w konfiguracji usługi Media Services będzie to wyglądać jak niestandardowy adres URL serwera kluczy).
+* Przesyłanie strumieniowe między różnymi regionami wideo obejmuje duplikowanie [zasobów](assets-concept.md), [zasad kluczy zawartości](content-key-policy-concept.md) (jeśli są używane), [zasad przesyłania strumieniowego](streaming-policy-concept.md)i [lokalizatorów przesyłania strumieniowego](streaming-locators-concept.md). 
+* Należy utworzyć zasady w obu regionach i zachować ich aktualność. 
+* Podczas tworzenia lokalizatorów przesyłania strumieniowego należy użyć tej samej wartości identyfikatora lokalizatora, wartości identyfikatora ContentKey i wartości ContentKey.  
+* W przypadku kodowania zawartości należy zakodować zawartość w regionie A i opublikować ją, a następnie skopiować zakodowaną zawartość do regionu B i opublikować ją przy użyciu takich samych wartości jak z regionu A.
+* Traffic Manager można użyć na nazwach hostów dla pochodzenia i usługi Key Delivery (w Media Services konfiguracji będzie to wyglądać jak niestandardowy adres URL serwera kluczy).
 
 ## <a name="next-steps"></a>Następne kroki
 
 Wymelduj się:
 
-* [Samouczek: Kodowanie zdalnego pliku na podstawie adresu URL i przesyłanie strumieniowe wideo](stream-files-dotnet-quickstart.md)
-* [przykłady kodu](https://docs.microsoft.com/samples/browse/?products=azure-media-services)
+* [Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo](stream-files-dotnet-quickstart.md)
+* [Przykłady kodu](https://docs.microsoft.com/samples/browse/?products=azure-media-services)

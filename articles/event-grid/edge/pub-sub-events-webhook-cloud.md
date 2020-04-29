@@ -1,6 +1,6 @@
 ---
-title: Publikowanie, subskrybowanie zdarzeń w chmurze — usługa Azure Event Grid IoT Edge | Dokumenty firmy Microsoft
-description: Publikowanie, subskrybowanie zdarzeń w chmurze przy użyciu elementu Webhook z siatką zdarzeń w usłudze IoT Edge
+title: Publikowanie, subskrybowanie zdarzeń w Azure Event Grid chmury IoT Edge | Microsoft Docs
+description: Publikowanie, subskrybowanie zdarzeń w chmurze przy użyciu elementu webhook z Event Grid na IoT Edge
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,29 +10,29 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76844597"
 ---
-# <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Samouczek: Publikowanie, subskrybowanie zdarzeń w chmurze
+# <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Samouczek: publikowanie, subskrybowanie zdarzeń w chmurze
 
-W tym artykule określ wszystkie kroki potrzebne do publikowania i subskrybowania zdarzeń przy użyciu usługi Event Grid w umyw usługi IoT Edge. W tym samouczku użyto funkcji platformy Azure jako program obsługi zdarzeń. Aby uzyskać dodatkowe typy miejsc docelowych, zobacz [programy obsługi zdarzeń](event-handlers.md).
+W tym artykule omówiono wszystkie kroki wymagane do opublikowania i subskrybowania zdarzeń przy użyciu Event Grid na IoT Edge. W tym samouczku są stosowane usługi i funkcje platformy Azure jako program obsługi zdarzeń. Aby uzyskać dodatkowe typy miejsc docelowych, zobacz [programy obsługi zdarzeń](event-handlers.md).
 
-Zobacz [Pojęcia siatki zdarzeń,](concepts.md) aby zrozumieć, co to jest temat siatki zdarzeń i subskrypcja przed kontynuowaniem.
+Zapoznaj się z tematami [Event Grid](concepts.md) , aby zrozumieć, czym jest temat i subskrypcja usługi Event Grid.
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
-Aby ukończyć ten samouczek, trzeba będzie:
+Aby można było ukończyć ten samouczek, potrzebne są:
 
-* **Subskrypcja platformy Azure** — utwórz [bezpłatne konto,](https://azure.microsoft.com/free) jeśli jeszcze go nie masz. 
-* **Usługa Azure IoT Hub i urządzenie usługi IoT Edge** — postępuj zgodnie z instrukcjami w trybie szybkiego [uruchamiania](../../iot-edge/quickstart-linux.md) dla urządzeń z systemem Linux lub [Windows,](../../iot-edge/quickstart.md) jeśli jeszcze go nie masz.
+* **Subskrypcja platformy Azure** — Utwórz [bezpłatne konto](https://azure.microsoft.com/free) , jeśli jeszcze go nie masz. 
+* **Azure IoT Hub i IoT Edge Device** — wykonaj kroki opisane w przewodniku szybki start dla urządzeń z systemem [Linux](../../iot-edge/quickstart-linux.md) lub [Windows](../../iot-edge/quickstart.md) , jeśli jeszcze go nie masz.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)]
 
-## <a name="create-an-azure-function-in-the-azure-portal"></a>Tworzenie funkcji platformy Azure w witrynie Azure portal
+## <a name="create-an-azure-function-in-the-azure-portal"></a>Utwórz funkcję platformy Azure w Azure Portal
 
-Wykonaj kroki opisane w [samouczku,](../../azure-functions/functions-create-first-azure-function.md) aby utworzyć funkcję platformy Azure. 
+Wykonaj kroki opisane w [samouczku](../../azure-functions/functions-create-first-azure-function.md) , aby utworzyć funkcję platformy Azure. 
 
 Zastąp fragment kodu następującym kodem:
 
@@ -58,16 +58,16 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 }
 ```
 
-W nowej funkcji wybierz pozycję **Pobierz adres URL funkcji** w prawym górnym rogu, wybierz domyślny **(klawisz funkcyjny),** a następnie wybierz pozycję **Kopiuj**. Użyjesz funkcji wartość adresu URL w dalszej części samouczka.
+W nowej funkcji wybierz pozycję **Pobierz adres URL funkcji** w prawym górnym rogu, wybierz pozycję domyślne (**klawisz funkcji**), a następnie wybierz pozycję **Kopiuj**. W dalszej części tego samouczka zostanie użyta wartość adresu URL funkcji.
 
 > [!NOTE]
-> Zapoznaj się z dokumentacją [usługi Azure Functions,](../../azure-functions/functions-overview.md) aby uzyskać więcej przykładów i samouczków dotyczących reagowania na zdarzenia przy użyciu wyzwalaczy zdarzeń EventGrid.
+> Zapoznaj się z dokumentacją [Azure Functions](../../azure-functions/functions-overview.md) , aby uzyskać więcej przykładów i samouczków dotyczących reagowania na zdarzenia korzystające z wyzwalaczy zdarzeń EventGrid.
 
 ## <a name="create-a-topic"></a>Tworzenie tematu
 
-Jako wydawca zdarzenia musisz utworzyć temat siatki zdarzeń. Temat odnosi się do punktu końcowego, do którego wydawcy mogą wysyłać zdarzenia.
+Jako wydawca zdarzenia musisz utworzyć temat dotyczący siatki zdarzeń. Temat odnosi się do punktu końcowego, w którym wydawcy mogą wysyłać zdarzenia do programu.
 
-1. Utwórz topic2.json z następującą zawartością. Szczegółowe informacje na temat ładunku można znaleźć w dokumentacji interfejsu [API.](api.md)
+1. Utwórz plik topic2. JSON z następującą zawartością. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
 
     ```json
          {
@@ -77,12 +77,12 @@ Jako wydawca zdarzenia musisz utworzyć temat siatki zdarzeń. Temat odnosi się
           }
         }
     ```
-1. Uruchom następujące polecenie, aby utworzyć temat. Kod stanu HTTP 200 OK powinny być zwracane.
+1. Uruchom następujące polecenie, aby utworzyć temat. Należy zwrócić kod stanu HTTP 200 OK.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
     ```
-1. Uruchom następujące polecenie, aby sprawdzić, czy temat został utworzony pomyślnie. Kod stanu HTTP 200 OK powinny być zwracane.
+1. Uruchom następujące polecenie, aby upewnić się, że temat został utworzony pomyślnie. Należy zwrócić kod stanu HTTP 200 OK.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
@@ -106,11 +106,11 @@ Jako wydawca zdarzenia musisz utworzyć temat siatki zdarzeń. Temat odnosi się
 
 ## <a name="create-an-event-subscription"></a>Tworzenie subskrypcji zdarzeń
 
-Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temacie. Aby otrzymać dowolne zdarzenie, subskrybenci będą musieli utworzyć subskrypcję siatki zdarzeń na interesujący temat.
+Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temacie. Aby odebrać każde zdarzenie, subskrybenci będą musieli utworzyć subskrypcję usługi Event Grid w temacie zainteresowania.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Utwórz plik subscription2.json z następującą zawartością. Szczegółowe informacje na temat ładunku można znaleźć w dokumentacji interfejsu [API.](api.md)
+1. Utwórz plik subscription2. JSON z następującą zawartością. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
 
     ```json
         {
@@ -126,13 +126,13 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
     ```
 
    >[!NOTE]
-   > Typ **punktu końcowego** określa, że subskrybent jest elementem Webhook.  **EndpointUrl** określa adres URL, pod którym subskrybent nasłuchuje zdarzeń. Ten adres URL odpowiada przykładowi funkcji platformy Azure, który został wcześniej skonfigurowany.
-2. Uruchom następujące polecenie, aby utworzyć subskrypcję. Kod stanu HTTP 200 OK powinny być zwracane.
+   > Element **EndpointType** określa, że subskrybent jest elementem webhook.  **EndpointUrl** określa adres URL, pod którym subskrybent nasłuchuje zdarzeń. Ten adres URL odpowiada przykładowi funkcji platformy Azure, który został wcześniej skonfigurowany.
+2. Uruchom następujące polecenie, aby utworzyć subskrypcję. Należy zwrócić kod stanu HTTP 200 OK.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/eventSubscriptions/sampleSubscription2?api-version=2019-01-01-preview
     ```
-3. Uruchom następujące polecenie, aby sprawdzić subskrypcję został utworzony pomyślnie. Kod stanu HTTP 200 OK powinny być zwracane.
+3. Uruchom następujące polecenie, aby sprawdzić, czy subskrypcja została pomyślnie utworzona. Należy zwrócić kod stanu HTTP 200 OK.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/eventSubscriptions/sampleSubscription2?api-version=2019-01-01-preview
@@ -157,9 +157,9 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
         }
     ```
 
-## <a name="publish-an-event"></a>Publikowanie wydarzenia
+## <a name="publish-an-event"></a>Publikowanie zdarzenia
 
-1. Utwórz plik event2.json z następującą zawartością. Szczegółowe informacje na temat ładunku można znaleźć w dokumentacji interfejsu [API.](api.md)
+1. Utwórz plik event2. JSON z następującą zawartością. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
 
     ```json
         [
@@ -176,7 +176,7 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
           }
         ]
     ```
-1. Uruchom następujące polecenie, aby opublikować zdarzenie
+1. Uruchom następujące polecenie, aby opublikować wydarzenie
 
     ```sh
     curl -k -H "Content-Type: application/json" -X POST -g -d @event2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/events?api-version=2019-01-01-preview
@@ -184,7 +184,7 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
 
 ## <a name="verify-event-delivery"></a>Weryfikowanie dostarczania zdarzeń
 
-Można wyświetlić zdarzenie dostarczone w witrynie Azure portal w obszarze **Monitor** opcji funkcji.
+Możesz wyświetlić zdarzenie dostarczone w Azure Portal w obszarze opcji **monitorowanie** funkcji.
 
 ## <a name="cleanup-resources"></a>Oczyszczanie zasobów
 
@@ -194,15 +194,15 @@ Można wyświetlić zdarzenie dostarczone w witrynie Azure portal w obszarze **M
     curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
     ```
 
-* Usuń funkcję platformy Azure utworzoną w witrynie Azure portal.
+* Usuń funkcję platformy Azure utworzoną w Azure Portal.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzono temat siatki zdarzeń, subskrypcję i opublikowane zdarzenia. Teraz, gdy znasz podstawowe kroki, zobacz następujące artykuły:
+W tym samouczku opisano tworzenie tematu, subskrypcji i opublikowanych zdarzeń usługi Event Grid. Teraz, gdy znasz podstawowe kroki, zobacz następujące artykuły:
 
-* Aby rozwiązać problemy z używaniem usługi Azure Event Grid w usłudze IoT Edge, zobacz [Przewodnik rozwiązywania problemów](troubleshoot.md).
-* Tworzenie/aktualizowanie subskrypcji za pomocą [filtrów](advanced-filtering.md).
-* Konfigurowanie trwałości modułu Siatki zdarzeń w [systemie Linux](persist-state-linux.md) lub [Windows](persist-state-windows.md)
-* Postępuj zgodnie [z dokumentacją,](configure-client-auth.md) aby skonfigurować uwierzytelnianie klienta
-* Przesyłanie dalej zdarzeń do usługi Azure Event Grid w chmurze, wykonując ten [samouczek](forward-events-event-grid-cloud.md)
-* [Monitorowanie tematów i subskrypcji na krawędzi](monitor-topics-subscriptions.md)
+* Aby rozwiązać problemy z używaniem Azure Event Grid na IoT Edge, zobacz [Przewodnik rozwiązywania problemów](troubleshoot.md).
+* Utwórz/zaktualizuj subskrypcję za pomocą [filtrów](advanced-filtering.md).
+* Konfiguracja trwałości modułu Event Grid w systemie [Linux](persist-state-linux.md) lub [Windows](persist-state-windows.md)
+* Postępuj zgodnie z [dokumentacją](configure-client-auth.md) , aby skonfigurować uwierzytelnianie klienta
+* Przekazuj zdarzenia do Azure Event Grid w chmurze, wykonując czynności opisane w tym [samouczku](forward-events-event-grid-cloud.md)
+* [Monitorowanie tematów i subskrypcji na granicy](monitor-topics-subscriptions.md)

@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie zasobami usługi Azure Blob Storage za pomocą Eksploratora magazynu | Dokumenty firmy Microsoft
-description: Zarządzanie kontenerami obiektów blob platformy Azure i obiektami blob za pomocą Eksploratora magazynu
+title: Zarządzanie zasobami usługi Azure Blob Storage przy użyciu Eksplorator usługi Storage | Microsoft Docs
+description: Zarządzanie kontenerami obiektów blob platformy Azure i obiektami BLOB za pomocą Eksplorator usługi Storage
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -15,170 +15,170 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
 ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244396"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Zarządzanie zasobami usługi Azure Blob Storage za pomocą Eksploratora usługi Storage
 
 ## <a name="overview"></a>Omówienie
 
-[Usługa Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) to usługa do przechowywania dużych ilości danych nieustrukturyzowanych, takich jak dane tekstowe lub binarne, które są dostępne z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub HTTPS.
-Magazyn obiektów Blob może być użyty do udostępniania danych publicznie lub do przechowywania danych aplikacji prywatnie. W tym artykule dowiesz się, jak używać Eksploratora magazynu do pracy z kontenerami obiektów blob i obiektami blob.
+[Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) to usługa do przechowywania dużych ilości danych bez struktury, takich jak dane tekstowe lub binarne, do których można uzyskiwać dostęp z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub https.
+Magazyn obiektów Blob może być użyty do udostępniania danych publicznie lub do przechowywania danych aplikacji prywatnie. W tym artykule dowiesz się, jak używać Eksplorator usługi Storage do pracy z kontenerami obiektów blob i obiektami BLOB.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do wykonania kroków opisanych w tym artykule konieczne jest wykonanie kroków znajdujących się w następujących artykułach:
 
 * [Pobieranie i instalowanie Eksploratora usługi Storage](https://www.storageexplorer.com)
-* [Łączenie się z kontem lub usługą magazynu platformy Azure](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+* [Nawiązywanie połączenia z kontem lub usługą Azure Storage](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Tworzenie kontenera obiektów blob
 
-Wszystkie obiekty BLOB muszą znajdować się w kontenerze obiektów blob, który jest po prostu logicznym grupowanie obiektów blob. Konto może zawierać nieograniczoną liczbę kontenerów, a każdy kontener może przechowywać nieograniczoną liczbę obiektów blob.
+Wszystkie obiekty blob muszą znajdować się w kontenerze obiektów blob, który jest po prostu logiczną grupą obiektów BLOB. Konto może zawierać nieograniczoną liczbę kontenerów, a każdy kontener może przechowywać nieograniczoną liczbę obiektów BLOB.
 
-W poniższych krokach pokazano, jak utworzyć kontener obiektów blob w Eksploratorze magazynu.
+Poniższe kroki ilustrują sposób tworzenia kontenera obiektów BLOB w ramach Eksplorator usługi Storage.
 
 1. Otwórz Eksploratora usługi Storage.
 2. W okienku po lewej stronie rozwiń konto magazynu, w którym chcesz utworzyć kontener obiektów blob.
-3. Kliknij prawym przyciskiem myszy **pozycję Kontenery obiektów blob**i - z menu kontekstowego - wybierz polecenie **Utwórz kontener obiektów blob**.
+3. Kliknij prawym przyciskiem myszy **kontenery obiektów BLOB**, a następnie z menu kontekstowego wybierz pozycję **Utwórz kontener obiektów BLOB**.
 
    ![Menu kontekstowe — tworzenie kontenerów obiektów blob][0]
-4. Pole tekstowe pojawi się pod folderem **Kontenery obiektów blob.** Wprowadź nazwę kontenera obiektów blob. Zobacz [Tworzenie kontenera, aby](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) uzyskać informacje na temat reguł i ograniczeń dotyczących nazewnictwa kontenerów obiektów blob.
+4. Zostanie wyświetlone pole tekstowe poniżej folderu **kontenerów obiektów BLOB** . Wprowadź nazwę kontenera obiektów blob. Zobacz [Tworzenie kontenera](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) , aby uzyskać informacje na temat reguł i ograniczeń dotyczących nazewnictwa kontenerów obiektów BLOB.
 
-   ![Pole tekstowe Tworzenie kontenerów obiektów blob][1]
-5. Po zakończeniu naciśnij klawisz **Enter**, aby utworzyć kontener obiektów blob, lub klawisz **Esc**, aby anulować. Po pomyślnym utworzeniu kontenera obiektów blob zostanie on wyświetlony w folderze **Kontenery obiektów blob** dla wybranego konta magazynu.
+   ![Pole tekstowe tworzenia kontenerów obiektów BLOB][1]
+5. Po zakończeniu naciśnij klawisz **Enter**, aby utworzyć kontener obiektów blob, lub klawisz **Esc**, aby anulować. Po pomyślnym utworzeniu kontenera obiektów BLOB zostanie on wyświetlony w folderze **kontenery obiektów BLOB** dla wybranego konta magazynu.
 
-   ![Utworzony kontener obiektów blob][2]
+   ![Utworzono kontener obiektów BLOB][2]
 
-## <a name="view-a-blob-containers-contents"></a>Wyświetlanie zawartości kontenera obiektów blob
+## <a name="view-a-blob-containers-contents"></a>Wyświetlanie zawartości kontenera obiektów BLOB
 
-Kontenery obiektów blob zawierają obiekty BLOB i foldery (które mogą również zawierać obiekty BLOB).
+Kontenery obiektów BLOB zawierają obiekty blob i foldery (które mogą również zawierać obiekty blob).
 
-W poniższych krokach pokazano sposób wyświetlania zawartości kontenera obiektów blob w Eksploratorze magazynu:
-
-1. Otwórz Eksploratora usługi Storage.
-2. W lewym okienku rozwiń konto magazynu zawierające kontener obiektów blob, który chcesz wyświetlić.
-3. Rozwiń **kontenery obiektów blob**konta magazynu .
-4. Kliknij prawym przyciskiem myszy kontener obiektów blob, który chcesz wyświetlić, i - z menu kontekstowego - wybierz pozycję **Otwórz Edytor kontenerów obiektów blob**.
-   Można również kliknąć dwukrotnie kontener obiektów blob, który chcesz wyświetlić.
-
-   ![Menu kontekstowe edytora kontenerów obiektów blob][19]
-5. W głównym okienku zostanie wyświetlone zawartość kontenera obiektów blob.
-
-   ![Edytor kontenerów obiektów blob][3]
-
-## <a name="delete-a-blob-container"></a>Usuwanie kontenera obiektu blob
-
-Kontenery obiektów blob można łatwo tworzyć i usuwać w razie potrzeby. (Aby zobaczyć, jak usunąć poszczególne obiekty blob, zapoznaj się z sekcją [Zarządzanie obiektami blob w kontenerze obiektów blob).](#managing-blobs-in-a-blob-container)
-
-W poniższych krokach pokazano, jak usunąć kontener obiektów blob w Eksploratorze magazynu:
+Poniższe kroki ilustrują sposób wyświetlania zawartości kontenera obiektów BLOB w ramach Eksplorator usługi Storage:
 
 1. Otwórz Eksploratora usługi Storage.
-2. W lewym okienku rozwiń konto magazynu zawierające kontener obiektów blob, który chcesz wyświetlić.
-3. Rozwiń **kontenery obiektów blob**konta magazynu .
-4. Kliknij prawym przyciskiem myszy kontener obiektów blob, który chcesz usunąć, a następnie - z menu kontekstowego - wybierz polecenie **Usuń**.
-   Można również nacisnąć **klawisz Delete,** aby usunąć aktualnie zaznaczony kontener obiektów blob.
+2. W okienku po lewej stronie rozwiń konto magazynu zawierające kontener obiektów blob, który chcesz wyświetlić.
+3. Rozwiń **kontenery obiektów BLOB**konta magazynu.
+4. Kliknij prawym przyciskiem myszy kontener obiektów blob, który chcesz wyświetlić, a następnie z menu kontekstowego wybierz pozycję **Otwórz Edytor kontenera obiektów BLOB**.
+   Możesz również kliknąć dwukrotnie kontener obiektów blob, który chcesz wyświetlić.
 
-   ![Usuwanie menu kontekstowego kontenera obiektów blob][4]
+   ![Otwórz menu kontekstowe edytora kontenera obiektów BLOB][19]
+5. W okienku głównym zostanie wyświetlona zawartość kontenera obiektów BLOB.
+
+   ![Edytor kontenera obiektów BLOB][3]
+
+## <a name="delete-a-blob-container"></a>Usuwanie kontenera obiektów BLOB
+
+Kontenery obiektów BLOB można łatwo tworzyć i usuwać w razie konieczności. (Aby dowiedzieć się, jak usunąć poszczególne obiekty blob, zapoznaj się z sekcją [Zarządzanie obiektami BLOB w kontenerze obiektów BLOB](#managing-blobs-in-a-blob-container)).
+
+Poniższe kroki ilustrują sposób usuwania kontenera obiektów BLOB w ramach Eksplorator usługi Storage:
+
+1. Otwórz Eksploratora usługi Storage.
+2. W okienku po lewej stronie rozwiń konto magazynu zawierające kontener obiektów blob, który chcesz wyświetlić.
+3. Rozwiń **kontenery obiektów BLOB**konta magazynu.
+4. Kliknij prawym przyciskiem myszy kontener obiektów blob, który chcesz usunąć, a następnie z menu kontekstowego wybierz pozycję **Usuń**.
+   Możesz również nacisnąć klawisz **delete** , aby usunąć aktualnie wybrany kontener obiektów BLOB.
+
+   ![Menu kontekstowe usuwania kontenera obiektów BLOB][4]
 5. Wybierz pozycję **Tak** w oknie dialogowym potwierdzenia.
 
-   ![Usuwanie potwierdzenia kontenera obiektu blob][5]
+   ![Potwierdzenie usunięcia kontenera obiektów BLOB][5]
 
-## <a name="copy-a-blob-container"></a>Kopiowanie kontenera obiektów blob
+## <a name="copy-a-blob-container"></a>Kopiowanie kontenera obiektów BLOB
 
-Eksplorator magazynu umożliwia skopiowanie kontenera obiektów blob do schowka, a następnie wklejenie tego kontenera obiektu blob do innego konta magazynu. (Aby zobaczyć, jak skopiować poszczególne obiekty blob, zapoznaj się z sekcją [Zarządzanie obiektami blob w kontenerze obiektów blob).](#managing-blobs-in-a-blob-container)
+Eksplorator usługi Storage umożliwia skopiowanie kontenera obiektów BLOB do schowka, a następnie wklejenie tego kontenera obiektów BLOB do innego konta magazynu. (Aby dowiedzieć się, jak skopiować pojedyncze obiekty blob, zapoznaj się z sekcją [Zarządzanie obiektami BLOB w kontenerze obiektów BLOB](#managing-blobs-in-a-blob-container)).
 
 Poniższe kroki ilustrują sposób kopiowania kontenera obiektów blob z jednego konta magazynu do innego.
 
 1. Otwórz Eksploratora usługi Storage.
-2. W lewym okienku rozwiń konto magazynu zawierające kontener obiektów blob, który chcesz skopiować.
-3. Rozwiń **kontenery obiektów blob**konta magazynu .
-4. Kliknij prawym przyciskiem myszy kontener obiektów blob, który chcesz skopiować, i - z menu kontekstowego - wybierz polecenie **Kopiuj kontener obiektów Blob**.
+2. W okienku po lewej stronie rozwiń konto magazynu zawierające kontener obiektów blob, który chcesz skopiować.
+3. Rozwiń **kontenery obiektów BLOB**konta magazynu.
+4. Kliknij prawym przyciskiem myszy kontener obiektów blob, który chcesz skopiować, a następnie z menu kontekstowego wybierz polecenie **Kopiuj kontener obiektów BLOB**.
 
-   ![Kopiowanie menu kontekstowego kontenera obiektów blob][6]
-5. Kliknij prawym przyciskiem myszy żądane konto magazynu "docelowego", na które chcesz wkleić kontener obiektów blob, i - z menu kontekstowego - wybierz **pozycję Wklej kontener obiektów blob**.
+   ![Menu kontekstowe kopiowania kontenera obiektów BLOB][6]
+5. Kliknij prawym przyciskiem myszy żądane konto magazynu "target", do którego chcesz wkleić kontener obiektów blob, a następnie z menu kontekstowego wybierz polecenie **Wklej kontener obiektów BLOB**.
 
-   ![Wklej menu kontekstowe kontenera obiektów blob][7]
+   ![Wklej menu kontekstowe kontenera obiektów BLOB][7]
 
 ## <a name="get-the-sas-for-a-blob-container"></a>Uzyskiwanie sygnatury dostępu współdzielonego dla kontenera obiektów blob
 
 [Sygnatura dostępu współdzielonego (SAS, shared access signature)](storage/common/storage-dotnet-shared-access-signature-part-1.md) zapewnia delegowany dostęp do zasobów w ramach konta magazynu.
 Oznacza to, że możliwe jest przyznanie klientowi ograniczonych uprawnień do obiektów w ramach konta magazynu na określony czas i z określonym zestawem uprawnień bez konieczności udostępniania kluczy dostępu do konta.
 
-Poniższe kroki ilustrują sposób tworzenia sygnatury dostępu Współdzielonego dla kontenera obiektów blob:
+Poniższe kroki ilustrują sposób tworzenia sygnatury dostępu współdzielonego dla kontenera obiektów blob:
 
 1. Otwórz Eksploratora usługi Storage.
-2. W lewym okienku rozwiń konto magazynu zawierające kontener obiektów blob, dla którego chcesz uzyskać sygnaturę dostępu Współdzielonego.
-3. Rozwiń **kontenery obiektów blob**konta magazynu .
-4. Kliknij prawym przyciskiem myszy żądany kontener obiektów blob i - z menu kontekstowego - wybierz pozycję **Pobierz podpis dostępu współdzielonego**.
+2. W okienku po lewej stronie rozwiń konto magazynu zawierające kontener obiektów blob, dla którego chcesz uzyskać sygnaturę dostępu współdzielonego.
+3. Rozwiń **kontenery obiektów BLOB**konta magazynu.
+4. Kliknij prawym przyciskiem myszy żądany kontener obiektów blob, a następnie z menu kontekstowego wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**.
 
    ![Pobierz menu kontekstowe SAS][8]
 5. W oknie dialogowym **Sygnatura dostępu współdzielonego** określ zasady, daty rozpoczęcia i wygaśnięcia, strefę czasową oraz poziomy dostępu dla zasobu.
 
-   ![Pobierz opcje Sygnatury dostępu Współdzielon][9]
+   ![Pobierz opcje SAS][9]
 6. Po zakończeniu określania opcji sygnatury dostępu współdzielonego wybierz pozycję **Utwórz**.
-7. Następnie zostanie wyświetlone drugie okno dialogowe **Podpis dostępu współdzielonego** z listą kontenera obiektów blob wraz z adresem URL i ciągami zapytania, których można użyć do uzyskania dostępu do zasobu magazynu.
+7. Zostanie wyświetlone drugie okno dialogowe **sygnatura dostępu współdzielonego** , które wyświetla listę kontenerów obiektów BLOB wraz z adresem URL i QueryString, których można użyć w celu uzyskania dostępu do zasobu magazynu.
    Wybierz pozycję **Kopiuj** obok adres URL, który chcesz skopiować do schowka.
 
-   ![Kopiowanie adresów URL Sygnatury Dostępu Współdzielon][10]
+   ![Kopiuj adresy URL SAS][10]
 8. Po zakończeniu wybierz pozycję **Zamknij**.
 
-## <a name="manage-access-policies-for-a-blob-container"></a>Zarządzanie zasadami dostępu dla kontenera obiektów blob
+## <a name="manage-access-policies-for-a-blob-container"></a>Zarządzanie zasadami dostępu dla kontenera obiektów BLOB
 
-Poniższe kroki ilustrują sposób zarządzania (dodawania i usuwania) zasad dostępu dla kontenera obiektów blob:
+Poniższe kroki ilustrują sposób zarządzania (Dodawanie i usuwanie) zasad dostępu dla kontenera obiektów blob:
 
 1. Otwórz Eksploratora usługi Storage.
-2. W lewym okienku rozwiń konto magazynu zawierające kontener obiektów blob, którego zasady dostępu mają być zarządzane.
-3. Rozwiń **kontenery obiektów blob**konta magazynu .
-4. Wybierz żądany kontener obiektów blob i - z menu kontekstowego - wybierz pozycję **Zarządzaj zasadami dostępu**.
+2. W okienku po lewej stronie rozwiń konto magazynu zawierające kontener obiektów blob, którego zasady dostępu chcesz zarządzać.
+3. Rozwiń **kontenery obiektów BLOB**konta magazynu.
+4. Wybierz żądany kontener obiektów blob, a następnie z menu kontekstowego wybierz pozycję **Zarządzaj zasadami dostępu**.
 
    ![Menu kontekstowe Zarządzanie zasadami dostępu][11]
-5. W oknie dialogowym **Zasady dostępu** zostaną wyświetlone wszystkie zasady dostępu utworzone już dla wybranego kontenera obiektów blob.
+5. W oknie dialogowym **zasady dostępu** zostaną wyświetlone wszystkie zasady dostępu, które zostały już utworzone dla wybranego kontenera obiektów BLOB.
 
    ![Opcje zasad dostępu][12]
 6. Wykonaj następujące kroki w zależności od zadania zarządzania zasadami dostępu:
 
    * **Dodawanie nowych zasad dostępu** — wybierz pozycję **Dodaj**. Po wygenerowaniu w oknie dialogowym **Zasady dostępu** będą wyświetlane nowo dodane zasady dostępu (przy użyciu ustawień domyślnych).
-   * **Edytowanie zasad dostępu** — wprowadzanie dowolnych pożądanych zmian i **wybieranie**opcji Zapisz .
+   * **Edytuj zasady dostępu** — wprowadź wymagane zmiany, a następnie wybierz pozycję **Zapisz**.
    * **Usuwanie zasad dostępu** — wybierz pozycję **Usuń** obok zasad dostępu, które chcesz usunąć.
 
-## <a name="set-the-public-access-level-for-a-blob-container"></a>Ustawianie publicznego poziomu dostępu dla kontenera obiektów blob
+## <a name="set-the-public-access-level-for-a-blob-container"></a>Ustawianie publicznego poziomu dostępu dla kontenera obiektów BLOB
 
-Domyślnie każdy kontener obiektów blob jest ustawiony na "Brak dostępu publicznego".
+Domyślnie każdy kontener obiektów BLOB jest ustawiony na wartość "Brak dostępu publicznego".
 
-Poniższe kroki ilustrują sposób określania poziomu dostępu publicznego dla kontenera obiektów blob.
+Poniższe kroki ilustrują sposób określania publicznego poziomu dostępu dla kontenera obiektów BLOB.
 
 1. Otwórz Eksploratora usługi Storage.
-2. W lewym okienku rozwiń konto magazynu zawierające kontener obiektów blob, którego zasady dostępu mają być zarządzane.
-3. Rozwiń **kontenery obiektów blob**konta magazynu .
-4. Wybierz żądany kontener obiektów blob i - z menu kontekstowego - wybierz pozycję **Ustaw publiczny poziom dostępu**.
+2. W okienku po lewej stronie rozwiń konto magazynu zawierające kontener obiektów blob, którego zasady dostępu chcesz zarządzać.
+3. Rozwiń **kontenery obiektów BLOB**konta magazynu.
+4. Wybierz żądany kontener obiektów blob, a następnie z menu kontekstowego wybierz pozycję **Ustaw poziom dostępu publicznego**.
 
-   ![Ustawianie menu kontekstowego poziomu dostępu publicznego][13]
-5. W oknie dialogowym **Ustawianie publicznego poziomu dostępu kontenera** określ żądany poziom dostępu.
+   ![Ustaw menu kontekstowe poziomu dostępu publicznego][13]
+5. W oknie dialogowym **Ustawianie poziomu dostępu publicznego kontenera** Określ żądany poziom dostępu.
 
    ![Ustawianie opcji poziomu dostępu publicznego][14]
 6. Wybierz przycisk **Zastosuj**.
 
-## <a name="managing-blobs-in-a-blob-container"></a>Zarządzanie obiektami blob w kontenerze obiektów blob
+## <a name="managing-blobs-in-a-blob-container"></a>Zarządzanie obiektami BLOB w kontenerze obiektów BLOB
 
-Po utworzeniu kontenera obiektów blob można przekazać obiekt blob do tego kontenera obiektów blob, pobrać obiekt blob na komputer lokalny, otworzyć obiekt blob na komputerze lokalnym i wiele więcej.
+Po utworzeniu kontenera obiektów BLOB możesz przekazać obiekt BLOB do tego kontenera obiektów blob, pobrać obiekt BLOB na komputer lokalny, otworzyć obiekt BLOB na komputerze lokalnym i wiele innych.
 
-Poniższe kroki ilustrują sposób zarządzania obiektami blob (i folderami) w kontenerze obiektów blob.
+Poniższe kroki ilustrują sposób zarządzania obiektami BLOB (i folderami) w kontenerze obiektów BLOB.
 
 1. Otwórz Eksploratora usługi Storage.
-2. W lewym okienku rozwiń konto magazynu zawierające kontener obiektów blob, którym chcesz zarządzać.
-3. Rozwiń **kontenery obiektów blob**konta magazynu .
+2. W okienku po lewej stronie rozwiń konto magazynu zawierające kontener obiektów blob, którym chcesz zarządzać.
+3. Rozwiń **kontenery obiektów BLOB**konta magazynu.
 4. Kliknij dwukrotnie kontener obiektów blob, który chcesz wyświetlić.
-5. W głównym okienku zostanie wyświetlone zawartość kontenera obiektów blob.
+5. W okienku głównym zostanie wyświetlona zawartość kontenera obiektów BLOB.
 
-   ![Wyświetl kontener obiektów blob][3]
-6. W głównym okienku zostanie wyświetlone zawartość kontenera obiektów blob.
+   ![Wyświetlanie kontenera obiektów BLOB][3]
+6. W okienku głównym zostanie wyświetlona zawartość kontenera obiektów BLOB.
 7. Wykonaj następujące kroki w zależności od zadania, które chcesz wykonać:
 
-   * **Przekazywanie plików do kontenera obiektu blob**
+   * **Przekazywanie plików do kontenera obiektów BLOB**
 
      1. Na pasku narzędzi okienka głównego wybierz pozycję **Przekaż**, a następnie z menu rozwijanego wybierz pozycję **Przekaż pliki**.
 
@@ -186,40 +186,40 @@ Poniższe kroki ilustrują sposób zarządzania obiektami blob (i folderami) w k
      2. W oknie dialogowym **Przekazywanie plików** wybierz przycisk wielokropka (**...**) po prawej stronie pola tekstowego **Pliki**, aby wybrać pliki do przekazania.
 
         ![Opcje przekazywania plików][16]
-     3. Określ typ **typu obiektu Blob**. Zobacz [Tworzenie kontenera, aby](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) uzyskać więcej informacji.
-     4. Opcjonalnie określ folder docelowy, do którego zostaną przesłane wybrane pliki. Jeśli folder docelowy nie istnieje, zostanie on utworzony.
-     5. Wybierz **pozycję Przekaż**.
-   * **Przekazywanie folderu do kontenera obiektu blob**
+     3. Określ typ **typu obiektu BLOB**. Aby uzyskać więcej informacji [, zobacz Tworzenie kontenera](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) .
+     4. Opcjonalnie określ folder docelowy, do którego zostaną przekazane wybrane pliki. Jeśli folder docelowy nie istnieje, zostanie on utworzony.
+     5. Wybierz pozycję **Przekaż**.
+   * **Przekazywanie folderu do kontenera obiektów BLOB**
 
-     1. Na pasku narzędzi głównego okienka wybierz pozycję **Przekaż**, a następnie **przekaż folder** z menu rozwijanego.
+     1. Na pasku narzędzi okienka głównego wybierz pozycję **Przekaż**, a następnie **Przekaż folder** z menu rozwijanego.
 
         ![Menu Przekaż folder][17]
      2. W oknie dialogowym **Przekazywanie folderu** wybierz przycisk wielokropka (**...**) po prawej stronie pola tekstowego **Folder**, aby wybrać folder, którego zawartość chcesz przekazać.
 
-        ![Opcje folderu przekazywania][18]
-     3. Określ typ **typu obiektu Blob**. Zobacz [Tworzenie kontenera, aby](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) uzyskać więcej informacji.
+        ![Opcje przekazywania folderów][18]
+     3. Określ typ **typu obiektu BLOB**. Aby uzyskać więcej informacji [, zobacz Tworzenie kontenera](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) .
      4. Opcjonalnie określ folder docelowy, do którego zawartość wybranego folderu zostanie przekazana. Jeśli folder docelowy nie istnieje, zostanie on utworzony.
-     5. Wybierz **pozycję Przekaż**.
-   * **Pobieranie obiektu blob na komputer lokalny**
+     5. Wybierz pozycję **Przekaż**.
+   * **Pobieranie obiektu BLOB do komputera lokalnego**
 
-     1. Wybierz obiekt blob, który chcesz pobrać.
+     1. Wybierz obiekt BLOB, który chcesz pobrać.
      2. Na pasku narzędzi okienka głównego wybierz pozycję **Pobierz**.
-     3. W oknie dialogowym **Określanie miejsca zapisywania pobranego obiektu blob** określ lokalizację, w której ma zostać pobrany obiekt blob, oraz nazwę, którą chcesz nadać.  
-     4. Wybierz **pozycję Zapisz**.
-   * **Otwieranie obiektu blob na komputerze lokalnym**
+     3. W oknie dialogowym **określ miejsce zapisania pobranego obiektu BLOB** Określ lokalizację, w której ma zostać pobrany obiekt BLOB, oraz nazwę, którą chcesz nadać.  
+     4. Wybierz pozycję **Zapisz**.
+   * **Otwieranie obiektu BLOB na komputerze lokalnym**
 
-     1. Wybierz obiekt blob, który chcesz otworzyć.
+     1. Wybierz obiekt BLOB, który chcesz otworzyć.
      2. Na pasku narzędzi okienka głównego wybierz pozycję **Otwórz**.
-     3. Obiekt blob zostanie pobrany i otwarty przy użyciu aplikacji skojarzonej z podstawowym typem pliku obiektu blob.
-   * **Kopiowanie obiektu blob do schowka**
+     3. Obiekt BLOB zostanie pobrany i otwarty przy użyciu aplikacji skojarzonej z typem pliku źródłowego obiektu BLOB.
+   * **Kopiowanie obiektu BLOB do schowka**
 
-     1. Wybierz obiekt blob, który chcesz skopiować.
+     1. Wybierz obiekt BLOB, który chcesz skopiować.
      2. Na pasku narzędzi okienka głównego wybierz pozycję **Kopiuj**.
-     3. W lewym okienku przejdź do innego kontenera obiektów blob i kliknij go dwukrotnie, aby wyświetlić go w głównym okienku.
-     4. Na pasku narzędzi głównego okienka wybierz pozycję **Wklej,** aby utworzyć kopię obiektu blob.
+     3. W lewym okienku przejdź do innego kontenera obiektów blob, a następnie kliknij go dwukrotnie, aby wyświetlić go w okienku głównym.
+     4. Na pasku narzędzi okienka głównego wybierz pozycję **Wklej** , aby utworzyć kopię obiektu BLOB.
    * **Usuwanie obiektu blob**
 
-     1. Wybierz obiekt blob, który chcesz usunąć.
+     1. Wybierz obiekt BLOB, który chcesz usunąć.
      2. Na pasku narzędzi okienka głównego wybierz pozycję **Usuń**.
      3. Wybierz pozycję **Tak** w oknie dialogowym potwierdzenia.
 

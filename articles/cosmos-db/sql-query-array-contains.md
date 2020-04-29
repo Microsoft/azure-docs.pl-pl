@@ -1,6 +1,6 @@
 ---
-title: ARRAY_CONTAINS w języku zapytań usługi Azure Cosmos DB
-description: Dowiedz się, jak funkcja systemu Macierzy zawiera sql w usłudze Azure Cosmos DB zwraca wartość logiczną wskazującą, czy tablica zawiera określoną wartość
+title: ARRAY_CONTAINS w języku zapytań Azure Cosmos DB
+description: Dowiedz się, w jaki sposób tablica zawiera funkcję systemową SQL w Azure Cosmos DB zwraca wartość Boolean wskazującą, czy tablica zawiera określoną wartość
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 47fe20888aa546e414b268b30c2e03580750a040
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78303481"
 ---
-# <a name="array_contains-azure-cosmos-db"></a>ARRAY_CONTAINS (Usługa Azure Cosmos DB)
-Zwraca wartość logiczną wskazującą, czy tablica zawiera określoną wartość. Można sprawdzić, czy częściowe lub pełne dopasowanie obiektu za pomocą wyrażenia logicznego w poleceniu. 
+# <a name="array_contains-azure-cosmos-db"></a>ARRAY_CONTAINS (Azure Cosmos DB)
+Zwraca wartość logiczną wskazującą, czy tablica zawiera określoną wartość. Można wyszukać częściowe lub pełne dopasowanie obiektu za pomocą wyrażenia logicznego w poleceniu. 
 
 ## <a name="syntax"></a>Składnia
   
@@ -28,19 +28,19 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 *arr_expr*  
    Jest wyrażeniem tablicy, które ma być przeszukiwane.  
   
-*Expr*  
-   Czy wyrażenie można znaleźć.  
+*wyrażenie*  
+   Jest wyrażeniem, które ma zostać znalezione.  
 
 *bool_expr*  
-   Jest wyrażeniem logicznym. Jeśli ma wartość "true" i jeśli określona wartość wyszukiwania jest obiektem, polecenie sprawdza, czy dopasowanie częściowe (obiekt wyszukiwania jest podzbiorem jednego z obiektów). Jeśli ma wartość "false", polecenie sprawdza pełne dopasowanie wszystkich obiektów w tablicy. Wartość domyślna, jeśli nie określono jest false. 
+   Jest wyrażeniem logicznym. Jeśli wartość jest równa "true", a w przypadku określonej wartości wyszukiwania jest obiektem, polecenie sprawdza obecność częściowego dopasowania (obiekt wyszukiwania jest podzbiorem jednego z obiektów). Jeśli wartość jest równa "false", polecenie sprawdza pełne dopasowanie wszystkich obiektów w tablicy. Wartość domyślna, jeśli nie zostanie określona, jest równa false. 
   
-## <a name="return-types"></a>Typy zwrotów
+## <a name="return-types"></a>Typy zwracane
   
   Zwraca wartość logiczną.  
   
 ## <a name="examples"></a>Przykłady
   
-  Poniższy przykład, jak sprawdzić członkostwo `ARRAY_CONTAINS`w tablicy przy użyciu .  
+  W poniższym przykładzie pokazano, jak sprawdzić członkostwo w tablicy przy użyciu `ARRAY_CONTAINS`.  
   
 ```sql
 SELECT   
@@ -54,7 +54,7 @@ SELECT
 [{"b1": true, "b2": false}]  
 ```  
 
-Poniższy przykład, jak sprawdzić, czy częściowe dopasowanie JSON w tablicy przy użyciu ARRAY_CONTAINS.  
+W poniższym przykładzie pokazano, jak sprawdzić częściowe dopasowanie JSON w tablicy przy użyciu ARRAY_CONTAINS.  
   
 ```sql
 SELECT  
@@ -75,10 +75,10 @@ SELECT
 
 ## <a name="remarks"></a>Uwagi
 
-Ta funkcja systemu będzie korzystać z [indeksu zakresu](index-policy.md#includeexclude-strategy).
+Ta funkcja systemowa będzie korzystać z [indeksu zakresu](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Funkcje macierzy Usługi Azure Cosmos DB](sql-query-array-functions.md)
-- [Funkcje systemowe Usługi Azure Cosmos DB](sql-query-system-functions.md)
+- [Funkcje tablicowe Azure Cosmos DB](sql-query-array-functions.md)
+- [Azure Cosmos DB funkcje systemowe](sql-query-system-functions.md)
 - [Wprowadzenie do usługi Azure Cosmos DB](introduction.md)

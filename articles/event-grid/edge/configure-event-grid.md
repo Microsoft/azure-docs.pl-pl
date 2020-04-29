@@ -1,6 +1,6 @@
 ---
-title: Konfiguracja — usługa Azure Event Grid IoT Edge | Dokumenty firmy Microsoft
-description: Konfiguracja w siatce zdarzeń na ioT edge.
+title: Konfiguracja — IoT Edge Azure Event Grid | Microsoft Docs
+description: Konfiguracja w Event Grid na IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,80 +10,80 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 841b5092775353bbe3340dbbd55610026f998a15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76846475"
 ---
-# <a name="event-grid-configuration"></a>Konfiguracja siatki zdarzeń
+# <a name="event-grid-configuration"></a>Konfiguracja Event Grid
 
-Usługa Event Grid udostępnia wiele konfiguracji, które można modyfikować w pogoń za środowisko. Poniższa sekcja jest odwołaniem do wszystkich dostępnych opcji i ich ustawień domyślnych.
+Event Grid udostępnia wiele konfiguracji, które można modyfikować dla poszczególnych środowisk. Poniższa sekcja zawiera odwołania do wszystkich dostępnych opcji i ich wartości domyślnych.
 
 ## <a name="tls-configuration"></a>Konfiguracja protokołu TLS
 
-Aby dowiedzieć się więcej o uwierzytelniania klienta w ogóle, zobacz [Zabezpieczenia i uwierzytelnianie](security-authentication.md). Przykłady jego użycia można znaleźć w [tym artykule](configure-api-protocol.md).
+Aby uzyskać ogólne informacje na temat uwierzytelniania klientów, zobacz [zabezpieczenia i uwierzytelnianie](security-authentication.md). Przykłady ich użycia można znaleźć w [tym artykule](configure-api-protocol.md).
 
 | Nazwa właściwości | Opis |
 | ---------------- | ------------ |
-|`inbound__serverAuth__tlsPolicy`| Zasady TLS modułu siatki zdarzeń. Wartość domyślna to tylko protokół HTTPS.
-|`inbound__serverAuth__serverCert__source`| Źródło certyfikatu serwera używanego przez moduł siatki zdarzeń dla jego konfiguracji TLS. Wartością domyślną jest IoT Edge.
+|`inbound__serverAuth__tlsPolicy`| Zasady protokołu TLS modułu Event Grid. Wartość domyślna to tylko HTTPS.
+|`inbound__serverAuth__serverCert__source`| Źródło certyfikatu serwera używane przez moduł Event Grid do konfiguracji protokołu TLS. Wartość domyślna to IoT Edge.
 
-## <a name="incoming-client-authentication"></a>Uwierzytelnianie klienta przychodzącego
+## <a name="incoming-client-authentication"></a>Przychodzące uwierzytelnianie klienta
 
-Aby dowiedzieć się więcej o uwierzytelniania klienta w ogóle, zobacz [Zabezpieczenia i uwierzytelnianie](security-authentication.md). Przykłady można znaleźć w [tym artykule](configure-client-auth.md).
+Aby uzyskać ogólne informacje na temat uwierzytelniania klientów, zobacz [zabezpieczenia i uwierzytelnianie](security-authentication.md). Przykłady można znaleźć w [tym artykule](configure-client-auth.md).
 
 | Nazwa właściwości | Opis |
 | ---------------- | ------------ |
-|`inbound__clientAuth__clientCert__enabled`| Aby włączyć/wyłączyć uwierzytelnianie klienta oparte na certyfikatach. Wartość domyślna jest true.
-|`inbound__clientAuth__clientCert__source`| Źródło sprawdzania poprawności certyfikatów klientów. Wartością domyślną jest IoT Edge.
-|`inbound__clientAuth__clientCert__allowUnknownCA`| Zasady zezwalania na certyfikat klienta z podpisem własnym. Wartość domyślna jest true.
-|`inbound__clientAuth__sasKeys__enabled`| Aby włączyć/wyłączyć uwierzytelnianie klienta oparte na kluczu SAS. Wartość domyślna jest wyłączona.
-|`inbound__clientAuth__sasKeys__key1`| Jedna z wartości do sprawdzania poprawności żądań przychodzących.
-|`inbound__clientAuth__sasKeys__key2`| Opcjonalna druga wartość do sprawdzania poprawności żądań przychodzących.
+|`inbound__clientAuth__clientCert__enabled`| Aby włączyć/wyłączyć uwierzytelnianie klienta oparte na certyfikatach. Wartość domyślna to true.
+|`inbound__clientAuth__clientCert__source`| Źródło do sprawdzania poprawności certyfikatów klienta. Wartość domyślna to IoT Edge.
+|`inbound__clientAuth__clientCert__allowUnknownCA`| Zasady zezwalające na certyfikat klienta z podpisem własnym. Wartość domyślna to true.
+|`inbound__clientAuth__sasKeys__enabled`| Aby włączyć/wyłączyć uwierzytelnianie klienta oparte na kluczu SAS. Wartość domyślna to off.
+|`inbound__clientAuth__sasKeys__key1`| Jedna z wartości, aby zweryfikować przychodzące żądania.
+|`inbound__clientAuth__sasKeys__key2`| Opcjonalna druga wartość do walidacji żądań przychodzących.
 
 ## <a name="outgoing-client-authentication"></a>Uwierzytelnianie klienta wychodzącego
-Aby dowiedzieć się więcej o uwierzytelniania klienta w ogóle, zobacz [Zabezpieczenia i uwierzytelnianie](security-authentication.md). Przykłady można znaleźć w [tym artykule](configure-identity-auth.md).
+Aby uzyskać ogólne informacje na temat uwierzytelniania klientów, zobacz [zabezpieczenia i uwierzytelnianie](security-authentication.md). Przykłady można znaleźć w [tym artykule](configure-identity-auth.md).
 
 | Nazwa właściwości | Opis |
 | ---------------- | ------------ |
-|`outbound__clientAuth__clientCert__enabled`| Aby włączyć/wyłączyć dołączanie certyfikatu tożsamości dla żądań wychodzących. Wartość domyślna jest true.
-|`outbound__clientAuth__clientCert__source`| Źródło pobierania certyfikatu wychodzącego modułu Event Grid. Wartością domyślną jest IoT Edge.
+|`outbound__clientAuth__clientCert__enabled`| Aby włączyć/wyłączyć dołączanie certyfikatu tożsamości dla żądań wychodzących. Wartość domyślna to true.
+|`outbound__clientAuth__clientCert__source`| Źródło pobierania certyfikatu wychodzącego modułu Event Grid. Wartość domyślna to IoT Edge.
 
-## <a name="webhook-event-handlers"></a>Programy obsługi zdarzeń elementu Webhook
+## <a name="webhook-event-handlers"></a>Procedury obsługi zdarzeń elementu webhook
 
-Aby dowiedzieć się więcej o uwierzytelniania klienta w ogóle, zobacz [Zabezpieczenia i uwierzytelnianie](security-authentication.md). Przykłady można znaleźć w [tym artykule](configure-webhook-subscriber-auth.md).
+Aby uzyskać ogólne informacje na temat uwierzytelniania klientów, zobacz [zabezpieczenia i uwierzytelnianie](security-authentication.md). Przykłady można znaleźć w [tym artykule](configure-webhook-subscriber-auth.md).
 
 | Nazwa właściwości | Opis |
 | ---------------- | ------------ |
-|`outbound__webhook__httpsOnly`| Zasady, aby kontrolować, czy tylko subskrybenci HTTPS będą dozwolone. Wartość domyślna jest true (tylko HTTPS).
-|`outbound__webhook__skipServerCertValidation`| Flaga, aby kontrolować, czy sprawdzić poprawność certyfikatu subskrybenta. Wartość domyślna jest true.
-|`outbound__webhook__allowUnknownCA`| Zasady do kontrolowania, czy certyfikat z podpisem własnym mogą być prezentowane przez subskrybenta. Wartość domyślna jest true. 
+|`outbound__webhook__httpsOnly`| Zasady umożliwiające kontrolowanie, czy dozwolone są tylko subskrybenci HTTPS. Wartość domyślna to true (tylko HTTPS).
+|`outbound__webhook__skipServerCertValidation`| Oflaguj, aby kontrolować certyfikat subskrybenta. Wartość domyślna to true.
+|`outbound__webhook__allowUnknownCA`| Zasady umożliwiające kontrolowanie, czy certyfikat z podpisem własnym może być prezentowany przez subskrybenta. Wartość domyślna to true. 
 
 ## <a name="delivery-and-retry"></a>Dostarczanie i ponawianie prób
 
-Aby dowiedzieć się więcej o tej funkcji, zobacz [Dostarczanie i Ponów próbę](delivery-retry.md).
+Aby uzyskać ogólne informacje na temat tej funkcji, zobacz [dostarczanie i ponawianie próby](delivery-retry.md).
 
 | Nazwa właściwości | Opis |
 | ---------------- | ------------ |
 | `broker__defaultMaxDeliveryAttempts` | Maksymalna liczba prób dostarczenia zdarzenia. Wartość domyślna to 30.
-| `broker__defaultEventTimeToLiveInSeconds` | Czas wygaśnięcia (TTL) w sekundach, po czym zdarzenie zostanie przerwane, jeśli nie zostanie dostarczone. Wartość domyślna to **7200** sekund
+| `broker__defaultEventTimeToLiveInSeconds` | Czas wygaśnięcia (TTL) w sekundach, po upływie którego zdarzenie zostanie usunięte, jeśli nie zostanie dostarczone. Wartość domyślna to **7200** sekund
 
 ## <a name="output-batching"></a>Dzielenie na partie danych wyjściowych
 
-Aby dowiedzieć się więcej o tej funkcji w ogóle, zobacz [Dostarczanie i produkcja wsadowa](delivery-output-batching.md).
+Aby uzyskać ogólne informacje na temat tej funkcji, zobacz [dostarczanie i wyprowadzanie wsadowe](delivery-output-batching.md).
 
 | Nazwa właściwości | Opis |
 | ---------------- | ------------ |
-| `api__deliveryPolicyLimits__maxBatchSizeInBytes` | Maksymalna dopuszczalna `ApproxBatchSizeInBytes` wartość dla pokrętła. Wartością `1_058_576`domyślną jest .
-| `api__deliveryPolicyLimits__maxEventsPerBatch` | Maksymalna dopuszczalna `MaxEventsPerBatch` wartość dla pokrętła. Wartością `50`domyślną jest .
-| `broker__defaultMaxBatchSizeInBytes` | Maksymalny rozmiar żądania `MaxEventsPerBatch` dostawy, gdy jest określony tylko. Wartością `1_058_576`domyślną jest .
-| `broker__defaultMaxEventsPerBatch` | Maksymalna liczba zdarzeń do dodania `MaxBatchSizeInBytes` do partii, gdy jest określona tylko. Wartością `10`domyślną jest .
+| `api__deliveryPolicyLimits__maxBatchSizeInBytes` | Maksymalna dozwolona wartość dla `ApproxBatchSizeInBytes` pokrętła. Wartość domyślna to `1_058_576`.
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | Maksymalna dozwolona wartość dla `MaxEventsPerBatch` pokrętła. Wartość domyślna to `50`.
+| `broker__defaultMaxBatchSizeInBytes` | Maksymalny rozmiar żądania dostarczania, gdy `MaxEventsPerBatch` jest określony tylko. Wartość domyślna to `1_058_576`.
+| `broker__defaultMaxEventsPerBatch` | Maksymalna liczba zdarzeń do dodania do partii, gdy tylko `MaxBatchSizeInBytes` zostanie określony. Wartość domyślna to `10`.
 
 ## <a name="metrics"></a>Metryki
 
-Aby dowiedzieć się więcej o korzystaniu z danych z siatką zdarzeń w usłudze IoT Edge, zobacz [tematy monitoru i subskrypcje](monitor-topics-subscriptions.md)
+Aby dowiedzieć się więcej na temat używania metryk z Event Grid na IoT Edge, zobacz [temat monitorowanie tematów i subskrypcji](monitor-topics-subscriptions.md)
 
 | Nazwa właściwości | Opis |
 | ---------------- | ------------ |
-| `metrics__reporterType` | Typ reportera dla punktu metryki. Domyślnie `none` jest i wyłącza metryki. Ustawienie `prometheus` umożliwiające wyświetlanie danych w formacie ekspozycji Prometheus.
+| `metrics__reporterType` | Typ programu Reporter dla metryk Enpoint. Wartość domyślna `none` to i wyłącza metryki. Ustawienie umożliwiające `prometheus` włączenie metryk w formacie specyfikacji Prometheus.

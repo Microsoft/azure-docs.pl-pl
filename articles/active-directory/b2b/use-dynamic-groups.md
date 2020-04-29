@@ -1,6 +1,6 @@
 ---
-title: Grupy dynamiczne i współpraca B2B — usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: Pokazuje, jak używać grup dynamicznych usługi Azure AD przy współpracy usługi Azure Active Directory B2B
+title: Grupy dynamiczne i współpraca B2B — Azure Active Directory | Microsoft Docs
+description: Pokazuje, jak używać grup dynamicznych usługi Azure AD w celu Azure Active Directory współpracy B2B
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,64 +12,64 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 41e8b81bc3594c6a378757636f70058510a38cc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78226921"
 ---
-# <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Grupy dynamiczne i współpraca b2b usługi Azure Active Directory
+# <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Grupy dynamiczne i Azure Active Directory współpracy B2B
 
 ## <a name="what-are-dynamic-groups"></a>Co to są grupy dynamiczne?
-Dynamiczna konfiguracja członkostwa w grupie zabezpieczeń dla usługi Azure Active Directory (Azure AD) jest dostępna w [witrynie Azure Portal](https://portal.azure.com). Administratorzy mogą ustawić reguły wypełniania grup utworzonych w usłudze Azure AD na podstawie atrybutów użytkownika (takich jak userType, dział lub kraj/region). Członkowie mogą być automatycznie dodawane do grupy zabezpieczeń lub usuwane z niej na podstawie ich atrybutów. Grupy te mogą zapewniać dostęp do aplikacji lub zasobów w chmurze (witryny, dokumenty programu SharePoint) i przypisywać licencje członkom. Dowiedz się więcej o grupach dynamicznych w [grupach dedykowanych w usłudze Azure Active Directory](../active-directory-accessmanagement-dedicated-groups.md).
+Dynamiczna konfiguracja przynależności do grupy zabezpieczeń dla Azure Active Directory (Azure AD) jest dostępna w [Azure Portal](https://portal.azure.com). Administratorzy mogą ustawiać reguły do wypełniania grup utworzonych w usłudze Azure AD na podstawie atrybutów użytkownika (takich jak UserType, Department lub Country/region). Elementy członkowskie mogą być automatycznie dodawane lub usuwane z grupy zabezpieczeń na podstawie ich atrybutów. Te grupy mogą zapewniać dostęp do aplikacji lub zasobów w chmurze (witryn programu SharePoint, dokumentów) i przypisywać licencje do członków. Przeczytaj więcej na temat grup dynamicznych w [dedykowanych grupach w Azure Active Directory](../active-directory-accessmanagement-dedicated-groups.md).
 
-Odpowiednie [licencjonowanie usługi Azure AD Premium P1 lub P2](https://azure.microsoft.com/pricing/details/active-directory/) jest wymagane do tworzenia i używania grup dynamicznych. Więcej informacji w [artykule Tworzenie reguł opartych na atrybutach dla dynamicznego członkostwa w grupie w usłudze Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md).
+Do tworzenia grup dynamicznych i korzystania z nich wymagane są [Licencjonowanie w Azure AD — wersja Premium P1 lub P2](https://azure.microsoft.com/pricing/details/active-directory/) . Więcej informacji znajduje się w artykule [Tworzenie reguł opartych na atrybutach dla członkostwa w grupie dynamicznej w Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md).
 
-## <a name="creating-an-all-users-dynamic-group"></a>Tworzenie grupy dynamicznej "wszyscy użytkownicy"
-Można utworzyć grupę zawierającą wszystkich użytkowników w dzierżawie przy użyciu reguły członkostwa. Gdy użytkownicy są dodawane lub usuwane z dzierżawy w przyszłości, członkostwo grupy jest dostosowywane automatycznie.
+## <a name="creating-an-all-users-dynamic-group"></a>Tworzenie grupy dynamicznej "Wszyscy użytkownicy"
+Można utworzyć grupę zawierającą wszystkich użytkowników w dzierżawie przy użyciu reguły członkostwa. Gdy użytkownicy są dodawani lub usuwani z dzierżawy w przyszłości, członkostwo w grupie jest dostosowywane automatycznie.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy za pomocą konta, które jest przypisane do administratora globalnego lub administratora użytkownika roli w dzierżawie.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta, któremu przypisano rolę Administrator globalny lub administrator użytkowników w dzierżawie.
 1. Wybierz pozycję **Azure Active Directory**.
-2. W obszarze **Zarządzaj**wybierz pozycję **Grupy**, a następnie wybierz pozycję **Nowa grupa**.
-1. Na stronie **Nowa grupa** w obszarze **Typ grupy**wybierz pozycję **Zabezpieczenia**. Wypełnij pola **Nazwa grupy** i **Opis grupy** dotyczące nowej grupy. 
-2. W obszarze **Typ członkostwa**wybierz pozycję **Użytkownik dynamiczny**, a następnie wybierz pozycję **Dodaj kwerendę dynamiczną**. 
-4. Nad polem **tekstowym składni reguły** wybierz pozycję **Edytuj**. Na stronie **składni reguły edycji** wpisz następujące wyrażenie w polu tekstowym:
+2. W obszarze **Zarządzaj**wybierz pozycję **grupy**, a następnie wybierz pozycję **Nowa grupa**.
+1. Na stronie **Nowa grupa** w obszarze **Typ grupy**wybierz pozycję **zabezpieczenia**. Wypełnij pola **Nazwa grupy** i **Opis grupy** dotyczące nowej grupy. 
+2. W obszarze **Typ członkostwa**wybierz pozycję **użytkownik dynamiczny**, a następnie wybierz pozycję **Dodaj zapytanie dynamiczne**. 
+4. W polu tekstowym **składnia reguły** wybierz pozycję **Edytuj**. Na stronie **Edytuj składnię reguły** wpisz następujące wyrażenie w polu tekstowym:
 
    ```
    user.objectId -ne null
    ```
-1. Kliknij przycisk **OK**. Reguła pojawi się w polu Składnia reguły:
+1. Wybierz przycisk **OK**. Reguła zostanie wyświetlona w polu składnia reguły:
 
-   ![Składnia reguły dla grupy dynamicznej wszystkich użytkowników](media/use-dynamic-groups/all-user-rule-syntax.png)
+   ![Składnia reguły dla grupy dynamicznej wszyscy użytkownicy](media/use-dynamic-groups/all-user-rule-syntax.png)
 
-1.  Wybierz **pozycję Zapisz**. Nowa grupa dynamiczna będzie teraz zawierać użytkowników-gości B2B, a także użytkowników członkowskich.
+1.  Wybierz pozycję **Zapisz**. Nowa grupa dynamiczna będzie teraz zawierać użytkowników z Gośćmi B2B, a także użytkowników-członków.
 
 
-1. Wybierz **pozycję Utwórz** na stronie **Nowa grupa,** aby utworzyć grupę.
+1. Na stronie **Nowa grupa** wybierz pozycję **Utwórz** , aby utworzyć grupę.
 
-## <a name="creating-a-group-of-members-only"></a>Tworzenie tylko grupy członków
+## <a name="creating-a-group-of-members-only"></a>Tworzenie grupy tylko członków
 
-Jeśli chcesz, aby grupa wykluczała użytkowników-gości i obejmowała tylko członków dzierżawy, utwórz grupę dynamiczną, jak opisano powyżej, ale w polu **składni reguły** wprowadź następujące wyrażenie:
+Jeśli chcesz, aby grupa wykluczać użytkowników-Gości i dołączać tylko członków dzierżawy, Utwórz grupę dynamiczną, jak opisano powyżej, ale w polu **składnia reguły** wprowadź następujące wyrażenie:
 
 ```
 (user.objectId -ne null) and (user.userType -eq "Member")
 ```
 
-Na poniższej ilustracji przedstawiono składnię reguły dla grupy dynamicznej zmodyfikowanej w celu uwzględnienia tylko członków i wykluczenia gości.
+Na poniższej ilustracji przedstawiono składnię reguły dla grupy dynamicznej zmodyfikowane w celu uwzględnienia tylko członków i wykluczania Gości.
 
-![Pokazuje regułę, w której typ użytkownika jest równy element członkowski](media/use-dynamic-groups/all-member-user-rule-syntax.png)
+![Pokazuje regułę, w której typ użytkownika jest równy elementowi członkowskiemu](media/use-dynamic-groups/all-member-user-rule-syntax.png)
 
-## <a name="creating-a-group-of-guests-only"></a>Tworzenie tylko grupy gości
+## <a name="creating-a-group-of-guests-only"></a>Tworzenie grupy tylko Gości
 
-Przydatne może być również utworzenie nowej grupy dynamicznej, która zawiera tylko użytkowników-gości, dzięki czemu można zastosować zasady (takie jak zasady dostępu warunkowego usługi Azure AD). Utwórz grupę dynamiczną w sposób opisany powyżej, ale w polu **składni reguły** wprowadź następujące wyrażenie:
+Przydatne może być również utworzenie nowej grupy dynamicznej, która zawiera tylko użytkowników-Gości, dzięki czemu można zastosować do nich zasady (na przykład zasady dostępu warunkowego usługi Azure AD). Utwórz grupę dynamiczną, jak opisano powyżej, ale w polu **składnia reguły** wprowadź następujące wyrażenie:
 
 ```
 (user.objectId -ne null) and (user.userType -eq "Guest")
 ```
 
-Na poniższej ilustracji przedstawiono składnię reguły dla grupy dynamicznej zmodyfikowanej w celu uwzględnienia tylko gości i wykluczenia użytkowników członkowskich.
+Na poniższej ilustracji przedstawiono składnię reguły dla grupy dynamicznej zmodyfikowane w celu uwzględnienia tylko Gości i wykluczania użytkowników należących do członków.
 
-![Pokazuje regułę, w której typ użytkownika jest równy gościowi](media/use-dynamic-groups/all-guest-user-rule-syntax.png)
+![Pokazuje regułę, w której typ użytkownika jest równy gościa](media/use-dynamic-groups/all-guest-user-rule-syntax.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

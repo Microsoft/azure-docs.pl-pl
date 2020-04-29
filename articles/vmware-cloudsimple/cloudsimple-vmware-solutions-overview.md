@@ -1,6 +1,6 @@
 ---
-title: Rozwiązanie Azure VMware według cloudsimple — omówienie
-description: Dowiedz się więcej o funkcjach, scenariuszach i zaletach rozwiązania VMware na platformie Azure według usługi CloudSimple.
+title: Rozwiązanie VMware firmy Azure według CloudSimple — Omówienie
+description: Poznaj funkcje, scenariusze i zalety rozwiązania VMware na platformie Azure według usługi CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -9,61 +9,61 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 7b5017cdeade14e53778b58154456412507c5ce8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77024878"
 ---
-# <a name="what-is-azure-vmware-solution-by-cloudsimple"></a>Co to jest rozwiązanie Azure VMware firmy CloudSimple
+# <a name="what-is-azure-vmware-solution-by-cloudsimple"></a>Co to jest rozwiązanie Azure VMware według CloudSimple
 
-**Azure VMware Solution by CloudSimple** to w pełni zarządzana usługa, która umożliwia uruchamianie platformy VMware na platformie Azure. To rozwiązanie obejmuje vSphere, vCenter, vSAN, NSX-T i odpowiednie narzędzia. Środowisko VMware działa natywnie na infrastrukturze platformy Azure bez systemu operacyjnego w lokalizacjach chmury platformy Azure. Usługa zawiera wszystkie funkcje wymagane do wydajnego i bezpiecznego korzystania z platform VMware.
+**Rozwiązanie Azure VMware CloudSimple** to w pełni zarządzana usługa, która pozwala na uruchamianie platformy VMware na platformie Azure. To rozwiązanie zawiera vSphere, vCenter, sieci vSAN, NSX-T i odpowiadające im narzędzia. Środowisko oprogramowania VMware działa natywnie w infrastrukturze platformy Azure bez systemu operacyjnego w lokalizacjach w chmurze platformy Azure. Usługa obejmuje wszystkie funkcje wymagane do wydajnego i bezpiecznego korzystania z platform VMware.
 
-![Rozwiązanie VMware na platformie Azure według cloudsimple — omówienie](media/azure-vmware-solution-by-cloudsimple.png)
+![Rozwiązanie VMware na platformie Azure według CloudSimple — Omówienie](media/azure-vmware-solution-by-cloudsimple.png)
 
 ## <a name="features"></a>Funkcje
 
-* Samoobsługowe aprowizacji na żądanie środowisk chmury VMware. Możliwość dodawania i usuwania pojemności na żądanie.
-* Wdrażanie, uaktualnianie, tworzenie kopii zapasowych na płaszczyźnie zarządzania, monitorowanie kondycji/pojemności, ostrzeganie, rozwiązywanie problemów i korygowanie.
-* Podkładanie usług sieciowych wymaganych do włączenia oprogramowania VMware, w tym usług L2/L3 i zarządzania regułami zapory.
-* Usługi sieciowe typu edge, w tym sieci VPN, publiczny adres IP i bramy internetowe. Te usługi są uruchamiane na platformie Azure i mają ochronę zabezpieczeń i DDoS platformy Azure.
-* Rezerwacja pojemności w celu obniżenia kosztów.
-* Szybka łączność z platformą Azure i lokalną z małą szybkością.
-* Architektury rozwiązań dla klientów do korzystania z usług platformy Azure w sposób zintegrowany i korzystać z tej unikalnej architektury "VMware cloud w chmurze publicznej". Usługi platformy Azure obejmują usługę Azure AD, magazyn, bramy aplikacji i inne.
-* Infrastruktura, która jest w pełni dedykowana tobie i jest fizycznie odizolowana od infrastruktury innych klientów.
-* Zarządzanie oferuje takie zarządzanie aktywnością, użycie, rozliczenia / pomiary i zarządzanie użytkownikami.
-* Całodobowa obsługa klienta.
+* Samoobsługowe Inicjowanie obsługi administracyjnej środowisk VMware w chmurze. Możliwość dodawania i usuwania pojemności na żądanie.
+* Wdrażanie platformy VMware, uaktualnianie, tworzenie kopii zapasowej, monitorowanie kondycji/wydajności, generowanie alertów, rozwiązywanie problemów i korygowanie.
+* Underlay usługi sieciowe wymagane do włączenia programu VMware, w tym usługi L2/L3 i zarządzanie regułami zapory.
+* Usługi sieci typu Edge, w tym VPN, publiczny adres IP i bramy internetowe. Te usługi działają na platformie Azure i przenoszą zabezpieczenia i DDoS ochronę systemu Azure.
+* Rezerwacja pojemności dla niższych kosztów.
+* Wysoka szybkość i małe opóźnienia łączności z platformą Azure i lokalnie.
+* Architektury rozwiązań dla klientów, którzy mogą korzystać z usług platformy Azure w zintegrowany sposób i korzystać z tej unikatowej "chmury VMware w chmurze publicznej". Usługi platformy Azure obejmują usługę Azure AD, magazyn, bramy aplikacji i inne.
+* Infrastruktura, która jest w pełni przeznaczona dla Ciebie i jest fizycznie odizolowana od infrastruktury innych klientów.
+* Funkcje zarządzania, takie jak zarządzanie działaniami, użycie, rozliczenia/pomiar i zarządzanie użytkownikami.
+* 24x7 obsługi klienta.
 
 ## <a name="benefits"></a>Korzyści
 
-* **Ciągłość operacyjna**. CloudSimple oferuje natywny dostęp do platform VMware. Architektura CloudSimple jest zgodna z istniejącą architekturą:
+* **Ciągłość działania**. CloudSimple oferuje natywny dostęp do platform VMware. Architektura CloudSimple jest zgodna z istniejącymi:
     * Aplikacje
     * Operacje
     * Zabezpieczenia
-    * Tworzenie kopii zapasowych
+    * Backup
     * Odzyskiwanie po awarii
     * Inspekcja
-    * Narzędzia zgodności
+    * Narzędzia do oceny zgodności
     * Procesy
-* **Brak przekwalifikowania**. Zgodność platformy VMware pozwala na wykorzystanie istniejących umiejętności i wiedzy.
-* **Elastyczność infrastruktury**. Nie musisz już przewidywać wszystkich potrzeb związanych z przepustowością, a następnie kończyć się marnotrawą przepustowością lub niedoborami infrastruktury. CloudSimple jest dostarczany jako usługa w chmurze i można dodać lub zmniejszyć pojemność w dowolnym momencie
-* **Bezpieczeństwo**. Dostęp do środowiska CloudSimple za pośrednictwem platformy Azure zapewnia wbudowaną ochronę przed atakami DDoS i monitorowanie zabezpieczeń.
-* **Niższy koszt**. Platforma CloudSimple jest wysoce zaprojektowana i zapewnia wysoki poziom automatyzacji, wydajności operacyjnej i korzyści skali. Ponadto CloudSimple publikuje architektury rozwiązań, które wykorzystują obecność VMware w chmurze publicznej, aby obniżyć koszty. Przykłady obejmują usługę Azure AD, tworzenie kopii zapasowych do magazynu platformy Azure, bramę aplikacji, moduł równoważenia obciążenia i inne.
-* **Nowa platforma hybrydowa**. Usługa umożliwia szybki dostęp do pozostałej części platformy Azure z małymi opóźnieniami. Ponadto zarządzanie CloudSimple umożliwia ujednolicone zarządzanie maszynami wirtualnymi VMware i pozostałą częścią platformy Azure przy użyciu tego samego interfejsu użytkownika i interfejsu API. Zespoły programistyczne mogą korzystać zarówno z platform publicznych, jak i prywatnych w sposób zintegrowany, spójny.
-* **Monitorowanie infrastruktury, rozwiązywanie problemów i pomoc techniczna**. CloudSimple obsługuje podstawową infrastrukturę jako usługę. Sprzęt Fail zostanie automatycznie zastąpiony. Możesz skupić się na zużyciu, podczas gdy CloudSimple zapewnia, że środowisko działa płynnie.
-* **Zgodność zasad**. Zachowaj narzędzia oparte na VMware, procedury bezpieczeństwa, praktyki inspekcji i certyfikaty zgodności.
+* **Brak przeszkolenia**. Zgodność platformy VMware pozwala korzystać z istniejących umiejętności i wiedzy.
+* **Elastyczność infrastruktury**. Nie jest już konieczne przewidywalność wszystkich potrzeb związanych z pojemnością, a następnie dowiesz się, że nie ma żadnych niedobórów pojemności lub infrastruktury. CloudSimple jest dostarczany jako usługa w chmurze i można w dowolnym momencie dodać lub zmniejszyć pojemność
+* **Zabezpieczenia**. Dostęp do środowiska CloudSimple za pomocą platformy Azure zapewnia wbudowaną ochronę DDoS i monitorowanie zabezpieczeń.
+* **Niższy koszt**. Platforma CloudSimple jest wysoce skonstruowana i zapewnia wysoki poziom automatyzacji, efektywność operacyjną i oszczędności skali. Ponadto CloudSimple publikuje architektury rozwiązań, które wykorzystują obecność VMware w chmurze publicznej do obniżenia kosztów. Przykłady obejmują usługę Azure AD, kopię zapasową do usługi Azure Storage, bramę aplikacji, moduł równoważenia obciążenia i inne.
+* **Nowa platforma hybrydowa**. Usługa umożliwia dostęp do reszty systemu Azure o wysokiej szybkości i o małym opóźnieniu. Ponadto zarządzanie CloudSimple umożliwia ujednolicone zarządzanie maszynami wirtualnymi VMware i resztą platformy Azure przy użyciu tego samego interfejsu użytkownika i interfejsu API. Zespoły programistyczne mogą korzystać z zarówno platform publicznych, jak i prywatnych w zintegrowany, spójny sposób.
+* **Monitorowanie infrastruktury, rozwiązywanie problemów i pomoc techniczna**. Usługa CloudSimple obsługuje podstawową infrastrukturę jako usługę. Awaria sprzętowa jest automatycznie zastępowana. Możesz skupić się na zużyciu, podczas gdy CloudSimple gwarantuje, że środowisko działa bezproblemowo.
+* **Zgodność z zasadami**. Utrzymuj narzędzia oparte na oprogramowaniu VMware, procedury zabezpieczeń, praktyki inspekcji i certyfikaty zgodności.
 
 ## <a name="scenarios"></a>Scenariusze
 
-* **Emerytura lub migracja centrum danych**. Uzyskaj dodatkową pojemność po osiągnięciu limitów istniejącego centrum danych lub odświeżeniu sprzętu. Możesz łatwo dodać potrzebną pojemność w chmurze i wyeliminować bóle głowy związane z zarządzaniem odświeżaczami sprzętu. Zmniejsz ryzyko i koszty migracji do chmury w porównaniu z czasochłonnymi konwersjami lub chybieniami. Korzystaj ze znanych narzędzi i umiejętności VMware, aby przyspieszyć migrację do chmury. W chmurze użyj usług platformy Azure, aby zmodernizować aplikacje w swoim tempie.
-* **Rozwiń na żądanie**. Rozwiń do chmury, aby sprostać nieoczekiwanym potrzebom, takim jak nowe środowiska programistyczne lub sezonowe serie zdolności produkcyjnych. Możesz łatwo tworzyć nowe zdolności produkcyjne na żądanie i przechowywać ją tylko tak długo, jak jej potrzebujesz. Zmniejsz swoje inwestycje z góry, przyspiesz szybkość inicjowania obsługi administracyjnej i zmniejsz złożoność dzięki tej samej architekturze i zasadom zarówno w środowisku lokalnym, jak i w chmurze.
-* **Odzyskiwanie po awarii i pulpity wirtualne w chmurze platformy Azure**. Ustanawianie zdalnego dostępu do danych, aplikacji i pulpitów w chmurze platformy Azure. Dzięki połączeniom o dużej przepustowości można szybko przesyłać i pobierać dane, aby odzyskać dane po zdarzeniach. Sieci o małych opóźnieniach zapewniają szybkie czasy reakcji, których użytkownicy oczekują od aplikacji klasycznej. Dzięki CloudSimple można łatwo replikować wszystkie zasady i sieci w chmurze za pomocą portalu CloudSimple i znanych narzędzi VMware. Łatwość odzyskiwania i replikacji znacznie zmniejsza nakład pracy i ryzyko tworzenia i zarządzania implementacjami odzyskiwania po awarii i VDI.
-* **Aplikacje i bazy danych**o wysokiej wydajności . CloudSimple zapewnia architekturę hiperkonwergentną zaprojektowaną do uruchamiania najbardziej wymagających obciążeń VMware. Uruchom oracle, microsoft SQL server, systemy oprogramowania pośredniczącego i wysokowydajne bazy danych bez SQL. Poznaj chmurę jako własne centrum danych dzięki szybkim połączeniom sieciowym 25 Gb/s, które umożliwiają uruchamianie aplikacji hybrydowych obejmujących lokalne, VMware na platformie Azure i prywatnych obciążeń platformy Azure bez uszczerbku dla wydajności.
-* **Prawdziwa hybryda**. Ujednolicenie devops w vmware i azure. Optymalizacja administracji VMware pod kątem usług i rozwiązań platformy Azure, które mogą być stosowane we wszystkich obciążeniach. Uzyskaj dostęp do publicznych usług w chmurze bez konieczności rozszerzania centrum danych lub ponownego wychwytywowania aplikacji. Scentralizuj tożsamości, zasady kontroli dostępu, rejestrowanie i monitorowanie aplikacji VMware na platformie Azure.
+* **Wycofanie lub migracja centrum**danych. Uzyskaj dodatkową pojemność po osiągnięciu limitów istniejących centrów danych lub odświeżania sprzętu. Możesz łatwo dodać wymaganą pojemność w chmurze i wyeliminować zarządzaniem mu towarzyszą do zarządzania odświeżeniami sprzętowymi. Zmniejszenie ryzyka i kosztów migracji w chmurze w porównaniu do czasochłonnych operacji konwersji lub ponownej architektury. Przyspiesz migracje w chmurze przy użyciu znanych narzędzi i umiejętności programu VMware. W chmurze korzystaj z usług platformy Azure w celu modernizacji aplikacji w Twoim tempie.
+* **Rozwiń na żądanie**. Rozwiń chmurę, aby zaspokoić nieprzewidziane potrzeby, takie jak nowe środowiska programistyczne lub sezonowe zmiany pojemności. Możesz łatwo utworzyć nową pojemność na żądanie i zachować ją tylko tak długo, jak to konieczne. Ogranicz inwestycje z góry, przyspiesz szybkość aprowizacji i zmniejsz złożoność dzięki tej samej architekturze i zasadom zarówno w środowisku lokalnym, jak i w chmurze.
+* **Odzyskiwanie po awarii i pulpity wirtualne w chmurze platformy Azure**. Ustanów zdalny dostęp do danych, aplikacji i pulpitów w chmurze platformy Azure. Połączenia o wysokiej przepustowości umożliwiają szybkie przekazywanie i pobieranie danych w celu ich odzyskania ze zdarzeń. Sieci o małym opóźnieniu zapewniają krótszy czas odpowiedzi, który użytkownicy oczekują od aplikacji klasycznej. Dzięki programowi CloudSimple można łatwo replikować wszystkie zasady i sieci w chmurze przy użyciu portalu CloudSimple i znanych narzędzi VMware. Łatwość odzyskiwania i replikacji znacznie zmniejsza nakład pracy i ryzyko tworzenia i zarządzania implementacją odzyskiwania po awarii i infrastruktury VDI.
+* **Aplikacje i bazy danych o wysokiej wydajności**. CloudSimple zapewnia architekturę z zbieżnością zaprojektowaną do uruchamiania najbardziej wymagających obciążeń programu VMware. Uruchamiaj oprogramowanie Oracle, Microsoft SQL Server, systemy oprogramowania pośredniczącego i bazy danych bez SQL o wysokiej wydajności. Zapoznaj się z chmurą jako własne centrum danych z szybkimi połączeniami sieciowymi o szybkości 25 GB/s, które umożliwiają uruchamianie aplikacji hybrydowych obejmujących lokalne, VMware na platformie Azure i prywatne obciążenia platformy Azure bez obniżania wydajności.
+* **Prawdziwe hybrydowe**. Ujednolicenie DevOps w oprogramowaniu VMware i platformie Azure. Optymalizuj administrację VMware dla usług i rozwiązań platformy Azure, które można stosować do wszystkich obciążeń. Uzyskaj dostęp do usług w chmurze publicznej bez konieczności rozszerzania centrum danych ani tworzenia architektury aplikacji. Scentralizowanie tożsamości, zasad kontroli dostępu, rejestrowania i monitorowania aplikacji VMware na platformie Azure.
 
 ![Scenariusze](media/cloudsimple-scenarios.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Utwórz usługę CloudSimple](quickstart-create-cloudsimple-service.md)
-* [Tworzenie chmury prywatnej](quickstart-create-private-cloud.md)
+* [Tworzenie usługi CloudSimple](quickstart-create-cloudsimple-service.md)
+* [Utwórz chmurę prywatną](quickstart-create-private-cloud.md)

@@ -1,7 +1,7 @@
 ---
-title: Zarządzanie dziennikami przepływu nsg — narzędzie interfejsu wiersza polecenia platformy Azure
+title: Zarządzanie dziennikami przepływu sieciowej grupy zabezpieczeń — interfejs wiersza polecenia platformy Azure
 titleSuffix: Azure Network Watcher
-description: Na tej stronie dowiesz się, jak zarządzać dziennikami przepływu grupy zabezpieczeń sieciowych w usłudze Azure Network Watcher za pomocą interfejsu wiersza polecenia platformy Azure
+description: Na tej stronie wyjaśniono, jak zarządzać dziennikami przepływu sieciowych grup zabezpieczeń w usłudze Azure Network Watcher przy użyciu interfejsu wiersza polecenia platformy Azure
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -13,35 +13,35 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 285d19dbd0e7b8a94eada66f837d33b787006f09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840965"
 ---
-# <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Konfigurowanie dzienników przepływu sieciowej grupy zabezpieczeń za pomocą interfejsu wiersza polecenia platformy Azure
+# <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Konfigurowanie dzienników przepływu sieciowych grup zabezpieczeń przy użyciu interfejsu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
-> - [Portal Azure](network-watcher-nsg-flow-logging-portal.md)
-> - [Powershell](network-watcher-nsg-flow-logging-powershell.md)
+> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Narzędzia](network-watcher-nsg-flow-logging-powershell.md)
 > - [Interfejs wiersza polecenia platformy Azure](network-watcher-nsg-flow-logging-cli.md)
-> - [INTERFEJS API ODPOCZYNKU](network-watcher-nsg-flow-logging-rest.md)
+> - [INTERFEJS API REST](network-watcher-nsg-flow-logging-rest.md)
 
-Dzienniki przepływu sieciowej grupy zabezpieczeń są funkcją obserwatora sieci, która umożliwia wyświetlanie informacji o ruchu IP przychodzących i wychodzących za pośrednictwem sieciowej grupy zabezpieczeń. Te dzienniki przepływu są zapisywane w formacie json i pokazują przepływy wychodzące i przychodzące na podstawie reguły, karty sieciowej, do których ma zastosowanie przepływ, 5-krotki informacje o przepływie (źródłowy/docelowy adres IP, port źródłowy/docelowy, protokół) i jeśli ruch był dozwolony lub odrzucony.
+Dzienniki przepływu sieciowych grup zabezpieczeń są funkcją Network Watcher, która umożliwia wyświetlanie informacji dotyczących ruchu przychodzącego i wychodzącego IP za pomocą sieciowej grupy zabezpieczeń. Te dzienniki przepływów są zapisywane w formacie JSON i pokazują przepływy wychodzące i przychodzące dla każdej reguły, karta sieciowa przepływu ma zastosowanie do, 5-informacje o spójnej kolekcji przepływu (źródłowy/docelowy adres IP, port źródłowy/docelowy, protokół) i jeśli ruch był dozwolony lub zabroniony.
 
-Aby wykonać kroki opisane w tym artykule, należy [zainstalować interfejs wiersza polecenia platformy Azure dla komputerów Mac, Linux i Windows (CLI)](/cli/azure/install-azure-cli).
+Aby wykonać kroki opisane w tym artykule, należy [zainstalować interfejs wiersza polecenia platformy Azure dla systemów Mac, Linux i Windows (CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="register-insights-provider"></a>Rejestrowanie dostawcy usługi Insights
 
-Aby rejestrowanie przepływu działało pomyślnie, dostawca **microsoft.insights** musi być zarejestrowany. Jeśli nie masz pewności, czy dostawca **usługi Microsoft.Insights** jest zarejestrowany, uruchom następujący skrypt.
+Aby rejestrowanie przepływu działało prawidłowo, dostawca **Microsoft. Insights** musi być zarejestrowany. Jeśli nie masz pewności, czy dostawca **Microsoft. Insights** został zarejestrowany, uruchom następujący skrypt.
 
 ```azurecli
 az provider register --namespace Microsoft.Insights
 ```
 
-## <a name="enable-network-security-group-flow-logs"></a>Włączanie dzienników przepływu sieciowej grupy zabezpieczeń
+## <a name="enable-network-security-group-flow-logs"></a>Włączanie dzienników przepływu sieciowych grup zabezpieczeń
 
-Polecenie włączania dzienników przepływu jest wyświetlane w poniższym przykładzie:
+W poniższym przykładzie przedstawiono polecenie umożliwiające włączenie dzienników przepływu:
 
 ```azurecli
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
@@ -49,21 +49,21 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName  --format JSON --log-version 2
 ```
 
-Określone konto magazynu nie może mieć skonfigurowanych dla niego reguł sieciowych, które ograniczają dostęp do sieci tylko do usług firmy Microsoft lub określonych sieci wirtualnych. Konto magazynu może być w tej samej lub innej subskrypcji platformy Azure niż nsg, dla którego można włączyć dziennik przepływu. Jeśli używasz różnych subskrypcji, oba muszą być skojarzone z tą samą dzierżawą usługi Azure Active Directory. Konto używane dla każdej subskrypcji musi mieć [niezbędne uprawnienia](required-rbac-permissions.md). 
+Określone konto magazynu nie może mieć skonfigurowanych reguł sieciowych, które ograniczają dostęp do sieci tylko do usług firmy Microsoft lub określonych sieci wirtualnych. Konto magazynu może być w tej samej lub innej subskrypcji platformy Azure niż sieciowej grupy zabezpieczeń, dla którego włączono dziennik przepływów. Jeśli używasz różnych subskrypcji, muszą one być skojarzone z tą samą dzierżawą Azure Active Directory. Konto używane dla każdej subskrypcji musi mieć [wymagane uprawnienia](required-rbac-permissions.md). 
 
-Jeśli konto magazynu znajduje się w innej grupie zasobów lub subskrypcji niż sieciowa grupa zabezpieczeń, określ pełny identyfikator konta magazynu, a nie jego nazwę. Na przykład, jeśli konto magazynu znajduje się w grupie zasobów o nazwie *RG-Storage*, zamiast *określać storageAccountName* w poprzednim poleceniu, należy określić */subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccounts/storageAccounts/storageAccountName*.
+Jeśli konto magazynu znajduje się w innej grupie zasobów lub subskrypcji niż grupa zabezpieczeń sieci, podaj pełny identyfikator konta magazynu, a nie jego nazwę. Jeśli na przykład konto magazynu znajduje się w grupie zasobów o nazwie *RG-Storage*, a nie określono *storageAccountName* w poprzednim poleceniu, należy określić */subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/Providers/Microsoft.Storage/storageAccounts/storageAccountName*.
 
-## <a name="disable-network-security-group-flow-logs"></a>Wyłączanie dzienników przepływu sieciowej grupy zabezpieczeń
+## <a name="disable-network-security-group-flow-logs"></a>Wyłącz dzienniki przepływu sieciowych grup zabezpieczeń
 
-Aby wyłączyć dzienniki przepływu, użyj następującego przykładu:
+Aby wyłączyć dzienniki przepływów, użyj następującego przykładu:
 
 ```azurecli
 az network watcher flow-log configure --resource-group resourceGroupName --enabled false --nsg nsgName
 ```
 
-## <a name="download-a-flow-log"></a>Pobieranie dziennika przepływu
+## <a name="download-a-flow-log"></a>Pobierz dziennik przepływu
 
-Lokalizacja przechowywania dziennika przepływu jest zdefiniowana podczas tworzenia. Wygodnym narzędziem dostępu do tych dzienników przepływu zapisanych na koncie magazynu jest Microsoft Azure Storage Explorer, który można pobrać tutaj:https://storageexplorer.com/
+Lokalizacja magazynu dziennika przepływu jest definiowana podczas tworzenia. Wygodnym narzędziem do uzyskiwania dostępu do tych dzienników przepływów zapisanych na koncie magazynu jest Eksplorator usługi Microsoft Azure Storage, które można pobrać tutaj:https://storageexplorer.com/
 
 Jeśli określono konto magazynu, pliki dziennika przepływu są zapisywane na koncie magazynu w następującej lokalizacji:
 
@@ -74,6 +74,6 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak [wizualizować dzienniki przepływu sieciowych sieci płciowych za pomocą usługi PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Dowiedz się, jak [wizualizować dzienniki przepływu sieciowej grupy zabezpieczeń za pomocą usługi PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
-Dowiedz się, jak [wizualizować dzienniki przepływu nsg za pomocą narzędzi open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+Dowiedz się, jak [wizualizować dzienniki przepływu sieciowej grupy zabezpieczeń za pomocą narzędzi open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)

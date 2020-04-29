@@ -1,7 +1,7 @@
 ---
-title: 'Oceń polecający: Odwołanie do modułu'
+title: 'Oceń polecania: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak użyć modułu Oceń polecający w usłudze Azure Machine Learning, aby ocenić dokładność prognoz modelu rekomendatora.
+description: Dowiedz się, w jaki sposób używać modułu do szacowania w Azure Machine Learning, aby oszacować dokładność prognoz modelu zalecanych.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,84 +10,84 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76312264"
 ---
 # <a name="evaluate-recommender"></a>Ocena modułu poleceń
 
-W tym artykule opisano, jak używać modułu Oceń polecaj w projektancie usługi Azure Machine Learning (wersja zapoznawcza). Celem jest pomiar dokładności prognoz, które dokonał model rekomendacji. Za pomocą tego modułu, można ocenić różne rodzaje zaleceń:  
+W tym artykule opisano sposób korzystania z modułu "Oceń polecania" w programie Azure Machine Learning Designer (wersja zapoznawcza). Celem jest zmierzenie dokładności prognoz, które zostały wykonane przez model rekomendacji. Korzystając z tego modułu, można oszacować różne rodzaje zaleceń:  
   
--   Oceny przewidywane dla użytkownika i elementu    
+-   Klasyfikacje przewidziane dla użytkownika i elementu    
 -   Elementy zalecane dla użytkownika  
   
-Podczas tworzenia prognoz przy użyciu modelu rekomendacji, nieco inne wyniki są zwracane dla każdego z tych obsługiwanych typów prognozowania. Oceniaj rekomendatora moduł wywnicza rodzaj przewidywania z formatu kolumny zestawu danych ocena. Na przykład zestaw danychscored może zawierać:
+Podczas tworzenia prognoz przy użyciu modelu rekomendacji dla każdego z obsługiwanych typów prognoz są zwracane nieco inne wyniki. W module oceny zaleca się wywnioskowanie rodzaju przewidywania z formatu kolumn zestawu danych z oceną. Na przykład, wynikowy zestaw danych może zawierać:
 
-- Potrójne oceny przedmiotu użytkownika
+- Potrójne oceny elementów użytkownika
 - Użytkownicy i ich zalecane elementy
 
-Moduł stosuje również odpowiednie metryki wydajności, na podstawie typu przewidywanie. 
+Moduł stosuje również odpowiednie metryki wydajności w oparciu o typ wykonywanej prognozowania. 
 
   
-## <a name="how-to-configure-evaluate-recommender"></a>Jak skonfigurować rekomendatora oceny
+## <a name="how-to-configure-evaluate-recommender"></a>Jak skonfigurować zalecaną ocenę
 
-Oceniaj recommender moduł porównuje dane wyjściowe przewidywania przy użyciu modelu rekomendacji z odpowiednimi "prawdy ziemi" danych. Na przykład [wynik SVD Recommender](score-svd-recommender.md) moduł tworzy ocenione zestawy danych, które można analizować przy użyciu polecenia oceniać.
+Moduł szacowania polecania porównuje dane wyjściowe przewidywania przy użyciu modelu rekomendacji z odpowiadającymi im danymi "rzeczywistości". Na przykład moduł [polecający ten wynik](score-svd-recommender.md) umożliwia tworzenie ocenionych zestawów danych, które można analizować za pomocą narzędzia do oceny.
 
 ### <a name="requirements"></a>Wymagania
 
-Ocena recommender wymaga następujących zestawów danych jako dane wejściowe. 
+Aby oszacować polecał, wymagane są następujące zestawy danych jako dane wejściowe. 
   
 #### <a name="test-dataset"></a>Testowy zestaw danych
 
-Testowy zestaw danych zawiera dane "prawdy gruntu" w postaci potrójnych klasyfikacji pozycji użytkownika.  
+Zestaw danych testu zawiera dane "podstawowe prawdy" w postaci potrójnych elementów użytkownika.  
 
-#### <a name="scored-dataset"></a>Zestaw danych oceny
+#### <a name="scored-dataset"></a>Wynikowy zestaw danych
 
-Zestaw danychscored zawiera prognoz, które model rekomendacji generowane.  
+Wynikowy zestaw danych zawiera przewidywania wygenerowane przez model rekomendacji.  
   
-Kolumny w tym drugim zestawie danych zależą od rodzaju przewidywanie, które zostały wykonane podczas procesu oceniania. Na przykład zestaw danychscored może zawierać jedną z następujących czynności:
+Kolumny w tym drugim zestawie danych zależą od rodzaju przewidywania wykonywanego podczas procesu oceniania. Na przykład, wynikowy zestaw danych może zawierać jedną z następujących wartości:
 
-- Użytkownicy, elementy i oceny, które użytkownik prawdopodobnie da dla elementu
-- Lista użytkowników i przedmiotów zalecanych dla nich 
+- Użytkownicy, elementy i oceny, które mogą dać użytkownikowi dla elementu
+- Lista użytkowników i elementów zalecanych dla nich 
 
 ### <a name="metrics"></a>Metryki
 
-Metryki wydajności dla modelu są generowane na podstawie typu danych wejściowych. W poniższych sekcjach podano szczegóły.
+Metryki wydajności dla modelu są generowane na podstawie typu danych wejściowych. Poniższe sekcje zawierają szczegółowe informacje.
 
-## <a name="evaluate-predicted-ratings"></a>Ocena przewidywanych ocen  
+## <a name="evaluate-predicted-ratings"></a>Oceń przewidywane klasyfikacje  
 
-Podczas oceny przewidywanych ocen, oceniony zestaw danych (drugie dane wejściowe do Oceny relecatora) musi zawierać potrójne oceny elementu użytkownika, które spełniają te wymagania:
+Gdy oceniasz przewidywane klasyfikacje, wynikowy zestaw danych (drugie dane wejściowe do oceny) musi zawierać trzykrotne oceny elementów użytkownika, które spełniają następujące wymagania:
   
--   Pierwsza kolumna zestawu danych zawiera identyfikatory użytkownika.    
+-   Pierwsza kolumna zestawu danych zawiera identyfikatory użytkowników.    
 -   Druga kolumna zawiera identyfikatory elementów.  
--   Trzecia kolumna zawiera odpowiednie oceny elementu użytkownika.  
+-   Trzecia kolumna zawiera odpowiednie oceny elementów użytkownika.  
   
 > [!IMPORTANT] 
-> Aby ocena powiodła się, `User`nazwy `Item`kolumn `Rating`muszą być odpowiednio , i , .  
+> Aby obliczanie powiodło się, nazwy kolumn muszą być `User`odpowiednio `Item`,, `Rating`i.  
   
-Polecenie Realec evaluate porównuje oceny w zestawie danych "prawdy gruntu" z przewidywanymi ocenami ocenionego zestawu danych. Następnie oblicza średni błąd bezwzględny (MAE) i główny średni błąd kwadratowy (RMSE).
+Ocena polecania porównuje klasyfikacje w zestawie danych "Uziemienie", do przewidywanych klasyfikacji zestawu danych. Następnie oblicza średni błąd bezwzględny (MAE) i pierwiastek średniego błędu kwadratowego (RMSE).
 
 
 
-## <a name="evaluate-item-recommendations"></a>Ocena rekomendacji dotyczących pozycji
+## <a name="evaluate-item-recommendations"></a>Oceń zalecenia dotyczące elementów
 
-Podczas oceny zaleceń dotyczących elementów należy użyć zestawu danych z oceną, który zawiera zalecane elementy dla każdego użytkownika:
+Gdy oceniasz zalecenia dotyczące elementów, użyj oceny zestawu danych, który zawiera zalecane elementy dla każdego użytkownika:
   
 -   Pierwsza kolumna zestawu danych musi zawierać identyfikator użytkownika.    
--   Wszystkie kolejne kolumny powinny zawierać odpowiednie zalecane identyfikatory towarów, uporządkowane według znaczenia elementu dla użytkownika. 
+-   Wszystkie kolejne kolumny powinny zawierać odpowiadające im identyfikatory elementów uporządkowane według odpowiedniego elementu. 
 
-Przed nawiązaniem połączenia tego zestawu danych zaleca się sortowanie zestawu danych, tak aby najważniejsze elementy były najważniejsze.  
+Przed nawiązaniem połączenia z tym zestawem danych zalecamy posortowanie zestawu danych, tak aby najbardziej odpowiednie elementy były wcześniej dostępne.  
 
 > [!IMPORTANT] 
-> Aby polecenie Rekomendatora do `User`pracy, nazwy kolumn muszą być , `Item 1`, `Item 2` `Item 3` i tak dalej.  
+> Aby można było wykonać ocenę problemu, nazwy kolumn muszą `User`być, `Item 1`, `Item 2`, `Item 3` i tak dalej.  
   
-Ocena Recommender oblicza średni znormalizowany zdyskontowany przyrost skumulowany (NDCG) i zwraca go w wyjściowym zestawie danych.  
+Funkcja oceniania zaleca obliczanie średniego znormalizowanego zysku z rabatem skumulowanym (NDCG) i zwraca go do wyjściowego zestawu danych.  
   
-Ponieważ nie można poznać rzeczywistej "prawdy gruntu" dla zalecanych elementów, Program Evaluate Recommender używa ocen elementu użytkownika w zestawie danych testowych jako zyski w obliczeniach NDCG. Aby ocenić, moduł oceniający rekomendujący musi tworzyć tylko zalecenia dla elementów z oceną "prawdy gruntu" (w zestawie danych testowych).  
+Ze względu na to, że w przypadku zalecanych elementów nie jest wiadomo, że w zestawie danych testowych są obecne wartości rzeczywiste "w rzeczywistości Aby oszacować, moduł oceniania polecania musi generować tylko zalecenia dotyczące elementów ze klasyfikacjami "Obudowa", w zestawie danych testowych.  
   
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

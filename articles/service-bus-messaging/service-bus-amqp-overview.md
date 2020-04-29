@@ -1,6 +1,6 @@
 ---
-title: Omówienie usługi AMQP 1.0 w usłudze Azure Service Bus
-description: Dowiedz się, jak usługa Azure Service Bus obsługuje protokół AMQP (Advanced Message Usłudze kolejkowania) ( open usytuować protokół).
+title: Omówienie AMQP 1,0 w Azure Service Bus
+description: Dowiedz się, jak Azure Service Bus obsługuje Advanced Message Queuing Protocol (AMQP), Open standard Protocol.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -15,86 +15,86 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 50d21cfe8136b9c794eae5104bbb34e28f7c1661
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76759316"
 ---
-# <a name="amqp-10-support-in-service-bus"></a>Obsługa usługi AMQP 1.0 w magistrali usług
-Zarówno usługa w chmurze usługi Azure Service Bus, jak i lokalna [usługa Service Bus dla systemu Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) obsługują protokół AMQP (Advanced Message Queueing Protocol) 1.0. Protokół AMQP umożliwia tworzenie wieloplatformowych, hybrydowych aplikacji przy użyciu otwartego standardowego protokołu. Można konstruować aplikacje przy użyciu składników, które są tworzone przy użyciu różnych języków i struktur i które działają w różnych systemach operacyjnych. Wszystkie te składniki mogą łączyć się z usługą Service Bus i bezproblemowo wymieniać uporządkowane komunikaty biznesowe wydajnie i z pełną wiernością.
+# <a name="amqp-10-support-in-service-bus"></a>Obsługa AMQP 1,0 w Service Bus
+Zarówno usługa Azure Service Bus w chmurze, jak i lokalne [Service Bus dla systemu Windows Server (Service Bus 1,1)](https://msdn.microsoft.com/library/dn282144.aspx) obsługują protokół Advanced Message Queueing Protocol (AMQP) 1,0. AMQP umożliwia tworzenie aplikacji hybrydowych dla wielu platform przy użyciu protokołu Open Standard. Aplikacje można konstruować przy użyciu składników utworzonych przy użyciu różnych języków i struktur, które działają w różnych systemach operacyjnych. Wszystkie te składniki mogą łączyć się z Service Bus i bezproblemowo wymieniać strukturalne wiadomości biznesowe oraz z pełną dokładnością.
 
-## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>Wprowadzenie: Co to jest AMQP 1.0 i dlaczego jest to ważne?
-Tradycyjnie produkty pośredniczące zorientowane na wiadomości używały zastrzeżonych protokołów do komunikacji między aplikacjami klienckimi a brokerami. Oznacza to, że po wybraniu brokera obsługi wiadomości określonego dostawcy należy użyć bibliotek tego dostawcy, aby połączyć aplikacje klienckie z tym brokerem. Powoduje to stopień zależności od tego dostawcy, ponieważ przeniesienie aplikacji do innego produktu wymaga zmian kodu we wszystkich połączonych aplikacjach. 
+## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>Wprowadzenie: co to jest AMQP 1,0 i dlaczego jest ważne?
+Tradycyjnie, zorientowane na komunikaty oprogramowanie pośredniczące wykorzystuje protokoły własnościowe do komunikacji między aplikacjami klienckimi i brokerami. Oznacza to, że po wybraniu brokera obsługi komunikatów określonego dostawcy należy użyć bibliotek tego dostawcy, aby połączyć aplikacje klienckie z tym brokerem. Wynika to z stopnia zależności od tego dostawcy, ponieważ port aplikacji do innego produktu wymaga wprowadzenia zmian w kodzie we wszystkich połączonych aplikacjach. 
 
-Ponadto łączenie brokerów wiadomości od różnych dostawców jest trudne. Zazwyczaj wymaga to pomostowania na poziomie aplikacji, aby przenosić wiadomości z jednego systemu do drugiego i tłumaczyć między ich zastrzeżonymi formatami wiadomości. Jest to wspólny wymóg; na przykład, gdy należy podać nowy ujednolicony interfejs do starszych różnych systemów lub zintegrować systemy INFORMATYCZNE po połączeniu.
+Ponadto łączenie brokerów komunikatów z różnych dostawców jest trudne. Zwykle wymaga to mostkowania na poziomie aplikacji przenoszenia komunikatów z jednego systemu do drugiego i przetłumaczenia ich własnościowe formaty komunikatów. Jest to typowy wymóg; na przykład, jeśli musisz podać nowy ujednolicony interfejs dla starszych systemów lub zintegrować systemy IT po fuzji.
 
-Przemysł oprogramowania jest szybko rozwijającym się biznesem; nowe języki programowania i struktury aplikacji są wprowadzane w niekiedy zaskakującym tempie. Podobnie wymagania systemów IT ewoluują wraz z czasem, a deweloperzy chcą korzystać z najnowszych funkcji platformy. Jednak czasami wybrany dostawca obsługi wiadomości nie obsługuje tych platform. Ponieważ protokoły obsługi wiadomości są zastrzeżone, nie jest możliwe dla innych, aby zapewnić biblioteki dla tych nowych platform. W związku z tym należy użyć metod, takich jak budowanie bram lub mostów, które umożliwiają dalsze korzystanie z urządzenia do obsługi wiadomości.
+Branża oprogramowania to szybko przenoszona firma; nowe języki programowania i struktury aplikacji są wprowadzane w niebewildering tempie. Podobnie wymagania systemu IT są roznoszone w miarę upływu czasu, a deweloperzy chcą korzystać z najnowszych funkcji platformy. Jednak czasami wybrany dostawca obsługi komunikatów nie obsługuje tych platform. Ponieważ protokoły obsługi wiadomości są zastrzeżone, nie jest możliwe, aby udostępnić biblioteki dla tych nowych platform. W związku z tym należy użyć podejścia, takiego jak tworzenie bram lub mostków, które umożliwiają dalsze korzystanie z produktu do obsługi komunikatów.
 
-Opracowanie protokołu AMQP (Advanced Message Queuing Protocol) 1.0 było motywowane tymi problemami. Pochodzi z JP Morgan Chase, który, podobnie jak większość firm świadczących usługi finansowe, są ciężkimi użytkownikami oprogramowania pośredniczącego zorientowanego na wiadomości. Cel był prosty: stworzyć otwarty protokół przesyłania wiadomości, który umożliwił tworzenie aplikacji opartych na wiadomościach przy użyciu komponentów zbudowanych przy użyciu różnych języków, struktur i systemów operacyjnych, wszystkie przy użyciu najlepszych w swojej klasie składników z różnych Dostawców.
+Rozwój Advanced Message Queuing Protocol (AMQP) 1,0 został umotywowany przez te problemy. Pochodzi ona z Morgan Chase, kto, podobnie jak większość firmowych usług finansowych, jest ciężkimi użytkownikami oprogramowania pośredniczącego zorientowanego na komunikaty. Cel był prosty: Aby utworzyć protokół obsługi komunikatów typu Open-Standard, który umożliwia tworzenie aplikacji opartych na komunikatach przy użyciu składników utworzonych przy użyciu różnych języków, platform i systemów operacyjnych, przy użyciu najlepszych składników z wielu dostawców.
 
-## <a name="amqp-10-technical-features"></a>Funkcje techniczne AMQP 1.0
-PROTOKÓŁ AMQP 1.0 to wydajny, niezawodny protokół obsługi wiadomości na poziomie przewodowym, którego można używać do tworzenia niezawodnych, wieloplatformowych aplikacji do obsługi wiadomości. Protokół ma prosty cel: zdefiniować mechanikę bezpiecznego, niezawodnego i efektywnego transferu wiadomości między dwiema stronami. Same wiadomości są kodowane przy użyciu przenośnej reprezentacji danych, która umożliwia heterogenicznych nadawców i odbiorców do wymiany uporządkowanych komunikatów biznesowych z pełną wiernością. Poniżej znajduje się podsumowanie najważniejszych funkcji:
+## <a name="amqp-10-technical-features"></a>AMQP 1,0 — funkcje techniczne
+AMQP 1,0 to wydajny, niezawodny protokół obsługi komunikatów na poziomie sieci, który umożliwia tworzenie niezawodnych aplikacji do obsługi komunikatów na wielu platformach. Protokół ma prosty cel: do definiowania Mechanics bezpiecznych, niezawodnych i wydajnych transferów komunikatów między dwiema stronami. Same wiadomości są kodowane przy użyciu przenośnej reprezentacji danych, która umożliwia niejednorodnym nadawcom i odbiornikom wymianę strukturalnych komunikatów służbowych z pełną dokładnością. Poniżej znajduje się podsumowanie najważniejszych funkcji:
 
-* **Efficient**: AMQP 1.0 to protokół zorientowany na połączenie, który używa kodowania binarnego dla instrukcji protokołu i wiadomości biznesowych przesyłanych za nim. Zawiera zaawansowane schematy kontroli przepływu, aby zmaksymalizować wykorzystanie sieci i podłączonych komponentów. Mimo to protokół został zaprojektowany w celu znalezienia równowagi między wydajnością, elastycznością i interoperacyjnością.
-* **Niezawodność:** Protokół AMQP 1.0 umożliwia wymianę wiadomości z szeregiem gwarancji niezawodności, od ognia i zapomnienia po niezawodne, dokładnie raz potwierdzone dostarczanie.
-* **Elastyczny:** AMQP 1.0 to elastyczny protokół, który może być używany do obsługi różnych topologii. Ten sam protokół może być używany do komunikacji klient-klient-klient, klient-broker i broker-broker.
-* **Niezależny od brokera model:** Specyfikacja AMQP 1.0 nie zawiera żadnych wymagań dotyczących modelu obsługi wiadomości używanego przez brokera. Oznacza to, że można łatwo dodać obsługę AMQP 1.0 do istniejących brokerów wiadomości.
+* **Wydajne**: AMQP 1,0 to protokół zorientowany na połączenia, który używa kodowania binarnego dla instrukcji protokołu i komunikatów służbowych przesyłanych w tym miejscu. Obejmuje ona zaawansowane schematy kontroli przepływu w celu zmaksymalizowania wykorzystania sieci i podłączonych składników. Wspomniany protokół został zaprojektowany w celu zrównoważenia równowagi między wydajnością, elastycznością i współdziałaniem.
+* **Niezawodne**: protokół AMQP 1,0 umożliwia wymianę komunikatów z różnymi gwarancjami niezawodności, od pożaru i zapomnień do niezawodnego, dokładnie po potwierdzeniem dostawy.
+* **Elastyczny**: AMQP 1,0 to elastyczny protokół, który może służyć do obsługi różnych topologii. Tego samego protokołu można używać w przypadku komunikacji klient-klient, klient-do-Broker i komunikacja między brokerem a brokerem.
+* **Broker-model niezależny**: specyfikacja AMQP 1,0 nie wykonuje żadnych wymagań dotyczących modelu obsługi komunikatów używanego przez brokera. Oznacza to, że można łatwo dodać obsługę AMQP 1,0 do istniejących brokerów obsługi komunikatów.
 
-## <a name="amqp-10-is-a-standard-with-a-capital-s"></a>AMQP 1.0 jest standardem (z wielkim "S")
-AMQP 1.0 jest międzynarodową normą, zatwierdzoną przez ISO i IEC jako ISO/IEC 19464:2014.
+## <a name="amqp-10-is-a-standard-with-a-capital-s"></a>AMQP 1,0 jest standardem (z stolicą)
+AMQP 1,0 jest międzynarodowym standardem zatwierdzonym przez ISO i IEC jako ISO/IEC 19464:2014.
 
-AMQP 1.0 jest rozwijany od 2008 roku przez podstawową grupę ponad 20 firm, zarówno dostawców technologii, jak i firm użytkowników końcowych. W tym czasie firmy użytkowników przyczyniły się do ich rzeczywistych wymagań biznesowych, a dostawcy technologii ewoluowali protokół, aby spełnić te wymagania. Przez cały proces sprzedawcy uczestniczyli w warsztatach, w których współpracowali w celu potwierdzenia interoperacyjności między ich wdrożeniami.
+AMQP 1,0 jest opracowywany od 2008 przez grupę podstawową ponad 20 firm, zarówno dostawców technologii, jak i przedsiębiorstwa użytkowników końcowych. W tym czasie przedsiębiorstwa użytkowników przyczyniły swoje rzeczywiste wymagania biznesowe, a dostawcy technologii rozwijający protokół, aby spełnić te wymagania. W trakcie całego procesu dostawcy uczestniczyły w warsztatach, w których wspólnie współpracują w celu zweryfikowania współdziałania między ich implementacjami.
 
-W październiku 2011 r. prace rozwojowe przeszły do komitetu technicznego w ramach Organizacji Rozwoju Standardów Informacji Strukturalnej (OASIS), a OASIS AMQP 1.0 Standard został wydany w październiku 2012 r. Następujące firmy uczestniczyły w pracach komitetu technicznego podczas opracowywania normy:
+W październiku 2011 praca rozwojowa przeniesiona do Komitetu Technicznego w organizacji na potrzeby rozwoju standardów informacji o strukturze (języka Oasis) i języka Oasis AMQP 1,0 standard został opublikowany w październiku 2012. Następujące firmy uczestniczyły w Komitecie technicznym podczas opracowywania standardu:
 
-* **Dostawcy technologii:** Axway Software, Huawei Technologies, IIT Software, INETCO Systems, Kaazing, Microsoft, Mitre Corporation, Primeton Technologies, Progress Software, Red Hat, SITA, Software AG, Solace Systems, VMware, WSO2, Zenika.
-* **Firmy użytkowników**: Bank of America, Credit Suisse, Deutsche Boerse, Goldman Sachs, JPMorgan Chase.
+* **Dostawcy technologii**: oprogramowanie axway, technologie Huawei, IIT Software, INETCO Systems, Kaazing, Microsoft, Mitre Corporation, technologie Primeton, oprogramowanie do postępu, Red Hat, sita, oprogramowanie AG, Solace Systems, VMware, WSO2, Zenika.
+* **Firmy użytkowników**: Bank of America, kredyty Suisse, Deutsche Boerse, Goldman Sachs, JPMorgan.
 
-Niektóre z powszechnie cytowanych korzyści z otwartych standardów obejmują:
+Niektóre z najczęściej natoczonych korzyści z używania otwartych standardów obejmują:
 
-* Mniejsza szansa na zablokowanie dostawcy
+* Mniejsza szansa blokowania dostawcy
 * Współdziałanie
 * Szeroka dostępność bibliotek i narzędzi
-* Ochrona przed starzeniem się
-* Dostępność kompetentnego personelu
-* Mniejsze i możliwe do zarządzania ryzyko
+* Ochrona przed utratą
+* Dostępność personelu z możliwością wiedzy
+* Mniejsze i zarządzane ryzyko
 
-## <a name="amqp-10-and-service-bus"></a>AMQP 1.0 i magistrala serwisowa
-Obsługa protokołu AMQP 1.0 w usłudze Azure Service Bus oznacza, że można teraz korzystać z funkcji kolejkowania usługi Service Bus i publikować/subskrybować funkcje obsługi wiadomości z różnych platform przy użyciu wydajnego protokołu binarnego. Ponadto można tworzyć aplikacje składające się ze składników utworzonych przy użyciu kombinacji języków, struktur i systemów operacyjnych.
+## <a name="amqp-10-and-service-bus"></a>AMQP 1,0 i Service Bus
+Obsługa usługi AMQP 1,0 w Azure Service Bus oznacza, że teraz można korzystać z funkcji kolejkowania Service Bus i publikowania/subskrybowania usług komunikatów obsługiwanych przez brokera z różnych platform przy użyciu wydajnego protokołu binarnego. Ponadto można tworzyć aplikacje składające się ze składników utworzonych przy użyciu różnych języków, struktur i systemów operacyjnych.
 
-Na poniższym rysunku przedstawiono przykładowe wdrożenie, w którym klienci java działający w systemie Linux, napisany przy użyciu standardowego interfejsu API usługi Java Message Service (JMS) i klientów .NET uruchomionych w systemie Windows, wymieniają wiadomości za pośrednictwem usługi Service Bus przy użyciu protokołu AMQP 1.0.
+Na poniższej ilustracji przedstawiono przykładowe wdrożenie, w którym klienci Java uruchamiani w systemie Linux, zapisanie przy użyciu standardowego interfejsu API usługi wiadomości języka Java (JMS) i klientów platformy .NET działających w systemie Windows, wymieniają komunikaty za pośrednictwem Service Bus przy użyciu AMQP 1,0.
 
 ![][0]
 
-**Rysunek 1: Przykładowy scenariusz wdrażania przedstawiający wiadomości między platformami przy użyciu usługi Service Bus i amqp 1.0**
+**Rysunek 1. przykładowy scenariusz wdrażania przedstawiający obsługę komunikatów na wielu platformach przy użyciu Service Bus i AMQP 1,0**
 
-W tej chwili znane są następujące biblioteki klientów do pracy z usługą Service Bus:
+W tej chwili następujące biblioteki klienckie są znane do pracy z Service Bus:
 
 | Język | Biblioteka |
 | --- | --- |
-| Java |Klient usługi apache Qpid Java Message Service (JMS)<br/>IIT Software SwiftMQ Java client |
+| Java |Klient usługi wiadomości w języku Java Apache Qpid (JMS)<br/>IIT Software SwiftMQ Client Java |
 | C |Apache Qpid Proton-C |
-| PHP |Apache Qpid Proton-PHP |
-| Python |Apache Qpid Proton-Python |
+| PHP |Apache Qpid Proton — PHP |
+| Python |Apache Qpid Proton — Python |
 | C# |AMQP .NET Lite |
 
-**Rysunek 2: Tabela bibliotek klienckich AMQP 1.0**
+**Rysunek 2. tabela bibliotek klienckich AMQP 1,0**
 
 ## <a name="summary"></a>Podsumowanie
-* PROTOKÓŁ AMQP 1.0 to otwarty, niezawodny protokół obsługi wiadomości, którego można używać do tworzenia wieloplatformowych, hybrydowych aplikacji. AMQP 1.0 jest standardem OASIS.
-* Obsługa usługi AMQP 1.0 jest teraz dostępna w usłudze Azure Service Bus oraz w usłudze Service Bus dla systemu Windows Server (service bus 1.1). Ceny są takie same jak w przypadku istniejących protokołów.
+* AMQP 1,0 to otwarty, niezawodny protokół do obsługi komunikatów, za pomocą którego można tworzyć aplikacje hybrydowe dla wielu platform. AMQP 1,0 jest standardem języka Oasis.
+* Obsługa usługi AMQP 1,0 jest teraz dostępna w Azure Service Bus i Service Bus dla systemu Windows Server (Service Bus 1,1). Ceny są takie same, jak w przypadku istniejących protokołów.
 
 ## <a name="next-steps"></a>Następne kroki
 Chcesz dowiedzieć się więcej? Odwiedź następujące linki:
 
-* [Korzystanie z usługi Service Bus z platformy .NET z usługą AMQP]
-* [Korzystanie z usługi Service Bus firmy Java z usługą AMQP]
-* [Instalowanie apache Qpid Proton-C na maszynie wirtualnej systemu Azure Linux]
-* [Usługa AMQP w magistrali usług dla systemu Windows Server]
+* [Korzystanie z Service Bus z platformy .NET z AMQP]
+* [Używanie Service Bus z języka Java z AMQP]
+* [Instalowanie oprogramowania Apache Qpid Proton-C na maszynie wirtualnej z systemem Linux na platformie Azure]
+* [AMQP w Service Bus dla systemu Windows Server]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
-[Korzystanie z usługi Service Bus z platformy .NET z usługą AMQP]: service-bus-amqp-dotnet.md
-[Korzystanie z usługi Service Bus firmy Java z usługą AMQP]: service-bus-amqp-java.md
-[Instalowanie apache Qpid Proton-C na maszynie wirtualnej systemu Azure Linux]: service-bus-amqp-apache.md
-[Usługa AMQP w magistrali usług dla systemu Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+[Korzystanie z Service Bus z platformy .NET z AMQP]: service-bus-amqp-dotnet.md
+[Używanie Service Bus z języka Java z AMQP]: service-bus-amqp-java.md
+[Instalowanie oprogramowania Apache Qpid Proton-C na maszynie wirtualnej z systemem Linux na platformie Azure]: service-bus-amqp-apache.md
+[AMQP w Service Bus dla systemu Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx

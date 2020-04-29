@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie modeli w produkcji — proces nauki o danych zespołowych
-description: Jak wdrożyć modele w produkcji, umożliwiając im odgrywanie aktywnej roli w podejmowaniu decyzji biznesowych.
+title: Wdrażanie modeli w środowisku produkcyjnym — zespołowe przetwarzanie danych
+description: Jak wdrażać modele w środowisku produkcyjnym, dzięki czemu można odgrywać aktywną rolę w podejmowaniu decyzji biznesowe.
 author: marktab
 manager: marktab
 editor: marktab
@@ -11,36 +11,36 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e3e2ef3340ca836f56176c21cf3d221f0bf172b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76722241"
 ---
-# <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Wdrażanie modeli w produkcji w celu odgrywania aktywnej roli w podejmowaniu decyzji biznesowych
+# <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Wdrażaj modele w środowisku produkcyjnym, aby odgrywać aktywną rolę w podejmowaniu decyzji handlowych
 
-Wdrożenie produkcyjne umożliwia modelowi odgrywanie aktywnej roli w firmie. Prognozy z wdrożonego modelu mogą być używane do podejmowania decyzji biznesowych.
+Wdrożenie produkcyjne umożliwia modelowi odtworzenie aktywnej roli w firmie. Przewidywania ze wdrożonego modelu mogą być używane na potrzeby podejmowania decyzji dla firmy.
 
 ## <a name="production-platforms"></a>Platformy produkcyjne
 
-Istnieją różne podejścia i platformy do wprowadzenia modeli do produkcji. Oto kilka opcji:
+Istnieją różne podejścia i platformy umożliwiające umieszczanie modeli w środowisku produkcyjnym. Oto kilka opcji:
 
-- [Gdzie wdrożyć modele za pomocą usługi Azure Machine Learning](../how-to-deploy-and-where.md)
-- [Wdrażanie modelu w programie SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
+- [Gdzie można wdrażać modele przy użyciu Azure Machine Learning](../how-to-deploy-and-where.md)
+- [Wdrażanie modelu w programie SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 >[!NOTE]
->Przed wdrożeniem należy ubezpieczyć opóźnienie oceniania modelu jest wystarczająco niska, aby użyć w produkcji.
+>Przed wdrożeniem należy upewnić się, że opóźnienie oceny modelu jest wystarczająco małe, aby było używane w środowisku produkcyjnym.
 >
 
 >[!NOTE]
->Aby wdrożyć przy użyciu usługi Azure Machine Learning Studio, zobacz [Wdrażanie usługi sieci web usługi Azure Machine Learning.](../studio/deploy-a-machine-learning-web-service.md)
+>Aby uzyskać wdrożenie przy użyciu Azure Machine Learning Studio, zobacz [wdrażanie usługi sieci web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
 >
 
 ## <a name="ab-testing"></a>Testowanie A/B
 
-Gdy wiele modeli jest w produkcji, [testy A/B](https://en.wikipedia.org/wiki/A/B_testing) mogą być używane do porównywania wydajności modelu. 
+Gdy wiele modeli jest w środowisku produkcyjnym, [testy A/B](https://en.wikipedia.org/wiki/A/B_testing) mogą służyć do porównywania wydajności modelu. 
  
 ## <a name="next-steps"></a>Następne kroki
 
-Dostępne są również wskazówki, które pokazują wszystkie kroki w procesie dla **określonych scenariuszy.** Są one wyświetlane i połączone z opisami miniatur w [przykładowym przewodniku](walkthroughs.md) artykułu. Ilustrują one sposób łączenia narzędzi i usług w chmurze, narzędzia lokalne i usługi w przepływ pracy lub potok, aby utworzyć inteligentną aplikację. 
+Dostępne są również instruktaże pokazujące wszystkie kroki procesu dla **konkretnych scenariuszy** . Są one wyświetlane i połączone z opisami miniatur w artykule [przykładowe instruktaże](walkthroughs.md) . Ilustrują one sposób łączenia chmur, narzędzi lokalnych i usług w przepływ pracy lub potoku w celu utworzenia inteligentnej aplikacji. 

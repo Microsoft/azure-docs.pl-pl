@@ -1,6 +1,6 @@
 ---
-title: Przenoszenie danych do i z magazynu obiektów Blob platformy Azure — proces nauki o danych zespołu
-description: Przenoszenie danych do i z magazynu obiektów Blob platformy Azure przy użyciu Eksploratora usługi Azure Storage, AzCopy, Python i SSIS.
+title: Przenoszenie danych do i z usługi Azure Blob Storage — proces nauki danych zespołu
+description: Przenoszenie danych do i z usługi Azure Blob Storage za pomocą Eksplorator usługi Azure Storage, AzCopy, Python i SSIS.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,46 +12,46 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: fc58651bcb3b266b981fb953fd7341427d47fb2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76717574"
 ---
-# <a name="move-data-to-and-from-azure-blob-storage"></a>Przenoszenie danych do i z magazynu obiektów Blob platformy Azure
+# <a name="move-data-to-and-from-azure-blob-storage"></a>Przenoszenie danych do i z usługi Azure Blob Storage
 
-Proces nauki o danych zespołu wymaga, aby dane były pojmowane lub ładowane do różnych środowisk magazynu, które mają być przetwarzane lub analizowane w najbardziej odpowiedni sposób na każdym etapie procesu.
+Proces nauki danych zespołu wymaga pozyskania lub załadowania danych do różnych środowisk magazynu, które mają być przetwarzane lub analizowane w najbardziej odpowiednim przypadku na każdym etapie procesu.
 
-## <a name="different-technologies-for-moving-data"></a>Różne technologie przenoszenia danych
+## <a name="different-technologies-for-moving-data"></a>Różne technologie do przemieszczania danych
 
-W poniższych artykułach opisano sposób przenoszenia danych do i z magazynu obiektów Blob platformy Azure przy użyciu różnych technologii.
+W poniższych artykułach opisano sposób przenoszenia danych do i z usługi Azure Blob Storage przy użyciu różnych technologii.
 
-* [Eksplorator usługi Azure Storage](move-data-to-azure-blob-using-azure-storage-explorer.md)
-* [AzCopy (Polski)](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+* [Azure Storage — Eksplorator](move-data-to-azure-blob-using-azure-storage-explorer.md)
+* [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
 * [Python](move-data-to-azure-blob-using-python.md)
 * [SSIS](move-data-to-azure-blob-using-ssis.md)
 
-Która metoda jest dla Ciebie najlepsza, zależy od scenariusza. Scenariusze [zaawansowanej analizy w usłudze Azure Machine Learning](plan-sample-scenarios.md) artykuł pomaga określić zasoby potrzebne do różnych przepływów pracy nauki o danych używanych w procesie zaawansowanej analizy.
+Która metoda jest Najlepsza dla Ciebie, zależy od danego scenariusza. [Scenariusze dotyczące zaawansowanej analizy w Azure Machine Learning](plan-sample-scenarios.md) artykule ułatwiają określenie potrzebnych zasobów dla różnych przepływów pracy analizy danych używanych w procesie zaawansowanego analizowania.
 
 > [!NOTE]
-> Aby uzyskać pełne wprowadzenie do magazynu obiektów blob platformy Azure, zobacz [Podstawowe usługi Azure Blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) i [usługi Azure Blob.](https://msdn.microsoft.com/library/azure/dd179376.aspx)
+> Pełny Wprowadzenie do usługi Azure Blob Storage można znaleźć w [temacie Podstawowe informacje](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) dotyczące usługi Azure BLOB i [usłudze Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 > 
 > 
 
 ## <a name="using-azure-data-factory"></a>Używanie usługi Azure Data Factory
 
-Alternatywnie można użyć [usługi Azure Data Factory,](https://azure.microsoft.com/services/data-factory/) aby: 
+Alternatywnie można użyć [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) do: 
 
-* tworzenie i planowanie potoku, który pobiera dane z magazynu obiektów blob platformy Azure, 
-* przekazać go do opublikowanej usługi sieci web usługi Azure Machine Learning, 
-* otrzymują wyniki analizy predykcyjnej, a także 
-* przesłać wyniki do magazynu. 
+* Tworzenie i planowanie potoku pobierającego dane z usługi Azure Blob Storage 
+* Przekaż go do opublikowanej usługi sieci Web Azure Machine Learning. 
+* Otrzymuj wyniki analizy predykcyjnej i 
+* Przekaż wyniki do magazynu. 
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie potoków predykcyjnych przy użyciu usługi Azure Data Factory i usługi Azure Machine Learning.](../../data-factory/transform-data-using-machine-learning.md)
+Aby uzyskać więcej informacji, zobacz [Tworzenie potoków predykcyjnych przy użyciu Azure Data Factory i Azure Machine Learning](../../data-factory/transform-data-using-machine-learning.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tym artykule założono, że masz subskrypcję platformy Azure, konto magazynu i odpowiedni klucz magazynu dla tego konta. Przed przekazaniem/pobraniem danych musisz znać nazwę konta usługi Azure Storage i klucz konta.
+W tym artykule przyjęto założenie, że masz subskrypcję platformy Azure, konto magazynu i odpowiedni klucz magazynu dla tego konta. Przed przekazaniem/pobraniem danych należy znać nazwę konta i klucz konta usługi Azure Storage.
 
-* Aby skonfigurować subskrypcję platformy Azure, zobacz [Bezpłatna miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
-* Aby uzyskać instrukcje dotyczące tworzenia konta magazynu oraz uzyskiwania informacji o koncie i kluczach, zobacz [Informacje o kontach usługi Azure Storage](../../storage/common/storage-create-storage-account.md).
+* Aby skonfigurować subskrypcję platformy Azure, zobacz [bezpłatna miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
+* Instrukcje dotyczące tworzenia konta magazynu i uzyskiwania informacji o kontach i kluczach znajdują się w temacie [Informacje o kontach usługi Azure Storage](../../storage/common/storage-create-storage-account.md).
 

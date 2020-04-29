@@ -1,42 +1,42 @@
 ---
-title: Uwierzytelnij się w klastrze Kubernetes
-description: Dowiedz się, jak zapewnić klastrowi usługi Kubernetes dostęp do obrazów w rejestrze kontenerów platformy Azure, tworząc klucz tajny ściągania przy użyciu jednostki usługi
+title: Uwierzytelnianie z klastra Kubernetes
+description: Dowiedz się, jak zapewnić klaster Kubernetes z dostępem do obrazów w rejestrze kontenerów platformy Azure przez utworzenie klucza tajnego przy użyciu nazwy głównej usługi
 ms.topic: article
 author: karolz-ms
 ms.author: karolz
 ms.reviewer: danlep
 ms.date: 02/10/2020
 ms.openlocfilehash: 0608ca0e0e53acf2f19910a7f1107dacf67d4e61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77154896"
 ---
-# <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Ściąganie obrazów z rejestru kontenerów platformy Azure do klastra usługi Kubernetes
+# <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Ściąganie obrazów z usługi Azure Container Registry do klastra Kubernetes
 
-Rejestru kontenerów platformy Azure można używać jako źródła obrazów kontenerów z dowolnym klastrem Kubernetes, w tym "lokalnymi" klastrami Kubernetes, takimi jak [minikube](https://minikube.sigs.k8s.io/) i [rodzaj.](https://kind.sigs.k8s.io/) W tym artykule pokazano, jak utworzyć klucz tajny ściągania usługi Kubernetes na podstawie jednostki usługi Azure Active Directory. Następnie użyj klucza tajnego do ściągania obrazów z rejestru kontenerów platformy Azure we wdrożeniu usługi Kubernetes.
+Usługi Azure Container Registry można użyć jako źródła obrazów kontenerów z dowolnym klastrem Kubernetes, w tym z lokalnymi klastrami Kubernetes, takimi jak [minikube](https://minikube.sigs.k8s.io/) i [rodzaj](https://kind.sigs.k8s.io/). W tym artykule pokazano, jak utworzyć wpis tajny Kubernetes na podstawie nazwy głównej usługi Azure Active Directory. Następnie użyj klucza tajnego do ściągania obrazów z usługi Azure Container Registry w ramach wdrożenia Kubernetes.
 
 > [!TIP]
-> Jeśli używasz zarządzanej [usługi Azure Kubernetes](../aks/intro-kubernetes.md), można również [zintegrować klaster](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) z docelowym rejestrem kontenerów platformy Azure dla ściągania obrazów. 
+> Jeśli używasz zarządzanej [usługi Azure Kubernetes](../aks/intro-kubernetes.md), możesz także [zintegrować klaster](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) z docelowym rejestrem kontenerów platformy Azure na potrzeby ściągania obrazów. 
 
-W tym artykule przyjęto założenie, że utworzono już prywatny rejestr kontenerów platformy Azure. Należy również mieć klaster Kubernetes uruchomiony `kubectl` i dostępny za pośrednictwem narzędzia wiersza polecenia.
+W tym artykule przyjęto założenie, że został już utworzony prywatny rejestr kontenerów platformy Azure. Należy również mieć uruchomiony klaster Kubernetes, który jest dostępny za pomocą narzędzia `kubectl` wiersza polecenia.
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
-Jeśli nie zapiszesz lub nie zapamiętasz hasła głównego usługi, możesz je zresetować za pomocą polecenia [resetowania poświadczeń az ad sp:][az-ad-sp-credential-reset]
+Jeśli nie zapiszesz lub nie pamiętasz hasła nazwy głównej usługi, możesz zresetować je za pomocą polecenia [AZ AD Sp Credential Reset][az-ad-sp-credential-reset] :
 
 ```azurecli
 az ad sp credential reset  --name http://<service-principal-name> --query password --output tsv
 ```
 
-To polecenie zwraca nowe, prawidłowe hasło dla jednostki usługi.
+To polecenie zwraca nowe, prawidłowe hasło dla nazwy głównej usługi.
 
-## <a name="create-an-image-pull-secret"></a>Tworzenie klucza tajnego ściągania obrazu
+## <a name="create-an-image-pull-secret"></a>Utwórz klucz tajny ściągania obrazu
 
-Kubernetes używa *klucza tajnego ściągania obrazu* do przechowywania informacji potrzebnych do uwierzytelnienia w rejestrze. Aby utworzyć klucz tajny ściągania dla rejestru kontenerów platformy Azure, należy podać identyfikator jednostki usługi, hasło i adres URL rejestru. 
+Kubernetes używa *hasła ściągania obrazu* do przechowywania informacji niezbędnych do uwierzytelnienia w rejestrze. Aby utworzyć klucz tajny ściągania dla rejestru kontenerów platformy Azure, podaj identyfikator jednostki usługi, hasło i adres URL rejestru. 
 
-Utwórz klucz tajny ściągania obrazu za pomocą następującego `kubectl` polecenia:
+Utwórz klucz tajny obrazu za pomocą następującego `kubectl` polecenia:
 
 ```console
 kubectl create secret docker-registry <secret-name> \
@@ -49,15 +49,15 @@ gdzie:
 
 | Wartość | Opis |
 | :--- | :--- |
-| `secret-name` | Nazwa obrazu ciągnąć tajne, na *przykład, acr-secret* |
-| `namespace` | Obszar nazw Kubernetes, aby umieścić klucz tajny w <br/> Jest potrzebny tylko wtedy, gdy klucz tajny ma być umieszczany w przestrzeni nazw innej niż domyślna przestrzeń nazw |
-| `container-registry-name` | Nazwa rejestru kontenerów platformy Azure |
-| `service-principal-ID` | Identyfikator jednostki usługi, który będzie używany przez firmę Kubernetes do uzyskiwania dostępu do rejestru |
-| `service-principal-password` | Hasło jednostki usługi |
+| `secret-name` | Nazwa hasła ściągania obrazu, na przykład *ACR-Secret* |
+| `namespace` | Kubernetes przestrzeń nazw, w której ma zostać umieszczony klucz tajny <br/> Wymagane tylko, jeśli chcesz umieścić klucz tajny w przestrzeni nazw innej niż domyślna przestrzeń nazw |
+| `container-registry-name` | Nazwa usługi Azure Container Registry |
+| `service-principal-ID` | Identyfikator jednostki usługi, która będzie używana przez Kubernetes do uzyskiwania dostępu do rejestru |
+| `service-principal-password` | Hasło nazwy głównej usługi |
 
-## <a name="use-the-image-pull-secret"></a>Użyj tajnego ściągania obrazu
+## <a name="use-the-image-pull-secret"></a>Korzystanie z klucza tajnego ściągania obrazu
 
-Po utworzeniu klucza tajnego ściągania obrazu można go użyć do tworzenia zasobników i wdrożeń kubernetes. Podaj nazwę klucza tajnego `imagePullSecrets` w pliku wdrożenia. Przykład:
+Po utworzeniu wpisu tajnego obrazu można go użyć do utworzenia Kubernetes i wdrożeń. Podaj nazwę wpisu tajnego `imagePullSecrets` w pliku wdrożenia. Przykład:
 
 ```yaml
 apiVersion: v1
@@ -74,13 +74,13 @@ spec:
     - name: acr-secret
 ```
 
-W poprzednim przykładzie `your-awesome-app:v1` jest nazwa obrazu do wyciągnięcia z rejestru `acr-secret` kontenerów platformy Azure i jest nazwą klucza ściągnięcia utworzonego w celu uzyskania dostępu do rejestru. Podczas wdrażania zasobnika, Kubernetes automatycznie pobiera obraz z rejestru, jeśli nie jest jeszcze obecny w klastrze.
+W poprzednim przykładzie jest nazwą `your-awesome-app:v1` obrazu, który ma zostać pobrany z usługi Azure Container Registry, a `acr-secret` to nazwa klucza tajnego ściągnięcia utworzonego w celu uzyskania dostępu do rejestru. Po wdrożeniu programu pod warunkiem program Kubernetes automatycznie pobiera obraz z rejestru, jeśli nie jest jeszcze obecny w klastrze.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać więcej informacji na temat pracy z podmiotami usługi i rejestru kontenerów platformy Azure, zobacz [Uwierzytelnianie rejestru kontenerów platformy Azure z podmiotami usługi](container-registry-auth-service-principal.md)
-* Dowiedz się więcej o wpisach tajnych ściągnięcia obrazów w [dokumentacji kubernetes](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod)
+* Aby uzyskać więcej informacji na temat pracy z jednostkami usług i Azure Container Registry, zobacz [Azure Container Registry Authentication z](container-registry-auth-service-principal.md) jednostkami usługi
+* Dowiedz się więcej na temat wpisów tajnych ściągania obrazów w [dokumentacji Kubernetes](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod)
 
 
 <!-- IMAGES -->

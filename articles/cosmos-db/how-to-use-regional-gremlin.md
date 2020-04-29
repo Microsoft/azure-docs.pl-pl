@@ -1,6 +1,6 @@
 ---
-title: Regionalne punkty końcowe bazy danych programu Azure Cosmos DB Graph
-description: Dowiedz się, jak połączyć się z najbliższym punktem końcowym bazy danych Graph dla aplikacji
+title: Regionalne punkty końcowe dla bazy danych programu Azure Cosmos DB Graph
+description: Dowiedz się, jak nawiązać połączenie z najbliższym punktem końcowym bazy danych grafu dla aplikacji
 author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
@@ -8,44 +8,44 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.openlocfilehash: 7aa1e0aa6bbbee9d40eb0d48318a8e2908a75f9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78897863"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Regionalne punkty końcowe dla konta programu Azure Cosmos DB Graph
-Baza danych usługi Azure Cosmos DB Graph jest [dystrybuowana globalnie,](distribute-data-globally.md) dzięki czemu aplikacje mogą używać wielu punktów końcowych odczytu. Aplikacje, które wymagają dostępu do zapisu w wielu lokalizacjach, powinny włączyć funkcje [multi-master.](how-to-multi-master.md)
+Baza danych programu Azure Cosmos DB Graph jest [dystrybuowana globalnie](distribute-data-globally.md) , dzięki czemu aplikacje mogą używać wielu punktów końcowych odczytu. Aplikacje, które wymagają dostępu do zapisu w wielu lokalizacjach, powinny umożliwiać obsługę [wielu wzorców](how-to-multi-master.md) .
 
-Powody, dla których warto wybrać więcej niż jeden region:
-1. **Skalowalność odczytu w poziomie** — wraz ze wzrostem obciążenia aplikacji może być rozsądne kierowanie ruchu odczytu do różnych regionów platformy Azure.
-2. **Mniejsze opóźnienie** — można zmniejszyć obciążenie opóźnienia sieci każdego przechodzenia przez routingu ruchu odczytu i zapisu do najbliższego regionu platformy Azure.
+Powody, aby wybrać więcej niż jeden region:
+1. **Skalowalność w poziomie** — w miarę wzrostu obciążenia aplikacji może być rozsądne kierowanie ruchu odczytu do różnych regionów świadczenia usługi Azure.
+2. **Małe opóźnienia** — możesz zmniejszyć obciążenie opóźnienia sieci dla każdego przechodzenia przez kierowanie ruchu odczytu i zapisu do najbliższego regionu platformy Azure.
 
-Wymóg **rezydencji danych** jest osiągany przez ustawienie zasad usługi Azure Resource Manager na koncie usługi Cosmos DB. Klient może ograniczyć regiony, do których usługa Cosmos DB replikuje dane.
+Wymaganie **zamieszkania danych** jest realizowane przez ustawienie zasad Azure Resource Manager na koncie Cosmos DB. Klient może ograniczyć regiony, w których Cosmos DB replikuje dane.
 
 ## <a name="traffic-routing"></a>Routing ruchu
 
-Aparat bazy danych programu Cosmos Db Graph działa w wielu regionach, z których każdy zawiera wiele klastrów. Każdy klaster ma setki maszyn. Konto Graf usługi Cosmos Graph *accountname.gremlin.cosmos.azure.com* jest rozpoznawany jako rekord dns klastra. Pojedynczy adres IP modułu równoważenia obciążenia ukrywa wewnętrzna topologię klastra.
+Aparat bazy danych programu Cosmos DB Graph działa w wielu regionach, z których każdy zawiera wiele klastrów. Każdy klaster ma setki maszyn. Konto grafu Cosmos DB DNS CNAME *AccountName.Gremlin.Cosmos.Azure.com* jest rozpoznawane jako rekord DNS a klastra. Pojedynczy adres IP modułu równoważenia obciążenia ukrywa wewnętrzną topologię klastra.
 
-Regionalny rekord CNAME DNS jest tworzony dla każdego regionu konta programu Cosmos DB Graph. Format regionalnego punktu końcowego jest *accountname-region.gremlin.cosmos.azure.com*. Segment regionu regionalnego punktu końcowego uzyskuje się przez usunięcie wszystkich przestrzeni z nazwy [regionu platformy Azure.](https://azure.microsoft.com/global-infrastructure/regions) Na przykład `"East US 2"` region `"contoso"` dla konta globalnej bazy danych będzie miał dns CNAME *contoso-eastus2.gremlin.cosmos.azure.com*
+Dla każdego regionu konta programu Cosmos DB Graph tworzony jest regionalny rekord CNAME systemu DNS. Formatem regionalnego punktu końcowego jest *AccountName-region.Gremlin.Cosmos.Azure.com*. Segment regionów regionalnego punktu końcowego jest uzyskiwany przez usunięcie wszystkich spacji z nazwy [regionu platformy Azure](https://azure.microsoft.com/global-infrastructure/regions) . Na przykład `"East US 2"` region `"contoso"` globalnego konta bazy danych będzie miał *contoso-eastus2.Gremlin.Cosmos.Azure.com* CNAME DNS
 
-Klient TinkerPop Gremlin jest przeznaczony do pracy z jednym serwerem. Aplikacja może używać globalnego zapisywalny DNS CNAME do odczytu i zapisu ruchu. Aplikacje obsługujące region powinny używać regionalnego punktu końcowego dla ruchu odczytu. Użyj regionalnego punktu końcowego dla ruchu zapisu tylko wtedy, gdy określony region jest skonfigurowany do akceptowania zapisów. 
-
-> [!NOTE]
-> Aparat wykresu bazy danych usługi Cosmos można zaakceptować operacji zapisu w regionie odczytu przez proxy ruchu do zapisu regionu. Nie jest zalecane wysyłanie zapisów do regionu tylko do odczytu, ponieważ zwiększa opóźnienie przechodzenia i podlega ograniczeniom w przyszłości.
-
-Nazwa CNAME konta globalnej bazy danych zawsze wskazuje prawidłowy region zapisu. Podczas pracy awaryjnej po stronie serwera regionu zapisu usługa Cosmos DB aktualizuje cname konta globalnej bazy danych, aby wskazać nowy region. Jeśli aplikacja nie może obsłużyć przekierowania ruchu po przełączeniu w błąd, należy użyć globalnego konta bazy danych DNS CNAME.
+TinkerPop Gremlin Client został zaprojektowany do pracy z jednym serwerem. Aplikacja może używać globalnego rekordu CNAME DNS na potrzeby ruchu odczytu i zapisu. Aplikacje obsługujące regiony powinny używać regionalnego punktu końcowego do odczytu ruchu. Użyj regionalnego punktu końcowego do zapisu ruchu tylko wtedy, gdy określony region jest skonfigurowany do akceptowania zapisów. 
 
 > [!NOTE]
-> Usługa Cosmos DB nie trasy ruchu na podstawie geograficznej bliskości obiektu wywołującego. To do każdej aplikacji, aby wybrać odpowiedni region w zależności od unikatowych potrzeb aplikacji.
+> Aparat grafu Cosmos DB może akceptować operacje zapisu w regionie odczytu przez ruch przychodzący do regionu zapisu. Nie zaleca się wysyłania zapisów do regionu tylko do odczytu, ponieważ zwiększa to opóźnienie przechodzenia i podlega ograniczeniom w przyszłości.
 
-## <a name="portal-endpoint-discovery"></a>Odnajdowanie punktu końcowego portalu
+Konto globalnego konta bazy danych CNAME zawsze wskazuje prawidłowy region zapisu. Podczas pracy w trybie failover po stronie serwera w regionie zapisu Cosmos DB aktualizuje globalne konto bazy danych CNAME do punktu w nowym regionie. Jeśli aplikacja nie może obsłużyć przekierowywania ruchu po przejściu w tryb failover, powinna używać globalnego konta bazy danych DNS CNAME.
 
-Najprostszym sposobem, aby uzyskać listę regionów dla konta programu Azure Cosmos DB Graph jest przegląd bloku w witrynie Azure portal. Będzie działać dla aplikacji, które nie zmieniają regionów często lub mają sposób, aby zaktualizować listę za pomocą konfiguracji aplikacji.
+> [!NOTE]
+> Cosmos DB nie kieruje ruchu w oparciu o sąsiedztwo geograficzne obiektu wywołującego. Do każdej aplikacji można wybrać odpowiedni region zgodnie z unikatowymi potrzebami aplikacji.
 
-![Pobieranie regionów konta programu Cosmos DB Graph z portalu](./media/how-to-use-regional-gremlin/get-end-point-portal.png )
+## <a name="portal-endpoint-discovery"></a>Odnajdywanie punktów końcowych portalu
 
-Przykład poniżej przedstawia ogólne zasady dostępu do regionalnego punktu końcowego Gremlin. Aplikacja powinna wziąć pod uwagę liczbę regionów, aby wysłać ruch do i liczbę odpowiednich klientów Gremlin do wystąpienia.
+Najprostszym sposobem uzyskania listy regionów dla konta Azure Cosmos DB Graph jest blok przegląd w Azure Portal. Będzie ona działała w przypadku aplikacji, które często nie zmieniają regionów lub aby można było zaktualizować listę za pomocą konfiguracji aplikacji.
+
+![Pobieranie regionów konta Cosmos DB Graph z portalu](./media/how-to-use-regional-gremlin/get-end-point-portal.png )
+
+W poniższym przykładzie przedstawiono ogólne zasady dostępu do regionalnego punktu końcowego Gremlin. Aplikacja powinna rozważyć liczbę regionów, do których ma być wysyłany ruch, oraz liczbę odpowiednich klientów Gremlin do wystąpienia.
 
 ```csharp
 // Example value: Central US, West US and UK West. This can be found in the overview blade of you Azure Cosmos DB Gremlin Account. 
@@ -76,11 +76,11 @@ foreach (string gremlinAccountRegion in gremlinAccountRegions)
 }
 ```
 
-## <a name="sdk-endpoint-discovery"></a>Odnajdowanie punktu końcowego sdk
+## <a name="sdk-endpoint-discovery"></a>Odnajdywanie punktu końcowego zestawu SDK
 
-Aplikacja może używać [usługi Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) do odnajdywania lokalizacji odczytu i zapisu dla konta Graph. Te lokalizacje mogą ulec zmianie w dowolnym momencie za pomocą ręcznej ponownej konfiguracji po stronie serwera lub automatycznego trybu failover.
+Aplikacja może używać [zestawu SDK Azure Cosmos DB](sql-api-sdk-dotnet.md) , aby odnajdywać lokalizacje odczytu i zapisu dla konta grafu. Te lokalizacje można zmienić w dowolnym momencie za pomocą ręcznej zmiany konfiguracji po stronie serwera lub automatycznej pracy awaryjnej.
 
-TinkerPop Gremlin SDK nie ma interfejsu API do odnajdowania regionów kont bazy danych programu Cosmos Db Graph. Aplikacje, które wymagają odnajdowania punktu końcowego środowiska uruchomieniowego muszą obsługiwać 2 oddzielne sdk w przestrzeni procesu.
+TinkerPop Gremlin SDK nie ma interfejsu API do odnajdywania regionów konta bazy danych programu Graph Cosmos DB. Aplikacje, które wymagają odnajdowania punktów końcowych środowiska uruchomieniowego, muszą obsługiwać 2 oddzielne zestawy SDK w przestrzeni procesu.
 
 ```csharp
 // Depending on the version and the language of the SDK (.NET vs Java vs Python)
@@ -109,7 +109,7 @@ foreach (string location in readLocations)
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* [Jak zarządzać kontrolą kont bazy danych](how-to-manage-database-account.md) w usłudze Azure Cosmos DB
-* [Wysoka dostępność](high-availability.md) w usłudze Azure Cosmos DB
-* [Globalna dystrybucja z usługą Azure Cosmos DB — pod maską](global-dist-under-the-hood.md)
-* [Przykłady interfejsu wiersza polecenia platformy Azure](cli-samples.md) dla usługi Azure Cosmos DB
+* [Jak zarządzać kontrolą konta bazy danych](how-to-manage-database-account.md) w Azure Cosmos DB
+* [Wysoka dostępność](high-availability.md) w Azure Cosmos DB
+* [Dystrybucja globalna z Azure Cosmos DBą pod okapem](global-dist-under-the-hood.md)
+* [Przykłady interfejsu wiersza polecenia platformy Azure](cli-samples.md) dla Azure Cosmos DB
