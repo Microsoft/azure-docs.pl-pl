@@ -1,6 +1,6 @@
 ---
 title: Konfigurowanie i zarządzanie
-description: Dowiedz się, jak skonfigurować bazę danych SQL i zarządzać nią.
+description: Dowiedz się, jak konfigurować Azure SQL Database i zarządzać nimi.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -12,22 +12,22 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 11/14/2019
 ms.openlocfilehash: c3f7b33e4b42b08334cfb687024985c878dc3713
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79209417"
 ---
-# <a name="how-to-use-azure-sql-database"></a>Jak korzystać z bazy danych SQL usługi Azure
+# <a name="how-to-use-azure-sql-database"></a>Jak używać Azure SQL Database
 
-W tej sekcji można znaleźć różne przewodniki, skrypty i wyjaśnienia, które mogą pomóc w zarządzaniu i konfigurowaniu bazy danych SQL Azure. Można również znaleźć szczegółowe instrukcje dotyczące [pojedynczej bazy danych](sql-database-howto-single-database.md) i [wystąpienia zarządzanego](sql-database-howto-managed-instance.md).
+W tej sekcji znajdują się różne przewodniki, skrypty i wyjaśnienia, które mogą pomóc w zarządzaniu i konfigurowaniu Azure SQL Database. Możesz również znaleźć konkretne przewodniki dotyczące wykonywania [pojedynczych baz danych](sql-database-howto-single-database.md) i [wystąpienia zarządzanego](sql-database-howto-managed-instance.md).
 
 ## <a name="load-data"></a>Ładowanie danych
 
-- [Kopiowanie pojedynczej bazy danych lub puli bazy danych na platformie Azure](sql-database-copy.md)
+- [Kopiowanie pojedynczej bazy danych lub bazy danych w puli na platformie Azure](sql-database-copy.md)
 - [Importowanie bazy danych z pliku BACPAC](sql-database-import.md)
 - [Eksportowanie bazy danych do pliku BACPAC](sql-database-export.md)
-- [Ładowanie danych za pomocą protokołu BCP](sql-database-load-from-csv-with-bcp.md)
+- [Ładowanie danych za pomocą narzędzia BCP](sql-database-load-from-csv-with-bcp.md)
 - [Ładowanie danych za pomocą usługi ADF](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
 ### <a name="data-sync"></a>Synchronizacja danych
@@ -35,7 +35,7 @@ W tej sekcji można znaleźć różne przewodniki, skrypty i wyjaśnienia, któr
 - [SQL Data Sync](sql-database-sync-data.md)
 - [Agent synchronizacji danych](sql-database-data-sync-agent.md)
 - [Replikowanie zmian schematu](sql-database-update-sync-schema.md)
-- [Monitorowanie za pomocą pakietu OMS](sql-database-sync-monitor-oms.md)
+- [Monitorowanie za pomocą usługi OMS](sql-database-sync-monitor-oms.md)
 - [Najlepsze rozwiązania dotyczące funkcji Data Sync](sql-database-best-practices-data-sync.md)
 - [Rozwiązywanie problemów z usługą Data Sync](sql-database-troubleshoot-data-sync.md)
 
@@ -50,9 +50,9 @@ W tej sekcji można znaleźć różne przewodniki, skrypty i wyjaśnienia, któr
 
 ### <a name="extended-events"></a>Zdarzenia rozszerzone
 
-- [Rozszerzone wydarzenia](sql-database-xevent-db-diff-from-svr.md)
-- [Przechowywanie zdarzeń rozszerzonych w pliku zdarzeń](sql-database-xevent-code-event-file.md)
-- [Przechowywanie zdarzeń rozszerzonych w buforze pierścieniowym](sql-database-xevent-code-ring-buffer.md)
+- [Zdarzenia rozszerzone](sql-database-xevent-db-diff-from-svr.md)
+- [Przechowuj zdarzenia rozszerzone w pliku zdarzeń](sql-database-xevent-code-event-file.md)
+- [Przechowuj zdarzenia rozszerzone w buforze pierścieniowym](sql-database-xevent-code-ring-buffer.md)
 
 ## <a name="configure-features"></a>Konfigurowanie funkcji
 
@@ -65,20 +65,20 @@ W tej sekcji można znaleźć różne przewodniki, skrypty i wyjaśnienia, któr
 - [Obracanie kluczy BYOK szyfrowania TDE](transparent-data-encryption-byok-azure-sql-key-rotation.md)
 - [Usuwanie ochrony szyfrowania TDE](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md)
 - [Konfigurowanie przetwarzania OLTP w pamięci](sql-database-in-memory-oltp-migration.md)
-- [Konfigurowanie automatyzacji platformy Azure](sql-database-manage-automation.md)
+- [Konfigurowanie Azure Automation](sql-database-manage-automation.md)
 
-## <a name="develop-applications"></a>Opracowywanie aplikacji
+## <a name="develop-applications"></a>Tworzenie aplikacji
 
 - [Łączność](sql-database-libraries.md)
 - [Korzystanie z łącznika Spark](sql-database-spark-connector.md)
-- [Uwierzytelnij aplikację](sql-database-client-id-keys.md)
-- [Użyj dosadowania, aby uzyskać lepszą wydajność](sql-database-use-batching-to-improve-performance.md)
+- [Uwierzytelnianie aplikacji](sql-database-client-id-keys.md)
+- [Korzystanie z usługi Batch w celu uzyskania lepszej wydajności](sql-database-use-batching-to-improve-performance.md)
 - [Wskazówki dotyczące łączności](sql-database-connectivity-issues.md)
 - [Aliasy DNS](dns-alias-overview.md)
 - [Konfigurowanie aliasu DNS programu PowerShell](dns-alias-powershell.md)
 - [Porty — ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
 - [C i C++](sql-database-develop-cplusplus-simple.md)
-- [Programu excel](sql-database-connect-excel.md)
+- [Excel](sql-database-connect-excel.md)
 
 ## <a name="design-applications"></a>Projektowanie aplikacji
 
@@ -94,5 +94,5 @@ W tej sekcji można znaleźć różne przewodniki, skrypty i wyjaśnienia, któr
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [poradnikach dotyczących wystąpieniach zarządzanych](sql-database-howto-managed-instance.md).
-- Dowiedz się więcej o [poradnikach dotyczących pojedynczych baz danych.](sql-database-howto-single-database.md)
+- Dowiedz się więcej [na temat przewodników związanych z wystąpieniami zarządzanymi](sql-database-howto-managed-instance.md).
+- Dowiedz się więcej [na temat przewodników dla pojedynczych baz danych](sql-database-howto-single-database.md).

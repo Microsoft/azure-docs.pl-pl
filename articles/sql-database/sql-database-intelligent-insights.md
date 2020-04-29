@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie wydajności bazy danych za pomocą aplikacji Intelligent Insights
-description: Usługa Azure SQL Database Intelligent Insights używa wbudowanej analizy do ciągłego monitorowania użycia bazy danych za pomocą sztucznej inteligencji i wykrywania zdarzeń powodujących zakłócenia, które powodują niską wydajność.
+title: Monitorowanie wydajności bazy danych za pomocą Intelligent Insights
+description: Azure SQL Database Intelligent Insights używa wbudowanej analizy do ciągłego monitorowania użycia bazy danych za pomocą sztucznej analizy i wykrywania zdarzeń powodujących zakłócenia, które powodują niską wydajność.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,176 +12,176 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: d7b9ada17871dc7882209b7a8a449a8edcd61a94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79214073"
 ---
-# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Inteligentne statystyki za pomocą ai do monitorowania i rozwiązywania problemów z wydajnością bazy danych (Wersja zapoznawcza)
+# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights przy użyciu AI do monitorowania i rozwiązywania problemów z wydajnością bazy danych (wersja zapoznawcza)
 
-Usługa Azure SQL Database Intelligent Insights informuje o tym, co dzieje się z wydajnością bazy danych.
+Azure SQL Database Intelligent Insights pozwala wiedzieć, co dzieje się z wydajnością bazy danych.
 
-Usługa Intelligent Insights wykorzystuje wbudowaną inteligencję do ciągłego monitorowania użycia bazy danych za pomocą sztucznej inteligencji i wykrywania zdarzeń powodujących zakłócenia, które powodują niską wydajność. Po wykryciu przeprowadzana jest szczegółowa analiza, która generuje dziennik zasobów intelligent insights (o nazwie SQLInsights) z inteligentną oceną problemu. Ocena ta składa się z analizy głównej przyczyny problemu z wydajnością bazy danych i, w miarę możliwości, zalecenia dotyczące poprawy wydajności.
+Intelligent Insights używa wbudowanej analizy do ciągłego monitorowania użycia bazy danych za pomocą sztucznej analizy i wykrywania zdarzeń powodujących zakłócenia, które powodują niską wydajność. Po wykryciu zostanie utworzona Szczegółowa analiza, która generuje dziennik zasobów Intelligent Insights (o nazwie SQLInsights) z inteligentną oceną problemu. Ta ocena polega na analizie głównej przyczyny problemu z wydajnością bazy danych i, jeśli to możliwe, zalecenia dotyczące ulepszeń wydajności.
 
-## <a name="what-can-intelligent-insights-do-for-you"></a>Co można zrobić z inteligentnymi statystykami za Ciebie
+## <a name="what-can-intelligent-insights-do-for-you"></a>Co można Intelligent Insights dla Ciebie
 
-Usługa Intelligent Insights to unikatowa funkcja wbudowanej analizy platformy Azure, która zapewnia następującą wartość:
+Intelligent Insights to unikatowa funkcja analizy wbudowanej platformy Azure, która zapewnia następującą wartość:
 
 - Aktywne monitorowanie
-- Dostosowane informacje o wydajności
-- Wczesne wykrywanie pogorszenia wydajności bazy danych
-- Analiza głównej przyczyny wykrytych problemów
+- Dostosowane szczegółowe informacje o wydajności
+- Wczesne wykrywanie obniżenia wydajności bazy danych
+- Analiza głównych przyczyn problemów wykrytych
 - Zalecenia dotyczące poprawy wydajności
-- Skalowanie w poziomie w setkach tysięcy baz danych
+- Możliwość skalowania w poziomie na setkach tysięcy baz danych
 - Pozytywny wpływ na zasoby DevOps i całkowity koszt posiadania
 
-## <a name="how-does-intelligent-insights-work"></a>Jak działa aplikacja Intelligent Insights
+## <a name="how-does-intelligent-insights-work"></a>Jak działa Intelligent Insights
 
-Usługa Intelligent Insights analizuje wydajność bazy danych, porównując obciążenie bazy danych z ostatniej godziny z poprzednim siedmiodniowym obciążeniem linii bazowej. Obciążenie bazy danych składa się z zapytań określanych jako najbardziej istotne dla wydajności bazy danych, takich jak najczęściej powtarzane i największe zapytania. Ponieważ każda baza danych jest unikatowa na podstawie jego struktury, danych, użycia i aplikacji, każdy plan bazowy obciążenia, który jest generowany jest specyficzne i unikatowe dla tego obciążenia. Usługa Intelligent Insights, niezależnie od planu bazowego obciążenia, monitoruje również bezwzględne progi operacyjne i wykrywa problemy z nadmiernym czasem oczekiwania, wyjątkami krytycznymi i problemami z parametryzacjią zapytań, które mogą mieć wpływ na wydajność.
+Intelligent Insights analizuje wydajność bazy danych, porównując obciążenie bazy danych z ostatniej godziny z ostatnim 7-dniowym obciążeniem bazowym. Obciążenie bazy danych składa się z zapytań określonych jako najbardziej znaczące dla wydajności bazy danych, takich jak najczęstsze i największe zapytania. Ponieważ każda baza danych jest unikatowa w oparciu o strukturę, dane, użycie i aplikację, każda wygenerowana linia bazowa obciążenia jest określona i unikatowa dla tego obciążenia. Intelligent Insights niezależnie od linii bazowej obciążenia monitoruje również bezwzględne progi operacyjne oraz wykrywa problemy z nadmiernym czasem oczekiwania, wyjątkami krytycznymi i problemami z parameterizations zapytań, które mogą mieć wpływ na wydajność.
 
-Po wykryciu problemu z obniżeniem wydajności z wielu obserwowanych metryk przy użyciu sztucznej inteligencji przeprowadzana jest analiza. Dziennik diagnostyki jest generowany z inteligentnym wglądem w to, co dzieje się z bazą danych. Usługa Intelligent Insights ułatwia śledzenie problemu z wydajnością bazy danych od pierwszego pojawienia się do rozwiązania. Każdy wykryty problem jest śledzony przez jego cykl życia, od początkowego wykrywania problemów i weryfikacji poprawy wydajności do jego zakończenia.
+Po wykryciu problemu obniżenia wydajności z wielu obserwowanych metryk przy użyciu sztucznej analizy jest przeprowadzana analiza. Dziennik diagnostyczny jest generowany z inteligentnym wglądem w informacje o tym, co dzieje się z Twoją bazą danych. Intelligent Insights ułatwia śledzenie problemu z wydajnością bazy danych przy użyciu pierwszego wyglądu do rozpoznawania. Każdy wykryty problem jest śledzony przez jego cykl życia przed początkowym wykrywaniem problemu i weryfikacją wydajności po jego zakończeniu.
 
 ![Przepływ pracy analizy wydajności bazy danych](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
 
-Metryki używane do pomiaru i wykrywania problemów z wydajnością bazy danych są oparte na czasie trwania kwerendy, żądaniach limitu czasu, nadmiernym czasie oczekiwania i żądaniach błędów. Aby uzyskać więcej informacji na temat metryk, zobacz [Metryki wykrywania](#detection-metrics).
+Metryki używane do mierzenia i wykrywania problemów z wydajnością bazy danych są oparte na czasie trwania zapytania, żądaniach limitu czasu, nadmiernym czasie oczekiwania i błędnych żądaniach. Aby uzyskać więcej informacji na temat metryk, zobacz [metryki wykrywania](#detection-metrics).
 
-Zidentyfikowane obniżenie wydajności bazy danych SQL są rejestrowane w dzienniku SQLInsights z inteligentnymi wpisami, które składają się z następujących właściwości:
+Zidentyfikowane SQL Database obniżenie wydajności są rejestrowane w dzienniku SQLInsights z inteligentnymi wpisami, które składają się z następujących właściwości:
 
 | Właściwość | Szczegóły |
 | :------------------- | ------------------- |
-| Informacje o bazie danych | Metadane dotyczące bazy danych, w której wykryto wgląd, takich jak identyfikator URI zasobu. |
-| Obserwowany zakres czasu | Czas rozpoczęcia i zakończenia okresu wykrytego wglądu. |
-| Dane, na które ma to wpływ | Metryki, które spowodowały wygenerowanie wglądu: <ul><li>Zwiększenie czasu trwania kwerendy [sekundy].</li><li>Nadmierne oczekiwanie [sekundy].</li><li>Żądania przesuwu czasu [procent].</li><li>Błędy żądań [procent].</li></ul>|
-| Wartość uderzenia | Wartość zmierzonej metryki. |
-| Zapytania i kody błędów, których dotyczy problem | Kod skrótu lub błędu kwerendy. Mogą one służyć do łatwego skorelowania z zapytaniami, których dotyczy problem. Metryki, które składają się z zwiększenia czasu trwania kwerendy, czas oczekiwania, liczniki limitu czasu lub kody błędów są dostarczane. |
-| Wykrywania | Wykrywanie zidentyfikowane w bazie danych w czasie zdarzenia. Istnieje 15 wzorców wykrywania. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z wydajnością bazy danych za pomocą aplikacji Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md). |
-| Analiza głównej przyczyny | Analiza głównej przyczyny problemu zidentyfikowanego w formacie czytelnym dla człowieka. Niektóre szczegółowe informacje mogą zawierać zalecenie dotyczące poprawy wydajności, jeśli to możliwe. |
+| Informacje o bazie danych | Metadane dotyczące bazy danych, w której wykryto szczegółowe dane, takie jak identyfikator URI zasobu. |
+| Zaobserwowany zakres czasu | Godzina rozpoczęcia i zakończenia okresu wykrytego wglądu w szczegółowe dane. |
+| Metryki, których dotyczy problem | Metryki, które spowodowały wygenerowanie szczegółowych informacji: <ul><li>Zwiększenie czasu trwania zapytania [s].</li><li>Nadmierne oczekiwanie [s].</li><li>Przekroczono limit czasu żądań [wartość procentowa].</li><li>Żądania z błędami [wartość procentowa].</li></ul>|
+| Wartość wpływu | Wartość zmierzonej metryki. |
+| Zapytania i kody błędów, których dotyczy problem | Wartość skrótu zapytania lub kod błędu. Mogą one być używane do łatwego skorelowania z zapytaniami, których to dotyczy. Podawane są metryki, które składają się z wzrostu czasu trwania zapytania, czasu oczekiwania, liczby limitów czasu lub kodów błędów. |
+| Wykrycia | Wykrywanie wykryte w bazie danych w czasie trwania zdarzenia. Istnieją 15 wzorców wykrywania. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z wydajnością bazy danych przy użyciu Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md). |
+| Analiza głównej przyczyny | Analiza głównej przyczyny problemu zidentyfikowanego w formacie do odczytu przez człowieka. Niektóre szczegółowe informacje mogą zawierać zalecenia dotyczące poprawy wydajności, jeśli jest to możliwe. |
 |||
 
-Aby zapoznać się z praktycznym omówieniem korzystania z usługi Intelligent Insights w usłudze Azure SQL Analytics i typowych scenariuszy użycia, zobacz ten klip wideo:
+Aby dowiedzieć się więcej na temat korzystania z Intelligent Insights z Azure SQL Analytics i dla typowych scenariuszy użycia, zobacz ten film wideo:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
-Usługa Intelligent Insights wyróżnia się wykrywaniem i rozwiązywaniem problemów z wydajnością bazy danych SQL. Aby używać aplikacji Intelligent Insights do rozwiązywania problemów z wydajnością bazy danych, zobacz [Rozwiązywanie problemów z wydajnością usługi Azure SQL Database za pomocą aplikacji Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+Intelligent Insights ułatwia odnajdywanie i rozwiązywanie problemów dotyczących SQL Database wydajności. Aby można było używać Intelligent Insights do rozwiązywania problemów z wydajnością bazy danych, zobacz [Rozwiązywanie problemów z wydajnością Azure SQL Database z Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 
-## <a name="intelligent-insights-options"></a>Opcje inteligentnego wglądu w dane szczegółowe
+## <a name="intelligent-insights-options"></a>Opcje Intelligent Insights
 
-Opcje inteligentnej usługi Insights dostępne w bazie danych SQL azure to:
+Opcje Intelligent Insights dostępne w Azure SQL Database to:
 
-| Opcja Inteligentna statystyka | Obsługa pojedynczej bazy danych i puli baz danych | Obsługa bazy danych wystąpień |
+| Opcja Intelligent Insights | Obsługa pojedynczej bazy danych i bazy danych w puli | Obsługa bazy danych wystąpień |
 | :----------------------------- | ----- | ----- |
-| **Konfigurowanie inteligentnej analizy —** konfigurowanie analizy inteligentnej analizy aplikacji Insights dla baz danych. | Tak | Tak |
-| **Przesyłaj strumieniowo szczegółowe informacje do usługi Azure SQL Analytics** — przesyłaj szczegółowe informacje do rozwiązania do monitorowania usługi Azure SQL Analytics dla usługi Azure SQL Database. | Tak | Tak |
-| **Przesyłaj strumieniowo szczegółowe informacje do Centrum zdarzeń** — przesyłaj szczegółowe informacje do centrów zdarzeń w celu uzyskania dalszych niestandardowych integracji. | Tak | Tak |
-| **Przesyłaj strumieniowo szczegółowe informacje do usługi Azure Storage** — przesyłaj strumieniowo szczegółowe informacje do usługi Azure Storage w celu dalszej analizy i długoterminowego archiwizacji. | Tak | Tak |
+| **Skonfiguruj Intelligent Insights** — Skonfiguruj Intelligent Insights analizę dla baz danych. | Tak | Tak |
+| **Szczegółowe informacje o usłudze Stream Insights do Azure SQL Analytics** --Stream Insights do rozwiązania monitorowania Azure SQL Analytics Azure SQL Database. | Tak | Tak |
+| Usługi **Stream Insights do usługi Event Hub** — szczegółowe informacje o usłudze Stream Event Hubs w celu uzyskania dalszych integracji niestandardowych. | Tak | Tak |
+| **Usługa Stream Insights w usłudze Azure Storage** — szczegółowe informacje o usłudze Stream w usłudze Azure Storage w celu przeprowadzenia dalszej analizy i długoterminowej archiwizacji. | Tak | Tak |
 
-## <a name="configure-the-export-of-the-intelligent-insights-log"></a>Konfigurowanie eksportu dziennika inteligentnej aplikacji Insights
+## <a name="configure-the-export-of-the-intelligent-insights-log"></a>Konfigurowanie eksportu dziennika Intelligent Insights
 
-Dane wyjściowe inteligentnej analizy można przesyłać strumieniowo do jednego z kilku miejsc docelowych do analizy:
+Dane wyjściowe Intelligent Insights mogą być przesyłane strumieniowo do jednego z kilku miejsc docelowych na potrzeby analizy:
 
-- Dane wyjściowe przesyłane strumieniowo do obszaru roboczego usługi Log Analytics mogą być używane z [usługą Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) do wyświetlania szczegółowych informacji za pośrednictwem interfejsu użytkownika witryny Azure portal. Jest to zintegrowane rozwiązanie platformy Azure i najbardziej typowy sposób wyświetlania szczegółowych informacji.
-- Dane wyjściowe przesyłane strumieniowo do usługi Azure Event Hubs mogą być używane do opracowywania scenariuszy niestandardowego monitorowania i alertów
-- Dane wyjściowe przesyłane strumieniowo do usługi Azure Storage mogą służyć do tworzenia aplikacji niestandardowych, takich jak na przykład raportowanie niestandardowe, archiwizacji danych długoterminowych i tak dalej.
+- Dane wyjściowe przesyłane strumieniowo do obszaru roboczego Log Analytics mogą być używane z [Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) do wyświetlania szczegółowych informacji za pomocą interfejsu użytkownika Azure Portal. Jest to zintegrowane rozwiązanie platformy Azure i najbardziej typowy sposób wyświetlania szczegółowych informacji.
+- Dane wyjściowe przesyłane strumieniowo do usługi Azure Event Hubs mogą służyć do tworzenia niestandardowych scenariuszy monitorowania i zgłaszania alertów
+- Dane wyjściowe przesyłane strumieniowo do usługi Azure Storage mogą służyć do tworzenia niestandardowych aplikacji, takich jak raportowanie niestandardowe, długoterminowe archiwizowanie danych i tak dalej.
 
-Integracja usługi Azure SQL Analytics, usługi Azure Event Hub, usługi Azure Storage lub produktów innych firm do użycia jest wykonywana za pomocą pierwszego włączania rejestrowania intelligent insights (dziennika "SQLInsights") w bloku ustawienia diagnostyczne bazy danych, a następnie konfigurowanie danych dziennika intelligent insights do przesyłania strumieniowego do jednego z tych miejsc docelowych.
+Integracja Azure SQL Analytics, centrum zdarzeń platformy Azure, usługi Azure Storage lub produktów innych firm do użycia jest wykonywana przez włączenie rejestrowania Intelligent Insights (Dziennik "SQLInsights") w bloku ustawień diagnostycznych bazy danych, a następnie skonfigurowanie danych dziennika Intelligent Insights do przesyłania strumieniowego do jednego z tych miejsc docelowych.
 
-Aby uzyskać więcej informacji na temat włączania rejestrowania usługi Intelligent Insights oraz konfigurowania danych metryk i dzienników zasobów do przesyłania strumieniowego do produktu zużywającego się, zobacz [Rejestrowanie metryk i diagnostyki usługi Azure SQL Database.](sql-database-metrics-diag-logging.md)
+Aby uzyskać więcej informacji na temat włączania rejestrowania Intelligent Insights i konfigurowania metryk i danych dzienników zasobów w celu przesyłania strumieniowego do produktu zużywanego, zobacz [Azure SQL Database metryki i rejestrowania diagnostyki](sql-database-metrics-diag-logging.md).
 
-### <a name="set-up-with-azure-sql-analytics"></a>Konfigurowanie za pomocą usługi Azure SQL Analytics
+### <a name="set-up-with-azure-sql-analytics"></a>Konfiguracja przy użyciu Azure SQL Analytics
 
-Rozwiązanie usługi Azure SQL Analytics zapewnia graficzny interfejs użytkownika, funkcje raportowania i alertów dotyczące wydajności bazy danych przy użyciu danych dziennika zasobów intelligent insights.
+Rozwiązanie Azure SQL Analytics zapewnia graficznego interfejsu użytkownika, raportowania i funkcji alertów dotyczących wydajności bazy danych przy użyciu danych dziennika zasobów Intelligent Insights.
 
-Dodawanie usługi Azure SQL Analytics do pulpitu nawigacyjnego portalu Azure z witryny marketplace i tworzenie obszaru roboczego można [znaleźć w konfigurowani usłudze Azure SQL Analytics](../azure-monitor/insights/azure-sql.md#configuration)
+Dodaj Azure SQL Analytics do pulpitu nawigacyjnego Azure Portal z portalu Marketplace i aby utworzyć obszar roboczy, zobacz [konfigurowanie Azure SQL Analytics](../azure-monitor/insights/azure-sql.md#configuration)
 
-Aby korzystać z usługi Intelligent Insights w usłudze Azure SQL Analytics, skonfiguruj dane dziennika usługi Intelligent Insights, które mają być przesyłane strumieniowo do obszaru roboczego usługi Azure SQL Analytics utworzonego w poprzednim kroku, zobacz [Rejestrowanie metryk i diagnostyki usługi Azure SQL Database.](sql-database-metrics-diag-logging.md)
+Aby użyć Intelligent Insights z Azure SQL Analytics, skonfiguruj dane dziennika Intelligent Insights do przesyłania strumieniowego do obszaru roboczego Azure SQL Analytics utworzonego w poprzednim kroku, zobacz [Azure SQL Database metryki i rejestrowanie diagnostyki](sql-database-metrics-diag-logging.md).
 
-W poniższym przykładzie przedstawiono inteligentną usługę Insights wyświetlaną za pośrednictwem usługi Azure SQL Analytics:
+Poniższy przykład pokazuje Intelligent Insights oglądany przez Azure SQL Analytics:
 
 ![Raport Intelligent Insights](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
 
-### <a name="set-up-with-event-hubs"></a>Konfigurowanie za pomocą centrów zdarzeń
+### <a name="set-up-with-event-hubs"></a>Konfiguracja przy użyciu Event Hubs
 
-Aby korzystać z usługi Intelligent Insights z centrami zdarzeń, skonfiguruj dane dziennika usługi Intelligent Insights, które mają być przesyłane strumieniowo do centrów zdarzeń, zobacz [rejestrowanie metryk i diagnostyki usługi Azure azure oraz](sql-database-metrics-diag-logging.md) [dzienniki diagnostyczne platformy Azure można przesyłać strumieniowo do centrów zdarzeń.](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+Aby użyć Intelligent Insights z Event Hubs, skonfiguruj dane dziennika Intelligent Insights do przesyłania strumieniowego do Event Hubs, zobacz [Azure SQL Database metryki i rejestrowanie diagnostyki](sql-database-metrics-diag-logging.md) oraz [przesyłanie strumieniowe dzienników diagnostyki platformy Azure do Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
-Aby skonfigurować niestandardowe monitorowanie i alerty za pomocą Centrum zdarzeń, zobacz [Co zrobić z metrykami i dziennikami diagnostycznymi w Centrach zdarzeń](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
+Aby użyć Event Hubs do konfiguracji niestandardowego monitorowania i generowania alertów, zobacz [co zrobić z metrykami i dziennikami diagnostycznymi w Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 
-### <a name="set-up-with-azure-storage"></a>Konfigurowanie usługi Azure Storage
+### <a name="set-up-with-azure-storage"></a>Konfigurowanie za pomocą usługi Azure Storage
 
-Aby korzystać z usługi Intelligent Insights with Storage, skonfiguruj dane dziennika inteligentnej usługi Insights, które mają być przesyłane strumieniowo do magazynu, zobacz [Rejestrowanie i rejestrowanie diagnostyki usługi Azure Database usługi Azure database oraz przesyłanie strumieniowe](sql-database-metrics-diag-logging.md) [do usługi Azure Storage.](sql-database-metrics-diag-logging.md#stream-into-azure-storage)
+Aby użyć Intelligent Insights z magazynem, skonfiguruj dane dziennika Intelligent Insights do przesyłania strumieniowego do magazynu, zobacz [Azure SQL Database metryki i rejestrowanie diagnostyki](sql-database-metrics-diag-logging.md) oraz [przesyłanie strumieniowe do usługi Azure Storage](sql-database-metrics-diag-logging.md#stream-into-azure-storage).
 
-### <a name="custom-integrations-of-intelligent-insights-log"></a>Niestandardowe integracje dziennika intelligent insights
+### <a name="custom-integrations-of-intelligent-insights-log"></a>Niestandardowa integracja dziennika Intelligent Insights
 
-Aby korzystać z aplikacji Intelligent Insights z narzędziami innych firm lub do tworzenia niestandardowych alertów i monitorowania, zobacz [Korzystanie z dziennika diagnostyki wydajności bazy danych Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
+Aby użyć Intelligent Insights z narzędziami innych firm lub dla niestandardowego tworzenia alertów i monitorowania, zobacz [Korzystanie z dziennika diagnostyki wydajności bazy danych Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 
 ## <a name="detection-metrics"></a>Metryki wykrywania
 
-Metryki używane dla modeli wykrywania, które generują inteligentne usługi Insights, są oparte na monitorowaniu:
+Metryki używane na potrzeby modeli wykrywania generujących Intelligent Insights są oparte na monitorowaniu:
 
-- Czas trwania kwerendy
+- Czas trwania zapytania
 - Żądania limitu czasu
 - Nadmierny czas oczekiwania
-- Błędy żądań
+- Błędne żądania
 
-Żądania czasu trwania i limitu czasu kwerendy są używane jako modele podstawowe w wykrywaniu problemów z wydajnością obciążenia bazy danych. Są one używane, ponieważ bezpośrednio mierzą, co dzieje się z obciążeniem. Aby wykryć wszystkie możliwe przypadki pogorszenia wydajności obciążenia, nadmierny czas oczekiwania i żądania błędów są używane jako dodatkowe modele, aby wskazać problemy, które wpływają na wydajność obciążenia.
+Czas trwania zapytania i żądania przekroczenia limitu czasu są używane jako modele podstawowe w wykrywaniu problemów z wydajnością obciążenia bazy danych. Są one używane, ponieważ bezpośrednio mierzą, co dzieje się z obciążeniem. Aby wykryć wszystkie możliwe przypadki obniżenia wydajności obciążeń, nadmierny czas oczekiwania i błędy żądania są używane jako dodatkowe modele wskazujące problemy, które mają wpływ na wydajność obciążeń.
 
-System automatycznie uwzględnia zmiany w obciążeniu i zmiany liczby żądań zapytań do bazy danych, aby dynamicznie określać normalne i nietypowe progi wydajności bazy danych.
+System automatycznie rozważa zmiany obciążenia i zmiany liczby żądań zapytań wykonywanych w bazie danych, aby dynamicznie określić normalne i nieaktualne progi wydajności bazy danych.
 
-Wszystkie metryki są uwzględniane razem w różnych relacjach za pośrednictwem naukowo pochodnego modelu danych, który kategoryzuje każdy wykryty problem z wydajnością. Informacje przekazywane za pośrednictwem inteligentnego wglądu obejmują:
+Wszystkie metryki są brane pod uwagę w różnych relacjach za pomocą ogólnie wykrytych modeli danych. Informacje dostępne za poorednictwem usługi Intelligent Insights obejmują:
 
 - Szczegóły wykrytego problemu z wydajnością.
-- Analiza głównej przyczyny wykrytego problemu.
-- Zalecenia dotyczące poprawy wydajności monitorowanej bazy danych SQL, jeśli to możliwe.
+- Wykryto analizę głównej przyczyny problemu.
+- Zalecenia dotyczące poprawy wydajności monitorowanej bazy danych SQL, o ile jest to możliwe.
 
-## <a name="query-duration"></a>Czas trwania kwerendy
+## <a name="query-duration"></a>Czas trwania zapytania
 
-Model degradacji czasu trwania kwerendy analizuje poszczególne zapytania i wykrywa wzrost czasu potrzebny do skompilowania i wykonania kwerendy w porównaniu do linii bazowej wydajności.
+Model rozkładu czasu trwania zapytania analizuje poszczególne zapytania i wykrywa wzrost czasu potrzebny do skompilowania i wykonania zapytania w porównaniu z linią bazową wydajności.
 
-Jeśli wbudowana inteligencja bazy danych SQL wykryje znaczny wzrost czasu kompilacji kwerend lub wykonywania kwerend, który wpływa na wydajność obciążenia, te kwerendy są oflagowane jako problemy z obniżeniem wydajności czasu trwania kwerendy.
+Jeśli w SQL Database wbudowanej analizie wykryje znaczny wzrost czasu wykonywania zapytania lub wykonania zapytania, który wpływa na wydajność obciążeń, te zapytania są oflagowane jako problemy z obniżeniem wydajności w czasie wykonywania zapytania.
 
-Dziennik diagnostyki inteligentnej analizy danych wyjściowych skrót zapytania kwerendy obniżona w wydajności. Skrót kwerendy wskazuje, czy obniżenie wydajności było związane z kompilacji kwerendy lub zwiększenie czasu wykonywania, co wydłużyło czas trwania kwerendy.
+W dzienniku diagnostyki Intelligent Insights są wyprowadzane wyniki zapytania o nieprawidłowej wydajności. Wartość skrótu zapytania wskazuje, czy spadek wydajności został powiązany z wzrostem czasu kompilacji lub wykonania zapytania, który zwiększył czas trwania zapytania.
 
 ## <a name="timeout-requests"></a>Żądania limitu czasu
 
-Model degradacji żądań limitu czasu analizuje poszczególne kwerendy i wykrywa wzrost limitów czasu na poziomie wykonywania kwerendy i ogólny limit czasu żądania na poziomie bazy danych w porównaniu z okresem planu bazowego wydajności.
+Model obniżenia poziomu żądań przeanalizuje poszczególne zapytania i wykrywa wzrost limitu czasu na poziomie wykonywania zapytania oraz ogólne limity czasu żądania na poziomie bazy danych w porównaniu z okresem bazowym wydajności.
 
-Niektóre zapytania może limit czasu, nawet zanim dotrą do etapu wykonywania. Za pomocą przerwanych pracowników w porównaniu z żądaniami, wbudowana baza danych SQL mierzy i analizuje wszystkie zapytania, które dotarły do bazy danych, niezależnie od tego, czy dotarły do etapu wykonywania, czy nie.
+Niektóre zapytania mogą przekroczyć limit czasu przed osiągnięciem etapu wykonania. Za pomocą środków przerwanych procesów roboczych i żądań, SQL Database wbudowane miary analizy i analizuje wszystkie zapytania, które dotarły do bazy danych, niezależnie od tego, czy odnoszą się do etapu wykonywania, czy nie.
 
-Po liczbie limitów czasu dla wykonanych kwerend lub liczba przerwanych pracowników żądań przekracza próg zarządzany przez system, dziennik diagnostyki jest wypełniany inteligentnymi spostrzeżeniami.
+Po upływie liczby przekroczeń limitu czasu dla wykonywanych zapytań lub liczby przerwanych procesów roboczych przekracza próg zarządzany przez system, dziennik diagnostyczny jest wypełniany inteligentnym wglądem w szczegółowe dane.
 
-Wygenerowane szczegółowe informacje zawierają liczbę żądań z limitem czasu i liczbę zapytań z limitem czasu. Wskazanie spadek wydajności jest związane ze wzrostem limitu czasu na etapie wykonywania lub ogólny poziom bazy danych jest dostarczany. Gdy wzrost limitów czasu jest uważany za istotne dla wydajności bazy danych, te zapytania są oflagowane jako problemy z obniżeniem wydajności limitu czasu.
+Wygenerowane szczegółowe dane zawierają liczbę żądań, które przekroczyły limit czasu i liczbę zapytań, które przekroczyły limit czasu. Wskazanie obniżenia wydajności jest związane z zwiększeniem limitu czasu na etapie wykonywania lub podano ogólny poziom bazy danych. Gdy wzrost limitu czasu jest uznawany za istotny dla wydajności bazy danych, te zapytania są oflagowane jako problemy z obniżeniem wydajności.
 
 ## <a name="excessive-wait-times"></a>Nadmierny czas oczekiwania
 
-Model nadmiernego czasu oczekiwania monitoruje zapytania poszczególnych baz danych. Wykrywa niezwykle wysokie statystyki oczekiwania na kwerendy, które przekroczyły progi bezwzględne zarządzane przez system. Następujące metryki nadmiernego czasu oczekiwania kwerendy są obserwowane przy użyciu nowej funkcji programu SQL Server, statystyki oczekiwania magazynu zapytań (sys.query_store_wait_stats):
+Model czasu nadmiarowego oczekiwania monitoruje poszczególne zapytania bazy danych. Wykrywa nietypowo wysokie statystyki oczekiwania na zapytania, które przekroczyły progi bezwzględne zarządzane przez system. Następujące zapytania nadmiernie nadmiarowe metryki czasu oczekiwania są zaobserwowane przy użyciu nowej funkcji SQL Server, Statystyka oczekiwania magazynu zapytań (sys. query_store_wait_stats):
 
 - Osiąganie limitów zasobów
-- Osiąganie limitów zasobów puli elastycznej
-- Nadmierna liczba wątków roboczych lub sesji
+- Osiągnięcie limitów zasobów puli elastycznej
+- Nadmierna liczba wątków procesów roboczych lub sesji
 - Nadmierne blokowanie bazy danych
 - Wykorzystanie pamięci
 - Inne statystyki oczekiwania
 
-Osiągnięcie limitów zasobów lub limitów zasobów puli elastycznej oznacza, że zużycie dostępnych zasobów w ramach subskrypcji lub puli elastycznej przekroczyło progi bezwzględne. Te statystyki wskazują na obniżenie wydajności obciążenia. Nadmierna liczba wątków roboczych lub sesji oznacza warunek, w którym liczba wątków roboczych lub sesji zainicjowanych przekroczyła progi bezwzględne. Te statystyki wskazują na obniżenie wydajności obciążenia.
+Osiągnięcie limitów zasobów lub limitów zasobów puli elastycznej oznacza, że zużycie zasobów w ramach subskrypcji lub elastycznej puli przekracza progi bezwzględne. Te statystyki wskazują spadek wydajności obciążeń. Nadmierna liczba wątków procesów roboczych i sesji oznacza warunek, w którym liczba wątków roboczych lub sesji została zainicjowana z przekroczeniem progów bezwzględnych. Te statystyki wskazują spadek wydajności obciążeń.
 
-Nadmierne blokowanie bazy danych oznacza warunek, w którym liczba blokad w bazie danych przekroczyła progi bezwzględne. Ten statystyka wskazuje obniżenie wydajności obciążenia. Ciśnienie pamięci jest warunkiem, w którym liczba wątków żądających dotacji pamięci przekroczyła próg bezwzględny. Ten statystyka wskazuje obniżenie wydajności obciążenia.
+Nadmierne blokowanie bazy danych oznacza warunek, w którym liczba blokad w bazie danych ma przekroczenie progów bezwzględnych. Ten stan wskazuje na spadek wydajności obciążeń. Wykorzystanie pamięci to warunek, w którym liczba wątków żądających przydzielenia pamięci przekroczy próg absolutny. Ten stan wskazuje na spadek wydajności obciążeń.
 
-Inne wykrywanie statystyk oczekiwania wskazuje warunek, w którym różne metryki mierzone za pośrednictwem statystyki oczekiwania magazynu zapytań przekroczyły próg bezwzględny. Te statystyki wskazują na obniżenie wydajności obciążenia.
+Inne wykrywanie statystyk oczekiwania wskazuje warunek, w którym różne metryki mierzone za pomocą magazynu zapytań Statystyka zaczekałą próg bezwzględny. Te statystyki wskazują spadek wydajności obciążeń.
 
-Po wykryciu nadmiernego czasu oczekiwania, w zależności od dostępnych danych, przepływy danych diagnostycznych intelligent insights powoduje skróty zapytań mających wpływ i dotkniętych, a także szczegóły dotyczące metryk, które powodują, że kwerendy czekają w wykonaniu, oraz zmierzony czas oczekiwania.
+Po wykryciu nadmiernych czasów oczekiwania, w zależności od dostępnych danych, dane wyjściowe w dzienniku diagnostyki Intelligent Insights mogą wynikać z nieprawidłowej wydajności i zamierzonych zapytań, szczegóły metryk, które powodują oczekiwanie na wykonanie zapytań i mierzoną wartość czasu oczekiwania.
 
-## <a name="errored-requests"></a>Żądania błędów
+## <a name="errored-requests"></a>Błędne żądania
 
-Model degradacji żądań błędowych monitoruje poszczególne zapytania i wykrywa wzrost liczby kwerend, które wystąpiły z błędem w porównaniu z okresem bazowym. Ten model monitoruje również wyjątki krytyczne, które przekroczyły progi bezwzględne zarządzane przez wbudowaną inteligencję bazy danych SQL. System automatycznie uwzględnia liczbę żądań zapytań wysyłanych do bazy danych i uwzględnia wszelkie zmiany obciążenia w monitorowanym okresie.
+W przypadku błędnych żądań model obniżenia wydajności monitoruje poszczególne zapytania i wykrywa wzrost liczby zapytań, które zostały błędnie porównane z okresem bazowym. Ten model monitoruje również wyjątki krytyczne, które przekroczyły progi bezwzględne zarządzane przez SQL Databaseą wbudowaną analizę. System automatycznie traktuje liczbę żądań zapytań skierowanych do bazy danych i kont dla wszystkich zmian obciążenia w monitorowanym okresie.
 
-Gdy zmierzony wzrost liczby żądań błędowych w stosunku do ogólnej liczby żądań jest uważany za istotny dla wydajności obciążenia, zapytania, których dotyczy problem, są oflagowane jako problemy z obniżeniem wydajności żądań błędów.
+Gdy mierzony wzrost liczby nieudanych żądań względem ogólnej ilości wykonywanych żądań jest uznawany za znaczący dla wydajności obciążenia, uwzględnione zapytania są oflagowane jako błędne żądania spadek wydajności.
 
-Dziennik inteligentnej usługi Insights wyprowadza liczbę żądań, których się nie udało. Wskazuje, czy spadek wydajności był związany ze wzrostem liczby błędnych żądań lub z przekroczeniem monitorowanego progu wyjątku krytycznego i zmierzonego czasu pogorszenia wydajności.
+W dzienniku Intelligent Insights są wyprowadzane liczba błędnych żądań. Wskazuje, czy spadek wydajności został związany ze wzrostem liczby błędnych żądań lub przekroczeniem monitorowanego progu wyjątku krytycznego i mierzonego czasu obniżenia wydajności.
 
-Jeśli którykolwiek z monitorowanych wyjątków krytycznych przekroczyć progi bezwzględne zarządzane przez system, inteligentny wgląd jest generowany z krytycznych szczegółów wyjątku.
+Jeśli którykolwiek z monitorowanych wyjątków krytycznych przekroczy progi bezwzględne zarządzane przez system, usługa inteligentnego wglądu jest generowana ze szczegółowymi informacjami o wyjątkach.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak [monitorować bazę danych SQL przy użyciu usługi SQL Analytics](../azure-monitor/insights/azure-sql.md).
-- Dowiedz się, jak [rozwiązywać problemy z wydajnością bazy danych SQL za pomocą aplikacji Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+- Dowiedz się [, jak monitorować SQL Database przy użyciu usługi SQL Analytics](../azure-monitor/insights/azure-sql.md).
+- Dowiedz się, jak [rozwiązywać problemy z wydajnością SQL Database przy użyciu Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).

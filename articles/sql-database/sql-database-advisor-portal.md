@@ -1,6 +1,6 @@
 ---
 title: Stosowanie zaleceń dotyczących wydajności
-description: Skorzystaj z witryny Azure Portal, aby znaleźć zalecenia dotyczące wydajności, które mogą zoptymalizować wydajność bazy danych SQL azure.
+description: Użyj Azure Portal, aby znaleźć zalecenia dotyczące wydajności, które mogą zoptymalizować wydajność Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,162 +12,162 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
 ms.openlocfilehash: b0452d51dc472e100ef52536d8e3814ff395292b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79214177"
 ---
-# <a name="find-and-apply-performance-recommendations"></a>Znajdowanie i stosowanie zaleceń dotyczących wydajności
+# <a name="find-and-apply-performance-recommendations"></a>Znajdź i Zastosuj zalecenia dotyczące wydajności
 
-Za pomocą witryny Azure Portal można znaleźć zalecenia dotyczące wydajności, które mogą zoptymalizować wydajność bazy danych SQL platformy Azure lub rozwiązać niektóre problemy zidentyfikowane w obciążeniu. Strona **rekomendacji wydajności** w witrynie Azure portal umożliwia znajdowanie najlepszych zaleceń na podstawie ich potencjalnego wpływu.
+Możesz użyć Azure Portal, aby znaleźć zalecenia dotyczące wydajności, które mogą zoptymalizować wydajność Azure SQL Database lub rozwiązać problem opisany w obciążeniu. Strona **zalecenia dotyczące wydajności** w Azure Portal umożliwia znalezienie najważniejszych zaleceń w oparciu o ich potencjalny wpływ.
 
-## <a name="viewing-recommendations"></a>Wyświetlanie rekomendacji
+## <a name="viewing-recommendations"></a>Wyświetlanie zaleceń
 
-Aby wyświetlić i zastosować zalecenia dotyczące wydajności, potrzebujesz odpowiednich uprawnień [kontroli dostępu opartych na rolach na](../role-based-access-control/overview.md) platformie Azure. **Czytnik**, **uprawnienia współautora bazy danych SQL** są wymagane do wyświetlania zaleceń, a **właściciel**, **uprawnienia współautora bazy danych SQL** są wymagane do wykonywania wszelkich akcji; tworzenie lub upuszczanie indeksów i anulowanie tworzenia indeksu.
+Aby wyświetlać i stosować zalecenia dotyczące wydajności, potrzebne są odpowiednie uprawnienia [kontroli dostępu opartej na rolach](../role-based-access-control/overview.md) na platformie Azure. Aby można było wykonać wszystkie **akcje, wymagane**są uprawnienia współautora bazy danych **SQL** do wyświetlania zaleceń i **właściciel** **bazy danych SQL** . Utwórz lub upuść indeksy i Anuluj tworzenie indeksu.
 
-Skorzystaj z następujących kroków, aby znaleźć zalecenia dotyczące wydajności w witrynie Azure portal:
+Wykonaj następujące kroki, aby znaleźć zalecenia dotyczące wydajności na Azure Portal:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
-2. Przejdź do **wszystkich usług** > **baz danych SQL**i wybierz bazę danych.
-3. Przejdź do **zalecenia wydajności,** aby wyświetlić dostępne zalecenia dla wybranej bazy danych.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Przejdź do obszaru **wszystkie usługi** > **bazy danych SQL**, a następnie wybierz bazę danych.
+3. Przejdź do **zalecenia** dotyczącego wydajności, aby wyświetlić dostępne rekomendacje dla wybranej bazy danych.
 
-Zalecenia dotyczące wydajności są wyświetlane w tabeli podobnej do przedstawionej na poniższym rysunku:
+Zalecenia dotyczące wydajności są wyświetlane w tabeli podobnej do przedstawionej na poniższej ilustracji:
 
 ![Zalecenia](./media/sql-database-advisor-portal/recommendations.png)
 
-Zalecenia są sortowane według ich potencjalnego wpływu na wydajność w następujących kategoriach:
+Zalecenia są sortowane według ich potencjalnego wpływu na wydajność na następujące kategorie:
 
 | Wpływ | Opis |
 |:--- |:--- |
-| Wysoka |Zalecenia dotyczące wysokiego wpływu powinny mieć największy wpływ na wydajność. |
-| Medium |Zalecenia dotyczące średniego wpływu powinny poprawić wydajność, ale nie w znacznym stopniu. |
-| Małe |Zalecenia o niskim wpływie powinny zapewniać lepszą wydajność niż bez, ale ulepszenia mogą nie być znaczące. |
+| Wysoka |Zalecenia o dużym wpływie powinny zapewnić najbardziej znaczący wpływ na wydajność. |
+| Medium |Zalecenia dotyczące średniego wpływu powinny poprawić wydajność, ale nie w znaczący sposób. |
+| Małe |Zalecenia dotyczące niskiego wpływu powinny zapewnić lepszą wydajność niż bez, ale ulepszenia mogą nie być znaczące. |
 
 > [!NOTE]
-> Usługa Azure SQL Database musi monitorować działania co najmniej przez jeden dzień, aby zidentyfikować niektóre zalecenia. Usługa Azure SQL Database można łatwiej zoptymalizować pod kątem spójnych wzorców zapytań, niż może dla losowych wyprysków serii aktywności. Jeśli zalecenia nie są obecnie dostępne, strona **zalecenia dotyczące wydajności** zawiera komunikat wyjaśniający, dlaczego.
+> Azure SQL Database musi monitorować działania co najmniej dziennie, aby zidentyfikować pewne zalecenia. Azure SQL Database można łatwiej zoptymalizować pod kątem spójnych wzorców zapytań niż w przypadku losowych rozerwania aktywności. Jeśli rekomendacje nie są obecnie dostępne, na stronie **zalecenia dotyczące wydajności** zostanie wyświetlony komunikat z wyjaśnieniem dlaczego.
 
 Można również wyświetlić stan operacji historycznych. Wybierz zalecenie lub stan, aby wyświetlić więcej informacji.
 
-Oto przykład zalecenia "Utwórz indeks" w witrynie Azure portal.
+Oto przykład rekomendacji "Utwórz indeks" w Azure Portal.
 
 ![tworzenie indeksu](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
 
 ## <a name="applying-recommendations"></a>Stosowanie zaleceń
 
-Usługa Azure SQL Database zapewnia pełną kontrolę nad tym, jak zalecenia są włączone przy użyciu dowolnej z następujących trzech opcji:
+Azure SQL Database zapewnia pełną kontrolę nad sposobem włączania zaleceń przy użyciu dowolnej z następujących trzech opcji:
 
-* Stosuj indywidualne zalecenia pojedynczo.
-* Włącz automatyczne dostrajanie, aby automatycznie stosować zalecenia.
-* Aby zaimplementować zalecenie ręcznie, uruchom zalecany skrypt T-SQL względem bazy danych.
+* Stosuj pojedyncze rekomendacje pojedynczo.
+* Włącz automatyczne dostosowywanie, aby automatycznie stosować zalecenia.
+* Aby ręcznie zaimplementować zalecenie, uruchom zalecany skrypt T-SQL w bazie danych.
 
-Wybierz dowolną rekomendację, aby wyświetlić jego szczegóły, a następnie kliknij przycisk **Wyświetl skrypt,** aby przejrzeć dokładne szczegóły sposobu tworzenia rekomendacji.
+Wybierz dowolne zalecenie, aby wyświetlić jego szczegóły, a następnie kliknij przycisk **Wyświetl skrypt** , aby przejrzeć dokładne szczegóły dotyczące sposobu tworzenia zalecenia.
 
-Baza danych pozostaje w trybie online, gdy zalecenie jest stosowane — przy użyciu zalecenia dotyczące wydajności lub automatycznego dostrajania nigdy nie przełącza bazy danych w tryb offline.
+Baza danych pozostaje w trybie online, gdy zalecenie jest stosowane — przy użyciu zalecenia dotyczącego wydajności lub dostrajania automatycznego nigdy nie przejdzie bazy danych w tryb offline.
 
-### <a name="apply-an-individual-recommendation"></a>Stosowanie indywidualnego zalecenia
+### <a name="apply-an-individual-recommendation"></a>Zastosuj indywidualne zalecenie
 
-Rekomendacje można przeglądać i akceptować po jednym naraz.
+Możesz przejrzeć i zaakceptować zalecenia po jednej naraz.
 
-1. Na stronie **Zalecenia** wybierz zalecenie.
-2. Na stronie **Szczegóły** kliknij przycisk **Zastosuj.**
+1. Na stronie **zalecenia** wybierz zalecenie.
+2. Na stronie **szczegółów** kliknij przycisk **Zastosuj** .
 
    ![Zastosuj zalecenie](./media/sql-database-advisor-portal/apply.png)
 
-Wybrane zalecenie są stosowane w bazie danych.
+Wybrane zalecenie jest stosowane do bazy danych.
 
-### <a name="removing-recommendations-from-the-list"></a>Usuwanie zaleceń z listy
+### <a name="removing-recommendations-from-the-list"></a>Usuwanie rekomendacji z listy
 
-Jeśli lista rekomendacji zawiera elementy, które chcesz usunąć z listy, możesz odrzucić zalecenie:
+Jeśli lista zaleceń zawiera elementy, które chcesz usunąć z listy, możesz odrzucić zalecenie:
 
-1. Wybierz zalecenie na liście **Rekomendacje,** aby otworzyć szczegóły.
-2. Kliknij **pozycję Odrzuć** na stronie **Szczegóły.**
+1. Wybierz zalecenie z listy **zaleceń** , aby otworzyć Szczegóły.
+2. Na stronie **szczegółów** kliknij pozycję **Odrzuć** .
 
-W razie potrzeby można dodać odrzucone elementy z powrotem do listy **Rekomendacje:**
+W razie potrzeby można dodać odrzucone elementy z listy **rekomendacje** :
 
-1. Na stronie **Zalecenia** kliknij pozycję **Wyświetl odrzucone**.
-2. Wybierz odrzucony element z listy, aby wyświetlić jego szczegóły.
-3. Opcjonalnie kliknij przycisk **Cofnij odrzuć,** aby dodać indeks z powrotem do głównej listy **rekomendacji**.
+1. Na stronie **zalecenia** kliknij przycisk **Wyświetl odrzucony**.
+2. Wybierz z listy odrzucony element, aby wyświetlić jego szczegóły.
+3. Opcjonalnie kliknij przycisk **Cofnij Odrzuć** , aby dodać indeks z powrotem do głównej listy **zaleceń**.
 
 > [!NOTE]
-> Należy pamiętać, że jeśli [funkcja automatycznego dostrajania](sql-database-automatic-tuning.md) bazy danych SQL jest włączona, a zalecenie zostało ręcznie odrzucone z listy, takie zalecenie nigdy nie zostanie zastosowane automatycznie. Odrzucenie zalecenia jest przydatnym sposobem dla użytkowników, aby automatyczne dostrajanie włączone w przypadkach, gdy wymaga, aby określone zalecenie nie powinny być stosowane.
-> To zachowanie można przywrócić, dodając odrzucone zalecenia z powrotem do listy Zalecenia, wybierając opcję Cofnij odrzuć.
+> Należy pamiętać, że jeśli SQL Database [dostrajania automatycznego](sql-database-automatic-tuning.md) jest włączona, a jeśli użytkownik ręcznie odrzuci zalecenie z listy, takie zalecenie nigdy nie będzie automatycznie stosowane. Odrzucanie zalecenia jest wygodnym sposobem, aby użytkownicy mogli korzystać z funkcji automatycznego dostrajania w przypadkach, gdy wymagają zastosowania określonego zalecenia.
+> Możesz przywrócić to zachowanie, dodając odrzucone zalecenia z powrotem do listy rekomendacji, wybierając opcję Cofnij Odrzuć.
 
 ### <a name="enable-automatic-tuning"></a>Włączanie automatycznego dostrajania
 
-Można ustawić usługi Azure SQL Database, aby automatycznie implementować zalecenia. W miarę udostępniania rekomendacji są one automatycznie stosowane. Podobnie jak w przypadku wszystkich zaleceń zarządzanych przez usługę, jeśli wpływ na wydajność jest negatywny, zalecenie zostanie wycofane.
+Można ustawić Azure SQL Database, aby zaimplementować zalecenia automatycznie. Gdy udostępnisz zalecenia, są one automatycznie stosowane. Podobnie jak w przypadku wszystkich zaleceń zarządzanych przez usługę, jeśli wpływ na wydajność jest negatywny, zalecenie zostanie cofnięte.
 
-1. Na stronie **Zalecenia** kliknij pozycję **Automatyzuj**:
+1. Na stronie **zalecenia** kliknij przycisk **Automatyzuj**:
 
-   ![Ustawienia doradcy](./media/sql-database-advisor-portal/settings.png)
-2. Wybierz akcje do automatyzacji:
+   ![Ustawienia usługi Advisor](./media/sql-database-advisor-portal/settings.png)
+2. Wybierz akcje do zautomatyzowania:
 
    ![Zalecane indeksy](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Należy pamiętać, że **opcja DROP_INDEX** nie jest obecnie zgodna z aplikacjami korzystającymi z przełączania partycji i wskazówek dotyczących indeksu.
+> Należy pamiętać, że opcja **DROP_INDEX** nie jest obecnie zgodna z aplikacjami korzystającymi z przełączania partycji i wskazówek dotyczących indeksów.
 
-Po wybraniu żądanej konfiguracji kliknij przycisk Zastosuj.
+Po wybraniu odpowiedniej konfiguracji kliknij przycisk Zastosuj.
 
-### <a name="manually-apply-recommendations-through-t-sql"></a>Ręczne stosowanie zaleceń za pośrednictwem języka T-SQL
+### <a name="manually-apply-recommendations-through-t-sql"></a>Ręcznie stosuj zalecenia przy użyciu języka T-SQL
 
-Zaznacz dowolną rekomendację, a następnie kliknij pozycję **Wyświetl skrypt**. Uruchom ten skrypt względem bazy danych, aby ręcznie zastosować zalecenie.
+Wybierz dowolne zalecenie, a następnie kliknij przycisk **Wyświetl skrypt**. Uruchom ten skrypt w bazie danych, aby ręcznie zastosować zalecenie.
 
-*Indeksy, które są wykonywane ręcznie nie są monitorowane i sprawdzane pod kątem wpływu na wydajność przez usługę,* więc sugeruje się, aby monitorować te indeksy po utworzeniu, aby sprawdzić, czy zapewniają wzrost wydajności i dostosować lub usunąć je w razie potrzeby. Aby uzyskać szczegółowe informacje na temat tworzenia indeksów, zobacz [TWORZENIE INDEKSU (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql). Ponadto ręcznie stosowane zalecenia pozostaną aktywne i przedstawione na liście zaleceń na 24-48 godzin. zanim system automatycznie je wycofa. Jeśli chcesz usunąć zalecenie wcześniej, możesz ręcznie je odrzucić.
+*Indeksy, które są wykonywane ręcznie, nie są monitorowane i sprawdzane pod kątem wydajności przez usługę* , dlatego zaleca się monitorowanie tych indeksów po utworzeniu, aby upewnić się, że zapewniają one zyski z wydajności i dostosowywać je w razie potrzeby. Aby uzyskać szczegółowe informacje na temat tworzenia indeksów, zobacz [create index (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql). Ponadto ręcznie zastosowane rekomendacje pozostaną aktywne i wyświetlone na liście zaleceń dla 24-48 godzin. przed automatycznym wycofaniem ich przez system. Jeśli chcesz usunąć zalecenie wcześniej, możesz je ręcznie odrzucić.
 
 ### <a name="canceling-recommendations"></a>Anulowanie zaleceń
 
-Zalecenia, które znajdują się w **oczekujące,** **Sprawdzanie poprawności**lub **Powodzenie** stanu można anulować. Rekomendacje o stanie **Wykonywanie** nie mogą zostać anulowane.
+Zaleceń, które znajdują się w stanie **oczekiwania**, **sprawdzania poprawności**lub **sukcesu** , można anulować. Nie można anulować zaleceń dotyczących stanu **wykonywania** .
 
-1. Wybierz zalecenie w obszarze **Historia strojenia,** aby otworzyć stronę **szczegółów rekomendacji.**
-2. Kliknij **przycisk Anuluj,** aby przerwać proces stosowania zalecenia.
+1. Wybierz zalecenie w obszarze **historia dostrajania** , aby otworzyć stronę **szczegóły rekomendacji** .
+2. Kliknij przycisk **Anuluj** , aby przerwać proces stosowania zalecenia.
 
 ## <a name="monitoring-operations"></a>Operacje monitorowania
 
-Stosowanie zalecenia może nie nastąpić natychmiast. Portal zawiera szczegółowe informacje dotyczące stanu rekomendacji. Poniżej przedstawiono możliwe stany, w których może znajdować się indeks:
+Zastosowanie zalecenia może nie być chwilowo wykonywane. Portal zawiera szczegółowe informacje dotyczące stanu zalecenia. Poniżej przedstawiono możliwe stany, w których może znajdować się indeks:
 
 | Stan | Opis |
 |:--- |:--- |
-| Oczekujące |Zastosuj polecenie zalecenie zostało odebrane i jest zaplanowane do wykonania. |
-| Wykonywanie |Zalecenie jest stosowane. |
-| Sprawdzanie poprawności |Zalecenie zostało pomyślnie zastosowane, a usługa mierzy korzyści. |
-| Powodzenie |Zalecenie zostało pomyślnie zastosowane i zmierzono korzyści. |
-| Błąd |Wystąpił błąd podczas procesu stosowania zalecenia. Może to być przejściowy problem lub ewentualnie zmiana schematu do tabeli i skrypt nie jest już prawidłowy. |
-| Przywracanie |Zalecenie zostało zastosowane, ale zostało uznane za niekonserwacyjne i jest automatycznie przywracane. |
-| Przywrócone |Zalecenie zostało przywrócone. |
+| Oczekiwanie |Odebrano polecenie zastosowania zalecenia i zaplanowano jego wykonanie. |
+| Operacji |Zalecenie jest stosowane. |
+| Ponownego |Zalecenie zostało pomyślnie zastosowane i usługa mierzy korzyści. |
+| Powodzenie |Zalecenie zostało pomyślnie zastosowane i korzyści zostały zmierzone. |
+| Error |Wystąpił błąd podczas procesu stosowania zalecenia. Może to być problem przejściowy lub prawdopodobnie zmiana schematu tabeli, a skrypt nie jest już prawidłowy. |
+| Przywracanie |Zalecenie zostało zastosowane, ale zostało uznane za niewykonane i jest automatycznie przywracane. |
+| Przywrócono |Zalecenie zostało cofnięte. |
 
-Kliknij zalecenie w trakcie procesu z listy, aby wyświetlić więcej informacji:
+Kliknij rekomendację w procesie z listy, aby wyświetlić więcej informacji:
 
 ![Zalecane indeksy](./media/sql-database-advisor-portal/operations.png)
 
-### <a name="reverting-a-recommendation"></a>Przywrócenie zalecenia
+### <a name="reverting-a-recommendation"></a>Cofanie zalecenia
 
-Jeśli użyto zalecenia dotyczące wydajności, aby zastosować zalecenie (co oznacza, że nie ręcznie uruchomić skrypt T-SQL), automatycznie przywraca zmiany, jeśli okaże się, że wpływ na wydajność jest ujemny. Jeśli z jakiegoś powodu po prostu chcesz przywrócić zalecenie, możesz wykonać następujące czynności:
+Jeśli użyto zalecenia dotyczącego wydajności, aby zastosować zalecenie (oznacza to, że nie uruchomiono ręcznie skryptu T-SQL), program automatycznie przywróci zmianę, jeśli znajdzie wpływ na wydajność na wartość ujemną. Jeśli z jakiegoś powodu po prostu chcesz przywrócić zalecenie, możesz wykonać następujące czynności:
 
-1. Wybierz pomyślnie zastosowane zalecenie w obszarze **Historia strojenia.**
-2. Kliknij pozycję **Przywróć** na stronie **szczegółów rekomendacji.**
+1. Wybierz pomyślnie zastosowane zalecenie w obszarze **historia dostrajania** .
+2. Kliknij przycisk **Przywróć** na stronie **szczegółów rekomendacji** .
 
 ![Zalecane indeksy](./media/sql-database-advisor-portal/details.png)
 
-## <a name="monitoring-performance-impact-of-index-recommendations"></a>Monitorowanie wpływu zaleceń dotyczących indeksów na wydajność
+## <a name="monitoring-performance-impact-of-index-recommendations"></a>Monitorowanie wpływu zaleceń dotyczących indeksów
 
-Po pomyślnym zaimplementowaniu rekomendacji (obecnie tylko operacje indeksowania i parametryzowanie zaleceń dotyczących zapytań) można kliknąć **witrynę Query Insights** na stronie szczegółów rekomendacji, aby otworzyć [statystykę wydajności kwerendy](sql-database-query-performance.md) i wyświetlić wpływ na wydajność najważniejszych zapytań.
+Po pomyślnym wdrożeniu zaleceń (obecnie, operacji indeksowania i zaleceń Sparametryzuj) można kliknąć pozycję szczegółowe dane **zapytania** na stronie Szczegóły zalecenia, aby otworzyć szczegółowe informacje o [wydajności zapytań](sql-database-query-performance.md) i zobaczyć wpływ najważniejszych zapytań na wydajność.
 
-![Monitorowanie wpływu na wydajność](./media/sql-database-advisor-portal/query-insights.png)
+![Monitorowanie wpływu wydajności](./media/sql-database-advisor-portal/query-insights.png)
 
 ## <a name="summary"></a>Podsumowanie
 
-Usługa Azure SQL Database zawiera zalecenia dotyczące poprawy wydajności bazy danych SQL. Zapewniając skrypty T-SQL, można uzyskać pomoc w optymalizacji bazy danych i ostatecznie zwiększenie wydajności kwerendy.
+Azure SQL Database zawiera zalecenia dotyczące poprawy wydajności usługi SQL Database. Dostarczając skrypty T-SQL, uzyskasz pomoc w optymalizowaniu bazy danych i ostatecznie ulepszaniu wydajności zapytań.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Monitoruj zalecenia i kontynuuj stosowanie ich w celu zawężenia wydajności. Obciążenia bazy danych są dynamiczne i zmieniają się w sposób ciągły. Usługa Azure SQL Database nadal monitoruje i dostarcza zalecenia, które mogą potencjalnie poprawić wydajność bazy danych.
+Monitoruj swoje rekomendacje i Kontynuuj ich stosowanie w celu udoskonalenia wydajności. Obciążenia baz danych są dynamiczne i zmieniają się w sposób ciągły. Azure SQL Database kontynuuje monitorowanie i udostępnianie zaleceń, które mogą poprawić wydajność bazy danych.
 
-* Zobacz [Automatyczne dostrajanie,](sql-database-automatic-tuning.md) aby dowiedzieć się więcej o automatycznym dostrajaniu w bazie danych SQL azure.
-* Zobacz [zalecenia dotyczące wydajności,](sql-database-advisor.md) aby zapoznać się z zaleceniami dotyczącymi wydajności usługi Azure SQL Database.
-* Zobacz [Statystyki wydajności kwerendy,](sql-database-query-performance.md) aby dowiedzieć się więcej o wyświetlaniu wpływu na wydajność najważniejszych zapytań.
+* Zobacz [Automatyczne dostrajanie](sql-database-automatic-tuning.md) , aby dowiedzieć się więcej na temat dostrajania automatycznego w Azure SQL Database.
+* Zobacz [zalecenia dotyczące wydajności](sql-database-advisor.md) , aby zapoznać się z omówieniem zaleceń dotyczących wydajności Azure SQL Database.
+* Zobacz [szczegółowe informacje o wydajności zapytań](sql-database-query-performance.md) , aby dowiedzieć się więcej o wyświetlaniu wydajności najważniejszych zapytań.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Magazyn zapytań](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
