@@ -1,15 +1,15 @@
 ---
 title: Interfejs API REST konwersji zasobów
-description: W tym artykule opisano sposób konwertowania zasobu za pośrednictwem interfejsu API REST
+description: Opisuje sposób konwersji elementu zawartości za pomocą interfejsu API REST
 author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
 ms.openlocfilehash: 38116efc9e87eca8e2514a0a84045a69b8d42326
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887048"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Używanie interfejsu API REST konwersji modelu
@@ -18,38 +18,38 @@ Usługa [konwersji modelu](model-conversion.md) jest kontrolowana za pomocą [in
 
 ## <a name="regions"></a>Regiony
 
-Zobacz [listę dostępnych regionów](../../reference/regions.md) dla podstawowych adresów URL, do które mają być wysyłane żądania.
+Zapoznaj się z [listą regionów dostępnych](../../reference/regions.md) dla podstawowych adresów URL, do których mają być wysyłane żądania.
 
-## <a name="common-headers"></a>Typowe nagłówki
+## <a name="common-headers"></a>Wspólne nagłówki
 
 ### <a name="common-request-headers"></a>Typowe nagłówki żądań
 
 Te nagłówki muszą być określone dla wszystkich żądań:
 
-- Nagłówek **Autoryzacja** musi mieć wartość "Nośnik [*TOKEN*]", gdzie [*TOKEN*] jest [tokenem dostępu do usługi.](../tokens.md)
+- Nagłówek **autoryzacji** musi mieć wartość "Bearer [*token*]", gdzie [*token*] to [token dostępu do usługi](../tokens.md).
 
 ### <a name="common-response-headers"></a>Typowe nagłówki odpowiedzi
 
 Wszystkie odpowiedzi zawierają następujące nagłówki:
 
-- Nagłówek **MS-CV** zawiera unikatowy ciąg, który może służyć do śledzenia wywołania w usłudze.
+- Nagłówek **MS-CV** zawiera unikatowy ciąg, którego można użyć do śledzenia wywołania w ramach usługi.
 
 ## <a name="endpoints"></a>Punkty końcowe
 
-Usługa konwersji udostępnia trzy punkty końcowe interfejsu API REST do:
+Usługa konwersji oferuje trzy punkty końcowe interfejsu API REST:
 
-- rozpocznij konwersję modelu przy użyciu konta magazynu połączonego z kontem zdalnego renderowania platformy Azure. 
-- rozpoczęcie konwersji modelu przy użyciu *dostarczonych sygnatur dostępu współdzielonego (SAS)*.
-- zapytanie o stan konwersji
+- Rozpocznij konwersję modelu przy użyciu konta magazynu połączonego z kontem renderowania zdalnego platformy Azure. 
+- Rozpocznij konwersję modelu przy użyciu dostarczonych *sygnatur dostępu współdzielonego (SAS)*.
+- Zbadaj stan konwersji
 
-### <a name="start-conversion-using-a-linked-storage-account"></a>Rozpoczynanie konwersji przy użyciu połączonego konta magazynu
-Konto zdalnego renderowania platformy Azure musi mieć dostęp do podanego konta magazynu, wykonując kroki dotyczące [łączenia kont magazynu](../create-an-account.md#link-storage-accounts).
+### <a name="start-conversion-using-a-linked-storage-account"></a>Rozpocznij konwersję przy użyciu połączonego konta magazynu
+Twoje konto renderowania zdalnego platformy Azure musi mieć dostęp do podanego konta magazynu, wykonując czynności opisane w sekcji jak [połączyć konta magazynu](../create-an-account.md#link-storage-accounts).
 
 | Endpoint | Metoda |
 |-----------|:-----------|
-| /v1/accounts/accountID /conversions/create /v1/accounts/accountID /conversions/create **/v1/accounts/accountID**/conversions/create /v | POST |
+| /V1/accounts/**accountID**/conversions/Create | POST |
 
-Zwraca identyfikator trwającej konwersji, zawinięty w dokumencie JSON. Nazwa pola to "conversionId".
+Zwraca identyfikator trwającej konwersji, opakowany w dokument JSON. Nazwa pola to "conversionId".
 
 #### <a name="request-body"></a>Treść żądania
 
@@ -72,21 +72,21 @@ Zwraca identyfikator trwającej konwersji, zawinięty w dokumencie JSON. Nazwa p
     }
 }
 ```
-### <a name="start-conversion-using-provided-shared-access-signatures"></a>Rozpoczynanie konwersji przy użyciu dostarczonych podpisów dostępu współdzielonego
-Jeśli konto ARR nie jest połączone z kontem magazynu, ten interfejs REST umożliwia zapewnienie dostępu przy użyciu *sygnatur dostępu współdzielonego (SAS).*
+### <a name="start-conversion-using-provided-shared-access-signatures"></a>Rozpocznij konwersję przy użyciu dostarczonych sygnatur dostępu współdzielonego
+Jeśli konto ARR nie jest połączone z kontem magazynu, ten interfejs REST umożliwia uzyskanie dostępu przy użyciu *sygnatur dostępu współdzielonego (SAS)*.
 
 | Endpoint | Metoda |
 |-----------|:-----------|
-| /v1/accounts/ accountID /conversions/createWithSharedAccessSignature /v1/accounts/**accountID**/conversions/createWithSharedAccessSignature /v1/accountID /conversions/createWithSharedAccessSignature /v1/ | POST |
+| /V1/accounts/**accountID**/conversions/createWithSharedAccessSignature | POST |
 
-Zwraca identyfikator trwającej konwersji, zawinięty w dokumencie JSON. Nazwa pola to "conversionId".
+Zwraca identyfikator trwającej konwersji, opakowany w dokument JSON. Nazwa pola to "conversionId".
 
 #### <a name="request-body"></a>Treść żądania
 
-Treść żądania jest taka sama jak w wywołaniu REST powyżej, ale dane wejściowe i wyjściowe zawierają *tokeny sygnatur dostępu współdzielonego (SAS).* Tokeny te zapewniają dostęp do konta magazynu do odczytu danych wejściowych i zapisywania wyniku konwersji.
+Treść żądania jest taka sama jak w przypadku wywołania Create REST powyżej, ale dane wejściowe i wyjściowe zawierają *tokeny sygnatur dostępu współdzielonego (SAS)*. Te tokeny zapewniają dostęp do konta magazynu na potrzeby odczytywania danych wejściowych i zapisywania wyników konwersji.
 
 > [!NOTE]
-> Te tokeny URI sygnatury dostępu Współdzielonego są ciągami zapytań, a nie pełnym identyfikatorem URI. 
+> Te tokeny URI sygnatury dostępu współdzielonego to ciągi zapytania, a nie pełny identyfikator URI. 
 
 
 ```json
@@ -110,21 +110,21 @@ Treść żądania jest taka sama jak w wywołaniu REST powyżej, ale dane wejśc
 }
 ```
 
-### <a name="poll-conversion-status"></a>Stan konwersji ankiety
-Stan trwającej konwersji rozpoczętej z jednym z powyższych wywołań REST można zbadać za pomocą następującego interfejsu:
+### <a name="poll-conversion-status"></a>Stan konwersji sondy
+Stan trwającej konwersji rozpoczętej z jednym z powyższych wywołań REST można zbadać przy użyciu następującego interfejsu:
 
 
 | Endpoint | Metoda |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversions/conversionId**conversionId** | GET |
+| /V1/accounts/**accountID**/conversions/**conversionId** | GET |
 
-Zwraca dokument JSON z polem "stan", które może mieć następujące wartości:
+Zwraca dokument JSON z polem "status", które może mieć następujące wartości:
 
-- "Bieganie"
-- "Sukces"
-- "Awaria"
+- Uruchomion
+- Prawnego
+- Spraw
 
-Jeśli stan to "Błąd", pojawi się dodatkowe pole "błąd" z podpolem "wiadomość" zawierającym informacje o błędzie. Dodatkowe dzienniki zostaną przekazane do kontenera wyjściowego.
+Jeśli stan ma wartość "Niepowodzenie", będzie istnieć dodatkowe pole "Error" z podpolem "Message" zawierającym informacje o błędzie. Dodatkowe dzienniki zostaną przekazane do kontenera danych wyjściowych.
 
 ## <a name="next-steps"></a>Następne kroki
 

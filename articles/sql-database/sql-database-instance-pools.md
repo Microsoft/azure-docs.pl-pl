@@ -1,6 +1,6 @@
 ---
 title: Pule wystąpień (wersja zapoznawcza)
-description: W tym artykule opisano pule wystąpień usługi Azure SQL Database (wersja zapoznawcza).
+description: W tym artykule opisano pule wystąpień Azure SQL Database (wersja zapoznawcza).
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,17 +12,17 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
 ms.openlocfilehash: 0938fbe94cb0d1e6dae3dcb84950a11f90dd9db8
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878157"
 ---
-# <a name="what-are-sql-database-instance-pools-preview"></a>Co to są pule wystąpień bazy danych SQL (wersja zapoznawcza)?
+# <a name="what-are-sql-database-instance-pools-preview"></a>Co to są pule wystąpień SQL Database (wersja zapoznawcza)?
 
-Pule wystąpień to nowy zasób w usłudze Azure SQL Database, który zapewnia wygodny i ekonomiczny sposób migracji mniejszych wystąpień SQL do chmury na dużą skalę.
+Pule wystąpień są nowym zasobem w Azure SQL Database, który zapewnia wygodny i ekonomiczny sposób migrowania mniejszych wystąpień SQL do chmury na dużą skalę.
 
-Pule wystąpień umożliwiają wstępną aprowizację zasobów obliczeniowych zgodnie z całkowitymi wymaganiami migracji. Następnie możesz wdrożyć kilka osobnych wystąpień zarządzanych — do osiągnięcia wstępnie aprowizowanego poziomu obliczeń. Na przykład jeśli wstępnie aprowizować 8 vCores można wdrożyć dwa 2 2 vCore i jeden 4 wystąpienia vCore, a następnie migracji baz danych do tych wystąpień. Przed puli wystąpień są dostępne, mniejsze i mniej obciążeń wymagających obliczeniowych często muszą być skonsolidowane w większym wystąpieniu zarządzanym podczas migracji do chmury. Konieczność migracji grup baz danych do dużego wystąpienia zwykle wymaga starannego planowania pojemności i nadzoru zasobów, dodatkowych kwestii zabezpieczeń i niektórych dodatkowych działań konsolidacyjnych danych na poziomie wystąpienia.
+Pule wystąpień umożliwiają wstępną aprowizację zasobów obliczeniowych zgodnie z całkowitymi wymaganiami migracji. Następnie możesz wdrożyć kilka osobnych wystąpień zarządzanych — do osiągnięcia wstępnie aprowizowanego poziomu obliczeń. Na przykład w przypadku wstępnego udostępnienia usługi 8 rdzeni wirtualnych można wdrożyć dwa 2 rdzeń wirtualny i jedno 4 wystąpienia rdzeń wirtualny, a następnie przeprowadzić migrację baz danych do tych wystąpień. Przed udostępnieniem pul wystąpień mniejsze i mniejsze obciążenia intensywnie korzystające z mocy obliczeniowej będą często musiały zostać skonsolidowane w większym zarządzanym wystąpieniu podczas migracji do chmury. Konieczność migrowania grup baz danych do dużego wystąpienia zwykle wymaga starannego planowania pojemności i zarządzania zasobami, dodatkowych zagadnień związanych z zabezpieczeniami oraz pewnej dodatkowej konsolidacji danych na poziomie wystąpienia.
 
 Ponadto pule wystąpień obsługują natywną integrację sieci wirtualnej, dzięki czemu można wdrożyć wiele pul wystąpień i wiele pojedynczych wystąpień w tej samej podsieci.
 
@@ -31,130 +31,130 @@ Ponadto pule wystąpień obsługują natywną integrację sieci wirtualnej, dzi�
 
 Pule wystąpień zapewniają następujące korzyści:
 
-1. Możliwość hosta 2 wystąpień vCore. *Tylko dla wystąpień w pulach wystąpień . \**
-2. Przewidywalny i szybki czas wdrażania wystąpienia (do 5 minut).
-3. Minimalna alokacja adresu IP.
+1. Możliwość hostowania 2 rdzeń wirtualny wystąpień. *Tylko dla wystąpień w pulach wystąpień. \**
+2. Czas wdrożenia przewidywalny i szybki (do 5 minut).
+3. Minimalna alokacja adresów IP.
 
-Na poniższym diagramie przedstawiono pulę wystąpień z wieloma wystąpieniami wdrożonymi w podsieci sieci wirtualnej.
+Na poniższym diagramie przedstawiono pulę wystąpień z wieloma wystąpieniami wdrożonymi w ramach podsieci sieci wirtualnej.
 
-![pula wystąpień z wieloma wystąpieniami](./media/sql-database-instance-pools/instance-pools1.png)
+![Pula wystąpień z wieloma wystąpieniami](./media/sql-database-instance-pools/instance-pools1.png)
 
-Pule wystąpień umożliwiają wdrażanie wielu wystąpień na tej samej maszynie wirtualnej, gdzie rozmiar obliczeniowy maszyny wirtualnej jest oparty na całkowitej liczbie korpów wirtualnych przydzielonych dla puli. Ta architektura umożliwia *partycjonowanie* maszyny wirtualnej do wielu wystąpień, które mogą mieć dowolny obsługiwany rozmiar, w tym 2 rdzenie wirtualne (2 wystąpienia rdzeni wirtualnych są dostępne tylko dla wystąpień w pulach).
+Pule wystąpień umożliwiają wdrożenie wielu wystąpień na tej samej maszynie wirtualnej, w której rozmiar obliczeń maszyny wirtualnej jest oparty na łącznej liczbie rdzeni wirtualnych przydzieloną dla puli. Ta architektura umożliwia *partycjonowanie* maszyny wirtualnej w wielu wystąpieniach, które mogą być dowolnym obsługiwanym rozmiarem, w tym 2 rdzeni wirtualnych (2 rdzeń wirtualny wystąpienia są dostępne tylko dla wystąpień w pulach).
 
-Operacje zarządzania wystąpień w puli są znacznie szybsze, gdy pula jest początkowo wdrożony. Te operacje są szybsze, ponieważ wdrażanie lub rozszerzanie [klastra wirtualnego](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture) (dedykowany zestaw maszyn wirtualnych) nie jest częścią inicjowania obsługi administracyjnej wystąpienia zarządzanego.
+Operacje zarządzania w wystąpieniach w puli są znacznie szybsze po początkowym wdrożeniu puli. Te operacje są szybsze, ponieważ wdrożenie lub rozszerzenie [klastra wirtualnego](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture) (dedykowany zestaw maszyn wirtualnych) nie jest częścią aprowizacji wystąpienia zarządzanego.
 
-Ponieważ wszystkie wystąpienia w puli współużytkują tę samą maszynę wirtualną, całkowita alokacja adresu IP nie zależy od liczby wdrożonych wystąpień, co jest wygodne do wdrożenia w podsieciach o wąskim zakresie adresów IP.
+Ponieważ wszystkie wystąpienia w puli współużytkują tę samą maszynę wirtualną, łączna alokacja adresów IP nie zależy od liczby wdrożonych wystąpień, co jest wygodne do wdrożenia w podsieciach z wąskim zakresem adresów IP.
 
-Każda pula ma stałą alokację adresów IP tylko dziewięciu adresów IP (z wyłączeniem pięciu adresów IP w podsieci, które są zarezerwowane dla własnych potrzeb). Aby uzyskać szczegółowe informacje, zobacz [wymagania dotyczące rozmiaru podsieci dla pojedynczych wystąpień](sql-database-managed-instance-determine-size-vnet-subnet.md).
+Każda pula ma stały przydział adresów IP zawierający tylko dziewięć adresów IP (nie obejmuje pięciu adresów IP w podsieci, które są zarezerwowane do własnych potrzeb). Aby uzyskać szczegółowe informacje, zobacz [wymagania dotyczące rozmiaru podsieci dla pojedynczych wystąpień](sql-database-managed-instance-determine-size-vnet-subnet.md).
 
-## <a name="application-scenarios-for-instance-pools"></a>Scenariusze aplikacji dla puli na przykład
+## <a name="application-scenarios-for-instance-pools"></a>Scenariusze aplikacji dla pul wystąpień
 
-Poniższa lista zawiera główne przypadki użycia, w których należy wziąć pod uwagę pule wystąpień:
+Poniższa lista zawiera główne przypadki użycia, w których należy uwzględnić pule wystąpień:
 
-- Migracja *grupy wystąpień SQL* w tym samym czasie, gdzie większość jest mniejszy rozmiar (na przykład 2 lub 4 vCores).
-- Scenariusze, w których *przewidywalne i krótkie tworzenie lub skalowanie wystąpienia* jest ważne. Na przykład wdrożenie nowej dzierżawy w środowisku aplikacji SaaS z wieloma dzierżawcami, które wymaga możliwości na poziomie wystąpienia.
-- Scenariusze, w których posiadanie *stałego limitu kosztów* lub *wydatków* jest ważne. Na przykład uruchamianie środowiska dewelopera udostępnionego lub środowiska demonstracyjne o rozmiarze stałego (lub rzadko zmieniającego się), w którym okresowo wdrażane są wystąpienia zarządzane w razie potrzeby.
-- Scenariusze, w których *minimalna alokacja adresu IP* w podsieci wirtualnej jest ważne. Wszystkie wystąpienia w puli współużytkują maszynę wirtualną, więc liczba przydzielonych adresów IP jest niższa niż w przypadku pojedynczych wystąpień.
+- Migracja *grupy wystąpień SQL* w tym samym czasie, w których większość jest mniejsza niż rozmiar (na przykład 2 lub 4 rdzeni wirtualnych).
+- Scenariusze, w których są ważne *i przewidywalne Tworzenie lub skalowanie wystąpienia* . Na przykład wdrożenie nowej dzierżawy w środowisku aplikacji SaaS z wieloma dzierżawcami, które wymaga możliwości na poziomie wystąpienia.
+- Scenariusze, w których obowiązuje *stały koszt* lub *limit wydatków* . Można na przykład uruchomić udostępnione środowiska deweloperskie lub testowe o stałym (lub nierzadko zmienionym rozmiarze), gdzie okresowo Wdrażaj wystąpienia zarządzane.
+- Scenariusze, w których *minimalna alokacja adresów IP* w podsieci sieci wirtualnej jest ważna. Wszystkie wystąpienia w puli współużytkują maszynę wirtualną, więc liczba przyznanych adresów IP jest mniejsza niż w przypadku pojedynczych wystąpień.
 
 
 ## <a name="architecture-of-instance-pools"></a>Architektura pul wystąpień
 
-Pule wystąpień mają podobną architekturę do zwykłych wystąpień zarządzanych *(pojedyncze wystąpienia).* Aby obsługiwać [wdrożenia w sieciach wirtualnych platformy Azure (sieci wirtualne)](../virtual-network/virtual-network-for-azure-services.md) oraz zapewnić izolację i bezpieczeństwo dla klientów, pule wystąpień również polegają na [klastrach wirtualnych.](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture) Klastry wirtualne reprezentują dedykowany zestaw izolowanych maszyn wirtualnych wdrożonych w podsieci sieci wirtualnej klienta.
+Pule wystąpień mają podobną architekturę do zwykłych wystąpień zarządzanych (*pojedyncze wystąpienia*). Aby obsługiwać [wdrożenia w ramach usługi Azure Virtual Networks (sieci wirtualnych)](../virtual-network/virtual-network-for-azure-services.md) i zapewnić izolację i bezpieczeństwo klientów, pule wystąpień również polegają na [klastrach wirtualnych](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Klastry wirtualne reprezentują dedykowany zestaw izolowanych maszyn wirtualnych wdrożonych w podsieci sieci wirtualnej klienta.
 
-Główną różnicą między dwoma modelami wdrażania jest to, że pule wystąpień zezwalają na wiele wdrożeń procesów programu SQL Server w tym samym węźle maszyny wirtualnej, które są zasobami zarządzanymi za pomocą [obiektów zadań systemu Windows,](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects)podczas gdy pojedyncze wystąpienia są zawsze same w węźle maszyny wirtualnej.
+Główna różnica między dwoma modelami wdrażania polega na tym, że pule wystąpień zezwalają na wiele wdrożeń procesów SQL Server w tym samym węźle maszyny wirtualnej, które są zasobami zarządzanymi przy użyciu [obiektów zadań systemu Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), natomiast pojedyncze wystąpienia są zawsze same w węźle maszyny wirtualnej.
 
-Na poniższym diagramie przedstawiono pulę wystąpień i dwa pojedyncze wystąpienia wdrożone w tej samej podsieci i przedstawiono główne szczegóły architektury dla obu modeli wdrażania:
+Na poniższym diagramie przedstawiono pulę wystąpień i dwa poszczególne wystąpienia wdrożone w tej samej podsieci i przedstawiono główne szczegóły architektury dla obu modeli wdrażania:
 
-![pula wystąpień i dwa pojedyncze wystąpienia](./media/sql-database-instance-pools/instance-pools2.png)
+![Pula wystąpień i dwa poszczególne wystąpienia](./media/sql-database-instance-pools/instance-pools2.png)
 
-Każda pula wystąpień tworzy oddzielny klaster wirtualny pod spodem. Wystąpienia w puli i pojedyncze wystąpienia wdrożone w tej samej podsieci nie współużytkują zasoby obliczeniowe przydzielone do procesów i składników bramy programu SQL Server, co zapewnia przewidywalność wydajności.
+Każda pula wystąpień tworzy oddzielny klaster wirtualny poniżej. Wystąpienia w puli i pojedyncze wystąpienia wdrożone w tej samej podsieci nie współdzielą zasobów obliczeniowych przyznanych do SQL Server procesów i składników bramy, co zapewnia przewidywalność wydajności.
 
-## <a name="instance-pools-resource-limitations"></a>Ograniczenia zasobów pul wystąpienia
+## <a name="instance-pools-resource-limitations"></a>Ograniczenia zasobów pul wystąpień
 
 Istnieje kilka ograniczeń zasobów dotyczących pul wystąpień i wystąpień wewnątrz pul:
 
-- Pule wystąpień są dostępne tylko na sprzęcie Gen5.
+- Pule wystąpień są dostępne tylko na sprzęcie 5 rdzeń.
 - Wystąpienia w puli mają dedykowany procesor CPU i pamięć RAM, więc zagregowana liczba rdzeni wirtualnych we wszystkich wystąpieniach musi być mniejsza lub równa liczbie rdzeni wirtualnych przydzielonych do puli.
-- Wszystkie [limity poziomu wystąpienia](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) mają zastosowanie do wystąpień utworzonych w puli.
-- Oprócz limitów na poziomie wystąpienia istnieją również dwa limity nałożone *na poziomie puli wystąpień:*
-  - Całkowity rozmiar magazynu na pulę (8 TB).
-  - Całkowita liczba baz danych na pulę (100).
+- Wszystkie [limity poziomu wystąpienia](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) mają zastosowanie do wystąpień utworzonych w ramach puli.
+- Oprócz limitów na poziomie wystąpienia istnieją również dwa limity nakładane *na poziomie puli wystąpień*:
+  - Łączny rozmiar magazynu na pulę (8 TB).
+  - Łączna liczba baz danych na pulę (100).
 
-Całkowita alokacja magazynu i liczba baz danych we wszystkich wystąpieniach musi być niższa lub równa limitom ujawnionym przez pule wystąpień.
+Całkowita alokacja magazynu i liczba baz danych we wszystkich wystąpieniach muszą być mniejsze lub równe limitom udostępnionym przez pule wystąpień.
 
-- Pule wystąpień obsługują 8, 16, 24, 32, 40, 64 i 80 vCorów.
-- Wystąpienia zarządzane wewnątrz pul obsługują 2, 4, 8, 16, 24, 32, 40, 64 i 80 vCorów.
-- Wystąpienia zarządzane wewnątrz pul obsługują rozmiary magazynu o rozmiarach od 32 GB do 8 TB, z wyjątkiem:
-  - 2 wystąpienia vCore obsługują rozmiary od 32 GB do 640 GB
-  - 4 wystąpienia vCore obsługują rozmiary od 32 GB do 2 TB
+- Pule wystąpień obsługują 8, 16, 24, 32, 40, 64 i 80 rdzeni wirtualnych.
+- Wystąpienia zarządzane wewnątrz pul obsługują 2, 4, 8, 16, 24, 32, 40, 64 i 80 rdzeni wirtualnych.
+- Wystąpienia zarządzane wewnątrz pul obsługują rozmiary magazynu z zakresu od 32 GB do 8 TB, z wyjątkiem:
+  - 2 rdzeń wirtualny wystąpienia obsługują rozmiary z zakresu od 32 GB do 640 GB
+  - 4 rdzeń wirtualny wystąpienia obsługują rozmiary z zakresu od 32 GB do 2 TB
 
-[Właściwość warstwy usług](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) jest skojarzona z zasobem puli wystąpień, więc wszystkie wystąpienia w puli muszą być tej samej warstwy usług co warstwa usług puli. W tej chwili dostępna jest tylko warstwa usługi ogólnego przeznaczenia (zobacz następującą sekcję dotyczącą ograniczeń w bieżącej wersji zapoznawczej).
+[Właściwość warstwy usług](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) jest skojarzona z zasobem puli wystąpień, dlatego wszystkie wystąpienia w puli muszą być takie same jak warstwa usługi puli. W tej chwili dostępna jest tylko Ogólnego przeznaczenia warstwa usługi (Zobacz w poniższej sekcji dotyczącej ograniczeń w bieżącej wersji zapoznawczej).
 
 ### <a name="public-preview-limitations"></a>Ograniczenia publicznej wersji zapoznawczej
 
 Publiczna wersja zapoznawcza ma następujące ograniczenia:
 
-- Obecnie dostępna jest tylko warstwa usług ogólnego przeznaczenia.
-- Pule wystąpień nie można skalować podczas publicznej wersji zapoznawczej, więc ważne jest dokładne planowanie zdolności produkcyjnych przed wdrożeniem.
-- Obsługa witryny Azure portal na tworzenie i konfiguracja puli wystąpienia nie jest jeszcze dostępna. Wszystkie operacje w pulach wystąpień są obsługiwane tylko za pośrednictwem programu PowerShell. Początkowe wdrożenie wystąpienia w wstępnie utworzonej puli jest również obsługiwane tylko za pośrednictwem programu PowerShell. Po wdrożeniu w puli wystąpienia zarządzane można aktualizować za pomocą witryny Azure Portal.
-- Wystąpienia zarządzane utworzone poza pulą nie mogą być przenoszone do istniejącej puli, a wystąpienia utworzone wewnątrz puli nie mogą być przenoszone na zewnątrz jako pojedyncze wystąpienie lub do innej puli.
-- Ceny wystąpienia zarezerwowanego (licencja w zestawie lub z korzyścią hybrydową platformy Azure) są niedostępne.
+- Obecnie dostępna jest tylko Ogólnego przeznaczenia warstwa usługi.
+- Pule wystąpień nie mogą być skalowane w publicznej wersji zapoznawczej, dlatego należy zachować ostrożność planowania pojemności przed wdrożeniem.
+- Azure Portal obsługa tworzenia i konfigurowania puli wystąpień nie jest jeszcze dostępna. Wszystkie operacje na pulach wystąpień są obsługiwane tylko za poorednictwem programu PowerShell. Początkowe wdrożenie wystąpienia w wstępnie utworzonej puli jest również obsługiwane tylko za pomocą programu PowerShell. Po wdrożeniu w puli wystąpienia zarządzane można aktualizować za pomocą Azure Portal.
+- Wystąpienia zarządzane utworzone poza pulą nie mogą zostać przeniesione do istniejącej puli, a wystąpienia utworzone w puli nie mogą być przenoszone poza wystąpieniem pojedynczego wystąpienia lub do innej puli.
+- Cennik wystąpienia zarezerwowanego (dołączona licencja lub z Korzyść użycia hybrydowego platformy Azure) jest niedostępny.
 
 ## <a name="sql-features-supported"></a>Obsługiwane funkcje SQL
 
-Wystąpienia utworzone w pulach obsługują te same [poziomy zgodności i funkcje obsługiwane w pojedynczych wystąpieniach zarządzanych](sql-database-managed-instance.md#sql-features-supported).
+Wystąpienia utworzone w pulach obsługują te same [poziomy zgodności i funkcje obsługiwane w jednym zarządzanym wystąpieniu](sql-database-managed-instance.md#sql-features-supported).
 
-Każde wystąpienie zarządzane wdrożone w puli ma oddzielne wystąpienie agenta SQL.
+Każde wystąpienie zarządzane wdrożone w puli ma oddzielne wystąpienie programu SQL Agent.
 
-Opcjonalne funkcje lub funkcje, które wymagają wybrania określonych wartości (takich jak sortowanie na poziomie wystąpienia, strefa czasowa, publiczny punkt końcowy dla ruchu danych, grupy trybu failover) są konfigurowane na poziomie wystąpienia i mogą być różne dla każdego wystąpienia w puli.
+Opcjonalne funkcje lub funkcje, które wymagają wybrania określonych wartości (takich jak sortowanie na poziomie wystąpienia, strefa czasowa, publiczny punkt końcowy dla ruchu danych, grupy trybu failover), są konfigurowane na poziomie wystąpienia i mogą być różne dla każdego wystąpienia w puli.
 
 ## <a name="performance-considerations"></a>Zagadnienia dotyczące wydajności
 
-Chociaż wystąpienia zarządzane w pulach mają dedykowane komputery wirtualne i pamięć RAM, współużytkują dysk lokalny (dla użycia bazy danych tempdb) i zasoby sieciowe. Nie jest prawdopodobne, ale jest możliwe doświadczenie hałaśliwy efekt *sąsiada,* jeśli wiele wystąpień w puli mają wysokie zużycie zasobów w tym samym czasie. Jeśli obserwujesz to zachowanie, należy rozważyć wdrożenie tych wystąpień do większej puli lub jako pojedyncze wystąpienia.
+Chociaż wystąpienia zarządzane w ramach pul mają dedykowany rdzeń wirtualny i pamięć RAM, współużytkują dysk lokalny (na potrzeby użycia bazy danych tempdb) i zasoby sieciowe. Prawdopodobnie nie jest to możliwe, ale można napotkać efekt *sąsiedniego szumu* , jeśli wiele wystąpień w puli ma duże zużycie zasobów w tym samym czasie. W przypadku zaobserwowania tego zachowania należy rozważyć wdrożenie tych wystąpień do większej puli lub jako pojedyncze wystąpienia.
 
-## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
+## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
-Ponieważ wystąpienia wdrożone w puli współużytkują tę samą maszynę wirtualną, warto rozważyć wyłączenie funkcji, które wprowadzają wyższe zagrożenia bezpieczeństwa lub zdecydowane kontrolowanie uprawnień dostępu do tych funkcji. Na przykład integracja CLR, natywna kopia zapasowa i przywracanie, poczta e-mail bazy danych itp.
+Ponieważ wystąpienia wdrożone w puli współużytkują tę samą maszynę wirtualną, warto rozważyć wyłączenie funkcji, które wprowadzają wyższe zagrożenia bezpieczeństwa lub w celu uzyskania prawidłowej kontroli uprawnień dostępu do tych funkcji. Na przykład integracja środowiska CLR, natywne wykonywanie kopii zapasowych i przywracanie, poczta e-mail bazy danych itp.
 
-## <a name="instance-pool-support-requests"></a>Żądania pomocy technicznej puli wystąpień
+## <a name="instance-pool-support-requests"></a>Żądania obsługi puli wystąpień
 
-Tworzenie żądań pomocy technicznej i zarządzanie nimi na przykład w [witrynie Azure portal](https://portal.azure.com).
+Utwórz żądania obsługi dla pul wystąpień i zarządzaj nimi w [Azure Portal](https://portal.azure.com).
 
-Jeśli występują problemy związane z wdrażaniem puli wystąpień (tworzenie lub usuwanie), upewnij się, że określono **pule wystąpień** w polu **podtyp problemu.**
+Jeśli występują problemy związane z wdrożeniem puli wystąpień (Tworzenie lub usuwanie), upewnij się, że w polu **podtyp problemu** określono **Pule wystąpień** .
 
-![żądania pomocy technicznej pul wystąpień](./media/sql-database-instance-pools/support-request.png)
+![żądania obsługi pul wystąpień](./media/sql-database-instance-pools/support-request.png)
 
-Jeśli występują problemy związane z pojedynczych wystąpień lub baz danych w puli, należy utworzyć bilet regularne pomocy technicznej dla wystąpień zarządzanych usługi Azure SQL Database.
+Jeśli występują problemy związane z pojedynczymi wystąpieniami lub bazami danych w ramach puli, należy utworzyć zwykły bilet pomocy technicznej dla Azure SQL Database wystąpieniami zarządzanymi.
 
-Aby utworzyć większe wdrożenia wystąpienia zarządzanego (z pulami wystąpień lub bez), może być konieczne uzyskanie większego przydziału regionalnego. Aby uzyskać więcej informacji, zobacz [Żądanie zwiększenia przydziału dla usługi Azure SQL Database](quota-increase-request.md). Należy zauważyć, że jeśli używasz pule wystąpień, logika wdrażania porównuje całkowite zużycie pór wirtualnych *na poziomie puli* z przydziałem, aby określić, czy można tworzyć nowe zasoby bez dalszego zwiększania przydziału.
+Aby utworzyć większe wdrożenia wystąpienia zarządzanego (z pulami wystąpień lub bez nich), może być konieczne uzyskanie większego limitu przydziału regionalnego. Aby uzyskać więcej informacji, zobacz [zwiększenie przydziału żądań dla Azure SQL Database](quota-increase-request.md). Należy pamiętać, że jeśli używasz pul wystąpień, logika wdrażania porównuje całkowite użycie rdzeń wirtualny *na poziomie puli* z limitem przydziału, aby określić, czy można tworzyć nowe zasoby bez zwiększania limitu przydziału.
 
-## <a name="instance-pool-billing"></a>Rozliczanie puli wystąpień
+## <a name="instance-pool-billing"></a>Rozliczenia puli wystąpień
 
-Pule wystąpień umożliwiają niezależne skalowanie obliczeń i magazynu. Klienci płacą za obliczenia skojarzone z zasobem puli mierzonym w rach wirtualnych i magazynu skojarzonego z każdym wystąpieniem mierzonym w gigabajtach (pierwsze 32 GB są bezpłatne dla każdego wystąpienia).
+Pule wystąpień umożliwiają niezależne skalowanie zasobów obliczeniowych i magazynu. Klienci są obciążani opłatami za obliczenia skojarzone z zasobem puli mierzonym w rdzeni wirtualnych i magazynem skojarzonym z każdym wystąpieniem mierzonym w gigabajtach (pierwszy 32 GB jest bezpłatny dla każdego wystąpienia).
 
-Cena vCore dla puli jest naliczana niezależnie od tego, ile wystąpień jest wdrażanych w tej puli.
+Cena rdzeń wirtualny puli jest naliczana niezależnie od liczby wystąpień wdrożonych w tej puli.
 
-W przypadku ceny obliczeń (mierzonej w rów wirtualnych) dostępne są dwie opcje cenowe:
+W przypadku cen obliczeniowych (mierzonych w rdzeni wirtualnych) dostępne są dwie opcje cenowe:
 
-  1. *Licencja w zestawie:* Cena licencji SQL jest wliczona w cenę. Dotyczy to klientów, którzy zdecydują się nie stosować istniejących licencji programu SQL Server za pomocą pakietu Software Assurance.
-  2. *Korzyści hybrydowe platformy Azure:* obniżona cena, która obejmuje korzyści hybrydowe platformy Azure dla programu SQL Server. Klienci mogą zdecydować się na tę cenę, korzystając z istniejących licencji programu SQL Server z pakietem Software Assurance. Aby uzyskać uprawnienia i inne szczegóły, zobacz [Korzyści hybrydowe platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
+  1. *Uwzględniona licencja*: cena licencji SQL jest uwzględniona. Dotyczy to klientów, którzy nie zdecydują się na stosowanie istniejących licencji SQL Server z programem Software Assurance.
+  2. *Korzyść użycia hybrydowego platformy Azure*: obniżona cena obejmująca Korzyść użycia hybrydowego platformy Azure do SQL Server. Klienci mogą zrezygnować z tej ceny przy użyciu istniejących licencji SQL Server z programem Software Assurance. Aby uzyskać uprawnienia i inne szczegóły, zobacz [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-Ustawienie różnych opcji cen nie jest możliwe dla poszczególnych wystąpień w puli. Wszystkie wystąpienia w puli nadrzędnej muszą być zgodne z ceną zawartą w licencji lub ceną korzyści hybrydowych platformy Azure. Model licencji dla puli można zmienić po utworzeniu puli.
+Dla poszczególnych wystąpień w puli nie można ustawić różnych opcji cenowych. Wszystkie wystąpienia w puli nadrzędnej muszą mieć licencję uwzględnioną w cenie lub Korzyść użycia hybrydowego platformy Azure cenę. Model licencji dla puli można zmienić po utworzeniu puli.
 
 > [!IMPORTANT]
-> Jeśli określisz model licencji dla wystąpienia, które jest inne niż w puli, cena puli jest używana, a wartość poziomu wystąpienia jest ignorowana.
+> Jeśli określisz model licencji dla wystąpienia, które jest inne niż w puli, zostanie użyta cena puli, a wartość poziomu wystąpienia jest ignorowana.
 
-Jeśli tworzysz pule wystąpień w [ramach subskrypcji kwalifikujących się do korzyści dewelopersko-testowych,](https://azure.microsoft.com/pricing/dev-test/)automatycznie otrzymasz zniżki w wysokości do 55 procent w przypadku wystąpienia zarządzanego sql platformy Azure.
+Jeśli tworzysz pule wystąpień w ramach [subskrypcji kwalifikujących się do skorzystania z zalet tworzenia i testowania](https://azure.microsoft.com/pricing/dev-test/), będziesz automatycznie otrzymywać obniżone stawki o wartości do 55% w wystąpieniu zarządzanym usługi Azure SQL.
 
-Aby uzyskać szczegółowe informacje na temat cen puli wystąpień, zapoznaj się z sekcją *Pule wystąpień* na [stronie cennik wystąpienia zarządzanego](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+Aby uzyskać szczegółowe informacje o cenach puli wystąpień, zapoznaj się z sekcją *Pule wystąpień* na [stronie cennika wystąpienia zarządzanego](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby rozpocząć pracę z pulami wystąpień, zobacz [przewodnik po pulach wystąpień bazy danych SQL](sql-database-instance-pools-how-to.md).
-- Aby dowiedzieć się, jak utworzyć pierwsze wystąpienie zarządzane, zobacz [Przewodnik szybki start](sql-database-managed-instance-get-started.md).
-- Aby uzyskać funkcje i listę porównawczą, zobacz [wspólne funkcje SQL](sql-database-features.md).
-- Aby uzyskać więcej informacji na temat konfiguracji sieci wirtualnej, zobacz [konfigurację sieci wirtualnej wystąpienia zarządzanego](sql-database-managed-instance-connectivity-architecture.md).
-- Aby uzyskać przewodnik Szybki start, który tworzy wystąpienie zarządzane i przywraca bazę danych z pliku kopii zapasowej, zobacz [tworzenie wystąpienia zarządzanego](sql-database-managed-instance-get-started.md).
-- Aby zapoznać się z samouczkiem przy użyciu usługi migracji bazy danych Azure (DMS) do migracji, zobacz [migracja wystąpienia zarządzanego przy użyciu usługi DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- Aby uzyskać zaawansowane monitorowanie wydajności bazy danych wystąpienia zarządzanego za pomocą wbudowanej analizy rozwiązywania problemów, zobacz [Monitorowanie usługi Azure SQL Database przy użyciu usługi Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).
-- Aby uzyskać informacje o cenach, zobacz [cennik zarządzanych wystąpień bazy danych SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+- Aby rozpocząć pracę z pulami wystąpień, zobacz [SQL Database pule wystąpień — Przewodnik](sql-database-instance-pools-how-to.md).
+- Aby dowiedzieć się, jak utworzyć pierwsze wystąpienie zarządzane, zobacz [Przewodnik Szybki Start](sql-database-managed-instance-get-started.md).
+- Aby zapoznać się z funkcjami i listą porównania, zobacz [funkcje wspólne SQL](sql-database-features.md).
+- Aby uzyskać więcej informacji na temat konfiguracji sieci wirtualnej, zobacz [Konfiguracja sieci wirtualnej wystąpienia zarządzanego](sql-database-managed-instance-connectivity-architecture.md).
+- W przypadku szybkiego startu, który tworzy wystąpienie zarządzane i przywraca bazę danych z pliku kopii zapasowej, zobacz [Tworzenie wystąpienia zarządzanego](sql-database-managed-instance-get-started.md).
+- Aby zapoznać się z samouczkiem korzystającym z Azure Database Migration Service (DMS) do migracji, zobacz [migracja wystąpienia zarządzanego przy użyciu usługi DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+- Aby uzyskać zaawansowane monitorowanie wydajności bazy danych wystąpień zarządzanych przy użyciu wbudowanej analizy rozwiązywania problemów, zobacz [monitorowanie Azure SQL Database przy użyciu Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).
+- Aby uzyskać informacje o cenach, zobacz [SQL Database cenach wystąpienia zarządzanego](https://azure.microsoft.com/pricing/details/sql-database/managed/).

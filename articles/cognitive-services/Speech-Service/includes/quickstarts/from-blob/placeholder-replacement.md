@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: rozpoznawanie mowy przechowywanej w magazynie obiektów blob — usługa mowy'
+title: 'Szybki Start: Rozpoznawanie mowy przechowywanej w usłudze BLOB Storage — usługa mowy'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -10,17 +10,17 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: cb5b14bd5585c85947ef0dafeae1fb41cb8a4a5c
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887451"
 ---
-Musisz zastąpić następujące wartości:
+Należy zastąpić następujące wartości:
 
- - `YourSubscriptionKey`: znaleziono na stronie **Klucze witryny** Azure portal dla zasobu Mowy
- - `YourServiceRegion`: znaleziono na stronie **Przegląd** witryny Azure portal dla zasobu Mowy
- - `YourFileUrl`: znaleziono w obszarze **usługi obiektów blob / kontenery** strony witryny azure portal dla zasobu konta magazynu
+ - `YourSubscriptionKey`: znajduje się na stronie **klucze** Azure Portal dla zasobu mowy
+ - `YourServiceRegion`: znajduje się na stronie **przegląd** Azure Portal dla zasobu mowy
+ - `YourFileUrl`: znaleziono na stronie **BLOB Service/kontenery** Azure Portal zasobu konta magazynu
      - Wybierz odpowiedni kontener
-     - Wybierz żądany obiekt blob
-     - Kopiowanie **adresu URL** na stronie **Właściwości**
+     - Wybierz żądany obiekt BLOB
+     - Skopiuj **adres URL** na stronie **Właściwości**

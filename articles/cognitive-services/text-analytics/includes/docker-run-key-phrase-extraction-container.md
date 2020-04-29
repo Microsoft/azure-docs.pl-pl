@@ -1,7 +1,7 @@
 ---
-title: Uruchom przykład kontenera polecenia uruchamiania platformy docker
+title: Przykład uruchomienia kontenera dla polecenia Docker Run
 titleSuffix: Azure Cognitive Services
-description: Polecenie Uruchamianie platformy Docker dla kontenera wyodrębniania fraz kluczowych
+description: Polecenie Docker Run dla kontenera wyodrębnianie kluczowych fraz
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,13 +10,13 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 8ed42d5b0461b6273c2f8d84a267b65461d160ef
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80877114"
 ---
-Aby uruchomić kontener *wyodrębniania frazy klucza,* wykonaj następujące `docker run` polecenie.
+Aby uruchomić kontener *wyodrębnianie kluczowych fraz* , wykonaj następujące `docker run` polecenie.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -28,7 +28,7 @@ ApiKey={API_KEY}
 
 To polecenie:
 
-* Uruchamia kontener *wyodrębniania frazy kluczowej* z obrazu kontenera
-* Przydziela jeden rdzeń procesora i 4 gigabajty (GB) pamięci
+* Uruchamia *wyodrębnianie kluczowych fraz* kontener z obrazu kontenera
+* Przypisuje jedne rdzeń procesora CPU i 4 gigabajty (GB) pamięci
 * Udostępnia port TCP 5000 i przydziela pseudo-TTY dla kontenera
-* Automatycznie usuwa kontener po jego zamknięciu. Obraz kontenera jest nadal dostępny na komputerze-hoście.
+* Automatycznie usuwa kontener po zakończeniu. Obraz kontenera jest nadal dostępny na komputerze-hoście.

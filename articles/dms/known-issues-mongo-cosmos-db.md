@@ -1,7 +1,7 @@
 ---
-title: 'Znane problemy: migracja z mongodb do usługi Azure CosmosDB'
+title: 'Znane problemy: Migrowanie z MongoDB do platformy Azure CosmosDB'
 titleSuffix: Azure Database Migration Service
-description: Dowiedz się więcej o znanych problemach i ograniczeniach migracji z usługi MongoDB do usługi Azure Cosmos DB przy użyciu usługi migracji bazy danych azure.
+description: Informacje o znanych problemach i ograniczeniach migracji z MongoDB do Azure Cosmos DB przy użyciu Azure Database Migration Service.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -13,41 +13,41 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/27/2020
 ms.openlocfilehash: ae5d5f2d282c546f5172ca1c8cb0e420d3b6e96b
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878055"
 ---
-# <a name="known-issuesmigration-limitations-with-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Znane problemy/ograniczenia migracji z migracji z mongodb do interfejsu API usługi Azure Cosmos DB dla mongodb
+# <a name="known-issuesmigration-limitations-with-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Znane problemy i ograniczenia dotyczące migracji z migracji z MongoDB do interfejsu API Azure Cosmos DB dla MongoDB
 
-Znane problemy i ograniczenia związane z migracjami z MongoDB do interfejsu API usługi Cosmos DB dla mongodb są opisane w poniższych sekcjach.
+Znane problemy i ograniczenia związane z migracjami z MongoDB do interfejsu API Cosmos DB dla MongoDB zostały opisane w poniższych sekcjach.
 
-## <a name="migration-fails-as-a-result-of-using-the-incorrect-ssl-cert"></a>Migracja kończy się niepowodzeniem w wyniku użycia niepoprawnego certyfikatu SSL
+## <a name="migration-fails-as-a-result-of-using-the-incorrect-ssl-cert"></a>Migracja nie powiedzie się z powodu użycia nieprawidłowego certyfikatu SSL
 
-* **Symptom:** Ten problem jest widoczny, gdy użytkownik nie może połączyć się z serwerem źródłowym MongoDB. Pomimo otwarcia wszystkich portów zapory, użytkownik nadal nie może się połączyć.
-
-| Przyczyna         | Rozwiązanie |
-| ------------- | ------------- |
-| Przy użyciu certyfikatu z podpisem własnym w usłudze migracji bazy danych platformy Azure może prowadzić do niepowodzenia migracji z powodu niepoprawnego certyfikatu SSL. Komunikat o błędzie może zawierać komunikat "Certyfikat zdalny jest nieprawidłowy zgodnie z procedurą sprawdzania poprawności". | Użyj oryginalnego certyfikatu urzędu certyfikacji.  Certyfikaty z podpisem własnym są zwykle używane tylko w testach wewnętrznych. Po zainstalowaniu oryginalnego certyfikatu z urzędu certyfikacji można użyć ssl w usłudze migracji usługi Azure Database bez problemu (połączenia z usługą Cosmos DB używają SSL za pomocą interfejsu MONGO API).<br><br> |
-
-## <a name="unable-to-get-the-list-of-databases-to-map-in-dms"></a>Nie można uzyskać listy baz danych do mapowania w DMS
-
-* **Symptom:** Nie można uzyskać listy DB w bloku **ustawienia bazy danych** podczas korzystania z trybu usługi Azure **Storage** w bloku **Select source.**
+* **Objaw**: ten problem występuje, gdy użytkownik nie może nawiązać połączenia z serwerem źródłowym MongoDB. Mimo że wszystkie porty zapory nie są otwarte, użytkownik nadal nie może nawiązać połączenia.
 
 | Przyczyna         | Rozwiązanie |
 | ------------- | ------------- |
-| Brakuje ciągu połączenia konta magazynu i w związku z tym nie można uwierzytelnić. | Utwórz sygnatury dostępu Współdzielonego w kontenerze obiektów blob w Eksploratorze magazynu i użyj adresu URL z informacjami o kontenerze sygnatury dostępu Współdzielonego jako źródłowego ciągu połączenia szczegółów.<br><br> |
+| Korzystanie z certyfikatu z podpisem własnym w Azure Database Migration Service może prowadzić do niepowodzenia migracji z powodu nieprawidłowego certyfikatu SSL. Komunikat o błędzie może obejmować "certyfikat zdalny jest nieprawidłowy zgodnie z procedurą walidacji". | Użyj oryginalnego certyfikatu z urzędu certyfikacji.  Certyfikaty z podpisem własnym są zwykle używane tylko w przypadku testów wewnętrznych. W przypadku instalowania oryginalnego certyfikatu z urzędu certyfikacji można użyć protokołu SSL w Azure Database Migration Service bez problemu (połączenia Cosmos DB korzystać z protokołu SSL za pośrednictwem interfejsu API Mongo).<br><br> |
 
-## <a name="using-an-unsupported-version-of-the-database"></a>Korzystanie z nieobsługiwałej wersji bazy danych
+## <a name="unable-to-get-the-list-of-databases-to-map-in-dms"></a>Nie można pobrać listy baz danych do zamapowania na DMS
 
-* **Symptom**: Migracja kończy się niepowodzeniem.
+* **Objaw**: nie można pobrać listy baz danych w bloku **Ustawienia bazy** , gdy używane są **dane z trybu usługi Azure Storage** w bloku **Wybierz źródło** .
 
 | Przyczyna         | Rozwiązanie |
 | ------------- | ------------- |
-| Próba migracji do usługi Azure Cosmos DB z nieobsługiwałej wersji mongodb. | W miarę zwalniania nowych wersji bazy danych MongoDB są one testowane w celu zapewnienia zgodności z usługą migracji bazy danych Azure, a usługa jest okresowo aktualizowana w celu zaakceptowania najnowszych wersji. Jeśli istnieje natychmiastowa potrzeba migracji, jako obejście można wyeksportować bazy danych/kolekcje do usługi Azure Storage, a następnie wskazać źródło na wynikowy zrzut. Utwórz sygnatury dostępu Współdzielonego w kontenerze obiektów blob w Eksploratorze magazynu, a następnie użyj adresu URL z informacjami o kontenerze sygnatury dostępu Współdzielonego jako źródłowego ciągu połączenia szczegółów.<br><br> |
+| W parametrach połączenia konta magazynu brakuje informacji o sygnaturze dostępu współdzielonego i w związku z tym nie można ich uwierzytelnić. | Utwórz sygnaturę dostępu współdzielonego w kontenerze obiektów BLOB w Eksplorator usługi Storage i użyj adresu URL z informacjami o sygnaturze SAS kontenera jako parametrów połączenia ze szczegółami źródła.<br><br> |
+
+## <a name="using-an-unsupported-version-of-the-database"></a>Korzystanie z nieobsługiwanej wersji bazy danych
+
+* **Objaw**: Migracja nie powiedzie się.
+
+| Przyczyna         | Rozwiązanie |
+| ------------- | ------------- |
+| Podjęto próbę przeprowadzenia migracji do Azure Cosmos DB z nieobsługiwanej wersji programu MongoDB. | Po udostępnieniu nowych wersji MongoDB są one sprawdzane w celu zapewnienia zgodności z Azure Database Migration Service, a usługa jest okresowo aktualizowana w celu zaakceptowania najnowszych wersji. Jeśli konieczne jest natychmiastowe przeprowadzenie migracji, jako obejście można wyeksportować bazy danych/kolekcje do usługi Azure Storage, a następnie wskazać źródło otrzymanego zrzutu. Utwórz sygnaturę dostępu współdzielonego w kontenerze obiektów BLOB w Eksplorator usługi Storage, a następnie użyj adresu URL z informacjami o sygnaturze SAS kontenera jako parametrów połączenia ze szczegółami źródła.<br><br> |
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zobacz samouczek [Migracja mongodb do interfejsu API usługi Azure Cosmos DB dla mongodb online przy użyciu DMS](tutorial-mongodb-cosmos-db-online.md).
-* Zobacz samouczek [Migracja mongodb do interfejsu API usługi Azure Cosmos DB dla mongodb w trybie offline przy użyciu DMS](tutorial-mongodb-cosmos-db.md).
+* Zapoznaj się z samouczkiem [Migrowanie MongoDB Azure Cosmos DB do interfejsu API usługi MongoDB w trybie online za pomocą usługi DMS](tutorial-mongodb-cosmos-db-online.md).
+* Zapoznaj się z samouczkiem [Migrowanie MongoDB Azure Cosmos DB do interfejsu API usługi MongoDB w trybie offline za pomocą usługi DMS](tutorial-mongodb-cosmos-db.md).

@@ -1,7 +1,7 @@
 ---
-title: Konfigurowanie kontenerów — ściana
+title: Konfigurowanie kontenerów — Front
 titleSuffix: Azure Cognitive Services
-description: Środowisko wykonawcze kontenera ściany jest `docker run` konfigurowane przy użyciu argumentów polecenia. Istnieją zarówno ustawienia wymagane, jak i opcjonalne.
+description: Środowisko uruchomieniowe kontenera czołowego jest konfigurowane przy `docker run` użyciu argumentów polecenia. Wymagane i opcjonalne ustawienia.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,30 +12,30 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 2f608843e27b79d02697df8e2a7f2aba6695e10a
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80878429"
 ---
-# <a name="configure-face-docker-containers"></a>Konfigurowanie kontenerów platformy Face Docker
+# <a name="configure-face-docker-containers"></a>Konfigurowanie kontenerów platformy Docker
 
-Środowisko wykonawcze kontenera **ściany** jest `docker run` konfigurowane przy użyciu argumentów polecenia. Ten kontener ma kilka wymaganych ustawień, wraz z kilkoma ustawieniami opcjonalnymi. Dostępnych jest kilka [przykładów](#example-docker-run-commands) polecenia. Ustawienia specyficzne dla kontenera to ustawienia rozliczeń. 
+Środowisko uruchomieniowe kontenera **czołowego** jest konfigurowane przy `docker run` użyciu argumentów polecenia. Ten kontener ma kilka wymaganych ustawień oraz kilka opcjonalnych ustawień. Kilka [przykładów](#example-docker-run-commands) polecenia jest dostępnych. Ustawienia dotyczące rozliczeń dotyczą tylko kontenera. 
 
 ## <a name="configuration-settings"></a>Ustawienia konfiguracji
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> Ustawienia [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting)i [`Eula`](#eula-setting) ustawienia są używane razem i należy podać prawidłowe wartości dla wszystkich trzech z nich; w przeciwnym razie kontener nie zostanie uruchomiony. Aby uzyskać więcej informacji na temat używania tych ustawień konfiguracji do tworzenia wystąpienia kontenera, zobacz [Rozliczenia](face-how-to-install-containers.md#billing).
+> Ustawienia [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), i [`Eula`](#eula-setting) są używane razem i należy podać prawidłowe wartości dla wszystkich trzech z nich; w przeciwnym razie kontener nie zostanie uruchomiony. Aby uzyskać więcej informacji na temat tworzenia wystąpienia kontenera przy użyciu tych ustawień konfiguracji, zobacz [rozliczenia](face-how-to-install-containers.md#billing).
 
-## <a name="apikey-configuration-setting"></a>Ustawienie konfiguracji apikey
+## <a name="apikey-configuration-setting"></a>Ustawienie konfiguracji ApiKey
 
-Ustawienie `ApiKey` określa klucz zasobów platformy Azure używany do śledzenia informacji rozliczeniowych dla kontenera. Należy określić wartość dla apikey i wartość musi być prawidłowy klucz [`Billing`](#billing-configuration-setting) dla zasobu usług Cognitive _Services_ określonych dla ustawienia konfiguracji.
+`ApiKey` Ustawienie określa klucz zasobów platformy Azure służący do śledzenia informacji rozliczeniowych dla kontenera. Należy określić wartość ApiKey, a wartość musi być prawidłowym kluczem dla zasobu _Cognitive Services_ określonego dla ustawienia [`Billing`](#billing-configuration-setting) konfiguracji.
 
-To ustawienie można znaleźć w następującym miejscu:
+To ustawienie można znaleźć w następujących miejscach:
 
-* Portal Azure: Zarządzanie zasobami **usług Cognitive Services** w obszarze **Klucze**
+* Azure Portal: **Cognitive Services** zarządzania zasobami w obszarze **klucze**
 
 ## <a name="applicationinsights-setting"></a>Ustawienie ApplicationInsights
 
@@ -43,66 +43,66 @@ To ustawienie można znaleźć w następującym miejscu:
 
 ## <a name="billing-configuration-setting"></a>Ustawienie konfiguracji rozliczeń
 
-Ustawienie `Billing` określa identyfikator URI punktu końcowego zasobu _usług Cognitive Services_ na platformie Azure używanego do pomiaru informacji rozliczeniowych dla kontenera. Należy określić wartość dla tego ustawienia konfiguracji, a wartość musi być prawidłowym identyfikatorem URI punktu końcowego dla zasobu _usług Cognitive Services_ na platformie Azure. Kontener raportuje użycie co 10 do 15 minut.
+`Billing` Ustawienie określa identyfikator URI punktu końcowego zasobu _Cognitive Services_ na platformie Azure używany do mierzenia informacji rozliczeniowych dla kontenera. Należy określić wartość tego ustawienia konfiguracji, a wartość musi być prawidłowym identyfikatorem URI punktu końcowego dla zasobu _Cognitive Services_ na platformie Azure. Kontener zgłasza użycie co 10 do 15 minut.
 
-To ustawienie można znaleźć w następującym miejscu:
+To ustawienie można znaleźć w następujących miejscach:
 
-* Portal Azure: Omówienie **usług Cognitive Services,** oznaczone etykietą`Endpoint`
+* Azure Portal: **Cognitive Services** Omówienie, etykieta`Endpoint`
 
-Pamiętaj, aby dodać _Routing twarzy_ do identyfikatora URI punktu końcowego, jak pokazano w przykładzie. 
+Pamiętaj _, aby dodać kierowanie_ do punktu końcowego, jak pokazano w przykładzie. 
 
 |Wymagany| Nazwa | Typ danych | Opis |
 |--|------|-----------|-------------|
-|Tak| `Billing` | Ciąg | Identyfikator URI punktu końcowego rozliczeń. Aby uzyskać więcej informacji na temat uzyskiwania identyfikatora URI rozliczeń, zobacz [zbieranie wymaganych parametrów](face-how-to-install-containers.md#gathering-required-parameters). Aby uzyskać więcej informacji i pełną listę regionalnych punktów końcowych, zobacz [Niestandardowe nazwy poddomen dla usług Cognitive Services](../cognitive-services-custom-subdomains.md). |
+|Tak| `Billing` | String | Identyfikator URI punktu końcowego rozliczenia. Aby uzyskać więcej informacji na temat uzyskiwania identyfikatora URI rozliczeń, zobacz [zbieranie wymaganych parametrów](face-how-to-install-containers.md#gathering-required-parameters). Aby uzyskać więcej informacji i pełną listę regionalnych punktów końcowych, zobacz [niestandardowe nazwy domen poddomen dla Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 <!-- specific to face only -->
 
 ## <a name="cloudai-configuration-settings"></a>Ustawienia konfiguracji CloudAI
 
-Ustawienia konfiguracji w `CloudAI` sekcji zapewniają opcje specyficzne dla kontenera unikatowe dla kontenera. Następujące ustawienia i obiekty są obsługiwane dla `CloudAI` kontenera Ściana w sekcji
+Ustawienia konfiguracji w `CloudAI` sekcji zawierają opcje specyficzne dla kontenera, które są unikatowe dla Twojego kontenera. Następujące ustawienia i obiekty są obsługiwane dla kontenera Fronts w `CloudAI` sekcji
 
 | Nazwa | Typ danych | Opis |
 |------|-----------|-------------|
-| `Storage` | Obiekt | Scenariusz magazynowania używany przez kontener Face. Aby uzyskać więcej informacji na temat scenariuszy magazynowania i skojarzonych ustawień `Storage` obiektu, zobacz Ustawienia [scenariusza magazynu](#storage-scenario-settings) |
+| `Storage` | Obiekt | Scenariusz magazynu używany przez kontener frontu. Aby uzyskać więcej informacji na temat scenariuszy magazynu i skojarzonych z `Storage` nimi ustawień dla obiektu, zobacz [Ustawienia scenariusza magazynu](#storage-scenario-settings) |
 
 ### <a name="storage-scenario-settings"></a>Ustawienia scenariusza magazynu
 
-Kontener Face przechowuje dane obiektów blob, cache, metadanych i kolejek, w zależności od tego, co jest przechowywane. Na przykład indeksy szkoleniowe i wyniki dla dużej grupy osób są przechowywane jako dane obiektów blob. Kontener Face udostępnia dwa różne scenariusze magazynu podczas interakcji z tymi typami danych i przechowywania ich:
+Kontener programu Front-Storage przechowuje dane obiektów blob, cache, Metadata i Queue, w zależności od przechowywanych elementów. Na przykład, indeksy szkoleniowe i wyniki dla dużej grupy osób są przechowywane jako dane obiektów BLOB. Kontener przedstawiający są dwa różne scenariusze magazynowania podczas korzystania z tych typów danych i ich przechowywania:
 
 * Memory (Pamięć)  
-  Wszystkie cztery typy danych są przechowywane w pamięci. Nie są one rozpowszechniane, ani nie są trwałe. Jeśli kontener Face zostanie zatrzymany lub usunięty, wszystkie dane w magazynie dla tego kontenera zostaną zniszczone.  
-  Jest to domyślny scenariusz magazynowania dla kontenera Face.
+  Wszystkie cztery typy danych są przechowywane w pamięci. Nie są one dystrybuowane ani nie są trwałe. Po zatrzymaniu lub usunięciu kontenera rozpoznawania wartości wszystkie dane w magazynie dla tego kontenera zostaną zniszczone.  
+  Jest to domyślny scenariusz magazynu dla kontenera czołowego.
 * Azure  
-  Kontener face używa usługi Azure Storage i usługi Azure Cosmos DB do dystrybucji tych czterech typów danych w magazynie trwałym. Dane obiektów blob i kolejki są obsługiwane przez usługę Azure Storage. Metadane i dane pamięci podręcznej są obsługiwane przez usługę Azure Cosmos DB. Jeśli kontener face zostanie zatrzymany lub usunięty, wszystkie dane w magazynie dla tego kontenera pozostają przechowywane w usłudze Azure Storage i usłudze Azure Cosmos DB.  
-  Zasoby używane w scenariuszu magazynu platformy Azure mają następujące dodatkowe wymagania
+  Kontener kroju używa usługi Azure Storage i Azure Cosmos DB do dystrybuowania tych czterech typów danych w magazynie trwałym. Dane obiektów blob i kolejek są obsługiwane przez usługę Azure Storage. Metadane i dane pamięci podręcznej są obsługiwane przez Azure Cosmos DB. Po zatrzymaniu lub usunięciu kontenera rozpoznawania wartości wszystkie dane w magazynie dla tego kontenera pozostają przechowywane w usłudze Azure Storage i Azure Cosmos DB.  
+  W przypadku zasobów używanych w ramach scenariusza usługi Azure Storage dostępne są następujące dodatkowe wymagania
   * Zasób usługi Azure Storage musi używać rodzaju konta StorageV2
-  * Zasób usługi Azure Cosmos DB musi używać interfejsu API usługi Azure Cosmos DB dla usługi MongoDB
+  * Zasób Azure Cosmos DB musi używać interfejsu API Azure Cosmos DB dla MongoDB
 
-Scenariusze magazynu i skojarzone ustawienia konfiguracji `Storage` są zarządzane `CloudAI` przez obiekt w sekcji konfiguracji. W `Storage` obiekcie dostępne są następujące ustawienia konfiguracji:
+Scenariusze magazynu i powiązane ustawienia konfiguracji są zarządzane przez `Storage` obiekt, w sekcji `CloudAI` konfiguracja. W `Storage` obiekcie są dostępne następujące ustawienia konfiguracji:
 
 | Nazwa | Typ danych | Opis |
 |------|-----------|-------------|
-| `StorageScenario` | Ciąg | Scenariusz magazynu obsługiwane przez kontener. Dostępne są następujące wartości:<br/>`Memory`- Wartość domyślna. Kontener używa magazynu nietrwałego, nie rozproszonego i w pamięci, do użycia tymczasowego z jednym węzłem. Jeśli kontener zostanie zatrzymany lub usunięty, magazyn dla tego kontenera zostanie zniszczony.<br/>`Azure`- Kontener używa zasobów platformy Azure do magazynu. Jeśli kontener zostanie zatrzymany lub usunięty, magazyn dla tego kontenera jest utrwalony.|
-| `ConnectionStringOfAzureStorage` | Ciąg | Parametry połączenia dla zasobu usługi Azure Storage używanego przez kontener.<br/>To ustawienie ma `Azure` zastosowanie tylko `StorageScenario` wtedy, gdy jest określone dla ustawienia konfiguracji. |
-| `ConnectionStringOfCosmosMongo` | Ciąg | Parametry połączenia mongodb dla zasobu usługi Azure Cosmos DB używane przez kontener.<br/>To ustawienie ma `Azure` zastosowanie tylko `StorageScenario` wtedy, gdy jest określone dla ustawienia konfiguracji. |
+| `StorageScenario` | String | Scenariusz magazynu obsługiwany przez kontener. Dostępne są następujące wartości<br/>`Memory`— Wartość domyślna. Kontener używa nietrwałego, nierozproszonego i niemagazynowanego magazynu dla jednego węzła, tymczasowego użycia. Jeśli kontener zostanie zatrzymany lub usunięty, magazyn dla tego kontenera zostanie zniszczony.<br/>`Azure`-Kontener używa zasobów platformy Azure do przechowywania. Po zatrzymaniu lub usunięciu kontenera magazyn dla tego kontenera jest utrwalany.|
+| `ConnectionStringOfAzureStorage` | String | Parametry połączenia dla zasobu usługi Azure Storage używanego przez kontener.<br/>To ustawienie ma zastosowanie tylko `Azure` wtedy, `StorageScenario` gdy jest określony dla ustawienia konfiguracji. |
+| `ConnectionStringOfCosmosMongo` | String | Parametry połączenia MongoDB dla zasobu Azure Cosmos DB używanego przez kontener.<br/>To ustawienie ma zastosowanie tylko `Azure` wtedy, `StorageScenario` gdy jest określony dla ustawienia konfiguracji. |
 
-Na przykład następujące polecenie określa scenariusz magazynu platformy Azure i udostępnia przykładowe parametry połączenia dla zasobów usługi Azure Storage i Usługi Cosmos DB używanych do przechowywania danych dla kontenera Face.
+Na przykład następujące polecenie określa scenariusz usługi Azure Storage i zawiera przykładowe parametry połączenia dla usługi Azure Storage i Cosmos DB zasoby używane do przechowywania danych dla kontenera czołowego.
 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
   ```
 
-Scenariusz magazynowania jest obsługiwany oddzielnie od instalacji wejściowych i mocowania wyjściowego. Można określić kombinację tych funkcji dla pojedynczego kontenera. Na przykład następujące polecenie definiuje instalację powiązania `D:\Output` platformy Docker do folderu na komputerze-hoście jako instalację wyjściową, a następnie wystąpienia kontenera z obrazu kontenera Face, zapisując pliki dziennika w formacie JSON do instalacji wyjściowej. Polecenie określa również scenariusz magazynu platformy Azure i udostępnia przykładowe parametry połączenia dla zasobów usługi Azure Storage i Usługi Cosmos DB używanych do przechowywania danych dla kontenera Face.
+Scenariusz magazynu jest obsługiwany niezależnie od instalacji i instalacji danych wyjściowych. Możesz określić kombinację tych funkcji dla jednego kontenera. Na przykład następujące polecenie definiuje instalację platformy Docker do `D:\Output` folderu na komputerze hosta jako instalację wyjściową, a następnie tworzy wystąpienie kontenera z obrazu kontenera rozpoznawania, zapisując pliki dziennika w formacie JSON w instalacji wyjściowej. To polecenie określa również scenariusz usługi Azure Storage i zawiera przykładowe parametry połączenia dla usługi Azure Storage i Cosmos DB zasoby używane do przechowywania danych dla kontenera.
 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 Logging:Disk:Format=json CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
   ```
 
-## <a name="eula-setting"></a>Ustawienie Eula
+## <a name="eula-setting"></a>Ustawienie umowy EULA
 
 [!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
-## <a name="fluentd-settings"></a>Płynne ustawienia
+## <a name="fluentd-settings"></a>Ustawienia pozostały
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
@@ -116,40 +116,40 @@ Scenariusz magazynowania jest obsługiwany oddzielnie od instalacji wejściowych
 
 ## <a name="mount-settings"></a>Ustawienia instalacji
 
-Użyj powiązania wierzchowce do odczytu i zapisu danych do i z kontenera. Można określić mocowanie wejściowe lub `--mount` mocowanie wyjściowe, określając opcję w poleceniu [uruchamiania platformy docker.](https://docs.docker.com/engine/reference/commandline/run/)
+Użyj instalacji powiązań, aby odczytywać i zapisywać dane w kontenerze i z niego. Można określić instalację wejściową lub instalację wyjściową, określając `--mount` opcję w poleceniu [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) .
 
-Kontenery face nie używają instalacji wejściowych lub wyjściowych do przechowywania danych szkoleniowych lub usługowych. 
+Kontenery ze stroną nie używają instalacji danych wejściowych lub wyjściowych do przechowywania danych szkoleniowych lub usług. 
 
-Dokładna składnia lokalizacji instalacji hosta różni się w zależności od systemu operacyjnego hosta. Ponadto lokalizacja instalacji [komputera-hosta](face-how-to-install-containers.md#the-host-computer)może być niedostępna z powodu konfliktu między uprawnieniami używanymi przez konto usługi Platformy Docker a uprawnieniami lokalizacji instalacji hosta. 
+Dokładna składnia lokalizacji instalacji hosta różni się w zależności od systemu operacyjnego hosta. Ponadto lokalizacja instalacji [komputera hosta](face-how-to-install-containers.md#the-host-computer)może być niedostępna z powodu konfliktu między uprawnieniami używanymi przez konto usługi platformy Docker i uprawnieniami lokalizacji instalacji hosta. 
 
-|Optional (Opcjonalność)| Nazwa | Typ danych | Opis |
+|Optional| Nazwa | Typ danych | Opis |
 |-------|------|-----------|-------------|
-|Niedozwolone| `Input` | Ciąg | Pojemniki na twarz nie używają tego.|
-|Optional (Opcjonalność)| `Output` | Ciąg | Miejsce docelowe mocowania wyjściowego. Wartością domyślną jest `/output`. Jest to lokalizacja dzienników. Obejmuje to dzienniki kontenerów. <br><br>Przykład:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Niedozwolone| `Input` | String | Kontenery kroju nie używają tego.|
+|Optional| `Output` | String | Obiekt docelowy instalacji wyjściowej. Wartością domyślną jest `/output`. Jest to lokalizacja dzienników. Dotyczy to również dzienników kontenerów. <br><br>Przykład:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="example-docker-run-commands"></a>Przykładowe polecenia uruchamiania platformy dok. 
+## <a name="example-docker-run-commands"></a>Przykładowe polecenia uruchamiania platformy Docker 
 
-Poniższe przykłady używają ustawień konfiguracji, aby zilustrować sposób pisania i używania `docker run` poleceń.  Po uruchomieniu kontener będzie nadal działał, dopóki go nie [zatrzymasz.](face-how-to-install-containers.md#stop-the-container)
+W poniższych przykładach użyto ustawień konfiguracji, aby zilustrować sposób pisania i używania `docker run` poleceń.  Po uruchomieniu kontenera kontynuuje działanie, dopóki nie zostanie [zatrzymane](face-how-to-install-containers.md#stop-the-container) .
 
-* **Znak kontynuacji wiersza:** Polecenia platformy Docker w poniższych `\`sekcjach używają ukośnika wstecznego, jako znaku kontynuacji wiersza. Zastąp lub usuń to na podstawie wymagań systemu operacyjnego hosta. 
-* **Kolejność argumentów:** Nie należy zmieniać kolejności argumentów, chyba że są bardzo zaznajomieni z kontenerami platformy Docker.
+* **Znak kontynuacji wiersza**: polecenia platformy Docker w poniższych sekcjach używają ukośnika odwrotnego `\`, jako znaku kontynuacji wiersza. Zastąp lub usuń to w zależności od wymagań systemu operacyjnego hosta. 
+* **Kolejność**argumentów: nie zmieniaj kolejności argumentów, o ile nie znasz już kontenerów platformy Docker.
 
-Zamień {_argument_name_} własnymi wartościami:
+Zastąp ciąg {_argument_name_} własnymi wartościami:
 
 | Symbol zastępczy | Wartość | Format lub przykład |
 |-------------|-------|---|
-| **{API_KEY}** | Klucz punktu końcowego `Face` zasobu `Face` na stronie Klucze platformy Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | Wartość punktu końcowego rozliczeń jest `Face` dostępna na stronie Przegląd platformy Azure.| Zobacz [zbieranie wymaganych parametrów](face-how-to-install-containers.md#gathering-required-parameters) dla jawnych przykładów. |
+| **{API_KEY}** | Klucz punktu końcowego `Face` zasobu na stronie kluczy platformy Azure `Face` . | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | Wartość punktu końcowego rozliczenia jest dostępna na stronie `Face` przegląd platformy Azure.| Zobacz [zbieranie wymaganych parametrów](face-how-to-install-containers.md#gathering-required-parameters) dla jawnych przykładów. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> Aby `Eula` `Billing`uruchomić `ApiKey` kontener, należy określić opcje i opcje; w przeciwnym razie kontener nie zostanie uruchomiony.  Aby uzyskać więcej informacji, zobacz [Rozliczenia](face-how-to-install-containers.md#billing).
-> Wartość ApiKey jest **kluczem** `Cognitive Services` ze strony klucze zasobów platformy Azure. 
+> Aby `Eula`można `Billing`było uruchomić `ApiKey` kontener, należy określić opcje, i. w przeciwnym razie kontener nie zostanie uruchomiony.  Aby uzyskać więcej informacji, zobacz [rozliczenia](face-how-to-install-containers.md#billing).
+> Wartość ApiKey jest **kluczem** ze strony klucze zasobów platformy `Cognitive Services` Azure. 
 
-## <a name="face-container-docker-examples"></a>Przykłady platformy Docker kontenera ściany
+## <a name="face-container-docker-examples"></a>Przykłady platformy Docker kontenera
 
-Poniższe przykłady platformy Docker są dla kontenera twarzy. 
+Poniższe przykłady platformy Docker dotyczą kontenera rozpoznawania. 
 
 ### <a name="basic-example"></a>Przykład podstawowy 
 
@@ -172,4 +172,4 @@ Poniższe przykłady platformy Docker są dla kontenera twarzy.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Sprawdź, [jak zainstalować i uruchomić kontenery](face-how-to-install-containers.md)
+* Zapoznaj [się z tematem Instalowanie i uruchamianie kontenerów](face-how-to-install-containers.md)

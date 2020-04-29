@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door - architektura routingu | Dokumenty firmy Microsoft
-description: Ten artykuł pomaga zrozumieć aspekt widoku globalnego architektury drzwi frontowych.
+title: Architektura routingu z przodu platformy Azure | Microsoft Docs
+description: Ten artykuł ułatwia zrozumienie elementu widoku globalnego architektury drzwi przednich.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -12,36 +12,36 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: a088e52f742f96a13ba61969c2d7a6697c96b145
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80879296"
 ---
 # <a name="routing-architecture-overview"></a>Omówienie architektury routingu
 
-Drzwi frontowe platformy Azure po odebraniu żądań klienta, a następnie odpowiada na nie (jeśli buforowanie jest włączone) lub przekazuje je do odpowiedniej wewnętrznej bazy danych aplikacji (jako odwrotnego serwera proxy).
+Drzwi frontonu platformy Azure odbierają żądania klientów, a następnie odpowiadają na nie (Jeśli buforowanie jest włączone) lub przekazuje je do odpowiedniego zaplecza aplikacji (jako zwrotny serwer proxy).
 
-</br>Istnieją możliwości optymalizacji ruchu podczas routingu do drzwi frontowych platformy Azure, a także podczas routingu do zaplecza.
+</br>Istnieją możliwości optymalizacji ruchu w przypadku kierowania do frontonu platformy Azure, a także do przesyłania danych do innych celów.
 
-## <a name="selecting-the-front-door-environment-for-traffic-routing-anycast"></a><a name = "anycast"></a>Wybór środowiska drzwi przednich dla routingu ruchu (Anycast)
+## <a name="selecting-the-front-door-environment-for-traffic-routing-anycast"></a><a name = "anycast"></a>Wybieranie środowiska front-drzwi dla routingu ruchu sieciowego
 
-Routing do środowisk drzwiach frontowych platformy Azure wykorzystuje [anycast](https://en.wikipedia.org/wiki/Anycast) dla ruchu DNS (Domain Name System) i HTTP (Hypertext Transfer Protocol), więc ruch użytkownika zostanie przekierowany do najbliższego środowiska pod względem topologii sieci (najmniejsza liczba przeskoków). Ta architektura zazwyczaj oferuje lepsze czasy podróży w obie strony dla użytkowników końcowych (maksymalizując korzyści z podziału TCP). Drzwi frontowe organizuje swoje środowiska w podstawowe i rezerwowe "pierścienie".  Pierścień zewnętrzny ma środowiska, które są bliżej użytkowników, oferując niższe opóźnienia.  Pierścień wewnętrzny ma środowiska, które mogą obsługiwać pracy awaryjnej dla środowiska pierścienia zewnętrznego w przypadku, gdy występuje problem. Pierścień zewnętrzny jest preferowanym celem dla całego ruchu, ale pierścień wewnętrzny jest niezbędny do obsługi przepełnienia ruchu z pierścienia zewnętrznego. Jeśli chodzi o adresy VIP (Virtual Internet Protocol), każdy host frontendu lub domena obsługiwana przez drzwi frontowe jest przypisana do podstawowego adresu VIP, który jest ogłaszany przez środowiska zarówno w pierścieniu wewnętrznym, jak i zewnętrznym, a także rezerwowy VIP, który jest ogłaszany tylko przez środowiska w pierścieniu wewnętrznym. 
+Kierowanie do środowisk czołowych platformy Azure wykorzystuje [emisje](https://en.wikipedia.org/wiki/Anycast) w systemie DNS (system nazw domen) i ruch HTTP (Hypertext Transfer Protocol), więc ruch użytkowników przechodzi do najbliższego środowiska w zakresie topologii sieci (najmniejszą liczbę przeskoków). Ta architektura zazwyczaj oferuje lepszą liczbę godzin rundy dla użytkowników końcowych (maksymalizując zalety dzielenia TCP). Drzwi przede wszystkim organizują swoje środowiska w podstawowe i rezerwowe "pierścienie".  Zewnętrzny pierścień ma środowiska, które są bliżej użytkowników, oferując krótsze opóźnienia.  Wewnętrzny pierścień zawiera środowiska, które mogą obsłużyć tryb failover dla środowiska zewnętrznego pierścienia w przypadku, gdy występuje problem. Zewnętrzny pierścień jest preferowanym elementem docelowym dla całego ruchu, ale wewnętrzny pierścień jest niezbędny do obsługi przepełnienia ruchu z pierścienia zewnętrznego. W odniesieniu do adresów VIP (adresy wirtualnych protokołów internetowych) każdy host frontonu lub domenę obsługiwane przez drzwiczki są przypisywane do podstawowego adresu VIP, który jest anonsowany przez środowiska zarówno z pierścieniem wewnętrznym, jak i zewnętrznym, jak również do rezerwowego adresu VIP, który jest anonsowany tylko przez środowiska w pierścieniu wewnętrznym. 
 
-</br>Ta ogólna strategia gwarantuje, że żądania od użytkowników końcowych zawsze docierają do najbliższego środowiska drzwi frontowych i że nawet jeśli preferowane środowisko drzwi frontowych jest w złej kondycji, ruch automatycznie przenosi się do najbliższego środowiska.
+</br>Ta ogólna strategia zapewnia, że żądania od użytkowników końcowych zawsze docierają do najbliższego środowiska z przodu, a nawet jeśli preferowane środowisko z przodu jest w złej kondycji, ruch jest automatycznie przenoszony do następnego najbliższego środowiska.
 
-## <a name="connecting-to-front-door-environment-split-tcp"></a><a name = "splittcp"></a>Podłączanie do środowiska drzwi przednich (Split TCP)
+## <a name="connecting-to-front-door-environment-split-tcp"></a><a name = "splittcp"></a>Nawiązywanie połączenia z środowiskiem czołowym (Split TCP)
 
-[Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) to technika zmniejszania opóźnień i problemów TCP przez przerwanie połączenia, które spowodowałoby wysoki czas podróży w obie strony na mniejsze kawałki.  Umieszczając środowiska drzwi frontowych bliżej użytkowników końcowych i kończąc połączenia TCP w środowisku drzwi wejściowych, jedno połączenie TCP z dużym czasem podróży w obie strony (RTT) do wewnętrznej bazy danych aplikacji jest dzielone na dwa połączenia TCP. Krótkie połączenie między użytkownikiem końcowym a środowiskiem drzwiami frontowymi oznacza, że połączenie zostanie nawiązane przez trzy krótkie objazdy zamiast trzech długich rund, oszczędzając opóźnienia.  Długie połączenie między środowiskiem drzwiami frontowymi a zapleczem może być wstępnie ustanowione i ponownie opublikowane w wielu połączeniach użytkowników końcowych, co ponownie pozwala zaoszczędzić czas połączenia TCP.  Efekt jest mnożony podczas ustanawiania połączenia SSL/TLS (Transport Layer Security), ponieważ istnieje więcej rund, aby zabezpieczyć połączenie.
+[Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) to technika zmniejszania opóźnień i problemów z protokołem TCP przez przerwanie połączenia, które może pociągnąć za sobą wysoki czas błądzenia w mniejszych kawałkach.  Umieszczenie środowisk z przodu bliżej użytkowników końcowych i przerwanie połączeń TCP w środowisku przednim, jedno połączenie TCP z dużą ilością czasu błądzenia (RTT) do zaplecza aplikacji jest podzielone na dwa połączenia TCP. Krótkie połączenie między użytkownikiem końcowym i środowiskiem czołowym oznacza, że połączenie jest nawiązywane przez trzy krótkie podróże zamiast trzech długich rejsów, co oszczędza opóźnienie.  Długie połączenie między środowiskiem z drzwiami i zapleczem można wstępnie nawiązać i ponownie użyć w wielu wywołaniach użytkownika końcowego, a następnie zapisać czas połączenia TCP.  Efekt jest mnożony podczas ustanawiania połączenia SSL/TLS (Transport Layer Security), ponieważ istnieje więcej rund do zabezpieczenia połączenia.
 
-## <a name="processing-request-to-match-a-routing-rule"></a>Żądanie przetwarzania zgodne z regułą routingu
-Po ustanowieniu połączenia i wykonaniu uzgadniania TLS, gdy żądanie wyląduje w środowisku drzwiami frontowymi, dopasowanie reguły routingu jest pierwszym krokiem. To dopasowanie zasadniczo jest określanie ze wszystkich konfiguracji w drzwiach frontowych, które określone reguły routingu, aby dopasować żądanie do. Przeczytaj o tym, jak drzwi frontowe [dopasowują trasę,](front-door-route-matching.md) aby dowiedzieć się więcej.
+## <a name="processing-request-to-match-a-routing-rule"></a>Przetwarzanie żądania zgodnego z regułą routingu
+Po ustanowieniu połączenia i przeprowadzeniu uzgadniania protokołu TLS, gdy żądanie jest pokrywane ze środowiskiem czołowym, dopasowanie reguły routingu to pierwszy krok. Jest to zasadniczo zgodne ze wszystkimi konfiguracjami w drzwiach zewnętrznych, które są określone dla reguły routingu w celu dopasowania do żądania. Dowiedz się więcej o tym, jak drzwi z przodu są [zgodne](front-door-route-matching.md) , aby dowiedzieć się więcej.
 
-## <a name="identifying-available-backends-in-the-backend-pool-for-the-routing-rule"></a>Identyfikowanie dostępnych zaplecza w puli wewnętrznej bazy danych dla reguły marszruty
-Gdy drzwi frontowe ma dopasowanie do reguły routingu na podstawie żądania przychodzącego i jeśli nie ma buforowania, następnym krokiem jest wyciągnięcie stanu sondy kondycji dla puli wewnętrznej bazy danych skojarzonej z dopasowaną trasą. Przeczytaj o tym, jak drzwi frontowe monitoruje kondycji zaplecza przy użyciu [sondy kondycji,](front-door-health-probes.md) aby dowiedzieć się więcej.
+## <a name="identifying-available-backends-in-the-backend-pool-for-the-routing-rule"></a>Identyfikowanie dostępnych zaplecza w puli zaplecza dla reguły routingu
+Gdy przód są zgodne z regułą routingu opartą na żądaniu przychodzącym i jeśli nie istnieje buforowanie, następnym krokiem jest pociągnięcie stanu sondy kondycji dla puli zaplecza skojarzonej z dopasowaną trasą. Dowiedz się więcej o tym, jak tylne drzwi monitorują kondycję zaplecza przy użyciu [sond kondycji](front-door-health-probes.md) .
 
-## <a name="forwarding-the-request-to-your-application-backend"></a>Przekazywanie żądania do wewnętrznej bazy danych aplikacji
-Na koniec przy założeniu, że nie jest skonfigurowane buforowanie, żądanie użytkownika jest przekazywane do "najlepszego" zaplecza na podstawie konfiguracji [metody routingu drzwiami frontowymi.](front-door-routing-methods.md)
+## <a name="forwarding-the-request-to-your-application-backend"></a>Przekazywanie żądania do zaplecza aplikacji
+Na koniec przy założeniu, że nie skonfigurowano buforowania, żądanie użytkownika zostanie przekazane do "najlepszej" zaplecza na podstawie konfiguracji [metody routingu drzwi](front-door-routing-methods.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 

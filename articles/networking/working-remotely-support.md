@@ -1,6 +1,6 @@
 ---
 title: Praca zdalna przy użyciu usług sieciowych platformy Azure
-description: Na tej stronie opisano, jak można korzystać z usług sieciowych platformy Azure, które są dostępne, aby umożliwić pracę zdalną i jak ograniczyć problemy z ruchem wynikające ze zwiększonej liczby osób pracujących zdalnie.
+description: Na tej stronie opisano, jak można korzystać z usług sieciowych platformy Azure, które są dostępne, aby umożliwić zdalne działanie i jak wyeliminować problemy dotyczące ruchu wynikające z zwiększonej liczby osób pracujących zdalnie.
 services: networking
 author: rambk
 ms.service: virtual-network
@@ -8,88 +8,88 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
 ms.openlocfilehash: e0e5806ec59cd2d75111db213d8511488d043eec
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80982858"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Praca zdalna przy użyciu usług sieciowych platformy Azure
 
 >[!NOTE]
-> W tym artykule opisano, jak można korzystać z usług sieci platformy Azure, sieci firmy Microsoft i ekosystemu partnerów platformy Azure do pracy zdalnej i łagodzenia problemów sieciowych, które mogą być narażona z powodu kryzysu COVID-19.
+> W tym artykule opisano, jak korzystać z usług sieciowych platformy Azure, sieci firmy Microsoft i ekosystemu partnerów platformy Azure do pracy zdalnej i rozwiązywania problemów z siecią, które mogą się pojawić z powodu kryzysu COVID-19.
 
-W tym artykule opisano opcje, które są dostępne dla organizacji w celu skonfigurowania dostępu zdalnego dla swoich użytkowników lub uzupełnienia istniejących rozwiązań o dodatkową pojemność w okresach szczytowego wykorzystania. Architekci sieci stoją przed następującymi wyzwaniami:
+W tym artykule opisano opcje, które są dostępne dla organizacji w celu skonfigurowania dostępu zdalnego dla użytkowników lub uzupełniania istniejących rozwiązań o dodatkową pojemność w okresach szczytowego użycia. Architektom sieci podlegają następujące wyzwania:
 
-- Zaajmy się zwiększeniem wykorzystania sieci.
-- Zapewnij niezawodną bezpieczną łączność większej liczbie pracowników swojej firmy i klientów.
-- Zapewnij łączność z odległymi lokalizacjami na całym świecie.
+- Zwiększ stopień wykorzystania sieci.
+- Zapewnianie niezawodnej łączności z większą liczbą pracowników firmy i klientów.
+- Zapewnianie łączności z lokalizacjami zdalnymi na całym świecie.
 
-Nie wszystkie sieci (na przykład prywatna sieć WAN i firmowe sieci podstawowe) doświadczają przeciążenia z powodu szczytowego obciążenia zdalnego pracownika. Wąskie gardła są powszechnie zgłaszane tylko w domowych sieciach szerokopasmowych i bramkach sieci VPN lokalnych sieci korporacji.
+Nie wszystkie sieci (na przykład prywatne sieci WAN i korporacyjne przedsiębiorstwa) osiągają Przeciążenie z szczytowego ładowania zdalnego procesu roboczego. Wąskie gardła są często raportowane tylko w domowych sieciach szerokopasmowych i bramach sieci VPN lokalnych sieci firmowych.
 
-Planiści sieci mogą pomóc złagodzić wąskie gardła i zmniejszyć przeciążenie sieci, pamiętając, że różne rodzaje ruchu ruchu wymagają różnych priorytetów leczenia sieci oraz przez inteligentne przekierowanie/dystrybucję obciążenia. Na przykład, w czasie rzeczywistym tele-medecine ruchu interakcji lekarz-pacjent ma duże znaczenie i opóźnienie / jitter wrażliwe. Podczas gdy replikacja tego samego ruchu między magazynami nie jest z opóźnieniem poufne. Poprzedni ruch musi być kierowany przez najbardziej optymalną ścieżkę sieciową o wyższej jakości usług; dopuszczalne jest kierowanie późniejszego ruchu drogą nieoptymalnej.
+Planisty sieci mogą pomóc w uproszczeniu wąskich gardeł i złagodzić Przeciążenie sieci, pamiętając, że różne typy ruchu wymagają różnych priorytetów traktowania sieci oraz niektórych inteligentnych przekierowań/dystrybucji obciążeń. Na przykład w czasie rzeczywistym ruch Medecine interakcji z pacjentem dla pacjentów ma duże znaczenie i opóźnienia/wahania. W związku z tym replikacja tego samego ruchu między magazynami nie jest uwzględniana z opóźnieniem. Poprzedni ruch musi być kierowany przez najbardziej optymalną ścieżkę sieciową o wyższej jakości usługi; możliwe jest kierowanie ruchu późniejszego za pośrednictwem nieoptymalnej trasy.
 
 
 
-## <a name="sharing-our-best-practices---azure-network-is-designed-for-elasticity-and-high-availability"></a>Udostępnianie naszych najlepszych praktyk — sieć platformy Azure została zaprojektowana z myślą o elastyczności i wysokiej dostępności
+## <a name="sharing-our-best-practices---azure-network-is-designed-for-elasticity-and-high-availability"></a>Udostępnianie naszych najlepszych rozwiązań — Sieć platformy Azure została zaprojektowana pod kątem elastyczności i wysokiej dostępności
 
-Platforma Azure została zaprojektowana tak, aby wytrzymać nagłe zmiany w wykorzystaniu zasobów i może znacznie pomóc w okresach szczytowego wykorzystania. Ponadto Microsoft utrzymuje i obsługuje jedną z największych sieci na świecie. Sieć firmy Microsoft została zaprojektowana z myślą o wysokiej dostępności, która może wytrzymać różne typy awarii: od awarii pojedynczego elementu sieciowego do awarii całego regionu.
+Platforma Azure została zaprojektowana tak, aby wytrzymać nagłe zmiany w korzystaniu z zasobów i znacznie pomóc w okresach szczytowego użycia. Ponadto firma Microsoft utrzymuje i obsługuje jedną z największych sieci. Sieć firmy Microsoft została zaprojektowana w celu zapewnienia wysokiej dostępności, która może wytrzymać różne typy awarii: w przypadku awarii pojedynczego elementu sieciowego Wystąpił błąd w całym regionie.
 
-Sieć firmy Microsoft została zaprojektowana tak, aby spełniać wymagania i zapewniać optymalną wydajność dla różnych typów ruchu sieciowego, w tym opóźniania ruchu multimedialnego wrażliwego na opóźnienia dla Skype i teams, usługi CDN, analizy dużych zbiorów danych w czasie rzeczywistym, magazynu platformy Azure, usługi Bing i konsoli Xbox. Aby zapewnić optymalną wydajność dla różnych typów ruchu, sieć Firmy Microsoft przyciąga cały ruch, który jest przeznaczony do- lub chcąc przejść przez swoje zasoby jak najbliżej pochodzenia ruchu.
+Sieć firmy Microsoft została zaprojektowana tak, aby spełniała wymagania i zapewnić optymalną wydajność dla różnych typów ruchu sieciowego, w tym opóźnienia ruchu multimedialnego dla programów Skype i Teams, CDN, analizy danych Big Data, usługi Azure Storage, Bing i Xbox. Aby zapewnić optymalną wydajność dla różnych typów ruchu sieciowego, Sieć firmy Microsoft przyniesie cały ruch, który jest przeznaczony do przesyłania lub do tranzytu przez zasoby, jak najbliżej źródła ruchu.
 
 >[!NOTE] 
->Korzystanie z funkcji sieci platformy Azure opisanych poniżej wykorzystuje zachowanie przyciągania ruchu w globalnej sieci firmy Microsoft, aby zapewnić lepsze środowisko sieci klientów. Zachowanie przyciągania ruchu w sieci Firmy Microsoft pomaga wyłączyć ładowanie ruchu tak szybko, jak to możliwe z sieci pierwszej/ostatniej mili, które mogą wystąpić przeciążenia w okresach szczytowego wykorzystania.
+>Korzystanie z funkcji sieciowych platformy Azure opisanych poniżej wykorzystuje zachowanie przyciągania nie sieci globalnej firmy Microsoft w celu zapewnienia lepszej obsługi sieci klienta. Zachowanie przyciągania nie sieci firmy Microsoft pozwala na wyłączenie ładowania ruchu jak najszybciej z pierwszych/ostatnich sieci, które mogą powodować Przeciążenie w okresach szczytowego użycia.
 >
 
-## <a name="enable-employees-to-work-remotely"></a>Umożliwianie pracownikom pracy zdalnej
+## <a name="enable-employees-to-work-remotely"></a>Umożliwienie pracownikom pracy zdalnej
 
-Brama sieci VPN platformy Azure obsługuje zarówno połączenia sieci VPN typu "punkt-lokacja" i "Lokacja lokacja" (S2S). Za pomocą bramy sieci VPN platformy Azure można skalować połączenia pracownika, aby bezpiecznie uzyskiwać dostęp zarówno do zasobów wdrożonych na platformie Azure, jak i zasobów lokalnych. Aby uzyskać więcej informacji, zobacz [Jak umożliwić użytkownikom pracę zdalną](../vpn-gateway/work-remotely-support.md). 
+Usługa Azure VPN Gateway obsługuje połączenia sieci VPN typu punkt-lokacja (P2S) i połączeń między lokacjami (S2S). Za pomocą bramy sieci VPN platformy Azure można skalować połączenia pracowników, aby bezpiecznie uzyskiwać dostęp do zasobów wdrożonych na platformie Azure i zasobów lokalnych. Aby uzyskać więcej informacji, zobacz [jak umożliwić użytkownikom zdalne korzystanie z](../vpn-gateway/work-remotely-support.md)programu. 
 
-Jeśli używasz protokołu SSTP (Secure Sockets Tunneling Protocol), liczba równoczesnych połączeń jest ograniczona do 128. Aby uzyskać większą liczbę połączeń, sugerujemy przejście do OpenVPN lub IKEv2. Aby uzyskać więcej informacji, zobacz [Przejście do protokołu OpenVPN lub IKEv2 z protokołu SSTP](../vpn-gateway/ikev2-openvpn-from-sstp.md
+W przypadku korzystania z protokołu SSTP (Secure Socket Tunneling Protocol) liczba współbieżnych połączeń jest ograniczona do 128. Aby uzyskać większą liczbę połączeń, zalecamy przejście do OpenVPN lub IKEv2. Aby uzyskać więcej informacji, zobacz [Przechodzenie do protokołu OpenVPN lub IKEv2 z SSTP](../vpn-gateway/ikev2-openvpn-from-sstp.md
 ).
 
-Aby uzyskać dostęp do zasobów wdrożonych na platformie Azure, deweloperzy zdalni mogą używać rozwiązania Azure Bastion zamiast połączenia sieci VPN, aby uzyskać bezpieczny dostęp do powłoki (RDP lub SSH) bez konieczności uzyskiwania publicznych wiadomości IP na maszynach wirtualnych, do których są uzyskiwane dostęp. Aby uzyskać więcej informacji, zobacz [Praca zdalnie przy użyciu usługi Azure Bastion](../bastion/work-remotely-support.md).
+Aby uzyskać dostęp do zasobów wdrożonych na platformie Azure, deweloperzy zdalni mogą korzystać z rozwiązania Azure bastionu zamiast połączenia sieci VPN w celu uzyskania bezpiecznego dostępu do powłoki (RDP lub SSH) bez konieczności używania publicznych adresów IP na maszynach wirtualnych, do których uzyskiwany jest dostęp. Aby uzyskać więcej informacji, zobacz [Work zdalne using Azure bastionu](../bastion/work-remotely-support.md).
 
-Do agregowania połączenia sieci VPN na dużą skalę, do obsługi dowolnych połączeń między zasobami w różnych lokalnych lokalizacjach globalnych, w różnych regionalnych sieciach centralnych i sieciach wirtualnych, oraz w celu optymalizacji wykorzystania wielu domowych sieci szerokopasmowych można użyć wirtualnej sieci WAN platformy Azure. Aby uzyskać więcej informacji, zobacz [Walka z zaspokajaniem potrzeb domowych? Oto, gdzie azure wirtualna sieć WAN może pomóc](../virtual-wan/work-remotely-support.md).
+Do agregowania połączenia sieci VPN o dużej skali w celu obsługi wszelkich połączeń między zasobami w różnych lokalnych lokalizacjach globalnych, w różnych regionalnych centrach i sieciach wirtualnych, a w celu zoptymalizowania użycia wielu domowych sieci szerokopasmowych możesz użyć wirtualnej sieci WAN platformy Azure. Aby uzyskać więcej informacji, zobacz zoptymalizowaniem, aby dowiedzieć się, jak [korzystać z domu? Oto, gdzie usługa Azure Virtual WAN może pomóc](../virtual-wan/work-remotely-support.md).
 
-Innym sposobem obsługi zdalnej siły roboczej jest wdrożenie infrastruktury pulpitu wirtualnego (VDI) hostowanego w sieci wirtualnej platformy Azure, zabezpieczonego za pomocą zapory platformy Azure. Na przykład pulpit wirtualny systemu Windows (WVD) to usługa wirtualizacji pulpitu i aplikacji, która działa na platformie Azure. Dzięki pulpitowi wirtualnemu systemu Windows można skonfigurować skalowalny i elastyczny środowisko w ramach subskrypcji platformy Azure bez konieczności uruchamiania dodatkowych serwerów bramy. Użytkownik jest odpowiedzialny tylko za maszyny wirtualne WVD w sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Pomoc techniczna usługi azure firewall pracy zdalnej](../firewall/remote-work-support.md). 
+Innym sposobem obsługi pracowników zdalnych jest wdrożenie infrastruktury pulpitu wirtualnego (VDI) hostowanej w sieci wirtualnej platformy Azure, zabezpieczonej za pomocą zapory platformy Azure. Na przykład system Windows Virtual Desktop (WVD) to usługa wirtualizacji pulpitu i aplikacji działająca na platformie Azure. Za pomocą pulpitu wirtualnego systemu Windows można skonfigurować skalowalne i elastyczne środowisko w ramach subskrypcji platformy Azure bez konieczności uruchamiania jakichkolwiek dodatkowych serwerów bramy. Użytkownik jest odpowiedzialny za WVD maszyn wirtualnych w sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Obsługa zdalnej współpracy z zaporą platformy Azure](../firewall/remote-work-support.md). 
 
-Platforma Azure ma również bogaty zestaw partnerów systemu ekologicznego. Nasi partnerzy Network Virtual Appliances na platformie Azure mogą również pomóc w skalowaniu łączności sieci VPN. Aby uzyskać więcej informacji, zobacz [Zagadnienia dotyczące pracy zdalnej (Network Virtual Appliance, NVA).](../vpn-gateway/nva-work-remotely-support.md)
+Platforma Azure ma również bogaty zestaw partnerów systemu w zakresie oznakowań. Nasi partnerzy sieci na platformie Azure mogą również skalować łączność sieci VPN. Aby uzyskać więcej informacji, zobacz [zagadnienia dotyczące sieciowego urządzenia wirtualnego (urządzenie WUS) dotyczące zdalnego działania](../vpn-gateway/nva-work-remotely-support.md).
 
-## <a name="extend-employees-connection-to-access-globally-distributed-resources"></a>Rozszerzanie połączeń pracowników w celu uzyskania dostępu do globalnie rozproszonych zasobów
+## <a name="extend-employees-connection-to-access-globally-distributed-resources"></a>Zwiększ połączenie pracowników, aby uzyskać dostęp do zasobów rozproszonych globalnie
 
-Następujące usługi platformy Azure mogą pomóc pracownikom w dostępie do zasobów rozproszonych globalnie. Zasoby mogą znajdować się w dowolnym regionie platformy Azure, w sieciach lokalnych, a nawet w innych chmurach publicznych lub prywatnych. 
+Poniższe usługi platformy Azure mogą pomóc pracownikom w dostępie do zasobów rozproszonych globalnie. Zasoby mogą znajdować się w dowolnym z regionów świadczenia usługi Azure, sieci lokalnych, a nawet w innych chmurach publicznych lub prywatnych. 
 
-- **Komunikacja równorzędna sieci wirtualnej platformy Azure:** Jeśli zasoby są wdrażane w więcej niż jednym regionie platformy Azure i/lub jeśli zagregujesz łączność zdalnie pracujących pracowników przy użyciu wielu sieci wirtualnych, można ustanowić łączność między wieloma sieciami wirtualnymi platformy Azure przy użyciu komunikacji równorzędnej w sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Komunikacja równorzędna sieci wirtualnej][VNet-peer].
+- **Komunikacja równorzędna sieci wirtualnych platformy Azure**: w przypadku wdrażania zasobów w więcej niż jednym regionie platformy Azure i/lub w przypadku agregowania łączności zdalnie pracujących pracowników przy użyciu wielu sieci wirtualnych można nawiązać połączenie między wieloma sieciami wirtualnymi platformy Azure przy użyciu komunikacji równorzędnej sieci wirtualnych. Aby uzyskać więcej informacji, zobacz [wirtualne sieci równorzędne][VNet-peer].
 
-- **Rozwiązanie oparte na sieci VPN platformy Azure:** dla pracowników zdalnych połączonych z platformą Azure za pośrednictwem sieci VPN P2S lub S2S można włączyć dostęp do sieci lokalnych, konfigurując sieć VPN S2S między sieciami lokalnymi a bramą sieci VPN platformy Azure. Aby uzyskać więcej informacji, zobacz [Tworzenie połączenia lokacja lokacja.][S2S]
+- **Rozwiązanie oparte na sieci VPN platformy Azure**: dla pracowników zdalnych połączonych z platformą Azure za pośrednictwem usługi P2S lub sieci VPN S2S można włączyć dostęp do sieci lokalnych przez skonfigurowanie sieci VPN S2S między sieciami lokalnymi i bramą Azure VPN Gateway. Aby uzyskać więcej informacji, zobacz [Tworzenie połączenia typu lokacja-lokacja][S2S].
 
-- **Usługa ExpressRoute:** Za pomocą prywatnej komunikacji równorzędnej usługi ExpressRoute można włączyć prywatną łączność między wdrożeniami platformy Azure a infrastrukturą lokalną lub infrastrukturą w usłudze kolokacji. Usługa ExpressRoute, za pośrednictwem komunikacji równorzędnej firmy Microsoft, umożliwia również dostęp do publicznych punktów końcowych w firmie Microsoft z sieci lokalnej. Połączenia ExpressRoute nie odbywają się za pośrednictwem publicznego Internetu. Oferują one bezpieczną łączność, niezawodność, wyższą przepustowość, z niższymi i spójnymi opóźnieniami niż typowe połączenia przez Internet. Aby uzyskać więcej informacji, zobacz [Omówienie usługi ExpressRoute][ExR]. Wykorzystanie istniejącego dostawcy sieci, który jest już częścią naszego [ekosystemu partnerów usługi ExpressRoute,][ExR-eco] może skrócić czas na uzyskanie połączeń o dużej przepustowości z firmą Microsoft.  Za pomocą [usługi ExpressRoute Direct][ExR-D] można bezpośrednio połączyć sieć lokalną z szkieletem firmy Microsoft. ExpressRoute Direct oferuje dwie różne opcje liniowej z dwoma 10 Gb/s lub 100 Gb/s. 
+- **ExpressRoute**: korzystanie z prywatnej komunikacji równorzędnej ExpressRoute umożliwia włączenie prywatnej łączności między wdrożeniami platformy Azure a infrastrukturą lokalną lub infrastrukturą w ramach funkcji wspólnej lokalizacji. ExpressRoute za pośrednictwem komunikacji równorzędnej firmy Microsoft umożliwia również dostęp do publicznych punktów końcowych w firmie Microsoft z sieci lokalnej. Połączenia ExpressRoute nie odbywają się za pośrednictwem publicznego Internetu. Oferują one bezpieczną łączność, niezawodność, wyższą przepływność i krótsze i spójne opóźnienia niż typowe połączenia przez Internet. Aby uzyskać więcej informacji, zobacz [Omówienie usługi ExpressRoute][ExR]. Korzystanie z istniejącego dostawcy sieci, który jest już częścią naszego [ekosystemu partnera ExpressRoute][ExR-eco] , może pomóc skrócić czas uzyskiwania połączeń o dużej przepustowości do firmy Microsoft.  Korzystając z usługi [ExpressRoute Direct][ExR-D] , możesz bezpośrednio połączyć sieć lokalną ze szkieletem firmy Microsoft. ExpressRoute Direct oferuje dwie różne opcje stawki liniowej (10 GB/s lub 100 GB/s). 
 
-- **Wirtualna sieć WAN platformy Azure:** wirtualna sieć WAN platformy Azure umożliwia bezproblemową współdziałanie między połączeniami sieci VPN a obwodami usługi ExpressRoute. Jak wspomniano wcześniej, wirtualna sieć WAN platformy Azure obsługuje również połączenia między zasobami w różnych lokalizacjach globalnych na przedm, w różnych regionalnych centrach i sieciach wirtualnych
+- **Wirtualna sieć WAN platformy Azure**: usługa Azure Virtual WAN umożliwia bezproblemowe współdziałanie między połączeniami sieci VPN i obwodami usługi ExpressRoute. Jak wspomniano wcześniej, wirtualne sieci WAN obsługują również dowolne połączenia między zasobami w różnych lokalizacjach globalnych Premium w różnych regionalnych centrach i sieciach wirtualnych szprych
 
-## <a name="scale-customer-connectivity-to-frontend-resources"></a>Skalowanie łączności z klientem do zasobów frontendu
+## <a name="scale-customer-connectivity-to-frontend-resources"></a>Skalowanie połączenia klientów z zasobami frontonu
 
-W czasach, gdy więcej osób przechodzi do trybu online, wiele firmowych witryn sieci Web doświadcza zwiększonego ruchu klientów. Usługa Azure Application Gateway może pomóc w zarządzaniu tym zwiększonym obciążeniem frontendu. Aby uzyskać więcej informacji, zobacz [Obsługa dużych ruchu bramy aplikacji](../application-gateway/high-traffic-support.md).
+Gdy większa liczba osób przejdzie w tryb online, wiele firmowych witryn sieci Web zwiększa ruch klientów. Usługa Azure Application Gateway może pomóc w zarządzaniu tym zwiększonym obciążeniem frontonu. Aby uzyskać więcej informacji, zobacz [Application Gateway obsługa dużej ilości ruchu](../application-gateway/high-traffic-support.md).
 
-## <a name="microsoft-support-for-multi-cloud-traffic"></a>Pomoc techniczna firmy Microsoft w zakresie ruchu w wielu chmurach
+## <a name="microsoft-support-for-multi-cloud-traffic"></a>Pomoc techniczna firmy Microsoft dla ruchu w chmurze
 
-W przypadku wdrożeń w innych chmurach publicznych firma Microsoft może zapewnić łączność globalną. Wirtualna sieć WAN platformy Azure, sieć VPN lub usługa ExpressRoute mogą pomóc w tym zakresie. Aby rozszerzyć łączność z platformy Azure do innych chmur, można skonfigurować sieć VPN S2S między dwiema chmurami. Można również ustanowić łączność z platformy Azure do innych chmur publicznych przy użyciu usługi ExpressRoute. Chmura Oracle jest częścią ekosystemu partnerów Usługi ExpressRoute. Można [skonfigurować bezpośrednie połączenie między platformą Azure a infrastrukturą Oracle Cloud Infrastructure.][Az-OCI] Większość dostawców usług, które są częścią ekosystemu partnerów usługi ExpressRoute również oferują prywatne połączenia z innymi chmurami publicznymi. Korzystając z tych dostawców usług, można ustanowić prywatną łączność między wdrożeniami na platformie Azure i innych chmur za pośrednictwem usługi ExpressRoute.
+W przypadku wdrożeń w innych chmurach publicznych firma Microsoft może zapewnić łączność globalną. Z tego względu mogą pomóc wirtualne sieci WAN platformy Azure, VPN lub ExpressRoute. Aby zwiększyć łączność z platformy Azure do innych chmur, można skonfigurować sieci VPN S2S między dwiema chmurami. Możesz również nawiązać połączenie z platformy Azure z innymi chmurami publicznymi przy użyciu ExpressRoute. Chmura firmy Oracle jest częścią ekosystemu partnera ExpressRoute. Można [skonfigurować bezpośrednie połączenie między platformą Azure a infrastrukturą chmurową firmy Oracle][Az-OCI]. Większość dostawców usług, które są częścią ekosystemu partnera ExpressRoute, również oferuje prywatną łączność z innymi chmurami publicznymi. Korzystając z tych dostawców usług, można nawiązać połączenie prywatne między wdrożeniami na platformie Azure a innymi chmurami za pośrednictwem ExpressRoute.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W poniższych artykułach omówiono, jak różne funkcje sieci platformy Azure mogą służyć do skalowania użytkowników do pracy zdalnej:
+W poniższych artykułach omówiono, jak można użyć różnych funkcji sieciowych platformy Azure do skalowania użytkowników zdalnie:
 
-| **Artykułu** | **Opis** |
+| **Art** | **Opis** |
 | --- | --- |
-| [Jak umożliwić użytkownikom pracę zdalną](../vpn-gateway/work-remotely-support.md) | Przejrzyj dostępne opcje konfigurowania dostępu zdalnego dla użytkowników lub uzupełniania istniejących rozwiązań o dodatkową pojemność dla organizacji.|
-| [Starasz się zaspokoić potrzeby związane z pracą w domu? Oto, gdzie wirtualna sieć WAN platformy Azure może pomóc](../virtual-wan/work-remotely-support.md) | Użyj wirtualnej sieci WAN platformy Azure, aby zaspokoić potrzeby związane z łącznością zdalną w organizacji.|
-| [Obsługa dużego natężenia ruchu usługi Application Gateway](../application-gateway/high-traffic-support.md) | Użyj bramy aplikacji z zaporą aplikacji sieci Web (WAF), aby uzyskać skalowalny i bezpieczny sposób zarządzania ruchem do aplikacji sieci web. |
-| [Zagadnienia dotyczące sieciowego urządzenia wirtualnego (NVA) dla pracy zdalnej](../vpn-gateway/nva-work-remotely-support.md)|Przejrzyj wskazówki dotyczące wykorzystywania obiektów na platformie Azure w celu zapewnienia rozwiązań dostępu zdalnego. |
-| [Przejście do protokołu OpenVPN lub IKEv2 z protokołu SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | Pokonaj limit równoczesnych połączeń 128 SSTP, przechodząc do protokołu OpenVPN lub IKEv2.|
-| [Praca zdalna przy użyciu usługi Azure Bastion](../bastion/work-remotely-support.md) | Zapewnij bezpieczną i bezproblemową łączność RDP/SSH z maszynami wirtualnymi w sieci wirtualnej platformy Azure bezpośrednio w witrynie Azure portal, bez użycia publicznego adresu IP. |
-| [Tworzenie łączności hybrydowej przy użyciu usługi Azure ExpressRoute w celu obsługi użytkowników zdalnych](../expressroute/work-remotely-support.md) | Użyj usługi ExpressRoute dla łączności hybrydowej, aby umożliwić użytkownikom w organizacji pracę zdalną.|
-| [Obsługa pracy zdalnej w zaporze platformy Azure](../firewall/remote-work-support.md)|Chroń zasoby sieci wirtualnej platformy Azure przy użyciu Zapory platformy Azure. |
+| [Jak umożliwić użytkownikom zdalne działanie](../vpn-gateway/work-remotely-support.md) | Przejrzyj dostępne opcje, aby skonfigurować dostęp zdalny dla użytkowników lub uzupełnić swoje istniejące rozwiązania dodatkową pojemnością dla organizacji.|
+| [Zoptymalizowaniem chcesz korzystać z potrzeb domowych? Oto, gdzie usługa Azure Virtual WAN może pomóc](../virtual-wan/work-remotely-support.md) | Użyj wirtualnej sieci WAN platformy Azure, aby rozwiązać wymagania dotyczące łączności zdalnej w organizacji.|
+| [Obsługa dużego natężenia ruchu usługi Application Gateway](../application-gateway/high-traffic-support.md) | Użyj Application Gateway z zaporą aplikacji sieci Web (WAF), aby uzyskać skalowalny i bezpieczny sposób zarządzania ruchem do aplikacji sieci Web. |
+| [Zagadnienia dotyczące sieciowego urządzenia wirtualnego (urządzenie WUS) na potrzeby pracy zdalnej](../vpn-gateway/nva-work-remotely-support.md)|Zapoznaj się ze wskazówkami dotyczącymi korzystania z urządzeń WUS na platformie Azure w celu zapewnienia rozwiązań dostępu zdalnego. |
+| [Przejście do protokołu OpenVPN lub IKEv2 z SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | Przezwyciężenie współbieżnego limitu połączeń 128 protokołu SSTP przez przejście do OpenVPN Protocol lub IKEv2.|
+| [Praca zdalna przy użyciu usługi Azure bastionu](../bastion/work-remotely-support.md) | Zapewnianie bezpiecznego i bezproblemowej łączności protokołu RDP/SSH z maszynami wirtualnymi w sieci wirtualnej platformy Azure, bezpośrednio w Azure Portal bez użycia publicznego adresu IP. |
+| [Tworzenie łączności hybrydowej do obsługi użytkowników zdalnych za pomocą usługi Azure ExpressRoute](../expressroute/work-remotely-support.md) | Użyj ExpressRoute na potrzeby łączności hybrydowej, aby umożliwić użytkownikom w organizacji zdalne działanie.|
+| [Zdalna pomoc techniczna dla zapory platformy Azure](../firewall/remote-work-support.md)|Ochrona zasobów usługi Azure Virtual Network przy użyciu zapory platformy Azure. |
 
 <!--Link References-->
 [VNet-peer]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview

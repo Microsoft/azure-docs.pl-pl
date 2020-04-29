@@ -1,6 +1,6 @@
 ---
 title: Poprawianie bezpieczeństwa zdalnego zarządzania na platformie Azure | Microsoft Docs
-description: W tym artykule omówiono kroki mające na celu zwiększenie zabezpieczeń zarządzania zdalnego podczas administrowania środowiskami platformy Microsoft Azure, w tym usługami w chmurze, maszynami wirtualnymi i aplikacjami niestandardowymi.
+description: W tym artykule omówiono procedurę rozszerzania zabezpieczeń zdalnego zarządzania podczas administrowania środowiskami Microsoft Azure, w tym usługami w chmurze, maszynami wirtualnymi i aplikacjami niestandardowymi.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
 ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80981311"
 ---
 # <a name="security-management-in-azure"></a>Zarządzanie zabezpieczeniami na platformie Azure
@@ -118,8 +118,8 @@ Brama usług pulpitu zdalnego jest opartą na zasadach usługą serwera proxy RD
 ## <a name="security-guidelines"></a>Zalecenia dotyczące zabezpieczeń
 Ogólnie rzecz biorąc, ulepszanie zabezpieczeń stacji roboczych administratorów używanych do pracy z chmurą jest podobne do rozwiązań stosowanych w przypadku dowolnych lokalnych stacji roboczych (na przykład minimalizacja funkcjonalności i ograniczanie uprawnień). Niektóre unikatowe aspekty zarządzania chmurą są bardziej zbliżone do zdalnego zarządzania lub zarządzania poza pasmem w przedsiębiorstwach. Przykładem może być użycie i inspekcja poświadczeń, rozszerzone zabezpieczenia dostępu zdalnego oraz wykrywanie zagrożeń i podejmowanie działań zaradczych.
 
-### <a name="authentication"></a>Authentication
-Korzystając z ograniczeń logowania platformy Azure, można zmniejszyć liczbę źródłowych adresów IP używanych do uzyskiwania dostępu do narzędzi administracyjnych i prowadzić inspekcję żądań dostępu. Aby ułatwić platformie Azure identyfikowanie klientów zarządzania (stacji roboczych i/lub aplikacji), można skonfigurować zarówno narzędzia SMAPI (za pomocą narzędzi opracowanych przez klienta, takich jak polecenia cmdlet programu Windows PowerShell), jak i portal Azure, aby wymagać instalowania certyfikatów zarządzania po stronie klienta, oprócz certyfikatów TLS/SSL. Zalecamy również stosowanie uwierzytelniania wieloskładnikowego w przypadku dostępu administratorów.
+### <a name="authentication"></a>Uwierzytelnianie
+Korzystając z ograniczeń logowania platformy Azure, można zmniejszyć liczbę źródłowych adresów IP używanych do uzyskiwania dostępu do narzędzi administracyjnych i prowadzić inspekcję żądań dostępu. Aby pomóc platformie Azure identyfikować klientów zarządzania (stacje robocze i/lub aplikacje), można skonfigurować oba typy SMAPI (przy użyciu narzędzi opracowanych przez klienta, takich jak polecenia cmdlet programu Windows PowerShell) i Azure Portal, aby wymagały zainstalowania certyfikatów zarządzania po stronie klienta, oprócz certyfikatów TLS/SSL. Zalecamy również stosowanie uwierzytelniania wieloskładnikowego w przypadku dostępu administratorów.
 
 Niektóre aplikacje lub usługi wdrażane na platformie Azure mogą mieć własne mechanizmy uwierzytelniania zarówno użytkowników końcowych, jak i administratorów, podczas gdy inne wykorzystują w pełnym zakresie usługę Azure AD. W zależności od tego, czy jest dokonywana federacja poświadczeń za pośrednictwem usługi Active Directory Federation Services (AD FS), używana synchronizacja katalogów, czy obsługa kont użytkowników jedynie w chmurze, użycie usługi [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (część usługi Azure AD Premium) ułatwia zarządzanie cyklami życia tożsamości między zasobami.
 
@@ -138,7 +138,7 @@ Wymuszanie zasad, które obejmuje ścisłą kontrolę dostępu, polega na stosow
 ## <a name="client-configuration"></a>Konfiguracja klientów
 Zalecamy trzy podstawowe konfiguracje stacji roboczych ze wzmocnionymi zabezpieczeniami. Najważniejsze różnice są związane z kosztem, użytecznością i dostępnością przy zachowaniu podobnego profilu zabezpieczeń dla wszystkich opcji. Poniższa tabela zawiera zwięzłe informacje umożliwiające analizę korzyści i zagrożeń związanych z poszczególnymi konfiguracjami. Określenie „komputer firmowy” oznacza standardową konfigurację komputera stacjonarnego wdrażaną dla wszystkich użytkowników w domenie niezależnie od roli.
 
-| Konfigurowanie | Zalety | Wady |
+| Konfiguracja | Korzyści | Wady |
 | --- | --- | --- |
 | Autonomiczna stacja robocza ze wzmocnionymi zabezpieczeniami |Ściśle kontrolowana stacja robocza |Wyższy koszt dla dedykowanych komputerów stacjonarnych |
 | - | Mniejsze ryzyko wykorzystania luk w zabezpieczeniach aplikacji |Większa ilość zasobów wymaganych do zarządzania |
@@ -176,7 +176,7 @@ Nie wolno zakładać, że zabezpieczenie stacji roboczej zwalnia z obowiązku sp
 
 | Zakazy | Zalecenia |
 | --- | --- |
-| Nie wysyłaj poświadczeń wiadomości e-mail w celu uzyskania dostępu administratora lub innych wpisów tajnych (na przykład certyfikatów TLS/SSL lub certyfikatów zarządzania) |Zachowaj poufność, przekazując nazwy kont i hasła werbalnie (ale nie nagrywaj ich na poczcie głosowej), wykonując zdalną instalację certyfikatów klienta/serwera (za pośrednictwem sesji zaszyfrowanej), pobierając je z chronionego udziału sieciowego lub przekazując osobiście na nośniku wymiennym. |
+| Nie wysyłaj wiadomości e-mail z poświadczeniami dotyczącymi dostępu administratora ani innych wpisów tajnych (na przykład protokołu TLS/SSL lub certyfikatów zarządzania) |Zachowaj poufność, przekazując nazwy kont i hasła werbalnie (ale nie nagrywaj ich na poczcie głosowej), wykonując zdalną instalację certyfikatów klienta/serwera (za pośrednictwem sesji zaszyfrowanej), pobierając je z chronionego udziału sieciowego lub przekazując osobiście na nośniku wymiennym. |
 | - | Aktywnie zarządzaj cyklami życia certyfikatów zarządzania. |
 | Nie przechowuj haseł nieszyfrowanych lub nieprzetworzonych za pomocą funkcji skrótu w magazynie aplikacji (takim jak arkusze kalkulacyjne, witryny programu SharePoint lub udziały plików). |Ustanów zasady zarządzania zabezpieczeniami i zwiększania bezpieczeństwa systemu oraz stosuj je w środowisku deweloperskim. |
 | - | Używaj reguł przypinania certyfikatów z zestawu narzędzi [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751), aby zapewnić prawidłowy dostęp do witryn Azure z obsługą protokołów SSL/TLS. |

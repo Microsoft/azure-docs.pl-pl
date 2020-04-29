@@ -1,7 +1,7 @@
 ---
-title: Analiza bazy wiedzy - QnA Maker
+title: Analiza bazy wiedzy — QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker przechowuje wszystkie dzienniki czatu i inne dane telemetryczne, jeśli aplikacja App Insights została włączona podczas tworzenia usługi QnA Maker. Uruchom przykładowe zapytania, aby pobrać dzienniki czatu ze statystyk aplikacji.
+description: QnA Maker przechowuje wszystkie dzienniki rozmowy i inne dane telemetryczne, jeśli włączono usługę App Insights podczas tworzenia usługi QnA Maker. Uruchom przykładowe zapytania, aby pobrać dzienniki rozmowy z usługi App Insights.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,23 +12,23 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: diberry
 ms.openlocfilehash: d247c55112bc1c3cd921c0eda8e4ddadd6b5aed9
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80878072"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Uzyskiwanie danych analitycznych na potrzeby bazy wiedzy
 
-QnA Maker przechowuje wszystkie dzienniki czatu i inne dane telemetryczne, jeśli aplikacja App Insights została włączona podczas [tworzenia usługi QnA Maker.](./set-up-qnamaker-service-azure.md) Uruchom przykładowe zapytania, aby pobrać dzienniki czatu ze statystyk aplikacji.
+QnA Maker przechowuje wszystkie dzienniki rozmowy i inne dane telemetryczne, jeśli włączono usługę App Insights podczas [tworzenia usługi QNA Maker](./set-up-qnamaker-service-azure.md). Uruchom przykładowe zapytania, aby pobrać dzienniki rozmowy z usługi App Insights.
 
 1. Przejdź do zasobu usługi App Insights.
 
-    ![Wybieranie zasobu szczegółowych informacji o aplikacji](../media/qnamaker-how-to-analytics-kb/resources-created.png)
+    ![Wybierz zasób usługi Application Insights](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. Wybierz **dziennik (Analytics)**. Zostanie otwarte nowe okno, w którym można zbadać dane telemetryczne programu QnA Maker.
+2. Wybierz pozycję **Dziennik (analiza)**. Zostanie otwarte nowe okno, w którym można wykonywać zapytania o dane telemetryczne QnA Maker.
 
-3. Wklej w poniższej kwerendzie i uruchom ją.
+3. Wklej w poniższym zapytaniu i uruchom go.
 
     ```kusto
     requests
@@ -46,11 +46,11 @@ QnA Maker przechowuje wszystkie dzienniki czatu i inne dane telemetryczne, jeśl
 
     Kliknij przycisk **Uruchom**, aby uruchomić zapytanie.
 
-    [![Uruchamianie kwerendy w celu określenia pytań, odpowiedzi i wyników od użytkowników](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
+    [![Uruchom zapytanie, aby określić pytania, odpowiedzi i oceny od użytkowników](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
-## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Uruchamianie zapytań dotyczących innych analiz w bazie wiedzy programu QnA Maker
+## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Uruchamianie zapytań dotyczących innych analiz w bazie wiedzy QnA Maker
 
-### <a name="total-90-day-traffic"></a>Całkowity ruch 90-dniowy
+### <a name="total-90-day-traffic"></a>Łączny ruch 90-dniowy
 
 ```kusto
 //Total Traffic
@@ -60,7 +60,7 @@ requests
 | summarize ChatCount=count() by bin(timestamp, 1d), KbId
 ```
 
-### <a name="total-question-traffic-in-a-given-time-period"></a>Całkowity ruch pytań w danym okresie
+### <a name="total-question-traffic-in-a-given-time-period"></a>Łączny ruch związany z pytaniami w danym okresie
 
 ```kusto
 //Total Question Traffic in a given time period
@@ -99,7 +99,7 @@ requests
 | summarize count() by performanceBucket, KbId
 ```
 
-### <a name="unanswered-questions"></a>Pytania bez odpowiedzi
+### <a name="unanswered-questions"></a>Nieodebrane pytania
 
 ```kusto
 // Unanswered questions

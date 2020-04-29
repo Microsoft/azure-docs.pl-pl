@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Tworzenie aplikacji Java za pomocą zestawu Azure Cosmos DB Async Java SDK do zarządzania danymi na koncie interfejsu API SQL'
+title: 'Samouczek: Tworzenie aplikacji Java za pomocą Azure Cosmos DB Async SDK języka Java do zarządzania danymi w ramach konta interfejsu API SQL'
 description: W tym samouczku pokazano, jak przechowywać dane oraz uzyskiwać do nich dostęp na koncie interfejsu API SQL w usłudze Azure Cosmos DB za pomocą aplikacji asynchronicznego języka Java.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -10,13 +10,13 @@ ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
 ms.openlocfilehash: f81052f68d377603c7148ac2a39da626b426e352
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80985239"
 ---
-# <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>Samouczek: Tworzenie aplikacji Java za pomocą zestawu Async Java SDK w celu zarządzania danymi przechowywanymi na koncie interfejsu API SQL
+# <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>Samouczek: Tworzenie aplikacji w języku Java za pomocą asynchronicznego zestawu Java SDK do zarządzania danymi przechowywanymi na koncie interfejsu API SQL
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -42,7 +42,7 @@ Upewnij się, że masz następujące zasoby:
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz zarejestrować się w celu [utworzenia bezpłatnego konta](https://azure.microsoft.com/free/). 
 
-* [Git](https://git-scm.com/downloads).
+* Usługi [git](https://git-scm.com/downloads).
 
 * [Zestaw Java Development Kit (JDK) 8+](/java/azure/jdk/?view=azure-java-stable).
 
@@ -77,7 +77,7 @@ Katalog zawiera plik `pom.xml` i folder `src/main/java/com/microsoft/azure/cosmo
 
 ## <a name="connect-to-an-azure-cosmos-account"></a><a id="Connect"></a>Łączenie się z kontem usługi Azure Cosmos
 
-Następnie wróć do [witryny Azure portal,](https://portal.azure.com) aby pobrać punkt końcowy i podstawowy klucz główny. Klucz podstawowy i punkt końcowy usługi Azure Cosmos DB są niezbędne, aby aplikacja wiedziała, z jakim elementem ma się połączyć, oraz aby usługa Azure Cosmos DB ufała połączeniu aplikacji. Plik `AccountSettings.java` zawiera klucz podstawowy i wartości identyfikatora URI. 
+Następnie wróć do [Azure Portal](https://portal.azure.com) , aby pobrać punkt końcowy i podstawowy klucz główny. Klucz podstawowy i punkt końcowy usługi Azure Cosmos DB są niezbędne, aby aplikacja wiedziała, z jakim elementem ma się połączyć, oraz aby usługa Azure Cosmos DB ufała połączeniu aplikacji. Plik `AccountSettings.java` zawiera klucz podstawowy i wartości identyfikatora URI. 
 
 W witrynie Azure Portal przejdź do swojego konta usługi Azure Cosmos i kliknij pozycję **Klucze**. Skopiuj identyfikator URI i KLUCZ PODSTAWOWY z portalu i wklej go do pliku `AccountSettings.java`. 
 
@@ -114,7 +114,7 @@ client = new AsyncDocumentClient.Builder()
 
 ## <a name="create-a-database"></a><a id="CreateDatabase"></a>Tworzenie bazy danych
 
-Utwórz swoją bazę danych `createDatabaseIfNotExists()` usługi Azure Cosmos przy użyciu metody DocumentClient klasy. Baza danych jest kontenerem logicznym magazynu dokumentów JSON podzielonym na partycje w kolekcjach.
+Utwórz bazę danych usługi Azure Cosmos za pomocą `createDatabaseIfNotExists()` metody klasy DocumentClient. Baza danych jest kontenerem logicznym magazynu dokumentów JSON podzielonym na partycje w kolekcjach.
 
 ```java
 private void createDatabaseIfNotExists() throws Exception 

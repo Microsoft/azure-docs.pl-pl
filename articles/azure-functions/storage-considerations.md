@@ -1,51 +1,51 @@
 ---
-title: Zagadnienia dotyczące magazynu dla usług Azure Functions
-description: Dowiedz się więcej o wymaganiach dotyczących magazynowania usług Azure Functions i szyfrowaniu przechowywanych danych.
+title: Zagadnienia dotyczące magazynu Azure Functions
+description: Dowiedz się więcej o wymaganiach dotyczących magazynu Azure Functions i o szyfrowaniu przechowywanych danych.
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: 48ff2dedd997cccb76b13acdadc895504f656ea3
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80984167"
 ---
-# <a name="storage-considerations-for-azure-functions"></a>Zagadnienia dotyczące magazynu dla usług Azure Functions
+# <a name="storage-considerations-for-azure-functions"></a>Zagadnienia dotyczące magazynu Azure Functions
 
-Usługa Azure Functions wymaga konta usługi Azure Storage podczas tworzenia wystąpienia aplikacji funkcji. Aplikacja funkcji może korzystać z następujących usług magazynu:
+Azure Functions wymaga konta usługi Azure Storage podczas tworzenia wystąpienia aplikacji funkcji. Aplikacja funkcji może używać następujących usług magazynu:
 
 
-|Usługa magazynowania  | Użycie funkcji  |
+|Usługa magazynu  | Użycie funkcji  |
 |---------|---------|
-| [Magazyn obiektów Blob platformy Azure](../storage/blobs/storage-blobs-introduction.md)     | Obsługa stanu powiązań i kluczy funkcyjnych.  <br/>Używane również przez [koncentratory zadań w funkcji trwałych](durable/durable-functions-task-hubs.md). |
-| [Pliki platformy Azure](../storage/files/storage-files-introduction.md)  | Udział plików używany do przechowywania i uruchamiania kodu aplikacji funkcji w [planie zużycia](functions-scale.md#consumption-plan). |
-| [Magazyn kolejki platformy Azure](../storage/queues/storage-queues-introduction.md)     | Używane przez [koncentratory zadań w funkcji trwałych](durable/durable-functions-task-hubs.md).   |
-| [Azure Table storage](../storage/tables/table-storage-overview.md)  |  Używane przez [koncentratory zadań w funkcji trwałych](durable/durable-functions-task-hubs.md).       |
+| [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)     | Zachowaj stan powiązań i klucze funkcji.  <br/>Używane także przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md). |
+| [Azure Files](../storage/files/storage-files-introduction.md)  | Udział plików służący do przechowywania i uruchamiania kodu aplikacji funkcji w [planie zużycia](functions-scale.md#consumption-plan). |
+| [Usługa Azure queue storage](../storage/queues/storage-queues-introduction.md)     | Używane przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md).   |
+| [Azure Table Storage](../storage/tables/table-storage-overview.md)  |  Używane przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md).       |
 
 > [!IMPORTANT]
 > Podczas korzystania z planu hostingu Zużycie kod funkcji i pliki konfiguracji powiązania są przechowywane w usłudze Azure File Storage na głównym koncie magazynu. Po usunięciu głównego konta magazynu ta zawartość zostanie usunięta i nie będzie można jej odzyskać.
 
 ## <a name="storage-account-requirements"></a>Wymagania konta magazynu
 
-Podczas tworzenia aplikacji funkcji, należy utworzyć lub łącze do ogólnego przeznaczenia konta usługi Azure Storage, który obsługuje blob, kolejki i magazynu tabel. Dzieje się tak, ponieważ funkcje opiera się na usłudze Azure Storage dla operacji, takich jak zarządzanie wyzwalania i rejestrowanie wykonywania funkcji. Niektóre konta magazynu nie obsługują kolejek i tabel. Te konta obejmują konta magazynu tylko dla obiektów blob, usługi Azure Premium Storage i konta magazynu ogólnego przeznaczenia z replikacją ZRS. Te nieobsługiwały konta są filtrowane z bloku Konto magazynu podczas tworzenia aplikacji funkcji.
+Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storage ogólnego przeznaczenia lub połączyć się z nim, które obsługuje magazyn obiektów blob, kolejek i tabel. Wynika to z faktu, że funkcje programu opierają się na usłudze Azure Storage w przypadku operacji takich jak zarządzanie wyzwalaczami i rejestrowanie wykonań funkcji. Niektóre konta magazynu nie obsługują kolejek i tabel. Te konta obejmują konta magazynu tylko dla obiektów blob, Premium Storage platformy Azure i konta magazynu ogólnego przeznaczenia z replikacją ZRS. Te nieobsługiwane konta są filtrowane z bloku konto magazynu podczas tworzenia aplikacji funkcji.
 
 Aby dowiedzieć się więcej na temat typów kont magazynu, zobacz [Wprowadzenie do usług Azure Storage](../storage/common/storage-introduction.md#core-storage-services). 
 
-Chociaż można użyć istniejącego konta magazynu z aplikacją funkcji, należy upewnić się, że spełnia te wymagania. Konta magazynu utworzone w ramach przepływu tworzenia aplikacji funkcji są gwarantowane, aby spełnić te wymagania dotyczące konta magazynu.  
+Chociaż możesz użyć istniejącego konta magazynu z aplikacją funkcji, musisz upewnić się, że spełnia ono wymagania. Konta magazynu utworzone w ramach przepływu tworzenia aplikacji funkcji mają gwarancję spełnienia wymagań dotyczących konta magazynu.  
 
 ## <a name="storage-account-guidance"></a>Wskazówki dotyczące konta magazynu
 
-Każda aplikacja funkcji wymaga konta magazynu do działania. Jeśli to konto zostanie usunięte, aplikacja funkcji nie będzie działać. Aby rozwiązać problemy związane z magazynowaniem, zobacz [Jak rozwiązywać problemy związane z magazynowaniem](functions-recover-storage-account.md). Następujące dodatkowe zagadnienia dotyczą konta magazynu używanego przez aplikacje funkcji.
+Każda aplikacja funkcji wymaga konta magazynu do działania. Jeśli to konto zostanie usunięte, aplikacja funkcji nie zostanie uruchomiona. Rozwiązywanie problemów związanych z magazynem można znaleźć w temacie [How to rozwiązywanie problemów związanych z magazynem](functions-recover-storage-account.md). Poniższe zagadnienia dodatkowe dotyczą konta magazynu używanego przez aplikacje funkcji.
 
-### <a name="storage-account-connection-setting"></a>Ustawienie połączenia konta magazynu
+### <a name="storage-account-connection-setting"></a>Ustawienie połączenia z kontem magazynu
 
-Połączenie z kontem magazynu jest obsługiwane w [ustawieniu aplikacji AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
+Połączenie konta magazynu jest obsługiwane w [ustawieniu aplikacji AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
 
-Parametry połączenia konta magazynu muszą zostać zaktualizowane podczas ponownego generowania kluczy magazynu. [Dowiedz się więcej o zarządzaniu kluczami pamięci masowej tutaj](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
+Parametry połączenia konta magazynu należy zaktualizować, gdy zostaną ponownie wygenerowane klucze magazynu. [Przeczytaj więcej na temat zarządzania kluczami magazynu tutaj](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
-### <a name="shared-storage-accounts"></a>Udostępnione konta magazynu
+### <a name="shared-storage-accounts"></a>Konta magazynu udostępnionego
 
-Wiele aplikacji funkcji może udostępniać to samo konto magazynu bez żadnych problemów. Na przykład w programie Visual Studio można tworzyć wiele aplikacji przy użyciu emulatora usługi Azure Storage. W takim przypadku emulator działa jak jedno konto magazynu. To samo konto magazynu używane przez aplikację funkcji może również służyć do przechowywania danych aplikacji. Jednak takie podejście nie zawsze jest dobrym pomysłem w środowisku produkcyjnym.
+Istnieje możliwość udostępnienia tego samego konta magazynu dla wielu aplikacji funkcji bez żadnych problemów. Na przykład w programie Visual Studio można opracowywać wiele aplikacji przy użyciu emulatora usługi Azure Storage. W takim przypadku emulator działa jak pojedyncze konto magazynu. To samo konto magazynu używane przez aplikację funkcji może być również używane do przechowywania danych aplikacji. Jednak takie podejście nie zawsze jest dobrym pomysłem w środowisku produkcyjnym.
 
 ### <a name="optimize-storage-performance"></a>Optymalizowanie wydajności magazynu
 
@@ -53,21 +53,21 @@ Wiele aplikacji funkcji może udostępniać to samo konto magazynu bez żadnych 
 
 ## <a name="storage-data-encryption"></a>Szyfrowanie danych magazynu
 
-Usługa Azure Storage szyfruje wszystkie dane na koncie magazynu w stanie spoczynku. Aby uzyskać więcej informacji, zobacz [Szyfrowanie usługi Azure Storage dla danych w spoczynku](../storage/common/storage-service-encryption.md).
+Usługa Azure Storage szyfruje wszystkie dane na koncie magazynu w stanie spoczynku. Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Azure Storage dla danych magazynowanych](../storage/common/storage-service-encryption.md).
 
-Domyślnie dane są szyfrowane za pomocą kluczy zarządzanych przez firmę Microsoft. Aby uzyskać dodatkową kontrolę nad kluczami szyfrowania, można podać klucze zarządzane przez klienta do szyfrowania danych obiektów blob i plików. Te klucze muszą być obecne w usłudze Azure Key Vault for Functions, aby mieć dostęp do konta magazynu. Aby dowiedzieć się więcej, zobacz [Konfigurowanie kluczy zarządzanych przez klienta za pomocą usługi Azure Key Vault przy użyciu witryny Azure portal](../storage/common/storage-encryption-keys-portal.md).  
+Domyślnie dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Aby uzyskać dodatkową kontrolę nad kluczami szyfrowania, można podać klucze zarządzane przez klienta do szyfrowania obiektów blob i danych plików. Te klucze muszą być obecne w Azure Key Vault, aby funkcje mogły uzyskiwać dostęp do konta magazynu. Aby dowiedzieć się więcej, zobacz [Konfigurowanie kluczy zarządzanych przez klienta za pomocą Azure Key Vault przy użyciu Azure Portal](../storage/common/storage-encryption-keys-portal.md).  
 
-## <a name="mount-file-shares-linux"></a>Instalowanie udziałów plików (Linux)
+## <a name="mount-file-shares-linux"></a>Zainstaluj udziały plików (Linux)
 
-Istniejące udziały usługi Azure Files można zainstalować w aplikacjach funkcji systemu Linux. Montując udział w aplikacji funkcji systemu Linux, można korzystać z istniejących modeli uczenia maszynowego lub innych danych w swoich funkcjach. Za pomocą [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) polecenia można zainstalować istniejący udział w aplikacji funkcji systemu Linux. 
+Istniejące udziały Azure Files można zainstalować w aplikacjach funkcji systemu Linux. Instalując udział w aplikacji funkcji systemu Linux, możesz korzystać z istniejących modeli uczenia maszynowego lub innych danych w swoich funkcjach. Możesz użyć polecenia, [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) aby zainstalować istniejący udział w aplikacji funkcji systemu Linux. 
 
-W tym `share-name` poleceniu jest nazwa istniejącego `custom-id` udziału usługi Azure Files i może być dowolny ciąg, który jednoznacznie definiuje udział po zainstalowaniu do aplikacji funkcji. Ponadto `mount-path` jest ścieżka, z której jest dostępny udział w aplikacji funkcji. `mount-path`musi być w `/dir-name`formacie i nie może `/home`zaczynać się od .
+W tym poleceniu `share-name` jest nazwą istniejącego udziału Azure Files i `custom-id` może być dowolnym ciągiem, który jednoznacznie definiuje udział w przypadku zamontowania w aplikacji funkcji. Ponadto jest `mount-path` ścieżką, z której uzyskuje się dostęp do udziału w aplikacji funkcji. `mount-path`musi być w formacie `/dir-name`i nie może zaczynać się od `/home`.
 
-Pełny przykład można znaleźć w obszarze [Tworzenie aplikacji funkcji Języka Python i montowanie udziału usługi Azure Files.](scripts/functions-cli-mount-files-storage-linux.md) 
+Pełny przykład można znaleźć w artykule skrypty w temacie [Tworzenie aplikacji funkcji języka Python i Instalowanie udziału Azure Files](scripts/functions-cli-mount-files-storage-linux.md). 
 
-Obecnie obsługiwany jest `storage-type` `AzureFiles` tylko jeden z nich. Można zainstalować tylko pięć udziałów w danej aplikacji funkcji. Montaż udziału plików może wydłużyć czas zimnego rozruchu o co najmniej 200-300 m, a nawet więcej, gdy konto magazynu znajduje się w innym regionie.
+Obecnie obsługiwane są tylko `storage-type` z `AzureFiles` . Można zainstalować tylko pięć udziałów w danej aplikacji funkcji. Zainstalowanie udziału plików może wydłużyć czas zimnego uruchomienia o co najmniej 200-300ms lub jeszcze więcej, gdy konto magazynu znajduje się w innym regionie.
 
-Zainstalowany udział jest dostępny dla kodu `mount-path` funkcji w określonym. Na przykład, `mount-path` `/path/to/mount`gdy jest , można uzyskać dostęp do katalogu docelowego za pomocą interfejsów API systemu plików, jak w poniższym przykładzie Pythona:
+Zainstalowany udział jest dostępny dla kodu funkcji w `mount-path` określonym. Na przykład, jeśli `mount-path` jest `/path/to/mount`, można uzyskać dostęp do katalogu docelowego za pomocą interfejsów API systemu plików, jak w poniższym przykładzie języka Python:
 
 ```python
 import os
@@ -78,7 +78,7 @@ files_in_share = os.listdir("/path/to/mount")
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o opcjach hostingu usługi Azure Functions.
+Dowiedz się więcej o opcjach hostingu Azure Functions.
 
 > [!div class="nextstepaction"]
 > [Skalowanie i hosting usługi Azure Functions](functions-scale.md)

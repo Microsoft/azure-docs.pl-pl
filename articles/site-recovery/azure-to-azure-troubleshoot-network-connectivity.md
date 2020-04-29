@@ -1,136 +1,136 @@
 ---
-title: Rozwiązywanie problemów z łącznością z odzyskiwaniem po awarii platformy Azure z platformą Azure za pomocą usługi Azure Site Recovery
-description: Rozwiązywanie problemów z łącznością w odzyskiwaniu po awarii maszyny Wirtualnej platformy Azure
+title: Rozwiązywanie problemów z łącznością z platformą Azure do odzyskiwania po awarii platformy Azure z Azure Site Recovery
+description: Rozwiązywanie problemów z łącznością w przypadku odzyskiwania po awarii maszyny wirtualnej platformy Azure
 author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
 ms.openlocfilehash: d2cc4133e52e7cab812413d23948da6ac2660e77
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80884872"
 ---
-# <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Rozwiązywanie problemów z łącznością sieciową platformy Azure z platformą Azure
+# <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Rozwiązywanie problemów z łącznością sieciową na platformie Azure na platformie Azure
 
-W tym artykule opisano typowe problemy związane z łącznością sieciową podczas replikowania i odzyskiwania maszyn wirtualnych platformy Azure (VM) z jednego regionu do innego regionu. Aby uzyskać więcej informacji na temat wymagań dotyczących sieci, zobacz [wymagania dotyczące łączności dotyczące replikowania maszyn wirtualnych platformy Azure](azure-to-azure-about-networking.md).
+W tym artykule opisano typowe problemy związane z łącznością sieciową w przypadku replikowania i odzyskiwania maszyn wirtualnych platformy Azure z jednego regionu do innego. Więcej informacji o wymaganiach dotyczących sieci znajduje się w temacie [wymagania dotyczące łączności w przypadku replikacji maszyn wirtualnych platformy Azure](azure-to-azure-about-networking.md).
 
-Aby replikacja usługi Site Recovery działała, z maszyny wirtualnej wymagana jest łączność wychodząca z określonymi adresami URL lub zakresami adresów IP. Jeśli maszyna wirtualna znajduje się za zaporą lub używa reguł sieciowej grupy zabezpieczeń (NSG) do kontrolowania łączności wychodzącej, może napotkać jeden z tych problemów.
+Aby replikacja Site Recovery działała, do maszyny wirtualnej wymagane jest połączenie wychodzące z określonymi adresami URL lub zakresami adresów IP. Jeśli maszyna wirtualna znajduje się za zaporą lub używa reguł sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) do kontrolowania łączności wychodzącej, może to być przyczyną jednego z tych problemów.
 
 | Adres URL | Szczegóły |
 |---|---|
-| `*.blob.core.windows.net` | Wymagane, aby dane mogły być zapisywane na koncie magazynu pamięci podręcznej w regionie źródłowym z maszyny Wirtualnej. Jeśli znasz wszystkie konta magazynu pamięci podręcznej dla maszyn wirtualnych, możesz użyć listy dozwolonych dla określonych adresów URL kont magazynu. Na przykład `cache1.blob.core.windows.net` `cache2.blob.core.windows.net` i zamiast `*.blob.core.windows.net`. |
-| `login.microsoftonline.com` | Wymagane do autoryzacji i uwierzytelniania adresów URL usługi site recovery. |
-| `*.hypervrecoverymanager.windowsazure.com` | Wymagane, aby komunikacja usługi odzyskiwania witryny mogła wystąpić z maszyny Wirtualnej. Można użyć odpowiedniego _adresu IP odzyskiwania witryny,_ jeśli serwer proxy zapory obsługuje adresy IP. |
-| `*.servicebus.windows.net` | Wymagane, aby dane monitorowania i diagnostyki odzyskiwania lokacji mogły być zapisywane z maszyny Wirtualnej. Jeśli serwer proxy zapory obsługuje adresy _IP,_ można użyć odpowiedniego adresu IP monitorowania odzyskiwania witryny. |
+| `*.blob.core.windows.net` | Wymagane, aby dane mogły być zapisywane na koncie magazynu pamięci podręcznej w regionie źródłowym z poziomu maszyny wirtualnej. Jeśli znasz wszystkie konta magazynu pamięci podręcznej dla maszyn wirtualnych, możesz użyć listy dozwolonych adresów URL dla określonych kont magazynu. Na przykład, `cache1.blob.core.windows.net` a `cache2.blob.core.windows.net` nie `*.blob.core.windows.net`. |
+| `login.microsoftonline.com` | Wymagany do autoryzacji i uwierzytelniania do adresów URL usługi Site Recovery. |
+| `*.hypervrecoverymanager.windowsazure.com` | Wymagane, aby komunikacja z usługą Site Recovery mogła się odbywać z poziomu maszyny wirtualnej. Można użyć odpowiedniego _adresu IP Site Recovery_ , jeśli serwer proxy zapory obsługuje adresy IP. |
+| `*.servicebus.windows.net` | Wymagane, aby dane dotyczące monitorowania i diagnostyki Site Recovery mogły być zapisywane z poziomu maszyny wirtualnej. W przypadku, gdy serwer proxy zapory obsługuje adresy IP, można użyć odpowiedniego _Site Recovery monitorowania_ . |
 
-## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Łączność wychodząca dla adresów URL lub zakresów adresów IP odzyskiwania witryny (kod błędu 151037 lub 151072)
+## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Łączność wychodząca dla adresów URL Site Recovery lub zakresów adresów IP (kod błędu 151037 lub 151072)
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195"></a>Problem 1: nie można zarejestrować maszyny wirtualnej platformy Azure w usłudze Site Recovery (151195)
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195"></a>Problem 1: nie można zarejestrować maszyny wirtualnej platformy Azure w Site Recovery (151195)
 
 #### <a name="possible-cause"></a>Możliwa przyczyna
 
-Nie można ustanowić połączenia z punktami końcowymi usługi Site Recovery z powodu błędu rozpoznawania systemu nazw domen (DNS). Ten problem występuje częściej podczas ponownego odzyskiwania po awarii, gdy maszyna wirtualna uległa awarii, ale serwer DNS nie jest osiągalny z regionu odzyskiwania po awarii (DR).
+Nie można nawiązać połączenia z Site Recovery punktami końcowymi z powodu błędu rozpoznawania systemu nazw domen (DNS). Ten problem jest bardziej typowy w przypadku przełączenia w tryb failover maszyny wirtualnej, ale serwer DNS nie jest dostępny z regionu odzyskiwania po awarii (DR).
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Jeśli używasz niestandardowego systemu DNS, upewnij się, że serwer DNS jest dostępny z regionu odzyskiwania po awarii.
+W przypadku korzystania z niestandardowej usługi DNS upewnij się, że serwer DNS jest dostępny z regionu odzyskiwania po awarii.
 
 Aby sprawdzić, czy maszyna wirtualna używa niestandardowego ustawienia DNS:
 
-1. Otwórz **maszyny wirtualne** i wybierz maszynę wirtualną.
-1. Przejdź do **ustawień** maszyn wirtualnych i wybierz pozycję **Sieć**.
-1. W **obszarze Sieć wirtualna/podsieć**wybierz łącze, aby otworzyć stronę zasobów sieci wirtualnej.
-1. Przejdź do **pozycji Ustawienia** i wybierz pozycję **Serwery DNS**.
+1. Otwórz **maszyn wirtualnych** i wybierz maszynę wirtualną.
+1. Przejdź do **ustawień** maszyny wirtualne i wybierz pozycję **Sieć**.
+1. W obszarze **Sieć wirtualna/podsieć**wybierz link, aby otworzyć stronę zasobów sieci wirtualnej.
+1. Przejdź do pozycji **Ustawienia** i wybierz pozycję **serwery DNS**.
 
-Spróbuj uzyskać dostęp do serwera DNS z maszyny wirtualnej. Jeśli serwer DNS nie jest dostępny, udostępnij go przez serwer DNS w wyniku awarii lub utworzenie linii lokacji między siecią odzyskiwania po awarii a systemem DNS.
+Spróbuj uzyskać dostęp do serwera DNS z maszyny wirtualnej. Jeśli serwer DNS nie jest dostępny, udostępnij go przez przechodzenie przez serwer DNS w tryb failover lub Tworzenie linii lokacji między siecią DR i systemem DNS.
 
-  :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/custom_dns.png" alt-text="com-błąd":::
+  :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/custom_dns.png" alt-text="com — błąd":::
 
-### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problem 2: Konfiguracja odzyskiwania lokacji nie powiodła się (151196)
+### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problem 2: Konfiguracja Site Recovery nie powiodła się (151196)
 
 > [!NOTE]
-> Jeśli maszyny wirtualne znajdują się za **standardowym** wewnętrznym modułem równoważenia obciążenia, domyślnie nie `login.microsoftonline.com`będzie miała dostępu do usług Office 365 IPS, takich jak . Zmień go na **Podstawowy** typ wewnętrznego modułu równoważenia obciążenia lub utwórz dostęp wychodzący, jak wspomniano w [artykule Konfigurowanie równoważenia obciążenia i reguł wychodzących w standardowym bilansie obciążenia przy użyciu interfejsu wiersza polecenia platformy Azure.](/azure/load-balancer/configure-load-balancer-outbound-cli)
+> Jeśli maszyny wirtualne znajdują się za **standardowym** wewnętrznym modułem równoważenia obciążenia, domyślnie nie będą miały dostępu do adresów IP pakietu Office 365 `login.microsoftonline.com`, takich jak. Zmień go na **podstawowy** typ wewnętrznego modułu równoważenia obciążenia lub Utwórz dostęp wychodzący, jak wspomniano w artykule [Konfigurowanie równoważenia obciążenia i reguł ruchu wychodzącego w usługa Load Balancer w warstwie Standardowa przy użyciu interfejsu wiersza polecenia platformy Azure](/azure/load-balancer/configure-load-balancer-outbound-cli).
 
 #### <a name="possible-cause"></a>Możliwa przyczyna
 
-Nie można ustanowić połączenia z punktami końcowymi uwierzytelniania usługi Office 365 i tożsamości IP4.
+Nie można nawiązać połączenia z uwierzytelnianiem pakietu Office 365 i punktami końcowymi tożsamości IP4.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-- Usługa Azure Site Recovery wymaga dostępu do zakresów adresów IP usługi Office 365 do uwierzytelniania.
-- Jeśli używasz reguł/serwera proxy grupy zabezpieczeń usługi Azure Network (NSG) do kontrolowania wychodzącej łączności sieciowej na maszynie Wirtualnej, upewnij się, że zezwalasz na komunikację z zakresami adresów IP usługi Office 365. Utwórz regułę nsg opartą na [usłudze Azure Active Directory (Azure AD),](/azure/virtual-network/security-overview#service-tags) która umożliwia dostęp do wszystkich adresów IP odpowiadających usłudze Azure AD.
-- Jeśli nowe adresy zostaną dodane do usługi Azure AD w przyszłości, należy utworzyć nowe reguły sieciowej sieciowej sieciowej.
+- Azure Site Recovery wymaga dostępu do zakresów adresów IP pakietu Office 365 na potrzeby uwierzytelniania.
+- Jeśli używasz zasad grupy zabezpieczeń (sieciowej grupy zabezpieczeń) platformy Azure/serwera proxy zapory do kontrolowania łączności sieciowej wychodzącej na maszynie wirtualnej, upewnij się, że zezwalasz na komunikację z zakresami adresów IP pakietu Office 365. Azure Active Directory utwórz sieciowej grupy zabezpieczeń regułę opartą na [tagu usług (Azure AD)](/azure/virtual-network/security-overview#service-tags) , która umożliwia dostęp do wszystkich adresów IP odpowiadających usłudze Azure AD.
+- Jeśli nowe adresy są dodawane do usługi Azure AD w przyszłości, należy utworzyć nowe reguły sieciowej grupy zabezpieczeń.
 
 ### <a name="example-nsg-configuration"></a>Przykładowa konfiguracja sieciowej grupy zabezpieczeń
 
-W tym przykładzie pokazano, jak skonfigurować reguły sieciowej grupy danych sieciowych dla maszyny Wirtualnej do replikacji.
+Ten przykład pokazuje, jak skonfigurować reguły sieciowej grupy zabezpieczeń dla maszyny wirtualnej do replikacji.
 
-- Jeśli używasz reguł sieciowej sieciowej do kontrolowania łączności wychodzącej, użyj opcji Zezwalaj regułom **wychodzącym HTTPS** na port 443 dla wszystkich wymaganych zakresów adresów IP.
-- W przykładzie zakłada się, że lokalizacją źródłą maszyny Wirtualnej jest wschodnia lokalizacja **stany USA,** a lokalizacją docelową są **środkowe stany USA.**
+- Jeśli używasz reguł sieciowej grupy zabezpieczeń do kontrolowania łączności wychodzącej, użyj opcji Zezwalaj na używanie reguł **wychodzących https** do portu 443 dla wszystkich wymaganych zakresów adresów IP.
+- Przykład zakłada, że lokalizacja źródłowa maszyny wirtualnej to **Wschodnie stany USA** , a lokalizacja docelowa to **środkowe stany USA**.
 
-#### <a name="nsg-rules---east-us"></a>Zasady sieciowej sieciowej sieciowej - Wschodnie stany USA
+#### <a name="nsg-rules---east-us"></a>Reguły sieciowej grupy zabezpieczeń — Wschodnie stany USA
 
-1. Utwórz regułę zabezpieczeń wychodzących HTTPS dla nsg, jak pokazano na poniższym zrzucie ekranu. W tym przykładzie użyto **tagu usługi docelowej:** **Zakresy portów** _Storage.EastUS_ i Destination: _443_.
+1. Utwórz regułę protokołu HTTPS dla ruchu wychodzącego dla sieciowej grupy zabezpieczeń, jak pokazano na poniższym zrzucie ekranu. W tym przykładzie jest użyty **tag usługi docelowej**: _Magazyn. Wschodnie_ i **docelowe zakresy portów**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="znacznik magazynu":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="Magazyn — tag":::
 
-1. Utwórz regułę zabezpieczeń wychodzących HTTPS dla nsg, jak pokazano na poniższym zrzucie ekranu. W tym przykładzie użyto **tagu usługi docelowej:** **Zakresy portów** _Usługi AzureActiveDirectory_ i Docelowe: _443_.
+1. Utwórz regułę protokołu HTTPS dla ruchu wychodzącego dla sieciowej grupy zabezpieczeń, jak pokazano na poniższym zrzucie ekranu. W tym przykładzie używa **znacznika usługi docelowej**: _usługi azureactivedirectory_ i **docelowy zakres portów**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="aad-tag":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="AAD — tag":::
 
-1. Utwórz reguły wychodzące portu HTTPS 443 dla adresów IP odzyskiwania lokacji, które odpowiadają lokalizacji docelowej:
+1. Utwórz reguły ruchu wychodzącego portu HTTPS 443 dla adresów IP Site Recovery, które odpowiadają lokalizacji docelowej:
 
-   | Lokalizacja | Adres IP odzyskiwania witryny | Adres IP monitorowania odzyskiwania witryny |
+   | Lokalizacja | Site Recovery adres IP | Site Recovery monitorowania adresu IP |
    | --- | --- | --- |
    | Środkowe stany USA | 40.69.144.231 | 52.165.34.144 |
 
-#### <a name="nsg-rules---central-us"></a>Zasady sieciowej sieciowej sieciowej - Central USA
+#### <a name="nsg-rules---central-us"></a>Reguły sieciowej grupy zabezpieczeń — środkowe stany USA
 
-W tym przykładzie te reguły sieciowej grupy ndg są wymagane, aby replikacja mogła być włączona z regionu docelowego do regionu źródłowego po przełączeniu w błąd:
+Na potrzeby tego przykładu reguły sieciowej grupy zabezpieczeń są wymagane, aby można było włączyć replikację z regionu docelowego do trybu failover w regionie źródłowym:
 
-1. Tworzenie reguły zabezpieczeń wychodzących HTTPS dla _magazynu.CentralUS:_
+1. Utwórz regułę protokołu HTTPS dla ruchu wychodzącego dla _magazynu. środkowe_:
 
-   - **Tag usługi docelowej**: _Storage.CentralUS_
-   - **Zakresy portów docelowych:** _443_
+   - **Tag usługi docelowej**: _Storage. środkowe_
+   - **Docelowe zakresy portów**: _443_
 
-1. Utwórz regułę zabezpieczeń wychodzących HTTPS dla _usługi AzureActiveDirectory_.
+1. Utwórz regułę protokołu HTTPS dla ruchu wychodzącego dla _usługi azureactivedirectory_.
 
-   - **Tag usługi docelowej**: _AzureActiveDirectory_
-   - **Zakresy portów docelowych:** _443_
+   - **Tag usługi docelowej**: _usługi azureactivedirectory_
+   - **Docelowe zakresy portów**: _443_
 
-1. Utwórz reguły wychodzące portu HTTPS 443 dla adresów IP odzyskiwania lokacji, które odpowiadają lokalizacji źródłowej:
+1. Utwórz reguły ruchu wychodzącego portu HTTPS 443 dla adresów IP Site Recovery, które odpowiadają lokalizacji źródłowej:
 
-   | Lokalizacja | Adres IP odzyskiwania witryny | Adres IP monitorowania odzyskiwania witryny |
+   | Lokalizacja | Site Recovery adres IP | Site Recovery monitorowania adresu IP |
    | --- | --- | --- |
    | Wschodnie stany USA | 13.82.88.226 | 104.45.147.24 |
 
-### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Konfiguracja odzyskiwania lokacji nie powiodła się (151197)
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Konfiguracja Site Recovery nie powiodła się (151197)
 
 #### <a name="possible-cause"></a>Możliwa przyczyna
 
-Nie można ustanowić połączenia z punktami końcowymi usługi Azure Site Recovery.
+Nie można nawiązać połączenia, aby Azure Site Recovery punkty końcowe usługi.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Usługa Azure Site Recovery wymaga dostępu do [zakresów adresów IP usługi Site Recovery](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) w zależności od regionu. Upewnij się, że wymagane zakresy adresów IP są dostępne z maszyny Wirtualnej.
+Usługa Azure Site Recovery wymaga dostępu do [zakresów adresów IP usługi Site Recovery](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) w zależności od regionu. Upewnij się, że wymagane zakresy adresów IP są dostępne z maszyny wirtualnej.
 
-### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problem 4: Replikacja platformy Azure do platformy Azure nie powiodła się, gdy ruch sieciowy przechodzi przez lokalny serwer proxy (151072)
+### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problem 4: replikacja z platformy Azure do platformy Azure nie powiodła się, gdy ruch sieciowy przechodzi przez lokalny serwer proxy (151072)
 
 #### <a name="possible-cause"></a>Możliwa przyczyna
 
-Niestandardowe ustawienia serwera proxy są nieprawidłowe, a agent usługi Azure Site Recovery Mobility nie wyekslizuł automatycznie ustawień serwera proxy w programie Internet Explorer (IE).
+Niestandardowe ustawienia serwera proxy są nieprawidłowe, a Agent usługi mobilności Azure Site Recovery nie wykrył automatycznie ustawień serwera proxy w programie Internet Explorer (IE).
 
 #### <a name="resolution"></a>Rozwiązanie
 
-1. Agent usługi mobilności wykrywa ustawienia serwera proxy z `/etc/environment` IE w systemie Windows i linux.
-1. Jeśli wolisz ustawić serwer proxy tylko dla usługi Azure Site Recovery Mobility, możesz podać szczegóły serwera proxy w _pliku ProxyInfo.conf_ znajdujące się pod adresem:
+1. Agent usługi mobilności wykrywa ustawienia serwera proxy z programu IE w systemach `/etc/environment` Windows i Linux.
+1. Jeśli wolisz ustawić serwer proxy tylko dla usługi mobilności Azure Site Recovery, możesz podać szczegóły serwera proxy w _ProxyInfo. conf_ znajdującym się w:
 
-   - **Linux**:`/usr/local/InMage/config/`
-   - **Okna**:`C:\ProgramData\Microsoft Azure Site Recovery\Config`
+   - System **Linux**:`/usr/local/InMage/config/`
+   - **System Windows**:`C:\ProgramData\Microsoft Azure Site Recovery\Config`
 
-1. _Plik ProxyInfo.conf_ powinien mieć ustawienia serwera proxy w następującym formacie _INI:_
+1. _ProxyInfo. conf_ powinna mieć ustawienia serwera proxy w następującym formacie _ini_ :
 
    ```plaintext
    [proxy]
@@ -139,11 +139,11 @@ Niestandardowe ustawienia serwera proxy są nieprawidłowe, a agent usługi Azur
    ```
 
 > [!NOTE]
-> Agent usługi Azure Site Recovery Mobility obsługuje tylko **nieuwierzyliowane serwery proxy.**
+> Agent usługi mobilności Azure Site Recovery obsługuje tylko **nieuwierzytelnione serwery proxy**.
 
 ### <a name="fix-the-problem"></a>Rozwiązywanie problemu
 
-Aby [zezwolić na wymagane adresy URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) lub [wymagane zakresy adresów IP,](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)wykonaj czynności opisane w [dokumencie zawierającym wskazówki dotyczące sieci.](site-recovery-azure-to-azure-networking-guidance.md)
+Aby zezwolić na [wymagane adresy URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) lub [wymagane zakresy adresów IP](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), wykonaj kroki opisane w [dokumencie wskazówki dotyczące sieci](site-recovery-azure-to-azure-networking-guidance.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

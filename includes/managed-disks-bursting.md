@@ -9,34 +9,34 @@ ms.date: 03/29/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 84736b7f1dcdf8b186fddbced5dd773e008c0dd2
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887409"
 ---
-Rozerwanie dysku jest obsługiwane dla dysków SSD klasy premium. Bursting jest obsługiwany na dowolnym rozmiarze dysków SSD premium <= 512 GiB (P20 lub poniżej). Te rozmiary dysków obsługują pękanie na podstawie najlepszego wysiłku i wykorzystują system kredytów do zarządzania pęknięciem. Kredyty gromadzą się w zasobniku serii, gdy ruch dysku jest poniżej aprowizowanego celu wydajności dla ich rozmiaru dysku i zużywają kredyty, gdy ruch zostanie opublikowany poza obiekt docelowy. Ruch dysku jest śledzony zarówno w przypadku usług We/Wy, jak i przepustowości w aprowizowanym celu. Bursting dysku nie będzie pomijać ograniczenia rozmiaru maszyny wirtualnej (VM) na we/wy lub przepływności.
+Obsługa dysków jest obsługiwana w przypadku wersji Premium dysków SSD. Rozbicie jest obsługiwane na dowolnym rozmiarze dysków SSD w warstwie Premium <= 512 GiB (P20 lub poniżej). Te rozmiary dysków umożliwiają szybkie Rozliczanie i używanie systemu kredytowego do zarządzania rozliczeniami. Kredyty są gromadzone w zasobniku obejmującym cały czas, gdy ruch dysku jest niższy od obsługiwanego miejsca docelowego wydajności dla rozmiaru dysku, i zużywa kredyty, gdy ruch przekracza miejsce docelowe. Ruch dyskowy jest śledzony w odniesieniu do operacji we/wy i przepustowości w miejscu docelowym aprowizacji. Na rozerwanie dysków nie będą pomijane ograniczenia rozmiaru maszyny wirtualnej w przypadku operacji we/wy lub przepływności.
 
-Bursting dysku jest domyślnie włączona w nowych wdrożeniach rozmiarów dysków, które go obsługują. Istniejące rozmiary dysków, jeśli obsługują pękanie dysku, mogą umożliwiać pękanie za pomocą jednej z następujących metod:
+Funkcja przenoszenia dysków jest domyślnie włączona w nowych wdrożeniach obsługiwanych rozmiarów dysków. Istniejące rozmiary dysków, jeśli obsługują rozbicie dysku, mogą umożliwić Przechodzenie przez jedną z następujących metod:
 
-- Odłącz i podłącz ponownie dysk.
+- Odłącz i ponownie podłącz dysk.
 - Zatrzymaj i uruchom maszynę wirtualną.
 
-## <a name="burst-states"></a>Stany rozerwania
+## <a name="burst-states"></a>Stany serii
 
-Wszystkie rozmiary dysków serii odpowiednie rozpocznie się w pełnej wersji wybuchu zasobnika, gdy dysk jest dołączony do maszyny wirtualnej. Maksymalny czas trwania rozerwania zależy od rozmiaru wiadra kredytów serii. Możesz gromadzić nieużywane kredyty tylko do wielkości zasobnika kredytowego. W dowolnym momencie wiadro kredytowe rozerwanie dysku może znajdować się w jednym z następujących trzech stanów: 
+Wszystkie odpowiednie rozmiary dysków będą rozpoczynać się od pełnego zasobnika środków w przypadku podłączenia dysku do maszyny wirtualnej. Maksymalny czas trwania serii jest określany na podstawie rozmiaru zasobnika środków. Możesz jedynie zbierać niewykorzystane środki w wysokości do rozmiaru zasobnika kredytowego. W dowolnym momencie zasobnik kredytowy dla serii dysku może być w jednym z trzech następujących stanów: 
 
-- Naliczanie, gdy ruch dysku używa mniej niż aprowizowana docelowa wydajności. Można gromadzić kredytów, jeśli ruch dysku jest poza IOPS lub docelowych przepustowości lub obu. Nadal można gromadzić kredyty we/wy, gdy zużywasz pełną przepustowość dysku, na odwrót.  
+- Naliczanie, gdy ruch na dysku jest używany mniej niż miejsce docelowe wydajności obsługiwanej. Możesz zakumulowanić środki w przypadku, gdy ruch dysku przekracza liczbę operacji wejścia/wyjścia na sekundę lub przepustowość. Można nadal zbierać środki w ramach operacji we/wy, gdy zużywasz pełną przepustowość dysku na odwrót.  
 
-- Maleje, gdy ruch dysku używa więcej niż aprowizowana docelowa wydajności. Ruch seryjny będzie niezależnie zużywać kredyty z usług We/Wy lub przepustowości. 
+- Odrzucanie, gdy ruch z dysku jest używany więcej niż przychodzący obiekt docelowy wydajności. Ruch z serii będzie niezależnie zużywał kredyty z liczby operacji we/wy lub przepustowości. 
 
-- Pozostała stała, gdy ruch dysku jest dokładnie na aprowizowanym miejscu docelowym wydajności. 
+- Pozostała stała, gdy ruch dyskowy jest dokładnie na miejscu docelowym wydajności. 
 
-Rozmiary dysków, które zapewniają obsługę rozerwania wraz ze specyfikacjami serii są podsumowane w poniższej tabeli.
+W poniższej tabeli zestawiono rozmiary dysków zapewniające pomoc techniczną dotyczącą tworzenia serii oraz specyfikacje dotyczące serii.
 
 ## <a name="regional-availability"></a>Dostępność regionalna
 
-Rozerwanie dysku jest dostępne we wszystkich regionach w chmurze publicznej.
+Szeregowanie dysków jest dostępne we wszystkich regionach w chmurze publicznej.
 
 ## <a name="disk-sizes"></a>Rozmiary dysków
 
@@ -44,10 +44,10 @@ Rozerwanie dysku jest dostępne we wszystkich regionach w chmurze publicznej.
 
 ## <a name="example-scenarios"></a>Przykładowe scenariusze
 
-Aby lepiej zorientować się, jak to działa, oto kilka przykładowych scenariuszy:
+Aby lepiej zrozumieć, jak to działa, Oto kilka przykładowych scenariuszy:
 
-- Typowym scenariuszem, który może korzystać z rozerwania dysku jest szybsze uruchamianie i uruchamianie aplikacji na dyskach systemu operacyjnego. Weź maszynę wirtualną z systemem Linux z obrazem 8 GiB OS jako przykład. Jeśli używamy dysku P2 jako dysku systemu operacyjnego, aprowizowanym celem jest 120 IOPS i 25 MiB. Po uruchomieniu maszyny Wirtualnej nastąpi skok odczytu do dysku systemu operacyjnego ładowania plików rozruchowych. Wraz z wprowadzeniem rozerwania, można odczytać z maksymalną prędkością serii 3500 IOPS i 170 MiB, przyspieszając czas ładowania o co najmniej 6x. Po uruchomieniu maszyny Wirtualnej poziom ruchu na dysku systemu operacyjnego jest zwykle niski, ponieważ większość operacji danych przez aplikację będzie na dyskach dołączonych danych. Jeśli ruch jest poniżej aprowizowanego celu, zgromadzisz kredyty.
+- Typowym scenariuszem, który może przynieść korzyści wynikające z wykorzystania dysku, jest szybsze uruchamianie maszyn wirtualnych i uruchamiania aplikacji na dyskach systemu operacyjnego. Zapoznaj się z maszyną wirtualną z systemem Linux przy użyciu 8-GiBego obrazu systemu operacyjnego. Jeśli korzystamy z dysku P2 jako dysku systemu operacyjnego, zainicjowany element docelowy to 120 IOPS i 25 MiB. Po uruchomieniu maszyny wirtualnej zostanie przeczytany odczyt z dysku systemu operacyjnego ładującego pliki rozruchowe. Wraz z wprowadzeniem możliwości przenoszenia można odczytać maksymalną prędkość serii 3500 operacji we/wy i 170 MiB, skracając czas ładowania przez co najmniej 6x. Po rozruchu maszyny wirtualnej poziom ruchu na dysku systemu operacyjnego jest zazwyczaj niski, ponieważ większość operacji na danych aplikacji będzie odnosi się do dołączonych dysków danych. Jeśli ruch jest poniżej zainicjowanego obiektu docelowego, zostaną nagromadzone kredyty.
 
-- Jeśli hostujesz środowisko pulpitu zdalnego wirtualnego, za każdym razem, gdy aktywny użytkownik uruchamia aplikację, taką jak AutoCAD, ruch odczytu na dysku systemu operacyjnego znacznie wzrasta. W takim przypadku ruch seryjny zużywa zgromadzone kredyty, co pozwala wyjść poza aprowizowany cel i uruchamiać aplikację znacznie szybciej.
+- Jeśli jest obsługiwane zdalne środowisko pulpitu wirtualnego, za każdym razem, gdy aktywny użytkownik uruchamia aplikację, taką jak AutoCAD, znacznie wzrasta ruch do dysku systemu operacyjnego. W takim przypadku ruch związany z obciążeniem będzie zużywać kredyty w wysokości, co pozwala na przechodzenie poza zainicjowaną obsługę administracyjną i szybkie uruchamianie aplikacji.
 
-- Dysk P1 ma aprowizowanym obiektem docelowym 120 IOPS i 25 MiB. Jeśli rzeczywisty ruch na dysku wynosił 100 IOPS i 20 MiB w ciągu ostatnich 1 sekundy interwału, nieużywane 20 IOs i 5 MB są zapisywane na zasobniku seryjnym dysku. Kredyty w zasobniku serii mogą być później używane, gdy ruch przekracza aprowizowanego obiektu docelowego, do maksymalnego limitu serii. Maksymalny limit serii definiuje pułap ruchu dysku, nawet jeśli masz kredyty serii do wykorzystania z. W takim przypadku, nawet jeśli masz 10 000 we/wiadra kredytów, dysk P1 nie może wydać więcej niż maksymalna seria 3500 we/wy na sekundę.  
+- Dysk P1 ma zainicjowany element docelowy 120 operacji we/wy i 25 MiB. Jeśli rzeczywisty ruch na dysku wynosił 100 operacji we/wy i 20 MiB w ciągu ostatniego 1 drugiego interwału, oznacza to, że niewykorzystane 20 systemów IOs i 5 MB zostaną zaliczone do zasobnika na dysku. Kredyty w zasobniku szeregowym mogą być później używane, gdy ruch przekracza przypuszczalną wartość docelową. Maksymalny limit serii określa granicę ruchu na dysku, nawet jeśli masz środki na korzystanie z serii. W takim przypadku, nawet jeśli masz 10 000 IOs w zasobniku kredytowym, dysk P1 nie może wymusić więcej niż maksymalna liczba operacji we/wy na sekundę dla 3 500.  

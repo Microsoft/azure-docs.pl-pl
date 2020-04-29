@@ -1,5 +1,5 @@
 ---
-title: Weryfikowanie wystąpienia kontenera Analiza tonacji
+title: Weryfikowanie analiza tonacji wystąpienia kontenera
 titleSuffix: Azure Cognitive Services
 description: Dowiedz się, jak zweryfikować wystąpienie kontenera analiza tonacji.
 services: cognitive-services
@@ -10,22 +10,22 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: c9b5411c044bb45d284cac0d30705c2b3d40ccd0
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80876447"
 ---
-### <a name="verify-the-sentiment-analysis-container-instance"></a>Weryfikowanie wystąpienia kontenera Analiza tonacji
+### <a name="verify-the-sentiment-analysis-container-instance"></a>Weryfikowanie analiza tonacji wystąpienia kontenera
 
 1. Wybierz kartę **Przegląd** i skopiuj adres IP.
-1. Otwórz nową kartę przeglądarki i wprowadź adres IP. Na przykład `http://<IP-address>:5000 (http://55.55.55.55:5000`wprowadź ). Zostanie wyświetlona strona główna kontenera, która informuje, że kontener jest uruchomiony.
+1. Otwórz nową kartę przeglądarki, a następnie wprowadź adres IP. Na przykład wpisz `http://<IP-address>:5000 (http://55.55.55.55:5000`). Zostanie wyświetlona strona główna kontenera, która informuje o tym, że kontener jest uruchomiony.
 
     ![Wyświetl stronę główną kontenera, aby sprawdzić, czy jest uruchomiona](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
-1. Wybierz **łącze Opis interfejsu API usługi,** aby przejść do strony Swagger kontenera.
+1. Wybierz link **opis interfejsu API usługi** , aby przejść do strony struktury Swagger kontenera.
 
-1. Wybierz dowolny z **interfejsów** API POST i wybierz pozycję **Wypróbuj**. Wyświetlane są parametry, które obejmują ten przykładowy wkład:
+1. Wybierz dowolny z **wpisów** interfejsów API, a następnie wybierz opcję **Wypróbuj**. Wyświetlane są parametry, które obejmują następujące przykładowe dane wejściowe:
 
     ```json
     {
@@ -63,13 +63,13 @@ ms.locfileid: "80876447"
     }
     ```
 
-1. Ustaw **showStats** na `true`.
+1. Ustaw **showStats** wartość showStats `true`na.
 
-1. Wybierz **polecenie Wykonaj,** aby określić tonację tekstu.
+1. Wybierz pozycję **Execute (wykonaj** ), aby określić tonacji tekstu.
 
-    Model, który jest pakowany w kontenerze generuje wynik, który waha się od 0 do 1, gdzie 0 jest negatywna tonacji i 1 jest pozytywne nastroje.
+    Model, który znajduje się w kontenerze, generuje wynik, który mieści się w zakresie od 0 do 1, gdzie 0 jest ujemna tonacji i 1 to dodatnie tonacji.
 
-    Zwracana odpowiedź JSON zawiera tonację dla zaktualizowanego wprowadzania tekstu:
+    Zwracana odpowiedź JSON zawiera tonacji dla zaktualizowanych danych wejściowych tekstu:
 
     ```json
     {
@@ -93,4 +93,4 @@ ms.locfileid: "80876447"
     }
     ```
 
-Możemy teraz skorelować `id` dokument danych JSON ładunku odpowiedzi z oryginalnym `id`dokumentem ładunku żądania . Wynik więcej niż `0.98` wskazuje na bardzo pozytywne nastroje.
+Teraz można skorelować dokument `id` danych JSON ładunku odpowiedzi do oryginalnego dokumentu `id`ładunku żądania. Wynik więcej niż `0.98` wskazuje bardzo pozytywny tonacji.

@@ -1,64 +1,64 @@
 ---
-title: Włącz TLS z kontenerem wózka bocznego
-description: Tworzenie punktu końcowego SSL lub TLS dla grupy kontenerów uruchomionych w wystąpieniach kontenera platformy Azure przez uruchomienie Nginx w kontenerze wózka bocznego
+title: Włączanie protokołu TLS z kontenerem przyczepki
+description: Utwórz punkt końcowy SSL lub TLS dla grupy kontenerów działającej w Azure Container Instances przez uruchomienie Nginx w kontenerze przyczepki
 ms.topic: article
 ms.date: 02/14/2020
 ms.openlocfilehash: b9ea9367219db694b89d6bf4a1e52efb373c71c4
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80984610"
 ---
-# <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Włączanie punktu końcowego TLS w kontenerze wózka bocznego
+# <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Włączanie punktu końcowego TLS w kontenerze przyczepki
 
-W tym artykule pokazano, jak utworzyć [grupę kontenerów](container-instances-container-groups.md) z kontenerem aplikacji i kontenerem wózka bocznego z uruchomionym dostawcą protokołu TLS/SSL. Konfiguruj grupę kontenerów z oddzielnym punktem końcowym TLS, można włączyć połączenia TLS dla aplikacji bez zmiany kodu aplikacji.
+W tym artykule pokazano, jak utworzyć [grupę kontenerów](container-instances-container-groups.md) z kontenerem aplikacji i kontenerem przyczepki z uruchomionym dostawcą protokołu TLS/SSL. Konfigurując grupę kontenerów za pomocą oddzielnego punktu końcowego TLS, należy włączyć połączenia TLS dla aplikacji bez konieczności zmiany kodu aplikacji.
 
-Skonfiguruj przykładową grupę kontenerów składającą się z dwóch kontenerów:
-* Kontener aplikacji, który uruchamia prostą aplikację sieci web przy użyciu publicznego obrazu [Microsoft aci-helloworld.](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) 
-* Kontener wózka bocznego z publicznym obrazem [Nginx](https://hub.docker.com/_/nginx) skonfigurowany do używania protokołu TLS. 
+Należy skonfigurować przykładową grupę kontenerów składającą się z dwóch kontenerów:
+* Kontener aplikacji, w którym działa prosta aplikacja internetowa korzystająca z publicznego obrazu programu Microsoft [ACI-HelloWorld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) . 
+* Kontener przyczep z uruchomionym publicznym obrazem [Nginx](https://hub.docker.com/_/nginx) skonfigurowany do korzystania z protokołu TLS. 
 
-W tym przykładzie grupa kontenerów udostępnia tylko port 443 dla Nginx z jego publicznym adresem IP. Nginx kieruje żądania HTTPS do towarzyszącej aplikacji sieci web, która nasłuchuje wewnętrznie na porcie 80. Można dostosować przykład dla aplikacji kontenera, które nasłuchują na innych portach. 
+W tym przykładzie grupa kontenerów uwidacznia tylko port 443 dla Nginx z jego publicznym adresem IP. Nginx przekierowuje żądania HTTPS do aplikacji sieci Web towarzyszącej, która nasłuchuje wewnętrznie na porcie 80. Możesz dostosować przykład dla aplikacji kontenera, które nasłuchują na innych portach. 
 
-Zobacz [Następne kroki](#next-steps) dla innych metod włączania protokołu TLS w grupie kontenerów.
+Zobacz [następne kroki](#next-steps) , aby uzyskać inne podejścia do włączania protokołu TLS w grupie kontenerów.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Aby ukończyć ten artykuł, można użyć usługi Azure Cloud Shell lub lokalnej instalacji interfejsu wiersza polecenia platformy Azure. Jeśli chcesz używać go lokalnie, zaleca się wersję 2.0.55 lub nowszą. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Aby ukończyć ten artykuł, można użyć Azure Cloud Shell lub lokalnej instalacji interfejsu wiersza polecenia platformy Azure. Jeśli chcesz używać go lokalnie, zalecana jest wersja 2.0.55 lub nowsza. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-self-signed-certificate"></a>Tworzenie certyfikatu z podpisem własnym
 
-Aby skonfigurować Nginx jako dostawcę protokołu TLS, potrzebny jest certyfikat TLS/SSL. W tym artykule pokazano, jak utworzyć i skonfigurować certyfikat TLS/SSL z podpisem własnym. W przypadku scenariuszy produkcyjnych należy uzyskać certyfikat od urzędu certyfikacji.
+Aby skonfigurować Nginx jako dostawcę TLS, wymagany jest certyfikat TLS/SSL. W tym artykule pokazano, jak utworzyć i skonfigurować certyfikat TLS/SSL z podpisem własnym. W przypadku scenariuszy produkcyjnych należy uzyskać certyfikat z urzędu certyfikacji.
 
-Aby utworzyć certyfikat TLS/SSL z podpisem własnym, użyj narzędzia [OpenSSL](https://www.openssl.org/) dostępnego w usłudze Azure Cloud Shell i wielu dystrybucjach systemu Linux lub użyj porównywalnego narzędzia klienckiego w systemie operacyjnym.
+Aby utworzyć certyfikat TLS/SSL z podpisem własnym, użyj narzędzia [OpenSSL](https://www.openssl.org/) dostępnego w Azure Cloud Shell i wielu dystrybucji systemu Linux lub użyj narzędzia do porównywania w systemie operacyjnym.
 
-Najpierw utwórz żądanie certyfikatu (plik csr) w lokalnym katalogu roboczym:
+Najpierw Utwórz żądanie certyfikatu (plik CSR) w lokalnym katalogu roboczym:
 
 ```console
 openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 ```
 
-Postępuj zgodnie z instrukcjami, aby dodać informacje identyfikacyjne. W przypadku nazwy pospolitej wprowadź nazwę hosta skojarzoną z certyfikatem. Po wyświetleniu monitu o podanie hasła naciśnij klawisz Enter bez wpisywania, aby pominąć dodanie hasła.
+Postępuj zgodnie z monitami, aby dodać informacje identyfikacyjne. W polu Nazwa pospolita wprowadź nazwę hosta skojarzoną z certyfikatem. Po wyświetleniu monitu o hasło naciśnij klawisz ENTER bez wpisywania, aby pominąć Dodawanie hasła.
 
-Uruchom następujące polecenie, aby utworzyć certyfikat z podpisem własnym (plik crt) z żądania certyfikatu. Przykład:
+Uruchom następujące polecenie, aby utworzyć certyfikat z podpisem własnym (plik CRT) z żądania certyfikatu. Przykład:
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
 ```
 
-W katalogu powinny być teraz widoczne trzy pliki: żądanie certyfikatu (`ssl.csr`), klucz prywatny (`ssl.key`) i certyfikat z podpisem własnym (`ssl.crt`). Używasz `ssl.key` `ssl.crt` i w późniejszych krokach.
+Powinny teraz być widoczne trzy pliki w katalogu: żądanie certyfikatu (`ssl.csr`), klucz prywatny (`ssl.key`) i certyfikat z podpisem własnym (`ssl.crt`). Używasz `ssl.key` i `ssl.crt` w dalszych krokach.
 
-## <a name="configure-nginx-to-use-tls"></a>Konfigurowanie nginx do używania protokołu TLS
+## <a name="configure-nginx-to-use-tls"></a>Konfigurowanie Nginx do korzystania z protokołu TLS
 
-### <a name="create-nginx-configuration-file"></a>Tworzenie pliku konfiguracyjnego Nginx
+### <a name="create-nginx-configuration-file"></a>Utwórz plik konfiguracji Nginx
 
-W tej sekcji należy utworzyć plik konfiguracyjny dla Nginx do używania protokołu TLS. Zacznij od skopiowania następującego tekstu `nginx.conf`do nowego pliku o nazwie . W usłudze Azure Cloud Shell można użyć programu Visual Studio Code do utworzenia pliku w katalogu roboczym:
+W tej sekcji utworzysz plik konfiguracyjny Nginx do korzystania z protokołu TLS. Zacznij od skopiowania następującego tekstu do nowego pliku o nazwie `nginx.conf`. W Azure Cloud Shell można użyć Visual Studio Code, aby utworzyć plik w katalogu roboczym:
 
 ```console
 code nginx.conf
 ```
 
-W `location`, należy `proxy_pass` ustawić z odpowiednim portem dla aplikacji. W tym przykładzie ustawiliśmy port `aci-helloworld` 80 dla kontenera.
+Upewnij `location`się, że ustawiono `proxy_pass` prawidłowy port dla aplikacji. W tym przykładzie ustawimy port 80 dla `aci-helloworld` kontenera.
 
 ```console
 # nginx Configuration File
@@ -122,9 +122,9 @@ http {
 }
 ```
 
-### <a name="base64-encode-secrets-and-configuration-file"></a>Wpisy tajne i plik konfiguracyjny kodowane przez Base64
+### <a name="base64-encode-secrets-and-configuration-file"></a>Pliki tajne kodowania base64 i plik konfiguracji
 
-Kodowanie bazy 64 pliku konfiguracyjnego Nginx, certyfikatu TLS/SSL i klucza TLS. W następnej sekcji należy wprowadzić zakodowaną zawartość w pliku YAML używanym do wdrażania grupy kontenerów.
+Base64 — kodowanie pliku konfiguracji Nginx, certyfikatu TLS/SSL i klucza TLS. W następnej sekcji wprowadzasz zakodowaną zawartość w pliku YAML używanym do wdrażania grupy kontenerów.
 
 ```console
 cat nginx.conf | base64 > base64-nginx.conf
@@ -132,19 +132,19 @@ cat ssl.crt | base64 > base64-ssl.crt
 cat ssl.key | base64 > base64-ssl.key
 ```
 
-## <a name="deploy-container-group"></a>Wdrażanie grupy kontenerów
+## <a name="deploy-container-group"></a>Wdróż grupę kontenerów
 
-Teraz wdrożyć grupę kontenerów, określając konfiguracje kontenera w [pliku YAML](container-instances-multi-container-yaml.md).
+Teraz Wdróż grupę kontenerów, określając konfiguracje kontenerów w [pliku YAML](container-instances-multi-container-yaml.md).
 
-### <a name="create-yaml-file"></a>Tworzenie pliku YAML
+### <a name="create-yaml-file"></a>Utwórz plik YAML
 
-Skopiuj następujący YAML `deploy-aci.yaml`do nowego pliku o nazwie . W usłudze Azure Cloud Shell można użyć programu Visual Studio Code do utworzenia pliku w katalogu roboczym:
+Skopiuj następujący YAML do nowego pliku o nazwie `deploy-aci.yaml`. W Azure Cloud Shell można użyć Visual Studio Code, aby utworzyć plik w katalogu roboczym:
 
 ```console
 code deploy-aci.yaml
 ```
 
-Wprowadź zawartość plików zakodowanych w base64, `secret`jeżeli jest to wskazane w obszarze . Na przykład `cat` każdy z plików zakodowanych base64, aby wyświetlić jego zawartość. Podczas wdrażania te pliki są dodawane do [tajnego woluminu](container-instances-volume-secret.md) w grupie kontenerów. W tym przykładzie tajny wolumin jest zamontowany do kontenera Nginx.
+Wprowadź zawartość plików zakodowanych algorytmem Base64, gdzie wskazano `secret`w. Na przykład każdy `cat` plik kodowany algorytmem Base64, aby wyświetlić jego zawartość. Podczas wdrażania te pliki są dodawane do [woluminu tajnego](container-instances-volume-secret.md) w grupie kontenerów. W tym przykładzie wolumin tajny jest instalowany w kontenerze Nginx.
 
 ```YAML
 api-version: 2018-10-01
@@ -191,29 +191,29 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-### <a name="deploy-the-container-group"></a>Wdrażanie grupy kontenerów
+### <a name="deploy-the-container-group"></a>Wdróż grupę kontenerów
 
-Utwórz grupę zasobów za pomocą polecenia [utwórz grupę az:](/cli/azure/group#az-group-create)
+Utwórz grupę zasobów za pomocą polecenia [AZ Group Create](/cli/azure/group#az-group-create) :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
 ```
 
-Wdrażanie grupy kontenerów za pomocą polecenia [tworzenia kontenera az,](/cli/azure/container#az-container-create) przekazując plik YAML jako argument.
+Wdróż grupę kontenerów za pomocą polecenia [AZ Container Create](/cli/azure/container#az-container-create) , przekazując plik YAML jako argument.
 
 ```azurecli
 az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
 ```
 
-### <a name="view-deployment-state"></a>Wyświetlanie stanu wdrożenia
+### <a name="view-deployment-state"></a>Wyświetl stan wdrożenia
 
-Aby wyświetlić stan wdrożenia, użyj następującego polecenia [az container show:](/cli/azure/container#az-container-show)
+Aby wyświetlić stan wdrożenia, użyj następującego polecenia [AZ Container show](/cli/azure/container#az-container-show) :
 
 ```azurecli
 az container show --resource-group <myResourceGroup> --name app-with-ssl --output table
 ```
 
-W przypadku pomyślnego wdrożenia dane wyjściowe są podobne do następujących czynności:
+W przypadku pomyślnego wdrożenia dane wyjściowe są podobne do następujących:
 
 ```console
 Name          ResourceGroup    Status    Image                                                    IP:ports             Network    CPU/Memory       OsType    Location
@@ -223,23 +223,23 @@ app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-
 
 ## <a name="verify-tls-connection"></a>Weryfikowanie połączenia TLS
 
-Użyj przeglądarki, aby przejść do publicznego adresu IP grupy kontenerów. Adres IP pokazany w `52.157.22.76`tym przykładzie **https://52.157.22.76**to adres URL , więc adres URL jest . Aby wyświetlić uruchomiono aplikację, należy użyć protokołu HTTPS ze względu na konfigurację serwera Nginx. Próby połączenia za pośrednictwem protokołu HTTP nie powiodły się.
+Użyj przeglądarki, aby przejść do publicznego adresu IP grupy kontenerów. Adres IP przedstawiony w tym przykładzie to `52.157.22.76`, więc adres URL to. **https://52.157.22.76** Aby wyświetlić uruchomioną aplikację, należy użyć protokołu HTTPS z powodu konfiguracji serwera Nginx. Próba nawiązania połączenia za pośrednictwem protokołu HTTP kończy się niepowodzeniem.
 
 ![Zrzut ekranu przedstawiający aplikację uruchomioną w wystąpieniu kontenera platformy Azure](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
 
 > [!NOTE]
-> Ponieważ w tym przykładzie użyto certyfikatu z podpisem własnym, a nie certyfikatu z urzędu certyfikacji, przeglądarka wyświetla ostrzeżenie o zabezpieczeniach podczas łączenia się z witryną za pośrednictwem protokołu HTTPS. Aby przejść do strony, może być konieczne zaakceptowanie ostrzeżenia lub dostosowanie ustawień przeglądarki lub certyfikatu. Takie zachowanie jest oczekiwane.
+> Ponieważ w tym przykładzie używa certyfikatu z podpisem własnym, a nie z urzędu certyfikacji, przeglądarka wyświetla ostrzeżenie o zabezpieczeniach podczas nawiązywania połączenia z witryną za pośrednictwem protokołu HTTPS. Może być konieczne zaakceptowanie ostrzeżenia lub dostosowanie ustawień przeglądarki lub certyfikatu, aby przejoć do strony. Takie zachowanie jest oczekiwane.
 
 >
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule pokazano, jak skonfigurować kontener Nginx, aby włączyć połączenia TLS z aplikacją sieci web działającą w grupie kontenerów. W tym przykładzie można dostosować aplikacje, które nasłuchują na portach innych niż port 80. Można również zaktualizować plik konfiguracyjny Nginx, aby automatycznie przekierowywać połączenia serwera na porcie 80 (HTTP) w celu użycia protokołu HTTPS.
+W tym artykule pokazano, jak skonfigurować kontener Nginx, aby umożliwić nawiązywanie połączeń TLS z aplikacją sieci Web działającą w grupie kontenerów. Możesz dostosować ten przykład dla aplikacji, które nasłuchują na portach innych niż port 80. Można również zaktualizować plik konfiguracji Nginx w celu automatycznego przekierowania połączeń serwera na porcie 80 (HTTP), aby używać protokołu HTTPS.
 
-W tym artykule używa się Nginx w wózku bocznym, można użyć innego dostawcy TLS, takiego jak [Caddy](https://caddyserver.com/).
+W tym artykule jest używany Nginx w przyczepie, można użyć innego dostawcy TLS, takiego jak [Caddy](https://caddyserver.com/).
 
-Jeśli wdrożysz grupę kontenerów w [sieci wirtualnej platformy Azure,](container-instances-vnet.md)można rozważyć inne opcje, aby włączyć punkt końcowy TLS dla wystąpienia kontenera wewnętrznej bazy danych, w tym:
+Jeśli grupa kontenerów jest wdrażana w [sieci wirtualnej platformy Azure](container-instances-vnet.md), można rozważyć inne opcje, aby włączyć punkt końcowy protokołu TLS dla wystąpienia kontenera zaplecza, w tym:
 
-* [Serwery proxy funkcji platformy Azure](../azure-functions/functions-proxies.md)
+* [serwery proxy usługi Azure Functions](../azure-functions/functions-proxies.md)
 * [Azure API Management](../api-management/api-management-key-concepts.md)
-* [Brama aplikacji platformy Azure](../application-gateway/overview.md) — zobacz przykładowy [szablon wdrożenia](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).
+* [Application Gateway platformy Azure](../application-gateway/overview.md) — Zobacz przykładowy [szablon wdrożenia](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).

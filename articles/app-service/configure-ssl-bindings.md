@@ -1,48 +1,48 @@
 ---
-title: Zabezpiecz niestandardowy system DNS za pomocą powiązania TLS/SSL
-description: Zabezpiecz dostęp HTTPS do domeny niestandardowej, tworząc powiązanie TLS/SSL z certyfikatem. Zwiększ bezpieczeństwo witryny, wymuszając protokół HTTPS lub TLS 1.2.
+title: Zabezpieczanie niestandardowego serwera DNS przy użyciu powiązania TLS/SSL
+description: Zabezpiecz dostęp HTTPS do domeny niestandardowej przez utworzenie powiązania TLS/SSL z certyfikatem. Popraw zabezpieczenia witryny sieci Web, wymuszając protokół HTTPS lub TLS 1,2.
 tags: buy-ssl-certificates
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: 9792181379bfa6f9e0337bf14208fe853c16b745
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80811751"
 ---
-# <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Zabezpiecz niestandardową nazwę DNS za pomocą powiązania TLS/SSL w usłudze Azure App Service
+# <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Zabezpiecz niestandardową nazwę DNS z powiązaniem TLS/SSL w Azure App Service
 
-W tym artykule pokazano, jak zabezpieczyć [domenę niestandardową](app-service-web-tutorial-custom-domain.md) w aplikacji usługi [App Service](https://docs.microsoft.com/azure/app-service/) lub [aplikacji funkcji,](https://docs.microsoft.com/azure/azure-functions/) tworząc powiązanie certyfikatu. Po zakończeniu możesz uzyskać dostęp do aplikacji usługi `https://` App Service w punkcie końcowym `https://www.contoso.com`dla niestandardowej nazwy DNS (na przykład ). 
+W tym artykule pokazano, jak zabezpieczyć [domenę niestandardową](app-service-web-tutorial-custom-domain.md) w [aplikacji App Service](https://docs.microsoft.com/azure/app-service/) lub [aplikacji funkcji](https://docs.microsoft.com/azure/azure-functions/) przez utworzenie powiązania certyfikatu. Po zakończeniu możesz uzyskać dostęp do aplikacji App Service w `https://` punkcie końcowym dla NIESTANDARDOWEJ nazwy DNS (na przykład `https://www.contoso.com`). 
 
-![Aplikacja sieci Web z niestandardowym certyfikatem TLS/SSL](./media/configure-ssl-bindings/app-with-custom-ssl.png)
+![Aplikacja internetowa z niestandardowym certyfikatem TLS/SSL](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
-Zabezpieczanie [domeny niestandardowej](app-service-web-tutorial-custom-domain.md) za pomocą certyfikatu obejmuje dwa etapy:
+Zabezpieczanie [domeny niestandardowej](app-service-web-tutorial-custom-domain.md) za pomocą certyfikatu obejmuje dwie czynności:
 
-- [Dodaj certyfikat prywatny do usługi App Service,](configure-ssl-certificate.md) który spełnia wszystkie [wymagania dotyczące certyfikatów prywatnych](configure-ssl-certificate.md#private-certificate-requirements).
+- [Dodaj prywatny certyfikat do App Service](configure-ssl-certificate.md) , który spełnia wszystkie [wymagania dotyczące certyfikatu prywatnego](configure-ssl-certificate.md#private-certificate-requirements).
 -  Utwórz powiązanie TLS z odpowiednią domeną niestandardową. Ten drugi krok jest objęty tym artykułem.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Uaktualnienie warstwy cenowej aplikacji
-> * Zabezpieczanie domeny niestandardowej certyfikatem
+> * Zabezpieczanie domeny niestandardowej przy użyciu certyfikatu
 > * Wymuszanie protokołu HTTPS
 > * Wymuszanie protokołu TLS 1.1/1.2
 > * Automatyzacja zarządzania protokołami TLS za pomocą skryptów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby postępować zgodnie z tym przewodnikiem:
+Aby wykonać następujące czynności:
 
 - [Utwórz aplikację usługi App Service](/azure/app-service/)
-- [Mapowanie nazwy domeny do aplikacji](app-service-web-tutorial-custom-domain.md) lub [kupowanie i konfigurowanie jej na platformie Azure](manage-custom-dns-buy-domain.md)
+- [Mapowanie nazwy domeny do aplikacji](app-service-web-tutorial-custom-domain.md) lub [kupowanie i Konfigurowanie na platformie Azure](manage-custom-dns-buy-domain.md)
 - [Dodawanie certyfikatu prywatnego do aplikacji](configure-ssl-certificate.md)
 
 > [!NOTE]
-> Najprostszym sposobem dodania certyfikatu prywatnego jest [utworzenie bezpłatnego certyfikatu zarządzanego usługi App Service](configure-ssl-certificate.md#create-a-free-certificate-preview) (Wersja zapoznawcza).
+> Najprostszym sposobem dodawania certyfikatu prywatnego jest [utworzenie bezpłatnego App Service certyfikatu zarządzanego](configure-ssl-certificate.md#create-a-free-certificate-preview) (wersja zapoznawcza).
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -52,72 +52,72 @@ Aby postępować zgodnie z tym przewodnikiem:
 
 Wykonaj następujące czynności:
 
-W <a href="https://portal.azure.com" target="_blank">witrynie Azure portal</a>, z lewego menu wybierz pozycję **App Services** > **\<app-name>**.
+W <a href="https://portal.azure.com" target="_blank">Azure Portal</a>z menu po lewej stronie wybierz pozycję **App Services** > **\<App-Name>**.
 
-Z lewej strony aplikacji uruchom okno dialogowe **Powiązanie TLS/SSL** według:
+W lewym panelu nawigacyjnym aplikacji Uruchom okno dialogowe **powiązania protokołu TLS/SSL** , wykonując następujące działania:
 
-- Wybieranie **domen** > niestandardowych Dodaj**powiązanie**
-- Wybieranie >  **ustawień TLS/SSL**Dodaj**powiązanie TLS/SSL**
+- Wybieranie **domen** > niestandardowych**Dodawanie powiązania**
+-  > Wybieranie **ustawień protokołu TLS/SSL****Dodawanie powiązania TLS/SSL**
 
 ![Dodawanie powiązania do domeny](./media/configure-ssl-bindings/secure-domain-launch.png)
 
-W **obszarze Domena niestandardowa**wybierz domenę niestandardową, dla której chcesz dodać powiązanie.
+W polu **domena niestandardowa**wybierz domenę niestandardową, dla której chcesz dodać powiązanie.
 
-Jeśli aplikacja ma już certyfikat dla wybranej domeny niestandardowej, przejdź bezpośrednio do [tworzenia powiązania.](#create-binding) W przeciwnym razie, kontynuuj.
+Jeśli aplikacja ma już certyfikat dla wybranej domeny niestandardowej, przejdź do pozycji [Utwórz powiązanie](#create-binding) bezpośrednio. W przeciwnym razie Kontynuuj.
 
-### <a name="add-a-certificate-for-custom-domain"></a>Dodawanie certyfikatu dla domeny niestandardowej
+### <a name="add-a-certificate-for-custom-domain"></a>Dodaj certyfikat dla domeny niestandardowej
 
-Jeśli aplikacja nie ma certyfikatu dla wybranej domeny niestandardowej, masz dwie opcje:
+Jeśli aplikacja nie ma certyfikatu dla wybranej domeny niestandardowej, dostępne są dwie opcje:
 
-- **Przekaż certyfikat PFX** — postępuj zgodnie z przepływem pracy w [trybie Przekazywanie certyfikatu prywatnego](configure-ssl-certificate.md#upload-a-private-certificate), a następnie wybierz tę opcję tutaj.
-- **Importowanie certyfikatu usługi app service** — postępuj zgodnie z przepływem pracy [przy importowaniu certyfikatu usługi App Service](configure-ssl-certificate.md#import-an-app-service-certificate), a następnie wybierz tę opcję tutaj.
+- **Przekaż certyfikat PFX** — postępuj zgodnie z przepływem pracy w obszarze [Przekaż certyfikat prywatny](configure-ssl-certificate.md#upload-a-private-certificate), a następnie wybierz tę opcję tutaj.
+- **Zaimportuj certyfikat usługi App Service** — postępuj zgodnie z przepływem pracy podczas [importowania certyfikatu App Service](configure-ssl-certificate.md#import-an-app-service-certificate), a następnie wybierz tę opcję w tym miejscu.
 
 > [!NOTE]
-> Można również [utworzyć bezpłatny certyfikat](configure-ssl-certificate.md#create-a-free-certificate-preview) (wersja zapoznawcza) lub [zaimportować certyfikat usługi Key Vault](configure-ssl-certificate.md#import-a-certificate-from-key-vault), ale należy to zrobić oddzielnie, a następnie powrócić do okna dialogowego **Powiązanie TLS/SSL.**
+> Możesz również [utworzyć bezpłatny certyfikat](configure-ssl-certificate.md#create-a-free-certificate-preview) (wersja zapoznawcza) lub [zaimportować certyfikat Key Vault](configure-ssl-certificate.md#import-a-certificate-from-key-vault), ale należy to zrobić oddzielnie, a następnie powrócić do okna dialogowego **powiązania protokołu TLS/SSL** .
 
-### <a name="create-binding"></a>Tworzenie powiązania
+### <a name="create-binding"></a>Utwórz powiązanie
 
-Poniższa tabela ułatwia konfigurowanie powiązania TLS w oknie dialogowym **Wiązania TLS/SSL,** a następnie kliknij przycisk **Dodaj powiązanie**.
+Skorzystaj z poniższej tabeli, aby skonfigurować powiązanie protokołu TLS w oknie dialogowym **powiązanie protokołu TLS/SSL** , a następnie kliknij przycisk **Dodaj powiązanie**.
 
 | Ustawienie | Opis |
 |-|-|
-| Domena niestandardowa | Nazwa domeny, dla aby dodać powiązanie TLS/SSL. |
+| Domena niestandardowa | Nazwa domeny, dla której ma zostać dodane powiązanie protokołu TLS/SSL. |
 | Odcisk palca certyfikatu prywatnego | Certyfikat do powiązania. |
-| Typ TLS/SSL | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** — można dodać wiele powiązań SSL SNI. Ta opcja umożliwia wielu certyfikatom TLS/SSL zabezpieczenie wielu domen na tym samym adresie IP. Większość nowoczesnych przeglądarek (w tym Internet Explorer, Chrome, Firefox i Opera) obsługuje SNI (aby uzyskać więcej informacji, zobacz [Wskazanie nazwy serwera](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**PROTOKÓŁ SSL IP** — można dodać tylko jedno powiązanie PROTOKOŁU SSL IP. Ta opcja umożliwia tylko jeden certyfikat TLS/SSL w celu zabezpieczenia dedykowanego publicznego adresu IP. Po skonfigurowaniu powiązania wykonaj kroki opisane w [rejestrze Remap A dla protokołu IP SSL](#remap-a-record-for-ip-ssl).<br/>Protokół IP SSL jest obsługiwany tylko w warstwach Produkcja lub Izolowane. </li></ul> |
+| Typ protokołu TLS/SSL | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** — można dodać wiele SNI SSL powiązań. Ta opcja umożliwia wielu certyfikatom protokołu TLS/SSL zabezpieczenie wielu domen na tym samym adresie IP. Większość nowoczesnych przeglądarek (w tym Internet Explorer, Chrome, Firefox i Opera) obsługuje SNI (Aby uzyskać więcej informacji, zobacz [oznaczanie nazwy serwera](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**Połączenie SSL z adresu IP** — można dodać tylko jedno powiązanie połączenie SSL z adresu IP. Ta opcja zezwala na zabezpieczenie dedykowanego publicznego adresu IP tylko jednemu certyfikatowi TLS/SSL. Po skonfigurowaniu powiązania postępuj zgodnie z instrukcjami w sekcji ponowne [Mapowanie rekordu dla połączenie SSL z adresu IP](#remap-a-record-for-ip-ssl).<br/>Połączenie SSL z adresu IP jest obsługiwana tylko w warstwach produkcyjnych lub izolowanych. </li></ul> |
 
-Po zakończeniu operacji stan TLS/SSL domeny niestandardowej zostanie zmieniony na **Bezpieczny.**
+Po zakończeniu operacji stan protokołu TLS/SSL domeny niestandardowej zostanie zmieniony na **bezpieczny**.
 
-![Wiązanie TLS/SSL zakończyło się pomyślnie](./media/configure-ssl-bindings/secure-domain-finished.png)
+![Powiązanie protokołu TLS/SSL powiodło się](./media/configure-ssl-bindings/secure-domain-finished.png)
 
 > [!NOTE]
-> Stan **Bezpieczny** w **domenach niestandardowych** oznacza, że jest zabezpieczony certyfikatem, ale usługa App Service nie sprawdza, czy certyfikat jest podpisany samodzielnie lub wygasł, na przykład, co może również spowodować, że przeglądarki będą wyświetlać błąd lub ostrzeżenie.
+> **Bezpiecznym** stanem w **domenach niestandardowych** jest zabezpieczenie certyfikatu, ale App Service nie sprawdza, czy certyfikat ma podpis własny lub wygasł, na przykład może spowodować, że przeglądarki wyświetlają błąd lub ostrzeżenie.
 
 ## <a name="remap-a-record-for-ip-ssl"></a>Ponowne mapowanie rekordu A dla połączenia SSL z adresu IP
 
-Jeśli nie używasz protokołu IP SSL w aplikacji, przejdź do [testuj protokół HTTPS dla domeny niestandardowej](#test-https).
+Jeśli nie używasz Połączenie SSL z adresu IP w aplikacji, przejdź do [testowania protokołu HTTPS dla domeny niestandardowej](#test-https).
 
-Domyślnie aplikacja używa udostępnionego publicznego adresu IP. Po związaniu certyfikatu z protokołu IP SSL usługa App Service tworzy nowy, dedykowany adres IP dla aplikacji.
+Domyślnie aplikacja używa udostępnionego publicznego adresu IP. Po powiązaniu certyfikatu z Połączenie SSL z adresu IP, App Service tworzy nowy, dedykowany adres IP dla aplikacji.
 
-Jeśli rekord A został zamapowany do aplikacji, zaktualizuj rejestr domeny za pomocą tego nowego, dedykowanego adresu IP.
+Jeśli rekord A został zmapowany do aplikacji, należy zaktualizować rejestr domeny za pomocą tego nowego, dedykowanego adresu IP.
 
 Strona **Domena niestandardowa** Twojej aplikacji zostanie zaktualizowana za pomocą nowego, dedykowanego adresu IP. [Skopiuj ten adres IP](app-service-web-tutorial-custom-domain.md#info), a następnie [ponownie mapuj rekord A](app-service-web-tutorial-custom-domain.md#map-an-a-record) na ten nowy adres IP.
 
 ## <a name="test-https"></a>Testowanie protokołu HTTPS
 
-W różnych przeglądarkach przejdź `https://<your.custom.domain>` do, aby sprawdzić, czy obsługuje ona aplikację.
+W różnych przeglądarkach przejdź do `https://<your.custom.domain>` , aby sprawdzić, czy program obsługuje aplikację.
 
 ![Nawigacja w portalu do aplikacji platformy Azure](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
-Kod aplikacji można sprawdzić protokół za pomocą nagłówka "x-appservice-proto". Nagłówek będzie miał wartość `http` `https`lub . 
+Kod aplikacji może sprawdzić protokół za pośrednictwem nagłówka "x-appService-proto". Nagłówek będzie miał wartość `http` lub. `https` 
 
 > [!NOTE]
 > Jeśli Twoja aplikacja wyświetla błędy walidacji certyfikatu, prawdopodobnie używasz certyfikatu z podpisem własnym.
 >
 > Jeśli tak nie jest, certyfikaty pośrednie mogły zostać pominięte podczas eksportowania certyfikatu do pliku PFX.
 
-## <a name="prevent-ip-changes"></a>Zapobieganie zmianom adresu IP
+## <a name="prevent-ip-changes"></a>Zapobiegaj zmianom adresów IP
 
-Twój przychodzący adres IP może ulec zmianie po usunięciu powiązania, nawet jeśli to powiązanie jest ip ssl. Jest to szczególnie ważne podczas odnawiania certyfikatu, który jest już w powiązaniu protokołu SSL IP. Aby uniknąć zmian w adresie IP aplikacji, wykonaj kolejno następujące kroki:
+Adres IP ruchu przychodzącego może ulec zmianie po usunięciu powiązania, nawet jeśli to powiązanie jest Połączenie SSL z adresu IP. Jest to szczególnie ważne w przypadku odnowienia certyfikatu, który znajduje się już w powiązaniu Połączenie SSL z adresu IP. Aby uniknąć zmian w adresie IP aplikacji, wykonaj kolejno następujące kroki:
 
 1. Przekaż nowy certyfikat.
 2. Powiąż nowy certyfikat z wybraną domeną niestandardową bez usuwania starego certyfikatu. Ta akcja zastępuje powiązanie zamiast usuwania go.
@@ -149,9 +149,9 @@ Po ukończeniu operacji aplikacja odrzuca wszystkie połączenia z niższymi wer
 
 ## <a name="handle-tls-termination"></a>Obsługa zakończenia protokołu TLS
 
-W usłudze App Service [zakończenie protokołu TLS](https://wikipedia.org/wiki/TLS_termination_proxy) odbywa się w modułach równoważenia obciążenia sieciowego, więc wszystkie żądania HTTPS docierają do aplikacji jako niezaszyfrowane żądania HTTP. Jeśli logika aplikacji musi sprawdzać, czy żądania użytkownika są szyfrowane, czy nie, zbadaj nagłówek `X-Forwarded-Proto`.
+W App Service [wygaśnięcie protokołu TLS](https://wikipedia.org/wiki/TLS_termination_proxy) odbywa się w modułach równoważenia obciążenia sieciowego, więc wszystkie żądania HTTPS docierają do aplikacji jako nieszyfrowane żądania HTTP. Jeśli logika aplikacji musi sprawdzać, czy żądania użytkownika są szyfrowane, czy nie, zbadaj nagłówek `X-Forwarded-Proto`.
 
-Przewodniki konfiguracji specyficzne dla języka, takie jak przewodnik [konfiguracji Linux Node.js,](containers/configure-language-nodejs.md#detect-https-session) pokazuje, jak wykryć sesję HTTPS w kodzie aplikacji.
+Wskazówki dotyczące konfiguracji specyficzne dla języka, takie jak przewodnik [konfiguracji Node. js systemu Linux](containers/configure-language-nodejs.md#detect-https-session) , przedstawiają sposób wykrywania sesji HTTPS w kodzie aplikacji.
 
 ## <a name="automate-with-scripts"></a>Automatyzowanie przy użyciu skryptów
 
@@ -165,5 +165,5 @@ Przewodniki konfiguracji specyficzne dla języka, takie jak przewodnik [konfigur
 
 ## <a name="more-resources"></a>Więcej zasobów
 
-* [Używanie certyfikatu TLS/SSL w kodzie w usłudze Azure App Service](configure-ssl-certificate-in-code.md)
-* [Często zadawane pytania: Certyfikaty usługi aplikacji](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Użyj certyfikatu TLS/SSL w kodzie w Azure App Service](configure-ssl-certificate-in-code.md)
+* [Często zadawane pytania: certyfikaty App Service](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

@@ -1,7 +1,7 @@
 ---
-title: Pobieranie docker dla kontenera wyodrębniania fraz kluczowych
+title: Wypychanie platformy Docker dla kontenera wyodrębnianie kluczowych fraz
 titleSuffix: Azure Cognitive Services
-description: Polecenie ściągania platformy Docker dla kontenera wyodrębniania fraz kluczowych
+description: Polecenie Docker pull dla kontenera wyodrębnianie kluczowych fraz
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,17 +10,17 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: db5d0cfecde32d3dd6afe181d67a6ce6c0826eda
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80877125"
 ---
-#### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Pobieranie docker dla kontenera wyodrębniania fraz kluczowych
+#### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Wypychanie platformy Docker dla kontenera wyodrębnianie kluczowych fraz
 
-Użyj [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) polecenia, aby pobrać obraz kontenera z rejestru kontenerów firmy Microsoft.
+Użyj polecenia [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) , aby pobrać obraz kontenera z programu Microsoft Container Registry.
 
-Aby uzyskać pełny opis dostępnych tagów dla kontenerów analizy tekstu, zobacz kontener [wyodrębniania fraz kluczy](https://go.microsoft.com/fwlink/?linkid=2018757) w Centrum platformy Docker.
+Pełny opis znaczników dostępnych dla kontenerów analiza tekstu można znaleźć w kontenerze [wyodrębnianie kluczowych fraz](https://go.microsoft.com/fwlink/?linkid=2018757) w usłudze Docker Hub.
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest

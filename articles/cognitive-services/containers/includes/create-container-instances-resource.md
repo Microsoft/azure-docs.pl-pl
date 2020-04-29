@@ -10,43 +10,43 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 09957461fd92114d1181a570550ee1a189edd8ea
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80876451"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Tworzenie zasobu wystąpienia kontenera platformy Azure
 
-1. Przejdź do strony [Tworzenie](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) dla wystąpień kontenera.
+1. Przejdź do strony [Tworzenie](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) dla Container Instances.
 
-2. Na karcie **Podstawy** wprowadź następujące szczegóły:
+2. Na karcie **podstawowe** wprowadź następujące informacje:
 
     |Ustawienie|Wartość|
     |--|--|
     |Subskrypcja|Wybierz subskrypcję.|
-    |Grupa zasobów|Wybierz dostępną grupę zasobów lub `cognitive-services`utwórz nową, taką jak .|
-    |Nazwa kontenera|Wprowadź nazwę, `cognitive-container-instance`taką jak . Nazwa musi być w niższych czapkach.|
+    |Grupa zasobów|Wybierz dostępną grupę zasobów lub Utwórz nową, taką jak `cognitive-services`.|
+    |Nazwa kontenera|Wprowadź nazwę, taką jak `cognitive-container-instance`. Nazwa musi być krótsza.|
     |Lokalizacja|Wybierz region do wdrożenia.|
-    |Typ obrazu|Jeśli obraz kontenera jest przechowywany w rejestrze kontenerów, `Public`który nie wymaga poświadczeń, wybierz opcję . Jeśli dostęp do obrazu kontenera `Private`wymaga poświadczeń, wybierz opcję . Szczegółowe informacje na temat tego, czy obraz kontenera jest `Public` `Private` lub nie zawiera ("Podgląd publiczny" można znaleźć w [repozytoriach kontenerów i obrazach.](../../cognitive-services-container-support.md#container-repositories-and-images) |
-    |Nazwa obrazu|Wprowadź lokalizację kontenera usług Cognitive Services. Lokalizacja jest to, co jest używane `docker pull` jako argument do polecenia. Informacje na temat dostępnych nazw obrazów i odpowiednich repozytoriów kontenerów można znaleźć w [repozytoriach kontenerów i ich](../../cognitive-services-container-support.md#container-repositories-and-images) odpowiednich repozytoriach.<br><br>Nazwa obrazu musi być w pełni kwalifikowana, określając trzy części. Najpierw rejestr kontenerów, następnie repozytorium, na koniec `<container-registry>/<repository>/<image-name>`nazwa obrazu: .<br><br>Oto przykład, `mcr.microsoft.com/azure-cognitive-services/keyphrase` może reprezentować obraz wyodrębniania fraz kluczowych w rejestrze kontenerów firmy Microsoft w repozytorium usług Azure Cognitive Services. Innym przykładem `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` jest, który reprezentuje obraz mowy do tekstu w repozytorium firmy Microsoft rejestru kontenera kontenera w wersji kontenera w wersji owej. |
+    |Typ obrazu|Jeśli obraz kontenera jest przechowywany w rejestrze kontenerów, który nie wymaga poświadczeń, wybierz `Public`opcję. W przypadku uzyskiwania dostępu do obrazu kontenera wymagane są `Private`poświadczenia. Zapoznaj się z [repozytoriami kontenerów i obrazami](../../cognitive-services-container-support.md#container-repositories-and-images) , aby uzyskać szczegółowe informacje na `Public` temat `Private` tego, czy obraz kontenera jest lub ("publiczna wersja zapoznawcza"). |
+    |Nazwa obrazu|Wprowadź Cognitive Services lokalizację kontenera. Lokalizacja jest używana jako argument `docker pull` polecenia. Zapoznaj się z [repozytoriami i obrazami kontenerów](../../cognitive-services-container-support.md#container-repositories-and-images) dla dostępnych nazw obrazów i ich odpowiedniego repozytorium.<br><br>Nazwa obrazu musi być w pełni kwalifikowana, określając trzy części. Najpierw należy nazwa obrazu rejestru kontenerów, a następnie repozytorium: `<container-registry>/<repository>/<image-name>`.<br><br>Oto przykład, `mcr.microsoft.com/azure-cognitive-services/keyphrase` który reprezentuje wyodrębnianie kluczowych fraz obraz w Container Registry Microsoft w ramach repozytorium Cognitive Services platformy Azure. Innym przykładem jest `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` , który będzie reprezentować mowę do obrazu tekstu w repozytorium firmy Microsoft rejestru kontenerów w wersji zapoznawczej kontenera. |
     |Typ systemu operacyjnego|`Linux`|
-    |Rozmiar|Zmień rozmiar na sugerowane zalecenia dla określonego kontenera usługi Cognitive Service:<br>2 rdzenie procesora<br>4 GB
+    |Rozmiar|Zmień rozmiar sugerowanych zaleceń dla określonego kontenera usługi poznawczej:<br>2 rdzenie procesora CPU<br>4 GB
 
-3. Na karcie **Sieć** wprowadź następujące szczegóły:
+3. Na karcie **Sieć** wprowadź następujące informacje:
 
     |Ustawienie|Wartość|
     |--|--|
-    |Porty|Ustaw port TCP `5000`na . Udostępnia kontener na porcie 5000.|
+    |Porty|Ustaw port TCP na `5000`. Udostępnia kontener na porcie 5000.|
 
-4. Na karcie **Zaawansowane** wprowadź wymagane **zmienne środowiskowe** dla ustawień rozliczeń kontenerów zasobu wystąpienia kontenera platformy Azure:
+4. Na karcie **Zaawansowane** wprowadź wymagane **zmienne środowiskowe** dla ustawień rozliczania kontenerów zasobu wystąpienia kontenera platformy Azure:
 
     | Klucz | Wartość |
     |--|--|
-    |`apikey`|Skopiowano ze strony **Klucze** zasobu. Jest to ciąg 32 znaków alfanumerycznej bez spacji lub kresek, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
-    |`billing`|Skopiowano ze strony **Przegląd** zasobu.|
+    |`apikey`|Skopiowane ze strony **klucze** zasobu. Jest to 32 ciąg znaków alfanumerycznych bez spacji ani kresek `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |`billing`|Skopiowane ze strony **Przegląd** zasobu.|
     |`eula`|`accept`|
 
-5. Kliknij **pozycję Przejrzyj i utwórz**
-6. Po przejściu weryfikacji kliknij przycisk **Utwórz,** aby zakończyć proces tworzenia
-7. Po pomyślnym wdrożeniu zasobu jest on gotowy
+5. Kliknij przycisk **Przeglądaj i Utwórz**
+6. Po zakończeniu walidacji kliknij przycisk **Utwórz** , aby zakończyć proces tworzenia
+7. Po pomyślnym wdrożeniu zasobu jest gotowy

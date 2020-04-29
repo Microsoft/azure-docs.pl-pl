@@ -1,106 +1,106 @@
 ---
 title: Diagnozowanie błędów i wyjątków za pomocą usługi Azure Application Insights
-description: Przechwytywanie wyjątków od ASP.NET aplikacji wraz z telemetrią żądania.
+description: Przechwytuj wyjątki z aplikacji ASP.NET wraz z danymi telemetrycznymi żądania.
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.openlocfilehash: 9f24f09e7d2ef0a3e5f3a8f6546a9115118473ab
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80892346"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnozowanie wyjątków w aplikacjach internetowych za pomocą usługi Application Insights
-Wyjątki w aplikacji sieci web na żywo są zgłaszane przez [usługa Application Insights](../../azure-monitor/app/app-insights-overview.md). Można skorelować żądania nie powiodło się z wyjątkami i innych zdarzeń na kliencie i serwerze, dzięki czemu można szybko zdiagnozować przyczyny.
+Wyjątki w aplikacji sieci Web na żywo są zgłaszane przez [Application Insights](../../azure-monitor/app/app-insights-overview.md). Możliwe jest skorelowanie żądań zakończonych niepowodzeniem z wyjątkami i innymi zdarzeniami zarówno na kliencie, jak i na serwerze, dzięki czemu można szybko zdiagnozować przyczyny.
 
 ## <a name="set-up-exception-reporting"></a>Konfigurowanie raportowania wyjątków
-* Aby zgłaszać wyjątki z aplikacji serwera:
-  * Aplikacje sieci Web platformy Azure: dodawanie [rozszerzenia usługi Application Insights](../../azure-monitor/app/azure-web-apps.md)
-  * Aplikacje hostowane przez usługi IIS: dodawanie rozszerzenia [monitorowania aplikacji](../../azure-monitor/app/azure-vm-vmss-apps.md)
-  * Zainstaluj [sdk usługi Application Insights](../../azure-monitor/app/asp-net.md) w kodzie aplikacji lub
-  * Serwery sieci Web usług IIS: [uruchamianie agenta usługi Application Insights](../../azure-monitor/app/monitor-performance-live-website-now.md); Lub
-  * Aplikacje internetowe Java: Włączanie [agenta Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
-* Zainstaluj [fragment kodu JavaScript](../../azure-monitor/app/javascript.md) na swoich stronach internetowych, aby wychwycić wyjątki przeglądarki.
-* W niektórych strukturach aplikacji lub z pewnymi ustawieniami należy wykonać kilka dodatkowych kroków, aby złapać więcej wyjątków:
-  * [Formularze internetowe](#web-forms)
+* Aby były zgłoszone wyjątki z aplikacji serwera:
+  * Aplikacje sieci Web platformy Azure: Dodawanie [rozszerzenia Application Insights](../../azure-monitor/app/azure-web-apps.md)
+  * Maszyna wirtualna platformy Azure i zestaw skalowania maszyn wirtualnych platformy Azure — aplikacje hostowane: Dodaj [rozszerzenie monitorowania aplikacji](../../azure-monitor/app/azure-vm-vmss-apps.md)
+  * Zainstaluj [Application Insights zestaw SDK](../../azure-monitor/app/asp-net.md) w kodzie aplikacji lub
+  * Serwery sieci Web usług IIS: Uruchom [agenta Application Insights](../../azure-monitor/app/monitor-performance-live-website-now.md); oraz
+  * Aplikacje sieci Web Java: Włączanie [agenta Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+* Zainstaluj [fragment kodu JavaScript](../../azure-monitor/app/javascript.md) na stronach sieci Web, aby przechwycić wyjątki przeglądarki.
+* W niektórych strukturach aplikacji lub z niektórymi ustawieniami należy wykonać kilka dodatkowych kroków, aby przechwycić więcej wyjątków:
+  * [Formularze sieci Web](#web-forms)
   * [MVC](#mvc)
-  * [Internetowy interfejs API 1.*](#web-api-1x)
-  * [Internetowy interfejs API 2.*](#web-api-2x)
+  * [Interfejs API sieci Web 1. *](#web-api-1x)
+  * [Web API 2. *](#web-api-2x)
   * [WCF](#wcf)
 
-  Ten artykuł koncentruje się w szczególności na .NET Framework aplikacji z punktu widzenia przykładu kodu. Niektóre metody, które działają dla platformy .NET Framework są przestarzałe w pliku .NET Core SDK. Jeśli masz aplikację .NET Core Core, zapoznaj się z [dokumentacją sdk .NET Core SDK.](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)
+  Ten artykuł dotyczy głównie aplikacji .NET Framework z perspektywy przykładowego kodu. Niektóre metody, które działają dla .NET Framework są przestarzałe w zestaw .NET Core SDK. Zapoznaj się z [dokumentacją zestaw .NET Core SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) , jeśli masz aplikację .NET Core.
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Diagnozowanie wyjątków przy użyciu programu Visual Studio
-Otwórz rozwiązanie aplikacji w programie Visual Studio, aby ułatwić debugowanie.
+Otwórz rozwiązanie aplikacji w programie Visual Studio, aby pomóc w debugowaniu.
 
-Uruchom aplikację na serwerze lub na komputerze deweloperskim przy użyciu F5.
+Uruchom aplikację na serwerze lub na komputerze deweloperskim przy użyciu klawisza F5.
 
-Otwórz okno wyszukiwania usługi Application Insights w programie Visual Studio i ustaw je tak, aby wyświetlało zdarzenia z aplikacji. Podczas debugowania, można to zrobić po prostu klikając przycisk Usługi Application Insights.
+Otwórz okno wyszukiwania Application Insights w programie Visual Studio i ustaw je, aby wyświetlało zdarzenia z aplikacji. Podczas debugowania możesz to zrobić, klikając przycisk Application Insights.
 
-![Kliknij prawym przyciskiem myszy projekt i wybierz polecenie Usługa Application Insights, Otwórz.](./media/asp-net-exceptions/34.png)
+![Kliknij prawym przyciskiem myszy projekt, a następnie wybierz Application Insights, Otwórz.](./media/asp-net-exceptions/34.png)
 
-Należy zauważyć, że można filtrować raport, aby wyświetlić tylko wyjątki.
+Należy zauważyć, że można filtrować raport, aby pokazać tylko wyjątki.
 
-*Brak wyjątków? Zobacz [Przechwytywanie wyjątków](#exceptions).*
+*Nie pokazywane są wyjątki? Zobacz [wyjątki przechwytywania](#exceptions).*
 
-Kliknij raport o wyjątkach, aby wyświetlić jego ślad stosu.
-Kliknij odwołanie do wiersza w śledzenia stosu, aby otworzyć odpowiedni plik kodu.
+Kliknij raport o wyjątku, aby wyświetlić jego ślad stosu.
+Kliknij odwołanie do wiersza w śladzie stosu, aby otworzyć odpowiedni plik kodu.
 
-W kodzie należy zauważyć, że CodeLens pokazuje dane dotyczące wyjątków:
+W kodzie należy zauważyć, że CodeLens wyświetla dane dotyczące wyjątków:
 
-![CodeLens powiadomienie o wyjątkach.](./media/asp-net-exceptions/35.png)
+![CodeLens powiadomienia o wyjątkach.](./media/asp-net-exceptions/35.png)
 
-## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnozowanie błędów przy użyciu witryny Azure portal
-Usługa Application Insights jest wyposażona w wyselekcjonowane środowisko APM ułatwiające diagnozowanie błędów w monitorowanych aplikacjach. Aby rozpocząć, kliknij opcję Błędy w menu zasobów usługi Application Insights znajdującym się w sekcji Badanie.
-Powinien zostać wyświetlony widok pełnoekranowy, który pokazuje trendy szybkości awaryjności dla żądań, ile z nich nie powiódł się i ilu użytkowników ma wpływ. Po prawej stronie zobaczysz niektóre z najbardziej przydatnych dystrybucji specyficznych dla wybranej operacji niepowodzenia, w tym trzy najlepsze kody odpowiedzi, trzy pierwsze typy wyjątków i trzy pierwsze typy zależności, które nie działają.
+## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnozowanie błędów przy użyciu Azure Portal
+Application Insights udostępnia nadzorowane środowisko APM ułatwiające diagnozowanie błędów w monitorowanych aplikacjach. Aby rozpocząć, kliknij opcję błędy w menu zasobów Application Insights, które znajdują się w sekcji Zbadaj.
+Powinien zostać wyświetlony widok pełny ekran, który pokazuje trendy częstotliwości awarii dla Twoich żądań, ile z nich kończy się niepowodzeniem i ilu użytkowników ma wpływ. Po prawej stronie zobaczysz niektóre z najbardziej przydatnych dystrybucji specyficznych dla wybranej operacji zakończonych niepowodzeniem, w tym trzy najważniejsze kody odpowiedzi, trzy najważniejsze typy wyjątków i trzy pierwsze niepowodzenie typów zależności.
 
-![Widok klasyfikacji błędów (karta operacje)](./media/asp-net-exceptions/failures0719.png)
+![Widok Klasyfikacja błędów (karta Operacje)](./media/asp-net-exceptions/failures0719.png)
 
-Za pomocą jednego kliknięcia można następnie przejrzeć reprezentatywne przykłady dla każdej z tych podzbiorów operacji. W szczególności, aby zdiagnozować wyjątki, można kliknąć na liczbę określonego wyjątku, który ma być przedstawiony z end-to-end szczegóły transakcji kartę, takich jak ten:
+W jednym kliknięciem można przejrzeć reprezentatywne przykłady dla każdego z tych podzestawów operacji. W szczególności aby zdiagnozować wyjątki, można kliknąć licznik konkretnego wyjątku, który ma zostać przedstawiony z kartą szczegółów transakcji end-to-end, na przykład:
 
-![Karta Szczegóły transakcji typu end-to-end](./media/asp-net-exceptions/end-to-end.png)
+![Karta Szczegóły z końca do końca transakcji](./media/asp-net-exceptions/end-to-end.png)
 
-**Alternatywnie zamiast** patrzeć na wyjątki określonej operacji niepowodzenia, można rozpocząć od ogólnego widoku wyjątków, przełączając się na wyjątki kartę u góry. Tutaj możesz zobaczyć wszystkie wyjątki zebrane dla monitorowanej aplikacji.
+**Alternatywnie,** zamiast wyszukiwać wyjątki dla konkretnej nieudanej operacji, można zacząć od ogólnego widoku wyjątków, przełączając się na kartę Wyjątki u góry. W tym miejscu możesz zobaczyć wszystkie wyjątki zebrane dla monitorowanej aplikacji.
 
-*Brak wyjątków? Zobacz [Przechwytywanie wyjątków](#exceptions).*
+*Nie pokazywane są wyjątki? Zobacz [wyjątki przechwytywania](#exceptions).*
 
 
-## <a name="custom-tracing-and-log-data"></a>Niestandardowe dane śledzenia i dzienników
-Aby uzyskać dane diagnostyczne specyficzne dla aplikacji, można wstawić kod do wysyłania własnych danych telemetrycznych. Jest to wyświetlane w wyszukiwaniu diagnostycznym obok żądania, widoku strony i innych automatycznie zebranych danych.
+## <a name="custom-tracing-and-log-data"></a>Śledzenie niestandardowe i dane dziennika
+Aby uzyskać dane diagnostyczne specyficzne dla aplikacji, możesz wstawić kod do wysyłania własnych danych telemetrycznych. Ta wartość jest wyświetlana w przeszukiwaniu diagnostycznym obok żądania, widoku strony i innych automatycznie zbieranych danych.
 
 Istnieje kilka rozwiązań:
 
-* [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) jest zwykle używany do monitorowania wzorców użycia, ale dane, które wysyła również pojawia się w obszarze Zdarzenia niestandardowe w wyszukiwaniu diagnostycznym. Zdarzenia są nazwane i mogą przenosić właściwości ciągu i metryki liczbowe, na których można [filtrować wyszukiwania diagnostyczne](../../azure-monitor/app/diagnostic-search.md).
-* [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) umożliwia wysyłanie dłuższych danych, takich jak informacje POST.
-* [TrackException()](#exceptions) wysyła ślady stosu. [Więcej o wyjątkach](#exceptions).
-* Jeśli już używasz struktury rejestrowania, takich jak Log4Net lub NLog, można [przechwycić te dzienniki](asp-net-trace-logs.md) i wyświetlić je w wyszukiwaniu diagnostycznym obok danych żądań i wyjątków.
+* [Poleceń trackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) jest zwykle używany do monitorowania wzorców użycia, ale dane wysyłane również są wyświetlane w obszarze niestandardowe zdarzenia w przeszukiwaniu diagnostycznym. Zdarzenia mają nazwę i mogą mieć właściwości ciągów i metryki liczbowe, na których można [filtrować wyszukiwania diagnostyczne](../../azure-monitor/app/diagnostic-search.md).
+* [TrackTrace ()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) umożliwia wysyłanie dłuższych danych, takich jak informacje o publikacji.
+* Traceexception [()](#exceptions) wysyła ślady stosu. [Więcej informacji o wyjątkach](#exceptions).
+* Jeśli używasz już platformy rejestrowania, takiej jak Log4Net lub NLog, możesz [przechwytywać te dzienniki](asp-net-trace-logs.md) i wyświetlać je w przeszukiwaniu diagnostycznym obok danych żądania i wyjątków.
 
-Aby wyświetlić te zdarzenia, otwórz [wyszukiwanie](../../azure-monitor/app/diagnostic-search.md) z lewego menu, wybierz menu rozwijane **Typy zdarzeń**, a następnie wybierz pozycję Zdarzenie niestandardowe, Śledzenie lub Wyjątek.
+Aby wyświetlić te zdarzenia, Otwórz [Wyszukiwanie](../../azure-monitor/app/diagnostic-search.md) w menu po lewej stronie, wybierz **typy zdarzeń**menu rozwijanego, a następnie wybierz zdarzenie niestandardowe, śledzenie lub wyjątek.
 
 ![Przeglądanie szczegółowe](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
-> Jeśli aplikacja generuje wiele danych telemetrycznych, moduł próbkowania adaptacyjnego będzie automatycznie redukować ilość danych wysyłanych do portalu, wysyłając tylko ich reprezentatywną część. Zdarzenia, które są częścią tej samej operacji zostaną wybrane lub odznaczone jako grupa, dzięki czemu można nawigować między powiązanymi zdarzeniami. [Dowiedz się więcej o próbkowaniu.](../../azure-monitor/app/sampling.md)
+> Jeśli aplikacja generuje wiele danych telemetrycznych, moduł próbkowania adaptacyjnego będzie automatycznie redukować ilość danych wysyłanych do portalu, wysyłając tylko ich reprezentatywną część. Zdarzenia, które są częścią tej samej operacji, zostaną wybrane lub odwybrane jako Grupa, aby można było nawigować między powiązanymi zdarzeniami. [Więcej informacji na temat próbkowania.](../../azure-monitor/app/sampling.md)
 >
 >
 
-### <a name="how-to-see-request-post-data"></a>Jak wyświetlić dane żądania POST
+### <a name="how-to-see-request-post-data"></a>Jak zobaczyć dane POST żądania
 Szczegóły żądania nie obejmują danych wysyłanych do aplikacji w wywołaniu POST. Aby zgłosić te dane:
 
-* [Zainstaluj pakiet SDK](../../azure-monitor/app/asp-net.md) w projekcie aplikacji.
-* Wstaw kod do aplikacji, aby wywołać [microsoft.ApplicationInsights.TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace). Wyślij dane POST w parametrze wiadomości. Istnieje ograniczenie dozwolonego rozmiaru, więc należy spróbować wysłać tylko podstawowe dane.
-* Podczas badania żądania nie powiodło się, znajdź skojarzone ślady.
+* [Zainstaluj zestaw SDK](../../azure-monitor/app/asp-net.md) w projekcie aplikacji.
+* Wstaw kod w aplikacji, aby wywołać metodę [Microsoft. ApplicationInsights. TrackTrace ()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace). Wyślij dane POST w parametrze Message. Limit dozwolonego rozmiaru, dlatego należy spróbować wysłać tylko istotne dane.
+* Podczas badania niepomyślnego żądania Znajdź skojarzone ślady.
 
 ## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a>Przechwytywanie wyjątków i powiązanych danych diagnostycznych
-Na początku nie zobaczysz w portalu wszystkich wyjątków, które powodują błędy w aplikacji. Zobaczysz wyjątki przeglądarki (jeśli używasz [SDK JavaScript](../../azure-monitor/app/javascript.md) na swoich stronach internetowych). Ale większość wyjątków serwera są przechwytywać przez usługi IIS i trzeba napisać trochę kodu, aby je zobaczyć.
+Na początku nie zobaczysz w portalu wszystkich wyjątków, które powodują błędy w aplikacji. Zobaczysz dowolne wyjątki przeglądarki (Jeśli używasz [zestawu JavaScript SDK](../../azure-monitor/app/javascript.md) na stronach sieci Web). Jednak większość wyjątków serwera są przechwytywane przez usługi IIS i trzeba napisać bit kodu, aby je zobaczyć.
 
-Możesz:
+Można:
 
-* **Rejestrowanie wyjątków jawnie** przez wstawianie kodu w programach obsługi wyjątków do zgłaszania wyjątków.
-* **Przechwytywanie wyjątków automatycznie,** konfigurując ASP.NET framework. Niezbędne dodatki są różne dla różnych typów ram.
+* **Rejestruj wyjątki jawnie** przez wstawianie kodu w obsłudze wyjątków w celu zgłoszenia wyjątków.
+* **Automatycznie Przechwytuj wyjątki** przez skonfigurowanie platformy ASP.NET. Niezbędne Dodatki są różne dla różnych typów platform.
 
-## <a name="reporting-exceptions-explicitly"></a>Jawne zgłaszanie wyjątków
-Najprostszym sposobem jest wstawienie wywołania TrackException() w programie obsługi wyjątków.
+## <a name="reporting-exceptions-explicitly"></a>Raportowanie wyjątków jawnie
+Najprostszym sposobem jest wstawienie wywołania metody Trackexception () w programie obsługi wyjątków.
 
 ```javascript
     try
@@ -152,19 +152,19 @@ Najprostszym sposobem jest wstawienie wywołania TrackException() w programie ob
     End Try
 ```
 
-Parametry właściwości i pomiarów są opcjonalne, ale są przydatne do [filtrowania i dodawania](../../azure-monitor/app/diagnostic-search.md) dodatkowych informacji. Jeśli na przykład masz aplikację, która może uruchomić kilka gier, możesz znaleźć wszystkie raporty wyjątków związane z określoną grą. Do każdego słownika można dodać dowolną liczbę elementów.
+Parametry właściwości i pomiarów są opcjonalne, ale są przydatne do [filtrowania i dodawania](../../azure-monitor/app/diagnostic-search.md) dodatkowych informacji. Na przykład jeśli masz aplikację, która może uruchamiać kilka gier, możesz znaleźć wszystkie raporty dotyczące wyjątków powiązane z konkretną grą. Możesz dodać dowolną liczbę elementów do każdego słownika.
 
 ## <a name="browser-exceptions"></a>Wyjątki przeglądarki
-Większość wyjątków przeglądarki są zgłaszane.
+Wszystkie wyjątki przeglądarki są zgłaszane.
 
-Jeśli strona sieci web zawiera pliki skryptów z sieci dostarczania zawartości lub ```crossorigin="anonymous"```innych domen, upewnij się, że tag skryptu ma atrybut i że serwer wysyła [nagłówki CORS](https://enable-cors.org/). Pozwoli to uzyskać ślad stosu i szczegóły dla nieobsługiwał wyjątków JavaScript z tych zasobów.
+Jeśli strona sieci Web zawiera pliki skryptów z sieci dostarczania zawartości lub innych domen, upewnij się, że tag skryptu ma ```crossorigin="anonymous"```atrybut i że serwer wysyła [nagłówki CORS](https://enable-cors.org/). Pozwoli to na uzyskanie śledzenia i szczegółów stosu dla nieobsłużonych wyjątków JavaScript z tych zasobów.
 
 ## <a name="reuse-your-telemetry-client"></a>Ponowne używanie klienta telemetrii
 
 > [!NOTE]
-> TelemetryClient zaleca się wystąpienia raz i ponownie używane przez cały okres użytkowania aplikacji.
+> Zaleca się utworzenie wystąpienia TelemetryClient raz i ponowne użycie przez cały czas życia aplikacji.
 
-Poniżej znajduje się przykład przy użyciu TelemetryClient poprawnie.
+Poniżej przedstawiono przykład użycia TelemetryClient prawidłowo.
 
 ```csharp
 public class GoodController : ApiController
@@ -180,10 +180,10 @@ public class GoodController : ApiController
 ```
 
 
-## <a name="web-forms"></a>Formularze internetowe
-W przypadku formularzy sieci web moduł HTTP będzie mógł zbierać wyjątki, gdy nie ma przekierowań skonfigurowanych za pomocą funkcji CustomErrors.
+## <a name="web-forms"></a>Formularze sieci Web
+W przypadku formularzy sieci Web moduł HTTP będzie mógł zbierać wyjątki, gdy nie ma żadnych przekierowań skonfigurowanych dla usługi CustomErrors.
 
-Jeśli jednak masz aktywne przekierowania, dodaj następujące wiersze do funkcji Application_Error w Global.asax.cs. (Dodaj plik Global.asax, jeśli jeszcze go nie masz).
+Ale jeśli masz aktywne przekierowania, Dodaj następujące wiersze do funkcji Application_Error w Global.asax.cs. (Dodaj plik Global. asax, jeśli jeszcze go nie masz).
 
 ```csharp
     void Application_Error(object sender, EventArgs e)
@@ -197,24 +197,24 @@ Jeśli jednak masz aktywne przekierowania, dodaj następujące wiersze do funkcj
     }
 ```
 ## <a name="mvc"></a>MVC
-Począwszy od application insights Web SDK w wersji 2.6 (beta3 i nowsze), Usługa Application Insights automatycznie zbiera nieobsługiwane wyjątki generowane w metodach kontrolerów MVC 5+. Jeśli wcześniej dodano niestandardowy program obsługi do śledzenia takich wyjątków (zgodnie z opisem w poniższych przykładach), można go usunąć, aby zapobiec podwójnemu śledzeniu wyjątków.
+Począwszy od Application Insights zestawu SDK sieci Web w wersji 2,6 (beta3 i nowszych), Application Insights zbiera Nieobsłużone wyjątki, które zostały automatycznie zgłoszone w metodach kontrolerów MVC 5. Jeśli wcześniej dodano niestandardową procedurę obsługi do śledzenia takich wyjątków (zgodnie z opisem w poniższych przykładach), można ją usunąć, aby zapobiec podwójnemu śledzeniu wyjątków.
 
-Istnieje wiele przypadków, których filtry wyjątków nie mogą obsłużyć. Przykład:
+Istnieją różne przypadki, w których nie można obsłużyć filtrów wyjątków. Przykład:
 
-* Wyjątki generowane przez konstruktory kontrolerów.
-* Wyjątki generowane z programów obsługi komunikatów.
-* Wyjątki zgłaszane podczas routingu.
-* Wyjątki generowane podczas serializacji zawartości odpowiedzi.
-* Wyjątek zgłoszony podczas uruchamiania aplikacji.
+* Wyjątki zgłoszone przez konstruktory kontrolerów.
+* Wyjątki zgłoszone przez programy obsługi komunikatów.
+* Wyjątki zgłoszone podczas routingu.
+* Wyjątki zgłoszone podczas serializacji zawartości odpowiedzi.
+* Zgłoszono wyjątek podczas uruchamiania aplikacji.
 * Wyjątek zgłoszony w zadaniach w tle.
 
 Wszystkie wyjątki *obsługiwane* przez aplikację nadal muszą być śledzone ręcznie.
-Nieobsługiwalne wyjątki pochodzące z kontrolerów zazwyczaj powodują 500 odpowiedzi "Wewnętrzny błąd serwera". Jeśli taka odpowiedź jest ręcznie skonstruowana w wyniku obsługiwanego wyjątku (lub w ogóle nie `ResultCode` jest wyjątkiem) jest śledzona w odpowiedniej telemetrii żądania z 500, jednak zestaw SDK usługi Application Insights nie może śledzić odpowiedniego wyjątku.
+Nieobsłużone wyjątki pochodzące z kontrolerów zwykle powodują, że odpowiedź 500 "wewnętrzny błąd serwera". Jeśli taka odpowiedź jest tworzona ręcznie w wyniku obsłużonego wyjątku (lub bez wyjątku), jest śledzona w odpowiedniej telemetrii żądania z `ResultCode` 500, Application Insights jednak zestaw SDK nie może śledzić odpowiadającego wyjątku.
 
 ### <a name="prior-versions-support"></a>Obsługa wcześniejszych wersji
-Jeśli używasz MVC 4 (i wcześniej) application insights Web SDK 2.5 (i wcześniej), odnoszą się do następujących przykładów do śledzenia wyjątków.
+W przypadku używania MVC 4 (i wcześniejszych) Application Insights Web SDK 2,5 (i starszych) zapoznaj się z poniższymi przykładami, aby śledzić wyjątki.
 
-Jeśli konfiguracja [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) jest `Off`, a następnie wyjątki będą dostępne dla [modułu HTTP](https://msdn.microsoft.com/library/ms178468.aspx) do zbierania. Jednak jeśli jest `RemoteOnly` (domyślnie) lub `On`, a następnie wyjątek zostanie wyczyszczone i nie będzie dostępny dla usługi Application Insights do automatycznego zbierania. Można to naprawić, zastępując [klasę System.Web.Mvc.HandleErrorAttribute](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)i stosując zastąpione klasy, jak pokazano dla różnych wersji MVC poniżej[(źródło GitHub):](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)
+Jeśli konfiguracja [customErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) ma `Off`wartość, wyjątki będą dostępne dla [modułu http](https://msdn.microsoft.com/library/ms178468.aspx) do zbierania. Jednak jeśli jest `RemoteOnly` (domyślnie) lub `On`, wyjątek zostanie wyczyszczony i nie będzie dostępny do Application Insights do automatycznego zbierania. Można to naprawić, zastępując [klasę System. Web. MVC. HandleErrorAttribute](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)i stosując przesłoniętą klasę, jak pokazano w różnych wersjach MVC poniżej ([Źródło GitHub](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
 ```csharp
     using System;
@@ -244,7 +244,7 @@ Jeśli konfiguracja [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.a
 ```
 
 #### <a name="mvc-2"></a>MVC 2
-Zastąp atrybut HandleError nowym atrybutem w kontrolerach.
+Zastąp atrybut HandleError nowym atrybutem na kontrolerach.
 
 ```csharp
     namespace MVC2App.Controllers
@@ -255,10 +255,10 @@ Zastąp atrybut HandleError nowym atrybutem w kontrolerach.
     ...
 ```
 
-[Przykładowe](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
+[Przykład](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
-Zarejestruj `AiHandleErrorAttribute` się jako filtr globalny w Global.asax.cs:
+Zarejestruj `AiHandleErrorAttribute` jako filtr globalny w Global.asax.cs:
 
 ```csharp
     public class MyMvcApplication : System.Web.HttpApplication
@@ -270,7 +270,7 @@ Zarejestruj `AiHandleErrorAttribute` się jako filtr globalny w Global.asax.cs:
      ...
 ```
 
-[Przykładowe](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
+[Przykład](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
 #### <a name="mvc-4-mvc5"></a>MVC 4, MVC5
 Zarejestruj AiHandleErrorAttribute jako filtr globalny w FilterConfig.cs:
@@ -286,28 +286,28 @@ Zarejestruj AiHandleErrorAttribute jako filtr globalny w FilterConfig.cs:
     }
 ```
 
-[Przykładowe](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
+[Przykład](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
 ## <a name="web-api"></a>Interfejs API sieci Web
-Począwszy od application insights Web SDK w wersji 2.6 (beta3 i nowsze), Usługa Application Insights zbiera nieobsługiwane wyjątki generowane w metodach kontrolera automatycznie dla webapi 2+. Jeśli wcześniej dodano niestandardowy program obsługi do śledzenia takich wyjątków (zgodnie z opisem w poniższych przykładach), można go usunąć, aby zapobiec podwójnemu śledzeniu wyjątków.
+Począwszy od Application Insights zestawu SDK sieci Web w wersji 2,6 (beta3 i nowszych), Application Insights zbiera Nieobsłużone wyjątki, które są automatycznie generowane w metodach kontrolera dla WebAPI 2 +. Jeśli wcześniej dodano niestandardową procedurę obsługi do śledzenia takich wyjątków (zgodnie z opisem w poniższych przykładach), można ją usunąć, aby zapobiec podwójnemu śledzeniu wyjątków.
 
-Istnieje wiele przypadków, których filtry wyjątków nie mogą obsłużyć. Przykład:
+Istnieją różne przypadki, w których nie można obsłużyć filtrów wyjątków. Przykład:
 
-* Wyjątki generowane przez konstruktory kontrolerów.
-* Wyjątki generowane z programów obsługi komunikatów.
-* Wyjątki zgłaszane podczas routingu.
-* Wyjątki generowane podczas serializacji zawartości odpowiedzi.
-* Wyjątek zgłoszony podczas uruchamiania aplikacji.
+* Wyjątki zgłoszone przez konstruktory kontrolerów.
+* Wyjątki zgłoszone przez programy obsługi komunikatów.
+* Wyjątki zgłoszone podczas routingu.
+* Wyjątki zgłoszone podczas serializacji zawartości odpowiedzi.
+* Zgłoszono wyjątek podczas uruchamiania aplikacji.
 * Wyjątek zgłoszony w zadaniach w tle.
 
 Wszystkie wyjątki *obsługiwane* przez aplikację nadal muszą być śledzone ręcznie.
-Nieobsługiwalne wyjątki pochodzące z kontrolerów zazwyczaj powodują 500 odpowiedzi "Wewnętrzny błąd serwera". Jeśli taka odpowiedź jest ręcznie skonstruowana w wyniku obsługiwanego wyjątku (lub w ogóle nie jest `ResultCode` wyjątkiem) jest śledzona w odpowiedniej telemetrii żądania z 500, jednak zestaw SDK usługi Application Insights nie może śledzić odpowiedniego wyjątku.
+Nieobsłużone wyjątki pochodzące z kontrolerów zwykle powodują, że odpowiedź 500 "wewnętrzny błąd serwera". Jeśli taka odpowiedź jest tworzona ręcznie w wyniku obsłużonego wyjątku (lub bez wyjątku), jest śledzona w odpowiedniej telemetrii żądania z `ResultCode` 500, Application Insights jednak zestaw SDK nie może śledzić odpowiadającego wyjątku.
 
 ### <a name="prior-versions-support"></a>Obsługa wcześniejszych wersji
-Jeśli używasz webapi 1 (i wcześniej) aplikacji Application Insights Web SDK 2.5 (i wcześniej), zapoznaj się z poniższymi przykładami, aby śledzić wyjątki.
+Jeśli używasz WebAPI 1 (i starszych) Application Insights Web SDK 2,5 (i starszych), zapoznaj się z poniższymi przykładami, aby śledzić wyjątki.
 
-#### <a name="web-api-1x"></a>Internetowy interfejs API 1.x
-Zastąp atrybut System.Web.Http.Filters.ExceptionFilterAttribute:
+#### <a name="web-api-1x"></a>Interfejs API sieci Web 1. x
+Zastąp system. Web. http. filters. ExceptionFilterAttribute:
 
 ```csharp
     using System.Web.Http.Filters;
@@ -330,7 +330,7 @@ Zastąp atrybut System.Web.Http.Filters.ExceptionFilterAttribute:
     }
 ```
 
-Ten atrybut można dodać do określonych kontrolerów lub dodać go do globalnej konfiguracji filtru w klasie WebApiConfig:
+Można dodać ten zastąpiony atrybut do określonych kontrolerów lub dodać go do konfiguracji filtru globalnego w klasie WebApiConfig:
 
 ```csharp
     using System.Web.Http;
@@ -354,10 +354,10 @@ Ten atrybut można dodać do określonych kontrolerów lub dodać go do globalne
     }
 ```
 
-[Przykładowe](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
+[Przykład](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-#### <a name="web-api-2x"></a>Internetowy interfejs API 2.x
-Dodaj implementację IExceptionLogger:
+#### <a name="web-api-2x"></a>Web API 2. x
+Dodaj implementację interfejsu iexceptionlogger:
 
 ```csharp
     using System.Web.Http.ExceptionHandling;
@@ -409,15 +409,15 @@ Dodaj to do usług w WebApiConfig:
      }
 ```
 
-[Przykładowe](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
+[Przykład](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
 
-Jako alternatywy, można:
+Jako alternatywy, możesz:
 
-1. Zastąp tylko ExceptionHandler z niestandardowej implementacji IExceptionHandler. Jest to wywoływane tylko wtedy, gdy struktura jest nadal w stanie wybrać komunikat odpowiedzi do wysłania (nie wtedy, gdy połączenie zostanie przerwane na przykład)
-2. Filtry wyjątków (zgodnie z opisem w sekcji dotyczącej kontrolerów interfejsu API sieci Web 1.x powyżej) — nie są wywoływane we wszystkich przypadkach.
+1. Zastąp jedyną ExceptionHandlerą niestandardową implementacją IExceptionHandler. Jest to możliwe tylko wtedy, gdy struktura nadal może wybrać komunikat odpowiedzi do wysłania (nie w przypadku przerwania połączenia dla wystąpienia)
+2. Filtry wyjątków (zgodnie z opisem w sekcji dotyczącej kontrolerów Web API 1. x powyżej) — nie są wywoływane we wszystkich przypadkach.
 
 ## <a name="wcf"></a>WCF
-Dodaj klasę, która rozszerza Atrybut i implementuje IErrorHandler i IServiceBehavior.
+Dodaj klasę rozszerzającą atrybut i implementującą IErrorHandler i IServiceBehavior.
 
 ```csharp
     using System;
@@ -479,16 +479,16 @@ Add the attribute to the service implementations:
          ...
 ```
 
-[Przykładowe](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
+[Przykład](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## <a name="exception-performance-counters"></a>Liczniki wydajności wyjątków
-Jeśli agent [aplikacji aplikacji jest zainstalowany](../../azure-monitor/app/monitor-performance-live-website-now.md) na serwerze, można uzyskać wykres współczynnika wyjątków mierzonego przez .NET. Obejmuje to zarówno obsługiwane, jak i nieobsługiwały wyjątki .NET.
+Jeśli na serwerze [zainstalowano agenta Application Insights](../../azure-monitor/app/monitor-performance-live-website-now.md) , można uzyskać wykres częstotliwości wyjątków mierzony przez platformę .NET. Dotyczy to zarówno obsłużonych, jak i nieobsługiwanych wyjątków platformy .NET.
 
-Otwórz kartę Eksplorator metryk, dodaj nowy wykres i wybierz **pozycję Współczynnik wyjątków**, wymieniony w obszarze Liczniki wydajności.
+Otwórz kartę Eksplorator metryk, Dodaj nowy wykres i wybierz pozycję **częstotliwość wyjątków**, która znajduje się w obszarze liczniki wydajności.
 
-Struktura .NET oblicza stawkę, licząc liczbę wyjątków w interwale i dzieląc przez długość interwału.
+Program .NET Framework oblicza stawkę, zliczając liczbę wyjątków w interwale i dzieląc je na długość interwału.
 
-Różni się to od liczby "Wyjątków" obliczonej przez raporty portalu usługi Application Insights z inwentaryzacji TrackException. Interwały próbkowania są różne, a SDK nie wysyła raportów TrackException dla wszystkich obsługiwanych i nieobsługiwał wyjątków.
+Różni się to od licznika "Exceptions" obliczonego w raportach zliczania portalu Application Insights. Interwały próbkowania są różne, a zestaw SDK nie wysyła raportów usługi Trackexception dla wszystkich obsłużonych i nieobsłużonych wyjątków.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Monitorowanie REST, SQL i innych wywołań zależności](../../azure-monitor/app/asp-net-dependencies.md)

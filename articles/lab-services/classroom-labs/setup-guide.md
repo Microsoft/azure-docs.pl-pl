@@ -1,6 +1,6 @@
 ---
-title: Przewodnik po przyspieszonym instalacyjnym laboratorium w klasie dla usług Azure Lab Services
-description: Ten przewodnik pomaga twórcom laboratorium szybko skonfigurować konto laboratoryjne do użytku w ich szkole.
+title: Przewodnik konfigurowania dla Azure Lab Services
+description: Ten przewodnik ułatwia twórcom laboratorium szybkie konfigurowanie konta laboratorium do użycia w ramach szkoły.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,125 +14,125 @@ ms.topic: article
 ms.date: 3/18/2020
 ms.author: spelluru
 ms.openlocfilehash: e00b6dd5af1cb489aee9e8b4c9f3337eb02e4b14
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878106"
 ---
-# <a name="classroom-lab-setup-guide"></a>Przewodnik po konfiguracji laboratorium w klasie
+# <a name="classroom-lab-setup-guide"></a>Przewodnik konfigurowania laboratorium zajęć
 
-Proces publikowania laboratorium dla uczniów może potrwać do kilku godzin, w zależności od liczby maszyn wirtualnych (maszyn wirtualnych), które zostaną utworzone w laboratorium. Odczekaj co najmniej jeden dzień na skonfigurowanie laboratorium, aby upewnić się, że działa poprawnie i dać wystarczająco dużo czasu na publikowanie maszyn wirtualnych uczniów.
+Proces publikowania laboratorium dla uczniów może trwać do kilku godzin w zależności od liczby maszyn wirtualnych, które zostaną utworzone w laboratorium. Poczekaj co najmniej dzień, aby skonfigurować laboratorium, aby upewnić się, że działa prawidłowo i aby umożliwić wystarczającą ilość czasu na publikowanie maszyn wirtualnych uczniów.
 
-## <a name="understand-the-lab-requirements-of-your-class"></a>Poznaj wymagania laboratoryjne swojej klasy
+## <a name="understand-the-lab-requirements-of-your-class"></a>Zapoznaj się z wymaganiami laboratorium klasy
 
-Przed skonfigurowaniem nowego laboratorium należy wziąć pod uwagę następujące pytania.
+Przed skonfigurowaniem nowego laboratorium należy wziąć pod uwagę następujące kwestie.
 
-### <a name="what-software-requirements-does-the-class-have"></a>Jakie wymagania dotyczące oprogramowania ma klasa?
+### <a name="what-software-requirements-does-the-class-have"></a>Jakie wymagania programowe ma Klasa?
 
-Na podstawie celów uczenia się klasy zdecyduj, który system operacyjny, aplikacje i narzędzia muszą być zainstalowane na maszynach wirtualnych laboratorium. Aby skonfigurować maszyny wirtualne w laboratorium, dostępne są trzy opcje:
+Na podstawie celów szkoleniowych klasy należy zdecydować, który system operacyjny, aplikacje i narzędzia muszą być zainstalowane na maszynach wirtualnych laboratorium. Aby skonfigurować maszyny wirtualne laboratorium, dostępne są trzy opcje:
 
-- **Użyj obrazu portalu Azure Marketplace:** usługa Azure Marketplace zawiera setki obrazów, których można użyć podczas tworzenia laboratorium. W przypadku niektórych klas jeden z tych obrazów może już zawierać wszystko, czego potrzebujesz do zajęć.
+- **Korzystanie z obrazu portalu Azure Marketplace**: Witryna Azure Marketplace udostępnia setki obrazów, których można użyć podczas tworzenia laboratorium. W przypadku niektórych klas jeden z tych obrazów może już zawierać wszystko, co jest potrzebne dla klasy.
 
-- **Utwórz nowy obraz niestandardowy:** Możesz utworzyć własny obraz niestandardowy przy użyciu obrazu portalu Azure Marketplace jako punktu wyjścia i dostosować go, instalując dodatkowe oprogramowanie i wprowadzać zmiany konfiguracji.
+- **Tworzenie nowego obrazu niestandardowego**: możesz utworzyć własny obraz niestandardowy przy użyciu obrazu portalu Azure Marketplace jako punktu wyjścia i dostosować go, instalując dodatkowe oprogramowanie i wprowadzając zmiany w konfiguracji.
 
-- **Użyj istniejącego obrazu niestandardowego:** można ponownie użyć istniejących obrazów niestandardowych, które zostały wcześniej utworzone lub które zostały utworzone przez innych administratorów lub wykładowców w szkole. Wymaga to od administratorów skonfigurowania udostępnionej galerii obrazów, która jest repozytorium do zapisywania obrazów niestandardowych.
-
-> [!NOTE]
-> Administratorzy są odpowiedzialni za włączenie obrazów i obrazów niestandardowych w portalu Azure Marketplace, dzięki czemu można ich używać. Koordynuj działania z działem IT, aby upewnić się, że potrzebne obrazy są włączone. Obrazy niestandardowe, które tworzysz są automatycznie włączane do użytku w laboratoriach, które jesteś właścicielem.
-
-### <a name="what-hardware-requirements-does-the-class-have"></a>Jakie wymagania sprzętowe ma klasa?
-
-Istnieje wiele rozmiarów obliczeń, które można wybrać:
-
-- Zagnieżdżone rozmiary wirtualizacji, dzięki czemu można udzielić dostępu do uczniów do maszyny Wirtualnej, która jest w stanie hostować wiele zagnieżdżonych maszyn wirtualnych. Na przykład można użyć tego rozmiaru obliczeń dla kursów sieciowych.
-
-- Rozmiary procesorów GPU, dzięki czemu uczniowie mogą korzystać z typów aplikacji intensywnie korzystających z komputera. Na przykład ten wybór może być odpowiedni dla sztucznej inteligencji i uczenia maszynowego.
-
-Zapoznaj się z przewodnikiem na [temat rozmiaru maszyny Wirtualnej,](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing) aby zobaczyć pełną listę dostępnych rozmiarów obliczeń.
+- **Użyj istniejącego obrazu niestandardowego**: możesz ponownie użyć istniejących wcześniej utworzonych obrazów niestandardowych lub utworzonych przez innych administratorów lub wykładowców w szkole. Wymaga to od administratorów skonfigurowania udostępnionej galerii obrazów, która jest repozytorium do zapisywania obrazów niestandardowych.
 
 > [!NOTE]
-> W zależności od regionu laboratorium może być widoczna mniejsza liczba dostępnych rozmiarów obliczeń, ponieważ różni się to w zależności od regionu. Ogólnie rzecz biorąc należy wybrać najmniejszy rozmiar obliczeń, który jest najbliżej Twoich potrzeb. Dzięki usłudze Azure Lab Services można później skonfigurować nowe laboratorium o innej pojemności obliczeniowej.
+> Administratorzy są odpowiedzialni za Włączanie obrazów witryny Azure Marketplace i obrazów niestandardowych, dzięki czemu można z nich korzystać. Koordynuj z działem IT, aby upewnić się, że obrazy, które są potrzebne, są włączone. Utworzone obrazy niestandardowe są automatycznie włączane do użycia w ramach własnych laboratoriów.
 
-### <a name="what-dependencies-does-the-class-have-on-external-azure-or-network-resources"></a>Jakie zależności ma klasa na zewnętrznej platformy Azure lub zasobów sieciowych?
+### <a name="what-hardware-requirements-does-the-class-have"></a>Jakie wymagania sprzętowe ma Klasa?
 
-Jeśli maszyny wirtualne laboratorium muszą używać zasobów zewnętrznych, takich jak baza danych, udział plików lub serwer licencjonowania, koordynuj z administratorami, aby upewnić się, że laboratorium ma dostęp do tych zasobów.
+Istnieją różne rozmiary obliczeń, spośród których można wybrać:
 
-Aby uzyskać dostęp do zasobów platformy Azure, które *nie* są zabezpieczone przez sieć wirtualną, nie trzeba szukać dodatkowej konfiguracji przez administratorów. Dostęp do tych zasobów można uzyskać za pośrednictwem publicznego internetu.
+- Zagnieżdżone rozmiary wirtualizacji, dzięki czemu możesz zapewnić dostęp do uczniów do maszyny wirtualnej, która może obsługiwać wiele zagnieżdżonych maszyn wirtualnych. Na przykład można użyć tego rozmiaru obliczeń dla kursów sieciowych.
+
+- Rozmiary procesora GPU, dzięki czemu uczniowie mogą korzystać z typów aplikacji intensywnie korzystających z komputerów. Na przykład ten wybór może być odpowiedni dla sztucznej analizy i uczenia maszynowego.
+
+Zapoznaj się z przewodnikiem dotyczącym [ustalania rozmiaru maszyny wirtualnej](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing) , aby wyświetlić pełną listę dostępnych rozmiarów obliczeniowych.
 
 > [!NOTE]
-> Należy rozważyć, czy można zmniejszyć zależności laboratorium do zasobów zewnętrznych, zapewniając zasób bezpośrednio na maszynie Wirtualnej. Na przykład, aby wyeliminować konieczność odczytywania danych z zewnętrznej bazy danych, można zainstalować bazę danych bezpośrednio na maszynie Wirtualnej.  
+> W zależności od regionu laboratorium można zobaczyć mniej dostępne rozmiary obliczeń, ponieważ zależy to od regionu. Ogólnie rzecz biorąc, należy wybrać najmniejszy rozmiar obliczeń zbliżony do Twoich potrzeb. Za pomocą Azure Lab Services można skonfigurować nowe laboratorium z inną pojemnością obliczeniową później, w razie konieczności.
 
-### <a name="how-will-costs-be-controlled"></a>W jaki sposób koszty będą kontrolowane?
+### <a name="what-dependencies-does-the-class-have-on-external-azure-or-network-resources"></a>Jakie zależności są zależne od platformy Azure lub zasobów sieciowych?
 
-Usługi Lab services używają modelu cenowego płatności zgodnie z rzeczywistym użyciem, co oznacza, że płacisz tylko za czas, w którym działa maszyna wirtualna w laboratorium. Aby kontrolować koszty, dostępne są trzy opcje, które są zwykle używane w połączeniu ze sobą:
+Jeśli maszyny wirtualne laboratorium muszą używać zasobów zewnętrznych, takich jak baza danych, udział plików lub serwer licencjonowania, koordynuj się z administratorami, aby upewnić się, że laboratorium ma dostęp do tych zasobów.
 
-- **Harmonogram:** Harmonogram umożliwia automatyczne kontrolowanie, kiedy maszyny wirtualne w laboratoriach są uruchamiane i zamykane.
-- **Przydział:** Przydział kontroluje liczbę godzin, przez które uczniowie będą mieli dostęp do maszyny Wirtualnej poza zaplanowanymi godzinami. Jeśli przydział zostanie osiągnięty, gdy student go używa, maszyna wirtualna jest automatycznie zamykana. Student nie może ponownie uruchomić maszyny Wirtualnej, chyba że przydział zostanie zwiększony.
-- **Automatyczne zamykanie:** Po włączeniu ustawienie automatycznego zamykania powoduje automatyczne zamykanie maszyn wirtualnych systemu Windows po pewnym czasie, po odłączeniu studenta od sesji protokołu RDP (Remote Desktop Protocol). To ustawienie jest domyślnie wyłączone.  
+Aby uzyskać dostęp do zasobów platformy Azure, które *nie* są zabezpieczone przez sieć wirtualną, nie musisz szukać dodatkowych konfiguracji przez administratorów. Dostęp do tych zasobów można uzyskać za pomocą publicznego Internetu.
+
+> [!NOTE]
+> Należy rozważyć, czy można zmniejszyć zależności laboratorium do zasobów zewnętrznych, dostarczając zasób bezpośrednio na maszynie wirtualnej. Na przykład aby wyeliminować konieczność odczytywania danych z zewnętrznej bazy danych, można zainstalować bazę danych bezpośrednio na maszynie wirtualnej.  
+
+### <a name="how-will-costs-be-controlled"></a>Jak będzie można kontrolować koszty?
+
+Usługi Lab Services korzystają z modelu cen z płatność zgodnie z rzeczywistym użyciem, co oznacza, że płacisz tylko za czas działania maszyny wirtualnej laboratorium. Aby kontrolować koszty, dostępne są trzy opcje, które zwykle są używane w połączeniu ze sobą:
+
+- **Harmonogram**: harmonogram pozwala na automatyczne sterowanie, gdy maszyny wirtualne w laboratoriach są uruchamiane i zamykane.
+- **Limit przydziału**: określa liczbę godzin, przez które uczniowie będą mieli dostęp do maszyny wirtualnej poza zaplanowanymi godzinami. Jeśli przydział zostanie osiągnięty w czasie korzystania z niego, maszyna wirtualna zostanie automatycznie wyłączona. Student nie może ponownie uruchomić maszyny wirtualnej, o ile nie zwiększono limitu przydziału.
+- **Automatyczne zamykanie**: po włączeniu ustawienia automatycznego zamykania powoduje automatyczne wyłączenie maszyn wirtualnych z systemem Windows po upływie określonego czasu, gdy student odłączy się od sesji Remote Desktop Protocol (RDP). To ustawienie jest domyślnie wyłączone.  
 
     > [!NOTE]
     > To ustawienie obecnie istnieje tylko dla systemu Windows.
 
-### <a name="how-will-students-save-their-work"></a>W jaki sposób uczniowie uratują swoją pracę?
+### <a name="how-will-students-save-their-work"></a>Jak uczniowie mogą zapisywać swoją służbę?
 
-Uczniowie są przypisywane ich własnej maszyny Wirtualnej, który jest przypisany do nich przez cały okres istnienia laboratorium. Mogą wybrać:
+Studenci mają przypisane do nich własną maszynę wirtualną, która jest przypisana do nich przez okres istnienia laboratorium. Mogą oni:
 
 - Zapisz bezpośrednio na maszynie wirtualnej.
-- Zapisz w lokalizacji zewnętrznej, takiej jak OneDrive lub GitHub.
+- Zapisz w lokalizacji zewnętrznej, np. w usłudze OneDrive lub GitHub.
 
-Usługa OneDrive jest możliwa do automatycznego skonfigurowania usługi OneDrive dla uczniów na maszynach wirtualnych w laboratorium.
+Możliwe jest automatyczne skonfigurowanie usługi OneDrive dla studentów na maszynach wirtualnych laboratorium.
 
 > [!NOTE]
-> Aby upewnić się, że twoi uczniowie nadal mają dostęp do zapisanej pracy poza laboratorium, a po zakończeniu zajęć zalecamy uczniom zapisanie swojej pracy w zewnętrznym repozytorium.
+> Aby mieć pewność, że uczniowie mają ciągły dostęp do swoich zapisanych zadań poza laboratorium, a po zakończeniu klasy zalecamy, aby studenci zapisywali pracę w repozytorium zewnętrznym.
 
-### <a name="how-will-students-connect-to-their-vm"></a>W jaki sposób uczniowie będą łączyć się ze swoją maszyną wirtualną?
+### <a name="how-will-students-connect-to-their-vm"></a>Jak uczniowie będą łączyć się z maszyną wirtualną?
 
-W przypadku maszyn wirtualnych z protokołu RDP do systemu Windows zaleca się, aby uczniowie korzystali z [klienta pulpitu zdalnego firmy Microsoft](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients). Klient pulpitu zdalnego obsługuje komputery Mac, Chromebooki i system Windows.
+W przypadku protokołu RDP z maszynami wirtualnymi z systemem Windows zaleca się, aby studenci używali [klienta pulpit zdalny Microsoft](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients). Klient Pulpit zdalny obsługuje komputery Mac, Chromebooks i Windows.
 
-W przypadku maszyn wirtualnych z systemem Linux uczniowie mogą używać protokołu SSH lub RDP. Aby uczniowie połączyli się za pomocą protokołu RDP, należy zainstalować i skonfigurować niezbędne pakiety RDP i GUI.
+W przypadku maszyn wirtualnych z systemem Linux studenci mogą korzystać z protokołów SSH lub RDP. Aby studenci mogli nawiązywać połączenia przy użyciu protokołu RDP, należy zainstalować i skonfigurować wymagane pakiety protokołu RDP i interfejsu GUI.
 
 ## <a name="set-up-your-lab"></a>Konfigurowanie laboratorium
 
-Po zrozumieniu wymagań dla laboratorium klasy, jesteś gotowy, aby go skonfigurować. Skorzystaj z łączy w tej sekcji, aby dowiedzieć się, jak skonfigurować laboratorium.
+Po zrozumieniu wymagań dla laboratorium klasy można rozpocząć konfigurację. Postępuj zgodnie z linkami w tej sekcji, aby dowiedzieć się, jak skonfigurować laboratorium.
 
-1. **Tworzenie laboratorium.** Instrukcje można znaleźć w samouczku na temat [tworzenia laboratorium w klasie.](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#create-a-classroom-lab)
+1. **Utwórz laboratorium.** Aby uzyskać instrukcje, zapoznaj się z samouczkiem dotyczącym [tworzenia laboratorium klas](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#create-a-classroom-lab) .
 
     > [!NOTE]
-    > Jeśli klasa wymaga zagnieżdżonej wirtualizacji, zobacz kroki [włączania zagnieżdżonej wirtualizacji](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-nested-virtualization-template-vm).
+    > Jeśli Klasa wymaga wirtualizacji zagnieżdżonej, zapoznaj się z instrukcjami w temacie [Włączanie wirtualizacji zagnieżdżonej](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-nested-virtualization-template-vm).
 
-1. **Dostosuj obrazy i publikuj maszyny wirtualne w laboratorium.** Połącz się ze specjalną maszyną wirtualną o nazwie szablon maszyny Wirtualnej. Zobacz kroki opisane w następujących przewodnikach:
-    - [Tworzenie szablonu maszyny Wirtualnej i zarządzanie nim](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#publish-the-template-vm)
+1. **Dostosowywanie obrazów i publikowanie maszyn wirtualnych laboratorium.** Nawiąż połączenie z specjalną maszyną wirtualną o nazwie maszyna wirtualna. Zobacz kroki opisane w następujących przewodnikach:
+    - [Tworzenie i zarządzanie maszyną wirtualną szablonów](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#publish-the-template-vm)
     - [Używanie galerii obrazów udostępnionych](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-shared-image-gallery)
 
     > [!NOTE]
-    > Jeśli używasz systemu Windows, należy również zapoznać się z instrukcjami [dotyczącymi przygotowywania szablonu maszyny Wirtualnej systemu Windows](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-prepare-windows-template). Te instrukcje obejmują kroki konfigurowania usługi OneDrive i pakietu Office dla uczniów do korzystania.
+    > W przypadku korzystania z systemu Windows należy również zapoznać się z instrukcjami zawartymi w sekcji [przygotowywanie maszyny wirtualnej z szablonem systemu Windows](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-prepare-windows-template). Te instrukcje obejmują kroki konfigurowania usługi OneDrive i pakietu Office do użycia przez uczniów.
 
-1. **Zarządzanie pulą maszyn wirtualnych i pojemnością.** Można łatwo skalować w górę lub w dół pojemności maszyny Wirtualnej, zgodnie z potrzebami klasy. Należy pamiętać, że zwiększenie pojemności maszyny Wirtualnej może potrwać kilka godzin, ponieważ wiąże się to z konfigurowaniem nowych maszyn wirtualnych. Zobacz kroki konfigurowania [puli maszyn wirtualnych i zarządzania nim](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-set-virtual-machine-passwords).
+1. **Zarządzanie pulą i pojemnością maszyn wirtualnych.** Możesz łatwo skalować w górę lub w dół pojemność maszyny wirtualnej, zgodnie z potrzebami klasy. Należy pamiętać, że zwiększenie pojemności maszyny wirtualnej może potrwać kilka godzin, ponieważ obejmuje to skonfigurowanie nowych maszyn wirtualnych. Zobacz procedurę [konfigurowania puli maszyn wirtualnych i zarządzania nią](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-set-virtual-machine-passwords).
 
-1. **Dodawanie użytkowników laboratorium i zarządzanie nimi.** Aby dodać użytkowników do laboratorium, zapoznaj się z krokami w następujących samouczkach:
+1. **Dodawanie użytkowników laboratorium i zarządzanie nimi.** Aby dodać użytkowników do laboratorium, zapoznaj się z instrukcjami w następujących samouczkach:
    - [Dodawanie użytkowników do laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#add-users-to-the-lab)
-   - [Wysyłanie zaproszeń do użytkowników](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#send-invitation-emails-to-users)
+   - [Wyślij zaproszenia do użytkowników](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#send-invitation-emails-to-users)
 
-    Aby uzyskać informacje na temat typów kont, z których mogą korzystać uczniowie, zobacz [Konta uczniów](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#student-accounts).
+    Aby uzyskać informacje na temat typów kont, których mogą używać studenci, zobacz [konta uczniów](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#student-accounts).
   
-1. **Ustaw kontrolki kosztów.** Aby kontrolować koszty laboratorium, należy ustawić harmonogramy, przydziały i automatyczne zamykanie. Zobacz następujące samouczki:
+1. **Ustaw kontrolki kosztu.** Aby kontrolować koszty laboratorium, ustawiać harmonogramy, przydziały i automatyczne zamykanie. Zobacz następujące samouczki:
 
    - [Ustawianie harmonogramu](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
         > [!NOTE]
-        > W zależności od typu zainstalowanego systemu operacyjnego uruchomienie maszyny wirtualnej może potrwać kilka minut. Aby upewnić się, że maszyna wirtualna laboratorium jest gotowa do użycia w zaplanowanych godzinach, zaleca się uruchomienie maszyn wirtualnych z 30-minutowym wyprzedzeniem.
+        > W zależności od typu zainstalowanego systemu operacyjnego uruchomienie maszyny wirtualnej może potrwać kilka minut. Aby upewnić się, że maszyna wirtualna laboratorium jest gotowa do użycia w zaplanowanych godzinach, zalecamy ponowne uruchomienie maszyn wirtualnych w ciągu 30 minut.
 
-   - [Ustawianie przydziałów dla użytkowników](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) i [ustawianie dodatkowego przydziału dla określonego użytkownika](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quotas-for-specific-users)
+   - [Ustawianie przydziałów dla użytkowników](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) i [Ustawianie dodatkowego przydziału dla określonego użytkownika](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quotas-for-specific-users)
   
    - [Włączanie automatycznego zamykania po rozłączeniu](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
 
         > [!NOTE]
-        > Harmonogramy, przydziały i automatyczne zamykanie nie mają zastosowania do szablonu maszyny Wirtualnej. W związku z tym należy upewnić się, że zostanie zamknięty szablon maszyny Wirtualnej, gdy nie jest używany. W przeciwnym razie nadal ponosi koszty. Ponadto domyślnie podczas tworzenia laboratorium szablon maszyny Wirtualnej jest uruchamiany automatycznie. Upewnij się, że natychmiast zakończysz konfigurowanie laboratorium i zamknij szablon maszyny Wirtualnej.
+        > Harmonogramy, przydziały i automatyczne zamykanie nie mają zastosowania do szablonu maszyny wirtualnej. W związku z tym należy upewnić się, że wyłączasz maszynę wirtualną szablonu, gdy nie jest ona używana. W przeciwnym razie opłaty są nadal naliczane. Domyślnie podczas tworzenia laboratorium zostanie automatycznie uruchomiona maszyna wirtualna z szablonem. Upewnij się, że od razu zakończysz Konfigurowanie laboratorium i wyłączysz szablon maszyny wirtualnej.
 
-1. **Użyj pulpitu nawigacyjnego.** Aby uzyskać instrukcje, zobacz [korzystanie z pulpitu nawigacyjnego laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/use-dashboard).
+1. **Użyj pulpitu nawigacyjnego.** Aby uzyskać instrukcje, zobacz [Korzystanie z pulpitu nawigacyjnego laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/use-dashboard).
 
     > [!NOTE]
-    > Szacowany koszt wyświetlany na pulpicie nawigacyjnym to maksymalny koszt, jakiego można oczekiwać od uczniów podczas korzystania z laboratorium. Na przykład *nie* zostanie naliczona opłata za niewykorzystane godziny przydziału przez uczniów. Szacowane koszty *nie* odzwierciedlają żadnych opłat za korzystanie z szablonu maszyny Wirtualnej lub galerii obrazów udostępnionych.
+    > Szacowany koszt pokazany na pulpicie nawigacyjnym to maksymalny koszt, który można oczekiwać na użycie dla studentów w laboratorium. Na przykład *nie* będzie naliczana opłata za niewykorzystane godziny według uczniów. Szacowane koszty *nie* uwzględniają żadnych opłat za korzystanie z szablonu maszyny wirtualnej lub galerii obrazów udostępnionych.
 
 ## <a name="next-steps"></a>Następne kroki
 

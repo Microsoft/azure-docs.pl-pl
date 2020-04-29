@@ -1,28 +1,28 @@
 ---
 title: Zbieranie & analizowanie dzienników zasobów
-description: Dowiedz się, jak wysyłać dzienniki zasobów i dane zdarzeń z grup kontenerów w wystąpieniach kontenerów platformy Azure do dzienników usługi Azure Monitor
+description: Dowiedz się, jak wysyłać dzienniki zasobów i dane zdarzeń z grup kontenerów w Azure Container Instances do dzienników Azure Monitor
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: danlep
 ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80892397"
 ---
-# <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Rejestrowanie grup kontenerów i wystąpień za pomocą dzienników usługi Azure Monitor
+# <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Rejestrowanie grup kontenerów i wystąpień przy użyciu dzienników Azure Monitor
 
-Obszary robocze usługi Log Analytics zapewniają scentralizowaną lokalizację do przechowywania i wykonywania zapytań o dane dziennika nie tylko z zasobów platformy Azure, ale także lokalnych zasobów i zasobów w innych chmurach. Wystąpienia kontenera platformy Azure zawiera wbudowaną obsługę wysyłania dzienników i danych zdarzeń do dzienników usługi Azure Monitor.
+Obszary robocze Log Analytics zapewniają scentralizowaną lokalizację do przechowywania i wykonywania zapytań dotyczących danych dzienników nie tylko z zasobów platformy Azure, ale także zasobów i zasobów lokalnych w innych chmurach. Azure Container Instances zawiera wbudowaną obsługę wysyłania dzienników i danych zdarzeń do dzienników Azure Monitor.
 
-Aby wysłać dane dziennika grupy kontenerów i zdarzeń do dzienników usługi Azure Monitor, określ istniejący identyfikator obszaru roboczego usługi Log Analytics i klucz obszaru roboczego podczas konfigurowania grupy kontenerów. 
+Aby wysłać dziennik grupy kontenerów i dane zdarzeń do dzienników Azure Monitor, określ istniejący Log Analytics identyfikator obszaru roboczego i klucz obszaru roboczego podczas konfigurowania grupy kontenerów. 
 
-W poniższych sekcjach opisano sposób tworzenia grupy kontenerów z włączoną funkcją rejestrowania i sposobu wykonywania zapytań o dzienniki. Można również [zaktualizować grupę kontenerów](container-instances-update.md) za pomocą identyfikatora obszaru roboczego i klucza obszaru roboczego, aby włączyć rejestrowanie.
+W poniższych sekcjach opisano sposób tworzenia grupy kontenerów z włączoną obsługą rejestrowania oraz wykonywania zapytań dotyczących dzienników. Aby włączyć rejestrowanie, można także [zaktualizować grupę kontenerów](container-instances-update.md) za pomocą identyfikatora obszaru roboczego i klucza obszaru roboczego.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 > [!NOTE]
-> Obecnie można wysyłać tylko dane zdarzeń z wystąpień kontenera systemu Linux do usługi Log Analytics.
+> Obecnie można wysyłać tylko dane zdarzeń z wystąpień kontenera systemu Linux do Log Analytics.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -38,8 +38,8 @@ Usługa Azure Container Instances wymaga uprawnień do wysyłania danych do obsz
 Aby uzyskać identyfikator obszaru roboczego analizy dzienników i klucz podstawowy:
 
 1. W witrynie Azure Portal przejdź do obszaru roboczego usługi Log Analytics
-1. W obszarze **Ustawienia**wybierz pozycję **Ustawienia zaawansowane**
-1. Wybierz **podłączone źródła serwery** > **Windows** (lub **serwery Linuksa**--identyfikator i klucze są takie same dla obu)
+1. W obszarze **Ustawienia**wybierz pozycję **Ustawienia zaawansowane** .
+1. Wybierz **połączone źródła** > **serwery z systemem Windows** (lub **serwery z systemem Linux**— identyfikator i klucze są takie same dla obu)
 1. Zwróć uwagę na następujące elementy:
    * **WORKSPACE ID** (IDENTYFIKATOR OBSZARU ROBOCZEGO)
    * **PRIMARY KEY** (KLUCZ PODSTAWOWY)
@@ -48,7 +48,7 @@ Aby uzyskać identyfikator obszaru roboczego analizy dzienników i klucz podstaw
 
 Teraz, gdy masz identyfikator obszaru roboczego analizy dzienników i klucz podstawowy, możesz utworzyć grupę kontenerów z włączonym rejestrowaniem.
 
-Poniższe przykłady pokazują dwa sposoby tworzenia grupy kontenerów, która składa się z jednego płynnie kontenera: interfejsu [wiersza][fluentd] polecenia platformy Azure i interfejsu wiersza polecenia platformy Azure z szablonem YAML. Płynnie kontener tworzy kilka wierszy danych wyjściowych w domyślnej konfiguracji. Ponieważ te dane wyjściowe są wysyłane do obszaru roboczego usługi Log Analytics, są przydatne do przedstawiania wyświetlania i wykonywania zapytań przez dzienniki.
+W poniższych przykładach pokazano dwa sposoby tworzenia grupy kontenerów składającej się [z pojedynczego utworzonego][fluentd] kontenera: interfejsu wiersza polecenia platformy Azure i interfejsu wiersza polecenia platformy Azure z szablonem YAML. Pomyślny kontener wytwarza kilka wierszy danych wyjściowych w konfiguracji domyślnej. Ponieważ te dane wyjściowe są wysyłane do obszaru roboczego usługi Log Analytics, są przydatne do przedstawiania wyświetlania i wykonywania zapytań przez dzienniki.
 
 ### <a name="deploy-with-azure-cli"></a>Wdrażanie przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -92,7 +92,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Następnie wykonaj następujące polecenie, aby wdrożyć grupę kontenerów. Zamień `myResourceGroup` grupę zasobów w ramach subskrypcji (lub najpierw utwórz grupę zasobów o nazwie "myResourceGroup"):
+Następnie wykonaj następujące polecenie, aby wdrożyć grupę kontenerów. Zamień `myResourceGroup` na grupę zasobów w ramach subskrypcji (lub najpierw utwórz grupę zasobów o nazwie "Grupa zasobów"):
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
@@ -105,34 +105,34 @@ Zaraz po wykonaniu polecenia powinna pojawić się odpowiedź z usługi Azure za
 Po wdrożeniu grupy kontenerów, może upłynąć kilka minut (do 10), zanim pierwsze wpisy dziennika będą widoczne w witrynie Azure Portal. Aby wyświetlić dzienniki grupy kontenerów w `ContainerInstanceLog_CL` tabeli:
 
 1. W witrynie Azure Portal przejdź do obszaru roboczego usługi Log Analytics
-1. W obszarze **Ogólne**wybierz **pozycję Dzienniki**  
-1. Wpisz następującą kwerendę:`ContainerInstanceLog_CL | limit 50`
-1. Wybierz **pozycję Uruchom**
+1. W obszarze **Ogólne**wybierz pozycję **dzienniki** .  
+1. Wpisz następujące zapytanie:`ContainerInstanceLog_CL | limit 50`
+1. Wybierz pozycję **Uruchom**
 
-Powinna zostać wyświetlona kilka wyników wyświetlanych przez kwerendę. Jeśli na początku nie widzisz żadnych wyników, poczekaj kilka minut, a następnie wybierz przycisk **Uruchom,** aby ponownie wykonać kwerendę. Domyślnie wpisy dziennika są wyświetlane w formacie **tabeli.** Następnie możesz rozwijać wiersze, aby wyświetlić zawartość poszczególnych wpisów dziennika.
+Należy zobaczyć kilka wyników wyświetlanych przez zapytanie. Jeśli pierwsze wyniki nie są widoczne, odczekaj kilka minut, a następnie wybierz przycisk **Uruchom** , aby ponownie uruchomić zapytanie. Domyślnie wpisy dziennika są wyświetlane w formacie **tabeli** . Następnie możesz rozwijać wiersze, aby wyświetlić zawartość poszczególnych wpisów dziennika.
 
 ![Wyniki przeszukiwania dzienników w witrynie Azure Portal][log-search-01]
 
 ## <a name="view-events"></a>Wyświetlanie zdarzeń
 
-Można również wyświetlić zdarzenia dla wystąpień kontenera w witrynie Azure portal. Zdarzenia obejmują czas, w którym wystąpienie jest tworzone i kiedy jest uruchamiane. Aby wyświetlić dane `ContainerEvent_CL` zdarzeń w tabeli:
+Możesz również wyświetlać zdarzenia dla wystąpień kontenera w Azure Portal. Zdarzenia obejmują godzinę utworzenia wystąpienia i momentu jego uruchomienia. Aby wyświetlić dane zdarzenia w `ContainerEvent_CL` tabeli:
 
 1. W witrynie Azure Portal przejdź do obszaru roboczego usługi Log Analytics
-1. W obszarze **Ogólne**wybierz **pozycję Dzienniki**  
-1. Wpisz następującą kwerendę:`ContainerEvent_CL | limit 50`
-1. Wybierz **pozycję Uruchom**
+1. W obszarze **Ogólne**wybierz pozycję **dzienniki** .  
+1. Wpisz następujące zapytanie:`ContainerEvent_CL | limit 50`
+1. Wybierz pozycję **Uruchom**
 
-Powinna zostać wyświetlona kilka wyników wyświetlanych przez kwerendę. Jeśli na początku nie widzisz żadnych wyników, poczekaj kilka minut, a następnie wybierz przycisk **Uruchom,** aby ponownie wykonać kwerendę. Domyślnie wpisy są wyświetlane w formacie **tabeli.** Następnie można rozwinąć wiersz, aby wyświetlić zawartość pojedynczego wpisu.
+Należy zobaczyć kilka wyników wyświetlanych przez zapytanie. Jeśli pierwsze wyniki nie są widoczne, odczekaj kilka minut, a następnie wybierz przycisk **Uruchom** , aby ponownie uruchomić zapytanie. Domyślnie wpisy są wyświetlane w formacie **tabeli** . Następnie można rozwinąć wiersz, aby zobaczyć zawartość pojedynczego wpisu.
 
-![Wyniki wyszukiwania zdarzeń w witrynie Azure portal][log-search-02]
+![Wyniki wyszukiwania zdarzeń w Azure Portal][log-search-02]
 
 ## <a name="query-container-logs"></a>Wykonywanie zapytań dla dzienników kontenerów
 
 Dzienniki usługi Azure Monitor obejmują rozszerzony [język zapytań][query_lang] do ściągania informacji nawet z tysięcy wierszy danych wyjściowych dziennika.
 
-Podstawową strukturą kwerendy jest tabela źródłowa (w tym artykule `ContainerInstanceLog_CL` lub), `ContainerEvent_CL`po`|`której następuje seria operatorów oddzielonych znakiem potoku ( ). Można połączyć kilka operatorów, aby dostosować wyniki i wykonać funkcje zaawansowane.
+Podstawowa struktura zapytania jest tabelą źródłową (w tym artykule lub `ContainerInstanceLog_CL` `ContainerEvent_CL`), po której następuje seria operatorów oddzielonych znakiem potoku (`|`). Można połączyć kilka operatorów, aby dostosować wyniki i wykonać funkcje zaawansowane.
 
-Aby wyświetlić przykładowe wyniki kwerendy, wklej następującą kwerendę w polu tekstowym kwerendy i wybierz przycisk **Uruchom,** aby wykonać kwerendę. To zapytanie wyświetla wszystkie wpisy dziennika, których pole „Message” zawiera słowo "warn":
+Aby wyświetlić przykładowe wyniki zapytania, wklej następujące zapytanie do pola tekstowego zapytania, a następnie wybierz przycisk **Run (Uruchom** ), aby wykonać zapytanie. To zapytanie wyświetla wszystkie wpisy dziennika, których pole „Message” zawiera słowo "warn":
 
 ```query
 ContainerInstanceLog_CL

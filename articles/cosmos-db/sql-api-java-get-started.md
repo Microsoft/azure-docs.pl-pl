@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.openlocfilehash: 9f4757bca79476a1e59f5f18a94753c1ea06cf9c
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80985222"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Samouczek NoSQL: tworzenie aplikacji konsolowej w języku Java dla interfejsu API SQL
@@ -49,7 +49,7 @@ Upewnij się, że masz:
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Git](https://git-scm.com/downloads).
+* Usługi [git](https://git-scm.com/downloads).
 * [Zestaw Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable).
 * [Maven](https://maven.apache.org/download.cgi).
 
@@ -74,7 +74,7 @@ Katalog zawiera plik `pom.xml` dla projektu i folder `src` zawierający kod źr�
     </dependency>
 
 ## <a name="step-3-connect-to-an-azure-cosmos-db-account"></a><a id="Connect"></a>Krok 3. Łączenie się z kontem usługi Azure Cosmos DB
-Następnie wróć do [witryny Azure portal,](https://portal.azure.com) aby pobrać punkt końcowy i podstawowy klucz główny. Klucz podstawowy i punkt końcowy usługi Azure Cosmos DB są niezbędne, aby aplikacja wiedziała, z jakim elementem ma się połączyć, oraz aby usługa Azure Cosmos DB ufała połączeniu aplikacji.
+Następnie wróć do [Azure Portal](https://portal.azure.com) , aby pobrać punkt końcowy i podstawowy klucz główny. Klucz podstawowy i punkt końcowy usługi Azure Cosmos DB są niezbędne, aby aplikacja wiedziała, z jakim elementem ma się połączyć, oraz aby usługa Azure Cosmos DB ufała połączeniu aplikacji.
 
 W witrynie Azure Portal przejdź do swojego konta usługi Azure Cosmos DB i kliknij pozycję **Klucze**. Skopiuj identyfikator URI z portalu i wklej go w miejsce `https://FILLME.documents.azure.com` w pliku Program.java. Następnie skopiuj KLUCZ PODSTAWOWY z portalu i wklej go w miejsce `FILLME`.
 
@@ -84,7 +84,7 @@ W witrynie Azure Portal przejdź do swojego konta usługi Azure Cosmos DB i klik
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 
-![Zrzut ekranu przedstawiający witrynę Azure portal używany przez samouczek NoSQL do utworzenia aplikacji konsoli Java. Przedstawia konto usługi Azure Cosmos DB z wyróżnionym AKTYWNYM centrum, przyciskiem KLUCZE wyróżnionym w bloku konta usługi Azure Cosmos DB oraz wartościami IDENTYFIKATOR URI, KLUCZ PODSTAWOWY i KLUCZ POMOCNICZY wyróżnionymi w bloku Klucze][keys]
+![Zrzut ekranu przedstawiający Azure Portal używany przez samouczek NoSQL do tworzenia aplikacji konsolowej Java. Przedstawia konto usługi Azure Cosmos DB z wyróżnionym AKTYWNYM centrum, przyciskiem KLUCZE wyróżnionym w bloku konta usługi Azure Cosmos DB oraz wartościami IDENTYFIKATOR URI, KLUCZ PODSTAWOWY i KLUCZ POMOCNICZY wyróżnionymi w bloku Klucze][keys]
 
 ## <a name="step-4-create-a-database"></a>Krok 4. Tworzenie bazy danych
 Własną [bazę danych](databases-containers-items.md#azure-cosmos-databases) usługi Azure Cosmos DB można utworzyć za pomocą metody [createDatabase](/java/api/com.microsoft.azure.documentdb.documentclient.createdatabase) klasy **DocumentClient**. Baza danych jest kontenerem logicznym magazynu dokumentów JSON podzielonym na partycje w kolekcjach.
@@ -113,7 +113,7 @@ Kolekcję można utworzyć za pomocą metody [createCollection ](/java/api/com.m
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a name="step-6-create-json-documents"></a><a id="CreateDoc"></a>Krok 6. Tworzenie dokumentów JSON
-Dokument można utworzyć przy użyciu [metody createDocument](/java/api/com.microsoft.azure.documentdb.documentclient.createdocument) klasy **DocumentClient.** Dokumenty są zawartością JSON zdefiniowaną przez użytkownika (dowolną). Można teraz wstawić jeden lub więcej dokumentów. Jeśli masz już dane, które chcesz przechowywać w bazie danych, możesz użyć [narzędzia migracji danych](import-data.md) usługi Azure Cosmos DB, aby zaimportować dane do bazy danych.
+Dokument można utworzyć za pomocą metody [ondocument](/java/api/com.microsoft.azure.documentdb.documentclient.createdocument) klasy **DocumentClient** . Dokumenty są zawartością JSON zdefiniowaną przez użytkownika (dowolną). Można teraz wstawić jeden lub więcej dokumentów. Jeśli masz już dane, które chcesz przechowywać w bazie danych, możesz użyć [narzędzia migracji danych](import-data.md) usługi Azure Cosmos DB, aby zaimportować dane do bazy danych.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();
@@ -182,7 +182,7 @@ Gratulacje! Pomyślnie ukończono ten samouczek NoSQL i utworzono działającą 
 
 ## <a name="next-steps"></a>Następne kroki
 * Czy chcesz zapoznać się z samouczkiem aplikacji internetowej w języku Java? Zobacz [Build a web application with Java using Azure Cosmos DB](sql-api-java-application.md) (Tworzenie aplikacji internetowej w języku Java przy użyciu usługi Azure Cosmos DB).
-* Dowiedz się, jak [monitorować konto usługi Azure Cosmos DB](monitor-accounts.md).
+* Dowiedz się, jak [monitorować konto Azure Cosmos DB](monitor-accounts.md).
 * Uruchom zapytania względem naszego przykładowego zestawu danych na [placu zabaw dla zapytań](https://www.documentdb.com/sql/demo).
 
 [keys]: media/sql-api-get-started/nosql-tutorial-keys.png

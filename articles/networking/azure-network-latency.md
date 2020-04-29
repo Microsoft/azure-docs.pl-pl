@@ -1,6 +1,6 @@
 ---
-title: Statystyki opóźnienia podróży w sieci platformy Azure | Dokumenty firmy Microsoft
-description: Dowiedz się więcej o statystykach opóźnienia podróży w obie strony między regionami platformy Azure.
+title: Statystyka opóźnienia podróży sieci platformy Azure | Microsoft Docs
+description: Dowiedz się więcej o statystyce opóźnienia błądzenia między regionami platformy Azure.
 services: networking
 author: nayak-mahesh
 ms.service: virtual-network
@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 03/10/2020
 ms.author: kumud
 ms.openlocfilehash: d9cae04499f046749e504bcab89b893fcc31a81c
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80886957"
 ---
-# <a name="azure-network-round-trip-latency-statistics"></a>Statystyki opóźnienia podróży w sieci platformy Azure
+# <a name="azure-network-round-trip-latency-statistics"></a>Statystyka opóźnienia podróży sieci platformy Azure
 
-Platforma Azure stale monitoruje opóźnienia (szybkość) podstawowych obszarów sieci przy użyciu wewnętrznych narzędzi monitorowania, a także pomiarów zebranych przez [ThousandEyes](https://thousandeyes.com), usługę monitorowania syntetycznego innej firmy.
+Platforma Azure nieustannie monitoruje opóźnienia (szybkość) podstawowych obszarów swojej sieci przy użyciu wewnętrznych narzędzi do monitorowania oraz pomiarów zebranych przez [ThousandEyes](https://thousandeyes.com), a także do innych firmowych usług monitorowania syntetycznego.
 
-## <a name="how-are-the-measurements-collected"></a>W jaki sposób są zbierane pomiary?
+## <a name="how-are-the-measurements-collected"></a>Jak zbierane są pomiary?
 
-Pomiary opóźnienia są zbierane od agentów ThousandEyes, hostowanych w regionach chmury platformy Azure na całym świecie, które stale wysyłają sondy sieciowe między sobą w odstępach 1-minutowych. Miesięczne statystyki opóźnienia są uzyskiwane z uśredniania pobranych próbek dla miesiąca.
+Pomiary opóźnienia są zbierane od agentów ThousandEyes, hostowanych w regionach chmury platformy Azure na całym świecie, które w sposób ciągły wysyłają sondy sieci między sobą w interwałach 1-minutowych. Statystyki miesięczne opóźnienia pochodzą od średniej zebranych próbek przez miesiąc.
 
-## <a name="march-2020-round-trip-latency-figures"></a>Dane dotyczące opóźnień w obie strony w marcu 2020 r.
+## <a name="march-2020-round-trip-latency-figures"></a>Cyfry opóźnienia podróży w marcu 2020
 
-Poniżej przedstawiono średni miesięczny czas podróży w obie strony między regionami platformy Azure w ciągu ostatnich 31 dni (kończący się 31 marca 2020 r.). Poniższe pomiary są obsługiwane przez [ThousandEyes](https://thousandeyes.com).
+Poniżej przedstawiono średni miesięczny czas błądzenia między regionami platformy Azure w ciągu ostatnich 31 dni (kończący się na 31 marca 2020). Następujące pomiary są obsługiwane przez [ThousandEyes](https://thousandeyes.com).
 
-[![Statystyki opóźnienia między regionami platformy Azure](media/azure-network-latency/azure-network-latency.png)](media/azure-network-latency/azure-network-latency.png#lightbox)
+[![Statystyka opóźnień między regionami platformy Azure](media/azure-network-latency/azure-network-latency.png)](media/azure-network-latency/azure-network-latency.png#lightbox)
 
 ## <a name="next-steps"></a>Następne kroki
 

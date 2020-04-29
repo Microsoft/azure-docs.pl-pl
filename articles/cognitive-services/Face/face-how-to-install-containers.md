@@ -1,7 +1,7 @@
 ---
-title: Instalowanie i uruchamianie kontenerów - Face
+title: Instalowanie i uruchamianie kontenerów — Front
 titleSuffix: Azure Cognitive Services
-description: W tym artykule pokazano, jak pobrać, zainstalować i uruchomić kontenery dla twarzy w tym samouczku.
+description: W tym artykule pokazano, jak pobrać, zainstalować i uruchomić kontenery do zaprezentowania w tym samouczku instruktażu.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,31 +12,31 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 74465bddb57c14af4d02c1d3bfdc46f3ac25bef3
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80878548"
 ---
-# <a name="install-and-run-face-containers-preview"></a>Instalowanie i uruchamianie kontenerów łajdaszka (wersja zapoznawcza)
+# <a name="install-and-run-face-containers-preview"></a>Instalowanie i uruchamianie kontenerów z systemem (wersja zapoznawcza)
 
-Usługa Azure Cognitive Services Face udostępnia standardowy kontener systemu Linux dla platformy Docker, który wykrywa ludzkie twarze na obrazach. Identyfikuje również atrybuty, które obejmują punkty orientacyjne twarzy, takie jak nosy i oczy, płeć, wiek i inne cechy twarzy przewidywane maszynowo. Oprócz wykrywania face może sprawdzić, czy dwie ściany na tym samym obrazie lub różnych obrazach są takie same, używając wyniku zaufania. Ściana może również porównywać twarze z bazą danych, aby sprawdzić, czy podobna lub identyczna twarz już istnieje. Może również organizować podobne twarze w grupy przy użyciu wspólnych cech wizualnych.
+Usługa Azure Cognitive Services twarz oferuje ustandaryzowany kontener systemu Linux dla platformy Docker, który wykrywa ludzkie twarze na obrazach. Identyfikuje także atrybuty, które obejmują dzielnice, takie jak nos i oczy, płeć, wiek i inne funkcje twarzy przewidziane dla maszyn. Oprócz wykrywania, twarz może sprawdzić, czy dwie twarze w tym samym obrazie lub różnych obrazach są takie same, przy użyciu oceny ufności. Twarz może również porównać twarze z bazą danych, aby sprawdzić, czy podobna lub identyczna twarz już istnieje. Może również organizować podobne twarze w grupy przy użyciu współużytkowanych cech wizualnych.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed użyciem kontenerów usługi Face należy spełnić następujące wymagania wstępne.
+Przed użyciem kontenerów usługi Front Service należy spełnić następujące wymagania wstępne.
 
 |Wymagany|Przeznaczenie|
 |--|--|
-|Aparat platformy Docker| Aparat platformy Docker musi być zainstalowany na [komputerze-hoście](#the-host-computer). Platforma Docker udostępnia pakiety, które konfigurują środowisko platformy Docker w systemach [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) i [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Aby uzyskać podstawowe informacje na temat platformy Docker i kontenerów, zapoznaj się z artykułem [Docker overview](https://docs.docker.com/engine/docker-overview/) (Przegląd platformy Docker).<br><br> Platforma Docker musi być skonfigurowana tak, aby zezwalała kontenerom na łączenie się z danymi rozliczeń i wysyłanie ich na platformę Azure. <br><br> W systemie Windows docker również musi być skonfigurowany do obsługi kontenerów systemu Linux.<br><br>|
-|Znajomość platformy Docker | Potrzebne jest podstawowe zrozumienie pojęć platformy Docker, takich jak rejestry, repozytoria, kontenery i obrazy kontenerów. Potrzebna jest również `docker` znajomość podstawowych poleceń.| 
-|Zasób twarzy |Aby korzystać z kontenera, musisz mieć:<br><br>**Zasób** usługi Azure Face i skojarzony klucz interfejsu API i identyfikator URI punktu końcowego. Obie wartości są dostępne na stronach **Przegląd** i **Klucze** dla zasobu. Są one wymagane do uruchomienia kontenera.<br><br>**{API_KEY}**: Jeden z dwóch dostępnych kluczy zasobów na stronie **Klucze**<br><br>**{ENDPOINT_URI}**: Punkt końcowy podany na stronie **Przegląd**
+|Aparat platformy Docker| Aparat platformy Docker musi być zainstalowany na [komputerze-hoście](#the-host-computer). Platforma Docker udostępnia pakiety, które konfigurują środowisko platformy Docker w systemach [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) i [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Aby uzyskać podstawowe informacje na temat platformy Docker i kontenerów, zapoznaj się z artykułem [Docker overview](https://docs.docker.com/engine/docker-overview/) (Przegląd platformy Docker).<br><br> Program Docker musi być skonfigurowany tak, aby umożliwić kontenerom łączenie się z danymi rozliczeń i wysyłanie ich do platformy Azure. <br><br> W systemie Windows program Docker musi być również skonfigurowany do obsługi kontenerów systemu Linux.<br><br>|
+|Znajomość platformy Docker | Potrzebna jest podstawowa znajomość pojęć platformy Docker, takich jak rejestry, repozytoria, kontenery i obrazy kontenerów. Trzeba również znać podstawowe `docker` polecenia.| 
+|Zasób czołowy |Aby używać kontenera, musisz mieć:<br><br>**Zasób platformy** Azure i skojarzony klucz interfejsu API oraz identyfikator URI punktu końcowego. Obie wartości są dostępne na stronach **Przegląd** i **klucze** dla zasobu. Są one wymagane do uruchomienia kontenera.<br><br>**{API_KEY}**: jeden z dwóch dostępnych kluczy zasobów na stronie **kluczy**<br><br>**{ENDPOINT_URI}**: punkt końcowy określony na stronie **Przegląd**
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
-## <a name="request-access-to-the-private-container-registry"></a>Żądanie dostępu do rejestru kontenerów prywatnych
+## <a name="request-access-to-the-private-container-registry"></a>Zażądaj dostępu do rejestru kontenera prywatnego
 
 [!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -44,22 +44,22 @@ Przed użyciem kontenerów usługi Face należy spełnić następujące wymagani
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-### <a name="container-requirements-and-recommendations"></a>Wymagania i zalecenia dotyczące kontenerów
+### <a name="container-requirements-and-recommendations"></a>Wymagania i zalecenia dotyczące kontenera
 
-W poniższej tabeli opisano minimalne i zalecane rdzenie procesora CPU i pamięć do przydzielenia dla każdego kontenera usługi Face.
+W poniższej tabeli opisano minimalną i zalecaną liczbę rdzeni procesora CPU oraz ilość pamięci do przydzielenia dla każdego kontenera usługi.
 
-| Kontener | Minimalne | Zalecane | Transakcje na sekundę<br>(Minimum, maksimum)|
+| Kontener | Minimalne | Zalecane | Liczba transakcji na sekundę<br>(Minimum, maksimum)|
 |-----------|---------|-------------|--|
 |Rozpoznawanie twarzy | 1 rdzeń, 2 GB pamięci | 1 rdzeń, 4 GB pamięci |10, 20|
 
-* Każdy rdzeń musi mieć co najmniej 2,6 GHz lub więcej.
-* Transakcje na sekundę (TPS).
+* Każdy rdzeń musi mieć co najmniej 2,6 GHz lub szybszy.
+* Liczba transakcji na sekundę (TPS).
 
-Rdzeń i pamięć `--cpus` `--memory` odpowiadają i ustawienia, które `docker run` są używane jako część polecenia.
+Rdzeń i pamięć odpowiadają `--cpus` ustawieniom `--memory` i, które są używane jako część `docker run` polecenia.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Pobierz obraz kontenera za pomocą pociągnięcia docker
+## <a name="get-the-container-image-with-docker-pull"></a>Pobierz obraz kontenera za pomocą docker pull
 
-Dostępne są obrazy kontenerów dla usługi Twarz. 
+Dostępne są obrazy kontenerów dla usługi. 
 
 | Kontener | Repozytorium |
 |-----------|------------|
@@ -67,24 +67,24 @@ Dostępne są obrazy kontenerów dla usługi Twarz.
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### <a name="docker-pull-for-the-face-container"></a>Ciągnięcie docker dla kontenera Ściana
+### <a name="docker-pull-for-the-face-container"></a>Wypychanie platformy Docker dla kontenera rozpoznawania
 
 ```
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 ```
 
-## <a name="use-the-container"></a>Użyj pojemnika
+## <a name="use-the-container"></a>Używanie kontenera
 
-Po kontener znajduje się na [komputerze-hoście](#the-host-computer), użyj następującego procesu do pracy z kontenerem.
+Gdy kontener znajduje się na [komputerze hosta](#the-host-computer), użyj następującego procesu, aby współpracować z kontenerem.
 
-1. [Uruchom kontener z](#run-the-container-with-docker-run) wymaganymi ustawieniami rozliczeń. Dostępnych jest więcej `docker run` [przykładów](./face-resource-container-config.md#example-docker-run-commands) polecenia. 
-1. [Kwerenda punktu końcowego przewidywania kontenera](#query-the-containers-prediction-endpoint). 
+1. [Uruchom kontener](#run-the-container-with-docker-run) z wymaganymi ustawieniami rozliczania. Więcej [przykładów](./face-resource-container-config.md#example-docker-run-commands) `docker run` polecenia jest dostępnych. 
+1. [Zbadaj punkt końcowy przewidywania kontenera](#query-the-containers-prediction-endpoint). 
 
-## <a name="run-the-container-with-docker-run"></a>Uruchamianie kontenera z uruchomieniem platformy docker
+## <a name="run-the-container-with-docker-run"></a>Uruchamianie kontenera przy użyciu uruchomienia platformy Docker
 
-Użyj polecenia [uruchamiania platformy docker,](https://docs.docker.com/engine/reference/commandline/run/) aby uruchomić kontener. Szczegółowe informacje na temat sposobu uzyskania wartości `{ENDPOINT_URI}` `{API_KEY}` można znaleźć w przypadku [zbierania wymaganych parametrów.](#gathering-required-parameters)
+Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) , aby uruchomić kontener. Zapoznaj się z tematem [zbieranie wymaganych parametrów](#gathering-required-parameters) `{ENDPOINT_URI}` , aby uzyskać szczegółowe `{API_KEY}` informacje na temat sposobu pobierania wartości i.
 
-[Dostępne](face-resource-container-config.md#example-docker-run-commands) są `docker run` przykłady polecenia.
+[Przykłady](face-resource-container-config.md#example-docker-run-commands) `docker run` polecenia są dostępne.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -96,24 +96,24 @@ ApiKey={API_KEY}
 
 To polecenie:
 
-* Uruchamia kontener twarzy z obrazu kontenera.
-* Przydziela jeden rdzeń procesora i 4 GB pamięci.
-* Udostępnia port TCP 5000 i przydziela pseudo TTY dla kontenera.
-* Automatycznie usuwa kontener po jego zamknięciu. Obraz kontenera jest nadal dostępny na komputerze-hoście. 
+* Uruchamia kontener czołowy z obrazu kontenera.
+* Przypisuje jedne rdzeń procesora CPU i 4 GB pamięci.
+* Udostępnia port TCP 5000 i przypisuje pseudo TTY dla kontenera.
+* Automatycznie usuwa kontener po zakończeniu. Obraz kontenera jest nadal dostępny na komputerze-hoście. 
 
-Dostępnych jest więcej `docker run` [przykładów](./face-resource-container-config.md#example-docker-run-commands) polecenia. 
+Więcej [przykładów](./face-resource-container-config.md#example-docker-run-commands) `docker run` polecenia jest dostępnych. 
 
 > [!IMPORTANT]
-> Aby `Eula` `Billing`uruchomić `ApiKey` kontener lub kontener nie zostanie uruchomiony, należy określić opcje i opcje. Aby uzyskać więcej informacji, zobacz [Rozliczenia](#billing).
+> Aby `Eula`można `Billing`było uruchomić `ApiKey` kontener lub nie można uruchomić kontenera, należy określić opcje, i. Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 
-## <a name="query-the-containers-prediction-endpoint"></a>Kwerenda punktu końcowego przewidywania kontenera
+## <a name="query-the-containers-prediction-endpoint"></a>Zbadaj punkt końcowy przewidywania kontenera
 
-Kontener zawiera interfejsy API punktu końcowego przewidywania zapytań oparte na rest. 
+Kontener udostępnia interfejsy API punktu końcowego przewidywania zapytań. 
 
-Użyj hosta, `http://localhost:5000`dla interfejsów API kontenera.
+Użyj hosta, `http://localhost:5000`, dla interfejsów API kontenerów.
 
 
 <!--  ## Validate container is running -->
@@ -126,13 +126,13 @@ Użyj hosta, `http://localhost:5000`dla interfejsów API kontenera.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli uruchomisz kontener z [instalacją](./face-resource-container-config.md#mount-settings) wyjściową i rejestrowanie jest włączone, kontener generuje pliki dziennika, które są przydatne do rozwiązywania problemów, które występują podczas uruchamiania lub uruchamiania kontenera.
+W przypadku uruchomienia kontenera z [instalacją wyjściową](./face-resource-container-config.md#mount-settings) i włączeniu rejestrowania kontener generuje pliki dziennika, które są przydatne do rozwiązywania problemów występujących podczas uruchamiania lub uruchamiania kontenera.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Rozliczenia
 
-Kontenery usługi Face wysyłają informacje rozliczeniowe do platformy Azure przy użyciu zasobu face na koncie platformy Azure. 
+Kontenery usługi kroju umożliwiają wysyłanie informacji dotyczących rozliczeń na platformę Azure przy użyciu zasobu kroju na koncie platformy Azure. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -144,19 +144,19 @@ Aby uzyskać więcej informacji na temat tych opcji, zobacz [Konfigurowanie kont
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym artykule poznaliście pojęcia i przepływ pracy dotyczące pobierania, instalowania i uruchamiania kontenerów usługi Face. Podsumowanie:
+W tym artykule przedstawiono koncepcje i przepływ pracy związane z pobieraniem, instalowaniem i uruchamianiem kontenerów usług. Podsumowanie:
 
-* Obrazy kontenerów są pobierane z rejestru kontenerów platformy Azure.
-* Obrazy kontenerów są uruchamiane w usłudze Docker.
-* Można użyć interfejsu API REST lub SDK do wywoływania operacji w kontenerach usługi Face, określając identyfikator URI hosta kontenera.
-* Podczas tworzenia wystąpienia kontenera należy określić informacje rozliczeniowe.
+* Obrazy kontenerów są pobierane z Azure Container Registry.
+* Obrazy kontenerów są uruchamiane w platformie Docker.
+* Możesz użyć interfejsu API REST lub zestawu SDK, aby wywoływać operacje w kontenerach usługi "Front Service", określając identyfikator URI hosta kontenera.
+* Podczas tworzenia wystąpienia kontenera należy określić informacje o rozliczeniach.
 
 > [!IMPORTANT]
-> Kontenery usług Cognitive Services nie są licencjonowane do uruchamiania bez połączenia z platformą Azure w celu pomiaru. Klienci muszą włączyć kontenery do przekazywania informacji rozliczeniowych z usługą pomiaru przez cały czas. Kontenery usług Cognitive Services nie wysyłają do firmy Microsoft danych klientów, takich jak analizowany obraz lub tekst.
+> Kontenery Cognitive Services nie są licencjonowane do uruchamiania bez połączenia z platformą Azure w celu pomiaru. Aby umożliwić klientom przekazywanie informacji dotyczących rozliczeń za pomocą usługi pomiarowej przez kontenery, klienci muszą je włączyć. Kontenery Cognitive Services nie wysyłają danych klienta, takich jak obraz lub tekst, który jest analizowany, do firmy Microsoft.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby zapoznać się z ustawieniami konfiguracji, zobacz [Konfigurowanie kontenerów](face-resource-container-config.md).
-* Aby dowiedzieć się więcej o wykrywaniu i identyfikowaniu twarzy, zobacz [Omówienie twarzy](Overview.md).
+* Aby uzyskać ustawienia konfiguracji, zobacz [Konfigurowanie kontenerów](face-resource-container-config.md).
+* Aby dowiedzieć się więcej o wykrywaniu i identyfikowaniu twarzy, zobacz temat [Omówienie funkcji twarz](Overview.md).
 * Aby uzyskać informacje na temat metod obsługiwanych przez kontener, zobacz [interfejs API rozpoznawania twarzy](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
-* Aby użyć większej liczby kontenerów usług Cognitive Services, zobacz [kontenery usług Cognitive Services](../cognitive-services-container-support.md).
+* Aby korzystać z więcej kontenerów Cognitive Services, zobacz [Cognitive Services Containers](../cognitive-services-container-support.md).

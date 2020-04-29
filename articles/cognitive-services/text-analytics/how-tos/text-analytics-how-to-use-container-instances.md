@@ -1,7 +1,7 @@
 ---
-title: Uruchamianie wystąpień kontenerów platformy Azure — analiza tekstu
+title: Uruchom Azure Container Instances-analiza tekstu
 titleSuffix: Azure Cognitive Services
-description: Wdrażanie kontenerów analizy tekstu w wystąpieniu kontenera platformy Azure i testowanie go w przeglądarce sieci Web.
+description: Wdróż kontenery analizy tekstu w usłudze Azure Container instance i przetestuj je w przeglądarce internetowej.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: e4b61c6fe2f62745d0f5268221cbb5c84803eb10
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80876449"
 ---
-# <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Wdrażanie kontenera analizy tekstu w wystąpieniach kontenerów platformy Azure
+# <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Wdróż kontener analiza tekstu do Azure Container Instances
 
-Dowiedz się, jak wdrożyć kontener [analizy tekstu][install-and-run-containers] usług Cognitive Services w [wystąpieniach kontenerów][container-instances]platformy Azure. Ta procedura jest przykładem tworzenia zasobu analizy tekstu, tworzenia skojarzonego obrazu analizy tonacji i możliwości wykonywania tej aranżacji dwóch z przeglądarki. Korzystanie z kontenerów można przenieść uwagę deweloperów od zarządzania infrastrukturą zamiast skupiać się na tworzeniu aplikacji.
+Dowiedz się, jak wdrożyć kontener [analiza tekstu][install-and-run-containers] Cognitive Services na platformie Azure [Container Instances][container-instances]. Ta procedura exemplifies tworzenie zasobu analiza tekstu, tworzenie skojarzonego obrazu analiza tonacji i możliwość wykonywania tej aranżacji tych dwóch z przeglądarki. Korzystanie z kontenerów umożliwia przechodzenie przez deweloperów do zarządzania infrastrukturą, aby zamiast tego koncentrować się na tworzeniu aplikacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Użyj subskrypcji platformy Azure. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+* Użyj subskrypcji platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
@@ -37,7 +37,7 @@ Dowiedz się, jak wdrożyć kontener [analizy tekstu][install-and-run-containers
 
 [!INCLUDE [Verify the Language Detection container instance](../includes/verify-language-detection-container.md)]
 
-#### <a name="sentiment-analysis"></a>[Analiza tonacji](#tab/sentiment)
+#### <a name="sentiment-analysis"></a>[analiza tonacji](#tab/sentiment)
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
@@ -45,8 +45,8 @@ Dowiedz się, jak wdrożyć kontener [analizy tekstu][install-and-run-containers
 
 ## <a name="next-steps"></a>Następne kroki 
 
-* Użyj większej liczby [kontenerów usług Cognitive Services](../../cognitive-services-container-support.md)
-* Korzystanie z [usługi połączonej analizy tekstu](../vs-text-connected-service.md)
+* Użyj więcej [kontenerów Cognitive Services](../../cognitive-services-container-support.md)
+* Korzystanie z [Analiza tekstu połączonej usługi](../vs-text-connected-service.md)
 
 [install-and-run-containers]: ./text-analytics-how-to-install-containers.md
 [container-instances]: https://docs.microsoft.com/azure/container-instances

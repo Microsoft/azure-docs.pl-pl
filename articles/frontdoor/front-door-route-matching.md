@@ -1,6 +1,6 @@
 ---
-title: Drzwi frontowe platformy Azure — monitorowanie dopasowywania reguł routingu | Dokumenty firmy Microsoft
-description: Ten artykuł ułatwia zrozumienie, jak usługi Azure Front Door dopasowuje regułę routingu do użycia dla żądania przychodzącego
+title: Monitorowanie za pomocą usługi Azure Front-Routing — dopasowanie reguły | Microsoft Docs
+description: Ten artykuł pomaga zrozumieć, w jaki sposób platforma Azure front jest zgodna z regułą routingu do użycia w żądaniu przychodzącym
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -12,118 +12,118 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 420aa52293da14a0dfe8fbdfe681440ee4309e6b
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878599"
 ---
-# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Jak drzwi frontowe dopasowywać żądania do reguły routingu
+# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Jak tylne drzwi dopasowują żądania do reguły routingu
 
-Po ustanowieniu połączenia i wykonaniu uzgadniania TLS, gdy żądanie ląduje w środowisku drzwiami frontowymi, jedną z pierwszych rzeczy, które nie są dostępne w drzwiach frontowych, jest określenie ze wszystkich konfiguracji, która określona reguła routingu jest zgodna z żądaniem, a następnie podjęcie zdefiniowanej akcji. W poniższym dokumencie wyjaśniono, jak drzwi frontowe określają konfigurację trasy, której należy używać podczas przetwarzania żądania HTTP.
+Po ustanowieniu połączenia i przeprowadzeniu uzgadniania protokołu TLS, gdy żądanie znajduje się w środowisku przednim, jeden z pierwszych elementów jest określany na podstawie wszystkich konfiguracji, które są określone dla każdej reguły routingu, aby dopasować żądanie do, a następnie wykonać zdefiniowaną akcję. W poniższym dokumencie wyjaśniono, jak drzwi z przodu określają konfigurację tras, która ma być używana podczas przetwarzania żądania HTTP.
 
-## <a name="structure-of-a-front-door-route-configuration"></a>Struktura konfiguracji trasy drzwi wejściowych
-Konfiguracja reguły wyznaczania drzwi przednich składa się z dwóch głównych części: "po lewej stronie" i "prawej strony". Dopasujemy przychodzące żądanie do lewej strony trasy, podczas gdy po prawej stronie określa sposób przetwarzania żądania.
+## <a name="structure-of-a-front-door-route-configuration"></a>Struktura konfiguracji trasy z drzwiami
+Konfiguracja reguły routingu dla drzwi przednich składa się z dwóch głównych części: "po lewej stronie" i "po prawej stronie". Dopasowujemy żądanie przychodzące do lewej strony trasy, a po prawej stronie definiuje sposób przetwarzania żądania.
 
-### <a name="incoming-match-left-hand-side"></a>Mecz przychodzący (po lewej stronie)
+### <a name="incoming-match-left-hand-side"></a>Dopasowanie przychodzące (po lewej stronie)
 Następujące właściwości określają, czy żądanie przychodzące jest zgodne z regułą routingu (lub po lewej stronie):
 
-* **Protokoły HTTP** (HTTP/HTTPS)
-* **Hosty** (na\.przykład www \*foo.com, .bar.com)
-* **Ścieżki** (na przykład\*/ ,\*/users/ , /file.gif)
+* **Protokoły http** (http/https)
+* **Hosty** (na przykład www\.foo.com, \*. bar.com)
+* **Ścieżki** (na przykład\*/Users/\*,/File.gif)
 
-Te właściwości są rozwijane wewnętrznie, tak aby każda kombinacja protokołu/hosta/ścieżki była zestawem potencjalnych dopasowań.
+Te właściwości są rozszerzane wewnętrznie w taki sposób, aby każda kombinacja protokołów/hosta/ścieżki była możliwym zestawem dopasowywania.
 
 ### <a name="route-data-right-hand-side"></a>Dane trasy (po prawej stronie)
-Decyzja o sposobie przetwarzania żądania zależy od tego, czy buforowanie jest włączone, czy nie dla określonej trasy. Tak jeśli nie mamy buforowanej odpowiedzi dla żądania, przekażemy żądanie do odpowiedniej wewnętrznej bazy danych w skonfigurowanym puli wewnętrznej bazy danych.
+Decyzja o sposobie przetwarzania żądania zależy od tego, czy buforowanie jest włączone, czy nie dla określonej trasy. Jeśli więc nie masz zbuforowanej odpowiedzi na żądanie, przekażemy żądanie do odpowiedniego zaplecza w skonfigurowanej puli zaplecza.
 
-## <a name="route-matching"></a>Dopasowywanie trasy
-W tej sekcji skupimy się na tym, jak dopasować się do danej reguły routingu drzwiami frontowymi. Podstawową koncepcją jest to, że zawsze pasujemy do **najbardziej specyficznego meczu, najpierw** patrząc tylko na "lewą stronę".  Najpierw dopasujemy na podstawie protokołu HTTP, następnie hosta frontu, a następnie ścieżki.
+## <a name="route-matching"></a>Dopasowanie trasy
+Ta sekcja koncentruje się na tym, jak zgadzamy się z daną regułą routingu przed drzwiami. Podstawowa koncepcja polega na tym, że zawsze pasujemy do **najbardziej konkretnego dopasowania** , które najpierw szuka tylko po lewej stronie.  Najpierw pasujemy do protokołu HTTP, a następnie hosta frontonu, a następnie ścieżki.
 
-### <a name="frontend-host-matching"></a>Dopasowywanie hosta frontu
-Podczas dopasowywania hostów frontu używamy logiki, jak poniżej:
+### <a name="frontend-host-matching"></a>Dopasowanie hosta frontonu
+W przypadku dopasowania hostów frontonu używamy logiki w następujący sposób:
 
-1. Poszukaj dowolnej routingu z dokładnym dopasowaniem na hoście.
-2. Jeśli nie ma dokładnego dopasowania hostów frontendu, odrzuć żądanie i wyślij błąd 400 bad request.
+1. Poszukaj dowolnej trasy z dokładnym dopasowaniem na hoście.
+2. Jeśli żadne dokładne hosty frontonu nie pasują do siebie, Odrzuć żądanie i Wyślij błąd nieprawidłowego żądania 400.
 
-Aby wyjaśnić ten proces, przyjrzyjmy się przykładowej konfiguracji tras drzwi przednich (tylko po lewej stronie):
+Aby uzyskać więcej informacji na temat tego procesu, przyjrzyjmy się przykładowej konfiguracji tras z drzwiami przednimi (tylko po lewej stronie):
 
-| Reguła routingu | Hosty frontendu | Ścieżka |
+| Reguła routingu | Hosty frontonu | Ścieżka |
 |-------|--------------------|-------|
 | A | foo.contoso.com | /\* |
-| B | foo.contoso.com | /użytkownicy/\* |
-| C | www\.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
+| B | foo.contoso.com | /users/\* |
+| C | fabrikam.com\.www, foo.Adventure-Works.com  | /\*, /images/\* |
 
-Jeśli następujące przychodzące żądania zostały wysłane do drzwi frontowych, będą one zgodne z następującymi regułami routingu z góry:
+Jeśli następujące żądania przychodzące zostały wysłane do przednich drzwi, są one zgodne z następującymi regułami routingu powyżej:
 
-| Przychodzący host frontendu | Reguły routingu dopasowane |
+| Przychodzący Host frontonu | Dopasowane reguły routingu |
 |---------------------|---------------|
 | foo.contoso.com | A, B |
-| www\.fabrikam.com | C |
-| images.fabrikam.com | Błąd 400: Złe żądanie |
+| fabrikam.com\.www | C |
+| images.fabrikam.com | Błąd 400: Nieprawidłowe żądanie |
 | foo.adventure-works.com | C |
-| contoso.com | Błąd 400: Złe żądanie |
-| www\.adventure-works.com | Błąd 400: Złe żądanie |
-| www\.northwindtraders.com | Błąd 400: Złe żądanie |
+| contoso.com | Błąd 400: Nieprawidłowe żądanie |
+| adventure-works.com\.www | Błąd 400: Nieprawidłowe żądanie |
+| northwindtraders.com\.www | Błąd 400: Nieprawidłowe żądanie |
 
-### <a name="path-matching"></a>Dopasowywanie ścieżki
-Po określeniu określonego hosta frontendu i filtrowaniu możliwych reguł routingu tylko do tras z tym hostem frontendu, drzwiami frontowymi filtrują reguły routingu na podstawie ścieżki żądania. Używamy podobnej logiki jako hostów frontendu:
+### <a name="path-matching"></a>Dopasowanie ścieżki
+Po ustaleniu konkretnego hosta frontonu i zafiltrowaniu możliwych reguł routingu do tylko tras z tym hostem frontonu, a następnie przefiltruje reguły routingu na podstawie ścieżki żądania. Używamy podobnej logiki jako hostów frontonu:
 
-1. Poszukaj dowolnej reguły routingu z dokładnym dopasowaniem na ścieżce
-2. Jeśli nie ma dopasowania ścisłego Ścieżki, poszukaj reguł routingu ze ścieżką wieloznaczną, która pasuje
-3. Jeśli nie znaleziono reguł routingu z pasującą ścieżką, odrzuć żądanie i zwróć odpowiedź HTTP o błędzie 400: Nieprawidłowe żądanie.
+1. Poszukaj dowolnej reguły routingu z dokładne dopasowanie ścieżki
+2. Jeśli nie ma dokładnego dopasowania ścieżki, poszukaj reguł routingu ze ścieżką wieloznaczną pasującą do
+3. Jeśli nie odnaleziono żadnych reguł routingu ze zgodną ścieżką, Odrzuć żądanie i zwróć 400: zły błąd żądania HTTP odpowiedzi.
 
 >[!NOTE]
-> Wszystkie ścieżki bez symbolu wieloznacznego są uważane za ścieżki dopasowania ścisłego. Nawet jeśli ścieżka kończy się ukośnikiem, nadal jest uważana za dokładne dopasowanie.
+> Wszystkie ścieżki bez symbolu wieloznacznego są traktowane jako ścieżki dokładnego dopasowania. Nawet jeśli ścieżka zostanie zakończona ukośnikiem, nadal jest uważana za dokładne dopasowanie.
 
-Aby wyjaśnić dalej, przyjrzyjmy się innej zestawowi przykładów:
+Aby jeszcze bardziej wyjaśnić, przyjrzyjmy się innemu zestawowi przykładów:
 
-| Reguła routingu | Host frontendu    | Ścieżka     |
+| Reguła routingu | Host frontonu    | Ścieżka     |
 |-------|---------|----------|
-| A     | www\.contoso.com | /        |
-| B     | www\.contoso.com | /\*      |
-| C     | www\.contoso.com | /ab      |
-| D     | www\.contoso.com | /abc     |
-| E     | www\.contoso.com | /abc/    |
-| F     | www\.contoso.com | /abc/\*  |
-| G     | www\.contoso.com | /abc/def |
-| H     | www\.contoso.com | /ścieżka/   |
+| A     | contoso.com\.www | /        |
+| B     | contoso.com\.www | /\*      |
+| C     | contoso.com\.www | /ab      |
+| D     | contoso.com\.www | /abc     |
+| E     | contoso.com\.www | ABC    |
+| F     | contoso.com\.www | ABC\*  |
+| G     | contoso.com\.www | /abc/def |
+| H     | contoso.com\.www | /Path   |
 
-Biorąc pod uwagę tę konfigurację, wynikowa jest następująca tabela dopasowywania:
+Zgodnie z konfiguracją Poniższy przykład tabeli będzie miał wynik:
 
 | Żądanie przychodzące    | Dopasowana trasa |
 |---------------------|---------------|
-| www\.contoso.com/            | A             |
-| www\.contoso.com/a           | B             |
-| www\.contoso.com/ab          | C             |
-| www\.contoso.com/abc         | D             |
-| www\.contoso.com/abzzz       | B             |
-| www\.contoso.com/abc/        | E             |
-| www\.contoso.com/abc/d       | F             |
-| www\.contoso.com/abc/def     | G             |
-| www\.contoso.com/abc/defzzz  | F             |
-| www\.contoso.com/abc/def/ghi | F             |
-| www\.contoso.com/path        | B             |
-| www\.contoso.com/path/       | H             |
-| www\.contoso.com/path/zzz    | B             |
+| contoso.com/\.www            | A             |
+| contoso.com/a\.www           | B             |
+| contoso.com/ab\.www          | C             |
+| contoso.com/abc\.www         | D             |
+| contoso.com/abzzz\.www       | B             |
+| contoso.com/abc/\.www        | E             |
+| contoso.com/abc/d\.www       | F             |
+| contoso.com/abc/def\.www     | G             |
+| contoso.com/abc/defzzz\.www  | F             |
+| contoso.com/abc/def/ghi\.www | F             |
+| contoso.com/path\.www        | B             |
+| contoso.com/path/\.www       | H             |
+| contoso.com/path/zzz\.www    | B             |
 
 >[!WARNING]
-> </br> Jeśli nie ma żadnych reguł routingu dla hosta frontendu`/*`dopasowania ścisłego z trasą catch-all ( ), nie będzie zgodne z żadną regułą routingu.
+> </br> Jeśli nie ma żadnych reguł routingu dla hosta frontonu dla dokładnego dopasowania ze ścieżką catch-all (`/*`), nie będzie można dopasować do żadnej reguły routingu.
 >
 > Przykładowa konfiguracja:
 >
 > | Trasa | Host             | Ścieżka    |
 > |-------|------------------|---------|
-> | A     | profile.contoso.com | /api/\* |
+> | A     | profile.contoso.com | /API\* |
 >
-> Pasująca tabela:
+> Zgodna tabela:
 >
 > | Żądanie przychodzące       | Dopasowana trasa |
 > |------------------------|---------------|
-> | profile.domain.com/other | Brak. Błąd 400: Złe żądanie |
+> | profile.domain.com/other | Brak. Błąd 400: Nieprawidłowe żądanie |
 
-### <a name="routing-decision"></a>Decyzja o routingu
-Po dopasowaniu do jednej reguły routingu drzwiami frontowymi musimy wybrać sposób przetwarzania żądania. Jeśli dla reguły routingu dopasowane, drzwiami frontowymi ma buforowaną odpowiedź dostępne następnie to samo jest obsługiwane z powrotem do klienta. W przeciwnym razie następną rzeczą, która zostanie oceniona, jest to, czy skonfigurowano [ponowne przepisanie adresu URL (niestandardową ścieżkę przekazywania)](front-door-url-rewrite.md) dla dopasowanej reguły routingu, czy nie. Jeśli nie zdefiniowano niestandardowej ścieżki przekazywania, żądanie zostanie przekazane do odpowiedniej wewnętrznej bazy danych w skonfigurowanym puli wewnętrznej bazy danych. W przeciwnym razie ścieżka żądania jest aktualizowana zgodnie ze zdefiniowaną [niestandardową ścieżką przekazywania,](front-door-url-rewrite.md) a następnie do wewnętrznej bazy danych.
+### <a name="routing-decision"></a>Decyzja dotycząca routingu
+Po dopasowaniu do jednej reguły routingu przed drzwiami należy wybrać sposób przetwarzania żądania. Jeśli dla dopasowanej reguły routingu, drzwi z przodu mają dostępną w pamięci podręcznej odpowiedź, ta sama wartość zostanie pobrana z powrotem do klienta. W przeciwnym razie kolejnym wynikiem jest to, czy skonfigurowano ponowne [Zapisywanie adresów URL (niestandardowa ścieżka przesyłania dalej)](front-door-url-rewrite.md) dla dopasowanej reguły routingu. Jeśli nie zdefiniowano niestandardowej ścieżki przesyłania dalej, żądanie zostanie przekazane do odpowiedniego zaplecza w skonfigurowanej puli zaplecza jako. W przeciwnym razie Ścieżka żądania jest aktualizowana zgodnie z definicją [niestandardowej ścieżki przekazywania](front-door-url-rewrite.md) , a następnie przesyłana dalej do zaplecza.
 
 ## <a name="next-steps"></a>Następne kroki
 

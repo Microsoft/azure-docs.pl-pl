@@ -1,7 +1,7 @@
 ---
 title: Przepis wystąpienia kontenera platformy Azure
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak wdrożyć kontenery usług Cognitive Services w wystąpieniu kontenera platformy Azure
+description: Dowiedz się, jak wdrażać kontenery Cognitive Services w usłudze Azure Container instance
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,41 +11,41 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: f247465c7e2c0a212df2821ebc7165d3ee5b15f3
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80876661"
 ---
 # <a name="deploy-and-run-container-on-azure-container-instance"></a>Wdrażanie i uruchamianie kontenera w wystąpieniu kontenera platformy Azure
 
-W poniższych krokach łatwo skaluj aplikacje usługi Azure Cognitive Services w chmurze za pomocą [wystąpień kontenerów](https://docs.microsoft.com/azure/container-instances/)platformy Azure. Konteneryzacja pomaga skupić się na tworzeniu aplikacji zamiast zarządzania infrastrukturą. Aby uzyskać więcej informacji na temat korzystania z kontenerów, zobacz [funkcje i korzyści](../cognitive-services-container-support.md#features-and-benefits).
+Poniższe kroki umożliwiają łatwe skalowanie aplikacji Cognitive Services platformy Azure w chmurze za pomocą usługi Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). Kontenerach ułatwia skoncentrowanie się na tworzeniu aplikacji, a nie zarządzaniu infrastrukturą. Aby uzyskać więcej informacji na temat korzystania z kontenerów, zobacz [funkcje i korzyści](../cognitive-services-container-support.md#features-and-benefits).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przepis działa z dowolnego kontenera usług Cognitive Services. Zasób usługi Cognitive Service musi zostać utworzony w witrynie Azure portal przed użyciem receptury. Każda usługa Cognitive Service obsługująca kontenery ma dokument "Jak zainstalować" specjalnie do instalowania i konfigurowania usługi dla kontenera. Niektóre usługi wymagają pliku lub zestawu plików jako dane wejściowe dla kontenera, ważne jest, aby zrozumieć i pomyślnie użyto kontenera przed użyciem tego rozwiązania.
+Przepis działa z jakimkolwiek kontenerem Cognitive Services. Przed użyciem przepisu należy utworzyć zasób usługi poznawczej w Azure Portal. Każda usługa poznawcze, która obsługuje kontenery, ma dokument "jak zainstalować" przeznaczony do instalowania i konfigurowania usługi dla kontenera. Niektóre usługi wymagają pliku lub zestawu plików jako dane wejściowe dla kontenera, dlatego ważne jest, aby zrozumieć i używało kontenera pomyślnie przed użyciem tego rozwiązania.
 
-* Zasób usługi Cognitive Service, utworzony w witrynie Azure portal.
-* Adres **URL punktu końcowego** usługi Cognitive Service — przejrzyj "Jak zainstalować" dla kontenera określoną usługę, aby znaleźć, gdzie znajduje się adres URL punktu końcowego z witryny Azure portal i jak wygląda poprawny przykład adresu URL. Dokładny format można zmienić z usługi na usługę.
-* **Klucz** usługi Cognitive Service — klucze znajdują się na stronie **Klucze** dla zasobu platformy Azure. Potrzebujesz tylko jednego z dwóch kluczy. Klucz jest ciągiem 32 znaków alfanumerycznym.
-* Pojedynczy kontener usług Cognitive Services na lokalnym hoście (komputerze). Upewnij się, że możesz:
-  * Pociągnij w dół `docker pull` obraz za pomocą polecenia.
-  * Pomyślnie uruchom kontener lokalny, przy czym `docker run` wszystkie wymagane ustawienia konfiguracji za pomocą polecenia.
-  * Wywołanie punktu końcowego kontenera, uzyskanie odpowiedzi HTTP 2xx i odpowiedzi JSON z powrotem.
+* Zasób usługi poznawczej utworzony w Azure Portal.
+* **Adres URL punktu końcowego** usługi poznawczej — zapoznaj się z określoną usługą "jak zainstalować" dla kontenera, aby sprawdzić, gdzie znajduje się adres URL punktu końcowego w Azure Portal i jak wygląda prawidłowy przykład adresu URL. Dokładny format może ulec zmianie od usługi do usługi.
+* **Klucz** usługi poznawczej — klucze znajdują się na stronie **klucze** zasobu platformy Azure. Potrzebny jest tylko jeden z tych dwóch kluczy. Klucz jest ciągiem 32 znaków alfanumerycznych.
+* Pojedynczy kontener Cognitive Services na hoście lokalnym (Twoim komputerze). Upewnij się, że możesz:
+  * Pobierz obraz za pomocą `docker pull` polecenia.
+  * Pomyślnie uruchomiono kontener lokalny ze wszystkimi wymaganymi ustawieniami konfiguracji za `docker run` pomocą polecenia.
+  * Wywołaj punkt końcowy kontenera, pobierając odpowiedź HTTP 2xx i odpowiedź JSON z powrotem.
 
-Wszystkie zmienne w nawiasach `<>`kątowych, , muszą być zastąpione własnymi wartościami. Wymiana ta obejmuje wsporniki kątowe.
+Wszystkie zmienne w nawiasach `<>`kątowych muszą zostać zastąpione własnymi wartościami. To zastąpienie obejmuje nawiasy ostre.
 
 [!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](includes/create-container-instances-resource.md)]
 
-## <a name="use-the-container-instance"></a>Użyj wystąpienia kontenera
+## <a name="use-the-container-instance"></a>Korzystanie z wystąpienia kontenera
 
-1. Wybierz **przegląd** i skopiuj adres IP. Będzie to numeryczny adres IP, taki jak `55.55.55.55`.
-1. Otwórz nową kartę przeglądarki i użyj na `http://<IP-address>:5000 (http://55.55.55.55:5000`przykład adresu IP). Zostanie wyświetlona strona główna kontenera, informując o tym, że kontener jest uruchomiony.
+1. Wybierz **Przegląd** i skopiuj adres IP. Będzie to liczbowy adres IP, taki jak `55.55.55.55`.
+1. Otwórz nową kartę przeglądarki i użyj adresu IP, na przykład, `http://<IP-address>:5000 (http://55.55.55.55:5000`). Zostanie wyświetlona strona główna kontenera z informacją o tym, że kontener jest uruchomiony.
 
-1. Wybierz **opis interfejsu API usługi,** aby wyświetlić stronę swagger dla kontenera.
+1. Wybierz pozycję **opis interfejsu API usługi** , aby wyświetlić stronę struktury Swagger dla kontenera.
 
-1. Wybierz dowolny z **interfejsów** API POST i wybierz pozycję **Wypróbuj**.  Wyświetlane są parametry, w tym dane wejściowe. Wypełnij parametry.
+1. Wybierz dowolny z **wpisów** interfejsów API i wybierz opcję **Wypróbuj**.  Parametry są wyświetlane wraz z danymi wejściowymi. Wypełnij parametry.
 
-1. Wybierz **polecenie Wykonaj,** aby wysłać żądanie do wystąpienia kontenera.
+1. Wybierz polecenie **Wykonaj** , aby wysłać żądanie do wystąpienia kontenera.
 
-    Pomyślnie utworzono i użyto kontenerów usług Cognitive Services w wystąpieniu kontenera platformy Azure.
+    Tworzenie i używanie kontenerów Cognitive Services w usłudze Azure Container instance zostało pomyślnie zakończone.

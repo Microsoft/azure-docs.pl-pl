@@ -1,53 +1,53 @@
 ---
 title: Konfigurowanie wzajemnego uwierzytelniania protokołu TLS
-description: Dowiedz się, jak uwierzytelnić certyfikaty klientów w sieciach TLS. Usługa Azure App Service może udostępnić certyfikat klienta do kodu aplikacji w celu weryfikacji.
+description: Dowiedz się, jak uwierzytelniać certyfikaty klientów w protokole TLS. Azure App Service może udostępnić certyfikat klienta dla kodu aplikacji na potrzeby weryfikacji.
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2f6dd455024aba184cbb16b5b9c7cfffd032dc70
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811730"
 ---
-# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Konfigurowanie wzajemnego uwierzytelniania TLS dla usługi Azure App Service
+# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Konfigurowanie wzajemnego uwierzytelniania TLS dla Azure App Service
 
-Możesz ograniczyć dostęp do aplikacji usługi Azure App Service, włączając dla niej różne typy uwierzytelniania. Jednym ze sposobów jest żądanie certyfikatu klienta, gdy żądanie klienta jest za pomocą protokołu TLS/SSL i sprawdzenie poprawności certyfikatu. Mechanizm ten jest nazywany uwierzytelnianiem wzajemnym TLS lub uwierzytelnianiem certyfikatów klienta. W tym artykule pokazano, jak skonfigurować aplikację do używania uwierzytelniania certyfikatów klienta.
+Możesz ograniczyć dostęp do aplikacji Azure App Service, włączając dla niej różne typy uwierzytelniania. Jednym ze sposobów jest zażądanie certyfikatu klienta, gdy żądanie klienta dotyczy protokołu TLS/SSL i zweryfikowania certyfikatu. Mechanizm ten jest nazywany uwierzytelnianiem obustronnym protokołu TLS lub uwierzytelnianiem certyfikatu klienta. W tym artykule pokazano, jak skonfigurować aplikację do korzystania z uwierzytelniania za pomocą certyfikatu klienta.
 
 > [!NOTE]
-> Jeśli uzyskasz dostęp do witryny za pośrednictwem protokołu HTTP, a nie protokołu HTTPS, nie otrzymasz żadnego certyfikatu klienta. Jeśli więc aplikacja wymaga certyfikatów klienta, nie należy zezwalać na żądania do aplikacji za pośrednictwem protokołu HTTP.
+> Jeśli uzyskujesz dostęp do witryny za pośrednictwem protokołu HTTP, a nie HTTPS, nie otrzymasz żadnych certyfikatów klienta. Dlatego jeśli aplikacja wymaga certyfikatów klienta, nie należy zezwalać na żądania do aplikacji za pośrednictwem protokołu HTTP.
 >
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
-## <a name="enable-client-certificates"></a>Włączanie certyfikatów klientów
+## <a name="enable-client-certificates"></a>Włączanie certyfikatów klienta
 
-Aby skonfigurować aplikację tak, aby wymagała `clientCertEnabled` certyfikatów klientów, `true`należy ustawić ustawienie aplikacji na . Aby ustawić to ustawienie, uruchom następujące polecenie w [usłudze Cloud Shell](https://shell.azure.com).
+Aby skonfigurować aplikację tak, aby wymagała certyfikatów klienta, należy ustawić `clientCertEnabled` ustawienie dla aplikacji na. `true` Aby ustawić ustawienie, uruchom następujące polecenie w [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
 ```
 
-## <a name="exclude-paths-from-requiring-authentication"></a>Wykluczanie ścieżek z konieczności uwierzytelniania
+## <a name="exclude-paths-from-requiring-authentication"></a>Wyklucz ścieżki z wymagania uwierzytelniania
 
-Po włączeniu wzajemnej eru dla aplikacji, wszystkie ścieżki w katalogu głównym aplikacji będzie wymagać certyfikatu klienta dostępu. Aby niektóre ścieżki pozostały otwarte dla dostępu anonimowego, można zdefiniować ścieżki wykluczeń jako część konfiguracji aplikacji.
+Po włączeniu uwierzytelniania wzajemnego dla aplikacji wszystkie ścieżki w katalogu głównym aplikacji będą wymagać certyfikatu klienta w celu uzyskania dostępu. Aby zapewnić, że pewne ścieżki pozostaną otwarte dla dostępu anonimowego, można zdefiniować ścieżki wykluczeń w ramach konfiguracji aplikacji.
 
-Ścieżki wykluczeń można skonfigurować, wybierając**ustawienia ogólne** **konfiguracji** > i definiując ścieżkę wykluczenia. W tym przykładzie `/public` wszystko w ścieżce dla aplikacji nie zażąda certyfikatu klienta.
+Ścieżki wykluczeń można skonfigurować przez wybranie pozycji **Konfiguracja** > **ogólna ustawienia** i zdefiniowanie ścieżki wykluczenia. W tym przykładzie wszystkie `/public` ścieżki do aplikacji nie zażądają certyfikatu klienta.
 
 ![Ścieżki wykluczania certyfikatów][exclusion-paths]
 
 
 ## <a name="access-client-certificate"></a>Dostęp do certyfikatu klienta
 
-W usłudze app service zakończenie TLS żądania odbywa się w moduł równoważenia obciążenia frontend. Podczas przesyłania dalej żądania do kodu aplikacji z [włączonymi certyfikatami klienta](#enable-client-certificates)usługa App Service wstrzykuje nagłówek `X-ARR-ClientCert` żądania z certyfikatem klienta. Usługa App Service nie robi nic z tym certyfikatem klienta, poza przekazywaniem go do aplikacji. Kod aplikacji jest odpowiedzialny za sprawdzanie poprawności certyfikatu klienta.
+W App Service wygaśnięcie żądania protokołu TLS odbywa się przy użyciu modułu równoważenia obciążenia frontonu. Podczas przekazywania żądania do kodu aplikacji z [włączonymi certyfikatami klienta](#enable-client-certificates)App Service wprowadza nagłówek `X-ARR-ClientCert` żądania z certyfikatem klienta. App Service nie robi niczego z certyfikatem klienta innego niż przesłanie go do aplikacji. Kod aplikacji jest odpowiedzialny za Weryfikowanie certyfikatu klienta.
 
-Dla ASP.NET certyfikat klienta jest dostępny za pośrednictwem **właściwości HttpRequest.ClientCertificate.**
+W przypadku ASP.NET certyfikat klienta jest dostępny za pomocą właściwości **HttpRequest. ClientCertificate** .
 
-W przypadku innych stosów aplikacji (Node.js, PHP itp.) certyfikat klienta jest dostępny w aplikacji `X-ARR-ClientCert` za pośrednictwem wartości zakodowanej base64 w nagłówku żądania.
+W przypadku innych stosów aplikacji (Node. js, PHP itp.) certyfikat klienta jest dostępny w aplikacji za pomocą zakodowanej wartości Base64 w nagłówku `X-ARR-ClientCert` żądania.
 
-## <a name="aspnet-sample"></a>ASP.NET próbka
+## <a name="aspnet-sample"></a>Przykład ASP.NET
 
 ```csharp
     using System;
@@ -171,9 +171,9 @@ W przypadku innych stosów aplikacji (Node.js, PHP itp.) certyfikat klienta jest
     }
 ```
 
-## <a name="nodejs-sample"></a>Przykład node.js
+## <a name="nodejs-sample"></a>Przykład środowiska Node. js
 
-Poniższy przykładowy kod Node.js pobiera `X-ARR-ClientCert` nagłówek i używa [kuźni węzłów](https://github.com/digitalbazaar/forge) do konwersji kodu PEM zakodowanego base64 na obiekt certyfikatu i sprawdzania jego poprawności:
+Poniższy przykładowy kod w języku Node. js pobiera `X-ARR-ClientCert` nagłówek i używa [fałszowania węzła](https://github.com/digitalbazaar/forge) , aby przekonwertować ciąg PEM zakodowany algorytmem Base64 na obiekt certyfikatu i sprawdzić jego poprawność:
 
 ```javascript
 import { NextFunction, Request, Response } from 'express';
@@ -216,9 +216,9 @@ export class AuthorizationHandler {
 }
 ```
 
-## <a name="java-sample"></a>Próbka java
+## <a name="java-sample"></a>Przykład Java
 
-Następująca klasa Języka Java koduje certyfikat z `X-ARR-ClientCert` `X509Certificate` wystąpienia. `certificateIsValid()`sprawdza, czy odcisk palca certyfikatu jest zgodny z tym podanym w konstruktorze i że certyfikat nie wygasł.
+Następująca Klasa języka Java koduje certyfikat z `X-ARR-ClientCert` do `X509Certificate` wystąpienia. `certificateIsValid()`sprawdza, czy odcisk palca certyfikatu jest zgodny z podanym w konstruktorze i czy certyfikat nie wygasł.
 
 
 ```java

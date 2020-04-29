@@ -1,52 +1,52 @@
 ---
 title: Przykładowe skrypty programu PowerShell
-description: Przykłady, które pokazują, jak korzystać z frontu za pomocą skryptów programu PowerShell
+description: Przykłady pokazujące, jak używać frontonu za pośrednictwem skryptów programu PowerShell
 author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
 ms.openlocfilehash: c45d2fc34ccbab6d813f12563678d036f9f35753
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80891496"
 ---
 # <a name="example-powershell-scripts"></a>Przykładowe skrypty programu PowerShell
 
-Renderowanie zdalne platformy Azure udostępnia następujące dwa interfejsy API REST:
+Zdalne renderowanie na platformie Azure udostępnia dwa następujące interfejsy API REST:
 
 - [Interfejs API REST konwersji](../how-tos/conversion/conversion-rest-api.md)
 - [Interfejs API REST sesji](../how-tos/session-rest-api.md)
 
-[Repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) zawiera przykładowe skrypty w folderze *Skrypty* do interakcji z interfejsami API REST usługi. W tym artykule opisano ich użycie.
+[Repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) zawiera przykładowe skrypty w folderze *skryptów* na potrzeby współpracy z interfejsami API REST usługi. W tym artykule opisano ich użycie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać przykładowe skrypty, potrzebujesz funkcjonalnej konfiguracji [programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Aby wykonać przykładowe skrypty, musisz mieć funkcjonalną konfigurację [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 1. Zainstaluj moduł Azure PowerShell:
-    1. Otwieranie programu PowerShell z prawami administratora
-    1. Uruchomić:`Install-Module -Name Az -AllowClobber`
+    1. Otwieranie programu PowerShell z uprawnieniami administratora
+    1. Wykonane`Install-Module -Name Az -AllowClobber`
 
-1. Jeśli pojawia się błąd dotyczący uruchamiania skryptów, upewnij się, że [zasady wykonywania](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) są odpowiednio ustawione:
-    1. Otwieranie programu PowerShell z prawami administratora
-    1. Uruchomić:`Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
+1. W przypadku wystąpienia błędów dotyczących uruchamiania skryptów upewnij się, że [zasady wykonywania](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) zostały odpowiednio ustawione:
+    1. Otwieranie programu PowerShell z uprawnieniami administratora
+    1. Wykonane`Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
 
 1. [Przygotowywanie konta usługi Azure Storage](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts)
 
-1. Zaloguj się do subskrypcji zawierającej konto zdalnego renderowania platformy Azure:
+1. Zaloguj się do subskrypcji zawierającej konto renderowania zdalnego platformy Azure:
     1. Otwieranie programu PowerShell
-    1. Uruchom: `Connect-AzAccount` i postępuj zgodnie ze wskazówkami wyświetlanymi na ekranie.
+    1. Uruchom: `Connect-AzAccount` i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
 > [!NOTE]
-> W przypadku, gdy organizacja ma więcej niż jedną subskrypcję, może być konieczne określenie argumentów Identyfikator subskrypcji i Dzierżawa. Szczegółowe informacje można znaleźć w [dokumentacji Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+> W przypadku, gdy organizacja ma więcej niż jedną subskrypcję, może być konieczne określenie argumentów subskrypcji i dzierżawy. Szczegółowe informacje znajdują się w [dokumentacji Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
 
-1. Pobierz folder *Skrypty* z [repozytorium GithHub renderowania zdalnego azure](https://github.com/Azure/azure-remote-rendering).
+1. Pobierz folder *skryptów* z [repozytorium GithHub zdalnego renderowania platformy Azure](https://github.com/Azure/azure-remote-rendering).
 
 ## <a name="configuration-file"></a>Plik konfiguracji
 
-Obok `.ps1` plików znajduje `arrconfig.json` się, który należy wypełnić:
+Obok plików `arrconfig.json` należy `.ps1` wypełnić następujące pola:
 
 ```json
 {
@@ -74,169 +74,169 @@ Obok `.ps1` plików znajduje `arrconfig.json` się, który należy wypełnić:
 ```
 
 > [!CAUTION]
-> Upewnij się, że prawidłowo wyciął ukośniki w ścieżce LocalAssetDirectoryPath przy użyciu podwójnych ukośników odwrotnych: "\\\\" i użyć ukośników "/" we wszystkich innych ścieżkach, takich jak inputFolderPath i inputAssetPath.
+> Upewnij się, że w ścieżce LocalAssetDirectoryPath są poprawnie wysunięte ukośniki odwrotne: "\\\\" i użyj ukośników "/" we wszystkich innych ścieżkach, takich jak inputFolderPath i inputAssetPath.
 
-### <a name="accountsettings"></a>kontaSettings
+### <a name="accountsettings"></a>accountSettings
 
-Dla `arrAccountId` `arrAccountKey`i , zobacz [Tworzenie konta zdalnego renderowania platformy Azure](../how-tos/create-an-account.md).
-Aby `region` zapoznać się [z listą dostępnych regionów](../reference/regions.md).
+W `arrAccountId` przypadku `arrAccountKey`i, zobacz [Tworzenie konta renderowania zdalnego dla platformy Azure](../how-tos/create-an-account.md).
+Aby `region` zapoznać się z [listą dostępnych regionów](../reference/regions.md).
 
 ### <a name="renderingsessionsettings"></a>renderingSessionSettings
 
-Ta struktura musi być wypełniona, jeśli chcesz uruchomić **RenderingSession.ps1**.
+Ta struktura musi zostać wypełniona, jeśli chcesz uruchomić **RenderingSession. ps1**.
 
-- **vmSize:** Wybiera rozmiar maszyny wirtualnej. Wybierz *standard* lub *premię*. Zamknij sesje renderowania, gdy nie są już potrzebne.
-- **maxLeaseTime:** Czas trwania, dla którego chcesz dzierżawić maszynę wirtualną. Zostanie on zamknięty po wygaśnięciu dzierżawy. Czas dzierżawy można przedłużyć później (patrz poniżej).
+- **vmSize:** Wybiera rozmiar maszyny wirtualnej. Wybierz pozycję *standardowa* lub *Premium*. Zamknij sesje renderowania, gdy nie są już potrzebne.
+- **maxLeaseTime:** Czas trwania dzierżawy maszyny wirtualnej. Zostanie on zamknięty po wygaśnięciu dzierżawy. Czas dzierżawy można przedłużyć później (patrz poniżej).
 
-### <a name="assetconversionsettings"></a>aktywaKonwersjeStytucje
+### <a name="assetconversionsettings"></a>assetConversionSettings
 
-Ta struktura musi być wypełniona, jeśli chcesz uruchomić **Conversion.ps1**.
+Ta struktura musi zostać wypełniona, jeśli chcesz uruchomić program **Conversion. ps1**.
 
 Aby uzyskać szczegółowe informacje, zobacz [Przygotowywanie konta usługi Azure Storage](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts).
 
-## <a name="script-renderingsessionps1"></a>Skrypt: RenderingSession.ps1
+## <a name="script-renderingsessionps1"></a>Skrypt: RenderingSession. ps1
 
-Ten skrypt jest używany do tworzenia, wykonywania zapytań i zatrzymywania sesji renderowania.
+Ten skrypt służy do tworzenia, wykonywania zapytań i przerywania renderowania sesji.
 
 > [!IMPORTANT]
-> Upewnij się, że wypełniłeś *sekcje kontSettings* i *renderingSessionSettings* w pliku arrconfig.json.
+> Upewnij się, że wypełniono sekcje *accountSettings* i *renderingSessionSettings* w pliku arrconfig. JSON.
 
 ### <a name="create-a-rendering-session"></a>Tworzenie sesji renderowania
 
-Normalne użycie z w pełni wypełnionym arrconfig.json:
+Normalne użycie z w pełni wypełnionym arrconfig. JSON:
 
 ```PowerShell
 .\RenderingSession.ps1
 ```
 
-Skrypt wywoła [interfejs API REST zarządzania sesjami,](../how-tos/session-rest-api.md) aby rozkręcić renderowanie maszyny Wirtualnej z określonymi ustawieniami. Po sukcesie zostanie pobrana *sessionId*. Następnie sonduje właściwości sesji, dopóki sesja nie będzie gotowa lub wystąpił błąd.
+Skrypt wywoła [interfejs API REST zarządzania sesją](../how-tos/session-rest-api.md) , aby uruchomić maszynę wirtualną renderowania z określonymi ustawieniami. Po pomyślnym zakończeniu zostanie pobrany *Identyfikator sesji*. Następnie będzie sondował właściwości sesji do momentu, aż sesja będzie gotowa lub wystąpi błąd.
 
-Aby użyć alternatywnego pliku **konfiguracyjnego:**
+Aby użyć **alternatywnego pliku konfiguracji** :
 
 ```PowerShell
 .\RenderingSession.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
-Poszczególne **ustawienia** można zastąpić z pliku konfiguracyjnego:
+Można **przesłonić poszczególne ustawienia** z pliku konfiguracyjnego:
 
 ```PowerShell
 .\RenderingSession.ps1 -Region <region> -VmSize <vmsize> -MaxLeaseTime <hh:mm:ss>
 ```
 
-Aby rozpocząć sesję tylko **bez sondowania,** można użyć:
+Aby **rozpocząć sesję tylko bez sondowania**, można użyć:
 
 ```PowerShell
 .\RenderingSession.ps1 -CreateSession
 ```
 
-Identyfikator *sessionId,* który pobiera skrypt, musi być przekazany do większości innych poleceń sesji.
+*Identyfikator sesji* pobierany przez skrypt musi być przesyłany do większości innych poleceń sesji.
 
 ### <a name="retrieve-session-properties"></a>Pobieranie właściwości sesji
 
-Aby uzyskać właściwości sesji, uruchom:
+Aby uzyskać właściwości sesji, uruchom polecenie:
 
 ```PowerShell
 .\RenderingSession.ps1 -GetSessionProperties -Id <sessionID> [-Poll]
 ```
 
-Służy `-Poll` do oczekiwania, aż sesja jest *gotowa* lub wystąpił błąd.
+Użyj `-Poll` , aby zaczekać, aż sesja będzie *gotowa* lub wystąpił błąd.
 
-### <a name="list-active-sessions"></a>Lista aktywnych sesji
+### <a name="list-active-sessions"></a>Wyświetl aktywne sesje
 
 ```PowerShell
 .\RenderingSession.ps1 -GetSessions
 ```
 
-### <a name="stop-a-session"></a>Zatrzymywać sesję
+### <a name="stop-a-session"></a>Zatrzymaj sesję
 
 ```PowerShell
 .\RenderingSession.ps1 -StopSession -Id <sessionID>
 ```
 
-### <a name="change-session-properties"></a>Zmienianie właściwości sesji
+### <a name="change-session-properties"></a>Zmień właściwości sesji
 
-W tej chwili obsługujemy tylko zmianę maxLeaseTime sesji.
+Obecnie obsługujemy tylko Zmienianie maxLeaseTime sesji.
 
 > [!NOTE]
-> Czas dzierżawy jest zawsze liczony od momentu utworzenia maszyny wirtualnej sesji. Tak więc, aby przedłużyć dzierżawę sesji o kolejną godzinę, zwiększ *maxLeaseTime* o jedną godzinę.
+> Czas dzierżawy jest zawsze liczony od momentu, kiedy maszyna wirtualna sesji została początkowo utworzona. W celu przedłużenia dzierżawy sesji o inną godzinę Zwiększ *maxLeaseTime* o jedną godzinę.
 
 ```PowerShell
 .\RenderingSession.ps1 -UpdateSession -Id <sessionID> -MaxLeaseTime <hh:mm:ss>
 ```
 
-## <a name="script-conversionps1"></a>Skrypt: Conversion.ps1
+## <a name="script-conversionps1"></a>Skrypt: Conversion. ps1
 
-Ten skrypt służy do konwertowania modeli wejściowych do formatu określonego środowiska uruchomieniowego renderowania zdalnego platformy Azure.
+Ten skrypt służy do konwertowania modeli wejściowych na format środowiska uruchomieniowego dla renderowania zdalnego platformy Azure.
 
 > [!IMPORTANT]
-> Upewnij się, że wypełniłeś *sekcje kontSettings* i *assetConversionSettings* w pliku arrconfig.json.
+> Upewnij się, że wypełniono sekcje *accountSettings* i *assetConversionSettings* w pliku arrconfig. JSON.
 
-Skrypt pokazuje dwie opcje używania kont magazynu w usłudze:
+Skrypt pokazuje dwie opcje używania kont magazynu z usługą:
 
-- Konto Magazynu połączone z kontem zdalnego renderowania platformy Azure
-- Zapewnienie dostępu do pamięci masowej za pośrednictwem sygnatur dostępu współdzielonego (SAS)
+- Konto magazynu połączone z kontem renderowania zdalnego na platformie Azure
+- Zapewnianie dostępu do magazynu za pośrednictwem sygnatur dostępu współdzielonego (SAS)
 
 ### <a name="linked-storage-account"></a>Połączone konto magazynu
 
-Po pełnym wypełnieniu arrconfig.json i połączeniu konta magazynu można użyć następującego polecenia. Łączenie konta magazynu opisano w witrynie [Utwórz konto](../how-tos/create-an-account.md#link-storage-accounts).
+Po pełnym wypełnieniu arrconfig. JSON i powiązaniu konta magazynu możesz użyć następującego polecenia. Łączenie konta magazynu zostało opisane w temacie [Tworzenie konta](../how-tos/create-an-account.md#link-storage-accounts).
 
-Korzystanie z połączonego konta magazynu jest preferowanym sposobem korzystania z usługi konwersji, ponieważ nie ma potrzeby generowania podpisów dostępu współdzielonego.
+Użycie połączonego konta magazynu jest preferowanym sposobem korzystania z usługi konwersji, ponieważ nie ma potrzeby generowania sygnatur dostępu współdzielonego.
 
 ```PowerShell
 .\Conversion.ps1
 ```
 
-1. Prześlij wszystkie `assetConversionSettings.modelLocation` pliki zawarte w kontenerze wejściowego obiektu blob pod danym`inputFolderPath`
-1. Wywołanie [interfejsu API REST konwersji modelu](../how-tos/conversion/conversion-rest-api.md) w celu rozpoczęcia [konwersji modelu](../how-tos/conversion/model-conversion.md)
-1. Sonduj stan konwersji, aż konwersja zakończy się pomyślnie lub nie powiodła się
-1. Szczegóły danych wyjściowych przekonwertowanego pliku (konto magazynu, kontener wyjściowy, ścieżka pliku w kontenerze)
+1. Przekaż wszystkie pliki znajdujące się `assetConversionSettings.modelLocation` w kontenerze wejściowego obiektu BLOB pod danym`inputFolderPath`
+1. Wywołaj [interfejs API REST konwersji modelu](../how-tos/conversion/conversion-rest-api.md) , aby uruchomić [konwersję modelu](../how-tos/conversion/model-conversion.md)
+1. Sondowanie stanu konwersji do momentu pomyślnego przeprowadzenia konwersji lub niepowodzenia
+1. Szczegóły danych wyjściowych przekonwertowanej lokalizacji pliku (konto magazynu, kontener danych wyjściowych, ścieżka pliku w kontenerze)
 
-### <a name="access-to-storage-via-shared-access-signatures"></a>Dostęp do magazynu za pośrednictwem podpisów dostępu współdzielonego
+### <a name="access-to-storage-via-shared-access-signatures"></a>Dostęp do magazynu za pośrednictwem sygnatur dostępu współdzielonego
 
 ```PowerShell
 .\Conversion.ps1 -UseContainerSas
 ```
 
-Będzie to:
+Spowoduje to:
 
-1. Przekazywanie pliku lokalnego `assetConversionSettings.localAssetDirectoryPath` z kontenera wejściowego obiektu blob
-1. Generowanie identyfikatora URI sygnatury dostępu Współdzielonego dla kontenera wejściowego
-1. Generowanie identyfikatora URI sygnatury dostępu Współdzielonego dla kontenera wyjściowego
-1. Wywołanie [interfejsu API REST konwersji modelu](../how-tos/conversion/conversion-rest-api.md) w celu rozpoczęcia [konwersji modelu](../how-tos/conversion/model-conversion.md)
-1. Sonduj stan konwersji, aż konwersja zakończy się pomyślnie lub nie powiodła się
-1. Szczegóły danych wyjściowych przekonwertowanego pliku (konto magazynu, kontener wyjściowy, ścieżka pliku w kontenerze)
-1. Wyprowadzanie identyfikatora URI sygnatury dostępu Współdzielonego do przekonwertowanego modelu w wyjściowym kontenerze obiektów blob
+1. Przekaż plik lokalny z `assetConversionSettings.localAssetDirectoryPath` do wejściowego kontenera obiektów BLOB
+1. Generuj identyfikator URI sygnatury dostępu współdzielonego dla kontenera wejściowego
+1. Generuj identyfikator URI sygnatury dostępu współdzielonego dla kontenera wyjściowego
+1. Wywołaj [interfejs API REST konwersji modelu](../how-tos/conversion/conversion-rest-api.md) , aby uruchomić [konwersję modelu](../how-tos/conversion/model-conversion.md)
+1. Sondowanie stanu konwersji do momentu pomyślnego przeprowadzenia konwersji lub niepowodzenia
+1. Szczegóły danych wyjściowych przekonwertowanej lokalizacji pliku (konto magazynu, kontener danych wyjściowych, ścieżka pliku w kontenerze)
+1. Wyprowadzanie identyfikatora URI sygnatury dostępu współdzielonego do konwertowanego modelu w wyjściowym kontenerze obiektów BLOB
 
 ### <a name="additional-command-line-options"></a>Dodatkowe opcje wiersza polecenia
 
-Aby użyć alternatywnego pliku **konfiguracyjnego:**
+Aby użyć **alternatywnego pliku konfiguracji** :
 
 ```PowerShell
 .\Conversion.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
-Aby **rozpocząć konwersję modelu tylko bez sondowania,** możesz użyć:
+Aby **uruchomić wyłącznie konwersję modelu bez sondowania**, można użyć:
 
 ```PowerShell
 .\Conversion.ps1 -ConvertAsset
 ```
 
-Poszczególne **ustawienia** można zastąpić z pliku konfiguracyjnego za pomocą następujących przełączników wiersza polecenia:
+**Poszczególne ustawienia można przesłonić** z pliku konfiguracji przy użyciu następujących przełączników wiersza polecenia:
 
 * **Identyfikator:** ConversionId używany z GetConversionStatus
-* **ArrAccountId:** arrAccountId of accountSettings ArrAccountId: arrAccountId of accountSettings ArrAccountId
-* **ArrAccountKey:** zastępowanie arrAccountKey kontSettings
-* **Region:** zastępowanie regionu kontZalięki
-* **ResourceGroup:** zastępowanie zasobówGrupa zasobówKonwersje
-* **StorageAccountName:** zastępowanie magazynuName zasobówConversionSettings
-* **Nazwa pliku BlobInputContainerName:** zastępowanie dla obiektu blobInputContainer zasobówConversionSettings
-* **LocalAssetDirectoryPath:** zastępowanie dla localAssetDirectoryPath zasobówConversionSettings
-* **InputAssetPath:** zastępowanie dla inputAssetPath zasobówConversionSettings
-* **Nazwa:** zastępowanie dla obiektu blobOutputContainerName of assetConversionSettings
-* **OutputFolderPath:** zastępowanie danych wyjściowychFolderPath assetConversionSettings
-* **OutputAssetFileName:** zastępowanie danych wyjściowychAssetFileName zasobówConversionSettings
+* **ArrAccountId:** ArrAccountId of accountSettings
+* **ArrAccountKey:** override dla ArrAccountKey accountSettings
+* **Region:** override dla regionu accountSettings
+* Podzbiór **zasobów:** przesłonięcie dla assetConversionSettings zasobów
+* **StorageAccountName:** override dla StorageAccountName assetConversionSettings
+* **BlobInputContainerName:** override dla blobInputContainer assetConversionSettings
+* **LocalAssetDirectoryPath:** override dla LocalAssetDirectoryPath assetConversionSettings
+* **InputAssetPath:** override dla InputAssetPath assetConversionSettings
+* **BlobOutputContainerName:** override dla BlobOutputContainerName assetConversionSettings
+* **OutputFolderPath:** Przesłoń dla OutputFolderPath assetConversionSettings
+* **OutputAssetFileName:** override dla OutputAssetFileName assetConversionSettings
 
-Na przykład można połączyć kilka podanych opcji, takich jak:
+Na przykład można połączyć wiele z tych opcji, takich jak:
 
 ```PowerShell
 .\Conversion.ps1 -LocalAssetDirectoryPath "C:\\models\\box" -InputAssetPath box.fbx -OutputFolderPath another/converted/box -OutputAssetFileName newConversionBox.arrAsset
@@ -244,30 +244,30 @@ Na przykład można połączyć kilka podanych opcji, takich jak:
 
 ### <a name="run-the-individual-conversion-stages"></a>Uruchamianie poszczególnych etapów konwersji
 
-Jeśli chcesz uruchomić poszczególne etapy procesu, możesz użyć:
+Jeśli chcesz wykonać poszczególne kroki procesu, możesz użyć:
 
-Przekazywanie tylko danych z podanej ścieżki localassetdirectorypath
+Przekazuj tylko dane z danego LocalAssetDirectoryPath
 
 ```PowerShell
 .\Conversion.ps1 -Upload
 ```
 
-Rozpocznij proces konwersji modelu już przesłanego do magazynu obiektów blob (nie uruchamiaj przesyłania, nie sonduj stanu konwersji) Skrypt zwróci *identyfikator konwersji*.
+Tylko proces konwersji modelu został już przekazany do magazynu obiektów BLOB (nie uruchamiaj przekazywania, nie sonduje stanu konwersji) skrypt zwróci *conversionId*.
 
 ```PowerShell
 .\Conversion.ps1 -ConvertAsset
 ```
 
-Możesz też odzyskać stan konwersji tej konwersji za pomocą:
+Można też pobrać stan konwersji tej konwersji przy użyciu:
 
 ```PowerShell
 .\Conversion.ps1 -GetConversionStatus -Id <conversionId> [-Poll]
 ```
 
-Należy `-Poll` zaczekać, aż konwersja zostanie wykonana lub wystąpił błąd.
+Użyj `-Poll` , aby poczekać na zakończenie konwersji lub wystąpił błąd.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Szybki start: renderowanie modelu za pomocą unity](../quickstarts/render-model.md)
-- [Szybki start: konwertowanie modelu do renderowania](../quickstarts/convert-model.md)
+- [Szybki Start: renderowanie modelu przy użyciu aparatu Unity](../quickstarts/render-model.md)
+- [Szybki Start: konwertowanie modelu do renderowania](../quickstarts/convert-model.md)
 - [Konwersja modelu](../how-tos/conversion/model-conversion.md)

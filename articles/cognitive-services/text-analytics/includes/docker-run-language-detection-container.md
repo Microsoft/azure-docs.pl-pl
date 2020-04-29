@@ -1,7 +1,7 @@
 ---
-title: Uruchom przykład kontenera polecenia uruchamiania platformy docker
+title: Przykład uruchomienia kontenera dla polecenia Docker Run
 titleSuffix: Azure Cognitive Services
-description: Polecenie Uruchamianie platformy Docker dla kontenera wykrywania języka
+description: Polecenie Docker Run dla kontenera wykrywanie języka
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,13 +10,13 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 1f6bfbf3a15f17c3cfd0487cdd0bbb535ffc31ae
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80877046"
 ---
-Aby uruchomić kontener *wykrywania języka,* wykonaj następujące `docker run` polecenie.
+Aby uruchomić kontener *wykrywanie języka* , wykonaj następujące `docker run` polecenie.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -28,7 +28,7 @@ ApiKey={API_KEY}
 
 To polecenie:
 
-* Uruchamia kontener *wykrywania języka* z obrazu kontenera
-* Przydziela jeden rdzeń procesora i 4 gigabajty (GB) pamięci
+* Uruchamia *wykrywanie języka* kontener z obrazu kontenera
+* Przypisuje jedne rdzeń procesora CPU i 4 gigabajty (GB) pamięci
 * Udostępnia port TCP 5000 i przydziela pseudo-TTY dla kontenera
-* Automatycznie usuwa kontener po jego zamknięciu. Obraz kontenera jest nadal dostępny na komputerze-hoście.
+* Automatycznie usuwa kontener po zakończeniu. Obraz kontenera jest nadal dostępny na komputerze-hoście.

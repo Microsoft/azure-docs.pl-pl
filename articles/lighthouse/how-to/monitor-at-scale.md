@@ -1,43 +1,43 @@
 ---
 title: Monitorowanie delegowanych zasobów na dużą skalę
-description: Dowiedz się, jak skutecznie korzystać z dzienników usługi Azure Monitor w skalowalny sposób w przypadku dzierżawców klientów, których zarządzasz.
+description: Dowiedz się, jak efektywnie korzystać z dzienników Azure Monitor w sposób skalowalny dla dzierżaw klientów, którymi zarządzasz.
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 9a600cec524c9f715ada9da09dea35f3baa98151
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985205"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorowanie delegowanych zasobów na dużą skalę
 
-Jako dostawca usług może mieć wbudowane wielu dzierżawców klientów do zarządzania zasobami delegowanymi platformy Azure. [Latarnia morska platformy Azure](../overview.md) umożliwia dostawcom usług wykonywanie operacji na dużą skalę w kilku dzierżawach jednocześnie, dzięki czemu zadania zarządzania są bardziej wydajne.
+Jako dostawca usług możesz dołączyć wielu dzierżawców klientów do zarządzania zasobami delegowanymi przez platformę Azure. Usługa [Azure Lighthouse](../overview.md) umożliwia dostawcom usług wykonywanie operacji na dużą skalę w wielu dzierżawcach, co sprawia, że zadania zarządzania są bardziej wydajne.
 
-W tym temacie pokazano, jak używać [dzienników usługi Azure Monitor](../../azure-monitor/platform/data-platform-logs.md) w skalowalny sposób w dzierżawach klientów, których zarządzasz.
+W tym temacie przedstawiono sposób korzystania z [dzienników Azure monitor](../../azure-monitor/platform/data-platform-logs.md) w sposób skalowalny dla dzierżaw klientów, którymi zarządzasz.
 
-## <a name="create-log-analytics-workspaces"></a>Tworzenie obszarów roboczych usługi Log Analytics
+## <a name="create-log-analytics-workspaces"></a>Tworzenie Log Analytics obszarów roboczych
 
-Aby zbierać dane, musisz utworzyć obszary robocze usługi Log Analytics. Te obszary robocze usługi Log Analytics są unikatowymi środowiskami dla danych gromadzonych przez usługę Azure Monitor. Każdy obszar roboczy ma własne repozytorium danych i konfigurację, a źródła danych i rozwiązania są skonfigurowane do przechowywania danych w określonym obszarze roboczym.
+Aby zbierać dane, musisz utworzyć Log Analytics obszary robocze. Te obszary robocze Log Analytics są unikatowymi środowiskami dla danych zbieranych przez Azure Monitor. Każdy obszar roboczy ma własne repozytorium danych i konfigurację, a źródła danych i rozwiązania są skonfigurowane do przechowywania danych w określonym obszarze roboczym.
 
-Zaleca się tworzenie tych obszarów roboczych bezpośrednio w dzierżawców klientów. W ten sposób ich dane pozostają w ich dzierżaw, a nie są eksportowane do Twojej. Umożliwia to również scentralizowane monitorowanie wszelkich zasobów lub usług obsługiwanych przez usługi Log Analytics, co zapewnia większą elastyczność w zakresie typów danych, które monitorujesz.
+Zalecamy tworzenie tych obszarów roboczych bezpośrednio w dzierżawach klientów. W ten sposób ich dane pozostają w swoich dzierżawcach, a nie eksportowane do użytkownika. Umożliwia to również Scentralizowane monitorowanie wszelkich zasobów i usług obsługiwanych przez Log Analytics, co zapewnia większą elastyczność w zakresie typów monitorowanych danych.
 
-Obszar roboczy usługi Log Analytics można utworzyć przy użyciu [portalu Azure](../../azure-monitor/learn/quick-create-workspace.md), przy użyciu [interfejsu wiersza polecenia platformy Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)lub za pomocą programu Azure [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md).
+Obszar roboczy Log Analytics można utworzyć przy użyciu [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md), przy użyciu [interfejsu wiersza polecenia platformy Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)lub przy użyciu [Azure PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md).
 
 ## <a name="deploy-policies-that-log-data"></a>Wdrażanie zasad, które rejestrują dane
 
-Po utworzeniu obszarów roboczych usługi Log Analytics można wdrożyć [zasady platformy Azure](../../governance/policy/index.yml) w hierarchiach klientów, aby dane diagnostyczne były wysyłane do odpowiedniego obszaru roboczego w każdej dzierżawie. Dokładne zasady, które można wdrożyć może się różnić w zależności od typów zasobów, które chcesz monitorować.
+Po utworzeniu obszarów roboczych Log Analytics można wdrożyć [Azure Policy](../../governance/policy/index.yml) między hierarchiami klientów, aby dane diagnostyczne były wysyłane do odpowiedniego obszaru roboczego w każdej dzierżawie. Dokładne wdrożone zasady mogą się różnić w zależności od typów zasobów, które mają być monitorowane.
 
-Aby dowiedzieć się więcej na temat tworzenia zasad, zobacz [Samouczek: Tworzenie zasad i zarządzanie nimi w celu wymuszania zgodności](../../governance/policy/tutorials/create-and-manage.md). To [narzędzie społeczności](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/azure-diagnostics-policy-generator) udostępnia skrypt ułatwiające tworzenie zasad służących do monitorowania określonych typów zasobów.
+Aby dowiedzieć się więcej o tworzeniu zasad, zobacz [Samouczek: Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności](../../governance/policy/tutorials/create-and-manage.md). To [Narzędzie Community](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/azure-diagnostics-policy-generator) zawiera skrypt ułatwiający Tworzenie zasad w celu monitorowania wybranych typów zasobów.
 
-Po określeniu zasad, które należy wdrożyć, można [je wdrożyć w delegowanych subskrypcji na dużą skalę.](policy-at-scale.md)
+Po ustaleniu zasad, które mają zostać wdrożone, można [je wdrożyć w ramach delegowanych subskrypcji na dużą skalę](policy-at-scale.md).
 
 ## <a name="analyze-the-gathered-data"></a>Analizowanie zebranych danych
 
-Po wdrożeniu zasad dane będą rejestrowane w obszarach roboczych usługi Log Analytics utworzonych w każdej dzierżawie klienta. Aby uzyskać szczegółowe informacje we wszystkich zarządzanych klientach, można użyć narzędzi, takich jak [skoroszyty usługi Azure Monitor,](../../azure-monitor/platform/workbooks-overview.md) aby zbierać i analizować informacje z wielu źródeł danych.
+Po wdrożeniu zasad dane będą rejestrowane w obszarach roboczych Log Analytics utworzonych w każdej dzierżawie klienta. Aby uzyskać szczegółowe informacje na temat wszystkich zarządzanych klientów, można użyć narzędzi, takich jak [Azure monitor skoroszyty](../../azure-monitor/platform/workbooks-overview.md) do zbierania i analizowania informacji z wielu źródeł danych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [usłudze Azure Monitor](../../azure-monitor/index.yml).
-- Dowiedz się więcej o [dziennikach monitora platformy Azure](../../azure-monitor/platform/data-platform-logs.md).
-- Dowiedz się więcej o [środowiskach zarządzania między dzierżawcami](../concepts/cross-tenant-management-experience.md).
+- Dowiedz się więcej na temat [Azure monitor](../../azure-monitor/index.yml).
+- Dowiedz się więcej na temat [dzienników Azure monitor](../../azure-monitor/platform/data-platform-logs.md).
+- Dowiedz się więcej na temat [środowisk zarządzania między dzierżawcami](../concepts/cross-tenant-management-experience.md).

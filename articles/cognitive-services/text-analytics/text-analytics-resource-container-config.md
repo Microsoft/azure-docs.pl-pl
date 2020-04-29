@@ -1,7 +1,7 @@
 ---
 title: Konfigurowanie kontenerów — analiza tekstu
 titleSuffix: Azure Cognitive Services
-description: Usługa Text Analytics udostępnia każdemu kontenerowi wspólną strukturę konfiguracji, dzięki czemu można łatwo skonfigurować magazyn, rejestrowanie i dane telemetryczne oraz zarządzać nimi oraz ustawienia zabezpieczeń kontenerów.
+description: Analiza tekstu zapewnia każdy kontener ze wspólną strukturą konfiguracji, dzięki czemu można łatwo konfigurować magazyn, rejestrowanie i dane telemetryczne oraz ustawienia zabezpieczeń dla kontenerów oraz zarządzać nimi.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,30 +12,30 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: f062fb2f3a653bc1b2845b92e373fdb67ba583d8
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80878686"
 ---
-# <a name="configure-text-analytics-docker-containers"></a>Konfigurowanie kontenerów platformy dokowania analizy tekstu
+# <a name="configure-text-analytics-docker-containers"></a>Konfigurowanie analiza tekstu kontenerów platformy Docker
 
-Usługa Text Analytics udostępnia każdemu kontenerowi wspólną strukturę konfiguracji, dzięki czemu można łatwo skonfigurować magazyn, rejestrowanie i dane telemetryczne oraz zarządzać nimi oraz ustawienia zabezpieczeń kontenerów.
+Analiza tekstu zapewnia każdy kontener ze wspólną strukturą konfiguracji, dzięki czemu można łatwo konfigurować magazyn, rejestrowanie i dane telemetryczne oraz ustawienia zabezpieczeń dla kontenerów oraz zarządzać nimi.
 
 ## <a name="configuration-settings"></a>Ustawienia konfiguracji
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> Ustawienia [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting)i [`Eula`](#eula-setting) ustawienia są używane razem i należy podać prawidłowe wartości dla wszystkich trzech z nich; w przeciwnym razie kontener nie zostanie uruchomiony. Aby uzyskać więcej informacji na temat używania tych ustawień konfiguracji do tworzenia wystąpienia kontenera, zobacz [Rozliczenia](how-tos/text-analytics-how-to-install-containers.md#billing).
+> Ustawienia [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), i [`Eula`](#eula-setting) są używane razem i należy podać prawidłowe wartości dla wszystkich trzech z nich; w przeciwnym razie kontener nie zostanie uruchomiony. Aby uzyskać więcej informacji na temat tworzenia wystąpienia kontenera przy użyciu tych ustawień konfiguracji, zobacz [rozliczenia](how-tos/text-analytics-how-to-install-containers.md#billing).
 
-## <a name="apikey-configuration-setting"></a>Ustawienie konfiguracji apikey
+## <a name="apikey-configuration-setting"></a>Ustawienie konfiguracji ApiKey
 
-Ustawienie `ApiKey` określa klucz zasobów platformy Azure używany do śledzenia informacji rozliczeniowych dla kontenera. Należy określić wartość dla apikey i wartość musi być prawidłowy klucz [`Billing`](#billing-configuration-setting) dla zasobu analizy _tekstu_ określonego dla ustawienia konfiguracji.
+`ApiKey` Ustawienie określa klucz zasobów platformy Azure służący do śledzenia informacji rozliczeniowych dla kontenera. Należy określić wartość ApiKey, a wartość musi być prawidłowym kluczem dla zasobu _Analiza tekstu_ określonego dla ustawienia [`Billing`](#billing-configuration-setting) konfiguracji.
 
-To ustawienie można znaleźć w następującym miejscu:
+To ustawienie można znaleźć w następujących miejscach:
 
-* Portal Azure: Zarządzanie zasobami **analizy tekstu** w obszarze **Klucze**
+* Azure Portal: **Analiza tekstu** zarządzania zasobami w obszarze **klucze**
 
 ## <a name="applicationinsights-setting"></a>Ustawienie ApplicationInsights
 
@@ -43,21 +43,21 @@ To ustawienie można znaleźć w następującym miejscu:
 
 ## <a name="billing-configuration-setting"></a>Ustawienie konfiguracji rozliczeń
 
-Ustawienie `Billing` określa identyfikator URI punktu końcowego zasobu _analizy tekstu_ na platformie Azure używane do pomiaru informacji rozliczeniowych dla kontenera. Należy określić wartość dla tego ustawienia konfiguracji, a wartość musi być prawidłowym identyfikatorem URI punktu końcowego dla zasobu __analizy tekstu_ na platformie Azure. Kontener raportuje użycie co 10 do 15 minut.
+`Billing` Ustawienie określa identyfikator URI punktu końcowego zasobu _Analiza tekstu_ na platformie Azure używany do mierzenia informacji rozliczeniowych dla kontenera. Należy określić wartość dla tego ustawienia konfiguracji, a wartość musi być prawidłowym identyfikatorem URI punktu końcowego dla zasobu __Analiza tekstu_ na platformie Azure. Kontener zgłasza użycie co 10 do 15 minut.
 
-To ustawienie można znaleźć w następującym miejscu:
+To ustawienie można znaleźć w następujących miejscach:
 
-* Portal Azure: Omówienie **analizy tekstu,** oznaczone etykietami`Endpoint`
+* Azure Portal: **Analiza tekstu** Omówienie, etykieta`Endpoint`
 
 |Wymagany| Nazwa | Typ danych | Opis |
 |--|------|-----------|-------------|
-|Tak| `Billing` | Ciąg | Identyfikator URI punktu końcowego rozliczeń. Aby uzyskać więcej informacji na temat uzyskiwania identyfikatora URI rozliczeń, zobacz [zbieranie wymaganych parametrów](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters). Aby uzyskać więcej informacji i pełną listę regionalnych punktów końcowych, zobacz [Niestandardowe nazwy poddomen dla usług Cognitive Services](../cognitive-services-custom-subdomains.md). |
+|Tak| `Billing` | String | Identyfikator URI punktu końcowego rozliczenia. Aby uzyskać więcej informacji na temat uzyskiwania identyfikatora URI rozliczeń, zobacz [zbieranie wymaganych parametrów](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters). Aby uzyskać więcej informacji i pełną listę regionalnych punktów końcowych, zobacz [niestandardowe nazwy domen poddomen dla Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
-## <a name="eula-setting"></a>Ustawienie Eula
+## <a name="eula-setting"></a>Ustawienie umowy EULA
 
 [!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
-## <a name="fluentd-settings"></a>Płynne ustawienia
+## <a name="fluentd-settings"></a>Ustawienia pozostały
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
@@ -71,34 +71,34 @@ To ustawienie można znaleźć w następującym miejscu:
 
 ## <a name="mount-settings"></a>Ustawienia instalacji
 
-Użyj powiązania wierzchowce do odczytu i zapisu danych do i z kontenera. Można określić mocowanie wejściowe lub `--mount` mocowanie wyjściowe, określając opcję w poleceniu [uruchamiania platformy docker.](https://docs.docker.com/engine/reference/commandline/run/)
+Użyj instalacji powiązań, aby odczytywać i zapisywać dane w kontenerze i z niego. Można określić instalację wejściową lub instalację wyjściową, określając `--mount` opcję w poleceniu [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) .
 
-Kontenery analizy tekstu nie używają instalacji wejściowych ani wyjściowych do przechowywania danych szkoleniowych lub usługowych. 
+Kontenery analiza tekstu nie używają instalacji danych wejściowych lub wyjściowych do przechowywania danych szkoleniowych lub usług. 
 
-Dokładna składnia lokalizacji instalacji hosta różni się w zależności od systemu operacyjnego hosta. Ponadto lokalizacja instalacji [komputera-hosta](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)może być niedostępna z powodu konfliktu między uprawnieniami używanymi przez konto usługi platformy docker a uprawnieniami lokalizacji instalacji hosta. 
+Dokładna składnia lokalizacji instalacji hosta różni się w zależności od systemu operacyjnego hosta. Ponadto lokalizacja instalacji [komputera hosta](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)może być niedostępna z powodu konfliktu między uprawnieniami używanymi przez konto usługi platformy Docker i uprawnieniami lokalizacji instalacji hosta. 
 
-|Optional (Opcjonalność)| Nazwa | Typ danych | Opis |
+|Optional| Nazwa | Typ danych | Opis |
 |-------|------|-----------|-------------|
-|Niedozwolone| `Input` | Ciąg | Kontenery analizy tekstu nie używają tego.|
-|Optional (Opcjonalność)| `Output` | Ciąg | Miejsce docelowe mocowania wyjściowego. Wartością domyślną jest `/output`. Jest to lokalizacja dzienników. Obejmuje to dzienniki kontenerów. <br><br>Przykład:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Niedozwolone| `Input` | String | Kontenery analiza tekstu nie używają tego.|
+|Optional| `Output` | String | Obiekt docelowy instalacji wyjściowej. Wartością domyślną jest `/output`. Jest to lokalizacja dzienników. Dotyczy to również dzienników kontenerów. <br><br>Przykład:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="example-docker-run-commands"></a>Przykładowe polecenia uruchamiania platformy dok. 
+## <a name="example-docker-run-commands"></a>Przykładowe polecenia uruchamiania platformy Docker 
 
-Poniższe przykłady używają ustawień konfiguracji, aby zilustrować sposób pisania i używania `docker run` poleceń.  Po uruchomieniu kontener będzie nadal działał, dopóki go nie [zatrzymasz.](how-tos/text-analytics-how-to-install-containers.md#stop-the-container)
+W poniższych przykładach użyto ustawień konfiguracji, aby zilustrować sposób pisania i używania `docker run` poleceń.  Po uruchomieniu kontenera kontynuuje działanie, dopóki nie zostanie [zatrzymane](how-tos/text-analytics-how-to-install-containers.md#stop-the-container) .
 
-* **Znak kontynuacji wiersza:** Polecenia docker w poniższych sekcjach używają ukośnika wstecznego, `\`jako znaku kontynuacji wiersza. Zastąp lub usuń to na podstawie wymagań systemu operacyjnego hosta. 
-* **Kolejność argumentów:** Nie należy zmieniać kolejności argumentów, chyba że są bardzo zaznajomieni z kontenerami docker.
+* **Znak kontynuacji wiersza**: polecenia platformy Docker w poniższych sekcjach używają ukośnika odwrotnego `\`, jako znaku kontynuacji wiersza. Zastąp lub usuń to w zależności od wymagań systemu operacyjnego hosta. 
+* **Kolejność**argumentów: nie zmieniaj kolejności argumentów, o ile nie znasz już kontenerów platformy Docker.
 
-Zamień {_argument_name_} własnymi wartościami:
+Zastąp ciąg {_argument_name_} własnymi wartościami:
 
 | Symbol zastępczy | Wartość | Format lub przykład |
 |-------------|-------|---|
-| **{API_KEY}** | Klucz punktu końcowego `Text Analytics` zasobu dostępnego na stronie Klucze platformy Azure. `Text Analytics` |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | Wartość punktu końcowego rozliczeń jest `Text Analytics` dostępna na stronie Przegląd platformy Azure.| Zobacz [zbieranie wymaganych parametrów](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters) dla jawnych przykładów. |
+| **{API_KEY}** | Klucz punktu końcowego `Text Analytics` zasobu jest dostępny na stronie kluczy platformy `Text Analytics` Azure. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | Wartość punktu końcowego rozliczenia jest dostępna na stronie `Text Analytics` przegląd platformy Azure.| Zobacz [zbieranie wymaganych parametrów](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters) dla jawnych przykładów. |
 
 > [!IMPORTANT]
-> Aby `Eula` `Billing`uruchomić `ApiKey` kontener, należy określić opcje i opcje; w przeciwnym razie kontener nie zostanie uruchomiony.  Aby uzyskać więcej informacji, zobacz [Rozliczenia](how-tos/text-analytics-how-to-install-containers.md#billing).
-> Wartość ApiKey jest **kluczem** `Text Analytics` ze strony klucze zasobów platformy Azure. 
+> Aby `Eula`można `Billing`było uruchomić `ApiKey` kontener, należy określić opcje, i. w przeciwnym razie kontener nie zostanie uruchomiony.  Aby uzyskać więcej informacji, zobacz [rozliczenia](how-tos/text-analytics-how-to-install-containers.md#billing).
+> Wartość ApiKey jest **kluczem** ze strony klucze zasobów platformy `Text Analytics` Azure. 
 
 #### <a name="key-phrase-extraction"></a>[Wyodrębnianie kluczowych fraz](#tab/keyphrase)
 
@@ -108,7 +108,7 @@ Zamień {_argument_name_} własnymi wartościami:
 
 [!INCLUDE [language-detection-docker-examples](includes/language-detection-docker-examples.md)]
 
-#### <a name="sentiment-analysis"></a>[Analiza tonacji](#tab/sentiment)
+#### <a name="sentiment-analysis"></a>[analiza tonacji](#tab/sentiment)
 
 [!INCLUDE [sentiment-analysis-docker-examples](includes/sentiment-analysis-docker-examples.md)]
 
@@ -116,5 +116,5 @@ Zamień {_argument_name_} własnymi wartościami:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Sprawdź, [jak zainstalować i uruchomić kontenery](how-tos/text-analytics-how-to-install-containers.md)
-* Użyj większej liczby [kontenerów usług Cognitive Services](../cognitive-services-container-support.md)
+* Zapoznaj [się z tematem Instalowanie i uruchamianie kontenerów](how-tos/text-analytics-how-to-install-containers.md)
+* Użyj więcej [kontenerów Cognitive Services](../cognitive-services-container-support.md)

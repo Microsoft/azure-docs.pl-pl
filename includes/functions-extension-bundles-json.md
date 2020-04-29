@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/14/2019
 ms.author: glenga
 ms.openlocfilehash: f64892193eb6cfcce8f948b54e5557b5fa3d90ab
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878253"
 ---
 ```json
@@ -21,13 +21,13 @@ ms.locfileid: "80878253"
 }
 ```
 
-Następujące właściwości są dostępne `extensionBundle`w:
+Następujące właściwości są dostępne w `extensionBundle`:
 
 | Właściwość | Opis |
 | -------- | ----------- |
-| id | Obszar nazw dla pakietów rozszerzeń usług Microsoft Azure Functions. |
-| version | Wersja pakietu do zainstalowania. Środowisko wykonawcze Functions zawsze wybiera maksymalną dopuszczalną wersję zdefiniowaną przez zakres wersji lub interwał. Powyższa wartość wersji pozwala na wszystkie wersje pakietów od 1.0.0 do ale nie wliczając 2.0.0. Aby uzyskać więcej informacji, zobacz [notację interwału określającą zakresy wersji](/nuget/reference/package-versioning#version-ranges). |
+| id | Przestrzeń nazw dla pakietów rozszerzenia funkcji Microsoft Azure. |
+| Wersja | Wersja pakietu do zainstalowania. Środowisko uruchomieniowe funkcji zawsze wybiera maksymalną dopuszczalną wersję zdefiniowaną przez zakres wersji lub interwał. Powyższa wartość wersji zezwala na wszystkie wersje pakietów z 1.0.0 do 2.0.0. Aby uzyskać więcej informacji, zobacz [notacja interwału określania zakresów wersji](/nuget/reference/package-versioning#version-ranges). |
 
-Wersje pakietu przyrost jako pakiety w pakiecie zmiany. Główne zmiany wersji występują, gdy pakiety w pakiecie przyrost przez wersję główną. Główne zmiany wersji w pakiecie zwykle pokrywają się ze zmianą w głównej wersji środowiska wykonawczego funkcji.  
+Wersje pakietu zwiększają się wraz z pakietem w ramach zmiany pakietu. Zmiany wersji głównej są wykonywane, gdy pakiety w pakiecie są zwiększane przez wersję główną. Główne zmiany wersji w zbiorze zwykle pokrywają się ze zmianą wersji głównej środowiska uruchomieniowego funkcji.  
 
-Bieżący zestaw rozszerzeń zainstalowanych przez domyślny pakiet jest wyliczany w tym [pliku extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/dev/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
+Bieżący zestaw rozszerzeń instalowanych przez pakiet domyślny jest wyliczany w tym [pliku Extensions. JSON](https://github.com/Azure/azure-functions-extension-bundles/blob/dev/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).

@@ -1,5 +1,5 @@
 ---
-title: Tworzenie zasobu usługi LUIS
+title: Utwórz zasób LUIS
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,35 +9,35 @@ ms.topic: include
 ms.date: 04/07/2020
 ms.author: aahi
 ms.openlocfilehash: ebfe7e80577b163218a7bc501fa4e3e9b206fd62
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80879216"
 ---
 <a name="create-luis-resources"></a>
 
-## <a name="create-luis-resources-in-azure-portal"></a>Tworzenie zasobów usługi LUIS w witrynie Azure portal
+## <a name="create-luis-resources-in-azure-portal"></a>Tworzenie zasobów LUIS w Azure Portal
 
-1. Użyj [tego łącza,](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) aby rozpocząć tworzenie zasobów usługi LUIS w witrynie Azure portal.
+1. Użyj [tego linku](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) , aby rozpocząć tworzenie zasobów LUIS w Azure Portal.
 
 1. Wprowadź wszystkie wymagane ustawienia:
 
     |Nazwa|Przeznaczenie|
     |--|--|
-    |Nazwa subskrypcji| subskrypcji, która zostanie naliczona za zasób.|
-    |Grupa zasobów| Niestandardowa nazwa grupy zasobów, którą wybierzesz lub utworzysz. Grupy zasobów umożliwiają grupowanie zasobów platformy Azure w celu uzyskania dostępu i zarządzania.|
-    |Nazwa| Wybrana nazwa niestandardowa używana jako niestandardowa poddomena dla kwerend końcowych tworzenia i przewidywania.|
-    |Lokalizacja tworzenia|Region skojarzony z modelem.|
-    |Warstwa cenowa tworzenia|Warstwa cenowa określa maksymalną transakcję na sekundę i miesiąc.|
-    |Lokalizacja środowiska uruchomieniowego|Region skojarzony z opublikowanym czasem wykonywania punktu końcowego przewidywania.|
-    |Warstwa cenowa środowiska uruchomieniowego|Warstwa cenowa określa maksymalną transakcję na sekundę i miesiąc.|
+    |Nazwa subskrypcji| subskrypcja, która będzie rozliczana za zasób.|
+    |Grupa zasobów| Nazwa niestandardowej grupy zasobów, która została wybrana lub utworzona. Grupy zasobów umożliwiają grupowanie zasobów platformy Azure w celu uzyskania dostępu i zarządzania.|
+    |Nazwa| Wybrana niestandardowa nazwa używana jako niestandardowa poddomena dla zapytań dotyczących tworzenia i przewidywania punktów końcowych.|
+    |Lokalizacja autorstwa|Region skojarzony z Twoim modelem.|
+    |Tworzenie warstwy cenowej|Warstwa cenowa określa maksymalną liczbę transakcji na sekundę i miesiąc.|
+    |Lokalizacja środowiska uruchomieniowego|Region skojarzony z opublikowanym środowiskiem uruchomieniowym przewidywanego punktu końcowego.|
+    |Warstwa cenowa środowiska uruchomieniowego|Warstwa cenowa określa maksymalną liczbę transakcji na sekundę i miesiąc.|
 
     > [!div class="mx-imgBorder"]
-    > [![Tworzenie zasobu opisu języka](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
+    > [![Tworzenie zasobu interpretacji języka](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
 
-1. Kliknij **przycisk Przejrzyj + utwórz** i poczekaj na utworzenie zasobu.
-1. Po utworzeniu obu zasobów, nadal w witrynie Azure portal, wybierz nowy **zasób** tworzenia, a następnie Szybki start, aby uzyskać adres **URL punktu końcowego** tworzenia i **klucz** do tworzenia programowo.
+1. Kliknij przycisk **Przegląd + Utwórz** i poczekaj na utworzenie zasobu.
+1. Po utworzeniu obu zasobów nadal w Azure Portal wybierz nowy zasób tworzenia, a następnie **Szybki Start** , aby uzyskać PROGRAMISTYCZNY adres URL i **klucz** **punktu końcowego** tworzenia.
 
 > [!TIP]
-> Aby użyć zasobów, w portalu usługi LUIS [przypisz zasoby](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps).
+> Aby korzystać z zasobów, w portalu LUIS [Przypisz zasoby](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps).

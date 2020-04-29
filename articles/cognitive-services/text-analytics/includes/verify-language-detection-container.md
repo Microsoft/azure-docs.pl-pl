@@ -1,7 +1,7 @@
 ---
-title: Weryfikowanie wystąpienia kontenera wykrywania języka
+title: Weryfikowanie wykrywanie języka wystąpienia kontenera
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak zweryfikować wystąpienie kontenera wykrywania języka.
+description: Dowiedz się, jak zweryfikować wystąpienie kontenera wykrywanie języka.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,22 +10,22 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: dc52586550f89ddae147d79458584331ed984eea
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80876450"
 ---
-### <a name="verify-the-language-detection-container-instance"></a>Weryfikowanie wystąpienia kontenera wykrywania języka
+### <a name="verify-the-language-detection-container-instance"></a>Weryfikowanie wykrywanie języka wystąpienia kontenera
 
 1. Wybierz kartę **Przegląd** i skopiuj adres IP.
-1. Otwórz nową kartę przeglądarki i wprowadź adres IP. Na przykład `http://<IP-address>:5000 (http://55.55.55.55:5000`wprowadź ). Zostanie wyświetlona strona główna kontenera, która informuje, że kontener jest uruchomiony.
+1. Otwórz nową kartę przeglądarki, a następnie wprowadź adres IP. Na przykład wpisz `http://<IP-address>:5000 (http://55.55.55.55:5000`). Zostanie wyświetlona strona główna kontenera, która informuje o tym, że kontener jest uruchomiony.
 
     ![Wyświetl stronę główną kontenera, aby sprawdzić, czy jest uruchomiona](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
-1. Wybierz **łącze Opis interfejsu API usługi,** aby przejść do strony Swagger kontenera.
+1. Wybierz link **opis interfejsu API usługi** , aby przejść do strony struktury Swagger kontenera.
 
-1. Wybierz dowolny z **interfejsów** API POST i wybierz pozycję **Wypróbuj**. Wyświetlane są parametry, które obejmują ten przykładowy wkład:
+1. Wybierz dowolny z **wpisów** interfejsów API, a następnie wybierz opcję **Wypróbuj**. Wyświetlane są parametry, które obejmują następujące przykładowe dane wejściowe:
 
     ```json
     {
@@ -49,13 +49,13 @@ ms.locfileid: "80876450"
     }
     ```
 
-1. Ustaw **showStats** na `true`.
+1. Ustaw **showStats** wartość showStats `true`na.
 
-1. Wybierz **polecenie Wykonaj,** aby określić tonację tekstu.
+1. Wybierz pozycję **Execute (wykonaj** ), aby określić tonacji tekstu.
 
-    Model, który jest pakowany w kontenerze generuje wynik, który waha się od 0 do 1, gdzie 0 jest negatywna tonacji i 1 jest pozytywne nastroje.
+    Model, który znajduje się w kontenerze, generuje wynik, który mieści się w zakresie od 0 do 1, gdzie 0 jest ujemna tonacji i 1 to dodatnie tonacji.
 
-    Zwracana odpowiedź JSON zawiera tonację dla zaktualizowanego wprowadzania tekstu:
+    Zwracana odpowiedź JSON zawiera tonacji dla zaktualizowanych danych wejściowych tekstu:
 
     ```json
     {
@@ -127,4 +127,4 @@ ms.locfileid: "80876450"
     }
     ```
 
-Możemy teraz skorelować dokumenty danych JSON ładunku odpowiedzi z oryginalnymi dokumentami `id`ładunku żądania przez ich odpowiednie . Każdy dokument jest traktowany niezależnie, zawierający `characterCount` `transactionCount`różne statystyki, takie jak i . Ponadto każdy wynikowy dokument `detectedLanguages` ma tablicę `iso6391Name`z `score` programem `name`, i dla każdego wykrytego języka. Po wykryciu `score` wielu języków jest używany do określenia najbardziej prawdopodobnego języka.
+Teraz można skorelować dokumenty danych JSON ładunku odpowiedzi do oryginalnych dokumentów ładunku żądania przez odpowiadające im `id`. Każdy dokument jest traktowany niezależnie od różnych statystyk, `characterCount` takich `transactionCount`jak i. Ponadto każdy `detectedLanguages` dokument wynikający zawiera tablicę z `name`, `iso6391Name`i `score` dla każdego wykrytego języka. W `score` przypadku wykrycia wielu języków jest on używany do określenia najbardziej prawdopodobnego języka.

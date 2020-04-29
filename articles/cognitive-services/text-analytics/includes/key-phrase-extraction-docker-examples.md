@@ -1,7 +1,7 @@
 ---
-title: Przykłady dokowania kontenera wyodrębniania fraz kluczowych
+title: Przykłady wyodrębnianie kluczowych fraz Docker kontenera
 titleSuffix: Azure Cognitive Services
-description: Przykłady dokowania kontenera wyodrębniania fraz kluczowych
+description: Przykłady wyodrębnianie kluczowych fraz Docker kontenera
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,15 +10,15 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 1c079df3171d89da4ef40e5008aaeb08b6504e66
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80878685"
 ---
-### <a name="key-phrase-extraction-container-docker-examples"></a>Przykłady dokowania kontenera wyodrębniania fraz kluczowych
+### <a name="key-phrase-extraction-container-docker-examples"></a>Przykłady wyodrębnianie kluczowych fraz Docker kontenera
 
-Poniższe przykłady docker są dla kontenera wyodrębniania fraz klucza.
+Poniższe przykłady platformy Docker dotyczą kontenera wyodrębnianie kluczowych fraz.
 
 #### <a name="basic-example"></a>Przykład podstawowy 
 

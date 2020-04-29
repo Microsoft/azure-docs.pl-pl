@@ -1,28 +1,28 @@
 ---
 title: Wdrażanie zasad, które można skorygować
-description: Dowiedz się, jak przywdzielić klienta do zarządzania zasobami delegowanymi platformy Azure, umożliwiając dostęp do jego zasobów i zarządzanie nimi za pośrednictwem własnej dzierżawy.
+description: Dowiedz się, jak dołączyć klienta do zarządzania zasobami delegowanymi przez platformę Azure, umożliwiając dostęp do zasobów i zarządzanie nimi za pomocą własnej dzierżawy.
 ms.date: 10/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: b625e9e3c96866cfbc655a55b770c9ac07a626bd
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985171"
 ---
-# <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Wdrażanie zasad, które można skorygować w ramach subskrypcji delegowanej
+# <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Wdróż zasady, które można skorygować w ramach delegowanej subskrypcji
 
-[Latarnia morska platformy Azure](../overview.md) umożliwia dostawcom usług tworzenie i edytowanie definicji zasad w ramach subskrypcji delegowanej. Jednak aby wdrożyć zasady, które używają [zadania korygowania](../../governance/policy/how-to/remediate-resources.md) (czyli zasad z [deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) lub [zmodyfikować](../../governance/policy/concepts/effects.md#modify) efekt), należy utworzyć [tożsamość zarządzaną](../../active-directory/managed-identities-azure-resources/overview.md) w dzierżawie klienta. Ta tożsamość zarządzana może służyć przez usługę Azure Policy do wdrożenia szablonu w ramach zasad. Istnieją kroki wymagane, aby włączyć ten scenariusz, zarówno podczas dołączania klienta do zarządzania zasobami delegowanymi platformy Azure, jak i podczas wdrażania samej zasady.
+Usługa [Azure Lighthouse](../overview.md) umożliwia dostawcom usług tworzenie i edytowanie definicji zasad w ramach delegowanej subskrypcji. Aby jednak wdrażać zasady korzystające z [zadania korygowania](../../governance/policy/how-to/remediate-resources.md) (czyli zasad z efektem [deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) lub [Modyfikacja](../../governance/policy/concepts/effects.md#modify) ), należy utworzyć [tożsamość zarządzaną](../../active-directory/managed-identities-azure-resources/overview.md) w dzierżawie klienta. Ta tożsamość zarządzana może być używana przez Azure Policy do wdrożenia szablonu w ramach zasad. Aby włączyć ten scenariusz, należy wykonać kroki w przypadku dołączenia klienta do zarządzania zasobami delegowanymi przez platformę Azure i po wdrożeniu samej zasady.
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Tworzenie użytkownika, który może przypisywać role do tożsamości zarządzanej w dzierżawie klienta
 
-Po poleceniu klienta do zarządzania zasobami delegowanymi platformy Azure, należy użyć [szablonu usługi Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template) wraz z plikiem parametrów, który definiuje użytkowników, grup użytkowników i podmiotów usługi w dzierżawie zarządzającej, które będą mogły uzyskać dostęp do delegowanych zasobów w dzierżawie klienta. W pliku parametrów każdemu z tych użytkowników **(principalId)** jest przypisywana [wbudowana rola](../../role-based-access-control/built-in-roles.md) **(roleDefinitionId**), która definiuje poziom dostępu.
+Po dołączeniu klienta do zarządzania zasobami delegowanymi przez platformę Azure można użyć [szablonu Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template) wraz z plikiem parametrów, który definiuje użytkowników, grupy użytkowników i jednostki usługi w dzierżawie zarządzającej, które będą mogły uzyskiwać dostęp do delegowanych zasobów w dzierżawie klienta. W pliku parametrów każdy z tych użytkowników (**principalId**) ma przypisaną [wbudowaną rolę](../../role-based-access-control/built-in-roles.md) (**zduplikowanych**), która definiuje poziom dostępu.
 
-Aby zezwolić **identyfikatorowi głównemu** na utworzenie tożsamości zarządzanej w dzierżawie klienta, należy ustawić jego **funkcjęDekonfinitionId** na **Administratora dostępu użytkownika.** Chociaż ta rola nie jest ogólnie obsługiwane, może służyć w tym konkretnym scenariuszu, dzięki czemu użytkownicy z tym uprawnieniem przypisać jeden lub więcej określonych ról wbudowanych do tożsamości zarządzanych. Te role są **zdefiniowane we właściwisce deledRoleDefinitionIds.** W tym miejscu można uwzględnić dowolną wbudowaną rolę, z wyjątkiem administratora dostępu użytkownika lub właściciela.
+Aby umożliwić usłudze **principalId** utworzenie tożsamości zarządzanej w dzierżawie klienta, należy ustawić jej **zduplikowanych** na **administratora dostępu użytkowników**. Chociaż ta rola nie jest ogólnie obsługiwana, może być używana w tym konkretnym scenariuszu, co umożliwia użytkownikom z uprawnieniami do przypisywania do tożsamości zarządzanych co najmniej jednej konkretnej wbudowanej roli. Role te są zdefiniowane we właściwości **delegatedRoleDefinitionIds** . W tym miejscu możesz dołączyć dowolną wbudowaną rolę z wyjątkiem administratora dostępu użytkownika lub właściciela.
 
-Po klient jest dołączany, **principalId** utworzony w tej autoryzacji będzie można przypisać te wbudowane role do zarządzanych tożsamości w dzierżawie klienta. Nie będą jednak miały żadnych innych uprawnień normalnie skojarzonych z rolą Administrator dostępu użytkownika.
+Po dołączeniu klienta **principalId** utworzony w ramach tej autoryzacji będzie mógł przypisywać te wbudowane role do zarządzanych tożsamości w dzierżawie klienta. Nie będą jednak mieć żadnych innych uprawnień zwykle skojarzonych z rolą administratora dostępu użytkownika.
 
-W poniższym przykładzie pokazano **principalId,** który będzie miał rolę Administratora dostępu użytkownika. Ten użytkownik będzie mógł przypisać dwie wbudowane role do zarządzanych tożsamości w dzierżawie klienta: współautor i współautor analizy dzienników.
+W poniższym przykładzie przedstawiono **principalId** , którzy będą mieć rolę administratora dostępu użytkownika. Ten użytkownik będzie mógł przypisać dwie wbudowane role do zarządzanych tożsamości w dzierżawie klienta: współautor i Log Analytics.
 
 ```json
 {
@@ -36,15 +36,15 @@ W poniższym przykładzie pokazano **principalId,** który będzie miał rolę A
 }
 ```
 
-## <a name="deploy-policies-that-can-be-remediated"></a>Wdrażanie zasad, które można korygować
+## <a name="deploy-policies-that-can-be-remediated"></a>Wdrażanie zasad, które można skorygować
 
-Po utworzeniu użytkownika z niezbędnymi uprawnieniami, jak opisano powyżej, ten użytkownik może wdrożyć zasady w dzierżawie klienta, które używają zadań korygowania.
+Po utworzeniu użytkownika z wymaganymi uprawnieniami, zgodnie z powyższym opisem, ten użytkownik będzie mógł wdrażać zasady w dzierżawie klienta korzystającej z zadań korygowania.
 
-Załóżmy na przykład, że chcesz włączyć diagnostykę zasobów usługi Azure Key Vault w dzierżawie klienta, jak pokazano w tym [przykładzie.](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring) Użytkownik w dzierżawie zarządzającej z odpowiednimi uprawnieniami (jak opisano powyżej) wdroży [szablon usługi Azure Resource Manager,](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) aby włączyć ten scenariusz.
+Załóżmy na przykład, że chcesz włączyć diagnostykę zasobów Azure Key Vault w dzierżawie klienta, jak pokazano w tym [przykładzie](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring). Użytkownik w dzierżawie zarządzającej z odpowiednimi uprawnieniami (zgodnie z powyższym opisem) wdroży [szablon Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) , aby włączyć ten scenariusz.
 
-Należy zauważyć, że tworzenie przypisania zasad do użycia z delegowaną subskrypcją musi być obecnie wykonywane za pośrednictwem interfejsów API, a nie w witrynie Azure portal. W ten sposób **apiVersion** musi być ustawiona na **2019-04-01-preview**, który zawiera nową **właściwośćlegedManagedIdentityResourceId.** Ta właściwość umożliwia dołączenie tożsamości zarządzanej, która znajduje się w dzierżawie klienta (w grupie subskrypcji lub zasobów, która została przyłączona do zarządzania zasobami delegowanymi platformy Azure).
+Należy pamiętać, że tworzenie przypisania zasad, które ma być używane z delegowaną subskrypcją, musi być obecnie wykonywane za pomocą interfejsów API, a nie w Azure Portal. W takim przypadku **apiVersion** musi mieć ustawioną wartość **2019-04-01-Preview**, która obejmuje nową właściwość **delegatedManagedIdentityResourceId** . Ta właściwość umożliwia dołączenie tożsamości zarządzanej, która znajduje się w dzierżawie klienta (w ramach subskrypcji lub grupy zasobów, która została dołączona do zarządzania zasobami delegowanymi przez platformę Azure).
 
-W poniższym przykładzie pokazano przypisanie roli z **identyfikatorem delegowanymManagedIdentityResourceId**.
+Poniższy przykład przedstawia przypisanie roli z **delegatedManagedIdentityResourceId**.
 
 ```json
 "type": "Microsoft.Authorization/roleAssignments",
@@ -62,9 +62,9 @@ W poniższym przykładzie pokazano przypisanie roli z **identyfikatorem delegowa
 ```
 
 > [!TIP]
-> [Podobny przykład](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-add-or-replace-tag) jest dostępny, aby zademonstrować sposób wdrażania zasad, które dodaje lub usuwa tag (przy użyciu efektu modyfikowania) do subskrypcji delegowanej.
+> [Podobny przykład](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-add-or-replace-tag) jest dostępny w celu zademonstrowania sposobu wdrażania zasad, które dodają lub usuwają tag (przy użyciu efektu Modyfikuj) do delegowanej subskrypcji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [zasadach platformy Azure](../../governance/policy/index.yml).
-- Dowiedz się więcej o [tożsamościach zarządzanych dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+- Dowiedz się więcej na temat [Azure Policy](../../governance/policy/index.yml).
+- Poznaj [zarządzane tożsamości dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).

@@ -1,7 +1,7 @@
 ---
-title: Wymagania i zalecenia dotyczące kontenerów
+title: Wymagania i zalecenia dotyczące kontenera
 titleSuffix: Azure Cognitive Services
-description: Wymagania kontenera analizy tonacji
+description: Wymagania dotyczące kontenera analiza tonacji
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 2290165e2f827e158cc005aec3dce87c2ad272ff
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80877154"
 ---
-| Kontener | Minimalne | Zalecane | Tps<br>(Minimum, Maksimum)|
+| Kontener | Minimalne | Zalecane | TPS<br>(Minimum, maksimum)|
 |-----------|---------|-------------|--|
 | Analiza tonacji | 1 rdzeń, 2 GB pamięci | 1 rdzeń, 4 GB pamięci | 15, 30 |

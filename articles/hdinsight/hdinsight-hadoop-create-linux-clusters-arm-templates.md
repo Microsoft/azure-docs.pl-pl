@@ -1,6 +1,6 @@
 ---
 title: Tworzenie klastrów Apache Hadoop przy użyciu szablonów — Azure HDInsight
-description: Dowiedz się, jak tworzyć klastry dla usługi HDInsight przy użyciu szablonów Menedżera zasobów
+description: Dowiedz się, jak tworzyć klastry dla usługi HDInsight przy użyciu szablonów Menedżer zasobów
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,63 +9,63 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/07/2020
 ms.openlocfilehash: 67d5481b82b7469c5ae55704768ce494dbc9dca5
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80879143"
 ---
-# <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Tworzenie klastrów Apache Hadoop w usłudze HDInsight przy użyciu szablonów Menedżera zasobów
+# <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Tworzenie klastrów Apache Hadoop w usłudze HDInsight przy użyciu szablonów Menedżer zasobów
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-W tym artykule dowiesz się, jak utworzyć klastry usługi Azure HDInsight przy użyciu [szablonów usługi Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md). Aby dowiedzieć się więcej o innych narzędziach i funkcjach tworzenia klastra, kliknij selektor kart u góry tej strony. Zobacz też metody [tworzenia klastra](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).
+W tym artykule przedstawiono kilka sposobów tworzenia klastrów usługi Azure HDInsight przy użyciu [szablonów Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md). Aby dowiedzieć się więcej o innych narzędziach i funkcjach tworzenia klastra, kliknij selektor karty w górnej części tej strony. Zobacz również [metody tworzenia klastra](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="resource-manager-templates"></a>Szablony usługi Resource Manager
 
-Szablon Menedżera zasobów ułatwia tworzenie następujących zasobów dla aplikacji w jednej, skoordynowanej operacji:
+Szablon Menedżer zasobów ułatwia tworzenie następujących zasobów dla aplikacji w ramach jednej, skoordynowanej operacji:
 
-* Klastry HDInsight i ich zasoby zależne (takie jak domyślne konto magazynu).
-* Inne zasoby (takie jak Azure SQL Database do [używania Apache Sqoop](https://sqoop.apache.org/)).
+* Klastry usługi HDInsight i ich zasoby zależne (takie jak domyślne konto magazynu).
+* Inne zasoby (takie jak Azure SQL Database korzystania z oprogramowania [Apache Sqoop](https://sqoop.apache.org/)).
 
-W szablonie można zdefiniować zasoby, które są potrzebne dla aplikacji. Należy również określić parametry wdrażania do wartości wejściowych dla różnych środowisk. Szablon składa się z JSON i wyrażeń, które można utworzyć do konstruowania wartości dla wdrożenia.
+W szablonie należy zdefiniować zasoby, które są potrzebne dla aplikacji. Należy również określić parametry wdrożenia do wartości wejściowych dla różnych środowisk. Szablon składa się z notacji JSON i wyrażeń, które służą do konstruowania wartości dla wdrożenia.
 
-Przykłady szablonów usługi HDInsight można znaleźć w [szablonach szybki start platformy Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight). Użyj wieloplatformowego [programu Visual Studio Code](https://code.visualstudio.com/#alt-downloads) z [rozszerzeniem Menedżera zasobów](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) lub edytorem tekstu, aby zapisać szablon w pliku na stacji roboczej.
+Przykłady szablonów usługi HDInsight można znaleźć w [szablonach szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight). Użyj [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) międzyplatformowego z [rozszerzeniem Menedżer zasobów](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) lub edytorem tekstu, aby zapisać szablon w pliku na stacji roboczej.
 
-Aby uzyskać więcej informacji na temat szablonów Menedżera zasobów, zobacz następujące artykuły i przykłady:
+Aby uzyskać więcej informacji na temat szablonów Menedżer zasobów, zobacz następujące artykuły i przykłady:
 
-* [Szablony usługi Azure Resource Manager autora](../azure-resource-manager/templates/template-syntax.md)
-* [Wdrażanie aplikacji za pomocą szablonów usługi Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md)
-* Odwołanie do szablonu [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions)
-* [Szablony szybki start platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
+* [Tworzenie szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
+* [Wdrażanie aplikacji za pomocą szablonów Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md)
+* Dokumentacja szablonu [Microsoft. HDInsight/klastrów](/azure/templates/microsoft.hdinsight/allversions)
+* [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 
 ## <a name="generate-templates"></a>Generowanie szablonów
 
-Menedżer zasobów umożliwia eksportowanie szablonu Menedżera zasobów z istniejących zasobów w ramach subskrypcji przy użyciu różnych narzędzi. Możesz użyć wygenerowanego szablonu, aby dowiedzieć się więcej o składni szablonu lub aby zautomatyzować ponowne wdrożenie rozwiązania, w razie potrzeby. Aby uzyskać więcej informacji, zobacz [Eksportowanie szablonów](../azure-resource-manager/templates/export-template-portal.md).
+Menedżer zasobów umożliwia eksportowanie szablonu Menedżer zasobów z istniejących zasobów w ramach subskrypcji przy użyciu różnych narzędzi. Możesz użyć wygenerowanego szablonu, aby dowiedzieć się więcej o składni szablonu lub aby zautomatyzować ponowne wdrożenie rozwiązania, w razie potrzeby. Aby uzyskać więcej informacji, zobacz [Eksportowanie szablonów](../azure-resource-manager/templates/export-template-portal.md).
 
 ## <a name="deploy-using-the-portal"></a>Wdrażanie przy użyciu portalu
 
-Szablon Usługi Resource Manager można wdrożyć za pomocą witryny Azure portal. Aby uzyskać więcej informacji, zobacz [Wdrażanie zasobów z szablonu niestandardowego](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+Szablon Menedżer zasobów można wdrożyć przy użyciu Azure Portal. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów z szablonu niestandardowego](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 ## <a name="deploy-using-powershell"></a>Wdrażanie przy użyciu programu PowerShell
 
-Szablon Usługi Resource Manager można wdrożyć przy użyciu programu Azure PowerShell. Aby uzyskać więcej informacji, zobacz [Wdrażanie zasobów za pomocą szablonów Usługi Resource Manager i szablonu](../azure-resource-manager/templates/deploy-powershell.md) prywatnego menedżera zasobów usługi Azure PowerShell i [wdrażanie go za pomocą tokena Sygnatury dostępu Współdzielonego i programu Azure PowerShell](../azure-resource-manager/resource-manager-powershell-sas-token.md).
+Szablon Menedżer zasobów można wdrożyć przy użyciu Azure PowerShell. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) i [wdrażanie prywatnego szablonu Menedżer zasobów z tokenem SAS i Azure PowerShell](../azure-resource-manager/resource-manager-powershell-sas-token.md).
 
 ## <a name="deploy-using-azure-cli"></a>Wdrażanie przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Szablon Usługi Resource Manager można wdrożyć przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Wdrażanie zasobów za pomocą szablonów Menedżera zasobów i szablonu interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md) oraz [wdrażania prywatnego szablonu Menedżera zasobów z tokenem Sygnatury dostępu Współdzielonego i interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/resource-manager-cli-sas-token.md).
+Szablon Menedżer zasobów można wdrożyć przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md) oraz [wdrażanie szablonu prywatnego Menedżer zasobów z tokenem SAS i interfejsem wiersza polecenia platformy Azure](../azure-resource-manager/resource-manager-cli-sas-token.md).
 
 ## <a name="deploy-using-the-rest-api"></a>Wdrażanie przy użyciu interfejsu API REST
 
-Szablon Menedżera zasobów można wdrożyć przy użyciu interfejsu API REST. Aby uzyskać więcej informacji, zobacz [Wdrażanie zasobów za pomocą szablonów Menedżera zasobów i interfejsu API REST Menedżera zasobów](../azure-resource-manager/templates/deploy-rest.md).
+Szablon Menedżer zasobów można wdrożyć za pomocą interfejsu API REST. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i Menedżer zasobów interfejsu API REST](../azure-resource-manager/templates/deploy-rest.md).
 
 ## <a name="deploy-with-visual-studio"></a>Wdrażanie za pomocą programu Visual Studio
 
- Użyj programu Visual Studio, aby utworzyć projekt grupy zasobów i wdrożyć go na platformie Azure za pośrednictwem interfejsu użytkownika. Można wybrać typ zasobów do uwzględnienia w projekcie. Zasoby te są automatycznie dodawane do szablonu Menedżera zasobów. Projekt udostępnia również skrypt programu PowerShell do wdrożenia szablonu.
+ Użyj programu Visual Studio, aby utworzyć projekt grupy zasobów i wdrożyć go na platformie Azure za pomocą interfejsu użytkownika. Wybierasz typ zasobów do uwzględnienia w projekcie. Te zasoby są automatycznie dodawane do szablonu Menedżer zasobów. Projekt udostępnia także skrypt programu PowerShell służący do wdrażania szablonu.
 
-Aby zapoznać się z wprowadzeniem do korzystania z programu Visual Studio z grupami zasobów, zobacz [Tworzenie i wdrażanie grup zasobów platformy Azure za pośrednictwem programu Visual Studio.](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)
+Aby zapoznać się z wprowadzeniem do korzystania z programu Visual Studio z grupami zasobów, zobacz [Tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -73,11 +73,11 @@ W razie problemów podczas tworzenia klastrów usługi HDInsight zapoznaj się z
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule poznaliśmy kilka sposobów tworzenia klastra HDInsight. Aby dowiedzieć się więcej, zobacz następujące artykuły:
+W tym artykule przedstawiono kilka sposobów tworzenia klastra usługi HDInsight. Aby dowiedzieć się więcej, zobacz następujące artykuły:
 
-* Aby uzyskać więcej szablonów związanych z programem HDInsight, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).
-* Na przykład wdrażania zasobów za pośrednictwem biblioteki klienta platformy .NET zobacz [Wdrażanie zasobów przy użyciu bibliotek .NET i szablonu](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Aby uzyskać szczegółowy przykład wdrażania aplikacji, zobacz [udostępnianie i wdrażanie mikrousług przewidywalnie na platformie Azure.](../app-service/deploy-complex-application-predictably.md)
+* Aby uzyskać więcej szablonów związanych z usługą HDInsight, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).
+* Aby zapoznać się z przykładem wdrażania zasobów za pośrednictwem biblioteki klienta .NET, zobacz [wdrażanie zasobów przy użyciu bibliotek .NET i szablonu](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Aby zapoznać się z szczegółowym przykładem wdrażania aplikacji, zobacz temat [udostępnianie i wdrażanie mikrousług na platformie Azure](../app-service/deploy-complex-application-predictably.md).
 * Aby uzyskać wskazówki dotyczące wdrażania rozwiązania w różnych środowiskach, zobacz [Development and test environments in Microsoft Azure](../solution-dev-test-environments.md) (Środowiska projektowe i testowe na platformie Microsoft Azure).
-* Aby dowiedzieć się więcej o sekcjach szablonu usługi Azure Resource Manager, zobacz [Szablony tworzenia](../azure-resource-manager/templates/template-syntax.md).
-* Aby uzyskać listę funkcji, których można używać w szablonie usługi Azure Resource Manager, zobacz [Funkcje szablonu](../azure-resource-manager/templates/template-functions.md).
+* Aby dowiedzieć się więcej na temat sekcji szablonu Azure Resource Manager, zobacz [Tworzenie szablonów](../azure-resource-manager/templates/template-syntax.md).
+* Aby zapoznać się z listą funkcji, których można użyć w szablonie Azure Resource Manager, zobacz [funkcje szablonu](../azure-resource-manager/templates/template-functions.md).

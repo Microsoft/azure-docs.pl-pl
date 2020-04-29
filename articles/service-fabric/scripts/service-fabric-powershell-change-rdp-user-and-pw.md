@@ -15,10 +15,10 @@ ms.date: 03/19/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: b7f229162ed745408121d898f5af516d22a0c039
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80984933"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>Aktualizowanie nazwy użytkownika i hasła administratora maszyn wirtualnych w klastrze
@@ -45,7 +45,7 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 ## <a name="duration"></a>Czas trwania
 
-Pojedynczy typ węzła z pięciu węzłów, na przykład ma czas trwania od 45 do 60 minut, aby zmienić nazwę użytkownika lub hasło. 
+Pojedynczy typ węzła z pięcioma węzłami, na przykład, ma czas trwania od 45 do 60 minut, aby zmienić nazwę użytkownika lub hasło. 
 
 ## <a name="next-steps"></a>Następne kroki
 

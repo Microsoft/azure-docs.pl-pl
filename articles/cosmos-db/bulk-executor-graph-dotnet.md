@@ -1,6 +1,6 @@
 ---
-title: Użyj zbiorczego executora wykresu .NET biblioteki z interfejsem API Gremlin usługi Azure Cosmos DB
-description: Dowiedz się, jak używać biblioteki zbiorczego executora do masowego importowania danych wykresu do kontenera interfejsu API usługi Azure Cosmos DB Gremlin.
+title: Korzystanie z biblioteki programu .NET do przetwarzania zbiorczego wykresu przy użyciu interfejsu API Azure Cosmos DB Gremlin
+description: Dowiedz się, jak używać biblioteki wykonawców zbiorczych do masowego importowania danych grafu do Azure Cosmos DB kontenera interfejsu API Gremlin.
 author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
@@ -9,28 +9,28 @@ ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
 ms.openlocfilehash: adf512fc521ef553f0bbd6ef6dd8ee19e398b37b
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80982707"
 ---
-# <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Używanie zbiorczego executora wykresu .NET library do wykonywania operacji zbiorczych w interfejsie API gremlin usługi Azure Cosmos DB
+# <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Korzystanie z biblioteki programu .NET Bulk wykonującej wykresy w celu wykonywania operacji zbiorczych w Azure Cosmos DB interfejsie API Gremlin
 
-Ten samouczek zawiera instrukcje dotyczące używania zbiorczego executora usługi Azure CosmosDB biblioteki .NET do importowania i aktualizowania obiektów wykresu do kontenera interfejsu API usługi Azure Cosmos DB Gremlin. Ten proces korzysta z Graph klasy w [bibliotece executor zbiorczej](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) do tworzenia vertex i Krawędzi obiektów programowo, a następnie wstawić wiele z nich na żądanie sieciowe. To zachowanie można skonfigurować za pośrednictwem biblioteki zbiorczego executora, aby optymalnie wykorzystać zasoby bazy danych i pamięci lokalnej.
+Ten samouczek zawiera instrukcje dotyczące importowania i aktualizowania obiektów grafu do kontenera interfejsu API usługi Azure Cosmos DB Gremlin przy użyciu biblioteki programu .NET CosmosDB BULK. Ten proces korzysta z klasy grafu w [bibliotece wykonawców zbiorczych](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) w celu programistycznego tworzenia obiektów wierzchołków i brzegowych w taki sposób, aby wstawiać wiele z nich na żądanie sieciowe. To zachowanie można skonfigurować za pomocą biblioteki wykonawców zbiorczych w celu optymalnego wykorzystania zarówno zasobów bazy danych, jak i pamięci lokalnej.
 
-W przeciwieństwie do wysyłania zapytań Gremlin do bazy danych, gdzie polecenie jest oceniane, a następnie wykonywane po jednym na raz, przy użyciu biblioteki executor zbiorczej zamiast tego będzie wymagać tworzenia i sprawdzania poprawności obiektów lokalnie. Po utworzeniu obiektów ta biblioteka umożliwia sekwencyjne wysłanie obiektów grafów do usługi bazy danych. Dzięki tej metodzie pozyskiwanie danych może być nawet stukrotnie szybsze, dzięki czemu jest to idealna metoda do początkowej migracji danych lub okresowych operacji przenoszenia danych. Dowiedz się więcej, odwiedzając stronę GitHub [zbiorczej aplikacji wykonawcy programu Azure Cosmos Db Graph.](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started)
+W przeciwieństwie do wysyłania zapytań Gremlin do bazy danych, gdzie polecenie jest oceniane, a następnie wykonywane pojedynczo, korzystanie z biblioteki wykonawców zbiorczych będzie wymagało utworzenia i sprawdzenia poprawności obiektów lokalnie. Po utworzeniu obiektów ta biblioteka umożliwia sekwencyjne wysłanie obiektów grafów do usługi bazy danych. Dzięki tej metodzie pozyskiwanie danych może być nawet stukrotnie szybsze, dzięki czemu jest to idealna metoda do początkowej migracji danych lub okresowych operacji przenoszenia danych. Dowiedz się więcej, odwiedzając stronę GitHub [przykładowej aplikacji do przetwarzania zbiorczego programu Azure Cosmos DB Graph](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started).
 
 ## <a name="bulk-operations-with-graph-data"></a>Wykonywanie operacji zbiorczych z użyciem danych grafów
 
-`Microsoft.Azure.CosmosDB.BulkExecutor.Graph` [Biblioteka zbiorczego executora](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) zawiera obszar nazw, aby zapewnić funkcjonalność tworzenia i importowania obiektów wykresu. 
+Biblioteka modułu wykonawczego [zbiorczego](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) zawiera `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` przestrzeń nazw, która zapewnia funkcjonalność do tworzenia i importowania obiektów grafu. 
 
 Następująca procedura przedstawia proces migracji danych w przypadku kontenera interfejsu API języka Gremlin:
 1. Pobierz rekordy ze źródła danych.
 2. Utwórz obiekty `GremlinVertex` i `GremlinEdge` z uzyskanych rekordów i dodaj je do struktury danych `IEnumerable`. W tej części aplikacji należy wdrożyć logikę wykrywania i dodawania relacji, w razie gdyby źródło danych nie było bazą danych grafów.
 3. Użyj [metody Graph BulkImportAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync?view=azure-dotnet), aby wstawić obiekty grafów do kolekcji.
 
-Ten mechanizm zapewnia wyższą wydajność migracji danych w porównaniu z użyciem klienta języka Gremlin. To ulepszenie jest możliwe, ponieważ wstawianie danych przy użyciu języka Gremlin wymaga od aplikacji wysyłania zapytań pojedynczo, po czym każde z zapytań musi zostać zwalidowane, ocenione, a następnie wykonane w celu utworzenia danych. Biblioteka executora zbiorczego będzie obsługiwać sprawdzanie poprawności w aplikacji i wysyłać wiele obiektów wykresu naraz dla każdego żądania sieciowego.
+Ten mechanizm zapewnia wyższą wydajność migracji danych w porównaniu z użyciem klienta języka Gremlin. To ulepszenie jest możliwe, ponieważ wstawianie danych przy użyciu języka Gremlin wymaga od aplikacji wysyłania zapytań pojedynczo, po czym każde z zapytań musi zostać zwalidowane, ocenione, a następnie wykonane w celu utworzenia danych. Biblioteka wykonawców zbiorczych będzie obsługiwać weryfikację w aplikacji i wysyłać wiele obiektów grafów jednocześnie dla każdego żądania sieci.
 
 ### <a name="creating-vertices-and-edges"></a>Tworzenie wierzchołków i krawędzi
 
@@ -73,7 +73,7 @@ catch (Exception e)
 }
 ```
 
-Aby uzyskać więcej informacji na temat parametrów biblioteki wykonawców zbiorczych, zapoznaj się z [tematem BulkImportData to Azure Cosmos DB](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account).
+Aby uzyskać więcej informacji na temat parametrów biblioteki wykonawców zbiorczych, zapoznaj się z [tematem BulkImportData do Azure Cosmos DB](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account).
 
 Ładunek musi zostać utworzony w obiektach `GremlinVertex` i `GremlinEdge`. Oto, w jaki sposób można utworzyć te obiekty:
 
@@ -109,18 +109,18 @@ e.AddProperty("customProperty", "value");
 ```
 
 > [!NOTE]
-> Narzędzie executor zbiorcze nie automatycznie sprawdzić istniejące wierzchołki przed dodaniem krawędzi. Przed uruchomieniem zadań BulkImport należy przeprowadzić odpowiednią walidację w aplikacji.
+> Narzędzie wykonawczy Bulk nie sprawdza automatycznie istniejących wierzchołków przed dodaniem krawędzi. Przed uruchomieniem zadań BulkImport należy przeprowadzić odpowiednią walidację w aplikacji.
 
 ## <a name="sample-application"></a>Przykładowa aplikacja
 
 ### <a name="prerequisites"></a>Wymagania wstępne
-* Visual Studio 2019 z obciążeniem dewelopera platformy Azure. Możesz bezpłatnie rozpocząć korzystanie z [programu Visual Studio 2019 Community Edition.](https://visualstudio.microsoft.com/downloads/)
-* Subskrypcja platformy Azure. [Bezpłatne konto platformy Azure możesz utworzyć tutaj](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Alternatywnie można utworzyć konto bazy danych usługi Cosmos z [Try Azure Cosmos DB za darmo](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure.
+* Program Visual Studio 2019 z obciążeniem programowania na platformie Azure. Możesz bezpłatnie zacząć korzystać z programu [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/) .
+* Subskrypcja platformy Azure. [Bezpłatne konto platformy Azure możesz utworzyć tutaj](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Możesz też utworzyć konto bazy danych Cosmos z [bezpłatnymi wersjami prób Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure.
 * Baza danych interfejsu API języka Gremlin w usłudze Azure Cosmos DB z **nieograniczoną kolekcją**. W tym przewodniku pokazano, jak rozpocząć pracę z [interfejsem API języka Gremlin w usłudze Azure Cosmos DB na platformie .NET](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet).
 * Usługa Git. Aby uzyskać więcej informacji, zapoznaj się ze [stroną plików do pobrania usługi Git](https://git-scm.com/downloads).
 
 ### <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
-W tym samouczku wykonaj kroki, aby rozpocząć przy użyciu [przykładowego wykonawcy zbiorczego programu Azure Cosmos Db Graph](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started) hostowanego w usłudze GitHub. Ta aplikacja składa się z rozwiązania platformy .NET, które losowo generuje obiekty krawędzi i wierzchołków, a następnie wykonuje zbiorcze wstawienia do określonego konta bazy danych grafów. Aby uzyskać aplikację, uruchom poniższe polecenie `git clone`:
+W tym samouczku przejdziemy przez kroki umożliwiające rozpoczęcie pracy przy użyciu [przykładowego modułu wykonawca programu Azure Cosmos DB Graph](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started) obsługiwanego w witrynie GitHub. Ta aplikacja składa się z rozwiązania platformy .NET, które losowo generuje obiekty krawędzi i wierzchołków, a następnie wykonuje zbiorcze wstawienia do określonego konta bazy danych grafów. Aby uzyskać aplikację, uruchom poniższe polecenie `git clone`:
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started.git
@@ -131,7 +131,7 @@ To repozytorium zawiera przykładową aplikację GraphBulkExecutor z następują
 Plik|Opis
 ---|---
 `App.config`|Tutaj są określane parametry aplikacji i bazy danych. Ten plik powinien być zmodyfikowany w pierwszej kolejności, aby nawiązać połączenie z docelową bazą danych i kolekcjami.
-`Program.cs`| Ten plik zawiera logikę `DocumentClient` tworzenia kolekcji, obsługi porządków i wysyłania żądań wykonawcy zbiorczego.
+`Program.cs`| Ten plik zawiera logikę w tle tworzenia `DocumentClient` kolekcji, obsługi czyszczenia i wysyłania zbiorczych żądań modułu wykonawczego.
 `Util.cs`| Ten plik zawiera klasę pomocnika, która z kolei zawiera logikę generowania danych testowych i sprawdzania, czy baza danych i kolekcje istnieją.
 
 W pliku `App.config` następujące elementy to wartości konfiguracji, które można określić:
@@ -155,6 +155,6 @@ Ustawienie|Opis
 3. Oceń wyniki, wysyłając zapytania do bazy danych grafów. Jeśli opcja `ShouldCleanupOnFinish` ma wartość „true”, baza danych zostanie automatycznie usunięta.
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby dowiedzieć się więcej o szczegółach pakietu Nuget i informacjach o wersji zbiorczej biblioteki egzekutora .NET, zobacz [szczegóły zestawu SDK wykonawcy zbiorczego](sql-api-sdk-bulk-executor-dot-net.md). 
-* Zapoznaj się z [poradami dotyczącymi wydajności,](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips) aby jeszcze bardziej zoptymalizować użycie egzekutora zbiorczego.
+* Aby dowiedzieć się więcej na temat szczegółów pakietu NuGet i informacji o wersji biblioteki programu .NET do zbiorczego modułu wykonawczego, zobacz [Szczegóły zestawu SDK modułu wykonawczy](sql-api-sdk-bulk-executor-dot-net.md). 
+* Zapoznaj się z [poradami dotyczącymi wydajności](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips) , aby bardziej zoptymalizować użycie modułu wykonawczy BULK.
 * Zapoznaj się z artykułem informacyjnym na temat narzędzia [BulkExecutor.Graph](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet), aby uzyskać szczegółowe informacje na temat klas i metod zdefiniowanych w tej przestrzeni nazw.

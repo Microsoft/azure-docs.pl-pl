@@ -9,29 +9,29 @@ ms.date: 03/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 55fa01d100c60c6411774373428ff4bbd9a56822
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80986696"
 ---
-## <a name="windows-clients"></a><a name="windows"></a>Klienci systemu Windows
+## <a name="windows-clients"></a><a name="windows"></a>Klienci z systemem Windows
 
-1. Pobierz i zainstaluj klienta OpenVPN (wersja 2.4 lub nowsza) z oficjalnej [strony OpenVPN](https://openvpn.net/index.php/open-source/downloads.html).
-2. Pobierz profil sieci VPN dla bramy. Można to zrobić na karcie Konfiguracja point-to-site w witrynie Azure portal lub "New-AzVpnClientConfiguration" w programie PowerShell.
-3. Rozpakuj profil. Następnie otwórz plik konfiguracyjny *vpnconfig.ovpn* z folderu OpenVPN za pomocą Notatnika.
-4. Wyeksportuj utworzony i przekazany certyfikat klienta typu punkt-lokacja do konfiguracji P2S na bramie. Użyj następujących łączy artykułów:
+1. Pobierz i zainstaluj klienta programu OpenVPN (w wersji 2,4 lub nowszej) z oficjalnej [witryny sieci Web OpenVPN](https://openvpn.net/index.php/open-source/downloads.html).
+2. Pobierz profil sieci VPN dla bramy. Można to zrobić na karcie Konfiguracja punktu do lokacji w Azure Portal lub polecenie "New-AzVpnClientConfiguration" w programie PowerShell.
+3. Rozpakuj profil. Następnie otwórz plik konfiguracyjny *vpnconfig. ovpn* z folderu OpenVPN za pomocą Notatnika.
+4. Wyeksportuj certyfikat klienta punkt-lokacja utworzony i przekazany do konfiguracji P2S na bramie. Skorzystaj z poniższych linków artykułu:
 
-   * Instrukcje [dotyczące bramy sieci VPN](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport)
+   * Instrukcje [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport)
    
-   * Instrukcje [wirtualnej sieci WAN](../articles/virtual-wan/certificates-point-to-site.md#clientexport)
-5. Wyodrębnij klucz prywatny i odcisk palca base64 z *pliku .pfx*. Istnieje wiele sposobów, aby to zrobić. Korzystanie z OpenSSL na komputerze jest jednym ze sposobów. Plik *profileinfo.txt* zawiera klucz prywatny i odcisk palca dla urzędu certyfikacji i certyfikatu klienta. Pamiętaj, aby użyć odcisku palca certyfikatu klienta.
+   * Instrukcje dotyczące [wirtualnej sieci WAN](../articles/virtual-wan/certificates-point-to-site.md#clientexport)
+5. Wyodrębnij klucz prywatny i odcisk palca Base64 z pliku *PFX*. Istnieje wiele sposobów, aby to zrobić. Korzystanie z OpenSSL na maszynie jest jednym ze sposobów. Plik *ProfileInfo. txt* zawiera klucz prywatny i odcisk palca urzędu certyfikacji oraz certyfikat klienta. Upewnij się, że używasz odcisku palca certyfikatu klienta.
 
    ```
    openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
    ```
-6. Otwórz *plik profileinfo.txt* w Notatniku. Aby uzyskać odcisk palca certyfikatu klienta (podrzędnego), zaznacz tekst (w tym między)"-----BEGIN CERTIFICATE-----" i "-----END CERTIFICATE-----" dla certyfikatu podrzędnego i skopiuj go. Certyfikat podrzędny można zidentyfikować, patrząc na temat=/ wiersz.
-7. Przełącz się na plik *vpnconfig.ovpn* otwarty w Notatniku z kroku 3. Znajdź sekcję pokazaną poniżej i zastąp wszystko między "cert" i "/cert".
+6. Otwórz *ProfileInfo. txt* w Notatniku. Aby uzyskać odcisk palca certyfikatu klienta (elementu podrzędnego), zaznacz tekst (w tym i między) "-----BEGIN CERTIFICATE-----" i "----------certyfikatu" dla certyfikatu podrzędnego i skopiuj go. Certyfikat podrzędny można zidentyfikować, przeglądając temat subject =/line.
+7. Przejdź do pliku *vpnconfig. ovpn* , który został otwarty w Notatniku, z kroku 3. Znajdź sekcję pokazaną poniżej i Zastąp wszystko "CERT" i "/CERT".
 
    ```
    # P2S client certificate
@@ -40,8 +40,8 @@ ms.locfileid: "80986696"
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Otwórz *plik profileinfo.txt* w Notatniku. Aby uzyskać klucz prywatny, zaznacz tekst (w tym i między) "-----BEGIN KLUCZ PRYWATNY-----" i "-----END KLUCZ PRYWATNY-----" i skopiuj go.
-9. Wróć do pliku vpnconfig.ovpn w Notatniku i znajdź tę sekcję. Wklej klucz prywatny zastępując wszystko między i "key" i "/key".
+8. Otwórz *ProfileInfo. txt* w Notatniku. Aby uzyskać klucz prywatny, zaznacz tekst (w tym i między) "-----Rozpocznij-----klucza prywatnego" i "-----Zakończ klucz prywatny-----" i skopiuj go.
+9. Wróć do pliku vpnconfig. ovpn w Notatniku i znajdź tę sekcję. Wklej klucz prywatny, zastępując wszystkie elementy od i "Key" i "/Key".
 
    ```
    # P2S client root certificate private key
@@ -54,89 +54,89 @@ ms.locfileid: "80986696"
 11. Skopiuj plik vpnconfig.ovpn do folderu C:\Program Files\OpenVPN\config.
 12. Kliknij prawym przyciskiem myszy ikonę OpenVPN na pasku zadań i kliknij przycisk Połącz.
 
-## <a name="mac-clients"></a><a name="mac"></a>Klienci komputerów Mac
+## <a name="mac-clients"></a><a name="mac"></a>Klienci na komputery Mac
 
-1. Pobierz i zainstaluj klienta OpenVPN, takiego jak [TunnelBlick](https://tunnelblick.net/downloads.html). 
-2. Pobierz profil sieci VPN dla bramy. Można to zrobić na karcie konfiguracji typu punkt-lokacja w witrynie Azure portal lub przy użyciu "New-AzVpnClientConfiguration" w programie PowerShell.
-3. Rozpakuj profil. Otwórz plik konfiguracyjny vpnconfig.ovpn z folderu OpenVPN w edytorze tekstu.
-4. W sekcji certyfikatu klienta P2S wprowadź klucz publiczny certyfikatu klienta P2S w formacie base64. W przypadku certyfikatu w formacie PEM można po prostu otworzyć plik cer i skopiować klucz w formacie base64 znajdujący się pomiędzy nagłówkami certyfikatów. Skorzystaj z następujących łączy artykułów, aby uzyskać informacje na temat eksportowania certyfikatu w celu uzyskania zakodowanego klucza publicznego:
+1. Pobierz i zainstaluj klienta OpenVPN, taki jak [TunnelBlick](https://tunnelblick.net/downloads.html). 
+2. Pobierz profil sieci VPN dla bramy. Można to zrobić na karcie Konfiguracja punktu do lokacji w Azure Portal lub przy użyciu polecenia "New-AzVpnClientConfiguration" w programie PowerShell.
+3. Rozpakuj profil. Otwórz plik konfiguracyjny vpnconfig. ovpn z folderu OpenVPN w edytorze tekstów.
+4. W sekcji certyfikatu klienta P2S wprowadź klucz publiczny certyfikatu klienta P2S w formacie base64. W przypadku certyfikatu w formacie PEM można po prostu otworzyć plik cer i skopiować klucz w formacie base64 znajdujący się pomiędzy nagłówkami certyfikatów. Skorzystaj z poniższych linków, aby uzyskać informacje na temat eksportowania certyfikatu w celu pobrania zakodowanego klucza publicznego:
 
-   * Instrukcje [dotyczące bramy sieci VPN](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) 
+   * Instrukcje [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) 
    
-   * Instrukcje [wirtualnej sieci WAN](../articles/virtual-wan/certificates-point-to-site.md#cer)
-5. W sekcji klucza prywatnego wprowadź klucz prywatny certyfikatu klienta P2S w formacie base64. Zobacz [Eksportowanie klucza prywatnego](https://openvpn.net/community-resources/how-to/#pki) w witrynie OpenVPN, aby uzyskać informacje na temat wyodrębniania klucza prywatnego.
+   * Instrukcje dotyczące [wirtualnej sieci WAN](../articles/virtual-wan/certificates-point-to-site.md#cer)
+5. W sekcji klucza prywatnego wprowadź klucz prywatny certyfikatu klienta P2S w formacie base64. Zapoznaj się z tematem [Eksportowanie klucza prywatnego](https://openvpn.net/community-resources/how-to/#pki) w witrynie OpenVPN, aby uzyskać informacje na temat sposobu wyodrębniania klucza prywatnego.
 6. Nie zmieniaj innych pól. Użyj konfiguracji wprowadzonej w danych wejściowych klienta, aby nawiązać połączenie z siecią VPN.
 7. Kliknij dwukrotnie plik profilu, aby utworzyć profil w Tunnelblick.
 8. Uruchom Tunnelblick z folderu aplikacji.
-9. Kliknij ikonę Tunnelblick w zasobniku systemowym i wybierz connect.
+9. Kliknij ikonę Tunnelblick na pasku zadań i wybierz pozycję Połącz.
 
 > [!IMPORTANT]
->Tylko iOS 11.0 i powyżej i MacOS 10.13 i powyżej są obsługiwane z protokołem OpenVPN.
+>W przypadku protokołu OpenVPN obsługiwane są tylko systemy iOS 11,0 i nowsze oraz MacOS 10,13 i nowsze.
 >
-## <a name="ios-clients"></a><a name="iOS"></a>Klienci systemu iOS
+## <a name="ios-clients"></a><a name="iOS"></a>Klienci z systemem iOS
 
-1. Zainstaluj klienta OpenVPN (wersja 2.4 lub nowsza) ze sklepu App Store.
-2. Pobierz profil sieci VPN dla bramy. Można to zrobić na karcie konfiguracji typu punkt-lokacja w witrynie Azure portal lub przy użyciu "New-AzVpnClientConfiguration" w programie PowerShell.
-3. Rozpakuj profil. Otwórz plik konfiguracyjny vpnconfig.ovpn z folderu OpenVPN w edytorze tekstu.
-4. W sekcji certyfikatu klienta P2S wprowadź klucz publiczny certyfikatu klienta P2S w formacie base64. W przypadku certyfikatu w formacie PEM można po prostu otworzyć plik cer i skopiować klucz w formacie base64 znajdujący się pomiędzy nagłówkami certyfikatów. Skorzystaj z następujących łączy artykułów, aby uzyskać informacje na temat eksportowania certyfikatu w celu uzyskania zakodowanego klucza publicznego:
+1. Zainstaluj klienta OpenVPN (w wersji 2,4 lub nowszej) ze sklepu App Store.
+2. Pobierz profil sieci VPN dla bramy. Można to zrobić na karcie Konfiguracja punktu do lokacji w Azure Portal lub przy użyciu polecenia "New-AzVpnClientConfiguration" w programie PowerShell.
+3. Rozpakuj profil. Otwórz plik konfiguracyjny vpnconfig. ovpn z folderu OpenVPN w edytorze tekstów.
+4. W sekcji certyfikatu klienta P2S wprowadź klucz publiczny certyfikatu klienta P2S w formacie base64. W przypadku certyfikatu w formacie PEM można po prostu otworzyć plik cer i skopiować klucz w formacie base64 znajdujący się pomiędzy nagłówkami certyfikatów. Skorzystaj z poniższych linków, aby uzyskać informacje na temat eksportowania certyfikatu w celu pobrania zakodowanego klucza publicznego:
 
-   * Instrukcje [dotyczące bramy sieci VPN](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) 
+   * Instrukcje [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) 
    
-   * Instrukcje [wirtualnej sieci WAN](../articles/virtual-wan/certificates-point-to-site.md#cer)
-5. W sekcji klucza prywatnego wprowadź klucz prywatny certyfikatu klienta P2S w formacie base64. Aby uzyskać informacje na temat wyodrębniania klucza prywatnego, zobacz [Eksportowanie klucza prywatnego](https://openvpn.net/community-resources/how-to/#pki) w witrynie OpenVPN.
+   * Instrukcje dotyczące [wirtualnej sieci WAN](../articles/virtual-wan/certificates-point-to-site.md#cer)
+5. W sekcji klucza prywatnego wprowadź klucz prywatny certyfikatu klienta P2S w formacie base64. Aby uzyskać informacje na temat sposobu wyodrębniania klucza prywatnego, zobacz [Eksportowanie klucza prywatnego](https://openvpn.net/community-resources/how-to/#pki) w witrynie OpenVPN.
 6. Nie zmieniaj innych pól.
-7. Wyślij plik profilu (.ovpn) pocztą e-mail na swoje konto e-mail skonfigurowane w aplikacji poczty na telefonie iPhone. 
-8. Otwórz wiadomość e-mail w aplikacji poczty na iPhonie i naciśnij załączony plik
+7. Wyślij pocztą e-mail plik profilu (. ovpn) na konto e-mail, które jest skonfigurowane w aplikacji poczty na telefonie iPhone. 
+8. Otwórz wiadomość e-mail w aplikacji poczty na telefonie iPhone i naciśnij załączony plik
 
     ![Otwórz wiadomość e-mail](./media/vpn-gateway-vwan-config-openvpn-clients/ios2.png)
 
-9. Dotknij **przycisku Więcej,** jeśli nie widzisz opcji **Kopiuj do OpenVPN**
+9. Naciśnij przycisk **więcej** , jeśli nie widzisz opcji **Kopiuj do OpenVPN**
 
     ![Więcej](./media/vpn-gateway-vwan-config-openvpn-clients/ios3.png)
 
-10. Dotknij **kopiuj do OpenVPN** 
+10. Naciśnij pozycję **Kopiuj do OpenVPN** 
 
     ![Kopiuj do OpenVPN](./media/vpn-gateway-vwan-config-openvpn-clients/ios4.png)
 
-11. Naciśnij **pozycję ADD** na stronie **Importuj profil**
+11. Naciśnij pozycję **Dodaj** na stronie **Importuj profil**
 
     ![Dodaj](./media/vpn-gateway-vwan-config-openvpn-clients/ios5.png)
 
-12. Naciśnij **pozycję ADD** na stronie **Importowany profil**
+12. Naciśnij pozycję **Dodaj** na stronie **zaimportowany profil**
 
-    ![Naciśnij pozycję DODAJ](./media/vpn-gateway-vwan-config-openvpn-clients/ios6.png)
+    ![Naciśnij pozycję Dodaj](./media/vpn-gateway-vwan-config-openvpn-clients/ios6.png)
 
-13. Uruchom aplikację OpenVPN i przesuń przełącznik na stronie **Profilu** w prawo, aby połączyć
+13. Uruchom aplikację OpenVPN i przesuń przełącznik na stronę **profilu** w prawo, aby nawiązać połączenie
 
     ![Połącz](./media/vpn-gateway-vwan-config-openvpn-clients/ios8.png)
 
 
-## <a name="linux-clients"></a><a name="linux"></a>Klienci systemu Linux
+## <a name="linux-clients"></a><a name="linux"></a>Klienci z systemem Linux
 
-1. Otwórz nową sesję terminala. Możesz otworzyć nową sesję, naciskając jednocześnie "Ctrl + Alt + t".
-2. Wprowadź następujące polecenie, aby zainstalować potrzebne składniki:
+1. Otwórz nową sesję terminala. Możesz otworzyć nową sesję, naciskając klawisze "Ctrl + Alt + t" w tym samym czasie.
+2. Wprowadź następujące polecenie, aby zainstalować wymagane składniki:
 
    ```
    sudo apt-get install openvpn
    sudo apt-get -y install network-manager-openvpn
    sudo service network-manager restart
    ```
-3. Pobierz profil sieci VPN dla bramy. Można to zrobić na karcie Konfiguracja point-to-site w witrynie Azure portal.
-4. Wyeksportuj utworzony i przekazany certyfikat klienta P2S do konfiguracji P2S na bramie. Użyj następujących łączy artykułów:
+3. Pobierz profil sieci VPN dla bramy. Można to zrobić na karcie Konfiguracja punktu do lokacji w Azure Portal.
+4. Wyeksportuj certyfikat klienta P2S utworzony i przekazany do konfiguracji P2S na bramie. Skorzystaj z poniższych linków artykułu:
 
-   * Instrukcje [dotyczące bramy sieci VPN](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) 
+   * Instrukcje [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) 
    
-   * Instrukcje [wirtualnej sieci WAN](../articles/virtual-wan/certificates-point-to-site.md#clientexport)
-5. Wyodrębnij klucz prywatny i odcisk palca base64 z .pfx. Istnieje wiele sposobów, aby to zrobić. Korzystanie z OpenSSL na komputerze jest jednym ze sposobów.
+   * Instrukcje dotyczące [wirtualnej sieci WAN](../articles/virtual-wan/certificates-point-to-site.md#clientexport)
+5. Wyodrębnij klucz prywatny i odcisk palca Base64 z pliku PFX. Istnieje wiele sposobów, aby to zrobić. Korzystanie z OpenSSL na komputerze jest jednym ze sposobów.
 
     ```
     openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
     ```
-   Plik *profileinfo.txt* będzie zawierał klucz prywatny i odcisk palca urzędu certyfikacji i certyfikat klienta. Pamiętaj, aby użyć odcisku palca certyfikatu klienta.
+   Plik *ProfileInfo. txt* będzie zawierać klucz prywatny i odcisk palca urzędu certyfikacji oraz certyfikat klienta. Upewnij się, że używasz odcisku palca certyfikatu klienta.
 
-6. Otwórz *plik profileinfo.txt* w edytorze tekstu. Aby uzyskać odcisk palca certyfikatu klienta (podrzędnego), zaznacz tekst, w tym między "-----BEGIN CERTIFICATE-----" i "-----END CERTIFICATE-----" dla certyfikatu podrzędnego i skopiuj go. Certyfikat podrzędny można zidentyfikować, patrząc na temat=/ wiersz.
+6. Otwórz *ProfileInfo. txt* w edytorze tekstu. Aby uzyskać odcisk palca certyfikatu klienta (elementu podrzędnego), zaznacz tekst obejmujący między innymi "-----BEGIN CERTIFICATE-----" i "----------certyfikatu" dla certyfikatu podrzędnego i skopiuj go. Certyfikat podrzędny można zidentyfikować, przeglądając temat subject =/line.
 
-7. Otwórz plik *vpnconfig.ovpn* i znajdź sekcję pokazaną poniżej. Wymień wszystko między i "cert" i "/cert".
+7. Otwórz plik *vpnconfig. ovpn* i Znajdź sekcję pokazaną poniżej. Zastąp wszystko "certyfikatem" i "/CERT".
 
    ```
    # P2S client certificate
@@ -145,9 +145,9 @@ ms.locfileid: "80986696"
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Otwórz plik profileinfo.txt w edytorze tekstu. Aby uzyskać klucz prywatny, zaznacz tekst, w tym między "-----BEGIN KLUCZ PRYWATNY-----" i "-----END KLUCZ PRYWATNY-----" i skopiuj go.
+8. Otwórz ProfileInfo. txt w edytorze tekstu. Aby uzyskać klucz prywatny, zaznacz tekst, w tym między innymi "-----Rozpocznij klucz prywatny-----" i "-----Zakończ klucz prywatny-----" i skopiuj go.
 
-9. Otwórz plik vpnconfig.ovpn w edytorze tekstu i znajdź tę sekcję. Wklej klucz prywatny zastępując wszystko między i "key" i "/key".
+9. Otwórz plik vpnconfig. ovpn w edytorze tekstów i znajdź tę sekcję. Wklej klucz prywatny, zastępując wszystkie elementy od i "Key" i "/Key".
 
    ```
    # P2S client root certificate private key
@@ -158,16 +158,16 @@ ms.locfileid: "80986696"
    ```
 
 10. Nie zmieniaj innych pól. Użyj konfiguracji wprowadzonej w danych wejściowych klienta, aby nawiązać połączenie z siecią VPN.
-11. Aby połączyć się za pomocą wiersza polecenia, wpisz następujące polecenie:
+11. Aby nawiązać połączenie przy użyciu wiersza polecenia, wpisz następujące polecenie:
   
     ```
     sudo openvpn --config <name and path of your VPN profile file>&
     ```
-12. Aby połączyć się za pomocą graficznego interfejsu użytkownika, przejdź do ustawień systemowych.
-13. Kliknij, **+** aby dodać nowe połączenie sieci VPN.
-14. W obszarze **Dodaj VPN**wybierz **pozycję Importuj z pliku...**
-15. Przejdź do pliku profilu i kliknij dwukrotnie lub wybierz opcję **Otwórz**.
-16. Kliknij pozycję **Dodaj** w oknie **Dodaj sieć VPN.**
+12. Aby nawiązać połączenie przy użyciu graficznego interfejsu użytkownika, przejdź do pozycji Ustawienia systemu.
+13. Kliknij **+** , aby dodać nowe połączenie sieci VPN.
+14. W obszarze **Dodaj sieć VPN**wybierz pozycję **Importuj z pliku...**
+15. Przejdź do pliku profilu, a następnie kliknij dwukrotnie lub wybierz pozycję **Otwórz**.
+16. Kliknij przycisk **Dodaj** w oknie **Dodawanie sieci VPN** .
   
     ![Importuj z pliku](./media/vpn-gateway-vwan-config-openvpn-clients/import.png)
-17. Połączenie można połączyć, włączając sieć VPN **na** stronie **Ustawienia sieciowe** lub pod ikoną sieci w zasobniku systemowym.
+17. Możesz nawiązać połączenie, przełączając sieć VPN **na** stronie **ustawień sieci** lub ikonę sieci na pasku zadań.

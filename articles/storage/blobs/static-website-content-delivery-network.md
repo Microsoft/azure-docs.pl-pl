@@ -1,6 +1,6 @@
 ---
-title: Integracja statycznej witryny sieci Web z usługą Azure CDN — Usługa Azure Storage
-description: Dowiedz się, jak buforować zawartość statycznej witryny sieci Web z konta usługi Azure Storage przy użyciu usługi Azure Content Delivery Network (CDN).
+title: Integrowanie statycznej witryny internetowej z usługą Azure CDN Storage
+description: Dowiedz się, jak buforować zawartość statycznej witryny internetowej z konta usługi Azure Storage za pomocą usługi Azure Content Delivery Network (CDN).
 author: normesta
 ms.service: storage
 ms.subservice: blobs
@@ -8,62 +8,62 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 04/07/2020
 ms.openlocfilehash: 4516e9f48174a0f1f5201c46cf114badf13d99d6
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878825"
 ---
-# <a name="integrate-a-static-website-with-azure-cdn"></a>Integracja statycznej witryny sieci Web z usługą Azure CDN
+# <a name="integrate-a-static-website-with-azure-cdn"></a>Integrowanie statycznej witryny sieci Web z Azure CDN
 
-Można włączyć [usługę Azure Content Delivery Network (CDN)](../../cdn/cdn-overview.md) do buforowania zawartości ze [statycznej witryny sieci Web,](storage-blob-static-website.md) która jest hostowana na koncie magazynu platformy Azure. Za pomocą usługi Azure CDN można skonfigurować niestandardowy punkt końcowy domeny dla statycznej witryny sieci Web, aprowizować niestandardowe certyfikaty TLS/SSL i skonfigurować niestandardowe reguły przepisywania. Konfigurowanie usługi Azure CDN oznacza dodatkowe koszty, ale zapewnia stale niskie opóźnienia połączenia z witryną internetowej z dowolnego miejsca na świecie. Usługa Azure CDN zapewnia również szyfrowanie TLS z własnym certyfikatem. 
+Możesz włączyć [usługę Azure Content Delivery Network (CDN)](../../cdn/cdn-overview.md) w celu buforowania zawartości z [statycznej witryny sieci Web](storage-blob-static-website.md) , która jest hostowana na koncie usługi Azure Storage. Za pomocą Azure CDN można skonfigurować niestandardowy punkt końcowy domeny dla statycznej witryny sieci Web, zainicjować obsługę niestandardowych certyfikatów TLS/SSL i skonfigurować niestandardowe reguły ponownego zapisywania. Konfigurowanie usługi Azure CDN oznacza dodatkowe koszty, ale zapewnia stale niskie opóźnienia połączenia z witryną internetowej z dowolnego miejsca na świecie. Azure CDN udostępnia również szyfrowanie TLS z własnym certyfikatem. 
 
 Aby uzyskać dodatkowe informacje na temat cennika usługi Azure CDN, zobacz [Cennik usługi Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
 
-## <a name="enable-azure-cdn-for-your-static-website"></a>Włącz usługę Azure CDN dla swojej statycznej witryny sieci Web
+## <a name="enable-azure-cdn-for-your-static-website"></a>Włącz Azure CDN dla statycznej witryny sieci Web
 
-Można włączyć usługę Azure CDN dla statycznej witryny sieci Web bezpośrednio z konta magazynu. wysJeśli chcesz określić zaawansowane ustawienia konfiguracji dla punktu końcowego usługi CDN, takie jak [optymalizacja pobierania dużych plików](../../cdn/cdn-optimization-overview.md#large-file-download), możesz zamiast tego użyć [rozszerzenia usługi Azure CDN](../../cdn/cdn-create-new-endpoint.md), aby utworzyć punkt końcowy i profil usługi CDN.
+Możesz włączyć Azure CDN dla statycznej witryny sieci Web bezpośrednio z konta magazynu. wysJeśli chcesz określić zaawansowane ustawienia konfiguracji dla punktu końcowego usługi CDN, takie jak [optymalizacja pobierania dużych plików](../../cdn/cdn-optimization-overview.md#large-file-download), możesz zamiast tego użyć [rozszerzenia usługi Azure CDN](../../cdn/cdn-create-new-endpoint.md), aby utworzyć punkt końcowy i profil usługi CDN.
 
-1. Znajdź swoje konto magazynu w witrynie Azure portal i wyświetl omówienie konta.
+1. Znajdź konto magazynu w Azure Portal i Wyświetl przegląd konta.
 
-1. W menu **Usługa obiektów blob** wybierz pozycję **Azure CDN,** aby otworzyć stronę **usługi Azure CDN:**
+1. W menu **usługi BLOB** wybierz pozycję **Azure CDN** , aby otworzyć stronę **Azure CDN** :
 
     ![Tworzenie punktu końcowego usługi CDN](media/storage-blob-static-website-custom-domain/cdn-storage-new.png)
 
-1. W sekcji **profilu sieci CDN** określ, czy utworzyć nowy profil sieci CDN, czy użyć istniejącego. Profil sieci CDN to zbiór punktów końcowych usługi CDN, które współużytkują warstwę cenową i dostawcę. Następnie wprowadź nazwę sieci CDN, która jest unikatowa w ramach subskrypcji.
+1. W sekcji **profil usługi CDN** Określ, czy chcesz utworzyć nowy profil usługi CDN, czy użyć istniejącego. Profil CDN jest kolekcją punktów końcowych usługi CDN, które współużytkują warstwę cenową i dostawcę. Następnie wprowadź nazwę sieci CDN, która jest unikatowa w ramach subskrypcji.
 
-1. Określ warstwę cenową dla punktu końcowego sieci CDN. Aby dowiedzieć się więcej o cenach, zobacz [Cennik sieci dostarczania zawartości](https://azure.microsoft.com/pricing/details/cdn/). Aby uzyskać więcej informacji na temat funkcji dostępnych dla każdej warstwy, zobacz [Porównanie funkcji produktu usługi Azure CDN](../../cdn/cdn-features.md).
+1. Określ warstwę cenową punktu końcowego usługi CDN. Aby dowiedzieć się więcej o cenach, zobacz [cennik Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/). Aby uzyskać więcej informacji o funkcjach dostępnych dla każdej warstwy, zobacz [Compare Azure CDN Product Features](../../cdn/cdn-features.md).
 
-1. W polu **nazwa punktu końcowego sieci CDN** określ nazwę punktu końcowego sieci CDN. Punkt końcowy usługi CDN musi być unikatowy na platformie Azure i zawiera pierwszą część adresu URL punktu końcowego. Formularz sprawdza, czy nazwa punktu końcowego jest unikatowa.
+1. W polu **Nazwa punktu końcowego usługi CDN** Podaj nazwę punktu końcowego sieci CDN. Punkt końcowy usługi CDN musi być unikatowy w ramach platformy Azure i zawiera pierwszą część adresu URL punktu końcowego. Formularz sprawdza, czy nazwa punktu końcowego jest unikatowa.
 
-1. Określ statyczny punkt końcowy witryny sieci Web w polu **Nazwa hosta pochodzenia.** 
+1. Określ swój statyczny punkt końcowy witryny sieci Web w polu **Nazwa hosta źródła** . 
 
-   Aby znaleźć statyczny punkt końcowy witryny sieci Web, przejdź do ustawień **statycznej witryny sieci Web** dla konta magazynu.  Skopiuj podstawowy punkt końcowy i wklej go do konfiguracji sieci CDN.
+   Aby znaleźć punkt końcowy statycznej witryny internetowej, przejdź do ustawień **statycznej witryny internetowej** dla konta magazynu.  Skopiuj podstawowy punkt końcowy i wklej go do konfiguracji sieci CDN.
 
    > [!IMPORTANT]
-   > Upewnij się, że usuniesz identyfikator protokołu *(np.* https) i końcowe ukośnik w adresie URL. Na przykład, jeśli statyczny punkt `https://mystorageaccount.z5.web.core.windows.net/`końcowy witryny `mystorageaccount.z5.web.core.windows.net` sieci Web jest , a następnie należy określić w **polu Nazwa hosta pochodzenia.**
+   > Pamiętaj o usunięciu identyfikatora protokołu (*np.* https) oraz końcowego ukośnika w adresie URL. Na przykład jeśli punkt końcowy statycznej witryny sieci `https://mystorageaccount.z5.web.core.windows.net/`Web to, należy określić `mystorageaccount.z5.web.core.windows.net` wartość w polu **Nazwa hosta źródła** .
 
    Na poniższej ilustracji przedstawiono przykładową konfigurację punktu końcowego:
 
-   ![Zrzut ekranu przedstawiający przykładową konfigurację punktu końcowego sieci CDN](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
+   ![Zrzut ekranu przedstawiający przykładową konfigurację punktu końcowego usługi CDN](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
 
-1. Wybierz **pozycję Utwórz**, a następnie poczekaj, aż sieć CDN zostanie udostępnina. Po utworzeniu punktu końcowego zostanie on wyświetlony na liście punktów końcowych. (Jeśli w formularzu są jakieś błędy, obok tego pola pojawi się wykrzyknik).
+1. Wybierz pozycję **Utwórz**, a następnie poczekaj na udostępnienie sieci CDN. Po utworzeniu punktu końcowego zostanie on wyświetlony na liście punktów końcowych. (Jeśli w formularzu występują błędy, obok tego pola pojawia się wykrzyknik).
 
-1. Aby sprawdzić, czy punkt końcowy sieci CDN jest poprawnie skonfigurowany, kliknij punkt końcowy, aby przejść do jego ustawień. Z omówienia sieci CDN dla konta magazynu znajdź nazwy hosta punktu końcowego i przejdź do punktu końcowego, jak pokazano na poniższej ilustracji. Format punktu końcowego sieci CDN `https://staticwebsitesamples.azureedge.net`będzie podobny do .
+1. Aby sprawdzić, czy punkt końcowy usługi CDN został prawidłowo skonfigurowany, kliknij punkt końcowy, aby przejść do jego ustawień. W obszarze przegląd usługi CDN dla konta magazynu Znajdź nazwę hosta punktu końcowego i przejdź do punktu końcowego, jak pokazano na poniższej ilustracji. Format punktu końcowego usługi CDN będzie podobny do `https://staticwebsitesamples.azureedge.net`.
 
-    ![Zrzut ekranu przedstawiający przegląd punktu końcowego sieci CDN](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
+    ![Zrzut ekranu przedstawiający przegląd punktu końcowego usługi CDN](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
 
-1. Po zainicjowaniu obsługi administracyjnej punktu końcowego sieci CDN nawigowanie do punktu końcowego sieci CDN powoduje wyświetlenie zawartości pliku index.html, który został wcześniej przekazany do statycznej witryny sieci Web.
+1. Po udostępnieniu punktu końcowego usługi CDN przejściu do punktu końcowego usługi CDN zostanie wyświetlona zawartość pliku index. html, który został wcześniej przekazany do statycznej witryny sieci Web.
 
-1. Aby przejrzeć ustawienia pochodzenia punktu końcowego sieci CDN, przejdź do **punktu początkowego w** sekcji **Ustawienia** dla punktu końcowego sieci CDN. Zobaczysz, że pole **typu Pochodzenie** jest ustawione na *Niestandardowe pochodzenie* i że pole nazwa **hosta pochodzenia** wyświetla statyczny punkt końcowy witryny sieci Web.
+1. Aby przejrzeć ustawienia źródła dla punktu końcowego usługi CDN, przejdź do lokalizacji **źródłowej** w sekcji **Ustawienia** dla punktu końcowego usługi CDN. Zobaczysz, że w polu **Typ źródła** jest ustawiona wartość *Źródło niestandardowe* i że w polu **Nazwa hosta źródła** jest wyświetlany statyczny punkt końcowy witryny sieci Web.
 
-    ![Zrzut ekranu przedstawiający ustawienia pochodzenia punktu końcowego sieci CDN](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
+    ![Zrzut ekranu przedstawiający ustawienia źródła dla punktu końcowego usługi CDN](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
 
 ## <a name="remove-content-from-azure-cdn"></a>Usuwanie zawartości z usługi Azure CDN
 
 Jeśli nie chcesz już buforować obiektu w usłudze Azure CDN, możesz wykonać jedną z następujących czynności:
 
-* Ustaw kontener jako prywatny, a nie publiczny. Aby uzyskać więcej informacji, zobacz [Zarządzanie anonimowym dostępem do odczytu kontenerów i obiektów blob.](storage-manage-access-to-resources.md)
+* Ustaw kontener jako prywatny, a nie publiczny. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem anonimowym do odczytu do kontenerów i obiektów BLOB](storage-manage-access-to-resources.md).
 * Wyłącz lub usuń punkt końcowy usługi CDN przy użyciu witryny Azure Portal.
 * Zmodyfikuj usługę hostowaną w taki sposób, aby nie odpowiadała już na żądania dla obiektu.
 
@@ -71,4 +71,4 @@ Obiekt, który jest już buforowany w usłudze Azure CDN, pozostaje w pamięci p
 
 ## <a name="next-steps"></a>Następne kroki
 
-(Opcjonalnie) Dodaj domenę niestandardową do punktu końcowego usługi Azure CDN. Zobacz [Samouczek: Dodawanie domeny niestandardowej do punktu końcowego usługi Azure CDN](../../cdn/cdn-map-content-to-custom-domain.md).
+Obowiązkowe Dodaj domenę niestandardową do punktu końcowego Azure CDN. Zobacz [Samouczek: Dodawanie domeny niestandardowej do punktu końcowego Azure CDN](../../cdn/cdn-map-content-to-custom-domain.md).

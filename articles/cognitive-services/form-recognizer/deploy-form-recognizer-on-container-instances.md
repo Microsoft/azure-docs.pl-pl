@@ -1,7 +1,7 @@
 ---
-title: Uruchamianie kontenera rozpoznawania formularzy w wystąpieniach kontenera platformy Azure
+title: Uruchom kontener aparatu rozpoznawania formularzy w Azure Container Instances
 titleSuffix: Azure Cognitive Services
-description: Wdrażanie kontenera rozpoznawania formularzy w wystąpieniu kontenera platformy Azure i testowanie go w przeglądarce sieci Web.
+description: Wdróż kontener aparatu rozpoznawania formularzy w usłudze Azure Container instance i przetestuj go w przeglądarce sieci Web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: acba4d9fab784181fda5728c30831c8c1838b91f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80879534"
 ---
-# <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Wdrażanie kontenera rozpoznawania formularzy w wystąpieniach kontenera platformy Azure
+# <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Wdróż kontener aparatu rozpoznawania formularzy do Azure Container Instances
 
-Dowiedz się, jak wdrożyć kontener [aparatu rozpoznawania formularzy](form-recognizer-container-howto.md) usług Cognitive Services w [wystąpieniach kontenerów](https://docs.microsoft.com/azure/container-instances/)platformy Azure. W tej procedurze pokazano utworzenie zasobu aparatu rozpoznawania formularzy platformy Azure. Następnie omówimy ciągnięcie skojarzonego obrazu kontenera. Na koniec podkreślamy możliwość wykonywania aranżacji dwóch z przeglądarki. Korzystanie z kontenerów można przenieść uwagę deweloperów od zarządzania infrastrukturą zamiast skupiać się na tworzeniu aplikacji.
+Dowiedz się, jak wdrożyć kontener [aparatu rozpoznawania Cognitive Services formularzy](form-recognizer-container-howto.md) na platformie Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). Ta procedura pokazuje tworzenie zasobu aparatu rozpoznawania formularza platformy Azure. Następnie omówiono ściąganie skojarzonego obrazu kontenera. Na koniec wyróżnimy możliwość wykonywania aranżacji tych dwóch z przeglądarki. Korzystanie z kontenerów umożliwia przechodzenie przez deweloperów do zarządzania infrastrukturą, aby zamiast tego koncentrować się na tworzeniu aplikacji.
 
 > [!IMPORTANT]
-> Kontenery aparat rozpoznawania formularzy obecnie używają wersji 1.0 interfejsu API aparatu rozpoznawania formularzy. Dostęp do najnowszej wersji interfejsu API można uzyskać za pomocą usługi zarządzanej.
+> Kontenery aparatu rozpoznawania formularzy używają obecnie wersji 1,0 interfejsu API aparatu rozpoznawania. Możesz uzyskać dostęp do najnowszej wersji interfejsu API za pomocą usługi zarządzanej.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 
-## <a name="request-access-to-the-container-registry"></a>Żądanie dostępu do rejestru kontenerów
+## <a name="request-access-to-the-container-registry"></a>Zażądaj dostępu do rejestru kontenerów
 
-Aby zażądać dostępu do kontenera, należy najpierw wypełnić i przesłać [formularz żądania dostępu kontenerów formularzy usług Cognitive Services,](https://aka.ms/FormRecognizerContainerRequestAccess) aby zażądać dostępu do kontenera. W ten sposób również rejestruje się na Wizji Komputerowej. Nie musisz osobno zapisywać się na formularz żądania wizji komputerowej. 
+Musisz najpierw zakończyć i przesłać formularz [żądania dostępu kontenerów rozpoznawania Cognitive Services formularzy](https://aka.ms/FormRecognizerContainerRequestAccess) , aby zażądać dostępu do kontenera. Spowoduje to również zalogowanie się do przetwarzanie obrazów. Nie musisz oddzielnie rejestrować się w celu przetwarzanie obrazów formularza żądania. 
 
 [!INCLUDE [Request access](../../../includes/cognitive-services-containers-request-access-only.md)]
 

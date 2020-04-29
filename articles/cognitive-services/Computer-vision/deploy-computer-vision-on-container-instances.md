@@ -1,7 +1,7 @@
 ---
-title: Uruchamianie kontenera przetwarzania obrazów w wystąpieniach kontenera platformy Azure
+title: Uruchom kontener przetwarzanie obrazów w Azure Container Instances
 titleSuffix: Azure Cognitive Services
-description: Wdrażanie kontenera przetwarzania w usłudze Azure Container Instance i testowanie go w przeglądarce sieci Web.
+description: Wdróż kontener przetwarzanie obrazów w usłudze Azure Container instance i przetestuj go w przeglądarce sieci Web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: ecb0b6a6577161a5349d9d701dd6c116f69411f0
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80876097"
 ---
-# <a name="deploy-the-computer-vision-container-to-azure-container-instances"></a>Wdrażanie kontenera przetwarzania obrazów w wystąpieniach kontenerów platformy Azure
+# <a name="deploy-the-computer-vision-container-to-azure-container-instances"></a>Wdróż kontener przetwarzanie obrazów do Azure Container Instances
 
-Dowiedz się, jak wdrożyć kontener [przetwarzania usługi](computer-vision-how-to-install-containers.md) Cognitive Services w [wystąpieniach kontenerów](https://docs.microsoft.com/azure/container-instances/)platformy Azure. Ta procedura pokazuje tworzenie zasobu przetwarzania wizji. Następnie omówimy ciągnięcie skojarzonego obrazu kontenera. Na koniec podkreślamy możliwość wykonywania aranżacji dwóch z przeglądarki. Korzystanie z kontenerów można przenieść uwagę deweloperów od zarządzania infrastrukturą zamiast skupiać się na tworzeniu aplikacji.
+Dowiedz się, jak wdrożyć kontener [przetwarzanie obrazów](computer-vision-how-to-install-containers.md) Cognitive Services na platformie Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). Ta procedura pokazuje, jak utworzyć zasób przetwarzanie obrazów. Następnie omówiono ściąganie skojarzonego obrazu kontenera. Na koniec wyróżnimy możliwość wykonywania aranżacji tych dwóch z przeglądarki. Korzystanie z kontenerów umożliwia przechodzenie przez deweloperów do zarządzania infrastrukturą, aby zamiast tego koncentrować się na tworzeniu aplikacji.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 
-## <a name="request-access-to-the-private-container-registry"></a>Żądanie dostępu do rejestru kontenerów prywatnych
+## <a name="request-access-to-the-private-container-registry"></a>Zażądaj dostępu do rejestru kontenera prywatnego
 
 [!INCLUDE [Request access](../../../includes/cognitive-services-containers-request-access.md)]
 

@@ -1,37 +1,37 @@
 ---
-title: Śledzenie rozproszone w usłudze Azure Application Insights | Dokumenty firmy Microsoft
-description: Zawiera informacje o pomocy technicznej firmy Microsoft dla śledzenia rozproszonego za pośrednictwem naszej współpracy w projekcie OpenCensus
+title: Śledzenie rozproszone na platformie Azure Application Insights | Microsoft Docs
+description: Zawiera informacje o pomocy technicznej firmy Microsoft w zakresie śledzenia rozproszonego przez nasze partnerstwo w projekcie OpenCensus
 ms.topic: conceptual
 author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80892261"
 ---
 # <a name="what-is-distributed-tracing"></a>Co to jest śledzenie rozproszone?
 
-Pojawienie się nowoczesnych architektur chmury i [mikrousług](https://azure.com/microservices) doprowadziło do prostych, niezależnie wdrażanych usług, które mogą pomóc obniżyć koszty przy jednoczesnym zwiększeniu dostępności i przepływności. Ale chociaż te ruchy ułatwiły zrozumienie poszczególnych usług jako całości, sprawiły, że ogólne systemy stały się trudniejsze do uzasadnienia i debugowania.
+Pojawieniu nowoczesnej architektury chmury i [mikrousług](https://azure.com/microservices) ma podstawę prostych, niezależnie wdrażanych usług, które mogą pomóc w obniżeniu kosztów przy jednoczesnym zwiększeniu dostępności i przepływności. Jednak chociaż te przesunięcia zostały łatwiejsze do zrozumienia w całości, są one bardziej trudne do odłożenia i debugowania.
 
-W architekturach monolitycznych przyzwyczailiśmy się do debugowania za pomocą stosów wywołań. Stosy wywołań są genialne narzędzia do wyświetlania przepływu wykonania (metoda A o nazwie metoda B, która nazywa się metoda C), wraz ze szczegółami i parametrami o każdym z tych wywołań. Jest to idealne rozwiązanie dla monolitów lub usług uruchomionych w jednym procesie, ale jak debugować, gdy wywołanie znajduje się w granicach procesu, a nie tylko odwołanie na lokalnym stosie? 
+W przypadku architektur monolitycznych wykorzystamy do debugowania z stosów wywołań. Stosy wywołań to doskonały narzędzia do wyświetlania przepływu wykonania (Metoda wywołana metoda B, która nazywana metodą C), wraz ze szczegółami i parametrami dotyczącymi każdego z tych wywołań. Jest to doskonałe rozwiązanie dla monolitów lub usług działających w ramach jednego procesu, ale jak debugować, gdy wywołanie odbywa się na granicy procesu, a nie po prostu odwołaniem do lokalnego stosu? 
 
-W tym miejscu dochodzi do rozproszonego śledzenia.  
+Jest to miejsce, w którym nastąpi śledzenie rozproszone.  
 
-Śledzenie rozproszone jest odpowiednikiem stosów wywołań dla nowoczesnych architektur chmury i mikrousług, z dodatkiem uproszczonego profilera wydajności. W usłudze Azure Monitor udostępniamy dwa środowiska do korzystania z rozproszonych danych śledzenia. Pierwszym z nich jest nasz widok [diagnostyki transakcji,](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) który jest jak stos wywołań z wymiarem czasu dodanym. Widok diagnostyki transakcji zapewnia wgląd w jedną transakcję/żądanie i jest przydatny do znajdowania głównej przyczyny problemów z niezawodnością i wąskich gardeł wydajności na podstawie każdego żądania.
+Śledzenie rozproszone to odpowiednik stosów wywołań dla nowoczesnych architektur chmury i mikrousług, z dodaniem profilera wydajności uproszczony w systemie. W Azure Monitor udostępniamy dwa środowiska do konsumowania dystrybuowanych danych śledzenia. Pierwszy to nasz widok [diagnostyki transakcji](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) , który przypomina stos wywołań z wymiarem czasu dodanym w. Widok Diagnostyka transakcji umożliwia wgląd w jedną transakcję/żądanie i ułatwia znalezienie głównej przyczyny problemów z niezawodnością oraz wąskich gardeł wydajności na podstawie żądania.
 
-Usługa Azure Monitor oferuje również widok [mapy aplikacji,](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) który agreguje wiele transakcji, aby pokazać widok topologiczny, w jaki sposób systemy współdziałają i jakie są średnie wskaźniki wydajności i błędów. 
+Azure Monitor oferuje również widok [mapy aplikacji](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) , który agreguje wiele transakcji, aby pokazać widok topologiczny, w jaki sposób działają systemy, oraz obliczyć średnią wydajność i częstotliwość błędów. 
 
 ## <a name="how-to-enable-distributed-tracing"></a>Jak włączyć śledzenie rozproszone
 
-Włączanie śledzenia rozproszonego w usługach w aplikacji jest tak proste, jak dodanie odpowiedniego agenta, SDK lub biblioteki do każdej usługi, na podstawie języka, w jakim usługa została zaimplementowana.
+Włączenie śledzenia rozproszonego w ramach usług w aplikacji jest tak proste jak dodanie odpowiedniego agenta, zestawu SDK lub biblioteki do każdej usługi na podstawie języka, w którym usługa została zaimplementowana.
 
-## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>Włączanie za pośrednictwem usługi Application Insights za pomocą automatycznego instrumentacji lub zestawów SDK
+## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>Włączanie za pośrednictwem Application Insights za pomocą funkcji autoinstrumentation lub SDK
 
-Agenci usługi Application Insights i/lub SDK dla platformy .NET, .NET Core, Java, Node.js i JavaScript obsługują śledzenie rozproszone natywnie. Instrukcje dotyczące instalowania i konfigurowania każdego zestawu SDK usługi Application Insights są dostępne poniżej:
+Application Insights agenci i/lub zestawy SDK dla platform .NET, .NET Core, Java, Node. js i JavaScript obsługują śledzenie rozproszone natywnie. Instrukcje dotyczące instalowania i konfigurowania każdego zestawu Application Insights SDK są dostępne poniżej:
 
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
@@ -40,20 +40,20 @@ Agenci usługi Application Insights i/lub SDK dla platformy .NET, .NET Core, Jav
 * [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
 * [Python](opencensus-python.md)
 
-Po zainstalowaniu i skonfigurowaniu odpowiedniego sdk usługi Application Insights, informacje o śledzeniu są automatycznie zbierane dla popularnych struktur, bibliotek i technologii przez auto-modułów zbierających zależności SDK. Pełna lista obsługiwanych technologii jest dostępna w [dokumentacji automatycznego zbierania zależności.](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)
+Po zainstalowaniu i skonfigurowaniu odpowiedniego zestawu Application Insights SDK informacje o śledzeniu są automatycznie zbierane dla popularnych struktur, bibliotek i technologii przez automatyczne zbieranie zależności zestawu SDK. Pełną listę obsługiwanych technologii można znaleźć w dokumentacji dotyczącej [autozbierania zależności](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
 
- Ponadto dowolną technologię można śledzić ręcznie za pomocą wywołania [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) na [TelemetryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
+ Ponadto jakakolwiek technologia może być śledzona ręcznie z wywołaniem [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) na [TelemetryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
 
 ## <a name="enable-via-opencensus"></a>Włącz za pośrednictwem OpenCensus
 
-Oprócz zestawów SDK usługi Application Insights usługa Application Insights obsługuje również śledzenie rozproszone za pośrednictwem [usługi OpenCensus.](https://opencensus.io/) OpenCensus jest open source, niezależny od dostawcy, pojedynczej dystrybucji bibliotek w celu zapewnienia kolekcji metryk i śledzenia rozproszonego dla usług. Umożliwia również społeczności open source, aby umożliwić śledzenie rozproszone z popularnych technologii, takich jak Redis, Memcached lub MongoDB. [Microsoft współpracuje nad OpenCensus z kilkoma innymi partnerami monitoruj i w chmurze.](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/)
+Oprócz zestawów SDK Application Insights, Application Insights obsługuje również śledzenie rozproszone za pomocą [OpenCensus](https://opencensus.io/). OpenCensus to model typu open source, Vendor-niezależny od, pojedynczej dystrybucji bibliotek, aby zapewnić zbieranie metryk i rozproszone śledzenie dla usług. Umożliwia również społeczności typu "open source" Włączenie śledzenia rozproszonego przy użyciu popularnych technologii, takich jak Redis, Memcached lub MongoDB. [Firma Microsoft współpracuje z usługą OpenCensus przy użyciu kilku innych partnerów monitorujących i w chmurze](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
 
 [Python](opencensus-python.md) 
 
-Witryna OpenCensus przechowuje dokumentację referencyjną API dla [Pythona](https://opencensus.io/api/python/trace/usage.html) i [Go,](https://godoc.org/go.opencensus.io)a także różne przewodniki dotyczące korzystania z OpenCensus. 
+Witryna sieci Web OpenCensus przechowuje dokumentację referencyjną interfejsu API dla języka [Python](https://opencensus.io/api/python/trace/usage.html) i języka [go](https://godoc.org/go.opencensus.io), a także różne różne przewodniki dotyczące korzystania z OpenCensus. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Przewodnik użycia języka OpenCensus Python](https://opencensus.io/api/python/trace/usage.html)
+* [Przewodnik po użyciu języka Python OpenCensus](https://opencensus.io/api/python/trace/usage.html)
 * [Mapa aplikacji](./../../azure-monitor/app/app-map.md)
 * [Kompleksowe monitorowanie wydajności](./../../azure-monitor/learn/tutorial-performance.md)

@@ -1,6 +1,6 @@
 ---
-title: Barwa z Hadoopem w klastrach opartych na systemie HDInsight opartych na systemie Linux — Azure
-description: Dowiedz się, jak zainstalować program Hue w klastrach HDInsight i użyć tunelowania do kierowania żądań do hue. Użyj funkcji Barwa, aby przeglądać pamięć masową i uruchamiać hive lub pig.
+title: Odcień usługi Hadoop w klastrach opartych na systemie Linux w usłudze HDInsight — Azure
+description: Dowiedz się, jak zainstalować odcień w klastrach usługi HDInsight i użyć tunelowania, aby skierować żądania do odcienia. Użyj odcieni, aby przeglądać magazyn i uruchamiać Hive lub świnie.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,62 +9,62 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
 ms.openlocfilehash: dea7e8d5679c8c5a14d6a4253b8a4b36343e6ed8
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887099"
 ---
-# <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalowanie i używanie funkcji Hue w klastrach programu HDInsight Hadoop
+# <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalowanie i używanie odcienia w klastrach usługi HDInsight Hadoop
 
-Dowiedz się, jak zainstalować program Hue w klastrach HDInsight i użyć tunelowania do kierowania żądań do hue.
+Dowiedz się, jak zainstalować odcień w klastrach usługi HDInsight i użyć tunelowania, aby skierować żądania do odcienia.
 
-## <a name="what-is-hue"></a>Co to jest Hue?
+## <a name="what-is-hue"></a>Co to jest odcień?
 
-Hue to zestaw aplikacji sieci Web używanych do interakcji z klastrem Apache Hadoop. Za pomocą funkcji Hue można przeglądać magazyn skojarzony z klastrem Hadoop (WASB, w przypadku klastrów HDInsight), uruchamiać zadania hive i skrypty Pig itd. Następujące składniki są dostępne w instalacjach Hue w klastrze HDInsight Hadoop.
+Odcień to zestaw aplikacji sieci Web służący do współdziałania z klastrem Apache Hadoop. Można użyć odcienia do przeglądania magazynu skojarzonego z klastrem usługi Hadoop (WASB, w przypadku klastrów usługi HDInsight), uruchamiania zadań Hive i skryptów świńskich itd. W przypadku instalacji odcienia w klastrze usługi HDInsight Hadoop dostępne są następujące składniki.
 
-* Edytor ulów wosku pszczelego
-* Świnia Apache
-* Kierownik sklepu metastore
+* Edytor Hive Beeswax
+* Apache świni
+* Menedżer magazynu metadanych
 * Apache Oozie
-* FileBrowser (który mówi do domyślnego kontenera WASB)
+* FileBrowser (który nakomunikuje się z kontenerem domyślnym WASB)
 * Przeglądarka zadań
 
 > [!WARNING]  
-> Składniki dostarczane z klastrem HDInsight są w pełni obsługiwane, a pomoc techniczna firmy Microsoft pomaga wyizolowaniu i rozwiązywaniu problemów związanych z tymi składnikami.
+> Składniki dostarczane z klastrem usługi HDInsight są w pełni obsługiwane, a pomoc techniczna firmy Microsoft ułatwiają izolowanie i rozwiązywanie problemów związanych z tymi składnikami.
 >
-> Składniki niestandardowe otrzymują komercyjnie uzasadnione wsparcie, które pomoże Ci w dalszym rozwiązywaniu problemu. Może to spowodować rozwiązanie problemu lub z prośbą o zaangażowanie dostępnych kanałów dla technologii open source, w których znajduje się głęboka wiedza specjalistyczna w zakresie tej technologii. Na przykład istnieje wiele witryn społecznościowych, z których można korzystać, [https://stackoverflow.com](https://stackoverflow.com)takich jak: [forum MSDN dla HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), . Również projekty Apache mają [https://apache.org](https://apache.org)miejsca projektu na , na przykład: [Hadoop](https://hadoop.apache.org/).
+> Składniki niestandardowe otrzymują komercyjnie uzasadnioną pomoc techniczną, która ułatwia dalsze Rozwiązywanie problemu. Może to skutkować rozwiązaniem problemu lub zapytaniem o zaangażowanie dostępnych kanałów dla technologii open source, w których znajduje się Szczegółowa wiedza dla tej technologii. Na przykład istnieje wiele witryn społeczności, które mogą być używane, takich jak: [forum MSDN dla](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)usługi HDInsight [https://stackoverflow.com](https://stackoverflow.com). Również projekty Apache mają witryny projektu, [https://apache.org](https://apache.org)na przykład: [Hadoop](https://hadoop.apache.org/).
 
-## <a name="install-hue-using-script-actions"></a>Instalowanie barwy przy użyciu akcji skryptu
+## <a name="install-hue-using-script-actions"></a>Instalowanie odcienia przy użyciu akcji skryptu
 
-Użyj informacji w poniższej tabeli dla akcji skryptu. Aby uzyskać szczegółowe instrukcje dotyczące używania akcji skryptów, zobacz [Dostosowywanie klastrów usługi HDInsight](hdinsight-hadoop-customize-cluster-linux.md) za pomocą akcji skryptów.
+Skorzystaj z informacji podanych w poniższej tabeli dla akcji skryptu. Zobacz [Dostosowywanie klastrów usługi HDInsight za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md) , aby uzyskać szczegółowe instrukcje dotyczące korzystania z akcji skryptu.
 
 > [!NOTE]  
-> Aby zainstalować barwę w klastrach HDInsight, zalecany rozmiar węzła głównego to co najmniej A4 (8 rdzeni, 14 GB pamięci).
+> Aby można było zainstalować odcień w klastrach usługi HDInsight, zalecanym rozmiarem węzła głównego jest co najmniej A4 (8 rdzeni, 14 GB pamięci).
 
 |Właściwość |Wartość |
 |---|---|
-|Typ skryptu:|- Niestandardowe|
-|Nazwa|Zainstaluj barwę|
+|Typ skryptu:|-Niestandardowe|
+|Nazwa|Zainstaluj odcień|
 |Identyfikator URI skryptu bash|`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`|
-|Typ(-y) węzła:|Head|
+|Typy węzłów:|Head|
 
-## <a name="use-hue-with-hdinsight-clusters"></a>Używanie funkcji Barwa z klastrami HDInsight
+## <a name="use-hue-with-hdinsight-clusters"></a>Używanie odcienia z klastrami usługi HDInsight
 
-W zwykłych klastrach można mieć tylko jedno konto użytkownika w barwie. Aby uzyskać dostęp dla wielu użytkowników, włącz [pakiet zabezpieczeń przedsiębiorstwa](./domain-joined/hdinsight-security-overview.md) w klastrze. Tunelowanie SSH jest jedynym sposobem, aby uzyskać dostęp hue w klastrze po jego uruchomieniu. Tunelowanie przez SSH umożliwia ruch, aby przejść bezpośrednio do headnode klastra, w którym hue jest uruchomiony. Po zakończeniu inicjowania obsługi administracyjnej klastra należy wykonać następujące kroki, aby użyć funkcji Hue w klastrze HDInsight.
+W zwykłych klastrach można mieć tylko jedno konto użytkownika z odcienią. W przypadku dostępu przez użytkowników, należy włączyć [pakiet Enterprise Security](./domain-joined/hdinsight-security-overview.md) w klastrze. Tunelowanie SSH jest jedynym sposobem uzyskania dostępu do odcienia w klastrze po jego uruchomieniu. Tunelowanie za pośrednictwem protokołu SSH umożliwia przechodzenie ruchu bezpośrednio do węzła głównego klastra, w którym jest uruchomione. Po zakończeniu aprowizacji klastra wykonaj następujące kroki, aby użyć odcienia w klastrze usługi HDInsight.
 
 > [!NOTE]  
-> Zalecamy korzystanie z przeglądarki Firefox, aby postępować zgodnie z poniższymi instrukcjami.
+> Zalecamy używanie przeglądarki Firefox sieci Web, aby postępować zgodnie z poniższymi instrukcjami.
 
-1. Użyj informacji w [użyciu SSH Tunelowanie, aby uzyskać dostęp do interfejsu użytkownika sieci Web Apache Ambari, ResourceManager, JobHistory, NameNode, Oozie i innych interfejsów internetowych,](hdinsight-linux-ambari-ssh-tunnel.md) aby utworzyć tunel SSH z systemu klienckiego do klastra HDInsight, a następnie skonfigurować przeglądarkę sieci Web do używania tunelu SSH jako serwera proxy.
+1. Korzystając z informacji w temacie [Używanie tunelowania SSH do uzyskiwania dostępu do interfejsu użytkownika usługi Apache Ambari Web, ResourceManager, JobHistory, NameNode, Oozie i innego interfejsu użytkownika sieci Web](hdinsight-linux-ambari-ssh-tunnel.md) , można utworzyć tunel SSH od systemu klienckiego do klastra usługi HDInsight, a następnie skonfigurować przeglądarkę sieci Web tak, aby korzystała z tunelu SSH jako serwera proxy.
 
-1. Użyj [polecenia ssh,](./hdinsight-hadoop-linux-use-ssh-unix.md) aby połączyć się z klastrem. Edytuj poniższe polecenie, zastępując clustername nazwą klastra, a następnie wprowadź polecenie:
+1. Użyj [polecenia SSH](./hdinsight-hadoop-linux-use-ssh-unix.md) do nawiązania połączenia z klastrem. Edytuj poniższe polecenie, zastępując wartość CLUSTERname nazwą klastra, a następnie wprowadź polecenie:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Po nawiązaniu połączenia użyj następującego polecenia, aby uzyskać w pełni kwalifikowaną nazwę domeny głównego klucza głównego:
+1. Po nawiązaniu połączenia użyj następującego polecenia, aby uzyskać w pełni kwalifikowaną nazwę domeny węzła głównego podstawowego:
 
     ```bash
     hostname -f
@@ -74,57 +74,57 @@ W zwykłych klastrach można mieć tylko jedno konto użytkownika w barwie. Aby 
 
         myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
-    Jest to nazwa hosta głównego pliku głównego, w którym znajduje się strona internetowa Hue.
+    Jest to nazwa hosta głównego węzła głównego, w którym znajduje się witryna internetowa odcienia.
 
-1. Użyj przeglądarki, aby otworzyć portal `http://HOSTNAME:8888`Hue w . Zamień nazwę HOSTNAME na nazwę uzyskaną w poprzednim kroku.
+1. Użyj przeglądarki, aby otworzyć Portal odcienia `http://HOSTNAME:8888`pod adresem. Zastąp nazwę hosta nazwą uzyskaną w poprzednim kroku.
 
    > [!NOTE]  
-   > Po zalogowaniu się po raz pierwszy zostanie wyświetlony monit o utworzenie konta w celu zalogowania się do portalu Hue. Poświadczenia określone w tym miejscu będą ograniczone do portalu i nie są powiązane z poświadczeniami administratora lub SSH użytkownika określonymi podczas inicjowania obsługi administracyjnej klastra.
+   > Gdy logujesz się po raz pierwszy, zostanie wyświetlony monit o utworzenie konta w celu zalogowania się do portalu odcień. Poświadczenia określone w tym miejscu będą ograniczone do portalu i nie są powiązane z poświadczeniami administratora lub użytkownika SSH określonymi podczas aprowizacji klastra.
 
-    ![Okno logowania portalu HDInsight hue](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "Określanie poświadczeń dla portalu barwy")
+    ![Okno logowania portalu odcienia usługi HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "Określ poświadczenia dla portalu odcienia")
 
 ### <a name="run-a-hive-query"></a>Uruchomienie zapytania programu Hive
 
-1. W portalu Hue wybierz pozycję **Edytory zapytań**, a następnie wybierz pozycję **Gałąź,** aby otworzyć edytor hive.
+1. W portalu odcienia wybierz pozycję **edytory zapytań**, a następnie wybierz pozycję **Hive** , aby otworzyć Edytor Hive.
 
-    ![Portal hdinsight hue używa edytora gałęzi](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Użyj gałęzi")
+    ![Portal odcienia usługi HDInsight Użyj edytora Hive](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Korzystanie z programu Hive")
 
-2. Na karcie **Asysta** w obszarze **Baza danych**powinna zostać **wyświetlona liczba rozmropnych**. Jest to przykładowa tabela, która jest dostarczana ze wszystkimi klastrami Hadoop w programie HDInsight. Wprowadź przykładową kwerendę w prawym okienku i zobacz dane wyjściowe na karcie **Wyniki** w okienku poniżej, jak pokazano na ekranie przechwytywania.
+2. Na karcie **Pomoc** w obszarze **baza danych**powinna zostać wyświetlona wartość **hivesampletable**. Jest to Przykładowa tabela, która jest dostarczana ze wszystkimi klastrami Hadoop w usłudze HDInsight. Wprowadź przykładowe zapytanie w okienku po prawej stronie i zobacz dane wyjściowe na karcie **wyniki** w okienku poniżej, jak pokazano na przechwytywaniu ekranu.
 
-    ![Zapytanie gałęzi portalu HDInsight hue](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Uruchamianie kwerendy gałęzi")
+    ![Zapytanie programu Hive portalu odcienia usługi HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Uruchom zapytanie programu Hive")
 
-    Można również użyć karty **Wykres,** aby wyświetlić wizualną reprezentację wyniku.
+    Możesz również użyć karty **Wykres** , aby zobaczyć wizualną reprezentację wyniku.
 
 ### <a name="browse-the-cluster-storage"></a>Przeglądanie magazynu klastra
 
-1. W portalu Barwy wybierz **pozycję Przeglądarka plików** w prawym górnym rogu paska menu.
-2. Domyślnie przeglądarka plików zostanie otwarta w katalogu **/user/myuser.** Wybierz ukośnik do przodu tuż przed katalogiem użytkownika w ścieżce, aby przejść do katalogu głównego kontenera magazynu platformy Azure skojarzonego z klastrem.
+1. W portalu odcienia wybierz pozycję **przeglądarka plików** w prawym górnym rogu paska menu.
+2. Domyślnie przeglądarka plików otwiera się w katalogu **/User/Myuser** . Wybierz ukośnik w prawo przed katalogiem użytkownika w ścieżce, aby przejść do katalogu głównego kontenera usługi Azure Storage skojarzonego z klastrem.
 
-    ![Przeglądarka plików portalu HDInsight hue](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "Korzystanie z przeglądarki plików")
+    ![Przeglądarka plików portalu odcienia usługi HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "Użyj przeglądarki plików")
 
-3. Kliknij prawym przyciskiem myszy plik lub folder, aby wyświetlić dostępne operacje. Użyj przycisku **Przekaż** w prawym rogu, aby przekazać pliki do bieżącego katalogu. Użyj przycisku **Nowy,** aby utworzyć nowe pliki lub katalogi.
+3. Kliknij prawym przyciskiem myszy plik lub folder, aby wyświetlić dostępne operacje. Użyj przycisku **Przekaż** w prawym górnym rogu, aby przekazać pliki do bieżącego katalogu. Użyj przycisku **Nowy** , aby utworzyć nowe pliki lub katalogi.
 
 > [!NOTE]  
-> Przeglądarka plików Barwy może wyświetlać tylko zawartość domyślnego kontenera skojarzonego z klastrem HDInsight. Wszelkie dodatkowe konta/kontenery magazynu, które mogły być skojarzone z klastrem, nie będą dostępne za pomocą przeglądarki plików. Jednak dodatkowe kontenery skojarzone z klastrem będą zawsze dostępne dla zadań hive. Na przykład po wprowadzeniu `dfs -ls wasbs://newcontainer@mystore.blob.core.windows.net` polecenia w edytorze hive, można zobaczyć zawartość dodatkowych kontenerów, jak również. W tym poleceniu **newcontainer** nie jest domyślnym kontenerem skojarzonym z klastrem.
+> W przeglądarce plików odcienia można wyświetlić tylko zawartość domyślnego kontenera skojarzonego z klastrem usługi HDInsight. Wszystkie dodatkowe konta magazynu/kontenery, które mogą być skojarzone z klastrem, nie będą dostępne przy użyciu przeglądarki plików. Jednak dodatkowe kontenery skojarzone z klastrem będą zawsze dostępne dla zadań Hive. Na przykład, jeśli wprowadzisz polecenie `dfs -ls wasbs://newcontainer@mystore.blob.core.windows.net` w edytorze Hive, zobaczysz również zawartość dodatkowych kontenerów. W tym poleceniu **newcontainer** nie jest domyślnym kontenerem skojarzonym z klastrem.
 
 ## <a name="important-considerations"></a>Istotne zagadnienia
 
-1. Skrypt używany do zainstalowania hue instaluje go tylko na głównym kluczu klastra.
+1. Skrypt służący do instalowania odcienia instaluje go tylko w podstawowym węzła głównego klastra.
 
-1. Podczas instalacji wiele usług Hadoop (HDFS, YARN, MR2, Oozie) jest ponownie uruchamianych w celu aktualizacji konfiguracji. Po zakończeniu instalacji skryptu może upłynąć trochę czasu, aby uruchomić inne usługi Hadoop. Może to początkowo wpłynąć na wydajność firmy Hue. Po uruchomieniu wszystkich usług, Hue będzie w pełni funkcjonalny.
+1. Podczas instalacji usługi Hadoop (HDFS, PRZĘDZy, MR2, Oozie) są ponownie uruchamiane w celu zaktualizowania konfiguracji. Po zakończeniu instalowania przez skrypt odcienia może upłynąć trochę czasu, zanim inne usługi Hadoop będą mogły zostać uruchomione. Może to mieć wpływ na wydajność odcienia. Po uruchomieniu wszystkich usług odcień będzie w pełni funkcjonalny.
 
-1. Hue nie rozumie apache Tez zadania, który jest bieżący domyślnie hive. Jeśli chcesz użyć MapReduce jako aparat wykonywania hive, zaktualizuj skrypt, aby użyć następującego polecenia w skrypcie:
+1. Odcień nie rozpoznaje Apache Tez zadań, które są bieżącym ustawieniem domyślnym dla programu Hive. Jeśli chcesz użyć MapReduce jako aparatu wykonywania programu Hive, zaktualizuj skrypt tak, aby używał następującego polecenia w skrypcie:
 
          set hive.execution.engine=mr;
 
-1. W klastrach systemu Linux może istnieć scenariusz, w którym usługi są uruchomione na głównym niu głównym, podczas gdy Menedżer zasobów może być uruchomiony w pomocniczym. Taki scenariusz może spowodować błędy (pokazane poniżej) podczas korzystania z Hue, aby wyświetlić szczegóły uruchomionych zadań w klastrze. Można jednak wyświetlić szczegóły zadania po zakończeniu zadania.
+1. W przypadku klastrów systemu Linux możesz mieć scenariusz, w którym usługi działają w podstawowym węzła głównego, podczas gdy Menedżer zasobów może być uruchomiona na serwerze pomocniczym. Taki scenariusz może spowodować błędy (pokazane poniżej) podczas korzystania z odcienia, aby wyświetlić szczegóły uruchamiania zadań w klastrze. Można jednak wyświetlić szczegóły zadania, gdy zadanie zostało zakończone.
 
-   ![Przykładowy komunikat o błędzie portalu Hue](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Błąd portalu Barwy")
+   ![Przykładowy komunikat o błędzie portalu odcienia](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Błąd portalu odcienia")
 
-   Jest to spowodowane znanym problemem. Aby obejść ten problem, zmodyfikuj ambari, aby aktywny Menedżer zasobów działał również na głównym kluczu głównym.
+   Jest to spowodowane znanym problemem. W ramach tego problemu należy zmodyfikować Ambari tak, aby aktywne Menedżer zasobów również działały na podstawowym węzła głównego.
 
-1. Hue rozumie usługę WebHDFS, podczas gdy klastry usługi HDInsight korzystają z usługi Azure Storage przy użyciu programu `wasbs://`. Tak więc niestandardowy skrypt używany z działaniem skryptu instaluje WebWasb, który jest usługą kompatybilną z WebHDFS do rozmowy z WASB. Tak więc, nawet jeśli portal Hue mówi HDFS w miejscach (jak podczas przesuwania myszą na **przeglądarkę plików),** należy go interpretować jako WASB.
+1. Odcienie rozumie WebHDFS, podczas gdy klastry HDInsight `wasbs://`używają usługi Azure Storage za pomocą programu. Tak więc skrypt niestandardowy używany z akcją skryptu instaluje WebWasb, która jest usługą zgodną z WebHDFS na potrzeby rozmowy z WASB. W związku z tym, mimo że portal odcienia mówi system plików HDFS w miejscu (na przykład gdy przenosisz wskaźnik myszy nad **przeglądarką pliku**), powinien on być interpretowany jako WASB.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Zainstaluj R na klastrach HDInsight](hdinsight-hadoop-r-scripts-linux.md). Użyj dostosowywania klastra, aby zainstalować R na klastrach HDInsight Hadoop. R jest językiem open source i środowiskiem obliczeń statystycznych. Zapewnia setki wbudowanych funkcji statystycznych i własny język programowania, który łączy aspekty programowania funkcjonalnego i obiektowego. Zapewnia również szerokie możliwości graficzne.
+[Zainstaluj język R w klastrach usługi HDInsight](hdinsight-hadoop-r-scripts-linux.md). Użyj dostosowywania klastra, aby zainstalować język R w klastrach Hadoop usługi HDInsight. R to język i środowisko "open source" do obliczeń statystycznych. Zapewnia setki wbudowanych funkcji statystycznych i własnego języka programowania, który łączy aspekty funkcjonalne i programowanie zorientowane obiektowo. Zapewnia również szerokie możliwości graficzne.

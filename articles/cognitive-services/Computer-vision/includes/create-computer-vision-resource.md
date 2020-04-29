@@ -9,25 +9,25 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 2647c604bebc2885f5c8516eb997792b65751e88
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80876096"
 ---
-## <a name="create-an-computer-vision-resource"></a>Tworzenie zasobu przetwarzania wizyjnego
+## <a name="create-an-computer-vision-resource"></a>Tworzenie zasobu przetwarzanie obrazów
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com).
-1. Kliknij pozycję Utwórz zasób [ **przetwarzania.** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
+1. Zaloguj się do [Azure Portal](https://portal.azure.com).
+1. Kliknij pozycję [Utwórz zasób **Przetwarzanie obrazów** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) .
 1. Wprowadź wszystkie wymagane ustawienia:
 
     |Ustawienie|Wartość|
     |--|--|
-    |Nazwa|Żądana nazwa (2-64 znaki)|
+    |Nazwa|Wymagana nazwa (2-64 znaków)|
     |Subskrypcja|Wybierz odpowiednią subskrypcję|
-    |Lokalizacja|Wybierz dowolną lokalizację w pobliżu i do dyspozycji|
-    |Warstwa cenowa|`F0`- minimalny poziom cenowy|
-    |Grupa zasobów|Wybieranie dostępnej grupy zasobów|
+    |Lokalizacja|Wybierz dowolną lokalizację w pobliżu i dostępną|
+    |Warstwa cenowa|`F0`— minimalna warstwa cenowa|
+    |Grupa zasobów|Wybierz dostępną grupę zasobów|
 
-1. Kliknij **przycisk Utwórz** i poczekaj na utworzenie zasobu. Po jego utworzeniu przejdź do strony zasobu.
-1. Aby uzyskać `{ENDPOINT_URI}` `{API_KEY}`szczegółowe informacje, zbierz skonfigurowane i , zobacz [zbieranie wymaganych parametrów.](../computer-vision-how-to-install-containers.md#gathering-required-parameters)
+1. Kliknij przycisk **Utwórz** i poczekaj na utworzenie zasobu. Po jego utworzeniu przejdź do strony zasobów.
+1. Zbierz skonfigurowane `{ENDPOINT_URI}` i `{API_KEY}`zobacz [zbieranie wymaganych parametrów](../computer-vision-how-to-install-containers.md#gathering-required-parameters) , aby uzyskać szczegółowe informacje.

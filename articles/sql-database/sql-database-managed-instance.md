@@ -1,6 +1,6 @@
 ---
 title: Omówienie wystąpienia zarządzanego SQL
-description: W tym artykule opisano wystąpienie zarządzane usługi Azure SQL Database.
+description: W tym artykule opisano Azure SQL Database wystąpienia zarządzanego.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,327 +12,327 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
 ms.openlocfilehash: 04b07ff60c882501c49ad58607db867e7e99897c
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80879075"
 ---
-# <a name="what-is-azure-sql-database-managed-instance"></a>Co to jest wystąpienie zarządzane usługi Azure SQL Database?
+# <a name="what-is-azure-sql-database-managed-instance"></a>Co to jest Azure SQL Database wystąpienie zarządzane?
 
-Wystąpienie zarządzane to nowa opcja wdrażania usługi Azure SQL Database, zapewniająca niemal 100% zgodność z najnowszym lokalnym aparatem baz danych programu SQL Server (Enterprise Edition), zapewniająca implementację natywnej [sieci wirtualnej (VNet),](../virtual-network/virtual-networks-overview.md) która rozwiązuje typowe problemy związane z zabezpieczeniami, oraz [model biznesowy](https://azure.microsoft.com/pricing/details/sql-database/) korzystny dla lokalnych klientów programu SQL Server. Model wdrażania wystąpienia zarządzanego umożliwia istniejącym klientom programu SQL Server podnoszenie i przenoszenie aplikacji lokalnych do chmury przy minimalnych zmianach aplikacji i bazy danych. Jednocześnie opcja wdrażania wystąpienia zarządzanego zachowuje wszystkie funkcje PaaS (automatyczne instalowanie poprawek i aktualizacji wersji, [automatyczne tworzenie kopii zapasowych,](sql-database-automated-backups.md) [wysoka dostępność),](sql-database-high-availability.md) co drastycznie zmniejsza obciążenie związane z zarządzaniem i koszt posiadania.
+Wystąpienie zarządzane to nowa opcja wdrażania Azure SQL Database, która zapewnia niemal 100% zgodność z najnowszym SQL Server lokalnym (Enterprise Edition) aparat bazy danych, zapewniając natywną implementację [sieci wirtualnej (VNET)](../virtual-network/virtual-networks-overview.md) , która rozwiązuje typowe problemy związane z bezpieczeństwem, oraz [model biznesowy](https://azure.microsoft.com/pricing/details/sql-database/) preferowany dla klientów lokalnych SQL Server. Model wdrażania wystąpienia zarządzanego umożliwia istniejącym klientom SQL Server na podniesienie i przemieszczenie aplikacji lokalnych do chmury przy minimalnych zmianach aplikacji i baz danych. W tym samym czasie opcja wdrożenia wystąpienia zarządzanego zachowuje wszystkie możliwości PaaS (automatyczne stosowanie poprawek i aktualizacji wersji, [zautomatyzowane kopie zapasowe](sql-database-automated-backups.md), [wysoka dostępność](sql-database-high-availability.md) ), które znacząco zmniejszają koszty związane z zarządzaniem i całkowitym kosztem posiadania.
 
 > [!IMPORTANT]
-> Aby uzyskać listę regionów, w których opcja wdrażania wystąpienia zarządzanego jest obecnie dostępna, zobacz [obsługiwane regiony](sql-database-managed-instance-resource-limits.md#supported-regions).
+> Aby zapoznać się z listą regionów, w których opcja wdrażania wystąpienia zarządzanego jest obecnie dostępna, zobacz [Obsługiwane regiony](sql-database-managed-instance-resource-limits.md#supported-regions).
 
-Na poniższym diagramie przedstawiono najważniejsze funkcje wystąpień zarządzanych:
+Na poniższym diagramie przedstawiono główne funkcje wystąpień zarządzanych:
 
-![najważniejsze funkcje](./media/sql-database-managed-instance/key-features.png)
+![Najważniejsze funkcje](./media/sql-database-managed-instance/key-features.png)
 
-Model wdrażania wystąpienia zarządzanego jest przeznaczony dla klientów, którzy chcą przeprowadzić migrację dużej liczby aplikacji z lokalnego lub IaaS, środowiska wbudowanego samodzielnie lub isv do w pełni zarządzanego środowiska chmury PaaS, przy jak najmniejszym wysiłku związanym z migracją. Korzystając z w pełni zautomatyzowanej [usługi migracji danych (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) na platformie Azure, klienci mogą podnosić i przenosić swój lokalny program SQL Server do wystąpienia zarządzanego, które oferuje zgodność z programem SQL Server lokalnie i pełną izolację wystąpień klientów z natywną obsługą sieci wirtualnej.  Dzięki pakietowi Software Assurance można wymieniać istniejące licencje na zniżki na wystąpienie zarządzane przy użyciu [korzyści hybrydowej platformy Azure dla programu SQL Server.](https://azure.microsoft.com/pricing/hybrid-benefit/)  Wystąpienie zarządzane jest najlepszym miejscem docelowym migracji w chmurze dla wystąpień programu SQL Server, które wymagają wysokiego poziomu zabezpieczeń i bogatej powierzchni programowalności.
+Model wdrażania wystąpienia zarządzanego jest przeznaczony dla klientów, którzy chcą migrować dużą liczbę aplikacji z środowiska lokalnego lub IaaS, samodzielnego lub niezależnego dostawcy oprogramowania do w pełni zarządzanego środowiska chmury PaaS, z możliwie jak najniższym nakładem migracji. Korzystając z w pełni zautomatyzowanej [usługi migracji danych (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) na platformie Azure, klienci mogą podnoszenia i przesunięć SQL Server lokalnych do wystąpienia zarządzanego, które oferuje zgodność z SQL Server lokalnie i pełną izolacją wystąpień klientów dzięki natywnej obsłudze sieci wirtualnej.  Program Software Assurance umożliwia wymianę istniejących licencji dla obniżonych stawek w wystąpieniu zarządzanym przy użyciu [Korzyść użycia hybrydowego platformy Azure SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  Wystąpienie zarządzane to Najlepsza lokalizacja docelowa migracji w chmurze dla wystąpień SQL Server, które wymagają wysokiego poziomu zabezpieczeń i rozbudowanej powierzchni programistycznej.
 
-Opcja wdrażania wystąpienia zarządzanego ma na celu zapewnia blisko 100% zgodność powierzchni z najnowszą lokalną wersją programu SQL Server za pośrednictwem planu wersji etapowej.
+Opcja wdrożenia wystąpienia zarządzanego oferuje bliską 100% zgodność obszaru powierzchni z najnowszą SQL Server wersji lokalnej w ramach planu planowanej wersji.
 
-Aby zdecydować między opcjami wdrażania usługi Azure SQL Database: pojedynczą bazą danych, pulową bazą danych i wystąpieniem zarządzanym oraz programem SQL Server hostowanym na maszynie wirtualnej, zobacz, [jak wybrać odpowiednią wersję programu SQL Server na platformie Azure.](sql-database-paas-vs-sql-server-iaas.md)
+Aby podjąć decyzję między Azure SQL Databaseymi opcjami wdrażania: pojedyncza baza danych, baza danych w puli i wystąpienie zarządzane i SQL Server hostowana na maszynie wirtualnej, zobacz [jak wybrać odpowiednią wersję SQL Server na platformie Azure](sql-database-paas-vs-sql-server-iaas.md).
 
 ## <a name="key-features-and-capabilities"></a>Najważniejsze funkcje i możliwości
 
-Wystąpienie zarządzane łączy najlepsze funkcje, które są dostępne zarówno w usłudze Azure SQL Database, jak i w programie SQL Server Database Engine.
+Wystąpienie zarządzane łączy najlepsze funkcje, które są dostępne zarówno w Azure SQL Database, jak i SQL Server aparacie bazy danych.
 
 > [!IMPORTANT]
-> Wystąpienie zarządzane jest uruchamiane ze wszystkimi funkcjami najnowszej wersji programu SQL Server, w tym operacjami online, automatycznymi korektami planu i innymi ulepszeniami wydajności przedsiębiorstwa. Porównanie dostępnych funkcji jest wyjaśnione w [porównanie funkcji: Usługa Azure SQL Database vs SQL Server](sql-database-features.md).
+> Wystąpienie zarządzane jest uruchamiane ze wszystkimi funkcjami najnowszej wersji SQL Server, w tym operacji online, automatycznych korekt planu i innych ulepszeń wydajności przedsiębiorstwa. Porównanie dostępnych funkcji znajduje się w temacie [porównanie funkcji: Azure SQL Database i SQL Server](sql-database-features.md).
 
-| **Korzyści PaaS** | **Ciągłość działalności biznesowej** |
+| **Korzyści z PaaS** | **Ciągłość działalności biznesowej** |
 | --- | --- |
-|Brak zakupu sprzętu i zarządzania nim <br>Brak kosztów zarządzania zarządzaniem podstawową infrastrukturą <br>Szybkie udostępnianie obsługi administracyjnej i skalowanie usług <br>Automatyczne łatanie i uaktualnianie wersji <br>Integracja z innymi usługami danych PaaS |99.99% umowy SLA o czasie pracy bez przestojów  <br>Zbudowany w [wysokiej dostępności](sql-database-high-availability.md) <br>Dane chronione za pomocą [automatycznych kopii zapasowych](sql-database-automated-backups.md) <br>Okres przechowywania kopii zapasowych z konfigurowaniem przez klienta <br>[Kopie zapasowe](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) inicjowane przez użytkownika <br>[Funkcja przywracania bazy danych w czasie](sql-database-recovery-using-backups.md#point-in-time-restore) |
-|**Bezpieczeństwo i zgodność** | **Zarządzanie**|
-|Środowisko izolowane[(integracja sieci wirtualnej,](sql-database-managed-instance-connectivity-architecture.md)usługa pojedynczej dzierżawy, dedykowane obliczenia i magazynowanie) <br>[Przezroczyste szyfrowanie danych (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Uwierzytelnianie usługi Azure AD](sql-database-aad-authentication.md), obsługa logowania jednokrotnego <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Podmioty serwera usługi Azure AD (loginy)</a>  <br>Przestrzega standardów zgodności tak samo jak baza danych SQL usługi Azure <br>[Inspekcja SQL](sql-database-managed-instance-auditing.md) <br>[Zaawansowana ochrona przed zagrożeniami](sql-database-managed-instance-threat-detection.md) |Interfejs API usługi Azure Resource Manager do automatyzacji inicjowania obsługi administracyjnej i skalowania usług <br>Funkcja portalu Azure do ręcznego inicjowania obsługi administracyjnej i skalowania <br>Usługa Data Migration Service
+|Bez kupowania i zarządzania sprzętem <br>Brak obciążeń związanych z zarządzaniem podstawową infrastrukturą <br>Szybka obsługa i skalowanie usług <br>Automatyczne stosowanie poprawek i uaktualnianie wersji <br>Integracja z innymi usługami danych PaaS |Umowa SLA na 99,99% czasu  <br>Wbudowana [wysoka dostępność](sql-database-high-availability.md) <br>Dane chronione za pomocą [zautomatyzowanych kopii zapasowych](sql-database-automated-backups.md) <br>Okres przechowywania kopii zapasowych konfigurowalnych przez klienta <br>[Kopie zapasowe](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) inicjowane przez użytkownika <br>Możliwość [przywracania bazy danych do punktu w czasie](sql-database-recovery-using-backups.md#point-in-time-restore) |
+|**Zabezpieczenia i zgodność** | **Zarządzanie**|
+|Środowisko izolowane (Integracja z siecią[wirtualną](sql-database-managed-instance-connectivity-architecture.md), usługa pojedynczej dzierżawy, dedykowane zasoby obliczeniowe i magazyn) <br>[Przezroczyste szyfrowanie danych (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Uwierzytelnianie usługi Azure AD](sql-database-aad-authentication.md), obsługa logowania jednokrotnego <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Nazwy główne serwera usługi Azure AD (logowania)</a>  <br>Zgodność ze standardami zgodności, takimi jak usługa Azure SQL Database <br>[Inspekcja SQL](sql-database-managed-instance-auditing.md) <br>[Zaawansowana ochrona przed zagrożeniami](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager interfejs API do automatyzowania aprowizacji i skalowania usługi <br>Azure Portal funkcje ręcznego inicjowania obsługi i skalowania usługi <br>Usługa Data Migration Service
 
 > [!IMPORTANT]
-> Usługa Azure SQL Database (wszystkie opcje wdrażania) została certyfikowana zgodnie z wieloma standardami zgodności. Aby uzyskać więcej informacji, zobacz [Centrum zaufania platformy Microsoft Azure,](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) gdzie można znaleźć najnowszą listę certyfikatów zgodności bazy danych SQL.
+> Azure SQL Database (wszystkie opcje wdrażania) mają certyfikat dla wielu standardów zgodności. Aby uzyskać więcej informacji, zobacz [Centrum zaufania Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) , w którym można znaleźć najbardziej aktualną listę SQL Database certyfikatów zgodności.
 
-Najważniejsze funkcje wystąpień zarządzanych są pokazane w poniższej tabeli:
+W poniższej tabeli przedstawiono najważniejsze funkcje wystąpień zarządzanych:
 
 |Funkcja | Opis|
 |---|---|
-| Wersja / kompilacja programu SQL Server | Aparat baz danych programu SQL Server (najnowsza stabilna) |
+| Wersja SQL Server/kompilacja | Aparat bazy danych SQL Server (Najnowsza stabilna) |
 | Zarządzane automatyczne kopie zapasowe | Tak |
-| Wbudowane monitorowanie instancji i bazy danych oraz metryki | Tak |
-| Automatyczne łatanie oprogramowania | Tak |
-| Najnowsze funkcje aparatu baz danych | Tak |
-| Liczba plików danych (WIERSZY) w bazie danych | Wiele |
-| Liczba plików dziennika (LOG) w bazie danych | 1 |
-| VNet — wdrożenie usługi Azure Resource Manager | Tak |
-| VNet — klasyczny model wdrażania | Nie |
+| Wbudowane wystąpienie i monitorowanie bazy danych oraz metryki | Tak |
+| Automatyczne stosowanie poprawek oprogramowania | Tak |
+| Najnowsze funkcje aparatu bazy danych | Tak |
+| Liczba plików danych (wierszy) na bazę danych | Wiele |
+| Liczba plików dziennika (dzienników) na bazę danych | 1 |
+| Wdrożenie Azure Resource Manager sieci wirtualnej | Tak |
+| Model wdrażania klasycznego sieci wirtualnej | Nie |
 | Obsługa portalu | Tak|
-| Wbudowana usługa integracji (SSIS) | Nie — SSIS jest częścią [usługi Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
-| Wbudowana usługa analizy (SSAS) | Nie - SSAS jest [oddzielnym PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
-| Wbudowana usługa raportowania (SSRS) | Nie — zamiast tego użyj [raportów na strony podziałów usługi Power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) lub hosta SSRS na maszynie wirtualnej platformy Azure. Chociaż wystąpienie zarządzane nie może uruchomić SSRS jako usługi, może obsługiwać bazy danych wykazu SSRS 2019 dla zewnętrznego serwera raportowania przy użyciu uwierzytelniania programu SQL Server. |
+| Wbudowana usługa integracji (SSIS) | Nie — SSIS jest częścią [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
+| Wbudowana usługa analizy (SSAS) | Nie — SSAS jest osobnym [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
+| Wbudowana usługa raportowania (SSRS) | Nie używaj raportów z podziałem na strony [Power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) lub HOSTOWANIE usług SSRS na maszynie wirtualnej platformy Azure. Chociaż zarządzane wystąpienie nie może uruchamiać usług SSRS jako usługi, może hostować bazy danych wykazu usług SSRS 2019 dla zewnętrznego serwera raportowania przy użyciu uwierzytelniania SQL Server. |
 |||
 
 ## <a name="vcore-based-purchasing-model"></a>Model zakupów oparty na rdzeniach wirtualnych
 
-[Model zakupów oparty na wynikach wirtualnych](sql-database-service-tiers-vcore.md) dla wystąpień zarządzanych zapewnia elastyczność, kontrolę, przejrzystość i prosty sposób tłumaczenia lokalnych wymagań dotyczących obciążenia w chmurze. Ten model umożliwia zmianę obliczeń, pamięci i magazynu w zależności od potrzeb związanych z obciążeniem. Model vCore kwalifikuje się również do 55 procent oszczędności dzięki [korzyści hybrydowej platformy Azure dla programu SQL Server.](https://azure.microsoft.com/pricing/hybrid-benefit/)
+[Model zakupu oparty na rdzeń wirtualny](sql-database-service-tiers-vcore.md) dla wystąpień zarządzanych zapewnia elastyczność, kontrolę, przejrzystość i prostą metodę tłumaczenia lokalnych wymagań obciążeń do chmury. Ten model umożliwia zmianę zasobów obliczeniowych, pamięci i magazynu w zależności od potrzeb związanych z obciążeniem. Model rdzeń wirtualny jest również uprawniony do 55% oszczędności przy użyciu [Korzyść użycia hybrydowego platformy Azure SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-W modelu vCore można wybierać między generacjami sprzętu.
+W modelu rdzeń wirtualny można wybrać między generacjami sprzętu.
 
-- **Gen4** Procesory logiczne są oparte na procesorach Intel E5-2673 v3 (Haswell) 2,4 GHz, dołączonym dysku SSD, rdzeniach fizycznych, 7 GB pamięci RAM na rdzeń i rozmiarach obliczeniowych od 8 do 24 rdzeni wirtualnych.
-- **Gen5** Procesory logiczne są oparte na procesorach Intel E5-2673 v4 (Broadwell) 2,3 GHz i Intel SP-8160 (Skylake), szybkich dyskach SSD NVMe, hiperwątkowym rdzeniu logicznym i rozmiarach obliczeniowych od 4 do 80 rdzeni.
+- **Obliczenia** Logiczne procesory CPU bazują na procesorach Intel E5-2673 v3 (Haswell) 2,4-GHz, podłączonym SSD, rdzeniach fizycznych, 7 GB pamięci RAM na rdzeń i rozmiarach obliczeniowych od 8 do 24 rdzeni wirtualnych.
+- **5 rdzeń** Logiczne procesory CPU są oparte na procesorach Intel E5-2673 v4 (Broadwell) 2,3-GHz i Intel SP-8160 (Skylake), szybkim SSD interfejsu NVMe, rdzeni logicznej funkcji Hyper-threaded i rozmiarach obliczeniowych z zakresu od 4 do 80 rdzeni.
 
-Znajdź więcej informacji na temat różnicy między generacjami sprzętu w [limitach zasobów wystąpienia zarządzanego](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+Znajdź więcej informacji na temat różnic między generacjami sprzętowymi w [limitach zasobów wystąpienia zarządzanego](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
-## <a name="managed-instance-service-tiers"></a>Warstwy usług wystąpienia zarządzanego
+## <a name="managed-instance-service-tiers"></a>Warstwy usługi wystąpienia zarządzanego
 
 Wystąpienie zarządzane jest dostępne w dwóch warstwach usług:
 
-- **Przeznaczenie ogólne:** przeznaczone do zastosowań o typowej wydajności i wymaganiach dotyczących opóźnień we/wy.
-- **Krytyczne dla firmy:** Przeznaczone do aplikacji o niskim poziomie opóźnień we/wy i minimalnym wpływie podstawowych operacji konserwacji na obciążenie pracą.
+- **Ogólnego przeznaczenia**: zaprojektowana dla aplikacji z typowymi wymaganiami dotyczącymi wydajności i opóźnień we/wy.
+- **Krytyczne**dla działania firmy: przeznaczone dla aplikacji z niskimi wymaganiami dotyczącymi opóźnień we/wy i minimalnym wpływem podstawowych operacji konserwacyjnych w obciążeniu.
 
-Obie warstwy usług gwarantują dostępność na poziomie 99,99% i umożliwiają samodzielne wybieranie rozmiaru magazynu i pojemności obliczeniowej. Aby uzyskać więcej informacji na temat architektury wysokiej dostępności usługi Azure SQL Database, zobacz [Wysoka dostępność i baza danych SQL Azure](sql-database-high-availability.md).
+Obie warstwy usług gwarantują dostępność na 99,99% i umożliwiają niezależne Wybieranie rozmiaru magazynu i pojemności obliczeniowej. Aby uzyskać więcej informacji na temat architektury Azure SQL Database o wysokiej dostępności, zobacz [wysoka dostępność i Azure SQL Database](sql-database-high-availability.md).
 
-### <a name="general-purpose-service-tier"></a>Warstwa usług ogólnego przeznaczenia
+### <a name="general-purpose-service-tier"></a>Warstwa usługi ogólnego przeznaczenia
 
-Na poniższej liście opisano kluczową charakterystykę warstwy usług ogólnego przeznaczenia:
+Na poniższej liście opisano kluczowe cechy warstwy usługi Ogólnego przeznaczenia:
 
-- Projektowanie dla większości zastosowań biznesowych o typowych wymaganiach dotyczących wydajności
-- Wydajny magazyn obiektów blob platformy Azure (8 TB)
-- Wbudowana [wysoka dostępność oparta](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) na niezawodnym magazynie obiektów Blob platformy Azure i [sieci szkieletowej usług Azure](../service-fabric/service-fabric-overview.md)
+- Projektowanie dla większości aplikacji branżowych z typowymi wymaganiami dotyczącymi wydajności
+- Wysoce wydajny magazyn obiektów blob platformy Azure (8 TB)
+- Wbudowana [wysoka dostępność](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) oparta na niezawodnej usłudze Azure Blob Storage i [platformie Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
-Aby uzyskać więcej informacji, zobacz [warstwę magazynu w warstwie ogólnego przeznaczenia](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) i [wydajności magazynu najlepsze rozwiązania i zagadnienia dotyczące wystąpień zarządzanych (ogólnego przeznaczenia)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
+Aby uzyskać więcej informacji, zobacz temat [warstwa magazynowania w warstwie ogólnego przeznaczenia](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) i [najlepsze praktyki dotyczące wydajności magazynu oraz zagadnienia dotyczące wystąpień zarządzanych (ogólnego przeznaczenia)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
-Znajdź więcej informacji na temat różnicy między warstwami usług w [limitach zasobów wystąpienia zarządzanego](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
+Znajdź więcej informacji o różnicach między warstwami usług w [limitach zasobów wystąpienia zarządzanego](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
-### <a name="business-critical-service-tier"></a>Warstwa usług o krytycznym znaczeniu dla firmy
+### <a name="business-critical-service-tier"></a>Krytyczne dla działania firmy warstwy usług
 
-Warstwa usług o krytycznym znaczeniu dla firmy jest przeznaczona dla aplikacji o wysokich wymaganiach dotyczących we/wy. Oferuje najwyższą odporność na awarie przy użyciu kilku replik izolowanych.
+Krytyczne dla działania firmy warstwa usług jest tworzona dla aplikacji o wysokim poziomie operacji we/wy. Zapewnia największą odporność na błędy przy użyciu kilku izolowanych replik.
 
-Na poniższej liście przedstawiono kluczowe cechy warstwy usług o krytycznym znaczeniu dla firmy:
+Na poniższej liście przedstawiono kluczowe cechy warstwy usługi Krytyczne dla działania firmy:
 
-- Zaprojektowany do zastosowań biznesowych o najwyższej wydajności i wymaganiach wysokiej jakości
-- Jest wyposażony w superszybką lokalną pamięć masową SSD (do 1 TB w Gen4 i do 4 TB w Gen5)
-- Wbudowana [wysoka dostępność oparta](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) na [grupach dostępności always on](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) i [sieci szkieletowej usług Azure.](../service-fabric/service-fabric-overview.md)
-- Wbudowana dodatkowa [replika bazy danych tylko do odczytu,](sql-database-read-scale-out.md) która może być używana do raportowania i innych obciążeń tylko do odczytu
-- [Oltp w pamięci,](sql-database-in-memory.md) który może być używany do obciążenia z wymaganiami o wysokiej wydajności  
+- Przeznaczone dla aplikacji firmowych o najwyższej wydajności i wymaganiach dotyczących wysokiej dostępności
+- Jest dostarczany z bardzo szybkim lokalnym magazynem SSD (do 1 TB w systemie obliczenia i do 4 TB na 5 rdzeń)
+- Wbudowana [wysoka dostępność](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) na podstawie [zawsze dostępnych grup dostępności](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) i [platformy Azure Service Fabric](../service-fabric/service-fabric-overview.md).
+- Wbudowana dodatkowa [replika bazy danych tylko do odczytu](sql-database-read-scale-out.md) , która może być używana do raportowania i innych obciążeń tylko do odczytu
+- [OLTP w pamięci](sql-database-in-memory.md) , który może być używany do obciążeń z wymaganiami o wysokiej wydajności  
 
-Znajdź więcej informacji na temat różnicy między warstwami usług w [limitach zasobów wystąpienia zarządzanego](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
+Znajdź więcej informacji o różnicach między warstwami usług w [limitach zasobów wystąpienia zarządzanego](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 
 ## <a name="managed-instance-management-operations"></a>Operacje zarządzania wystąpieniami zarządzanymi
 
-Usługa Azure SQL Database udostępnia operacje zarządzania, których można używać do automatycznego wdrażania nowych wystąpień zarządzanych, aktualizowania właściwości wystąpień i usuwania wystąpień, gdy nie są już potrzebne. Ta sekcja zawiera informacje o operacjach zarządzania i ich typowych okresach trwania.
+Usługa Azure SQL Database udostępnia operacje zarządzania, których można używać do automatycznego wdrażania nowych wystąpień zarządzanych, aktualizowania właściwości wystąpień i usuwania wystąpień, gdy nie są już potrzebne. Ta sekcja zawiera informacje na temat operacji zarządzania i ich typowych czasów trwania.
 
-Aby obsługiwać [wdrożenia w sieciach wirtualnych platformy Azure (sieci wirtualne)](../virtual-network/virtual-network-for-azure-services.md) i zapewnić izolację i bezpieczeństwo dla klientów, wystąpienie zarządzane opiera się na [klastrach wirtualnych,](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture)które reprezentują dedykowany zestaw izolowanych maszyn wirtualnych wdrożonych wewnątrz podsieci sieci wirtualnej klienta. Zasadniczo każde wdrożenie wystąpienia zarządzanego w pustej podsieci powoduje nową kompilację klastra wirtualnego.
+Aby obsługiwać [wdrożenia w ramach usługi Azure Virtual Networks (sieci wirtualnych)](../virtual-network/virtual-network-for-azure-services.md) i zapewnić izolację i bezpieczeństwo klientów, zarządzane wystąpienie korzysta z [klastrów wirtualnych](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), które reprezentują dedykowany zestaw izolowanych maszyn wirtualnych wdrożonych w podsieci sieci wirtualnej klienta. Zasadniczo każde wdrożenie wystąpienia zarządzanego w pustej podsieci powoduje wystąpienie nowego klastra wirtualnego buildout.
 
-Kolejne operacje na wdrożonych wystąpieniach zarządzanych mogą również mieć wpływ na jego podstawowy klaster wirtualny. Wpływa to na czas trwania operacji zarządzania, ponieważ wdrażanie dodatkowych maszyn wirtualnych wiąże się z obciążeniem, które należy wziąć pod uwagę podczas planowania nowych wdrożeń lub aktualizacji istniejących wystąpień zarządzanych.
+Kolejne operacje na wdrożonych wystąpieniach zarządzanych mogą również mieć wpływ na jego źródłowy klaster wirtualny. Ma to wpływ na czas trwania operacji zarządzania, ponieważ wdrożenie dodatkowych maszyn wirtualnych wiąże się z obciążeniem, które należy wziąć pod uwagę podczas planowania nowych wdrożeń lub aktualizacji istniejących wystąpień zarządzanych.
 
 Wszystkie operacje zarządzania można klasyfikować w następujący sposób:
 
-- Wdrażanie wystąpienia (tworzenie nowego wystąpienia). 
-- Aktualizacja wystąpienia (zmiana właściwości wystąpienia, takich jak vCore lub zarezerwowanego magazynu.
-- Usunięcie wystąpienia.
+- Wdrożenie wystąpienia (nowe wystąpienie). 
+- Aktualizacja wystąpienia (zmiana właściwości wystąpienia, takich jak rdzeni wirtualnych lub zarezerwowany magazyn).
+- Usuwanie wystąpienia.
 
-Zazwyczaj operacje na klastrach wirtualnych trwać najdłużej. Czas trwania operacji w klastrach wirtualnych różnią się — poniżej znajdują się wartości, których zazwyczaj można oczekiwać, na podstawie istniejących danych telemetrycznych usługi:
+Zazwyczaj operacje w klastrach wirtualnych trwają najdłużej. Czas trwania operacji na klastrach wirtualnych jest różny — poniżej znajdują się wartości, których można zwykle oczekiwać na podstawie istniejących danych telemetrycznych usługi:
 
-- Tworzenie klastra wirtualnego. Jest to krok synchroniczne w operacjach zarządzania wystąpieniami. **90% operacji kończy się w ciągu 4 godzin.**
-- Zmiana rozmiaru klastra wirtualnego (rozszerzanie lub zmniejszanie). Rozwinięcie jest krokiem synchronicznego, podczas gdy zmniejszanie jest wykonywane asynchronicznie (bez wpływu na czas trwania operacji zarządzania wystąpieniami). **90% rozszerzeń klastra kończy się w mniej niż 2,5 godziny.**
-- Usunięcie klastra wirtualnego. Usuwanie jest krokiem asynchronicznie, ale można je również [zainicjować ręcznie](sql-database-managed-instance-delete-virtual-cluster.md) w pustym klastrze wirtualnym, w którym to przypadku wykonuje synchronicznie. **90% usuwania wirtualnego klastra kończy się w ciągu 1,5 godziny.**
+- Tworzenie klastra wirtualnego. Jest to synchroniczny krok operacji zarządzania wystąpieniami. **90% operacji zakończonych w ciągu 4 godzin**.
+- Zmienianie rozmiaru klastra wirtualnego (rozszerzanie lub zmniejszanie). Rozszerzanie jest krokiem synchronicznym, podczas gdy zmniejszanie jest wykonywane asynchronicznie (bez wpływu na czas trwania operacji zarządzania wystąpieniami). **90% rozszerzeń klastra kończy się w czasie krótszym niż 2,5 godzin**.
+- Usuwanie klastra wirtualnego. Usuwanie jest krokiem asynchronicznym, ale można go również [zainicjować ręcznie](sql-database-managed-instance-delete-virtual-cluster.md) w pustym klastrze wirtualnym, w tym przypadku jest wykonywane synchronicznie. **90% usunięć klastrów wirtualnych kończy się w 1,5 godz**.
 
-Ponadto zarządzanie wystąpieniami może również obejmować jedną z operacji w hostowanych bazach danych, co skutkuje dłuższym czasem trwania:
+Ponadto Zarządzanie wystąpieniami może również obejmować jedną z operacji w hostowanych bazach danych, co powoduje dłuższe czasy trwania:
 
-- Dołączanie plików bazy danych z usługi Azure Storage. Jest to krok synchroniczne, takie jak obliczenia (vCore) lub skalowanie magazynu w górę lub w dół w warstwie usług ogólnego przeznaczenia. **90% tych operacji kończy się w 5 minut.**
-- Zawsze włączone rozstawienie grupy dostępności. Jest to krok synchroniczne, takie jak obliczenia (vCore) lub skalowanie magazynu w warstwie usług Krytyczne dla firmy, a także w zmianie warstwy usług z ogólnego przeznaczenia na krytyczne dla firmy (lub odwrotnie). Czas trwania tej operacji jest proporcjonalny do całkowitego rozmiaru bazy danych, a także bieżącej aktywności bazy danych (liczba aktywnych transakcji). Działanie bazy danych podczas aktualizowania wystąpienia może wprowadzić znaczne odchylenie całkowitego czasu trwania. **90% tych operacji wykonuje się z prędkością 220 GB / godzinę lub wyższą**.
+- Dołączanie plików bazy danych z usługi Azure Storage. Jest to synchroniczny krok, taki jak COMPUTE (rdzeń wirtualny) lub skalowanie w górę lub w dół w warstwie usług Ogólnego przeznaczenia. **90% tych operacji kończy się za 5 minut**.
+- Umieszczanie w zawsze włączonym rozrzutu grupy dostępności. Jest to synchroniczny krok, taki jak COMPUTE (rdzeń wirtualny) lub skalowanie magazynu w warstwie usług Krytyczne dla działania firmy oraz zmiana warstwy usług z Ogólnego przeznaczenia na Krytyczne dla działania firmy (lub odwrotnie). Czas trwania tej operacji jest proporcjonalny do całkowitego rozmiaru bazy danych, a także bieżącego działania bazy danych (liczba aktywnych transakcji). Działanie bazy danych podczas aktualizowania wystąpienia może wprowadzić znaczącą wariancję do całkowitego czasu trwania. **90% tych operacji wykonywanych o godz. 220 GB/godz. lub wyższych**.
 
-W poniższej tabeli podsumowano operacje i typowe całkowite czasy trwania:
+W poniższej tabeli zestawiono operacje i typowe ogólne czasy trwania:
 
 |Kategoria  |Operacja  |Segment długotrwały  |Szacowany czas trwania  |
 |---------|---------|---------|---------|
-|**Wdrożenie** |Pierwsze wystąpienie w pustej podsieci|Tworzenie klastra wirtualnego|90% operacji kończy się w ciągu 4 godzin|
-|Wdrożenie |Pierwsze wystąpienie innego generowania sprzętu w niepustej podsieci (na przykład pierwsze wystąpienie gen 5 w podsieci z wystąpieniami gen 4)|Tworzenie klastra wirtualnego*|90% operacji kończy się w ciągu 4 godzin|
-|Wdrożenie |Tworzenie 4 ładowań wirtualnych w pustej lub niepustej podsieci|Tworzenie klastra wirtualnego**|90% operacji kończy się w ciągu 4 godzin|
-|Wdrożenie |Kolejne tworzenie wystąpień w niepustej podsieci (drugie, trzecie wystąpienie itp.)|Zmiana rozmiaru klastra wirtualnego|90% operacji kończy się w ciągu 2,5 godziny|
-|**Aktualizacja** |Zmiana właściwości wystąpienia (hasło administratora, logowanie AAD, flaga usługi Azure Hybrid Benefit)|Nie dotyczy|Do 1 minuty|
-|Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (warstwa usług ogólnego przeznaczenia)|Dołączanie plików bazy danych|90% operacji kończy się w 5 minut|
-|Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (warstwa usługi o znaczeniu krytycznym dla firmy)|- Zmiana rozmiaru wirtualnego klastra<br>- Zawsze na rozstawienie grupy dostępności|90% operacji kończy się w 2,5 godziny + czas na wysiew wszystkich baz danych (220 GB / godzinę)|
-|Aktualizacja |Skalowanie obliczeń instancji (vCore) w górę i w dół (ogólnego przeznaczenia)|- Zmiana rozmiaru wirtualnego klastra<br>- Dołączanie plików bazy danych|90% operacji kończy się w ciągu 2,5 godziny|
-|Aktualizacja |Skalowanie obliczeń instancji (vCore) w górę i w dół (krytyczne dla firmy)|- Zmiana rozmiaru wirtualnego klastra<br>- Zawsze na rozstawienie grupy dostępności|90% operacji kończy się w 2,5 godziny + czas na wysiew wszystkich baz danych (220 GB / godzinę)|
-|Aktualizacja |Skalowanie wystąpienia w dół do 4 generów wirtualnych (ogólnego przeznaczenia)|- Zmiana rozmiaru klastra wirtualnego (jeśli odbywa się po raz pierwszy, może to wymagać tworzenia klastra wirtualnego**)<br>- Dołączanie plików bazy danych|90% operacji kończy się w 4 h 5 min**|
-|Aktualizacja |Skalowanie wystąpienia w dół do 4 owo wirtualnych (krytyczne dla firmy)|- Zmiana rozmiaru klastra wirtualnego (jeśli odbywa się po raz pierwszy, może to wymagać tworzenia klastra wirtualnego**)<br>- Zawsze na rozstawienie grupy dostępności|90% operacji kończy się w ciągu 4 godzin + czas na wysiew wszystkich baz danych (220 GB / godzinę)|
-|Aktualizacja |Zmiana warstwy usługi wystąpienia (ogólnego przeznaczenia na krytyczne dla firmy i odwrotnie)|- Zmiana rozmiaru wirtualnego klastra<br>- Zawsze na rozstawienie grupy dostępności|90% operacji kończy się w 2,5 godziny + czas na wysiew wszystkich baz danych (220 GB / godzinę)|
-|**Usunięcie**|Usunięcie wystąpienia|Rejestrowanie kopii zapasowej ogona dla wszystkich baz danych|90% operacji kończy się w ciągu 1 minuty.<br>Uwaga: jeśli ostatnie wystąpienie w podsieci zostanie usunięte, ta operacja zaplanuje usunięcie klastra wirtualnego po 12 godzinach***|
-|Usunięcie|Usunięcie klastra wirtualnego (jako operacja inicjowana przez użytkownika)|Usuwanie klastra wirtualnego|90% operacji kończy się w ciągu 1,5 godziny|
+|**Wdrożenie** |Pierwsze wystąpienie w pustej podsieci|Tworzenie klastra wirtualnego|90% operacji zakończonych w ciągu 4 godzin|
+|Wdrożenie |Pierwsze wystąpienie innej generacji sprzętu w niepustej podsieci (na przykład pierwsze wystąpienie generacji 5 w podsieci z wystąpieniami generacji 4)|Tworzenie klastra wirtualnego *|90% operacji zakończonych w ciągu 4 godzin|
+|Wdrożenie |Pierwsze utworzenie wystąpienia 4 rdzeni wirtualnych w pustej lub niepustej podsieci|Tworzenie klastra wirtualnego * *|90% operacji zakończonych w ciągu 4 godzin|
+|Wdrożenie |Kolejne Tworzenie wystąpienia w niepustej podsieci (drugi, trzeci itp. wystąpienie)|Zmienianie rozmiarów klastra wirtualnego|90% operacji zakończonych w ciągu 2,5 godzin|
+|**Aktualizacja** |Zmiana właściwości wystąpienia (hasło administratora, logowanie w usłudze AAD, flaga Korzyść użycia hybrydowego platformy Azure)|Nie dotyczy|Do 1 minuty|
+|Aktualizowanie |Skalowanie magazynu wystąpień w górę/w dół (Ogólnego przeznaczenia warstwy usług)|Dołączanie plików bazy danych|90% operacji zakończonych w ciągu 5 minut|
+|Aktualizowanie |Skalowanie magazynu wystąpień w górę/w dół (Krytyczne dla działania firmy warstwy usług)|— Zmienianie rozmiarów klastra wirtualnego<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 2,5 godzin + Time do wypełniania wszystkich baz danych (220 GB/godz.)|
+|Aktualizowanie |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Ogólnego przeznaczenia)|— Zmienianie rozmiarów klastra wirtualnego<br>— Dołączanie plików bazy danych|90% operacji zakończonych w ciągu 2,5 godzin|
+|Aktualizowanie |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Krytyczne dla działania firmy)|— Zmienianie rozmiarów klastra wirtualnego<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 2,5 godzin + Time do wypełniania wszystkich baz danych (220 GB/godz.)|
+|Aktualizowanie |Skalowanie wystąpienia w dół do 4 rdzeni wirtualnych (Ogólnego przeznaczenia)|— Zmienianie rozmiarów klastra wirtualnego (jeśli jest wykonywane po raz pierwszy, może to wymagać utworzenia klastra wirtualnego * *)<br>— Dołączanie plików bazy danych|90% operacji zakończonych w 4 h 5 min * *|
+|Aktualizowanie |Skalowanie wystąpienia w dół do 4 rdzeni wirtualnych (Krytyczne dla działania firmy)|— Zmienianie rozmiarów klastra wirtualnego (jeśli jest wykonywane po raz pierwszy, może to wymagać utworzenia klastra wirtualnego * *)<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 4 godzin od czasu do wypełniania wszystkich baz danych (220 GB/godz.)|
+|Aktualizowanie |Zmiana warstwy usługi wystąpienia (Ogólnego przeznaczenia do Krytyczne dla działania firmy i na odwrót)|— Zmienianie rozmiarów klastra wirtualnego<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 2,5 godzin + Time do wypełniania wszystkich baz danych (220 GB/godz.)|
+|**Usunięcie**|Usunięcie wystąpienia|Kopia zapasowa dziennika dla wszystkich baz danych|90% operacji zakończonych w ciągu do 1 minuty.<br>Uwaga: Jeśli ostatnie wystąpienie w podsieci zostanie usunięte, ta operacja spowoduje zaplanowanie usunięcia klastra wirtualnego po upływie 12 godzin * * * *|
+|Usunięcie|Usuwanie klastra wirtualnego (jako operacja zainicjowana przez użytkownika)|Usuwanie klastra wirtualnego|90% operacji zakończonych w maksymalnie 1,5 godzinach|
 
-\*Klaster wirtualny jest zbudowany na generację sprzętu.
+\*Klaster wirtualny jest oparty na generowaniu sprzętu.
 
-\*\*Opcja wdrażania 4 linii wirtualnych została wydana w czerwcu 2019 r. i wymaga nowej wersji klastra wirtualnego. Jeśli w podsieci docelowej były wystąpienia utworzone przed 12 czerwca, nowy klaster wirtualny zostanie automatycznie wdrożony do obsługi 4 wystąpień 4-owo wirtualnych.
+\*\*Opcja wdrożenia 4 rdzeni wirtualnych została wydana w czerwcu 2019 i wymaga nowej wersji klastra wirtualnego. Jeśli wystąpiły wystąpienia w podsieci docelowej, które zostały utworzone przed 12 czerwca, nowy klaster wirtualny zostanie automatycznie wdrożony do rdzeń wirtualny wystąpień hosta 4.
 
-\*\*\*12 godzin to bieżąca konfiguracja, ale może się to zmienić w przyszłości, więc nie należy od niej uzależniać. Jeśli chcesz usunąć klaster wirtualny wcześniej (na przykład zwolnić podsieć), zobacz [Usuwanie podsieci po usunięciu wystąpienia zarządzanego usługi Azure SQL Database](sql-database-managed-instance-delete-virtual-cluster.md).
+\*\*\*Bieżąca konfiguracja to 12 godzin, ale może ona ulec zmianie w przyszłości, dlatego nie należy na niej korzystać. Jeśli musisz usunąć klaster wirtualny wcześniej (aby zwolnić podsieć na przykład), zobacz [usuwanie podsieci po usunięciu Azure SQL Database wystąpienia zarządzanego](sql-database-managed-instance-delete-virtual-cluster.md).
 
 ### <a name="instance-availability-during-management"></a>Dostępność wystąpienia podczas zarządzania
 
-Wystąpienia zarządzane nie są dostępne dla aplikacji klienckich podczas wdrażania i usuwania operacji.
+Wystąpienia zarządzane nie są dostępne dla aplikacji klienckich podczas operacji wdrażania i usuwania.
 
-Wystąpienia zarządzane są dostępne podczas operacji aktualizacji, ale istnieje krótki przestój spowodowany przez pracę awaryjną, która odbywa się na końcu aktualizacji, która zazwyczaj trwa do 10 sekund. Wyjątkiem jest aktualizacja zarezerwowanego miejsca do magazynowania w warstwie usług ogólnego przeznaczenia, która nie powoduje przeczesywać pracy awaryjnej ani wpływać na dostępność wystąpień.
+Wystąpienia zarządzane są dostępne podczas operacji aktualizacji, ale istnieje krótkie przestoje spowodowane przez przejście w tryb failover, które odbywa się na końcu aktualizacji, które zwykle zajmują do 10 sekund. Wyjątkiem jest aktualizacja zastrzeżonego miejsca do magazynowania w Ogólnego przeznaczeniaej warstwie usług, która nie powoduje ponoszenia trybu failover ani nie wpływa na dostępność wystąpienia.
 
 > [!IMPORTANT]
-> Czas pracy awaryjnej może się znacznie różnić w przypadku długotrwałych transakcji, które mają miejsce w bazach danych z powodu [wydłużenia czasu odzyskiwania.](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process) W związku z tym nie jest zalecane skalowanie obliczeń lub magazynu wystąpienia zarządzanego usługi Azure SQL Database lub zmiany warstwy usługi w tym samym czasie z długotrwałych transakcji (import danych, zadania przetwarzania danych, odbudować indeks, itp.). Praca awaryjna bazy danych, która zostanie wykonana po zakończeniu operacji, anuluje bieżące transakcje i spowoduje wydłużenie czasu odzyskiwania.
+> Czas trwania pracy w trybie failover może się znacznie różnić w przypadku długotrwałych transakcji, które są wykonywane w bazach danych z powodu [długotrwałego czasu odzyskiwania](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). W związku z tym nie zaleca się skalowania zasobów obliczeniowych i magazynu Azure SQL Database wystąpienia zarządzanego lub zmiany warstwy usług w tym samym czasie z długotrwałymi transakcjami (Importowanie danych, zadania przetwarzania danych, ponowne kompilowanie indeksu itp.). Praca w trybie failover bazy danych, która zostanie wykonana na końcu operacji, spowoduje anulowanie bieżących transakcji i spowoduje długotrwały czas odzyskiwania.
 
 > [!TIP]
-> Aktualizacja zarezerwowanego miejsca do magazynowania w warstwie usług ogólnego przeznaczenia nie powoduje poniesienia trybu failover ani wpływu na dostępność wystąpień.
+> Aktualizacja zarezerwowanego miejsca do magazynowania w Ogólnego przeznaczenia warstwie usług nie wiąże się z trybem failover ani nie wpływa na dostępność wystąpienia.
 
-[Przyspieszone odzyskiwanie bazy danych](sql-database-accelerated-database-recovery.md) nie jest obecnie dostępne dla wystąpień zarządzanych usługi Azure SQL Database. Po włączeniu ta funkcja znacznie zmniejszy zmienność czasu pracy awaryjnej, nawet w przypadku długotrwałych transakcji.
+[Przyspieszane odzyskiwanie bazy danych](sql-database-accelerated-database-recovery.md) nie jest obecnie dostępne dla Azure SQL Database wystąpieniami zarządzanymi. Po włączeniu ta funkcja znacznie zmniejsza zmienność czasu pracy awaryjnej, nawet w przypadku długotrwałych transakcji.
 
 ### <a name="canceling-management-operations"></a>Anulowanie operacji zarządzania
 
-W poniższej tabeli podsumowano możliwość anulowania określonych operacji zarządzania i typowych całkowitych czasów trwania:
+Poniższa tabela zawiera podsumowanie możliwości anulowania określonych operacji zarządzania i typowych ogólnych czasów trwania:
 
-Kategoria  |Operacja  |Cancelable  |Szacowany czas trwania anuluj  |
+Kategoria  |Operacja  |Można anulować  |Szacowany czas trwania anulowania  |
 |---------|---------|---------|---------|
 |Wdrożenie |Tworzenie wystąpienia |Nie |  |
-|Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (ogólnego przeznaczenia) |Nie |  |
-|Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (krytyczne dla firmy) |Tak |90% operacji kończy się w 5 minut |
-|Aktualizacja |Skalowanie obliczeń instancji (vCore) w górę i w dół (ogólnego przeznaczenia) |Tak |90% operacji kończy się w 5 minut |
-|Aktualizacja |Skalowanie obliczeń instancji (vCore) w górę i w dół (krytyczne dla firmy) |Tak |90% operacji kończy się w 5 minut |
-|Aktualizacja |Zmiana warstwy usługi wystąpienia (ogólnego przeznaczenia na krytyczne dla firmy i odwrotnie) |Tak |90% operacji kończy się w 5 minut |
-|Usuń |Usunięcie wystąpienia |Nie |  |
-|Usuń |Usunięcie klastra wirtualnego (jako operacja inicjowana przez użytkownika) |Nie |  |
+|Aktualizowanie |Skalowanie magazynu wystąpień w górę/w dół (Ogólnego przeznaczenia) |Nie |  |
+|Aktualizowanie |Skalowanie magazynu wystąpień w górę/w dół (Krytyczne dla działania firmy) |Tak |90% operacji zakończonych w ciągu 5 minut |
+|Aktualizowanie |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Ogólnego przeznaczenia) |Tak |90% operacji zakończonych w ciągu 5 minut |
+|Aktualizowanie |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Krytyczne dla działania firmy) |Tak |90% operacji zakończonych w ciągu 5 minut |
+|Aktualizowanie |Zmiana warstwy usługi wystąpienia (Ogólnego przeznaczenia do Krytyczne dla działania firmy i na odwrót) |Tak |90% operacji zakończonych w ciągu 5 minut |
+|Usuwanie |Usunięcie wystąpienia |Nie |  |
+|Usuwanie |Usuwanie klastra wirtualnego (jako operacja zainicjowana przez użytkownika) |Nie |  |
 
-Aby anulować operację zarządzania, przejdź do bloku przeglądu i kliknij pole powiadomienia o trwającej operacji. Z prawej strony pojawi się ekran z bieżącą operacją i pojawi się przycisk anulowania operacji. Po pierwszym kliknięciu zostaniesz poproszony o ponowne kliknięcie i potwierdzenie, że chcesz anulować operację.
+Aby anulować operację zarządzania, przejdź do bloku przegląd i kliknij pole powiadomień o trwającej operacji. Po prawej stronie pojawi się ekran z trwającą operacją i zostanie wyświetlony przycisk anulowania operacji. Po pierwszym kliknięciu zostanie wyświetlony monit o ponowne kliknięcie i potwierdzenie, że chcesz anulować operację.
 
 [![](./media/sql-database-managed-instance/canceling-operation.png)](./media/sql-database-managed-instance/canceling-operation.png#lightbox)
 
-Po przesłaniu i przetworzyniu żądania anulowania otrzymasz powiadomienie, jeśli anulowanie zostało rozpatrzone pozytywnie, czy nie. 
+Gdy żądanie anulowania zostało przesłane i przetworzone, otrzymasz powiadomienie w przypadku pomyślnego przesłania żądania anulowania. 
 
-W przypadku anulowania sukcesu, operacja zarządzania zostanie anulowana w ciągu kilku minut, co spowoduje niepowodzenie.
+W przypadku powodzenia anulowania operacja zarządzania zostanie anulowana w ciągu kilku minut z powodu błędu.
 
-![anulowanie wyniku operacji](./media/sql-database-managed-instance/canceling-operation-result.png)
+![Anulowanie wyniku operacji](./media/sql-database-managed-instance/canceling-operation-result.png)
 
-Jeśli żądanie anuluj nie powiedzie się lub przycisk anuluj nie jest aktywny, oznacza to, że operacja zarządzania została wprowadzona nie anulowane stan i że zakończy się w ciągu kilku minut. Operacja zarządzania będzie kontynuować jego wykonanie, dopóki nie zostanie zakończona.
+Jeśli żądanie anulowania nie powiedzie się lub przycisk Anuluj nie jest aktywny, oznacza to, że operacja zarządzania nie jest w stanie anulowania i zostanie zakończona w ciągu kilku minut. Operacja zarządzania będzie kontynuować wykonywanie, dopóki nie zostanie ukończona.
 
 > [!IMPORTANT]
 > Anulowanie operacji jest obecnie obsługiwane tylko w portalu.
 
 ## <a name="advanced-security-and-compliance"></a>Zaawansowane zabezpieczenia i zgodność
 
-Opcja wdrażania wystąpienia zarządzanego łączy zaawansowane funkcje zabezpieczeń dostarczane przez chmurę platformy Azure i aparat baz danych programu SQL Server.
+Opcja wdrażania wystąpienia zarządzanego łączy zaawansowane funkcje zabezpieczeń zapewniane przez usługę Azure Cloud i aparat bazy danych SQL Server.
 
 ### <a name="managed-instance-security-isolation"></a>Izolacja zabezpieczeń wystąpienia zarządzanego
 
-Wystąpienie zarządzane zapewnia dodatkową izolację zabezpieczeń od innych dzierżaw w chmurze platformy Azure. Izolacja zabezpieczeń obejmuje:
+Wystąpienie zarządzane zapewnia dodatkową izolację zabezpieczeń od innych dzierżawców w chmurze platformy Azure. Izolacja zabezpieczeń obejmuje:
 
-- [Natywna implementacja sieci wirtualnej](sql-database-managed-instance-connectivity-architecture.md) i łączność ze środowiskiem lokalnym przy użyciu usługi Azure Express Route lub bramy sieci VPN.
-- W przypadku wdrożenia domyślnego punkt końcowy SQL jest udostępniane tylko za pośrednictwem prywatnego adresu IP, co umożliwia bezpieczną łączność z prywatnej platformy Azure lub sieci hybrydowych.
-- Pojedyncza dzierżawa z dedykowaną infrastrukturą podstawową (obliczeń, magazyn).
+- [Implementacja natywnej sieci wirtualnej](sql-database-managed-instance-connectivity-architecture.md) i łączność ze środowiskiem lokalnym za pomocą usługi Azure Express Route lub VPN Gateway.
+- W domyślnym wdrożeniu punkt końcowy SQL jest udostępniany tylko za pośrednictwem prywatnego adresu IP, umożliwiając bezpieczną łączność z prywatnych platform Azure lub sieci hybrydowych.
+- Pojedyncza dzierżawa z dedykowaną podstawową infrastrukturą (COMPUTE, Storage).
 
 Na poniższym diagramie przedstawiono różne opcje łączności dla aplikacji:
 
-![wysoka dostępność](./media/sql-database-managed-instance/application-deployment-topologies.png)  
+![Wysoka dostępność](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
-Aby dowiedzieć się więcej szczegółów na temat integracji sieci wirtualnej i wymuszania zasad sieci sieci na poziomie podsieci, zobacz [architektura sieci wirtualnej dla wystąpień zarządzanych](sql-database-managed-instance-connectivity-architecture.md) i [Łączenie aplikacji z wystąpieniem zarządzanym](sql-database-managed-instance-connect-app.md).
+Aby dowiedzieć się więcej na temat integracji sieci wirtualnej i wymuszania zasad sieciowych na poziomie podsieci, zobacz [Architektura sieci wirtualnej dla wystąpień zarządzanych](sql-database-managed-instance-connectivity-architecture.md) i [Połącz aplikację z wystąpieniem zarządzanym](sql-database-managed-instance-connect-app.md).
 
 > [!IMPORTANT]
-> Umieść wiele wystąpień zarządzanych w tej samej podsieci, wszędzie tam, gdzie jest to dozwolone przez wymagania dotyczące zabezpieczeń, ponieważ przyniesie Ci to dodatkowe korzyści. Kolokowanie wystąpień w tej samej podsieci znacznie uprości konserwację infrastruktury sieciowej i skróci czas inicjowania obsługi administracyjnej wystąpień, ponieważ długi czas inicjowania obsługi administracyjnej jest skojarzony z kosztem wdrożenia pierwszego wystąpienia zarządzanego w podsieci.
+> Umieść wiele wystąpień zarządzanych w tej samej podsieci, wszędzie tam, gdzie jest to dozwolone w wymaganiach dotyczących zabezpieczeń, co spowoduje dodatkowe korzyści. Rozmieszczenie wystąpień w tej samej podsieci znacznie upraszcza konserwację infrastruktury sieciowej i zmniejsza czas aprowizacji wystąpienia, ponieważ długi czas aprowizacji jest skojarzony z kosztem wdrożenia pierwszego wystąpienia zarządzanego w podsieci.
 
-### <a name="azure-sql-database-security-features"></a>Funkcje zabezpieczeń bazy danych SQL platformy Azure
+### <a name="azure-sql-database-security-features"></a>Azure SQL Database funkcje zabezpieczeń
 
-Usługa Azure SQL Database udostępnia zestaw zaawansowanych funkcji zabezpieczeń, które mogą służyć do ochrony danych.
+Azure SQL Database udostępnia zestaw zaawansowanych funkcji zabezpieczeń, których można użyć do ochrony danych.
 
-- [Inspekcja wystąpienia zarządzanego](sql-database-managed-instance-auditing.md) śledzi zdarzenia bazy danych i zapisuje je w pliku dziennika inspekcji umieszczonym na koncie magazynu platformy Azure. Inspekcja może pomóc w utrzymaniu zgodności z przepisami, zrozumieniu aktywności bazy danych i uzyskaniu wglądu w rozbieżności i anomalie, które mogą wskazywać na obawy biznesowe lub podejrzewane naruszenia zabezpieczeń.
-- Szyfrowanie danych w ruchu — wystąpienie zarządzane zabezpiecza dane, zapewniając szyfrowanie danych w ruchu przy użyciu zabezpieczeń warstwy transportowej. Oprócz zabezpieczeń warstwy transportu opcja wdrażania wystąpienia zarządzanego oferuje ochronę poufnych danych w locie, w spoczynku i podczas przetwarzania zapytań za pomocą [opcji Zawsze szyfrowane](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Funkcja Always Encrypted to pierwsze w branży rozwiązanie, które oferuje bezkonkurencyjne zabezpieczenie danych przed naruszeniami, w tym przed kradzieżą danych o kluczowym znaczeniu. Na przykład w przypadku zawsze zaszyfrowanych numery kart kredytowych są zawsze przechowywane w bazie danych, nawet podczas przetwarzania zapytań, co pozwala na odszyfrowanie w miejscu użycia przez autoryzowanych pracowników lub aplikacje, które muszą przetwarzać te dane.
-- [Zaawansowana ochrona przed zagrożeniami](sql-database-managed-instance-threat-detection.md) [uzupełnia inspekcję,](sql-database-managed-instance-auditing.md) udostępniając dodatkową warstwę analizy zabezpieczeń wbudowanej w usługę, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania. Użytkownik jest powiadamiany o podejrzanych działaniach, potencjalnych lukach w zabezpieczeniach i atakach iniekcji SQL, a także o nietypowych wzorcach dostępu do bazy danych. Alerty zaawansowanej ochrony przed zagrożeniami można wyświetlać w [usłudze Azure Security Center](https://azure.microsoft.com/services/security-center/) i dostarczać szczegółowe informacje o podejrzanej aktywności i zalecać działania dotyczące sposobu badania i łagodzenia zagrożenia.  
-- [Dynamiczne maskowanie danych](/sql/relational-databases/security/dynamic-data-masking) ogranicza ekspozycję poufnych danych, maskując ją użytkownikom nieuprzywilejowanym. Dynamiczne maskowanie danych pomaga zapobiegać nieautoryzowanemu dostępowi do poufnych danych, umożliwiając określenie, ile poufnych danych ma zostać ujawnionych przy minimalnym wpływie na warstwę aplikacji. Jest to funkcja zabezpieczeń oparta na zasadach, która ukrywa poufne dane w zestawie wyników kwerendy za pomocą wyznaczonych pól bazy danych, podczas gdy dane w bazie danych nie są zmieniane.
-- [Zabezpieczenia na poziomie wiersza](/sql/relational-databases/security/row-level-security) umożliwiają kontrolowanie dostępu do wierszy w tabeli bazy danych na podstawie cech użytkownika wykonującego kwerendę (na przykład według członkostwa w grupie lub kontekstu wykonywania). Zabezpieczenia na poziomie wiersza (RLS, Row-Level Security) upraszczają projektowanie i kodowanie zabezpieczeń w aplikacji. Zabezpieczenia na poziomie wiersza umożliwiają zaimplementowanie ograniczeń w dostępie do wiersza danych. Na przykład zapewnienie, że pracownicy mogą uzyskać dostęp tylko do wierszy danych, które są istotne dla ich działu lub ograniczenie dostępu do danych tylko do odpowiednich danych.
-- [Przezroczyste szyfrowanie danych (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) szyfruje pliki danych zarządzanych wystąpień, znane jako szyfrowanie danych w spoczynku. TDE wykonuje szyfrowanie we/wy w czasie rzeczywistym i odszyfrowywanie danych i plików dziennika. Szyfrowanie używa klucza szyfrowania bazy danych (DEK), który jest przechowywany w rekordzie rozruchu bazy danych w celu zapewnienia dostępności podczas odzyskiwania. Można chronić wszystkie bazy danych w wystąpieniu zarządzanym za pomocą przezroczystego szyfrowania danych. TDE to sprawdzona technologia szyfrowania w spoczynku programu SQL Server, która jest wymagana przez wiele standardów zgodności w celu ochrony przed kradzieżą nośników pamięci masowej.
+- [Inspekcja wystąpienia zarządzanego](sql-database-managed-instance-auditing.md) śledzi zdarzenia bazy danych i zapisuje je w pliku dziennika inspekcji umieszczonym na koncie usługi Azure Storage. Inspekcja pomaga zachować zgodność z przepisami, zrozumieć aktywność bazy danych oraz uzyskać wgląd w niezgodności i anomalie, które mogą wskazywać na problemy biznesowe lub podejrzane naruszenia zabezpieczeń.
+- Szyfrowanie danych w ruchu — wystąpienie zarządzane zabezpiecza dane, zapewniając szyfrowanie danych w ruchu przy użyciu Transport Layer Security. Oprócz zabezpieczeń warstwy transportu opcja wdrażania wystąpienia zarządzanego oferuje ochronę poufnych danych w locie, w czasie spoczynku i podczas przetwarzania zapytań przy użyciu [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Funkcja Always Encrypted to pierwsze w branży rozwiązanie, które oferuje bezkonkurencyjne zabezpieczenie danych przed naruszeniami, w tym przed kradzieżą danych o kluczowym znaczeniu. Na przykład w przypadku Always Encrypted numery kart kredytowych są przechowywane w bazie danych zawsze, nawet podczas przetwarzania zapytań, umożliwiając odszyfrowywanie w punkcie użytkowania przez autoryzowanego pracownika lub aplikacje, które muszą przetwarzać te dane.
+- [Zaawansowana ochrona przed zagrożeniami](sql-database-managed-instance-threat-detection.md) uzupełnia [inspekcję](sql-database-managed-instance-auditing.md) , zapewniając dodatkową warstwę analizy zabezpieczeń wbudowaną w usługę, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania. Otrzymasz alerty o podejrzanych działaniach, potencjalnych lukach w zabezpieczeniach i atakach iniekcji SQL, a także o nietypowych wzorcach dostępu do bazy danych. Alerty zaawansowanej ochrony przed zagrożeniami można przeglądać z poziomu [Azure Security Center](https://azure.microsoft.com/services/security-center/) i zapewniać szczegółowe informacje o podejrzanych działaniach i zalecać podejmowanie działań w celu zbadania i ograniczenia zagrożenia.  
+- [Dynamiczne maskowanie danych](/sql/relational-databases/security/dynamic-data-masking) ogranicza narażenie na dane poufne przez zamaskowanie ich dla użytkowników bez uprawnień. Dynamiczne maskowanie danych ułatwia Zapobieganie nieautoryzowanemu dostępowi do poufnych danych przez umożliwienie wyznaczenia ilości poufnych danych do ujawnienia przy minimalnym wpływie na warstwę aplikacji. Jest to funkcja zabezpieczeń oparta na zasadach, która ukrywa dane poufne w zestawie wyników zapytania w wyznaczonych polach bazy danych, podczas gdy dane w bazie danych nie są zmieniane.
+- [Zabezpieczenia na poziomie wiersza](/sql/relational-databases/security/row-level-security) umożliwiają kontrolowanie dostępu do wierszy w tabeli bazy danych na podstawie właściwości użytkownika wykonującego zapytanie (na przykład według członkostwa w grupie lub kontekstu wykonania). Zabezpieczenia na poziomie wiersza (RLS, Row-Level Security) upraszczają projektowanie i kodowanie zabezpieczeń w aplikacji. Zabezpieczenia na poziomie wiersza umożliwiają zaimplementowanie ograniczeń w dostępie do wiersza danych. Na przykład zapewnienie pracownikom dostępu tylko do wierszy danych, które są istotne dla działu, lub ograniczenia dostępu do danych tylko do odpowiednich danych.
+- [Przezroczyste szyfrowanie danych (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) szyfruje pliki danych wystąpienia zarządzanego, znane jako szyfrowanie przechowywanych danych. TDE wykonuje szyfrowanie we/wy czasu rzeczywistego i odszyfrowywanie plików danych i dzienników. Szyfrowanie używa klucza szyfrowania bazy danych, który jest przechowywany w rekordzie rozruchowym bazy danych w celu zapewnienia dostępności podczas odzyskiwania. Można chronić wszystkie bazy danych w wystąpieniu zarządzanym z przezroczystym szyfrowaniem danych. TDE SQL Server to sprawdzona technologia szyfrowania w technologii REST, która jest wymagana przez wiele standardów zgodności, aby chronić przed kradzieżą nośników magazynu.
 
-Migracja zaszyfrowanej bazy danych do wystąpienia zarządzanego jest obsługiwana za pośrednictwem usługi migracji bazy danych Azure (DMS) lub przywracania macierzystego. Jeśli planujesz przeprowadzić migrację zaszyfrowanej bazy danych przy użyciu przywracania macierzystego, migracja istniejącego certyfikatu TDE z lokalnego programu SQL Server lub programu SQL Server na maszynie wirtualnej do wystąpienia zarządzanego jest wymaganym krokiem. Aby uzyskać więcej informacji na temat opcji migracji, zobacz [Migracja wystąpienia programu SQL Server do wystąpienia zarządzanego](sql-database-managed-instance-migrate.md).
+Migracja zaszyfrowanej bazy danych do wystąpienia zarządzanego jest obsługiwana za pośrednictwem Azure Database Migration Service (DMS) lub przywracania natywnego. Jeśli planujesz migrację zaszyfrowanej bazy danych przy użyciu funkcji przywracania natywnego, migracja istniejącego certyfikatu TDE z SQL Server lokalnego lub SQL Server na maszynie wirtualnej do wystąpienia zarządzanego jest wymagana. Aby uzyskać więcej informacji na temat opcji migracji, zobacz [SQL Server migracji wystąpień do wystąpienia zarządzanego](sql-database-managed-instance-migrate.md).
 
-## <a name="azure-active-directory-integration"></a>Integracja z usługą Azure Active Directory
+## <a name="azure-active-directory-integration"></a>Integracja Azure Active Directory
 
-Opcja wdrażania wystąpienia zarządzanego obsługuje tradycyjne logowania i logowania aparatu bazy danych serwera SQL zintegrowane z usługą Azure Active Directory (AAD). Podmioty serwera usługi Azure AD (logowania)**(publiczna wersja zapoznawcza)** to lokalna wersja danych logowania do lokalnej bazy danych w chmurze platformy Azure, której używasz w środowisku lokalnym. Podmioty serwera usługi Azure AD (logowania) umożliwiają określenie użytkowników i grup z dzierżawy usługi Azure Active Directory jako podmiotów o określonym zakresie wystąpienia, zdolnych do wykonywania operacji na poziomie wystąpienia, w tym zapytań między bazami danych w tym samym wystąpieniu zarządzanym.
+Opcja wdrażania wystąpienia zarządzanego obsługuje tradycyjne logowania aparatu bazy danych programu SQL Server i logowania zintegrowane z usługą Azure Active Directory (AAD). Nazwy główne serwera usługi Azure AD (dane logowania) (**publiczna wersja zapoznawcza**) są lokalnymi nazwami logowania w chmurze w systemie Azure, które są używane w środowisku lokalnym. Nazwy główne serwera usługi Azure AD umożliwiają określanie użytkowników i grup z dzierżawy Azure Active Directory jako wystąpień głównych o zakresie wystąpienia, które mogą wykonywać wszystkie operacje na poziomie wystąpienia, w tym zapytania między bazami danych w ramach tego samego wystąpienia zarządzanego.
 
-Wprowadzono nową składnię do tworzenia podmiotów serwera usługi Azure AD (loginów) **z zewnętrznego dostawcy**. Aby uzyskać więcej informacji na temat składni, zobacz <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">TWORZENIE LOGOWANIA</a>i przejrzyj [artykuł Aprowizuj administratora usługi Azure Active Directory dla wystąpienia zarządzanego.](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)
+Wprowadzono nową składnię do tworzenia podmiotów zabezpieczeń serwera usługi Azure AD (logowania) **od dostawcy zewnętrznego**. Aby uzyskać więcej informacji na temat składni, zobacz <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Tworzenie nazwy logowania</a>i zapoznaj się z tematem [inicjowanie obsługi administracyjnej Azure Active Directory administratora wystąpienia zarządzanego](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) .
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integracja usługi Azure Active Directory z uwierzytelnianiem wieloskładnikowym
 
-Opcja wdrażania wystąpienia zarządzanego umożliwia centralne zarządzanie tożsamościami użytkowników bazy danych i innych usług firmy Microsoft za pomocą [integracji usługi Azure Active Directory.](sql-database-aad-authentication.md) Ta funkcja upraszcza zarządzanie uprawnieniami i zwiększa bezpieczeństwo. Usługa Azure Active Directory obsługuje [uwierzytelnianie wieloskładnikowe](sql-database-ssms-mfa-authentication-configure.md) (MFA, Multi-Factor Authentication) w celu zwiększenia bezpieczeństwa danych i aplikacji, korzystając z procesu jednokrotnego logowania.
+Opcja wdrożenia wystąpienia zarządzanego umożliwia centralne zarządzanie tożsamościami użytkowników bazy danych i innych usług firmy Microsoft z [integracją Azure Active Directory](sql-database-aad-authentication.md). Ta funkcja upraszcza zarządzanie uprawnieniami i zwiększa bezpieczeństwo. Usługa Azure Active Directory obsługuje [uwierzytelnianie wieloskładnikowe](sql-database-ssms-mfa-authentication-configure.md) (MFA, Multi-Factor Authentication) w celu zwiększenia bezpieczeństwa danych i aplikacji, korzystając z procesu jednokrotnego logowania.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
-Uwierzytelnianie wystąpienia zarządzanego odnosi się do sposobu, w jaki użytkownicy potwierdzają swoją tożsamość podczas łączenia się z bazą danych. Usługa SQL Database obsługuje dwa typy uwierzytelniania:  
+Uwierzytelnianie wystąpienia zarządzanego dotyczy sposobu, w jaki użytkownicy udowadniają swoją tożsamość podczas łączenia się z bazą danych. Usługa SQL Database obsługuje dwa typy uwierzytelniania:  
 
-- **Uwierzytelnianie SQL:**
+- **Uwierzytelnianie SQL**:
 
   Ta metoda uwierzytelniania używa nazwy użytkownika i hasła.
-- **Uwierzytelnianie usługi Azure Active Directory:**
+- **Uwierzytelnianie Azure Active Directory**:
 
-  Ta metoda uwierzytelniania używa tożsamości zarządzanych przez usługę Azure Active Directory i jest obsługiwana dla domen zarządzanych i zintegrowanych. Używaj uwierzytelniania usługi Active Directory (zabezpieczeń zintegrowanych), [gdy tylko jest to możliwe](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
+  Ta metoda uwierzytelniania używa tożsamości zarządzanych przez Azure Active Directory i jest obsługiwana w przypadku domen zarządzanych i zintegrowanych. Używaj uwierzytelniania usługi Active Directory (zabezpieczeń zintegrowanych), [gdy tylko jest to możliwe](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
 
 ### <a name="authorization"></a>Autoryzacja
 
-Autoryzacja odnosi się do tego, co użytkownik może zrobić w bazie danych SQL Azure i jest kontrolowana przez członkostwo roli bazy danych konta użytkownika i uprawnienia na poziomie obiektu. Wystąpienie zarządzane ma takie same możliwości autoryzacji jak SQL Server 2017.
+Autoryzacja odnosi się do tego, co użytkownik może zrobić w ramach Azure SQL Database i jest kontrolowane przez członkostwo w roli bazy danych konta użytkownika i uprawnienia na poziomie obiektów. Wystąpienie zarządzane ma takie same możliwości autoryzacji jak SQL Server 2017.
 
 ## <a name="database-migration"></a>Migracja bazy danych
 
-Opcja wdrażania wystąpienia zarządzanego jest przeznaczona dla scenariuszy użytkowników z masową migracją bazy danych z lokalnych lub implementacji bazy danych IaaS. Wystąpienie zarządzane obsługuje kilka opcji migracji bazy danych:
+Opcja wdrażania wystąpienia zarządzanego kieruje scenariusze użytkownika z migracją masowej bazy danych z implementacji lokalnych lub IaaS baz danych. Wystąpienie zarządzane obsługuje kilka opcji migracji bazy danych:
 
 ### <a name="back-up-and-restore"></a>Tworzenie kopii zapasowej i przywracanie  
 
-Podejście migracji wykorzystuje kopie zapasowe SQL do magazynu obiektów Blob platformy Azure. Kopie zapasowe przechowywane w obiekcie blob magazynu platformy Azure można bezpośrednio przywrócić do wystąpienia zarządzanego za pomocą [polecenia T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
+Podejście do migracji wykorzystuje kopie zapasowe SQL do usługi Azure Blob Storage. Kopie zapasowe przechowywane w usłudze Azure Storage BLOB mogą być przywracane bezpośrednio do wystąpienia zarządzanego przy użyciu [polecenia przywracania T-SQL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
-- Aby uzyskać przewodnik Szybki start pokazujący, jak przywrócić plik kopii zapasowej bazy danych Wide World Importers — Standard, zobacz [Przywracanie pliku kopii zapasowej do wystąpienia zarządzanego](sql-database-managed-instance-get-started-restore.md). Ten przewodnik Szybki start pokazuje, że musisz przekazać plik kopii zapasowej do magazynu obiektów blob platformy Azure i zabezpieczyć go przy użyciu klucza sygnatury dostępu współdzielonego (SAS).
-- Aby uzyskać informacje o przywracaniu z adresu URL, zobacz [Przywracanie natywne z adresu URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
+- Aby zapoznać się z przewodnikiem Szybki Start pokazujący, jak przywrócić plik kopii zapasowej o szerokim świecie standardowym, zobacz [przywracanie pliku kopii zapasowej do wystąpienia zarządzanego](sql-database-managed-instance-get-started-restore.md). W tym przewodniku szybki start przedstawiono, jak przesłać plik kopii zapasowej do usługi Azure Blob Storage i zabezpieczyć go przy użyciu klucza sygnatury dostępu współdzielonego (SAS).
+- Aby uzyskać informacje o przywracaniu z adresu URL, zobacz [natywne przywracanie z adresu URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
 
 > [!IMPORTANT]
-> Kopie zapasowe z wystąpienia zarządzanego można przywrócić tylko do innego wystąpienia zarządzanego. Nie można ich przywrócić do lokalnego programu SQL Server ani do pojedynczej bazy danych/puli elastycznej.
+> Kopie zapasowe z wystąpienia zarządzanego można przywrócić tylko do innego wystąpienia zarządzanego. Nie można ich przywrócić do SQL Server lokalnego lub pojedynczej bazy danych/elastycznej puli.
 
 ### <a name="data-migration-service"></a>Usługa Data Migration Service
 
-Usługa migracji bazy danych azure to w pełni zarządzana usługa zaprojektowana w celu umożliwienia bezproblemowej migracji z wielu źródeł bazy danych do platform Azure Data przy minimalnym przestoju. Ta usługa usprawnia zadania wymagane do przeniesienia istniejących baz danych innych firm i programu SQL Server do bazy danych SQL Database (pojedyncze bazy danych, buforowane bazy danych w pulach elastycznych i bazy danych wystąpień w wystąpieniu zarządzanym) i sql server w usłudze Azure VM. Zobacz [Jak przeprowadzić migrację lokalnej bazy danych do wystąpienia zarządzanego przy użyciu usługi DMS](https://aka.ms/migratetoMIusingDMS).
+Azure Database Migration Service to w pełni zarządzana usługa, która umożliwia bezproblemowe Migrowanie z wielu źródeł baz danych do platform danych platformy Azure z minimalnym czasem przestoju. Ta usługa usprawnia zadania wymagane do przeniesienia istniejących baz danych innych firm i SQL Server do Azure SQL Database (pojedyncze bazy danych, pule baz danych w pulach elastycznych i wystąpienia baz danych w wystąpieniu zarządzanym) oraz SQL Server na maszynie wirtualnej platformy Azure. Zobacz [, jak migrować lokalną bazę danych do wystąpienia zarządzanego przy użyciu usługi DMS](https://aka.ms/migratetoMIusingDMS).
 
 ## <a name="sql-features-supported"></a>Obsługiwane funkcje SQL
 
-Opcja wdrażania wystąpienia zarządzanego ma na celu zapewnienie zgodności powierzchni w pobliżu 100% z lokalnym programem SQL Server przychodzącymi etapami do ogólnej dostępności usługi. Aby uzyskać funkcje i listę porównawczą, zobacz [porównanie funkcji bazy danych SQL](sql-database-features.md)oraz listę różnic T-SQL w wystąpieniach zarządzanych w porównaniu z programem SQL Server, zobacz [różnice T-SQL wystąpienia zarządzanego z programu SQL Server](sql-database-managed-instance-transact-sql-information.md).
+Opcja wdrażania wystąpienia zarządzanego pozwala zapewnić bliską 100% zgodność obszaru powierzchni z lokalnymi SQL Servermi w fazie do momentu ogólnego udostępnienia usługi. Aby uzyskać listę funkcji i porównywania, zobacz [SQL Database porównanie funkcji](sql-database-features.md)i listę różnic t-SQL w wystąpieniach zarządzanych i SQL Server, zobacz temat [różnice w języku t-SQL wystąpienia zarządzanego w SQL Server](sql-database-managed-instance-transact-sql-information.md).
 
-Opcja wdrażania wystąpienia zarządzanego obsługuje zgodność wsteczną z bazami danych SQL 2008. Bezpośrednia migracja z serwerów bazy danych SQL 2005 jest obsługiwana, poziom zgodności z migrowanymi bazami danych SQL 2005 jest aktualizowany do programu SQL 2008.
+Opcja wdrażania wystąpienia zarządzanego obsługuje zgodność z poprzednimi wersjami z bazami danych SQL 2008. Obsługiwana jest bezpośrednia migracja z serwerów baz danych SQL 2005. poziom zgodności dla zmigrowanych baz danych SQL 2005 został zaktualizowany do wersji SQL 2008.
   
-Na poniższym diagramie przedstawiono zgodność powierzchni w wystąpieniu zarządzanym:  
+Na poniższym diagramie przedstawiono zgodność obszaru powierzchni w wystąpieniu zarządzanym:  
 
-![Migracji](./media/sql-database-managed-instance/migration.png)
+![migracji](./media/sql-database-managed-instance/migration.png)
 
-### <a name="key-differences-between-sql-server-on-premises-and-in-a-managed-instance"></a>Kluczowe różnice między programem SQL Server w środowisku lokalnym a wystąpieniem zarządzanym
+### <a name="key-differences-between-sql-server-on-premises-and-in-a-managed-instance"></a>Kluczowe różnice między SQL Server lokalnymi i w wystąpieniu zarządzanym
 
-Opcja wdrażania wystąpienia zarządzanego korzysta z bycia zawsze aktualną w chmurze, co oznacza, że niektóre funkcje w lokalnym programie SQL Server mogą być przestarzałe, wycofane lub mają alternatywy. Istnieją szczególne przypadki, gdy narzędzia muszą rozpoznać, że dana funkcja działa w nieco inny sposób lub że usługa jest uruchomiona w środowisku, które nie jest w pełni kontrolować:
+Opcja wdrażania wystąpienia zarządzanego oferuje zawsze aktualność w chmurze, co oznacza, że niektóre funkcje w SQL Server lokalnym mogą być przestarzałe, wycofane lub mieć alternatywy. Istnieją określone przypadki, w których narzędzia muszą rozpoznać, że określona funkcja działa w nieco inny sposób lub że usługa działa w środowisku, w którym nie jest w pełni kontrolowany:
 
-- Wysoka dostępność jest wbudowana i wstępnie skonfigurowana przy użyciu technologii podobnej do [grup dostępności zawsze włączonych.](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
-- Automatyczne kopie zapasowe i przywracanie punktu w czasie. Klient może `copy-only` inicjować kopie zapasowe, które nie zakłócają automatycznego łańcucha kopii zapasowych.
-- Wystąpienie zarządzane nie zezwala na określanie pełnych ścieżek fizycznych, więc wszystkie odpowiednie scenariusze muszą być obsługiwane inaczej: przywracanie bazy danych nie obsługuje z move, tworzenie bazy danych nie zezwala na ścieżki fizyczne, BULK INSERT działa tylko z obiektami blob platformy Azure itp.
-- Wystąpienie zarządzane obsługuje [uwierzytelnianie usługi Azure AD](sql-database-aad-authentication.md) jako alternatywę dla uwierzytelniania systemu Windows w chmurze.
-- Wystąpienie zarządzane automatycznie zarządza grupą plików XTP i plikami baz danych zawierających obiekty OLTP w pamięci
-- Wystąpienie zarządzane obsługuje usługi SQL Server Integration Services (SSIS) i może obsługiwać katalog SSIS (SSISDB), który przechowuje pakiety SSIS, ale są one wykonywane w zarządzanym czasie wykonywania integracji platformy Azure-SSIS (IR) w usłudze Azure Data Factory (ADF), zobacz [Tworzenie usługi Azure-SSIS IR w usłudze ADF.](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime) Aby porównać funkcje SSIS w bazie danych SQL, zobacz [Porównanie pojedynczej bazy danych usługi Azure SQL Database, puli elastycznej i wystąpienia zarządzanego.](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance)
+- Wysoka dostępność jest wbudowana i wstępnie skonfigurowana przy użyciu technologii podobnej do [zawsze dostępnych grup dostępności](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
+- Automatyczne kopie zapasowe i przywracanie do punktu w czasie. Klient może inicjować `copy-only` kopie zapasowe, które nie zakłócają automatycznego łańcucha kopii zapasowych.
+- Wystąpienie zarządzane nie pozwala na określanie pełnych ścieżek fizycznych, więc wszystkie odpowiednie scenariusze muszą być obsługiwane inaczej: instrukcja RESTORE DB nie obsługuje funkcji MOVE, tworzenie bazy danych nie zezwala na ścieżki fizyczne, BULK INSERT działa tylko z obiektami blob platformy Azure itd.
+- Wystąpienie zarządzane obsługuje [uwierzytelnianie w usłudze Azure AD](sql-database-aad-authentication.md) jako alternatywę dla uwierzytelniania systemu Windows w chmurze.
+- Wystąpienie zarządzane automatycznie zarządza grupą plików i plikami XTP dla baz danych zawierających obiekty OLTP w pamięci
+- Wystąpienie zarządzane obsługuje SQL Server Integration Services (SSIS) i może hostować wykaz usług SSIS (SSISDB), który przechowuje pakiety SSIS, ale są wykonywane na zarządzanym Azure-SSIS Integration Runtime (IR) w Azure Data Factory (ADF), zobacz [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Aby porównać funkcje usług SSIS w SQL Database, zobacz [porównanie Azure SQL Database pojedynczej bazy danych, elastycznej puli i wystąpienia zarządzanego](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance).
 
-### <a name="managed-instance-administration-features"></a>Funkcje administrowania wystąpieniami zarządzanymi
+### <a name="managed-instance-administration-features"></a>Funkcje administrowania wystąpieniem zarządzanym
 
-Opcja wdrażania wystąpienia zarządzanego umożliwia administratorowi systemu spędzanie mniej czasu na zadaniach administracyjnych, ponieważ usługa bazy danych SQL wykonuje je za ciebie lub znacznie upraszcza te zadania. Na przykład [instalacja i łatanie systemu operacyjnego / RDBMS,](sql-database-high-availability.md) [dynamiczna zmiana rozmiaru i konfiguracja wystąpienia,](sql-database-single-database-scale.md) [kopie zapasowe,](sql-database-automated-backups.md) [replikacja bazy danych](replication-with-sql-database-managed-instance.md) (w tym bazy danych systemu), [konfiguracja wysokiej dostępności](sql-database-high-availability.md)oraz konfiguracja strumieni danych monitorowania kondycji i [wydajności.](../azure-monitor/insights/azure-sql.md)
+Opcja wdrożenia wystąpienia zarządzanego pozwala administratorowi systemu poświęcać mniej czasu na zadania administracyjne, ponieważ usługa SQL Database wykonuje je dla Ciebie lub znacznie upraszcza te zadania. Na przykład [Instalacja systemu operacyjnego/RDBMS i stosowanie poprawek](sql-database-high-availability.md), [dynamiczne zmienianie rozmiarów i konfiguracji](sql-database-single-database-scale.md), [kopie zapasowe](sql-database-automated-backups.md), [Replikacja bazy danych](replication-with-sql-database-managed-instance.md) (w tym systemowe bazy danych), [Konfiguracja wysokiej dostępności](sql-database-high-availability.md)oraz konfiguracja strumieni danych monitorowania kondycji i [wydajności](../azure-monitor/insights/azure-sql.md) .
 
 > [!IMPORTANT]
-> Aby uzyskać listę obsługiwanych, częściowo obsługiwanych i nieobsługiconych funkcji, zobacz [funkcje bazy danych SQL](sql-database-features.md). Aby uzyskać listę różnic T-SQL w wystąpieniach zarządzanych w porównaniu z programem SQL Server, zobacz [różnice T-SQL wystąpienia zarządzanego z programu SQL Server](sql-database-managed-instance-transact-sql-information.md)
+> Listę obsługiwanych, częściowo obsługiwanych i nieobsługiwanych funkcji można znaleźć w temacie [SQL Database Features](sql-database-features.md). Aby zapoznać się z listą różnic T-SQL w wystąpieniach zarządzanych i SQL Server, zobacz [różnice w wystąpieniu zarządzanym t-SQL z SQL Server](sql-database-managed-instance-transact-sql-information.md)
 
 ### <a name="how-to-programmatically-identify-a-managed-instance"></a>Jak programowo zidentyfikować wystąpienie zarządzane
 
-W poniższej tabeli przedstawiono kilka właściwości, dostępne za pośrednictwem programu Transact SQL, których można użyć do wykrycia, że aplikacja pracuje z wystąpieniem zarządzanym i pobrać ważne właściwości.
+W poniższej tabeli przedstawiono kilka właściwości, które są dostępne za pomocą języka Transact SQL, za pomocą których można wykryć, że aplikacja pracuje z wystąpieniem zarządzanym i pobrać ważne właściwości.
 
 |Właściwość|Wartość|Komentarz|
 |---|---|---|
-|`@@VERSION`|Microsoft SQL Azure (RTM) — 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Ta wartość jest taka sama jak w bazie danych SQL. **Nie** oznacza to, że aparat SQL w wersji 12 (SQL Server 2014). Wystąpienie zarządzane zawsze uruchamia najnowszą stabilną wersję aparatu SQL, która jest równa lub wyższa niż najnowsza dostępna wersja programu SQL Server.  |
-|`SERVERPROPERTY ('Edition')`|Usługi SQL Azure|Ta wartość jest taka sama jak w bazie danych SQL.|
+|`@@VERSION`|Microsoft SQL Azure (RTM) — 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Ta wartość jest taka sama jak w SQL Database. Nie **oznacza to,** że aparat SQL w wersji 12 (SQL Server 2014). W przypadku wystąpienia zarządzanego zawsze jest uruchomiona najnowsza stabilna wersja aparatu SQL, która jest równa lub większa niż najnowsza dostępna wersja RTM programu SQL Server.  |
+|`SERVERPROPERTY ('Edition')`|Usługi SQL Azure|Ta wartość jest taka sama jak w SQL Database.|
 |`SERVERPROPERTY('EngineEdition')`|8|Ta wartość jednoznacznie identyfikuje wystąpienie zarządzane.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Pełna nazwa DNS wystąpienia w`<instanceName>`następującym formacie: . `<dnsPrefix>`.database.windows.net, gdzie `<instanceName>` jest nazwa podana przez `<dnsPrefix>` klienta, podczas gdy jest automatyczniegenerowana część nazwy gwarantującej unikatowość globalnej nazwy DNS ("wcus17662feb9ce98", na przykład)|Przykład: my-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nazwa DNS pełnej instancji w następującym formacie:`<instanceName>`. `<dnsPrefix>`. Database.Windows.NET, gdzie `<instanceName>` jest nazwą dostarczoną przez klienta, podczas `<dnsPrefix>` gdy jest automatycznie generowana część nazwy gwarantującej unikalność globalnej nazwy DNS (na przykład "wcus17662feb9ce98")|Przykład: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się, jak utworzyć pierwsze wystąpienie zarządzane, zobacz [Przewodnik szybki start](sql-database-managed-instance-get-started.md).
-- Aby uzyskać funkcje i listę porównawczą, zobacz [wspólne funkcje SQL](sql-database-features.md).
-- Aby uzyskać więcej informacji na temat konfiguracji sieci wirtualnej, zobacz [konfigurację sieci wirtualnej wystąpienia zarządzanego](sql-database-managed-instance-connectivity-architecture.md).
-- Aby uzyskać przewodnik Szybki start, który tworzy wystąpienie zarządzane i przywraca bazę danych z pliku kopii zapasowej, zobacz [tworzenie wystąpienia zarządzanego](sql-database-managed-instance-get-started.md).
-- Aby zapoznać się z samouczkiem przy użyciu usługi migracji bazy danych Azure (DMS) do migracji, zobacz [migracja wystąpienia zarządzanego przy użyciu usługi DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- Aby uzyskać zaawansowane monitorowanie wydajności bazy danych wystąpienia zarządzanego za pomocą wbudowanej analizy rozwiązywania problemów, zobacz [Monitorowanie usługi Azure SQL Database przy użyciu usługi Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).
-- Aby uzyskać informacje o cenach, zobacz [cennik zarządzanych wystąpień bazy danych SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+- Aby dowiedzieć się, jak utworzyć pierwsze wystąpienie zarządzane, zobacz [Przewodnik Szybki Start](sql-database-managed-instance-get-started.md).
+- Aby zapoznać się z funkcjami i listą porównania, zobacz [funkcje wspólne SQL](sql-database-features.md).
+- Aby uzyskać więcej informacji na temat konfiguracji sieci wirtualnej, zobacz [Konfiguracja sieci wirtualnej wystąpienia zarządzanego](sql-database-managed-instance-connectivity-architecture.md).
+- W przypadku szybkiego startu, który tworzy wystąpienie zarządzane i przywraca bazę danych z pliku kopii zapasowej, zobacz [Tworzenie wystąpienia zarządzanego](sql-database-managed-instance-get-started.md).
+- Aby zapoznać się z samouczkiem korzystającym z Azure Database Migration Service (DMS) do migracji, zobacz [migracja wystąpienia zarządzanego przy użyciu usługi DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+- Aby uzyskać zaawansowane monitorowanie wydajności bazy danych wystąpień zarządzanych przy użyciu wbudowanej analizy rozwiązywania problemów, zobacz [monitorowanie Azure SQL Database przy użyciu Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).
+- Aby uzyskać informacje o cenach, zobacz [SQL Database cenach wystąpienia zarządzanego](https://azure.microsoft.com/pricing/details/sql-database/managed/).

@@ -1,7 +1,7 @@
 ---
-title: Przykłady dokowania kontenera wykrywania języka
+title: Przykłady wykrywanie języka Docker kontenera
 titleSuffix: Azure Cognitive Services
-description: Przykłady dokowania kontenera wykrywania języka
+description: Przykłady wykrywanie języka Docker kontenera
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,15 +10,15 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 01863bfd1bf1c2c6f5688145ac5cbf74d1d2dfc1
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80878683"
 ---
-### <a name="language-detection-container-docker-examples"></a>Przykłady dokowania kontenera wykrywania języka
+### <a name="language-detection-container-docker-examples"></a>Przykłady wykrywanie języka Docker kontenera
 
-Poniższe przykłady docker są dla kontenera wykrywania języka.
+Poniższe przykłady platformy Docker dotyczą kontenera wykrywanie języka.
 
 #### <a name="basic-example"></a>Przykład podstawowy 
 
