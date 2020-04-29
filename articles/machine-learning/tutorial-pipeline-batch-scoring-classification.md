@@ -12,7 +12,7 @@ ms.reviewer: laobri
 ms.date: 03/11/2020
 ms.openlocfilehash: 1ccd7a7f33c6ee5cab8b7173d8eb93365b6cb587
 ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "79472224"

@@ -1,6 +1,6 @@
 ---
-title: Reguła niestandardowa zapory aplikacji sieci Web dla drzwi ami frontowymi platformy Azure
-description: Dowiedz się, jak używać reguł niestandardowych Zapory aplikacji sieci Web (WAF) chroniących aplikacje internetowe przed złośliwymi atakami.
+title: Niestandardowa reguła zapory aplikacji sieci Web dla drzwi frontonu platformy Azure
+description: Dowiedz się, jak używać niestandardowych reguł zapory aplikacji sieci Web (WAF), chroniąc aplikacje sieci Web przed złośliwymi atakami.
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
@@ -8,40 +8,40 @@ services: web-application-firewall
 ms.date: 09/05/2019
 ms.author: victorh
 ms.openlocfilehash: 158bfe30bf48ee420be8efb9ff32fff0e555d9e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79475828"
 ---
-#  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Niestandardowe reguły zapory aplikacji sieci Web z drzwiami frontowymi platformy Azure
+#  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Reguły niestandardowe dla zapory aplikacji sieci Web z usługami frontonu platformy Azure
 
-Zapora aplikacji sieci Web azure (WAF) z drzwiami frontowymi umożliwia kontrolowanie dostępu do aplikacji sieci web na podstawie warunków, które definiujesz. Niestandardowa reguła WAF składa się z numeru priorytetu, typu reguły, warunków dopasowania i akcji. Istnieją dwa typy reguł niestandardowych: dopasowyw reguły i reguły limitu szybkości. Reguła dopasowania kontroluje dostęp na podstawie zestawu pasujących warunków, podczas gdy reguła limitu szybkości kontroluje dostęp na podstawie pasujących warunków i stawek przychodzących żądań. Można wyłączyć regułę niestandardową, aby zapobiec jej ocenie, ale nadal zachować konfigurację. 
+Zapora aplikacji sieci Web (WAF) platformy Azure z przednimi drzwiami umożliwia kontrolowanie dostępu do aplikacji sieci Web na podstawie zdefiniowanych warunków. Niestandardowa reguła WAF składa się z numeru priorytetu, typu reguły, warunków dopasowania i akcji. Istnieją dwa typy reguł niestandardowych: reguły dopasowania i reguły limitów szybkości. Reguła dopasowania kontroluje dostęp na podstawie zestawu zgodnych warunków, natomiast reguła limitu szybkości kontroluje dostęp na podstawie pasujących warunków i stawek żądań przychodzących. Można wyłączyć regułę niestandardową, aby zapobiec jej ocenie, ale nadal zachować konfigurację. 
 
 ## <a name="priority-match-conditions-and-action-types"></a>Priorytet, warunki dopasowania i typy akcji
 
-Dostęp można kontrolować za pomocą niestandardowej reguły WAf, która definiuje numer priorytetu, typ reguły, tablicę warunków dopasowania i akcję. 
+Można kontrolować dostęp za pomocą niestandardowej reguły WAf, która definiuje numer priorytetu, typ reguły, tablicę warunków dopasowania i akcję. 
 
-- **Priorytet:** jest unikatową całkowitej liczby, która opisuje kolejność oceny reguł WAF. Reguły o niższym priorytecie są oceniane przed regułami z wyższymi wartościami. Numery priorytetów muszą być unikatowe dla wszystkich reguł niestandardowych.
+- **Priorytet:** jest unikatową liczbą całkowitą opisującą kolejność oceny reguł WAF. Reguły o niższych wartościach priorytetów są oceniane przed regułami o wyższych wartościach. Numery priorytetów muszą być unikatowe wśród wszystkich reguł niestandardowych.
 
-- **Akcja:** określa sposób kierowania żądania, jeśli reguła WAF jest dopasowana. Możesz wybrać jedną z poniższych akcji do zastosowania, gdy żądanie pasuje do reguły niestandardowej.
+- **Akcja:** definiuje sposób kierowania żądania w przypadku dopasowania reguły WAF. Można wybrać jedną z poniższych akcji do zastosowania, gdy żądanie jest zgodne z regułą niestandardową.
 
-    - *Zezwól* — WAF przekazuje zadanie do zaplecza, rejestruje wpis w dziennikach i wyjściach WAF.
-    - *Blok* — żądanie jest zablokowane, WAF wysyła odpowiedź do klienta bez przekazywania żądania do zaplecza. WAF rejestruje wpis w dziennikach WAF.
-    - *Dziennik* — WAF rejestruje wpis w dziennikach WAF i kontynuuje ocenę następnej reguły.
-    - *Przekierowanie* — WAF przekierowuje żądanie do określonego identyfikatora URI, rejestruje wpis w dziennikach WAF i kończy pracę.
+    - *Allow* -WAF przekazuje żądanie do zaplecza, rejestruje wpis w dziennikach WAF i kończy pracę.
+    - Żądanie *blokowania* jest blokowane, WAF wysyła odpowiedź do klienta bez przesyłania dalej żądania do zaplecza. WAF rejestruje wpis w dziennikach WAF.
+    - *Log* -WAF rejestruje wpis w dziennikach WAF i kontynuuje ocenę następnej reguły.
+    - *Redirect* -WAF przekierowuje żądanie do określonego identyfikatora URI, rejestruje wpis w dziennikach WAF i kończy pracę.
 
-- **Warunek dopasowania:** definiuje zmienną dopasowania, operator i wartość dopasowania. Każda reguła może zawierać wiele warunków dopasowania. Warunek dopasowania może być oparty na lokalizacji geograficznej, adresach IP klienta (CIDR), rozmiar lub dopasowanie ciągu. Dopasowanie ciąg może być przeciwko liście zmiennych dopasowania.
-  - **Dopasuj zmienną:**
-    - RequestMetoda
+- **Warunek dopasowania:** definiuje zmienną dopasowania, operatora i wartość Match. Każda reguła może zawierać wiele warunków dopasowywania. Warunek dopasowania może opierać się na lokalizacji geograficznej, adresie IP klienta (CIDR), rozmiarze lub dopasowaniu ciągu. Dopasowanie ciągu może odnosić się do listy zmiennych dopasowywania.
+  - **Zmienna dopasowania:**
+    - RequestMethod
     - QueryString
-    - PostArgs (PostArgs)
-    - Requesturi
-    - RequestHeader (Żądajgłęcza)
-    - RequestBody (Ciało żądania)
+    - PostArgs
+    - RequestUri
+    - RequestHeader
+    - Elemencie requestbody
     - Pliki cookie
-  - **Operator:**
-    - Dowolny: jest często używany do definiowania akcji domyślnej, jeśli żadne reguły nie są dopasowane. Każdy jest dopasowanie wszystkich operatorów.
+  - **Zakład**
+    - Any: jest często używany do definiowania akcji domyślnej, jeśli nie są spełnione żadne reguły. Any jest operatorem Match ALL.
     - Równa się
     - Contains
     - LessThan: ograniczenie rozmiaru
@@ -50,51 +50,51 @@ Dostęp można kontrolować za pomocą niestandardowej reguły WAf, która defin
     - GreaterThanOrEqual: ograniczenie rozmiaru
     - BeginsWith
     - EndsWith
-    - Regex
+    - Wyrażeń
   
-  - **Program Regex** nie obsługuje następujących operacji: 
-    - Wnioski wsteczne i przechwytywanie podwyrażenia
+  - **Wyrażenie regularne** nie obsługuje następujących operacji: 
+    - Odwołania wsteczne i przechwytywanie podwyrażeń
     - Dowolne potwierdzenia o zerowej szerokości
-    - Odwołania do podprogramu i wzorce cykliczne
+    - Odwołania podprocedury i wzorce cykliczne
     - Wzorce warunkowe
-    - Czasowniki sterujące wycofywaniem
-    - Dyrektywa jedno bajtowa \C
-    - Dyrektywa \R newline match
-    - Dyrektywa \K start resetowania meczu
+    - Zlecenia kontroli wycofywania
+    - \C jednobajtowa dyrektywa
+    - Dyrektywa dopasowania nowego wiersza
+    - \K początek dyrektywy resetowania dopasowania
     - Objaśnienia i kod osadzony
-    - Grupowanie atomowe i kwantyfikatory dzierżawcze
+    - Grupowanie niepodzielne i Kwantyfikatory Possessive
 
-  - **Negata [opcjonalnie]:** Warunek *negacji* można ustawić na true, jeśli wynik warunku powinien zostać zanegowany.
+  - **Negate [opcjonalnie]:** Warunek *Negate* można ustawić na wartość true, jeśli wynik warunku powinien być negacji.
       
-  - **Przekształć [opcjonalnie]:** Lista ciągów z nazwami przekształceń do wykonania przed próbą dopasowania. Mogą to być następujące przekształcenia:
+  - **Przekształć [opcjonalnie]:** Lista ciągów z nazwami transformacji, które należy wykonać przed próbą dopasowania. Mogą to być następujące przekształcenia:
      - Wielkie litery 
      - Małe litery
      - Trim
-     - Usuńulki
-     - Kod Url
-     - Urlencode
+     - RemoveNulls
+     - UrlDecode
+     - UrlEncode
      
-   - **Wartość dopasowania:** Obsługiwane wartości metody żądania HTTP obejmują:
+   - **Wartość dopasowania:** Obsługiwane wartości metod żądania HTTP to:
      - GET
      - POST
      - PUT
      - HEAD
      - DELETE
-     - Blokady
-     - Odblokować
+     - SKRĘT
+     - ODBLOKOWANIA
      - PROFIL
      - Opcje
      - PROPFIND
-     - Proppatch
-     - Mkcol
-     - Kopii
-     - Przenieść
+     - PROPPATCH
+     - MKCOL
+     - KOPIOWANE
+     - Przenieś
 
 ## <a name="examples"></a>Przykłady
 
-### <a name="waf-custom-rules-example-based-on-http-parameters"></a>Przykład reguł niestandardowych WAF opartych na parametrach http
+### <a name="waf-custom-rules-example-based-on-http-parameters"></a>Przykład WAF reguł niestandardowych opartych na parametrach http
 
-Oto przykład, który pokazuje konfigurację reguły niestandardowej z dwóch warunków dopasowania. Żądania pochodzą z określonej witryny zdefiniowanej przez stronę odsyłającą, a ciąg zapytania nie zawiera "hasła".
+Oto przykład, który pokazuje konfigurację niestandardowej reguły z dwoma warunkami dopasowania. Żądania pochodzą z określonej lokacji zdefiniowanej przez obiekt odwołujący, a ciąg zapytania nie zawiera "hasła".
 
 ```
 # http rules example
@@ -126,7 +126,7 @@ Oto przykład, który pokazuje konfigurację reguły niestandardowej z dwóch wa
 }
 
 ```
-Przykładowa konfiguracja blokowania metody "PUT" jest wyświetlana poniżej:
+Przykładowa konfiguracja służąca do blokowania metody "PUT" jest pokazana poniżej:
 
 ``` 
 # http Request Method custom rules
@@ -152,7 +152,7 @@ Przykładowa konfiguracja blokowania metody "PUT" jest wyświetlana poniżej:
 
 ### <a name="size-constraint"></a>Ograniczenie rozmiaru
 
-Można utworzyć regułę niestandardową, która określa ograniczenie rozmiaru dla części żądania przychodzącego. Na przykład poniższa reguła blokuje adres URL dłuższy niż 100 znaków.
+Można utworzyć regułę niestandardową, która określa ograniczenie rozmiaru w części żądania przychodzącego. Na przykład niższa reguła blokuje adres URL dłuższy niż 100 znaków.
 
 ```
 # http parameters size constraint
@@ -177,7 +177,7 @@ Można utworzyć regułę niestandardową, która określa ograniczenie rozmiaru
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-- [Konfigurowanie zasad zapory aplikacji sieci Web przy użyciu programu Azure PowerShell](waf-front-door-custom-rules-powershell.md) 
-- Dowiedz się więcej o [zapory aplikacji sieci Web z drzwiami przednimi](afds-overview.md)
+- [Konfigurowanie zasad zapory aplikacji sieci Web przy użyciu Azure PowerShell](waf-front-door-custom-rules-powershell.md) 
+- Dowiedz się więcej o [zaporze aplikacji sieci Web z przednimi drzwiami](afds-overview.md)
 - Dowiedz się, jak [utworzyć usługę Front Door](../../frontdoor/quickstart-create-front-door.md).
 

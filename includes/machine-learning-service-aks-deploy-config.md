@@ -5,48 +5,48 @@ ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
 ms.openlocfilehash: c71f35a06d904b45cb014d5199197220b57cf230
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79486060"
 ---
-Wpisy w `deploymentconfig.json` dokumencie są mapowane na parametry [usługi AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). W poniższej tabeli opisano mapowanie między jednostkami w dokumencie JSON a parametrami metody:
+Wpisy w `deploymentconfig.json` dokumencie są mapowane na parametry [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). W poniższej tabeli opisano mapowanie między jednostkami w dokumencie JSON a parametrami metody:
 
-| Jednostka JSON | Parametr Metody | Opis |
+| Jednostka JSON | Parametr metody | Opis |
 | ----- | ----- | ----- |
-| `computeType` | Nie dotyczy | Docelowy zasób obliczeniowy. W przypadku usługi AKS `aks`wartość musi być . |
+| `computeType` | Nie dotyczy | Docelowy zasób obliczeniowy. Dla AKS wartość musi być `aks`. |
 | `autoScaler` | Nie dotyczy | Zawiera elementy konfiguracji skalowania automatycznego. Zobacz tabelę skalowania automatycznego. |
-| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Czy włączyć skalowanie automatyczne dla usługi sieci web. `numReplicas`  = Jeśli `0` `True`, ; w `False`przeciwnym razie , . |
-| &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Minimalna liczba kontenerów do użycia podczas skalowania automatycznego tej usługi sieci web. Domyślnie `1`, . |
-| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Maksymalna liczba kontenerów do użycia podczas skalowania automatycznego tej usługi sieci web. Domyślnie `10`, . |
-| &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Jak często skalowanie automatyczne próbuje skalować tę usługę sieci web. Domyślnie `1`, . |
-| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Docelowe wykorzystanie (w procentach ze 100), które skalowanie automatyczne należy podjąć próbę utrzymania dla tej usługi sieci web. Domyślnie `70`, . |
+| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Określa, czy włączyć skalowanie automatyczne dla usługi sieci Web. `numReplicas`  = Jeśli `0`, `True`; w przeciwnym `False`razie. |
+| &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Minimalna liczba kontenerów, które mają być używane podczas automatycznego skalowania tej usługi sieci Web. Wartość domyślna `1`. |
+| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Maksymalna liczba kontenerów, które mają być używane podczas automatycznego skalowania tej usługi sieci Web. Wartość domyślna `10`. |
+| &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Jak często automatyczne skalowanie próbuje skalować tę usługę sieci Web. Wartość domyślna `1`. |
+| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Użycie docelowe (w procentach z 100), które ma być podejmowane przez Autoskalowanie dla tej usługi sieci Web. Wartość domyślna `70`. |
 | `dataCollection` | Nie dotyczy | Zawiera elementy konfiguracji do zbierania danych. |
-| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Czy włączyć zbieranie danych modelu dla usługi sieci web. Domyślnie `False`, . |
-| `authEnabled` | `auth_enabled` | Określa, czy włączyć uwierzytelnianie kluczy w usłudze sieci web. Zarówno, `authEnabled` jak `True` `tokenAuthEnabled` i nie może być . Domyślnie `True`, . |
-| `tokenAuthEnabled` | `token_auth_enabled` | Określa, czy włączyć uwierzytelnianie tokenu dla usługi sieci web. Zarówno, `authEnabled` jak `True` `tokenAuthEnabled` i nie może być . Domyślnie `False`, . |
-| `containerResourceRequirements` | Nie dotyczy | Kontener dla jednostek procesora CPU i pamięci. |
-| &emsp;&emsp;`cpu` | `cpu_cores` | Liczba rdzeni procesora CPU do przydzielenia dla tej usługi sieci web. Ustawienia domyślne`0.1` |
-| &emsp;&emsp;`memoryInGB` | `memory_gb` | Ilość pamięci (w GB) do przydzielenia dla tej usługi sieci web. Domyślny`0.5` |
-| `appInsightsEnabled` | `enable_app_insights` | Czy włączyć rejestrowanie usługi web dla usługi sieci Web usługi Application Insights. Domyślnie `False`, . |
-| `scoringTimeoutMs` | `scoring_timeout_ms` | Limit czasu wymuszania oceniania wywołań do usługi sieci web. Domyślnie `60000`, . |
-| `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Maksymalna liczba równoczesnych żądań na węzeł dla tej usługi sieci web. Domyślnie `1`, . |
-| `maxQueueWaitMs` | `max_request_wait_time` | Maksymalny czas, przez który żądanie pozostanie w kolejce (w milisekundach) przed zwróceniem błędu 503. Domyślnie `500`, . |
-| `numReplicas` | `num_replicas` | Liczba kontenerów do przydzielenia dla tej usługi sieci web. Brak wartości domyślnej. Jeśli ten parametr nie jest ustawiony, skalowanie automatyczne jest domyślnie włączone. |
-| `keys` | Nie dotyczy | Zawiera elementy konfiguracji kluczy. |
-| &emsp;&emsp;`primaryKey` | `primary_key` | Podstawowy klucz yuth do użycia w tej uczynkowej uczynek |
-| &emsp;&emsp;`secondaryKey` | `secondary_key` | Dodatkowy klucz umajny używany dla tej usługi sieci Web |
-| `gpuCores` | `gpu_cores` | Liczba rdzeni GPU (replika na kontener) do przydzielenia dla tej usługi sieci Web. Domyślna wartość wynosi 1. Obsługuje tylko wartości liczb y podstawowych. |
-| `livenessProbeRequirements` | Nie dotyczy | Zawiera elementy konfiguracji dla wymagań sondy żywotności. |
-| &emsp;&emsp;`periodSeconds` | `period_seconds` | Jak często (w sekundach) do wykonania sondy żywotności. Domyślnie 10 sekund. Minimalna wartość to 1. |
-| &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Liczba sekund po uruchomieniu kontenera przed zainicjowaniem sondy żywotności. Wartość domyślna to 310 |
-| &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Liczba sekund, po których sonda żywotności upysze czas czasu. Wartość domyślna to 2 sekundy. Minimalna wartość to 1 |
-| &emsp;&emsp;`successThreshold` | `success_threshold` | Minimalne sukcesy z rzędu dla sondy żywotności należy uznać za udane po nie powiodło się. Wartość domyślna to 1. Minimalna wartość to 1. |
-| &emsp;&emsp;`failureThreshold` | `failure_threshold` | Po uruchomieniu zasobnika i sondy żywotności nie powiedzie się, Kubernetes spróbuje failureThreshold razy przed rezygnacją. Wartość domyślna to 3. Minimalna wartość to 1. |
-| `namespace` | `namespace` | Obszar nazw kubernetes, w których jest wdrażana usługa sieci web. Do 63 małych liter alfanumeryczne ('a'-'z', '0'-'9') i znaki łącznika ('-'). Pierwszy i ostatni znak nie może być łącznikami. |
+| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Określa, czy włączyć zbieranie danych modelu dla usługi sieci Web. Wartość domyślna `False`. |
+| `authEnabled` | `auth_enabled` | Określa, czy należy włączyć uwierzytelnianie klucza dla usługi sieci Web. Oba `tokenAuthEnabled` i `authEnabled` nie mogą `True`być. Wartość domyślna `True`. |
+| `tokenAuthEnabled` | `token_auth_enabled` | Określa, czy włączyć uwierzytelnianie tokenu dla usługi sieci Web. Oba `tokenAuthEnabled` i `authEnabled` nie mogą `True`być. Wartość domyślna `False`. |
+| `containerResourceRequirements` | Nie dotyczy | Kontener dla jednostek procesora i pamięci. |
+| &emsp;&emsp;`cpu` | `cpu_cores` | Liczba rdzeni procesora CPU do przydzielenia dla tej usługi sieci Web. Wartości domyślne`0.1` |
+| &emsp;&emsp;`memoryInGB` | `memory_gb` | Ilość pamięci (w GB) do przydzielenia dla tej usługi sieci Web. Wartooć`0.5` |
+| `appInsightsEnabled` | `enable_app_insights` | Określa, czy należy włączyć rejestrowanie Application Insights dla usługi sieci Web. Wartość domyślna `False`. |
+| `scoringTimeoutMs` | `scoring_timeout_ms` | Limit czasu wymuszania dla wywołań oceniania do usługi sieci Web. Wartość domyślna `60000`. |
+| `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Maksymalna liczba współbieżnych żądań na węzeł dla tej usługi sieci Web. Wartość domyślna `1`. |
+| `maxQueueWaitMs` | `max_request_wait_time` | Maksymalny czas pozostawania żądania w kolejce Thee (w milisekundach) przed zwróceniem błędu 503. Wartość domyślna `500`. |
+| `numReplicas` | `num_replicas` | Liczba kontenerów do przydzielenia dla tej usługi sieci Web. Brak wartości domyślnej. Jeśli ten parametr nie jest ustawiony, automatyczne skalowanie jest domyślnie włączone. |
+| `keys` | Nie dotyczy | Zawiera elementy konfiguracji dla kluczy. |
+| &emsp;&emsp;`primaryKey` | `primary_key` | Podstawowy klucz uwierzytelniania, który ma być używany dla tej usługi sieci Web |
+| &emsp;&emsp;`secondaryKey` | `secondary_key` | Pomocniczy klucz uwierzytelniania, który będzie używany przez tę usługę sieci Web |
+| `gpuCores` | `gpu_cores` | Liczba rdzeni procesora GPU (dla repliki kontenerów) do przydzielenia dla tej usługi sieci Web. Domyślna wartość wynosi 1. Obsługuje tylko wartości całkowite. |
+| `livenessProbeRequirements` | Nie dotyczy | Zawiera elementy konfiguracji dla wymagań sondowania na żywo. |
+| &emsp;&emsp;`periodSeconds` | `period_seconds` | Jak często (w sekundach) przeprowadzenia sondy na żywo. Wartość domyślna to 10 sekund. Wartość minimalna to 1. |
+| &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Liczba sekund od momentu rozpoczęcia sondowania na żywo przez kontener. Wartość domyślna to 310 |
+| &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Liczba sekund, po upływie których limit czasu sondy jest aktywny. Wartość domyślna to 2 sekundy. Wartość minimalna to 1 |
+| &emsp;&emsp;`successThreshold` | `success_threshold` | Minimalna liczba kolejnych sukcesów sondy na żywo, które mają być uznawane za pomyślne po zakończonym niepowodzeniem. Wartość domyślna to 1. Wartość minimalna to 1. |
+| &emsp;&emsp;`failureThreshold` | `failure_threshold` | Gdy zostanie uruchomiony pod i sonda na żywo, Kubernetes spróbuje failureThreshold razy przed pokazaniem. Wartość domyślna to 3. Wartość minimalna to 1. |
+| `namespace` | `namespace` | Przestrzeń nazw Kubernetes, w której wdrażana jest usługa WebService. Do 63 małych cyfr alfanumerycznych ("od-a", "0"-"9") i łączników ("-"). Pierwszy i ostatni znak nie mogą być łącznikami. |
 
-Następujący JSON jest przykładową konfiguracją wdrożenia do użytku z wierszem polecenia:
+Poniższy kod JSON jest przykładową konfiguracją wdrożenia do użycia z interfejsem wiersza polecenia:
 
 ```json
 {
